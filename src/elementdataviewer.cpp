@@ -315,7 +315,7 @@ void ElementDataViewer::initData()
 	kdDebug() << "initData()" << endl;
 	
 	setupAxisData();
-};
+}
 
 ///////////////////////////////////////////////7
 
