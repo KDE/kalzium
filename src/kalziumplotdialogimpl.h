@@ -41,18 +41,21 @@ class KalziumPlotDialogImpl : public KDialogBase
 		QSpinBox *fromSpin, *toSpin;
 		KComboBox *whatKCB;
 
-		void initPlotObjects();
 		KalziumPlotWidget *pw;
 
 		void startPlotting();
+		void updateListview();
 
 		void getPositions( int , double& , doubleList* );
 
-		const int getMax();
+		const double getMax(doubleList*, const int, const int);
+		const double getMin(doubleList*, const int, const int);
 
 		void loadData();
 
 		dlist dl;
+		QStringList nameList, symbolList;
+		
 
 
 	protected:

@@ -63,8 +63,8 @@ whatKCB->insertItem( i18n( "Density" ) );
 	
 	elementsKLV = new KListView( plotW, "elementsKLV" );
 	elementsKLV->addColumn( i18n( "Number" ) );
-	elementsKLV->addColumn( i18n( "Symbol" ) );
 	elementsKLV->addColumn( i18n( "Name" ) );
+	elementsKLV->addColumn( i18n( "Symbol" ) );
 	
 	vlay->addWidget( fromSpin );
 	vlay->addWidget( toSpin );
@@ -86,6 +86,8 @@ void KalziumPlotDialogImpl::paintEvent( QPaintEvent * /*e*/ )
 
 void KalziumPlotDialogImpl::startPlotting()
 {
+	pw->update();
+	
 	int from, to;
 	from = fromSpin->value();
 	to = toSpin->value();
@@ -97,8 +99,6 @@ void KalziumPlotDialogImpl::startPlotting()
 		return;
 	}
 	
-	kdDebug() << "Start plotting from " << from << " to " << to << endl;
-
 	KPlotObject *elements = new KPlotObject( "Elements" , "cyan2" , KPlotObject::POINTS, 6, KPlotObject::CIRCLE);
 	double posX = 0.0, posY = 0.0;
 	
@@ -114,8 +114,30 @@ void KalziumPlotDialogImpl::startPlotting()
 		kdDebug() << ( int )posX << " " << ( int ) posY << endl;
 	}
 
-	pw->setLimits(0.0 , to , 0.0 , 200.0 );
+	pw->setLimits( from, to , getMin( dl.at( kind ), from, to ) , getMax( dl.at( kind ), from , to ) );
+	pw->clearObjectList();
 	pw->addObject( elements );
+
+	updateListview();
+}
+
+void KalziumPlotDialogImpl::updateListview()
+{
+	elementsKLV->clear();
+	int from = fromSpin->value();
+	int to = toSpin->value();
+	
+	QString name, sym;
+
+	QStringList::Iterator nameIt = nameList.at(from);
+	QStringList::Iterator symIt = symbolList.at(from);
+
+	for (int i = from ; nameIt != nameList.at( to ) ; ++nameIt, ++symIt , ++i )
+	{
+		name = *nameIt;
+		sym = *symIt;
+		KListViewItem item = new KListViewItem( elementsKLV, QString::number( i ) , name , sym );
+	}
 }
 
 void KalziumPlotDialogImpl::loadData()
@@ -145,6 +167,13 @@ void KalziumPlotDialogImpl::loadData()
 		}
 		ptrDoubleList = dl.next();
 	}
+	
+	for ( int e = 1 ; e < 110 ; ++e )
+	{
+		 config.setGroup(QString::number( e ));
+		 nameList.append( config.readEntry( "Name", "Unknown" ) );
+		 symbolList.append( config.readEntry( "Symbol", "Unknown" ) );
+	}
 }
 
 void KalziumPlotDialogImpl::getPositions( int num , double& y , doubleList *liste)
@@ -152,15 +181,32 @@ void KalziumPlotDialogImpl::getPositions( int num , double& y , doubleList *list
 	y = *( liste->at( num ) );
 }
 
-const int KalziumPlotDialogImpl::getMax()
+const double KalziumPlotDialogImpl::getMax(doubleList* liste, const int f, const int t)
 {
+	doubleList::Iterator it = liste->at(f);
+	double d = *it;
+	for ( ; it != liste->at(t) ; ++it )
+	{
+		if ( d < *it )
+			d = *it;
+	}
+	return d;
 }
 
-void KalziumPlotDialogImpl::initPlotObjects(){}
+const double KalziumPlotDialogImpl::getMin(doubleList *liste, const int f, const int t)
+{
+	doubleList::Iterator it = liste->at(f);
+	double d = *it;
+	for ( ; it != liste->at(t) ; ++it )
+	{
+		if ( d > *it )
+			d = *it;
+	}
+	return d;
+}
 
 void KalziumPlotDialogImpl::keyPressEvent( QKeyEvent *e ) 
 {
-	kdDebug() << "KalziumPlotDialogImpl::keyPressEvent()" << endl;
 	switch ( e->key() ) {
 		case Key_Plus:
 		case Key_Equal:
@@ -175,7 +221,6 @@ void KalziumPlotDialogImpl::keyPressEvent( QKeyEvent *e )
 
 void KalziumPlotDialogImpl::slotZoomIn() 
 {
-	kdDebug() << "KalziumPlotDialogImpl::slotZoomIn()" << endl;
 	if ( pw->x2() > 0.4 ) {
 		pw->setLimits( 0.95*pw->x(), 0.95*pw->x2(), 0.95*pw->y(), 0.95*pw->y2() );
 		pw->update();
@@ -184,7 +229,6 @@ void KalziumPlotDialogImpl::slotZoomIn()
 
 void KalziumPlotDialogImpl::slotZoomOut() 
 {
-	kdDebug() << "KalziumPlotDialogImpl::slotZoomOut()" << endl;
 	if ( pw->x2() < 50.0 ) {
 		pw->setLimits( 1.05*pw->x(), 1.05*pw->x2(), 1.05*pw->y(), 1.05*pw->y2() );
 		pw->update();
