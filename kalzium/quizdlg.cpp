@@ -173,7 +173,7 @@ void QuizDlg::slotCheck()
         {
             this->close();
             KDialog *result = new KDialog ( this, "" );
-            result->setCaption(i18n("See your results!"));
+            result->setCaption(i18n("See Your Results!"));
 
             QGridLayout *grid = new QGridLayout(result , 2 , 4 , 8 );
 

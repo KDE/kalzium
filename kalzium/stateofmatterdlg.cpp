@@ -95,7 +95,7 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
     tempgrid->addWidget(solidbutton, 2, 2 );
     liquidbutton = new KPushButton(this); 
     tempgrid->addWidget(liquidbutton, 4, 2 );
-    vaporbutton = new KPushButton(this); 
+    vaporbutton = new KPushButton(this);
     tempgrid->addWidget(vaporbutton, 6, 2 );
     liquidbutton->show();
 
@@ -123,13 +123,13 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
     tempbeh();
 
     //Standard conditions
-    StdCondButton = new KPushButton( i18n("Standard conditions"), this );
+    StdCondButton = new KPushButton( i18n("Standard Conditions"), this );
     tempgrid->addWidget(StdCondButton , 9 , 0 );
     QObject::connect(StdCondButton, SIGNAL(clicked()), this , SLOT(slotStdCond()));
     QWhatsThis::add(StdCondButton, i18n("By clicking on this button you will see how the elemens are under standard conditions. As you can see, some are artificial and some are radioactive."));
     
     //the QInputDialog
-    InputButton = new KPushButton( i18n("Enter a temperature"), this );
+    InputButton = new KPushButton( i18n("Enter a Temperature"), this );
     tempgrid->addWidget(InputButton, 9, 1 );
     QObject::connect(InputButton, SIGNAL(clicked()), this , SLOT(slotSetTemp()));
     QWhatsThis::add(InputButton, i18n("If you click on this button you can enter a temperature"));
@@ -161,7 +161,7 @@ void StateOfMatterDlg::tempbeh()
 void StateOfMatterDlg::slotSetTemp()
 {
     bool ok = FALSE;
-    int temp = QInputDialog::getInteger( i18n( "Enter a temparature" ), i18n( "Temperature in Celsius"), 25, -275, 5000, 1, &ok, this );
+    int temp = QInputDialog::getInteger( i18n( "Enter a Temparature" ), i18n( "Temperature in Celsius"), 25, -275, 5000, 1, &ok, this );
     if (ok) tempS->setValue(-temp);
 }
 
