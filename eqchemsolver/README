@@ -1,0 +1,19 @@
+You will need a working objective caml installation and 
+the FaCiLe library properly configured and installed
+to compile eqchem.
+
+In practice, one would only run make in this directory (src/solver)
+"make"
+"make clean", etc
+
+To assemble with a c++ or a kde program, the object files 
+solver.o and modwrap.o must be added and linked with :
+-L/usr/lib/ocaml -L/usr/lib/ocaml/facile -lasmrun -lstr -lnums -lm -ldl solver.o modwrap.o
+
+The program built can then be run without the objective caml tools.
+
+Console examples can also be generated (try "make test")
+
+
+Thomas Nagy
+
