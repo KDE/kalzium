@@ -13,7 +13,7 @@ BP=20.28
 Density=0.084
 IE=13.598
 AR=37.3
-Orbits=1s<sup>1</sup>
+Orbits=1s1
 
 [2]
 Name=Helium
@@ -30,7 +30,7 @@ BP=4.216
 Density=0.17
 IE=24.587
 AR=128
-Orbits=1s<sup>2</sup>
+Orbits=1s2
 
 [3]
 Name=Lithium
@@ -47,7 +47,7 @@ BP=1615
 Density=0.53
 IE=5.392
 AR=152
-Orbits=1s<sup>2</sup> 2s<sup>1</sup>
+Orbits=1s2 2s1
 
 [4]
 Name=Beryllium
@@ -64,7 +64,7 @@ BP=3243
 Density=1.85
 IE=9.322
 AR=113.3
-Orbits=1s<sup>2</sup> 2s<sup>2</sup>
+Orbits=1s2 2s2
 
 [5]
 Name=Boron
@@ -81,7 +81,7 @@ BP=4275
 Density=2.46
 IE=8.298
 AR=83
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p1</sup>
+Orbits=1s2 2s2 2p1
 
 [6]
 Name=Carbon
@@ -98,7 +98,7 @@ BP=5100
 Density=3.51
 IE=11.260
 AR=77.2
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>2</sup>
+Orbits=1s2 2s2 2p2
 
 [7]
 Name=Nitrogen
@@ -115,7 +115,7 @@ BP=77.344
 Density=1.17
 IE=14.534
 AR=71
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>3</sup>
+Orbits=1s2 2s2 2p3
 
 [8]
 Name=Oxygen
@@ -132,7 +132,7 @@ BP=90.188
 Density=1.33
 IE=13.618
 AR=60.4
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>4</sup>
+Orbits=1s2 2s2 2p4
 
 [9]
 Name=Fluorine
@@ -149,7 +149,7 @@ BP=85.0
 Density=1.58
 IE=17.422
 AR=70.9
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>5</sup>
+Orbits=1s2 2s2 2p5
 
 [10]
 Name=Neon
@@ -166,7 +166,7 @@ BP=27.10
 Density=0.84
 IE=21.564
 AR=150
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>6</sup>
+Orbits=1s2 2s2 2p6
 
 [11]
 Name=Sodium
@@ -183,7 +183,7 @@ BP=1156
 Density=0.97
 IE=5.139
 AR=153.7
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>1</sup>
+Orbits=1s2 2s2 2p6 3s1
 
 [12]
 Name=Magnesium
@@ -200,7 +200,7 @@ BP=1380
 Density=1.74
 IE=7.646
 AR=160
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup>
+Orbits=1s2 2s2 2p6 3s2
 
 [13]
 Name=Aluminum
@@ -217,7 +217,7 @@ BP=2740
 Density=2.70
 IE=5.986
 AR=143.1
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>1</sup>
+Orbits=1s2 2s2 2p6 3s2 3p1
 
 [14]
 Name=Silicon
@@ -234,7 +234,7 @@ BP=2630
 Density=2.33
 IE=8.151
 AR=117
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>2</sup>
+Orbits=1s2 2s2 2p6 3s2 3p2
 
 [15]
 Name=Phosphorus
@@ -251,7 +251,7 @@ BP=553
 Density=1.82
 IE=10.486
 AR=93
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>3</sup>
+Orbits=1s2 2s2 2p6 3s2 3p3
 
 [16]
 Name=Sulfur
@@ -268,7 +268,7 @@ BP=717.82
 Density=2.06
 IE=10.360
 AR=104
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>4</sup>
+Orbits=1s2 2s2 2p6 3s2 3p4
 
 [17]
 Name=Chlorine
@@ -285,7 +285,7 @@ BP=239.18
 Density=2.95
 IE=12.967
 AR=99.4
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>5</sup>
+Orbits=1s2 2s2 2p6 3s2 3p5
 
 [18]
 Name=Argon
@@ -302,7 +302,7 @@ BP=87.45
 Density=1.66
 IE=15.759
 AR=174
-Orbits=1s<sup>2</sup></sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup>
+Orbits=1s2 2s2 2p6 3s2 3p6
 
 [19]
 Name=Potassium
@@ -319,7 +319,7 @@ BP=1033
 Density=0.86
 IE=4.341
 AR=227
-Orbits=<b>Ar</b> 4s<sup>1</sup>
+Orbits=Ar 4s1
 
 [20]
 Name=Calcium
@@ -336,7 +336,7 @@ BP=1757
 Density=1.54
 IE=6.113
 AR=197.3
-Orbits=<b>Ar</b> 4s<sup>2</sup>
+Orbits=Ar 4s2
 
 [21]
 Name=Scandium
@@ -353,7 +353,7 @@ BP=3109
 Density=2.99
 IE=6.54
 AR=160.6
-Orbits=<b>Ar</b> 3d<sup>1</sup> 4s<sup>2</sup>
+Orbits=Ar 3d1 4s2
 
 [22]
 Name=Titanium
@@ -370,7 +370,7 @@ BP=3560
 Density=4.51
 IE=6.82
 AR=144.8
-Orbits=<b>Ar</b> 3d<sup>2</sup> 4s<sup>2</sup>
+Orbits=Ar 3d2 4s2
 
 [23]
 Name=Vanadium
@@ -387,7 +387,7 @@ BP=3650
 Density=6.09
 IE=6.74
 AR=132.1
-Orbits=<b>Ar</b> 3d<sup>3</sup> 4s<sup>2</sup>
+Orbits=Ar 3d3 4s2
 
 [24]
 Name=Chromium
@@ -404,7 +404,7 @@ BP=2945
 Density=7.14
 IE=6.766
 AR=124.9
-Orbits=<b>Ar</b> 3d<sup>5</sup> 4s<sup>1</sup>
+Orbits=Ar 3d5 4s1
 
 [25]
 Name=Manganese
@@ -421,7 +421,7 @@ BP=2235
 Density=7.44
 IE=7.435
 AR=124
-Orbits=<b>Ar</b> 3d<sup>5</sup> 4s<sup>2</sup>
+Orbits=Ar 3d5 4s2
 
 [26]
 Name=Iron
@@ -438,7 +438,7 @@ BP=3023
 Density=7.87
 IE=7.870
 AR=124.1
-Orbits=<b>Ar</b> 3d<sup>6</sup> 4s<sup>2</sup>
+Orbits=Ar 3d6 4s2
 
 [27]
 Name=Cobalt
@@ -455,7 +455,7 @@ BP=3143
 Density=8.89
 IE=7.86
 AR=125.3
-Orbits=<b>Ar</b> 3d<sup>7</sup> 4s<sup>2</sup>
+Orbits=Ar 3d7 4s2
 
 [28]
 Name=Nickel
@@ -472,7 +472,7 @@ BP=3005
 Density=8.91
 IE=7.635
 AR=124.6
-Orbits=<b>Ar</b> 3d<sup>8</sup> 4s<sup>2</sup>
+Orbits=Ar 3d8 4s2
 
 [29]
 Name=Copper
@@ -489,7 +489,7 @@ BP=2840
 Density=8.92
 IE=7.726
 AR=127.8
-Orbits=<b>Ar</b> 3d<sup>10</sup> 4s<sup>1</sup>
+Orbits=Ar 3d10 4s1
 
 [30]
 Name=Zinc
@@ -506,7 +506,7 @@ BP=1180
 Density=7.14
 IE=9.394
 AR=133.2
-Orbits=<b>Ar</b> 3d<sup>10</sup> 4s<sup>2</sup>
+Orbits=Ar 3d10 4s2
 
 [31]
 Name=Gallium
@@ -523,7 +523,7 @@ BP=2478
 Density=5.91
 IE=5.999
 AR=122.1
-Orbits=<b>Ar</b> 3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>1</sup>
+Orbits=Ar 3d10 4s2 4p1
 
 [32]
 Name=Germanium
@@ -540,7 +540,7 @@ BP=3107
 Density=5.32
 IE=7.899
 AR=122.5
-Orbits=<b>Ar</b> 3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>2</sup>
+Orbits=Ar 3d10 4s2 4p2
 
 [33]
 Name=Arsenic
@@ -557,7 +557,7 @@ BP=876
 Density=5.72
 IE=9.81
 AR=125
-Orbits=<b>Ar</b> 3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>3</sup>
+Orbits=Ar 3d10 4s2 4p3
 
 [34]
 Name=Selenium
@@ -574,7 +574,7 @@ BP=958
 Density=4.82
 IE=9.752
 AR=116
-Orbits=<b>Ar</b> 3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>4</sup>
+Orbits=Ar 3d10 4s2 4p4
 
 [35]
 Name=Bromine
@@ -591,7 +591,7 @@ BP=331.85
 Density=3.14
 IE=11.814
 AR=114.5
-Orbits=<b>Ar</b> 3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>5</sup>
+Orbits=Ar 3d10 4s2 4p5
 
 [36]
 Name=Krypton
@@ -608,7 +608,7 @@ BP=120.85
 Density=4.48
 IE=13.999
 AR=190
-Orbits=<b>Ar</b> 3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>6</sup>
+Orbits=Ar 3d10 4s2 4p6
 
 [37]
 Name=Rubidium
@@ -625,7 +625,7 @@ BP=961
 Density=1.53
 IE=4.177
 AR=247.5
-Orbits=<b>Kr</b> 5s<sup>1</sup>
+Orbits=Kr 5s1
 
 [38]
 Name=Strontium
@@ -642,7 +642,7 @@ BP=1655
 Density=2.63
 IE=5.695
 AR=215.1
-Orbits=<b>Kr</b> 5s<sup>2</sup>
+Orbits=Kr 5s2
 
 [39]
 Name=Yttrium
@@ -659,7 +659,7 @@ BP=3611
 Density=4.47
 IE=6.38
 AR=181
-Orbits=<b>Kr</b> 4d<sup>1</sup> 5s<sup>2</sup>
+Orbits=Kr 4d1 5s2
 
 [40]
 Name=Zirconium
@@ -676,7 +676,7 @@ BP=4682
 Density=6.51
 IE=6.84
 AR=160
-Orbits=<b>Kr</b> 4d<sup>2</sup> 5s<sup>2</sup>
+Orbits=Kr 4d2 5s2
 
 [41]
 Name=Niobium
@@ -693,7 +693,7 @@ BP=5015
 Density=8.58
 IE=6.88
 AR=142.9
-Orbits=<b>Kr</b> 4d<sup>4</sup>
+Orbits=Kr 4d4
 
 [42]
 Name=Molybdenum
@@ -710,7 +710,7 @@ BP=4912
 Density=10.28
 IE=7.099
 AR=136.2
-Orbits=<b>Kr</b> 4d<sup>5</sup> 5s<sup>1</sup>
+Orbits=Kr 4d5 5s1
 
 [43]
 Name=Technetium
@@ -727,7 +727,7 @@ BP=4538
 Density=11.49
 IE=7.28
 AR=135.8
-Orbits=<b>Kr</b> 4d<sup>6</sup> 5s<sup>1</sup>
+Orbits=Kr 4d6 5s1
 
 [44]
 Name=Ruthenium
@@ -744,7 +744,7 @@ BP=4425
 Density=12.45
 IE=7.37
 AR=134
-Orbits=<b>Kr</b> 4d<sup>7</sup> 5s<sup>1</sup>
+Orbits=Kr 4d7 5s1
 
 [45]
 Name=Rhodium
@@ -761,7 +761,7 @@ BP=3970
 Density=12.41
 IE=7.46
 AR=134.5
-Orbits=<b>Kr</b> 4d<sup>8</sup> 5s<sup>1</sup>
+Orbits=Kr 4d8 5s1
 
 [46]
 Name=Palladium
@@ -778,7 +778,7 @@ BP=3240
 Density=12.02
 IE=8.34
 AR=137.6
-Orbits=<b>Kr</b> 4d<sup>10</sup>
+Orbits=Kr 4d10
 
 [47]
 Name=Silver
@@ -795,7 +795,7 @@ BP=2436
 Density=10.49
 IE=7.576
 AR=144.4
-Orbits=<b>Kr</b> 4d<sup>10</sup> 5s<sup>1</sup>
+Orbits=Kr 4d10 5s1
 
 [48]
 Name=Cadmium
@@ -812,7 +812,7 @@ BP=1040
 Density=8.64
 IE=8.993
 AR=148.9
-Orbits=<b>Kr</b> 4d<sup>10</sup> 5s<sup>2</sup>
+Orbits=Kr 4d10 5s2
 
 [49]
 Name=Indium
@@ -829,7 +829,7 @@ BP=2350
 Density=7.31
 IE=5.786
 AR=162.6
-Orbits=<b>Kr</b> 4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>1</sup>
+Orbits=Kr 4d10 5s2 5p1
 
 [50]
 Name=Tin
@@ -846,7 +846,7 @@ BP=2876
 Density=7.29
 IE=7.344
 AR=140.5
-Orbits=<b>Kr</b> 4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>2</sup>
+Orbits=Kr 4d10 5s2 5p2
 
 [51]
 Name=Antimony
@@ -863,7 +863,7 @@ BP=1860
 Density=6.69
 IE=8.641
 AR=145
-Orbits=<b>Kr</b> 4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>3</sup>
+Orbits=Kr 4d10 5s2 5p3
 
 [52]
 Name=Tellurium
@@ -880,7 +880,7 @@ BP=1261
 Density=6.25
 IE=9.009
 AR=143.2
-Orbits=<b>Kr</b> 4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>4</sup>
+Orbits=Kr 4d10 5s2 5p4
 
 [53]
 Name=Iodine
@@ -897,7 +897,7 @@ BP=457.5
 Density=4.94
 IE=10.451
 AR=133.1
-Orbits=<b>Kr</b> 4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>5</sup>
+Orbits=Kr 4d10 5s2 5p5
 
 [54]
 Name=Xenon
@@ -914,7 +914,7 @@ BP=165.1
 Density=4.49
 IE=12.130
 AR=218
-Orbits=<b>Kr</b> 4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>5</sup>
+Orbits=Kr 4d10 5s2 5p5
 
 [55]
 Name=Caesium
@@ -931,7 +931,7 @@ BP=944
 Density=1.90
 IE=3.894
 AR=265.5
-Orbits=<b>Xe</b> 6s<sup>1</sup>
+Orbits=Xe 6s1
 
 [56]
 Name=Barium
@@ -948,7 +948,7 @@ BP=2078
 Density=3.65
 IE=5.212
 AR=217.3
-Orbits=<b>Xe</b> 6s<sup>2</sup>
+Orbits=Xe 6s2
 
 [57]
 Name=Lanthanum
@@ -965,7 +965,7 @@ BP=3737
 Density=6.16
 IE=5.577
 AR=187.7
-Orbits=<b>Xe</b> 5d<sup>1</sup> 6s<sup>2</sup>
+Orbits=Xe 5d1 6s2
 
 [58]
 Name=Cerium
@@ -982,7 +982,7 @@ BP=3715
 Density=6.77
 IE=5.47
 AR=182.5
-Orbits=<b>Xe</b> 4f<sup>1</sup> 5d<sup>1</sup> 6s<sup>2</sup>
+Orbits=Xe 4f1 5d1 6s2
 
 [59]
 Name=Praseodymium
@@ -999,7 +999,7 @@ BP=3785
 Density=6.48
 IE=5.42
 AR=182.8
-Orbits=<b>Xe</b> 4f<sup>3</sup> 6s<sup>2</sup>
+Orbits=Xe 4f3 6s2
 
 [60]
 Name=Neodymium
@@ -1016,7 +1016,7 @@ BP=3347
 Density=7.00
 IE=5.49
 AR=182.1
-Orbits=<b>Xe</b> 4f<sup>4</sup> 6s<sup>2</sup>
+Orbits=Xe 4f4 6s2
 
 [61]
 Name=Promethium
@@ -1033,7 +1033,7 @@ BP=3273
 Density=7.22
 IE=5.55
 AR=181.0
-Orbits=<b>Xe</b> 4f<sup>5</sup> 6s<sup>2</sup>
+Orbits=Xe 4f5 6s2
 
 [62]
 Name=Samarium
@@ -1050,7 +1050,7 @@ BP=2067
 Density=7.54
 IE=5.63
 AR=180.2
-Orbits=<b>Xe</b> 4f<sup>6</sup> 6s<sup>2</sup>
+Orbits=Xe 4f6 6s2
 
 [63]
 Name=Europium
@@ -1067,7 +1067,7 @@ BP=1800
 Density=5.25
 IE=5.67
 AR=204.2
-Orbits=<b>Xe</b> 4f<sup>7</sup> 6s<sup>2</sup>
+Orbits=Xe 4f7 6s2
 
 [64]
 Name=Gadolinium
@@ -1084,7 +1084,7 @@ BP=3545
 Density=7.89
 IE=6.14
 AR=180.2
-Orbits=<b>Xe</b> 4f<sup>7</sup> 5d<sup>1</sup> 6s<sup>2</sup>
+Orbits=Xe 4f7 5d1 6s2
 
 [65]
 Name=Terbium
@@ -1101,7 +1101,7 @@ BP=3500
 Density=8.25
 IE=5.85
 AR=178.2
-Orbits=<b>Xe</b> 4f<sup>9</sup> 6s<sup>2</sup>
+Orbits=Xe 4f9 6s2
 
 [66]
 Name=Dysprosium
@@ -1118,7 +1118,7 @@ BP=2840
 Density=8.56
 IE=5.93
 AR=177.3
-Orbits=<b>Xe</b> 4f<sup>10</sup> 6s<sup>2</sup>
+Orbits=Xe 4f10 6s2
 
 [67]
 Name=Holmium
@@ -1135,7 +1135,7 @@ BP=2968
 Density=8.78
 IE=6.02
 AR=176.6
-Orbits=<b>Xe</b> 4f<sup>11</sup> 6s<sup>2</sup>
+Orbits=Xe 4f11 6s2
 
 [68]
 Name=Erbium
@@ -1152,7 +1152,7 @@ BP=3140
 Density=9.05
 IE=6.10
 AR=175.7
-Orbits=<b>Xe</b> 4f<sup>12</sup> 6s<sup>2</sup>
+Orbits=Xe 4f12 6s2
 
 [69]
 Name=Thulium
@@ -1169,7 +1169,7 @@ BP=2223
 Density=9.32
 IE=6.18
 AR=174.6
-Orbits=<b>Xe</b> 4f<sup>13</sup> 6s<sup>2</sup>
+Orbits=Xe 4f13 6s2
 
 [70]
 Name=Ytterbium
@@ -1186,7 +1186,7 @@ BP=1469
 Density=9.32
 IE=6.254
 AR=194
-Orbits=<b>Xe</b> 4f<sup>14</sup> 6s<sup>2</sup>
+Orbits=Xe 4f14 6s2
 
 [71]
 Name=Lutetium
@@ -1203,7 +1203,7 @@ BP=3668
 Density=9.84
 IE=5.426
 AR=173.4
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>1</sup> 6s<sup>2</sup>
+Orbits=Xe 4f14 5d1 6s2
 
 [72]
 Name=Hafnium
@@ -1220,7 +1220,7 @@ BP=4875
 Density=13.31
 IE=7.0
 AR=156.4
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>2</sup> 6s<sup>2</sup>
+Orbits=Xe 4f14 5d2 6s2
 
 [73]
 Name=Tantalum
@@ -1237,7 +1237,7 @@ BP=5730
 Density=16.68
 IE=7.89
 AR=143
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>3</sup> 6s<sup>2</sup>
+Orbits=Xe 4f14 5d3 6s2
 
 [74]
 Name=Tungsten
@@ -1254,7 +1254,7 @@ BP=5825
 Density=19.26
 IE=7.98
 AR=137.0
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>4</sup> 6s<sup>2</sup>
+Orbits=Xe 4f14 5d4 6s2
 
 [75]
 Name=Rhenium
@@ -1271,7 +1271,7 @@ BP=5870
 Density=21.03
 IE=7.88
 AR=137.0
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>5</sup> 6s<sup>2</sup>
+Orbits=Xe 4f14 5d5 6s2
 
 [76]
 Name=Osmium
@@ -1288,7 +1288,7 @@ BP=5300
 Density=22.61
 IE=8.7
 AR=135
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>6</sup> 6s<sup>2</sup>
+Orbits=Xe 4f14 5d6 6s2
 
 [77]
 Name=Iridium
@@ -1305,7 +1305,7 @@ BP=4700
 Density=22.65
 IE=9.1
 AR=135.7
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>7</sup> 6s<sup>2</sup>
+Orbits=Xe 4f14 5d7 6s2
 
 [78]
 Name=Platinum
@@ -1322,7 +1322,7 @@ BP=4100
 Density=21.45
 IE=9.0
 AR=138
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>9</sup> 6s<sup>1</sup>
+Orbits=Xe 4f14 5d9 6s1
 
 [79]
 Name=Gold
@@ -1339,7 +1339,7 @@ BP=3130
 Density=19.32
 IE=9.225
 AR=144.2
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>1</sup>
+Orbits=Xe 4f14 5d10 6s1
 
 [80]
 Name=Mercury
@@ -1356,7 +1356,7 @@ BP=629.88
 Density=13.55
 IE=10.437
 AR=160
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup>
+Orbits=Xe 4f14 5d10 6s2
 
 [81]
 Name=Thallium
@@ -1374,7 +1374,7 @@ Density=11.85
 IE=6.108
 AR=170.4
 AR=160
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>1</sup>
+Orbits=Xe 4f14 5d10 6s2 6p1
 
 [82]
 Name=Lead
@@ -1391,7 +1391,7 @@ BP=2023
 Density=11.34
 IE=7.416
 AR=175
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>2</sup>
+Orbits=Xe 4f14 5d10 6s2 6p2
 
 [83]
 Name=Bismuth
@@ -1408,7 +1408,7 @@ BP=1837
 Density=9.80
 IE=7.289
 AR=155
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>3</sup>
+Orbits=Xe 4f14 5d10 6s2 6p3
 
 [84]
 Name=Polonium
@@ -1425,7 +1425,7 @@ BP=
 Density=9.20
 IE=8.42
 AR=167.5
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>4</sup>
+Orbits=Xe 4f14 5d10 6s2 6p4
 
 [85]
 Name=Astatine
@@ -1442,7 +1442,7 @@ BP=610
 Density=
 IE=9.5
 AR=
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>5</sup>
+Orbits=Xe 4f14 5d10 6s2 6p5
 
 [86]
 Name=Radon
@@ -1459,7 +1459,7 @@ BP=211.4
 Density=9.23
 IE=10.748
 AR=
-Orbits=<b>Xe</b> 4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>6</sup>
+Orbits=Xe 4f14 5d10 6s2 6p6
 
 [87]
 Name=Francium
@@ -1476,7 +1476,7 @@ BP=950
 Density=
 IE=4.0
 AR=270
-Orbits=<b>Rn</b> 7s<sup>1</sup>
+Orbits=Rd 7s1
 
 [88]
 Name=Radium
@@ -1493,7 +1493,7 @@ BP=1413
 Density=5.50
 IE=5.279
 AR=223
-Orbits=<b>Rn</b> 7s<sup>2</sup>
+Orbits=Rd 7s2
 
 [89]
 Name=Actinium
@@ -1510,7 +1510,7 @@ BP=3470
 Density=10.07
 IE=6.9
 AR=187.8
-Orbits=<b>Rn</b> 6d<sup>1</sup> 7s<sup>2</sup>
+Orbits=Rd 6d1 7s2
 
 [90]
 Name=Thorium

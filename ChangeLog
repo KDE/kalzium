@@ -1,5 +1,7 @@
 04/01/03:
 - added orbital information for elements up to Actinium (89)
+- orbital information now highlighted with RegExps rather than in data
+- modify element information dialog to make it look nicer :)
 
 Version 0.6:
 - switched to more Designer-Files

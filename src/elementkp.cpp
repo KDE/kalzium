@@ -201,7 +201,7 @@ void ElementKP::slotShowData()
     if ( Data.Density == -1 )
 	show_data2->density_label->setText( i18n( "Unknown" ) );
     else
-	show_data2->density_label->setText( i18n("%1 g/cm^3" ).arg( Data.Density ) );
+	show_data2->density_label->setText( i18n("%1 g/cm<sup>3</sup>" ).arg( Data.Density ) );
 
     if ( Data.MP == -1 )
 	show_data2->melting_label->setText( i18n( "Unknown" ) );
@@ -241,13 +241,19 @@ void ElementKP::slotShowData()
 	show_data2->electro_label->setText( i18n( "Unknown" ) );
     else
 	show_data2->electro_label->setText( i18n( "%1" ).arg( Data.EN ) );
-    
-	show_data2->orbitLabel->setText( Data.orbits );
+
+	//show orbit information nicely
+	QRegExp rxs("([a-z])([0-9]+)");
+	QRegExp rxb("([a-z]{2}) ",false);
+	QString orbitData = Data.orbits;
+	orbitData.replace(rxs,"\\1<sup>\\2</sup>"); //superscript around electron number
+	orbitData.replace(rxb,"<b>\\1</b> "); //bold around element symbols
+        show_data2->orbitLabel->setText( orbitData );
 
 
-    show_data2->general_label->setFont( topic_font );
-    show_data2->states_label->setFont( topic_font );
-    show_data2->energy_label->setFont( topic_font );
+//    show_data2->general_label->setFont( topic_font );
+//    show_data2->states_label->setFont( topic_font );
+//    show_data2->energy_label->setFont( topic_font );
 
 	// The table 
 	show_data2->neighbourTable->horizontalHeader()->hide();
@@ -269,7 +275,7 @@ void ElementKP::slotShowData()
 	QObject::connect(show_data2->weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
 
 	//click on this button to close the Dialog
-	QObject::connect (show_data2->exit, SIGNAL(clicked()), show_data2, SLOT(hide()));
+//	QObject::connect (show_data2->exit, SIGNAL(clicked()), show_data2, SLOT(hide()));
 
 }
 
