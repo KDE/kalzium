@@ -409,7 +409,7 @@ void Kalzium::slotKnowledge()
             i18n( "Please enter a number" ), 10, 0, 80, 1, &ok, this );
     if ( ok )
     {
-        QuizDlg *quiz2 = new QuizDlg(this, "quizdialog"); 
+        QuizDlg *quiz2 = new QuizDlg(this, "quizdialog", numofquestions); 
         quiz2->setCaption(i18n("Test Your Knowledge"));
         quiz2->show();
     }
