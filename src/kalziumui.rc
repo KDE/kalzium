@@ -9,6 +9,7 @@
 	<Action name="use_timeline" />
 	<Action name="plotdata" />
 	<Action name="show_som" />
+    <Action name="toggle_legend" />
   </Menu>
  <Action name="look_menu" />
 </MenuBar>
@@ -17,6 +18,7 @@
   <Action name="use_timeline" />
   <Action name="plotdata" />
   <Action name="show_som" />
+  <Action name="toggle_legend" />
  </ToolBar>
 
 </kpartgui>

@@ -104,11 +104,14 @@ void Kalzium::setupActions()
 	 look_action->setItems(looklist);
 	 look_action->setCurrentItem(Prefs::colorschemebox()); 
 	 connect (look_action, SIGNAL(activated(int)), this, SLOT(slotShowScheme(int)));
+	
+	 //Legend
+	 m_pLengendAction = new KAction(i18n("Toggle &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
 
 	/*
 	 * the misc actions
 	 **/
-	m_pTimelineAction = new KAction(i18n("Show &Timeline"), "timeline.png", 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
+	m_pTimelineAction = new KAction(i18n("Show &Timeline"), "timeline", 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	m_pSOMAction = new KAction(i18n("&Show State of Matter"), "legend", 0, this, SLOT(slotStateOfMatter()), actionCollection(), "show_som");
 	/*
@@ -119,12 +122,16 @@ void Kalzium::setupActions()
 
 	m_pRegularPSE = new RegularPSE( data(), this, "regularPSE");
 	m_pSimplePSE = new SimplifiedPSE( data(), this, "SimplifiedPSE");
-//	m_pMendeljevPSE = new MendeljevPSE( data(), this, "MendeljevPSE");
 
 	m_pCurrentPSE = m_pRegularPSE;
 	slotSwitchtoNumeration(Prefs::numeration() );
 	slotSwitchtoPSE(Prefs::schemaPSE());
 	slotSwitchtoNumeration(Prefs::numeration() );
+
+	m_bShowLegend = Prefs::showlegend();
+	m_pRegularPSE->setLegend( Prefs::colorschemebox() );
+	m_pSimplePSE->setLegend( Prefs::colorschemebox() );
+	
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
 	setupGUI();
@@ -153,10 +160,6 @@ void Kalzium::slotStartQuiz()
 {
 	kdDebug() << "inside the start of the quiz" << endl;
 
-	//I will only allow the defaultvaulues until the quiz itself works.
-	//After that is done I will use KConfigXT to load the userdefinded
-	//values and make the quiz complete
-	
 	qsd = new QuizsettingsDlg();
 	qsd->show();
 	connect( qsd->StartQuizButton , SIGNAL( clicked() ), this, SLOT( slotQuizSetup() ) );
@@ -169,6 +172,8 @@ void Kalzium::slotQuizSetup()
 	int dif = qsd->difGrade->value();
 	
 	Quiz *q = new Quiz( num, sim, dif , 10, 15 ); 
+
+	qsd->hide();
 
 	QuizMaster *qm = new QuizMaster( q );
 	qm->startQuiz();
@@ -203,9 +208,26 @@ void Kalzium::slotPlotData()
 	edw->show();
 }
 
+void Kalzium::slotShowLegend()
+{
+	kdDebug() << "Kalzium::slotShowLegend()" << endl;
+	if ( m_bShowLegend )
+	{
+		m_bShowLegend = FALSE;
+	}
+	else
+	{
+		m_bShowLegend = TRUE;
+	}
+	currentPSE()->showLegend( m_bShowLegend );
+	Prefs::setShowlegend( m_bShowLegend ); 
+}	
+
 void Kalzium::slotShowScheme(int i)
 {
+	kdDebug() << "Kalzium::slotShowScheme()" << endl;
 	currentPSE()->activateColorScheme( i );
+	currentPSE()->setLegend( i );
 	Prefs::setColorschemebox(i); 
 	Prefs::writeConfig();
 }
@@ -284,33 +306,33 @@ void Kalzium::slotQuizAction()
 
 void Kalzium::displayTemperature()
  {
- 	QString m_string;
+ 	QString string;
  	switch (Prefs::temperature()) {
      		case 0:
- 			m_string = i18n("Kelvin");
+ 			string = i18n("Kelvin");
  			break;
  		case 1:
- 			m_string = i18n("degrees Fahrenheit");
+ 			string = i18n("Degree Fahrenheit");
  			break;
  		case 2:
- 			m_string = i18n("degrees Celsius");
+ 			string = i18n("Degree Celsius");
  			break;
  	}
- 	slotStatusBar(i18n("Temperature: ")+m_string,  IDS_TEMP);
+ 	slotStatusBar(i18n("Temperature: %1 ").arg( string ),  IDS_TEMP);
  }
  
  void Kalzium::displayEnergie()
  {
- 	QString m_string;
+ 	QString string;
  	switch (Prefs::units()) {
      		case 0:
- 			m_string = i18n("kJ/mol");
+ 			string = i18n("kJ/mol");
  			break;
  		case 1:
- 			m_string = i18n("eV");
+ 			string = i18n("eV");
  			break;
  	}
- 	slotStatusBar(i18n("Energy: ")+m_string,  IDS_ENERG);
+ 	slotStatusBar(i18n("Energy: %1").arg( string ),  IDS_ENERG);
 }
 
 void Kalzium::slotStateOfMatter()

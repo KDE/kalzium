@@ -82,6 +82,11 @@ class Kalzium : public KMainWindow
 		int date;
 
 
+		/**
+		 * if true, the legend will be shown
+		 */
+		bool m_bShowLegend;
+
 		SliderWidget *m_pSliderWidget;
 		
 		/**
@@ -122,7 +127,8 @@ class Kalzium : public KMainWindow
 		KSelectAction *numeration_action;
 		KAction *m_pTimelineAction,
 			   *m_pPlotAction,
-			    *m_pSOMAction;
+			    *m_pSOMAction,
+				*m_pLengendAction;
 		
 		QuizsettingsDlg *qsd;
 				
@@ -131,6 +137,8 @@ class Kalzium : public KMainWindow
 		 * this slot switches Kalzium to the selected colorscheme
 		 */
 		void slotShowScheme(int);
+		
+		void slotShowLegend();
 		
 		void slotQuizSetup();
 		

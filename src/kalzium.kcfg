@@ -46,6 +46,13 @@
 		  <label>The date with which the slider starts</label>
 	  </entry>
   </group>
+  <group name="Legend">
+	  <entry name="showlegend" type="Bool">
+		  <default>true</default>
+		  <whatsthis>Show or hide the legend</whatsthis>
+		  <label>Show or hide the legend</label>
+	  </entry>
+  </group>
   <group name="Colors">
     <entry name="noscheme" type="Color">
     	<default>#b4adff</default>

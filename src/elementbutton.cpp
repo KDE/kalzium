@@ -32,6 +32,7 @@ ElementButton::ElementButton(int number, Element *el, QWidget *parent, const cha
 
 	e = el;
 
+	this->setMaximumSize( 40, 40 );
 	this->setFrameStyle(  QFrame::Box );
 	this->setLineWidth(  2 );
 	this->setMidLineWidth(  3 );
@@ -92,7 +93,7 @@ void ElementButton::paintEvent( QPaintEvent* )
     QPainter p;
     p.begin( this );
     p.drawText( w/2, h/2, sym );
-    p.drawText( 0, h/2-10, QString::number( m_ElementNumber ) );
+    p.drawText( 2, h/2-10, QString::number( m_ElementNumber ) );
 	p.drawRect( 0, 0, w, h );
     p.end(); 
 }

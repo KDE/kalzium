@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>somDialog</class>
 <widget class="QDialog">
     <property name="name">
@@ -48,7 +48,7 @@
                                         <cstring>textLabel1</cstring>
                                     </property>
                                     <property name="text">
-                                        <string>Degrees Celsius</string>
+                                        <string>Degree Celsius</string>
                                     </property>
                                 </widget>
                                 <widget class="QLCDNumber">

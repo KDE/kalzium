@@ -47,6 +47,11 @@ class PSE : public QWidget
 		PSE( KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
 		~PSE();
 
+		/**
+		 * @param show if true, the legend will be shown
+		 */
+		void showLegend( bool show );
+		
 		KalziumDataObject *d;
 
 		enum NUMERATIONTYPE
@@ -106,6 +111,9 @@ class PSE : public QWidget
 		 * be in this list
 		 */
 		QPtrList<ElementButton> m_PSEElementButtons;
+		
+		void setLegend( int look );
+
 
 	private:
 		/**
@@ -194,31 +202,5 @@ class SimplifiedPSE : public PSE
 		
 		void updateNumeration();
 };
-
-/**
- * This class represents the periodic table most persons know.
- * All elements are included.
- * @short The regular periodic table with all elements
- * @author Carsten Niehaus
-class MendeljevPSE : public PSE
-{
-	Q_OBJECT
-
-	public:
-		MendeljevPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
-		
-*/
-		/**
-		 * Sets up all elements to the correct buttonlists
-		 * @see m_PSEElementButtons
-		 */
-/*
-		void setupPSEElementButtonsList();
-
-		void updateNumeration();
-		
-		~MendeljevPSE();
-};
-*/
 
 #endif

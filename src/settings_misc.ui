@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>setupMisc</class>
 <widget class="QWidget">
     <property name="name">
@@ -13,7 +13,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string></string>
+        <string>setupMisc</string>
     </property>
     <grid>
         <property name="name">
@@ -118,13 +118,25 @@
                             <property name="text">
                                 <string>Use Kelvin</string>
                             </property>
+                            <property name="toolTip" stdset="0">
+                                <string>If selected, the temperatures will be displayed in Kelvin</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>If selected, the temperatures will be displayed in Kelvin</string>
+                            </property>
                         </widget>
                         <widget class="QRadioButton" row="2" column="0">
                             <property name="name">
                                 <cstring>radioButton11_2</cstring>
                             </property>
                             <property name="text">
-                                <string>Use Degrees Fahrenheit</string>
+                                <string>Use Degree Fahrenheit</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>If selected, the temperatures will be displayed in Degree Fahrenheit</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>If selected, the temperatures will be displayed in Degree Fahrenheit</string>
                             </property>
                         </widget>
                         <widget class="QRadioButton" row="1" column="0">
@@ -132,7 +144,13 @@
                                 <cstring>radioButton20</cstring>
                             </property>
                             <property name="text">
-                                <string>Use Degrees Celsius</string>
+                                <string>Use Degree Celsius</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>If selected, the temperatures will be displayed in Degree Celsius</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>If selected, the temperatures will be displayed in Degree Celsius</string>
                             </property>
                         </widget>
                     </grid>
