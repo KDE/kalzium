@@ -3,7 +3,7 @@
       elementbutton.h  -  description
                              -------------------
     begin                : Die Dez  28 15:59:34 CET 2002
-    copyright            : (C) 2002 by Carsten Niehaus
+    copyright            : (C) 2002, 2003 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -28,9 +28,10 @@ class ElementButton : public QButton
 
   public:
     ElementButton ( QWidget *parent, const char* name=0 );
+
   protected:
-    void  drawButton( QPainter * );
-    virtual void  drawButtonLabel( QPainter * ) = 0;
+    void drawButton( QPainter * );
+    virtual void drawButtonLabel( QPainter * ) = 0;
 };
 
 #endif

@@ -2,7 +2,7 @@
                          stateofmatterdlg.cpp  -  description
                              -------------------
     begin                : Wed Feb 06 2002 
-    copyright            : (C) 2002 by Carsten Niehaus 
+    copyright            : (C) 2002, 2003 by Carsten Niehaus 
     email                : cniehaus@kde.org
 ***************************************************************************/
 
@@ -41,7 +41,7 @@
 StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *kalzium_tmp)  : KDialog (parent,name)
 {
 	kalzium = kalzium_tmp;
-	this->setCaption(i18n("Temperatures"));
+	setCaption(i18n("Temperatures"));
 	main_layout = new QGridLayout(this, 10 , 4, 8);
 
 	///////////////////////////////////////////
@@ -149,7 +149,7 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 
 void StateOfMatterDlg::tempbeh()
 {
-	int tempC = -1*( tempS->value() );
+	const int tempC = -1*( tempS->value() );
 	celsiusLCD->display(tempC);
 	kelvinLCD->display(tempC+273);
 	fahrenheitLCD->display(((tempC*9)/5)+32);
@@ -171,7 +171,7 @@ void StateOfMatterDlg::tempbeh()
 
 void StateOfMatterDlg::setButtonsColor()
 {
-  color_artificial = main_config->readColorEntry("artificial");
+	color_artificial = main_config->readColorEntry("artificial");
 	color_liquid = main_config->readColorEntry("liquid");
 	color_radioactive = main_config->readColorEntry("radioactive");
 	color_solid = main_config->readColorEntry("solid");

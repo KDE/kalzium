@@ -15,12 +15,8 @@
 #include <config.h>
 #endif
 
-#include <kapplication.h>
 
-#include <qptrlist.h>
 #include <qdict.h>
-#include <qstring.h>
-#include <qtextstream.h>
 
 class ElementCoef;
 class ElementList;

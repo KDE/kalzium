@@ -26,6 +26,7 @@
 #include <qlayout.h>
 #include <qwidget.h>
 #include <qtextedit.h>
+#include <qpushbutton.h>
 
 #include "calcdlg.h"
 #include "kmolui.h"

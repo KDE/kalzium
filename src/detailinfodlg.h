@@ -1,6 +1,6 @@
 /***************************************************************************
 
-        settingsdialog.h  -  description
+        detailedinfodlg.h  -  description
                              -------------------
     begin                : Tue Apr 2 20:43:44 2002 UTC
     copyright            : (C) 2002 by Robert Gogolok
@@ -24,15 +24,26 @@
 #include <qwidget.h>
 #include "elementkp.h"
 class QFrame;
+class DetailedTab;
+
 
 class DetailedTab : public QWidget
 {
 	Q_OBJECT
 
 	public:
-		DetailedTab( ElementInfo& Eleminfo , QWidget *parent, const char *name=0 );
-		ElementInfo Data;
+		DetailedTab( ElementInfo Eleminfo , QWidget *parent, const char *name=0 );
+		DetailedTab( QWidget *parent, const char *name=0 );
+		ElementInfo EData;
 		QColor PSEColor( const QString &Block ) const;
+		void setData( ElementInfo Eleminfo );
+	
+	private:
+		void drawBiologicalSymbol( QPainter *p );
+	
+		//calculation of the corners
+		int x1,x2,y1,y2,h_t;
+
 
 	protected:
 		virtual void paintEvent( QPaintEvent* );
@@ -53,5 +64,4 @@ class DetailedInfoDlg : public KDialogBase
 	protected slots:
 		virtual void slotUser1();
 };
-
 #endif

@@ -12,16 +12,10 @@
 #include <config.h>
 #endif
 
-#include <kapplication.h>
 
 #include "kmolelements.h"
-#include <qdict.h>
-#include <qptrlist.h>
-#include <qstring.h>
-#include <qfile.h>
 #include <qfileinfo.h>
 #include <qmessagebox.h>
-#include <qtextstream.h>
 
 
 /**

@@ -26,6 +26,7 @@ OrbitsWidget::OrbitsWidget( const int ElemNo , QWidget *parent, const char *name
 {
 	Elemno = ElemNo;
 	
+//	hulllist.append( "1 2 3" );
 	hulllist.append( "1" );
 	hulllist.append( "2" );     //Helium
 	hulllist.append( "2 1" );
@@ -56,12 +57,36 @@ OrbitsWidget::OrbitsWidget( const int ElemNo , QWidget *parent, const char *name
 	hulllist.append( "2 8 16 2" );
 	hulllist.append( "2 8 18 1" );//Copper
 	hulllist.append( "2 8 18 2" );
-	hulllist.append( "2 8 16 2 1" );
-	hulllist.append( "2 8 16 2 2" );
-	hulllist.append( "2 8 16 2 3" );
-	hulllist.append( "2 8 16 2 4" );
-	hulllist.append( "2 8 16 2 5" );
-	hulllist.append( "2 8 16 2 6" );//Krypton
+	hulllist.append( "2 8 18 3" );
+	hulllist.append( "2 8 18 4" );
+	hulllist.append( "2 8 18 5" );
+	hulllist.append( "2 8 18 6" );
+	hulllist.append( "2 8 18 7" );
+	hulllist.append( "2 8 18 8" );//Krypton
+//	hulllist.append( "1 2 3  4 5" );
+	hulllist.append( "2 8 18 8 1" );
+	hulllist.append( "2 8 18 8 2" );//Rubidium
+	hulllist.append( "2 8 18 9 2" );
+	hulllist.append( "2 8 18 10 2" );//Zirconium
+	hulllist.append( "2 8 18 12 1" );
+	hulllist.append( "2 8 18 13 1" );
+	hulllist.append( "2 8 18 14 1" );//Techneticum
+	hulllist.append( "2 8 18 15 1" );
+	hulllist.append( "2 8 18 16 1" );
+	hulllist.append( "2 8 18 18" );  //Palladium
+	hulllist.append( "2 8 18 18 1" );
+	hulllist.append( "2 8 18 18 2" );
+	hulllist.append( "2 8 18 18 3" );//Indium
+	hulllist.append( "2 8 18 18 4" );
+	hulllist.append( "2 8 18 18 5" );
+	hulllist.append( "2 8 18 18 6" );
+	hulllist.append( "2 8 18 18 7" );
+	hulllist.append( "2 8 18 18 8" );//Xenon
+	hulllist.append( "2 8 18 18 8 1" );//Caesium
+	hulllist.append( "2 8 18 18 8 2" );//Barium
+	hulllist.append( "2 8 18 18 9 2" );
+	hulllist.append( "2 8 18 20 8 2" );//Cerium
+//	hulllist.append( "1 2 3  4  5 6" );
 	//to be continued...
 	
 	getNumberOfOrbits();	
@@ -129,8 +154,8 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	
 	r_electron = r/20; //diameter of an electron-circle
 	
-	int d = 2*r; //Durchmesser
-	int	ddx = d/(2*num);//Änderung zum Vorgänger
+	int d = 2*r; //Diameter
+	int	ddx = d/(2*num);//difference to the previous circle
 
 	numOfElectrons.prepend( 999 );
 	intList::Iterator it = numOfElectrons.end();

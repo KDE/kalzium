@@ -1,0 +1,102 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>Datafilterdialog</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>Datafilterdialog</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>417</width>
+            <height>289</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form1</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout11</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout10</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="KComboBox">
+                            <item>
+                                <property name="text">
+                                    <string>Metals</string>
+                                </property>
+                            </item>
+                            <item>
+                                <property name="text">
+                                    <string>Gases</string>
+                                </property>
+                            </item>
+                            <item>
+                                <property name="text">
+                                    <string>Groups</string>
+                                </property>
+                            </item>
+                            <property name="name">
+                                <cstring>filterKCB</cstring>
+                            </property>
+                        </widget>
+                        <widget class="KLineEdit">
+                            <property name="name">
+                                <cstring>groupsKLE</cstring>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>ExplanationText</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>ApplyButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Apply</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>filterKCB</sender>
+        <signal>activated(int)</signal>
+        <receiver>Datafilterdialog</receiver>
+        <slot>slotSetFilterText()</slot>
+    </connection>
+</connections>
+<slots>
+    <slot>slotSetFilterText()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>kcombobox.h</includehint>
+    <includehint>klineedit.h</includehint>
+    <includehint>kpushbutton.h</includehint>
+</includehints>
+</UI>

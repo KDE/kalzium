@@ -10,12 +10,9 @@
  * as a list of elements and their coefficients, ELEMENTS. 
  */
 
-#include <kapplication.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include "kmolcalc.h"
-#include <qdict.h>
-#include <qdir.h>
 
 
 /**

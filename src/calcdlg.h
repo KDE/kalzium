@@ -20,7 +20,6 @@
 
 class KMolUI;
 
-#include <qdialog.h>
 
 #include "../calculations/kmolcalc.h"
 #include "../calculations/kmoledit.h"

@@ -21,10 +21,8 @@
 
 class QWidget;
 
-#include "infodlg.h"
 #include "elementkp.h"
-#include <qwidget.h>
-#include <qstring.h>
+#include "infodlg.h"
 
 class infoDialog : public infoDlg
 {
@@ -32,17 +30,6 @@ class infoDialog : public infoDlg
 
 	public:
 		infoDialog( ElementInfo Eleminfo , QWidget *parent=0, const char *name=0 );
-};
-
-class ElemInfoParsed
-{
-	public:
-		ElemInfoParsed( ElementInfo eInfo );
-		ElementInfo information();
-
-	private:
-		QString beautifyOrbits( QString ) const;
-		ElementInfo info;
 };
 		
 #endif

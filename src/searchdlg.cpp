@@ -43,7 +43,9 @@
 #include <qregexp.h>
 #include <qfile.h>
 
+#include "csvdialogimpl.h"
 #include "searchdlg.h"
+#include "infodialog.h"
 
 SearchDlg::SearchDlg (QWidget *parent, const char *name )  
     : SearchDialogUI (parent,name)
@@ -93,6 +95,16 @@ void SearchDlg::fillDataStringLists()
 	}
 }
 
+
+QString SearchDlg::beautifyOrbits( QString orbits ) const
+{
+	QRegExp rxs("([a-z])([0-9]+)");
+	QRegExp rxb("([a-z]{2}) ",false);
+	orbits.replace(rxs,"\\1<sup>\\2</sup>"); //superscript around electron number
+	orbits.replace(rxb,"<b>\\1</b> "); //bold around element symbols
+	return orbits;
+}
+
 void SearchDlg::slotApplyChanges()
 {
 	QStringList::Iterator it = nameList.begin();
@@ -118,7 +130,7 @@ void SearchDlg::slotApplyChanges()
 		DataTable->setText( i, 2 , *it3 );
 		DataTable->setText( i, 3 , *it4 );
 		DataTable->setText( i, 4 , *it5 );
-		DataTable->setText( i, 5 , *it6 );
+		DataTable->setText( i, 5 , beautifyOrbits( *it6 ) );
 		DataTable->setText( i, 6 , *it7 );
 		DataTable->setText( i, 7 , *it8 );
 		DataTable->setText( i, 8 , *it9 );
@@ -278,37 +290,40 @@ IntValueList SearchDlg::parseRange(QString range)
 
 void SearchDlg::slotExportData()
 {
-	int rows = DataTable->numRows();
-	int cols = DataTable->numCols();
+//X 	csvdialogImpl *csvdlg = new csvdialogImpl( this );
+//X 	csvdlg->show();
+
+	//int rows = DataTable->numRows();
+	//int cols = DataTable->numCols();
 	
-	QString str;
-	QChar csvDelimiter = ',';
+	//QString str;
+	//QChar csvDelimiter = ',';
 
-	for ( int i = 0 ; i < rows ; i++ )
-	{
-		if ( DataTable->rowHeight(i) == 0 )
-				continue;
-		for ( int e = 0 ; e < cols ; e++ )
-		{
-			if ( DataTable->columnWidth(e) == 0 )
-				continue;
-			str.append( DataTable->text( i , e ) );
-			str.append( csvDelimiter );
-		}
-		str.append( "\n" );
-	}
-
-	QCString cstr( str.local8Bit() );
-
-	QFile out( KFileDialog::getSaveFileName()  );
-	if (  !out.open( IO_WriteOnly ) )
-	{
-		out.close();
-		return;
-	}
-	out.writeBlock( cstr.data(), cstr.length() );
-
-	out.close();
+//X 	for ( int i = 0 ; i < rows ; i++ )
+//X 	{
+//X 		if ( DataTable->rowHeight(i) == 0 )
+//X 				continue;
+//X 		for ( int e = 0 ; e < cols ; e++ )
+//X 		{
+//X 			if ( DataTable->columnWidth(e) == 0 )
+//X 				continue;
+//X 			str.append( DataTable->text( i , e ) );
+//X 			str.append( csvDelimiter );
+//X 		}
+//X 		str.append( "\n" );
+//X 	}
+//X 
+//X 	QCString cstr( str.local8Bit() );
+//X 
+//X 	QFile out( KFileDialog::getSaveFileName()  );
+//X 	if (  !out.open( IO_WriteOnly ) )
+//X 	{
+//X 		out.close();
+//X 		return;
+//X 	}
+//X 	out.writeBlock( cstr.data(), cstr.length() );
+//X 
+//X 	out.close();
 }
 
 #include "searchdlg.moc"

@@ -40,8 +40,8 @@
 #include "kalzium.h"
 #include "infodlg.h"
 #include "infodialog.h"
-#include "fastinfo.h"
 #include "detailinfodlg.h"
+#include "chemicaldata.h"
 
 #include <iostream>
 
@@ -56,6 +56,7 @@ ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, in
 	
 	ElemInfoParsed *eInfo = new ElemInfoParsed( Data );
 	Data = eInfo->information();
+	kdDebug() << "Ox: " << Data.oxstage << endl;
 }
 
 //when the mousepointer is over a button
@@ -64,15 +65,21 @@ void ElementKP::enterEvent(QEvent *)
 	setFocus();
 	showName();
 
-	if ( kalzium->showFastInfo ) kalzium->fastinfo->show();
-	kalzium->fastinfo->setInfo( ElemNo );
+	if ( kalzium->showFastInfo ) 
+	{
+		kalzium->dtab->show();
+		kalzium->dtab->setData( Data );
+		kalzium->dtab->repaint();
+	}
 }
 
 //when the mousepointer leaves the button
 void ElementKP::leaveEvent(QEvent *)
 {
 	zeigerle->message(i18n("The Kalzium-version","Kalzium %1").arg( KALZIUM_VERSION ));
-	kalzium->fastinfo->hide();
+	if ( !kalzium->showFastInfo ) 
+		kalzium->dtab->hide();
+	
 }
 
 void ElementKP::mouseMoveEvent( QMouseEvent * )

@@ -26,7 +26,7 @@
 #include <kmainwindow.h>
 
 
-#define KALZIUM_VERSION "0.9.1"
+#define KALZIUM_VERSION "0.9.2"
 
 /** Kalzium is the base class of the project */
 
@@ -45,12 +45,13 @@ class KToggleAction;
 class KPushButton;
 
 class CalcDialog;
-class Colors_Config_Widget;
 class ElementKP;
 class Fastinfo;
 class SettingsDialog;
 class KalziumLegend;
 class StateOfMatterDlg;
+
+#include "detailinfodlg.h"
 
 typedef ElementKP* PElementKP;
 typedef QLabel* PQLabel;
@@ -65,7 +66,6 @@ class Kalzium : public KMainWindow
 
 		int numofquestions;
 		bool showFastInfo;
-		Colors_Config_Widget *colorsconfig;
 
 		KSelectAction *numerationmenu, 
 		*psestylemenu, 
@@ -78,6 +78,7 @@ class Kalzium : public KMainWindow
 		StateOfMatterDlg *templookup;
 		KalziumLegend *legend;
 		Fastinfo *fastinfo;
+		DetailedTab *dtab;
 
 		void createhelpArray();
 		QFont generalFont() {return generalKPFont;};

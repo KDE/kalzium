@@ -12,15 +12,8 @@
 #include <config.h>
 #endif
 
-#include <kapplication.h>
-#include <qstring.h>
-#include <qdict.h>
 #include <qlineedit.h>
 #include <qlabel.h>
-#include <qdialog.h>
-#include <qpushbutton.h>
-#include <qmessagebox.h>
-#include "kmolelements.h"
 #include "kmolcalc.h"
 
 /**

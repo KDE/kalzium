@@ -38,6 +38,7 @@ class SearchDlg : public SearchDialogUI
 		
 	
 	private:
+		QString beautifyOrbits( QString orbits ) const;
 		typedef QValueList<QCheckBox*> checkBoxesList;
 		checkBoxesList checkBoxes;
 		void fillCheckBoxList();

@@ -8,7 +8,6 @@
  * The built in editor used to define / undefine groups and elements.
  */
 
-#include <kapplication.h>
 #include <kglobalsettings.h>
 #include <klocale.h>
 #include <kpushbutton.h>

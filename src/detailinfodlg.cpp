@@ -16,7 +16,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <kcolorbutton.h>
 #include <kdebug.h>
 #include <kconfig.h>
 #include <kiconloader.h>
@@ -25,8 +24,9 @@
 #include <kpushbutton.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
+#include <kconfig.h>
+#include <ksimpleconfig.h>
 
-#include <qframe.h>
 #include <qfont.h>
 #include <qcolor.h>
 #include <qlabel.h>
@@ -41,12 +41,14 @@
 #include "detailinfodlg.h"
 #include "infodialog.h"
 #include "orbitswidget.h"
+#include "chemicaldata.h"
+
 
 DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Detailed Look on %1").arg( Eleminfo.Name.lower().utf8() ), Ok|User1 ,Ok, parent,name, true, false)
 {
 	Data = Eleminfo;
-    KIconLoader *kil = KGlobal::iconLoader();
+    const KIconLoader *kil = KGlobal::iconLoader();
 
 	setButtonText( User1 , i18n( "Weblookup" ) );
 
@@ -56,7 +58,8 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	QWidget *overviewWidget = new QWidget( overviewTab );
 	QVBoxLayout *foo_layout = new QVBoxLayout( overviewWidget );
 
-	dTab = new DetailedTab( Data , overviewWidget );
+	dTab = new DetailedTab( overviewWidget );
+	dTab->setData( Data );
 	overviewLayout->addWidget( overviewWidget );
 	foo_layout->addWidget( dTab );
 
@@ -119,6 +122,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	QVBoxLayout *miscLayout = new QVBoxLayout( miscTab, 5 );
 	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg(Data.date ) , miscTab );
 	QLabel *meanweight_label = new QLabel( i18n("Meanweight: %1").arg(Data.meanweight ) , miscTab );
+	QWhatsThis::add( meanweight_label , i18n( "The meanweight is the atomic weight devided by the number of protons" ) );
 	miscLayout->addWidget( discovered_label );
 	miscLayout->addWidget( meanweight_label );
 	miscLayout->insertStretch(-1,1);
@@ -146,13 +150,18 @@ void DetailedInfoDlg::slotUser1()
 
 	const KURL site(url);
 	html->openURL(site);
-	html->show();
 	html->view()->resize(html->view()->contentsWidth() + html->view()->frameWidth() ,400);
+	html->show();
 }
 
-DetailedTab::DetailedTab( ElementInfo& Eleminfo , QWidget *parent, const char *name ) : QWidget( parent, name )
+
+DetailedTab::DetailedTab( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
-	Data = Eleminfo;
+}
+
+void DetailedTab::setData( ElementInfo Eleminfo )
+{
+	EData = Eleminfo;
 }
 
 void DetailedTab::paintEvent( QPaintEvent* )
@@ -160,56 +169,135 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	QPainter p;
 	p.begin(this);
 
-	//the needed values
+	int h = this->height();
+	int w = this->width();
 
-	//int h = this->height();
-	//int w = this->width();
-	int h = 500;
-	int w = 400;
-	int dy = h/4;
-	int dx = w/3;
-	///////////////////
+	h_t = 20; //height of the texts
+	
+	x1 =  0;
+	y1 =  0;
 
-	//calculation of the corners
-	int x1,x2,y1,y2;
-
-//X 	x1 =  w/2-dx;
-//X 	y1 =  h/2-dy;
-	x1=20;
-	y1=20;
-	x2 = x1 + dx;
-	y2 = y1 + dy;
+	x2 = w;
+	y2 = h;
 
 	p.setBrush(Qt::SolidPattern);
-	p.setBrush( PSEColor( Data.Block ));
-	p.drawRect( x1 , y1 , dx , dy );
+	p.setBrush( PSEColor( EData.Block ));
+	p.drawRect( x1 , y1 , x2 , y2 );
+	
+	p.setBrush( Qt::black );
+	p.setBrush(Qt::NoBrush);
 
-	QFont f1 ( "times", 18, QFont::Bold );
+	QFont f1 ( "times", 20, QFont::Bold );
 	QFont f2 ( "times", 10 );
 	QFont f3 ( "times", 8, QFont::Bold );
 
 	p.setFont( f1 );
-	p.drawText( x1+dx/2 , y1+dy/2 , Data.Symbol );  //Symbol
+	int h_ = y2/10*3; //a third of the whole widget
+	p.drawText( x2/10 * 4, h_ , EData.Symbol ); //Symbol
 
 	p.setFont( f2 );
-	p.drawText( x1 , y1+dy/2-50 ,x2-x1 , 18 , Qt::AlignCenter , Data.oxstage);    //Oxidationszahlen
-	p.drawText( x1+2 , y2-20 , x2-x1-dx/2-4 , 18 , Qt::AlignLeft , Data.Name.utf8() ); //Name
-	p.drawText( x1+dx/2+2 , y2-20 , x2-x1-dx/2-4 , 18 , Qt::AlignRight , Data.Weight ); //Weight
+ 	p.drawText( x1+4, y2-h_t , x2/2 , h_t , Qt::AlignLeft , EData.Name.utf8() ); //Name
+	
+	p.drawText( x1+4+h_t , y2-2*h_t , x2-x1-4-h_t , h_t , Qt::AlignRight , EData.oxstage);    //Oxidationszahlen
+	p.drawText( x2/2 , y2-h_t , x2/2-4 , h_t , Qt::AlignRight , EData.Weight ); //Weight
 
 	p.setFont( f3 );
-	p.drawText( x1+dx/2-20 , y1+dy/2-18 , 20, 18, Qt::AlignRight , QString::number( Data.number ));
+	p.drawText( x2/10*3 , h_-h_t , x2/10, h_t , Qt::AlignRight , QString::number( EData.number ));
+	drawBiologicalSymbol( &p );
 
 	p.end();
 }
 
+void DetailedTab::drawBiologicalSymbol( QPainter *p )
+{
+	const int db = h_t;        //diameter of the big circle
+	const int ds = db/2;      //diameter of the inner circle
+
+	int d_ds = ( db/2 )-( ds/2 ); //the delta-x/y of the inner circle
+
+	int pos_x = x1+4;
+	int pos_y = y2 - 5 - 2*h_t;
+
+	switch ( EData.biological )
+	{
+		case 0:        //nothing
+			break;
+		case 1:        //red, red
+			p->setBrush( Qt::red );
+			p->setBrush(Qt::NoBrush);
+			p->setPen( Qt::red );
+			p->drawEllipse( pos_x,pos_y,db,db );
+			p->setBrush(Qt::SolidPattern);
+			p->setBrush( Qt::red );
+			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+			break;
+		case 2:        //green, red
+			p->setBrush( Qt::red );
+			p->setBrush(Qt::NoBrush);
+			p->setPen( Qt::red );
+			p->drawEllipse( pos_x,pos_y,db,db );
+			p->setBrush(Qt::SolidPattern);
+			p->setBrush( Qt::green );
+			p->setPen( Qt::green );
+			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+			break;
+		case 3:        //green
+			p->setBrush(Qt::SolidPattern);
+			p->setBrush( Qt::green );
+			p->setPen( Qt::green );
+			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+			break;
+		case 4:        //green, blue
+			p->setBrush( Qt::blue );
+			p->setBrush(Qt::NoBrush);
+			p->setPen( Qt::blue );
+			p->drawEllipse( pos_x,pos_y,db,db );
+			p->setBrush(Qt::SolidPattern);
+			p->setBrush( Qt::green );
+			p->setPen( Qt::green );
+			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+			break;
+		case 5:        //blue
+			p->setBrush(Qt::SolidPattern);
+			p->setBrush( Qt::blue );
+			p->setPen( Qt::blue );
+			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+			break;
+		case 6:        //blue, blue
+			p->setBrush( Qt::blue );
+			p->setBrush(Qt::NoBrush);
+			p->setPen( Qt::blue );
+			p->drawEllipse( pos_x,pos_y,db,db );
+			p->setBrush(Qt::SolidPattern);
+			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+			break;
+	}
+}
+
 QColor DetailedTab::PSEColor( const QString &block ) const
 {
+	KConfig *config = KGlobal::config();
+	config->setGroup( "Colors" );
     QColor c;
-    if ( block == "s" ) c.setRgb( 213 , 233 , 231 );
-    else if ( block == "d" ) c.setRgb( 200,230,160 );
-    else if ( block == "p" ) c.setRgb( 238,146,138 );
-    else if ( block == "f" ) c.setRgb( 190 , 190 , 190 );
+    if ( block == "s" )
+		c = config->readColorEntry("s");
+    else if ( block == "d" )
+		c = config->readColorEntry("d");
+    else if ( block == "p" )
+		c = config->readColorEntry("p");
+    else if ( block == "f" )
+		c = config->readColorEntry("f");
     return  c;
 };
+
+
+
+
+
+
+
+
+
+
 
 #include "detailinfodlg.moc"

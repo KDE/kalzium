@@ -17,6 +17,7 @@
  ***************************************************************************/
 
 //KDE-Includes
+#include <kapplication.h>
 #include <kdebug.h>
 #include <kaction.h>
 #include <kconfig.h>
@@ -43,7 +44,6 @@
 #include "quizdlg.h"
 #include "calcdlg.h"
 #include "stateofmatterdlg.h"
-#include "KalziumGraph.h"
 #include "kalzium.h"
 #include "kalzium.moc"
 #include "../calculations/kmoledit.h"
@@ -53,8 +53,11 @@
 #include "elementkp.h"
 #include "settingsdialog.h"
 #include "legend.h"
-#include "fastinfo.h"
 #include "searchdlg.h"
+#include "detailinfodlg.h"
+#include "chemicaldata.h"
+
+#include <kalziumplotdialogimpl.h>
 
 
 Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
@@ -159,6 +162,7 @@ void Kalzium::setupAllElementKPButtons()
 			eleminfo.date=config.readEntry("date","0");
 			eleminfo.Group=config.readEntry("Group","1");
 			eleminfo.orbits=config.readEntry("Orbits","0");
+			eleminfo.biological=config.readNumEntry( "biological" , -1 );
 			eleminfo.number=(n+1);
 
 		} else elementName="Unknown";
@@ -182,9 +186,13 @@ void Kalzium::setupAllElementKPButtons()
 
     mainlayout->addStretch();
  	
-	fastinfo = new Fastinfo( main_window, "testFastInfo",this );
-	fastinfo->show();
-	maingrid->addMultiCellWidget( fastinfo ,1,3,3,10 );
+	//////////////////
+	QWidget *SmallWidget = new QWidget( this );
+	QVBoxLayout *dtabLayout = new QVBoxLayout( SmallWidget , 5 );
+	dtab = new DetailedTab( SmallWidget );
+	dtab->show();
+	dtabLayout->addWidget( dtab );
+	maingrid->addMultiCellWidget( SmallWidget ,2,3,3,6 );
 }
 
 void Kalzium::setupCaption()
@@ -274,7 +282,7 @@ void Kalzium::showCAS() const
 
 
 //******** Slots *****************************************************
-void Kalzium::changeColorScheme(int id) 
+void Kalzium::changeColorScheme(int id)
 {
     static void (Kalzium::*funcs[])() = {
         &Kalzium::slotShowAcidBeh,
@@ -286,7 +294,7 @@ void Kalzium::changeColorScheme(int id)
     (this->*funcs[id & ~3 ? 3 : id])();
 }
 
-void Kalzium::changeNumeration(int id) const 
+void Kalzium::changeNumeration(const int id) const 
 {
     switch (id) {
 	case 0:
@@ -324,12 +332,13 @@ void Kalzium::newToolbarConfig()
     createGUI();
     applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
 }
+
 void Kalzium::optionsConfigureKeys()
 {
   KKeyDialog::configureKeys(actionCollection(), "kalziumui.rc");
 }
 
-void Kalzium::optionsConfigureToolbars()
+void Kalzium::optionsConfigureToolbars( )
 {
     saveMainWindowSettings( KGlobal::config(), autoSaveGroup() );
     KEditToolbar dlg(actionCollection());
@@ -345,10 +354,9 @@ void Kalzium::setFont()
   generalKPBoldFont.setBold(TRUE);
   generalKPFont.setPointSize(generalKPFont.pointSize()-2);
   generalKPBoldFont.setPointSize(generalKPBoldFont.pointSize()+1);
-
 }   
 
-void Kalzium::showPseStyle(int i)
+void Kalzium::showPseStyle(const int i)
 {
     if (i==0)
         slotShowMendelejew();
@@ -371,8 +379,10 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotCalculations()
 {
     if (!calculationdialog)
-        calculationdialog = new CalcDialog(this, "Calculationsdialog");
-    calculationdialog->show();
+	{
+		calculationdialog = new CalcDialog(this, "Calculationsdialog");
+    	calculationdialog->show();
+	}
 }
 
 void Kalzium::slotKnowledge()
@@ -459,8 +469,8 @@ void Kalzium::slotShowGroups()
 
 void Kalzium::slotShowMendelejew()
 {
-    static int nummer[14] = { 2,10,18,21,28,31,32,36,43,49,54,55,72,75 };
-    static int dochda[4] = { 67,69,90,92 };
+    static const int nummer[14] = { 2,10,18,21,28,31,32,36,43,49,54,55,72,75 };
+    static const int dochda[4] = { 67,69,90,92 };
 
     for (int i=0; i<14 ; ++i)
         element[nummer[i] - 1]->hide();
@@ -521,8 +531,15 @@ void Kalzium::slotShowTimeline(bool id)
 void Kalzium::slotShowQuickinfo( bool id )
 {
 	if ( id == true )
+	{
 		showFastInfo = true;
-	else showFastInfo = false;
+		dtab->show();
+	}
+	else 
+	{
+		showFastInfo = false;
+		dtab->hide();
+	}
 }
 
 void Kalzium::slotSearchData()
@@ -533,7 +550,7 @@ void Kalzium::slotSearchData()
 
 void Kalzium::slotPlotData()
 {
-	KalziumGraphDialog *testdlg = new KalziumGraphDialog( this, "testdlg" );
+	KalziumPlotDialogImpl *testdlg = new KalziumPlotDialogImpl( this, "testdlg" );
 	testdlg->show();
 }
 
@@ -552,7 +569,7 @@ void Kalzium::timeline()
     for (int i = 0; i < 109; ++i)
     {
 		PElementKP& b(element[i]);
-        
+		
 		if (i+1 == 6 ||
 			i+1 == 16 ||
 			i+1 == 26 ||
@@ -562,7 +579,9 @@ void Kalzium::timeline()
 			i+1 == 50 ||
 			i+1 == 51 ||
 			i+1 == 79 ||
-			i+1 == 80 
+			i+1 == 80 ||
+			i+1 == 82 || 
+			i+1 == 83
 			)
 		{
             b->show();
@@ -630,7 +649,7 @@ void Kalzium::setupConfig()
 
 void Kalzium::setupActions()
 {
-    KIconLoader *kil = KGlobal::iconLoader();
+    const KIconLoader *kil = KGlobal::iconLoader();
     
     main_config->setGroup("Menu Settings");
     KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
@@ -711,13 +730,13 @@ void Kalzium::setupActions()
 
 void Kalzium::updateMainWindow()
 {
-    changeColorScheme(colorschememenu->currentItem());
-    legend->changeLegend(colorschememenu->currentItem());
-    changeNumeration(numerationmenu->currentItem());
-    showPseStyle(psestylemenu->currentItem());
-    slotShowTimeline(timelineToggleAction->isChecked());
-	  slotShowQuickinfo( quickinfoToggleAction->isChecked() );
-	  slotShowLegend( legendToggleAction->isChecked() );
+	changeColorScheme(colorschememenu->currentItem());
+	legend->changeLegend(colorschememenu->currentItem());
+	changeNumeration(numerationmenu->currentItem());
+	showPseStyle(psestylemenu->currentItem());
+	slotShowTimeline(timelineToggleAction->isChecked());
+	slotShowQuickinfo( quickinfoToggleAction->isChecked() );
+	slotShowLegend( legendToggleAction->isChecked() );
 }
 
 void Kalzium::changeTheLegend(int tempId)

@@ -51,12 +51,13 @@ class Kalzium;
  * IE = Ionisationenergie
  * AR = Atomradius
  * oxstage = Oxidationstages
+ * biological = the importance for biological systems. This is 0,1,2,3,4,5,6
  */
 struct ElementInfo
 {
 	QString Name, Symbol, Block,
 	Weight, acidbeh, az, date, Group, orbits, oxstage, meanweight;
-	int number;
+	int number, biological;
 	double MP, BP, EN, Density, IE, AR;
 	QString _MP, _BP, _EN, _Density, _IE, _AR;
 };
