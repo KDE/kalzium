@@ -76,7 +76,7 @@ for information about the elements or to learn facts about the
 <chapter id="introduction">
 <title>Introduction</title>
 
-<para>&kalzium; provides you with all kind of information about the
+<para>&kalzium; provides you with all kinds of information about the
 <acronym>PSE</acronym> (Periodic System of Elements.) You can lookup
 lots of information about the elements and also use visualizations to
 show them. It is free and licensed
@@ -174,7 +174,7 @@ You can visualize the Periodic Table of the Elements by blocks, groups, acidic b
 <guimenuitem>Show Blocks</guimenuitem>: displays a color for each block.
 </para></listitem>
 <listitem><para>
-<guimenuitem>Show Acidic Behavior</guimenuitem>: each acidic behavior is represented by a different color.
+<guimenuitem>Show Acid Behavior</guimenuitem>: each acidic behavior is represented by a different color.
 </para></listitem>
 </itemizedlist>
 
@@ -329,14 +329,14 @@ the configuration dialog by selecting <guimenuitem>Configure
 
 <itemizedlist>
 <listitem><para>
-The Color Scheme tab allows you to choose your Color Scheme (No colors, Groups, Blocks, State of matter, Acidic behavior). </para></listitem>
+The Color Scheme tab allows you to choose your Color Scheme (No colors, Groups, Blocks, State of matter, Acid behavior). </para></listitem>
 <listitem><para>In the Colors tab, you can change the different colors for each scheme. 
 </para></listitem>
 <!-- Quiz mode is gone for this release, but should be back soon
 <listitem><para>In the Quiz tab you set the level you want (Grade1, Grade 2 or/and Grade 3) for your quiz. 
 </para></listitem>
 -->
-<listitem><para>in the Misc tab, you will be able to choose if you want the More Information dialog on left click (default) or right click. You can also choose the units you prefer: the energy is in kJ/mol by default but you can choose eV and the Temperature is in Kelvin by default but you can change to degrees Celsius or degrees Fahrenheit.
+<listitem><para>in the Miscellaneous tab, you will be able to choose if you want the More Information dialog on left click (default) or right click. You can also choose the units you prefer: the energy is in kJ/mol by default but you can choose eV and the Temperature is in Kelvin by default but you can change to degrees Celsius or degrees Fahrenheit.
 </para></listitem>
 </itemizedlist>
 
@@ -431,7 +431,7 @@ The Color Scheme tab allows you to choose your Color Scheme (No colors, Groups, 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Miscellaneous</guimenu>
-<guimenuitem>Show Timeline</guimenuitem>
+<guimenuitem>Show/Hide Timeline</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Display</action> the Timeline Slider</para></listitem>
 </varlistentry>
@@ -445,7 +445,7 @@ The Color Scheme tab allows you to choose your Color Scheme (No colors, Groups, 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Miscellaneous</guimenu>
-<guimenuitem>Show State Of Matter</guimenuitem>
+<guimenuitem>Show/Hide State Of Matter</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Display</action> the State Of Matter dialog</para></listitem>
 </varlistentry>
@@ -474,14 +474,14 @@ The Color Scheme tab allows you to choose your Color Scheme (No colors, Groups, 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Look</guimenu>
-<guimenuitem>Show Groups</guimenuitem>
+<guimenuitem>Show/Hide Groups</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Display</action> the elements with a different color for each group</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Look</guimenu>
-<guimenuitem>Show Blocks</guimenuitem>
+<guimenuitem>Show/Hide Blocks</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Display</action> the elements with a different color for each block</para></listitem>
 </varlistentry>
