@@ -13,7 +13,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string></string>
+        <string>KMolUI</string>
     </property>
     <vbox>
         <property name="name">
@@ -91,7 +91,7 @@
                 <cstring>TextLabel10</cstring>
             </property>
             <property name="text">
-                <string>Molecular Weight (u):</string>
+                <string>Molecular weight (u):</string>
             </property>
         </widget>
         <widget class="QLineEdit">
@@ -104,7 +104,7 @@
                 <cstring>TextLabel11</cstring>
             </property>
             <property name="text">
-                <string>Elemental Composition (%)</string>
+                <string>Elemental composition (%):</string>
             </property>
         </widget>
         <widget class="QTextEdit">
@@ -133,6 +133,7 @@
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
+    <includehint>qwidget.h</includehint>
     <includehint>klineedit.h</includehint>
 </includehints>
 </UI>

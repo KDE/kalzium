@@ -129,7 +129,6 @@
                                 </property>
                                 <property name="font">
                                     <font>
-                                        <bold>1</bold>
                                     </font>
                                 </property>
                                 <property name="text">
@@ -165,7 +164,6 @@
                                 </property>
                                 <property name="font">
                                     <font>
-                                        <bold>1</bold>
                                     </font>
                                 </property>
                                 <property name="text">
@@ -212,7 +210,6 @@
                                 </property>
                                 <property name="font">
                                     <font>
-                                        <bold>1</bold>
                                     </font>
                                 </property>
                                 <property name="text">
@@ -243,7 +240,6 @@
                                 </property>
                                 <property name="font">
                                     <font>
-                                        <bold>1</bold>
                                     </font>
                                 </property>
                                 <property name="text">
@@ -306,7 +302,6 @@
                                 </property>
                                 <property name="font">
                                     <font>
-                                        <bold>1</bold>
                                     </font>
                                 </property>
                                 <property name="text">
@@ -332,7 +327,6 @@
                                 </property>
                                 <property name="font">
                                     <font>
-                                        <bold>1</bold>
                                     </font>
                                 </property>
                                 <property name="text">
@@ -369,7 +363,6 @@
                             </property>
                             <property name="font">
                                 <font>
-                                    <bold>1</bold>
                                 </font>
                             </property>
                             <property name="text">
@@ -387,7 +380,6 @@
                             </property>
                             <property name="font">
                                 <font>
-                                    <bold>1</bold>
                                 </font>
                             </property>
                             <property name="text">
@@ -415,11 +407,10 @@
                             </property>
                             <property name="font">
                                 <font>
-                                    <bold>1</bold>
                                 </font>
                             </property>
                             <property name="text">
-                                <string>Oxidation</string>
+                                <string>Oxidation:</string>
                             </property>
                         </widget>
                         <widget class="QLabel">
@@ -459,7 +450,6 @@
                             </property>
                             <property name="font">
                                 <font>
-                                    <bold>1</bold>
                                 </font>
                             </property>
                             <property name="text">
@@ -477,7 +467,6 @@
                             </property>
                             <property name="font">
                                 <font>
-                                    <bold>1</bold>
                                 </font>
                             </property>
                             <property name="text">
@@ -587,6 +576,7 @@
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
+    <includehint>qwidget.h</includehint>
     <includehint>kpushbutton.h</includehint>
 </includehints>
 </UI>
