@@ -167,7 +167,6 @@ void KalziumPlotDialogImpl::updateListview()
 
 	int from = fromSpin->value()-1;
 	int to = toSpin->value();
-	
 	QString name, sym;
 	
 	ChemicalElement *elem;
@@ -175,7 +174,7 @@ void KalziumPlotDialogImpl::updateListview()
 	KListViewItem *item;
 
 	
-	for ( elem = elementsPtrList.at( from  ) ; from != to ; elem = elementsPtrList.next() )
+	for ( elem = elementsPtrList.at(to-1 ) ; to!=from ; elem = elementsPtrList.prev() )
 	{
 		name = elem->name;
 		sym = elem->symbol;
@@ -215,8 +214,7 @@ void KalziumPlotDialogImpl::updateListview()
 					break;
 			}
 		}
-		
-		from++;
+		to--;
 	}
 }
 
