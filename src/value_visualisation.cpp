@@ -41,16 +41,21 @@ ValueVisualisation::ValueVisualisation (QWidget *parent, const char *name, Kalzi
 //    int x = ( canvas->width() )/2;
     int h = 0, v = 0;
     QCanvasEllipse *ball[ 85 ];
+    QCanvasText *canvastext[ 85 ];
     QBrush brush( blue );
-    for ( int i = 0 ; i < 86 ; i++ )
+    for ( int i = 0 ; i < 85 ; i++ )
     {
-        position(i+1,h,v); //get position
-        ball[i] = new QCanvasEllipse( kalzium->element[i]->Data.AR*0.2, kalzium->element[i]->Data.AR*0.2 , canvas );
+	position(i+1,h,v); //get position
+	ball[i] = new QCanvasEllipse( kalzium->element[i]->Data.AR*0.2, kalzium->element[i]->Data.AR*0.2 , canvas );
 
-        ball[i]->setBrush( brush );
-        ball[i]->setPen( NoPen );
-        ball[i]->move( 50+h*1.125 , v*2.5 );
-        ball[i]->show();
+	ball[i]->setBrush( brush );
+	ball[i]->setPen( NoPen );
+	ball[i]->move( 50+h*1.125 , v*2.5 );
+	ball[i]->show();
+	canvastext[i] = new QCanvasText( canvas );
+	canvastext[i]->setText( kalzium->element[i]->Data.Symbol );
+	canvastext[i]->move( ball[i]->x()-kalzium->element[i]->Data.AR*0.2, ball[i]->y() );
+	canvastext[i]->show();
     }
        
 /*    QCanvasLine *line = new QCanvasLine( canvas );
@@ -61,7 +66,7 @@ ValueVisualisation::ValueVisualisation (QWidget *parent, const char *name, Kalzi
     QCanvasView *view = new QCanvasView(   canvas, this, "", QCanvasView::WStyle_Customize | QCanvasView::WStyle_NoBorderEx );
 
 
-    view->resize( 1000, 1000 );
+    view->resize( 800, 800 );
     view->setVScrollBarMode( QCanvasView::AlwaysOff );
     view->setHScrollBarMode( QCanvasView::AlwaysOff );
     view->show();
