@@ -2,10 +2,10 @@
 [Desktop Entry]
 Type=Application
 Exec=kalzium -caption "%c" %i %m  
-Icon=kalzium.png
+Icon=kalzium
 DocPath=kalzium/index.html
 Comment=
-Comment[de]=
+Comment[xx]=xx
 Terminal=0
 Name=Kalzium
-Name[de]=Kalzium
+Name[be]=Кальцый
