@@ -190,7 +190,7 @@ void QuizDlg::slotCheck()
         {
             this->close();
             Quiz_Result *finalresults = new Quiz_Result();
-            finalresults->setCaption(i18n("See your results!"));
+            finalresults->setCaption(i18n("See Your Results!"));
             QObject::connect (finalresults->exit, SIGNAL(clicked()), finalresults, SLOT(hide()));
             QString resulttext;
             resulttext = i18n("You answered %1 of %2 questions correctly.").arg(QString::number(quizresult)).arg(qnum);

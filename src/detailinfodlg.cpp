@@ -40,7 +40,7 @@
 #include "detailinfodlg.h"
 
 DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, const char *name)
-    : KDialogBase(IconList, i18n("Detailed look"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
+    : KDialogBase(IconList, i18n("Detailed Look"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
 	Data = Eleminfo;
 
@@ -54,7 +54,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	overviewLayout->addWidget( foo );
 	foo_layout->addWidget( dTab );
 
-	showLegendKP = new KPushButton( i18n( "show Legend" ), this );
+	showLegendKP = new KPushButton( i18n( "Show Legend" ), this );
 	connect( showLegendKP , SIGNAL( clicked() ), this , SLOT( slotShowLegend() ) );
 	overviewLayout->addWidget( showLegendKP );
 	
