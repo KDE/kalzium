@@ -138,6 +138,7 @@ void Kalzium::setupActions()
 	connect( m_pSOMSlider->slider, SIGNAL( valueChanged( int ) ), this, SLOT( slotTempChanged( int ) ) );
 	connect( m_pTimeSlider->pSlider, SIGNAL( valueChanged( int ) ), m_pRegularPSE, SLOT( setDate( int ) ) );
 	m_pSOMSlider->slider->setValue(Prefs::temperaturevalue());
+	m_pTimeSlider->pSlider->setValue(Prefs::sliderdate());
 
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");

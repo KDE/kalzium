@@ -276,6 +276,8 @@ void PSE::setDate( int date )
 		else
 			button->show();
 	}
+	Prefs::setSliderdate(date);
+	Prefs::writeConfig();
 }
 
 void PSE::setTemperature( const double temp )
