@@ -76,11 +76,6 @@ class Kalzium : public KMainWindow
 		int date;
 
 		/**
-		 * the slider used for the State of Matter
-		 */
-		QSlider m_pSOMSlider;
-
-		/**
 		 * if true, the legend will be shown
 		 */
 		bool m_bShowLegend;
