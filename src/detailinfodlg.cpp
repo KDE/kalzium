@@ -86,7 +86,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 
     /////////////////////////////////
     energyTab = addPage(i18n("Energies"), i18n("Energyinformation"), BarIcon(kil->iconPath( "energies" , KIcon::User)));
-	QVBoxLayout *energyLayout = new QVBoxLayout( energyTab );
+	QVBoxLayout *energyLayout = new QVBoxLayout( energyTab, 5 );
 	QLabel *ENlabel = new QLabel( i18n( "Electronegativity: %1" ).arg( Data._EN ) , energyTab );
 	QLabel *Ionlabel = new QLabel(i18n( "Ionization energy: %1" ).arg( Data._IE ) , energyTab );
 	QLabel *MPlabel = new QLabel(i18n( "Meltingpoint: %1" ).arg( Data._MP ) , energyTab );
@@ -95,10 +95,11 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	energyLayout->addWidget( Ionlabel );
 	energyLayout->addWidget( MPlabel );
 	energyLayout->addWidget( BPlabel );
+	energyLayout->insertStretch(-1,1);
 
     /////////////////////////////////
     chemicalTab = addPage(i18n("Chemical Data"), i18n("Chemical data"), BarIcon(kil->iconPath( "chemical" , KIcon::User)) );
-	QVBoxLayout *chemicalLayout = new QVBoxLayout( chemicalTab );
+	QVBoxLayout *chemicalLayout = new QVBoxLayout( chemicalTab, 5 );
 	QLabel *orbtisLabel = new QLabel( i18n( "Orbits: %1" ).arg( Data.orbits ) , chemicalTab );
 	QLabel *symbolLabel = new QLabel( i18n( "Symbol: %1" ).arg( Data.Symbol ) , chemicalTab  );
 	QLabel *densityLabel = new QLabel( i18n( "Density: %1").arg( Data._Density ) , chemicalTab );
@@ -111,14 +112,16 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	chemicalLayout->addWidget( blockLabel  );
 	chemicalLayout->addWidget( atomrad );
 	chemicalLayout->addWidget( atomweightLabel);
+	chemicalLayout->insertStretch(-1,1);
     
 	/////////////////////////////////
     miscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon(kil->iconPath( "misc" , KIcon::User)));
-	QVBoxLayout *miscLayout = new QVBoxLayout( miscTab );
+	QVBoxLayout *miscLayout = new QVBoxLayout( miscTab, 5 );
 	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg(Data.date ) , miscTab );
 	QLabel *meanweight_label = new QLabel( i18n("Meanweight: %1").arg(Data.meanweight ) , miscTab );
 	miscLayout->addWidget( discovered_label );
 	miscLayout->addWidget( meanweight_label );
+	miscLayout->insertStretch(-1,1);
 	
 	/////////////////////////////////
     orbitsTab = addPage(i18n("Atom model"), i18n("Atom Model"), BarIcon(kil->iconPath( "orbits" , KIcon::User)));
