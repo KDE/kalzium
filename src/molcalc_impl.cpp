@@ -26,6 +26,7 @@
 #include "element.h"
 
 #include <qlabel.h>
+#include <qmap.h>
 
 MolcalcImpl::MolcalcImpl(QWidget *parent, const char *name, bool modal )
  : MolcalcDialog(parent, name, modal)
@@ -75,7 +76,6 @@ void MolcalcImpl::updateData( int number, KIND kind )
 				it++;
 		}
 	}
-	recalculate();
 	updateUI();
 }
 
@@ -100,16 +100,51 @@ void MolcalcImpl::recalculate()
 
 void MolcalcImpl::updateUI()
 {
+	QString str;
+	
+	//the elements
+	QMap<QString, int> map;
+	
 	QValueList<Element*>::const_iterator it = m_elements.begin( );
 	QValueList<Element*>::const_iterator itEnd = m_elements.end( );
 
-	QString str;
-	
+	QStringList differentElements;
+
 	for ( ; it != itEnd ; ++it )
-	{
-		str += i18n( "%1 %2\n" ).arg(( *it )->elname()).arg(( *it )->weight());
+	{//get the diffent elements in the molecule
+		if ( !differentElements.contains( ( *it )->elname() ) )
+			differentElements.append( ( *it )->elname() );
 	}
+
+	QStringList::const_iterator itNames = differentElements.begin( );
+	QStringList::const_iterator itEndNames = differentElements.end( );
+	
+	for ( ; itNames != itEndNames ; ++itNames )
+	{
+		it = m_elements.begin( );
+		
+		int count = 0;
+		for ( ; it != itEnd ; ++it )
+		{
+			if ( ( *it )->elname() == *itNames )
+				count++;
+		}
+		map[ *itNames ] = count;
+	}
+
+	QMap<QString, int>::Iterator itMap;
+	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) {
+		//kdDebug() << "Key: "<< itMap.key() << "   ...    Data: " << itMap.data() << endl;
+		str += i18n( "%1 %2\n" ).arg( itMap.data() ).arg( itMap.key() );
+	}
+	
 	resultLabel->setText( str );
+
+	//the composition
+	
+	//the weight
+	recalculate();
+	resultWeight->setText( i18n( "Molecular Weight: %1" ).arg( m_weight ) );
 }
 
 void MolcalcImpl::slotMinusToggled(bool on)

@@ -92,27 +92,13 @@
                     </property>
                     <widget class="QLayoutWidget" row="0" column="0">
                         <property name="name">
-                            <cstring>layout9</cstring>
+                            <cstring>layout7</cstring>
                         </property>
-                        <grid>
+                        <vbox>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="Line" row="1" column="0">
-                                <property name="name">
-                                    <cstring>line1</cstring>
-                                </property>
-                                <property name="frameShape">
-                                    <enum>HLine</enum>
-                                </property>
-                                <property name="frameShadow">
-                                    <enum>Sunken</enum>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                            </widget>
-                            <widget class="QLayoutWidget" row="0" column="0">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
                                     <cstring>layout6</cstring>
                                 </property>
@@ -187,7 +173,21 @@
                                     </spacer>
                                 </hbox>
                             </widget>
-                            <spacer row="2" column="0">
+                            <widget class="Line">
+                                <property name="name">
+                                    <cstring>line1</cstring>
+                                </property>
+                                <property name="frameShape">
+                                    <enum>HLine</enum>
+                                </property>
+                                <property name="frameShadow">
+                                    <enum>Sunken</enum>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                            </widget>
+                            <spacer>
                                 <property name="name">
                                     <cstring>spacer5_2</cstring>
                                 </property>
@@ -200,19 +200,35 @@
                                 <property name="sizeHint">
                                     <size>
                                         <width>20</width>
-                                        <height>20</height>
+                                        <height>100</height>
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="QLabel" row="3" column="0">
+                            <widget class="QLabel">
                                 <property name="name">
                                     <cstring>resultLabel</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>textLabel1</string>
+                                    <string></string>
                                 </property>
                             </widget>
-                        </grid>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>resultComposition</cstring>
+                                </property>
+                                <property name="text">
+                                    <string></string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>resultWeight</cstring>
+                                </property>
+                                <property name="text">
+                                    <string></string>
+                                </property>
+                            </widget>
+                        </vbox>
                     </widget>
                 </grid>
             </widget>
