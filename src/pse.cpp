@@ -187,19 +187,15 @@ void PSE::activateColorScheme( const int nr )
 
 			if (acidicbeh == QString("0")) {
 				(*it)->setElementColor( color_ac );
-				continue;
 			}
 			if (acidicbeh == QString("1")){
 				(*it)->setElementColor( color_ba );
-				continue;
 			}
 			if (acidicbeh == QString("2")){
 				(*it)->setElementColor( color_neu );
-				continue;
 			}
 			if (acidicbeh == QString("3")){
 				(*it)->setElementColor( color_amp );
-				continue;
 			}
 			++it;
 		}
