@@ -296,6 +296,9 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotUpdateSettings()
 {
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
+	
+	displayTemperature();
+        displayEnergie();
 }
 
 void Kalzium::slotQuizAction()
