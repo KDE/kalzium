@@ -1,5 +1,5 @@
 /***************************************************************************
-                          main.cpp  -  
+                          main.cpp  -
                              -------------------
     begin                : Die Dez  4 17:59:34 CET 2001
     copyright            : (C) 2001, 2002, 2003 by Carsten Niehaus
@@ -28,11 +28,11 @@ static const char *description =
 	 "to provide information about the elements in\n"
 	 "the periodic table of elements and do basic calculations.\n");
 
-	
-	
+
+
 static KCmdLineOptions options[] =
 {
-  { 0, 0, 0 }
+  KCmdLineLastOption
   // INSERT YOUR COMMANDLINE OPTIONS HERE
 };
 
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     KAboutData aboutData( "kalzium", I18N_NOOP("Kalzium"),
            KALZIUM_VERSION , description, KAboutData::License_GPL,
             "(c) 2001, 2002, Carsten Niehaus", 0, 0, "cniehaus@kde.org");
-    aboutData.addAuthor("Carsten Niehaus", 
+    aboutData.addAuthor("Carsten Niehaus",
             I18N_NOOP("Maintainer, Author"), "cniehaus@kde.org");
     aboutData.addCredit("Robert Gogolok",
             I18N_NOOP("Coding"), "robertgogolok@gmx.de");
