@@ -36,9 +36,10 @@
 #include "isotopewidget.h"
 #include "detailedgraphicaloverview.h"
 
-DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *name)
+DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget *parent, const char *name)
     : KDialogBase(KDialogBase::IconList, "",  Close, Close, parent,name)
 {
+	m_data = data;
 	e = el;
 
 	( actionButton( KDialogBase::Close ) )->setFocus();
@@ -157,13 +158,13 @@ void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 	if ( ev->delta() < 0 )
 	{
 		if ( number > 1 )
-			element = new Element( number-1 );
+			element = m_data->element( number-1 );
 		else
 			return;
 	}
 	else if ( number < 111 )
 	{
-		element = new Element( number+1 );
+		element = m_data->element( number+1 );
 	}
 	else
 		return;

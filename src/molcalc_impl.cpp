@@ -49,34 +49,35 @@ void MolcalcImpl::slotButtonClicked( int buttonnumber )
 
 void MolcalcImpl::updateData( int number, KIND kind )
 {
-	Element *el = new Element( number );
-	if ( kind == ADD )
-	{
-		//kdDebug() << "ADD" << endl;
-		m_weight += el->weight();
-		m_elements.append( el );
-	}
-	else //TODO check if the element was in the list
-	{
-		//kdDebug() << "REMOVE" << endl;
-
-		QValueList<Element*>::const_iterator it = m_elements.begin( );
-		QValueList<Element*>::const_iterator itEnd = m_elements.end( );
-
-		//kdDebug() << "Try to remove Element " << el->elname() << endl;
-
-		bool removed = false;
-		while ( !removed && ( it != itEnd ))
-		{
-				if ( ( *it )->elname() == el->elname() )
-				{
-					m_elements.remove( *it );
-					removed = true;
-				}
-				it++;
-		}
-	}
-	updateUI();
+//TODO XML
+//X 	Element *el = new Element( number );
+//X 	if ( kind == ADD )
+//X 	{
+//X 		//kdDebug() << "ADD" << endl;
+//X 		m_weight += el->weight();
+//X 		m_elements.append( el );
+//X 	}
+//X 	else //TODO check if the element was in the list
+//X 	{
+//X 		//kdDebug() << "REMOVE" << endl;
+//X 
+//X 		QValueList<Element*>::const_iterator it = m_elements.begin( );
+//X 		QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+//X 
+//X 		//kdDebug() << "Try to remove Element " << el->elname() << endl;
+//X 
+//X 		bool removed = false;
+//X 		while ( !removed && ( it != itEnd ))
+//X 		{
+//X 				if ( ( *it )->elname() == el->elname() )
+//X 				{
+//X 					m_elements.remove( *it );
+//X 					removed = true;
+//X 				}
+//X 				it++;
+//X 		}
+//X 	}
+//X 	updateUI();
 }
 
 void MolcalcImpl::slotPlusToggled(bool on)

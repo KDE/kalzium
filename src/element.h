@@ -49,6 +49,8 @@ class KalziumDataObject
 		
 		CList CoordinateList;
 
+		Element* element( int number );
+
 	private:
 		EList readData( QDomDocument &dataDocument );
 };
@@ -67,8 +69,7 @@ struct coordinate{
 */
 class Element{
 	public:
-		Element( int );
-		Element( );
+		Element();
 
 		virtual ~Element();
 
@@ -89,6 +90,7 @@ class Element{
 		void setDate( int date ) { m_date = date; }
 		void setBiologicalMeaning( int value ) { m_biological = value; }
 		void setAggregation( int value ) { m_az = value; }
+		void setNumber( int num ){ m_number = num; }
 
 		void setScientist( QString value ) { m_scientist = value; }
 		void setName( QString value ) { m_name = value; }
@@ -303,10 +305,10 @@ class Element{
     QColor elementColor() const { 
 		return m_Color; 
 	}
+		
+	void setupXY();
 
 	private:
-		void setupXY();
-		
 		/*
 		 * the integer num represents the number of the element
 		 */

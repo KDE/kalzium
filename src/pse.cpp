@@ -303,9 +303,11 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		
 		if ( m_showTooltip )
 		{
-			kdDebug() << "m_tooltipElementNumber: " << m_tooltipElementNumber << endl;
 			if ( m_tooltipElementNumber < 112 && m_tooltipElementNumber > 0 )
-				drawToolTip( &p, new Element( m_tooltipElementNumber ) );
+			{
+				Element *e = d->element( m_tooltipElementNumber );
+				drawToolTip( &p, e );
+			}
 			else
 				qWarning( "wrong number" );
 		}
@@ -402,8 +404,6 @@ void PSE::slotTransientLabel( void )
 	Y += 1;
 
 	QPoint point( X,Y );
-	kdDebug() << point.x() << " :x" << endl;
-	kdDebug() << point.y() << " :y" << endl;
 
 	const int num = ElementNumber( X, Y );
 	if ( num )

@@ -37,19 +37,8 @@
 
 #define ELEMENTSIZE 45
 
-Element::Element( int num )
-{
-	m_number = num;
-
-//X 	m_IE=config.readDoubleNumEntry( "IE", -1 );
-//X 	m_IE2=config.readDoubleNumEntry( "IE2", -1 );
-
-	setupXY();
-}
-
 Element::Element()
 {
-	setupXY();
 };
 
 QString Element::parsedOrbits()
@@ -356,7 +345,7 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 	int h_small = 15; //the size for the small units like elementnumber
 
 	//The X-coordiante
-	int X = 0;
+	int X;
 	
 	if ( useSimpleView )
 	{//use the small periodic table without the d- and f-Block
@@ -463,21 +452,15 @@ KalziumDataObject::KalziumDataObject()
 	layoutFile.close();
 
 	ElementList = readData( doc );
-
-	kdDebug() << ElementList.count() << " elements read" << endl;
-
-	//X 	for( int i = 1 ; i < 112 ; ++i )
-	//X 	{
-	//X 		Element *e = new Element( i );
-	//X 		coordinate point; point.x =  e->x; point.y = e->y;
-	//X 
-	//X 		CoordinateList.append( point );
-	//X 		ElementList.append( e );
-	//X 	}
 }
 
 KalziumDataObject::~KalziumDataObject()
 {}
+
+Element* KalziumDataObject::element( int number )
+{
+	return *( ElementList.at( number-1 ) );
+}
 
 EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 {
@@ -491,6 +474,10 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 	for ( uint i = 0; i < elementNodes.count(); ++i )
 	{//iterate through all elements
 		domElement = ( const QDomElement& ) elementNodes.item( i ).toElement();
+
+//TODO IE
+//X 	m_IE=config.readDoubleNumEntry( "IE", -1 );
+//X 	m_IE2=config.readDoubleNumEntry( "IE2", -1 );
 		
 		double weight = domElement.namedItem( "weight" ).toElement().text().toDouble();
 		double en = domElement.namedItem( "electronegativity" ).toElement().text().toDouble();
@@ -502,6 +489,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		int bio = domElement.namedItem( "biologicalmeaning" ).toElement().text().toInt();
 		int az = domElement.namedItem( "aggregation" ).toElement().text().toInt();
 		int date = domElement.namedItem( "date" ).toElement().text().toInt();
+		int number = domElement.namedItem( "number" ).toElement().text().toInt();
 		
 		QString scientist = domElement.namedItem( "date" ).toElement().attributeNode( "scientist" ).value();
 		QString name = domElement.namedItem( "name" ).toElement().text();
@@ -518,6 +506,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setDate(date);
 		e->setBiologicalMeaning(bio);
 		e->setAggregation(az);
+		e->setNumber( number );
 		
 		e->setScientist(scientist);
 		e->setName(name);
@@ -537,7 +526,11 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setDensity( density );
 		e->setAtomicRadius( atomic_radius );
 
+		e->setupXY();
+
 		list.append( e );
+		coordinate point; point.x =  e->x; point.y = e->y;
+		CoordinateList.append( point );
 	}
 	
 	return list;

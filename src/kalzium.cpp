@@ -303,9 +303,9 @@ void Kalzium::openInformationDialog( int number )
 {
 	if ( !m_PSE->learningMode() )
 	{
-		Element *e = new Element( number );
+		Element *e = data()->element( number );
 
-		DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( e, this , "detailedDlg" );
+		DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( data(), e, this , "detailedDlg" );
 		detailedDlg->show();
 		m_info->hide();
 	}

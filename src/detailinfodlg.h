@@ -27,6 +27,7 @@
 
 class QFrame;
 class DetailedGraphicalOverview;
+class KalziumDataObject;
 
 class QMouseEvent;
 
@@ -41,9 +42,10 @@ class DetailedInfoDlg : public KDialogBase
     Q_OBJECT
     
 	public:
-        	DetailedInfoDlg( Element *el , QWidget *parent=0, const char *name=0);
+        	DetailedInfoDlg( KalziumDataObject* data, Element *el , QWidget *parent=0, const char *name=0);
 	
 	private:
+		KalziumDataObject *m_data;
 		Element *e;
 		QFrame *m_pEnergyTab,
 			*m_pOverviewTab,
