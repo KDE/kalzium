@@ -414,12 +414,12 @@ void Kalzium::slotKnowledge()
 {
     bool ok = FALSE;
     int numofquestions = QInputDialog::getInteger(
-            i18n( "how many questions?" ),
-            i18n( "please enter a number" ), 10, 0, 80, 1, &ok, this );
+            i18n( "How Many Questions?" ),
+            i18n( "Please enter a number" ), 10, 0, 80, 1, &ok, this );
     if ( ok )
     {
         QuizDlg *quiz2 = new QuizDlg(this, "quizdialog", numofquestions ); 
-        quiz2->setCaption(i18n("Test your knowledge"));
+        quiz2->setCaption(i18n("Test Your Knowledge"));
         quiz2->show();
     }
 }
@@ -534,8 +534,8 @@ void Kalzium::setupActions()
 
     // BEGIN  TIMELINEMENU
     QStringList timelinelist;
-    timelinelist.append(i18n("on"));
-    timelinelist.append(i18n("off"));
+    timelinelist.append(i18n("On"));
+    timelinelist.append(i18n("Off"));
     
     timelinemenu = new KSelectAction (i18n("&Timeline"),0,actionCollection(),"timeline");
     timelinemenu->setItems(timelinelist);
@@ -551,7 +551,7 @@ void Kalzium::setupActions()
     weblookuplist.append("http://www.ktf-split.hr/periodni/de/");
     weblookuplist.append("http://www.ktf-split.hr/periodni/fr/");
     weblookuplist.append("http://www.ktf-split.hr/periodni/");
-    
+
     weblookupmenu = new KSelectAction (i18n("&weblookup"),0,actionCollection(),"weblookupconfig");
     weblookupmenu->setItems(weblookuplist);
     weblookupmenu->setCurrentItem(0);
@@ -560,10 +560,10 @@ void Kalzium::setupActions()
     connect(weblookupmenu, SIGNAL(activated(const QString &)), this, SLOT(slotUpdateWeblookupURL(const QString &)));
 */    
 
-    (void) new KAction (i18n("Test your &knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
+    (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
     (void) new KAction (i18n("Values"),0, this, SLOT(slotValues()), actionCollection(), "values");
     (void) new KAction (i18n("Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
-    (void) new KAction (i18n("Define molecular weights"),0, this, SLOT(defineweights()), actionCollection(), "defineweights");
+    (void) new KAction (i18n("Define Molecular Weights"),0, this, SLOT(defineweights()), actionCollection(), "defineweights");
 
     createGUI(locate("data", "kalzium/kalziumui.rc"));
 }
