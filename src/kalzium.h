@@ -47,10 +47,6 @@ class Kalzium : public KMainWindow
 
 		PSE* currentPSE() const;
 
-		KAction *m_pSimplePSEAction,
-			*m_pRegularPSEAction,
-			*m_pMendeljevPSEAction;
-
 	private:
 		/*
 		 * this Pointer points to the current PSE. The pointer
@@ -60,6 +56,14 @@ class Kalzium : public KMainWindow
 		PSE* m_pCurrentPSE;
 			
 		void setupBlockLists( KalziumDataObject *d );
+		
+		/*
+		 * all KActions Kalzium uses
+		 **/
+		KAction *m_pSimplePSEAction,
+			*m_pRegularPSEAction,
+			*m_pMendeljevPSEAction;
+		
 
 	private slots:
 		/*
@@ -69,6 +73,13 @@ class Kalzium : public KMainWindow
 		void slotSwitchtoSimplePSE();
 		void slotSwitchtoRegularPSE();
 		void slotSwitchtoMendeljevPSE();
+
+		/*
+		 * These slots are for the standardactions
+		 **/
+		void showSettingsDialog();
+		void optionsConfigureKeys();
+		void optionsConfigureToolbars();
 };
 
 /**

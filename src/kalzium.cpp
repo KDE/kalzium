@@ -17,25 +17,25 @@
 #include <klocale.h>
 #include <kdebug.h>
 #include <kaction.h>
+#include <kkeydialog.h>
+#include <kedittoolbar.h>
+#include <kapplication.h>
 
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
 {
 	pd = new privatedata( this );
 
-	if (KConfigDialog::showDialog("settings"))
-		return;
-	//KConfigDialog didn't find an instance of this dialog, so lets create it :
-	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
-	dialog->addPage( new setColorScheme( 0, "colorscheme_page"), i18n("Configure Default Colorscheme"), "colorize");
-	dialog->addPage( new setColors( 0, "colors_page"), i18n("Configure Colors"), "colorize");
-	dialog->show();
-
 	pd->kalziumData = new KalziumDataObject();
+
 
 	m_pRegularPSEAction = new KAction(i18n("Show &Regular PSE"), 0, this, SLOT(slotSwitchtoRegularPSE()), actionCollection(), "RegularPSE");
 	m_pSimplePSEAction = new KAction(i18n("Show &Simple PSE"), 0, this, SLOT(slotSwitchtoSimplePSE()), actionCollection(), "SimplePSE");
 	m_pMendeljevPSEAction = new KAction(i18n("Show &Mendeljev PSE"), 0, this, SLOT(slotSwitchtoMendeljevPSE()), actionCollection(), "MendeljevPSE");
+	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
+	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
+	KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
+	KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
 
 	m_pRegularPSE = new RegularPSE( data(), this, "regularPSE");
 	m_pSimplePSE = new SimplifiedPSE( data(), this, "SimplifiedPSE");
@@ -48,6 +48,8 @@ Kalzium::Kalzium()
 	createGUI();
 
 	setCentralWidget( m_pCurrentPSE );
+	
+	createStandardStatusBarAction(); //post-KDE 3.1
 }
 
 void Kalzium::slotSwitchtoMendeljevPSE()
@@ -98,6 +100,30 @@ PSE* Kalzium::currentPSE() const
 	return m_pCurrentPSE;
 }
 
+void Kalzium::showSettingsDialog()
+{
+	if (KConfigDialog::showDialog("settings"))
+		return;
+	
+	//KConfigDialog didn't find an instance of this dialog, so lets create it :
+	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
+	dialog->addPage( new setColorScheme( 0, "colorscheme_page"), i18n("Configure Default Colorscheme"), "colorize");
+	dialog->addPage( new setColors( 0, "colors_page"), i18n("Configure Colors"), "colorize");
+	dialog->show();
+}
+
+void Kalzium::optionsConfigureKeys()
+{
+	KKeyDialog::configure(actionCollection());
+}
+
+void Kalzium::optionsConfigureToolbars( )
+{
+	saveMainWindowSettings( KGlobal::config(), autoSaveGroup() );
+	KEditToolbar dlg(actionCollection());
+	connect(&dlg, SIGNAL(newToolbarConfig()), this, SLOT(newToolbarConfig()));
+	dlg.exec();
+}
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
 
