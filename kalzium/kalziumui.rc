@@ -1,0 +1,30 @@
+<!DOCTYPE kpartgui>
+<kpartgui name="kalzium">
+<MenuBar>
+<Menu name="config"><text>&amp;Configuration</text>
+        <Action name="psestyle"/>
+        <Action name="colourscheme"/>
+        <Action name="numeration"/>
+        <Action name="timeline"/>
+        
+</Menu>
+
+<Menu name="settings"><text>&amp;Settings</text>
+        <Action name="weblookupconfig"/>
+</Menu>
+
+<Menu name="calculations"><text>C&amp;alculations</text>
+        <Action name="calculations"/>
+        <Action name="defineweights"/>
+</Menu>
+
+<Menu name="quiz"><text>&amp;Quiz</text>
+        <Action name="test_your_knowledge"/>
+</Menu>
+
+<Menu name="values"><text>&amp;Values</text>
+        <Action name="values"/>
+</Menu>
+
+</MenuBar>
+</kpartgui>

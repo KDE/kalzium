@@ -1,0 +1,38 @@
+last modified: March 27 2002
+
+TODO for KDE 3.1:
+- write documentation
+
+- clean up the code and fix the remaining bugs
+  with the GUI (esp. the shrinking)
+  //shrinking fixed, 31 March 02
+
+- speed up the startup (trapni?)
+
+- ValueVisualisation():
+  - I think we should add a QTabWidget() in 
+    which we put perhaps 4 different views.
+    This could be atomradius, ionradius,
+    electronegativity, ionisationeneríe 
+  - Perhaps we can use KSvg? At least
+    the whole KDialog should be precious.
+    What about colourgradients?
+
+- CalulationDlg():
+  - restyle the Dialog (KBackgammon-like)
+  - KMol works fine but looks distasteful
+  - MWG works not at all
+  - we need more modes like the
+    Nernst-Equiation
+
+- rename button[] to element[]
+  //done 1. April 02 (not kidding ;)
+
+- change ElementKP: no need to use typedef. Lets
+  make it a KPushButton
+
+- fix the size of the KPushButton (far to wide)
+  //fixed April 1st 02
+
+TODO for post-KDE 3.1:
+- 

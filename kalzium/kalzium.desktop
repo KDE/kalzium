@@ -1,0 +1,11 @@
+# KDE Config File  
+[Desktop Entry]
+Type=Application
+Exec=kalzium -caption "%c" %i %m  
+Icon=kalzium.png
+DocPath=kalzium/index.html
+Comment=
+Comment[de]=
+Terminal=0
+Name=Kalzium
+Name[de]=Kalzium

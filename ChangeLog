@@ -1,0 +1,76 @@
+Version 0.4:
+- added the new calculationdialogs
+- fixed quite a lot smaller bugs
+- no more setGeometry
+- merge with KMol
+- rearranging the code (subdirs)
+- Weblookup: 5 URL for 5 languages
+- adding a new Dialog in which you can compare
+  eg. the atomradius of the different elements
+- reduced memoryfootprint
+- code cleanup (eg. removed obsolete code)
+
+Version 0.3.1:
+- Table.cpp/h are no longer part of Kalzium
+- more data in the infodialog
+- added stateofmatter.h/cpp which is a new nice feature
+- a large codecleanup.
+- using moc now in a smarter way
+- fixed problem with i18n
+- finaly we got an icon
+- correction of same data in kalziumrc
+
+Version 0.3:
+- merge with Table
+- the colours are now configurable
+- now you can coulour in groups
+- added more colourschemes
+- added timeline
+- code cleanup
+- adding a sed-script to Makefile.am for autocreation
+  of the kalzium_i18n.cpp
+- (hopefully) fixed the i18n-problems for the struct.
+  Now I use Data.Name.utf8().
+- redesign of the informationdialog (now it finally
+  uses QGridLayout)
+- added a second type of quiz
+- correction of the menu
+- added XMLGUI
+
+Version 0.2.2:
+- fixed more typos
+- s/locateLocal/locate
+- All variables are now loaded when the KPushButton is
+  created.
+- details
+
+Version 0.2.1:
+- in 0.2 the path to kalziumrc was hardcoded, now is
+  is done with locateLocal()
+- fixed some typos
+- rearranged the Menu a bit
+- added one Colourpattern
+- added the CAS and IUPAC-way of numbuering the periods
+- added some accelerators
+- added this ChangeLog
+
+Version 0.2:
+changed quite a lot:
+- The possibility to switch between differnt PSEs
+- added colors
+- leftclick/rightclick with different effects
+- some qwhatis-help
+- overworked the "about"-dialog
+- added the buttons for the La and Ac + info about them
+- deleted unneccessary includes and cout's
+
+in kalziumrc:
+- added blocks (s,p,d,f)
+- fixed a type in an element
+- completed the weights --> now all elements have one ;)
+
+Version 0.1.1:
+added credits, added the menubar, small tweaks
+
+Version 0.1:
+initial release
