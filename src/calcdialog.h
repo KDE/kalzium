@@ -26,7 +26,7 @@ class CalcDialog : public KDialog
 {
     Q_OBJECT
     public:
-        CalcDialog (QWidget * parent = 0, const char * name = 0 );
+        CalcDialog (QWidget * parent = 0, const char * name = 0 , bool modal = true);
 
         CalcDlg *tabwidget;
     private:

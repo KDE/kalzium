@@ -24,8 +24,8 @@
 #include <klocale.h>
 
 
-CalcDialog::CalcDialog(QWidget * parent, const char * name)
-    : KDialog (parent, name)
+CalcDialog::CalcDialog(QWidget * parent, const char * name, bool modal)
+    : KDialog (parent, name, modal)
 {
     this->setCaption( i18n( "Calculations" ) );
     main_layout = new QGridLayout(this);
