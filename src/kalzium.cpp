@@ -14,7 +14,6 @@
 #include "prefs.h"
 #include "settings_colorschemes.h"
 #include "settings_colors.h"
-#include "settings_quiz.h"
 #include "settings_misc.h"
 #include "questioneditor_impl.h"
 #include "questionadddialog_impl.h"
