@@ -548,7 +548,7 @@
                         <string>Web &amp;Lookup</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>When you click on the button you will get information from the internet</string>
+                        <string>When you click on the button you will get information from the Internet.</string>
                     </property>
                 </widget>
                 <spacer>
