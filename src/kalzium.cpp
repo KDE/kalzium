@@ -69,9 +69,6 @@ Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
 {
     connect(kapp, SIGNAL(kdisplayFontChanged()), this, SLOT(updateElementKPSize()));
 
-	KalziumGraphDialog *testdlg = new KalziumGraphDialog( this, "testdlg" );
-	testdlg->show();
-    
     main_config=KGlobal::config();
 
     calculationdialog=NULL;
@@ -538,7 +535,10 @@ void Kalzium::slotShowQuickinfo( bool id )
 }
 
 void Kalzium::slotPlotData()
-{}
+{
+	KalziumGraphDialog *testdlg = new KalziumGraphDialog( this, "testdlg" );
+	testdlg->show();
+}
 
 void Kalzium::slotShowLegend( bool id )
 {
@@ -680,11 +680,11 @@ void Kalzium::setupActions()
 	connect( legendToggleAction, SIGNAL( toggled( bool ) ),this, SLOT( slotShowLegend( bool ) ) );
 	legendToggleAction->setChecked( main_config->readBoolEntry( "legend" ) );
 	//END LEGEND
-    
+	
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
+    (void) new KAction (i18n("Plot"),0, this, SLOT(slotPlotData()), actionCollection(), "startplotting");
     (void) new KAction (i18n("Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
     (void) new KAction (i18n("Define Molecular Weights"),0, this, SLOT(defineweights()), actionCollection(), "defineweights");
-    (void) new KAction (i18n("Plot Data"),0, this, SLOT(slotPlotData()), actionCollection(), "startplotting");
 
     createGUI("kalziumui.rc");
 }
