@@ -139,6 +139,8 @@ class PSE : public QWidget
 		
 		bool m_learningMode;
 		int m_tooltipElementNumber;
+
+		int ElementNumber( int x, int y );
 		
 		/**
 		 * updates the numeration of the PSE

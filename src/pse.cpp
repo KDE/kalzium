@@ -306,7 +306,10 @@ void PSE::paintEvent( QPaintEvent *e )
 		if ( m_showTooltip )
 		{
 			kdDebug() << "m_tooltipElementNumber: " << m_tooltipElementNumber << endl;
-			drawToolTip( &p, new Element( m_tooltipElementNumber ) );
+			if ( m_tooltipElementNumber < 112 && m_tooltipElementNumber > 0 )
+				drawToolTip( &p, new Element( m_tooltipElementNumber ) );
+			else
+				qWarning( "wrong number" );
 		}
 		
 		p.end();
@@ -325,8 +328,13 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 	int y = mapFromGlobal( QCursor::pos() ).y();
 
 
-	p->fillRect( x,y,80,80 , Qt::red );
+	QFont f = p->font();
+	f.setPointSize( 9 );
+	p->setPen( Qt::black );
+
+	p->fillRect( x,y,100,100 , Qt::red );
 	p->drawText( x,y+20, e->elname() );
+	p->drawText( x,y+40, i18n( "Weight: %1" ).arg( e->weight() ) );
 }
 
 
@@ -489,38 +497,15 @@ void PSE::slotTransientLabel( void )
 	kdDebug() << point.x() << " :x" << endl;
 	kdDebug() << point.y() << " :y" << endl;
 
-	//from this on I can use X and Y. Both contain the position of an element in the
-	//complete PSE. Eg, He is 1,18 and Na is 2,1
-	CList::ConstIterator it = d->CoordinateList.begin();
-
-	int counter = 1;
-	while ( it != d->CoordinateList.end() )
-	{//iterate through the list of coordinates and compare the x/y values.
-	 //finally, if the 20'es iterator has the same cooridnates Element 20
-	 //has been clicked.
-	
-		coordinate c = *it;
-		if ( c.x == X )
-		{
-			if ( c.y == Y )
-			{//coordinates match. Get the position of the it in the list.
-				emit ToolTip( counter );
-
-				return;
-			}
-		}
-		++it;
-		++counter;
-	}
-
+	const int num = ElementNumber( X, Y );
+	if ( num )
+		emit ToolTip( num );
 }
 
 void PSE::mouseMoveEvent( QMouseEvent *mouse )
 {
-	kdDebug() << "PSE::mouseMoveEvent" << endl;
-
 	m_showTooltip = false;
-	HoverTimer.start(  200, false );
+	HoverTimer.start(  2000, false );
 }
 
 void PSE::mouseReleaseEvent( QMouseEvent *mouse )
@@ -542,7 +527,14 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 
 	QPoint point( X,Y );
 	emit tableClicked( point );
+	
+	const int num = ElementNumber( X, Y );
+	if ( num )
+		emit ElementClicked( num );
+}
 
+int PSE::ElementNumber( int X, int Y )
+{
 	//from this on I can use X and Y. Both contain the position of an element in the
 	//complete PSE. Eg, He is 1,18 and Na is 2,1
 	
@@ -559,15 +551,14 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 		{
 			if ( c.y == Y )
 			{//coordinates match. Get the position of the it in the list.
-				emit ElementClicked( counter );
-				kdDebug() << counter << " emitted " << endl;
-
-				return;
+				return counter;
 			}
 		}
 		++it;
 		++counter;
 	}
+
+	return 0;
 }
 
 void PSE::slotUpdatePoint( QPoint point )
