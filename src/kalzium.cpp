@@ -98,7 +98,7 @@ Kalzium::Kalzium()
 
 void Kalzium::slotStartQuiz()
 {
-	kdDebug() << "insdide the start of the quiz" << endl;
+	kdDebug() << "inside the start of the quiz" << endl;
 }
 
 void Kalzium::slotEditQuestions()
@@ -167,7 +167,7 @@ void Kalzium::slotSwitchtoPSE(int index)
 	}
 	m_pCurrentPSE->show();
 	setCentralWidget( m_pCurrentPSE );
-	setCaption( m_pCurrentPSE->name() );
+	setCaption( m_pCurrentPSE->shortName() );
 }
 
 PSE* Kalzium::currentPSE() const

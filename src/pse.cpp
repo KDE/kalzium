@@ -327,6 +327,8 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 {
 	QVBoxLayout *vbox = new QVBoxLayout( this , 0 , -1 , "vbox" );
 	
+	m_ShortName = i18n( "Regular Periodic Table" );
+	
 	QGridLayout *grid = new QGridLayout( 18 , 10 );
 	
 	ElementButton *button;
@@ -388,6 +390,8 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 {
 	d = data;
 	QVBoxLayout *vbox = new QVBoxLayout( this , 0 , -1 , "vbox" );
+
+	m_ShortName = i18n( "A Simplified Periodic Table" );
 	
 	QGridLayout *grid = new QGridLayout( 18 , 17  );
 	
@@ -442,6 +446,9 @@ MendeljevPSE::MendeljevPSE(KalziumDataObject *data, QWidget *parent, const char 
  : PSE(data, parent, name)
 {
 	d = data;
+
+	m_ShortName = i18n( "Mendejlevs Periodic Table" );
+	
 	QVBoxLayout *vbox = new QVBoxLayout( this , 0 , -1 , "vbox" );
 	
 	QGridLayout *grid = new QGridLayout( 18 , 17  );

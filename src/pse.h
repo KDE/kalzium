@@ -35,6 +35,11 @@
 class PSE : public QWidget
 {
 	Q_OBJECT
+
+		friend class MendeljevPSE;
+		friend class SimplifiedPSE;
+		friend class RegularPSE;
+		
 	public:
 		/**
 		 * Constructor
@@ -55,6 +60,11 @@ class PSE : public QWidget
 		 @li acidic behavior
 		 */
 		void activateColorScheme( const int nr);
+
+		/**
+		 * @return the short and descriptive name of this PSE
+		 */
+		const QString shortName( ){ return m_ShortName; }
 
 		/**
 		 * In this list all buttons corresponding the the block
@@ -81,6 +91,10 @@ class PSE : public QWidget
 		QPtrList<ElementButton> m_PSEElementButtons;
 
 	private:
+		/**
+		 * this is a short, descriptive name of the PSE
+		 */
+		QString m_ShortName;
 
 		/**
 		 * this sets up the 4 blocklists. Every PSE has 4 lists for
