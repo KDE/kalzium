@@ -23,6 +23,7 @@
 #include <qinputdialog.h>
 #include <qlayout.h>
 #include <qslider.h>
+#include <qlcdnumber.h>
 
 #include <kconfigdialog.h>
 #include <klocale.h>
@@ -70,7 +71,6 @@ Kalzium::Kalzium()
 	
 	setupStatusBar();
 	setupActions();
-	displayTemperaturevalue();
 }
 
 void Kalzium::setupActions()
@@ -297,7 +297,6 @@ void Kalzium::slotUpdateSettings()
 	displayTemperature();
     	displayEnergie();
 	slotTempChanged(Prefs::temperaturevalue() );
-    	if ( m_bShowSOM ) displayTemperaturevalue();
 }
 
 void Kalzium::displayTemperature()
@@ -324,7 +323,6 @@ void Kalzium::displayTemperature()
  			break;
  	}
  	slotStatusBar(i18n("Temperature unit: %1 ").arg( string ),  IDS_TEMP);
-	displayTemperaturevalue();
  }
  
  void Kalzium::displayEnergie()
@@ -339,11 +337,6 @@ void Kalzium::displayTemperature()
  			break;
  	}
  	slotStatusBar(i18n("the argument %1 is the unit of the energy (eV or kj/mol)", "Energy: %1").arg( string ),  IDS_ENERG);
-}
-
-void Kalzium::displayTemperaturevalue()
-{
-	slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg( Prefs::temperaturevalue() ), IDS_TEMPERATURE );
 }
 
 void Kalzium::slotStateOfMatter()
@@ -382,17 +375,22 @@ void Kalzium::slotTempChanged( int temperature )
  	switch (Prefs::temperature()) {
      		case 0:
 			m_pCurrentPSE->setTemperature( (double) temperature );
+			slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg( temperature ), IDS_TEMPERATURE );
+			m_pSOMSlider->value->display(temperature);
  			break;
  		case 1:
 			m_pCurrentPSE->setTemperature( (double) temperature + 273.15 );
+			slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg( temperature + 273.15 ), IDS_TEMPERATURE );
+			m_pSOMSlider->value->display((int) (temperature + 273.15));
  			break;
  		case 2:
 			m_pCurrentPSE->setTemperature( (double) (temperature - 32)*5/9 + 273.15);
+			slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg( (temperature - 32)*5/9 + 273.15 ), IDS_TEMPERATURE );
+			m_pSOMSlider->value->display((int) (( temperature - 32)*5/9 + 273.15));
  			break;
  	}
 	Prefs::setTemperaturevalue(temperature);
 	Prefs::writeConfig();
-	displayTemperaturevalue();	
 }
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }

@@ -140,11 +140,6 @@ class Kalzium : public KMainWindow
 		void displayEnergie();	
 		
 		/**
-		 *diplay the value of the choosen temperaure in the Statusbar
-		 */
-		void displayTemperaturevalue();
-		
-		/**
 		 * all KActions Kalzium uses
 		 */
 		KSelectAction *schema_action;
