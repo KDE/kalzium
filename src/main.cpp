@@ -6,7 +6,6 @@
 #include <kapplication.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
-#include <klocale.h>
 
 static const char description[] =
     I18N_NOOP("A Periodic Table of the Elements");

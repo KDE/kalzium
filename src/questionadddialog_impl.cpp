@@ -19,15 +19,10 @@
  ***************************************************************************/
 #include "questionadddialog_impl.h"
 #include "questiontextwidget.h"
-#include "quiz.h"
 
 #include <kpushbutton.h>
-#include <kcombobox.h>
-#include <ktextedit.h>
-#include <klocale.h>
 #include <knuminput.h>
 
-#include <qbuttongroup.h>
 #include <qlayout.h>
 
 #include <kdebug.h>

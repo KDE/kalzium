@@ -20,8 +20,6 @@
 #include "questioneditor_impl.h"
 #include "questionadddialog_impl.h"
 
-#include <qfile.h>
-#include <qstring.h>
 
 #include <klistview.h>
 #include <kfiledialog.h>

@@ -19,13 +19,10 @@
  ***************************************************************************/
 #include "pse.h"
 #include "prefs.h"
-#include "infodialog_small_impl.h"
 
 #include <klocale.h>
 #include <kdebug.h>
-#include <kdialog.h>
 #include <qtooltip.h>
-#include <qstring.h>
 #include <qlayout.h>
 #include <qlabel.h>
 

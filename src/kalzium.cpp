@@ -11,8 +11,6 @@
  *                                                                         *
  ***************************************************************************/
 #include "kalzium.h"
-#include "elementbutton.h"
-#include "element.h"
 #include "prefs.h"
 #include "settings_colorschemes.h"
 #include "settings_colors.h"
@@ -22,14 +20,9 @@
 #include "questionadddialog_impl.h"
 #include "slider_widget.h"
 #include "elementdataviewer.h"
-#include "quiz.h"
 
-#include <qlabel.h>
 #include <qslider.h>
-#include <qwhatsthis.h>
-#include <qlcdnumber.h>
 
-#include <kmainwindow.h>
 #include <kconfigdialog.h>
 #include <klocale.h>
 #include <kdebug.h>

@@ -13,7 +13,6 @@
 #ifndef QUIZ_H
 #define QUIZ_H
 
-#include <qvaluelist.h>
 #include <qwidget.h>
 
 class Task;

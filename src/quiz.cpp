@@ -12,10 +12,6 @@
  ***************************************************************************/
 #include "quiz.h"
 
-#include <qpainter.h>
-#include <qwidget.h>
-#include <qptrlist.h>
-#include <qfile.h>
 
 #include "krandomsequence.h"
 

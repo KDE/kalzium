@@ -16,24 +16,18 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <kdialogbase.h>
 #include <kdebug.h>
 #include <klocale.h>
-#include <kstandarddirs.h>
 #include <kiconloader.h>
 
 #include <qlabel.h>
 #include <qpainter.h>
-#include <qpixmap.h>
 #include <qimage.h>
 #include <qwhatsthis.h>
-#include <qframe.h>
 #include <qlayout.h>
-#include <qstring.h>
 
 #include "detailinfodlg.h"
 #include "orbitswidget.h"
-#include "element.h"
 #include "detail_chemical.h"
 #include "detail_energy.h"
 #include "prefs.h"

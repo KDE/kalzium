@@ -21,7 +21,6 @@
 
 #include <kdebug.h>
 #include <klocale.h>
-#include <qstring.h>
 #include <qlabel.h>
 
 infoDlgSmallImpl::infoDlgSmallImpl(Element *el, QWidget *parent, const char *name)
