@@ -49,8 +49,8 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 
 ////
 	fromSpin = new QSpinBox( 1, 108 , 1 , page );
-	toSpin = new QSpinBox( 2, 110 , 1 , page );
-	toSpin->setValue( 110 );
+	toSpin = new QSpinBox( 2, 109 , 1 , page );
+	toSpin->setValue( 109 );
 	whatKCB = new KComboBox( false , page , "whatKCB" );
 	whatKCB->insertItem( i18n( "Atomic Weight" ) );
 	whatKCB->insertItem( i18n( "Electronegativity" ) );
@@ -271,7 +271,6 @@ void KalziumPlotDialogImpl::loadData()
 void KalziumPlotDialogImpl::getPositions( int /* num */ , double& y , ChemicalElement* element)
 {
 	int id = whatKCB->currentItem();
-
 	switch ( id )
 	{
 		case 0:
