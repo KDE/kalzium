@@ -249,8 +249,8 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
 	connect( b_group , SIGNAL( clicked( int ) ) , this , SLOT( slotSetInfodlg( int ) ) );
     QVBoxLayout *b_group_layout = new QVBoxLayout(general);
     b_group_layout->addWidget(b_group);
-	detailedInfo = new QRadioButton( i18n( "Show a detailed informationdialog when clicking an element with the left mousebutton" ) , b_group );
-	minumumInfo = new QRadioButton( i18n( "Show less information in the informationdialog when clicking with the left mousebutton" ) , b_group );
+	detailedInfo = new QRadioButton( i18n( "Show a detailed information dialog when clicking an element with the left mouse button" ) , b_group );
+	minumumInfo = new QRadioButton( i18n( "Show less information in the information dialog when clicking with the left mouse button" ) , b_group );
 	b_group->setButton( i );
 
     // WEBLOOKUP BUTTONS
