@@ -59,6 +59,7 @@ class SearchDlg : public SearchDialogUI
 
 		void fillDataStringLists();
 		
+		IntValueList parseDashes(QString);
 		IntValueList parseRange(QString);
 		
 

@@ -29,6 +29,7 @@
 #include <kcombobox.h>
 
 //QT-Includes
+#include <qmessagebox.h>
 #include <qbuttongroup.h>
 #include <qimage.h>
 #include <qlabel.h>
@@ -97,8 +98,6 @@ void SearchDlg::fillDataStringLists()
 
 void SearchDlg::slotApplyChanges()
 {
-	kdDebug() << "SearchDlg::slotApplyChanges()" << endl;
-
 	QStringList::Iterator it = nameList.begin();
 	QStringList::Iterator it2 = symbolList.begin();
 	QStringList::Iterator it3 = WeightList.begin();
@@ -166,42 +165,138 @@ void SearchDlg::slotApplyChanges()
 
 void SearchDlg::slotFilterData()
 {
-	kdDebug() << "SearchDlg::slotFilterData()" << endl;
+	bool show;
+	if ( ShowHideCB->currentItem() == 0 )
+		show = true;
+	else show = false;
+
+	for ( int i = 0 ; i < 110 ; ++i )
+	{
+		if ( show )
+			DataTable->hideRow( i );
+		else
+			DataTable->showRow( i );
+	}
+	
 	IntValueList l = parseRange( RangeLE->text() );
 	for ( IntValueList::Iterator it = l.begin(); it != l.end() ; ++it )
 	{
-		/*
-		 * add the code which hides the correct rows
-		 */
+		if ( show )
+			DataTable->showRow( *it-1 );
+		else
+			DataTable->hideRow( *it-1 );
 	}
+}
+
+IntValueList SearchDlg::parseDashes( QString dashedString )
+{
+	kdDebug() << "SearchDlg::parseDashes()" << endl;
+	kdDebug() << "der String ist: " << dashedString << endl;
+
+	IntValueList l;
+	QRegExp rx( "-" );
+	QString left = dashedString.left( dashedString.find( rx ) );
+	QString right = dashedString.right( dashedString.length() - dashedString.find( rx ) - 1 );
+	if ( left.toInt() > right.toInt() )
+	{
+		QMessageBox::information(  this, i18n( "dashedStringproblem" ),
+				i18n( "The left value has to be smaller than the right value." ) );
+		return l;
+	}
+	else //the dashedString is syntactically ok
+	{
+		for ( int i = left.toInt() ; i < right.toInt()+1 ; i++ )
+		{
+			l.append( i );
+		}
+	}
+	return l;
 }
 
 IntValueList SearchDlg::parseRange(QString range)
 {
 	kdDebug() << "SearchDlg::parseRange()" << endl;
-	
+
 	IntValueList l;
 	
-	bool show;
-	if ( ShowHideCB->currentItem() == 0 )
-		show = true;
-	else show = false;
-	
-	if ( range.contains( ";" ) )
+	if ( range.contains( ";" ) ) //at least to ranges are given
 	{
-		QRegExp rx("0") ;
+		kdDebug() << "enthält ;" << endl;
+		QRegExp semcol_rx( ";" );
+		QRegExp dash_rx( "-" );
+
+		bool hasStillSemicolons = true;
+		QString part, rest, left, right;
+
+		int bar = 1;
+		while ( hasStillSemicolons )
+		{
+			kdDebug() << "Durchlauf: " << bar << endl;
+			if ( range.contains(";" ) )
+			{
+				part = range.left( range.find( semcol_rx ) );
+				rest = range.right( range.length() - range.find( semcol_rx ) - 1 );
+			}
+			else
+			{
+				part = range;
+				rest = "";
+			}
+
+			kdDebug() << "rest ist: " << rest << endl;
+			kdDebug() << "part ist: " << part << endl;
+
+			IntValueList e = parseDashes( part );
+			for( IntValueList::Iterator it = e.begin() ; it != e.end() ; ++it )
+			{
+				l.append( *it );
+			}
+
+			range = rest;
+
+			bar++;
+
+			//check if we still need to parse
+			if ( !range.isEmpty() )
+			{
+				kdDebug() << "Range is not empty" << endl;		
+				if ( !range.contains( ";" ) )//only one element is left
+				{
+					l.append( range.toInt() );
+					hasStillSemicolons = false;
+				}
+				else
+					hasStillSemicolons = true;
+			}
+			else
+			{
+				hasStillSemicolons = false;
+			}
+			kdDebug() << "range is: " << range << endl;
+		}
 	}
 	else
 	{
-		if ( range.contains( "-" ) )
-			{
-			QRegExp rx( "-" );
-			}
+		kdDebug() << "enthält kein ;" << endl;
+		if ( range.contains( "-" ) ) //one range is given
+		{
+			l = parseDashes( range );
+		}
 		else //only one element is choosen
 		{
+			kdDebug() << "enthält nur ein Element" << endl;
+			l.append( range.toInt() );
 		}
-		
 	}
+
+	//Debug here
+	int i = 1;
+	for ( IntValueList::Iterator it = l.begin() ; it != l.end() ; ++it )
+	{
+		kdDebug() << "Element " << i << " ist : " << *it << endl;
+		++i;
+	}
+	//end the debug
 	
 	return l;
 }
