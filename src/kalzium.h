@@ -209,13 +209,6 @@ class Kalzium : public KMainWindow
 
 	void updateNumMenu(int);
 
-	/**
-	 * Connected to void KApplication::kdisplayFontChanged() 
-	 * so that I can set a fixed size for the element buttons
-	 * because i have to play with kalzium's layout managment
-	 **/
-	void updateElementKPSize();
-
 	void slotShowTimeline(bool);
 	void slotShowQuickinfo(bool);
 	void slotShowLegend(bool);

@@ -67,8 +67,6 @@
 
 Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
 {
-    connect(kapp, SIGNAL(kdisplayFontChanged()), this, SLOT(updateElementKPSize()));
-
     main_config=KGlobal::config();
 
     calculationdialog=NULL;
@@ -92,7 +90,6 @@ Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
     setCentralWidget(main_window);
     
     updateMainWindow();
-    updateElementKPSize();
     createhelpArray();
 }
 
@@ -483,28 +480,6 @@ void Kalzium::updateColorMenu(int id)
 void Kalzium::updateNumMenu(int id) 
 {
     numerationmenu->setCurrentItem(id);
-}
-
-void Kalzium::updateElementKPSize()
-{
-    QFont general = KGlobalSettings::generalFont();
-    QFont general_bold = general;
-
-    general.setPointSize(general.pointSize()-2);
-
-    general_bold.setPointSize(general_bold.pointSize());
-    general_bold.setBold(TRUE);
-
-    QFontMetrics zahl( general );
-    int zahl_height = zahl.height();
-    int zahl_width= zahl.width("103");
-    QFontMetrics text( general_bold );
-    int text_height = text.height();
-    int text_width = text.width("MD");
-    
-    for ( int n=0 ;n<109 ;n++ )
-    element[n]->setFixedSize(zahl_width + text_width ,
-                             zahl_height + text_height + 5);
 }
 
 void Kalzium::slotShowTimeline(bool id)
