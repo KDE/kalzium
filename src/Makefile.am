@@ -11,11 +11,6 @@ kalzium_LDADD   =  $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_KHTML) $(LIB_QT) $(LIBSOCKE
 
 EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp calcdialog.cpp value_visualisation.cpp value_visualisation.h settingsdialog.cpp settingsdialog.h
 
-	$(mkinstalldirs) $(kde_appsdir)/Edutainment/
-	$(INSTALL_DATA) $(srcdir)/kalzium.desktop $(kde_appsdir)/Edutainment/kalzium.desktop
-
-
-
 METASOURCES = AUTO
 
 appsdir = $(kde_appsdir)/Edutainment
