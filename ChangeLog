@@ -1,3 +1,13 @@
+- move the legend out of pse.cpp/h and put it where it belongs: in the 
+CentralWidget (which as been renamed)
+- hide the timeline and the som at first startup
+- save all settings at quit and load them at start (didn't work before)
+- fix all known issues with the SOM
+- fixes some strings and puts some comments in i18n()-calls
+- uses KGlobalSettings instead of "times"
+- Add/improves the documentation in the .cpp and .h-files
+- removes some unused methods and connect()
+
 Version 0.6.1:
 - codecleanup
 - GUI-fixes for the calculations

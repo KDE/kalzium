@@ -294,10 +294,14 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotUpdateSettings()
 {
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
-	
+
 	displayTemperature();
     	displayEnergie();
-	slotTempChanged(Prefs::temperaturevalue() );
+	slotTempChanged( Prefs::temperaturevalue());
+	//if (m_bShowSOM )
+	//m_pCurrentPSE->setTemperature(Prefs::temperaturevalue());
+	//else
+	//m_pCurrentPSE->activateColorScheme(Prefs::colorschemebox());
 }
 
 void Kalzium::displayTemperature()
@@ -373,23 +377,22 @@ void Kalzium::slotStateOfMatter()
 void Kalzium::slotTempChanged( int temperature )
 {
 	kdDebug() << "Kalzium::slotTempChanged()" << endl;
+	double tempTemp;
  	switch (Prefs::temperature()) {
      		case 0:
-			m_pCurrentPSE->setTemperature( (double) temperature );
-			slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg( temperature ), IDS_TEMPERATURE );
-			m_pSOMSlider->value->display(temperature);
+			tempTemp = temperature;
  			break;
  		case 1:
-			m_pCurrentPSE->setTemperature( (double) temperature + 273.15 );
-			slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg( temperature + 273.15 ), IDS_TEMPERATURE );
-			m_pSOMSlider->value->display((int) (temperature + 273.15));
+			tempTemp = temperature + 273.15;
  			break;
  		case 2:
-			m_pCurrentPSE->setTemperature( (double) (temperature - 32)*5/9 + 273.15);
-			slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg( (temperature - 32)*5/9 + 273.15 ), IDS_TEMPERATURE );
-			m_pSOMSlider->value->display((int) (( temperature - 32)*5/9 + 273.15));
+			tempTemp = (temperature - 32)*5/9 + 273.15 ;
  			break;
  	}
+	m_pCurrentPSE->setTemperature( tempTemp);
+	slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg(tempTemp), IDS_TEMPERATURE );
+	m_pSOMSlider->value->display((int) tempTemp);
+			
 	Prefs::setTemperaturevalue(temperature);
 	Prefs::writeConfig();
 }
