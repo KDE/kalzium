@@ -28,6 +28,7 @@
 #include <qinputdialog.h>
 
 #include <kpushbutton.h>
+#include <kglobalsettings.h>
 #include <kconfig.h>
 
 #include "stateofmatterdlg.h"
@@ -61,11 +62,11 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 
 	QLabel *titletext = new QLabel( this );
 	titletext->setText(i18n("State of matter"));
-	titletext->setFont(QFont("helvetica", 20, QFont::Bold));
+	titletext->setFont(QFont(KGlobalSettings::generalFont().family(), 20, QFont::Bold));
 	main_layout->addMultiCellWidget(titletext , 0 , 0 , 0 , 2 , Qt::AlignCenter );
 
 	QLabel *info = new QLabel( i18n("The colors indicate:"), this );
-	info->setFont(QFont("helvetica", 12, QFont::Bold));
+	info->setFont(QFont(KGlobalSettings::generalFont().family(), 12, QFont::Bold));
 	main_layout->addMultiCellWidget(info , 1 , 1 , 1 , 2 , Qt::AlignCenter );
 
 	QLabel *solinfo = new QLabel( i18n("solid:"),this );
