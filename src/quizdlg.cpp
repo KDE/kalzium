@@ -187,67 +187,51 @@ void QuizDlg::slotCheck()
 
         //ok, the quiz is over, show the results
         else
-        {/*
+        {
             this->close();
-            KDialog *result = new KDialog ( this, "result" );
-            result->setCaption(i18n("See your results!"));
-
-            QGridLayout *grid = new QGridLayout(result , 2 , 0 , 8 );
-
-            KPushButton *exit = new KPushButton( i18n("&Close"), result );
-            QObject::connect (exit, SIGNAL(clicked()), result, SLOT(hide()));
-            QWhatsThis::add(exit, i18n("If you click on this button this dialog will close."));
-            grid->addWidget(exit,2,0);
-
-            QLabel *resultlabel = new QLabel (result);
+            Quiz_Result *finalresults = new Quiz_Result();
+            finalresults->show();
+            finalresults->setCaption(i18n("See your results!"));
+            QObject::connect (finalresults->exit, SIGNAL(clicked()), finalresults, SLOT(hide()));
             QString resulttext;
             resulttext = i18n("You answered %1 of %2 questions correctly.").arg(QString::number(quizresult)).arg(qnum);
-            resultlabel->setText(i18n(resulttext.utf8()));
-            grid->addWidget( resultlabel, 0 , 0 );
-
-            QTable *resultTable = new QTable( qnum+1 , 3 , result , "resultTable" );
-            resultTable->setReadOnly( true );
-            resultTable->setColumnStretchable( 0 , true );
-            resultTable->setColumnStretchable( 1 , true );
-            resultTable->setTopMargin( 0 );
-            resultTable->setLeftMargin( 0 );
-            grid->addWidget( resultTable, 1 , 0 );
-
+            finalresults->resultlabel->setText(i18n(resulttext.utf8()));
+            finalresults->result_table->setNumRows( qnum+1 );
+            finalresults->result_table->setNumCols( 3 );
+            finalresults->result_table->setReadOnly( true );
+            finalresults->result_table->setColumnStretchable( 0 , true );
+            finalresults->result_table->setColumnStretchable( 1 , true );
+            finalresults->result_table->setTopMargin( 0 );
+            finalresults->result_table->setLeftMargin( 0 );
             QPixmap good = SmallIcon("apply");
             QPixmap bad  = SmallIcon("cancel");
 
-            resultTable->setText( 0 , 0 , i18n("Questions:") );
-            resultTable->setText( 0 , 1 , i18n("The correct answer was:") );
-            resultTable->setText( 0 , 2 , i18n("You have been:") );
-
-            resultTable->horizontalHeader()->hide();
-            resultTable->verticalHeader()->hide();
-            resultTable->setShowGrid( false );
-
+            finalresults->result_table->setText( 0 , 0 , i18n("Questions:") );
+            finalresults->result_table->setText( 0 , 1 , i18n("The correct answer was:") );
+            finalresults->result_table->setText( 0 , 2 , i18n("You have been:") );
             KSimpleConfig quizconfig (locate("data", "kalzium/kalziumrc"));
             for ( int i = 0 ; i < qnum ; i++ )
             {
-                resultTable->setRowStretchable( i+1 , true );
+                finalresults->result_table->setRowStretchable( i+1 , true );
                 quizconfig.setGroup("q"+QString::number(order[i]));
 
                 QString ques, answ;
                 ques=quizconfig.readEntry("Q", "Unknown");
                 answ=quizconfig.readEntry("A", "Unknown");
 
-                QTableItem *item = new QTableItem(resultTable, QTableItem::Never, i18n(ques.utf8()));
+                QTableItem *item = new QTableItem(finalresults->result_table, QTableItem::Never, i18n(ques.utf8()));
                 item->setWordWrap(true);
-                resultTable->setItem( i+1 , 0 , item);
-                item = new QTableItem(resultTable, QTableItem::Never, i18n(answ.utf8()));
+                finalresults->result_table->setItem( i+1 , 0 , item);
+                item = new QTableItem(finalresults->result_table, QTableItem::Never, i18n(answ.utf8()));
                 item->setWordWrap(true);
-                resultTable->setItem( i+1 , 1 , item);
+                finalresults->result_table->setItem( i+1 , 1 , item);
 
                 if (wasCorrect( i ) == true)
-                    resultTable->setPixmap( i+1 , 2 , good );
+                    finalresults->result_table->setPixmap( i+1 , 2 , good );
                 else 
-                    resultTable->setPixmap( i+1 , 2 , bad  );
+                    finalresults-> result_table->setPixmap( i+1 , 2 , bad  );
             }	    
-            result->show();
-        */}
+        }
     }
 }
 
