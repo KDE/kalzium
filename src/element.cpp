@@ -71,6 +71,9 @@ Element::Element( int num )
 
 QString Element::parsedOrbits()
 {
+	if ( m_orbits == "0" )
+		return i18n( "structure means orbital configuration in this case", "Unknown structure" );
+	
 	QString orbits = m_orbits;
 	QRegExp rxs("([a-z])([0-9]+)");
 	QRegExp rxb("([a-z]{2}) ",false);
@@ -166,6 +169,14 @@ const QString Element::adjustUnits( const int type )
 					break;
 			}
 		}
+	}
+	else if ( type == EN ) //Electronegativity
+	{
+		val = electroneg();
+		if ( val == -1 )
+			v = i18n( "Value not defined" );
+		else
+			v = QString::number( val );
 	}
 	else if ( type == RADIUS ) // its a length
 	{

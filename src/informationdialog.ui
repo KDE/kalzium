@@ -13,7 +13,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string>Information about periods and groups</string>
+        <string>Learn More About the Table of Elements</string>
     </property>
     <property name="sizeGripEnabled">
         <bool>true</bool>
@@ -22,166 +22,238 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLayoutWidget" row="0" column="0">
+        <widget class="QLayoutWidget" row="1" column="0">
             <property name="name">
-                <cstring>layout4</cstring>
+                <cstring>layout7</cstring>
             </property>
-            <vbox>
+            <hbox>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QTextBrowser">
+                <widget class="QPushButton">
                     <property name="name">
-                        <cstring>m_explanation</cstring>
+                        <cstring>buttonHelp</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Help</string>
+                    </property>
+                    <property name="accel">
+                        <string>F1</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>true</bool>
                     </property>
                 </widget>
-                <widget class="QLayoutWidget">
+                <spacer>
                     <property name="name">
-                        <cstring>layout3</cstring>
+                        <cstring>Horizontal Spacing2</cstring>
                     </property>
-                    <vbox>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>365</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>buttonOk</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;OK</string>
+                    </property>
+                    <property name="accel">
+                        <string></string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>true</bool>
+                    </property>
+                    <property name="default">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QTabWidget" row="0" column="0">
+            <property name="name">
+                <cstring>tabWidget2</cstring>
+            </property>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>tab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>The Table</string>
+                </attribute>
+                <grid>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QTextBrowser" row="0" column="0">
                         <property name="name">
-                            <cstring>unnamed</cstring>
+                            <cstring>m_explanation</cstring>
                         </property>
-                        <widget class="QButtonGroup">
+                    </widget>
+                    <widget class="QButtonGroup" row="1" column="0">
+                        <property name="name">
+                            <cstring>buttonGroup</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>5</hsizetype>
+                                <vsizetype>1</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="title">
+                            <string>What would you like to investigate?</string>
+                        </property>
+                        <property name="checkable">
+                            <bool>false</bool>
+                        </property>
+                        <property name="checked">
+                            <bool>false</bool>
+                        </property>
+                        <property name="selectedId" stdset="0">
+                            <number>-1</number>
+                        </property>
+                        <grid>
                             <property name="name">
-                                <cstring>buttonGroup</cstring>
+                                <cstring>unnamed</cstring>
                             </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>5</hsizetype>
-                                    <vsizetype>1</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="title">
-                                <string>What would you like to investigate?</string>
-                            </property>
-                            <property name="checked">
-                                <bool>false</bool>
-                            </property>
-                            <property name="selectedId" stdset="0">
-                                <number>-1</number>
-                            </property>
-                            <grid>
+                            <widget class="QRadioButton" row="0" column="0">
                                 <property name="name">
-                                    <cstring>unnamed</cstring>
+                                    <cstring>groups</cstring>
                                 </property>
-                                <widget class="QRadioButton" row="0" column="0">
-                                    <property name="name">
-                                        <cstring>groups</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Groups</string>
-                                    </property>
-                                </widget>
-                                <widget class="QRadioButton" row="1" column="0">
-                                    <property name="name">
-                                        <cstring>periods</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Periods</string>
-                                    </property>
-                                </widget>
-                            </grid>
-                        </widget>
-                        <widget class="QLayoutWidget">
+                                <property name="text">
+                                    <string>Groups</string>
+                                </property>
+                            </widget>
+                            <widget class="QRadioButton" row="1" column="0">
+                                <property name="name">
+                                    <cstring>periods</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Periods</string>
+                                </property>
+                            </widget>
+                        </grid>
+                    </widget>
+                </grid>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>tab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Time</string>
+                </attribute>
+                <grid>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QTextBrowser" row="0" column="0">
+                        <property name="name">
+                            <cstring>m_explanation_2</cstring>
+                        </property>
+                    </widget>
+                    <widget class="QLayoutWidget" row="1" column="0">
+                        <property name="name">
+                            <cstring>layout5</cstring>
+                        </property>
+                        <hbox>
                             <property name="name">
-                                <cstring>Layout1</cstring>
+                                <cstring>unnamed</cstring>
                             </property>
-                            <hbox>
+                            <widget class="QSlider">
                                 <property name="name">
-                                    <cstring>unnamed</cstring>
+                                    <cstring>time_slider</cstring>
                                 </property>
-                                <property name="margin">
-                                    <number>0</number>
+                                <property name="minValue">
+                                    <number>1600</number>
                                 </property>
-                                <property name="spacing">
-                                    <number>6</number>
+                                <property name="maxValue">
+                                    <number>2005</number>
                                 </property>
-                                <widget class="QPushButton">
-                                    <property name="name">
-                                        <cstring>buttonHelp</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>&amp;Help</string>
-                                    </property>
-                                    <property name="accel">
-                                        <string>F1</string>
-                                    </property>
-                                    <property name="autoDefault">
-                                        <bool>true</bool>
-                                    </property>
-                                </widget>
-                                <spacer>
-                                    <property name="name">
-                                        <cstring>Horizontal Spacing2</cstring>
-                                    </property>
-                                    <property name="orientation">
-                                        <enum>Horizontal</enum>
-                                    </property>
-                                    <property name="sizeType">
-                                        <enum>Expanding</enum>
-                                    </property>
-                                    <property name="sizeHint">
-                                        <size>
-                                            <width>20</width>
-                                            <height>20</height>
-                                        </size>
-                                    </property>
-                                </spacer>
-                                <widget class="QPushButton">
-                                    <property name="name">
-                                        <cstring>buttonOk</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>&amp;OK</string>
-                                    </property>
-                                    <property name="accel">
-                                        <string></string>
-                                    </property>
-                                    <property name="autoDefault">
-                                        <bool>true</bool>
-                                    </property>
-                                    <property name="default">
-                                        <bool>true</bool>
-                                    </property>
-                                </widget>
-                                <widget class="QPushButton">
-                                    <property name="name">
-                                        <cstring>buttonCancel</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>&amp;Cancel</string>
-                                    </property>
-                                    <property name="accel">
-                                        <string></string>
-                                    </property>
-                                    <property name="autoDefault">
-                                        <bool>true</bool>
-                                    </property>
-                                </widget>
-                            </hbox>
-                        </widget>
-                    </vbox>
-                </widget>
-            </vbox>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                            </widget>
+                            <widget class="QLCDNumber">
+                                <property name="name">
+                                    <cstring>lCDNumber1</cstring>
+                                </property>
+                            </widget>
+                        </hbox>
+                    </widget>
+                </grid>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>TabPage</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Temperature</string>
+                </attribute>
+                <grid>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QTextBrowser" row="0" column="0">
+                        <property name="name">
+                            <cstring>m_explanation_3</cstring>
+                        </property>
+                    </widget>
+                    <widget class="QLayoutWidget" row="1" column="0">
+                        <property name="name">
+                            <cstring>layout8</cstring>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QSlider">
+                                <property name="name">
+                                    <cstring>temp_slider</cstring>
+                                </property>
+                                <property name="maxValue">
+                                    <number>5000</number>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                            </widget>
+                            <widget class="QLCDNumber">
+                                <property name="name">
+                                    <cstring>lCDNumber1_2</cstring>
+                                </property>
+                            </widget>
+                        </hbox>
+                    </widget>
+                </grid>
+            </widget>
         </widget>
     </grid>
 </widget>
 <connections>
     <connection>
-        <sender>buttonOk</sender>
-        <signal>clicked()</signal>
-        <receiver>InformationDialog</receiver>
-        <slot>accept()</slot>
+        <sender>time_slider</sender>
+        <signal>sliderMoved(int)</signal>
+        <receiver>lCDNumber1</receiver>
+        <slot>display(int)</slot>
     </connection>
     <connection>
-        <sender>buttonCancel</sender>
-        <signal>clicked()</signal>
-        <receiver>InformationDialog</receiver>
-        <slot>reject()</slot>
+        <sender>temp_slider</sender>
+        <signal>sliderMoved(int)</signal>
+        <receiver>lCDNumber1_2</receiver>
+        <slot>display(int)</slot>
     </connection>
 </connections>
 <slots>

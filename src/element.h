@@ -255,7 +255,8 @@ class Element{
 			BOILINGPOINT,
 			MELTINGPOINT,
 			IE,
-			IE2
+			IE2,
+			EN
 		};
 
 

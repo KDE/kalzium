@@ -120,7 +120,7 @@ void DetailedInfoDlg::createContent( Element *el )
 	wEnergy->bp_label->setText( el->adjustUnits( Element::BOILINGPOINT ) );
 	wEnergy->sion_label->setText( el->adjustUnits( Element::IE2 ) );
 	wEnergy->ion_label->setText( el->adjustUnits( Element::IE ) );
-	wEnergy->en_label->setText(  QString::number( el->electroneg() ) );
+	wEnergy->en_label->setText(  el->adjustUnits( Element::EN ) );
 	
 	////////////////////////////////////7
 	

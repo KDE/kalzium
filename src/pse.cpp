@@ -284,12 +284,12 @@ void PSE::setDate( int date )
 //6 16 26 29 33 47 50 51 79 80 82 83
 }
 
-void PSE::resizeEvent( QResizeEvent *e ) 
+void PSE::resizeEvent( QResizeEvent * /*e*/ ) 
 {
   table->resize( width(), height() );  
 }
 
-void PSE::paintEvent( QPaintEvent *e )
+void PSE::paintEvent( QPaintEvent * /*e*/ )
 {
 	QPainter p;
 
@@ -323,19 +323,51 @@ void PSE::paintEvent( QPaintEvent *e )
 
 void PSE::drawToolTip( QPainter* p, Element *e )
 {
-	kdDebug() << "PSE::drawToolTip()" << endl;
+	if ( !e ) return;
+	
+	int x1 = mapFromGlobal( QCursor::pos() ).x();
+	int y1 = mapFromGlobal( QCursor::pos() ).y();
+	int w = 100;
+	int h = 100;
 
-	int x = mapFromGlobal( QCursor::pos() ).x();
-	int y = mapFromGlobal( QCursor::pos() ).y();
+	//coordinates for element symbol: near the center
+	int xA = x1 + w - (  4 * w / 10 );
+	int yA = y1 + h - ( h / 2 );
 
+	p->setBrush(Qt::SolidPattern);
+	p->setBrush( Qt::yellow );
+	p->drawRect( x1 , y1 , w, h );
 
-	QFont f = p->font();
-	f.setPointSize( 9 );
-	p->setPen( Qt::black );
+	p->setBrush( Qt::black );
+	p->setBrush(Qt::NoBrush);
 
-	p->fillRect( x,y,100,100 , Qt::red );
-	p->drawText( x,y+20, e->elname() );
-	p->drawText( x,y+40, i18n( "Weight: %1" ).arg( e->weight() ) );
+	QFont fA = KGlobalSettings::generalFont();
+	QFont fB = KGlobalSettings::generalFont();
+	QFont fC = KGlobalSettings::generalFont();
+
+	fA.setPointSize( fA.pointSize() + 20 ); //Huge font
+	fA.setBold( true );
+	fB.setPointSize( fB.pointSize() + 6 ); //Big font
+	fC.setPointSize( fC.pointSize() + 4 ); //Big font
+	fC.setBold( true );
+	QFontMetrics fmA = QFontMetrics( fA );
+	QFontMetrics fmB = QFontMetrics( fB );
+	QFontMetrics fmC = QFontMetrics( fC );
+
+	//coordinates for the atomic number: offset from element symbol to the upper left
+	int xB = xA - fmB.width( QString::number( e->number() ) );
+	int yB = yA - fmA.height() + fmB.height();
+
+	//Atomic number
+	p->setFont( fB );
+	p->drawText( xB, yB, QString::number( e->number() ));
+
+	//Name and other data
+	p->setFont( fC );
+	//Name
+	p->drawText( x1, y1+15, i18n( e->elname().utf8() )); 
+	//Weight
+	p->drawText( x1, y1+h-15, QString::number( e->weight() )); 
 }
 
 
