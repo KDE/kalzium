@@ -134,7 +134,7 @@
                             <cstring>checkBox8</cstring>
                         </property>
                         <property name="text">
-                            <string>Acidic Behavior</string>
+                            <string>Acidic behavior</string>
                         </property>
                     </widget>
                     <widget class="QCheckBox">
@@ -182,7 +182,7 @@
                             <cstring>checkBox12</cstring>
                         </property>
                         <property name="text">
-                            <string>First Ionization energy</string>
+                            <string>First ionization energy</string>
                         </property>
                     </widget>
                     <widget class="QCheckBox">
@@ -190,7 +190,7 @@
                             <cstring>checkBox15</cstring>
                         </property>
                         <property name="text">
-                            <string>Second Ionization energie</string>
+                            <string>Second ionization energy</string>
                         </property>
                     </widget>
                 </vbox>
