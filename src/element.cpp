@@ -237,10 +237,32 @@ const QString Element::adjustUnits( const int type )
 void Element::drawSelf( QPainter* p, bool useSimpleView )
 {
 	int h_small = 15; //the size for the small units like elementnumber
+
+	int X;
+	if ( useSimpleView )
+	{
+		if ( block() == "f" )
+			return;
+		if ( block() == "d" )
+			return;
+		if ( block() == "p" )
+		{
+			X = ( x-1 )*ELEMENTSIZE;
+			X -= 10*ELEMENTSIZE;
+		}
+		if ( block() == "s" )
+		{
+			X = ( x-1 )*ELEMENTSIZE;
+		}
+	}
+	else
+		int X = ( x-1 )*ELEMENTSIZE;
+
+	int Y = ( y-1 )*ELEMENTSIZE;
 	
 	p->setPen( elementColor() );
-	p->fillRect( ( x-1 )*ELEMENTSIZE+3, ( y-1 )*ELEMENTSIZE+3,ELEMENTSIZE-6,ELEMENTSIZE-6, elementColor() );
-	p->drawRoundRect( ( x-1 )*ELEMENTSIZE+2, ( y-1 )*ELEMENTSIZE+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
+	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, elementColor() );
+	p->drawRoundRect( X+2, Y+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
 	
 	QString text;
 	QFont symbol_font = p->font();
@@ -253,17 +275,17 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 	//top left
 	p->setPen( Qt::black );
 	text = QString::number( strippedWeight( weight( ) ) );
-	p->drawText( ( x-1 )*ELEMENTSIZE+2,( y-1 )*ELEMENTSIZE ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, text );
+	p->drawText( X+2,Y ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, text );
 
 	text = QString::number( number() );
-	p->drawText( ( x-1 )*ELEMENTSIZE + 2,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
+	p->drawText( X + 2,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
 
 	p->setFont( symbol_font );
-	p->drawText( ( x-1 )*ELEMENTSIZE,( y-1 )*ELEMENTSIZE, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
 	
 	//border
-	p->setPen( Qt::green );
-	p->drawRoundRect( ( x-1 )*ELEMENTSIZE+1, ( y-1 )*ELEMENTSIZE+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
+	p->setPen( Qt::black );
+	p->drawRoundRect( X+1, Y+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
 }
 
 /*!

@@ -226,7 +226,7 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 
 	while ( it != d->ElementList.end() )
 	{
-		( *it )->drawSelf( p, false );
+		( *it )->drawSelf( p, true );
 		++it;
 	}
 
