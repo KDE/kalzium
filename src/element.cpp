@@ -25,6 +25,10 @@
 
 #include <math.h>
 
+#include <qpainter.h>
+
+#define ELEMENTSIZE 45
+
 Element::Element( int num )
 {
 	m_number = num;
@@ -230,6 +234,37 @@ const QString Element::adjustUnits( const int type )
 	return v;
 }
 
+void Element::drawSelf( QPainter* p, bool useSimpleView )
+{
+	int h_small = 15; //the size for the small units like elementnumber
+	
+	p->setPen( Qt::blue );//elementColor() );
+	p->drawRoundRect( ( x-1 )*ELEMENTSIZE-2, ( y-1 )*ELEMENTSIZE-2,ELEMENTSIZE,ELEMENTSIZE);
+	p->fillRect( ( x-1 )*ELEMENTSIZE, ( y-1 )*ELEMENTSIZE,ELEMENTSIZE,ELEMENTSIZE, Qt::blue );
+	
+	QString text;
+	QFont symbol_font = p->font();
+	symbol_font.setPointSize( 18 );
+	QFont f = p->font();
+	f.setPointSize( 9 );
+		
+	p->setFont( f );
+
+	//top left
+	p->setPen( Qt::black );
+	text = QString::number( strippedWeight( weight( ) ) );
+	p->drawText( ( x-1 )*ELEMENTSIZE+2,( y-1 )*ELEMENTSIZE ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, text );
+
+	text = QString::number( number() );
+	p->drawText( ( x-1 )*ELEMENTSIZE + 2,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
+
+	p->setFont( symbol_font );
+	p->drawText( ( x-1 )*ELEMENTSIZE,( y-1 )*ELEMENTSIZE, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	
+	p->setPen( Qt::green );
+	p->drawRoundRect( ( x-1 )*ELEMENTSIZE-4, ( y-1 )*ELEMENTSIZE-4,ELEMENTSIZE,ELEMENTSIZE);
+}
+
 /*!
     \fn Element::setupXY()
     This looks pretty evil and it is. The problem is that a PSE is pretty
@@ -256,53 +291,9 @@ void Element::setupXY()
 									      6,6,6,6,6,6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
 									7,7,7,9,9,9,9,9,9, 9, 9, 9, 9, 9, 9, 9, 9,
 									      7,7,7,7,7,7,7,7};
-										  
-								
-static const int posXSimplified[111] = {
-	1,8,
-	1,2,3,4,5,6,7,8,
-	1,2,
-	3,4,5,6,7,8,
-	1,2,
-	0,0,0,0,0,0,0,0,0,0, //dummy
-	
-	3,4,5,6,7,8,//36
-	1,2,
-	0,0,0,0,0,0,0,0,0,0, //dummy
-	3,4,5,6,7,8,
-	1,2,//56
-	0,0,0,0,0,0,0,0,0,0, //dummy 66
-	0,0,0,0,0,0,0,0,0,0, //dummy 76
-	0,0,0,0, //dummy 80
-	3,4,5,6,7,8,
-	1,2};
-
-	
-static const int posYSimplified[111] = {
-	1,1,
-	2,2,2,2,2,2,2,2,
-	3,3,
-	3,3,3,3,3,3,
-	4,4,
-	0,0,0,0,0,0,0,0,0,0, //dummy
-	
-	4,4,4,4,4,4,//36
-	5,5,
-	0,0,0,0,0,0,0,0,0,0, //dummy
-	5,5,5,5,5,5,
-	6,6,
-	0,0,0,0,0,0,0,0,0,0, //dummy
-	0,0,0,0,0,0,0,0,0,0, //dummy
-	0,0,0,0, //dummy 80
-	6,6,6,6,6,6,
-	7,7};
  
  x = posXRegular[m_number-1];
  y = posYRegular[m_number-1];
-
- 
- s_y = posYSimplified[m_number-1];
- s_x = posXSimplified[m_number-1];
 }
 
 KalziumDataObject::KalziumDataObject()

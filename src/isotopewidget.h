@@ -18,6 +18,7 @@
 #include <qwidget.h>
 
 class QLabel;
+class QVBoxLayout;
 
 class IsotopeWidget : public QWidget
 {
@@ -29,7 +30,12 @@ class IsotopeWidget : public QWidget
 		void setIsotopes( const QString& isotopes_string );
 
 	private:
+		///returns the widget which include the data of _one_ isotope
 		QWidget* isotopeLabel( const QString& str );
+		QWidget* widget;
+		QWidget* m_isotopeWidget;
+
+		QVBoxLayout *vbox;
 };
 
 

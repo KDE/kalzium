@@ -54,28 +54,9 @@ class Kalzium : public KMainWindow
 		privatedata* pd;
 
 		/**
-		 * Kalzium supports three different PSE-types. This is
-		 * the object for one of this types
-		 * @see PSE
-		 */
-		SimplifiedPSE* m_pSimplePSE;
-		/**
-		 * Kalzium supports three different PSE-types. This is
-		 * the object for one of this types
-		 * @see PSE
-		 */
-		RegularPSE* m_pRegularPSE;
-
-		/**
 		 * the widget which shows information about an element
 		 */
 		OverviewWidget* m_pOverviewWidget;
-		
-		/**
-		 * this pointer returns the currently loaded PSE
-		 * @return the currently used PDE
-		 */
-		PSE* currentPSE() const;
 
 	private:
 		/**
@@ -120,7 +101,7 @@ class Kalzium : public KMainWindow
 		 * is updated every time the users chooses a new 
 		 * PSE
 		 */
-		PSE* m_pCurrentPSE;
+		PSE *m_PSE;
 			
 		/**
 		 *initialize the Statusbar
@@ -191,8 +172,9 @@ class Kalzium : public KMainWindow
 	
 		/**
 		 * This slot switches Kalzium to the selected PSE
+		 * @param simple If true the PSE will be simple
 		 */
-		void slotSwitchtoPSE(int);
+		void slotSwitchtoPSE(bool simple); 
 		
 		/**
 		 * These slots are for the standardactions

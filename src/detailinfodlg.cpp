@@ -134,6 +134,8 @@ void DetailedInfoDlg::createContent( Element *el )
 		wChemical->isotopeWidget->setIsotopes( el->Isotopes() );
 	else
 		wChemical->isotopeLabel->hide();
+
+	wChemical->isotopeWidget->repaint();
     
     /////////////////////////////////
 	

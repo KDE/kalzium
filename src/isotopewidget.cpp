@@ -27,18 +27,13 @@
 IsotopeWidget::IsotopeWidget( QWidget *parent, const char* name )
 	: QWidget( parent, name )
 {
-}
-
-void IsotopeWidget::setIsotopes( const QString& isotopes_string )
-{
-	QVBoxLayout *vbox = new QVBoxLayout( this );
-		
-	QString isotopes = isotopes_string;
-
-	int pos;
-	int l;
+	vbox = new QVBoxLayout( this );
+	widget = new QWidget( this );
+	m_isotopeWidget = new QWidget( this );
 	
-	QWidget *widget = new QWidget( this );
+	vbox->addWidget( widget );
+	vbox->addWidget( m_isotopeWidget );
+	
 	QHBoxLayout *h = new QHBoxLayout( widget );
 	QLabel *l1 = new QLabel( "<b>Weight</b>" , widget );
 	QLabel *l2 = new QLabel( i18n( "<b>Neutrons</b>" ) , widget );
@@ -46,8 +41,15 @@ void IsotopeWidget::setIsotopes( const QString& isotopes_string )
 	h->addWidget( l1 );
 	h->addWidget( l2 );
 	h->addWidget( l3 );
+}
 
-	vbox->addWidget( widget );
+void IsotopeWidget::setIsotopes( const QString& isotopes_string )
+{
+	QString isotopes = isotopes_string;
+
+	int pos;
+	int l;
+	
 	
 	for ( int num = 0; num < isotopes_string.contains( ";" ) ; ++num )
 	{
@@ -57,7 +59,7 @@ void IsotopeWidget::setIsotopes( const QString& isotopes_string )
 		QString str = isotopes.left( pos );
 		QString new_str = isotopes.right( l-pos-1 );
 
-		vbox->addWidget( isotopeLabel( str ) );
+		m_isotopeWidget = isotopeLabel( str );
 
 		isotopes = new_str;
 	}

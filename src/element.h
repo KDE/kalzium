@@ -41,7 +41,6 @@ class KalziumDataObject
 		 * The list of element in a QValueList<Element*>
 		 */
 		EList ElementList;
-
 };
 
 /**
@@ -54,7 +53,7 @@ class KalziumDataObject
 class Element{
 	public:
 		Element( int );
-		~Element();
+		virtual ~Element();
 
 		/**
 		 * @return the number of the element
@@ -272,6 +271,13 @@ class Element{
 			m_acidbeh,
 			m_orbits,
 			m_isotopes;
+		
+	public:
+		/**
+		 * draw the recatangle with the information
+		 * @param showFullInformation if True more information will be shown
+		 */
+		virtual void drawSelf( QPainter* p, bool showFullInformation );
 };
 
 
