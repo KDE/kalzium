@@ -79,116 +79,16 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 
    
 
-    //////////////////////////////////////
-    //creation of the 118 buttons
-    //
-    QWidget *foo = new QWidget(this);
-    QVBoxLayout *mainlayout = new QVBoxLayout( foo, 0, -1, "mainlayout" );
+    main_window = new QWidget(this);
+    mainlayout = new QVBoxLayout( main_window, 0, -1, "mainlayout" );
 
-    maingrid = new QGridLayout( mainlayout, 18, 10, -1, "maingridlayout" );
-
-    // Loop over all elements
-    int h=0; int v=0;
-    QString elementName;
-    KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
-    ElementInfo eleminfo;
-    for ( int n=0 ;n<118 ;n++ )
-    {
-        if (config.hasGroup(QString::number(n+1)))
-        {
-            config.setGroup(QString::number(n+1));
-            eleminfo.Name=config.readEntry("Name", "Unknown");
-            eleminfo.Symbol=config.readEntry("Symbol", "Unknown");
-
-            eleminfo.Weight=config.readEntry("Weight","0.0");
-            eleminfo.acidbeh=config.readEntry("acidbeh","0");
-            eleminfo.Block=config.readEntry("Block","s");
-            eleminfo.EN=config.readDoubleNumEntry("EN", -1);
-            eleminfo.MP=config.readDoubleNumEntry("MP", -1);
-            eleminfo.IE=config.readDoubleNumEntry("IE", -1);
-            eleminfo.AR=config.readDoubleNumEntry("AR", -1);
-            eleminfo.BP=config.readDoubleNumEntry("BP", -1);
-            eleminfo.Density=config.readDoubleNumEntry("Density", -1);
-            eleminfo.az=config.readEntry("az","0");
-            eleminfo.date=config.readEntry("date","0");
-            eleminfo.Group=config.readEntry("Group","1");
-            eleminfo.number=(n+1);
-
-        } else elementName="Unknown";
-        position(n+1,h,v); //get position
-        element[n] =  new ElementKP(foo,eleminfo,elementName.latin1(),n+1,statusBar(),this);
-        
-
-        maingrid->addWidget(element[n], v/40+1, h/40);
-        element[n]->show();
-
-        //Now we add the WhatsThis-help for each button
-        QWhatsThis::add(element[n], i18n("Click here to get information about %1.").arg(eleminfo.Symbol));
-		QToolTip::add(element[n], eleminfo.Name);
-    }
-
-    //////////////////
-    // feste minimal breite und höhe der gridelemente
-    //////////////////
-    for( int n=0; n<18; n++ ) maingrid->addColSpacing( n, 40 );
-    for( int n=0; n<10; n++ ) maingrid->addRowSpacing( n, 40 );
-
-    mainlayout->addStretch();
-
-    QHBoxLayout *timeline_layout = new QHBoxLayout( mainlayout, -1, "timelinelayout" );
-    timeline_layout->addStretch();
-
-    dateS = new QSlider (QSlider::Horizontal, foo, "rotateSlider" );
-    timeline_layout->addWidget( dateS );
-    QWhatsThis::add(dateS, i18n("Use this slider to see what elements were known at a certain date."));
-    dateS->setRange(1669, 2002);
-    dateS->setValue(2002);
-    dateS->hide();
-    connect( dateS, SIGNAL(valueChanged(int)),  SLOT(timeline()));
-
-    timeline_layout->addSpacing( 10 );
-
-    dateLCD = new QLCDNumber( 4, foo, "dateLCD");
-    timeline_layout->addWidget( dateLCD );
-    QWhatsThis::add(dateLCD, i18n("This is the date which you have chosen with the slider. Currently, you are viewing the elements known in the year %1.").arg(QString::number(dateS->value())));
-    dateLCD->hide();
-    dateLCD->display("2002");
-
-    timeline_layout->addStretch();
-
-//neuer Kram heute morgen
-    QHBoxLayout *legend_layout = new QHBoxLayout( mainlayout, -1, "legendlayout" );
-    legend_layout->addStretch();
-
-	main_config->setGroup( "Colors" );
-
-	one = new KPushButton( foo );
-	two = new KPushButton( foo );
-	three = new KPushButton( foo );
-	four = new KPushButton( foo );
-	five = new KPushButton( foo );
-	six = new KPushButton( foo );
-	seven = new KPushButton( foo );
-	eight = new KPushButton( foo );
-	legend_layout->addWidget( one );
-	legend_layout->addWidget( two );
-	legend_layout->addWidget( three );
-	legend_layout->addWidget( four );
-	legend_layout->addWidget( five );
-	legend_layout->addWidget( six );
-	legend_layout->addWidget( seven );
-	legend_layout->addWidget( eight );
-	legend_layout->addStretch();
-	
-//neuer Kram heute morgen
+    setupAllElementKPButtons();
     
-    mainlayout->addStretch();
+    setupTimeline();
 
-    for (int n = 0; n < 18; n++)
-    {
-        labels[n] = new QLabel (foo);
-    }
-    setCentralWidget(foo);
+    setupCaption();
+    
+    setCentralWidget(main_window);
     
     updateMainWindow();
     updateElementKPSize();
@@ -228,6 +128,119 @@ bool Kalzium::queryClose()
     main_config->writeEntry("timelineshow", timelineToggleAction->isChecked());
 	main_config->sync();
     return true;
+}
+
+void Kalzium::setupAllElementKPButtons()
+{
+    //////////////////////////////////////
+    //creation of the 118 buttons
+    //
+    maingrid = new QGridLayout( mainlayout, 18, 10, -1, "maingridlayout" );
+
+    // Loop over all elements
+    int h=0; int v=0;
+    QString elementName;
+    KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
+    ElementInfo eleminfo;
+    for ( int n=0 ;n<118 ;n++ )
+    {
+        if (config.hasGroup(QString::number(n+1)))
+        {
+            config.setGroup(QString::number(n+1));
+            eleminfo.Name=config.readEntry("Name", "Unknown");
+            eleminfo.Symbol=config.readEntry("Symbol", "Unknown");
+
+            eleminfo.Weight=config.readEntry("Weight","0.0");
+            eleminfo.acidbeh=config.readEntry("acidbeh","0");
+            eleminfo.Block=config.readEntry("Block","s");
+            eleminfo.EN=config.readDoubleNumEntry("EN", -1);
+            eleminfo.MP=config.readDoubleNumEntry("MP", -1);
+            eleminfo.IE=config.readDoubleNumEntry("IE", -1);
+            eleminfo.AR=config.readDoubleNumEntry("AR", -1);
+            eleminfo.BP=config.readDoubleNumEntry("BP", -1);
+            eleminfo.Density=config.readDoubleNumEntry("Density", -1);
+            eleminfo.az=config.readEntry("az","0");
+            eleminfo.date=config.readEntry("date","0");
+            eleminfo.Group=config.readEntry("Group","1");
+            eleminfo.number=(n+1);
+
+        } else elementName="Unknown";
+        position( n+1,h,v ); //get position
+        element[n] =  new ElementKP ( main_window, eleminfo, elementName.latin1(), n+1, statusBar(),this );
+        
+
+        maingrid->addWidget( element[n], v/40+1, h/40 );
+        element[n]->show();
+
+        //Now we add the WhatsThis-help for each button
+        QWhatsThis::add( element[n], i18n("Click here to get information about %1.").arg(eleminfo.Symbol) );
+		QToolTip::add( element[n], eleminfo.Name );
+    }
+
+    //////////////////
+    // feste minimal breite und höhe der gridelemente
+    //////////////////
+    for( int n=0; n<18; n++ ) maingrid->addColSpacing( n, 40 );
+    for( int n=0; n<10; n++ ) maingrid->addRowSpacing( n, 40 );
+
+    mainlayout->addStretch();
+}
+
+void Kalzium::setupCaption()
+{
+    QHBoxLayout *legend_layout = new QHBoxLayout( mainlayout, -1, "legendlayout" );
+    legend_layout->addStretch();
+
+	main_config->setGroup( "Colors" );
+
+	one = new KPushButton( main_window );
+	two = new KPushButton( main_window );
+	three = new KPushButton( main_window );
+	four = new KPushButton( main_window );
+	five = new KPushButton( main_window );
+	six = new KPushButton( main_window );
+	seven = new KPushButton( main_window );
+	eight = new KPushButton( main_window );
+	legend_layout->addWidget( one );
+	legend_layout->addWidget( two );
+	legend_layout->addWidget( three );
+	legend_layout->addWidget( four );
+	legend_layout->addWidget( five );
+	legend_layout->addWidget( six );
+	legend_layout->addWidget( seven );
+	legend_layout->addWidget( eight );
+	legend_layout->addStretch();
+	
+    mainlayout->addStretch();
+
+    for (int n = 0; n < 18; n++)
+    {
+        labels[n] = new QLabel (main_window);
+    }
+}
+
+void Kalzium::setupTimeline()
+{
+    QHBoxLayout *timeline_layout = new QHBoxLayout( mainlayout, -1, "timelinelayout" );
+    timeline_layout->addStretch();
+
+    dateS = new QSlider (QSlider::Horizontal, main_window, "rotateSlider" );
+    timeline_layout->addWidget( dateS );
+    QWhatsThis::add(dateS, i18n("Use this slider to see what elements were known at a certain date."));
+    dateS->setRange(1669, 2002);
+    dateS->setValue(2002);
+    dateS->hide();
+    connect( dateS, SIGNAL(valueChanged(int)),  SLOT(timeline()));
+
+    timeline_layout->addSpacing( 10 );
+
+    dateLCD = new QLCDNumber( 4, main_window, "dateLCD");
+    timeline_layout->addWidget( dateLCD );
+    QWhatsThis::add(dateLCD, i18n("This is the date which you have chosen with the slider. Currently, you are viewing the elements known in the year %1.").arg(QString::number(dateS->value())));
+    dateLCD->hide();
+    dateLCD->display("2002");
+
+    timeline_layout->addStretch();
 }
 
 void Kalzium::showCAS() const

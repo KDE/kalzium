@@ -68,13 +68,14 @@ class Kalzium : public KMainWindow
 		int numofquestions;
 		PElementKP element[118];
 		QString helpArray[9][18];
-		void createhelpArray();
 		CalcDialog *calculationdialog;
 		Colors_Config_Widget *colorsconfig;
 		KSelectAction *numerationmenu, *psestylemenu, *colorschememenu, *weblookupmenu;
 		StateOfMatterDlg *templookup;
         KPushButton *one, *two, *three, *four, *five, *six, *seven, *eight;
 
+		void createhelpArray();
+        
 	private:
 		PQLabel labels[18];
 		KConfig *main_config;
@@ -82,8 +83,9 @@ class Kalzium : public KMainWindow
 		QGridLayout *maingrid;
 		QLCDNumber *dateLCD;
 		QSlider *dateS;
-		SettingsDialog *setDlg;
-
+        QVBoxLayout *mainlayout;
+        QWidget *main_window;		
+        SettingsDialog *setDlg;
 
 		/**
 		 * Called before the window is closed, will save the menusettings.
@@ -92,11 +94,17 @@ class Kalzium : public KMainWindow
 
 		void setupActions();
 
-		/**
+        void setupAllElementKPButtons();
+
+        void setupCaption();
+		
+        /**
 		 * This method sets the menu for kalzium using XMLGUI. 
 		 */
 		void setupConfig();
 
+        void setupTimeline();
+        
 		/**
 		 * numeration theme
 		 */
