@@ -1,0 +1,2864 @@
+<?xml version="1.0"?>
+<kalzium>
+	<element>
+		<number>1</number>
+		<name>Hydrogen</name>
+		<symbol>H</symbol>
+		<weight>1.00794</weight>
+		<block>s</block>
+		<acidicbehaviour>1</acidicbehaviour>
+		<aggregation>2</aggregation>
+		<date scientist="">1766</date>
+		<biologicalmeaning></biologicalmeaning>
+		<group>1</group>
+		<electronegativity>2.1</electronegativity>
+		<meltingpoint>13.81</meltingpoint>
+		<boilingpoint>20.28</boilingpoint>
+		<isotope>0:1,007825:99,985;1:2,0141:0,015</isotope>
+		<density>0.084</density>
+		<ionisationenergy>
+			<energy>13.598</energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>37.3</atomic>
+		</radius>
+		<orbitalstructure>1s1</orbitalstructure>
+		<oxydation>+1,(-1)</oxydation>
+		<family>Non-Metal</family>
+	</element>
+	<element>
+		<number>2</number>
+		<name>Helium</name>
+		<symbol>He</symbol>
+		<weight>4.002602</weight>
+		<block>p</block>
+		<acidicbehaviour>1</acidicbehaviour>
+		<aggregation>2</aggregation>
+		<date scientiest="">1895</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity></electronegativity>
+		<meltingpoint>0.95</meltingpoint>
+		<boilingpoint>4.216</boilingpoint>
+		<density>0.1785</density>
+		<ionisationenergy>
+			<energy>24.587 </energy>
+			<energy>54.417</energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>128</atomic>
+		</radius>
+		<orbits>1s2</orbits>
+		<oxydation>0</oxydation>
+		<isotopes>1:3,01603:0,00013;2:4,0026:99,9998</isotopes>
+		<family>Noblegas</family>
+	</element>
+	<element>
+		<number>3</number>
+		<name>Lithium</name>
+		<symbol>Li</symbol>
+		<weight>6.941</weight>
+		<block>s</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1817</date>
+		<biologicalmeaning>5</biologicalmeaning>
+		<group>1</group>
+		<electronegativity>0.98</electronegativity>
+		<meltingpoint>453.7</meltingpoint>
+		<boilingpoint>1615</boilingpoint>
+		<density>0.53</density>
+		<ionisationenergy>
+			<energy>5.392 </energy>
+			<energy>75.980</energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>152</atomic>
+		</radius>
+		<orbits>1s2 2s1</orbits>
+		<oxydation>+1</oxydation>
+		<isotopes>3:6,0151:7,5;4:7,016:92,5</isotopes>
+		<family>Alkali_Earth</family>
+	</element>
+	<element>
+		<number>4</number>
+		<name>Beryllium</name>
+		<symbol>Be</symbol>
+		<weight>9.012182</weight>
+		<block>s</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0 </aggregation>
+		<date scientiest="">1798</date>
+		<biologicalmeaning>3</biologicalmeaning>
+		<group>2</group>
+		<electronegativity>1.57</electronegativity>
+		<meltingpoint>1560</meltingpoint>
+		<boilingpoint>3243</boilingpoint>
+		<density>1.85</density>
+		<ionisationenergy>
+			<energy>9.322 </energy>
+			<energy>18.211</energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>113.3</atomic>
+		</radius>
+		<orbits>1s2 2s2</orbits>
+		<oxydation>+2</oxydation>
+		<family>Alkaline_Earth</family>
+	</element>
+	<element>
+		<number>5</number>
+		<name>Boron</name>
+		<symbol>B</symbol>
+		<weight>10.811</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1808 </date>
+		<biologicalmeaning>3</biologicalmeaning>
+		<group>3</group>
+		<electronegativity>2.04</electronegativity>
+		<meltingpoint>2365</meltingpoint>
+		<boilingpoint>4275</boilingpoint>
+		<density>2.46</density>
+		<ionisationenergy>
+			<energy>8.298 </energy>
+			<energy>25.154</energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>83</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p1</orbits>
+		<oxydation>+3</oxydation>
+		<isotopes>10,0129:18,83;6:11,0093:81,17</isotopes>
+		<family>Metalloids</family>
+	</element>
+	<element>
+		<number>6</number>
+		<name>Carbon</name>
+		<symbol>C</symbol>
+		<weight>12.0107</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>2.55</electronegativity>
+		<meltingpoint>3825</meltingpoint>
+		<boilingpoint>5100</boilingpoint>
+		<density>3.51</density>
+		<ionisationenergy>
+			<energy>11.260 </energy>
+			<energy>24.376</energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>77.2</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p2</orbits>
+		<oxydation>-4,+2,+4</oxydation>
+		<isotopes>6:12:98,89;7:13,0034:1,11</isotopes>
+		<family>Non-Metal</family>
+	</element>
+	<element>
+		<number>7</number>
+		<name>Nitrogen</name>
+		<symbol>N</symbol>
+		<weight>14.0067</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>2</aggregation>
+		<date scientiest="">1772</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>3.04</electronegativity>
+		<meltingpoint>63.15</meltingpoint>
+		<boilingpoint>77.344</boilingpoint>
+		<density>1.17</density>
+		<ionisationenergy>
+			<energy>14.534 </energy>
+			<energy>29.602</energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>71</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p3</orbits>
+		<oxydation>-3,(+1,+2,+3,+4,+5)</oxydation>
+		<isotopes>7:14,0031:99,64;8:15,0001:0,36</isotopes>
+		<family>Non-Metal</family>
+	</element>
+	<element>
+		<number>8</number>
+		<name>Oxygen</name>
+		<symbol>O</symbol>
+		<weight>15.9994</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>2</aggregation>
+		<date scientiest="">1774</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>3.44</electronegativity>
+		<meltingpoint>54.8</meltingpoint>
+		<boilingpoint>90.188</boilingpoint>
+		<density>1.33</density>
+		<ionisationenergy>
+			<energy>13.618 </energy>
+			<energy>35.116</energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>60.4</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p4</orbits>
+		<oxydation>-2,(-1,+2)</oxydation>
+		<isotopes>8:15,9949:99,756;9:16,9991:0,039;10:17,9992:0,205</isotopes>
+		<family>Non-Metal</family>
+	</element>
+	<element>
+		<number>9</number>
+		<name>Fluorine</name>
+		<symbol>F</symbol>
+		<weight>18.9984032</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>2</aggregation>
+		<date scientiest="">1886</date>
+		<biologicalmeaning>4</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>3.98</electronegativity>
+		<meltingpoint>53.55</meltingpoint>
+		<boilingpoint>85.0</boilingpoint>
+		<density>1.58</density>
+		<ionisationenergy>
+			<energy>17.422 </energy>
+			<energy>34.969</energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>70.9</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p5</orbits>
+		<oxydation>-1</oxydation>
+		<family>Halogene</family>
+	</element>
+	<element>
+		<number>10</number>
+		<name>Neon</name>
+		<symbol>Ne</symbol>
+		<weight>20.1797</weight>
+		<block>p</block>
+		<acidicbehaviour>1</acidicbehaviour>
+		<aggregation>2</aggregation>
+		<date scientiest="">1898 </date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity></electronegativity>
+		<meltingpoint>24.55</meltingpoint>
+		<boilingpoint>27.10</boilingpoint>
+		<density>0.8999</density>
+		<ionisationenergy>
+			<energy>21.564 </energy>
+			<energy>40.962</energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>150</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p6</orbits>
+		<oxydation>0</oxydation>
+		<isotopes>10:19,9924:90,5;11:20,9938:0,27;12:21,9914:9,2</isotopes>
+		<family>Noblegas</family>
+	</element>
+	<element>
+		<number>11</number>
+		<name>Sodium</name>
+		<symbol>Na</symbol>
+		<weight>22.989770</weight>
+		<block>s</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1807</date>
+		<biologicalmeaning>2</biologicalmeaning>
+		<group>1</group>
+		<electronegativity>0.93</electronegativity>
+		<meltingpoint>371.0</meltingpoint>
+		<boilingpoint>1156</boilingpoint>
+		<density>0.97</density>
+		<ionisationenergy>
+			<energy>5.139 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>153.7</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p6 3s1</orbits>
+		<oxydation>+1</oxydation>
+		<family>Alkali_Earth</family>
+
+	</element>
+	<element>
+		<number>12</number>
+		<name>Magnesium</name>
+		<symbol>Mg</symbol>
+		<weight>24.3050</weight>
+		<block>s</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1808</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>2</group>
+		<electronegativity>1.31</electronegativity>
+		<meltingpoint>922</meltingpoint>
+		<boilingpoint>1380</boilingpoint>
+		<density>1.74</density>
+		<ionisationenergy>
+			<energy>7.646 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>160</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p6 3s2</orbits>
+		<oxydation>+2</oxydation>
+		<isotopes>12:23,985:78,99;13:24,986:10;14:25,983:11,01</isotopes>
+		<family>Alkaline_Earth</family>
+	</element>
+	<element>
+		<number>13</number>
+		<name>Aluminum</name>
+		<symbol>Al</symbol>
+		<weight>26.981538</weight>
+		<block>p</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1825</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>3</group>
+		<electronegativity>1.61</electronegativity>
+		<meltingpoint>933.5</meltingpoint>
+		<boilingpoint>2740</boilingpoint>
+		<density>2.70</density>
+		<ionisationenergy>
+			<energy>5.986 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>143.1</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p6 3s2 3p1</orbits>
+		<oxydation>+3</oxydation>
+		<family>Other_Metal</family>
+	</element>
+	<element>
+		<number>14</number>
+		<name>Silicon</name>
+		<symbol>Si</symbol>
+		<weight>28.0855</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1823</date>
+		<biologicalmeaning>4</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>1.91</electronegativity>
+		<meltingpoint>1683</meltingpoint>
+		<boilingpoint>2630</boilingpoint>
+		<density>2.33</density>
+		<ionisationenergy>
+			<energy>8.151 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>117</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p6 3s2 3p2</orbits>
+		<oxydation>+4,(-4,+2)</oxydation>
+		<isotopes>14:27,977:92,28;15:28,976:4,67;16:29,974:3,05</isotopes>
+		<family>Metalloids</family>
+
+	</element>
+	<element>
+		<number>15</number>
+		<name>Phosphorus</name>
+		<symbol>P</symbol>
+		<weight>30.973761</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1669</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>2.19</electronegativity>
+		<meltingpoint>317.3</meltingpoint>
+		<boilingpoint>553</boilingpoint>
+		<density>1.82</density>
+		<ionisationenergy>
+			<energy>10.486 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>93</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p6 3s2 3p3</orbits>
+		<oxydation>-3,(+1,+3),+5</oxydation>
+		<family>Non-Metal</family>
+
+	</element>
+	<element>
+		<number>16</number>
+		<name>Sulfur</name>
+		<symbol>S</symbol>
+		<weight>32.065</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>2.58</electronegativity>
+		<meltingpoint>392.2</meltingpoint>
+		<boilingpoint>717.82</boilingpoint>
+		<density>2.06</density>
+		<ionisationenergy>
+			<energy>10.360 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>104</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p6 3s2 3p4</orbits>
+		<oxydation>-2,+2,+4,+6</oxydation>
+		<isotopes>16:31,972:95,1;17:32,971:0,74;18:33,968:4,2;20:35,967:0,016</isotopes>
+		<family>Non-Metal</family>
+
+	</element>
+	<element>
+		<number>17</number>
+		<name>Chlorine</name>
+		<symbol>Cl</symbol>
+		<weight>35.453</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>2</aggregation>
+		<date scientiest="">1774</date>
+		<biologicalmeaning>2</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>3.16</electronegativity>
+		<meltingpoint>172.17</meltingpoint>
+		<boilingpoint>239.18</boilingpoint>
+		<density>2.95</density>
+		<ionisationenergy>
+			<energy>12.967 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>99.4</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p6 3s2 3p5</orbits>
+		<oxydation>-1,(+1,+3,+5,+7)</oxydation>
+		<isotopes>18:34,968853:75,77;20:36,966:24,23</isotopes>
+		<family>Halogene</family>
+
+	</element>
+	<element>
+		<number>18</number>
+		<name>Argon</name>
+		<symbol>Ar</symbol>
+		<weight>39.948</weight>
+		<block>p</block>
+		<acidicbehaviour>1</acidicbehaviour>
+		<aggregation>2</aggregation>
+		<date scientiest="">1894</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity></electronegativity>
+		<meltingpoint>83.95</meltingpoint>
+		<boilingpoint>87.45</boilingpoint>
+		<density>1.66</density>
+		<ionisationenergy>
+			<energy>15.759 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>174</atomic>
+		</radius>
+		<orbits>1s2 2s2 2p6 3s2 3p6</orbits>
+		<oxydation>0</oxydation>
+		<isotopes>18:35,968:0,307;20:37,963:0,061;22:39,962:99,632</isotopes>
+		<family>Noblegas</family>
+
+	</element>
+	<element>
+		<number>19</number>
+		<name>Potassium</name>
+		<symbol>K</symbol>
+		<weight>39.0983</weight>
+		<block>s</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1807</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>1</group>
+		<electronegativity>0.82</electronegativity>
+		<meltingpoint>336.8</meltingpoint>
+		<boilingpoint>1033</boilingpoint>
+		<density>0.86</density>
+		<ionisationenergy>
+			<energy>4.341 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>227</atomic>
+		</radius>
+		<orbits>Ar 4s1</orbits>
+		<oxydation>+1</oxydation>
+		<isotopes>20:38,964:93,2581;22:40,962:6,73</isotopes>
+		<family>Alkali_Earth</family>
+
+	</element>
+	<element>
+		<number>20</number>
+		<name>Calcium</name>
+		<symbol>Ca</symbol>
+		<weight>40.078</weight>
+		<block>s</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1808</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>2</group>
+		<electronegativity>1.00</electronegativity>
+		<meltingpoint>1112</meltingpoint>
+		<boilingpoint>1757</boilingpoint>
+		<density>1.54</density>
+		<ionisationenergy>
+			<energy>6.113 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>197.3</atomic>
+		</radius>
+		<orbits>Ar 4s2</orbits>
+		<oxydation>+2</oxydation>
+		<isotopes>20:39,963:96,92;22:41,959:0,64;23:42,959:0,13;24:43,955:2,13;26:44,954:0,003;28:47,952:0,18</isotopes>
+		<family>Alkaline_Earth</family>
+
+	</element>
+	<element>
+		<number>21</number>
+		<name>Scandium</name>
+		<symbol>Sc</symbol>
+		<weight>44.955910</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1879</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>3</group>
+		<electronegativity>1.36</electronegativity>
+		<meltingpoint>1814</meltingpoint>
+		<boilingpoint>3109</boilingpoint>
+		<density>2.99</density>
+		<ionisationenergy>
+			<energy>6.54 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>160.6</atomic>
+		</radius>
+		<orbits>Ar 3d1 4s2</orbits>
+		<oxydation>+3</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>22</number>
+		<name>Titanium</name>
+		<symbol>Ti</symbol>
+		<weight>47.867</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1791</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>1.54</electronegativity>
+		<meltingpoint>1935</meltingpoint>
+		<boilingpoint>3560</boilingpoint>
+		<density>4.51</density>
+		<ionisationenergy>
+			<energy>6.82 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>144.8</atomic>
+		</radius>
+		<orbits>Ar 3d2 4s2</orbits>
+		<oxydation>+4,+3</oxydation>
+		<isotopes>24:45,953:7,95;25:46,952:7,75;26:47,948:73,45;27:48,948:5,51;28:49,945:5,34</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>23</number>
+		<name>Vanadium</name>
+		<symbol>V</symbol>
+		<weight>50.9415</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1830</date>
+		<biologicalmeaning>4</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>1.63</electronegativity>
+		<meltingpoint>2163</meltingpoint>
+		<boilingpoint>3650</boilingpoint>
+		<density>6.09</density>
+		<ionisationenergy>
+			<energy>6.74 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>132.1</atomic>
+		</radius>
+		<orbits>Ar 3d3 4s2</orbits>
+		<oxydation>+5,(+2,+3,+4)</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>24</number>
+		<name>Chromium</name>
+		<symbol>Cr</symbol>
+		<weight>51.9961</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1797</date>
+		<biologicalmeaning>4</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>1.66</electronegativity>
+		<meltingpoint>2130</meltingpoint>
+		<boilingpoint>2945</boilingpoint>
+		<density>7.14</density>
+		<ionisationenergy>
+			<energy>6.766 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>124.9</atomic>
+		</radius>
+		<orbits>Ar 3d5 4s1</orbits>
+		<oxydation>+2,+3,(+1,+4,+5),+6</oxydation>
+		<isotopes>26:49,946:4,3;28:51,94:83,8;29:52,941:9,5;30:53,939:2,4</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>25</number>
+		<name>Manganese</name>
+		<symbol>Mn</symbol>
+		<weight>54.938049</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1774</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>1.55</electronegativity>
+		<meltingpoint>1518</meltingpoint>
+		<boilingpoint>2235</boilingpoint>
+		<density>7.44</density>
+		<ionisationenergy>
+			<energy>7.435 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>124</atomic>
+		</radius>
+		<orbits>Ar 3d5 4s2</orbits>
+		<oxydation>+2,+4,(+5),+6,+7</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>26</number>
+		<name>Iron</name>
+		<symbol>Fe</symbol>
+		<weight>55.845</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>1.83</electronegativity>
+		<meltingpoint>1808</meltingpoint>
+		<boilingpoint>3023</boilingpoint>
+		<density>7.874</density>
+		<ionisationenergy>
+			<energy>7.870 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>124.1</atomic>
+		</radius>
+		<orbits>Ar 3d6 4s2</orbits>
+		<oxydation>+2,+3</oxydation>
+		<isotopes>28:53,94:5,81;30:55,935:91,64;31:56,935:2,21;32:57,933:0,34</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>27</number>
+		<name>Cobalt</name>
+		<symbol>Co</symbol>
+		<weight>58.933200</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1737</date>
+		<biologicalmeaning>2</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>1.88</electronegativity>
+		<meltingpoint>1768</meltingpoint>
+		<boilingpoint>3143</boilingpoint>
+		<density>8.89</density>
+		<ionisationenergy>
+			<energy>7.86 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>125.3</atomic>
+		</radius>
+		<orbits>Ar 3d7 4s2</orbits>
+		<oxydation>+2,+3,(+4)</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>28</number>
+		<name>Nickel</name>
+		<symbol>Ni</symbol>
+		<weight>58.6934</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1751</date>
+		<biologicalmeaning>4</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>1.91</electronegativity>
+		<meltingpoint>1726</meltingpoint>
+		<boilingpoint>3005</boilingpoint>
+		<density>8.91</density>
+		<ionisationenergy>
+			<energy>7.635 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>124.6</atomic>
+		</radius>
+		<orbits>Ar 3d8 4s2</orbits>
+		<oxydation>0,(+2),+3</oxydation>
+		<isotopes>30:57,935:67,8;32:59,931:26,2;33:60,931:1,2;34:61,928:3,7;36:63,928:1,1</isotopes>
+		<family>Transition</family>
+	</element>
+	<element>
+		<number>29</number>
+		<name>Copper</name>
+		<symbol>Cu</symbol>
+		<weight>63.546</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>1</group>
+		<electronegativity>1.90</electronegativity>
+		<meltingpoint>1356.6</meltingpoint>
+		<boilingpoint>2840</boilingpoint>
+		<density>8.92</density>
+		<ionisationenergy>
+			<energy>7.726 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>127.8</atomic>
+		</radius>
+		<orbits>Ar 3d10 4s1</orbits>
+		<oxydation>+1,+2</oxydation>
+		<isotopes>34:62,93:68,9;36:64,928:31,1</isotopes>
+		<family>Transition</family>
+	</element>
+	<element>
+		<number>30</number>
+		<name>Zinc</name>
+		<symbol>Zn</symbol>
+		<weight>65.39</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1746</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>2</group>
+		<electronegativity>1.65</electronegativity>
+		<meltingpoint>692.73</meltingpoint>
+		<boilingpoint>1180</boilingpoint>
+		<density>7.14</density>
+		<ionisationenergy>
+			<energy>9.394 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>133.2</atomic>
+		</radius>
+		<orbits>Ar 3d10 4s2</orbits>
+		<oxydation>+2</oxydation>
+		<isotopes>34:63,929:48,9;36:65,926:27,82;37:66,927:4,16;38:67,925:18,5;40:69,925:0,62</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>31</number>
+		<name>Gallium</name>
+		<symbol>Ga</symbol>
+		<weight>69.723</weight>
+		<block>p</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1875</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>3</group>
+		<electronegativity>1.81</electronegativity>
+		<meltingpoint>302.92</meltingpoint>
+		<boilingpoint>2478</boilingpoint>
+		<density>5.91</density>
+		<ionisationenergy>
+			<energy>5.999 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>122.1</atomic>
+		</radius>
+		<orbits>Ar 3d10 4s2 4p1</orbits>
+		<oxydation>(+1),(+2),+3</oxydation>
+		<isotopes>38:68,926:60,1;40:70,925:39,9</isotopes>
+		<family>Other_Metal</family>
+
+	</element>
+	<element>
+		<number>32</number>
+		<name>Germanium</name>
+		<symbol>Ge</symbol>
+		<weight>72.64</weight>
+		<block>p</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1886</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>2.01</electronegativity>
+		<meltingpoint>1211.5</meltingpoint>
+		<boilingpoint>3107</boilingpoint>
+		<density>5.32</density>
+		<ionisationenergy>
+			<energy>7.899 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>122.5</atomic>
+		</radius>
+		<orbits>Ar 3d10 4s2 4p2</orbits>
+		<oxydation>+4,(+2)</oxydation>
+		<isotopes>38:69,924:20,6;40:71,922:27,4;41:72,923:7,8;42:73,921:36,4;44:75,921:7,8</isotopes>
+		<family>Metalloids</family>
+
+	</element>
+	<element>
+		<number>33</number>
+		<name>Arsenic</name>
+		<symbol>As</symbol>
+		<weight>74.92160</weight>
+		<block>p</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>4</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>2.18</electronegativity>
+		<meltingpoint>1090</meltingpoint>
+		<boilingpoint>876</boilingpoint>
+		<density>5.72</density>
+		<ionisationenergy>
+			<energy>9.81 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>125</atomic>
+		</radius>
+		<orbits>Ar 3d10 4s2 4p3</orbits>
+		<oxydation>(-3),+3,(+5)</oxydation>
+		<family>Metalloids</family>
+
+	</element>
+	<element>
+		<number>34</number>
+		<name>Selenium</name>
+		<symbol>Se</symbol>
+		<weight>78.96</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1817</date>
+		<biologicalmeaning>2</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>2.55</electronegativity>
+		<meltingpoint>494</meltingpoint>
+		<boilingpoint>958</boilingpoint>
+		<density>4.82</density>
+		<ionisationenergy>
+			<energy>9.752 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>116</atomic>
+		</radius>
+		<orbits>Ar 3d10 4s2 4p4</orbits>
+		<oxydation>(-2),+4,(+6)</oxydation>
+		<isotopes>40:73,922:0,9;42:75,919:9,5;43:76,92:8,3;44:77,917:24;46:79,917:48;48:81,917:9,3</isotopes>
+		<family>Non-Metal</family>
+
+	</element>
+	<element>
+		<number>35</number>
+		<name>Bromine</name>
+		<symbol>Br</symbol>
+		<weight>79.904</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>1</aggregation>
+		<date scientiest="">1826</date>
+		<biologicalmeaning>5</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>2.96</electronegativity>
+		<meltingpoint>265.95</meltingpoint>
+		<boilingpoint>331.85</boilingpoint>
+		<density>3.14</density>
+		<ionisationenergy>
+			<energy>11.814 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>114.5</atomic>
+		</radius>
+		<orbits>Ar 3d10 4s2 4p5</orbits>
+		<oxydation>-1,(+1,+5,+7)</oxydation>
+		<isotopes>44:78,918:50,6;46:80,916:49,4</isotopes>
+		<family>Halogene</family>
+
+	</element>
+	<element>
+		<number>36</number>
+		<name>Krypton</name>
+		<symbol>Kr</symbol>
+		<weight>83.80</weight>
+		<block>p</block>
+		<acidicbehaviour>1</acidicbehaviour>
+		<aggregation>2</aggregation>
+		<date scientiest="">1898</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity></electronegativity>
+		<meltingpoint>116</meltingpoint>
+		<boilingpoint>120.85</boilingpoint>
+		<density>4.48</density>
+		<ionisationenergy>
+			<energy>13.999 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>190</atomic>
+		</radius>
+		<orbits>Ar 3d10 4s2 4p6</orbits>
+		<oxydation>+2,(+4)</oxydation>
+		<isotopes>42:77,92:0,35;44:79,916:2,01;46:81,913:11,5;47:82,914:11,5;48:83,912:57,18;50:85,911:17,5</isotopes>
+		<family>Noblegas</family>
+
+	</element>
+	<element>
+		<number>37</number>
+		<name>Rubidium</name>
+		<symbol>Rb</symbol>
+		<weight>85.4678</weight>
+		<block>s</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		A<aggregation>0</aggregation>
+		<date scientiest="">1861</date>
+		<biologicalmeaning>5</biologicalmeaning>
+		<group>1</group>
+		<electronegativity>0.82</electronegativity>
+		<meltingpoint>312.63</meltingpoint>
+		<boilingpoint>961</boilingpoint>
+		<density>1.53</density>
+		<ionisationenergy>
+			<energy>4.177 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>247.5</atomic>
+		</radius>
+		<orbits>Kr 5s1</orbits>
+		<oxydation>+1</oxydation>
+		<family>Alkali_Earth</family>
+
+	</element>
+	<element>
+		<number>38</number>
+		<name>Strontium</name>
+		<symbol>Sr</symbol>
+		<weight>87.62</weight>
+		<block>s</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1790</date>
+		<biologicalmeaning>3</biologicalmeaning>
+		<group>2</group>
+		<electronegativity>0.95</electronegativity>
+		<meltingpoint>1042</meltingpoint>
+		<boilingpoint>1655</boilingpoint>
+		<density>2.63</density>
+		<ionisationenergy>
+			<energy>5.695 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>215.1</atomic>
+		</radius>
+		<orbits>Kr 5s2</orbits>
+		<oxydation>+2</oxydation>
+		<isotopes>46:83,913:0,56;48:85,909:9,86;49:86,909:7,02;50:87,906:82,6</isotopes>
+		<family>Alkaline_Earth</family>
+
+	</element>
+	<element>
+		<number>39</number>
+		<name>Yttrium</name>
+		<symbol>Y</symbol>
+		<weight>88.90585</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1794</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>3</group>
+		<electronegativity>1.22</electronegativity>
+		<meltingpoint>1795</meltingpoint>
+		<boilingpoint>3611</boilingpoint>
+		<density>4.47</density>
+		<ionisationenergy>
+			<energy>6.38 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>181</atomic>
+		</radius>
+		<orbits>Kr 4d1 5s2</orbits>
+		<oxydation>+3</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>40</number>
+		<name>Zirconium</name>
+		<symbol>Zr</symbol>
+		<weight>91.224</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1789</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>1.33</electronegativity>
+		<meltingpoint>2128</meltingpoint>
+		<boilingpoint>4682</boilingpoint>
+		<density>6.51</density>
+		<ionisationenergy>
+			<energy>6.84 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>160</atomic>
+		</radius>
+		<orbits>Kr 4d2 5s2</orbits>
+		<oxydation>+4</oxydation>
+		<isotopes>50:89,904:51,5;51:90,905:11,2;52:91,905:17,1;54:93,906:17,4;56:95,908:2,8</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>41</number>
+		<name>Niobium</name>
+		<symbol>Nb</symbol>
+		<weight>92.90638</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1801</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>1.6</electronegativity>
+		<meltingpoint>2742</meltingpoint>
+		<boilingpoint>5015</boilingpoint>
+		<density>8.58</density>
+		<ionisationenergy>
+			<energy>6.88 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>142.9</atomic>
+		</radius>
+		<orbits>Kr 4d4</orbits>
+		<oxydation>+3,+5</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>42</number>
+		<name>Molybdenum</name>
+		<symbol>Mo</symbol>
+		<weight>95.94</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1778</date>
+		<biologicalmeaning>1</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>2.16</electronegativity>
+		<meltingpoint>2896</meltingpoint>
+		<boilingpoint>4912</boilingpoint>
+		<density>10.28</density>
+		<ionisationenergy>
+			<energy>7.099 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>136.2</atomic>
+		</radius>
+		<orbits>Kr 4d5 5s1</orbits>
+		<oxydation>(+2,+3,+4,+5),+6</oxydation>
+		<isotopes>50:91,906:15,9;52:93,905:9,2;53:94,906:16,5;54:95,905:15,7;55:96,905:9,4;56:97,906:23,7;58:99,908:9,6</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>43</number>
+		<name>Technetium</name>
+		<symbol>Tc</symbol>
+		<weight>98.9063</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1937</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>1.9</electronegativity>
+		<meltingpoint>2477</meltingpoint>
+		<boilingpoint>4538</boilingpoint>
+		<density>11.49</density>
+		<ionisationenergy>
+			<energy>7.28 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>135.8</atomic>
+		</radius>
+		<orbits>Kr 4d6 5s1</orbits>
+		<oxydation>+7</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>44</number>
+		<name>Ruthenium</name>
+		<symbol>Ru</symbol>
+		<weight>101.07</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1844</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>2.2</electronegativity>
+		<meltingpoint>2610</meltingpoint>
+		<boilingpoint>4425</boilingpoint>
+		<density>12.45</density>
+		<ionisationenergy>
+			<energy>7.37 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>134</atomic>
+		</radius>
+		<orbits>Kr 4d7 5s1</orbits>
+		<oxydation>+3,+4,(+8)</oxydation>
+		<isotopes>52:95,908:5,68;54:97,906:2,22;55:98,906:12,91;56:99,903:12,7;57:100,904:16,98;58:101,904:31,34;60:103,906:18,27</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>45</number>
+		<name>Rhodium</name>
+		<symbol>Rh</symbol>
+		<weight>102.90550</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1803</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>2.28</electronegativity>
+		<meltingpoint>2236</meltingpoint>
+		<boilingpoint>3970</boilingpoint>
+		<density>12.41</density>
+		<ionisationenergy>
+			<energy>7.46 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>134.5</atomic>
+		</radius>
+		<orbits>Kr 4d8 5s1</orbits>
+		<oxydation>+1,(+2),+3,(+4)</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>46</number>
+		<name>Palladium</name>
+		<symbol>Pd</symbol>
+		<weight>106.42</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1803</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>2.20</electronegativity>
+		<meltingpoint>1825</meltingpoint>
+		<boilingpoint>3240</boilingpoint>
+		<density>12.02</density>
+		<ionisationenergy>
+			<energy>8.34 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>137.6</atomic>
+		</radius>
+		<orbits>Kr 4d10</orbits>
+		<oxydation>+2,+4</oxydation>
+		<isotopes>56:101,905:0,8;58:103,904:9,3;59:104,905:22,6;60:105,903:27,2;62:107,904:26,08;64:109,904:13,5</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>47</number>
+		<name>Silver</name>
+		<symbol>Ag</symbol>
+		<weight>107.8682</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>1</group>
+		<electronegativity>1.93</electronegativity>
+		<meltingpoint>1235.1</meltingpoint>
+		<boilingpoint>2436</boilingpoint>
+		<density>10.49</density>
+		<ionisationenergy>
+			<energy>7.576 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>144.4</atomic>
+		</radius>
+		<orbits>Kr 4d10 5s1</orbits>
+		<oxydation>+1,(+2,+3)</oxydation>
+		<isotopes>60:106,905:51,9;62:108,905:48,1</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>48</number>
+		<name>Cadmium</name>
+		<symbol>Cd</symbol>
+		<weight>112.411</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1817</date>
+		<biologicalmeaning>5</biologicalmeaning>
+		<group>2</group>
+		<electronegativity>1.69</electronegativity>
+		<meltingpoint>594.26</meltingpoint>
+		<boilingpoint>1040</boilingpoint>
+		<density>8.64</density>
+		<ionisationenergy>
+			<energy>8.993 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>148.9</atomic>
+		</radius>
+		<orbits>Kr 4d10 5s2</orbits>
+		<oxydation>+2</oxydation>
+		<isotopes>58:105,906:1,215;60:107,904:0,875;68:115,905:7,58</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>49</number>
+		<name>Indium</name>
+		<symbol>In</symbol>
+		<weight>114.818</weight>
+		<block>p</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1863</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>3</group>
+		<electronegativity>1.78</electronegativity>
+		<meltingpoint>429.78</meltingpoint>
+		<boilingpoint>2350</boilingpoint>
+		<density>7.31</density>
+		<ionisationenergy>
+			<energy>5.786 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>162.6</atomic>
+		</radius>
+		<orbits>Kr 4d10 5s2 5p1</orbits>
+		<oxydation>+3,(+1,+2)</oxydation>
+		<family>Other_Metal</family>
+
+	</element>
+	<element>
+		<number>50</number>
+		<name>Tin</name>
+		<symbol>Sn</symbol>
+		<weight>118.710</weight>
+		<block>p</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>6</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>1.96</electronegativity>
+		<meltingpoint>505.12</meltingpoint>
+		<boilingpoint>2876</boilingpoint>
+		<density>7.29</density>
+		<ionisationenergy>
+			<energy>7.344 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>140.5</atomic>
+		</radius>
+		<orbits>Kr 4d10 5s2 5p2</orbits>
+		<oxydation>+2,+4</oxydation>
+		<isotopes>62:111,05:0,9;64:113,903:0,6;65:114,904:0,4;66:115,902:14,1;67:116,903:7,5;68:117,902:24;69:118,903:8,6;70:119,902:33;72:121,903:4,8;74:123,905:6,1</isotopes>
+		<family>Other_Metal</family>
+
+	</element>
+	<element>
+		<number>51</number>
+		<name>Antimony</name>
+		<symbol>Sb</symbol>
+		<weight>121.760</weight>
+		<block>p</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>2.05</electronegativity>
+		<meltingpoint>903.91</meltingpoint>
+		<boilingpoint>1860</boilingpoint>
+		<density>6.69</density>
+		<ionisationenergy>
+			<energy>8.641 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>145</atomic>
+		</radius>
+		<orbits>Kr 4d10 5s2 5p3</orbits>
+		<oxydation>(-3),+3,(+5)</oxydation>
+		<isotopes>70:120,904:57,25;72:122,904:42,75</isotopes>
+		<family>Metalloids</family>
+
+	</element>
+	<element>
+		<number>52</number>
+		<name>Tellurium</name>
+		<symbol>Te</symbol>
+		<weight>127.60</weight>
+		<block>p</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1782</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>2.1</electronegativity>
+		<meltingpoint>722.72</meltingpoint>
+		<boilingpoint>1261</boilingpoint>
+		<density>6.25</density>
+		<ionisationenergy>
+			<energy>9.009 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>143.2</atomic>
+		</radius>
+		<orbits>Kr 4d10 5s2 5p4</orbits>
+		<oxydation>(-2),+4,(+6)</oxydation>
+		<isotopes>68:119,904048:0,09;78:129,906229:34,08</isotopes>
+		<family>Metalloids</family>
+
+	</element>
+	<element>
+		<number>53</number>
+		<name>Iodine</name>
+		<symbol>I</symbol>
+		<weight>126.90447</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1804</date>
+		<biologicalmeaning>2</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>2.66</electronegativity>
+		<meltingpoint>386.7</meltingpoint>
+		<boilingpoint>457.5</boilingpoint>
+		<density>4.94</density>
+		<ionisationenergy>
+			<energy>10.451 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>133.1</atomic>
+		</radius>
+		<orbits>Kr 4d10 5s2 5p5</orbits>
+		<oxydation>-1,(+1,+3,+5,+7)</oxydation>
+		<family>Halogene</family>
+
+	</element>
+	<element>
+		<number>54</number>
+		<name>Xenon</name>
+		<symbol>Xe</symbol>
+		<weight>131.293</weight>
+		<block>p</block>
+		<acidicbehaviour>1</acidicbehaviour>
+		<aggregation>2</aggregation>
+		<date scientiest="">1898</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>2.6</electronegativity>
+		<meltingpoint>161.39</meltingpoint>
+		<boilingpoint>165.1</boilingpoint>
+		<density>4.49</density>
+		<ionisationenergy>
+			<energy>12.130 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>218</atomic>
+		</radius>
+		<orbits>Kr 4d10 5s2 5p6</orbits>
+		<oxydation>+4,(+2,+6)</oxydation>
+		<isotopes>70:123,906:0,094;72:125,904:0,088;74:127,904:1,9;75:128,905:26,23;76:129,904:4,07;77:130,905:21,17;78:131,904:26,96;80:133,905:10,54;82:135,907:8,95</isotopes>
+		<family>Noblegas</family>
+
+	</element>
+	<element>
+		<number>55</number>
+		<name>Caesium</name>
+		<symbol>Cs</symbol>
+		<weight>132.90545</weight>
+		<block>s</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1860</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>1</group>
+		<electronegativity>0.79</electronegativity>
+		<meltingpoint>301.54</meltingpoint>
+		<boilingpoint>944</boilingpoint>
+		<density>1.90</density>
+		<ionisationenergy>
+			<energy>3.894 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>265.5</atomic>
+		</radius>
+		<orbits>Xe 6s1</orbits>
+		<oxydation>+1</oxydation>
+		<family>Alkali_Earth</family>
+
+	</element>
+	<element>
+		<number>56</number>
+		<name>Barium</name>
+		<symbol>Ba</symbol>
+		<weight>137.237</weight>
+		<block>s</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1808</date>
+		<biologicalmeaning>3</biologicalmeaning>
+		<group>2</group>
+		<electronegativity>0.89</electronegativity>
+		<meltingpoint>1002</meltingpoint>
+		<boilingpoint>2078</boilingpoint>
+		<density>3.65</density>
+		<ionisationenergy>
+			<energy>5.212 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>217.3</atomic>
+		</radius>
+		<orbits>Xe 6s2</orbits>
+		<oxydation>+2</oxydation>
+		<isotopes>74:129,906:0,101;76:131,905:0,097</isotopes>
+		<family>Alkaline_Earth</family>
+
+	</element>
+	<element>
+		<number>57</number>
+		<name>Lanthanum</name>
+		<symbol>La</symbol>
+		<weight>138.9055</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1839</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>3</group>
+		<electronegativity>1.10</electronegativity>
+		<meltingpoint>1191</meltingpoint>
+		<boilingpoint>3737</boilingpoint>
+		<density>6.16</density>
+		<ionisationenergy>
+			<energy>5.577 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>187.7</atomic>
+		</radius>
+		<orbits>Xe 5d1 6s2</orbits>
+		<oxydation>+3</oxydation>
+		<isotopes>81:137,907:0,089;82:138,91:99,911</isotopes>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>58</number>
+		<name>Cerium</name>
+		<symbol>Ce</symbol>
+		<weight>140.116</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1803</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>1.12</electronegativity>
+		<meltingpoint>1071</meltingpoint>
+		<boilingpoint>3715</boilingpoint>
+		<density>6.77</density>
+		<ionisationenergy>
+			<energy>5.47 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>182.5</atomic>
+		</radius>
+		<orbits>Xe 4f1 5d1 6s2</orbits>
+		<oxydation>+3,+4</oxydation>
+		<isotopes>78:135,907:0,193;80:137,906:0,25;82:139,905:88,46;84:141,909:11,07</isotopes>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>59</number>
+		<name>Praseodymium</name>
+		<symbol>Pr</symbol>
+		<weight>140.90765</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1885</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>1.13</electronegativity>
+		<meltingpoint>1204</meltingpoint>
+		<boilingpoint>3785</boilingpoint>
+		<density>6.48</density>
+		<ionisationenergy>
+			<energy>5.42 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>182.8</atomic>
+		</radius>
+		<orbits>Xe 4f3 6s2</orbits>
+		<oxydation>+3,+4</oxydation>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>60</number>
+		<name>Neodymium</name>
+		<symbol>Nd</symbol>
+		<weight>144.24</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1925</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>1.14</electronegativity>
+		<meltingpoint>1294</meltingpoint>
+		<boilingpoint>3347</boilingpoint>
+		<density>7.00</density>
+		<ionisationenergy>
+			<energy>5.49 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>182.1</atomic>
+		</radius>
+		<orbits>Xe 4f4 6s2</orbits>
+		<oxydation>+3</oxydation>
+		<isotopes>82:141,907:27,1;83:142,91:12,2;85:144,912:8,3;86:145,913:17,2;88:147,916:5,72;90:149,921:5,6</isotopes>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>61</number>
+		<name>Promethium</name>
+		<symbol>Pm</symbol>
+		<weight>146.9151</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1945</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>1.13</electronegativity>
+		<meltingpoint>1315</meltingpoint>
+		<boilingpoint>3273</boilingpoint>
+		<density>7.22</density>
+		<ionisationenergy>
+			<energy>5.55 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>181.0</atomic>
+		</radius>
+		<orbits>Xe 4f5 6s2</orbits>
+		<oxydation>+3</oxydation>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>62</number>
+		<name>Samarium</name>
+		<symbol>Sm</symbol>
+		<weight>150.36</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1879</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>1.17</electronegativity>
+		<meltingpoint>1347</meltingpoint>
+		<boilingpoint>2067</boilingpoint>
+		<density>7.54</density>
+		<ionisationenergy>
+			<energy>5.63 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>180.2</atomic>
+		</radius>
+		<orbits>Xe 4f6 6s2</orbits>
+		<oxydation>+2,+3</oxydation>
+		<isotopes>82:143,912:3;90:151,919:26;92:153,922:20</isotopes>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>63</number>
+		<name>Europium</name>
+		<symbol>Eu</symbol>
+		<weight>151.964</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1901</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>1.2</electronegativity>
+		<meltingpoint>1095</meltingpoint>
+		<boilingpoint>1800</boilingpoint>
+		<density>5.25</density>
+		<ionisationenergy>
+			<energy>5.67 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>204.2</atomic>
+		</radius>
+		<orbits>Xe 4f7 6s2</orbits>
+		<oxydation>+2,+3</oxydation>
+		<isotopes>88:150,92:47,7;90:152,921:52,23</isotopes>
+		<family>Rare_Earth</family>
+
+
+	</element>
+	<element>
+		<number>64</number>
+		<name>Gadolinium</name>
+		<symbol>Gd</symbol>
+		<weight>157.25</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1880</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>1.20</electronegativity>
+		<meltingpoint>1585</meltingpoint>
+		<boilingpoint>3545</boilingpoint>
+		<density>7.89</density>
+		<ionisationenergy>
+			<energy>6.14 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>180.2</atomic>
+		</radius>
+		<orbits>Xe 4f7 5d1 6s2</orbits>
+		<oxydation>+3</oxydation>
+		<isotopes>90:153,921:2,15;91:154,923:14,78;92:155,922:20,59;93:156,924:15,71;94:157,924:24,79;96:159,927:21,79</isotopes>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>65</number>
+		<name>Terbium</name>
+		<symbol>Tb</symbol>
+		<weight>158.92534</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1843</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>1</group>
+		<electronegativity>1.1</electronegativity>
+		<meltingpoint>1629</meltingpoint>
+		<boilingpoint>3500</boilingpoint>
+		<density>8.25</density>
+		<ionisationenergy>
+			<energy>5.85 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>178.2</atomic>
+		</radius>
+		<orbits>Xe 4f9 6s2</orbits>
+		<oxydation>+3,+4</oxydation>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>66</number>
+		<name>Dysprosium</name>
+		<symbol>Dy</symbol>
+		<weight>162.50</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1886</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>2</group>
+		<electronegativity>1.22</electronegativity>
+		<meltingpoint>1685</meltingpoint>
+		<boilingpoint>2840</boilingpoint>
+		<density>8.56</density>
+		<ionisationenergy>
+			<energy>5.93 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>177.3</atomic>
+		</radius>
+		<orbits>Xe 4f10 6s2</orbits>
+		<oxydation>+3</oxydation>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>67</number>
+		<name>Holmium</name>
+		<symbol>Ho</symbol>
+		<weight>164.93032</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1878</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>3</group>
+		<electronegativity>1.23</electronegativity>
+		<meltingpoint>1747</meltingpoint>
+		<boilingpoint>2968</boilingpoint>
+		<density>8.78</density>
+		<ionisationenergy>
+			<energy>6.02 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>176.6</atomic>
+		</radius>
+		<orbits>Xe 4f11 6s2</orbits>
+		<oxydation>+3</oxydation>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>68</number>
+		<name>Erbium</name>
+		<symbol>Er</symbol>
+		<weight>167.259</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1843</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>1.24</electronegativity>
+		<meltingpoint>1802</meltingpoint>
+		<boilingpoint>3140</boilingpoint>
+		<density>9.05</density>
+		<ionisationenergy>
+			<energy>6.10 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>175.7</atomic>
+		</radius>
+		<orbits>Xe 4f12 6s2</orbits>
+		<oxydation>+3</oxydation>
+		<isotopes>94:161,929:0,25;96:163,929:2;102:169,935:10</isotopes>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>69</number>
+		<name>Thulium</name>
+		<symbol>Tm</symbol>
+		<weight>168.93421</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1879</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>1.25</electronegativity>
+		<meltingpoint>1818</meltingpoint>
+		<boilingpoint>2223</boilingpoint>
+		<density>9.32</density>
+		<ionisationenergy>
+			<energy>6.18 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>174.6</atomic>
+		</radius>
+		<orbits>Xe 4f13 6s2</orbits>
+		<oxydation>+2,+3</oxydation>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>70</number>
+		<name>Ytterbium</name>
+		<symbol>Yb</symbol>
+		<weight>173.04</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1878</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>1.1</electronegativity>
+		<meltingpoint>1092</meltingpoint>
+		<boilingpoint>1469</boilingpoint>
+		<density>9.32</density>
+		<ionisationenergy>
+			<energy>6.254 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>194</atomic>
+		</radius>
+		<orbits>Xe 4f14 6s2</orbits>
+		<oxydation>+2,+3</oxydation>
+		<isotopes>98:167,934:0,06;106:175,943:13,38</isotopes>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>71</number>
+		<name>Lutetium</name>
+		<symbol>Lu</symbol>
+		<weight>174.967</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1907</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>1.27</electronegativity>
+		<meltingpoint>1936</meltingpoint>
+		<boilingpoint>3668</boilingpoint>
+		<density>9.84</density>
+		<ionisationenergy>
+			<energy>5.426 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>173.4</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d1 6s2</orbits>
+		<oxydation>+3</oxydation>
+		<isotopes>104:174,941:97,5;105:175,943:2,5</isotopes>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>72</number>
+		<name>Hafnium</name>
+		<symbol>Hf</symbol>
+		<weight>178.49</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1923</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>1.3</electronegativity>
+		<meltingpoint>2504</meltingpoint>
+		<boilingpoint>4875</boilingpoint>
+		<density>13.31</density>
+		<ionisationenergy>
+			<energy>7.0 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>156.4</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d2 6s2</orbits>
+		<oxydation>+5</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>73</number>
+		<name>Tantalum</name>
+		<symbol>Ta</symbol>
+		<weight>180.9479</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1802</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>1.5</electronegativity>
+		<meltingpoint>3293</meltingpoint>
+		<boilingpoint>5730</boilingpoint>
+		<density>16.68</density>
+		<ionisationenergy>
+			<energy>7.89 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>143</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d3 6s2</orbits>
+		<oxydation>+3,+5</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>74</number>
+		<name>Tungsten</name>
+		<symbol>W</symbol>
+		<weight>183.84</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1783</date>
+		<biologicalmeaning>5</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>2.36</electronegativity>
+		<meltingpoint>3695</meltingpoint>
+		<boilingpoint>5825</boilingpoint>
+		<density>19.26</density>
+		<ionisationenergy>
+			<energy>7.98 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>137.0</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d4 6s2</orbits>
+		<oxydation>(+4), +6</oxydation>
+		<isotopes>106:179,947:0,122;112:185,954:29,17</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>75</number>
+		<name>Rhenium</name>
+		<symbol>Re</symbol>
+		<weight>186.207</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1925</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>1.9</electronegativity>
+		<meltingpoint>3455</meltingpoint>
+		<boilingpoint>5870</boilingpoint>
+		<density>21.03</density>
+		<ionisationenergy>
+			<energy>7.88 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>137.0</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d5 6s2</orbits>
+		<oxydation>+7,+2,+4</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>76</number>
+		<name>Osmium</name>
+		<symbol>Os</symbol>
+		<weight>190.23</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1804</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>2.2</electronegativity>
+		<meltingpoint>3300</meltingpoint>
+		<boilingpoint>5300</boilingpoint>
+		<density>22.61</density>
+		<ionisationenergy>
+			<energy>8.7 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>135</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d6 6s2</orbits>
+		<oxydation>+4,(+2,+3,+6,+8)</oxydation>
+		<isotopes>108:183,953:0,018;116:191,96:41</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>77</number>
+		<name>Iridium</name>
+		<symbol>Ir</symbol>
+		<weight>192.217</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1804</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>2.20</electronegativity>
+		<meltingpoint>2720</meltingpoint>
+		<boilingpoint>4700</boilingpoint>
+		<density>22.65</density>
+		<ionisationenergy>
+			<energy>9.1 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>135.7</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d7 6s2</orbits>
+		<oxydation>+1,+4,(+2,+3,+6)</oxydation>
+		<isotopes>114:190,96:38,5;116:192,96:61,5</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>78</number>
+		<name>Platinum</name>
+		<symbol>Pt</symbol>
+		<weight>195.078</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1735</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>2.28</electronegativity>
+		<meltingpoint>2042.1</meltingpoint>
+		<boilingpoint>4100</boilingpoint>
+		<density>21.450</density>
+		<ionisationenergy>
+			<energy>9.0 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>138</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d9 6s1</orbits>
+		<oxydation>+2,+4</oxydation>
+		<isotopes>114:191,96:0,8;120:197,97:7,2</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>79</number>
+		<name>Gold</name>
+		<symbol>Au</symbol>
+		<weight>196.96654</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>1</group>
+		<electronegativity>2.54</electronegativity>
+		<meltingpoint>1337.58</meltingpoint>
+		<boilingpoint>3130</boilingpoint>
+		<density>19.32</density>
+		<ionisationenergy>
+			<energy>9.225 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>144.2</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d10 6s1</orbits>
+		<oxydation>(+1),+3</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>80</number>
+		<name>Mercury</name>
+		<symbol>Hg</symbol>
+		<weight>200.59</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>1</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>2</group>
+		<electronegativity>2.00</electronegativity>
+		<meltingpoint>234.31</meltingpoint>
+		<boilingpoint>629.88</boilingpoint>
+		<density>13.55</density>
+		<ionisationenergy>
+			<energy>10.437 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>160</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d10 6s2</orbits>
+		<oxydation>(+1),+2</oxydation>
+		<isotopes>116:195,97:0,15;124:203,97:6,72</isotopes>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>81</number>
+		<name>Thallium</name>
+		<symbol>Tl</symbol>
+		<weight>204.3833</weight>
+		<block>p</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">1861</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>3</group>
+		<electronegativity>2.04</electronegativity>
+		<meltingpoint>577</meltingpoint>
+		<boilingpoint>1746</boilingpoint>
+		<density>11.85</density>
+		<ionisationenergy>
+			<energy>6.108 </energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>170.4</atomic>
+		</radius>
+		<radius>
+			<atomic>160</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d10 6s2 6p1</orbits>
+		<oxydation>+1,(+3)</oxydation>
+		<family>Other_Metal</family>
+	</element>
+	<element>
+		<number>82</number>
+		<name>Lead</name>
+		<symbol>Pb</symbol>
+		<weight>207.2</weight>
+		<block>p</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>3</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>2.33</electronegativity>
+		<meltingpoint>600.65</meltingpoint>
+		<boilingpoint>2023</boilingpoint>
+		<density>11.34</density>
+		<ionisationenergy>
+			<energy>7.416 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>175</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d10 6s2 6p2</orbits>
+		<oxydation>+2,(+4)</oxydation>
+		<isotopes>124:205,97:25,1;125:206,98:21,1;126:207,98:52,4</isotopes>
+		<family>Other_Metal</family>
+
+	</element>
+	<element>
+		<number>83</number>
+		<name>Bismuth</name>
+		<symbol>Bi</symbol>
+		<weight>208.98038</weight>
+		<block>p</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>0</aggregation>
+		<date scientiest="">0</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>2.02</electronegativity>
+		<meltingpoint>544.59</meltingpoint>
+		<boilingpoint>1837</boilingpoint>
+		<density>9.80</density>
+		<ionisationenergy>
+			<energy>7.289 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>155</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d10 6s2 6p3</orbits>
+		<oxydation>+3,(+5)</oxydation>
+		<family>Other_Metal</family>
+
+	</element>
+	<element>
+		<number>84</number>
+		<name>Polonium</name>
+		<symbol>Po</symbol>
+		<weight>208.9824</weight>
+		<block>p</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1898</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>2.0</electronegativity>
+		<meltingpoint>527</meltingpoint>
+		<boilingpoint></boilingpoint>
+		<density>9.20</density>
+		<ionisationenergy>
+			<energy>8.42 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>167.5</atomic>
+		</radius>
+		<orbits>Xe 4f14 5d10 6s2 6p4</orbits>
+		<oxydation>(+2),+4,(+6)</oxydation>
+		<family>Metalloids</family>
+
+	</element>
+	<element>
+		<number>85</number>
+		<name>Astatine</name>
+		<symbol>At</symbol>
+		<weight>209.9871</weight>
+		<block>p</block>
+		<acidicbehaviour>3</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1940</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>2.2</electronegativity>
+		<meltingpoint>575	</meltingpoint>
+		<boilingpoint>610</boilingpoint>
+		<density></density>
+		<ionisationenergy>
+			<energy>9.5 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic></atomic>
+		</radius>
+		<orbits>Xe 4f14 5d10 6s2 6p5</orbits>
+		<oxydation>-1,(1,3,5,7)</oxydation>
+		<family>Halogene</family>
+
+	</element>
+	<element>
+		<number>86</number>
+		<name>Radon</name>
+		<symbol>Rn</symbol>
+		<weight>222.0176</weight>
+		<block>p</block>
+		<acidicbehaviour>1</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1898</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity></electronegativity>
+		<meltingpoint>202</meltingpoint>
+		<boilingpoint>211.4</boilingpoint>
+		<density>9.23</density>
+		<ionisationenergy>
+			<energy>10.748 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic></atomic>
+		</radius>
+		<orbits>Xe 4f14 5d10 6s2 6p6</orbits>
+		<oxydation>2</oxydation>
+		<family>Noblegas</family>
+
+	</element>
+	<element>
+		<number>87</number>
+		<name>Francium</name>
+		<symbol>Fr</symbol>
+		<weight>223.0197</weight>
+		<block>s</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1939</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>1</group>
+		<electronegativity>0.7</electronegativity>
+		<meltingpoint>300</meltingpoint>
+		<boilingpoint>950</boilingpoint>
+		<density></density>
+		<ionisationenergy>
+			<energy>4.0 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>270</atomic>
+		</radius>
+		<orbits>Rd 7s1</orbits>
+		<oxydation>+1</oxydation>
+		<family>Alkali_Earth</family>
+
+	</element>
+	<element>
+		<number>88</number>
+		<name>Radium</name>
+		<symbol>Ra</symbol>
+		<weight>226.0254</weight>
+		<block>s</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1898</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>2</group>
+		<electronegativity>0.89</electronegativity>
+		<meltingpoint>973</meltingpoint>
+		<boilingpoint>1413</boilingpoint>
+		<density>5.50</density>
+		<ionisationenergy>
+			<energy>5.279 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>223</atomic>
+		</radius>
+		<orbits>Rd 7s2</orbits>
+		<oxydation>+2</oxydation>
+		<family>Alkaline_Earth</family>
+
+	</element>
+	<element>
+		<number>89</number>
+		<name>Actinium</name>
+		<symbol>Ac</symbol>
+		<weight>227.0278</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1899</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>3</group>
+		<electronegativity>1.1</electronegativity>
+		<meltingpoint>1324</meltingpoint>
+		<boilingpoint>3470</boilingpoint>
+		<density>10.07</density>
+		<ionisationenergy>
+			<energy>6.9 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>187.8</atomic>
+		</radius>
+		<orbits>Rd 6d1 7s2</orbits>
+		<oxydation>(+2),+3</oxydation>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>90</number>
+		<name>Thorium</name>
+		<symbol>Th</symbol>
+		<weight>232.0381</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1828</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>1.3</electronegativity>
+		<meltingpoint>2028</meltingpoint>
+		<boilingpoint>5060</boilingpoint>
+		<density>11.72</density>
+		<ionisationenergy>
+			<energy>6.95 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>179.8</atomic>
+		</radius>
+		<oxydation>+3,+4</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>91</number>
+		<name>Protactinium</name>
+		<symbol>Pa</symbol>
+		<weight>231.03588</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1917</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>1.5</electronegativity>
+		<meltingpoint>1845</meltingpoint>
+		<boilingpoint>4300</boilingpoint>
+		<density>15.37</density>
+		<radius>
+			<atomic>180.6</atomic>
+		</radius>
+		<oxydation>+4,+5</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>92</number>
+		<name>Uranium</name>
+		<symbol>U</symbol>
+		<weight>238.02891</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1789</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>1.38</electronegativity>
+		<meltingpoint>1408</meltingpoint>
+		<boilingpoint>4407</boilingpoint>
+		<density>18.97</density>
+		<ionisationenergy>
+			<energy>6.08 </energy>
+
+		</ionisationenergy>
+		<radius>
+			<atomic>138.5</atomic>
+		</radius>
+		<oxydation>+3,+4,+5,+6,+7</oxydation>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>93</number>
+		<name>Neptunium</name>
+		<symbol>Np</symbol>
+		<weight>237.0482</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1940</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>1.36</electronegativity>
+		<meltingpoint>912</meltingpoint>
+		<boilingpoint>4175</boilingpoint>
+		<density>20.48</density>
+		<ionisationenergy>
+
+
+		</ionisationenergy>
+		<radius>
+			<atomic>131</atomic>
+		</radius>
+		<oxydation>+4,+3,+5,+7</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>94</number>
+		<name>Plutonium</name>
+		<symbol>Pu</symbol>
+		<weight>244.0642</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>3</aggregation>
+		<date scientiest="">1940</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>1.28</electronegativity>
+		<meltingpoint>913</meltingpoint>
+		<boilingpoint>3505</boilingpoint>
+		<density>19.74</density>
+		<ionisationenergy>
+			<energy>5.8 </energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>151</atomic>
+		</radius>
+		<oxydation>+3,+4,+5,+6,+7</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>95</number>
+		<name>Americium</name>
+		<symbol>Am</symbol>
+		<weight>243.0614</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1945</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>1.3</electronegativity>
+		<meltingpoint>1449</meltingpoint>
+		<boilingpoint>2880</boilingpoint>
+		<density>13.67</density>
+		<ionisationenergy>
+			<energy>6.0</energy>
+		</ionisationenergy>
+		<radius>
+			<atomic>184</atomic>
+		</radius>
+		<oxydation>+2,+3,+4,+5,+6</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>96</number>
+		<name>Curium</name>
+		<symbol>Cm</symbol>
+		<weight>247.0703</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1944</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<electronegativity>1.3</electronegativity>
+		<meltingpoint>1620</meltingpoint>
+		<boilingpoint></boilingpoint>
+		<density>13.51</density>
+		<oxydation>+3,+4</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>97</number>
+		<name>Berkelium</name>
+		<symbol>Bk</symbol>
+		<weight>247.0703</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1949</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>1</group>
+		<electronegativity>1.3</electronegativity>
+		<meltingpoint></meltingpoint>
+		<boilingpoint></boilingpoint>
+		<density>13.25</density>
+		<oxydation>+3,+4</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>98</number>
+		<name>Californium</name>
+		<symbol>Cf</symbol>
+		<weight>251.0796</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1950</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>2</group>
+		<electronegativity>1.3</electronegativity>
+		<meltingpoint>1170</meltingpoint>
+		<boilingpoint></boilingpoint>
+		<density>15.1</density>
+		<oxydation>+3,+4</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>99</number>
+		<name>Einsteinium</name>
+		<symbol>Es</symbol>
+		<weight>252.0829</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1952</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>3</group>
+		<electronegativity>1.3</electronegativity>
+		<meltingpoint>1130</meltingpoint>
+		<oxydation>+2,+3</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>100</number>
+		<name>Fermium</name>
+		<symbol>Fm</symbol>
+		<weight>257.0951</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1953</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>4</group>
+		<electronegativity>1.3</electronegativity>
+		<meltingpoint>1800</meltingpoint>
+		<oxydation>+2,+3</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>101</number>
+		<name>Mendelevium</name>
+		<symbol>Md</symbol>
+		<weight>258.0986</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1955</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>5</group>
+		<electronegativity>1.3</electronegativity>
+		<meltingpoint>1100</meltingpoint>
+		<oxydation>+2,+3</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>102</number>
+		<name>Nobelium</name>
+		<symbol>No</symbol>
+		<weight>259.1009</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1957</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>6</group>
+		<electronegativity>1.3</electronegativity>
+		<meltingpoint>1100</meltingpoint>
+		<oxydation>+2,+3</oxydation>
+		<family>Rare_Earth</family>
+	</element>
+	<element>
+		<number>103</number>
+		<name>Lawrencium</name>
+		<symbol>Lr</symbol>
+		<weight>262.110</weight>
+		<block>f</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1961</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>7</group>
+		<electronegativity>1.3</electronegativity>
+		<meltingpoint>1900</meltingpoint>
+		<boilingpoint></boilingpoint>
+		<density></density>
+		<ionisationenergy>
+
+
+		</ionisationenergy>
+		<radius>
+			<atomic></atomic>
+		</radius>
+		<oxydation>+3</oxydation>
+		<family>Rare_Earth</family>
+
+	</element>
+	<element>
+		<number>104</number>
+		<name>Rutherfordium</name>
+		<symbol>Rf</symbol>
+		<weight>261.1089</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1969</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>4</group>
+		<electronegativity></electronegativity>
+		<meltingpoint></meltingpoint>
+		<boilingpoint></boilingpoint>
+		<density></density>
+		<ionisationenergy>
+
+
+		</ionisationenergy>
+		<radius>
+			<atomic></atomic>
+		</radius>
+		<oxydation>+3</oxydation>
+		<family>Transition</family>
+
+	</element>
+	<element>
+		<number>105</number>
+		<name>Dubnium</name>
+		<symbol>Db</symbol>
+		<weight>262.1144</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1970</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>5</group>
+		<electronegativity></electronegativity>
+		<meltingpoint></meltingpoint>
+		<boilingpoint></boilingpoint>
+		<density></density>
+		<ionisationenergy>
+
+
+		</ionisationenergy>
+		<radius>
+			<atomic></atomic>
+		</radius>
+		<orbits>Rn 5f14 6d3 7s2</orbits>
+		<family>Transition</family>
+	</element>
+	<element>
+		<number>106</number>
+		<name>Seaborgium</name>
+		<symbol>Sg</symbol>
+		<weight>263.1186</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1974</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>6</group>
+		<family>Transition</family>
+	</element>
+	<element>
+		<number>107</number>
+		<name>Bohrium</name>
+		<symbol>Bh</symbol>
+		<weight>262.1231</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1976</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>7</group>
+		<family>Transition</family>
+	</element>
+	<element>
+		<number>108</number>
+		<name>Hassium</name>
+		<symbol>Hs</symbol>
+		<weight>265.1306</weight>
+		<block>d</block>
+		<acidicbehaviour>2</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1984</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<family>Transition</family>
+	</element>
+	<element>
+		<number>109</number>
+		<name>Meitnerium</name>
+		<symbol>Mt</symbol>
+		<weight>266.1378</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1982</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<family>Transition</family>
+	</element>
+	<element>
+		<number>110</number>
+		<name>Darmstadtium</name>
+		<symbol>Ds</symbol>
+		<weight>271</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1994</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<family>Transition</family>
+	</element>
+	<element>
+		<number>111</number>
+		<name>Roentgenium</name>
+		<symbol>Rg</symbol>
+		<weight>272</weight>
+		<block>d</block>
+		<acidicbehaviour>0</acidicbehaviour>
+		<aggregation>4</aggregation>
+		<date scientiest="">1994</date>
+		<biologicalmeaning>0</biologicalmeaning>
+		<group>8</group>
+		<family>Transition</family>
+	</element>
+</kalzium>
