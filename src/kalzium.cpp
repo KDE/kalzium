@@ -20,6 +20,8 @@
 #include <kdebug.h>
 #include <kaction.h>
 #include <kconfig.h>
+#include <kedittoolbar.h>
+#include <kkeydialog.h>
 #include <kglobalsettings.h>
 #include <kiconloader.h>
 #include <klocale.h>
@@ -316,6 +318,23 @@ void Kalzium::hideSettingsDialog()
     }
 }
 
+void Kalzium::newToolbarConfig()
+{
+    createGUI();
+    applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
+}
+void Kalzium::optionsConfigureKeys()
+{
+  KKeyDialog::configureKeys(actionCollection(), "kalziumui.rc");
+}
+
+void Kalzium::optionsConfigureToolbars()
+{
+    saveMainWindowSettings( KGlobal::config(), autoSaveGroup() );
+    KEditToolbar dlg(actionCollection());
+    connect(&dlg, SIGNAL(newToolbarConfig()), this, SLOT(newToolbarConfig()));
+    dlg.exec();
+}
 void Kalzium::setFont() 
 {
   generalKPFont = KGlobalSettings::generalFont();
@@ -591,7 +610,10 @@ void Kalzium::setupActions()
     
     main_config->setGroup("Menu Settings");
     KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
-    KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection(), "configure");
+    KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
+    KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
+    KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
+    createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
     
     QStringList psestylelist;

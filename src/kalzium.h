@@ -160,6 +160,10 @@ class Kalzium : public KMainWindow
 
 		void defineWeights() const;
 
+    void newToolbarConfig();
+    void optionsConfigureKeys();
+    void optionsConfigureToolbars();
+
 		void setFont();
 
 		void showPseStyle(int);
