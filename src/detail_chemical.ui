@@ -1,0 +1,225 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>detail_chemical</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>detail_chemical</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string></string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout7</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout1</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel1</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Orbits:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>orbits_label</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout2</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Symbol:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>symbol_label</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout3</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel3</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Density:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>density_label</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout4</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel4</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Block:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>block_label</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout5</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel5</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Atomic radius:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>radius_label</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout6</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel6</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Atomic weight:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>weight_label</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+            </vbox>
+        </widget>
+        <spacer row="1" column="0">
+            <property name="name">
+                <cstring>spacer2</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>31</width>
+                    <height>181</height>
+                </size>
+            </property>
+        </spacer>
+        <spacer row="0" column="1">
+            <property name="name">
+                <cstring>spacer3</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>91</width>
+                    <height>41</height>
+                </size>
+            </property>
+        </spacer>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
