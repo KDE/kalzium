@@ -9,13 +9,6 @@
 	<Action name="use_timeline" />
 	<Action name="plotdata" />
   </Menu>
-  <Menu name="stylemenu">
-	<text>&amp;Look</text>
-	<Action name="view_normal" />
-	<Action name="view_groups" />
-	<Action name="view_blocks" />
-	<Action name="view_som" />
-	<Action name="view_acidic" />
-  </Menu>
+ <Action name="look_menu" />
 </MenuBar>
 </kpartgui>

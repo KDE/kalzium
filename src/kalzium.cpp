@@ -63,10 +63,10 @@ Kalzium::Kalzium()
 	 numlist.append(i18n("Show &CAS"));
 	 numlist.append(i18n("Show &IUPAC"));
 	 numlist.append(i18n("Show &Old IUPAC"));
-	 nummeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "nummerationtype");
-	 nummeration_action->setItems(numlist);
-	 nummeration_action->setCurrentItem(0); //XXX should be read in via KConfig
-	 connect (nummeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNummeration(int)));
+	 numeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "numerationtype");
+	 numeration_action->setItems(numlist);
+	 numeration_action->setCurrentItem(0); //XXX should be read in via KConfig
+	 connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
 	 
 	/*
 	 * the actions for the quiz
@@ -84,11 +84,16 @@ Kalzium::Kalzium()
 	/*
 	 * the actions for the colorschemes
 	 **/
-	m_pBehAcidAction = new KAction(i18n("Show &Acid Behavior"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_acidic");
-	m_pBehBlocksAction = new KAction(i18n("Show &Blocks"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_blocks");
-	m_pBehBlocksAction = new KAction(i18n("Show &Groups"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_groups");
-	m_pBehBlocksAction = new KAction(i18n("Show &State Of Matter"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_som");
-	m_pBehBlocksAction = new KAction(i18n("&No Color Scheme"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_normal");
+	 QStringList looklist;
+	 looklist.append(i18n("&No Color Scheme"));
+	 looklist.append(i18n("Show &Groups"));
+	 looklist.append(i18n("Show &Blocks"));
+	 looklist.append(i18n("Show &State Of Matter"));
+	 looklist.append(i18n("Show &Acid Behavior"));
+	 look_action = new KSelectAction (i18n("&Look"), 0, this, 0, actionCollection(), "look_menu");
+	 look_action->setItems(looklist);
+	 look_action->setCurrentItem(Prefs::colorschemebox()); //XXX should be read in via KConfig
+	 connect (look_action, SIGNAL(activated(int)), this, SLOT(slotShowScheme(int)));
 
 	/*
 	 * the misc actions
@@ -161,25 +166,12 @@ void Kalzium::slotPlotData()
 	edw->show();
 }
 
-void Kalzium::slotShowScheme(void)
+void Kalzium::slotShowScheme(int i)
 {
-	int i = 0;
-	QString n = sender()->name();
-	if ( n == QString("view_normal"))
-		i = 0;
-	if ( n == QString("view_groups")) 
-		i = 1;
-	if ( n == QString("view_blocks")) 
-		i = 2;
-	if ( n == QString("view_som")) 
-		i = 3;
-	if ( n == QString("view_acidic"))
-		i = 4;
-	
 	currentPSE()->activateColorScheme( i );
 }
 
-void Kalzium::slotSwitchtoNummeration( int index )
+void Kalzium::slotSwitchtoNumeration( int index )
 {
 	currentPSE()->setNummerationType( index );
 }
@@ -238,7 +230,7 @@ void Kalzium::showSettingsDialog()
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
 	connect( dialog, SIGNAL( settingsChanged() ), m_pCurrentPSE, SLOT( slotUpdatePSE() ) );
 	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotSaveConfig() ) );
-	dialog->addPage( new setColorScheme( 0, "colorscheme_page"), i18n("Color Scheme"), "colorize");
+	dialog->addPage( new colorScheme( 0, "colorscheme_page"), i18n("Color Scheme"), "colorize");
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Colors"), "colorize");
 	dialog->addPage( new setupQuiz( 0, "quizsetuppage" ), i18n( "Quiz" ), "edit" );
 	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Misc" ), "misc" );

@@ -87,7 +87,8 @@ class Kalzium : public KMainWindow
 		 **/
 		KSelectAction *schema_action;
 		KSelectAction *quiz_action;
-		KSelectAction *nummeration_action;
+		KSelectAction *look_action;
+		KSelectAction *numeration_action;
 		KAction *m_pBehAcidAction,
 			*m_pBehNormalAction,
 			*m_pBehBlocksAction,
@@ -100,9 +101,9 @@ class Kalzium : public KMainWindow
 		/**
 		 * this slot switches Kalzium to the selected colorscheme
 		 */
-		void slotShowScheme(void);
+		void slotShowScheme(int);
 
-		void slotSwitchtoNummeration(int);
+		void slotSwitchtoNumeration(int);
 
 		void slotPlotData();
 

@@ -1,8 +1,8 @@
 <!DOCTYPE UI><UI version="3.2" stdsetdef="1">
-<class>setColorScheme</class>
+<class>colorScheme</class>
 <widget class="QWidget">
     <property name="name">
-        <cstring>setColorScheme</cstring>
+        <cstring>colorScheme</cstring>
     </property>
     <property name="geometry">
         <rect>
