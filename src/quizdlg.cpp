@@ -161,7 +161,7 @@ void QuizDlg::slotCheck()
     //if nothing at all is checked
     if (one->isChecked() == false && two->isChecked()== false  && three->isChecked()== false )
     {
-        KMessageBox::error ( this, i18n("You haven't selected a button") );
+        KMessageBox::error ( this, i18n("You haven't selected a button.") );
     }
     //ok, something is checked
     else

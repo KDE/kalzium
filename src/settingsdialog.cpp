@@ -228,7 +228,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     main_config=KGlobal::config();
 
 	// GENERAL SETTINGS
-	general = addPage( i18n( "General Settings" ), i18n( "Customize the general behavior of Kalzium" ), BarIcon( "kalzium", KIcon::SizeMedium ) );
+	general = addPage( i18n( "General Settings" ), i18n( "Customize General Behavior" ), BarIcon( "kalzium", KIcon::SizeMedium ) );
 
     // COLORSTAB WIDGET
     colorTab = addPage(i18n("Colors"), i18n("Customize Color Settings"), BarIcon("colorize", KIcon::SizeMedium));

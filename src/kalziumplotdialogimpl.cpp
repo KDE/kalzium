@@ -39,7 +39,7 @@
 ChemicalElement::ChemicalElement(){}
 
 KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name )
- : KDialogBase( KDialogBase::Plain, i18n("Kalzium Plotdialog"), Close|User1, Close, parent , name )
+ : KDialogBase( KDialogBase::Plain, i18n("Plot Dialog"), Close|User1, Close, parent , name )
 {
 	loadData(); 
 	
@@ -54,10 +54,10 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 	whatKCB = new KComboBox( false , page , "whatKCB" );
 	whatKCB->insertItem( i18n( "Atomic Weight" ) );
 	whatKCB->insertItem( i18n( "Electronegativity" ) );
-	whatKCB->insertItem( i18n( "Melting point" ) );
+	whatKCB->insertItem( i18n( "Melting Point" ) );
 	whatKCB->insertItem( i18n( "Ionization Energy" ) );
 	whatKCB->insertItem( i18n( "Atomic Radius" ) );
-	whatKCB->insertItem( i18n( "Boiling point" ) );
+	whatKCB->insertItem( i18n( "Boiling Point" ) );
 	whatKCB->insertItem( i18n( "Density" ) );
 ////
 	

@@ -1346,7 +1346,7 @@
                             <cstring>buttonExport</cstring>
                         </property>
                         <property name="text">
-                            <string>&amp;Export Data</string>
+                            <string>&amp;Export Data...</string>
                         </property>
                         <property name="accel">
                             <string>Alt+E</string>
