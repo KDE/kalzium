@@ -295,7 +295,7 @@ void Kalzium::slotUpdateSettings()
 	
 	displayTemperature();
     	displayEnergie();
-    	displayTemperaturevalue();
+    	if ( m_bShowSOM ) displayTemperaturevalue();
 }
 
 void Kalzium::displayTemperature()
@@ -341,8 +341,7 @@ void Kalzium::displayTemperature()
 
 void Kalzium::displayTemperaturevalue()
 {
-	int t = Prefs::temperature();
-	slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg( t ), IDS_TEMPERATURE );
+	slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg( Prefs::temperaturevalue() ), IDS_TEMPERATURE );
 }
 
 void Kalzium::slotStateOfMatter()
@@ -389,7 +388,9 @@ void Kalzium::slotTempChanged( int temperature )
 			m_pCurrentPSE->setTemperature( (double) (temperature - 32)*5/9 + 273.15);
  			break;
  	}
-	displayTemperature();	
+	Prefs::setTemperaturevalue(temperature);
+	Prefs::writeConfig();
+	displayTemperaturevalue();	
 }
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
