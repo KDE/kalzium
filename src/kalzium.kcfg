@@ -70,8 +70,8 @@
     </entry>
     <entry name="color_radioactive" type="Color">
 		<default>#FFFFFF</default>
-	<whatsthis>Selects the color of XXX elements</whatsthis>
-	<label>Selects the color of </label>
+	<whatsthis>Selects the color of radioactive elements</whatsthis>
+	<label>Selects the color of radioactive elements</label>
     </entry>
     <entry name="color_artificial" type="Color">
 		<default>#FFA94E</default>
