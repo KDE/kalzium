@@ -2051,6 +2051,24 @@ IE=
 AR=
 Ox=k.A.
 
+[110]
+Name=Darmstadtium
+Symbol=Ds
+Weight=271
+Block=d
+acidbeh=0
+az=4
+date=1994
+biological=0
+Group=8
+EN=
+MP=
+BP=
+Density=
+IE=
+AR=
+Ox=k.A.
+
 [q1]
 Q=Which of these molecules is not an alcohol?
 A=Propanal
