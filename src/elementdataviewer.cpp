@@ -154,7 +154,7 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Meanweight [u]"));
+				m_pPlotWidget->setYAxisLabel(i18n("Mean Weight [u]"));
 			}
 			break;
 		case AxisData::DENSITY:
@@ -174,7 +174,7 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("1. Ionization Energie"));
+				m_pPlotWidget->setYAxisLabel(i18n("1. Ionization Energy"));
 			}
 			break;
 		case AxisData::IE2:
@@ -184,7 +184,7 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("2. Ionization Energie"));
+				m_pPlotWidget->setYAxisLabel(i18n("2. Ionization Energy"));
 			}
 			break;
 		case AxisData::EN:
@@ -204,7 +204,7 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Meltingpoint [K]"));
+				m_pPlotWidget->setYAxisLabel(i18n("Melting Point [K]"));
 			}
 			break;
 		case AxisData::BOILINGPOINT:
@@ -214,7 +214,7 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Boilingpoint [K]"));
+				m_pPlotWidget->setYAxisLabel(i18n("Boiling Point [K]"));
 			}
 			break;
 		case AxisData::ATOMICRADIUS:
@@ -224,7 +224,7 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Boilingpoint [K]"));
+				m_pPlotWidget->setYAxisLabel(i18n("Atomic Radius [pm]"));
 			}
 			break;
 	}

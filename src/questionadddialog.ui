@@ -75,7 +75,7 @@
                         <number>8</number>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Enter the number of questions this task has. After that click on the button "Add Questions" to enter the questions themself.</string>
+                        <string>Enter the number of questions this task has; after that, click on the "Add Questions" button to enter the questions themselves.</string>
                     </property>
                 </widget>
             </hbox>

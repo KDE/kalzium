@@ -43,7 +43,7 @@
                     </item>
                     <item>
                         <property name="text">
-                            <string>Mean Weigth</string>
+                            <string>Mean Weight</string>
                         </property>
                     </item>
                     <item>
@@ -101,7 +101,7 @@
                         <string>Alt+C</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Define if the plotted points should be connected or not</string>
+                        <string>Define whether the plotted points should be connected or not</string>
                     </property>
                 </widget>
                 <widget class="QCheckBox">
@@ -115,7 +115,7 @@
                         <string>Alt+S</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Define if the names of the plotted element should be displayed</string>
+                        <string>Define whether the names of the plotted element should be displayed</string>
                     </property>
                 </widget>
                 <widget class="QLabel">
@@ -140,7 +140,7 @@
                         <number>109</number>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Define the first element which value should be plotted</string>
+                        <string>Define the first element whose value should be plotted</string>
                     </property>
                 </widget>
                 <widget class="QLabel">
@@ -165,7 +165,7 @@
                         <number>110</number>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Define the last element which value should be plotted</string>
+                        <string>Define the last element whose value should be plotted</string>
                     </property>
                 </widget>
             </vbox>

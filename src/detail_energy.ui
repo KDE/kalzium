@@ -63,7 +63,7 @@
                                 <string>Electronegativity:</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>The electronegativity (Pauling))</string>
+                                <string>The electronegativity (Pauling)</string>
                             </property>
                         </widget>
                         <widget class="QLabel">
@@ -161,7 +161,7 @@
                                 <string></string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>The meltingpoint of the element</string>
+                                <string>The melting point of the element</string>
                             </property>
                         </widget>
                     </hbox>
@@ -190,7 +190,7 @@
                                 <string></string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>The meltingpoint of the element</string>
+                                <string>The melting point of the element</string>
                             </property>
                         </widget>
                     </hbox>
