@@ -1,11 +1,10 @@
 <?xml version="1.0" ?>
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.1//EN"
- "dtd/kdex.dtd" [
-<!ENTITY kappname "&kalzium;"><!-- replace kapp here -->
-  <!ENTITY kalzium "<application>Kalzium</application>">
-<!ENTITY package "kdeedu">
-<!ENTITY % addindex "IGNORE">
-<!ENTITY % English "INCLUDE"><!-- change language only here -->
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kalzium;"><!-- replace kapp here -->
+ <!ENTITY kalzium "<application>Kalzium</application>">
+ <!ENTITY package "kdeedu">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
 
 <book lang="&language;">
@@ -47,10 +46,10 @@
 <releaseinfo>0.5</releaseinfo>
 
 <abstract>
-<para>&kalzium; is a program which shows you the Periodic System of the
-elements (PSE). You can use &kalzium; to search for information about
-the elements or to learn facts about the PSE.</para>
-	
+<para>&kalzium; is a program which shows you the Periodic System of
+the elements (<acronym>PSE</acronym>). You can use &kalzium; to search
+for information about the elements or to learn facts about the
+<acronym>PSE</acronym>.</para>
 </abstract>
 
 <keywordset>
@@ -67,11 +66,11 @@ the elements or to learn facts about the PSE.</para>
 
 <chapter id="introduction">
 <title>Introduction</title>
-<para>&kalzium; provides you with all kind of information about the PSE.
-You can lookup lots of information about the elements and also use
-visualisations to show them. If the information provided by &kalzium; are
-not sufficient for you you can look up more via the internet.
-It is free and licensed under the &GNU; Public License.
+<para>&kalzium; provides you with all kind of information about the
+<acronym>PSE</acronym>. You can lookup lots of information about the
+elements and also use visualisations to show them. If the information
+provided by &kalzium; are not sufficient for you you can look up more
+via the internet. It is free and licensed under the &GNU; Public License.
 </para>
 </chapter>
 
@@ -96,137 +95,152 @@ It is free and licensed under the &GNU; Public License.
 usefull for pupil of all ages and also for students and such as
 a small and quick database.</para>
 
-
-
 <para>If you are too good for this world, you can change the
 level.</para>
 
 <sect1 id="info-dlg">
-	<title>The informationdialog</title>
-		<screenshot>
-		<screeninfo>&kalzium; with the training option</screeninfo>
-		<mediaobject>
-			<imageobject>
-				<imagedata fileref="screenshot3.png" format="PNG" width="300"/>
-			</imageobject>
-			<textobject>
-				<phrase>&kalzium; with the training option dialog visible</phrase>
-			</textobject>
-			<caption><para>Here is a screenshot of &kalzium;'s training dialog.</para> 
-			</caption>
-		</mediaobject>
-	</screenshot>
-	<para>In this dialog you get all the information &kalzium; provides. The dialog is
-	divided into three parts: <guilabel>General</guilabel>, <guilabel>States</guilabel> and
-	<guilabel>Energies</guilabel>.</para>
-	<para>If you click on <guilabel>Web Lookup</guilabel> &kalzium; will get
-		more information from the web (in a new window).</para>
+<title>The informationdialog</title>
+
+<screenshot>
+<screeninfo>&kalzium; with the training option</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="screenshot3.png" format="PNG" width="300"/>
+</imageobject>
+<textobject>
+<phrase>&kalzium; with the training option dialog visible</phrase>
+</textobject>
+<caption><para>Here is a screenshot of &kalzium;'s training dialog.</para> 
+</caption>
+</mediaobject>
+</screenshot>
+
+<para>In this dialog you get all the information &kalzium;
+provides. The dialog is divided into three parts:
+<guilabel>General</guilabel>, <guilabel>States</guilabel> and
+<guilabel>Energies</guilabel>.</para> <para>If you click on
+<guilabel>Web Lookup</guilabel> &kalzium; will get more information
+from the web (in a new window).</para>
 </sect1>
 
+<!-- Don't have empty chapters if possible - comment them out until -->
+<!-- they get contents
 <sect1 id="quiz">
 	<title>The Quiz</title>
 	<para>
 	</para>
-</sect1>
+</sect1> -->
 
 <sect1 id="calculations">
 <title>Calculations</title>
+
 <para>In &kalzium; 0.5 we only provide one calculation. This is called
-	<guilabel>KMol</guilabel>. In the field <guilabel>Formula</guilabel> you
-	can enter a totals formula and will get the molecular weight
-	<guilabel>Me</guilabel> measured in 'u' and the elemental composition.
-	KMol knows all elements of the PSE.
+<guilabel>KMol</guilabel>. In the field <guilabel>Formula</guilabel>
+you can enter a totals formula and will get the molecular weight
+<guilabel>Me</guilabel> measured in <quote>u</quote> and the elemental
+composition. KMol knows all elements of the <acronym>PSE</acronym>.
 </para>
 </sect1>
 
 <sect1 id="colors">
-	<title>Colorschemes</title>
-	<para>
-		<screenshot>
-			<screeninfo>&kalzium; can show you which elementshave are
-				solid/liquid/vapor at a given temperature.</screeninfo>
-			<mediaobject>
-				<imageobject>
-					<imagedata fileref="screenshot2.png" format="PNG" width="300"/>
-				</imageobject>
-				<textobject>
-					<phrase>the "State of Matter"-Dialog</phrase>
-				</textobject>
-				<caption>
-				</caption>
-			</mediaobject>
-		</screenshot>
-	</para>
+<title>Colorschemes</title>
+
+<screenshot>
+<screeninfo>&kalzium; can show you which elements are
+solid/liquid/vapor at a given temperature.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="screenshot2.png" format="PNG" width="300"/>
+</imageobject>
+<textobject>
+<phrase>the <quote>State of Matter</quote> Dialog</phrase>
+</textobject>
+<caption><para>&kalzium; can show you which elements are
+solid/liquid/vapor at a given temperature.</para>
+</caption>
+</mediaobject>
+</screenshot>
+
 </sect1>
 
 <sect1 id="timeline">
-	<title>Timeline</title>
-	<para>
-		You can active this feature either with the most-right icon in the iconbar
-		or via <guilabel>Settings->Show Toolbar</guilabel>. If it is activated you
-		will see a slider below the PSE and a LCD which displays the number 2002.
-		If you move the slider you will notice that some elements disappear if you
-		move it to the right and reappear if you move it to the right. Furthermore
-		the number will change constantly.
+<title>Timeline</title>
+
+<para>You can active this feature either with the most-right icon in
+the iconbar or via <menuchoice><guimenu>Settings</guimenu><guimenuitem>Show Toolbar</guimenuitem></menuchoice>. If it
+is activated you will see a slider below the <acronym>PSE</acronym> and an <acronym>LCD</acronym> which
+displays the number 2002.  If you move the slider you will notice that
+some elements disappear if you move it to the right and reappear if
+you move it to the right. Furthermore the number will change
+constantly.
 	</para>
-	<para>
-		The number represents the data you are looking at. If you move the slider
-		to i.e. 1856 you will only see the elements which where known in the
-		year 1856. 
-	</para>
-	<para>
-		You will notice that some elements are not even shown in the year 2002.
-		This is because some of the elements have not been discovered yet but are
-		predicted to exist.
-	</para>
+
+<para>
+The number represents the data you are looking at. If you move the slider
+to &eg; 1856 you will only see the elements which where known in the
+year 1856. 
+</para>
+
+<para>
+You will notice that some elements are not even shown in the year 2002.
+This is because some of the elements have not been discovered yet but are
+predicted to exist.
+</para>
 </sect1>
 
 <sect1 id="numeration">
-	<title>Numeration</title>
-	<para>
-		You can change the numeration to <guilabel>IUPAC</guilabel> and
-		<guilabel>CAS</guilabel> or switch it <guilabel>of</guilabel>.
-	</para>
-	<sect2 id="iupac">
-		<title>IUPAC</title>
-		<para>
-			The IUPAC is the <firstterm>International Union of Pure and Applied
-				Chemistry</firstterm>. This is an organization which defines the most
-			standarts for chemical concerns. 
-		</para>
-		<para>
-			An 'A' means that that period is a maingroup, a 'B' means it is a
-			Nebengruppe.
-		</para>
-	</sect2>
-	<sect2 id="cas">
-		<title>CAS</title>
-		<para>
-			The CAS is the <firstterm>Chemical Abstracts Service</firstterm>. With
-			their numeration the 18 groups have the numbers from 1 to 18. Though the
-			IUPAC-numeration is the official, the CAS-numeration is what is
-			effectivly used.
-		</para>
-	</sect2>
-	<sect2 id="off">
-		<title>Off</title>
-		<para>
-			If this option is active of course no period-numeration will be in
-			effect.
-		</para>
-	</sect2>
+<title>Numeration</title>
+
+<para>
+You can change the numeration to
+<guilabel>IUPAC</guilabel> and
+<guilabel>CAS</guilabel> or switch it
+<guilabel>off</guilabel>.</para>
+
+<sect2 id="iupac">
+<title><guilabel>IUPAC</guilabel></title>
+
+<para>The <acronym>IUPAC</acronym> is the <firstterm>International
+Union of Pure and Applied Chemistry</firstterm>. This is an
+organization which defines the most standards for chemical
+concerns.</para>
+
+<para>An <quote>A</quote> means that that period is a maingroup, a
+<quote>B</quote> means it is a <foreignphrase
+lang="de">Nebengruppe</foreignphrase>.</para>
+
+</sect2>
+
+<sect2 id="cas">
+<title><guilabel>CAS</guilabel></title>
+
+<para>The <acronym>CAS</acronym> is the <firstterm>Chemical Abstracts
+Service</firstterm>. With their numeration the 18 groups have the
+numbers from 1 to 18. Though the <acronym>IUPAC</acronym> numeration
+is the official, the <acronym>CAS</acronym> numeration is what is
+effectivly used.</para>
+
+</sect2>
+<sect2 id="off">
+<title><guilabel>Off</guilabel></title>
+
+<para>If this option is active of course no period-numeration will be
+in effect.</para>
+
+</sect2>
 </sect1>
 
 </chapter>
 
 <chapter id="config">
 <title>Configuring &kalzium;</title>
+
 <para>
 &kalzium; has many configuration options, which you can access by opening
 the <guilabel>Display Options</guilabel> window, either with the
 <guiicon>wrench</guiicon> toolbar icon, or selecting <guimenuitem>Configure
 &kalzium;...</guimenuitem> from the <guimenu>Settings</guimenu> menu.  The
-window is depicted below:
+window is depicted below:</para>
 
 <screenshot>
 <screeninfo>Display Options Window</screeninfo>
@@ -239,10 +253,7 @@ window is depicted below:
   </textobject>
 </mediaobject>
 </screenshot>
-</para>
 
-<para>
-</para>
 </chapter>
 
 <chapter id="faq">
@@ -254,8 +265,8 @@ window is depicted below:
 <para>Will I ever have to pay for &kalzium;?</para>
 </question>
 <answer>
-<para>No, never. But the auhor always welcomes a nice mail or a DVD
-as a "Thank You"</para>
+<para>No, never. But the auhor always welcomes a nice mail or a
+<quote>DVD</quote> as a <quote>Thank You</quote></para>
 </answer>
 </qandaentry>
 <qandaentry>
@@ -303,7 +314,6 @@ improvements, please let me know.
 </para>
 </answer>
 
-
 </qandaentry>
 </qandaset>
 </chapter>
@@ -346,15 +356,11 @@ Robert Gogolok, lots of help and coding
 <title>Requirements</title>
 
 <para>
-In order to successfully use &kalzium; (version > 0.3), you need &kde; > 2.0 .
-</para>
+&kalzium; itself can be found on <ulink
+url="http://edu.kde.org/kalzium">The &kalzium; home page</ulink> and
+is part of the KDE-Edu project</para>
 
-<para>
-&kalzium; itself can be found
-on <ulink url="http://edu.kde.org/kalzium">The &kalzium; home page</ulink>
-and is part of the KDE-Edu project</para>
-
-<para>You can find a list of changes in the file ChangeLog in the 
+<para>You can find a list of changes in the file ChangeLog in the
 distribution of kalzium.</para>
 
 </sect1>
@@ -379,5 +385,5 @@ sgml-indent-step:0
 sgml-indent-data:nil
 End:
 
-// vim:ts=2:sw=2:tw=78:noet
+// vim:ts=2:sw=2:tw=78:noet:noai
 -->
