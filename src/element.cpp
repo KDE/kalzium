@@ -49,10 +49,10 @@ Element::Element( int num )
 	m_BP=config.readDoubleNumEntry( "BP", -1 );
 	m_Density=config.readDoubleNumEntry( "Density", -1 );
 	m_az=config.readEntry( "az","0" );
-	m_date=config.readEntry( "date","0" );
 	m_group=config.readEntry( "Group","1" );
 	m_orbits=config.readEntry( "Orbits","0" );
 	m_biological=config.readNumEntry(  "biological" , -1 );
+	m_date=config.readNumEntry( "date",-1 );
 
 	setupXY();
 }

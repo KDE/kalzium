@@ -56,6 +56,17 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	dTab = new DetailedTab( e, m_pOverviewTab );
 	overviewLayout->addWidget( dTab );
 
+
+	/////////////////////////////////
+    m_pMiscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon(kil->iconPath( "misc" , KIcon::User)));
+	QVBoxLayout *miscLayout = new QVBoxLayout( m_pMiscTab );
+	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg( adjustUnits(  e->date() , 5 ) ) , m_pMiscTab );
+	QLabel *meanweight_label = new QLabel( i18n("Mean weight: %1 u").arg(e->meanweight() ) , m_pMiscTab );
+	QWhatsThis::add( meanweight_label , i18n( "The mean weight is the atomic weight divided by the number of protons" ) );
+	miscLayout->addWidget( discovered_label );
+	miscLayout->addWidget( meanweight_label );
+	miscLayout->insertStretch(-1,1);
+
 	////////////////////////////////////7
 	m_pPictureTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( e->elname().utf8() ), BarIcon(kil->iconPath( "elempic" , KIcon::User)));
 	QVBoxLayout *mainLayout = new QVBoxLayout( m_pPictureTab );
@@ -160,6 +171,18 @@ QString DetailedInfoDlg::adjustUnits( double val , int type  )
 	{
 		v = QString::number( val );
 		v.append( " g/m<sup>3</sup>" );
+	}
+	else if ( type == 5 ) //its a date
+	{
+		if ( val < 1600 )
+		{
+			v = i18n( "This element has been know to ancient cultures" );
+		}
+		else
+		{
+			v = QString::number( val );
+			v.prepend( "This element was discovered in the year " );
+		}
 	}
 
 	return v;
