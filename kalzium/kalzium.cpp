@@ -537,7 +537,7 @@ void Kalzium::setupActions()
     QStringList numerationlist;
     numerationlist.append( i18n("CAS"));
     numerationlist.append( i18n("IUPAC"));
-    numerationlist.append( i18n("off"));
+    numerationlist.append( i18n("Off"));
 
     numerationmenu = new KSelectAction (i18n("&Numeration"),0,actionCollection(), "numeration");
     numerationmenu->setItems(numerationlist);

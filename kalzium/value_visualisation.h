@@ -18,13 +18,7 @@
 #ifndef VALUEVISUALISATION_H
 #define VALUEVISUALISATION_H
 
-//KDE-Includes
-#include <kconfig.h>
 #include <kdialog.h>
-
-//Qt-Includes
-#include <qwidget.h>
-
 
 class Kalzium;
 

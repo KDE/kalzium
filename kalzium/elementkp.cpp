@@ -16,23 +16,24 @@
  ***************************************************************************/
 
 //KDE-Includes
-#include <kpushbutton.h>
+#include <kconfig.h>
+#include <kdialog.h>
+#include <khtml_part.h>
+#include <klocale.h>
 #include <kstatusbar.h>
 #include <kstddirs.h>
-#include <klocale.h>
-#include <kdialog.h>
-#include <kconfig.h>
 
 //QT-Includes
-#include <qwhatsthis.h>
 #include <qfont.h>
-#include <qpopupmenu.h>
-#include <qcolor.h>
-#include <qlayout.h>
 #include <qgroupbox.h>
+#include <qlabel.h>
+#include <qlayout.h>
+#include <qpopupmenu.h>
+#include <qwhatsthis.h>
 
 #include "elementkp.h"
 #include "elementkp.moc"
+#include "kalzium.h" 
 
     ElementKP::ElementKP(const QString& text, QWidget *parent, ElementInfo ElemInfo, const char *name, int
 	    AElemNo, KStatusBar *zeiger)	: KPushButton(text,parent,name)
@@ -98,7 +99,7 @@ void ElementKP::enterEvent(QEvent *)
 //when the mousepointer leaves the button
 void ElementKP::leaveEvent(QEvent *)
 {
-    zeigerle->message(i18n("Kalzium 0.4"));
+    zeigerle->message(i18n("Kalzium ")+KALZIUM_VERSION);
 }
 
 void ElementKP::showName()

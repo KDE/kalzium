@@ -18,13 +18,12 @@
 #ifndef ELEMENTKP_H
 #define ELEMENTKP_H
 
-#include <qwidget.h>
 #include <kpushbutton.h>
-#include <ksimpleconfig.h>
-#include <khtml_part.h>
-#include <qlabel.h>
 
 class KStatusBar;
+
+class QColor;
+class QLabel;
 class QPopupMenu;
 
 /**This class is derived from KPushButton. This is to make it be more specific

@@ -154,9 +154,23 @@ class Kalzium : public KMainWindow
         void showSettingsDialog();
         void hideSettingsDialog();
     protected:
+        /**
+        * Called before the window is closed, will save the menusettings.
+        */
         bool queryClose();
+        
         void setupActions();
+        
+        /**
+        * This method sets the menu for kalzium using XMLGUI. 
+        */
         void setupConfig();
+       
+        /**
+        * Called after setupActions , it sets the main window look 
+        * according to the menu settings
+        * @see Kalzium::setupActions
+        */
         void updateMainWindow();
 };
 #endif

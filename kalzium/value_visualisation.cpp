@@ -16,20 +16,21 @@
  ***************************************************************************/
 
 //KDE-Includes
+#include <kconfig.h>
 #include <klocale.h>
 
 //QT-Includes
-#include <qwhatsthis.h>
-#include <qlayout.h>
-#include <qinputdialog.h>
-#include <qfont.h>
 #include <qcanvas.h>
+#include <qfont.h>
+#include <qinputdialog.h>
+#include <qlayout.h>
+#include <qwhatsthis.h>
 
 #include "eleminfo.h"
 #include "elementkp.h"
+#include "kalzium.h"
 #include "value_visualisation.h"
 #include "value_visualisation.moc"
-#include "kalzium.h"
 
 
 ValueVisualisation::ValueVisualisation (QWidget *parent, const char *name, Kalzium *kalzium_tmp)  : KDialog (parent,name)
