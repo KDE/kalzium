@@ -74,8 +74,7 @@ not sufficient for you you can look up more via the internet.
 It is free and licensed under the &GNU; Public License.
 </para>
 </chapter>
-
-
+<!--
 <chapter id="using-kalzium">
 <title>Using &kalzium;</title>
 
@@ -156,7 +155,7 @@ level.</para>
 </sect1>
 
 </chapter>
-
+-->
 <chapter id="config">
 <title>Configuring &kalzium;</title>
 <para>
