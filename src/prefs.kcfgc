@@ -1,0 +1,6 @@
+# Code generation options for kconfig_compiler
+File=kalzium.kcfg
+#IncludeFiles=defines.h
+ClassName=Prefs
+Singleton=true
+Mutators=true

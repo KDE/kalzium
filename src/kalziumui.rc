@@ -1,39 +1,17 @@
-<!DOCTYPE kpartgui>
-<kpartgui name="kalzium">
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="kalzium" version="1">
 <MenuBar>
-<Menu name="settings"><text>&amp;Settings</text>
-        <Action name="timeline"/>
-        <Separator/>
-        <Action name="quickinfo"/>
-        <Separator/>
-        <Action name="legend"/>
-        <Separator/>
-        <Action name="psestyle"/>
-        <Action name="colorscheme"/>
-        <Action name="numeration"/>
-        <Separator/>
-        <Action name="configure"/>
-</Menu>
-
-<Menu name="calculations"><text>C&amp;alculations</text>
-        <Action name="calculations"/>
-        <Action name="defineweights"/>
-        <Action name="startplotting"/>
-</Menu>
-
-<Menu name="quiz"><text>&amp;Quiz</text>
-        <Action name="test_your_knowledge"/>
-</Menu>
-
+  <Menu name="changepse">
+	<text>Switch PSE</text>
+	<Action name="RegularPSE" />
+	<Action name="SimplePSE" />
+	<Action name="MendeljevPSE" />
+  </Menu>
+  <Menu name="stylemenu">
+	<text>Look</text>
+	<Action name="RegularPSE" />
+	<Action name="SimplePSE" />
+	<Action name="MendeljevPSE" />
+  </Menu>
 </MenuBar>
-
-<ToolBar name="mainToolBar" noMerge="1" position="top"><text>Main</text>
-        <Action name="psestyle"/>
-        <Action name="colorscheme"/>
-        <Action name="numeration"/>
-        <Action name="timeline"/>
-        <Action name="quickinfo"/>
-        <Action name="legend"/>
-</ToolBar>
-
 </kpartgui>

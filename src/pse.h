@@ -17,56 +17,81 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifndef ELEMENTBUTTON_H
-#define ELEMENTBUTTON_H
+#ifndef PSE_H
+#define PSE_H
 
-#include <qframe.h>
-#include <qpainter.h>
-#include <qstring.h>
+#include <qwidget.h>
+#include <qvaluelist.h>
+#include <kpushbutton.h>
+#include <qptrlist.h>
+
 #include "element.h"
+#include "elementbutton.h"
 
 /**
-An ElementButton is the widget the users sees when looking at the table. 
-It provides the drag&drop-actions and click-events. Furthermore it can change
-it colors and hide/show itself.
+abstract basic class for the specific PSEs
 
 @author Carsten Niehaus
 */
-class ElementButton : public QFrame
+
+
+class PSE : public QWidget
 {
-Q_OBJECT
-public:
-    ElementButton(int number, Element *el, QWidget *parent = 0, const char *name = 0);
+	Q_OBJECT
+	public:
+		/**
+		 * Constructor
+		 * @param data the object in which all data is stored
+		 */
+		PSE( KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
+		~PSE();
 
-    ~ElementButton();
-    int ElementNumber();
-	
-    QString sym;
+		KalziumDataObject *d;
 
-	/*
-	 * the element this buttons represents
-	 */
-	Element *e;
+		typedef QValueList<int> QIntList;
 
-    
-    virtual void paintEvent( QPaintEvent* );
+		QPtrList<ElementButton> sBlockList,
+					dBlockList,
+					pBlockList,
+					fBlockList;
 
-	void mousePressEvent( QMouseEvent* );
-	
-private:
-	
-	/*
-	 * the integer num represents the number of the element
-	 */
-    int m_ElementNumber;
-    
+		void setupBlockLists();
 
-signals:
-	        /*
-			 *          * this signal emits the name ( the element-number )·
-			 *                   */
-	        void num( int );//QString );
+	protected:
+		virtual void updatePSE();
 
+	protected slots:
+		void slotElementClicked( int );
 };
+
+class RegularPSE : public PSE
+{
+	Q_OBJECT
+	public:
+		RegularPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
+		~RegularPSE();
+
+	protected:
+		virtual void updatePSE();
+};
+
+class SimplifiedPSE : public PSE
+{
+	Q_OBJECT
+	public:
+		SimplifiedPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
+		~SimplifiedPSE();
+		
+};
+
+class MendeljevPSE : public PSE
+{
+	Q_OBJECT
+
+	public:
+		MendeljevPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
+		~MendeljevPSE();
+};
+		
 
 #endif
