@@ -27,6 +27,6 @@
         <Action name="colorscheme"/>
         <Action name="numeration"/>
         <Action name="timeline"/>
-</ToolaBar>
+</ToolBar>
 
 </kpartgui>
