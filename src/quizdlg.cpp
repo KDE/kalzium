@@ -190,7 +190,6 @@ void QuizDlg::slotCheck()
         {
             this->close();
             Quiz_Result *finalresults = new Quiz_Result();
-            finalresults->show();
             finalresults->setCaption(i18n("See your results!"));
             QObject::connect (finalresults->exit, SIGNAL(clicked()), finalresults, SLOT(hide()));
             QString resulttext;
@@ -208,7 +207,7 @@ void QuizDlg::slotCheck()
 
             finalresults->result_table->setText( 0 , 0 , i18n("Questions:") );
             finalresults->result_table->setText( 0 , 1 , i18n("The correct answer was:") );
-            finalresults->result_table->setText( 0 , 2 , i18n("You have been:") );
+            finalresults->result_table->setText( 0 , 2 , i18n("You were:") );
             KSimpleConfig quizconfig (locate("data", "kalzium/kalziumrc"));
             for ( int i = 0 ; i < qnum ; i++ )
             {
@@ -231,6 +230,7 @@ void QuizDlg::slotCheck()
                 else 
                     finalresults-> result_table->setPixmap( i+1 , 2 , bad  );
             }	    
+        finalresults->show();
         }
     }
 }
