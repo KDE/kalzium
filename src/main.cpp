@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
     aboutData.addCredit("Tomislav Gountchev",
             I18N_NOOP("KMol-code"), "tomi@idiom.com");
     aboutData.addCredit("Dipl.-Ing. M. Stegemann", I18N_NOOP("Pictures of the elements"), "");
+    aboutData.addCredit("Chris Luetchford", I18N_NOOP("svg icon"), "chris@os11.com");
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 
