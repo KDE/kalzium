@@ -40,9 +40,9 @@ void IsotopeWidget::setIsotopes( const QString& isotopes_string )
 	
 	QWidget *widget = new QWidget( this );
 	QHBoxLayout *h = new QHBoxLayout( widget );
-	QLabel *l1 = new QLabel( "<b>Weight</b>" , widget );
+	QLabel *l1 = new QLabel( i18n( "<b>Weight</b>" ) , widget );
 	QLabel *l2 = new QLabel( i18n( "<b>Neutrons</b>" ) , widget );
-	QLabel *l3 = new QLabel( "<b>Percentage</b>" , widget );
+	QLabel *l3 = new QLabel( i18n( "<b>Percentage</b>" ) , widget );
 	h->addWidget( l1 );
 	h->addWidget( l2 );
 	h->addWidget( l3 );
