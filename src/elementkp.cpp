@@ -55,19 +55,19 @@ void ElementKP::getNeighbours( int Current )
 {
     int Nr=Current, ze=0, sp=0;
     position(Nr,ze,sp);
-    neighbourArray[0][1]=kalzium->helpArray[sp/40-1][ze/40-1];
-    neighbourArray[1][1]=kalzium->helpArray[sp/40][ze/40-1];
-    neighbourArray[2][1]=kalzium->helpArray[sp/40+1][ze/40-1];
-    if ( ze/40 != 17 )
-    {
-	neighbourArray[0][0]=kalzium->helpArray[sp/40-1][ze/40-2];
-	neighbourArray[1][0]=kalzium->helpArray[sp/40][ze/40-2];
-	neighbourArray[2][0]=kalzium->helpArray[sp/40+1][ze/40-2];
-    }
-    if (ze/40 == 0 ) return;
-    neighbourArray[0][2]=kalzium->helpArray[sp/40-1][ze/40];
-    neighbourArray[1][2]=kalzium->helpArray[sp/40][ze/40];
-    neighbourArray[2][2]=kalzium->helpArray[sp/40+1][ze/40];
+//    neighbourArray[0][1]=kalzium->helpArray[sp/40-1][ze/40];
+//    neighbourArray[1][1]=kalzium->helpArray[sp/40][ze/40-1];
+//    neighbourArray[2][1]=kalzium->helpArray[sp/40+1][ze/40-1];
+    //    if ( ze/40 != 17 )
+    //    {
+//    neighbourArray[0][0]=kalzium->helpArray[sp/40][ze/40];
+//    neighbourArray[1][0]=kalzium->helpArray[sp/40][ze/40-2];
+//    neighbourArray[2][0]=kalzium->helpArray[sp/40+1][ze/40-2];
+    //    }
+    //    if (ze/40 == 0 ) return;
+//    neighbourArray[0][2]=kalzium->helpArray[sp/40-1][ze/40];
+//    neighbourArray[1][2]=kalzium->helpArray[sp/40][ze/40];
+//    neighbourArray[2][2]=kalzium->helpArray[sp/40+1][ze/40];
 }
 
 //when the mousepointer is over a button
@@ -359,8 +359,6 @@ void ElementKP::slotShowData()
     grid->setColStretch(2, 1);
     grid->setRowStretch(6, 1);
 
-///neu
-/*
     QTable *neighbourTable = new QTable( 3 , 3 , show_data , "neighbourTable" );
 	    neighbourTable->setReadOnly( true );
         grid->addMultiCellWidget(neighbourTable, 6, 6, 0 , 1);
@@ -376,17 +374,10 @@ void ElementKP::slotShowData()
                 for( int spalte=0 ; spalte < 3 ; spalte++ )
                 {
                     neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
+                    if (neighbourArray[zeile][spalte] == "leer") neighbourTable->setText(zeile,spalte,"");
                 }
-				int x=0, y=0;
-				position(ElemNo,x,y);
-				if (y/40 == 0 )
-				{
-						neighbourTable->setText(1,1,"");
-				}
 
             }
-			*/
-///neu
     
 //    QWhatsThis::add(label, i18n("This is the electronegativity of Pauling"));
 

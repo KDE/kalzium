@@ -178,8 +178,8 @@ void Kalzium::createhelpArray()
     int ze=0,sp=0;
     for(int as=0;as<118;as++)
     {
-        position(as,ze,sp);
-        helpArray[sp/40][ze/40]=element[as]->Data.Symbol;
+        position(as+1,ze,sp);
+        helpArray[sp/40+1][ze/40]=element[as-1]->Data.Symbol;
     }
 }
 
