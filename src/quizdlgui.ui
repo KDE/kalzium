@@ -124,6 +124,12 @@
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
                                     </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>0</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
                                 </spacer>
                             </vbox>
                         </widget>
@@ -145,10 +151,6 @@
                                     <property name="name">
                                         <cstring>one_label</cstring>
                                     </property>
-                                    <property name="text">
-                                        <string>one
-one2</string>
-                                    </property>
                                     <property name="alignment">
                                         <set>WordBreak|AlignVCenter</set>
                                     </property>
@@ -165,6 +167,12 @@ one2</string>
                                     </property>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
+                                    </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>0</width>
+                                            <height>20</height>
+                                        </size>
                                     </property>
                                 </spacer>
                             </vbox>
@@ -225,6 +233,12 @@ one2</string>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
                                     </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>0</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
                                 </spacer>
                             </vbox>
                         </widget>
@@ -246,10 +260,6 @@ one2</string>
                                     <property name="name">
                                         <cstring>two_label</cstring>
                                     </property>
-                                    <property name="text">
-                                        <string>two
-two2</string>
-                                    </property>
                                     <property name="alignment">
                                         <set>WordBreak|AlignVCenter</set>
                                     </property>
@@ -266,6 +276,12 @@ two2</string>
                                     </property>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
+                                    </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>0</width>
+                                            <height>20</height>
+                                        </size>
                                     </property>
                                 </spacer>
                             </vbox>
@@ -326,6 +342,12 @@ two2</string>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
                                     </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>0</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
                                 </spacer>
                             </vbox>
                         </widget>
@@ -347,10 +369,6 @@ two2</string>
                                     <property name="name">
                                         <cstring>three_label</cstring>
                                     </property>
-                                    <property name="text">
-                                        <string>three
-three2</string>
-                                    </property>
                                     <property name="alignment">
                                         <set>WordBreak|AlignVCenter</set>
                                     </property>
@@ -368,6 +386,12 @@ three2</string>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
                                     </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>0</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
                                 </spacer>
                             </vbox>
                         </widget>
@@ -382,6 +406,12 @@ three2</string>
                     </property>
                     <property name="sizeType">
                         <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>0</width>
+                            <height>20</height>
+                        </size>
                     </property>
                 </spacer>
             </vbox>

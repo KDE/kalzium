@@ -30,7 +30,7 @@
                 <cstring>resultlabel</cstring>
             </property>
             <property name="text">
-                <string>TextLabel1</string>
+                <string></string>
             </property>
         </widget>
         <widget class="QTable" row="1" column="0">
