@@ -44,7 +44,7 @@
 #include <ksimpleconfig.h>
 #include <kstatusbar.h>
 #include <kstdaction.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kcolorbutton.h>
 
 //QT-Includes

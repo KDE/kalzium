@@ -24,7 +24,7 @@
 #include <kmessagebox.h>
 #include <kpushbutton.h>
 #include <ksimpleconfig.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kprogress.h>
 
 //QT-Includes

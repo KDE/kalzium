@@ -20,7 +20,7 @@
 #include "KalziumGraph.moc"
 
 //KDE-Includes
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <ksimpleconfig.h>
 #include <klocale.h>
 #include <kpushbutton.h>

@@ -12,11 +12,10 @@
 
 #include <kapplication.h>
 #include <klocale.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include "kmolcalc.h"
 #include <qdict.h>
 #include <qdir.h>
-#include <iostream.h>
 
 
 /**
