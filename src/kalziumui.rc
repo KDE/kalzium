@@ -11,4 +11,10 @@
   </Menu>
  <Action name="look_menu" />
 </MenuBar>
+
+<ToolBar name="mainToolBar" noMerge="1" fullWidth="true" >
+  <Action name="use_timeline" />
+  <Action name="plotdata" />
+ </ToolBar>
+
 </kpartgui>
