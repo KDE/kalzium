@@ -12,7 +12,6 @@
  ***************************************************************************/
 #include "kalzium.h"
 #include "prefs.h"
-#include "settings_colorschemes.h"
 #include "settings_colors.h"
 #include "settings_misc.h"
 #include "slider_widget.h"
@@ -307,7 +306,6 @@ void Kalzium::showSettingsDialog()
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
 	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotUpdateSettings() ) );
-	dialog->addPage( new colorScheme( 0, "colorscheme_page"), i18n("Color Scheme"), "colorize");
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Colors"), "colorize");
 	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Miscellaneous" ), "misc" );
 	dialog->show();

@@ -8,7 +8,6 @@ kalzium_SOURCES = kalzium.cpp \
 			element.cpp \
 			elementbutton.cpp \
 			prefs.kcfgc \
-			settings_colorschemes.ui \
 			settings_colors.ui \
 			settings_misc.ui \
 			infodialog_small.ui \
@@ -40,7 +39,6 @@ EXTRA_DIST = main.cpp \
 		pse.cpp pse.h \
 		element.cpp element.h \
 		elementbutton.cpp elementbutton.h \
-		settings_colorschemes.ui \
 		settings_colors.ui \
 		settings_misc.ui \
 		infodialog_small.ui \
