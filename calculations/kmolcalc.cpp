@@ -1,4 +1,4 @@
-/* 
+/*
  * kmolcalc.cpp
  *
  * Copyright (C) 2000 Tomislav Gountchev <tomi@idiom.com>
@@ -50,7 +50,7 @@ void KMolCalc::readElstable() {
   } else if (QFileInfo(f).lastModified() < QFileInfo(lf).lastModified()) {
     // announce
     QMessageBox::information 
-      (0, i18n("Warning:"), i18n("Found new global Mw file.\nLocal definitions will be updated."), QMessageBox::Ok);
+      (0, i18n("Warning"), i18n("Found new global Mw file.\nLocal definitions will be updated."), QMessageBox::Ok);
     readMwfile(lf);
     writeElstable();
   }

@@ -69,19 +69,19 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	info->setFont(QFont(KGlobalSettings::generalFont().family(), 12, QFont::Bold));
 	main_layout->addMultiCellWidget(info , 1 , 1 , 1 , 2 , Qt::AlignCenter );
 
-	QLabel *solinfo = new QLabel( i18n("solid:"),this );
+	QLabel *solinfo = new QLabel( i18n("Solid:"),this );
 	main_layout->addWidget(solinfo , 2 , 1 , Qt::AlignRight );
 
-	QLabel *liqinfo = new QLabel( i18n("liquid:"), this );
+	QLabel *liqinfo = new QLabel( i18n("Liquid:"), this );
 	main_layout->addWidget(liqinfo , 3 , 1 , Qt::AlignRight );
 
-	QLabel *gasinfo = new QLabel( i18n("vapor:"), this );
+	QLabel *gasinfo = new QLabel( i18n("Vapor:"), this );
 	main_layout->addWidget(gasinfo , 4 , 1 , Qt::AlignRight );
 
-	QLabel *artiinfo = new QLabel( i18n("artificial:"), this );
+	QLabel *artiinfo = new QLabel( i18n("Artificial:"), this );
 	main_layout->addWidget(artiinfo , 5 , 1 , Qt::AlignRight );
 
-	QLabel *radiaainfo = new QLabel( i18n("radioactive:"), this );
+	QLabel *radiaainfo = new QLabel( i18n("Radioactive:"), this );
 	main_layout->addWidget(radiaainfo , 6 , 1 , Qt::AlignRight );
 
 	celsius = new QLabel( this );

@@ -84,7 +84,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	QVBoxLayout *energyLayout = new QVBoxLayout( energyTab, 5 );
 	QLabel *ENlabel = new QLabel( i18n( "Electronegativity: %1" ).arg( Data._EN ) , energyTab );
 	QLabel *Ionlabel = new QLabel(i18n( "Ionization energy: %1" ).arg( Data._IE ) , energyTab );
-	QLabel *Ion2label = new QLabel(i18n( "Second Ionization energy: %1" ).arg( Data._IE2 ) , energyTab );
+	QLabel *Ion2label = new QLabel(i18n( "Second ionization energy: %1" ).arg( Data._IE2 ) , energyTab );
 	QLabel *MPlabel = new QLabel(i18n( "Melting point: %1" ).arg( Data._MP ) , energyTab );
 	QLabel *BPlabel = new QLabel(i18n( "Boiling point: %1" ).arg( Data._BP ) , energyTab );
 	energyLayout->addWidget( ENlabel );
