@@ -77,14 +77,14 @@ QString KMolCalc::readFormula(const QString& s) {
 
 // read a formula group recursively. Called by readFormula.
 QString KMolCalc::readGroup(const QString& s, ElementList* els) {
-  if (s.isEmpty()) return QString (i18n("Enter a formula.")); //ERROR
+  if (s.isEmpty()) return i18n("Enter a formula."); //ERROR
   int sl = s.length();
   int i = 0;
   QString errors ("OK");
   bool ok = TRUE;
   while (i < sl && ((s[i] <= '9' && s[i] >= '0') || s[i] == '.')) i++;
   double prefix = (i == 0 ? 1 : s.left(i).toDouble(&ok)); 
-  if (! ok || i == sl || prefix == 0) return QString (i18n("Bad formula.")); // ERROR
+  if (! ok || i == sl || prefix == 0) return i18n("Bad formula."); // ERROR
   ElementList* elstemp = new ElementList;
   while (i < sl) {
     int j = i;
@@ -95,7 +95,7 @@ QString KMolCalc::readGroup(const QString& s, ElementList* els) {
 	if (i++ == sl) {
 	  delete inner;
 	  delete elstemp;
-	  return QString (i18n("Bad formula.")); //ERROR
+	  return i18n("Bad formula."); //ERROR
 	}
 	if (s[i] == '(') level++;
 	if (s[i] == ')') level--;
@@ -108,7 +108,7 @@ QString KMolCalc::readGroup(const QString& s, ElementList* els) {
       if (! ok || suffix == 0) {
 	delete inner;
 	delete elstemp;
-	return QString (i18n("Bad formula.")); // ERROR
+	return i18n("Bad formula."); // ERROR
       }      
       inner->addTo(*elstemp, suffix);
       delete inner;
@@ -122,18 +122,18 @@ QString KMolCalc::readGroup(const QString& s, ElementList* els) {
       double suffix = (i == j ? 1 : s.mid(j, i-j).toDouble(&ok)); 
       if (! ok || suffix == 0) {
 	delete elstemp;
-	return QString (i18n("Bad formula.")); // ERROR
+	return i18n("Bad formula."); // ERROR
       }
       SubUnit* group = elstable->find(elname);
       if (group == 0) {
 	delete elstemp;
-	return QString (i18n("Undefined symbol: ") + elname); //ERROR
+	return i18n("Undefined symbol: ") + elname; //ERROR
       }
       group->addTo(*elstemp, suffix);
     } else if (s[i] == '+') {
       if (elstemp->isEmpty()) {
 	delete elstemp;
-	return QString (i18n("Bad formula.")); //ERROR
+	return i18n("Bad formula."); //ERROR
       }
       elstemp->addTo(*els, prefix);
       delete elstemp;
@@ -141,7 +141,7 @@ QString KMolCalc::readGroup(const QString& s, ElementList* els) {
       return errors;
     } else {
       delete elstemp;
-      return QString (i18n("Bad formula.")); //ERROR
+      return i18n("Bad formula."); //ERROR
     }
   }
   elstemp->addTo(*els, prefix);
@@ -163,7 +163,7 @@ double KMolCalc::getWeight() {
  */
 QString KMolCalc::getEA() {
   if (weight == -1) weight = elements->getWeight(elstable);
-  if (weight == -1) return QString(i18n("ERROR: Couldn't get Mw...")); // ERROR
+  if (weight == -1) return i18n("ERROR: Couldn't get Mw..."); // ERROR
   return elements->getEA(elstable, weight);
 }
 
