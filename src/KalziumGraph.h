@@ -24,6 +24,7 @@ class KLineEdit;
 class QGridLayout;
 class QLabel;
 class KIntNumInput;
+class KalziumGraphDataContainer;
 
 #include <qwidget.h>
 #include <kdialog.h>
@@ -44,6 +45,7 @@ class KalziumGraphDialog : public KDialog
 		KIntNumInput *from, *to;
 		QLabel *topicLabel;
 		bool valuesAreOk();
+		void fillList( int, int , KalziumGraphDataContainer*);
 	
 	public slots:
 		void slotokClicked();

@@ -34,6 +34,7 @@
 #include <qframe.h>
 #include <qlabel.h>
 #include <qpainter.h>
+#include <qlistview.h>
 
 KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDialog( parent, name )
 {
@@ -48,6 +49,8 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 	to->setMaxValue( 109 );
 	to->setMinValue( 1 );
 	to->setMaxValue( 108 );
+		
+	QListView *list = new QListView( this );
 
 	kcb = new KComboBox( this );
 	kcb->insertItem( i18n( "Atomic Weight" ));
@@ -61,6 +64,7 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 	grid->addWidget( kcb, 1,0 );
 	grid->addWidget( from,0,1 );
 	grid->addWidget( to,0,2 );
+	grid->addMultiCellWidget( list,2,3,3,3 );
 }
 
 void KalziumGraphDialog::slotokClicked()
@@ -75,7 +79,12 @@ void KalziumGraphDialog::slotokClicked()
 		graph = new KalziumGraph( fromRange,toRange,this, "graph" , container);
 		graph->show();
 		grid->addMultiCellWidget( graph,2,3,0,2 );
+		fillList(fromRange,toRange, container);
 	}
+}
+
+void KalziumGraphDialog::fillList( int from, int to, KalziumGraphDataContainer *data )
+{
 }
 
 bool KalziumGraphDialog::valuesAreOk()
