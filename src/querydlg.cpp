@@ -1,10 +1,10 @@
 /***************************************************************************
 
-        settingsdialog.h  -  description
+        querydlg.cpp  -  description
                              -------------------
-    begin                : Tue Apr 2 20:43:44 2002 UTC
-    copyright            : (C) 2002 by Robert Gogolok
-    email                : mail@robert-gogolok.de
+    begin                : Apr 17 2003 
+    copyright            : (C) 2003 by Carsten Niehaus
+    email                : cniehaus@kde.org
  ***************************************************************************/
 
 /***************************************************************************
@@ -16,35 +16,35 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef _DETAILINFODLG_H_
-#define _DETAILINFODLG_H_
+#include <kaction.h>
+#include <kcolorbutton.h>
+#include <kdebug.h>
+#include <kconfig.h>
+#include <kiconloader.h>
+#include <klocale.h>
+#include <kstandarddirs.h>
+#include <kurl.h>
+#include <kpushbutton.h>
+#include <khtml_part.h>
+#include <khtmlview.h>
 
-#include <kdialogbase.h>
-#include <qframe.h>
+#include <qlabel.h>
+#include <qlayout.h>
+#include <qstring.h>
+#include <qvbuttongroup.h>
+#include <qpainter.h>
 
-#include "elementkp.h"
 
-class DetailedTab : public QWidget
+#include "querydlg.h"
+
+/**
+ * this class will provide a searchinterface
+ */
+
+QueryDlg::QueryDlg( QWidget *parent, const char *name)
+    : KDialog( parent,name)
 {
-	Q_OBJECT
+}
 
-	public:
-		DetailedTab( ElementInfo& Eleminfo , QWidget *parent, const char *name=0 );
-		ElementInfo Data;
-		QColor PSEColor( QString Block ) const;
 
-	protected:
-		virtual void paintEvent( QPaintEvent* );
-};
-
-class DetailedInfoDlg : public KDialogBase
-{
-    Q_OBJECT
-    public:
-        DetailedInfoDlg( ElementInfo Eleminfo , QWidget *parent=0, const char *name=0);
-		ElementInfo Data;
-
-		QFrame *mainTab, *energyTab, *miscTab, *overviewTab;
-};
-
-#endif
+#include "querydlg.moc"

@@ -4,11 +4,11 @@ INCLUDES= -I../calculations $(all_includes)
 SUBDIRS = icons
 
 bin_PROGRAMS = kalzium
-kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp stateofmatterdlg.cpp calcdlg.cpp calcdialog.cpp settingsdialog.cpp legend.cpp fastinfo.cpp KalziumGraph.cpp infodlg.ui quizdlgui.ui quiz_result.ui kmolui.ui elementbutton.cpp
+kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp stateofmatterdlg.cpp calcdlg.cpp calcdialog.cpp settingsdialog.cpp legend.cpp fastinfo.cpp KalziumGraph.cpp infodlg.ui quizdlgui.ui quiz_result.ui kmolui.ui elementbutton.cpp detailinfodlg.cpp querydlg.cpp infodialog.cpp
 kalzium_LDADD   = $(LIB_KHTML)  ../calculations/libkmol.la
 
 
-EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp calcdialog.cpp settingsdialog.cpp settingsdialog.h legend.cpp legend.h fastinfo.cpp fastinfo.h KalziumGraph.cpp KalziumGraph.h infodlg.ui quizdlgui.ui quiz_result.ui kmolui.ui elementbutton.cpp elementbutton.h
+EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp calcdialog.cpp settingsdialog.cpp settingsdialog.h legend.cpp legend.h fastinfo.cpp fastinfo.h KalziumGraph.cpp KalziumGraph.h infodlg.ui quizdlgui.ui quiz_result.ui kmolui.ui elementbutton.cpp elementbutton.h detailinfodlg.cpp detailinfodlg.h querydlg.cpp querydlg.cpp infodialog.cpp infodialog.h
 
 METASOURCES = AUTO 
 

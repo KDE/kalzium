@@ -1,11 +1,11 @@
 /***************************************************************************
 
-        settingsdialog.h  -  description
+        querydlg.h  -  description
                              -------------------
-    begin                : Tue Apr 2 20:43:44 2002 UTC
-    copyright            : (C) 2002 by Robert Gogolok
-    email                : mail@robert-gogolok.de
- ***************************************************************************/
+    begin                : Apr 17 2003
+    copyright            : (C) 2003 by Carsten Niehaus
+    email                : cniehaus@kde.org
+***************************************************************************/
 
 /***************************************************************************
  *                                                                         *
@@ -16,35 +16,27 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef _DETAILINFODLG_H_
-#define _DETAILINFODLG_H_
+#ifndef _QUERYDLG_H_
+#define _QUERYDLG_H_
 
 #include <kdialogbase.h>
+#include <qtabwidget.h>
 #include <qframe.h>
+#include <kdialog.h>
 
-#include "elementkp.h"
+class QVButtonGroup;
+class QComboBox;
+class QGridLayout;
+class QLabel;
+class QString;
 
-class DetailedTab : public QWidget
+class QueryDlg : public KDialog
 {
 	Q_OBJECT
 
 	public:
-		DetailedTab( ElementInfo& Eleminfo , QWidget *parent, const char *name=0 );
-		ElementInfo Data;
-		QColor PSEColor( QString Block ) const;
+		QueryDlg( QWidget *parent, const char *name );
 
-	protected:
-		virtual void paintEvent( QPaintEvent* );
-};
-
-class DetailedInfoDlg : public KDialogBase
-{
-    Q_OBJECT
-    public:
-        DetailedInfoDlg( ElementInfo Eleminfo , QWidget *parent=0, const char *name=0);
-		ElementInfo Data;
-
-		QFrame *mainTab, *energyTab, *miscTab, *overviewTab;
 };
 
 #endif
