@@ -18,6 +18,9 @@
 	 *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 	 ***************************************************************************/
 #include "elementbutton.h"
+#include "prefs.h"
+#include "infodialog_small_impl.h"
+#include "detailinfodlg.h"
 #include <qpainter.h>
 
 #include <kdebug.h>
@@ -35,6 +38,34 @@ ElementButton::ElementButton(int number, Element *el, QWidget *parent, const cha
 	this->setFrameShadow(  QFrame::Sunken );
 }
 
+void ElementButton::mouseReleaseEvent( QMouseEvent *mouse )
+{
+	int small = Prefs::lMBbeh();
+	if ( small == 1 )
+	{
+		if ( mouse->button() == LeftButton )
+		{
+			infoDlgSmallImpl *smallDlg = new infoDlgSmallImpl( e, this , "smallDlg" );
+			smallDlg->show();
+		}else
+		{
+			DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( e, this , "detailedDlg" );
+			detailedDlg->show();
+		}	
+	}
+	if ( small == 0 )
+	{
+		if ( mouse->button() == LeftButton )
+		{
+			DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( e, this , "detailedDlg" );
+			detailedDlg->show();
+		}else
+		{
+			infoDlgSmallImpl *smallDlg = new infoDlgSmallImpl( e, this , "smallDlg" );
+			smallDlg->show();
+		}	
+	}
+}
 
 ElementButton::~ElementButton()
 {

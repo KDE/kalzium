@@ -11,9 +11,16 @@ kalzium_SOURCES = kalzium.cpp \
 			settings_colorschemes.ui \
 			settings_colors.ui \
 			settings_quiz.ui \
+			settings_misc.ui \
 			questionadddialog.ui \
 			questioneditor.ui \
-			questioneditor_impl.cpp
+			questioneditor_impl.cpp \
+			infodialog_small.ui \
+			infodialog_small_impl.cpp \
+			detailinfodlg.cpp \
+			orbitswidget.cpp \
+			detail_chemical.ui \
+			detail_energy.ui
 kalzium_LDADD   = $(LIB_KDEUI)
 
 SUBDIRS = icons elementpics
@@ -26,11 +33,20 @@ EXTRA_DIST = main.cpp \
 		settings_colorschemes.ui \
 		settings_colors.ui \
 		settings_quiz.ui \
+		settings_misc.ui \
 		questionadddialog.ui \
 		questioneditor.ui \
 		questioneditor_impl.cpp \
-		questioneditor_impl.h 
-
+		questioneditor_impl.h \
+		infodialog_small.ui \
+		infodialog_small_impl.cpp \
+		infodialog_small_impl.h \
+		detailinfodlg.cpp \
+		detailinfodlg.h \
+		orbitswidget.cpp \
+		orbitswidget.h \
+		detail_chemical.ui \
+		detail_energy.ui
 
 METASOURCES = AUTO 
 

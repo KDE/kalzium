@@ -10,6 +10,7 @@
 #include "settings_colorschemes.h"
 #include "settings_colors.h"
 #include "settings_quiz.h"
+#include "settings_misc.h"
 #include "questioneditor_impl.h"
 
 #include <qlabel.h>
@@ -55,7 +56,7 @@ Kalzium::Kalzium()
 	m_pBehBlocksAction = new KAction(i18n("No Colors"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_normal");
 	
 	/*
-	 * the standartactions
+	 * the standardactions
 	 **/
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
@@ -75,6 +76,8 @@ Kalzium::Kalzium()
 	setCentralWidget( m_pCurrentPSE );
 	
 	createStandardStatusBarAction(); //post-KDE 3.1
+
+	m_pCurrentPSE->activateColorScheme( Prefs::colorschemebox() );
 }
 
 void Kalzium::slotStartQuiz()
@@ -103,9 +106,8 @@ void Kalzium::slotShowScheme(void)
 		i = 4;
 	if ( n == QString("view_acidic"))
 		i = 5;
-
-	kdDebug() << "aktivate the colorscheme " << i << endl;
-	m_pCurrentPSE->activeColorScheme( i );
+	
+	m_pCurrentPSE->activateColorScheme( i );
 }
 
 void Kalzium::slotSwitchtoPSE(void)
@@ -142,12 +144,14 @@ void Kalzium::showSettingsDialog()
 	if (KConfigDialog::showDialog("settings"))
 		return;
 
-	//	if ( sender()->name() == QString( "quiz_setup" ) )
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
+	connect( dialog, SIGNAL( okClicked() ), m_pCurrentPSE, SLOT( slotUpdatePSE() ) );
+	connect( dialog, SIGNAL( applyClicked() ), m_pCurrentPSE, SLOT( slotUpdatePSE() ) );
 	dialog->addPage( new setColorScheme( 0, "colorscheme_page"), i18n("Configure Default Colorscheme"), "colorize");
-	dialog->addPage( new setupQuiz( 0, "quizsetuppage" ), i18n( "Configure Quiz" ), "edit" );
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Configure Colors"), "colorize");
+	dialog->addPage( new setupQuiz( 0, "quizsetuppage" ), i18n( "Configure Quiz" ), "edit" );
+	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Configure Misc" ), "misc" );
 	dialog->show();
 }
 
@@ -164,11 +168,16 @@ void Kalzium::optionsConfigureToolbars( )
 	dlg.exec();
 }
 
+void Kalzium::newToolbarConfig()
+{
+    createGUI();
+    applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
+}
+
+
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
 
-Kalzium::~Kalzium()
-{
-}
+Kalzium::~Kalzium(){}
 
 #include "kalzium.moc"
 

@@ -21,7 +21,7 @@
         </property>
         <widget class="QTabWidget" row="0" column="0">
             <property name="name">
-                <cstring>Form1</cstring>
+                <cstring>dfgdfg</cstring>
             </property>
             <widget class="QWidget">
                 <property name="name">
@@ -280,6 +280,27 @@
                                 </property>
                             </widget>
                         </vbox>
+                    </widget>
+                </grid>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>TabPage</cstring>
+                </property>
+                <attribute name="title">
+                    <string>No Scheme</string>
+                </attribute>
+                <grid>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="KColorButton" row="0" column="0">
+                        <property name="name">
+                            <cstring>kcfg_noscheme</cstring>
+                        </property>
+                        <property name="text">
+                            <string></string>
+                        </property>
                     </widget>
                 </grid>
             </widget>

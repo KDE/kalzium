@@ -93,6 +93,7 @@ class Kalzium : public KMainWindow
 		 **/
 		void showSettingsDialog();
 		void optionsConfigureKeys();
+		void newToolbarConfig();
 		void optionsConfigureToolbars();
 };
 

@@ -45,24 +45,39 @@ An 'Element' is the represention of a chemical element
 @author Carsten Niehaus
 */
 class Element{
-public:
-    Element( int );
-    ~Element();
-    
-	int number() const {return m_number;}
-	QString symbol() const {return m_symbol;}
-	QString name() const {return m_name;}
-	QString block() const {return m_block;}
-    	double weight() const {return m_weight;}
-	double meanweight();
+	public:
+		Element( int );
+		~Element();
 
-    int x, y; //for the RegularPSE
-    int s_x, s_y; //for the SimplifiedPSE
-    
-private:
-    void setupXY();
+		int number() const {return m_number;}
+		int biological() const {return m_biological;}
+		
+		QString symbol() const {return m_symbol;}
+		QString elname() const {return m_name;}
+		QString block() const {return m_block;}
+		QString group() const {return m_group;}
+		QString acidicbeh() const {return m_acidbeh;}
+		QString az() const {return m_az;}
+		QString oxstage() const { return m_oxstage; }
+		QString parsedOrbits();
+		
+		double boiling() const {return m_BP;}
+		double melting() const {return m_MP;}
+		double electroneg() const {return m_EN;}
+		double weight() const {return m_weight;}
+		double density() const {return m_Density;}
+		double radius() const {return m_AR;}
+		double ie() const {return m_IE;}
+		double ie2() const {return m_IE2;}
+		double meanweight();
 
-    double  m_weight,
+		int x, y; //for the RegularPSE
+		int s_x, s_y; //for the SimplifiedPSE
+
+	private:
+		void setupXY();
+
+		double  m_weight,
 			m_MP, 
 			m_BP, 
 			m_EN, 
@@ -70,16 +85,16 @@ private:
 			m_IE, 
 			m_IE2, 
 			m_AR;
-	
-    int     m_number, 
+
+		int     m_number, 
 			m_biological;
-			
-	QString m_symbol,
+
+		QString m_symbol,
 			m_name,
 			m_oxstage,
 			m_az,
 			m_block,
-			m_Group,
+			m_group,
 			m_date,
 			m_acidbeh,
 			m_orbits;

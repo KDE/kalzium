@@ -47,7 +47,16 @@ class PSE : public QWidget
 
 		KalziumDataObject *d;
 
-		virtual void activeColorScheme( int );
+		/**
+		 * This method sets the colors of the PSE. 
+		 @param nr takes 5 different values:
+		 	1: normal view
+			2: groups
+			3: blocks
+			4: state-of-matter
+			5: acidic behaviour
+		 **/
+		void activateColorScheme( const int nr);
 		
 		/**
 		 * four lists, on for each block in the periodic table
@@ -76,11 +85,9 @@ class PSE : public QWidget
 		 **/
 		virtual void setupPSEElementButtonsList();
 
-	protected:
-		virtual void updatePSE();
+		public slots:
+			void slotUpdatePSE();
 
-	protected slots:
-		void slotElementClicked( int );
 };
 
 class RegularPSE : public PSE
@@ -91,10 +98,6 @@ class RegularPSE : public PSE
 		~RegularPSE();
 
 		void setupPSEElementButtonsList();
-		void activeColorScheme( int );
-
-	protected:
-		virtual void updatePSE();
 };
 
 class SimplifiedPSE : public PSE
@@ -105,7 +108,6 @@ class SimplifiedPSE : public PSE
 		~SimplifiedPSE();
 		
 		void setupPSEElementButtonsList();
-		void activeColorScheme( int );
 };
 
 class MendeljevPSE : public PSE
@@ -114,7 +116,7 @@ class MendeljevPSE : public PSE
 
 	public:
 		MendeljevPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
-//		void activeColorScheme( int );
+		void setupPSEElementButtonsList();
 		~MendeljevPSE();
 };
 		

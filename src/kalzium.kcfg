@@ -25,6 +25,11 @@
 	</entry>
   </group>
   <group name="Colors">
+    <entry name="noscheme" type="Color">
+    	<default>#ffee00</default>
+	<whatsthis>Selects the color for the elements if no scheme is selected</whatsthis>
+	<label>Selects the color if no scheme is selected</label>
+    </entry>
     <entry name="color_liquid" type="Color">
     	<default>#ff2266</default>
 	<whatsthis>Selects the color for liquid elements</whatsthis>
@@ -51,22 +56,22 @@
 	<label>Selects the color of artificial elements</label>
     </entry>
     <entry name="block_s" type="Color">
-    	<default>#bb00ee</default>
+    	<default>#be72ee</default>
 	<whatsthis>Selects the color for the elements in block s</whatsthis>
 	<label>Selects the color of the elements in block s</label>
     </entry>
     <entry name="block_p" type="Color">
-    	<default>#aa00ee</default>
+    	<default>#62ee25</default>
 	<whatsthis>Selects the color for the elements in block p</whatsthis>
 	<label>Selects the color of the elements in block p</label>
     </entry>
     <entry name="block_d" type="Color">
-    	<default>#cc00ee</default>
+    	<default>#f4fd40</default>
 	<whatsthis>Selects the color for the elements in block d</whatsthis>
 	<label>Selects the color of the elements in block d</label>
     </entry>
     <entry name="block_f" type="Color">
-    	<default>#dd00ee</default>
+    	<default>#ee5ab8</default>
 	<whatsthis>Selects the color for the elements in block f</whatsthis>
 	<label>Selects the color of the elements in block f</label>
     </entry>
@@ -129,6 +134,34 @@
     	<default>#dd00ee</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
+    </entry>
+  </group>
+  <group name="Mouseclick">
+    <entry name="LMBbeh" type="Int">
+    	<default>0</default>
+	<whatsthis>If this is true</whatsthis>
+	<label>This value defines if a click with the left mousebutton opens the detailed or the small informationsdialog</label>
+    </entry>
+  </group>
+  <group name="Units">
+    <entry name="units" type="Int">
+    	<default>0</default>
+	<whatsthis>Use eV or kJ/mol</whatsthis>
+	<label>This value defines if eV or kJ/mol should be used within Kalzium</label>
+    </entry>
+  </group>
+  <group name="Electronegativity">
+    <entry name="electronegativity" type="Int">
+    	<default>1</default>
+	<whatsthis>Which scale should be used</whatsthis>
+	<label>This value defines which electronegativity-scale should be used within Kalzium</label>
+    </entry>
+  </group>
+  <group name="Temperature">
+    <entry name="temperature" type="Int">
+    	<default>0</default>
+	<whatsthis>Use Kelvin or Degrees Celsius</whatsthis>
+	<label>This value defines if a click with the left mousebutton opens the detailed or the small informationsdialog</label>
     </entry>
   </group>
 </kcfg>

@@ -18,6 +18,9 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "pse.h"
+#include "prefs.h"
+#include "infodialog_small_impl.h"
+
 #include <klocale.h>
 #include <kdebug.h>
 #include <kdialog.h>
@@ -31,18 +34,15 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	d = data;
 
 	setupBlockLists();
+	setupPSEElementButtonsList();
 }
 
-PSE::~PSE()
-{
-}
+PSE::~PSE(){}
 
-void PSE::updatePSE()
+void PSE::slotUpdatePSE()
 {
-	kdDebug() << "PSE::updatePSE()" << endl;
-
-	this->update();
-	//todo
+	kdDebug() << "slotUpdatePSE()" << endl;
+	activateColorScheme( Prefs::colorschemebox() );
 }
 
 void PSE::setupBlockLists()
@@ -55,8 +55,7 @@ void PSE::setupBlockLists()
 		 * ElementButton( int number, Element *el, QWidget *parent)
 		 */
 		ElementButton *b = new ElementButton( (*it)->number() , *it, this );
-		QToolTip::add(b, i18n("Name: %1").arg((*it)->name().utf8()));
-		connect( b, SIGNAL( num(int) ), this , SLOT( slotElementClicked(int) ) );
+		QToolTip::add(b, i18n("Name: %1").arg((*it)->elname().utf8()));
 		b->sym = (*it)->symbol();
 
 		if ( (*it)->block() == "s" )
@@ -71,17 +70,175 @@ void PSE::setupBlockLists()
 	}
 }
 
-void PSE::slotElementClicked(int num)
-{
-	KDialog *smallInfoDlg = new KDialog( this);
-	smallInfoDlg->setCaption(QString::number(num));
-	smallInfoDlg->show();
-}
-
 void PSE::setupPSEElementButtonsList(){}
 
-void PSE::activeColorScheme( int nr )
+void PSE::activateColorScheme( const int nr )
 {
+	kdDebug() << nr << endl;
+
+	if ( nr == 1) //normal view, no colors
+	{
+		ElementButton *button;
+		QColor color = Prefs::noscheme();
+		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+		{
+			button->setPaletteBackgroundColor( color );
+		}
+	}
+	else if ( nr == 2) //groups view
+	{
+		ElementButton *button;
+		const QColor color_1 = Prefs::group_1();
+		const QColor color_2 = Prefs::group_2();
+		const QColor color_3 = Prefs::group_3();
+		const QColor color_4 = Prefs::group_4();
+		const QColor color_5 = Prefs::group_5();
+		const QColor color_6 = Prefs::group_6();
+		const QColor color_7 = Prefs::group_7();
+		const QColor color_8 = Prefs::group_8();
+
+		static QString group;
+		
+		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+		{
+			group = button->e->group();
+
+			if (group == QString("1")) {
+				button->setPaletteBackgroundColor( color_1 );
+				continue;
+			}
+			if (group == QString("2")){
+				button->setPaletteBackgroundColor( color_2 );
+				continue;
+			}
+			if (group == QString("3")){
+				button->setPaletteBackgroundColor( color_3 );
+				continue;
+			}
+			if (group == QString("4")){
+				button->setPaletteBackgroundColor( color_4 );
+				continue;
+			}
+			if (group == QString("5")) {
+				button->setPaletteBackgroundColor( color_5 );
+				continue;
+			}
+			if (group == QString("6")){
+				button->setPaletteBackgroundColor( color_6 );
+				continue;
+			}
+			if (group == QString("7")){
+				button->setPaletteBackgroundColor( color_7 );
+				continue;
+			}
+			if (group == QString("8")){
+				button->setPaletteBackgroundColor( color_8 );
+				continue;
+			}
+		}
+	}
+	else if ( nr == 3) //block view
+	{
+		ElementButton *button;
+		const QColor color_s = Prefs::block_s();
+		const QColor color_p = Prefs::block_p();
+		const QColor color_d = Prefs::block_d();
+		const QColor color_f = Prefs::block_f();
+
+		static QString block;
+		
+		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+		{
+			block = button->e->block();
+
+			if (block == QString("s")) {
+				button->setPaletteBackgroundColor( color_s );
+				continue;
+			}
+			if (block == QString("p")){
+				button->setPaletteBackgroundColor( color_p );
+				continue;
+			}
+			if (block == QString("d")){
+				button->setPaletteBackgroundColor( color_d );
+				continue;
+			}
+			if (block == QString("f")){
+				button->setPaletteBackgroundColor( color_f );
+				continue;
+			}
+		}
+	}
+	
+	else if ( nr == 5) //acidic beh
+	{
+		ElementButton *button;
+		const QColor color_ba = Prefs::beh_basic();
+		const QColor color_ac = Prefs::beh_acidic();
+		const QColor color_neu = Prefs::beh_neutral();
+		const QColor color_amp = Prefs::beh_amphoteric();
+
+		static QString acidicbeh;
+		
+		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+		{
+			acidicbeh = button->e->acidicbeh();
+
+			if (acidicbeh == QString("0")) {
+				button->setPaletteBackgroundColor( color_ac );
+				continue;
+			}
+			if (acidicbeh == QString("1")){
+				button->setPaletteBackgroundColor( color_ba );
+				continue;
+			}
+			if (acidicbeh == QString("2")){
+				button->setPaletteBackgroundColor( color_neu );
+				continue;
+			}
+			if (acidicbeh == QString("3")){
+				button->setPaletteBackgroundColor( color_amp );
+				continue;
+			}
+		}
+	}
+	else if ( nr == 4) //state-of-matter
+	{
+		ElementButton *button;
+		const QColor color_solid = Prefs::color_solid();
+		const QColor color_liquid = Prefs::color_liquid();
+		const QColor color_radioactive = Prefs::color_radioactive();
+		const QColor color_vapor = Prefs::color_vapor();
+		const QColor color_artificial = Prefs::color_artificial();
+
+		static QString az;
+		
+		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+		{
+			az = button->e->az();
+
+			if (az == QString("0")) {
+				button->setPaletteBackgroundColor( color_solid );
+				continue;
+			}
+			if (az == QString("1")){
+				button->setPaletteBackgroundColor( color_liquid );
+				continue;
+			}
+			if (az == QString("2")){
+				button->setPaletteBackgroundColor( color_radioactive );
+				continue;
+			}
+			if (az == QString("3")){
+				button->setPaletteBackgroundColor( color_vapor );
+				continue;
+			}
+			if (az == QString("4")){
+				button->setPaletteBackgroundColor( color_artificial );
+				continue;
+			}
+		}
+	}
 }
 
 
@@ -114,38 +271,11 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 
 	for (  int n=0; n<18; n++ ) grid->addColSpacing(  n, 40 );
 	for (  int n=0; n<10; n++ ) grid->addRowSpacing(  n, 40 );
-
+	
 	setupPSEElementButtonsList();
 }
 
-RegularPSE::~RegularPSE()
-{}
-
-void RegularPSE::activeColorScheme( int nr )
-{
-	kdDebug()<< "activeColorScheme # " << nr <<  endl;
-	
-	if ( nr == 1) //normal view, no colors
-	;
-	if ( nr == 2) //groups view
-	;
-	if ( nr == 3) //block view
-	;
-	if ( nr == 4) //state of matter view
-	;
-	if ( nr == 5) //acidic view
-	;
-
-	int ui =0;
-	ElementButton *button;
-	
-	for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
-	{
-		kdDebug()<< "Nummer: " << ui << endl;
-		button->setPaletteBackgroundColor( Qt::blue );
-		ui++;
-	}
-}
+RegularPSE::~RegularPSE(){} 
 
 /**
  * this method sets up the m_PSEElementButtons-list
@@ -170,11 +300,6 @@ void RegularPSE::setupPSEElementButtonsList()
 	{
 		m_PSEElementButtons.append( button );
 	}
-}
-
-void RegularPSE::updatePSE()
-{
-	this->update();
 }
 
 SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const char *name)
@@ -207,43 +332,18 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 
 	for (  int n=0; n<8; n++ ) grid->addColSpacing(  n, 40 );
 	for (  int n=0; n<7; n++ ) grid->addRowSpacing(  n, 40 );
-}
-
-void SimplifiedPSE::activeColorScheme( int nr )
-{
-	kdDebug()<< "activeColorScheme # " << nr <<  endl;
 	
-	if ( nr == 1) //normal view, no colors
-	;
-	if ( nr == 2) //groups view
-	;
-	if ( nr == 3) //block view
-	;
-	if ( nr == 4) //state of matter view
-	;
-	if ( nr == 5) //acidic view
-	;
-
-	int ui =0;
-	ElementButton *button;
-	
-	for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
-	{
-		kdDebug()<< "Nummer: " << ui << endl;
-		button->setPaletteBackgroundColor( Qt::blue );
-		ui++;
-	}
+	setupPSEElementButtonsList();
 }
 
-SimplifiedPSE::~SimplifiedPSE()
-{
-}
+SimplifiedPSE::~SimplifiedPSE(){}
 
 /**
  * this method sets up the m_PSEElementButtons-list
  **/
 void SimplifiedPSE::setupPSEElementButtonsList()
 {
+	kdDebug() << "SimplifiedPSE::setupPSEElementButtonsList()" << endl;
 	ElementButton *button;
 	
 	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
@@ -254,6 +354,8 @@ void SimplifiedPSE::setupPSEElementButtonsList()
 	{
 		m_PSEElementButtons.append( button );
 	}
+	kdDebug() << "Anzahl der Buttons nach dem Erstellen: " << m_PSEElementButtons.count() << endl;
+	
 }
 
 MendeljevPSE::MendeljevPSE(KalziumDataObject *data, QWidget *parent, const char *name)
@@ -286,12 +388,15 @@ MendeljevPSE::MendeljevPSE(KalziumDataObject *data, QWidget *parent, const char 
 
 	for (  int n=0; n<8; n++ ) grid->addColSpacing(  n, 40 );
 	for (  int n=0; n<7; n++ ) grid->addRowSpacing(  n, 40 );
+
+	setupPSEElementButtonsList();
 }
 
-//void MendeljevPSE::activeColorScheme( int nr ){}
+MendeljevPSE::~MendeljevPSE(){}
 
-MendeljevPSE::~MendeljevPSE()
+void MendeljevPSE::setupPSEElementButtonsList()
 {
+	kdDebug() << "MendeljevPSE::setupPSEElementButtonsList()" << endl;
 }
 
 #include "pse.moc"
