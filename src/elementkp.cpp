@@ -52,7 +52,6 @@ void ElementKP::enterEvent(QEvent *)
 {
 	setFocus();
 	showName();
-
 	if ( kalzium->showFastInfo ) 
 	{
 		kalzium->dtab->show();
@@ -65,8 +64,7 @@ void ElementKP::enterEvent(QEvent *)
 void ElementKP::leaveEvent(QEvent *)
 {
 	zeigerle->message(i18n("The Kalzium-version","Kalzium %1").arg( KALZIUM_VERSION ));
-	if ( !kalzium->showFastInfo ) 
-		kalzium->dtab->hide();
+	kalzium->dtab->hide();
 	
 }
 

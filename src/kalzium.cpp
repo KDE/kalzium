@@ -70,7 +70,7 @@ Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
     mainlayout = new QVBoxLayout( main_window, 0, -1, "mainlayout" );
 
     setupAllElementKPButtons();
-
+    dtab->hide();
     setupTimeline();
 
     setupCaption();
@@ -110,6 +110,7 @@ void Kalzium::setupAllElementKPButtons()
     // Loop over all elements
     int h=0; int v=0;
     QString elementName;
+
     KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
     ElementInfo eleminfo;
     for ( int n=0 ;n<110 ;n++ )
@@ -501,16 +502,7 @@ void Kalzium::slotShowTimeline(bool id)
 
 void Kalzium::slotShowQuickinfo( bool id )
 {
-	if ( id == true )
-	{
-		showFastInfo = true;
-		dtab->show();
-	}
-	else
-	{
-		showFastInfo = false;
-		dtab->hide();
-	}
+	showFastInfo = id;
 }
 
 void Kalzium::slotSearchData()
