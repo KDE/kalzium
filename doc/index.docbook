@@ -509,9 +509,9 @@ The Color Scheme tab allows you to choose your Color Scheme (No colors, Groups, 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Show/Hide Status bar</guimenuitem>
+<guimenuitem>Show/Hide Statusbar</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Toggle</action> the Status bar</para></listitem>
+<listitem><para><action>Toggle</action> the Statusbar</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><menuchoice>
