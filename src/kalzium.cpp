@@ -17,7 +17,6 @@
 #include "slider_widget.h"
 #include "elementdataviewer.h"
 #include "tempslider.h"
-#include "legendwidget.h"
 #include "molcalc_impl.h"
 
 #include <qinputdialog.h>
@@ -49,7 +48,6 @@ Kalzium::Kalzium()
 
 	QWidget *CentralWidget = new QWidget( this, "CentralWidget" );
 	m_pCentralLayout = new QVBoxLayout( CentralWidget, 0, -1, "CentralLayout" );
-	m_pLegend = new Legend( CentralWidget, "Legend" );
 	m_pSOMSlider = new TempSlider( CentralWidget, "SOMSlider" );
 	m_pTimeSlider = new SliderWidget( CentralWidget, "TimeSlider" );
 
@@ -57,7 +55,6 @@ Kalzium::Kalzium()
 
 	// Layouting
 	m_pCentralLayout->addWidget( m_PSE );
-	m_pCentralLayout->addWidget( m_pLegend );
 	m_pCentralLayout->addWidget( m_pSOMSlider );
 	m_pCentralLayout->addWidget( m_pTimeSlider );
 
@@ -127,9 +124,9 @@ void Kalzium::setupActions()
 	slotSwitchtoNumeration(Prefs::numeration() );
 
 	//invert the bool because it will be toggled in the three slots
-	m_bShowLegend = !Prefs::showlegend();
-	m_bShowSOM = !Prefs::showsom();
-	m_bShowTimeline = !Prefs::showtimeline();
+	m_bShowLegend = Prefs::showlegend();
+	m_bShowSOM = Prefs::showsom();
+	m_bShowTimeline = Prefs::showtimeline();
 
 	connect( m_pSOMSlider->slider, SIGNAL( valueChanged( int ) ), this, SLOT( slotTempChanged( int ) ) );
 	connect( m_pTimeSlider->pSlider, SIGNAL( valueChanged( int ) ), m_PSE, SLOT( setDate( int ) ) );
@@ -214,17 +211,15 @@ void Kalzium::slotShowLegend()
 	kdDebug() << "Kalzium::slotShowLegend()" << endl;
 	if ( m_bShowLegend )
 	{
-		m_bShowLegend = FALSE;
 		m_pLengendAction->setText( i18n( "Show &Legend" ) );
 	}
 	else
 	{
-		m_bShowLegend = TRUE;
 		m_pLengendAction->setText( i18n( "Hide &Legend" ) );
 	}
 	
 	//now hide or show the legend...
-	m_bShowLegend ? m_pLegend->show() : m_pLegend->hide();
+	m_PSE->showLegend(  m_bShowLegend );;
 
 	//save the settings
 	Prefs::setShowlegend( m_bShowLegend ); 
@@ -244,7 +239,6 @@ void Kalzium::slotShowScheme(int i)
 	m_PSE->activateColorScheme( i );
 	m_PSE->update();
 	
-	m_pLegend->setScheme( i );
 	Prefs::setColorschemebox(i); 
 	Prefs::writeConfig();
 }
@@ -290,13 +284,11 @@ void Kalzium::slotUpdateSettings()
 	if (!m_bShowSOM )
 	{
 		//X 		m_PSE->activateColorScheme(Prefs::colorschemebox());
-		m_pLegend->setScheme( Prefs::colorschemebox() );
 		slotStatusBar( "", IDS_TEMPERATURE );
 	}
 	else 
 	{
 		//X 		m_PSE->setTemperature((double) Prefs::temperaturevalue() );
-		m_pLegend->setScheme( 4 );
 	}
 }
 
@@ -360,7 +352,6 @@ void Kalzium::showSOMWidgets( bool show )
 	if ( show )
 	{
 		m_pSOMSlider->show();
-		m_pLegend->setScheme( 4 );
 		slotTempChanged( m_pSOMSlider->slider->value() );
 		displayTemperature();
 		m_pSOMAction->setText( i18n( "&Hide State of Matter" ));

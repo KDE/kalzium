@@ -240,7 +240,7 @@ void PSE::paintEvent( QPaintEvent *e )
   bitBlt( this, 0, 0, table );
 }
 
-void PSE::drawSOMPSE( QPainter* p )
+void PSE::drawLegend( QPainter* p )
 {
 //X 	const QColor color_1 = Prefs::group_1();
 //X 	const QColor color_2 = Prefs::group_2();

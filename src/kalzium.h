@@ -25,7 +25,6 @@ class QuizsettingsDlg;
 class SliderWidget;
 class QVBoxLayout;
 class TempSlider;
-class Legend;
 
 /**
  * @short Application Main Window
@@ -69,11 +68,6 @@ class Kalzium : public KMainWindow
 		 * the slider used for the timeline
 		 */
 		SliderWidget *m_pTimeSlider;
-
-		/**
-		 * the legend for the periodic tables
-		 */
-		Legend *m_pLegend;
 
 		/**
 		 * if true, the legend will be shown

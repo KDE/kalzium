@@ -120,6 +120,10 @@ class PSE : public QWidget
 		 */
 		QPtrList<Element> m_PSEElements;
 
+		void showLegend( bool show ){
+			m_showLegend = show;
+		}
+
 	private:
 		/**
 		 * updates the numeration of the PSE
@@ -130,6 +134,8 @@ class PSE : public QWidget
 
 		QStringList m_IUPAClist;
 		QStringList m_IUPACOLDlist;
+		
+		bool m_showLegend;
 		
 		/**
 		 * this is a short, descriptive name of the PSE
