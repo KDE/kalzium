@@ -103,7 +103,7 @@ void ElementKP::showName()
 void ElementKP::slotShowData()
 {
 
-    KDialog *ausgabe = new KDialog ( this, "" );
+    KDialog *ausgabe = new KDialog ( this, "showelemetdata" );
     QGridLayout * grid = new QGridLayout(ausgabe, 15, 2, 8);
     if (Data.Name != "Unnamed")
         QWhatsThis::add(ausgabe, i18n("In this dialog Kalzium shows you information about %1").arg(i18n(Data.Name.utf8().data())));
