@@ -101,13 +101,11 @@ const QString Element::adjustUnits( const int type )
 			if ( Prefs::units() == 0 )
 			{
 				val*=96.6;
-				v = QString::number( val );
-				v.append( "kj/mol" );
+				v = i18n( "%1 kj/mol" ).arg( QString::number( val ) );
 			}
 			else // use electronvolt
 			{
-				v = QString::number( val );
-				v.append( "eV" );
+				v = i18n( "%1 eV" ).arg( QString::number( val ) );
 			}
 		}
 	}
@@ -120,18 +118,15 @@ const QString Element::adjustUnits( const int type )
 
 		switch (Prefs::temperature()) {
 			case 0: //Kelvin
-				v = QString::number( val );
-				v.append( "K" );
+				v = i18n( "%1 K" ).arg( QString::number( val ) );
 				break;
 			case 1://Kelvin to Celsius
 				val-=273.15;
-				v = QString::number( val );
-				v.append( "C" );
+				v = i18n( "%1 C" ).arg( QString::number( val ) );
 				break;
 			case 2: // Kelvin to Fahrenheit
 				val = val * 1.8 - 459.67;
-				v = QString::number( val );
-				v.append( "F" );
+				v = i18n( "%1 F" ).arg( QString::number( val ) );
 				break;
 		}
 	}
@@ -139,16 +134,13 @@ const QString Element::adjustUnits( const int type )
 	{
 		val = radius();
 
-		v = QString::number( val );
-
-		v.append( i18n( " pm" ) );
+		v = i18n( "%1 pm" ).arg( QString::number( val ) );
 	}
 	else if ( type == WEIGHT ) // its a weight
 	{
 		val = weight();
 
-		v = QString::number( val );
-		v.append( i18n( " u" ) );
+		v = i18n( "%1 u" ).arg( QString::number( val ) );
 	}
 	else if ( type == DENSITY ) // its a density
 	{
@@ -156,13 +148,11 @@ const QString Element::adjustUnits( const int type )
 
 		if ( az() == 2 )//gasoline
 		{
-			v = QString::number( val );
-			v.append( " g/L" );
+			v = i18n( "%1 g/L" ).arg( QString::number( val ) );
 		}
 		else//liquid or solid
 		{
-			v = QString::number( val );
-			v.append( " g/cm<sup>3</sup>" );
+			v = i18n( "%1 g/cm<sup>2</sup>" ).arg( QString::number( val ) );
 		}
 	}
 	else if ( type == DATE ) //its a date
