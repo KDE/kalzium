@@ -3,7 +3,7 @@
                              -------------------
     begin                : Thu Jan 24 2002 
     copyright            : (C) 2002 by Carsten Niehaus                     
-    email                : cniehaus@gmx.de
+    email                : cniehaus@kde.org
 ***************************************************************************/
 
 /***************************************************************************
@@ -17,6 +17,7 @@
 
 //KDE-Includes
 #include <kdialog.h>
+#include <kiconloader.h>
 #include <kpushbutton.h>
 #include <ksimpleconfig.h>
 #include <klocale.h>
@@ -26,13 +27,16 @@
 //QT-Includes
 #include <qlabel.h>
 #include <qstring.h>
+#include <qradiobutton.h>
 #include <qwhatsthis.h>
 #include <qlayout.h>
+#include <qtable.h>
+#include <qimage.h>
+#include <qwidget.h>
+#include <qpixmap.h>
 #include <qbuttongroup.h>
-#include <qinputdialog.h>
 
 // Standard C++ includes
-#include <string>
 #include <time.h>
 
 #include "quizdlg.h"
@@ -45,24 +49,24 @@ QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  : KDi
     srandom( time( 0 ) );
     for (int e = 0 ; e < 61 ; e++ )
     {
-        order[e] = e+1;
+	order[e] = e+1;
     }
 
     int a, b, temp;
 
     for (int r = 0 ; r < 50 ; r++ )
     {
-        b = rand()%61;
-        do
-        {
-            a = rand()%61;
-        }while (b == a);
+	b = rand()%61;
+	do
+	{
+	    a = rand()%61;
+	}while (b == a);
 
-        temp = order[a];
-        order[a] = order[b];
-        order[b] = temp;
+	temp = order[a];
+	order[a] = order[b];
+	order[b] = temp;
     }
-    
+
     quizresult = 0;
     currentnr = 0;
     i = 0;
@@ -97,7 +101,7 @@ QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  : KDi
 
     one = new QRadioButton ( bgroup );
     one->setChecked( FALSE );
-    
+
     two = new QRadioButton (  bgroup );
     two->setChecked( FALSE );
 
@@ -118,6 +122,7 @@ QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  : KDi
     hlayout->setSpacing( 6 );
     hlayout->setMargin( 0 );
     KPushButton *confirm = new KPushButton (i18n("&Accept") , this );
+    confirm->setFocus();
     QWhatsThis::add(confirm, i18n("If you click on this button the next question will be asked."));
     connect( confirm, SIGNAL(clicked() ), this, SLOT( slotCheck() ) );
     hlayout->addWidget( confirm );
@@ -134,21 +139,39 @@ void QuizDlg::updateIt( int index )
     update();
 }
 
-void QuizDlg::slotCheck()
+void QuizDlg::increaseIfCorrect( int i )
 {
-    switch (correctis)
+    switch (i)
     {
-        case 1:
-            if (one->isChecked() == true) quizresult++; //increase if correct
-            break;
-        case 2:
-            if (two->isChecked() == true) quizresult++; //increase if correct
-            break;
-        case 3:
-            if (three->isChecked() == true) quizresult++; //increase if correct
-            break;
+	case 1:
+	    if (one->isChecked() == true)
+	    {
+		quizresult++; //increase if correct
+		QuestioniWasCorrect[currentnr] = true;
+	    }
+	    break;
+	case 2:
+	    if (two->isChecked() == true) 
+	    {
+		quizresult++; //increase if correct
+		QuestioniWasCorrect[currentnr] = true;
+	    }
+	    break;
+	case 3:
+	    if (three->isChecked() == true) 
+	    {
+		quizresult++; //increase if correct
+		QuestioniWasCorrect[currentnr] = true;
+	    }
+	    break;
     } 
 
+}
+
+void QuizDlg::slotCheck()
+{
+    increaseIfCorrect( correctis );
+    
     //if nothing at all is checked
     if (one->isChecked() == false && two->isChecked()== false  && three->isChecked()== false )
     {
@@ -172,25 +195,78 @@ void QuizDlg::slotCheck()
         else
         {
             this->close();
-            KDialog *result = new KDialog ( this, "" );
-            result->setCaption(i18n("See Your Results!"));
+            KDialog *result = new KDialog ( this, "result" );
+            result->setCaption(i18n("See your results!"));
 
-            QGridLayout *grid = new QGridLayout(result , 2 , 4 , 8 );
+            QGridLayout *grid = new QGridLayout(result , 2 , 0 , 8 );
 
             KPushButton *exit = new KPushButton( i18n("&Close"), result );
             QObject::connect (exit, SIGNAL(clicked()), result, SLOT(hide()));
             QWhatsThis::add(exit, i18n("If you click on this button this dialog will close."));
-            grid->addWidget(exit,1,4);
+            grid->addWidget(exit,2,0);
 
             QLabel *resultlabel = new QLabel (result);
             QString resulttext;
-            resulttext = i18n("You answered %1 of %2 questions correctly").arg(QString::number(quizresult)).arg(qnum);
+            resulttext = i18n("You answered %1 of %2 questions correctly.").arg(QString::number(quizresult)).arg(qnum); //FIXME This text does not appear
             resultlabel->setText(i18n(resulttext.utf8()));
             grid->addWidget( resultlabel, 0 , 0 );
 
+
+//new Table - BEGIN
+
+	    QTable *resultTable = new QTable( qnum+1 , 3 , result , "resultTable" );
+	    resultTable->setReadOnly( true );
+	    resultTable->setColumnStretchable( 0 , true );
+	    resultTable->setColumnStretchable( 1 , true );
+	    resultTable->adjustColumn( 0 );
+	    resultTable->adjustColumn( 1 );
+            grid->addWidget( resultTable, 1 , 0 );
+
+	    QPixmap good = SmallIcon("apply.png");
+	    QPixmap bad  = SmallIcon("cancel.png");
+	    //FIXME remove the hardcoded URL
+	    //QPixmap goodpix = good->scaleHeight( resultTable->rowHeight(2) );
+	    //QPixmap badpix  = bad->scaleHeight( resultTable->rowHeight(2) );
+
+	    resultTable->setText( 0 , 0 , i18n("Questions:") );
+	    resultTable->setText( 0 , 1 , i18n("The correct answer was:") );
+	    resultTable->setText( 0 , 2 , i18n("You have been:") );
+
+	    resultTable->horizontalHeader()->hide();
+	    resultTable->verticalHeader()->hide();
+	    resultTable->setShowGrid( false );
+
+	    KSimpleConfig quizconfig (locate("data", "kalzium/kalziumrc"));
+	    for ( int i = 0 ; i < qnum ; i++ )
+	    {
+		quizconfig.setGroup("q"+QString::number(order[i]));
+		
+		QString ques, answ;
+		ques=quizconfig.readEntry("Q", "Unknown");
+		answ=quizconfig.readEntry("A", "Unknown");
+		
+		resultTable->setItem( i+1 , 0 , new QTableItem( resultTable, QTableItem::Never , ques ) );
+		resultTable->setItem( i+1 , 1 , new QTableItem( resultTable, QTableItem::Never , answ ) );
+		
+		if (wasCorrect( i ) == true)
+		{
+		    resultTable->setPixmap( i+1 , 2 , good );
+		}
+		else resultTable->setPixmap( i+1 , 2 , bad );
+	    }
+	    
+
+//new Table - END
+	    
             result->show();
         }
     }
+}
+
+bool QuizDlg::wasCorrect( int i )
+{
+    if (QuestioniWasCorrect[i] == true) return TRUE;
+    return FALSE;
 }
 
 void QuizDlg::setTexts()

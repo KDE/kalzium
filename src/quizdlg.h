@@ -3,7 +3,7 @@
                              -------------------
     begin                : Thu Dec 24 2002
     copyright            : (C) 2002 by Carsten Niehaus
-    email                : cniehaus@gmx.de
+    email                : cniehaus@kde.org
  ***************************************************************************/
 
 /***************************************************************************
@@ -18,22 +18,16 @@
 #ifndef QUIZDLG_H
 #define QUIZDLG_H
 
-#include <qwidget.h>
-#include <kpushbutton.h>
-#include <ksimpleconfig.h>
-#include <kdialog.h>
-
-#include <qwidget.h>
-#include <qradiobutton.h>
-#include <qlabel.h>
-
+class KDialog;
+class QLabel;
+class QRadioButton;
+class QWidget;
 
 /*
-* This class provides the dialog for the knowledge test. 
-* It is a simple KDialog.
+*This class provides the dialog for the knowledge test. It is a simple
+KDialog.
 *@author Carsten Niehaus
 */
-
 
 class QuizDlg : public KDialog  {
     Q_OBJECT
@@ -41,7 +35,14 @@ class QuizDlg : public KDialog  {
     public: 
 	/** construtor */
         QuizDlg(QWidget *parent, const char *name, int numofquestions );
-
+    
+    private:
+	bool wasCorrect( int );
+	bool QuestioniWasCorrect[10]; //FIXME s/10/numofquestions
+	                              //but I don't know, how...
+				      
+	void increaseIfCorrect( int );
+	
         //the three QRadioButton you select when answering
         QRadioButton *one;
         QRadioButton *two;
@@ -56,11 +57,11 @@ class QuizDlg : public KDialog  {
 
         void setTexts();
 
-    public slots:
+    private slots:
         //update the buttons
         void updateIt( int );
 
-        //check if the answer is correct and to the rest
+        //check if the answer is correct and do the rest
         //of the quiz
         void slotCheck();
 };

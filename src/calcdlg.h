@@ -1,9 +1,9 @@
 /***************************************************************************
                           calcdlg.h  -  description
                              -------------------
-    begin                : Thu Dec 24 2002
-    copyright            : (C) 2002 by Carsten Niehaus
-    email                : cniehaus@gmx.de
+    begin                : Thu Dec 24 2001
+    copyright            : (C) 2001, 2002 by Carsten Niehaus
+    email                : cniehaus@kde.org
  ***************************************************************************/
 
 /***************************************************************************
@@ -18,14 +18,15 @@
 #ifndef CALCDLG_H
 #define CALCDLG_H
 
-#include <qwidget.h>
-#include <kpushbutton.h>
-#include <ksimpleconfig.h>
+class KPushButton;
+class QComboBox;
+class QMultiLineEdit;
+class QLineEdit;
+class QLabel;
+class QGroupBox;
+class QTabWidget;
 
-#include <qwidget.h>
-#include <qmultilineedit.h>
 #include <qtabwidget.h>
-#include <qlabel.h>
 
 #include "../calculations/kmolcalc.h"
 #include "../calculations/kmoledit.h"
@@ -44,20 +45,54 @@ class CalcDlg : public QTabWidget  {
     Q_OBJECT
 
     public: 
-        /** construtor */
         CalcDlg(QWidget *parent, const char *name );
-        QLineEdit *prodconc1, *prodconc2, *prodconc3, *eduktconc1, *eduktconc2, *eduktconc3; 
-        QLineEdit *prodcoeff1, *prodcoeff2, *prodcoeff3, *eduktcoeff1, *eduktcoeff2, *eduktcoeff3; 
+    private:
+        /** construtor */
         SymLabel symlabel[118];
         SymLabel weight[118];
 
         QWidget *KMol, *MWG;
 
+	//	
+	//MWG - BEGIN
+	//
+	    
+	//the grids for the MWG
+	QGridLayout *grid, *comboboxgrid;
 
-        double e1, e2, e3, p1, p2, p3; //Edukt/Produktkonzentrationen
-        double ecoeff1, ecoeff2, ecoeff3, pcoeff1, pcoeff2, pcoeff3; 
-        public slots:
-            void slotCalc();
+	QString resultvalue, dimension;
+
+	//the QLabel for the MWG
+	QLabel *general, *herefrom, *enter, *coeff, *conc, *resultMWG;
+	QLabel *a,*b,*c,*d,*A,*B,*C,*D; 
+
+	//We need QLineEdit in the MWG
+	QLineEdit *QLEa, *QLEb, *QLEc, *QLEd, *QLEA, *QLEB, *QLEC, *QLED;
+
+	//some QComboBox
+	QComboBox *QCBA, *QCBB, *QCBC, *QCBD;
+	
+	//finally one KPushButton
+	KPushButton *resultbutton;
+
+	//and one QGroupBox for the QLineEdit
+	QGroupBox *valuebox;
+
+	//
+	// MWG - END
+	//
+        KMolCalc *kmolcalc;
+        QLineEdit *formula;
+        QMultiLineEdit *anal_display;
+        QLabel *result;
+
+    private slots:
+    	
+        /**  
+         * Calculates the result 
+         */
+	void slotCalculate();
+            
         /**  
          * Make a call to KMOLCALC to parse the string in FORMULA, if any, and get Mw and EA back.
          */
@@ -72,12 +107,6 @@ class CalcDlg : public QTabWidget  {
          * Call the built in editor to edit the definitions file.
          */
         void callEditor();
-
-    private:
-        KMolCalc *kmolcalc;
-        QLineEdit *formula;
-        QMultiLineEdit *anal_display;
-        QLabel *resultMWG, *result;
 };
 
 #endif
