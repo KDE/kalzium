@@ -180,6 +180,8 @@ void ElementKP::lookup() const
 	KConfig *mainc = KGlobal::config();
 	mainc->setGroup( "WLU" );
 	QString url = mainc->readEntry( "adress" ) + Data.Symbol.lower()  + ".html";
+	if ( mainc->readEntry( "adress" ).contains( "pearl1" ) ) 
+		url = mainc->readEntry( "adress" )+QString::number( Data.number )+".html";
 
 	const KURL site(url);
 	html->openURL(site);
