@@ -33,6 +33,7 @@ Legend::Legend( QWidget* parent )
 	
 	QHBoxLayout *hlay = new QHBoxLayout( this );
 	hlay->setAutoAdd( TRUE );
+	hlay->setMargin(10);
 		
 	one = new QLabel( this );
 	two = new QLabel( this );
