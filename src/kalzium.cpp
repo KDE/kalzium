@@ -23,6 +23,8 @@
 #include "slider_widget.h"
 #include "elementdataviewer.h"
 
+# include <assert.h>
+
 #include <qlabel.h>
 #include <qslider.h>
 #include <qwhatsthis.h>
