@@ -360,11 +360,6 @@ void Kalzium::updateColourMenu(int id)
     colorschememenu->setCurrentItem(id);
 }
 
-void Kalzium::updateTimeMenu(bool)
-{
-    //timelinemenu->setCurrentItem(id);
-}
-
 void Kalzium::changeColorScheme(int id) 
 {
     static void (Kalzium::*funcs[])() = {
@@ -547,7 +542,6 @@ void Kalzium::setupActions()
     // BEGIN TIMELINE
     timelineToggleAction = new KToggleAction(i18n("Show Timeline"),0,actionCollection(), "timeline");
     timelineToggleAction->setChecked(true);
-    connect(timelineToggleAction, SIGNAL(toggled(bool)), this, SLOT(updateTimeMenu(bool)));
     connect(timelineToggleAction, SIGNAL(toggled(bool)), this, SLOT(slotShowTimeline(bool)));
 
     timelineToggleAction->setChecked(main_config->readBoolEntry("timelineshow"));

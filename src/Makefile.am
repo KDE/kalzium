@@ -42,7 +42,10 @@ elementnames:
           egrep 'A=' kalziumrc | sed -e 's#^A=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
           egrep 'Alternative1=' kalziumrc | sed -e 's#^Alternative1=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
           egrep 'Alternative2=' kalziumrc | sed -e 's#^Alternative2=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
-	  echo "#endif" >> kalzium_i18n.cpp
-
+	  echo "#endif" >> kalzium_i18n.p
 messages: rc.cpp
-	$(XGETTEXT) *.cpp -o $(podir)/kalzium.pot
+    LIST=`find . -name \*.h -o -name \*.hh -o -name \*.H -o -name \*.hxx -o -name \*.hpp -o -name \*.cpp -o -name \*.cc -o -name \*.cxx -o -name \*.ecpp -o -name \*.C`; \
+	if test -n "$$LIST"; then \
+	 $(XGETTEXT) $$LIST -o $(podir)/kalzium.pot; \
+	fi
+

@@ -132,7 +132,6 @@ class Kalzium : public KMainWindow
 
     //update the menues
     void updateNumMenu(int);
-    void updateTimeMenu(bool);
     void updateColourMenu(int);
     
     void pseStyleShow(int);
