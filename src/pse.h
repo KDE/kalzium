@@ -152,7 +152,8 @@ class PSE : public QWidget
 		int m_num;
 
     QPixmap *table;
-    	
+    bool doFullDraw;
+    
   public slots:
 		/**
 		 * this method hides all elements which have not been know

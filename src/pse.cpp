@@ -80,6 +80,9 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	    m_IUPACOLDlist.append( "0");
 	
       table = new QPixmap();
+      
+      //JH: For now, always do a full draw
+      doFullDraw = true;
 }
 
 PSE::~PSE(){}
@@ -217,15 +220,20 @@ void PSE::resizeEvent( QResizeEvent *e )
 void PSE::paintEvent( QPaintEvent *e )
 {
 	QPainter p;
-	p.begin( table );
-  p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() );
   
-	if ( m_showSOM )
-		drawSOMPSE( &p );
-	else
-		drawPSE( &p, m_isSimple );
-	p.end();
-
+  if ( doFullDraw ) {
+    p.begin( table );
+    p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() );
+    if ( m_showSOM )
+      drawSOMPSE( &p );
+    else
+      drawPSE( &p, m_isSimple );
+    p.end();
+  
+    //JH: Uncomment when ready for this
+    //    doFullDraw = false;
+  }
+  
   bitBlt( this, 0, 0, table );
 }
 
