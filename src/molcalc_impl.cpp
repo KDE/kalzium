@@ -39,7 +39,7 @@ MolcalcImpl::MolcalcImpl(QWidget *parent, const char *name, bool modal )
 
 void MolcalcImpl::slotButtonClicked( int buttonnumber )
 {
-	kdDebug() << "slotButtonClicked( int buttonnumber ) ... " << buttonnumber << endl;
+	//kdDebug() << "slotButtonClicked( int buttonnumber ) ... " << buttonnumber << endl;
 
 	if ( plusButton->isOn() )
 		updateData( buttonnumber, ADD );
@@ -52,18 +52,18 @@ void MolcalcImpl::updateData( int number, KIND kind )
 	Element *el = new Element( number );
 	if ( kind == ADD )
 	{
-		kdDebug() << "ADD" << endl;
+		//kdDebug() << "ADD" << endl;
 		m_weight += el->weight();
 		m_elements.append( el );
 	}
 	else //TODO check if the element was in the list
 	{
-		kdDebug() << "REMOVE" << endl;
+		//kdDebug() << "REMOVE" << endl;
 
 		QValueList<Element*>::const_iterator it = m_elements.begin( );
 		QValueList<Element*>::const_iterator itEnd = m_elements.end( );
 
-		kdDebug() << "Try to remove Element " << el->elname() << endl;
+		//kdDebug() << "Try to remove Element " << el->elname() << endl;
 
 		bool removed = false;
 		while ( !removed && ( it != itEnd ))
@@ -86,9 +86,9 @@ void MolcalcImpl::slotPlusToggled(bool on)
 
 void MolcalcImpl::recalculate()
 {
-	kdDebug() << "# of elements: " << m_elements.count() << endl;
+	//kdDebug() << "# of elements: " << m_elements.count() << endl;
 	QValueList<Element*>::const_iterator it = m_elements.begin( );
-	QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+	const QValueList<Element*>::const_iterator itEnd = m_elements.end( );
 
 	m_weight = 0.0;
 	
@@ -103,39 +103,47 @@ void MolcalcImpl::updateUI()
 	QString str;
 	
 	//the elements
-	QMap<QString, int> map;
+	QMap<Element*, int> map;
 	
 	QValueList<Element*>::const_iterator it = m_elements.begin( );
-	QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+	const QValueList<Element*>::const_iterator itEnd = m_elements.end( );
 
-	QStringList differentElements;
+	QValueList<Element*> differentElements;
+	QValueList<Element*>::const_iterator itNames;
 
 	for ( ; it != itEnd ; ++it )
-	{//get the diffent elements in the molecule
-		if ( !differentElements.contains( ( *it )->elname() ) )
-			differentElements.append( ( *it )->elname() );
+	{//get the different elements in the molecule
+		bool contains = false;
+		for ( itNames = differentElements.begin(); itNames != differentElements.end() ; ++itNames )
+		{
+			if (  ( *it )->elname() == ( *itNames )->elname()     )
+				contains = true;
+		}
+		if ( !contains )
+			differentElements.append( *it );
+		else
+			kdDebug() << ( *it )->elname() << " not added, was already included" << endl;
 	}
 
-	QStringList::const_iterator itNames = differentElements.begin( );
-	QStringList::const_iterator itEndNames = differentElements.end( );
+	itNames = differentElements.begin( );
 	
-	for ( ; itNames != itEndNames ; ++itNames )
-	{
+	for ( ; itNames != differentElements.end() ; ++itNames )
+	{//count the different elements (write the result in a QMap)
 		it = m_elements.begin( );
 		
 		int count = 0;
 		for ( ; it != itEnd ; ++it )
 		{
-			if ( ( *it )->elname() == *itNames )
+			if ( ( *it )->elname() == ( *itNames )->elname() )
 				count++;
 		}
 		map[ *itNames ] = count;
 	}
 
-	QMap<QString, int>::Iterator itMap;
+	QMap<Element*, int>::Iterator itMap;
 	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) {
-		//kdDebug() << "Key: "<< itMap.key() << "   ...    Data: " << itMap.data() << endl;
-		str += i18n( "%1 %2\n" ).arg( itMap.data() ).arg( itMap.key() );
+		kdDebug() << "Key: "<< itMap.key()->elname() << "   ...    Data: " << itMap.data() << endl;
+		str += i18n( "%1 %2\n" ).arg( itMap.data() ).arg( itMap.key()->elname() );
 	}
 	
 	resultLabel->setText( str );
@@ -144,7 +152,7 @@ void MolcalcImpl::updateUI()
 	
 	//the weight
 	recalculate();
-	resultWeight->setText( i18n( "Molecular Weight: %1" ).arg( m_weight ) );
+	resultWeight->setText( i18n( "Molecular Weight: %1u" ).arg( m_weight ) );
 }
 
 void MolcalcImpl::slotMinusToggled(bool on)
