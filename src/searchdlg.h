@@ -23,7 +23,6 @@ class QRadioButton;
 class QStringList;
 
 class QWidget;
-#include <qvaluelist.h>
 
 #include "searchdialog.h"
 		

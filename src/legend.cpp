@@ -25,10 +25,7 @@
 #include <klocale.h>
 
 //QT-Includes
-#include <qdialog.h>
 #include <qlayout.h>
-#include <qframe.h>
-#include <qwidget.h>
 #include <qpushbutton.h>
 
 KalziumLegend::KalziumLegend( QWidget *parent, const char *name) : QWidget( parent, name )

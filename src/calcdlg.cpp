@@ -22,15 +22,12 @@
 #include <kstandarddirs.h>
 
 //QT-Includes
-#include <qstring.h>
 #include <qlayout.h>
-#include <qwidget.h>
 #include <qtextedit.h>
 #include <qpushbutton.h>
 
 #include "calcdlg.h"
 #include "kmolui.h"
-#include "../calculations/kmoledit.h"
 
 CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QWidget (parent,name)
 {

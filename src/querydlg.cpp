@@ -16,23 +16,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <kaction.h>
-#include <kcolorbutton.h>
 #include <kdebug.h>
-#include <kconfig.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <kurl.h>
-#include <kpushbutton.h>
-#include <khtml_part.h>
-#include <khtmlview.h>
 
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qstring.h>
-#include <qvbuttongroup.h>
-#include <qpainter.h>
 
 
 #include "querydlg.h"

@@ -19,9 +19,6 @@
 #ifndef _QUERYDLG_H_
 #define _QUERYDLG_H_
 
-#include <kdialogbase.h>
-#include <qtabwidget.h>
-#include <qframe.h>
 #include <kdialog.h>
 
 class QVButtonGroup;

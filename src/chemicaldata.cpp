@@ -17,16 +17,11 @@
  ***************************************************************************/
 
 #include "elementkp.h"
-#include "eleminfo.h"
 #include "chemicaldata.h"
 
 #include <klocale.h>
 #include <qregexp.h>
-#include <qpainter.h>
-#include <qwidget.h>
-#include <qcolor.h>
 
-#include <kconfig.h>
 #include <kdebug.h>
 
 ElemInfoParsed::ElemInfoParsed( ElementInfo eInfo )

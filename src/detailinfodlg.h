@@ -21,7 +21,6 @@
 
 #include <kdialogbase.h>
 
-#include <qwidget.h>
 #include "elementkp.h"
 class QFrame;
 class DetailedTab;

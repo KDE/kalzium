@@ -29,8 +29,6 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qradiobutton.h>
-#include <qbuttongroup.h>
-#include <qstring.h>
 #include <qvbuttongroup.h>
 
 // locale includes

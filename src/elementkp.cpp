@@ -16,31 +16,21 @@
  ***************************************************************************/
 
 //KDE-Includes
-#include <kconfig.h>
 #include <ksimpleconfig.h>
-#include <kglobalsettings.h>
 #include <klocale.h>
-#include <kpushbutton.h>
 #include <kstatusbar.h>
-#include <kstandarddirs.h>
 #include <kdebug.h>
 
 //QT-Includes
 #include <qdragobject.h>
-#include <qfont.h>
-#include <qfontmetrics.h>
-#include <qlabel.h>
 #include <qpainter.h>
 #include <qpopupmenu.h>
 #include <qwhatsthis.h>
 
 #include "elementkp.h"
-#include "eleminfo.h"
 #include "elementkp.moc"
 #include "kalzium.h"
-#include "infodlg.h"
 #include "infodialog.h"
-#include "detailinfodlg.h"
 #include "chemicaldata.h"
 
 #include <iostream>

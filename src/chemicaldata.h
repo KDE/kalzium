@@ -20,8 +20,6 @@
 
 class QString;
 
-#include "elementkp.h"
-#include <qwidget.h>
 
 class ElemInfoParsed
 {

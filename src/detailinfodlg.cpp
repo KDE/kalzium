@@ -17,31 +17,21 @@
  ***************************************************************************/
 
 #include <kdebug.h>
-#include <kconfig.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
-#include <kpushbutton.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
-#include <kconfig.h>
 #include <ksimpleconfig.h>
 
-#include <qfont.h>
-#include <qcolor.h>
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qstring.h>
 #include <qpainter.h>
-#include <qpixmap.h>
 #include <qimage.h>
 #include <qwhatsthis.h>
 
-#include "elementkp.h"
 #include "detailinfodlg.h"
-#include "infodialog.h"
 #include "orbitswidget.h"
-#include "chemicaldata.h"
 
 
 DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, const char *name)

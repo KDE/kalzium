@@ -21,9 +21,7 @@
 class KMolUI;
 
 
-#include "../calculations/kmolcalc.h"
 #include "../calculations/kmoledit.h"
-#include "../calculations/kmolelements.h"
 
 /*
  * this dialog contains some possibilities with which you

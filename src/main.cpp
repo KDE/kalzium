@@ -19,7 +19,6 @@
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
-#include <klocale.h>
 
 #include "kalzium.h"
 

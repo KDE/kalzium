@@ -16,23 +16,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "elementkp.h"
 #include "infodialog.h"
-#include "infodlg.h"
-#include "eleminfo.h"
 
 #include <klocale.h>
 #include <qlabel.h>
-#include <qregexp.h>
-#include <qtable.h>
 
-#include <khtml_part.h>
-#include <khtmlview.h>
-#include <kpushbutton.h>
-#include <kconfig.h>
 #include <kdebug.h>
 
-#include "kalzium.h"
 
 infoDialog::infoDialog( ElementInfo Eleminfo , QWidget *parent, const char *name)
     : infoDlg( parent , name )

@@ -20,44 +20,35 @@
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kaction.h>
-#include <kconfig.h>
 #include <kedittoolbar.h>
 #include <kkeydialog.h>
 #include <kglobalsettings.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <ksimpleconfig.h>
-#include <kstdaction.h>
 #include <kstandarddirs.h>
 
 //QT-Includes
 #include <qinputdialog.h>
-#include <qlabel.h>
 #include <qlayout.h>
 #include <qlcdnumber.h>
 #include <qslider.h>
 #include <qtooltip.h>
-#include <qstring.h>
 #include <qwhatsthis.h>
 
 // Table includes
 #include "quizdlg.h"
-#include "calcdlg.h"
 #include "stateofmatterdlg.h"
 #include "kalzium.h"
 #include "kalzium.moc"
 #include "../calculations/kmoledit.h"
-#include "../calculations/kmolcalc.h"
 #include "calcdialog.h"
 #include "eleminfo.h"
-#include "elementkp.h"
 #include "settingsdialog.h"
 #include "legend.h"
 #include "searchdlg.h"
-#include "detailinfodlg.h"
-#include "chemicaldata.h"
 
-#include <kalziumplotdialogimpl.h>
+#include "kalziumplotdialogimpl.h"
 
 
 Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)

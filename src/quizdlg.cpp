@@ -18,7 +18,6 @@
 #include "config.h"
 
 //KDE-Includes
-#include <kdialog.h>
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kmessagebox.h>
@@ -29,15 +28,9 @@
 
 //QT-Includes
 #include <qbuttongroup.h>
-#include <qimage.h>
 #include <qlabel.h>
-#include <qlayout.h>
-#include <qpixmap.h>
 #include <qradiobutton.h>
-#include <qstring.h>
 #include <qtable.h>
-#include <qwhatsthis.h>
-#include <qwidget.h>
 
 // Standard C++ includes
 #ifdef HAVE_STDLIB_H

@@ -20,7 +20,6 @@
 #include "calcdlg.h"
 
 #include <qlayout.h>
-#include <qobject.h>
 
 #include <klocale.h>
 

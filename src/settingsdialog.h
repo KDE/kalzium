@@ -19,7 +19,6 @@
 #ifndef _KALZIUM_SETTINGSDIALOG_H_
 #define _KALZIUM_SETTINGSDIALOG_H_
 
-#include <kdialogbase.h>
 #include <qtabwidget.h>
 
 class KColorButton;

@@ -22,9 +22,7 @@
 #include <qwhatsthis.h>
 #include <qlayout.h>
 #include <qslider.h>
-#include <qfont.h>
 #include <qlabel.h>
-#include <qcolor.h>
 #include <qlcdnumber.h>
 
 #include <qinputdialog.h>
@@ -32,7 +30,6 @@
 #include <kpushbutton.h>
 #include <kconfig.h>
 
-#include "elementkp.h"
 #include "stateofmatterdlg.h"
 #include "stateofmatterdlg.moc"
 #include "kalzium.h"

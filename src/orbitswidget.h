@@ -20,7 +20,6 @@
 
 
 #include <qwidget.h>
-#include <qvaluelist.h>
 #include <qstringlist.h>
 #include <math.h>
 

@@ -19,7 +19,6 @@
 #include "kalziumplotwidget.h"
 
 //KDE-Includes
-#include <klocale.h>
 #include <kdebug.h>
 
 //QT-Includes
