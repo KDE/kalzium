@@ -327,7 +327,7 @@ void Kalzium::displayTemperature()
  			string = i18n("Degree Celsius");
 			min = -273 ;
 			max = 5700 ;
-			m_pSOMSlider->unit->setText( i18n( "the unit for degree celsius" , "°C" ) );
+			m_pSOMSlider->unit->setText( i18n( "the unit for degree Celsius" , "°C" ) );                     
  			break;
  		case 2:
  			string = i18n("Degree Fahrenheit");
