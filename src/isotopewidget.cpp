@@ -83,9 +83,6 @@ QWidget* IsotopeWidget::isotopeLabel( const QString& str )
 	//Percentage of the isotope
 	tmp = tmp.right( tmp.length()-pos-1 );
 	
-
-	kdDebug() << neutrons_str << " ... " << weight_str << " ... " << tmp << endl;
-	
 	QLabel *neutrons = new QLabel( w );
 	QLabel *weight = new QLabel( w );
 	QLabel *percentage = new QLabel( w );

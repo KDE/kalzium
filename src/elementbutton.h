@@ -48,7 +48,6 @@ class ElementButton : public QFrame
 		virtual void paintEvent( QPaintEvent* );
 
 	private:
-		void mousePressEvent( QMouseEvent* );
 		void mouseReleaseEvent( QMouseEvent* );
 
 	private slots:
@@ -57,13 +56,11 @@ class ElementButton : public QFrame
 	protected:
 		void enterEvent( QEvent* );
 
-
 	signals:
 		/**
 		 * this signal emits the element-number
 		 */
 		void num( int );
-
 };
 
 #endif

@@ -132,15 +132,8 @@ void ElementButton::enterEvent( QEvent* )
 
 void ElementButton::timerDone()
 {
-	kdDebug() << "im slot von " << e->number() << endl;
-}
-
-
-void ElementButton::mousePressEvent( QMouseEvent* )
-{
 	    emit num( e->number() );
 }
-
 
 #include "elementbutton.moc"
 
