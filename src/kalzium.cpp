@@ -77,8 +77,6 @@ Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
     setupConfig();
     setupActions();
 
-   
-
     main_window = new QWidget(this);
     mainlayout = new QVBoxLayout( main_window, 0, -1, "mainlayout" );
 
@@ -533,6 +531,9 @@ void Kalzium::slotShowStateOfMatter()
     {
            templookup  = new StateOfMatterDlg(this, "stateofmatterdlg", this);
     }
+    
+    templookup->setButtonsColor();
+    templookup->tempbeh();
     templookup->show();
 }
 

@@ -38,13 +38,11 @@
 #include "kalzium.h"
 
 
-#include <iostream.h>
-
 StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *kalzium_tmp)  : KDialog (parent,name)
 {
 	kalzium = kalzium_tmp;
 	this->setCaption(i18n("Temperatures"));
-	QGridLayout *tempgrid = new QGridLayout(this, 10 , 4, 8);
+	main_layout = new QGridLayout(this, 10 , 4, 8);
 
 
 	///////////////////////////////////////////
@@ -58,9 +56,9 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	QWhatsThis::add(kelvinLCD, i18n("This LCD shows you the current temperature in Kelvin."));
 	QWhatsThis::add(fahrenheitLCD, i18n("This LCD shows you the current temperature in degrees Fahrenheit."));
 
-	tempgrid->addWidget(celsiusLCD, 2, 0 );
-	tempgrid->addWidget(kelvinLCD, 4, 0 );
-	tempgrid->addWidget(fahrenheitLCD, 6, 0 );
+	main_layout->addWidget(celsiusLCD, 2, 0 );
+	main_layout->addWidget(kelvinLCD, 4, 0 );
+	main_layout->addWidget(fahrenheitLCD, 6, 0 );
 
 	///////////////////////////////////////////
 	// the other QLabel
@@ -68,26 +66,26 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	QLabel *titletext = new QLabel( this );
 	titletext->setText(i18n("State of matter"));
 	titletext->setFont(QFont("helvetica", 20, QFont::Bold));
-	tempgrid->addMultiCellWidget(titletext , 0 , 0 , 0 , 2 , Qt::AlignCenter );
+	main_layout->addMultiCellWidget(titletext , 0 , 0 , 0 , 2 , Qt::AlignCenter );
 
 	QLabel *info = new QLabel( i18n("The colors indicate:"), this );
 	info->setFont(QFont("helvetica", 12, QFont::Bold));
-	tempgrid->addMultiCellWidget(info , 1 , 1 , 1 , 2 , Qt::AlignCenter );
+	main_layout->addMultiCellWidget(info , 1 , 1 , 1 , 2 , Qt::AlignCenter );
 
 	QLabel *solinfo = new QLabel( i18n("solid:"),this );
-	tempgrid->addWidget(solinfo , 2 , 1 , Qt::AlignRight );
+	main_layout->addWidget(solinfo , 2 , 1 , Qt::AlignRight );
 
 	QLabel *liqinfo = new QLabel( i18n("liquid:"), this );
-	tempgrid->addWidget(liqinfo , 3 , 1 , Qt::AlignRight );
+	main_layout->addWidget(liqinfo , 3 , 1 , Qt::AlignRight );
 
 	QLabel *gasinfo = new QLabel(("vapor:"), this );
-	tempgrid->addWidget(gasinfo , 4 , 1 , Qt::AlignRight );
+	main_layout->addWidget(gasinfo , 4 , 1 , Qt::AlignRight );
 	
     QLabel *artiinfo = new QLabel( i18n("artificial"), this );
-	tempgrid->addWidget(artiinfo , 5 , 1 , Qt::AlignRight );
+	main_layout->addWidget(artiinfo , 5 , 1 , Qt::AlignRight );
     
     QLabel *radiaainfo = new QLabel( i18n("radioactive"), this );
-	tempgrid->addWidget(radiaainfo , 6 , 1 , Qt::AlignRight );
+	main_layout->addWidget(radiaainfo , 6 , 1 , Qt::AlignRight );
 
 	celsius = new QLabel( this );
 	fahrenheit = new QLabel( this );
@@ -95,24 +93,24 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	celsius->setText(i18n("Degrees Celsius"));
 	kelvin->setText(i18n("Kelvin"));
 	fahrenheit->setText(i18n("Degrees Fahrenheit"));
-	tempgrid->addWidget(celsius, 3 , 0, Qt::AlignCenter );
-	tempgrid->addWidget(kelvin, 5 , 0 , Qt::AlignCenter );
-	tempgrid->addWidget(fahrenheit, 7 , 0 , Qt::AlignCenter );
+	main_layout->addWidget(celsius, 3 , 0, Qt::AlignCenter );
+	main_layout->addWidget(kelvin, 5 , 0 , Qt::AlignCenter );
+	main_layout->addWidget(fahrenheit, 7 , 0 , Qt::AlignCenter );
 
 	/////////////////////////////////////////////////////
 	// 3 KPushButton
 
 	solidbutton = new KPushButton(this); 
-	tempgrid->addWidget(solidbutton, 2, 2 );
+	main_layout->addWidget(solidbutton, 2, 2 );
 	liquidbutton = new KPushButton(this); 
-	tempgrid->addWidget(liquidbutton, 3, 2 );
+	main_layout->addWidget(liquidbutton, 3, 2 );
 	vaporbutton = new KPushButton(this);
-	tempgrid->addWidget(vaporbutton, 4, 2 );
+	main_layout->addWidget(vaporbutton, 4, 2 );
 	liquidbutton->show();
-    KPushButton *artib = new KPushButton(this);
-    tempgrid->addWidget(artib, 5,2);
-    KPushButton *radiob = new KPushButton(this);
-    tempgrid->addWidget(radiob, 6,2);
+    artib = new KPushButton(this);
+    main_layout->addWidget(artib, 5,2);
+    radiob = new KPushButton(this);
+    main_layout->addWidget(radiob, 6,2);
 
 	//////////////////////////////////////////////////////
 	// the colors will indicate the state of matter
@@ -120,34 +118,29 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	main_config=KGlobal::config();  
 	main_config->setGroup("Colors");
 
+	color_artificial = main_config->readColorEntry("artificial");
+	color_liquid = main_config->readColorEntry("liquid");
+	color_artificial = main_config->readColorEntry("radioactive");
 	color_solid = main_config->readColorEntry("solid");
 	color_vapor = main_config->readColorEntry("vapor");
-	color_liquid = main_config->readColorEntry("liquid");
 
-	liquidbutton->setPaletteBackgroundColor(color_liquid);
-	solidbutton->setPaletteBackgroundColor(color_solid);
-	vaporbutton->setPaletteBackgroundColor(color_vapor);
-	radiob->setPaletteBackgroundColor(main_config->readColorEntry("radioactive"));
-	artib->setPaletteBackgroundColor(main_config->readColorEntry("artificial"));
 
 	tempS = new QSlider ( -4500, 273, 1, -25 , QSlider::Vertical, this, "tempSlider" );
 	QWhatsThis::add(tempS, i18n("Use this slider to see what state of matter a certain element has at a given temperature."));
 	tempS->setTickmarks(QSlider::Below );
 	tempS->setTickInterval( 100 );
-	tempgrid->addMultiCellWidget(tempS , 1 , 8 , 3 , 3 ) ;
+	main_layout->addMultiCellWidget(tempS , 1 , 8 , 3 , 3 ) ;
 	connect( tempS, SIGNAL(valueChanged(int)),  SLOT(tempbeh()));
-
-	tempbeh();
 
 	//Standard conditions
 	StdCondButton = new KPushButton( i18n("Standard Conditions"), this );
-	tempgrid->addWidget(StdCondButton , 9 , 0 );
+	main_layout->addWidget(StdCondButton , 9 , 0 );
 	QObject::connect(StdCondButton, SIGNAL(clicked()), this , SLOT(slotStdCond()));
 	QWhatsThis::add(StdCondButton, i18n("By clicking on this button you will see how the elements are under standard conditions. As you can see, some are artificial and some are radioactive."));
 
 	//the QInputDialog
 	InputButton = new KPushButton( i18n("Enter Temperature"), this );
-	tempgrid->addWidget(InputButton, 9, 1 );
+	main_layout->addWidget(InputButton, 9, 1 );
 	QObject::connect(InputButton, SIGNAL(clicked()), this , SLOT(slotSetTemp()));
 	QWhatsThis::add(InputButton, i18n("If you click on this button you can enter a temperature."));
 	tempS->setValue( -25 );
@@ -168,15 +161,31 @@ void StateOfMatterDlg::tempbeh()
 		if ( tempC > (kalzium->element[i]->Data.BP)-273)
 			kalzium->element[i]->setPaletteBackgroundColor( color_vapor );
         if (kalzium->element[i]->Data.az == "3")
-            kalzium->element[i]->setPaletteBackgroundColor( QColor(main_config->readColorEntry("radioactive")));
+            kalzium->element[i]->setPaletteBackgroundColor( color_radioactive );
         if (kalzium->element[i]->Data.az == "4")
-            kalzium->element[i]->setPaletteBackgroundColor( QColor(main_config->readColorEntry("artificial")));
+            kalzium->element[i]->setPaletteBackgroundColor( color_artificial );
 	}
+}
+
+void StateOfMatterDlg::setButtonsColor()
+{
+    color_artificial = main_config->readColorEntry("artificial");
+	color_liquid = main_config->readColorEntry("liquid");
+	color_radioactive = main_config->readColorEntry("radioactive");
+	color_solid = main_config->readColorEntry("solid");
+	color_vapor = main_config->readColorEntry("vapor");
+
+	artib->setPaletteBackgroundColor( color_artificial );
+	liquidbutton->setPaletteBackgroundColor( color_liquid );
+	radiob->setPaletteBackgroundColor( color_radioactive );
+	solidbutton->setPaletteBackgroundColor( color_solid );
+	vaporbutton->setPaletteBackgroundColor( color_vapor );
+
 }
 
 void StateOfMatterDlg::slotSetTemp()
 {
-	bool ok = FALSE;
+	bool ok = false;
 	int temp = QInputDialog::getInteger( i18n( "Enter Temperature"), i18n( "Temperature in Celsius:"), -tempS->value(), -275, 5000, 1, &ok, this );
 	if (ok) tempS->setValue(-temp);
 }

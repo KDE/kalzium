@@ -26,6 +26,7 @@ class KPushButton;
 
 //Qt-Includes
 class QColor;
+class QGridLayout;
 class QLabel;
 class QLCDNumber;
 class QSlider;
@@ -44,10 +45,27 @@ class StateOfMatterDlg : public KDialog  {
 		QSlider *tempS;
 		QLabel *celsius, *fahrenheit, *kelvin;
 		KConfig *main_config;
-		KPushButton *solidbutton, *liquidbutton, *vaporbutton, *InputButton, *StdCondButton;
-		QColor color_solid, color_vapor, color_liquid;
-	private slots:
+        
+		KPushButton *artib,
+                    *liquidbutton, 
+                    *radiob,
+                    *solidbutton, 
+                    *vaporbutton, 
+                    *InputButton, 
+                    *StdCondButton;
+                    
+		QColor color_artificial,
+               color_liquid,
+               color_radioactive,
+               color_solid, 
+               color_vapor;
+               
+        QGridLayout *main_layout;
+    public slots:
+        void setButtonsColor();
 		void tempbeh();
+        
+    private slots:
 		void slotSetTemp();
 		void slotStdCond();
 };

@@ -263,13 +263,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
 
 void SettingsDialog::slotApplySettings()
 {
-    colorsTabWidget->applyColors();
-    
-    main_config->setGroup("WLU");
-    main_config->writeEntry("adress", (webLookupButtonGroup->selected())->text());
-    main_config->sync();
-    
-    ((Kalzium*)parentWidget())->changeColorScheme(((Kalzium*)parentWidget())->colorschememenu->currentItem());
+    slotOkSettings();
 }
 
 
