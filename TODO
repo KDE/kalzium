@@ -3,9 +3,8 @@ last modified: July 8 2002
 TODO for KDE 3.1:
 - write documentation
 
-- extend the quiz so that the users gets a feedback of which
-  were the correct answers.
-  //fixes: the dialog now appears, though the look is not perfect
+- In the quiz: fix the layout of the last KDialog (the 
+  colums are to small)
 
 - clean up the code and fix the remaining bugs
   with the GUI (esp. the shrinking)
@@ -42,3 +41,13 @@ TODO for post-KDE 3.1:
 - http://www.webelements.com/webelements/elements/text/Si/key.html  
   and there "Go adjacent..."
   // KDE 3.2 though the code is already working
+ 
+- ElementKP: overwrite the drawing so that we have the Symbol
+  and the number in the KPushButton
+
+- Have more than one modus in the quiz: The user should be able
+  to decide a level (easy - moderate - difficult). Furthermore
+  the whole dialog will be redesigned
+
+- Printing: The use should be able to print all the information
+  in a table and/or in the infodlg.cpp-style
