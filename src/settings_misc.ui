@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>384</width>
-            <height>385</height>
+            <width>311</width>
+            <height>294</height>
         </rect>
     </property>
     <grid>
@@ -181,25 +181,6 @@
                         <property name="name">
                             <cstring>unnamed</cstring>
                         </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>textLabel1</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Default temperature:</string>
-                            </property>
-                        </widget>
-                        <widget class="KIntNumInput">
-                            <property name="name">
-                                <cstring>kcfg_temperaturevalue</cstring>
-                            </property>
-                            <property name="minValue">
-                                <number>0</number>
-                            </property>
-                            <property name="maxValue">
-                                <number>6000</number>
-                            </property>
-                        </widget>
                     </hbox>
                 </widget>
             </vbox>
@@ -207,8 +188,4 @@
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-</includehints>
 </UI>
