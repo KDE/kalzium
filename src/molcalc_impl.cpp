@@ -121,8 +121,6 @@ void MolcalcImpl::updateUI()
 		}
 		if ( !contains )
 			differentElements.append( *it );
-		else
-			kdDebug() << ( *it )->elname() << " not added, was already included" << endl;
 	}
 
 	itNames = differentElements.begin( );
@@ -141,18 +139,32 @@ void MolcalcImpl::updateUI()
 	}
 
 	QMap<Element*, int>::Iterator itMap;
-	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) {
-		kdDebug() << "Key: "<< itMap.key()->elname() << "   ...    Data: " << itMap.data() << endl;
-		str += i18n( "%1 %2\n" ).arg( itMap.data() ).arg( itMap.key()->elname() );
+	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) 
+	{//update the resultLabel
+		str += i18n( "%1 %2. Cummulated Weight: %3 u (%4 %)\n" ).arg( itMap.data() ).arg( i18n( itMap.key()->elname().utf8() ) ).arg( itMap.data() * itMap.key()->weight() ).arg(((  itMap.data() * itMap.key()->weight() )/m_weight )*100);
 	}
 	
 	resultLabel->setText( str );
-
+	
 	//the composition
+	resultComposition->setText( composition( map ) );
 	
 	//the weight
 	recalculate();
 	resultWeight->setText( i18n( "Molecular Weight: %1u" ).arg( m_weight ) );
+}
+
+QString MolcalcImpl::composition( QMap<Element*,int> map )
+{
+	QString str;
+	
+	QMap<Element*, int>::Iterator itMap;
+	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) 
+	{
+		str += i18n( "%1<sub>%2</sub>" ).arg( itMap.key()->symbol() ).arg( itMap.data() );
+	}
+	
+	return str;
 }
 
 void MolcalcImpl::slotMinusToggled(bool on)

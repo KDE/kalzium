@@ -24,6 +24,8 @@
 #include "molcalcbase.h"
 #include "element.h"
 
+#include <qmap.h>
+
 /**
  * @author Carsten Niehaus
  */
@@ -48,6 +50,8 @@ class MolcalcImpl : public MolcalcDialog
 		};
 		
 		void updateData( int number, KIND kind );
+
+		QString composition( QMap<Element*,int> );
 
 		/**
 		 * recalcualtes the weight

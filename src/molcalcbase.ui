@@ -187,6 +187,23 @@
                                     <enum>Horizontal</enum>
                                 </property>
                             </widget>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>resultComposition</cstring>
+                                </property>
+                                <property name="font">
+                                    <font>
+                                        <pointsize>16</pointsize>
+                                        <bold>1</bold>
+                                    </font>
+                                </property>
+                                <property name="text">
+                                    <string></string>
+                                </property>
+                                <property name="alignment">
+                                    <set>AlignCenter</set>
+                                </property>
+                            </widget>
                             <spacer>
                                 <property name="name">
                                     <cstring>spacer5_2</cstring>
@@ -200,21 +217,13 @@
                                 <property name="sizeHint">
                                     <size>
                                         <width>20</width>
-                                        <height>100</height>
+                                        <height>110</height>
                                     </size>
                                 </property>
                             </spacer>
                             <widget class="QLabel">
                                 <property name="name">
                                     <cstring>resultLabel</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>resultComposition</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -413,6 +422,16 @@
         <slot>clear()</slot>
     </connection>
 </connections>
+<tabstops>
+    <tabstop>tabWidget</tabstop>
+    <tabstop>buttonClose</tabstop>
+    <tabstop>plusButton</tabstop>
+    <tabstop>minusButton</tabstop>
+    <tabstop>formula</tabstop>
+    <tabstop>table</tabstop>
+    <tabstop>buttonCalculate</tabstop>
+    <tabstop>buttonClear</tabstop>
+</tabstops>
 <slots>
     <slot>slotCalculate()</slot>
 </slots>
