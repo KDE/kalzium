@@ -113,10 +113,12 @@ class Kalzium : public KMainWindow
 		 * This slot switches Kalzium to the selected PSE
 		 */
 		void slotSwitchtoPSE(int);
+		
 		/**
 		 * Slot to switch Quiz menu items
 		 */
 		void slotQuiz(int);
+
 		/**
 		 * start the quiz
 		 */

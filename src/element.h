@@ -27,12 +27,19 @@ class Element;
 
 typedef QValueList<Element*> EList;
 
+/**
+ * @short this class contains all Element-objects as
+ * a QValueList<Element*>
+ */
 class KalziumDataObject
 {
 	public:
 		KalziumDataObject();
 		~KalziumDataObject();
 
+		/**
+		 * The list of element in a QValueList<Element*>
+		 */
 		EList ElementList;
 
 };
@@ -206,7 +213,7 @@ class Element{
 		 * should be used for the temperature. This method
 		 * takes care of that.
 		 * @param val the value which has to be adjusted
-		 * @parem type the TYPE of the data
+		 * @param type the TYPE of the data
 		 * @return the adjusted datastring
 		 */
 		static const QString adjustUnits( double val, const int type );

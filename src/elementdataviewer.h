@@ -26,6 +26,10 @@ typedef QValueList<double> DoubleList;
 
 class PlotSetupWidget;
 
+/**
+ * @short the values of the y-Axis
+ * @author Carsten Niehaus
+ */
 class AxisData
 {
 	friend class ElementDataViewer;
@@ -33,6 +37,9 @@ class AxisData
 	public: 
 		AxisData();
 		
+		/**
+		 * sets the dataList to @p list
+		 */
 		void setDataList( DoubleList list ){ 
 			dataList = list; 
 		};
@@ -46,18 +53,37 @@ class AxisData
 			return (*it);
 		}
 
+		/**
+		 * This represents the nine possible datasets.
+		 * @li WEIGHT: the weight of the element
+		 * @li MELTINGPOINT: the meanweight of the element
+		 */
 		enum PAXISDATA { WEIGHT=0, MEANWEIGHT=1, DENSITY=2, IE1=3, IE2=4, EN=5, MELTINGPOINT=6, BOILINGPOINT=7, ATOMICRADIUS=8  };
 
+		/**
+		 * @return the currently selected datatype
+		 * @see AxisData::PAXISDATA
+		 */
 		int currentDataType(){
 		       	return m_currentDataType;
 		}
 
 	private:
+		/**
+		 * the dataList contains the values off all elements
+		 * but only of the currently selected datatyp. This
+		 * means that it eg contains all boilingpoints
+		 */
 		DoubleList dataList;
 
 		int m_currentDataType;
 };
 
+/**
+ * @short This widget shows the plot and the widget
+ * where you can setup the plot
+ * @author Carsten Niehaus
+ */
 class ElementDataViewer : public KDialogBase
 {
 	Q_OBJECT
@@ -65,6 +91,9 @@ class ElementDataViewer : public KDialogBase
 	public:
 		ElementDataViewer( KalziumDataObject *data, QWidget *parent=0 , const char *name =0 );
 
+		/**
+		 * the AxixData for the y-Axis
+		 */
 		AxisData *yData;
 
 	public slots:

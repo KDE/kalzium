@@ -38,22 +38,7 @@ class questionEditorImpl : public questionEditor
 		 */
 		questionEditorImpl( QWidget* parent = 0, const char*  name = 0);
 
-		/**
-		 * read in all tasks defined in the questions-file
-		 */
-		bool readTasks( QDomDocument &questionDocument );
-
-		/**
-		 * checks if the file is well-formed XML
-		 * @return if the XML is well-formed XML
-		 */
-		bool loadLayout( QDomDocument &layoutDocument );
-
 	private:
-		QDomDocument m_questionDocument;
-
-		void addTaskToListView( Task *t );
-
 		void setupListView();
 
 		TaskList m_tasklist;

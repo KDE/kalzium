@@ -13,8 +13,11 @@
  *                                                                         *
  ***************************************************************************/
 
+class TaskList;
+#include <qdom.h>
+#include "quiz.h"
+
 /**
- * @short Application Main Window
  * @author Carsten Niehaus <cniehaus@kde.org>
  * @version 1.1
  */
@@ -25,6 +28,23 @@ class QuizXMLParser
 		 * Default Constructor
 		 */
 		QuizXMLParser();
+
+		/**
+		 * read in all tasks defined in the questions-file
+		 * @param min the minimum grade
+		 * @param max the minimum grade
+		 * @param questionDocument the QDomDocument which is being parsed
+		 */
+		TaskList readTasks( int min, int max, QDomDocument &questionDocument );
+		
+		/**
+		 * checks if the file is well-formed XML
+		 * @return if the XML is well-formed XML
+		 */
+		bool loadLayout( QDomDocument &questionDocument );
+
+	private:
+		TaskList m_tasklist;
 
 };
 	

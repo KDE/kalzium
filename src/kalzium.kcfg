@@ -24,6 +24,10 @@
     </entry>
   </group>
   <group name="Quiz_Setup">
+	<entry name="quiz_number" type="Int">
+		<default>10</default>
+		<whatsthis>Enter the number of questions you want to be asked in the quiz</whatsthis>
+	</entry>
 	<entry name="quiz_grade1" type="Bool">
 		<default>true</default>
 		<whatsthis>If this checkbox is selected you will be asked the questions of the most simple grade</whatsthis>

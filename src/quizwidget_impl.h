@@ -1,10 +1,10 @@
-#ifndef PLOTWIDGET_H
-#define PLOTWIDGET_H
-/***************************************************************************
+#ifndef QUIZWIDGET_IMPL_H
+#define QUIZWIDGET_IMPL_H
+/* **************************************************************************
     copyright            : (C) 2004 by Carsten Niehaus
     email                : cniehaus@kde.org
+	
  ***************************************************************************/
-
 /***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -14,42 +14,48 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <kplotwidget.h>
+#include <quizwidget.h>
+class Task;
+class QRadioButton;
+
+typedef QValueList<QRadioButton*> RadioList;
+
 
 /**
- * @short This class add the abilitiy to connect the plotted
- * data using a line.
+ * This class represents the answer of a quiz. A answer can 
+ * be either true or false.
  * @author Carsten Niehaus
- */
-class PlotWidget : public KPlotWidget
+ * @short An answers is one of several possible answers of a task.
+ * @version 1.1
+ */ 
+class QuizWidgetImpl : public QuizWidget
 {
 	Q_OBJECT
 
 	public:
-		PlotWidget( double x1 = 0.0, double x2 = 0.0, double y1 = 0.0, double y2 = 0.0, QWidget *parent=0 , const char *name =0 );
+		QuizWidgetImpl( QWidget *parent, const char* name = 0 );
 
-		/**
-		 * toggles if the points will be connected with 
-		 * a line or not
-		 * @param b if true the points will be connected
-		 */
-		void setConnection( bool b ){
-			m_connectPoints = b;
-		}
+		void setTask( Task *t );
+		
+		void setPreviousTask( Task *t );
+
+		void setRadiobuttons();
 
 	private:
-		/**
-		 * if true, the points will be connected
-		 */
-		bool m_connectPoints;
+		RadioList buttonList;
 
-	protected:
-		/**
-		 * draws the objects
-		 */
-		virtual void drawObjects( QPainter *p);
+		Task *m_currentTask;
 
+		void setupPixmaps();
+
+	public slots:
+		void slotSetupWidgets();
+
+		void slotAnswered( int q );
+
+	signals:
+		void newTask();
+
+		void AnswerIs( bool , int grade);
 };
-
-#endif // PLOTWIDGET_H
-
+#endif // QUIZWIDGET_IMPL_H

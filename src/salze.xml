@@ -13,7 +13,7 @@
 		<answer type="false" text="Chlorate" />
 		<answer type="false" text="Perchlorate" />
 	</task>
-	<task grade="2">
+	<task grade="1">
 		<question text="Wie heißen die Salze der Perchlorsäure?" />
 		<answer type="false" text="Chloride" />
 		<answer type="false" text="Sulfate" />
@@ -387,7 +387,7 @@
 	<task grade="2">
 		<question text="Die chemische Bezeichnung für Hydroxylapatit ist" />
 		<answer type="false" text="Calciumphosphat" />
-		<answer type="true" text="Calcium-hydroxid-phospha" />
+		<answer type="true" text="Calcium-hydroxid-phosphat" />
 		<answer type="false" text="Calcium-fluorid-phosphat" />
 		<answer type="false" text="Ammonium-Natrium-hydrogenphosphat" />
 	</task>

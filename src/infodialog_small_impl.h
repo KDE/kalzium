@@ -24,10 +24,8 @@
 #include "element.h"
 
 /**
-@author Carsten Niehaus
-*/
-
-
+ * @author Carsten Niehaus
+ */
 class infoDlgSmallImpl : public infoDlgSmall
 {
 	Q_OBJECT

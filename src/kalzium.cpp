@@ -109,6 +109,7 @@ Kalzium::Kalzium()
 	m_pMendeljevPSE = new MendeljevPSE( data(), this, "MendeljevPSE");
 
 	m_pCurrentPSE = m_pRegularPSE;
+	slotSwitchtoNumeration(Prefs::numeration() );
 	slotSwitchtoPSE(Prefs::schemaPSE());
 	slotSwitchtoNumeration(Prefs::numeration() );
 	// set the shell's ui resource file
@@ -123,6 +124,14 @@ Kalzium::Kalzium()
 void Kalzium::slotStartQuiz()
 {
 	kdDebug() << "inside the start of the quiz" << endl;
+
+	//I will only allow the defaultvaulues until the quiz itself works.
+	//After that is done I will use KConfigXT to load the userdefinded
+	//values and make the quiz complete
+	Quiz *q = new Quiz( 10, 2 , 3 , 10, 15 ); 
+	
+	QuizMaster *qm = new QuizMaster( q );
+	qm->startQuiz();
 }
 
 void Kalzium::slotEditQuestions()
@@ -138,7 +147,6 @@ void Kalzium::slotAddQuestions()
 
 	questionAddDialogImpl *q = new questionAddDialogImpl( this, "questionAddDialogImpl" );
 	q->show();
-	//connect (q->kPushButton2, SIGNAL( clicked()), this, SLOT(slotQuizAction()));
 }
 
 void Kalzium::slotShowTimeline()
@@ -260,14 +268,6 @@ void Kalzium::newToolbarConfig()
 void Kalzium::slotQuizAction()
 {
 	quiz_action->setCurrentItem(-1);
-
-	//I will only allow the defaultvaulues until the quiz itself works.
-	//After that is done I will use KConfigXT to load the userdefinded
-	//values and make the quiz complete
-	Quiz *q = new Quiz( 10 ); 
-	
-	QuizMaster *qm = new QuizMaster( q );
-	qm->startQuiz();
 }
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }

@@ -24,13 +24,27 @@
 
 class QFrame;
 
+/**
+ * @short The widget which displays the most important information
+ * in one widget like a lot people know it from school
+ * @author Carsten Niehaus
+ */
 class DetailedTab : public QWidget
 {
 	Q_OBJECT
 
 	public:
 		DetailedTab( Element *el, QWidget *parent, const char *name=0 );
+
+		/**
+		 * @return the QColor of the block
+		 */
 		QColor PSEColor( const QString &Block ) const;
+		
+		/**
+		 * draw the small symbol which symbolises the
+		 * relevence for humans
+		 */
 		void drawBiologicalSymbol( QPainter *p );
 	
 		//calculation of the corners
@@ -43,6 +57,10 @@ class DetailedTab : public QWidget
 };
 
 
+/**
+ * @short The dialog which shows all availeble information
+ * @author Carsten Niehaus
+ */
 class DetailedInfoDlg : public KDialogBase
 {
     Q_OBJECT

@@ -22,6 +22,10 @@
 #include <qwidget.h>
 #include <math.h>
 
+/**
+ * @short the widget which displays the Bohr-orbit of the element
+ * @author Carsten Niehaus
+ */
 class OrbitsWidget : public QWidget
 {
 	Q_OBJECT
@@ -30,12 +34,15 @@ class OrbitsWidget : public QWidget
 		OrbitsWidget( const int Elemno , QWidget *parent=0 , const char *name =0 );
 
 	private:
-		/*
+		/**
 		 * the elementnumber we are looking at
 		 */
 		int Elemno; 
 	
-		int num; //the number of hulls the atom has
+		/**
+		 * the number off hulls the atom has
+		 */
+		int num;
 		
 		typedef QValueList<int> intList;
 		intList numOfElectrons;
@@ -44,8 +51,8 @@ class OrbitsWidget : public QWidget
 
 		const QString& getNumber() const;
 		
-		/*
-		 * the returns the delta of the x-coordinate
+		/**
+		 * @return the delta of the x-coordinate
 		 * @param r is the radius of the circle
 		 * @param angle is the n'st circle out of num
 		 * @param num is the number of circles
@@ -55,8 +62,8 @@ class OrbitsWidget : public QWidget
 			return( r * sin( M_PI * angle / num * 2 ) );
 		}
 		
-		/*
-		 * the returns the delta of the y-coordinate
+		/**
+		 * @return the delta of the y-coordinate
 		 * @param r is the radius of the circle
 		 * @param angle is the n'st circle out of num
 		 * @param num is the number of circles
@@ -66,7 +73,7 @@ class OrbitsWidget : public QWidget
 			return( r * cos( M_PI * angle / num * 2 ) );
 		}
 
-		/*
+		/**
 		 * sets everything up
 		 */
 		void getNumberOfOrbits();

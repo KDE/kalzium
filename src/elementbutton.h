@@ -26,12 +26,12 @@
 class QMouseEvent;
 
 /**
-An ElementButton is the widget the users sees when looking at the table. 
-It provides the drag&drop-actions and click-events. Furthermore it can change
-it colors and hide/show itself.
-
-@author Carsten Niehaus
-*/
+ *An ElementButton is the widget the users sees when looking at the table. 
+ *It provides the drag&drop-actions and click-events. Furthermore it can change
+ *it colors and hide/show itself.
+ *
+ *@author Carsten Niehaus
+ */
 class ElementButton : public QFrame
 {
 	Q_OBJECT
@@ -41,9 +41,12 @@ class ElementButton : public QFrame
 		~ElementButton();
 		int ElementNumber();
 
+		/**
+		 * the symbol of the element
+		 */
 		QString sym;
 
-		/*
+		/**
 		 * the element this buttons represents
 		 */
 		Element *e;

@@ -13,10 +13,15 @@
 #ifndef QUIZ_H
 #define QUIZ_H
 
-#include <qwidget.h>
+//#include <qwidget.h>
 
 class Task;
 class Answer;
+class QuizWidgetImpl;
+
+#include <qvaluelist.h>
+#include <qdom.h>
+#include <qobject.h>
 
 typedef QValueList<Task*> taskList;
 typedef QValueList<Answer*> answerList;
@@ -89,7 +94,8 @@ class Task
 	public:
 		/**
 		 * The Contructor of this class. Creates a task for the quiz with
-		 * the difficulty @p grade. A Task consists of one @p question and at least two answers.
+		 * the difficulty @p grade. A Task consists of one @p question and at least two
+		 * and a maximum of four answers.
 		 * @param question is the text of the question
 		 * @param grade defines how difficult the task is. Values from 1 to 3 are allowed.
 		 *
@@ -97,6 +103,8 @@ class Task
 		 */
 		Task( QString question, 
 				int grade );
+
+		Task(){};
 
 		/**
 		 * @return the question of the task
@@ -108,13 +116,17 @@ class Task
 		/**
 		 * @return the number of answers the task owns
 		 */
-		int numberOfAnswers();
+		int numberOfAnswers(){
+			return m_answers.count();
+		}
 
 		/**
 		 * add the answer @p a to the list of answers
 		 * @param a The Answer will be added the the list of answers
 		 */
-		void addAnswer( Answer *a );
+		void addAnswer( Answer *a ){
+			m_answers.append( a );
+		}
 		
 		/**
 		 * @return the grade of the Task
@@ -165,6 +177,12 @@ class TaskList
 		}
 
 		/**
+		 * cuts the list down to @p num tasks
+		 * @param the number of tasks for the quiz
+		 */
+		void cutList( int num );
+
+		/**
 		 * removes all tasks for the internal list
 		 */
 		void deleteTaskList(){
@@ -197,6 +215,12 @@ class TaskList
 		 */
 		Task* taskAt( int pos );
 
+		/**
+		 * randomizes the list of tasks.
+		 * @see KRandomSequence
+		 */
+		void randomize();
+
 	private:
 		
 		/**
@@ -216,11 +240,22 @@ class Quiz
 {
 	public:
 		/**
-		 * Default Contructor. Create a Quiz with @p numOfTasks Tasks 
+		 * Default Contructor. Creates a Quiz.
+		 * @param numOfTasks the number of tasks
+		 * @param min the easiest grade
+		 * @param max the most difficult grade
+		 * @param secPerTask number of seconds per task 
+		 * @param points the number of points per grade and task
 		 * @see Task
 		 * @see Answer
 		 */
-		Quiz( int numOfTasks );
+		Quiz( int numOfTasks , int min, int max, int secPerTask, int points ){
+			m_numTasks = numOfTasks;
+			m_minGrade = min;
+			m_maxGrade = max;
+			m_secPerTask = secPerTask;
+			m_pointsPerTask = points;
+		}
 
 		/**
 		 * @return the number of points the player get per grade
@@ -229,7 +264,7 @@ class Quiz
 		int pointsPerTask() const {
 			return m_pointsPerTask;
 		}
-		
+
 		/**
 		 * @return the number of seconds the player has to
 		 * answer the task
@@ -241,12 +276,16 @@ class Quiz
 		/**
 		 * sets the number of seconds @p sec for the quiz
 		 */
-		void setNumberOfSeconds( int sec );
+		void setNumberOfSeconds( int sec ){
+			m_secPerTask = sec;
+		}
 		
 		/**
 		 * sets the number of points per grade to @p points
 		 */
-		void setPointsPerTask( int points );
+		void setPointsPerTask( int points ){
+			m_pointsPerTask = points;
+		}
 
 		/**
 		 * @return the number of tasks in the quiz
@@ -254,11 +293,35 @@ class Quiz
 		int numOfTasks() const{
 			return m_numTasks;
 		}
+
+		/**
+		 * @return the minimum grade of the quiz
+		 */
+		int minGrade() const{
+			return m_minGrade;
+		}
+		
+		/**
+		 * @return the minimum grade of the quiz
+		 */
+		int maxGrade() const{
+			return m_maxGrade;
+		}
 	private:
 		/**
 		 * number of seconds the player has per task
 		 */
 		int m_secPerTask;
+
+		/**
+		 * the easiest grade of the quiz
+		 */
+		int m_minGrade;
+		
+		/**
+		 * the most difficult grade of the quiz
+		 */
+		int m_maxGrade;
 
 		/**
 		 * creates the list of tasks for the quiz
@@ -272,6 +335,9 @@ class Quiz
 		 */
 		int m_pointsPerTask;
 		
+		/**
+		 * num of tasks in the quiz
+		 */
 		int m_numTasks;
 };
 
@@ -283,8 +349,10 @@ class Quiz
  * @short A QuizMaster controls a quiz
  * @version 1.0
  */
-class QuizMaster
+class QuizMaster : public QObject
 {
+	Q_OBJECT
+
 	public:
 		/**
 		 * Default Contructor. Create a QuizMaster-Object which controls a Quiz
@@ -304,8 +372,13 @@ class QuizMaster
 		void generateTaskList( int num );
 		
 	private:
+		QDomDocument m_questionDocument;
 
+		
 		Quiz *m_quiz;
+		Task *m_currentTask;
+
+		QuizWidgetImpl *m_quizwidget;
 		
 		/**
 		 * the number of points the player currently has
@@ -313,6 +386,64 @@ class QuizMaster
 		int m_points;
 
 		TaskList m_tasklist;
+		TaskList m_completeListOfTasks;
+
+		int numberOfTask;
+		
+		int numTotal;
+		int numCorrect;
+		int numWrong;
+
+		/**
+		 * tests if the answer of the task was correct or not
+		 * @return true the answer was correct
+		 */
+		bool checkAnswer();
+
+		/**
+		 * displays the strings so that the users sees the previous question and
+		 * answer and, in case the answer was wrong, the correct answer
+		 */
+		void displayPrevious( Task *t );
+
+		/**
+		 * updates the number at the bottom of QuizWidgetImpl
+		 */
+		void updateNumbers();
+
+		bool m_answerWasCorrect;
+
+		/**
+		 * if true the values will be displayed as percentage and not as absolute values
+		 */
+		bool m_percentage;
+
+	private slots:
+		/**
+		 * updates the points of the user
+		 */
+		void slotUpdatePoints(bool correct,int grade){
+			if ( correct ){
+				m_answerWasCorrect = true;
+				int p = grade * m_quiz->pointsPerTask();
+				m_points+=p;
+			}else{
+				m_answerWasCorrect = false;
+			}
+
+			slotNextTask();
+		}
+
+		void slotUpdateNumbers();
+		
+	/**
+		 * this starts several things:
+		 * - check if the given answer is correct: checkAnswer()
+		 * - update the points: updatePoints(bool);
+		 * - display the "now previous" task and the correct answer: displayPrevious(Task *t)
+		 * - update the numbers on the bottom of the QuizWidgetImpl
+		 */
+		void slotNextTask();
 		
 };
 

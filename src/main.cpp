@@ -25,6 +25,7 @@ int main(int argc, char **argv)
     about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );
     about.addCredit( "Marco Martin", I18N_NOOP("Thank you for some icons and inspiration for others" ));
     about.addCredit( "Chris Luetchford", I18N_NOOP("svg icon"), "chris@os11.com>");
+    about.addCredit( "Anne-Marie Mahfouf", I18N_NOOP( "A lot of small things and the documentation" ));
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
