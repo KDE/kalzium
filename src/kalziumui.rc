@@ -25,4 +25,12 @@
 </Menu>
 
 </MenuBar>
+
+<ToolBar name="mainToolBar" noMerge="1" position="top"><text>Main</text>
+        <Action name="psestyle"/>
+        <Action name="colorscheme"/>
+        <Action name="numeration"/>
+        <Action name="timeline"/>
+</ToolaBar>
+
 </kpartgui>

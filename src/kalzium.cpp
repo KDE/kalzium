@@ -32,6 +32,7 @@
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kdialog.h>
+#include <kedittoolbar.h>
 #include <khelpmenu.h>
 #include <klocale.h>
 #include <kmenubar.h>
@@ -206,21 +207,6 @@ void Kalzium::showIUPAC()
     }
 }
 
-void Kalzium::timeline()
-{
-    dateLCD->display(dateS->value());
-    for (int i = 0; i < 118; ++i)
-    {
-        PElementKP& b(element[i]);
-        if (b->Data.date > QString::number(dateS->value()))
-            b->hide();
-        else
-            b->show();
-
-        if (b->Data.date == "3333" && QString::number(dateS->value()) < "1996")
-            b->hide();
-    }
-}
 
 //******** Slots *****************************************************
 void Kalzium::changeColorScheme(int id) 
@@ -283,6 +269,14 @@ void Kalzium::showSettingsDialog()
     }
     else
         setDlg->show();
+}
+
+void Kalzium::showToolbar()
+{
+    if (toolbarToggleAction->isChecked())
+        toolBar()->show();
+    else
+        toolBar()->hide();
 }
 
 void Kalzium::slotCalculations()
@@ -382,6 +376,7 @@ void Kalzium::slotShowGroups()
          */
     }
 }
+
 void Kalzium::slotShowMendelejew()
 {
     static int nummer[14] = { 2,10,18,21,28,31,32,36,43,49,54,55,72,75 };
@@ -401,10 +396,6 @@ void Kalzium::slotShowMendelejew()
     timelineToggleAction->setEnabled(false);
 }
 
-
-
-
-
 void Kalzium::slotShowStateOfMatter()
 {
     if (!templookup )
@@ -423,9 +414,6 @@ void Kalzium::updateNumMenu(int id)
 {
     numerationmenu->setCurrentItem(id);
 }
-
-
-
 
 void Kalzium::slotShowTimeline(bool id)
 {    
@@ -447,16 +435,27 @@ void Kalzium::slotShowTimeline(bool id)
     } 
 }
 
-
-
 void Kalzium::slotValues()
 {
         ValueVisualisation *valuesDlg = new ValueVisualisation( this, "valuesDlg", this ); 
         valuesDlg->show();
 }
 
+void Kalzium::timeline()
+{
+    dateLCD->display(dateS->value());
+    for (int i = 0; i < 118; ++i)
+    {
+        PElementKP& b(element[i]);
+        if (b->Data.date > QString::number(dateS->value()))
+            b->hide();
+        else
+            b->show();
 
-
+        if (b->Data.date == "3333" && QString::number(dateS->value()) < "1996")
+            b->hide();
+    }
+}
 
 
 //*******SETUP ACTIONS*************************************************
@@ -515,20 +514,21 @@ void Kalzium::setupActions()
     main_config->setGroup("Menu Settings");
     KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
     KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection(), "configure");
+    toolbarToggleAction = KStdAction::showToolbar(this, SLOT(showToolbar()), actionCollection());
     
     QStringList psestylelist;
-    psestylelist.append( i18n("&Mendeleev"));
-    psestylelist.append( i18n("&Complete"));
+    psestylelist.append( i18n("Mendeleev"));
+    psestylelist.append( i18n("Complete"));
     psestylemenu = new KSelectAction(i18n("&PSE Sytle"),0,actionCollection(), "psestyle");
     psestylemenu->setItems(psestylelist);
     connect(psestylemenu, SIGNAL(activated(int)), this, SLOT(showPseStyle(int)));
     psestylemenu->setCurrentItem(main_config->readNumEntry("psestylemenu"));
 
     QStringList colorschemelist;
-    colorschemelist.append( i18n("&Acid Behaviours"));
-    colorschemelist.append( i18n("&Blocks"));
-    colorschemelist.append( i18n("&Groups"));
-    colorschemelist.append( i18n("&State of Matter"));
+    colorschemelist.append( i18n("Acid Behaviours"));
+    colorschemelist.append( i18n("Blocks"));
+    colorschemelist.append( i18n("Groups"));
+    colorschemelist.append( i18n("State of Matter"));
     colorschememenu = new KSelectAction(i18n("&Colorscheme"),0,actionCollection(), "colorscheme");
     colorschememenu->setItems(colorschemelist);
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(updateColorMenu(int)));

@@ -71,7 +71,7 @@ class Kalzium : public KMainWindow
     
     private:
         KConfig *main_config;
-        KToggleAction *timelineToggleAction; 
+        KToggleAction *timelineToggleAction, *toolbarToggleAction;
 	    QGridLayout *maingrid;
         QLCDNumber *dateLCD;
         QSlider *dateS;
@@ -101,11 +101,6 @@ class Kalzium : public KMainWindow
     */
     void showIUPAC();
 
-    /**
-    * Which element has been known when? A slider will
-    * appear and you can check it out.
-    */
-    void timeline();
   
     /**
     * Called after setupActions , it sets the main window look 
@@ -126,6 +121,8 @@ class Kalzium : public KMainWindow
     void defineweights();
     
     void showPseStyle(int);
+    
+    void showToolbar();
 
     /**
     * this slot will open a window in which you can do some calculations
@@ -182,8 +179,15 @@ class Kalzium : public KMainWindow
    
     private slots:
         
-    void showSettingsDialog();
-
     void hideSettingsDialog();
+    
+    void showSettingsDialog();
+    
+    /**
+    * Which element has been known when? A slider will
+    * appear and you can check it out.
+    */
+    void timeline();
+
 };
 #endif
