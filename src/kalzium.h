@@ -26,7 +26,6 @@ class SliderWidget;
 class QVBoxLayout;
 class TempSlider;
 class Legend;
-class OverviewWidget;
 
 /**
  * @short Application Main Window
@@ -52,11 +51,6 @@ class Kalzium : public KMainWindow
 		class privatedata;
 		friend class privatedata;
 		privatedata* pd;
-
-		/**
-		 * the widget which shows information about an element
-		 */
-		OverviewWidget* m_pOverviewWidget;
 
 	private:
 		/**
@@ -158,8 +152,6 @@ class Kalzium : public KMainWindow
 		void slotSwitchtoNumeration(int);
 
 		void slotPlotData();
-
-		void slotMouseOverElement( int );
 
 		void slotCalculate();
 

@@ -86,6 +86,140 @@ void PSE::updateNumeration()
 
 void PSE::activateColorScheme( const int nr )
 {
+//X 	//set the temperature to normal conditions
+//X 	setTemperature( 295 );
+//X 
+//X 	if ( nr == 0) //normal view, no colors
+//X 	{
+//X 		kdDebug() << "Number 1 was chosen... no scheme" << endl;
+//X 		ElementButton *button;
+//X 		QColor color = Prefs::noscheme();
+//X 		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+//X 		{
+//X 			button->setElementColor( color );
+//X 		}
+//X 	}
+//X 	else if ( nr == 1) //groups view
+//X 	{
+//X 		kdDebug() << "Number 2 was chosen... groups" << endl;
+//X 		
+//X 		ElementButton *button;
+//X 		const QColor color_1 = Prefs::group_1();
+//X 		const QColor color_2 = Prefs::group_2();
+//X 		const QColor color_3 = Prefs::group_3();
+//X 		const QColor color_4 = Prefs::group_4();
+//X 		const QColor color_5 = Prefs::group_5();
+//X 		const QColor color_6 = Prefs::group_6();
+//X 		const QColor color_7 = Prefs::group_7();
+//X 		const QColor color_8 = Prefs::group_8();
+//X 
+//X 		static QString group;
+//X 		
+//X 		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+//X 		{
+//X 			group = button->e->group();
+//X 
+//X 			if (group == QString("1")) {
+//X 				button->setElementColor( color_1 );
+//X 				continue;
+//X 			}
+//X 			if (group == QString("2")){
+//X 				button->setElementColor( color_2 );
+//X 				continue;
+//X 			}
+//X 			if (group == QString("3")){
+//X 				button->setElementColor( color_3 );
+//X 				continue;
+//X 			}
+//X 			if (group == QString("4")){
+//X 				button->setElementColor( color_4 );
+//X 				continue;
+//X 			}
+//X 			if (group == QString("5")) {
+//X 				button->setElementColor( color_5 );
+//X 				continue;
+//X 			}
+//X 			if (group == QString("6")){
+//X 				button->setElementColor( color_6 );
+//X 				continue;
+//X 			}
+//X 			if (group == QString("7")){
+//X 				button->setElementColor( color_7 );
+//X 				continue;
+//X 			}
+//X 			if (group == QString("8")){
+//X 				button->setElementColor( color_8 );
+//X 				continue;
+//X 			}
+//X 		}
+//X 	}
+//X 	else if ( nr == 2) //block view
+//X 	{
+//X 		kdDebug() << "Number 3 was chosen... blocks" << endl;
+//X 		
+//X 		ElementButton *button;
+//X 		const QColor color_s = Prefs::block_s();
+//X 		const QColor color_p = Prefs::block_p();
+//X 		const QColor color_d = Prefs::block_d();
+//X 		const QColor color_f = Prefs::block_f();
+//X 
+//X 		static QString block;
+//X 		
+//X 		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+//X 		{
+//X 			block = button->e->block();
+//X 
+//X 			if (block == QString("s")) {
+//X 				button->setElementColor( color_s );
+//X 				continue;
+//X 			}
+//X 			if (block == QString("p")){
+//X 				button->setElementColor( color_p );
+//X 				continue;
+//X 			}
+//X 			if (block == QString("d")){
+//X 				button->setElementColor( color_d );
+//X 				continue;
+//X 			}
+//X 			if (block == QString("f")){
+//X 				button->setElementColor( color_f );
+//X 				continue;
+//X 			}
+//X 		}
+//X 	}
+//X 	else if ( nr == 3) //acidic beh
+//X 	{
+//X 		kdDebug() << "Number 4 was chosen... acidbeh" << endl;
+//X 		ElementButton *button;
+//X 		const QColor color_ba = Prefs::beh_basic();
+//X 		const QColor color_ac = Prefs::beh_acidic();
+//X 		const QColor color_neu = Prefs::beh_neutral();
+//X 		const QColor color_amp = Prefs::beh_amphoteric();
+//X 
+//X 		static QString acidicbeh;
+//X 		
+//X 		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+//X 		{
+//X 			acidicbeh = button->e->acidicbeh();
+//X 
+//X 			if (acidicbeh == QString("0")) {
+//X 				button->setElementColor( color_ac );
+//X 				continue;
+//X 			}
+//X 			if (acidicbeh == QString("1")){
+//X 				button->setElementColor( color_ba );
+//X 				continue;
+//X 			}
+//X 			if (acidicbeh == QString("2")){
+//X 				button->setElementColor( color_neu );
+//X 				continue;
+//X 			}
+//X 			if (acidicbeh == QString("3")){
+//X 				button->setElementColor( color_amp );
+//X 				continue;
+//X 			}
+//X 		}
+//X 	}
 }
 
 void PSE::setDate( int date )

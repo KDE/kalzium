@@ -239,8 +239,8 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 	int h_small = 15; //the size for the small units like elementnumber
 	
 	p->setPen( Qt::blue );//elementColor() );
-	p->drawRoundRect( ( x-1 )*ELEMENTSIZE-2, ( y-1 )*ELEMENTSIZE-2,ELEMENTSIZE,ELEMENTSIZE);
-	p->fillRect( ( x-1 )*ELEMENTSIZE, ( y-1 )*ELEMENTSIZE,ELEMENTSIZE,ELEMENTSIZE, Qt::blue );
+	p->fillRect( ( x-1 )*ELEMENTSIZE+3, ( y-1 )*ELEMENTSIZE+3,ELEMENTSIZE-6,ELEMENTSIZE-6, Qt::blue );
+	p->drawRoundRect( ( x-1 )*ELEMENTSIZE+2, ( y-1 )*ELEMENTSIZE+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
 	
 	QString text;
 	QFont symbol_font = p->font();
@@ -261,8 +261,9 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 	p->setFont( symbol_font );
 	p->drawText( ( x-1 )*ELEMENTSIZE,( y-1 )*ELEMENTSIZE, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
 	
+	//border
 	p->setPen( Qt::green );
-	p->drawRoundRect( ( x-1 )*ELEMENTSIZE-4, ( y-1 )*ELEMENTSIZE-4,ELEMENTSIZE,ELEMENTSIZE);
+	p->drawRoundRect( ( x-1 )*ELEMENTSIZE+1, ( y-1 )*ELEMENTSIZE+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
 }
 
 /*!
