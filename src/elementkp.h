@@ -65,8 +65,6 @@ class ElementKP : public KPushButton  {
     public: 
         ElementKP(const QString &text, QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0);
 	
-        void initPopupMenu( void );
- 	
     	void mousePressEvent( QMouseEvent *mouse );
 	
     	//used when the mouse enters the pushbutton

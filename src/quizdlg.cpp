@@ -229,9 +229,6 @@ void QuizDlg::slotCheck()
 
 	    QPixmap good = SmallIcon("apply.png");
 	    QPixmap bad  = SmallIcon("cancel.png");
-	    //FIXME remove the hardcoded URL
-	    //QPixmap goodpix = good->scaleHeight( resultTable->rowHeight(2) );
-	    //QPixmap badpix  = bad->scaleHeight( resultTable->rowHeight(2) );
 
 	    resultTable->setText( 0 , 0 , i18n("Questions:") );
 	    resultTable->setText( 0 , 1 , i18n("The correct answer was:") );
