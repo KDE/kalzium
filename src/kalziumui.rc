@@ -12,13 +12,14 @@
 </Menu>
 
 <Menu name="view"><text>&amp;View</text>
-        <Action name="timeline"/>
-        <Action name="quickinfo"/>
-        <Action name="legend"/>
-        <Separator/>
         <Action name="psestyle"/>
         <Action name="colorscheme"/>
         <Action name="numeration"/>
+        <Separator/>
+        <Action name="timeline"/>
+        <Action name="quickinfo"/>
+        <Action name="legend"/>
+
 </Menu>
 
 
