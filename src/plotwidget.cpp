@@ -78,28 +78,18 @@ void PlotWidget::drawObjects( QPainter *p )
 							p1x = point.x();
 							p1y = point.y();
 
-							/* This should prevent that the first point is
-							 * connected with the 0,0-coordinate. No idea
-							 * why this is not working...
-							 
-							   if (dp = po->points()->getFirst())
+							if (dp == po->points()->getFirst())
 							   {
 							   p2x = p1x;
 							   p2y = p1y;
 							   }
 							   else
 							   {
-							   
-							  */
-							
 							p->drawLine(p1x,p1y,p2x,p2y);
 
 							p2x = p1x;
 							p2y = p1y;
-							
-							/*
 							   }
-							   */
 						}
 					}
 
