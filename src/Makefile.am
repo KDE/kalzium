@@ -11,14 +11,9 @@ kalzium_SOURCES = kalzium.cpp \
 			settings_colorschemes.ui \
 			settings_colors.ui \
 			settings_misc.ui \
-			questionadddialog.ui \
-			questionadddialog_impl.cpp \
-			questioneditor.ui \
-			questioneditor_impl.cpp \
 			infodialog_small.ui \
 			infodialog_small_impl.cpp \
 			detailinfodlg.cpp \
-			quiz.cpp \
 			orbitswidget.cpp \
 			detail_chemical.ui \
 			detail_energy.ui \
@@ -26,11 +21,7 @@ kalzium_SOURCES = kalzium.cpp \
 			plotwidget.cpp \
 			elementdataviewer.cpp \
 			plotsetupwidget.ui \
-			quizxmlparser.cpp \
-			quizwidget.ui \
-			quizwidget_impl.cpp \
-			legendwidget.cpp \
-			quizsettings.ui
+			legendwidget.cpp
 			
 kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
@@ -45,12 +36,6 @@ EXTRA_DIST = main.cpp \
 		settings_colorschemes.ui \
 		settings_colors.ui \
 		settings_misc.ui \
-		questionadddialog.ui \
-		questionadddialog_impl.cpp \
-		questionadddialog_impl.h \
-		questioneditor.ui \
-		questioneditor_impl.cpp \
-		questioneditor_impl.h \
 		infodialog_small.ui \
 		infodialog_small_impl.cpp \
 		infodialog_small_impl.h \
@@ -64,16 +49,8 @@ EXTRA_DIST = main.cpp \
 		plotwidget.h \
 		elementdataviewer.cpp \
 		elementdataviewer.h \
-		quiz.cpp \
-		quiz.h \
-		quizxmlparser.cpp \
-		quizxmlparser.h \
-		quizwidget.ui \
-		quizwidget_impl.cpp \
-		quizwidget_impl.h \
 		legendwidget.cpp \
-		legendwidget.h \
-		quizsettings.ui
+		legendwidget.h
 
 
 METASOURCES = AUTO 

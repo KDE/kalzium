@@ -15,12 +15,8 @@
 #include "settings_colorschemes.h"
 #include "settings_colors.h"
 #include "settings_misc.h"
-#include "questioneditor_impl.h"
-#include "questionadddialog_impl.h"
 #include "slider_widget.h"
 #include "elementdataviewer.h"
-#include "quizsettings.h"
-#include "quizsettings.h"
 
 #include <qinputdialog.h>
 #include <qslider.h>
@@ -80,17 +76,6 @@ void Kalzium::setupActions()
 	 numeration_action->setItems(numlist);
 	 numeration_action->setCurrentItem(Prefs::numeration()); 
 	 connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
-	 
-	/*
-	 * the actions for the quiz
-	 **/
-	 QStringList quizlist;
-	 quizlist.append(i18n("Start &Quiz"));
-	 quizlist.append(i18n("&Edit Questions"));
-	 quiz_action = new KSelectAction (i18n("&Quiz"), 0, this, 0, actionCollection(), "quiz_menu");
-	 quiz_action->setItems(quizlist);
-	 //quiz_action->setCurrentItem(0);
-	 connect (quiz_action, SIGNAL(activated(int)), this, SLOT(slotQuiz(int)));
 	 
 	/*
 	 * the actions for the colorschemes
@@ -154,38 +139,6 @@ void Kalzium::setupStatusBar()
 void Kalzium::slotStatusBar(QString text, int id)
 {
 	statusBar()->changeItem(text, id);
-}
-
-
-void Kalzium::slotStartQuiz()
-{
-	kdDebug() << "inside the start of the quiz" << endl;
-
-	qsd = new QuizsettingsDlg();
-	qsd->show();
-	connect( qsd->StartQuizButton , SIGNAL( clicked() ), this, SLOT( slotQuizSetup() ) );
-}
-
-void Kalzium::slotQuizSetup()
-{
-	int num = qsd->numQ->value();
-	int sim = qsd->simGrade->value();
-	int dif = qsd->difGrade->value();
-	
-	Quiz *q = new Quiz( num, sim, dif , 10, 15 ); 
-
-	qsd->hide();
-
-	QuizMaster *qm = new QuizMaster( q );
-	qm->startQuiz();
-}
-
-
-void Kalzium::slotEditQuestions()
-{
-	kdDebug() << "inside the questionseditor" << endl;
-	questionEditorImpl *q = new questionEditorImpl( this, "questionEditor" );
-	q->show();
 }
 
 void Kalzium::slotShowTimeline()
@@ -261,19 +214,6 @@ void Kalzium::slotSwitchtoPSE(int index)
 	Prefs::writeConfig();
 }
 
-void Kalzium::slotQuiz(int index)
-{
-	switch (index) {
-    	case 0:
-		slotStartQuiz();
-		break;
-	case 1:
-		slotEditQuestions();
-		break;
-	}
-	quiz_action->setCurrentItem(-1);
-}
-
 PSE* Kalzium::currentPSE() const
 {
 	return m_pCurrentPSE;
@@ -301,11 +241,6 @@ void Kalzium::slotUpdateSettings()
 	displayTemperature();
     displayEnergie();
     displayTemperaturevalue();
-}
-
-void Kalzium::slotQuizAction()
-{
-	quiz_action->setCurrentItem(-1);
 }
 
 void Kalzium::displayTemperature()

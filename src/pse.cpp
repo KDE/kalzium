@@ -20,7 +20,6 @@
 #include "pse.h"
 #include "prefs.h"
 #include "legendwidget.h"
-#include "stateofmatterdialog_impl.h"
 
 #include <klocale.h>
 #include <kdebug.h>

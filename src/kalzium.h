@@ -120,7 +120,6 @@ class Kalzium : public KMainWindow
 		 * all KActions Kalzium uses
 		 **/
 		KSelectAction *schema_action;
-		KSelectAction *quiz_action;
 		KSelectAction *look_action;
 		KSelectAction *numeration_action;
 		KAction *m_pTimelineAction,
@@ -128,8 +127,6 @@ class Kalzium : public KMainWindow
 			    *m_pSOMAction,
 				*m_pLengendAction;
 		
-		QuizsettingsDlg *qsd;
-				
 	private slots:
 		/**
 		 * this slot switches Kalzium to the selected colorscheme
@@ -137,8 +134,6 @@ class Kalzium : public KMainWindow
 		void slotShowScheme(int);
 		
 		void slotShowLegend();
-		
-		void slotQuizSetup();
 		
 		void slotStateOfMatter();
 
@@ -159,27 +154,9 @@ class Kalzium : public KMainWindow
 		void slotSwitchtoPSE(int);
 		
 		/**
-		 * Slot to switch Quiz menu items
-		 */
-		void slotQuiz(int);
-
-		/**
-		 * start the quiz
-		 */
-		void slotStartQuiz();
-		
-		/**
-		 * this slot starts the questionseditor.
-		 * @see questionEditorImpl
-		 */
-		void slotEditQuestions();
-
-		/**
 		 * These slots are for the standardactions
 		 */
 		void showSettingsDialog();
-		
-		void slotQuizAction();
 };
 
 /**

@@ -3,7 +3,6 @@
 <MenuBar>
   <Action name="change_pse" />
   <Action name="numerationtype" />
-  <Action name="quiz_menu" />
   <Menu name="miscmenu">
 	<text>&amp;Miscellaneous</text>
 	<Action name="use_timeline" />
