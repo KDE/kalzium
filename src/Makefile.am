@@ -31,8 +31,9 @@ kalzium_SOURCES = kalzium.cpp \
 			quizwidget_impl.cpp \
 			stateofmatterdialog.ui \
 			stateofmatterdialog_impl.cpp \
-			quizsettings.ui
-
+			quizsettings.ui \
+			legendwidget.cpp 
+			
 kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
 		  
@@ -75,7 +76,9 @@ EXTRA_DIST = main.cpp \
 		stateofmatterdialog.ui \
 		stateofmatterdialog_impl.cpp \
 		stateofmatterdialog_impl.h \
-		quizsettings.ui
+		quizsettings.ui \
+		legendwidget.cpp \
+		legendwidget.h
 
 
 METASOURCES = AUTO 

@@ -22,6 +22,7 @@
 
 class KSelectAction;
 class QuizsettingsDlg;
+class SliderWidget;
 
 /**
  * @short Application Main Window
@@ -76,6 +77,14 @@ class Kalzium : public KMainWindow
 
 	private:
 		/**
+		 * the date which the pSliderWidget will start with
+		 */
+		int date;
+
+
+		SliderWidget *m_pSliderWidget;
+		
+		/**
 		 * this Pointer points to the current PSE. The pointer
 		 * is updated every time the users chooses a new 
 		 * PSE
@@ -112,7 +121,8 @@ class Kalzium : public KMainWindow
 		KSelectAction *look_action;
 		KSelectAction *numeration_action;
 		KAction *m_pTimelineAction,
-			    *m_pPlotAction;
+			   *m_pPlotAction,
+			    *m_pSOMAction;
 		
 		QuizsettingsDlg *qsd;
 				
@@ -124,6 +134,7 @@ class Kalzium : public KMainWindow
 		
 		void slotQuizSetup();
 		
+		void slotStateOfMatter();
 
 		void slotSwitchtoNumeration(int);
 

@@ -27,20 +27,19 @@
 #include <qlcdnumber.h>
 #include <qslider.h>
 #include <qdial.h>
+#include <qcolor.h>
+#include <qlabel.h>
 
 somDialogImpl::somDialogImpl(PSE* p, QWidget* parent, const char* name)
  : somDialog(parent,name)
 {
 	kdDebug() << "somDialogImpl()" << endl;
 	connect( Slider, SIGNAL( valueChanged(int) ), this, SLOT( slotValueChanged(int) ) );
-	connect( Dial, SIGNAL( valueChanged(int) ), this, SLOT( slotValueChanged(int) ) );
 	connect( UserInput, SIGNAL( valueChanged(int) ), this, SLOT( slotValueChanged(int) ) );
 
 	switch ( Prefs::temperature() ){
 		case 0:
 			UserInput->setSuffix( i18n( "The symbol for Kelvin. There is a space in front of the K!", " K" ) );
-			Dial->setMinValue( 0 );
-			Dial->setMaxValue(5700 );
 			UserInput->setMinValue( 0 );
 			UserInput->setMaxValue( 5700 );
 			break;
@@ -52,15 +51,23 @@ somDialogImpl::somDialogImpl(PSE* p, QWidget* parent, const char* name)
 			break;
 		case 2:
 			UserInput->setSuffix( i18n( "The symbol for Degree Celsius. There is a space in front of the °C!", " °C" ) );
-			Dial->setMinValue( -273 );
-			Dial->setMaxValue( 6000 );
 			UserInput->setMinValue( -273 );
 			UserInput->setMaxValue( 6000 );
 			break;
 	}
 	
 	m_pse = p;
+	QColor c_liquid = Prefs::color_liquid();
+	QColor c_solid = Prefs::color_solid();
+	QColor c_vapor = Prefs::color_vapor();
+	QColor c_artificial = Prefs::color_artificial();
+	QColor c_radioactive = Prefs::color_radioactive();
 
+	radioL->setPaletteBackgroundColor( c_radioactive );
+	artiL->setPaletteBackgroundColor( c_artificial );
+	vaporL->setPaletteBackgroundColor( c_vapor );
+	liquidL->setPaletteBackgroundColor( c_liquid );
+	solidL->setPaletteBackgroundColor( c_solid );
 }
 
 void somDialogImpl::updateNumbers()
@@ -72,10 +79,10 @@ void somDialogImpl::updateNumbers()
 
 void somDialogImpl::slotValueChanged( int v )
 {
+	m_temp = v;
 	updateNumbers();
 
 	Slider->setValue( v );
-	Dial->setValue( v );
 	UserInput->setValue( v );
 	
 	m_temp = v;
@@ -87,7 +94,7 @@ void somDialogImpl::slotValueChanged( int v )
 			//XXX convert to Fahrenheit
 			break;
 		case 2: //Celsius is used
-			m_temp += 273;
+			m_temp -= 273;
 			break;
 	}
 

@@ -20,6 +20,7 @@
 #include "pse.h"
 #include "prefs.h"
 #include "stateofmatterdialog_impl.h"
+#include "legendwidget.h"
 
 #include <klocale.h>
 #include <kdebug.h>
@@ -215,50 +216,9 @@ void PSE::activateColorScheme( const int nr )
 			}
 		}
 	}
-	else if ( nr == 3) //state-of-matter
+	else if ( nr == 3) //acidic beh
 	{
-		//only the elements 1 to 95 (Americium) will be calculated because
-		//only for these both the boiling _and_ melting point are known.
-		//The other elements will have the color color_artificial
-
-		kdDebug() << "Number 4 was chosen... state-of-matter" << endl;
-	
-		somDialogImpl *somDlg = new somDialogImpl(this,  this, "som" );
-		somDlg->show();
-		
-		ElementButton *button;
-		const QColor color_solid = Prefs::color_solid();
-		const QColor color_liquid = Prefs::color_liquid();
-		const QColor color_vapor = Prefs::color_vapor();
-		const QColor color_artificial = Prefs::color_artificial();
-
-		static int az;
-		
-		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
-		{
-			az = button->e->az();
-
-			if (az == 0) {
-				button->setPaletteBackgroundColor( color_solid );
-				continue;
-			}
-			if (az == 1){
-				button->setPaletteBackgroundColor( color_liquid );
-				continue;
-			}
-			if (az == 3){
-				button->setPaletteBackgroundColor( color_vapor );
-				continue;
-			}
-			if (az == 4){
-				button->setPaletteBackgroundColor( color_artificial );
-				continue;
-			}
-		}
-	}
-	else if ( nr == 4) //acidic beh
-	{
-		kdDebug() << "Number 5 was chosen... acidbeh" << endl;
+		kdDebug() << "Number 4 was chosen... acidbeh" << endl;
 		ElementButton *button;
 		const QColor color_ba = Prefs::beh_basic();
 		const QColor color_ac = Prefs::beh_acidic();
@@ -343,8 +303,6 @@ void PSE::setTemperature( const double temp )
 			continue;
 		}
 
-		kdDebug() << "az != 3 und 4" << endl;
-
 		double iButton_melting = button->e->melting();
 		double iButton_boiling = button->e->boiling();
 		
@@ -374,7 +332,14 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 	
 	m_ShortName = i18n( "Regular Periodic Table" );
 	
-	QGridLayout *grid = new QGridLayout( 19 , 10 );
+	m_pLegend = new Legend( this );
+	
+	QGridLayout *grid = new QGridLayout( 11 , 18 );
+ 	
+
+	grid->addMultiCellWidget( m_pLegend, 10,10,0,17, 1 );
+
+	m_pLegend->show();;
 	
 	ElementButton *button;
 	for ( int i = 0 ; i < 18 ; i++ )
@@ -469,9 +434,13 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 
 	m_ShortName = i18n( "A Simplified Periodic Table" );
 	
-	QGridLayout *grid = new QGridLayout( 19 , 17  );
+	m_pLegend = new Legend( this );
+	
+	QGridLayout *grid = new QGridLayout( 9 , 10  );
 	
 	ElementButton *button;
+	grid->addMultiCellWidget( m_pLegend, 9,9,0,9 );
+	m_pLegend->show();
 
 	for ( int i = 0 ; i < 9 ; i++ )
 	{

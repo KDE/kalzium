@@ -23,6 +23,7 @@
 #include "elementbutton.h"
 
 class QLabel;
+class Legend;
 
 typedef QValueList<QLabel*> LabelList;
 
@@ -121,6 +122,7 @@ class PSE : public QWidget
 		QString m_ShortName;
 
 		LabelList lList;
+		Legend *m_pLegend;
 
 		int m_num;
 

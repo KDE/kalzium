@@ -21,6 +21,7 @@
 #include "elementdataviewer.h"
 #include "quizsettings.h"
 #include "quizsettings.h"
+#include "stateofmatterdialog_impl.h"
 
 #include <qinputdialog.h>
 #include <qslider.h>
@@ -98,7 +99,6 @@ void Kalzium::setupActions()
 	 looklist.append(i18n("&No Color Scheme"));
 	 looklist.append(i18n("Show &Groups"));
 	 looklist.append(i18n("Show &Blocks"));
-	 looklist.append(i18n("Show &State Of Matter"));
 	 looklist.append(i18n("Show &Acid Behavior"));
 	 look_action = new KSelectAction (i18n("&Look"), 0, this, 0, actionCollection(), "look_menu");
 	 look_action->setItems(looklist);
@@ -110,7 +110,7 @@ void Kalzium::setupActions()
 	 **/
 	m_pTimelineAction = new KAction(i18n("Show &Timeline"), "timeline.png", 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
-	
+	m_pSOMAction = new KAction(i18n("&Show State of Matter"), "legend", 0, this, SLOT(slotStateOfMatter()), actionCollection(), "show_som");
 	/*
 	 * the standardactions
 	 **/
@@ -160,6 +160,10 @@ void Kalzium::slotStartQuiz()
 	qsd = new QuizsettingsDlg();
 	qsd->show();
 	connect( qsd->StartQuizButton , SIGNAL( clicked() ), this, SLOT( slotQuizSetup() ) );
+	connect( m_pSliderWidget->pSlider, SIGNAL( valueChanged( int ) ), currentPSE(), SLOT( setDate(int) ) );
+	date = Prefs::sliderdate();
+	m_pSliderWidget->pSlider->setValue( date );
+	m_pSliderWidget->show();
 }
 
 void Kalzium::slotQuizSetup()
@@ -319,6 +323,15 @@ void Kalzium::displayTemperature()
  	slotStatusBar(i18n("Energy: ")+m_string,  IDS_ENERG);
 }
 
+void Kalzium::slotStateOfMatter()
+{
+	//only the elements 1 to 95 (Americium) will be calculated because
+	//only for these both the boiling _and_ melting point are known.
+	//The other elements will have the color color_artificial
+
+	somDialogImpl *somDlg = new somDialogImpl(m_pCurrentPSE,  this, "som" );
+	somDlg->show();
+}
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
 
 Kalzium::~Kalzium(){}

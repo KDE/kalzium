@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="kalzium" version="1">
+<kpartgui name="kalzium" version="2">
 <MenuBar>
   <Action name="change_pse" />
   <Action name="numerationtype" />
@@ -8,6 +8,7 @@
 	<text>&amp;Miscellaneous</text>
 	<Action name="use_timeline" />
 	<Action name="plotdata" />
+	<Action name="show_som" />
   </Menu>
  <Action name="look_menu" />
 </MenuBar>
@@ -15,6 +16,7 @@
 <ToolBar name="mainToolBar" noMerge="1" fullWidth="true" >
   <Action name="use_timeline" />
   <Action name="plotdata" />
+  <Action name="show_som" />
  </ToolBar>
 
 </kpartgui>

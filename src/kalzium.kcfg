@@ -40,6 +40,11 @@
 		<default>false</default>
 		<whatsthis>If this checkbox is selected you will be asked the questions of the most difficult grade</whatsthis>
 	</entry>
+	  <entry name="sliderdate" type="Int">
+		  <default>2004</default>
+		  <whatsthis>The date with which the slider starts</whatsthis>
+		  <label>The date with which the slider starts</label>
+	  </entry>
   </group>
   <group name="Colors">
     <entry name="noscheme" type="Color">
