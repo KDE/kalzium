@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
 <class>infoDlgSmall</class>
 <widget class="QDialog">
     <property name="name">
@@ -11,9 +11,6 @@
             <width>218</width>
             <height>258</height>
         </rect>
-    </property>
-    <property name="caption">
-        <string>infoDlgSmall</string>
     </property>
     <property name="whatsThis" stdset="0">
         <string>This dialog gives you information about the element</string>
