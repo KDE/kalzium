@@ -11,12 +11,12 @@
 #include <kglobalsettings.h>
 #include <klocale.h>
 #include <kpushbutton.h>
-
+#include <kstdguiitem.h>
 #include <qlayout.h>
 
 #include "kmoledit.h"
 
-KMolEdit::KMolEdit (QWidget * /*parent*/, const char* name, KMolCalc* kmolcalc) 
+KMolEdit::KMolEdit (QWidget * /*parent*/, const char* name, KMolCalc* kmolcalc)
     : QDialog (0, name, TRUE) {
 
         QGridLayout *grid = new QGridLayout ( this, 4, 2 ,8, -1, "KMolEditLayout" );
@@ -52,21 +52,21 @@ KMolEdit::KMolEdit (QWidget * /*parent*/, const char* name, KMolCalc* kmolcalc)
         connect (ok, SIGNAL(clicked()), this, SLOT(save()));
         grid->addWidget(ok, 4,1);
 
-        KPushButton* cancel = new KPushButton (i18n ("Cancel"), this, "cancel");
+        KPushButton* cancel = new KPushButton (KStdGuiItem::cancel(), this, "cancel");
         cancel->setFont(KGlobalSettings::generalFont());
         connect (cancel, SIGNAL(clicked()), this, SLOT(undo()));
         grid->addWidget(cancel, 4,2);
     }
-  
+
 /**
  * Parse the user input from this->formula and this->definition. Check syntax,
- * check definition and call the corresponding kmolcalc function to define 
+ * check definition and call the corresponding kmolcalc function to define
  * element or group. Returns an error message, "OK" if no errors.
  */
 bool KMolEdit::edit() {
   QString name(formula->text());
   if (name.isEmpty()) return true; //QString("OK");
-  if ((name[0] < 'A' || name[0] > 'Z') && (name[0] < 'a' || name[0] > 'z')) 
+  if ((name[0] < 'A' || name[0] > 'Z') && (name[0] < 'a' || name[0] > 'z'))
     { // Not a valid syntax
       error(NAMES);
       return false;//QString (i18n("Bad formula."));
@@ -109,8 +109,8 @@ void KMolEdit::error(const QString& mess) {
   QMessageBox::information (0, i18n("Error"), mess, QMessageBox::Ok);
 }
 
- 
-/** 
+
+/**
  * Save changes to definition file and close editor window.
  */
 void KMolEdit::save() {
