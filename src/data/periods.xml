@@ -1,30 +1,30 @@
 <kalzium>
 	<unit number="1">
 		<name>Period 1</name>
-		<content>1 Content content content</content>
+		<content><![CDATA[1 Content content content]]></content>
 	</unit>
 	<unit number="2">
 		<name>Period 2</name>
-		<content>2 Content content content</content>
+		<content><![CDATA[2 Content content content]]></content>
 	</unit>
 	<unit number="3">
 		<name>Period 3</name>
-		<content>3 Content content content</content>
+		<content><![CDATA[3 Content content content]]></content>
 	</unit>
 	<unit number="4">
 		<name>Period 4</name>
-		<content>4 Content content content</content>
+		<content><![CDATA[4 Content content content]]></content>
 	</unit>
 	<unit number="5">
 		<name>Period 5</name>
-		<content>5 Content content content</content>
+		<content><![CDATA[5 Content content content]]></content>
 	</unit>
 	<unit number="6">
 		<name>Period 6</name>
-		<content>6 Content content content</content>
+		<content><![CDATA[6 Content content content]]></content>
 	</unit>
 	<unit number="7">
 		<name>Period 7</name>
-		<content>7 Content content content</content>
+		<content><![CDATA[7 Content content content]]></content>
 	</unit>
 </kalzium>

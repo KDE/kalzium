@@ -183,7 +183,7 @@
 	  <entry name="other_metal" type="Color">
 		  <label>Selects the color of the metals which don't fit into the other categories</label>
 		  <whatsthis>Selects the color of the metals which don't fit into the other categories</whatsthis>
-		  <default>#0214B2</default>
+		  <default>#546F56</default>
 	  </entry>
 	  <entry name="halogene" type="Color">
 		  <label>Selects the color of the halagone elements</label>

@@ -36,38 +36,32 @@ void InformationWidget::slotUpdate( QPoint point )
 
 	htmlcode.append( content );
 
-	kdDebug() << "Content: .......... " << content << endl;
-	
 	htmlcode.append( "</body></html>" );
 
-	kdDebug() << "htmlcode: " << htmlcode << endl;
-	
 	m_explanation->setText( htmlcode );
 }
 
 QString InformationWidget::getDesc( QPoint point )
 {
 	QString information;
-	if ( buttonGroup->selectedId() == 0 ) //the users looks for groups
-		information = "foo bar bar foo groups";
-	if ( buttonGroup->selectedId() == 1) //the users looks for groups
-		information = "julia julia julia period";
+	QString fn;
+	int position = 0;
+	
+	if ( buttonGroup->selectedId() == 0 ){
+		fn = "groups.xml";
+		position = point.x();
+	}
+	else
+	{
+		fn = "periods.xml";
+		position = point.y();
+	}
 
 	QuizXMLParser parser;
-	QDomDocument doc( "periods" );
-
-	QString fn;// = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
-//	fn.append("kalzium/data/");
-	
-	if ( buttonGroup->selectedId() == 1 ) fn = "groups.xml";
-	else fn = "periods.xml";
-
-	fn = "groups.xml";
-
-	kdDebug() << fn << endl;
+	QDomDocument doc(  "periods" );
 	
 	if ( parser.loadLayout( doc, fn ) )
-		information = parser.readTasks( doc, point.x() );
+		information = parser.readTasks( doc, position );
 
 	return information;
 }
@@ -84,14 +78,9 @@ bool QuizXMLParser::loadLayout( QDomDocument &questionDocument, const QString& f
 
         QFile layoutFile( url.path() );
 
-//		kdDebug() << "url.path()" << url.path( ) << endl;
-        
         if (!layoutFile.exists())
         {
-                QString mString=i18n("The file was not found in\n"
-                                "$KDEDIR/share/apps/kalzium/data/\n\n"
-                                "Please install this file and start Kalzium again.\n\n");
-                KMessageBox::information( 0, mString, i18n( "Loading File - Error" ) );
+                KMessageBox::information( 0, i18n("Error"), i18n( "Loading File - Error" ) );
         }
 
 		//TODO really needed?
