@@ -1924,7 +1924,7 @@ Alternative2=Centrifugal Force Centers
 [q6]
 Q=What is an ester?
 A=The compound of a carboxylic acid with an alcohol
-Alternative1=The compound of an acid with an other acid
+Alternative1=The compound of an acid with another acid
 Alternative2=The compound of an acid and a fat
 
 
@@ -1936,7 +1936,7 @@ Alternative2=Alcohol
 
 [q8]
 Q=How many chemical elements are there?
-A=At present, we know of 118
+A=At present, 118 are known
 Alternative1=106
 Alternative2=103
 
@@ -1964,7 +1964,7 @@ Alternative2=Alcohol
 
 [q12]
 Q=Which of these statements is not true for enzymes?
-A=Enzyme always split molecules
+A=Enzymes always split molecules
 Alternative1=Enzymes are proteins
 Alternative2=Enzymes speed up chemical reactions
 
@@ -2024,7 +2024,7 @@ Alternative2=Ions with a single positive charge and a double negative charge.
 Q=What does one call the spatial probability density of electrons in atoms and molecules?
 A=Orbital
 Alternative1=Wave
-Alternative2=Eigenvalue
+Alternative2=Particle
 
 [q22]
 Q=How many aminoacids are there?
@@ -2071,13 +2071,13 @@ Alternative2=O
 [q28]
 Q=What is "aqua regia"?
 A=A solution of one part Nitric Acid to three parts Hydrochloric Acid. It is able to dissolve Gold and other Noble metals.
-Alternative1=Gold-ions solved in water.
+Alternative1=Gold-ions dissolved in water.
 Alternative2=In the middle ages, the urine of aristocrats was called that. It was supposed that it contained a higher amount of precious metals.
 
 
 [q29]
 Q=The combination of an Acid and a Base produces...
-A=Water and a salt. Ex: HCl + NaOH -> H2O + NaCl
+A=Water and a salt. Example: HCl + NaOH -> H2O + NaCl
 Alternative1=A solution that always has a pH of 7.
 Alternative2=A solution that will not conduct electrical current.
 
@@ -2097,7 +2097,7 @@ Alternative2=Because soap cleaves fat molecules into smaller molecules.
 
 [q32]
 Q=What is a Mol?
-A=A mol is a certain quantity of a material. 1 mol of a material contains accurately 6.02 x 10^23 particles of this material.  The number 6.022*10^23 is chosen as the number of objects because an element having the same weight in grams as it's atomic weight contains this many atoms.
+A=A mol is a certain quantity of a material. 1 mol of a material contains accurately 6.022 x 10^23 particles of this material. The number 6.022 x 10^23 is chosen as the number of objects, because an element having the same weight in grams as its atomic weight contains this many atoms.
 Alternative1=The number of electrons that move from the anode to the cathode, when a potential of 10 volts is applied.
 Alternative2=A biological unit that denotes the number of spores per square centimeter.
 
@@ -2109,7 +2109,7 @@ Alternative2=Plastic veneer coefficient.
 
 [q34]
 Q=What material did Charles Goodyear make in 1844?
-A=Vulcanization of Rubber. Natural or India rubber, as it was then known, was of limited usefulness to industry.  Rubber products melted in hot weather, froze and cracked in cold, and adhered to virtually everything until the day in the mid-19th century when inventor Charles Goodyear accidentally dropped some rubber mixed with sulfur on a hot stove. Goodyear's discovery of what came to be known as vulcanization strengthened rubber so it could be applied to a vast variety of industrial uses, including, eventually, automobile tires.
+A=Vulcanization of Rubber. Natural or India rubber, as it was then known, was of limited usefulness to industry. Rubber products melted in hot weather, froze and cracked in cold, and adhered to virtually everything until the day in the mid-19th century when inventor Charles Goodyear accidentally dropped some rubber mixed with sulfur on a hot stove. Goodyear's discovery of what came to be known as vulcanization strengthened rubber so it could be applied to a vast variety of industrial uses, including, eventually, automobile tires.
 Alternative1=Mercerized cotton
 Alternative2=Duraluminum
 
@@ -2210,7 +2210,7 @@ Alternative2=Plexiglas
 [q50]
 Q=What are the Roman digits used for, in the periodic table?
 A=They show the number of valence electrons
-Alternative1=The denote the number of neutrons not paired with protons.
+Alternative1=They denote the number of neutrons not paired with protons.
 Alternative2=They are the number of orbitals in the atoms of that particular column.
 
 [q51]
@@ -2226,7 +2226,7 @@ Alternative1=3
 Alternative2=1
 
 [q53]
-Q=What isn't a DNA base?
+Q=What is not a DNA base?
 A=Pyridine
 Alternative1=Pyrrole
 Alternative2=Piperidine
@@ -2241,7 +2241,7 @@ Alternative2=0.11%
 [q55]
 Q=What is the structure of Toluene?
 A=A Benzene with CH3 attached.
-Alternative1=Two six sided rings of Carbon that are fused together.
+Alternative1=Two six-sided rings of Carbon that are fused together.
 Alternative2=Three six sided rings of Carbon that are fused together.
 
 [q56]
@@ -2270,7 +2270,7 @@ Alternative2=Julius Lothar Meyer
 
 [q60]
 Q=Why is the group VIIIA called the Noble gases?
-A=Noble gases are unreactive and combine with other elements only with great difficulty. Hence they are called noble because they don't mingle.
+A=Noble gases are unreactive and combine with other elements only with great difficulty. Hence they are called noble because they do not mingle.
 Alternative1=Many of them were discovered by the aristocracy.
 Alternative2=Some of the elements in this column were discovered by Alfred Nobel.
 
