@@ -160,10 +160,6 @@ void Kalzium::slotStartQuiz()
 	qsd = new QuizsettingsDlg();
 	qsd->show();
 	connect( qsd->StartQuizButton , SIGNAL( clicked() ), this, SLOT( slotQuizSetup() ) );
-	connect( m_pSliderWidget->pSlider, SIGNAL( valueChanged( int ) ), currentPSE(), SLOT( setDate(int) ) );
-	date = Prefs::sliderdate();
-	m_pSliderWidget->pSlider->setValue( date );
-	m_pSliderWidget->show();
 }
 
 void Kalzium::slotQuizSetup()
@@ -190,15 +186,15 @@ void Kalzium::slotShowTimeline()
 {
 	kdDebug() << "Kalzium::slotShowTimeline()" << endl;
 
-	SliderWidget *pSliderWidget = new SliderWidget();
+	m_pSliderWidget = new SliderWidget();
 
 	/**
 	 * now do the connections
 	 **/
-	connect( pSliderWidget->pSlider, SIGNAL( valueChanged( int ) ), currentPSE(), SLOT( setDate(int) ) );
-
-	pSliderWidget->pSlider->setValue( 2004 );
-	pSliderWidget->show();
+	connect( m_pSliderWidget->pSlider, SIGNAL( valueChanged( int ) ), currentPSE(), SLOT( setDate(int) ) );
+	date = Prefs::sliderdate();
+	m_pSliderWidget->pSlider->setValue( date );
+	m_pSliderWidget->show();
 }
 
 void Kalzium::slotPlotData()
@@ -231,9 +227,6 @@ void Kalzium::slotSwitchtoPSE(int index)
     	case 0:
 		m_pCurrentPSE = m_pRegularPSE;
 		break;
-//X 	case 1:
-//X 		m_pCurrentPSE = m_pMendeljevPSE;
-//X 		break;
 	case 1:
 		m_pCurrentPSE = m_pSimplePSE;
 		break;
@@ -252,9 +245,6 @@ void Kalzium::slotQuiz(int index)
 		slotStartQuiz();
 		break;
 	case 1:
-		showSettingsDialog();
-		break;
-	case 2:
 		slotEditQuestions();
 		break;
 	}
