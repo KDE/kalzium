@@ -144,79 +144,98 @@ const QString Element::adjustUnits( const int type )
 		else
 			val = melting();
 
-		switch (Prefs::temperature()) {
-			case 0: //Kelvin
-				v = QString::number( val );
-				v.append( "K" );
-				break;
-			case 1://Kelvin to Celsius
-				val-=273.15;
-				v = QString::number( val );
-				v.append( "C" );
-				break;
-			case 2: // Kelvin to Fahrenheit
-				val = val * 1.8 - 459.67;
-				v = QString::number( val );
-				v.append( "F" );
-				break;
+		if ( val == -1 )
+			v = i18n( "Value unknown" );
+		else
+		{
+			switch (Prefs::temperature()) {
+				case 0: //Kelvin
+					v = QString::number( val );
+					v.append( "K" );
+					break;
+				case 1://Kelvin to Celsius
+					val-=273.15;
+					v = QString::number( val );
+					v.append( "C" );
+					break;
+				case 2: // Kelvin to Fahrenheit
+					val = val * 1.8 - 459.67;
+					v = QString::number( val );
+					v.append( "F" );
+					break;
+			}
 		}
 	}
 	else if ( type == RADIUS ) // its a length
 	{
 		val = radius();
 
-		switch ( Prefs::units() )
+		if ( val == -1 )
+			v = i18n( "Value unknown" );
+		else
 		{
-			case 0:
-				v = QString::number( val );
+			switch ( Prefs::units() )
+			{
+				case 0://use SI-values (meter for length)
+					v = QString::number( val );
 
-				v.append( " 10<sup>-12</sup>m" );
-				break;
-			case 1:
-				v = QString::number( val );
+					v.append( " 10<sup>-12</sup>m" );
+					break;
+				case 1://use picometer, the most common unit for radii
+					v = QString::number( val );
 
-				v.append( i18n( " pm" ) );
-				break;
+					v.append( i18n( " pm" ) );
+					break;
+			}
 		}
 	}
 	else if ( type == WEIGHT ) // its a weight
 	{
 		val = weight();
-
-		v = QString::number( val );
-		switch ( Prefs::units() )
+		if ( val == -1 )
+			v = i18n( "Value unknown" );
+		else
 		{
-			case 0:
-				v.append( i18n( "g/mol" ) );
-				break;
-			case 1:
-				v.append( i18n( " u" ) );
-				break;
+			v = QString::number( val );
+			switch ( Prefs::units() )
+			{
+				case 0:
+					v.append( i18n( "g/mol" ) );
+					break;
+				case 1:
+					v.append( i18n( " u" ) );
+					break;
+			}
 		}
 	}
 	else if ( type == DENSITY ) // its a density
 	{
 		val = density();
 
-		switch ( Prefs::units() )
+		if ( val == -1 )
+			v = i18n( "Value unknown" );
+		else
 		{
-			case 0:
-				val *= 1000;
-				v = QString::number( val );
-				v.append( " kg/m<sup>3</sup>" );
-				break;
-			case 1:
-				if ( az() == 2 )//gasoline
-				{
+			switch ( Prefs::units() )
+			{
+				case 0://use SI (kg per cubic-meter)
+					val *= 1000;
 					v = QString::number( val );
-					v.append( " g/L" );
-				}
-				else//liquid or solid
-				{
-					v = QString::number( val );
-					v.append( " g/cm<sup>3</sup>" );
-				}
-				break;
+					v.append( " kg/m<sup>3</sup>" );
+					break;
+				case 1://use more common units
+					if ( az() == 2 )//gasoline
+					{
+						v = QString::number( val );
+						v.append( " g/L" );
+					}
+					else//liquid or solid
+					{
+						v = QString::number( val );
+						v.append( " g/cm<sup>3</sup>" );
+					}
+					break;
+			}
 		}
 	}
 	else if ( type == DATE ) //its a date
