@@ -32,7 +32,7 @@
 #include <qpoint.h>
 #include <qradiobutton.h>
 #include <qbuttongroup.h>
-
+#include <qcursor.h>
 #include <qpainter.h>
 
 PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
@@ -41,9 +41,14 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	d = data;
 
 	connect( this, SIGNAL( tableClicked( QPoint ) ), this, SLOT( slotUpdatePoint( QPoint ) ) );
+	connect( this, SIGNAL( ToolTip( int ) ), this, SLOT( slotToolTip( int ) ) );
+	connect(  &HoverTimer, SIGNAL(  timeout() ), this, SLOT(  slotTransientLabel() ) );
+
+	setMouseTracking( true );
 
 	m_molcalcIsActive = false;
 	m_learningMode = false;
+	m_showTooltip = false;
 
 //IUPAC
 	    m_IUPAClist.append( "IA");
@@ -89,6 +94,14 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
       
       //JH: For now, always do a full draw
       doFullDraw = true;
+}
+
+void PSE::slotToolTip( int number )
+{
+	kdDebug() << "slotToolTip(): " << number << endl;
+	m_showTooltip = true;
+	m_tooltipElementNumber = number;
+	update();
 }
 
 PSE::~PSE(){}
@@ -266,6 +279,7 @@ void PSE::activateColorScheme( const int nr )
 
 void PSE::setDate( int date )
 {
+	kdDebug() << date << endl;
 //6 16 26 29 33 47 50 51 79 80 82 83
 }
 
@@ -288,14 +302,31 @@ void PSE::paintEvent( QPaintEvent *e )
 
 		if ( m_showLegend )
 			drawLegend( &p );
+		
+		if ( m_showTooltip )
+			drawToolTip( &p, new Element( m_tooltipElementNumber ) );
+		
 		p.end();
-
 		//JH: Uncomment when ready for this
 		//    doFullDraw = false;
 	}
 
 	bitBlt( this, 0, 0, table );
 }
+
+void PSE::drawToolTip( QPainter* p, Element *e )
+{
+	kdDebug() << "PSE::drawToolTip()" << endl;
+
+	int x = QCursor::pos().x();
+	int y = QCursor::pos().y();
+
+	y -= 50;
+
+	p->fillRect( x,y,80,80 , Qt::red );
+	p->drawText( x,y, e->elname() );
+}
+
 
 void PSE::drawLegend( QPainter* p )
 {
@@ -435,6 +466,61 @@ void PSE::drawSOMPSE( QPainter* p )
 
 }
 
+void PSE::slotTransientLabel( void )
+{
+	kdDebug() << "PSE::slotTransientLabel" << endl;
+
+	int X = QCursor::pos().x()/45;
+	int Y = QCursor::pos().y()/45;
+	if ( m_isSimple )
+	{
+		if ( QCursor::pos().x() > ( 2*45 ) )
+		{
+			X += 10;
+		}
+	}
+		
+	X += 1;
+	Y += 1;
+
+	QPoint point( X,Y );
+	kdDebug() << point.x() << " :x" << endl;
+	kdDebug() << point.y() << " :y" << endl;
+
+	//from this on I can use X and Y. Both contain the position of an element in the
+	//complete PSE. Eg, He is 1,18 and Na is 2,1
+	CList::ConstIterator it = d->CoordinateList.begin();
+
+	int counter = 1;
+	while ( it != d->CoordinateList.end() )
+	{//iterate through the list of coordinates and compare the x/y values.
+	 //finally, if the 20'es iterator has the same cooridnates Element 20
+	 //has been clicked.
+	
+		coordinate c = *it;
+		if ( c.x == X )
+		{
+			if ( c.y == Y )
+			{//coordinates match. Get the position of the it in the list.
+				emit ToolTip( counter );
+
+				return;
+			}
+		}
+		++it;
+		++counter;
+	}
+
+}
+
+void PSE::mouseMoveEvent( QMouseEvent *mouse )
+{
+	kdDebug() << "PSE::mouseMoveEvent" << endl;
+
+	m_showTooltip = false;
+	HoverTimer.start(  2000, false );
+}
+
 void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 {
 	///first: find out the position
@@ -454,7 +540,6 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 
 	QPoint point( X,Y );
 	emit tableClicked( point );
-	kdDebug() << point.x() << " :x" << endl;
 
 	//from this on I can use X and Y. Both contain the position of an element in the
 	//complete PSE. Eg, He is 1,18 and Na is 2,1

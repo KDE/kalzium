@@ -28,6 +28,7 @@ class QVBoxLayout;
 #include <qvaluelist.h>
 #include <qwidget.h>
 #include <qdialog.h>
+#include <qtimer.h>
 
 #include "element.h"
 #include "informationdialog_impl.h"
@@ -111,6 +112,8 @@ class PSE : public QWidget
 		
 		///if true the State Of Matter will be shown
 		bool m_showSOM;
+
+		bool m_showTooltip;
 		
 		void activateSOMMode( bool som ){
 			m_showSOM = som;
@@ -132,7 +135,10 @@ class PSE : public QWidget
 		
 
 	private:
+		QTimer TransientTimer, HoverTimer;
+		
 		bool m_learningMode;
+		int m_tooltipElementNumber;
 		
 		/**
 		 * updates the numeration of the PSE
@@ -143,6 +149,8 @@ class PSE : public QWidget
 		QPoint m_currentPoint;
 		
 		void mouseReleaseEvent( QMouseEvent* );
+		
+		void mouseMoveEvent( QMouseEvent* );
 
 		///if true the user looks at periods
 		bool m_Vertikal;
@@ -184,15 +192,19 @@ class PSE : public QWidget
 	 */
 	void setDate( int date );
 		
- 	 void setLearningMode( int horizontal ){
-			if ( horizontal == 1 )
-				m_Vertikal = false;
-			else
-				m_Vertikal = true;
-		}
+void setLearningMode( int horizontal ){
+	  if ( horizontal == 1 )
+		  m_Vertikal = false;
+	  else
+		  m_Vertikal = true;
+ }
+
+	void slotTransientLabel();
+	
 		
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
+		virtual void drawToolTip( QPainter *p, Element *e );
 		virtual void resizeEvent( QResizeEvent *e );
 
 	public slots:	
@@ -200,6 +212,8 @@ class PSE : public QWidget
 		 * this slot updates the currently selected point
 		 */
 		void slotUpdatePoint( QPoint point );
+
+	void slotToolTip( int );
 
 	signals:
 		/**
@@ -211,6 +225,8 @@ class PSE : public QWidget
 		 * this signal is emited when an element is clicked
 		 */
 		void ElementClicked(int);
+		
+		void ToolTip(int);
 
 	public:
 		virtual void drawPSE( QPainter* p, bool useSimpleView );
