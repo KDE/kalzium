@@ -39,7 +39,7 @@
 
 Element::Element()
 {
-};
+}
 
 QString Element::parsedOrbits()
 {
