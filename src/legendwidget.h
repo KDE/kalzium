@@ -35,6 +35,15 @@ class Legend : public QWidget
 		 * shows/hides the necessary buttons for the legend
 		 */
 		void setScheme( int scheme );
+
+		QLabel *one,
+				*two,
+				*three,
+				*four,
+				*five,
+				*six,
+				*seven,
+				*eight;
 };
 
 #endif // LEGENDWIDGET_H
