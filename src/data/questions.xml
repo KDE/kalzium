@@ -1,0 +1,372 @@
+<kalzium>
+	<task grade="2">
+		<question text="Which of these old molecules is not an alcohol" />
+		<answer type="true" text="Propanal" />
+		<answer type="false" text="Methnol" />
+		<answer type="false" text="Pentanol" />
+	</task>
+	<task grade="2">
+		<question text="Which of these alcohols is the one we like to drink?" />
+		<answer type="true" text="Ethanol" />
+		<answer type="false" text="Glycol" />
+		<answer type="false" text="Methanol" />
+	</task>
+	<task grade="2">
+		<question text="Which of these substances is not an element?" />
+		<answer type="true" text="Water" />
+		<answer type="false" text="Iron" />
+		<answer type="false" text="Oxygen" />
+	</task>
+	<task grade="2">
+		<question text="What percentage of the air is Oxygen?" />
+		<answer type="true" text="20.95%" />
+		<answer type="false" text="35%" />
+		<answer type="false" text="95%" />
+	</task>
+	<task grade="2">
+		<question text="What is the meaning of CFC?" />
+		<answer type="true" text="Chlorofluorocarbons" />
+		<answer type="false" text="Chloroform crystals" />
+		<answer type="false" text="Centrifugal Force Centers" />
+	</task>
+	<task grade="2">
+		<question text="What is an ester?" />
+		<answer type="true" text="The compound of a carboxylic acid with an alcohol" />
+		<answer type="false" text="The compound of an acid with another acid" />
+		<answer type="false" text="The compound of an acid and a fat" />
+	</task>
+	<task grade="2">
+		<question text="Starch is made of..." />
+		<answer type="true" text="sugars" />
+		<answer type="false" text="Cellulose" />
+		<answer type="false" text="Alcohol" />
+	</task>
+	<task grade="2">
+		<question text="How many chemical elements are there?" />
+		<answer type="true" text="At present, 118 are known" />
+		<answer type="false" text="106" />
+		<answer type="false" text="103" />
+	</task>
+	<task grade="2">
+		<question text="Proteins are made of..." />
+		<answer type="true" text="aminoacids" />
+		<answer type="false" text="Alcohols" />
+		<answer type="false" text="Nucleic acids" />
+	</task>
+	<task grade="2">
+		<question text="What is oxidation?" />
+		<answer type="true" text="An element compounded with oxygen; Oxidation is the loss of electrons." />
+		<answer type="false" text="An element compounds with air" />
+		<answer type="false" text="Hydrogen and Oxygen compound to Water" />
+	</task>
+	<task grade="2">
+		<question text="Which one of these substances does not contain Carbon?" />
+		<answer type="true" text="Sand" />
+		<answer type="false" text="Diamond" />
+		<answer type="false" text="Alcohol" />
+	</task>
+	<task grade="2">
+		<question text="Which of these statements is not true for enzymes?" />
+		<answer type="true" text="Enzymes always split molecules" />
+		<answer type="false" text="Enzymes are proteins" />
+		<answer type="false" text="Enzymes speed up chemical reactions" />
+	</task>
+	<task grade="2">
+		<question text="Which statement is not correct for the pH-Value?" />
+		<answer type="true" text="Pure water does not have a pH-value of 7" />
+		<answer type="false" text="One can test the pH-value with litmus paper" />
+		<answer type="false" text="The pH-value tells you if something is acidic or basic" />
+	</task>
+	<task grade="2">
+		<question text="What procedure is used to manufacture Ammonia?" />
+		<answer type="true" text="The Haber-Bosch process." />
+		<answer type="false" text="Rothe-Caro-Frank-process" />
+		<answer type="false" text="Solvay-process" />
+	</task>
+	<task grade="2">
+		<question text="Compounds made from Ions are called?" />
+		<answer type="true" text="Salts" />
+		<answer type="false" text="Fats" />
+		<answer type="false" text="Esters" />
+	</task>
+	<task grade="2">
+		<question text="Which gas expedites the ripening of fruit?" />
+		<answer type="true" text="Ethene" />
+		<answer type="false" text="Ethin" />
+		<answer type="false" text="Ethane" />
+	</task>
+	<task grade="2">
+		<question text="Isomeric molecules are..." />
+		<answer type="true" text="Molecules which have the same molecular formula but differ in the way their atoms are arranged." />
+		<answer type="false" text="Molecules, which possess the the same sum formula and same structural formula, however they are mirror-images of each other." />
+		<answer type="false" text="Molecules that have the same structural formula, but possess different  formula sums." />
+	</task>
+	<task grade="2">
+		<question text="What is a chiral compound?" />
+		<answer type="true" text="Molecules which have the same chemical formula and the same structural formula but are mirror images to each other." />
+		<answer type="false" text="Molecules that are always right handed and left handed." />
+		<answer type="false" text="Molecules that have the same structural formula, but possess different  formula sums." />
+	</task>
+	<task grade="2">
+		<question text="What is the acid with the formula CH3COOH called?" />
+		<answer type="true" text="Acetic Acid" />
+		<answer type="false" text="Formic acid" />
+		<answer type="false" text="Butyric acid" />
+	</task>
+
+
+	<task grade="2">
+		<question text="What is a Zwitterion?" />
+		<answer type="true" text="An ion with both a positive and negative charge." />
+		<answer type="false" text="Ions with double positive and single negative charges." />
+		<answer type="false" text="Ions with a single positive charge and a double negative charge." />
+	</task>
+	<task grade="2">
+		<question text="What does one call the spatial probability density of electrons in atoms and molecules?" />
+		<answer type="true" text="Orbital" />
+		<answer type="false" text="Wave" />
+		<answer type="false" text="Particle" />
+	</task>
+	<task grade="2">
+		<question text="How many aminoacids are there?" />
+		<answer type="true" text="20" />
+		<answer type="false" text="4" />
+		<answer type="false" text="8" />
+	</task>
+	<task grade="2">
+		<question text="What is milk from the view of a chemist?" />
+		<answer type="true" text="emulsion" />
+		<answer type="false" text="Alloying" />
+		<answer type="false" text="Suspension" />
+	</task>
+	<task grade="2">
+		<question text="How are atoms called which differ only in the number of their neutrons?" />
+		<answer type="true" text="isotopes" />
+		<answer type="false" text="Isomers" />
+		<answer type="false" text="Allotropes" />
+	</task>
+	<task grade="2">
+		<question text="Which of these gases is not inert?" />
+		<answer type="true" text="Bromine" />
+		<answer type="false" text="Krypton" />
+		<answer type="false" text="Argon" />
+	</task>
+	<task grade="2">
+		<question text="What is not a halogen?" />
+		<answer type="true" text="Lanthan" />
+		<answer type="false" text="Chlorine" />
+		<answer type="false" text="Fluorine" />
+	</task>
+	<task grade="2">
+		<question text="The chemical symbol for Hydrogen is?" />
+		<answer type="true" text="H" />
+		<answer type="false" text="He" />
+		<answer type="false" text="O" />
+	</task>
+	<task grade="2">
+		<question text="What is aqua regia?" />
+		<answer type="true" text="A solution of one part Nitric Acid to three parts Hydrochloric Acid. It is able to dissolve Gold and other Noble metals." />
+		<answer type="false" text="Gold-ions dissolved in water." />
+		<answer type="false" text="In the middle ages, the urine of aristocrats was called that. It was supposed that it contained a higher amount of precious metals." />
+	</task>
+	<task grade="2">
+		<question text="The combination of an Acid and a Base produces..." />
+		<answer type="true" text="Water and a salt. Example: HCl + NaOH -> H2O + NaCl" />
+		<answer type="false" text="A solution that always has a pH of 7." />
+		<answer type="false" text="A solution that will not conduct electrical current." />
+	</task>
+	<task grade="2">
+		<question text="What is the red colored material in blood called?" />
+		<answer type="true" text="Hemoglobin" />
+		<answer type="false" text="Plasma" />
+		<answer type="false" text="Lipids" />
+	</task>
+	<task grade="2">
+		<question text="Why does soap dissolve fat?" />
+		<answer type="true" text="Because soap molecules consist of a water-soluble head and an organic (fat dissolving) tail, they can loosen fat molecules in water." />
+		<answer type="false" text="Because soap forms acid as it reacts with fats." />
+		<answer type="false" text="Because soap cleaves fat molecules into smaller molecules." />
+	</task>
+	<task grade="2">
+		<question text="What is a Mol?" />
+		<answer type="true" text="A mol is a certain quantity of a material. 1 mol of a material contains accurately 6.022 x 10^23 particles of this material. The number 6.022 x 10^23 is chosen as the number of objects, because an element having the same weight in grams as its atomic weight contains this many atoms." />
+		<answer type="false" text="The number of electrons that move from the anode to the cathode, when a potential of 10 volts is applied." />
+		<answer type="false" text="A biological unit that denotes the number of spores per square centimeter." />
+	</task>
+	<task grade="2">
+		<question text="What does PVC stand for?" />
+		<answer type="true" text="Polyvinylchloride" />
+		<answer type="false" text="Positive Valence Charge" />
+		<answer type="false" text="Plastic veneer coefficient." />
+	</task>
+	<task grade="2">
+		<question text="What material did Charles Goodyear make in 1844?" />
+		<answer type="true" text="Vulcanization of Rubber. Natural or India rubber, as it was then known, was of limited usefulness to industry. Rubber products melted in hot weather, froze and cracked in cold, and adhered to virtually everything until the day in the mid-19th century when inventor Charles Goodyear accidentally dropped some rubber mixed with sulfur on a hot stove. Goodyear's discovery of what came to be known as vulcanization strengthened rubber so it could be applied to a vast variety of industrial uses, including, eventually, automobile tires." />
+		<answer type="false" text="Mercerized cotton" />
+		<answer type="false" text="Duraluminum" />
+	</task>
+	<task grade="2">
+		<question text="Which metal atom is in the center of Chlorophyll?" />
+		<answer type="true" text="Magnesium" />
+		<answer type="false" text="Zinc" />
+		<answer type="false" text="Chromium" />
+	</task>
+	<task grade="2">
+		<question text="Through what material does sound travel the quickest?" />
+		<answer type="true" text="Iron" />
+		<answer type="false" text="Tungsten" />
+		<answer type="false" text="Cobalt" />
+	</task>
+	<task grade="2">
+		<question text="What is the chemical name for rust?" />
+		<answer type="true" text="Ferric oxide" />
+		<answer type="false" text="Ferrous Oxide" />
+		<answer type="false" text="Iron (IV) Oxide" />
+	</task>
+	<task grade="2">
+		<question text="What is the name of the alloy of Copper and Tin?" />
+		<answer type="true" text="Bronze" />
+		<answer type="false" text="Brass" />
+		<answer type="false" text="Babbitt metal" />
+	</task>
+	<task grade="2">
+		<question text="What is an Alloy?" />
+		<answer type="true" text="A solution of two metals that is a solid." />
+		<answer type="false" text="A very strong metal" />
+		<answer type="false" text="Any solid mixture." />
+	</task>
+	<task grade="2">
+		<question text="Which element uses part of the Greek word for Sun?" />
+		<answer type="true" text="Helium" />
+		<answer type="false" text="Gallium" />
+		<answer type="false" text="Thallium" />
+	</task>
+	<task grade="2">
+		<question text="What is NaCl?" />
+		<answer type="true" text="Common salt" />
+		<answer type="false" text="A ductile crystal" />
+		<answer type="false" text="A red crystal." />
+	</task>
+	<task grade="2">
+		<question text="What is a chain of the same molecules called?" />
+		<answer type="true" text="Polymer" />
+		<answer type="false" text="Homologs" />
+		<answer type="false" text="Conformers" />
+	</task>
+	<task grade="2">
+		<question text="What was it that Alchemists wanted to achieve?" />
+		<answer type="true" text="To transform Lead into Gold." />
+		<answer type="false" text="To purify Gold." />
+		<answer type="false" text="To find a metal more valuable than Gold." />
+	</task>
+	<task grade="2">
+		<question text="By which test can Antimony be identified?" />
+		<answer type="true" text="The Marsh test can detect it." />
+		<answer type="false" text="Tollens test" />
+		<answer type="false" text="Wittig reaction." />
+	</task>
+	<task grade="2">
+		<question text="Which of these properties does not apply to diamonds?" />
+		<answer type="true" text="They are fireproof." />
+		<answer type="false" text="As a dielectric, they are good conductors of heat." />
+		<answer type="false" text="They are the hardest material known." />
+	</task>
+	<task grade="2">
+		<question text="Which gas does not contribute to the greenhouse effect of the earth?" />
+		<answer type="true" text="Nitrogen" />
+		<answer type="false" text="Methane" />
+		<answer type="false" text="Carbon dioxide" />
+	</task>
+	<task grade="2">
+		<question text="What is the meaning of the term Halogen?" />
+		<answer type="true" text="Salt former." />
+		<answer type="false" text="Light giver" />
+		<answer type="false" text="Oxidizer" />
+	</task>
+	<task grade="2">
+		<question text="When is fermentation not used?" />
+		<answer type="true" text="Rubber production" />
+		<answer type="false" text="Wine making" />
+		<answer type="false" text="Brewing beer." />
+	</task>
+	<task grade="2">
+		<question text="Which plastic is formed by bacteria?" />
+		<answer type="true" text="Poly (3-hydroxybutyrate)" />
+		<answer type="false" text="Styrene" />
+		<answer type="false" text="Plexiglas" />
+	</task>
+	<task grade="2">
+		<question text="What are the Roman digits used for, in the periodic table?" />
+		<answer type="true" text="They show the number of valence electrons" />
+		<answer type="false" text="They denote the number of neutrons not paired with protons." />
+		<answer type="false" text="They are the number of Orbits in the atoms of that particular column." />
+	</task>
+	<task grade="2">
+		<question text="How many Carbon atoms are in Benzene?" />
+		<answer type="true" text="6" />
+		<answer type="false" text="10" />
+		<answer type="false" text="5" />
+	</task>
+	<task grade="2">
+		<question text="How many Carbon atoms are in Ethanol?" />
+		<answer type="true" text="2" />
+		<answer type="false" text="3" />
+		<answer type="false" text="1" />
+	</task>
+	<task grade="2">
+		<question text="What is not a DNA base?" />
+		<answer type="true" text="Guanine" />
+		<answer type="false" text="Pyrrole" />
+		<answer type="false" text="Piperidine" />
+	</task>
+	<task grade="2">
+		<question text="How high is the carbon dioxide content of the air, which is responsible for the greenhouse effect?" />
+		<answer type="true" text="0.03%" />
+		<answer type="false" text="0.25%" />
+		<answer type="false" text="0.11%" />
+	</task>
+	<task grade="2">
+		<question text="What is the structure of Toluene?" />
+		<answer type="true" text="A Benzene with CH3 attached." />
+		<answer type="false" text="Two six-sided rings of Carbon that are fused together." />
+		<answer type="false" text="Three six-sided rings of Carbon that are fused together." />
+	</task>
+	<task grade="2">
+		<question text="Which of these statements about galvanizing is false?" />
+		<answer type="true" text="Galvanization is not associated with the Italian researcher Salvatore Galvani." />
+		<answer type="false" text="Galvanizing does not protect steel articles from rust." />
+		<answer type="false" text="Galvanic protection is not electrolytic in nature." />
+	</task>
+	<task grade="2">
+		<question text="What is an Isotope?" />
+		<answer type="true" text="Isotopes are atoms that contain different numbers of Neutrons." />
+		<answer type="false" text="Isotopes are atoms that contain different numbers of Protons" />
+		<answer type="false" text="Isotopes are atoms that have different electrical charges." />
+	</task>
+	<task grade="2">
+		<question text="How is the periodic table of elements arranged?" />
+		<answer type="true" text="The table is arranged in order of the number of Protons contained in each atom." />
+		<answer type="false" text="So that the elements in each column have similar colors." />
+		<answer type="false" text="The table is arranged in rows that are 18 elements long." />
+	</task>
+	<task grade="2">
+		<question text="Who introduced the idea of a periodic table of elements?" />
+		<answer type="true" text="A I Mendeleev" />
+		<answer type="false" text="Johann Lochschmidt" />
+		<answer type="false" text="Julius Lothar Meyer" />
+	</task>
+	<task grade="2">
+		<question text="Why is the group VIIIA called the Noble gases?" />
+		<answer type="true" text="Noble gases are unreactive and combine with other elements only with great difficulty. Hence they are called noble because they do not mingle." />
+		<answer type="false" text="Many of them were discovered by the aristocracy." />
+		<answer type="false" text="Some of the elements in this column were discovered by Alfred Nobel." />
+	</task>
+	<task grade="2">
+		<question text="What is an Ion?" />
+		<answer type="true" text="An electrically charged particle, which is either positive or negatively charged." />
+		<answer type="false" text="A subatomic particle" />
+		<answer type="false" text="A very large molecule" />
+	</task>
+</kalzium>
+
+

@@ -32,7 +32,7 @@ kalzium_SOURCES = kalzium.cpp \
 kalzium_LDADD   = $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
 		  
-SUBDIRS = icons elementpics
+SUBDIRS = icons elementpics data
 
 EXTRA_DIST = main.cpp \
 		kalzium.cpp kalzium.h \
