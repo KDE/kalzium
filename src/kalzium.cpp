@@ -118,7 +118,7 @@ void Kalzium::setupActions()
 	
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
-	createGUI();
+	setupGUI();
 }
 
 void Kalzium::setupStatusBar()
