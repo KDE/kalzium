@@ -17,20 +17,20 @@
 
 //KDE-Includes
 #include <klocale.h>
-#include <kpushbutton.h>
-#include <kconfig.h>
-#include <kdialog.h>
 
 //QT-Includes
 #include <qwhatsthis.h>
 #include <qlayout.h>
-#include <qfont.h>
 #include <qslider.h>
-#include <qcolor.h>
+#include <qfont.h>
 #include <qlabel.h>
+#include <qcolor.h>
 #include <qlcdnumber.h>
 
 #include <qinputdialog.h>
+
+#include <kpushbutton.h>
+#include <kconfig.h>
 
 #include "elementkp.h"
 #include "stateofmatterdlg.h"
@@ -142,27 +142,28 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	tempgrid->addWidget(InputButton, 9, 1 );
 	QObject::connect(InputButton, SIGNAL(clicked()), this , SLOT(slotSetTemp()));
 	QWhatsThis::add(InputButton, i18n("If you click on this button you can enter a temperature"));
+	tempS->setValue( -25 );
 }
 
 void StateOfMatterDlg::tempbeh()
 {
-    int tempC = -1*( tempS->value() );
-    celsiusLCD->display(tempC);
-    kelvinLCD->display(tempC+273);
-    fahrenheitLCD->display(((tempC*9)/5)+32);
-    for (int i = 0; i < 118; i++)
-    {
-        if (tempC < (kalzium->element[i]->Data.MP-273))
-            kalzium->element[i]->setPalette( color_solid );
-        if (tempC > (kalzium->element[i]->Data.MP-273) && tempC < (kalzium->element[i]->Data.BP-273) )
-            kalzium->element[i]->setPalette( color_liquid );
-        if ( tempC > (kalzium->element[i]->Data.BP)-273)
-            kalzium->element[i]->setPalette( color_vapor );
+	int tempC = -1*( tempS->value() );
+	celsiusLCD->display(tempC);
+	kelvinLCD->display(tempC+273);
+	fahrenheitLCD->display(((tempC*9)/5)+32);
+	for (int i = 0; i < 114; i++)
+	{
+		if (tempC < (kalzium->element[i]->Data.MP-273))
+			kalzium->element[i]->setPalette( color_solid );
+		if (tempC > (kalzium->element[i]->Data.MP-273) && tempC < (kalzium->element[i]->Data.BP-273) )
+			kalzium->element[i]->setPalette( color_liquid );
+		if ( tempC > (kalzium->element[i]->Data.BP)-273)
+			kalzium->element[i]->setPalette( color_vapor );
         if (kalzium->element[i]->Data.az == "3")
             kalzium->element[i]->setPalette( QPalette(main_config->readColorEntry("radioactive")));
         if (kalzium->element[i]->Data.az == "4")
             kalzium->element[i]->setPalette( QPalette(main_config->readColorEntry("artificial")));
-    }
+	}
 }
 
 void StateOfMatterDlg::slotSetTemp()
@@ -174,5 +175,5 @@ void StateOfMatterDlg::slotSetTemp()
 
 void StateOfMatterDlg::slotStdCond()
 {
-	tempS->setValue( -25 );
+ 	tempS->setValue( -25 );
 }

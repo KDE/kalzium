@@ -63,71 +63,66 @@ struct ElementInfo
 };
 
 class ElementKP : public KPushButton  {
-    Q_OBJECT
-    
-    public: 
-        ElementKP(const QString &text, QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0, Kalzium *Kalzium_tmp=0);
-	
-	
-    	/**
-        * used when the mouse enters the pushbutton.
-        * We use this function to setFocus() so that QWhatsThis works 
-        * for each element.
-        */
-    	void enterEvent(QEvent *);
-	
-    	//used when the mouse leaves the pushbutton
-    	void leaveEvent(QEvent *);
+	Q_OBJECT
 
-    	Kalzium *kalzium;
-        QString neighbourArray[3][3];
+	public: 
+		ElementKP(const QString &text, QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0, Kalzium *Kalzium_tmp=0);
 
-        void getNeighbours( int );
-	
+		/**
+		 * used when the mouse enters the pushbutton.
+		 * We use this function to setFocus() so that QWhatsThis works 
+		 * for each element.
+		 */
+		void enterEvent(QEvent *);
 
-    	/** loads the name of the fitting element and shows it in
-    	* the statusbar.
-        */
-    	void showName();
-	
-        
-        ElementInfo Data;    
-        
-        /**
-        * ElemNo is the number of the pushbutton AND the elementnumber. 
-        * I can now use it to show data and so on.
-        */
-    	int ElemNo;
+		//used when the mouse leaves the pushbutton
+		void leaveEvent(QEvent *);
 
-    	KStatusBar *zeigerle;
-        QLabel *pmTitle, *label, *en_label, *enval_label, *ion_label, *ionval_label;
-		QLabel *disc_label, *discval_label, *general_label, *name_label;
-        QLabel *pmWeight, *elemno_label, *namecont_label, *data_label;
-        QPopupMenu *pmenu;
+		Kalzium *kalzium;
+		QString neighbourArray[3][3];
 
-    private:
-        /**
-        *   We use this function to enable drag support for the element buttons.
-        *   We parse all the element infos. 
-        */
-    	void mouseMoveEvent( QMouseEvent * );
-        
-    	void mouseReleaseEvent( QMouseEvent *mouse );
+		void getNeighbours( int );
 
-        QString parseElementInfo();
-       
-    public slots:
-        /**
-        * If the user clicks Web Lookup button
-        */
-        void lookup();
-        
-        /** 
-        * If the user clicks on one button this slot will be called
-        */
-        void slotShowData();
-       
-      
+
+		/** loads the name of the fitting element and shows it in
+		 * the statusbar.
+		 */
+		void showName() const;
+
+
+		ElementInfo Data;    
+
+		/**
+		 * ElemNo is the number of the pushbutton AND the elementnumber. 
+		 * I can now use it to show data and so on.
+		 */
+		int ElemNo;
+
+		KStatusBar *zeigerle;
+		QLabel *pmWeight, *pmTitle;
+		QPopupMenu *pmenu;
+
+	private:
+		/**
+		*   We use this function to enable drag support for the element buttons.
+		*   We parse all the element infos. 
+		*/
+		void mouseMoveEvent( QMouseEvent * );
+
+		void mouseReleaseEvent( QMouseEvent *mouse );
+
+		QString parseElementInfo();
+
+		private slots:
+		/**
+		 * If the user clicks Web Lookup button
+		 */
+		void lookup() const;
+
+		/** 
+		 * If the user clicks on one button this slot will be called
+		 */
+		void slotShowData();
 };
 
 #endif

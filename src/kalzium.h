@@ -26,7 +26,7 @@
 #include <kmainwindow.h>
 
 
-#define KALZIUM_VERSION "0.4"
+#define KALZIUM_VERSION "0.5"
 
 /** Kalzium is the base class of the project */
 
@@ -54,143 +54,141 @@ typedef QLabel* PQLabel;
 class Kalzium : public KMainWindow
 
 {
-    Q_OBJECT
+	Q_OBJECT
 
-    public:
-	/** construtor */
-	Kalzium(const char *name=0);
-	/** destructor */
-	~Kalzium();
+	public:
+		/** construtor */
+		Kalzium(const char *name=0);
+		/** destructor */
+		~Kalzium();
 
-        int numofquestions;
-	PElementKP element[118];
-        QString helpArray[9][18];
-        void createhelpArray();
-        PQLabel labels[18];
-        CalcDialog *calculationdialog;
-    	Colors_Config_Widget *colorsconfig;
-        KSelectAction *numerationmenu, *psestylemenu, *colorschememenu, *weblookupmenu;
-        StateOfMatterDlg *templookup;
-    
-    private:
-        KConfig *main_config;
-        KToggleAction *timelineToggleAction, *toolbarToggleAction;
-	    QGridLayout *maingrid;
-        QLCDNumber *dateLCD;
-        QSlider *dateS;
-        SettingsDialog *setDlg;
+		int numofquestions;
+		PElementKP element[118];
+		QString helpArray[9][18];
+		void createhelpArray();
+		CalcDialog *calculationdialog;
+		Colors_Config_Widget *colorsconfig;
+		KSelectAction *numerationmenu, *psestylemenu, *colorschememenu, *weblookupmenu;
+		StateOfMatterDlg *templookup;
 
-    
-    protected:
-    /**
-    * Called before the window is closed, will save the menusettings.
-    */
-    bool queryClose();
-        
-    void setupActions();
-    
-    /**
-    * This method sets the menu for kalzium using XMLGUI. 
-    */
-    void setupConfig();
-    
-    /**
-    * numeration theme
-    */
-    void showCAS();
-     
-    /**
-    * numeration theme
-    */
-    void showIUPAC();
+	private:
+		PQLabel labels[18];
+		KConfig *main_config;
+		KToggleAction *timelineToggleAction, *toolbarToggleAction;
+		QGridLayout *maingrid;
+		QLCDNumber *dateLCD;
+		QSlider *dateS;
+		SettingsDialog *setDlg;
 
-  
-    /**
-    * Called after setupActions , it sets the main window look 
-    * according to the menu settings
-    * @see Kalzium::setupActions
-    */
-    void updateMainWindow();
 
-    
-//******* Slots ******************************************************
- 
-    public slots:
-    
-    void changeColorScheme(int id=-1);
-    
-    void changeNumeration(int);
+		/**
+		 * Called before the window is closed, will save the menusettings.
+		 */
+		bool queryClose() const;
 
-    void defineweights();
-    
-    void showPseStyle(int);
-    
-    void showToolbar();
+		void setupActions();
 
-    /**
-    * this slot will open a window in which you can do some calculations
-    */
-    void slotCalculations();
-    
-    /**
-    * the quiz will start
-    */
-    void slotKnowledge();
-       
-    /**
-    * this slot gives you information if the elements tends to
-    *built acid, bases, doesn neither or is amphoter
-    */
-    void slotShowAcidBeh();
-    
-    /**
-    * this slots shows all elements
-    */
-    void slotShowAll();
-    
-    /*
-    * shows you the 4 different blocks
-    */
-    void slotShowBlocks();
-    
-    /**
-    * this slot gives you the information in which group
-    * the elements is (1 to 8)
-    */
-    void slotShowGroups();
+		/**
+		 * This method sets the menu for kalzium using XMLGUI. 
+		 */
+		void setupConfig();
 
-    /**
-    * this slot hides all elements which have not been known
-    * when Mendelejew created the first PSE
-    */
-    void slotShowMendelejew();
-    
-    /**
-    * this slot shows the users in what state the element
-    * is at 20 degree and 1013 h-pascal.
-    */
-    void slotShowStateOfMatter();
-    
-    void updateNumMenu(int);
-    
-    void updateColorMenu(int);
-    
-    void slotShowTimeline(bool);
+		/**
+		 * numeration theme
+		 */
+		void showCAS() const;
 
-    void slotValues();
-       
-   
-    private slots:
-        
-    void hideSettingsDialog();
-    
-    void showSettingsDialog();
-    
-    /**
-    * Which element has been known when? A slider will
-    * appear and you can check it out.
-    */
-    void timeline();
+		/**
+		 * numeration theme
+		 */
+		void showIUPAC() const;
+
+
+		/**
+		 * Called after setupActions , it sets the main window look 
+		 * according to the menu settings
+		 * @see Kalzium::setupActions
+		 */
+		void updateMainWindow();
+
+
+		//******* Slots ******************************************************
+
+		public slots:
+
+			void changeColorScheme(int id=-1);
+
+		private slots:
+
+			void changeNumeration(int) const;
+
+		void defineweights() const;
+
+		void showPseStyle(int);
+
+		void showToolbar();
+
+		/**
+		 * this slot will open a window in which you can do some calculations
+		 */
+		void slotCalculations();
+
+		/**
+		 * the quiz will start
+		 */
+		void slotKnowledge();
+
+		/**
+		 * this slot gives you information if the elements tends to
+		 *built acid, bases, doesn neither or is amphoter
+		 */
+		void slotShowAcidBeh();
+
+		/**
+		 * this slots shows all elements
+		 */
+		void slotShowAll();
+
+		/*
+		 * shows you the 4 different blocks
+		 */
+		void slotShowBlocks();
+
+		/**
+		 * this slot gives you the information in which group
+		 * the elements is (1 to 8)
+		 */
+		void slotShowGroups();
+
+		/**
+		 * this slot hides all elements which have not been known
+		 * when Mendelejew created the first PSE
+		 */
+		void slotShowMendelejew();
+
+		/**
+		 * this slot shows the users in what state the element
+		 * is at 20 degree and 1013 h-pascal.
+		 */
+		void slotShowStateOfMatter();
+
+		void updateNumMenu(int);
+
+		void updateColorMenu(int);
+
+		void slotShowTimeline(bool);
+
+		void slotValues();
+
+		void hideSettingsDialog();
+
+		void showSettingsDialog();
+
+		/**
+		 * Which element has been known when? A slider will
+		 * appear and you can check it out.
+		 */
+		void timeline();
 
 };
 #endif

@@ -18,9 +18,10 @@
 #ifndef STATEOFMATTERDLG_H
 #define STATEOFMATTERDLG_H
 
+#include <kdialog.h>
+
 //KDE-Includes
 class KConfig;
-class KDialog;
 class KPushButton;
 
 //Qt-Includes
@@ -28,29 +29,27 @@ class QColor;
 class QLabel;
 class QLCDNumber;
 class QSlider;
-class QWidget;
-
 
 class Kalzium;
 
 class StateOfMatterDlg : public KDialog  {
-    Q_OBJECT
+	Q_OBJECT
 
-    public: 
-	/** construtor */
-	StateOfMatterDlg(QWidget *parent, const char *name, Kalzium *kalzium_tmp);
-	Kalzium *kalzium;
-    private:
-	QLCDNumber *celsiusLCD, *fahrenheitLCD, *kelvinLCD;
-	QSlider *tempS;
-	QLabel *celsius, *fahrenheit, *kelvin;
-	KConfig *main_config;
-	KPushButton *solidbutton, *liquidbutton, *vaporbutton, *InputButton, *StdCondButton;
-    QColor color_solid, color_vapor, color_liquid;
-    public slots:
-	void tempbeh();
-        void slotSetTemp();
-        void slotStdCond();
+	public: 
+		/** construtor */
+		StateOfMatterDlg(QWidget *parent, const char *name, Kalzium *kalzium_tmp);
+		Kalzium *kalzium;
+	private:
+		QLCDNumber *celsiusLCD, *fahrenheitLCD, *kelvinLCD;
+		QSlider *tempS;
+		QLabel *celsius, *fahrenheit, *kelvin;
+		KConfig *main_config;
+		KPushButton *solidbutton, *liquidbutton, *vaporbutton, *InputButton, *StdCondButton;
+		QColor color_solid, color_vapor, color_liquid;
+	private slots:
+		void tempbeh();
+		void slotSetTemp();
+		void slotStdCond();
 };
 
 #endif

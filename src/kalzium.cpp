@@ -44,6 +44,7 @@
 #include <kstdaction.h>
 #include <kstddirs.h>
 #include <kstdaction.h>
+#include <kcolorbutton.h>
 
 //QT-Includes
 #include <qinputdialog.h>
@@ -148,6 +149,25 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
     dateLCD->display("2002");
 
     timeline_layout->addStretch();
+
+//neuer Kram heute morgen
+    QHBoxLayout *legend_layout = new QHBoxLayout( mainlayout, -1, "legendlayout" );
+    legend_layout->addStretch();
+
+	main_config->setGroup( "Colors" );
+
+	KColorButton *acidbutton = new KColorButton( foo );
+	KColorButton *amphobutton = new KColorButton( foo );
+	KColorButton *basebutton = new KColorButton( foo );
+    acidbutton->setColor(QColor(main_config->readColorEntry("acidic")));
+    amphobutton->setColor(QColor(main_config->readColorEntry("amphoteric")));
+    basebutton->setColor(QColor(main_config->readColorEntry("basic")));
+	legend_layout->addWidget( acidbutton );
+	legend_layout->addWidget( amphobutton );
+	legend_layout->addWidget( basebutton );
+	legend_layout->addStretch();
+	
+//neuer Kram heute morgen
     
     mainlayout->addStretch();
 
@@ -169,23 +189,23 @@ Kalzium::~Kalzium()
 
 void Kalzium::createhelpArray()
 {
-    for(int i=0;i<9;i++)
-    {
-        for(int e=0;e<18;e++)
-        {
-            helpArray[i][e]="leer";
-        }
-    }
+		for(int i=0;i<9;i++)
+		{
+				for(int e=0;e<18;e++)
+				{
+						helpArray[i][e]="leer";
+				}
+		}
 
-    int ze=0,sp=0;
-    for(int as=1;as<118;as++)
-    {
-        position(as,ze,sp);
-        helpArray[sp/40][ze/40]=element[as-1]->Data.Symbol;
-    }
+		int ze=0,sp=0;
+		for(int as=1;as<118;as++)
+		{
+				position(as,ze,sp);
+				helpArray[sp/40][ze/40]=element[as-1]->Data.Symbol;
+		}
 }
 
-bool Kalzium::queryClose()
+bool Kalzium::queryClose() const
 {
     main_config->setGroup("Menu Settings");
     main_config->writeEntry("psestylemenu",psestylemenu->currentItem()); 
@@ -196,7 +216,7 @@ bool Kalzium::queryClose()
     return true;
 }
 
-void Kalzium::showCAS()
+void Kalzium::showCAS() const
 {
     int h = 0, v = 0;
     for (int n = 0; n < 18; n++)
@@ -213,7 +233,7 @@ void Kalzium::showCAS()
     }
 }
 
-void Kalzium::showIUPAC()
+void Kalzium::showIUPAC() const
 {
     int h = 0, v = 0;
     for (int n = 0; n < 18; ++n)
@@ -242,7 +262,7 @@ void Kalzium::changeColorScheme(int id)
     (this->*funcs[id & ~3 ? 3 : id])();
 }
 
-void Kalzium::changeNumeration(int id) 
+void Kalzium::changeNumeration(int id) const 
 {
     switch (id) {
         case 0:
@@ -258,7 +278,7 @@ void Kalzium::changeNumeration(int id)
     }
 }
 
-void Kalzium::defineweights()
+void Kalzium::defineweights() const
 {
     (new KMolEdit(0, "kmoledit", new KMolCalc))->exec();
 }
@@ -292,7 +312,7 @@ void Kalzium::showSettingsDialog()
         setDlg->show();
 }
 
-void Kalzium::showToolbar()
+void Kalzium::showToolbar() 
 {
     if (toolbarToggleAction->isChecked())
         toolBar()->show();

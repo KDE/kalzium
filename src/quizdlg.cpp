@@ -202,7 +202,7 @@ void QuizDlg::setTexts()
 
 
 
-bool QuizDlg::wasCorrect( int i )
+bool QuizDlg::wasCorrect( int i ) const
 {
     return QuestioniWasCorrect[i];
 }
