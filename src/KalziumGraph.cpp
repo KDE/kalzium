@@ -105,11 +105,34 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 
 	for( int i = 0 ; i < num ; i++ )
 	{
-
 		double current = data->Data[ fromRange_+i ]/max;
 		current*=w_h;
+		
+		int x=0, y=0, x_old=0, y_old=0;
+		x=real_w*i+10;
+		y=w_h-( ( int )current )+10;
+		x_old=real_w*( i-1 )+10;
+		if( i != 0 ) 
+		{
+			int temp = i; temp--;
+			y_old=data->Data[ fromRange_+temp ]/max;
+			kdDebug() << y_old << endl;
+			y_old*=w_h;
+		}
 
-		DC.drawPoint( real_w*i+10 , w_h-( ( int )current )+10 );
+		DC.drawEllipse( x , y , 4 , 4 );
+		
+
+		if( i != 0 )
+		{
+			DC.drawLine( x_old,y_old,x,y );
+		}
+		
+//X 		kdDebug() << "akt, y " << i << " " << y  << endl;
+//X 		kdDebug() << "akt, x " << i << " " << x << endl;
+//X 		kdDebug() << "alt, y " << i << " " << y_old << endl;
+//X 		kdDebug() << "alt, x " << i << " " << x_old << endl;
+
 	}
 
 	DC.drawLine(10,this->height()/2,20,this->height()/2);

@@ -1,4 +1,4 @@
-last modified: Dec 17 2002
+last modified: Dec 22 2002
 
 TODO for 3.2:
 - CalulationDlg():
@@ -10,6 +10,8 @@ TODO for 3.2:
 - Have more than one modus in the quiz: The user should be able
   to decide a level (easy - moderate - difficult). Furthermore
   the whole dialog will be redesigned
+
+- quantum orbitals
 
 - Printing: The user should be able to print all the information
   in a table and/or in the infodlg.cpp-style

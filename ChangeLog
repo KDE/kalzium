@@ -4,7 +4,9 @@ Version 0.6:
 - added the converter
 - some new URL for the weblookup
 - new numberation (old IUPAC)
-
+- removed elements 110 to 118
+- FastInfo added
+- legend is now configurable
 
 Version 0.5:
 - a big cleanup in kalzium.cpp as it was very easy to read
