@@ -98,7 +98,7 @@ const QString Element::adjustUnits( const int type )
 			v = i18n( "Value unknown" );
 		else 
 		{
-			if ( Prefs::energies() == 0 )
+			if ( Prefs::units() == 0 )
 			{
 				val*=96.6;
 				v = QString::number( val );
