@@ -20,11 +20,13 @@
 #include "molcalc_impl.h"
 #include "detailinfodlg.h"
 #include "informationdialog_impl.h"
+#include "pse.h"
 
 #include <qinputdialog.h>
 #include <qlayout.h>
 #include <qslider.h>
 #include <qlcdnumber.h>
+#include <qbuttongroup.h>
 
 #include <kconfigdialog.h>
 #include <klocale.h>
@@ -47,8 +49,6 @@ Kalzium::Kalzium()
 	m_bShowSOM = false;//TODO fix the som
 	m_bShowTimeline = false;//TODO fix the som
 
-	m_Horizontal = false;
-	
 	pd = new privatedata( this );
 
 	pd->kalziumData = new KalziumDataObject();
@@ -162,12 +162,10 @@ void Kalzium::setupActions()
 
 void Kalzium::slotLearningmode()
 {
-	m_Horizontal ? m_Horizontal = false : m_Horizontal = true;
-	m_PSE->setLearningMode( m_Horizontal );
-
-	InformationWidget *info = new InformationWidget( this );
+	InformationWidget *info = new InformationWidget( m_PSE );
 	info->show( );
 	connect( m_PSE, SIGNAL( tableClicked( QPoint ) ), info, SLOT( slotUpdate( QPoint ) ) );
+    connect( info->buttonGroup, SIGNAL( clicked(int) ), m_PSE , SLOT( setLearningMode(int) ) );
 }
 
 void Kalzium::setupStatusBar()

@@ -238,6 +238,15 @@
         <receiver>InformationDialog</receiver>
         <slot>reject()</slot>
     </connection>
+    <connection>
+        <sender>buttonGroup</sender>
+        <signal>clicked(int)</signal>
+        <receiver>InformationDialog</receiver>
+        <slot>slotSelectionChanged(int)</slot>
+    </connection>
 </connections>
+<slots>
+    <slot>slotSelectionChanged(int)</slot>
+</slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

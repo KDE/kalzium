@@ -18,5 +18,6 @@ class InformationWidget : public InformationDialog
 
 	public slots:
 		void slotUpdate( QPoint point );
+		void slotSelectionChanged( int );
 };
 #endif // INFORMATIONDIALOG_IMPL_H

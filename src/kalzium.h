@@ -59,8 +59,6 @@ class Kalzium : public KMainWindow
 		
 		void showSOMWidgets( bool show );
 
-		bool m_Horizontal;
-
 		/**
 		 * the slider used for the State of Matter
 		 */

@@ -128,9 +128,6 @@ class PSE : public QWidget
 			m_showLegend = show;
 		}
 
-		void setLearningMode( bool horizontal ){
-			m_Horizontal = horizontal;
-		}
 
 	private:
 		/**
@@ -181,6 +178,13 @@ class PSE : public QWidget
 		 * or not the element has already been kown
 		 */
 		void setDate( int date );
+		
+ 	 void setLearningMode( int horizontal ){
+			if ( horizontal == 1 )
+				m_Horizontal = true;
+			else
+				m_Horizontal = false;
+		}
 		
 	protected:
   virtual void paintEvent( QPaintEvent *e );

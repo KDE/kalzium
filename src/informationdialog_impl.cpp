@@ -4,11 +4,18 @@
 #include <qradiobutton.h>
 #include <qlabel.h>
 
+#include <kdebug.h>
+
 
 InformationWidget::InformationWidget( QWidget *parent )
 	: InformationDialog( parent )
 {
 }
+
+void InformationWidget::slotSelectionChanged( int number )
+{
+}
+
 
 void InformationWidget::slotUpdate( QPoint point )
 {
