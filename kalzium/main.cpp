@@ -3,7 +3,7 @@
                              -------------------
     begin                : Die Dez  4 17:59:34 CET 2001
     copyright            : (C) 2001 by Carsten Niehaus
-    email                : cniehaus@gmx.de
+    email                : cniehaus@kde.org
  ***************************************************************************/
 
 /***************************************************************************
@@ -22,8 +22,6 @@
 
 #include "kalzium.h"
 
-
-
 static const char *description =
 	I18N_NOOP("Kalzium is a chemistry application designed\n"
 	 "to provide information about the elements in\n"
@@ -39,24 +37,23 @@ static KCmdLineOptions options[] =
 
 int main(int argc, char *argv[])
 {
-
     KAboutData aboutData( "kalzium", I18N_NOOP("Kalzium"),
-	    VERSION, description, KAboutData::License_GPL,
-	    "(c) 2001, 2002, Carsten Niehaus", 0, 0, "cniehaus@gmx.de");
+            VERSION, description, KAboutData::License_GPL,
+            "(c) 2001, 2002, Carsten Niehaus", 0, 0, "cniehaus@kde.org");
     aboutData.addAuthor("Carsten Niehaus", 
-	    I18N_NOOP("Maintainer, Author"), "cniehaus@gmx.de");
+            I18N_NOOP("Maintainer, Author"), "cniehaus@gmx.de");
     aboutData.addCredit("Robert Gogolok",
-	    I18N_NOOP("Coding"), "mail@robert-gogolok.de");
+            I18N_NOOP("Coding"), "mail@robert-gogolok.de");
     aboutData.addCredit("Anne-Marie Mahfouf",
-	    I18N_NOOP("Supporting"), "a-m.mahfouf@lineone.net");
+            I18N_NOOP("Supporting"), "a-m.mahfouf@lineone.net");
     aboutData.addCredit("Dirk Moeller",
-	    I18N_NOOP("Helping me out"), "mail@dirk-moeller.de");
+            I18N_NOOP("Helping me out"), "mail@dirk-moeller.de");
     aboutData.addCredit("Jonathan Drews",
-	    I18N_NOOP("Helping out, proofreading, tipps"), "j.e.drews@worldnet.att.net");
+            I18N_NOOP("Helping out, proofreading, tipps"), "j.e.drews@worldnet.att.net");
     aboutData.addCredit("Matthias Messmer",
-	    I18N_NOOP("Additional coding"), "bmlmessmer@web.de");
+            I18N_NOOP("Additional coding"), "bmlmessmer@web.de");
     aboutData.addCredit("Tomislav Gountchev",
-	    I18N_NOOP("KMol-code"), "tomi@idiom.com");
+            I18N_NOOP("KMol-code"), "tomi@idiom.com");
     aboutData.addCredit("George Russell", I18N_NOOP("Web lookup"), "russell@kde.org");
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
