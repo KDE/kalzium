@@ -162,7 +162,7 @@
   <group name="Mouseclick">
     <entry name="LMBbeh" type="Int">
     	<default>0</default>
-	<whatsthis>If this is true</whatsthis>
+	<whatsthis>If this is true a click with the left mouse button opens the small information dialog with less information</whatsthis>
 	<label>This value defines whether a click with the left mouse button should open the detailed or the small information dialog</label>
     </entry>
   </group>
