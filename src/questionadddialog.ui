@@ -1,15 +1,15 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>dialogAddQuestion</class>
+<class>questionAddDialog</class>
 <widget class="QDialog">
     <property name="name">
-        <cstring>dialogAddQuestion</cstring>
+        <cstring>questionAddDialog</cstring>
     </property>
     <property name="geometry">
         <rect>
             <x>0</x>
             <y>0</y>
             <width>600</width>
-            <height>480</height>
+            <height>375</height>
         </rect>
     </property>
     <property name="caption">
@@ -45,53 +45,24 @@
                 </widget>
             </hbox>
         </widget>
-        <widget class="QLayoutWidget" row="1" column="0">
+        <spacer row="4" column="2">
             <property name="name">
-                <cstring>layout4</cstring>
+                <cstring>spacer4</cstring>
             </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>textLabel2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Correct Answer</string>
-                    </property>
-                </widget>
-                <widget class="KTextEdit">
-                    <property name="name">
-                        <cstring>KLE_ac</cstring>
-                    </property>
-                </widget>
-            </hbox>
-        </widget>
-        <widget class="QLayoutWidget" row="5" column="0" rowspan="1" colspan="3">
-            <property name="name">
-                <cstring>layout6</cstring>
+            <property name="orientation">
+                <enum>Vertical</enum>
             </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>textLabel4</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Wrong Answer 2:</string>
-                    </property>
-                </widget>
-                <widget class="KTextEdit">
-                    <property name="name">
-                        <cstring>KLE_aw2</cstring>
-                    </property>
-                </widget>
-            </hbox>
-        </widget>
-        <widget class="QLayoutWidget" row="6" column="0">
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>16</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QLayoutWidget" row="5" column="0" rowspan="1" colspan="2">
             <property name="name">
                 <cstring>layout10</cstring>
             </property>
@@ -104,7 +75,7 @@
                         <cstring>textLabel5</cstring>
                     </property>
                     <property name="text">
-                        <string>Level:</string>
+                        <string>Grade:</string>
                     </property>
                 </widget>
                 <widget class="KIntSpinBox">
@@ -129,81 +100,112 @@
                 </widget>
             </hbox>
         </widget>
-        <spacer row="2" column="0">
+        <widget class="QLayoutWidget" row="6" column="0">
             <property name="name">
-                <cstring>spacer4_2</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>21</height>
-                </size>
-            </property>
-        </spacer>
-        <widget class="QLayoutWidget" row="3" column="0" rowspan="1" colspan="3">
-            <property name="name">
-                <cstring>layout8</cstring>
+                <cstring>layout7</cstring>
             </property>
             <hbox>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QLabel">
+                <spacer>
                     <property name="name">
-                        <cstring>textLabel3</cstring>
+                        <cstring>spacer6</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>21</width>
+                            <height>21</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>KPB_test</cstring>
                     </property>
                     <property name="text">
-                        <string>Wrong Answer 1:</string>
+                        <string>&amp;Test Question</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+T</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Click this button to see how the new questions look like in the quiz</string>
                     </property>
                 </widget>
-                <widget class="KTextEdit">
+                <spacer>
                     <property name="name">
-                        <cstring>KLE_aw1</cstring>
+                        <cstring>spacer4_3</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>120</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>kPushButton1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Ok</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+O</string>
                     </property>
                 </widget>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>kPushButton2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Cancel</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+C</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer5</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>60</width>
+                            <height>21</height>
+                        </size>
+                    </property>
+                </spacer>
             </hbox>
         </widget>
-        <spacer row="4" column="1">
-            <property name="name">
-                <cstring>spacer4</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>16</height>
-                </size>
-            </property>
-        </spacer>
-        <spacer row="1" column="1">
-            <property name="name">
-                <cstring>spacer2</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>16</height>
-                </size>
-            </property>
-        </spacer>
     </grid>
 </widget>
+<connections>
+    <connection>
+        <sender>kPushButton2</sender>
+        <signal>clicked()</signal>
+        <receiver>questionAddDialog</receiver>
+        <slot>reject()</slot>
+    </connection>
+</connections>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

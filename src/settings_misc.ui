@@ -13,7 +13,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string>setupMisc</string>
+        <string></string>
     </property>
     <grid>
         <property name="name">
@@ -93,7 +93,7 @@
                         <cstring>radioButton10</cstring>
                     </property>
                     <property name="text">
-                        <string>radioButton10</string>
+                        <string>EN2</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="2" column="0">
@@ -101,7 +101,7 @@
                         <cstring>radioButton11</cstring>
                     </property>
                     <property name="text">
-                        <string>radioButton11</string>
+                        <string>EN3</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="0" column="0">

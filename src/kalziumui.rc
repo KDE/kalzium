@@ -12,14 +12,16 @@
 	<Action name="quiz_startquiz" />
 	<Action name="quiz_editquestions" />
 	<Action name="quiz_setupquiz" />
+	<Action name="quiz_addquestion" />
   </Menu>
   <Menu name="stylemenu">
-	<text>Look</text>
+	<text>Look and Timeline</text>
 	<Action name="view_normal" />
 	<Action name="view_groups" />
 	<Action name="view_blocks" />
 	<Action name="view_som" />
 	<Action name="view_acidic" />
+	<Action name="use_timeline" />
   </Menu>
 </MenuBar>
 </kpartgui>

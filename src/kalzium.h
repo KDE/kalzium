@@ -16,7 +16,7 @@
 /**
  * @short Application Main Window
  * @author Carsten Niehaus <cniehaus@kde.org>
- * @version 1.0
+ * @version 1.1
  */
 class Kalzium : public KMainWindow
 {
@@ -67,18 +67,25 @@ class Kalzium : public KMainWindow
 			*m_pQuizStart,
 			*m_pQuizSetup,
 			*m_pQuizEditQuestions,
+			*m_pQuizAddQuestions,
 
 			*m_pBehAcidAction,
 			*m_pBehNormalAction,
 			*m_pBehBlocksAction,
 			*m_pBehGroupAction,
-			*m_pBehSOMAction;
+			*m_pBehSOMAction,
+			*m_pTimelineAction;
 		
 	private slots:
 		/*
 		 * this slot schwitches Kalzium to the selected colorscheme
 		 **/
 		void slotShowScheme(void);
+
+		/*
+		 * this slot activates the timeline.
+		 **/
+		void slotShowTimeline();
 
 		void slotSaveConfig();
 	
@@ -89,6 +96,7 @@ class Kalzium : public KMainWindow
 
 		void slotStartQuiz();
 		void slotEditQuestions();
+		void slotAddQuestions();
 
 		/*
 		 * These slots are for the standardactions

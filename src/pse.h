@@ -67,10 +67,10 @@ class PSE : public QWidget
 					fBlockList;
 
 		/**
-		 * this sets up the 4 blocklists. Every PSE has 4 lists for
-		 * the 4 blocks: s,p,d,f
+		 * this method set the color for the buttons coresponding to
+		 * the given @param temp
 		 **/
-		void setupBlockLists();
+		void setTemperature( const double temp );
 		
 		/**
 		 * this list includes all elementbuttons which are in the 
@@ -79,7 +79,15 @@ class PSE : public QWidget
 		 * be in this list
 		 **/
 		QPtrList<ElementButton> m_PSEElementButtons;
+	
+	private:
 
+		/**
+		 * this sets up the 4 blocklists. Every PSE has 4 lists for
+		 * the 4 blocks: s,p,d,f
+		 **/
+		void setupBlockLists();
+		
 		/**
 		 * this method sets up the m_PSEElementButtons-list
 		 **/
@@ -87,7 +95,12 @@ class PSE : public QWidget
 
 		public slots:
 			void slotUpdatePSE();
-
+		
+		/**
+		 * this method hides all elements which have not been know
+		 * before the @param date.
+		 **/
+		void setDate( int date );
 };
 
 class RegularPSE : public PSE

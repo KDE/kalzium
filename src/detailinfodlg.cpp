@@ -60,7 +60,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	/////////////////////////////////
     m_pMiscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon(kil->iconPath( "misc" , KIcon::User)));
 	QVBoxLayout *miscLayout = new QVBoxLayout( m_pMiscTab );
-	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg( adjustUnits(  e->date() , 5 ) ) , m_pMiscTab );
+	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg( Element::adjustUnits(  e->date() , 5 ) ) , m_pMiscTab );
 	QLabel *meanweight_label = new QLabel( i18n("Mean weight: %1 u").arg(e->meanweight() ) , m_pMiscTab );
 	QWhatsThis::add( meanweight_label , i18n( "The mean weight is the atomic weight divided by the number of protons" ) );
 	miscLayout->addWidget( discovered_label );
@@ -92,11 +92,11 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	QVBoxLayout *energyLayout = new QVBoxLayout( m_pEnergyTab );
 	detail_energy *wEnergy = new detail_energy( m_pEnergyTab );
 
-	wEnergy->mp_label->setText( adjustUnits( e->melting(), 0 ) );
-	wEnergy->bp_label->setText( adjustUnits( e->boiling(), 0 ) );
-	wEnergy->sion_label->setText( adjustUnits(  e->ie2(), 1 ) );
-	wEnergy->ion_label->setText( adjustUnits( e->ie(), 1 ) );
-	wEnergy->en_label->setText(  QString::number( e->electroneg() ) );
+	wEnergy->mp_label->setText( Element::adjustUnits( e->melting(), 0 ) );
+	wEnergy->bp_label->setText( Element::adjustUnits( e->boiling(), 0 ) );
+	wEnergy->sion_label->setText( Element::adjustUnits(  e->ie2(), 1 ) );
+	wEnergy->ion_label->setText( Element::adjustUnits( e->ie(), 1 ) );
+	wEnergy->en_label->setText(  Element::adjustUnits( e->electroneg(),6 ) );
 	energyLayout->addWidget( wEnergy );
 	
 	////////////////////////////////////7
@@ -107,10 +107,10 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 
 	wChemical->orbits_label->setText( e->parsedOrbits() );
 	wChemical->symbol_label->setText( e->symbol() );
-	wChemical->density_label->setText( adjustUnits( e->density(), 4 ) );
+	wChemical->density_label->setText( Element::adjustUnits( e->density(), 4 ) );
 	wChemical->block_label->setText( e->block() );
-	wChemical->radius_label->setText( adjustUnits( e->radius(), 2 ) );
-	wChemical->weight_label->setText( adjustUnits( e->weight(), 3 ) );
+	wChemical->radius_label->setText( Element::adjustUnits( e->radius(), 2 ) );
+	wChemical->weight_label->setText( Element::adjustUnits( e->weight(), 3 ) );
 	chemicalLayout->addWidget( wChemical );
     
     /////////////////////////////////
@@ -124,67 +124,6 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 							.arg( e->parsedOrbits() ) );
 	modelLayout->addWidget( wOrbits );
 
-}
-
-QString DetailedInfoDlg::adjustUnits( double val , int type  )
-{
-	QString v = QString::null;
-	if ( type == 1 ) // convert an energy
-	{
-		if ( Prefs::units() == 0 )
-		{
-			val*=96.6;
-			v = QString::number( val );
-			v.append( "kj/mol" );
-		}
-		else // use electronvolt
-		{
-			v = QString::number( val );
-			v.append( "eV" );
-		}
-	}
-	else if ( type == 0 ) // convert a temperature
-	{
-		if ( Prefs::temperature() == 0 )
-		{
-			val+=272.25;
-			v = QString::number( val );
-			v.append( "°C" );
-		}
-		else // use Kelvin
-		{
-			v = QString::number( val );
-			v.append( "K" );
-		}
-	}
-	else if ( type == 2 ) // its a lenght
-	{
-		v = QString::number( val );
-		v.append( " pm" );
-	}
-	else if ( type == 3 ) // its a weight
-	{
-		v = QString::number( val );
-		v.append( " u" );
-	}
-	else if ( type == 4 ) // its a density
-	{
-		v = QString::number( val );
-		v.append( " g/m<sup>3</sup>" );
-	}
-	else if ( type == 5 ) //its a date
-	{
-		if ( val < 1600 )
-		{
-			v = i18n( "This element has been know to ancient cultures" );
-		}
-		else
-		{
-			v = i18n( "This element was discovered in the year %1" ).arg( QString::number( val ) );
-		}
-	}
-
-	return v;
 }
 
 DetailedTab::DetailedTab( Element *el, QWidget *parent, const char *name ) : QWidget( parent, name )

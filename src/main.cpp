@@ -11,7 +11,7 @@
 static const char description[] =
     I18N_NOOP("A Periodic Table of the Elements");
 
-static const char version[] = "1.0";
+static const char version[] = "1.1.90";
 
 static KCmdLineOptions options[] =
 {
@@ -22,7 +22,7 @@ static KCmdLineOptions options[] =
 int main(int argc, char **argv)
 {
     KAboutData about("kalzium", I18N_NOOP("Kalzium"), version, description,
-                     KAboutData::License_GPL, "(C) 2003 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
+                     KAboutData::License_GPL, "(C) 2002-2004 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
     about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions( options );

@@ -18,8 +18,10 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "element.h"
+#include "prefs.h"
 #include <qregexp.h>
 #include <kdebug.h>
+#include <klocale.h>
 
 Element::Element( int num )
 {
@@ -48,10 +50,10 @@ Element::Element( int num )
 	m_AR=config.readDoubleNumEntry( "AR", -1 );
 	m_BP=config.readDoubleNumEntry( "BP", -1 );
 	m_Density=config.readDoubleNumEntry( "Density", -1 );
-	m_az=config.readEntry( "az","0" );
 	m_group=config.readEntry( "Group","1" );
 	m_orbits=config.readEntry( "Orbits","0" );
 	m_biological=config.readNumEntry(  "biological" , -1 );
+	m_az=config.readNumEntry( "az",-1 );
 	m_date=config.readNumEntry( "date",-1 );
 
 	setupXY();
@@ -76,6 +78,90 @@ Element::~Element()
 double Element::meanweight()
 {
 	return m_weight/m_number;
+}
+
+const QString Element::adjustUnits( double val, const int type )
+{
+	QString v = QString::null;
+	
+	if ( type == 1 ) // convert an energy
+	{
+		if ( val == -1 )
+			v = i18n( "Value unknown" );
+		else {
+			if ( Prefs::units() == 0 )
+			{
+				val*=96.6;
+				v = QString::number( val );
+				v.append( "kj/mol" );
+			}
+			else // use electronvolt
+			{
+				v = QString::number( val );
+				v.append( "eV" );
+			}
+		}
+	}
+	else if ( type == 0 ) // convert a temperature
+	{
+		if ( Prefs::temperature() == 0 )
+		{
+			val+=272.25;
+			v = QString::number( val );
+			v.append( "°C" );
+		}
+		else // use Kelvin
+		{
+			v = QString::number( val );
+			v.append( "K" );
+		}
+	}
+	else if ( type == 2 ) // its a lenght
+	{
+		v = QString::number( val );
+		v.append( " pm" );
+	}
+	else if ( type == 3 ) // its a weight
+	{
+		v = QString::number( val );
+		v.append( " u" );
+	}
+	else if ( type == 4 ) // its a density
+	{
+		v = QString::number( val );
+		v.append( " g/m<sup>3</sup>" );
+	}
+	else if ( type == 5 ) //its a date
+	{
+		if ( val < 1600 )
+		{
+			v = i18n( "This element has been know to ancient cultures" );
+		}
+		else
+		{
+			v = i18n( "This element was discovered in the year %1" ).arg( QString::number( val ) );
+		}
+	}
+	else if ( type == 6 ) //its a electronegativity
+	{
+		if ( Prefs::electronegativity() == 0 ) //EN2
+		{
+			v = QString::number( val );
+			kdDebug() << "EN2" << endl;
+		}
+		if ( Prefs::electronegativity() == 1 ) //EN3
+		{
+			v = QString::number( val );
+			kdDebug() << "EN3" << endl;
+		}
+		if ( Prefs::electronegativity() == 2 ) //Pauling
+		{
+			v = QString::number( val );
+			kdDebug() << "Pauling" << endl;
+		}
+	}
+
+	return v;
 }
 
 /*!
@@ -163,3 +249,4 @@ KalziumDataObject::KalziumDataObject()
 
 KalziumDataObject::~KalziumDataObject()
 {}
+

@@ -59,8 +59,6 @@ class DetailedInfoDlg : public KDialogBase
 			*m_pMiscTab,
 			*m_pModelTab;
 
-		QString adjustUnits( double val , int type);
-
 		DetailedTab *dTab;
 
 };

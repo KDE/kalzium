@@ -42,7 +42,7 @@ PSE::~PSE(){}
 
 void PSE::slotUpdatePSE()
 {
-	kdDebug() << "slotUpdatePSE()" << endl;
+	kdDebug() << "slotUpdatePSE(), Colorscheme: " << Prefs::colorschemebox() << endl;
 	activateColorScheme( Prefs::colorschemebox() );
 }
 
@@ -248,6 +248,79 @@ void PSE::activateColorScheme( const int nr )
 	}
 }
 
+void PSE::setDate( int date )
+{
+	ElementButton *button;
+
+	for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+	{//these elements are the ones which have always been known
+		const int n = button->e->number();
+		if (n == 6 ||
+			n == 16 ||
+			n == 26 ||
+			n == 29 ||
+			n == 33 ||
+			n == 47 ||
+			n == 50 ||
+			n == 51 ||
+			n == 79 ||
+			n == 80 ||
+			n == 82 ||
+			n == 83
+			)
+		{
+            button->show();
+			continue;
+		}
+		if ( button->e->date() > date )
+			button->hide();
+		else
+			button->show();
+	}
+}
+
+void PSE::setTemperature( const double temp )
+{
+	static QColor c_liquid = Prefs::color_liquid();
+	static QColor c_solid = Prefs::color_solid();
+	static QColor c_vapor = Prefs::color_vapor();
+	static QColor c_artificial = Prefs::color_artificial();
+	static QColor c_radioactive = Prefs::color_radioactive();
+	
+	ElementButton *button;
+	for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+	{//iterate through all buttons
+		const int az = button->e->az();
+		if ( az == 3 || az == 4 )
+		{ //check if the element is radioactive or artificial
+			if ( az == 3 ) button->setPaletteBackgroundColor( c_radioactive );
+			if ( az == 4 ) button->setPaletteBackgroundColor( c_artificial );
+			continue;
+		}
+
+		kdDebug() << "az != 3 und 4" << endl;
+
+		double iButton_melting = button->e->melting();
+		double iButton_boiling = button->e->boiling();
+		
+		if ( temp < iButton_melting )
+		{ //the element is solid
+			button->setPaletteBackgroundColor( c_solid );
+			continue;
+		}
+		if ( temp > iButton_melting &&
+			temp < iButton_boiling )
+		{ //the element is liquid
+			button->setPaletteBackgroundColor( c_liquid );
+			continue;
+		}
+		if ( temp > iButton_boiling )
+		{ //the element is vaporous
+			button->setPaletteBackgroundColor( c_vapor );
+			continue;
+		}
+	}
+}
 
 RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *name)
  : PSE(data, parent, name)

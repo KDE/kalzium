@@ -39,14 +39,19 @@ void infoDlgSmallImpl::setValues()
 	QString cap = i18n( "%1 (%2)" ).arg( name ).arg( num );
 	setCaption( cap );
 	symbol_label->setText( e->symbol() );
-	name_label->setText( name );
-	weight_label->setText( QString::number( e->weight() ) );
-	elemno_label->setText( QString::number( e->number() ) );
-	melting_label->setText( QString::number( e->melting() ) );
-	boiling_label->setText( QString::number( e->boiling() ) );
-	radius_label->setText( QString::number( e->radius() ) );
-	electro_label->setText( QString::number( e->electroneg() ) );
+	name_label->setText( name.utf8() );
+	weight_label->setText(  Element::adjustUnits( e->weight(),3 ) );
+	elemno_label->setText(  QString::number( e->number() ) );
+	melting_label->setText( Element::adjustUnits( e->melting(),0 ) );
+	boiling_label->setText( Element::adjustUnits( e->boiling(),0 ) );
+	radius_label->setText(  Element::adjustUnits( e->radius(),2 ) );
+	electro_label->setText( Element::adjustUnits( e->electroneg(),6 ) );
+
+	setupHelp();
 }
+
+void infoDlgSmallImpl::setupHelp()
+{}
 
 infoDlgSmallImpl::~infoDlgSmallImpl(){}
 

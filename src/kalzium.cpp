@@ -12,8 +12,13 @@
 #include "settings_quiz.h"
 #include "settings_misc.h"
 #include "questioneditor_impl.h"
+#include "questionadddialog_impl.h"
+#include "slider_widget.h"
 
 #include <qlabel.h>
+#include <qslider.h>
+#include <qwhatsthis.h>
+#include <qlcdnumber.h>
 
 #include <kmainwindow.h>
 #include <kconfigdialog.h>
@@ -31,10 +36,6 @@ Kalzium::Kalzium()
 
 	pd->kalziumData = new KalziumDataObject();
 
-
-	/*
-	 * move this into a method later on
-	 **/
 	/*
 	 * the actions for switching PSE
 	 **/
@@ -48,12 +49,17 @@ Kalzium::Kalzium()
 	m_pQuizStart = new KAction(i18n("Start &Quiz"), 0, this, SLOT(slotStartQuiz()), actionCollection(), "quiz_startquiz");
 	m_pQuizSetup = new KAction(i18n("Set&up Quiz"), 0, this, SLOT(showSettingsDialog()), actionCollection(), "quiz_setupquiz");
 	m_pQuizEditQuestions = new KAction(i18n("&Edit Questions"), 0, this, SLOT(slotEditQuestions()), actionCollection(), "quiz_editquestions");
+	m_pQuizAddQuestions = new KAction(i18n("&Add Questions"), 0, this, SLOT(slotAddQuestions()), actionCollection(), "quiz_addquestion");
 	 
+	/*
+	 * the actions for the colorschemes
+	 **/
 	m_pBehAcidAction = new KAction(i18n("Show &Acid Behaviour"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_acidic");
 	m_pBehBlocksAction = new KAction(i18n("Show Blocks"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_blocks");
 	m_pBehBlocksAction = new KAction(i18n("Show Groups"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_groups");
 	m_pBehBlocksAction = new KAction(i18n("Show State Of Matter"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_som");
 	m_pBehBlocksAction = new KAction(i18n("No Colors"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_normal");
+	m_pTimelineAction = new KAction(i18n("Show Timeline"), 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
 	
 	/*
 	 * the standardactions
@@ -75,7 +81,7 @@ Kalzium::Kalzium()
 
 	setCentralWidget( m_pCurrentPSE );
 	
-	createStandardStatusBarAction(); //post-KDE 3.1
+	createStandardStatusBarAction();
 }
 
 void Kalzium::slotStartQuiz()
@@ -90,22 +96,44 @@ void Kalzium::slotEditQuestions()
 	q->show();
 }
 
+void Kalzium::slotAddQuestions()
+{
+	kdDebug() << "Kalzium::slotAddQuestions()" << endl;
+
+	questionAddDialogImpl *q = new questionAddDialogImpl( this, "questionAddDialogImpl" );
+	q->show();
+}
+
+void Kalzium::slotShowTimeline()
+{
+	kdDebug() << "Kalzium::slotShowTimeline()" << endl;
+
+	SliderWidget *pSliderWidget = new SliderWidget();
+
+	/**
+	 * now do the connections
+	 **/
+	connect( pSliderWidget->pSlider, SIGNAL( valueChanged( int ) ), currentPSE(), SLOT( setDate(int) ) );
+
+	pSliderWidget->show();
+}
+
 void Kalzium::slotShowScheme(void)
 {
 	int i = 0;
 	QString n = sender()->name();
 	if ( n == QString("view_normal"))
-		i = 1;
+		i = 0;
 	if ( n == QString("view_groups")) 
-		i = 2;
+		i = 1;
 	if ( n == QString("view_blocks")) 
-		i = 3;
+		i = 2;
 	if ( n == QString("view_som")) 
-		i = 4;
+		i = 3;
 	if ( n == QString("view_acidic"))
-		i = 5;
+		i = 4;
 	
-	m_pCurrentPSE->activateColorScheme( i );
+	currentPSE()->activateColorScheme( i );
 }
 
 void Kalzium::slotSwitchtoPSE(void)

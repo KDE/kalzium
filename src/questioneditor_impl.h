@@ -21,12 +21,13 @@
 #define QUESTIONSEDITOR_IMPL_H
 
 #include "questioneditor.h"
+#include "quiz.h"
+#include <qdom.h>
 
 /**
 basic class for the specific PSEs
 @author Carsten Niehaus
 */
-
 
 class questionEditorImpl : public questionEditor
 {
@@ -37,9 +38,21 @@ class questionEditorImpl : public questionEditor
 		 */
 		questionEditorImpl( QWidget* parent = 0, const char*  name = 0);
 
+		bool readTasks( QDomDocument &questionDocument );
+		bool loadLayout( QDomDocument &layoutDocument );
+
+	private:
+		QDomDocument m_questionDocument;
+
+		void addTaskToListView( Task *t );
+
+		void setupListView();
+
+		TaskList m_tasklist;
+		
 	private slots:
 		void slotAddQuestion(); 
 };
-		
+
 
 #endif

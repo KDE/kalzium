@@ -65,7 +65,7 @@
             </column>
             <column>
                 <property name="text">
-                    <string>Question</string>
+                    <string>Task</string>
                 </property>
                 <property name="clickable">
                     <bool>true</bool>
@@ -76,18 +76,7 @@
             </column>
             <column>
                 <property name="text">
-                    <string>Answers</string>
-                </property>
-                <property name="clickable">
-                    <bool>true</bool>
-                </property>
-                <property name="resizable">
-                    <bool>true</bool>
-                </property>
-            </column>
-            <column>
-                <property name="text">
-                    <string>Right/Wrong</string>
+                    <string>Grade</string>
                 </property>
                 <property name="clickable">
                     <bool>true</bool>
@@ -97,7 +86,13 @@
                 </property>
             </column>
             <property name="name">
-                <cstring>KLV_questions</cstring>
+                <cstring>KLV_qa</cstring>
+            </property>
+            <property name="selectionMode" stdset="0">
+                <enum>NoSelection</enum>
+            </property>
+            <property name="rootIsDecorated">
+                <bool>true</bool>
             </property>
         </widget>
     </grid>

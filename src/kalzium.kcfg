@@ -5,7 +5,7 @@
   <group name="Colorscheme">
     <entry name="colorschemebox" type="Int">
     	<default>1</default>
-	<whatsthis>Select the Colorscheme your prefere by
+	<whatsthis>Select the Colorscheme your prefer by
 	clicking on the coresponding radiobutton</whatsthis>
 	<label>Selects the default colorscheme</label>
     </entry>

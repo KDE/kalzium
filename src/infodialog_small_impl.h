@@ -47,6 +47,10 @@ class infoDlgSmallImpl : public infoDlgSmall
 		 **/
 		void setValues();
 
+		/**
+		 * this add QWhatsThis to the labels
+		 * **/
+		void setupHelp();
 };
 		
 

@@ -52,13 +52,13 @@ class Element{
 		int number() const {return m_number;}
 		int date() const { return m_date; }
 		int biological() const {return m_biological;}
+		int az() const {return m_az;}
 		
 		QString symbol() const {return m_symbol;}
 		QString elname() const {return m_name;}
 		QString block() const {return m_block;}
 		QString group() const {return m_group;}
 		QString acidicbeh() const {return m_acidbeh;}
-		QString az() const {return m_az;}
 		QString oxstage() const { return m_oxstage; }
 		QString parsedOrbits();
 		
@@ -75,6 +75,8 @@ class Element{
 		int x, y; //for the RegularPSE
 		int s_x, s_y; //for the SimplifiedPSE
 
+		static const QString adjustUnits( double val, const int type );
+
 	private:
 		void setupXY();
 
@@ -89,12 +91,12 @@ class Element{
 
 		int     m_number, 
 			m_date,
+			m_az,
 			m_biological;
 
 		QString m_symbol,
 			m_name,
 			m_oxstage,
-			m_az,
 			m_block,
 			m_group,
 			m_acidbeh,
