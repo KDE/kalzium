@@ -147,8 +147,6 @@ class Element{
 		 */
 		QString parsedOrbits();
 		
-//XXX check if its really kelvin!!!
-		
 		/**
 		 * @return the boiling point of the element in Kelvin
 		 */
@@ -223,19 +221,21 @@ class Element{
 		 * @param type the TYPE of the data
 		 * @return the adjusted datastring
 		 */
-		static const QString adjustUnits( double val, const int type );
+		const QString adjustUnits( const int type );
 
 		/**
 		 * missing
 		 */
 		enum TYPE
 		{
-			TEMPERATURE = 0,
-			ENERGY = 1,
-			LENGHT = 2,
-			WEIGHT = 3,
-			DENSITY = 4,
-			DATE = 5
+			RADIUS = 0,
+			WEIGHT,
+			DENSITY,
+			DATE,
+			BOILINGPOINT,
+			MELTINGPOINT,
+			IE,
+			IE2
 		};
 
 
@@ -244,6 +244,7 @@ class Element{
 
 	private:
 		void setupXY();
+		
 
 		double  m_weight,
 			m_MP, 

@@ -18,6 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "infodialog_small_impl.h"
+#include "element.h"
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -39,13 +40,13 @@ void infoDlgSmallImpl::setValues()
 	QString cap = i18n( "%1 (%2)" ).arg( name ).arg( num );
 	setCaption( cap );
 	symbol_label->setText( e->symbol() );
-	name_label->setText( name.utf8() );
-	weight_label->setText(  Element::adjustUnits( e->weight(),3 ) );
+	name_label->setText( e->elname().utf8() );
+	weight_label->setText(  e->adjustUnits( Element::WEIGHT ) );
 	elemno_label->setText(  QString::number( e->number() ) );
-	melting_label->setText( Element::adjustUnits( e->melting(),0 ) );
-	boiling_label->setText( Element::adjustUnits( e->boiling(),0 ) );
-	radius_label->setText(  Element::adjustUnits( e->radius(),2 ) );
-	electro_label->setText( Element::adjustUnits( e->electroneg(),6 ) );
+	melting_label->setText( e->adjustUnits( Element::MELTINGPOINT ) );
+	boiling_label->setText( e->adjustUnits( Element::BOILINGPOINT ) );
+	radius_label->setText(  e->adjustUnits( Element::RADIUS ) );
+	electro_label->setText( QString::number( e->electroneg() ) );
 
 	setupHelp();
 }

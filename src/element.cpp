@@ -81,64 +81,84 @@ double Element::meanweight()
 	return m_weight/m_number;
 }
 
-const QString Element::adjustUnits( double val, const int type )
+const QString Element::adjustUnits( const int type )
 {
 	QString v = QString::null;
+
+	double val = 0.0; //the value to convert
 	
-	if ( type == ENERGY ) // convert an energy
+	if ( type == IE || type == IE2 ) //an ionization energy
 	{
+		if ( type == IE )
+			val = ie();
+		else
+			val = ie2();
+	
 		if ( val == -1 )
 			v = i18n( "Value unknown" );
-		else {
-			if ( Prefs::units() == 0 )
-			{
-				val*=96.6;
-				v = QString::number( val );
-				v.append( "kj/mol" );
-			}
-			else // use electronvolt
-			{
-				v = QString::number( val );
-				v.append( "eV" );
-			}
+		else 
+		{
+			v = QString::number( val );
+			v.append( "eV" );
 		}
 	}
-	else if ( type == TEMPERATURE ) // convert a temperature
+	else if ( type == BOILINGPOINT || type == MELTINGPOINT ) // convert a temperature
 	{
-			switch (Prefs::temperature()) {
-    				case 0: //Kelvin
-					v = QString::number( val );
-					v.append( "K" );
-					break;
-				case 1://Kelvin to Celsius
-					val-=273.15;
-					v = QString::number( val );
-					v.append( "C" );
-					break;
-				case 2: // Kelvin to Fahrenheit
-					val = val * 1.8 - 459.67;
-					v = QString::number( val );
-					v.append( "F" );
-					break;
-			}
+		if ( type == BOILINGPOINT )
+			val = boiling();
+		else
+			val = melting();
+
+		switch (Prefs::temperature()) {
+			case 0: //Kelvin
+				v = QString::number( val );
+				v.append( "K" );
+				break;
+			case 1://Kelvin to Celsius
+				val-=273.15;
+				v = QString::number( val );
+				v.append( "C" );
+				break;
+			case 2: // Kelvin to Fahrenheit
+				val = val * 1.8 - 459.67;
+				v = QString::number( val );
+				v.append( "F" );
+				break;
+		}
 	}
-	else if ( type == LENGHT ) // its a length
+	else if ( type == RADIUS ) // its a length
 	{
+		val = radius();
+
 		v = QString::number( val );
-		v.append( " pm" );
+
+		v.append( i18n( " pm" ) );
 	}
 	else if ( type == WEIGHT ) // its a weight
 	{
+		val = weight();
+
 		v = QString::number( val );
-		v.append( " u" );
+		v.append( i18n( " u" ) );
 	}
 	else if ( type == DENSITY ) // its a density
 	{
-		v = QString::number( val );
-		v.append( " g/cm<sup>3</sup>" );
+		val = density();
+
+		if ( az() == 2 )//gasoline
+		{
+			v = QString::number( val );
+			v.append( " g/L" );
+		}
+		else//liquid or solid
+		{
+			v = QString::number( val );
+			v.append( " g/cm<sup>3</sup>" );
+		}
 	}
 	else if ( type == DATE ) //its a date
 	{
+		val = date();
 		if ( val < 1600 )
 		{
 			v = i18n( "This element was known to ancient cultures" );

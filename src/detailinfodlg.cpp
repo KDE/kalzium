@@ -56,7 +56,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	/////////////////////////////////
     m_pMiscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon( "misc" ));
 	QVBoxLayout *miscLayout = new QVBoxLayout( m_pMiscTab );
-	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg( Element::adjustUnits(  e->date() , 5 ) ) , m_pMiscTab );
+	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg( e->adjustUnits( Element::DATE ) ) , m_pMiscTab );
 	QLabel *meanweight_label = new QLabel( i18n("Mean weight: %1 u").arg(e->meanweight() ) , m_pMiscTab );
 	QWhatsThis::add( meanweight_label , i18n( "The mean weight is the atomic weight divided by the number of protons" ) );
 	QWhatsThis::add( discovered_label, i18n( "Here you can see when the element was discovered." ) );
@@ -89,10 +89,10 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	QVBoxLayout *energyLayout = new QVBoxLayout( m_pEnergyTab );
 	detail_energy *wEnergy = new detail_energy( m_pEnergyTab );
 
-	wEnergy->mp_label->setText( Element::adjustUnits( e->melting(), 0 ) );
-	wEnergy->bp_label->setText( Element::adjustUnits( e->boiling(), 0 ) );
-	wEnergy->sion_label->setText( Element::adjustUnits(  e->ie2(), 1 ) );
-	wEnergy->ion_label->setText( Element::adjustUnits( e->ie(), 1 ) );
+	wEnergy->mp_label->setText( e->adjustUnits( Element::MELTINGPOINT ) );
+	wEnergy->bp_label->setText( e->adjustUnits( Element::BOILINGPOINT ) );
+	wEnergy->sion_label->setText( e->adjustUnits( Element::IE2 ) );
+	wEnergy->ion_label->setText( e->adjustUnits( Element::IE ) );
 	wEnergy->en_label->setText(  QString::number( e->electroneg() ) );
 	energyLayout->addWidget( wEnergy );
 	
@@ -104,10 +104,10 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 
 	wChemical->orbits_label->setText( e->parsedOrbits() );
 	wChemical->symbol_label->setText( e->symbol() );
-	wChemical->density_label->setText( Element::adjustUnits( e->density(), 4 ) );
+	wChemical->density_label->setText( e->adjustUnits( Element::DENSITY ) );
 	wChemical->block_label->setText( e->block() );
-	wChemical->radius_label->setText( Element::adjustUnits( e->radius(), 2 ) );
-	wChemical->weight_label->setText( Element::adjustUnits( e->weight(), 3 ) );
+	wChemical->radius_label->setText( e->adjustUnits( Element::RADIUS ) );
+	wChemical->weight_label->setText( e->adjustUnits( Element::WEIGHT  ) );
 	if ( el->Isotopes() != "0"  )
 		wChemical->isotopeWidget->setIsotopes( el->Isotopes() );
 	else
