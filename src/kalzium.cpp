@@ -111,8 +111,7 @@ void Kalzium::setupAllElementKPButtons()
     int h=0; int v=0;
     QString elementName;
 
-    KSimpleConfig config ("/home/carsten/cvs/kdeedu/kalzium/src/kalziumrc");
-    //KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
+    KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
 
     ElementInfo eleminfo;
     for ( int n=0 ;n<110 ;n++ )
@@ -477,7 +476,7 @@ void Kalzium::updateNumMenu(int id)
 
 void Kalzium::slotShowTimeline(bool id)
 {
-	if ( id )
+	if (true)
 	{
 		dateS->show();
 		dateLCD->show();
@@ -491,6 +490,7 @@ void Kalzium::slotShowTimeline(bool id)
 		psestylemenu->setEnabled(true);
 		for (int i =0; i<110; i++)
 			element[i]->show();
+
 	}
 }
 
