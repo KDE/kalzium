@@ -115,6 +115,7 @@ QString ElementKP::parseElementInfo()
 		+ "\t" + "Electronegativity: " + QString::number(Data.EN)
 
 		+ "\n";
+
 	return parse;
 }
 

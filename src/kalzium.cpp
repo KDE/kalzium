@@ -151,7 +151,7 @@ void Kalzium::setupAllElementKPButtons()
 
 		//Now we add the WhatsThis-help for each button
 		QWhatsThis::add( element[n], i18n("Click here to get information about %1.").arg(eleminfo.Symbol) );
-		QToolTip::add( element[n], eleminfo.Name.utf8() );
+		QToolTip::add( element[n], i18n( eleminfo.Name.utf8() ) );
 	}
 
     //////////////////

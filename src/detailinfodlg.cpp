@@ -37,7 +37,7 @@
 
 
 DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, const char *name)
-    : KDialogBase(IconList, i18n("Detailed Look on %1").arg( Eleminfo.Name.lower().utf8() ), Ok|User1 ,Ok, parent,name, true, false)
+    : KDialogBase(IconList, i18n("Detailed Look on %1").arg( i18n( Eleminfo.Name.utf8() ) ), Ok|User1 ,Ok, parent,name, true, false)
 {
 	Data = Eleminfo;
     const KIconLoader *kil = KGlobal::iconLoader();
@@ -59,7 +59,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 
     /////////////////////////////////
 
-	mainTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( Data.Name.utf8() ), BarIcon(kil->iconPath( "elempic" , KIcon::User)));
+	mainTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( i18n( Data.Name.utf8() ) ), BarIcon(kil->iconPath( "elempic" , KIcon::User)));
 	QVBoxLayout *mainLayout = new QVBoxLayout( mainTab );
 	
 	QLabel *piclabel = new QLabel( mainTab );
@@ -74,7 +74,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	}
 	else 
 	{
-		piclabel->setText( i18n( "No picture of %1 found!" ).arg( Data.Name.utf8() ) );
+		piclabel->setText( i18n( "No picture of %1 found!" ).arg( i18n( Data.Name.utf8() ) ) );
 	}
 
 	mainLayout->addWidget( piclabel );
@@ -126,8 +126,8 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	QVBoxLayout *orbitsLayout = new QVBoxLayout( orbitsTab );
 	OrbitsWidget *orbitsPic = new OrbitsWidget( Data.number , orbitsTab );
 	QWhatsThis::add( orbitsPic,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
-								.arg( Data.Name.utf8() )
-								.arg( Data.Name.utf8() )
+								.arg( i18n( Data.Name.utf8() ) )
+								.arg( i18n( Data.Name.utf8() ) )
 								.arg( Data.orbits ) );
 	orbitsLayout->addWidget( orbitsPic );
 }
@@ -194,7 +194,7 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	p.drawText( x2/10 * 4, h_ , EData.Symbol ); //Symbol
 
 	p.setFont( f2 );
- 	p.drawText( x1+4, y2-h_t , x2/2 , h_t , Qt::AlignLeft , EData.Name.utf8() ); //Name
+ 	p.drawText( x1+4, y2-h_t , x2/2 , h_t , Qt::AlignLeft , i18n( EData.Name.utf8() ) ); //Name
 	
 	p.drawText( x1+4+h_t , y2-2*h_t , x2-x1-4-h_t , h_t , Qt::AlignRight , EData.oxstage);    //Oxidationszahlen
 	p.drawText( x2/2 , y2-h_t , x2/2-4 , h_t , Qt::AlignRight , EData.Weight ); //Weight

@@ -33,7 +33,7 @@ infoDialog::infoDialog( ElementInfo Eleminfo , QWidget *parent, const char *name
 	weight_label->setText( Eleminfo.Weight );
 	melting_label->setText( Eleminfo._MP );
 	boiling_label->setText( Eleminfo._BP );
-	name_label->setText( Eleminfo.Name );
+	name_label->setText( i18n( Eleminfo.Name.utf8() ) );
 	symbol_label->setText( Eleminfo.Symbol );
 	radius_label->setText( Eleminfo._AR );
 	discovered_label->setText( Eleminfo.date );

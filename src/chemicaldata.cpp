@@ -36,6 +36,8 @@ ElementInfo ElemInfoParsed::information()
 	else
 		info._Density = i18n("%1 g/cm<sup>3</sup>" ).arg( info.Density );
 
+	info.Name = info.Name.utf8();
+
 	if ( info.MP == -1 )
 		info._MP = i18n( "Unknown" ) ;
 	else
