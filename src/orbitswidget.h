@@ -20,6 +20,7 @@
 
 
 #include <qvaluelist.h>
+#include <qstringlist.h>
 #include <qwidget.h>
 #include <math.h>
 
@@ -31,27 +32,34 @@ class OrbitsWidget : public QWidget
 		OrbitsWidget( int Elemno , QWidget *parent=0 , const char *name =0 );
 
 	private:
+		/*
+		 * the elementnumber we are looking at
+		 */
+		int Elemno; 
+	
+		int num; //the number of hulls the atom has
+		
 		typedef QValueList<int> intList;
 		intList numOfElectrons;
 
-		int getNumber( QString );
-		
-		QString orbits;
+		QStringList hulllist;
 
+		QString getNumber();
+		
 		inline double translateToDX( const double r , const double angle )
 		{
-			return( r * sin( M_PI_4 * angle ) );
+			return( r * sin( M_PI_4 * angle / 3) );
 		}
 		
 		inline double translateToDY( const double r , const double angle )
 		{
-			return( r * cos(  M_PI_4 * angle ) );
+			return( r * cos( M_PI_4 * angle / 3) );
 		}
 
 		/*
-		 * returns the number of orbits which has to be drawn
+		 * sets everything up
 		 */
-		int getNumberOfOrbits();
+		void getNumberOfOrbits();
 
 	protected slots:
 		virtual void paintEvent(  QPaintEvent* );

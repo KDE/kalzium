@@ -36,33 +36,84 @@
 
 OrbitsWidget::OrbitsWidget( int ElemNo , QWidget *parent, const char *name) : QWidget( parent, name )
 {
-    KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
-	config.setGroup(QString::number(ElemNo+1));
-	orbits=config.readEntry("Orbits","0");
+	Elemno = ElemNo;
+	
+	hulllist.append( "1" );
+	hulllist.append( "2" );     //Helium
+	hulllist.append( "2 1" );
+	hulllist.append( "2 2" );
+	hulllist.append( "2 3" );
+	hulllist.append( "2 4" );
+	hulllist.append( "2 5" );
+	hulllist.append( "2 6" );
+	hulllist.append( "2 7" );
+	hulllist.append( "2 8" );   //Neon
+	hulllist.append( "2 8 1" );
+	hulllist.append( "2 8 2" );
+	hulllist.append( "2 8 3" );
+	hulllist.append( "2 8 4" );
+	hulllist.append( "2 8 5" );
+	hulllist.append( "2 8 6" );
+	hulllist.append( "2 8 7" );
+	hulllist.append( "2 8 8" );  //Argon
+	hulllist.append( "2 8 8 1" );
+	hulllist.append( "2 8 8 2" );//Calcium
+	hulllist.append( "2 8 9 2" );
+	hulllist.append( "2 8 10 2" );
+	hulllist.append( "2 8 11 2" );
+	hulllist.append( "2 8 13 1" );
+	hulllist.append( "2 8 13 2" );//Manganese
+	hulllist.append( "2 8 14 2" );
+	hulllist.append( "2 8 15 2" );
+	hulllist.append( "2 8 16 2" );
+	hulllist.append( "2 8 18 1" );//Copper
+	hulllist.append( "2 8 18 2" );
+	hulllist.append( "2 8 16 2 1" );
+	hulllist.append( "2 8 16 2 2" );
+	hulllist.append( "2 8 16 2 3" );
+	hulllist.append( "2 8 16 2 4" );
+	hulllist.append( "2 8 16 2 5" );
+	hulllist.append( "2 8 16 2 6" );//Krypton
+	//to be continued...
+	
+	getNumberOfOrbits();	
 }
 
-int OrbitsWidget::getNumberOfOrbits()
+void OrbitsWidget::getNumberOfOrbits()
 {
-//X 	kdDebug() << orbits << endl;
-	QRegExp rxb( "([a-z])([0-9]+)" );
-	QRegExp rxm( "([a-z]{2}) ",false );
-	QString numEl = orbits;
+	QRegExp rxb( "\\d{1,2}" );
+	QRegExp numx( "[0-9]" );
 	int pos = 0;
-	int count = 0;
-	while (  ( pos = rxb.search( orbits, pos ) ) != -1 ) {
-		count++;
-		pos += rxb.matchedLength();
-		numEl=numEl.left( pos-1 );
-//		kdDebug() << "Current: " << numEl << endl;
-		numOfElectrons.append( getNumber( numEl ) );
-	}
+	QString o = getNumber();
+	kdDebug() << "Orbits sind: " << o << endl;
+	
+	num = 1;
 
-	return count;
+	bool cont = true;
+	
+	while ( cont )
+	{
+		QString temp_ = o.left( o.find( rxb ) );
+		
+		kdDebug() << "Die pos ist: " << pos << endl;
+		kdDebug() << "Das ding heisst: " << temp_ << endl;
+
+		o = o.right( o.length() - o.find( rxb ) );
+
+		kdDebug() << "Nun heißt o: " << o << endl;
+
+//		numOfElectrons.append(o.left( pos ).toInt());
+
+		num++;
+
+		if ( num > 5 )//!o.contains( numx ) )
+			cont = false;
+	}
 }
 
-int OrbitsWidget::getNumber( QString /*cut*/ )
+QString OrbitsWidget::getNumber()
 {
-	return 3;
+	return *hulllist.at( Elemno+1 );
 }
 
 void OrbitsWidget::paintEvent(  QPaintEvent* )
@@ -94,43 +145,40 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	
 	DC.drawRect( w_c , h_c , 2*r, 2*r ); //only to see the borders, will be removed
 
-	int num = getNumberOfOrbits();
 	kdDebug() << "Number of Orbits: " << num << endl;
 	
 	int d = 2*r; //Durchmesser
 	int	ddx = d/(2*num);//Änderung zum Vorgänger
 
-	for ( int i = 0 ; i < num ; ++i )
-	{
-		
-		DC.setBrush( Dense7Pattern  );
-//X 		kdDebug() << "Differenz: " << ddx << endl;
-//X 		kdDebug() << "Durchmesser: " << d << endl;
-
-		int mx = w_c+ddx*i;
-		int my = h_c+ddx*i;
-
-		//draw the big ellipses in concentric circles
-		DC.drawEllipse( mx , my , d , d);
-
-		DC.setBrush( Qt::SolidPattern );
-		for ( int e = 0 ; e < 4 ; ++e )
-		{
-			kdDebug() << "Durchlauf: " << i << " , " <<e << "Durchmesser: " << d/2 << endl;
-			int x = translateToDX(  ( double )d/2 , ( double )e );
-			int y = translateToDY(  ( double )d/2 , ( double )e );
-			
-			kdDebug() << x << endl;
-			kdDebug() << y << endl;
-			DC.drawEllipse( x + mx + d/2 - r_electron, 
-							x + mx + d/2 - r_electron,
-							2*r_electron ,
-							2*r_electron );
-			
-			
-		}
-		d = d-2*ddx;
-	}
+	int foo = 0;
+	
+//X 	for ( int i = 0 ; i < num ; ++i )
+//X 	{
+//X 		DC.setBrush( Dense7Pattern  );
+//X 
+//X 		int mx = w_c+ddx*i;
+//X 		int my = h_c+ddx*i;
+//X 
+//X 		//draw the big ellipses in concentric circles
+//X 		DC.drawEllipse( mx , my , d , d);
+//X 
+//X 		DC.setBrush( Qt::SolidPattern );
+//X 		for ( int e = 0 ; e < 19; ++e )
+//X 		{
+//X 			kdDebug() << "run: " << i << " , " <<e << "Durchmesser: " << d/2 << endl;
+//X 			int x = translateToDX(  ( double )d/2 , ( double )e );
+//X 			int y = translateToDY(  ( double )d/2 , ( double )e );
+//X 
+//X 			kdDebug() << x << endl;
+//X 			kdDebug() << y << endl;
+//X 
+//X 			DC.drawEllipse( x + mx + d/2 - r_electron, 
+//X 					y + mx + d/2 - r_electron,
+//X 					2*r_electron ,
+//X 					2*r_electron );
+//X 		}
+//X 		d = d-2*ddx;
+//X 	}
 }
 
 
