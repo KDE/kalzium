@@ -37,7 +37,6 @@
 #include <kaction.h>
 #include <kedittoolbar.h>
 #include <kapplication.h>
-#include <kkeydialog.h> //remove for the release
 
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
@@ -53,7 +52,7 @@ Kalzium::Kalzium()
 	 schemalist.append(i18n("Show &Regular PSE"));
 	 schemalist.append(i18n("Mendeleev - localized name of Russian chemist Dmitri Mendeleev","Show &Mendeleev PSE"));
 	 schemalist.append(i18n("Show &Simple PSE"));
-	 schema_action = new KSelectAction (i18n("Switch &PSE"), 0, this, 0, actionCollection(), "change_pse");
+	 schema_action = new KSelectAction (i18n("&PSE"), 0, this, 0, actionCollection(), "change_pse");
 	 schema_action->setItems(schemalist);
 	 schema_action->setCurrentItem(0);
 	 connect (schema_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoPSE(int)));
@@ -65,7 +64,7 @@ Kalzium::Kalzium()
 	 numlist.append(i18n("Show CAS"));
 	 numlist.append(i18n("Show IUPAC"));
 	 numlist.append(i18n("Show Old IUPAC"));
-	 nummeration_action = new KSelectAction (i18n("Switch &Nummeration"), 0, this, 0, actionCollection(), "nummerationtype");
+	 nummeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "nummerationtype");
 	 nummeration_action->setItems(numlist);
 	 nummeration_action->setCurrentItem(0); //XXX should be read in via KConfig
 	 connect (nummeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNummeration(int)));
@@ -105,8 +104,6 @@ Kalzium::Kalzium()
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 
 	KStdAction::keyBindings( guiFactory(), SLOT( configureShortcuts() ), actionCollection() );
-
-	KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), actionCollection());
 	KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
 
 	m_pRegularPSE = new RegularPSE( data(), this, "regularPSE");

@@ -29,7 +29,7 @@ kalzium_SOURCES = kalzium.cpp \
 			plotsetupwidget.ui \
 			questiontextwidget.ui
 
-kalzium_LDADD   = $(LIB_KDEUI)\
+kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
 		  
 SUBDIRS = icons elementpics data

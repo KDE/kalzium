@@ -29,6 +29,7 @@
 #include <kmessagebox.h>
 #include <kdebug.h>
 #include <klocale.h>
+#include <kstandarddirs.h>
 
 questionEditorImpl::questionEditorImpl(QWidget* parent, const char* name)
  : questionEditor(parent,name)
@@ -80,9 +81,13 @@ bool questionEditorImpl::loadLayout( QDomDocument &layoutDocument )
 {
 	kdDebug() << "questionEditorImpl::loadLayout()" << endl;
 	//XXX let the user decide
-	QString f =  KFileDialog::getOpenFileName();//"/home/carsten/cvs/kdeedu/kalzium/src/salze.xml" );
+	KURL url;
+	url.setPath( locate("data", "kalzium/data/"));
+	url = KFileDialog::getOpenURL( url.path(),
+		QString("*xml"), this,
+		i18n("Open Kalzium Data file...") );
 	
-	QFile layoutFile( f );
+	QFile layoutFile( url.path() );
 	
 	if (!layoutFile.exists())
 	{
