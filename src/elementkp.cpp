@@ -18,8 +18,6 @@
 //KDE-Includes
 #include <kconfig.h>
 #include <kglobalsettings.h>
-#include <khtml_part.h>
-#include <khtmlview.h>
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <kstatusbar.h>
@@ -35,7 +33,6 @@
 #include <qpainter.h>
 #include <qpopupmenu.h>
 #include <qwhatsthis.h>
-
 #include <qdialog.h>
 
 #include "elementkp.h"
@@ -43,7 +40,11 @@
 #include "elementkp.moc"
 #include "kalzium.h" 
 #include "infodlg.h"
+#include "infodialog.h"
 #include "fastinfo.h"
+#include "detailinfodlg.h"
+
+#include <iostream>
 
 ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)	
 : ElementButton(parent,name)
@@ -120,7 +121,8 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 	}
 	else
 	{
-		slotShowData();
+		slotShowDetailedData();
+		slotShowData(); //böse
 	}
 }
 
@@ -167,118 +169,20 @@ QSize ElementKP::sizeHint() const
 
 //******** Slots *****************************************************
 
-void ElementKP::lookup() const
+
+//böse böse
+//
+void ElementKP::slotShowDetailedData()
 {
-	KHTMLPart *html = new KHTMLPart();
-
-	KConfig *mainc = KGlobal::config();
-	mainc->setGroup( "WLU" );
-	QString url = mainc->readEntry( "adress" ) + Data.Symbol.lower()  + ".html";
-	if ( mainc->readEntry( "adress" ).contains( "pearl1" ) ) 
-		url = mainc->readEntry( "adress" )+QString::number( Data.number )+".html";
-
-	const KURL site(url);
-	html->openURL(site);
-	html->show();
-	html->view()->resize(html->view()->contentsWidth() + html->view()->frameWidth() ,400);
+	DetailedInfoDlg *DIDlg = new DetailedInfoDlg( Data , this , "foo" );
+	DIDlg->show();
 }
 
 
 void ElementKP::slotShowData()
 {
-    QFont bold_font=KGlobalSettings::generalFont();
-    bold_font.setBold(true);
-    QFont topic_font=bold_font;
-    topic_font.setPointSize(bold_font.pointSize()+2);
-
-    infoDlg *show_data2 = new infoDlg();
-    show_data2->show();
-    show_data2->setCaption( i18n( Data.Name.utf8() ) );
-    show_data2->name_label->setText( i18n( Data.Name.utf8() ) );
-    show_data2->symbol_label->setText(i18n( "%1" ).arg( Data.Symbol ) );
-    show_data2->block_label->setText( i18n( "%1" ).arg( Data.Block ) );
-
-    if ( Data.Density == -1 )
-	show_data2->density_label->setText( i18n( "Unknown" ) );
-    else
-	show_data2->density_label->setText( i18n("%1 g/cm<sup>3</sup>" ).arg( Data.Density ) );
-
-    if ( Data.MP == -1 )
-	show_data2->melting_label->setText( i18n( "Unknown" ) );
-    else
-	show_data2->melting_label->setText( i18n( "%1 C" ).arg( -273.15+Data.MP ) );
-
-    if (Data.IE == -1)
-	show_data2->ion_label->setText( i18n( "Unknown" ) );
-    else
-	show_data2->ion_label->setText( i18n( "%1 kJ/mol" ).arg( Data.IE*100) );
-
-    show_data2->elemno_label->setText( i18n( "%1" ).arg( Data.number ) );
-
-    if (Data.Weight == "0")
-		show_data2->weight_label->setText( i18n( "Unknown" ) );
-    else{
-		show_data2->weight_label->setText( i18n( "%1 u" ).arg( Data.Weight ) );
-		show_data2->meanweight_label->setText( i18n( "%1 u"). arg( Data.Weight.toDouble()/Data.number ) );
-	}
-
-    if (Data.date == "0")
-	show_data2->discovered_label->setText(i18n("was known to ancient cultures"));
-    else if (Data.date == "3333")
-	show_data2->discovered_label->setText(i18n("not been discovered yet"));
-    else
-	show_data2->discovered_label->setText(i18n("%1").arg(Data.date));
-
-    if (Data.AR == -1)
-	show_data2->radius_label->setText( i18n( "Unknown" ) );
-    else
-	show_data2->radius_label->setText( i18n( "%1 pm" ).arg( Data.AR ) );
-
-    if (Data.BP == -1)
-	show_data2->boiling_label->setText( i18n( "Unknown" ) );
-    else
-	show_data2->boiling_label->setText( i18n( "%1 C" ).arg(-273.15+Data.BP ) );
-
-    if (Data.EN == -1)
-	show_data2->electro_label->setText( i18n( "Unknown" ) );
-    else
-	show_data2->electro_label->setText( i18n( "%1" ).arg( Data.EN ) );
-
-	show_data2->oxlabel->setText( Data.oxstage );
-
-
-	//show orbit information nicely
-	QRegExp rxs("([a-z])([0-9]+)");
-	QRegExp rxb("([a-z]{2}) ",false);
-	QString orbitData = Data.orbits;
-	orbitData.replace(rxs,"\\1<sup>\\2</sup>"); //superscript around electron number
-	orbitData.replace(rxb,"<b>\\1</b> "); //bold around element symbols
-        show_data2->orbitLabel->setText( orbitData );
-
-
-//    show_data2->general_label->setFont( topic_font );
-//    show_data2->states_label->setFont( topic_font );
-//    show_data2->energy_label->setFont( topic_font );
-
-	// The table 
-	show_data2->neighbourTable->horizontalHeader()->hide();
-	show_data2->neighbourTable->verticalHeader()->hide();
-	show_data2->neighbourTable->setTopMargin( 0 );
-	show_data2->neighbourTable->setLeftMargin( 0 );
-
-//	getNeighbours( ElemNo );
-//X 	for( int zeile=0 ; zeile < 3 ; zeile++ )
-//X 	{
-//X 		for( int spalte=0 ; spalte < 3 ; spalte++ )
-//X 		{
-//X 			show_data2->neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
-//X 			if (neighbourArray[zeile][spalte] == "leer") show_data2->neighbourTable->setText(zeile,spalte,"");
-//X 		}
-//X 	}
-
-	// click on this button to load webpage for element
-	QObject::connect(show_data2->weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
-
+    infoDialog *show_data2 = new infoDialog( Data , this );
+	show_data2->show();
 }
 
 void ElementKP::drawButtonLabel(QPainter *p)

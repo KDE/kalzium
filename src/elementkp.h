@@ -117,15 +117,12 @@ class ElementKP : public ElementButton{
 		QString parseElementInfo();
 
 		private slots:
-		/**
-		 * If the user clicks Web Lookup button
-		 */
-		void lookup() const;
-
 		/** 
 		 * If the user clicks on one button this slot will be called
 		 */
 		void slotShowData();
+
+		void slotShowDetailedData();
 
 	protected:
 		void drawButtonLabel(QPainter *p);
