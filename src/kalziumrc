@@ -2270,7 +2270,7 @@ Alternative2=The pH-value tells you if something is acidic or basic
 
 [q14]
 Q=What procedure is used to manufacture Ammonia?
-A=The Born-Haber process.
+A=The Haber-Bosch process.
 Alternative1=Rothe-Caro-Frank-process
 Alternative2=Solvay-process
 
@@ -2520,7 +2520,7 @@ Alternative2=1
 
 [q53]
 Q=What is not a DNA base?
-A=Pyridine
+A=Guanine
 Alternative1=Pyrrole
 Alternative2=Piperidine
 

@@ -3,7 +3,7 @@
         detailedinfodlg.h  -  description
                              -------------------
     begin                : Tue Apr 2 20:43:44 2002 UTC
-    copyright            : (C) 2003 by Carsten Niehaus
+    copyright            : (C) 2003, 2004 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -20,47 +20,46 @@
 #define _DETAILINFODLG_H_
 
 #include <kdialogbase.h>
+#include "element.h"
 
-#include "elementkp.h"
 class QFrame;
-class DetailedTab;
-
 
 class DetailedTab : public QWidget
 {
 	Q_OBJECT
 
 	public:
-		DetailedTab( ElementInfo Eleminfo , QWidget *parent, const char *name=0 );
-		DetailedTab( QWidget *parent, const char *name=0 );
-		ElementInfo EData;
+		DetailedTab( Element *el, QWidget *parent, const char *name=0 );
 		QColor PSEColor( const QString &Block ) const;
-		void setData( ElementInfo Eleminfo );
-	
-	private:
 		void drawBiologicalSymbol( QPainter *p );
 	
 		//calculation of the corners
 		int x1,x2,y1,y2,h_t;
-
+	private:
+		Element *e;
 
 	protected:
 		virtual void paintEvent( QPaintEvent* );
 };
+
 
 class DetailedInfoDlg : public KDialogBase
 {
     Q_OBJECT
     
 	public:
-        DetailedInfoDlg( ElementInfo Eleminfo , QWidget *parent=0, const char *name=0);
-		ElementInfo Data;
-
-		QFrame *mainTab, *energyTab, *chemicalTab, *overviewTab, *miscTab, *orbitsTab;
+        	DetailedInfoDlg( Element *el , QWidget *parent=0, const char *name=0);
+	
+	private:
+		Element *e;
+		QFrame *m_pEnergyTab,
+			*m_pOverviewTab,
+			*m_pPictureTab,
+			*m_pChemicalTab,
+			*m_pMiscTab,
+			*m_pModelTab;
 
 		DetailedTab *dTab;
 
-	protected slots:
-		virtual void slotUser1();
 };
 #endif
