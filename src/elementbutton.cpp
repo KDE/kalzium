@@ -91,10 +91,16 @@ void ElementButton::paintEvent( QPaintEvent* )
     int h, w;
     h = w = 40;
     QPainter p;
+    
+    QFont f = p.font();
+    f.setBold( true );
+    f.setPointSize( f.pointSize() + 2 );
+    
     p.begin( this );
-    p.drawText( w/2, h/2, sym );
-    p.drawText( 2, h/2-10, QString::number( m_ElementNumber ) );
-	p.drawRect( 0, 0, w, h );
+    p.drawText( 4, h/2-6, QString::number( m_ElementNumber ) );
+    p.setFont( f );
+    p.drawText( w/5, h*3/4, sym );
+    p.drawRoundRect( 1, 1, w-2, h-2 );
     p.end(); 
 }
 
