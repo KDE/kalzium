@@ -256,6 +256,8 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 
 	bool notFound = true;
 
+	Element *e;
+
 	int counter = 1;
 	while ( it != d->CoordinateList.end() && notFound == true )
 	{//iterate through the list of coordinates and compare the x/y values.
@@ -268,7 +270,9 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 			if ( c.y == Y )
 			{//coordinates match. Get the position of the it in the list.
 				kdDebug() << "Count: " << counter << "  ---  x: " << c.x << " y: " << c.y << endl;
-
+				
+	//			e = new Element ( counter );
+				
 				notFound = false;
 			}
 		}
@@ -277,9 +281,6 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 	}
 
 	return;
-	
-	Element *e = new Element( 4 );
-	
 	int small = Prefs::lMBbeh();
 	if ( small == 1 )
 	{
