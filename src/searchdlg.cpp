@@ -169,7 +169,7 @@ IntValueList SearchDlg::parseDashes( QString dashedString )
 	QString right = dashedString.right( dashedString.length() - dashedString.find( rx ) - 1 );
 	if ( left.toInt() > right.toInt() )
 	{
-		QMessageBox::information(  this, i18n( "dashedStringproblem" ),
+		QMessageBox::information(  this, i18n( "Incorrect Values" ),
 				i18n( "The left value has to be smaller than the right value." ) );
 		return l;
 	}

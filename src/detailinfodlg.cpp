@@ -119,7 +119,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	miscLayout->insertStretch(-1,1);
 	
 	/////////////////////////////////
-    orbitsTab = addPage(i18n("Atom model"), i18n("Atom Model"), BarIcon(kil->iconPath( "orbits" , KIcon::User)));
+    orbitsTab = addPage(i18n("Atom Model"), i18n("Atom Model"), BarIcon(kil->iconPath( "orbits" , KIcon::User)));
 	QVBoxLayout *orbitsLayout = new QVBoxLayout( orbitsTab );
 	OrbitsWidget *orbitsPic = new OrbitsWidget( Data.number , orbitsTab );
 	QWhatsThis::add( orbitsPic,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
