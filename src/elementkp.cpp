@@ -189,9 +189,9 @@ void ElementKP::slotShowData()
     //Ionisationenergie
     QLabel *IonEnergie = new QLabel ( ausgabe );
     if (Data.IE == -1)
-        IonEnergie->setText(i18n("Ionization Energie: Unknown"));
+        IonEnergie->setText(i18n("Ionization Energy: Unknown"));
     else
-        IonEnergie->setText(i18n("Ionization Energie: %1").arg(Data.IE));
+        IonEnergie->setText(i18n("Ionization Energy: %1").arg(Data.IE));
     grid->addMultiCellWidget ( IonEnergie, 11, 11, 0, 2 );
     
     //Atomicradius
