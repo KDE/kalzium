@@ -282,8 +282,8 @@ void ElementDataViewer::drawPlot()
 	/*
 	 * reserve the memory for the KPlotObjects
 	 */
-	KPlotObject *dataPoint[ num ];
-	KPlotObject *dataPointLabel[ num ];
+	QMemArray<KPlotObject*> dataPoint(num);
+	QMemArray<KPlotObject*> dataPointLabel(num);
 
 	int number = 0;
 
@@ -315,7 +315,7 @@ void ElementDataViewer::initData()
 	kdDebug() << "initData()" << endl;
 	
 	setupAxisData();
-};
+}
 
 ///////////////////////////////////////////////7
 
