@@ -102,8 +102,6 @@ class Kalzium : public KMainWindow
 		 */
 		void slotShowScheme(void);
 
-		void optionsConfigureKeys();
-
 		void slotSwitchtoNummeration(int);
 
 		void slotPlotData();

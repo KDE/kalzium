@@ -24,6 +24,7 @@
 #include <qstring.h>
 
 #include <klistview.h>
+#include <kfiledialog.h>
 
 #include <kmessagebox.h>
 #include <kdebug.h>
@@ -42,8 +43,6 @@ questionEditorImpl::questionEditorImpl(QWidget* parent, const char* name)
 
 void questionEditorImpl::setupListView()
 {
-	/*
-	kdDebug() << "questionEditorImpl::setupListView()" << endl;
 	TaskList t = m_tasklist; //just to be safe
 	
 	kdDebug() << "#: " << t.numberOfTasks() << endl;
@@ -73,7 +72,6 @@ void questionEditorImpl::setupListView()
 		childItemQuestion->setText( 1, task->question() );
 		
 	}
-	*/
 }	
 
 //void questionEditorImpl::addTaskToListView( Task * /*t*/ ){}
@@ -82,13 +80,15 @@ bool questionEditorImpl::loadLayout( QDomDocument &layoutDocument )
 {
 	kdDebug() << "questionEditorImpl::loadLayout()" << endl;
 	//XXX let the user decide
-	QFile layoutFile( "/home/carsten/cvs/kdeedu/kalzium/src/questions.xml" );
-
+	QString f =  KFileDialog::getOpenFileName();//"/home/carsten/cvs/kdeedu/kalzium/src/salze.xml" );
+	
+	QFile layoutFile( f );
+	
 	if (!layoutFile.exists())
 	{
 		kdDebug() << "questionEditorImpl::loadLayout(): file does not exist" << endl;
-		QString mString=i18n("The file questions.xml was not found in\n"
-				"$KDEDIR/share/apps/klettres/data/\n\n"
+		QString mString=i18n("The file was not found in\n"
+				"$KDEDIR/share/apps/kalzium/data/\n\n"
 				"Please install this file and start Kalzium again.\n\n");
 		KMessageBox::information( this, mString,"Kalzium - Error" );
 	}
@@ -105,6 +105,7 @@ bool questionEditorImpl::loadLayout( QDomDocument &layoutDocument )
 	}
 	layoutFile.close();
 
+	kdDebug() << "good xml" << endl;
 	return true;
 }
 
@@ -179,7 +180,7 @@ bool questionEditorImpl::readTasks( QDomDocument &questionDocument )
 		//the task has now all answers, the grade and the question.
 		//Now we can add the Task to the list of tasks
 		//
-		//m_tasklist.addTask( t );
+		m_tasklist.addTask( t );
 	}
 		
 	setupListView();		

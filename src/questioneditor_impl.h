@@ -52,11 +52,11 @@ class questionEditorImpl : public questionEditor
 	private:
 		QDomDocument m_questionDocument;
 
-//		void addTaskToListView( Task *t );
+		void addTaskToListView( Task *t );
 
 		void setupListView();
 
-		//TaskList m_tasklist;
+		TaskList m_tasklist;
 		
 	private slots:
 		void slotAddQuestion(); 
