@@ -63,7 +63,7 @@
 #include "stateofmatterdlg.h"
 
 
-Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
+Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
 {
     connect(kapp, SIGNAL(kdisplayFontChanged()), this,SLOT(updateElementKPSize()));
     

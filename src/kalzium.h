@@ -60,26 +60,38 @@ class Kalzium : public KMainWindow
 	Q_OBJECT
 
 	public:
-		/** construtor */
-		Kalzium(const char *name=0);
-		/** destructor */
+		Kalzium();
 		~Kalzium();
 
 		int numofquestions;
-		PElementKP element[118];
-		QString helpArray[9][18];
-		CalcDialog *calculationdialog;
 		Colors_Config_Widget *colorsconfig;
-		KSelectAction *numerationmenu, *psestylemenu, *colorschememenu, *weblookupmenu;
+        
+		KSelectAction *numerationmenu, 
+                      *psestylemenu, 
+                      *colorschememenu, 
+                      *weblookupmenu;
+
+		PElementKP element[118];
+		CalcDialog *calculationdialog;
+		QString helpArray[9][18];
 		StateOfMatterDlg *templookup;
-        KPushButton *one, *two, *three, *four, *five, *six, *seven, *eight;
+
+        KPushButton *one, 
+                    *two, 
+                    *three, 
+                    *four, 
+                    *five, 
+                    *six, 
+                    *seven, 
+                    *eight;
 
 		void createhelpArray();
         
 	private:
+        KConfig *main_config;
+		KToggleAction *timelineToggleAction, 
+                      *toolbarToggleAction;
 		PQLabel labels[18];
-		KConfig *main_config;
-		KToggleAction *timelineToggleAction, *toolbarToggleAction;
 		QGridLayout *maingrid;
 		QLCDNumber *dateLCD;
 		QSlider *dateS;
@@ -94,6 +106,9 @@ class Kalzium : public KMainWindow
 
 		void setupActions();
 
+        /**
+         *  Creates all 118 buttons
+         */
         void setupAllElementKPButtons();
 
         void setupCaption();
@@ -126,14 +141,14 @@ class Kalzium : public KMainWindow
 
 		//******* Slots ******************************************************
 
-		public slots:
+    public slots:
 
 			void changeColorScheme(int id=-1);
             void changeLegend(int id=-1);
 
-		private slots:
+	private slots:
 
-			void changeNumeration(int) const;
+	    void changeNumeration(int) const;
 
 		void defineweights() const;
 
