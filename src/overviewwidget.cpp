@@ -37,9 +37,9 @@ void OverviewWidget::setElement( const int elementnumber )
 	detailedGraphicalOverview->setElement( el );
 	detailedGraphicalOverview->repaint();
 	textLabel1->setText( i18n( "<b>Name</b>: %1" ).arg( el->elname().utf8() ) );
-	textLabel2->setText( i18n( "<b>Weight</b>: %1" ).arg( Element::adjustUnits( el->weight(),3 ) ) );
-	textLabel3->setText( i18n( "<b>Boilingpoint</b>: %1" ).arg( Element::adjustUnits( el->boiling(),0 ) ) );
-	textLabel4->setText( i18n( "<b>Meltingpoint</b>: %1" ).arg( Element::adjustUnits( el->melting(),0 ) ) );
+	textLabel2->setText( i18n( "<b>Weight</b>: %1" ).arg( el->adjustUnits( Element::WEIGHT ) ) );
+	textLabel3->setText( i18n( "<b>Boilingpoint</b>: %1" ).arg( el->adjustUnits( Element::BOILINGPOINT ) ) );
+	textLabel4->setText( i18n( "<b>Meltingpoint</b>: %1" ).arg( el->adjustUnits( Element::MELTINGPOINT ) ) );
 }
 
 
