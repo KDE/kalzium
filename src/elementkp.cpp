@@ -172,6 +172,13 @@ void ElementKP::showName() const
 	zeigerle->message(i18n(Data.Name.utf8()));
 }
 
+QSize ElementKP::sizeHint() const
+{
+  QFontMetrics fm = fontMetrics();
+  return QSize (fm.size( ShowPrefix, QString ("XXXX\nXXXX") ));
+}
+
+
 //******** Slots *****************************************************
 
 void ElementKP::lookup() const
@@ -280,19 +287,11 @@ void ElementKP::slotShowData()
 
 void ElementKP::drawButtonLabel(QPainter *p)
 {
-    QFont general = KGlobalSettings::generalFont();
-    QFont general_bold = general;
-    general_bold.setBold(TRUE);
-    general.setPointSize(general.pointSize()-2);
-    general_bold.setPointSize(general_bold.pointSize()+1);
-
-    p->setPen(QPen (black,0));
-
-    QFontMetrics zahl( general );
-    QFontMetrics text( general_bold );
-    
-    p->setFont( general );
-    p->drawText(7,zahl.height(),QString::number(Data.number), -1);
-    p->setFont( general_bold );
-    p->drawText ( width() - text.width(Data.Symbol)-7, height()-7 , Data.Symbol);
+  QFontMetrics  metricsNumber ( kalzium->generalFont() );
+  QFontMetrics  metricsText ( kalzium->generalBoldFont() );
+  p->setPen(QPen (black,0));
+  p->setFont( kalzium->generalFont());
+  p->drawText(7, metricsNumber.height(),QString::number(Data.number), -1);
+  p->setFont( kalzium->generalBoldFont() );
+  p->drawText ( width() - metricsText.width(Data.Symbol)-7, height()-7 , Data.Symbol);
 }

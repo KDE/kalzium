@@ -81,14 +81,21 @@ class Kalzium : public KMainWindow
 	Fastinfo *fastinfo;
 
 	void createhelpArray();
-
-    private:
+	QFont generalFont() {return generalKPFont;};
+	QFont generalBoldFont() {return generalKPBoldFont;};
+  
+  private:
 	KConfig *main_config;
 	KToggleAction   *timelineToggleAction, 
 					*toolbarToggleAction,
 					*quickinfoToggleAction,
 					*legendToggleAction;
 	PQLabel labels[18];
+  
+  // Fonts for ElementKP
+  QFont generalKPFont;
+  QFont generalKPBoldFont;
+  
 	QGridLayout *maingrid;
 	QLCDNumber *dateLCD;
 	QSlider *dateS;
@@ -155,6 +162,8 @@ class Kalzium : public KMainWindow
 
 	void defineweights() const;
 
+  void setFont();
+  
 	void showPseStyle(int);
 
 	void showToolbar();

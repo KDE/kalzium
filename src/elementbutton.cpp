@@ -27,6 +27,7 @@ ElementButton::ElementButton ( QWidget *parent, const char* name)
 {
 
 }
+
 void ElementButton::drawButton( QPainter *paint )
 { 
   paint->drawRect(0,0, width(), height());
