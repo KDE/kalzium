@@ -17,7 +17,7 @@
 
 #include <kapplication.h>
 
-#include <qlist.h>
+#include <qptrlist.h>
 #include <qdict.h>
 #include <qstring.h>
 #include <qtextstream.h>
