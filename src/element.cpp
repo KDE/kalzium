@@ -307,6 +307,33 @@ QColor Element::currentColor( double temp )
 
 }
 
+void Element::drawHighlight( QPainter* p, int coordinate, bool horizontal )
+{
+	//first: test if the element is in the selected period of group
+	if ( horizontal )
+	{
+		if ( y != coordinate )
+			return;
+		//else the element is in the selected row
+	}
+	else if ( !horizontal )
+	{
+		if ( x != coordinate )
+			return;
+		//else the element is in the selected group
+	}
+
+	//the element matches. Now highlight it.
+	//The X-coordiante
+	int X = ( x-1 )*ELEMENTSIZE;
+
+	//The Y-coordinate
+	int Y = ( y-1 )*ELEMENTSIZE;
+
+	p->setPen( Qt::red );
+	p->drawRect( X, Y,ELEMENTSIZE,ELEMENTSIZE );
+}
+	
 void Element::drawSelf( QPainter* p, bool useSimpleView )
 {
 	//the height of a "line" inside an element

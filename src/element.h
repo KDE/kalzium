@@ -308,6 +308,14 @@ class Element{
 		 */
 		virtual void drawSelf( QPainter* p, bool showFullInformation );
 		
+		/**
+		 * Highlight perdiods or groups.
+		 * @param p the QPainter used for painting
+		 * @p param coordinate the number of the period or group
+		 * @p horizontal if true a period will be painted, otherwise a group
+		 */
+		virtual void drawHighlight( QPainter* p, int coordinate, bool horizontal );
+		
 		virtual void drawStateOfMatter( QPainter* p, double temperature );
 };
 

@@ -22,6 +22,7 @@
 
 class QLabel;
 class QPixmap;
+class QPoint;
 
 #include <qvaluelist.h>
 #include <qwidget.h>
@@ -129,6 +130,9 @@ class PSE : public QWidget
 		 * updates the numeration of the PSE
 		 */
 		virtual void updateNumeration();
+
+		///the currently selected element (the x/y-coordinates)
+		QPoint m_currentPoint;
 		
 		void mouseReleaseEvent( QMouseEvent* );
 
@@ -159,7 +163,7 @@ class PSE : public QWidget
 
     QPixmap *table;
     bool doFullDraw;
-    
+
   public slots:
 		/**
 		 * this method hides all elements which have not been know
@@ -170,8 +174,25 @@ class PSE : public QWidget
 		void setDate( int date );
 		
 	protected:
-    virtual void paintEvent( QPaintEvent *e );
-    virtual void resizeEvent( QResizeEvent *e );
+  virtual void paintEvent( QPaintEvent *e );
+  virtual void resizeEvent( QResizeEvent *e );
+
+	public slots:	
+		/**
+		 * this slot updates the currently selected point
+		 */
+		void slotUpdatePoint( QPoint point );
+
+	signals:
+		/**
+		 * this signal is emited when the table is clicked
+		 */
+		void tableClicked(QPoint);
+		
+		/**
+		 * this signal is emited when an element is clicked
+		 */
+		void ElementClicked(int);
 
 	public:
 		virtual void drawPSE( QPainter* p, bool useSimpleView );

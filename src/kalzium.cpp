@@ -18,6 +18,7 @@
 #include "elementdataviewer.h"
 #include "tempslider.h"
 #include "molcalc_impl.h"
+#include "detailinfodlg.h"
 
 #include <qinputdialog.h>
 #include <qlayout.h>
@@ -57,6 +58,8 @@ Kalzium::Kalzium()
 	m_pTimeSlider->hide();
 	
 	m_PSE = new PSE( data(), CentralWidget, "PSE");
+
+	connect( m_PSE, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
 
 	// Layouting
 	m_pCentralLayout->addWidget( m_PSE );
@@ -380,6 +383,16 @@ void Kalzium::showSOMWidgets( bool show )
 	m_PSE->update();
 	*/
 }
+
+void Kalzium::openInformationDialog( int number )
+{
+	kdDebug() << number << " clicked! " << endl;
+	Element *e = new Element( number );
+
+	DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( e, this , "detailedDlg" );
+	detailedDlg->show();
+}
+
 
 void Kalzium::slotTempChanged( int temperature )
 {

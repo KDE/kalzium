@@ -56,7 +56,7 @@ class Kalzium : public KMainWindow
 		 * the date which the pSliderWidget will start with
 		 */
 		int date;
-
+		
 		void showSOMWidgets( bool show );
 
 		/**
@@ -134,6 +134,11 @@ class Kalzium : public KMainWindow
 		QVBoxLayout *m_pCentralLayout;
 	
 	private slots:
+		/**
+		 * opens the information dialog for the element @p number
+		 */
+		void openInformationDialog( int number );
+
 		/**
 		 * this slot switches Kalzium to the selected colorscheme
 		 */

@@ -29,6 +29,7 @@
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qpixmap.h>
+#include <qpoint.h>
 
 #include <qpainter.h>
 
@@ -36,6 +37,8 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
   : QWidget(parent, name), table(0)
 {
 	d = data;
+
+	connect( this, SIGNAL( tableClicked( QPoint ) ), this, SLOT( slotUpdatePoint( QPoint ) ) );
 
 	m_molcalcIsActive = false;
 
@@ -223,7 +226,7 @@ void PSE::paintEvent( QPaintEvent *e )
   
   if ( doFullDraw ) {
     p.begin( table );
-    p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() );
+    p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); //CN what is this line for?
 //X     if ( m_showSOM )
 //X       drawSOMPSE( &p );
 //X     else
@@ -382,7 +385,6 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 {
 	///first: find out the position
 	
-	//kdDebug() << mouse->x() << " " << mouse->y() << endl;
 	int X = mouse->x()/45;
 	int Y = mouse->y()/45;
 	if ( m_isSimple )
@@ -396,16 +398,17 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 	X += 1;
 	Y += 1;
 
+	QPoint point( X,Y );
+	emit tableClicked( point );
+	kdDebug() << point.x() << " :x" << endl;
+
 	//from this on I can use X and Y. Both contain the position of an element in the
 	//complete PSE. Eg, He is 1,18 and Na is 2,1
 	
-	CList::Iterator it = d->CoordinateList.begin();
-
-	bool notFound = true;
+	CList::ConstIterator it = d->CoordinateList.begin();
 
 	int counter = 1;
-	int numb = 1;
-	while ( it != d->CoordinateList.end() && notFound == true )
+	while ( it != d->CoordinateList.end() )
 	{//iterate through the list of coordinates and compare the x/y values.
 	 //finally, if the 20'es iterator has the same cooridnates Element 20
 	 //has been clicked.
@@ -415,56 +418,38 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 		{
 			if ( c.y == Y )
 			{//coordinates match. Get the position of the it in the list.
-				//kdDebug() << "Count: " << counter << "  ---  x: " << c.x << " y: " << c.y << endl;
-				
-				numb = counter;
-				notFound = false;
+//				emit ElementClicked( counter );
+				kdDebug() << counter << " emitted " << endl;
+
+				return;
 			}
 		}
 		++it;
 		++counter;
 	}
+}
 
+void PSE::slotUpdatePoint( QPoint point )
+{
+	m_currentPoint = point;
 
-	if ( numb > 112 | numb < 0 )
-		return; //invalid value
-
-	Element *e = new Element( numb );
-
-	int small = Prefs::lMBbeh();
-	if ( small == 1 )
-	{
-		if ( mouse->button() == LeftButton )
-		{
-			infoDlgSmallImpl *smallDlg = new infoDlgSmallImpl( e, this , "smallDlg" );
-			smallDlg->show();
-		}else
-		{
-			DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( e, this , "detailedDlg" );
-			detailedDlg->show();
-		}	
-	}
-	if ( small == 0 )
-	{
-		if ( mouse->button() == LeftButton )
-		{
-			DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( e, this , "detailedDlg" );
-			detailedDlg->show();
-		}else
-		{
-			infoDlgSmallImpl *smallDlg = new infoDlgSmallImpl( e, this , "smallDlg" );
-			smallDlg->show();
-		}	
-	}
+	update();
 }
 
 void PSE::drawPSE( QPainter* p, bool useSimpleView )
 {
 	EList::Iterator it = d->ElementList.begin();
 
+	bool horizontal = false;
+	
+	/**
+	 * this loop iterates through all elements. The Elements
+	 * draw themselfs, the PSE only tells them to do so
+	 */
 	while ( it != d->ElementList.end() )
 	{
-		( *it )->drawSelf( p, useSimpleView );
+		( *it )->drawSelf( p, false ); //useSimpleView );
+		( *it )->drawHighlight( p, m_currentPoint.x(), horizontal );//only for testing
 		++it;
 	}
 
