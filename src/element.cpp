@@ -278,7 +278,6 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	
 QColor Element::currentColor( double temp )
 {
-	kdDebug() << "currentColor" << endl;
 	QColor color;
 	//take the colours for the given temperature
 	const int _az = az();

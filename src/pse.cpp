@@ -224,9 +224,9 @@ void PSE::paintEvent( QPaintEvent *e )
   if ( doFullDraw ) {
     p.begin( table );
     p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() );
-    if ( m_showSOM )
-      drawSOMPSE( &p );
-    else
+//X     if ( m_showSOM )
+//X       drawSOMPSE( &p );
+//X     else
       drawPSE( &p, m_isSimple );
 
 	if ( m_showLegend )
