@@ -366,10 +366,10 @@ void Kalzium::changeNumeration(int id) const
 {
     switch (id) {
         case 0:
-            showIUPAC();
+            showCAS();
             break;
         case 1:
-            showCAS();
+            showIUPAC();
             break;
         case 2:
             for (int n = 0; n < 18; ++n)

@@ -17,6 +17,8 @@ HEAD:
   method to read at startup those settings
 - fixed the smaller things like the stateofmatter-Dlg-fixlets. Just a
   small things as discussed on LinuxTag 2002
+- correct the numberation so that now CAS is really CAS and IUPAC is really
+  IUPAC
 
 Version 0.4:
 - added the new calculationdialogs
