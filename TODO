@@ -3,6 +3,9 @@ last modified: March 27 2002
 TODO for KDE 3.1:
 - write documentation
 
+- extend the quiz so that the users gets a feedback of which
+  were the correct answers.
+
 - clean up the code and fix the remaining bugs
   with the GUI (esp. the shrinking)
   //shrinking fixed, 31 March 02
