@@ -21,11 +21,9 @@ kalzium_SOURCES = kalzium.cpp \
 			plotsetupwidget.ui \
 			tempslider.ui \
 			isotopewidget.cpp \
-			overviewwidget.cpp \
 			detailedgraphicaloverview.cpp \
 			molcalcbase.ui \
 			molcalc_impl.cpp \
-			overviewbase.ui \
 			informationdialog.ui \
 			informationdialog_impl.cpp
 			
@@ -50,7 +48,6 @@ EXTRA_DIST = main.cpp \
 		plotwidget.cpp plotwidget.h \
 		elementdataviewer.cpp elementdataviewer.h \
 		isotopewidget.h isotopewidget.cpp \
-		overviewwidget.cpp overviewwidget.h \
 		detailedgraphicaloverview.cpp detailedgraphicaloverview.h \
 		molcalc_impl.cpp molcalc_impl.h \
 		informationdialog.ui \
