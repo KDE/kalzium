@@ -210,7 +210,7 @@ const QString Element::adjustUnits( double val, const int type )
  */
 void Element::setupXY()
 {
- static const int posXRegular[110] = {1,18,
+ static const int posXRegular[111] = {1,18,
 	 								1,2,13,14,15,16,17,18,
 									1,2,13,14,15,16,17,18,
  									1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,
@@ -218,8 +218,8 @@ void Element::setupXY()
 									1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,     //Element 71 (Lu)
 									      4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,
 									1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,     //Element 71 (Lr)
-									      4,5,6,7,8,9,10};
- static const int posYRegular[110] = {1,1,
+									      4,5,6,7,8,9,10,11};
+ static const int posYRegular[111] = {1,1,
 	 								2,2, 2, 2, 2, 2, 2, 2,
 									3,3, 3, 3, 3, 3, 3, 3,
  									4,4,4,4,4,4,4,4,4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
@@ -227,10 +227,10 @@ void Element::setupXY()
 						    		6,6,6,8,8,8,8,8,8, 8, 8, 8, 8, 8, 8, 8, 8,     //Element 71 (Lr)
 									      6,6,6,6,6,6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
 									7,7,7,9,9,9,9,9,9, 9, 9, 9, 9, 9, 9, 9, 9,
-									      7,7,7,7,7,7,7};
+									      7,7,7,7,7,7,7,7};
 										  
 								
-static const int posXSimplified[110] = {
+static const int posXSimplified[111] = {
 	1,8,
 	1,2,3,4,5,6,7,8,
 	1,2,
@@ -250,7 +250,7 @@ static const int posXSimplified[110] = {
 	1,2};
 
 	
-static const int posYSimplified[110] = {
+static const int posYSimplified[111] = {
 	1,1,
 	2,2,2,2,2,2,2,2,
 	3,3,
@@ -279,7 +279,7 @@ static const int posYSimplified[110] = {
 
 KalziumDataObject::KalziumDataObject()
 {
-	for( int i = 1 ; i < 111 ; ++i )
+	for( int i = 1 ; i < 112 ; ++i )
 	{
 		ElementList.append( new Element( i ) );
 	}

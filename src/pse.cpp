@@ -99,6 +99,7 @@ void PSE::setupBlockLists()
 {
 	EList::Iterator it = d->ElementList.begin();
 
+
 	while ( it != d->ElementList.end() )
 	{
 		ElementButton *b = new ElementButton( *it, this );
@@ -125,7 +126,6 @@ void PSE::setupPSEElementButtonsList(){}
 
 void PSE::activateColorScheme( const int nr )
 {
-//	kdDebug() << "Setting scheme number: " << nr << endl;
 
 	//set the temperature to normal conditions
 	setTemperature( 295 );
@@ -299,7 +299,6 @@ void PSE::setDate( int date )
 void PSE::setTemperature( const double temp )
 {
 	//Important: The value temp is in Kelvin, not Degree Celsius!
-//	kdDebug() << "PSE::setTemperature()" << endl;
 	
 	ElementButton *button;
 	for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
@@ -381,7 +380,6 @@ RegularPSE::~RegularPSE(){}
 
 void RegularPSE::updateNumeration()
 {
-//	kdDebug() << "RegularPSE::updateNumeration()" << endl;
 	LabelList::iterator it = lList.begin();
 	for ( int i = 0 ; it != lList.end() ; ++it )
 	{
@@ -508,7 +506,6 @@ void SimplifiedPSE::updateNumeration()
  **/
 void SimplifiedPSE::setupPSEElementButtonsList()
 {
-//	kdDebug() << "SimplifiedPSE::setupPSEElementButtonsList()" << endl;
 	ElementButton *button;
 	
 	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )

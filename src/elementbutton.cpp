@@ -45,6 +45,8 @@ ElementButton::ElementButton( Element *el, QWidget *parent, const char *name)
 	
 	timer = new QTimer( this );
 
+	kdDebug() << "ctor elementbutton " << el->elname() << endl;
+
 }
 
 void ElementButton::mouseReleaseEvent( QMouseEvent *mouse )
