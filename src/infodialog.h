@@ -1,10 +1,10 @@
 /***************************************************************************
 
-        settingsdialog.h  -  description
+        infodialog.h  -  description
                              -------------------
     begin                : Tue Apr 2 20:43:44 2002 UTC
-    copyright            : (C) 2002 by Robert Gogolok
-    email                : mail@robert-gogolok.de
+    copyright            : (C) 2003 by Carsten Niehaus
+    email                : cniehaus@kde.org
  ***************************************************************************/
 
 /***************************************************************************
@@ -31,12 +31,7 @@ class infoDialog : public infoDlg
 	Q_OBJECT
 
 	public:
-		infoDialog( ElementInfo Eleminfo , QString symbolArray[9][18] , QWidget *parent=0, const char *name=0 );
-		QString neighbourArray[3][3];
-		QString helpArray[9][18];
-
-	private:
-		void getNeighbours( int );
+		infoDialog( ElementInfo Eleminfo , QWidget *parent=0, const char *name=0 );
 
 	private slots:
 		void lookup() const;

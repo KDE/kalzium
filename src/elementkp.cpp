@@ -28,12 +28,10 @@
 #include <qdragobject.h>
 #include <qfont.h>
 #include <qfontmetrics.h>
-#include <qtable.h>
 #include <qlabel.h>
 #include <qpainter.h>
 #include <qpopupmenu.h>
 #include <qwhatsthis.h>
-#include <qdialog.h>
 
 #include "elementkp.h"
 #include "eleminfo.h"
@@ -101,7 +99,7 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 	else
 	{
 		slotShowDetailedData();
-		//slotShowData(); //böse
+		slotShowData(); //böse
 	}
 }
 
@@ -160,7 +158,7 @@ void ElementKP::slotShowDetailedData()
 
 void ElementKP::slotShowData()
 {
-    infoDialog *show_data2 = new infoDialog( Data , kalzium->helpArray, this );
+    infoDialog *show_data2 = new infoDialog( Data , this );
 	show_data2->show();
 }
 

@@ -33,11 +33,9 @@
 
 #include "kalzium.h"
 
-infoDialog::infoDialog( ElementInfo Eleminfo , QString symbolArray[9][18], QWidget *parent, const char *name)
+infoDialog::infoDialog( ElementInfo Eleminfo , QWidget *parent, const char *name)
     : infoDlg( parent , name )
 {
-	helpArray[ 9 ][ 18 ] = symbolArray[ 9 ][ 18 ];
-	
     setCaption( i18n( Eleminfo.Name.utf8() ) );
     name_label->setText( i18n( Eleminfo.Name.utf8() ) );
     symbol_label->setText(i18n( "%1" ).arg( Eleminfo.Symbol ) );
@@ -100,21 +98,6 @@ infoDialog::infoDialog( ElementInfo Eleminfo , QString symbolArray[9][18], QWidg
 	orbitData.replace(rxb,"<b>\\1</b> "); //bold around element symbols
         orbitLabel->setText( orbitData );
 
-	// The table 
-	neighbourTable->horizontalHeader()->hide();
-	neighbourTable->verticalHeader()->hide();
-	neighbourTable->setTopMargin( 0 );
-	neighbourTable->setLeftMargin( 0 );
-
-//X 	getNeighbours( Data.number );
-//X 	for( int zeile=0 ; zeile < 3 ; zeile++ )
-//X 	{
-//X 		for( int spalte=0 ; spalte < 3 ; spalte++ )
-//X 		{
-//X 			neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
-//X 			if (neighbourArray[zeile][spalte] == "leer") neighbourTable->setText(zeile,spalte,"");
-//X 		}
-//X 	}
 
 	// click on this button to load webpage for element
 	QObject::connect(weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
@@ -135,27 +118,6 @@ void infoDialog::lookup() const
 //X 	html->openURL(site);
 //X 	html->show();
 //X 	html->view()->resize(html->view()->contentsWidth() + html->view()->frameWidth() ,400);
-}
-
-void infoDialog::getNeighbours( int Current )
-{
-	int Nr=Current, ze=0, sp=0;
-	position(Nr,ze,sp);
-
-	/** The first [] is the row, the second [] is the column. */
-	neighbourArray[0][1]=helpArray[sp/40-1][ze/40];
-	neighbourArray[1][1]=helpArray[sp/40][ze/40];
-	neighbourArray[2][1]=helpArray[sp/40+1][ze/40];
-	if ( ze/40 != 17 )
-	{
-		neighbourArray[0][2]=helpArray[sp/40-1][ze/40+1];
-		neighbourArray[1][2]=helpArray[sp/40][ze/40+1];
-		neighbourArray[2][2]=helpArray[sp/40+1][ze/40+1];
-	}
-	if (ze/40 == 0 ) return;
-	neighbourArray[0][0]=helpArray[sp/40-1][ze/40-1];
-	neighbourArray[1][0]=helpArray[sp/40][ze/40-1];
-	neighbourArray[2][0]=helpArray[sp/40+1][ze/40-1];
 }
 
 #include "infodialog.moc"
