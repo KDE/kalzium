@@ -161,33 +161,33 @@
 		  <default>#44EE2E</default>
 	  </entry>
 	  <entry name="alkalie" type="Color">
-		  <label>Selects the color of the elements with neutral behaviour</label>
-		  <whatsthis>Selects the color of the elements with neutral behaviour</whatsthis>
+		  <label>Selects the color of the alkalie elements</label>
+		  <whatsthis>Selects the color of the alkalie elements</whatsthis>
 		  <default>#FFFF2D</default>
 	  </entry>
 	  <entry name="rare" type="Color">
-		  <label>Selects the color of the elements with neutral behaviour</label>
-		  <whatsthis>Selects the color of the elements with neutral behaviour</whatsthis>
+		  <label>Selects the color of the rare-earth elements</label>
+		  <whatsthis>Selects the color of the rare-earth elements</whatsthis>
 		  <default>#5B2EFF</default>
 	  </entry>
 	  <entry name="nonmetal" type="Color">
-		  <label>Selects the color of the elements with neutral behaviour</label>
-		  <whatsthis>Selects the color of the elements with neutral behaviour</whatsthis>
+		  <label>Selects the color of the non-metal elements</label>
+		  <whatsthis>Selects the color of the non-metal elements</whatsthis>
 		  <default>#CCBE2C</default>
 	  </entry>
 	  <entry name="alkaline" type="Color">
-		  <label>Selects the color of the elements with neutral behaviour</label>
-		  <whatsthis>Selects the color of the elements with neutral behaviour</whatsthis>
+		  <label>Selects the color of the alkaline elements</label>
+		  <whatsthis>Selects the color of the alkaline elements</whatsthis>
 		  <default>#3DD9DE</default>
 	  </entry>
 	  <entry name="other_metal" type="Color">
-		  <label>Selects the color of the elements with neutral behaviour</label>
-		  <whatsthis>Selects the color of the elements with neutral behaviour</whatsthis>
+		  <label>Selects the color of the metals which don't fit into the other categories</label>
+		  <whatsthis>Selects the color of the metals which don't fit into the other categories</whatsthis>
 		  <default>#0214B2</default>
 	  </entry>
 	  <entry name="halogene" type="Color">
-		  <label>Selects the color of the elements with neutral behaviour</label>
-		  <whatsthis>Selects the color of the elements with neutral behaviour</whatsthis>
+		  <label>Selects the color of the halagone elements</label>
+		  <whatsthis>Selects the color of the halogene elements</whatsthis>
 		  <default>#5BF4A0</default>
 	  </entry>
 	  <entry name="transition" type="Color">
