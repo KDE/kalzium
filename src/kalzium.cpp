@@ -303,34 +303,36 @@ void Kalzium::slotUpdateSettings()
 		m_pCurrentPSE->activateColorScheme(Prefs::colorschemebox());
 		m_pLegend->setScheme( Prefs::colorschemebox() );
 	}
-		//m_pCurrentPSE->setTemperature(Prefs::temperaturevalue());
-	//else
 	
 }
 
 void Kalzium::displayTemperature()
  {
  	QString string;
+	int min = 0, max = 1000;
  	switch (Prefs::temperature()) {
      		case 0:
  			string = i18n("Kelvin");
-			m_pSOMSlider->slider->setMinValue( 0 );
-			m_pSOMSlider->slider->setMaxValue( 1000 );
+			min = 0;
+			max = 1000;
 			m_pSOMSlider->unit->setText( i18n( "the unit for Kelvin" , "K" ) );
  			break;
  		case 1:
  			string = i18n("Degree Celsius");
-			m_pSOMSlider->slider->setMinValue( -273 );
-			m_pSOMSlider->slider->setMaxValue( 727 );
+			min = -273 ;
+			max = 727 ;
 			m_pSOMSlider->unit->setText( i18n( "the unit for degree celsius" , "°C" ) );
  			break;
  		case 2:
  			string = i18n("Degree Fahrenheit");
-			m_pSOMSlider->slider->setMinValue( -460 );
-			m_pSOMSlider->slider->setMaxValue( 1341 );
+			min =  -460 ;
+			max = 1341 ;
 			m_pSOMSlider->unit->setText( i18n( "the unit for degree Fahrenheit" , "°F" ) );
  			break;
  	}
+	m_pSOMSlider->slider->setMinValue( min );
+	m_pSOMSlider->slider->setMaxValue( max );
+
  	slotStatusBar(i18n("Temperature unit: %1 ").arg( string ),  IDS_TEMP);
  }
  
@@ -381,7 +383,7 @@ void Kalzium::slotStateOfMatter()
 void Kalzium::slotTempChanged( int temperature )
 {
 	kdDebug() << "Kalzium::slotTempChanged()" << endl;
-	double tempTemp;
+	double tempTemp=295;
  	switch (Prefs::temperature()) {
      		case 0:
 			tempTemp = temperature;
