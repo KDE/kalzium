@@ -28,7 +28,7 @@ QuizWidgetImpl::QuizWidgetImpl( QWidget *parent, const char* name )
 	kdDebug() << "QuizWidget()" << endl;
 	
 	connect( QuestionGroup, SIGNAL( clicked(int )), this, SLOT( slotAnswered( int )) );
-	Task *m_currentTask = new Task();
+	m_currentTask = new Task();
 	
 	buttonList << btn1 << btn2 << btn3 << btn4;
 	setupPixmaps();
