@@ -1,7 +1,10 @@
+04/01/03:
+- added orbital information for elements up to Actinium (89)
+
 Version 0.6:
 - switched to more Designer-Files
 - GUI-improvements
-- added the converter
+- a	dded the converter
 - some new URL for the weblookup
 - new numberation (old IUPAC)
 - removed elements 110 to 118
