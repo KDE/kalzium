@@ -20,6 +20,7 @@
 #include "tempslider.h"
 #include "legendwidget.h"
 #include "overviewwidget.h"
+#include "molcalcbase.h"
 
 #include <qinputdialog.h>
 #include <qlayout.h>
@@ -120,6 +121,8 @@ void Kalzium::setupActions()
 	m_pTimelineAction = new KAction(i18n("Show &Timeline"), "timeline", 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	m_pSOMAction = new KAction(i18n("&Show State of Matter"), "chemical", 0, this, SLOT(slotStateOfMatter()), actionCollection(), "show_som");
+	
+	m_pCalcAction = new KAction(i18n("&Calculate Molecular Weights"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_weights");
 
 	//Legend
 	m_pLengendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
@@ -205,6 +208,12 @@ void Kalzium::slotPlotData()
 {
 	ElementDataViewer *edw = new ElementDataViewer( data(), this, "edw" );
 	edw->show();
+}
+
+void Kalzium::slotCalculate()
+{
+	MolcalcDialog *dlg = new MolcalcDialog( this, "molcalcdialog" );
+	dlg->show();
 }
 
 void Kalzium::slotShowLegend()

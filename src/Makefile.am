@@ -25,7 +25,8 @@ kalzium_SOURCES = kalzium.cpp \
 			tempslider.ui \
 			isotopewidget.cpp \
 			overviewwidget.cpp \
-			detailedgraphicaloverview.cpp
+			detailedgraphicaloverview.cpp \
+			molcalcbase.ui
 			
 kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la

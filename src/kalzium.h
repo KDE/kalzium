@@ -156,6 +156,7 @@ class Kalzium : public KMainWindow
 		KAction *m_pTimelineAction,
 			   *m_pPlotAction,
 			    *m_pSOMAction,
+				*m_pCalcAction,
 				*m_pLengendAction;
 		
 		/**
@@ -178,6 +179,8 @@ class Kalzium : public KMainWindow
 		void slotPlotData();
 
 		void slotMouseOverElement( int );
+
+		void slotCalculate();
 
 		/**
 		 * this slot activates the timeline.
