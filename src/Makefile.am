@@ -30,7 +30,6 @@ kalzium_SOURCES = kalzium.cpp \
 			quizxmlparser.cpp \
 			quizwidget.ui \
 			quizwidget_impl.cpp \
-			buttonwidget.ui \
 			stateofmatterdialog.ui \
 			stateofmatterdialog_impl.cpp
 
@@ -74,7 +73,6 @@ EXTRA_DIST = main.cpp \
 		quizwidget.ui \
 		quizwidget_impl.cpp \
 		quizwidget_impl.h \
-		buttonwidget.ui \
 		stateofmatterdialog.ui \
 		stateofmatterdialog_impl.cpp \
 		stateofmatterdialog_impl.h 

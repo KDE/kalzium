@@ -169,6 +169,7 @@ void Kalzium::slotShowTimeline()
 	 **/
 	connect( pSliderWidget->pSlider, SIGNAL( valueChanged( int ) ), currentPSE(), SLOT( setDate(int) ) );
 
+	pSliderWidget->pSlider->setValue( 2004 );
 	pSliderWidget->show();
 }
 
