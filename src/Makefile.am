@@ -26,7 +26,8 @@ kalzium_SOURCES = kalzium.cpp \
 			isotopewidget.cpp \
 			overviewwidget.cpp \
 			detailedgraphicaloverview.cpp \
-			molcalcbase.ui
+			molcalcbase.ui \
+			molcalc_impl.cpp
 			
 kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
@@ -61,7 +62,9 @@ EXTRA_DIST = main.cpp \
 		overviewwidget.cpp \
 		overviewwidget.h \
 		detailedgraphicaloverview.cpp \
-		detailedgraphicaloverview.h
+		detailedgraphicaloverview.h \
+		molcalc_impl.cpp \
+		molcalc_impl.h
 
 
 METASOURCES = AUTO 

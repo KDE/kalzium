@@ -20,7 +20,7 @@
 #include "tempslider.h"
 #include "legendwidget.h"
 #include "overviewwidget.h"
-#include "molcalcbase.h"
+#include "molcalc_impl.h"
 
 #include <qinputdialog.h>
 #include <qlayout.h>
@@ -212,7 +212,7 @@ void Kalzium::slotPlotData()
 
 void Kalzium::slotCalculate()
 {
-	MolcalcDialog *dlg = new MolcalcDialog( this, "molcalcdialog" );
+	MolcalcImpl *dlg = new MolcalcImpl( this, "molcalcdialog" );
 	dlg->show();
 }
 
@@ -344,13 +344,13 @@ void Kalzium::displayTemperature()
  			string = i18n("Degree Celsius");
 			min = -273 ;
 			max = 5700 ;
-			m_pSOMSlider->unit->setText( i18n( "the unit for degree celsius" , "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°C" ) );
+			m_pSOMSlider->unit->setText( i18n( "the unit for degree celsius" , "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°C" ) );
  			break;
  		case 2:
  			string = i18n("Degree Fahrenheit");
 			min =  -460 ;
 			max = 6000 ;
-			m_pSOMSlider->unit->setText( i18n( "the unit for degree Fahrenheit" , "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°F" ) );
+			m_pSOMSlider->unit->setText( i18n( "the unit for degree Fahrenheit" , "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°F" ) );
  			break;
  	}
 	m_pSOMSlider->slider->setMinValue( min );
