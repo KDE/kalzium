@@ -1,11 +1,11 @@
 <kalzium>
 	<unit number="1">
-		<name>Group </name>
+		<name>Alkalimetalle</name>
 		<content>Content content content</content>
 	</unit>
 	<unit number="2">
-		<name>Group </name>
-		<content>Content content content</content>
+		<name>Erdalkalimetalle</name>
+		<content>Erdalkalimetalle zeichen sich durch die Eigenschaften XYZ aus...</content>
 	</unit>
 	<unit number="3">
 		<name>Group </name>
@@ -40,31 +40,31 @@
 		<content>Content content content</content>
 	</unit>
 	<unit number="11">
-		<name>Group </name>
+		<name>Münzmetalle</name>
 		<content>Content content content</content>
 	</unit>
 	<unit number="12">
-		<name>Group </name>
+		<name>Zn, Cd, Hg</name>
 		<content>Content content content</content>
 	</unit>
 	<unit number="13">
-		<name>Group </name>
+		<name>Borgruppe</name>
 		<content>Content content content</content>
 	</unit>
 	<unit number="14">
-		<name>Group </name>
+		<name>Kohlenstoffgruppe </name>
 		<content>Content content content</content>
 	</unit>
 	<unit number="15">
-		<name>Group </name>
+		<name>stickstoffgruppe</name>
 		<content>Content content content</content>
 	</unit>
 	<unit number="16">
-		<name>Group </name>
+		<name>Chalkogenide</name>
 		<content>Content content content</content>
 	</unit>
 	<unit number="17">
-		<name>Group </name>
+		<name>Halogenoide</name>
 		<content>Content content content</content>
 	</unit>
 	<unit number="18">
