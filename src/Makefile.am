@@ -12,8 +12,7 @@ EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elemen
 
 METASOURCES = AUTO 
 
-appsdir = $(kde_appsdir)/Edutainment/Science
-apps_DATA = kalzium.desktop
+xdg_apps_DATA = kalzium.desktop
 
 rcdir = $(kde_datadir)/kalzium
 rc_DATA = kalziumrc kmolweights
