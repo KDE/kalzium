@@ -23,7 +23,7 @@ KMolEdit::KMolEdit (QWidget *parent, const char* name, KMolCalc* kmolcalc)
         QGridLayout *grid = new QGridLayout ( this, 4, 2 ,8, -1, "KMolEditLayout" );
 
         // Error messages:
-        NAMES = QString(i18n("Names must start with a letter,\n followed by any number of lowercase letters."));
+        NAMES = QString(i18n("Names must start with a letter,\nfollowed by any number of lowercase letters."));
 
         this->kmolcalc = kmolcalc;
         setCaption (i18n("KMol Group Definitions"));

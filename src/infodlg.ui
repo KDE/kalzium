@@ -246,7 +246,7 @@
             </font>
         </property>
         <property name="text">
-            <string>Ionisation energy:</string>
+            <string>Ionization energy:</string>
         </property>
     </widget>
     <widget class="KPushButton">
@@ -265,7 +265,7 @@
             <string>Web &amp;Lookup</string>
         </property>
         <property name="whatsThis" stdset="0">
-            <string>When you click on the button you will get information from the internet</string>
+            <string>When you click on the button you will get information from the Internet</string>
         </property>
     </widget>
     <widget class="KPushButton">

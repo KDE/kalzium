@@ -54,9 +54,9 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	kelvinLCD = new QLCDNumber( 4, this, "kelvinLCD");
 	fahrenheitLCD = new QLCDNumber( 4, this, "fahrenheitLCD");
 
-	QWhatsThis::add(celsiusLCD, i18n("This LCD shows you the current temperature in degree celsius"));
-	QWhatsThis::add(kelvinLCD, i18n("This LCD shows you the current temperature in kelvin"));
-	QWhatsThis::add(fahrenheitLCD, i18n("This LCD shows you the current temperature in degree fahrenheit"));
+	QWhatsThis::add(celsiusLCD, i18n("This LCD shows you the current temperature in degrees Celsius."));
+	QWhatsThis::add(kelvinLCD, i18n("This LCD shows you the current temperature in Kelvin."));
+	QWhatsThis::add(fahrenheitLCD, i18n("This LCD shows you the current temperature in degrees Fahrenheit."));
 
 	tempgrid->addWidget(celsiusLCD, 2, 0 );
 	tempgrid->addWidget(kelvinLCD, 4, 0 );
@@ -84,7 +84,7 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	tempgrid->addWidget(liqinfo , 3 , 1 , Qt::AlignRight );
 
 	QLabel *gasinfo = new QLabel( this );
-	gasinfo->setText(i18n("vapor:"));
+	gasinfo->setText(i18n("gas:"));
 	tempgrid->addWidget(gasinfo , 4 , 1 , Qt::AlignRight );
 	
     QLabel *artiinfo = new QLabel( i18n("artificial"), this );
@@ -96,9 +96,9 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	celsius = new QLabel( this );
 	fahrenheit = new QLabel( this );
 	kelvin = new QLabel( this );
-	celsius->setText(i18n("Degree Celsius"));
+	celsius->setText(i18n("Degrees Celsius"));
 	kelvin->setText(i18n("Kelvin"));
-	fahrenheit->setText(i18n("Degree Fahrenheit"));
+	fahrenheit->setText(i18n("Degrees Fahrenheit"));
 	tempgrid->addWidget(celsius, 3 , 0, Qt::AlignCenter );
 	tempgrid->addWidget(kelvin, 5 , 0 , Qt::AlignCenter );
 	tempgrid->addWidget(fahrenheit, 7 , 0 , Qt::AlignCenter );
@@ -135,7 +135,7 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	artib->setPalette(main_config->readColorEntry("artificial"));
 
 	tempS = new QSlider ( -4500, 273, 1, -25 , QSlider::Vertical, this, "tempSlider" );
-	QWhatsThis::add(tempS, i18n("Use this slider to see what state of matter a certain elements has at a given temperature"));
+	QWhatsThis::add(tempS, i18n("Use this slider to see what state of matter a certain element has at a given temperature."));
 	tempS->setTickmarks(QSlider::Below );
 	tempS->setTickInterval( 100 );
 	tempgrid->addMultiCellWidget(tempS , 1 , 8 , 3 , 3 ) ;
@@ -147,13 +147,13 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	StdCondButton = new KPushButton( i18n("Standard Conditions"), this );
 	tempgrid->addWidget(StdCondButton , 9 , 0 );
 	QObject::connect(StdCondButton, SIGNAL(clicked()), this , SLOT(slotStdCond()));
-	QWhatsThis::add(StdCondButton, i18n("By clicking on this button you will see how the elemens are under standard conditions. As you can see, some are artificial and some are radioactive."));
+	QWhatsThis::add(StdCondButton, i18n("By clicking on this button you will see how the elements are under standard conditions. As you can see, some are artificial and some are radioactive."));
 
 	//the QInputDialog
 	InputButton = new KPushButton( i18n("Enter Temperature"), this );
 	tempgrid->addWidget(InputButton, 9, 1 );
 	QObject::connect(InputButton, SIGNAL(clicked()), this , SLOT(slotSetTemp()));
-	QWhatsThis::add(InputButton, i18n("If you click on this button you can enter a temperature"));
+	QWhatsThis::add(InputButton, i18n("If you click on this button you can enter a temperature."));
 	tempS->setValue( -25 );
 }
 

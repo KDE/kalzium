@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     aboutData.addCredit("Dirk Moeller",
             I18N_NOOP("Helping me out"), "mail@dirk-moeller.de");
     aboutData.addCredit("Jonathan Drews",
-            I18N_NOOP("Helping out, proofreading, tipps"), "j.e.drews@worldnet.att.net");
+            I18N_NOOP("Helping out, proof reading, tips"), "j.e.drews@worldnet.att.net");
     aboutData.addCredit("Matthias Messmer",
             I18N_NOOP("Additional coding"), "bmlmessmer@web.de");
     aboutData.addCredit("Tomislav Gountchev",

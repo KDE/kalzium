@@ -239,7 +239,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     vcolorTabBox->addWidget(colorsTabWidget);
 
     // WEBLOOKUP BUTTONS
-    webLookupButtons = addPage(i18n("Web Lookup"), i18n("Customize web lookup url"), BarIcon ("connect_creating", KIcon::SizeMedium));
+    webLookupButtons = addPage(i18n("Web Lookup"), i18n("Customize web lookup URL"), BarIcon ("connect_creating", KIcon::SizeMedium));
     webLookupButtonGroup = new QVButtonGroup(webLookupButtons, "weblookup ButtonGroup");
     QVBoxLayout *test = new QVBoxLayout(webLookupButtons);
     test->addWidget(webLookupButtonGroup);
