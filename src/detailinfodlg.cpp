@@ -79,7 +79,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	}
 	else 
 	{
-		piclabel->setText( i18n( "No picture of %1 found!" ).arg( i18n( e->elname().utf8() ) ) );
+		piclabel->setText( i18n( "No picture of %1 found." ).arg( i18n( e->elname().utf8() ) ) );
 	}
 	mainLayout->addWidget( piclabel );
 
