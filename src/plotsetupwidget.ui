@@ -50,12 +50,12 @@
                     </item>
                     <item>
                         <property name="text">
-                            <string>First Ionizationenergy</string>
+                            <string>First Ionization energy</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Second Ionizationenergy</string>
+                            <string>Second Ionization energy</string>
                         </property>
                     </item>
                     <item>
