@@ -22,7 +22,6 @@
 //QT-Includes
 #include <qcanvas.h>
 #include <qfont.h>
-#include <qinputdialog.h>
 #include <qlayout.h>
 #include <qwhatsthis.h>
 
