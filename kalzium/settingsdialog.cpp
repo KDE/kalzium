@@ -238,12 +238,13 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     QVBoxLayout *test = new QVBoxLayout(webLookupButtons);
     test->addWidget(webLookupButtonGroup);
 
+    main_config->setGroup("WLU");
     for (QStringList::Iterator it = weblookuplist.begin(); it != weblookuplist.end(); ++it ) 
     {
      rb = new QRadioButton (*it, webLookupButtonGroup);
+     if (*it == main_config->readEntry("adress"))
+         rb->toggle();
     }
-
-    webLookupButtonGroup->setButton(3);
 
     // CONNECT
     connect(this, SIGNAL(applyClicked()), this, SLOT(changeApplyKalziumSettings()));
