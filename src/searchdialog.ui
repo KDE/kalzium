@@ -1,0 +1,365 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>SearchDialogUI</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>SearchDialogUI</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>801</width>
+            <height>623</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Search data</string>
+    </property>
+    <property name="sizeGripEnabled">
+        <bool>true</bool>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout9</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QTable">
+                    <property name="name">
+                        <cstring>DataTable</cstring>
+                    </property>
+                    <property name="numRows">
+                        <number>0</number>
+                    </property>
+                    <property name="numCols">
+                        <number>0</number>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout8</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout6</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox1</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Electronegativity</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox2</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Density</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox3</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Orbits</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox4</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Name</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox5</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Symbol</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox6</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Weight</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox7</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Block</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox8</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Acidic Behaviour</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox9</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Date of discovery</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox10</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Group</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox11</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Meltingpoint</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox12</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Boilingpoint</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox13</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Ionization energy</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox14</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Atom radius</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox15</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Oxydationstages</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCheckBox">
+                                    <property name="name">
+                                        <cstring>checkBox16</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Elementnumber</string>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>31</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="KPushButton">
+                            <property name="name">
+                                <cstring>ApplyButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Apply</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="2" column="0">
+            <property name="name">
+                <cstring>Layout1</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>buttonOk</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;OK</string>
+                    </property>
+                    <property name="accel">
+                        <string></string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>true</bool>
+                    </property>
+                    <property name="default">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>buttonExport</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Export Data</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+E</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="0">
+            <property name="name">
+                <cstring>layout6</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Filter:</string>
+                    </property>
+                </widget>
+                <widget class="KComboBox">
+                    <property name="name">
+                        <cstring>KindCB</cstring>
+                    </property>
+                </widget>
+                <widget class="KComboBox">
+                    <property name="name">
+                        <cstring>WhatCB</cstring>
+                    </property>
+                </widget>
+                <widget class="KLineEdit">
+                    <property name="name">
+                        <cstring>ValueLE</cstring>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer2_2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>21</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>kPushButton2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Ok</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>ValueLE</sender>
+        <signal>returnPressed()</signal>
+        <receiver>SearchDialogUI</receiver>
+        <slot>slotFilterData()</slot>
+    </connection>
+    <connection>
+        <sender>buttonExport</sender>
+        <signal>clicked()</signal>
+        <receiver>SearchDialogUI</receiver>
+        <slot>slotExportData()</slot>
+    </connection>
+    <connection>
+        <sender>ApplyButton</sender>
+        <signal>clicked()</signal>
+        <receiver>SearchDialogUI</receiver>
+        <slot>slotApplyChanges()</slot>
+    </connection>
+    <connection>
+        <sender>kPushButton2</sender>
+        <signal>clicked()</signal>
+        <receiver>SearchDialogUI</receiver>
+        <slot>slotFilterData()</slot>
+    </connection>
+</connections>
+<slots>
+    <slot>slotExportData()</slot>
+    <slot>slotApplyChanges()</slot>
+    <slot>slotFilterData()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>kpushbutton.h</includehint>
+    <includehint>kcombobox.h</includehint>
+    <includehint>kcombobox.h</includehint>
+    <includehint>klineedit.h</includehint>
+    <includehint>kpushbutton.h</includehint>
+</includehints>
+</UI>

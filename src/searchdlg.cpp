@@ -44,6 +44,7 @@
 SearchDlg::SearchDlg (QWidget *parent, const char *name )  
     : SearchDialogUI (parent,name)
 {
+	fillDataStringLists();
 }
 
 void SearchDlg::fillCheckBoxList()
@@ -74,33 +75,60 @@ void SearchDlg::fillDataStringLists()
 		config.setGroup(QString::number(i+1));
 		nameList.append( config.readEntry("Name", "Unknown") );
 		symbolList.append( config.readEntry( "Symbol", "Unknown" ) );
+		ARList.append( config.readDoubleNumEntry( "AR", -1 ) );
+		ENList.append( config.readDoubleNumEntry( "EN", -1 ) );
+		BPList.append( config.readDoubleNumEntry( "BP", -1 ) );
+		MPList.append( config.readDoubleNumEntry( "MP", -1 ) );
+		IEList.append( config.readDoubleNumEntry( "IE", -1 ) );
 	}
 }
 
 void SearchDlg::slotApplyChanges()
 {
-	DataTable->setNumCols( 2 );
+	DataTable->setNumCols( 7 );
 	DataTable->setNumRows( 109 );
 
 	QHeader *header = DataTable->horizontalHeader();
 	header->setLabel(  0, QObject::tr(  "Name" ) );
 	header->setLabel(  1, QObject::tr(  "Symbol" ) );
+	header->setLabel(  2, QObject::tr(  "Atomic radius" ) );
+	header->setLabel(  3, QObject::tr(  "Electronegativity" ) );
+	header->setLabel(  4, QObject::tr(  "Boilingpoint" ) );
+	header->setLabel(  5, QObject::tr(  "Meltingpoint" ) );
+	header->setLabel(  6, QObject::tr(  "Ion.energy" ) );
 	header->setMovingEnabled( TRUE );
 	
 	int i = 0;
-//X 	for( QStringList::Iterator it = nameList.begin() ; it != nameList.end() ; ++it , i++ )
-//X 	{
-//X 		//itererate through the checkboxes and check if they are checked or not
-//X 		DataTable->setText( i,0,"foo");
-//X 		kdDebug() << i << endl;
-//X 	}
-	
-	for ( int i = 0 ; i < 109 ; i++ )
+	QStringList::Iterator it = nameList.begin();
+	DoubleList::Iterator it2 = IEList.begin();
+	DoubleList::Iterator it3 = ARList.begin();
+	DoubleList::Iterator it4 = ENList.begin();
+	DoubleList::Iterator it5 = BPList.begin();
+	DoubleList::Iterator it6 = MPList.begin();
+	QStringList::Iterator it7 = symbolList.begin();
+	for( int i = 0  ; it != nameList.end() ; i++ )
 	{
-		DataTable->setText( i,0,"foo" );
-		kdDebug() << "i ist: " << i << endl;
+		//itererate through the checkboxes and check if they are checked or not
+		DataTable->setText( i, 0 , *it );
+		DataTable->setText( i, 1 , *it7 );
+		DataTable->setText( i, 2 , QString::number( *it3 ));
+		DataTable->setText( i, 3 , QString::number( *it4 ));
+		DataTable->setText( i, 4 , QString::number( *it5 ));
+		DataTable->setText( i, 5 , QString::number( *it6 ));
+		DataTable->setText( i, 6 , QString::number( *it2 ));
+		++it;
+		++it2;
+		++it3;
+		++it4;
+		++it5;
+		++it6;
+		++it7;
 	}
+}
 
+void SearchDlg::slotFilterData()
+{
+	//TODO
 }
 
 void SearchDlg::slotExportData()

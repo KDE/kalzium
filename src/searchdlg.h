@@ -39,12 +39,19 @@ class SearchDlg : public SearchDialogUI
 
 		QStringList nameList,
 					symbolList;
+		typedef QValueList<double>  DoubleList;
+		DoubleList  IEList,
+					ARList,
+					ENList,
+					BPList,
+					MPList;
 
 		void fillDataStringLists();
 		
 	private slots:
 		void slotApplyChanges();
 		void slotExportData();
+		void slotFilterData();
 };
 
 #endif // SEARCHDLG_H

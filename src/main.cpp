@@ -28,8 +28,6 @@ static const char *description =
 	 "to provide information about the elements in\n"
 	 "the periodic table of elements and do basic calculations.\n");
 
-
-
 static KCmdLineOptions options[] =
 {
   KCmdLineLastOption
@@ -40,7 +38,7 @@ int main(int argc, char *argv[])
 {
     KAboutData aboutData( "kalzium", I18N_NOOP("Kalzium"),
            KALZIUM_VERSION , description, KAboutData::License_GPL,
-            "(c) 2001, 2002, Carsten Niehaus", 0, 0, "cniehaus@kde.org");
+            "(c) 2001, 2002, 2003, Carsten Niehaus", 0, 0, "cniehaus@kde.org");
     aboutData.addAuthor("Carsten Niehaus",
             I18N_NOOP("Maintainer, Author"), "cniehaus@kde.org");
     aboutData.addCredit("Robert Gogolok",
@@ -55,7 +53,7 @@ int main(int argc, char *argv[])
             I18N_NOOP("Additional coding and tweaking the ui's"), "bmlmessmer@web.de");
     aboutData.addCredit("Tomislav Gountchev",
             I18N_NOOP("KMol-code"), "tomi@idiom.com");
-    aboutData.addCredit("George Russell", I18N_NOOP("Web lookup"), "russell@kde.org");
+    aboutData.addCredit("Dipl.-Ing. M. Stegemann", I18N_NOOP("Pictures of the elements"), "");
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 

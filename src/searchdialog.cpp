@@ -2,7 +2,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file './searchdialog.ui'
 **
-** Created: Fre Jun 13 19:33:19 2003
+** Created: Sam Jun 14 14:57:02 2003
 **      by: The User Interface Compiler ($Id$)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -15,6 +15,9 @@
 #include <qtable.h>
 #include <qcheckbox.h>
 #include <kpushbutton.h>
+#include <qlabel.h>
+#include <kcombobox.h>
+#include <klineedit.h>
 #include <qlayout.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
@@ -33,19 +36,6 @@ SearchDialogUI::SearchDialogUI( QWidget* parent, const char* name, bool modal, W
 	setName( "SearchDialogUI" );
     setSizeGripEnabled( TRUE );
     SearchDialogUILayout = new QGridLayout( this, 1, 1, 11, 6, "SearchDialogUILayout"); 
-
-    Layout1 = new QHBoxLayout( 0, 0, 6, "Layout1"); 
-
-    buttonOk = new QPushButton( this, "buttonOk" );
-    buttonOk->setAutoDefault( TRUE );
-    buttonOk->setDefault( TRUE );
-    Layout1->addWidget( buttonOk );
-
-    buttonExport = new QPushButton( this, "buttonExport" );
-    buttonExport->setAutoDefault( TRUE );
-    Layout1->addWidget( buttonExport );
-
-    SearchDialogUILayout->addLayout( Layout1, 1, 0 );
 
     layout9 = new QHBoxLayout( 0, 0, 6, "layout9"); 
 
@@ -114,14 +104,49 @@ SearchDialogUI::SearchDialogUI( QWidget* parent, const char* name, bool modal, W
     layout9->addLayout( layout8 );
 
     SearchDialogUILayout->addLayout( layout9, 0, 0 );
+
+    Layout1 = new QHBoxLayout( 0, 0, 6, "Layout1"); 
+
+    buttonOk = new QPushButton( this, "buttonOk" );
+    buttonOk->setAutoDefault( TRUE );
+    buttonOk->setDefault( TRUE );
+    Layout1->addWidget( buttonOk );
+
+    buttonExport = new QPushButton( this, "buttonExport" );
+    buttonExport->setAutoDefault( TRUE );
+    Layout1->addWidget( buttonExport );
+
+    SearchDialogUILayout->addLayout( Layout1, 2, 0 );
+
+    layout6_2 = new QHBoxLayout( 0, 0, 6, "layout6_2"); 
+
+    textLabel1 = new QLabel( this, "textLabel1" );
+    layout6_2->addWidget( textLabel1 );
+
+    KindCB = new KComboBox( FALSE, this, "KindCB" );
+    layout6_2->addWidget( KindCB );
+
+    WhatCB = new KComboBox( FALSE, this, "WhatCB" );
+    layout6_2->addWidget( WhatCB );
+
+    ValueLE = new KLineEdit( this, "ValueLE" );
+    layout6_2->addWidget( ValueLE );
+    QSpacerItem* spacer_2 = new QSpacerItem( 21, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
+    layout6_2->addItem( spacer_2 );
+
+    kPushButton2 = new KPushButton( this, "kPushButton2" );
+    layout6_2->addWidget( kPushButton2 );
+
+    SearchDialogUILayout->addLayout( layout6_2, 1, 0 );
     languageChange();
-    resize( QSize(713, 590).expandedTo(minimumSizeHint()) );
+    resize( QSize(801, 623).expandedTo(minimumSizeHint()) );
     clearWState( WState_Polished );
 
     // signals and slots connections
-    connect( buttonOk, SIGNAL( clicked() ), this, SLOT( accept() ) );
+    connect( ValueLE, SIGNAL( returnPressed() ), this, SLOT( slotFilterData() ) );
     connect( buttonExport, SIGNAL( clicked() ), this, SLOT( slotExportData() ) );
     connect( ApplyButton, SIGNAL( clicked() ), this, SLOT( slotApplyChanges() ) );
+    connect( kPushButton2, SIGNAL( clicked() ), this, SLOT( slotFilterData() ) );
 }
 
 /*
@@ -139,10 +164,6 @@ SearchDialogUI::~SearchDialogUI()
 void SearchDialogUI::languageChange()
 {
     setCaption( tr2i18n( "Search data" ) );
-    buttonOk->setText( tr2i18n( "&OK" ) );
-    buttonOk->setAccel( QKeySequence( QString::null ) );
-    buttonExport->setText( tr2i18n( "&Export Data" ) );
-    buttonExport->setAccel( QKeySequence( tr2i18n( "Alt+E" ) ) );
     checkBox1->setText( tr2i18n( "Electronegativity" ) );
     checkBox2->setText( tr2i18n( "Density" ) );
     checkBox3->setText( tr2i18n( "Orbits" ) );
@@ -160,6 +181,12 @@ void SearchDialogUI::languageChange()
     checkBox15->setText( tr2i18n( "Oxydationstages" ) );
     checkBox16->setText( tr2i18n( "Elementnumber" ) );
     ApplyButton->setText( tr2i18n( "Apply" ) );
+    buttonOk->setText( tr2i18n( "&OK" ) );
+    buttonOk->setAccel( QKeySequence( QString::null ) );
+    buttonExport->setText( tr2i18n( "&Export Data" ) );
+    buttonExport->setAccel( QKeySequence( tr2i18n( "Alt+E" ) ) );
+    textLabel1->setText( tr2i18n( "Filter:" ) );
+    kPushButton2->setText( tr2i18n( "&Ok" ) );
 }
 
 void SearchDialogUI::slotExportData()
@@ -170,6 +197,11 @@ void SearchDialogUI::slotExportData()
 void SearchDialogUI::slotApplyChanges()
 {
     qWarning( "SearchDialogUI::slotApplyChanges(): Not implemented yet" );
+}
+
+void SearchDialogUI::slotFilterData()
+{
+    qWarning( "SearchDialogUI::slotFilterData(): Not implemented yet" );
 }
 
 #include "searchdialog.moc"

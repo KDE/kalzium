@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file './searchdialog.ui'
 **
-** Created: Fre Jun 13 19:33:05 2003
+** Created: Sam Jun 14 14:56:20 2003
 **      by: The User Interface Compiler ($Id$)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -16,10 +16,13 @@
 class QVBoxLayout;
 class QHBoxLayout;
 class QGridLayout;
-class QPushButton;
 class QTable;
 class QCheckBox;
 class KPushButton;
+class QPushButton;
+class QLabel;
+class KComboBox;
+class KLineEdit;
 
 class SearchDialogUI : public QDialog
 {
@@ -29,8 +32,6 @@ public:
     SearchDialogUI( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 );
     ~SearchDialogUI();
 
-    QPushButton* buttonOk;
-    QPushButton* buttonExport;
     QTable* DataTable;
     QCheckBox* checkBox1;
     QCheckBox* checkBox2;
@@ -49,17 +50,26 @@ public:
     QCheckBox* checkBox15;
     QCheckBox* checkBox16;
     KPushButton* ApplyButton;
+    QPushButton* buttonOk;
+    QPushButton* buttonExport;
+    QLabel* textLabel1;
+    KComboBox* KindCB;
+    KComboBox* WhatCB;
+    KLineEdit* ValueLE;
+    KPushButton* kPushButton2;
 
 public slots:
     virtual void slotExportData();
     virtual void slotApplyChanges();
+    virtual void slotFilterData();
 
 protected:
     QGridLayout* SearchDialogUILayout;
-    QHBoxLayout* Layout1;
     QHBoxLayout* layout9;
     QVBoxLayout* layout8;
     QVBoxLayout* layout6;
+    QHBoxLayout* Layout1;
+    QHBoxLayout* layout6_2;
 
 protected slots:
     virtual void languageChange();
