@@ -67,7 +67,6 @@ the elements or to learn facts about the PSE.</para>
 
 <chapter id="introduction">
 <title>Introduction</title>
-
 <para>&kalzium; provides you with all kind of information about the PSE.
 You can lookup lots of information about the elements and also use
 visualisations to show them. If the information provided by &kalzium; are
@@ -75,6 +74,7 @@ not sufficient for you you can look up more via the internet.
 It is free and licensed under the &GNU; Public License.
 </para>
 </chapter>
+
 
 <chapter id="using-kalzium">
 <title>Using &kalzium;</title>
@@ -129,10 +129,36 @@ solid/liquid/vapor at a given temperature.</screeninfo>
 <para>If you are too good for this world, you can change the
 level.</para>
 
+<sect1 id="info-dlg">
+	<title>The Informationdialog</title>
+</sect1>
+
+<sect1 id="quiz">
+<title>The Quiz</title>
+</sect1>
+
+<sect1 id="calculations">
+<title>Calculations</title>
+<para>In &kalzium; 0.5 we only provide one calculation. You can enter a
+	totals formula and will get the weight and percentage.</para>
+</sect1>
+
+<sect1 id="colors">
+	<title>Colorschemes</title>
+</sect1>
+
+<sect1 id="timeline">
+<title>Timeline</title>
+</sect1>
+
+<sect1 id="numeration">
+<title>Numeration</title>
+</sect1>
+
 </chapter>
 
 <chapter id="config">
-<title>Configuring &kstars;</title>
+<title>Configuring &kalzium;</title>
 <para>
 &kalzium; has many configuration options, which you can access by opening
 the <guilabel>Display Options</guilabel> window, either with the
