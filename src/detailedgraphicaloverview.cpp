@@ -1,7 +1,7 @@
 /***************************************************************************
 
-    copyright            : (C) 2004 by Carsten Niehaus
-    email                : cniehaus@kde.org
+copyright            : (C) 2004, 2005 by Carsten Niehaus
+email                : cniehaus@kde.org
  ***************************************************************************/
 
 /***************************************************************************
@@ -28,16 +28,16 @@
 #include <qstring.h>
 #include <qpixmap.h>
 
-DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name ) 
-	: QWidget( parent, name )
+	DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name ) 
+: QWidget( parent, name )
 {
 	setBackgroundMode( NoBackground );
 
 	e = el;
 }
 
-DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent, const char *name ) 
-	: QWidget( parent, name )
+	DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent, const char *name ) 
+: QWidget( parent, name )
 {
 	setBackgroundMode( NoBackground );
 }
@@ -60,7 +60,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 	p.begin( &pm );
 
 	h_t = 20; //height of the texts
-	
+
 	x1 =  0;
 	y1 =  0;
 
@@ -74,28 +74,60 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 	p.setBrush( Qt::black );
 	p.setBrush(Qt::NoBrush);
 
-	QFont f1 = KGlobalSettings::generalFont();
-	f1.setPointSize( 18 );
-	QFont f2 = KGlobalSettings::generalFont();
-	f2.setPointSize( 14 );
-	QFont f3 = KGlobalSettings::generalFont();
-	f2.setPointSize( 13 );
+	QFont fA = KGlobalSettings::generalFont();
+	QFont fB = KGlobalSettings::generalFont();
+	QFont fC = KGlobalSettings::generalFont();
 
-	p.setFont( f1 );
-	int h_ = y2/10*3; //a third of the whole widget
-	p.drawText( x2/10 * 4, h_ , e->symbol() ); //Symbol
+	fA.setPointSize( fA.pointSize() + 20 ); //Huge font
+	fA.setBold( true );
+	fB.setPointSize( fB.pointSize() + 6 ); //Big font
+	fC.setPointSize( fC.pointSize() + 4 ); //Big font
+	fC.setBold( true );
+	QFontMetrics fmA = QFontMetrics( fA );
+	QFontMetrics fmB = QFontMetrics( fB );
+	QFontMetrics fmC = QFontMetrics( fC );
 
-	p.setFont( f2 );
- 	p.drawText( x1+4, y2-h_t , x2/2 , h_t , Qt::AlignLeft , i18n( e->elname().utf8() )); //Name
-	
-	p.drawText( x1+4+h_t , y2-2*h_t , x2-x1-4-h_t , h_t , Qt::AlignRight , e->oxstage() );    //Oxidationszahlen
-	p.drawText( x2/2 , y2-h_t , x2/2-4 , h_t , Qt::AlignRight , QString::number( e->weight() )); //Weight
+	//coordinates for element symbol: near the center
+	int xA = 4 * w / 10;
+	int yA = h / 2;
 
-	p.setFont( f3 );
-	p.drawText( x2/10*3 , h_-h_t , x2/10, h_t , Qt::AlignRight , QString::number( e->number() ));
+	//coordinates for the atomic number: offset from element symbol to the upper left
+	int xB = xA - fmB.width( QString::number( e->number() ) );
+	int yB = yA - fmA.height() + fmB.height();
+
+	//coordinates for element name: lower left
+	int xC1 = 8;
+	int yC1 = h - 8;
+
+	//coordinates for oxidation: right side, above atomic weight
+	int xC2 = w - fmC.width( e->oxstage() ) - 8;
+	int yC2 = h - fmC.height() - 8;
+
+	//coordinates for weight: lower right corner
+	int xC3 = w - fmC.width( QString::number( e->weight() ) ) - 8;
+	int yC3 = h - 8;
+
+	//Element Symbol
+	p.setFont( fA );
+	p.drawText( xA, yA , e->symbol() ); 
+
+	//Atomic number
+	p.setFont( fB );
+	p.drawText( xB, yB, QString::number( e->number() ));
+
+	//Name and other data
+	p.setFont( fC );
+	//Name
+	p.drawText( xC1, yC1, i18n( e->elname().utf8() )); 
+	//Oxidationszahlen
+	p.drawText( xC2, yC2, e->oxstage() ); 
+	//Weight
+	p.drawText( xC3, yC3, QString::number( e->weight() )); 
+
 	drawBiologicalSymbol( &p );
 
 	p.end();
+
 
 	bitBlt( this, 0, 0, &pm );
 }
@@ -107,11 +139,11 @@ void DetailedGraphicalOverview::drawBiologicalSymbol( QPainter *p )
 
 	int d_ds = ( db/2 )-( ds/2 ); //the delta-x/y of the inner circle
 
-	int pos_x = x1+4;
-	int pos_y = y2 - 5 - 2*h_t;
+	int pos_x = 8;
+	int pos_y = 8;
 
 	switch ( e->biological() )
-	  {
+	{
 		case 0:        //nothing
 			break;
 		case 1:        //red, red
@@ -163,7 +195,7 @@ void DetailedGraphicalOverview::drawBiologicalSymbol( QPainter *p )
 			p->setBrush(Qt::SolidPattern);
 			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
 			break;
-	  }
+	}
 }
 
 QColor DetailedGraphicalOverview::PSEColor( const QString &block ) const
