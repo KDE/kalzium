@@ -94,7 +94,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	energyLayout->insertStretch(-1,1);
 
     /////////////////////////////////
-    chemicalTab = addPage(i18n("Chemical Data"), i18n("Chemical data"), BarIcon(kil->iconPath( "chemical" , KIcon::User)) );
+    chemicalTab = addPage(i18n("Chemical Data"), i18n("Chemical Data"), BarIcon(kil->iconPath( "chemical" , KIcon::User)) );
 	QVBoxLayout *chemicalLayout = new QVBoxLayout( chemicalTab, 5 );
 	QLabel *orbtisLabel = new QLabel( i18n( "Orbits: %1" ).arg( Data.orbits ) , chemicalTab );
 	QLabel *symbolLabel = new QLabel( i18n( "Symbol: %1" ).arg( Data.Symbol ) , chemicalTab  );
