@@ -19,6 +19,7 @@
 #include <kconfig.h>
 #include <kglobalsettings.h>
 #include <khtml_part.h>
+#include <khtmlview.h>
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <kstatusbar.h>
@@ -179,6 +180,7 @@ void ElementKP::lookup() const
 	const KURL site(url);
 	html->openURL(site);
 	html->show();
+	html->view()->resize(html->view()->contentsWidth() + html->view()->frameWidth() ,400);
 }
 
 
