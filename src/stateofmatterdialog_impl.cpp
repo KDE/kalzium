@@ -40,7 +40,7 @@ somDialogImpl::somDialogImpl(PSE* p, QWidget* parent, const char* name)
 		case 0:
 			UserInput->setSuffix( i18n( "The symbol for Kelvin. There is a space in front of the K!", " K" ) );
 			Dial->setMinValue( 0 );
-			Dial->setMaxValue( 250 );
+			Dial->setMaxValue(5700 );
 			UserInput->setMinValue( 0 );
 			UserInput->setMaxValue( 5700 );
 			break;
@@ -53,13 +53,14 @@ somDialogImpl::somDialogImpl(PSE* p, QWidget* parent, const char* name)
 		case 2:
 			UserInput->setSuffix( i18n( "The symbol for Degree Celsius. There is a space in front of the °C!", " °C" ) );
 			Dial->setMinValue( -273 );
-			Dial->setMaxValue( 200 );
+			Dial->setMaxValue( 6000 );
 			UserInput->setMinValue( -273 );
 			UserInput->setMaxValue( 6000 );
 			break;
 	}
 	
 	m_pse = p;
+
 }
 
 void somDialogImpl::updateNumbers()
