@@ -60,9 +60,9 @@ Kalzium::Kalzium()
 	 * the actions for switching PSE
 	 **/
 	 QStringList numlist;
-	 numlist.append(i18n("Show CAS"));
-	 numlist.append(i18n("Show IUPAC"));
-	 numlist.append(i18n("Show Old IUPAC"));
+	 numlist.append(i18n("Show &CAS"));
+	 numlist.append(i18n("Show &IUPAC"));
+	 numlist.append(i18n("Show &Old IUPAC"));
 	 nummeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "nummerationtype");
 	 nummeration_action->setItems(numlist);
 	 nummeration_action->setCurrentItem(0); //XXX should be read in via KConfig
@@ -85,10 +85,10 @@ Kalzium::Kalzium()
 	 * the actions for the colorschemes
 	 **/
 	m_pBehAcidAction = new KAction(i18n("Show &Acid Behavior"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_acidic");
-	m_pBehBlocksAction = new KAction(i18n("Show Blocks"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_blocks");
-	m_pBehBlocksAction = new KAction(i18n("Show Groups"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_groups");
-	m_pBehBlocksAction = new KAction(i18n("Show State Of Matter"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_som");
-	m_pBehBlocksAction = new KAction(i18n("No Color Scheme"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_normal");
+	m_pBehBlocksAction = new KAction(i18n("Show &Blocks"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_blocks");
+	m_pBehBlocksAction = new KAction(i18n("Show &Groups"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_groups");
+	m_pBehBlocksAction = new KAction(i18n("Show &State Of Matter"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_som");
+	m_pBehBlocksAction = new KAction(i18n("&No Color Scheme"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_normal");
 
 	/*
 	 * the misc actions

@@ -37,6 +37,9 @@
                     <property name="text">
                         <string>No Colors</string>
                     </property>
+                    <property name="toolTip" stdset="0">
+                        <string>all the elements are the same color</string>
+                    </property>
                 </widget>
                 <widget class="QRadioButton">
                     <property name="name">
@@ -44,6 +47,9 @@
                     </property>
                     <property name="text">
                         <string>Groups</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>the color scheme differentiates the groups by displaying each group in a different color</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton">
@@ -53,6 +59,9 @@
                     <property name="text">
                         <string>Blocks</string>
                     </property>
+                    <property name="toolTip" stdset="0">
+                        <string>the color scheme differentiates the blocks by displaying each block in a different color</string>
+                    </property>
                 </widget>
                 <widget class="QRadioButton">
                     <property name="name">
@@ -61,6 +70,9 @@
                     <property name="text">
                         <string>State of Matter</string>
                     </property>
+                    <property name="toolTip" stdset="0">
+                        <string>the color scheme differentiates the states of matter by displaying each state of matter in a different color</string>
+                    </property>
                 </widget>
                 <widget class="QRadioButton">
                     <property name="name">
@@ -68,6 +80,9 @@
                     </property>
                     <property name="text">
                         <string>Acidic Behavior</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>the color scheme differentiates the acidic behaviour by displaying each one in a different color</string>
                     </property>
                 </widget>
             </vbox>
