@@ -12,11 +12,10 @@
 
 #include <kapplication.h>
 #include <klocale.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include "kmolcalc.h"
 #include <qdict.h>
 #include <qdir.h>
-#include <iostream.h>
 
 
 /**
@@ -41,7 +40,7 @@ void KMolCalc::readElstable() {
   mwfile = locateLocal("data", "kmol")+"/kmolweights";
   QFile f(mwfile);
   QString* latest_f = &mwfile;
-  for (int i=0; i<files.count(); i++) {
+  for (uint i=0; i<files.count(); i++) {
   	if (QFileInfo(QFile(files[i])).lastModified() > QFileInfo(QFile(*latest_f)).lastModified()) {
 		latest_f = &files[i];
     }

@@ -47,7 +47,6 @@ class KPushButton;
 class CalcDialog;
 class Colors_Config_Widget;
 class ElementKP;
-class Fastinfo;
 class SettingsDialog;
 class KalziumLegend;
 class StateOfMatterDlg;
@@ -65,7 +64,6 @@ class Kalzium : public KMainWindow
 	~Kalzium();
 
 	int numofquestions;
-	bool showFastInfo;
 	Colors_Config_Widget *colorsconfig;
 
 	KSelectAction *numerationmenu, 
@@ -78,7 +76,6 @@ class Kalzium : public KMainWindow
 	QString helpArray[9][18];
 	StateOfMatterDlg *templookup;
 	KalziumLegend *legend;
-	Fastinfo *fastinfo;
 
 	void createhelpArray();
 
@@ -86,7 +83,6 @@ class Kalzium : public KMainWindow
 	KConfig *main_config;
 	KToggleAction   *timelineToggleAction, 
 					*toolbarToggleAction,
-					*quickinfoToggleAction,
 					*legendToggleAction;
 	PQLabel labels[18];
 	QGridLayout *maingrid;
@@ -210,7 +206,6 @@ class Kalzium : public KMainWindow
 	void updateNumMenu(int);
 
 	void slotShowTimeline(bool);
-	void slotShowQuickinfo(bool);
 	void slotShowLegend(bool);
 
 	void hideSettingsDialog();

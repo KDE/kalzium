@@ -39,7 +39,6 @@ class Kalzium;
  * az = the state of matter (0 == solid, 1 == liquid, 2 == vapor)
  * date = when has the elements been identified?
  * Group = in which of the 8 groups is the element
- * orbits = the quantum-orbits ( eg O is 1s2_2s2_2p4 )
  * number = number of the element in the PSE
  * MP = Melting Point
  * BP = Boiling Point
@@ -52,7 +51,7 @@ class Kalzium;
 struct ElementInfo
 {
    QString Name, Symbol, Block,
-   Weight, acidbeh, az, date, Group, orbits;
+   Weight, acidbeh, az, date, Group;
    int number;
    double MP, BP, EN, Density, IE, AR;
 };
@@ -68,7 +67,6 @@ class ElementKP : public ElementButton{
 
 	public: 
 		ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0, Kalzium *Kalzium_tmp=0);
-		QString orbits;
 
 		/**
 		 * used when the mouse enters the pushbutton.
@@ -81,9 +79,6 @@ class ElementKP : public ElementButton{
 		void leaveEvent(QEvent *);
 
 		Kalzium *kalzium;
-		QString neighbourArray[3][3];
-
-		void getNeighbours( int );
 
 		/** loads the name of the fitting element and shows it in
 		 * the statusbar.
@@ -112,15 +107,6 @@ class ElementKP : public ElementButton{
 		void mouseReleaseEvent( QMouseEvent *mouse );
 
 		QString parseElementInfo();
-
-		/**
-		 * this method parses the quatum orbits into nice looking QString. Eg 1s2_2s2_2p4
-		 * will be 1s 2s 2p
-		 *         2  2  4
-		 */
-		QString parseOrbits();
-
-		QString returnLastOrbit();
 
 		private slots:
 		/**

@@ -1,10 +1,15 @@
-Version 0.6:
+Version 0.6.0:
 - switched to more Designer-Files
 - GUI-improvements
 - added the converter
 - some new URL for the weblookup
 - new numberation (old IUPAC)
-
+- removed elements 110 to 118
+- legend is now configurable
+- KalziumGraph: Kalzium can from now on plot data. For example you can
+  look how the weight changes
+- the buttons have now their own paint-method and do no longer
+  depend on the current KDE-style
 
 Version 0.5:
 - a big cleanup in kalzium.cpp as it was very easy to read
@@ -14,9 +19,7 @@ Version 0.5:
   also the number of the element
 - added QToolTip
 - quite a lot renamings in the code (eg. renaming of widgets)
-- added the neighbourtable-stuff (won't appear beacause of the
-  featurefreeze of KDE 3.1...)
-- the infodialog is now redisigned
+- the infodialog is now redesigned
 - ElementKP and the whole Quiz are now done with Designer
 - added a toolbar
 - you will find the menu items from the old configure menu under the settings menu
@@ -25,7 +28,7 @@ Version 0.5:
   method to read at startup those settings
 - fixed the smaller things like the stateofmatter-Dlg-fixlets. Just a
   small things as discussed on LinuxTag 2002
-- correct the numberation so that now CAS is really CAS and IUPAC is really
+- corrected the numberation so that now CAS is really CAS and IUPAC is really
   IUPAC
 
 Version 0.4:

@@ -29,7 +29,6 @@
 #include <qdragobject.h>
 #include <qfont.h>
 #include <qfontmetrics.h>
-#include <qtable.h>
 #include <qlabel.h>
 #include <qpainter.h>
 #include <qpopupmenu.h>
@@ -42,7 +41,6 @@
 #include "elementkp.moc"
 #include "kalzium.h" 
 #include "infodlg.h"
-#include "fastinfo.h"
 
 ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)	
 : ElementButton(parent,name)
@@ -52,28 +50,6 @@ ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, in
 	ElemNo = AElemNo;
 	zeigerle=zeiger;
 	Data = ElemInfo; 
-	orbits = parseOrbits();
-}
-
-void ElementKP::getNeighbours( int Current )
-{
-	int Nr=Current, ze=0, sp=0;
-	position(Nr,ze,sp);
-
-	/** The first [] is the row, the second [] is the colum. */
-	neighbourArray[0][1]=kalzium->helpArray[sp/40-1][ze/40];
-	neighbourArray[1][1]=kalzium->helpArray[sp/40][ze/40];
-	neighbourArray[2][1]=kalzium->helpArray[sp/40+1][ze/40];
-	if ( ze/40 != 17 )
-	{
-		neighbourArray[0][2]=kalzium->helpArray[sp/40-1][ze/40+1];
-		neighbourArray[1][2]=kalzium->helpArray[sp/40][ze/40+1];
-		neighbourArray[2][2]=kalzium->helpArray[sp/40+1][ze/40+1];
-	}
-	if (ze/40 == 0 ) return;
-	neighbourArray[0][0]=kalzium->helpArray[sp/40-1][ze/40-1];
-	neighbourArray[1][0]=kalzium->helpArray[sp/40][ze/40-1];
-	neighbourArray[2][0]=kalzium->helpArray[sp/40+1][ze/40-1];
 }
 
 //when the mousepointer is over a button
@@ -81,16 +57,12 @@ void ElementKP::enterEvent(QEvent *)
 {
 	setFocus();
 	showName();	
-
-	if ( kalzium->showFastInfo ) kalzium->fastinfo->show();
-	kalzium->fastinfo->setInfo( ElemNo );
 }
 
 //when the mousepointer leaves the button
 void ElementKP::leaveEvent(QEvent *)
 {
 	zeigerle->message(i18n("The Kalzium-version","Kalzium %1").arg( KALZIUM_VERSION ));
-	kalzium->fastinfo->hide();
 }
 
 void ElementKP::mouseMoveEvent( QMouseEvent * )
@@ -122,20 +94,6 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 	{
 		slotShowData();
 	}
-}
-
-QString ElementKP::parseOrbits()
-{
-	QString tempString = Data.orbits;
- 	returnLastOrbit();
-	return tempString;
-}
-
-QString ElementKP::returnLastOrbit()
-{
-	QString lastorbit = Data.orbits;
-	int lastIs = lastorbit.findRev( "_" );
-	return lastorbit;
 }
 
 QString ElementKP::parseElementInfo()
@@ -253,23 +211,6 @@ void ElementKP::slotShowData()
     show_data2->states_label->setFont( topic_font );
     show_data2->energy_label->setFont( topic_font );
 
-    	// The table 
-/*	show_data2->neighbourTable->horizontalHeader()->hide();
-	show_data2->neighbourTable->verticalHeader()->hide();
-	show_data2->neighbourTable->setTopMargin( 0 );
-	show_data2->neighbourTable->setLeftMargin( 0 );
-
-	getNeighbours( ElemNo );
-	for( int zeile=0 ; zeile < 3 ; zeile++ )
-	{
-	for( int spalte=0 ; spalte < 3 ; spalte++ )
-	{
-	show_data2->neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
-	if (neighbourArray[zeile][spalte] == "leer") show_data2->neighbourTable->setText(zeile,spalte,"");
-	}
-
-	}*/
-	
     // click on this button to load webpage for element
     QObject::connect(show_data2->weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
 

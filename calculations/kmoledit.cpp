@@ -17,13 +17,13 @@
 
 #include "kmoledit.h"
 
-KMolEdit::KMolEdit (QWidget *parent, const char* name, KMolCalc* kmolcalc) 
+KMolEdit::KMolEdit (QWidget * /*parent*/, const char* name, KMolCalc* kmolcalc) 
     : QDialog (0, name, TRUE) {
 
         QGridLayout *grid = new QGridLayout ( this, 4, 2 ,8, -1, "KMolEditLayout" );
 
         // Error messages:
-        NAMES = QString(i18n("Names must start with a letter,\nfollowed by any number or lowercase letters."));
+        NAMES = QString(i18n("Names must start with a letter,\nfollowed by any number of lowercase letters."));
 
         this->kmolcalc = kmolcalc;
         setCaption (i18n("KMol Group Definitions"));

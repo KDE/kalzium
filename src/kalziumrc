@@ -13,7 +13,6 @@ BP=20.28
 Density=0.084
 IE=13.598
 AR=37.3
-Orbits=1s1
 
 [2]
 Name=Helium
@@ -30,7 +29,6 @@ BP=4.216
 Density=0.17
 IE=24.587
 AR=128
-Orbits=1s2
 
 [3]
 Name=Lithium
@@ -47,7 +45,6 @@ BP=1615
 Density=0.53
 IE=5.392
 AR=152
-Orbits=1s2_2s1
 
 [4]
 Name=Beryllium
@@ -64,7 +61,6 @@ BP=3243
 Density=1.85
 IE=9.322
 AR=113.3
-Orbits=1s2_2s2
 
 [5]
 Name=Boron
@@ -81,7 +77,6 @@ BP=4275
 Density=2.46
 IE=8.298
 AR=83
-Orbits=1s2_2s2_2p1
 
 [6]
 Name=Carbon
@@ -98,7 +93,6 @@ BP=5100
 Density=3.51
 IE=11.260
 AR=77.2
-Orbits=1s2_2s2_2p2
 
 [7]
 Name=Nitrogen
@@ -115,7 +109,6 @@ BP=77.344
 Density=1.17
 IE=14.534
 AR=71
-Orbits=1s2_2s2_2p3
 
 [8]
 Name=Oxygen
@@ -132,7 +125,6 @@ BP=90.188
 Density=1.33
 IE=13.618
 AR=60.4
-Orbits=1s2_2s2_2p4
 
 [9]
 Name=Fluorine
@@ -149,7 +141,6 @@ BP=85.0
 Density=1.58
 IE=17.422
 AR=70.9
-Orbits=1s2_2s2_2p5
 
 [10]
 Name=Neon
@@ -166,7 +157,6 @@ BP=27.10
 Density=0.84
 IE=21.564
 AR=150
-Orbits=1s2_2s2_2p6
 
 [11]
 Name=Sodium
@@ -183,7 +173,6 @@ BP=1156
 Density=0.97
 IE=5.139
 AR=153.7
-Orbits=1s2_2s2_2p6_3s1
 
 [12]
 Name=Magnesium
@@ -200,7 +189,6 @@ BP=1380
 Density=1.74
 IE=7.646
 AR=160
-Orbits=1s2_2s2_2p6_3s2
 
 [13]
 Name=Aluminum
@@ -217,7 +205,6 @@ BP=2740
 Density=2.70
 IE=5.986
 AR=143.1
-Orbits=1s2_2s2_2p6_3s2_3p1
 
 [14]
 Name=Silicon
@@ -234,7 +221,6 @@ BP=2630
 Density=2.33
 IE=8.151
 AR=117
-Orbits=1s2_2s2_2p6_3s2_3p2
 
 [15]
 Name=Phosphorus
@@ -251,7 +237,6 @@ BP=553
 Density=1.82
 IE=10.486
 AR=93
-Orbits=1s2_2s2_2p6_3s2_3p3
 
 [16]
 Name=Sulfur
@@ -268,7 +253,6 @@ BP=717.82
 Density=2.06
 IE=10.360
 AR=104
-Orbits=1s2_2s2_2p6_3s2_3p4
 
 [17]
 Name=Chlorine
@@ -285,7 +269,6 @@ BP=239.18
 Density=2.95
 IE=12.967
 AR=99.4
-Orbits=1s2_2s2_2p6_3s2_3p5
 
 [18]
 Name=Argon
@@ -302,7 +285,6 @@ BP=87.45
 Density=1.66
 IE=15.759
 AR=174
-Orbits=1s2_2s2_2p6_3s2_3p6
 
 [19]
 Name=Potassium

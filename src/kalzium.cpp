@@ -25,7 +25,6 @@
 #include "elementkp.h"
 #include "settingsdialog.h"
 #include "legend.h"
-#include "fastinfo.h"
 
 //KDE-Includes
 #include <kdebug.h>
@@ -124,7 +123,6 @@ bool Kalzium::queryClose()
     main_config->writeEntry("colorschememenu", colorschememenu->currentItem());
     main_config->writeEntry("numerationmenu", numerationmenu->currentItem());
     main_config->writeEntry("timelineshow", timelineToggleAction->isChecked());
-    main_config->writeEntry("quickinfo",quickinfoToggleAction->isChecked());
     main_config->writeEntry("legend",legendToggleAction->isChecked());
   	main_config->sync();
     return true;
@@ -163,7 +161,6 @@ void Kalzium::setupAllElementKPButtons()
 			eleminfo.az=config.readEntry("az","0");
 			eleminfo.date=config.readEntry("date","0");
 			eleminfo.Group=config.readEntry("Group","1");
-			eleminfo.orbits=config.readEntry("Orbits","0");
 			eleminfo.number=(n+1);
 
 		} else elementName="Unknown";
@@ -186,10 +183,6 @@ void Kalzium::setupAllElementKPButtons()
     for( int n=0; n<10; n++ ) maingrid->addRowSpacing( n, 40 );
 
     mainlayout->addStretch();
- 	
-	fastinfo = new Fastinfo( main_window, "testFastInfo",this );
-	fastinfo->show();
-	maingrid->addMultiCellWidget( fastinfo ,1,3,3,10 );
 }
 
 void Kalzium::setupCaption()
@@ -502,13 +495,6 @@ void Kalzium::slotShowTimeline(bool id)
 	} 
 }
 
-void Kalzium::slotShowQuickinfo( bool id )
-{
-	if ( id == true )
-		showFastInfo = true;
-	else showFastInfo = false;
-}
-
 void Kalzium::slotPlotData()
 {
 	KalziumGraphDialog *testdlg = new KalziumGraphDialog( this, "testdlg" );
@@ -642,13 +628,6 @@ void Kalzium::setupActions()
     timelineToggleAction->setChecked(main_config->readBoolEntry("timelineshow"));
     // END TIMELINEMENU
 	
-	//BEGIN QUICKINFO
-	quickinfoToggleAction = new KToggleAction( i18n( "Show Quickinfo" ),kil->iconPath( "quickinfo",KIcon::User ),0,actionCollection(), "quickinfo" );
-	quickinfoToggleAction->setChecked( true );
-	connect( quickinfoToggleAction, SIGNAL( toggled( bool ) ),this, SLOT( slotShowQuickinfo( bool ) ) );
-	quickinfoToggleAction->setChecked( main_config->readBoolEntry( "quickinfo" ) );
-	//END QUICKINFO
-	
 	//BEGIN LEGEND
 	legendToggleAction = new KToggleAction( i18n( "Show Legend" ),kil->iconPath( "legend",KIcon::User ),0,actionCollection(), "legend" );
 	legendToggleAction->setChecked( true );
@@ -671,7 +650,6 @@ void Kalzium::updateMainWindow()
     changeNumeration(numerationmenu->currentItem());
     showPseStyle(psestylemenu->currentItem());
     slotShowTimeline(timelineToggleAction->isChecked());
-	slotShowQuickinfo( quickinfoToggleAction->isChecked() );
 	slotShowLegend( legendToggleAction->isChecked() );
 }
 

@@ -49,7 +49,7 @@ QString SubUnit::getName() const {
 /**
  * Get the molecular weight of THIS, based on the data from ELSTABLE.
  */
-double SubUnit::getWeight(QDict<SubUnit>* elstable) const {
+double SubUnit::getWeight(QDict<SubUnit>* /*elstable*/) const {
   return -1;
 }
 
@@ -219,7 +219,7 @@ void Element::writeOut(QString& line) {
   line = name + " " + line;
 }
 
-double Element::getWeight(QDict<SubUnit>* elstable) const {
+double Element::getWeight(QDict<SubUnit>* /*elstable*/) const {
   return weight;
 }
 
