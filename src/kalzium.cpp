@@ -183,12 +183,14 @@ void Kalzium::slotShowTimeline()
 	if ( m_bShowTimeline )
 	{
 		m_pTimeSlider->pSlider->setValue( Prefs::sliderdate() );
+		m_pTimelineAction->setText(i18n("Hide &Timeline"));
 		m_pTimeSlider->show();
 	}
 	else
 	{
 		m_pTimeSlider->hide();
 		Prefs::setSliderdate( m_pTimeSlider->pSlider->value() );
+		m_pTimelineAction->setText(i18n("Show &Timeline"));
 	}
 	
 	Prefs::writeConfig();
