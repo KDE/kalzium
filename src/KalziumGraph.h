@@ -50,7 +50,7 @@ class KalziumGraphDataContainer
 {
 	public:
 		KalziumGraphDataContainer( int, int, int);
-		double Data[ 118 ];
+		double Data[ 109 ];
 };
 
 //Datenpräsentation

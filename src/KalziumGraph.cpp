@@ -88,27 +88,18 @@ QFrame( parent, name )
 
 void KalziumGraph::paintEvent( QPaintEvent * )
 {
+	QPainter DC;
+	DC.begin( this );
+	
 	int w_w = this->width();
 	int w_h = this->height();
 	int num = toRange_-fromRange_;
 	int real_w=w_w/num;                       //real_w ist die Breite pro Datenpunkt
 
-	
-	QPainter DC;
-	DC.begin( this );
-	
-//X 	int x1 = 0, y1=0, x2=0, y2=0;
+	DC.drawRect(0,0,w_w,w_h);
 	
 	for( int i = 0 ; i < num ; i++ )
 	{
-//X 		x1 = real_w*i-1;
-//X 		y1 = ( int )data->Data[ fromRange_+i-1 ];
-//X 		x2 = real_w*i;
-//X 		y2 = ( int )data->Data[ fromRange_+i ];
-//X 
-//X 		kdDebug() << "x1: " << x1 <<" y1: " << y1 <<"                     x2: " << x2 <<" y2: " << y2 << endl;
-//X 	DC.drawLine( x1,y1,x2,y2 );
-
 		double temp = getMax();
 
 		double current = data->Data[ fromRange_+i ]/temp;
