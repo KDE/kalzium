@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE KDevPrjSession ><KDevPrjSession>
- <Mainframe MaximizeMode="1" />
- <DocsAndViews NumberOfDocuments="1" >
-  <Doc0 Type="CDocBrowser" NumberOfViews="1" FileName="file:/home/georg/cvs/qt-copy/doc/html/qwidget.html#setMask" >
-   <View Top="0" Width="758" Attach="0" Height="305" Left="0" Focus="0" Type="KHTMLView" MinMaxMode="0" />
-  </Doc0>
- </DocsAndViews>
-</KDevPrjSession>
