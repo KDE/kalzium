@@ -134,6 +134,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
 void DetailedGraphicalOverview::drawBiologicalSymbol( QPainter *p )
 {
+	if ( !e ) return;
 	const int db = h_t;        //diameter of the big circle
 	const int ds = db/2;      //diameter of the inner circle
 

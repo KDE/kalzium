@@ -21,9 +21,13 @@
 
 #include <kdialogbase.h>
 #include "element.h"
+#include "detail_chemical.h"
+#include "detail_energy.h"
 
 class QFrame;
 class DetailedGraphicalOverview;
+
+class QMouseEvent;
 
 
 
@@ -46,8 +50,26 @@ class DetailedInfoDlg : public KDialogBase
 			*m_pChemicalTab,
 			*m_pMiscTab,
 			*m_pModelTab;
+		
+		QLabel *piclabel,
+			   *discovered_label,
+			   *meanweight_label;
+
+		QVBoxLayout *miscLayout, *mainLayout,
+					*overviewLayout, *energyLayout,
+					*chemicalLayout;
 
 		DetailedGraphicalOverview *dTab;
 
+		detail_chemical *wChemical;
+		detail_energy *wEnergy;
+
+		/**
+		 * create the tabs.
+		 */
+		void createContent( Element *e );
+	
+	protected:
+		virtual void wheelEvent (  QWheelEvent * ev );
 };
 #endif

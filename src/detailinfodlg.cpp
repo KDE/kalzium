@@ -43,35 +43,62 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 
 	( actionButton( KDialogBase::Close ) )->setFocus();
 
-	QString num = QString::number( e->number() );
-	QString elname = i18n( e->elname().utf8() );
-	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( elname ).arg( num );
-	setCaption( cap );
-    
+	
+	
 	m_pOverviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon( "overview" ));
-	QVBoxLayout *overviewLayout = new QVBoxLayout( m_pOverviewTab );
-	dTab = new DetailedGraphicalOverview( e, m_pOverviewTab );
-	overviewLayout->addWidget( dTab );
-
-
-	/////////////////////////////////
     m_pMiscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon( "misc" ));
-	QVBoxLayout *miscLayout = new QVBoxLayout( m_pMiscTab );
-	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg( e->adjustUnits( Element::DATE ) ) , m_pMiscTab );
-	QLabel *meanweight_label = new QLabel( i18n("Mean weight: %1 u").arg(e->meanweight() ) , m_pMiscTab );
+	m_pPictureTab = addPage(i18n("Picture"), i18n("What does this element look like?"), BarIcon( "elempic" ));
+	m_pEnergyTab =   addPage( i18n("Energies"), i18n( "Energy Information" ), BarIcon( "energies" ) );
+	m_pChemicalTab = addPage( i18n("Chemical Data"), i18n( "Chemical Data" ), BarIcon( "chemical") );
+	m_pModelTab = addPage( i18n("Atom Model"), i18n( "Atom Model" ), BarIcon( "orbits" ));
+	
+	miscLayout = new QVBoxLayout( m_pMiscTab );
+	mainLayout = new QVBoxLayout( m_pPictureTab );
+	overviewLayout = new QVBoxLayout( m_pOverviewTab );
+	energyLayout = new QVBoxLayout( m_pEnergyTab );
+	chemicalLayout = new QVBoxLayout( m_pChemicalTab, 0, KDialog::spacingHint() );
+	
+	
+	
+//X 	dTab = new DetailedGraphicalOverview( m_pOverviewTab );
+//X 	overviewLayout->addWidget( dTab );
+	wChemical = new detail_chemical( m_pChemicalTab );
+	wEnergy = new detail_energy( m_pEnergyTab );
+	piclabel = new QLabel( m_pPictureTab );
+	discovered_label = new QLabel( m_pMiscTab );
+	meanweight_label = new QLabel( m_pMiscTab );
 	QWhatsThis::add( meanweight_label , i18n( "The mean weight is the atomic weight divided by the number of protons" ) );
 	QWhatsThis::add( discovered_label, i18n( "Here you can see when the element was discovered." ) );
+	
 	miscLayout->addWidget( discovered_label );
 	miscLayout->addWidget( meanweight_label );
 	miscLayout->insertStretch(-1,1);
+	mainLayout->addWidget( piclabel );
+	chemicalLayout->addWidget( wChemical );
+	energyLayout->addWidget( wEnergy );
+	
+	
+	createContent( e );
+}
+
+void DetailedInfoDlg::createContent( Element *el )
+{
+	
+	QString num = QString::number( el->number() );
+	QString elname = i18n( el->elname().utf8() );
+	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( elname ).arg( num );
+	setCaption( cap );
+
+	//dTab->setElement( el );
+
+	/////////////////////////////////
+	discovered_label->setText( i18n("Discovered: %1").arg( el->adjustUnits( Element::DATE ) ) );
+	meanweight_label->setText( i18n("Mean weight: %1 u").arg(el->meanweight() ) );
 
 	////////////////////////////////////7
-	m_pPictureTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( elname  ), BarIcon( "elempic" ));
-	QVBoxLayout *mainLayout = new QVBoxLayout( m_pPictureTab );
-	QLabel *piclabel = new QLabel( m_pPictureTab );
-	if ( !locate(  "data" , "kalzium/elempics/" + e->symbol() + ".jpg" ).isEmpty() )
+	if ( !locate(  "data" , "kalzium/elempics/" + el->symbol() + ".jpg" ).isEmpty() )
 	{
-		QPixmap pic ( locate( "data" , "kalzium/elempics/" + e->symbol() + ".jpg" ) );
+		QPixmap pic ( locate( "data" , "kalzium/elempics/" + el->symbol() + ".jpg" ) );
 		QImage img = pic.convertToImage();
 		img = img.smoothScale ( 400, 400, QImage::ScaleMin );
 		pic.convertFromImage( img );
@@ -81,27 +108,19 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	{
 		piclabel->setText( i18n( "No picture of %1 found." ).arg( elname ) );
 	}
-	mainLayout->addWidget( piclabel );
 
 	
 	////////////////////////////////////7
 	
-	m_pEnergyTab =   addPage( i18n("Energies"), i18n( "Energy Information" ), BarIcon( "energies" ) );
-	QVBoxLayout *energyLayout = new QVBoxLayout( m_pEnergyTab );
-	detail_energy *wEnergy = new detail_energy( m_pEnergyTab );
 
-	wEnergy->mp_label->setText( e->adjustUnits( Element::MELTINGPOINT ) );
-	wEnergy->bp_label->setText( e->adjustUnits( Element::BOILINGPOINT ) );
-	wEnergy->sion_label->setText( e->adjustUnits( Element::IE2 ) );
-	wEnergy->ion_label->setText( e->adjustUnits( Element::IE ) );
-	wEnergy->en_label->setText(  QString::number( e->electroneg() ) );
-	energyLayout->addWidget( wEnergy );
+	wEnergy->mp_label->setText( el->adjustUnits( Element::MELTINGPOINT ) );
+	wEnergy->bp_label->setText( el->adjustUnits( Element::BOILINGPOINT ) );
+	wEnergy->sion_label->setText( el->adjustUnits( Element::IE2 ) );
+	wEnergy->ion_label->setText( el->adjustUnits( Element::IE ) );
+	wEnergy->en_label->setText(  QString::number( el->electroneg() ) );
 	
 	////////////////////////////////////7
 	
-	m_pChemicalTab = addPage( i18n("Chemical Data"), i18n( "Chemical Data" ), BarIcon( "chemical") );
-	QVBoxLayout *chemicalLayout = new QVBoxLayout( m_pChemicalTab, 0, KDialog::spacingHint() );
-	detail_chemical *wChemical = new detail_chemical( m_pChemicalTab );
 
 	wChemical->orbits_label->setText( e->parsedOrbits() );
 	wChemical->symbol_label->setText( e->symbol() );
@@ -113,11 +132,9 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 		wChemical->isotopeWidget->setIsotopes( el->Isotopes() );
 	else
 		wChemical->isotopeLabel->hide();
-	chemicalLayout->addWidget( wChemical );
     
     /////////////////////////////////
 	
-	m_pModelTab = addPage( i18n("Atom Model"), i18n( "Atom Model" ), BarIcon( "orbits" ));
 	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
 	OrbitsWidget *wOrbits = new OrbitsWidget( e->number(), m_pModelTab );
 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
@@ -125,7 +142,27 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 							.arg( elname )
 							.arg( e->parsedOrbits() ) );
 	modelLayout->addWidget( wOrbits );
+}
 
+void DetailedInfoDlg::wheelEvent(  QWheelEvent *ev )
+{
+	int number = e->number();
+
+	Element *element;
+	if ( ev->delta() < 0 )
+	{
+		if ( e->number() > 1 )
+			element = new Element( number-1 );
+	}
+	else
+	{
+		if ( e->number() < 111 )
+			element = new Element( number+1 );
+	}
+
+	e = element;
+
+	createContent( e );
 }
 
 
