@@ -68,8 +68,8 @@ Kalzium::Kalzium()
 	setCentralWidget( CentralWidget );
 	CentralWidget->show();	
 	
-	setupActions();
 	setupStatusBar();
+	setupActions();
 }
 
 void Kalzium::setupActions()
@@ -292,8 +292,8 @@ void Kalzium::slotUpdateSettings()
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
 	
 	displayTemperature();
-    displayEnergie();
-    displayTemperaturevalue();
+    	displayEnergie();
+    	displayTemperaturevalue();
 }
 
 void Kalzium::displayTemperature()
@@ -320,7 +320,7 @@ void Kalzium::displayTemperature()
  			break;
  	}
  	slotStatusBar(i18n("Temperature unit: %1 ").arg( string ),  IDS_TEMP);
-	
+	displayTemperaturevalue();
  }
  
  void Kalzium::displayEnergie()
@@ -357,6 +357,7 @@ void Kalzium::slotStateOfMatter()
 		m_pSOMSlider->show();
 		m_pLegend->setScheme( 4 );
 		slotTempChanged( m_pSOMSlider->slider->value() );
+		displayTemperature();
 		m_pSOMAction->setText( i18n( "&Hide State of Matter" ));
 	}
 	else
@@ -385,7 +386,8 @@ void Kalzium::slotTempChanged( int temperature )
  		case 2:
 			m_pCurrentPSE->setTemperature( (double) (temperature - 32)*5/9 + 273.15);
  			break;
- 	}	
+ 	}
+	displayTemperature();	
 }
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
