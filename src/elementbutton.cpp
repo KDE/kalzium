@@ -106,24 +106,20 @@ void ElementButton::paintEvent( QPaintEvent* )
 	p.setFont( f );
 
 	//top left
-	text = QString::number( e->number() );
-	p.drawText( 0,0,h_small,h_small,Qt::AlignCenter, text );
-//	p.drawText( 0,h_small+10,h_small,h_small,Qt::AlignCenter, text );
+	text = QString::number( e->strippedWeight( e->electroneg() ) );
+	p.drawText( 0,0,w/2,h_small,Qt::AlignCenter, text );
 
-	//top right
 	text = QString::number( e->strippedWeight( e->weight( ) ) );
+	p.drawText( 0,10,w/2,h_small,Qt::AlignCenter, text );
+	
+	text = QString::number( e->strippedWeight( e->density() ) );
 	p.drawText( w/2,0,w/2,h_small,Qt::AlignCenter, text );
 	
-	//bottom right
-	text = QString::number( e->strippedWeight( e->density() ) );
-	p.drawText( w/2,h-h_small,w/2,h_small,Qt::AlignCenter, text );
-	
-	//bottom left
-	text = QString::number( e->strippedWeight( e->electroneg() ) );
-	p.drawText( 0, h-h_small-h_small,h_small,h_small,Qt::AlignCenter, text );
+	text = QString::number( e->number() );
+	p.drawText( 0,h-h_small ,h_small,h_small,Qt::AlignCenter, text );
 
 	p.setFont( symbol_font );
-	p.drawText( w/3,w/4,w/2,w/2,Qt::AlignLeft, e->symbol() );
+	p.drawText( w/2,w/2,w/2,w/2,Qt::AlignLeft, e->symbol() );
 	
 	p.drawRect( 0, 0, w, h );
     p.end(); 
