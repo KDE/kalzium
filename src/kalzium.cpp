@@ -148,6 +148,7 @@ void Kalzium::setupActions()
 	slotShowScheme(Prefs::colorschemebox());
 	slotShowTimeline();
 	slotShowLegend();
+	m_bShowSOM = !Prefs::showsom();
 	slotStateOfMatter();
 }
 
@@ -363,6 +364,9 @@ void Kalzium::slotStateOfMatter()
 	else
 		m_bShowSOM = true;
 	
+	Prefs::setShowsom( m_bShowSOM ); 
+	Prefs::writeConfig();
+	
 	if ( m_bShowSOM )
 	{
 		kdDebug( ) << "now show the widgets" << endl;
@@ -373,9 +377,6 @@ void Kalzium::slotStateOfMatter()
 		kdDebug( ) << "now HIDE the widgets" << endl;
 		slotShowScheme( Prefs::colorschemebox() );
 	}
-
-	Prefs::setShowsom( m_bShowSOM ); 
-	Prefs::writeConfig();
 }
 
 
@@ -395,7 +396,7 @@ void Kalzium::showSOMWidgets( bool show )
 	{
 		m_pSOMSlider->hide();
 		slotStatusBar( "", IDS_TEMPERATURE );
-		m_pSOMAction->setText( i18n( "&Show State of Matter" ));
+		m_pSOMAction->setText( i18n( "&Show State of Matter" ));			
 	}
 }
 void Kalzium::slotTempChanged( int temperature )
