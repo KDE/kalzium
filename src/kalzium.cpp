@@ -302,7 +302,7 @@ void Kalzium::changeNumeration(int id) const
     }
 }
 
-void Kalzium::defineweights() const
+void Kalzium::defineWeights() const
 {
     (new KMolEdit(0, "kmoledit", new KMolCalc))->exec();
 }
