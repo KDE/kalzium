@@ -23,6 +23,7 @@ class QRadioButton;
 class QStringList;
 
 class QWidget;
+#include <qvaluelist.h>
 
 #include "searchdialog.h"
 
@@ -32,26 +33,39 @@ class SearchDlg : public SearchDialogUI
 
     public: 
         SearchDlg(QWidget *parent, const char *name );
+		
 	
 	private:
-		QStringList checkBoxes;
+		typedef QValueList<QCheckBox*> checkBoxesList;
+		checkBoxesList checkBoxes;
 		void fillCheckBoxList();
 
 		QStringList nameList,
-					symbolList;
-		typedef QValueList<double>  DoubleList;
-		DoubleList  IEList,
+					symbolList,
+					blockList,
+					acidList,
+					groupList,
+					orbitList,
+					OxidationList,
+					IEList,
 					ARList,
 					ENList,
 					BPList,
-					MPList;
+					MPList,
+					WeightList,
+					DensityList;
 
 		void fillDataStringLists();
 		
+		typedef QValueList<int> IntValueList;
+		IntValueList parseRange();
+		
+
 	private slots:
 		void slotApplyChanges();
 		void slotExportData();
 		void slotFilterData();
 };
+
 
 #endif // SEARCHDLG_H
