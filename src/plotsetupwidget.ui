@@ -32,7 +32,7 @@
                         <cstring>textLabel1</cstring>
                     </property>
                     <property name="text">
-                        <string>X-Axis</string>
+                        <string>X-axis:</string>
                     </property>
                 </widget>
                 <widget class="KComboBox">
@@ -95,7 +95,7 @@
                         <cstring>connectPoints</cstring>
                     </property>
                     <property name="text">
-                        <string>&amp;Connect Points</string>
+                        <string>&amp;Connect points</string>
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>Define whether the plotted points should be connected or not</string>
@@ -106,7 +106,7 @@
                         <cstring>showNames</cstring>
                     </property>
                     <property name="text">
-                        <string>&amp;Show Elementnames</string>
+                        <string>&amp;Show element names</string>
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>Define whether the names of the plotted element should be displayed</string>
@@ -117,7 +117,7 @@
                         <cstring>textLabel3</cstring>
                     </property>
                     <property name="text">
-                        <string>First Element</string>
+                        <string>First element:</string>
                     </property>
                 </widget>
                 <widget class="KIntNumInput">
@@ -142,7 +142,7 @@
                         <cstring>textLabel4</cstring>
                     </property>
                     <property name="text">
-                        <string>Last Element</string>
+                        <string>Last element:</string>
                     </property>
                 </widget>
                 <widget class="KIntNumInput">

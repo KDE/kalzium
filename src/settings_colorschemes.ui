@@ -41,7 +41,7 @@
                         <cstring>radioButton2</cstring>
                     </property>
                     <property name="text">
-                        <string>No Colors</string>
+                        <string>No colors</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>all the elements are the same color</string>
@@ -74,7 +74,7 @@
                         <cstring>radioButton5</cstring>
                     </property>
                     <property name="text">
-                        <string>State of Matter</string>
+                        <string>State of matter</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>the color scheme differentiates the states of matter by displaying each state of matter in a different color</string>
@@ -85,7 +85,7 @@
                         <cstring>radioButton1_2</cstring>
                     </property>
                     <property name="text">
-                        <string>Acidic Behavior</string>
+                        <string>Acidic behavior</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>the color scheme differentiates the acidic behaviour by displaying each one in a different color</string>

@@ -83,7 +83,7 @@
                     <cstring>tab</cstring>
                 </property>
                 <attribute name="title">
-                    <string>Acid behavior</string>
+                    <string>Acid Behavior</string>
                 </attribute>
                 <grid>
                     <property name="name">
@@ -225,7 +225,7 @@
                     <cstring>TabPage</cstring>
                 </property>
                 <attribute name="title">
-                    <string>State Of Matter</string>
+                    <string>State of Matter</string>
                 </attribute>
                 <grid>
                     <property name="name">
