@@ -3,10 +3,14 @@ HEAD:
 - quite a lot renamings in the code (eg. renaming of widgets)
 - added the neighbourtable-stuff
 - the infodialog is now redisigned
+- ElementKP is now done with Designer
 - added a toolbar
 - you will find the menu items from the old configure menu under the settings menu
 - added a new settings dialog (color and weblookup settings)
-- added Kalzium::queryClose() to save menu settings at exit, and another method to read at startup those settings
+- added Kalzium::queryClose() to save menu settings at exit, and another
+  method to read at startup those settings
+- fixed the smaller things like the stateofmatter-Dlg-fixlets. Just a
+  small things as discussed on LinuxTag 2002
 
 Version 0.4:
 - added the new calculationdialogs

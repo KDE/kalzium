@@ -1,4 +1,4 @@
-last modified: March 27 2002
+last modified: July 8 2002
 
 TODO for KDE 3.1:
 - write documentation
@@ -14,27 +14,15 @@ TODO for KDE 3.1:
 - speed up the startup (trapni?)
 
 - CalulationDlg():
-  - restyle the Dialog (KBackgammon-like)
   - KMol works fine but looks distasteful
-  - MWG works not at all
-  - we need more modes like the Nernst-Equiation
+  - MWG works not at all // KDE 3.2
+  - we need more modes like the Nernst-Equiation // KDE 3.2
 
 - go through the code and check if all QWhatsThis:: really appear
 
-- check if all Labels have the correct names (at least in elementkp.cpp/h)
-
-- fix the colourproblem in stateofmatter.cpp
-
-- rename button[] to element[]
-  //done 1. April 02 (not kidding ;)
-
-- change ElementKP: no need to use typedef. Lets
-  make it a KPushButton
-
 - fix the size of the KPushButton (far to wide)
-  //fixed April 1st 02
-
-- http://www.webelements.com/webelements/elements/text/Si/key.html  and there "Go adjacent..."
+  //this is a Keramik-issue. Lets look how Keramik is 4 week before
+  //KDE 3.1 and see if a fix is still needed
 
 - show in a small map the surrounding elements
 	//the map itself is now done. Still missing: a nice design
@@ -50,3 +38,7 @@ TODO for post-KDE 3.1:
   - Perhaps we can use KSvg? At least
     the whole KDialog should be precious.
     What about colourgradients?
+
+- http://www.webelements.com/webelements/elements/text/Si/key.html  
+  and there "Go adjacent..."
+  // KDE 3.2 though the code is already working
