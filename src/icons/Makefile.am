@@ -1,4 +1,2 @@
-icons_DATA = timeline.png legend.png
-
-iconsdir = $(kde_datadir)/kalzium/pics
-
+kalziumicondir = $(kde_datadir)/kalzium/pics
+kalziumicon_ICON = AUTO
