@@ -2,6 +2,7 @@
 INCLUDES= -I../calculations $(all_includes) 
 
 SUBDIRS = icons elementpics
+KDE_ICON=AUTO
 
 bin_PROGRAMS = kalzium
 kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp stateofmatterdlg.cpp calcdlg.cpp calcdialog.cpp settingsdialog.cpp legend.cpp infodlg.ui quizdlgui.ui quiz_result.ui kmolui.ui elementbutton.cpp detailinfodlg.cpp querydlg.cpp infodialog.cpp searchdialog.ui searchdlg.cpp orbitswidget.cpp csvdialogimpl.cpp csvdialog.ui datafilterdialog.ui datafilterdialogimpl.cpp chemicaldata.cpp kalziumplotwidget.cpp kalziumplotdialogimpl.cpp
