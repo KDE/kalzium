@@ -101,19 +101,11 @@ bool QuizXMLParser::loadLayout( QDomDocument &questionDocument, const QString& f
 
 QString QuizXMLParser::readTasks( QDomDocument &questionDocument, int number )
 {
-        QDomNodeList taskList,             //the list of all tasks
-                                        questionList,
-                                        answerList;
+        QDomNodeList taskList;             //the list of all tasks
 
 		QString html;
 
-        QDomAttr textAttibute, 
-                                gradeAttribute, 
-                                trueAttribute;  //whether or not the answer is true
-
-        QDomElement taskElement, //a single task
-                                questionElement,
-                                aElement;
+        QDomElement taskElement; //a single task
 
         //read in all tasks
         taskList = questionDocument.elementsByTagName( "unit" );
