@@ -136,6 +136,7 @@ void Kalzium::setupAllElementKPButtons()
     //creation of the 118 buttons
     //
     maingrid = new QGridLayout( mainlayout, 18, 10, -1, "maingridlayout" );
+    maingrid->setOrigin(QGridLayout::TopLeft);
 
     // Loop over all elements
     int h=0; int v=0;
@@ -189,6 +190,7 @@ void Kalzium::setupAllElementKPButtons()
 void Kalzium::setupCaption()
 {
     QHBoxLayout *legend_layout = new QHBoxLayout( mainlayout, -1, "legendlayout" );
+    legend_layout->setDirection(QBoxLayout::LeftToRight);
     legend_layout->addStretch();
 
 	main_config->setGroup( "Colors" );
