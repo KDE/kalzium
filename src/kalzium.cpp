@@ -93,8 +93,8 @@ Kalzium::Kalzium()
 	/*
 	 * the misc actions
 	 **/
-	m_pTimelineAction = new KAction(i18n("Show Timeline"), 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
-	m_pPlotAction = new KAction(i18n("Plot Data"), 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
+	m_pTimelineAction = new KAction(i18n("Show &Timeline"), 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
+	m_pPlotAction = new KAction(i18n("&Plot Data"), 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
 	/*
 	 * the standardactions

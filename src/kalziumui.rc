@@ -5,12 +5,12 @@
   <Action name="nummerationtype" />
   <Action name="quiz_menu" />
   <Menu name="miscmenu">
-	<text>Miscellaneous</text>
+	<text>&amp;Miscellaneous</text>
 	<Action name="use_timeline" />
 	<Action name="plotdata" />
   </Menu>
   <Menu name="stylemenu">
-	<text>Look</text>
+	<text>&amp;Look</text>
 	<Action name="view_normal" />
 	<Action name="view_groups" />
 	<Action name="view_blocks" />
