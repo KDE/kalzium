@@ -29,6 +29,15 @@
 <contrib>Developer</contrib>
 </othercredit>
 
+<othercredit role="developer">
+<firstname>Anne-Marie</firstname>
+<surname>Mahfouf</surname>
+<affiliation>
+<address><email>annma@kde.org</email></address>
+</affiliation>
+<contrib>Help in documentation</contrib>
+</othercredit>
+
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 
 </authorgroup>
@@ -42,7 +51,7 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2004-06-12</date>
+<date>2004-06-24</date>
 <releaseinfo>1.1.91</releaseinfo>
 
 <abstract>
@@ -265,7 +274,7 @@ The <guimenuitem>Plot Data</guimenuitem> dialog allows you to plot some informat
 </screenshot>
 </sect2>
 
-<sect2 id="state_of_matter">
+<!--<sect2 id="state_of_matter">
 <title>State of Matter</title>
 <para>
 With the <guimenuitem>Show State Of Matter</guimenuitem>: you can choose which state you want depending of the temperature.
@@ -284,6 +293,11 @@ solid/liquid/vapor at a given temperature.</para>
 </caption>
 </mediaobject>
 </screenshot>
+</sect2>-->
+<sect2 id="show_hide_legend">
+<title>Show/Hide Legend</title>
+<para>The Show/Hide Legend action allows you to display the legent for the scheme you are in (Groups, Blocks, Acid Behaviour).
+</para>
 </sect2>
 
 </sect1>
@@ -321,6 +335,213 @@ The Color Scheme tab allows you to choose your Color Scheme (No colors, Groups, 
 </para></listitem>
 </itemizedlist>
 
+</chapter>
+
+<chapter id="commands">
+<title>Command Reference</title>
+
+<sect1 id="kalzium-mainwindow">
+<title>Menus and shortcut keys</title>
+
+<sect2>
+<title>The <guimenu>File</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
+</shortcut>
+<guimenu>File</guimenu>
+<guimenuitem>Quit</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Quits</action> &kalzium;</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>The <guimenu>PSE</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>PSE</guimenu>
+<guimenuitem>Show Regular PSE</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the regular PSE with all the elements</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>PSE</guimenu>
+<guimenuitem>Show Simple PSE</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the simple PSE with less elements</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>The <guimenu>Numeration</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Numeration</guimenu>
+<guimenuitem>No Numeration</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> no numeration scheme</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Numeration</guimenu>
+<guimenuitem>Show IUPAC</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the IUPAC numeration</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Numeration</guimenu>
+<guimenuitem>Show CAS</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the CAS numeration</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Numeration</guimenu>
+<guimenuitem>Show Old IUPAC</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the Old IUPAC numeration</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>The <guimenu>Miscellaneous</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Miscellaneous</guimenu>
+<guimenuitem>Show Timeline</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the Timeline Slider</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Miscellaneous</guimenu>
+<guimenuitem>Plot Data</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Open</action> Plot Data dialog</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Miscellaneous</guimenu>
+<guimenuitem>Show State Of Matter</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the State Of Matter dialog</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Miscellaneous</guimenu>
+<guimenuitem>Show/Hide Legend</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Toggle</action> the Legend labels</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>The <guimenu>Look</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Look</guimenu>
+<guimenuitem>No Color Scheme</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the Timeline Slider</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Look</guimenu>
+<guimenuitem>Show Groups</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the elements with a different color per group</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Look</guimenu>
+<guimenuitem>Show Blocks</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the elements with a different color per block</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Look</guimenu>
+<guimenuitem>Show Acid Behavior</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the elements with a different color per acid behavior</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+<sect2>
+<title>The <guimenu>Settings</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show/Hide Toolbar</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Toggle</action> the Main Toolbar</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show/Hide Status bar</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Toggle</action> the Status bar</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Shortcuts...</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Configure</action> the keyboard keys you use to access the different actions.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Toolbars...</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Configure</action> the items you want to put in the toolbar
+</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure &kalzium;...</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Display</action> the &kalzium; settings dialog
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>The <guimenu>Help</guimenu> Menu</title>
+&help.menu.documentation;
+</sect2>
+</sect1>
 </chapter>
 
 <chapter id="faq">
