@@ -22,6 +22,14 @@ class Answer;
 typedef QValueList<Task*> taskList;
 typedef QValueList<Answer*> answerList;
 
+/**
+ * This class represents the answer of a quiz. A answer can 
+ * be either true or false.
+ * @param sentence is the text of the answer
+ * @param type defines if the answer is @p true or @p false
+ * @author Carsten Niehaus
+ * @version 1.1
+ */ 
 class Answer
 {
 	public:
@@ -31,8 +39,14 @@ class Answer
 			m_type = type;
 		};
 
+		/**
+		 * @return the text of the answer
+		 */
 		QString answer(){ return m_sentence; }
 
+		/**
+		 * @return if the answer was true or false
+		 */
 		bool isTrue(){ return m_type; }
 
 	private:
@@ -47,46 +61,67 @@ class Answer
 		QString m_sentence;
 };
 		
+/**
+ * @short A task is a questions plus at least two answers
+ * This class represents a task of a quiz. A task consists of
+ * a question and at least two answers. 
+ * @param question is the text of the question
+ * @param grade defines how difficult the task is. Values from 1 to 5 or allowed.
+ * @author Carsten Niehaus
+ * @version 1.1
+ * @see Answer
+ */ 
 class Task
 {
 	public:
 		Task( QString question, 
 				int grade );
 
+		/**
+		 * @return the question of the task
+		 */
 		QString question() {return m_question; }
 		
-		/*
+		/**
 		 * the grade of the Task
 		 */
 		int m_iGrade;
 		
-		/*
-		 * the true and false answers
+		/**
+		 * this list contains the answers of this task
 		 */
 		answerList m_answers;
 		
+		/**
+		 * @return the number of answers the task owns
+		 */
 		int numberOfAnswers();
 
-		/*
-		 * add the answer @param a to the list of answers
+		/**
+		 * add the answer @p a to the list of answers
+		 * @param a will be added the the list of answers
 		 */
 		void addAnswer( Answer *a );
 		
-		/*
-		 * return the grade of the Task
+		/**
+		 * @return the grade of the Task
 		 */
 		int isGrade(){ return m_iGrade; }
 
-		/*
+		/**
 		 * the question of the task
 		 */
 		QString m_question;
 
+		/**
+		 * @return the answer at position @p nr
+		 * @param nr is the number of the answer, starting with 0
+		 */
 		Answer* answerAt( int nr );
 };
 		
 
-/*
+/**
  * A TaskList contains tasks which can be used in the quiz
  */
 class TaskList
@@ -100,14 +135,20 @@ class TaskList
 
 		int numberOfTasks(){ return Tasks.count(); }
 
-		/*
-		 * returns a list of tasks with grade @param grade
+		/**
+		 * @return a list of tasks with grade @param grade
 		 */
 		taskList tasks( int grade );
 		
-		taskList tasks(){return Tasks;}
+		/**
+		 * @return all tasks
+		 */
+		taskList tasks(){ return Tasks; }
 
-		Task* taskAt( int );
+		/**
+		 * @return the task at position @p pos
+		 */
+		Task* taskAt( int pos );
 		
 		taskList Tasks;
 };

@@ -48,12 +48,12 @@ void TaskList::addTask( Task *t )
 	Tasks.append( t );
 }
 
-Task* TaskList::taskAt( int i )
+Task* TaskList::taskAt( int pos )
 {
 	/*
 	 * XXX this can probably be done with less code
 	 */
-	const taskList::iterator it = Tasks.at( i );
+	const taskList::iterator it = Tasks.at( pos );
 	return *it;
 }
 

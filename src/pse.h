@@ -29,18 +29,16 @@
 #include "elementbutton.h"
 
 /**
-basic class for the specific PSEs
-@author Carsten Niehaus
-*/
-
-
+ * @short basic class for the specific PSEs
+ * @author Carsten Niehaus
+ */
 class PSE : public QWidget
 {
 	Q_OBJECT
 	public:
 		/**
 		 * Constructor
-		 * @param data the object in which all data is stored
+		 * @param data is the object in which all data is stored
 		 */
 		PSE( KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
 		~PSE();
@@ -50,59 +48,70 @@ class PSE : public QWidget
 		/**
 		 * This method sets the colors of the PSE. 
 		 @param nr takes 5 different values:
-		 	1: normal view
-			2: groups
-			3: blocks
-			4: state-of-matter
-			5: acidic behaviour
-		 **/
-		void activateColorScheme( const int nr);
-		
-		/**
-		 * four lists, on for each block in the periodic table
+		 @li normal view
+		 @li groups
+		 @li blocks
+		 @li state-of-matter
+		 @li acidic behaviour
 		 */
-		QPtrList<ElementButton> sBlockList,
-					dBlockList,
-					pBlockList,
-					fBlockList;
+		void activateColorScheme( const int nr);
 
 		/**
-		 * this method set the color for the buttons coresponding to
-		 * the given @param temp
-		 **/
-		void setTemperature( const double temp );
-		
+		 * In this list all buttons corresponding the the block
+		 * in the periodic table are stored.
+		 */
+		QPtrList<ElementButton> sBlockList,
+		dBlockList,
+		pBlockList,
+		fBlockList;
+
 		/**
-		 * this list includes all elementbuttons which are in the 
+		 * This method set the color for the buttons coresponding to
+		 * the given temperature @p temp
+		 * @param temp is the temperature to which all buttons will be set
+		 */
+		void setTemperature( const double temp );
+
+		/**
+		 * This list includes all elementbuttons which are in the 
 		 * specific PSE. For example. in the simple PSE
 		 * the elements of the f- and d-Block would not
 		 * be in this list
-		 **/
+		 */
 		QPtrList<ElementButton> m_PSEElementButtons;
-	
+
 	private:
 
 		/**
 		 * this sets up the 4 blocklists. Every PSE has 4 lists for
 		 * the 4 blocks: s,p,d,f
-		 **/
+		 */
 		void setupBlockLists();
-		
+
 		/**
-		 * this method sets up the m_PSEElementButtons-list
-		 **/
+		 * Sets up all elements to the correct buttonlists
+		 * @see m_PSEElementButtons
+		 */
 		virtual void setupPSEElementButtonsList();
 
 		public slots:
 			void slotUpdatePSE();
-		
+
 		/**
 		 * this method hides all elements which have not been know
-		 * before the @param date.
-		 **/
+		 * before the @p date.
+		 * @param date is time where the user wants to see wheter
+		 * or not the element has already been kown
+		 */
 		void setDate( int date );
 };
 
+/**
+ * This class represents the periodic table most persons know.
+ * All elements are included.
+ * @short The regular periodic table with all elements
+ * @author Carsten Niehaus
+ */
 class RegularPSE : public PSE
 {
 	Q_OBJECT
@@ -110,9 +119,20 @@ class RegularPSE : public PSE
 		RegularPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
 		~RegularPSE();
 
+		/**
+		 * Sets up all elements to the correct buttonlists
+		 * @see m_PSEElementButtons
+		 */
 		void setupPSEElementButtonsList();
 };
 
+/**
+ * This class includes only the elements in the s- and block. It is intended for
+ * pupil in lower classes or perhaps people who don't know very much about
+ * chemistry.
+ * @short A simplified periodic table with only the elements of the s- and p-block
+ * @author Carsten Niehaus
+ */
 class SimplifiedPSE : public PSE
 {
 	Q_OBJECT
@@ -120,16 +140,32 @@ class SimplifiedPSE : public PSE
 		SimplifiedPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
 		~SimplifiedPSE();
 		
+		/**
+		 * Sets up all elements to the correct buttonlists
+		 * @see m_PSEElementButtons
+		 */
 		void setupPSEElementButtonsList();
 };
 
+/**
+ * This class represents the periodic table most persons know.
+ * All elements are included.
+ * @short The regular periodic table with all elements
+ * @author Carsten Niehaus
+ */
 class MendeljevPSE : public PSE
 {
 	Q_OBJECT
 
 	public:
 		MendeljevPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
+		
+		/**
+		 * Sets up all elements to the correct buttonlists
+		 * @see m_PSEElementButtons
+		 */
 		void setupPSEElementButtonsList();
+		
 		~MendeljevPSE();
 };
 		

@@ -85,30 +85,30 @@ class Kalzium : public KMainWindow
 			*m_pTimelineAction;
 		
 	private slots:
-		/*
+		/**
 		 * this slot schwitches Kalzium to the selected colorscheme
-		 **/
+		 */
 		void slotShowScheme(void);
 
-		/*
+		/**
 		 * this slot activates the timeline.
-		 **/
+		 */
 		void slotShowTimeline();
 
 		void slotSaveConfig();
 	
-		/*
+		/**
 		 * This slot switches Kalzium to the selected PSE
-		 **/
+		 */
 		void slotSwitchtoPSE(void);
 
 		void slotStartQuiz();
 		void slotEditQuestions();
 		void slotAddQuestions();
 
-		/*
+		/**
 		 * These slots are for the standardactions
-		 **/
+		 */
 		void showSettingsDialog();
 		void optionsConfigureKeys();
 		void newToolbarConfig();

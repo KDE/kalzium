@@ -40,41 +40,122 @@ class KalziumDataObject
 };
 
 /**
-An 'Element' is the represention of a chemical element
-
-@author Carsten Niehaus
+ * In this class all information available are stored. This means that
+ * both the chemical date and the data about the position are stored
+ * in this class.
+ * @short This class is the represention of a chemical element
+ * @author Carsten Niehaus
 */
 class Element{
 	public:
 		Element( int );
 		~Element();
 
+		/**
+		 * @return the number of the element
+		 */
 		int number() const {return m_number;}
+		/**
+		 * @return the date of discovery of the element
+		 */
 		int date() const { return m_date; }
+		/**
+		 * @return the importance of the element for biological
+		 * systems.
+		 * @li 0: blah
+		 * @li 1: blub
+		 * @li 2: blub
+		 * @li 3: blub
+		 * @li 4: blub
+		 * @li 5: blub
+		 * @li 6: blub
+		 */
 		int biological() const {return m_biological;}
+		/**
+		 * @return the condition of aggrgation of the element at 
+		 * room temperature. 0 means solid, 1 means liquid, 2 means vapor
+		 */
 		int az() const {return m_az;}
 		
+		/**
+		 * @return the symbol of the element
+		 */
 		QString symbol() const {return m_symbol;}
+		/**
+		 * @return the name of the element
+		 */
 		QString elname() const {return m_name;}
+		/**
+		 * @return the chemical block (s, p, d, f) of the element
+		 */
 		QString block() const {return m_block;}
+		/**
+		 * @return the group of the element
+		 */
 		QString group() const {return m_group;}
+		/**
+		 * @return the acidic behaviour of the element
+		 */
 		QString acidicbeh() const {return m_acidbeh;}
+		/**
+		 * @return the oxydationstages of the element
+		 */
 		QString oxstage() const { return m_oxstage; }
+		/**
+		 * @return the orbits of the element. The QString is already
+		 * parsed so that the numbers are superscripts and the first
+		 * block is bold.
+		 */
 		QString parsedOrbits();
 		
+//XXX check if its really kelvin!!!
+		
+		/**
+		 * @return the boiling point of the element in Kelvin
+		 */
 		double boiling() const {return m_BP;}
+		/**
+		 * @return the melting point of the element in Kelvin
+		 */
 		double melting() const {return m_MP;}
+		/**
+		 * @return the electronegativity of the element in the 
+		 * Pauling-scale
+		 */
 		double electroneg() const {return m_EN;}
+		/**
+		 * @return the atomic weight of the element in units
+		 */
 		double weight() const {return m_weight;}
+		/**
+		 * @return the density of the element in gramm per mol
+		 */
 		double density() const {return m_Density;}
+		/**
+		 * @return the radius of the element in picometers
+		 */
 		double radius() const {return m_AR;}
+		/**
+		 * @return the  of the element
+		 */
+
+		//XXX add the rest
 		double ie() const {return m_IE;}
+		/**
+		 * @return the  of the element
+		 */
 		double ie2() const {return m_IE2;}
+		/**
+		 * @return the  of the element
+		 */
 		double meanweight();
 
 		int x, y; //for the RegularPSE
 		int s_x, s_y; //for the SimplifiedPSE
 
+		/**
+		 * @return the  of the element
+		 */
 		static const QString adjustUnits( double val, const int type );
 
 	private:
