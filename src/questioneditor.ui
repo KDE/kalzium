@@ -78,9 +78,6 @@
                     <property name="text">
                         <string>&amp;Load File</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+L</string>
-                    </property>
                     <property name="toolTip" stdset="0">
                         <string>A click on this button will show you a dialog in which you can select the file you want to edit.</string>
                     </property>
@@ -94,9 +91,6 @@
                     </property>
                     <property name="text">
                         <string>&amp;Add Question</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+A</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>A click on this button will open a dialog in which you can add a question</string>
@@ -112,9 +106,6 @@
                     <property name="text">
                         <string>&amp;Remove Question</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+R</string>
-                    </property>
                     <property name="toolTip" stdset="0">
                         <string>A click on this button will remove the selected question</string>
                     </property>
@@ -128,9 +119,6 @@
                     </property>
                     <property name="text">
                         <string>&amp;Save Changes</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+S</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>A click on this button will save the tasks in the listview</string>
@@ -162,9 +150,6 @@
                     </property>
                     <property name="text">
                         <string>&amp;Close</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+C</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>This button closes the dialog.</string>

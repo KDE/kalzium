@@ -109,9 +109,6 @@
                     <property name="text">
                         <string>&amp;Add Question</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+A</string>
-                    </property>
                 </widget>
                 <spacer>
                     <property name="name">
@@ -136,9 +133,6 @@
                     </property>
                     <property name="text">
                         <string>&amp;Cancel</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+C</string>
                     </property>
                 </widget>
             </hbox>
