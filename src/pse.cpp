@@ -303,8 +303,11 @@ void PSE::paintEvent( QPaintEvent *e )
 		if ( m_showLegend )
 			drawLegend( &p );
 		
-//X 		if ( m_showTooltip )
-//X 			drawToolTip( &p, new Element( m_tooltipElementNumber ) );
+		if ( m_showTooltip )
+		{
+			kdDebug() << "m_tooltipElementNumber: " << m_tooltipElementNumber << endl;
+			drawToolTip( &p, new Element( m_tooltipElementNumber ) );
+		}
 		
 		p.end();
 		//JH: Uncomment when ready for this
@@ -318,13 +321,12 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 {
 	kdDebug() << "PSE::drawToolTip()" << endl;
 
-	int x = QCursor::pos().x();
-	int y = QCursor::pos().y();
+	int x = mapFromGlobal( QCursor::pos() ).x();
+	int y = mapFromGlobal( QCursor::pos() ).y();
 
-	y -= 50;
 
 	p->fillRect( x,y,80,80 , Qt::red );
-	p->drawText( x,y, e->elname() );
+	p->drawText( x,y+20, e->elname() );
 }
 
 
@@ -470,11 +472,11 @@ void PSE::slotTransientLabel( void )
 {
 	kdDebug() << "PSE::slotTransientLabel" << endl;
 
-	int X = QCursor::pos().x()/45;
-	int Y = QCursor::pos().y()/45;
+	int X = mapFromGlobal( QCursor::pos() ).x()/45;
+	int Y = mapFromGlobal( QCursor::pos() ).y()/45;
 	if ( m_isSimple )
 	{
-		if ( QCursor::pos().x() > ( 2*45 ) )
+		if ( mapFromGlobal( QCursor::pos() ).x() > ( 2*45 ) )
 		{
 			X += 10;
 		}
@@ -518,7 +520,7 @@ void PSE::mouseMoveEvent( QMouseEvent *mouse )
 	kdDebug() << "PSE::mouseMoveEvent" << endl;
 
 	m_showTooltip = false;
-	HoverTimer.start(  2000, false );
+	HoverTimer.start(  200, false );
 }
 
 void PSE::mouseReleaseEvent( QMouseEvent *mouse )
