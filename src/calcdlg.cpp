@@ -105,11 +105,11 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
     comboboxgrid = new QGridLayout( valuebox , 6 , 6 );
     grid->addWidget( valuebox , 4 , 0 );
 
-    general = new QLabel( i18n("General equiation:"), MWG );
+    general = new QLabel( i18n("General equation:"), MWG );
     
     //FIXME insert the correct pixmap
     
-    herefrom = new QLabel( i18n("Herefrom you get the 'Law of Mass Action':"), MWG );
+    herefrom = new QLabel( i18n("From here you get the 'Law of Mass Action':"), MWG );
 
     //FIXME insert the correct pixmap
 

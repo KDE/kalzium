@@ -118,7 +118,7 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
         element[n]->show();
 
         //Now we add the WhatsThis-help for each button
-        QWhatsThis::add(element[n], i18n("Click here to get information about %1").arg(eleminfo.Symbol));
+        QWhatsThis::add(element[n], i18n("Click here to get information about %1.").arg(eleminfo.Symbol));
 		QToolTip::add(element[n], eleminfo.Name);
     }
 
@@ -135,7 +135,7 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 
     dateS = new QSlider (QSlider::Horizontal, foo, "rotateSlider" );
     timeline_layout->addWidget( dateS );
-    QWhatsThis::add(dateS, i18n("Use this slider to see what elements were known at a certein date"));
+    QWhatsThis::add(dateS, i18n("Use this slider to see what elements were known at a certain date."));
     dateS->setRange(1669, 2002);
     dateS->setValue(2002);
     dateS->hide();
@@ -145,7 +145,7 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 
     dateLCD = new QLCDNumber( 4, foo, "dateLCD");
     timeline_layout->addWidget( dateLCD );
-    QWhatsThis::add(dateLCD, i18n("This is the date which you have chosen with the slider. Currently, you are viewing the elements known in the year %1").arg(QString::number(dateS->value())));
+    QWhatsThis::add(dateLCD, i18n("This is the date which you have chosen with the slider. Currently, you are viewing the elements known in the year %1.").arg(QString::number(dateS->value())));
     dateLCD->hide();
     dateLCD->display("2002");
 
@@ -236,7 +236,7 @@ void Kalzium::showCAS() const
         labels[n]->setText(name);
         labels[n]->setAlignment( Qt::AlignCenter );
         labels[n]->setAutoMask( true );
-        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the the terminology used by the CAS").arg(name));
+        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the the terminology used by the CAS.").arg(name));
         labels[n]->show();
     }
 }
@@ -251,7 +251,7 @@ void Kalzium::showIUPAC() const
         labels[n]->setText(QString::number(n+1));
         labels[n]->setAlignment(AlignCenter);
         labels[n]->setAutoMask( true );
-        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the terminology used by the IUPAC").arg(QString::number(n+1)));
+        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the terminology used by the IUPAC.").arg(QString::number(n+1)));
         labels[n]->show();
     }
 }
@@ -631,17 +631,17 @@ void Kalzium::setupActions()
     QStringList psestylelist;
     psestylelist.append( i18n("Mendeleev"));
     psestylelist.append( i18n("Complete"));
-    psestylemenu = new KSelectAction(i18n("&PSE Sytle"),0,actionCollection(), "psestyle");
+    psestylemenu = new KSelectAction(i18n("&PSE Style"),0,actionCollection(), "psestyle");
     psestylemenu->setItems(psestylelist);
     connect(psestylemenu, SIGNAL(activated(int)), this, SLOT(showPseStyle(int)));
     psestylemenu->setCurrentItem(main_config->readNumEntry("psestylemenu"));
 
     QStringList colorschemelist;
-    colorschemelist.append( i18n("Acid Behaviours"));
+    colorschemelist.append( i18n("Acid Behavior"));
     colorschemelist.append( i18n("Blocks"));
     colorschemelist.append( i18n("Groups"));
     colorschemelist.append( i18n("State of Matter"));
-    colorschememenu = new KSelectAction(i18n("&Colorscheme"),0,actionCollection(), "colorscheme");
+    colorschememenu = new KSelectAction(i18n("&Color scheme"),0,actionCollection(), "colorscheme");
     colorschememenu->setItems(colorschemelist);
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(updateColorMenu(int)));
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(changeColorScheme(int)));

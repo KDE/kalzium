@@ -191,7 +191,7 @@ IE=7.646
 AR=160
 
 [13]
-Name=Aluminium
+Name=Aluminum
 Symbol=Al
 Weight=26.981538
 Block=p
@@ -239,7 +239,7 @@ IE=10.486
 AR=93
 
 [16]
-Name=Sulphur
+Name=Sulfur
 Symbol=S
 Weight=32.065
 Block=p
@@ -863,7 +863,7 @@ IE=12.130
 AR=218
 
 [55]
-Name=Caesium
+Name=Cesium
 Symbol=Cs
 Weight=132.90545
 Block=s
@@ -1908,10 +1908,10 @@ Alternative2=Oxygen
 
 
 [q4]
-Q= What percentage of the air is Oxygen?
+Q=What percentage of the air is Oxygen?
 A=20.95 percent
 Alternative1=35 percent
-Alternative2= 95 percent
+Alternative2=95 percent
 
 
 [q5]
@@ -1983,14 +1983,14 @@ Alternative2=Solvay-process
 
 
 [q15]
-Q=Compounds made form Ions are called?
+Q=Compounds made from Ions are called?
 A=Salts
 Alternative1=Fats
 Alternative2=Esters
 
 
 [q16]
-Q= Which gas expedites the ripening of fruit?
+Q=Which gas expedites the ripening of fruit?
 A=Ethene
 Alternative1=Ethin
 Alternative2=Ethane
@@ -2015,7 +2015,7 @@ Alternative2=Butyric acid
 
 [q20]
 Q=What is a Zwitterion?
-A= An ion with both a positive and negative charge.
+A=An ion with both a positive and negative charge.
 Alternative1=Ions with double positive and single negative charges.
 Alternative2=Ions with a single positive charge and a double negative charge.
 
@@ -2041,7 +2041,7 @@ Alternative2=Suspension
 
 
 [q24]
-Q=How are atoms called which only differ in the number of their neutrons?
+Q=How are atoms called which differ only in the number of their neutrons?
 A=isotopes
 Alternative1=Isomers
 Alternative2=Allotropes
@@ -2055,7 +2055,7 @@ Alternative2=Argon
 
 
 [q26]
-Q=What is not an halogen?
+Q=What is not a halogen?
 A=Lanthan
 Alternative1=Chlorine
 Alternative2=Fluorine
@@ -2076,7 +2076,7 @@ Alternative2=In the middle ages, the urine of aristocrats was called that. It wa
 
 
 [q29]
-Q=The combination of an Acid and Base produces...
+Q=The combination of an Acid and a Base produces...
 A=Water and a salt. Ex: HCl + NaOH -> H2O + NaCl
 Alternative1=A solution that always has a pH of 7.
 Alternative2=A solution that will not conduct electrical current.
@@ -2120,7 +2120,7 @@ Alternative1=Zinc
 Alternative2=Chromium
 
 [q36]
-Q=In what material is the speed of sound highest?
+Q=Through what material does sound travel the quickest?
 A=Iron
 Alternative1=Tungsten
 Alternative2=Cobalt
@@ -2152,7 +2152,7 @@ Alternative1=Gallium
 Alternative2=Thallium
 
 [q41]
-Q=What is NaCl
+Q=What is NaCl?
 A=Common salt
 Alternative1=A ductile crystal
 Alternative2=A red crystal.
@@ -2165,7 +2165,7 @@ Alternative2=Conformers
 
 
 [q43]
-Q=What was it that Alchemist wanted to achieve?
+Q=What was it that Alchemists wanted to achieve?
 A=To transform Lead into Gold.
 Alternative1=To purify Gold.
 Alternative2=To find a metal more valuable than Gold.
@@ -2177,7 +2177,7 @@ Alternative1=Tollens test
 Alternative2=Wittig reaction.
 
 [q45]
-Q=Which of these properties doesn't apply to diamonds?
+Q=Which of these properties does not apply to diamonds?
 A=They are fireproof.
 Alternative1=As a dielectric, they are good conductors of heat.
 Alternative2=They are the hardest material known.
