@@ -47,12 +47,13 @@ class Kalzium;
  * Density = Density
  * IE = Ionisationenergie
  * AR = Atomradius
+ * OX = Oxidationstages
  */
 
 struct ElementInfo
 {
    QString Name, Symbol, Block,
-   Weight, acidbeh, az, date, Group, orbits;
+   Weight, acidbeh, az, date, Group, orbits, oxstage;
    int number;
    double MP, BP, EN, Density, IE, AR;
 };

@@ -242,6 +242,9 @@ void ElementKP::slotShowData()
     else
 	show_data2->electro_label->setText( i18n( "%1" ).arg( Data.EN ) );
 
+	show_data2->oxlabel->setText( Data.oxstage );
+
+
 	//show orbit information nicely
 	QRegExp rxs("([a-z])([0-9]+)");
 	QRegExp rxb("([a-z]{2}) ",false);

@@ -92,20 +92,20 @@ Kalzium::~Kalzium()
 
 void Kalzium::createhelpArray()
 {
-    for(int i=0;i<9;i++)
-    {
-	for(int e=0;e<18;e++)
+	for(int i=0;i<9;i++)
 	{
-	    helpArray[i][e]="leer";
+		for(int e=0;e<18;e++)
+		{
+			helpArray[i][e]="leer";
+		}
 	}
-    }
 
-    int ze=0,sp=0;
-    for(int as=1;as<109;as++)
-    {
-	position(as,ze,sp);
-	helpArray[sp/40][ze/40]=element[as-1]->Data.Symbol;
-    }
+	int ze=0,sp=0;
+	for(int as=1;as<109;as++)
+	{
+		position(as,ze,sp);
+		helpArray[sp/40][ze/40]=element[as-1]->Data.Symbol;
+	}
 }
 
 bool Kalzium::queryClose()
@@ -142,6 +142,7 @@ void Kalzium::setupAllElementKPButtons()
 			eleminfo.Name=config.readEntry("Name", "Unknown");
 			eleminfo.Symbol=config.readEntry("Symbol", "Unknown");
 
+			eleminfo.oxstage=config.readEntry("Ox","0");
 			eleminfo.Weight=config.readEntry("Weight","0.0");
 			eleminfo.acidbeh=config.readEntry("acidbeh","0");
 			eleminfo.Block=config.readEntry("Block","s");
