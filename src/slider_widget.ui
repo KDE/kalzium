@@ -16,7 +16,7 @@
         <string>Timeline</string>
     </property>
     <property name="toolTip" stdset="0">
-        <string>Use the slider to see, what elements have been known when</string>
+        <string>Use the slider to see which elements were known by a certain date</string>
     </property>
     <property name="whatsThis" stdset="0">
         <string></string>

@@ -5,9 +5,8 @@
   <group name="Colorscheme">
     <entry name="colorschemebox" type="Int">
     	<default>1</default>
-	<whatsthis>Select the Colorscheme your prefer by
-	clicking on the coresponding radiobutton</whatsthis>
-	<label>Selects the default colorscheme</label>
+	<whatsthis>Select the color scheme you prefer by clicking on the corresponding radio button</whatsthis>
+	<label>Selects the default color scheme</label>
     </entry>
   </group>
   <group name="Quiz_Setup">
@@ -140,14 +139,14 @@
     <entry name="LMBbeh" type="Int">
     	<default>0</default>
 	<whatsthis>If this is true</whatsthis>
-	<label>This value defines if a click with the left mousebutton opens the detailed or the small informationsdialog</label>
+	<label>This value defines whether a click with the left mouse button should open the detailed or the small information dialog</label>
     </entry>
   </group>
   <group name="Units">
     <entry name="units" type="Int">
     	<default>0</default>
 	<whatsthis>Use eV or kJ/mol</whatsthis>
-	<label>This value defines if eV or kJ/mol should be used within Kalzium</label>
+	<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
     </entry>
   </group>
   <group name="Electronegativity">
@@ -161,7 +160,7 @@
     <entry name="temperature" type="Int">
     	<default>0</default>
 		<whatsthis>Select the scale for the temperature</whatsthis>
-	<label>This value defines if a click with the left mousebutton opens the detailed or the small informationsdialog</label>
+	<label>This value defines which temperature scale should be used within Kalzium</label>
     </entry>
   </group>
 </kcfg>

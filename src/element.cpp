@@ -135,7 +135,7 @@ const QString Element::adjustUnits( double val, const int type )
 	{
 		if ( val < 1600 )
 		{
-			v = i18n( "This element has been know to ancient cultures" );
+			v = i18n( "This element was known to ancient cultures" );
 		}
 		else
 		{

@@ -48,7 +48,7 @@ Kalzium::Kalzium()
 	 **/
 	 QStringList schemalist;
 	 schemalist.append(i18n("Show &Regular PSE"));
-	 schemalist.append(i18n("Show &Mendeljev PSE"));
+	 schemalist.append(i18n("Show &Mendeleev PSE"));
 	 schemalist.append(i18n("Show &Simple PSE"));
 	 schema_action = new KSelectAction (i18n("Switch &PSE"), 0, this, 0, actionCollection(), "change_pse");
 	 schema_action->setItems(schemalist);

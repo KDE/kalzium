@@ -447,7 +447,7 @@ MendeljevPSE::MendeljevPSE(KalziumDataObject *data, QWidget *parent, const char 
 {
 	d = data;
 
-	m_ShortName = i18n( "Mendejlevs Periodic Table" );
+	m_ShortName = i18n( "Mendeleev's Periodic Table" );
 	
 	QVBoxLayout *vbox = new QVBoxLayout( this , 0 , -1 , "vbox" );
 	

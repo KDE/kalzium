@@ -67,7 +67,7 @@
                         <cstring>radioButton1_2</cstring>
                     </property>
                     <property name="text">
-                        <string>Acidic Behaviour</string>
+                        <string>Acidic Behavior</string>
                     </property>
                 </widget>
             </vbox>

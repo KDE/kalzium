@@ -16,7 +16,7 @@
         <string>detail_energy</string>
     </property>
     <property name="whatsThis" stdset="0">
-        <string>You can see the most importand informations about the energyrelated properties</string>
+        <string>You can see the most important information about the energy-related properties</string>
     </property>
     <grid>
         <property name="name">
