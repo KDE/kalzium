@@ -67,7 +67,6 @@ void IsotopeWidget::setIsotopes( const QString& isotopes_string )
 
 QWidget* IsotopeWidget::isotopeLabel( const QString& str )
 {
-	kdDebug() << "str: " << str << endl;
 	QWidget *w = new QWidget( this );
 	
 	QHBoxLayout *hbox = new QHBoxLayout( w );
@@ -93,8 +92,6 @@ QWidget* IsotopeWidget::isotopeLabel( const QString& str )
 	weight->setText( weight_str );
 	neutrons->setText( neutrons_str );
 	percentage->setText( tmp );
-
-	kdDebug() << "weigt: " << weight_str << " Neutrons: " << neutrons_str << " Percentage: " << tmp << endl;
 
 	hbox->addWidget( weight );
 	hbox->addWidget( neutrons );
