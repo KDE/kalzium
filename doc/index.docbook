@@ -178,7 +178,7 @@ constantly.
 	</para>
 
 <para>
-The number represents the data you are looking at. If you move the slider
+The number represents the date you are looking at. If you move the slider
 to &eg; 1856 you will only see the elements which where known in the
 year 1856. 
 </para>
@@ -239,8 +239,7 @@ in effect.</para>
 
 <para>
 &kalzium; has many configuration options, which you can access by opening
-the <guilabel>Display Options</guilabel> window, either with the
-<guiicon>wrench</guiicon> toolbar icon, or selecting <guimenuitem>Configure
+the <guilabel>Preferences</guilabel> window by selecting <guimenuitem>Configure
 &kalzium;...</guimenuitem> from the <guimenu>Settings</guimenu> menu.  The
 window is depicted below:</para>
 
