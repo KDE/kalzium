@@ -130,6 +130,11 @@ class Kalzium : public KMainWindow
 		 * numeration theme
 		 */
 		void showIUPAC() const;
+		
+        /**
+		 * numeration theme
+		 */
+		void showOldIUPAC() const;
 
 
 		/**

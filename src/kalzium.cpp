@@ -260,6 +260,23 @@ void Kalzium::showIUPAC() const
     }
 }
 
+void Kalzium::showOldIUPAC() const
+{
+    int h = 0, v = 0;
+    for (int n = 0; n < 18; n++)
+    {
+        periodNrpos(n+1, h, v);
+        QString name;
+        periodOldName(n+1, name);
+        maingrid->addWidget(labels[n], v/40, h/40);
+        labels[n]->setText(name);
+        labels[n]->setAlignment( Qt::AlignCenter );
+        labels[n]->setAutoMask( true );
+        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the terminology of the old IUPAC-commendation.").arg(name));
+        labels[n]->show();
+    }
+}
+
 void Kalzium::showCAS() const
 {
     int h = 0, v = 0;
@@ -270,7 +287,7 @@ void Kalzium::showCAS() const
         labels[n]->setText(QString::number(n+1));
         labels[n]->setAlignment(AlignCenter);
         labels[n]->setAutoMask( true );
-        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the terminology used by the IUPAC.").arg(QString::number(n+1)));
+        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the terminology used by the CAS.").arg(QString::number(n+1)));
         labels[n]->show();
     }
 }
@@ -372,6 +389,9 @@ void Kalzium::changeNumeration(int id) const
             showCAS();
             break;
         case 2:
+            showOldIUPAC();
+            break;
+        case 3:
             for (int n = 0; n < 18; ++n)
                 labels[n]->hide();
             break;
@@ -701,6 +721,7 @@ void Kalzium::setupActions()
     QStringList numerationlist;
     numerationlist.append( i18n("CAS"));
     numerationlist.append( i18n("IUPAC"));
+    numerationlist.append( i18n("old IUPAC"));
     numerationlist.append( i18n("Off"));
 
     numerationmenu = new KSelectAction (i18n("&Numeration"),0,actionCollection(), "numeration");

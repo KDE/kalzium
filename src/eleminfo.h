@@ -23,4 +23,6 @@ void periodNrpos(int, int&, int&);
 
 void periodName(int, QString&);
 
+void periodOldName(int, QString&);
+
 void shuffle(int&, int&, int&);

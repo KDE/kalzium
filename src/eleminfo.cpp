@@ -190,6 +190,46 @@ void periodName(int n, QString& name)
 	    name = "VIIIA";
 }
 
+void periodOldName(int n, QString& name)
+{
+    if (n == 1)
+	    name = "1A";
+    if (n == 2)
+	    name = "2A";
+    if (n == 3)
+	    name = "3A";
+    if (n == 4)
+	    name = "4A";
+    if (n == 5)
+	    name = "5A";
+    if (n == 6)
+	    name = "6A";
+    if (n == 7)
+	    name = "7A";
+    if (n == 8)
+	    name = "8";
+    if (n == 9)
+	    name = "8";
+    if (n == 10)
+	    name = "8";
+    if (n == 11)
+	    name = "1B";
+    if (n == 12)
+	    name = "2B";
+    if (n == 13)
+	    name = "3B";
+    if (n == 14)
+	    name = "4B";
+    if (n == 15)
+	    name = "5B";
+    if (n == 16)
+	    name = "6B";
+    if (n == 17)
+	    name = "7B";
+    if (n == 18)
+	    name = "0";
+}
+
 void shuffle(int& a, int& b, int& c)
 {
     srandom( time( 0 ) );
