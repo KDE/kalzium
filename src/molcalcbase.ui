@@ -342,9 +342,6 @@
                                         <property name="text">
                                             <string>C&amp;alculate</string>
                                         </property>
-                                        <property name="accel">
-                                            <string>Alt+A</string>
-                                        </property>
                                         <property name="autoDefault">
                                             <bool>true</bool>
                                         </property>
@@ -358,9 +355,6 @@
                                         </property>
                                         <property name="text">
                                             <string>&amp;Clear Text</string>
-                                        </property>
-                                        <property name="accel">
-                                            <string>Alt+C</string>
                                         </property>
                                         <property name="autoDefault">
                                             <bool>true</bool>
