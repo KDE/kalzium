@@ -18,10 +18,6 @@
 #ifndef KALZIUMCONVERTER_H
 #define KALZIUMCONVERTER_H
 
-class KPushButton;
-
-class KComboBox;
-class QLineEdit;
 class QLabel;
 
 #include <converter.h>
@@ -31,6 +27,15 @@ class KConvert : public KalziumConvert  {
 
     public: 
         KConvert(QWidget *parent, const char *name=0 );
+
+    private:
+        long toSI( QString );
+        QString toTarget( long );
+
+    private slots:
+        void slotCalculate();
+        void slotSetResultDim(const QString&);
+        void slotSetToDim(const QString&);
 };
 
 #endif // KALZIUMCONVERTER_H
