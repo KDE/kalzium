@@ -42,12 +42,12 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2004-01-07</date>
-<releaseinfo>0.9.3</releaseinfo>
+<date>2004-06-12</date>
+<releaseinfo>1.1.91</releaseinfo>
 
 <abstract>
 <para>&kalzium; is a program which shows you the Periodic System of
-the elements (<acronym>PSE</acronym>). You can use &kalzium; to search
+Elements (<acronym>PSE</acronym>). You can use &kalzium; to search
 for information about the elements or to learn facts about the
 <acronym>PSE</acronym>.</para>
 </abstract>
@@ -70,8 +70,7 @@ for information about the elements or to learn facts about the
 <para>&kalzium; provides you with all kind of information about the
 <acronym>PSE</acronym> (Periodic System of Elements.) You can lookup
 lots of information about the elements and also use visualizations to
-show them. If the information provided by &kalzium; are not sufficient
-for you you can look up more via the internet. It is free and licensed
+show them. It is free and licensed
 under the &GNU; Public License.
 </para>
 
@@ -80,10 +79,10 @@ under the &GNU; Public License.
 <chapter id="using-kalzium">
 <title>Using &kalzium;</title>
 
-<para>Here are screenshots of &kalzium; in action:</para>
+<para>Here are some screenshots of &kalzium; in action:</para>
 
 <screenshot>
-<screeninfo>&kalzium; main screen, directly after the start</screeninfo>
+<screeninfo>&kalzium; main screen, directly after the first start</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="screenshot1.png" format="PNG"/>
@@ -96,9 +95,6 @@ under the &GNU; Public License.
 
 <para>&kalzium; is very easy to use. It is specially designed for students of all
  ages to use as a small and quick database.</para>
-
-<para>If you are too good for this world, you can change the
-level.</para>
 
 <sect1 id="info-dlg">
 <title>The information dialog</title>
@@ -117,10 +113,8 @@ level.</para>
 </mediaobject>
 </screenshot>
 
-<para>In this dialog you get all the information &kalzium;
-provides on that element. The dialog covers three aspects of the element:
-<guilabel>General</guilabel>, <guilabel>States</guilabel> and
-<guilabel>Energies</guilabel>.</para>
+<para>In the simplified information dialog,  you only get all the main information you should know about an element. The dialog covers three aspects of the element: <guilabel>General</guilabel>, <guilabel>States</guilabel> and
+<guilabel>Energies</guilabel>.This dialog is available on right or left mouse click on an element, depending of your settings (default is right click).</para>
 
 <screenshot>
 <screeninfo>&kalzium;'s detailed information dialog</screeninfo>
@@ -136,9 +130,8 @@ provides on that element. The dialog covers three aspects of the element:
 </mediaobject>
 </screenshot>
 
-<para>If you click on
-<guilabel>Web Lookup</guilabel> &kalzium; will get more information
-from the web (in a new window).</para>
+<para>In the detailed information dialog,  you get a lot of information on an element. First an overview presents you the element, its symbol and atomic weight. The Miscellaneous tab tells you when it was discovered and its mean weight. The Picture tab displays a picture of the element when available. The Energies tab tells you about different energy facts related to the element. The Chemical Data tab presents some atomic data and the Atom Model tab displays the Atomix Hull</para>
+
 </sect1>
 
 <!-- Don't have empty chapters if possible - comment them out until -->
@@ -149,16 +142,6 @@ from the web (in a new window).</para>
 	</para>
 </sect1> -->
 
-<sect1 id="calculations">
-<title>Calculations</title>
-
-<para>In &kalzium; we only provide one calculation. This is called
-<guilabel>KMol</guilabel>. In the field <guilabel>Formula</guilabel>
-you can enter a totals formula and will get the molecular weight
-<guilabel>Mw</guilabel> measured in <quote>u</quote> and the elemental
-composition. KMol knows about all of the elements in the <acronym>PSE</acronym>.
-</para>
-</sect1>
 
 <sect1 id="colors">
 <title>Color schemes</title>
@@ -259,20 +242,23 @@ in effect.</para>
 <para>
 &kalzium; has many configuration options, which you can access by opening
 the <guilabel>Preferences</guilabel> window by selecting <guimenuitem>Configure
-&kalzium;...</guimenuitem> from the <guimenu>Settings</guimenu> menu.  The
-window is depicted below:</para>
+&kalzium;...</guimenuitem> from the <guimenu>Settings</guimenu> menu. </para>
 
 <screenshot>
-<screeninfo>Display Options Window</screeninfo>
+<screeninfo>Configure Kalzium Dialog</screeninfo>
 <mediaobject>
   <imageobject>
 		<imagedata fileref="settings.png" format="PNG"/>
   </imageobject>
   <textobject>
-    <phrase>Display Options Window</phrase>
+    <phrase>Configure Kalzium Dialog</phrase>
   </textobject>
 </mediaobject>
 </screenshot>
+
+<para>
+The Color Scheme tab allows you to choose your Color Scheme (No colors, Groups, Blocks, State of matter, Acidic behavior). In the Colors tab, you can change the different colors for each scheme. In the Quiz tab you set the level you want (Grade1, Grade 2 or/and Grade 3) for your quiz and in the Misc tab, you will be able to choose if you want the More Information dialog on left click (default) or right click and you can also choose the units you prefer: the energy is in kJ/mol by default but you can choose eV and the Temperature is in Kelvin by default but you can change to degrees Celsius or degrees Fahrenheit.
+</para>
 
 </chapter>
 
@@ -297,7 +283,7 @@ under the <ulink url="http://www.gnu.org/licenses/licenses.html#GPL">GPL</ulink>
 </question>
 <answer>
 <para>No, at the moment not, but you can download the source and make
-your own windows version. It should not be a big problem, because it is
+your own Windows version. It should not be a big problem, because it is
 written with Trolltech's &Qt; libs. But what do you need &Windows; for?
 Get the latest &Linux;, and live on the edge.</para>
 
@@ -344,7 +330,7 @@ improvements, please let me know at <email>cniehaus@kde.org</email>.
 <title>Credits and License</title>
 <para>&kalzium;</para>
 <para>
-Program Copyright, 2001, 2002 Carsten Niehaus
+Program Copyright, 2001-2004 Carsten Niehaus
  <email>cniehaus@kde.org</email>
 </para>
 
