@@ -37,6 +37,9 @@
 #include <qbuttongroup.h>
 
 // Standard C++ includes
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 #include <time.h>
 
 #include "quizdlg.h"
