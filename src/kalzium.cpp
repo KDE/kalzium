@@ -21,7 +21,6 @@
 #include "elementdataviewer.h"
 #include "quizsettings.h"
 #include "quizsettings.h"
-#include "stateofmatterdialog_impl.h"
 
 #include <qinputdialog.h>
 #include <qslider.h>
@@ -40,6 +39,7 @@
 
 #define IDS_TEMP           1
 #define IDS_ENERG           2
+#define IDS_TEMPERATURE    3
 
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
@@ -133,7 +133,7 @@ void Kalzium::setupActions()
 	
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
-	setupGUI();
+	createGUI();
 }
 
 void Kalzium::setupStatusBar()
@@ -143,8 +143,10 @@ void Kalzium::setupStatusBar()
 	displayTemperature();
  	statusBar()->insertItem("", IDS_ENERG, 0, false);
  	statusBar()->setItemAlignment(IDS_ENERG, AlignLeft);
- 	// fill the statusbar 
 	displayEnergie();	
+ 	statusBar()->insertItem("", IDS_TEMPERATURE, 0, false);
+ 	statusBar()->setItemAlignment(IDS_TEMPERATURE, AlignLeft);
+	displayTemperaturevalue();	
 	// fill the statusbar 
 	statusBar()->show();
 }
@@ -288,7 +290,6 @@ void Kalzium::showSettingsDialog()
 	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotUpdateSettings() ) );
 	dialog->addPage( new colorScheme( 0, "colorscheme_page"), i18n("Color Scheme"), "colorize");
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Colors"), "colorize");
-//	dialog->addPage( new setupQuiz( 0, "quizsetuppage" ), i18n( "Quiz" ), "edit" );
 	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Misc" ), "misc" );
 	dialog->show();
 }
@@ -298,7 +299,8 @@ void Kalzium::slotUpdateSettings()
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
 	
 	displayTemperature();
-        displayEnergie();
+    displayEnergie();
+    displayTemperaturevalue();
 }
 
 void Kalzium::slotQuizAction()
@@ -337,14 +339,20 @@ void Kalzium::displayTemperature()
  	slotStatusBar(i18n("Energy: %1").arg( string ),  IDS_ENERG);
 }
 
+void Kalzium::displayTemperaturevalue()
+{
+	int t = Prefs::temperature();
+	slotStatusBar( i18n( "Temperature: %1" ).arg( t ), IDS_TEMPERATURE );
+}
+
 void Kalzium::slotStateOfMatter()
 {
 	//only the elements 1 to 95 (Americium) will be calculated because
 	//only for these both the boiling _and_ melting point are known.
 	//The other elements will have the color color_artificial
 
-	somDialogImpl *somDlg = new somDialogImpl(m_pCurrentPSE,  this, "som" );
-	somDlg->show();
+//X 	somDialogImpl *somDlg = new somDialogImpl(m_pCurrentPSE,  this, "som" );
+//X 	somDlg->show();
 }
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
 

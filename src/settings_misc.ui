@@ -21,7 +21,7 @@
         </property>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>layout1</cstring>
+                <cstring>layout3</cstring>
             </property>
             <vbox>
                 <property name="name">
@@ -107,53 +107,101 @@
                     <property name="whatsThis" stdset="0">
                         <string>Kalzium can show you the temperature in three different scales</string>
                     </property>
-                    <grid>
+                    <widget class="QRadioButton">
+                        <property name="name">
+                            <cstring>radioButton20</cstring>
+                        </property>
+                        <property name="geometry">
+                            <rect>
+                                <x>11</x>
+                                <y>47</y>
+                                <width>262</width>
+                                <height>20</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>Use Degree Celsius</string>
+                        </property>
+                        <property name="toolTip" stdset="0">
+                            <string>If selected, the temperatures will be displayed in Degree Celsius</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>If selected, the temperatures will be displayed in Degree Celsius</string>
+                        </property>
+                    </widget>
+                    <widget class="QRadioButton">
+                        <property name="name">
+                            <cstring>radioButton11_2</cstring>
+                        </property>
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>70</y>
+                                <width>262</width>
+                                <height>20</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>Use Degree Fahrenheit</string>
+                        </property>
+                        <property name="toolTip" stdset="0">
+                            <string>If selected, the temperatures will be displayed in Degree Fahrenheit</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>If selected, the temperatures will be displayed in Degree Fahrenheit</string>
+                        </property>
+                    </widget>
+                    <widget class="QRadioButton">
+                        <property name="name">
+                            <cstring>radioButton19</cstring>
+                        </property>
+                        <property name="geometry">
+                            <rect>
+                                <x>11</x>
+                                <y>21</y>
+                                <width>262</width>
+                                <height>20</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>Use Kelvin</string>
+                        </property>
+                        <property name="toolTip" stdset="0">
+                            <string>If selected, the temperatures will be displayed in Kelvin</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>If selected, the temperatures will be displayed in Kelvin</string>
+                        </property>
+                    </widget>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout2</cstring>
+                    </property>
+                    <hbox>
                         <property name="name">
                             <cstring>unnamed</cstring>
                         </property>
-                        <widget class="QRadioButton" row="0" column="0">
+                        <widget class="QLabel">
                             <property name="name">
-                                <cstring>radioButton19</cstring>
+                                <cstring>textLabel1</cstring>
                             </property>
                             <property name="text">
-                                <string>Use Kelvin</string>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Kelvin</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Kelvin</string>
+                                <string>Default Temperature:</string>
                             </property>
                         </widget>
-                        <widget class="QRadioButton" row="2" column="0">
+                        <widget class="KIntNumInput">
                             <property name="name">
-                                <cstring>radioButton11_2</cstring>
+                                <cstring>kcfg_temperaturevalue</cstring>
                             </property>
-                            <property name="text">
-                                <string>Use Degree Fahrenheit</string>
+                            <property name="minValue">
+                                <number>0</number>
                             </property>
-                            <property name="toolTip" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degree Fahrenheit</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degree Fahrenheit</string>
+                            <property name="maxValue">
+                                <number>6000</number>
                             </property>
                         </widget>
-                        <widget class="QRadioButton" row="1" column="0">
-                            <property name="name">
-                                <cstring>radioButton20</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Use Degree Celsius</string>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degree Celsius</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degree Celsius</string>
-                            </property>
-                        </widget>
-                    </grid>
+                    </hbox>
                 </widget>
             </vbox>
         </widget>

@@ -130,6 +130,7 @@ class PSE : public QWidget
 		QString m_ShortName;
 
 		LabelList lList;
+		
 		Legend *m_pLegend;
 
 		int m_num;

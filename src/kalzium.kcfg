@@ -23,23 +23,7 @@
 	<label>Selects the default numeration (IUPAC)</label>
     </entry>
   </group>
-  <group name="Quiz_Setup">
-	<entry name="quiz_number" type="Int">
-		<default>10</default>
-		<whatsthis>Enter the number of questions you want to be asked in the quiz</whatsthis>
-	</entry>
-	<entry name="quiz_grade1" type="Bool">
-		<default>true</default>
-		<whatsthis>If this checkbox is selected you will be asked the questions of the most simple grade</whatsthis>
-	</entry>
-	<entry name="quiz_grade2" type="Bool">
-		<default>true</default>
-		<whatsthis>If this checkbox is selected you will be asked the questions of the most medium grade</whatsthis>
-	</entry>
-	<entry name="quiz_grade3" type="Bool">
-		<default>false</default>
-		<whatsthis>If this checkbox is selected you will be asked the questions of the most difficult grade</whatsthis>
-	</entry>
+  <group name="Slider">
 	  <entry name="sliderdate" type="Int">
 		  <default>2004</default>
 		  <whatsthis>The date with which the slider starts</whatsthis>
@@ -191,6 +175,11 @@
     	<default>0</default>
 		<whatsthis>Select the scale for the temperature</whatsthis>
 	<label>This value defines which temperature scale should be used within Kalzium</label>
+    </entry>
+    <entry name="temperaturevalue" type="Int">
+    	<default>295</default>
+		<whatsthis>Sets the temperature in Kelvin which will be used for the state of matter view</whatsthis>
+	<label>The default value for the state of matter view</label>
     </entry>
   </group>
 </kcfg>

@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>colorScheme</class>
 <widget class="QWidget">
     <property name="name">
@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>218</width>
-            <height>172</height>
+            <height>160</height>
         </rect>
     </property>
     <property name="caption">
@@ -67,17 +67,6 @@
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>the color scheme differentiates the blocks by displaying each block in a different color</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton">
-                    <property name="name">
-                        <cstring>radioButton5</cstring>
-                    </property>
-                    <property name="text">
-                        <string>State of matter</string>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>the color scheme differentiates the states of matter by displaying each state of matter in a different color</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton">

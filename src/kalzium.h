@@ -118,6 +118,11 @@ class Kalzium : public KMainWindow
 		 *diplay the energy unit in the Statusbar
 		 */
 		void displayEnergie();	
+		
+		/**
+		 *diplay the value of the choosen temperaure in the Statusbar
+		 */
+		void displayTemperaturevalue();
 		/*
 		 * all KActions Kalzium uses
 		 **/

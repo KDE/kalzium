@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>setColors</class>
 <widget class="QWidget">
     <property name="name">
@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>480</width>
-            <height>314</height>
+            <height>341</height>
         </rect>
     </property>
     <property name="caption">
@@ -36,43 +36,115 @@
                     </property>
                     <widget class="QLayoutWidget" row="0" column="0">
                         <property name="name">
-                            <cstring>layout2</cstring>
+                            <cstring>layout32</cstring>
                         </property>
                         <vbox>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_block_s</cstring>
+                                    <cstring>layout28</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel13</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>s-Block</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_block_s</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_block_p</cstring>
+                                    <cstring>layout29</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel14</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>p-Block</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_block_p</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_block_d</cstring>
+                                    <cstring>layout30</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel15</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>d-Block</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_block_d</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_block_f</cstring>
+                                    <cstring>layout31</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel16</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>f-Block</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_block_f</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
                         </vbox>
                     </widget>
@@ -91,43 +163,115 @@
                     </property>
                     <widget class="QLayoutWidget" row="0" column="0">
                         <property name="name">
-                            <cstring>layout1</cstring>
+                            <cstring>layout27</cstring>
                         </property>
                         <vbox>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_beh_acidic</cstring>
+                                    <cstring>layout23</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel9</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Basic:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_beh_acidic</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_beh_amphoteric</cstring>
+                                    <cstring>layout24</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel10</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Neutral:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_beh_amphoteric</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_beh_neutral</cstring>
+                                    <cstring>layout25</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel11</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Acidic:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_beh_neutral</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_beh_basic</cstring>
+                                    <cstring>layout26</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel12</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Amphoteric:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_beh_basic</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
                         </vbox>
                     </widget>
@@ -146,75 +290,219 @@
                     </property>
                     <widget class="QLayoutWidget" row="0" column="0">
                         <property name="name">
-                            <cstring>layout3</cstring>
+                            <cstring>layout22</cstring>
                         </property>
                         <vbox>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_group_1</cstring>
+                                    <cstring>layout12</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel2_2_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Group 1:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_group_1</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_group_2</cstring>
+                                    <cstring>layout19</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel8</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Group 2:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_group_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_group_3</cstring>
+                                    <cstring>layout18</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel7</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Group 3:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_group_3</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_group_4</cstring>
+                                    <cstring>layout17</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel6</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Group 4:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_group_4</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_group_5</cstring>
+                                    <cstring>layout16</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel5_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Group 5:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_group_5</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_group_6</cstring>
+                                    <cstring>layout15</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel4_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Group 6:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_group_6</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_group_7</cstring>
+                                    <cstring>layout14</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel3_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Group 7:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_group_7</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
-                            <widget class="KColorButton">
+                            <widget class="QLayoutWidget">
                                 <property name="name">
-                                    <cstring>kcfg_group_8</cstring>
+                                    <cstring>layout13</cstring>
                                 </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel2_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Group 8:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton">
+                                        <property name="name">
+                                            <cstring>kcfg_group_8</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </hbox>
                             </widget>
                         </vbox>
                     </widget>
@@ -252,7 +540,7 @@
                                             <cstring>textLabel1</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>textLabel1</string>
+                                            <string>Solid</string>
                                         </property>
                                         <property name="buddy" stdset="0">
                                             <cstring>kcfg_color_solid</cstring>
@@ -281,7 +569,7 @@
                                             <cstring>textLabel2</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>textLabel2</string>
+                                            <string>Liquid:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -307,7 +595,7 @@
                                             <cstring>textLabel3</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>textLabel3</string>
+                                            <string>Vaporous:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -333,7 +621,7 @@
                                             <cstring>textLabel4</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>textLabel4</string>
+                                            <string>Artificial:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -359,7 +647,7 @@
                                             <cstring>textLabel5</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>textLabel5</string>
+                                            <string>Radioactive:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -394,6 +682,12 @@
                         <property name="text">
                             <string></string>
                         </property>
+                        <property name="toolTip" stdset="0">
+                            <string>This color will be used if no other scheme is selected</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>This color will be used if no other scheme is selected</string>
+                        </property>
                     </widget>
                 </grid>
             </widget>
@@ -401,28 +695,4 @@
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-</includehints>
 </UI>
