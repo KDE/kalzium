@@ -369,8 +369,8 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 
 	vbox->addLayout( grid );
 
-	for (  int n=0; n<18; n++ ) grid->addColSpacing(  n, 40 );
-	for (  int n=0; n<10; n++ ) grid->addRowSpacing(  n, 40 );
+	for (  int n=0; n<18; n++ ) grid->addColSpacing(  n, 50 );
+	for (  int n=0; n<10; n++ ) grid->addRowSpacing(  n, 50 );
 	
 	setupPSEElementButtonsList();
 	activateColorScheme( Prefs::colorschemebox() );
@@ -465,8 +465,8 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 	}
 	vbox->addLayout( grid );
 
-	for (  int n=0; n<8; n++ ) grid->addColSpacing(  n, 40 );
-	for (  int n=0; n<8; n++ ) grid->addRowSpacing(  n, 40 );
+	for (  int n=0; n<8; n++ ) grid->addColSpacing(  n, 50 );
+	for (  int n=0; n<8; n++ ) grid->addRowSpacing(  n, 50 );
 	
 	setupPSEElementButtonsList();
 	activateColorScheme( Prefs::colorschemebox() );
