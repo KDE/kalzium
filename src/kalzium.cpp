@@ -78,31 +78,12 @@ Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
     setCentralWidget(main_window);
 
     updateMainWindow();
-    createhelpArray();
 }
 
 Kalzium::~Kalzium()
 {
-    for (int n=0; n<109; n++)
+    for (int n=0; n<110; n++)
         delete element[n];
-}
-
-void Kalzium::createhelpArray()
-{
-	for(int i=0;i<9;i++)
-	{
-		for(int e=0;e<18;e++)
-		{
-			helpArray[i][e]="leer";
-		}
-	}
-
-	int ze=0,sp=0;
-	for(int as=1;as<109;as++)
-	{
-		position(as,ze,sp);
-		helpArray[sp/40][ze/40]=element[as-1]->Data.Symbol;
-	}
 }
 
 bool Kalzium::queryClose()
@@ -121,7 +102,7 @@ bool Kalzium::queryClose()
 void Kalzium::setupAllElementKPButtons()
 {
     //////////////////////////////////////
-    //creation of the 109 buttons
+    //creation of the 110 buttons
     //
     maingrid = new QGridLayout( mainlayout, 18, 10, -1, "maingridlayout" );
     maingrid->setOrigin(QGridLayout::TopLeft);
@@ -131,7 +112,7 @@ void Kalzium::setupAllElementKPButtons()
     QString elementName;
     KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
     ElementInfo eleminfo;
-    for ( int n=0 ;n<109 ;n++ )
+    for ( int n=0 ;n<110 ;n++ )
 	{
 		if (config.hasGroup(QString::number(n+1)))
 		{
@@ -397,7 +378,7 @@ void Kalzium::slotShowAcidBeh() {
 
     main_config->setGroup("Colors");
 
-    for (int i = 0; i < 109; ++i)
+    for (int i = 0; i < 110; ++i)
     {
         PElementKP& b(element[i]);
         QString& s(b->Data.acidbeh);
@@ -417,8 +398,8 @@ void Kalzium::slotShowAll()
     for (int i = 58; i < 71; i++)
         element[i]->show();
 
-    for (int i = 83; i < 109; i++)
-        element[i]->show();
+    for (int i = 83; i < 110; i++)
+        element[i]->show(); 
     timelineToggleAction->setEnabled(true);
 }
 
@@ -426,7 +407,7 @@ void Kalzium::slotShowBlocks()
 {
     delete templookup; templookup =NULL;
     main_config->setGroup("Colors");
-    for (int i = 0; i < 109; i++)
+    for (int i = 0; i < 110; i++)
     {
         PElementKP& b(element[i]);
         QString& s(b->Data.Block);
@@ -442,7 +423,7 @@ void Kalzium::slotShowGroups()
     delete templookup; templookup =NULL;
     main_config->setGroup("Colors");
 
-    for (int i = 0; i < 109; ++i)
+    for (int i = 0; i < 110; ++i)
     {
         PElementKP& b(element[i]);
         QString& s(b->Data.Group);
@@ -465,7 +446,7 @@ void Kalzium::slotShowMendelejew()
     for (int i=0; i<14 ; ++i)
         element[nummer[i] - 1]->hide();
 
-    for (int i=83; i < 109; ++i)
+    for (int i=83; i < 110; ++i)
         element[i]->hide();
 
     for (int i=58; i < 71; ++i)
@@ -512,7 +493,7 @@ void Kalzium::slotShowTimeline(bool id)
 		dateS->hide();
 		dateLCD->hide();
 		psestylemenu->setEnabled(true);
-		for (int i =0; i<109; i++)
+		for (int i =0; i<110; i++)
 			element[i]->show();
 
 	}
@@ -556,7 +537,7 @@ void Kalzium::timeline()
     int currentDate = dateS->value();
 	QString currentDateString = QString::number( currentDate );
 	dateLCD->display( currentDate );
-    for (int i = 0; i < 109; ++i)
+    for (int i = 0; i < 110; ++i)
     {
 		PElementKP& b(element[i]);
 

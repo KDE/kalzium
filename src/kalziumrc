@@ -2074,9 +2074,9 @@ Alternative2=Oxygen
 
 [q4]
 Q=What percentage of the air is Oxygen?
-A=20.95 percent
-Alternative1=35 percent
-Alternative2=95 percent
+A=20.95%
+Alternative1=35%
+Alternative2=95%
 
 
 [q5]
@@ -2399,7 +2399,7 @@ Alternative2=Piperidine
 
 [q54]
 Q=How high is the carbon dioxide content of the air, which is responsible for the greenhouse effect?
-A=0.03 percent.
+A=0.03%
 Alternative1=0.25%
 Alternative2=0.11%
 

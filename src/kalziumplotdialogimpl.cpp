@@ -49,15 +49,15 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 
 ////
 	fromSpin = new QSpinBox( 1, 108 , 1 , page );
-	toSpin = new QSpinBox( 2, 109 , 1 , page );
-	toSpin->setValue( 109 );
+	toSpin = new QSpinBox( 2, 110 , 1 , page );
+	toSpin->setValue( 110 );
 	whatKCB = new KComboBox( false , page , "whatKCB" );
 	whatKCB->insertItem( i18n( "Atomic Weight" ) );
 	whatKCB->insertItem( i18n( "Electronegativity" ) );
-	whatKCB->insertItem( i18n( "Meltingpoint" ) );
+	whatKCB->insertItem( i18n( "Melting point" ) );
 	whatKCB->insertItem( i18n( "Ionisation Energy" ) );
 	whatKCB->insertItem( i18n( "Atomic Radius" ) );
-	whatKCB->insertItem( i18n( "Boilingpoint" ) );
+	whatKCB->insertItem( i18n( "Boiling point" ) );
 	whatKCB->insertItem( i18n( "Density" ) );
 ////
 	
@@ -138,7 +138,7 @@ void KalziumPlotDialogImpl::setPlotAxis( const int id )
 			yLabel =  i18n( "Electronegativity" );
 			break;
 		case 2:
-			yLabel =  i18n( "Meltingpoint [K]" );
+			yLabel =  i18n( "Melting point [K]" );
 			break;
 		case 3:
 			yLabel =  i18n( "Ionisation Energy [kJ]" );
@@ -147,7 +147,7 @@ void KalziumPlotDialogImpl::setPlotAxis( const int id )
 			yLabel =  i18n( "Atomic Radius [pm]" );
 			break;
 		case 5:
-			yLabel =  i18n( "Boilingpoint [K]" );
+			yLabel =  i18n( "Boiling point [K]" );
 			break;
 		case 6:
 			yLabel =  i18n( "Density g/cm<sup>3</sup>" );

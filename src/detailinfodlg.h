@@ -3,8 +3,8 @@
         detailedinfodlg.h  -  description
                              -------------------
     begin                : Tue Apr 2 20:43:44 2002 UTC
-    copyright            : (C) 2002 by Robert Gogolok
-    email                : mail@robert-gogolok.de
+    copyright            : (C) 2003 by Carsten Niehaus
+    email                : cniehaus@kde.org
  ***************************************************************************/
 
 /***************************************************************************

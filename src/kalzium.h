@@ -25,8 +25,7 @@
 
 #include <kmainwindow.h>
 
-
-#define KALZIUM_VERSION "0.9.2"
+#define KALZIUM_VERSION "0.9.3"
 
 /** Kalzium is the base class of the project */
 
@@ -74,13 +73,11 @@ class Kalzium : public KMainWindow
 
 		PElementKP element[118];
 		CalcDialog *calculationdialog;
-		QString helpArray[9][18];
 		StateOfMatterDlg *templookup;
 		KalziumLegend *legend;
 		Fastinfo *fastinfo;
 		DetailedTab *dtab;
 
-		void createhelpArray();
 		const QFont& generalFont() const {return generalKPFont;};
 		const QFont& generalBoldFont() const {return generalKPBoldFont;};
 

@@ -3,7 +3,6 @@
 <MenuBar>
 <Menu name="calculations"><text>&amp;Operations</text>
         <Action name="calculations"/>
-        <Action name="defineweights"/>
         <Action name="startplotting"/>
         <Action name="searchdata"/>
 </Menu>

@@ -32,6 +32,7 @@
 
 #include "detailinfodlg.h"
 #include "orbitswidget.h"
+#include "eleminfo.h"
 
 
 DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, const char *name)
@@ -82,8 +83,8 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	QVBoxLayout *energyLayout = new QVBoxLayout( energyTab, 5 );
 	QLabel *ENlabel = new QLabel( i18n( "Electronegativity: %1" ).arg( Data._EN ) , energyTab );
 	QLabel *Ionlabel = new QLabel(i18n( "Ionization energy: %1" ).arg( Data._IE ) , energyTab );
-	QLabel *MPlabel = new QLabel(i18n( "Meltingpoint: %1" ).arg( Data._MP ) , energyTab );
-	QLabel *BPlabel = new QLabel(i18n( "Boilingpoint: %1" ).arg( Data._BP ) , energyTab );
+	QLabel *MPlabel = new QLabel(i18n( "Melting point: %1" ).arg( Data._MP ) , energyTab );
+	QLabel *BPlabel = new QLabel(i18n( "Boiling point: %1" ).arg( Data._BP ) , energyTab );
 	energyLayout->addWidget( ENlabel );
 	energyLayout->addWidget( Ionlabel );
 	energyLayout->addWidget( MPlabel );
@@ -279,15 +280,6 @@ QColor DetailedTab::PSEColor( const QString &block ) const
 		c = config->readColorEntry("f");
     return  c;
 }
-
-
-
-
-
-
-
-
-
 
 
 #include "detailinfodlg.moc"

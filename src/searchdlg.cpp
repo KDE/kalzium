@@ -78,7 +78,7 @@ void SearchDlg::fillCheckBoxList()
 void SearchDlg::fillDataStringLists()
 {
     KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
-	for( int i = 0  ; i < 109 ;  ++i )
+	for( int i = 0  ; i < 110 ;  ++i )
 	{
 		config.setGroup(QString::number(i+1));
 		nameList.append( config.readEntry("Name", "Unknown") );
@@ -151,8 +151,7 @@ void SearchDlg::slotFilterData()
 		show = true;
 	else show = false;
 
-	//for ( int i = 0 ; i < 110 ; ++i )
-	for ( int i = 0 ; i < 109 ; ++i )
+	for ( int i = 0 ; i < 110 ; ++i )
 	{
 		if ( show )
 			DataTable->hideRow( i );

@@ -151,7 +151,7 @@ void StateOfMatterDlg::tempbeh()
 	celsiusLCD->display(tempC);
 	kelvinLCD->display(tempC+273);
 	fahrenheitLCD->display(((tempC*9)/5)+32);
-	for (int i = 0; i < 109; i++)
+	for (int i = 0; i < 110; i++)
 	{
 		if (tempC < (kalzium->element[i]->Data.MP-273))
 			kalzium->element[i]->setPaletteBackgroundColor( color_solid );
