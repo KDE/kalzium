@@ -17,7 +17,7 @@
 
 #include "kmoledit.h"
 
-KMolEdit::KMolEdit (QWidget *parent, const char* name, KMolCalc* kmolcalc) 
+KMolEdit::KMolEdit (QWidget * /*parent*/, const char* name, KMolCalc* kmolcalc) 
     : QDialog (0, name, TRUE) {
 
         QGridLayout *grid = new QGridLayout ( this, 4, 2 ,8, -1, "KMolEditLayout" );
