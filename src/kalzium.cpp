@@ -54,6 +54,7 @@
 #include "settingsdialog.h"
 #include "legend.h"
 #include "fastinfo.h"
+#include "searchdlg.h"
 
 
 Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
@@ -524,6 +525,12 @@ void Kalzium::slotShowQuickinfo( bool id )
 	else showFastInfo = false;
 }
 
+void Kalzium::slotSearchData()
+{
+	SearchDlg *searchData = new SearchDlg(this, "SerachDlg");
+	searchData->show();
+}
+
 void Kalzium::slotPlotData()
 {
 	KalziumGraphDialog *testdlg = new KalziumGraphDialog( this, "testdlg" );
@@ -615,7 +622,7 @@ void Kalzium::setupActions()
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
     createStandardStatusBarAction();
-    setStandardToolBarMenuEnabled(true);
+    //setStandardToolBarMenuEnabled(true);
     
     QStringList psestylelist;
     psestylelist.append( i18n("Mendeleev"));
@@ -676,7 +683,8 @@ void Kalzium::setupActions()
 	
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
     (void) new KAction (i18n("&Plot"),0, this, SLOT(slotPlotData()), actionCollection(), "startplotting");
-    (void) new KAction (i18n("C&alculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
+    (void) new KAction (i18n("&Search data"),0, this, SLOT(slotSearchData()), actionCollection(), "searchdata");
+    (void) new KAction (i18n("&Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
     (void) new KAction (i18n("Define Molecular &Weights"),0, this, SLOT(defineWeights()), actionCollection(), "defineweights");
 
     createGUI("kalziumui.rc");

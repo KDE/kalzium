@@ -72,13 +72,23 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 
 	mainTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( Data.Name.utf8() ), BarIcon(kil->iconPath( "elempic" , KIcon::User)));
 	QVBoxLayout *mainLayout = new QVBoxLayout( mainTab );
-	QPixmap pic ( "/home/carsten/cvs/kdeedu/kalzium/src/elementpics/"+Data.Symbol+".jpg" );
-	QImage img = pic.convertToImage();
-	img = img.smoothScale ( 400, 400, QImage::ScaleMin );
-	pic.convertFromImage( img );
-	QLabel *test = new QLabel( mainTab );
-	test->setPixmap( pic );
-	mainLayout->addWidget( test );
+	
+	QLabel *piclabel = new QLabel( mainTab );
+	
+	if ( !locate(  "data" , "kalzium/elempics/" + Data.Symbol + ".jpg" ).isEmpty() )
+	{
+		QPixmap pic ( locate( "data" , "kalzium/elempics/" + Data.Symbol + ".jpg" ) );
+		QImage img = pic.convertToImage();
+		img = img.smoothScale ( 400, 400, QImage::ScaleMin );
+		pic.convertFromImage( img );
+		piclabel->setPixmap( pic );
+	}
+	else 
+	{
+		piclabel->setText( i18n( "No picture of %1 found!" ).arg( Data.Name.utf8() ) );
+	}
+
+	mainLayout->addWidget( piclabel );
 
     /////////////////////////////////
     energyTab = addPage(i18n("Energies"), i18n("Energyinformation"), BarIcon(kil->iconPath( "energies" , KIcon::User)));

@@ -1,3 +1,18 @@
+13/06/03:
+- started the SerachDialog
+- improved the DetailedDialog (added weblookup + more)
+- added icons
+- added pictures of the elements
+- added information to dubnium
+
+09/06/03:
+- almost finish the two infodialogs featurewise. Weblookup
+  is still missing
+
+20/04/03:
+- more work on the DetailInfoDlg
+- move a lot stuff arount in elementkp.cpp
+
 17/04/03:
 - started working on the new DetailInfoDlg
 
