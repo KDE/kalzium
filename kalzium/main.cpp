@@ -16,15 +16,12 @@
  ***************************************************************************/
 
 
+#include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <klocale.h>
 
 #include "kalzium.h"
-
-#define VERSION "0.4"
-
-
 
 static const char *description =
 	I18N_NOOP("Kalzium is a chemistry application designed\n"
@@ -42,7 +39,7 @@ static KCmdLineOptions options[] =
 int main(int argc, char *argv[])
 {
     KAboutData aboutData( "kalzium", I18N_NOOP("Kalzium"),
-           VERSION , description, KAboutData::License_GPL,
+           KALZIUM_VERSION , description, KAboutData::License_GPL,
             "(c) 2001, 2002, Carsten Niehaus", 0, 0, "cniehaus@kde.org");
     aboutData.addAuthor("Carsten Niehaus", 
             I18N_NOOP("Maintainer, Author"), "cniehaus@gmx.de");

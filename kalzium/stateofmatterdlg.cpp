@@ -24,6 +24,7 @@
 #include <qinputdialog.h>
 #include <qfont.h>
 
+#include "elementkp.h"
 #include "stateofmatterdlg.h"
 #include "stateofmatterdlg.moc"
 #include "kalzium.h"

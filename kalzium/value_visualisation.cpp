@@ -25,13 +25,12 @@
 #include <qfont.h>
 #include <qcanvas.h>
 
+#include "eleminfo.h"
+#include "elementkp.h"
 #include "value_visualisation.h"
 #include "value_visualisation.moc"
 #include "kalzium.h"
 
-
-#include "eleminfo.h"
-#include <iostream.h>
 
 ValueVisualisation::ValueVisualisation (QWidget *parent, const char *name, Kalzium *kalzium_tmp)  : KDialog (parent,name)
 {

@@ -22,31 +22,32 @@
 #include <config.h>
 #endif
 
-#include <kapp.h>
-#include <kpushbutton.h>
-#include <kstatusbar.h>
-#include <kconfig.h>
 #include <kmainwindow.h>
-#include <ksimpleconfig.h>
-#include <kaction.h>
 
-#include <qstring.h>
-#include <qslider.h>
-#include <qlabel.h>
-#include <qlcdnumber.h>
-#include <qlayout.h>
 
-#include <elementkp.h>
-#include <calcdialog.h>
+#define KALZIUM_VERSION "0.4"
 
 /** Kalzium is the base class of the project */
 
-typedef ElementKP* PElementKP;
-typedef QLabel* PQLabel;
 
+class QGridLayout;
+class QLayout;
+class QLabel;
+class QLCDNumber;
+class QSlider;
+class QString;
+
+class KConfig;
+class KSelectAction;
+
+class CalcDialog;
 class Colours_Config_Widget;
+class ElementKP;
 class SettingsDialog;
 class StateOfMatterDlg;
+
+typedef ElementKP* PElementKP;
+typedef QLabel* PQLabel;
 
 class Kalzium : public KMainWindow
 

@@ -20,30 +20,37 @@
 #include "kalzium.moc"
 #include "../calculations/kmoledit.h"
 #include "../calculations/kmolcalc.h"
-#include "eleminfo.h"
 #include "calcdialog.h"
+#include "eleminfo.h"
+#include "elementkp.h"
 #include "settingsdialog.h"
 #include "value_visualisation.h"
 
 
 //KDE-Includes
+#include <kaction.h>
+#include <kapp.h>
 #include <kconfig.h>
-#include <kstddirs.h>
-#include <klocale.h>
-#include <ksimpleconfig.h>
-#include <kpopupmenu.h>
-#include <kstdaction.h>
-#include <kmenubar.h>
-#include <khelpmenu.h>
-#include <kstdaction.h>
 #include <kdialog.h>
+#include <khelpmenu.h>
+#include <klocale.h>
+#include <kmenubar.h>
+#include <kpopupmenu.h>
+#include <kpushbutton.h>
+#include <ksimpleconfig.h>
+#include <kstatusbar.h>
+#include <kstdaction.h>
+#include <kstddirs.h>
+#include <kstdaction.h>
 
 //QT-Includes
 #include <qlabel.h>
-#include <qstring.h>
-#include <qwhatsthis.h>
 #include <qinputdialog.h>
 #include <qlayout.h>
+#include <qlcdnumber.h>
+#include <qslider.h>
+#include <qstring.h>
+#include <qwhatsthis.h>
 
 // Standard C++ includes
 
@@ -52,10 +59,6 @@
 #include <calcdlg.h>
 #include <stateofmatterdlg.h>
 
-//which version?
-#define KALZIUM_VERSION 0.4
-
-using namespace std;
 
 Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 {

@@ -16,6 +16,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <kaction.h>
 #include <kcolorbutton.h>
 #include <kconfig.h>
 #include <kiconloader.h>
