@@ -224,7 +224,7 @@ void Kalzium::setupTimeline()
     dateLCD = new QLCDNumber( 4, main_window, "dateLCD");
     timeline_layout->addWidget( dateLCD );
     
-	QWhatsThis::add(dateLCD, i18n("This is the date which you have chosen with the slider." ) );
+	QWhatsThis::add(dateLCD, i18n("This is the date you have chosen using the slider." ) );
     dateLCD->hide();
     dateLCD->display("2002");
 

@@ -58,7 +58,7 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 	kcb->insertItem( i18n( "Density" ) );
 	kcb->insertItem( i18n( "Melting Point" ));
 	kcb->insertItem( i18n( "Boiling Point" ) );
-	kcb->insertItem( i18n( "Ionisation Energie" ) );
+	kcb->insertItem( i18n( "Ionization Energy" ) );
 	kcb->insertItem( i18n( "Atomic Radius" ) );
 	grid->addWidget( ok, 0,0 );
 	grid->addWidget( kcb, 1,0 );
