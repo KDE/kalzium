@@ -545,7 +545,7 @@ void Kalzium::setupActions()
     connect(timelinemenu, SIGNAL(activated(int)), this, SLOT(slotShowTimeline(int)));
     // END TIMELINEMENU
     
-    QStringList weblookuplist;
+/*    QStringList weblookuplist;
     weblookuplist.append("http://www.ktf-split.hr/periodni/en/");
     weblookuplist.append("http://www.ktf-split.hr/periodni/it/");
     weblookuplist.append("http://www.ktf-split.hr/periodni/de/");
@@ -555,10 +555,10 @@ void Kalzium::setupActions()
     weblookupmenu = new KSelectAction (i18n("&weblookup"),0,actionCollection(),"weblookupconfig");
     weblookupmenu->setItems(weblookuplist);
     weblookupmenu->setCurrentItem(0);
-    
-    connect(weblookupmenu, SIGNAL(activated(int)), this, SLOT(updateWeblookupMenu(int)));
+*/    
+/*    connect(weblookupmenu, SIGNAL(activated(int)), this, SLOT(updateWeblookupMenu(int)));
     connect(weblookupmenu, SIGNAL(activated(const QString &)), this, SLOT(slotUpdateWeblookupURL(const QString &)));
-    
+*/    
 
     (void) new KAction (i18n("Test your &knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
     (void) new KAction (i18n("Values"),0, this, SLOT(slotValues()), actionCollection(), "values");

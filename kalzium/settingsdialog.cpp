@@ -21,9 +21,11 @@
 #include <kiconloader.h>
 #include <klocale.h>
 
-#include <qstring.h>
+#include <qvbuttongroup.h>
 #include <qlabel.h>
 #include <qlayout.h>
+#include <qradiobutton.h>
+#include <qstring.h>
 
 // locale includes
 #include "kalzium.h"
@@ -214,11 +216,25 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Preferences"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
     kalzium = (Kalzium*)parent;
+    
+    // COLORSTAB WIDGET
     colorTab = addPage(i18n("Colors"), i18n("Customize color settings"), BarIcon("colorize", KIcon::SizeMedium));
     colorsTabWidget = new ColorsTabWidget(colorTab, "colorsTabWidget");
     QVBoxLayout *vcolorTabBox = new QVBoxLayout(colorTab);
     vcolorTabBox->addWidget(colorsTabWidget);
 
+    // WEBLOOKUP BUTTONS
+    webLookupButtons = addPage(i18n("Web Lookup"), i18n("Customize web lookup url"), BarIcon ("connect_creating", KIcon::SizeMedium));
+    webLookupButtonGroup = new QVButtonGroup(webLookupButtons, "weblookup ButtonGroup");
+    QVBoxLayout *test = new QVBoxLayout(webLookupButtons);
+    test->addWidget(webLookupButtonGroup);
+    rb_de = new QRadioButton("de",webLookupButtonGroup);
+    rb_en = new QRadioButton("en",webLookupButtonGroup);
+    rb_fr = new QRadioButton("fr",webLookupButtonGroup);
+    rb_it = new QRadioButton("it",webLookupButtonGroup);
+    rb = new QRadioButton("default",webLookupButtonGroup);
+
+    // CONNECT
     connect(this, SIGNAL(applyClicked()), this, SLOT(changeApplyKalziumSettings()));
     connect(this, SIGNAL(defaultClicked()), this, SLOT(setDefaults()));
     connect(this, SIGNAL(okClicked()), this, SLOT(changeOkKalziumSettings()));

@@ -24,9 +24,11 @@
 
 class Kalzium;
 class KColorButton;
+class QVButtonGroup;
 class QComboBox;
 class QGridLayout;
 class QLabel;
+class QRadioButton;
 class QString;
 
 class ColorsTabWidget : public QTabWidget
@@ -61,16 +63,18 @@ class ColorsTabWidget : public QTabWidget
         void saveColors();
 };
 
-
 class SettingsDialog : public KDialogBase
 {
     Q_OBJECT
     public:
         SettingsDialog(QWidget *parent=0, const char *name=0);
     private:
-        QFrame *colorTab;
         ColorsTabWidget *colorsTabWidget;
         Kalzium *kalzium;
+        
+        QVButtonGroup *webLookupButtonGroup;
+        QFrame *colorTab, *webLookupButtons;
+        QRadioButton *rb_en, *rb_it, *rb_de, *rb_fr, *rb;
 
     private slots:
         void changeApplyKalziumSettings();
