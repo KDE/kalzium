@@ -205,3 +205,5 @@ bool QuizMaster::checkAnswer()
 	//todo
 	return true;
 }
+
+#include "quiz.moc"
