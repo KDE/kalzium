@@ -10,6 +10,7 @@
 	<Action name="show_som" />
     <Action name="toggle_legend" />
     <Action name="calculate_weights" />
+    <Action name="learning_mode" />
   </Menu>
  <Action name="look_menu" />
 </MenuBar>
@@ -19,7 +20,8 @@
   <Action name="plotdata" />
   <Action name="show_som" />
   <Action name="toggle_legend" />
-    <Action name="calculate_weights" />
+  <Action name="calculate_weights" />
+  <Action name="learning_mode" />
  </ToolBar>
 
 </kpartgui>

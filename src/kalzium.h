@@ -59,6 +59,8 @@ class Kalzium : public KMainWindow
 		
 		void showSOMWidgets( bool show );
 
+		bool m_Horizontal;
+
 		/**
 		 * the slider used for the State of Matter
 		 */
@@ -126,7 +128,8 @@ class Kalzium : public KMainWindow
 			   *m_pPlotAction,
 			    *m_pSOMAction,
 				*m_pCalcAction,
-				*m_pLengendAction;
+				*m_pLengendAction,
+				*m_pLearningmodeAction;
 		
 		/**
 		 * the layout of the central Widget ( CentralWidget )
@@ -153,6 +156,8 @@ class Kalzium : public KMainWindow
 		void slotPlotData();
 
 		void slotCalculate();
+		
+		void slotLearningmode();
 
 		/**
 		 * this slot activates the timeline.

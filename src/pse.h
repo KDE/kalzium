@@ -23,11 +23,14 @@
 class QLabel;
 class QPixmap;
 class QPoint;
+class QVBoxLayout;
 
 #include <qvaluelist.h>
 #include <qwidget.h>
+#include <qdialog.h>
 
 #include "element.h"
+#include "informationdialog_impl.h"
 
 /**
  * @short basic class for the specific PSEs
@@ -125,6 +128,10 @@ class PSE : public QWidget
 			m_showLegend = show;
 		}
 
+		void setLearningMode( bool horizontal ){
+			m_Horizontal = horizontal;
+		}
+
 	private:
 		/**
 		 * updates the numeration of the PSE
@@ -135,6 +142,8 @@ class PSE : public QWidget
 		QPoint m_currentPoint;
 		
 		void mouseReleaseEvent( QMouseEvent* );
+
+		bool m_Horizontal;
 
 		QStringList m_IUPAClist;
 		QStringList m_IUPACOLDlist;
@@ -199,5 +208,6 @@ class PSE : public QWidget
 		virtual void drawSOMPSE( QPainter* p );
 		virtual void drawLegend( QPainter* p );
 };
+
 
 #endif

@@ -30,6 +30,8 @@
 #include <qlabel.h>
 #include <qpixmap.h>
 #include <qpoint.h>
+#include <qradiobutton.h>
+#include <qbuttongroup.h>
 
 #include <qpainter.h>
 
@@ -440,7 +442,8 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 {
 	EList::Iterator it = d->ElementList.begin();
 
-	bool horizontal = false;
+	int coordinate = 0;
+	m_Horizontal ? coordinate = m_currentPoint.x() : coordinate = m_currentPoint.y();
 	
 	/**
 	 * this loop iterates through all elements. The Elements
@@ -449,10 +452,11 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 	while ( it != d->ElementList.end() )
 	{
 		( *it )->drawSelf( p, false ); //useSimpleView );
-		( *it )->drawHighlight( p, m_currentPoint.x(), horizontal );//only for testing
+		( *it )->drawHighlight( p, coordinate, m_Horizontal );//only for testing
 		++it;
 	}
 
 }
+
 
 #include "pse.moc"

@@ -19,6 +19,7 @@
 #include "tempslider.h"
 #include "molcalc_impl.h"
 #include "detailinfodlg.h"
+#include "informationdialog_impl.h"
 
 #include <qinputdialog.h>
 #include <qlayout.h>
@@ -45,6 +46,8 @@ Kalzium::Kalzium()
 {
 	m_bShowSOM = false;//TODO fix the som
 	m_bShowTimeline = false;//TODO fix the som
+
+	m_Horizontal = false;
 	
 	pd = new privatedata( this );
 
@@ -122,6 +125,8 @@ void Kalzium::setupActions()
 
 	//Legend
 	m_pLengendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
+	
+	m_pLearningmodeAction = new KAction(i18n("Enter Learningmode"), "legend", 0, this, SLOT(slotLearningmode()), actionCollection(), "learning_mode");
 
 	//the standardactions
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
@@ -153,6 +158,16 @@ void Kalzium::setupActions()
 	else {
 		m_PSE->showLegend( false );
 	}
+}
+
+void Kalzium::slotLearningmode()
+{
+	m_Horizontal ? m_Horizontal = false : m_Horizontal = true;
+	m_PSE->setLearningMode( m_Horizontal );
+
+	InformationWidget *info = new InformationWidget( this );
+	info->show( );
+	connect( m_PSE, SIGNAL( tableClicked( QPoint ) ), info, SLOT( slotUpdate( QPoint ) ) );
 }
 
 void Kalzium::setupStatusBar()

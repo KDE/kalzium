@@ -312,13 +312,13 @@ void Element::drawHighlight( QPainter* p, int coordinate, bool horizontal )
 	//first: test if the element is in the selected period of group
 	if ( horizontal )
 	{
-		if ( y != coordinate )
+		if ( x != coordinate )
 			return;
 		//else the element is in the selected row
 	}
 	else if ( !horizontal )
 	{
-		if ( x != coordinate )
+		if ( y != coordinate )
 			return;
 		//else the element is in the selected group
 	}
@@ -330,8 +330,7 @@ void Element::drawHighlight( QPainter* p, int coordinate, bool horizontal )
 	//The Y-coordinate
 	int Y = ( y-1 )*ELEMENTSIZE;
 
-	p->setPen( Qt::red );
-	p->drawRect( X, Y,ELEMENTSIZE,ELEMENTSIZE );
+	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, Qt::red );
 }
 	
 void Element::drawSelf( QPainter* p, bool useSimpleView )
