@@ -44,7 +44,7 @@
 KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDialog( parent, name )
 {
 	this->setCaption( i18n( "Visualize Data" ));
-	grid = new QGridLayout ( this, 5, 5 ,8, -1, "GraphLayout" );
+	grid = new QGridLayout ( this, 3, 4 ,8, -1, "GraphLayout" );
 	KPushButton *ok = new KPushButton( i18n( "Graph" ),this );
 	QObject::connect(ok, SIGNAL( clicked() ), this, SLOT(slotokClicked() ));
 
@@ -93,10 +93,43 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 	
 	int w_w = this->width();
 	int w_h = this->height();
+
+	int w_w_temp = w_w;
+	int w_h_temp = w_h;
+
+	kdDebug() << "w_w_temp " << w_w_temp << endl;
+	kdDebug() << "w_h_temp " << w_h_temp << endl;
+	
+	w_w_temp=( w_w_temp/100 ); 
+	kdDebug() << "nach dem /= 100" << w_w_temp << endl;
+	
+	w_w_temp*=99;
+	
+	kdDebug() << "nach dem *= 99" << w_w_temp << endl;
+	
+	w_h_temp/=100; 
+	kdDebug() << "nach dem /= 100" << w_h_temp << endl;
+	w_h_temp*=99;
+	kdDebug() << "nach dem *= 99" << w_h_temp << endl;
+
+	w_w_temp=(w_w-w_w_temp);
+	w_h_temp=(w_h-w_h_temp);
+
+	kdDebug() << "End w_w_temp " << w_w_temp << endl;
+	kdDebug() << "End w_h_temp " << w_h_temp << endl;
+	kdDebug() << w_w << endl;
+	kdDebug() << w_h << endl;
+
+	w_w-=w_w_temp;
+	w_h-=w_h_temp;
+	
+	kdDebug() << "End w_w " << w_w << endl;
+	kdDebug() << "End w_h " << w_h << endl;
+	
 	int num = toRange_-fromRange_;
 	int real_w=w_w/num;                       //real_w ist die Breite pro Datenpunkt
 
-	DC.drawRect(0,0,w_w,w_h);
+	DC.drawRect(w_w_temp,w_h_temp,w_w,w_h);
 	
 	for( int i = 0 ; i < num ; i++ )
 	{
@@ -107,6 +140,7 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 		
 		DC.drawPoint( real_w*i , w_h-( ( int )current ) );
 	}
+	//drawText( w_w/2 , w_h/2, "Carsten" );
 	DC.end();
 }
 
