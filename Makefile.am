@@ -1,3 +1,3 @@
-SUBDIRS = calculations src 
+SUBDIRS = src 
 
 AUTOMAKE_OPTIONS = foreign 

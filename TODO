@@ -1,12 +1,12 @@
-last modified: October 31 2003
+TODO for Kalzium 1.1:
 
-TODO for 3.2:
-- http://www.webelements.com/webelements/elements/text/Si/key.html  
-  and there "Go adjacent..."
- 
-- Have more than one modus in the quiz: The user should be able
-  to decide a level (easy - moderate - difficult). Furthermore
-  the whole dialog will be redesigned
+Priority 1:
 
-- Printing: The user should be able to print all the information
-  in a table and/or in the infodlg.cpp-style
+Priority 2:
+	- Timeline
+	- Different EN-Values
+
+Priority 3:
+	- Quiz
+	- Mendeljev-PSE
+	- SearchDlg

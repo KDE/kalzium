@@ -1,68 +1,14 @@
-20/07/03:
-- working on the plottindialog. It is starting to work
+Version 0.6.1:
+- codecleanup
+- GUI-fixes for the calculations
 
-29/06/03:
-- now the different informationdialog appear depending on the mousebutton
-
-25/06/03:
-- adding more orbitalinformation
-- adding the importance of the elements for biological systems
-- fixing the timeline
-- improving the drawing of graphical widget
-- restructuring some code
-- fixing a grammar-bug in the quiz
-
-20/06/03:
-- adding the drawing of the orbits
-
-15/06/03:
-- finish the parsing of the range in the searchdialog
-
-14/06/03:
-- continued the SearchDialog
-- committed the pictures of the elements
-
-13/06/03:
-- started the SearchDialog
-- improved the DetailedDialog (added weblookup + more)
-- added icons
-- added pictures of the elements
-- added information to dubnium
-
-09/06/03:
-- almost finish the two infodialogs featurewise. Weblookup
-  is still missing
-
-20/04/03:
-- more work on the DetailInfoDlg
-- move a lot stuff arount in elementkp.cpp
-
-17/04/03:
-- started working on the new DetailInfoDlg
-
-05/04/03:
-- added mean-weight
-
-04/04/03:
-- fixed a translationbug
-
-08/03/03:
-- added information about the possible and likely oxydationstages 
-  of the elements
-
-04/01/03:
-- added orbital information for elements up to Actinium (89)
-- orbital information now highlighted with RegExps rather than in data
-- modify element information dialog to make it look nicer :)
-
-Version 0.6:
+Version 0.6.0:
 - switched to more Designer-Files
 - GUI-improvements
 - added the converter
 - some new URL for the weblookup
 - new numberation (old IUPAC)
 - removed elements 110 to 118
-- FastInfo added
 - legend is now configurable
 - KalziumGraph: Kalzium can from now on plot data. For example you can
   look how the weight changes
@@ -153,7 +99,7 @@ changed quite a lot:
 - some qwhatis-help
 - overworked the "about"-dialog
 - added the buttons for the La and Ac + info about them
-- deleted unnecessary includes and cout's
+- deleted unneccessary includes and cout's
 
 in kalziumrc:
 - added blocks (s,p,d,f)
