@@ -112,6 +112,7 @@ void Kalzium::setupAllElementKPButtons()
     QString elementName;
 
     KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
+
     ElementInfo eleminfo;
     for ( int n=0 ;n<110 ;n++ )
 	{

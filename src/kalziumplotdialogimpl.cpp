@@ -49,8 +49,8 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 
 ////
 	fromSpin = new QSpinBox( 1, 108 , 1 , page );
-	toSpin = new QSpinBox( 2, 109 , 1 , page );
-	toSpin->setValue( 109 );
+	toSpin = new QSpinBox( 2, 110 , 1 , page );
+	toSpin->setValue( 110 );
 	whatKCB = new KComboBox( false , page , "whatKCB" );
 	whatKCB->insertItem( i18n( "Atomic Weight" ) );
 	whatKCB->insertItem( i18n( "Electronegativity" ) );
@@ -66,10 +66,14 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 	pw->setXAxisLabel(  i18n(  "Atomic Number" ) );
 	
 	elementsKLV = new KListView( plotW, "elementsKLV" );
+	elementsKLV->setAlternateBackground( Qt::red );
+	elementsKLV->setSorting( -1 );
+	elementsKLV->setSelectionMode( QListView::NoSelection );
+	
 	elementsKLV->setRootIsDecorated( true );
-	elementsKLV->addColumn( i18n( "Number" ) );
-	elementsKLV->addColumn( i18n( "Name" ) );
 	elementsKLV->addColumn( i18n( "Symbol" ) );
+	elementsKLV->addColumn( i18n( "Name" ) );
+	elementsKLV->addColumn( i18n( "Number" ) );
 	
 	vlay->addWidget( fromSpin );
 	vlay->addWidget( toSpin );
@@ -157,17 +161,6 @@ void KalziumPlotDialogImpl::setPlotAxis( const int id )
 	pw->setYAxisLabel( yLabel );
 }
 
-void KalziumPlotDialogImpl::slotKLCItemSelected( QListViewItem* item )
-{
-	if ( item )
-	{
-		int h = item->height();
-		int num = item->parent()->childCount();
-
-		kdDebug() << "Hoehe: " << h << " Anzahl: " << num << endl;
-	}
-}
-
 void KalziumPlotDialogImpl::updateListview()
 {
 	elementsKLV->clear();
@@ -181,7 +174,6 @@ void KalziumPlotDialogImpl::updateListview()
 	KListViewItem *childItem;
 	KListViewItem *item;
 
-	connect(  elementsKLV, SIGNAL(  clicked(  QListViewItem* ) ), this, SLOT(  slotKLCItemSelected(  QListViewItem* ) ) );
 	
 	for ( elem = elementsPtrList.at( from  ) ; from != to ; elem = elementsPtrList.next() )
 	{
@@ -232,7 +224,7 @@ void KalziumPlotDialogImpl::loadData()
 {
 	KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
 	
-	for ( int n = 1 ; n < 110 ; ++n )
+	for ( int n = 1 ; n < 111 ; ++n )
 	{
 		elementsPtrList.append( new ChemicalElement );
 	}
