@@ -100,7 +100,8 @@ class ElementKP : public KPushButton  {
     	int ElemNo;
 
     	KStatusBar *zeigerle;
-        QLabel *pmTitle, *label;
+        QLabel *pmTitle, *label, *en_label, *enval_label, *ion_label, *ionval_label;
+		QLabel *disc_label, *discval_label;
         QLabel *pmWeight;
         QPopupMenu *pmenu;
 

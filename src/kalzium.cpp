@@ -51,6 +51,7 @@
 #include <qlayout.h>
 #include <qlcdnumber.h>
 #include <qslider.h>
+#include <qtooltip.h>
 #include <qstring.h>
 #include <qwhatsthis.h>
 
@@ -116,7 +117,7 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 
         //Now we add the WhatsThis-help for each button
         QWhatsThis::add(element[n], i18n("Click here to get information about %1").arg(eleminfo.Symbol));
-
+		QToolTip::add(element[n], eleminfo.Name);
     }
 
     //////////////////
@@ -168,19 +169,20 @@ Kalzium::~Kalzium()
 
 void Kalzium::createhelpArray()
 {
-    for(int i=0;i<9;i++)
-    {
-        for(int e=0;e<18;e++)
-        {
-            helpArray[i][e]="leer";
-        }
-    }
-    int ze=0,sp=0;
-    for(int as=0;as<118;as++)
-    {
-        position(as+1,ze,sp);
-        helpArray[sp/40+1][ze/40]=element[as-1]->Data.Symbol;
-    }
+		for(int i=0;i<9;i++)
+		{
+				for(int e=0;e<18;e++)
+				{
+						helpArray[i][e]="leer";
+				}
+		}
+
+		int ze=0,sp=0;
+		for(int as=1;as<118;as++)
+		{
+				position(as,ze,sp);
+				helpArray[sp/40][ze/40]=element[as-1]->Data.Symbol;
+		}
 }
 
 bool Kalzium::queryClose()

@@ -17,8 +17,13 @@ TODO for KDE 3.1:
   - restyle the Dialog (KBackgammon-like)
   - KMol works fine but looks distasteful
   - MWG works not at all
-  - we need more modes like the
-    Nernst-Equiation
+  - we need more modes like the Nernst-Equiation
+
+- go through the code and check if all QWhatsThis:: really appear
+
+- check if all Labels have the correct names (at least in elementkp.cpp/h)
+
+- fix the colourproblem in stateofmatter.cpp
 
 - rename button[] to element[]
   //done 1. April 02 (not kidding ;)
@@ -30,7 +35,9 @@ TODO for KDE 3.1:
   //fixed April 1st 02
 
 - http://www.webelements.com/webelements/elements/text/Si/key.html  and there "Go adjacent..."
- show in a small map the surrounding elements
+
+- show in a small map the surrounding elements
+	//the map itself is now done. Still missing: a nice design
 
 - slotrenaming
 
