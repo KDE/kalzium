@@ -540,8 +540,8 @@ void Kalzium::slotSearchData()
 
 void Kalzium::slotPlotData()
 {
-	KalziumPlotDialogImpl *testdlg = new KalziumPlotDialogImpl( this, "testdlg" );
-	testdlg->show();
+	KalziumPlotDialogImpl *PlotDialog = new KalziumPlotDialogImpl( this, "PlotDialog" );
+	PlotDialog->show();
 }
 
 void Kalzium::slotShowLegend( bool id )

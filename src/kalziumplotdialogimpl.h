@@ -17,14 +17,35 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "kalziumplotdialog.h"
+#include <kdialogbase.h>
 
-class KalziumPlotDialogImpl : public KalziumPlotDialog
+class KListView;
+class KComboBox;
+class QSpinBox;
+class KalziumPlotWidget;
+
+class KalziumPlotDialogImpl : public KDialogBase
 {
 	Q_OBJECT
 
 	public:
 		KalziumPlotDialogImpl( QWidget *parent = 0 , const char *name = 0 );
+	
+	private:
+		KListView *elementsKLV;
+		QSpinBox *fromSpin, *toSpin;
+		KComboBox *whatKCB;
+		
+		void initPlotObjects();
+		KalziumPlotWidget *pw;
+
+		void startPlotting();
+
+		void getPositions( double& , double& );
+		
+	private slots:
+		void slotUser1();
+		
 };
 
 	
