@@ -28,7 +28,7 @@
                     <cstring>tab</cstring>
                 </property>
                 <attribute name="title">
-                    <string>Blocks</string>
+                    <string>&amp;Blocks</string>
                 </attribute>
                 <grid>
                     <property name="name">
@@ -155,7 +155,7 @@
                     <cstring>tab</cstring>
                 </property>
                 <attribute name="title">
-                    <string>Acid Behavior</string>
+                    <string>Ac&amp;id Behavior</string>
                 </attribute>
                 <grid>
                     <property name="name">
@@ -282,7 +282,7 @@
                     <cstring>TabPage</cstring>
                 </property>
                 <attribute name="title">
-                    <string>Groups</string>
+                    <string>&amp;Groups</string>
                 </attribute>
                 <grid>
                     <property name="name">
@@ -513,7 +513,7 @@
                     <cstring>TabPage</cstring>
                 </property>
                 <attribute name="title">
-                    <string>State of Matter</string>
+                    <string>&amp;State of Matter</string>
                 </attribute>
                 <grid>
                     <property name="name">
@@ -669,7 +669,7 @@
                     <cstring>TabPage</cstring>
                 </property>
                 <attribute name="title">
-                    <string>No Color Scheme</string>
+                    <string>&amp;No Color Scheme</string>
                 </attribute>
                 <grid>
                     <property name="name">

@@ -24,7 +24,7 @@
                 <cstring>kcfg_colorschemebox</cstring>
             </property>
             <property name="title">
-                <string>Color Scheme</string>
+                <string>Color &amp;Scheme</string>
             </property>
             <property name="checkable">
                 <bool>false</bool>
@@ -41,7 +41,7 @@
                         <cstring>radioButton2</cstring>
                     </property>
                     <property name="text">
-                        <string>No colors</string>
+                        <string>&amp;No colors</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>all the elements are the same color</string>
@@ -52,7 +52,7 @@
                         <cstring>radioButton4</cstring>
                     </property>
                     <property name="text">
-                        <string>Groups</string>
+                        <string>&amp;Groups</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>the color scheme differentiates the groups by displaying each group in a different color</string>
@@ -63,7 +63,7 @@
                         <cstring>radioButton3</cstring>
                     </property>
                     <property name="text">
-                        <string>Blocks</string>
+                        <string>&amp;Blocks</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>the color scheme differentiates the blocks by displaying each block in a different color</string>
@@ -74,7 +74,7 @@
                         <cstring>radioButton1_2</cstring>
                     </property>
                     <property name="text">
-                        <string>Acidic behavior</string>
+                        <string>Ac&amp;idic behavior</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>the color scheme differentiates the acidic behaviour by displaying each one in a different color</string>

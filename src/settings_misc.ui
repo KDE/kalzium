@@ -29,7 +29,7 @@
                         <cstring>kcfg_LMBbeh</cstring>
                     </property>
                     <property name="title">
-                        <string>Information Dialog</string>
+                        <string>&amp;Information Dialog</string>
                     </property>
                     <grid>
                         <property name="name">
@@ -40,7 +40,7 @@
                                 <cstring>radioButton4</cstring>
                             </property>
                             <property name="text">
-                                <string>More information on left click</string>
+                                <string>&amp;More information on left click</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>Show a detailed information dialog when clicking an element with the left mouse button</string>
@@ -54,7 +54,7 @@
                                 <cstring>radioButton3</cstring>
                             </property>
                             <property name="text">
-                                <string>Less information on left click</string>
+                                <string>&amp;Less information on left click</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>Show less information in the information dialog when clicking with the left mouse button</string>
@@ -70,7 +70,7 @@
                         <cstring>kcfg_units</cstring>
                     </property>
                     <property name="title">
-                        <string>Units</string>
+                        <string>U&amp;nits</string>
                     </property>
                     <grid>
                         <property name="name">
@@ -81,7 +81,7 @@
                                 <cstring>radioButton3_2</cstring>
                             </property>
                             <property name="text">
-                                <string>Show energies in kJ/mol (kilojoule per mol)</string>
+                                <string>&amp;Show energies in kJ/mol (kilojoule per mol)</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>Chose the energy unit as kJ/mol (kilojoule per mol)</string>
@@ -95,7 +95,7 @@
                                 <cstring>radioButton4_2</cstring>
                             </property>
                             <property name="text">
-                                <string>Show energies in eV (electronvolt)</string>
+                                <string>Show &amp;energies in eV (electronvolt)</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>Choose the energy unit as eV (electronvolt)</string>
@@ -111,7 +111,7 @@
                         <cstring>kcfg_temperature</cstring>
                     </property>
                     <property name="title">
-                        <string>Temperatures</string>
+                        <string>&amp;Temperatures</string>
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>Kalzium can show you the temperature in three different scales</string>
@@ -125,7 +125,7 @@
                                 <cstring>radioButton19</cstring>
                             </property>
                             <property name="text">
-                                <string>Use Kelvin</string>
+                                <string>&amp;Use Kelvin</string>
                             </property>
                             <property name="buttonGroupId">
                                 <number>0</number>
@@ -142,7 +142,7 @@
                                 <cstring>radioButton20</cstring>
                             </property>
                             <property name="text">
-                                <string>Use degrees Celsius</string>
+                                <string>Use de&amp;grees Celsius</string>
                             </property>
                             <property name="buttonGroupId">
                                 <number>1</number>
@@ -159,7 +159,7 @@
                                 <cstring>radioButton11_2</cstring>
                             </property>
                             <property name="text">
-                                <string>Use degrees Fahrenheit</string>
+                                <string>Use degrees &amp;Fahrenheit</string>
                             </property>
                             <property name="buttonGroupId">
                                 <number>2</number>
