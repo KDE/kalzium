@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
  <!ENTITY kappname "&kalzium;"><!-- replace kapp here -->
- <!ENTITY kalzium "<application>Kalzium</application>">
  <!ENTITY package "kdeedu">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % English "INCLUDE"><!-- change language only here -->
@@ -99,7 +98,7 @@ a small and quick database.</para>
 level.</para>
 
 <sect1 id="info-dlg">
-<title>The informationdialog</title>
+<title>The information dialog</title>
 
 <screenshot>
 <screeninfo>&kalzium; with the training option</screeninfo>
@@ -110,7 +109,7 @@ level.</para>
 <textobject>
 <phrase>&kalzium; with the training option dialog visible</phrase>
 </textobject>
-<caption><para>Here is a screenshot of &kalzium;'s informationdialog.</para> 
+<caption><para>Here is a screenshot of &kalzium;'s information dialog.</para> 
 </caption>
 </mediaobject>
 </screenshot>
@@ -362,7 +361,6 @@ is part of the KDE-Edu project</para>
 
 <para>You can find a list of changes in the file ChangeLog in the
 distribution of kalzium.</para>
-
 </sect1>
 
 <sect1 id="compilation">
