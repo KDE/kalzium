@@ -164,55 +164,12 @@ You can visualize the Periodic Table of the Elements by blocks, groups, acidic b
 <guimenuitem>Show Blocks</guimenuitem>: displays a color for each block.
 </para></listitem>
 <listitem><para>
-<guimenuitem>Show State Of Matter</guimenuitem>: you can choose which state you want depending of the temperature.
-</para></listitem>
-<listitem><para>
 <guimenuitem>Show Acidic Behavior</guimenuitem>: each acidic behavior is represented by a different color.
 </para></listitem>
 </itemizedlist>
 
-<screenshot>
-<mediaobject>
-<imageobject>
-<imagedata fileref="screenshot2.png" format="PNG"/>
-</imageobject>
-<textobject>
-<phrase>the <quote>State of Matter</quote> Dialog</phrase>
-</textobject>
-<caption><para>&kalzium; can show you which elements are
-solid/liquid/vapor at a given temperature.</para>
-</caption>
-</mediaobject>
-</screenshot>
-
 </sect1>
 
-<sect1 id="timeline">
-<title>Timeline</title>
-
-<para>The Timeline feature allows you to explore the elements of the
-set time period. This is great for getting a feel for how the PSE
-evolved over time, as more and more elements were discovered. You can
-active this feature via <menuchoice><guimenu>Miscellaneous</guimenu><guimenuitem>Show
-Timeline</guimenuitem></menuchoice> or by clicking the Clock icon on the toolbar. If it is activated you will see a
-slider below the <acronym>PSE</acronym> and an <acronym>LCD</acronym>
-which displays the number 2004.  If you move the slider you will
-notice that some elements disappear if you move it to the right and
-reappear if you move it to the right. Furthermore the number will
-change constantly.</para>
-
-<para>
-The number represents the date you are looking at. If you move the slider
-to &eg; 1856 you will only see the elements which where known in the
-year 1856. 
-</para>
-
-<para>
-You will notice that some elements are not even shown in the year 2004.
-This is because some of the elements have not been discovered yet but are
-predicted to exist.
-</para>
-</sect1>
 
 <sect1 id="numeration">
 <title>Numeration</title>
@@ -244,6 +201,78 @@ used in classrooms and laboratories.</para></listitem>
 
 </sect1>
 
+<sect1 id="miscellaneous">
+<title>Miscellaneous</title>
+
+
+
+<sect2 id="timeline">
+<title>Timeline</title>
+
+<para>The Timeline feature allows you to explore the elements of the
+set time period. This is great for getting a feel for how the PSE
+evolved over time, as more and more elements were discovered. You can
+active this feature via <menuchoice><guimenu>Miscellaneous</guimenu><guimenuitem>Show
+Timeline</guimenuitem></menuchoice> or by clicking the Clock icon on the toolbar. If it is activated you will see a
+slider below the <acronym>PSE</acronym> and an <acronym>LCD</acronym>
+which displays the number 2004.  If you move the slider you will
+notice that some elements disappear if you move it to the right and
+reappear if you move it to the right. Furthermore the number will
+change constantly.</para>
+
+<para>
+The number represents the date you are looking at. If you move the slider
+to &eg; 1856 you will only see the elements which where known in the
+year 1856. 
+</para>
+
+<para>
+You will notice that some elements are not even shown in the year 2004.
+This is because some of the elements have not been discovered yet but are
+predicted to exist.
+</para>
+</sect2>
+
+<sect2 id="plot_data">
+<title>Plot Data</title>
+<para>
+The <guimenuitem>Plot Data</guimenuitem> dialog allows you to plot some information about elements. The X-axis represents a range of elements (from one number to a higher number). You set this range using the First Element and Last Element fields on the dialog.
+</para>
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="screenshot5.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>the <quote>Plot Data</quote> Dialog</phrase>
+</textobject>
+<caption><para>&kalzium; can plot some data about a range of elements.</para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+<sect2 id="state_of_matter">
+<title>State of Matter</title>
+<para>
+With the <guimenuitem>Show State Of Matter</guimenuitem>: you can choose which state you want depending of the temperature.
+</para>
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="screenshot2.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>the <quote>State of Matter</quote> Dialog</phrase>
+</textobject>
+<caption><para>&kalzium; can show you which elements are
+solid/liquid/vapor at a given temperature.</para>
+</caption>
+</mediaobject>
+</screenshot>
+</sect2>
+
+</sect1>
 </chapter>
 
 <chapter id="config">
