@@ -65,6 +65,10 @@ class SearchDlg : public SearchDialogUI
 
 	private slots:
 		void slotApplyChanges();
+	
+		/*
+		 * export into a .csv-file
+		 */
 		void slotExportData();
 		void slotFilterData();
 };

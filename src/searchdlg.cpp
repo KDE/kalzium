@@ -27,6 +27,7 @@
 #include <kdebug.h>
 #include <klineedit.h>
 #include <kcombobox.h>
+#include <kfiledialog.h>
 
 //QT-Includes
 #include <qmessagebox.h>
@@ -45,6 +46,7 @@
 #include <qvaluelist.h>
 #include <qstringlist.h>
 #include <qregexp.h>
+#include <qfile.h>
 
 #include "searchdlg.h"
 
@@ -303,9 +305,33 @@ IntValueList SearchDlg::parseRange(QString range)
 
 void SearchDlg::slotExportData()
 {
-	/*
-	 * export into a .csv-file
-	 */
+	int rows = DataTable->numRows();
+	int cols = DataTable->numCols();
+	
+	QString str;
+	QChar csvDelimiter = ',';
+
+	for ( int i = 0 ; i < rows ; i++ )
+	{
+		for ( int e = 0 ; e < cols ; e++ )
+		{
+			str.append( DataTable->text( i , e ) );
+			str.append( csvDelimiter );
+		}
+		str.append( "\n" );
+	}
+
+	QCString cstr( str.local8Bit() );
+
+	QFile out( KFileDialog::getSaveFileName()  );
+	if (  !out.open( IO_WriteOnly ) )
+	{
+		out.close();
+		return;
+	}
+	out.writeBlock( cstr.data(), cstr.length() );
+
+	out.close();
 }
 
 #include "searchdlg.moc"
