@@ -109,7 +109,7 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 
         } else elementName="Unknown";
         position(n+1,h,v); //get position
-        element[n] =  new ElementKP(eleminfo.Symbol,foo,eleminfo,elementName.latin1(),n+1,statusBar());
+        element[n] =  new ElementKP(eleminfo.Symbol,foo,eleminfo,elementName.latin1(),n+1,statusBar(),this);
         maingrid->addWidget(element[n], v/40+1, h/40);
         element[n]->show();
 

@@ -56,11 +56,11 @@ void ElementKP::getNeighbours( int Current )
             for( int s=0 ; s < 3 ; s++)
             {
                 if (z == 0)
-                    neighbourArray[1][s]=kalzium->element[1]->Data.az;
+                    neighbourArray[z][s]=kalzium->element[Current-19+s]->Data.Symbol;
                 if (z == 1)
-                    neighbourArray[1][s]="hallO";//kalzium->element[19]->Data.Symbol;
+                    neighbourArray[z][s]=kalzium->element[Current-1+s]->Data.Symbol;
                 if (z == 2)
-                    neighbourArray[2][s]="hallO";//kalzium->element[19]->Data.Symbol;
+                    neighbourArray[z][s]=kalzium->element[Current+17+s]->Data.Symbol;
             }
         }
 }
