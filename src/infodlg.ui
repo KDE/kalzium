@@ -18,40 +18,24 @@
     <property name="whatsThis" stdset="0">
         <string>This dialog gives you information about the element</string>
     </property>
-    <widget class="QLayoutWidget">
+    <vbox>
         <property name="name">
-            <cstring>layout18</cstring>
+            <cstring>unnamed</cstring>
         </property>
-        <property name="geometry">
-            <rect>
-                <x>10</x>
-                <y>10</y>
-                <width>502</width>
-                <height>483</height>
-            </rect>
-        </property>
-        <vbox>
+        <widget class="QGroupBox">
             <property name="name">
-                <cstring>unnamed</cstring>
+                <cstring>groupBox1</cstring>
             </property>
-            <widget class="QGroupBox">
+            <property name="title">
+                <string>General</string>
+            </property>
+            <hbox>
                 <property name="name">
-                    <cstring>groupBox1</cstring>
-                </property>
-                <property name="title">
-                    <string>General</string>
+                    <cstring>unnamed</cstring>
                 </property>
                 <widget class="QLayoutWidget">
                     <property name="name">
                         <cstring>layout20</cstring>
-                    </property>
-                    <property name="geometry">
-                        <rect>
-                            <x>10</x>
-                            <y>20</y>
-                            <width>230</width>
-                            <height>130</height>
-                        </rect>
                     </property>
                     <vbox>
                         <property name="name">
@@ -276,14 +260,6 @@
                     <property name="name">
                         <cstring>layout21</cstring>
                     </property>
-                    <property name="geometry">
-                        <rect>
-                            <x>250</x>
-                            <y>20</y>
-                            <width>240</width>
-                            <height>130</height>
-                        </rect>
-                    </property>
                     <vbox>
                         <property name="name">
                             <cstring>unnamed</cstring>
@@ -477,268 +453,255 @@
                         </widget>
                     </vbox>
                 </widget>
-            </widget>
-            <widget class="QGroupBox">
+            </hbox>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>groupBox2</cstring>
+            </property>
+            <property name="title">
+                <string>States</string>
+            </property>
+            <vbox>
                 <property name="name">
-                    <cstring>groupBox2</cstring>
-                </property>
-                <property name="title">
-                    <string>States</string>
+                    <cstring>unnamed</cstring>
                 </property>
                 <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>layout23</cstring>
+                        <cstring>layout14</cstring>
                     </property>
-                    <property name="geometry">
-                        <rect>
-                            <x>10</x>
-                            <y>20</y>
-                            <width>480</width>
-                            <height>44</height>
-                        </rect>
-                    </property>
-                    <vbox>
+                    <hbox>
                         <property name="name">
                             <cstring>unnamed</cstring>
                         </property>
-                        <widget class="QLayoutWidget">
+                        <widget class="QLabel">
                             <property name="name">
-                                <cstring>layout14</cstring>
+                                <cstring>TextLabel11</cstring>
                             </property>
-                            <hbox>
-                                <property name="name">
-                                    <cstring>unnamed</cstring>
-                                </property>
-                                <widget class="QLabel">
-                                    <property name="name">
-                                        <cstring>TextLabel11</cstring>
-                                    </property>
-                                    <property name="font">
-                                        <font>
-                                        </font>
-                                    </property>
-                                    <property name="text">
-                                        <string>Melting point:</string>
-                                    </property>
-                                </widget>
-                                <widget class="QLabel">
-                                    <property name="name">
-                                        <cstring>melting_label</cstring>
-                                    </property>
-                                    <property name="alignment">
-                                        <set>AlignVCenter|AlignRight</set>
-                                    </property>
-                                </widget>
-                                <widget class="QLabel">
-                                    <property name="name">
-                                        <cstring>TextLabel12</cstring>
-                                    </property>
-                                    <property name="font">
-                                        <font>
-                                        </font>
-                                    </property>
-                                    <property name="text">
-                                        <string>Boiling point:</string>
-                                    </property>
-                                </widget>
-                                <widget class="QLabel">
-                                    <property name="name">
-                                        <cstring>boiling_label</cstring>
-                                    </property>
-                                    <property name="alignment">
-                                        <set>AlignVCenter|AlignRight</set>
-                                    </property>
-                                </widget>
-                            </hbox>
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>Melting point:</string>
+                            </property>
                         </widget>
-                        <widget class="QLayoutWidget">
+                        <widget class="QLabel">
                             <property name="name">
-                                <cstring>layout22</cstring>
+                                <cstring>melting_label</cstring>
                             </property>
-                            <hbox>
-                                <property name="name">
-                                    <cstring>unnamed</cstring>
-                                </property>
-                                <widget class="QLabel">
-                                    <property name="name">
-                                        <cstring>Oxidationstages</cstring>
-                                    </property>
-                                    <property name="font">
-                                        <font>
-                                        </font>
-                                    </property>
-                                    <property name="text">
-                                        <string>Oxidation:</string>
-                                    </property>
-                                </widget>
-                                <widget class="QLabel">
-                                    <property name="name">
-                                        <cstring>oxlabel</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string></string>
-                                    </property>
-                                    <property name="alignment">
-                                        <set>AlignVCenter|AlignRight</set>
-                                    </property>
-                                </widget>
-                            </hbox>
+                            <property name="alignment">
+                                <set>AlignVCenter|AlignRight</set>
+                            </property>
                         </widget>
-                    </vbox>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>TextLabel12</cstring>
+                            </property>
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>Boiling point:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>boiling_label</cstring>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignVCenter|AlignRight</set>
+                            </property>
+                        </widget>
+                    </hbox>
                 </widget>
-            </widget>
-            <widget class="QGroupBox">
-                <property name="name">
-                    <cstring>groupBox3</cstring>
-                </property>
-                <property name="title">
-                    <string>Energy</string>
-                </property>
-                <grid>
+                <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>unnamed</cstring>
+                        <cstring>layout22</cstring>
                     </property>
-                    <widget class="QLayoutWidget" row="0" column="0">
+                    <hbox>
                         <property name="name">
-                            <cstring>layout15</cstring>
+                            <cstring>unnamed</cstring>
                         </property>
-                        <hbox>
+                        <widget class="QLabel">
                             <property name="name">
-                                <cstring>unnamed</cstring>
+                                <cstring>Oxidationstages</cstring>
                             </property>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>TextLabel14</cstring>
-                                </property>
-                                <property name="font">
-                                    <font>
-                                    </font>
-                                </property>
-                                <property name="text">
-                                    <string>Ionisation energy:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>ion_label</cstring>
-                                </property>
-                                <property name="alignment">
-                                    <set>AlignVCenter|AlignRight</set>
-                                </property>
-                            </widget>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>TextLabel15</cstring>
-                                </property>
-                                <property name="font">
-                                    <font>
-                                    </font>
-                                </property>
-                                <property name="text">
-                                    <string>Electronegativity:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>electro_label</cstring>
-                                </property>
-                                <property name="alignment">
-                                    <set>AlignVCenter|AlignRight</set>
-                                </property>
-                            </widget>
-                        </hbox>
-                    </widget>
-                </grid>
-            </widget>
-            <widget class="QGroupBox">
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>Oxidation:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>oxlabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignVCenter|AlignRight</set>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>groupBox3</cstring>
+            </property>
+            <property name="title">
+                <string>Energy</string>
+            </property>
+            <vbox>
                 <property name="name">
-                    <cstring>groupBox4</cstring>
+                    <cstring>unnamed</cstring>
                 </property>
-                <property name="title">
-                    <string>Surrounding Elements</string>
-                </property>
-                <grid>
+                <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>unnamed</cstring>
+                        <cstring>layout15</cstring>
                     </property>
-                    <widget class="QLayoutWidget" row="0" column="0">
+                    <hbox>
                         <property name="name">
-                            <cstring>layout9</cstring>
+                            <cstring>unnamed</cstring>
                         </property>
-                        <hbox>
+                        <widget class="QLabel">
                             <property name="name">
-                                <cstring>unnamed</cstring>
+                                <cstring>TextLabel14</cstring>
                             </property>
-                            <spacer>
-                                <property name="name">
-                                    <cstring>spacer4</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>61</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QTable">
-                                <property name="name">
-                                    <cstring>neighbourTable</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>0</hsizetype>
-                                        <vsizetype>0</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="numRows">
-                                    <number>3</number>
-                                </property>
-                                <property name="numCols">
-                                    <number>3</number>
-                                </property>
-                            </widget>
-                            <spacer>
-                                <property name="name">
-                                    <cstring>spacer4_2</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>61</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                        </hbox>
-                    </widget>
-                    <widget class="KPushButton" row="1" column="0">
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>Ionisation energy:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>ion_label</cstring>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignVCenter|AlignRight</set>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>TextLabel15</cstring>
+                            </property>
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>Electronegativity:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>electro_label</cstring>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignVCenter|AlignRight</set>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>groupBox4</cstring>
+            </property>
+            <property name="title">
+                <string>Surrounding Elements</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget" row="0" column="0">
+                    <property name="name">
+                        <cstring>layout9</cstring>
+                    </property>
+                    <hbox>
                         <property name="name">
-                            <cstring>weblookup</cstring>
+                            <cstring>unnamed</cstring>
                         </property>
-                        <property name="text">
-                            <string>Web &amp;Lookup</string>
-                        </property>
-                        <property name="whatsThis" stdset="0">
-                            <string>When you click on the button you will get information from the Internet.</string>
-                        </property>
-                    </widget>
-                </grid>
-            </widget>
-        </vbox>
-    </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer4</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>61</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QTable">
+                            <property name="name">
+                                <cstring>neighbourTable</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>0</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="numRows">
+                                <number>3</number>
+                            </property>
+                            <property name="numCols">
+                                <number>3</number>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer4_2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>61</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </hbox>
+                </widget>
+                <widget class="KPushButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>weblookup</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Web &amp;Lookup</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>When you click on the button you will get information from the Internet.</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+    </vbox>
 </widget>
 <slots>
     <slot>newSlot()</slot>
