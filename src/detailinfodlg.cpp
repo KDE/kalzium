@@ -42,7 +42,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	Data = Eleminfo;
     const KIconLoader *kil = KGlobal::iconLoader();
 
-	setButtonText( User1 , i18n( "Weblookup" ) );
+	setButtonText( User1 , i18n( "Web Lookup" ) );
 
 	/////////////////////////////////
 	overviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon(kil->iconPath( "overview" , KIcon::User)));
@@ -80,7 +80,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	mainLayout->addWidget( piclabel );
 
     /////////////////////////////////
-    energyTab = addPage(i18n("Energies"), i18n("Energyinformation"), BarIcon(kil->iconPath( "energies" , KIcon::User)));
+    energyTab = addPage(i18n("Energies"), i18n("Energy Information"), BarIcon(kil->iconPath( "energies" , KIcon::User)));
 	QVBoxLayout *energyLayout = new QVBoxLayout( energyTab, 5 );
 	QLabel *ENlabel = new QLabel( i18n( "Electronegativity: %1" ).arg( Data._EN ) , energyTab );
 	QLabel *Ionlabel = new QLabel(i18n( "Ionization energy: %1" ).arg( Data._IE ) , energyTab );
@@ -115,8 +115,8 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
     miscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon(kil->iconPath( "misc" , KIcon::User)));
 	QVBoxLayout *miscLayout = new QVBoxLayout( miscTab, 5 );
 	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg(Data.date ) , miscTab );
-	QLabel *meanweight_label = new QLabel( i18n("Meanweight: %1").arg(Data.meanweight ) , miscTab );
-	QWhatsThis::add( meanweight_label , i18n( "The meanweight is the atomic weight divided by the number of protons" ) );
+	QLabel *meanweight_label = new QLabel( i18n("Mean weight: %1").arg(Data.meanweight ) , miscTab );
+	QWhatsThis::add( meanweight_label , i18n( "The mean weight is the atomic weight divided by the number of protons" ) );
 	miscLayout->addWidget( discovered_label );
 	miscLayout->addWidget( meanweight_label );
 	miscLayout->insertStretch(-1,1);
