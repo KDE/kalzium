@@ -59,7 +59,7 @@ class ElementButton : public QFrame
     /**
      * mutator for the element's color
      */
-    void setElementColor( const QColor &c ) { m_Color = c; }
+    void setElementColor( const QColor &c ) { m_Color = c; update(); }
     
 		virtual void paintEvent( QPaintEvent* );
 
