@@ -128,11 +128,11 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	color_vapor = main_config->readColorEntry("vapor");
 	color_liquid = main_config->readColorEntry("liquid");
 
-	liquidbutton->setPalette(color_liquid);
-	solidbutton->setPalette(color_solid);
-	vaporbutton->setPalette(color_vapor);
-	radiob->setPalette(main_config->readColorEntry("radioactive"));
-	artib->setPalette(main_config->readColorEntry("artificial"));
+	liquidbutton->setPaletteBackgroundColor(color_liquid);
+	solidbutton->setPaletteBackgroundColor(color_solid);
+	vaporbutton->setPaletteBackgroundColor(color_vapor);
+	radiob->setPaletteBackgroundColor(main_config->readColorEntry("radioactive"));
+	artib->setPaletteBackgroundColor(main_config->readColorEntry("artificial"));
 
 	tempS = new QSlider ( -4500, 273, 1, -25 , QSlider::Vertical, this, "tempSlider" );
 	QWhatsThis::add(tempS, i18n("Use this slider to see what state of matter a certain element has at a given temperature."));
@@ -166,15 +166,15 @@ void StateOfMatterDlg::tempbeh()
 	for (int i = 0; i < 114; i++)
 	{
 		if (tempC < (kalzium->element[i]->Data.MP-273))
-			kalzium->element[i]->setPalette( color_solid );
+			kalzium->element[i]->setPaletteBackgroundColor( color_solid );
 		if (tempC > (kalzium->element[i]->Data.MP-273) && tempC < (kalzium->element[i]->Data.BP-273) )
-			kalzium->element[i]->setPalette( color_liquid );
+			kalzium->element[i]->setPaletteBackgroundColor( color_liquid );
 		if ( tempC > (kalzium->element[i]->Data.BP)-273)
-			kalzium->element[i]->setPalette( color_vapor );
+			kalzium->element[i]->setPaletteBackgroundColor( color_vapor );
         if (kalzium->element[i]->Data.az == "3")
-            kalzium->element[i]->setPalette( QPalette(main_config->readColorEntry("radioactive")));
+            kalzium->element[i]->setPaletteBackgroundColor( QColor(main_config->readColorEntry("radioactive")));
         if (kalzium->element[i]->Data.az == "4")
-            kalzium->element[i]->setPalette( QPalette(main_config->readColorEntry("artificial")));
+            kalzium->element[i]->setPaletteBackgroundColor( QColor(main_config->readColorEntry("artificial")));
 	}
 }
 

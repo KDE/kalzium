@@ -123,6 +123,10 @@ class ElementKP : public KPushButton  {
 		 * If the user clicks on one button this slot will be called
 		 */
 		void slotShowData();
+        
+    protected:
+        void drawButtonLabel(QPainter *p);
+            
 };
 
 #endif

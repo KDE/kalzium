@@ -27,8 +27,10 @@
 //QT-Includes
 #include <qdragobject.h>
 #include <qfont.h>
+#include <qfontmetrics.h>
 #include <qtable.h>
 #include <qlabel.h>
+#include <qpainter.h>
 #include <qpopupmenu.h>
 #include <qwhatsthis.h>
 
@@ -39,7 +41,7 @@
 #include "infodlg.h"
 
 	ElementKP::ElementKP(const QString& text, QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)	
-: KPushButton(text,parent,name)
+: KPushButton(parent,name)
 
 {
 	kalzium = kalzium_tmp;
@@ -252,3 +254,27 @@ void ElementKP::slotShowData()
 
 }
 
+void ElementKP::drawButtonLabel(QPainter *p)
+{
+    QFont general = KGlobalSettings::generalFont();
+    QFont general_bold = general;
+    general_bold.setBold(TRUE);
+    general.setPointSize(general.pointSize()-2);
+    general_bold.setPointSize(general_bold.pointSize()+1);
+
+    p->setPen(QPen (black,0));
+
+    QFontMetrics zahl( general );
+    QFontMetrics text( general_bold );
+    
+//    int zahl_width= zahl.width(QString::number(Data.number));
+    int zahl_height = zahl.height();
+    int text_width = text.width(Data.Symbol);
+//    int text_height = text.height();
+
+    p->setFont( general );
+    p->drawText(6,zahl_height,QString::number(Data.number) +1, -1);
+    p->setFont( general_bold );
+    p->drawText ( width() - text_width-7, height()-7 , Data.Symbol);
+
+}

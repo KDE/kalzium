@@ -33,6 +33,7 @@
 #include <kconfig.h>
 #include <kdialog.h>
 #include <kedittoolbar.h>
+#include <kglobalsettings.h>
 #include <khelpmenu.h>
 #include <kiconloader.h>
 #include <klocale.h>
@@ -75,6 +76,21 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
     setupConfig();
     setupActions();
 
+    QFont general = KGlobalSettings::generalFont();
+    QFont general_bold = general;
+
+    general.setPointSize(general.pointSize()-2);
+
+    general_bold.setPointSize(general_bold.pointSize());
+    general_bold.setBold(TRUE);
+
+    QFontMetrics zahl( general );
+    int zahl_height = zahl.height();
+    int zahl_width= zahl.width("103");
+    QFontMetrics text( general_bold );
+    int text_height = text.height();
+    int text_width = text.width("MD");
+    
 
     //////////////////////////////////////
     //creation of the 118 buttons
@@ -114,6 +130,10 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
         } else elementName="Unknown";
         position(n+1,h,v); //get position
         element[n] =  new ElementKP(eleminfo.Symbol,foo,eleminfo,elementName.latin1(),n+1,statusBar(),this);
+        
+        element[n]->setFixedSize(zahl_width + text_width ,
+                                 zahl_height + text_height + 5);
+
         maingrid->addWidget(element[n], v/40+1, h/40);
         element[n]->show();
 
@@ -275,10 +295,10 @@ void Kalzium::changeLegend(int id)
     main_config->setGroup("Colors");
     if (id == 0) //Acid Behaviours
     {
-    one->setPalette(QPalette(main_config->readColorEntry("acidic")));
-    two->setPalette(QPalette(main_config->readColorEntry("amphoteric")));
-    three->setPalette(QPalette(main_config->readColorEntry("basic")));
-    four->setPalette(QPalette(main_config->readColorEntry("neitherofthem")));
+    one->setPaletteBackgroundColor(QColor(main_config->readColorEntry("acidic")));
+    two->setPaletteBackgroundColor(QColor(main_config->readColorEntry("amphoteric")));
+    three->setPaletteBackgroundColor(QColor(main_config->readColorEntry("basic")));
+    four->setPaletteBackgroundColor(QColor(main_config->readColorEntry("neitherofthem")));
     five->hide();
     six->hide();
     seven->hide();
@@ -290,10 +310,10 @@ void Kalzium::changeLegend(int id)
     }
     if (id == 1) //Blocks
     {
-    one->setPalette(QPalette(main_config->readColorEntry("s")));
-    two->setPalette(QPalette(main_config->readColorEntry("p")));
-    three->setPalette(QPalette(main_config->readColorEntry("d")));
-    four->setPalette(QPalette(main_config->readColorEntry("f")));
+    one->setPaletteBackgroundColor(QColor(main_config->readColorEntry("s")));
+    two->setPaletteBackgroundColor(QColor(main_config->readColorEntry("p")));
+    three->setPaletteBackgroundColor(QColor(main_config->readColorEntry("d")));
+    four->setPaletteBackgroundColor(QColor(main_config->readColorEntry("f")));
     five->hide();
     six->hide();
     seven->hide();
@@ -305,14 +325,14 @@ void Kalzium::changeLegend(int id)
     }
     if (id == 2) //Groups
     {
-    one->setPalette(QPalette(main_config->readColorEntry("Group 1")));
-    two->setPalette(QPalette(main_config->readColorEntry("Group 2")));
-    three->setPalette(QPalette(main_config->readColorEntry("Group 3")));
-    four->setPalette(QPalette(main_config->readColorEntry("Group 4")));
-    five->setPalette(QPalette(main_config->readColorEntry("Group 5")));
-    six->setPalette(QPalette(main_config->readColorEntry("Group 6")));
-    seven->setPalette(QPalette(main_config->readColorEntry("Group 7")));
-    eight->setPalette(QPalette(main_config->readColorEntry("Group 8")));
+    one->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 1")));
+    two->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 2")));
+    three->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 3")));
+    four->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 4")));
+    five->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 5")));
+    six->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 6")));
+    seven->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 7")));
+    eight->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 8")));
     six->show();
     seven->show();
     eight->show();
@@ -327,11 +347,11 @@ void Kalzium::changeLegend(int id)
     }
     if (id == 3) //State of Matter
     {
-    one->setPalette(QPalette(main_config->readColorEntry("liquid")));
-    two->setPalette(QPalette(main_config->readColorEntry("solid")));
-    three->setPalette(QPalette(main_config->readColorEntry("vapor")));
-    four->setPalette(QPalette(main_config->readColorEntry("artificial")));
-    five->setPalette(QPalette(main_config->readColorEntry("radioactive")));
+    one->setPaletteBackgroundColor(QColor(main_config->readColorEntry("liquid")));
+    two->setPaletteBackgroundColor(QColor(main_config->readColorEntry("solid")));
+    three->setPaletteBackgroundColor(QColor(main_config->readColorEntry("vapor")));
+    four->setPaletteBackgroundColor(QColor(main_config->readColorEntry("artificial")));
+    five->setPaletteBackgroundColor(QColor(main_config->readColorEntry("radioactive")));
     five->show();
     six->hide();
     seven->hide();
@@ -435,7 +455,7 @@ void Kalzium::slotShowAcidBeh() {
         QString& s(b->Data.acidbeh);
 
         if (s.length() == 1 && s[0] >= '0' && s[0] <= '3')
-            b->setPalette(QPalette(main_config->readColorEntry(field[QChar(s[0]) - '0'])));
+            b->setPaletteBackgroundColor(QColor(main_config->readColorEntry(field[QChar(s[0]) - '0'])));
     }
 }
 
@@ -464,7 +484,7 @@ void Kalzium::slotShowBlocks()
         
         if (s.length() == 1)
             if (const char *p = strchr("spdf", QChar(s[0])))
-                b->setPalette(QPalette(main_config->readColorEntry(QChar(*p))));
+                b->setPaletteBackgroundColor(QColor(main_config->readColorEntry(QChar(*p))));
     }
 }
 
@@ -482,7 +502,7 @@ void Kalzium::slotShowGroups()
             static char group[] = { "Group %" };
 
             group[6] = char(QChar(s[0]));
-            b->setPalette(QPalette(main_config->readColorEntry(group)));
+            b->setPaletteBackgroundColor(QColor(main_config->readColorEntry(group)));
         }
     }
 }
