@@ -319,19 +319,19 @@ void Kalzium::displayTemperature()
      		case 0:
  			string = i18n("Kelvin");
 			min = 0;
-			max = 1000;
+			max = 6000;
 			m_pSOMSlider->unit->setText( i18n( "the unit for Kelvin" , "K" ) );
  			break;
  		case 1:
  			string = i18n("Degree Celsius");
 			min = -273 ;
-			max = 727 ;
+			max = 5700 ;
 			m_pSOMSlider->unit->setText( i18n( "the unit for degree celsius" , "°C" ) );
  			break;
  		case 2:
  			string = i18n("Degree Fahrenheit");
 			min =  -460 ;
-			max = 1341 ;
+			max = 6000 ;
 			m_pSOMSlider->unit->setText( i18n( "the unit for degree Fahrenheit" , "°F" ) );
  			break;
  	}
@@ -369,12 +369,10 @@ void Kalzium::slotStateOfMatter()
 	
 	if ( m_bShowSOM )
 	{
-		kdDebug( ) << "now show the widgets" << endl;
 		showSOMWidgets( true );
 	}
 	else
 	{
-		kdDebug( ) << "now HIDE the widgets" << endl;
 		slotShowScheme( Prefs::colorschemebox() );
 	}
 }
@@ -401,21 +399,25 @@ void Kalzium::showSOMWidgets( bool show )
 }
 void Kalzium::slotTempChanged( int temperature )
 {
-	kdDebug() << "Kalzium::slotTempChanged()" << endl;
-	double tempTemp=295;
+	kdDebug() << "slotTempChanged(), Temperature: " << temperature << endl;
+	double tempTemp=temperature;
  	switch (Prefs::temperature()) {
      		case 0:
-			tempTemp = temperature;
  			break;
  		case 1:
-			tempTemp = temperature + 273.15;
+			//0 Degree Celsius is 273 K. So I need to add 273
+			temperature+=273.15;
  			break;
  		case 2:
-			tempTemp = (temperature - 32)*5/9 + 273.15 ;
+			temperature = (temperature - 32)*5/9 + 273.15;
  			break;
  	}
-	m_pCurrentPSE->setTemperature( tempTemp);
+	//This is in Kelvin
+	m_pCurrentPSE->setTemperature( temperature );
+
 	slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg(tempTemp), IDS_TEMPERATURE );
+
+	//This is in the selected unit
 	m_pSOMSlider->value->display((int) tempTemp);
 			
 	Prefs::setTemperaturevalue(temperature);
