@@ -25,6 +25,7 @@
 #include <qimage.h>
 #include <qwhatsthis.h>
 #include <qlayout.h>
+#include <qpushbutton.h>
 
 #include "detailinfodlg.h"
 #include "orbitswidget.h"
@@ -36,6 +37,8 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
     : KDialogBase(KDialogBase::IconList, i18n( "" ),  Close, Close, parent,name)
 {
 	e = el;
+
+	( actionButton( KDialogBase::Close ) )->setFocus();
 
 	QString num = QString::number( e->number() );
 	QString elname = e->elname().utf8();
