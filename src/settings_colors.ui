@@ -44,7 +44,7 @@
                             </property>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton5</cstring>
+                                    <cstring>kcfg_block_s</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -52,7 +52,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton6</cstring>
+                                    <cstring>kcfg_block_p</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -60,7 +60,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton7</cstring>
+                                    <cstring>kcfg_block_d</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -68,7 +68,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton8</cstring>
+                                    <cstring>kcfg_block_f</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -99,7 +99,7 @@
                             </property>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton1</cstring>
+                                    <cstring>kcfg_beh_acidic</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -107,7 +107,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton2</cstring>
+                                    <cstring>kcfg_beh_amphoteric</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -115,7 +115,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton3</cstring>
+                                    <cstring>kcfg_beh_neutral</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -123,7 +123,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton4</cstring>
+                                    <cstring>kcfg_beh_basic</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -154,7 +154,7 @@
                             </property>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton10</cstring>
+                                    <cstring>kcfg_group_1</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -162,7 +162,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton11</cstring>
+                                    <cstring>kcfg_group_2</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -170,7 +170,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton9</cstring>
+                                    <cstring>kcfg_group_3</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -178,7 +178,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton12</cstring>
+                                    <cstring>kcfg_group_4</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -186,7 +186,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton13</cstring>
+                                    <cstring>kcfg_group_5</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -194,7 +194,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton14</cstring>
+                                    <cstring>kcfg_group_6</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -202,7 +202,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton15</cstring>
+                                    <cstring>kcfg_group_7</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -210,7 +210,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton16</cstring>
+                                    <cstring>kcfg_group_8</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -241,7 +241,7 @@
                             </property>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton17</cstring>
+                                    <cstring>kcfg_color_solid</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -249,7 +249,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton18</cstring>
+                                    <cstring>kcfg_color_vapor</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -257,7 +257,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton19</cstring>
+                                    <cstring>kcfg_color_liquid</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -265,7 +265,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton20</cstring>
+                                    <cstring>kcfg_color_radioactive</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -273,7 +273,7 @@
                             </widget>
                             <widget class="KColorButton">
                                 <property name="name">
-                                    <cstring>kColorButton21</cstring>
+                                    <cstring>kfcg_color_artificial</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
