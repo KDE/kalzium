@@ -8,7 +8,7 @@
 #include <kcmdlineargs.h>
 
 static const char description[] =
-    I18N_NOOP("A Periodic Table of the Elements");
+    I18N_NOOP("A periodic table of the elements");
 
 static const char version[] = "1.1.93";
 
