@@ -26,8 +26,19 @@ class KComboBox;
 class QSpinBox;
 class KalziumPlotWidget;
 		
+class ChemicalElement
+{
+	public:
+		ChemicalElement();
+
+		QString name, symbol, block, orbit, ox;
+		double weight, en, mp, bp, density, ie, ar;
+		int acidbeh, az, date, group, biological, number;
+};
+	
 typedef QValueList<double> doubleList;
 typedef QPtrList<doubleList> dlist;
+typedef QPtrList<ChemicalElement> chemElements;
 
 class KalziumPlotDialogImpl : public KDialogBase
 {
@@ -46,16 +57,18 @@ class KalziumPlotDialogImpl : public KDialogBase
 		void startPlotting();
 		void updateListview();
 
-		void getPositions( int , double& , doubleList* );
+		void getPositions( int , double& , ChemicalElement* );
 
-		const double getMax(doubleList*, const int, const int);
-		const double getMin(doubleList*, const int, const int);
+		doubleList getDoubleList( const int , const int );
+		const double getMax( const int, const int);
+		const double getMin( const int, const int);
 
 		void loadData();
 
 		dlist dl;
-		QStringList nameList, symbolList;
+		chemElements elementsPtrList;
 		
+		void setPlotAxis( const int );
 
 
 	protected:

@@ -36,6 +36,8 @@
 #include "kalziumplotdialogimpl.h"
 #include "kalziumplotwidget.h"
 
+ChemicalElement::ChemicalElement(){}
+
 KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name )
  : KDialogBase( KDialogBase::Plain, i18n("Kalzium Plotdialog"), Close|User1, Close, parent , name )
 {
@@ -55,11 +57,12 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 	whatKCB->insertItem( i18n( "Ionisation Energy" ) );
 	whatKCB->insertItem( i18n( "Atomic Radius" ) );
 	whatKCB->insertItem( i18n( "Boilingpoint" ) );
-whatKCB->insertItem( i18n( "Density" ) );
+	whatKCB->insertItem( i18n( "Density" ) );
 ////
 	
 	QSplitter *plotW = new QSplitter( page );
 	pw = new KalziumPlotWidget( 0.0,0.0,0.0,0.0,plotW );
+	pw->setXAxisLabel(  i18n(  "Atomic Number" ) );
 	
 	elementsKLV = new KListView( plotW, "elementsKLV" );
 	elementsKLV->addColumn( i18n( "Number" ) );
@@ -86,8 +89,6 @@ void KalziumPlotDialogImpl::paintEvent( QPaintEvent * /*e*/ )
 
 void KalziumPlotDialogImpl::startPlotting()
 {
-	pw->update();
-	
 	int from, to;
 	from = fromSpin->value();
 	to = toSpin->value();
@@ -101,108 +102,229 @@ void KalziumPlotDialogImpl::startPlotting()
 	
 	KPlotObject *elements = new KPlotObject( "Elements" , "cyan2" , KPlotObject::POINTS, 6, KPlotObject::CIRCLE);
 	double posX = 0.0, posY = 0.0;
-	
-	doubleList *ptrDoubleList;
-	int kind = whatKCB->currentItem();
-	ptrDoubleList= dl.at( kind );
 
+	//int kind = whatKCB->currentItem();
+	ChemicalElement *elem = elementsPtrList.at(from-1);
+	
 	for ( int i = from ; i < to+1 ; ++i )
 	{
-		getPositions( i , posY , ptrDoubleList );
+		getPositions( i , posY , elem );
 		posX = i;
 		elements->addPoint( new DPoint( posX , posY ) );
-		kdDebug() << ( int )posX << " " << ( int ) posY << endl;
+		elem = elementsPtrList.next();
 	}
 
-	pw->setLimits( from, to , getMin( dl.at( kind ), from, to ) , getMax( dl.at( kind ), from , to ) );
+ 	pw->setLimits( from-1, to+1 , getMin( from, to ) , getMax( from , to ) );
 	pw->clearObjectList();
 	pw->addObject( elements );
 
+	setPlotAxis( whatKCB->currentItem() );
 	updateListview();
+}
+
+void KalziumPlotDialogImpl::setPlotAxis( const int id )
+{
+	QString yLabel;
+
+	switch ( id )
+	{
+		case 0:
+			yLabel =  i18n( "Atomic Weight [u]" );
+			break;
+		case 1:
+			yLabel =  i18n( "Electronegativity" );
+			break;
+		case 2:
+			yLabel =  i18n( "Meltingpoint [K]" );
+			break;
+		case 3:
+			yLabel =  i18n( "Ionisation Energy [kJ]" );
+			break;
+		case 4:
+			yLabel =  i18n( "Atomic Radius [pm]" );
+			break;
+		case 5:
+			yLabel =  i18n( "Boilingpoint [K]" );
+			break;
+		case 6:
+			yLabel =  i18n( "Density g/cm<sup>3</sup>" );
+			break;
+	}
+	
+	pw->setYAxisLabel( yLabel );
 }
 
 void KalziumPlotDialogImpl::updateListview()
 {
 	elementsKLV->clear();
-	int from = fromSpin->value();
+
+	int from = fromSpin->value()-1;
 	int to = toSpin->value();
 	
 	QString name, sym;
-
-	QStringList::Iterator nameIt = nameList.at(from);
-	QStringList::Iterator symIt = symbolList.at(from);
-
-	for (int i = from ; nameIt != nameList.at( to ) ; ++nameIt, ++symIt , ++i )
+	
+	ChemicalElement *elem;
+	for ( elem = elementsPtrList.at( from  ) ; from != to ; elem = elementsPtrList.next() )
 	{
-		name = *nameIt;
-		sym = *symIt;
-		KListViewItem item = new KListViewItem( elementsKLV, QString::number( i ) , name , sym );
+		name = elem->name;
+		sym = elem->symbol;
+		KListViewItem item = new KListViewItem( elementsKLV, QString::number( elem->number ) , name , sym );
+		
+		from++;
 	}
 }
 
 void KalziumPlotDialogImpl::loadData()
 {
 	KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
-	QStringList dataKinds;
-	dataKinds.append( "Weight" );
-	dataKinds.append( "EN" );
-	dataKinds.append( "MP" );
-	dataKinds.append( "IE" );
-	dataKinds.append( "AR" );
-	dataKinds.append( "BP" );
-	dataKinds.append( "Density" );
 	
-    for ( int i = 0 ; i < 7 ; ++i )
+	for ( int n = 1 ; n < 110 ; ++n )
 	{
-		dl.append( new doubleList );
+		elementsPtrList.append( new ChemicalElement );
 	}
-	
-	doubleList *ptrDoubleList = dl.first();
-    for ( QStringList::Iterator strIt = dataKinds.begin() ; strIt != dataKinds.end() ; ++strIt )
+
+	ChemicalElement *elem;
+	int i = 1;
+	for ( elem = elementsPtrList.first(); elem ; elem = elementsPtrList.next() )
 	{
-		for ( int e = 1 ; e < 110 ; ++e )
+		config.setGroup(QString::number( i ));
+
+		elem->name = config.readEntry( "Name" , "Unknown" );
+		elem->symbol = config.readEntry( "Symbol" , "Unknown" );
+		elem->block = config.readEntry( "Block" , "Unknown" );
+		elem->orbit = config.readEntry( "Orbits" , "Unknown" );
+		elem->ox = config.readEntry( "Ox" , "Unknown" );
+
+		elem->weight = config.readDoubleNumEntry( "Weight", -1 ) ;
+		elem->en =config.readDoubleNumEntry( "EN", -1 ) ;
+		elem->mp =config.readDoubleNumEntry( "MP", -1 ) ;
+		elem->bp =config.readDoubleNumEntry( "BP", -1 ) ;
+		elem->density =config.readDoubleNumEntry( "Density", -1 ) ;
+		elem->ie =config.readDoubleNumEntry( "IE", -1 ) ;
+		elem->ar =config.readDoubleNumEntry( "AR", -1 ) ;
+		
+		elem->acidbeh = config.readNumEntry( "acidbeh" , -1 );
+		elem->az = config.readNumEntry( "az" , -1 );
+		elem->date = config.readNumEntry( "date" , -1 );
+		elem->group = config.readNumEntry( "Group" , -1 );
+		elem->biological = config.readNumEntry( "biological" , -1 );
+		elem->number = i;
+
+		i++;
+	}
+}
+
+void KalziumPlotDialogImpl::getPositions( int /* num */ , double& y , ChemicalElement* element)
+{
+	int id = whatKCB->currentItem();
+
+	switch ( id )
+	{
+		case 0:
+			y = element->weight;
+			break;
+		case 1:
+			y = element->en;
+			break;
+		case 2:
+			y = element->mp;
+			break;
+		case 3:
+			y = element->ie;
+			break;
+		case 4:
+			y = element->ar;
+			break;
+		case 5:
+			y = element->bp;
+			break;
+		case 6:
+			y = element->density;
+			break;
+	}
+}
+
+doubleList KalziumPlotDialogImpl::getDoubleList( const int f , const int t )
+{
+	ChemicalElement *element = elementsPtrList.at(f-1);
+	int id = whatKCB->currentItem();
+	doubleList data;
+	double y;
+	
+	for ( int i = f-1 ; i < t ; ++i )
+	{
+		switch ( id )
 		{
-			 config.setGroup(QString::number( e ));
-			 ptrDoubleList->append( config.readDoubleNumEntry( *strIt, -1 ) );
+			case 0:
+				y = element->weight;
+				break;
+			case 1:
+				y = element->en;
+				break;
+			case 2:
+				y = element->mp;
+				break;
+			case 3:
+				y = element->ie;
+				break;
+			case 4:
+				y = element->ar;
+				break;
+			case 5:
+				y = element->bp;
+				break;
+			case 6:
+				y = element->density;
+				break;
 		}
-		ptrDoubleList = dl.next();
+		data.append( y );
+		element = elementsPtrList.next();
+	}
+	return data;
+}
+
+const double KalziumPlotDialogImpl::getMax( const int f, const int t)
+{
+	double y;
+	doubleList data = getDoubleList( f , t );
+
+	doubleList::Iterator it = data.begin();
+	
+	y = *it;
+	for ( ; it != data.end() ; ++it )
+	{
+		if ( y < *it )
+			y = *it;
+//X 		kdDebug() << "*it ist nun: " << *it << endl;
+//X 		kdDebug() << "y ist nun: " << y << endl;
 	}
 	
-	for ( int e = 1 ; e < 110 ; ++e )
-	{
-		 config.setGroup(QString::number( e ));
-		 nameList.append( config.readEntry( "Name", "Unknown" ) );
-		 symbolList.append( config.readEntry( "Symbol", "Unknown" ) );
-	}
+	kdDebug() << "y ist am Ende: " << y << endl;
+
+	y=y*1.1;
+	return y;
 }
 
-void KalziumPlotDialogImpl::getPositions( int num , double& y , doubleList *liste)
+const double KalziumPlotDialogImpl::getMin( const int f, const int t)
 {
-	y = *( liste->at( num ) );
-}
+	double y;
+	doubleList data = getDoubleList( f , t );
 
-const double KalziumPlotDialogImpl::getMax(doubleList* liste, const int f, const int t)
-{
-	doubleList::Iterator it = liste->at(f);
-	double d = *it;
-	for ( ; it != liste->at(t) ; ++it )
+	doubleList::Iterator it = data.begin();
+	
+	y = *it;
+	for ( ; it != data.end() ; ++it )
 	{
-		if ( d < *it )
-			d = *it;
+		if ( y > *it )
+			y = *it;
+//X 		kdDebug() << "*it ist nun: " << *it << endl;
+//X 		kdDebug() << "y ist nun: " << y << endl;
 	}
-	return d;
-}
+	
+	kdDebug() << "y ist am Ende: " << y << endl;
 
-const double KalziumPlotDialogImpl::getMin(doubleList *liste, const int f, const int t)
-{
-	doubleList::Iterator it = liste->at(f);
-	double d = *it;
-	for ( ; it != liste->at(t) ; ++it )
-	{
-		if ( d > *it )
-			d = *it;
-	}
-	return d;
+	y=y*0.9;
+	return y;
 }
 
 void KalziumPlotDialogImpl::keyPressEvent( QKeyEvent *e ) 
