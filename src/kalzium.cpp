@@ -132,14 +132,9 @@ void Kalzium::setupActions()
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 
-	slotSwitchtoNumeration(Prefs::numeration() );
-	slotSwitchtoPSE(Prefs::schemaPSE());
-	slotSwitchtoNumeration(Prefs::numeration() );
-
-	//invert the bool because it will be toggled in the three slots
-	m_bShowLegend = Prefs::showlegend();
-//	m_bShowSOM = Prefs::showsom();
-//	m_bShowTimeline = Prefs::showtimeline();
+	slotShowScheme( Prefs::colorschemebox() );
+	slotSwitchtoNumeration( Prefs::numeration() );
+	slotSwitchtoPSE( Prefs::schemaPSE() );
 
 	connect( m_pSOMSlider->slider, SIGNAL( valueChanged( int ) ), this, SLOT( slotTempChanged( int ) ) );
 	connect( m_pTimeSlider->pSlider, SIGNAL( valueChanged( int ) ), m_PSE, SLOT( setDate( int ) ) );
@@ -276,12 +271,17 @@ void Kalzium::slotSwitchtoNumeration( int index )
 
 void Kalzium::slotSwitchtoPSE(int index)
 {
+	kdDebug() << "pse is: " << index << endl;
+	
 	if ( index == 0 )
 		m_PSE->setPSEType( true );//simple
 	else
 		m_PSE->setPSEType( false );//complex
 	
 	m_PSE->update();
+	
+	Prefs::setSchemaPSE(index);
+	Prefs::writeConfig();
 }
 
 void Kalzium::showSettingsDialog()

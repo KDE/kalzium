@@ -451,7 +451,7 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 	 */
 	while ( it != d->ElementList.end() )
 	{
-		( *it )->drawSelf( p, false ); //useSimpleView );
+		( *it )->drawSelf( p, useSimpleView );
 		( *it )->drawHighlight( p, coordinate, m_Horizontal );//only for testing
 		++it;
 	}
