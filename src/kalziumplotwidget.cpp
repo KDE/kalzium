@@ -38,7 +38,7 @@ KalziumPlotWidget::KalziumPlotWidget( double x1, double x2, double y1, double y2
 {
 	setBGColor(  QColor(  "white" ) );
 	setFGColor(  QColor(  "black" ) );
-	
+
 	setLimits( x1, x2, y1, y2 );
 	setSecondaryLimits( 0.0, 0.0, 0.0, 0.0 );
 }
@@ -52,7 +52,7 @@ void KalziumPlotWidget::setLimits( double x1, double x2, double y1, double y2 ) 
 
 	DataRect = DRect( X1, Y1, X2 - X1, Y2 - Y1 );
 	checkLimits();
-	
+
 	updateTickmarks();
 }
 
@@ -70,16 +70,16 @@ void KalziumPlotWidget::setSecondaryLimits( double x1, double x2, double y1, dou
 void KalziumPlotWidget::checkLimits() {
 	AXIS_TYPE type(DOUBLE);
 	double Range(0.0), sc(1.0);
-	
+
 	for ( unsigned int i=0; i<2; ++i ) {
 		if ( i==0 ) {
 			type = xAxisType0();
 			Range = DataRect.x2() - DataRect.x();
-		} else { 
+		} else {
 			type = yAxisType0();
 			Range = DataRect.y2() - DataRect.y();
 		}
-		
+
 		//we switch from TIME type to DOUBLE type if :
 		// Range >36 (we measure in days) or
 		// Range <1 (we measure in minutes)
@@ -92,7 +92,7 @@ void KalziumPlotWidget::checkLimits() {
 				sc = 60.0;
 			}
 		}
-		
+
 		//we switch from ANGLE type to DOUBLE type if :
 		// Range >450 (== 1.25 revolutions) (we still measure in degrees, but use DOUBLE rules) or
 		// Range <1 (we measure in arcminutes)
@@ -104,9 +104,9 @@ void KalziumPlotWidget::checkLimits() {
 				sc = 60.0;
 			}
 		}
-		
-		//set the effective DataRect with a bootstrap method; first the x-values 
-		//(temporarily using the intrinsic DataRect0 for the y-values), then the 
+
+		//set the effective DataRect with a bootstrap method; first the x-values
+		//(temporarily using the intrinsic DataRect0 for the y-values), then the
 		//y-values (using the new x-values already in DataRect)
 		if ( i==0 ) {
 			setXAxisType( type );
@@ -120,7 +120,7 @@ void KalziumPlotWidget::checkLimits() {
 
 void KalziumPlotWidget::updateTickmarks() {
 	//This function differs from KPlotWidget::updateTickmarks() in two ways:
-	//the placement of tickmarks is dependent on the Data type of the axis, 
+	//the placement of tickmarks is dependent on the Data type of the axis,
 	//and we add the possibility of secondary limits for the top/right axes.
 	if ( dataWidth() == 0.0 ) {
 		kdWarning() << "X range invalid! " << x() << " to " << x2() << endl;
@@ -134,12 +134,12 @@ void KalziumPlotWidget::updateTickmarks() {
 		checkLimits();
 		return;
 	}
-	
+
 	AXIS_TYPE type(DOUBLE);
 	int nmajor(0), nminor(0);
 	double z1(0.0), z2(0.0), zb1(0.0), zb2(0.0), scale(1.0);
 	double Range(0.0), s(0.0), t(0.0), pwr(0.0), dTick(0.0);
-	
+
 	//loop over X and Y axes...the z variables substitute for either X or Y
 	for ( unsigned int iaxis=0; iaxis<2; ++iaxis ) {
 		if ( iaxis == 1 ) {
@@ -285,18 +285,22 @@ void KalziumPlotWidget::updateTickmarks() {
 
 void KalziumPlotWidget::drawBox( QPainter *p ) {
 	int pW = PixRect.width(), pH = PixRect.height();
-	
+
 	//First, fill in padding region with bgColor() to mask out-of-bounds plot data
 	p->setPen( bgColor() );
 	p->setBrush( bgColor() );
+
 	//left padding ( don't forget: we have translated by XPADDING, YPADDING )
-	p->drawRect( -XPADDING, -YPADDING, XPADDING, height() );
+	p->drawRect( -leftPadding(), -topPadding(), leftPadding(), height() );
+
 	//right padding
-	p->drawRect( pW, -YPADDING, XPADDING, height() );
+	p->drawRect( pW, -topPadding(), rightPadding(), height() );
+
 	//top padding
-	p->drawRect( 0, -YPADDING, pW, YPADDING );
+	p->drawRect( 0, -topPadding(), pW, topPadding() );
+
 	//bottom padding
-	p->drawRect( 0, pH, pW, YPADDING );
+	p->drawRect( 0, pH, pW, bottomPadding() );
 
 	if ( ShowGrid ) {
 		//Grid lines are placed at locations of primary axes' major tickmarks
@@ -332,10 +336,16 @@ void KalziumPlotWidget::drawBox( QPainter *p ) {
 		if ( dataWidth2()  > 0.0 && ( xb() != x() || xb2() != x2() ) ) secondaryXLimits = true;
 		if ( dataHeight2() > 0.0 && ( yb() != y() || yb2() != y2() ) ) secondaryYLimits = true;
 
+		//set small font for tick labels
+		QFont f = p->font();
+		int s = f.pointSize();
+		f.setPointSize( s - 2 );
+		p->setFont( f );
+
 		//--- Draw primary X tickmarks on bottom axis---//
 		double x0 = x() - dmod( x(), dXtick ); //zeropoint; tickmark i is this plus i*dXtick1 (in data units)
 		if ( x() < 0 ) x0 -= dXtick;
-		
+
 		for ( int ix = 0; ix <= nmajX+1; ix++ ) {
 			int px = int( pW * ( (x0 + ix*dXtick - x())/dataWidth() ) ); //position of tickmark i (in screen units)
 			if ( px > 0 && px < pW ) {
@@ -347,12 +357,15 @@ void KalziumPlotWidget::drawBox( QPainter *p ) {
 			if ( ShowTickLabels ) {
 				double lab = xScale()*(x0 + ix*dXtick);
 				if ( fabs(lab)/dXtick < 0.00001 ) lab = 0.0; //fix occassional roundoff error with "0.0" label
-				
+
 				switch ( xAxisType() ) {
 					case DOUBLE :
 					{
 						QString str = QString( "%1" ).arg( lab, 0, 'g', 2 );
-						if ( px > 0 && px < pW ) p->drawText( px - BIGTICKSIZE, pH+2*BIGTICKSIZE, str );
+						if ( px > 0 && px < pW ) {
+							QRect r( px - BIGTICKSIZE, pH+BIGTICKSIZE, 2*BIGTICKSIZE, BIGTICKSIZE );
+							p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+						}
 						break;
 					}
 					case TIME :
@@ -361,15 +374,21 @@ void KalziumPlotWidget::drawBox( QPainter *p ) {
 						int m = int(60.*(lab - h));
 						while ( h > 24 ) { h -= 24; }
 						while ( h <  0 ) { h += 24; }
-							
+
 						QString str = QString().sprintf( "%02d:%02d", h, m );
-						if ( px > 0 && px < pW ) p->drawText( px - 2*BIGTICKSIZE, pH+2*BIGTICKSIZE, str );
+						if ( px > 0 && px < pW ) {
+							QRect r( px - BIGTICKSIZE, pH+BIGTICKSIZE, 2*BIGTICKSIZE, BIGTICKSIZE );
+							p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+						}
 						break;
 					}
 					case ANGLE :
 					{
 						QString str = QString().sprintf( "%d%c", int(lab), 176 );
-						if ( px > 0 && px < pW ) p->drawText( px - BIGTICKSIZE, pH+2*BIGTICKSIZE, str );
+						if ( px > 0 && px < pW ) {
+							QRect r( px - BIGTICKSIZE, pH+BIGTICKSIZE, 2*BIGTICKSIZE, BIGTICKSIZE );
+							p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+						}
 						break;
 					}
 
@@ -394,7 +413,7 @@ void KalziumPlotWidget::drawBox( QPainter *p ) {
 		for ( int iy = 0; iy <= nmajY+1; iy++ ) {
 			int py = pH - int( pH * ( (y0 + iy*dYtick - y())/dataHeight() ) ); //position of tickmark i (in screen units)
 			if ( py > 0 && py < pH ) {
-				p->drawLine( 0, py, BIGTICKSIZE, py ); 
+				p->drawLine( 0, py, BIGTICKSIZE, py );
 				if ( !secondaryXLimits ) p->drawLine( pW - BIGTICKSIZE - 2, py, pW - 2, py );
 			}
 
@@ -402,12 +421,15 @@ void KalziumPlotWidget::drawBox( QPainter *p ) {
 			if ( ShowTickLabels ) {
 				double lab = yScale()*(y0 + iy*dYtick);
 				if ( fabs(lab)/dYtick < 0.00001 ) lab = 0.0; //fix occassional roundoff error with "0.0" label
-				
+
 				switch ( yAxisType() ) {
 					case DOUBLE :
 					{
 						QString str = QString( "%1" ).arg( lab, 0, 'g', 2 );
-						if ( py > 0 && py < pH ) p->drawText( -2*BIGTICKSIZE, py+SMALLTICKSIZE, str );
+						if ( py > 0 && py < pH ) {
+							QRect r( -2*BIGTICKSIZE, py-SMALLTICKSIZE, 2*BIGTICKSIZE, 2*SMALLTICKSIZE );
+							p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+						}
 						break;
 					}
 					case TIME :
@@ -416,15 +438,21 @@ void KalziumPlotWidget::drawBox( QPainter *p ) {
 						int m = int(60.*(lab - h));
 						while ( h > 24 ) { h -= 24; }
 						while ( h <  0 ) { h += 24; }
-							
+
 						QString str = QString().sprintf( "%02d:%02d", h, m );
-						if ( py > 0 && py < pH ) p->drawText( -4*BIGTICKSIZE, py+SMALLTICKSIZE, str );
+						if ( py > 0 && py < pH ) {
+							QRect r( -3*BIGTICKSIZE, py-SMALLTICKSIZE, 2*BIGTICKSIZE, 2*SMALLTICKSIZE );
+							p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+						}
 						break;
 					}
 					case ANGLE :
 					{
 						QString str = QString().sprintf( "%d%c", int(lab), 176 );
-						if ( py > 0 && py < pH ) p->drawText( -3*BIGTICKSIZE, py + SMALLTICKSIZE, str );
+						if ( py > 0 && py < pH ) {
+							QRect r( -3*BIGTICKSIZE, py-SMALLTICKSIZE, 2*BIGTICKSIZE, 2*SMALLTICKSIZE );
+							p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+						}
 						break;
 					}
 
@@ -460,7 +488,10 @@ void KalziumPlotWidget::drawBox( QPainter *p ) {
 						case DOUBLE :
 						{
 							QString str = QString( "%1" ).arg( lab, 0, 'g', 2 );
-							if ( px > 0 && px < pW ) p->drawText( px - BIGTICKSIZE, -2*BIGTICKSIZE, str );
+							if ( px > 0 && px < pW ) {
+								QRect r( px - BIGTICKSIZE, -2*BIGTICKSIZE, 2*BIGTICKSIZE, BIGTICKSIZE );
+								p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+							}
 							break;
 						}
 						case TIME :
@@ -471,13 +502,19 @@ void KalziumPlotWidget::drawBox( QPainter *p ) {
 							while ( h <  0 ) { h += 24; }
 
 							QString str = QString().sprintf( "%02d:%02d", h, m );
-							if ( px > 0 && px < pW ) p->drawText( px - 2*BIGTICKSIZE, -2*BIGTICKSIZE, str );
+							if ( px > 0 && px < pW ) {
+								QRect r( px - BIGTICKSIZE, -2*BIGTICKSIZE, 2*BIGTICKSIZE, BIGTICKSIZE );
+								p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+							}
 							break;
 						}
 						case ANGLE :
 						{
 							QString str = QString().sprintf( "%d%c", int(lab), 176 );
-							if ( px > 0 && px < pW ) p->drawText( px - BIGTICKSIZE, -2*BIGTICKSIZE, str );
+							if ( px > 0 && px < pW ) {
+								QRect r( px - BIGTICKSIZE, -2*BIGTICKSIZE, 2*BIGTICKSIZE, BIGTICKSIZE );
+								p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+							}
 							break;
 						}
 
@@ -511,7 +548,10 @@ void KalziumPlotWidget::drawBox( QPainter *p ) {
 						case DOUBLE :
 						{
 							QString str = QString( "%1" ).arg( lab, 0, 'g', 2 );
-							if ( py > 0 && py < pH ) p->drawText( pW + 2*BIGTICKSIZE, py + SMALLTICKSIZE, str );
+							if ( py > 0 && py < pH ) {
+								QRect r( pW + 2*BIGTICKSIZE, py-SMALLTICKSIZE, 2*BIGTICKSIZE, 2*SMALLTICKSIZE );
+								p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+							}
 							break;
 						}
 						case TIME :
@@ -522,13 +562,19 @@ void KalziumPlotWidget::drawBox( QPainter *p ) {
 							while ( h <  0 ) { h += 24; }
 
 							QString str = QString().sprintf( "%02d:%02d", h, m );
-							if ( py > 0 && py < pH ) p->drawText( pW + 2*BIGTICKSIZE, py + SMALLTICKSIZE, str );
+							if ( py > 0 && py < pH ) {
+								QRect r( pW + 2*BIGTICKSIZE, py-SMALLTICKSIZE, 2*BIGTICKSIZE, 2*SMALLTICKSIZE );
+								p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+							}
 							break;
 						}
 						case ANGLE :
 						{
 							QString str = QString().sprintf( "%d%c", int(lab), 176 );
-							if ( py > 0 && py < pH ) p->drawText( pW + 3*BIGTICKSIZE, py + SMALLTICKSIZE, str );
+							if ( py > 0 && py < pH ) {
+								QRect r( pW + 3*BIGTICKSIZE, py-SMALLTICKSIZE, 2*BIGTICKSIZE, 2*SMALLTICKSIZE );
+								p->drawText( r, Qt::AlignCenter | Qt::DontClip, str );
+							}
 							break;
 						}
 
@@ -544,7 +590,68 @@ void KalziumPlotWidget::drawBox( QPainter *p ) {
 			}
 		} //end if ( secondaryYLimits )
 
+		f.setPointSize( s );
+		p->setFont( f );
+
 	} //end if ( showTickmarks )
+
+	//Draw X Axis Label(s)
+	if ( ! XAxisLabel.isEmpty() ) {
+		QRect r( 0, PixRect.height() + 2*YPADDING, PixRect.width(), YPADDING );
+		p->drawText( r, Qt::AlignCenter | Qt::DontClip, XAxisLabel );
+	}
+	if ( ! XAxisLabel2.isEmpty() ) {
+		QRect r( 0, -3*YPADDING, PixRect.width(), YPADDING );
+		p->drawText( r, Qt::AlignCenter | Qt::DontClip, XAxisLabel2 );
+	}
+
+	//Draw Y Axis Label(s).  We need to draw the text sideways.
+	if ( ! YAxisLabel.isEmpty() ) {
+		//store current painter translation/rotation state
+		p->save();
+
+		//translate coord sys to left corner of axis label rectangle, then rotate 90 degrees.
+		p->translate( -3*XPADDING, PixRect.height() );
+		p->rotate( -90.0 );
+
+		QRect r( 0, 0, PixRect.height(), XPADDING );
+		p->drawText( r, Qt::AlignCenter | Qt::DontClip, YAxisLabel ); //draw the label, now that we are sideways
+
+		p->restore();  //restore translation/rotation state
+	}
+	if ( ! YAxisLabel2.isEmpty() ) {
+		//store current painter translation/rotation state
+		p->save();
+
+		//translate coord sys to left corner of axis label rectangle, then rotate 90 degrees.
+		p->translate( PixRect.width() + 2*XPADDING, PixRect.height() );
+		p->rotate( -90.0 );
+
+		QRect r( 0, 0, PixRect.height(), XPADDING );
+		p->drawText( r, Qt::AlignCenter | Qt::DontClip, YAxisLabel2 ); //draw the label, now that we are sideways
+
+		p->restore();  //restore translation/rotation state
+	}
+}
+
+int KalziumPlotWidget::rightPadding() const {
+	if ( RightPadding >= 0 ) return RightPadding;
+
+	bool secondaryYLimits( false );
+	if ( dataHeight2() > 0.0 && ( yb() != y() || yb2() != y2() ) ) secondaryYLimits = true;
+	if ( secondaryYLimits && ( ShowTickLabels && ! XAxisLabel2 ) ) return 3*XPADDING;
+	if ( secondaryYLimits && ( ShowTickLabels || ! XAxisLabel2 ) ) return 2*XPADDING;
+	return XPADDING;
+}
+
+int KalziumPlotWidget::topPadding() const {
+	if ( TopPadding >= 0 ) return TopPadding;
+
+	bool secondaryXLimits( false );
+	if ( dataWidth2()  > 0.0 && ( xb() != x() || xb2() != x2() ) ) secondaryXLimits = true;
+	if ( secondaryXLimits && ( ShowTickLabels && ! YAxisLabel2 ) ) return 3*YPADDING;
+	if ( secondaryXLimits && ( ShowTickLabels || ! YAxisLabel2 ) ) return 2*YPADDING;
+	return YPADDING;
 }
 
 #include "kalziumplotwidget.moc"

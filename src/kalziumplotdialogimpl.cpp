@@ -21,6 +21,8 @@
 #include <kcombobox.h>
 #include <klistview.h>
 #include <kdialogbase.h>
+#include <ksimpleconfig.h>
+#include <kstandarddirs.h>
 
 //QT-Includes
 #include <qdialog.h>
@@ -28,6 +30,8 @@
 #include <qspinbox.h>
 #include <qsplitter.h>
 #include <qmessagebox.h>
+#include <qpainter.h>
+#include <qstringlist.h>
 
 #include "kalziumplotdialogimpl.h"
 #include "kalziumplotwidget.h"
@@ -35,6 +39,8 @@
 KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name )
  : KDialogBase( KDialogBase::Plain, i18n("Kalzium Plotdialog"), Close|User1, Close, parent , name )
 {
+	loadData(); 
+	
 	QFrame *page = plainPage();
 	setButtonText( User1 , i18n( "&Plot" ) );
 	QVBoxLayout *vlay = new QVBoxLayout( page, 0, spacingHint() );
@@ -44,12 +50,16 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 	toSpin = new QSpinBox( 2, 109 , 1 , page );
 	whatKCB = new KComboBox( false , page , "whatKCB" );
 	whatKCB->insertItem( i18n( "Atomic Weight" ) );
-	whatKCB->insertItem( i18n( "Density" ) );
+	whatKCB->insertItem( i18n( "Electronegativity" ) );
+	whatKCB->insertItem( i18n( "Meltingpoint" ) );
 	whatKCB->insertItem( i18n( "Ionisation Energy" ) );
+	whatKCB->insertItem( i18n( "Atomic Radius" ) );
+	whatKCB->insertItem( i18n( "Boilingpoint" ) );
+whatKCB->insertItem( i18n( "Density" ) );
 ////
 	
 	QSplitter *plotW = new QSplitter( page );
-	pw = new KalziumPlotWidget( -46.0, 46.0, -46.0, 46.0, plotW );
+	pw = new KalziumPlotWidget( 0.0,0.0,0.0,0.0,plotW );
 	
 	elementsKLV = new KListView( plotW, "elementsKLV" );
 	elementsKLV->addColumn( i18n( "Number" ) );
@@ -62,8 +72,6 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 	vlay->addWidget( plotW );
 
 	resize( 500, 500 );
-
-	initPlotObjects();
 }
 
 void KalziumPlotDialogImpl::slotUser1()
@@ -71,11 +79,17 @@ void KalziumPlotDialogImpl::slotUser1()
 	startPlotting();
 }
 
+void KalziumPlotDialogImpl::paintEvent( QPaintEvent * /*e*/ ) 
+{
+	pw->update();
+}
+
 void KalziumPlotDialogImpl::startPlotting()
 {
 	int from, to;
 	from = fromSpin->value();
 	to = toSpin->value();
+	
 	if ( to < from )
 	{
 		QMessageBox::warning(  this, i18n( "Kalzium: Plotting Dialog" ),
@@ -86,22 +100,57 @@ void KalziumPlotDialogImpl::startPlotting()
 	kdDebug() << "Start plotting from " << from << " to " << to << endl;
 
 	KPlotObject *elements = new KPlotObject( "Elements" , "cyan2" , KPlotObject::POINTS, 6, KPlotObject::CIRCLE);
-	double posX = 1.0, posY = 9.3;
+	double posX = 0.0, posY = 0.0;
+	
+	doubleList *foo;
+	int kind = whatKCB->currentItem();
+	foo = dl.at( kind );
+	
+	kdDebug() << "der erste Wert ist: " << *(foo->at( 1 )) << endl;
 	
 	for ( int i = from ; i < to+1 ; ++i )
 	{
-		getPositions( posX , posY );
+		getPositions( i , posY , foo );
+		posX = i;
 		elements->addPoint( new DPoint( posX , posY ) );
-		kdDebug() << ( int )posX << " " << ( int ) posY << endl;
+//		kdDebug() << ( int )posX << " " << ( int ) posY << endl;
 	}
 
+	pw->setLimits(0.0 , to , 0.0 , 200.0 );
 	pw->addObject( elements );
 }
 
-void KalziumPlotDialogImpl::getPositions( double& x , double& y )
+void KalziumPlotDialogImpl::loadData()
 {
-	x = 23.0;
-	y = 20.3;
+	KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
+	QStringList dataKinds;
+	dataKinds.append( "Weight" );
+	dataKinds.append( "EN" );
+	dataKinds.append( "MP" );
+	dataKinds.append( "IE" );
+	dataKinds.append( "AR" );
+	dataKinds.append( "BP" );
+	dataKinds.append( "Density" );
+	
+    for ( int i = 0 ; i < 7 ; ++i )
+	{
+		dl.append( new doubleList );
+	}
+	
+	doubleList *foo = dl.first();
+    for ( QStringList::Iterator strIt = dataKinds.begin() ; strIt != dataKinds.end() ; ++strIt )
+	{
+		for ( int e = 1 ; e < 110 ; ++e )
+		{
+			 config.setGroup(QString::number( e ));
+			 foo->append( config.readDoubleNumEntry( *strIt, -1 ) );
+		}
+	}
+}
+
+void KalziumPlotDialogImpl::getPositions( int num , double& y , doubleList *liste)
+{
+	y = *( liste->at( num ) );
 }
 
 void KalziumPlotDialogImpl::initPlotObjects(){}

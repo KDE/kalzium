@@ -18,11 +18,16 @@
  ***************************************************************************/
 
 #include <kdialogbase.h>
+#include <qvaluelist.h>
+#include <qptrlist.h>
 
 class KListView;
 class KComboBox;
 class QSpinBox;
 class KalziumPlotWidget;
+		
+typedef QValueList<double> doubleList;
+typedef QPtrList<doubleList> dlist;
 
 class KalziumPlotDialogImpl : public KDialogBase
 {
@@ -41,7 +46,15 @@ class KalziumPlotDialogImpl : public KDialogBase
 
 		void startPlotting();
 
-		void getPositions( double& , double& );
+		void getPositions( int , double& , doubleList* );
+
+		void loadData();
+
+		dlist dl;
+		
+
+	protected:
+		virtual void paintEvent(  QPaintEvent* );
 		
 	private slots:
 		void slotUser1();
