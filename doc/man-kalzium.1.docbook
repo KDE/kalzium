@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+<!ENTITY % English "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<author><personname><firstname>Ben</firstname><surname>Burton</surname></personname></author>
+<date>April 8, 2003</date>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle><command>kalzium</command></refentrytitle>
+<manvolnum>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname><command>kalzium</command></refname>
+<refpurpose>A &kde; based chemistry teaching tool</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command>kalzium</command>
+
+<group><option>KDE Generic Options</option></group>
+<group><option>Qt Generic Options</option></group>
+
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title>Description</title>
+
+<para>&kalzium; is a program which shows you the Periodic System of
+the Elements (PSE). You can use &kalzium; to search for information
+about the elements or to learn facts about the PSE.</para>
+
+<para>&kalzium; provides you with all kinds of information about the
+PSE. You can look up lots of information about the elements and also
+use visualisations to show them.</para>
+
+<para>This package is part of the official KDE edutainment module. </para> 
+
+</refsect1>
+
+<refsect1>
+<title>See Also</title>
+
+<para>More detailed user documentation is available from <ulink
+url="help:/kalzium">help:/kalzium</ulink> (either enter this
+<acronym>URL</acronym> into &konqueror;, or run
+<userinput><command>khelpcenter</command>
+<parameter>help:/kalzium</parameter></userinput>).</para>
+
+
+</refsect1>
+
+<refsect1>
+<title>Authors</title>
+
+<para>&kalzium; was written by &Carsten.Niehaus;
+&Carsten.Niehaus.mail; and
+<personname><firstname>Tomisalve</firstname><surname>Gountchev</surname></personname>
+<email>tomi@idiom.com</email>.</para>
+
+<para>This manual page was prepared by <personname><firstname>Ben</firstname><surname>Burton</surname></personname></para>
+
+</refsect1>
+
+</refentry>
