@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>308</width>
-            <height>365</height>
+            <width>323</width>
+            <height>438</height>
         </rect>
     </property>
     <property name="caption">
@@ -96,24 +96,19 @@
             <property name="title">
                 <string>Electronegativity</string>
             </property>
+            <property name="whatsThis" stdset="0">
+                <string>Kalzium can show you the electronegativity in four different scales</string>
+            </property>
             <grid>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QRadioButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>radioButton10</cstring>
-                    </property>
-                    <property name="text">
-                        <string>EN2</string>
-                    </property>
-                </widget>
                 <widget class="QRadioButton" row="2" column="0">
                     <property name="name">
-                        <cstring>radioButton11</cstring>
+                        <cstring>radioButton10_2</cstring>
                     </property>
                     <property name="text">
-                        <string>EN3</string>
+                        <string>Mulliken and Jaffe</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="0" column="0">
@@ -122,6 +117,22 @@
                     </property>
                     <property name="text">
                         <string>Pauling</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="3" column="0">
+                    <property name="name">
+                        <cstring>radioButton11</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Allred and Rochow</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>radioButton10</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Mulligen</string>
                     </property>
                 </widget>
             </grid>
@@ -133,6 +144,9 @@
             <property name="title">
                 <string>Temperatures</string>
             </property>
+            <property name="whatsThis" stdset="0">
+                <string>Kalzium can show you the temperature in three different scales</string>
+            </property>
             <grid>
                 <property name="name">
                     <cstring>unnamed</cstring>
@@ -143,6 +157,14 @@
                     </property>
                     <property name="text">
                         <string>Use Kelvin</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="2" column="0">
+                    <property name="name">
+                        <cstring>radioButton11_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use Degrees Fahrenheit</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="1" column="0">

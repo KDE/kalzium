@@ -153,14 +153,14 @@
   <group name="Electronegativity">
     <entry name="electronegativity" type="Int">
     	<default>1</default>
-	<whatsthis>Which scale should be used</whatsthis>
+	<whatsthis>Select the scale for the electronegativity</whatsthis>
 	<label>This value defines which electronegativity-scale should be used within Kalzium</label>
     </entry>
   </group>
   <group name="Temperature">
     <entry name="temperature" type="Int">
     	<default>0</default>
-	<whatsthis>Use Kelvin or Degrees Celsius</whatsthis>
+		<whatsthis>Select the scale for the temperature</whatsthis>
 	<label>This value defines if a click with the left mousebutton opens the detailed or the small informationsdialog</label>
     </entry>
   </group>
