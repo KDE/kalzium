@@ -17,11 +17,18 @@
 
 //KDE-Includes
 #include <klocale.h>
+#include <kpushbutton.h>
+#include <kconfig.h>
+#include <kdialog.h>
 
 //QT-Includes
 #include <qwhatsthis.h>
 #include <qlayout.h>
 #include <qfont.h>
+#include <qslider.h>
+#include <qcolor.h>
+#include <qlabel.h>
+#include <qlcdnumber.h>
 
 #include <qinputdialog.h>
 
