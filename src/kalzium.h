@@ -1,5 +1,6 @@
 /***************************************************************************
-                          kalzium.h  -  description
+
+        kalzium.h  -  description
                              -------------------
     begin                : Die Dez  4 17:59:34 CET 2001
     copyright            : (C) 2001 by Carsten Niehaus
@@ -15,8 +16,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef KALZIUM_H
-#define KALZIUM_H
+#ifndef _KALZIUM_H
+#define _KALZIUM_H
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

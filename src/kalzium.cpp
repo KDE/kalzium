@@ -26,7 +26,6 @@
 #include "settingsdialog.h"
 #include "value_visualisation.h"
 
-
 //KDE-Includes
 #include <kaction.h>
 #include <kapplication.h>
@@ -34,6 +33,7 @@
 #include <kdialog.h>
 #include <kedittoolbar.h>
 #include <khelpmenu.h>
+#include <kiconloader.h>
 #include <klocale.h>
 #include <kmenubar.h>
 #include <kpopupmenu.h>
@@ -45,8 +45,8 @@
 #include <kstdaction.h>
 
 //QT-Includes
-#include <qlabel.h>
 #include <qinputdialog.h>
+#include <qlabel.h>
 #include <qlayout.h>
 #include <qlcdnumber.h>
 #include <qslider.h>
@@ -54,9 +54,9 @@
 #include <qwhatsthis.h>
 
 // Table includes
-#include <quizdlg.h>
-#include <calcdlg.h>
-#include <stateofmatterdlg.h>
+#include "quizdlg.h"
+#include "calcdlg.h"
+#include "stateofmatterdlg.h"
 
 
 Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
@@ -511,6 +511,8 @@ void Kalzium::setupConfig()
 
 void Kalzium::setupActions()
 {
+    KIconLoader *kil = KGlobal::iconLoader();
+    
     main_config->setGroup("Menu Settings");
     KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
     KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection(), "configure");
@@ -550,7 +552,7 @@ void Kalzium::setupActions()
     // END NUMERATIONMENU
 
     // BEGIN TIMELINE
-    timelineToggleAction = new KToggleAction(i18n("Show Timeline"),0,actionCollection(), "timeline");
+    timelineToggleAction = new KToggleAction(i18n("Show Timeline"),kil->iconPath("timeline", KIcon::User),0,actionCollection(), "timeline");
     timelineToggleAction->setChecked(true);
     connect(timelineToggleAction, SIGNAL(toggled(bool)), this, SLOT(slotShowTimeline(bool)));
 
