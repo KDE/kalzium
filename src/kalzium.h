@@ -78,6 +78,8 @@ class Kalzium : public KMainWindow
 	KalziumLegend *legend;
 
 	void createhelpArray();
+  QFont generalFont() {return generalKPFont;};
+  QFont generalBoldFont() {return generalKPBoldFont;};
 
     private:
 	KConfig *main_config;
@@ -85,6 +87,11 @@ class Kalzium : public KMainWindow
 					*toolbarToggleAction,
 					*legendToggleAction;
 	PQLabel labels[18];
+
+  // Fonts for ElementKP
+  QFont generalKPFont;
+  QFont generalKPBoldFont;
+  
 	QGridLayout *maingrid;
 	QLCDNumber *dateLCD;
 	QSlider *dateS;
@@ -150,6 +157,8 @@ class Kalzium : public KMainWindow
 	void changeNumeration(int) const;
 
 	void defineweights() const;
+
+  void setFont();
 
 	void showPseStyle(int);
 

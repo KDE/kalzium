@@ -66,6 +66,8 @@
 
 Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
 {
+    connect (kapp, SIGNAL(kdisplayFontChanged()), this, SLOT (setFont()));
+    setFont();
     main_config=KGlobal::config();
 
     calculationdialog=NULL;
@@ -316,6 +318,17 @@ void Kalzium::hideSettingsDialog()
         setDlg=0;
     }
 }
+
+void Kalzium::setFont()
+{
+    generalKPFont = KGlobalSettings::generalFont();
+    generalKPBoldFont = generalKPFont;
+
+    generalKPBoldFont.setBold(TRUE);
+    generalKPFont.setPointSize(generalKPFont.pointSize()-2);
+    generalKPBoldFont.setPointSize(generalKPBoldFont.pointSize()+1);
+}
+
 
 void Kalzium::showPseStyle(int i)
 {
