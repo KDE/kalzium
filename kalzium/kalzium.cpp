@@ -20,23 +20,23 @@
 #include "kalzium.moc"
 #include "../calculations/kmoledit.h"
 #include "../calculations/kmolcalc.h"
-#include "calcdialog.h"
 #include "eleminfo.h"
+#include "calcdialog.h"
 #include "settingsdialog.h"
 #include "value_visualisation.h"
 
 
 //KDE-Includes
 #include <kconfig.h>
-#include <kdialog.h>
-#include <khelpmenu.h>
-#include <klocale.h>
-#include <kmenubar.h>
-#include <kpopupmenu.h>
-#include <ksimpleconfig.h>
-#include <kstdaction.h>
-#include <kstdaction.h>
 #include <kstddirs.h>
+#include <klocale.h>
+#include <ksimpleconfig.h>
+#include <kpopupmenu.h>
+#include <kstdaction.h>
+#include <kmenubar.h>
+#include <khelpmenu.h>
+#include <kstdaction.h>
+#include <kdialog.h>
 
 //QT-Includes
 #include <qlabel.h>
@@ -44,6 +44,8 @@
 #include <qwhatsthis.h>
 #include <qinputdialog.h>
 #include <qlayout.h>
+
+// Standard C++ includes
 
 // Table includes
 #include <quizdlg.h>
@@ -53,6 +55,7 @@
 //which version?
 #define KALZIUM_VERSION 0.4
 
+using namespace std;
 
 Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 {
@@ -148,15 +151,28 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
     {
         labels[n] = new QLabel (foo);
     }
-    showIUPAC();
-    slotShowBlocks();
     setCentralWidget(foo);
+    
+    updateMainWindow();
+//    showIUPAC();
+//    slotShowBlocks();
 }
 
 Kalzium::~Kalzium()
 {
     for (int n=0; n<118; n++)
         delete element[n];
+}
+
+bool Kalzium::queryClose()
+{
+    main_config->setGroup("Menu Settings");
+    main_config->writeEntry("psestylemenu",psestylemenu->currentItem()); 
+    main_config->writeEntry("colourschememenu", colourschememenu->currentItem());
+    main_config->writeEntry("numerationmenu", numerationmenu->currentItem());
+    main_config->writeEntry("timelinemenu", timelinemenu->currentItem());
+	main_config->sync();
+    return true;
 }
 
 void Kalzium::showCAS()
@@ -431,7 +447,7 @@ void Kalzium::defineweights()
     (new KMolEdit(0, "kmoledit", new KMolCalc))->exec();
 }
 
-void Kalzium::psestyleShow(int i)
+void Kalzium::pseStyleShow(int i)
 {
     if (i==0)
         slotShowMendelejew();
@@ -478,11 +494,20 @@ void Kalzium::setupConfig()
 		main_config->setGroup("WLU");
 		main_config->writeEntry("adress", "http://www.ktf-split.hr/periodni/en/");
 	}
+    if (!main_config->hasGroup("Menu Settings"))
+    {
+        main_config->setGroup("Menu Settings");
+        main_config->writeEntry("psestylemenu", 1);
+        main_config->writeEntry("colourschememenu", 1);
+        main_config->writeEntry("numerationmenu", 0);
+        main_config->writeEntry("timelinemenu", 1);
+    }
 	main_config->sync();
 }
 
 void Kalzium::setupActions()
 {
+    main_config->setGroup("Menu Settings");
     KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
     KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
     
@@ -491,8 +516,8 @@ void Kalzium::setupActions()
     psestylelist.append( i18n("&Complete"));
     psestylemenu = new KSelectAction(i18n("&PSE Sytle"),0,actionCollection(), "psestyle");
     psestylemenu->setItems(psestylelist);
-    psestylemenu->setCurrentItem(1);
-    connect(psestylemenu, SIGNAL(activated(int)), this, SLOT(psestyleShow(int)));
+    connect(psestylemenu, SIGNAL(activated(int)), this, SLOT(pseStyleShow(int)));
+    psestylemenu->setCurrentItem(main_config->readNumEntry("psestylemenu"));
 
     QStringList colourschemelist;
     colourschemelist.append( i18n("&Acid Behaviours"));
@@ -501,9 +526,9 @@ void Kalzium::setupActions()
     colourschemelist.append( i18n("&State of Matter"));
     colourschememenu = new KSelectAction(i18n("&Colourscheme"),0,actionCollection(), "colourscheme");
     colourschememenu->setItems(colourschemelist);
-    colourschememenu->setCurrentItem(1);
     connect(colourschememenu, SIGNAL(activated(int)), this, SLOT(updateColourMenu(int)));
     connect(colourschememenu, SIGNAL(activated(int)), this, SLOT(changeColourScheme(int)));
+    colourschememenu->setCurrentItem(main_config->readNumEntry("colourschememenu"));
     
     // BEGIN NUMERATIONMENU
     QStringList numerationlist;
@@ -513,10 +538,10 @@ void Kalzium::setupActions()
 
     numerationmenu = new KSelectAction (i18n("&Numeration"),0,actionCollection(), "numeration");
     numerationmenu->setItems(numerationlist);
-    numerationmenu->setCurrentItem(0);
 
     connect(numerationmenu, SIGNAL(activated(int)), this, SLOT(updateNumMenu(int)));
     connect(numerationmenu, SIGNAL(activated(int)), this, SLOT(changeNumeration(int)));
+    numerationmenu->setCurrentItem(main_config->readNumEntry("numerationmenu"));
     // END NUMERATIONMENU
 
     // BEGIN  TIMELINEMENU
@@ -526,10 +551,10 @@ void Kalzium::setupActions()
     
     timelinemenu = new KSelectAction (i18n("&Timeline"),0,actionCollection(),"timeline");
     timelinemenu->setItems(timelinelist);
-    timelinemenu->setCurrentItem(1);
 
     connect(timelinemenu, SIGNAL(activated(int)), this, SLOT(updateTimeMenu(int)));
     connect(timelinemenu, SIGNAL(activated(int)), this, SLOT(slotShowTimeline(int)));
+    timelinemenu->setCurrentItem(main_config->readNumEntry("timelinemenu"));
     // END TIMELINEMENU
     
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
@@ -537,5 +562,13 @@ void Kalzium::setupActions()
     (void) new KAction (i18n("Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
     (void) new KAction (i18n("Define Molecular Weights"),0, this, SLOT(defineweights()), actionCollection(), "defineweights");
 
-    createGUI(locate("data", "kalzium/kalziumui.rc"));
+    createGUI("kalziumui.rc");
+}
+
+void Kalzium::updateMainWindow()
+{
+    changeColourScheme(colourschememenu->currentItem());
+    changeNumeration(numerationmenu->currentItem());
+    pseStyleShow(psestylemenu->currentItem());
+    slotShowTimeline(timelinemenu->currentItem());
 }

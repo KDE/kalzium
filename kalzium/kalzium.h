@@ -132,7 +132,7 @@ class Kalzium : public KMainWindow
     void updateTimeMenu(int);
     void updateColourMenu(int);
     
-    void psestyleShow(int);
+    void pseStyleShow(int);
     void slotShowTimeline(int);
 
     /**
@@ -153,7 +153,9 @@ class Kalzium : public KMainWindow
         void showSettingsDialog();
         void hideSettingsDialog();
     protected:
+        bool queryClose();
         void setupActions();
         void setupConfig();
+        void updateMainWindow();
 };
 #endif
