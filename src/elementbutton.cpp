@@ -98,7 +98,6 @@ void ElementButton::paintEvent( QPaintEvent* )
     p.end(); 
 }
 
-
 void ElementButton::mousePressEvent( QMouseEvent* /*e*/ )
 {
 	    emit num( m_ElementNumber );

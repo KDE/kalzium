@@ -134,7 +134,7 @@ const QString Element::adjustUnits( double val, const int type )
 	else if ( type == DENSITY ) // its a density
 	{
 		v = QString::number( val );
-		v.append( " g/m<sup>3</sup>" );
+		v.append( " g/cm<sup>3</sup>" );
 	}
 	else if ( type == DATE ) //its a date
 	{
