@@ -76,8 +76,6 @@ Kalzium::Kalzium()
 	setCentralWidget( m_pCurrentPSE );
 	
 	createStandardStatusBarAction(); //post-KDE 3.1
-
-	m_pCurrentPSE->activateColorScheme( Prefs::colorschemebox() );
 }
 
 void Kalzium::slotStartQuiz()
@@ -146,13 +144,18 @@ void Kalzium::showSettingsDialog()
 
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
-	connect( dialog, SIGNAL( okClicked() ), m_pCurrentPSE, SLOT( slotUpdatePSE() ) );
-	connect( dialog, SIGNAL( applyClicked() ), m_pCurrentPSE, SLOT( slotUpdatePSE() ) );
+	connect( dialog, SIGNAL( settingsChanged() ), m_pCurrentPSE, SLOT( slotUpdatePSE() ) );
+	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotSaveConfig() ) );
 	dialog->addPage( new setColorScheme( 0, "colorscheme_page"), i18n("Configure Default Colorscheme"), "colorize");
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Configure Colors"), "colorize");
 	dialog->addPage( new setupQuiz( 0, "quizsetuppage" ), i18n( "Configure Quiz" ), "edit" );
 	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Configure Misc" ), "misc" );
 	dialog->show();
+}
+
+void Kalzium::slotSaveConfig()
+{
+	Prefs::writeConfig();
 }
 
 void Kalzium::optionsConfigureKeys()

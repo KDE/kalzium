@@ -79,6 +79,8 @@ class Kalzium : public KMainWindow
 		 * this slot schwitches Kalzium to the selected colorscheme
 		 **/
 		void slotShowScheme(void);
+
+		void slotSaveConfig();
 	
 		/*
 		 * This slot switches Kalzium to the selected PSE

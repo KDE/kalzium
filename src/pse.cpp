@@ -35,6 +35,8 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 
 	setupBlockLists();
 	setupPSEElementButtonsList();
+	
+	activateColorScheme( Prefs::colorschemebox() );
 }
 
 PSE::~PSE(){}
