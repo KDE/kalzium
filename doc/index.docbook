@@ -110,7 +110,7 @@ level.</para>
 <textobject>
 <phrase>&kalzium; with the training option dialog visible</phrase>
 </textobject>
-<caption><para>Here is a screenshot of &kalzium;'s training dialog.</para> 
+<caption><para>Here is a screenshot of &kalzium;'s informationdialog.</para> 
 </caption>
 </mediaobject>
 </screenshot>
@@ -137,7 +137,7 @@ from the web (in a new window).</para>
 <para>In &kalzium; 0.5 we only provide one calculation. This is called
 <guilabel>KMol</guilabel>. In the field <guilabel>Formula</guilabel>
 you can enter a totals formula and will get the molecular weight
-<guilabel>Me</guilabel> measured in <quote>u</quote> and the elemental
+<guilabel>Mw</guilabel> measured in <quote>u</quote> and the elemental
 composition. KMol knows all elements of the <acronym>PSE</acronym>.
 </para>
 </sect1>

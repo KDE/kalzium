@@ -1,8 +1,6 @@
 last modified: July 8 2002
 
 TODO for KDE 3.1:
-- write documentation
-
 - go through the code and check if all QWhatsThis:: really appear
 
 - slotrenaming
