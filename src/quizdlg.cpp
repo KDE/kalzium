@@ -46,10 +46,9 @@
 #include <time.h>
 
 #include "quizdlg.h"
-#include "quizdlgui.h"
 
 QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  
-    : QWidget (parent,name)
+    : QuizDlgUI (parent,name)
 {
     qnum = numofquestions;
 
@@ -75,15 +74,13 @@ QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )
     currentnr = 0;
     i = 0;
 
-    quizdlg = new QuizDlgUI();
-    quizdlg->show();
-    quizdlg->KProgress1->setTotalSteps( qnum );
-    quizdlg->KProgress1->setProgress(0);
+    KProgress1->setTotalSteps( qnum );
+    KProgress1->setProgress(0);
     
     
-    connect( quizdlg->bgroup, SIGNAL(clicked(int)), SLOT(updateIt()) );
+    connect( bgroup, SIGNAL(clicked(int)), SLOT(updateIt()) );
 
-    connect( quizdlg->confirm, SIGNAL(clicked() ), this, SLOT( slotCheck() ) );
+    connect( confirm, SIGNAL(clicked() ), this, SLOT( slotCheck() ) );
     
     setTexts();
 
@@ -95,21 +92,21 @@ void QuizDlg::increaseIfCorrect( int i )
     switch (i)
     {
 	case 1:
-	    if (quizdlg->one->isChecked() == true)
+	    if (one->isChecked() == true)
 	    {
 		quizresult++; //increase if correct
 		QuestioniWasCorrect[currentnr] = true;
 	    }
 	    break;
 	case 2:
-	    if (quizdlg->two->isChecked() == true) 
+	    if (two->isChecked() == true) 
 	    {
     		quizresult++; //increase if correct
     		QuestioniWasCorrect[currentnr] = true;
 	    }
 	    break;
 	case 3:
-	    if (quizdlg->three->isChecked() == true) 
+	    if (three->isChecked() == true) 
 	    {
     		quizresult++; //increase if correct
     		QuestioniWasCorrect[currentnr] = true;
@@ -128,7 +125,7 @@ void QuizDlg::setTexts()
     answer=quizconfig.readEntry("A", "Unknown");
     alternative1=quizconfig.readEntry("Alternative1", "Unknown");
     alternative2=quizconfig.readEntry("Alternative2", "Unknown");
-    quizdlg->titleText->setText(i18n(question.utf8()));
+    titleText->setText(i18n(question.utf8()));
     
     //now we need to know where to put the correct answer
     correctis = (rand()%3)+1;
@@ -137,19 +134,19 @@ void QuizDlg::setTexts()
     switch (correctis)
     {
         case 1:
-            quizdlg->one_label->setText(i18n(answer.utf8()));
-            quizdlg->two_label->setText(i18n(alternative1.utf8()));
-            quizdlg->three_label->setText(i18n(alternative2.utf8()));
+            one_label->setText(i18n(answer.utf8()));
+            two_label->setText(i18n(alternative1.utf8()));
+            three_label->setText(i18n(alternative2.utf8()));
             break;
         case 2:
-            quizdlg->two_label->setText(i18n(answer.utf8()));
-            quizdlg->one_label->setText(i18n(alternative1.utf8()));
-            quizdlg->three_label->setText(i18n(alternative2.utf8()));
+            two_label->setText(i18n(answer.utf8()));
+            one_label->setText(i18n(alternative1.utf8()));
+            three_label->setText(i18n(alternative2.utf8()));
             break;
         case 3:
-            quizdlg->three_label->setText(i18n(answer.utf8()));
-            quizdlg->two_label->setText(i18n(alternative1.utf8()));
-            quizdlg->one_label->setText(i18n(alternative2.utf8()));
+            three_label->setText(i18n(answer.utf8()));
+            two_label->setText(i18n(alternative1.utf8()));
+            one_label->setText(i18n(alternative2.utf8()));
             break;
     }
 }
@@ -168,7 +165,7 @@ void QuizDlg::slotCheck()
     increaseIfCorrect( correctis );
 
     //if nothing at all is checked
-    if (quizdlg->one->isChecked() == false && quizdlg->two->isChecked()== false  && quizdlg->three->isChecked()== false )
+    if (one->isChecked() == false && two->isChecked()== false  && three->isChecked()== false )
     {
         KMessageBox::error ( this, i18n("You haven't selected a button") );
     }
@@ -176,14 +173,14 @@ void QuizDlg::slotCheck()
     else
     {
         currentnr++;
-        quizdlg->KProgress1->setProgress(currentnr);
+        KProgress1->setProgress(currentnr);
         //if it has not been the last question
         if (currentnr != qnum)
         {
             i++;              //increase the current number
-            quizdlg->one->setChecked( FALSE );
-            quizdlg->two->setChecked( FALSE );
-            quizdlg->three->setChecked( FALSE );
+            one->setChecked( FALSE );
+            two->setChecked( FALSE );
+            three->setChecked( FALSE );
             setTexts();       //set the next questions
         }
 

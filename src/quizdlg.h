@@ -18,10 +18,11 @@
 #ifndef QUIZDLG_H
 #define QUIZDLG_H
 
+#include "quizdlgui.h"
+
 class QLabel;
 class QRadioButton;
 class QWidget;
-class QuizDlgUI;
 
 /**
 * This class provides the dialog for the knowledge test. 
@@ -29,7 +30,8 @@ class QuizDlgUI;
 * @author Carsten Niehaus
 */
 
-class QuizDlg : public QWidget  {
+class QuizDlg : public QuizDlgUI 
+{
     Q_OBJECT
 
     public: 
@@ -39,10 +41,8 @@ class QuizDlg : public QWidget  {
         QuizDlg(QWidget *parent, const char *name, int numofquestions );
     
     private:
-        QuizDlgUI *quizdlg;
         int i, quizresult, currentnr, qnum, correctis;
         int order[69];
-         QLabel *titleText;
          
         /*
         * the three QRadioButton you select when answering
