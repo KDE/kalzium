@@ -74,8 +74,6 @@ QString Element::parsedOrbits()
 
 double Element::strippedWeight( double num )
 {
-	kdDebug() << "Wert: " << num << endl;
-
 	if ( !finite( num ) )
 		return num;
 
@@ -87,42 +85,7 @@ double Element::strippedWeight( double num )
 	num = num / power * 10000;
 	num = round( num );
 
-	kdDebug() << "Am Ende: " << num * power / 10000 << endl;
 	return num * power / 10000;
-
-/*
-	bool bigger = false;
-	
-	int power = 0;
-	
-	while ( !bigger )
-	{
-		double result = pow( 10.00 , power );
-
-		if ( result <= w )
-			power++;
-
-		if ( result > w )
-			bigger = true;
-	}
-
-	w /= power;
-
-	w *= 10000;
-
-	int temp = ( int )  w ;
-
-	w = ( double ) temp;
-	
-	w /= 10000;
-
-	w *= power;
-
-	kdDebug() << "Wert nach dem ganzen: " << w << endl;
-	
-	return w;
-
-*/
 }
 
 

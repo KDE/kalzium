@@ -8,7 +8,7 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>366</width>
+            <width>389</width>
             <height>576</height>
         </rect>
     </property>
@@ -253,7 +253,7 @@
                         <cstring>radioButton12</cstring>
                     </property>
                     <property name="text">
-                        <string>Display density in the PSE</string>
+                        <string>Display density in the PSE in gramm per cubic centimeter</string>
                     </property>
                 </widget>
             </grid>

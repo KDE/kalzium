@@ -230,6 +230,9 @@ class Element{
 		};
 
 
+		/**
+		 * calculate the 4-digit value of the value @p w
+		 */
 		double strippedWeight( double w );
 
 

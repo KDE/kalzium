@@ -79,14 +79,13 @@ ElementButton::~ElementButton()
 void ElementButton::paintEvent( QPaintEvent* )
 {
     int h, w;
-    h = w = 55;
+    h = w = 60;
     QPainter p;
     p.begin( this );
 	
 	QString text;
 	QFont symbol_font = p.font();
 	symbol_font.setPointSize( 18 );
-//	symbol_font.setBold(  true );
 	QFont f = p.font();
 	f.setPointSize( 8 );
 
@@ -94,25 +93,25 @@ void ElementButton::paintEvent( QPaintEvent* )
 	{
 		case 0:
 			p.setFont( symbol_font );
-    		p.drawText( 20, 40, e->symbol() );
+    		p.drawText( h/6, h/2, e->symbol() );
 			p.setFont( f );
 			text = QString::number( e->strippedWeight( e->weight( ) ) );
 			text.append( i18n( " u" ) );
-			p.drawText( 2, 20, text );
+			p.drawText( 2, h/6, text );
 			break;
 		case 1:
 			p.setFont( symbol_font );
-			p.drawText( 20, h , e->symbol() );
+    		p.drawText( h/6, h/2, e->symbol() );
 			p.setFont( f );
-			p.drawText( 2, h/2-10, QString::number( e->number() ) );
+			text = QString::number( e->number() );
+			p.drawText( 2, h/6, text );
 			break;
 		case 2:
 			p.setFont( symbol_font );
-			p.drawText( 20, 30, e->symbol() );
+    		p.drawText( h/6, h/2, e->symbol() );
 			p.setFont( f );
 			text = QString::number( e->density() );
-			text.append( i18n( "g/cmÂ³" ) );
-			p.drawText( 2, h/2-10, text );
+			p.drawText( 2, h/6, text );
 			break;
 
 	}
