@@ -20,7 +20,7 @@ rc_DATA = kalziumrc kmolweights
 rcuidir = $(kde_datadir)/kalzium
 rcui_DATA = kalziumui.rc
 
-#KDE_ICON = kalzium
+KDE_ICON = kalzium
 
 
 # the library search path. 

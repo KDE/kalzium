@@ -226,15 +226,16 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Preferences"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
     main_config=KGlobal::config();
+
+	// GENERAL SETTINGS
+	general = addPage( i18n( "General Settings" ), i18n( "Custimize the general behavior of Kalzium" ), BarIcon( "kalzium", KIcon::SizeMedium ) );
+
     // COLORSTAB WIDGET
     colorTab = addPage(i18n("Colors"), i18n("Customize Color Settings"), BarIcon("colorize", KIcon::SizeMedium));
     colorsTabWidget = new ColorsTabWidget(colorTab, "colorsTabWidget");
     colorsTabWidget->setCurrentPage(((Kalzium*)parentWidget())->colorschememenu->currentItem());
     QVBoxLayout *vcolorTabBox = new QVBoxLayout(colorTab);
     vcolorTabBox->addWidget(colorsTabWidget);
-
-	// GENERAL SETTINGS
-	general = addPage( i18n( "General Settings" ), i18n( "Custimize the general behavior of Kalzium" ), BarIcon( "connect_creating", KIcon::SizeMedium ) );
 
 	// INFODIALOG
 	main_config->setGroup( "WLU" );
