@@ -66,7 +66,7 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
     calculationdialog=NULL;
     templookup=NULL;
 
-    setCaption(i18n("Kalzium - v%1").arg(KALZIUM_VERSION));
+    setPlainCaption(i18n("Kalzium - v%1").arg(KALZIUM_VERSION));
 
     setupConfig();
     setupActions();
