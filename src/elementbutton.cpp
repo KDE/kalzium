@@ -102,7 +102,7 @@ void ElementButton::paintEvent( QPaintEvent* )
 void ElementButton::mousePressEvent( QMouseEvent* /*e*/ )
 {
 	    emit num( m_ElementNumber );
-};
+}
 
 #include "elementbutton.moc"
 
