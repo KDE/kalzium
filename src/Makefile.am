@@ -1,7 +1,7 @@
 # set the include path for X, qt and KDE
 INCLUDES= -I../calculations $(all_includes) 
 
-SUBIRS = icons
+SUBDIRS = icons
 
 bin_PROGRAMS = kalzium
 kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp stateofmatterdlg.cpp calcdlg.cpp calcdialog.cpp value_visualisation.cpp settingsdialog.cpp
