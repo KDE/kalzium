@@ -18,32 +18,44 @@
 #ifndef KALZIUMCONVERTER_H
 #define KALZIUMCONVERTER_H
 
-#include <converter.h>
+#include <qwidget.h>
 
 class QSlider;
+class KLineEdit;
+class KComboBox;
+class QLabel;
 
 /**This class converts values.
  *@author Carsten Niehaus
  */
 
-class KConvert : public KalziumConvert  {
+class KConvert : public QWidget  {
 	Q_OBJECT
 
 	public: 
+		enum messures {exa,peta,tera,giga,mega,kilo,hecto,deci,centi,milli,micro,nno,pico,femto,atto};
 		KConvert(QWidget *parent, const char *name=0 );
 		QSlider *FromSlider, *ToSlider;
+
+		KLineEdit *ValueKLE, *ResultKLE, *ValueDim, *ResultDim;
+		KComboBox *ToCK, *FromCK, *categorieKC;
+
+		QLabel *difflabel, *q, *w, *e, *r;
+
+		QString convertIntToMes( int );
 
 	private:
 		double toSI( QString );
 		QString toTarget( double );
-		void showSlider();
-		void hideSlider();
+
+		void showDifference();
 
 		private slots:
-			void slotCalculate();
-		void slotSetResultDim(const QString&) const;
-		void slotSetToDim(const QString&) const;
+		void slotCalculate();
+		void slotSetResultDim(const QString&);
+		void slotSetToDim(const QString&);
 		void slotAdjustKomboContent(int);
+		void slotDifference();
 };
 
 #endif // KALZIUMCONVERTER_H
