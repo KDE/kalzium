@@ -50,6 +50,7 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 ////
 	fromSpin = new QSpinBox( 1, 108 , 1 , page );
 	toSpin = new QSpinBox( 2, 109 , 1 , page );
+	toSpin->setValue( 109 );
 	whatKCB = new KComboBox( false , page , "whatKCB" );
 	whatKCB->insertItem( i18n( "Atomic Weight" ) );
 	whatKCB->insertItem( i18n( "Electronegativity" ) );
@@ -76,6 +77,8 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 	vlay->addWidget( plotW );
 
 	resize( 500, 500 );
+
+	slotUser1(); //at the beginning the user already sees one plot
 }
 
 void KalziumPlotDialogImpl::slotUser1()
@@ -156,6 +159,13 @@ void KalziumPlotDialogImpl::setPlotAxis( const int id )
 
 void KalziumPlotDialogImpl::slotKLCItemSelected( QListViewItem* item )
 {
+	if ( item )
+	{
+		int h = item->height();
+		int num = item->parent()->childCount();
+
+		kdDebug() << "Hoehe: " << h << " Anzahl: " << num << endl;
+	}
 }
 
 void KalziumPlotDialogImpl::updateListview()
