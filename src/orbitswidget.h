@@ -20,7 +20,6 @@
 
 
 #include <qwidget.h>
-#include <qstringlist.h>
 #include <math.h>
 
 class OrbitsWidget : public QWidget

@@ -23,7 +23,6 @@
 #include <kiconloader.h>
 
 #include <qlabel.h>
-#include <qlayout.h>
 #include <qpainter.h>
 #include <qpixmap.h>
 #include <qimage.h>
@@ -46,7 +45,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 
 	QString num = QString::number( e->number() );
 	QString elname = e->elname().utf8();
-	QString cap = i18n( "%1 (%2)" ).arg( elname ).arg( num );
+	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( elname ).arg( num );
 	setCaption( cap );
     
 	m_pOverviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon( "overview" ));

@@ -21,8 +21,6 @@
 #define ELEMENTBUTTON_H
 
 #include <qframe.h>
-#include <qpainter.h>
-#include <qstring.h>
 #include "element.h"
 
 class QMouseEvent;

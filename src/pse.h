@@ -20,12 +20,6 @@
 #ifndef PSE_H
 #define PSE_H
 
-#include <qwidget.h>
-#include <qvaluelist.h>
-#include <kpushbutton.h>
-#include <qptrlist.h>
-
-#include "element.h"
 #include "elementbutton.h"
 
 class QLabel;

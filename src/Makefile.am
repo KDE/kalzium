@@ -27,7 +27,8 @@ kalzium_SOURCES = kalzium.cpp \
 			plotwidget.cpp \
 			elementdataviewer.cpp \
 			plotsetupwidget.ui \
-			questiontextwidget.ui
+			questiontextwidget.ui \
+			quizxmlparser.cpp
 
 kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
@@ -64,7 +65,9 @@ EXTRA_DIST = main.cpp \
 		elementdataviewer.cpp \
 		elementdataviewer.h \
 		quiz.cpp \
-		quiz.h
+		quiz.h \
+		quizxmlparser.cpp \
+		quizxmlparser.h
 
 
 METASOURCES = AUTO 

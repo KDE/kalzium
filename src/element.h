@@ -20,10 +20,8 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
-#include <qstring.h>
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>
-#include <qptrlist.h>
 
 class Element;
 

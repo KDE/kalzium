@@ -248,7 +248,13 @@ class Quiz
 		 * sets the number of points per grade to @p points
 		 */
 		void setPointsPerTask( int points );
-		
+
+		/**
+		 * @return the number of tasks in the quiz
+		 */
+		int numOfTasks() const{
+			return m_numTasks;
+		}
 	private:
 		/**
 		 * number of seconds the player has per task
@@ -266,6 +272,8 @@ class Quiz
 		 * give the player 15*3 = 45 points
 		 */
 		int m_pointsPerTask;
+		
+		int m_numTasks;
 };
 
 /**
@@ -281,15 +289,31 @@ class QuizMaster
 	public:
 		/**
 		 * Default Contructor. Create a QuizMaster-Object which controls a Quiz
+		 * @param q the Quiz with all settings
 		 */
-		QuizMaster();
+		QuizMaster( Quiz *q );
+
+		/**
+		 * this methods gets all the settings for the quiz, 
+		 * generates the GUI and finally starts the quiz
+		 */
+		void startQuiz();
+
+		/**
+		 * generate the TaskList with @p num tasks for the quiz
+		 */
+		void generateTaskList( int num );
 		
 	private:
 
+		Quiz *m_quiz;
+		
 		/**
 		 * the number of points the player currently has
 		 */
 		int m_points;
+
+		TaskList m_tasklist;
 		
 };
 

@@ -22,8 +22,7 @@
 #include "questionadddialog_impl.h"
 #include "slider_widget.h"
 #include "elementdataviewer.h"
-
-# include <assert.h>
+#include "quiz.h"
 
 #include <qlabel.h>
 #include <qslider.h>
@@ -268,6 +267,14 @@ void Kalzium::newToolbarConfig()
 void Kalzium::slotQuizAction()
 {
 	quiz_action->setCurrentItem(-1);
+
+	//I will only allow the defaultvaulues until the quiz itself works.
+	//After that is done I will use KConfigXT to load the userdefinded
+	//values and make the quiz complete
+	Quiz *q = new Quiz( 10 ); 
+	
+	QuizMaster *qm = new QuizMaster( q );
+	qm->startQuiz();
 }
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }

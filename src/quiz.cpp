@@ -14,6 +14,10 @@
 
 #include <qpainter.h>
 #include <qwidget.h>
+#include <qptrlist.h>
+#include <qfile.h>
+
+#include "krandomsequence.h"
 
 Task::Task( QString question, 
 			int grade)
@@ -73,5 +77,24 @@ taskList TaskList::tasks( int grade )
 	
 Quiz::Quiz( int numOfTasks )
 {
+	m_numTasks = numOfTasks;
 }
 
+QuizMaster::QuizMaster( Quiz *q )
+{
+	m_quiz = q;
+}
+
+void QuizMaster::generateTaskList( int num )
+{
+	KRandomSequence seq;
+	QPtrList<Task> tList;
+	//XXX fill the seq
+	
+	seq.randomize( &tList );
+}
+
+void QuizMaster::startQuiz()
+{
+	generateTaskList( m_quiz->numOfTasks() );
+}
