@@ -3,7 +3,7 @@
         kalzium.cpp  -  description
                              -------------------
     begin                : Die Dez  4 17:59:34 CET 2001
-    copyright            : (C) 2001 by Carsten Niehaus
+    copyright            : (C) 2001, 2002 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -25,6 +25,7 @@
 #include "elementkp.h"
 #include "settingsdialog.h"
 #include "value_visualisation.h"       //this is for KDE 3.2
+#include "legend.h"
 
 //KDE-Includes
 #include <kaction.h>
@@ -43,7 +44,6 @@
 #include <kstatusbar.h>
 #include <kstdaction.h>
 #include <kstddirs.h>
-#include <kstdaction.h>
 #include <kcolorbutton.h>
 
 //QT-Includes
@@ -55,7 +55,7 @@
 #include <qtooltip.h>
 #include <qstring.h>
 #include <qwhatsthis.h>
-#include <qbutton.h>
+#include <qsplitter.h>
 
 // Table includes
 #include "quizdlg.h"
@@ -65,7 +65,7 @@
 
 Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
 {
-    connect(kapp, SIGNAL(kdisplayFontChanged()), this,SLOT(updateElementKPSize()));
+    connect(kapp, SIGNAL(kdisplayFontChanged()), this, SLOT(updateElementKPSize()));
     
     main_config=KGlobal::config();
 
@@ -77,7 +77,8 @@ Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
     setupConfig();
     setupActions();
 
-    main_window = new QWidget(this);
+    main_window = new QWidget(this, "main_window");
+
     mainlayout = new QVBoxLayout( main_window, 0, -1, "mainlayout" );
 
     setupAllElementKPButtons();
@@ -101,20 +102,20 @@ Kalzium::~Kalzium()
 
 void Kalzium::createhelpArray()
 {
-		for(int i=0;i<9;i++)
-		{
-				for(int e=0;e<18;e++)
-				{
-						helpArray[i][e]="leer";
-				}
-		}
+    for(int i=0;i<9;i++)
+    {
+	for(int e=0;e<18;e++)
+	{
+	    helpArray[i][e]="leer";
+	}
+    }
 
-		int ze=0,sp=0;
-		for(int as=1;as<118;as++)
-		{
-				position(as,ze,sp);
-				helpArray[sp/40][ze/40]=element[as-1]->Data.Symbol;
-		}
+    int ze=0,sp=0;
+    for(int as=1;as<118;as++)
+    {
+	position(as,ze,sp);
+	helpArray[sp/40][ze/40]=element[as-1]->Data.Symbol;
+    }
 }
 
 bool Kalzium::queryClose()
@@ -187,31 +188,11 @@ void Kalzium::setupAllElementKPButtons()
 
 void Kalzium::setupCaption()
 {
-    QHBoxLayout *legend_layout = new QHBoxLayout( mainlayout, -1, "legendlayout" );
-    legend_layout->setDirection(QBoxLayout::LeftToRight);
-    legend_layout->addStretch();
-
-	main_config->setGroup( "Colors" );
-
-	one = new KPushButton( main_window );
-	two = new KPushButton( main_window );
-	three = new KPushButton( main_window );
-	four = new KPushButton( main_window );
-	five = new KPushButton( main_window );
-	six = new KPushButton( main_window );
-	seven = new KPushButton( main_window );
-	eight = new KPushButton( main_window );
-	legend_layout->addWidget( one );
-	legend_layout->addWidget( two );
-	legend_layout->addWidget( three );
-	legend_layout->addWidget( four );
-	legend_layout->addWidget( five );
-	legend_layout->addWidget( six );
-	legend_layout->addWidget( seven );
-	legend_layout->addWidget( eight );
-	legend_layout->addStretch();
-	
-    mainlayout->addStretch();
+    legend = new KalziumLegend(main_window);// legend->show();
+//    QSplitter *testsplitter = new QSplitter(main_window);
+//    mainlayout->addWidget(testsplitter);
+    mainlayout->addWidget(legend);
+    
 
     for (int n = 0; n < 18; n++)
     {
@@ -306,95 +287,22 @@ void Kalzium::changeColorScheme(int id)
     (this->*funcs[id & ~3 ? 3 : id])();
 }
 
-void Kalzium::changeLegend(int id)
-{
-    main_config->setGroup("Colors");
-    if (id == 0) //Acid Behaviours
-    {
-    one->setPaletteBackgroundColor(QColor(main_config->readColorEntry("acidic")));
-    two->setPaletteBackgroundColor(QColor(main_config->readColorEntry("amphoteric")));
-    three->setPaletteBackgroundColor(QColor(main_config->readColorEntry("basic")));
-    four->setPaletteBackgroundColor(QColor(main_config->readColorEntry("neitherofthem")));
-    five->hide();
-    six->hide();
-    seven->hide();
-    eight->hide();
-    one->setText(i18n("Acidic"));
-    two->setText(i18n("Amphoteric"));
-    three->setText(i18n("Basic"));
-    four->setText(i18n("Neutral"));
-    }
-    if (id == 1) //Blocks
-    {
-    one->setPaletteBackgroundColor(QColor(main_config->readColorEntry("s")));
-    two->setPaletteBackgroundColor(QColor(main_config->readColorEntry("p")));
-    three->setPaletteBackgroundColor(QColor(main_config->readColorEntry("d")));
-    four->setPaletteBackgroundColor(QColor(main_config->readColorEntry("f")));
-    five->hide();
-    six->hide();
-    seven->hide();
-    eight->hide();
-    one->setText(i18n("s-Block"));
-    two->setText(i18n("p-Block"));
-    three->setText(i18n("d-Block"));
-    four->setText(i18n("f-Block"));
-    }
-    if (id == 2) //Groups
-    {
-    one->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 1")));
-    two->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 2")));
-    three->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 3")));
-    four->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 4")));
-    five->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 5")));
-    six->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 6")));
-    seven->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 7")));
-    eight->setPaletteBackgroundColor(QColor(main_config->readColorEntry("Group 8")));
-    six->show();
-    seven->show();
-    eight->show();
-    one->setText(i18n("Group 1"));
-    two->setText(i18n("Group 2"));
-    three->setText(i18n("Group 3"));
-    four->setText(i18n("Group 4"));
-    five->setText(i18n("Group 5"));
-    six->setText(i18n("Group 6"));
-    seven->setText(i18n("Group 7"));
-    eight->setText(i18n("Group 8"));
-    }
-    if (id == 3) //State of Matter
-    {
-    one->setPaletteBackgroundColor(QColor(main_config->readColorEntry("liquid")));
-    two->setPaletteBackgroundColor(QColor(main_config->readColorEntry("solid")));
-    three->setPaletteBackgroundColor(QColor(main_config->readColorEntry("vapor")));
-    four->setPaletteBackgroundColor(QColor(main_config->readColorEntry("artificial")));
-    five->setPaletteBackgroundColor(QColor(main_config->readColorEntry("radioactive")));
-    five->show();
-    six->hide();
-    seven->hide();
-    eight->hide();
-    one->setText(i18n("Liquid"));
-    two->setText(i18n("Solid"));
-    three->setText(i18n("Vapor"));
-    four->setText(i18n("Artificial"));
-    five->setText(i18n("Radioactive"));
-    }
-}
 void Kalzium::changeNumeration(int id) const 
 {
     switch (id) {
-        case 0:
-            showIUPAC();
-            break;
-        case 1:
-            showCAS();
-            break;
-        case 2:
-            showOldIUPAC();
-            break;
-        case 3:
-            for (int n = 0; n < 18; ++n)
-                labels[n]->hide();
-            break;
+	case 0:
+	    showIUPAC();
+	    break;
+	case 1:
+	    showCAS();
+	    break;
+	case 2:
+	    showOldIUPAC();
+	    break;
+	case 3:
+	    for (int n = 0; n < 18; ++n)
+		labels[n]->hide();
+	    break;
     }
 }
 
@@ -570,8 +478,6 @@ void Kalzium::updateNumMenu(int id)
     numerationmenu->setCurrentItem(id);
 }
 
-
-// set fixed size for our element buttons (for KDE 3.1)
 void Kalzium::updateElementKPSize()
 {
     QFont general = KGlobalSettings::generalFont();
@@ -640,52 +546,52 @@ void Kalzium::timeline()
 //*******SETUP ACTIONS*************************************************
 void Kalzium::setupConfig()
 {
-	// set the default colors settings
-	if (!main_config->hasGroup("Colors"))
-	{
-		main_config->setGroup("Colors");
+    // set the default colors settings
+    if (!main_config->hasGroup("Colors"))
+    {
+	main_config->setGroup("Colors");
 
-		// State of Matters
-		main_config->writeEntry("liquid",QColor(255,80,35));
-		main_config->writeEntry("solid",QColor(30,80,60));
-		main_config->writeEntry("vapor",QColor(110,80,60));
-		main_config->writeEntry("radioactive",QColor(190,180,180));
-		main_config->writeEntry("artificial",QColor(10,80,180));
-		// Blocks
-		main_config->writeEntry("s",QColor(255,80,35));
-		main_config->writeEntry("p",QColor(30,80,60));
-		main_config->writeEntry("d",QColor(10,80,180));
-		main_config->writeEntry("f",QColor(130,80,255));
-		// Groups
-		main_config->writeEntry("Group 1",QColor(255,80,35));
-		main_config->writeEntry("Group 2",QColor(30,80,60));
-		main_config->writeEntry("Group 3",QColor(10,80,180));
-		main_config->writeEntry("Group 4",QColor(130,80,255));
-		main_config->writeEntry("Group 5",QColor(225,10,25));
-		main_config->writeEntry("Group 6",QColor(33,30,70));
-		main_config->writeEntry("Group 7",QColor(110,10,120));
-		main_config->writeEntry("Group 8",QColor(190,2,212));
-		// Acid Behaviours
-		main_config->writeEntry("acidic",QColor(255,80,35));
-		main_config->writeEntry("basic",QColor(30,80,60));
-		main_config->writeEntry("amphoteric",QColor(10,80,180));
-		main_config->writeEntry("neitherofthem",QColor(130,80,255));
+	// State of Matters
+	main_config->writeEntry("liquid",QColor(255,80,35));
+	main_config->writeEntry("solid",QColor(30,80,60));
+	main_config->writeEntry("vapor",QColor(110,80,60));
+	main_config->writeEntry("radioactive",QColor(190,180,180));
+	main_config->writeEntry("artificial",QColor(10,80,180));
+	// Blocks
+	main_config->writeEntry("s",QColor(255,80,35));
+	main_config->writeEntry("p",QColor(30,80,60));
+	main_config->writeEntry("d",QColor(10,80,180));
+	main_config->writeEntry("f",QColor(130,80,255));
+	// Groups
+	main_config->writeEntry("Group 1",QColor(255,80,35));
+	main_config->writeEntry("Group 2",QColor(30,80,60));
+	main_config->writeEntry("Group 3",QColor(10,80,180));
+	main_config->writeEntry("Group 4",QColor(130,80,255));
+	main_config->writeEntry("Group 5",QColor(225,10,25));
+	main_config->writeEntry("Group 6",QColor(33,30,70));
+	main_config->writeEntry("Group 7",QColor(110,10,120));
+	main_config->writeEntry("Group 8",QColor(190,2,212));
+	// Acid Behaviours
+	main_config->writeEntry("acidic",QColor(255,80,35));
+	main_config->writeEntry("basic",QColor(30,80,60));
+	main_config->writeEntry("amphoteric",QColor(10,80,180));
+	main_config->writeEntry("neitherofthem",QColor(130,80,255));
 
-	} 
-	if (!main_config->hasGroup("WLU"))
-	{
-		main_config->setGroup("WLU");
-		main_config->writeEntry("adress", "http://www.ktf-split.hr/periodni/en/");
-	}
+    } 
+    if (!main_config->hasGroup("WLU"))
+    {
+	main_config->setGroup("WLU");
+	main_config->writeEntry("adress", "http://www.ktf-split.hr/periodni/en/");
+    }
     if (!main_config->hasGroup("Menu Settings"))
     {
-        main_config->setGroup("Menu Settings");
-        main_config->writeEntry("psestylemenu", 1);
-        main_config->writeEntry("colorschememenu", 1);
-        main_config->writeEntry("numerationmenu", 0);
-        main_config->writeEntry("timelineshow", false);
+	main_config->setGroup("Menu Settings");
+	main_config->writeEntry("psestylemenu", 1);
+	main_config->writeEntry("colorschememenu", 1);
+	main_config->writeEntry("numerationmenu", 0);
+	main_config->writeEntry("timelineshow", false);
     }
-	main_config->sync();
+    main_config->sync();
 }
 
 void Kalzium::setupActions()
@@ -714,7 +620,7 @@ void Kalzium::setupActions()
     colorschememenu->setItems(colorschemelist);
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(updateColorMenu(int)));
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(changeColorScheme(int)));
-    connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(changeLegend(int)));
+    connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(changeTheLegend(int)));
     colorschememenu->setCurrentItem(main_config->readNumEntry("colorschememenu"));
     
     // BEGIN NUMERATIONMENU
@@ -751,8 +657,15 @@ void Kalzium::setupActions()
 void Kalzium::updateMainWindow()
 {
     changeColorScheme(colorschememenu->currentItem());
-    changeLegend(colorschememenu->currentItem());
+    legend->changeLegend(colorschememenu->currentItem());
     changeNumeration(numerationmenu->currentItem());
     showPseStyle(psestylemenu->currentItem());
     slotShowTimeline(timelineToggleAction->isChecked());
 }
+
+void Kalzium::changeTheLegend(int tempId)
+{
+	legend->changeLegend(tempId);
+}
+
+

@@ -71,6 +71,11 @@
                             <string>Lenght</string>
                         </property>
                     </item>
+                    <item>
+                        <property name="text">
+                            <string>Factors</string>
+                        </property>
+                    </item>
                     <property name="name">
                         <cstring>categorieKC</cstring>
                     </property>

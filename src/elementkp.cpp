@@ -2,7 +2,7 @@
                           elementkp.cpp  -  description
                              -------------------
     begin                : Mon Dec 10 2001
-    copyright            : (C) 2001 by Carsten Niehaus
+    copyright            : (C) 2001, 2002 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -166,69 +166,69 @@ void ElementKP::lookup() const
 
 void ElementKP::slotShowData()
 {
-	QFont bold_font=KGlobalSettings::generalFont();
-	bold_font.setBold(true);
-	QFont topic_font=bold_font;
-	topic_font.setPointSize(bold_font.pointSize()+2);
+    QFont bold_font=KGlobalSettings::generalFont();
+    bold_font.setBold(true);
+    QFont topic_font=bold_font;
+    topic_font.setPointSize(bold_font.pointSize()+2);
 
-	infoDlg *show_data2 = new infoDlg();
-	show_data2->show();
-	show_data2->setCaption( i18n( Data.Name.utf8() ) );
-	show_data2->name_label->setText( i18n( Data.Name.utf8() ) );
-	show_data2->symbol_label->setText(i18n( "%1" ).arg( Data.Symbol ) );
-	show_data2->block_label->setText( i18n( "%1" ).arg( Data.Block ) );
+    infoDlg *show_data2 = new infoDlg();
+    show_data2->show();
+    show_data2->setCaption( i18n( Data.Name.utf8() ) );
+    show_data2->name_label->setText( i18n( Data.Name.utf8() ) );
+    show_data2->symbol_label->setText(i18n( "%1" ).arg( Data.Symbol ) );
+    show_data2->block_label->setText( i18n( "%1" ).arg( Data.Block ) );
 
-	if ( Data.Density == -1 )
-		show_data2->density_label->setText( i18n( "Unknown" ) );
-	else
-		show_data2->density_label->setText( i18n("%1 g/cm^3" ).arg( Data.Density ) );
+    if ( Data.Density == -1 )
+	show_data2->density_label->setText( i18n( "Unknown" ) );
+    else
+	show_data2->density_label->setText( i18n("%1 g/cm^3" ).arg( Data.Density ) );
 
-	if ( Data.MP == -1 )
-		show_data2->melting_label->setText( i18n( "Unknown" ) );
-	else
-		show_data2->melting_label->setText( i18n( "%1 C" ).arg( -273.15+Data.MP ) );
+    if ( Data.MP == -1 )
+	show_data2->melting_label->setText( i18n( "Unknown" ) );
+    else
+	show_data2->melting_label->setText( i18n( "%1 C" ).arg( -273.15+Data.MP ) );
 
-	if (Data.IE == -1)
-		show_data2->ion_label->setText( i18n( "Unknown" ) );
-	else
-		show_data2->ion_label->setText( i18n( "%1 kJ/mole" ).arg( Data.IE*100) );
+    if (Data.IE == -1)
+	show_data2->ion_label->setText( i18n( "Unknown" ) );
+    else
+	show_data2->ion_label->setText( i18n( "%1 kJ/mole" ).arg( Data.IE*100) );
 
-	show_data2->elemno_label->setText( i18n( "%1" ).arg( Data.number ) );
+    show_data2->elemno_label->setText( i18n( "%1" ).arg( Data.number ) );
 
-	if (Data.Weight == "0")
-		show_data2->weight_label->setText( i18n( "Unknown" ) );
-	else
-		show_data2->weight_label->setText( i18n( "%1 u" ).arg( Data.Weight ) );
+    if (Data.Weight == "0")
+	show_data2->weight_label->setText( i18n( "Unknown" ) );
+    else
+	show_data2->weight_label->setText( i18n( "%1 u" ).arg( Data.Weight ) );
 
     if (Data.date == "0")
-        show_data2->discovered_label->setText(i18n("was known to ancient cultures"));
+	show_data2->discovered_label->setText(i18n("was known to ancient cultures"));
     else if (Data.date == "3333")
-        show_data2->discovered_label->setText(i18n("not been discovered yet"));
+	show_data2->discovered_label->setText(i18n("not been discovered yet"));
     else
-        show_data2->discovered_label->setText(i18n("%1").arg(Data.date));
+	show_data2->discovered_label->setText(i18n("%1").arg(Data.date));
 
-	if (Data.AR == -1)
-		show_data2->radius_label->setText( i18n( "Unknown" ) );
-	else
-		show_data2->radius_label->setText( i18n( "%1 pm" ).arg( Data.AR ) );
+    if (Data.AR == -1)
+	show_data2->radius_label->setText( i18n( "Unknown" ) );
+    else
+	show_data2->radius_label->setText( i18n( "%1 pm" ).arg( Data.AR ) );
 
-	if (Data.BP == -1)
-		show_data2->boiling_label->setText( i18n( "Unknown" ) );
-	else
-		show_data2->boiling_label->setText( i18n( "%1 C" ).arg(-273.15+Data.BP ) );
+    if (Data.BP == -1)
+	show_data2->boiling_label->setText( i18n( "Unknown" ) );
+    else
+	show_data2->boiling_label->setText( i18n( "%1 C" ).arg(-273.15+Data.BP ) );
 
-	if (Data.EN == -1)
-		show_data2->electro_label->setText( i18n( "Unknown" ) );
-	else
-		show_data2->electro_label->setText( i18n( "%1" ).arg( Data.EN ) );
+    if (Data.EN == -1)
+	show_data2->electro_label->setText( i18n( "Unknown" ) );
+    else
+	show_data2->electro_label->setText( i18n( "%1" ).arg( Data.EN ) );
 
 
-	show_data2->general_label->setFont( topic_font );
-	show_data2->states_label->setFont( topic_font );
-	show_data2->energy_label->setFont( topic_font );
-	
-/*	// The table 
-	show_data2->neighbourTable->horizontalHeader()->hide();
+    show_data2->general_label->setFont( topic_font );
+    show_data2->states_label->setFont( topic_font );
+    show_data2->energy_label->setFont( topic_font );
+
+    	// The table 
+/*	show_data2->neighbourTable->horizontalHeader()->hide();
 	show_data2->neighbourTable->verticalHeader()->hide();
 	show_data2->neighbourTable->setTopMargin( 0 );
 	show_data2->neighbourTable->setLeftMargin( 0 );
@@ -236,19 +236,19 @@ void ElementKP::slotShowData()
 	getNeighbours( ElemNo );
 	for( int zeile=0 ; zeile < 3 ; zeile++ )
 	{
-		for( int spalte=0 ; spalte < 3 ; spalte++ )
-		{
-			show_data2->neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
-			if (neighbourArray[zeile][spalte] == "leer") show_data2->neighbourTable->setText(zeile,spalte,"");
-		}
-
+	for( int spalte=0 ; spalte < 3 ; spalte++ )
+	{
+	show_data2->neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
+	if (neighbourArray[zeile][spalte] == "leer") show_data2->neighbourTable->setText(zeile,spalte,"");
 	}
-*/
-	// click on this button to load webpage for element
-	QObject::connect(show_data2->weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
 
-	//click on this button to close the Dialog
-	QObject::connect (show_data2->exit, SIGNAL(clicked()), show_data2, SLOT(hide()));
+	}*/
+	
+    // click on this button to load webpage for element
+    QObject::connect(show_data2->weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
+
+    //click on this button to close the Dialog
+    QObject::connect (show_data2->exit, SIGNAL(clicked()), show_data2, SLOT(hide()));
 
 }
 

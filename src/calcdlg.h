@@ -18,13 +18,6 @@
 #ifndef CALCDLG_H
 #define CALCDLG_H
 
-class KPushButton;
-class QComboBox;
-class QMultiLineEdit;
-class QLineEdit;
-class QLabel;
-class QGroupBox;
-class QTabWidget;
 class KMolUI;
 
 #include <qtabwidget.h>
@@ -46,7 +39,7 @@ class CalcDlg : public QTabWidget  {
     Q_OBJECT
 
     public: 
-        CalcDlg(QWidget *parent, const char *name );
+        CalcDlg(QWidget *parent, const char *name=0 );
 
     private:
         KMolCalc *kmolcalc;

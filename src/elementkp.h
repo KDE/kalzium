@@ -2,7 +2,7 @@
                           elementkp.h  -  description
                              -------------------
     begin                : Mon Dec 10 2001
-    copyright            : (C) 2001 by Carsten Niehaus
+    copyright            : (C) 2001, 2002 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -31,7 +31,7 @@ class Kalzium;
 
 /**This class is derived from KPushButton. This is to make it be more specific
   to its tasks. I use a pointer to have MouseOver (eventEnter)-effects in the
-  Mainwidget.
+  mainwidget.
  *@author Carsten Niehaus
  */
 
@@ -62,71 +62,70 @@ struct ElementInfo
    double MP, BP, EN, Density, IE, AR;
 };
 
-class ElementKP : public KPushButton  {
-	Q_OBJECT
+class ElementKP : public KPushButton{
+    Q_OBJECT
 
-	public: 
-		ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0, Kalzium *Kalzium_tmp=0);
+    public: 
+	ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0, Kalzium *Kalzium_tmp=0);
 
-		/**
-		 * used when the mouse enters the pushbutton.
-		 * We use this function to setFocus() so that QWhatsThis works 
-		 * for each element.
-		 */
-		void enterEvent(QEvent *);
+	/**
+	 * used when the mouse enters the pushbutton.
+	 * We use this function to setFocus() so that QWhatsThis works 
+	 * for each element.
+	 */
+	void enterEvent(QEvent *);
 
-		//used when the mouse leaves the pushbutton
-		void leaveEvent(QEvent *);
+	//used when the mouse leaves the pushbutton
+	void leaveEvent(QEvent *);
 
-		Kalzium *kalzium;
-		QString neighbourArray[3][3];
+	Kalzium *kalzium;
+	QString neighbourArray[3][3];
 
-		void getNeighbours( int );
-
-
-		/** loads the name of the fitting element and shows it in
-		 * the statusbar.
-		 */
-		void showName() const;
+	void getNeighbours( int );
 
 
-		ElementInfo Data;    
+	/** loads the name of the fitting element and shows it in
+	 * the statusbar.
+	 */
+	void showName() const;
 
-		/**
-		 * ElemNo is the number of the pushbutton AND the elementnumber. 
-		 * I can now use it to show data and so on.
-		 */
-		int ElemNo;
 
-		KStatusBar *zeigerle;
-		QLabel *pmWeight, *pmTitle;
-		QPopupMenu *pmenu;
+	ElementInfo Data;    
 
-	private:
-		/**
-		*   We use this function to enable drag support for the element buttons.
-		*   We parse all the element infos. 
-		*/
-		void mouseMoveEvent( QMouseEvent * );
+	/**
+	 * ElemNo is the number of the pushbutton AND the elementnumber. 
+	 * I can now use it to show data and so on.
+	 */
+	int ElemNo;
 
-		void mouseReleaseEvent( QMouseEvent *mouse );
+	KStatusBar *zeigerle;
+	QLabel *pmWeight, *pmTitle;
+	QPopupMenu *pmenu;
 
-		QString parseElementInfo();
+    private:
+	/**
+	*   We use this function to enable drag support for the element buttons.
+	*   We parse all the element infos. 
+	*/
+	void mouseMoveEvent( QMouseEvent * );
 
-		private slots:
-		/**
-		 * If the user clicks Web Lookup button
-		 */
-		void lookup() const;
+	void mouseReleaseEvent( QMouseEvent *mouse );
 
-		/** 
-		 * If the user clicks on one button this slot will be called
-		 */
-		void slotShowData();
-        
+	QString parseElementInfo();
+
+	private slots:
+	    /**
+	     * If the user clicks Web Lookup button
+	     */
+	    void lookup() const;
+
+	/** 
+	 * If the user clicks on one button this slot will be called
+	 */
+	void slotShowData();
+
     protected:
-        void drawButtonLabel(QPainter *p);
-            
+	void drawButtonLabel(QPainter *p);
 };
 
 #endif

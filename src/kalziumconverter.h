@@ -18,24 +18,28 @@
 #ifndef KALZIUMCONVERTER_H
 #define KALZIUMCONVERTER_H
 
-class QLabel;
-
 #include <converter.h>
+
+class QSlider;
 
 class KConvert : public KalziumConvert  {
     Q_OBJECT
 
     public: 
         KConvert(QWidget *parent, const char *name=0 );
+	QSlider *FromSlider, *ToSlider;
 
     private:
-        long toSI( QString );
-        QString toTarget( long );
+        double toSI( QString );
+        QString toTarget( double );
+	void showSlider();
+	void hideSlider();
 
     private slots:
         void slotCalculate();
-        void slotSetResultDim(const QString&);
-        void slotSetToDim(const QString&);
+        void slotSetResultDim(const QString&) const;
+        void slotSetToDim(const QString&) const;
+	void slotAdjustKomboContent(int);
 };
 
 #endif // KALZIUMCONVERTER_H

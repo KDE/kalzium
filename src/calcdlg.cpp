@@ -25,18 +25,13 @@
 //QT-Includes
 #include <qlabel.h>
 #include <qtabwidget.h>
-#include <qcombobox.h>
-#include <qlayout.h>
-#include <qgroupbox.h>
-#include <qmultilineedit.h>
+#include <qtextedit.h>
 #include <qstring.h>
 
 #include "calcdlg.h"
 #include "kmolui.h"
 #include "kalziumconverter.h"
 #include "../calculations/kmoledit.h"
-
-#include "math.h"
 
 CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name)
 {
@@ -47,16 +42,12 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
     //accepts text input until return is pressed 
     connect(KMol->formula, SIGNAL(returnPressed()), this, SLOT(calc()));
 
-    //mol weight output field
-
     //calculate button
     connect(KMol->calculate, SIGNAL(clicked()), this, SLOT(calc()));
     connect(KMol->formula, SIGNAL(returnPressed()), KMol->calculate, SLOT(animateClick()));
 
     //clears FORMULA and RESULT fields
     connect(KMol->clear_fields, SIGNAL(clicked()), this, SLOT(clear()));
-
-    //E.A. display field
 
     kmolcalc = new KMolCalc;
 

@@ -1,8 +1,9 @@
 /***************************************************************************
-                          eleminfo.h  -  description
+
+                           lengend.h  -  description
                              -------------------
-    begin                : Mon Dec 10 2001
-    copyright            : (C) 2001, 2002 by Carsten Niehaus
+    begin                : Wed Oct 23 2002
+    copyright            : (C) 2002 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -15,14 +16,35 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <qstring.h>
+#ifndef _LEGEND_H
+#define _LEGEND_H
 
-void position(int, int&, int&);
 
-void periodNrpos(int, int&, int&);
+#include <qdialog.h>
+#include <qwidget.h>
 
-void periodName(int, QString&);
+class KConfig;
+class QButton;
 
-void periodOldName(int, QString&);
+class KalziumLegend : public QWidget
+{
+    Q_OBJECT
 
-void shuffle(int&, int&, int&);
+    public:
+	KalziumLegend(QWidget *parent = 0, const char *name=0);
+
+	void changeLegend(int);
+	
+	QButton *one, 
+	*two, 
+	*three, 
+	*four, 
+	*five, 
+	*six, 
+	*seven, 
+	*eight;
+
+    private:
+	KConfig *main_config;
+};
+#endif

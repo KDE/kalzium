@@ -2,7 +2,7 @@
                           main.cpp  -  
                              -------------------
     begin                : Die Dez  4 17:59:34 CET 2001
-    copyright            : (C) 2001 by Carsten Niehaus
+    copyright            : (C) 2001, 2002 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
