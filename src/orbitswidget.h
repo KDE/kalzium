@@ -43,7 +43,7 @@ class OrbitsWidget : public QWidget
 
 		QStringList hulllist;
 
-		QString getNumber();
+		const QString& getNumber() const;
 		
 		/*
 		 * the returns the delta of the x-coordinate

@@ -125,7 +125,7 @@ void OrbitsWidget::getNumberOfOrbits()
 	}
 }
 
-QString OrbitsWidget::getNumber()
+const QString& OrbitsWidget::getNumber() const
 {
 	return *hulllist.at( Elemno-1 );
 }

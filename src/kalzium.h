@@ -81,8 +81,8 @@ class Kalzium : public KMainWindow
 		DetailedTab *dtab;
 
 		void createhelpArray();
-		QFont generalFont() {return generalKPFont;};
-		QFont generalBoldFont() {return generalKPBoldFont;};
+		const QFont& generalFont() const {return generalKPFont;};
+		const QFont& generalBoldFont() const {return generalKPBoldFont;};
 
 	private:
 		KConfig *main_config;
