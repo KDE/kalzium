@@ -78,7 +78,7 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 
 PSE::~PSE(){}
 
-void PSE::updateNummeration()
+void PSE::updateNumeration()
 {
 }
 
@@ -405,15 +405,17 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 
 RegularPSE::~RegularPSE(){} 
 
-void RegularPSE::updateNummeration()
+void RegularPSE::updateNumeration()
 {
-	kdDebug() << "RegularPSE::updateNummeration()" << endl;
+	kdDebug() << "RegularPSE::updateNumeration()" << endl;
 	LabelList::iterator it = lList.begin();
 	for ( int i = 0 ; it != lList.end() ; ++it )
 	{
 		kdDebug() << m_num << " << m_num" << endl;
 		switch ( m_num )
 		{
+			case NO :
+				break;
 			case CAS :
 				( *it )->setText( QString::number( i+1 ) );
 				break;
@@ -498,13 +500,15 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 
 SimplifiedPSE::~SimplifiedPSE(){}
 
-void SimplifiedPSE::updateNummeration()
+void SimplifiedPSE::updateNumeration()
 {
 	LabelList::iterator it = lList.begin();
 	for ( int i = 0 ; it != lList.end() ; ++it )
 	{
 		switch ( m_num )
 		{
+			case NO :
+				break;
 			case CAS :
 				( *it )->setText( QString::number( i+1 ) );
 				break;
@@ -590,7 +594,7 @@ void MendeljevPSE::setupPSEElementButtonsList()
 	kdDebug() << "MendeljevPSE::setupPSEElementButtonsList()" << endl;
 }
 
-void MendeljevPSE::updateNummeration()
+void MendeljevPSE::updateNumeration()
 {
 	LabelList::iterator it = lList.begin();
 	for ( ; it != lList.end() ; ++it )

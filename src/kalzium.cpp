@@ -53,6 +53,7 @@ Kalzium::Kalzium()
 	 * the actions for switching PSE
 	 **/
 	 QStringList numlist;
+	 numlist.append(i18n("No N&umeration"));
 	 numlist.append(i18n("Show &CAS"));
 	 numlist.append(i18n("Show &IUPAC"));
 	 numlist.append(i18n("Show &Old IUPAC"));
@@ -169,7 +170,7 @@ void Kalzium::slotShowScheme(int i)
 
 void Kalzium::slotSwitchtoNumeration( int index )
 {
-	currentPSE()->setNummerationType( index );
+	currentPSE()->setNumerationType( index );
 	Prefs::setNumeration(index); 
 	Prefs::writeConfig();
 }

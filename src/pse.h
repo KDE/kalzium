@@ -48,19 +48,20 @@ class PSE : public QWidget
 
 		KalziumDataObject *d;
 
-		enum NUMMERATIONTYPE
+		enum NUMERATIONTYPE
 		{
-			CAS = 0,
-			IUPAC = 1,
-			IUPACOLD = 2
+			NO=0,
+			CAS = 1,
+			IUPAC = 2,
+			IUPACOLD = 3
 		};
 
 		/**
-		 * sets the NUMMERATIONTYPE @p num of the periodic table
+		 * sets the NUMERATIONTYPE @p num of the periodic table
 		 */
-		void setNummerationType( int num ){
+		void setNumerationType( int num ){
 			m_num = num;
-			updateNummeration();
+			updateNumeration();
 		}
 
 		/**
@@ -109,7 +110,7 @@ class PSE : public QWidget
 		/**
 		 * updates the nummeration of the PSE
 		 */
-		virtual void updateNummeration();
+		virtual void updateNumeration();
 
 		QStringList m_IUPAClist;
 		QStringList m_IUPACOLDlist;
@@ -166,7 +167,7 @@ class RegularPSE : public PSE
 		 */
 		void setupPSEElementButtonsList();
 		
-		void updateNummeration();
+		void updateNumeration();
 };
 
 /**
@@ -189,7 +190,7 @@ class SimplifiedPSE : public PSE
 		 */
 		void setupPSEElementButtonsList();
 		
-		void updateNummeration();
+		void updateNumeration();
 };
 
 /**
@@ -211,7 +212,7 @@ class MendeljevPSE : public PSE
 		 */
 		void setupPSEElementButtonsList();
 
-		void updateNummeration();
+		void updateNumeration();
 		
 		~MendeljevPSE();
 };
