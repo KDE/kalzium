@@ -1,5 +1,5 @@
 /***************************************************************************
-                          main.cpp  -  description
+                          main.cpp  -  
                              -------------------
     begin                : Die Dez  4 17:59:34 CET 2001
     copyright            : (C) 2001 by Carsten Niehaus
@@ -22,6 +22,10 @@
 
 #include "kalzium.h"
 
+#define VERSION "0.4"
+
+
+
 static const char *description =
 	I18N_NOOP("Kalzium is a chemistry application designed\n"
 	 "to provide information about the elements in\n"
@@ -38,7 +42,7 @@ static KCmdLineOptions options[] =
 int main(int argc, char *argv[])
 {
     KAboutData aboutData( "kalzium", I18N_NOOP("Kalzium"),
-            VERSION, description, KAboutData::License_GPL,
+           VERSION , description, KAboutData::License_GPL,
             "(c) 2001, 2002, Carsten Niehaus", 0, 0, "cniehaus@kde.org");
     aboutData.addAuthor("Carsten Niehaus", 
             I18N_NOOP("Maintainer, Author"), "cniehaus@gmx.de");
