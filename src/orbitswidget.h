@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 
+#include <qvaluelist.h>
 #include <qwidget.h>
 #include <math.h>
 
@@ -27,17 +28,22 @@ class OrbitsWidget : public QWidget
 	Q_OBJECT
 
 	public:
-		OrbitsWidget( QString Elemno , QWidget *parent=0 , const char *name =0 );
+		OrbitsWidget( int Elemno , QWidget *parent=0 , const char *name =0 );
 
 	private:
+		typedef QValueList<int> intList;
+		intList numOfElectrons;
+
+		int getNumber( QString );
+		
 		QString orbits;
 
-		inline double translateToDX( const double r , const int angle )
+		inline double translateToDX( const double r , const double angle )
 		{
 			return( r * sin( M_PI_4 * angle ) );
 		}
 		
-		inline double translateToDY( const double r , const int angle )
+		inline double translateToDY( const double r , const double angle )
 		{
 			return( r * cos(  M_PI_4 * angle ) );
 		}

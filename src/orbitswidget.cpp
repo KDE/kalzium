@@ -29,38 +29,51 @@
 #include <knuminput.h>
 
 //QT-Includes
-#include <qlayout.h>
-#include <qframe.h>
 #include <qlabel.h>
 #include <qpainter.h>
-#include <qlistview.h>
 #include <qregexp.h>
+#include <qvaluelist.h>
 
-OrbitsWidget::OrbitsWidget( QString Orbits , QWidget *parent, const char *name) : QWidget( parent, name )
+OrbitsWidget::OrbitsWidget( int ElemNo , QWidget *parent, const char *name) : QWidget( parent, name )
 {
-	orbits = Orbits;
+    KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
+	config.setGroup(QString::number(ElemNo+1));
+	orbits=config.readEntry("Orbits","0");
 }
 
 int OrbitsWidget::getNumberOfOrbits()
 {
-	kdDebug() << orbits << endl;
+//X 	kdDebug() << orbits << endl;
 	QRegExp rxb( "([a-z])([0-9]+)" );
 	QRegExp rxm( "([a-z]{2}) ",false );
+	QString numEl = orbits;
 	int pos = 0;
 	int count = 0;
 	while (  ( pos = rxb.search( orbits, pos ) ) != -1 ) {
 		count++;
 		pos += rxb.matchedLength();
-		kdDebug() << pos << " , " << count << endl;
+		numEl=numEl.left( pos-1 );
+//		kdDebug() << "Current: " << numEl << endl;
+		numOfElectrons.append( getNumber( numEl ) );
 	}
 
 	return count;
 }
 
+int OrbitsWidget::getNumber( QString /*cut*/ )
+{
+	return 3;
+}
+
 void OrbitsWidget::paintEvent(  QPaintEvent* )
 {
+	
 	QPainter DC;
+	DC.begin( this );
 
+	DC.setBrush( Dense7Pattern  );
+	DC.setBrush( Qt::darkRed );
+	
 	int h=this->height();
 	int w=this->width();
 	int w_c=h/10;
@@ -77,17 +90,48 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 		r = ( h-2*h_c )/2;
 	else r = ( w-2*w_c )/2;
 	
-	r_electron = r/10;
+	r_electron = r/20; //diameter of an electron-circle
 	
-	DC.begin( this );
-	DC.drawRect( w_c , h_c , 2*r, 2*r );
-
-	DC.drawEllipse( w_c , h_c , 2*r, 2*r );
+	DC.drawRect( w_c , h_c , 2*r, 2*r ); //only to see the borders, will be removed
 
 	int num = getNumberOfOrbits();
-	kdDebug() << "Nummer der Orbits: " << num << endl;
+	kdDebug() << "Number of Orbits: " << num << endl;
+	
+	int d = 2*r; //Durchmesser
+	int	ddx = d/(2*num);//Änderung zum Vorgänger
 
-		//Draws an ellipse with center at ( x + w/2, y + h/2 ) and size ( w, h ). 
+	for ( int i = 0 ; i < num ; ++i )
+	{
+		
+		DC.setBrush( Dense7Pattern  );
+//X 		kdDebug() << "Differenz: " << ddx << endl;
+//X 		kdDebug() << "Durchmesser: " << d << endl;
+
+		int mx = w_c+ddx*i;
+		int my = h_c+ddx*i;
+
+		//draw the big ellipses in concentric circles
+		DC.drawEllipse( mx , my , d , d);
+
+		DC.setBrush( Qt::SolidPattern );
+		for ( int e = 0 ; e < 4 ; ++e )
+		{
+			kdDebug() << "Durchlauf: " << i << " , " <<e << "Durchmesser: " << d/2 << endl;
+			int x = translateToDX(  ( double )d/2 , ( double )e );
+			int y = translateToDY(  ( double )d/2 , ( double )e );
+			
+			kdDebug() << x << endl;
+			kdDebug() << y << endl;
+			DC.drawEllipse( x + mx + d/2 - r_electron, 
+							x + mx + d/2 - r_electron,
+							2*r_electron ,
+							2*r_electron );
+			
+			
+		}
+		d = d-2*ddx;
+	}
 }
+
 
 

@@ -130,7 +130,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	/////////////////////////////////
     orbitsTab = addPage(i18n("Bohrs Orbits"), i18n("Bohrs Orbits"), BarIcon(kil->iconPath( "orbits" , KIcon::User)));
 	QVBoxLayout *orbitsLayout = new QVBoxLayout( orbitsTab );
-	OrbitsWidget *orbitsPic = new OrbitsWidget( Data.orbits , orbitsTab );
+	OrbitsWidget *orbitsPic = new OrbitsWidget( Data.number , orbitsTab );
 	orbitsLayout->addWidget( orbitsPic );
 }
 

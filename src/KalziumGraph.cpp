@@ -51,7 +51,7 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 	to->setMaxValue( 108 );
 		
 	list = new QListView( this );
-	list->addColumn( "Nummer" );
+	list->addColumn( "Number" );
 	list->addColumn( "Symbol" );
 
 	kcb = new KComboBox( this );
