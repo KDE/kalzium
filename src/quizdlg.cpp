@@ -15,6 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "config.h"
+
 //KDE-Includes
 #include <kdialog.h>
 #include <kiconloader.h>
