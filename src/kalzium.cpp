@@ -29,9 +29,22 @@ Kalzium::Kalzium()
 	pd->kalziumData = new KalziumDataObject();
 
 
-	m_pRegularPSEAction = new KAction(i18n("Show &Regular PSE"), 0, this, SLOT(slotSwitchtoRegularPSE()), actionCollection(), "RegularPSE");
-	m_pSimplePSEAction = new KAction(i18n("Show &Simple PSE"), 0, this, SLOT(slotSwitchtoSimplePSE()), actionCollection(), "SimplePSE");
-	m_pMendeljevPSEAction = new KAction(i18n("Show &Mendeljev PSE"), 0, this, SLOT(slotSwitchtoMendeljevPSE()), actionCollection(), "MendeljevPSE");
+	/*
+	 * move this into a method later on
+	 **/
+	m_pRegularPSEAction = new KAction(i18n("Show &Regular PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "RegularPSE");
+	m_pMendeljevPSEAction = new KAction(i18n("Show &Mendeljev PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "MendeljevPSE");
+	m_pSimplePSEAction = new KAction(i18n("Show &Simple PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "SimplePSE");
+
+	m_pBehAcidAction = new KAction(i18n("Show &Acid Behaviour"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_acidic");
+	m_pBehBlocksAction = new KAction(i18n("Show Blocks"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_blocks");
+	m_pBehBlocksAction = new KAction(i18n("Show Groups"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_groups");
+	m_pBehBlocksAction = new KAction(i18n("Show State Of Matter"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_som");
+	m_pBehBlocksAction = new KAction(i18n("No Colors"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_normal");
+	
+	/*
+	 * the standartactions
+	 **/
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 	KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
@@ -52,48 +65,37 @@ Kalzium::Kalzium()
 	createStandardStatusBarAction(); //post-KDE 3.1
 }
 
-void Kalzium::slotSwitchtoMendeljevPSE()
+void Kalzium::slotShowScheme(void)
 {
-	kdDebug() << "slotSwitchtoMendeljev()" << endl;
+	kdDebug() << "slotShowScheme(void)" << endl;
 
-	m_pCurrentPSE = m_pMendeljevPSE;
+	kdDebug() << sender()->name() << endl;
 
+}
+
+void Kalzium::slotSwitchtoPSE(void)
+{
 	m_pRegularPSE->hide();
 	m_pSimplePSE->hide();
-	m_pMendeljevPSE->show();
-
-	setCentralWidget( m_pCurrentPSE );
-	this->setCaption( centralWidget()->name() );
-}
-
-void Kalzium::slotSwitchtoSimplePSE()
-{
-	kdDebug() << "slotSwitchtoSimplePSE()" << endl;
-
-	m_pCurrentPSE = m_pSimplePSE;
-
-	m_pRegularPSE->hide();
 	m_pMendeljevPSE->hide();
-	m_pSimplePSE->show();
 
-	setCentralWidget( m_pCurrentPSE );
-	this->setCaption( centralWidget()->name() );
-}
-void Kalzium::slotSwitchtoRegularPSE()
-{
-	kdDebug() << "slotSwitchtoRegularPSE()" << endl;
-	
-	m_pCurrentPSE = m_pRegularPSE;
-	
-	m_pSimplePSE->hide();
-	m_pMendeljevPSE->hide();
-	m_pRegularPSE->show();
-	
-	setCentralWidget( m_pCurrentPSE );
-	
-	this->setCaption( centralWidget()->name() );
-}
+	if( sender()->name() == QString("RegularPSE"))
+	{
+		m_pCurrentPSE = m_pRegularPSE;
+	}
+	else if( sender()->name() == QString("MendeljevPSE"))
+	{
+		m_pCurrentPSE = m_pMendeljevPSE;
+	}
+	else if( sender()->name() == QString("SimplePSE"))
+	{
+		m_pCurrentPSE = m_pSimplePSE;
+	}
 
+	m_pCurrentPSE->show();
+	setCentralWidget( m_pCurrentPSE );
+	setCaption( m_pCurrentPSE->name() );
+}
 
 PSE* Kalzium::currentPSE() const
 {

@@ -9,9 +9,11 @@
   </Menu>
   <Menu name="stylemenu">
 	<text>Look</text>
-	<Action name="RegularPSE" />
-	<Action name="SimplePSE" />
-	<Action name="MendeljevPSE" />
+	<Action name="view_normal" />
+	<Action name="view_groups" />
+	<Action name="view_blocks" />
+	<Action name="view_som" />
+	<Action name="view_acidic" />
   </Menu>
 </MenuBar>
 </kpartgui>

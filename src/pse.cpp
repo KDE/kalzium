@@ -123,9 +123,6 @@ void RegularPSE::setupPSEElementButtonsList()
 {
 	ElementButton *button;
 	
-//	EList::Iterator it = d->ElementList.begin();
-//	QPtrList<ElementButton>::Iterator iter = 
-	
 	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
 	{
 		m_PSEElementButtons.append( button );

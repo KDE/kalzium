@@ -62,17 +62,19 @@ class Kalzium : public KMainWindow
 		 **/
 		KAction *m_pSimplePSEAction,
 			*m_pRegularPSEAction,
-			*m_pMendeljevPSEAction;
-		
+			*m_pMendeljevPSEAction,
 
+			*m_pBehAcidAction,
+			*m_pBehNormalAction,
+			*m_pBehBlocksAction,
+			*m_pBehGroupAction,
+			*m_pBehSOMAction;
+		
 	private slots:
-		/*
-		 * the following three slots let Kalzium switch to the 
-		 * corresponding PSE
-		 **/
-		void slotSwitchtoSimplePSE();
-		void slotSwitchtoRegularPSE();
-		void slotSwitchtoMendeljevPSE();
+
+		void slotShowScheme(void);
+	
+		void slotSwitchtoPSE(void);
 
 		/*
 		 * These slots are for the standardactions
