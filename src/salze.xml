@@ -1,0 +1,697 @@
+<kalzium>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Salzsäure?" />
+		<answer type="true" text="Chloride" />
+		<answer type="false" text="Sulfate" />
+		<answer type="false" text="Chlorate" />
+		<answer type="false" text="Perchlorate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Schwefelsäure?" />
+		<answer type="false" text="Chloride" />
+		<answer type="true" text="Sulfate" />
+		<answer type="false" text="Chlorate" />
+		<answer type="false" text="Perchlorate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Perchlorsäure?" />
+		<answer type="false" text="Chloride" />
+		<answer type="false" text="Sulfate" />
+		<answer type="false" text="Chlorate" />
+		<answer type="true" text="Perchlorate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der chlorigen Säure?" />
+		<answer type="false" text="Chloride" />
+		<answer type="false" text="Sulfate" />
+		<answer type="true" text="Chlorate" />
+		<answer type="false" text="Perchlorate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der schwefligen Säure?" />
+		<answer type="true" text="Chlorite" />
+		<answer type="false" text="Sulfate" />
+		<answer type="false" text="Chlorate" />
+		<answer type="false" text="Perchlorate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Thioschwefelsäure?" />
+		<answer type="false" text="Chloride" />
+		<answer type="true" text="Thiosulfate" />
+		<answer type="false" text="Thiosulfite" />
+		<answer type="false" text="Perchlorate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Schwefelwasserstoffsäure?" />
+		<answer type="false" text="Chloride" />
+		<answer type="false" text="Sulfate" />
+		<answer type="false" text="Sulfite" />
+		<answer type="true" text="Sulfide" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Salpetersäure?" />
+		<answer type="true" text="Nitrate" />
+		<answer type="false" text="Nitrite" />
+		<answer type="false" text="Chlorate" />
+		<answer type="false" text="Nitride" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Phosphorsäure?" />
+		<answer type="true" text="Phosphate" />
+		<answer type="false" text="Phosphonate" />
+		<answer type="false" text="Phosphinate" />
+		<answer type="false" text="Diphosphate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Phosphonsäure?" />
+		<answer type="false" text="Phosphate" />
+		<answer type="true" text="Phosphonate" />
+		<answer type="false" text="Phosphinate" />
+		<answer type="false" text="Diphosphate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Phosphinsäure?" />
+		<answer type="false" text="Phosphate" />
+		<answer type="false" text="Phosphonate" />
+		<answer type="true" text="Phosphinate" />
+		<answer type="false" text="Diphosphate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Di-Phosphorsäure?" />
+		<answer type="false" text="Phosphate" />
+		<answer type="false" text="Phosphonate" />
+		<answer type="false" text="Phosphinate" />
+		<answer type="true" text="Diphosphate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Kohlensäure?" />
+		<answer type="true" text="Carbonate" />
+		<answer type="false" text="Silicate" />
+		<answer type="false" text="Metasilikate" />
+		<answer type="false" text="Nitrate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Ortho-Kieselsäure?" />
+		<answer type="false" text="Carbonate" />
+		<answer type="true" text="Silicate" />
+		<answer type="false" text="Metasilikate" />
+		<answer type="false" text="Nitrate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Meta-Kieselsäure?" />
+		<answer type="false" text="Carbonate" />
+		<answer type="false" text="Silicate" />
+		<answer type="true" text="Metasilikate" />
+		<answer type="false" text="Nitrate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Fluorwasserstoffsäure?" />
+		<answer type="true" text="Flouride" />
+		<answer type="false" text="Bromide" />
+		<answer type="false" text="Jodide" />
+		<answer type="false" text="Chloride" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Bromwasserstoffsäure?" />
+		<answer type="false" text="Flouride" />
+		<answer type="true" text="Bromide" />
+		<answer type="false" text="Jodide" />
+		<answer type="false" text="Chloride" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Jodwasserstoffsäure?" />
+		<answer type="false" text="Flouride" />
+		<answer type="false" text="Bromide" />
+		<answer type="true" text="Jodide" />
+		<answer type="false" text="Chloride" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Ameisensäure" />
+		<answer type="true" text="Formiate" />
+		<answer type="false" text="Acetate" />
+		<answer type="false" text="Propionate" />
+		<answer type="false" text="Butyrate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Essigsäure" />
+		<answer type="false" text="Formiate" />
+		<answer type="true" text="Acetate" />
+		<answer type="false" text="Propionate" />
+		<answer type="false" text="Butyrate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Propionsäure" />
+		<answer type="false" text="Formiate" />
+		<answer type="false" text="Acetate" />
+		<answer type="true" text="Propionate" />
+		<answer type="false" text="Butyrate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Buttersäure" />
+		<answer type="false" text="Formiate" />
+		<answer type="false" text="Acetate" />
+		<answer type="false" text="Propionate" />
+		<answer type="true" text="Butyrate" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Valeriansäure" />
+		<answer type="true" text="Valerianat" />
+		<answer type="false" text="Kapronat" />
+		<answer type="false" text="Palmitat" />
+		<answer type="false" text="Stearat" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Kapronsäure" />
+		<answer type="false" text="Valerianat" />
+		<answer type="true" text="Kapronat" />
+		<answer type="false" text="Palmitat" />
+		<answer type="false" text="Stearat" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Palmitinsäure" />
+		<answer type="false" text="Valerianat" />
+		<answer type="false" text="Kapronat" />
+		<answer type="true" text="Palmitat" />
+		<answer type="false" text="Stearat" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Stearinsäure" />
+		<answer type="false" text="Valerianat" />
+		<answer type="false" text="Kapronat" />
+		<answer type="false" text="Palmitat" />
+		<answer type="true" text="Stearat" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Ölsäure" />
+		<answer type="true" text="Oleat" />
+		<answer type="false" text="Oxalat" />
+		<answer type="false" text="Succinat" />
+		<answer type="false" text="Malonat" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Oxalsäure" />
+		<answer type="false" text="Oleat" />
+		<answer type="true" text="Oxalat" />
+		<answer type="false" text="Succinat" />
+		<answer type="false" text="Malonat" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Bernsteinsäure" />
+		<answer type="false" text="Oleat" />
+		<answer type="false" text="Oxalat" />
+		<answer type="true" text="Succinat" />
+		<answer type="false" text="Malonat" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Malonsäure" />
+		<answer type="false" text="Oleat" />
+		<answer type="false" text="Oxalat" />
+		<answer type="false" text="Succinat" />
+		<answer type="true" text="Malonat" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Milchsäure" />
+		<answer type="true" text="Lactat" />
+		<answer type="false" text="Oxalat" />
+		<answer type="false" text="Benzoat" />
+		<answer type="false" text="Salicylat" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Benzoesäure" />
+		<answer type="false" text="Lactat" />
+		<answer type="false" text="Oxalat" />
+		<answer type="true" text="Benzoat" />
+		<answer type="false" text="Salicylat" />
+	</task>
+	<task grade="2">
+		<question text="Wie heißen die Salze der Salicylsäure" />
+		<answer type="false" text="Lactat" />
+		<answer type="false" text="Oxalat" />
+		<answer type="false" text="Benzoat" />
+		<answer type="true" text="Salicylat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Soda ist" />
+		<answer type="true" text="Natriumcarbonat" />
+		<answer type="false" text="Natriumhydrogencarbonat" />
+		<answer type="false" text="Calciumcarbonat" />
+		<answer type="false" text="Kaliumcarbonat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Natron ist" />
+		<answer type="false" text="Natriumcarbonat" />
+		<answer type="true" text="Natriumhydrogencarbonat" />
+		<answer type="false" text="Calciumcarbonat" />
+		<answer type="false" text="Kaliumcarbonat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Pottasche ist" />
+		<answer type="false" text="Natriumcarbonat" />
+		<answer type="false" text="Natriumhydrogencarbonat" />
+		<answer type="false" text="Calciumcarbonat" />
+		<answer type="true" text="Kaliumcarbonat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für  Kalk (Calcit, Kalkstein, Marmor) ist" />
+		<answer type="false" text="Natriumcarbonat" />
+		<answer type="false" text="Natriumhydrogencarbonat" />
+		<answer type="true" text="Calciumcarbonat" />
+		<answer type="false" text="Kaliumcarbonat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Kesselstein (Calcit, Kalkstein, Marmor) ist" />
+		<answer type="false" text="Natriumcarbonat" />
+		<answer type="false" text="Natriumhydrogencarbonat" />
+		<answer type="true" text="Calciumcarbonat" />
+		<answer type="false" text="Kaliumcarbonat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Dolomit ist" />
+		<answer type="true" text="Calcium-magnesiumcarbonat" />
+		<answer type="false" text="Ammoniumhydrogencarbonat" />
+		<answer type="false" text="Bleicarbonat" />
+		<answer type="false" text="Natriumcarbonat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Hirschhornsalz ist" />
+		<answer type="false" text="Calcium-magnesiumcarbonat" />
+		<answer type="true" text="Ammoniumhydrogencarbonat" />
+		<answer type="false" text="Bleicarbonat" />
+		<answer type="false" text="Natriumcarbonat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Cerrussit ist" />
+		<answer type="false" text="Calcium-magnesiumcarbonat" />
+		<answer type="false" text="Ammoniumhydrogencarbonat" />
+		<answer type="true" text="Bleicarbonat" />
+		<answer type="false" text="Natriumcarbonat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Kochsalz (Steinsalz) ist" />
+		<answer type="true" text="Natriumchlorid" />
+		<answer type="false" text="Kaliumchlorid" />
+		<answer type="false" text="Ammoniumchlorid" />
+		<answer type="false" text="Quecksilber(II)-chlorid" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Sylvin ist" />
+		<answer type="false" text="Natriumchlorid" />
+		<answer type="true" text="Kaliumchlorid" />
+		<answer type="false" text="Ammoniumchlorid" />
+		<answer type="false" text="Quecksilber(II)-chlorid" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Salmiak ist" />
+		<answer type="false" text="Natriumchlorid" />
+		<answer type="false" text="Kaliumchlorid" />
+		<answer type="true" text="Ammoniumchlorid" />
+		<answer type="false" text="Quecksilber(II)-chlorid" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Sublimat ist" />
+		<answer type="false" text="Natriumchlorid" />
+		<answer type="false" text="Kaliumchlorid" />
+		<answer type="false" text="Ammoniumchlorid" />
+		<answer type="true" text="Quecksilber(II)-chlorid" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Kalomel ist" />
+		<answer type="false" text="Natriumchlorid" />
+		<answer type="false" text="Kaliumchlorid" />
+		<answer type="true" text="Quecksilber(I)-chlorid" />
+		<answer type="false" text="Quecksilber(II)-chlorid" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Eau de Javelle ist" />
+		<answer type="true" text="Kaliumhypochlorid" />
+		<answer type="false" text="Natriumhypochlorid" />
+		<answer type="false" text="Calciumchlorithypochlorid" />
+		<answer type="false" text="Silbernitrat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Eau de Labarraque ist" />
+		<answer type="false" text="Kaliumhypochlorid" />
+		<answer type="true" text="Natriumhypochlorid" />
+		<answer type="false" text="Calciumchlorithypochlorid" />
+		<answer type="false" text="Silbernitrat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Chlorkalk ist" />
+		<answer type="false" text="Kaliumhypochlorid" />
+		<answer type="false" text="Natriumhypochlorid" />
+		<answer type="true" text="Calciumchlorithypochlorid" />
+		<answer type="false" text="Silbernitrat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Höllenstein ist" />
+		<answer type="false" text="Kaliumhypochlorid" />
+		<answer type="false" text="Natriumhypochlorid" />
+		<answer type="false" text="Calciumchlorithypochlorid" />
+		<answer type="true" text="Silbernitrat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Kalisalpeter (Salpeter) ist" />
+		<answer type="true" text="Kaliumnitrat" />
+		<answer type="false" text="Natriumnitrat" />
+		<answer type="false" text="Ammoniumnitrat" />
+		<answer type="false" text="Calciumnitrat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Natronsalpeter (Chilesalpeter) ist" />
+		<answer type="false" text="Kaliumnitrat" />
+		<answer type="true" text="Natriumnitrat" />
+		<answer type="false" text="Ammoniumnitrat" />
+		<answer type="false" text="Calciumnitrat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Ammonsalpeter ist" />
+		<answer type="false" text="Kaliumnitrat" />
+		<answer type="false" text="Natriumnitrat" />
+		<answer type="true" text="Ammoniumnitrat" />
+		<answer type="false" text="Calciumnitrat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Kalksalpeter (Mauersalpeter) ist" />
+		<answer type="false" text="Kaliumnitrat" />
+		<answer type="false" text="Natriumnitrat" />
+		<answer type="false" text="Ammoniumnitrat" />
+		<answer type="true" text="Calciumnitrat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Phosphorit ist" />
+		<answer type="true" text="Calciumphosphat" />
+		<answer type="false" text="Calcium-hydroxid-phospha" />
+		<answer type="false" text="Calcium-fluorid-phosphat" />
+		<answer type="false" text="Ammonium-Natrium-hydrogenphosphat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Hydroxylapatit ist" />
+		<answer type="false" text="Calciumphosphat" />
+		<answer type="true" text="Calcium-hydroxid-phospha" />
+		<answer type="false" text="Calcium-fluorid-phosphat" />
+		<answer type="false" text="Ammonium-Natrium-hydrogenphosphat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Fluorapatit ist" />
+		<answer type="false" text="Calciumphosphat" />
+		<answer type="false" text="Calcium-hydroxid-phospha" />
+		<answer type="true" text="Calcium-fluorid-phosphat" />
+		<answer type="false" text="Ammonium-Natrium-hydrogenphosphat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Phosphorsalz ist" />
+		<answer type="false" text="Calciumphosphat" />
+		<answer type="false" text="Calcium-hydroxid-phospha" />
+		<answer type="false" text="Calcium-fluorid-phosphat" />
+		<answer type="true" text="Ammonium-Natrium-hydrogenphosphat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Glaubersalz ist" />
+		<answer type="true" text="Natriumsulfat" />
+		<answer type="false" text="Magnesiumsulfat" />
+		<answer type="false" text="Calciumsulfat" />
+		<answer type="false" text="Kupfersulfat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Bittersalz ist" />
+		<answer type="false" text="Natriumsulfat" />
+		<answer type="true" text="Magnesiumsulfat" />
+		<answer type="false" text="Calciumsulfat" />
+		<answer type="false" text="Kupfersulfat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Gips (Marienglas, Alabaster) ist" />
+		<answer type="false" text="Natriumsulfat" />
+		<answer type="false" text="Magnesiumsulfat" />
+		<answer type="true" text="Calciumsulfat" />
+		<answer type="false" text="Kupfersulfat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Kupfervitriol ist" />
+		<answer type="false" text="Natriumsulfat" />
+		<answer type="false" text="Magnesiumsulfat" />
+		<answer type="false" text="Calciumsulfat" />
+		<answer type="true" text="Kupfersulfat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Eisenvitriol ist" />
+		<answer type="true" text="Eisenulfat" />
+		<answer type="false" text="Bariumsulfat" />
+		<answer type="false" text="Aluminium-Kalium-sulfat" />
+		<answer type="false" text="Bleisulfat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Schwerspat (Baryt) ist" />
+		<answer type="false" text="Eisenulfat" />
+		<answer type="true" text="Bariumsulfat" />
+		<answer type="false" text="Aluminium-Kalium-sulfat" />
+		<answer type="false" text="Bleisulfat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Kalialaun ist" />
+		<answer type="false" text="Eisenulfat" />
+		<answer type="false" text="Bariumsulfat" />
+		<answer type="false" text="Aluminium-Kalium-sulfat" />
+		<answer type="true" text="Bleisulfat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Anglesit ist" />
+		<answer type="false" text="Eisenulfat" />
+		<answer type="false" text="Bariumsulfat" />
+		<answer type="false" text="Aluminium-Kalium-sulfat" />
+		<answer type="true" text="Bleisulfat" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Magnetkies ist" />
+		<answer type="true" text="Eisensulfid" />
+		<answer type="false" text="Eisendisulfid" />
+		<answer type="false" text="Bleisulfid" />
+		<answer type="false" text="Zinksulfid" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Pyrit (Katzengold) ist" />
+		<answer type="false" text="Eisensulfid" />
+		<answer type="true" text="Eisendisulfid" />
+		<answer type="false" text="Bleisulfid" />
+		<answer type="false" text="Zinksulfid" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Eisenkies (Schwefelkies) ist" />
+		<answer type="false" text="Eisensulfid" />
+		<answer type="true" text="Eisendisulfid" />
+		<answer type="false" text="Bleisulfid" />
+		<answer type="false" text="Zinksulfid" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Bleiglanz ist" />
+		<answer type="false" text="Eisensulfid" />
+		<answer type="false" text="Eisendisulfid" />
+		<answer type="true" text="Bleisulfid" />
+		<answer type="false" text="Zinksulfid" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Zinkblende (Wurtzit) ist" />
+		<answer type="false" text="Eisensulfid" />
+		<answer type="false" text="Eisendisulfid" />
+		<answer type="false" text="Bleisulfid" />
+		<answer type="true" text="Zinksulfid" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Kupferkies ist" />
+		<answer type="true" text="Eisen-Kupfer-sulfid" />
+		<answer type="false" text="Zinnsulfid" />
+		<answer type="false" text="Bleisulfid" />
+		<answer type="false" text="Zinksulfid" />
+	</task>
+	<task grade="2">
+		<question text="Die chemische Bezeichnung für Zinnober ist" />
+		<answer type="false" text="Eisen-Kupfer-sulfid" />
+		<answer type="true" text="Zinnsulfid" />
+		<answer type="false" text="Bleisulfid" />
+		<answer type="false" text="Zinksulfid" />
+	</task>
+	<task grade="2">
+		<question text="Bei der Reaktion einer säure mit einer Lauge entsteht ein Salz und" />
+		<answer type="true" text="Wasser" />
+		<answer type="false" text="Wasserstoff" />
+		<answer type="false" text="-" />
+		<answer type="false" text="Kohlendioxid" />
+	</task>
+	<task grade="2">
+		<question text="Bei der Reaktion einer säure mit einem Metalle entsteht ein Salz und" />
+		<answer type="false" text="Wasser" />
+		<answer type="true" text="Wasserstoff" />
+		<answer type="false" text="-" />
+		<answer type="false" text="Kohlendioxid" />
+	</task>
+	<task grade="2">
+		<question text="Bei der Reaktion einer säure mit einem Metalloxid entsteht ein Salz und" />
+		<answer type="true" text="Wasser" />
+		<answer type="false" text="Wasserstoff" />
+		<answer type="false" text="-" />
+		<answer type="false" text="Kohlendioxid" />
+	</task>
+	<task grade="2">
+		<question text="Bei der Reaktion von einem Metall mit einem Nichtmetall entsteht ein Salz und" />
+		<answer type="false" text="Wasser" />
+		<answer type="false" text="Wasserstoff" />
+		<answer type="true" text="-" />
+		<answer type="false" text="Kohlendioxid" />
+	</task>
+	<task grade="2">
+		<question text="Die Reaktion einer säure mit einer Lauge ist " />
+		<answer type="false" text="eine Hydrolyse" />
+		<answer type="false" text="eine Elektrolyse" />
+		<answer type="true" text="Neutralisation" />
+		<answer type="false" text="Katalyse" />
+	</task>
+	<task grade="2">
+		<question text="Welche Bindungsart herrscht in Salzen?" />
+		<answer type="true" text="Ionenbindung" />
+		<answer type="false" text="Metallbindung" />
+		<answer type="false" text="Atombindung" />
+		<answer type="false" text="Kovalente Bindung" />
+	</task>
+	<task grade="2">
+		<question text="Wie viel g Kochsalz befinden sich in 5 l Blut?" />
+		<answer type="false" text="10 g" />
+		<answer type="false" text="30 g" />
+		<answer type="true" text="50 g" />
+		<answer type="false" text="100 g" />
+	</task>
+	<task grade="2">
+		<question text="Wann leiten Salze nicht den elektrischen Strom?" />
+		<answer type="false" text="in gelöstem Zustand" />
+		<answer type="true" text="in festem Zustand" />
+		<answer type="false" text="in geschmolzenem Zustand" />
+		<answer type="false" text="im Gel-Zustand" />
+	</task>
+	<task grade="2">
+		<question text="Salze bilden in gelöstem Zustand" />
+		<answer type="false" text="Elektronen" />
+		<answer type="false" text="Neutronen" />
+		<answer type="false" text="Positronen" />
+		<answer type="true" text="Ionen" />
+	</task>
+	<task grade="2">
+		<question text="Wie hoch ist der Salzgehalt durchschnittlich in den Meeren?" />
+		<answer type="false" text="2 %" />
+		<answer type="false" text="3 %" />
+		<answer type="true" text="3,5 %" />
+		<answer type="false" text="5 %" />
+	</task>
+	<task grade="2">
+		<question text="Wie hoch ist der Salzgehalt im Toten Meer" />
+		<answer type="false" text="0,28 %" />
+		<answer type="false" text="2,8 %" />
+		<answer type="true" text="28 %" />
+		<answer type="false" text="38 %" />
+	</task>
+	<task grade="2">
+		<question text="Wie nennt man das Haltbarmachen von Fleisch und Fisch mit Salz?" />
+		<answer type="false" text="Säuern" />
+		<answer type="false" text="Konservieren" />
+		<answer type="false" text="Räuchern" />
+		<answer type="true" text="Pökeln" />
+	</task>
+	<task grade="2">
+		<question text="Eine physiologische Kochsalzlösung hat einen Salzgehalt von" />
+		<answer type="false" text="0,1 %" />
+		<answer type="false" text="0,5 %" />
+		<answer type="false" text="0,75 %" />
+		<answer type="true" text="0,9 %" />
+	</task>
+	<task grade="2">
+		<question text="Wie nennt man das technische Verfahren bei welcher aus Kochsalz Na und Cl gewonnen wird?" />
+		<answer type="false" text="Haber-Bosch-Verfahren" />
+		<answer type="true" text="Chlor-Alkalielektrolyse" />
+		<answer type="false" text="Schmelzflusselektolyse" />
+		<answer type="false" text="Linz-Donawitzer-Verfahren" />
+	</task>
+	<task grade="2">
+		<question text="Die konservierende Wirkung von Kochsalz beruht auf seiner" />
+		<answer type="true" text="wasserentziehenden Wirkung" />
+		<answer type="false" text="seiner Siedepunkterhöhung" />
+		<answer type="false" text="seiner Schmelzpunkterhöhung" />
+		<answer type="false" text="seiner Schmelzpunkterniedrigung" />
+	</task>
+	<!--
+	<task grade="2">
+		<question text="Welche Farbe haben im allgemeinen die Salze der Hauptgruppenelemente?" />
+		<answer type="false" text="grün-blau" />
+		<answer type="true" text="weiß" />
+		<answer type="false" text="gelb-braun" />
+		<answer type="false" text="rot" />
+	</task>
+	<task grade="2">
+		<question text="Welche Farbe haben im allgemeinen die Kupfersalze" />
+		<answer type="true" text="grün-blau" />
+		<answer type="false" text="weiß" />
+		<answer type="false" text="gelb-braun" />
+		<answer type="false" text="rot" />
+	</task>
+	<task grade="2">
+		<question text="Welches Gas wird beim Erhitzen von Hirschhornsalz freigesetzt?" />
+		<answer type="false" text="Schwefeldioxid" />
+		<answer type="true" text="Kohlendioxid" />
+		<answer type="false" text="Kohlenmonooxid" />
+		<answer type="false" text="Wasserstoff" />
+	</task>
+	<task grade="2">
+		<question text="Ein Überangebot von Nährstoffen (Nährsalzen) in Gewässern nennt man" />
+		<answer type="false" text="Sulfonierung" />
+		<answer type="true" text="Eutrophierung" />
+		<answer type="false" text="Oxidierung" />
+		<answer type="false" text="Reduzierung" />
+	</task>
+	<task grade="2">
+		<question text="Schulkreide besteht häufig aus" />
+		<answer type="true" text="Gips" />
+		<answer type="false" text="Salpeter" />
+		<answer type="false" text="Höllenstein" />
+		<answer type="false" text="Apatit" />
+	</task>
+	<task grade="2">
+		<question text="Salze sind häufig spröde, wegen " />
+		<answer type="true" text="ihres Ionenaufbaus" />
+		<answer type="false" text="ihrer Trockenheit" />
+		<answer type="false" text="ihres Lumineszenz" />
+		<answer type="false" text="ihres hygroskopischen Wirkung" />
+	</task>
+	<task grade="2">
+		<question text="Salze haben in der Regel " />
+		<answer type="false" text="niedrige Schmelz- und Siedepunkte" />
+		<answer type="true" text="hohe Schmelz- und Siedepunkte" />
+		<answer type="false" text="einen hohen Dampfdruck" />
+		<answer type="false" text="einen hohen Preis" />
+	</task>
+	<task grade="2">
+		<question text="Um wieviel dehnt sich Gips beim Abbinden aus?" />
+		<answer type="false" text="ca 2 %" />
+		<answer type="false" text="ca 3 %" />
+		<answer type="true" text="ca 1 %" />
+		<answer type="false" text="ca 10 %" />
+	</task>
+	<task grade="2">
+		<question text="Welchen pH-Wert muss ich einhalten, damit Salzsäure vollständig durch Natronlauge neutralisiert wird?" />
+		<answer type="false" text="1" />
+		<answer type="false" text="5" />
+		<answer type="true" text="7" />
+		<answer type="false" text="9" />
+	</task>
+	<task grade="2">
+		<question text="Carbonate reagieren mit Salzsäure unter Abgabe von" />
+		<answer type="false" text="Schwefeldioxid" />
+		<answer type="true" text="Kohlendioxid" />
+		<answer type="false" text="Kohlenmonooxid" />
+		<answer type="false" text="Wasserstoff" />
+	</task>
+	<task grade="2">
+		<question text="Die Erdalkalisulfate sind" />
+		<answer type="true" text="schwerlöslich" />
+		<answer type="false" text="leichtlöslich" />
+		<answer type="false" text="grünlich gefürbt" />
+		<answer type="false" text="rötlich gefürbt" />
+	</task>
+	-->
+</kalzium>
