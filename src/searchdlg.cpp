@@ -30,6 +30,7 @@
 #include <qregexp.h>
 
 #include "searchdlg.h"
+#include "csvdialogimpl.h"
 #include "datafilterdialogimpl.h"
 
 SearchDlg::SearchDlg (QWidget *parent, const char *name )  
@@ -37,6 +38,21 @@ SearchDlg::SearchDlg (QWidget *parent, const char *name )
 {
 	fillDataStringLists();
 	fillCheckBoxList();
+
+	StringLists.append( nameList);
+	StringLists.append(	symbolList);
+	StringLists.append(	WeightList);
+	StringLists.append(	ENList);
+	StringLists.append(	DensityList);
+	StringLists.append(	orbitList);
+	StringLists.append(	blockList);
+	StringLists.append(	acidList);
+	StringLists.append(	groupList);
+	StringLists.append(	MPList);
+	StringLists.append(	BPList);
+	StringLists.append(	IEList);
+	StringLists.append(	ARList);
+	StringLists.append(	OxidationList);
 }
 
 void SearchDlg::fillCheckBoxList()
@@ -92,56 +108,6 @@ QString SearchDlg::beautifyOrbits( QString orbits ) const
 
 void SearchDlg::slotApplyChanges()
 {
-	QStringList::Iterator it = nameList.begin();
-	QStringList::Iterator it2 = symbolList.begin();
-	QStringList::Iterator it3 = WeightList.begin();
-	QStringList::Iterator it4 = ENList.begin();
-	QStringList::Iterator it5 = DensityList.begin();
-	QStringList::Iterator it6 = orbitList.begin();
-	QStringList::Iterator it7 =  blockList.begin();
-	QStringList::Iterator it8 =  acidList.begin();
-	QStringList::Iterator it9 = groupList.begin();
-	QStringList::Iterator it10 = BPList.begin();
-	QStringList::Iterator it11 = MPList.begin();
-	QStringList::Iterator it12 = IEList.begin();
-	QStringList::Iterator it13 = ARList.begin();
-	QStringList::Iterator it14 = OxidationList.begin();
-
-	for( int i = 0  ; it != nameList.end() ; i++ )
-	{
-		//itererate through the checkboxes and check if they are checked or not
-		DataTable->setText( i, 0 , *it );
-		DataTable->setText( i, 1 , *it2 );
-		DataTable->setText( i, 2 , *it3 );
-		DataTable->setText( i, 3 , *it4 );
-		DataTable->setText( i, 4 , *it5 );
-		DataTable->setText( i, 5 , beautifyOrbits( *it6 ) );
-		DataTable->setText( i, 6 , *it7 );
-		DataTable->setText( i, 7 , *it8 );
-		DataTable->setText( i, 8 , *it9 );
-		DataTable->setText( i, 9 , *it10 );
-		DataTable->setText( i, 10 , *it11 );
-		DataTable->setText( i, 11 , *it12 );
-		DataTable->setText( i, 12 , *it13 );
-		DataTable->setText( i, 13 , *it14 );
-		
-		//iterate all iterators
-		++it;
-		++it2;
-		++it3;
-		++it4;
-		++it5;
-		++it6;
-		++it7;
-		++it8;
-		++it9;
-		++it10;
-		++it11;
-		++it12;
-		++it13;
-		++it14;
-	}
-	
 	int col = 0;
 	for ( checkBoxesList::Iterator it = checkBoxes.begin() ; it != checkBoxes.end() ; ++it )
 	{
@@ -151,6 +117,19 @@ void SearchDlg::slotApplyChanges()
 		else
 			DataTable->hideColumn( col );
 		col++;
+	}
+
+	int i = 0;
+	
+	for ( StrList::Iterator StrIt = StringLists.begin() ; StrIt != StringLists.end() ; ++StrIt )
+	{
+		int e = 0;
+		for ( QStringList::Iterator listsIt = (*StrIt).begin() ; listsIt != (*StrIt).end() ; ++listsIt )
+		{
+			DataTable->setText( e , i , (*listsIt) );
+			e++;
+		}
+		i++;
 	}
 
 	if ( !RangeLE->text().isEmpty() ) //only parse if the user entered numbers
@@ -281,14 +260,21 @@ IntValueList SearchDlg::parseRange(QString range)
 
 void SearchDlg::slotExportData()
 {
-//X 	csvdialogImpl *csvdlg = new csvdialogImpl( this );
-//X 	csvdlg->show();
-
+/*
+ * Robert: Ich bekomme folgendes nicht hin:
+ * Ich habe ein paar Werte ( QChar, QString und noch ein paar ).
+ * Ich will diese in einem Dialog ( csvdialogimpl heißt die Klasse )
+ * manipulieren können. Meine Idee war, diese Variablen an den Konstruktor 
+ * per Referenz ( also QChar& und so weiter ) zu übergeben. Aber irgendwie
+ * klappt das nicht so wie es soll.
+ *
+ * Frage: Wie kann ich in einem Dialog Variable der Mutterklasse verändern?
+ * Eigentlich geht das doch mit Referenzen aber das klappt hier nicht.
+ */
+	
 	//int rows = DataTable->numRows();
 	//int cols = DataTable->numCols();
 	
-	//QString str;
-	//QChar csvDelimiter = ',';
 
 //X 	for ( int i = 0 ; i < rows ; i++ )
 //X 	{

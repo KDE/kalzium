@@ -86,6 +86,34 @@ OrbitsWidget::OrbitsWidget( const int ElemNo , QWidget *parent, const char *name
 	hulllist.append( "2 8 18 18 8 2" );//Barium
 	hulllist.append( "2 8 18 18 9 2" );
 	hulllist.append( "2 8 18 20 8 2" );//Cerium
+	hulllist.append( "2 8 18 21 8 2" );
+	hulllist.append( "2 8 18 22 8 2" );
+	hulllist.append( "2 8 18 23 8 2" );
+	hulllist.append( "2 8 18 24 8 2" );
+	hulllist.append( "2 8 18 25 8 2" );
+	hulllist.append( "2 8 18 25 9 2" );//Gadolinium
+	hulllist.append( "2 8 18 27 8 2" );//Terbium
+	hulllist.append( "2 8 18 28 8 2" );
+	hulllist.append( "2 8 18 29 8 2" );
+	hulllist.append( "2 8 18 30 8 2" );
+	hulllist.append( "2 8 18 31 8 2" );
+	hulllist.append( "2 8 18 32 8 2" );//Ytterbium
+	hulllist.append( "2 8 18 32 9 2" );
+	hulllist.append( "2 8 18 32 10 2" );//Hafnium
+	hulllist.append( "2 8 18 32 11 2" );
+	hulllist.append( "2 8 18 32 12 2" );
+	hulllist.append( "2 8 18 32 13 2" );
+	hulllist.append( "2 8 18 32 14 2" );
+	hulllist.append( "2 8 18 32 15 2" );//Irdium
+	hulllist.append( "2 8 18 32 17 1" );
+	hulllist.append( "2 8 18 32 18 1" );
+	hulllist.append( "2 8 18 32 18 2" );//Mercury
+	hulllist.append( "2 8 18 32 18 3" );
+	hulllist.append( "2 8 18 32 18 4" );
+	hulllist.append( "2 8 18 32 18 5" );
+	hulllist.append( "2 8 18 32 18 6" );
+	hulllist.append( "2 8 18 32 18 7" );
+	hulllist.append( "2 8 18 32 18 8" );//Radon
 //	hulllist.append( "1 2 3  4  5 6" );
 	//to be continued...
 	

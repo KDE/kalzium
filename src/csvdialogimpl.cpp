@@ -25,7 +25,7 @@
 
 #include "csvdialogimpl.h"
 
-csvdialogImpl::csvdialogImpl ( bool SelOnly, int Export, QString url, QChar del, QWidget *parent, const char *name )  : csvdialog (parent,name)
+csvdialogImpl::csvdialogImpl ( bool SelOnly, int Export, QString& url, QChar& del, QWidget *parent, const char *name )  : csvdialog (parent,name)
 {
 	requestedFile = url;
 	selectionOnly = SelOnly;
@@ -40,7 +40,7 @@ void csvdialogImpl::slotStartExport()
 	whatToExport = kComboBox1->currentItem();
 }
 
-void csvdialogImpl::delimiterClicked(  int id )
+void csvdialogImpl::delimiterClicked( int id )
 {
 	switch ( id )
 	{

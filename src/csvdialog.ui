@@ -214,12 +214,6 @@
 </widget>
 <connections>
     <connection>
-        <sender>m_delimiterBox</sender>
-        <signal>clicked(int)</signal>
-        <receiver>csvdialog</receiver>
-        <slot>delimiterClicker(int)</slot>
-    </connection>
-    <connection>
         <sender>kPushButton3</sender>
         <signal>clicked()</signal>
         <receiver>csvdialog</receiver>
@@ -227,7 +221,7 @@
     </connection>
 </connections>
 <slots>
-    <slot>delimiterClicker(int id)</slot>
+    <slot>delimiterClicked(int id)</slot>
     <slot>slotStartExport()</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>

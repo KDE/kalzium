@@ -57,6 +57,9 @@ class SearchDlg : public SearchDialogUI
 					MPList,
 					WeightList,
 					DensityList;
+		
+		typedef QValueList<QStringList> StrList;
+		StrList StringLists;
 
 		void fillDataStringLists();
 		

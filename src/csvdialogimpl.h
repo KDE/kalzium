@@ -25,7 +25,7 @@ class csvdialogImpl : public csvdialog
 	Q_OBJECT
 
 	public:
-		csvdialogImpl( bool , int, QString, QChar del, QWidget *parent = 0 , const char *name = 0 );
+		csvdialogImpl( bool , int, QString&, QChar&, QWidget *parent = 0 , const char *name = 0 );
 
 		QChar m_delimiter;
 		QString requestedFile;
