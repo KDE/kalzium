@@ -19,6 +19,8 @@
  ***************************************************************************/
 #include "pse.h"
 #include "prefs.h"
+#include "infodialog_small_impl.h"
+#include "detailinfodlg.h"
 
 #include <klocale.h>
 #include <kdebug.h>
@@ -231,6 +233,74 @@ void PSE::drawSOMPSE( QPainter* p )
 		++it;
 	}
 
+}
+
+void PSE::mouseReleaseEvent( QMouseEvent *mouse )
+{
+	///first: find out the position
+	
+	kdDebug() << mouse->x() << " " << mouse->y() << endl;
+	int X = mouse->x()/45;
+	int Y = mouse->y()/45;
+	if ( m_isSimple )
+	{
+		if ( mouse->x() > ( 2*45 ) )
+		{
+			X += 10;
+		}
+	}
+		
+	X += 1;
+	Y += 1;
+
+	//from this on I can use X and Y. Both contain the position of an element in the
+	//complete PSE. Eg, He is 1,18 and Na is 2,1
+	
+	CList::Iterator it = d->CoordinateList.begin();
+	while ( it != d->CoordinateList.end() )
+	{//iterate through the list of coordinates and compare the x/y values.
+	 //finally, if the 20'es iterator has the same cooridnates Element 20
+	 //has been clicked.
+		if ( (*it ).x == X )
+		{
+			if ( (*it ).y == Y )
+			{//coordinates match. Get the position of the it in the list.
+				coordinate c = *it;
+				kdDebug() << c.x << " " << c.y << endl;
+//				kdDebug() << "Element: " << d->CoordinateList.findIndex( c ) << endl;
+			}
+		}
+	}
+
+	return;
+	
+	Element *e = new Element( 4 );
+	
+	int small = Prefs::lMBbeh();
+	if ( small == 1 )
+	{
+		if ( mouse->button() == LeftButton )
+		{
+			infoDlgSmallImpl *smallDlg = new infoDlgSmallImpl( e, this , "smallDlg" );
+			smallDlg->show();
+		}else
+		{
+			DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( e, this , "detailedDlg" );
+			detailedDlg->show();
+		}	
+	}
+	if ( small == 0 )
+	{
+		if ( mouse->button() == LeftButton )
+		{
+			DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( e, this , "detailedDlg" );
+			detailedDlg->show();
+		}else
+		{
+			infoDlgSmallImpl *smallDlg = new infoDlgSmallImpl( e, this , "smallDlg" );
+			smallDlg->show();
+		}	
+	}
 }
 
 void PSE::drawPSE( QPainter* p, bool useSimpleView )

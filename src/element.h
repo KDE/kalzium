@@ -25,7 +25,10 @@
 
 class Element;
 
+struct coordinate;
+
 typedef QValueList<Element*> EList;
+typedef QValueList<coordinate> CList;
 
 /**
  * @short this class contains all Element-objects as
@@ -41,6 +44,13 @@ class KalziumDataObject
 		 * The list of element in a QValueList<Element*>
 		 */
 		EList ElementList;
+		
+		CList CoordinateList;
+};
+
+struct coordinate{
+	int x;
+	int y;
 };
 
 /**
@@ -217,7 +227,6 @@ class Element{
 		double meanweight();
 
 		int x, y; //for the RegularPSE
-		int s_x, s_y; //for the SimplifiedPSE
 
 		/**
 		 * adjusts the units for the data. The user can

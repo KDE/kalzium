@@ -20,6 +20,7 @@
 #include "element.h"
 #include "prefs.h"
 #include <qregexp.h>
+#include <qmap.h>
 #include <kdebug.h>
 #include <klocale.h>
 
@@ -389,7 +390,7 @@ void Element::setupXY()
 									      6,6,6,6,6,6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
 									7,7,7,9,9,9,9,9,9, 9, 9, 9, 9, 9, 9, 9, 9,
 									      7,7,7,7,7,7,7,7};
- 
+
  x = posXRegular[m_number-1];
  y = posYRegular[m_number-1];
 }
@@ -398,7 +399,11 @@ KalziumDataObject::KalziumDataObject()
 {
 	for( int i = 1 ; i < 112 ; ++i )
 	{
-		ElementList.append( new Element( i ) );
+		Element *e = new Element( i );
+		coordinate point; point.x =  e->x; point.y = e->y;
+
+		CoordinateList.append( point );
+		ElementList.append( e );
 	}
 }
 

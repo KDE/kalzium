@@ -123,6 +123,8 @@ class PSE : public QWidget
 		 * updates the numeration of the PSE
 		 */
 		virtual void updateNumeration();
+		
+		void mouseReleaseEvent( QMouseEvent* );
 
 		QStringList m_IUPAClist;
 		QStringList m_IUPACOLDlist;
