@@ -18,21 +18,9 @@
 
 #include "orbitswidget.h"
 
-//KDE-Includes
-#include <kstandarddirs.h>
-#include <ksimpleconfig.h>
-#include <klocale.h>
-#include <kpushbutton.h>
-#include <kcombobox.h>
-#include <kdebug.h>
-#include <kconfig.h>
-#include <knuminput.h>
-
 //QT-Includes
-#include <qlabel.h>
 #include <qpainter.h>
 #include <qregexp.h>
-#include <qvaluelist.h>
 
 OrbitsWidget::OrbitsWidget( const int ElemNo , QWidget *parent, const char *name) : QWidget( parent, name )
 {
@@ -123,9 +111,6 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	QPainter DC;
 	DC.begin( this );
 
-	DC.setBrush( Dense7Pattern  );
-	DC.setBrush( Qt::darkRed );
-	
 	int h=this->height();
 	int w=this->width();
 	int w_c=h/10;
@@ -144,8 +129,6 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	
 	r_electron = r/20; //diameter of an electron-circle
 	
-	DC.drawRect( w_c , h_c , 2*r, 2*r ); //only to see the borders, will be removed
-
 	int d = 2*r; //Durchmesser
 	int	ddx = d/(2*num);//Änderung zum Vorgänger
 

@@ -52,7 +52,6 @@ class DetailedInfoDlg : public KDialogBase
 
 	protected slots:
 		virtual void slotUser1();
-		virtual void slotUser2();
 };
 
 #endif

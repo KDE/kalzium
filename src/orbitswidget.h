@@ -19,9 +19,9 @@
  ***************************************************************************/
 
 
+#include <qwidget.h>
 #include <qvaluelist.h>
 #include <qstringlist.h>
-#include <qwidget.h>
 #include <math.h>
 
 class OrbitsWidget : public QWidget
@@ -48,6 +48,9 @@ class OrbitsWidget : public QWidget
 		
 		/*
 		 * the returns the delta of the x-coordinate
+		 * @param r is the radius of the circle
+		 * @param angle is the n'st circle out of num
+		 * @param num is the number of circles
 		 */
 		inline double translateToDX( const double r , const double angle , const int num )
 		{
@@ -56,6 +59,9 @@ class OrbitsWidget : public QWidget
 		
 		/*
 		 * the returns the delta of the y-coordinate
+		 * @param r is the radius of the circle
+		 * @param angle is the n'st circle out of num
+		 * @param num is the number of circles
 		 */
 		inline double translateToDY( const double r , const double angle , const int num )
 		{

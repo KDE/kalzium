@@ -16,7 +16,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <kaction.h>
 #include <kcolorbutton.h>
 #include <kdebug.h>
 #include <kconfig.h>
@@ -26,7 +25,6 @@
 #include <kpushbutton.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
-#include <kiconloader.h>
 
 #include <qframe.h>
 #include <qfont.h>
@@ -34,28 +32,23 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qstring.h>
-#include <qvbuttongroup.h>
 #include <qpainter.h>
 #include <qpixmap.h>
-#include <qregexp.h>
-#include <qsize.h>
 #include <qimage.h>
+#include <qwhatsthis.h>
 
-#include <iostream>
 #include "elementkp.h"
-
 #include "detailinfodlg.h"
 #include "infodialog.h"
 #include "orbitswidget.h"
 
 DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, const char *name)
-    : KDialogBase(IconList, i18n("Detailed Look on %1").arg( Eleminfo.Name.lower().utf8() ), Ok|User1|User2 ,Ok, parent,name, true, false)
+    : KDialogBase(IconList, i18n("Detailed Look on %1").arg( Eleminfo.Name.lower().utf8() ), Ok|User1 ,Ok, parent,name, true, false)
 {
 	Data = Eleminfo;
     KIconLoader *kil = KGlobal::iconLoader();
 
-	setButtonText( User1 , i18n( "Quick help" ) );
-	setButtonText( User2 , i18n( "Weblookup" ) );
+	setButtonText( User1 , i18n( "Weblookup" ) );
 
 	/////////////////////////////////
 	overviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon(kil->iconPath( "overview" , KIcon::User)));
@@ -128,17 +121,17 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	miscLayout->addWidget( meanweight_label );
 	
 	/////////////////////////////////
-    orbitsTab = addPage(i18n("Bohrs Orbits"), i18n("Bohrs Orbits"), BarIcon(kil->iconPath( "orbits" , KIcon::User)));
+    orbitsTab = addPage(i18n("Atom model"), i18n("Atom Model"), BarIcon(kil->iconPath( "orbits" , KIcon::User)));
 	QVBoxLayout *orbitsLayout = new QVBoxLayout( orbitsTab );
 	OrbitsWidget *orbitsPic = new OrbitsWidget( Data.number , orbitsTab );
+	QWhatsThis::add( orbitsPic,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
+								.arg( Data.Name.utf8() )
+								.arg( Data.Name.utf8() )
+								.arg( Data.orbits ) );
 	orbitsLayout->addWidget( orbitsPic );
 }
 
 void DetailedInfoDlg::slotUser1()
-{
-}
-
-void DetailedInfoDlg::slotUser2()
 {
 	KHTMLPart *html = new KHTMLPart();
 
@@ -197,7 +190,6 @@ void DetailedTab::paintEvent( QPaintEvent* )
 
 	p.setFont( f2 );
 	p.drawText( x1 , y1+dy/2-50 ,x2-x1 , 18 , Qt::AlignCenter , Data.oxstage);    //Oxidationszahlen
-//	p.drawText( x , y, w , h Qt::AlignXXX, QString );
 	p.drawText( x1+2 , y2-20 , x2-x1-dx/2-4 , 18 , Qt::AlignLeft , Data.Name.utf8() ); //Name
 	p.drawText( x1+dx/2+2 , y2-20 , x2-x1-dx/2-4 , 18 , Qt::AlignRight , Data.Weight ); //Weight
 
