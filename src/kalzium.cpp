@@ -35,6 +35,7 @@
 #include <kaction.h>
 #include <kedittoolbar.h>
 #include <kapplication.h>
+#include <kkeydialog.h> //remove for the release
 
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
@@ -63,8 +64,8 @@ Kalzium::Kalzium()
 	 numlist.append(i18n("Show IUPAC"));
 	 numlist.append(i18n("Show Old IUPAC"));
 	 nummeration_action = new KSelectAction (i18n("Switch &Nummerationstyle"), 0, this, 0, actionCollection(), "nummerationtype");
-	 nummeration_action->setItems(schemalist);
-	 nummeration_action->setCurrentItem(0);
+	 nummeration_action->setItems(numlist);
+	 nummeration_action->setCurrentItem(0); //XXX should be read in via KConfig
 	 connect (nummeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNummeration(int)));
 	 
 	/*
@@ -100,6 +101,14 @@ Kalzium::Kalzium()
 	 **/
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
+
+#if KDE_IS_VERSION( 3, 2, 90 )
+	KStdAction::keyBindings( guiFactory(), SLOT( configureShortcuts() ), actionCollection() );
+#else
+	KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
+#endif
+
+
 	KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), actionCollection());
 	KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
 
@@ -246,6 +255,15 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotSaveConfig()
 {
 	Prefs::writeConfig();
+}
+
+void Kalzium::optionsConfigureKeys()
+{
+#if KDE_IS_VERSION( 3, 2, 90 )
+	assert( false );
+#else
+	KKeyDialog::configure(actionCollection());
+#endif
 }
 
 void Kalzium::optionsConfigureToolbars( )

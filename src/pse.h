@@ -28,6 +28,10 @@
 #include "element.h"
 #include "elementbutton.h"
 
+class QLabel;
+
+typedef QValueList<QLabel*> LabelList;
+
 /**
  * @short basic class for the specific PSEs
  * @author Carsten Niehaus
@@ -61,7 +65,8 @@ class PSE : public QWidget
 		 * sets the NUMMERATIONTYPE @p num of the periodic table
 		 */
 		void setNummerationType( int num ){
-			m_num;
+			m_num = num;
+			updateNummeration();
 		}
 
 		/**
@@ -78,7 +83,7 @@ class PSE : public QWidget
 		/**
 		 * @return the short and descriptive name of this PSE
 		 */
-		const QString shortName( ){ 
+		QString shortName() const{ 
 			return m_ShortName; 
 		}
 
@@ -110,12 +115,17 @@ class PSE : public QWidget
 		/**
 		 * updates the nummeration of the PSE
 		 */
-		void updateNummeration();
+		virtual void updateNummeration();
+
+		QStringList m_IUPAClist;
+		QStringList m_IUPACOLDlist;
 		
 		/**
 		 * this is a short, descriptive name of the PSE
 		 */
 		QString m_ShortName;
+
+		LabelList lList;
 
 		int m_num;
 
@@ -161,6 +171,8 @@ class RegularPSE : public PSE
 		 * @see m_PSEElementButtons
 		 */
 		void setupPSEElementButtonsList();
+		
+		void updateNummeration();
 };
 
 /**
@@ -182,6 +194,8 @@ class SimplifiedPSE : public PSE
 		 * @see m_PSEElementButtons
 		 */
 		void setupPSEElementButtonsList();
+		
+		void updateNummeration();
 };
 
 /**
@@ -202,6 +216,8 @@ class MendeljevPSE : public PSE
 		 * @see m_PSEElementButtons
 		 */
 		void setupPSEElementButtonsList();
+
+		void updateNummeration();
 		
 		~MendeljevPSE();
 };

@@ -27,6 +27,7 @@
 #include <qtooltip.h>
 #include <qstring.h>
 #include <qlayout.h>
+#include <qlabel.h>
 
 PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
  : QWidget(parent, name)
@@ -35,6 +36,46 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 
 	setupBlockLists();
 	setupPSEElementButtonsList();
+
+//IUPAC
+	    m_IUPAClist.append( "IA");
+	    m_IUPAClist.append( "IIA");
+	    m_IUPAClist.append( "IIIB");
+	    m_IUPAClist.append( "IVB");
+	    m_IUPAClist.append( "VB");
+	    m_IUPAClist.append( "VIB");
+	    m_IUPAClist.append( "VIIB");
+	    m_IUPAClist.append( "VIII");
+	    m_IUPAClist.append( "VIII");
+	    m_IUPAClist.append( "VIII");
+	    m_IUPAClist.append( "IB");
+	    m_IUPAClist.append( "IIB");
+	    m_IUPAClist.append( "IIIA");
+	    m_IUPAClist.append( "IVA");
+	    m_IUPAClist.append( "VA");
+	    m_IUPAClist.append( "VIA");
+	    m_IUPAClist.append( "VIIA");
+	    m_IUPAClist.append( "VIIIA");
+
+//oldIUPAC
+	    m_IUPACOLDlist.append( "1A");
+	    m_IUPACOLDlist.append( "2A");
+	    m_IUPACOLDlist.append( "3A");
+	    m_IUPACOLDlist.append( "4A");
+	    m_IUPACOLDlist.append( "5A");
+	    m_IUPACOLDlist.append( "6A");
+	    m_IUPACOLDlist.append( "7A");
+	    m_IUPACOLDlist.append( "8");
+	    m_IUPACOLDlist.append( "8");
+	    m_IUPACOLDlist.append( "8");
+	    m_IUPACOLDlist.append( "1B");
+	    m_IUPACOLDlist.append( "2B");
+	    m_IUPACOLDlist.append( "3B");
+	    m_IUPACOLDlist.append( "4B");
+	    m_IUPACOLDlist.append( "5B");
+	    m_IUPACOLDlist.append( "6B");
+	    m_IUPACOLDlist.append( "7B");
+	    m_IUPACOLDlist.append( "0");
 	
 }
 
@@ -42,7 +83,6 @@ PSE::~PSE(){}
 
 void PSE::updateNummeration()
 {
-	//TODO
 }
 
 void PSE::slotUpdatePSE()
@@ -81,7 +121,7 @@ void PSE::activateColorScheme( const int nr )
 
 	if ( nr == 0) //normal view, no colors
 	{
-		kdDebug() << "Number 1 was choosen... no scheme" << endl;
+		kdDebug() << "Number 1 was chosen... no scheme" << endl;
 		ElementButton *button;
 		QColor color = Prefs::noscheme();
 		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
@@ -91,7 +131,7 @@ void PSE::activateColorScheme( const int nr )
 	}
 	else if ( nr == 1) //groups view
 	{
-		kdDebug() << "Number 2 was choosen... groups" << endl;
+		kdDebug() << "Number 2 was chosen... groups" << endl;
 		
 		ElementButton *button;
 		const QColor color_1 = Prefs::group_1();
@@ -145,7 +185,7 @@ void PSE::activateColorScheme( const int nr )
 	}
 	else if ( nr == 2) //block view
 	{
-		kdDebug() << "Number 3 was choosen... blocks" << endl;
+		kdDebug() << "Number 3 was chosen... blocks" << endl;
 		
 		ElementButton *button;
 		const QColor color_s = Prefs::block_s();
@@ -179,7 +219,7 @@ void PSE::activateColorScheme( const int nr )
 	}
 	else if ( nr == 3) //state-of-matter
 	{
-		kdDebug() << "Number 4 was choosen... state-of-matter" << endl;
+		kdDebug() << "Number 4 was chosen... state-of-matter" << endl;
 		ElementButton *button;
 		const QColor color_solid = Prefs::color_solid();
 		const QColor color_liquid = Prefs::color_liquid();
@@ -217,7 +257,7 @@ void PSE::activateColorScheme( const int nr )
 	}
 	else if ( nr == 4) //acidic beh
 	{
-		kdDebug() << "Number 5 was choosen... acidbeh" << endl;
+		kdDebug() << "Number 5 was chosen... acidbeh" << endl;
 		ElementButton *button;
 		const QColor color_ba = Prefs::beh_basic();
 		const QColor color_ac = Prefs::beh_acidic();
@@ -331,24 +371,30 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 	
 	m_ShortName = i18n( "Regular Periodic Table" );
 	
-	QGridLayout *grid = new QGridLayout( 18 , 10 );
+	QGridLayout *grid = new QGridLayout( 19 , 10 );
 	
 	ElementButton *button;
+	for ( int i = 0 ; i < 18 ; i++ )
+	{
+		QLabel *l = new QLabel( this );
+		lList.append( l );
+		grid->addWidget( l , 0 , i);
+	}
 	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
 	{
-		grid->addWidget( button , button->e->y-1 , button->e->x-1 );
+		grid->addWidget( button , button->e->y , button->e->x-1 );
 	}
 	for ( button = pBlockList.first() ; button ; button = pBlockList.next() )
 	{
-		grid->addWidget( button , button->e->y-1 , button->e->x-1 );
+		grid->addWidget( button , button->e->y , button->e->x-1 );
 	}
 	for ( button = dBlockList.first() ; button ; button = dBlockList.next() )
 	{
-		grid->addWidget( button , button->e->y-1 , button->e->x-1 );
+		grid->addWidget( button , button->e->y , button->e->x-1 );
 	}
 	for ( button = fBlockList.first() ; button ; button = fBlockList.next() )
 	{
-		grid->addWidget( button , button->e->y-1 , button->e->x-1 );
+		grid->addWidget( button , button->e->y , button->e->x-1 );
 	}
 
 	vbox->addLayout( grid );
@@ -361,6 +407,29 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 }
 
 RegularPSE::~RegularPSE(){} 
+
+void RegularPSE::updateNummeration()
+{
+	kdDebug() << "RegularPSE::updateNummeration()" << endl;
+	LabelList::iterator it = lList.begin();
+	for ( int i = 0 ; it != lList.end() ; ++it )
+	{
+		kdDebug() << m_num << " << m_num" << endl;
+		switch ( m_num )
+		{
+			case CAS :
+				( *it )->setText( QString::number( i+1 ) );
+				break;
+			case IUPAC :
+				( *it )->setText( *( m_IUPAClist.at( i )) );
+				break;
+			case IUPACOLD :
+				( *it )->setText( *( m_IUPACOLDlist.at( i )) );
+				break;
+		}
+		i++;
+	}
+}
 
 /**
  * this method sets up the m_PSEElementButtons-list
@@ -395,17 +464,23 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 
 	m_ShortName = i18n( "A Simplified Periodic Table" );
 	
-	QGridLayout *grid = new QGridLayout( 18 , 17  );
+	QGridLayout *grid = new QGridLayout( 19 , 17  );
 	
 	ElementButton *button;
 
+	for ( int i = 0 ; i < 9 ; i++ )
+	{
+		QLabel *l = new QLabel( this );
+		lList.append( l );
+		grid->addWidget( l , 0 , i);
+	}
 	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
 	{
-		grid->addWidget( button , button->e->s_y-1 , button->e->s_x-1 );
+		grid->addWidget( button , button->e->s_y , button->e->s_x-1 );
 	}
 	for ( button = pBlockList.first() ; button ; button = pBlockList.next() )
 	{
-		grid->addWidget( button , button->e->s_y-1 , button->e->s_x-1 );
+		grid->addWidget( button , button->e->s_y , button->e->s_x-1 );
 	}
 	for ( button = dBlockList.first() ; button ; button = dBlockList.next() )
 	{
@@ -415,22 +490,6 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 	{
 		button->hide();
 	}
-//X 	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
-//X 	{
-//X 		grid->addWidget( button , button->e->s_y-1 , button->e->s_x-1 );
-//X 	}
-//X 	for ( button = pBlockList.first() ; button ; button = pBlockList.next() )
-//X 	{
-//X 		grid->addWidget( button , button->e->s_y-1 , button->e->s_x-1 );
-//X 	}
-//X 	for ( button = dBlockList.first() ; button ; button = dBlockList.next() )
-//X 	{
-//X 		button->hide();
-//X 	}
-//X 	for ( button = fBlockList.first() ; button ; button = fBlockList.next() )
-//X 	{
-//X 		button->hide();
-//X 	}
 	vbox->addLayout( grid );
 
 	for (  int n=0; n<8; n++ ) grid->addColSpacing(  n, 40 );
@@ -441,6 +500,29 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 }
 
 SimplifiedPSE::~SimplifiedPSE(){}
+
+void SimplifiedPSE::updateNummeration()
+{
+	LabelList::iterator it = lList.begin();
+	for ( int i = 0 ; it != lList.end() ; ++it )
+	{
+		switch ( m_num )
+		{
+			case CAS :
+				( *it )->setText( QString::number( i+1 ) );
+				break;
+			case IUPAC :
+				( *it )->setText( *( m_IUPAClist.at( i )) );
+				break;
+			case IUPACOLD :
+				( *it )->setText( *( m_IUPACOLDlist.at( i )) );
+				break;
+		}
+		i++;
+		if ( i == 2 )
+			i+=8;
+	}
+}
 
 /**
  * this method sets up the m_PSEElementButtons-list
@@ -473,13 +555,19 @@ MendeljevPSE::MendeljevPSE(KalziumDataObject *data, QWidget *parent, const char 
 	
 	ElementButton *button;
 
+	for ( int i = 0 ; i < 8 ; i++ )
+	{
+		QLabel *l = new QLabel( this );
+		lList.append( l );
+		grid->addWidget( l , 0 , i);
+	}
 	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
 	{
-		grid->addWidget( button , button->e->s_y-1 , button->e->s_x-1 );
+		grid->addWidget( button , button->e->s_y , button->e->s_x-1 );
 	}
 	for ( button = pBlockList.first() ; button ; button = pBlockList.next() )
 	{
-		grid->addWidget( button , button->e->s_y-1 , button->e->s_x-1 );
+		grid->addWidget( button , button->e->s_y , button->e->s_x-1 );
 	}
 	for ( button = dBlockList.first() ; button ; button = dBlockList.next() )
 	{
@@ -504,5 +592,15 @@ void MendeljevPSE::setupPSEElementButtonsList()
 {
 	kdDebug() << "MendeljevPSE::setupPSEElementButtonsList()" << endl;
 }
+
+void MendeljevPSE::updateNummeration()
+{
+	LabelList::iterator it = lList.begin();
+	for ( ; it != lList.end() ; ++it )
+	{
+		( *it )->hide();
+	}
+}
+
 
 #include "pse.moc"

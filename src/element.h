@@ -114,7 +114,7 @@ class Element{
 		}
 		
 		/**
-		 * @return the acidic behaviour of the element
+		 * @return the acidic behavior of the element
 		 */
 		QString acidicbeh() const {
 			return m_acidbeh;

@@ -116,7 +116,7 @@ const QString Element::adjustUnits( double val, const int type )
 			v.append( "K" );
 		}
 	}
-	else if ( type == LENGHT ) // its a lenght
+	else if ( type == LENGHT ) // its a length
 	{
 		v = QString::number( val );
 		v.append( " pm" );
