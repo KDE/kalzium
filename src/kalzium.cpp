@@ -166,7 +166,7 @@ void Kalzium::setupStatusBar()
 	statusBar()->show();
 }
 
-void Kalzium::slotStatusBar(QString text, int id)
+void Kalzium::slotStatusBar(const QString text, int id)
 {
 	statusBar()->changeItem(text, id);
 }

@@ -129,7 +129,7 @@ class Kalzium : public KMainWindow
 		/**
 		 *display text in the statusbar item at index int
 		 */
-		void slotStatusBar(QString text, int id);
+		void slotStatusBar(const QString text, int id);
 
 		/**
 		 *diplay the Temperature unit in the Statusbar
