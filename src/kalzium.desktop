@@ -1,5 +1,6 @@
 # KDE Config File  
 [Desktop Entry]
+Encoding=UTF-8
 Type=Application
 Exec=kalzium -caption "%c" %i %m  
 Icon=kalzium
@@ -9,7 +10,6 @@ Comment[sl]=Periodna tabela elementov
 Comment[xx]=xxxx
 Terminal=0
 Name=Kalzium
-Name[ar]=الكيمياء
 Name[bn]=ক্যালজিয়াম
 Name[fo]=Kalsium
 Name[hi]=के-एल्जियम
@@ -19,6 +19,8 @@ Name[pl]=Kalzium (Program do nauki pierwiastków chemicznych)
 Name[ta]=கால்சியம்
 Name[xx]=xxKalziumxx
 GenericName=Periodic Table of Elements
+GenericName[af]=Periodieke Tabel van Elemente
+GenericName[ar]=الجدول الدوري للعناصر
 GenericName[bg]=Таблица на химическите елементи
 GenericName[bs]=Periodna tablica elemenata
 GenericName[ca]=Taula periòdica dels elements
