@@ -46,7 +46,7 @@
 #include <time.h>
 
 #include "quizdlg.h"
-#include "quiz_result.h"
+#include "uis/quiz_result.h"
 
 QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  
     : QuizDlgUI (parent,name)

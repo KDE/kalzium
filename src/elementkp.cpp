@@ -38,7 +38,7 @@
 #include "eleminfo.h"
 #include "elementkp.moc"
 #include "kalzium.h" 
-#include "infodlg.h"
+#include "uis/infodlg.h"
 
 	ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)	
 : KPushButton(parent,name)
