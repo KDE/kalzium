@@ -84,7 +84,7 @@ under the &GNU; Public License.
 </para>
 
 <para>
-You can visualize the Periodic Table of the Elements by blocks, groups, acidic behaviour or different states of matter. You can plot data for a range of elements (weight, mean weight, density, IE1, IE2, electronegativity). You can go back in time and see what elements were known at a given date. You will also be able to check your knowledge by taking a quiz.
+You can visualize the Periodic Table of the Elements by blocks, groups, acidic behavior or different states of matter. You can plot data for a range of elements (weight, mean weight, density, IE1, IE2, electronegativity). You can go back in time and see what elements were known at a given date. You will also be able to check your knowledge by taking a quiz.
 </para>
 
 </chapter>
@@ -143,7 +143,7 @@ You can visualize the Periodic Table of the Elements by blocks, groups, acidic b
 </mediaobject>
 </screenshot>
 
-<para>In the detailed information dialog,  you get a lot of information on an element. First an overview presents you the element, its symbol and atomic weight. The Miscellaneous tab tells you when it was discovered and its mean weight. The Picture tab displays a picture of the element when available. The Energies tab tells you about different energy facts related to the element. The Chemical Data tab presents some atomic data and the Atom Model tab displays the Atomix Hull</para>
+<para>In the detailed information dialog,  you get a lot of information on an element. First an overview presents you the element, its symbol and atomic weight. The Miscellaneous tab tells you when it was discovered and its mean weight. The Picture tab displays a picture of the element when available. The Energies tab tells you about different energy facts related to the element. The Chemical Data tab presents some atomic data and the Atom Model tab displays the Atomic Hull</para>
 
 </sect1>
 
@@ -164,7 +164,7 @@ You can visualize the Periodic Table of the Elements by blocks, groups, acidic b
 <para>Color schemes are changed in the <guimenu>Look</guimenu> menu. </para>
 <itemizedlist>
 <listitem><para>
-<guimenuitem>No Color Scheme</guimenuitem>: all the elements have the same color. You can change the default colcor in <guimenu>Settings</guimenu> -> <guimenuitem>Configure Kalzium...</guimenuitem> -> Colors tab.
+<guimenuitem>No Color Scheme</guimenuitem>: all the elements have the same color. You can change the default color in <guimenu>Settings</guimenu> -> <guimenuitem>Configure Kalzium...</guimenuitem> -> Colors tab.
 </para></listitem>
 <listitem><para>
 <guimenuitem>Show Groups</guimenuitem>: displays a color for each group. A group is a vertical column in the periodic table of the elements. There are 18 groups in the standard periodic table. Elements in a group have similar configurations of their valence shell electrons, which gives them similar properties.
@@ -297,7 +297,7 @@ solid/liquid/vaporous at a given temperature.</para>
 </sect2>
 <sect2 id="show_hide_legend">
 <title>Show/Hide Legend</title>
-<para>The Show/Hide Legend action allows you to display the legent for the scheme you are in (Groups, Blocks, Acid Behaviour). The Legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. Kalzium will keep this setting in its configuration file.
+<para>The Show/Hide Legend action allows you to display the legend for the scheme you are in (Groups, Blocks, Acid Behavior). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. Kalzium will keep this setting in its configuration file.
 </para>
 </sect2>
 
@@ -567,7 +567,7 @@ under the <ulink url="http://www.gnu.org/licenses/licenses.html#GPL">GPL</ulink>
 <answer>
 <para>No, at the moment not, but you can download the source and make
 your own Windows version. It should not be a big problem, because it is
-written with Trolltech's &Qt; libs. But what do you need &Windows; for?
+written with Trolltech &Qt; libs. But what do you need &Windows; for?
 Get the latest &Linux;, and live on the edge.</para>
 
 </answer>
