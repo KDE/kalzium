@@ -29,6 +29,9 @@ class QString;
 class Kalzium;
 
 /*This struct store all information about the elements.
+ * The variables with a '_' are allready parsed. For example _MP is '300 C' 
+ * while MP is '300'.
+ * 
  * Name = Name of the element (Helium)
  * Symbol = He
  * Block = s,p,d,f
@@ -39,6 +42,7 @@ class Kalzium;
  * date = when has the elements been identified?
  * Group = in which of the 8 groups is the element
  * orbits = the quantum-orbits ( eg O is 1s2_2s2_2p4 )
+ * meanweight = atomic weigth devided by the number of protons
  * number = number of the element in the PSE
  * MP = Melting Point
  * BP = Boiling Point
@@ -46,9 +50,8 @@ class Kalzium;
  * Density = Density
  * IE = Ionisationenergie
  * AR = Atomradius
- * OX = Oxidationstages
+ * oxstage = Oxidationstages
  */
-
 struct ElementInfo
 {
 	QString Name, Symbol, Block,

@@ -43,7 +43,8 @@
 #include "infodialog.h"
 
 DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, const char *name)
-    : KDialogBase(IconList, i18n("Detailed Look"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
+    : KDialogBase(IconList, i18n("Detailed Look on %1").arg( Eleminfo.Name.lower().utf8() ), Ok ,Ok, parent,name, true, false)
+    //: KDialogBase(IconList, i18n("Detailed Look"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
 	Data = Eleminfo;
 
@@ -55,10 +56,10 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 
 	dTab = new DetailedTab( Data , overviewWidget );
 	overviewLayout->addWidget( overviewWidget );
-	showLegendKP = new KPushButton( i18n( "Show Legend" ), overviewTab );
+	showLegendKP = new KPushButton( i18n( "Show Legend" ), overviewWidget );
 	connect( showLegendKP , SIGNAL( clicked() ), this , SLOT( slotShowLegend() ) );
-	overviewLayout->addWidget( showLegendKP );
 	foo_layout->addWidget( dTab );
+	foo_layout->addWidget( showLegendKP );
 
 	dTab->show();
 
@@ -103,7 +104,9 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
     miscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon("colorize", KIcon::SizeMedium));
 	QVBoxLayout *miscLayout = new QVBoxLayout( miscTab );
 	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg(Data.date ) , miscTab );
+	QLabel *meanweight_label = new QLabel( i18n("Meanweight: %1").arg(Data.meanweight ) , miscTab );
 	miscLayout->addWidget( discovered_label );
+	miscLayout->addWidget( meanweight_label );
 }
 
 void DetailedInfoDlg::slotShowLegend()
@@ -145,8 +148,10 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	//calculation of the corners
 	int x1,x2,y1,y2;
 
-	x1 =  w/2-dx;
-	y1 =  h/2-dy;
+//X 	x1 =  w/2-dx;
+//X 	y1 =  h/2-dy;
+	x1=20;
+	y1=20;
 	x2 = x1 + dx;
 	y2 = y1 + dy;
 
@@ -162,9 +167,10 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	p.drawText( x1+dx/2 , y1+dy/2 , Data.Symbol );  //Symbol
 
 	p.setFont( f2 );
-	p.drawText( x1+5 , y2-5 ,Data.Name.utf8() );            //Name
 	p.drawText( x1 , y1+dy/2-50 ,x2-x1 , 18 , Qt::AlignCenter , Data.oxstage);    //Oxidationszahlen
-	p.drawText( x1+dx/2 , y2-20 , x2-x1-dx/2 , 18 , Qt::AlignRight , Data.Weight ); //Weight
+//	p.drawText( x , y, w , h Qt::AlignXXX, QString );
+	p.drawText( x1+2 , y2-20 , x2-x1-dx/2-4 , 18 , Qt::AlignLeft , Data.Name.utf8() ); //Name
+	p.drawText( x1+dx/2+2 , y2-20 , x2-x1-dx/2-4 , 18 , Qt::AlignRight , Data.Weight ); //Weight
 
 	p.setFont( f3 );
 	p.drawText( x1+dx/2-20 , y1+dy/2-18 , 20, 18, Qt::AlignRight , QString::number( Data.number ));

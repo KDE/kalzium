@@ -91,9 +91,9 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 		else
 			pmTitle = new QLabel( i18n( "Name: %1").arg(i18n(Data.Name.utf8())) , pmenu );
 		if (Data.Weight == "0")
-			pmWeight = new QLabel( i18n( "Atomic Weight: Unknown") , pmenu );
+			pmWeight = new QLabel( i18n( "Atomic Weight: Unknown %1").arg( Data.Weight ) , pmenu );
 		else
-			pmWeight = new QLabel( i18n( "Atomic Weight: %1 u").arg(Data.Weight) , pmenu );
+			pmWeight = new QLabel( i18n( "Atomic Weight: %1").arg(Data.Weight) , pmenu );
 		pmenu->clear();
 		pmenu->insertItem( pmTitle );
 		pmenu->insertSeparator();
