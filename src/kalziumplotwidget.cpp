@@ -37,3 +37,5 @@ void KalziumPlotWidget::paintEvent( QPaintEvent* )
 	
 	p.end();
 }
+
+#include "kalziumplotwidget.moc"

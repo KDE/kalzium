@@ -25,3 +25,5 @@
 KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name )  : KalziumPlotDialog (parent,name)
 {
 }
+
+#include "kalziumplotdialogimpl.moc"

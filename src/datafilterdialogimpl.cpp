@@ -47,3 +47,5 @@ void Datafilterdialogimpl::slotSetFilterText( int id )
 	}
 }
 
+
+#include "datafilterdialogimpl.moc"
