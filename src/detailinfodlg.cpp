@@ -34,6 +34,7 @@
 #include <qvbuttongroup.h>
 #include <qpainter.h>
 #include <qpixmap.h>
+#include <qregexp.h>
 
 #include <iostream>
 #include "elementkp.h"
@@ -48,16 +49,15 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	/////////////////////////////////
 	overviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon("colorize", KIcon::SizeMedium));
 	QVBoxLayout *overviewLayout = new QVBoxLayout( overviewTab );
-	QWidget *foo = new QWidget( overviewTab );
-	QVBoxLayout *foo_layout = new QVBoxLayout( foo );
+	QWidget *overviewWidget = new QWidget( overviewTab );
+	QVBoxLayout *foo_layout = new QVBoxLayout( overviewWidget );
 
-	dTab = new DetailedTab( Data ,  foo );
-	overviewLayout->addWidget( foo );
-	foo_layout->addWidget( dTab );
-
-	showLegendKP = new KPushButton( i18n( "Show Legend" ), this );
+	dTab = new DetailedTab( Data , overviewWidget );
+	overviewLayout->addWidget( overviewWidget );
+	showLegendKP = new KPushButton( i18n( "Show Legend" ), overviewTab );
 	connect( showLegendKP , SIGNAL( clicked() ), this , SLOT( slotShowLegend() ) );
 	overviewLayout->addWidget( showLegendKP );
+	foo_layout->addWidget( dTab );
 
 	dTab->show();
 
@@ -71,20 +71,58 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	mainLayout->addWidget( test );
 
     /////////////////////////////////
-    energyTab = addPage(i18n("Energies"), i18n("Energyinformatino"), BarIcon("roll", KIcon::SizeMedium));
+    energyTab = addPage(i18n("Energies"), i18n("Energyinformation"), BarIcon("roll", KIcon::SizeMedium));
 	QVBoxLayout *energyLayout = new QVBoxLayout( energyTab );
-	QLabel *ENlabel = new QLabel( QString::number( Data.EN ) , energyTab );
-	QLabel *Ionlabel = new QLabel( QString::number( Data.IE ) , energyTab );
+	QLabel *ENlabel = new QLabel( i18n( "Electronegativity: %1" ).arg( QString::number( Data.EN ) ) , energyTab );
+	QLabel *Ionlabel = new QLabel(i18n( "Ionizationenergie: %1 kJ/mol" ).arg( QString::number( Data.IE )) , energyTab );
+	QLabel *MPlabel = new QLabel(i18n( "Meltingpoint: %1 K" ).arg( QString::number( Data.MP ) ) , energyTab );
+	QLabel *BPlabel = new QLabel(i18n( "Boilingpoint: %1 K" ).arg( QString::number( Data.BP ) ) , energyTab );
 	energyLayout->addWidget( ENlabel );
 	energyLayout->addWidget( Ionlabel );
+	energyLayout->addWidget( MPlabel );
+	energyLayout->addWidget( BPlabel );
 
     /////////////////////////////////
-    miscTab = addPage(i18n("Colors"), i18n("Miscilanious"), BarIcon("colorize", KIcon::SizeMedium));
+    chemicalTab = addPage(i18n("Chemical Data"), i18n("Chemical Data"), BarIcon("colorize", KIcon::SizeMedium));
+	QVBoxLayout *chemicalLayout = new QVBoxLayout( chemicalTab );
+	QLabel *orbtisLabel = new QLabel( i18n( "Orbits: %1" ).arg( beautifyOrbits( Data.orbits ) ) , chemicalTab );
+	QLabel *symbolLabel = new QLabel( i18n( "Symbol: %1" ).arg( Data.Symbol ) , chemicalTab  );
+	QLabel *densityLabel = new QLabel( i18n( "Density: %1 g/cm<sup>3</sup>").arg(QString::number( Data.Density ) ) , chemicalTab );
+	QLabel *blockLabel  = new QLabel( i18n( "Block: %1" ).arg( Data.Block ) , chemicalTab );
+	QLabel *atomrad    = new QLabel( i18n( "Atomic Radius: %1 pm" ).arg( QString::number( Data.AR )) , chemicalTab );
+	QLabel *atomweightLabel = new QLabel( i18n( "Atomic Weigth: %1 u" ).arg( Data.Weight ) , chemicalTab );
+	chemicalLayout->addWidget( orbtisLabel );
+	chemicalLayout->addWidget( symbolLabel );
+	chemicalLayout->addWidget( densityLabel);
+	chemicalLayout->addWidget( blockLabel  );
+	chemicalLayout->addWidget( atomrad );
+	chemicalLayout->addWidget( atomweightLabel);
+    
+	/////////////////////////////////
+    miscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon("colorize", KIcon::SizeMedium));
+	QVBoxLayout *miscLayout = new QVBoxLayout( miscTab );
+	QLabel *discovered_label = new QLabel( miscTab );
+//X     if (Eleminfo.date == "0")
+//X 	discovered_label->setText(i18n("was known to ancient cultures"));
+//X     else if (Eleminfo.date == "3333")
+//X 	discovered_label->setText(i18n("not been discovered yet"));
+//X     else
+//X 	discovered_label->setText(i18n("%1").arg(Eleminfo.date));
+	miscLayout->addWidget( discovered_label );
 }
+
+QString DetailedInfoDlg::beautifyOrbits( QString orbits ) const
+{
+	QRegExp rxs("([a-z])([0-9]+)");
+	QRegExp rxb("([a-z]{2}) ",false);
+	orbits.replace(rxs,"\\1<sup>\\2</sup>"); //superscript around electron number
+	orbits.replace(rxb,"<b>\\1</b> "); //bold around element symbols
+	return orbits;
+}
+
 
 void DetailedInfoDlg::slotShowLegend()
 {
-	kdDebug() << "Legende soll angezeigt werden" << endl;
 	if ( dTab->showLegend )
 	{
 		dTab->showLegend = false;
@@ -106,14 +144,15 @@ DetailedTab::DetailedTab( ElementInfo& Eleminfo , QWidget *parent, const char *n
 
 void DetailedTab::paintEvent( QPaintEvent* )
 {
-
 	QPainter p;
 	p.begin(this);
 
 	//the needed values
 
-	int h = this->height();
-	int w = this->width();
+	//int h = this->height();
+	//int w = this->width();
+	int h = 500;
+	int w = 400;
 	int dy = h/4;
 	int dx = w/3;
 	///////////////////
@@ -148,10 +187,8 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	//show or hide the legend
 	if ( showLegend )
 	{
-		kdDebug() << "yo, ist TRUE" << endl;
 		p.drawLine( x1 , y2 , 50 , 50 );
 	}
-	else kdDebug() << "no, es ist FALSE" << endl;
 
 	p.end();
 }

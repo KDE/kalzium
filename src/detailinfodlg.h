@@ -45,12 +45,14 @@ class DetailedInfoDlg : public KDialogBase
         DetailedInfoDlg( ElementInfo Eleminfo , QWidget *parent=0, const char *name=0);
 		ElementInfo Data;
 
-		QFrame *mainTab, *energyTab, *miscTab, *overviewTab;
+		QFrame *mainTab, *energyTab, *chemicalTab, *overviewTab, *miscTab;
 
 		DetailedTab *dTab;
 
 		KPushButton *showLegendKP;
 
+	private:
+		QString beautifyOrbits( QString ) const;
 
 	private slots:
 		void slotShowLegend();

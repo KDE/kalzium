@@ -37,5 +37,4 @@ class infoDialog : public infoDlg
 		void lookup() const;
 };
 
-
 #endif

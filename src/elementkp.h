@@ -52,10 +52,10 @@ class Kalzium;
 
 struct ElementInfo
 {
-   QString Name, Symbol, Block,
-   Weight, acidbeh, az, date, Group, orbits, oxstage;
-   int number;
-   double MP, BP, EN, Density, IE, AR;
+	QString Name, Symbol, Block,
+	Weight, acidbeh, az, date, Group, orbits, oxstage;
+	int number;
+	double MP, BP, EN, Density, IE, AR;
 };
 
 /**This class is derived from KPushButton. This is to make it be more specific
