@@ -188,3 +188,5 @@ void questionEditorImpl::slotAddQuestion()
 	q->show();
 }
 
+
+#include "questioneditor_impl.moc"

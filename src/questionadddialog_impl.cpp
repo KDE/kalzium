@@ -121,3 +121,5 @@ void questionAddDialogImpl::slotTestQuestion()
 }
 
 
+
+#include "questionadddialog_impl.moc"
