@@ -11,7 +11,6 @@
  *                                                                         *
  ***************************************************************************/
 #include "kalzium.h"
-#include "pse.h"
 #include "elementbutton.h"
 #include "element.h"
 #include "prefs.h"
@@ -53,12 +52,9 @@ Kalzium::Kalzium()
 	 schemalist.append(i18n("Show &Simple PSE"));
 	 schema_action = new KSelectAction (i18n("Switch &PSE"), 0, this, 0, actionCollection(), "changepse");
 	 schema_action->setItems(schemalist);
+	 schema_action->setCurrentItem(0);
 	 connect (schema_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoPSE(int)));
-	 /*
-	m_pRegularPSEAction = new KAction(i18n("Show &Regular PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "RegularPSE");
-	m_pMendeljevPSEAction = new KAction(i18n("Show &Mendeljev PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "MendeljevPSE");
-	m_pSimplePSEAction = new KAction(i18n("Show &Simple PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "SimplePSE");*/
-
+	 
 	/*
 	 * the actions for the quiz
 	 **/
