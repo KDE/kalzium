@@ -88,14 +88,48 @@ QFrame( parent, name )
 
 void KalziumGraph::paintEvent( QPaintEvent * )
 {
+	int w_w = this->width();
+	int w_h = this->height();
+	int num = toRange_-fromRange_;
+	int real_w=w_w/num;                       //real_w ist die Breite pro Datenpunkt
+
+	
 	QPainter DC;
 	DC.begin( this );
-	for( int i = fromRange_ ; i < toRange_ ; i++ )
+	
+//X 	int x1 = 0, y1=0, x2=0, y2=0;
+	
+	for( int i = 0 ; i < num ; i++ )
 	{
-		DC.drawPoint(i*10,400-( int )data->Data[ i ]*10);
-		kdDebug() << "i: " << i << " Daten: " << 400-( int )data->Data[ i ]*10 << endl;
+//X 		x1 = real_w*i-1;
+//X 		y1 = ( int )data->Data[ fromRange_+i-1 ];
+//X 		x2 = real_w*i;
+//X 		y2 = ( int )data->Data[ fromRange_+i ];
+//X 
+//X 		kdDebug() << "x1: " << x1 <<" y1: " << y1 <<"                     x2: " << x2 <<" y2: " << y2 << endl;
+//X 	DC.drawLine( x1,y1,x2,y2 );
+
+		double temp = getMax();
+
+		double current = data->Data[ fromRange_+i ]/temp;
+		current*=w_h;
+		
+		DC.drawPoint( real_w*i , w_h-( ( int )current ) );
 	}
 	DC.end();
+}
+
+double KalziumGraph::getMax()
+{
+	double temp = data->Data[ fromRange_ ];
+	for( int i = fromRange_ ; i < toRange_ ; i++ )
+	{
+		if ( data->Data[ i ] > temp )
+		{
+			temp = data->Data[ i ];
+		}
+	}
+	return temp;
 }
 
 KalziumGraphDataContainer::KalziumGraphDataContainer( int typ, int fromRange, int toRange )

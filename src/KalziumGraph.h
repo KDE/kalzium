@@ -64,6 +64,10 @@ class KalziumGraph : public QFrame
 		KalziumGraphDataContainer *data;
 		int fromRange_, toRange_;
 
+	private:
+		double getMax();
+
+
 	protected slots:
 		virtual void paintEvent( QPaintEvent * );
 

@@ -51,7 +51,7 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
 
     kmolcalc = new KMolCalc;
 
-    for ( int n=0 ; n<118 ; n++ ) // read in the values
+    for ( int n=0 ; n<109 ; n++ ) // read in the values
     {
         config.setGroup(QString::number(n+1));
         symlabel[n]=config.readEntry("Symbol", "Unknown");
