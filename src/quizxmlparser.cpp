@@ -206,6 +206,7 @@ TaskList QuizXMLParser::readTasks( int min, int max, QDomDocument &questionDocum
 
 QuizXMLWriter::QuizXMLWriter( QFile *file )
 {
+	kdDebug() << "QuizXMLWriter::QuizXMLWriter()" << endl;
 	outputFile = file;
 	if ( outputFile->open( IO_WriteOnly ) )
 	{
@@ -223,8 +224,6 @@ QuizXMLWriter::~QuizXMLWriter()
 
 void QuizXMLWriter::addItem(Task* task)
 {
-	kdDebug() << "QuizXMLWriter::addItem()" << endl;
-
 	//the next line writes eg: <task grade="2">
 	outputStream << "   <task grade=\"" << task->isGrade() << "\">" << endl;
 
@@ -233,9 +232,13 @@ void QuizXMLWriter::addItem(Task* task)
 
 	for ( int i = 0 ; i < task->numberOfAnswers() ; ++i )
 	{//write all answers
-		QString type = "true"; //task->answerAt(i)->isTrue ? "true" : "false";
-		outputStream << "       <answer type=\"" << type << " text=\"" << task->answerAt(i)->answer() << "\" />" << endl;
+		QString type = "\"true\""; //task->answerAt(i)->isTrue ? "true" : "false";
+		QString answertext = task->answerAt( i )->answer();
+		outputStream << "       <answer type=" << type << " text=\"" << answertext << "\" />" << endl;
 	}
+
+	//close the task
+	outputStream << "   </task>" << endl;
 }
 
 void QuizXMLWriter::addHeader()

@@ -126,6 +126,7 @@ void questionEditorImpl::slotSaveFile()
 	{
 		writer->addItem( m_tasklist.taskAt( i ) );
 	}
+	delete writer;
 }
 
 #include "questioneditor_impl.moc"
