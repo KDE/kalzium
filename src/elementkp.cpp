@@ -183,7 +183,7 @@ void ElementKP::slotShowData()
 	if ( Data.Density == -1 )
 		show_data2->density_label->setText( i18n( "Unknown" ) );
 	else
-		show_data2->density_label->setText( i18n("%1" ).arg( Data.Density ) );
+		show_data2->density_label->setText( i18n("%1 g/cm^3" ).arg( Data.Density ) );
 
 	if ( Data.MP == -1 )
 		show_data2->melting_label->setText( i18n( "Unknown" ) );
@@ -193,7 +193,7 @@ void ElementKP::slotShowData()
 	if (Data.IE == -1)
 		show_data2->ion_label->setText( i18n( "Unknown" ) );
 	else
-		show_data2->ion_label->setText( i18n( "%1" ).arg( Data.IE) );
+		show_data2->ion_label->setText( i18n( "%1 kJ/mole" ).arg( Data.IE*100) );
 
 	show_data2->elemno_label->setText( i18n( "%1" ).arg( Data.number ) );
 
@@ -213,7 +213,7 @@ void ElementKP::slotShowData()
 	if (Data.AR == -1)
 		show_data2->radius_label->setText( i18n( "Unknown" ) );
 	else
-		show_data2->radius_label->setText( i18n( "%1" ).arg( Data.AR ) );
+		show_data2->radius_label->setText( i18n( "%1 pm" ).arg( Data.AR ) );
 
 	if (Data.BP == -1)
 		show_data2->boiling_label->setText( i18n( "Unknown" ) );
