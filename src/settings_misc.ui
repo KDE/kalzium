@@ -12,9 +12,6 @@
             <height>385</height>
         </rect>
     </property>
-    <property name="caption">
-        <string>setupMisc</string>
-    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -57,7 +54,7 @@
                                 <cstring>radioButton3</cstring>
                             </property>
                             <property name="text">
-                                <string>Less Information on left click</string>
+                                <string>Less information on left click</string>
                             </property>
                             <property name="toolTip" stdset="0">
                                 <string>Show less information in the information dialog when clicking with the left mouse button</string>
@@ -177,7 +174,7 @@
                                 <cstring>textLabel1</cstring>
                             </property>
                             <property name="text">
-                                <string>Default Temperature:</string>
+                                <string>Default temperature:</string>
                             </property>
                         </widget>
                         <widget class="KIntNumInput">

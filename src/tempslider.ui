@@ -12,9 +12,6 @@
             <height>49</height>
         </rect>
     </property>
-    <property name="caption">
-        <string>TempSlider</string>
-    </property>
     <hbox>
         <property name="name">
             <cstring>unnamed</cstring>

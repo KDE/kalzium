@@ -55,7 +55,7 @@
                                             <cstring>textLabel13</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>s-Block</string>
+                                            <string>s-Block:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -81,7 +81,7 @@
                                             <cstring>textLabel14</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>p-Block</string>
+                                            <string>p-Block:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -107,7 +107,7 @@
                                             <cstring>textLabel15</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>d-Block</string>
+                                            <string>d-Block:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -133,7 +133,7 @@
                                             <cstring>textLabel16</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>f-Block</string>
+                                            <string>f-Block:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -540,7 +540,7 @@
                                             <cstring>textLabel1</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Solid</string>
+                                            <string>Solid:</string>
                                         </property>
                                         <property name="buddy" stdset="0">
                                             <cstring>kcfg_color_solid</cstring>
