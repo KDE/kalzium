@@ -116,7 +116,7 @@ class ElementList : public SubUnit {
 
  private:
   QString name;
-  QList<ElementCoef>* elements;
+  QPtrList<ElementCoef>* elements;
 };
 
 /**

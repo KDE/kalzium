@@ -19,7 +19,7 @@
 #include <ksimpleconfig.h>
 #include <klineedit.h>
 #include <klocale.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 
 //QT-Includes
 #include <qstring.h>

@@ -24,7 +24,6 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <kpushbutton.h>
-#include <kdebug.h>
 
 #include <qfont.h>
 #include <qcolor.h>

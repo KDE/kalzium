@@ -57,7 +57,7 @@ double SubUnit::getWeight(QDict<SubUnit>* /*elstable*/) const {
  * A group of elements. 
  */
 ElementList::ElementList () {
-  elements = new QList<ElementCoef>;
+  elements = new QPtrList<ElementCoef>;
 }
 
 ElementList::~ElementList () {
@@ -70,7 +70,7 @@ ElementList::~ElementList () {
  */
 ElementList::ElementList (QString name) {
   this->name = name;
-  elements = new QList<ElementCoef>;
+  elements = new QPtrList<ElementCoef>;
 }
 
 /**

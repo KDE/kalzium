@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <eleminfo.h>
+#include "eleminfo.h"
 
 //C++-Includes
 #include "stdlib.h"
