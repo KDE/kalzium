@@ -1,9 +1,28 @@
+/***************************************************************************
+
+        settingsdialog.h  -  description
+                             -------------------
+    begin                : Tue Apr 2 20:43:44 2002 UTC
+    copyright            : (C) 2002 by Robert Gogolok
+    email                : mail@robert-gogolok.de
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #ifndef _KALZIUM_SETTINGSDIALOG_H_
 #define _KALZIUM_SETTINGSDIALOG_H_
 
 #include <kdialogbase.h>
 #include <qtabwidget.h>
 
+class Kalzium;
 class KColorButton;
 class QComboBox;
 class QGridLayout;
@@ -14,7 +33,7 @@ class ColorsTabWidget : public QTabWidget
 {
     Q_OBJECT
     public:
-        ColorsTabWidget(QWidget *parent = 0, const char *name = 0/*, Kalzium *kalzium_tmp=0*/);
+        ColorsTabWidget(QWidget *parent = 0, const char *name = 0);
         QString indexnumber;
         
     private:
@@ -35,11 +54,11 @@ class ColorsTabWidget : public QTabWidget
         QComboBox *dropdown;
         QGridLayout *stateofmatters_layout, *blocks_layout, *groups_layout, *acid_layout;
 
-    private slots:
-        void saveColors();
+    public slots:
         void setDefaultColors();
         void applyColors();
-        void okColors();
+    private slots:        
+        void saveColors();
 };
 
 
@@ -51,6 +70,13 @@ class SettingsDialog : public KDialogBase
     private:
         QFrame *colorTab;
         ColorsTabWidget *colorsTabWidget;
+        Kalzium *kalzium;
+
+    private slots:
+        void changeApplyKalziumSettings();
+        void setDefaults();
+        void changeOkKalziumSettings();
+        
 };
 
 #endif

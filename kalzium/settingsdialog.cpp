@@ -1,3 +1,21 @@
+/***************************************************************************
+
+        settingsdialog.cpp  -  description
+                             -------------------
+    begin                : Tue Apr 2 20:43:44 2002 UTC
+    copyright            : (C) 2002 by Robert Gogolok
+    email                : mail@robert-gogolok.de
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
 #include <kcolorbutton.h>
 #include <kconfig.h>
 #include <kiconloader.h>
@@ -8,9 +26,10 @@
 #include <qlayout.h>
 
 // locale includes
+#include "kalzium.h"
 #include "settingsdialog.h"
 
-ColorsTabWidget::ColorsTabWidget(QWidget *parent = 0, const char *name = 0 /*Kalzium *kalzium_tmp*/)
+ColorsTabWidget::ColorsTabWidget(QWidget *parent = 0, const char *name = 0)
 : QTabWidget (parent,name)
 {
     KConfig *main_config=KGlobal::config();  
@@ -188,28 +207,39 @@ void ColorsTabWidget::saveColors()
 void ColorsTabWidget::applyColors()
 {
     saveColors();
-//X     kalzium->changeColourScheme(kalzium->colourschememenu->currentItem());
 }
-
-
-void ColorsTabWidget::okColors()
-{
-    saveColors();
-//X     kalzium->changeColourScheme(kalzium->colourschememenu->currentItem());
-//X     kalzium->coloursconfig->close();
-}
-
 
 //********SettingsDialogg**********************************************
 SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Preferences"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
-
+    kalzium = (Kalzium*)parent;
     colorTab = addPage(i18n("Colors"), i18n("Customize color settings"), BarIcon("colorize", KIcon::SizeMedium));
     colorsTabWidget = new ColorsTabWidget(colorTab, "colorsTabWidget");
     QVBoxLayout *vcolorTabBox = new QVBoxLayout(colorTab);
     vcolorTabBox->addWidget(colorsTabWidget);
+
+    connect(this, SIGNAL(applyClicked()), this, SLOT(changeApplyKalziumSettings()));
+    connect(this, SIGNAL(defaultClicked()), this, SLOT(setDefaults()));
+    connect(this, SIGNAL(okClicked()), this, SLOT(changeOkKalziumSettings()));
 }
 
+void SettingsDialog::changeApplyKalziumSettings()
+{
+    colorsTabWidget->applyColors();
+    kalzium->changeColourScheme(kalzium->colourschememenu->currentItem());
+}
+
+
+void SettingsDialog::changeOkKalziumSettings()
+{
+    colorsTabWidget->applyColors();
+    kalzium->changeColourScheme(kalzium->colourschememenu->currentItem());
+}
+
+void SettingsDialog::setDefaults()
+{
+    colorsTabWidget->setDefaultColors();
+}
 
 #include "settingsdialog.moc"
