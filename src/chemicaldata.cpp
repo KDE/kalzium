@@ -44,7 +44,12 @@ ElementInfo ElemInfoParsed::information()
 	if (info.IE == -1)
 		info._IE = i18n( "Unknown" ) ;
 	else
-		info._IE = i18n( "%1 kJ/mol" ).arg( info.IE*100) ;
+		info._IE = i18n( "%1 kJ/mol (%2 eV)" ).arg( info.IE * 96.6 ).arg( info.IE) ;
+	
+	if (info.IE2 == -1)
+		info._IE2 = i18n( "Unknown" ) ;
+	else
+		info._IE2 = i18n( "%1 kJ/mol (%2 eV)" ).arg( info.IE2* 96.6 ).arg( info.IE2) ;
 
 	if (info.Weight == "0")
 	{
@@ -93,7 +98,7 @@ QString ElemInfoParsed::beautifyOrbits( QString orbits ) const
 	return orbits;
 }
 
-//TODO
+//XXX
 //this reqexp is not working
 QString ElemInfoParsed::beautifyOxydationstages( QString ox ) const
 {

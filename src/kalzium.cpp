@@ -129,6 +129,7 @@ void Kalzium::setupAllElementKPButtons()
 			eleminfo.EN=config.readDoubleNumEntry("EN", -1);
 			eleminfo.MP=config.readDoubleNumEntry("MP", -1);
 			eleminfo.IE=config.readDoubleNumEntry("IE", -1);
+			eleminfo.IE2=config.readDoubleNumEntry("IE2", -1);
 			eleminfo.AR=config.readDoubleNumEntry("AR", -1);
 			eleminfo.BP=config.readDoubleNumEntry("BP", -1);
 			eleminfo.Density=config.readDoubleNumEntry("Density", -1);

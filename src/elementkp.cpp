@@ -32,11 +32,8 @@
 #include "infodialog.h"
 #include "chemicaldata.h"
 
-#include <iostream>
-
 ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)
 : ElementButton(parent,name)
-
 {
 	kalzium = kalzium_tmp;
 	ElemNo = AElemNo;
@@ -63,9 +60,8 @@ void ElementKP::enterEvent(QEvent *)
 //when the mousepointer leaves the button
 void ElementKP::leaveEvent(QEvent *)
 {
-	zeigerle->message(i18n("The Kalzium-version","Kalzium %1").arg( KALZIUM_VERSION ));
+	zeigerle->message(i18n("Kalzium ","Kalzium %1").arg( KALZIUM_VERSION ));
 	kalzium->dtab->hide();
-	
 }
 
 void ElementKP::mouseMoveEvent( QMouseEvent * )
@@ -86,7 +82,7 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 		else
 			slotShowDetailedData();
 	}
-	else
+	if (mouse->button() == LeftButton)
 	{
 		if ( detailed == "long" )
 			slotShowDetailedData();
