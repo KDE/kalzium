@@ -284,11 +284,6 @@ void PSE::setTemperature( const double temp )
 {
 	//Important: The value temp is in Kelvin, not Degree Celsius!
 	kdDebug() << "PSE::setTemperature()" << endl;
-	static QColor c_liquid = Prefs::color_liquid();
-	static QColor c_solid = Prefs::color_solid();
-	static QColor c_vapor = Prefs::color_vapor();
-	static QColor c_artificial = Prefs::color_artificial();
-	static QColor c_radioactive = Prefs::color_radioactive();
 	
 	ElementButton *button;
 	for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
@@ -296,8 +291,8 @@ void PSE::setTemperature( const double temp )
 		const int az = button->e->az();
 		if ( az == 3 || az == 4 )
 		{ //check if the element is radioactive or artificial
-			if ( az == 3 ) button->setPaletteBackgroundColor( c_radioactive );
-			if ( az == 4 ) button->setPaletteBackgroundColor( c_artificial );
+			if ( az == 3 ) button->setPaletteBackgroundColor(Prefs::color_radioactive() );
+			if ( az == 4 ) button->setPaletteBackgroundColor( Prefs::color_artificial() );
 			continue;
 		}
 
@@ -306,18 +301,18 @@ void PSE::setTemperature( const double temp )
 		
 		if ( temp < iButton_melting )
 		{ //the element is solid
-			button->setPaletteBackgroundColor( c_solid );
+			button->setPaletteBackgroundColor( Prefs::color_solid());
 			continue;
 		}
 		if ( temp > iButton_melting &&
 			temp < iButton_boiling )
 		{ //the element is liquid
-			button->setPaletteBackgroundColor( c_liquid );
+			button->setPaletteBackgroundColor( Prefs::color_liquid() );
 			continue;
 		}
 		if ( temp > iButton_boiling )
 		{ //the element is vaporous
-			button->setPaletteBackgroundColor( c_vapor );
+			button->setPaletteBackgroundColor( Prefs::color_vapor() );
 			continue;
 		}
 	}

@@ -111,7 +111,6 @@ void Kalzium::setupActions()
 	look_action->setItems(looklist);
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
 	connect (look_action, SIGNAL(activated(int)), this, SLOT(slotShowScheme(int)));
-
 	/*
 	 * the misc actions
 	 **/
@@ -303,7 +302,12 @@ void Kalzium::slotUpdateSettings()
 		m_pCurrentPSE->activateColorScheme(Prefs::colorschemebox());
 		m_pLegend->setScheme( Prefs::colorschemebox() );
 	}
-	
+	else 
+	{
+		m_bShowSOM = !m_bShowSOM;
+		slotStateOfMatter();
+		m_pCurrentPSE->setTemperature((double) Prefs::temperaturevalue() );
+	}
 }
 
 void Kalzium::displayTemperature()
@@ -361,6 +365,7 @@ void Kalzium::slotStateOfMatter()
 
 	if ( m_bShowSOM )
 	{
+		//look_action->setEnabled(false);
 		m_pSOMSlider->show();
 		m_pLegend->setScheme( 4 );
 		slotTempChanged( m_pSOMSlider->slider->value() );
@@ -369,6 +374,7 @@ void Kalzium::slotStateOfMatter()
 	}
 	else
 	{
+		//look_action->setEnabled(true);
 		m_pSOMSlider->hide();
 		slotStatusBar( "", IDS_TEMPERATURE );
 		m_pLegend->setScheme( Prefs::colorschemebox() );
