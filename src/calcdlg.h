@@ -25,6 +25,7 @@ class QLineEdit;
 class QLabel;
 class QGroupBox;
 class QTabWidget;
+class KMolUI;
 
 #include <qtabwidget.h>
 
@@ -49,43 +50,10 @@ class CalcDlg : public QTabWidget  {
 
     private:
         KMolCalc *kmolcalc;
-        QLabel *result;
-        QLineEdit *formula;
-        QMultiLineEdit *anal_display;
-        QWidget *KMol, *MWG;
+        KMolUI *KMol;
         SymLabel symlabel[118];
         SymLabel weight[118];
-
-
-	//	
-	//MWG - BEGIN
-	//
-	    
-	//finally one KPushButton
-	KPushButton *resultbutton;
 	
-    //some QComboBox
-	QComboBox *QCBA, *QCBB, *QCBC, *QCBD;
-	
-    //the grids for the MWG
-	QGridLayout *grid, *comboboxgrid;
-
-	//and one QGroupBox for the QLineEdit
-	QGroupBox *valuebox;
-	
-    //the QLabel for the MWG
-	QLabel *general, *herefrom, *enter, *coeff, *conc, *resultMWG;
-	QLabel *a,*b,*c,*d,*A,*B,*C,*D; 
-
-	//We need QLineEdit in the MWG
-	QLineEdit *QLEa, *QLEb, *QLEc, *QLEd, *QLEA, *QLEB, *QLEC, *QLED;
-
-	QString resultvalue, dimension;
-
-	//
-	// MWG - END
-	//
-
     private slots:
         /**  
         * Make a call to KMOLCALC to parse the string in FORMULA, 
@@ -102,12 +70,6 @@ class CalcDlg : public QTabWidget  {
         * Clear all text entry / result fields.
         */
         void clear();
-
-        /**  
-        * Calculates the result 
-        */
-//    	void slotCalculate();
-   
 };
 
 #endif
