@@ -53,7 +53,7 @@ Kalzium::Kalzium()
 	 schemalist.append(i18n("Show &Simple PSE"));
 	 schema_action = new KSelectAction (i18n("&PSE"), 0, this, 0, actionCollection(), "change_pse");
 	 schema_action->setItems(schemalist);
-	 schema_action->setCurrentItem(0);
+	 schema_action->setCurrentItem(Prefs::schemaPSE());
 	 connect (schema_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoPSE(int)));
 	
 	 /*
@@ -115,6 +115,7 @@ Kalzium::Kalzium()
 	m_pMendeljevPSE = new MendeljevPSE( data(), this, "MendeljevPSE");
 
 	m_pCurrentPSE = m_pRegularPSE;
+	slotSwitchtoPSE(Prefs::schemaPSE());
 	slotSwitchtoNumeration(Prefs::numeration() );
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
@@ -200,6 +201,8 @@ void Kalzium::slotSwitchtoPSE(int index)
 	m_pCurrentPSE->show();
 	setCentralWidget( m_pCurrentPSE );
 	setCaption( m_pCurrentPSE->shortName() );
+	Prefs::setSchemaPSE(index);
+	Prefs::writeConfig();
 }
 
 void Kalzium::slotQuiz(int index)

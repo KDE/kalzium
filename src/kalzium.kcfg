@@ -2,6 +2,13 @@
 <!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.dtd">
 <kcfg>
   <kcfgfile name="kalziumrc"/>
+  <group name="PSE">
+    <entry name="schemaPSE" type="Int">
+    	<default>0</default>
+	<whatsthis>Select the PSE you want</whatsthis>
+	<label>Selects the PSE</label>
+    </entry>
+  </group>
   <group name="Color Scheme">
     <entry name="colorschemebox" type="Int">
     	<default>1</default>
