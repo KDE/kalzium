@@ -172,7 +172,7 @@ void Kalzium::setupAllElementKPButtons()
 	}
 
     //////////////////
-    // feste minimal breite und höhe der gridelemente
+    // fixed minimal wide and high of the gridelements
     //////////////////
     for( int n=0; n<18; n++ ) maingrid->addColSpacing( n, 40 );
     for( int n=0; n<10; n++ ) maingrid->addRowSpacing( n, 40 );
@@ -654,7 +654,7 @@ void Kalzium::setupActions()
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
     (void) new KAction (i18n("Plot"),0, this, SLOT(slotPlotData()), actionCollection(), "startplotting");
     (void) new KAction (i18n("Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
-    (void) new KAction (i18n("Define Molecular Weights"),0, this, SLOT(defineweights()), actionCollection(), "defineweights");
+    (void) new KAction (i18n("Define Molecular Weights"),0, this, SLOT(defineWeights()), actionCollection(), "defineweights");
 
     createGUI("kalziumui.rc");
 }

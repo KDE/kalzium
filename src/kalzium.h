@@ -158,7 +158,7 @@ class Kalzium : public KMainWindow
 
 		void changeNumeration(int) const;
 
-		void defineweights() const;
+		void defineWeights() const;
 
 		void setFont();
 
