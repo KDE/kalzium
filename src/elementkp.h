@@ -115,15 +115,6 @@ class ElementKP : public ElementButton{
 
 		QString parseElementInfo();
 
-		/**
-		 * this method parses the quatum orbits into nice looking QString. Eg 1s2_2s2_2p4
-		 * will be 1s 2s 2p
-		 *         2  2  4
-		 */
-		QString parseOrbits();
-
-		QString returnLastOrbit();
-
 		private slots:
 		/**
 		 * If the user clicks Web Lookup button

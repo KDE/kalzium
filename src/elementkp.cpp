@@ -52,7 +52,6 @@ ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, in
 	ElemNo = AElemNo;
 	zeigerle=zeiger;
 	Data = ElemInfo; 
-	orbits = parseOrbits();
 }
 
 void ElementKP::getNeighbours( int Current )
@@ -122,20 +121,6 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 	{
 		slotShowData();
 	}
-}
-
-QString ElementKP::parseOrbits()
-{
-	QString tempString = Data.orbits;
- 	returnLastOrbit();
-	return tempString;
-}
-
-QString ElementKP::returnLastOrbit()
-{
-	QString lastorbit = Data.orbits;
-	int lastIs = lastorbit.findRev( "_" );
-	return lastorbit;
 }
 
 QString ElementKP::parseElementInfo()
@@ -254,14 +239,16 @@ void ElementKP::slotShowData()
 	show_data2->electro_label->setText( i18n( "Unknown" ) );
     else
 	show_data2->electro_label->setText( i18n( "%1" ).arg( Data.EN ) );
+    
+	show_data2->orbitLabel->setText( Data.orbits );
 
 
     show_data2->general_label->setFont( topic_font );
     show_data2->states_label->setFont( topic_font );
     show_data2->energy_label->setFont( topic_font );
 
-    	// The table 
-/*	show_data2->neighbourTable->horizontalHeader()->hide();
+	// The table 
+	show_data2->neighbourTable->horizontalHeader()->hide();
 	show_data2->neighbourTable->verticalHeader()->hide();
 	show_data2->neighbourTable->setTopMargin( 0 );
 	show_data2->neighbourTable->setLeftMargin( 0 );
@@ -269,19 +256,18 @@ void ElementKP::slotShowData()
 	getNeighbours( ElemNo );
 	for( int zeile=0 ; zeile < 3 ; zeile++ )
 	{
-	for( int spalte=0 ; spalte < 3 ; spalte++ )
-	{
-	show_data2->neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
-	if (neighbourArray[zeile][spalte] == "leer") show_data2->neighbourTable->setText(zeile,spalte,"");
+		for( int spalte=0 ; spalte < 3 ; spalte++ )
+		{
+			show_data2->neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
+			if (neighbourArray[zeile][spalte] == "leer") show_data2->neighbourTable->setText(zeile,spalte,"");
+		}
 	}
 
-	}*/
-	
-    // click on this button to load webpage for element
-    QObject::connect(show_data2->weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
+	// click on this button to load webpage for element
+	QObject::connect(show_data2->weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
 
-    //click on this button to close the Dialog
-    QObject::connect (show_data2->exit, SIGNAL(clicked()), show_data2, SLOT(hide()));
+	//click on this button to close the Dialog
+	QObject::connect (show_data2->exit, SIGNAL(clicked()), show_data2, SLOT(hide()));
 
 }
 
