@@ -253,7 +253,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
 	b_group->setButton( i );
 
     // WEBLOOKUP BUTTONS
-    webLookupButtons = addPage(i18n("Web Lookup"), i18n("Customize Web Lookup URL"), BarIcon ("connect_creating", KIcon::SizeMedium));
+    webLookupButtons = addPage(i18n("Web Lookup"), i18n("Customize Web Lookup URL"), BarIcon ("konqueror", KIcon::SizeMedium));
     webLookupButtonGroup = new QVButtonGroup(webLookupButtons, "weblookup ButtonGroup");
     QVBoxLayout *test = new QVBoxLayout(webLookupButtons);
     test->addWidget(webLookupButtonGroup);
