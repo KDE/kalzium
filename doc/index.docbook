@@ -332,8 +332,10 @@ the configuration dialog by selecting <guimenuitem>Configure
 The Color Scheme tab allows you to choose your Color Scheme (No colors, Groups, Blocks, State of matter, Acidic behavior). </para></listitem>
 <listitem><para>In the Colors tab, you can change the different colors for each scheme. 
 </para></listitem>
+<!-- Quiz mode is gone for this release, but should be back soon
 <listitem><para>In the Quiz tab you set the level you want (Grade1, Grade 2 or/and Grade 3) for your quiz. 
 </para></listitem>
+-->
 <listitem><para>in the Misc tab, you will be able to choose if you want the More Information dialog on left click (default) or right click. You can also choose the units you prefer: the energy is in kJ/mol by default but you can choose eV and the Temperature is in Kelvin by default but you can change to degrees Celsius or degrees Fahrenheit.
 </para></listitem>
 </itemizedlist>
