@@ -43,12 +43,6 @@
                     <bold>1</bold>
                 </font>
             </property>
-            <property name="frameShape">
-                <enum>NoFrame</enum>
-            </property>
-            <property name="frameShadow">
-                <enum></enum>
-            </property>
             <property name="text">
                 <string>Question</string>
             </property>
