@@ -13,9 +13,7 @@
 
 <Menu name="view"><text>&amp;View</text>
         <Action name="timeline"/>
-        <Separator/>
         <Action name="quickinfo"/>
-        <Separator/>
         <Action name="legend"/>
         <Separator/>
         <Action name="psestyle"/>
