@@ -34,7 +34,7 @@
 #include <qregexp.h>
 #include <qvaluelist.h>
 
-OrbitsWidget::OrbitsWidget( int ElemNo , QWidget *parent, const char *name) : QWidget( parent, name )
+OrbitsWidget::OrbitsWidget( const int ElemNo , QWidget *parent, const char *name) : QWidget( parent, name )
 {
 	Elemno = ElemNo;
 	
@@ -81,6 +81,7 @@ OrbitsWidget::OrbitsWidget( int ElemNo , QWidget *parent, const char *name) : QW
 
 void OrbitsWidget::getNumberOfOrbits()
 {
+	numOfElectrons.clear();
 	QRegExp rxb( "\\s" ); //space
 	QString o = getNumber();
 
@@ -145,40 +146,37 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	
 	DC.drawRect( w_c , h_c , 2*r, 2*r ); //only to see the borders, will be removed
 
-	kdDebug() << "Number of Orbits: " << num << endl;
-	
 	int d = 2*r; //Durchmesser
 	int	ddx = d/(2*num);//Änderung zum Vorgänger
 
-	int foo = 0;
-	
-//X 	for ( int i = 0 ; i < num ; ++i )
-//X 	{
-//X 		DC.setBrush( Dense7Pattern  );
-//X 
-//X 		int mx = w_c+ddx*i;
-//X 		int my = h_c+ddx*i;
-//X 
-//X 		//draw the big ellipses in concentric circles
-//X 		DC.drawEllipse( mx , my , d , d);
-//X 
-//X 		DC.setBrush( Qt::SolidPattern );
-//X 		for ( int e = 0 ; e < 19; ++e )
-//X 		{
-//X 			kdDebug() << "run: " << i << " , " <<e << "Durchmesser: " << d/2 << endl;
-//X 			int x = translateToDX(  ( double )d/2 , ( double )e );
-//X 			int y = translateToDY(  ( double )d/2 , ( double )e );
-//X 
-//X 			kdDebug() << x << endl;
-//X 			kdDebug() << y << endl;
-//X 
-//X 			DC.drawEllipse( x + mx + d/2 - r_electron, 
-//X 					y + mx + d/2 - r_electron,
-//X 					2*r_electron ,
-//X 					2*r_electron );
-//X 		}
-//X 		d = d-2*ddx;
-//X 	}
+	numOfElectrons.prepend( 999 );
+	intList::Iterator it = numOfElectrons.end();
+	it--;
+
+	for ( int i = 0 ; i < num ; ++i )
+	{
+		DC.setBrush( Dense7Pattern  );
+
+		int mx = w_c+ddx*i; //the x-coordinate for the current circle
+		int my = h_c+ddx*i; //the y-coordinate for the current circle
+
+		//draw the big ellipses in concentric circles
+		DC.drawEllipse( mx , my , d , d);
+
+		DC.setBrush( Qt::SolidPattern );
+		for ( int e = 0 ; e < *it ; ++e )
+		{
+			int x = (int)translateToDX(  ( double )d/2 , ( double )e , *it);
+			int y = (int)translateToDY(  ( double )d/2 , ( double )e , *it);
+
+			DC.drawEllipse( x + mx + d/2 - r_electron, 
+					y + mx + d/2 - r_electron,
+					2*r_electron ,
+					2*r_electron );
+		}
+		--it;
+		d = d-2*ddx;
+	}
 }
 
 

@@ -2,10 +2,10 @@
 #define ORBITSWIDGET_H
 /***************************************************************************
 
-                           KalziumGraph.h  -  description
+                           orbitswidget.h  -  description
                              -------------------
-    begin                : Wed Oct 23 2002
-    copyright            : (C) 2002 by Carsten Niehaus
+    begin                : June 2003
+    copyright            : (C) 2003 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -29,7 +29,7 @@ class OrbitsWidget : public QWidget
 	Q_OBJECT
 
 	public:
-		OrbitsWidget( int Elemno , QWidget *parent=0 , const char *name =0 );
+		OrbitsWidget( const int Elemno , QWidget *parent=0 , const char *name =0 );
 
 	private:
 		/*
@@ -46,14 +46,20 @@ class OrbitsWidget : public QWidget
 
 		QString getNumber();
 		
-		inline double translateToDX( const double r , const double angle )
+		/*
+		 * the returns the delta of the x-coordinate
+		 */
+		inline double translateToDX( const double r , const double angle , const int num )
 		{
-			return( r * sin( M_PI_4 * angle / 3) );
+			return( r * sin( M_PI * angle / num * 2 ) );
 		}
 		
-		inline double translateToDY( const double r , const double angle )
+		/*
+		 * the returns the delta of the y-coordinate
+		 */
+		inline double translateToDY( const double r , const double angle , const int num )
 		{
-			return( r * cos( M_PI_4 * angle / 3) );
+			return( r * cos( M_PI * angle / num * 2 ) );
 		}
 
 		/*
