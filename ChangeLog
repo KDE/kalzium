@@ -1,4 +1,12 @@
-HEAD:
+Version 0.6:
+- switched to more Designer-Files
+- GUI-improvements
+- added the converter
+- some new URL for the weblookup
+- new numberation (old IUPAC)
+
+
+Version 0.5:
 - a big cleanup in kalzium.cpp as it was very easy to read
 - now all values have the correct dimension (pm, nm, g/cm^3 and so on)
 - added documentation
