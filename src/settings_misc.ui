@@ -242,18 +242,18 @@
                 </widget>
                 <widget class="QRadioButton" row="1" column="0">
                     <property name="name">
-                        <cstring>radioButton11</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Display the number of the Element in the PSE</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="2" column="0">
-                    <property name="name">
                         <cstring>radioButton12</cstring>
                     </property>
                     <property name="text">
                         <string>Display density in the PSE in gramm per cubic centimeter</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="2" column="0">
+                    <property name="name">
+                        <cstring>radioButton13</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Display only the number of the element</string>
                     </property>
                 </widget>
             </grid>

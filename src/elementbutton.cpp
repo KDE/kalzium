@@ -110,23 +110,26 @@ void ElementButton::paintEvent( QPaintEvent* )
 			text = QString::number( e->strippedWeight( e->weight( ) ) );
 			text.append( i18n( " u" ) );
 			p.drawText( 2, h/6, text );
+			text = QString::number( e->number() );
+			p.drawText( 2, h-23, text );
 			break;
 		case 1:
-			p.setFont( symbol_font );
-    		p.drawText( h/6, h/2, e->symbol() );
-			p.setFont( f );
-			text = QString::number( e->number() );
-			p.drawText( 2, h/6, text );
-			break;
-		case 2:
 			p.setFont( symbol_font );
     		p.drawText( h/6, h/2, e->symbol() );
 			p.setFont( f );
 			text = QString::number( e->density() );
 			if ( text != "-1" )
 				p.drawText( 2, h/6, text );
+			text = QString::number( e->number() );
+			p.drawText( 2, h-23, text );
 			break;
-
+		case 2:
+			p.setFont( symbol_font );
+    		p.drawText( h/6, h/2, e->symbol() );
+			p.setFont( f );
+			text = QString::number( e->number() );
+			p.drawText( 2, h-23, text );
+			break;
 	}
 	
 	p.drawRect( 0, 0, w, h );
