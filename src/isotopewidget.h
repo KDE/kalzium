@@ -33,7 +33,6 @@ class IsotopeWidget : public QWidget
 		///returns the widget which include the data of _one_ isotope
 		QWidget* isotopeLabel( const QString& str );
 		QWidget* widget;
-		QWidget* m_isotopeWidget;
 
 		QVBoxLayout *vbox;
 };

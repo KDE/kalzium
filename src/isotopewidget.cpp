@@ -29,15 +29,13 @@ IsotopeWidget::IsotopeWidget( QWidget *parent, const char* name )
 {
 	vbox = new QVBoxLayout( this );
 	widget = new QWidget( this );
-	m_isotopeWidget = new QWidget( this );
 	
 	vbox->addWidget( widget );
-	vbox->addWidget( m_isotopeWidget );
 	
 	QHBoxLayout *h = new QHBoxLayout( widget );
-	QLabel *l1 = new QLabel( "<b>Weight</b>" , widget );
+	QLabel *l1 = new QLabel( i18n( "<b>Weight</b>" ) , widget );
 	QLabel *l2 = new QLabel( i18n( "<b>Neutrons</b>" ) , widget );
-	QLabel *l3 = new QLabel( "<b>Percentage</b>" , widget );
+	QLabel *l3 = new QLabel( i18n( "<b>Percentage</b>" ) , widget );
 	h->addWidget( l1 );
 	h->addWidget( l2 );
 	h->addWidget( l3 );
@@ -50,7 +48,6 @@ void IsotopeWidget::setIsotopes( const QString& isotopes_string )
 	int pos;
 	int l;
 	
-	
 	for ( int num = 0; num < isotopes_string.contains( ";" ) ; ++num )
 	{
 		pos = isotopes.find( ";" );
@@ -59,7 +56,7 @@ void IsotopeWidget::setIsotopes( const QString& isotopes_string )
 		QString str = isotopes.left( pos );
 		QString new_str = isotopes.right( l-pos-1 );
 
-		m_isotopeWidget = isotopeLabel( str );
+		vbox->addWidget( isotopeLabel( str ) );
 
 		isotopes = new_str;
 	}
@@ -69,6 +66,7 @@ void IsotopeWidget::setIsotopes( const QString& isotopes_string )
 
 QWidget* IsotopeWidget::isotopeLabel( const QString& str )
 {
+	kdDebug() << "str: " << str << endl;
 	QWidget *w = new QWidget( this );
 	
 	QHBoxLayout *hbox = new QHBoxLayout( w );
@@ -81,21 +79,24 @@ QWidget* IsotopeWidget::isotopeLabel( const QString& str )
 	//Weight of the isotope
 	pos = tmp.find( ":" );
 	QString weight_str = tmp.left( pos );
+	weight_str.append( i18n( " u" ) );
 	
 	//Percentage of the isotope
 	tmp = tmp.right( tmp.length()-pos-1 );
 	
-	QLabel *neutrons = new QLabel( w );
 	QLabel *weight = new QLabel( w );
+	QLabel *neutrons = new QLabel( w );
 	QLabel *percentage = new QLabel( w );
 
-	weight_str.append( i18n( " u" ) );
-	neutrons->setText( weight_str );
-	weight->setText( neutrons_str );
+
+	weight->setText( weight_str );
+	neutrons->setText( neutrons_str );
 	percentage->setText( tmp );
 
-	hbox->addWidget( neutrons );
+	kdDebug() << "weigt: " << weight_str << " Neutrons: " << neutrons_str << " Percentage: " << tmp << endl;
+
 	hbox->addWidget( weight );
+	hbox->addWidget( neutrons );
 	hbox->addWidget( percentage );
 
 	return w;
