@@ -59,13 +59,13 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     Blocks = new QWidget(this);       
     blocks_layout = new QGridLayout(Blocks,5,2);
     blocks_layout->setAutoAdd(TRUE);
-    s = new QLabel(i18n( "s" ), Blocks); 
+    s = new QLabel(i18n( "s-block", "s" ), Blocks); 
     s_b = new KColorButton(Blocks); 
-    p = new QLabel(i18n( "p" ), Blocks); 
+    p = new QLabel(i18n( "p-block", "p" ), Blocks); 
     p_b = new KColorButton(Blocks); 
-    d = new QLabel(i18n( "d" ), Blocks); 
+    d = new QLabel(i18n( "d-block", "d" ), Blocks); 
     d_b = new KColorButton(Blocks); 
-    f = new QLabel(i18n( "f" ), Blocks); 
+    f = new QLabel(i18n( "f-block", "f" ), Blocks); 
     f_b = new KColorButton(Blocks); 
     blocks_layout->setRowStretch(4,1);
 
