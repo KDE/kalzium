@@ -98,8 +98,17 @@ const QString Element::adjustUnits( const int type )
 			v = i18n( "Value unknown" );
 		else 
 		{
-			v = QString::number( val );
-			v.append( "eV" );
+			if ( Prefs::energies() == 0 )
+			{
+				val*=96.6;
+				v = QString::number( val );
+				v.append( "kj/mol" );
+			}
+			else // use electronvolt
+			{
+				v = QString::number( val );
+				v.append( "eV" );
+			}
 		}
 	}
 	else if ( type == BOILINGPOINT || type == MELTINGPOINT ) // convert a temperature
