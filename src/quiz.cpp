@@ -130,8 +130,8 @@ QuizMaster::QuizMaster( Quiz *q )
 	numWrong = 0;
 	numberOfTask = 1;
 
-	kdDebug() << "Anzahl an Tasks: " << q->numOfTasks() << endl;
-	kdDebug() << "Anzahl an Tasks: " << m_quiz->numOfTasks() << endl;
+	kdDebug() << "Quiz:number of tasks: " << q->numOfTasks() << endl;
+	kdDebug() << "Quiz:number of tasks:  " << m_quiz->numOfTasks() << endl;
 	numTotal = q->numOfTasks();
 }
 

@@ -22,6 +22,8 @@
 #include <kfiledialog.h>
 #include <kmessagebox.h>
 
+#include <stdlib.h>
+
 QuizXMLParser::QuizXMLParser()
 {
 }
@@ -46,6 +48,7 @@ bool QuizXMLParser::loadLayout( QDomDocument &questionDocument )
 				"$KDEDIR/share/apps/kalzium/data/\n\n"
 				"Please install this file and start Kalzium again.\n\n");
 		KMessageBox::information( 0, mString, i18n( "Loading File - Error" ) );
+		exit(1);
 	}
 
 	if (!layoutFile.open(IO_ReadOnly))
