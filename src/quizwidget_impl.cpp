@@ -32,32 +32,52 @@ QuizWidgetImpl::QuizWidgetImpl( QWidget *parent, const char* name )
 	
 	buttonList << btn1 << btn2 << btn3 << btn4;
 	setupPixmaps();
-	setRadiobuttons();
 }
 
 void QuizWidgetImpl::setupPixmaps()
 {
-	//TODO I have no clue why this doesn't work. The file question.png
-	//exists. So the path is wrong...
 	picQuestion->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
 	picAnswer->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
 	picPrevious->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
 	picYourAnswer->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
-	picCorrectAnswer->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
+	picCorrectAnswer->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/correct.png" ) );
+	picCorrect->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/correct.png" ) );
 	picCount->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
 	picAnswered->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
-	picCorrect->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
-	picError->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
+	picError->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/error.png" ) );
+}
+
+//TODO
+void QuizWidgetImpl::displayPrevious()
+{
+	kdDebug() << "QuizWidgetImpl::displayPrevious()" << endl;
+
+	lblPreviousQuestion->setText( m_OldQuestion );
+	lblYourAnswer->setText( m_UsersAnswer );
+	lblCorrect->setText( m_CorrectAnswer );
 }
 
 void QuizWidgetImpl::slotAnswered(int q )
 {
-	//check if correct
+	kdDebug() << "QuizWidgetImpl::slotAnswered()" << endl;
 	kdDebug() << "button " << q << "  has been pressed!" << endl;
-	if ( m_currentTask->answerAt( q )->isTrue() )
+
+	Answer *a =  m_currentTask->answerAt( q );
+	m_UsersAnswer = a->answer();
+	m_CorrectAnswer = m_currentTask->correctAnswer()->answer();
+	m_OldQuestion = m_currentTask->question();
+	displayPrevious();
+
+	if ( a->isTrue() )
+	{
+		kdDebug() << "The answer was CORRECT" << endl;
 		emit( AnswerIs( true, m_currentTask->isGrade() ) );
+	}
 	else
+	{
+		kdDebug() << "The answer was WRONG" << endl;
 		emit( AnswerIs( false, m_currentTask->isGrade() ) );
+	}
 }
 	
 void QuizWidgetImpl::setRadiobuttons()
@@ -67,6 +87,7 @@ void QuizWidgetImpl::setRadiobuttons()
 	for ( ; it != buttonList.end(); ++it )
 	{//first, hide all buttons
 		(*it)->hide();
+		(*it)->setChecked(false);
 		kdDebug() << ( *it )->text() << endl;
 	}
 	
@@ -89,10 +110,12 @@ void QuizWidgetImpl::setRadiobuttons()
 
 void QuizWidgetImpl::setTask( Task *t )
 {
-	kdDebug() << "QuizWidgetImpl::setTask()" << endl;
+	kdDebug() << "QuizWidgetImpl::setTask() 1" << endl;
 	m_currentTask = t;
 
+	kdDebug() << "QuizWidgetImpl::setTask() 2" << endl;
 	lblQuestion->setText( m_currentTask->question() );
+	kdDebug() << "QuizWidgetImpl::setTask() 3" << endl;
 	setRadiobuttons();
 }
 

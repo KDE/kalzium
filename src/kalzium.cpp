@@ -20,15 +20,23 @@
 #include "questionadddialog_impl.h"
 #include "slider_widget.h"
 #include "elementdataviewer.h"
+#include "quizsettings.h"
+#include "quizsettings.h"
 
+#include <qinputdialog.h>
 #include <qslider.h>
+#include <qinputdialog.h>
 
 #include <kconfigdialog.h>
 #include <klocale.h>
 #include <kdebug.h>
 #include <kaction.h>
+#include <knuminput.h>
+#include <kpushbutton.h>
 #include <kapplication.h>
 #include <kstatusbar.h>
+#include <knuminput.h>
+#include <kpushbutton.h>
 
 #define IDS_TEMP           1
 #define IDS_ENERG           2
@@ -78,7 +86,6 @@ void Kalzium::setupActions()
 	 **/
 	 QStringList quizlist;
 	 quizlist.append(i18n("Start &Quiz"));
-	 quizlist.append(i18n("Set&up Quiz"));
 	 quizlist.append(i18n("&Edit Questions"));
 	 quiz_action = new KSelectAction (i18n("&Quiz"), 0, this, 0, actionCollection(), "quiz_menu");
 	 quiz_action->setItems(quizlist);
@@ -102,7 +109,7 @@ void Kalzium::setupActions()
 	/*
 	 * the misc actions
 	 **/
-	m_pTimelineAction = new KAction(i18n("Show &Timeline"), "timeline.png",0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
+	m_pTimelineAction = new KAction(i18n("Show &Timeline"), "timeline.png", 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
 	/*
@@ -127,13 +134,13 @@ void Kalzium::setupActions()
 void Kalzium::setupStatusBar()
 {
 	statusBar()->insertItem("", IDS_TEMP, 0, false);
-	statusBar()->setItemAlignment(IDS_TEMP, AlignLeft);
-	// fill the statusbar 
+ 	statusBar()->setItemAlignment(IDS_TEMP, AlignLeft);
 	displayTemperature();
-	statusBar()->insertItem("", IDS_ENERG, 0, false);
-	statusBar()->setItemAlignment(IDS_ENERG, AlignLeft);
-	// fill the statusbar 
+ 	statusBar()->insertItem("", IDS_ENERG, 0, false);
+ 	statusBar()->setItemAlignment(IDS_ENERG, AlignLeft);
+ 	// fill the statusbar 
 	displayEnergie();	
+	// fill the statusbar 
 	statusBar()->show();
 }
 
@@ -150,11 +157,24 @@ void Kalzium::slotStartQuiz()
 	//I will only allow the defaultvaulues until the quiz itself works.
 	//After that is done I will use KConfigXT to load the userdefinded
 	//values and make the quiz complete
-	Quiz *q = new Quiz( 10, 2 , 3 , 10, 15 ); 
 	
+	qsd = new QuizsettingsDlg();
+	qsd->show();
+	connect( qsd->StartQuizButton , SIGNAL( clicked() ), this, SLOT( slotQuizSetup() ) );
+}
+
+void Kalzium::slotQuizSetup()
+{
+	int num = qsd->numQ->value();
+	int sim = qsd->simGrade->value();
+	int dif = qsd->difGrade->value();
+	
+	Quiz *q = new Quiz( num, sim, dif , 10, 15 ); 
+
 	QuizMaster *qm = new QuizMaster( q );
 	qm->startQuiz();
 }
+
 
 void Kalzium::slotEditQuestions()
 {
@@ -254,7 +274,7 @@ void Kalzium::showSettingsDialog()
 	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotUpdateSettings() ) );
 	dialog->addPage( new colorScheme( 0, "colorscheme_page"), i18n("Color Scheme"), "colorize");
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Colors"), "colorize");
-	dialog->addPage( new setupQuiz( 0, "quizsetuppage" ), i18n( "Quiz" ), "edit" );
+//	dialog->addPage( new setupQuiz( 0, "quizsetuppage" ), i18n( "Quiz" ), "edit" );
 	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Misc" ), "misc" );
 	dialog->show();
 }
@@ -262,44 +282,42 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotUpdateSettings()
 {
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
-	displayTemperature();
-	displayEnergie();
-}
-
-void Kalzium::displayTemperature()
-{
-	QString m_string;
-	switch (Prefs::temperature()) {
-    		case 0:
-			m_string = i18n("Kelvin");
-			break;
-		case 1:
-			m_string = i18n("degrees Fahrenheit");
-			break;
-		case 2:
-			m_string = i18n("degrees Celsius");
-			break;
-	}
-	slotStatusBar(i18n("Temperature: ")+m_string,  IDS_TEMP);
-}
-
-void Kalzium::displayEnergie()
-{
-	QString m_string;
-	switch (Prefs::units()) {
-    		case 0:
-			m_string = i18n("kJ/mol");
-			break;
-		case 1:
-			m_string = i18n("eV");
-			break;
-	}
-	slotStatusBar(i18n("Energy: ")+m_string,  IDS_ENERG);
 }
 
 void Kalzium::slotQuizAction()
 {
 	quiz_action->setCurrentItem(-1);
+}
+
+void Kalzium::displayTemperature()
+ {
+ 	QString m_string;
+ 	switch (Prefs::temperature()) {
+     		case 0:
+ 			m_string = i18n("Kelvin");
+ 			break;
+ 		case 1:
+ 			m_string = i18n("degrees Fahrenheit");
+ 			break;
+ 		case 2:
+ 			m_string = i18n("degrees Celsius");
+ 			break;
+ 	}
+ 	slotStatusBar(i18n("Temperature: ")+m_string,  IDS_TEMP);
+ }
+ 
+ void Kalzium::displayEnergie()
+ {
+ 	QString m_string;
+ 	switch (Prefs::units()) {
+     		case 0:
+ 			m_string = i18n("kJ/mol");
+ 			break;
+ 		case 1:
+ 			m_string = i18n("eV");
+ 			break;
+ 	}
+ 	slotStatusBar(i18n("Energy: ")+m_string,  IDS_ENERG);
 }
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }

@@ -27,8 +27,19 @@ Task::Task( QString question,
 	m_iGrade = grade;
 }
 
+Answer* Task::correctAnswer()
+{
+	answerList::iterator it = m_answers.begin();
+	for ( ; it != m_answers.end() ; ++it )
+	{
+		if ( (*it)->isTrue() )
+			return *it;
+	}
+}
+
 Answer* Task::answerAt( int nr )
 {
+	kdDebug() << "Task::answerAt()" << endl;
 	const answerList::iterator it = m_answers.at( nr );
 	return *it;
 }
@@ -110,9 +121,18 @@ taskList TaskList::tasks( int grade )
 QuizMaster::QuizMaster( Quiz *q )
 	: QObject()
 {
+	kdDebug() << "QObject()" << endl;
 	m_quiz = q;
 
 	m_currentTask = new Task();
+
+	numCorrect = 0;
+	numWrong = 0;
+	numberOfTask = 1;
+
+	kdDebug() << "Anzahl an Tasks: " << q->numOfTasks() << endl;
+	kdDebug() << "Anzahl an Tasks: " << m_quiz->numOfTasks() << endl;
+	numTotal = q->numOfTasks();
 }
 
 void QuizMaster::generateTaskList( int num )
@@ -129,8 +149,7 @@ void QuizMaster::generateTaskList( int num )
 
 	m_tasklist.cutList( num );
 
-	//I copy the list to have the complete list at the end of the game
-	m_completeListOfTasks = m_tasklist;
+	t = m_tasklist.tasks();
 }
 
 void QuizMaster::startQuiz()
@@ -142,75 +161,83 @@ void QuizMaster::startQuiz()
 	//number of tasks with the correct grade
 
 	m_quizwidget = new QuizWidgetImpl( 0L , "quizwidgetimpl" );
+	m_quizwidget->lblScoreCount->setText( QString::number(numTotal) );
 	m_quizwidget->show();
 	connect( m_quizwidget, SIGNAL( AnswerIs(bool,int) ), this, SLOT( slotUpdatePoints(bool,int) ) );
 
-	taskList::iterator it = m_tasklist.tasks().begin();
+	taskList::iterator it = t.begin();
 	m_quizwidget->setTask( *it );
+}
+		
 
+void QuizMaster::slotUpdatePoints(bool correct,int grade)
+{
+	kdDebug() << "QuizMaster::slotUpdatePoints()" << endl;
+	if ( correct ){
+		m_answerWasCorrect = true;
+		int p = grade * m_quiz->pointsPerTask();
+		m_points+=p;
+	}else{
+		m_answerWasCorrect = false;
 
-//X 	for ( ; it != m_tasklist.tasks().end() ; ++it )
-//X 	{
-//X 		m_currentTask = ( *it );
-//X 		m_quizwidget->setTask( (*it) );
-//X 	}
-	
+	}
+	updateNumbers( correct );
 }
 
-void QuizMaster::slotUpdateNumbers()
+void QuizMaster::updateNumbers( bool c )
 {
-	kdDebug() << "QuizMaster::slotUpdateNumbers()" << endl;
-	int totalnumber = numCorrect + numWrong;
+	kdDebug() << "QuizMaster::updateNumbers()" << endl;
+	
+	if ( c )
+		numCorrect++;
+	else
+		numWrong++;
 	
 	QString total;
 	QString correct;
 	QString wrong;
 	
-	if ( m_percentage )
-	{
-		total = QString::number( (int)( numTotal/totalnumber ) );
-		correct = QString::number( (int)( numTotal/numCorrect ) );
-		wrong = QString::number( ( int )numTotal/numWrong );
-	}else
-	{
-		total = QString::number( totalnumber );
-		correct = QString::number( numCorrect );
-		wrong = QString::number( numWrong );
-	}
+	int tot = numCorrect + numWrong;
+	
+	total = QString::number( tot );
+	correct = QString::number( numCorrect );
+	wrong = QString::number( numWrong );
 	
 	m_quizwidget->lblScoreCount->setText( QString::number(numTotal) );
 	m_quizwidget->lblScoreAnswered->setText( total );
 	m_quizwidget->lblScoreCorrect->setText( correct );
 	m_quizwidget->lblScoreError->setText( wrong );
-}
-
-void QuizMaster::displayPrevious( Task *t )
-{
-	kdDebug() << "QuizWidgetImpl::displayPrevious()" << endl;
-
-	m_quizwidget->lblPreviousQuestion->setText( t->question() );
+		
+	slotNextTask();
 }
 
 void QuizMaster::slotNextTask()
 {
 	kdDebug() << "QuizMaster::slotNextTask()" << endl;
 
+	kdDebug() << "ANZAHL AN TASKS: " << t.count() << endl;
+	kdDebug() << "numberOfTask:    " << numberOfTask << endl;
+	if ( numTotal == numberOfTask )
+	{
+		endQuiz();
+		return;
+	}
+
+	taskList::iterator it = t.at( numberOfTask );
 	numberOfTask++;
 
-//TODO
-//	displayPrevious(m_currentTask);
-		
-	taskList::iterator it = m_tasklist.tasks().at( numberOfTask );
+	//TODO
+	//	displayPrevious();
 
-	kdDebug() << "hier bin ich noch" << endl;
+	kdDebug() << "NEUE FRAGE: " << ( *it )->question() << endl;
 	m_quizwidget->setTask( *it );
-	kdDebug() << "nach dem Task hier bin ich noch" << endl;
 }
 
-bool QuizMaster::checkAnswer()
+//TODO
+void QuizMaster::endQuiz()
 {
-	//todo
-	return true;
+	kdDebug() << "QuizMaster::endQuiz()" << endl;
+	m_quizwidget->close();	
 }
 
 #include "quiz.moc"

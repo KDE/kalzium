@@ -140,6 +140,8 @@ class Task
 		 * @param nr is the number of the answer, starting with 0
 		 */
 		Answer* answerAt( int nr );
+
+		Answer* correctAnswer();
 	
 	private:	
 		/**
@@ -392,30 +394,35 @@ class QuizMaster : public QObject
 		int m_points;
 
 		TaskList m_tasklist;
-		TaskList m_completeListOfTasks;
 
+		taskList t;
+
+		/**
+		 * the number of the task which is the current Task. It
+		 * starts with 1 for the first Task and ends with numTotal
+		 */
 		int numberOfTask;
 		
+		/**
+		 * the number of tasks in the Quiz
+		 */
 		int numTotal;
+		
+		/**
+		 * the number of correctly answered tasks
+		 */
 		int numCorrect;
+		
+		/**
+		 * the number of wrong answered tasks
+		 */
 		int numWrong;
 
 		/**
-		 * tests if the answer of the task was correct or not
-		 * @return true the answer was correct
-		 */
-		bool checkAnswer();
-
-		/**
-		 * displays the strings so that the users sees the previous question and
-		 * answer and, in case the answer was wrong, the correct answer
-		 */
-		void displayPrevious( Task *t );
-
-		/**
 		 * updates the number at the bottom of QuizWidgetImpl
+		 * @param correct is true when the answer was correct
 		 */
-		void updateNumbers();
+		void updateNumbers( bool correct );
 
 		bool m_answerWasCorrect;
 
@@ -424,29 +431,21 @@ class QuizMaster : public QObject
 		 */
 		bool m_percentage;
 
+		/**
+		 * stop the quiz
+		 */
+		void endQuiz();
+
 	private slots:
 		/**
 		 * updates the points of the user
 		 */
-		void slotUpdatePoints(bool correct,int grade){
-			if ( correct ){
-				m_answerWasCorrect = true;
-				int p = grade * m_quiz->pointsPerTask();
-				m_points+=p;
-			}else{
-				m_answerWasCorrect = false;
-			}
+		void slotUpdatePoints(bool correct,int grade);
 
-			slotNextTask();
-		}
-
-		void slotUpdateNumbers();
-		
-	/**
+		/**
 		 * this starts several things:
-		 * - check if the given answer is correct: checkAnswer()
 		 * - update the points: updatePoints(bool);
-		 * - display the "now previous" task and the correct answer: displayPrevious(Task *t)
+		 * - display the "now previous" task and the correct answer: displayPrevious()
 		 * - update the numbers on the bottom of the QuizWidgetImpl
 		 */
 		void slotNextTask();

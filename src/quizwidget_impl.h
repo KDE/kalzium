@@ -41,6 +41,16 @@ class QuizWidgetImpl : public QuizWidget
 
 		void setRadiobuttons();
 
+		QString m_CorrectAnswer;
+		QString m_UsersAnswer;
+		QString m_OldQuestion;
+
+		/**
+		 * displays the strings so that the users sees the previous question and
+		 * answer and, in case the answer was wrong, the correct answer
+		 */
+		void displayPrevious();
+
 	private:
 		RadioList buttonList;
 

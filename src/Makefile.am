@@ -10,7 +10,6 @@ kalzium_SOURCES = kalzium.cpp \
 			prefs.kcfgc \
 			settings_colorschemes.ui \
 			settings_colors.ui \
-			settings_quiz.ui \
 			settings_misc.ui \
 			questionadddialog.ui \
 			questionadddialog_impl.cpp \
@@ -31,7 +30,8 @@ kalzium_SOURCES = kalzium.cpp \
 			quizwidget.ui \
 			quizwidget_impl.cpp \
 			stateofmatterdialog.ui \
-			stateofmatterdialog_impl.cpp
+			stateofmatterdialog_impl.cpp \
+			quizsettings.ui
 
 kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
@@ -45,7 +45,6 @@ EXTRA_DIST = main.cpp \
 		elementbutton.cpp elementbutton.h \
 		settings_colorschemes.ui \
 		settings_colors.ui \
-		settings_quiz.ui \
 		settings_misc.ui \
 		questionadddialog.ui \
 		questionadddialog_impl.cpp \
@@ -75,7 +74,8 @@ EXTRA_DIST = main.cpp \
 		quizwidget_impl.h \
 		stateofmatterdialog.ui \
 		stateofmatterdialog_impl.cpp \
-		stateofmatterdialog_impl.h 
+		stateofmatterdialog_impl.h \
+		quizsettings.ui
 
 
 METASOURCES = AUTO 

@@ -21,6 +21,7 @@
 #include <kmainwindow.h>
 
 class KSelectAction;
+class QuizsettingsDlg;
 
 /**
  * @short Application Main Window
@@ -92,8 +93,9 @@ class Kalzium : public KMainWindow
 		void setupActions();
 		/**
 		 *display text in the statusbar item at index int
-		 */		
+		 */
 		void slotStatusBar(QString text, int id);
+
 		/**
 		 *diplay the Temperature unit in the Statusbar
 		 */
@@ -101,7 +103,7 @@ class Kalzium : public KMainWindow
 		/**
 		 *diplay the energy unit in the Statusbar
 		 */
-		void displayEnergie();		
+		void displayEnergie();	
 		/*
 		 * all KActions Kalzium uses
 		 **/
@@ -112,11 +114,16 @@ class Kalzium : public KMainWindow
 		KAction *m_pTimelineAction,
 			    *m_pPlotAction;
 		
+		QuizsettingsDlg *qsd;
+				
 	private slots:
 		/**
 		 * this slot switches Kalzium to the selected colorscheme
 		 */
 		void slotShowScheme(int);
+		
+		void slotQuizSetup();
+		
 
 		void slotSwitchtoNumeration(int);
 
