@@ -192,7 +192,7 @@ void Kalzium::setupAllElementKPButtons()
  	
 	fastinfo = new Fastinfo( main_window, "testFastInfo",this );
 	fastinfo->show();
-	maingrid->addMultiCellWidget( fastinfo ,0,3,3,6 );
+	maingrid->addMultiCellWidget( fastinfo ,1,3,3,10 );
 }
 
 void Kalzium::setupCaption()

@@ -21,8 +21,8 @@
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qfont.h>
-#include <qvbox.h>
 #include <qhbox.h>
+#include <qvbox.h>
 
 #include <kconfig.h>
 #include <ksimpleconfig.h>
@@ -39,7 +39,7 @@
 Fastinfo::Fastinfo(QWidget *parent, const char *name , Kalzium *kalzium_tmp)	: QFrame(parent,name)
 {
 	kalzium = kalzium_tmp;
-	QVBox *vbox = new QVBox( this );
+	QVBox *vbox = new QVBox ( this );
 	elemname = new QLabel( vbox );
 	QHBox *hbox = new QHBox( vbox );
     
@@ -51,6 +51,9 @@ Fastinfo::Fastinfo(QWidget *parent, const char *name , Kalzium *kalzium_tmp)	: Q
 	QLabel *w_label = new QLabel( hbox ); w_label->setText( i18n("Weight:") );
 	weight = new QLabel( hbox );
 	weight->show();
+
+	QLabel *n_label = new QLabel( hbox ); n_label->setText( i18n("Number:") );
+	number = new QLabel( hbox );
 	
 	elemname->setFont( topic_font );
 }
@@ -59,5 +62,6 @@ void Fastinfo::setInfo( int ElemNr )
 {
 	elemname->setText(i18n( kalzium->element[ElemNr-1]->Data.Name.utf8() ));
 	weight->setText( i18n( "%1 u" ).arg( kalzium->element[ElemNr-1]->Data.Weight ));
+	number->setText( QString::number( ElemNr ) );
 }
 

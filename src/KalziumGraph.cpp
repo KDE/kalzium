@@ -92,45 +92,13 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 	QPainter DC;
 	DC.begin( this );
 
-	int w_w = this->width();
+	int w_w = this->width()-10;
 	int w_h = this->height();
-
-	int w_w_temp = w_w;
-	int w_h_temp = w_h;
-
-	kdDebug() << "w_w_temp " << w_w_temp << endl;
-	kdDebug() << "w_h_temp " << w_h_temp << endl;
-
-	w_w_temp=( w_w_temp/100 );
-	kdDebug() << "nach dem /= 100" << w_w_temp << endl;
-
-	w_w_temp*=99;
-
-	kdDebug() << "nach dem *= 99" << w_w_temp << endl;
-
-	w_h_temp/=100;
-	kdDebug() << "nach dem /= 100" << w_h_temp << endl;
-	w_h_temp*=99;
-	kdDebug() << "nach dem *= 99" << w_h_temp << endl;
-
-	w_w_temp=(w_w-w_w_temp);
-	w_h_temp=(w_h-w_h_temp);
-
-	kdDebug() << "End w_w_temp " << w_w_temp << endl;
-	kdDebug() << "End w_h_temp " << w_h_temp << endl;
-	kdDebug() << w_w << endl;
-	kdDebug() << w_h << endl;
-
-	w_w-=w_w_temp;
-	w_h-=w_h_temp;
-
-	kdDebug() << "End w_w " << w_w << endl;
-	kdDebug() << "End w_h " << w_h << endl;
 
 	int num = toRange_-fromRange_;
 	int real_w=w_w/num;                       //real_w ist die Breite pro Datenpunkt
 
-	DC.drawRect(w_w_temp,w_h_temp,w_w,w_h);
+	DC.drawRect(10,10,w_w,w_h-10);
 
 	for( int i = 0 ; i < num ; i++ )
 	{
@@ -139,7 +107,7 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 		double current = data->Data[ fromRange_+i ]/temp;
 		current*=w_h;
 
-		DC.drawPoint( real_w*i , w_h-( ( int )current ) );
+		DC.drawPoint( real_w*i+10 , w_h-( ( int )current )+10 );
 	}
 	//drawText( w_w/2 , w_h/2, "Carsten" );
 	DC.end();
