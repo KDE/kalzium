@@ -20,7 +20,7 @@
 
 14/06/03:
 - continued the SearchDialog
-- commited the pictures of the elements
+- committed the pictures of the elements
 
 13/06/03:
 - started the SearchDialog
@@ -153,7 +153,7 @@ changed quite a lot:
 - some qwhatis-help
 - overworked the "about"-dialog
 - added the buttons for the La and Ac + info about them
-- deleted unneccessary includes and cout's
+- deleted unnecessary includes and cout's
 
 in kalziumrc:
 - added blocks (s,p,d,f)
