@@ -102,7 +102,7 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
     QVBoxLayout *buttonVBox = new QVBoxLayout( MWG );
     grid = new QGridLayout( buttonVBox , 8 , 3 );
 
-    valuebox = new QGroupBox( i18n("Enter your values") , MWG , "valuebox" );
+    valuebox = new QGroupBox( i18n("Enter your Values") , MWG , "valuebox" );
     comboboxgrid = new QGridLayout( valuebox , 6 , 6 );
     grid->addWidget( valuebox , 4 , 0 );
 
