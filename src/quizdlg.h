@@ -38,7 +38,7 @@ class QuizDlg : public QuizDlgUI
 	    /**
         * construtor 
         */
-        QuizDlg(QWidget *parent, const char *name, int numofquestions );
+        QuizDlg(QWidget *parent, const char *name, int numofquestions, bool modal=true );
     
     private:
         int i, quizresult, currentnr, qnum, correctis;

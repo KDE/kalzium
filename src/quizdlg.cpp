@@ -41,8 +41,8 @@
 #include "quizdlg.h"
 #include "quiz_result.h"
 
-QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  
-    : QuizDlgUI (parent,name)
+QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions, bool modal )  
+    : QuizDlgUI (parent,name, modal)
 {
     qnum = numofquestions;
 
