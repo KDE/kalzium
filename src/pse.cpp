@@ -80,6 +80,11 @@ void PSE::slotElementClicked(int num)
 
 void PSE::setupPSEElementButtonsList(){}
 
+void PSE::activeColorScheme( int nr )
+{
+}
+
+
 RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *name)
  : PSE(data, parent, name)
 {
@@ -115,6 +120,32 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 
 RegularPSE::~RegularPSE()
 {}
+
+void RegularPSE::activeColorScheme( int nr )
+{
+	kdDebug()<< "activeColorScheme # " << nr <<  endl;
+	
+	if ( nr == 1) //normal view, no colors
+	;
+	if ( nr == 2) //groups view
+	;
+	if ( nr == 3) //block view
+	;
+	if ( nr == 4) //state of matter view
+	;
+	if ( nr == 5) //acidic view
+	;
+
+	int ui =0;
+	ElementButton *button;
+	
+	for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+	{
+		kdDebug()<< "Nummer: " << ui << endl;
+		button->setPaletteBackgroundColor( Qt::blue );
+		ui++;
+	}
+}
 
 /**
  * this method sets up the m_PSEElementButtons-list
@@ -178,6 +209,32 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 	for (  int n=0; n<7; n++ ) grid->addRowSpacing(  n, 40 );
 }
 
+void SimplifiedPSE::activeColorScheme( int nr )
+{
+	kdDebug()<< "activeColorScheme # " << nr <<  endl;
+	
+	if ( nr == 1) //normal view, no colors
+	;
+	if ( nr == 2) //groups view
+	;
+	if ( nr == 3) //block view
+	;
+	if ( nr == 4) //state of matter view
+	;
+	if ( nr == 5) //acidic view
+	;
+
+	int ui =0;
+	ElementButton *button;
+	
+	for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+	{
+		kdDebug()<< "Nummer: " << ui << endl;
+		button->setPaletteBackgroundColor( Qt::blue );
+		ui++;
+	}
+}
+
 SimplifiedPSE::~SimplifiedPSE()
 {
 }
@@ -230,6 +287,8 @@ MendeljevPSE::MendeljevPSE(KalziumDataObject *data, QWidget *parent, const char 
 	for (  int n=0; n<8; n++ ) grid->addColSpacing(  n, 40 );
 	for (  int n=0; n<7; n++ ) grid->addRowSpacing(  n, 40 );
 }
+
+//void MendeljevPSE::activeColorScheme( int nr ){}
 
 MendeljevPSE::~MendeljevPSE()
 {

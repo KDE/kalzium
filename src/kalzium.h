@@ -64,6 +64,10 @@ class Kalzium : public KMainWindow
 			*m_pRegularPSEAction,
 			*m_pMendeljevPSEAction,
 
+			*m_pQuizStart,
+			*m_pQuizSetup,
+			*m_pQuizEditQuestions,
+
 			*m_pBehAcidAction,
 			*m_pBehNormalAction,
 			*m_pBehBlocksAction,
@@ -71,10 +75,18 @@ class Kalzium : public KMainWindow
 			*m_pBehSOMAction;
 		
 	private slots:
-
+		/*
+		 * this slot schwitches Kalzium to the selected colorscheme
+		 **/
 		void slotShowScheme(void);
 	
+		/*
+		 * This slot switches Kalzium to the selected PSE
+		 **/
 		void slotSwitchtoPSE(void);
+
+		void slotStartQuiz();
+		void slotEditQuestions();
 
 		/*
 		 * These slots are for the standardactions

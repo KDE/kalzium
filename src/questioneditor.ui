@@ -1,0 +1,124 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>questionEditor</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>questionEditor</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Questionseditor</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="1" column="0">
+            <property name="name">
+                <cstring>layout2</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>KPB_removeq</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Remove Question</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>A click on this button will remove the selected question</string>
+                    </property>
+                </widget>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>KPB_addq</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Add Question</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>A click on this button will open a dialog in which you can add a question</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="KListView" row="0" column="0">
+            <column>
+                <property name="text">
+                    <string>Number</string>
+                </property>
+                <property name="clickable">
+                    <bool>true</bool>
+                </property>
+                <property name="resizable">
+                    <bool>true</bool>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Question</string>
+                </property>
+                <property name="clickable">
+                    <bool>true</bool>
+                </property>
+                <property name="resizable">
+                    <bool>true</bool>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Answers</string>
+                </property>
+                <property name="clickable">
+                    <bool>true</bool>
+                </property>
+                <property name="resizable">
+                    <bool>true</bool>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Right/Wrong</string>
+                </property>
+                <property name="clickable">
+                    <bool>true</bool>
+                </property>
+                <property name="resizable">
+                    <bool>true</bool>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>KLV_questions</cstring>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>KPB_removeq</sender>
+        <signal>clicked()</signal>
+        <receiver>questionEditor</receiver>
+        <slot>slotRemoveQuestion()</slot>
+    </connection>
+    <connection>
+        <sender>KPB_addq</sender>
+        <signal>clicked()</signal>
+        <receiver>questionEditor</receiver>
+        <slot>slotAddQuestion()</slot>
+    </connection>
+</connections>
+<slots>
+    <slot>slotRemoveQuestion()</slot>
+    <slot>slotAddQuestion()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

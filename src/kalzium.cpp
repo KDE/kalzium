@@ -9,6 +9,8 @@
 #include "prefs.h"
 #include "settings_colorschemes.h"
 #include "settings_colors.h"
+#include "settings_quiz.h"
+#include "questioneditor_impl.h"
 
 #include <qlabel.h>
 
@@ -32,10 +34,20 @@ Kalzium::Kalzium()
 	/*
 	 * move this into a method later on
 	 **/
+	/*
+	 * the actions for switching PSE
+	 **/
 	m_pRegularPSEAction = new KAction(i18n("Show &Regular PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "RegularPSE");
 	m_pMendeljevPSEAction = new KAction(i18n("Show &Mendeljev PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "MendeljevPSE");
 	m_pSimplePSEAction = new KAction(i18n("Show &Simple PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "SimplePSE");
 
+	/*
+	 * the actions for the quiz
+	 **/
+	m_pQuizStart = new KAction(i18n("Start &Quiz"), 0, this, SLOT(slotStartQuiz()), actionCollection(), "quiz_startquiz");
+	m_pQuizSetup = new KAction(i18n("Set&up Quiz"), 0, this, SLOT(showSettingsDialog()), actionCollection(), "quiz_setupquiz");
+	m_pQuizEditQuestions = new KAction(i18n("&Edit Questions"), 0, this, SLOT(slotEditQuestions()), actionCollection(), "quiz_editquestions");
+	 
 	m_pBehAcidAction = new KAction(i18n("Show &Acid Behaviour"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_acidic");
 	m_pBehBlocksAction = new KAction(i18n("Show Blocks"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_blocks");
 	m_pBehBlocksAction = new KAction(i18n("Show Groups"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_groups");
@@ -65,12 +77,35 @@ Kalzium::Kalzium()
 	createStandardStatusBarAction(); //post-KDE 3.1
 }
 
+void Kalzium::slotStartQuiz()
+{
+	kdDebug() << "insdide the start of the quiz" << endl;
+}
+
+void Kalzium::slotEditQuestions()
+{
+	kdDebug() << "inside the questionseditor" << endl;
+	questionEditorImpl *q = new questionEditorImpl( this, "questionEditor" );
+	q->show();
+}
+
 void Kalzium::slotShowScheme(void)
 {
-	kdDebug() << "slotShowScheme(void)" << endl;
+	int i = 0;
+	QString n = sender()->name();
+	if ( n == QString("view_normal"))
+		i = 1;
+	if ( n == QString("view_groups")) 
+		i = 2;
+	if ( n == QString("view_blocks")) 
+		i = 3;
+	if ( n == QString("view_som")) 
+		i = 4;
+	if ( n == QString("view_acidic"))
+		i = 5;
 
-	kdDebug() << sender()->name() << endl;
-
+	kdDebug() << "aktivate the colorscheme " << i << endl;
+	m_pCurrentPSE->activeColorScheme( i );
 }
 
 void Kalzium::slotSwitchtoPSE(void)
@@ -106,10 +141,12 @@ void Kalzium::showSettingsDialog()
 {
 	if (KConfigDialog::showDialog("settings"))
 		return;
-	
+
+	//	if ( sender()->name() == QString( "quiz_setup" ) )
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
 	dialog->addPage( new setColorScheme( 0, "colorscheme_page"), i18n("Configure Default Colorscheme"), "colorize");
+	dialog->addPage( new setupQuiz( 0, "quizsetuppage" ), i18n( "Configure Quiz" ), "edit" );
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Configure Colors"), "colorize");
 	dialog->show();
 }
