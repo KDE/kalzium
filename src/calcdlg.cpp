@@ -49,7 +49,7 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
     connect(formula, SIGNAL(returnPressed()), this, SLOT(calc()));
     grid->addMultiCellWidget( formula , 1 ,1,0,1 );
 
-    QLabel* formula_l = new QLabel (i18n("Formula"), KMol, "formula");
+    QLabel* formula_l = new QLabel (i18n("Formula:"), KMol, "formula");
     grid->addWidget( formula_l , 0 , 0 );
 
     //mol weight output field
@@ -59,7 +59,7 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
     result->setBackgroundMode(PaletteBase);
     grid->addMultiCellWidget( result, 4, 4 ,0 ,1 );
 
-    QLabel* result_l = new QLabel (i18n("Mw"), KMol, "result");
+    QLabel* result_l = new QLabel (i18n("Mw:"), KMol, "result");
     grid->addWidget( result_l, 3 , 0 );
 
     //calculate button
@@ -80,7 +80,7 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
     anal_display->setFocusPolicy(QWidget::NoFocus);
     grid->addMultiCellWidget(anal_display, 6, 6, 0, 1 );
 
-    QLabel* anal_display_l = new QLabel (i18n("Elemental Composition (%)"), KMol, "displaylabel");
+    QLabel* anal_display_l = new QLabel (i18n("Elemental composition (%):"), KMol, "displaylabel");
     grid->addMultiCellWidget(anal_display_l , 5 , 5 , 0 , 1 );
 
     kmolcalc = new KMolCalc;

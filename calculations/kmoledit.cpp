@@ -33,14 +33,14 @@ KMolEdit::KMolEdit (QWidget *parent, const char* name, KMolCalc* kmolcalc)
         formula->setFocus();
         grid->addMultiCellWidget (formula , 1,1,0,2);
 
-        QLabel* formula_l = new QLabel (i18n("Symbol"), this, "grouplabel");
+        QLabel* formula_l = new QLabel (i18n("Symbol:"), this, "grouplabel");
         grid->addWidget(formula_l, 0 , 0 );
 
         // molecular weight or group definition entry field
         definition = new QLineEdit (this);
         grid->addMultiCellWidget (definition , 3,3,0,2);
 
-        QLabel* definition_l = new QLabel (i18n("Formula or Weight"), this, "deflabel");
+        QLabel* definition_l = new QLabel (i18n("Formula or Weight:"), this, "deflabel");
         definition_l->setFont(KGlobalSettings::generalFont());
         grid->addMultiCellWidget(definition_l, 2,2,0,2);
 

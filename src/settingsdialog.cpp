@@ -45,69 +45,69 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     Acid = new QWidget(this);       
     acid_layout = new QGridLayout(Acid,5,2);
     acid_layout->setAutoAdd(TRUE);
-    acidic = new QLabel(i18n( "Acidic" ), Acid); 
-    acidic_b = new KColorButton(Acid); 
-    basic = new QLabel(i18n( "Basic" ), Acid); 
-    basic_b = new KColorButton(Acid); 
-    amphoteric = new QLabel(i18n( "Amphoteric" ), Acid); 
-    amphoteric_b = new KColorButton(Acid); 
-    neitherofthem = new QLabel(i18n( "Neutral" ), Acid); 
+    acidic = new QLabel(i18n( "Acidic:" ), Acid);
+    acidic_b = new KColorButton(Acid);
+    basic = new QLabel(i18n( "Basic:" ), Acid);
+    basic_b = new KColorButton(Acid);
+    amphoteric = new QLabel(i18n( "Amphoteric:" ), Acid);
+    amphoteric_b = new KColorButton(Acid);
+    neitherofthem = new QLabel(i18n( "Neutral:" ), Acid);
     neitherofthem_b = new KColorButton(Acid);
     acid_layout->setRowStretch(4,1);
-   
+
     // Blocks TAP
-    Blocks = new QWidget(this);       
+    Blocks = new QWidget(this);
     blocks_layout = new QGridLayout(Blocks,5,2);
     blocks_layout->setAutoAdd(TRUE);
-    s = new QLabel(i18n( "S-Block", "s" ), Blocks); 
-    s_b = new KColorButton(Blocks); 
-    p = new QLabel(i18n( "P-Block", "p" ), Blocks); 
-    p_b = new KColorButton(Blocks); 
-    d = new QLabel(i18n( "D-Block", "d" ), Blocks); 
-    d_b = new KColorButton(Blocks); 
-    f = new QLabel(i18n( "F-Block", "f" ), Blocks); 
-    f_b = new KColorButton(Blocks); 
+    s = new QLabel(i18n( "S-Block", "s:" ), Blocks);
+    s_b = new KColorButton(Blocks);
+    p = new QLabel(i18n( "P-Block", "p:" ), Blocks);
+    p_b = new KColorButton(Blocks);
+    d = new QLabel(i18n( "D-Block", "d:" ), Blocks);
+    d_b = new KColorButton(Blocks);
+    f = new QLabel(i18n( "F-Block", "f:" ), Blocks);
+    f_b = new KColorButton(Blocks);
     blocks_layout->setRowStretch(4,1);
 
     // Groups TAP
-    Groups = new QWidget(this);       
+    Groups = new QWidget(this);
     groups_layout = new QGridLayout(Groups,9,2);
     groups_layout->setAutoAdd(TRUE);
-    Group1 = new QLabel(i18n( "Group 1" ), Groups); 
-    Group1_b = new KColorButton(Groups); 
-    Group2  = new QLabel(i18n( "Group 2" ), Groups); 
-    Group2_b = new KColorButton(Groups); 
-    Group3 = new QLabel(i18n( "Group 3" ), Groups); 
-    Group3_b = new KColorButton(Groups); 
-    Group4 = new QLabel(i18n( "Group 4" ), Groups); 
-    Group4_b = new KColorButton(Groups); 
-    Group5 = new QLabel(i18n( "Group 5" ), Groups); 
-    Group5_b = new KColorButton(Groups); 
-    Group6 = new QLabel(i18n( "Group 6" ), Groups); 
-    Group6_b = new KColorButton(Groups); 
-    Group7 = new QLabel(i18n( "Group 7" ), Groups); 
-    Group7_b = new KColorButton(Groups); 
-    Group8 = new QLabel(i18n( "Group 8" ), Groups); 
-    Group8_b = new KColorButton(Groups); 
+    Group1 = new QLabel(i18n( "Group 1:" ), Groups);
+    Group1_b = new KColorButton(Groups);
+    Group2  = new QLabel(i18n( "Group 2:" ), Groups);
+    Group2_b = new KColorButton(Groups);
+    Group3 = new QLabel(i18n( "Group 3:" ), Groups);
+    Group3_b = new KColorButton(Groups);
+    Group4 = new QLabel(i18n( "Group 4:" ), Groups);
+    Group4_b = new KColorButton(Groups);
+    Group5 = new QLabel(i18n( "Group 5:" ), Groups);
+    Group5_b = new KColorButton(Groups);
+    Group6 = new QLabel(i18n( "Group 6:" ), Groups);
+    Group6_b = new KColorButton(Groups);
+    Group7 = new QLabel(i18n( "Group 7:" ), Groups);
+    Group7_b = new KColorButton(Groups);
+    Group8 = new QLabel(i18n( "Group 8:" ), Groups);
+    Group8_b = new KColorButton(Groups);
     groups_layout->setRowStretch(8,1);
-    
+
     // Stateofmatters TAP
-    Stateofmatters = new QWidget(this);       
+    Stateofmatters = new QWidget(this);
     stateofmatters_layout = new QGridLayout(Stateofmatters,6,2);
     stateofmatters_layout->setAutoAdd(TRUE);
-    liquid = new QLabel(i18n( "Liquid" ), Stateofmatters); 
-    liquid_b = new KColorButton(Stateofmatters); 
-    solid = new QLabel(i18n( "Solid" ), Stateofmatters); 
-    solid_b = new KColorButton(Stateofmatters); 
-    vapor = new QLabel(i18n( "Vapor" ), Stateofmatters); 
-    vapor_b = new KColorButton(Stateofmatters); 
-    radioactive = new QLabel(i18n( "Radioactive" ), Stateofmatters); 
-    radioactive_b = new KColorButton(Stateofmatters); 
-    artificial = new QLabel(i18n( "Artificial" ), Stateofmatters); 
-    artificial_b = new KColorButton(Stateofmatters); 
+    liquid = new QLabel(i18n( "Liquid:" ), Stateofmatters);
+    liquid_b = new KColorButton(Stateofmatters);
+    solid = new QLabel(i18n( "Solid:" ), Stateofmatters);
+    solid_b = new KColorButton(Stateofmatters);
+    vapor = new QLabel(i18n( "Vapor:" ), Stateofmatters);
+    vapor_b = new KColorButton(Stateofmatters);
+    radioactive = new QLabel(i18n( "Radioactive:" ), Stateofmatters);
+    radioactive_b = new KColorButton(Stateofmatters);
+    artificial = new QLabel(i18n( "Artificial:" ), Stateofmatters);
+    artificial_b = new KColorButton(Stateofmatters);
     stateofmatters_layout->setRowStretch(5,1);
-    
-    // read color entries   
+
+    // read color entries
     acidic_b->setColor(QColor(main_config->readColorEntry("acidic")));
     basic_b->setColor(QColor(main_config->readColorEntry("basic")));
     amphoteric_b->setColor(QColor(main_config->readColorEntry("amphoteric")));
@@ -232,13 +232,13 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
  
     
     // COLORSTAB WIDGET
-    colorTab = addPage(i18n("Colors"), i18n("Customize color settings"), BarIcon("colorize", KIcon::SizeMedium));
+    colorTab = addPage(i18n("Colors"), i18n("Customize Color Settings"), BarIcon("colorize", KIcon::SizeMedium));
     colorsTabWidget = new ColorsTabWidget(colorTab, "colorsTabWidget");
     QVBoxLayout *vcolorTabBox = new QVBoxLayout(colorTab);
     vcolorTabBox->addWidget(colorsTabWidget);
 
     // WEBLOOKUP BUTTONS
-    webLookupButtons = addPage(i18n("Web Lookup"), i18n("Customize web lookup URL"), BarIcon ("connect_creating", KIcon::SizeMedium));
+    webLookupButtons = addPage(i18n("Web Lookup"), i18n("Customize Web Lookup URL"), BarIcon ("connect_creating", KIcon::SizeMedium));
     webLookupButtonGroup = new QVButtonGroup(webLookupButtons, "weblookup ButtonGroup");
     QVBoxLayout *test = new QVBoxLayout(webLookupButtons);
     test->addWidget(webLookupButtonGroup);
