@@ -90,7 +90,7 @@ ElementButton::~ElementButton()
 void ElementButton::paintEvent( QPaintEvent* )
 {
     int h, w;
-    h = w = 50;
+    h = w = 40;
 	
 	int h_small = 15; //the size for the small units like elementnumber
 	
