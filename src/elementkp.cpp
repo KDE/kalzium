@@ -59,7 +59,7 @@ void ElementKP::getNeighbours( int Current )
 	int Nr=Current, ze=0, sp=0;
 	position(Nr,ze,sp);
 
-	/** The first [] is the row, the second [] is the colum. */
+	/** The first [] is the row, the second [] is the column. */
 	neighbourArray[0][1]=kalzium->helpArray[sp/40-1][ze/40];
 	neighbourArray[1][1]=kalzium->helpArray[sp/40][ze/40];
 	neighbourArray[2][1]=kalzium->helpArray[sp/40+1][ze/40];

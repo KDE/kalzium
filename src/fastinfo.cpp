@@ -24,8 +24,6 @@
 #include <qhbox.h>
 #include <qvbox.h>
 
-#include <kconfig.h>
-#include <ksimpleconfig.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <kdebug.h>

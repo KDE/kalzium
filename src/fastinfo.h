@@ -27,7 +27,6 @@
 #include <qframe.h>
 
 class QGridLayout;
-class KSimpleConfig;
 class QLabel;
 class Kalzium;
 
@@ -43,8 +42,6 @@ class Fastinfo : public QFrame{
 	Fastinfo(QWidget *parent, const char *name=0,Kalzium *Kalzium_tmp=0);
 	QGridLayout *grid;
 	void setInfo( int );
-
-	KSimpleConfig *config;
 
 	Kalzium *kalzium;
 
