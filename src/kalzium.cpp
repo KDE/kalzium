@@ -163,7 +163,7 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 	four = new KPushButton( foo );
 	five = new KPushButton( foo );
 	six = new KPushButton( foo );
-	seven seven new KPushButton( foo );
+	seven = new KPushButton( foo );
 	eight = new KPushButton( foo );
 	legend_layout->addWidget( one );
 	legend_layout->addWidget( two );

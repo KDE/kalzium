@@ -81,11 +81,17 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 
 	QLabel *liqinfo = new QLabel( this );
 	liqinfo->setText(i18n("liquid:"));
-	tempgrid->addWidget(liqinfo , 4 , 1 , Qt::AlignRight );
+	tempgrid->addWidget(liqinfo , 3 , 1 , Qt::AlignRight );
 
 	QLabel *gasinfo = new QLabel( this );
 	gasinfo->setText(i18n("vapor:"));
-	tempgrid->addWidget(gasinfo , 6 , 1 , Qt::AlignRight );
+	tempgrid->addWidget(gasinfo , 4 , 1 , Qt::AlignRight );
+	
+    QLabel *artiinfo = new QLabel( i18n("artificial"), this );
+	tempgrid->addWidget(artiinfo , 5 , 1 , Qt::AlignRight );
+    
+    QLabel *radiaainfo = new QLabel( i18n("radioactive"), this );
+	tempgrid->addWidget(radiaainfo , 6 , 1 , Qt::AlignRight );
 
 	celsius = new QLabel( this );
 	fahrenheit = new QLabel( this );
@@ -103,10 +109,14 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	solidbutton = new KPushButton(this); 
 	tempgrid->addWidget(solidbutton, 2, 2 );
 	liquidbutton = new KPushButton(this); 
-	tempgrid->addWidget(liquidbutton, 4, 2 );
+	tempgrid->addWidget(liquidbutton, 3, 2 );
 	vaporbutton = new KPushButton(this);
-	tempgrid->addWidget(vaporbutton, 6, 2 );
+	tempgrid->addWidget(vaporbutton, 4, 2 );
 	liquidbutton->show();
+    KPushButton *artib = new KPushButton(this);
+    tempgrid->addWidget(artib, 5,2);
+    KPushButton *radiob = new KPushButton(this);
+    tempgrid->addWidget(radiob, 6,2);
 
 	//////////////////////////////////////////////////////
 	// the colors will indicate the state of matter
@@ -121,6 +131,8 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	liquidbutton->setPalette(color_liquid);
 	solidbutton->setPalette(color_solid);
 	vaporbutton->setPalette(color_vapor);
+	artib->setPalette(main_config->readColorEntry("radioactive"));
+	radiob->setPalette(main_config->readColorEntry("artificial"));
 
 	tempS = new QSlider ( -4500, 273, 1, -25 , QSlider::Vertical, this, "tempSlider" );
 	QWhatsThis::add(tempS, i18n("Use this slider to see what state of matter a certain elements has at a given temperature"));
