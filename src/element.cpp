@@ -104,17 +104,22 @@ const QString Element::adjustUnits( double val, const int type )
 	}
 	else if ( type == TEMPERATURE ) // convert a temperature
 	{
-		if ( Prefs::temperature() == 0 )
-		{
-			val+=272.25;
-			v = QString::number( val );
-			v.append( "°C" );
-		}
-		else // use Kelvin
-		{
-			v = QString::number( val );
-			v.append( "K" );
-		}
+			switch (Prefs::temperature()) {
+    				case 0: //Kelvin
+					v = QString::number( val );
+					v.append( "K" );
+					break;
+				case 1:// Kelvin to Fahrenheit
+					val = val * 1.8 - 459.67;
+					v = QString::number( val );
+					v.append( "F" );
+					break;
+				case 2: //Kelvin to Celsius
+					val-=273.15;
+					v = QString::number( val );
+					v.append( "°C" );
+					break;
+			}
 	}
 	else if ( type == LENGHT ) // its a length
 	{
