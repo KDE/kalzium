@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     aboutData.addCredit("Jonathan Drews",
             I18N_NOOP("Helping out, proof reading, tips"), "j.e.drews@worldnet.att.net");
     aboutData.addCredit("Matthias Messmer",
-            I18N_NOOP("Additional coding"), "bmlmessmer@web.de");
+            I18N_NOOP("Additional coding and tweaking the ui's"), "bmlmessmer@web.de");
     aboutData.addCredit("Tomislav Gountchev",
             I18N_NOOP("KMol-code"), "tomi@idiom.com");
     aboutData.addCredit("George Russell", I18N_NOOP("Web lookup"), "russell@kde.org");

@@ -1,12 +1,15 @@
 HEAD:
+- now the KPushButton you see have not only the symbol but
+  also the number of the element
 - added QToolTip
 - quite a lot renamings in the code (eg. renaming of widgets)
-- added the neighbourtable-stuff
+- added the neighbourtable-stuff (won't appear beacause of the
+  featurefreeze of KDE 3.1...)
 - the infodialog is now redisigned
-- ElementKP is now done with Designer
+- ElementKP and the whole Quiz are now done with Designer
 - added a toolbar
 - you will find the menu items from the old configure menu under the settings menu
-- added a new settings dialog (color and weblookup settings)
+- added a new settings dialog (colour and weblookup settings)
 - added Kalzium::queryClose() to save menu settings at exit, and another
   method to read at startup those settings
 - fixed the smaller things like the stateofmatter-Dlg-fixlets. Just a

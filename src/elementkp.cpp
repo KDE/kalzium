@@ -267,14 +267,11 @@ void ElementKP::drawButtonLabel(QPainter *p)
     QFontMetrics zahl( general );
     QFontMetrics text( general_bold );
     
-//    int zahl_width= zahl.width(QString::number(Data.number));
     int zahl_height = zahl.height();
     int text_width = text.width(Data.Symbol);
-//    int text_height = text.height();
 
     p->setFont( general );
-    p->drawText(6,zahl_height,QString::number(Data.number) +1, -1);
+    p->drawText(7,zahl_height,QString::number(Data.number), -1);
     p->setFont( general_bold );
     p->drawText ( width() - text_width-7, height()-7 , Data.Symbol);
-
 }
