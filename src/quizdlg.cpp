@@ -285,10 +285,10 @@ void QuizDlg::slotCheck()
     		ques=quizconfig.readEntry("Q", "Unknown");
     		answ=quizconfig.readEntry("A", "Unknown");
 			
-			QTableItem *item = new QTableItem(resultTable, QTableItem::Never, ques);
+			QTableItem *item = new QTableItem(resultTable, QTableItem::Never, i18n(ques.utf8()));
 			item->setWordWrap(true);
     		resultTable->setItem( i+1 , 0 , item);
-			item = new QTableItem(resultTable, QTableItem::Never, answ);
+			item = new QTableItem(resultTable, QTableItem::Never, i18n(answ.utf8()));
 			item->setWordWrap(true);
     		resultTable->setItem( i+1 , 1 , item);
 		
