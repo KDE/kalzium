@@ -51,9 +51,6 @@ class DetailedInfoDlg : public KDialogBase
 
 		KPushButton *showLegendKP;
 
-	private:
-		QString beautifyOrbits( QString ) const;
-
 	private slots:
 		void slotShowLegend();
 };

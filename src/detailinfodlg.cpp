@@ -85,13 +85,13 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
     /////////////////////////////////
     chemicalTab = addPage(i18n("Chemical Data"), i18n("Chemical Data"), BarIcon("colorize", KIcon::SizeMedium));
 	QVBoxLayout *chemicalLayout = new QVBoxLayout( chemicalTab );
-	QLabel *orbtisLabel = new QLabel( i18n( "Orbits: %1" ).arg( beautifyOrbits( Data.orbits ) ) , chemicalTab );
+//	QLabel *orbtisLabel = new QLabel( i18n( "Orbits: %1" ).arg( beautifyOrbits( Data.orbits ) ) , chemicalTab );
 	QLabel *symbolLabel = new QLabel( i18n( "Symbol: %1" ).arg( Data.Symbol ) , chemicalTab  );
 	QLabel *densityLabel = new QLabel( i18n( "Density: %1 g/cm<sup>3</sup>").arg(QString::number( Data.Density ) ) , chemicalTab );
 	QLabel *blockLabel  = new QLabel( i18n( "Block: %1" ).arg( Data.Block ) , chemicalTab );
 	QLabel *atomrad    = new QLabel( i18n( "Atomic Radius: %1 pm" ).arg( QString::number( Data.AR )) , chemicalTab );
 	QLabel *atomweightLabel = new QLabel( i18n( "Atomic Weigth: %1 u" ).arg( Data.Weight ) , chemicalTab );
-	chemicalLayout->addWidget( orbtisLabel );
+//	chemicalLayout->addWidget( orbtisLabel );
 	chemicalLayout->addWidget( symbolLabel );
 	chemicalLayout->addWidget( densityLabel);
 	chemicalLayout->addWidget( blockLabel  );
@@ -110,16 +110,6 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 //X 	discovered_label->setText(i18n("%1").arg(Eleminfo.date));
 	miscLayout->addWidget( discovered_label );
 }
-
-QString DetailedInfoDlg::beautifyOrbits( QString orbits ) const
-{
-	QRegExp rxs("([a-z])([0-9]+)");
-	QRegExp rxb("([a-z]{2}) ",false);
-	orbits.replace(rxs,"\\1<sup>\\2</sup>"); //superscript around electron number
-	orbits.replace(rxb,"<b>\\1</b> "); //bold around element symbols
-	return orbits;
-}
-
 
 void DetailedInfoDlg::slotShowLegend()
 {

@@ -37,4 +37,15 @@ class infoDialog : public infoDlg
 		void lookup() const;
 };
 
+class ElemInfoParsed
+{
+	public:
+		ElemInfoParsed( ElementInfo eInfo );
+		ElementInfo information();
+
+	private:
+		QString beautifyOrbits( QString ) const;
+		ElementInfo info;
+};
+		
 #endif

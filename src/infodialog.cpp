@@ -30,6 +30,7 @@
 #include <khtmlview.h>
 #include <kpushbutton.h>
 #include <kconfig.h>
+#include <kdebug.h>
 
 #include "kalzium.h"
 
@@ -37,71 +38,22 @@ infoDialog::infoDialog( ElementInfo Eleminfo , QWidget *parent, const char *name
     : infoDlg( parent , name )
 {
     setCaption( i18n( Eleminfo.Name.utf8() ) );
-    name_label->setText( i18n( Eleminfo.Name.utf8() ) );
-    symbol_label->setText(i18n( "%1" ).arg( Eleminfo.Symbol ) );
-    block_label->setText( i18n( "%1" ).arg( Eleminfo.Block ) );
 
-    if ( Eleminfo.Density == -1 )
-	density_label->setText( i18n( "Unknown" ) );
-    else
-	density_label->setText( i18n("%1 g/cm<sup>3</sup>" ).arg( Eleminfo.Density ) );
-
-    if ( Eleminfo.MP == -1 )
-	melting_label->setText( i18n( "Unknown" ) );
-    else
-	melting_label->setText( i18n( "%1 C" ).arg( -273.15+Eleminfo.MP ) );
-
-    if (Eleminfo.IE == -1)
-	ion_label->setText( i18n( "Unknown" ) );
-    else
-	ion_label->setText( i18n( "%1 kJ/mol" ).arg( Eleminfo.IE*100) );
-
-    elemno_label->setText( i18n( "%1" ).arg( Eleminfo.number ) );
-
-    if (Eleminfo.Weight == "0")
-		weight_label->setText( i18n( "Unknown" ) );
-    else{
-		weight_label->setText( i18n( "%1 u" ).arg( Eleminfo.Weight ) );
-		meanweight_label->setText( i18n( "%1 u"). arg( Eleminfo.Weight.toDouble()/Eleminfo.number ) );
-	}
-
-    if (Eleminfo.date == "0")
-	discovered_label->setText(i18n("was known to ancient cultures"));
-    else if (Eleminfo.date == "3333")
-	discovered_label->setText(i18n("not been discovered yet"));
-    else
-	discovered_label->setText(i18n("%1").arg(Eleminfo.date));
-
-    if (Eleminfo.AR == -1)
-	radius_label->setText( i18n( "Unknown" ) );
-    else
-	radius_label->setText( i18n( "%1 pm" ).arg( Eleminfo.AR ) );
-
-    if (Eleminfo.BP == -1)
-	boiling_label->setText( i18n( "Unknown" ) );
-    else
-	boiling_label->setText( i18n( "%1 C" ).arg(-273.15+Eleminfo.BP ) );
-
-    if (Eleminfo.EN == -1)
-	electro_label->setText( i18n( "Unknown" ) );
-    else
-	electro_label->setText( i18n( "%1" ).arg( Eleminfo.EN ) );
-
-	oxlabel->setText( Eleminfo.oxstage );
-
-
-	//show orbit information nicely
-	QRegExp rxs("([a-z])([0-9]+)");
-	QRegExp rxb("([a-z]{2}) ",false);
-	QString orbitData = Eleminfo.orbits;
-	orbitData.replace(rxs,"\\1<sup>\\2</sup>"); //superscript around electron number
-	orbitData.replace(rxb,"<b>\\1</b> "); //bold around element symbols
-        orbitLabel->setText( orbitData );
-
-
+	ElemInfoParsed *eInfo = new ElemInfoParsed( Eleminfo );
+	Eleminfo = eInfo->information();
+	
+	electro_label->setText( Eleminfo._EN );
+	weight_label->setText( Eleminfo.Weight );
+	melting_label->setText( Eleminfo._MP );
+	boiling_label->setText( Eleminfo._BP );
+	name_label->setText( Eleminfo.Name );
+	symbol_label->setText( Eleminfo.Symbol );
+	radius_label->setText( Eleminfo._AR );
+	discovered_label->setText( Eleminfo.date );
+	elemno_label->setText( QString::number( Eleminfo.number ));
+	
 	// click on this button to load webpage for element
 	QObject::connect(weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
-
 }
 
 void infoDialog::lookup() const
@@ -119,5 +71,77 @@ void infoDialog::lookup() const
 //X 	html->show();
 //X 	html->view()->resize(html->view()->contentsWidth() + html->view()->frameWidth() ,400);
 }
+
+ElemInfoParsed::ElemInfoParsed( ElementInfo eInfo )
+{
+	info = eInfo;
+}
+
+ElementInfo ElemInfoParsed::information()
+{
+	if ( info.Density == -1 )
+		info._Density = i18n( "Unknown" );
+	else
+		info._Density = i18n("%1 g/cm<sup>3</sup>" ).arg( info.Density );
+
+	if ( info.MP == -1 )
+		info._MP = i18n( "Unknown" ) ;
+	else
+		info._MP = i18n( "%1 C" ).arg( -273.15+info.MP );
+
+	if (info.IE == -1)
+		info._IE = i18n( "Unknown" ) ;
+	else
+		info._IE = i18n( "%1 kJ/mol" ).arg( info.IE*100) ;
+
+	if (info.Weight == "0")
+	{
+		info.Weight =  i18n( "Unknown" );
+		info.meanweight = i18n( "Unknown" );
+	}
+	else
+	{
+		info.Weight = i18n( "%1 u" ).arg( info.Weight );
+		info.meanweight = i18n( "%1 u").arg( info.Weight.toDouble()/info.number );
+	}
+
+	if (info.date == "0")
+		info.date = i18n("was known to ancient cultures");
+	else if (info.date == "3333")
+		info.date = i18n("not been discovered yet");
+	else
+		info.date = i18n("%1").arg(info.date);
+
+	if (info.AR == -1)
+		info._AR = i18n( "Unknown" );
+	else
+		info._AR = i18n( "%1 pm" ).arg( info.AR );
+
+	if (info.BP == -1)
+		info._BP = i18n( "Unknown" );
+	else
+		info._BP = i18n( "%1 C" ).arg(-273.15+info.BP );
+
+	if (info.EN == -1)
+		info._EN = i18n( "Unknown" );
+	else
+		info._EN = i18n( "%1" ).arg( info.EN );
+
+	//show orbit information nicely
+	info.orbits = beautifyOrbits( info.orbits );
+
+	return info;
+};
+
+QString ElemInfoParsed::beautifyOrbits( QString orbits ) const
+{
+	QRegExp rxs("([a-z])([0-9]+)");
+	QRegExp rxb("([a-z]{2}) ",false);
+	orbits.replace(rxs,"\\1<sup>\\2</sup>"); //superscript around electron number
+	orbits.replace(rxb,"<b>\\1</b> "); //bold around element symbols
+	return orbits;
+}
+
+
 
 #include "infodialog.moc"

@@ -26,7 +26,6 @@ class QColor;
 class QLabel;
 class QPopupMenu;
 class QString;
-
 class Kalzium;
 
 /*This struct store all information about the elements.
@@ -53,9 +52,10 @@ class Kalzium;
 struct ElementInfo
 {
 	QString Name, Symbol, Block,
-	Weight, acidbeh, az, date, Group, orbits, oxstage;
+	Weight, acidbeh, az, date, Group, orbits, oxstage, meanweight;
 	int number;
 	double MP, BP, EN, Density, IE, AR;
+	QString _MP, _BP, _EN, _Density, _IE, _AR;
 };
 
 /**This class is derived from KPushButton. This is to make it be more specific
