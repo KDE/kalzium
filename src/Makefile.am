@@ -69,6 +69,14 @@ KDE_ICON = AUTO
 # the library search path. 
 kalzium_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
-messages: rc.cpp
+elementnames:
+	  rm -f kalzium_i18n.cpp
+	  echo "#if 0" >> kalzium_i18n.cpp
+	  echo "^Name=" > keys
+	  grep -f keys kalziumrc | sed -e 's#Name=#N=#' | sed -e 's#^[NQA12]=\(.*\)#i18n(\"\1\"); // xgettext:no-c-format#'  >> kalzium_i18n.cpp
+	  rm -f keys
+	  echo "#endif" >> kalzium_i18n.cpp
+
+messages: elementnames rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kalzium.pot
 
