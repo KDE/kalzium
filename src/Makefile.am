@@ -71,6 +71,6 @@ KDE_ICON = AUTO
 # the library search path. 
 kalzium_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
-messages: elementnames rc.cpp
+messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kalzium.pot
 
