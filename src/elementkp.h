@@ -18,7 +18,7 @@
 #ifndef ELEMENTKP_H
 #define ELEMENTKP_H
 
-#include <kpushbutton.h>
+#include "elementbutton.h"
 
 class KStatusBar;
 
@@ -63,7 +63,7 @@ struct ElementInfo
  *@author Carsten Niehaus
  */
 
-class ElementKP : public KPushButton{
+class ElementKP : public ElementButton{
 	Q_OBJECT
 
 	public: 
