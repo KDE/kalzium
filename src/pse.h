@@ -170,6 +170,7 @@ class PSE : public QWidget
 	public:
 		virtual void drawPSE( QPainter* p, bool useSimpleView );
 		virtual void drawSOMPSE( QPainter* p );
+		virtual void drawLegend( QPainter* p );
 };
 
 #endif

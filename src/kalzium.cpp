@@ -284,18 +284,18 @@ void Kalzium::slotUpdateSettings()
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
 
 	displayTemperature();
-    	displayEnergie();
+	displayEnergie();
 	slotTempChanged( Prefs::temperaturevalue());
 	//update colors
 	if (!m_bShowSOM )
 	{
-//X 		m_PSE->activateColorScheme(Prefs::colorschemebox());
+		//X 		m_PSE->activateColorScheme(Prefs::colorschemebox());
 		m_pLegend->setScheme( Prefs::colorschemebox() );
 		slotStatusBar( "", IDS_TEMPERATURE );
 	}
 	else 
 	{
-//X 		m_PSE->setTemperature((double) Prefs::temperaturevalue() );
+		//X 		m_PSE->setTemperature((double) Prefs::temperaturevalue() );
 		m_pLegend->setScheme( 4 );
 	}
 }

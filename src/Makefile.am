@@ -19,7 +19,6 @@ kalzium_SOURCES = kalzium.cpp \
 			plotwidget.cpp \
 			elementdataviewer.cpp \
 			plotsetupwidget.ui \
-			legendwidget.cpp \
 			tempslider.ui \
 			isotopewidget.cpp \
 			overviewwidget.cpp \
@@ -48,7 +47,6 @@ EXTRA_DIST = main.cpp \
 		detail_energy.ui \
 		plotwidget.cpp plotwidget.h \
 		elementdataviewer.cpp elementdataviewer.h \
-		legendwidget.cpp legendwidget.h \
 		isotopewidget.h isotopewidget.cpp \
 		overviewwidget.cpp overviewwidget.h \
 		detailedgraphicaloverview.cpp detailedgraphicaloverview.h \
