@@ -23,7 +23,8 @@ int main(int argc, char **argv)
     KAboutData about("kalzium", I18N_NOOP("Kalzium"), version, description,
                      KAboutData::License_GPL, "(C) 2002-2004 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
     about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );
-	about.addCredit( "Marco Martin", "Thank you for some icons and inspiration for others" );
+    about.addCredit( "Marco Martin", I18N_NOOP("Thank you for some icons and inspiration for others" ));
+    about.addCredit( "Chris Luetchford", I18N_NOOP("svg icon"), "chris@os11.com>");
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
