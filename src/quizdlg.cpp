@@ -79,7 +79,8 @@ QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )
     quizdlg->show();
     quizdlg->KProgress1->setTotalSteps( qnum );
     quizdlg->KProgress1->setProgress(0);
-
+    
+    
     connect( quizdlg->bgroup, SIGNAL(clicked(int)), SLOT(updateIt()) );
 
     connect( quizdlg->confirm, SIGNAL(clicked() ), this, SLOT( slotCheck() ) );
@@ -136,19 +137,19 @@ void QuizDlg::setTexts()
     switch (correctis)
     {
         case 1:
-            quizdlg->one->setText(i18n(answer.utf8()));
-            quizdlg->two->setText(i18n(alternative1.utf8()));
-            quizdlg->three->setText(i18n(alternative2.utf8()));
+            quizdlg->one_label->setText(i18n(answer.utf8()));
+            quizdlg->two_label->setText(i18n(alternative1.utf8()));
+            quizdlg->three_label->setText(i18n(alternative2.utf8()));
             break;
         case 2:
-            quizdlg->two->setText(i18n(answer.utf8()));
-            quizdlg->one->setText(i18n(alternative1.utf8()));
-            quizdlg->three->setText(i18n(alternative2.utf8()));
+            quizdlg->two_label->setText(i18n(answer.utf8()));
+            quizdlg->one_label->setText(i18n(alternative1.utf8()));
+            quizdlg->three_label->setText(i18n(alternative2.utf8()));
             break;
         case 3:
-            quizdlg->three->setText(i18n(answer.utf8()));
-            quizdlg->two->setText(i18n(alternative1.utf8()));
-            quizdlg->one->setText(i18n(alternative2.utf8()));
+            quizdlg->three_label->setText(i18n(answer.utf8()));
+            quizdlg->two_label->setText(i18n(alternative1.utf8()));
+            quizdlg->one_label->setText(i18n(alternative2.utf8()));
             break;
     }
 }
