@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>561</width>
-            <height>444</height>
+            <width>519</width>
+            <height>504</height>
         </rect>
     </property>
     <property name="caption">
@@ -18,565 +18,733 @@
     <property name="whatsThis" stdset="0">
         <string>This dialog gives you information about the element</string>
     </property>
-    <vbox>
+    <widget class="QLayoutWidget">
         <property name="name">
-            <cstring>unnamed</cstring>
+            <cstring>layout18</cstring>
         </property>
-        <widget class="QGroupBox">
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>10</y>
+                <width>502</width>
+                <height>483</height>
+            </rect>
+        </property>
+        <vbox>
             <property name="name">
-                <cstring>groupBox1</cstring>
+                <cstring>unnamed</cstring>
             </property>
-            <property name="title">
-                <string>General</string>
-            </property>
-            <widget class="QLayoutWidget">
+            <widget class="QGroupBox">
                 <property name="name">
-                    <cstring>layout12</cstring>
+                    <cstring>groupBox1</cstring>
                 </property>
-                <property name="geometry">
-                    <rect>
-                        <x>11</x>
-                        <y>23</y>
-                        <width>475</width>
-                        <height>118</height>
-                    </rect>
+                <property name="title">
+                    <string>General</string>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout20</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>20</y>
+                            <width>230</width>
+                            <height>130</height>
+                        </rect>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout14</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>TextLabel2_3</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>0</hsizetype>
+                                            <vsizetype>5</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Name:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>name_label</cstring>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout13</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>TextLabel3_3</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>0</hsizetype>
+                                            <vsizetype>5</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>65</width>
+                                            <height>0</height>
+                                        </size>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Symbol:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>symbol_label</cstring>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout12</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>TextLabel4_4</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>0</hsizetype>
+                                            <vsizetype>5</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Block:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>block_label</cstring>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout11</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>TextLabel4_2_4</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>0</hsizetype>
+                                            <vsizetype>5</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Density:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>density_label</cstring>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout10</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>TextLabel4_2_2_2</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>0</hsizetype>
+                                            <vsizetype>0</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>64</width>
+                                            <height>0</height>
+                                        </size>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Orbits:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>orbitLabel</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>5</hsizetype>
+                                            <vsizetype>0</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="text">
+                                        <string></string>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout21</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>250</x>
+                            <y>20</y>
+                            <width>240</width>
+                            <height>130</height>
+                        </rect>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout19</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>TextLabel2_2_2</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>0</hsizetype>
+                                            <vsizetype>5</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Element number:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>elemno_label</cstring>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>0</width>
+                                            <height>0</height>
+                                        </size>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout18</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>TextLabel3_2_2</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>0</hsizetype>
+                                            <vsizetype>5</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Atomic weight:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>weight_label</cstring>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout17</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>TextLabel4_3_2</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>0</hsizetype>
+                                            <vsizetype>5</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Discovered:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>discovered_label</cstring>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout16</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>TextLabel4_2_3_2</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>0</hsizetype>
+                                            <vsizetype>5</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Atomic radius:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>radius_label</cstring>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout15</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>textLabel1</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Mean Weight:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>meanweight_label</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string></string>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                    </vbox>
+                </widget>
+            </widget>
+            <widget class="QGroupBox">
+                <property name="name">
+                    <cstring>groupBox2</cstring>
+                </property>
+                <property name="title">
+                    <string>States</string>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout23</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>20</y>
+                            <width>480</width>
+                            <height>44</height>
+                        </rect>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout14</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>TextLabel11</cstring>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Melting point:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>melting_label</cstring>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>TextLabel12</cstring>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Boiling point:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>boiling_label</cstring>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout22</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>Oxidationstages</cstring>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>Oxidation:</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>oxlabel</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string></string>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                    </vbox>
+                </widget>
+            </widget>
+            <widget class="QGroupBox">
+                <property name="name">
+                    <cstring>groupBox3</cstring>
+                </property>
+                <property name="title">
+                    <string>Energy</string>
                 </property>
                 <grid>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <property name="spacing">
-                        <number>9</number>
-                    </property>
-                    <widget class="QLayoutWidget" row="1" column="0" rowspan="1" colspan="2">
-                        <property name="name">
-                            <cstring>layout11_2</cstring>
-                        </property>
-                        <grid>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <widget class="QLabel" row="0" column="1">
-                                <property name="name">
-                                    <cstring>orbitLabel</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>5</hsizetype>
-                                        <vsizetype>0</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="0" column="0">
-                                <property name="name">
-                                    <cstring>TextLabel4_2_2_2</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>0</hsizetype>
-                                        <vsizetype>0</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="minimumSize">
-                                    <size>
-                                        <width>64</width>
-                                        <height>0</height>
-                                    </size>
-                                </property>
-                                <property name="font">
-                                    <font>
-                                        <bold>1</bold>
-                                    </font>
-                                </property>
-                                <property name="text">
-                                    <string>Orbits:</string>
-                                </property>
-                            </widget>
-                        </grid>
-                    </widget>
                     <widget class="QLayoutWidget" row="0" column="0">
                         <property name="name">
-                            <cstring>layout10_2</cstring>
+                            <cstring>layout15</cstring>
                         </property>
-                        <grid>
+                        <hbox>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="QLabel" row="1" column="0">
+                            <widget class="QLabel">
                                 <property name="name">
-                                    <cstring>TextLabel3_3</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>0</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="minimumSize">
-                                    <size>
-                                        <width>65</width>
-                                        <height>0</height>
-                                    </size>
+                                    <cstring>TextLabel14</cstring>
                                 </property>
                                 <property name="font">
                                     <font>
                                     </font>
                                 </property>
                                 <property name="text">
-                                    <string>Symbol:</string>
+                                    <string>Ionisation energy:</string>
                                 </property>
                             </widget>
-                            <widget class="QLabel" row="0" column="1">
+                            <widget class="QLabel">
                                 <property name="name">
-                                    <cstring>name_label</cstring>
+                                    <cstring>ion_label</cstring>
+                                </property>
+                                <property name="alignment">
+                                    <set>AlignVCenter|AlignRight</set>
                                 </property>
                             </widget>
-                            <widget class="QLabel" row="3" column="1">
+                            <widget class="QLabel">
                                 <property name="name">
-                                    <cstring>density_label</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="2" column="1">
-                                <property name="name">
-                                    <cstring>block_label</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="0" column="0">
-                                <property name="name">
-                                    <cstring>TextLabel2_3</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>0</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
+                                    <cstring>TextLabel15</cstring>
                                 </property>
                                 <property name="font">
                                     <font>
                                     </font>
                                 </property>
                                 <property name="text">
-                                    <string>Name:</string>
+                                    <string>Electronegativity:</string>
                                 </property>
                             </widget>
-                            <widget class="QLabel" row="1" column="1">
+                            <widget class="QLabel">
                                 <property name="name">
-                                    <cstring>symbol_label</cstring>
+                                    <cstring>electro_label</cstring>
+                                </property>
+                                <property name="alignment">
+                                    <set>AlignVCenter|AlignRight</set>
                                 </property>
                             </widget>
-                            <widget class="QLabel" row="3" column="0">
-                                <property name="name">
-                                    <cstring>TextLabel4_2_4</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>0</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="font">
-                                    <font>
-                                        <bold>1</bold>
-                                    </font>
-                                </property>
-                                <property name="text">
-                                    <string>Density:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="2" column="0">
-                                <property name="name">
-                                    <cstring>TextLabel4_4</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>0</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="font">
-                                    <font>
-                                    </font>
-                                </property>
-                                <property name="text">
-                                    <string>Block:</string>
-                                </property>
-                            </widget>
-                        </grid>
-                    </widget>
-                    <widget class="QLayoutWidget" row="0" column="1">
-                        <property name="name">
-                            <cstring>layout23_2</cstring>
-                        </property>
-                        <grid>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <widget class="QLabel" row="0" column="0">
-                                <property name="name">
-                                    <cstring>TextLabel2_2_2</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>0</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="font">
-                                    <font>
-                                    </font>
-                                </property>
-                                <property name="text">
-                                    <string>Element number:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="3" column="0">
-                                <property name="name">
-                                    <cstring>TextLabel4_2_3_2</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>0</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="font">
-                                    <font>
-                                        <bold>1</bold>
-                                    </font>
-                                </property>
-                                <property name="text">
-                                    <string>Atomic radius:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="0" column="1">
-                                <property name="name">
-                                    <cstring>elemno_label</cstring>
-                                </property>
-                                <property name="minimumSize">
-                                    <size>
-                                        <width>0</width>
-                                        <height>0</height>
-                                    </size>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="1" column="1">
-                                <property name="name">
-                                    <cstring>weight_label</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="2" column="1">
-                                <property name="name">
-                                    <cstring>discovered_label</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="2" column="0">
-                                <property name="name">
-                                    <cstring>TextLabel4_3_2</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>0</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="font">
-                                    <font>
-                                    </font>
-                                </property>
-                                <property name="text">
-                                    <string>Discovered:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="3" column="1">
-                                <property name="name">
-                                    <cstring>radius_label</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="1" column="0">
-                                <property name="name">
-                                    <cstring>TextLabel3_2_2</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>0</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="font">
-                                    <font>
-                                    </font>
-                                </property>
-                                <property name="text">
-                                    <string>Atomic weight:</string>
-                                </property>
-                            </widget>
-                        </grid>
+                        </hbox>
                     </widget>
                 </grid>
             </widget>
-        </widget>
-        <widget class="QGroupBox">
-            <property name="name">
-                <cstring>groupBox2</cstring>
-            </property>
-            <property name="title">
-                <string>States</string>
-            </property>
-            <grid>
+            <widget class="QGroupBox">
                 <property name="name">
-                    <cstring>unnamed</cstring>
+                    <cstring>groupBox4</cstring>
                 </property>
-                <widget class="QLayoutWidget" row="0" column="0">
-                    <property name="name">
-                        <cstring>layout14</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>TextLabel11</cstring>
-                            </property>
-                            <property name="font">
-                                <font>
-                                </font>
-                            </property>
-                            <property name="text">
-                                <string>Melting point:</string>
-                            </property>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>melting_label</cstring>
-                            </property>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>TextLabel12</cstring>
-                            </property>
-                            <property name="font">
-                                <font>
-                                </font>
-                            </property>
-                            <property name="text">
-                                <string>Boiling point:</string>
-                            </property>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>boiling_label</cstring>
-                            </property>
-                        </widget>
-                    </hbox>
-                </widget>
-                <widget class="QLayoutWidget" row="1" column="0">
-                    <property name="name">
-                        <cstring>layout8</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>Oxidationstages</cstring>
-                            </property>
-                            <property name="font">
-                                <font>
-                                </font>
-                            </property>
-                            <property name="text">
-                                <string>Oxidation:</string>
-                            </property>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>oxlabel</cstring>
-                            </property>
-                            <property name="text">
-                                <string></string>
-                            </property>
-                        </widget>
-                    </hbox>
-                </widget>
-            </grid>
-        </widget>
-        <widget class="QGroupBox">
-            <property name="name">
-                <cstring>groupBox3</cstring>
-            </property>
-            <property name="title">
-                <string>Energy</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
+                <property name="title">
+                    <string>Surrounding Elements</string>
                 </property>
-                <widget class="QLayoutWidget" row="0" column="0">
+                <grid>
                     <property name="name">
-                        <cstring>layout15</cstring>
+                        <cstring>unnamed</cstring>
                     </property>
-                    <hbox>
+                    <widget class="QLayoutWidget" row="0" column="0">
                         <property name="name">
-                            <cstring>unnamed</cstring>
+                            <cstring>layout9</cstring>
                         </property>
-                        <widget class="QLabel">
+                        <hbox>
                             <property name="name">
-                                <cstring>TextLabel14</cstring>
+                                <cstring>unnamed</cstring>
                             </property>
-                            <property name="font">
-                                <font>
-                                </font>
-                            </property>
-                            <property name="text">
-                                <string>Ionisation energy:</string>
-                            </property>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>ion_label</cstring>
-                            </property>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>TextLabel15</cstring>
-                            </property>
-                            <property name="font">
-                                <font>
-                                </font>
-                            </property>
-                            <property name="text">
-                                <string>Electronegativity:</string>
-                            </property>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>electro_label</cstring>
-                            </property>
-                        </widget>
-                    </hbox>
-                </widget>
-            </grid>
-        </widget>
-        <widget class="QGroupBox">
-            <property name="name">
-                <cstring>groupBox4</cstring>
-            </property>
-            <property name="title">
-                <string>Other</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLayoutWidget" row="0" column="0">
-                    <property name="name">
-                        <cstring>layout9</cstring>
-                    </property>
-                    <hbox>
+                            <spacer>
+                                <property name="name">
+                                    <cstring>spacer4</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>61</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QTable">
+                                <property name="name">
+                                    <cstring>neighbourTable</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>0</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="numRows">
+                                    <number>3</number>
+                                </property>
+                                <property name="numCols">
+                                    <number>3</number>
+                                </property>
+                            </widget>
+                            <spacer>
+                                <property name="name">
+                                    <cstring>spacer4_2</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>61</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                        </hbox>
+                    </widget>
+                    <widget class="KPushButton" row="1" column="0">
                         <property name="name">
-                            <cstring>unnamed</cstring>
+                            <cstring>weblookup</cstring>
                         </property>
-                        <spacer>
-                            <property name="name">
-                                <cstring>spacer4</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>61</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                        <widget class="QTable">
-                            <property name="name">
-                                <cstring>neighbourTable</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>0</hsizetype>
-                                    <vsizetype>0</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="numRows">
-                                <number>3</number>
-                            </property>
-                            <property name="numCols">
-                                <number>3</number>
-                            </property>
-                        </widget>
-                        <spacer>
-                            <property name="name">
-                                <cstring>spacer4_2</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>61</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                    </hbox>
-                </widget>
-                <widget class="KPushButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>weblookup</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Web &amp;Lookup</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>When you click on the button you will get information from the Internet.</string>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
-    </vbox>
+                        <property name="text">
+                            <string>Web &amp;Lookup</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>When you click on the button you will get information from the Internet.</string>
+                        </property>
+                    </widget>
+                </grid>
+            </widget>
+        </vbox>
+    </widget>
 </widget>
 <slots>
     <slot>newSlot()</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
-    <includehint>qwidget.h</includehint>
     <includehint>kpushbutton.h</includehint>
 </includehints>
 </UI>

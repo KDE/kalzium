@@ -216,9 +216,11 @@ void ElementKP::slotShowData()
     show_data2->elemno_label->setText( i18n( "%1" ).arg( Data.number ) );
 
     if (Data.Weight == "0")
-	show_data2->weight_label->setText( i18n( "Unknown" ) );
-    else
-	show_data2->weight_label->setText( i18n( "%1 u" ).arg( Data.Weight ) );
+		show_data2->weight_label->setText( i18n( "Unknown" ) );
+    else{
+		show_data2->weight_label->setText( i18n( "%1 u" ).arg( Data.Weight ) );
+		show_data2->meanweight_label->setText( i18n( "%1 u"). arg( Data.Weight.toDouble()/Data.number ) );
+	}
 
     if (Data.date == "0")
 	show_data2->discovered_label->setText(i18n("was known to ancient cultures"));
@@ -276,9 +278,6 @@ void ElementKP::slotShowData()
 
 	// click on this button to load webpage for element
 	QObject::connect(show_data2->weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
-
-	//click on this button to close the Dialog
-//	QObject::connect (show_data2->exit, SIGNAL(clicked()), show_data2, SLOT(hide()));
 
 }
 
