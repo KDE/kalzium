@@ -432,7 +432,7 @@ void Kalzium::slotKnowledge()
     bool ok = FALSE;
     int numofquestions = QInputDialog::getInteger(
             i18n( "How Many Questions?" ),
-            i18n( "Please enter a number" ), 10, 0, 20, 1, &ok, this );
+            i18n( "Please enter a number:" ), 10, 0, 20, 1, &ok, this );
     if ( ok )
     {
         QuizDlg *quiz = new QuizDlg(this, "quizdialog", numofquestions); 

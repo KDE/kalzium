@@ -40,7 +40,7 @@ KMolEdit::KMolEdit (QWidget *parent, const char* name, KMolCalc* kmolcalc)
         definition = new QLineEdit (this);
         grid->addMultiCellWidget (definition , 3,3,0,2);
 
-        QLabel* definition_l = new QLabel (i18n("Formula or Weight:"), this, "deflabel");
+        QLabel* definition_l = new QLabel (i18n("Formula or weight:"), this, "deflabel");
         definition_l->setFont(KGlobalSettings::generalFont());
         grid->addMultiCellWidget(definition_l, 2,2,0,2);
 
