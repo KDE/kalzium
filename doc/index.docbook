@@ -74,6 +74,10 @@ show them. It is free and licensed
 under the &GNU; Public License.
 </para>
 
+<para>
+You can visualize the Periodic Table of the Elements by blocks, groups, acidic behaviour or different states of matter. You can plot data for a range of elements (weight, mean weight, density, IE1, IE2, electronegativity). You can go back in time and see what elements were known at a given date. You will also be able to check your knowledge by taking a quiz.
+</para>
+
 </chapter>
 
 <chapter id="using-kalzium">
@@ -147,8 +151,27 @@ under the &GNU; Public License.
 <title>Color schemes</title>
 
 <para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote>, their behavior with acid and which matter state (solid/liquid/vapor) they are in at a given temperature.</para>
-<screenshot>
 
+<para>Color schemes are changed in the <guimenu>Look</guimenu> menu. </para>
+<itemizedlist>
+<listitem><para>
+<guimenuitem>No Color Scheme</guimenuitem>: all the elements have the same color. You can change the default colcor in <guimenu>Settings</guimenu> -> <guimenuitem>Configure Kalzium...</guimenuitem> -> Colors tab.
+</para></listitem>
+<listitem><para>
+<guimenuitem>Show Groups</guimenuitem>: displays a color for each group. A group is a vertical column in the periodic table of the elements. There are 18 groups in the standard periodic table. Elements in a group have similar configurations of their valence shell electrons, which gives them similar properties.
+</para></listitem>
+<listitem><para>
+<guimenuitem>Show Blocks</guimenuitem>: displays a color for each block.
+</para></listitem>
+<listitem><para>
+<guimenuitem>Show State Of Matter</guimenuitem>: you can choose which state you want depending of the temperature.
+</para></listitem>
+<listitem><para>
+<guimenuitem>Show Acidic Behavior</guimenuitem>: each acidic behavior is represented by a different color.
+</para></listitem>
+</itemizedlist>
+
+<screenshot>
 <mediaobject>
 <imageobject>
 <imagedata fileref="screenshot2.png" format="PNG"/>
@@ -170,9 +193,8 @@ solid/liquid/vapor at a given temperature.</para>
 <para>The Timeline feature allows you to explore the elements of the
 set time period. This is great for getting a feel for how the PSE
 evolved over time, as more and more elements were discovered. You can
-active this feature either with the most-right icon in the iconbar or
-via <menuchoice><guimenu>Settings</guimenu><guimenuitem>Show
-Toolbar</guimenuitem></menuchoice>. If it is activated you will see a
+active this feature via <menuchoice><guimenu>Miscellaneous</guimenu><guimenuitem>Show
+Timeline</guimenuitem></menuchoice> or by clicking the Clock icon on the toolbar. If it is activated you will see a
 slider below the <acronym>PSE</acronym> and an <acronym>LCD</acronym>
 which displays the number 2004.  If you move the slider you will
 notice that some elements disappear if you move it to the right and
@@ -195,43 +217,31 @@ predicted to exist.
 <sect1 id="numeration">
 <title>Numeration</title>
 
-<para>
-You can change the numeration to
-<guilabel>IUPAC</guilabel> and
-<guilabel>CAS</guilabel> or switch it
-<guilabel>off</guilabel> entirely.</para>
+<para>The numeration is the way  of numbering the 18 groups of the periodic table. You can change the numeration to
+<guilabel>IUPAC</guilabel>, <guilabel>old IUPAC</guilabel> and
+<guilabel>CAS</guilabel> or switch it <guilabel>off</guilabel> entirely.</para>
 
-<sect2 id="iupac">
-<title><guilabel>IUPAC</guilabel></title>
-
-<para>The <acronym>IUPAC</acronym> is the <firstterm>International
+<itemizedlist>
+<listitem><para>
+<guimenuitem>No Numeration</guimenuitem>: if this option is active, no period-numeration will be
+in effect.</para></listitem>
+<listitem><para>
+<guimenuitem>Show IUPAC</guimenuitem> (default): the <acronym>IUPAC</acronym> is the <firstterm>International
 Union of Pure and Applied Chemistry</firstterm>. This is an
 organization which defines most of the standards for chemical
-concerns.</para>
+concerns. The new IUPAC system numbers each column with Arabic numbers from 1 (one) through 18 (eighteen).
+</para></listitem>
+<listitem><para>
+<guimenuitem>Show CAS</guimenuitem>: the <acronym>CAS</acronym> is the <firstterm>Chemical Abstracts
+Service</firstterm>. In the CAS system the letters A and B were designated to main group elements (A) and transition elements (B). Though the <acronym>IUPAC</acronym> numeration
+is the official, the <acronym>CAS</acronym> numeration is what is still
+used in classrooms and laboratories.</para></listitem>
+<listitem><para>
+<guimenuitem>Show Old IUPAC</guimenuitem>: the old IUPAC system labeled columns with Roman numerals followed by either the letter 'A' or 'B'. Columns were numbered such that columns one through seven were numbered 'IA' through 'VIIA', columns 8 through 10 were labeled 'VIIIA', columns 11 through 17 were numbered 'IB' through 'VIIB' and column 18 was numbered 'VIII'. Because of the confusion the old IUPAC and the CAS system created, the IUPAC adopted their new system.
+</para></listitem>
+</itemizedlist>
 
-<para>An <quote>A</quote> means that that period is a maingroup, a
-<quote>B</quote> means it is a <foreignphrase
-lang="de">Nebengruppe</foreignphrase>.</para>
 
-</sect2>
-
-<sect2 id="cas">
-<title><guilabel>CAS</guilabel></title>
-
-<para>The <acronym>CAS</acronym> is the <firstterm>Chemical Abstracts
-Service</firstterm>. With their numeration the 18 groups have the
-numbers from 1 to 18. Though the <acronym>IUPAC</acronym> numeration
-is the official, the <acronym>CAS</acronym> numeration is what is
-used in classrooms and laboratories.</para>
-
-</sect2>
-<sect2 id="off">
-<title><guilabel>Off</guilabel></title>
-
-<para>If this option is active, no period-numeration will be
-in effect.</para>
-
-</sect2>
 </sect1>
 
 </chapter>
