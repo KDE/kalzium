@@ -86,12 +86,8 @@ class Kalzium : public KMainWindow
 		 * all KActions Kalzium uses
 		 **/
 		KSelectAction *schema_action;
-		KAction *m_pQuizStart,
-			*m_pQuizSetup,
-			*m_pQuizEditQuestions,
-			*m_pQuizAddQuestions,
-
-			*m_pBehAcidAction,
+		KSelectAction *quiz_action;
+		KAction *m_pBehAcidAction,
 			*m_pBehNormalAction,
 			*m_pBehBlocksAction,
 			*m_pBehGroupAction,
@@ -115,7 +111,10 @@ class Kalzium : public KMainWindow
 		 * This slot switches Kalzium to the selected PSE
 		 */
 		void slotSwitchtoPSE(int);
-
+		/**
+		 * Slot to switch Quiz menu items
+		 */
+		void slotQuiz(int);
 		/**
 		 * start the quiz
 		 */

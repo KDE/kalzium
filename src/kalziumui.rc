@@ -1,14 +1,8 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <kpartgui name="kalzium" version="1">
 <MenuBar>
-  <Action name="changepse" />
-  <Menu name="quizmenu">
-	<text>Quiz</text>
-	<Action name="quiz_startquiz" />
-	<Action name="quiz_editquestions" />
-	<Action name="quiz_setupquiz" />
-	<Action name="quiz_addquestion" />
-  </Menu>
+  <Action name="change_pse" />
+  <Action name="quiz_menu" />
   <Menu name="stylemenu">
 	<text>Look and Timeline</text>
 	<Action name="view_normal" />

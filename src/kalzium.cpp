@@ -50,7 +50,7 @@ Kalzium::Kalzium()
 	 schemalist.append(i18n("Show &Regular PSE"));
 	 schemalist.append(i18n("Show &Mendeljev PSE"));
 	 schemalist.append(i18n("Show &Simple PSE"));
-	 schema_action = new KSelectAction (i18n("Switch &PSE"), 0, this, 0, actionCollection(), "changepse");
+	 schema_action = new KSelectAction (i18n("Switch &PSE"), 0, this, 0, actionCollection(), "change_pse");
 	 schema_action->setItems(schemalist);
 	 schema_action->setCurrentItem(0);
 	 connect (schema_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoPSE(int)));
@@ -58,10 +58,15 @@ Kalzium::Kalzium()
 	/*
 	 * the actions for the quiz
 	 **/
-	m_pQuizStart = new KAction(i18n("Start &Quiz"), 0, this, SLOT(slotStartQuiz()), actionCollection(), "quiz_startquiz");
-	m_pQuizSetup = new KAction(i18n("Set&up Quiz"), 0, this, SLOT(showSettingsDialog()), actionCollection(), "quiz_setupquiz");
-	m_pQuizEditQuestions = new KAction(i18n("&Edit Questions"), 0, this, SLOT(slotEditQuestions()), actionCollection(), "quiz_editquestions");
-	m_pQuizAddQuestions = new KAction(i18n("&Add Questions"), 0, this, SLOT(slotAddQuestions()), actionCollection(), "quiz_addquestion");
+	 QStringList quizlist;
+	 quizlist.append(i18n("Start &Quiz"));
+	 quizlist.append(i18n("Set&up Quiz"));
+	 quizlist.append(i18n("&Edit Questions"));
+	 quizlist.append(i18n("&Add Questions"));
+	 quiz_action = new KSelectAction (i18n("&Quiz"), 0, this, 0, actionCollection(), "quiz_menu");
+	 quiz_action->setItems(quizlist);
+	 //quiz_action->setCurrentItem(0);
+	 connect (quiz_action, SIGNAL(activated(int)), this, SLOT(slotQuiz(int)));
 	 
 	/*
 	 * the actions for the colorschemes
@@ -168,6 +173,24 @@ void Kalzium::slotSwitchtoPSE(int index)
 	m_pCurrentPSE->show();
 	setCentralWidget( m_pCurrentPSE );
 	setCaption( m_pCurrentPSE->shortName() );
+}
+
+void Kalzium::slotQuiz(int index)
+{
+	switch (index) {
+    	case 0:
+		slotStartQuiz();
+		break;
+	case 1:
+		showSettingsDialog();
+		break;
+	case 2:
+		slotEditQuestions();
+		break;
+	case 3:
+		slotAddQuestions();
+		break;
+	}
 }
 
 PSE* Kalzium::currentPSE() const
