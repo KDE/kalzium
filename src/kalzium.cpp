@@ -55,6 +55,7 @@
 #include <qtooltip.h>
 #include <qstring.h>
 #include <qwhatsthis.h>
+#include <qbutton.h>
 
 // Table includes
 #include "quizdlg.h"
@@ -156,11 +157,11 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 
 	main_config->setGroup( "Colors" );
 
-	one = new KColorButton( foo );
-	two = new KColorButton( foo );
-	three = new KColorButton( foo );
-	four = new KColorButton( foo );
-	five = new KColorButton( foo );
+	one = new KPushButton( foo );
+	two = new KPushButton( foo );
+	three = new KPushButton( foo );
+	four = new KPushButton( foo );
+	five = new KPushButton( foo );
 	legend_layout->addWidget( one );
 	legend_layout->addWidget( two );
 	legend_layout->addWidget( three );
@@ -268,36 +269,49 @@ void Kalzium::changeLegend(int id)
     main_config->setGroup("Colors");
     if (id == 0) //Acid Behaviours
     {
-    one->setColor(QColor(main_config->readColorEntry("acidic")));
-    two->setColor(QColor(main_config->readColorEntry("amphoteric")));
-    three->setColor(QColor(main_config->readColorEntry("basic")));
-    four->setColor(QColor(main_config->readColorEntry("neitherofthem")));
+    one->setPalette(QPalette(main_config->readColorEntry("acidic")));
+    two->setPalette(QPalette(main_config->readColorEntry("amphoteric")));
+    three->setPalette(QPalette(main_config->readColorEntry("basic")));
+    four->setPalette(QPalette(main_config->readColorEntry("neitherofthem")));
     five->hide();
+    one->setText(i18n("Acidic"));
+    two->setText(i18n("Amphoteric"));
+    three->setText(i18n("Basic"));
+    four->setText(i18n("Neutral"));
     }
     if (id == 1) //Blocks
     {
-    one->setColor(QColor(main_config->readColorEntry("s")));
-    two->setColor(QColor(main_config->readColorEntry("p")));
-    three->setColor(QColor(main_config->readColorEntry("d")));
-    four->setColor(QColor(main_config->readColorEntry("f")));
+    one->setPalette(QPalette(main_config->readColorEntry("s")));
+    two->setPalette(QPalette(main_config->readColorEntry("p")));
+    three->setPalette(QPalette(main_config->readColorEntry("d")));
+    four->setPalette(QPalette(main_config->readColorEntry("f")));
     five->hide();
+    one->setText(i18n("s-Block"));
+    two->setText(i18n("p-Block"));
+    three->setText(i18n("d-Block"));
+    four->setText(i18n("f-Block"));
     }
-  /*  if (id == 2) //Groups
+/*    if (id == 2) //Groups
     {
         one->hide();
         two->hide();
         three->hide();
         four->hide();
         five->hide();
-    }**/
-    if (id == 3) //State of Matter
+    }
+  */  if (id == 3) //State of Matter
     {
-    one->setColor(QColor(main_config->readColorEntry("liquid")));
-    two->setColor(QColor(main_config->readColorEntry("solid")));
-    three->setColor(QColor(main_config->readColorEntry("vapor")));
-    four->setColor(QColor(main_config->readColorEntry("artificial")));
-    five->setColor(QColor(main_config->readColorEntry("radioactive")));
+    one->setPalette(QPalette(main_config->readColorEntry("liquid")));
+    two->setPalette(QPalette(main_config->readColorEntry("solid")));
+    three->setPalette(QPalette(main_config->readColorEntry("vapor")));
+    four->setPalette(QPalette(main_config->readColorEntry("artificial")));
+    five->setPalette(QPalette(main_config->readColorEntry("radioactive")));
     five->show();
+    one->setText(i18n("Liquid"));
+    two->setText(i18n("Solid"));
+    three->setText(i18n("Vapor"));
+    four->setText(i18n("Artificial"));
+    five->setText(i18n("Radioactive"));
     }
 }
 void Kalzium::changeNumeration(int id) const 
@@ -441,18 +455,6 @@ void Kalzium::slotShowGroups()
             group[6] = char(QChar(s[0]));
             b->setPalette(QPalette(main_config->readColorEntry(group)));
         }
-        /* man kann den for-body auch noch erheblicher abkuerzen, allerdings geht dabei
-         * wieder die Performance drauf:
-         *
-         *    b->setPalette(QPalette(main_config->readColorEntry("Group " + g)));
-         *
-         * Aber, es ist schneller ueber die obige Variante mit static char group
-         * einmal 8bit zu kopieren und einen einen QString constructor aufzurufen,
-         * als ueber die hier genannte Variante. Hier wird zusaetzlich (im inline 
-         * operator+) zuviel Overhead betrieben.
-         *
-         *   @trapni
-         */
     }
 }
 

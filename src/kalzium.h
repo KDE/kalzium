@@ -37,11 +37,13 @@ class QLabel;
 class QLCDNumber;
 class QSlider;
 class QString;
+class QButton;
 
 class KConfig;
 class KSelectAction;
 class KColorButton;
 class KToggleAction;
+class KPushButton;
 
 class CalcDialog;
 class Colors_Config_Widget;
@@ -71,7 +73,7 @@ class Kalzium : public KMainWindow
 		Colors_Config_Widget *colorsconfig;
 		KSelectAction *numerationmenu, *psestylemenu, *colorschememenu, *weblookupmenu;
 		StateOfMatterDlg *templookup;
-        KColorButton *one, *two, *three, *four, *five;
+        KPushButton *one, *two, *three, *four, *five;
 
 	private:
 		PQLabel labels[18];
