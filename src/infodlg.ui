@@ -13,7 +13,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string>Form1</string>
+        <string></string>
     </property>
     <property name="whatsThis" stdset="0">
         <string>This dialog gives you information about the element</string>
@@ -209,102 +209,6 @@
     </widget>
     <widget class="QLabel">
         <property name="name">
-            <cstring>electro_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>390</x>
-                <y>250</y>
-                <width>81</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel27</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>discovered_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>390</x>
-                <y>90</y>
-                <width>71</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel22</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>weight_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>390</x>
-                <y>60</y>
-                <width>81</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel21</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>elemno_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>390</x>
-                <y>30</y>
-                <width>81</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel20</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>radius_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>390</x>
-                <y>120</y>
-                <width>71</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel23</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>boiling_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>390</x>
-                <y>170</y>
-                <width>81</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel24</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
             <cstring>TextLabel15</cstring>
         </property>
         <property name="geometry">
@@ -322,102 +226,6 @@
         </property>
         <property name="text">
             <string>Electronegativity:</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>ion_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>130</x>
-                <y>250</y>
-                <width>91</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel26</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>density_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>130</x>
-                <y>120</y>
-                <width>71</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel19</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>block_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>130</x>
-                <y>90</y>
-                <width>71</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel18</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>symbol_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>130</x>
-                <y>60</y>
-                <width>91</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel17</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>name_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>130</x>
-                <y>30</y>
-                <width>81</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel16</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>melting_label</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>130</x>
-                <y>170</y>
-                <width>71</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>TextLabel25</string>
         </property>
     </widget>
     <widget class="QLabel">
@@ -583,6 +391,162 @@
         </property>
         <property name="readOnly">
             <bool>true</bool>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>symbol_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>130</x>
+                <y>60</y>
+                <width>91</width>
+                <height>20</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>block_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>130</x>
+                <y>90</y>
+                <width>71</width>
+                <height>20</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>density_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>130</x>
+                <y>120</y>
+                <width>71</width>
+                <height>20</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>melting_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>130</x>
+                <y>170</y>
+                <width>71</width>
+                <height>20</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>name_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>130</x>
+                <y>30</y>
+                <width>81</width>
+                <height>20</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>elemno_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>390</x>
+                <y>30</y>
+                <width>81</width>
+                <height>21</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>weight_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>390</x>
+                <y>60</y>
+                <width>81</width>
+                <height>20</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>discovered_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>390</x>
+                <y>90</y>
+                <width>71</width>
+                <height>20</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>radius_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>390</x>
+                <y>120</y>
+                <width>71</width>
+                <height>20</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>boiling_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>390</x>
+                <y>170</y>
+                <width>81</width>
+                <height>21</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>electro_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>390</x>
+                <y>250</y>
+                <width>81</width>
+                <height>21</height>
+            </rect>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>ion_label</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>130</x>
+                <y>250</y>
+                <width>91</width>
+                <height>20</height>
+            </rect>
         </property>
     </widget>
 </widget>
