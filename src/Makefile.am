@@ -1,5 +1,5 @@
 # set the include path for X, qt and KDE
-INCLUDES= $(all_includes) 
+INCLUDES= -I$(top_srcdir)/libkdeedu/kdeeduplot $(all_includes)
 
 bin_PROGRAMS = kalzium
 kalzium_SOURCES = kalzium.cpp \
@@ -31,7 +31,7 @@ kalzium_SOURCES = kalzium.cpp \
 
 kalzium_LDADD   = $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
-
+		  
 SUBDIRS = icons elementpics
 
 EXTRA_DIST = main.cpp \

@@ -144,7 +144,6 @@ class Kalzium : public KMainWindow
 		 * These slots are for the standardactions
 		 */
 		void showSettingsDialog();
-		void optionsConfigureKeys();
 		void newToolbarConfig();
 		void optionsConfigureToolbars();
 		

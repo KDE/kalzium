@@ -33,7 +33,6 @@
 #include <klocale.h>
 #include <kdebug.h>
 #include <kaction.h>
-#include <kkeydialog.h>
 #include <kedittoolbar.h>
 #include <kapplication.h>
 
@@ -101,7 +100,7 @@ Kalzium::Kalzium()
 	 **/
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
-	KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
+	KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), actionCollection());
 	KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
 
 	m_pRegularPSE = new RegularPSE( data(), this, "regularPSE");
@@ -247,11 +246,6 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotSaveConfig()
 {
 	Prefs::writeConfig();
-}
-
-void Kalzium::optionsConfigureKeys()
-{
-	KKeyDialog::configure(actionCollection());
 }
 
 void Kalzium::optionsConfigureToolbars( )

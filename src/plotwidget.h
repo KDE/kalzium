@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "/home/carsten/cvs/kdeedu/libkdeedu/kdeeduplot/kplotwidget.h"
+#include <kplotwidget.h>
 
 class PlotWidget : public KPlotWidget
 {
