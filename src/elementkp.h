@@ -25,6 +25,7 @@ class KStatusBar;
 class QColor;
 class QLabel;
 class QPopupMenu;
+class QString;
 
 /**This class is derived from KPushButton. This is to make it be more specific
   to its tasks. I use a pointer to have MouseOver (eventEnter)-effects in the
@@ -65,45 +66,60 @@ class ElementKP : public KPushButton  {
     public: 
         ElementKP(const QString &text, QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0);
 	
-    	void mousePressEvent( QMouseEvent *mouse );
 	
-    	//used when the mouse enters the pushbutton
+    	/**
+        * used when the mouse enters the pushbutton.
+        * We use this function to setFocus() so that QWhatsThis works 
+        * for each element.
+        */
     	void enterEvent(QEvent *);
 	
     	//used when the mouse leaves the pushbutton
     	void leaveEvent(QEvent *);
-
-    	KStatusBar *zeigerle;
 	
-    	/**
-        * ElemNo is the number of the pushbutton AND the elementnumber. 
-        * I can now use it to show data and so on.
-        */
-    	int ElemNo;
 
-        ElementInfo Data;
-	
     	/** loads the name of the fitting element and shows it in
     	* the statusbar.
         */
     	void showName();
 	
+        
+        ElementInfo Data;    
+        
+        /**
+        * ElemNo is the number of the pushbutton AND the elementnumber. 
+        * I can now use it to show data and so on.
+        */
+    	int ElemNo;
+
+    	KStatusBar *zeigerle;
         QLabel *pmTitle;
         QLabel *pmWeight;
         QPopupMenu *pmenu;
 
-   public slots:
+    private:
+        /**
+        *   We use this function to enable drag support for the element buttons.
+        *   We parse all the element infos. 
+        */
+    	void mouseMoveEvent( QMouseEvent * );
+        
+    	void mouseReleaseEvent( QMouseEvent *mouse );
 
+        QString parseElementInfo();
+       
+    public slots:
+        /**
+        * If the user clicks Web Lookup button
+        */
+        void lookup();
+        
         /** 
         * If the user clicks on one button this slot will be called
         */
         void slotShowData();
        
-        /**
-        * If the user clicks Web Lookup button
-        */
-        void lookup();
-       
+      
 };
 
 #endif

@@ -24,19 +24,21 @@
 #include <kstddirs.h>
 
 //QT-Includes
+#include <qdragobject.h>
 #include <qfont.h>
 #include <qgroupbox.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qpopupmenu.h>
+#include <qstring.h>
 #include <qwhatsthis.h>
 
 #include "elementkp.h"
 #include "elementkp.moc"
 #include "kalzium.h" 
 
-    ElementKP::ElementKP(const QString& text, QWidget *parent, ElementInfo ElemInfo, const char *name, int
-	    AElemNo, KStatusBar *zeiger)	: KPushButton(text,parent,name)
+ElementKP::ElementKP(const QString& text, QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger)	
+    : KPushButton(text,parent,name)
 
 {
     ElemNo = AElemNo;
@@ -44,7 +46,26 @@
     Data = ElemInfo; 
 }
 
-void ElementKP::mousePressEvent( QMouseEvent *mouse )
+//when the mousepointer is over a button
+void ElementKP::enterEvent(QEvent *)
+{
+    setFocus();
+    showName();	
+}
+
+//when the mousepointer leaves the button
+void ElementKP::leaveEvent(QEvent *)
+{
+    zeigerle->message(i18n("Kalzium ")+KALZIUM_VERSION);
+}
+
+void ElementKP::mouseMoveEvent( QMouseEvent * )
+{
+    QDragObject *d = new QTextDrag(parseElementInfo(), this);
+    d->dragCopy();
+}
+
+void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 {
     pmenu = new QPopupMenu();
     if (mouse->button() == RightButton)
@@ -69,6 +90,42 @@ void ElementKP::mousePressEvent( QMouseEvent *mouse )
     }
 }
 
+QString ElementKP::parseElementInfo()
+{
+    QString parse = i18n("General") 
+        + "\n"
+        + "Name: " + Data.Name  
+        + "\t" + "Element Number: " + QString::number(Data.number)
+        + "\n"
+        + "Symbol: " + Data.Symbol 
+        + "\t" + "Atomic Weight: " + Data.Weight + " u"
+        + "\n"
+        + "Block: " + Data.Block
+        + "\t" + "Discovered: " + Data.date
+        + "\n"
+        + "Density: " + QString::number(Data.Density)
+        + "\t" + "Atomic Radius: " + QString::number(Data.AR)
+        + "\n\n"
+        + "States" + "\n"
+        + "Melting point: " + QString::number(Data.MP) + " C"
+        + "\t" + "Boiling point: " + QString::number(Data.BP) + " C"
+        + "\n\n"
+        + "Energies" + "\n"
+        + "Ionization: " + QString::number(Data.IE)
+        + "\t" + "Electronegativity: " + QString::number(Data.EN)
+
+        + "\n";
+    return parse;
+}
+
+void ElementKP::showName()
+{
+    //shows the name now in the statusbar
+    zeigerle->message(i18n(Data.Name.utf8()));
+}
+
+//******** Slots *****************************************************
+ 
 void ElementKP::lookup()
 {
     KHTMLPart *html = new KHTMLPart();
@@ -80,25 +137,6 @@ void ElementKP::lookup()
     const KURL site(url);
     html->openURL(site);
     html->show();
-}
-
-//when the mousepointer is over a button
-void ElementKP::enterEvent(QEvent *)
-{
-    setFocus();
-    showName();	
-}
-
-//when the mousepointer leaves the button
-void ElementKP::leaveEvent(QEvent *)
-{
-    zeigerle->message(i18n("Kalzium ")+KALZIUM_VERSION);
-}
-
-void ElementKP::showName()
-{
-    //shows the name now in the statusbar
-    zeigerle->message(i18n(Data.Name.utf8()));
 }
 
 void ElementKP::slotShowData()
@@ -216,4 +254,5 @@ void ElementKP::slotShowData()
 
     ausgabe->show();
 }
+
 

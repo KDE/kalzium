@@ -29,6 +29,11 @@ TODO for KDE 3.1:
 - fix the size of the KPushButton (far to wide)
   //fixed April 1st 02
 
+- http://www.webelements.com/webelements/elements/text/Si/key.html  and there "Go adjacent..."
+ show in a small map the surrounding elements
+
+- slotrenaming
+
 TODO for post-KDE 3.1:
 - ValueVisualisation():
   - I think we should add a QTabWidget() in 
