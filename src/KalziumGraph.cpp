@@ -127,9 +127,10 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 		if( i != 0 ) 
 		{
 			int temp = i; temp--;
-			y_old=data->Data[ fromRange_+temp ]/max;
+      double old = (data->Data[ fromRange_+temp ]/max) * w_h;
+      kdDebug () <<old;
+      y_old = w_h- ((int) old) + 10;
 			kdDebug() << y_old << endl;
-			y_old*=w_h;
 		}
 
 		DC.drawEllipse( x , y , 4 , 4 );//draw the datapoints
