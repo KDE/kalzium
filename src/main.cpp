@@ -14,7 +14,7 @@ static const char version[] = "1.1.93";
 
 static KCmdLineOptions options[] =
 {
-//    { "+[URL]", I18N_NOOP( "Document to open." ), 0 },
+//    { "+[URL]", I18N_NOOP( "Document to open" ), 0 },
     KCmdLineLastOption
 };
 
