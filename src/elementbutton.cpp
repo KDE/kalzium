@@ -107,16 +107,16 @@ void ElementButton::paintEvent( QPaintEvent* )
 
 	//top left
 	text = QString::number( e->strippedWeight( e->electroneg() ) );
-	p.drawText( 0,0,w/2,h_small,Qt::AlignCenter, text );
+	p.drawText( 1,0,w/2,h_small,Qt::AlignCenter, text );
 
 	text = QString::number( e->strippedWeight( e->weight( ) ) );
-	p.drawText( 0,10,w/2,h_small,Qt::AlignCenter, text );
+	p.drawText( 2,10,w,h_small,Qt::AlignLeft, text );
 	
 	text = QString::number( e->strippedWeight( e->density() ) );
 	p.drawText( w/2,0,w/2,h_small,Qt::AlignCenter, text );
 	
 	text = QString::number( e->number() );
-	p.drawText( 0,h-h_small ,h_small,h_small,Qt::AlignCenter, text );
+	p.drawText( 2,h-h_small ,h_small,h_small,Qt::AlignCenter, text );
 
 	p.setFont( symbol_font );
 	p.drawText( w/2,w/2,w/2,w/2,Qt::AlignLeft, e->symbol() );
