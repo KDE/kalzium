@@ -24,7 +24,7 @@
 #include <kmessagebox.h>
 #include <kpushbutton.h>
 #include <ksimpleconfig.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kprogress.h>
 
 //QT-Includes
@@ -88,9 +88,9 @@ QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )
 }
 
 
-void QuizDlg::increaseIfCorrect( int i )
+void QuizDlg::increaseIfCorrect( int x )
 {
-    switch (i)
+    switch (x)
     {
 	case 1:
 	    if (one->isChecked() == true)
@@ -98,6 +98,7 @@ void QuizDlg::increaseIfCorrect( int i )
 		quizresult++; //increase if correct
 		QuestioniWasCorrect[currentnr] = true;
 	    }
+	    else QuestioniWasCorrect[currentnr] = false;
 	    break;
 	case 2:
 	    if (two->isChecked() == true) 
@@ -105,6 +106,7 @@ void QuizDlg::increaseIfCorrect( int i )
     		quizresult++; //increase if correct
     		QuestioniWasCorrect[currentnr] = true;
 	    }
+	    else QuestioniWasCorrect[currentnr] = false;
 	    break;
 	case 3:
 	    if (three->isChecked() == true) 
@@ -112,9 +114,9 @@ void QuizDlg::increaseIfCorrect( int i )
     		quizresult++; //increase if correct
     		QuestioniWasCorrect[currentnr] = true;
 	    }
+	    else QuestioniWasCorrect[currentnr] = false;
 	    break;
     } 
-
 }
 
 void QuizDlg::setTexts()
@@ -131,7 +133,6 @@ void QuizDlg::setTexts()
     //now we need to know where to put the correct answer
     correctis = (rand()%3)+1;
     //now we put it
-    
     switch (correctis)
     {
         case 1:
@@ -164,7 +165,6 @@ bool QuizDlg::wasCorrect( int i ) const
 void QuizDlg::slotCheck()
 {
     increaseIfCorrect( correctis );
-
     //if nothing at all is checked
     if (one->isChecked() == false && two->isChecked()== false  && three->isChecked()== false )
     {
@@ -202,8 +202,8 @@ void QuizDlg::slotCheck()
             finalresults->result_table->setColumnStretchable( 1 , true );
             finalresults->result_table->setTopMargin( 0 );
             finalresults->result_table->setLeftMargin( 0 );
-            QPixmap good = SmallIcon("apply");
-            QPixmap bad  = SmallIcon("cancel");
+            QPixmap good = SmallIcon("button_ok");
+            QPixmap bad  = SmallIcon("button_cancel");
 
             finalresults->result_table->setText( 0 , 0 , i18n("Questions:") );
             finalresults->result_table->setText( 0 , 1 , i18n("The correct answer was:") );
