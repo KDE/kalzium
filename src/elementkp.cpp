@@ -56,7 +56,11 @@ void ElementKP::getNeighbours( int Current )
             for( int s=0 ; s < 3 ; s++)
             {
                 if (z == 0)
+                    neighbourArray[1][s]=kalzium->element[1]->Data.az;
+                if (z == 1)
                     neighbourArray[1][s]="hallO";//kalzium->element[19]->Data.Symbol;
+                if (z == 2)
+                    neighbourArray[2][s]="hallO";//kalzium->element[19]->Data.Symbol;
             }
         }
 }
@@ -164,7 +168,7 @@ void ElementKP::slotShowData()
     
     QWidget *show_data = new QWidget (0L,"show_data");
     show_data->setCaption(i18n(Data.Name.utf8()));
-    QGridLayout * grid = new QGridLayout(show_data, 7, 3, 8);
+    QGridLayout * grid = new QGridLayout(show_data, 7, 4, 8);
     
     // *** General ***
     label = new QLabel ( show_data );
@@ -351,9 +355,9 @@ void ElementKP::slotShowData()
     grid->setRowStretch(6, 1);
 
 ///neu
-/*	    QTable *neighbourTable = new QTable( 3 , 3 , ausgabe , "neighbourTable" );
+	    QTable *neighbourTable = new QTable( 3 , 3 , show_data , "neighbourTable" );
 	    neighbourTable->setReadOnly( true );
-            grid->addWidget( neighbourTable, 3 , 3 );
+            grid->addWidget( neighbourTable, 3 , 4 );
 
 	    neighbourTable->horizontalHeader()->hide();
 	    neighbourTable->verticalHeader()->hide();
@@ -361,10 +365,15 @@ void ElementKP::slotShowData()
             neighbourTable->setLeftMargin( 0 );
 
             getNeighbours( ElemNo );
-            neighbourTable->setText( 0,0, neighbourArray[1][0] );
-            neighbourTable->setText( 0,1, neighbourArray[1][1] );
-            neighbourTable->setText( 0,2, neighbourArray[1][2] );
-  */      	    
+            for( int zeile=0 ; zeile < 3 ; zeile++ )
+            {
+                for( int spalte=0 ; spalte < 3 ; spalte++ )
+                {
+                    neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
+                }
+
+            }
+       	    
 ///neu
     
 //    QWhatsThis::add(label, i18n("This is the electronegativity of Pauling"));
