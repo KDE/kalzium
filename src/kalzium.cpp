@@ -169,20 +169,20 @@ Kalzium::~Kalzium()
 
 void Kalzium::createhelpArray()
 {
-		for(int i=0;i<9;i++)
-		{
-				for(int e=0;e<18;e++)
-				{
-						helpArray[i][e]="leer";
-				}
-		}
+    for(int i=0;i<9;i++)
+    {
+        for(int e=0;e<18;e++)
+        {
+            helpArray[i][e]="leer";
+        }
+    }
 
-		int ze=0,sp=0;
-		for(int as=1;as<118;as++)
-		{
-				position(as,ze,sp);
-				helpArray[sp/40][ze/40]=element[as-1]->Data.Symbol;
-		}
+    int ze=0,sp=0;
+    for(int as=1;as<118;as++)
+    {
+        position(as,ze,sp);
+        helpArray[sp/40][ze/40]=element[as-1]->Data.Symbol;
+    }
 }
 
 bool Kalzium::queryClose()

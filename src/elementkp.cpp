@@ -24,6 +24,7 @@
 #include <kstatusbar.h>
 #include <kdebug.h>
 #include <kstddirs.h>
+#include <kpushbutton.h>
 
 //QT-Includes
 #include <qdragobject.h>
@@ -175,37 +176,37 @@ void ElementKP::slotShowData()
 
 	QWidget *show_data = new QWidget (0L,"show_data");
 	show_data->setCaption(i18n(Data.Name.utf8()));
-	QGridLayout *grid = new QGridLayout(show_data, 6, 4, 8);
+	QGridLayout *grid = new QGridLayout(show_data, 8, 4, 8);
 
 	// *** General ***
-	label = new QLabel ( show_data );
-	label->setText(i18n("General"));
-	label->setFont(topic_font);
-	grid->addMultiCellWidget(label,0,0,0,1,Qt::AlignHCenter);
+	general_label = new QLabel ( show_data );
+	general_label->setText(i18n("General"));
+	general_label->setFont(topic_font);
+	grid->addMultiCellWidget(general_label,0,0,0,1,Qt::AlignHCenter);
 
 	QWidget *general_group = new QWidget(show_data);
 	QGridLayout *general_grid = new QGridLayout(general_group, 4, 5, 8);
 	grid->addMultiCellWidget(general_group, 1,1,0,1);
 
 	// Name
-	label = new QLabel (general_group);
-	label->setText(i18n("Name:"));
-	label->setFont(bold_font);
-	general_grid->addWidget(label, 0,0);
+	name_label = new QLabel (general_group);
+	name_label->setText(i18n("Name:"));
+	name_label->setFont(bold_font);
+	general_grid->addWidget(name_label, 0,0);
 
-	label = new QLabel (general_group);
-	label->setText(i18n(Data.Name.utf8()));
-	general_grid->addWidget(label, 0,1);
+	namecont_label = new QLabel (general_group);
+	namecont_label->setText(i18n(Data.Name.utf8()));
+	general_grid->addWidget(namecont_label, 0,1);
 
 	// Element Number
-	label = new QLabel (general_group);
-	label->setText(i18n("Element number:"));
-	label->setFont(bold_font);
-	general_grid->addWidget(label, 0, 3);
+	elemno_label = new QLabel (general_group);
+	elemno_label->setText(i18n("Element number:"));
+	elemno_label->setFont(bold_font);
+	general_grid->addWidget(elemno_label, 0, 3);
 
-	label = new QLabel ( general_group );
-	label->setText(i18n("%1").arg(Data.number));
-	general_grid->addWidget(label, 0, 4);
+	data_label = new QLabel ( general_group );
+	data_label->setText(i18n("%1").arg(Data.number));
+	general_grid->addWidget(data_label, 0, 4);
 
 	// Symbol
 	label = new QLabel (general_group);
@@ -374,31 +375,27 @@ void ElementKP::slotShowData()
 
 	getNeighbours( ElemNo );
 	for( int zeile=0 ; zeile < 3 ; zeile++ )
-	{
-		for( int spalte=0 ; spalte < 3 ; spalte++ )
-		{
-			neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
-			if (neighbourArray[zeile][spalte] == "leer") neighbourTable->setText(zeile,spalte,"");
-		}
+    {
+        for( int spalte=0 ; spalte < 3 ; spalte++ )
+        {
+            neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
+            if (neighbourArray[zeile][spalte] == "leer") neighbourTable->setText(zeile,spalte,"");
+        }
 
-	}
-
-
-
-	if (Data.Name != "Unnamed")
-			QWhatsThis::add(show_data, i18n("In this dialog Kalzium shows you information about %1").arg(i18n(Data.Name.utf8().data())));
-	else
-			QWhatsThis::add(show_data, i18n("This dialog displays information about this unnamed element"));
-	show_data->show();
+    }
 
 
 
-	// click on this button to load webpage for element
-	KPushButton
-	*web
-	=
-	new
-	KPushButton(i18n("Web &Lookup"),show_data);
+    if (Data.Name != "Unnamed")
+        QWhatsThis::add(show_data, i18n("In this dialog Kalzium shows you information about %1").arg(i18n(Data.Name.utf8().data())));
+    else
+        QWhatsThis::add(show_data, i18n("This dialog displays information about this unnamed element"));
+    show_data->show();
+
+
+
+    // click on this button to load webpage for element
+    KPushButton *web = new KPushButton(i18n("Web &Lookup"),show_data);
 	QObject::connect(web, SIGNAL(clicked()), this , SLOT(lookup()));
 	QWhatsThis::add(web, i18n("Click on this button to open a webpage with more information about %1").arg(i18n(Data.Name.utf8())));
 	grid->addWidget( web , 7 , 1 );
