@@ -19,6 +19,7 @@
 
 //KDE-Includes
 #include <kdebug.h>
+#include <kimageio.h> 
 
 //QT-Includes
 #include <qpainter.h>
