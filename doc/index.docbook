@@ -221,9 +221,8 @@ used in classrooms and laboratories.</para></listitem>
 <para>The Timeline feature allows you to explore the elements of the
 set time period. This is great for getting a feel for how the PSE
 evolved over time, as more and more elements were discovered. You can
-active this feature via <menuchoice><guimenu>Miscellaneous</guimenu><guimenuitem>Show
-Timeline</guimenuitem></menuchoice> or by clicking the Clock icon on the toolbar. If it is activated you will see a
-slider below the <acronym>PSE</acronym> and an <acronym>LCD</acronym>
+active this feature via <menuchoice><guimenu>Miscellaneous</guimenu><guimenuitem>Show/Hide
+Timeline</guimenuitem></menuchoice> or by clicking the Clock icon on the toolbar. If it is activated you will see a slider below the <acronym>PSE</acronym> and an <acronym>LCD</acronym>
 which displays the number 2004.  If you move the slider you will
 notice that some elements disappear if you move it to the right and
 reappear if you move it to the right. Furthermore the number will
@@ -241,6 +240,9 @@ This is because some of the elements have not been discovered yet but are
 predicted to exist.
 </para>
 
+<para>
+After you hide the Timeline, the display will stay at the year you choose and if closed, Kalzium will restore that date at next run.
+</para>
 <screenshot>
 <mediaobject>
 <imageobject>
@@ -274,11 +276,10 @@ The <guimenuitem>Plot Data</guimenuitem> dialog allows you to plot some informat
 </screenshot>
 </sect2>
 
-<!--<sect2 id="state_of_matter">
+<sect2 id="state_of_matter">
 <title>State of Matter</title>
 <para>
-With the <guimenuitem>Show State Of Matter</guimenuitem>: you can choose which state you want depending of the temperature.
-You can easily visualize how many elements and what elements are for example solid at a given temperature. So you can learn that almost all are solid at very low temperatures and that most are liquid or even vaporous at high temperatures.
+With the <guimenuitem>Show/Hide State Of Matter</guimenuitem>: you can choose which state you want depending of the temperature. You can easily visualize how many elements and what elements are for example solid at a given temperature. So you can learn that almost all are solid at very low temperatures and that most are liquid or even vaporous at high temperatures.
 </para>
 <screenshot>
 <mediaobject>
@@ -289,14 +290,14 @@ You can easily visualize how many elements and what elements are for example sol
 <phrase>the <quote>State of Matter</quote> Dialog</phrase>
 </textobject>
 <caption><para>&kalzium; can show you which elements are
-solid/liquid/vapor at a given temperature.</para>
+solid/liquid/vaporous at a given temperature.</para>
 </caption>
 </mediaobject>
 </screenshot>
-</sect2>-->
+</sect2>
 <sect2 id="show_hide_legend">
 <title>Show/Hide Legend</title>
-<para>The Show/Hide Legend action allows you to display the legent for the scheme you are in (Groups, Blocks, Acid Behaviour).
+<para>The Show/Hide Legend action allows you to display the legent for the scheme you are in (Groups, Blocks, Acid Behaviour). The Legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. Kalzium will keep this setting in its configuration file.
 </para>
 </sect2>
 
