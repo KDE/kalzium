@@ -21,11 +21,11 @@
 #include <kiconloader.h>
 #include <klocale.h>
 
-#include <qvbuttongroup.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qradiobutton.h>
 #include <qstring.h>
+#include <qvbuttongroup.h>
 
 // locale includes
 #include "kalzium.h"
@@ -42,7 +42,7 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
 
     // Acid Behaviour TAP
     Acid = new QWidget(this);       
-    acid_layout = new QGridLayout(Acid,4,2);
+    acid_layout = new QGridLayout(Acid,5,2);
     acid_layout->setAutoAdd(TRUE);
     acidic = new QLabel("acidic", Acid); 
     acidic_b = new KColorButton(Acid); 
@@ -52,10 +52,11 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     amphoteric_b = new KColorButton(Acid); 
     neitherofthem = new QLabel("neither of them", Acid); 
     neitherofthem_b = new KColorButton(Acid);
+    acid_layout->setRowStretch(4,1);
    
     // Blocks TAP
     Blocks = new QWidget(this);       
-    blocks_layout = new QGridLayout(Blocks,4,2);
+    blocks_layout = new QGridLayout(Blocks,5,2);
     blocks_layout->setAutoAdd(TRUE);
     s = new QLabel("s", Blocks); 
     s_b = new KColorButton(Blocks); 
@@ -65,10 +66,11 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     d_b = new KColorButton(Blocks); 
     f = new QLabel("f", Blocks); 
     f_b = new KColorButton(Blocks); 
+    blocks_layout->setRowStretch(4,1);
 
     // Groups TAP
     Groups = new QWidget(this);       
-    groups_layout = new QGridLayout(Groups,8,2);
+    groups_layout = new QGridLayout(Groups,9,2);
     groups_layout->setAutoAdd(TRUE);
     Group1 = new QLabel("Group 1", Groups); 
     Group1_b = new KColorButton(Groups); 
@@ -86,10 +88,11 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     Group7_b = new KColorButton(Groups); 
     Group8 = new QLabel("Group 8", Groups); 
     Group8_b = new KColorButton(Groups); 
+    groups_layout->setRowStretch(8,1);
     
     // Stateofmatters TAP
     Stateofmatters = new QWidget(this);       
-    stateofmatters_layout = new QGridLayout(Stateofmatters,5,2);
+    stateofmatters_layout = new QGridLayout(Stateofmatters,6,2);
     stateofmatters_layout->setAutoAdd(TRUE);
     liquid = new QLabel("liquid", Stateofmatters); 
     liquid_b = new KColorButton(Stateofmatters); 
@@ -101,8 +104,9 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     radioactive_b = new KColorButton(Stateofmatters); 
     artificial = new QLabel("artificial", Stateofmatters); 
     artificial_b = new KColorButton(Stateofmatters); 
+    stateofmatters_layout->setRowStretch(5,1);
     
-    
+    // read color entries   
     acidic_b->setColor(QColor(main_config->readColorEntry("acidic")));
     basic_b->setColor(QColor(main_config->readColorEntry("basic")));
     amphoteric_b->setColor(QColor(main_config->readColorEntry("amphoteric")));
@@ -128,6 +132,7 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     radioactive_b->setColor(QColor(main_config->readColorEntry("radioactive")));
     artificial_b->setColor(QColor(main_config->readColorEntry("artificial")));
     
+    // add Tabs
     addTab(Acid, "Acid Behaviours");
     addTab(Groups, "Groups"); 
     addTab(Blocks, "Blocks");
@@ -245,6 +250,10 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
      if (*it == main_config->readEntry("adress"))
          rb->toggle();
     }
+    
+// HAVE TO ADD THIS
+//    QPixmap flag( locate( "locale",
+//    QString::fromLatin1( "l10n/%1/flag.png" ).arg(tag) ) );
 
     // CONNECT
     connect(this, SIGNAL(applyClicked()), this, SLOT(slotApplySettings()));

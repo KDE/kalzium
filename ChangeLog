@@ -1,3 +1,6 @@
+HEAD:
+- added a new settings dialog (color and weblookup settings)
+
 Version 0.4:
 - added the new calculationdialogs
 - fixed quite a lot smaller bugs

@@ -20,24 +20,23 @@
 #include "kalzium.moc"
 #include "../calculations/kmoledit.h"
 #include "../calculations/kmolcalc.h"
-#include "eleminfo.h"
 #include "calcdialog.h"
+#include "eleminfo.h"
 #include "settingsdialog.h"
 #include "value_visualisation.h"
 
 
 //KDE-Includes
 #include <kconfig.h>
-#include <kstddirs.h>
-#include <klocale.h>
-#include <ksimpleconfig.h>
-#include <kpopupmenu.h>
-#include <kstdaction.h>
-#include <kmenubar.h>
-#include <khelpmenu.h>
-#include <kstdaction.h>
-#include <qlayout.h>
 #include <kdialog.h>
+#include <khelpmenu.h>
+#include <klocale.h>
+#include <kmenubar.h>
+#include <kpopupmenu.h>
+#include <ksimpleconfig.h>
+#include <kstdaction.h>
+#include <kstdaction.h>
+#include <kstddirs.h>
 
 //QT-Includes
 #include <qlabel.h>
@@ -45,8 +44,6 @@
 #include <qwhatsthis.h>
 #include <qinputdialog.h>
 #include <qlayout.h>
-
-// Standard C++ includes
 
 // Table includes
 #include <quizdlg.h>
@@ -56,7 +53,6 @@
 //which version?
 #define KALZIUM_VERSION 0.4
 
-using namespace std;
 
 Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 {
