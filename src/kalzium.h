@@ -106,7 +106,7 @@ class Kalzium : public KMainWindow
 		 * if true, the timeline will be shown
 		 */
 		bool m_bShowTimeline;
-		
+
 		/**
 		 * this Pointer points to the current PSE. The pointer
 		 * is updated every time the users chooses a new 

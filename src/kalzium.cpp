@@ -235,7 +235,9 @@ void Kalzium::slotShowLegend()
 void Kalzium::slotShowScheme(int i)
 {
 	kdDebug() << "Kalzium::slotShowScheme()" << endl;
-	currentPSE()->activateColorScheme( i );
+		
+	if ( !m_bShowSOM )
+		currentPSE()->activateColorScheme( i );
 	
 	m_pLegend->setScheme( i );
 	Prefs::setColorschemebox(i); 
