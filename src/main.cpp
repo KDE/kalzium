@@ -1,5 +1,5 @@
 /***************************************************************************
-                                  main.cpp    
+                          main.cpp  -  
                              -------------------
     begin                : Die Dez  4 17:59:34 CET 2001
     copyright            : (C) 2001, 2002 by Carsten Niehaus
@@ -26,7 +26,7 @@
 static const char *description =
 	I18N_NOOP("Kalzium is a chemistry application designed\n"
 	 "to provide information about the elements in\n"
-	 "the periodic table of elements.\n");
+	 "the periodic table of elements and do basic calculations.\n");
 
 	
 	

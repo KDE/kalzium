@@ -18,13 +18,7 @@
 #ifndef CALCDLG_H
 #define CALCDLG_H
 
-class KPushButton;
-class QComboBox;
-class QMultiLineEdit;
-class QLineEdit;
-class QLabel;
-class QGroupBox;
-class QTabWidget;
+class KMolUI;
 
 #include <qtabwidget.h>
 
@@ -45,17 +39,14 @@ class CalcDlg : public QTabWidget  {
     Q_OBJECT
 
     public: 
-        CalcDlg(QWidget *parent, const char *name );
+        CalcDlg(QWidget *parent, const char *name=0 );
 
     private:
         KMolCalc *kmolcalc;
-        QLabel *result;
-        QLineEdit *formula;
-        QMultiLineEdit *anal_display;
-        QWidget *KMol, *MWG;
+        KMolUI *KMol;
         SymLabel symlabel[118];
         SymLabel weight[118];
-
+	
     private slots:
         /**  
         * Make a call to KMOLCALC to parse the string in FORMULA, 
@@ -72,7 +63,6 @@ class CalcDlg : public QTabWidget  {
         * Clear all text entry / result fields.
         */
         void clear();
-
 };
 
 #endif

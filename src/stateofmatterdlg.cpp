@@ -44,7 +44,6 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	this->setCaption(i18n("Temperatures"));
 	main_layout = new QGridLayout(this, 10 , 4, 8);
 
-
 	///////////////////////////////////////////
 	// LCDs
 
@@ -80,11 +79,11 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 
 	QLabel *gasinfo = new QLabel(("vapor:"), this );
 	main_layout->addWidget(gasinfo , 4 , 1 , Qt::AlignRight );
-	
-    QLabel *artiinfo = new QLabel( i18n("artificial:"), this );
+
+	QLabel *artiinfo = new QLabel( i18n("artificial:"), this );
 	main_layout->addWidget(artiinfo , 5 , 1 , Qt::AlignRight );
-    
-    QLabel *radiaainfo = new QLabel( i18n("radioactive:"), this );
+
+	QLabel *radiaainfo = new QLabel( i18n("radioactive:"), this );
 	main_layout->addWidget(radiaainfo , 6 , 1 , Qt::AlignRight );
 
 	celsius = new QLabel( this );
@@ -107,10 +106,10 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	vaporbutton = new KPushButton(this);
 	main_layout->addWidget(vaporbutton, 4, 2 );
 	liquidbutton->show();
-    artib = new KPushButton(this);
-    main_layout->addWidget(artib, 5,2);
-    radiob = new KPushButton(this);
-    main_layout->addWidget(radiob, 6,2);
+	artib = new KPushButton(this);
+	main_layout->addWidget(artib, 5,2);
+	radiob = new KPushButton(this);
+	main_layout->addWidget(radiob, 6,2);
 
 	//////////////////////////////////////////////////////
 	// the colors will indicate the state of matter
@@ -144,6 +143,8 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	QObject::connect(InputButton, SIGNAL(clicked()), this , SLOT(slotSetTemp()));
 	QWhatsThis::add(InputButton, i18n("If you click on this button you can enter a temperature."));
 	tempS->setValue( -25 );
+
+	tempS->setFocus();
 }
 
 void StateOfMatterDlg::tempbeh()
@@ -194,3 +195,5 @@ void StateOfMatterDlg::slotStdCond()
 {
  	tempS->setValue( -25 );
 }
+
+//TempInputDlg::TempInputDlg(QWidget *parent, const char *name) : public KDialog( parent, name ){}

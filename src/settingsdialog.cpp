@@ -18,9 +18,13 @@
 
 #include <kaction.h>
 #include <kcolorbutton.h>
+#include <kdebug.h>
 #include <kconfig.h>
 #include <kiconloader.h>
 #include <klocale.h>
+#include <kstddirs.h>
+#include <kcombobox.h>
+#include <kurl.h>
 
 #include <qlabel.h>
 #include <qlayout.h>
@@ -35,14 +39,14 @@
 ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
 : QTabWidget (parent,name)
 {
-    KConfig *main_config=KGlobal::config();
+    KConfig *main_config=KGlobal::config();  
     main_config->setGroup("Colors");
 
     // ------------------------------------------------
     // LAYOUT
 
     // Acid Behaviour TAP
-    Acid = new QWidget(this);
+    Acid = new QWidget(this);       
     acid_layout = new QGridLayout(Acid,5,2);
     acid_layout->setAutoAdd(TRUE);
     acidic = new QLabel(i18n( "Acidic:" ), Acid);
@@ -117,7 +121,7 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     p_b->setColor(QColor(main_config->readColorEntry("p")));
     d_b->setColor(QColor(main_config->readColorEntry("d")));
     f_b->setColor(QColor(main_config->readColorEntry("f")));
-
+    
     Group1_b->setColor(QColor(main_config->readColorEntry("Group 1")));
     Group2_b->setColor(QColor(main_config->readColorEntry("Group 2")));
     Group3_b->setColor(QColor(main_config->readColorEntry("Group 3")));
@@ -126,16 +130,16 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     Group6_b->setColor(QColor(main_config->readColorEntry("Group 6")));
     Group7_b->setColor(QColor(main_config->readColorEntry("Group 7")));
     Group8_b->setColor(QColor(main_config->readColorEntry("Group 8")));
-
+    
     liquid_b->setColor(QColor(main_config->readColorEntry("liquid")));
     solid_b->setColor(QColor(main_config->readColorEntry("solid")));
     vapor_b->setColor(QColor(main_config->readColorEntry("vapor")));
     radioactive_b->setColor(QColor(main_config->readColorEntry("radioactive")));
     artificial_b->setColor(QColor(main_config->readColorEntry("artificial")));
-
+    
     // add Tabs
     addTab(Acid, i18n( "Acid Behavior" ));
-    addTab(Groups, i18n( "Groups" ));
+    addTab(Groups, i18n( "Groups" )); 
     addTab(Blocks, i18n( "Blocks" ));
     addTab(Stateofmatters, i18n( "State of Matter" ));
 }
@@ -167,8 +171,8 @@ void ColorsTabWidget::setDefaultColors()
             Group6_b->setColor(QColor(33,30,70));
             Group7_b->setColor(QColor(110,10,120));
             Group8_b->setColor(QColor(190,2,212));
-    }
-    else
+    } 
+    else 
     {
             acidic_b->setColor(QColor(255,80,35));
             basic_b->setColor(QColor(30,80,60));
@@ -179,7 +183,7 @@ void ColorsTabWidget::setDefaultColors()
 
 void ColorsTabWidget::saveColors()
 {
-    KConfig *main_config=KGlobal::config();
+    KConfig *main_config=KGlobal::config();  
     main_config->setGroup("Colors");
 
 
@@ -221,14 +225,10 @@ void ColorsTabWidget::applyColors()
 SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Preferences"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
-    main_config=KGlobal::config();
+    main_config=KGlobal::config();  
 
-    QStringList weblookuplist;
-    weblookuplist.append("http://www.ktf-split.hr/periodni/en/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/it/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/de/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/fr/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/");
+
+
 
 
     // COLORSTAB WIDGET
@@ -243,23 +243,62 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     QVBoxLayout *test = new QVBoxLayout(webLookupButtons);
     test->addWidget(webLookupButtonGroup);
 
-    main_config->setGroup("WLU");
-    for (QStringList::Iterator it = weblookuplist.begin(); it != weblookuplist.end(); ++it )
-    {
-     rb = new QRadioButton (*it, webLookupButtonGroup);
-     if (*it == main_config->readEntry("adress"))
-         rb->toggle();
-    }
+    KURL enURL = "http://www.ktf-split.hr/periodni/en/";
+    KURL itURL =  "http://www.ktf-split.hr/periodni/it/";
+    KURL deURL =  "http://www.ktf-split.hr/periodni/de/";
+    KURL frURL =  "http://www.ktf-split.hr/periodni/fr/";
+    KURL huURL =  "http://www.ktf-split.hr/periodni/";
+    KURL nlURL =  "http://www-woc.sci.kun.nl/cgi-bin/viewelement?";
+    KURL pearlURL =  "http://pearl1.lanl.gov/periodic/elements/";
+    QPixmap flagen( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("gb") ) );
+    QPixmap flagit( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("it") ) );
+    QPixmap flagde( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("de") ) );
+    QPixmap flagfr( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("fr") ) );
+    QPixmap flaghu( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("hu") ) );
+    QPixmap flagnl( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("nl") ) );
+    QPixmap flagpearl( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("gb") ) );
 
-// HAVE TO ADD THIS
-//    QPixmap flag( locate( "locale",
-//    QString::fromLatin1( "l10n/%1/flag.png" ).arg(tag) ) );
+    urlSelector = new KComboBox( FALSE, webLookupButtonGroup, "urlSelector" );
+    urlSelector->insertURL( flagen, enURL );
+    urlSelector->insertURL( flagit, itURL );
+    urlSelector->insertURL( flagde, deURL );
+    urlSelector->insertURL( flagfr, frURL );
+    urlSelector->insertURL( flaghu, huURL );
+    urlSelector->insertURL( flagnl, nlURL );
+    urlSelector->insertURL( flagpearl, pearlURL );
+    
+    /*
+     * the next two lines look for the currently set language and set the 
+     * ComboBox to the correct value ( index )
+     */
+    main_config->setGroup("WLU");
+    urlSelector->setCurrentItem( translateCurrentLang( main_config->readEntry( "adress") ) );
 
     // CONNECT
     connect(this, SIGNAL(applyClicked()), this, SLOT(slotApplySettings()));
     connect(this, SIGNAL(defaultClicked()), this, SLOT(slotDefaults()));
     connect(this, SIGNAL(okClicked()), this, SLOT(slotOkSettings()));
+    
 }
+
+int SettingsDialog::translateCurrentLang( QString lang ){
+    if ( lang == "http://www.ktf-split.hr/periodni/gb/")
+        return 0;
+    if ( lang == "http://www.ktf-split.hr/periodni/it/")
+        return 1;
+    if ( lang == "http://www.ktf-split.hr/periodni/de/")
+        return 2;
+    if ( lang == "http://www.ktf-split.hr/periodni/fr/")
+        return 3;
+    if ( lang == "http://www.ktf-split.hr/periodni/")
+        return 4;
+    if ( lang == "http://www.ktf-split.hr/periodni/nl/")
+        return 5;
+	if ( lang == "http://pearl1.lanl.gov/periodic/elements/" )
+		return 6;
+	else return 0;
+}
+
 
 void SettingsDialog::slotApplySettings()
 {
@@ -270,7 +309,7 @@ void SettingsDialog::slotApplySettings()
 void SettingsDialog::slotOkSettings()
 {
     main_config->setGroup("WLU");
-    main_config->writeEntry("adress", (webLookupButtonGroup->selected())->text());
+    main_config->writeEntry("adress", urlSelector->currentText() );
     main_config->sync();
     colorsTabWidget->applyColors();
     ((Kalzium*)parentWidget())->changeColorScheme(((Kalzium*)parentWidget())->colorschememenu->currentItem());
@@ -284,12 +323,9 @@ void SettingsDialog::slotDefaults()
             colorsTabWidget->setDefaultColors();
             break;
         case 1:
-        {
-            QRadioButton *tmpRb = static_cast<QRadioButton *>(webLookupButtonGroup->find( 0 ));
-            tmpRb->setChecked( true );
-        }
-        break;
-
+            rb->toggle();
+            break;
+            
     }
 }
 

@@ -29,12 +29,6 @@ class QString;
 
 class Kalzium;
 
-/**This class is derived from KPushButton. This is to make it be more specific
-  to its tasks. I use a pointer to have MouseOver (eventEnter)-effects in the
-  Mainwidget.
- *@author Carsten Niehaus
- */
-
 /*This struct store all information about the elements.
  * Name = Name of the element (Helium)
  * Symbol = He
@@ -45,6 +39,7 @@ class Kalzium;
  * az = the state of matter (0 == solid, 1 == liquid, 2 == vapor)
  * date = when has the elements been identified?
  * Group = in which of the 8 groups is the element
+ * orbits = the quantum-orbits ( eg O is 1s2_2s2_2p4 )
  * number = number of the element in the PSE
  * MP = Melting Point
  * BP = Boiling Point
@@ -57,16 +52,23 @@ class Kalzium;
 struct ElementInfo
 {
    QString Name, Symbol, Block,
-   Weight, acidbeh, az, date, Group;
+   Weight, acidbeh, az, date, Group, orbits;
    int number;
    double MP, BP, EN, Density, IE, AR;
 };
 
-class ElementKP : public KPushButton  {
+/**This class is derived from KPushButton. This is to make it be more specific
+  to its tasks. I use a pointer to have MouseOver (eventEnter)-effects in the
+  mainwidget.
+ *@author Carsten Niehaus
+ */
+
+class ElementKP : public KPushButton{
 	Q_OBJECT
 
 	public: 
 		ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0, Kalzium *Kalzium_tmp=0);
+		QString orbits;
 
 		/**
 		 * used when the mouse enters the pushbutton.
@@ -83,12 +85,10 @@ class ElementKP : public KPushButton  {
 
 		void getNeighbours( int );
 
-
 		/** loads the name of the fitting element and shows it in
 		 * the statusbar.
 		 */
 		void showName() const;
-
 
 		ElementInfo Data;    
 
@@ -104,14 +104,23 @@ class ElementKP : public KPushButton  {
 
 	private:
 		/**
-		*   We use this function to enable drag support for the element buttons.
-		*   We parse all the element infos. 
-		*/
+		 *   We use this function to enable drag support for the element buttons.
+		 *   We parse all the element infos. 
+		 */
 		void mouseMoveEvent( QMouseEvent * );
 
 		void mouseReleaseEvent( QMouseEvent *mouse );
 
 		QString parseElementInfo();
+
+		/**
+		 * this method parses the quatum orbits into nice looking QString. Eg 1s2_2s2_2p4
+		 * will be 1s 2s 2p
+		 *         2  2  4
+		 */
+		QString parseOrbits();
+
+		QString returnLastOrbit();
 
 		private slots:
 		/**
@@ -123,10 +132,9 @@ class ElementKP : public KPushButton  {
 		 * If the user clicks on one button this slot will be called
 		 */
 		void slotShowData();
-        
-    protected:
-        void drawButtonLabel(QPainter *p);
-            
+
+	protected:
+		void drawButtonLabel(QPainter *p);
 };
 
 #endif

@@ -1,9 +1,9 @@
 /***************************************************************************
-                          ValueVisualisation.h  -  description
+                          fastinfo.h  -  description
                              -------------------
-    begin                : Fr March 22 2002
+    begin                : Sun 3 Nov 2002
     copyright            : (C) 2002 by Carsten Niehaus
-    email                : cniehaus@gmx.org
+    email                : cniehaus@kde.org
  ***************************************************************************/
 
 /***************************************************************************
@@ -15,26 +15,43 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef VALUEVISUALISATION_H
-#define VALUEVISUALISATION_H
+#ifndef FASTINFO_H
+#define FASTINFO_H
 
-#include <kdialog.h>
+/**
+ * this class shows the most important information
+ * in a small widget in the PSE
+ *@author Carsten Niehaus
+ */
 
+#include <qwidget.h>
+#include <qframe.h>
+
+class QGridLayout;
+class KSimpleConfig;
+class QLabel;
 class Kalzium;
 
-class ValueVisualisation : public KDialog  {
+/**This is a small widget which shows the most importand data of an element
+ *in the gap of the PSE.
+ *@author Carsten Niehaus
+ */
+
+class Fastinfo : public QFrame{
     Q_OBJECT
 
     public: 
-	    /**
-        * construtor 
-        */
-	    ValueVisualisation(QWidget *parent, const char *name, Kalzium *kalzium_tmp);
-    
-    	Kalzium *kalzium;
+	Fastinfo(QWidget *parent, const char *name=0,Kalzium *Kalzium_tmp=0);
+	QGridLayout *grid;
+	void setInfo( int );
 
-    private:
-    	KConfig *main_config;
+	KSimpleConfig *config;
+
+	Kalzium *kalzium;
+
+	private:
+	QLabel  *elemname,
+			*weight;
 };
 
 #endif

@@ -20,86 +20,55 @@
 #include <ksimpleconfig.h>
 #include <klocale.h>
 #include <kstddirs.h>
+#include <klineedit.h>
 
 //QT-Includes
 #include <qlabel.h>
 #include <qtabwidget.h>
-#include <qcombobox.h>
-#include <qlayout.h>
-#include <qgroupbox.h>
-#include <qmultilineedit.h>
+#include <qtextedit.h>
 #include <qstring.h>
 
 #include "calcdlg.h"
+#include "kmolui.h"
+#include "kalziumconverter.h"
 #include "../calculations/kmoledit.h"
-
-#include "math.h"
 
 CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name)
 {
     KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
 
-    KMol = new QWidget(this);
-    QGridLayout *grid = new QGridLayout ( KMol, 5, 1 );
+    KMol = new KMolUI(this);
 
     //accepts text input until return is pressed 
-    formula = new QLineEdit (KMol);
-    formula->setFocus();
-    connect(formula, SIGNAL(returnPressed()), this, SLOT(calc()));
-    grid->addMultiCellWidget( formula , 1 ,1,0,1 );
-
-    QLabel* formula_l = new QLabel (i18n("Formula:"), KMol, "formula");
-    grid->addWidget( formula_l , 0 , 0 );
-
-    //mol weight output field
-    result = new QLabel (KMol);
-    result->setFrameStyle (QFrame::Panel | QFrame::Sunken);
-    result->setLineWidth (2);
-    result->setBackgroundMode(PaletteBase);
-    grid->addMultiCellWidget( result, 4, 4 ,0 ,1 );
-
-    QLabel* result_l = new QLabel (i18n("Mw:"), KMol, "result");
-    grid->addWidget( result_l, 3 , 0 );
+    connect(KMol->formula, SIGNAL(returnPressed()), this, SLOT(calc()));
 
     //calculate button
-    KPushButton* calculate = new KPushButton (i18n("Calculate"), KMol, "calculate");
-    calculate->setDefault(TRUE);
-    connect(calculate, SIGNAL(clicked()), this, SLOT(calc()));
-    connect(formula, SIGNAL(returnPressed()), calculate, SLOT(animateClick()));
-    grid->addWidget(calculate , 2, 0 );
+    connect(KMol->calculate, SIGNAL(clicked()), this, SLOT(calc()));
+    connect(KMol->formula, SIGNAL(returnPressed()), KMol->calculate, SLOT(animateClick()));
 
     //clears FORMULA and RESULT fields
-    KPushButton* clear_fields = new KPushButton (i18n("Clear"), KMol, "clear");
-    connect(clear_fields, SIGNAL(clicked()), this, SLOT(clear()));
-    grid->addWidget(clear_fields, 2,1 );
-
-    //E.A. display field
-    anal_display = new QMultiLineEdit (KMol, "display");
-    anal_display->setReadOnly(1);
-    anal_display->setFocusPolicy(QWidget::NoFocus);
-    grid->addMultiCellWidget(anal_display, 6, 6, 0, 1 );
-
-    QLabel* anal_display_l = new QLabel (i18n("Elemental composition (%):"), KMol, "displaylabel");
-    grid->addMultiCellWidget(anal_display_l , 5 , 5 , 0 , 1 );
+    connect(KMol->clear_fields, SIGNAL(clicked()), this, SLOT(clear()));
 
     kmolcalc = new KMolCalc;
 
-
-
-    for ( int n=0 ; n<118 ; n++ ) // read in the values
+    for ( int n=0 ; n<109 ; n++ ) // read in the values
     {
-	config.setGroup(QString::number(n+1));
-	symlabel[n]=config.readEntry("Symbol", "Unknown");
-	weight[n]=config.readEntry("Weight","0.0");
+        config.setGroup(QString::number(n+1));
+        symlabel[n]=config.readEntry("Symbol", "Unknown");
+        weight[n]=config.readEntry("Weight","0.0");
     }
+
+    KConvert *convert = new KConvert(this);
+    
     addTab(KMol, i18n("KMol"));
+    addTab(convert, i18n("Conversions"));
 }
 
 //******* Slots ******************************************************
 
 void CalcDlg::calc() 
 {
-    QString compound(formula->text());
+    QString compound(KMol->formula->text());
     if (compound.isEmpty()) {
 	clear();
 	return;
@@ -114,8 +83,8 @@ void CalcDlg::calc()
 	mw = "???";
 	ea = i18n("ERROR: \n") + errors + "\n";
     }
-    result->setText(mw);
-    anal_display->setText(ea);
+    KMol->result->setText(mw);
+    KMol->anal_display->setText(ea);
 }
 
 /**
@@ -133,9 +102,9 @@ void CalcDlg::callEditor()
 */
 void CalcDlg::clear() 
 {
-    formula->clear();
-    result->clear();
-    anal_display->clear();
+    KMol->formula->clear();
+    KMol->result->clear();
+    KMol->anal_display->clear();
 }
 
 #include "calcdlg.moc"
