@@ -18,7 +18,6 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "questionadddialog_impl.h"
-#include "questiontextwidget.h"
 
 #include <kpushbutton.h>
 #include <knuminput.h>
