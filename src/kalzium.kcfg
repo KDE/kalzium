@@ -196,8 +196,8 @@
 		  <default>#97F805</default>
 	  </entry>
 	  <entry name="noble_gas" type="Color">
-		  <label>Selects the color of the Nobel gases</label>
-		  <whatsthis>Selects the color of the Nobel gases</whatsthis>
+		  <label>Selects the color of the noble gases</label>
+		  <whatsthis>Selects the color of the noble gases</whatsthis>
 		  <default>#C56188</default>
 	  </entry>
 	  <entry name="metalloid" type="Color">

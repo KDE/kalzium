@@ -878,7 +878,7 @@
                                             <cstring>textLabel2_2_3</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Nobel Gases:</string>
+                                            <string>Noble Gases:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
