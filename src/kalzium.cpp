@@ -70,13 +70,13 @@ Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
     mainlayout = new QVBoxLayout( main_window, 0, -1, "mainlayout" );
 
     setupAllElementKPButtons();
-    
+
     setupTimeline();
 
     setupCaption();
-    
+
     setCentralWidget(main_window);
-    
+
     updateMainWindow();
     createhelpArray();
 }
@@ -108,7 +108,7 @@ void Kalzium::createhelpArray()
 bool Kalzium::queryClose()
 {
     main_config->setGroup("Menu Settings");
-    main_config->writeEntry("psestylemenu",psestylemenu->currentItem()); 
+    main_config->writeEntry("psestylemenu",psestylemenu->currentItem());
     main_config->writeEntry("colorschememenu", colorschememenu->currentItem());
     main_config->writeEntry("numerationmenu", numerationmenu->currentItem());
     main_config->writeEntry("timelineshow", timelineToggleAction->isChecked());
@@ -176,7 +176,7 @@ void Kalzium::setupAllElementKPButtons()
     for( int n=0; n<10; n++ ) maingrid->addRowSpacing( n, 40 );
 
     mainlayout->addStretch();
- 	
+
 	//////////////////
 	QWidget *SmallWidget = new QWidget( this );
 	QVBoxLayout *dtabLayout = new QVBoxLayout( SmallWidget , 5 );
@@ -213,7 +213,7 @@ void Kalzium::setupTimeline()
 
     dateLCD = new QLCDNumber( 4, main_window, "dateLCD");
     timeline_layout->addWidget( dateLCD );
-    
+
 	QWhatsThis::add(dateLCD, i18n("This is the date you have chosen using the slider." ) );
     dateLCD->hide();
     dateLCD->display("2002");
@@ -284,7 +284,7 @@ void Kalzium::changeColorScheme(int id)
     (this->*funcs[id & ~3 ? 3 : id])();
 }
 
-void Kalzium::changeNumeration(const int id) const 
+void Kalzium::changeNumeration(const int id) const
 {
     switch (id) {
 	case 0:
@@ -325,7 +325,7 @@ void Kalzium::newToolbarConfig()
 
 void Kalzium::optionsConfigureKeys()
 {
-  KKeyDialog::configureKeys(actionCollection(), "kalziumui.rc");
+  KKeyDialog::configure(actionCollection());
 }
 
 void Kalzium::optionsConfigureToolbars( )
@@ -336,7 +336,7 @@ void Kalzium::optionsConfigureToolbars( )
     dlg.exec();
 }
 
-void Kalzium::setFont() 
+void Kalzium::setFont()
 {
   generalKPFont = KGlobalSettings::generalFont();
   generalKPBoldFont = generalKPFont;
@@ -344,7 +344,7 @@ void Kalzium::setFont()
   generalKPBoldFont.setBold(TRUE);
   generalKPFont.setPointSize(generalKPFont.pointSize()-2);
   generalKPBoldFont.setPointSize(generalKPBoldFont.pointSize()+1);
-}   
+}
 
 void Kalzium::showPseStyle(const int i)
 {
@@ -383,7 +383,7 @@ void Kalzium::slotKnowledge()
             i18n( "Please enter a number:" ), 10, 0, 20, 1, &ok, this );
     if ( ok )
     {
-        QuizDlg *quiz = new QuizDlg(this, "quizdialog", numofquestions); 
+        QuizDlg *quiz = new QuizDlg(this, "quizdialog", numofquestions);
         quiz->setCaption(i18n("Test Your Knowledge"));
         quiz->show();
     }
@@ -418,7 +418,7 @@ void Kalzium::slotShowAll()
         element[i]->show();
 
     for (int i = 83; i < 109; i++)
-        element[i]->show(); 
+        element[i]->show();
     timelineToggleAction->setEnabled(true);
 }
 
@@ -430,7 +430,7 @@ void Kalzium::slotShowBlocks()
     {
         PElementKP& b(element[i]);
         QString& s(b->Data.Block);
-        
+
         if (s.length() == 1)
             if (const char *p = strchr("spdf", QChar(s[0])))
                 b->setPaletteBackgroundColor(QColor(main_config->readColorEntry(QChar(*p))));
@@ -482,24 +482,24 @@ void Kalzium::slotShowStateOfMatter()
     {
            templookup  = new StateOfMatterDlg(this, "stateofmatterdlg", this);
     }
-    
+
     templookup->setButtonsColor();
     templookup->tempbeh();
     templookup->show();
 }
 
-void Kalzium::updateColorMenu(int id) 
+void Kalzium::updateColorMenu(int id)
 {
     colorschememenu->setCurrentItem(id);
 }
 
-void Kalzium::updateNumMenu(int id) 
+void Kalzium::updateNumMenu(int id)
 {
     numerationmenu->setCurrentItem(id);
 }
 
 void Kalzium::slotShowTimeline(bool id)
-{    
+{
 	if (id == true)
 	{
 		dateS->show();
@@ -515,7 +515,7 @@ void Kalzium::slotShowTimeline(bool id)
 		for (int i =0; i<109; i++)
 			element[i]->show();
 
-	} 
+	}
 }
 
 void Kalzium::slotShowQuickinfo( bool id )
@@ -525,7 +525,7 @@ void Kalzium::slotShowQuickinfo( bool id )
 		showFastInfo = true;
 		dtab->show();
 	}
-	else 
+	else
 	{
 		showFastInfo = false;
 		dtab->hide();
@@ -559,7 +559,7 @@ void Kalzium::timeline()
     for (int i = 0; i < 109; ++i)
     {
 		PElementKP& b(element[i]);
-		
+
 		if (i+1 == 6 ||
 			i+1 == 16 ||
 			i+1 == 26 ||
@@ -570,14 +570,14 @@ void Kalzium::timeline()
 			i+1 == 51 ||
 			i+1 == 79 ||
 			i+1 == 80 ||
-			i+1 == 82 || 
+			i+1 == 82 ||
 			i+1 == 83
 			)
 		{
             b->show();
 			continue;
 		}
-        
+
         if (b->Data.date > currentDateString)
             b->hide();
         else
@@ -620,7 +620,7 @@ void Kalzium::setupConfig()
 	main_config->writeEntry("amphoteric",QColor(10,80,180));
 	main_config->writeEntry("neitherofthem",QColor(130,80,255));
 
-    } 
+    }
     if (!main_config->hasGroup("WLU"))
     {
 	main_config->setGroup("WLU");
@@ -640,7 +640,7 @@ void Kalzium::setupConfig()
 void Kalzium::setupActions()
 {
     const KIconLoader *kil = KGlobal::iconLoader();
-    
+
     main_config->setGroup("Menu Settings");
     KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
     KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
@@ -651,7 +651,7 @@ void Kalzium::setupActions()
 #else
     setStandardToolBarMenuEnabled(true); //KDE 3.1
 #endif
-    
+
     QStringList psestylelist;
     psestylelist.append( i18n("Mendeleev"));
     psestylelist.append( i18n("Complete"));
@@ -671,7 +671,7 @@ void Kalzium::setupActions()
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(changeColorScheme(int)));
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(changeTheLegend(int)));
     colorschememenu->setCurrentItem(main_config->readNumEntry("colorschememenu"));
-    
+
     // BEGIN NUMERATIONMENU
     QStringList numerationlist;
     numerationlist.append( i18n("CAS"));
@@ -694,21 +694,21 @@ void Kalzium::setupActions()
 
     timelineToggleAction->setChecked(main_config->readBoolEntry("timelineshow"));
     // END TIMELINEMENU
-	
+
 	//BEGIN QUICKINFO
 	quickinfoToggleAction = new KToggleAction( i18n( "Show &Quickinfo" ),kil->iconPath( "quickinfo",KIcon::User ),0,actionCollection(), "quickinfo" );
 	quickinfoToggleAction->setChecked( true );
 	connect( quickinfoToggleAction, SIGNAL( toggled( bool ) ),this, SLOT( slotShowQuickinfo( bool ) ) );
 	quickinfoToggleAction->setChecked( main_config->readBoolEntry( "quickinfo" ) );
 	//END QUICKINFO
-	
+
 	//BEGIN LEGEND
 	legendToggleAction = new KToggleAction( i18n( "Show &Legend" ),kil->iconPath( "legend",KIcon::User ),0,actionCollection(), "legend" );
 	legendToggleAction->setChecked( true );
 	connect( legendToggleAction, SIGNAL( toggled( bool ) ),this, SLOT( slotShowLegend( bool ) ) );
 	legendToggleAction->setChecked( main_config->readBoolEntry( "legend" ) );
 	//END LEGEND
-	
+
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
     (void) new KAction (i18n("&Plot"),0, this, SLOT(slotPlotData()), actionCollection(), "startplotting");
     (void) new KAction (i18n("&Search Data"),0, this, SLOT(slotSearchData()), actionCollection(), "searchdata");
