@@ -239,7 +239,7 @@
 <customwidgets>
     <customwidget>
         <class>IsotopeWidget</class>
-        <header location="global">/home/carsten/cvs/kdeedu/kalzium/src/isotopewidget.h</header>
+        <header location="local">isotopewidget.h</header>
         <sizehint>
             <width>-1</width>
             <height>-1</height>
