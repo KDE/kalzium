@@ -26,6 +26,9 @@
             <property name="title">
                 <string>Color Scheme</string>
             </property>
+            <property name="checkable">
+                <bool>false</bool>
+            </property>
             <vbox>
                 <property name="name">
                     <cstring>unnamed</cstring>

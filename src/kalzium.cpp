@@ -92,7 +92,7 @@ Kalzium::Kalzium()
 	 looklist.append(i18n("Show &Acid Behavior"));
 	 look_action = new KSelectAction (i18n("&Look"), 0, this, 0, actionCollection(), "look_menu");
 	 look_action->setItems(looklist);
-	 look_action->setCurrentItem(Prefs::colorschemebox()); //XXX should be read in via KConfig
+	 look_action->setCurrentItem(Prefs::colorschemebox()); 
 	 connect (look_action, SIGNAL(activated(int)), this, SLOT(slotShowScheme(int)));
 
 	/*
@@ -169,6 +169,8 @@ void Kalzium::slotPlotData()
 void Kalzium::slotShowScheme(int i)
 {
 	currentPSE()->activateColorScheme( i );
+	Prefs::setColorschemebox(i); 
+	Prefs::writeConfig();
 }
 
 void Kalzium::slotSwitchtoNumeration( int index )
@@ -229,7 +231,7 @@ void Kalzium::showSettingsDialog()
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
 	connect( dialog, SIGNAL( settingsChanged() ), m_pCurrentPSE, SLOT( slotUpdatePSE() ) );
-	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotSaveConfig() ) );
+	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotUpdateSettings() ) );
 	dialog->addPage( new colorScheme( 0, "colorscheme_page"), i18n("Color Scheme"), "colorize");
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Colors"), "colorize");
 	dialog->addPage( new setupQuiz( 0, "quizsetuppage" ), i18n( "Quiz" ), "edit" );
@@ -237,9 +239,9 @@ void Kalzium::showSettingsDialog()
 	dialog->show();
 }
 
-void Kalzium::slotSaveConfig()
+void Kalzium::slotUpdateSettings()
 {
-	Prefs::writeConfig();
+	look_action->setCurrentItem(Prefs::colorschemebox()); 
 }
 
 void Kalzium::optionsConfigureToolbars( )

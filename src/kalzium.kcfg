@@ -2,7 +2,7 @@
 <!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.dtd">
 <kcfg>
   <kcfgfile name="kalziumrc"/>
-  <group name="Colorscheme">
+  <group name="Color Scheme">
     <entry name="colorschemebox" type="Int">
     	<default>1</default>
 	<whatsthis>Select the color scheme you prefer by clicking on the corresponding radio button</whatsthis>

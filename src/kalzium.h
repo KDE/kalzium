@@ -89,13 +89,8 @@ class Kalzium : public KMainWindow
 		KSelectAction *quiz_action;
 		KSelectAction *look_action;
 		KSelectAction *numeration_action;
-		KAction *m_pBehAcidAction,
-			*m_pBehNormalAction,
-			*m_pBehBlocksAction,
-			*m_pBehGroupAction,
-			*m_pBehSOMAction,
-			*m_pTimelineAction,
-			*m_pPlotAction;
+		KAction *m_pTimelineAction,
+			    *m_pPlotAction;
 		
 	private slots:
 		/**
@@ -112,7 +107,7 @@ class Kalzium : public KMainWindow
 		 */
 		void slotShowTimeline();
 
-		void slotSaveConfig();
+		void slotUpdateSettings();
 	
 		/**
 		 * This slot switches Kalzium to the selected PSE
