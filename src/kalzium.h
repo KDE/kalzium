@@ -88,9 +88,9 @@ class Kalzium : public KMainWindow
 		void createhelpArray();
         
 	private:
-        KConfig *main_config;
+    KConfig *main_config;
 		KToggleAction *timelineToggleAction, 
-                      *toolbarToggleAction;
+                  *toolbarToggleAction;
 		PQLabel labels[18];
 		QGridLayout *maingrid;
 		QLCDNumber *dateLCD;
@@ -106,19 +106,19 @@ class Kalzium : public KMainWindow
 
 		void setupActions();
 
-        /**
-         *  Creates all 118 buttons
-         */
-        void setupAllElementKPButtons();
+    /**
+     *  Creates all 118 buttons
+     */
+    void setupAllElementKPButtons();
 
-        void setupCaption();
+    void setupCaption();
 		
-        /**
+    /**
 		 * This method sets the menu for kalzium using XMLGUI. 
 		 */
 		void setupConfig();
 
-        void setupTimeline();
+    void setupTimeline();
         
 		/**
 		 * numeration theme
@@ -139,16 +139,16 @@ class Kalzium : public KMainWindow
 		void updateMainWindow();
 
 
-		//******* Slots ******************************************************
+//******* Slots ******************************************************
 
-    public slots:
+  public slots:
 
-			void changeColorScheme(int id=-1);
-            void changeLegend(int id=-1);
+    void changeColorScheme(int id=-1);
+    void changeLegend(int id=-1);
 
 	private slots:
 
-	    void changeNumeration(int) const;
+	  void changeNumeration(int) const;
 
 		void defineweights() const;
 
@@ -157,61 +157,61 @@ class Kalzium : public KMainWindow
 		void showToolbar();
 
 		/**
-		 * this slot will open a window in which you can do some calculations
+		 * This slot will open a window in which you can do some calculations.
 		 */
 		void slotCalculations();
 
 		/**
-		 * the quiz will start
+		 * The quiz will start.
 		 */
 		void slotKnowledge();
 
 		/**
-		 * this slot gives you information if the elements tends to
-		 *built acid, bases, doesn neither or is amphoter
+		 * This slot gives you information if the elements tends to
+		 * built acid, bases, doesn neither or is amphoter.
 		 */
 		void slotShowAcidBeh();
 
 		/**
-		 * this slots shows all elements
+		 * This slots shows all elements.
 		 */
 		void slotShowAll();
 
 		/*
-		 * shows you the 4 different blocks
+		 * Shows you the 4 different blocks.
 		 */
 		void slotShowBlocks();
 
 		/**
-		 * this slot gives you the information in which group
-		 * the elements is (1 to 8)
+		 * This slot gives you the information in which group
+		 * the elements is (1 to 8).
 		 */
 		void slotShowGroups();
 
 		/**
-		 * this slot hides all elements which have not been known
+		 * This slot hides all elements which have not been known
 		 * when Mendelejew created the first PSE
 		 */
 		void slotShowMendelejew();
 
 		/**
-		 * this slot shows the users in what state the element
+		 * This slot shows the users in what state the element
 		 * is at 20 degree and 1013 h-pascal.
 		 */
 		void slotShowStateOfMatter();
 
 		void updateColorMenu(int);
 		
-        void updateNumMenu(int);
+    void updateNumMenu(int);
 
-        /**
-         * connected to void KApplication::kdisplayFontChanged() 
-         * so I can set for KDE 3.1 a fixed size for the 
-         * element buttons
-         * cause i have to play with kalzium's layout managment
-         * to understand it
-         **/
-        void updateElementKPSize();
+    /**
+     * Connected to void KApplication::kdisplayFontChanged() 
+     * so I can set for KDE 3.1 a fixed size for the 
+     * element buttons
+     * cause i have to play with kalzium's layout managment
+     * to understand it
+     **/
+    void updateElementKPSize();
         
 		void slotShowTimeline(bool);
 

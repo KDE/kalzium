@@ -124,7 +124,7 @@ bool Kalzium::queryClose()
     main_config->writeEntry("colorschememenu", colorschememenu->currentItem());
     main_config->writeEntry("numerationmenu", numerationmenu->currentItem());
     main_config->writeEntry("timelineshow", timelineToggleAction->isChecked());
-	main_config->sync();
+  	main_config->sync();
     return true;
 }
 
@@ -442,6 +442,7 @@ void Kalzium::slotKnowledge()
 }
 
 void Kalzium::slotShowAcidBeh() {
+    delete templookup; templookup =NULL;
     static const char *field[] = {
         "acidic", "basic", "amphoteric", "neitherofthem"
     };
@@ -475,6 +476,7 @@ void Kalzium::slotShowAll()
 
 void Kalzium::slotShowBlocks()
 {
+    delete templookup; templookup =NULL;
     main_config->setGroup("Colors");
     for (int i = 0; i < 118; i++)
     {
@@ -489,6 +491,7 @@ void Kalzium::slotShowBlocks()
 
 void Kalzium::slotShowGroups()
 {
+    delete templookup; templookup =NULL;
     main_config->setGroup("Colors");
 
     for (int i = 0; i < 118; ++i)
