@@ -156,11 +156,9 @@ class Kalzium : public KMainWindow
 
 		void changeNumeration(int) const;
 
-		void defineWeights() const;
-
-    void newToolbarConfig();
-    void optionsConfigureKeys();
-    void optionsConfigureToolbars();
+		void newToolbarConfig();
+		void optionsConfigureKeys();
+		void optionsConfigureToolbars();
 
 		void setFont();
 

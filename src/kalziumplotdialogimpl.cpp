@@ -1,5 +1,5 @@
 /***************************************************************************
-                         csvdialogimpl.cpp  -  description
+                         kalziumplotdialogimpl.cpp  -  description
                              -------------------
     begin                : June 2003
 	copyright            : (C) 2003 by Carsten Niehaus                     
@@ -66,7 +66,7 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 	pw->setXAxisLabel(  i18n(  "Atomic Number" ) );
 	
 	elementsKLV = new KListView( plotW, "elementsKLV" );
-	elementsKLV->setAlternateBackground( Qt::red );
+	elementsKLV->setAlternateBackground( elementsKLV->paletteBackgroundColor().dark() );
 	elementsKLV->setSorting( -1 );
 	elementsKLV->setSelectionMode( QListView::NoSelection );
 	

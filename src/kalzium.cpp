@@ -286,11 +286,6 @@ void Kalzium::changeNumeration(const int id) const
     }
 }
 
-void Kalzium::defineWeights() const
-{
-    (new KMolEdit(0, "kmoledit", new KMolCalc))->exec();
-}
-
 void Kalzium::hideSettingsDialog()
 {
     if(setDlg)
@@ -684,7 +679,6 @@ void Kalzium::setupActions()
     (void) new KAction (i18n("&Plot"),0, this, SLOT(slotPlotData()), actionCollection(), "startplotting");
     (void) new KAction (i18n("&Search Data"), "find", CTRL+Key_F, this, SLOT(slotSearchData()), actionCollection(), "searchdata");
     (void) new KAction (i18n("&Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
-    (void) new KAction (i18n("Define Molecular &Weights"),0, this, SLOT(defineWeights()), actionCollection(), "defineweights");
 
     createGUI("kalziumui.rc");
 }

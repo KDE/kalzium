@@ -1,7 +1,7 @@
 #ifndef KALZIUMPLOTIMPL_H
 #define KALZIUMPLOTIMPL_H
 /***************************************************************************
-                    csvdialogimpl.h  -  description
+                    kalziumplotdialogimpl.h  -  description
                              -------------------
     begin                : June 2003
 	copyright            : (C) 2003 by Carsten Niehaus                     
