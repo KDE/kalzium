@@ -1,5 +1,5 @@
 /*
- * kmolelements.h 
+ * kmolelements.h
  *
  * Copyright (C) 2000 Tomislav Gountchev <tomi@idiom.com>
  */
@@ -17,7 +17,7 @@
 
 #include <kapplication.h>
 
-#include <qlist.h>
+#include <qptrlist.h>
 #include <qdict.h>
 #include <qstring.h>
 #include <qtextstream.h>
@@ -26,21 +26,21 @@ class ElementCoef;
 class ElementList;
 
 /**
- * A generic chemical entity. Can be an element or a group. 
+ * A generic chemical entity. Can be an element or a group.
  */
 class SubUnit {
  public:
 
   SubUnit();
-  
+
   virtual ~SubUnit();
 
   /**
-   * Construct a subunit and return a pointer to it. The syntax of LINE is 
+   * Construct a subunit and return a pointer to it. The syntax of LINE is
    * the one used in the element definition file.
    */
   static SubUnit* makeSubUnit(QString line);
-  
+
   /**
    * Get the molecular weight of THIS, based on the data from ELSTABLE.
    */
@@ -50,18 +50,18 @@ class SubUnit {
    * Add THIS to ELS.
    */
   virtual void addTo(ElementList& els, double coef) = 0;
-  
+
   virtual QString getName() const;
-  
+
   /**
    * Write THIS to LINE, in the format used in the definition file.
    */
   virtual void writeOut(QString& line) = 0;
 };
-	       
+
 
 /**
- * A group of elements. 
+ * A group of elements.
  */
 class ElementList : public SubUnit {
  public:
@@ -69,9 +69,9 @@ class ElementList : public SubUnit {
   ElementList (QString name);
   virtual ~ElementList();
   double getWeight(QDict<SubUnit>* elstable) const;
-  
+
   /**
-   * Return a string representing the elemental composition of THIS, as 
+   * Return a string representing the elemental composition of THIS, as
    * a tab-separated element - percentage pairs, separated by newlines.
    */
   QString getEA(QDict<SubUnit>* elstable, double mw = 0) const;
@@ -80,7 +80,7 @@ class ElementList : public SubUnit {
    * Return a string representing THIS as an empirical chemical formula.
    */
   QString getEmpFormula() const;
-  
+
   /**
    * Multiply THIS (i.e. the coefficient of each element) by coef.
    */
@@ -129,7 +129,7 @@ class Element : public SubUnit {
   double getWeight(QDict<SubUnit>* elstable) const;
 
   /**
-   * Add THIS to ELS, with a coefficient COEF.  
+   * Add THIS to ELS, with a coefficient COEF.
    */
   void addTo(ElementList& els, double coef);
 
@@ -144,7 +144,7 @@ class Element : public SubUnit {
 
 
 /**
- * An element - coefficient pair. Used to represent elements within an 
+ * An element - coefficient pair. Used to represent elements within an
  * element list.
  */
 class ElementCoef {
