@@ -63,13 +63,6 @@ class Kalzium : public KMainWindow
 		RegularPSE* m_pRegularPSE;
 		
 		/**
-		 * Kalzium supports three different PSE-types. This is
-		 * the object for one of this types
-		 * @see PSE
-		 */
-	//	MendeljevPSE* m_pMendeljevPSE;
-
-		/**
 		 * this pointer returns the currently loaded PSE
 		 * @return the currently used PDE
 		 */
