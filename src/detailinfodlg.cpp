@@ -2,7 +2,7 @@
 
         detailinfodlg.cpp  -  description
                              -------------------
-    begin                : Tue Apr 8 2003 
+    begin                : Tue Apr 8 2003
     copyright            : (C) 2003 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
@@ -25,6 +25,7 @@
 #include <kstandarddirs.h>
 #include <kpushbutton.h>
 
+#include <qframe.h>
 #include <qfont.h>
 #include <qcolor.h>
 #include <qlabel.h>
@@ -57,18 +58,18 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	showLegendKP = new KPushButton( i18n( "Show Legend" ), this );
 	connect( showLegendKP , SIGNAL( clicked() ), this , SLOT( slotShowLegend() ) );
 	overviewLayout->addWidget( showLegendKP );
-	
+
 	dTab->show();
-    
+
     /////////////////////////////////
-	
+
 	mainTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( Data.Name.utf8() ), BarIcon("redo", KIcon::SizeMedium));
 	QVBoxLayout *mainLayout = new QVBoxLayout( mainTab );
 	QPixmap pic ( "/home/carsten/cvs/kdeedu/kalzium/src/elementpics/"+Data.Symbol+".jpg" );
 	QLabel *test = new QLabel( mainTab );
 	test->setPixmap( pic );
 	mainLayout->addWidget( test );
-	
+
     /////////////////////////////////
     energyTab = addPage(i18n("Energies"), i18n("Energyinformatino"), BarIcon("roll", KIcon::SizeMedium));
 	QVBoxLayout *energyLayout = new QVBoxLayout( energyTab );
@@ -76,7 +77,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	QLabel *Ionlabel = new QLabel( QString::number( Data.IE ) , energyTab );
 	energyLayout->addWidget( ENlabel );
 	energyLayout->addWidget( Ionlabel );
-	
+
     /////////////////////////////////
     miscTab = addPage(i18n("Colors"), i18n("Miscilanious"), BarIcon("colorize", KIcon::SizeMedium));
 }
@@ -84,12 +85,12 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 void DetailedInfoDlg::slotShowLegend()
 {
 	kdDebug() << "Legende soll angezeigt werden" << endl;
-	if ( dTab->showLegend ) 
+	if ( dTab->showLegend )
 	{
 		dTab->showLegend = false;
 		showLegendKP->setText( i18n( "Show Legend" ) );
 	}
-	else 
+	else
 	{
 		dTab->showLegend = true;
 		showLegendKP->setText( i18n( "Hide Legend" ) );
@@ -110,13 +111,13 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	p.begin(this);
 
 	//the needed values
-	
+
 	int h = this->height();
 	int w = this->width();
 	int dy = h/4;
 	int dx = w/3;
 	///////////////////
-	
+
 	//calculation of the corners
 	int x1,x2,y1,y2;
 
@@ -124,18 +125,18 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	y1 =  h/2-dy;
 	x2 = x1 + dx;
 	y2 = y1 + dy;
-	
+
 	p.setBrush(Qt::SolidPattern);
 	p.setBrush( PSEColor( Data.Block ));
 	p.drawRect( x1 , y1 , dx , dy );
-	
+
 	QFont f1 ( "times", 18, QFont::Bold );
 	QFont f2 ( "times", 10 );
 	QFont f3 ( "times", 8, QFont::Bold );
-	
+
 	p.setFont( f1 );
 	p.drawText( x1+dx/2 , y1+dy/2 , Data.Symbol );  //Symbol
-	
+
 	p.setFont( f2 );
 	p.drawText( x1+5 , y2-5 ,Data.Name.utf8() );            //Name
 	p.drawText( x1 , y1+dy/2-50 ,x2-x1 , 18 , Qt::AlignCenter , Data.oxstage);    //Oxidationszahlen
@@ -151,11 +152,11 @@ void DetailedTab::paintEvent( QPaintEvent* )
 		p.drawLine( x1 , y2 , 50 , 50 );
 	}
 	else kdDebug() << "no, es ist FALSE" << endl;
-	
+
 	p.end();
 }
 
-QColor DetailedTab::PSEColor( QString block ) const
+QColor DetailedTab::PSEColor( const QString &block ) const
 {
     QColor c;
     if ( block == "s" ) c.setRgb( 213 , 233 , 231 );

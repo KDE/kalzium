@@ -37,7 +37,7 @@
 #include "elementkp.h"
 #include "eleminfo.h"
 #include "elementkp.moc"
-#include "kalzium.h" 
+#include "kalzium.h"
 #include "infodlg.h"
 #include "infodialog.h"
 #include "fastinfo.h"
@@ -45,21 +45,21 @@
 
 #include <iostream>
 
-ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)	
+ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)
 : ElementButton(parent,name)
 
 {
 	kalzium = kalzium_tmp;
 	ElemNo = AElemNo;
 	zeigerle=zeiger;
-	Data = ElemInfo; 
+	Data = ElemInfo;
 }
 
 //when the mousepointer is over a button
 void ElementKP::enterEvent(QEvent *)
 {
 	setFocus();
-	showName();	
+	showName();
 
 	if ( kalzium->showFastInfo ) kalzium->fastinfo->show();
 	kalzium->fastinfo->setInfo( ElemNo );
@@ -100,7 +100,7 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 	}
 	else
 	{
-		KConfig *main_config=KGlobal::config();  
+		KConfig *main_config=KGlobal::config();
 		main_config->setGroup("WLU");
 		QString detailed = main_config->readEntry( "infodialog" );
 		kdDebug() << "detailed ist: " << detailed << endl;
@@ -113,12 +113,12 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 
 QString ElementKP::parseElementInfo()
 {
-	QString parse = i18n("General") 
+	QString parse = i18n("General")
 		+ "\n"
-		+ "Name: " + Data.Name  
+		+ "Name: " + Data.Name
 		+ "\t" + "Element Number: " + QString::number(Data.number)
 		+ "\n"
-		+ "Symbol: " + Data.Symbol 
+		+ "Symbol: " + Data.Symbol
 		+ "\t" + "Atomic Weight: " + Data.Weight + " u"
 		+ "\n"
 		+ "Block: " + Data.Block

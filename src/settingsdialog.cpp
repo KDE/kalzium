@@ -40,14 +40,14 @@
 ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
 : QTabWidget (parent,name)
 {
-    KConfig *main_config=KGlobal::config();  
+    KConfig *main_config=KGlobal::config();
     main_config->setGroup("Colors");
 
     // ------------------------------------------------
     // LAYOUT
 
     // Acid Behaviour TAP
-    Acid = new QWidget(this);       
+    Acid = new QWidget(this);
     acid_layout = new QGridLayout(Acid,5,2);
     acid_layout->setAutoAdd(TRUE);
     acidic = new QLabel(i18n( "Acidic:" ), Acid);
@@ -122,7 +122,7 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     p_b->setColor(QColor(main_config->readColorEntry("p")));
     d_b->setColor(QColor(main_config->readColorEntry("d")));
     f_b->setColor(QColor(main_config->readColorEntry("f")));
-    
+
     Group1_b->setColor(QColor(main_config->readColorEntry("Group 1")));
     Group2_b->setColor(QColor(main_config->readColorEntry("Group 2")));
     Group3_b->setColor(QColor(main_config->readColorEntry("Group 3")));
@@ -131,17 +131,17 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     Group6_b->setColor(QColor(main_config->readColorEntry("Group 6")));
     Group7_b->setColor(QColor(main_config->readColorEntry("Group 7")));
     Group8_b->setColor(QColor(main_config->readColorEntry("Group 8")));
-    
+
     liquid_b->setColor(QColor(main_config->readColorEntry("liquid")));
     solid_b->setColor(QColor(main_config->readColorEntry("solid")));
     vapor_b->setColor(QColor(main_config->readColorEntry("vapor")));
     radioactive_b->setColor(QColor(main_config->readColorEntry("radioactive")));
     artificial_b->setColor(QColor(main_config->readColorEntry("artificial")));
-    
+
     // add Tabs
     addTab(Acid, i18n( "Acid Behavior" ));
     addTab(Blocks, i18n( "Blocks" ));
-    addTab(Groups, i18n( "Groups" )); 
+    addTab(Groups, i18n( "Groups" ));
     addTab(Stateofmatters, i18n( "State of Matter" ));
 }
 
@@ -172,8 +172,8 @@ void ColorsTabWidget::setDefaultColors()
             Group6_b->setColor(QColor(33,30,70));
             Group7_b->setColor(QColor(110,10,120));
             Group8_b->setColor(QColor(190,2,212));
-    } 
-    else 
+    }
+    else
     {
             acidic_b->setColor(QColor(255,80,35));
             basic_b->setColor(QColor(30,80,60));
@@ -184,7 +184,7 @@ void ColorsTabWidget::setDefaultColors()
 
 void ColorsTabWidget::saveColors()
 {
-    KConfig *main_config=KGlobal::config();  
+    KConfig *main_config=KGlobal::config();
     main_config->setGroup("Colors");
 
 
@@ -227,7 +227,7 @@ void ColorsTabWidget::applyColors()
 SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Preferences"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
-    main_config=KGlobal::config();  
+    main_config=KGlobal::config();
     // COLORSTAB WIDGET
     colorTab = addPage(i18n("Colors"), i18n("Customize Color Settings"), BarIcon("colorize", KIcon::SizeMedium));
     colorsTabWidget = new ColorsTabWidget(colorTab, "colorsTabWidget");
@@ -239,12 +239,12 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
 	general = addPage( i18n( "General Settings" ), i18n( "Custimize the general behaviour of Kalzium" ), BarIcon( "connect_creating", KIcon::SizeMedium ) );
 	QButtonGroup *b_group = new QVButtonGroup( general );
 	connect( b_group , SIGNAL( clicked( int ) ) , this , SLOT( slotSetInfodlg( int ) ) );
-	
+
     QVBoxLayout *b_group_layout = new QVBoxLayout(general);
     b_group_layout->addWidget(b_group);
 	detailedInfo = new QRadioButton( "Show a detailed informationdialog" , b_group );
 	minumumInfo = new QRadioButton( "Show less information in the informationdialog" , b_group );
-	
+
     // WEBLOOKUP BUTTONS
     webLookupButtons = addPage(i18n("Web Lookup"), i18n("Customize Web Lookup URL"), BarIcon ("connect_creating", KIcon::SizeMedium));
     webLookupButtonGroup = new QVButtonGroup(webLookupButtons, "weblookup ButtonGroup");
@@ -274,9 +274,9 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     urlSelector->insertURL( flaghu, huURL );
     urlSelector->insertURL( flagnl, nlURL );
     urlSelector->insertURL( flagpearl, pearlURL );
-    
+
     /*
-     * the next two lines look for the currently set language and set the 
+     * the next two lines look for the currently set language and set the
      * ComboBox to the correct value ( index )
      */
     main_config->setGroup("WLU");
@@ -288,10 +288,10 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     connect(this, SIGNAL(applyClicked()), this, SLOT(slotOkSettings()));
     connect(this, SIGNAL(defaultClicked()), this, SLOT(slotDefaults()));
     connect(this, SIGNAL(okClicked()), this, SLOT(slotOkSettings()));
-    
+
 }
 
-int SettingsDialog::translateCurrentLang( QString lang ){
+int SettingsDialog::translateCurrentLang( const QString &lang ){
     if ( lang == "http://www.ktf-split.hr/periodni/gb/")
         return 0;
     if ( lang == "http://www.ktf-split.hr/periodni/it/")
@@ -319,7 +319,7 @@ void SettingsDialog::slotOkSettings()
 
 	kdDebug() << "writeEntry führt zu: " << infoDlgChoice << endl;
 	kdDebug() << "Ich lade und finde: " << main_config->readEntry( "infodialog" ) << endl;
-	
+
     main_config->sync();
     colorsTabWidget->applyColors();
     ((Kalzium*)parentWidget())->changeColorScheme(((Kalzium*)parentWidget())->colorschememenu->currentItem());
@@ -335,7 +335,7 @@ void SettingsDialog::slotDefaults()
         case 1:
             rb->toggle();
             break;
-            
+
     }
 }
 

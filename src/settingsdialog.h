@@ -38,21 +38,21 @@ class ColorsTabWidget : public QTabWidget
     public:
         ColorsTabWidget(QWidget *parent = 0, const char *name = 0);
         QString indexnumber;
-        
+
     private:
         QWidget *Stateofmatters, *Blocks, *Groups,*Acid;
 
-        QLabel 
+        QLabel
             *liquid, *solid, *vapor, *radioactive, *artificial,
-        *s,*p,*d,*f, 
-        *Group1, *Group2, *Group3, *Group4, *Group5, *Group6, *Group7, *Group8, 
+        *s,*p,*d,*f,
+        *Group1, *Group2, *Group3, *Group4, *Group5, *Group6, *Group7, *Group8,
         *acidic, *basic, *amphoteric, *neitherofthem;
 
-        KColorButton 
+        KColorButton
             *liquid_b, *solid_b, *vapor_b, *radioactive_b , *artificial_b,
-        *s_b,*p_b,*d_b,*f_b, 
-        *Group1_b, *Group2_b, *Group3_b, *Group4_b, *Group5_b, *Group6_b, *Group7_b, *Group8_b, 
-        *acidic_b, *basic_b, *amphoteric_b, *neitherofthem_b; 
+        *s_b,*p_b,*d_b,*f_b,
+        *Group1_b, *Group2_b, *Group3_b, *Group4_b, *Group5_b, *Group6_b, *Group7_b, *Group8_b,
+        *acidic_b, *basic_b, *amphoteric_b, *neitherofthem_b;
 
         QComboBox *dropdown;
         QGridLayout *stateofmatters_layout, *blocks_layout, *groups_layout, *acid_layout;
@@ -60,7 +60,7 @@ class ColorsTabWidget : public QTabWidget
     public slots:
         void setDefaultColors();
         void applyColors();
-    private slots:        
+    private slots:
         void saveColors();
 };
 
@@ -70,10 +70,10 @@ class SettingsDialog : public KDialogBase
     public:
         SettingsDialog(QWidget *parent=0, const char *name=0);
         KComboBox *urlSelector;
-        int translateCurrentLang( QString );
+        int translateCurrentLang( const QString &);
     private:
         ColorsTabWidget *colorsTabWidget;
-        
+
         QVButtonGroup *webLookupButtonGroup;
         QFrame *colorTab, *webLookupButtons, *general;
 		QRadioButton *detailedInfo, *minumumInfo;
@@ -88,7 +88,7 @@ class SettingsDialog : public KDialogBase
 
     private slots:
         /**
-        * This method called when clicking on Ok Button. 
+        * This method called when clicking on Ok Button.
         * It saves the settings the user did and quits.
         */
         void slotOkSettings();
@@ -96,7 +96,7 @@ class SettingsDialog : public KDialogBase
 
     protected slots:
         void slotDefaults();
-        
+
 };
 
 #endif

@@ -20,9 +20,9 @@
 #define _DETAILINFODLG_H_
 
 #include <kdialogbase.h>
-#include <qframe.h>
 
 #include "elementkp.h"
+class QFrame;
 
 class DetailedTab : public QWidget
 {
@@ -31,7 +31,7 @@ class DetailedTab : public QWidget
 	public:
 		DetailedTab( ElementInfo& Eleminfo , QWidget *parent, const char *name=0 );
 		ElementInfo Data;
-		QColor PSEColor( QString Block ) const;
+		QColor PSEColor( const QString &Block ) const;
 		bool showLegend;
 
 	protected:
