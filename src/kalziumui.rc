@@ -2,7 +2,7 @@
 <kpartgui name="kalzium" version="1">
 <MenuBar>
   <Action name="change_pse" />
-  <Action name="nummerationtype" />
+  <Action name="numerationtype" />
   <Action name="quiz_menu" />
   <Menu name="miscmenu">
 	<text>&amp;Miscellaneous</text>
