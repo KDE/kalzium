@@ -86,7 +86,6 @@ class Kalzium : public KMainWindow
 	private:
 		KConfig *main_config;
 		KToggleAction   *timelineToggleAction, 
-		*toolbarToggleAction,
 		*quickinfoToggleAction,
 		*legendToggleAction;
 		PQLabel labels[18];
@@ -164,8 +163,6 @@ class Kalzium : public KMainWindow
 		void setFont();
 
 		void showPseStyle(int);
-
-		void showToolbar();
 
 		/**
 		 * This slot will open a window in which you can do some calculations.

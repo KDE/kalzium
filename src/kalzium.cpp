@@ -347,14 +347,6 @@ void Kalzium::showSettingsDialog()
         setDlg->show();
 }
 
-void Kalzium::showToolbar() 
-{
-    if (toolbarToggleAction->isChecked())
-        toolBar()->show();
-    else
-        toolBar()->hide();
-}
-
 void Kalzium::slotCalculations()
 {
     if (!calculationdialog)
@@ -600,7 +592,7 @@ void Kalzium::setupActions()
     main_config->setGroup("Menu Settings");
     KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
     KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection(), "configure");
-    toolbarToggleAction = KStdAction::showToolbar(this, SLOT(showToolbar()), actionCollection());
+    setStandardToolBarMenuEnabled(true);
     
     QStringList psestylelist;
     psestylelist.append( i18n("Mendeleev"));
