@@ -249,12 +249,14 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     KURL frURL =  "http://www.ktf-split.hr/periodni/fr/";
     KURL huURL =  "http://www.ktf-split.hr/periodni/";
     KURL nlURL =  "http://www-woc.sci.kun.nl/cgi-bin/viewelement?";
+    KURL pearlURL =  "http://pearl1.lanl.gov/periodic/elements/";
     QPixmap flagen( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("gb") ) );
     QPixmap flagit( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("it") ) );
     QPixmap flagde( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("de") ) );
     QPixmap flagfr( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("fr") ) );
     QPixmap flaghu( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("hu") ) );
     QPixmap flagnl( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("nl") ) );
+    QPixmap flagpearl( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("gb") ) );
 
     urlSelector = new KComboBox( FALSE, webLookupButtonGroup, "urlSelector" );
     urlSelector->insertURL( flagen, enURL );
@@ -263,6 +265,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     urlSelector->insertURL( flagfr, frURL );
     urlSelector->insertURL( flaghu, huURL );
     urlSelector->insertURL( flagnl, nlURL );
+    urlSelector->insertURL( flagpearl, pearlURL );
     
     /*
      * the next two lines look for the currently set language and set the 
@@ -291,6 +294,9 @@ int SettingsDialog::translateCurrentLang( QString lang ){
         return 4;
     if ( lang == "http://www.ktf-split.hr/periodni/nl/")
         return 5;
+	if ( lang == "http://pearl1.lanl.gov/periodic/elements/" )
+		return 6;
+	else return 0;
 }
 
 
