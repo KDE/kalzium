@@ -22,7 +22,7 @@
 #include <kconfig.h>
 #include <kiconloader.h>
 #include <klocale.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kcombobox.h>
 #include <kurl.h>
 

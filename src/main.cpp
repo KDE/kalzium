@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     aboutData.addAuthor("Carsten Niehaus", 
             I18N_NOOP("Maintainer, Author"), "cniehaus@kde.org");
     aboutData.addCredit("Robert Gogolok",
-            I18N_NOOP("Coding"), "mail@robert-gogolok.de");
+            I18N_NOOP("Coding"), "robertgogolok@gmx.de");
     aboutData.addCredit("Anne-Marie Mahfouf",
             I18N_NOOP("Supporting"), "a-m.mahfouf@lineone.net");
     aboutData.addCredit("Dirk Moeller",

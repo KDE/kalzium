@@ -24,7 +24,6 @@
  *@author Carsten Niehaus
  */
 
-#include <qwidget.h>
 #include <qframe.h>
 
 class QGridLayout;
@@ -51,7 +50,8 @@ class Fastinfo : public QFrame{
 
 	private:
 	QLabel  *elemname,
-			*weight;
+			*weight,
+			*number;
 };
 
 #endif

@@ -44,7 +44,7 @@
 #include <ksimpleconfig.h>
 #include <kstatusbar.h>
 #include <kstdaction.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kcolorbutton.h>
 
 //QT-Includes
@@ -67,8 +67,6 @@
 
 Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
 {
-    connect(kapp, SIGNAL(kdisplayFontChanged()), this, SLOT(updateElementKPSize()));
-
     main_config=KGlobal::config();
 
     calculationdialog=NULL;
@@ -92,7 +90,6 @@ Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
     setCentralWidget(main_window);
     
     updateMainWindow();
-    updateElementKPSize();
     createhelpArray();
 }
 
@@ -192,7 +189,7 @@ void Kalzium::setupAllElementKPButtons()
  	
 	fastinfo = new Fastinfo( main_window, "testFastInfo",this );
 	fastinfo->show();
-	maingrid->addMultiCellWidget( fastinfo ,0,3,3,6 );
+	maingrid->addMultiCellWidget( fastinfo ,1,3,3,10 );
 }
 
 void Kalzium::setupCaption()
@@ -224,7 +221,7 @@ void Kalzium::setupTimeline()
     dateLCD = new QLCDNumber( 4, main_window, "dateLCD");
     timeline_layout->addWidget( dateLCD );
     
-	QWhatsThis::add(dateLCD, i18n("This is the date which you have chosen with the slider." ) );
+	QWhatsThis::add(dateLCD, i18n("This is the date you have chosen using the slider." ) );
     dateLCD->hide();
     dateLCD->display("2002");
 
@@ -483,28 +480,6 @@ void Kalzium::updateColorMenu(int id)
 void Kalzium::updateNumMenu(int id) 
 {
     numerationmenu->setCurrentItem(id);
-}
-
-void Kalzium::updateElementKPSize()
-{
-    QFont general = KGlobalSettings::generalFont();
-    QFont general_bold = general;
-
-    general.setPointSize(general.pointSize()-2);
-
-    general_bold.setPointSize(general_bold.pointSize());
-    general_bold.setBold(TRUE);
-
-    QFontMetrics zahl( general );
-    int zahl_height = zahl.height();
-    int zahl_width= zahl.width("103");
-    QFontMetrics text( general_bold );
-    int text_height = text.height();
-    int text_width = text.width("MD");
-    
-    for ( int n=0 ;n<109 ;n++ )
-    element[n]->setFixedSize(zahl_width + text_width ,
-                             zahl_height + text_height + 5);
 }
 
 void Kalzium::slotShowTimeline(bool id)

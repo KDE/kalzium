@@ -77,7 +77,7 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	QLabel *liqinfo = new QLabel( i18n("liquid:"), this );
 	main_layout->addWidget(liqinfo , 3 , 1 , Qt::AlignRight );
 
-	QLabel *gasinfo = new QLabel(("vapor:"), this );
+	QLabel *gasinfo = new QLabel( i18n("vapor:"), this );
 	main_layout->addWidget(gasinfo , 4 , 1 , Qt::AlignRight );
 
 	QLabel *artiinfo = new QLabel( i18n("artificial:"), this );
@@ -153,7 +153,7 @@ void StateOfMatterDlg::tempbeh()
 	celsiusLCD->display(tempC);
 	kelvinLCD->display(tempC+273);
 	fahrenheitLCD->display(((tempC*9)/5)+32);
-	for (int i = 0; i < 114; i++)
+	for (int i = 0; i < 109; i++)
 	{
 		if (tempC < (kalzium->element[i]->Data.MP-273))
 			kalzium->element[i]->setPaletteBackgroundColor( color_solid );
@@ -165,12 +165,13 @@ void StateOfMatterDlg::tempbeh()
             kalzium->element[i]->setPaletteBackgroundColor( color_radioactive );
         if (kalzium->element[i]->Data.az == "4")
             kalzium->element[i]->setPaletteBackgroundColor( color_artificial );
+
 	}
 }
 
 void StateOfMatterDlg::setButtonsColor()
 {
-    color_artificial = main_config->readColorEntry("artificial");
+  color_artificial = main_config->readColorEntry("artificial");
 	color_liquid = main_config->readColorEntry("liquid");
 	color_radioactive = main_config->readColorEntry("radioactive");
 	color_solid = main_config->readColorEntry("solid");

@@ -19,7 +19,7 @@
 #include <kpushbutton.h>
 #include <ksimpleconfig.h>
 #include <klocale.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <klineedit.h>
 
 //QT-Includes
@@ -30,7 +30,6 @@
 
 #include "calcdlg.h"
 #include "kmolui.h"
-#include "kalziumconverter.h"
 #include "../calculations/kmoledit.h"
 
 CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name)
@@ -58,10 +57,7 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
         weight[n]=config.readEntry("Weight","0.0");
     }
 
-    KConvert *convert = new KConvert(this);
-    
     addTab(KMol, i18n("KMol"));
-    addTab(convert, i18n("Conversions"));
 }
 
 //******* Slots ******************************************************

@@ -17,39 +17,37 @@
  ***************************************************************************/
 
 #include "KalziumGraph.h"
+#include "KalziumGraph.moc"
 
 //KDE-Includes
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <ksimpleconfig.h>
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <kcombobox.h>
 #include <kdebug.h>
 #include <kconfig.h>
-#include <klineedit.h>
+#include <knuminput.h>
 
 //QT-Includes
-#include <qdialog.h>
 #include <qlayout.h>
 #include <qframe.h>
-#include <qwidget.h>
-#include <qpushbutton.h>
-#include <qhbox.h>
 #include <qlabel.h>
-#include <qcanvas.h>
 #include <qpainter.h>
-
-#include <math.h>
 
 KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDialog( parent, name )
 {
 	this->setCaption( i18n( "Visualize Data" ));
-	grid = new QGridLayout ( this, 5, 5 ,8, -1, "GraphLayout" );
+	grid = new QGridLayout ( this, 3, 4 ,8, -1, "GraphLayout" );
 	KPushButton *ok = new KPushButton( i18n( "Graph" ),this );
 	QObject::connect(ok, SIGNAL( clicked() ), this, SLOT(slotokClicked() ));
 
-	from = new KLineEdit("2", this );
-	to = new KLineEdit("20", this );
+	from = new KIntNumInput(2, this );
+	to = new KIntNumInput(20, this );
+	to->setMinValue( 2 );
+	to->setMaxValue( 109 );
+	to->setMinValue( 1 );
+	to->setMaxValue( 108 );
 
 	kcb = new KComboBox( this );
 	kcb->insertItem( i18n( "Atomic Weight" ));
@@ -57,7 +55,7 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 	kcb->insertItem( i18n( "Density" ) );
 	kcb->insertItem( i18n( "Melting Point" ));
 	kcb->insertItem( i18n( "Boiling Point" ) );
-	kcb->insertItem( i18n( "Ionisation Energie" ) );
+	kcb->insertItem( i18n( "Ionization Energy" ) );
 	kcb->insertItem( i18n( "Atomic Radius" ) );
 	grid->addWidget( ok, 0,0 );
 	grid->addWidget( kcb, 1,0 );
@@ -68,18 +66,26 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 void KalziumGraphDialog::slotokClicked()
 {
 	int typ = kcb->currentItem();
-	int fromRange =  from->text().toInt() ;
-	int toRange =  to->text().toInt() ;
+	int fromRange =  from->value();
+	int toRange =  to->value();
 
-	KalziumGraphDataContainer *container = new KalziumGraphDataContainer( typ, fromRange,toRange );
- 	graph = new KalziumGraph( fromRange,toRange,this, "graph" , container);
-	graph->show();
- 	
-	grid->addMultiCellWidget( graph,2,3,0,2 );
+	if ( valuesAreOk() )
+	{
+		KalziumGraphDataContainer *container = new KalziumGraphDataContainer( typ, fromRange,toRange );
+		graph = new KalziumGraph( fromRange,toRange,this, "graph" , container);
+		graph->show();
+		grid->addMultiCellWidget( graph,2,3,0,2 );
+	}
+}
+
+bool KalziumGraphDialog::valuesAreOk()
+{
+	if ( to->value() <= from->value() ) return false;
+	return true;
 }
 
 KalziumGraph::KalziumGraph( int fromRange, int toRange,QWidget *parent, const char *name, KalziumGraphDataContainer *datacontainer) :
-QFrame( parent, name ) 
+QFrame( parent, name )
 {
 	data = datacontainer;
 	fromRange_ = fromRange;
@@ -90,23 +96,57 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 {
 	QPainter DC;
 	DC.begin( this );
-	
-	int w_w = this->width();
-	int w_h = this->height();
-	int num = toRange_-fromRange_;
-	int real_w=w_w/num;                       //real_w ist die Breite pro Datenpunkt
 
-	DC.drawRect(0,0,w_w,w_h);
+	int w_w = this->width()-10;         //this is the width of the widget in which the 
+										//drawing happens
 	
+	int w_h = this->height();           //this is the height of the widget in which the
+                                        //drawing happens
+	
+	int num = toRange_-fromRange_;      //the number of datapoints
+	
+	int real_w=w_w/num;                 //real_w is the width per datapoint
+
+	DC.drawRect(10,10,w_w,w_h-10);
+		
+	double max = getMax();              //the maximum value of the drawed data
+
 	for( int i = 0 ; i < num ; i++ )
 	{
-		double temp = getMax();
+		double current = data->Data[ fromRange_+i ]/max;
+		                                //at this point of time current is value of the data-
+										//point but fitted into the widgetsize
 
-		double current = data->Data[ fromRange_+i ]/temp;
-		current*=w_h;
+		current*=w_h;                   //current is now the y-coordinate.
 		
-		DC.drawPoint( real_w*i , w_h-( ( int )current ) );
+		int x=0, y=0, x_old=0, y_old=0;
+		
+		x=real_w*i+10;                  //x is now the correct x-coordinate
+		
+		y=w_h-( ( int )current )+10;    //y is now the correct y-coordinate
+
+		x_old=real_w*( i-1 )+10;        //x_old is the x-coordinate for (i-1)
+		
+		if( i != 0 ) 
+		{
+			int temp = i; temp--;
+			double old = (data->Data[ fromRange_+temp ]/max) * w_h;
+			y_old = w_h- ((int) old) + 10;
+		}
+
+		DC.drawEllipse( x-2 , y-2 , 4 , 4 );//draw the datapoints
+		
+
+		if( i != 0 )
+		{                               //draw the lines
+			DC.drawLine( x_old,y_old,x,y );
+		}
 	}
+									    //draw the 3 hor. orientationlines
+	DC.drawLine(10,this->height()/2,20,this->height()/2);
+	DC.drawLine(10,this->height()/4,20,this->height()/4);
+	DC.drawLine(10,this->height()/4*3,20,this->height()/4*3);
+	
 	DC.end();
 }
 
@@ -123,17 +163,30 @@ double KalziumGraph::getMax()
 	return temp;
 }
 
+double KalziumGraph::getMin()
+{
+	double temp = data->Data[ fromRange_ ];
+	for( int i = fromRange_ ; i < toRange_ ; i++ )
+	{
+		if ( data->Data[ i ] < temp )
+		{
+			temp = data->Data[ i ];
+		}
+	}
+	return temp;
+}
+
 KalziumGraphDataContainer::KalziumGraphDataContainer( int typ, int fromRange, int toRange )
 {
 	KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
 
-	//Weight 
-	//EN 
-	//MP == Meltingpoint 
-	//BP == Boilingpoint 
-	//Density 
-	//IE == Ionizationenergie 
-	//AR == atmomic radius 
+	//Weight
+	//EN
+	//MP == Meltingpoint
+	//BP == Boilingpoint
+	//Density
+	//IE == Ionizationenergie
+	//AR == atmomic radius
 
 	QString kind;
 

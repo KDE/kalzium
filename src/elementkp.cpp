@@ -20,8 +20,9 @@
 #include <kglobalsettings.h>
 #include <khtml_part.h>
 #include <klocale.h>
+#include <kpushbutton.h>
 #include <kstatusbar.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kdebug.h>
 
 //QT-Includes
@@ -44,7 +45,7 @@
 #include "fastinfo.h"
 
 ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)	
-: KPushButton(parent,name)
+: ElementButton(parent,name)
 
 {
 	kalzium = kalzium_tmp;
