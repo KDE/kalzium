@@ -215,8 +215,6 @@ class Kalzium : public KMainWindow
         
 		void slotShowTimeline(bool);
 
-		void slotValues();
-
 		void hideSettingsDialog();
 
 		void showSettingsDialog();

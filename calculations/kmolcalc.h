@@ -16,7 +16,7 @@
 
 #include "kmolelements.h"
 #include <qdict.h>
-#include <qlist.h>
+#include <qptrlist.h>
 #include <qstring.h>
 #include <qfile.h>
 #include <qfileinfo.h>
