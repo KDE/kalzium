@@ -3,7 +3,7 @@
                            kalzium.h  -  description
                              -------------------
     begin                : Die Dez  4 17:59:34 CET 2001
-    copyright            : (C) 2001, 2002 by Carsten Niehaus
+    copyright            : (C) 2001, 2002, 2003 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -51,185 +51,184 @@ class Fastinfo;
 class SettingsDialog;
 class KalziumLegend;
 class StateOfMatterDlg;
-class QButton;
 
 typedef ElementKP* PElementKP;
 typedef QLabel* PQLabel;
 
 class Kalzium : public KMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 
-    public:
-	Kalzium();
-	~Kalzium();
+	public:
+		Kalzium();
+		~Kalzium();
 
-	int numofquestions;
-	bool showFastInfo;
-	Colors_Config_Widget *colorsconfig;
+		int numofquestions;
+		bool showFastInfo;
+		Colors_Config_Widget *colorsconfig;
 
-	KSelectAction *numerationmenu, 
-	*psestylemenu, 
-	*colorschememenu, 
-	*weblookupmenu;
+		KSelectAction *numerationmenu, 
+		*psestylemenu, 
+		*colorschememenu, 
+		*weblookupmenu;
 
-	PElementKP element[118];
-	CalcDialog *calculationdialog;
-	QString helpArray[9][18];
-	StateOfMatterDlg *templookup;
-	KalziumLegend *legend;
-	Fastinfo *fastinfo;
+		PElementKP element[118];
+		CalcDialog *calculationdialog;
+		QString helpArray[9][18];
+		StateOfMatterDlg *templookup;
+		KalziumLegend *legend;
+		Fastinfo *fastinfo;
 
-	void createhelpArray();
-	QFont generalFont() {return generalKPFont;};
-	QFont generalBoldFont() {return generalKPBoldFont;};
-  
-  private:
-	KConfig *main_config;
-	KToggleAction   *timelineToggleAction, 
-					*toolbarToggleAction,
-					*quickinfoToggleAction,
-					*legendToggleAction;
-	PQLabel labels[18];
-  
-  // Fonts for ElementKP
-  QFont generalKPFont;
-  QFont generalKPBoldFont;
-  
-	QGridLayout *maingrid;
-	QLCDNumber *dateLCD;
-	QSlider *dateS;
-	QVBoxLayout *mainlayout;
-	QWidget *main_window;		
-	SettingsDialog *setDlg;
+		void createhelpArray();
+		QFont generalFont() {return generalKPFont;};
+		QFont generalBoldFont() {return generalKPBoldFont;};
 
-	/**
-	 * Called before the window is closed, will save the menusettings.
-	 */
-	bool queryClose();
+	private:
+		KConfig *main_config;
+		KToggleAction   *timelineToggleAction, 
+		*toolbarToggleAction,
+		*quickinfoToggleAction,
+		*legendToggleAction;
+		PQLabel labels[18];
 
-	void setupActions();
+		// Fonts for ElementKP
+		QFont generalKPFont;
+		QFont generalKPBoldFont;
 
-	/**
-	*  Creates all 118 buttons
-	*/
-	void setupAllElementKPButtons();
+		QGridLayout *maingrid;
+		QLCDNumber *dateLCD;
+		QSlider *dateS;
+		QVBoxLayout *mainlayout;
+		QWidget *main_window;		
+		SettingsDialog *setDlg;
 
-	void setupCaption();
+		/**
+		 * Called before the window is closed, will save the menusettings.
+		 */
+		bool queryClose();
 
-	/**
-	 * This method sets the menu for kalzium using XMLGUI. 
-	 */
-	void setupConfig();
+		void setupActions();
 
-	void setupTimeline();
+		/**
+		 *  Creates all 118 buttons
+		 */
+		void setupAllElementKPButtons();
 
-	/**
-	 * numeration theme
-	 */
-	void showCAS() const;
+		void setupCaption();
 
-	/**
-	 * numeration theme
-	 */
-	void showIUPAC() const;
+		/**
+		 * This method sets the menu for kalzium using XMLGUI. 
+		 */
+		void setupConfig();
 
-	/**
-	 * numeration theme
-	 */
-	void showOldIUPAC() const;
+		void setupTimeline();
 
+		/**
+		 * numeration theme
+		 */
+		void showCAS() const;
 
-	/**
-	 * Called after setupActions , it sets the main window look 
-	 * according to the menu settings
-	 * @see Kalzium::setupActions
-	 */
-	void updateMainWindow();
+		/**
+		 * numeration theme
+		 */
+		void showIUPAC() const;
+
+		/**
+		 * numeration theme
+		 */
+		void showOldIUPAC() const;
 
 
-	//******* Slots ******************************************************
+		/**
+		 * Called after setupActions , it sets the main window look 
+		 * according to the menu settings
+		 * @see Kalzium::setupActions
+		 */
+		void updateMainWindow();
 
-    public slots:
 
-	void changeTheLegend(int); //hopefully a dummyslot
-	
-	void changeColorScheme(int id=-1);
-	
+		//******* Slots ******************************************************
+
+	public slots:
+
+		void changeTheLegend(int); //hopefully a dummyslot
+
+		void changeColorScheme(int id=-1);
+
 	private slots:
 
-	void changeNumeration(int) const;
+		void changeNumeration(int) const;
 
-	void defineweights() const;
+		void defineweights() const;
 
-  void setFont();
-  
-	void showPseStyle(int);
+		void setFont();
 
-	void showToolbar();
+		void showPseStyle(int);
 
-	/**
-	 * This slot will open a window in which you can do some calculations.
-	 */
-	void slotCalculations();
+		void showToolbar();
 
-	/**
-	 * The quiz will start.
-	 */
-	void slotKnowledge();
+		/**
+		 * This slot will open a window in which you can do some calculations.
+		 */
+		void slotCalculations();
 
-	/**
-	 * This slot gives you information if the element tends to
-	 * built acid, bases, does neither or is amphoter.
-	 */
-	void slotShowAcidBeh();
+		/**
+		 * The quiz will start.
+		 */
+		void slotKnowledge();
 
-	/**
-	 * This slots shows all elements.
-	 */
-	void slotShowAll();
+		/**
+		 * This slot gives you information if the element tends to
+		 * built acid, bases, does neither or is amphoter.
+		 */
+		void slotShowAcidBeh();
 
-	/*
-	 * Shows you the 4 different blocks.
-	 */
-	void slotShowBlocks();
+		/**
+		 * This slots shows all elements.
+		 */
+		void slotShowAll();
 
-	/**
-	 * This slot gives you the information in which group
-	 * the element is (1 to 8).
-	 */
-	void slotShowGroups();
+		/*
+		 * Shows you the 4 different blocks.
+		 */
+		void slotShowBlocks();
 
-	/**
-	 * This slot hides all elements which have not been known
-	 * when Mendelejew created the first PSE
-	 */
-	void slotShowMendelejew();
+		/**
+		 * This slot gives you the information in which group
+		 * the element is (1 to 8).
+		 */
+		void slotShowGroups();
 
-	/**
-	 * This slot shows the users in what state the element
-	 * is at 20 degree and 1013 h-pascal.
-	 */
-	void slotShowStateOfMatter();
+		/**
+		 * This slot hides all elements which have not been known
+		 * when Mendelejew created the first PSE
+		 */
+		void slotShowMendelejew();
 
-	void slotPlotData();
+		/**
+		 * This slot shows the users in what state the element
+		 * is at 20 degree and 1013 h-pascal.
+		 */
+		void slotShowStateOfMatter();
 
-	void updateColorMenu(int);
+		void slotPlotData();
 
-	void updateNumMenu(int);
+		void updateColorMenu(int);
 
-	void slotShowTimeline(bool);
-	void slotShowQuickinfo(bool);
-	void slotShowLegend(bool);
+		void updateNumMenu(int);
 
-	void hideSettingsDialog();
+		void slotShowTimeline(bool);
+		void slotShowQuickinfo(bool);
+		void slotShowLegend(bool);
 
-	void showSettingsDialog();
+		void hideSettingsDialog();
 
-	/**
-	 * Which element has been known when? A slider will
-	 * appear and you can check it out.
-	 */
-	void timeline();
+		void showSettingsDialog();
+
+		/**
+		 * Which element has been known when? A slider will
+		 * appear and you can check it out.
+		 */
+		void timeline();
 };
 #endif

@@ -3,7 +3,7 @@
         kalzium.cpp  -  description
                              -------------------
     begin                : Die Dez  4 17:59:34 CET 2001
-    copyright            : (C) 2001, 2002 by Carsten Niehaus
+    copyright            : (C) 2001, 2002, 2003 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -16,36 +16,16 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "kalzium.h"
-#include "kalzium.moc"
-#include "../calculations/kmoledit.h"
-#include "../calculations/kmolcalc.h"
-#include "calcdialog.h"
-#include "eleminfo.h"
-#include "elementkp.h"
-#include "settingsdialog.h"
-#include "legend.h"
-#include "fastinfo.h"
-
 //KDE-Includes
 #include <kdebug.h>
 #include <kaction.h>
-#include <kapplication.h>
 #include <kconfig.h>
-#include <kdialog.h>
-#include <kedittoolbar.h>
 #include <kglobalsettings.h>
-#include <khelpmenu.h>
 #include <kiconloader.h>
 #include <klocale.h>
-#include <kmenubar.h>
-#include <kpopupmenu.h>
-#include <kpushbutton.h>
 #include <ksimpleconfig.h>
-#include <kstatusbar.h>
 #include <kstdaction.h>
 #include <kstandarddirs.h>
-#include <kcolorbutton.h>
 
 //QT-Includes
 #include <qinputdialog.h>
@@ -56,13 +36,22 @@
 #include <qtooltip.h>
 #include <qstring.h>
 #include <qwhatsthis.h>
-#include <qsplitter.h>
 
 // Table includes
 #include "quizdlg.h"
 #include "calcdlg.h"
 #include "stateofmatterdlg.h"
 #include "KalziumGraph.h"
+#include "kalzium.h"
+#include "kalzium.moc"
+#include "../calculations/kmoledit.h"
+#include "../calculations/kmolcalc.h"
+#include "calcdialog.h"
+#include "eleminfo.h"
+#include "elementkp.h"
+#include "settingsdialog.h"
+#include "legend.h"
+#include "fastinfo.h"
 
 
 Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)

@@ -2,7 +2,7 @@
                           eleminfo.cpp  -  description
                              -------------------
     begin                : Sat Dec 8 2001
-    copyright            : (C) 2001, 2002 by Carsten Niehaus
+    copyright            : (C) 2001, 2002, 2003 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -80,7 +80,7 @@ void position(int n, int& h, int& v)
 
 
     //Potassium --> Uuo without La and Ac
-    if ((n >= 19 && n <= 56) || (n >= 72 && n <= 88) || n >= 104)
+    if ((n >= 19 && n <= 57) || (n >= 72 && n <= 89) || n >= 104)
 	for (int i = 1; i <= 18; i++)
 	{
 	    int f = n;
@@ -110,18 +110,18 @@ void position(int n, int& h, int& v)
 
 
     //Lanthanum --> Lutetium and Actinum --> Lawrencium
-    if ((n >= 57 && n <= 71) || (n >= 89 && n <= 103))
+    if ((n >= 58 && n <= 71) || (n >= 90 && n <= 103))
 	for (int i = 1; i <= 14; i++)
 	{
-	    int f = n;
-	    if (n > 56)
-		    f = n-55;
-	    if (n > 88)
-		    f = n-87;
-	    h=(f*40);
-	    v = 290;
-	    if (n >= 89)
-		    v=330;
+		int f = n;
+		if (n > 57)
+			f = n-55;
+		if (n > 88)
+			f = n-87;
+		h=(f*40);
+		v = 290;
+		if (n >= 90)
+			v=330;
 	}
     v += 10;
 }

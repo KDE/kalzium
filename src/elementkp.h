@@ -2,7 +2,7 @@
                           elementkp.h  -  description
                              -------------------
     begin                : Mon Dec 10 2001
-    copyright            : (C) 2001, 2002 by Carsten Niehaus
+    copyright            : (C) 2001, 2002, 2003 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
