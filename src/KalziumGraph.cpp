@@ -91,11 +91,11 @@ void KalziumGraphDialog::fillList( int from, int to, KalziumGraphDataContainer *
 	for ( int i = from ; i < to ; i++ )
 	{
 		QListViewItem *item = new QListViewItem( list );
-		connect(  list, SIGNAL(  clicked(  QListViewItem* ) ), this, SLOT(  itemSelected(  QListViewItem* ) ) );
 
 		item->setText(0, QString::number( i ) );
 		item->setText( 1, data->Symbols[ i ] );
 	}
+	connect(  list, SIGNAL(  clicked(  QListViewItem* ) ), this, SLOT(  itemSelected(  QListViewItem* ) ) );
 }
 
 void KalziumGraphDialog::itemSelected( QListViewItem *item )
@@ -103,7 +103,11 @@ void KalziumGraphDialog::itemSelected( QListViewItem *item )
 	if ( !item ) return;
 	item->setSelected( TRUE );
 	item->repaint();
-	kdDebug() << item->itemPos()/18 << endl;
+	int h = item->height();                          //h is the height of each item. For some reasons
+	int index = item->itemPos()/h;                   //I can't find out the indexnumber of the item
+													 //so I have to divide the pixel-position durch the
+													 //height :(
+	QString number = item->text( 0 );
 }
 
 bool KalziumGraphDialog::valuesAreOk()
