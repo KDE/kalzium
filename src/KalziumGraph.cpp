@@ -92,26 +92,38 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 	QPainter DC;
 	DC.begin( this );
 
-	int w_w = this->width()-10;
-	int w_h = this->height();
-
-	int num = toRange_-fromRange_;
-	int real_w=w_w/num;                       //real_w ist die Breite pro Datenpunkt
+	int w_w = this->width()-10;         //this is the width of the widget in which the 
+										//drawing happens
+	
+	int w_h = this->height();           //this is the height of the widget in which the
+                                        //drawing happens
+	
+	int num = toRange_-fromRange_;      //the number of datapoints
+	
+	int real_w=w_w/num;                 //real_w is the width per datapoint
 
 	DC.drawRect(10,10,w_w,w_h-10);
 		
-	double max = getMax();
-	double min = getMin();
+	double max = getMax();              //the maximum value of the drawed data
+
+	double min = getMin();              //the minimum value of the drawed data
 
 	for( int i = 0 ; i < num ; i++ )
 	{
 		double current = data->Data[ fromRange_+i ]/max;
-		current*=w_h;
+		                                //at this point of time current is value of the data-
+										//point but fitted into the widgetsize
+
+		current*=w_h;                   //current is now the y-coordinate.
 		
 		int x=0, y=0, x_old=0, y_old=0;
-		x=real_w*i+10;
-		y=w_h-( ( int )current )+10;
-		x_old=real_w*( i-1 )+10;
+		
+		x=real_w*i+10;                  //x is now the correct x-coordinate
+		
+		y=w_h-( ( int )current )+10;    //y is now the correct y-coordinate
+
+		x_old=real_w*( i-1 )+10;        //x_old is the x-coordinate for (i-1)
+		
 		if( i != 0 ) 
 		{
 			int temp = i; temp--;
@@ -120,11 +132,11 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 			y_old*=w_h;
 		}
 
-		DC.drawEllipse( x , y , 4 , 4 );
+		DC.drawEllipse( x , y , 4 , 4 );//draw the datapoints
 		
 
 		if( i != 0 )
-		{
+		{                               //draw the lines
 			DC.drawLine( x_old,y_old,x,y );
 		}
 		
