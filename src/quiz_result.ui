@@ -13,7 +13,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string>See your results!</string>
+        <string>See your Results</string>
     </property>
     <grid>
         <property name="name">
