@@ -10,7 +10,7 @@
  * as a list of elements and their coefficients, ELEMENTS. 
  */
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <klocale.h>
 #include <kstddirs.h>
 #include "kmolcalc.h"

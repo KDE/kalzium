@@ -15,7 +15,7 @@
 #include <config.h>
 #endif
 
-#include <kapp.h>
+#include <kapplication.h>
 
 #include <qlist.h>
 #include <qdict.h>

@@ -7,7 +7,7 @@
 // classes that store and manipulate chemical formulas represented as
 // lists of elements
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <stdio.h>
 #include "kmolelements.h" 
 

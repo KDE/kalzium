@@ -29,7 +29,7 @@
 
 //KDE-Includes
 #include <kaction.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <kconfig.h>
 #include <kdialog.h>
 #include <khelpmenu.h>
