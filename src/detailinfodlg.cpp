@@ -46,6 +46,7 @@
 
 #include "detailinfodlg.h"
 #include "infodialog.h"
+#include "orbitswidget.h"
 
 DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Detailed Look on %1").arg( Eleminfo.Name.lower().utf8() ), Ok|User1|User2 ,Ok, parent,name, true, false)
@@ -125,6 +126,12 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	QLabel *meanweight_label = new QLabel( i18n("Meanweight: %1").arg(Data.meanweight ) , miscTab );
 	miscLayout->addWidget( discovered_label );
 	miscLayout->addWidget( meanweight_label );
+	
+	/////////////////////////////////
+    orbitsTab = addPage(i18n("Bohrs Orbits"), i18n("Bohrs Orbits"), BarIcon(kil->iconPath( "orbits" , KIcon::User)));
+	QVBoxLayout *orbitsLayout = new QVBoxLayout( orbitsTab );
+	OrbitsWidget *orbitsPic = new OrbitsWidget( Data.orbits , orbitsTab );
+	orbitsLayout->addWidget( orbitsPic );
 }
 
 void DetailedInfoDlg::slotUser1()

@@ -85,8 +85,6 @@ ElementInfo ElemInfoParsed::information()
 
 	if (info.date == "0")
 		info.date = i18n("was known to ancient cultures");
-	else if (info.date == "3333")
-		info.date = i18n("not been discovered yet");
 	else
 		info.date = i18n("%1").arg(info.date);
 

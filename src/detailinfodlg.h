@@ -46,7 +46,7 @@ class DetailedInfoDlg : public KDialogBase
         DetailedInfoDlg( ElementInfo Eleminfo , QWidget *parent=0, const char *name=0);
 		ElementInfo Data;
 
-		QFrame *mainTab, *energyTab, *chemicalTab, *overviewTab, *miscTab;
+		QFrame *mainTab, *energyTab, *chemicalTab, *overviewTab, *miscTab, *orbitsTab;
 
 		DetailedTab *dTab;
 

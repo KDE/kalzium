@@ -206,8 +206,8 @@ void Kalzium::setupTimeline()
     dateS = new QSlider (QSlider::Horizontal, main_window, "rotateSlider" );
     timeline_layout->addWidget( dateS );
     QWhatsThis::add(dateS, i18n("Use this slider to see what elements were known at a certain date."));
-    dateS->setRange(1669, 2002);
-    dateS->setValue(2002);
+    dateS->setRange(1669, 2003);
+    dateS->setValue(2003);
     dateS->hide();
     connect( dateS, SIGNAL(valueChanged(int)),  SLOT(timeline()));
 
@@ -546,17 +546,33 @@ void Kalzium::slotShowLegend( bool id )
 
 void Kalzium::timeline()
 {
-    dateLCD->display(dateS->value());
+    int currentDate = dateS->value();
+	QString currentDateString = QString::number( currentDate );
+	dateLCD->display( currentDate );
     for (int i = 0; i < 109; ++i)
     {
-        PElementKP& b(element[i]);
-        if (b->Data.date > QString::number(dateS->value()))
+		PElementKP& b(element[i]);
+        
+		if (i+1 == 6 ||
+			i+1 == 16 ||
+			i+1 == 26 ||
+			i+1 == 29 ||
+			i+1 == 33 ||
+			i+1 == 47 ||
+			i+1 == 50 ||
+			i+1 == 51 ||
+			i+1 == 79 ||
+			i+1 == 80 
+			)
+		{
+            b->show();
+			continue;
+		}
+        
+        if (b->Data.date > currentDateString)
             b->hide();
         else
             b->show();
-
-        if (b->Data.date == "3333" && QString::number(dateS->value()) < "1996")
-            b->hide();
     }
 }
 
@@ -621,8 +637,11 @@ void Kalzium::setupActions()
     KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
     KStdAction::keyBindings(this, SLOT(optionsConfigureKeys()), actionCollection());
     KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
-    createStandardStatusBarAction();
-    //setStandardToolBarMenuEnabled(true);
+#if KDE_VERSION_MINOR >1 && KDE_VERSION_MAJOR >= 3
+	createStandardStatusBarAction(); //post-KDE 3.1
+#else
+    setStandardToolBarMenuEnabled(true); //KDE 3.1
+#endif
     
     QStringList psestylelist;
     psestylelist.append( i18n("Mendeleev"));
