@@ -61,7 +61,7 @@
                             </column>
                             <column>
                                 <property name="text">
-                                    <string>Denstiy [g/cm³]</string>
+                                    <string>Density [g/cm³]</string>
                                 </property>
                             </column>
                             <column>

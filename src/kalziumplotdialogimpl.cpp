@@ -55,7 +55,7 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 	whatKCB->insertItem( i18n( "Atomic Weight" ) );
 	whatKCB->insertItem( i18n( "Electronegativity" ) );
 	whatKCB->insertItem( i18n( "Melting point" ) );
-	whatKCB->insertItem( i18n( "Ionisation Energy" ) );
+	whatKCB->insertItem( i18n( "Ionization Energy" ) );
 	whatKCB->insertItem( i18n( "Atomic Radius" ) );
 	whatKCB->insertItem( i18n( "Boiling point" ) );
 	whatKCB->insertItem( i18n( "Density" ) );
@@ -141,7 +141,7 @@ void KalziumPlotDialogImpl::setPlotAxis( const int id )
 			yLabel =  i18n( "Melting point [K]" );
 			break;
 		case 3:
-			yLabel =  i18n( "Ionisation Energy [kJ]" );
+			yLabel =  i18n( "Ionization Energy [kJ]" );
 			break;
 		case 4:
 			yLabel =  i18n( "Atomic Radius [pm]" );

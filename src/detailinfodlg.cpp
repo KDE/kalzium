@@ -99,7 +99,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	QLabel *densityLabel = new QLabel( i18n( "Density: %1").arg( Data._Density ) , chemicalTab );
 	QLabel *blockLabel  = new QLabel( i18n( "Block: %1" ).arg( Data.Block ) , chemicalTab );
 	QLabel *atomrad    = new QLabel( i18n( "Atomic radius: %1" ).arg( Data._AR ) , chemicalTab );
-	QLabel *atomweightLabel = new QLabel( i18n( "Atomic weigth: %1" ).arg( Data.Weight ) , chemicalTab );
+	QLabel *atomweightLabel = new QLabel( i18n( "Atomic weight: %1" ).arg( Data.Weight ) , chemicalTab );
 	chemicalLayout->addWidget( orbtisLabel );
 	chemicalLayout->addWidget( symbolLabel );
 	chemicalLayout->addWidget( densityLabel);
