@@ -32,10 +32,12 @@ class KalziumGraphDialog : public KDialog
 	public:
 		KalziumGraphDialog( QWidget *parent=0, const char *name =0 );
 		QGridLayout *grid;
-	public slots:
-		void slotokClicked();
+	
 	private:
 		KComboBox *kcb;
+	
+	public slots:
+			void slotokClicked();
 };
 
 class KalziumGraphDisplay : public QWidget
@@ -48,16 +50,16 @@ class KalziumGraphDataContainer
 {
 	public:
 		KalziumGraphDataContainer( int, int, int);
-		QString Data[ 118 ];
+		double Data[ 118 ];
 };
 
-//Datempräsentation
+//Datenpräsentation
 class KalziumGraph : public QWidget
 {
-    Q_OBJECT
+	Q_OBJECT
 
-    public:
-	KalziumGraph(QWidget *parent = 0, const char *name=0, KalziumGraphDataContainer *data=0);
+	public:
+		KalziumGraph( int , int , QWidget *parent = 0, const char *name=0, KalziumGraphDataContainer *data=0);
 };
 
 #endif

@@ -43,9 +43,12 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 	KPushButton *ok = new KPushButton( i18n( "Graph" ),this );
 	kcb = new KComboBox( this );
 	kcb->insertItem( i18n( "Atomic Weight" ));
+	kcb->insertItem( i18n( "Electronegativity" ) );
 	kcb->insertItem( i18n( "Density" ) );
 	kcb->insertItem( i18n( "Melting Point" ));
 	kcb->insertItem( i18n( "Boiling Point" ) );
+	kcb->insertItem( i18n( "Ionisation Energie" ) );
+	kcb->insertItem( i18n( "Atomic Radius" ) );
 	QObject::connect(ok, SIGNAL( clicked() ), this, SLOT(slotokClicked() ));
 	grid->addWidget( ok, 0,0 );
 	grid->addWidget( kcb, 1,0 );
@@ -64,31 +67,16 @@ void KalziumGraphDialog::slotokClicked()
 KalziumGraphDisplay::KalziumGraphDisplay( int typ, int fromRange, int toRange , QWidget *parent, const char *name ):QWidget( parent, name )
 {
 	KalziumGraphDataContainer *container = new KalziumGraphDataContainer( typ, fromRange, toRange );
-	KalziumGraph *graph = new KalziumGraph( this, "graph" , container);
+	KalziumGraph *graph = new KalziumGraph( fromRange,toRange,this, "graph" , container);
 }
 
-KalziumGraph::KalziumGraph( QWidget *parent, const char *name, KalziumGraphDataContainer *datacontainer) :
+KalziumGraph::KalziumGraph( int fromRange, int toRange,QWidget *parent, const char *name, KalziumGraphDataContainer *datacontainer) :
 QWidget( parent, name ) 
 {
 	KalziumGraphDataContainer *data = datacontainer;
 	QGridLayout *grid2 = new QGridLayout ( this, 6, 3 ,8, -1, "GraphLayout" );
-	QLabel *one = new QLabel ( this );
-	QLabel *two = new QLabel ( this );
-	QLabel *three = new QLabel ( this );
-	QLabel *four = new QLabel ( this );
-	QLabel *five = new QLabel ( this );
-	one->setText( "one" );
-	two->setText( "two" );
-	three->setText( "three" );
-	four->setText( "four" );
-	five->setText( "five" );
-	grid2->addWidget( one ,1,0);
-	grid2->addWidget( two ,2,0);
-	grid2->addWidget( three ,3,0);
-	grid2->addWidget( four ,4,0);
-	grid2->addWidget( five ,5,0);
 
-	for( int i = 0 ; i < 10 ; i++ )
+	for( int i = fromRange ; i < toRange ; i++ )
 	{
 		kdDebug() << data->Data[ i ] << endl;
 	}
@@ -96,11 +84,46 @@ QWidget( parent, name )
 
 KalziumGraphDataContainer::KalziumGraphDataContainer( int typ, int fromRange, int toRange )
 {
-	//for testing: only weight
-    KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
-	for( int i = 0; i < 10 ; i++ )
+	KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
+
+	//Weight 
+	//EN 
+	//MP == Meltingpoint 
+	//BP == Boilingpoint 
+	//Density 
+	//IE == Ionizationenergie 
+	//AR == atmomic radius 
+
+	QString kind;
+
+	switch ( typ ){
+		case 0:
+			kind = "Weight";
+			break;
+		case 1:
+			kind = "EN";
+			break;
+		case 2:
+			kind = "Density";
+			break;
+		case 3:
+			kind = "MP";
+			break;
+		case 4:
+			kind = "BP";
+			break;
+		case 5:
+			kind = "IE";
+			break;
+		case 6:
+			kind = "AR";
+			break;
+	}
+
+
+	for( int i = fromRange; i < toRange ; i++ )
 	{
 		config.setGroup(QString::number( i ));
-		Data[ i ]=config.readEntry( "Weight", "0.0" );
+		Data[ i ]=config.readDoubleNumEntry( kind, -1 );
 	}
 }
