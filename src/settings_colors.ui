@@ -574,7 +574,7 @@
                                     </widget>
                                     <widget class="KColorButton">
                                         <property name="name">
-                                            <cstring>kcfg_color_vapor</cstring>
+                                            <cstring>kcfg_color_liquid</cstring>
                                         </property>
                                         <property name="text">
                                             <string></string>
@@ -600,7 +600,7 @@
                                     </widget>
                                     <widget class="KColorButton">
                                         <property name="name">
-                                            <cstring>kcfg_color_liquid</cstring>
+                                            <cstring>kcfg_color_vapor</cstring>
                                         </property>
                                         <property name="text">
                                             <string></string>
@@ -694,5 +694,10 @@
         </widget>
     </grid>
 </widget>
+<customwidgets>
+</customwidgets>
 <layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>kcolorbutton.h</includehint>
+</includehints>
 </UI>
