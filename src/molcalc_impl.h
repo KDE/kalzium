@@ -39,7 +39,7 @@ class MolcalcImpl : public MolcalcDialog
 
 	private:
 		double m_weight;
-		QString m_elementsymbols;
+		QValueList<Element*> m_elements;
 
 		enum KIND
 		{
@@ -48,6 +48,13 @@ class MolcalcImpl : public MolcalcDialog
 		};
 		
 		void updateData( int number, KIND kind );
+
+		/**
+		 * recalcualtes the weight
+		 */
+		void recalculate();
+
+		void updateUI();
 
 	public slots:
 		void slotButtonClicked( int buttonnumber );

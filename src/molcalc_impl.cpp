@@ -44,23 +44,73 @@ void MolcalcImpl::slotButtonClicked( int buttonnumber )
 		updateData( buttonnumber, ADD );
 	else
 		updateData( buttonnumber, REMOVE );
-
-	resultLabel->setText( i18n( "Weight of the molecule: %1" ).arg( m_weight ) );
 }
 
 void MolcalcImpl::updateData( int number, KIND kind )
 {
-	Element el( number );
+	Element *el = new Element( number );
 	if ( kind == ADD )
-		m_weight += el.weight();
+	{
+		kdDebug() << "ADD" << endl;
+		m_weight += el->weight();
+		m_elements.append( el );
+	}
 	else //TODO check if the element was in the list
-		m_weight -= el.weight();
+	{
+		kdDebug() << "REMOVE" << endl;
+
+		QValueList<Element*>::const_iterator it = m_elements.begin( );
+		QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+
+		kdDebug() << "Try to remove Element " << el->elname() << endl;
+
+		bool removed = false;
+		while ( !removed && ( it != itEnd ))
+		{
+				if ( ( *it )->elname() == el->elname() )
+				{
+					m_elements.remove( *it );
+					removed = true;
+				}
+				it++;
+		}
+	}
+	recalculate();
+	updateUI();
 }
 
 void MolcalcImpl::slotPlusToggled(bool on)
 {
 	on ? minusButton->setOn( false ) : minusButton->setOn( true );
 }	
+
+void MolcalcImpl::recalculate()
+{
+	kdDebug() << "# of elements: " << m_elements.count() << endl;
+	QValueList<Element*>::const_iterator it = m_elements.begin( );
+	QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+
+	m_weight = 0.0;
+	
+	for ( ; it != itEnd ; ++it )
+	{
+		m_weight += ( *it )->weight();
+	}
+}
+
+void MolcalcImpl::updateUI()
+{
+	QValueList<Element*>::const_iterator it = m_elements.begin( );
+	QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+
+	QString str;
+	
+	for ( ; it != itEnd ; ++it )
+	{
+		str += i18n( "%1 %2\n" ).arg(( *it )->elname()).arg(( *it )->weight());
+	}
+	resultLabel->setText( str );
+}
 
 void MolcalcImpl::slotMinusToggled(bool on)
 {
