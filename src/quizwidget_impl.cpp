@@ -16,6 +16,7 @@
 #include <qlabel.h>
 #include <qradiobutton.h>
 #include <qbuttongroup.h>
+#include <qlayout.h>
 
 #include <kstandarddirs.h>
 #include <klocale.h>
@@ -28,14 +29,10 @@ QuizWidgetImpl::QuizWidgetImpl( QWidget *parent, const char* name )
 	
 	connect( QuestionGroup, SIGNAL( clicked(int )), this, SLOT( slotAnswered( int )) );
 	Task *m_currentTask = new Task();
-
-	for ( int i = 0 ;  i < 4 ; ++i )
-	{//create the four QRadioButton for the max. four answers
-		QRadioButton *r = new QRadioButton( QuestionGroup, "r" );
-		r->hide();
-		buttonList.append( r );
-	}
+	
+	buttonList << btn1 << btn2 << btn3 << btn4;
 	setupPixmaps();
+	setRadiobuttons();
 }
 
 void QuizWidgetImpl::setupPixmaps()
