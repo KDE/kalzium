@@ -51,7 +51,7 @@ somDialogImpl::somDialogImpl(PSE* p, QWidget* parent, const char* name)
 			UserInput->setMaxValue( 6000 );
 			break;
 		case 2:
-			UserInput->setSuffix( i18n( "The symbol for Degree Celsius. There is a space in front of the °C!", " °C" ) );
+			UserInput->setSuffix( i18n( "The symbol for Degree Celsius. There is a space in front of the Â°C!", " Â°C" ) );
 			Dial->setMinValue( -273 );
 			Dial->setMaxValue( 200 );
 			UserInput->setMinValue( -273 );
