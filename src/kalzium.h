@@ -86,11 +86,7 @@ class Kalzium : public KMainWindow
 		 * all KActions Kalzium uses
 		 **/
 		KSelectAction *schema_action;
-		KAction *m_pSimplePSEAction,
-			*m_pRegularPSEAction,
-			*m_pMendeljevPSEAction,
-
-			*m_pQuizStart,
+		KAction *m_pQuizStart,
 			*m_pQuizSetup,
 			*m_pQuizEditQuestions,
 			*m_pQuizAddQuestions,

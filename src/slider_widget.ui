@@ -13,6 +13,9 @@
         </rect>
     </property>
     <property name="caption">
+        <string>Timeline</string>
+    </property>
+    <property name="toolTip" stdset="0">
         <string>Use the slider to see, what elements have been known when</string>
     </property>
     <property name="whatsThis" stdset="0">
@@ -91,9 +94,6 @@
         <slot>pSlider_valueChanged(int)</slot>
     </connection>
 </connections>
-<includes>
-    <include location="local" impldecl="in implementation">slider_widget.ui.h</include>
-</includes>
 <slots>
     <slot>pSlider_sliderPressed()</slot>
     <slot>pSlider_valueChanged( int )</slot>

@@ -8,12 +8,12 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>507</width>
-            <height>396</height>
+            <width>218</width>
+            <height>172</height>
         </rect>
     </property>
     <property name="caption">
-        <string>setColorScheme</string>
+        <string>Color Scheme</string>
     </property>
     <grid>
         <property name="name">
@@ -24,7 +24,7 @@
                 <cstring>kcfg_colorschemebox</cstring>
             </property>
             <property name="title">
-                <string>Select the default colorscheme</string>
+                <string>Color Scheme</string>
             </property>
             <vbox>
                 <property name="name">

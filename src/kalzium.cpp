@@ -184,10 +184,10 @@ void Kalzium::showSettingsDialog()
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
 	connect( dialog, SIGNAL( settingsChanged() ), m_pCurrentPSE, SLOT( slotUpdatePSE() ) );
 	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotSaveConfig() ) );
-	dialog->addPage( new setColorScheme( 0, "colorscheme_page"), i18n("Configure Default Colorscheme"), "colorize");
-	dialog->addPage( new setColors( 0, "colors_page"), i18n("Configure Colors"), "colorize");
-	dialog->addPage( new setupQuiz( 0, "quizsetuppage" ), i18n( "Configure Quiz" ), "edit" );
-	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Configure Misc" ), "misc" );
+	dialog->addPage( new setColorScheme( 0, "colorscheme_page"), i18n("Color Scheme"), "colorize");
+	dialog->addPage( new setColors( 0, "colors_page"), i18n("Colors"), "colorize");
+	dialog->addPage( new setupQuiz( 0, "quizsetuppage" ), i18n( "Quiz" ), "edit" );
+	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Misc" ), "misc" );
 	dialog->show();
 }
 

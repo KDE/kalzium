@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>600</width>
-            <height>137</height>
+            <width>124</width>
+            <height>124</height>
         </rect>
     </property>
     <property name="caption">
@@ -24,7 +24,7 @@
                 <cstring>quiz_grade</cstring>
             </property>
             <property name="title">
-                <string>Difficultylevel</string>
+                <string>Difficulty Level</string>
             </property>
             <grid>
                 <property name="name">
