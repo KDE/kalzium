@@ -6,7 +6,7 @@ SUBDIRS = icons
 bin_PROGRAMS = kalzium
 kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp stateofmatterdlg.cpp calcdlg.cpp calcdialog.cpp value_visualisation.cpp settingsdialog.cpp
 
-kalzium_LDADD   =  $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_KHTML) $(LIB_QT) $(LIBSOCKET) ../calculations/libkmol.la
+kalzium_LDADD   = $(LIB_KHTML) ../calculations/libkmol.la
 
 
 EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp calcdialog.cpp value_visualisation.cpp value_visualisation.h settingsdialog.cpp settingsdialog.h
@@ -32,12 +32,13 @@ kalzium_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 elementnames:
 	  rm -f kalzium_i18n.cpp; \
 	  echo "#if 0" >> kalzium_i18n.cpp ;\
-          egrep 'Name=' kalziumrc | sed -e 's#^Name=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
-          egrep 'Q=' kalziumrc | sed -e 's#^Q=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
-          egrep 'A=' kalziumrc | sed -e 's#^A=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
-          egrep 'Alternative1=' kalziumrc | sed -e 's#^Alternative1=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
-          egrep 'Alternative2=' kalziumrc | sed -e 's#^Alternative2=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
-	  echo "#endif" >> kalzium_i18n.p
-messages: 
-	 $(XGETTEXT) $(kalzium_SOURCES) -o $(podir)/kalzium.pot
+          grep 'Name=' kalziumrc | sed -e 's#^Name=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
+          grep 'Q=' kalziumrc | sed -e 's#^Q=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
+          grep 'A=' kalziumrc | sed -e 's#^A=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
+          grep 'Alternative1=' kalziumrc | sed -e 's#^Alternative1=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
+          grep 'Alternative2=' kalziumrc | sed -e 's#^Alternative2=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
+	  echo "#endif" >> kalzium_i18n.cpp
+
+messages: elementnames rc.cpp
+	$(XGETTEXT) *.cpp ../calculations/*.cpp -o $(podir)/kalzium.pot
 
