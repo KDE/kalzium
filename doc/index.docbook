@@ -231,6 +231,19 @@ You will notice that some elements are not even shown in the year 2004.
 This is because some of the elements have not been discovered yet but are
 predicted to exist.
 </para>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="screenshot6.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>the <quote>Timeline</quote></phrase>
+</textobject>
+<caption><para>The PSE back in time (elements known in 1856)</para>
+</caption>
+</mediaobject>
+</screenshot>
 </sect2>
 
 <sect2 id="plot_data">
@@ -256,6 +269,7 @@ The <guimenuitem>Plot Data</guimenuitem> dialog allows you to plot some informat
 <title>State of Matter</title>
 <para>
 With the <guimenuitem>Show State Of Matter</guimenuitem>: you can choose which state you want depending of the temperature.
+You can easily visualize how many elements and what elements are for example solid at a given temperature. So you can learn that almost all are solid at very low temperatures and that most are liquid or even vaporous at high temperatures.
 </para>
 <screenshot>
 <mediaobject>
