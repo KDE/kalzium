@@ -49,16 +49,14 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	QString cap = i18n( "%1 (%2)" ).arg( elname ).arg( num );
 	setCaption( cap );
     
-    	const KIconLoader *kil = KGlobal::iconLoader();
-	
-	m_pOverviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon(kil->iconPath( "overview" , KIcon::User)));
+	m_pOverviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon( "overview" ));
 	QVBoxLayout *overviewLayout = new QVBoxLayout( m_pOverviewTab );
 	dTab = new DetailedTab( e, m_pOverviewTab );
 	overviewLayout->addWidget( dTab );
 
 
 	/////////////////////////////////
-    m_pMiscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon(kil->iconPath( "misc" , KIcon::User)));
+    m_pMiscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon( "misc" ));
 	QVBoxLayout *miscLayout = new QVBoxLayout( m_pMiscTab );
 	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg( Element::adjustUnits(  e->date() , 5 ) ) , m_pMiscTab );
 	QLabel *meanweight_label = new QLabel( i18n("Mean weight: %1 u").arg(e->meanweight() ) , m_pMiscTab );
@@ -68,7 +66,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	miscLayout->insertStretch(-1,1);
 
 	////////////////////////////////////7
-	m_pPictureTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( e->elname().utf8() ), BarIcon(kil->iconPath( "elempic" , KIcon::User)));
+	m_pPictureTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( i18n( e->elname().utf8() ) ), BarIcon( "elempic" ));
 	QVBoxLayout *mainLayout = new QVBoxLayout( m_pPictureTab );
 	QLabel *piclabel = new QLabel( m_pPictureTab );
 	if ( !locate(  "data" , "kalzium/elempics/" + e->symbol() + ".jpg" ).isEmpty() )
@@ -81,14 +79,14 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	}
 	else 
 	{
-		piclabel->setText( i18n( "No picture of %1 found!" ).arg( e->elname().utf8() ) );
+		piclabel->setText( i18n( "No picture of %1 found!" ).arg( i18n( e->elname().utf8() ) ) );
 	}
 	mainLayout->addWidget( piclabel );
 
 	
 	////////////////////////////////////7
 	
-	m_pEnergyTab =   addPage( i18n("Energies"), i18n( "Energy Information" ), BarIcon( kil->iconPath( "energies", KIcon::User ) ) );
+	m_pEnergyTab =   addPage( i18n("Energies"), i18n( "Energy Information" ), BarIcon( "energies" ) );
 	QVBoxLayout *energyLayout = new QVBoxLayout( m_pEnergyTab );
 	detail_energy *wEnergy = new detail_energy( m_pEnergyTab );
 
@@ -101,7 +99,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	
 	////////////////////////////////////7
 	
-	m_pChemicalTab = addPage( i18n("Chemical Data"), i18n( "Chemical Data" ), BarIcon( kil->iconPath( "chemical", KIcon::User ) ));
+	m_pChemicalTab = addPage( i18n("Chemical Data"), i18n( "Chemical Data" ), BarIcon( "chemical") );
 	QVBoxLayout *chemicalLayout = new QVBoxLayout( m_pChemicalTab, 0, KDialog::spacingHint() );
 	detail_chemical *wChemical = new detail_chemical( m_pChemicalTab );
 
@@ -115,12 +113,12 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
     
     /////////////////////////////////
 	
-	m_pModelTab = addPage( i18n("Atom Model"), i18n( "Atom Model" ), BarIcon( kil->iconPath( "orbits", KIcon::User ) ));
+	m_pModelTab = addPage( i18n("Atom Model"), i18n( "Atom Model" ), BarIcon( "orbits" ));
 	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
 	OrbitsWidget *wOrbits = new OrbitsWidget( e->number(), m_pModelTab );
 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
-							.arg( e->elname().utf8() )
-							.arg( e->elname().utf8() )
+							.arg( i18n( e->elname().utf8() ) )
+							.arg( i18n( e->elname().utf8() ) )
 							.arg( e->parsedOrbits() ) );
 	modelLayout->addWidget( wOrbits );
 
@@ -170,7 +168,7 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	p.drawText( x2/10 * 4, h_ , e->symbol() ); //Symbol
 
 	p.setFont( f2 );
- 	p.drawText( x1+4, y2-h_t , x2/2 , h_t , Qt::AlignLeft , e->elname().utf8() ); //Name
+ 	p.drawText( x1+4, y2-h_t , x2/2 , h_t , Qt::AlignLeft , i18n( e->elname().utf8() )); //Name
 	
 	p.drawText( x1+4+h_t , y2-2*h_t , x2-x1-4-h_t , h_t , Qt::AlignRight , e->oxstage() );    //Oxidationszahlen
 	p.drawText( x2/2 , y2-h_t , x2/2-4 , h_t , Qt::AlignRight , QString::number( e->weight() )); //Weight

@@ -1,1 +1,2 @@
-KDE_ICON=AUTO
+kalziumiconsdir = $(kde_datadir)/kalzium/icons
+kalziumicons_ICON = AUTO
