@@ -101,9 +101,6 @@ Kalzium::Kalzium()
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 
-	KStdAction::keyBindings( guiFactory(), SLOT( configureShortcuts() ), actionCollection() );
-	KStdAction::configureToolbars(this, SLOT(optionsConfigureToolbars()), actionCollection());
-
 	m_pRegularPSE = new RegularPSE( data(), this, "regularPSE");
 	m_pSimplePSE = new SimplifiedPSE( data(), this, "SimplifiedPSE");
 	m_pMendeljevPSE = new MendeljevPSE( data(), this, "MendeljevPSE");
@@ -114,11 +111,9 @@ Kalzium::Kalzium()
 	slotSwitchtoNumeration(Prefs::numeration() );
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
-	createGUI();
+	setupGUI();
 
 	setCentralWidget( m_pCurrentPSE );
-	
-	createStandardStatusBarAction();
 }
 
 void Kalzium::slotStartQuiz()

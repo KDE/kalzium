@@ -108,7 +108,7 @@ class PSE : public QWidget
 
 	private:
 		/**
-		 * updates the nummeration of the PSE
+		 * updates the numeration of the PSE
 		 */
 		virtual void updateNumeration();
 
