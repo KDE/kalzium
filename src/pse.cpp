@@ -36,7 +36,6 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	setupBlockLists();
 	setupPSEElementButtonsList();
 	
-	activateColorScheme( Prefs::colorschemebox() );
 }
 
 PSE::~PSE(){}
@@ -76,10 +75,11 @@ void PSE::setupPSEElementButtonsList(){}
 
 void PSE::activateColorScheme( const int nr )
 {
-	kdDebug() << nr << endl;
+	kdDebug() << "Setting scheme number: " << nr << endl;
 
-	if ( nr == 1) //normal view, no colors
+	if ( nr == 0) //normal view, no colors
 	{
+		kdDebug() << "Number 1 was choosen... no scheme" << endl;
 		ElementButton *button;
 		QColor color = Prefs::noscheme();
 		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
@@ -87,8 +87,10 @@ void PSE::activateColorScheme( const int nr )
 			button->setPaletteBackgroundColor( color );
 		}
 	}
-	else if ( nr == 2) //groups view
+	else if ( nr == 1) //groups view
 	{
+		kdDebug() << "Number 2 was choosen... groups" << endl;
+		
 		ElementButton *button;
 		const QColor color_1 = Prefs::group_1();
 		const QColor color_2 = Prefs::group_2();
@@ -139,8 +141,10 @@ void PSE::activateColorScheme( const int nr )
 			}
 		}
 	}
-	else if ( nr == 3) //block view
+	else if ( nr == 2) //block view
 	{
+		kdDebug() << "Number 3 was choosen... blocks" << endl;
+		
 		ElementButton *button;
 		const QColor color_s = Prefs::block_s();
 		const QColor color_p = Prefs::block_p();
@@ -171,41 +175,9 @@ void PSE::activateColorScheme( const int nr )
 			}
 		}
 	}
-	
-	else if ( nr == 5) //acidic beh
+	else if ( nr == 3) //state-of-matter
 	{
-		ElementButton *button;
-		const QColor color_ba = Prefs::beh_basic();
-		const QColor color_ac = Prefs::beh_acidic();
-		const QColor color_neu = Prefs::beh_neutral();
-		const QColor color_amp = Prefs::beh_amphoteric();
-
-		static QString acidicbeh;
-		
-		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
-		{
-			acidicbeh = button->e->acidicbeh();
-
-			if (acidicbeh == QString("0")) {
-				button->setPaletteBackgroundColor( color_ac );
-				continue;
-			}
-			if (acidicbeh == QString("1")){
-				button->setPaletteBackgroundColor( color_ba );
-				continue;
-			}
-			if (acidicbeh == QString("2")){
-				button->setPaletteBackgroundColor( color_neu );
-				continue;
-			}
-			if (acidicbeh == QString("3")){
-				button->setPaletteBackgroundColor( color_amp );
-				continue;
-			}
-		}
-	}
-	else if ( nr == 4) //state-of-matter
-	{
+		kdDebug() << "Number 4 was choosen... state-of-matter" << endl;
 		ElementButton *button;
 		const QColor color_solid = Prefs::color_solid();
 		const QColor color_liquid = Prefs::color_liquid();
@@ -237,6 +209,39 @@ void PSE::activateColorScheme( const int nr )
 			}
 			if (az == QString("4")){
 				button->setPaletteBackgroundColor( color_artificial );
+				continue;
+			}
+		}
+	}
+	else if ( nr == 4) //acidic beh
+	{
+		kdDebug() << "Number 5 was choosen... acidbeh" << endl;
+		ElementButton *button;
+		const QColor color_ba = Prefs::beh_basic();
+		const QColor color_ac = Prefs::beh_acidic();
+		const QColor color_neu = Prefs::beh_neutral();
+		const QColor color_amp = Prefs::beh_amphoteric();
+
+		static QString acidicbeh;
+		
+		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+		{
+			acidicbeh = button->e->acidicbeh();
+
+			if (acidicbeh == QString("0")) {
+				button->setPaletteBackgroundColor( color_ac );
+				continue;
+			}
+			if (acidicbeh == QString("1")){
+				button->setPaletteBackgroundColor( color_ba );
+				continue;
+			}
+			if (acidicbeh == QString("2")){
+				button->setPaletteBackgroundColor( color_neu );
+				continue;
+			}
+			if (acidicbeh == QString("3")){
+				button->setPaletteBackgroundColor( color_amp );
 				continue;
 			}
 		}
@@ -275,6 +280,7 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 	for (  int n=0; n<10; n++ ) grid->addRowSpacing(  n, 40 );
 	
 	setupPSEElementButtonsList();
+	activateColorScheme( Prefs::colorschemebox() );
 }
 
 RegularPSE::~RegularPSE(){} 
@@ -336,6 +342,7 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 	for (  int n=0; n<7; n++ ) grid->addRowSpacing(  n, 40 );
 	
 	setupPSEElementButtonsList();
+	activateColorScheme( Prefs::colorschemebox() );
 }
 
 SimplifiedPSE::~SimplifiedPSE(){}
@@ -356,8 +363,6 @@ void SimplifiedPSE::setupPSEElementButtonsList()
 	{
 		m_PSEElementButtons.append( button );
 	}
-	kdDebug() << "Anzahl der Buttons nach dem Erstellen: " << m_PSEElementButtons.count() << endl;
-	
 }
 
 MendeljevPSE::MendeljevPSE(KalziumDataObject *data, QWidget *parent, const char *name)
@@ -392,6 +397,7 @@ MendeljevPSE::MendeljevPSE(KalziumDataObject *data, QWidget *parent, const char 
 	for (  int n=0; n<7; n++ ) grid->addRowSpacing(  n, 40 );
 
 	setupPSEElementButtonsList();
+	activateColorScheme( Prefs::colorschemebox() );
 }
 
 MendeljevPSE::~MendeljevPSE(){}

@@ -8,12 +8,12 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>600</width>
-            <height>480</height>
+            <width>507</width>
+            <height>396</height>
         </rect>
     </property>
     <property name="caption">
-        <string></string>
+        <string>setColorScheme</string>
     </property>
     <grid>
         <property name="name">
@@ -40,10 +40,10 @@
                 </widget>
                 <widget class="QRadioButton">
                     <property name="name">
-                        <cstring>radioButton1_2</cstring>
+                        <cstring>radioButton4</cstring>
                     </property>
                     <property name="text">
-                        <string>Acidic Behaviour</string>
+                        <string>Groups</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton">
@@ -64,10 +64,10 @@
                 </widget>
                 <widget class="QRadioButton">
                     <property name="name">
-                        <cstring>radioButton4</cstring>
+                        <cstring>radioButton1_2</cstring>
                     </property>
                     <property name="text">
-                        <string>Groups</string>
+                        <string>Acidic Behaviour</string>
                     </property>
                 </widget>
             </vbox>
