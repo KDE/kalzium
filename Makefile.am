@@ -15,8 +15,7 @@ METASOURCES = AUTO
 
 ### OCAMLLIB is defined in configure.in.in
 ### if that does not work, uncomment the following lines :
-#
-OCAMLLIB=`ocamlc -where`
+# OCAMLLIB=`ocamlc -where`
 
 # the library search path. 
 eqchem_LDFLAGS = $(KDE_RPATH) $(all_libraries)
@@ -25,7 +24,7 @@ eqchem_LDFLAGS = $(KDE_RPATH) $(all_libraries)
 #
 # OCAMLLIB is user-defined : see ../configure.in.in
 # 
-eqchem_LDADD   = $(LIB_KFILE) $(LIB_KDEPRINT) \
+eqchem_LDADD   = $(LIB_KIO) $(LIB_KDEPRINT) \
 	-L$(OCAMLLIB) -L$(OCAMLLIB)/facile \
 	-lasmrun -lstr -lnums -lm  -ldl solver.o modwrap.o
 
