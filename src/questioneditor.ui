@@ -34,9 +34,6 @@
                     <property name="text">
                         <string>&amp;Remove Question</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+R</string>
-                    </property>
                     <property name="whatsThis" stdset="0">
                         <string>A click on this button will remove the selected question</string>
                     </property>
@@ -47,9 +44,6 @@
                     </property>
                     <property name="text">
                         <string>&amp;Add Question</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+A</string>
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>A click on this button will open a dialog in which you can add a question</string>

@@ -112,9 +112,6 @@
                     <property name="text">
                         <string>&amp;Add Questions</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+A</string>
-                    </property>
                 </widget>
                 <spacer>
                     <property name="name">

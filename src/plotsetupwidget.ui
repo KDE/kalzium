@@ -97,9 +97,6 @@
                     <property name="text">
                         <string>&amp;Connect Points</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+C</string>
-                    </property>
                     <property name="whatsThis" stdset="0">
                         <string>Define whether the plotted points should be connected or not</string>
                     </property>
@@ -110,9 +107,6 @@
                     </property>
                     <property name="text">
                         <string>&amp;Show Elementnames</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+S</string>
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>Define whether the names of the plotted element should be displayed</string>
