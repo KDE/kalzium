@@ -21,6 +21,8 @@
 #define PSE_H
 
 class QLabel;
+class QPixmap;
+
 #include <qvaluelist.h>
 #include <qwidget.h>
 
@@ -149,7 +151,9 @@ class PSE : public QWidget
 		 */
 		int m_num;
 
-		public slots:
+    QPixmap *table;
+    	
+  public slots:
 		/**
 		 * this method hides all elements which have not been know
 		 * before the @p date.
@@ -159,7 +163,8 @@ class PSE : public QWidget
 		void setDate( int date );
 		
 	protected:
-		virtual void paintEvent( QPaintEvent *e );
+    virtual void paintEvent( QPaintEvent *e );
+    virtual void resizeEvent( QResizeEvent *e );
 
 	public:
 		virtual void drawPSE( QPainter* p, bool useSimpleView );

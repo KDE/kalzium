@@ -28,11 +28,12 @@
 #include <qwhatsthis.h>
 #include <qlayout.h>
 #include <qlabel.h>
+#include <qpixmap.h>
 
 #include <qpainter.h>
 
 PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
- : QWidget(parent, name)
+  : QWidget(parent, name), table(0)
 {
 	d = data;
 
@@ -78,6 +79,7 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	    m_IUPACOLDlist.append( "7B");
 	    m_IUPACOLDlist.append( "0");
 	
+      table = new QPixmap();
 }
 
 PSE::~PSE(){}
@@ -207,16 +209,24 @@ void PSE::setDate( int date )
 //6 16 26 29 33 47 50 51 79 80 82 83
 }
 
+void PSE::resizeEvent( QResizeEvent *e ) 
+{
+  table->resize( width(), height() );  
+}
+
 void PSE::paintEvent( QPaintEvent *e )
 {
 	QPainter p;
-	p.begin( this );
-
+	p.begin( table );
+  p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() );
+  
 	if ( m_showSOM )
 		drawSOMPSE( &p );
 	else
 		drawPSE( &p, m_isSimple );
 	p.end();
+
+  bitBlt( this, 0, 0, table );
 }
 
 void PSE::drawSOMPSE( QPainter* p )
