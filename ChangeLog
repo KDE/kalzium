@@ -1,4 +1,5 @@
 HEAD:
+- you will find the menu items from the old configure menu under the settings menu
 - added a new settings dialog (color and weblookup settings)
 - added Kalzium::queryClose() to save menu settings at exit, and another method to read at startup those settings
 

@@ -52,8 +52,6 @@
 #include <qstring.h>
 #include <qwhatsthis.h>
 
-// Standard C++ includes
-
 // Table includes
 #include <quizdlg.h>
 #include <calcdlg.h>
@@ -263,6 +261,7 @@ void Kalzium::slotShowMendelejew()
 
     for (int i=0; i < 4; ++i)
         element[dochda[i] - 1]->show();
+    timelineToggleAction->setEnabled(false);
 }
 
 void Kalzium::slotShowAcidBeh() {
@@ -270,7 +269,7 @@ void Kalzium::slotShowAcidBeh() {
         "acidic", "basic", "amphoteric", "neitherofthem"
     };
 
-    main_config->setGroup("Colours");
+    main_config->setGroup("Colors");
 
     for (int i = 0; i < 118; ++i)
     {
@@ -284,7 +283,7 @@ void Kalzium::slotShowAcidBeh() {
 
 void Kalzium::slotShowGroups()
 {
-    main_config->setGroup("Colours");
+    main_config->setGroup("Colors");
 
     for (int i = 0; i < 118; ++i)
     {
@@ -315,7 +314,7 @@ void Kalzium::slotShowGroups()
 
 void Kalzium::slotShowBlocks()
 {
-    main_config->setGroup("Colours");
+    main_config->setGroup("Colors");
     for (int i = 0; i < 118; i++)
     {
         PElementKP& b(element[i]);
@@ -347,7 +346,8 @@ void Kalzium::slotShowAll()
         element[i]->show();
 
     for (int i = 83; i < 118; i++)
-        element[i]->show();
+        element[i]->show(); 
+    timelineToggleAction->setEnabled(true);
 }
 
 void Kalzium::updateNumMenu(int id) 
@@ -355,7 +355,7 @@ void Kalzium::updateNumMenu(int id)
     numerationmenu->setCurrentItem(id);
 }
 
-void Kalzium::updateColourMenu(int id) 
+void Kalzium::updateColorMenu(int id) 
 {
     colorschememenu->setCurrentItem(id);
 }
@@ -395,16 +395,16 @@ void Kalzium::slotShowTimeline(bool id)
         dateS->show();
         dateLCD->show();
         timeline();
+        psestylemenu->setEnabled(false);
     }
     else
     {
         dateS->hide();
         dateLCD->hide();
-
-        // FIXME
-        element[112]->show();
-        element[114]->show();
-        element[116]->show();
+        psestylemenu->setEnabled(true);
+        for (int i =0; i<118; i++)
+            element[i]->show();
+        
     } 
 }
 
@@ -452,10 +452,10 @@ void Kalzium::pseStyleShow(int i)
 
 void Kalzium::setupConfig()
 {
-	// set the default colours settings
-	if (!main_config->hasGroup("Colours"))
+	// set the default colors settings
+	if (!main_config->hasGroup("Colors"))
 	{
-		main_config->setGroup("Colours");
+		main_config->setGroup("Colors");
 
 		// State of Matters
 		main_config->writeEntry("liquid",QColor(255,80,35));
@@ -521,7 +521,7 @@ void Kalzium::setupActions()
     colorschemelist.append( i18n("&State of Matter"));
     colorschememenu = new KSelectAction(i18n("&Colorscheme"),0,actionCollection(), "colorscheme");
     colorschememenu->setItems(colorschemelist);
-    connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(updateColourMenu(int)));
+    connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(updateColorMenu(int)));
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(changeColorScheme(int)));
     colorschememenu->setCurrentItem(main_config->readNumEntry("colorschememenu"));
     

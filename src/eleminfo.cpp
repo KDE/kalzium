@@ -17,9 +17,8 @@
 
  #include <eleminfo.h>
 
-//C++-Includes
-#include "stdlib.h"
-#include "time.h"
+#include <stdlib.h>
+#include <time.h>
 
 void position(int n, int& h, int& v)
 {
