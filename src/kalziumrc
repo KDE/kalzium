@@ -863,7 +863,7 @@ IE=12.130
 AR=218
 
 [55]
-Name=Cesium
+Name=Caesium
 Symbol=Cs
 Weight=132.90545
 Block=s
@@ -2083,7 +2083,7 @@ Alternative2=A solution that will not conduct electrical current.
 
 
 [q30]
-Q=What is the red coloured material in blood called?
+Q=What is the red colored material in blood called?
 A=Hemoglobin
 Alternative1=Plasma
 Alternative2=Lipids
