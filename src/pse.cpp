@@ -303,8 +303,8 @@ void PSE::paintEvent( QPaintEvent *e )
 		if ( m_showLegend )
 			drawLegend( &p );
 		
-		if ( m_showTooltip )
-			drawToolTip( &p, new Element( m_tooltipElementNumber ) );
+//X 		if ( m_showTooltip )
+//X 			drawToolTip( &p, new Element( m_tooltipElementNumber ) );
 		
 		p.end();
 		//JH: Uncomment when ready for this
