@@ -4,11 +4,11 @@ INCLUDES= -I../calculations $(all_includes)
 SUBDIRS = icons
 
 bin_PROGRAMS = kalzium
-kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp stateofmatterdlg.cpp calcdlg.cpp calcdialog.cpp value_visualisation.cpp settingsdialog.cpp infodlg.ui
+kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp stateofmatterdlg.cpp calcdlg.cpp calcdialog.cpp value_visualisation.cpp settingsdialog.cpp infodlg.ui quizdlgui.ui
 kalzium_LDADD   = $(LIB_KHTML)  ../calculations/libkmol.la
 
 
-EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp calcdialog.cpp value_visualisation.cpp value_visualisation.h settingsdialog.cpp settingsdialog.h infodlg.ui
+EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp calcdialog.cpp value_visualisation.cpp value_visualisation.h settingsdialog.cpp settingsdialog.h infodlg.ui quizdlgui.ui
 
 METASOURCES = AUTO 
 
