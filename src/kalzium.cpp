@@ -675,7 +675,7 @@ void Kalzium::setupActions()
 	legendToggleAction->setChecked( main_config->readBoolEntry( "legend" ) );
 	//END LEGEND
 
-    (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
+    (void) new KAction (i18n("Test Your &Knowledge"), "wizard", 0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
     (void) new KAction (i18n("&Plot"),0, this, SLOT(slotPlotData()), actionCollection(), "startplotting");
     (void) new KAction (i18n("&Search Data"), "find", CTRL+Key_F, this, SLOT(slotSearchData()), actionCollection(), "searchdata");
     (void) new KAction (i18n("&Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
