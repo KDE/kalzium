@@ -13,7 +13,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string>Add a Question</string>
+        <string>Add Question</string>
     </property>
     <property name="whatsThis" stdset="0">
         <string>In this dialog you can add a question</string>
@@ -35,7 +35,7 @@
                         <cstring>textLabel1_2_2</cstring>
                     </property>
                     <property name="text">
-                        <string>Grade of the Question:</string>
+                        <string>Grade of the question:</string>
                     </property>
                 </widget>
                 <widget class="KIntNumInput">
