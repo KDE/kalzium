@@ -8,7 +8,7 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>168</width>
+            <width>170</width>
             <height>488</height>
         </rect>
     </property>
@@ -50,12 +50,12 @@
                     </item>
                     <item>
                         <property name="text">
-                            <string>IE1</string>
+                            <string>First Ionizationenergy</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>IE2</string>
+                            <string>Second Ionizationenergy</string>
                         </property>
                     </item>
                     <item>
@@ -164,11 +164,4 @@
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>kcombobox.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-</includehints>
 </UI>

@@ -23,14 +23,16 @@
 #include <qcolor.h>
 
 #include <klocale.h>
+#include <kdebug.h>
 
 #include "prefs.h"
 #include "legendwidget.h"
 
-Legend::Legend( QWidget* parent )
-	: QWidget( parent )
+Legend::Legend( QWidget* parent, const char* name )
+	: QWidget( parent, name )
 {
-	
+	this->setFixedHeight( 35 );
+
 	QHBoxLayout *hlay = new QHBoxLayout( this );
 	hlay->setAutoAdd( TRUE );
 	hlay->setMargin(10);
@@ -47,6 +49,7 @@ Legend::Legend( QWidget* parent )
 
 void Legend::setScheme( int scheme )
 {
+	kdDebug() << "Legend::setScheme()" << endl;
 	const QColor color_1 = Prefs::group_1();
 	const QColor color_2 = Prefs::group_2();
 	const QColor color_3 = Prefs::group_3();
@@ -65,6 +68,12 @@ void Legend::setScheme( int scheme )
 	const QColor color_ac = Prefs::beh_acidic();
 	const QColor color_neu = Prefs::beh_neutral();
 	const QColor color_amp = Prefs::beh_amphoteric();
+	
+	const QColor c_liquid = Prefs::color_liquid();
+	const QColor c_solid = Prefs::color_solid();
+	const QColor c_vapor = Prefs::color_vapor();
+	const QColor c_artificial = Prefs::color_artificial();
+	const QColor c_radioactive = Prefs::color_radioactive();
 
 	switch ( scheme ) {
 		case 0:
@@ -135,6 +144,26 @@ void Legend::setScheme( int scheme )
 			three->show();
 			four->show();
 			five->hide();
+			six->hide();
+			seven->hide();
+			eight->hide();
+			break;
+		case 4:
+			one->setPaletteBackgroundColor( c_liquid );
+			two->setPaletteBackgroundColor( c_solid );
+			three->setPaletteBackgroundColor( c_vapor );
+			four->setPaletteBackgroundColor( c_artificial );
+			five->setPaletteBackgroundColor( c_radioactive );
+			one->setText( i18n( "Liquid" ) );
+			two->setText( i18n( "Solid" ) );
+			three->setText( i18n( "Vaporous" ) );
+			four->setText( i18n( "Artificial" ) );
+			five->setText( i18n( "Radioactive" ) );
+			one->show();
+			two->show();
+			three->show();
+			four->show();
+			five->show();
 			six->hide();
 			seven->hide();
 			eight->hide();

@@ -29,12 +29,14 @@ class Legend : public QWidget
 	Q_OBJECT
 
 	public:
-		Legend( QWidget* parent = 0 );
+		Legend( QWidget* parent = 0 , const char* name = 0 );
 
 		/**
 		 * shows/hides the necessary buttons for the legend
 		 */
 		void setScheme( int scheme );
+
+	private:
 
 		QLabel *one,
 				*two,

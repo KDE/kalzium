@@ -19,7 +19,6 @@
  ***************************************************************************/
 #include "pse.h"
 #include "prefs.h"
-#include "legendwidget.h"
 
 #include <klocale.h>
 #include <kdebug.h>
@@ -80,16 +79,6 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 
 PSE::~PSE(){}
 
-void PSE::showLegend( bool show )
-{
-	kdDebug() << "PSE::showLegend()" << endl;
-	if ( show )
-		m_pLegend->show();
-	else
-		m_pLegend->hide();
-};
-
-
 void PSE::updateNumeration()
 {
 }
@@ -118,15 +107,12 @@ void PSE::setupBlockLists()
 
 void PSE::setupPSEElementButtonsList(){}
 
-void PSE::setLegend( int look )
-{
-	kdDebug() << "PSE::setLegend()" << endl;
-	m_pLegend->setScheme( look );
-}
-
 void PSE::activateColorScheme( const int nr )
 {
 	kdDebug() << "Setting scheme number: " << nr << endl;
+
+	//set the temperature to normal conditions
+	setTemperature( 295 );
 
 	if ( nr == 0) //normal view, no colors
 	{
@@ -342,11 +328,7 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 	
 	m_ShortName = i18n( "Regular Periodic Table" );
 
-	m_pLegend = new Legend(this);
-
 	QGridLayout *grid = new QGridLayout( 11 , 18 );
-	
- 	grid->addMultiCellWidget( m_pLegend, 10,10,0,17, Qt::AlignCenter );
 	
 	ElementButton *button;
 	for ( int i = 0 ; i < 18 ; i++ )
@@ -443,13 +425,9 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 
 	m_ShortName = i18n( "A Simplified Periodic Table" );
 	
-	m_pLegend = new Legend( this );
-	
 	QGridLayout *grid = new QGridLayout( 9 , 10  );
 	
 	ElementButton *button;
-
-	grid->addMultiCellWidget( m_pLegend, 9,9,0,9, Qt::AlignCenter );
 
 	for ( int i = 0 ; i < 8 ; i++ )
 	{

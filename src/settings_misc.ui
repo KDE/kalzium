@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>setupMisc</class>
 <widget class="QWidget">
     <property name="name">
@@ -119,10 +119,10 @@
                                 <number>0</number>
                             </property>
                             <property name="toolTip" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degrees Kelvin</string>
+                                <string>If selected, the temperatures will be displayed in Kelvin</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degrees Kelvin</string>
+                                <string>If selected, the temperatures will be displayed in Kelvin</string>
                             </property>
                         </widget>
                         <widget class="QRadioButton">
@@ -195,8 +195,4 @@
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-</includehints>
 </UI>

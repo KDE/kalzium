@@ -19,6 +19,7 @@
 #include <kdebug.h>
 #include <klocale.h>
 #include <kiconloader.h>
+#include <kglobalsettings.h>
 
 #include <qlabel.h>
 #include <qpainter.h>
@@ -156,9 +157,9 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	/**
 	 *	TODO: Fix the fonts
 	 **/
-	QFont f1 ( "times", 20, QFont::Bold );
-	QFont f2 ( "times", 10 );
-	QFont f3 ( "times", 8, QFont::Bold );
+	QFont f1 = KGlobalSettings::generalFont();
+	QFont f2 = KGlobalSettings::generalFont();
+	QFont f3 = KGlobalSettings::generalFont();
 
 	p.setFont( f1 );
 	int h_ = y2/10*3; //a third of the whole widget

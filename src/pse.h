@@ -23,7 +23,6 @@
 #include "elementbutton.h"
 
 class QLabel;
-class Legend;
 
 typedef QValueList<QLabel*> LabelList;
 
@@ -47,11 +46,6 @@ class PSE : public QWidget
 		PSE( KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
 		~PSE();
 
-		/**
-		 * @param show if true, the legend will be shown
-		 */
-		void showLegend( bool show );
-		
 		KalziumDataObject *d;
 
 		enum NUMERATIONTYPE
@@ -112,9 +106,6 @@ class PSE : public QWidget
 		 */
 		QPtrList<ElementButton> m_PSEElementButtons;
 		
-		void setLegend( int look );
-
-
 	private:
 		/**
 		 * updates the numeration of the PSE
@@ -131,8 +122,6 @@ class PSE : public QWidget
 
 		LabelList lList;
 		
-		Legend *m_pLegend;
-
 		/**
 		 * the type of the nummeration ( NO, CAS, IUPACOLD, IUPAC )
 		 */

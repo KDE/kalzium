@@ -31,6 +31,16 @@
 	  </entry>
   </group>
   <group name="Legend">
+	  <entry name="showsom" type="Bool">
+		  <default>false</default>
+		  <whatsthis>Show or hide the state of matter</whatsthis>
+		  <label>Show or hide the state of matter</label>
+	  </entry>
+	  <entry name="showtimeline" type="Bool">
+		  <default>false</default>
+		  <whatsthis>Show or hide the timeline</whatsthis>
+		  <label>Show or hide the timeline</label>
+	  </entry>
 	  <entry name="showlegend" type="Bool">
 		  <default>true</default>
 		  <whatsthis>Show or hide the legend</whatsthis>

@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>SliderWidget</class>
 <widget class="QWidget">
     <property name="name">
@@ -83,18 +83,6 @@
         <signal>valueChanged(int)</signal>
         <receiver>pLCD</receiver>
         <slot>display(int)</slot>
-    </connection>
-    <connection>
-        <sender>pSlider</sender>
-        <signal>sliderPressed()</signal>
-        <receiver>SliderWidget</receiver>
-        <slot>pSlider_sliderPressed()</slot>
-    </connection>
-    <connection>
-        <sender>pSlider</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>SliderWidget</receiver>
-        <slot>pSlider_valueChanged(int)</slot>
     </connection>
 </connections>
 <slots>

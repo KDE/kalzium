@@ -18,14 +18,11 @@
 #include "slider_widget.h"
 #include "elementdataviewer.h"
 #include "tempslider.h"
+#include "legendwidget.h"
 
 #include <qinputdialog.h>
-#include <qslider.h>
-#include <qinputdialog.h>
-
 #include <qlayout.h>
 #include <qslider.h>
-
 
 #include <kconfigdialog.h>
 #include <klocale.h>
@@ -49,77 +46,82 @@ Kalzium::Kalzium()
 
 	pd->kalziumData = new KalziumDataObject();
 
-	QWidget *m_pCentralWidget = new QWidget( this, "CentralWidget" );
-	m_pCentralLayout = new QVBoxLayout( m_pCentralWidget, 0, -1, "CentralLayout" );
-	m_pSOMSlider = new TempSlider( m_pCentralWidget, "SOMSlider" );
+	QWidget *CentralWidget = new QWidget( this, "CentralWidget" );
+	m_pCentralLayout = new QVBoxLayout( CentralWidget, 0, -1, "CentralLayout" );
+	m_pLegend = new Legend( CentralWidget, "Legend" );
+	m_pSOMSlider = new TempSlider( CentralWidget, "SOMSlider" );
+	m_pTimeSlider = new SliderWidget( CentralWidget, "TimeSlider" );
 
-	m_pRegularPSE = new RegularPSE( data(), m_pCentralWidget, "regularPSE");
-	m_pSimplePSE = new SimplifiedPSE( data(), m_pCentralWidget, "SimplifiedPSE");
+	m_pRegularPSE = new RegularPSE( data(), CentralWidget, "regularPSE");
+	m_pSimplePSE = new SimplifiedPSE( data(), CentralWidget, "SimplifiedPSE");
+
+	//XXX get the correct PSE
 	m_pCurrentPSE = m_pRegularPSE;
 	m_pCurrentPSE->show();
 	
 	// Layouting
 	m_pCentralLayout->addWidget( m_pCurrentPSE );
+	m_pCentralLayout->addWidget( m_pLegend );
 	m_pCentralLayout->addWidget( m_pSOMSlider );
+	m_pCentralLayout->addWidget( m_pTimeSlider );
 
-	setCentralWidget( m_pCentralWidget );
-	m_pCentralWidget->show();	
+	setCentralWidget( CentralWidget );
+	CentralWidget->show();	
+	
 	setupActions();
 	setupStatusBar();
 }
-
 
 void Kalzium::setupActions()
 {
 	/*
 	 * the actions for switching PSE
 	 **/
-	 QStringList schemalist;
-	 schemalist.append(i18n("Show &Regular PSE"));
-//	 schemalist.append(i18n("Mendeleev - localized name of Russian chemist Dmitri Mendeleev","Show &Mendeleev PSE"));
-	 schemalist.append(i18n("Show &Simple PSE"));
-	 schema_action = new KSelectAction (i18n("&PSE"), 0, this, 0, actionCollection(), "change_pse");
-	 schema_action->setItems(schemalist);
-	 schema_action->setCurrentItem(Prefs::schemaPSE());
-	 connect (schema_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoPSE(int)));
-	
-	 /*
+	QStringList schemalist;
+	schemalist.append(i18n("Show &Regular PSE"));
+	schemalist.append(i18n("Show &Simple PSE"));
+	schema_action = new KSelectAction (i18n("&PSE"), 0, this, 0, actionCollection(), "change_pse");
+	schema_action->setItems(schemalist);
+	schema_action->setCurrentItem(Prefs::schemaPSE());
+	connect (schema_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoPSE(int)));
+
+	/*
 	 * the actions for switching PSE
 	 **/
-	 QStringList numlist;
-	 numlist.append(i18n("No N&umeration"));
-	 numlist.append(i18n("Show &IUPAC"));
-	 numlist.append(i18n("Show &CAS"));
-	 numlist.append(i18n("Show &Old IUPAC"));
-	 numeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "numerationtype");
-	 numeration_action->setItems(numlist);
-	 numeration_action->setCurrentItem(Prefs::numeration()); 
-	 connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
-	 
+	QStringList numlist;
+	numlist.append(i18n("No N&umeration"));
+	numlist.append(i18n("Show &IUPAC"));
+	numlist.append(i18n("Show &CAS"));
+	numlist.append(i18n("Show &Old IUPAC"));
+	numeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "numerationtype");
+	numeration_action->setItems(numlist);
+	numeration_action->setCurrentItem(Prefs::numeration()); 
+	connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
+
 	/*
 	 * the actions for the colorschemes
 	 **/
-	 QStringList looklist;
-	 looklist.append(i18n("&No Color Scheme"));
-	 looklist.append(i18n("Show &Groups"));
-	 looklist.append(i18n("Show &Blocks"));
-	 looklist.append(i18n("Show &Acid Behavior"));
-	 look_action = new KSelectAction (i18n("&Look"), 0, this, 0, actionCollection(), "look_menu");
-	 look_action->setItems(looklist);
-	 look_action->setCurrentItem(Prefs::colorschemebox()); 
-	 connect (look_action, SIGNAL(activated(int)), this, SLOT(slotShowScheme(int)));
-	
+	QStringList looklist;
+	looklist.append(i18n("&No Color Scheme"));
+	looklist.append(i18n("Show &Groups"));
+	looklist.append(i18n("Show &Blocks"));
+	looklist.append(i18n("Show &Acid Behavior"));
+	look_action = new KSelectAction (i18n("&Look"), 0, this, 0, actionCollection(), "look_menu");
+	look_action->setItems(looklist);
+	look_action->setCurrentItem(Prefs::colorschemebox()); 
+	connect (look_action, SIGNAL(activated(int)), this, SLOT(slotShowScheme(int)));
+
 	/*
 	 * the misc actions
 	 **/
 	m_pTimelineAction = new KAction(i18n("Show &Timeline"), "timeline", 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	m_pSOMAction = new KAction(i18n("&Show State of Matter"), "chemical", 0, this, SLOT(slotStateOfMatter()), actionCollection(), "show_som");
-		 //Legend
-	 m_pLengendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
-	/*
-	 * the standardactions
-	 **/
+
+	//Legend
+	m_pLengendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
+
+	//the standardactions
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 
@@ -127,15 +129,24 @@ void Kalzium::setupActions()
 	slotSwitchtoPSE(Prefs::schemaPSE());
 	slotSwitchtoNumeration(Prefs::numeration() );
 
-	m_bShowLegend = Prefs::showlegend();
-	m_pRegularPSE->setLegend( Prefs::colorschemebox() );
-	m_pSimplePSE->setLegend( Prefs::colorschemebox() );
-	
+	//invert the bool because it will be toggled in the three slots
+	m_bShowLegend = !Prefs::showlegend();
+	m_bShowSOM = !Prefs::showsom();
+	m_bShowTimeline = !Prefs::showtimeline();
+
 	connect( m_pSOMSlider->slider, SIGNAL( valueChanged( int ) ), this, SLOT( slotTempChanged( int ) ) );
-	
+	connect( m_pTimeSlider->pSlider, SIGNAL( valueChanged( int ) ), m_pRegularPSE, SLOT( setDate( int ) ) );
+
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
 	setupGUI();
+	
+	//check if the legend, the timeline and the somslider should
+	//be displayed or not
+	slotShowScheme(Prefs::colorschemebox());
+	slotShowTimeline();
+	slotShowLegend();
+	slotStateOfMatter();
 }
 
 void Kalzium::setupStatusBar()
@@ -161,16 +172,26 @@ void Kalzium::slotStatusBar(QString text, int id)
 void Kalzium::slotShowTimeline()
 {
 	kdDebug() << "Kalzium::slotShowTimeline()" << endl;
+	
+	if ( m_bShowTimeline )
+		m_bShowTimeline = false;
+	else
+		m_bShowTimeline = true;
+		
+	Prefs::setShowtimeline( m_bShowTimeline ); 
 
-	m_pSliderWidget = new SliderWidget();
-
-	/**
-	 * now do the connections
-	 **/
-	connect( m_pSliderWidget->pSlider, SIGNAL( valueChanged( int ) ), currentPSE(), SLOT( setDate(int) ) );
-	date = Prefs::sliderdate();
-	m_pSliderWidget->pSlider->setValue( date );
-	m_pSliderWidget->show();
+	if ( m_bShowTimeline )
+	{
+		m_pTimeSlider->pSlider->setValue( Prefs::sliderdate() );
+		m_pTimeSlider->show();
+	}
+	else
+	{
+		m_pTimeSlider->hide();
+		Prefs::setSliderdate( m_pTimeSlider->pSlider->value() );
+	}
+	
+	Prefs::writeConfig();
 }
 
 void Kalzium::slotPlotData()
@@ -185,23 +206,35 @@ void Kalzium::slotShowLegend()
 	if ( m_bShowLegend )
 	{
 		m_bShowLegend = FALSE;
-		m_pLengendAction->setText("Show &Legend");
-		
+		m_pLengendAction->setText( i18n( "Show &Legend" ) );
 	}
 	else
 	{
 		m_bShowLegend = TRUE;
-		m_pLengendAction->setText("Hide &Legend");
+		m_pLengendAction->setText( i18n( "Hide &Legend" ) );
 	}
-	currentPSE()->showLegend( m_bShowLegend );
+	
+	//now hide or show the legend...
+	m_bShowLegend ? m_pLegend->show() : m_pLegend->hide();
+
+	if ( m_bShowLegend )
+	{
+		kdDebug() << "Legende an" << endl;
+	}
+	else
+		kdDebug() << "Legende aus" << endl;
+	
+	//save the settings
 	Prefs::setShowlegend( m_bShowLegend ); 
+	Prefs::writeConfig();
 }	
 
 void Kalzium::slotShowScheme(int i)
 {
 	kdDebug() << "Kalzium::slotShowScheme()" << endl;
 	currentPSE()->activateColorScheme( i );
-	currentPSE()->setLegend( i );
+	
+	m_pLegend->setScheme( i );
 	Prefs::setColorschemebox(i); 
 	Prefs::writeConfig();
 }
@@ -217,7 +250,6 @@ void Kalzium::slotSwitchtoPSE(int index)
 {
 	m_pRegularPSE->hide();
 	m_pSimplePSE->hide();
-//	m_pMendeljevPSE->hide();
 
 	m_pCentralLayout->remove( m_pCurrentPSE );
 	switch (index) {
@@ -230,7 +262,7 @@ void Kalzium::slotSwitchtoPSE(int index)
 	}
 	m_pCurrentPSE->show();
 	m_pCentralLayout->insertWidget( 0, m_pCurrentPSE );
-	// setCentralWidget( m_pCurrentPSE );
+	
 	setCaption( m_pCurrentPSE->shortName() );
 	Prefs::setSchemaPSE(index);
 	Prefs::writeConfig();
@@ -248,11 +280,10 @@ void Kalzium::showSettingsDialog()
 
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
-	connect( dialog, SIGNAL( settingsChanged() ), m_pCurrentPSE, SLOT( slotUpdatePSE() ) );
 	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotUpdateSettings() ) );
 	dialog->addPage( new colorScheme( 0, "colorscheme_page"), i18n("Color Scheme"), "colorize");
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Colors"), "colorize");
-	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Misc" ), "misc" );
+	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Miscellaneous" ), "misc" );
 	dialog->show();
 }
 
@@ -273,22 +304,23 @@ void Kalzium::displayTemperature()
  			string = i18n("Kelvin");
 			m_pSOMSlider->slider->setMinValue( 0 );
 			m_pSOMSlider->slider->setMaxValue( 1000 );
-			m_pSOMSlider->unit->setText( i18n( "K" ) );
+			m_pSOMSlider->unit->setText( i18n( "the unit for Kelvin" , "K" ) );
  			break;
  		case 1:
  			string = i18n("Degree Celsius");
 			m_pSOMSlider->slider->setMinValue( -273 );
 			m_pSOMSlider->slider->setMaxValue( 727 );
-			m_pSOMSlider->unit->setText( i18n( "°C" ) );
+			m_pSOMSlider->unit->setText( i18n( "the unit for degree celsius" , "°C" ) );
  			break;
  		case 2:
  			string = i18n("Degree Fahrenheit");
 			m_pSOMSlider->slider->setMinValue( -460 );
 			m_pSOMSlider->slider->setMaxValue( 1341 );
-			m_pSOMSlider->unit->setText( i18n( "°F" ) );
+			m_pSOMSlider->unit->setText( i18n( "the unit for degree Fahrenheit" , "°F" ) );
  			break;
  	}
  	slotStatusBar(i18n("Temperature unit: %1 ").arg( string ),  IDS_TEMP);
+	
  }
  
  void Kalzium::displayEnergie()
@@ -299,27 +331,50 @@ void Kalzium::displayTemperature()
  			string = i18n("kJ/mol");
  			break;
  		case 1:
- 			string = i18n("eV");
+ 			string = i18n("the symbol for electronvolt", "eV");
  			break;
  	}
- 	slotStatusBar(i18n("Energy: %1").arg( string ),  IDS_ENERG);
+ 	slotStatusBar(i18n("the argument %1 is the unit of the energy (eV or kj/mol)", "Energy: %1").arg( string ),  IDS_ENERG);
 }
 
 void Kalzium::displayTemperaturevalue()
 {
 	int t = Prefs::temperature();
-	slotStatusBar( i18n( "Temperature: %1" ).arg( t ), IDS_TEMPERATURE );
+	slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg( t ), IDS_TEMPERATURE );
 }
 
 void Kalzium::slotStateOfMatter()
 {
-	//only the elements 1 to 95 (Americium) will be calculated because
-	//only for these both the boiling _and_ melting point are known.
-	//The other elements will have the color color_artificial
+	kdDebug() << "Kalzium::slotStateOfMatter()" << endl;
+
+	if ( m_bShowSOM )
+		m_bShowSOM = false;
+	else
+		m_bShowSOM = true;
+
+	if ( m_bShowSOM )
+	{
+		m_pSOMSlider->show();
+		m_pLegend->setScheme( 4 );
+		slotTempChanged( m_pSOMSlider->slider->value() );
+		m_pSOMAction->setText( i18n( "&Hide State of Matter" ));
+	}
+	else
+	{
+		m_pSOMSlider->hide();
+		slotStatusBar( "", IDS_TEMPERATURE );
+		m_pLegend->setScheme( Prefs::colorschemebox() );
+		slotShowScheme( Prefs::colorschemebox() );
+		m_pSOMAction->setText( i18n( "&Show State of Matter" ));
+	}
+
+	Prefs::setShowsom( m_bShowSOM ); 
+	Prefs::writeConfig();
 }
 
 void Kalzium::slotTempChanged( int temperature )
 {
+	kdDebug() << "Kalzium::slotTempChanged()" << endl;
  	switch (Prefs::temperature()) {
      		case 0:
 			m_pCurrentPSE->setTemperature( (double) temperature );

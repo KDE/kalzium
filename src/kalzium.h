@@ -25,6 +25,7 @@ class QuizsettingsDlg;
 class SliderWidget;
 class QVBoxLayout;
 class TempSlider;
+class Legend;
 
 /**
  * @short Application Main Window
@@ -82,11 +83,29 @@ class Kalzium : public KMainWindow
 		TempSlider *m_pSOMSlider;
 
 		/**
+		 * the slider used for the timeline
+		 */
+		SliderWidget *m_pTimeSlider;
+
+		/**
+		 * the legend for the periodic tables
+		 */
+		Legend *m_pLegend;
+
+		/**
 		 * if true, the legend will be shown
 		 */
 		bool m_bShowLegend;
-
-		SliderWidget *m_pSliderWidget;
+		
+		/**
+		 * if true, the state of matter will be shown
+		 */
+		bool m_bShowSOM;
+		
+		/**
+		 * if true, the timeline will be shown
+		 */
+		bool m_bShowTimeline;
 		
 		/**
 		 * this Pointer points to the current PSE. The pointer
@@ -95,15 +114,16 @@ class Kalzium : public KMainWindow
 		 */
 		PSE* m_pCurrentPSE;
 			
-		void setupBlockLists( KalziumDataObject *d );
 		/**
 		 *initialize the Statusbar
 		 */		
 		void setupStatusBar();
+
 		/**
 		 *initialize actions
 		 */		
 		void setupActions();
+		
 		/**
 		 *display text in the statusbar item at index int
 		 */
@@ -113,6 +133,7 @@ class Kalzium : public KMainWindow
 		 *diplay the Temperature unit in the Statusbar
 		 */
 		void displayTemperature();
+		
 		/**
 		 *diplay the energy unit in the Statusbar
 		 */
@@ -122,9 +143,10 @@ class Kalzium : public KMainWindow
 		 *diplay the value of the choosen temperaure in the Statusbar
 		 */
 		void displayTemperaturevalue();
-		/*
+		
+		/**
 		 * all KActions Kalzium uses
-		 **/
+		 */
 		KSelectAction *schema_action;
 		KSelectAction *look_action;
 		KSelectAction *numeration_action;
@@ -133,6 +155,9 @@ class Kalzium : public KMainWindow
 			    *m_pSOMAction,
 				*m_pLengendAction;
 		
+		/**
+		 * the layout of the central Widget ( CentralWidget )
+		 */
 		QVBoxLayout *m_pCentralLayout;
 	
 	private slots:
