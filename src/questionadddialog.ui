@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
 <class>questionAddDialog</class>
 <widget class="QDialog">
     <property name="name">
@@ -35,7 +35,7 @@
                         <cstring>textLabel1_2_2</cstring>
                     </property>
                     <property name="text">
-                        <string>Grade of the Questions:</string>
+                        <string>Grade of the Question:</string>
                     </property>
                 </widget>
                 <widget class="KIntNumInput">
@@ -107,7 +107,7 @@
                         <cstring>KPB_addQuestions</cstring>
                     </property>
                     <property name="text">
-                        <string>&amp;Add Questions</string>
+                        <string>&amp;Add Question</string>
                     </property>
                     <property name="accel">
                         <string>Alt+A</string>
@@ -374,4 +374,15 @@
     </connection>
 </connections>
 <layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>knuminput.h</includehint>
+    <includehint>knuminput.h</includehint>
+    <includehint>ktextedit.h</includehint>
+    <includehint>kpushbutton.h</includehint>
+    <includehint>kpushbutton.h</includehint>
+    <includehint>ktextedit.h</includehint>
+    <includehint>ktextedit.h</includehint>
+    <includehint>ktextedit.h</includehint>
+    <includehint>ktextedit.h</includehint>
+</includehints>
 </UI>

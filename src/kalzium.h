@@ -82,12 +82,22 @@ class Kalzium : public KMainWindow
 		PSE* m_pCurrentPSE;
 			
 		void setupBlockLists( KalziumDataObject *d );
-		
+		/**
+		 *initialize the Statusbar
+		 */		
 		void setupStatusBar();
-		
+		/**
+		 *initialize actions
+		 */		
 		void setupActions();
-		
+		/**
+		 *display text in the statusbar item at index int
+		 */		
 		void slotStatusBar(QString text, int id);
+		/**
+		 *diplay the Temperature unit in the Statusbar
+		 */
+		void displayTemperature();
 		
 		/*
 		 * all KActions Kalzium uses

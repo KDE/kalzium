@@ -30,7 +30,7 @@
 #include <kapplication.h>
 #include <kstatusbar.h>
 
-#define IDS_STATUS           1
+#define IDS_TEMP           1
 
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
@@ -101,7 +101,7 @@ void Kalzium::setupActions()
 	/*
 	 * the misc actions
 	 **/
-	m_pTimelineAction = new KAction(i18n("Show &Timeline"), 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
+	m_pTimelineAction = new KAction(i18n("Show &Timeline"), "timeline.png", this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
 	m_pPlotAction = new KAction(i18n("&Plot Data"), 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
 	/*
@@ -125,10 +125,10 @@ void Kalzium::setupActions()
 
 void Kalzium::setupStatusBar()
 {
-	statusBar()->insertItem("", IDS_STATUS, 1, false);
-	statusBar()->setItemAlignment(IDS_STATUS, AlignLeft);
+	statusBar()->insertItem("", IDS_TEMP, 1, false);
+	statusBar()->setItemAlignment(IDS_TEMP, AlignLeft);
 	// fill the statusbar 
-	slotStatusBar(i18n("Welcome to Kalzium..."),  IDS_STATUS); // the message part
+	displayTemperature();
 	statusBar()->show();
 }
 
@@ -257,7 +257,26 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotUpdateSettings()
 {
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
+	displayTemperature();
 }
+
+void Kalzium::displayTemperature()
+{
+	QString m_string;
+	switch (Prefs::temperature()) {
+    		case 0:
+			m_string = i18n("Kelvin");//slotStatusBar(i18n("T: Kelvin"),  IDS_TEMP);
+			break;
+		case 1:
+			m_string = i18n("degrees Fahrenheit");//slotStatusBar(i18n("T: degrees Fahrenheit"),  IDS_TEMP);
+			break;
+		case 2:
+			m_string = i18n("degrees Celsius");//slotStatusBar(i18n("T: degrees Celsius"),  IDS_TEMP);
+			break;
+	}
+	slotStatusBar(i18n("Temperature: ")+m_string,  IDS_TEMP);
+}
+
 
 void Kalzium::slotQuizAction()
 {
