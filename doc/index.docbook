@@ -18,9 +18,18 @@
 <firstname>Carsten</firstname>
 <surname>Niehaus</surname>
 <affiliation>
-<address><email>cniehaus@gmx.de</email></address>
+<address><email>cniehaus@kde.org</email></address>
 </affiliation>
 </author>
+
+<othercredit role="developer">
+<firstname>Robert</firstname>
+<surname>Gogolok</surname>
+<affiliation>
+<address><email>mail@robert-gogolok.de</email></address>
+</affiliation>
+<contrib>Developer</contrib>
+</othercredit>
 
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 
@@ -34,8 +43,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2002-02-10</date>
-<releaseinfo>1.0</releaseinfo>
+<date>2002-06-18</date>
+<releaseinfo>0.5</releaseinfo>
 
 <abstract>
 <para>&kalzium; is a program which shows you the Periodic System of the
@@ -120,6 +129,32 @@ solid/liquid/vapor at a given temperature.</screeninfo>
 <para>If you are too good for this world, you can change the
 level.</para>
 
+</chapter>
+
+<chapter id="config">
+<title>Configuring &kstars;</title>
+<para>
+&kalzium; has many configuration options, which you can access by opening
+the <guilabel>Display Options</guilabel> window, either with the
+<guiicon>wrench</guiicon> toolbar icon, or selecting <guimenuitem>Configure
+&kalzium;...</guimenuitem> from the <guimenu>Settings</guimenu> menu.  The
+window is depicted below:
+
+<screenshot>
+<screeninfo>Display Options Window</screeninfo>
+<mediaobject>
+  <imageobject>
+		<imagedata fileref="settings.png" format="PNG"/>
+  </imageobject>
+  <textobject>
+    <phrase>Display Options Window</phrase>
+  </textobject>
+</mediaobject>
+</screenshot>
+</para>
+
+<para>
+</para>
 </chapter>
 
 <chapter id="faq">
