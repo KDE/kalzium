@@ -23,6 +23,7 @@
 class KSelectAction;
 class QuizsettingsDlg;
 class SliderWidget;
+class QSlider;
 
 /**
  * @short Application Main Window
@@ -74,6 +75,10 @@ class Kalzium : public KMainWindow
 		 */
 		int date;
 
+		/**
+		 * the slider used for the State of Matter
+		 */
+		QSlider m_pSOMSlider;
 
 		/**
 		 * if true, the legend will be shown
