@@ -97,10 +97,20 @@ void ElementButton::paintEvent( QPaintEvent* )
     f.setPointSize( f.pointSize() + 2 );
     
     p.begin( this );
+    
+    //Draw the colored background
+    p.setPen( elementColor() );
+//    p.setBrush( elementColor() );
+    p.fillRect( 3, 3, w-6, h-6, elementColor() );
+    p.drawRoundRect( 2, 2, w-4, h-4 );
+    
+    //Draw text and border
+    p.setPen( paletteForegroundColor() );
     p.drawText( 4, h/2-6, QString::number( m_ElementNumber ) );
     p.setFont( f );
     p.drawText( w/5, h*3/4, sym );
     p.drawRoundRect( 1, 1, w-2, h-2 );
+    
     p.end(); 
 }
 

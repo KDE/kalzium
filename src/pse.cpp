@@ -121,7 +121,7 @@ void PSE::activateColorScheme( const int nr )
 		QColor color = Prefs::noscheme();
 		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
 		{
-			button->setPaletteBackgroundColor( color );
+			button->setElementColor( color );
 		}
 	}
 	else if ( nr == 1) //groups view
@@ -145,35 +145,35 @@ void PSE::activateColorScheme( const int nr )
 			group = button->e->group();
 
 			if (group == QString("1")) {
-				button->setPaletteBackgroundColor( color_1 );
+				button->setElementColor( color_1 );
 				continue;
 			}
 			if (group == QString("2")){
-				button->setPaletteBackgroundColor( color_2 );
+				button->setElementColor( color_2 );
 				continue;
 			}
 			if (group == QString("3")){
-				button->setPaletteBackgroundColor( color_3 );
+				button->setElementColor( color_3 );
 				continue;
 			}
 			if (group == QString("4")){
-				button->setPaletteBackgroundColor( color_4 );
+				button->setElementColor( color_4 );
 				continue;
 			}
 			if (group == QString("5")) {
-				button->setPaletteBackgroundColor( color_5 );
+				button->setElementColor( color_5 );
 				continue;
 			}
 			if (group == QString("6")){
-				button->setPaletteBackgroundColor( color_6 );
+				button->setElementColor( color_6 );
 				continue;
 			}
 			if (group == QString("7")){
-				button->setPaletteBackgroundColor( color_7 );
+				button->setElementColor( color_7 );
 				continue;
 			}
 			if (group == QString("8")){
-				button->setPaletteBackgroundColor( color_8 );
+				button->setElementColor( color_8 );
 				continue;
 			}
 		}
@@ -195,19 +195,19 @@ void PSE::activateColorScheme( const int nr )
 			block = button->e->block();
 
 			if (block == QString("s")) {
-				button->setPaletteBackgroundColor( color_s );
+				button->setElementColor( color_s );
 				continue;
 			}
 			if (block == QString("p")){
-				button->setPaletteBackgroundColor( color_p );
+				button->setElementColor( color_p );
 				continue;
 			}
 			if (block == QString("d")){
-				button->setPaletteBackgroundColor( color_d );
+				button->setElementColor( color_d );
 				continue;
 			}
 			if (block == QString("f")){
-				button->setPaletteBackgroundColor( color_f );
+				button->setElementColor( color_f );
 				continue;
 			}
 		}
@@ -228,19 +228,19 @@ void PSE::activateColorScheme( const int nr )
 			acidicbeh = button->e->acidicbeh();
 
 			if (acidicbeh == QString("0")) {
-				button->setPaletteBackgroundColor( color_ac );
+				button->setElementColor( color_ac );
 				continue;
 			}
 			if (acidicbeh == QString("1")){
-				button->setPaletteBackgroundColor( color_ba );
+				button->setElementColor( color_ba );
 				continue;
 			}
 			if (acidicbeh == QString("2")){
-				button->setPaletteBackgroundColor( color_neu );
+				button->setElementColor( color_neu );
 				continue;
 			}
 			if (acidicbeh == QString("3")){
-				button->setPaletteBackgroundColor( color_amp );
+				button->setElementColor( color_amp );
 				continue;
 			}
 		}
@@ -291,8 +291,8 @@ void PSE::setTemperature( const double temp )
 		const int az = button->e->az();
 		if ( az == 3 || az == 4 )
 		{ //check if the element is radioactive or artificial
-			if ( az == 3 ) button->setPaletteBackgroundColor(Prefs::color_radioactive() );
-			if ( az == 4 ) button->setPaletteBackgroundColor( Prefs::color_artificial() );
+			if ( az == 3 ) button->setElementColor(Prefs::color_radioactive() );
+			if ( az == 4 ) button->setElementColor( Prefs::color_artificial() );
 			continue;
 		}
 
@@ -301,18 +301,18 @@ void PSE::setTemperature( const double temp )
 		
 		if ( temp < iButton_melting )
 		{ //the element is solid
-			button->setPaletteBackgroundColor( Prefs::color_solid());
+			button->setElementColor( Prefs::color_solid());
 			continue;
 		}
 		if ( temp > iButton_melting &&
 			temp < iButton_boiling )
 		{ //the element is liquid
-			button->setPaletteBackgroundColor( Prefs::color_liquid() );
+			button->setElementColor( Prefs::color_liquid() );
 			continue;
 		}
 		if ( temp > iButton_boiling )
 		{ //the element is vaporous
-			button->setPaletteBackgroundColor( Prefs::color_vapor() );
+			button->setElementColor( Prefs::color_vapor() );
 			continue;
 		}
 	}

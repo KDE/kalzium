@@ -50,7 +50,17 @@ class ElementButton : public QFrame
 		 * the element this buttons represents
 		 */
 		Element *e;
-		
+
+    /**
+     * accessor for the element's color
+     */
+    QColor elementColor() const { return m_Color; }
+    
+    /**
+     * mutator for the element's color
+     */
+    void setElementColor( const QColor &c ) { m_Color = c; }
+    
 		virtual void paintEvent( QPaintEvent* );
 
 	private:
@@ -58,7 +68,8 @@ class ElementButton : public QFrame
 		 * the integer num represents the number of the element
 		 */
 		int m_ElementNumber;
-		
+    QColor m_Color;
+    
 		void mousePressEvent( QMouseEvent* );
 		void mouseReleaseEvent( QMouseEvent* );
 
