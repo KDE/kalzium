@@ -47,9 +47,17 @@ Kalzium::Kalzium()
 	/*
 	 * the actions for switching PSE
 	 **/
+	 QStringList schemalist;
+	 schemalist.append(i18n("Show &Regular PSE"));
+	 schemalist.append(i18n("Show &Mendeljev PSE"));
+	 schemalist.append(i18n("Show &Simple PSE"));
+	 schema_action = new KSelectAction (i18n("Switch &PSE"), 0, this, 0, actionCollection(), "changepse");
+	 schema_action->setItems(schemalist);
+	 connect (schema_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoPSE(int)));
+	 /*
 	m_pRegularPSEAction = new KAction(i18n("Show &Regular PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "RegularPSE");
 	m_pMendeljevPSEAction = new KAction(i18n("Show &Mendeljev PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "MendeljevPSE");
-	m_pSimplePSEAction = new KAction(i18n("Show &Simple PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "SimplePSE");
+	m_pSimplePSEAction = new KAction(i18n("Show &Simple PSE"), 0, this, SLOT(slotSwitchtoPSE()), actionCollection(), "SimplePSE");*/
 
 	/*
 	 * the actions for the quiz
@@ -144,25 +152,23 @@ void Kalzium::slotShowScheme(void)
 	currentPSE()->activateColorScheme( i );
 }
 
-void Kalzium::slotSwitchtoPSE(void)
+void Kalzium::slotSwitchtoPSE(int index)
 {
 	m_pRegularPSE->hide();
 	m_pSimplePSE->hide();
 	m_pMendeljevPSE->hide();
 
-	if( sender()->name() == QString("RegularPSE"))
-	{
+	switch (index) {
+    	case 0:
 		m_pCurrentPSE = m_pRegularPSE;
-	}
-	else if( sender()->name() == QString("MendeljevPSE"))
-	{
+		break;
+	case 1:
 		m_pCurrentPSE = m_pMendeljevPSE;
-	}
-	else if( sender()->name() == QString("SimplePSE"))
-	{
+		break;
+	case 2:
 		m_pCurrentPSE = m_pSimplePSE;
+		break;
 	}
-
 	m_pCurrentPSE->show();
 	setCentralWidget( m_pCurrentPSE );
 	setCaption( m_pCurrentPSE->name() );

@@ -17,9 +17,10 @@
 #include <config.h>
 #endif
 
+#include "pse.h"
 #include <kmainwindow.h>
 
-#include "pse.h"
+class KSelectAction;
 
 /**
  * @short Application Main Window
@@ -84,6 +85,7 @@ class Kalzium : public KMainWindow
 		/*
 		 * all KActions Kalzium uses
 		 **/
+		KSelectAction *schema_action;
 		KAction *m_pSimplePSEAction,
 			*m_pRegularPSEAction,
 			*m_pMendeljevPSEAction,
@@ -116,7 +118,7 @@ class Kalzium : public KMainWindow
 		/**
 		 * This slot switches Kalzium to the selected PSE
 		 */
-		void slotSwitchtoPSE(void);
+		void slotSwitchtoPSE(int);
 
 		/**
 		 * start the quiz

@@ -1,12 +1,7 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <kpartgui name="kalzium" version="1">
 <MenuBar>
-  <Menu name="changepse">
-	<text>Switch PSE</text>
-	<Action name="RegularPSE" />
-	<Action name="SimplePSE" />
-	<Action name="MendeljevPSE" />
-  </Menu>
+  <Action name="changepse" />
   <Menu name="quizmenu">
 	<text>Quiz</text>
 	<Action name="quiz_startquiz" />
