@@ -3,7 +3,7 @@
         settingsdialog.cpp  -  description
                              -------------------
     begin                : Tue Apr 2 20:43:44 2002 UTC
-    copyright            : (C) 2002 by Robert Gogolok
+    copyright            : (C) 2002, 2003 by Robert Gogolok
     email                : mail@robert-gogolok.de
  ***************************************************************************/
 

@@ -2,7 +2,7 @@
                         calcdialog.h  -  description
                              -------------------
     begin                    : Thu Feb 5 2002 
-    copyright                : (C) 2002 by Carsten Niehaus  
+    copyright                : (C) 2002, 2003 by Carsten Niehaus  
     email                    : cniehaus@kde.org
  ***************************************************************************/
 /***************************************************************************

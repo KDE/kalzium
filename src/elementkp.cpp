@@ -2,7 +2,7 @@
                           elementkp.cpp  -  description
                              -------------------
     begin                : Mon Dec 10 2001
-    copyright            : (C) 2001, 2002 by Carsten Niehaus
+    copyright            : (C) 2001, 2002, 2003 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -22,8 +22,8 @@
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <kstatusbar.h>
-#include <kstandarddirs.h>
 #include <kdebug.h>
+#include <khtmlview.h>
 
 //QT-Includes
 #include <qdragobject.h>
@@ -33,8 +33,6 @@
 #include <qpainter.h>
 #include <qpopupmenu.h>
 #include <qwhatsthis.h>
-
-#include <qdialog.h>
 
 #include "elementkp.h"
 #include "eleminfo.h"
@@ -145,6 +143,7 @@ void ElementKP::lookup() const
 	const KURL site(url);
 	html->openURL(site);
 	html->show();
+	html->view()->resize( html->view()->contentsWidth() + html->view()->frameWidth() , 400 );
 }
 
 

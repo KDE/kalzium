@@ -2,7 +2,7 @@
                         calcdialog.cpp  -  description
                              -------------------
     begin                    : Thu Feb 5 2002 
-    copyright                : (C) 2002 by Carsten Niehaus  
+    copyright                : (C) 2002, 2003 by Carsten Niehaus  
     email                    : cniehaus@kde.org
  ***************************************************************************/
 
@@ -28,8 +28,7 @@
 CalcDialog::CalcDialog(QWidget * parent, const char * name)
     : KDialog (parent, name)
 {
-    setCaption( i18n( "Calculations" ) );
-
+    this->setCaption( i18n( "Calculations" ) );
     main_layout = new QGridLayout(this);
 
     tabwidget = new CalcDlg(this, "tabwidget");

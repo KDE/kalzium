@@ -2,7 +2,7 @@
                          calcdlg.cpp  -  description
                              -------------------
     begin                : Thu Dec 2001 
-    copyright            : (C) 2001, 2002 by Carsten Niehaus                     
+    copyright            : (C) 2001, 2002, 2003 by Carsten Niehaus                     
     email                : cniehaus@kde.org
 ***************************************************************************/
 
@@ -16,27 +16,28 @@
  ***************************************************************************/
 
 //KDE-Includes
-#include <kpushbutton.h>
 #include <ksimpleconfig.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
 #include <klineedit.h>
+#include <klocale.h>
+#include <kstddirs.h>
 
 //QT-Includes
-#include <qlabel.h>
-#include <qtabwidget.h>
-#include <qtextedit.h>
 #include <qstring.h>
+#include <qlayout.h>
+#include <qwidget.h>
+#include <qtextedit.h>
 
 #include "calcdlg.h"
 #include "kmolui.h"
 #include "../calculations/kmoledit.h"
 
-CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name)
+CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QWidget (parent,name)
 {
+	QVBoxLayout *vboxl = new QVBoxLayout( this ); //gogo: brauchen wir das?
     KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
 
     KMol = new KMolUI(this);
+	KMol->show();               //wieso kommt es trotzdem nicht?
 
     //accepts text input until return is pressed 
     connect(KMol->formula, SIGNAL(returnPressed()), this, SLOT(calc()));
@@ -56,8 +57,7 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
         symlabel[n]=config.readEntry("Symbol", "Unknown");
         weight[n]=config.readEntry("Weight","0.0");
     }
-
-    addTab(KMol, i18n("KMol"));
+	vboxl->addWidget( KMol );
 }
 
 //******* Slots ******************************************************
@@ -86,7 +86,7 @@ void CalcDlg::calc()
 /**
 * Call the built in editor to edit the definitions file.
 */
-void CalcDlg::callEditor() 
+void CalcDlg::callEditor() const
 {
     KMolEdit* kmoledit = new KMolEdit(0, "kmoledit", kmolcalc);
     kmoledit->exec();

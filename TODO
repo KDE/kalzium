@@ -1,5 +1,4 @@
-last modified: Dec 23 2002
+last modified: Jan 04 2003
 
-TODO for Kalzium 0.6.0:
-- check for obsolete includes
-- gogos QPaintEvent-changes
+TODO for Kalzium 0.6.1:
+- backport fixes from HEAD

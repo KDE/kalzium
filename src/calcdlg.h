@@ -2,7 +2,7 @@
                           calcdlg.h  -  description
                              -------------------
     begin                : Thu Dec 24 2001
-    copyright            : (C) 2001, 2002 by Carsten Niehaus
+    copyright            : (C) 2001, 2002, 2003 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -20,7 +20,7 @@
 
 class KMolUI;
 
-#include <qtabwidget.h>
+#include <qdialog.h>
 
 #include "../calculations/kmolcalc.h"
 #include "../calculations/kmoledit.h"
@@ -35,7 +35,7 @@ class KMolUI;
 typedef QString SymLabel;
 
 
-class CalcDlg : public QTabWidget  {
+class CalcDlg : public QWidget  {
     Q_OBJECT
 
     public: 
@@ -57,7 +57,7 @@ class CalcDlg : public QTabWidget  {
          /**
         * Call the built in editor to edit the definitions file.
         */
-        void callEditor();
+        void callEditor() const;
 
         /** 
         * Clear all text entry / result fields.

@@ -2,7 +2,7 @@
                           kalzium_i18n.h  -  description
                              -------------------
     begin                : Die Jan  5 17:59:34 CET 2001
-    copyright            : (C) 2002 by Carsten Niehaus
+    copyright            : (C) 2002, 2003 by Carsten Niehaus
     email                : cniehaus@gmx.de
  ***************************************************************************/
 
