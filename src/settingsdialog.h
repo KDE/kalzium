@@ -80,12 +80,6 @@ class SettingsDialog : public KDialogBase
 
     private slots:
         /**
-        * This method is called when clicking on Apply Button. 
-        * It saves the settings the user did.
-        */
-        void slotApplySettings();
-        
-        /**
         * This method called when clicking on Ok Button. 
         * It saves the settings the user did and quits.
         */

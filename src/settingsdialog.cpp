@@ -275,7 +275,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     urlSelector->setCurrentItem( translateCurrentLang( main_config->readEntry( "adress") ) );
 
     // CONNECT
-    connect(this, SIGNAL(applyClicked()), this, SLOT(slotApplySettings()));
+    connect(this, SIGNAL(applyClicked()), this, SLOT(slotOkSettings()));
     connect(this, SIGNAL(defaultClicked()), this, SLOT(slotDefaults()));
     connect(this, SIGNAL(okClicked()), this, SLOT(slotOkSettings()));
     
@@ -297,12 +297,6 @@ int SettingsDialog::translateCurrentLang( QString lang ){
 	if ( lang == "http://pearl1.lanl.gov/periodic/elements/" )
 		return 6;
 	else return 0;
-}
-
-
-void SettingsDialog::slotApplySettings()
-{
-    slotOkSettings();
 }
 
 
