@@ -134,7 +134,7 @@
                                 <string>If selected, the temperatures will be displayed in Kelvin</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Kelvin. This is then saved in configuration and restaured next time you start Kalzium.</string>
+                                <string>If selected, the temperatures will be displayed in Kelvin. This is then saved in configuration and restored next time you start Kalzium.</string>
                             </property>
                         </widget>
                         <widget class="QRadioButton">
@@ -151,7 +151,7 @@
                                 <string>If selected, the temperatures will be displayed in Degrees Celsius</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degrees Celsius. This is then saved in configuration and restaured next time you start Kalzium.</string>
+                                <string>If selected, the temperatures will be displayed in Degrees Celsius. This is then saved in configuration and restored next time you start Kalzium.</string>
                             </property>
                         </widget>
                         <widget class="QRadioButton">
@@ -168,7 +168,7 @@
                                 <string>If selected, the temperatures will be displayed in Degrees Fahrenheit</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degrees Fahrenheit. This is then saved in configuration and restaured next time you start Kalzium.</string>
+                                <string>If selected, the temperatures will be displayed in Degrees Fahrenheit. This is then saved in configuration and restored next time you start Kalzium.</string>
                             </property>
                         </widget>
                     </vbox>
