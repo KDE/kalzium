@@ -180,8 +180,7 @@ QString DetailedInfoDlg::adjustUnits( double val , int type  )
 		}
 		else
 		{
-			v = QString::number( val );
-			v.prepend( "This element was discovered in the year " );
+			v = i18n( "This element was discovered in the year %1" ).arg( QString::number( val ) );
 		}
 	}
 
