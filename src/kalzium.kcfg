@@ -4,192 +4,192 @@
   <kcfgfile name="kalziumrc"/>
   <group name="PSE">
     <entry name="schemaPSE" type="Int">
-    	<default>0</default>
+        <label>Selects the PSE</label>
 	<whatsthis>Select the PSE you want</whatsthis>
-	<label>Selects the PSE</label>
+	<default>0</default>
     </entry>
   </group>
   <group name="Color Scheme">
     <entry name="colorschemebox" type="Int">
-    	<default>1</default>
-	<whatsthis>Select the color scheme you prefer by clicking on the corresponding radio button</whatsthis>
 	<label>Selects the default color scheme</label>
+	<whatsthis>Select the color scheme you prefer by clicking on the corresponding radio button</whatsthis>
+	<default>1</default>
     </entry>
   </group>
     <group name="Numeration">
     <entry name="numeration" type="Int">
-    	<default>1</default>
-	<whatsthis>Select the numeration you want</whatsthis>
 	<label>Selects the default numeration (IUPAC)</label>
+	<whatsthis>Select the numeration you want</whatsthis>
+	<default>1</default>
     </entry>
   </group>
   <group name="Slider">
 	  <entry name="sliderdate" type="Int">
-		  <default>2004</default>
-		  <whatsthis>The date with which the slider starts</whatsthis>
 		  <label>The date with which the slider starts</label>
+		  <whatsthis>The date with which the slider starts</whatsthis>
+		  <default>2004</default>
 	  </entry>
   </group>
   <group name="Legend">
 	  <entry name="showsom" type="Bool">
-		  <default>false</default>
-		  <whatsthis>Show or hide the state of matter</whatsthis>
 		  <label>Show or hide the state of matter</label>
+		  <whatsthis>Show or hide the state of matter</whatsthis>
+		  <default>false</default>
 	  </entry>
 	  <entry name="showtimeline" type="Bool">
-		  <default>false</default>
-		  <whatsthis>Show or hide the timeline</whatsthis>
 		  <label>Show or hide the timeline</label>
+		  <whatsthis>Show or hide the timeline</whatsthis>
+		  <default>false</default>
 	  </entry>
 	  <entry name="showlegend" type="Bool">
-		  <default>true</default>
-		  <whatsthis>Show or hide the legend</whatsthis>
 		  <label>Show or hide the legend</label>
+		  <whatsthis>Show or hide the legend</whatsthis>
+		  <default>true</default>
 	  </entry>
   </group>
   <group name="Colors">
     <entry name="noscheme" type="Color">
-    	<default>#b4adff</default>
-	<whatsthis>Selects the color of the elements if no scheme is selected</whatsthis>
 	<label>Selects the color if no scheme is selected</label>
+	<whatsthis>Selects the color of the elements if no scheme is selected</whatsthis>
+	<default>#b4adff</default>
     </entry>
     <entry name="color_liquid" type="Color">
-    	<default>#b4adff</default>
-	<whatsthis>Selects the color of liquid elements</whatsthis>
 	<label>Selects the color of liquid elements</label>
+	<whatsthis>Selects the color of liquid elements</whatsthis>
+	<default>#b4adff</default>
     </entry>
     <entry name="color_solid" type="Color">
-		<default>#FF5255</default>
-	<whatsthis>Selects the color of solid elements</whatsthis>
 	<label>Selects the color of solid elements</label>
+	<whatsthis>Selects the color of solid elements</whatsthis>
+	<default>#FF5255</default>
     </entry>
     <entry name="color_vapor" type="Color">
-		<default>#5CFF46</default>
-	<whatsthis>Selects the color of vaporous elements</whatsthis>
 	<label>Selects the color of vaporous elements</label>
+	<whatsthis>Selects the color of vaporous elements</whatsthis>
+	<default>#5CFF46</default>
     </entry>
     <entry name="color_radioactive" type="Color">
-		<default>#FFFFFF</default>
-	<whatsthis>Selects the color of radioactive elements</whatsthis>
 	<label>Selects the color of radioactive elements</label>
+	<whatsthis>Selects the color of radioactive elements</whatsthis>
+	<default>#FFFFFF</default>
     </entry>
     <entry name="color_artificial" type="Color">
-		<default>#FFA94E</default>
-	<whatsthis>Selects the color of artificial elements</whatsthis>
 	<label>Selects the color of artificial elements</label>
+	<whatsthis>Selects the color of artificial elements</whatsthis>
+	<default>#FFA94E</default>
     </entry>
     <entry name="block_s" type="Color">
-    	<default>#be72ee</default>
-	<whatsthis>Selects the color of the elements in block s</whatsthis>
 	<label>Selects the color of the elements in block s</label>
+	<whatsthis>Selects the color of the elements in block s</whatsthis>
+	<default>#be72ee</default>
     </entry>
     <entry name="block_p" type="Color">
-    	<default>#62ee25</default>
-	<whatsthis>Selects the color of the elements in block p</whatsthis>
 	<label>Selects the color of the elements in block p</label>
+	<whatsthis>Selects the color of the elements in block p</whatsthis>
+	<default>#62ee25</default>
     </entry>
     <entry name="block_d" type="Color">
-    	<default>#f4fd40</default>
-	<whatsthis>Selects the color of the elements in block d</whatsthis>
 	<label>Selects the color of the elements in block d</label>
+	<whatsthis>Selects the color of the elements in block d</whatsthis>
+	<default>#f4fd40</default>
     </entry>
     <entry name="block_f" type="Color">
-    	<default>#ee5ab8</default>
-	<whatsthis>Selects the color of the elements in block f</whatsthis>
 	<label>Selects the color of the elements in block f</label>
+	<whatsthis>Selects the color of the elements in block f</whatsthis>
+	<default>#ee5ab8</default>
     </entry>
     <entry name="group_1" type="Color">
-    	<default>#dd00ee</default>
-	<whatsthis>Selects the color of the elements in group 1</whatsthis>
 	<label>Selects the color of the elements in group 1</label>
+	<whatsthis>Selects the color of the elements in group 1</whatsthis>
+	<default>#dd00ee</default>
     </entry>
     <entry name="group_2" type="Color">
-    	<default>#2284ee</default>
-	<whatsthis>Selects the color of the elements in group 2</whatsthis>
 	<label>Selects the color of the elements in group 2</label>
+	<whatsthis>Selects the color of the elements in group 2</whatsthis>
+	<default>#2284ee</default>
     </entry>
     <entry name="group_3" type="Color">
-		<default>#91ee7f</default>
-	<whatsthis>Selects the color of the elements in group 3</whatsthis>
 	<label>Selects the color of the elements in group 3</label>
+	<whatsthis>Selects the color of the elements in group 3</whatsthis>
+	<default>#91ee7f</default>
     </entry>
     <entry name="group_4" type="Color">
-    	<default>#ba2f14</default>
-	<whatsthis>Selects the color of the elements in group 4</whatsthis>
 	<label>Selects the color of the elements in group 4</label>
+	<whatsthis>Selects the color of the elements in group 4</whatsthis>
+	<default>#ba2f14</default>
     </entry>
     <entry name="group_5" type="Color">
-    	<default>#eec809</default>
-	<whatsthis>Selects the color of the elements in group 5</whatsthis>
 	<label>Selects the color of the elements in group 5</label>
+	<whatsthis>Selects the color of the elements in group 5</whatsthis>
+	<default>#eec809</default>
     </entry>
     <entry name="group_6" type="Color">
-		<default>#0c3e74</default>
-	<whatsthis>Selects the color of the elements in group 6</whatsthis>
 	<label>Selects the color of the elements in group 6</label>
+	<whatsthis>Selects the color of the elements in group 6</whatsthis>
+	<default>#0c3e74</default>
     </entry>
     <entry name="group_7" type="Color">
-    	<default>#ee0842</default>
-	<whatsthis>Selects the color of the elements in group 7</whatsthis>
 	<label>Selects the color of the elements in group 7</label>
+	<whatsthis>Selects the color of the elements in group 7</whatsthis>
+	<default>#ee0842</default>
     </entry>
     <entry name="group_8" type="Color">
-    	<default>#b4adff</default>
-	<whatsthis>Selects the color of the elements in group 8</whatsthis>
 	<label>Selects the color of the elements in group 8</label>
+	<whatsthis>Selects the color of the elements in group 8</whatsthis>
+	<default>#b4adff</default>
     </entry>
     <entry name="beh_acidic" type="Color">
-		<default>#b4adff</default>
-	<whatsthis>Selects the color of the elements with acidic behaviour</whatsthis>
 	<label>Selects the color of the elements with acidic behaviour</label>
+	<whatsthis>Selects the color of the elements with acidic behaviour</whatsthis>
+	<default>#b4adff</default>
     </entry>
     <entry name="beh_basic" type="Color">
-    	<default>#d3ee22</default>
-	<whatsthis>Selects the color of the elements with basic behaviour</whatsthis>
 	<label>Selects the color of the elements with basic behaviour</label>
+	<whatsthis>Selects the color of the elements with basic behaviour</whatsthis>
+	<default>#d3ee22</default>
     </entry>
     <entry name="beh_amphoteric" type="Color">
-    	<default>#EE4346</default>
-	<whatsthis>Selects the color of the elements with amphoteric behaviour</whatsthis>
 	<label>Selects the color of the elements with amphoteric behaviour</label>
+	<whatsthis>Selects the color of the elements with amphoteric behaviour</whatsthis>
+	<default>#EE4346</default>
     </entry>
     <entry name="beh_neutral" type="Color">
-		<default>#44EE2E</default>
-	<whatsthis>Selects the color of the elements with neutral behaviour</whatsthis>
 	<label>Selects the color of the elements with neutral behaviour</label>
+	<whatsthis>Selects the color of the elements with neutral behaviour</whatsthis>
+	<default>#44EE2E</default>
     </entry>
   </group>
   <group name="Mouseclick">
     <entry name="LMBbeh" type="Int">
-    	<default>0</default>
-	<whatsthis>If this is true a click with the left mouse button opens the small information dialog with less information</whatsthis>
 	<label>This value defines whether a click with the left mouse button should open the detailed or the small information dialog</label>
+	<whatsthis>If this is true a click with the left mouse button opens the small information dialog with less information</whatsthis>
+	<default>0</default>
     </entry>
   </group>
   <group name="Units">
     <entry name="units" type="Int">
-    	<default>0</default>
-	<whatsthis>Use eV or kJ/mol</whatsthis>
 	<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
+	<whatsthis>Use eV or kJ/mol</whatsthis>
+	<default>0</default>
     </entry>
   </group>
   <group name="Electronegativity">
     <entry name="electronegativity" type="Int">
-    	<default>1</default>
-	<whatsthis>Select the scale for the electronegativity</whatsthis>
 	<label>This value defines which electronegativity-scale should be used within Kalzium</label>
+	<whatsthis>Select the scale for the electronegativity</whatsthis>
+	<default>1</default>
     </entry>
   </group>
   <group name="Temperature">
     <entry name="temperature" type="Int">
-    	<default>0</default>
-		<whatsthis>Select the scale for the temperature</whatsthis>
 	<label>This value defines which temperature scale should be used within Kalzium</label>
+	<whatsthis>Select the scale for the temperature</whatsthis>
+	<default>0</default>
     </entry>
     <entry name="temperaturevalue" type="Int">
-    	<default>295</default>
-		<whatsthis>Sets the temperature in Kelvin which will be used for the state of matter view</whatsthis>
 	<label>The default value for the state of matter view</label>
+	<whatsthis>Sets the temperature in Kelvin which will be used for the state of matter view</whatsthis>
+	<default>295</default>
     </entry>
   </group>
 </kcfg>
