@@ -25,6 +25,7 @@ class QGridLayout;
 class QLabel;
 class KIntNumInput;
 class KalziumGraphDataContainer;
+class QListView;
 
 #include <qwidget.h>
 #include <kdialog.h>
@@ -39,6 +40,7 @@ class KalziumGraphDialog : public KDialog
 		KalziumGraphDialog( QWidget *parent=0, const char *name =0 );
 		QGridLayout *grid;
 		KalziumGraph *graph;
+		QListView *list;
 	
 	private:
 		KComboBox *kcb;

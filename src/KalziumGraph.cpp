@@ -50,7 +50,7 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 	to->setMinValue( 1 );
 	to->setMaxValue( 108 );
 		
-	QListView *list = new QListView( this );
+	list = new QListView( this );
 
 	kcb = new KComboBox( this );
 	kcb->insertItem( i18n( "Atomic Weight" ));
@@ -85,6 +85,19 @@ void KalziumGraphDialog::slotokClicked()
 
 void KalziumGraphDialog::fillList( int from, int to, KalziumGraphDataContainer *data )
 {
+	QListViewItem *i = new QListViewItem( list );
+	QListViewItem *i1 = new QListViewItem( list );
+	QListViewItem *i2 = new QListViewItem( list );
+	list->insertItem( i ); 
+	i->setText( 0, "foo" );
+	list->insertItem( i1 ); 
+	i1->setText( 1, "foo1" );
+	list->insertItem( i2 ); 
+	i2->setText( 2, "foo2" );
+
+	i->setVisible( true );
+	i1->setVisible( true );
+	i2->setVisible( true );
 }
 
 bool KalziumGraphDialog::valuesAreOk()
