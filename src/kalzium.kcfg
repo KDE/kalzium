@@ -100,63 +100,63 @@
     </entry>
     <entry name="group_1" type="Color">
     	<default>#dd00ee</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements in group 1</whatsthis>
+	<label>Selects the color of the elements in group 1</label>
     </entry>
     <entry name="group_2" type="Color">
     	<default>#2284ee</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements in group 2</whatsthis>
+	<label>Selects the color of the elements in group 2</label>
     </entry>
     <entry name="group_3" type="Color">
 		<default>#91ee7f</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements in group 3</whatsthis>
+	<label>Selects the color of the elements in group 3</label>
     </entry>
     <entry name="group_4" type="Color">
     	<default>#ba2f14</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements in group 4</whatsthis>
+	<label>Selects the color of the elements in group 4</label>
     </entry>
     <entry name="group_5" type="Color">
     	<default>#eec809</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements in group 5</whatsthis>
+	<label>Selects the color of the elements in group 5</label>
     </entry>
     <entry name="group_6" type="Color">
 		<default>#0c3e74</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements in group 6</whatsthis>
+	<label>Selects the color of the elements in group 6</label>
     </entry>
     <entry name="group_7" type="Color">
     	<default>#ee0842</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements in group 7</whatsthis>
+	<label>Selects the color of the elements in group 7</label>
     </entry>
     <entry name="group_8" type="Color">
     	<default>#b4adff</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements in group 8</whatsthis>
+	<label>Selects the color of the elements in group 8</label>
     </entry>
     <entry name="beh_acidic" type="Color">
 		<default>#b4adff</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements with acidic behaviour</whatsthis>
+	<label>Selects the color of the elements with acidic behaviour</label>
     </entry>
     <entry name="beh_basic" type="Color">
     	<default>#d3ee22</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements with basic behaviour</whatsthis>
+	<label>Selects the color of the elements with basic behaviour</label>
     </entry>
     <entry name="beh_amphoteric" type="Color">
     	<default>#EE4346</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements with amphoteric behaviour</whatsthis>
+	<label>Selects the color of the elements with amphoteric behaviour</label>
     </entry>
     <entry name="beh_neutral" type="Color">
 		<default>#44EE2E</default>
-	<whatsthis>Selects the color of the elements in group f</whatsthis>
-	<label>Selects the color of the elements in group f</label>
+	<whatsthis>Selects the color of the elements with neutral behaviour</whatsthis>
+	<label>Selects the color of the elements with neutral behaviour</label>
     </entry>
   </group>
   <group name="Mouseclick">
