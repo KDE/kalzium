@@ -303,6 +303,7 @@ void Kalzium::slotUpdateSettings()
 	{
 		m_pCurrentPSE->activateColorScheme(Prefs::colorschemebox());
 		m_pLegend->setScheme( Prefs::colorschemebox() );
+		slotStatusBar( "", IDS_TEMPERATURE );
 	}
 	else 
 	{
