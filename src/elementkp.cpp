@@ -356,7 +356,7 @@ void ElementKP::slotShowData()
     grid->setRowStretch(6, 1);
 
 ///neu
-/*  NOT READY
+/*
     QTable *neighbourTable = new QTable( 3 , 3 , show_data , "neighbourTable" );
 	    neighbourTable->setReadOnly( true );
         grid->addMultiCellWidget(neighbourTable, 6, 6, 0 , 1);
@@ -373,9 +373,15 @@ void ElementKP::slotShowData()
                 {
                     neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
                 }
+				int x=0, y=0;
+				position(ElemNo,x,y);
+				if (y/40 == 0 )
+				{
+						neighbourTable->setText(1,1,"");
+				}
 
             }
-*/       	    
+			*/
 ///neu
     
 //    QWhatsThis::add(label, i18n("This is the electronegativity of Pauling"));
