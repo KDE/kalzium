@@ -39,9 +39,10 @@ class QString;
 
 class KConfig;
 class KSelectAction;
+class KToggleAction;
 
 class CalcDialog;
-class Colours_Config_Widget;
+class Colors_Config_Widget;
 class ElementKP;
 class SettingsDialog;
 class StateOfMatterDlg;
@@ -64,12 +65,13 @@ class Kalzium : public KMainWindow
         int quizresult;
         int numofquestions;
         int i;
-	Colours_Config_Widget *coloursconfig;
+	Colors_Config_Widget *colorsconfig;
         CalcDialog *calculationdialog;
 	QGridLayout *maingrid;
 
-    KSelectAction *numerationmenu, *psestylemenu,*timelinemenu, *colourschememenu, *weblookupmenu;
-    
+    KSelectAction *numerationmenu, *psestylemenu, *colorschememenu, *weblookupmenu;
+    KToggleAction *timelineToggleAction; 
+   
     KConfig *main_config;
     
     StateOfMatterDlg *templookup;
@@ -126,15 +128,15 @@ class Kalzium : public KMainWindow
     void timeline();
 
     void changeNumeration(int);
-    void changeColourScheme(int id=-1);
+    void changeColoScheme(int id=-1);
 
     //update the menues
     void updateNumMenu(int);
-    void updateTimeMenu(int);
+    void updateTimeMenu(bool);
     void updateColourMenu(int);
     
     void pseStyleShow(int);
-    void slotShowTimeline(int);
+    void slotShowTimeline(bool);
 
     /**
     * the quiz will start

@@ -1,6 +1,3 @@
-
-SUBDIRS = calculations kalzium
-
-EXTRA_DIST = kalzium.kdevprj 
+SUBDIRS = calculations src 
 
 AUTOMAKE_OPTIONS = foreign 

@@ -157,8 +157,6 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
     setCentralWidget(foo);
     
     updateMainWindow();
-//    showIUPAC();
-//    slotShowBlocks();
 }
 
 Kalzium::~Kalzium()
@@ -171,9 +169,9 @@ bool Kalzium::queryClose()
 {
     main_config->setGroup("Menu Settings");
     main_config->writeEntry("psestylemenu",psestylemenu->currentItem()); 
-    main_config->writeEntry("colourschememenu", colourschememenu->currentItem());
+    main_config->writeEntry("colorschememenu", colorschememenu->currentItem());
     main_config->writeEntry("numerationmenu", numerationmenu->currentItem());
-    main_config->writeEntry("timelinemenu", timelinemenu->currentItem());
+    main_config->writeEntry("timelineshow", timelineToggleAction->isChecked());
 	main_config->sync();
     return true;
 }
@@ -359,15 +357,15 @@ void Kalzium::updateNumMenu(int id)
 
 void Kalzium::updateColourMenu(int id) 
 {
-    colourschememenu->setCurrentItem(id);
+    colorschememenu->setCurrentItem(id);
 }
 
-void Kalzium::updateTimeMenu(int id)
+void Kalzium::updateTimeMenu(bool)
 {
-    timelinemenu->setCurrentItem(id);
+    //timelinemenu->setCurrentItem(id);
 }
 
-void Kalzium::changeColourScheme(int id) 
+void Kalzium::changeColorScheme(int id) 
 {
     static void (Kalzium::*funcs[])() = {
         &Kalzium::slotShowAcidBeh,
@@ -395,10 +393,9 @@ void Kalzium::changeNumeration(int id)
     }
 }
 
-
-void Kalzium::slotShowTimeline(int id)
-{
-    if (id == 0)
+void Kalzium::slotShowTimeline(bool id)
+{    
+    if (id == true)
     {
         dateS->show();
         dateLCD->show();
@@ -413,7 +410,7 @@ void Kalzium::slotShowTimeline(int id)
         element[112]->show();
         element[114]->show();
         element[116]->show();
-    }
+    } 
 }
 
 void Kalzium::slotKnowledge()
@@ -501,9 +498,9 @@ void Kalzium::setupConfig()
     {
         main_config->setGroup("Menu Settings");
         main_config->writeEntry("psestylemenu", 1);
-        main_config->writeEntry("colourschememenu", 1);
+        main_config->writeEntry("colorschememenu", 1);
         main_config->writeEntry("numerationmenu", 0);
-        main_config->writeEntry("timelinemenu", 1);
+        main_config->writeEntry("timelineshow", false);
     }
 	main_config->sync();
 }
@@ -522,16 +519,16 @@ void Kalzium::setupActions()
     connect(psestylemenu, SIGNAL(activated(int)), this, SLOT(pseStyleShow(int)));
     psestylemenu->setCurrentItem(main_config->readNumEntry("psestylemenu"));
 
-    QStringList colourschemelist;
-    colourschemelist.append( i18n("&Acid Behaviours"));
-    colourschemelist.append( i18n("&Blocks"));
-    colourschemelist.append( i18n("&Groups"));
-    colourschemelist.append( i18n("&State of Matter"));
-    colourschememenu = new KSelectAction(i18n("&Colourscheme"),0,actionCollection(), "colourscheme");
-    colourschememenu->setItems(colourschemelist);
-    connect(colourschememenu, SIGNAL(activated(int)), this, SLOT(updateColourMenu(int)));
-    connect(colourschememenu, SIGNAL(activated(int)), this, SLOT(changeColourScheme(int)));
-    colourschememenu->setCurrentItem(main_config->readNumEntry("colourschememenu"));
+    QStringList colorschemelist;
+    colorschemelist.append( i18n("&Acid Behaviours"));
+    colorschemelist.append( i18n("&Blocks"));
+    colorschemelist.append( i18n("&Groups"));
+    colorschemelist.append( i18n("&State of Matter"));
+    colorschememenu = new KSelectAction(i18n("&Colorscheme"),0,actionCollection(), "colorscheme");
+    colorschememenu->setItems(colorschemelist);
+    connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(updateColourMenu(int)));
+    connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(changeColorScheme(int)));
+    colorschememenu->setCurrentItem(main_config->readNumEntry("colorschememenu"));
     
     // BEGIN NUMERATIONMENU
     QStringList numerationlist;
@@ -547,17 +544,13 @@ void Kalzium::setupActions()
     numerationmenu->setCurrentItem(main_config->readNumEntry("numerationmenu"));
     // END NUMERATIONMENU
 
-    // BEGIN  TIMELINEMENU
-    QStringList timelinelist;
-    timelinelist.append(i18n("On"));
-    timelinelist.append(i18n("Off"));
-    
-    timelinemenu = new KSelectAction (i18n("&Timeline"),0,actionCollection(),"timeline");
-    timelinemenu->setItems(timelinelist);
+    // BEGIN TIMELINE
+    timelineToggleAction = new KToggleAction(i18n("Timeline"),0,actionCollection(), "timeline2");
+    timelineToggleAction->setChecked(true);
+    connect(timelineToggleAction, SIGNAL(toggled(bool)), this, SLOT(updateTimeMenu(bool)));
+    connect(timelineToggleAction, SIGNAL(toggled(bool)), this, SLOT(slotShowTimeline(bool)));
 
-    connect(timelinemenu, SIGNAL(activated(int)), this, SLOT(updateTimeMenu(int)));
-    connect(timelinemenu, SIGNAL(activated(int)), this, SLOT(slotShowTimeline(int)));
-    timelinemenu->setCurrentItem(main_config->readNumEntry("timelinemenu"));
+    timelineToggleAction->setChecked(main_config->readBoolEntry("timelineshow"));
     // END TIMELINEMENU
     
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
@@ -570,8 +563,8 @@ void Kalzium::setupActions()
 
 void Kalzium::updateMainWindow()
 {
-    changeColourScheme(colourschememenu->currentItem());
+    changeColorScheme(colorschememenu->currentItem());
     changeNumeration(numerationmenu->currentItem());
     pseStyleShow(psestylemenu->currentItem());
-    slotShowTimeline(timelinemenu->currentItem());
+    slotShowTimeline(timelineToggleAction->isChecked());
 }

@@ -36,7 +36,7 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
 : QTabWidget (parent,name)
 {
     KConfig *main_config=KGlobal::config();  
-    main_config->setGroup("Colours");
+    main_config->setGroup("Colors");
 
     // ------------------------------------------------
     // LAYOUT
@@ -180,7 +180,7 @@ void ColorsTabWidget::setDefaultColors()
 void ColorsTabWidget::saveColors()
 {
     KConfig *main_config=KGlobal::config();  
-    main_config->setGroup("Colours");
+    main_config->setGroup("Colors");
 
 
     // Stateofmatters
@@ -270,7 +270,7 @@ void SettingsDialog::slotApplySettings()
     main_config->writeEntry("adress", (webLookupButtonGroup->selected())->text());
     main_config->sync();
     
-    kalzium->changeColourScheme(kalzium->colourschememenu->currentItem());
+    kalzium->changeColorScheme(kalzium->colorschememenu->currentItem());
 }
 
 
@@ -280,7 +280,7 @@ void SettingsDialog::slotOkSettings()
     main_config->writeEntry("adress", (webLookupButtonGroup->selected())->text());
     main_config->sync();
     colorsTabWidget->applyColors();
-    kalzium->changeColourScheme(kalzium->colourschememenu->currentItem());
+    kalzium->changeColorScheme(kalzium->colorschememenu->currentItem());
 }
 
 void SettingsDialog::slotDefaults()

@@ -63,7 +63,7 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
     tempgrid->addMultiCellWidget(titletext , 0 , 0 , 0 , 2 , Qt::AlignCenter );
 
     QLabel *info = new QLabel( this );
-    info->setText(i18n("The colours indicate:"));
+    info->setText(i18n("The colors indicate:"));
     info->setFont(QFont("helvetica", 12, QFont::Bold));
     tempgrid->addMultiCellWidget(info , 1 , 1 , 1 , 2 , Qt::AlignCenter );
 
@@ -104,7 +104,7 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
     // the colors will indicate the state of matter
 
     main_config=KGlobal::config();  
-    main_config->setGroup("Colours");
+    main_config->setGroup("Colors");
 
     color_solid = main_config->readColorEntry("solid");
     color_vapor = main_config->readColorEntry("vapor");
@@ -169,7 +169,7 @@ void StateOfMatterDlg::slotSetTemp()
 void StateOfMatterDlg::slotStdCond()
 {
     tempS->setValue( -25 );
-    main_config->setGroup("Colours");
+    main_config->setGroup("Colors");
     for (int i = 0; i < 118; i++)
     {
         if (kalzium->element[i]->Data.az == "0")

@@ -26,9 +26,9 @@ Version 0.3.1:
 
 Version 0.3:
 - merge with Table
-- the colours are now configurable
+- the colors are now configurable
 - now you can coulour in groups
-- added more colourschemes
+- added more colorschemes
 - added timeline
 - code cleanup
 - adding a sed-script to Makefile.am for autocreation

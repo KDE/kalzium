@@ -44,5 +44,5 @@ elementnames:
           egrep 'Alternative2=' kalziumrc | sed -e 's#^Alternative2=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
 	  echo "#endif" >> kalzium_i18n.cpp
 
-##messages: rc.cpp
-##	$(XGETTEXT) *.cpp -o $(podir)/kalzium.pot
+messages: rc.cpp
+	$(XGETTEXT) *.cpp -o $(podir)/kalzium.pot

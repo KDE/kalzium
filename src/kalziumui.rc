@@ -6,6 +6,7 @@
         <Action name="colourscheme"/>
         <Action name="numeration"/>
         <Action name="timeline"/>
+        <Action name="timeline2"/>
         
 </Menu>
 
