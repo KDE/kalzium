@@ -27,8 +27,10 @@
 #include <klocale.h>
 #include <kdebug.h>
 #include <kaction.h>
-#include <kedittoolbar.h>
 #include <kapplication.h>
+#include <kstatusbar.h>
+
+#define IDS_STATUS           1
 
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
@@ -36,7 +38,15 @@ Kalzium::Kalzium()
 	pd = new privatedata( this );
 
 	pd->kalziumData = new KalziumDataObject();
+	setupStatusBar();
+	setupActions();
 
+	setCentralWidget( m_pCurrentPSE );
+}
+
+
+void Kalzium::setupActions()
+{
 	/*
 	 * the actions for switching PSE
 	 **/
@@ -111,9 +121,22 @@ Kalzium::Kalzium()
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
 	setupGUI();
-
-	setCentralWidget( m_pCurrentPSE );
 }
+
+void Kalzium::setupStatusBar()
+{
+	statusBar()->insertItem("", IDS_STATUS, 1, false);
+	statusBar()->setItemAlignment(IDS_STATUS, AlignLeft);
+	// fill the statusbar 
+	slotStatusBar(i18n("Welcome to Kalzium..."),  IDS_STATUS); // the message part
+	statusBar()->show();
+}
+
+void Kalzium::slotStatusBar(QString text, int id)
+{
+	statusBar()->changeItem(text, id);
+}
+
 
 void Kalzium::slotStartQuiz()
 {
@@ -233,20 +256,6 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotUpdateSettings()
 {
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
-}
-
-void Kalzium::optionsConfigureToolbars( )
-{
-	saveMainWindowSettings( KGlobal::config(), autoSaveGroup() );
-	KEditToolbar dlg(actionCollection());
-	connect(&dlg, SIGNAL(newToolbarConfig()), this, SLOT(newToolbarConfig()));
-	dlg.exec();
-}
-
-void Kalzium::newToolbarConfig()
-{
-    createGUI();
-    applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
 }
 
 void Kalzium::slotQuizAction()

@@ -83,6 +83,12 @@ class Kalzium : public KMainWindow
 			
 		void setupBlockLists( KalziumDataObject *d );
 		
+		void setupStatusBar();
+		
+		void setupActions();
+		
+		void slotStatusBar(QString text, int id);
+		
 		/*
 		 * all KActions Kalzium uses
 		 **/
@@ -135,8 +141,6 @@ class Kalzium : public KMainWindow
 		 * These slots are for the standardactions
 		 */
 		void showSettingsDialog();
-		void newToolbarConfig();
-		void optionsConfigureToolbars();
 		
 		void slotQuizAction();
 };
