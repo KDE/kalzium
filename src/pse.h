@@ -133,6 +133,9 @@ class PSE : public QWidget
 		
 		Legend *m_pLegend;
 
+		/**
+		 * the type of the nummeration ( NO, CAS, IUPACOLD, IUPAC )
+		 */
 		int m_num;
 
 		/**
@@ -148,8 +151,6 @@ class PSE : public QWidget
 		virtual void setupPSEElementButtonsList();
 
 		public slots:
-			void slotUpdatePSE();
-
 		/**
 		 * this method hides all elements which have not been know
 		 * before the @p date.
@@ -169,7 +170,13 @@ class RegularPSE : public PSE
 {
 	Q_OBJECT
 	public:
+		/**
+		 * Contructor
+		 */
 		RegularPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
+		/**
+		 * Destructor
+		 */
 		~RegularPSE();
 
 		/**
@@ -178,6 +185,9 @@ class RegularPSE : public PSE
 		 */
 		void setupPSEElementButtonsList();
 		
+		/**
+		 * updates the numeration of the PSE
+		 */
 		void updateNumeration();
 };
 
@@ -192,7 +202,14 @@ class SimplifiedPSE : public PSE
 {
 	Q_OBJECT
 	public:
+		/**
+		 * Contructor
+		 */
 		SimplifiedPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
+		
+		/**
+		 * Destructor
+		 */
 		~SimplifiedPSE();
 		
 		/**
@@ -201,6 +218,9 @@ class SimplifiedPSE : public PSE
 		 */
 		void setupPSEElementButtonsList();
 		
+		/**
+		 * updates the numeration of the PSE
+		 */
 		void updateNumeration();
 };
 

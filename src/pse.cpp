@@ -94,12 +94,6 @@ void PSE::updateNumeration()
 {
 }
 
-void PSE::slotUpdatePSE()
-{
-	kdDebug() << "slotUpdatePSE(), Colorscheme: " << Prefs::colorschemebox() << endl;
-	activateColorScheme( Prefs::colorschemebox() );
-}
-
 void PSE::setupBlockLists()
 {
 	EList::Iterator it = d->ElementList.begin();
@@ -351,7 +345,6 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 	m_pLegend = new Legend(this);
 
 	QGridLayout *grid = new QGridLayout( 11 , 18 );
-	//grid->setResizeMode( QLayout::Fixed );
 	
  	grid->addMultiCellWidget( m_pLegend, 10,10,0,17, Qt::AlignCenter );
 	
@@ -359,7 +352,7 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 	for ( int i = 0 ; i < 18 ; i++ )
 	{
 		QLabel *l = new QLabel( this );
-		QWhatsThis::add( l, "hasd" );
+		QWhatsThis::add( l, i18n( "This is the name of the group below" ) );
 		lList.append( l );
 		grid->addWidget( l , 0 , i);
 	}
@@ -453,7 +446,6 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 	m_pLegend = new Legend( this );
 	
 	QGridLayout *grid = new QGridLayout( 9 , 10  );
-	//grid->setResizeMode( QLayout::Fixed );
 	
 	ElementButton *button;
 
@@ -462,6 +454,7 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 	for ( int i = 0 ; i < 8 ; i++ )
 	{
 		QLabel *l = new QLabel( this );
+		QWhatsThis::add( l, i18n( "This is the name of the group below" ) );
 		lList.append( l );
 		grid->addWidget( l , 0 , i);
 	}

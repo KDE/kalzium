@@ -257,7 +257,7 @@ void Kalzium::displayTemperature()
  			string = i18n("Degree Celsius");
  			break;
  	}
- 	slotStatusBar(i18n("Temperature: %1 ").arg( string ),  IDS_TEMP);
+ 	slotStatusBar(i18n("Temperatureunit: %1 ").arg( string ),  IDS_TEMP);
  }
  
  void Kalzium::displayEnergie()
@@ -285,9 +285,6 @@ void Kalzium::slotStateOfMatter()
 	//only the elements 1 to 95 (Americium) will be calculated because
 	//only for these both the boiling _and_ melting point are known.
 	//The other elements will have the color color_artificial
-
-//X 	somDialogImpl *somDlg = new somDialogImpl(m_pCurrentPSE,  this, "som" );
-//X 	somDlg->show();
 }
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
 
