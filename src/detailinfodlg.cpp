@@ -26,6 +26,7 @@
 #include <kpushbutton.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
+#include <kiconloader.h>
 
 #include <qframe.h>
 #include <qfont.h>
@@ -37,6 +38,8 @@
 #include <qpainter.h>
 #include <qpixmap.h>
 #include <qregexp.h>
+#include <qsize.h>
+#include <qimage.h>
 
 #include <iostream>
 #include "elementkp.h"
@@ -48,12 +51,13 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
     : KDialogBase(IconList, i18n("Detailed Look on %1").arg( Eleminfo.Name.lower().utf8() ), Ok|User1|User2 ,Ok, parent,name, true, false)
 {
 	Data = Eleminfo;
+    KIconLoader *kil = KGlobal::iconLoader();
 
 	setButtonText( User1 , i18n( "Quick help" ) );
 	setButtonText( User2 , i18n( "Weblookup" ) );
 
 	/////////////////////////////////
-	overviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon("colorize", KIcon::SizeMedium));
+	overviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon(kil->iconPath( "overview" , KIcon::User)));
 	QVBoxLayout *overviewLayout = new QVBoxLayout( overviewTab );
 	QWidget *overviewWidget = new QWidget( overviewTab );
 	QVBoxLayout *foo_layout = new QVBoxLayout( overviewWidget );
@@ -66,18 +70,21 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 
     /////////////////////////////////
 
-	mainTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( Data.Name.utf8() ), BarIcon("redo", KIcon::SizeMedium));
+	mainTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( Data.Name.utf8() ), BarIcon(kil->iconPath( "elempic" , KIcon::User)));
 	QVBoxLayout *mainLayout = new QVBoxLayout( mainTab );
 	QPixmap pic ( "/home/carsten/cvs/kdeedu/kalzium/src/elementpics/"+Data.Symbol+".jpg" );
+	QImage img = pic.convertToImage();
+	img = img.smoothScale ( 400, 400, QImage::ScaleMin );
+	pic.convertFromImage( img );
 	QLabel *test = new QLabel( mainTab );
 	test->setPixmap( pic );
 	mainLayout->addWidget( test );
 
     /////////////////////////////////
-    energyTab = addPage(i18n("Energies"), i18n("Energyinformation"), BarIcon("roll", KIcon::SizeMedium));
+    energyTab = addPage(i18n("Energies"), i18n("Energyinformation"), BarIcon(kil->iconPath( "energies" , KIcon::User)));
 	QVBoxLayout *energyLayout = new QVBoxLayout( energyTab );
 	QLabel *ENlabel = new QLabel( i18n( "Electronegativity: %1" ).arg( Data._EN ) , energyTab );
-	QLabel *Ionlabel = new QLabel(i18n( "Ionizationenergie: %1" ).arg( Data._IE ) , energyTab );
+	QLabel *Ionlabel = new QLabel(i18n( "Ionization energy: %1" ).arg( Data._IE ) , energyTab );
 	QLabel *MPlabel = new QLabel(i18n( "Meltingpoint: %1" ).arg( Data._MP ) , energyTab );
 	QLabel *BPlabel = new QLabel(i18n( "Boilingpoint: %1" ).arg( Data._BP ) , energyTab );
 	energyLayout->addWidget( ENlabel );
@@ -86,14 +93,14 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	energyLayout->addWidget( BPlabel );
 
     /////////////////////////////////
-    chemicalTab = addPage(i18n("Chemical Data"), i18n("Chemical Data"), BarIcon("colorize", KIcon::SizeMedium));
+    chemicalTab = addPage(i18n("Chemical Data"), i18n("Chemical data"), BarIcon(kil->iconPath( "chemical" , KIcon::User)) );
 	QVBoxLayout *chemicalLayout = new QVBoxLayout( chemicalTab );
-	QLabel *orbtisLabel = new QLabel( Data.orbits , chemicalTab );
+	QLabel *orbtisLabel = new QLabel( i18n( "Orbits: %1" ).arg( Data.orbits ) , chemicalTab );
 	QLabel *symbolLabel = new QLabel( i18n( "Symbol: %1" ).arg( Data.Symbol ) , chemicalTab  );
 	QLabel *densityLabel = new QLabel( i18n( "Density: %1").arg( Data._Density ) , chemicalTab );
 	QLabel *blockLabel  = new QLabel( i18n( "Block: %1" ).arg( Data.Block ) , chemicalTab );
-	QLabel *atomrad    = new QLabel( i18n( "Atomic Radius: %1" ).arg( Data._AR ) , chemicalTab );
-	QLabel *atomweightLabel = new QLabel( i18n( "Atomic Weigth: %1" ).arg( Data.Weight ) , chemicalTab );
+	QLabel *atomrad    = new QLabel( i18n( "Atomic radius: %1" ).arg( Data._AR ) , chemicalTab );
+	QLabel *atomweightLabel = new QLabel( i18n( "Atomic weigth: %1" ).arg( Data.Weight ) , chemicalTab );
 	chemicalLayout->addWidget( orbtisLabel );
 	chemicalLayout->addWidget( symbolLabel );
 	chemicalLayout->addWidget( densityLabel);
@@ -102,7 +109,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	chemicalLayout->addWidget( atomweightLabel);
     
 	/////////////////////////////////
-    miscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon("colorize", KIcon::SizeMedium));
+    miscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon(kil->iconPath( "misc" , KIcon::User)));
 	QVBoxLayout *miscLayout = new QVBoxLayout( miscTab );
 	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg(Data.date ) , miscTab );
 	QLabel *meanweight_label = new QLabel( i18n("Meanweight: %1").arg(Data.meanweight ) , miscTab );
