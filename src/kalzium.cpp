@@ -119,6 +119,7 @@ void Kalzium::slotAddQuestions()
 
 	questionAddDialogImpl *q = new questionAddDialogImpl( this, "questionAddDialogImpl" );
 	q->show();
+	connect (q->kPushButton2, SIGNAL( clicked()), this, SLOT(slotQuizAction()));
 }
 
 void Kalzium::slotShowTimeline()
@@ -238,6 +239,10 @@ void Kalzium::newToolbarConfig()
     applyMainWindowSettings( KGlobal::config(), autoSaveGroup() );
 }
 
+void Kalzium::slotQuizAction()
+{
+	quiz_action->setCurrentItem(-1);
+}
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
 

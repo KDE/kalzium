@@ -141,6 +141,8 @@ class Kalzium : public KMainWindow
 		void optionsConfigureKeys();
 		void newToolbarConfig();
 		void optionsConfigureToolbars();
+		
+		void slotQuizAction();
 };
 
 /**
