@@ -20,11 +20,13 @@
 #define _KALZIUMGRAPH_H
 
 class KComboBox;
+class KLineEdit;
 class QGridLayout;
 class QCanvas;
 
 #include <qwidget.h>
 #include <kdialog.h>
+#include <qframe.h>
 class KalziumGraph;
 
 class KalziumGraphDialog : public KDialog
@@ -38,17 +40,10 @@ class KalziumGraphDialog : public KDialog
 	
 	private:
 		KComboBox *kcb;
+		KLineEdit *from, *to;
 	
 	public slots:
 		void slotokClicked();
-};
-
-class KalziumGraphDisplay : public QWidget
-{
-	Q_OBJECT
-
-	public:
-		KalziumGraphDisplay( int, int, int, QWidget *parent=0, const char *name=0 );
 };
 
 class KalziumGraphDataContainer
@@ -59,15 +54,15 @@ class KalziumGraphDataContainer
 };
 
 //Datenpräsentation
-class KalziumGraph : public QWidget
+class KalziumGraph : public QFrame
 {
 	Q_OBJECT
 
 	public:
 		KalziumGraph( int , int , QWidget *parent = 0, const char *name=0, KalziumGraphDataContainer *data=0);
-		QCanvas *chart;
 
 		KalziumGraphDataContainer *data;
+		int fromRange_, toRange_;
 
 	protected slots:
 		virtual void paintEvent( QPaintEvent * );

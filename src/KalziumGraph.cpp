@@ -26,6 +26,7 @@
 #include <kcombobox.h>
 #include <kdebug.h>
 #include <kconfig.h>
+#include <klineedit.h>
 
 //QT-Includes
 #include <qdialog.h>
@@ -43,8 +44,13 @@
 KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDialog( parent, name )
 {
 	this->setCaption( i18n( "Visualize Data" ));
-	grid = new QGridLayout ( this, 4, 2 ,8, -1, "GraphLayout" );
+	grid = new QGridLayout ( this, 5, 5 ,8, -1, "GraphLayout" );
 	KPushButton *ok = new KPushButton( i18n( "Graph" ),this );
+	QObject::connect(ok, SIGNAL( clicked() ), this, SLOT(slotokClicked() ));
+
+	from = new KLineEdit("2", this );
+	to = new KLineEdit("20", this );
+
 	kcb = new KComboBox( this );
 	kcb->insertItem( i18n( "Atomic Weight" ));
 	kcb->insertItem( i18n( "Electronegativity" ) );
@@ -53,41 +59,41 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 	kcb->insertItem( i18n( "Boiling Point" ) );
 	kcb->insertItem( i18n( "Ionisation Energie" ) );
 	kcb->insertItem( i18n( "Atomic Radius" ) );
-	QObject::connect(ok, SIGNAL( clicked() ), this, SLOT(slotokClicked() ));
 	grid->addWidget( ok, 0,0 );
 	grid->addWidget( kcb, 1,0 );
+	grid->addWidget( from,0,1 );
+	grid->addWidget( to,0,2 );
 }
 
 void KalziumGraphDialog::slotokClicked()
 {
 	int typ = kcb->currentItem();
-	//for testing: only graph the first 10 Elements
-	KalziumGraphDisplay *graph = new KalziumGraphDisplay( typ, 1,10, this, "graph" );
+	int fromRange =  from->text().toInt() ;
+	int toRange =  to->text().toInt() ;
+
+	KalziumGraphDataContainer *container = new KalziumGraphDataContainer( typ, fromRange,toRange );
+ 	graph = new KalziumGraph( fromRange,toRange,this, "graph" , container);
 	graph->show();
-	grid->addWidget( graph,2,0 );
+ 	
+	grid->addMultiCellWidget( graph,2,3,0,2 );
 }
-
-KalziumGraphDisplay::KalziumGraphDisplay( int typ, int fromRange, int toRange , QWidget *parent, const char *name ):QWidget( parent, name )
-{
-	KalziumGraphDataContainer *container = new KalziumGraphDataContainer( typ, fromRange, toRange );
-	KalziumGraph *graph = new KalziumGraph( fromRange,toRange,this, "graph" , container);
-}
-
 
 KalziumGraph::KalziumGraph( int fromRange, int toRange,QWidget *parent, const char *name, KalziumGraphDataContainer *datacontainer) :
-QWidget( parent, name ) 
+QFrame( parent, name ) 
 {
 	data = datacontainer;
+	fromRange_ = fromRange;
+	toRange_ = toRange;
 }
 
 void KalziumGraph::paintEvent( QPaintEvent * )
 {
 	QPainter DC;
 	DC.begin( this );
-	int x1=0, x2, y1,y2;
-	for( int i = 1 ; i < 10 ; i++ )
+	for( int i = fromRange_ ; i < toRange_ ; i++ )
 	{
-		DC.drawLine( i*10,( int )data->Data[ i ]*20,( i+1 )*10,( int )data->Data[ i+1 ] );
+		DC.drawPoint(i*10,400-( int )data->Data[ i ]*10);
+		kdDebug() << "i: " << i << " Daten: " << 400-( int )data->Data[ i ]*10 << endl;
 	}
 	DC.end();
 }
