@@ -51,6 +51,8 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 	to->setMaxValue( 108 );
 		
 	list = new QListView( this );
+	list->addColumn( "Nummer" );
+	list->addColumn( "Symbol" );
 
 	kcb = new KComboBox( this );
 	kcb->insertItem( i18n( "Atomic Weight" ));
@@ -85,19 +87,23 @@ void KalziumGraphDialog::slotokClicked()
 
 void KalziumGraphDialog::fillList( int from, int to, KalziumGraphDataContainer *data )
 {
-	QListViewItem *i = new QListViewItem( list );
-	QListViewItem *i1 = new QListViewItem( list );
-	QListViewItem *i2 = new QListViewItem( list );
-	list->insertItem( i ); 
-	i->setText( 0, "foo" );
-	list->insertItem( i1 ); 
-	i1->setText( 1, "foo1" );
-	list->insertItem( i2 ); 
-	i2->setText( 2, "foo2" );
+	list->clear();
+	for ( int i = from ; i < to ; i++ )
+	{
+		QListViewItem *item = new QListViewItem( list );
+		connect(  list, SIGNAL(  clicked(  QListViewItem* ) ), this, SLOT(  itemSelected(  QListViewItem* ) ) );
 
-	i->setVisible( true );
-	i1->setVisible( true );
-	i2->setVisible( true );
+		item->setText(0, QString::number( i ) );
+		item->setText( 1, data->Symbols[ i ] );
+	}
+}
+
+void KalziumGraphDialog::itemSelected( QListViewItem *item )
+{
+	if ( !item ) return;
+	item->setSelected( TRUE );
+	item->repaint();
+	kdDebug() << item->itemPos()/18 << endl;
 }
 
 bool KalziumGraphDialog::valuesAreOk()
@@ -114,16 +120,22 @@ QFrame( parent, name )
 	toRange_ = toRange;
 }
 
+void KalziumGraph::calculate( int &w_w, int &w_h )
+{
+	w_w = this->width()-10;         //this is the width of the widget in which the 
+										//drawing happens
+	
+	w_h = this->height();           //this is the height of the widget in which the
+                                        //drawing happens
+}
+
 void KalziumGraph::paintEvent( QPaintEvent * )
 {
 	QPainter DC;
 	DC.begin( this );
 
-	int w_w = this->width()-10;         //this is the width of the widget in which the 
-										//drawing happens
-	
-	int w_h = this->height();           //this is the height of the widget in which the
-                                        //drawing happens
+	int w_w = 0, w_h = 0;
+	calculate( w_w, w_h );
 	
 	int num = toRange_-fromRange_;      //the number of datapoints
 	
@@ -132,6 +144,7 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 	DC.drawRect(10,10,w_w,w_h-10);
 		
 	double max = getMax();              //the maximum value of the drawed data
+	double min = getMin();              //the minimun value of the drawed data
 
 	for( int i = 0 ; i < num ; i++ )
 	{
@@ -159,9 +172,10 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 		DC.drawEllipse( x-2 , y-2 , 4 , 4 );//draw the datapoints
 		
 
-		if( i != 0 )
-		{                               //draw the lines
-			DC.drawLine( x_old,y_old,x,y );
+		if( i != 0 )                    //only connect from the first point on. For i == 0
+										//we would connect a non-existant point
+		{                               
+			DC.drawLine( x_old,y_old,x,y );    //draw the lines
 		}
 	}
 									    //draw the 3 hor. orientationlines
@@ -241,5 +255,6 @@ KalziumGraphDataContainer::KalziumGraphDataContainer( int typ, int fromRange, in
 	{
 		config.setGroup(QString::number( i ));
 		Data[ i ]=config.readDoubleNumEntry( kind, -1 );
+		Symbols[ i ]=config.readEntry( "Symbol" );
 	}
 }

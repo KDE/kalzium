@@ -26,6 +26,7 @@ class QLabel;
 class KIntNumInput;
 class KalziumGraphDataContainer;
 class QListView;
+class QListViewItem;
 
 #include <qwidget.h>
 #include <kdialog.h>
@@ -51,6 +52,7 @@ class KalziumGraphDialog : public KDialog
 	
 	public slots:
 		void slotokClicked();
+		void itemSelected( QListViewItem* );
 };
 
 class KalziumGraphDataContainer
@@ -58,6 +60,7 @@ class KalziumGraphDataContainer
 	public:
 		KalziumGraphDataContainer( int, int, int);
 		double Data[ 109 ];
+		QString Symbols[ 109 ];
 };
 
 //Datenpräsentation
@@ -74,6 +77,7 @@ class KalziumGraph : public QFrame
 	private:
 		double getMax();
 		double getMin();
+		void calculate( int&, int& );
 
 
 	protected slots:
