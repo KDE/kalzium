@@ -26,6 +26,7 @@ class SliderWidget;
 class QVBoxLayout;
 class TempSlider;
 class Legend;
+class OverviewWidget;
 
 /**
  * @short Application Main Window
@@ -64,6 +65,11 @@ class Kalzium : public KMainWindow
 		 * @see PSE
 		 */
 		RegularPSE* m_pRegularPSE;
+
+		/**
+		 * the widget which shows information about an element
+		 */
+		OverviewWidget* m_pOverviewWidget;
 		
 		/**
 		 * this pointer returns the currently loaded PSE

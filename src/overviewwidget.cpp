@@ -1,9 +1,6 @@
 /***************************************************************************
 
-        detailedinfodlg.h  -  description
-                             -------------------
-    begin                : Tue Apr 2 20:43:44 2002 UTC
-    copyright            : (C) 2003, 2004 by Carsten Niehaus
+    copyright            : (C) 2004 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -15,39 +12,22 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#include "overviewwidget.h"
 
-#ifndef _DETAILINFODLG_H_
-#define _DETAILINFODLG_H_
+//KDE-Includes
+#include <kdebug.h>
+#include <klocale.h>
 
-#include <kdialogbase.h>
-#include "element.h"
+//QT-Includes
+#include <qpainter.h>
+#include <qlayout.h>
+#include <qlabel.h>
+#include <qstring.h>
 
-class QFrame;
-class DetailedGraphicalOverview;
-
-
-
-/**
- * @short The dialog which shows all availeble information
- * @author Carsten Niehaus
- */
-class DetailedInfoDlg : public KDialogBase
+OverviewWidget::OverviewWidget( QWidget *parent, const char* name )
+	: QWidget( parent, name )
 {
-    Q_OBJECT
-    
-	public:
-        	DetailedInfoDlg( Element *el , QWidget *parent=0, const char *name=0);
-	
-	private:
-		Element *e;
-		QFrame *m_pEnergyTab,
-			*m_pOverviewTab,
-			*m_pPictureTab,
-			*m_pChemicalTab,
-			*m_pMiscTab,
-			*m_pModelTab;
+}
 
-		DetailedGraphicalOverview *dTab;
 
-};
-#endif
+#include "overviewwidget.moc"

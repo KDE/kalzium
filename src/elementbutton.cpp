@@ -24,6 +24,8 @@
 #include <qpainter.h>
 #include <qfont.h>
 #include <qstring.h>
+#include <qtimer.h>
+#include <qlabel.h>
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -121,10 +123,24 @@ void ElementButton::paintEvent( QPaintEvent* )
     p.end(); 
 }
 
+void ElementButton::enterEvent( QEvent* )
+{
+	QTimer *timer = new QTimer( this );
+	connect(  timer, SIGNAL( timeout() ), this, SLOT( timerDone() ) );
+	timer->start(  2000, TRUE ); // 2 seconds single-shot timer
+}
+
+void ElementButton::timerDone()
+{
+	kdDebug() << "im slot von " << e->number() << endl;
+}
+
+
 void ElementButton::mousePressEvent( QMouseEvent* )
 {
 	    emit num( e->number() );
 }
+
 
 #include "elementbutton.moc"
 

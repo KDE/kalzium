@@ -51,11 +51,17 @@ class ElementButton : public QFrame
 		void mousePressEvent( QMouseEvent* );
 		void mouseReleaseEvent( QMouseEvent* );
 
+	private slots:
+		void timerDone();	
+
+	protected:
+		void enterEvent( QEvent* );
+
 
 	signals:
-		/*
-		 * this signal emits the name ( the element-number )·
-		 **/
+		/**
+		 * this signal emits the element-number
+		 */
 		void num( int );
 
 };

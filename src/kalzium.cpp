@@ -19,6 +19,7 @@
 #include "elementdataviewer.h"
 #include "tempslider.h"
 #include "legendwidget.h"
+#include "overviewwidget.h"
 
 #include <qinputdialog.h>
 #include <qlayout.h>
@@ -52,6 +53,7 @@ Kalzium::Kalzium()
 	m_pLegend = new Legend( CentralWidget, "Legend" );
 	m_pSOMSlider = new TempSlider( CentralWidget, "SOMSlider" );
 	m_pTimeSlider = new SliderWidget( CentralWidget, "TimeSlider" );
+	m_pOverviewWidget = new OverviewWidget( this, "OverviewWidget" );
 
 	m_pRegularPSE = new RegularPSE( data(), CentralWidget, "regularPSE");
 	m_pSimplePSE = new SimplifiedPSE( data(), CentralWidget, "SimplifiedPSE");
@@ -65,6 +67,7 @@ Kalzium::Kalzium()
 	m_pCentralLayout->addWidget( m_pLegend );
 	m_pCentralLayout->addWidget( m_pSOMSlider );
 	m_pCentralLayout->addWidget( m_pTimeSlider );
+	m_pCentralLayout->addWidget( m_pOverviewWidget );
 
 	setCentralWidget( CentralWidget );
 	CentralWidget->show();	

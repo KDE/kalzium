@@ -23,7 +23,9 @@ kalzium_SOURCES = kalzium.cpp \
 			plotsetupwidget.ui \
 			legendwidget.cpp \
 			tempslider.ui \
-			isotopewidget.cpp
+			isotopewidget.cpp \
+			overviewwidget.cpp \
+			detailedgraphicaloverview.cpp
 			
 kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
@@ -54,7 +56,11 @@ EXTRA_DIST = main.cpp \
 		legendwidget.cpp \
 		legendwidget.h \
 		isotopewidget.h \
-		isotopewidget.cpp
+		isotopewidget.cpp \
+		overviewwidget.cpp \
+		overviewwidget.h \
+		detailedgraphicaloverview.cpp \
+		detailedgraphicaloverview.h
 
 
 METASOURCES = AUTO 
