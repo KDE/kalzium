@@ -163,7 +163,7 @@
                     </property>
                     <widget class="QLayoutWidget" row="0" column="0">
                         <property name="name">
-                            <cstring>layout27</cstring>
+                            <cstring>layout26</cstring>
                         </property>
                         <vbox>
                             <property name="name">
@@ -182,7 +182,7 @@
                                             <cstring>textLabel9</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Basic:</string>
+                                            <string>Acidic:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -208,7 +208,7 @@
                                             <cstring>textLabel10</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Neutral:</string>
+                                            <string>Amphoteric:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -234,7 +234,7 @@
                                             <cstring>textLabel11</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Acidic:</string>
+                                            <string>Neutral:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -260,7 +260,7 @@
                                             <cstring>textLabel12</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Amphoteric:</string>
+                                            <string>Basic:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -621,7 +621,7 @@
                                             <cstring>textLabel4</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Artificial:</string>
+                                            <string>Radioactive:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -647,7 +647,7 @@
                                             <cstring>textLabel5</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Radioactive:</string>
+                                            <string>Artificial:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -698,6 +698,27 @@
 </customwidgets>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
+    <includehint>kcolorbutton.h</includehint>
     <includehint>kcolorbutton.h</includehint>
 </includehints>
 </UI>
