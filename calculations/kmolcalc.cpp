@@ -38,7 +38,7 @@ void KMolCalc::readElstable() {
   QFile f(mwfile);
   QString* latest_f = &mwfile;
   for (uint i=0; i<files.count(); i++) {
-  	if (QFileInfo(QFile(files[i])).lastModified() > QFileInfo(QFile(*latest_f)).lastModified()) {
+  	if (QFileInfo(files[i]).lastModified() > QFileInfo(*latest_f).lastModified()) {
 		latest_f = &files[i];
     }
   }
