@@ -8,140 +8,128 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>255</width>
-            <height>321</height>
+            <width>519</width>
+            <height>322</height>
         </rect>
     </property>
     <property name="caption">
         <string>Form2</string>
     </property>
-    <widget class="QLayoutWidget">
+    <vbox>
         <property name="name">
-            <cstring>Layout13</cstring>
+            <cstring>unnamed</cstring>
         </property>
-        <property name="geometry">
-            <rect>
-                <x>30</x>
-                <y>20</y>
-                <width>170</width>
-                <height>258</height>
-            </rect>
+        <property name="margin">
+            <number>11</number>
         </property>
-        <grid>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="QLayoutWidget">
             <property name="name">
-                <cstring>unnamed</cstring>
+                <cstring>Layout10</cstring>
             </property>
-            <property name="margin">
-                <number>0</number>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>TextLabel9</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Formula:</string>
+                    </property>
+                </widget>
+                <widget class="KLineEdit">
+                    <property name="name">
+                        <cstring>formula</cstring>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>Layout11</cstring>
             </property>
-            <property name="spacing">
-                <number>6</number>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>calculate</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Calculate</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>clear_fields</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Clear</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLabel">
+            <property name="name">
+                <cstring>TextLabel10</cstring>
             </property>
-            <widget class="QLayoutWidget" row="1" column="0">
-                <property name="name">
-                    <cstring>Layout11</cstring>
-                </property>
-                <hbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <property name="margin">
-                        <number>0</number>
-                    </property>
-                    <property name="spacing">
-                        <number>6</number>
-                    </property>
-                    <widget class="QPushButton">
-                        <property name="name">
-                            <cstring>calculate</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Calculate</string>
-                        </property>
-                    </widget>
-                    <widget class="QPushButton">
-                        <property name="name">
-                            <cstring>clear_fields</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Clear</string>
-                        </property>
-                    </widget>
-                </hbox>
-            </widget>
-            <widget class="QLayoutWidget" row="2" column="0">
-                <property name="name">
-                    <cstring>Layout12</cstring>
-                </property>
-                <vbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <property name="margin">
-                        <number>0</number>
-                    </property>
-                    <property name="spacing">
-                        <number>6</number>
-                    </property>
-                    <widget class="QLabel">
-                        <property name="name">
-                            <cstring>TextLabel10</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Molecular Weight:</string>
-                        </property>
-                    </widget>
-                    <widget class="QLineEdit">
-                        <property name="name">
-                            <cstring>result</cstring>
-                        </property>
-                    </widget>
-                    <widget class="QLabel">
-                        <property name="name">
-                            <cstring>TextLabel11</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Elemental Composition (%)</string>
-                        </property>
-                    </widget>
-                    <widget class="QTextEdit">
-                        <property name="name">
-                            <cstring>anal_display</cstring>
-                        </property>
-                    </widget>
-                </vbox>
-            </widget>
-            <widget class="QLayoutWidget" row="0" column="0">
-                <property name="name">
-                    <cstring>Layout10</cstring>
-                </property>
-                <vbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <property name="margin">
-                        <number>0</number>
-                    </property>
-                    <property name="spacing">
-                        <number>6</number>
-                    </property>
-                    <widget class="QLabel">
-                        <property name="name">
-                            <cstring>TextLabel9</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Formula:</string>
-                        </property>
-                    </widget>
-                    <widget class="KLineEdit">
-                        <property name="name">
-                            <cstring>formula</cstring>
-                        </property>
-                    </widget>
-                </vbox>
-            </widget>
-        </grid>
-    </widget>
+            <property name="text">
+                <string>Molecular Weight:</string>
+            </property>
+        </widget>
+        <widget class="QLineEdit">
+            <property name="name">
+                <cstring>result</cstring>
+            </property>
+        </widget>
+        <widget class="QLabel">
+            <property name="name">
+                <cstring>TextLabel11</cstring>
+            </property>
+            <property name="text">
+                <string>Elemental Composition (%)</string>
+            </property>
+        </widget>
+        <widget class="QTextEdit">
+            <property name="name">
+                <cstring>anal_display</cstring>
+            </property>
+        </widget>
+        <spacer>
+            <property name="name">
+                <cstring>Spacer5</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>0</width>
+                    <height>30</height>
+                </size>
+            </property>
+        </spacer>
+    </vbox>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>
