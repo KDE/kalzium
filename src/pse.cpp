@@ -415,6 +415,7 @@ void RegularPSE::updateNumeration()
 		switch ( m_num )
 		{
 			case NO :
+			        ( *it )->setText( "" );
 				break;
 			case CAS :
 				( *it )->setText( QString::number( i+1 ) );
@@ -508,6 +509,7 @@ void SimplifiedPSE::updateNumeration()
 		switch ( m_num )
 		{
 			case NO :
+				( *it )->setText( "" );
 				break;
 			case CAS :
 				( *it )->setText( QString::number( i+1 ) );
