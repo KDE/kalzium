@@ -50,7 +50,6 @@
 
 #include "kalziumplotdialogimpl.h"
 
-
 Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
 {
     connect (kapp, SIGNAL(kdisplayFontChanged()), this, SLOT (setFont()));
@@ -78,6 +77,8 @@ Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
     setCentralWidget(main_window);
 
     updateMainWindow();
+
+    connect( &mLeaveTimer, SIGNAL( timeout() ), this, SLOT( leaveTimeout() ) );
 }
 
 Kalzium::~Kalzium()
@@ -171,7 +172,7 @@ void Kalzium::setupAllElementKPButtons()
 
 void Kalzium::setupCaption()
 {
-	legend = new KalziumLegend(main_window);
+    legend = new KalziumLegend(main_window);
     mainlayout->addWidget(legend);
 
     for (int n = 0; n < 18; n++)
@@ -700,4 +701,18 @@ void Kalzium::changeTheLegend(int tempId)
 	legend->changeLegend(tempId);
 }
 
+void Kalzium::restartLeaveTimer()
+{
+  mLeaveTimer.start( 100 );
+}
 
+void Kalzium::stopLeaveTimer()
+{
+  mLeaveTimer.stop();
+  dtab->show();
+}
+
+void Kalzium::leaveTimeout()
+{
+  dtab->hide();
+}

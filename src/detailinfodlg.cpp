@@ -27,6 +27,7 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qpainter.h>
+#include <qpixmap.h>
 #include <qimage.h>
 #include <qwhatsthis.h>
 
@@ -150,20 +151,24 @@ void DetailedInfoDlg::slotUser1()
 
 DetailedTab::DetailedTab( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
+  setBackgroundMode( NoBackground );
 }
 
 void DetailedTab::setData( ElementInfo Eleminfo )
 {
 	EData = Eleminfo;
+  update();
 }
 
 void DetailedTab::paintEvent( QPaintEvent* )
 {
-	QPainter p;
-	p.begin(this);
-
 	int h = this->height();
 	int w = this->width();
+
+  QPixmap pm( w, h );
+
+  QPainter p;
+  p.begin( &pm );
 
 	h_t = 20; //height of the texts
 	
@@ -176,7 +181,7 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	p.setBrush(Qt::SolidPattern);
 	p.setBrush( PSEColor( EData.Block ));
 	p.drawRect( x1 , y1 , x2 , y2 );
-	
+
 	p.setBrush( Qt::black );
 	p.setBrush(Qt::NoBrush);
 
@@ -199,6 +204,8 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	drawBiologicalSymbol( &p );
 
 	p.end();
+
+  bitBlt( this, 0, 0, &pm );
 }
 
 void DetailedTab::drawBiologicalSymbol( QPainter *p )

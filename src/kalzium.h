@@ -23,6 +23,8 @@
 #include <config.h>
 #endif
 
+#include <qtimer.h>
+
 #include <kmainwindow.h>
 
 #define KALZIUM_VERSION "0.9.3"
@@ -81,6 +83,9 @@ class Kalzium : public KMainWindow
 		const QFont& generalFont() const {return generalKPFont;};
 		const QFont& generalBoldFont() const {return generalKPBoldFont;};
 
+    void restartLeaveTimer();
+    void stopLeaveTimer();
+
 	private:
 		KConfig *main_config;
 		KToggleAction   *timelineToggleAction, 
@@ -98,6 +103,7 @@ class Kalzium : public KMainWindow
 		QVBoxLayout *mainlayout;
 		QWidget *main_window;		
 		SettingsDialog *setDlg;
+    QTimer mLeaveTimer;
 
 		/**
 		 * Called before the window is closed, will save the menusettings.
@@ -229,5 +235,7 @@ class Kalzium : public KMainWindow
 		 * appear and you can check it out.
 		 */
 		void timeline();
+
+    void leaveTimeout();
 };
 #endif
