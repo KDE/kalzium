@@ -1,6 +1,6 @@
 /***************************************************************************
 
-                           lengend.h  -  description
+                           legend.h  -  description
                              -------------------
     begin                : Wed Oct 23 2002
     copyright            : (C) 2002 by Carsten Niehaus
