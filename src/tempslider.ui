@@ -1,0 +1,69 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>TempSlider</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>TempSlider</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>415</width>
+            <height>49</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>TempSlider</string>
+    </property>
+    <hbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QSlider">
+            <property name="name">
+                <cstring>slider</cstring>
+            </property>
+            <property name="minValue">
+                <number>0</number>
+            </property>
+            <property name="maxValue">
+                <number>1000</number>
+            </property>
+            <property name="pageStep">
+                <number>50</number>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+        </widget>
+        <widget class="QLCDNumber">
+            <property name="name">
+                <cstring>value</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>NoFrame</enum>
+            </property>
+            <property name="segmentStyle">
+                <enum>Flat</enum>
+            </property>
+        </widget>
+        <widget class="QLabel">
+            <property name="name">
+                <cstring>unit</cstring>
+            </property>
+            <property name="text">
+                <string>K</string>
+            </property>
+        </widget>
+    </hbox>
+</widget>
+<connections>
+    <connection>
+        <sender>slider</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>value</receiver>
+        <slot>display(int)</slot>
+    </connection>
+</connections>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

@@ -21,7 +21,8 @@ kalzium_SOURCES = kalzium.cpp \
 			plotwidget.cpp \
 			elementdataviewer.cpp \
 			plotsetupwidget.ui \
-			legendwidget.cpp
+			legendwidget.cpp \
+			tempslider.ui
 			
 kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la

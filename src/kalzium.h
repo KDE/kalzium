@@ -23,7 +23,8 @@
 class KSelectAction;
 class QuizsettingsDlg;
 class SliderWidget;
-class QSlider;
+class QVBoxLayout;
+class TempSlider;
 
 /**
  * @short Application Main Window
@@ -74,6 +75,11 @@ class Kalzium : public KMainWindow
 		 * the date which the pSliderWidget will start with
 		 */
 		int date;
+
+		/**
+		 * the slider used for the State of Matter
+		 */
+		TempSlider *m_pSOMSlider;
 
 		/**
 		 * if true, the legend will be shown
@@ -127,6 +133,8 @@ class Kalzium : public KMainWindow
 			    *m_pSOMAction,
 				*m_pLengendAction;
 		
+		QVBoxLayout *m_pCentralLayout;
+	
 	private slots:
 		/**
 		 * this slot switches Kalzium to the selected colorscheme
@@ -157,6 +165,11 @@ class Kalzium : public KMainWindow
 		 * These slots are for the standardactions
 		 */
 		void showSettingsDialog();
+		
+		/**
+		 * This slot passes the value of the SOM-slider to the PSE
+		 */
+		void slotTempChanged( int );
 };
 
 /**

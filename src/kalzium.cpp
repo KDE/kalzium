@@ -17,10 +17,15 @@
 #include "settings_misc.h"
 #include "slider_widget.h"
 #include "elementdataviewer.h"
+#include "tempslider.h"
 
 #include <qinputdialog.h>
 #include <qslider.h>
 #include <qinputdialog.h>
+
+#include <qlayout.h>
+#include <qslider.h>
+
 
 #include <kconfigdialog.h>
 #include <klocale.h>
@@ -43,10 +48,24 @@ Kalzium::Kalzium()
 	pd = new privatedata( this );
 
 	pd->kalziumData = new KalziumDataObject();
-	setupStatusBar();
-	setupActions();
 
-	setCentralWidget( m_pCurrentPSE );
+	QWidget *m_pCentralWidget = new QWidget( this, "CentralWidget" );
+	m_pCentralLayout = new QVBoxLayout( m_pCentralWidget, 0, -1, "CentralLayout" );
+	m_pSOMSlider = new TempSlider( m_pCentralWidget, "SOMSlider" );
+
+	m_pRegularPSE = new RegularPSE( data(), m_pCentralWidget, "regularPSE");
+	m_pSimplePSE = new SimplifiedPSE( data(), m_pCentralWidget, "SimplifiedPSE");
+	m_pCurrentPSE = m_pRegularPSE;
+	m_pCurrentPSE->show();
+	
+	// Layouting
+	m_pCentralLayout->addWidget( m_pCurrentPSE );
+	m_pCentralLayout->addWidget( m_pSOMSlider );
+
+	setCentralWidget( m_pCentralWidget );
+	m_pCentralWidget->show();	
+	setupActions();
+	setupStatusBar();
 }
 
 
@@ -104,10 +123,6 @@ void Kalzium::setupActions()
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 
-	m_pRegularPSE = new RegularPSE( data(), this, "regularPSE");
-	m_pSimplePSE = new SimplifiedPSE( data(), this, "SimplifiedPSE");
-
-	m_pCurrentPSE = m_pRegularPSE;
 	slotSwitchtoNumeration(Prefs::numeration() );
 	slotSwitchtoPSE(Prefs::schemaPSE());
 	slotSwitchtoNumeration(Prefs::numeration() );
@@ -116,10 +131,11 @@ void Kalzium::setupActions()
 	m_pRegularPSE->setLegend( Prefs::colorschemebox() );
 	m_pSimplePSE->setLegend( Prefs::colorschemebox() );
 	
+	connect( m_pSOMSlider->slider, SIGNAL( valueChanged( int ) ), this, SLOT( slotTempChanged( int ) ) );
+	
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
 	setupGUI();
-	//createGUI();
 }
 
 void Kalzium::setupStatusBar()
@@ -200,6 +216,7 @@ void Kalzium::slotSwitchtoPSE(int index)
 	m_pSimplePSE->hide();
 //	m_pMendeljevPSE->hide();
 
+	m_pCentralLayout->remove( m_pCurrentPSE );
 	switch (index) {
     	case 0:
 		m_pCurrentPSE = m_pRegularPSE;
@@ -209,7 +226,8 @@ void Kalzium::slotSwitchtoPSE(int index)
 		break;
 	}
 	m_pCurrentPSE->show();
-	setCentralWidget( m_pCurrentPSE );
+	m_pCentralLayout->insertWidget( 0, m_pCurrentPSE );
+	// setCentralWidget( m_pCurrentPSE );
 	setCaption( m_pCurrentPSE->shortName() );
 	Prefs::setSchemaPSE(index);
 	Prefs::writeConfig();
@@ -250,12 +268,21 @@ void Kalzium::displayTemperature()
  	switch (Prefs::temperature()) {
      		case 0:
  			string = i18n("Kelvin");
+			m_pSOMSlider->slider->setMinValue( 0 );
+			m_pSOMSlider->slider->setMaxValue( 1000 );
+			m_pSOMSlider->unit->setText( i18n( "K" ) );
  			break;
  		case 1:
- 			string = i18n("Degree Fahrenheit");
+ 			string = i18n("Degree Celsius");
+			m_pSOMSlider->slider->setMinValue( -273 );
+			m_pSOMSlider->slider->setMaxValue( 727 );
+			m_pSOMSlider->unit->setText( i18n( "°C" ) );
  			break;
  		case 2:
- 			string = i18n("Degree Celsius");
+ 			string = i18n("Degree Fahrenheit");
+			m_pSOMSlider->slider->setMinValue( -460 );
+			m_pSOMSlider->slider->setMaxValue( 1341 );
+			m_pSOMSlider->unit->setText( i18n( "°F" ) );
  			break;
  	}
  	slotStatusBar(i18n("Temperatureunit: %1 ").arg( string ),  IDS_TEMP);
@@ -287,6 +314,22 @@ void Kalzium::slotStateOfMatter()
 	//only for these both the boiling _and_ melting point are known.
 	//The other elements will have the color color_artificial
 }
+
+void Kalzium::slotTempChanged( int temperature )
+{
+ 	switch (Prefs::temperature()) {
+     		case 0:
+			m_pCurrentPSE->setTemperature( (double) temperature );
+ 			break;
+ 		case 1:
+			m_pCurrentPSE->setTemperature( (double) temperature + 273.15 );
+ 			break;
+ 		case 2:
+			m_pCurrentPSE->setTemperature( (double) (temperature - 32)*5/9 + 273.15);
+ 			break;
+ 	}	
+}
+
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
 
 Kalzium::~Kalzium(){}
