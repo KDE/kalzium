@@ -102,62 +102,28 @@ void ElementButton::paintEvent( QPaintEvent* )
 	symbol_font.setPointSize( 18 );
 	QFont f = p.font();
 	f.setPointSize( 9 );
-	
-	kdDebug() << "pselook: " <<  Prefs::pselook() << endl;
 		
 	p.setFont( f );
 
 	//top left
 	text = QString::number( e->number() );
 	p.drawText( 0,0,h_small,h_small,Qt::AlignCenter, text );
-	p.drawText( 0,h_small+10,h_small,h_small,Qt::AlignCenter, text );
+//	p.drawText( 0,h_small+10,h_small,h_small,Qt::AlignCenter, text );
 
 	//top right
 	text = QString::number( e->strippedWeight( e->weight( ) ) );
 	p.drawText( w/2,0,w/2,h_small,Qt::AlignCenter, text );
 	
 	//bottom right
-	text = QString::number( e->density() );
+	text = QString::number( e->strippedWeight( e->density() ) );
 	p.drawText( w/2,h-h_small,w/2,h_small,Qt::AlignCenter, text );
 	
 	//bottom left
-	text = QString::number( e->number() );
-	p.drawText( 0, h-h_small,h_small,h_small,Qt::AlignCenter, text );
+	text = QString::number( e->strippedWeight( e->electroneg() ) );
+	p.drawText( 0, h-h_small-h_small,h_small,h_small,Qt::AlignCenter, text );
 
 	p.setFont( symbol_font );
 	p.drawText( w/3,w/4,w/2,w/2,Qt::AlignLeft, e->symbol() );
-	p.drawRect( w/3,w/4,w-w/3,w/2 );
-
-//X 	switch ( Prefs::pselook() )
-//X 	{
-//X 		case 0:
-//X 			p.setFont( symbol_font );
-//X     		p.drawText( h/6, h/2, e->symbol() );
-//X 			p.setFont( f );
-//X 			text = QString::number( e->strippedWeight( e->weight( ) ) );
-//X 			text.append( i18n( " u" ) );
-//X 			p.drawText( 2, h/6, text );
-//X 			text = QString::number( e->number() );
-//X 			p.drawText( 2, h-23, text );
-//X 			break;
-//X 		case 1:
-//X 			p.setFont( symbol_font );
-//X     		p.drawText( h/6, h/2, e->symbol() );
-//X 			p.setFont( f );
-//X 			text = QString::number( e->density() );
-//X 			if ( text != "-1" )
-//X 				p.drawText( 2, h/6, text );
-//X 			text = QString::number( e->number() );
-//X 			p.drawText( 2, h-23, text );
-//X 			break;
-//X 		case 2:
-//X 			p.setFont( symbol_font );
-//X     		p.drawText( h/6, h/2, e->symbol() );
-//X 			p.setFont( f );
-//X 			text = QString::number( e->number() );
-//X 			p.drawText( 2, h-23, text );
-//X 			break;
-//X 	}
 	
 	p.drawRect( 0, 0, w, h );
     p.end(); 
