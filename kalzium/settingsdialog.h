@@ -78,9 +78,11 @@ class SettingsDialog : public KDialogBase
         KConfig *main_config;
 
     private slots:
-        void changeApplyKalziumSettings();
-        void setDefaults();
-        void changeOkKalziumSettings();
+        void slotApplySettings();
+        void slotOkSettings();
+
+    protected slots:
+        void slotDefaults();
         
 };
 

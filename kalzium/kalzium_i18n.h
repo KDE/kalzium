@@ -19,10 +19,11 @@
 #define KALZIUM_I18N_H
 
 
-/**This is a dummy class whose sole purpose is to provide strings for translators
-  *These strings are read from data files, but they must be present in a source file
-  *or they won't be included in the template translation file.  It is redundant to define
-  *these strings twice; perhaps we should just get rid of the data files and define the
+/**
+* This is a dummy class whose sole purpose is to provide strings for translators.
+* These strings are read from data files, but they must be present in a source file
+* or they won't be included in the template translation file.  It is redundant to define
+* these strings twice; perhaps we should just get rid of the data files and define the
 **/
 
 class Kalzium_i18n {

@@ -29,8 +29,8 @@
 
 
 /*
-*This class provides the dialog for the knowledge test. It is a simple
-KDialog.
+* This class provides the dialog for the knowledge test. 
+* It is a simple KDialog.
 *@author Carsten Niehaus
 */
 

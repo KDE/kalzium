@@ -247,12 +247,12 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     }
 
     // CONNECT
-    connect(this, SIGNAL(applyClicked()), this, SLOT(changeApplyKalziumSettings()));
-    connect(this, SIGNAL(defaultClicked()), this, SLOT(setDefaults()));
-    connect(this, SIGNAL(okClicked()), this, SLOT(changeOkKalziumSettings()));
+    connect(this, SIGNAL(applyClicked()), this, SLOT(slotApplySettings()));
+    connect(this, SIGNAL(defaultClicked()), this, SLOT(slotDefaults()));
+    connect(this, SIGNAL(okClicked()), this, SLOT(slotOkSettings()));
 }
 
-void SettingsDialog::changeApplyKalziumSettings()
+void SettingsDialog::slotApplySettings()
 {
     colorsTabWidget->applyColors();
     
@@ -264,7 +264,7 @@ void SettingsDialog::changeApplyKalziumSettings()
 }
 
 
-void SettingsDialog::changeOkKalziumSettings()
+void SettingsDialog::slotOkSettings()
 {
     main_config->setGroup("WLU");
     main_config->writeEntry("adress", (webLookupButtonGroup->selected())->text());
@@ -273,9 +273,18 @@ void SettingsDialog::changeOkKalziumSettings()
     kalzium->changeColourScheme(kalzium->colourschememenu->currentItem());
 }
 
-void SettingsDialog::setDefaults()
+void SettingsDialog::slotDefaults()
 {
-    colorsTabWidget->setDefaultColors();
+    switch (activePageIndex())
+    {
+        case 0:
+            colorsTabWidget->setDefaultColors();
+            break;
+        case 1:
+            rb->toggle();
+            break;
+            
+    }
 }
 
 #include "settingsdialog.moc"
