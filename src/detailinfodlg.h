@@ -21,6 +21,7 @@
 
 #include <kdialogbase.h>
 
+#include <qwidget.h>
 #include "elementkp.h"
 class QFrame;
 
@@ -32,7 +33,6 @@ class DetailedTab : public QWidget
 		DetailedTab( ElementInfo& Eleminfo , QWidget *parent, const char *name=0 );
 		ElementInfo Data;
 		QColor PSEColor( const QString &Block ) const;
-		bool showLegend;
 
 	protected:
 		virtual void paintEvent( QPaintEvent* );
@@ -41,7 +41,8 @@ class DetailedTab : public QWidget
 class DetailedInfoDlg : public KDialogBase
 {
     Q_OBJECT
-    public:
+    
+	public:
         DetailedInfoDlg( ElementInfo Eleminfo , QWidget *parent=0, const char *name=0);
 		ElementInfo Data;
 
@@ -49,10 +50,9 @@ class DetailedInfoDlg : public KDialogBase
 
 		DetailedTab *dTab;
 
-		KPushButton *showLegendKP;
-
-	private slots:
-		void slotShowLegend();
+	protected slots:
+		virtual void slotUser1();
+		virtual void slotUser2();
 };
 
 #endif

@@ -24,6 +24,8 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <kpushbutton.h>
+#include <khtml_part.h>
+#include <khtmlview.h>
 
 #include <qframe.h>
 #include <qfont.h>
@@ -43,10 +45,12 @@
 #include "infodialog.h"
 
 DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, const char *name)
-    : KDialogBase(IconList, i18n("Detailed Look on %1").arg( Eleminfo.Name.lower().utf8() ), Ok ,Ok, parent,name, true, false)
-    //: KDialogBase(IconList, i18n("Detailed Look"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
+    : KDialogBase(IconList, i18n("Detailed Look on %1").arg( Eleminfo.Name.lower().utf8() ), Ok|User1|User2 ,Ok, parent,name, true, false)
 {
 	Data = Eleminfo;
+
+	setButtonText( User1 , i18n( "Quick help" ) );
+	setButtonText( User2 , i18n( "Weblookup" ) );
 
 	/////////////////////////////////
 	overviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon("colorize", KIcon::SizeMedium));
@@ -56,10 +60,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 
 	dTab = new DetailedTab( Data , overviewWidget );
 	overviewLayout->addWidget( overviewWidget );
-	showLegendKP = new KPushButton( i18n( "Show Legend" ), overviewWidget );
-	connect( showLegendKP , SIGNAL( clicked() ), this , SLOT( slotShowLegend() ) );
 	foo_layout->addWidget( dTab );
-	foo_layout->addWidget( showLegendKP );
 
 	dTab->show();
 
@@ -109,20 +110,24 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	miscLayout->addWidget( meanweight_label );
 }
 
-void DetailedInfoDlg::slotShowLegend()
+void DetailedInfoDlg::slotUser1()
 {
-	if ( dTab->showLegend )
-	{
-		dTab->showLegend = false;
-		showLegendKP->setText( i18n( "Show Legend" ) );
-	}
-	else
-	{
-		dTab->showLegend = true;
-		showLegendKP->setText( i18n( "Hide Legend" ) );
-	}
+}
 
-	dTab->repaint();
+void DetailedInfoDlg::slotUser2()
+{
+	KHTMLPart *html = new KHTMLPart();
+
+	KConfig *mainc = KGlobal::config();
+	mainc->setGroup( "WLU" );
+	QString url = mainc->readEntry( "adress" ) + Data.Symbol.lower()  + ".html";
+	if ( mainc->readEntry( "adress" ).contains( "pearl1" ) ) 
+		url = mainc->readEntry( "adress" )+QString::number( Data.number )+".html";
+
+	const KURL site(url);
+	html->openURL(site);
+	html->show();
+	html->view()->resize(html->view()->contentsWidth() + html->view()->frameWidth() ,400);
 }
 
 DetailedTab::DetailedTab( ElementInfo& Eleminfo , QWidget *parent, const char *name ) : QWidget( parent, name )
@@ -174,12 +179,6 @@ void DetailedTab::paintEvent( QPaintEvent* )
 
 	p.setFont( f3 );
 	p.drawText( x1+dx/2-20 , y1+dy/2-18 , 20, 18, Qt::AlignRight , QString::number( Data.number ));
-
-	//show or hide the legend
-	if ( showLegend )
-	{
-		p.drawLine( x1 , y2 , 50 , 50 );
-	}
 
 	p.end();
 }

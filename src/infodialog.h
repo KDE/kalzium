@@ -32,9 +32,6 @@ class infoDialog : public infoDlg
 
 	public:
 		infoDialog( ElementInfo Eleminfo , QWidget *parent=0, const char *name=0 );
-
-	private slots:
-		void lookup() const;
 };
 
 class ElemInfoParsed

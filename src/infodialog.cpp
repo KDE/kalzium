@@ -48,25 +48,6 @@ infoDialog::infoDialog( ElementInfo Eleminfo , QWidget *parent, const char *name
 	radius_label->setText( Eleminfo._AR );
 	discovered_label->setText( Eleminfo.date );
 	elemno_label->setText( QString::number( Eleminfo.number ));
-	
-	// click on this button to load webpage for element
-	QObject::connect(weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
-}
-
-void infoDialog::lookup() const
-{
-//X 	KHTMLPart *html = new KHTMLPart();
-//X 
-//X 	KConfig *mainc = KGlobal::config();
-//X 	mainc->setGroup( "WLU" );
-//X 	QString url = mainc->readEntry( "adress" ) + Data.Symbol.lower()  + ".html";
-//X 	if ( mainc->readEntry( "adress" ).contains( "pearl1" ) ) 
-//X 		url = mainc->readEntry( "adress" )+QString::number( Data.number )+".html";
-//X 
-//X 	const KURL site(url);
-//X 	html->openURL(site);
-//X 	html->show();
-//X 	html->view()->resize(html->view()->contentsWidth() + html->view()->frameWidth() ,400);
 }
 
 ElemInfoParsed::ElemInfoParsed( ElementInfo eInfo )
