@@ -242,6 +242,7 @@ void Kalzium::slotShowScheme(int i)
 		m_bShowSOM = false;
 	
 	m_PSE->activateColorScheme( i );
+	m_PSE->update();
 	
 	m_pLegend->setScheme( i );
 	Prefs::setColorschemebox(i); 

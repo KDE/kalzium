@@ -238,8 +238,8 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 {
 	int h_small = 15; //the size for the small units like elementnumber
 	
-	p->setPen( Qt::blue );//elementColor() );
-	p->fillRect( ( x-1 )*ELEMENTSIZE+3, ( y-1 )*ELEMENTSIZE+3,ELEMENTSIZE-6,ELEMENTSIZE-6, Qt::blue );
+	p->setPen( elementColor() );
+	p->fillRect( ( x-1 )*ELEMENTSIZE+3, ( y-1 )*ELEMENTSIZE+3,ELEMENTSIZE-6,ELEMENTSIZE-6, elementColor() );
 	p->drawRoundRect( ( x-1 )*ELEMENTSIZE+2, ( y-1 )*ELEMENTSIZE+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
 	
 	QString text;

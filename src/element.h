@@ -68,6 +68,11 @@ class Element{
 		int date() const { 
 			return m_date; 
 		}
+    
+    /**
+     * mutator for the element's color
+     */
+		void setElementColor( const QColor &c ) { m_Color = c; }
 		
 		/**
 		 * @return the importance of the element for biological
@@ -244,9 +249,19 @@ class Element{
 		double strippedWeight( double w );
 
 
+    /**
+     * accessor for the element's color
+     */
+    QColor elementColor() const { return m_Color; }
 
 	private:
 		void setupXY();
+		
+		/*
+		 * the integer num represents the number of the element
+		 */
+		int m_ElementNumber;
+    QColor m_Color;
 		
 
 		double  m_weight,
