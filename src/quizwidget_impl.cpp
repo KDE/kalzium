@@ -42,15 +42,15 @@ void QuizWidgetImpl::setupPixmaps()
 {
 	//TODO I have no clue why this doesn't work. The file question.png
 	//exists. So the path is wrong...
-	picQuestion->setPixmap( locate( "data", "kalzium/icons/question.png" ) );
-	picAnswer->setPixmap( locate( "data", "kalzium/icons/question.png" ) );
-	picPrevious->setPixmap( locate( "data", "kalzium/icons/question.png" ) );
-	picYourAnswer->setPixmap( locate( "data", "kalzium/icons/question.png" ) );
-	picCorrectAnswer->setPixmap( locate( "data", "kalzium/icons/question.png" ) );
-	picCount->setPixmap( locate( "data", "kalzium/icons/question.png" ) );
-	picAnswered->setPixmap( locate( "data", "kalzium/icons/question.png" ) );
-	picCorrect->setPixmap( locate( "data", "kalzium/icons/question.png" ) );
-	picError->setPixmap( locate( "data", "kalzium/icons/question.png" ) );
+	picQuestion->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
+	picAnswer->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
+	picPrevious->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
+	picYourAnswer->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
+	picCorrectAnswer->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
+	picCount->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
+	picAnswered->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
+	picCorrect->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
+	picError->setPixmap( locate( "data", "kalzium/icons/crystalsvg/16x16/actions/question.png" ) );
 }
 
 void QuizWidgetImpl::slotAnswered(int q )
