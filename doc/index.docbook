@@ -36,13 +36,14 @@
 <copyright>
 <year>2001</year>
 <year>2002</year>
+<year>2004</year>
 <holder>Carsten Niehaus</holder>
 </copyright>
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2002-10-08</date>
-<releaseinfo>0.5</releaseinfo>
+<date>2004-01-07</date>
+<releaseinfo>0.9.3</releaseinfo>
 
 <abstract>
 <para>&kalzium; is a program which shows you the Periodic System of
@@ -135,7 +136,7 @@ from the web (in a new window).</para>
 <sect1 id="calculations">
 <title>Calculations</title>
 
-<para>In &kalzium; 0.5 we only provide one calculation. This is called
+<para>In &kalzium; we only provide one calculation. This is called
 <guilabel>KMol</guilabel>. In the field <guilabel>Formula</guilabel>
 you can enter a totals formula and will get the molecular weight
 <guilabel>Mw</guilabel> measured in <quote>u</quote> and the elemental
@@ -146,7 +147,7 @@ composition. KMol knows about all of the elements in the <acronym>PSE</acronym>.
 <sect1 id="colors">
 <title>Color schemes</title>
 
-<para>&kalzium; can show you which elements are where with regard to their Periodic "block" and "group" , their behavior with acid and which matter state (solid/liquid/vapor) they are in at a given temperature.</para>
+<para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote> , their behavior with acid and which matter state (solid/liquid/vapor) they are in at a given temperature.</para>
 <screenshot>
 
 <mediaobject>
@@ -174,7 +175,7 @@ active this feature either with the most-right icon in the iconbar or
 via <menuchoice><guimenu>Settings</guimenu><guimenuitem>Show
 Toolbar</guimenuitem></menuchoice>. If it is activated you will see a
 slider below the <acronym>PSE</acronym> and an <acronym>LCD</acronym>
-which displays the number 2002.  If you move the slider you will
+which displays the number 2004.  If you move the slider you will
 notice that some elements disappear if you move it to the right and
 reappear if you move it to the right. Furthermore the number will
 change constantly.</para>
@@ -186,7 +187,7 @@ year 1856.
 </para>
 
 <para>
-You will notice that some elements are not even shown in the year 2002.
+You will notice that some elements are not even shown in the year 2004.
 This is because some of the elements have not been discovered yet but are
 predicted to exist.
 </para>
