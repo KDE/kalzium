@@ -178,17 +178,17 @@ void ElementKP::slotShowData()
 	show_data2->block_label->setText( i18n( "%1" ).arg( Data.Block ) );
 
 	if ( Data.Density == -1 )
-		show_data2->density_label->setText( i18n( "Unkown" ) );
+		show_data2->density_label->setText( i18n( "Unknown" ) );
 	else
 		show_data2->density_label->setText( i18n("%1" ).arg( Data.Density ) );
 
 	if ( Data.MP == -1 )
-		show_data2->melting_label->setText( i18n( "Unkown" ) );
+		show_data2->melting_label->setText( i18n( "Unknown" ) );
 	else
 		show_data2->melting_label->setText( i18n( "%1 C" ).arg( -273.15+Data.MP ) );
 
 	if (Data.IE == -1)
-		show_data2->ion_label->setText( i18n( "Unkown" ) );
+		show_data2->ion_label->setText( i18n( "Unknown" ) );
 	else
 		show_data2->ion_label->setText( i18n( "%1" ).arg( Data.IE) );
 
