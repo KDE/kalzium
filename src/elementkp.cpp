@@ -39,7 +39,7 @@
 #include "elementkp.moc"
 #include "kalzium.h" 
 
-ElementKP::ElementKP(const QString& text, QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp=0)	
+ElementKP::ElementKP(const QString& text, QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)	
     : KPushButton(text,parent,name)
 
 {
@@ -51,17 +51,15 @@ ElementKP::ElementKP(const QString& text, QWidget *parent, ElementInfo ElemInfo,
 
 void ElementKP::getNeighbours( int Current )
 {
-        for( int z=0 ; z < 3 ; z++ )
+    for( int z=0 ; z < 3 ; z++ )
+        for( int s=0 ; s < 3 ; s++)
         {
-            for( int s=0 ; s < 3 ; s++)
-            {
-                if (z == 0)
-                    neighbourArray[z][s]=kalzium->element[Current-20+s]->Data.Symbol;
-                if (z == 1)
-                    neighbourArray[z][s]=kalzium->element[Current-2+s]->Data.Symbol;
-                if (z == 2)
-                    neighbourArray[z][s]=kalzium->element[Current+16+s]->Data.Symbol;
-            }
+            if (z == 0)
+                neighbourArray[z][s]=kalzium->element[Current-20+s]->Data.Symbol;
+            if (z == 1)
+                neighbourArray[z][s]=kalzium->element[Current-2+s]->Data.Symbol;
+            if (z == 2)
+                neighbourArray[z][s]=kalzium->element[Current+16+s]->Data.Symbol;
         }
 }
 
@@ -352,12 +350,12 @@ void ElementKP::slotShowData()
     energy_grid->addWidget(label, 0,4);
 
     grid->setColStretch(2, 1);
-    grid->setRowStretch(6, 1);
+    grid->setRowStretch(7, 1);
 
 ///neu
 	    QTable *neighbourTable = new QTable( 3 , 3 , show_data , "neighbourTable" );
 	    neighbourTable->setReadOnly( true );
-            grid->addWidget( neighbourTable, 3 , 4 );
+        grid->addMultiCellWidget(neighbourTable, 6, 6, 0 , 1);
 
 	    neighbourTable->horizontalHeader()->hide();
 	    neighbourTable->verticalHeader()->hide();

@@ -79,7 +79,7 @@ class ElementKP : public KPushButton  {
     	//used when the mouse leaves the pushbutton
     	void leaveEvent(QEvent *);
 
-	Kalzium *kalzium;
+    	Kalzium *kalzium;
         QString neighbourArray[3][3];
 
         void getNeighbours( int );
