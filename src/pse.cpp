@@ -120,12 +120,6 @@ void RegularPSE::updatePSE()
 	this->update();
 }
 
-void RegularPSE::slotToggleFBlock()
-{
-	updatePSE();
-}
-
-
 SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const char *name)
  : PSE(data, parent, name)
 {
