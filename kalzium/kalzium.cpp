@@ -38,7 +38,6 @@
 #include <kstdaction.h>
 #include <qlayout.h>
 #include <kdialog.h>
-#include <kdebug.h>
 
 //QT-Includes
 #include <qlabel.h>
@@ -388,13 +387,17 @@ void Kalzium::slotShowTimeline(int id)
     {
         dateS->show();
         dateLCD->show();
-
         timeline();
     }
     else
     {
         dateS->hide();
         dateLCD->hide();
+
+        // FIXME
+        element[112]->show();
+        element[114]->show();
+        element[116]->show();
     }
 }
 
@@ -406,7 +409,7 @@ void Kalzium::slotKnowledge()
             i18n( "Please enter a number" ), 10, 0, 80, 1, &ok, this );
     if ( ok )
     {
-        QuizDlg *quiz2 = new QuizDlg(this, "quizdialog", numofquestions ); 
+        QuizDlg *quiz2 = new QuizDlg(this, "quizdialog"); 
         quiz2->setCaption(i18n("Test Your Knowledge"));
         quiz2->show();
     }

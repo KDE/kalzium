@@ -64,29 +64,32 @@ class ElementKP : public KPushButton  {
     Q_OBJECT
     
     public: 
-	ElementKP(const QString &text, QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0);
+        ElementKP(const QString &text, QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0);
 	
         void initPopupMenu( void );
  	
-	void mousePressEvent( QMouseEvent *mouse );
+    	void mousePressEvent( QMouseEvent *mouse );
 	
-	//used when the mouse enters the pushbutton
-	void enterEvent(QEvent *);
+    	//used when the mouse enters the pushbutton
+    	void enterEvent(QEvent *);
 	
-	//used when the mouse leaves the pushbutton
-	void leaveEvent(QEvent *);
+    	//used when the mouse leaves the pushbutton
+    	void leaveEvent(QEvent *);
 
-	KStatusBar *zeigerle;
+    	KStatusBar *zeigerle;
 	
-	//ElemNo is the number of the pushbutton AND the elementnumber. I can now
-	//use it to show data and so on.
-	int ElemNo;
+    	/**
+        * ElemNo is the number of the pushbutton AND the elementnumber. 
+        * I can now use it to show data and so on.
+        */
+    	int ElemNo;
 
         ElementInfo Data;
 	
-	//showName() loads the name of the fitting element and shows it in
-	//the statusbar.
-	void showName();
+    	/** loads the name of the fitting element and shows it in
+    	* the statusbar.
+        */
+    	void showName();
 	
         QLabel *pmTitle;
         QLabel *pmWeight;
@@ -94,11 +97,15 @@ class ElementKP : public KPushButton  {
 
    public slots:
 
-       //If the user clicks on one button this slot will be called
-       void slotShowData();
+        /** 
+        * If the user clicks on one button this slot will be called
+        */
+        void slotShowData();
        
-       // If the user clicks Web Lookup button
-       void lookup();
+        /**
+        * If the user clicks Web Lookup button
+        */
+        void lookup();
        
 };
 

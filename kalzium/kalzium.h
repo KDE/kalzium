@@ -78,9 +78,6 @@ class Kalzium : public KMainWindow
     QLCDNumber *dateLCD;
     SettingsDialog *setDlg;
 
-    // Show periodic table from web
- //   KHTMLPart *htmlTable;
-
     QString block, acidbeh;
     int ischecked;
 
@@ -89,30 +86,42 @@ class Kalzium : public KMainWindow
     void showIUPAC();
 
     public slots:
-    //this slot hides all elements which have not been known
-    //when Mendelejew created the first PSE
+    /**
+    * this slot hides all elements which have not been known
+    * when Mendelejew created the first PSE
+    */
     void slotShowMendelejew();
 
-    //this slot gives you information if the elements tends to
-    //built acid, bases, doesn neither or is amphoter
+    /**
+    * this slot gives you information if the elements tends to
+    *built acid, bases, doesn neither or is amphoter
+    */
     void slotShowAcidBeh();
     
     //shows you the 4 different blocks
     void slotShowBlocks();
     
-    //this slot gives you the information in which group
-    //the elements is (1 to 8)
+    /**
+    * this slot gives you the information in which group
+    * the elements is (1 to 8)
+    */
     void slotShowGroups();
     
-    //this slot shows the users in what state the element
-    //is at 20 degree and 1013 h-pascal.
+    /**
+    * this slot shows the users in what state the element
+    * is at 20 degree and 1013 h-pascal.
+    */
     void slotShowStateOfMatter();
     
-    //this slots shows all elements
+    /**
+    * this slots shows all elements
+    */
     void slotShowAll();
     
-    //Which element has been known when? A slider will
-    //appear and you can check it out.
+    /**
+    * Which element has been known when? A slider will
+    * appear and you can check it out.
+    */
     void timeline();
 
     void changeNumeration(int);
@@ -126,12 +135,16 @@ class Kalzium : public KMainWindow
     void psestyleShow(int);
     void slotShowTimeline(int);
 
-    //the quiz will start
+    /**
+    * the quiz will start
+    */
     void slotKnowledge();
     
     void slotValues();
 
-    //this slot will open a window in which you can do some calculations
+    /**
+    * this slot will open a window in which you can do some calculations
+    */
     void slotCalculations();
    
     void defineweights();
