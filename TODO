@@ -1,14 +1,12 @@
 last modified: July 8 2002
 
 TODO for KDE 3.1:
-- go through the code and check if all QWhatsThis:: really appear
-
-- slotrenaming
+- fix bugs if someone finds them
 
 TODO for post-KDE 3.1:
 - CalulationDlg():
-  - MWG works not at all // KDE 3.2
-  - we need more modes like the Nernst-Equiation // KDE 3.2
+  - MWG works not at all 
+  - we need more modes like the Nernst-Equiation
   - new look (use .ui)
 
 - ValueVisualisation():
@@ -22,7 +20,6 @@ TODO for post-KDE 3.1:
 
 - http://www.webelements.com/webelements/elements/text/Si/key.html  
   and there "Go adjacent..."
-  // KDE 3.2 though the code is already working
  
 - Have more than one modus in the quiz: The user should be able
   to decide a level (easy - moderate - difficult). Furthermore

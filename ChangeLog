@@ -1,4 +1,6 @@
 HEAD:
+- a big cleanup in kalzium.cpp as it was very easy to read
+- now all values have the correct dimension (pm, nm, g/cm^3 and so on)
 - added documentation
 - now the KPushButton you see have not only the symbol but
   also the number of the element
