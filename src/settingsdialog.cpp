@@ -234,7 +234,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     vcolorTabBox->addWidget(colorsTabWidget);
 
 	// GENERAL SETTINGS
-	general = addPage( i18n( "General Settings" ), i18n( "Custimize the general behaviour of Kalzium" ), BarIcon( "connect_creating", KIcon::SizeMedium ) );
+	general = addPage( i18n( "General Settings" ), i18n( "Custimize the general behavior of Kalzium" ), BarIcon( "connect_creating", KIcon::SizeMedium ) );
 
 	// INFODIALOG
 	main_config->setGroup( "WLU" );
