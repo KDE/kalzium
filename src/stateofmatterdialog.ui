@@ -81,7 +81,7 @@
                                         <cstring>textLabel2</cstring>
                                     </property>
                                     <property name="text">
-                                        <string>Degree Fahrenheit</string>
+                                        <string>Degrees Fahrenheit</string>
                                     </property>
                                 </widget>
                                 <widget class="QLCDNumber">
