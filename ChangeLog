@@ -1,4 +1,9 @@
-HEAD:
+Version 0.6:
+- switched to more Designer-Files
+- GUI-improvements
+- added the converter
+
+Version 0.5:
 - a big cleanup in kalzium.cpp as it was very easy to read
 - now all values have the correct dimension (pm, nm, g/cm^3 and so on)
 - added documentation
@@ -17,6 +22,8 @@ HEAD:
   method to read at startup those settings
 - fixed the smaller things like the stateofmatter-Dlg-fixlets. Just a
   small things as discussed on LinuxTag 2002
+- correct the numberation so that now CAS is really CAS and IUPAC is really
+  IUPAC
 
 Version 0.4:
 - added the new calculationdialogs

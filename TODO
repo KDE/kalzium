@@ -5,9 +5,7 @@ TODO for KDE 3.1:
 
 TODO for post-KDE 3.1:
 - CalulationDlg():
-  - MWG works not at all 
   - we need more modes like the Nernst-Equiation
-  - new look (use .ui)
 
 - ValueVisualisation():
   - I think we should add a QTabWidget() in 
