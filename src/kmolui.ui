@@ -91,7 +91,7 @@
                 <cstring>TextLabel10</cstring>
             </property>
             <property name="text">
-                <string>Molecular weight (u):</string>
+                <string>Molecular weight [u]:</string>
             </property>
         </widget>
         <widget class="QLineEdit">
@@ -133,7 +133,6 @@
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
-    <includehint>qwidget.h</includehint>
     <includehint>klineedit.h</includehint>
 </includehints>
 </UI>
