@@ -22,7 +22,6 @@
 #include <kdialogbase.h>
 #include <qtabwidget.h>
 
-class Kalzium;
 class KColorButton;
 class QVButtonGroup;
 class QComboBox;
@@ -70,7 +69,6 @@ class SettingsDialog : public KDialogBase
         SettingsDialog(QWidget *parent=0, const char *name=0);
     private:
         ColorsTabWidget *colorsTabWidget;
-        Kalzium *kalzium;
         
         QVButtonGroup *webLookupButtonGroup;
         QFrame *colorTab, *webLookupButtons;

@@ -16,7 +16,9 @@
  ***************************************************************************/
 
 //KDE-Includes
+#include <kapplication.h>
 #include <kconfig.h>
+#include <kdebug.h>
 #include <kdialog.h>
 #include <kglobalsettings.h>
 #include <khtml_part.h>
@@ -268,6 +270,7 @@ void ElementKP::drawButtonLabel(QPainter *p)
     QFontMetrics text( general_bold );
     
     p->setFont( general );
+    kdDebug() << kapp->kstyle() << endl;
     p->drawText(7,zahl.height(),QString::number(Data.number), -1);
     p->setFont( general_bold );
     p->drawText ( width() - text.width(Data.Symbol)-7, height()-7 , Data.Symbol);

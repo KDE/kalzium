@@ -221,7 +221,6 @@ void ColorsTabWidget::applyColors()
 SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Preferences"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
-    kalzium = (Kalzium*)parent;
     main_config=KGlobal::config();  
     
     QStringList weblookuplist;
@@ -270,7 +269,7 @@ void SettingsDialog::slotApplySettings()
     main_config->writeEntry("adress", (webLookupButtonGroup->selected())->text());
     main_config->sync();
     
-    kalzium->changeColorScheme(kalzium->colorschememenu->currentItem());
+    ((Kalzium*)parentWidget())->changeColorScheme(((Kalzium*)parentWidget())->colorschememenu->currentItem());
 }
 
 
@@ -280,7 +279,7 @@ void SettingsDialog::slotOkSettings()
     main_config->writeEntry("adress", (webLookupButtonGroup->selected())->text());
     main_config->sync();
     colorsTabWidget->applyColors();
-    kalzium->changeColorScheme(kalzium->colorschememenu->currentItem());
+    ((Kalzium*)parentWidget())->changeColorScheme(((Kalzium*)parentWidget())->colorschememenu->currentItem());
 }
 
 void SettingsDialog::slotDefaults()
