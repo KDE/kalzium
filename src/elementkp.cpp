@@ -24,7 +24,6 @@
 //QT-Includes
 #include <qdragobject.h>
 #include <qpainter.h>
-#include <qpopupmenu.h>
 #include <qwhatsthis.h>
 
 #include "elementkp.h"
@@ -80,28 +79,18 @@ void ElementKP::mouseMoveEvent( QMouseEvent * )
 
 void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 {
-	pmenu = new QPopupMenu();
+	KConfig *main_config=KGlobal::config();
+	main_config->setGroup("WLU");
+	QString detailed = main_config->readEntry( "infodialog" );
 	if (mouse->button() == RightButton)
 	{
-		if (Data.Name == "0")
-			pmTitle = new QLabel( i18n( "Name: Unnamed") , pmenu );
+		if ( detailed == "long" )
+			slotShowData();
 		else
-			pmTitle = new QLabel( i18n( "Name: %1").arg(i18n(Data.Name.utf8())) , pmenu );
-		if (Data.Weight == "0")
-			pmWeight = new QLabel( i18n( "Atomic Weight: Unknown %1").arg( Data.Weight ) , pmenu );
-		else
-			pmWeight = new QLabel( i18n( "Atomic Weight: %1").arg(Data.Weight) , pmenu );
-		pmenu->clear();
-		pmenu->insertItem( pmTitle );
-		pmenu->insertSeparator();
-		pmenu->insertItem( pmWeight );
-		pmenu->popup( QCursor::pos() );
+			slotShowDetailedData();
 	}
 	else
 	{
-		KConfig *main_config=KGlobal::config();
-		main_config->setGroup("WLU");
-		QString detailed = main_config->readEntry( "infodialog" );
 		if ( detailed == "long" )
 			slotShowDetailedData();
 		else
