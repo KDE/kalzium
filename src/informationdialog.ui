@@ -82,7 +82,7 @@
         </widget>
         <widget class="QTabWidget" row="0" column="0">
             <property name="name">
-                <cstring>tabWidget2</cstring>
+                <cstring>tabWidget</cstring>
             </property>
             <widget class="QWidget">
                 <property name="name">
@@ -254,6 +254,12 @@
         <signal>sliderMoved(int)</signal>
         <receiver>lCDNumber1_2</receiver>
         <slot>display(int)</slot>
+    </connection>
+    <connection>
+        <sender>buttonOk</sender>
+        <signal>clicked()</signal>
+        <receiver>InformationDialog</receiver>
+        <slot>close()</slot>
     </connection>
 </connections>
 <slots>

@@ -121,18 +121,22 @@ class PSE : public QWidget
 		void setPSEType( bool simple ){
 			m_isSimple = simple;
 		}
-
-		///if true the State Of Matter will be shown
-		bool m_showSOM;
+		
+		/**
+		 * returns if the SOM is active or not
+		 */
+		bool som() const{
+			return m_showSOM;
+		}
+		
+		void activateSOMMode( bool som ){
+			m_showSOM = som;
+		}
 
 		/**
 		 * if true the tooltips will be displayed 
 		 */
 		bool m_showTooltip;
-
-		void activateSOMMode( bool som ){
-			m_showSOM = som;
-		}
 
 		/**
 		 * This list includes all elementbuttons which are in the 
@@ -149,6 +153,10 @@ class PSE : public QWidget
 			m_showLegend = show;
 		}
 
+		bool showLegend() const{
+			return m_showLegend;
+		}
+
 		/**
 		 * activates or deactivates the learningmode
 		 */
@@ -156,8 +164,31 @@ class PSE : public QWidget
 			m_learningMode = learningmode;
 		}
 
+		bool timeline() const{
+			return m_timeline;
+		}
+
+		void setTimeline( bool timeline ){
+			m_timeline = timeline;
+		}
+		
+		int date() const{
+			return m_date;
+		}
+
 
 	private:
+		///the date used in the timeline
+		int m_date;
+		
+		bool m_timeline;
+		
+		///the temperature of the table (for the SOM-feature)
+		double m_temperature;
+
+		///if true the State Of Matter will be shown
+		bool m_showSOM;
+
 		///Timer used for the tooltop
 		QTimer HoverTimer;
 
@@ -201,9 +232,6 @@ class PSE : public QWidget
 		 */
 		QString m_ShortName;
 
-		///the temperature of the table (for the SOM-feature)
-		double m_temperature;
-
 		///if true the pse is drawn in simple mode (s+p block only)
 		bool m_isSimple;
 
@@ -220,6 +248,7 @@ class PSE : public QWidget
 
 		///used for bitBlit. If true the complete table will be drawn
 		bool doFullDraw;
+		
 		
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
@@ -240,13 +269,11 @@ class PSE : public QWidget
 		virtual void drawLegend( QPainter* p );
 
 	public slots:	
-		/**
-		 * this method hides all elements which have not been know
-		 * before the @p date.
-		 * @param date is time where the user wants to see whether
-		 * or not the element has already been kown
-		 */
-		void setDate( int date );
+		void setDate( int date ){
+			m_date = date;
+//These elements have always been known:
+//6 16 26 29 33 47 50 51 79 80 82 83
+		}
 
 		void setLearningMode( int horizontal ){
 			if ( horizontal == 1 )

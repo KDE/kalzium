@@ -3,6 +3,7 @@
 
 #include "informationdialog.h"
 
+#include <qtabwidget.h>
 #include <qpoint.h>
 #include <qdom.h>
 #include <qstring.h>
@@ -13,6 +14,14 @@ class InformationWidget : public InformationDialog
 
 	public:
 		InformationWidget( QWidget *parent );
+
+		void showSOM(){
+			tabWidget->setCurrentPage( 1 );
+		}
+
+		void showTimeline(){
+			tabWidget->setCurrentPage( 2 );
+		}
 
 	private:
 		///returns the text formated as html

@@ -60,33 +60,6 @@ class Kalzium : public KMainWindow
 
 		InformationWidget *m_info;
 		
-		void showSOMWidgets( bool show );
-
-		/**
-		 * the slider used for the State of Matter
-		 */
-		TempSlider *m_pSOMSlider;
-
-		/**
-		 * the slider used for the timeline
-		 */
-		SliderWidget *m_pTimeSlider;
-
-		/**
-		 * if true, the legend will be shown
-		 */
-		bool m_bShowLegend;
-		
-		/**
-		 * if true, the state of matter will be shown
-		 */
-		bool m_bShowSOM;
-		
-		/**
-		 * if true, the timeline will be shown
-		 */
-		bool m_bShowTimeline;
-
 		/**
 		 * this Pointer points to the current PSE. The pointer
 		 * is updated every time the users chooses a new 
@@ -109,11 +82,6 @@ class Kalzium : public KMainWindow
 		 */
 		void slotStatusBar(const QString& text, int id);
 
-		/**
-		 *diplay the Temperature unit in the Statusbar
-		 */
-		void displayTemperature();
-		
 		/**
 		 *diplay the energy unit in the Statusbar
 		 */
@@ -177,11 +145,6 @@ class Kalzium : public KMainWindow
 		 * These slots are for the standardactions
 		 */
 		void showSettingsDialog();
-		
-		/**
-		 * This slot passes the value of the SOM-slider to the PSE
-		 */
-		void slotTempChanged( int );
 };
 
 /**

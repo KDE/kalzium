@@ -49,6 +49,8 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	m_molcalcIsActive = false;
 	m_learningMode = false;
 	m_showTooltip = false;
+	m_timeline = false;
+	m_showSOM = false;
 
 //IUPAC
 	    m_IUPAClist.append( "IA");
@@ -278,11 +280,6 @@ void PSE::activateColorScheme( const int nr )
 		
 }
 
-void PSE::setDate( int date )
-{
-	kdDebug() << date << endl;
-//6 16 26 29 33 47 50 51 79 80 82 83
-}
 
 void PSE::resizeEvent( QResizeEvent * /*e*/ ) 
 {

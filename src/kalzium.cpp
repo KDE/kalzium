@@ -46,19 +46,12 @@
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
 {
-	m_bShowSOM = false;//TODO fix the som
-	m_bShowTimeline = false;//TODO fix the som
-
 	pd = new privatedata( this );
 
 	pd->kalziumData = new KalziumDataObject();
 
 	QWidget *CentralWidget = new QWidget( this, "CentralWidget" );
 	m_pCentralLayout = new QVBoxLayout( CentralWidget, 0, -1, "CentralLayout" );
-	m_pSOMSlider = new TempSlider( CentralWidget, "SOMSlider" );
-	m_pSOMSlider->hide();
-	m_pTimeSlider = new SliderWidget( CentralWidget, "TimeSlider" );
-	m_pTimeSlider->hide();
 	
 	m_PSE = new PSE( data(), CentralWidget, "PSE");
 
@@ -70,8 +63,6 @@ Kalzium::Kalzium()
 
 	// Layouting
 	m_pCentralLayout->addWidget( m_PSE );
-	m_pCentralLayout->addWidget( m_pSOMSlider );
-	m_pCentralLayout->addWidget( m_pTimeSlider );
 
 	setCentralWidget( CentralWidget );
 	CentralWidget->show();	
@@ -141,43 +132,34 @@ void Kalzium::setupActions()
 	slotSwitchtoNumeration( Prefs::numeration() );
 	slotSwitchtoPSE( Prefs::schemaPSE() );
 
-	connect( m_pSOMSlider->slider, SIGNAL( valueChanged( int ) ), this, SLOT( slotTempChanged( int ) ) );
-	connect( m_pTimeSlider->pSlider, SIGNAL( valueChanged( int ) ), m_PSE, SLOT( setDate( int ) ) );
-	m_pSOMSlider->slider->setValue(Prefs::temperaturevalue());
-	m_pTimeSlider->pSlider->setValue(Prefs::sliderdate());
-
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
 	setupGUI();
-	
-	//check if the legend, the timeline and the somslider should
-	//be displayed or not
-	if ( m_bShowLegend ) {
-		m_PSE->showLegend( true );
-	}
-	else {
-		m_PSE->showLegend( false );
-	}
 }
 
 void Kalzium::slotLearningmode()
 {
 	if ( m_PSE->learningMode() )
+	{
 		m_PSE->setLearning( false );
+		m_info->hide();
+	}
 	else
+	{
 		m_PSE->setLearning( true );
+		m_info->show();
+	}
 }
 
 void Kalzium::setupStatusBar()
 {
-	statusBar()->insertItem("", IDS_TEMP, 0, false);
- 	statusBar()->setItemAlignment(IDS_TEMP, AlignLeft);
-	displayTemperature();
+//X 	statusBar()->insertItem("", IDS_TEMP, 0, false);
+//X  	statusBar()->setItemAlignment(IDS_TEMP, AlignLeft);
  	statusBar()->insertItem("", IDS_ENERG, 0, false);
  	statusBar()->setItemAlignment(IDS_ENERG, AlignLeft);
-	displayEnergie();	
- 	statusBar()->insertItem("", IDS_TEMPERATURE, 0, false);
- 	statusBar()->setItemAlignment(IDS_TEMPERATURE, AlignLeft);	
+	displayEnergie();
+//X  	statusBar()->insertItem("", IDS_TEMPERATURE, 0, false);
+//X  	statusBar()->setItemAlignment(IDS_TEMPERATURE, AlignLeft);	
 	// fill the statusbar 
 	statusBar()->show();
 }
@@ -189,31 +171,26 @@ void Kalzium::slotStatusBar(const QString& text, int id)
 
 void Kalzium::slotShowTimeline()
 {
-	/*
-	kdDebug() << "Kalzium::slotShowTimeline()" << endl;
-	
-	if ( m_bShowTimeline )
-		m_bShowTimeline = false;
-	else
-		m_bShowTimeline = true;
+	if ( m_PSE->timeline() )
+	{//don NOT display the timeline
+		m_PSE->setTimeline( false );
+		m_pTimelineAction->setText(i18n("Show &Timeline"));
 		
-	Prefs::setShowtimeline( m_bShowTimeline ); 
+		Prefs::setSliderdate( m_PSE->date() );
 
-	if ( m_bShowTimeline )
-	{
-		m_pTimeSlider->pSlider->setValue( Prefs::sliderdate() );
-		m_pTimelineAction->setText(i18n("Hide &Timeline"));
-		m_pTimeSlider->show();
+		m_info->show();
+		m_info->showTimeline();
 	}
 	else
 	{
-		m_pTimeSlider->hide();
-		Prefs::setSliderdate( m_pTimeSlider->pSlider->value() );
-		m_pTimelineAction->setText(i18n("Show &Timeline"));
+		m_PSE->setTimeline( true );
+		m_PSE->setDate( Prefs::sliderdate() );
+		m_pTimelineAction->setText(i18n("Hide &Timeline"));
+		
+		m_info->hide();
 	}
 	
 	Prefs::writeConfig();
-	*/
 }
 
 void Kalzium::slotPlotData()
@@ -232,33 +209,14 @@ void Kalzium::slotCalculate()
 
 void Kalzium::slotShowLegend()
 {
-	kdDebug() << "Kalzium::slotShowLegend()" << endl;
-	if ( !m_bShowLegend )
-	{
-		m_pLengendAction->setText( i18n( "Show &Legend" ) );
-	}
-	else
-	{
-		m_pLengendAction->setText( i18n( "Hide &Legend" ) );
-	}
-	
-	//now hide or show the legend...
-	m_PSE->showLegend( m_bShowLegend );;
-
 	//save the settings
-	Prefs::setShowlegend( m_bShowLegend ); 
+	Prefs::setShowlegend( m_PSE->showLegend() ); 
 	Prefs::writeConfig();
 }	
 
 void Kalzium::slotShowScheme(int i)
 {
 	kdDebug() << "Kalzium::slotShowScheme() " << i << endl;
-	
-	//hide the SOM because a look has been selected
-	showSOMWidgets( false );
-
-	if ( m_bShowSOM )
-		m_bShowSOM = false;
 	
 	m_PSE->activateColorScheme( i );
 	m_PSE->update();
@@ -306,52 +264,10 @@ void Kalzium::slotUpdateSettings()
 {
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
 
-	displayTemperature();
 	displayEnergie();
-	slotTempChanged( Prefs::temperaturevalue());
-	//update colors
-	if (!m_bShowSOM )
-	{
-		//X 		m_PSE->activateColorScheme(Prefs::colorschemebox());
-		slotStatusBar( "", IDS_TEMPERATURE );
-	}
-	else 
-	{
-		//X 		m_PSE->setTemperature((double) Prefs::temperaturevalue() );
-	}
-}
-
-void Kalzium::displayTemperature()
-{
-	/*
-	   QString string;
-	   int min = 0, max = 1000;
-	   switch (Prefs::temperature()) {
-	   case 0:
-	   string = i18n("Kelvin");
-	   min = 0;
-	   max = 6000;
-	   m_pSOMSlider->unit->setText( i18n( "the unit for Kelvin" , "K" ) );
-	   break;
-	   case 1:
-	   string = i18n("Degree Celsius");
-	   min = -273 ;
-	   max = 5700 ;
-	   break;
-	   case 2:
-	   string = i18n("Degree Fahrenheit");
-	   min =  -460 ;
-	   max = 6000 ;
-	   break;
-	   }
-	   m_pSOMSlider->slider->setMinValue( min );
-	   m_pSOMSlider->slider->setMaxValue( max );
-
-	   slotStatusBar(i18n("Temperature unit: %1 ").arg( string ),  IDS_TEMP);
-	   */
 }
  
- void Kalzium::displayEnergie()
+void Kalzium::displayEnergie()
  {
  	QString string;
  	switch (Prefs::units()) {
@@ -367,40 +283,23 @@ void Kalzium::displayTemperature()
 
 void Kalzium::slotStateOfMatter()
 {
-	/*
-	m_bShowSOM ? m_bShowSOM = false : m_bShowSOM = true;
-	
-	m_PSE->activateSOMMode( m_bShowSOM );
-	
-	Prefs::setShowsom( m_bShowSOM ); 
-	Prefs::writeConfig();
-
-	showSOMWidgets( m_bShowSOM );
-	*/
-}
-
-
-void Kalzium::showSOMWidgets( bool show )
-{
-	/*
-	kdDebug() << "Kalzium::showSOMWidgets()" << endl;
-
-	if ( show )
+	if ( m_PSE->som() )
 	{
-		m_pSOMSlider->show();
-		slotTempChanged( m_pSOMSlider->slider->value() );
-		displayTemperature();
-		m_pSOMAction->setText( i18n( "&Hide State of Matter" ));
+		m_PSE->activateSOMMode( false );
+		m_info->show( );
+		m_info->showSOM();
 	}
 	else
 	{
-		m_pSOMSlider->hide();
-		slotStatusBar( "", IDS_TEMPERATURE );
-		m_pSOMAction->setText( i18n( "&Show State of Matter" ));			
+		m_PSE->activateSOMMode( true );
+		m_info->hide();
 	}
-	m_PSE->update();
-	*/
+		
+	Prefs::setShowsom( m_PSE->som() ); 
+	Prefs::writeConfig();
+
 }
+
 
 void Kalzium::openInformationDialog( int number )
 {
@@ -416,37 +315,6 @@ void Kalzium::openInformationDialog( int number )
 	{
 		m_info->show( );
 	}
-}
-
-
-void Kalzium::slotTempChanged( int temperature )
-{
-	/*
-	double tempTemp=temperature;
- 	switch (Prefs::temperature()) {
-     		case 0:
- 			break;
- 		case 1:
-			//0 Degree Celsius is 273 K. So I need to add 273
-			tempTemp+=273.15;
- 			break;
- 		case 2:
-			tempTemp = (temperature - 32)*5/9 + 273.15;
- 			break;
- 	}
-	//This is in Kelvin
-	m_PSE->setTemperature( tempTemp );
-	m_PSE->update();
-
-	slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg(tempTemp), IDS_TEMPERATURE );
-
-	//This is in the selected unit
-	m_pSOMSlider->value->display((int) tempTemp);
-			
-	Prefs::setTemperaturevalue(temperature);
-	Prefs::writeConfig();
-
-	*/
 }
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
