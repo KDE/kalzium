@@ -104,23 +104,39 @@ level.</para>
 <title>The information dialog</title>
 
 <screenshot>
-<screeninfo>&kalzium; with the training option</screeninfo>
+<screeninfo>&kalzium;'s simplified information dialog</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="screenshot3.png" format="PNG"/>
 </imageobject>
 <textobject>
-<phrase>&kalzium; with the training option dialog visible</phrase>
+<phrase>&kalzium;'s simplified information dialog</phrase>
 </textobject>
-<caption><para>Here is a screenshot of &kalzium;'s information dialog.</para> 
+<caption><para>Here is a screenshot of &kalzium;'s simplified information dialog.</para> 
 </caption>
 </mediaobject>
 </screenshot>
 
 <para>In this dialog you get all the information &kalzium;
-provides on that element. The dialog is divided into three parts:
+provides on that element. The dialog covers three aspects of the element:
 <guilabel>General</guilabel>, <guilabel>States</guilabel> and
-<guilabel>Energies</guilabel>.</para> <para>If you click on
+<guilabel>Energies</guilabel>.</para>
+
+<screenshot>
+<screeninfo>&kalzium;'s detailed information dialog</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="screenshot4.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&kalzium;'s detailed information dialog</phrase>
+</textobject>
+<caption><para>Here is a screenshot of &kalzium;'s detailed information dialog.</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para>If you click on
 <guilabel>Web Lookup</guilabel> &kalzium; will get more information
 from the web (in a new window).</para>
 </sect1>
@@ -147,7 +163,7 @@ composition. KMol knows about all of the elements in the <acronym>PSE</acronym>.
 <sect1 id="colors">
 <title>Color schemes</title>
 
-<para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote> , their behavior with acid and which matter state (solid/liquid/vapor) they are in at a given temperature.</para>
+<para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote>, their behavior with acid and which matter state (solid/liquid/vapor) they are in at a given temperature.</para>
 <screenshot>
 
 <mediaobject>
@@ -366,7 +382,7 @@ url="http://edu.kde.org/kalzium">The &kalzium; home page</ulink> and
 is part of the KDE-Edu project</para>
 
 <para>You can find a list of changes in the file ChangeLog in the
-distribution of kalzium.</para>
+distribution of &kalzium;.</para>
 </sect1>
 
 <sect1 id="compilation">
