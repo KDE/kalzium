@@ -86,7 +86,7 @@ under the &GNU; Public License.
 <screeninfo>&kalzium; main screen, directly after the start</screeninfo>
 <mediaobject>
 <imageobject>
-<imagedata fileref="screenshot1.png" format="PNG" width="300"/>
+<imagedata fileref="screenshot1.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase>&kalzium; main screen</phrase>
@@ -107,7 +107,7 @@ level.</para>
 <screeninfo>&kalzium; with the training option</screeninfo>
 <mediaobject>
 <imageobject>
-<imagedata fileref="screenshot3.png" format="PNG" width="300"/>
+<imagedata fileref="screenshot3.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase>&kalzium; with the training option dialog visible</phrase>
@@ -152,7 +152,7 @@ composition. KMol knows about all of the elements in the <acronym>PSE</acronym>.
 
 <mediaobject>
 <imageobject>
-<imagedata fileref="screenshot2.png" format="PNG" width="300"/>
+<imagedata fileref="screenshot2.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase>the <quote>State of Matter</quote> Dialog</phrase>
