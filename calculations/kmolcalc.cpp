@@ -7,7 +7,7 @@
 /**
  * KMOLCALC is the calculation engine. It knows about a hashtable of user defined atomic
  * weights and group definitions ELSTABLE, and the currently processed formula, stored
- * as a list of elements and their coefficients, ELEMENTS. 
+ * as a list of elements and their coefficients, ELEMENTS.
  */
 
 #include <klocale.h>
@@ -30,7 +30,7 @@ KMolCalc::~KMolCalc() {
 
 void KMolCalc::readElstable() {
   weight = -1; // not calculated yet
-  if (elstable) delete elstable;
+  delete elstable;
   elstable = new QDict<SubUnit> (197, TRUE);
   elstable->setAutoDelete(TRUE);
   QStringList files = KGlobal::dirs()->findAllResources("appdata", "kmolweights");
@@ -49,25 +49,25 @@ void KMolCalc::readElstable() {
   	writeElstable();
   } else if (QFileInfo(f).lastModified() < QFileInfo(lf).lastModified()) {
     // announce
-    QMessageBox::information 
+    QMessageBox::information
       (0, i18n("Warning"), i18n("Found new global Mw file.\nLocal definitions will be updated."), QMessageBox::Ok);
     readMwfile(lf);
     writeElstable();
   }
-  
+
 }
 
 
-/** 
- * Parse a string S and construct the ElementList this->ELEMENTS, representing the 
- * composition of S. Returns 0 if successful, or an error code (currently -1) if 
+/**
+ * Parse a string S and construct the ElementList this->ELEMENTS, representing the
+ * composition of S. Returns 0 if successful, or an error code (currently -1) if
  * parsing failed.
  * The elements is S must be valid element or group symbols, as stored in this->ELSTABLE.
  * See help files for correct formula syntax.
  */
 QString KMolCalc::readFormula(const QString& s) {
   weight = -1;
-  if (elements) delete elements;
+  delete elements;
   elements = new ElementList;
   return KMolCalc::readGroup(s, elements);
 }
@@ -80,7 +80,7 @@ QString KMolCalc::readGroup(const QString& s, ElementList* els) {
   QString errors ("OK");
   bool ok = TRUE;
   while (i < sl && ((s[i] <= '9' && s[i] >= '0') || s[i] == '.')) i++;
-  double prefix = (i == 0 ? 1 : s.left(i).toDouble(&ok)); 
+  double prefix = (i == 0 ? 1 : s.left(i).toDouble(&ok));
   if (! ok || i == sl || prefix == 0) return i18n("Bad formula."); // ERROR
   ElementList* elstemp = new ElementList;
   while (i < sl) {
@@ -101,22 +101,22 @@ QString KMolCalc::readGroup(const QString& s, ElementList* els) {
       errors = KMolCalc::readGroup(s.mid(j+1, i-j-1), inner);
       j = ++i;
       while (i < sl && ((s[i] <= '9' && s[i] >= '0') || s[i] == '.')) i++;
-      double suffix = (i == j ? 1 : s.mid(j, i-j).toDouble(&ok)); 
+      double suffix = (i == j ? 1 : s.mid(j, i-j).toDouble(&ok));
       if (! ok || suffix == 0) {
 	delete inner;
 	delete elstemp;
 	return i18n("Bad formula."); // ERROR
-      }      
+      }
       inner->addTo(*elstemp, suffix);
       delete inner;
       inner = NULL;
     } else if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z')) {
-      while (++i < sl && ((s[i] >= 'a' && s[i] <= 'z') || s[i] == '*' || 
+      while (++i < sl && ((s[i] >= 'a' && s[i] <= 'z') || s[i] == '*' ||
 			  s[i] == '\''));
       QString elname = s.mid(j, i-j);
       j = i;
       while (i < sl && ((s[i] <= '9' && s[i] >= '0') || s[i] == '.')) i++;
-      double suffix = (i == j ? 1 : s.mid(j, i-j).toDouble(&ok)); 
+      double suffix = (i == j ? 1 : s.mid(j, i-j).toDouble(&ok));
       if (! ok || suffix == 0) {
 	delete elstemp;
 	return i18n("Bad formula."); // ERROR
@@ -209,7 +209,7 @@ void KMolCalc::undefineGroup (const QString& name) {
 }
 
 /**
- * Add a new element name - atomic weight record to the ELSTABLE hashtable. Assumes 
+ * Add a new element name - atomic weight record to the ELSTABLE hashtable. Assumes
  * NAME has valid syntax.
 
  */
