@@ -103,13 +103,15 @@ void DetailedTab::paintEvent( QPaintEvent* )
 	p.drawText( x1+5 , y2-5 ,Data.Name.utf8() );
 	p.drawText( x1+5 , y2-18,Data.Weight );
 	p.drawText( x1+dx/2-20 , y1+dy/2-30 , Data.oxstage);
-//X 	p.drawText( x2 , y2 , 80 , 15 , Qt::AlignRight , Data.Weight );
-//X 	p.drawText( x2,y2,Data.Weight );
-//X 	p.drawRect( x2 , y2 , 80 , 15 );
+	p.drawText( x1+dx/2 , y2-20 , x2-x1-dx/2 , 18 , Qt::AlignRight , Data.Weight );
 
 //X 	p.drawText( x1, y1, "ol" );
 //X 	p.drawText( x1, y2, "ul" );
 //X 	p.drawText( x2, y1, "or" );
+//X 	p.drawText( x2, y2, "ur" );
+
+	p.drawLine(x2,y2,x2+100,y2+100);
+	p.drawText( x2+95 , y2+101 ,i18n( "Atomicweight: %1 u" ).arg( Data.Weight ));
 	
 	p.end();
 }
