@@ -28,6 +28,10 @@ IsotopeWidget::IsotopeWidget( QWidget *parent, const char* name )
 	: QWidget( parent, name )
 {
 	vbox = new QVBoxLayout( this );
+}
+
+void IsotopeWidget::setIsotopes( const QString& isotopes_string )
+{
 	widget = new QWidget( this );
 	
 	vbox->addWidget( widget );
@@ -39,10 +43,7 @@ IsotopeWidget::IsotopeWidget( QWidget *parent, const char* name )
 	h->addWidget( l1 );
 	h->addWidget( l2 );
 	h->addWidget( l3 );
-}
-
-void IsotopeWidget::setIsotopes( const QString& isotopes_string )
-{
+	
 	QString isotopes = isotopes_string;
 
 	int pos;

@@ -420,7 +420,7 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 		{
 			if ( c.y == Y )
 			{//coordinates match. Get the position of the it in the list.
-//				emit ElementClicked( counter );
+				emit ElementClicked( counter );
 				kdDebug() << counter << " emitted " << endl;
 
 				return;

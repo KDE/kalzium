@@ -20,6 +20,10 @@
 class QLabel;
 class QVBoxLayout;
 
+/**
+ * the widget which shows the information about the isotopes
+ * of an element
+ */
 class IsotopeWidget : public QWidget
 {
 	Q_OBJECT

@@ -130,6 +130,7 @@ void DetailedInfoDlg::createContent( Element *el )
 	wChemical->block_label->setText( el->block() );
 	wChemical->radius_label->setText( el->adjustUnits( Element::RADIUS ) );
 	wChemical->weight_label->setText( el->adjustUnits( Element::WEIGHT  ) );
+
 	if ( el->Isotopes() != "0"  )
 		wChemical->isotopeWidget->setIsotopes( el->Isotopes() );
 	else
