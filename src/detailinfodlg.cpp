@@ -50,7 +50,7 @@ DetailedInfoDlg::DetailedInfoDlg( ElementInfo Eleminfo , QWidget *parent, const 
 	overviewLayout->addWidget( dTab );
 	dTab->show();
     
-	mainTab = addPage(i18n("Picture"), i18n("How does %1 look like?").arg( Data.Name.utf8() ), BarIcon("redo", KIcon::SizeMedium));
+	mainTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( Data.Name.utf8() ), BarIcon("redo", KIcon::SizeMedium));
 	QVBoxLayout *mainLayout = new QVBoxLayout( mainTab );
 	QPixmap pic ( "/home/carsten/cvs/kdeedu/kalzium/src/elementpics/"+Data.Symbol+".jpg" );
 	QLabel *test = new QLabel( mainTab );

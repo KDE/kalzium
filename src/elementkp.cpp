@@ -56,27 +56,6 @@ ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, in
 	Data = ElemInfo; 
 }
 
-void ElementKP::getNeighbours( int Current )
-{
-	int Nr=Current, ze=0, sp=0;
-	position(Nr,ze,sp);
-
-	/** The first [] is the row, the second [] is the column. */
-	neighbourArray[0][1]=kalzium->helpArray[sp/40-1][ze/40];
-	neighbourArray[1][1]=kalzium->helpArray[sp/40][ze/40];
-	neighbourArray[2][1]=kalzium->helpArray[sp/40+1][ze/40];
-	if ( ze/40 != 17 )
-	{
-		neighbourArray[0][2]=kalzium->helpArray[sp/40-1][ze/40+1];
-		neighbourArray[1][2]=kalzium->helpArray[sp/40][ze/40+1];
-		neighbourArray[2][2]=kalzium->helpArray[sp/40+1][ze/40+1];
-	}
-	if (ze/40 == 0 ) return;
-	neighbourArray[0][0]=kalzium->helpArray[sp/40-1][ze/40-1];
-	neighbourArray[1][0]=kalzium->helpArray[sp/40][ze/40-1];
-	neighbourArray[2][0]=kalzium->helpArray[sp/40+1][ze/40-1];
-}
-
 //when the mousepointer is over a button
 void ElementKP::enterEvent(QEvent *)
 {
@@ -122,7 +101,7 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 	else
 	{
 		slotShowDetailedData();
-		slotShowData(); //böse
+		//slotShowData(); //böse
 	}
 }
 
@@ -181,7 +160,7 @@ void ElementKP::slotShowDetailedData()
 
 void ElementKP::slotShowData()
 {
-    infoDialog *show_data2 = new infoDialog( Data , this );
+    infoDialog *show_data2 = new infoDialog( Data , kalzium->helpArray, this );
 	show_data2->show();
 }
 

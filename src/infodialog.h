@@ -24,13 +24,20 @@ class QWidget;
 #include "infodlg.h"
 #include "elementkp.h"
 #include <qwidget.h>
+#include <qstring.h>
 
 class infoDialog : public infoDlg
 {
 	Q_OBJECT
 
 	public:
-		infoDialog( ElementInfo Eleminfo , QWidget *parent=0, const char *name=0 );
+		infoDialog( ElementInfo Eleminfo , QString symbolArray[9][18] , QWidget *parent=0, const char *name=0 );
+		QString neighbourArray[3][3];
+		QString helpArray[9][18];
+
+	private:
+		void getNeighbours( int );
+
 	private slots:
 		void lookup() const;
 };

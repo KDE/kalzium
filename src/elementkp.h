@@ -82,11 +82,8 @@ class ElementKP : public ElementButton{
 		void leaveEvent(QEvent *);
 
 		Kalzium *kalzium;
-		QString neighbourArray[3][3];
 
-		void getNeighbours( int );
-
-    QSize sizeHint () const;
+		QSize sizeHint () const;
 
 		/** loads the name of the fitting element and shows it in
 		 * the statusbar.
