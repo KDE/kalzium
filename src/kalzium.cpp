@@ -65,8 +65,8 @@ void Kalzium::setupActions()
 	 **/
 	 QStringList numlist;
 	 numlist.append(i18n("No N&umeration"));
-	 numlist.append(i18n("Show &CAS"));
 	 numlist.append(i18n("Show &IUPAC"));
+	 numlist.append(i18n("Show &CAS"));
 	 numlist.append(i18n("Show &Old IUPAC"));
 	 numeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "numerationtype");
 	 numeration_action->setItems(numlist);
@@ -294,7 +294,7 @@ void Kalzium::displayEnergie()
 			m_string = i18n("eV");
 			break;
 	}
-	slotStatusBar(i18n("Unit: ")+m_string,  IDS_ENERG);
+	slotStatusBar(i18n("Energy: ")+m_string,  IDS_ENERG);
 }
 
 void Kalzium::slotQuizAction()

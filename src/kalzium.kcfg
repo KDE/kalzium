@@ -18,9 +18,9 @@
   </group>
     <group name="Numeration">
     <entry name="numeration" type="Int">
-    	<default>0</default>
+    	<default>1</default>
 	<whatsthis>Select the numeration you want</whatsthis>
-	<label>Selects the default numeration</label>
+	<label>Selects the default numeration (IUPAC)</label>
     </entry>
   </group>
   <group name="Quiz_Setup">
