@@ -29,6 +29,9 @@
             <property name="checkable">
                 <bool>false</bool>
             </property>
+            <property name="whatsThis" stdset="0">
+                <string>Select the color scheme you prefer by clicking on the corresponding radio button</string>
+            </property>
             <vbox>
                 <property name="name">
                     <cstring>unnamed</cstring>

@@ -9,6 +9,13 @@
 	<label>Selects the default color scheme</label>
     </entry>
   </group>
+    <group name="Numeration">
+    <entry name="numeration" type="Int">
+    	<default>0</default>
+	<whatsthis>Select the numeration you want</whatsthis>
+	<label>Selects the default numeration</label>
+    </entry>
+  </group>
   <group name="Quiz_Setup">
 	<entry name="quiz_grade1" type="Bool">
 		<default>true</default>

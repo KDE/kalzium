@@ -65,7 +65,7 @@ Kalzium::Kalzium()
 	 numlist.append(i18n("Show &Old IUPAC"));
 	 numeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "numerationtype");
 	 numeration_action->setItems(numlist);
-	 numeration_action->setCurrentItem(0); //XXX should be read in via KConfig
+	 numeration_action->setCurrentItem(Prefs::numeration()); 
 	 connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
 	 
 	/*
@@ -115,7 +115,7 @@ Kalzium::Kalzium()
 	m_pMendeljevPSE = new MendeljevPSE( data(), this, "MendeljevPSE");
 
 	m_pCurrentPSE = m_pRegularPSE;
-
+	slotSwitchtoNumeration(Prefs::numeration() );
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
 	createGUI();
@@ -176,6 +176,8 @@ void Kalzium::slotShowScheme(int i)
 void Kalzium::slotSwitchtoNumeration( int index )
 {
 	currentPSE()->setNummerationType( index );
+	Prefs::setNumeration(index); 
+	Prefs::writeConfig();
 }
 
 void Kalzium::slotSwitchtoPSE(int index)
