@@ -8,7 +8,7 @@ kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp st
 kalzium_LDADD   = $(LIB_KHTML)  ../calculations/libkmol.la ../../libkdeedu/kdeeduplot/libkdeeduplot.la
 
 
-EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp calcdialog.cpp settingsdialog.cpp settingsdialog.h legend.cpp legend.h infodlg.ui quizdlgui.ui quiz_result.ui kmolui.ui elementbutton.cpp elementbutton.h detailinfodlg.cpp detailinfodlg.h querydlg.cpp querydlg.cpp searchdialog.ui searchdlg.cpp searchdlg.h orbitswidget.cpp orbitswidget.h chemicaldata.cpp chemicaldata.h kalziumplotwidget.cpp kalziumplotwidget.h kalziumplotdialogimpl.cpp kalziumplotdialogimpl.h infodialog.cpp infodialog.h 
+EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp settingsdialog.cpp settingsdialog.h legend.cpp legend.h infodlg.ui quizdlgui.ui quiz_result.ui kmolui.ui elementbutton.cpp elementbutton.h detailinfodlg.cpp detailinfodlg.h querydlg.cpp searchdialog.ui searchdlg.cpp searchdlg.h orbitswidget.cpp orbitswidget.h chemicaldata.cpp chemicaldata.h kalziumplotwidget.cpp kalziumplotwidget.h kalziumplotdialogimpl.cpp kalziumplotdialogimpl.h infodialog.cpp infodialog.h 
 
 METASOURCES = AUTO 
 
