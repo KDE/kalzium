@@ -349,7 +349,7 @@ void Element::drawHighlight( QPainter* p, int coordinate, bool horizontal )
 	//The Y-coordinate
 	int Y = ( y-1 )*ELEMENTSIZE;
 
-	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, Qt::red );
+	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, Qt::darkRed );
 
 	//now draw the elements over the red area
 	drawSelf( p, false );

@@ -118,7 +118,7 @@
     <entry name="group_4" type="Color">
 	<label>Selects the color of the elements in group 4</label>
 	<whatsthis>Selects the color of the elements in group 4</whatsthis>
-	<default>#ba2f14</default>
+	<default>#c80000</default>
     </entry>
     <entry name="group_5" type="Color">
 	<label>Selects the color of the elements in group 5</label>
@@ -128,7 +128,7 @@
     <entry name="group_6" type="Color">
 	<label>Selects the color of the elements in group 6</label>
 	<whatsthis>Selects the color of the elements in group 6</whatsthis>
-	<default>#0c3e74</default>
+	<default>#486f8b</default>
     </entry>
     <entry name="group_7" type="Color">
 	<label>Selects the color of the elements in group 7</label>
