@@ -109,15 +109,15 @@ const QString Element::adjustUnits( double val, const int type )
 					v = QString::number( val );
 					v.append( "K" );
 					break;
-				case 1:// Kelvin to Fahrenheit
+				case 1://Kelvin to Celsius
+					val-=273.15;
+					v = QString::number( val );
+					v.append( "C" );
+					break;
+				case 2: // Kelvin to Fahrenheit
 					val = val * 1.8 - 459.67;
 					v = QString::number( val );
 					v.append( "F" );
-					break;
-				case 2: //Kelvin to Celsius
-					val-=273.15;
-					v = QString::number( val );
-					v.append( "°C" );
 					break;
 			}
 	}
