@@ -177,10 +177,19 @@ class Kalzium : public KMainWindow
 		 */
 		void slotShowStateOfMatter();
 
-		void updateNumMenu(int);
-
 		void updateColorMenu(int);
+		
+        void updateNumMenu(int);
 
+        /**
+         * connected to void KApplication::kdisplayFontChanged() 
+         * so I can set for KDE 3.1 a fixed size for the 
+         * element buttons
+         * cause i have to play with kalzium's layout managment
+         * to understand it
+         **/
+        void updateElementKPSize();
+        
 		void slotShowTimeline(bool);
 
 		void slotValues();

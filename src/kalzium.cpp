@@ -66,6 +66,8 @@
 
 Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 {
+    connect(kapp, SIGNAL(kdisplayFontChanged()), this,SLOT(updateElementKPSize()));
+    
     main_config=KGlobal::config();
 
     calculationdialog=NULL;
@@ -76,21 +78,7 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
     setupConfig();
     setupActions();
 
-    QFont general = KGlobalSettings::generalFont();
-    QFont general_bold = general;
-
-    general.setPointSize(general.pointSize()-2);
-
-    general_bold.setPointSize(general_bold.pointSize());
-    general_bold.setBold(TRUE);
-
-    QFontMetrics zahl( general );
-    int zahl_height = zahl.height();
-    int zahl_width= zahl.width("103");
-    QFontMetrics text( general_bold );
-    int text_height = text.height();
-    int text_width = text.width("MD");
-    
+   
 
     //////////////////////////////////////
     //creation of the 118 buttons
@@ -131,8 +119,6 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
         position(n+1,h,v); //get position
         element[n] =  new ElementKP(foo,eleminfo,elementName.latin1(),n+1,statusBar(),this);
         
-        element[n]->setFixedSize(zahl_width + text_width ,
-                                 zahl_height + text_height + 5);
 
         maingrid->addWidget(element[n], v/40+1, h/40);
         element[n]->show();
@@ -206,6 +192,7 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
     setCentralWidget(foo);
     
     updateMainWindow();
+    updateElementKPSize();
     createhelpArray();
 }
 
@@ -543,6 +530,30 @@ void Kalzium::updateColorMenu(int id)
 void Kalzium::updateNumMenu(int id) 
 {
     numerationmenu->setCurrentItem(id);
+}
+
+
+// set fixed size for our element buttons (for KDE 3.1)
+void Kalzium::updateElementKPSize()
+{
+    QFont general = KGlobalSettings::generalFont();
+    QFont general_bold = general;
+
+    general.setPointSize(general.pointSize()-2);
+
+    general_bold.setPointSize(general_bold.pointSize());
+    general_bold.setBold(TRUE);
+
+    QFontMetrics zahl( general );
+    int zahl_height = zahl.height();
+    int zahl_width= zahl.width("103");
+    QFontMetrics text( general_bold );
+    int text_height = text.height();
+    int text_width = text.width("MD");
+    
+    for ( int n=0 ;n<118 ;n++ )
+    element[n]->setFixedSize(zahl_width + text_width ,
+                             zahl_height + text_height + 5);
 }
 
 void Kalzium::slotShowTimeline(bool id)
