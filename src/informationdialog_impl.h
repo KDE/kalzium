@@ -4,6 +4,7 @@
 #include "informationdialog.h"
 
 #include <qpoint.h>
+#include <qdom.h>
 
 class InformationWidget : public InformationDialog
 {
@@ -20,4 +21,14 @@ class InformationWidget : public InformationDialog
 		void slotUpdate( QPoint point );
 		void slotSelectionChanged( int );
 };
+
+class QuizXMLParser
+{
+	public: 
+		QuizXMLParser();
+
+		QString readTasks( QDomDocument &questionDocument, int number );
+		bool loadLayout( QDomDocument &questionDocument );
+};
+
 #endif // INFORMATIONDIALOG_IMPL_H

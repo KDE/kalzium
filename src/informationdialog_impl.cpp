@@ -3,6 +3,14 @@
 #include <qbuttongroup.h>
 #include <qradiobutton.h>
 #include <qlabel.h>
+#include <qtextstream.h>
+#include <qfile.h>
+
+#include <klocale.h>
+#include <kstandarddirs.h>
+#include <kdebug.h>
+#include <kfiledialog.h>
+#include <kmessagebox.h>
 
 #include <kdebug.h>
 
@@ -31,6 +39,11 @@ QString InformationWidget::getDesc( QPoint point )
 	if ( buttonGroup->selectedId() == 1) //the users looks for groups
 		information = "julia julia julia period";
 
+	QuizXMLParser parser;
+	QDomDocument doc( "periods" );
+	if ( parser.loadLayout( doc ) )
+		information = parser.readTasks( doc, point.x() );
+
 	return information;
 }
 
@@ -43,4 +56,86 @@ QString InformationWidget::getTopic( QPoint point )
 		information = "julia julia julia period";
 
 	return information;
+}
+
+QuizXMLParser::QuizXMLParser()
+{
+}
+
+bool QuizXMLParser::loadLayout( QDomDocument &questionDocument )
+{
+        kdDebug() << "questionEditorImpl::loadLayout()" << endl;
+
+        KURL url;
+        url.setPath( locate("data", "kalzium/data/"));
+		url.setFileName( "periods.xml" );
+
+//X         url = KFileDialog::getOpenURL( url.path(),
+//X                 QString("periods.xml") );
+        
+        QFile layoutFile( url.path() );
+        
+        if (!layoutFile.exists())
+        {
+                kdDebug() << "questionEditorImpl::loadLayout(): file does not exist" << endl;
+                QString mString=i18n("The file was not found in\n"
+                                "$KDEDIR/share/apps/kalzium/data/\n\n"
+                                "Please install this file and start Kalzium again.\n\n");
+                KMessageBox::information( 0, mString, i18n( "Loading File - Error" ) );
+        }
+
+        if (!layoutFile.open(IO_ReadOnly))
+                return false;
+
+        ///Check if document is well-formed
+        if (!questionDocument.setContent(&layoutFile))
+        {
+                kdDebug() << "wrong xml" << endl;
+                layoutFile.close();
+                return false;
+        }
+        layoutFile.close();
+
+        kdDebug() << "good xml" << endl;
+        return true;
+}
+
+QString QuizXMLParser::readTasks( QDomDocument &questionDocument, int number )
+{
+        kdDebug() << "questionEditorImpl::readTasks()" << endl;
+        QDomNodeList taskList,             //the list of all tasks
+                                        questionList,
+                                        answerList;
+
+		QString html;
+
+        QDomAttr textAttibute, 
+                                gradeAttribute, 
+                                trueAttribute;  //whether or not the answer is true
+
+        QDomElement taskElement, //a single task
+                                questionElement,
+                                aElement;
+
+        //read in all tasks
+        taskList = questionDocument.elementsByTagName( "unit" );
+
+		kdDebug() << "# of units: " << taskList.count() << endl;
+        
+        for ( uint i = 0; i < taskList.count(); ++i )
+        {//iterate through all tasks
+                taskElement = ( const QDomElement& ) taskList.item( i ).toElement();
+                 kdDebug() << "# :: " << taskElement.attributeNode( "number" ).value().toInt() << endl;
+                 if ( taskElement.attributeNode( "number" ).value().toInt() != number )
+ 					continue;
+
+				kdDebug() << "lese die daten" << endl;
+				 
+				QDomNode contentNode = taskElement.namedItem( "content" );
+				QDomNode nameNode = taskElement.namedItem( "name" );
+				html = contentNode.toElement().text();
+				html.append(  nameNode.toElement().text() );
+        }
+        
+	return html;
 }
