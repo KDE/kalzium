@@ -31,6 +31,7 @@
 #include <kstatusbar.h>
 
 #define IDS_TEMP           1
+#define IDS_ENERG           2
 
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
@@ -125,10 +126,14 @@ void Kalzium::setupActions()
 
 void Kalzium::setupStatusBar()
 {
-	statusBar()->insertItem("", IDS_TEMP, 1, false);
+	statusBar()->insertItem("", IDS_TEMP, 0, false);
 	statusBar()->setItemAlignment(IDS_TEMP, AlignLeft);
 	// fill the statusbar 
 	displayTemperature();
+	statusBar()->insertItem("", IDS_ENERG, 0, false);
+	statusBar()->setItemAlignment(IDS_ENERG, AlignLeft);
+	// fill the statusbar 
+	displayEnergie();	
 	statusBar()->show();
 }
 
@@ -258,6 +263,7 @@ void Kalzium::slotUpdateSettings()
 {
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
 	displayTemperature();
+	displayEnergie();
 }
 
 void Kalzium::displayTemperature()
@@ -265,18 +271,31 @@ void Kalzium::displayTemperature()
 	QString m_string;
 	switch (Prefs::temperature()) {
     		case 0:
-			m_string = i18n("Kelvin");//slotStatusBar(i18n("T: Kelvin"),  IDS_TEMP);
+			m_string = i18n("Kelvin");
 			break;
 		case 1:
-			m_string = i18n("degrees Fahrenheit");//slotStatusBar(i18n("T: degrees Fahrenheit"),  IDS_TEMP);
+			m_string = i18n("degrees Fahrenheit");
 			break;
 		case 2:
-			m_string = i18n("degrees Celsius");//slotStatusBar(i18n("T: degrees Celsius"),  IDS_TEMP);
+			m_string = i18n("degrees Celsius");
 			break;
 	}
 	slotStatusBar(i18n("Temperature: ")+m_string,  IDS_TEMP);
 }
 
+void Kalzium::displayEnergie()
+{
+	QString m_string;
+	switch (Prefs::units()) {
+    		case 0:
+			m_string = i18n("kJ/mol");
+			break;
+		case 1:
+			m_string = i18n("eV");
+			break;
+	}
+	slotStatusBar(i18n("Unit: ")+m_string,  IDS_ENERG);
+}
 
 void Kalzium::slotQuizAction()
 {
