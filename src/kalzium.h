@@ -25,6 +25,7 @@ class QuizsettingsDlg;
 class SliderWidget;
 class QVBoxLayout;
 class TempSlider;
+class InformationWidget;
 
 /**
  * @short Application Main Window
@@ -56,6 +57,10 @@ class Kalzium : public KMainWindow
 		 * the date which the pSliderWidget will start with
 		 */
 		int date;
+
+		bool m_learningMode;
+
+		InformationWidget *m_info;
 		
 		void showSOMWidgets( bool show );
 

@@ -15,12 +15,11 @@ class InformationWidget : public InformationDialog
 		InformationWidget( QWidget *parent );
 
 	private:
-		QString getTopic(QPoint);
+		///returns the text formated as html
 		QString getDesc(QPoint);
 
 	public slots:
 		void slotUpdate( QPoint point );
-		void slotSelectionChanged( int );
 };
 
 class QuizXMLParser

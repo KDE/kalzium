@@ -128,8 +128,12 @@ class PSE : public QWidget
 			m_showLegend = show;
 		}
 
+		void setLearning( bool );
+		
 
 	private:
+		bool m_learningMode;
+		
 		/**
 		 * updates the numeration of the PSE
 		 */
@@ -140,7 +144,8 @@ class PSE : public QWidget
 		
 		void mouseReleaseEvent( QMouseEvent* );
 
-		bool m_Horizontal;
+		///if true the user looks at periods
+		bool m_Vertikal;
 
 		QStringList m_IUPAClist;
 		QStringList m_IUPACOLDlist;
@@ -161,7 +166,7 @@ class PSE : public QWidget
 		 * true if the molcalc-mode is active
 		 */
 		bool m_molcalcIsActive;
-		
+
 		/**
 		 * the type of the nummeration ( NO, CAS, IUPACOLD, IUPAC )
 		 */
@@ -171,24 +176,24 @@ class PSE : public QWidget
     bool doFullDraw;
 
   public slots:
-		/**
-		 * this method hides all elements which have not been know
-		 * before the @p date.
-		 * @param date is time where the user wants to see whether
-		 * or not the element has already been kown
-		 */
-		void setDate( int date );
+	/**
+	 * this method hides all elements which have not been know
+	 * before the @p date.
+	 * @param date is time where the user wants to see whether
+	 * or not the element has already been kown
+	 */
+	void setDate( int date );
 		
  	 void setLearningMode( int horizontal ){
 			if ( horizontal == 1 )
-				m_Horizontal = false;
+				m_Vertikal = false;
 			else
-				m_Horizontal = true;
+				m_Vertikal = true;
 		}
 		
 	protected:
-  virtual void paintEvent( QPaintEvent *e );
-  virtual void resizeEvent( QResizeEvent *e );
+		virtual void paintEvent( QPaintEvent *e );
+		virtual void resizeEvent( QResizeEvent *e );
 
 	public slots:	
 		/**

@@ -43,6 +43,7 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	connect( this, SIGNAL( tableClicked( QPoint ) ), this, SLOT( slotUpdatePoint( QPoint ) ) );
 
 	m_molcalcIsActive = false;
+	m_learningMode = false;
 
 //IUPAC
 	    m_IUPAClist.append( "IA");
@@ -224,25 +225,30 @@ void PSE::resizeEvent( QResizeEvent *e )
 
 void PSE::paintEvent( QPaintEvent *e )
 {
-	QPainter p;
-  
-  if ( doFullDraw ) {
-    p.begin( table );
-    p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); //CN what is this line for?
-//X     if ( m_showSOM )
-//X       drawSOMPSE( &p );
-//X     else
-      drawPSE( &p, m_isSimple );
+	if ( m_Vertikal )
+		kdDebug() << "VERTIKAL" << endl;
+	else
+		kdDebug() << "HORIZONTAL" << endl;
 
-	if ( m_showLegend )
-		drawLegend( &p );
-    p.end();
-  
-    //JH: Uncomment when ready for this
-    //    doFullDraw = false;
-  }
-  
-  bitBlt( this, 0, 0, table );
+	QPainter p;
+
+	if ( doFullDraw ) {
+		p.begin( table );
+		p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); //CN what is this line for?
+		//X     if ( m_showSOM )
+		//X       drawSOMPSE( &p );
+		//X     else
+		drawPSE( &p, m_isSimple );
+
+		if ( m_showLegend )
+			drawLegend( &p );
+		p.end();
+
+		//JH: Uncomment when ready for this
+		//    doFullDraw = false;
+	}
+
+	bitBlt( this, 0, 0, table );
 }
 
 void PSE::drawLegend( QPainter* p )
@@ -438,12 +444,17 @@ void PSE::slotUpdatePoint( QPoint point )
 	update();
 }
 
+void PSE::setLearning(bool learningmode)
+{
+		m_learningMode = learningmode;
+}
+
 void PSE::drawPSE( QPainter* p, bool useSimpleView )
 {
 	EList::Iterator it = d->ElementList.begin();
 
 	int coordinate = 0;
-	m_Horizontal ? coordinate = m_currentPoint.x() : coordinate = m_currentPoint.y();
+	m_Vertikal ? coordinate = m_currentPoint.x() : coordinate = m_currentPoint.y();
 	
 	/**
 	 * this loop iterates through all elements. The Elements
@@ -452,7 +463,8 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 	while ( it != d->ElementList.end() )
 	{
 		( *it )->drawSelf( p, useSimpleView );
-		( *it )->drawHighlight( p, coordinate, m_Horizontal );//only for testing
+		if ( m_learningMode )
+			( *it )->drawHighlight( p, coordinate, m_Vertikal );
 		++it;
 	}
 

@@ -20,16 +20,11 @@
 InformationWidget::InformationWidget( QWidget *parent )
 	: InformationDialog( parent )
 {
+	buttonGroup->setButton( 0 );
 }
-
-void InformationWidget::slotSelectionChanged( int number )
-{
-}
-
 
 void InformationWidget::slotUpdate( QPoint point )
 {
-	m_topic->setText( getTopic(point) );
 	QString appBaseDir = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
 	appBaseDir.append("kalzium/data/");
 	appBaseDir.append("bg.jpg");
@@ -73,17 +68,6 @@ QString InformationWidget::getDesc( QPoint point )
 	
 	if ( parser.loadLayout( doc, fn ) )
 		information = parser.readTasks( doc, point.x() );
-
-	return information;
-}
-
-QString InformationWidget::getTopic( QPoint point )
-{
-	QString information;
-	if ( buttonGroup->selectedId() == 0 ) //the users looks for groups
-		information = "foo bar bar foo groups";
-	if ( buttonGroup->selectedId() == 1) //the users looks for groups
-		information = "julia julia julia period";
 
 	return information;
 }
@@ -162,6 +146,5 @@ QString QuizXMLParser::readTasks( QDomDocument &questionDocument, int number )
 				html.prepend( headercode );
         }
         
-		kdDebug() << "html: -  - - - -  - - -  " << html << endl;
 	return html;
 }

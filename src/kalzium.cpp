@@ -48,6 +48,7 @@ Kalzium::Kalzium()
 {
 	m_bShowSOM = false;//TODO fix the som
 	m_bShowTimeline = false;//TODO fix the som
+	m_learningMode = false;
 
 	pd = new privatedata( this );
 
@@ -63,6 +64,10 @@ Kalzium::Kalzium()
 	m_PSE = new PSE( data(), CentralWidget, "PSE");
 
 	connect( m_PSE, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
+	
+	m_info = new InformationWidget( m_PSE );
+	connect( m_PSE, SIGNAL( tableClicked( QPoint ) ), m_info, SLOT( slotUpdate( QPoint ) ) );
+	connect( m_info->buttonGroup, SIGNAL( clicked(int) ), m_PSE , SLOT( setLearningMode(int) ) );
 
 	// Layouting
 	m_pCentralLayout->addWidget( m_PSE );
@@ -157,10 +162,14 @@ void Kalzium::setupActions()
 
 void Kalzium::slotLearningmode()
 {
-	InformationWidget *info = new InformationWidget( m_PSE );
-	info->show( );
-	connect( m_PSE, SIGNAL( tableClicked( QPoint ) ), info, SLOT( slotUpdate( QPoint ) ) );
-    connect( info->buttonGroup, SIGNAL( clicked(int) ), m_PSE , SLOT( setLearningMode(int) ) );
+	if ( m_learningMode ){
+		m_learningMode = false;
+		m_PSE->setLearning( false );
+	}
+	else{
+		m_learningMode = true;
+		m_PSE->setLearning( true );
+	}
 }
 
 void Kalzium::setupStatusBar()
@@ -399,11 +408,18 @@ void Kalzium::showSOMWidgets( bool show )
 
 void Kalzium::openInformationDialog( int number )
 {
-	kdDebug() << number << " clicked! " << endl;
-	Element *e = new Element( number );
+	if ( !m_learningMode )
+	{
+		Element *e = new Element( number );
 
-	DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( e, this , "detailedDlg" );
-	detailedDlg->show();
+		DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( e, this , "detailedDlg" );
+		detailedDlg->show();
+		m_info->hide();
+	}
+	else
+	{
+		m_info->show( );
+	}
 }
 
 

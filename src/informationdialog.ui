@@ -13,7 +13,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string>MyDialog</string>
+        <string>Information about periods and groups</string>
     </property>
     <property name="sizeGripEnabled">
         <bool>true</bool>
@@ -56,13 +56,13 @@
                                 </sizepolicy>
                             </property>
                             <property name="title">
-                                <string>buttonGroup</string>
+                                <string>What would you like to investigate?</string>
                             </property>
                             <property name="checked">
                                 <bool>false</bool>
                             </property>
                             <property name="selectedId" stdset="0">
-                                <number>-1</number>
+                                <number>0</number>
                             </property>
                             <grid>
                                 <property name="name">
@@ -85,22 +85,6 @@
                                     </property>
                                 </widget>
                             </grid>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>m_topic</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>5</hsizetype>
-                                    <vsizetype>4</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="text">
-                                <string>m_topic</string>
-                            </property>
                         </widget>
                         <widget class="QLayoutWidget">
                             <property name="name">
