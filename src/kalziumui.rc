@@ -15,7 +15,7 @@
         <Action name="configure"/>
 </Menu>
 
-<Menu name="calculations"><text>C&amp;alculations</text>
+<Menu name="calculations"><text>&amp;Calculations</text>
         <Action name="calculations"/>
         <Action name="defineweights"/>
         <Action name="startplotting"/>

@@ -630,7 +630,7 @@ void Kalzium::setupActions()
     // END NUMERATIONMENU
 
     // BEGIN TIMELINE
-    timelineToggleAction = new KToggleAction(i18n("Show Timeline"),kil->iconPath("timeline", KIcon::User),0,actionCollection(), "timeline");
+    timelineToggleAction = new KToggleAction(i18n("Show &Timeline"),kil->iconPath("timeline", KIcon::User),0,actionCollection(), "timeline");
     timelineToggleAction->setChecked(true);
     connect(timelineToggleAction, SIGNAL(toggled(bool)), this, SLOT(slotShowTimeline(bool)));
 
@@ -638,23 +638,23 @@ void Kalzium::setupActions()
     // END TIMELINEMENU
 	
 	//BEGIN QUICKINFO
-	quickinfoToggleAction = new KToggleAction( i18n( "Show Quickinfo" ),kil->iconPath( "quickinfo",KIcon::User ),0,actionCollection(), "quickinfo" );
+	quickinfoToggleAction = new KToggleAction( i18n( "Show &Quickinfo" ),kil->iconPath( "quickinfo",KIcon::User ),0,actionCollection(), "quickinfo" );
 	quickinfoToggleAction->setChecked( true );
 	connect( quickinfoToggleAction, SIGNAL( toggled( bool ) ),this, SLOT( slotShowQuickinfo( bool ) ) );
 	quickinfoToggleAction->setChecked( main_config->readBoolEntry( "quickinfo" ) );
 	//END QUICKINFO
 	
 	//BEGIN LEGEND
-	legendToggleAction = new KToggleAction( i18n( "Show Legend" ),kil->iconPath( "legend",KIcon::User ),0,actionCollection(), "legend" );
+	legendToggleAction = new KToggleAction( i18n( "Show &Legend" ),kil->iconPath( "legend",KIcon::User ),0,actionCollection(), "legend" );
 	legendToggleAction->setChecked( true );
 	connect( legendToggleAction, SIGNAL( toggled( bool ) ),this, SLOT( slotShowLegend( bool ) ) );
 	legendToggleAction->setChecked( main_config->readBoolEntry( "legend" ) );
 	//END LEGEND
 	
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
-    (void) new KAction (i18n("Plot"),0, this, SLOT(slotPlotData()), actionCollection(), "startplotting");
-    (void) new KAction (i18n("Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
-    (void) new KAction (i18n("Define Molecular Weights"),0, this, SLOT(defineWeights()), actionCollection(), "defineweights");
+    (void) new KAction (i18n("&Plot"),0, this, SLOT(slotPlotData()), actionCollection(), "startplotting");
+    (void) new KAction (i18n("C&alculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
+    (void) new KAction (i18n("Define Molecular &Weights"),0, this, SLOT(defineWeights()), actionCollection(), "defineweights");
 
     createGUI("kalziumui.rc");
 }
