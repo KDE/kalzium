@@ -114,23 +114,6 @@
                 </widget>
             </grid>
         </widget>
-        <spacer row="1" column="1">
-            <property name="name">
-                <cstring>spacer2</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Horizontal</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>101</width>
-                    <height>20</height>
-                </size>
-            </property>
-        </spacer>
         <spacer row="4" column="0">
             <property name="name">
                 <cstring>spacer1</cstring>

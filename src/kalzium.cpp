@@ -66,7 +66,7 @@ Kalzium::Kalzium()
 	m_pBehBlocksAction = new KAction(i18n("Show Blocks"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_blocks");
 	m_pBehBlocksAction = new KAction(i18n("Show Groups"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_groups");
 	m_pBehBlocksAction = new KAction(i18n("Show State Of Matter"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_som");
-	m_pBehBlocksAction = new KAction(i18n("No Colors"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_normal");
+	m_pBehBlocksAction = new KAction(i18n("No Color Scheme"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_normal");
 	m_pTimelineAction = new KAction(i18n("Show Timeline"), 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
 	
 	/*
