@@ -216,7 +216,7 @@ void PSE::paintEvent( QPaintEvent *e )
 {
 	QPainter p;
 	p.begin( this );
-	drawPSE( &p, true );
+	drawPSE( &p, m_isSimple );
 	p.end();
 }
 
@@ -226,7 +226,7 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 
 	while ( it != d->ElementList.end() )
 	{
-		( *it )->drawSelf( p, true );
+		( *it )->drawSelf( p, useSimpleView );
 		++it;
 	}
 

@@ -166,7 +166,7 @@ class Kalzium : public KMainWindow
 		 * This slot switches Kalzium to the selected PSE
 		 * @param simple If true the PSE will be simple
 		 */
-		void slotSwitchtoPSE(bool simple); 
+		void slotSwitchtoPSE(int index); 
 		
 		/**
 		 * These slots are for the standardactions

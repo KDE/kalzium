@@ -74,8 +74,8 @@ void Kalzium::setupActions()
 	 * the actions for switching PSE
 	 **/
 	QStringList schemalist;
-	schemalist.append(i18n("Show &Regular PSE"));
 	schemalist.append(i18n("Show &Simple PSE"));
+	schemalist.append(i18n("Show &Regular PSE"));
 	schema_action = new KSelectAction (i18n("&PSE"), 0, this, 0, actionCollection(), "change_pse");
 	schema_action->setItems(schemalist);
 	schema_action->setCurrentItem(Prefs::schemaPSE());
@@ -256,8 +256,14 @@ void Kalzium::slotSwitchtoNumeration( int index )
 	Prefs::writeConfig();
 }
 
-void Kalzium::slotSwitchtoPSE(bool index)
+void Kalzium::slotSwitchtoPSE(int index)
 {
+	if ( index == 0 )
+		m_PSE->setPSEType( true );//simple
+	else
+		m_PSE->setPSEType( false );//complex
+	
+	m_PSE->update();
 }
 
 void Kalzium::showSettingsDialog()

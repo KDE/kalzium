@@ -236,11 +236,14 @@ const QString Element::adjustUnits( const int type )
 
 void Element::drawSelf( QPainter* p, bool useSimpleView )
 {
+	//the height of a "line" inside an element
 	int h_small = 15; //the size for the small units like elementnumber
 
+	//The X-coordiante
 	int X;
+	
 	if ( useSimpleView )
-	{
+	{//use the small periodic table without the d- and f-Block
 		if ( block() == "f" )
 			return;
 		if ( block() == "d" )
@@ -255,9 +258,10 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 			X = ( x-1 )*ELEMENTSIZE;
 		}
 	}
-	else
-		int X = ( x-1 )*ELEMENTSIZE;
+	else //use the full table
+		X = ( x-1 )*ELEMENTSIZE;
 
+	//The Y-coordinate
 	int Y = ( y-1 )*ELEMENTSIZE;
 	
 	p->setPen( elementColor() );
