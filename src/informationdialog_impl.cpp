@@ -41,7 +41,12 @@ QString InformationWidget::getDesc( QPoint point )
 
 	QuizXMLParser parser;
 	QDomDocument doc( "periods" );
-	if ( parser.loadLayout( doc ) )
+	QString fn;
+
+	if ( buttonGroup->selectedId() == 1 ) fn = "periods.xml";
+	else fn = "groups.xml";
+	
+	if ( parser.loadLayout( doc, fn ) )
 		information = parser.readTasks( doc, point.x() );
 
 	return information;
@@ -62,22 +67,16 @@ QuizXMLParser::QuizXMLParser()
 {
 }
 
-bool QuizXMLParser::loadLayout( QDomDocument &questionDocument )
+bool QuizXMLParser::loadLayout( QDomDocument &questionDocument, const QString& filename )
 {
-        kdDebug() << "questionEditorImpl::loadLayout()" << endl;
-
         KURL url;
         url.setPath( locate("data", "kalzium/data/"));
-		url.setFileName( "periods.xml" );
+		url.setFileName( filename );
 
-//X         url = KFileDialog::getOpenURL( url.path(),
-//X                 QString("periods.xml") );
-        
         QFile layoutFile( url.path() );
         
         if (!layoutFile.exists())
         {
-                kdDebug() << "questionEditorImpl::loadLayout(): file does not exist" << endl;
                 QString mString=i18n("The file was not found in\n"
                                 "$KDEDIR/share/apps/kalzium/data/\n\n"
                                 "Please install this file and start Kalzium again.\n\n");
@@ -96,13 +95,11 @@ bool QuizXMLParser::loadLayout( QDomDocument &questionDocument )
         }
         layoutFile.close();
 
-        kdDebug() << "good xml" << endl;
         return true;
 }
 
 QString QuizXMLParser::readTasks( QDomDocument &questionDocument, int number )
 {
-        kdDebug() << "questionEditorImpl::readTasks()" << endl;
         QDomNodeList taskList,             //the list of all tasks
                                         questionList,
                                         answerList;
@@ -120,17 +117,12 @@ QString QuizXMLParser::readTasks( QDomDocument &questionDocument, int number )
         //read in all tasks
         taskList = questionDocument.elementsByTagName( "unit" );
 
-		kdDebug() << "# of units: " << taskList.count() << endl;
-        
         for ( uint i = 0; i < taskList.count(); ++i )
         {//iterate through all tasks
                 taskElement = ( const QDomElement& ) taskList.item( i ).toElement();
-                 kdDebug() << "# :: " << taskElement.attributeNode( "number" ).value().toInt() << endl;
                  if ( taskElement.attributeNode( "number" ).value().toInt() != number )
  					continue;
 
-				kdDebug() << "lese die daten" << endl;
-				 
 				QDomNode contentNode = taskElement.namedItem( "content" );
 				QDomNode nameNode = taskElement.namedItem( "name" );
 				html = contentNode.toElement().text();

@@ -1,6 +1,74 @@
 <kalzium>
 	<unit number="1">
-		<name>Period 1</name>
+		<name>Group </name>
 		<content>Content content content</content>
+	</unit>
+	<unit number="2">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="3">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="4">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="5">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="6">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="7">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="8">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="9">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="10">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="11">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="12">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="13">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="14">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="15">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="16">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="17">
+		<name>Group </name>
+		<content>Content content content</content>
+	</unit>
+	<unit number="18">
+		<name>Group 18: Nobel Gases</name>
+		<content>The Nobel Gases (also "Inert Gases") form the 18. group in the peridic table of the elements. They have the elektronconfiguration s<sup>2</sup> blah</content>
 	</unit>
 </kalzium>

@@ -5,6 +5,7 @@
 
 #include <qpoint.h>
 #include <qdom.h>
+#include <qstring.h>
 
 class InformationWidget : public InformationDialog
 {
@@ -28,7 +29,7 @@ class QuizXMLParser
 		QuizXMLParser();
 
 		QString readTasks( QDomDocument &questionDocument, int number );
-		bool loadLayout( QDomDocument &questionDocument );
+		bool loadLayout( QDomDocument &questionDocument, const QString& filename );
 };
 
 #endif // INFORMATIONDIALOG_IMPL_H

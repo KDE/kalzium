@@ -181,9 +181,9 @@ class PSE : public QWidget
 		
  	 void setLearningMode( int horizontal ){
 			if ( horizontal == 1 )
-				m_Horizontal = true;
-			else
 				m_Horizontal = false;
+			else
+				m_Horizontal = true;
 		}
 		
 	protected:
