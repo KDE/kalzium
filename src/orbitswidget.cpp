@@ -81,39 +81,39 @@ OrbitsWidget::OrbitsWidget( int ElemNo , QWidget *parent, const char *name) : QW
 
 void OrbitsWidget::getNumberOfOrbits()
 {
-	QRegExp rxb( "\\d{1,2}" );
-	QRegExp numx( "[0-9]" );
-	int pos = 0;
+	QRegExp rxb( "\\s" ); //space
 	QString o = getNumber();
-	kdDebug() << "Orbits sind: " << o << endl;
-	
+
 	num = 1;
-
+	int pos = 0;
+	int cut = 0;
 	bool cont = true;
-	
-	while ( cont )
+
+	if ( !o.contains( rxb ) ) //only true for H and He
+		numOfElectrons.append( o.toInt() );
+	else //every other element
 	{
-		QString temp_ = o.left( o.find( rxb ) );
-		
-		kdDebug() << "Die pos ist: " << pos << endl;
-		kdDebug() << "Das ding heisst: " << temp_ << endl;
+		while ( cont )
+		{
 
-		o = o.right( o.length() - o.find( rxb ) );
+			pos = o.find( rxb );
+			cut = o.length()-pos-1;
+			numOfElectrons.append(o.left( pos ).toInt());
+			o = o.right( cut );
+			num++;
 
-		kdDebug() << "Nun heißt o: " << o << endl;
-
-//		numOfElectrons.append(o.left( pos ).toInt());
-
-		num++;
-
-		if ( num > 5 )//!o.contains( numx ) )
-			cont = false;
+			if ( !o.contains( rxb ) )
+			{
+				numOfElectrons.append( o.toInt() );
+				cont = false;
+			}
+		}
 	}
 }
 
 QString OrbitsWidget::getNumber()
 {
-	return *hulllist.at( Elemno+1 );
+	return *hulllist.at( Elemno-1 );
 }
 
 void OrbitsWidget::paintEvent(  QPaintEvent* )
