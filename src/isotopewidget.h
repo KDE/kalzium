@@ -29,7 +29,7 @@ class IsotopeWidget : public QWidget
 		void setIsotopes( const QString& isotopes_string );
 
 	private:
-		QLabel* isotopeLabel( const QString& str );
+		QWidget* isotopeLabel( const QString& str );
 };
 
 

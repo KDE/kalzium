@@ -38,6 +38,17 @@ void IsotopeWidget::setIsotopes( const QString& isotopes_string )
 	int pos;
 	int l;
 	
+	QWidget *widget = new QWidget( this );
+	QHBoxLayout *h = new QHBoxLayout( widget );
+	QLabel *l1 = new QLabel( "<b>Weight</b>" , widget );
+	QLabel *l2 = new QLabel( i18n( "<b>Neutrons</b>" ) , widget );
+	QLabel *l3 = new QLabel( "<b>Percentage</b>" , widget );
+	h->addWidget( l1 );
+	h->addWidget( l2 );
+	h->addWidget( l3 );
+
+	vbox->addWidget( widget );
+	
 	for ( int num = 0; num < isotopes_string.contains( ";" ) ; ++num )
 	{
 		pos = isotopes.find( ";" );
@@ -54,11 +65,41 @@ void IsotopeWidget::setIsotopes( const QString& isotopes_string )
 	vbox->addWidget( isotopeLabel( isotopes ) );
 }
 
-QLabel* IsotopeWidget::isotopeLabel( const QString& str )
+QWidget* IsotopeWidget::isotopeLabel( const QString& str )
 {
-	QLabel *label = new QLabel("foo", this );
+	QWidget *w = new QWidget( this );
+	
+	QHBoxLayout *hbox = new QHBoxLayout( w );
+	
+	//number of neutrons of the isotope
+	int pos = str.find( ":" );
+	QString neutrons_str = str.left( pos );
+	QString tmp = str.right( str.length()-pos-1 );
 
-	return label;
+	//Weight of the isotope
+	pos = tmp.find( ":" );
+	QString weight_str = tmp.left( pos );
+	
+	//Percentage of the isotope
+	tmp = tmp.right( tmp.length()-pos-1 );
+	
+
+	kdDebug() << neutrons_str << " ... " << weight_str << " ... " << tmp << endl;
+	
+	QLabel *neutrons = new QLabel( w );
+	QLabel *weight = new QLabel( w );
+	QLabel *percentage = new QLabel( w );
+
+	weight_str.append( i18n( " u" ) );
+	neutrons->setText( weight_str );
+	weight->setText( neutrons_str );
+	percentage->setText( tmp );
+
+	hbox->addWidget( neutrons );
+	hbox->addWidget( weight );
+	hbox->addWidget( percentage );
+
+	return w;
 }
 
 #include "isotopewidget.moc"
