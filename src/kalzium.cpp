@@ -29,7 +29,6 @@
 //KDE-Includes
 #include <kaction.h>
 #include <kapplication.h>
-#include <kdebug.h>
 #include <kconfig.h>
 #include <kdialog.h>
 #include <kedittoolbar.h>
@@ -220,7 +219,7 @@ void Kalzium::createhelpArray()
 		}
 }
 
-bool Kalzium::queryClose() const
+bool Kalzium::queryClose()
 {
     main_config->setGroup("Menu Settings");
     main_config->writeEntry("psestylemenu",psestylemenu->currentItem()); 

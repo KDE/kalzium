@@ -88,7 +88,7 @@ class Kalzium : public KMainWindow
 		/**
 		 * Called before the window is closed, will save the menusettings.
 		 */
-		bool queryClose() const;
+		bool queryClose();
 
 		void setupActions();
 
