@@ -335,6 +335,7 @@ void Kalzium::optionsConfigureToolbars()
     connect(&dlg, SIGNAL(newToolbarConfig()), this, SLOT(newToolbarConfig()));
     dlg.exec();
 }
+
 void Kalzium::setFont() 
 {
   generalKPFont = KGlobalSettings::generalFont();
@@ -688,8 +689,8 @@ void Kalzium::updateMainWindow()
     changeNumeration(numerationmenu->currentItem());
     showPseStyle(psestylemenu->currentItem());
     slotShowTimeline(timelineToggleAction->isChecked());
-	slotShowQuickinfo( quickinfoToggleAction->isChecked() );
-	slotShowLegend( legendToggleAction->isChecked() );
+	  slotShowQuickinfo( quickinfoToggleAction->isChecked() );
+	  slotShowLegend( legendToggleAction->isChecked() );
 }
 
 void Kalzium::changeTheLegend(int tempId)

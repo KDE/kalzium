@@ -18,7 +18,6 @@
 
 #include <kaction.h>
 #include <kcolorbutton.h>
-#include <kdebug.h>
 #include <kconfig.h>
 #include <kiconloader.h>
 #include <klocale.h>
@@ -139,8 +138,8 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     
     // add Tabs
     addTab(Acid, i18n( "Acid Behavior" ));
-    addTab(Groups, i18n( "Groups" )); 
     addTab(Blocks, i18n( "Blocks" ));
+    addTab(Groups, i18n( "Groups" )); 
     addTab(Stateofmatters, i18n( "State of Matter" ));
 }
 
@@ -226,14 +225,10 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Preferences"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
     main_config=KGlobal::config();  
-
-
-
-
-
     // COLORSTAB WIDGET
     colorTab = addPage(i18n("Colors"), i18n("Customize Color Settings"), BarIcon("colorize", KIcon::SizeMedium));
     colorsTabWidget = new ColorsTabWidget(colorTab, "colorsTabWidget");
+    colorsTabWidget->setCurrentPage(((Kalzium*)parentWidget())->colorschememenu->currentItem());
     QVBoxLayout *vcolorTabBox = new QVBoxLayout(colorTab);
     vcolorTabBox->addWidget(colorsTabWidget);
 
