@@ -18,6 +18,7 @@
 <Menu name="calculations"><text>C&amp;alculations</text>
         <Action name="calculations"/>
         <Action name="defineweights"/>
+        <Action name="startplotting"/>
 </Menu>
 
 <Menu name="quiz"><text>&amp;Quiz</text>

@@ -537,6 +537,9 @@ void Kalzium::slotShowQuickinfo( bool id )
 	else showFastInfo = false;
 }
 
+void Kalzium::slotPlotData()
+{}
+
 void Kalzium::slotShowLegend( bool id )
 {
 	if ( id == true )
@@ -679,9 +682,9 @@ void Kalzium::setupActions()
 	//END LEGEND
     
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
-//    (void) new KAction (i18n("Values"),0, this, SLOT(slotValues()), actionCollection(), "values"); // this is for KDE 3.2
     (void) new KAction (i18n("Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
     (void) new KAction (i18n("Define Molecular Weights"),0, this, SLOT(defineweights()), actionCollection(), "defineweights");
+    (void) new KAction (i18n("Plot Data"),0, this, SLOT(slotPlotData()), actionCollection(), "startplotting");
 
     createGUI("kalziumui.rc");
 }

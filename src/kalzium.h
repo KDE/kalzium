@@ -203,6 +203,8 @@ class Kalzium : public KMainWindow
 	 */
 	void slotShowStateOfMatter();
 
+	void slotPlotData();
+
 	void updateColorMenu(int);
 
 	void updateNumMenu(int);
