@@ -294,8 +294,6 @@ int SettingsDialog::translateCurrentLang( QString lang ){
 }
 
 
-
-
 void SettingsDialog::slotApplySettings()
 {
     slotOkSettings();

@@ -4,6 +4,10 @@
 <Menu name="settings"><text>&amp;Settings</text>
         <Action name="timeline"/>
         <Separator/>
+        <Action name="quickinfo"/>
+        <Separator/>
+        <Action name="legend"/>
+        <Separator/>
         <Action name="psestyle"/>
         <Action name="colorscheme"/>
         <Action name="numeration"/>
@@ -27,6 +31,8 @@
         <Action name="colorscheme"/>
         <Action name="numeration"/>
         <Action name="timeline"/>
+        <Action name="quickinfo"/>
+        <Action name="legend"/>
 </ToolBar>
 
 </kpartgui>

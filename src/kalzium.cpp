@@ -24,10 +24,11 @@
 #include "eleminfo.h"
 #include "elementkp.h"
 #include "settingsdialog.h"
-#include "value_visualisation.h"       //this is for KDE 3.2
 #include "legend.h"
+#include "fastinfo.h"
 
 //KDE-Includes
+#include <kdebug.h>
 #include <kaction.h>
 #include <kapplication.h>
 #include <kconfig.h>
@@ -125,6 +126,8 @@ bool Kalzium::queryClose()
     main_config->writeEntry("colorschememenu", colorschememenu->currentItem());
     main_config->writeEntry("numerationmenu", numerationmenu->currentItem());
     main_config->writeEntry("timelineshow", timelineToggleAction->isChecked());
+    main_config->writeEntry("quickinfo",quickinfoToggleAction->isChecked());
+    main_config->writeEntry("legend",legendToggleAction->isChecked());
   	main_config->sync();
     return true;
 }
@@ -143,39 +146,40 @@ void Kalzium::setupAllElementKPButtons()
     KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
     ElementInfo eleminfo;
     for ( int n=0 ;n<118 ;n++ )
-    {
-        if (config.hasGroup(QString::number(n+1)))
-        {
-            config.setGroup(QString::number(n+1));
-            eleminfo.Name=config.readEntry("Name", "Unknown");
-            eleminfo.Symbol=config.readEntry("Symbol", "Unknown");
+	{
+		if (config.hasGroup(QString::number(n+1)))
+		{
+			config.setGroup(QString::number(n+1));
+			eleminfo.Name=config.readEntry("Name", "Unknown");
+			eleminfo.Symbol=config.readEntry("Symbol", "Unknown");
 
-            eleminfo.Weight=config.readEntry("Weight","0.0");
-            eleminfo.acidbeh=config.readEntry("acidbeh","0");
-            eleminfo.Block=config.readEntry("Block","s");
-            eleminfo.EN=config.readDoubleNumEntry("EN", -1);
-            eleminfo.MP=config.readDoubleNumEntry("MP", -1);
-            eleminfo.IE=config.readDoubleNumEntry("IE", -1);
-            eleminfo.AR=config.readDoubleNumEntry("AR", -1);
-            eleminfo.BP=config.readDoubleNumEntry("BP", -1);
-            eleminfo.Density=config.readDoubleNumEntry("Density", -1);
-            eleminfo.az=config.readEntry("az","0");
-            eleminfo.date=config.readEntry("date","0");
-            eleminfo.Group=config.readEntry("Group","1");
-            eleminfo.number=(n+1);
+			eleminfo.Weight=config.readEntry("Weight","0.0");
+			eleminfo.acidbeh=config.readEntry("acidbeh","0");
+			eleminfo.Block=config.readEntry("Block","s");
+			eleminfo.EN=config.readDoubleNumEntry("EN", -1);
+			eleminfo.MP=config.readDoubleNumEntry("MP", -1);
+			eleminfo.IE=config.readDoubleNumEntry("IE", -1);
+			eleminfo.AR=config.readDoubleNumEntry("AR", -1);
+			eleminfo.BP=config.readDoubleNumEntry("BP", -1);
+			eleminfo.Density=config.readDoubleNumEntry("Density", -1);
+			eleminfo.az=config.readEntry("az","0");
+			eleminfo.date=config.readEntry("date","0");
+			eleminfo.Group=config.readEntry("Group","1");
+			eleminfo.orbits=config.readEntry("Orbits","0");
+			eleminfo.number=(n+1);
 
-        } else elementName="Unknown";
-        position( n+1,h,v ); //get position
-        element[n] =  new ElementKP ( main_window, eleminfo, elementName.latin1(), n+1, statusBar(),this );
-        
+		} else elementName="Unknown";
+		position( n+1,h,v ); //get position
+		element[n] =  new ElementKP ( main_window, eleminfo, elementName.latin1(), n+1, statusBar(),this );
 
-        maingrid->addWidget( element[n], v/40+1, h/40 );
-        element[n]->show();
 
-        //Now we add the WhatsThis-help for each button
-        QWhatsThis::add( element[n], i18n("Click here to get information about %1.").arg(eleminfo.Symbol) );
+		maingrid->addWidget( element[n], v/40+1, h/40 );
+		element[n]->show();
+
+		//Now we add the WhatsThis-help for each button
+		QWhatsThis::add( element[n], i18n("Click here to get information about %1.").arg(eleminfo.Symbol) );
 		QToolTip::add( element[n], eleminfo.Name );
-    }
+	}
 
     //////////////////
     // feste minimal breite und höhe der gridelemente
@@ -184,15 +188,16 @@ void Kalzium::setupAllElementKPButtons()
     for( int n=0; n<10; n++ ) maingrid->addRowSpacing( n, 40 );
 
     mainlayout->addStretch();
+ 	
+	fastinfo = new Fastinfo( main_window, "testFastInfo",this );
+	fastinfo->show();
+	maingrid->addMultiCellWidget( fastinfo ,0,3,3,6 );
 }
 
 void Kalzium::setupCaption()
 {
-    legend = new KalziumLegend(main_window);// legend->show();
-//    QSplitter *testsplitter = new QSplitter(main_window);
-//    mainlayout->addWidget(testsplitter);
+	legend = new KalziumLegend(main_window);
     mainlayout->addWidget(legend);
-    
 
     for (int n = 0; n < 18; n++)
     {
@@ -217,7 +222,8 @@ void Kalzium::setupTimeline()
 
     dateLCD = new QLCDNumber( 4, main_window, "dateLCD");
     timeline_layout->addWidget( dateLCD );
-    QWhatsThis::add(dateLCD, i18n("This is the date which you have chosen with the slider. Currently, you are viewing the elements known in the year %1.").arg(QString::number(dateS->value())));
+    
+	QWhatsThis::add(dateLCD, i18n("This is the date which you have chosen with the slider." ) );
     dateLCD->hide();
     dateLCD->display("2002");
 
@@ -236,7 +242,7 @@ void Kalzium::showIUPAC() const
         labels[n]->setText(name);
         labels[n]->setAlignment( Qt::AlignCenter );
         labels[n]->setAutoMask( true );
-        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the terminology used by the CAS.").arg(name));
+        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the terminology used by the IUPAC.").arg(name));
         labels[n]->show();
     }
 }
@@ -253,7 +259,7 @@ void Kalzium::showOldIUPAC() const
         labels[n]->setText(name);
         labels[n]->setAlignment( Qt::AlignCenter );
         labels[n]->setAutoMask( true );
-        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the terminology of the old IUPAC-ecommendation.").arg(name));
+        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the terminology of the old IUPAC-recommendation.").arg(name));
         labels[n]->show();
     }
 }
@@ -502,28 +508,36 @@ void Kalzium::updateElementKPSize()
 
 void Kalzium::slotShowTimeline(bool id)
 {    
-    if (id == true)
-    {
-        dateS->show();
-        dateLCD->show();
-        timeline();
-        psestylemenu->setEnabled(false);
-    }
-    else
-    {
-        dateS->hide();
-        dateLCD->hide();
-        psestylemenu->setEnabled(true);
-        for (int i =0; i<118; i++)
-            element[i]->show();
-        
-    } 
+	if (id == true)
+	{
+		dateS->show();
+		dateLCD->show();
+		timeline();
+		psestylemenu->setEnabled(false);
+	}
+	else
+	{
+		dateS->hide();
+		dateLCD->hide();
+		psestylemenu->setEnabled(true);
+		for (int i =0; i<118; i++)
+			element[i]->show();
+
+	} 
 }
 
-void Kalzium::slotValues()
+void Kalzium::slotShowQuickinfo( bool id )
 {
-        ValueVisualisation *valuesDlg = new ValueVisualisation( this, "valuesDlg", this ); 
-        valuesDlg->show();
+	if ( id == true )
+		showFastInfo = true;
+	else showFastInfo = false;
+}
+
+void Kalzium::slotShowLegend( bool id )
+{
+	if ( id == true )
+		legend->show();
+	else legend->hide();
 }
 
 void Kalzium::timeline()
@@ -645,6 +659,20 @@ void Kalzium::setupActions()
 
     timelineToggleAction->setChecked(main_config->readBoolEntry("timelineshow"));
     // END TIMELINEMENU
+	
+	//BEGIN QUICKINFO
+	quickinfoToggleAction = new KToggleAction( i18n( "Show Quickinfo" ),kil->iconPath( "quickinfo",KIcon::User ),0,actionCollection(), "quickinfo" );
+	quickinfoToggleAction->setChecked( true );
+	connect( quickinfoToggleAction, SIGNAL( toggled( bool ) ),this, SLOT( slotShowQuickinfo( bool ) ) );
+	quickinfoToggleAction->setChecked( main_config->readBoolEntry( "quickinfo" ) );
+	//END QUICKINFO
+	
+	//BEGIN LEGEND
+	legendToggleAction = new KToggleAction( i18n( "Show Legend" ),kil->iconPath( "legend",KIcon::User ),0,actionCollection(), "legend" );
+	legendToggleAction->setChecked( true );
+	connect( legendToggleAction, SIGNAL( toggled( bool ) ),this, SLOT( slotShowLegend( bool ) ) );
+	legendToggleAction->setChecked( main_config->readBoolEntry( "legend" ) );
+	//END LEGEND
     
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
 //    (void) new KAction (i18n("Values"),0, this, SLOT(slotValues()), actionCollection(), "values"); // this is for KDE 3.2
@@ -661,6 +689,8 @@ void Kalzium::updateMainWindow()
     changeNumeration(numerationmenu->currentItem());
     showPseStyle(psestylemenu->currentItem());
     slotShowTimeline(timelineToggleAction->isChecked());
+	slotShowQuickinfo( quickinfoToggleAction->isChecked() );
+	slotShowLegend( legendToggleAction->isChecked() );
 }
 
 void Kalzium::changeTheLegend(int tempId)

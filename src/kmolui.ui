@@ -91,7 +91,7 @@
                 <cstring>TextLabel10</cstring>
             </property>
             <property name="text">
-                <string>Molecular Weight:</string>
+                <string>Molecular Weight (u):</string>
             </property>
         </widget>
         <widget class="QLineEdit">

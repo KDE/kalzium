@@ -22,24 +22,28 @@
 
 class QSlider;
 
+/**This class converts values.
+ *@author Carsten Niehaus
+ */
+
 class KConvert : public KalziumConvert  {
-    Q_OBJECT
+	Q_OBJECT
 
-    public: 
-        KConvert(QWidget *parent, const char *name=0 );
-	QSlider *FromSlider, *ToSlider;
+	public: 
+		KConvert(QWidget *parent, const char *name=0 );
+		QSlider *FromSlider, *ToSlider;
 
-    private:
-        double toSI( QString );
-        QString toTarget( double );
-	void showSlider();
-	void hideSlider();
+	private:
+		double toSI( QString );
+		QString toTarget( double );
+		void showSlider();
+		void hideSlider();
 
-    private slots:
-        void slotCalculate();
-        void slotSetResultDim(const QString&) const;
-        void slotSetToDim(const QString&) const;
-	void slotAdjustKomboContent(int);
+		private slots:
+			void slotCalculate();
+		void slotSetResultDim(const QString&) const;
+		void slotSetToDim(const QString&) const;
+		void slotAdjustKomboContent(int);
 };
 
 #endif // KALZIUMCONVERTER_H

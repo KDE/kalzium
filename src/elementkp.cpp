@@ -22,6 +22,7 @@
 #include <klocale.h>
 #include <kstatusbar.h>
 #include <kstddirs.h>
+#include <kdebug.h>
 
 //QT-Includes
 #include <qdragobject.h>
@@ -33,13 +34,16 @@
 #include <qpopupmenu.h>
 #include <qwhatsthis.h>
 
+#include <qdialog.h>
+
 #include "elementkp.h"
 #include "eleminfo.h"
 #include "elementkp.moc"
 #include "kalzium.h" 
 #include "infodlg.h"
+#include "fastinfo.h"
 
-	ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)	
+ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)	
 : KPushButton(parent,name)
 
 {
@@ -47,6 +51,7 @@
 	ElemNo = AElemNo;
 	zeigerle=zeiger;
 	Data = ElemInfo; 
+	orbits = parseOrbits();
 }
 
 void ElementKP::getNeighbours( int Current )
@@ -75,12 +80,16 @@ void ElementKP::enterEvent(QEvent *)
 {
 	setFocus();
 	showName();	
+
+	if ( kalzium->showFastInfo ) kalzium->fastinfo->show();
+	kalzium->fastinfo->setInfo( ElemNo );
 }
 
 //when the mousepointer leaves the button
 void ElementKP::leaveEvent(QEvent *)
 {
-	zeigerle->message(i18n("Kalzium ")+KALZIUM_VERSION);
+	zeigerle->message(i18n("The Kalzium-version","Kalzium %1").arg( KALZIUM_VERSION ));
+	kalzium->fastinfo->hide();
 }
 
 void ElementKP::mouseMoveEvent( QMouseEvent * )
@@ -112,6 +121,20 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 	{
 		slotShowData();
 	}
+}
+
+QString ElementKP::parseOrbits()
+{
+	QString tempString = Data.orbits;
+ 	returnLastOrbit();
+	return tempString;
+}
+
+QString ElementKP::returnLastOrbit()
+{
+	QString lastorbit = Data.orbits;
+	int lastIs = lastorbit.findRev( "_" );
+	return lastorbit;
 }
 
 QString ElementKP::parseElementInfo()

@@ -1,20 +1,8 @@
-last modified: July 8 2002
+last modified: Nov 11 2002
 
-TODO for KDE 3.1:
-- fix bugs if someone finds them
-
-TODO for post-KDE 3.1:
+TODO for 3.2:
 - CalulationDlg():
   - we need more modes like the Nernst-Equiation
-
-- ValueVisualisation():
-  - I think we should add a QTabWidget() in 
-    which we put perhaps 4 different views.
-    This could be atomradius, ionradius,
-    electronegativity, ionisationeneríe 
-  - Perhaps we can use KSvg? At least
-    the whole KDialog should be precious.
-    What about colourgradients?
 
 - http://www.webelements.com/webelements/elements/text/Si/key.html  
   and there "Go adjacent..."

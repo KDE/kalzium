@@ -19,12 +19,10 @@
 #ifndef _LEGEND_H
 #define _LEGEND_H
 
-
-#include <qdialog.h>
 #include <qwidget.h>
 
 class KConfig;
-class QButton;
+class QPushButton;
 
 class KalziumLegend : public QWidget
 {
@@ -35,7 +33,7 @@ class KalziumLegend : public QWidget
 
 	void changeLegend(int);
 	
-	QButton *one, 
+	QPushButton *one, 
 	*two, 
 	*three, 
 	*four, 
