@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>311</width>
-            <height>294</height>
+            <width>331</width>
+            <height>305</height>
         </rect>
     </property>
     <grid>
@@ -134,7 +134,7 @@
                                 <string>If selected, the temperatures will be displayed in Kelvin</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Kelvin</string>
+                                <string>If selected, the temperatures will be displayed in Kelvin. This is then saved in configuration and restaured next time you start Kalzium.</string>
                             </property>
                         </widget>
                         <widget class="QRadioButton">
@@ -142,7 +142,7 @@
                                 <cstring>radioButton20</cstring>
                             </property>
                             <property name="text">
-                                <string>Use Degrees Celsius</string>
+                                <string>Use degrees Celsius</string>
                             </property>
                             <property name="buttonGroupId">
                                 <number>1</number>
@@ -151,7 +151,7 @@
                                 <string>If selected, the temperatures will be displayed in Degrees Celsius</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degrees Celsius</string>
+                                <string>If selected, the temperatures will be displayed in Degrees Celsius. This is then saved in configuration and restaured next time you start Kalzium.</string>
                             </property>
                         </widget>
                         <widget class="QRadioButton">
@@ -159,7 +159,7 @@
                                 <cstring>radioButton11_2</cstring>
                             </property>
                             <property name="text">
-                                <string>Use Degrees Fahrenheit</string>
+                                <string>Use degrees Fahrenheit</string>
                             </property>
                             <property name="buttonGroupId">
                                 <number>2</number>
@@ -168,7 +168,7 @@
                                 <string>If selected, the temperatures will be displayed in Degrees Fahrenheit</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degrees Fahrenheit</string>
+                                <string>If selected, the temperatures will be displayed in Degrees Fahrenheit. This is then saved in configuration and restaured next time you start Kalzium.</string>
                             </property>
                         </widget>
                     </vbox>
