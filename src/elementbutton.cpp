@@ -21,6 +21,8 @@
 #include "prefs.h"
 #include "infodialog_small_impl.h"
 #include "detailinfodlg.h"
+#include "pse.h"
+
 #include <qpainter.h>
 #include <qfont.h>
 #include <qstring.h>
@@ -42,10 +44,19 @@ ElementButton::ElementButton( Element *el, QWidget *parent, const char *name)
 	setFrameShadow(  QFrame::Sunken );
 	
 	timer = new QTimer( this );
+
 }
 
 void ElementButton::mouseReleaseEvent( QMouseEvent *mouse )
 {
+	if ( ( ( PSE* )parentWidget() )->molcalcMode() ){
+		kdDebug() << "in the if... " << endl;
+		emit ButtonClicked( e->number() );
+		return;
+	}
+	
+	kdDebug() << "after the if... " << endl;
+	
 	int small = Prefs::lMBbeh();
 	if ( small == 1 )
 	{

@@ -35,6 +35,8 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	setupBlockLists();
 	setupPSEElementButtonsList();
 
+	m_molcalcIsActive = false;
+
 //IUPAC
 	    m_IUPAClist.append( "IA");
 	    m_IUPAClist.append( "IIA");
@@ -83,6 +85,16 @@ void PSE::updateNumeration()
 {
 }
 
+void PSE::activateMolcalcmode( bool mode )
+{
+	m_molcalcIsActive = mode;
+}
+
+void PSE::slotButtonClicked( int btnnr )
+{
+	emit ButtonClicked( btnnr );
+}
+
 void PSE::setupBlockLists()
 {
 	EList::Iterator it = d->ElementList.begin();
@@ -92,6 +104,8 @@ void PSE::setupBlockLists()
 		ElementButton *b = new ElementButton( *it, this );
 
 		connect( b, SIGNAL( num( int ) ), parentWidget()->parentWidget(), SLOT(slotMouseOverElement( int ) ) );
+		
+		connect( b, SIGNAL( ButtonClicked( int ) ), this, SLOT(slotButtonClicked( int ) ) );
 		
 		QToolTip::add(b, i18n("Name: %1\nWeight: %2 u").arg(i18n( (*it)->elname().utf8())).arg( (*it)->weight()));
 

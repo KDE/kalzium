@@ -64,6 +64,8 @@ class ElementButton : public QFrame
 		 * this signal emits the element-number
 		 */
 		void num( int );
+
+		void ButtonClicked( int );
 };
 
 #endif

@@ -21,12 +21,50 @@
 
 #include <kdebug.h>
 #include <klocale.h>
+#include <kpushbutton.h>
+
+#include "element.h"
 
 #include <qlabel.h>
 
-MolcalcImpl::MolcalcImpl(QWidget *parent, const char *name)
- : MolcalcDialog(parent, name)
+MolcalcImpl::MolcalcImpl(QWidget *parent, const char *name, bool modal )
+ : MolcalcDialog(parent, name, modal)
 {
+	m_weight = 0;
+
+	connect( plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
+	connect( minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
 }
+
+void MolcalcImpl::slotButtonClicked( int buttonnumber )
+{
+	kdDebug() << "slotButtonClicked( int buttonnumber ) ... " << buttonnumber << endl;
+
+	if ( plusButton->isOn() )
+		updateData( buttonnumber, ADD );
+	else
+		updateData( buttonnumber, REMOVE );
+
+	resultLabel->setText( i18n( "Weight of the molecule: %1" ).arg( m_weight ) );
+}
+
+void MolcalcImpl::updateData( int number, KIND kind )
+{
+	Element el( number );
+	if ( kind == ADD )
+		m_weight += el.weight();
+	else //TODO check if the element was in the list
+		m_weight -= el.weight();
+}
+
+void MolcalcImpl::slotPlusToggled(bool on)
+{
+	on ? minusButton->setOn( false ) : minusButton->setOn( true );
+}	
+
+void MolcalcImpl::slotMinusToggled(bool on)
+{
+	on ? plusButton->setOn( false ) : plusButton->setOn( true );
+}	
 
 #include "molcalc_impl.moc"

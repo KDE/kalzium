@@ -35,7 +35,26 @@ class MolcalcImpl : public MolcalcDialog
 		 * Constructor
 		 * @param el is the element which data will be used
 		 */
-		MolcalcImpl( QWidget *parent = 0, const char *name = 0);
+		MolcalcImpl( QWidget *parent = 0, const char *name = 0, bool modal = FALSE);
+
+	private:
+		double m_weight;
+		QString m_elementsymbols;
+
+		enum KIND
+		{
+			ADD = 0,
+			REMOVE = 1
+		};
+		
+		void updateData( int number, KIND kind );
+
+	public slots:
+		void slotButtonClicked( int buttonnumber );
+
+		void slotMinusToggled(bool on);
+
+		void slotPlusToggled(bool on);
 };
 		
 

@@ -57,6 +57,16 @@ class PSE : public QWidget
 		};
 
 		/**
+		 * if this mode is activated a click on a button will not open
+		 * a informationdialog
+		 */
+		virtual void activateMolcalcmode( bool mode );
+
+		virtual bool molcalcMode() const{
+			return m_molcalcIsActive;
+		}
+
+		/**
 		 * sets the NUMERATIONTYPE @p num of the periodic table
 		 */
 		void setNumerationType( int num ){
@@ -105,6 +115,9 @@ class PSE : public QWidget
 		 * be in this list
 		 */
 		QPtrList<ElementButton> m_PSEElementButtons;
+
+	private slots:
+		void slotButtonClicked( int );
 		
 	private:
 		/**
@@ -121,6 +134,8 @@ class PSE : public QWidget
 		QString m_ShortName;
 
 		LabelList lList;
+
+		bool m_molcalcIsActive;
 		
 		/**
 		 * the type of the nummeration ( NO, CAS, IUPACOLD, IUPAC )
@@ -147,6 +162,9 @@ class PSE : public QWidget
 		 * or not the element has already been kown
 		 */
 		void setDate( int date );
+		
+	signals:
+		void ButtonClicked( int );
 };
 
 /**
