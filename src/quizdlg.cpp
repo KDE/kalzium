@@ -81,9 +81,9 @@ QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions, bool mo
 }
 
 
-void QuizDlg::increaseIfCorrect( int i )
+void QuizDlg::increaseIfCorrect( int x )
 {
-    switch (i)
+    switch (x)
     {
 	case 1:
 	    if (one->isChecked() == true)
@@ -91,6 +91,7 @@ void QuizDlg::increaseIfCorrect( int i )
 		quizresult++; //increase if correct
 		QuestioniWasCorrect[currentnr] = true;
 	    }
+	    else QuestioniWasCorrect[currentnr] = false;
 	    break;
 	case 2:
 	    if (two->isChecked() == true) 
@@ -98,6 +99,7 @@ void QuizDlg::increaseIfCorrect( int i )
     		quizresult++; //increase if correct
     		QuestioniWasCorrect[currentnr] = true;
 	    }
+	    else QuestioniWasCorrect[currentnr] = false;
 	    break;
 	case 3:
 	    if (three->isChecked() == true) 
@@ -105,9 +107,9 @@ void QuizDlg::increaseIfCorrect( int i )
     		quizresult++; //increase if correct
     		QuestioniWasCorrect[currentnr] = true;
 	    }
+	    else QuestioniWasCorrect[currentnr] = false;
 	    break;
     } 
-
 }
 
 void QuizDlg::setTexts()
@@ -124,7 +126,6 @@ void QuizDlg::setTexts()
     //now we need to know where to put the correct answer
     correctis = (rand()%3)+1;
     //now we put it
-    
     switch (correctis)
     {
         case 1:
@@ -147,9 +148,9 @@ void QuizDlg::setTexts()
 
 
 
-bool QuizDlg::wasCorrect( int i ) const
+bool QuizDlg::wasCorrect( int u ) const
 {
-    return QuestioniWasCorrect[i];
+    return QuestioniWasCorrect[u];
 }
 
 //******* Slots ******************************************************
@@ -157,7 +158,6 @@ bool QuizDlg::wasCorrect( int i ) const
 void QuizDlg::slotCheck()
 {
     increaseIfCorrect( correctis );
-
     //if nothing at all is checked
     if (one->isChecked() == false && two->isChecked()== false  && three->isChecked()== false )
     {
@@ -202,10 +202,10 @@ void QuizDlg::slotCheck()
             finalresults->result_table->setText( 0 , 1 , i18n("The correct answer was:") );
             finalresults->result_table->setText( 0 , 2 , i18n("You were:") );
             KSimpleConfig quizconfig (locate("data", "kalzium/kalziumrc"));
-            for ( int i = 0 ; i < qnum ; i++ )
+            for ( int p = 0 ; p < qnum ; p++ )
             {
-                finalresults->result_table->setRowStretchable( i+1 , true );
-                quizconfig.setGroup("q"+QString::number(order[i]));
+                finalresults->result_table->setRowStretchable( p+1 , true );
+                quizconfig.setGroup("q"+QString::number(order[p]));
 
                 QString ques, answ;
                 ques=quizconfig.readEntry("Q", "Unknown");
@@ -213,15 +213,15 @@ void QuizDlg::slotCheck()
 
                 QTableItem *item = new QTableItem(finalresults->result_table, QTableItem::Never, i18n(ques.utf8()));
                 item->setWordWrap(true);
-                finalresults->result_table->setItem( i+1 , 0 , item);
+                finalresults->result_table->setItem( p+1 , 0 , item);
                 item = new QTableItem(finalresults->result_table, QTableItem::Never, i18n(answ.utf8()));
                 item->setWordWrap(true);
-                finalresults->result_table->setItem( i+1 , 1 , item);
+                finalresults->result_table->setItem( p+1 , 1 , item);
 
-                if (wasCorrect( i ) == true)
-                    finalresults->result_table->setPixmap( i+1 , 2 , good );
+                if (wasCorrect( p ) == true)
+                    finalresults->result_table->setPixmap( p+1 , 2 , good );
                 else 
-                    finalresults-> result_table->setPixmap( i+1 , 2 , bad  );
+                    finalresults-> result_table->setPixmap( p+1 , 2 , bad  );
             }	    
         finalresults->show();
         }
