@@ -237,7 +237,7 @@ void Kalzium::showSettingsDialog()
 {
     if(!setDlg)
     {
-        setDlg = new SettingsDialog(this);
+        setDlg = new SettingsDialog(this, "settingsdialog");
         connect (setDlg, SIGNAL(finished()), this, SLOT(hideSettingsDialog()));
         setDlg->show();
     }

@@ -54,19 +54,18 @@ class Kalzium : public KMainWindow
 
 {
     Q_OBJECT
+
     public:
 	/** construtor */
 	Kalzium(const char *name=0);
-
 	/** destructor */
 	~Kalzium();
+
 	PElementKP element[118];
-        PQLabel labels[18];
-        int quizresult;
-        int numofquestions;
-        int i;
+    PQLabel labels[18];
+    int quizresult, numofquestions, i;
 	Colors_Config_Widget *colorsconfig;
-        CalcDialog *calculationdialog;
+    CalcDialog *calculationdialog;
 	QGridLayout *maingrid;
 
     KSelectAction *numerationmenu, *psestylemenu, *colorschememenu, *weblookupmenu;
@@ -83,9 +82,15 @@ class Kalzium : public KMainWindow
 
     QString block, acidbeh;
     int ischecked;
-
-    //the two different numerationschemes
+    
+    /**
+    * numeration theme
+    */
     void showCAS();
+    
+    /**
+    * numeration theme
+    */
     void showIUPAC();
 
    
@@ -154,7 +159,9 @@ class Kalzium : public KMainWindow
     void changeNumeration(int);
     void changeColorScheme(int id=-1);
 
-    //update the menues
+    /*
+     *  update the menues
+     */
     void updateNumMenu(int);
     void updateColorMenu(int);
     

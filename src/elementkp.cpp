@@ -85,6 +85,7 @@ void ElementKP::lookup()
 //when the mousepointer is over a button
 void ElementKP::enterEvent(QEvent *)
 {
+    setFocus();
     showName();	
 }
 
