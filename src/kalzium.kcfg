@@ -26,32 +26,32 @@
   </group>
   <group name="Colors">
     <entry name="noscheme" type="Color">
-    	<default>#ffee00</default>
+    	<default>#b4adff</default>
 	<whatsthis>Selects the color for the elements if no scheme is selected</whatsthis>
 	<label>Selects the color if no scheme is selected</label>
     </entry>
     <entry name="color_liquid" type="Color">
-    	<default>#ff2266</default>
+    	<default>#b4adff</default>
 	<whatsthis>Selects the color for liquid elements</whatsthis>
 	<label>Selects the color of liquid elements</label>
     </entry>
     <entry name="color_solid" type="Color">
-    	<default>#ff33aa</default>
+		<default>#FF5255</default>
 	<whatsthis>Selects the color for solid elements</whatsthis>
 	<label>Selects the color of solid elements</label>
     </entry>
     <entry name="color_vapor" type="Color">
-    	<default>#ff00aa</default>
+		<default>#5CFF46</default>
 	<whatsthis>Selects the color for vaporous elements</whatsthis>
 	<label>Selects the color of vaporous elements</label>
     </entry>
     <entry name="color_radioactive" type="Color">
-    	<default>#ff00dd</default>
+		<default>#FFFFFF</default>
 	<whatsthis>Selects the color for XXX elements</whatsthis>
 	<label>Selects the color of </label>
     </entry>
     <entry name="color_artificial" type="Color">
-    	<default>#ff00ee</default>
+		<default>#FFA94E</default>
 	<whatsthis>Selects the color for artificial elements</whatsthis>
 	<label>Selects the color of artificial elements</label>
     </entry>
@@ -81,57 +81,57 @@
 	<label>Selects the color of the elements in group f</label>
     </entry>
     <entry name="group_2" type="Color">
-    	<default>#dd00ee</default>
+    	<default>#2284ee</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
     </entry>
     <entry name="group_3" type="Color">
-    	<default>#dd00ee</default>
+		<default>#91ee7f</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
     </entry>
     <entry name="group_4" type="Color">
-    	<default>#dd00ee</default>
+    	<default>#ba2f14</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
     </entry>
     <entry name="group_5" type="Color">
-    	<default>#dd00ee</default>
+    	<default>#eec809</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
     </entry>
     <entry name="group_6" type="Color">
-    	<default>#dd00ee</default>
+		<default>#0c3e74</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
     </entry>
     <entry name="group_7" type="Color">
-    	<default>#dd00ee</default>
+    	<default>#ee0842</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
     </entry>
     <entry name="group_8" type="Color">
-    	<default>#dd00ee</default>
+    	<default>#b4adff</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
     </entry>
     <entry name="beh_acidic" type="Color">
-    	<default>#dd00ee</default>
+		<default>#b4adff</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
     </entry>
     <entry name="beh_basic" type="Color">
-    	<default>#dd00ee</default>
+    	<default>#d3ee22</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
     </entry>
     <entry name="beh_amphoteric" type="Color">
-    	<default>#dd00ee</default>
+    	<default>#EE4346</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
     </entry>
     <entry name="beh_neutral" type="Color">
-    	<default>#dd00ee</default>
+		<default>#44EE2E</default>
 	<whatsthis>Selects the color for the elements in group f</whatsthis>
 	<label>Selects the color of the elements in group f</label>
     </entry>

@@ -185,29 +185,29 @@ void PSE::activateColorScheme( const int nr )
 		const QColor color_vapor = Prefs::color_vapor();
 		const QColor color_artificial = Prefs::color_artificial();
 
-		static QString az;
+		static int az;
 		
 		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
 		{
 			az = button->e->az();
 
-			if (az == QString("0")) {
+			if (az == 0) {
 				button->setPaletteBackgroundColor( color_solid );
 				continue;
 			}
-			if (az == QString("1")){
+			if (az == 1){
 				button->setPaletteBackgroundColor( color_liquid );
 				continue;
 			}
-			if (az == QString("2")){
+			if (az == 2){
 				button->setPaletteBackgroundColor( color_radioactive );
 				continue;
 			}
-			if (az == QString("3")){
+			if (az == 3){
 				button->setPaletteBackgroundColor( color_vapor );
 				continue;
 			}
-			if (az == QString("4")){
+			if (az == 4){
 				button->setPaletteBackgroundColor( color_artificial );
 				continue;
 			}
