@@ -5,21 +5,13 @@ TODO for KDE 3.1:
 
 - extend the quiz so that the users gets a feedback of which
   were the correct answers.
+  //fixes: the dialog now appears, though the look is not perfect
 
 - clean up the code and fix the remaining bugs
   with the GUI (esp. the shrinking)
   //shrinking fixed, 31 March 02
 
 - speed up the startup (trapni?)
-
-- ValueVisualisation():
-  - I think we should add a QTabWidget() in 
-    which we put perhaps 4 different views.
-    This could be atomradius, ionradius,
-    electronegativity, ionisationeneríe 
-  - Perhaps we can use KSvg? At least
-    the whole KDialog should be precious.
-    What about colourgradients?
 
 - CalulationDlg():
   - restyle the Dialog (KBackgammon-like)
@@ -38,4 +30,11 @@ TODO for KDE 3.1:
   //fixed April 1st 02
 
 TODO for post-KDE 3.1:
-- 
+- ValueVisualisation():
+  - I think we should add a QTabWidget() in 
+    which we put perhaps 4 different views.
+    This could be atomradius, ionradius,
+    electronegativity, ionisationeneríe 
+  - Perhaps we can use KSvg? At least
+    the whole KDialog should be precious.
+    What about colourgradients?

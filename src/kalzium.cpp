@@ -24,7 +24,7 @@
 #include "eleminfo.h"
 #include "elementkp.h"
 #include "settingsdialog.h"
-#include "value_visualisation.h"
+#include "value_visualisation.h"       //this is for KDE 3.2
 
 //KDE-Includes
 #include <kaction.h>
@@ -185,7 +185,7 @@ void Kalzium::showCAS()
         periodName(n+1, name);
         maingrid->addWidget(labels[n], v/40, h/40);
         labels[n]->setText(name);
-        labels[n]->setAlignment(AlignHCenter);
+        labels[n]->setAlignment( Qt::AlignCenter );
         labels[n]->setAutoMask( true );
         QWhatsThis::add(labels[n], i18n("This period is called '%1' in the the terminology used by the CAS").arg(name));
         labels[n]->show();
@@ -200,7 +200,7 @@ void Kalzium::showIUPAC()
         periodNrpos(n+1, h, v);
         maingrid->addWidget(labels[n], v/40, h/40);
         labels[n]->setText(QString::number(n+1));
-        labels[n]->setAlignment(AlignHCenter);
+        labels[n]->setAlignment(AlignCenter);
         labels[n]->setAutoMask( true );
         QWhatsThis::add(labels[n], i18n("This period is called '%1' in the terminology used by the IUPAC").arg(QString::number(n+1)));
         labels[n]->show();
@@ -560,7 +560,7 @@ void Kalzium::setupActions()
     // END TIMELINEMENU
     
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
-    (void) new KAction (i18n("Values"),0, this, SLOT(slotValues()), actionCollection(), "values");
+//    (void) new KAction (i18n("Values"),0, this, SLOT(slotValues()), actionCollection(), "values"); // this is for KDE 3.2
     (void) new KAction (i18n("Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
     (void) new KAction (i18n("Define Molecular Weights"),0, this, SLOT(defineweights()), actionCollection(), "defineweights");
 

@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
            KALZIUM_VERSION , description, KAboutData::License_GPL,
             "(c) 2001, 2002, Carsten Niehaus", 0, 0, "cniehaus@kde.org");
     aboutData.addAuthor("Carsten Niehaus", 
-            I18N_NOOP("Maintainer, Author"), "cniehaus@gmx.de");
+            I18N_NOOP("Maintainer, Author"), "cniehaus@kde.org");
     aboutData.addCredit("Robert Gogolok",
             I18N_NOOP("Coding"), "mail@robert-gogolok.de");
     aboutData.addCredit("Anne-Marie Mahfouf",

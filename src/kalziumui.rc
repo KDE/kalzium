@@ -20,10 +20,6 @@
         <Action name="test_your_knowledge"/>
 </Menu>
 
-<Menu name="values"><text>&amp;Values</text>
-        <Action name="values"/>
-</Menu>
-
 </MenuBar>
 
 <ToolBar name="mainToolBar" noMerge="1" position="top"><text>Main</text>
