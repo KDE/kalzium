@@ -253,19 +253,27 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 	//complete PSE. Eg, He is 1,18 and Na is 2,1
 	
 	CList::Iterator it = d->CoordinateList.begin();
-	while ( it != d->CoordinateList.end() )
+
+	bool notFound = true;
+
+	int counter = 1;
+	while ( it != d->CoordinateList.end() && notFound == true )
 	{//iterate through the list of coordinates and compare the x/y values.
 	 //finally, if the 20'es iterator has the same cooridnates Element 20
 	 //has been clicked.
-		if ( (*it ).x == X )
+	
+		coordinate c = *it;
+		if ( c.x == X )
 		{
-			if ( (*it ).y == Y )
+			if ( c.y == Y )
 			{//coordinates match. Get the position of the it in the list.
-				coordinate c = *it;
-				kdDebug() << c.x << " " << c.y << endl;
-//				kdDebug() << "Element: " << d->CoordinateList.findIndex( c ) << endl;
+				kdDebug() << "Count: " << counter << "  ---  x: " << c.x << " y: " << c.y << endl;
+
+				notFound = false;
 			}
 		}
+		++it;
+		++counter;
 	}
 
 	return;
