@@ -116,7 +116,7 @@ void Kalzium::setupActions()
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	m_pSOMAction = new KAction(i18n("&Show State of Matter"), "chemical", 0, this, SLOT(slotStateOfMatter()), actionCollection(), "show_som");
 		 //Legend
-	 m_pLengendAction = new KAction(i18n("Toggle &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
+	 m_pLengendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
 	/*
 	 * the standardactions
 	 **/
@@ -185,10 +185,13 @@ void Kalzium::slotShowLegend()
 	if ( m_bShowLegend )
 	{
 		m_bShowLegend = FALSE;
+		m_pLengendAction->setText("Show &Legend");
+		
 	}
 	else
 	{
 		m_bShowLegend = TRUE;
+		m_pLengendAction->setText("Hide &Legend");
 	}
 	currentPSE()->showLegend( m_bShowLegend );
 	Prefs::setShowlegend( m_bShowLegend ); 
