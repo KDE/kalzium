@@ -16,13 +16,14 @@
  ***************************************************************************/
 
 #include <qwidget.h>
+#include <overviewbase.h>
 
 class QVBoxLayout;
 class QHBoxLayout;
 class QLabel;
 
 
-class OverviewWidget : public QWidget
+class OverviewWidget : public OverViewBase
 {
 	Q_OBJECT
 
@@ -30,10 +31,6 @@ class OverviewWidget : public QWidget
 		OverviewWidget( QWidget* parent = 0, const char* name = 0 );
 
 		void setElement( const int );
-
-	private:
-		QWidget *CentralWidget;
-		QHBoxLayout *m_vbox;
 };
 
 

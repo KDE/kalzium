@@ -70,6 +70,8 @@ Kalzium::Kalzium()
 	m_pCentralLayout->addWidget( m_pTimeSlider );
 	m_pCentralLayout->addWidget( m_pOverviewWidget );
 
+	slotMouseOverElement( 1 );
+
 	setCentralWidget( CentralWidget );
 	CentralWidget->show();	
 	
