@@ -32,6 +32,7 @@ class DetailedTab : public QWidget
 		DetailedTab( ElementInfo& Eleminfo , QWidget *parent, const char *name=0 );
 		ElementInfo Data;
 		QColor PSEColor( QString Block ) const;
+		bool showLegend;
 
 	protected:
 		virtual void paintEvent( QPaintEvent* );
@@ -45,6 +46,14 @@ class DetailedInfoDlg : public KDialogBase
 		ElementInfo Data;
 
 		QFrame *mainTab, *energyTab, *miscTab, *overviewTab;
+
+		DetailedTab *dTab;
+
+		KPushButton *showLegendKP;
+
+
+	private slots:
+		void slotShowLegend();
 };
 
 #endif

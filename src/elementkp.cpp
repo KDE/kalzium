@@ -99,7 +99,7 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 	else
 	{
 		slotShowDetailedData();
-		slotShowData(); //böse
+		//slotShowData(); //böse
 	}
 }
 
