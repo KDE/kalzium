@@ -350,10 +350,11 @@ void ElementKP::slotShowData()
     energy_grid->addWidget(label, 0,4);
 
     grid->setColStretch(2, 1);
-    grid->setRowStretch(7, 1);
+    grid->setRowStretch(6, 1);
 
 ///neu
-	    QTable *neighbourTable = new QTable( 3 , 3 , show_data , "neighbourTable" );
+/*  NOT READY
+    QTable *neighbourTable = new QTable( 3 , 3 , show_data , "neighbourTable" );
 	    neighbourTable->setReadOnly( true );
         grid->addMultiCellWidget(neighbourTable, 6, 6, 0 , 1);
 
@@ -371,7 +372,7 @@ void ElementKP::slotShowData()
                 }
 
             }
-       	    
+*/       	    
 ///neu
     
 //    QWhatsThis::add(label, i18n("This is the electronegativity of Pauling"));
