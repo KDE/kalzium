@@ -282,13 +282,13 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	//top left
 	p->setPen( Qt::black );
 	text = QString::number( strippedWeight( weight( ) ) );
-	p->drawText( X+2,Y ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, text );
+	p->drawText( X+5,Y+2 ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, text );
 
 	text = QString::number( number() );
-	p->drawText( X + 2,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
+	p->drawText( X+5,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
 
 	p->setFont( symbol_font );
-	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	p->drawText( X+5,Y+2, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
 	
 	//border
 	p->setPen( Qt::black );
@@ -350,6 +350,9 @@ void Element::drawHighlight( QPainter* p, int coordinate, bool horizontal )
 	int Y = ( y-1 )*ELEMENTSIZE;
 
 	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, Qt::red );
+
+	//now draw the elements over the red area
+	drawSelf( p, false );
 }
 	
 void Element::drawSelf( QPainter* p, bool useSimpleView )
@@ -397,13 +400,13 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 	//top left
 	p->setPen( Qt::black );
 	text = QString::number( strippedWeight( weight( ) ) );
-	p->drawText( X+2,Y ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, text );
+	p->drawText( X+5,Y+2 ,ELEMENTSIZE+4,h_small,Qt::AlignLeft, text );
 
 	text = QString::number( number() );
-	p->drawText( X + 2,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
+	p->drawText( X+5,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
 
 	p->setFont( symbol_font );
-	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	p->drawText( X+5,Y+2, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
 	
 	//border
 	p->setPen( Qt::black );
