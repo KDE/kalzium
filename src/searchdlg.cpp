@@ -26,6 +26,7 @@
 #include <kprogress.h>
 #include <kdebug.h>
 #include <klineedit.h>
+#include <kcombobox.h>
 
 //QT-Includes
 #include <qbuttongroup.h>
@@ -42,6 +43,7 @@
 #include <qcheckbox.h>
 #include <qvaluelist.h>
 #include <qstringlist.h>
+#include <qregexp.h>
 
 #include "searchdlg.h"
 
@@ -158,7 +160,7 @@ void SearchDlg::slotApplyChanges()
 		col++;
 	}
 
-	if ( RangeLE.text() ) //only parse if the user entered numbers
+	if ( !RangeLE->text().isEmpty() ) //only parse if the user entered numbers
 		slotFilterData();
 }
 
@@ -177,11 +179,29 @@ void SearchDlg::slotFilterData()
 IntValueList SearchDlg::parseRange(QString range)
 {
 	kdDebug() << "SearchDlg::parseRange()" << endl;
+	
 	IntValueList l;
-
-	/*
-	 * add the code which actually parses stuff
-	 */
+	
+	bool show;
+	if ( ShowHideCB->currentItem() == 0 )
+		show = true;
+	else show = false;
+	
+	if ( range.contains( ";" ) )
+	{
+		QRegExp rx("0") ;
+	}
+	else
+	{
+		if ( range.contains( "-" ) )
+			{
+			QRegExp rx( "-" );
+			}
+		else //only one element is choosen
+		{
+		}
+		
+	}
 	
 	return l;
 }
