@@ -130,10 +130,14 @@ level.</para>
 
 <sect1 id="info-dlg">
 	<title>The Informationdialog</title>
+	<para>
+	</para>
 </sect1>
 
 <sect1 id="quiz">
-<title>The Quiz</title>
+	<title>The Quiz</title>
+	<para>
+	</para>
 </sect1>
 
 <sect1 id="calculations">
@@ -144,14 +148,20 @@ level.</para>
 
 <sect1 id="colors">
 	<title>Colorschemes</title>
+	<para>
+	</para>
 </sect1>
 
 <sect1 id="timeline">
-<title>Timeline</title>
+	<title>Timeline</title>
+	<para>
+	</para>
 </sect1>
 
 <sect1 id="numeration">
-<title>Numeration</title>
+	<title>Numeration</title>
+	<para>
+	</para>
 </sect1>
 
 </chapter>
