@@ -35,14 +35,14 @@
 ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
 : QTabWidget (parent,name)
 {
-    KConfig *main_config=KGlobal::config();  
+    KConfig *main_config=KGlobal::config();
     main_config->setGroup("Colors");
 
     // ------------------------------------------------
     // LAYOUT
 
     // Acid Behaviour TAP
-    Acid = new QWidget(this);       
+    Acid = new QWidget(this);
     acid_layout = new QGridLayout(Acid,5,2);
     acid_layout->setAutoAdd(TRUE);
     acidic = new QLabel(i18n( "Acidic:" ), Acid);
@@ -117,7 +117,7 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     p_b->setColor(QColor(main_config->readColorEntry("p")));
     d_b->setColor(QColor(main_config->readColorEntry("d")));
     f_b->setColor(QColor(main_config->readColorEntry("f")));
-    
+
     Group1_b->setColor(QColor(main_config->readColorEntry("Group 1")));
     Group2_b->setColor(QColor(main_config->readColorEntry("Group 2")));
     Group3_b->setColor(QColor(main_config->readColorEntry("Group 3")));
@@ -126,16 +126,16 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     Group6_b->setColor(QColor(main_config->readColorEntry("Group 6")));
     Group7_b->setColor(QColor(main_config->readColorEntry("Group 7")));
     Group8_b->setColor(QColor(main_config->readColorEntry("Group 8")));
-    
+
     liquid_b->setColor(QColor(main_config->readColorEntry("liquid")));
     solid_b->setColor(QColor(main_config->readColorEntry("solid")));
     vapor_b->setColor(QColor(main_config->readColorEntry("vapor")));
     radioactive_b->setColor(QColor(main_config->readColorEntry("radioactive")));
     artificial_b->setColor(QColor(main_config->readColorEntry("artificial")));
-    
+
     // add Tabs
     addTab(Acid, i18n( "Acid Behavior" ));
-    addTab(Groups, i18n( "Groups" )); 
+    addTab(Groups, i18n( "Groups" ));
     addTab(Blocks, i18n( "Blocks" ));
     addTab(Stateofmatters, i18n( "State of Matter" ));
 }
@@ -167,8 +167,8 @@ void ColorsTabWidget::setDefaultColors()
             Group6_b->setColor(QColor(33,30,70));
             Group7_b->setColor(QColor(110,10,120));
             Group8_b->setColor(QColor(190,2,212));
-    } 
-    else 
+    }
+    else
     {
             acidic_b->setColor(QColor(255,80,35));
             basic_b->setColor(QColor(30,80,60));
@@ -179,7 +179,7 @@ void ColorsTabWidget::setDefaultColors()
 
 void ColorsTabWidget::saveColors()
 {
-    KConfig *main_config=KGlobal::config();  
+    KConfig *main_config=KGlobal::config();
     main_config->setGroup("Colors");
 
 
@@ -221,16 +221,16 @@ void ColorsTabWidget::applyColors()
 SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Preferences"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
-    main_config=KGlobal::config();  
-    
+    main_config=KGlobal::config();
+
     QStringList weblookuplist;
     weblookuplist.append("http://www.ktf-split.hr/periodni/en/");
     weblookuplist.append("http://www.ktf-split.hr/periodni/it/");
     weblookuplist.append("http://www.ktf-split.hr/periodni/de/");
     weblookuplist.append("http://www.ktf-split.hr/periodni/fr/");
     weblookuplist.append("http://www.ktf-split.hr/periodni/");
- 
-    
+
+
     // COLORSTAB WIDGET
     colorTab = addPage(i18n("Colors"), i18n("Customize Color Settings"), BarIcon("colorize", KIcon::SizeMedium));
     colorsTabWidget = new ColorsTabWidget(colorTab, "colorsTabWidget");
@@ -244,13 +244,13 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     test->addWidget(webLookupButtonGroup);
 
     main_config->setGroup("WLU");
-    for (QStringList::Iterator it = weblookuplist.begin(); it != weblookuplist.end(); ++it ) 
+    for (QStringList::Iterator it = weblookuplist.begin(); it != weblookuplist.end(); ++it )
     {
      rb = new QRadioButton (*it, webLookupButtonGroup);
      if (*it == main_config->readEntry("adress"))
          rb->toggle();
     }
-    
+
 // HAVE TO ADD THIS
 //    QPixmap flag( locate( "locale",
 //    QString::fromLatin1( "l10n/%1/flag.png" ).arg(tag) ) );
@@ -284,9 +284,12 @@ void SettingsDialog::slotDefaults()
             colorsTabWidget->setDefaultColors();
             break;
         case 1:
-            rb->toggle();
-            break;
-            
+        {
+            QRadioButton *tmpRb = static_cast<QRadioButton *>(webLookupButtonGroup->find( 0 ));
+            tmpRb->setChecked( true );
+        }
+        break;
+
     }
 }
 
