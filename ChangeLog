@@ -1,3 +1,7 @@
+08/03/03:
+- added information about the possible and likely oxydationstages 
+  of the elements
+
 04/01/03:
 - added orbital information for elements up to Actinium (89)
 - orbital information now highlighted with RegExps rather than in data
