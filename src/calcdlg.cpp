@@ -19,7 +19,7 @@
 #include <kpushbutton.h>
 #include <ksimpleconfig.h>
 #include <klocale.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 
 //QT-Includes
 #include <qlabel.h>

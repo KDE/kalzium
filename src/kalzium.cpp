@@ -33,7 +33,7 @@
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <ksimpleconfig.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kstdaction.h>
 #include <kcolorbutton.h>
 

@@ -21,7 +21,7 @@
 #include <khtml_part.h>
 #include <klocale.h>
 #include <kstatusbar.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 
 //QT-Includes
 #include <qdragobject.h>
