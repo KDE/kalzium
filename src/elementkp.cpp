@@ -227,7 +227,7 @@ void ElementKP::slotShowData()
 	show_data2->states_label->setFont( topic_font );
 	show_data2->energy_label->setFont( topic_font );
 	
-	/** The table */
+/*	// The table 
 	show_data2->neighbourTable->horizontalHeader()->hide();
 	show_data2->neighbourTable->verticalHeader()->hide();
 	show_data2->neighbourTable->setTopMargin( 0 );
@@ -243,7 +243,7 @@ void ElementKP::slotShowData()
 		}
 
 	}
-
+*/
 	// click on this button to load webpage for element
 	QObject::connect(show_data2->weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
 
