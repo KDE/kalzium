@@ -18,10 +18,10 @@
 #ifndef QUIZDLG_H
 #define QUIZDLG_H
 
-class KDialog;
 class QLabel;
 class QRadioButton;
 class QWidget;
+class QuizDlgUI;
 
 /**
 * This class provides the dialog for the knowledge test. 
@@ -29,7 +29,7 @@ class QWidget;
 * @author Carsten Niehaus
 */
 
-class QuizDlg : public KDialog  {
+class QuizDlg : public QWidget  {
     Q_OBJECT
 
     public: 
@@ -39,16 +39,15 @@ class QuizDlg : public KDialog  {
         QuizDlg(QWidget *parent, const char *name, int numofquestions );
     
     private:
+        QuizDlgUI *quizdlg;
         int i, quizresult, currentnr, qnum, correctis;
         int order[69];
-	     QLabel *titleText;
+         QLabel *titleText;
          
         /*
         * the three QRadioButton you select when answering
         */
-        QRadioButton *one, *two, *three;
         QString question, alternative1, alternative2, answer;
-
         
         void increaseIfCorrect( int );
     	bool QuestioniWasCorrect[20]; //FIXME s/10/numofquestions
@@ -56,8 +55,6 @@ class QuizDlg : public KDialog  {
         void setTexts();
     	bool wasCorrect( int ) const;
 	
-   
-
     private slots:
         
         /**

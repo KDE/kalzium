@@ -25,6 +25,7 @@
 #include <kpushbutton.h>
 #include <ksimpleconfig.h>
 #include <kstddirs.h>
+#include <kprogress.h>
 
 //QT-Includes
 #include <qbuttongroup.h>
@@ -45,9 +46,10 @@
 #include <time.h>
 
 #include "quizdlg.h"
+#include "quizdlgui.h"
 
 QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  
-    : KDialog (parent,name)
+    : QWidget (parent,name)
 {
     qnum = numofquestions;
 
@@ -73,66 +75,17 @@ QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )
     currentnr = 0;
     i = 0;
 
-    //a grid lets resize nicely the dialog
-    QGridLayout *grid = new QGridLayout( this);
-    grid->setSpacing( 6 );
-    grid->setMargin( 11 );
+    quizdlg = new QuizDlgUI();
+    quizdlg->show();
+    quizdlg->KProgress1->setTotalSteps( qnum );
+    quizdlg->KProgress1->setProgress(0);
 
-    //put the label and buttongroup vertically
-    QVBoxLayout *vert = new QVBoxLayout;
-    vert->setSpacing( 6 );
-    vert->setMargin( 0 );
+    connect( quizdlg->bgroup, SIGNAL(clicked(int)), SLOT(updateIt()) );
 
-    titleText = new QLabel ( this );
-    titleText->setFont(QFont("helvetica", 20, QFont::Bold));
-    vert->addWidget(titleText);
-
-    QButtonGroup *bgroup = new QButtonGroup ( this );
-    QWhatsThis::add(bgroup, i18n("Only one of these answers is correct."));
-    bgroup->setColumnLayout(0, Qt::Vertical );
-    bgroup->layout()->setSpacing( 0 );
-    bgroup->layout()->setMargin( 0 );
-
-    //vertical layout for the radiobuttons
-    QVBoxLayout *gbLayout = new QVBoxLayout( bgroup->layout() );
-    gbLayout->setAlignment( Qt::AlignTop );
-    gbLayout->setSpacing( 6 );
-    gbLayout->setMargin( 11 );
-
-    connect( bgroup, SIGNAL(clicked(int)), SLOT(updateIt()) );
-
-    one = new QRadioButton ( bgroup );
-    one->setChecked( FALSE );
-
-    two = new QRadioButton (  bgroup );
-    two->setChecked( FALSE );
-
-    three = new QRadioButton ( bgroup );
-    three->setChecked( FALSE );
-
-    gbLayout->addWidget( one );
-    gbLayout->addWidget( two );
-    gbLayout->addWidget( three );
-
-    vert->addWidget(bgroup);
-
-    grid->addLayout( vert, 0, 0 );
-
-    bgroup->show();
-
-    QHBoxLayout *hlayout = new QHBoxLayout;
-    hlayout->setSpacing( 6 );
-    hlayout->setMargin( 0 );
-    KPushButton *confirm = new KPushButton (i18n("&Accept") , this );
-    confirm->setFocus();
-    QWhatsThis::add(confirm, i18n("If you click on this button the next question will be asked."));
-    connect( confirm, SIGNAL(clicked() ), this, SLOT( slotCheck() ) );
-    hlayout->addWidget( confirm );
-    QSpacerItem* spacer = new QSpacerItem( 20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    hlayout->addItem( spacer );
-    vert->addLayout( hlayout );   
+    connect( quizdlg->confirm, SIGNAL(clicked() ), this, SLOT( slotCheck() ) );
+    
     setTexts();
-    this->show();
+
 }
 
 
@@ -141,21 +94,21 @@ void QuizDlg::increaseIfCorrect( int i )
     switch (i)
     {
 	case 1:
-	    if (one->isChecked() == true)
+	    if (quizdlg->one->isChecked() == true)
 	    {
 		quizresult++; //increase if correct
 		QuestioniWasCorrect[currentnr] = true;
 	    }
 	    break;
 	case 2:
-	    if (two->isChecked() == true) 
+	    if (quizdlg->two->isChecked() == true) 
 	    {
     		quizresult++; //increase if correct
     		QuestioniWasCorrect[currentnr] = true;
 	    }
 	    break;
 	case 3:
-	    if (three->isChecked() == true) 
+	    if (quizdlg->three->isChecked() == true) 
 	    {
     		quizresult++; //increase if correct
     		QuestioniWasCorrect[currentnr] = true;
@@ -174,28 +127,28 @@ void QuizDlg::setTexts()
     answer=quizconfig.readEntry("A", "Unknown");
     alternative1=quizconfig.readEntry("Alternative1", "Unknown");
     alternative2=quizconfig.readEntry("Alternative2", "Unknown");
-    titleText->setText(i18n(question.utf8()));
+    quizdlg->titleText->setText(i18n(question.utf8()));
     
     //now we need to know where to put the correct answer
     correctis = (rand()%3)+1;
-    
     //now we put it
+    
     switch (correctis)
     {
         case 1:
-            one->setText(i18n(answer.utf8()));
-            two->setText(i18n(alternative1.utf8()));
-            three->setText(i18n(alternative2.utf8()));
+            quizdlg->one->setText(i18n(answer.utf8()));
+            quizdlg->two->setText(i18n(alternative1.utf8()));
+            quizdlg->three->setText(i18n(alternative2.utf8()));
             break;
         case 2:
-            two->setText(i18n(answer.utf8()));
-            one->setText(i18n(alternative1.utf8()));
-            three->setText(i18n(alternative2.utf8()));
+            quizdlg->two->setText(i18n(answer.utf8()));
+            quizdlg->one->setText(i18n(alternative1.utf8()));
+            quizdlg->three->setText(i18n(alternative2.utf8()));
             break;
         case 3:
-            three->setText(i18n(answer.utf8()));
-            two->setText(i18n(alternative1.utf8()));
-            one->setText(i18n(alternative2.utf8()));
+            quizdlg->three->setText(i18n(answer.utf8()));
+            quizdlg->two->setText(i18n(alternative1.utf8()));
+            quizdlg->one->setText(i18n(alternative2.utf8()));
             break;
     }
 }
@@ -212,9 +165,9 @@ bool QuizDlg::wasCorrect( int i ) const
 void QuizDlg::slotCheck()
 {
     increaseIfCorrect( correctis );
-    
+
     //if nothing at all is checked
-    if (one->isChecked() == false && two->isChecked()== false  && three->isChecked()== false )
+    if (quizdlg->one->isChecked() == false && quizdlg->two->isChecked()== false  && quizdlg->three->isChecked()== false )
     {
         KMessageBox::error ( this, i18n("You haven't selected a button") );
     }
@@ -222,13 +175,14 @@ void QuizDlg::slotCheck()
     else
     {
         currentnr++;
+        quizdlg->KProgress1->setProgress(currentnr);
         //if it has not been the last question
         if (currentnr != qnum)
         {
             i++;              //increase the current number
-            one->setChecked( FALSE );
-            two->setChecked( FALSE );
-            three->setChecked( FALSE );
+            quizdlg->one->setChecked( FALSE );
+            quizdlg->two->setChecked( FALSE );
+            quizdlg->three->setChecked( FALSE );
             setTexts();       //set the next questions
         }
 
@@ -248,57 +202,52 @@ void QuizDlg::slotCheck()
 
             QLabel *resultlabel = new QLabel (result);
             QString resulttext;
-            resulttext = i18n("You answered %1 of %2 questions correctly.").arg(QString::number(quizresult)).arg(qnum); //FIXME This text does not appear
+            resulttext = i18n("You answered %1 of %2 questions correctly.").arg(QString::number(quizresult)).arg(qnum);
             resultlabel->setText(i18n(resulttext.utf8()));
             grid->addWidget( resultlabel, 0 , 0 );
 
+            QTable *resultTable = new QTable( qnum+1 , 3 , result , "resultTable" );
+            resultTable->setReadOnly( true );
+            resultTable->setColumnStretchable( 0 , true );
+            resultTable->setColumnStretchable( 1 , true );
+            resultTable->setTopMargin( 0 );
+            resultTable->setLeftMargin( 0 );
+            grid->addWidget( resultTable, 1 , 0 );
 
-//new Table - BEGIN
+            QPixmap good = SmallIcon("apply");
+            QPixmap bad  = SmallIcon("cancel");
 
-	    QTable *resultTable = new QTable( qnum+1 , 3 , result , "resultTable" );
-	    resultTable->setReadOnly( true );
-	    resultTable->setColumnStretchable( 0 , true );
-	    resultTable->setColumnStretchable( 1 , true );
-		resultTable->setTopMargin( 0 );
-		resultTable->setLeftMargin( 0 );
-        grid->addWidget( resultTable, 1 , 0 );
+            resultTable->setText( 0 , 0 , i18n("Questions:") );
+            resultTable->setText( 0 , 1 , i18n("The correct answer was:") );
+            resultTable->setText( 0 , 2 , i18n("You have been:") );
 
-	    QPixmap good = SmallIcon("apply");
-	    QPixmap bad  = SmallIcon("cancel");
+            resultTable->horizontalHeader()->hide();
+            resultTable->verticalHeader()->hide();
+            resultTable->setShowGrid( false );
 
-	    resultTable->setText( 0 , 0 , i18n("Questions:") );
-	    resultTable->setText( 0 , 1 , i18n("The correct answer was:") );
-	    resultTable->setText( 0 , 2 , i18n("You have been:") );
+            KSimpleConfig quizconfig (locate("data", "kalzium/kalziumrc"));
+            for ( int i = 0 ; i < qnum ; i++ )
+            {
+                resultTable->setRowStretchable( i+1 , true );
+                quizconfig.setGroup("q"+QString::number(order[i]));
 
-	    resultTable->horizontalHeader()->hide();
-	    resultTable->verticalHeader()->hide();
-	    resultTable->setShowGrid( false );
+                QString ques, answ;
+                ques=quizconfig.readEntry("Q", "Unknown");
+                answ=quizconfig.readEntry("A", "Unknown");
 
-	    KSimpleConfig quizconfig (locate("data", "kalzium/kalziumrc"));
-	    for ( int i = 0 ; i < qnum ; i++ )
-	    {
-            resultTable->setRowStretchable( i+1 , true );
-    		quizconfig.setGroup("q"+QString::number(order[i]));
-		
-    		QString ques, answ;
-    		ques=quizconfig.readEntry("Q", "Unknown");
-    		answ=quizconfig.readEntry("A", "Unknown");
-			
-			QTableItem *item = new QTableItem(resultTable, QTableItem::Never, i18n(ques.utf8()));
-			item->setWordWrap(true);
-    		resultTable->setItem( i+1 , 0 , item);
-			item = new QTableItem(resultTable, QTableItem::Never, i18n(answ.utf8()));
-			item->setWordWrap(true);
-    		resultTable->setItem( i+1 , 1 , item);
-		
-    		if (wasCorrect( i ) == true)
-    		    resultTable->setPixmap( i+1 , 2 , good );
-    		else 
-                resultTable->setPixmap( i+1 , 2 , bad  );
-        }	    
-//new Table - END
+                QTableItem *item = new QTableItem(resultTable, QTableItem::Never, i18n(ques.utf8()));
+                item->setWordWrap(true);
+                resultTable->setItem( i+1 , 0 , item);
+                item = new QTableItem(resultTable, QTableItem::Never, i18n(answ.utf8()));
+                item->setWordWrap(true);
+                resultTable->setItem( i+1 , 1 , item);
 
-        result->show();
+                if (wasCorrect( i ) == true)
+                    resultTable->setPixmap( i+1 , 2 , good );
+                else 
+                    resultTable->setPixmap( i+1 , 2 , bad  );
+            }	    
+            result->show();
         }
     }
 }
