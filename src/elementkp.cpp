@@ -16,9 +16,7 @@
  ***************************************************************************/
 
 //KDE-Includes
-#include <kapplication.h>
 #include <kconfig.h>
-#include <kdialog.h>
 #include <kglobalsettings.h>
 #include <khtml_part.h>
 #include <klocale.h>
@@ -202,13 +200,12 @@ void ElementKP::slotShowData()
 	else
 		show_data2->weight_label->setText( i18n( "%1 u" ).arg( Data.Weight ) );
 
-	show_data2->discovered_label->setText( i18n( Data.Name.utf8() ) );
-	if (Data.date == "0")
-		show_data2->discovered_label->setText(i18n("was known to ancient cultures"));
-	if (Data.date == "3333")
-		show_data2->discovered_label->setText(i18n("not been discovered yet"));
-	else
-		show_data2->discovered_label->setText(i18n("%1").arg(Data.date));
+    if (Data.date == "0")
+        show_data2->discovered_label->setText(i18n("was known to ancient cultures"));
+    else if (Data.date == "3333")
+        show_data2->discovered_label->setText(i18n("not been discovered yet"));
+    else
+        show_data2->discovered_label->setText(i18n("%1").arg(Data.date));
 
 	if (Data.AR == -1)
 		show_data2->radius_label->setText( i18n( "Unknown" ) );
