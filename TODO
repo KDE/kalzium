@@ -14,6 +14,5 @@ TODO for 3.2:
 - Printing: The user should be able to print all the information
   in a table and/or in the infodlg.cpp-style
 
-- Create a KalziumButton class which works (shows element number and Symbol name correct) with every kde style.
+- Create a KalziumButton class which works (shows element number and Symbol name correct) with every kde style. (or ?)
   http://www.stud.uni-saarland.de/~rogo5001/kalzium.png 
-  Planned for Dec/Jan 2002.
