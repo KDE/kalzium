@@ -350,11 +350,8 @@ void Kalzium::showSettingsDialog()
 
 void Kalzium::slotCalculations()
 {
-    if (!calculationdialog)
-	{
-		calculationdialog = new CalcDialog(this, "Calculationsdialog");
-    	calculationdialog->show();
-	}
+    calculationdialog = new CalcDialog(this, "Calculationsdialog");
+    calculationdialog->show();
 }
 
 void Kalzium::slotKnowledge()
