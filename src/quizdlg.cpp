@@ -46,6 +46,7 @@
 #include <time.h>
 
 #include "quizdlg.h"
+#include "quiz_result.h"
 
 QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  
     : QuizDlgUI (parent,name)
@@ -186,7 +187,7 @@ void QuizDlg::slotCheck()
 
         //ok, the quiz is over, show the results
         else
-        {
+        {/*
             this->close();
             KDialog *result = new KDialog ( this, "result" );
             result->setCaption(i18n("See your results!"));
@@ -246,7 +247,7 @@ void QuizDlg::slotCheck()
                     resultTable->setPixmap( i+1 , 2 , bad  );
             }	    
             result->show();
-        }
+        */}
     }
 }
 
