@@ -40,7 +40,7 @@
 #include "kalzium.h" 
 #include "infodlg.h"
 
-	ElementKP::ElementKP(const QString& text, QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)	
+	ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp)	
 : KPushButton(parent,name)
 
 {

@@ -66,7 +66,7 @@ class ElementKP : public KPushButton  {
 	Q_OBJECT
 
 	public: 
-		ElementKP(const QString &text, QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0, Kalzium *Kalzium_tmp=0);
+		ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0, Kalzium *Kalzium_tmp=0);
 
 		/**
 		 * used when the mouse enters the pushbutton.

@@ -129,7 +129,7 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 
         } else elementName="Unknown";
         position(n+1,h,v); //get position
-        element[n] =  new ElementKP(eleminfo.Symbol,foo,eleminfo,elementName.latin1(),n+1,statusBar(),this);
+        element[n] =  new ElementKP(foo,eleminfo,elementName.latin1(),n+1,statusBar(),this);
         
         element[n]->setFixedSize(zahl_width + text_width ,
                                  zahl_height + text_height + 5);
