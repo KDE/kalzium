@@ -105,15 +105,14 @@ void Kalzium::setupActions()
 	 look_action->setCurrentItem(Prefs::colorschemebox()); 
 	 connect (look_action, SIGNAL(activated(int)), this, SLOT(slotShowScheme(int)));
 	
-	 //Legend
-	 m_pLengendAction = new KAction(i18n("Toggle &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
-
 	/*
 	 * the misc actions
 	 **/
 	m_pTimelineAction = new KAction(i18n("Show &Timeline"), "timeline", 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
-	m_pSOMAction = new KAction(i18n("&Show State of Matter"), "legend", 0, this, SLOT(slotStateOfMatter()), actionCollection(), "show_som");
+	m_pSOMAction = new KAction(i18n("&Show State of Matter"), "chemical", 0, this, SLOT(slotStateOfMatter()), actionCollection(), "show_som");
+		 //Legend
+	 m_pLengendAction = new KAction(i18n("Toggle &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
 	/*
 	 * the standardactions
 	 **/
