@@ -164,7 +164,7 @@ void ElementKP::slotShowData()
     if ( Data.Density == -1 )
 	show_data2->density_label->setText( i18n( "Unknown" ) );
     else
-	show_data2->density_label->setText( i18n("%1 g/cm^3" ).arg( Data.Density ) );
+	show_data2->density_label->setText( i18n("%1 g/cm<sup>3</sup>" ).arg( Data.Density ) );
 
     if ( Data.MP == -1 )
 	show_data2->melting_label->setText( i18n( "Unknown" ) );
