@@ -164,8 +164,8 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	QPainter DC;
 	DC.begin( this );
 
-	int h=this->height();
-	int w=this->width();
+	int h=height();
+	int w=width();
 	int w_c=h/10;
 	int h_c=h/10;
 	

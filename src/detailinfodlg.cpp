@@ -131,8 +131,8 @@ DetailedTab::DetailedTab( Element *el, QWidget *parent, const char *name ) : QWi
 
 void DetailedTab::paintEvent( QPaintEvent* )
 {
-	int h = this->height();
-	int w = this->width();
+	int h = height();
+	int w = width();
 
 	QPixmap pm( w, h );
 

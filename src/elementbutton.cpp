@@ -32,11 +32,11 @@ ElementButton::ElementButton(int number, Element *el, QWidget *parent, const cha
 
 	e = el;
 
-	this->setMaximumSize( 40, 40 );
-	this->setFrameStyle(  QFrame::Box );
-	this->setLineWidth(  2 );
-	this->setMidLineWidth(  3 );
-	this->setFrameShadow(  QFrame::Sunken );
+	setMaximumSize( 40, 40 );
+	setFrameStyle(  QFrame::Box );
+	setLineWidth(  2 );
+	setMidLineWidth(  3 );
+	setFrameShadow(  QFrame::Sunken );
 }
 
 void ElementButton::mouseReleaseEvent( QMouseEvent *mouse )

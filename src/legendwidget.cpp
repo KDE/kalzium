@@ -31,7 +31,7 @@
 Legend::Legend( QWidget* parent, const char* name )
 	: QWidget( parent, name )
 {
-	this->setFixedHeight( 35 );
+	setFixedHeight( 35 );
 
 	QHBoxLayout *hlay = new QHBoxLayout( this );
 	hlay->setAutoAdd( TRUE );
