@@ -31,7 +31,6 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	d = data;
 
 	setupBlockLists();
-
 }
 
 PSE::~PSE()
@@ -74,11 +73,12 @@ void PSE::setupBlockLists()
 
 void PSE::slotElementClicked(int num)
 {
-	kdDebug() << "click auf " << num  << endl;
 	KDialog *smallInfoDlg = new KDialog( this);
 	smallInfoDlg->setCaption(QString::number(num));
 	smallInfoDlg->show();
 }
+
+void PSE::setupPSEElementButtonsList(){}
 
 RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *name)
  : PSE(data, parent, name)
@@ -110,10 +110,39 @@ RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *nam
 	for (  int n=0; n<18; n++ ) grid->addColSpacing(  n, 40 );
 	for (  int n=0; n<10; n++ ) grid->addRowSpacing(  n, 40 );
 
+	setupPSEElementButtonsList();
 }
 
 RegularPSE::~RegularPSE()
 {}
+
+/**
+ * this method sets up the m_PSEElementButtons-list
+ **/
+void RegularPSE::setupPSEElementButtonsList()
+{
+	ElementButton *button;
+	
+//	EList::Iterator it = d->ElementList.begin();
+//	QPtrList<ElementButton>::Iterator iter = 
+	
+	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
+	{
+		m_PSEElementButtons.append( button );
+	}
+	for ( button = pBlockList.first() ; button ; button = pBlockList.next() )
+	{
+		m_PSEElementButtons.append( button );
+	}
+	for ( button = dBlockList.first() ; button ; button = dBlockList.next() )
+	{
+		m_PSEElementButtons.append( button );
+	}
+	for ( button = fBlockList.first() ; button ; button = fBlockList.next() )
+	{
+		m_PSEElementButtons.append( button );
+	}
+}
 
 void RegularPSE::updatePSE()
 {
@@ -154,6 +183,23 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 
 SimplifiedPSE::~SimplifiedPSE()
 {
+}
+
+/**
+ * this method sets up the m_PSEElementButtons-list
+ **/
+void SimplifiedPSE::setupPSEElementButtonsList()
+{
+	ElementButton *button;
+	
+	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
+	{
+		m_PSEElementButtons.append( button );
+	}
+	for ( button = pBlockList.first() ; button ; button = pBlockList.next() )
+	{
+		m_PSEElementButtons.append( button );
+	}
 }
 
 MendeljevPSE::MendeljevPSE(KalziumDataObject *data, QWidget *parent, const char *name)

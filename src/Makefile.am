@@ -2,12 +2,12 @@
 INCLUDES= $(all_includes) 
 
 bin_PROGRAMS = kalzium
-kalzium_SOURCES = kalzium.cpp main.cpp pse.cpp element.cpp elementbutton.cpp prefs.kcfgc
+kalzium_SOURCES = kalzium.cpp main.cpp pse.cpp element.cpp elementbutton.cpp prefs.kcfgc settings_colorschemes.ui settings_colors.ui
 kalzium_LDADD   = $(LIB_KDEUI)
 
 SUBDIRS = icons elementpics
 
-EXTRA_DIST = main.cpp kalzium.cpp kalzium.h pse.cpp pse.h element.cpp element.h elementbutton.cpp elementbutton.h
+EXTRA_DIST = main.cpp kalzium.cpp kalzium.h pse.cpp pse.h element.cpp element.h elementbutton.cpp elementbutton.h settings_colorschemes.ui settings_colors.ui
 
 METASOURCES = AUTO 
 

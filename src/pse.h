@@ -29,8 +29,7 @@
 #include "elementbutton.h"
 
 /**
-abstract basic class for the specific PSEs
-
+basic class for the specific PSEs
 @author Carsten Niehaus
 */
 
@@ -48,14 +47,34 @@ class PSE : public QWidget
 
 		KalziumDataObject *d;
 
-		typedef QValueList<int> QIntList;
-
+		void activeColorScheme( int );
+		
+		/**
+		 * four lists, on for each block in the periodic table
+		 */
 		QPtrList<ElementButton> sBlockList,
 					dBlockList,
 					pBlockList,
 					fBlockList;
 
+		/**
+		 * this sets up the 4 blocklists. Every PSE has 4 lists for
+		 * the 4 blocks: s,p,d,f
+		 **/
 		void setupBlockLists();
+		
+		/**
+		 * this list includes all elementbuttons which are in the 
+		 * specific PSE. For example. in the simple PSE
+		 * the elements of the f- and d-Block would not
+		 * be in this list
+		 **/
+		QPtrList<ElementButton> m_PSEElementButtons;
+
+		/**
+		 * this method sets up the m_PSEElementButtons-list
+		 **/
+		virtual void setupPSEElementButtonsList();
 
 	protected:
 		virtual void updatePSE();
@@ -71,6 +90,8 @@ class RegularPSE : public PSE
 		RegularPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
 		~RegularPSE();
 
+		void setupPSEElementButtonsList();
+
 	protected:
 		virtual void updatePSE();
 };
@@ -82,6 +103,7 @@ class SimplifiedPSE : public PSE
 		SimplifiedPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
 		~SimplifiedPSE();
 		
+		void setupPSEElementButtonsList();
 };
 
 class MendeljevPSE : public PSE

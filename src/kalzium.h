@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003 Carsten Niehaus <cniehaus@kde.org>
+ * Copyright (C) 2003, 2004 Carsten Niehaus <cniehaus@kde.org>
  */
 
 #ifndef _KALZIUM_H_
@@ -52,11 +52,20 @@ class Kalzium : public KMainWindow
 			*m_pMendeljevPSEAction;
 
 	private:
+		/*
+		 * this Pointer points to the current PSE. The pointer
+		 * is updated every time the users chooses a new 
+		 * PSE
+		 **/
 		PSE* m_pCurrentPSE;
 			
 		void setupBlockLists( KalziumDataObject *d );
 
 	private slots:
+		/*
+		 * the following three slots let Kalzium switch to the 
+		 * corresponding PSE
+		 **/
 		void slotSwitchtoSimplePSE();
 		void slotSwitchtoRegularPSE();
 		void slotSwitchtoMendeljevPSE();
