@@ -49,7 +49,6 @@ Legend::Legend( QWidget* parent, const char* name )
 
 void Legend::setScheme( int scheme )
 {
-	kdDebug() << "Legend::setScheme()" << endl;
 	const QColor color_1 = Prefs::group_1();
 	const QColor color_2 = Prefs::group_2();
 	const QColor color_3 = Prefs::group_3();

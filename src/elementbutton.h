@@ -24,6 +24,7 @@
 #include "element.h"
 
 class QMouseEvent;
+class QTimer;
 
 /**
  *An ElementButton is the widget the users sees when looking at the table. 
@@ -49,12 +50,14 @@ class ElementButton : public QFrame
 
 	private:
 		void mouseReleaseEvent( QMouseEvent* );
+		QTimer *timer;
 
 	private slots:
 		void timerDone();	
 
 	protected:
 		void enterEvent( QEvent* );
+		void leaveEvent( QEvent* );
 
 	signals:
 		/**

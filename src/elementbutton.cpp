@@ -40,6 +40,8 @@ ElementButton::ElementButton( Element *el, QWidget *parent, const char *name)
 	setLineWidth(  2 );
 	setMidLineWidth(  3 );
 	setFrameShadow(  QFrame::Sunken );
+	
+	timer = new QTimer( this );
 }
 
 void ElementButton::mouseReleaseEvent( QMouseEvent *mouse )
@@ -125,9 +127,13 @@ void ElementButton::paintEvent( QPaintEvent* )
 
 void ElementButton::enterEvent( QEvent* )
 {
-	QTimer *timer = new QTimer( this );
 	connect(  timer, SIGNAL( timeout() ), this, SLOT( timerDone() ) );
 	timer->start(  2000, TRUE ); // 2 seconds single-shot timer
+}
+
+void ElementButton::leaveEvent( QEvent* )
+{
+	timer->stop();
 }
 
 void ElementButton::timerDone()

@@ -17,6 +17,10 @@
 
 #include <qwidget.h>
 
+class QVBoxLayout;
+class QHBoxLayout;
+class QLabel;
+
 
 class OverviewWidget : public QWidget
 {
@@ -25,6 +29,11 @@ class OverviewWidget : public QWidget
 	public:
 		OverviewWidget( QWidget* parent = 0, const char* name = 0 );
 
+		void setElement( const int );
+
+	private:
+		QWidget *CentralWidget;
+		QHBoxLayout *m_vbox;
 };
 
 

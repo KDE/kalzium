@@ -53,7 +53,7 @@ Kalzium::Kalzium()
 	m_pLegend = new Legend( CentralWidget, "Legend" );
 	m_pSOMSlider = new TempSlider( CentralWidget, "SOMSlider" );
 	m_pTimeSlider = new SliderWidget( CentralWidget, "TimeSlider" );
-	m_pOverviewWidget = new OverviewWidget( this, "OverviewWidget" );
+	m_pOverviewWidget = new OverviewWidget( CentralWidget, "OverviewWidget" );
 
 	m_pRegularPSE = new RegularPSE( data(), CentralWidget, "regularPSE");
 	m_pSimplePSE = new SimplifiedPSE( data(), CentralWidget, "SimplifiedPSE");
@@ -253,6 +253,11 @@ void Kalzium::slotSwitchtoNumeration( int index )
 	Prefs::writeConfig();
 }
 
+void Kalzium::slotMouseOverElement( int elementnumber )
+{
+	m_pOverviewWidget->setElement( elementnumber );
+}
+
 void Kalzium::slotSwitchtoPSE(int index)
 {
 	m_pRegularPSE->hide();
@@ -330,13 +335,13 @@ void Kalzium::displayTemperature()
  			string = i18n("Degree Celsius");
 			min = -273 ;
 			max = 5700 ;
-			m_pSOMSlider->unit->setText( i18n( "the unit for degree celsius" , "°C" ) );
+			m_pSOMSlider->unit->setText( i18n( "the unit for degree celsius" , "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°C" ) );
  			break;
  		case 2:
  			string = i18n("Degree Fahrenheit");
 			min =  -460 ;
 			max = 6000 ;
-			m_pSOMSlider->unit->setText( i18n( "the unit for degree Fahrenheit" , "°F" ) );
+			m_pSOMSlider->unit->setText( i18n( "the unit for degree Fahrenheit" , "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°F" ) );
  			break;
  	}
 	m_pSOMSlider->slider->setMinValue( min );

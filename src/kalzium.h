@@ -177,6 +177,8 @@ class Kalzium : public KMainWindow
 
 		void slotPlotData();
 
+		void slotMouseOverElement( int );
+
 		/**
 		 * this slot activates the timeline.
 		 */
