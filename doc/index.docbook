@@ -41,8 +41,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2002-07-23</date>
-<releaseinfo>0.05.00</releaseinfo>
+<date>2002-10-08</date>
+<releaseinfo>0.5</releaseinfo>
 
 <abstract>
 <para>&kalzium; is a program which shows you the Periodic System of
@@ -65,12 +65,15 @@ for information about the elements or to learn facts about the
 
 <chapter id="introduction">
 <title>Introduction</title>
+
 <para>&kalzium; provides you with all kind of information about the
-<acronym>PSE</acronym>. You can lookup lots of information about the
-elements and also use visualisations to show them. If the information
-provided by &kalzium; are not sufficient for you you can look up more
-via the internet. It is free and licensed under the &GNU; Public License.
+<acronym>PSE</acronym> (Periodic System of Elements.) You can lookup
+lots of information about the elements and also use visualisations to
+show them. If the information provided by &kalzium; are not sufficient
+for you you can look up more via the internet. It is free and licensed
+under the &GNU; Public License.
 </para>
+
 </chapter>
 
 <chapter id="using-kalzium">
@@ -142,7 +145,7 @@ composition. KMol knows all elements of the <acronym>PSE</acronym>.
 </sect1>
 
 <sect1 id="colors">
-<title>Colorschemes</title>
+<title>Color schemes</title>
 
 <screenshot>
 <screeninfo>&kalzium; can show you which elements are
