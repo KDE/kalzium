@@ -134,6 +134,10 @@ class Element{
 		QString group() const {
 			return m_group;
 		}
+
+		QString family() const {
+			return m_family;
+		}
 		
 		/**
 		 * @return the acidic behavior of the element
@@ -297,6 +301,7 @@ class Element{
 			m_oxstage,
 			m_block,
 			m_group,
+			m_family,
 			m_acidbeh,
 			m_orbits,
 			m_isotopes;

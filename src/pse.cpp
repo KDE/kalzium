@@ -211,6 +211,57 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
+	else if ( nr == 4) //familiy of the element
+	{
+		const QColor c_alkalie = Prefs::alkalie();
+		const QColor c_rare = Prefs::rare();
+		const QColor c_nonmetal = Prefs::nonmetal();
+		const QColor c_alkaline = Prefs::alkaline();
+		const QColor c_other_metal = Prefs::other_metal();
+		const QColor c_halogene = Prefs::halogene();
+		const QColor c_transition = Prefs::transition();
+		const QColor c_noble_gas = Prefs::noble_gas();
+		const QColor c_metalloid = Prefs::metalloid();
+
+		static QString family;
+
+		while ( it != itEnd )
+		{
+			family = ( *it )->family();
+
+			if ( family == "Noblegas" ){
+				(*it)->setElementColor( c_noble_gas );
+			}
+			if ( family == "Non-Metal" ){
+				(*it)->setElementColor( c_nonmetal );
+			}
+			if ( family == "Rare_Earth" ){
+				(*it)->setElementColor( c_rare );
+			}
+			if ( family == "Alkaline_Earth" ){
+				(*it)->setElementColor( c_alkaline );
+			}
+			if ( family == "Alkali_Earth" ){
+				(*it)->setElementColor( c_alkalie );
+			}
+			if ( family == "Transition" ){
+				(*it)->setElementColor( c_transition );
+			}
+			if ( family == "Other_Metal" ){
+				(*it)->setElementColor( c_other_metal );
+			}
+			if ( family == "Metalloids" ){
+				(*it)->setElementColor( c_metalloid );
+			}
+			if ( family == "Halogene" ){
+				(*it)->setElementColor( c_halogene );
+			}
+			
+
+			++it;
+		}
+	}
+		
 }
 
 void PSE::setDate( int date )
@@ -225,11 +276,6 @@ void PSE::resizeEvent( QResizeEvent *e )
 
 void PSE::paintEvent( QPaintEvent *e )
 {
-	if ( m_Vertikal )
-		kdDebug() << "VERTIKAL" << endl;
-	else
-		kdDebug() << "HORIZONTAL" << endl;
-
 	QPainter p;
 
 	if ( doFullDraw ) {

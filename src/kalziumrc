@@ -18,6 +18,7 @@ IE2=
 AR=37.3
 Orbits=1s1
 Ox=+1,(-1)
+Family=Non-Metal
 
 [2]
 Name=Helium
@@ -39,6 +40,7 @@ AR=128
 Orbits=1s2
 Ox=0
 Isotopes=1:3,01603:0,00013;2:4,0026:99,9998
+Family=Noblegas
 
 [3]
 Name=Lithium
@@ -60,6 +62,7 @@ AR=152
 Orbits=1s2 2s1
 Ox=+1
 Isotopes=3:6,0151:7,5;4:7,016:92,5
+Family=Alkali_Earth
 
 [4]
 Name=Beryllium
@@ -80,6 +83,7 @@ IE2=18.211
 AR=113.3
 Orbits=1s2 2s2
 Ox=+2
+Family=Alkaline_Earth
 
 [5]
 Name=Boron
@@ -101,6 +105,7 @@ AR=83
 Orbits=1s2 2s2 2p1
 Ox=+3
 Isotopes=10,0129:18,83;6:11,0093:81,17
+Family=Metalloids
 
 [6]
 Name=Carbon
@@ -122,6 +127,7 @@ AR=77.2
 Orbits=1s2 2s2 2p2
 Ox=-4,+2,+4
 Isotopes=6:12:98,89;7:13,0034:1,11
+Family=Non-Metal
 
 [7]
 Name=Nitrogen
@@ -143,6 +149,7 @@ AR=71
 Orbits=1s2 2s2 2p3
 Ox=-3,(+1,+2,+3,+4,+5)
 Isotopes=7:14,0031:99,64;8:15,0001:0,36
+Family=Non-Metal
 
 [8]
 Name=Oxygen
@@ -164,6 +171,7 @@ AR=60.4
 Orbits=1s2 2s2 2p4
 Ox=-2,(-1,+2)
 Isotopes=8:15,9949:99,756;9:16,9991:0,039;10:17,9992:0,205
+Family=Non-Metal
 
 [9]
 Name=Fluorine
@@ -184,6 +192,7 @@ IE2=34.969
 AR=70.9
 Orbits=1s2 2s2 2p5
 Ox=-1
+Family=Halogene
 
 [10]
 Name=Neon
@@ -205,6 +214,7 @@ AR=150
 Orbits=1s2 2s2 2p6
 Ox=0
 Isotopes=10:19,9924:90,5;11:20,9938:0,27;12:21,9914:9,2
+Family=Noblegas
 
 [11]
 Name=Sodium
@@ -225,6 +235,7 @@ IE2=
 AR=153.7
 Orbits=1s2 2s2 2p6 3s1
 Ox=+1
+Family=Alkali_Earth
 
 [12]
 Name=Magnesium
@@ -246,6 +257,7 @@ AR=160
 Orbits=1s2 2s2 2p6 3s2
 Ox=+2
 Isotopes=12:23,985:78,99;13:24,986:10;14:25,983:11,01
+Family=Alkaline_Earth
 
 [13]
 Name=Aluminum
@@ -266,6 +278,7 @@ IE2=
 AR=143.1
 Orbits=1s2 2s2 2p6 3s2 3p1
 Ox=+3
+Family=Other_Metal
 
 [14]
 Name=Silicon
@@ -287,6 +300,7 @@ AR=117
 Orbits=1s2 2s2 2p6 3s2 3p2
 Ox=+4,(-4,+2)
 Isotopes=14:27,977:92,28;15:28,976:4,67;16:29,974:3,05
+Family=Metalloids
 
 [15]
 Name=Phosphorus
@@ -307,6 +321,7 @@ IE2=
 AR=93
 Orbits=1s2 2s2 2p6 3s2 3p3
 Ox=-3,(+1,+3),+5
+Family=Non-Metal
 
 [16]
 Name=Sulfur
@@ -328,6 +343,7 @@ AR=104
 Orbits=1s2 2s2 2p6 3s2 3p4
 Ox=-2,+2,+4,+6
 Isotopes=16:31,972:95,1;17:32,971:0,74;18:33,968:4,2;20:35,967:0,016
+Family=Non-Metal
 
 [17]
 Name=Chlorine
@@ -349,6 +365,7 @@ AR=99.4
 Orbits=1s2 2s2 2p6 3s2 3p5
 Ox=-1,(+1,+3,+5,+7)
 Isotopes=18:34,968853:75,77;20:36,966:24,23
+Family=Halogene
 
 [18]
 Name=Argon
@@ -370,6 +387,7 @@ AR=174
 Orbits=1s2 2s2 2p6 3s2 3p6
 Ox=0
 Isotopes=18:35,968:0,307;20:37,963:0,061;22:39,962:99,632
+Family=Noblegas
 
 [19]
 Name=Potassium
@@ -391,6 +409,7 @@ AR=227
 Orbits=Ar 4s1
 Ox=+1
 Isotopes=20:38,964:93,2581;22:40,962:6,73
+Family=Alkali_Earth
 
 [20]
 Name=Calcium
@@ -412,6 +431,7 @@ AR=197.3
 Orbits=Ar 4s2
 Ox=+2
 Isotopes=20:39,963:96,92;22:41,959:0,64;23:42,959:0,13;24:43,955:2,13;26:44,954:0,003;28:47,952:0,18
+Family=Alkaline_Earth
 
 [21]
 Name=Scandium
@@ -432,6 +452,7 @@ IE2=
 AR=160.6
 Orbits=Ar 3d1 4s2
 Ox=+3
+Family=Transition
 
 [22]
 Name=Titanium
@@ -453,6 +474,7 @@ AR=144.8
 Orbits=Ar 3d2 4s2
 Ox=+4,+3
 Isotopes=24:45,953:7,95;25:46,952:7,75;26:47,948:73,45;27:48,948:5,51;28:49,945:5,34
+Family=Transition
 
 [23]
 Name=Vanadium
@@ -473,6 +495,7 @@ IE2=
 AR=132.1
 Orbits=Ar 3d3 4s2
 Ox=+5,(+2,+3,+4)
+Family=Transition
 
 [24]
 Name=Chromium
@@ -494,6 +517,7 @@ AR=124.9
 Orbits=Ar 3d5 4s1
 Ox=+2,+3,(+1,+4,+5),+6
 Isotopes=26:49,946:4,3;28:51,94:83,8;29:52,941:9,5;30:53,939:2,4
+Family=Transition
 
 [25]
 Name=Manganese
@@ -514,6 +538,7 @@ IE2=
 AR=124
 Orbits=Ar 3d5 4s2
 Ox=+2,+4,(+5),+6,+7
+Family=Transition
 
 [26]
 Name=Iron
@@ -535,6 +560,7 @@ AR=124.1
 Orbits=Ar 3d6 4s2
 Ox=+2,+3
 Isotopes=28:53,94:5,81;30:55,935:91,64;31:56,935:2,21;32:57,933:0,34
+Family=Transition
 
 [27]
 Name=Cobalt
@@ -555,6 +581,7 @@ IE2=
 AR=125.3
 Orbits=Ar 3d7 4s2
 Ox=+2,+3,(+4)
+Family=Transition
 
 [28]
 Name=Nickel
@@ -576,6 +603,7 @@ AR=124.6
 Orbits=Ar 3d8 4s2
 Ox=0,(+2),+3
 Isotopes=30:57,935:67,8;32:59,931:26,2;33:60,931:1,2;34:61,928:3,7;36:63,928:1,1
+Family=Transition
 
 [29]
 Name=Copper
@@ -597,6 +625,7 @@ AR=127.8
 Orbits=Ar 3d10 4s1
 Ox=+1,+2
 Isotopes=34:62,93:68,9;36:64,928:31,1
+Family=Transition
 
 [30]
 Name=Zinc
@@ -618,6 +647,7 @@ AR=133.2
 Orbits=Ar 3d10 4s2
 Ox=+2
 Isotopes=34:63,929:48,9;36:65,926:27,82;37:66,927:4,16;38:67,925:18,5;40:69,925:0,62
+Family=Transition
 
 [31]
 Name=Gallium
@@ -639,6 +669,7 @@ AR=122.1
 Orbits=Ar 3d10 4s2 4p1
 Ox=(+1),(+2),+3
 Isotopes=38:68,926:60,1;40:70,925:39,9
+Family=Other_Metal
 
 [32]
 Name=Germanium
@@ -660,6 +691,7 @@ AR=122.5
 Orbits=Ar 3d10 4s2 4p2
 Ox=+4,(+2)
 Isotopes=38:69,924:20,6;40:71,922:27,4;41:72,923:7,8;42:73,921:36,4;44:75,921:7,8
+Family=Metalloids
 
 [33]
 Name=Arsenic
@@ -680,6 +712,7 @@ IE2=
 AR=125
 Orbits=Ar 3d10 4s2 4p3
 Ox=(-3),+3,(+5)
+Family=Metalloids
 
 [34]
 Name=Selenium
@@ -701,6 +734,7 @@ AR=116
 Orbits=Ar 3d10 4s2 4p4
 Ox=(-2),+4,(+6)
 Isotopes=40:73,922:0,9;42:75,919:9,5;43:76,92:8,3;44:77,917:24;46:79,917:48;48:81,917:9,3
+Family=Non-Metal
 
 [35]
 Name=Bromine
@@ -722,6 +756,7 @@ AR=114.5
 Orbits=Ar 3d10 4s2 4p5
 Ox=-1,(+1,+5,+7)
 Isotopes=44:78,918:50,6;46:80,916:49,4
+Family=Halogene
 
 [36]
 Name=Krypton
@@ -743,6 +778,7 @@ AR=190
 Orbits=Ar 3d10 4s2 4p6
 Ox=+2,(+4)
 Isotopes=42:77,92:0,35;44:79,916:2,01;46:81,913:11,5;47:82,914:11,5;48:83,912:57,18;50:85,911:17,5
+Family=Noblegas
 
 [37]
 Name=Rubidium
@@ -763,6 +799,7 @@ IE2=
 AR=247.5
 Orbits=Kr 5s1
 Ox=+1
+Family=Alkali_Earth
 
 [38]
 Name=Strontium
@@ -784,6 +821,7 @@ AR=215.1
 Orbits=Kr 5s2
 Ox=+2
 Isotopes=46:83,913:0,56;48:85,909:9,86;49:86,909:7,02;50:87,906:82,6
+Family=Alkaline_Earth
 
 [39]
 Name=Yttrium
@@ -804,6 +842,7 @@ IE2=
 AR=181
 Orbits=Kr 4d1 5s2
 Ox=+3
+Family=Transition
 
 [40]
 Name=Zirconium
@@ -825,6 +864,7 @@ AR=160
 Orbits=Kr 4d2 5s2
 Ox=+4
 Isotopes=50:89,904:51,5;51:90,905:11,2;52:91,905:17,1;54:93,906:17,4;56:95,908:2,8
+Family=Transition
 
 [41]
 Name=Niobium
@@ -845,6 +885,7 @@ IE2=
 AR=142.9
 Orbits=Kr 4d4
 Ox=+3,+5
+Family=Transition
 
 [42]
 Name=Molybdenum
@@ -866,6 +907,7 @@ AR=136.2
 Orbits=Kr 4d5 5s1
 Ox=(+2,+3,+4,+5),+6
 Isotopes=50:91,906:15,9;52:93,905:9,2;53:94,906:16,5;54:95,905:15,7;55:96,905:9,4;56:97,906:23,7;58:99,908:9,6
+Family=Transition
 
 [43]
 Name=Technetium
@@ -886,6 +928,7 @@ IE2=
 AR=135.8
 Orbits=Kr 4d6 5s1
 Ox=+7
+Family=Transition
 
 [44]
 Name=Ruthenium
@@ -907,6 +950,7 @@ AR=134
 Orbits=Kr 4d7 5s1
 Ox=+3,+4,(+8)
 Isotopes=52:95,908:5,68;54:97,906:2,22;55:98,906:12,91;56:99,903:12,7;57:100,904:16,98;58:101,904:31,34;60:103,906:18,27
+Family=Transition
 
 [45]
 Name=Rhodium
@@ -927,6 +971,7 @@ IE2=
 AR=134.5
 Orbits=Kr 4d8 5s1
 Ox=+1,(+2),+3,(+4)
+Family=Transition
 
 [46]
 Name=Palladium
@@ -948,6 +993,7 @@ AR=137.6
 Orbits=Kr 4d10
 Ox=+2,+4
 Isotopes=56:101,905:0,8;58:103,904:9,3;59:104,905:22,6;60:105,903:27,2;62:107,904:26,08;64:109,904:13,5
+Family=Transition
 
 [47]
 Name=Silver
@@ -969,6 +1015,7 @@ AR=144.4
 Orbits=Kr 4d10 5s1
 Ox=+1,(+2,+3)
 Isotopes=60:106,905:51,9;62:108,905:48,1
+Family=Transition
 
 [48]
 Name=Cadmium
@@ -990,6 +1037,7 @@ AR=148.9
 Orbits=Kr 4d10 5s2
 Ox=+2
 Isotopes=58:105,906:1,215;60:107,904:0,875;68:115,905:7,58
+Family=Transition
 
 [49]
 Name=Indium
@@ -1010,6 +1058,7 @@ IE2=
 AR=162.6
 Orbits=Kr 4d10 5s2 5p1
 Ox=+3,(+1,+2)
+Family=Other_Metal
 
 [50]
 Name=Tin
@@ -1031,6 +1080,7 @@ AR=140.5
 Orbits=Kr 4d10 5s2 5p2
 Ox=+2,+4
 Isotopes=62:111,05:0,9;64:113,903:0,6;65:114,904:0,4;66:115,902:14,1;67:116,903:7,5;68:117,902:24;69:118,903:8,6;70:119,902:33;72:121,903:4,8;74:123,905:6,1
+Family=Other_Metal
 
 [51]
 Name=Antimony
@@ -1052,6 +1102,7 @@ AR=145
 Orbits=Kr 4d10 5s2 5p3
 Ox=(-3),+3,(+5)
 Isotopes=70:120,904:57,25;72:122,904:42,75
+Family=Metalloids
 
 [52]
 Name=Tellurium
@@ -1073,6 +1124,7 @@ AR=143.2
 Orbits=Kr 4d10 5s2 5p4
 Ox=(-2),+4,(+6)
 Isotopes=68:119,904048:0,09;78:129,906229:34,08
+Family=Metalloids
 
 [53]
 Name=Iodine
@@ -1093,6 +1145,7 @@ IE2=
 AR=133.1
 Orbits=Kr 4d10 5s2 5p5
 Ox=-1,(+1,+3,+5,+7)
+Family=Halogene
 
 [54]
 Name=Xenon
@@ -1114,6 +1167,7 @@ AR=218
 Orbits=Kr 4d10 5s2 5p6
 Ox=+4,(+2,+6)
 Isotopes=70:123,906:0,094;72:125,904:0,088;74:127,904:1,9;75:128,905:26,23;76:129,904:4,07;77:130,905:21,17;78:131,904:26,96;80:133,905:10,54;82:135,907:8,95
+Family=Noblegas
 
 [55]
 Name=Caesium
@@ -1134,6 +1188,7 @@ IE2=
 AR=265.5
 Orbits=Xe 6s1
 Ox=+1
+Family=Alkali_Earth
 
 [56]
 Name=Barium
@@ -1155,6 +1210,7 @@ AR=217.3
 Orbits=Xe 6s2
 Ox=+2
 Isotopes=74:129,906:0,101;76:131,905:0,097
+Family=Alkaline_Earth
 
 [57]
 Name=Lanthanum
@@ -1176,6 +1232,7 @@ AR=187.7
 Orbits=Xe 5d1 6s2
 Ox=+3
 Isotopes=81:137,907:0,089;82:138,91:99,911
+Family=Rare_Earth
 
 [58]
 Name=Cerium
@@ -1197,6 +1254,7 @@ AR=182.5
 Orbits=Xe 4f1 5d1 6s2
 Ox=+3,+4
 Isotopes=78:135,907:0,193;80:137,906:0,25;82:139,905:88,46;84:141,909:11,07
+Family=Rare_Earth
 
 [59]
 Name=Praseodymium
@@ -1217,6 +1275,7 @@ IE2=
 AR=182.8
 Orbits=Xe 4f3 6s2
 Ox=+3,+4
+Family=Rare_Earth
 
 [60]
 Name=Neodymium
@@ -1238,6 +1297,7 @@ AR=182.1
 Orbits=Xe 4f4 6s2
 Ox=+3
 Isotopes=82:141,907:27,1;83:142,91:12,2;85:144,912:8,3;86:145,913:17,2;88:147,916:5,72;90:149,921:5,6
+Family=Rare_Earth
 
 [61]
 Name=Promethium
@@ -1258,6 +1318,7 @@ IE2=
 AR=181.0
 Orbits=Xe 4f5 6s2
 Ox=+3
+Family=Rare_Earth
 
 [62]
 Name=Samarium
@@ -1279,6 +1340,7 @@ AR=180.2
 Orbits=Xe 4f6 6s2
 Ox=+2,+3
 Isotopes=82:143,912:3;90:151,919:26;92:153,922:20
+Family=Rare_Earth
 
 [63]
 Name=Europium
@@ -1300,6 +1362,7 @@ AR=204.2
 Orbits=Xe 4f7 6s2
 Ox=+2,+3
 Isotopes=88:150,92:47,7;90:152,921:52,23
+Family=Rare_Earth
 
 
 [64]
@@ -1322,6 +1385,7 @@ AR=180.2
 Orbits=Xe 4f7 5d1 6s2
 Ox=+3
 Isotopes=90:153,921:2,15;91:154,923:14,78;92:155,922:20,59;93:156,924:15,71;94:157,924:24,79;96:159,927:21,79
+Family=Rare_Earth
 
 [65]
 Name=Terbium
@@ -1342,6 +1406,7 @@ IE2=
 AR=178.2
 Orbits=Xe 4f9 6s2
 Ox=+3,+4
+Family=Rare_Earth
 
 [66]
 Name=Dysprosium
@@ -1362,6 +1427,7 @@ IE2=
 AR=177.3
 Orbits=Xe 4f10 6s2
 Ox=+3
+Family=Rare_Earth
 
 [67]
 Name=Holmium
@@ -1382,6 +1448,7 @@ IE2=
 AR=176.6
 Orbits=Xe 4f11 6s2
 Ox=+3
+Family=Rare_Earth
 
 [68]
 Name=Erbium
@@ -1403,6 +1470,7 @@ AR=175.7
 Orbits=Xe 4f12 6s2
 Ox=+3
 Isotopes=94:161,929:0,25;96:163,929:2;102:169,935:10
+Family=Rare_Earth
 
 [69]
 Name=Thulium
@@ -1423,6 +1491,7 @@ IE2=
 AR=174.6
 Orbits=Xe 4f13 6s2
 Ox=+2,+3
+Family=Rare_Earth
 
 [70]
 Name=Ytterbium
@@ -1444,6 +1513,7 @@ AR=194
 Orbits=Xe 4f14 6s2
 Ox=+2,+3
 Isotopes=98:167,934:0,06;106:175,943:13,38
+Family=Rare_Earth
 
 [71]
 Name=Lutetium
@@ -1465,6 +1535,7 @@ AR=173.4
 Orbits=Xe 4f14 5d1 6s2
 Ox=+3
 Isotopes=104:174,941:97,5;105:175,943:2,5
+Family=Rare_Earth
 
 [72]
 Name=Hafnium
@@ -1485,6 +1556,7 @@ IE2=
 AR=156.4
 Orbits=Xe 4f14 5d2 6s2
 Ox=+5
+Family=Transition
 
 [73]
 Name=Tantalum
@@ -1505,6 +1577,7 @@ IE2=
 AR=143
 Orbits=Xe 4f14 5d3 6s2
 Ox=+3,+5
+Family=Transition
 
 [74]
 Name=Tungsten
@@ -1526,6 +1599,7 @@ AR=137.0
 Orbits=Xe 4f14 5d4 6s2
 Ox=(+4), +6
 Isotopes=106:179,947:0,122;112:185,954:29,17
+Family=Transition
 
 [75]
 Name=Rhenium
@@ -1546,6 +1620,7 @@ IE2=
 AR=137.0
 Orbits=Xe 4f14 5d5 6s2
 Ox=+7,+2,+4
+Family=Transition
 
 [76]
 Name=Osmium
@@ -1567,6 +1642,7 @@ AR=135
 Orbits=Xe 4f14 5d6 6s2
 Ox=+4,(+2,+3,+6,+8)
 Isotopes=108:183,953:0,018;116:191,96:41
+Family=Transition
 
 [77]
 Name=Iridium
@@ -1588,6 +1664,7 @@ AR=135.7
 Orbits=Xe 4f14 5d7 6s2
 Ox=+1,+4,(+2,+3,+6)
 Isotopes=114:190,96:38,5;116:192,96:61,5
+Family=Transition
 
 [78]
 Name=Platinum
@@ -1609,6 +1686,7 @@ AR=138
 Orbits=Xe 4f14 5d9 6s1
 Ox=+2,+4
 Isotopes=114:191,96:0,8;120:197,97:7,2
+Family=Transition
 
 [79]
 Name=Gold
@@ -1629,6 +1707,7 @@ IE2=
 AR=144.2
 Orbits=Xe 4f14 5d10 6s1
 Ox=(+1),+3
+Family=Transition
 
 [80]
 Name=Mercury
@@ -1650,6 +1729,7 @@ AR=160
 Orbits=Xe 4f14 5d10 6s2
 Ox=(+1),+2
 Isotopes=116:195,97:0,15;124:203,97:6,72
+Family=Transition
 
 [81]
 Name=Thallium
@@ -1671,6 +1751,7 @@ AR=170.4
 AR=160
 Orbits=Xe 4f14 5d10 6s2 6p1
 Ox=+1,(+3)
+Family=Other_Metal
 
 [82]
 Name=Lead
@@ -1692,6 +1773,7 @@ AR=175
 Orbits=Xe 4f14 5d10 6s2 6p2
 Ox=+2,(+4)
 Isotopes=124:205,97:25,1;125:206,98:21,1;126:207,98:52,4
+Family=Other_Metal
 
 [83]
 Name=Bismuth
@@ -1712,6 +1794,7 @@ IE2=
 AR=155
 Orbits=Xe 4f14 5d10 6s2 6p3
 Ox=+3,(+5)
+Family=Other_Metal
 
 [84]
 Name=Polonium
@@ -1732,6 +1815,7 @@ IE2=
 AR=167.5
 Orbits=Xe 4f14 5d10 6s2 6p4
 Ox=(+2),+4,(+6)
+Family=Metalloids
 
 [85]
 Name=Astatine
@@ -1752,6 +1836,7 @@ IE2=
 AR=
 Orbits=Xe 4f14 5d10 6s2 6p5
 Ox=-1,(1,3,5,7)
+Family=Halogene
 
 [86]
 Name=Radon
@@ -1772,6 +1857,7 @@ IE2=
 AR=
 Orbits=Xe 4f14 5d10 6s2 6p6
 Ox=2
+Family=Noblegas
 
 [87]
 Name=Francium
@@ -1792,6 +1878,7 @@ IE2=
 AR=270
 Orbits=Rd 7s1
 Ox=+1
+Family=Alkali_Earth
 
 [88]
 Name=Radium
@@ -1812,6 +1899,7 @@ IE2=
 AR=223
 Orbits=Rd 7s2
 Ox=+2
+Family=Alkaline_Earth
 
 [89]
 Name=Actinium
@@ -1832,6 +1920,7 @@ IE2=
 AR=187.8
 Orbits=Rd 6d1 7s2
 Ox=(+2),+3
+Family=Rare_Earth
 
 [90]
 Name=Thorium
@@ -1851,6 +1940,7 @@ IE=6.95
 IE2=
 AR=179.8
 Ox=+3,+4
+Family=Rare_Earth
 
 [91]
 Name=Protactinium
@@ -1870,6 +1960,7 @@ IE=NA
 IE2=
 AR=180.6
 Ox=+4,+5
+Family=Rare_Earth
 
 [92]
 Name=Uranium
@@ -1889,6 +1980,7 @@ IE=6.08
 IE2=
 AR=138.5
 Ox=+3,+4,+5,+6,+7
+Family=Rare_Earth
 
 [93]
 Name=Neptunium
@@ -1908,6 +2000,7 @@ IE=
 IE2=
 AR=131
 Ox=+4,+3,+5,+7
+Family=Rare_Earth
 
 [94]
 Name=Plutonium
@@ -1927,6 +2020,7 @@ IE=5.8
 IE2=
 AR=151
 Ox=+3,+4,+5,+6,+7
+Family=Rare_Earth
 
 [95]
 Name=Americium
@@ -1946,6 +2040,7 @@ IE=6.0
 IE2=
 AR=184
 Ox=+2,+3,+4,+5,+6
+Family=Rare_Earth
 
 [96]
 Name=Curium
@@ -1965,6 +2060,7 @@ IE=
 IE2=
 AR=
 Ox=+3,+4
+Family=Rare_Earth
 
 [97]
 Name=Berkelium
@@ -1984,6 +2080,7 @@ IE=
 IE2=
 AR=
 Ox=+3,+4
+Family=Rare_Earth
 
 [98]
 Name=Californium
@@ -2003,6 +2100,7 @@ IE=
 IE2=
 AR=
 Ox=+3,+4
+Family=Rare_Earth
 
 [99]
 Name=Einsteinium
@@ -2022,6 +2120,7 @@ IE=
 IE2=
 AR=
 Ox=+2,+3
+Family=Rare_Earth
 
 [100]
 Name=Fermium
@@ -2041,6 +2140,7 @@ IE=
 IE2=
 AR=
 Ox=+2,+3
+Family=Rare_Earth
 
 [101]
 Name=Mendelevium
@@ -2060,6 +2160,7 @@ IE=
 IE2=
 AR=
 Ox=+2,+3
+Family=Rare_Earth
 
 [102]
 Name=Nobelium
@@ -2079,6 +2180,7 @@ IE=
 IE2=
 AR=
 Ox=+2,+3
+Family=Rare_Earth
 
 [103]
 Name=Lawrencium
@@ -2098,6 +2200,7 @@ IE=
 IE2=
 AR=
 Ox=+3
+Family=Rare_Earth
 
 [104]
 Name=Rutherfordium
@@ -2117,6 +2220,7 @@ IE=
 IE2=
 AR=
 Ox=+3
+Family=Transition
 
 [105]
 Name=Dubnium
@@ -2137,6 +2241,7 @@ IE2=
 AR=
 Orbits=Rn 5f14 6d3 7s2
 Ox=k.A.
+Family=Transition
 
 [106]
 Name=Seaborgium
@@ -2156,6 +2261,7 @@ IE=
 IE2=
 AR=
 Ox=k.A.
+Family=Transition
 
 [107]
 Name=Bohrium
@@ -2175,6 +2281,7 @@ IE=
 IE2=
 AR=
 Ox=k.A.
+Family=Transition
 
 [108]
 Name=Hassium
@@ -2194,6 +2301,7 @@ IE=
 IE2=
 AR=
 Ox=k.A.
+Family=Transition
 
 [109]
 Name=Meitnerium
@@ -2213,6 +2321,7 @@ IE=
 IE2=
 AR=
 Ox=k.A.
+Family=Transition
 
 [110]
 Name=Darmstadtium
@@ -2232,6 +2341,7 @@ IE=
 IE2=
 AR=
 Ox=k.A.
+Family=Transition
 
 [111]
 Name=Roentgenium
@@ -2251,3 +2361,4 @@ IE=
 IE2=
 AR=
 Ox=k.A.
+Family=Transition

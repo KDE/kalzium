@@ -115,6 +115,7 @@ void Kalzium::setupActions()
 	looklist.append(i18n("Show &Groups"));
 	looklist.append(i18n("Show &Blocks"));
 	looklist.append(i18n("Show &Acid Behavior"));
+	looklist.append(i18n("Show &Family"));
 	look_action = new KSelectAction (i18n("&Look"), 0, this, 0, actionCollection(), "look_menu");
 	look_action->setItems(looklist);
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
