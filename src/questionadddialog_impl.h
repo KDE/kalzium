@@ -25,11 +25,10 @@
 #include "quiz.h"
 
 /**
-basic class for the specific PSEs
+This class enables the user to add questions to the quiz
+@short Add userdefined questions to the quiz
 @author Carsten Niehaus
 */
-
-
 class questionAddDialogImpl : public questionAddDialog
 {
 	Q_OBJECT
@@ -39,12 +38,20 @@ class questionAddDialogImpl : public questionAddDialog
 		 */
 		questionAddDialogImpl( QWidget* parent = 0, const char*  name = 0);
 
-		Task *task;
+		answerList m_answers;
+
+		void updateTable();
 
 	public slots:
+		/**
+		 * this slot show a QuizWidget so that the user can test how his Task looks like
+		 * @see QuizWidget
+		 */
 		void slotTestQuestion();
 
-//	private slots:
+		void slotAdjustAnswer( int row, int col );
+
+		void slotAddAnswer();
 };
 		
 

@@ -46,21 +46,37 @@ class Kalzium : public KMainWindow
 		friend class privatedata;
 		privatedata* pd;
 
-		/*
-		 *as of now Kalzium supports three different PSE-types
+		/**
+		 * Kalzium supports three different PSE-types. This is
+		 * the object for one of this types
+		 * @see PSE
 		 */
 		SimplifiedPSE* m_pSimplePSE;
+		/**
+		 * Kalzium supports three different PSE-types. This is
+		 * the object for one of this types
+		 * @see PSE
+		 */
 		RegularPSE* m_pRegularPSE;
+		/**
+		 * Kalzium supports three different PSE-types. This is
+		 * the object for one of this types
+		 * @see PSE
+		 */
 		MendeljevPSE* m_pMendeljevPSE;
 
+		/**
+		 * this pointer returns the currently loaded PSE
+		 * @return the currently used PDE
+		 */
 		PSE* currentPSE() const;
 
 	private:
-		/*
+		/**
 		 * this Pointer points to the current PSE. The pointer
 		 * is updated every time the users chooses a new 
 		 * PSE
-		 **/
+		 */
 		PSE* m_pCurrentPSE;
 			
 		void setupBlockLists( KalziumDataObject *d );
@@ -86,7 +102,7 @@ class Kalzium : public KMainWindow
 		
 	private slots:
 		/**
-		 * this slot schwitches Kalzium to the selected colorscheme
+		 * this slot switches Kalzium to the selected colorscheme
 		 */
 		void slotShowScheme(void);
 
@@ -102,8 +118,23 @@ class Kalzium : public KMainWindow
 		 */
 		void slotSwitchtoPSE(void);
 
+		/**
+		 * start the quiz
+		 */
 		void slotStartQuiz();
+		
+		/**
+		 * this slot starts the questionseditor.
+		 * @see questionEditorImpl
+		 */
 		void slotEditQuestions();
+
+		/**
+		 * this slot starts a dialog in which you can add
+		 * questions for the quiz
+		 * @see questionAddDialogImpl
+		 * @see Quiz
+		 */
 		void slotAddQuestions();
 
 		/**

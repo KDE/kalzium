@@ -23,7 +23,6 @@ kalzium_SOURCES = kalzium.cpp \
 			detail_chemical.ui \
 			detail_energy.ui \
 			slider_widget.ui \
-			searchdialog.ui \
 			quiz.cpp
 kalzium_LDADD   = $(LIB_KDEUI)
 
@@ -53,7 +52,6 @@ EXTRA_DIST = main.cpp \
 		orbitswidget.h \
 		detail_chemical.ui \
 		detail_energy.ui \
-		searchdialog.ui \
 		quiz.cpp \
 		quiz.h
 

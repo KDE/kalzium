@@ -52,7 +52,7 @@ class PSE : public QWidget
 		 @li groups
 		 @li blocks
 		 @li state-of-matter
-		 @li acidic behaviour
+		 @li acidic behavior
 		 */
 		void activateColorScheme( const int nr);
 
@@ -66,7 +66,7 @@ class PSE : public QWidget
 		fBlockList;
 
 		/**
-		 * This method set the color for the buttons coresponding to
+		 * This method set the color for the buttons corresponding to
 		 * the given temperature @p temp
 		 * @param temp is the temperature to which all buttons will be set
 		 */
@@ -100,7 +100,7 @@ class PSE : public QWidget
 		/**
 		 * this method hides all elements which have not been know
 		 * before the @p date.
-		 * @param date is time where the user wants to see wheter
+		 * @param date is time where the user wants to see whether
 		 * or not the element has already been kown
 		 */
 		void setDate( int date );

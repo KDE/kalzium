@@ -43,6 +43,9 @@ class Answer
 		 * @return the text of the answer
 		 */
 		QString answer(){ return m_sentence; }
+		
+		void setAnswer( QString answer ){ m_sentence = answer; }
+
 
 		/**
 		 * @return if the answer was true or false

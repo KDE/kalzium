@@ -62,7 +62,7 @@ Kalzium::Kalzium()
 	/*
 	 * the actions for the colorschemes
 	 **/
-	m_pBehAcidAction = new KAction(i18n("Show &Acid Behaviour"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_acidic");
+	m_pBehAcidAction = new KAction(i18n("Show &Acid Behavior"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_acidic");
 	m_pBehBlocksAction = new KAction(i18n("Show Blocks"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_blocks");
 	m_pBehBlocksAction = new KAction(i18n("Show Groups"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_groups");
 	m_pBehBlocksAction = new KAction(i18n("Show State Of Matter"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_som");
