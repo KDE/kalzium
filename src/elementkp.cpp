@@ -253,15 +253,15 @@ void ElementKP::slotShowData()
 	show_data2->neighbourTable->setTopMargin( 0 );
 	show_data2->neighbourTable->setLeftMargin( 0 );
 
-	getNeighbours( ElemNo );
-	for( int zeile=0 ; zeile < 3 ; zeile++ )
-	{
-		for( int spalte=0 ; spalte < 3 ; spalte++ )
-		{
-			show_data2->neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
-			if (neighbourArray[zeile][spalte] == "leer") show_data2->neighbourTable->setText(zeile,spalte,"");
-		}
-	}
+//	getNeighbours( ElemNo );
+//X 	for( int zeile=0 ; zeile < 3 ; zeile++ )
+//X 	{
+//X 		for( int spalte=0 ; spalte < 3 ; spalte++ )
+//X 		{
+//X 			show_data2->neighbourTable->setText( zeile, spalte, neighbourArray[zeile][spalte] );
+//X 			if (neighbourArray[zeile][spalte] == "leer") show_data2->neighbourTable->setText(zeile,spalte,"");
+//X 		}
+//X 	}
 
 	// click on this button to load webpage for element
 	QObject::connect(show_data2->weblookup, SIGNAL(clicked()), this , SLOT(lookup()));
