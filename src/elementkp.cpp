@@ -22,6 +22,7 @@
 #include <khtml_part.h>
 #include <klocale.h>
 #include <kstatusbar.h>
+#include <kdebug.h>
 #include <kstddirs.h>
 
 //QT-Includes
@@ -36,6 +37,7 @@
 #include <qwhatsthis.h>
 
 #include "elementkp.h"
+#include "eleminfo.h"
 #include "elementkp.moc"
 #include "kalzium.h" 
 
@@ -51,16 +53,17 @@ ElementKP::ElementKP(const QString& text, QWidget *parent, ElementInfo ElemInfo,
 
 void ElementKP::getNeighbours( int Current )
 {
-    for( int z=0 ; z < 3 ; z++ )
-        for( int s=0 ; s < 3 ; s++)
-        {
-            if (z == 0)
-                neighbourArray[z][s]=kalzium->element[Current-20+s]->Data.Symbol;
-            if (z == 1)
-                neighbourArray[z][s]=kalzium->element[Current-2+s]->Data.Symbol;
-            if (z == 2)
-                neighbourArray[z][s]=kalzium->element[Current+16+s]->Data.Symbol;
-        }
+    int Nr=Current, ze=0, sp=0;
+    position(Nr,ze,sp);
+    neighbourArray[0][0]=kalzium->helpArray[sp/40-1][ze/40-2];
+    neighbourArray[0][1]=kalzium->helpArray[sp/40-1][ze/40-1];
+    neighbourArray[0][2]=kalzium->helpArray[sp/40-1][ze/40];
+    neighbourArray[1][0]=kalzium->helpArray[sp/40][ze/40-2];
+    neighbourArray[1][1]=kalzium->helpArray[sp/40][ze/40-1];
+    neighbourArray[1][2]=kalzium->helpArray[sp/40][ze/40];
+    neighbourArray[2][0]=kalzium->helpArray[sp/40+1][ze/40-2];
+    neighbourArray[2][1]=kalzium->helpArray[sp/40+1][ze/40-1];
+    neighbourArray[2][2]=kalzium->helpArray[sp/40+1][ze/40];
 }
 
 //when the mousepointer is over a button

@@ -64,6 +64,8 @@ class Kalzium : public KMainWindow
 
         int numofquestions;
 	    PElementKP element[118];
+        QString helpArray[9][18];
+        void createhelpArray();
         PQLabel labels[18];
         CalcDialog *calculationdialog;
     	Colors_Config_Widget *colorsconfig;

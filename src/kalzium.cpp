@@ -29,6 +29,7 @@
 //KDE-Includes
 #include <kaction.h>
 #include <kapplication.h>
+#include <kdebug.h>
 #include <kconfig.h>
 #include <kdialog.h>
 #include <kedittoolbar.h>
@@ -156,12 +157,30 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
     setCentralWidget(foo);
     
     updateMainWindow();
+    createhelpArray();
 }
 
 Kalzium::~Kalzium()
 {
     for (int n=0; n<118; n++)
         delete element[n];
+}
+
+void Kalzium::createhelpArray()
+{
+    for(int i=0;i<9;i++)
+    {
+        for(int e=0;e<9;e++)
+        {
+            helpArray[i][e]="leer";
+        }
+    }
+    int ze=0,sp=0;
+    for(int as=0;as<118;as++)
+    {
+        position(as,ze,sp);
+        helpArray[sp/40][ze/40]=element[as]->Data.Symbol;
+    }
 }
 
 bool Kalzium::queryClose()
