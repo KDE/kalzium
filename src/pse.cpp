@@ -98,7 +98,6 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 
 void PSE::slotToolTip( int number )
 {
-	kdDebug() << "slotToolTip(): " << number << endl;
 	m_showTooltip = true;
 	m_tooltipElementNumber = number;
 	update();
@@ -340,126 +339,6 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 
 void PSE::drawLegend( QPainter* p )
 {
-//X 	const QColor color_1 = Prefs::group_1();
-//X 	const QColor color_2 = Prefs::group_2();
-//X 	const QColor color_3 = Prefs::group_3();
-//X 	const QColor color_4 = Prefs::group_4();
-//X 	const QColor color_5 = Prefs::group_5();
-//X 	const QColor color_6 = Prefs::group_6();
-//X 	const QColor color_7 = Prefs::group_7();
-//X 	const QColor color_8 = Prefs::group_8();
-//X 
-//X 	const QColor color_s = Prefs::block_s();
-//X 	const QColor color_p = Prefs::block_p();
-//X 	const QColor color_d = Prefs::block_d();
-//X 	const QColor color_f = Prefs::block_f();
-//X 		
-//X 	const QColor color_ba = Prefs::beh_basic();
-//X 	const QColor color_ac = Prefs::beh_acidic();
-//X 	const QColor color_neu = Prefs::beh_neutral();
-//X 	const QColor color_amp = Prefs::beh_amphoteric();
-//X 	
-//X 	const QColor c_liquid = Prefs::color_liquid();
-//X 	const QColor c_solid = Prefs::color_solid();
-//X 	const QColor c_vapor = Prefs::color_vapor();
-//X 	const QColor c_artificial = Prefs::color_artificial();
-//X 	const QColor c_radioactive = Prefs::color_radioactive();
-//X 
-//X 	switch ( scheme ) {
-//X 		case 0:
-//X 			one->hide();
-//X 			two->hide();
-//X 			three->hide();
-//X 			four->hide();
-//X 			five->hide();
-//X 			six->hide();
-//X 			seven->hide();
-//X 			eight->hide();
-//X 			break;
-//X 		case 1:
-//X 			one->show();
-//X 			two->show();
-//X 			three->show();
-//X 			four->show();
-//X 			five->show();
-//X 			six->show();
-//X 			seven->show();
-//X 			eight->show();
-//X 			one->setText( i18n( "Group 1" ) );
-//X 			two->setText( i18n( "Group 2" ) );
-//X 			three->setText( i18n( "Group 3" ) );
-//X 			four->setText( i18n( "Group 4" ) );
-//X 			five->setText( i18n( "Group 5" ) );
-//X 			six->setText( i18n( "Group 6" ) );
-//X 			seven->setText( i18n( "Group 7" ) );
-//X 			eight->setText( i18n( "Group 8" ) );
-//X 			one->setPaletteBackgroundColor( color_1 );
-//X 			two->setPaletteBackgroundColor( color_2 );
-//X 			three->setPaletteBackgroundColor( color_3 );
-//X 			four->setPaletteBackgroundColor( color_4 );
-//X 			five->setPaletteBackgroundColor( color_5 );
-//X 			six->setPaletteBackgroundColor( color_6 );
-//X 			seven->setPaletteBackgroundColor( color_7 );
-//X 			eight->setPaletteBackgroundColor( color_8 );
-//X 			break;
-//X 		case 2:
-//X 			one->setPaletteBackgroundColor( color_s );
-//X 			two->setPaletteBackgroundColor( color_p );
-//X 			three->setPaletteBackgroundColor( color_d );
-//X 			four->setPaletteBackgroundColor( color_f );
-//X 			one->setText( i18n( "s-Block" ) );
-//X 			two->setText( i18n( "p-Block" ) );
-//X 			three->setText( i18n( "d-Block" ) );
-//X 			four->setText( i18n( "f-Block" ) );
-//X 			one->show();
-//X 			two->show();
-//X 			three->show();
-//X 			four->show();
-//X 			five->hide();
-//X 			six->hide();
-//X 			seven->hide();
-//X 			eight->hide();
-//X 			break;
-//X 		case 3:
-//X 			one->setPaletteBackgroundColor( color_ba );
-//X 			two->setPaletteBackgroundColor( color_ac );
-//X 			three->setPaletteBackgroundColor( color_neu );
-//X 			four->setPaletteBackgroundColor( color_amp );
-//X 			one->setText( i18n( "Basic-Block" ) );
-//X 			two->setText( i18n( "Acidic" ) );
-//X 			three->setText( i18n( "Neutral" ) );
-//X 			four->setText( i18n( "Amphoteric" ) );
-//X 			one->show();
-//X 			two->show();
-//X 			three->show();
-//X 			four->show();
-//X 			five->hide();
-//X 			six->hide();
-//X 			seven->hide();
-//X 			eight->hide();
-//X 			break;
-//X 		case 4:
-//X 			one->setPaletteBackgroundColor( c_liquid );
-//X 			two->setPaletteBackgroundColor( c_solid );
-//X 			three->setPaletteBackgroundColor( c_vapor );
-//X 			four->setPaletteBackgroundColor( c_artificial );
-//X 			five->setPaletteBackgroundColor( c_radioactive );
-//X 			one->setText( i18n( "Liquid" ) );
-//X 			two->setText( i18n( "Solid" ) );
-//X 			three->setText( i18n( "Vaporous" ) );
-//X 			four->setText( i18n( "Artificial" ) );
-//X 			five->setText( i18n( "Radioactive" ) );
-//X 			one->show();
-//X 			two->show();
-//X 			three->show();
-//X 			four->show();
-//X 			five->show();
-//X 			six->hide();
-//X 			seven->hide();
-//X 			eight->hide();
-//X 			break;
-//X 	}
-//X 
 }
 
 
@@ -478,8 +357,6 @@ void PSE::drawSOMPSE( QPainter* p )
 
 void PSE::slotTransientLabel( void )
 {
-	kdDebug() << "PSE::slotTransientLabel" << endl;
-
 	int X = mapFromGlobal( QCursor::pos() ).x()/45;
 	int Y = mapFromGlobal( QCursor::pos() ).y()/45;
 	if ( m_isSimple )
@@ -504,6 +381,7 @@ void PSE::slotTransientLabel( void )
 
 void PSE::mouseMoveEvent( QMouseEvent *mouse )
 {
+	update();
 	m_showTooltip = false;
 	HoverTimer.start(  2000, false );
 }
@@ -566,11 +444,6 @@ void PSE::slotUpdatePoint( QPoint point )
 	m_currentPoint = point;
 
 	update();
-}
-
-void PSE::setLearning(bool learningmode)
-{
-		m_learningMode = learningmode;
 }
 
 void PSE::drawPSE( QPainter* p, bool useSimpleView )

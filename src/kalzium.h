@@ -58,8 +58,6 @@ class Kalzium : public KMainWindow
 		 */
 		int date;
 
-		bool m_learningMode;
-
 		InformationWidget *m_info;
 		
 		void showSOMWidgets( bool show );

@@ -49,14 +49,12 @@ class PSE : public QWidget
 		PSE( KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
 		~PSE();
 
-		KalziumDataObject *d;
-
 		enum NUMERATIONTYPE
 		{
-			NO=0,
-			CAS = 1,
-			IUPAC = 2,
-			IUPACOLD = 3
+			NO=0,              //no numeration
+			CAS = 1,           //Chemical Abstract Service
+			IUPAC = 2,         //Intern. Union of Pure and Applied Chemistry
+			IUPACOLD = 3       //old IUPAC numeration
 		};
 
 		/**
@@ -67,6 +65,16 @@ class PSE : public QWidget
 			m_molcalcIsActive = mode;
 		}
 
+		/**
+		 * @return if the the learningmode is active or not
+		 */
+		virtual bool learningMode() const{
+			return m_learningMode;
+		}
+
+		/**
+		 * @return if the the molcalc-Modus is active or not
+		 */
 		virtual bool molcalcMode() const{
 			return m_molcalcIsActive;
 		}
@@ -87,6 +95,7 @@ class PSE : public QWidget
 		 @li blocks
 		 @li state-of-matter
 		 @li acidic behavior
+		 @li family view 
 		 */
 		void activateColorScheme( const int nr);
 
@@ -106,15 +115,21 @@ class PSE : public QWidget
 			m_temperature = temp;
 		}
 
+		/**
+		 * @para simple if true the table will only show the p and s block
+		 */
 		void setPSEType( bool simple ){
 			m_isSimple = simple;
 		}
-		
+
 		///if true the State Of Matter will be shown
 		bool m_showSOM;
 
+		/**
+		 * if true the tooltips will be displayed 
+		 */
 		bool m_showTooltip;
-		
+
 		void activateSOMMode( bool som ){
 			m_showSOM = som;
 		}
@@ -127,21 +142,39 @@ class PSE : public QWidget
 		 */
 		QPtrList<Element> m_PSEElements;
 
+		/**
+		 * activates or deactivates the legend
+		 */
 		void showLegend( bool show ){
 			m_showLegend = show;
 		}
 
-		void setLearning( bool );
-		
+		/**
+		 * activates or deactivates the learningmode
+		 */
+		void setLearning( bool learningmode ){
+			m_learningMode = learningmode;
+		}
+
 
 	private:
-		QTimer TransientTimer, HoverTimer;
-		
+		///Timer used for the tooltop
+		QTimer HoverTimer;
+
+		KalziumDataObject *d;
+
+		///if true the periodic table is in the leraningmode
 		bool m_learningMode;
+
+		///the number of the element the mouse-cursor is over
 		int m_tooltipElementNumber;
 
+		/**
+		 * @return the number of the element at position x/y. If there
+		 * is no element it will return 0
+		 */
 		int ElementNumber( int x, int y );
-		
+
 		/**
 		 * updates the numeration of the PSE
 		 */
@@ -149,9 +182,9 @@ class PSE : public QWidget
 
 		///the currently selected element (the x/y-coordinates)
 		QPoint m_currentPoint;
-		
+
 		void mouseReleaseEvent( QMouseEvent* );
-		
+
 		void mouseMoveEvent( QMouseEvent* );
 
 		///if true the user looks at periods
@@ -159,9 +192,10 @@ class PSE : public QWidget
 
 		QStringList m_IUPAClist;
 		QStringList m_IUPACOLDlist;
-		
+
+		///if the the legend will be displayed
 		bool m_showLegend;
-		
+
 		/**
 		 * this is a short, descriptive name of the PSE
 		 */
@@ -170,11 +204,10 @@ class PSE : public QWidget
 		///the temperature of the table (for the SOM-feature)
 		double m_temperature;
 
+		///if true the pse is drawn in simple mode (s+p block only)
 		bool m_isSimple;
-		
-		/**
-		 * true if the molcalc-mode is active
-		 */
+
+		///true if the molcalc-mode is active
 		bool m_molcalcIsActive;
 
 		/**
@@ -182,58 +215,80 @@ class PSE : public QWidget
 		 */
 		int m_num;
 
-    QPixmap *table;
-    bool doFullDraw;
+		///the internal representation of the table
+		QPixmap *table;
 
-  public slots:
-	/**
-	 * this method hides all elements which have not been know
-	 * before the @p date.
-	 * @param date is time where the user wants to see whether
-	 * or not the element has already been kown
-	 */
-	void setDate( int date );
-		
-void setLearningMode( int horizontal ){
-	  if ( horizontal == 1 )
-		  m_Vertikal = false;
-	  else
-		  m_Vertikal = true;
- }
-
-	void slotTransientLabel();
-	
+		///used for bitBlit. If true the complete table will be drawn
+		bool doFullDraw;
 		
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
+
+		///in this method the tooltops are drawn.
 		virtual void drawToolTip( QPainter *p, Element *e );
+
+		///called if the user resized the table
 		virtual void resizeEvent( QResizeEvent *e );
 
+		///the central place for the drawing of the table
+		virtual void drawPSE( QPainter* p, bool useSimpleView );
+
+		///draw the state of matter
+		virtual void drawSOMPSE( QPainter* p );
+
+		///draw the lengend
+		virtual void drawLegend( QPainter* p );
+
 	public slots:	
+		/**
+		 * this method hides all elements which have not been know
+		 * before the @p date.
+		 * @param date is time where the user wants to see whether
+		 * or not the element has already been kown
+		 */
+		void setDate( int date );
+
+		void setLearningMode( int horizontal ){
+			if ( horizontal == 1 )
+				m_Vertikal = false;
+			else
+				m_Vertikal = true;
+		}
+
+		/**
+		 * start the calculation of the element over which the mouse-cursor
+		 * is over. Finally the siganl ToolTip( int ) is emitted
+		 */
+		void slotTransientLabel();
+		
 		/**
 		 * this slot updates the currently selected point
 		 */
 		void slotUpdatePoint( QPoint point );
 
-	void slotToolTip( int );
+		/**
+		 * sets the current element to @p number, activates
+		 * the tooltipmode and updates the table
+		 */
+		void slotToolTip( int number );
 
 	signals:
 		/**
 		 * this signal is emited when the table is clicked
 		 */
 		void tableClicked(QPoint);
-		
+
 		/**
 		 * this signal is emited when an element is clicked
 		 */
 		void ElementClicked(int);
-		
+
+		/**
+		 * this signal is emited when the tooltip of an element
+		 * has to be displayed
+		 */
 		void ToolTip(int);
 
-	public:
-		virtual void drawPSE( QPainter* p, bool useSimpleView );
-		virtual void drawSOMPSE( QPainter* p );
-		virtual void drawLegend( QPainter* p );
 };
 
 

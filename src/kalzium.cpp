@@ -48,7 +48,6 @@ Kalzium::Kalzium()
 {
 	m_bShowSOM = false;//TODO fix the som
 	m_bShowTimeline = false;//TODO fix the som
-	m_learningMode = false;
 
 	pd = new privatedata( this );
 
@@ -163,14 +162,10 @@ void Kalzium::setupActions()
 
 void Kalzium::slotLearningmode()
 {
-	if ( m_learningMode ){
-		m_learningMode = false;
+	if ( m_PSE->learningMode() )
 		m_PSE->setLearning( false );
-	}
-	else{
-		m_learningMode = true;
+	else
 		m_PSE->setLearning( true );
-	}
 }
 
 void Kalzium::setupStatusBar()
@@ -409,7 +404,7 @@ void Kalzium::showSOMWidgets( bool show )
 
 void Kalzium::openInformationDialog( int number )
 {
-	if ( !m_learningMode )
+	if ( !m_PSE->learningMode() )
 	{
 		Element *e = new Element( number );
 
