@@ -12,6 +12,9 @@
             <height>385</height>
         </rect>
     </property>
+    <property name="caption">
+        <string>setupMisc</string>
+    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -83,6 +86,12 @@
                             <property name="text">
                                 <string>Show energies in kJ/mol (kilojoule per mol)</string>
                             </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Chose the energy unit as kJ/mol (kilojoule per mol)</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Check this if you prefer the energy unit in  kJ/mol (kilojoule per mol). The other choice you have is eV (electronvolt).</string>
+                            </property>
                         </widget>
                         <widget class="QRadioButton" row="1" column="0">
                             <property name="name">
@@ -90,6 +99,12 @@
                             </property>
                             <property name="text">
                                 <string>Show energies in eV (electronvolt)</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Choose the energy unit as eV (electronvolt)</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Check this if you prefer the energy unit in eV (electronvolt). The other choice you have is kJ/mol (kilojoule per mol).</string>
                             </property>
                         </widget>
                     </grid>
@@ -195,4 +210,8 @@
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>knuminput.h</includehint>
+    <includehint>knuminput.h</includehint>
+</includehints>
 </UI>
