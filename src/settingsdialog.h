@@ -69,6 +69,7 @@ class SettingsDialog : public KDialogBase
     public:
         SettingsDialog(QWidget *parent=0, const char *name=0);
         KComboBox *urlSelector;
+        int translateCurrentLang( QString );
     private:
         ColorsTabWidget *colorsTabWidget;
         

@@ -263,6 +263,13 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     urlSelector->insertURL( flagfr, frURL );
     urlSelector->insertURL( flaghu, huURL );
     urlSelector->insertURL( flagnl, nlURL );
+    
+    /*
+     * the next two lines look for the currently set language and set the 
+     * ComboBox to the correct value ( index )
+     */
+    main_config->setGroup("WLU");
+    urlSelector->setCurrentItem( translateCurrentLang( main_config->readEntry( "adress") ) );
 
     // CONNECT
     connect(this, SIGNAL(applyClicked()), this, SLOT(slotApplySettings()));
@@ -270,6 +277,24 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     connect(this, SIGNAL(okClicked()), this, SLOT(slotOkSettings()));
     
 }
+
+int SettingsDialog::translateCurrentLang( QString lang ){
+    if ( lang == "http://www.ktf-split.hr/periodni/gb/")
+        return 0;
+    if ( lang == "http://www.ktf-split.hr/periodni/it/")
+        return 1;
+    if ( lang == "http://www.ktf-split.hr/periodni/de/")
+        return 2;
+    if ( lang == "http://www.ktf-split.hr/periodni/fr/")
+        return 3;
+    if ( lang == "http://www.ktf-split.hr/periodni/")
+        return 4;
+    if ( lang == "http://www.ktf-split.hr/periodni/nl/")
+        return 5;
+}
+
+
+
 
 void SettingsDialog::slotApplySettings()
 {
