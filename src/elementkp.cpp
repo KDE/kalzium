@@ -55,14 +55,18 @@ void ElementKP::getNeighbours( int Current )
 {
     int Nr=Current, ze=0, sp=0;
     position(Nr,ze,sp);
-    neighbourArray[0][0]=kalzium->helpArray[sp/40-1][ze/40-2];
     neighbourArray[0][1]=kalzium->helpArray[sp/40-1][ze/40-1];
-    neighbourArray[0][2]=kalzium->helpArray[sp/40-1][ze/40];
-    neighbourArray[1][0]=kalzium->helpArray[sp/40][ze/40-2];
     neighbourArray[1][1]=kalzium->helpArray[sp/40][ze/40-1];
-    neighbourArray[1][2]=kalzium->helpArray[sp/40][ze/40];
-    neighbourArray[2][0]=kalzium->helpArray[sp/40+1][ze/40-2];
     neighbourArray[2][1]=kalzium->helpArray[sp/40+1][ze/40-1];
+    if ( ze/40 != 17 )
+    {
+	neighbourArray[0][0]=kalzium->helpArray[sp/40-1][ze/40-2];
+	neighbourArray[1][0]=kalzium->helpArray[sp/40][ze/40-2];
+	neighbourArray[2][0]=kalzium->helpArray[sp/40+1][ze/40-2];
+    }
+    if (ze/40 == 0 ) return;
+    neighbourArray[0][2]=kalzium->helpArray[sp/40-1][ze/40];
+    neighbourArray[1][2]=kalzium->helpArray[sp/40][ze/40];
     neighbourArray[2][2]=kalzium->helpArray[sp/40+1][ze/40];
 }
 

@@ -170,7 +170,7 @@ void Kalzium::createhelpArray()
 {
     for(int i=0;i<9;i++)
     {
-        for(int e=0;e<9;e++)
+        for(int e=0;e<18;e++)
         {
             helpArray[i][e]="leer";
         }

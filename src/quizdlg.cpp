@@ -204,8 +204,7 @@ void QuizDlg::setTexts()
 
 bool QuizDlg::wasCorrect( int i )
 {
-    if (QuestioniWasCorrect[i] == true) return TRUE;
-    return FALSE;
+    return QuestioniWasCorrect[i];
 }
 
 //******* Slots ******************************************************

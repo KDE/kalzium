@@ -63,7 +63,7 @@ class Kalzium : public KMainWindow
 	~Kalzium();
 
         int numofquestions;
-	    PElementKP element[118];
+	PElementKP element[118];
         QString helpArray[9][18];
         void createhelpArray();
         PQLabel labels[18];
