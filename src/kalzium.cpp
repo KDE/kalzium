@@ -236,7 +236,7 @@ void Kalzium::showCAS() const
         labels[n]->setText(name);
         labels[n]->setAlignment( Qt::AlignCenter );
         labels[n]->setAutoMask( true );
-        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the the terminology used by the CAS.").arg(name));
+        QWhatsThis::add(labels[n], i18n("This period is called '%1' in the terminology used by the CAS.").arg(name));
         labels[n]->show();
     }
 }
