@@ -22,7 +22,7 @@ static KCmdLineOptions options[] =
 int main(int argc, char **argv)
 {
     KAboutData about("kalzium", I18N_NOOP("Kalzium"), version, description,
-                     KAboutData::License_GPL, "(C) 2003 Carsten Niehaus", 0, 0, "cniehaus@kde.org");
+                     KAboutData::License_GPL, "(C) 2003 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
     about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions( options );
