@@ -102,18 +102,16 @@ void KalziumPlotDialogImpl::startPlotting()
 	KPlotObject *elements = new KPlotObject( "Elements" , "cyan2" , KPlotObject::POINTS, 6, KPlotObject::CIRCLE);
 	double posX = 0.0, posY = 0.0;
 	
-	doubleList *foo;
+	doubleList *ptrDoubleList;
 	int kind = whatKCB->currentItem();
-	foo = dl.at( kind );
-	
-	kdDebug() << "der erste Wert ist: " << *(foo->at( 1 )) << endl;
-	
+	ptrDoubleList= dl.at( kind );
+
 	for ( int i = from ; i < to+1 ; ++i )
 	{
-		getPositions( i , posY , foo );
+		getPositions( i , posY , ptrDoubleList );
 		posX = i;
 		elements->addPoint( new DPoint( posX , posY ) );
-//		kdDebug() << ( int )posX << " " << ( int ) posY << endl;
+		kdDebug() << ( int )posX << " " << ( int ) posY << endl;
 	}
 
 	pw->setLimits(0.0 , to , 0.0 , 200.0 );
@@ -137,14 +135,15 @@ void KalziumPlotDialogImpl::loadData()
 		dl.append( new doubleList );
 	}
 	
-	doubleList *foo = dl.first();
+	doubleList *ptrDoubleList = dl.first();
     for ( QStringList::Iterator strIt = dataKinds.begin() ; strIt != dataKinds.end() ; ++strIt )
 	{
 		for ( int e = 1 ; e < 110 ; ++e )
 		{
 			 config.setGroup(QString::number( e ));
-			 foo->append( config.readDoubleNumEntry( *strIt, -1 ) );
+			 ptrDoubleList->append( config.readDoubleNumEntry( *strIt, -1 ) );
 		}
+		ptrDoubleList = dl.next();
 	}
 }
 
@@ -153,6 +152,44 @@ void KalziumPlotDialogImpl::getPositions( int num , double& y , doubleList *list
 	y = *( liste->at( num ) );
 }
 
+const int KalziumPlotDialogImpl::getMax()
+{
+}
+
 void KalziumPlotDialogImpl::initPlotObjects(){}
+
+void KalziumPlotDialogImpl::keyPressEvent( QKeyEvent *e ) 
+{
+	kdDebug() << "KalziumPlotDialogImpl::keyPressEvent()" << endl;
+	switch ( e->key() ) {
+		case Key_Plus:
+		case Key_Equal:
+			slotZoomIn();
+			break;
+		case Key_Minus:
+		case Key_Underscore:
+			slotZoomOut();
+			break;
+	}
+}
+
+void KalziumPlotDialogImpl::slotZoomIn() 
+{
+	kdDebug() << "KalziumPlotDialogImpl::slotZoomIn()" << endl;
+	if ( pw->x2() > 0.4 ) {
+		pw->setLimits( 0.95*pw->x(), 0.95*pw->x2(), 0.95*pw->y(), 0.95*pw->y2() );
+		pw->update();
+	}
+}
+
+void KalziumPlotDialogImpl::slotZoomOut() 
+{
+	kdDebug() << "KalziumPlotDialogImpl::slotZoomOut()" << endl;
+	if ( pw->x2() < 50.0 ) {
+		pw->setLimits( 1.05*pw->x(), 1.05*pw->x2(), 1.05*pw->y(), 1.05*pw->y2() );
+		pw->update();
+	}
+}
+
 
 #include "kalziumplotdialogimpl.moc"

@@ -35,12 +35,12 @@ class KalziumPlotDialogImpl : public KDialogBase
 
 	public:
 		KalziumPlotDialogImpl( QWidget *parent = 0 , const char *name = 0 );
-	
+
 	private:
 		KListView *elementsKLV;
 		QSpinBox *fromSpin, *toSpin;
 		KComboBox *whatKCB;
-		
+
 		void initPlotObjects();
 		KalziumPlotWidget *pw;
 
@@ -48,17 +48,24 @@ class KalziumPlotDialogImpl : public KDialogBase
 
 		void getPositions( int , double& , doubleList* );
 
+		const int getMax();
+
 		void loadData();
 
 		dlist dl;
-		
+
 
 	protected:
 		virtual void paintEvent(  QPaintEvent* );
-		
+		virtual void keyPressEvent( QKeyEvent *e );
+
+	public slots:
+		void slotZoomIn();
+		void slotZoomOut();
+
 	private slots:
 		void slotUser1();
-		
+
 };
 
 	
