@@ -70,6 +70,7 @@ Kalzium::Kalzium()
 	
 	setupStatusBar();
 	setupActions();
+	displayTemperaturevalue();
 }
 
 void Kalzium::setupActions()
@@ -136,6 +137,7 @@ void Kalzium::setupActions()
 
 	connect( m_pSOMSlider->slider, SIGNAL( valueChanged( int ) ), this, SLOT( slotTempChanged( int ) ) );
 	connect( m_pTimeSlider->pSlider, SIGNAL( valueChanged( int ) ), m_pRegularPSE, SLOT( setDate( int ) ) );
+	m_pSOMSlider->slider->setValue(Prefs::temperaturevalue());
 
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
@@ -158,8 +160,7 @@ void Kalzium::setupStatusBar()
  	statusBar()->setItemAlignment(IDS_ENERG, AlignLeft);
 	displayEnergie();	
  	statusBar()->insertItem("", IDS_TEMPERATURE, 0, false);
- 	statusBar()->setItemAlignment(IDS_TEMPERATURE, AlignLeft);
-	displayTemperaturevalue();	
+ 	statusBar()->setItemAlignment(IDS_TEMPERATURE, AlignLeft);	
 	// fill the statusbar 
 	statusBar()->show();
 }
@@ -295,6 +296,7 @@ void Kalzium::slotUpdateSettings()
 	
 	displayTemperature();
     	displayEnergie();
+	slotTempChanged(Prefs::temperaturevalue() );
     	if ( m_bShowSOM ) displayTemperaturevalue();
 }
 
