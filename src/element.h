@@ -68,6 +68,9 @@ class Element{
 		int date() const { 
 			return m_date; 
 		}
+
+		///return the correct color of the element
+		QColor currentColor( double temp );
     
     /**
      * mutator for the element's color
@@ -252,7 +255,9 @@ class Element{
     /**
      * accessor for the element's color
      */
-    QColor elementColor() const { return m_Color; }
+    QColor elementColor() const { 
+		return m_Color; 
+	}
 
 	private:
 		void setupXY();
@@ -261,8 +266,8 @@ class Element{
 		 * the integer num represents the number of the element
 		 */
 		int m_ElementNumber;
-    QColor m_Color;
-		
+    	
+		QColor m_Color;
 
 		double  m_weight,
 			m_MP, 
@@ -293,6 +298,8 @@ class Element{
 		 * @param showFullInformation if True more information will be shown
 		 */
 		virtual void drawSelf( QPainter* p, bool showFullInformation );
+		
+		virtual void drawStateOfMatter( QPainter* p, double temperature );
 };
 
 

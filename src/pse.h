@@ -26,8 +26,6 @@ class QLabel;
 
 #include "element.h"
 
-typedef QValueList<QLabel*> LabelList;
-
 /**
  * @short basic class for the specific PSEs
  * @author Carsten Niehaus
@@ -97,12 +95,19 @@ class PSE : public QWidget
 		 * the given temperature @p temp
 		 * @param temp is the temperature to which all buttons will be set
 		 */
-		void setTemperature( const double temp );
-
-		bool m_isSimple;
+		void setTemperature( const double temp ){
+			m_temperature = temp;
+		}
 
 		void setPSEType( bool simple ){
 			m_isSimple = simple;
+		}
+		
+		///if true the State Of Matter will be shown
+		bool m_showSOM;
+		
+		void activateSOMMode( bool som ){
+			m_showSOM = som;
 		}
 
 		/**
@@ -127,8 +132,11 @@ class PSE : public QWidget
 		 */
 		QString m_ShortName;
 
-		LabelList lList;
+		///the temperature of the table (for the SOM-feature)
+		double m_temperature;
 
+		bool m_isSimple;
+		
 		/**
 		 * true if the molcalc-mode is active
 		 */
@@ -153,6 +161,7 @@ class PSE : public QWidget
 
 	public:
 		virtual void drawPSE( QPainter* p, bool useSimpleView );
+		virtual void drawSOMPSE( QPainter* p );
 };
 
 #endif

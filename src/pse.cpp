@@ -86,9 +86,6 @@ void PSE::updateNumeration()
 
 void PSE::activateColorScheme( const int nr )
 {
-	//set the temperature to normal conditions
-//X 	setTemperature( 295 );
-//X 	
 	EList::Iterator it = d->ElementList.begin();
 	const EList::Iterator itEnd = d->ElementList.end();
 
@@ -216,8 +213,24 @@ void PSE::paintEvent( QPaintEvent *e )
 {
 	QPainter p;
 	p.begin( this );
-	drawPSE( &p, m_isSimple );
+
+	if ( m_showSOM )
+		drawSOMPSE( &p );
+	else
+		drawPSE( &p, m_isSimple );
 	p.end();
+}
+
+void PSE::drawSOMPSE( QPainter* p )
+{
+	EList::Iterator it = d->ElementList.begin();
+
+	while ( it != d->ElementList.end() )
+	{
+		( *it )->drawStateOfMatter( p, m_temperature );
+		++it;
+	}
+
 }
 
 void PSE::drawPSE( QPainter* p, bool useSimpleView )
@@ -230,41 +243,6 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 		++it;
 	}
 
-}
-
-
-void PSE::setTemperature( const double temp )
-{
-//X 	//Important: The value temp is in Kelvin, not Degree Celsius!
-//X 	
-//X 	{//iterate through all buttons
-//X 		const int az = button->e->az();
-//X 		if ( az == 3 || az == 4 )
-//X 		{ //check if the element is radioactive or artificial
-//X 			if ( az == 3 ) button->setPaletteBackgroundColor(Prefs::color_radioactive() );
-//X 			if ( az == 4 ) button->setPaletteBackgroundColor( Prefs::color_artificial() );
-//X 			continue;
-//X 		}
-//X 
-//X 		double iButton_melting = button->e->melting();
-//X 		double iButton_boiling = button->e->boiling();
-//X 		
-//X 		if ( temp < iButton_melting )
-//X 		{ //the element is solid
-//X 			button->setPaletteBackgroundColor( Prefs::color_solid());
-//X 			continue;
-//X 		}
-//X 		if ( temp > iButton_melting &&
-//X 			temp < iButton_boiling )
-//X 		{ //the element is liquid
-//X 			button->setPaletteBackgroundColor( Prefs::color_liquid() );
-//X 			continue;
-//X 		}
-//X 		if ( temp > iButton_boiling )
-//X 		{ //the element is vaporous
-//X 			button->setPaletteBackgroundColor( Prefs::color_vapor() );
-//X 			continue;
-//X 		}
 }
 
 #include "pse.moc"

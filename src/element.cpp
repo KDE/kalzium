@@ -234,6 +234,79 @@ const QString Element::adjustUnits( const int type )
 	return v;
 }
 
+void Element::drawStateOfMatter( QPainter* p, double temp )
+{
+	//the height of a "line" inside an element
+	int h_small = 15; //the size for the small units like elementnumber
+
+	//The X-coordiante
+	int X = ( x-1 )*ELEMENTSIZE;
+
+	//The Y-coordinate
+	int Y = ( y-1 )*ELEMENTSIZE;
+	
+	QColor color = currentColor( temp );
+	
+	p->setPen( color );
+	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, color );
+	p->drawRoundRect( X+2, Y+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
+	
+	QString text;
+	QFont symbol_font = p->font();
+	symbol_font.setPointSize( 18 );
+	QFont f = p->font();
+	f.setPointSize( 9 );
+		
+	p->setFont( f );
+
+	//top left
+	p->setPen( Qt::black );
+	text = QString::number( strippedWeight( weight( ) ) );
+	p->drawText( X+2,Y ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, text );
+
+	text = QString::number( number() );
+	p->drawText( X + 2,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
+
+	p->setFont( symbol_font );
+	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	
+	//border
+	p->setPen( Qt::black );
+	p->drawRoundRect( X+1, Y+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
+}
+	
+QColor Element::currentColor( double temp )
+{
+	kdDebug() << "currentColor" << endl;
+	QColor color;
+	//take the colours for the given temperature
+	const int _az = az();
+	if ( _az == 3 || _az == 4 )
+	{ //check if the element is radioactive or artificial
+		if ( _az == 3 ) color=Prefs::color_radioactive();
+		if ( _az == 4 ) color=Prefs::color_artificial();
+	}
+
+	double iButton_melting = melting();
+	double iButton_boiling = boiling();
+
+	if ( temp < iButton_melting )
+	{ //the element is solid
+		color= Prefs::color_solid();
+	}
+	if ( temp > iButton_melting &&
+			temp < iButton_boiling )
+	{ //the element is liquid
+		color= Prefs::color_liquid();
+	}
+	if ( temp > iButton_boiling )
+	{ //the element is vaporous
+		color= Prefs::color_vapor();
+	}
+	return color;
+
+}
+
 void Element::drawSelf( QPainter* p, bool useSimpleView )
 {
 	//the height of a "line" inside an element
@@ -263,7 +336,7 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 
 	//The Y-coordinate
 	int Y = ( y-1 )*ELEMENTSIZE;
-	
+
 	p->setPen( elementColor() );
 	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, elementColor() );
 	p->drawRoundRect( X+2, Y+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
@@ -293,10 +366,8 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 }
 
 /*!
-    \fn Element::setupXY()
     This looks pretty evil and it is. The problem is that a PSE is pretty
-    irregular and you cannot "calculate" the position. This means that 
-    every type of PSE need such a complicated list of x/y-pairs...
+    irregular and you cannot "calculate" the position. 
  */
 void Element::setupXY()
 {

@@ -344,24 +344,12 @@ void Kalzium::displayTemperature()
 
 void Kalzium::slotStateOfMatter()
 {
-	kdDebug() << "Kalzium::slotStateOfMatter()" << endl;
-
-	if ( m_bShowSOM )
-		m_bShowSOM = false;
-	else
-		m_bShowSOM = true;
+	m_PSE->activateSOMMode( m_bShowSOM );
 	
 	Prefs::setShowsom( m_bShowSOM ); 
 	Prefs::writeConfig();
-	
-	if ( m_bShowSOM )
-	{
-		showSOMWidgets( true );
-	}
-	else
-	{
-		slotShowScheme( Prefs::colorschemebox() );
-	}
+
+	showSOMWidgets( m_bShowSOM );
 }
 
 
@@ -383,10 +371,11 @@ void Kalzium::showSOMWidgets( bool show )
 		slotStatusBar( "", IDS_TEMPERATURE );
 		m_pSOMAction->setText( i18n( "&Show State of Matter" ));			
 	}
+	m_PSE->update();
 }
+
 void Kalzium::slotTempChanged( int temperature )
 {
-	kdDebug() << "slotTempChanged(), Temperature: " << temperature << endl;
 	double tempTemp=temperature;
  	switch (Prefs::temperature()) {
      		case 0:
@@ -400,7 +389,8 @@ void Kalzium::slotTempChanged( int temperature )
  			break;
  	}
 	//This is in Kelvin
-	m_PSE->setTemperature( temperature );
+	m_PSE->setTemperature( tempTemp );
+	m_PSE->update();
 
 	slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg(tempTemp), IDS_TEMPERATURE );
 
