@@ -40,6 +40,7 @@ class QString;
 
 class KConfig;
 class KSelectAction;
+class KColorButton;
 class KToggleAction;
 
 class CalcDialog;
@@ -70,6 +71,7 @@ class Kalzium : public KMainWindow
 		Colors_Config_Widget *colorsconfig;
 		KSelectAction *numerationmenu, *psestylemenu, *colorschememenu, *weblookupmenu;
 		StateOfMatterDlg *templookup;
+        KColorButton *one, *two, *three, *four, *five;
 
 	private:
 		PQLabel labels[18];
@@ -117,6 +119,7 @@ class Kalzium : public KMainWindow
 		public slots:
 
 			void changeColorScheme(int id=-1);
+            void changeLegend(int id=-1);
 
 		private slots:
 

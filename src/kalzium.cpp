@@ -156,15 +156,16 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 
 	main_config->setGroup( "Colors" );
 
-	KColorButton *acidbutton = new KColorButton( foo );
-	KColorButton *amphobutton = new KColorButton( foo );
-	KColorButton *basebutton = new KColorButton( foo );
-    acidbutton->setColor(QColor(main_config->readColorEntry("acidic")));
-    amphobutton->setColor(QColor(main_config->readColorEntry("amphoteric")));
-    basebutton->setColor(QColor(main_config->readColorEntry("basic")));
-	legend_layout->addWidget( acidbutton );
-	legend_layout->addWidget( amphobutton );
-	legend_layout->addWidget( basebutton );
+	one = new KColorButton( foo );
+	two = new KColorButton( foo );
+	three = new KColorButton( foo );
+	four = new KColorButton( foo );
+	five = new KColorButton( foo );
+	legend_layout->addWidget( one );
+	legend_layout->addWidget( two );
+	legend_layout->addWidget( three );
+	legend_layout->addWidget( four );
+	legend_layout->addWidget( five );
 	legend_layout->addStretch();
 	
 //neuer Kram heute morgen
@@ -262,6 +263,43 @@ void Kalzium::changeColorScheme(int id)
     (this->*funcs[id & ~3 ? 3 : id])();
 }
 
+void Kalzium::changeLegend(int id)
+{
+    main_config->setGroup("Colors");
+    if (id == 0) //Acid Behaviours
+    {
+    one->setColor(QColor(main_config->readColorEntry("acidic")));
+    two->setColor(QColor(main_config->readColorEntry("amphoteric")));
+    three->setColor(QColor(main_config->readColorEntry("basic")));
+    four->setColor(QColor(main_config->readColorEntry("neitherofthem")));
+    five->hide();
+    }
+    if (id == 1) //Blocks
+    {
+    one->setColor(QColor(main_config->readColorEntry("s")));
+    two->setColor(QColor(main_config->readColorEntry("p")));
+    three->setColor(QColor(main_config->readColorEntry("d")));
+    four->setColor(QColor(main_config->readColorEntry("f")));
+    five->hide();
+    }
+  /*  if (id == 2) //Groups
+    {
+        one->hide();
+        two->hide();
+        three->hide();
+        four->hide();
+        five->hide();
+    }**/
+    if (id == 3) //State of Matter
+    {
+    one->setColor(QColor(main_config->readColorEntry("liquid")));
+    two->setColor(QColor(main_config->readColorEntry("solid")));
+    three->setColor(QColor(main_config->readColorEntry("vapor")));
+    four->setColor(QColor(main_config->readColorEntry("artificial")));
+    five->setColor(QColor(main_config->readColorEntry("radioactive")));
+    five->show();
+    }
+}
 void Kalzium::changeNumeration(int id) const 
 {
     switch (id) {
@@ -576,6 +614,7 @@ void Kalzium::setupActions()
     colorschememenu->setItems(colorschemelist);
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(updateColorMenu(int)));
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(changeColorScheme(int)));
+    connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(changeLegend(int)));
     colorschememenu->setCurrentItem(main_config->readNumEntry("colorschememenu"));
     
     // BEGIN NUMERATIONMENU
@@ -611,6 +650,7 @@ void Kalzium::setupActions()
 void Kalzium::updateMainWindow()
 {
     changeColorScheme(colorschememenu->currentItem());
+    changeLegend(colorschememenu->currentItem());
     changeNumeration(numerationmenu->currentItem());
     showPseStyle(psestylemenu->currentItem());
     slotShowTimeline(timelineToggleAction->isChecked());
