@@ -661,7 +661,7 @@ void Kalzium::setupActions()
     colorschemelist.append( i18n("Blocks"));
     colorschemelist.append( i18n("Groups"));
     colorschemelist.append( i18n("State of Matter"));
-    colorschememenu = new KSelectAction(i18n("&Color scheme"),0,actionCollection(), "colorscheme");
+    colorschememenu = new KSelectAction(i18n("&Color Scheme"),0,actionCollection(), "colorscheme");
     colorschememenu->setItems(colorschemelist);
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(updateColorMenu(int)));
     connect(colorschememenu, SIGNAL(activated(int)), this, SLOT(changeColorScheme(int)));

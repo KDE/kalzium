@@ -70,21 +70,17 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	titletext->setFont(QFont("helvetica", 20, QFont::Bold));
 	tempgrid->addMultiCellWidget(titletext , 0 , 0 , 0 , 2 , Qt::AlignCenter );
 
-	QLabel *info = new QLabel( this );
-	info->setText(i18n("The colors indicate:"));
+	QLabel *info = new QLabel( i18n("The colors indicate:"), this );
 	info->setFont(QFont("helvetica", 12, QFont::Bold));
 	tempgrid->addMultiCellWidget(info , 1 , 1 , 1 , 2 , Qt::AlignCenter );
 
-	QLabel *solinfo = new QLabel( this );
-	solinfo->setText(i18n("solid:"));
+	QLabel *solinfo = new QLabel( i18n("solid:"),this );
 	tempgrid->addWidget(solinfo , 2 , 1 , Qt::AlignRight );
 
-	QLabel *liqinfo = new QLabel( this );
-	liqinfo->setText(i18n("liquid:"));
+	QLabel *liqinfo = new QLabel( i18n("liquid:"), this );
 	tempgrid->addWidget(liqinfo , 3 , 1 , Qt::AlignRight );
 
-	QLabel *gasinfo = new QLabel( this );
-	gasinfo->setText(i18n("gas:"));
+	QLabel *gasinfo = new QLabel(("gas:"), this );
 	tempgrid->addWidget(gasinfo , 4 , 1 , Qt::AlignRight );
 	
     QLabel *artiinfo = new QLabel( i18n("artificial"), this );

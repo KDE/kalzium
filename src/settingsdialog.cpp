@@ -45,13 +45,13 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     Acid = new QWidget(this);       
     acid_layout = new QGridLayout(Acid,5,2);
     acid_layout->setAutoAdd(TRUE);
-    acidic = new QLabel("acidic", Acid); 
+    acidic = new QLabel(i18n( "acidic" ), Acid); 
     acidic_b = new KColorButton(Acid); 
-    basic = new QLabel("basic", Acid); 
+    basic = new QLabel(i18n( "basic" ), Acid); 
     basic_b = new KColorButton(Acid); 
-    amphoteric = new QLabel("amphoteric", Acid); 
+    amphoteric = new QLabel(i18n( "amphoteric" ), Acid); 
     amphoteric_b = new KColorButton(Acid); 
-    neitherofthem = new QLabel("neither of them", Acid); 
+    neitherofthem = new QLabel(i18n( "neutral" ), Acid); 
     neitherofthem_b = new KColorButton(Acid);
     acid_layout->setRowStretch(4,1);
    
@@ -59,13 +59,13 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     Blocks = new QWidget(this);       
     blocks_layout = new QGridLayout(Blocks,5,2);
     blocks_layout->setAutoAdd(TRUE);
-    s = new QLabel("s", Blocks); 
+    s = new QLabel(i18n( "s" ), Blocks); 
     s_b = new KColorButton(Blocks); 
-    p = new QLabel("p", Blocks); 
+    p = new QLabel(i18n( "p" ), Blocks); 
     p_b = new KColorButton(Blocks); 
-    d = new QLabel("d", Blocks); 
+    d = new QLabel(i18n( "d" ), Blocks); 
     d_b = new KColorButton(Blocks); 
-    f = new QLabel("f", Blocks); 
+    f = new QLabel(i18n( "f" ), Blocks); 
     f_b = new KColorButton(Blocks); 
     blocks_layout->setRowStretch(4,1);
 
@@ -73,21 +73,21 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     Groups = new QWidget(this);       
     groups_layout = new QGridLayout(Groups,9,2);
     groups_layout->setAutoAdd(TRUE);
-    Group1 = new QLabel("Group 1", Groups); 
+    Group1 = new QLabel(i18n( "Group 1" ), Groups); 
     Group1_b = new KColorButton(Groups); 
-    Group2  = new QLabel("Group 2", Groups); 
+    Group2  = new QLabel(i18n( "Group 2" ), Groups); 
     Group2_b = new KColorButton(Groups); 
-    Group3 = new QLabel("Group 3", Groups); 
+    Group3 = new QLabel(i18n( "Group 3" ), Groups); 
     Group3_b = new KColorButton(Groups); 
-    Group4 = new QLabel("Group 4", Groups); 
+    Group4 = new QLabel(i18n( "Group 4" ), Groups); 
     Group4_b = new KColorButton(Groups); 
-    Group5 = new QLabel("Group 5", Groups); 
+    Group5 = new QLabel(i18n( "Group 5" ), Groups); 
     Group5_b = new KColorButton(Groups); 
-    Group6 = new QLabel("Group 6", Groups); 
+    Group6 = new QLabel(i18n( "Group 6" ), Groups); 
     Group6_b = new KColorButton(Groups); 
-    Group7 = new QLabel("Group 7", Groups); 
+    Group7 = new QLabel(i18n( "Group 7" ), Groups); 
     Group7_b = new KColorButton(Groups); 
-    Group8 = new QLabel("Group 8", Groups); 
+    Group8 = new QLabel(i18n( "Group 8" ), Groups); 
     Group8_b = new KColorButton(Groups); 
     groups_layout->setRowStretch(8,1);
     
@@ -95,15 +95,15 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     Stateofmatters = new QWidget(this);       
     stateofmatters_layout = new QGridLayout(Stateofmatters,6,2);
     stateofmatters_layout->setAutoAdd(TRUE);
-    liquid = new QLabel("liquid", Stateofmatters); 
+    liquid = new QLabel(i18n( "liquid" ), Stateofmatters); 
     liquid_b = new KColorButton(Stateofmatters); 
-    solid = new QLabel("solid", Stateofmatters); 
+    solid = new QLabel(i18n( "solid" ), Stateofmatters); 
     solid_b = new KColorButton(Stateofmatters); 
-    vapor = new QLabel("vapor", Stateofmatters); 
+    vapor = new QLabel(i18n( "vapor" ), Stateofmatters); 
     vapor_b = new KColorButton(Stateofmatters); 
-    radioactive = new QLabel("radioactive", Stateofmatters); 
+    radioactive = new QLabel(i18n( "radioactive" ), Stateofmatters); 
     radioactive_b = new KColorButton(Stateofmatters); 
-    artificial = new QLabel("artificial", Stateofmatters); 
+    artificial = new QLabel(i18n( "artificial" ), Stateofmatters); 
     artificial_b = new KColorButton(Stateofmatters); 
     stateofmatters_layout->setRowStretch(5,1);
     
@@ -134,10 +134,10 @@ ColorsTabWidget::ColorsTabWidget(QWidget *parent, const char *name)
     artificial_b->setColor(QColor(main_config->readColorEntry("artificial")));
     
     // add Tabs
-    addTab(Acid, "Acid Behaviours");
-    addTab(Groups, "Groups"); 
-    addTab(Blocks, "Blocks");
-    addTab(Stateofmatters, "State of Matters");
+    addTab(Acid, i18n( "Acid Behaviours" ));
+    addTab(Groups, i18n( "Groups" )); 
+    addTab(Blocks, i18n( "Blocks" ));
+    addTab(Stateofmatters, i18n( "State of Matters" ));
 }
 
 void ColorsTabWidget::setDefaultColors()
