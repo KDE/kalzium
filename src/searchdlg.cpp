@@ -49,6 +49,7 @@ SearchDlg::SearchDlg (QWidget *parent, const char *name, bool modal )
 	StringLists.append(	MPList);
 	StringLists.append(	BPList);
 	StringLists.append(	IEList);
+	StringLists.append(	IE2List);
 	StringLists.append(	ARList);
 	StringLists.append(	OxidationList);
 
@@ -71,6 +72,7 @@ void SearchDlg::fillCheckBoxList()
 	checkBoxes.append( checkBox12 );
 	checkBoxes.append( checkBox13 );
 	checkBoxes.append( checkBox14 );
+	checkBoxes.append( checkBox15 );
 }
 
 void SearchDlg::fillDataStringLists()
@@ -91,6 +93,7 @@ void SearchDlg::fillDataStringLists()
 		BPList.append( config.readEntry( "BP", "Unknown" ) );
 		MPList.append( config.readEntry( "MP", "Unknown" ) );
 		IEList.append( config.readEntry( "IE", "Unknown" ) );
+		IE2List.append( config.readEntry( "IE2", "Unknown" ) );
 		WeightList.append( config.readEntry( "Weight", "Unknown" ) );
 		DensityList.append( config.readEntry( "Density", "Unknown" ) );
 	}

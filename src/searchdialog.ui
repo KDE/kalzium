@@ -18,403 +18,1348 @@
     <property name="sizeGripEnabled">
         <bool>true</bool>
     </property>
-    <grid>
+    <widget class="Line">
         <property name="name">
-            <cstring>unnamed</cstring>
+            <cstring>line2</cstring>
         </property>
-        <widget class="QLayoutWidget" row="0" column="0">
+        <property name="geometry">
+            <rect>
+                <x>595</x>
+                <y>12</y>
+                <width>16</width>
+                <height>632</height>
+            </rect>
+        </property>
+        <property name="frameShape">
+            <enum>VLine</enum>
+        </property>
+        <property name="frameShadow">
+            <enum>Sunken</enum>
+        </property>
+        <property name="orientation">
+            <enum>Vertical</enum>
+        </property>
+    </widget>
+    <widget class="QLayoutWidget">
+        <property name="name">
+            <cstring>layout8</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>605</x>
+                <y>10</y>
+                <width>210</width>
+                <height>658</height>
+            </rect>
+        </property>
+        <vbox>
             <property name="name">
-                <cstring>layout6</cstring>
+                <cstring>unnamed</cstring>
             </property>
-            <hbox>
+            <widget class="QLayoutWidget">
                 <property name="name">
-                    <cstring>unnamed</cstring>
+                    <cstring>layout7</cstring>
                 </property>
-                <widget class="QLayoutWidget">
+                <vbox>
                     <property name="name">
-                        <cstring>layout5</cstring>
+                        <cstring>unnamed</cstring>
                     </property>
-                    <vbox>
+                    <widget class="QCheckBox">
                         <property name="name">
-                            <cstring>unnamed</cstring>
+                            <cstring>checkBox1</cstring>
                         </property>
-                        <widget class="QTable">
-                            <column>
-                                <property name="text">
-                                    <string>Name</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>Symbol</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>Weight [u]</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>EN</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>Density [g/cm³]</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>Orbits</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>Block</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>Ac.Beh.</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>Groups</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>MP [°C]</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>BP [°C]</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>Ion.En. [kJ/mol]</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>AR [pm]</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>Oxidation</string>
-                                </property>
-                            </column>
-                            <property name="name">
-                                <cstring>DataTable</cstring>
-                            </property>
-                            <property name="numRows">
-                                <number>110</number>
-                            </property>
-                            <property name="numCols">
-                                <number>14</number>
-                            </property>
-                            <property name="columnMovingEnabled">
-                                <bool>false</bool>
-                            </property>
-                            <property name="readOnly">
-                                <bool>true</bool>
-                            </property>
-                        </widget>
-                        <widget class="QLayoutWidget">
-                            <property name="name">
-                                <cstring>layout5</cstring>
-                            </property>
-                            <hbox>
-                                <property name="name">
-                                    <cstring>unnamed</cstring>
-                                </property>
-                                <widget class="QPushButton">
-                                    <property name="name">
-                                        <cstring>buttonOk</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>&amp;OK</string>
-                                    </property>
-                                    <property name="accel">
-                                        <string></string>
-                                    </property>
-                                    <property name="autoDefault">
-                                        <bool>true</bool>
-                                    </property>
-                                    <property name="default">
-                                        <bool>true</bool>
-                                    </property>
-                                </widget>
-                                <spacer>
-                                    <property name="name">
-                                        <cstring>spacer2_2</cstring>
-                                    </property>
-                                    <property name="orientation">
-                                        <enum>Horizontal</enum>
-                                    </property>
-                                    <property name="sizeType">
-                                        <enum>Expanding</enum>
-                                    </property>
-                                    <property name="sizeHint">
-                                        <size>
-                                            <width>51</width>
-                                            <height>20</height>
-                                        </size>
-                                    </property>
-                                </spacer>
-                                <widget class="QPushButton">
-                                    <property name="name">
-                                        <cstring>buttonExport</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>&amp;Export Data</string>
-                                    </property>
-                                    <property name="accel">
-                                        <string>Alt+E</string>
-                                    </property>
-                                    <property name="autoDefault">
-                                        <bool>true</bool>
-                                    </property>
-                                </widget>
-                            </hbox>
-                        </widget>
-                    </vbox>
-                </widget>
-                <widget class="Line">
-                    <property name="name">
-                        <cstring>line2</cstring>
-                    </property>
-                    <property name="frameShape">
-                        <enum>VLine</enum>
-                    </property>
-                    <property name="frameShadow">
-                        <enum>Sunken</enum>
-                    </property>
-                    <property name="orientation">
-                        <enum>Vertical</enum>
-                    </property>
-                </widget>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layout4</cstring>
-                    </property>
-                    <vbox>
+                        <property name="text">
+                            <string>Name</string>
+                        </property>
+                        <property name="checked">
+                            <bool>true</bool>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
                         <property name="name">
-                            <cstring>unnamed</cstring>
+                            <cstring>checkBox2</cstring>
                         </property>
-                        <widget class="QLayoutWidget">
-                            <property name="name">
-                                <cstring>layout5</cstring>
-                            </property>
-                            <vbox>
-                                <property name="name">
-                                    <cstring>unnamed</cstring>
-                                </property>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox1</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Name</string>
-                                    </property>
-                                    <property name="checked">
-                                        <bool>true</bool>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox2</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Symbol</string>
-                                    </property>
-                                    <property name="checked">
-                                        <bool>true</bool>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox3</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Weight</string>
-                                    </property>
-                                    <property name="checked">
-                                        <bool>true</bool>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox4</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Electronegativity</string>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox5</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Density</string>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox6</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Orbits</string>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox7</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Block</string>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox8</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Acidic Behavior</string>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox9</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Group</string>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox10</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Melting point</string>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox11</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Boiling point</string>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox12</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Ionization energy</string>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox13</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Atom radius</string>
-                                    </property>
-                                </widget>
-                                <widget class="QCheckBox">
-                                    <property name="name">
-                                        <cstring>checkBox14</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Oxydationstages</string>
-                                    </property>
-                                </widget>
-                            </vbox>
-                        </widget>
-                        <widget class="QLayoutWidget">
-                            <property name="name">
-                                <cstring>layout7</cstring>
-                            </property>
-                            <vbox>
-                                <property name="name">
-                                    <cstring>unnamed</cstring>
-                                </property>
-                                <widget class="QLabel">
-                                    <property name="name">
-                                        <cstring>textLabel1</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Range:</string>
-                                    </property>
-                                </widget>
-                                <widget class="KLineEdit">
-                                    <property name="name">
-                                        <cstring>RangeLE</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>1-110</string>
-                                    </property>
-                                    <property name="toolTip" stdset="0">
-                                        <string>You can enter a range here. For example 1-9;20;34-48 will show you the corresponding elements</string>
-                                    </property>
-                                </widget>
-                                <widget class="KComboBox">
-                                    <item>
-                                        <property name="text">
-                                            <string>Show</string>
-                                        </property>
-                                    </item>
-                                    <item>
-                                        <property name="text">
-                                            <string>Hide</string>
-                                        </property>
-                                    </item>
-                                    <property name="name">
-                                        <cstring>ShowHideCB</cstring>
-                                    </property>
-                                </widget>
-                            </vbox>
-                        </widget>
-                        <spacer>
-                            <property name="name">
-                                <cstring>spacer2</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Vertical</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>20</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                        <widget class="KPushButton">
-                            <property name="name">
-                                <cstring>ApplyButton</cstring>
-                            </property>
+                        <property name="text">
+                            <string>Symbol</string>
+                        </property>
+                        <property name="checked">
+                            <bool>true</bool>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox3</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Weight</string>
+                        </property>
+                        <property name="checked">
+                            <bool>true</bool>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox4</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Electronegativity</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox5</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Density</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox6</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Orbits</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox7</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Block</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox8</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Acidic Behavior</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox9</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Group</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox10</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Melting point</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox11</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Boiling point</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox13</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Atom radius</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox14</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Oxydationstages</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox12</cstring>
+                        </property>
+                        <property name="text">
+                            <string>First Ionization energy</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>checkBox15</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Second Ionization energie</string>
+                        </property>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget class="QLayoutWidget">
+                <property name="name">
+                    <cstring>layout7</cstring>
+                </property>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>textLabel1</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Range:</string>
+                        </property>
+                    </widget>
+                    <widget class="KLineEdit">
+                        <property name="name">
+                            <cstring>RangeLE</cstring>
+                        </property>
+                        <property name="text">
+                            <string>1-110</string>
+                        </property>
+                        <property name="toolTip" stdset="0">
+                            <string>You can enter a range here. For example 1-9;20;34-48 will show you the corresponding elements</string>
+                        </property>
+                    </widget>
+                    <widget class="KComboBox">
+                        <item>
                             <property name="text">
-                                <string>Apply</string>
+                                <string>Show</string>
                             </property>
-                        </widget>
-                    </vbox>
-                </widget>
-            </hbox>
-        </widget>
-    </grid>
+                        </item>
+                        <item>
+                            <property name="text">
+                                <string>Hide</string>
+                            </property>
+                        </item>
+                        <property name="name">
+                            <cstring>ShowHideCB</cstring>
+                        </property>
+                    </widget>
+                </vbox>
+            </widget>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer2</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Vertical</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>20</width>
+                        <height>155</height>
+                    </size>
+                </property>
+            </spacer>
+            <widget class="KPushButton">
+                <property name="name">
+                    <cstring>ApplyButton</cstring>
+                </property>
+                <property name="text">
+                    <string>Apply</string>
+                </property>
+            </widget>
+        </vbox>
+    </widget>
+    <widget class="QLayoutWidget">
+        <property name="name">
+            <cstring>layout5</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>10</y>
+                <width>577</width>
+                <height>632</height>
+            </rect>
+        </property>
+        <vbox>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <widget class="QTable">
+                <column>
+                    <property name="text">
+                        <string>Name</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Symbol</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Weight [u]</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>EN</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Density [g/cm³]</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Orbits</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Block</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Ac.Beh.</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Groups</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>MP [°C]</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>BP [°C]</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Ion.En. [kJ/mol]</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>AR [pm]</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Oxidation</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>2. Ion.En. [kJ/mol]</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <row>
+                    <property name="text">
+                        <string>1</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>2</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>3</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>4</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>5</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>6</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>7</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>8</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>9</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>10</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>11</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>12</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>13</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>14</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>15</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>16</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>17</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>18</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>19</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>20</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>21</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>22</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>23</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>24</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>25</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>26</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>27</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>28</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>29</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>30</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>31</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>32</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>33</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>34</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>35</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>36</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>37</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>38</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>39</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>40</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>41</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>42</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>43</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>44</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>45</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>46</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>47</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>48</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>49</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>50</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>51</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>52</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>53</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>54</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>55</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>56</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>57</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>58</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>59</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>60</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>61</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>62</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>63</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>64</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>65</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>66</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>67</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>68</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>69</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>70</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>71</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>72</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>73</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>74</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>75</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>76</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>77</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>78</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>79</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>80</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>81</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>82</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>83</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>84</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>85</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>86</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>87</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>88</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>89</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>90</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>91</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>92</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>93</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>94</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>95</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>96</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>97</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>98</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>99</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>100</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>101</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>102</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>103</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>104</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>105</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>106</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>107</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>108</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>109</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <row>
+                    <property name="text">
+                        <string>110</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </row>
+                <property name="name">
+                    <cstring>DataTable</cstring>
+                </property>
+                <property name="numRows">
+                    <number>110</number>
+                </property>
+                <property name="numCols">
+                    <number>15</number>
+                </property>
+                <property name="columnMovingEnabled">
+                    <bool>false</bool>
+                </property>
+                <property name="readOnly">
+                    <bool>true</bool>
+                </property>
+            </widget>
+            <widget class="QLayoutWidget">
+                <property name="name">
+                    <cstring>layout5</cstring>
+                </property>
+                <hbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QPushButton">
+                        <property name="name">
+                            <cstring>buttonOk</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&amp;OK</string>
+                        </property>
+                        <property name="accel">
+                            <string></string>
+                        </property>
+                        <property name="autoDefault">
+                            <bool>true</bool>
+                        </property>
+                        <property name="default">
+                            <bool>true</bool>
+                        </property>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer2_2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>51</width>
+                                <height>20</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QPushButton">
+                        <property name="name">
+                            <cstring>buttonExport</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&amp;Export Data</string>
+                        </property>
+                        <property name="accel">
+                            <string>Alt+E</string>
+                        </property>
+                        <property name="autoDefault">
+                            <bool>true</bool>
+                        </property>
+                    </widget>
+                </hbox>
+            </widget>
+        </vbox>
+    </widget>
 </widget>
-<customwidgets>
-</customwidgets>
 <connections>
     <connection>
         <sender>buttonExport</sender>
@@ -445,6 +1390,7 @@
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>klineedit.h</includehint>
+    <includehint>kcombobox.h</includehint>
     <includehint>kpushbutton.h</includehint>
 </includehints>
 </UI>

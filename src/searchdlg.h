@@ -50,6 +50,7 @@ class SearchDlg : public SearchDialogUI
 					orbitList,
 					OxidationList,
 					IEList,
+					IE2List,
 					ARList,
 					ENList,
 					BPList,
