@@ -259,11 +259,9 @@ void QuizDlg::slotCheck()
 	    resultTable->setReadOnly( true );
 	    resultTable->setColumnStretchable( 0 , true );
 	    resultTable->setColumnStretchable( 1 , true );
-	    resultTable->adjustColumn( 0 );
-	    resultTable->adjustColumn( 1 );
 		resultTable->setTopMargin( 0 );
 		resultTable->setLeftMargin( 0 );
-            grid->addWidget( resultTable, 1 , 0 );
+        grid->addWidget( resultTable, 1 , 0 );
 
 	    QPixmap good = SmallIcon("apply");
 	    QPixmap bad  = SmallIcon("cancel");
@@ -279,6 +277,7 @@ void QuizDlg::slotCheck()
 	    KSimpleConfig quizconfig (locate("data", "kalzium/kalziumrc"));
 	    for ( int i = 0 ; i < qnum ; i++ )
 	    {
+            resultTable->setRowStretchable( i+1 , true );
     		quizconfig.setGroup("q"+QString::number(order[i]));
 		
     		QString ques, answ;

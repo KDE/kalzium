@@ -51,7 +51,7 @@ class QuizDlg : public KDialog  {
 
         
         void increaseIfCorrect( int );
-    	bool QuestioniWasCorrect[10]; //FIXME s/10/numofquestions
+    	bool QuestioniWasCorrect[20]; //FIXME s/10/numofquestions
 	                              //but I don't know, how...
         void setTexts();
     	bool wasCorrect( int ) const;
