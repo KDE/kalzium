@@ -353,11 +353,6 @@ void Kalzium::updateTimeMenu(int id)
     timelinemenu->setCurrentItem(id);
 }
 
-void Kalzium::updateWeblookupMenu(int id)
-{
-    weblookupmenu->setCurrentItem(id);
-}
-
 void Kalzium::changeColourScheme(int id) 
 {
     static void (Kalzium::*funcs[])() = {
@@ -401,13 +396,6 @@ void Kalzium::slotShowTimeline(int id)
         dateS->hide();
         dateLCD->hide();
     }
-}
-
-void Kalzium::slotUpdateWeblookupURL( const QString &URL )
-{
-    main_config->setGroup( "WLU" );
-    QString temp = URL;
-    main_config->writeEntry( "adress", temp );
 }
 
 void Kalzium::slotKnowledge()
@@ -545,21 +533,6 @@ void Kalzium::setupActions()
     connect(timelinemenu, SIGNAL(activated(int)), this, SLOT(slotShowTimeline(int)));
     // END TIMELINEMENU
     
-/*    QStringList weblookuplist;
-    weblookuplist.append("http://www.ktf-split.hr/periodni/en/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/it/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/de/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/fr/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/");
-
-    weblookupmenu = new KSelectAction (i18n("&weblookup"),0,actionCollection(),"weblookupconfig");
-    weblookupmenu->setItems(weblookuplist);
-    weblookupmenu->setCurrentItem(0);
-*/    
-/*    connect(weblookupmenu, SIGNAL(activated(int)), this, SLOT(updateWeblookupMenu(int)));
-    connect(weblookupmenu, SIGNAL(activated(const QString &)), this, SLOT(slotUpdateWeblookupURL(const QString &)));
-*/    
-
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
     (void) new KAction (i18n("Values"),0, this, SLOT(slotValues()), actionCollection(), "values");
     (void) new KAction (i18n("Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");

@@ -122,11 +122,9 @@ class Kalzium : public KMainWindow
     void updateNumMenu(int);
     void updateTimeMenu(int);
     void updateColourMenu(int);
-    void updateWeblookupMenu(int);
     
     void psestyleShow(int);
     void slotShowTimeline(int);
-    void slotUpdateWeblookupURL(const QString &URL);
 
     //the quiz will start
     void slotKnowledge();

@@ -216,6 +216,15 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Preferences"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
     kalzium = (Kalzium*)parent;
+    main_config=KGlobal::config();  
+    
+    QStringList weblookuplist;
+    weblookuplist.append("http://www.ktf-split.hr/periodni/en/");
+    weblookuplist.append("http://www.ktf-split.hr/periodni/it/");
+    weblookuplist.append("http://www.ktf-split.hr/periodni/de/");
+    weblookuplist.append("http://www.ktf-split.hr/periodni/fr/");
+    weblookuplist.append("http://www.ktf-split.hr/periodni/");
+ 
     
     // COLORSTAB WIDGET
     colorTab = addPage(i18n("Colors"), i18n("Customize color settings"), BarIcon("colorize", KIcon::SizeMedium));
@@ -228,11 +237,13 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     webLookupButtonGroup = new QVButtonGroup(webLookupButtons, "weblookup ButtonGroup");
     QVBoxLayout *test = new QVBoxLayout(webLookupButtons);
     test->addWidget(webLookupButtonGroup);
-    rb_de = new QRadioButton("de",webLookupButtonGroup);
-    rb_en = new QRadioButton("en",webLookupButtonGroup);
-    rb_fr = new QRadioButton("fr",webLookupButtonGroup);
-    rb_it = new QRadioButton("it",webLookupButtonGroup);
-    rb = new QRadioButton("default",webLookupButtonGroup);
+
+    for (QStringList::Iterator it = weblookuplist.begin(); it != weblookuplist.end(); ++it ) 
+    {
+     rb = new QRadioButton (*it, webLookupButtonGroup);
+    }
+
+    webLookupButtonGroup->setButton(3);
 
     // CONNECT
     connect(this, SIGNAL(applyClicked()), this, SLOT(changeApplyKalziumSettings()));
@@ -243,12 +254,20 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
 void SettingsDialog::changeApplyKalziumSettings()
 {
     colorsTabWidget->applyColors();
+    
+    main_config->setGroup("WLU");
+    main_config->writeEntry("adress", (webLookupButtonGroup->selected())->text());
+    main_config->sync();
+    
     kalzium->changeColourScheme(kalzium->colourschememenu->currentItem());
 }
 
 
 void SettingsDialog::changeOkKalziumSettings()
 {
+    main_config->setGroup("WLU");
+    main_config->writeEntry("adress", (webLookupButtonGroup->selected())->text());
+    main_config->sync();
     colorsTabWidget->applyColors();
     kalzium->changeColourScheme(kalzium->colourschememenu->currentItem());
 }

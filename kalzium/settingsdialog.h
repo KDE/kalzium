@@ -74,7 +74,8 @@ class SettingsDialog : public KDialogBase
         
         QVButtonGroup *webLookupButtonGroup;
         QFrame *colorTab, *webLookupButtons;
-        QRadioButton *rb_en, *rb_it, *rb_de, *rb_fr, *rb;
+        QRadioButton *rb;
+        KConfig *main_config;
 
     private slots:
         void changeApplyKalziumSettings();
