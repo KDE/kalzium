@@ -297,6 +297,7 @@ void Kalzium::slotUpdateSettings()
 	displayTemperature();
     	displayEnergie();
 	slotTempChanged( Prefs::temperaturevalue());
+	//update colors
 	if (!m_bShowSOM )
 	{
 		m_pCurrentPSE->activateColorScheme(Prefs::colorschemebox());
@@ -304,9 +305,8 @@ void Kalzium::slotUpdateSettings()
 	}
 	else 
 	{
-		m_bShowSOM = !m_bShowSOM;
-		slotStateOfMatter();
 		m_pCurrentPSE->setTemperature((double) Prefs::temperaturevalue() );
+		m_pLegend->setScheme( 4 );
 	}
 }
 
