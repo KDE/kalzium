@@ -111,7 +111,8 @@ void Kalzium::setupAllElementKPButtons()
     int h=0; int v=0;
     QString elementName;
 
-    KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
+    KSimpleConfig config ("/home/carsten/cvs/kdeedu/kalzium/src/kalziumrc");
+    //KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
 
     ElementInfo eleminfo;
     for ( int n=0 ;n<110 ;n++ )
@@ -476,7 +477,7 @@ void Kalzium::updateNumMenu(int id)
 
 void Kalzium::slotShowTimeline(bool id)
 {
-	if (id == true)
+	if ( id )
 	{
 		dateS->show();
 		dateLCD->show();
@@ -490,7 +491,6 @@ void Kalzium::slotShowTimeline(bool id)
 		psestylemenu->setEnabled(true);
 		for (int i =0; i<110; i++)
 			element[i]->show();
-
 	}
 }
 
@@ -556,52 +556,52 @@ void Kalzium::timeline()
 //*******SETUP ACTIONS*************************************************
 void Kalzium::setupConfig()
 {
-    // set the default colors settings
-    if (!main_config->hasGroup("Colors"))
-    {
-	main_config->setGroup("Colors");
+	// set the default colors settings
+	if (!main_config->hasGroup("Colors"))
+	{
+		main_config->setGroup("Colors");
 
-	// State of Matters
-	main_config->writeEntry("liquid",QColor(255,80,35));
-	main_config->writeEntry("solid",QColor(30,80,60));
-	main_config->writeEntry("vapor",QColor(110,80,60));
-	main_config->writeEntry("radioactive",QColor(190,180,180));
-	main_config->writeEntry("artificial",QColor(10,80,180));
-	// Blocks
-	main_config->writeEntry("s",QColor(255,80,35));
-	main_config->writeEntry("p",QColor(30,80,60));
-	main_config->writeEntry("d",QColor(10,80,180));
-	main_config->writeEntry("f",QColor(130,80,255));
-	// Groups
-	main_config->writeEntry("Group 1",QColor(255,80,35));
-	main_config->writeEntry("Group 2",QColor(30,80,60));
-	main_config->writeEntry("Group 3",QColor(10,80,180));
-	main_config->writeEntry("Group 4",QColor(130,80,255));
-	main_config->writeEntry("Group 5",QColor(225,10,25));
-	main_config->writeEntry("Group 6",QColor(33,30,70));
-	main_config->writeEntry("Group 7",QColor(110,10,120));
-	main_config->writeEntry("Group 8",QColor(190,2,212));
-	// Acid Behaviours
-	main_config->writeEntry("acidic",QColor(255,80,35));
-	main_config->writeEntry("basic",QColor(30,80,60));
-	main_config->writeEntry("amphoteric",QColor(10,80,180));
-	main_config->writeEntry("neitherofthem",QColor(130,80,255));
+		// State of Matters
+		main_config->writeEntry("liquid",QColor(255,80,35));
+		main_config->writeEntry("solid",QColor(30,80,60));
+		main_config->writeEntry("vapor",QColor(110,80,60));
+		main_config->writeEntry("radioactive",QColor(190,180,180));
+		main_config->writeEntry("artificial",QColor(10,80,180));
+		// Blocks
+		main_config->writeEntry("s",QColor(255,80,35));
+		main_config->writeEntry("p",QColor(30,80,60));
+		main_config->writeEntry("d",QColor(10,80,180));
+		main_config->writeEntry("f",QColor(130,80,255));
+		// Groups
+		main_config->writeEntry("Group 1",QColor(255,80,35));
+		main_config->writeEntry("Group 2",QColor(30,80,60));
+		main_config->writeEntry("Group 3",QColor(10,80,180));
+		main_config->writeEntry("Group 4",QColor(130,80,255));
+		main_config->writeEntry("Group 5",QColor(225,10,25));
+		main_config->writeEntry("Group 6",QColor(33,30,70));
+		main_config->writeEntry("Group 7",QColor(110,10,120));
+		main_config->writeEntry("Group 8",QColor(190,2,212));
+		// Acid Behaviours
+		main_config->writeEntry("acidic",QColor(255,80,35));
+		main_config->writeEntry("basic",QColor(30,80,60));
+		main_config->writeEntry("amphoteric",QColor(10,80,180));
+		main_config->writeEntry("neitherofthem",QColor(130,80,255));
 
-    }
-    if (!main_config->hasGroup("WLU"))
-    {
-	main_config->setGroup("WLU");
-	main_config->writeEntry("address", "http://www.ktf-split.hr/periodni/en/");
-    }
-    if (!main_config->hasGroup("Menu Settings"))
-    {
-	main_config->setGroup("Menu Settings");
-	main_config->writeEntry("psestylemenu", 1);
-	main_config->writeEntry("colorschememenu", 1);
-	main_config->writeEntry("numerationmenu", 0);
-	main_config->writeEntry("timelineshow", false);
-    }
-    main_config->sync();
+	}
+	if (!main_config->hasGroup("WLU"))
+	{
+		main_config->setGroup("WLU");
+		main_config->writeEntry("address", "http://www.ktf-split.hr/periodni/en/");
+	}
+	if (!main_config->hasGroup("Menu Settings"))
+	{
+		main_config->setGroup("Menu Settings");
+		main_config->writeEntry("psestylemenu", 1);
+		main_config->writeEntry("colorschememenu", 1);
+		main_config->writeEntry("numerationmenu", 0);
+		main_config->writeEntry("timelineshow", false);
+	}
+	main_config->sync();
 }
 
 void Kalzium::setupActions()
