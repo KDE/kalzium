@@ -278,7 +278,7 @@ QColor DetailedTab::PSEColor( const QString &block ) const
     else if ( block == "f" )
 		c = config->readColorEntry("f");
     return  c;
-};
+}
 
 
 

@@ -82,7 +82,7 @@ ElementInfo ElemInfoParsed::information()
 	info.oxstage = beautifyOxydationstages( info.oxstage );
 
 	return info;
-};
+}
 
 QString ElemInfoParsed::beautifyOrbits( QString orbits ) const
 {
