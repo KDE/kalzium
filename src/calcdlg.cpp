@@ -1,8 +1,8 @@
 /***************************************************************************
                          calcdlg.cpp  -  description
                              -------------------
-    begin                : Thu Dec 2001 
-    copyright            : (C) 2001, 2002, 2003 by Carsten Niehaus                     
+    begin                : Thu Dec 2001
+    copyright            : (C) 2001, 2002, 2003 by Carsten Niehaus
     email                : cniehaus@kde.org
 ***************************************************************************/
 
@@ -37,7 +37,7 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QWidget (parent,name)
     KMol = new KMolUI(this);
 	KMol->show();               //wieso kommt es trotzdem nicht?
 
-    //accepts text input until return is pressed 
+    //accepts text input until return is pressed
     connect(KMol->formula, SIGNAL(returnPressed()), this, SLOT(calc()));
 
     //calculate button
@@ -58,9 +58,14 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QWidget (parent,name)
 	vboxl->addWidget( KMol );
 }
 
+CalcDlg::~CalcDlg()
+{
+    delete kmolcalc;
+}
+
 //******* Slots ******************************************************
 
-void CalcDlg::calc() 
+void CalcDlg::calc()
 {
     QString compound(KMol->formula->text());
     if (compound.isEmpty()) {
@@ -91,10 +96,10 @@ void CalcDlg::callEditor() const
     delete kmoledit;
 }
 
-/** 
+/**
 * Clear all text entry / result fields.
 */
-void CalcDlg::clear() 
+void CalcDlg::clear()
 {
     KMol->formula->clear();
     KMol->result->clear();

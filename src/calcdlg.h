@@ -35,18 +35,18 @@ typedef QString SymLabel;
 class CalcDlg : public QWidget  {
     Q_OBJECT
 
-    public: 
+    public:
         CalcDlg(QWidget *parent, const char *name=0 );
-
+    ~CalcDlg();
     private:
         KMolCalc *kmolcalc;
         KMolUI *KMol;
         SymLabel symlabel[118];
         SymLabel weight[118];
-	
+
     private slots:
-        /**  
-        * Make a call to KMOLCALC to parse the string in FORMULA, 
+        /**
+        * Make a call to KMOLCALC to parse the string in FORMULA,
         * if any, and get Mw and EA back.
         */
         void calc();
@@ -56,7 +56,7 @@ class CalcDlg : public QWidget  {
         */
         void callEditor() const;
 
-        /** 
+        /**
         * Clear all text entry / result fields.
         */
         void clear();
