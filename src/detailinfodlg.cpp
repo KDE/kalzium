@@ -35,14 +35,14 @@
 #include "prefs.h"
 
 DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *name)
-    : KDialogBase(KDialogBase::IconList, i18n( "" ),  Close, Close, parent,name)
+    : KDialogBase(KDialogBase::IconList, "",  Close, Close, parent,name)
 {
 	e = el;
 
 	( actionButton( KDialogBase::Close ) )->setFocus();
 
 	QString num = QString::number( e->number() );
-	QString elname = e->elname().utf8();
+	QString elname = i18n( e->elname().utf8() );
 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( elname ).arg( num );
 	setCaption( cap );
     
@@ -64,7 +64,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	miscLayout->insertStretch(-1,1);
 
 	////////////////////////////////////7
-	m_pPictureTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( i18n( e->elname().utf8() ) ), BarIcon( "elempic" ));
+	m_pPictureTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( elname  ), BarIcon( "elempic" ));
 	QVBoxLayout *mainLayout = new QVBoxLayout( m_pPictureTab );
 	QLabel *piclabel = new QLabel( m_pPictureTab );
 	if ( !locate(  "data" , "kalzium/elempics/" + e->symbol() + ".jpg" ).isEmpty() )
@@ -77,7 +77,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	}
 	else 
 	{
-		piclabel->setText( i18n( "No picture of %1 found." ).arg( i18n( e->elname().utf8() ) ) );
+		piclabel->setText( i18n( "No picture of %1 found." ).arg( elname ) );
 	}
 	mainLayout->addWidget( piclabel );
 
@@ -115,8 +115,8 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
 	OrbitsWidget *wOrbits = new OrbitsWidget( e->number(), m_pModelTab );
 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
-							.arg( i18n( e->elname().utf8() ) )
-							.arg( i18n( e->elname().utf8() ) )
+							.arg( elname )
+							.arg( elname )
 							.arg( e->parsedOrbits() ) );
 	modelLayout->addWidget( wOrbits );
 
