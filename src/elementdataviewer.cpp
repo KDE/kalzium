@@ -30,7 +30,7 @@
 ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, const char* name )
 	: KDialogBase( KDialogBase::Plain, 
 			i18n( "Visualize Data") , 
-			User1 | Cancel,
+			User1 | Close,
 			User1,
 			parent, name )
 {
@@ -60,7 +60,7 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 
 	resize(500, 500);
 
-	setButtonText( User1, i18n("Plot") );
+	setButtonText( User1, i18n("&Plot") );
 
 	connect ( m_pPlotSetupWidget->showNames, SIGNAL( toggled(bool)), this, SLOT(slotUser1()));
 }
