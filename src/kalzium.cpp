@@ -280,6 +280,9 @@ void Kalzium::changeLegend(int id)
     three->setPalette(QPalette(main_config->readColorEntry("basic")));
     four->setPalette(QPalette(main_config->readColorEntry("neitherofthem")));
     five->hide();
+    six->hide();
+    seven->hide();
+    eight->hide();
     one->setText(i18n("Acidic"));
     two->setText(i18n("Amphoteric"));
     three->setText(i18n("Basic"));
@@ -292,6 +295,9 @@ void Kalzium::changeLegend(int id)
     three->setPalette(QPalette(main_config->readColorEntry("d")));
     four->setPalette(QPalette(main_config->readColorEntry("f")));
     five->hide();
+    six->hide();
+    seven->hide();
+    eight->hide();
     one->setText(i18n("s-Block"));
     two->setText(i18n("p-Block"));
     three->setText(i18n("d-Block"));
@@ -307,6 +313,17 @@ void Kalzium::changeLegend(int id)
     six->setPalette(QPalette(main_config->readColorEntry("Group 6")));
     seven->setPalette(QPalette(main_config->readColorEntry("Group 7")));
     eight->setPalette(QPalette(main_config->readColorEntry("Group 8")));
+    six->show();
+    seven->show();
+    eight->show();
+    one->setText(i18n("Group 1"));
+    two->setText(i18n("Group 2"));
+    three->setText(i18n("Group 3"));
+    four->setText(i18n("Group 4"));
+    five->setText(i18n("Group 5"));
+    six->setText(i18n("Group 6"));
+    seven->setText(i18n("Group 7"));
+    eight->setText(i18n("Group 8"));
     }
     if (id == 3) //State of Matter
     {
@@ -316,6 +333,9 @@ void Kalzium::changeLegend(int id)
     four->setPalette(QPalette(main_config->readColorEntry("artificial")));
     five->setPalette(QPalette(main_config->readColorEntry("radioactive")));
     five->show();
+    six->hide();
+    seven->hide();
+    eight->hide();
     one->setText(i18n("Liquid"));
     two->setText(i18n("Solid"));
     three->setText(i18n("Vapor"));

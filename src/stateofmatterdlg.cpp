@@ -131,8 +131,8 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	liquidbutton->setPalette(color_liquid);
 	solidbutton->setPalette(color_solid);
 	vaporbutton->setPalette(color_vapor);
-	artib->setPalette(main_config->readColorEntry("radioactive"));
-	radiob->setPalette(main_config->readColorEntry("artificial"));
+	radiob->setPalette(main_config->readColorEntry("radioactive"));
+	artib->setPalette(main_config->readColorEntry("artificial"));
 
 	tempS = new QSlider ( -4500, 273, 1, -25 , QSlider::Vertical, this, "tempSlider" );
 	QWhatsThis::add(tempS, i18n("Use this slider to see what state of matter a certain elements has at a given temperature"));
