@@ -78,6 +78,7 @@ class KalziumPlotDialogImpl : public KDialogBase
 	public slots:
 		void slotZoomIn();
 		void slotZoomOut();
+		void slotKLCItemSelected( QListViewItem* );
 
 	private slots:
 		void slotUser1();

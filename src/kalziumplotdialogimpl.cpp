@@ -65,6 +65,7 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 	pw->setXAxisLabel(  i18n(  "Atomic Number" ) );
 	
 	elementsKLV = new KListView( plotW, "elementsKLV" );
+	elementsKLV->setRootIsDecorated( true );
 	elementsKLV->addColumn( i18n( "Number" ) );
 	elementsKLV->addColumn( i18n( "Name" ) );
 	elementsKLV->addColumn( i18n( "Symbol" ) );
@@ -103,7 +104,6 @@ void KalziumPlotDialogImpl::startPlotting()
 	KPlotObject *elements = new KPlotObject( "Elements" , "cyan2" , KPlotObject::POINTS, 6, KPlotObject::CIRCLE);
 	double posX = 0.0, posY = 0.0;
 
-	//int kind = whatKCB->currentItem();
 	ChemicalElement *elem = elementsPtrList.at(from-1);
 	
 	for ( int i = from ; i < to+1 ; ++i )
@@ -154,6 +154,10 @@ void KalziumPlotDialogImpl::setPlotAxis( const int id )
 	pw->setYAxisLabel( yLabel );
 }
 
+void KalziumPlotDialogImpl::slotKLCItemSelected( QListViewItem* item )
+{
+}
+
 void KalziumPlotDialogImpl::updateListview()
 {
 	elementsKLV->clear();
@@ -164,11 +168,51 @@ void KalziumPlotDialogImpl::updateListview()
 	QString name, sym;
 	
 	ChemicalElement *elem;
+	KListViewItem *childItem;
+	KListViewItem *item;
+
+	connect(  elementsKLV, SIGNAL(  clicked(  QListViewItem* ) ), this, SLOT(  slotKLCItemSelected(  QListViewItem* ) ) );
+	
 	for ( elem = elementsPtrList.at( from  ) ; from != to ; elem = elementsPtrList.next() )
 	{
 		name = elem->name;
 		sym = elem->symbol;
-		KListViewItem item = new KListViewItem( elementsKLV, QString::number( elem->number ) , name , sym );
+		item = new KListViewItem( elementsKLV, sym , name , QString::number( elem->number ) );
+		for ( int i = 0 ; i < 7 ; i++ )
+		{
+			childItem = new KListViewItem( item );
+			switch ( i )
+			{
+				case 0:
+					childItem->setText( 0 , i18n( "Atomic Weight" ));
+					childItem->setText( 1 , i18n( "%1 u" ).arg( QString::number( elem->weight ) ) );
+					break;
+				case 1:
+					childItem->setText( 0 , i18n( "EN" ) );
+					childItem->setText( 1 , QString::number( elem->en ) );
+					break;
+				case 2:
+					childItem->setText( 0 , i18n( "Melting Point" ) );
+					childItem->setText( 1 , QString::number( elem->mp ) );
+					break;
+				case 3:
+					childItem->setText( 0 , i18n( "Ion. Energy" ) );
+					childItem->setText( 1 , QString::number( elem->ie ) );
+					break;
+				case 4:
+					childItem->setText( 0 , i18n( "Atomic Radius" ) );
+					childItem->setText( 1 , QString::number( elem->ar ) );
+					break;
+				case 5:
+					childItem->setText( 0 , i18n( "Boiling Point" ) );
+					childItem->setText( 1 , QString::number( elem->bp) );
+					break;
+				case 6:
+					childItem->setText( 0 , i18n( "Density" ) );
+					childItem->setText( 1 , QString::number( elem->density ) );
+					break;
+			}
+		}
 		
 		from++;
 	}
