@@ -88,6 +88,30 @@ class Kalzium : public KMainWindow
     void showCAS();
     void showIUPAC();
 
+   
+    protected:
+        /**
+        * Called before the window is closed, will save the menusettings.
+        */
+        bool queryClose();
+        
+        void setupActions();
+        
+        /**
+        * This method sets the menu for kalzium using XMLGUI. 
+        */
+        void setupConfig();
+       
+        /**
+        * Called after setupActions , it sets the main window look 
+        * according to the menu settings
+        * @see Kalzium::setupActions
+        */
+        void updateMainWindow();
+
+    
+    // SLOTS
+ 
     public slots:
     /**
     * this slot hides all elements which have not been known
@@ -152,26 +176,7 @@ class Kalzium : public KMainWindow
     void defineweights();
    
     private slots:
-        void showSettingsDialog();
-        void hideSettingsDialog();
-    protected:
-        /**
-        * Called before the window is closed, will save the menusettings.
-        */
-        bool queryClose();
-        
-        void setupActions();
-        
-        /**
-        * This method sets the menu for kalzium using XMLGUI. 
-        */
-        void setupConfig();
-       
-        /**
-        * Called after setupActions , it sets the main window look 
-        * according to the menu settings
-        * @see Kalzium::setupActions
-        */
-        void updateMainWindow();
-};
+    void showSettingsDialog();
+    void hideSettingsDialog();
+    };
 #endif
