@@ -223,6 +223,7 @@ void Kalzium::slotQuiz(int index)
 		slotAddQuestions();
 		break;
 	}
+	quiz_action->setCurrentItem(-1);
 }
 
 PSE* Kalzium::currentPSE() const
