@@ -40,6 +40,7 @@
 #include "elementkp.h"
 
 #include "detailinfodlg.h"
+#include "infodialog.h"
 
 DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Detailed Look"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
@@ -73,10 +74,10 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
     /////////////////////////////////
     energyTab = addPage(i18n("Energies"), i18n("Energyinformation"), BarIcon("roll", KIcon::SizeMedium));
 	QVBoxLayout *energyLayout = new QVBoxLayout( energyTab );
-	QLabel *ENlabel = new QLabel( i18n( "Electronegativity: %1" ).arg( QString::number( Data.EN ) ) , energyTab );
-	QLabel *Ionlabel = new QLabel(i18n( "Ionizationenergie: %1 kJ/mol" ).arg( QString::number( Data.IE )) , energyTab );
-	QLabel *MPlabel = new QLabel(i18n( "Meltingpoint: %1 K" ).arg( QString::number( Data.MP ) ) , energyTab );
-	QLabel *BPlabel = new QLabel(i18n( "Boilingpoint: %1 K" ).arg( QString::number( Data.BP ) ) , energyTab );
+	QLabel *ENlabel = new QLabel( i18n( "Electronegativity: %1" ).arg( Data._EN ) , energyTab );
+	QLabel *Ionlabel = new QLabel(i18n( "Ionizationenergie: %1" ).arg( Data._IE ) , energyTab );
+	QLabel *MPlabel = new QLabel(i18n( "Meltingpoint: %1" ).arg( Data._MP ) , energyTab );
+	QLabel *BPlabel = new QLabel(i18n( "Boilingpoint: %1" ).arg( Data._BP ) , energyTab );
 	energyLayout->addWidget( ENlabel );
 	energyLayout->addWidget( Ionlabel );
 	energyLayout->addWidget( MPlabel );
@@ -85,13 +86,13 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
     /////////////////////////////////
     chemicalTab = addPage(i18n("Chemical Data"), i18n("Chemical Data"), BarIcon("colorize", KIcon::SizeMedium));
 	QVBoxLayout *chemicalLayout = new QVBoxLayout( chemicalTab );
-//	QLabel *orbtisLabel = new QLabel( i18n( "Orbits: %1" ).arg( beautifyOrbits( Data.orbits ) ) , chemicalTab );
+	QLabel *orbtisLabel = new QLabel( Data.orbits , chemicalTab );
 	QLabel *symbolLabel = new QLabel( i18n( "Symbol: %1" ).arg( Data.Symbol ) , chemicalTab  );
-	QLabel *densityLabel = new QLabel( i18n( "Density: %1 g/cm<sup>3</sup>").arg(QString::number( Data.Density ) ) , chemicalTab );
+	QLabel *densityLabel = new QLabel( i18n( "Density: %1").arg( Data._Density ) , chemicalTab );
 	QLabel *blockLabel  = new QLabel( i18n( "Block: %1" ).arg( Data.Block ) , chemicalTab );
-	QLabel *atomrad    = new QLabel( i18n( "Atomic Radius: %1 pm" ).arg( QString::number( Data.AR )) , chemicalTab );
-	QLabel *atomweightLabel = new QLabel( i18n( "Atomic Weigth: %1 u" ).arg( Data.Weight ) , chemicalTab );
-//	chemicalLayout->addWidget( orbtisLabel );
+	QLabel *atomrad    = new QLabel( i18n( "Atomic Radius: %1" ).arg( Data._AR ) , chemicalTab );
+	QLabel *atomweightLabel = new QLabel( i18n( "Atomic Weigth: %1" ).arg( Data.Weight ) , chemicalTab );
+	chemicalLayout->addWidget( orbtisLabel );
 	chemicalLayout->addWidget( symbolLabel );
 	chemicalLayout->addWidget( densityLabel);
 	chemicalLayout->addWidget( blockLabel  );
@@ -101,13 +102,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	/////////////////////////////////
     miscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon("colorize", KIcon::SizeMedium));
 	QVBoxLayout *miscLayout = new QVBoxLayout( miscTab );
-	QLabel *discovered_label = new QLabel( miscTab );
-//X     if (Eleminfo.date == "0")
-//X 	discovered_label->setText(i18n("was known to ancient cultures"));
-//X     else if (Eleminfo.date == "3333")
-//X 	discovered_label->setText(i18n("not been discovered yet"));
-//X     else
-//X 	discovered_label->setText(i18n("%1").arg(Eleminfo.date));
+	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg(Data.date ) , miscTab );
 	miscLayout->addWidget( discovered_label );
 }
 

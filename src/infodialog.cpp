@@ -39,9 +39,6 @@ infoDialog::infoDialog( ElementInfo Eleminfo , QWidget *parent, const char *name
 {
     setCaption( i18n( Eleminfo.Name.utf8() ) );
 
-	ElemInfoParsed *eInfo = new ElemInfoParsed( Eleminfo );
-	Eleminfo = eInfo->information();
-	
 	electro_label->setText( Eleminfo._EN );
 	weight_label->setText( Eleminfo.Weight );
 	melting_label->setText( Eleminfo._MP );

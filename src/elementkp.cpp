@@ -53,6 +53,9 @@ ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, in
 	ElemNo = AElemNo;
 	zeigerle=zeiger;
 	Data = ElemInfo;
+	
+	ElemInfoParsed *eInfo = new ElemInfoParsed( Data );
+	Data = eInfo->information();
 }
 
 //when the mousepointer is over a button
