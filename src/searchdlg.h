@@ -33,7 +33,7 @@ class SearchDlg : public SearchDialogUI
     Q_OBJECT
 
     public: 
-        SearchDlg(QWidget *parent, const char *name );
+        SearchDlg(QWidget *parent, const char *name, bool modal = true );
 		
 	
 	private:

@@ -33,8 +33,8 @@
 #include "csvdialogimpl.h"
 #include "datafilterdialogimpl.h"
 
-SearchDlg::SearchDlg (QWidget *parent, const char *name )  
-    : SearchDialogUI (parent,name)
+SearchDlg::SearchDlg (QWidget *parent, const char *name, bool modal )  
+    : SearchDialogUI (parent,name, modal)
 {
 	fillDataStringLists();
 	fillCheckBoxList();
