@@ -615,7 +615,7 @@ void Kalzium::setupConfig()
     if (!main_config->hasGroup("WLU"))
     {
 	main_config->setGroup("WLU");
-	main_config->writeEntry("adress", "http://www.ktf-split.hr/periodni/en/");
+	main_config->writeEntry("address", "http://www.ktf-split.hr/periodni/en/");
     }
     if (!main_config->hasGroup("Menu Settings"))
     {

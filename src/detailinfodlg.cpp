@@ -140,9 +140,9 @@ void DetailedInfoDlg::slotUser1()
 
 	KConfig *mainc = KGlobal::config();
 	mainc->setGroup( "WLU" );
-	QString url = mainc->readEntry( "adress" ) + Data.Symbol.lower()  + ".html";
-	if ( mainc->readEntry( "adress" ).contains( "pearl1" ) ) 
-		url = mainc->readEntry( "adress" )+QString::number( Data.number )+".html";
+	QString url = mainc->readEntry( "address" ) + Data.Symbol.lower()  + ".html";
+	if ( mainc->readEntry( "address" ).contains( "pearl1" ) ) 
+		url = mainc->readEntry( "address" )+QString::number( Data.number )+".html";
 
 	const KURL site(url);
 	html->openURL(site);

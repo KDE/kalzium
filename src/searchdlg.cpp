@@ -266,7 +266,7 @@ IntValueList SearchDlg::parseRange(QString range)
 		{
 			l = parseDashes( range );
 		}
-		else //only one element is choosen
+		else //only one element is chosen
 		{
 			l.append( range.toInt() );
 		}

@@ -289,7 +289,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
      * ComboBox to the correct value ( index )
      */
     main_config->setGroup("WLU");
-    urlSelector->setCurrentItem( translateCurrentLang( main_config->readEntry( "adress") ) );
+    urlSelector->setCurrentItem( translateCurrentLang( main_config->readEntry( "address") ) );
 
     // CONNECT
     connect(this, SIGNAL(applyClicked()), this, SLOT(slotOkSettings()));
@@ -320,7 +320,7 @@ int SettingsDialog::translateCurrentLang( const QString &lang ){
 void SettingsDialog::slotOkSettings()
 {
     main_config->setGroup("WLU");
-    main_config->writeEntry("adress", urlSelector->currentText() );
+    main_config->writeEntry("address", urlSelector->currentText() );
     main_config->writeEntry("infodialog", infoDlgChoice );
 
     main_config->sync();
