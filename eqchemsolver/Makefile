@@ -23,8 +23,8 @@ CHEM_CMX = $(SOURCES_CHEM:.ml=.cmx)
 CHEM_O = $(SOURCES_WRAP:.c=.o)
 
 # default target : the object files for eqchem
-all : chemobj
-
+all : solver.o
+	
 # shows how to build a program that embeds the solver
 # in compiled ocaml, bytecode ocaml and compiled program using compiled caml code
 test: atestprog.opt btestprog.out testcprog
@@ -35,7 +35,8 @@ atestprog.opt: $(CHEM_CMX) main.cmx
 btestprog.out: $(CHEM_CMO) main.cmo
 	$(OCAMLMLI) -o $@ $(LIBADD_CMO) $(CHEM_CMO) main.cmo
 
-chemobj: $(CHEM_CMX) $(CHEM_O)
+
+solver.o: $(CHEM_CMX) $(CHEM_O)
 	$(OCAMLOPT) -output-obj -o solver.o $(LIBADD_CMX) $(CHEM_CMX)
 	cp -f solver.o modwrap.o ../
 
@@ -45,8 +46,7 @@ testcprog: $(CHEM_CMX) $(CHEM_O)
 	gcc -o $@ main.o solver.o -L $(OCAMLLIB) \
           -L $(OCAMLLIB)/facile -lasmrun -lstr -lnums -lm -ldl modwrap.o
 
-.SUFFIXES:
-.SUFFIXES: .ml .mli .mly .mll .cmi .cmo .cmx .p.cmx .c
+.SUFFIXES: .ml .mli .mly .mll .cmi .cmo .cmx .p.cmx .c .o
 
 .ml.cmo :
 	$(OCAMLC) $(INCLUDES) $(INCLUDES) -c $<
