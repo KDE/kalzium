@@ -141,7 +141,7 @@
                 <cstring>kcfg_energies</cstring>
             </property>
             <property name="title">
-                <string>&amp;Energies</string>
+                <string>Units of &amp;Energies</string>
             </property>
             <property name="exclusive">
                 <bool>true</bool>
@@ -191,7 +191,7 @@
                 <cstring>kcfg_units</cstring>
             </property>
             <property name="title">
-                <string>U&amp;nits</string>
+                <string>U&amp;nits of distances</string>
             </property>
             <property name="exclusive">
                 <bool>true</bool>
@@ -205,7 +205,7 @@
                         <cstring>radioButton8</cstring>
                     </property>
                     <property name="text">
-                        <string>Use SI-units</string>
+                        <string>Use the SI-unit meter (m) for distances</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="1" column="0">
@@ -213,7 +213,7 @@
                         <cstring>radioButton9</cstring>
                     </property>
                     <property name="text">
-                        <string>Use commonly used units</string>
+                        <string>Use commonly used units for distances</string>
                     </property>
                 </widget>
             </grid>
@@ -246,6 +246,14 @@
                     </property>
                     <property name="text">
                         <string>Display the number of the Element in the PSE</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="2" column="0">
+                    <property name="name">
+                        <cstring>radioButton12</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Display density in the PSE</string>
                     </property>
                 </widget>
             </grid>

@@ -23,6 +23,8 @@
 #include <kdebug.h>
 #include <klocale.h>
 
+#include <math.h>
+
 Element::Element( int num )
 {
 	m_number = num;
@@ -70,10 +72,57 @@ QString Element::parsedOrbits()
 }
 
 
-double Element::strippedWeight( double w )
+double Element::strippedWeight( double num )
 {
-	w = 1.1;
+	kdDebug() << "Wert: " << num << endl;
+
+	if ( !finite( num ) )
+		return num;
+
+	double power;
+	power = 1e-6;
+	while ( power < num )
+		power *= 10;
+
+	num = num / power * 10000;
+	num = round( num );
+
+	kdDebug() << "Am Ende: " << num * power / 10000 << endl;
+	return num * power / 10000;
+
+/*
+	bool bigger = false;
+	
+	int power = 0;
+	
+	while ( !bigger )
+	{
+		double result = pow( 10.00 , power );
+
+		if ( result <= w )
+			power++;
+
+		if ( result > w )
+			bigger = true;
+	}
+
+	w /= power;
+
+	w *= 10000;
+
+	int temp = ( int )  w ;
+
+	w = ( double ) temp;
+	
+	w /= 10000;
+
+	w *= power;
+
+	kdDebug() << "Wert nach dem ganzen: " << w << endl;
+	
 	return w;
+
+*/
 }
 
 
@@ -131,27 +180,47 @@ const QString Element::adjustUnits( double val, const int type )
 	}
 	else if ( type == LENGHT ) // its a length
 	{
-		v = QString::number( val );
-
 		switch ( Prefs::units() )
 		{
 			case 0:
-				v.append( " pm" );
+				v = QString::number( val );
+
+				v.append( " 10<sup>-12</sup>" );
+
+				v.append( ( " m" ) );
 				break;
 			case 1:
-				v.append( " m" );
+				v = QString::number( val );
+
+				v.append( i18n( " pm" ) );
 				break;
 		}
 	}
 	else if ( type == WEIGHT ) // its a weight
 	{
 		v = QString::number( val );
-		v.append( " u" );
+		switch ( Prefs::units() )
+		{
+			case 0:
+				v.append( i18n( "g/mol" ) );
+				break;
+			case 1:
+				v.append( i18n( " u" ) );
+				break;
+		}
 	}
 	else if ( type == DENSITY ) // its a density
 	{
 		v = QString::number( val );
-		v.append( " g/cm<sup>3</sup>" );
+		switch ( Prefs::units() )
+		{
+			case 0:
+				v.append( " kg/m<sup>3</sup>" );
+				break;
+			case 1:
+				v.append( " g/cm<sup>3</sup>" );
+				break;
+		}
 	}
 	else if ( type == DATE ) //its a date
 	{

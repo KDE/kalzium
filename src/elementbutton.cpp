@@ -22,8 +22,11 @@
 #include "infodialog_small_impl.h"
 #include "detailinfodlg.h"
 #include <qpainter.h>
+#include <qfont.h>
+#include <qstring.h>
 
 #include <kdebug.h>
+#include <klocale.h>
 
 ElementButton::ElementButton( Element *el, QWidget *parent, const char *name)
  : QFrame(parent, name)
@@ -76,20 +79,42 @@ ElementButton::~ElementButton()
 void ElementButton::paintEvent( QPaintEvent* )
 {
     int h, w;
-    h = w = 50;
+    h = w = 55;
     QPainter p;
     p.begin( this );
 	
+	QString text;
+	QFont symbol_font = p.font();
+	symbol_font.setPointSize( 18 );
+//	symbol_font.setBold(  true );
+	QFont f = p.font();
+	f.setPointSize( 8 );
+
 	switch ( Prefs::pselook() )
 	{
 		case 0:
-    		p.drawText( 20, 30, e->symbol() );
-			p.drawText( 2, h/2-10, QString::number( e->strippedWeight( e->weight()) ) );
+			p.setFont( symbol_font );
+    		p.drawText( 20, 40, e->symbol() );
+			p.setFont( f );
+			text = QString::number( e->strippedWeight( e->weight( ) ) );
+			text.append( i18n( " u" ) );
+			p.drawText( 2, 20, text );
 			break;
 		case 1:
-			p.drawText( 20, 30, e->symbol() );
+			p.setFont( symbol_font );
+			p.drawText( 20, h , e->symbol() );
+			p.setFont( f );
 			p.drawText( 2, h/2-10, QString::number( e->number() ) );
 			break;
+		case 2:
+			p.setFont( symbol_font );
+			p.drawText( 20, 30, e->symbol() );
+			p.setFont( f );
+			text = QString::number( e->density() );
+			text.append( i18n( "g/cmÂ³" ) );
+			p.drawText( 2, h/2-10, text );
+			break;
+
 	}
 	
 	p.drawRect( 0, 0, w, h );

@@ -90,7 +90,7 @@ void PSE::setupBlockLists()
 	while ( it != d->ElementList.end() )
 	{
 		ElementButton *b = new ElementButton( *it, this );
-		QToolTip::add(b, i18n("Name: %1").arg(i18n( (*it)->elname().utf8())) );
+		QToolTip::add(b, i18n("Name: %1\nWeight: %2 u").arg(i18n( (*it)->elname().utf8())).arg( (*it)->weight()));
 
 		if ( (*it)->block() == "s" )
 			sBlockList.append( b );
