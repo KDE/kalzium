@@ -57,13 +57,15 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	overviewLayout = new QVBoxLayout( m_pOverviewTab );
 	energyLayout = new QVBoxLayout( m_pEnergyTab );
 	chemicalLayout = new QVBoxLayout( m_pChemicalTab, 0, KDialog::spacingHint() );
+	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
 	
 	
 	
-//X 	dTab = new DetailedGraphicalOverview( m_pOverviewTab );
+//	dTab = new DetailedGraphicalOverview( m_pOverviewTab );
 //X 	overviewLayout->addWidget( dTab );
 	wChemical = new detail_chemical( m_pChemicalTab );
 	wEnergy = new detail_energy( m_pEnergyTab );
+	wOrbits = new OrbitsWidget( m_pModelTab );
 	piclabel = new QLabel( m_pPictureTab );
 	discovered_label = new QLabel( m_pMiscTab );
 	meanweight_label = new QLabel( m_pMiscTab );
@@ -76,7 +78,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	mainLayout->addWidget( piclabel );
 	chemicalLayout->addWidget( wChemical );
 	energyLayout->addWidget( wEnergy );
-	
+	modelLayout->addWidget( wOrbits );
 	
 	createContent( e );
 }
@@ -122,12 +124,12 @@ void DetailedInfoDlg::createContent( Element *el )
 	////////////////////////////////////7
 	
 
-	wChemical->orbits_label->setText( e->parsedOrbits() );
-	wChemical->symbol_label->setText( e->symbol() );
-	wChemical->density_label->setText( e->adjustUnits( Element::DENSITY ) );
-	wChemical->block_label->setText( e->block() );
-	wChemical->radius_label->setText( e->adjustUnits( Element::RADIUS ) );
-	wChemical->weight_label->setText( e->adjustUnits( Element::WEIGHT  ) );
+	wChemical->orbits_label->setText( el->parsedOrbits() );
+	wChemical->symbol_label->setText( el->symbol() );
+	wChemical->density_label->setText( el->adjustUnits( Element::DENSITY ) );
+	wChemical->block_label->setText( el->block() );
+	wChemical->radius_label->setText( el->adjustUnits( Element::RADIUS ) );
+	wChemical->weight_label->setText( el->adjustUnits( Element::WEIGHT  ) );
 	if ( el->Isotopes() != "0"  )
 		wChemical->isotopeWidget->setIsotopes( el->Isotopes() );
 	else
@@ -135,30 +137,32 @@ void DetailedInfoDlg::createContent( Element *el )
     
     /////////////////////////////////
 	
-	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
-	OrbitsWidget *wOrbits = new OrbitsWidget( e->number(), m_pModelTab );
+	wOrbits->setElementNumber( el->number() );
+	wOrbits->repaint();
 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
 							.arg( elname )
 							.arg( elname )
-							.arg( e->parsedOrbits() ) );
-	modelLayout->addWidget( wOrbits );
+							.arg( el->parsedOrbits() ) );
 }
 
-void DetailedInfoDlg::wheelEvent(  QWheelEvent *ev )
+void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 {
 	int number = e->number();
 
 	Element *element;
 	if ( ev->delta() < 0 )
 	{
-		if ( e->number() > 1 )
+		if ( number > 1 )
 			element = new Element( number-1 );
+		else
+			return;
+	}
+	else if ( number < 111 )
+	{
+		element = new Element( number+1 );
 	}
 	else
-	{
-		if ( e->number() < 111 )
-			element = new Element( number+1 );
-	}
+		return;
 
 	e = element;
 

@@ -32,6 +32,10 @@ class OrbitsWidget : public QWidget
 
 	public:
 		OrbitsWidget( const int Elemno , QWidget *parent=0 , const char *name =0 );
+		OrbitsWidget( QWidget *parent=0 , const char *name =0 );
+
+		void setElementNumber( const int num );
+		
 
 	private:
 		/**

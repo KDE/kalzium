@@ -23,6 +23,7 @@
 #include "element.h"
 #include "detail_chemical.h"
 #include "detail_energy.h"
+#include "orbitswidget.h"
 
 class QFrame;
 class DetailedGraphicalOverview;
@@ -63,6 +64,7 @@ class DetailedInfoDlg : public KDialogBase
 
 		detail_chemical *wChemical;
 		detail_energy *wEnergy;
+		OrbitsWidget *wOrbits;
 
 		/**
 		 * create the tabs.
