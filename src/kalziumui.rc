@@ -2,8 +2,7 @@
 <kpartgui name="kalzium">
 <MenuBar>
 <Menu name="settings"><text>&amp;Settings</text>
-        <Action name="timeline"/>
-        <Separator/>
+        <Action name="timeline" append="show_merge"/>
         <Action name="psestyle"/>
         <Action name="colorscheme"/>
         <Action name="numeration"/>
