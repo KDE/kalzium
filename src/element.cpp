@@ -23,6 +23,13 @@
 #include <qmap.h>
 #include <kdebug.h>
 #include <klocale.h>
+#include <kmessagebox.h>
+#include <kurl.h>
+#include <klocale.h>
+#include <kstandarddirs.h>
+#include <kdebug.h>
+#include <kfiledialog.h>
+#include <kmessagebox.h>
 
 #include <math.h>
 
@@ -34,40 +41,16 @@ Element::Element( int num )
 {
 	m_number = num;
 
-	/*
-	 * this object is static because this reduces the access to the file 
-	 * by 90% (strace counts 16 calls instead of 116 )
-	 */
-	static KSimpleConfig config ( locate( "data", "kalzium/kalziumrc" ) );
-	
-	if ( config.hasGroup( QString::number( num ) ) )
-
-	config.setGroup( QString::number( num ) );
-	m_name=config.readEntry( "Name", "Unknown" );
-	m_symbol=config.readEntry( "Symbol", "Unknown" );
-	m_weight=config.readDoubleNumEntry( "Weight",0.0 );
-
-	m_oxstage=config.readEntry( "Ox","0" );
-	m_acidbeh=config.readEntry( "acidbeh","0" );
-	m_isotopes=config.readEntry( "Isotopes", "0" );
-
-	m_block=config.readEntry( "Block","s" );
-	m_EN=config.readDoubleNumEntry( "EN", -1 );
-	m_MP=config.readDoubleNumEntry( "MP", -1 );
-	m_IE=config.readDoubleNumEntry( "IE", -1 );
-	m_IE2=config.readDoubleNumEntry( "IE2", -1 );
-	m_AR=config.readDoubleNumEntry( "AR", -1 );
-	m_BP=config.readDoubleNumEntry( "BP", -1 );
-	m_Density=config.readDoubleNumEntry( "Density", -1 );
-	m_group=config.readEntry( "Group","1" );
-	m_family=config.readEntry( "Family","1" );
-	m_orbits=config.readEntry( "Orbits","0" );
-	m_biological=config.readNumEntry(  "biological" , -1 );
-	m_az=config.readNumEntry( "az",-1 );
-	m_date=config.readNumEntry( "date",-1 );
+//X 	m_IE=config.readDoubleNumEntry( "IE", -1 );
+//X 	m_IE2=config.readDoubleNumEntry( "IE2", -1 );
 
 	setupXY();
 }
+
+Element::Element()
+{
+	setupXY();
+};
 
 QString Element::parsedOrbits()
 {
@@ -373,7 +356,7 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 	int h_small = 15; //the size for the small units like elementnumber
 
 	//The X-coordiante
-	int X;
+	int X = 0;
 	
 	if ( useSimpleView )
 	{//use the small periodic table without the d- and f-Block
@@ -456,16 +439,106 @@ void Element::setupXY()
 
 KalziumDataObject::KalziumDataObject()
 {
-	for( int i = 1 ; i < 112 ; ++i )
-	{
-		Element *e = new Element( i );
-		coordinate point; point.x =  e->x; point.y = e->y;
+	QDomDocument doc( "datadocument" );
 
-		CoordinateList.append( point );
-		ElementList.append( e );
+	KURL url;
+	url.setPath( locate("data", "kalzium/data/"));
+	url.setFileName( "data.xml" );
+	QFile layoutFile( url.path() );
+
+	if (!layoutFile.exists())
+	{
+		KMessageBox::information( 0, i18n("data.xml doesn't exist"), i18n( "Loading File - Error" ) );
 	}
+
+	if (!layoutFile.open(IO_ReadOnly))
+		KMessageBox::information( 0, i18n("data.xml io-errro"), i18n( "Loading File - IO_ReadOnly" ) );
+
+	///Check if document is well-formed
+	if (!doc.setContent(&layoutFile))
+	{
+		kdDebug() << "wrong xml" << endl;
+		layoutFile.close();
+	}
+	layoutFile.close();
+
+	ElementList = readData( doc );
+
+	kdDebug() << ElementList.count() << " elements read" << endl;
+
+	//X 	for( int i = 1 ; i < 112 ; ++i )
+	//X 	{
+	//X 		Element *e = new Element( i );
+	//X 		coordinate point; point.x =  e->x; point.y = e->y;
+	//X 
+	//X 		CoordinateList.append( point );
+	//X 		ElementList.append( e );
+	//X 	}
 }
 
 KalziumDataObject::~KalziumDataObject()
 {}
 
+EList KalziumDataObject::readData(  QDomDocument &dataDocument )
+{
+	EList list;
+	QDomNodeList elementNodes; //the list of all element
+	QDomElement  domElement;   //a single element
+
+	//read in all elements
+	elementNodes = dataDocument.elementsByTagName( "element" );
+
+	for ( uint i = 0; i < elementNodes.count(); ++i )
+	{//iterate through all elements
+		domElement = ( const QDomElement& ) elementNodes.item( i ).toElement();
+		
+		double weight = domElement.namedItem( "weight" ).toElement().text().toDouble();
+		double en = domElement.namedItem( "electronegativity" ).toElement().text().toDouble();
+		double mp = domElement.namedItem( "meltingpoint" ).toElement().text().toDouble();
+		double bp = domElement.namedItem( "boilingpoint" ).toElement().text().toDouble();
+		double density = domElement.namedItem( "density" ).toElement().text().toDouble();
+		double atomic_radius = domElement.namedItem( "radius" ).namedItem( "atomic" ).toElement().text().toDouble();
+		
+		int bio = domElement.namedItem( "biologicalmeaning" ).toElement().text().toInt();
+		int az = domElement.namedItem( "aggregation" ).toElement().text().toInt();
+		int date = domElement.namedItem( "date" ).toElement().text().toInt();
+		
+		QString scientist = domElement.namedItem( "date" ).toElement().attributeNode( "scientist" ).value();
+		QString name = domElement.namedItem( "name" ).toElement().text();
+		QString block = domElement.namedItem( "block" ).toElement().text();
+		QString group = domElement.namedItem( "group" ).toElement().text();
+		QString family = domElement.namedItem( "family" ).toElement().text();
+		QString orbits = domElement.namedItem( "orbits" ).toElement().text();
+		QString symbol = domElement.namedItem( "symbol" ).toElement().text();
+		QString oxydation = domElement.namedItem( "oxydation" ).toElement().text();
+		QString acidicbehaviour = domElement.namedItem( "acidicbehaviour" ).toElement().text();
+		QString isotopes = domElement.namedItem( "isotopes" ).toElement().text();
+	
+		Element *e = new Element();
+		e->setDate(date);
+		e->setBiologicalMeaning(bio);
+		e->setAggregation(az);
+		
+		e->setScientist(scientist);
+		e->setName(name);
+		e->setBlock(block);
+		e->setGroup(group);
+		e->setFamily(family);
+		e->setOrbits(orbits);
+		e->setSymbol(symbol);
+		e->setOxydation(oxydation);
+		e->setAcidicbehaviour(acidicbehaviour);
+		e->setIsotopes(isotopes);
+		
+		e->setWeight( weight );	
+		e->setEN( en );
+		e->setMeltingpoint( mp );
+		e->setBoilingpoint( bp );
+		e->setDensity( density );
+		e->setAtomicRadius( atomic_radius );
+
+		list.append( e );
+	}
+	
+	return list;
+}

@@ -22,6 +22,8 @@
 
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>
+#include <qdom.h>
+#include <qfile.h>
 
 class Element;
 
@@ -46,6 +48,9 @@ class KalziumDataObject
 		EList ElementList;
 		
 		CList CoordinateList;
+
+	private:
+		EList readData( QDomDocument &dataDocument );
 };
 
 struct coordinate{
@@ -63,6 +68,8 @@ struct coordinate{
 class Element{
 	public:
 		Element( int );
+		Element( );
+
 		virtual ~Element();
 
 		/**
@@ -71,6 +78,29 @@ class Element{
 		int number() const {
 			return m_number;
 		}
+		
+		void setWeight( double value ) { m_weight = value; }
+		void setEN( double value ) { m_EN = value; }
+		void setMeltingpoint( double value ) { m_MP = value; }
+		void setBoilingpoint( double value ) { m_BP = value; }
+		void setDensity( double value ) { m_Density = value; }
+		void setAtomicRadius( double value ) { m_AR = value; }
+
+		void setDate( int date ) { m_date = date; }
+		void setBiologicalMeaning( int value ) { m_biological = value; }
+		void setAggregation( int value ) { m_az = value; }
+
+		void setScientist( QString value ) { m_scientist = value; }
+		void setName( QString value ) { m_name = value; }
+		void setBlock( QString value ) { m_block = value; }
+		void setGroup( QString value ) { m_group = value; }
+		void setFamily( QString value ) { m_family = value; }
+		void setOrbits( QString value ) { m_orbits = value; }
+		void setSymbol( QString value ) { m_symbol = value; }
+		void setOxydation( QString value ) { m_oxstage = value; }
+		void setAcidicbehaviour( QString value ) { m_acidbeh = value; }
+		void setIsotopes( QString value ) { m_isotopes = value; }
+		
 		
 		/**
 		 * @return the date of discovery of the element
@@ -106,7 +136,8 @@ class Element{
 		 * @return the condition of aggrgation of the element at 
 		 * room temperature. 0 means solid, 1 means liquid, 2 means vapor
 		 */
-		int az() const {return m_az;
+		int az() const {
+			return m_az;
 		}
 		
 		/**
@@ -305,7 +336,8 @@ class Element{
 			m_family,
 			m_acidbeh,
 			m_orbits,
-			m_isotopes;
+			m_isotopes,
+			m_scientist;
 		
 	public:
 		/**
