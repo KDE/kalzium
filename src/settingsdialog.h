@@ -3,7 +3,7 @@
         settingsdialog.h  -  description
                              -------------------
     begin                : Tue Apr 2 20:43:44 2002 UTC
-    copyright            : (C) 2002 by Robert Gogolok
+    copyright            : (C) 2002, 2003 by Robert Gogolok
     email                : mail@robert-gogolok.de
  ***************************************************************************/
 
@@ -23,6 +23,7 @@
 #include <qtabwidget.h>
 
 class KColorButton;
+class QRadioButton;
 class QVButtonGroup;
 class QComboBox;
 class QGridLayout;
@@ -74,9 +75,16 @@ class SettingsDialog : public KDialogBase
         ColorsTabWidget *colorsTabWidget;
         
         QVButtonGroup *webLookupButtonGroup;
-        QFrame *colorTab, *webLookupButtons;
+        QFrame *colorTab, *webLookupButtons, *general;
+		QRadioButton *detailedInfo, *minumumInfo;
         QRadioButton *rb;
         KConfig *main_config;
+
+		/*
+		 * this string stores if the user wants to see the detailed
+		 * or the smaller InfoDlg
+		 */
+		QString infoDlgChoice;
 
     private slots:
         /**
@@ -84,6 +92,7 @@ class SettingsDialog : public KDialogBase
         * It saves the settings the user did and quits.
         */
         void slotOkSettings();
+		void slotSetInfodlg( int );
 
     protected slots:
         void slotDefaults();

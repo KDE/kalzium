@@ -24,10 +24,12 @@
 #include <kstandarddirs.h>
 #include <kcombobox.h>
 #include <kurl.h>
+#include <kdebug.h>
 
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qradiobutton.h>
+#include <qbuttongroup.h>
 #include <qstring.h>
 #include <qvbuttongroup.h>
 
@@ -220,6 +222,7 @@ void ColorsTabWidget::applyColors()
     saveColors();
 }
 
+
 //********SettingsDialogg**********************************************
 SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Preferences"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
@@ -232,6 +235,16 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     QVBoxLayout *vcolorTabBox = new QVBoxLayout(colorTab);
     vcolorTabBox->addWidget(colorsTabWidget);
 
+	// GENERAL SETTINGS
+	general = addPage( i18n( "General Settings" ), i18n( "Custimize the general behaviour of Kalzium" ), BarIcon( "connect_creating", KIcon::SizeMedium ) );
+	QButtonGroup *b_group = new QVButtonGroup( general );
+	connect( b_group , SIGNAL( clicked( int ) ) , this , SLOT( slotSetInfodlg( int ) ) );
+	
+    QVBoxLayout *b_group_layout = new QVBoxLayout(general);
+    b_group_layout->addWidget(b_group);
+	detailedInfo = new QRadioButton( "Show a detailed informationdialog" , b_group );
+	minumumInfo = new QRadioButton( "Show less information in the informationdialog" , b_group );
+	
     // WEBLOOKUP BUTTONS
     webLookupButtons = addPage(i18n("Web Lookup"), i18n("Customize Web Lookup URL"), BarIcon ("connect_creating", KIcon::SizeMedium));
     webLookupButtonGroup = new QVButtonGroup(webLookupButtons, "weblookup ButtonGroup");
@@ -269,6 +282,8 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     main_config->setGroup("WLU");
     urlSelector->setCurrentItem( translateCurrentLang( main_config->readEntry( "adress") ) );
 
+	kdDebug() << "Ich lade und finde: " << main_config->readEntry( "infodialog" ) << endl;
+
     // CONNECT
     connect(this, SIGNAL(applyClicked()), this, SLOT(slotOkSettings()));
     connect(this, SIGNAL(defaultClicked()), this, SLOT(slotDefaults()));
@@ -297,8 +312,14 @@ int SettingsDialog::translateCurrentLang( QString lang ){
 
 void SettingsDialog::slotOkSettings()
 {
+	kdDebug() << "SettingsDialog::slotOkSettings()" << endl;
     main_config->setGroup("WLU");
     main_config->writeEntry("adress", urlSelector->currentText() );
+    main_config->writeEntry("infodialog", infoDlgChoice );
+
+	kdDebug() << "writeEntry führt zu: " << infoDlgChoice << endl;
+	kdDebug() << "Ich lade und finde: " << main_config->readEntry( "infodialog" ) << endl;
+	
     main_config->sync();
     colorsTabWidget->applyColors();
     ((Kalzium*)parentWidget())->changeColorScheme(((Kalzium*)parentWidget())->colorschememenu->currentItem());
@@ -316,6 +337,18 @@ void SettingsDialog::slotDefaults()
             break;
             
     }
+}
+
+void SettingsDialog::slotSetInfodlg( int id )
+{
+	kdDebug() << "SettingsDialog::slotSetInfodlg()" << endl;
+	if ( id == 0 )
+		infoDlgChoice = "long";
+	else if ( id == 1 )
+		infoDlgChoice = "short";
+
+	kdDebug() << "infoDlgChoice ist: " << infoDlgChoice << endl;
+
 }
 
 #include "settingsdialog.moc"

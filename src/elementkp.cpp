@@ -17,6 +17,7 @@
 
 //KDE-Includes
 #include <kconfig.h>
+#include <ksimpleconfig.h>
 #include <kglobalsettings.h>
 #include <klocale.h>
 #include <kpushbutton.h>
@@ -79,6 +80,7 @@ void ElementKP::mouseMoveEvent( QMouseEvent * )
 
 void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 {
+	kdDebug() << "ElementKP::mouseReleaseEvent()" << endl;
 	pmenu = new QPopupMenu();
 	if (mouse->button() == RightButton)
 	{
@@ -98,8 +100,14 @@ void ElementKP::mouseReleaseEvent( QMouseEvent *mouse )
 	}
 	else
 	{
-		slotShowDetailedData();
-		//slotShowData(); //böse
+		KConfig *main_config=KGlobal::config();  
+		main_config->setGroup("WLU");
+		QString detailed = main_config->readEntry( "infodialog" );
+		kdDebug() << "detailed ist: " << detailed << endl;
+		if ( detailed == "long" )
+			slotShowDetailedData();
+		else
+			slotShowData();
 	}
 }
 
@@ -151,6 +159,7 @@ QSize ElementKP::sizeHint() const
 //
 void ElementKP::slotShowDetailedData()
 {
+	kdDebug() << "ElementKP::slotShowDetailedData()" << endl;
 	DetailedInfoDlg *DIDlg = new DetailedInfoDlg( Data , this , "foo" );
 	DIDlg->show();
 }
@@ -158,6 +167,7 @@ void ElementKP::slotShowDetailedData()
 
 void ElementKP::slotShowData()
 {
+	kdDebug() << "ElementKP::slotShowData()" << endl;
     infoDialog *show_data2 = new infoDialog( Data , this );
 	show_data2->show();
 }
