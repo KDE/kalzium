@@ -1,5 +1,5 @@
 /***************************************************************************
-                         serachdlg.h  -  description
+                         searchdlg.h  -  description
                              -------------------
     begin                : June 2003
 	copyright            : (C) 2003 by Carsten Niehaus                     

@@ -1,5 +1,5 @@
 /***************************************************************************
-                         quizdlg.cpp  -  description
+                         searchdlg.cpp  -  description
                              -------------------
     begin                : June 2003
 	copyright            : (C) 2003 by Carsten Niehaus                     
@@ -17,13 +17,11 @@
 
 //KDE-Includes
 #include <kdialog.h>
-#include <kiconloader.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kpushbutton.h>
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>
-#include <kprogress.h>
 #include <kdebug.h>
 #include <klineedit.h>
 #include <kcombobox.h>
@@ -31,17 +29,14 @@
 
 //QT-Includes
 #include <qmessagebox.h>
-#include <qbuttongroup.h>
 #include <qimage.h>
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qpixmap.h>
 #include <qradiobutton.h>
 #include <qstring.h>
 #include <qtable.h>
 #include <qwhatsthis.h>
 #include <qwidget.h>
-#include <qheader.h>
 #include <qcheckbox.h>
 #include <qvaluelist.h>
 #include <qstringlist.h>
@@ -192,9 +187,6 @@ void SearchDlg::slotFilterData()
 
 IntValueList SearchDlg::parseDashes( QString dashedString )
 {
-	kdDebug() << "SearchDlg::parseDashes()" << endl;
-	kdDebug() << "der String ist: " << dashedString << endl;
-
 	IntValueList l;
 	QRegExp rx( "-" );
 	QString left = dashedString.left( dashedString.find( rx ) );
@@ -217,13 +209,10 @@ IntValueList SearchDlg::parseDashes( QString dashedString )
 
 IntValueList SearchDlg::parseRange(QString range)
 {
-	kdDebug() << "SearchDlg::parseRange()" << endl;
-
 	IntValueList l;
 	
 	if ( range.contains( ";" ) ) //at least to ranges are given
 	{
-		kdDebug() << "enthält ;" << endl;
 		QRegExp semcol_rx( ";" );
 		QRegExp dash_rx( "-" );
 
@@ -233,7 +222,6 @@ IntValueList SearchDlg::parseRange(QString range)
 		int bar = 1;
 		while ( hasStillSemicolons )
 		{
-			kdDebug() << "Durchlauf: " << bar << endl;
 			if ( range.contains(";" ) )
 			{
 				part = range.left( range.find( semcol_rx ) );
@@ -244,9 +232,6 @@ IntValueList SearchDlg::parseRange(QString range)
 				part = range;
 				rest = "";
 			}
-
-			kdDebug() << "rest ist: " << rest << endl;
-			kdDebug() << "part ist: " << part << endl;
 
 			IntValueList e = parseDashes( part );
 			for( IntValueList::Iterator it = e.begin() ; it != e.end() ; ++it )
@@ -261,7 +246,6 @@ IntValueList SearchDlg::parseRange(QString range)
 			//check if we still need to parse
 			if ( !range.isEmpty() )
 			{
-				kdDebug() << "Range is not empty" << endl;		
 				if ( !range.contains( ";" ) )//only one element is left
 				{
 					l.append( range.toInt() );
@@ -274,31 +258,20 @@ IntValueList SearchDlg::parseRange(QString range)
 			{
 				hasStillSemicolons = false;
 			}
-			kdDebug() << "range is: " << range << endl;
 		}
 	}
 	else
 	{
-		kdDebug() << "enthält kein ;" << endl;
 		if ( range.contains( "-" ) ) //one range is given
 		{
 			l = parseDashes( range );
 		}
 		else //only one element is choosen
 		{
-			kdDebug() << "enthält nur ein Element" << endl;
 			l.append( range.toInt() );
 		}
 	}
 
-	//Debug here
-	int i = 1;
-	for ( IntValueList::Iterator it = l.begin() ; it != l.end() ; ++it )
-	{
-		kdDebug() << "Element " << i << " ist : " << *it << endl;
-		++i;
-	}
-	//end the debug
 	
 	return l;
 }
@@ -313,8 +286,12 @@ void SearchDlg::slotExportData()
 
 	for ( int i = 0 ; i < rows ; i++ )
 	{
+		if ( DataTable->rowHeight(i) == 0 )
+				continue;
 		for ( int e = 0 ; e < cols ; e++ )
 		{
+			if ( DataTable->columnWidth(e) == 0 )
+				continue;
 			str.append( DataTable->text( i , e ) );
 			str.append( csvDelimiter );
 		}
