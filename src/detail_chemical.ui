@@ -176,10 +176,10 @@
                                 <string></string>
                             </property>
                             <property name="toolTip" stdset="0">
-                                <string>The atomic radius in picometer</string>
+                                <string>The atomic radius in picometers</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>The atomic radius in picometer</string>
+                                <string>The atomic radius in picometers</string>
                             </property>
                         </widget>
                     </hbox>

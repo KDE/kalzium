@@ -288,7 +288,7 @@ void Kalzium::displayTemperature()
 			m_pSOMSlider->unit->setText( i18n( "°F" ) );
  			break;
  	}
- 	slotStatusBar(i18n("Temperatureunit: %1 ").arg( string ),  IDS_TEMP);
+ 	slotStatusBar(i18n("Temperature unit: %1 ").arg( string ),  IDS_TEMP);
  }
  
  void Kalzium::displayEnergie()
