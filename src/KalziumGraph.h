@@ -22,7 +22,8 @@
 class KComboBox;
 class KLineEdit;
 class QGridLayout;
-class QCanvas;
+class QLabel;
+class KIntNumInput;
 
 #include <qwidget.h>
 #include <kdialog.h>
@@ -40,7 +41,9 @@ class KalziumGraphDialog : public KDialog
 	
 	private:
 		KComboBox *kcb;
-		KLineEdit *from, *to;
+		KIntNumInput *from, *to;
+		QLabel *topicLabel;
+		bool valuesAreOk();
 	
 	public slots:
 		void slotokClicked();

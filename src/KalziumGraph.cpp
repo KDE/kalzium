@@ -27,20 +27,13 @@
 #include <kcombobox.h>
 #include <kdebug.h>
 #include <kconfig.h>
-#include <klineedit.h>
+#include <knuminput.h>
 
 //QT-Includes
-#include <qdialog.h>
 #include <qlayout.h>
 #include <qframe.h>
-#include <qwidget.h>
-#include <qpushbutton.h>
-#include <qhbox.h>
 #include <qlabel.h>
-#include <qcanvas.h>
 #include <qpainter.h>
-
-#include <math.h>
 
 KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDialog( parent, name )
 {
@@ -49,8 +42,12 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 	KPushButton *ok = new KPushButton( i18n( "Graph" ),this );
 	QObject::connect(ok, SIGNAL( clicked() ), this, SLOT(slotokClicked() ));
 
-	from = new KLineEdit("2", this );
-	to = new KLineEdit("20", this );
+	from = new KIntNumInput(2, this );
+	to = new KIntNumInput(20, this );
+	to->setMinValue( 2 );
+	to->setMaxValue( 109 );
+	to->setMinValue( 1 );
+	to->setMaxValue( 108 );
 
 	kcb = new KComboBox( this );
 	kcb->insertItem( i18n( "Atomic Weight" ));
@@ -69,14 +66,22 @@ KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDi
 void KalziumGraphDialog::slotokClicked()
 {
 	int typ = kcb->currentItem();
-	int fromRange =  from->text().toInt() ;
-	int toRange =  to->text().toInt() ;
+	int fromRange =  from->value();
+	int toRange =  to->value();
 
-	KalziumGraphDataContainer *container = new KalziumGraphDataContainer( typ, fromRange,toRange );
- 	graph = new KalziumGraph( fromRange,toRange,this, "graph" , container);
-	graph->show();
+	if ( valuesAreOk() )
+	{
+		KalziumGraphDataContainer *container = new KalziumGraphDataContainer( typ, fromRange,toRange );
+		graph = new KalziumGraph( fromRange,toRange,this, "graph" , container);
+		graph->show();
+		grid->addMultiCellWidget( graph,2,3,0,2 );
+	}
+}
 
-	grid->addMultiCellWidget( graph,2,3,0,2 );
+bool KalziumGraphDialog::valuesAreOk()
+{
+	if ( to->value() <= from->value() ) return false;
+	return true;
 }
 
 KalziumGraph::KalziumGraph( int fromRange, int toRange,QWidget *parent, const char *name, KalziumGraphDataContainer *datacontainer) :
@@ -106,8 +111,6 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 		
 	double max = getMax();              //the maximum value of the drawed data
 
-	double min = getMin();              //the minimum value of the drawed data
-
 	for( int i = 0 ; i < num ; i++ )
 	{
 		double current = data->Data[ fromRange_+i ]/max;
@@ -131,7 +134,7 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 			y_old = w_h- ((int) old) + 10;
 		}
 
-		DC.drawEllipse( x , y , 4 , 4 );//draw the datapoints
+		DC.drawEllipse( x-2 , y-2 , 4 , 4 );//draw the datapoints
 		
 
 		if( i != 0 )
@@ -139,7 +142,7 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 			DC.drawLine( x_old,y_old,x,y );
 		}
 	}
-
+									    //draw the 3 hor. orientationlines
 	DC.drawLine(10,this->height()/2,20,this->height()/2);
 	DC.drawLine(10,this->height()/4,20,this->height()/4);
 	DC.drawLine(10,this->height()/4*3,20,this->height()/4*3);
