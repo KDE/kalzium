@@ -14,6 +14,9 @@
  ***************************************************************************/
 
 class TaskList;
+class QFile;
+class QTextStream;
+
 #include <qdom.h>
 #include "quiz.h"
 
@@ -30,12 +33,19 @@ class QuizXMLParser
 		QuizXMLParser();
 
 		/**
-		 * read in all tasks defined in the questions-file
+		 * read in all tasks defined in the questions-file which have
+		 * a minimumgrade @p min and a maximumgrade @p max
 		 * @param min the minimum grade
 		 * @param max the minimum grade
 		 * @param questionDocument the QDomDocument which is being parsed
 		 */
 		TaskList readTasks( int min, int max, QDomDocument &questionDocument );
+		
+		/**
+		 * read in all tasks defined in the questions-file 
+		 * @param questionDocument the QDomDocument which is being parsed
+		 */
+		TaskList readTasks( QDomDocument &questionDocument );
 		
 		/**
 		 * checks if the file is well-formed XML
@@ -46,6 +56,29 @@ class QuizXMLParser
 	private:
 		TaskList m_tasklist;
 
+};
+
+/**
+ * @author Carsten Niehaus <cniehaus@kde.org>
+ * @version 1.1
+ */
+class QuizXMLWriter
+{
+	public:
+		QuizXMLWriter( QFile *file );
+		~QuizXMLWriter();
+
+		/**
+		 * add an the tags for the grade, the questions
+		 * and the answers of the @p task
+		 * @param task the Task which will be add to the xml-file
+		 */
+		void addItem(Task* task);
+		void addHeader();
+
+	private:
+		QFile *outputFile;
+		QTextStream outputStream;
 };
 	
 

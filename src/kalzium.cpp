@@ -42,7 +42,7 @@ Kalzium::Kalzium()
 	 **/
 	 QStringList schemalist;
 	 schemalist.append(i18n("Show &Regular PSE"));
-	 schemalist.append(i18n("Mendeleev - localized name of Russian chemist Dmitri Mendeleev","Show &Mendeleev PSE"));
+//	 schemalist.append(i18n("Mendeleev - localized name of Russian chemist Dmitri Mendeleev","Show &Mendeleev PSE"));
 	 schemalist.append(i18n("Show &Simple PSE"));
 	 schema_action = new KSelectAction (i18n("&PSE"), 0, this, 0, actionCollection(), "change_pse");
 	 schema_action->setItems(schemalist);
@@ -69,7 +69,6 @@ Kalzium::Kalzium()
 	 quizlist.append(i18n("Start &Quiz"));
 	 quizlist.append(i18n("Set&up Quiz"));
 	 quizlist.append(i18n("&Edit Questions"));
-	 quizlist.append(i18n("&Add Questions"));
 	 quiz_action = new KSelectAction (i18n("&Quiz"), 0, this, 0, actionCollection(), "quiz_menu");
 	 quiz_action->setItems(quizlist);
 	 //quiz_action->setCurrentItem(0);
@@ -103,7 +102,7 @@ Kalzium::Kalzium()
 
 	m_pRegularPSE = new RegularPSE( data(), this, "regularPSE");
 	m_pSimplePSE = new SimplifiedPSE( data(), this, "SimplifiedPSE");
-	m_pMendeljevPSE = new MendeljevPSE( data(), this, "MendeljevPSE");
+//	m_pMendeljevPSE = new MendeljevPSE( data(), this, "MendeljevPSE");
 
 	m_pCurrentPSE = m_pRegularPSE;
 	slotSwitchtoNumeration(Prefs::numeration() );
@@ -133,14 +132,6 @@ void Kalzium::slotEditQuestions()
 {
 	kdDebug() << "inside the questionseditor" << endl;
 	questionEditorImpl *q = new questionEditorImpl( this, "questionEditor" );
-	q->show();
-}
-
-void Kalzium::slotAddQuestions()
-{
-	kdDebug() << "Kalzium::slotAddQuestions()" << endl;
-
-	questionAddDialogImpl *q = new questionAddDialogImpl( this, "questionAddDialogImpl" );
 	q->show();
 }
 
@@ -182,16 +173,16 @@ void Kalzium::slotSwitchtoPSE(int index)
 {
 	m_pRegularPSE->hide();
 	m_pSimplePSE->hide();
-	m_pMendeljevPSE->hide();
+//	m_pMendeljevPSE->hide();
 
 	switch (index) {
     	case 0:
 		m_pCurrentPSE = m_pRegularPSE;
 		break;
+//X 	case 1:
+//X 		m_pCurrentPSE = m_pMendeljevPSE;
+//X 		break;
 	case 1:
-		m_pCurrentPSE = m_pMendeljevPSE;
-		break;
-	case 2:
 		m_pCurrentPSE = m_pSimplePSE;
 		break;
 	}
@@ -213,9 +204,6 @@ void Kalzium::slotQuiz(int index)
 		break;
 	case 2:
 		slotEditQuestions();
-		break;
-	case 3:
-		slotAddQuestions();
 		break;
 	}
 	quiz_action->setCurrentItem(-1);

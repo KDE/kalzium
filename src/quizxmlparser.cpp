@@ -13,6 +13,9 @@
 #include "quizxmlparser.h"
 #include "quiz.h"
 
+#include <qtextstream.h>
+#include <qfile.h>
+
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <kdebug.h>
@@ -59,6 +62,74 @@ bool QuizXMLParser::loadLayout( QDomDocument &questionDocument )
 
 	kdDebug() << "good xml" << endl;
 	return true;
+}
+TaskList QuizXMLParser::readTasks( QDomDocument &questionDocument )
+{
+	kdDebug() << "questionEditorImpl::readTasks()" << endl;
+	QDomNodeList taskList,             //the list of all tasks
+					questionList,
+					answerList;
+
+	QDomAttr textAttibute, 
+				gradeAttribute, 
+				trueAttribute;  //whether or not the answer is true
+
+	QDomElement taskElement, //a single task
+				questionElement,
+				aElement;
+
+	//read in all tasks
+	taskList = questionDocument.elementsByTagName( "task" );
+	
+	for ( uint i = 0; i < taskList.count(); ++i )
+	{//iterate through all tasks
+
+		taskElement = ( const QDomElement& ) taskList.item( i ).toElement();
+		gradeAttribute = taskElement.attributeNode( "grade" );
+
+		//get the question
+		questionList = taskElement.elementsByTagName( "question" );
+		questionElement = ( const QDomElement& ) questionList.item( 0 ).toElement();
+		const QString q = questionElement.attributeNode( "text" ).value();
+		
+		//get the grade of the task
+		const int g = gradeAttribute.value().toInt();
+
+		//get the answers. In most cases you will get three or four answers.
+		//Probably one will be true, the rest false
+		answerList = taskElement.elementsByTagName( "answer" );
+
+		 //get the number of answers
+		int count = answerList.count();
+		
+		//generate the task, the answers will be added inside the next loop
+		Task *t = new Task( q, g );
+		
+		for ( int i = 0; i < count; ++i )
+		{//iterate through all answers and generate the tasks
+			bool answerisTrue;
+			aElement = ( const QDomElement& ) answerList.item( i ).toElement();
+			
+			QString answerString = aElement.attributeNode( "text" ).value();
+
+			// check if the answer is true or not
+			aElement.attributeNode( "type" ).value() == "true" ? 
+						answerisTrue = true 
+						: answerisTrue = false;
+			
+			Answer *answer = new Answer( answerString, answerisTrue );
+			
+			t->addAnswer( answer );
+		}
+		
+		//
+		//the task has now all answers, the grade and the question.
+		//Now we can add the Task to the list of tasks
+		//
+		m_tasklist.addTask( t );
+	}
+	
+	return m_tasklist;
 }
 
 TaskList QuizXMLParser::readTasks( int min, int max, QDomDocument &questionDocument )
@@ -132,4 +203,41 @@ TaskList QuizXMLParser::readTasks( int min, int max, QDomDocument &questionDocum
 	
 	return m_tasklist;
 }
+
+QuizXMLWriter::QuizXMLWriter( QFile *file )
+{
+	outputFile = file;
+	if ( outputFile->open( IO_WriteOnly ) )
+	{
+		outputStream.setDevice( outputFile );
+		outputStream.setEncoding( QTextStream::UnicodeUTF8 );
+		outputStream << "<kalzium>" << endl;
+	}
+}
+
+QuizXMLWriter::~QuizXMLWriter()
+{
+	outputStream << "</kalzium>" << endl;
+	outputFile->close();
+}
+
+void QuizXMLWriter::addItem(Task* task)
+{
+	kdDebug() << "QuizXMLWriter::addItem()" << endl;
+
+	//the next line writes eg: <task grade="2">
+	outputStream << "   <task grade=\"" << task->isGrade() << "\">" << endl;
+
+	//the next line writes eg: <question text="blah" />
+	outputStream << "       <question text=\"" << task->question() << "\" />" << endl;
+
+	for ( int i = 0 ; i < task->numberOfAnswers() ; ++i )
+	{//write all answers
+		QString type = "true"; //task->answerAt(i)->isTrue ? "true" : "false";
+		outputStream << "       <answer type=\"" << type << " text=\"" << task->answerAt(i)->answer() << "\" />" << endl;
+	}
+}
+
+void QuizXMLWriter::addHeader()
+{}
 

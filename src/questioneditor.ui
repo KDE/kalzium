@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>questionEditor</class>
 <widget class="QDialog">
     <property name="name">
@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>600</width>
-            <height>480</height>
+            <width>641</width>
+            <height>552</height>
         </rect>
     </property>
     <property name="caption">
@@ -19,38 +19,6 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLayoutWidget" row="1" column="0">
-            <property name="name">
-                <cstring>layout2</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="KPushButton">
-                    <property name="name">
-                        <cstring>KPB_removeq</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Remove Question</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>A click on this button will remove the selected question</string>
-                    </property>
-                </widget>
-                <widget class="KPushButton">
-                    <property name="name">
-                        <cstring>KPB_addq</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Add Question</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>A click on this button will open a dialog in which you can add a question</string>
-                    </property>
-                </widget>
-            </hbox>
-        </widget>
         <widget class="KListView" row="0" column="0">
             <column>
                 <property name="text">
@@ -89,11 +57,102 @@
                 <cstring>KLV_qa</cstring>
             </property>
             <property name="selectionMode" stdset="0">
-                <enum>NoSelection</enum>
+                <enum>Single</enum>
             </property>
             <property name="rootIsDecorated">
                 <bool>true</bool>
             </property>
+        </widget>
+        <widget class="QLayoutWidget" row="0" column="1">
+            <property name="name">
+                <cstring>layout46</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>KPB_loadFile</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Load File</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+L</string>
+                    </property>
+                </widget>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>KPB_addq</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Add Question</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+A</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>A click on this button will open a dialog in which you can add a question</string>
+                    </property>
+                </widget>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>KPB_removeq</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Remove Question</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+R</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>A click on this button will remove the selected question</string>
+                    </property>
+                </widget>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>kPushButton4</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Save Changes</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+S</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>A click on this button will save the tasks in the listview</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer6</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>290</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>kPushButton2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Close</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+C</string>
+                    </property>
+                </widget>
+            </vbox>
         </widget>
     </grid>
 </widget>
@@ -110,10 +169,30 @@
         <receiver>questionEditor</receiver>
         <slot>slotAddQuestion()</slot>
     </connection>
+    <connection>
+        <sender>kPushButton2</sender>
+        <signal>clicked()</signal>
+        <receiver>questionEditor</receiver>
+        <slot>close()</slot>
+    </connection>
+    <connection>
+        <sender>KPB_loadFile</sender>
+        <signal>clicked()</signal>
+        <receiver>questionEditor</receiver>
+        <slot>slotLoadFile()</slot>
+    </connection>
+    <connection>
+        <sender>kPushButton4</sender>
+        <signal>clicked()</signal>
+        <receiver>questionEditor</receiver>
+        <slot>slotSaveFile()</slot>
+    </connection>
 </connections>
 <slots>
     <slot>slotRemoveQuestion()</slot>
     <slot>slotAddQuestion()</slot>
+    <slot>slotLoadFile()</slot>
+    <slot>slotSaveFile()</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

@@ -198,7 +198,6 @@ class SimplifiedPSE : public PSE
  * All elements are included.
  * @short The regular periodic table with all elements
  * @author Carsten Niehaus
- */
 class MendeljevPSE : public PSE
 {
 	Q_OBJECT
@@ -206,15 +205,18 @@ class MendeljevPSE : public PSE
 	public:
 		MendeljevPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
 		
+*/
 		/**
 		 * Sets up all elements to the correct buttonlists
 		 * @see m_PSEElementButtons
 		 */
+/*
 		void setupPSEElementButtonsList();
 
 		void updateNumeration();
 		
 		~MendeljevPSE();
 };
+*/
 
 #endif

@@ -19,6 +19,7 @@
  ***************************************************************************/
 #include "pse.h"
 #include "prefs.h"
+#include "stateofmatterdialog_impl.h"
 
 #include <klocale.h>
 #include <kdebug.h>
@@ -216,11 +217,18 @@ void PSE::activateColorScheme( const int nr )
 	}
 	else if ( nr == 3) //state-of-matter
 	{
+		//only the elements 1 to 95 (Americium) will be calculated because
+		//only for these both the boiling _and_ melting point are known.
+		//The other elements will have the color color_artificial
+
 		kdDebug() << "Number 4 was chosen... state-of-matter" << endl;
+	
+		somDialogImpl *somDlg = new somDialogImpl(this,  this, "som" );
+		somDlg->show();
+		
 		ElementButton *button;
 		const QColor color_solid = Prefs::color_solid();
 		const QColor color_liquid = Prefs::color_liquid();
-		const QColor color_radioactive = Prefs::color_radioactive();
 		const QColor color_vapor = Prefs::color_vapor();
 		const QColor color_artificial = Prefs::color_artificial();
 
@@ -236,10 +244,6 @@ void PSE::activateColorScheme( const int nr )
 			}
 			if (az == 1){
 				button->setPaletteBackgroundColor( color_liquid );
-				continue;
-			}
-			if (az == 2){
-				button->setPaletteBackgroundColor( color_radioactive );
 				continue;
 			}
 			if (az == 3){
@@ -320,6 +324,8 @@ void PSE::setDate( int date )
 
 void PSE::setTemperature( const double temp )
 {
+	//Important: The value temp is in Kelvin, not Degree Celsius!
+	kdDebug() << "PSE::setTemperature()" << endl;
 	static QColor c_liquid = Prefs::color_liquid();
 	static QColor c_solid = Prefs::color_solid();
 	static QColor c_vapor = Prefs::color_vapor();
@@ -411,7 +417,6 @@ void RegularPSE::updateNumeration()
 	LabelList::iterator it = lList.begin();
 	for ( int i = 0 ; it != lList.end() ; ++it )
 	{
-		kdDebug() << m_num << " << m_num" << endl;
 		switch ( m_num )
 		{
 			case NO :
@@ -544,6 +549,7 @@ void SimplifiedPSE::setupPSEElementButtonsList()
 		m_PSEElementButtons.append( button );
 	}
 }
+/*
 
 MendeljevPSE::MendeljevPSE(KalziumDataObject *data, QWidget *parent, const char *name)
  : PSE(data, parent, name)
@@ -604,6 +610,6 @@ void MendeljevPSE::updateNumeration()
 		( *it )->hide();
 	}
 }
-
+*/
 
 #include "pse.moc"

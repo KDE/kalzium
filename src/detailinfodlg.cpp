@@ -54,6 +54,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg( Element::adjustUnits(  e->date() , 5 ) ) , m_pMiscTab );
 	QLabel *meanweight_label = new QLabel( i18n("Mean weight: %1 u").arg(e->meanweight() ) , m_pMiscTab );
 	QWhatsThis::add( meanweight_label , i18n( "The mean weight is the atomic weight divided by the number of protons" ) );
+	QWhatsThis::add( discovered_label, i18n( "Here you can see when the element was discovered." ) );
 	miscLayout->addWidget( discovered_label );
 	miscLayout->addWidget( meanweight_label );
 	miscLayout->insertStretch(-1,1);

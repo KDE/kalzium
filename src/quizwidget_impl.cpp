@@ -73,11 +73,13 @@ void QuizWidgetImpl::setRadiobuttons()
 	int numOfAnswers = m_currentTask->numberOfAnswers();
 	
 	it = buttonList.begin();
+
+	kdDebug() << "num of answers: " << numOfAnswers << endl;
 	
 	for ( int i = 0 ; i < numOfAnswers ; ++i )
 	{//now diplay the needed buttons (one per answer) and set the texts
 
-		kdDebug() << ( *it )->text() << endl;
+		kdDebug() << "answer " << i << " text: " << ( *it )->text() << endl;
 		(*it)->show();
 		(*it)->setText(m_currentTask->answerAt( i )->answer());
 		++it;

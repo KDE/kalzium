@@ -46,6 +46,13 @@ Task* TaskList::taskAt( int pos )
 	return *it;
 }
 
+void TaskList::removeTaskAt( int pos )
+{
+	pos--; //the list starts with 0 and not 1
+	taskList::iterator ite = Tasks.at( pos );
+	Tasks.remove( Tasks.at( pos ) );
+}
+
 void TaskList::randomize()
 {
 	kdDebug() << "TaskList::randomize()" << endl;

@@ -45,6 +45,10 @@ class questionEditorImpl : public questionEditor
 		
 	private slots:
 		void slotAddQuestion(); 
+		void slotAddTask(Task*); 
+		void slotLoadFile();
+		void slotRemoveQuestion();
+		void slotSaveFile();
 };
 
 

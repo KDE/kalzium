@@ -22,12 +22,16 @@
 
 #include <kpushbutton.h>
 #include <knuminput.h>
+#include <ktextedit.h>
+#include <klocale.h>
 
 #include <qlayout.h>
+#include <qlabel.h>
+#include <qbuttongroup.h>
 
 #include <kdebug.h>
 
-questionAddDialogImpl::questionAddDialogImpl(QWidget* parent, const char* name)
+questionAddDialogImpl::questionAddDialogImpl( QWidget* parent, const char* name)
  : questionAddDialog(parent,name)
 {
 	connect( KPB_addQuestions, SIGNAL( clicked() ), this, SLOT( slotAddAnswers() ) );
@@ -36,22 +40,33 @@ questionAddDialogImpl::questionAddDialogImpl(QWidget* parent, const char* name)
 void questionAddDialogImpl::slotAddAnswers()
 {
 	kdDebug() << "questionAddDialogImpl::slotAddAnswers()" << endl;
-	
-	int num = KINI_number->value( );
-	
-	QuestionsWidget *qw = new QuestionsWidget( num );
-	qw->show();
-}
-
-QuestionsWidget::QuestionsWidget( int num, QWidget* parent, const char* name )
-	: QWidget( parent, name )
-{
-	vlay = new QVBoxLayout( this );
-	for ( int i = 0; i < num; ++i )
+	Task *task = new Task(question->text(), KINI_grade->value() );
+	if ( answer_1->isModified() &&
+			type_1->selected() )
 	{
-		QuestionTextWidget *qtw = new QuestionTextWidget( this );
-		vlay->addWidget( qtw );
+		task->addAnswer( new Answer( answer_1->text(), type_1->id( type_1->selected() ) == 0 ? true : false ) );
 	}
+	if ( answer_2->isModified() &&
+			type_2->selected() )
+	{
+		task->addAnswer( new Answer( answer_2->text(), type_2->id( type_2->selected() ) == 0 ? true : false ) );
+	}
+	if ( answer_3->isModified() &&
+			type_3->selected() )
+	{
+		kdDebug() << "Frage 3: " << answer_3->text() << endl;
+		task->addAnswer( new Answer( answer_3->text(), type_3->id( type_3->selected() ) == 0 ? true : false ) );
+	}
+	if ( answer_4->isModified() 
+			&& type_4->selected() )
+	{
+		kdDebug() << "Frage 4: " << answer_4->text() << endl;
+		task->addAnswer( new Answer( answer_4->text(), type_4->id( type_4->selected() ) == 0 ? true : false ) );
+	}
+	
+	emit taskAdded( task );
+
+	close();
 }
 
 #include "questionadddialog_impl.moc"

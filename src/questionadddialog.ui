@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>questionAddDialog</class>
 <widget class="QDialog">
     <property name="name">
@@ -8,12 +8,12 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>600</width>
-            <height>160</height>
+            <width>575</width>
+            <height>585</height>
         </rect>
     </property>
     <property name="caption">
-        <string>Add Question</string>
+        <string>Add a Question</string>
     </property>
     <property name="whatsThis" stdset="0">
         <string>In this dialog you can add a question</string>
@@ -22,6 +22,41 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
+        <widget class="QLayoutWidget" row="6" column="0">
+            <property name="name">
+                <cstring>layout6_2</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1_2_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Grade of the Questions:</string>
+                    </property>
+                </widget>
+                <widget class="KIntNumInput">
+                    <property name="name">
+                        <cstring>KINI_grade</cstring>
+                    </property>
+                    <property name="value">
+                        <number>2</number>
+                    </property>
+                    <property name="minValue">
+                        <number>2</number>
+                    </property>
+                    <property name="maxValue">
+                        <number>4</number>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Enter the number of questions this task has; after that, click on the "Add Questions" button to enter the questions themselves.</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
                 <cstring>layout3</cstring>
@@ -40,77 +75,42 @@
                 </widget>
                 <widget class="KTextEdit">
                     <property name="name">
-                        <cstring>KLE_q</cstring>
+                        <cstring>question</cstring>
                     </property>
                 </widget>
             </hbox>
         </widget>
-        <widget class="QLayoutWidget" row="1" column="0">
+        <widget class="Line" row="1" column="0">
             <property name="name">
-                <cstring>layout6</cstring>
+                <cstring>line3</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>HLine</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Sunken</enum>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="7" column="0">
+            <property name="name">
+                <cstring>layout27</cstring>
             </property>
             <hbox>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>textLabel1_2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Number of questions:</string>
-                    </property>
-                </widget>
-                <widget class="KIntNumInput">
-                    <property name="name">
-                        <cstring>KINI_number</cstring>
-                    </property>
-                    <property name="value">
-                        <number>2</number>
-                    </property>
-                    <property name="minValue">
-                        <number>2</number>
-                    </property>
-                    <property name="maxValue">
-                        <number>8</number>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Enter the number of questions this task has; after that, click on the "Add Questions" button to enter the questions themselves.</string>
-                    </property>
-                </widget>
-            </hbox>
-        </widget>
-        <widget class="QLayoutWidget" row="2" column="0">
-            <property name="name">
-                <cstring>layout8</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer7</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>121</width>
-                            <height>31</height>
-                        </size>
-                    </property>
-                </spacer>
                 <widget class="KPushButton">
                     <property name="name">
                         <cstring>KPB_addQuestions</cstring>
                     </property>
                     <property name="text">
                         <string>&amp;Add Questions</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+A</string>
                     </property>
                 </widget>
                 <spacer>
@@ -125,14 +125,253 @@
                     </property>
                     <property name="sizeHint">
                         <size>
-                            <width>131</width>
+                            <width>209</width>
                             <height>20</height>
                         </size>
                     </property>
                 </spacer>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>kPushButton1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Cancel</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+C</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="4" column="0">
+            <property name="name">
+                <cstring>layout28_2</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1_2_5_2_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Answer:</string>
+                    </property>
+                </widget>
+                <widget class="KTextEdit">
+                    <property name="name">
+                        <cstring>answer_2</cstring>
+                    </property>
+                </widget>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>type_2</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Type</string>
+                    </property>
+                    <property name="exclusive">
+                        <bool>true</bool>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton" row="0" column="0">
+                            <property name="name">
+                                <cstring>radioButton29_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>true</string>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" row="1" column="0">
+                            <property name="name">
+                                <cstring>radioButton30_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>false</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="5" column="0">
+            <property name="name">
+                <cstring>layout28_3</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1_2_5_2_3</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Answer:</string>
+                    </property>
+                </widget>
+                <widget class="KTextEdit">
+                    <property name="name">
+                        <cstring>answer_3</cstring>
+                    </property>
+                </widget>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>type_3</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Type</string>
+                    </property>
+                    <property name="exclusive">
+                        <bool>true</bool>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton" row="0" column="0">
+                            <property name="name">
+                                <cstring>radioButton29_3</cstring>
+                            </property>
+                            <property name="text">
+                                <string>true</string>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" row="1" column="0">
+                            <property name="name">
+                                <cstring>radioButton30_3</cstring>
+                            </property>
+                            <property name="text">
+                                <string>false</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="2" column="0">
+            <property name="name">
+                <cstring>layout28_4</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1_2_5_2_4</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Answer:</string>
+                    </property>
+                </widget>
+                <widget class="KTextEdit">
+                    <property name="name">
+                        <cstring>answer_4</cstring>
+                    </property>
+                </widget>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>type_4</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Type</string>
+                    </property>
+                    <property name="exclusive">
+                        <bool>true</bool>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton" row="0" column="0">
+                            <property name="name">
+                                <cstring>radioButton29_4</cstring>
+                            </property>
+                            <property name="text">
+                                <string>true</string>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" row="1" column="0">
+                            <property name="name">
+                                <cstring>radioButton30_4</cstring>
+                            </property>
+                            <property name="text">
+                                <string>false</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="3" column="0">
+            <property name="name">
+                <cstring>layout28</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1_2_5_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Answer:</string>
+                    </property>
+                </widget>
+                <widget class="KTextEdit">
+                    <property name="name">
+                        <cstring>answer_1</cstring>
+                    </property>
+                </widget>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>type_1</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Type</string>
+                    </property>
+                    <property name="exclusive">
+                        <bool>true</bool>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton" row="0" column="0">
+                            <property name="name">
+                                <cstring>radioButton29</cstring>
+                            </property>
+                            <property name="text">
+                                <string>true</string>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" row="1" column="0">
+                            <property name="name">
+                                <cstring>radioButton30</cstring>
+                            </property>
+                            <property name="text">
+                                <string>false</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
             </hbox>
         </widget>
     </grid>
 </widget>
+<connections>
+    <connection>
+        <sender>kPushButton1</sender>
+        <signal>clicked()</signal>
+        <receiver>questionAddDialog</receiver>
+        <slot>close()</slot>
+    </connection>
+</connections>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2003 by Carsten Niehaus                                 *
+ *   Copyright (C) 2003, 2004 by Carsten Niehaus                           *
  *   cniehaus@kde.org                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -19,13 +19,17 @@
  ***************************************************************************/
 #include "questioneditor_impl.h"
 #include "questionadddialog_impl.h"
+#include "quizxmlparser.h"
 
 #include <klistview.h>
-
+#include <kurl.h>
+#include <kfiledialog.h>
 #include <kmessagebox.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
+
+#include <qfile.h>
 
 questionEditorImpl::questionEditorImpl(QWidget* parent, const char* name)
  : questionEditor(parent,name)
@@ -34,16 +38,40 @@ questionEditorImpl::questionEditorImpl(QWidget* parent, const char* name)
 	KLV_qa->setSorting( -1 );
 }
 
+void questionEditorImpl::slotLoadFile()
+{
+	kdDebug() << "questionEditorImpl::slotLoadFile()" << endl;
+	QuizXMLParser *parser = new QuizXMLParser();
+	QDomDocument questionDocument;
+	bool ok = parser->loadLayout( questionDocument );
+	if ( ok )
+		m_tasklist = parser->readTasks( questionDocument );
+	setupListView();
+}
+
+void questionEditorImpl::slotRemoveQuestion()
+{
+	kdDebug() << "questionEditorImpl::slotRemoveQuestion()" << endl;
+	QListViewItem *i = KLV_qa->selectedItem();
+
+	if ( i )
+	{
+		if ( i->parent() )
+			i = i->parent();
+		m_tasklist.removeTaskAt( i->text( 0 ).toInt() );
+	}
+	setupListView();
+}
+
 void questionEditorImpl::setupListView()
 {
+	kdDebug() << "questionEditorImpl::setupListView()" << endl;
 	TaskList t = m_tasklist; //just to be safe
-	
-	kdDebug() << "#: " << t.numberOfTasks() << endl;
+
+	KLV_qa->clear();
 	
 	for ( int i = 0; i < t.numberOfTasks(); ++i )
 	{
-		kdDebug() << "Run # " << i << endl;
-	 
 		Task *task = t.taskAt( i );
 		
 		KListViewItem *item = new KListViewItem( KLV_qa, 
@@ -69,9 +97,35 @@ void questionEditorImpl::setupListView()
 
 void questionEditorImpl::slotAddQuestion()
 {
-	questionAddDialogImpl *q = new questionAddDialogImpl(this);
+	questionAddDialogImpl *q = new questionAddDialogImpl( this);
 	q->show();
+	connect( q, SIGNAL(taskAdded(Task*) ), this, SLOT( slotAddTask(Task*) ) );
 }
 
+void questionEditorImpl::slotAddTask(Task* t)
+{
+	kdDebug() << "questionEditorImpl::slotAddTask(Task*)" << endl;
+	
+	m_tasklist.addTask( t );
+
+	setupListView();
+}
+
+void questionEditorImpl::slotSaveFile()
+{
+	kdDebug() << "questionEditorImpl::slotSaveFile()" << endl;
+	KURL url;
+	url.setPath( locate("data", "kalzium/data/"));
+	url = KFileDialog::getOpenURL( url.path(),
+		QString("*xml") );
+	
+	QFile *layoutFile = new QFile( url.path() );
+	QuizXMLWriter *writer = new QuizXMLWriter( layoutFile );
+
+	for ( int i = 0; i < m_tasklist.numberOfTasks() ; ++i )
+	{
+		writer->addItem( m_tasklist.taskAt( i ) );
+	}
+}
 
 #include "questioneditor_impl.moc"

@@ -178,7 +178,7 @@ class TaskList
 
 		/**
 		 * cuts the list down to @p num tasks
-		 * @param the number of tasks for the quiz
+		 * @param num the number of tasks for the quiz
 		 */
 		void cutList( int num );
 
@@ -214,6 +214,12 @@ class TaskList
 		 * @return the task at position @p pos
 		 */
 		Task* taskAt( int pos );
+
+		/**
+		 * removes the Task at position @p pos
+		 * @param pos the position of the Task which will be removed
+		 */
+		void removeTaskAt( int pos );
 
 		/**
 		 * randomizes the list of tasks.

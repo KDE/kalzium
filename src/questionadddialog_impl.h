@@ -24,6 +24,10 @@
 
 #include "quiz.h"
 
+#include <qlabel.h>
+
+class KPushButton;
+
 /**
 This class enables the user to add questions to the quiz
 @short Add userdefined questions to the quiz
@@ -43,18 +47,10 @@ class questionAddDialogImpl : public questionAddDialog
 
 	public slots:
 		void slotAddAnswers();
+
+	signals:
+		void taskAdded( Task* );
 };
-
-class QuestionsWidget : public QWidget
-{
-	Q_OBJECT
-
-	public:
-		QuestionsWidget( int num, QWidget* parent = 0, const char* name = 0 );
-
-		QVBoxLayout *vlay;
-};
-
 
 #endif // QUESTIONADDDIALOG_IMPL_H
 

@@ -59,12 +59,13 @@ class Kalzium : public KMainWindow
 		 * @see PSE
 		 */
 		RegularPSE* m_pRegularPSE;
+		
 		/**
 		 * Kalzium supports three different PSE-types. This is
 		 * the object for one of this types
 		 * @see PSE
 		 */
-		MendeljevPSE* m_pMendeljevPSE;
+	//	MendeljevPSE* m_pMendeljevPSE;
 
 		/**
 		 * this pointer returns the currently loaded PSE
@@ -129,14 +130,6 @@ class Kalzium : public KMainWindow
 		 * @see questionEditorImpl
 		 */
 		void slotEditQuestions();
-
-		/**
-		 * this slot starts a dialog in which you can add
-		 * questions for the quiz
-		 * @see questionAddDialogImpl
-		 * @see Quiz
-		 */
-		void slotAddQuestions();
 
 		/**
 		 * These slots are for the standardactions
