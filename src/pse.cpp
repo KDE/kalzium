@@ -282,7 +282,7 @@ void PSE::setDate( int date )
 
 void PSE::setTemperature( const double temp )
 {
-	//Important: The value temp is in Kelvin, not Degree Celsius!
+	//Important: The value temp is in kelvin, not Degree Celsius!
 	kdDebug() << "PSE::setTemperature()" << endl;
 	
 	ElementButton *button;

@@ -148,14 +148,14 @@ class Element{
 		QString parsedOrbits();
 		
 		/**
-		 * @return the boiling point of the element in Kelvin
+		 * @return the boiling point of the element in kelvin
 		 */
 		double boiling() const {
 			return m_BP;
 		}
 		
 		/**
-		 * @return the melting point of the element in Kelvin
+		 * @return the melting point of the element in kelvin
 		 */
 		double melting() const {
 			return m_MP;
@@ -214,7 +214,7 @@ class Element{
 
 		/**
 		 * adjusts the units for the data. The user can
-		 * eg define if Fahrenheit, Kelvin or Degrees Celsius
+		 * eg define if Fahrenheit, kelvin or Degrees Celsius
 		 * should be used for the temperature. This method
 		 * takes care of that.
 		 * @param val the value which has to be adjusted

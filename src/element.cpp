@@ -117,14 +117,14 @@ const QString Element::adjustUnits( const int type )
 			val = melting();
 
 		switch (Prefs::temperature()) {
-			case 0: //Kelvin
+			case 0: //kelvin
 				v = i18n( "%1 K" ).arg( QString::number( val ) );
 				break;
-			case 1://Kelvin to Celsius
+			case 1://kelvin to Celsius
 				val-=273.15;
 				v = i18n( "%1 C" ).arg( QString::number( val ) );
 				break;
-			case 2: // Kelvin to Fahrenheit
+			case 2: // kelvin to Fahrenheit
 				val = val * 1.8 - 459.67;
 				v = i18n( "%1 F" ).arg( QString::number( val ) );
 				break;

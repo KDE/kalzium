@@ -125,16 +125,16 @@
                                 <cstring>radioButton19</cstring>
                             </property>
                             <property name="text">
-                                <string>&amp;Use Kelvin</string>
+                                <string>&amp;Use kelvin</string>
                             </property>
                             <property name="buttonGroupId">
                                 <number>0</number>
                             </property>
                             <property name="toolTip" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Kelvin</string>
+                                <string>If selected, the temperatures will be displayed in kelvin</string>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Kelvin. This is then saved in configuration and restored next time you start Kalzium.</string>
+                                <string>If selected, the temperatures will be displayed in kelvin. This is then saved in configuration and restored next time you start Kalzium.</string>
                             </property>
                         </widget>
                         <widget class="QRadioButton">

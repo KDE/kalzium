@@ -318,10 +318,10 @@ void Kalzium::displayTemperature()
 	int min = 0, max = 1000;
  	switch (Prefs::temperature()) {
      		case 0:
- 			string = i18n("Kelvin");
+ 			string = i18n("kelvin");
 			min = 0;
 			max = 6000;
-			m_pSOMSlider->unit->setText( i18n( "the unit for Kelvin" , "K" ) );
+			m_pSOMSlider->unit->setText( i18n( "the unit for kelvin" , "K" ) );
  			break;
  		case 1:
  			string = i18n("Degree Celsius");
@@ -413,7 +413,7 @@ void Kalzium::slotTempChanged( int temperature )
 			temperature = (temperature - 32)*5/9 + 273.15;
  			break;
  	}
-	//This is in Kelvin
+	//This is in kelvin
 	m_pCurrentPSE->setTemperature( temperature );
 
 	slotStatusBar( i18n( "the argument %1 is the unit of the temperature (K, C or F)","Temperature: %1" ).arg(tempTemp), IDS_TEMPERATURE );
