@@ -41,7 +41,7 @@
                         <number>1668</number>
                     </property>
                     <property name="maxValue">
-                        <number>2004</number>
+                        <number>2005</number>
                     </property>
                     <property name="orientation">
                         <enum>Horizontal</enum>
