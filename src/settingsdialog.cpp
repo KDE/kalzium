@@ -259,13 +259,13 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     QVBoxLayout *test = new QVBoxLayout(webLookupButtons);
     test->addWidget(webLookupButtonGroup);
 
-    KURL enURL = "http://www.ktf-split.hr/periodni/en/";
-    KURL itURL =  "http://www.ktf-split.hr/periodni/it/";
-    KURL deURL =  "http://www.ktf-split.hr/periodni/de/";
-    KURL frURL =  "http://www.ktf-split.hr/periodni/fr/";
-    KURL huURL =  "http://www.ktf-split.hr/periodni/";
-    KURL nlURL =  "http://www-woc.sci.kun.nl/cgi-bin/viewelement?";
-    KURL pearlURL =  "http://pearl1.lanl.gov/periodic/elements/";
+    KURL enURL ( "http://www.ktf-split.hr/periodni/en/");
+    KURL itURL ( "http://www.ktf-split.hr/periodni/it/");
+    KURL deURL ( "http://www.ktf-split.hr/periodni/de/");
+    KURL frURL ( "http://www.ktf-split.hr/periodni/fr/");
+    KURL huURL ( "http://www.ktf-split.hr/periodni/");
+    KURL nlURL (  "http://www-woc.sci.kun.nl/cgi-bin/viewelement?");
+    KURL pearlURL (  "http://pearl1.lanl.gov/periodic/elements/");
     QPixmap flagen( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("gb") ) );
     QPixmap flagit( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("it") ) );
     QPixmap flagde( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("de") ) );
