@@ -61,8 +61,8 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	
 	
 	
-//	dTab = new DetailedGraphicalOverview( m_pOverviewTab );
-//X 	overviewLayout->addWidget( dTab );
+	dTab = new DetailedGraphicalOverview( e, m_pOverviewTab, "DetailedGraphicalOverview" );
+ 	overviewLayout->addWidget( dTab );
 	wChemical = new detail_chemical( m_pChemicalTab );
 	wEnergy = new detail_energy( m_pEnergyTab );
 	wOrbits = new OrbitsWidget( m_pModelTab );
