@@ -21,40 +21,15 @@
 
 #include <kdialogbase.h>
 #include "element.h"
+#include "detail_chemical.h"
+#include "detail_energy.h"
+#include "orbitswidget.h"
 
 class QFrame;
+class DetailedGraphicalOverview;
 
-/**
- * @short The widget which displays the most important information
- * in one widget like a lot people know it from school
- * @author Carsten Niehaus
- */
-class DetailedTab : public QWidget
-{
-	Q_OBJECT
+class QMouseEvent;
 
-	public:
-		DetailedTab( Element *el, QWidget *parent, const char *name=0 );
-
-		/**
-		 * @return the QColor of the block
-		 */
-		QColor PSEColor( const QString &Block ) const;
-		
-		/**
-		 * draw the small symbol which symbolises the
-		 * relevence for humans
-		 */
-		void drawBiologicalSymbol( QPainter *p );
-	
-		//calculation of the corners
-		int x1,x2,y1,y2,h_t;
-	private:
-		Element *e;
-
-	protected:
-		virtual void paintEvent( QPaintEvent* );
-};
 
 
 /**
@@ -76,8 +51,27 @@ class DetailedInfoDlg : public KDialogBase
 			*m_pChemicalTab,
 			*m_pMiscTab,
 			*m_pModelTab;
+		
+		QLabel *piclabel,
+			   *discovered_label,
+			   *meanweight_label;
 
-		DetailedTab *dTab;
+		QVBoxLayout *miscLayout, *mainLayout,
+					*overviewLayout, *energyLayout,
+					*chemicalLayout;
 
+		DetailedGraphicalOverview *dTab;
+
+		detail_chemical *wChemical;
+		detail_energy *wEnergy;
+		OrbitsWidget *wOrbits;
+
+		/**
+		 * create the tabs.
+		 */
+		void createContent( Element *e );
+	
+	protected:
+		virtual void wheelEvent (  QWheelEvent * ev );
 };
 #endif

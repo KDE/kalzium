@@ -6,9 +6,7 @@ kalzium_SOURCES = kalzium.cpp \
 			main.cpp \
 			pse.cpp \
 			element.cpp \
-			elementbutton.cpp \
 			prefs.kcfgc \
-			settings_colorschemes.ui \
 			settings_colors.ui \
 			settings_misc.ui \
 			infodialog_small.ui \
@@ -21,9 +19,15 @@ kalzium_SOURCES = kalzium.cpp \
 			plotwidget.cpp \
 			elementdataviewer.cpp \
 			plotsetupwidget.ui \
-			legendwidget.cpp \
 			tempslider.ui \
-			isotopewidget.cpp
+			isotopewidget.cpp \
+			overviewwidget.cpp \
+			detailedgraphicaloverview.cpp \
+			molcalcbase.ui \
+			molcalc_impl.cpp \
+			overviewbase.ui \
+			informationdialog.ui \
+			informationdialog_impl.cpp
 			
 kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
@@ -34,27 +38,23 @@ EXTRA_DIST = main.cpp \
 		kalzium.cpp kalzium.h \
 		pse.cpp pse.h \
 		element.cpp element.h \
-		elementbutton.cpp elementbutton.h \
-		settings_colorschemes.ui \
 		settings_colors.ui \
 		settings_misc.ui \
 		infodialog_small.ui \
 		infodialog_small_impl.cpp \
 		infodialog_small_impl.h \
-		detailinfodlg.cpp \
-		detailinfodlg.h \
-		orbitswidget.cpp \
-		orbitswidget.h \
+		detailinfodlg.cpp detailinfodlg.h \
+		orbitswidget.cpp orbitswidget.h \
 		detail_chemical.ui \
 		detail_energy.ui \
-		plotwidget.cpp \
-		plotwidget.h \
-		elementdataviewer.cpp \
-		elementdataviewer.h \
-		legendwidget.cpp \
-		legendwidget.h \
-		isotopewidget.h \
-		isotopewidget.cpp
+		plotwidget.cpp plotwidget.h \
+		elementdataviewer.cpp elementdataviewer.h \
+		isotopewidget.h isotopewidget.cpp \
+		overviewwidget.cpp overviewwidget.h \
+		detailedgraphicaloverview.cpp detailedgraphicaloverview.h \
+		molcalc_impl.cpp molcalc_impl.h \
+		informationdialog.ui \
+		informationdialog_impl.cpp informationdialog_impl.h
 
 
 METASOURCES = AUTO 

@@ -19,6 +19,8 @@
  ***************************************************************************/
 #include "pse.h"
 #include "prefs.h"
+#include "infodialog_small_impl.h"
+#include "detailinfodlg.h"
 
 #include <klocale.h>
 #include <kdebug.h>
@@ -26,14 +28,22 @@
 #include <qwhatsthis.h>
 #include <qlayout.h>
 #include <qlabel.h>
+#include <qpixmap.h>
+#include <qpoint.h>
+#include <qradiobutton.h>
+#include <qbuttongroup.h>
+
+#include <qpainter.h>
 
 PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
- : QWidget(parent, name)
+  : QWidget(parent, name), table(0)
 {
 	d = data;
 
-	setupBlockLists();
-	setupPSEElementButtonsList();
+	connect( this, SIGNAL( tableClicked( QPoint ) ), this, SLOT( slotUpdatePoint( QPoint ) ) );
+
+	m_molcalcIsActive = false;
+	m_learningMode = false;
 
 //IUPAC
 	    m_IUPAClist.append( "IA");
@@ -75,6 +85,10 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	    m_IUPACOLDlist.append( "7B");
 	    m_IUPACOLDlist.append( "0");
 	
+      table = new QPixmap();
+      
+      //JH: For now, always do a full draw
+      doFullDraw = true;
 }
 
 PSE::~PSE(){}
@@ -83,52 +97,22 @@ void PSE::updateNumeration()
 {
 }
 
-void PSE::setupBlockLists()
-{
-	EList::Iterator it = d->ElementList.begin();
-
-	while ( it != d->ElementList.end() )
-	{
-		ElementButton *b = new ElementButton( (*it)->number() , *it, this );
-		QToolTip::add(b, i18n("Name: %1").arg(i18n( (*it)->elname().utf8())) );
-		b->sym = (*it)->symbol();
-
-		if ( (*it)->block() == "s" )
-			sBlockList.append( b );
-		if ( (*it)->block() == "p" )
-			pBlockList.append( b );
-		if ( (*it)->block() == "d" )
-			dBlockList.append( b );
-		if ( (*it)->block() == "f" )
-			fBlockList.append( b );
-		++it;
-	}
-}
-
-void PSE::setupPSEElementButtonsList(){}
-
 void PSE::activateColorScheme( const int nr )
 {
-	kdDebug() << "Setting scheme number: " << nr << endl;
-
-	//set the temperature to normal conditions
-	setTemperature( 295 );
+	EList::Iterator it = d->ElementList.begin();
+	const EList::Iterator itEnd = d->ElementList.end();
 
 	if ( nr == 0) //normal view, no colors
 	{
-		kdDebug() << "Number 1 was chosen... no scheme" << endl;
-		ElementButton *button;
-		QColor color = Prefs::noscheme();
-		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+		const QColor color = Prefs::noscheme();
+		while ( it != itEnd )
 		{
-			button->setElementColor( color );
+			( *it )->setElementColor( color );
+			++it;
 		}
 	}
 	else if ( nr == 1) //groups view
 	{
-		kdDebug() << "Number 2 was chosen... groups" << endl;
-		
-		ElementButton *button;
 		const QColor color_1 = Prefs::group_1();
 		const QColor color_2 = Prefs::group_2();
 		const QColor color_3 = Prefs::group_3();
@@ -139,83 +123,68 @@ void PSE::activateColorScheme( const int nr )
 		const QColor color_8 = Prefs::group_8();
 
 		static QString group;
-		
-		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
-		{
-			group = button->e->group();
 
+		while ( it != itEnd )
+		{
+			group = ( *it )->group();
+			
 			if (group == QString("1")) {
-				button->setElementColor( color_1 );
-				continue;
+				( *it )->setElementColor( color_1 );
 			}
 			if (group == QString("2")){
-				button->setElementColor( color_2 );
-				continue;
+				( *it )->setElementColor( color_2 );
 			}
 			if (group == QString("3")){
-				button->setElementColor( color_3 );
-				continue;
+				( *it )->setElementColor( color_3 );
 			}
 			if (group == QString("4")){
-				button->setElementColor( color_4 );
-				continue;
+				( *it )->setElementColor( color_4 );
 			}
-			if (group == QString("5")) {
-				button->setElementColor( color_5 );
-				continue;
+			if (group == QString("5")){
+				( *it )->setElementColor( color_5 );
 			}
 			if (group == QString("6")){
-				button->setElementColor( color_6 );
-				continue;
+				( *it )->setElementColor( color_6 );
 			}
 			if (group == QString("7")){
-				button->setElementColor( color_7 );
-				continue;
+				( *it )->setElementColor( color_7 );
 			}
 			if (group == QString("8")){
-				button->setElementColor( color_8 );
-				continue;
+				( *it )->setElementColor( color_8 );
 			}
+
+			++it;
 		}
 	}
 	else if ( nr == 2) //block view
 	{
-		kdDebug() << "Number 3 was chosen... blocks" << endl;
-		
-		ElementButton *button;
 		const QColor color_s = Prefs::block_s();
 		const QColor color_p = Prefs::block_p();
 		const QColor color_d = Prefs::block_d();
 		const QColor color_f = Prefs::block_f();
 
 		static QString block;
-		
-		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+		while ( it != itEnd )
 		{
-			block = button->e->block();
+			block = (*it)->block();
 
 			if (block == QString("s")) {
-				button->setElementColor( color_s );
-				continue;
+				(*it)->setElementColor( color_s );
 			}
-			if (block == QString("p")){
-				button->setElementColor( color_p );
-				continue;
+			if (block == QString("p")) {
+				(*it)->setElementColor( color_p );
 			}
-			if (block == QString("d")){
-				button->setElementColor( color_d );
-				continue;
+			if (block == QString("d")) {
+				(*it)->setElementColor( color_d );
 			}
-			if (block == QString("f")){
-				button->setElementColor( color_f );
-				continue;
+			if (block == QString("f")) {
+				(*it)->setElementColor( color_f );
 			}
+			++it;
 		}
 	}
 	else if ( nr == 3) //acidic beh
 	{
-		kdDebug() << "Number 4 was chosen... acidbeh" << endl;
-		ElementButton *button;
 		const QColor color_ba = Prefs::beh_basic();
 		const QColor color_ac = Prefs::beh_acidic();
 		const QColor color_neu = Prefs::beh_neutral();
@@ -223,286 +192,329 @@ void PSE::activateColorScheme( const int nr )
 
 		static QString acidicbeh;
 		
-		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
+		while ( it != itEnd )
 		{
-			acidicbeh = button->e->acidicbeh();
+			acidicbeh = ( *it )->acidicbeh();
 
 			if (acidicbeh == QString("0")) {
-				button->setElementColor( color_ac );
-				continue;
+				(*it)->setElementColor( color_ac );
 			}
 			if (acidicbeh == QString("1")){
-				button->setElementColor( color_ba );
-				continue;
+				(*it)->setElementColor( color_ba );
 			}
 			if (acidicbeh == QString("2")){
-				button->setElementColor( color_neu );
-				continue;
+				(*it)->setElementColor( color_neu );
 			}
 			if (acidicbeh == QString("3")){
-				button->setElementColor( color_amp );
-				continue;
+				(*it)->setElementColor( color_amp );
 			}
+			++it;
 		}
 	}
+	else if ( nr == 4) //familiy of the element
+	{
+		const QColor c_alkalie = Prefs::alkalie();
+		const QColor c_rare = Prefs::rare();
+		const QColor c_nonmetal = Prefs::nonmetal();
+		const QColor c_alkaline = Prefs::alkaline();
+		const QColor c_other_metal = Prefs::other_metal();
+		const QColor c_halogene = Prefs::halogene();
+		const QColor c_transition = Prefs::transition();
+		const QColor c_noble_gas = Prefs::noble_gas();
+		const QColor c_metalloid = Prefs::metalloid();
+
+		static QString family;
+
+		while ( it != itEnd )
+		{
+			family = ( *it )->family();
+
+			if ( family == "Noblegas" ){
+				(*it)->setElementColor( c_noble_gas );
+			}
+			if ( family == "Non-Metal" ){
+				(*it)->setElementColor( c_nonmetal );
+			}
+			if ( family == "Rare_Earth" ){
+				(*it)->setElementColor( c_rare );
+			}
+			if ( family == "Alkaline_Earth" ){
+				(*it)->setElementColor( c_alkaline );
+			}
+			if ( family == "Alkali_Earth" ){
+				(*it)->setElementColor( c_alkalie );
+			}
+			if ( family == "Transition" ){
+				(*it)->setElementColor( c_transition );
+			}
+			if ( family == "Other_Metal" ){
+				(*it)->setElementColor( c_other_metal );
+			}
+			if ( family == "Metalloids" ){
+				(*it)->setElementColor( c_metalloid );
+			}
+			if ( family == "Halogene" ){
+				(*it)->setElementColor( c_halogene );
+			}
+			
+
+			++it;
+		}
+	}
+		
 }
 
 void PSE::setDate( int date )
 {
-	ElementButton *button;
-
-	for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
-	{//these elements are the ones which have always been known
-		const int n = button->e->number();
-		if (n == 6 ||
-			n == 16 ||
-			n == 26 ||
-			n == 29 ||
-			n == 33 ||
-			n == 47 ||
-			n == 50 ||
-			n == 51 ||
-			n == 79 ||
-			n == 80 ||
-			n == 82 ||
-			n == 83
-			)
-		{
-            button->show();
-			continue;
-		}
-		if ( button->e->date() > date )
-			button->hide();
-		else
-			button->show();
-	}
-	Prefs::setSliderdate(date);
-	Prefs::writeConfig();
+//6 16 26 29 33 47 50 51 79 80 82 83
 }
 
-void PSE::setTemperature( const double temp )
+void PSE::resizeEvent( QResizeEvent *e ) 
 {
-	//Important: The value temp is in kelvin, not Degree Celsius!
-	kdDebug() << "PSE::setTemperature()" << endl;
-	
-	ElementButton *button;
-	for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
-	{//iterate through all buttons
-		const int az = button->e->az();
-		if ( az == 3 || az == 4 )
-		{ //check if the element is radioactive or artificial
-			if ( az == 3 ) button->setElementColor(Prefs::color_radioactive() );
-			if ( az == 4 ) button->setElementColor( Prefs::color_artificial() );
-			continue;
-		}
+  table->resize( width(), height() );  
+}
 
-		double iButton_melting = button->e->melting();
-		double iButton_boiling = button->e->boiling();
+void PSE::paintEvent( QPaintEvent *e )
+{
+	QPainter p;
+
+	if ( doFullDraw ) {
+		p.begin( table );
+		p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); //CN what is this line for?
+		//X     if ( m_showSOM )
+		//X       drawSOMPSE( &p );
+		//X     else
+		drawPSE( &p, m_isSimple );
+
+		if ( m_showLegend )
+			drawLegend( &p );
+		p.end();
+
+		//JH: Uncomment when ready for this
+		//    doFullDraw = false;
+	}
+
+	bitBlt( this, 0, 0, table );
+}
+
+void PSE::drawLegend( QPainter* p )
+{
+//X 	const QColor color_1 = Prefs::group_1();
+//X 	const QColor color_2 = Prefs::group_2();
+//X 	const QColor color_3 = Prefs::group_3();
+//X 	const QColor color_4 = Prefs::group_4();
+//X 	const QColor color_5 = Prefs::group_5();
+//X 	const QColor color_6 = Prefs::group_6();
+//X 	const QColor color_7 = Prefs::group_7();
+//X 	const QColor color_8 = Prefs::group_8();
+//X 
+//X 	const QColor color_s = Prefs::block_s();
+//X 	const QColor color_p = Prefs::block_p();
+//X 	const QColor color_d = Prefs::block_d();
+//X 	const QColor color_f = Prefs::block_f();
+//X 		
+//X 	const QColor color_ba = Prefs::beh_basic();
+//X 	const QColor color_ac = Prefs::beh_acidic();
+//X 	const QColor color_neu = Prefs::beh_neutral();
+//X 	const QColor color_amp = Prefs::beh_amphoteric();
+//X 	
+//X 	const QColor c_liquid = Prefs::color_liquid();
+//X 	const QColor c_solid = Prefs::color_solid();
+//X 	const QColor c_vapor = Prefs::color_vapor();
+//X 	const QColor c_artificial = Prefs::color_artificial();
+//X 	const QColor c_radioactive = Prefs::color_radioactive();
+//X 
+//X 	switch ( scheme ) {
+//X 		case 0:
+//X 			one->hide();
+//X 			two->hide();
+//X 			three->hide();
+//X 			four->hide();
+//X 			five->hide();
+//X 			six->hide();
+//X 			seven->hide();
+//X 			eight->hide();
+//X 			break;
+//X 		case 1:
+//X 			one->show();
+//X 			two->show();
+//X 			three->show();
+//X 			four->show();
+//X 			five->show();
+//X 			six->show();
+//X 			seven->show();
+//X 			eight->show();
+//X 			one->setText( i18n( "Group 1" ) );
+//X 			two->setText( i18n( "Group 2" ) );
+//X 			three->setText( i18n( "Group 3" ) );
+//X 			four->setText( i18n( "Group 4" ) );
+//X 			five->setText( i18n( "Group 5" ) );
+//X 			six->setText( i18n( "Group 6" ) );
+//X 			seven->setText( i18n( "Group 7" ) );
+//X 			eight->setText( i18n( "Group 8" ) );
+//X 			one->setPaletteBackgroundColor( color_1 );
+//X 			two->setPaletteBackgroundColor( color_2 );
+//X 			three->setPaletteBackgroundColor( color_3 );
+//X 			four->setPaletteBackgroundColor( color_4 );
+//X 			five->setPaletteBackgroundColor( color_5 );
+//X 			six->setPaletteBackgroundColor( color_6 );
+//X 			seven->setPaletteBackgroundColor( color_7 );
+//X 			eight->setPaletteBackgroundColor( color_8 );
+//X 			break;
+//X 		case 2:
+//X 			one->setPaletteBackgroundColor( color_s );
+//X 			two->setPaletteBackgroundColor( color_p );
+//X 			three->setPaletteBackgroundColor( color_d );
+//X 			four->setPaletteBackgroundColor( color_f );
+//X 			one->setText( i18n( "s-Block" ) );
+//X 			two->setText( i18n( "p-Block" ) );
+//X 			three->setText( i18n( "d-Block" ) );
+//X 			four->setText( i18n( "f-Block" ) );
+//X 			one->show();
+//X 			two->show();
+//X 			three->show();
+//X 			four->show();
+//X 			five->hide();
+//X 			six->hide();
+//X 			seven->hide();
+//X 			eight->hide();
+//X 			break;
+//X 		case 3:
+//X 			one->setPaletteBackgroundColor( color_ba );
+//X 			two->setPaletteBackgroundColor( color_ac );
+//X 			three->setPaletteBackgroundColor( color_neu );
+//X 			four->setPaletteBackgroundColor( color_amp );
+//X 			one->setText( i18n( "Basic-Block" ) );
+//X 			two->setText( i18n( "Acidic" ) );
+//X 			three->setText( i18n( "Neutral" ) );
+//X 			four->setText( i18n( "Amphoteric" ) );
+//X 			one->show();
+//X 			two->show();
+//X 			three->show();
+//X 			four->show();
+//X 			five->hide();
+//X 			six->hide();
+//X 			seven->hide();
+//X 			eight->hide();
+//X 			break;
+//X 		case 4:
+//X 			one->setPaletteBackgroundColor( c_liquid );
+//X 			two->setPaletteBackgroundColor( c_solid );
+//X 			three->setPaletteBackgroundColor( c_vapor );
+//X 			four->setPaletteBackgroundColor( c_artificial );
+//X 			five->setPaletteBackgroundColor( c_radioactive );
+//X 			one->setText( i18n( "Liquid" ) );
+//X 			two->setText( i18n( "Solid" ) );
+//X 			three->setText( i18n( "Vaporous" ) );
+//X 			four->setText( i18n( "Artificial" ) );
+//X 			five->setText( i18n( "Radioactive" ) );
+//X 			one->show();
+//X 			two->show();
+//X 			three->show();
+//X 			four->show();
+//X 			five->show();
+//X 			six->hide();
+//X 			seven->hide();
+//X 			eight->hide();
+//X 			break;
+//X 	}
+//X 
+}
+
+
+	
+void PSE::drawSOMPSE( QPainter* p )
+{
+	EList::Iterator it = d->ElementList.begin();
+
+	while ( it != d->ElementList.end() )
+	{
+		( *it )->drawStateOfMatter( p, m_temperature );
+		++it;
+	}
+
+}
+
+void PSE::mouseReleaseEvent( QMouseEvent *mouse )
+{
+	///first: find out the position
+	
+	int X = mouse->x()/45;
+	int Y = mouse->y()/45;
+	if ( m_isSimple )
+	{
+		if ( mouse->x() > ( 2*45 ) )
+		{
+			X += 10;
+		}
+	}
 		
-		if ( temp < iButton_melting )
-		{ //the element is solid
-			button->setElementColor( Prefs::color_solid());
-			continue;
-		}
-		if ( temp > iButton_melting &&
-			temp < iButton_boiling )
-		{ //the element is liquid
-			button->setElementColor( Prefs::color_liquid() );
-			continue;
-		}
-		if ( temp > iButton_boiling )
-		{ //the element is vaporous
-			button->setElementColor( Prefs::color_vapor() );
-			continue;
-		}
-	}
-}
+	X += 1;
+	Y += 1;
 
-RegularPSE::RegularPSE(KalziumDataObject *data, QWidget *parent, const char *name)
- : PSE(data, parent, name)
-{
-	QVBoxLayout *vbox = new QVBoxLayout( this , 0 , -1 , "vbox" );
+	QPoint point( X,Y );
+	emit tableClicked( point );
+	kdDebug() << point.x() << " :x" << endl;
+
+	//from this on I can use X and Y. Both contain the position of an element in the
+	//complete PSE. Eg, He is 1,18 and Na is 2,1
 	
-	m_ShortName = i18n( "Regular Periodic Table" );
+	CList::ConstIterator it = d->CoordinateList.begin();
 
-	QGridLayout *grid = new QGridLayout( 11 , 18 );
+	int counter = 1;
+	while ( it != d->CoordinateList.end() )
+	{//iterate through the list of coordinates and compare the x/y values.
+	 //finally, if the 20'es iterator has the same cooridnates Element 20
+	 //has been clicked.
 	
-	ElementButton *button;
-	for ( int i = 0 ; i < 18 ; i++ )
-	{
-		QLabel *l = new QLabel( this );
-		QWhatsThis::add( l, i18n( "This is the name of the group below" ) );
-		lList.append( l );
-		grid->addWidget( l , 0 , i);
-	}
-	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
-	{
-		grid->addWidget( button , button->e->y , button->e->x-1 );
-	}
-	for ( button = pBlockList.first() ; button ; button = pBlockList.next() )
-	{
-		grid->addWidget( button , button->e->y , button->e->x-1 );
-	}
-	for ( button = dBlockList.first() ; button ; button = dBlockList.next() )
-	{
-		grid->addWidget( button , button->e->y , button->e->x-1 );
-	}
-	for ( button = fBlockList.first() ; button ; button = fBlockList.next() )
-	{
-		grid->addWidget( button , button->e->y , button->e->x-1 );
-	}
-
-	vbox->addLayout( grid );
-
-	for (  int n=0; n<18; n++ ) grid->addColSpacing(  n, 40 );
-	for (  int n=0; n<10; n++ ) grid->addRowSpacing(  n, 40 );
-	
-	setupPSEElementButtonsList();
-	activateColorScheme( Prefs::colorschemebox() );
-}
-
-RegularPSE::~RegularPSE(){} 
-
-void RegularPSE::updateNumeration()
-{
-	kdDebug() << "RegularPSE::updateNumeration()" << endl;
-	LabelList::iterator it = lList.begin();
-	for ( int i = 0 ; it != lList.end() ; ++it )
-	{
-		( *it )->setAlignment( Qt::AlignCenter );
-		switch ( m_num )
+		coordinate c = *it;
+		if ( c.x == X )
 		{
-			case NO :
-			        ( *it )->setText( "" );
-				break;
-			case CAS :
-				( *it )->setText( QString::number( i+1 ) );
-				break;
-			case IUPAC :
-				( *it )->setText( *( m_IUPAClist.at( i )) );
-				break;
-			case IUPACOLD :
-				( *it )->setText( *( m_IUPACOLDlist.at( i )) );
-				break;
+			if ( c.y == Y )
+			{//coordinates match. Get the position of the it in the list.
+				emit ElementClicked( counter );
+				kdDebug() << counter << " emitted " << endl;
+
+				return;
+			}
 		}
-		i++;
+		++it;
+		++counter;
 	}
 }
 
-/**
- * this method sets up the m_PSEElementButtons-list
- **/
-void RegularPSE::setupPSEElementButtonsList()
+void PSE::slotUpdatePoint( QPoint point )
 {
-	ElementButton *button;
-	
-	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
-	{
-		m_PSEElementButtons.append( button );
-	}
-	for ( button = pBlockList.first() ; button ; button = pBlockList.next() )
-	{
-		m_PSEElementButtons.append( button );
-	}
-	for ( button = dBlockList.first() ; button ; button = dBlockList.next() )
-	{
-		m_PSEElementButtons.append( button );
-	}
-	for ( button = fBlockList.first() ; button ; button = fBlockList.next() )
-	{
-		m_PSEElementButtons.append( button );
-	}
+	m_currentPoint = point;
+
+	update();
 }
 
-SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const char *name)
- : PSE(data, parent, name)
+void PSE::setLearning(bool learningmode)
 {
-	d = data;
-	QVBoxLayout *vbox = new QVBoxLayout( this , 0 , -1 , "vbox" );
-
-	m_ShortName = i18n( "A Simplified Periodic Table" );
-	
-	QGridLayout *grid = new QGridLayout( 9 , 10  );
-	
-	ElementButton *button;
-
-	for ( int i = 0 ; i < 8 ; i++ )
-	{
-		QLabel *l = new QLabel( this );
-		QWhatsThis::add( l, i18n( "This is the name of the group below" ) );
-		lList.append( l );
-		grid->addWidget( l , 0 , i);
-	}
-	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
-	{
-		grid->addWidget( button , button->e->s_y , button->e->s_x-1 );
-	}
-	for ( button = pBlockList.first() ; button ; button = pBlockList.next() )
-	{
-		grid->addWidget( button , button->e->s_y , button->e->s_x-1 );
-	}
-	for ( button = dBlockList.first() ; button ; button = dBlockList.next() )
-	{
-		button->hide();
-	}
-	for ( button = fBlockList.first() ; button ; button = fBlockList.next() )
-	{
-		button->hide();
-	}
-	vbox->addLayout( grid );
-
-	for (  int n=0; n<8; n++ ) grid->addColSpacing(  n, 40 );
-	for (  int n=0; n<8; n++ ) grid->addRowSpacing(  n, 40 );
-	
-	setupPSEElementButtonsList();
-	activateColorScheme( Prefs::colorschemebox() );
+		m_learningMode = learningmode;
 }
 
-SimplifiedPSE::~SimplifiedPSE(){}
-
-void SimplifiedPSE::updateNumeration()
+void PSE::drawPSE( QPainter* p, bool useSimpleView )
 {
-	LabelList::iterator it = lList.begin();
-	for ( int i = 0 ; it != lList.end() ; ++it )
+	EList::Iterator it = d->ElementList.begin();
+
+	int coordinate = 0;
+	m_Vertikal ? coordinate = m_currentPoint.x() : coordinate = m_currentPoint.y();
+	
+	/**
+	 * this loop iterates through all elements. The Elements
+	 * draw themselfs, the PSE only tells them to do so
+	 */
+	while ( it != d->ElementList.end() )
 	{
-		( *it )->setAlignment( Qt::AlignCenter );
-		switch ( m_num )
-		{
-			case NO :
-				( *it )->setText( "" );
-				break;
-			case CAS :
-				( *it )->setText( QString::number( i+1 ) );
-				break;
-			case IUPAC :
-				( *it )->setText( *( m_IUPAClist.at( i )) );
-				break;
-			case IUPACOLD :
-				( *it )->setText( *( m_IUPACOLDlist.at( i )) );
-				break;
-		}
-		if ( i == 1 )
-			i+=10;
-		i++;
+		( *it )->drawSelf( p, useSimpleView );
+		if ( m_learningMode )
+			( *it )->drawHighlight( p, coordinate, m_Vertikal );
+		++it;
 	}
+
 }
 
-/**
- * this method sets up the m_PSEElementButtons-list
- **/
-void SimplifiedPSE::setupPSEElementButtonsList()
-{
-	kdDebug() << "SimplifiedPSE::setupPSEElementButtonsList()" << endl;
-	ElementButton *button;
-	
-	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
-	{
-		m_PSEElementButtons.append( button );
-	}
-	for ( button = pBlockList.first() ; button ; button = pBlockList.next() )
-	{
-		m_PSEElementButtons.append( button );
-	}
-}
 
 #include "pse.moc"

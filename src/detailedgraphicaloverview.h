@@ -1,5 +1,5 @@
-#ifndef ISOTOPEWIDGET_H
-#define ISOTOPEWIDGET_H
+#ifndef DETAILEDGRAPHICALOVERVIEW_H
+#define DETAILEDGRAPHICALOVERVIEW_H
 /***************************************************************************
     copyright            : (C) 2004 by Carsten Niehaus
     email                : cniehaus@kde.org
@@ -17,29 +17,43 @@
 
 #include <qwidget.h>
 
-class QLabel;
-class QVBoxLayout;
+class Element;
+
 
 /**
- * the widget which shows the information about the isotopes
- * of an element
+ * @short The widget which displays the most important information
+ * in one widget like a lot people know it from school
+ * @author Carsten Niehaus
  */
-class IsotopeWidget : public QWidget
+class DetailedGraphicalOverview : public QWidget
 {
 	Q_OBJECT
 
 	public:
-		IsotopeWidget( QWidget* parent = 0, const char* name = 0 );
+		DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name=0 );
+		DetailedGraphicalOverview( QWidget *parent, const char *name=0 );
 
-		void setIsotopes( const QString& isotopes_string );
+		void setElement( Element* el );
 
+		/**
+		 * @return the QColor of the block
+		 */
+		QColor PSEColor( const QString &Block ) const;
+		
+		/**
+		 * draw the small symbol which symbolises the
+		 * relevence for humans
+		 */
+		void drawBiologicalSymbol( QPainter *p );
+	
+		//calculation of the corners
+		int x1,x2,y1,y2,h_t;
 	private:
-		///returns the widget which include the data of _one_ isotope
-		QWidget* isotopeLabel( const QString& str );
-		QWidget* widget;
+		Element *e;
 
-		QVBoxLayout *vbox;
+	protected:
+		virtual void paintEvent( QPaintEvent* );
 };
 
+#endif // DETAILEDGRAPHICALOVERVIEW_H
 
-#endif // ISOTOPEWIDGET_H

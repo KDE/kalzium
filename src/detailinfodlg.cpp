@@ -34,6 +34,7 @@
 #include "detail_energy.h"
 #include "prefs.h"
 #include "isotopewidget.h"
+#include "detailedgraphicaloverview.h"
 
 DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *name)
     : KDialogBase(KDialogBase::IconList, "",  Close, Close, parent,name)
@@ -42,35 +43,65 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 
 	( actionButton( KDialogBase::Close ) )->setFocus();
 
-	QString num = QString::number( e->number() );
-	QString elname = i18n( e->elname().utf8() );
-	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( elname ).arg( num );
-	setCaption( cap );
-    
+	
+	
 	m_pOverviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon( "overview" ));
-	QVBoxLayout *overviewLayout = new QVBoxLayout( m_pOverviewTab );
-	dTab = new DetailedTab( e, m_pOverviewTab );
-	overviewLayout->addWidget( dTab );
-
-
-	/////////////////////////////////
     m_pMiscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon( "misc" ));
-	QVBoxLayout *miscLayout = new QVBoxLayout( m_pMiscTab );
-	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg( e->adjustUnits( Element::DATE ) ) , m_pMiscTab );
-	QLabel *meanweight_label = new QLabel( i18n("Mean weight: %1 u").arg(e->meanweight() ) , m_pMiscTab );
+	m_pPictureTab = addPage(i18n("Picture"), i18n("What does this element look like?"), BarIcon( "elempic" ));
+	m_pEnergyTab =   addPage( i18n("Energies"), i18n( "Energy Information" ), BarIcon( "energies" ) );
+	m_pChemicalTab = addPage( i18n("Chemical Data"), i18n( "Chemical Data" ), BarIcon( "chemical") );
+	m_pModelTab = addPage( i18n("Atom Model"), i18n( "Atom Model" ), BarIcon( "orbits" ));
+	
+	miscLayout = new QVBoxLayout( m_pMiscTab );
+	mainLayout = new QVBoxLayout( m_pPictureTab );
+	overviewLayout = new QVBoxLayout( m_pOverviewTab );
+	energyLayout = new QVBoxLayout( m_pEnergyTab );
+	chemicalLayout = new QVBoxLayout( m_pChemicalTab, 0, KDialog::spacingHint() );
+	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
+	
+	
+	
+	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
+	dTab->setElement( e );
+ 	overviewLayout->addWidget( dTab );
+	wChemical = new detail_chemical( m_pChemicalTab );
+	wEnergy = new detail_energy( m_pEnergyTab );
+	wOrbits = new OrbitsWidget( m_pModelTab );
+	piclabel = new QLabel( m_pPictureTab );
+	discovered_label = new QLabel( m_pMiscTab );
+	meanweight_label = new QLabel( m_pMiscTab );
 	QWhatsThis::add( meanweight_label , i18n( "The mean weight is the atomic weight divided by the number of protons" ) );
 	QWhatsThis::add( discovered_label, i18n( "Here you can see when the element was discovered." ) );
+	
 	miscLayout->addWidget( discovered_label );
 	miscLayout->addWidget( meanweight_label );
 	miscLayout->insertStretch(-1,1);
+	mainLayout->addWidget( piclabel );
+	chemicalLayout->addWidget( wChemical );
+	energyLayout->addWidget( wEnergy );
+	modelLayout->addWidget( wOrbits );
+	
+	createContent( e );
+}
+
+void DetailedInfoDlg::createContent( Element *el )
+{
+	
+	QString num = QString::number( el->number() );
+	QString elname = i18n( el->elname().utf8() );
+	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( elname ).arg( num );
+	setCaption( cap );
+
+	dTab->setElement( el );
+
+	/////////////////////////////////
+	discovered_label->setText( i18n("Discovered: %1").arg( el->adjustUnits( Element::DATE ) ) );
+	meanweight_label->setText( i18n("Mean weight: %1 u").arg(el->meanweight() ) );
 
 	////////////////////////////////////7
-	m_pPictureTab = addPage(i18n("Picture"), i18n("What does %1 look like?").arg( elname  ), BarIcon( "elempic" ));
-	QVBoxLayout *mainLayout = new QVBoxLayout( m_pPictureTab );
-	QLabel *piclabel = new QLabel( m_pPictureTab );
-	if ( !locate(  "data" , "kalzium/elempics/" + e->symbol() + ".jpg" ).isEmpty() )
+	if ( !locate(  "data" , "kalzium/elempics/" + el->symbol() + ".jpg" ).isEmpty() )
 	{
-		QPixmap pic ( locate( "data" , "kalzium/elempics/" + e->symbol() + ".jpg" ) );
+		QPixmap pic ( locate( "data" , "kalzium/elempics/" + el->symbol() + ".jpg" ) );
 		QImage img = pic.convertToImage();
 		img = img.smoothScale ( 400, 400, QImage::ScaleMin );
 		pic.convertFromImage( img );
@@ -80,222 +111,67 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	{
 		piclabel->setText( i18n( "No picture of %1 found." ).arg( elname ) );
 	}
-	mainLayout->addWidget( piclabel );
 
 	
 	////////////////////////////////////7
 	
-	m_pEnergyTab =   addPage( i18n("Energies"), i18n( "Energy Information" ), BarIcon( "energies" ) );
-	QVBoxLayout *energyLayout = new QVBoxLayout( m_pEnergyTab );
-	detail_energy *wEnergy = new detail_energy( m_pEnergyTab );
 
-	wEnergy->mp_label->setText( e->adjustUnits( Element::MELTINGPOINT ) );
-	wEnergy->bp_label->setText( e->adjustUnits( Element::BOILINGPOINT ) );
-	wEnergy->sion_label->setText( e->adjustUnits( Element::IE2 ) );
-	wEnergy->ion_label->setText( e->adjustUnits( Element::IE ) );
-	wEnergy->en_label->setText(  QString::number( e->electroneg() ) );
-	energyLayout->addWidget( wEnergy );
+	wEnergy->mp_label->setText( el->adjustUnits( Element::MELTINGPOINT ) );
+	wEnergy->bp_label->setText( el->adjustUnits( Element::BOILINGPOINT ) );
+	wEnergy->sion_label->setText( el->adjustUnits( Element::IE2 ) );
+	wEnergy->ion_label->setText( el->adjustUnits( Element::IE ) );
+	wEnergy->en_label->setText(  QString::number( el->electroneg() ) );
 	
 	////////////////////////////////////7
 	
-	m_pChemicalTab = addPage( i18n("Chemical Data"), i18n( "Chemical Data" ), BarIcon( "chemical") );
-	QVBoxLayout *chemicalLayout = new QVBoxLayout( m_pChemicalTab, 0, KDialog::spacingHint() );
-	detail_chemical *wChemical = new detail_chemical( m_pChemicalTab );
 
-	wChemical->orbits_label->setText( e->parsedOrbits() );
-	wChemical->symbol_label->setText( e->symbol() );
-	wChemical->density_label->setText( e->adjustUnits( Element::DENSITY ) );
-	wChemical->block_label->setText( e->block() );
-	wChemical->radius_label->setText( e->adjustUnits( Element::RADIUS ) );
-	wChemical->weight_label->setText( e->adjustUnits( Element::WEIGHT  ) );
+	wChemical->orbits_label->setText( el->parsedOrbits() );
+	wChemical->symbol_label->setText( el->symbol() );
+	wChemical->density_label->setText( el->adjustUnits( Element::DENSITY ) );
+	wChemical->block_label->setText( el->block() );
+	wChemical->radius_label->setText( el->adjustUnits( Element::RADIUS ) );
+	wChemical->weight_label->setText( el->adjustUnits( Element::WEIGHT  ) );
+
 	if ( el->Isotopes() != "0"  )
 		wChemical->isotopeWidget->setIsotopes( el->Isotopes() );
 	else
 		wChemical->isotopeLabel->hide();
-	chemicalLayout->addWidget( wChemical );
+
+	wChemical->isotopeWidget->repaint();
     
     /////////////////////////////////
 	
-	m_pModelTab = addPage( i18n("Atom Model"), i18n( "Atom Model" ), BarIcon( "orbits" ));
-	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
-	OrbitsWidget *wOrbits = new OrbitsWidget( e->number(), m_pModelTab );
+	wOrbits->setElementNumber( el->number() );
+	wOrbits->repaint();
 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
 							.arg( elname )
 							.arg( elname )
-							.arg( e->parsedOrbits() ) );
-	modelLayout->addWidget( wOrbits );
-
+							.arg( el->parsedOrbits() ) );
 }
 
-DetailedTab::DetailedTab( Element *el, QWidget *parent, const char *name ) : QWidget( parent, name )
+void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 {
-	setBackgroundMode( NoBackground );
+	int number = e->number();
 
-	e = el;
+	Element *element;
+	if ( ev->delta() < 0 )
+	{
+		if ( number > 1 )
+			element = new Element( number-1 );
+		else
+			return;
+	}
+	else if ( number < 111 )
+	{
+		element = new Element( number+1 );
+	}
+	else
+		return;
+
+	e = element;
+
+	createContent( e );
 }
 
-void DetailedTab::paintEvent( QPaintEvent* )
-{
-	int h = height();
-	int w = width();
-
-	QPixmap pm( w, h );
-
-	QPainter p;
-	p.begin( &pm );
-
-	h_t = 20; //height of the texts
-	
-	x1 =  0;
-	y1 =  0;
-
-	x2 = w;
-	y2 = h;
-
-	p.setBrush(Qt::SolidPattern);
-	p.setBrush( PSEColor( e->block() ));
-	p.drawRect( x1 , y1 , x2 , y2 );
-
-	p.setBrush( Qt::black );
-	p.setBrush(Qt::NoBrush);
-
-  QFont fA = KGlobalSettings::generalFont();
-  QFont fB = KGlobalSettings::generalFont();
-  QFont fC = KGlobalSettings::generalFont();
-  fA.setPointSize( fA.pointSize() + 20 ); //Huge font
-  fA.setBold( true );
-  fB.setPointSize( fB.pointSize() + 6 ); //Big font
-  fC.setPointSize( fC.pointSize() + 4 ); //Big font
-  fC.setBold( true );
-  QFontMetrics fmA = QFontMetrics( fA );
-  QFontMetrics fmB = QFontMetrics( fB );
-  QFontMetrics fmC = QFontMetrics( fC );
-    
-  //coordinates for element symbol: near the center
-  int xA = 4 * w / 10;
-  int yA = h / 2;
-	
-  //coordinates for the atomic number: offset from element symbol to the upper left
-  int xB = xA - fmB.width( QString::number( e->number() ) );
-  int yB = yA - fmA.height() + fmB.height();
-  
-  //coordinates for element name: lower left
-  int xC1 = 8;
-  int yC1 = h - 8;
-  
-  //coordinates for oxidation: right side, above atomic weight
-  int xC2 = w - fmC.width( e->oxstage() ) - 8;
-  int yC2 = h - fmC.height() - 8;
-  
-  //coordinates for weight: lower right corner
-  int xC3 = w - fmC.width( QString::number( e->weight() ) ) - 8;
-  int yC3 = h - 8;
-  
-  //Element Symbol
-  p.setFont( fA );
-	p.drawText( xA, yA , e->symbol() ); 
-
-  //Atomic number
-  p.setFont( fB );
-  p.drawText( xB, yB, QString::number( e->number() ));
-
-  //Name and other data
-  p.setFont( fC );
- 	//Name
-  p.drawText( xC1, yC1, i18n( e->elname().utf8() )); 
-  //Oxidationszahlen
-  p.drawText( xC2, yC2, e->oxstage() ); 
-  //Weight
-  p.drawText( xC3, yC3, QString::number( e->weight() )); 
-
-  drawBiologicalSymbol( &p );
-  
-  p.end();
-
-	bitBlt( this, 0, 0, &pm );
-}
-
-void DetailedTab::drawBiologicalSymbol( QPainter *p )
-{
-	const int db = h_t;        //diameter of the big circle
-	const int ds = db/2;      //diameter of the inner circle
-
-	int d_ds = ( db/2 )-( ds/2 ); //the delta-x/y of the inner circle
-
-//	int pos_x = x1+4;
-//	int pos_y = y2 - 5 - 2*h_t;
-	int pos_x = 8;
-	int pos_y = 8;
-
-	switch ( e->biological() )
-	  {
-		case 0:        //nothing
-			break;
-		case 1:        //red, red
-			p->setBrush( Qt::red );
-			p->setBrush(Qt::NoBrush);
-			p->setPen( Qt::red );
-			p->drawEllipse( pos_x,pos_y,db,db );
-			p->setBrush(Qt::SolidPattern);
-			p->setBrush( Qt::red );
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-		case 2:        //green, red
-			p->setBrush( Qt::red );
-			p->setBrush(Qt::NoBrush);
-			p->setPen( Qt::red );
-			p->drawEllipse( pos_x,pos_y,db,db );
-			p->setBrush(Qt::SolidPattern);
-			p->setBrush( Qt::green );
-			p->setPen( Qt::green );
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-		case 3:        //green
-			p->setBrush(Qt::SolidPattern);
-			p->setBrush( Qt::green );
-			p->setPen( Qt::green );
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-		case 4:        //green, blue
-			p->setBrush( Qt::blue );
-			p->setBrush(Qt::NoBrush);
-			p->setPen( Qt::blue );
-			p->drawEllipse( pos_x,pos_y,db,db );
-			p->setBrush(Qt::SolidPattern);
-			p->setBrush( Qt::green );
-			p->setPen( Qt::green );
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-		case 5:        //blue
-			p->setBrush(Qt::SolidPattern);
-			p->setBrush( Qt::blue );
-			p->setPen( Qt::blue );
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-		case 6:        //blue, blue
-			p->setBrush( Qt::blue );
-			p->setBrush(Qt::NoBrush);
-			p->setPen( Qt::blue );
-			p->drawEllipse( pos_x,pos_y,db,db );
-			p->setBrush(Qt::SolidPattern);
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-	  }
-}
-
-QColor DetailedTab::PSEColor( const QString &block ) const
-{
-	QColor c;
-
-	if ( block == "s" )
-		c = Prefs::block_s();
-	else if ( block == "d" )
-		c = Prefs::block_p();
-	else if ( block == "p" )
-		c = Prefs::block_d();
-	else if ( block == "f" )
-		c = Prefs::block_f();
-	return  c;
-}
 
 #include "detailinfodlg.moc"

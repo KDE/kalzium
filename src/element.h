@@ -25,7 +25,10 @@
 
 class Element;
 
+struct coordinate;
+
 typedef QValueList<Element*> EList;
+typedef QValueList<coordinate> CList;
 
 /**
  * @short this class contains all Element-objects as
@@ -41,7 +44,13 @@ class KalziumDataObject
 		 * The list of element in a QValueList<Element*>
 		 */
 		EList ElementList;
+		
+		CList CoordinateList;
+};
 
+struct coordinate{
+	int x;
+	int y;
 };
 
 /**
@@ -54,7 +63,7 @@ class KalziumDataObject
 class Element{
 	public:
 		Element( int );
-		~Element();
+		virtual ~Element();
 
 		/**
 		 * @return the number of the element
@@ -69,6 +78,14 @@ class Element{
 		int date() const { 
 			return m_date; 
 		}
+
+		///return the correct color of the element
+		QColor currentColor( double temp );
+    
+    /**
+     * mutator for the element's color
+     */
+		void setElementColor( const QColor &c ) { m_Color = c; }
 		
 		/**
 		 * @return the importance of the element for biological
@@ -117,6 +134,10 @@ class Element{
 		QString group() const {
 			return m_group;
 		}
+
+		QString family() const {
+			return m_family;
+		}
 		
 		/**
 		 * @return the acidic behavior of the element
@@ -148,14 +169,14 @@ class Element{
 		QString parsedOrbits();
 		
 		/**
-		 * @return the boiling point of the element in kelvin
+		 * @return the boiling point of the element in Kelvin
 		 */
 		double boiling() const {
 			return m_BP;
 		}
 		
 		/**
-		 * @return the melting point of the element in kelvin
+		 * @return the melting point of the element in Kelvin
 		 */
 		double melting() const {
 			return m_MP;
@@ -210,11 +231,10 @@ class Element{
 		double meanweight();
 
 		int x, y; //for the RegularPSE
-		int s_x, s_y; //for the SimplifiedPSE
 
 		/**
 		 * adjusts the units for the data. The user can
-		 * eg define if Fahrenheit, kelvin or Degrees Celsius
+		 * eg define if Fahrenheit, Kelvin or Degrees Celsius
 		 * should be used for the temperature. This method
 		 * takes care of that.
 		 * @param val the value which has to be adjusted
@@ -239,12 +259,28 @@ class Element{
 		};
 
 
+		/**
+		 * calculate the 4-digit value of the value @p w
+		 */
+		double strippedWeight( double w );
 
 
+    /**
+     * accessor for the element's color
+     */
+    QColor elementColor() const { 
+		return m_Color; 
+	}
 
 	private:
 		void setupXY();
 		
+		/*
+		 * the integer num represents the number of the element
+		 */
+		int m_ElementNumber;
+    	
+		QColor m_Color;
 
 		double  m_weight,
 			m_MP, 
@@ -265,9 +301,27 @@ class Element{
 			m_oxstage,
 			m_block,
 			m_group,
+			m_family,
 			m_acidbeh,
 			m_orbits,
 			m_isotopes;
+		
+	public:
+		/**
+		 * draw the recatangle with the information
+		 * @param showFullInformation if True more information will be shown
+		 */
+		virtual void drawSelf( QPainter* p, bool showFullInformation );
+		
+		/**
+		 * Highlight perdiods or groups.
+		 * @param p the QPainter used for painting
+		 * @p param coordinate the number of the period or group
+		 * @p horizontal if true a period will be painted, otherwise a group
+		 */
+		virtual void drawHighlight( QPainter* p, int coordinate, bool horizontal );
+		
+		virtual void drawStateOfMatter( QPainter* p, double temperature );
 };
 
 

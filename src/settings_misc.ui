@@ -8,182 +8,255 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>331</width>
-            <height>305</height>
+            <width>389</width>
+            <height>576</height>
         </rect>
+    </property>
+    <property name="caption">
+        <string>setupMisc</string>
     </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLayoutWidget" row="0" column="0">
+        <widget class="QButtonGroup" row="0" column="0">
             <property name="name">
-                <cstring>layout3</cstring>
+                <cstring>kcfg_LMBbeh</cstring>
             </property>
-            <vbox>
+            <property name="title">
+                <string>&amp;Information Dialog</string>
+            </property>
+            <grid>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QButtonGroup">
+                <widget class="QRadioButton" row="1" column="0">
                     <property name="name">
-                        <cstring>kcfg_LMBbeh</cstring>
+                        <cstring>radioButton4</cstring>
                     </property>
-                    <property name="title">
-                        <string>&amp;Information Dialog</string>
+                    <property name="text">
+                        <string>&amp;More information on left click</string>
                     </property>
-                    <grid>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QRadioButton" row="1" column="0">
-                            <property name="name">
-                                <cstring>radioButton4</cstring>
-                            </property>
-                            <property name="text">
-                                <string>&amp;More information on left click</string>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>Show a detailed information dialog when clicking an element with the left mouse button</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>Show a detailed information dialog when clicking an element with the left mouse button</string>
-                            </property>
-                        </widget>
-                        <widget class="QRadioButton" row="0" column="0">
-                            <property name="name">
-                                <cstring>radioButton3</cstring>
-                            </property>
-                            <property name="text">
-                                <string>&amp;Less information on left click</string>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>Show less information in the information dialog when clicking with the left mouse button</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>Show less information in the information dialog when clicking with the left mouse button</string>
-                            </property>
-                        </widget>
-                    </grid>
-                </widget>
-                <widget class="QButtonGroup">
-                    <property name="name">
-                        <cstring>kcfg_units</cstring>
+                    <property name="accel">
+                        <string>Alt+M</string>
                     </property>
-                    <property name="title">
-                        <string>U&amp;nits</string>
-                    </property>
-                    <grid>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QRadioButton" row="0" column="0">
-                            <property name="name">
-                                <cstring>radioButton3_2</cstring>
-                            </property>
-                            <property name="text">
-                                <string>&amp;Show energies in kJ/mol (kilojoule per mol)</string>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>Chose the energy unit as kJ/mol (kilojoule per mol)</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>Check this if you prefer the energy unit in  kJ/mol (kilojoule per mol). The other choice you have is eV (electronvolt).</string>
-                            </property>
-                        </widget>
-                        <widget class="QRadioButton" row="1" column="0">
-                            <property name="name">
-                                <cstring>radioButton4_2</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Show &amp;energies in eV (electronvolt)</string>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>Choose the energy unit as eV (electronvolt)</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>Check this if you prefer the energy unit in eV (electronvolt). The other choice you have is kJ/mol (kilojoule per mol).</string>
-                            </property>
-                        </widget>
-                    </grid>
-                </widget>
-                <widget class="QButtonGroup">
-                    <property name="name">
-                        <cstring>kcfg_temperature</cstring>
-                    </property>
-                    <property name="title">
-                        <string>&amp;Temperatures</string>
+                    <property name="toolTip" stdset="0">
+                        <string>Show a detailed information dialog when clicking an element with the left mouse button</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Kalzium can show you the temperature in three different scales</string>
+                        <string>Show a detailed information dialog when clicking an element with the left mouse button</string>
                     </property>
-                    <vbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QRadioButton">
-                            <property name="name">
-                                <cstring>radioButton19</cstring>
-                            </property>
-                            <property name="text">
-                                <string>&amp;Use kelvin</string>
-                            </property>
-                            <property name="buttonGroupId">
-                                <number>0</number>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>If selected, the temperatures will be displayed in kelvin</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in kelvin. This is then saved in configuration and restored next time you start Kalzium.</string>
-                            </property>
-                        </widget>
-                        <widget class="QRadioButton">
-                            <property name="name">
-                                <cstring>radioButton20</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Use de&amp;grees Celsius</string>
-                            </property>
-                            <property name="buttonGroupId">
-                                <number>1</number>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degrees Celsius</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degrees Celsius. This is then saved in configuration and restored next time you start Kalzium.</string>
-                            </property>
-                        </widget>
-                        <widget class="QRadioButton">
-                            <property name="name">
-                                <cstring>radioButton11_2</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Use degrees &amp;Fahrenheit</string>
-                            </property>
-                            <property name="buttonGroupId">
-                                <number>2</number>
-                            </property>
-                            <property name="toolTip" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degrees Fahrenheit</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>If selected, the temperatures will be displayed in Degrees Fahrenheit. This is then saved in configuration and restored next time you start Kalzium.</string>
-                            </property>
-                        </widget>
-                    </vbox>
                 </widget>
-                <widget class="QLayoutWidget">
+                <widget class="QRadioButton" row="0" column="0">
                     <property name="name">
-                        <cstring>layout2</cstring>
+                        <cstring>radioButton3</cstring>
                     </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                    </hbox>
+                    <property name="text">
+                        <string>&amp;Less information on left click</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Show less information in the information dialog when clicking with the left mouse button</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Show less information in the information dialog when clicking with the left mouse button</string>
+                    </property>
                 </widget>
-            </vbox>
+            </grid>
+        </widget>
+        <widget class="QButtonGroup" row="1" column="0">
+            <property name="name">
+                <cstring>kcfg_temperature</cstring>
+            </property>
+            <property name="title">
+                <string>&amp;Temperatures</string>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>Kalzium can show you the temperature in three different scales</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QRadioButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>radioButton19</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Use Kelvin</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+U</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>0</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Kelvin</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Kelvin. This is then saved in configuration and restored next time you start Kalzium.</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>radioButton20</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use de&amp;grees Celsius</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>1</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Degrees Celsius</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Degrees Celsius. This is then saved in configuration and restored next time you start Kalzium.</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="2" column="0">
+                    <property name="name">
+                        <cstring>radioButton11_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use degrees &amp;Fahrenheit</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+F</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>2</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Degrees Fahrenheit</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Degrees Fahrenheit. This is then saved in configuration and restored next time you start Kalzium.</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QButtonGroup" row="2" column="0">
+            <property name="name">
+                <cstring>kcfg_energies</cstring>
+            </property>
+            <property name="title">
+                <string>Units of &amp;Energies</string>
+            </property>
+            <property name="exclusive">
+                <bool>true</bool>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QRadioButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>radioButton3_2_2_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Show energies in kJ/mol (kilojoule per mol)</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+S</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Chose the energy unit as kJ/mol (kilojoule per mol)</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Check this if you prefer the energy unit in  kJ/mol (kilojoule per mol). The other choice you have is eV (electronvolt).</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>radioButton4_2_2_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Show &amp;energies in eV (electronvolt)</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+E</string>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Choose the energy unit as eV (electronvolt)</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Check this if you prefer the energy unit in eV (electronvolt). The other choice you have is kJ/mol (kilojoule per mol).</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QButtonGroup" row="3" column="0">
+            <property name="name">
+                <cstring>kcfg_units</cstring>
+            </property>
+            <property name="title">
+                <string>U&amp;nits of distances</string>
+            </property>
+            <property name="exclusive">
+                <bool>true</bool>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QRadioButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>radioButton8</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use the SI-unit meter (m) for distances</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>radioButton9</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use commonly used units for distances</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QButtonGroup" row="4" column="0">
+            <property name="name">
+                <cstring>kcfg_pselook</cstring>
+            </property>
+            <property name="title">
+                <string>PSE-Look</string>
+            </property>
+            <property name="exclusive">
+                <bool>true</bool>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QRadioButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>radioButton10</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Display atomic weight in the PSE</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>radioButton12</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Display density in the PSE in gramm per cubic centimeter</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="2" column="0">
+                    <property name="name">
+                        <cstring>radioButton13</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Display only the number of the element</string>
+                    </property>
+                </widget>
+            </grid>
         </widget>
     </grid>
 </widget>

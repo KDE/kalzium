@@ -25,7 +25,7 @@ class QuizsettingsDlg;
 class SliderWidget;
 class QVBoxLayout;
 class TempSlider;
-class Legend;
+class InformationWidget;
 
 /**
  * @short Application Main Window
@@ -52,31 +52,16 @@ class Kalzium : public KMainWindow
 		friend class privatedata;
 		privatedata* pd;
 
-		/**
-		 * Kalzium supports three different PSE-types. This is
-		 * the object for one of this types
-		 * @see PSE
-		 */
-		SimplifiedPSE* m_pSimplePSE;
-		/**
-		 * Kalzium supports three different PSE-types. This is
-		 * the object for one of this types
-		 * @see PSE
-		 */
-		RegularPSE* m_pRegularPSE;
-		
-		/**
-		 * this pointer returns the currently loaded PSE
-		 * @return the currently used PDE
-		 */
-		PSE* currentPSE() const;
-
 	private:
 		/**
 		 * the date which the pSliderWidget will start with
 		 */
 		int date;
 
+		bool m_learningMode;
+
+		InformationWidget *m_info;
+		
 		void showSOMWidgets( bool show );
 
 		/**
@@ -88,11 +73,6 @@ class Kalzium : public KMainWindow
 		 * the slider used for the timeline
 		 */
 		SliderWidget *m_pTimeSlider;
-
-		/**
-		 * the legend for the periodic tables
-		 */
-		Legend *m_pLegend;
 
 		/**
 		 * if true, the legend will be shown
@@ -114,7 +94,7 @@ class Kalzium : public KMainWindow
 		 * is updated every time the users chooses a new 
 		 * PSE
 		 */
-		PSE* m_pCurrentPSE;
+		PSE *m_PSE;
 			
 		/**
 		 *initialize the Statusbar
@@ -150,7 +130,9 @@ class Kalzium : public KMainWindow
 		KAction *m_pTimelineAction,
 			   *m_pPlotAction,
 			    *m_pSOMAction,
-				*m_pLengendAction;
+				*m_pCalcAction,
+				*m_pLengendAction,
+				*m_pLearningmodeAction;
 		
 		/**
 		 * the layout of the central Widget ( CentralWidget )
@@ -158,6 +140,11 @@ class Kalzium : public KMainWindow
 		QVBoxLayout *m_pCentralLayout;
 	
 	private slots:
+		/**
+		 * opens the information dialog for the element @p number
+		 */
+		void openInformationDialog( int number );
+
 		/**
 		 * this slot switches Kalzium to the selected colorscheme
 		 */
@@ -171,6 +158,10 @@ class Kalzium : public KMainWindow
 
 		void slotPlotData();
 
+		void slotCalculate();
+		
+		void slotLearningmode();
+
 		/**
 		 * this slot activates the timeline.
 		 */
@@ -180,8 +171,9 @@ class Kalzium : public KMainWindow
 	
 		/**
 		 * This slot switches Kalzium to the selected PSE
+		 * @param simple If true the PSE will be simple
 		 */
-		void slotSwitchtoPSE(int);
+		void slotSwitchtoPSE(int index); 
 		
 		/**
 		 * These slots are for the standardactions

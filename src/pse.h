@@ -20,11 +20,17 @@
 #ifndef PSE_H
 #define PSE_H
 
-#include "elementbutton.h"
-
 class QLabel;
+class QPixmap;
+class QPoint;
+class QVBoxLayout;
 
-typedef QValueList<QLabel*> LabelList;
+#include <qvaluelist.h>
+#include <qwidget.h>
+#include <qdialog.h>
+
+#include "element.h"
+#include "informationdialog_impl.h"
 
 /**
  * @short basic class for the specific PSEs
@@ -34,10 +40,6 @@ class PSE : public QWidget
 {
 	Q_OBJECT
 
-		friend class MendeljevPSE;
-		friend class SimplifiedPSE;
-		friend class RegularPSE;
-		
 	public:
 		/**
 		 * Constructor
@@ -55,6 +57,18 @@ class PSE : public QWidget
 			IUPAC = 2,
 			IUPACOLD = 3
 		};
+
+		/**
+		 * if this mode is activated a click on a button will not open
+		 * a informationdialog
+		 */
+		virtual void activateMolcalcmode( bool mode ){
+			m_molcalcIsActive = mode;
+		}
+
+		virtual bool molcalcMode() const{
+			return m_molcalcIsActive;
+		}
 
 		/**
 		 * sets the NUMERATIONTYPE @p num of the periodic table
@@ -83,20 +97,24 @@ class PSE : public QWidget
 		}
 
 		/**
-		 * In this list all buttons corresponding the the block
-		 * in the periodic table are stored.
-		 */
-		QPtrList<ElementButton> sBlockList,
-		dBlockList,
-		pBlockList,
-		fBlockList;
-
-		/**
-		 * This method set the color for the buttons corresponding to
+		 * This method sets the color for the buttons corresponding to
 		 * the given temperature @p temp
 		 * @param temp is the temperature to which all buttons will be set
 		 */
-		void setTemperature( const double temp );
+		void setTemperature( const double temp ){
+			m_temperature = temp;
+		}
+
+		void setPSEType( bool simple ){
+			m_isSimple = simple;
+		}
+		
+		///if true the State Of Matter will be shown
+		bool m_showSOM;
+		
+		void activateSOMMode( bool som ){
+			m_showSOM = som;
+		}
 
 		/**
 		 * This list includes all elementbuttons which are in the 
@@ -104,113 +122,101 @@ class PSE : public QWidget
 		 * the elements of the f- and d-Block would not
 		 * be in this list
 		 */
-		QPtrList<ElementButton> m_PSEElementButtons;
+		QPtrList<Element> m_PSEElements;
+
+		void showLegend( bool show ){
+			m_showLegend = show;
+		}
+
+		void setLearning( bool );
 		
+
 	private:
+		bool m_learningMode;
+		
 		/**
 		 * updates the numeration of the PSE
 		 */
 		virtual void updateNumeration();
 
+		///the currently selected element (the x/y-coordinates)
+		QPoint m_currentPoint;
+		
+		void mouseReleaseEvent( QMouseEvent* );
+
+		///if true the user looks at periods
+		bool m_Vertikal;
+
 		QStringList m_IUPAClist;
 		QStringList m_IUPACOLDlist;
+		
+		bool m_showLegend;
 		
 		/**
 		 * this is a short, descriptive name of the PSE
 		 */
 		QString m_ShortName;
 
-		LabelList lList;
+		///the temperature of the table (for the SOM-feature)
+		double m_temperature;
+
+		bool m_isSimple;
 		
+		/**
+		 * true if the molcalc-mode is active
+		 */
+		bool m_molcalcIsActive;
+
 		/**
 		 * the type of the nummeration ( NO, CAS, IUPACOLD, IUPAC )
 		 */
 		int m_num;
 
-		/**
-		 * this sets up the 4 blocklists. Every PSE has 4 lists for
-		 * the 4 blocks: s,p,d,f
-		 */
-		void setupBlockLists();
+    QPixmap *table;
+    bool doFullDraw;
 
-		/**
-		 * Sets up all elements to the correct buttonlists
-		 * @see m_PSEElementButtons
-		 */
-		virtual void setupPSEElementButtonsList();
+  public slots:
+	/**
+	 * this method hides all elements which have not been know
+	 * before the @p date.
+	 * @param date is time where the user wants to see whether
+	 * or not the element has already been kown
+	 */
+	void setDate( int date );
+		
+ 	 void setLearningMode( int horizontal ){
+			if ( horizontal == 1 )
+				m_Vertikal = false;
+			else
+				m_Vertikal = true;
+		}
+		
+	protected:
+		virtual void paintEvent( QPaintEvent *e );
+		virtual void resizeEvent( QResizeEvent *e );
 
-		public slots:
+	public slots:	
 		/**
-		 * this method hides all elements which have not been know
-		 * before the @p date.
-		 * @param date is time where the user wants to see whether
-		 * or not the element has already been kown
+		 * this slot updates the currently selected point
 		 */
-		void setDate( int date );
-};
+		void slotUpdatePoint( QPoint point );
 
-/**
- * This class represents the periodic table most persons know.
- * All elements are included.
- * @short The regular periodic table with all elements
- * @author Carsten Niehaus
- */
-class RegularPSE : public PSE
-{
-	Q_OBJECT
+	signals:
+		/**
+		 * this signal is emited when the table is clicked
+		 */
+		void tableClicked(QPoint);
+		
+		/**
+		 * this signal is emited when an element is clicked
+		 */
+		void ElementClicked(int);
+
 	public:
-		/**
-		 * Contructor
-		 */
-		RegularPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
-		/**
-		 * Destructor
-		 */
-		~RegularPSE();
-
-		/**
-		 * Sets up all elements to the correct buttonlists
-		 * @see m_PSEElementButtons
-		 */
-		void setupPSEElementButtonsList();
-		
-		/**
-		 * updates the numeration of the PSE
-		 */
-		void updateNumeration();
+		virtual void drawPSE( QPainter* p, bool useSimpleView );
+		virtual void drawSOMPSE( QPainter* p );
+		virtual void drawLegend( QPainter* p );
 };
 
-/**
- * This class includes only the elements in the s- and block. It is intended for
- * pupil in lower classes or perhaps people who don't know very much about
- * chemistry.
- * @short A simplified periodic table with only the elements of the s- and p-block
- * @author Carsten Niehaus
- */
-class SimplifiedPSE : public PSE
-{
-	Q_OBJECT
-	public:
-		/**
-		 * Contructor
-		 */
-		SimplifiedPSE(KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
-		
-		/**
-		 * Destructor
-		 */
-		~SimplifiedPSE();
-		
-		/**
-		 * Sets up all elements to the correct buttonlists
-		 * @see m_PSEElementButtons
-		 */
-		void setupPSEElementButtonsList();
-		
-		/**
-		 * updates the numeration of the PSE
-		 */
-		void updateNumeration();
-};
 
 #endif

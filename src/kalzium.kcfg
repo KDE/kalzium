@@ -50,116 +50,161 @@
 	  </entry>
   </group>
   <group name="Colors">
-    <entry name="noscheme" type="Color">
-	<label>Selects the color if no scheme is selected</label>
-	<whatsthis>Selects the color of the elements if no scheme is selected</whatsthis>
-	<default>#b4adff</default>
-    </entry>
-    <entry name="color_liquid" type="Color">
-	<label>Selects the color of liquid elements</label>
-	<whatsthis>Selects the color of liquid elements</whatsthis>
-	<default>#b4adff</default>
-    </entry>
-    <entry name="color_solid" type="Color">
-	<label>Selects the color of solid elements</label>
-	<whatsthis>Selects the color of solid elements</whatsthis>
-	<default>#FF5255</default>
-    </entry>
-    <entry name="color_vapor" type="Color">
-	<label>Selects the color of vaporous elements</label>
-	<whatsthis>Selects the color of vaporous elements</whatsthis>
-	<default>#5CFF46</default>
-    </entry>
-    <entry name="color_radioactive" type="Color">
-	<label>Selects the color of radioactive elements</label>
-	<whatsthis>Selects the color of radioactive elements</whatsthis>
-	<default>#FFFFFF</default>
-    </entry>
-    <entry name="color_artificial" type="Color">
-	<label>Selects the color of artificial elements</label>
-	<whatsthis>Selects the color of artificial elements</whatsthis>
-	<default>#FFA94E</default>
-    </entry>
-    <entry name="block_s" type="Color">
-	<label>Selects the color of the elements in block s</label>
-	<whatsthis>Selects the color of the elements in block s</whatsthis>
-	<default>#be72ee</default>
-    </entry>
-    <entry name="block_p" type="Color">
-	<label>Selects the color of the elements in block p</label>
-	<whatsthis>Selects the color of the elements in block p</whatsthis>
-	<default>#62ee25</default>
-    </entry>
-    <entry name="block_d" type="Color">
-	<label>Selects the color of the elements in block d</label>
-	<whatsthis>Selects the color of the elements in block d</whatsthis>
-	<default>#f4fd40</default>
-    </entry>
-    <entry name="block_f" type="Color">
-	<label>Selects the color of the elements in block f</label>
-	<whatsthis>Selects the color of the elements in block f</whatsthis>
-	<default>#ee5ab8</default>
-    </entry>
-    <entry name="group_1" type="Color">
-	<label>Selects the color of the elements in group 1</label>
-	<whatsthis>Selects the color of the elements in group 1</whatsthis>
-	<default>#dd00ee</default>
-    </entry>
-    <entry name="group_2" type="Color">
-	<label>Selects the color of the elements in group 2</label>
-	<whatsthis>Selects the color of the elements in group 2</whatsthis>
-	<default>#2284ee</default>
-    </entry>
-    <entry name="group_3" type="Color">
-	<label>Selects the color of the elements in group 3</label>
-	<whatsthis>Selects the color of the elements in group 3</whatsthis>
-	<default>#91ee7f</default>
-    </entry>
-    <entry name="group_4" type="Color">
-	<label>Selects the color of the elements in group 4</label>
-	<whatsthis>Selects the color of the elements in group 4</whatsthis>
-	<default>#ba2f14</default>
-    </entry>
-    <entry name="group_5" type="Color">
-	<label>Selects the color of the elements in group 5</label>
-	<whatsthis>Selects the color of the elements in group 5</whatsthis>
-	<default>#eec809</default>
-    </entry>
-    <entry name="group_6" type="Color">
-	<label>Selects the color of the elements in group 6</label>
-	<whatsthis>Selects the color of the elements in group 6</whatsthis>
-	<default>#0c3e74</default>
-    </entry>
-    <entry name="group_7" type="Color">
-	<label>Selects the color of the elements in group 7</label>
-	<whatsthis>Selects the color of the elements in group 7</whatsthis>
-	<default>#ee0842</default>
-    </entry>
-    <entry name="group_8" type="Color">
-	<label>Selects the color of the elements in group 8</label>
-	<whatsthis>Selects the color of the elements in group 8</whatsthis>
-	<default>#b4adff</default>
-    </entry>
-    <entry name="beh_acidic" type="Color">
-	<label>Selects the color of the elements with acidic behaviour</label>
-	<whatsthis>Selects the color of the elements with acidic behaviour</whatsthis>
-	<default>#b4adff</default>
-    </entry>
-    <entry name="beh_basic" type="Color">
-	<label>Selects the color of the elements with basic behaviour</label>
-	<whatsthis>Selects the color of the elements with basic behaviour</whatsthis>
-	<default>#d3ee22</default>
-    </entry>
-    <entry name="beh_amphoteric" type="Color">
-	<label>Selects the color of the elements with amphoteric behaviour</label>
-	<whatsthis>Selects the color of the elements with amphoteric behaviour</whatsthis>
-	<default>#EE4346</default>
-    </entry>
-    <entry name="beh_neutral" type="Color">
-	<label>Selects the color of the elements with neutral behaviour</label>
-	<whatsthis>Selects the color of the elements with neutral behaviour</whatsthis>
-	<default>#44EE2E</default>
-    </entry>
+	  <entry name="noscheme" type="Color">
+		  <label>Selects the color if no scheme is selected</label>
+		  <whatsthis>Selects the color of the elements if no scheme is selected</whatsthis>
+		  <default>#b4adff</default>
+	  </entry>
+	  <entry name="color_liquid" type="Color">
+		  <label>Selects the color of liquid elements</label>
+		  <whatsthis>Selects the color of liquid elements</whatsthis>
+		  <default>#b4adff</default>
+	  </entry>
+	  <entry name="color_solid" type="Color">
+		  <label>Selects the color of solid elements</label>
+		  <whatsthis>Selects the color of solid elements</whatsthis>
+		  <default>#FF5255</default>
+	  </entry>
+	  <entry name="color_vapor" type="Color">
+		  <label>Selects the color of vaporous elements</label>
+		  <whatsthis>Selects the color of vaporous elements</whatsthis>
+		  <default>#5CFF46</default>
+	  </entry>
+	  <entry name="color_radioactive" type="Color">
+		  <label>Selects the color of radioactive elements</label>
+		  <whatsthis>Selects the color of radioactive elements</whatsthis>
+		  <default>#FFFFFF</default>
+	  </entry>
+	  <entry name="color_artificial" type="Color">
+		  <label>Selects the color of artificial elements</label>
+		  <whatsthis>Selects the color of artificial elements</whatsthis>
+		  <default>#FFA94E</default>
+	  </entry>
+	  <entry name="block_s" type="Color">
+		  <label>Selects the color of the elements in block s</label>
+		  <whatsthis>Selects the color of the elements in block s</whatsthis>
+		  <default>#be72ee</default>
+	  </entry>
+	  <entry name="block_p" type="Color">
+		  <label>Selects the color of the elements in block p</label>
+		  <whatsthis>Selects the color of the elements in block p</whatsthis>
+		  <default>#62ee25</default>
+	  </entry>
+	  <entry name="block_d" type="Color">
+		  <label>Selects the color of the elements in block d</label>
+		  <whatsthis>Selects the color of the elements in block d</whatsthis>
+		  <default>#f4fd40</default>
+	  </entry>
+	  <entry name="block_f" type="Color">
+		  <label>Selects the color of the elements in block f</label>
+		  <whatsthis>Selects the color of the elements in block f</whatsthis>
+		  <default>#ee5ab8</default>
+	  </entry>
+	  <entry name="group_1" type="Color">
+		  <label>Selects the color of the elements in group 1</label>
+		  <whatsthis>Selects the color of the elements in group 1</whatsthis>
+		  <default>#dd00ee</default>
+	  </entry>
+	  <entry name="group_2" type="Color">
+		  <label>Selects the color of the elements in group 2</label>
+		  <whatsthis>Selects the color of the elements in group 2</whatsthis>
+		  <default>#2284ee</default>
+	  </entry>
+	  <entry name="group_3" type="Color">
+		  <label>Selects the color of the elements in group 3</label>
+		  <whatsthis>Selects the color of the elements in group 3</whatsthis>
+		  <default>#91ee7f</default>
+	  </entry>
+	  <entry name="group_4" type="Color">
+		  <label>Selects the color of the elements in group 4</label>
+		  <whatsthis>Selects the color of the elements in group 4</whatsthis>
+		  <default>#c80000</default>
+	  </entry>
+	  <entry name="group_5" type="Color">
+		  <label>Selects the color of the elements in group 5</label>
+		  <whatsthis>Selects the color of the elements in group 5</whatsthis>
+		  <default>#eec809</default>
+	  </entry>
+	  <entry name="group_6" type="Color">
+		  <label>Selects the color of the elements in group 6</label>
+		  <whatsthis>Selects the color of the elements in group 6</whatsthis>
+		  <default>#486f8b</default>
+	  </entry>
+	  <entry name="group_7" type="Color">
+		  <label>Selects the color of the elements in group 7</label>
+		  <whatsthis>Selects the color of the elements in group 7</whatsthis>
+		  <default>#ee0842</default>
+	  </entry>
+	  <entry name="group_8" type="Color">
+		  <label>Selects the color of the elements in group 8</label>
+		  <whatsthis>Selects the color of the elements in group 8</whatsthis>
+		  <default>#b4adff</default>
+	  </entry>
+	  <entry name="beh_acidic" type="Color">
+		  <label>Selects the color of the elements with acidic behaviour</label>
+		  <whatsthis>Selects the color of the elements with acidic behaviour</whatsthis>
+		  <default>#b4adff</default>
+	  </entry>
+	  <entry name="beh_basic" type="Color">
+		  <label>Selects the color of the elements with basic behaviour</label>
+		  <whatsthis>Selects the color of the elements with basic behaviour</whatsthis>
+		  <default>#d3ee22</default>
+	  </entry>
+	  <entry name="beh_amphoteric" type="Color">
+		  <label>Selects the color of the elements with amphoteric behaviour</label>
+		  <whatsthis>Selects the color of the elements with amphoteric behaviour</whatsthis>
+		  <default>#EE4346</default>
+	  </entry>
+	  <entry name="beh_neutral" type="Color">
+		  <label>Selects the color of the elements with neutral behaviour</label>
+		  <whatsthis>Selects the color of the elements with neutral behaviour</whatsthis>
+		  <default>#44EE2E</default>
+	  </entry>
+	  <entry name="alkalie" type="Color">
+		  <label>Selects the color of the alkalie elements</label>
+		  <whatsthis>Selects the color of the alkalie elements</whatsthis>
+		  <default>#FFFF2D</default>
+	  </entry>
+	  <entry name="rare" type="Color">
+		  <label>Selects the color of the rare-earth elements</label>
+		  <whatsthis>Selects the color of the rare-earth elements</whatsthis>
+		  <default>#5B2EFF</default>
+	  </entry>
+	  <entry name="nonmetal" type="Color">
+		  <label>Selects the color of the non-metal elements</label>
+		  <whatsthis>Selects the color of the non-metal elements</whatsthis>
+		  <default>#CCBE2C</default>
+	  </entry>
+	  <entry name="alkaline" type="Color">
+		  <label>Selects the color of the alkaline elements</label>
+		  <whatsthis>Selects the color of the alkaline elements</whatsthis>
+		  <default>#3DD9DE</default>
+	  </entry>
+	  <entry name="other_metal" type="Color">
+		  <label>Selects the color of the metals which don't fit into the other categories</label>
+		  <whatsthis>Selects the color of the metals which don't fit into the other categories</whatsthis>
+		  <default>#546F56</default>
+	  </entry>
+	  <entry name="halogene" type="Color">
+		  <label>Selects the color of the halagone elements</label>
+		  <whatsthis>Selects the color of the halogene elements</whatsthis>
+		  <default>#5BF4A0</default>
+	  </entry>
+	  <entry name="transition" type="Color">
+		  <label>Selects the color of the transition elements</label>
+		  <whatsthis>Selects the color of the transition elements</whatsthis>
+		  <default>#97F805</default>
+	  </entry>
+	  <entry name="noble_gas" type="Color">
+		  <label>Selects the color of the noble gases</label>
+		  <whatsthis>Selects the color of the noble gases</whatsthis>
+		  <default>#C56188</default>
+	  </entry>
+	  <entry name="metalloid" type="Color">
+		  <label>Selects the color of the metalloid elements</label>
+		  <whatsthis>Selects the color of the metalloid elements</whatsthis>
+		  <default>#E8D888</default>
+	  </entry>
   </group>
   <group name="Mouseclick">
     <entry name="LMBbeh" type="Int">
@@ -168,10 +213,24 @@
 	<default>0</default>
     </entry>
   </group>
-  <group name="Units">
-    <entry name="units" type="Int">
+  <group name="Energies">
+    <entry name="energies" type="Int">
 	<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
 	<whatsthis>Use eV or kJ/mol</whatsthis>
+	<default>0</default>
+    </entry>
+  </group>
+  <group name="SIUnits">
+    <entry name="units" type="Int">
+	<label>This value defines whether SI-Units will be used</label>
+	<whatsthis>Use SI-units or not</whatsthis>
+	<default>0</default>
+    </entry>
+  </group>
+  <group name="PSELook">
+    <entry name="pselook" type="Int">
+	<label>This value defines whether the atomic weight or the atomic number will be displayed in the PSE-Table</label>
+	<whatsthis>Display the atomic weight in the PSE or the number</whatsthis>
 	<default>0</default>
     </entry>
   </group>

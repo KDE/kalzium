@@ -1,0 +1,80 @@
+<kalzium>
+	<!--The [[CDATA]] allow the usage of html-tags inside xml. This means 
+	it is easier so write nice looking content without missing to comfort
+	of xml-->
+	<unit number="1">
+		<name>Alkalimetals</name>
+		<content><![CDATA[The first group in the table is called alkalimetall. The tend to form +1-ions.]]></content>
+	</unit>
+	<unit number="2">
+		<name>Alkaline metals</name>
+		<content><![CDATA[The alkaline metalls form the second group in the table of elements. The have the elektronstructur s<sup>2</sup>. Because of that their oxidationnumber is always +2. The higher the atomic number (de:Ordnungszahl) the higher the reactivity and electropositivity (de:Elektropositiver Charakter).<br>Even though the second ionisationenergie is pretty high they do form Me<sup>2+</sup>-Ions which have the noble-gas configuration. They are stabilized through the (de:Gitterenergie) and hydration enthalpie (de:Hydratationsenthalpie).]]></content>
+	</unit>
+	<unit number="3">
+		<name>Group </name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="4">
+		<name>Group </name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="5">
+		<name>Group </name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="6">
+		<name>Group </name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="7">
+		<name>Group </name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="8">
+		<name>Group </name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="9">
+		<name>Group </name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="10">
+		<name>Group </name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="11">
+		<name>Münzmetalle</name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="12">
+		<name>Zn, Cd, Hg</name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="13">
+		<name>Borgruppe</name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="14">
+		<name>Kohlenstoffgruppe </name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="15">
+		<name>stickstoffgruppe</name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="16">
+		<name>Chalkogenide</name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="17">
+		<name>Halogenoide</name>
+		<content><![CDATA[Content content content]]></content>
+	</unit>
+	<unit number="18">
+		<name>Group 18: Nobel Gases</name>
+		<content><![CDATA[The Nobel Gases (also "Inert Gases") form the 18. group in the peridic table of the elements. They have the elektronconfiguration s<sup>2</sup>p<sup>6</sup> which means they have a full valenzshell. Because of this their chemical reactivity if very low. Their very high ionizationenergies demenstrate this.
+			Most elements form ions with this electro-configuration (nobel-gas configuration). Because nobel gases have no unpaired electrons their elemental state is atomic (unlike eg. oxigen). They don't small, have no colours, are non toxic and not inflamable. The atoms don't share van-der-waals forces. Thus, their melting- and boilingpoints are very low. Both increase with the number of protons because this causes a bigger atom radius which make the atoms polarisable [[I made that word up ;-) It means: for a very short time the atoms have a charge]]. This polarization increases the van-der-waals forces.
+		Helium has the lowest boilingpoint of all known matter.
+	The nobel gases have a share of 0.035% in the air. Ne: 1.6E-3, He: 5E-4, Kr:1E-4, Xe: 9E-6]]></content>
+	</unit>
+</kalzium>

@@ -19,6 +19,7 @@
 
 //KDE-Includes
 #include <kdebug.h>
+#include <kimageio.h> 
 
 //QT-Includes
 #include <qpainter.h>
@@ -36,8 +37,6 @@ PlotWidget::PlotWidget( double x1,
 
 void PlotWidget::drawObjects( QPainter *p )
 {
-	kdDebug() << "PlotWidget::drawObjects()" << endl;
-	
 	for ( KPlotObject *po = ObjectList.first(); po; po = ObjectList.next() ) {
 
 		if ( po->points()->count() ) {
@@ -67,31 +66,26 @@ void PlotWidget::drawObjects( QPainter *p )
 					}
 					if (m_connectPoints)
 					{
-						kdDebug() << "draw the line" << endl;
-
 						int 	p1x, p1y, //the first point
 							p2x, p2y; //the second point
-
-						for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() ) 
+						
+						DPoint *dp = po->points()->first();
+						
+						while ( dp )
 						{
 							QPoint point = dp->qpoint( PixRect, DataRect );
 							p1x = point.x();
 							p1y = point.y();
 
-							if (dp == po->points()->getFirst())
-							{
-								p2x = p1x;
-								p2y = p1y;
-							}
-							else
-							{
-								p->drawLine(p1x,p1y,p2x,p2y);
+							p->drawLine(p1x,p1y,p2x,p2y);
 
-								p2x = p1x;
-								p2y = p1y;
-							}
+							p2x = p1x;
+							p2y = p1y;
+
+							dp = po->points()->next();
 						}
 					}
+					kdDebug() << "nach der for-Schleife" << endl;
 
 					p->setBrush( Qt::NoBrush );
 					break;

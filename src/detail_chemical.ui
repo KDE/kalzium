@@ -12,6 +12,9 @@
             <height>548</height>
         </rect>
     </property>
+    <property name="caption">
+        <string>detail_chemical</string>
+    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -236,7 +239,7 @@
 <customwidgets>
     <customwidget>
         <class>IsotopeWidget</class>
-        <header location="local">isotopewidget.h</header>
+        <header location="global">isotopewidget.h</header>
         <sizehint>
             <width>-1</width>
             <height>-1</height>
