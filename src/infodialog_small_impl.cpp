@@ -21,7 +21,6 @@
 
 #include <kdebug.h>
 #include <klocale.h>
-#include <khtml_part.h>
 
 #include <qlabel.h>
 
@@ -30,13 +29,7 @@ infoDlgSmallImpl::infoDlgSmallImpl(Element *el, QWidget *parent, const char *nam
 {
 	e = el;
 
-	QString myHTMLCode = i18n( "test test test <b>dicker test </b>" );
-	KHTMLPart *w = new KHTMLPart();
-
-	w->begin();
-	w->write(myHTMLCode)
-
-		setValues();
+	setValues();
 }
 
 void infoDlgSmallImpl::setValues()
