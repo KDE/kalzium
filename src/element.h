@@ -124,6 +124,13 @@ class Element{
 		QString acidicbeh() const {
 			return m_acidbeh;
 		}
+
+		/**
+		 * @return the isotopes of the element
+		 */
+		QString Isotopes() const {
+			return m_isotopes;
+		}
 		
 		/**
 		 * @return the oxydationstages of the element
@@ -258,7 +265,8 @@ class Element{
 			m_block,
 			m_group,
 			m_acidbeh,
-			m_orbits;
+			m_orbits,
+			m_isotopes;
 };
 
 

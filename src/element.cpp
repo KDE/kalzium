@@ -39,6 +39,7 @@ Element::Element( int num )
 	m_name=config.readEntry( "Name", "Unknown" );
 	m_symbol=config.readEntry( "Symbol", "Unknown" );
 	m_weight=config.readDoubleNumEntry( "Weight",0.0 );
+	m_isotopes=config.readEntry(  "Isotopes", "0" );
 
 	m_oxstage=config.readEntry( "Ox","0" );
 	m_acidbeh=config.readEntry( "acidbeh","0" );

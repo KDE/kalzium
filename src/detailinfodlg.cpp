@@ -33,6 +33,7 @@
 #include "detail_chemical.h"
 #include "detail_energy.h"
 #include "prefs.h"
+#include "isotopewidget.h"
 
 DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *name)
     : KDialogBase(KDialogBase::IconList, "",  Close, Close, parent,name)
@@ -107,6 +108,10 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	wChemical->block_label->setText( e->block() );
 	wChemical->radius_label->setText( Element::adjustUnits( e->radius(), 2 ) );
 	wChemical->weight_label->setText( Element::adjustUnits( e->weight(), 3 ) );
+	if ( el->Isotopes() != "0"  )
+		wChemical->isotopeWidget->setIsotopes( el->Isotopes() );
+	else
+		wChemical->isotopeLabel->hide();
 	chemicalLayout->addWidget( wChemical );
     
     /////////////////////////////////
