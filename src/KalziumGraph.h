@@ -66,6 +66,7 @@ class KalziumGraph : public QFrame
 
 	private:
 		double getMax();
+		double getMin();
 
 
 	protected slots:

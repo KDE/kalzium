@@ -99,17 +99,23 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 	int real_w=w_w/num;                       //real_w ist die Breite pro Datenpunkt
 
 	DC.drawRect(10,10,w_w,w_h-10);
+		
+	double max = getMax();
+	double min = getMin();
 
 	for( int i = 0 ; i < num ; i++ )
 	{
-		double temp = getMax();
 
-		double current = data->Data[ fromRange_+i ]/temp;
+		double current = data->Data[ fromRange_+i ]/max;
 		current*=w_h;
 
 		DC.drawPoint( real_w*i+10 , w_h-( ( int )current )+10 );
 	}
-	//drawText( w_w/2 , w_h/2, "Carsten" );
+
+	DC.drawLine(10,this->height()/2,20,this->height()/2);
+	DC.drawLine(10,this->height()/4,20,this->height()/4);
+	DC.drawLine(10,this->height()/4*3,20,this->height()/4*3);
+	
 	DC.end();
 }
 
@@ -119,6 +125,19 @@ double KalziumGraph::getMax()
 	for( int i = fromRange_ ; i < toRange_ ; i++ )
 	{
 		if ( data->Data[ i ] > temp )
+		{
+			temp = data->Data[ i ];
+		}
+	}
+	return temp;
+}
+
+double KalziumGraph::getMin()
+{
+	double temp = data->Data[ fromRange_ ];
+	for( int i = fromRange_ ; i < toRange_ ; i++ )
+	{
+		if ( data->Data[ i ] < temp )
 		{
 			temp = data->Data[ i ];
 		}
