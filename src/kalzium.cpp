@@ -476,7 +476,7 @@ void Kalzium::updateNumMenu(int id)
 
 void Kalzium::slotShowTimeline(bool id)
 {
-	if (true)
+	if (id)
 	{
 		dateS->show();
 		dateLCD->show();
