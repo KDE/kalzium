@@ -211,7 +211,7 @@ void ElementKP::slotShowData()
     if (Data.IE == -1)
 	show_data2->ion_label->setText( i18n( "Unknown" ) );
     else
-	show_data2->ion_label->setText( i18n( "%1 kJ/mole" ).arg( Data.IE*100) );
+	show_data2->ion_label->setText( i18n( "%1 kJ/mol" ).arg( Data.IE*100) );
 
     show_data2->elemno_label->setText( i18n( "%1" ).arg( Data.number ) );
 
