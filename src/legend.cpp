@@ -17,6 +17,7 @@
  ***************************************************************************/
 
 #include "legend.h"
+#include "legend.moc"
 
 //KDE-Includes
 #include <kconfig.h>

@@ -30,6 +30,7 @@
 #include <qgrid.h>
 
 #include "kalziumconverter.h"
+#include "kalziumconverter.moc"
 
 KConvert::KConvert (QWidget *parent, const char *name )  : QWidget (parent,name)
 {
@@ -63,7 +64,7 @@ KConvert::KConvert (QWidget *parent, const char *name )  : QWidget (parent,name)
 	grid->addWidget( ValueDim, 7,1 );
 	grid->addWidget( ResultKLE, 7,0 );
 	grid->addWidget( ResultDim, 5,1 );
-	
+
 	grid->addWidget( difflabel, 9,0 );
 	grid->addWidget( q, 10  ,0 );
 	grid->addWidget( w,10  ,1 );
@@ -81,7 +82,7 @@ KConvert::KConvert (QWidget *parent, const char *name )  : QWidget (parent,name)
     connect( ToCK, SIGNAL( activated( const QString &) ), this, SLOT(slotSetToDim(const QString&)) );
 
     connect( categorieKC, SIGNAL( activated( int ) ), this, SLOT(slotAdjustKomboContent(int)) );
-	
+
     slotAdjustKomboContent(0);
     slotSetToDim("Joule");
 	slotSetResultDim("Joule");
@@ -186,7 +187,7 @@ void KConvert::slotCalculate()
     ResultKLE->setText(toTarget( toConvert ));
 }
 
-void KConvert::slotSetResultDim( const QString &dim ) 
+void KConvert::slotSetResultDim( const QString &dim )
 {
      ValueDim->setText( dim );
 }

@@ -17,6 +17,7 @@
  ***************************************************************************/
 
 #include "KalziumGraph.h"
+#include "KalziumGraph.moc"
 
 //KDE-Includes
 #include <kstddirs.h>
@@ -74,12 +75,12 @@ void KalziumGraphDialog::slotokClicked()
 	KalziumGraphDataContainer *container = new KalziumGraphDataContainer( typ, fromRange,toRange );
  	graph = new KalziumGraph( fromRange,toRange,this, "graph" , container);
 	graph->show();
- 	
+
 	grid->addMultiCellWidget( graph,2,3,0,2 );
 }
 
 KalziumGraph::KalziumGraph( int fromRange, int toRange,QWidget *parent, const char *name, KalziumGraphDataContainer *datacontainer) :
-QFrame( parent, name ) 
+QFrame( parent, name )
 {
 	data = datacontainer;
 	fromRange_ = fromRange;
@@ -90,7 +91,7 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 {
 	QPainter DC;
 	DC.begin( this );
-	
+
 	int w_w = this->width();
 	int w_h = this->height();
 
@@ -99,15 +100,15 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 
 	kdDebug() << "w_w_temp " << w_w_temp << endl;
 	kdDebug() << "w_h_temp " << w_h_temp << endl;
-	
-	w_w_temp=( w_w_temp/100 ); 
+
+	w_w_temp=( w_w_temp/100 );
 	kdDebug() << "nach dem /= 100" << w_w_temp << endl;
-	
+
 	w_w_temp*=99;
-	
+
 	kdDebug() << "nach dem *= 99" << w_w_temp << endl;
-	
-	w_h_temp/=100; 
+
+	w_h_temp/=100;
 	kdDebug() << "nach dem /= 100" << w_h_temp << endl;
 	w_h_temp*=99;
 	kdDebug() << "nach dem *= 99" << w_h_temp << endl;
@@ -122,22 +123,22 @@ void KalziumGraph::paintEvent( QPaintEvent * )
 
 	w_w-=w_w_temp;
 	w_h-=w_h_temp;
-	
+
 	kdDebug() << "End w_w " << w_w << endl;
 	kdDebug() << "End w_h " << w_h << endl;
-	
+
 	int num = toRange_-fromRange_;
 	int real_w=w_w/num;                       //real_w ist die Breite pro Datenpunkt
 
 	DC.drawRect(w_w_temp,w_h_temp,w_w,w_h);
-	
+
 	for( int i = 0 ; i < num ; i++ )
 	{
 		double temp = getMax();
 
 		double current = data->Data[ fromRange_+i ]/temp;
 		current*=w_h;
-		
+
 		DC.drawPoint( real_w*i , w_h-( ( int )current ) );
 	}
 	//drawText( w_w/2 , w_h/2, "Carsten" );
@@ -161,13 +162,13 @@ KalziumGraphDataContainer::KalziumGraphDataContainer( int typ, int fromRange, in
 {
 	KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
 
-	//Weight 
-	//EN 
-	//MP == Meltingpoint 
-	//BP == Boilingpoint 
-	//Density 
-	//IE == Ionizationenergie 
-	//AR == atmomic radius 
+	//Weight
+	//EN
+	//MP == Meltingpoint
+	//BP == Boilingpoint
+	//Density
+	//IE == Ionizationenergie
+	//AR == atmomic radius
 
 	QString kind;
 
