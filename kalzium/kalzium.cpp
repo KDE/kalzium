@@ -57,6 +57,8 @@
 //which version?
 #define KALZIUM_VERSION 0.4
 
+using namespace std;
+
 Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 {
     main_config=KGlobal::config();
@@ -308,7 +310,7 @@ void Kalzium::slotShowBlocks()
         QString& s(b->Data.Block);
         
         if (s.length() == 1)
-            if (const char *p = std::strchr("spdf", QChar(s[0])))
+            if (const char *p = strchr("spdf", QChar(s[0])))
                 b->setPalette(QPalette(main_config->readColorEntry(QChar(*p))));
     }
 }
