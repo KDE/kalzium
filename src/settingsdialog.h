@@ -76,7 +76,6 @@ class SettingsDialog : public KDialogBase
         QVButtonGroup *webLookupButtonGroup;
         QFrame *colorTab, *webLookupButtons, *general;
 		QRadioButton *detailedInfo, *minumumInfo;
-        QRadioButton *rb;
         KConfig *main_config;
 
 		/*

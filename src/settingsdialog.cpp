@@ -245,7 +245,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
 		i = 0;
 	else
 		i = 1;
-	
+
 	connect( b_group , SIGNAL( clicked( int ) ) , this , SLOT( slotSetInfodlg( int ) ) );
     QVBoxLayout *b_group_layout = new QVBoxLayout(general);
     b_group_layout->addWidget(b_group);
@@ -331,12 +331,11 @@ void SettingsDialog::slotDefaults()
 {
     switch (activePageIndex())
     {
-        case 0:
+        case 1:
             colorsTabWidget->setDefaultColors();
             break;
-        case 1:
-            rb->toggle();
-            break;
+    default:
+        break;
 
     }
 }
