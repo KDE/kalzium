@@ -1373,12 +1373,6 @@
         <receiver>SearchDialogUI</receiver>
         <slot>close()</slot>
     </connection>
-    <connection>
-        <sender>RangeLE</sender>
-        <signal>returnPressed()</signal>
-        <receiver>SearchDialogUI</receiver>
-        <slot>slotFilterData()</slot>
-    </connection>
 </connections>
 <slots>
     <slot>slotExportData()</slot>

@@ -26,6 +26,8 @@ class QWidget;
 #include <qvaluelist.h>
 
 #include "searchdialog.h"
+		
+typedef QValueList<int> IntValueList;
 
 class SearchDlg : public SearchDialogUI 
 {
@@ -57,8 +59,7 @@ class SearchDlg : public SearchDialogUI
 
 		void fillDataStringLists();
 		
-		typedef QValueList<int> IntValueList;
-		IntValueList parseRange();
+		IntValueList parseRange(QString);
 		
 
 	private slots:

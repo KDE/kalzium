@@ -25,6 +25,7 @@
 #include <kstandarddirs.h>
 #include <kprogress.h>
 #include <kdebug.h>
+#include <klineedit.h>
 
 //QT-Includes
 #include <qbuttongroup.h>
@@ -157,20 +158,39 @@ void SearchDlg::slotApplyChanges()
 		col++;
 	}
 
+	if ( RangeLE.text() ) //only parse if the user entered numbers
+		slotFilterData();
 }
 
 void SearchDlg::slotFilterData()
 {
+	kdDebug() << "SearchDlg::slotFilterData()" << endl;
+	IntValueList l = parseRange( RangeLE->text() );
+	for ( IntValueList::Iterator it = l.begin(); it != l.end() ; ++it )
+	{
+		/*
+		 * add the code which hides the correct rows
+		 */
+	}
 }
 
-typedef QValueList<int> IntValueList;
-IntValueList SearchDlg::parseRange()
+IntValueList SearchDlg::parseRange(QString range)
 {
+	kdDebug() << "SearchDlg::parseRange()" << endl;
+	IntValueList l;
+
+	/*
+	 * add the code which actually parses stuff
+	 */
+	
+	return l;
 }
 
 void SearchDlg::slotExportData()
 {
-	//TODO
+	/*
+	 * export into a .csv-file
+	 */
 }
 
 #include "searchdlg.moc"
