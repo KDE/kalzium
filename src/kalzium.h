@@ -26,7 +26,7 @@
 #include <kmainwindow.h>
 
 
-#define KALZIUM_VERSION "0.5"
+#define KALZIUM_VERSION "0.6"
 
 /** Kalzium is the base class of the project */
 
@@ -50,6 +50,7 @@ class Colors_Config_Widget;
 class ElementKP;
 class SettingsDialog;
 class StateOfMatterDlg;
+class QButton;
 
 typedef ElementKP* PElementKP;
 typedef QLabel* PQLabel;
@@ -76,7 +77,7 @@ class Kalzium : public KMainWindow
 		QString helpArray[9][18];
 		StateOfMatterDlg *templookup;
 
-        KPushButton *one, 
+        QButton *one, 
                     *two, 
                     *three, 
                     *four, 

@@ -18,9 +18,13 @@
 
 #include <kaction.h>
 #include <kcolorbutton.h>
+#include <kdebug.h>
 #include <kconfig.h>
 #include <kiconloader.h>
 #include <klocale.h>
+#include <kstddirs.h>
+#include <kcombobox.h>
+#include <kurl.h>
 
 #include <qlabel.h>
 #include <qlayout.h>
@@ -222,15 +226,11 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     : KDialogBase(IconList, i18n("Preferences"), Help|Default|Ok|Apply|Cancel ,Ok, parent,name, true, false)
 {
     main_config=KGlobal::config();  
-    
-    QStringList weblookuplist;
-    weblookuplist.append("http://www.ktf-split.hr/periodni/en/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/it/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/de/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/fr/");
-    weblookuplist.append("http://www.ktf-split.hr/periodni/");
- 
-    
+
+
+
+
+
     // COLORSTAB WIDGET
     colorTab = addPage(i18n("Colors"), i18n("Customize Color Settings"), BarIcon("colorize", KIcon::SizeMedium));
     colorsTabWidget = new ColorsTabWidget(colorTab, "colorsTabWidget");
@@ -243,22 +243,32 @@ SettingsDialog::SettingsDialog(QWidget *parent, const char *name)
     QVBoxLayout *test = new QVBoxLayout(webLookupButtons);
     test->addWidget(webLookupButtonGroup);
 
-    main_config->setGroup("WLU");
-    for (QStringList::Iterator it = weblookuplist.begin(); it != weblookuplist.end(); ++it ) 
-    {
-     rb = new QRadioButton (*it, webLookupButtonGroup);
-     if (*it == main_config->readEntry("adress"))
-         rb->toggle();
-    }
-    
-// HAVE TO ADD THIS
-//    QPixmap flag( locate( "locale",
-//    QString::fromLatin1( "l10n/%1/flag.png" ).arg(tag) ) );
+    KURL enURL = "http://www.ktf-split.hr/periodni/en/";
+    KURL itURL =  "http://www.ktf-split.hr/periodni/it/";
+    KURL deURL =  "http://www.ktf-split.hr/periodni/de/";
+    KURL frURL =  "http://www.ktf-split.hr/periodni/fr/";
+    KURL huURL =  "http://www.ktf-split.hr/periodni/";
+    KURL nlURL =  "http://www-woc.sci.kun.nl/cgi-bin/viewelement?";
+    QPixmap flagen( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("gb") ) );
+    QPixmap flagit( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("it") ) );
+    QPixmap flagde( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("de") ) );
+    QPixmap flagfr( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("fr") ) );
+    QPixmap flaghu( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("hu") ) );
+    QPixmap flagnl( locate( "locale", QString::fromLatin1( "l10n/%1/flag.png" ).arg("nl") ) );
+
+    urlSelector = new KComboBox( FALSE, webLookupButtonGroup, "urlSelector" );
+    urlSelector->insertURL( flagen, enURL );
+    urlSelector->insertURL( flagit, itURL );
+    urlSelector->insertURL( flagde, deURL );
+    urlSelector->insertURL( flagfr, frURL );
+    urlSelector->insertURL( flaghu, huURL );
+    urlSelector->insertURL( flagnl, nlURL );
 
     // CONNECT
     connect(this, SIGNAL(applyClicked()), this, SLOT(slotApplySettings()));
     connect(this, SIGNAL(defaultClicked()), this, SLOT(slotDefaults()));
     connect(this, SIGNAL(okClicked()), this, SLOT(slotOkSettings()));
+    
 }
 
 void SettingsDialog::slotApplySettings()
@@ -270,7 +280,7 @@ void SettingsDialog::slotApplySettings()
 void SettingsDialog::slotOkSettings()
 {
     main_config->setGroup("WLU");
-    main_config->writeEntry("adress", (webLookupButtonGroup->selected())->text());
+    main_config->writeEntry("adress", urlSelector->currentText() );
     main_config->sync();
     colorsTabWidget->applyColors();
     ((Kalzium*)parentWidget())->changeColorScheme(((Kalzium*)parentWidget())->colorschememenu->currentItem());

@@ -29,6 +29,7 @@ class QGridLayout;
 class QLabel;
 class QRadioButton;
 class QString;
+class KComboBox;
 
 class ColorsTabWidget : public QTabWidget
 {
@@ -67,6 +68,7 @@ class SettingsDialog : public KDialogBase
     Q_OBJECT
     public:
         SettingsDialog(QWidget *parent=0, const char *name=0);
+        KComboBox *urlSelector;
     private:
         ColorsTabWidget *colorsTabWidget;
         
