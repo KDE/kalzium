@@ -20,23 +20,23 @@
 //KDE-Includes
 #include <kdialog.h>
 #include <kiconloader.h>
-#include <kpushbutton.h>
-#include <ksimpleconfig.h>
 #include <klocale.h>
 #include <kmessagebox.h>
+#include <kpushbutton.h>
+#include <ksimpleconfig.h>
 #include <kstddirs.h>
 
 //QT-Includes
-#include <qlabel.h>
-#include <qstring.h>
-#include <qradiobutton.h>
-#include <qwhatsthis.h>
-#include <qlayout.h>
-#include <qtable.h>
-#include <qimage.h>
-#include <qwidget.h>
-#include <qpixmap.h>
 #include <qbuttongroup.h>
+#include <qimage.h>
+#include <qlabel.h>
+#include <qlayout.h>
+#include <qpixmap.h>
+#include <qradiobutton.h>
+#include <qstring.h>
+#include <qtable.h>
+#include <qwhatsthis.h>
+#include <qwidget.h>
 
 // Standard C++ includes
 #ifdef HAVE_STDLIB_H
@@ -45,7 +45,6 @@
 #include <time.h>
 
 #include "quizdlg.h"
-#include "quizdlg.moc"
 
 QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  : KDialog (parent,name)
 {
@@ -53,23 +52,20 @@ QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  : KDi
 
     srandom( time( 0 ) );
     for (int e = 0 ; e < 61 ; e++ )
-    {
-	order[e] = e+1;
-    }
+    	order[e] = e+1;
 
     int a, b, temp;
 
     for (int r = 0 ; r < 50 ; r++ )
     {
-	b = rand()%61;
-	do
-	{
-	    a = rand()%61;
-	}while (b == a);
+    	b = rand()%61;
+    	do {
+    	    a = rand()%61;
+    	} while (b == a);
 
-	temp = order[a];
-	order[a] = order[b];
-	order[b] = temp;
+    	temp = order[a];
+    	order[a] = order[b];
+    	order[b] = temp;
     }
 
     quizresult = 0;
@@ -158,15 +154,15 @@ void QuizDlg::increaseIfCorrect( int i )
 	case 2:
 	    if (two->isChecked() == true) 
 	    {
-		quizresult++; //increase if correct
-		QuestioniWasCorrect[currentnr] = true;
+    		quizresult++; //increase if correct
+    		QuestioniWasCorrect[currentnr] = true;
 	    }
 	    break;
 	case 3:
 	    if (three->isChecked() == true) 
 	    {
-		quizresult++; //increase if correct
-		QuestioniWasCorrect[currentnr] = true;
+    		quizresult++; //increase if correct
+    		QuestioniWasCorrect[currentnr] = true;
 	    }
 	    break;
     } 
@@ -227,8 +223,8 @@ void QuizDlg::slotCheck()
 	    resultTable->adjustColumn( 1 );
             grid->addWidget( resultTable, 1 , 0 );
 
-	    QPixmap good = SmallIcon("apply.png");
-	    QPixmap bad  = SmallIcon("cancel.png");
+	    QPixmap good = SmallIcon("apply");
+	    QPixmap bad  = SmallIcon("cancel");
 
 	    resultTable->setText( 0 , 0 , i18n("Questions:") );
 	    resultTable->setText( 0 , 1 , i18n("The correct answer was:") );
@@ -241,26 +237,23 @@ void QuizDlg::slotCheck()
 	    KSimpleConfig quizconfig (locate("data", "kalzium/kalziumrc"));
 	    for ( int i = 0 ; i < qnum ; i++ )
 	    {
-		quizconfig.setGroup("q"+QString::number(order[i]));
+    		quizconfig.setGroup("q"+QString::number(order[i]));
 		
-		QString ques, answ;
-		ques=quizconfig.readEntry("Q", "Unknown");
-		answ=quizconfig.readEntry("A", "Unknown");
+    		QString ques, answ;
+    		ques=quizconfig.readEntry("Q", "Unknown");
+    		answ=quizconfig.readEntry("A", "Unknown");
 		
-		resultTable->setItem( i+1 , 0 , new QTableItem( resultTable, QTableItem::Never , ques ) );
-		resultTable->setItem( i+1 , 1 , new QTableItem( resultTable, QTableItem::Never , answ ) );
+    		resultTable->setItem( i+1 , 0 , new QTableItem( resultTable, QTableItem::Never , ques ) );
+    		resultTable->setItem( i+1 , 1 , new QTableItem( resultTable, QTableItem::Never , answ ) );
 		
-		if (wasCorrect( i ) == true)
-		{
-		    resultTable->setPixmap( i+1 , 2 , good );
-		}
-		else resultTable->setPixmap( i+1 , 2 , bad );
-	    }
-	    
-
+    		if (wasCorrect( i ) == true)
+    		    resultTable->setPixmap( i+1 , 2 , good );
+    		else 
+                resultTable->setPixmap( i+1 , 2 , bad  );
+        }	    
 //new Table - END
-	    
-            result->show();
+
+        result->show();
         }
     }
 }
@@ -305,3 +298,5 @@ void QuizDlg::setTexts()
             break;
     }
 }
+
+#include "quizdlg.moc"

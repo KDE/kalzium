@@ -24,9 +24,9 @@ class QRadioButton;
 class QWidget;
 
 /*
-*This class provides the dialog for the knowledge test. It is a simple
-KDialog.
-*@author Carsten Niehaus
+* This class provides the dialog for the knowledge test. 
+* It is a simple KDialog.
+* @author Carsten Niehaus
 */
 
 class QuizDlg : public KDialog  {
@@ -58,11 +58,15 @@ class QuizDlg : public KDialog  {
         void setTexts();
 
     private slots:
-        //update the buttons
+        /*
+         * update the buttons
+         */
         void updateIt( int );
 
-        //check if the answer is correct and do the rest
-        //of the quiz
+        /*
+         * check if the answer is correct and do the rest 
+         * of the quiz 
+         */
         void slotCheck();
 };
 

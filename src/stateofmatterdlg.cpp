@@ -145,17 +145,11 @@ void StateOfMatterDlg::tempbeh()
     for (int i = 0; i < 118; i++)
     {
         if (tempC < (kalzium->element[i]->Data.MP-273))
-        {
             kalzium->element[i]->setPalette( color_solid );
-        }
         if (tempC > (kalzium->element[i]->Data.MP-273) && tempC < (kalzium->element[i]->Data.BP-273) )
-        {
             kalzium->element[i]->setPalette( color_liquid );
-        }
         if ( tempC > (kalzium->element[i]->Data.BP)-273)
-        {
             kalzium->element[i]->setPalette( color_vapor );
-        }
     }
 }
 
@@ -173,24 +167,14 @@ void StateOfMatterDlg::slotStdCond()
     for (int i = 0; i < 118; i++)
     {
         if (kalzium->element[i]->Data.az == "0")
-        {
             kalzium->element[i]->setPalette( QPalette(main_config->readColorEntry("liquid")));
-        }
         if (kalzium->element[i]->Data.az == "1")
-        {
             kalzium->element[i]->setPalette( QPalette(main_config->readColorEntry("solid")));
-        }
         if (kalzium->element[i]->Data.az == "2")
-        {
             kalzium->element[i]->setPalette( QPalette(main_config->readColorEntry("vapor")));
-        }
         if (kalzium->element[i]->Data.az == "3")
-        {
             kalzium->element[i]->setPalette( QPalette(main_config->readColorEntry("radioactive")));
-        }
         if (kalzium->element[i]->Data.az == "4")
-        {
             kalzium->element[i]->setPalette( QPalette(main_config->readColorEntry("artificial")));
-        }
     }
 }
