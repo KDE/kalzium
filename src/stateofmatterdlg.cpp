@@ -81,10 +81,10 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	QLabel *gasinfo = new QLabel(("vapor:"), this );
 	main_layout->addWidget(gasinfo , 4 , 1 , Qt::AlignRight );
 	
-    QLabel *artiinfo = new QLabel( i18n("artificial"), this );
+    QLabel *artiinfo = new QLabel( i18n("artificial:"), this );
 	main_layout->addWidget(artiinfo , 5 , 1 , Qt::AlignRight );
     
-    QLabel *radiaainfo = new QLabel( i18n("radioactive"), this );
+    QLabel *radiaainfo = new QLabel( i18n("radioactive:"), this );
 	main_layout->addWidget(radiaainfo , 6 , 1 , Qt::AlignRight );
 
 	celsius = new QLabel( this );
