@@ -80,7 +80,7 @@ StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *
 	QLabel *liqinfo = new QLabel( i18n("liquid:"), this );
 	tempgrid->addWidget(liqinfo , 3 , 1 , Qt::AlignRight );
 
-	QLabel *gasinfo = new QLabel(("gas:"), this );
+	QLabel *gasinfo = new QLabel(("vapor:"), this );
 	tempgrid->addWidget(gasinfo , 4 , 1 , Qt::AlignRight );
 	
     QLabel *artiinfo = new QLabel( i18n("artificial"), this );
