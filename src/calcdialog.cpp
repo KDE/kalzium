@@ -28,7 +28,8 @@
 CalcDialog::CalcDialog(QWidget * parent, const char * name)
     : KDialog (parent, name)
 {
-    this->setCaption( i18n( "Calculations" ) );
+    setCaption( i18n( "Calculations" ) );
+
     main_layout = new QGridLayout(this);
 
     tabwidget = new CalcDlg(this, "tabwidget");

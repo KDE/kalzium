@@ -27,7 +27,6 @@
 #include "legend.h"
 
 //KDE-Includes
-#include <kdebug.h>
 #include <kaction.h>
 #include <kapplication.h>
 #include <kconfig.h>

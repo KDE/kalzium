@@ -41,7 +41,9 @@
 StateOfMatterDlg::StateOfMatterDlg (QWidget *parent, const char *name, Kalzium *kalzium_tmp)  : KDialog (parent,name)
 {
 	kalzium = kalzium_tmp;
-	this->setCaption(i18n("Temperatures"));
+	
+  setCaption(i18n("Temperatures"));
+
 	main_layout = new QGridLayout(this, 10 , 4, 8);
 
 	///////////////////////////////////////////
