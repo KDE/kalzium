@@ -34,7 +34,7 @@ infoDlgSmallImpl::infoDlgSmallImpl(Element *el, QWidget *parent, const char *nam
 void infoDlgSmallImpl::setValues()
 {
 	QString num = QString::number( e->number() );
-	QString name = e->elname().utf8();
+	QString name = i18n( e->elname().utf8() );
 	QString cap = i18n( "%1 (%2)" ).arg( name ).arg( num );
 	setCaption( cap );
 	symbol_label->setText( e->symbol() );
