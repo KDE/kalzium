@@ -1,4 +1,4 @@
-data_DATA = timeline.png legend.png
+icons_DATA = timeline.png legend.png
 
-datadir = $(kde_datadir)/kalzium/pics
+iconsdir = $(kde_datadir)/kalzium/pics
 
