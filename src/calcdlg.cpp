@@ -39,7 +39,6 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
 {
     KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
 
-//    MWG = new QWidget(this);
     KMol = new QWidget(this);
     QGridLayout *grid = new QGridLayout ( KMol, 5, 1 );
 
@@ -93,94 +92,6 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
 	symlabel[n]=config.readEntry("Symbol", "Unknown");
 	weight[n]=config.readEntry("Weight","0.0");
     }
-/*
-    //
-    // BEGIN - MWG
-    //
-
-    QVBoxLayout *buttonVBox = new QVBoxLayout( MWG );
-    grid = new QGridLayout( buttonVBox , 8 , 3 );
-
-    valuebox = new QGroupBox( i18n("Enter your Values") , MWG , "valuebox" );
-    comboboxgrid = new QGridLayout( valuebox , 6 , 6 );
-    grid->addWidget( valuebox , 4 , 0 );
-
-    general = new QLabel( i18n("General equation:"), MWG );
-    
-    //FIXME insert the correct pixmap
-    
-    herefrom = new QLabel( i18n("From here you get the 'Law of Mass Action':"), MWG );
-
-    //FIXME insert the correct pixmap
-
-    grid->addWidget( general, 0, 0);
-    grid->addWidget( herefrom, 1, 0);
-
-    a = new QLabel( i18n("a: ") , valuebox );
-    b = new QLabel( i18n("b: ") , valuebox );
-    c = new QLabel( i18n("c: ") , valuebox );
-    d = new QLabel( i18n("d: ") , valuebox );
-    A = new QLabel( i18n("A: ") , valuebox );
-    B = new QLabel( i18n("B: ") , valuebox );
-    C = new QLabel( i18n("C: ") , valuebox );
-    D = new QLabel( i18n("D: ") , valuebox );
-
-    coeff = new QLabel( i18n("Coefficient: ") , valuebox );
-    conc = new QLabel( i18n("Concentration: ") , valuebox );
-
-    QLEa = new QLineEdit( "1" , valuebox );
-    QLEb = new QLineEdit( "1" , valuebox );
-    QLEc = new QLineEdit( "1" , valuebox );
-    QLEd = new QLineEdit( "1" , valuebox );
-    QLEA = new QLineEdit( "1" , valuebox );
-    QLEB = new QLineEdit( "1" , valuebox );
-    QLEC = new QLineEdit( "1" , valuebox );
-    QLED = new QLineEdit( "1" , valuebox );
-
-    QCBA = new QComboBox( FALSE , valuebox );
-    QCBB = new QComboBox( FALSE , valuebox );
-    QCBC = new QComboBox( FALSE , valuebox );
-    QCBD = new QComboBox( FALSE , valuebox );
-    QCBA->insertItem( i18n("mol/L") );
-    QCBB->insertItem( i18n("mol/L") );
-    QCBC->insertItem( i18n("mol/L") );
-    QCBD->insertItem( i18n("mol/L") );
-
-    resultMWG = new QLabel( MWG );
-    grid->addWidget(resultMWG, 5, 0);
-
-    comboboxgrid->addWidget( QLEa, 1 , 1 );
-    comboboxgrid->addWidget( QLEb, 2 , 1 );
-    comboboxgrid->addWidget( QLEc, 3 , 1 );
-    comboboxgrid->addWidget( QLEd, 4 , 1 );
-    comboboxgrid->addWidget( QLEA, 1 , 4 );
-    comboboxgrid->addWidget( QLEB, 2 , 4 );
-    comboboxgrid->addWidget( QLEC, 3 , 4 );
-    comboboxgrid->addWidget( QLED, 4 , 4 );
-
-    comboboxgrid->addWidget( QCBA, 1 , 5 );
-    comboboxgrid->addWidget( QCBB, 2 , 5 );
-    comboboxgrid->addWidget( QCBC, 3 , 5 );
-    comboboxgrid->addWidget( QCBD, 4 , 5 );
-
-    comboboxgrid->addWidget( a, 1 , 0 );
-    comboboxgrid->addWidget( b, 2 , 0 );
-    comboboxgrid->addWidget( c, 3 , 0 );
-    comboboxgrid->addWidget( d, 4 , 0 );
-    comboboxgrid->addWidget( A, 1 , 3 );
-    comboboxgrid->addWidget( B, 2 , 3 );
-    comboboxgrid->addWidget( C, 3 , 3 );
-    comboboxgrid->addWidget( D, 4 , 3 );
-
-    comboboxgrid->addMultiCellWidget( coeff, 0, 0, 0, 2 );
-    comboboxgrid->addMultiCellWidget( conc, 0, 0, 3, 5 );
-
-    resultbutton = new KPushButton( i18n("Calculate"), MWG );
-    QObject::connect( resultbutton, SIGNAL( clicked() ), this, SLOT( slotCalculate() ) );
-    buttonVBox->addWidget( resultbutton );
-
-    addTab(MWG, i18n("MWG")); 
-    */
     addTab(KMol, i18n("KMol"));
 }
 
@@ -226,28 +137,5 @@ void CalcDlg::clear()
     result->clear();
     anal_display->clear();
 }
-/*
-void CalcDlg::slotCalculate() 
-{
-    int ka, kb, kc, kd;   //the 4 coefficients
-    double cA, cB, cC, cD; //the 4 concentrations
-
-    //now I will get the entered values
-    ka = QLEa->text().toInt();
-    kb = QLEb->text().toInt();
-    kc = QLEc->text().toInt();
-    kd = QLEd->text().toInt();
-    cA = QLEA->text().toFloat();
-    cB = QLEB->text().toFloat();
-    cC = QLEC->text().toFloat();
-    cD = QLED->text().toFloat();
-
-    double zaehler = (pow( cA , ka ) * pow( cB , kb ));
-    double nenner = (pow( cC , kc ) * pow( cD , kd ));
-
-    QString ergebnis = QString::number( zaehler/nenner );
-
-    resultMWG->setText( ergebnis );
-}*/
 
 #include "calcdlg.moc"
