@@ -38,7 +38,6 @@
 CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name)
 {
     KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
-    this->setCaption(i18n( "Calculations" ));
 
 //    MWG = new QWidget(this);
     KMol = new QWidget(this);
