@@ -25,6 +25,7 @@ class QCanvas;
 
 #include <qwidget.h>
 #include <kdialog.h>
+class KalziumGraph;
 
 class KalziumGraphDialog : public KDialog
 {
@@ -33,19 +34,19 @@ class KalziumGraphDialog : public KDialog
 	public:
 		KalziumGraphDialog( QWidget *parent=0, const char *name =0 );
 		QGridLayout *grid;
+		KalziumGraph *graph;
 	
 	private:
 		KComboBox *kcb;
 	
 	public slots:
 		void slotokClicked();
-
-	protected slots:
-		virtual void paintEvent( QPaintEvent * );
 };
 
 class KalziumGraphDisplay : public QWidget
 {
+	Q_OBJECT
+
 	public:
 		KalziumGraphDisplay( int, int, int, QWidget *parent=0, const char *name=0 );
 };
@@ -65,6 +66,13 @@ class KalziumGraph : public QWidget
 	public:
 		KalziumGraph( int , int , QWidget *parent = 0, const char *name=0, KalziumGraphDataContainer *data=0);
 		QCanvas *chart;
+
+		KalziumGraphDataContainer *data;
+
+	protected slots:
+		virtual void paintEvent( QPaintEvent * );
+
+
 };
 
 #endif

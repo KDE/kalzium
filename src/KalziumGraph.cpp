@@ -38,6 +38,8 @@
 #include <qcanvas.h>
 #include <qpainter.h>
 
+#include <math.h>
+
 KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDialog( parent, name )
 {
 	this->setCaption( i18n( "Visualize Data" ));
@@ -62,16 +64,8 @@ void KalziumGraphDialog::slotokClicked()
 	//for testing: only graph the first 10 Elements
 	KalziumGraphDisplay *graph = new KalziumGraphDisplay( typ, 1,10, this, "graph" );
 	graph->show();
+	grid->addWidget( graph,2,0 );
 }
-
-void KalziumGraphDialog::paintEvent( QPaintEvent * )
-{
-	QPainter DC;
-	DC.begin( this );
-	DC.drawRect( 5,5,20,20 );
-	DC.end();
-}
-
 
 KalziumGraphDisplay::KalziumGraphDisplay( int typ, int fromRange, int toRange , QWidget *parent, const char *name ):QWidget( parent, name )
 {
@@ -79,16 +73,23 @@ KalziumGraphDisplay::KalziumGraphDisplay( int typ, int fromRange, int toRange , 
 	KalziumGraph *graph = new KalziumGraph( fromRange,toRange,this, "graph" , container);
 }
 
+
 KalziumGraph::KalziumGraph( int fromRange, int toRange,QWidget *parent, const char *name, KalziumGraphDataContainer *datacontainer) :
 QWidget( parent, name ) 
 {
-	QGridLayout *grid2 = new QGridLayout ( this, 6, 3 ,8, -1, "GraphLayout" );
-	chart = new QCanvas( 200,100 );
-	QCanvasView *cview = new QCanvasView( chart, this );
-	
-	KalziumGraphDataContainer *data = datacontainer;
+	data = datacontainer;
+}
 
-	//grid2->addMultiCellWidget( test , 0 , 2,0,2 );
+void KalziumGraph::paintEvent( QPaintEvent * )
+{
+	QPainter DC;
+	DC.begin( this );
+	int x1=0, x2, y1,y2;
+	for( int i = 1 ; i < 10 ; i++ )
+	{
+		DC.drawLine( i*10,( int )data->Data[ i ]*20,( i+1 )*10,( int )data->Data[ i+1 ] );
+	}
+	DC.end();
 }
 
 KalziumGraphDataContainer::KalziumGraphDataContainer( int typ, int fromRange, int toRange )
