@@ -28,7 +28,6 @@ class KalziumGraphDataContainer;
 class QListView;
 class QListViewItem;
 
-#include <qwidget.h>
 #include <kdialog.h>
 #include <qframe.h>
 class KalziumGraph;

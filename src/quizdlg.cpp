@@ -202,8 +202,8 @@ void QuizDlg::slotCheck()
             finalresults->result_table->setColumnStretchable( 1 , true );
             finalresults->result_table->setTopMargin( 0 );
             finalresults->result_table->setLeftMargin( 0 );
-            QPixmap good = SmallIcon("apply");
-            QPixmap bad  = SmallIcon("cancel");
+            QPixmap good = SmallIcon("button_ok");
+            QPixmap bad  = SmallIcon("button_cancel");
 
             finalresults->result_table->setText( 0 , 0 , i18n("Questions:") );
             finalresults->result_table->setText( 0 , 1 , i18n("The correct answer was:") );

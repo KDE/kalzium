@@ -38,7 +38,7 @@
 
 KalziumGraphDialog::KalziumGraphDialog( QWidget *parent, const char *name) : KDialog( parent, name )
 {
-	this->setCaption( i18n( "Visualize Data" ));
+	setCaption( i18n( "Visualize Data" ));
 	grid = new QGridLayout ( this, 3, 4 ,8, -1, "GraphLayout" );
 	KPushButton *ok = new KPushButton( i18n( "Graph" ),this );
 	QObject::connect(ok, SIGNAL( clicked() ), this, SLOT(slotokClicked() ));
