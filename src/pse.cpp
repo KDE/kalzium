@@ -98,6 +98,8 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 
 void PSE::slotToolTip( int number )
 {
+	if ( m_learningMode ) return;
+
 	m_showTooltip = true;
 	m_tooltipElementNumber = number;
 	update();
@@ -381,7 +383,6 @@ void PSE::slotTransientLabel( void )
 
 void PSE::mouseMoveEvent( QMouseEvent *mouse )
 {
-	update();
 	m_showTooltip = false;
 	HoverTimer.start(  2000, false );
 }
