@@ -7,6 +7,8 @@
 #include "elementbutton.h"
 #include "element.h"
 #include "prefs.h"
+#include "settings_colorschemes.h"
+#include "settings_colors.h"
 
 #include <qlabel.h>
 
@@ -21,9 +23,12 @@ Kalzium::Kalzium()
 {
 	pd = new privatedata( this );
 
-	kdDebug() << "test" << endl;
-
+	if (KConfigDialog::showDialog("settings"))
+		return;
+	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
+	dialog->addPage( new setColorScheme( 0, "colorscheme_page"), i18n("Configure Default Colorscheme"), "colorize");
+	dialog->addPage( new setColors( 0, "colors_page"), i18n("Configure Colors"), "colorize");
 	dialog->show();
 
 	pd->kalziumData = new KalziumDataObject();
