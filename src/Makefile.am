@@ -29,14 +29,16 @@ kalzium_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
 
 elementnames:
-	  rm -f kalzium_i18n.cpp; \
-	  echo "#if 0" >> kalzium_i18n.cpp ;\
-          grep 'Name=' kalziumrc | sed -e 's#^Name=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
-          grep 'Q=' kalziumrc | sed -e 's#^Q=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
-          grep 'A=' kalziumrc | sed -e 's#^A=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
-          grep 'Alternative1=' kalziumrc | sed -e 's#^Alternative1=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
-          grep 'Alternative2=' kalziumrc | sed -e 's#^Alternative2=\(.*\)#i18n(\"\1\")#' >> kalzium_i18n.cpp ;\
+	  rm -f kalzium_i18n.cpp
+	  echo "#if 0" >> kalzium_i18n.cpp
+	  echo "^Name=" > keys
+	  echo "^Q=" >> keys
+	  echo "^A=" >> keys
+	  echo "^Alternative1=" >> keys
+	  echo "^Alternative2=" >> keys
+	  grep -f keys kalziumrc | sed -e 's#Name=#N=#' | sed -e 's#Alternative1=#1=#' | sed -e 's#Alternative2=#2=#' | sed -e 's#^[NQA12]=\(.*\)#i18n(\"\1\");#' >> kalzium_i18n.cpp
 	  echo "#endif" >> kalzium_i18n.cpp
+	  rm -f keys
 
 messages: elementnames rc.cpp
 	$(XGETTEXT) *.cpp ../calculations/*.cpp -o $(podir)/kalzium.pot
