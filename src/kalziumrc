@@ -2028,9 +2028,9 @@ Alternative2=Particle
 
 [q22]
 Q=How many aminoacids are there?
-A=8
+A=20
 Alternative1=4
-Alternative2=20
+Alternative2=8
 
 
 [q23]

@@ -24,24 +24,15 @@
 #include "eleminfo.h"
 #include "elementkp.h"
 #include "settingsdialog.h"
-#include "value_visualisation.h"       //this is for KDE 3.2
 
 //KDE-Includes
 #include <kaction.h>
-#include <kapplication.h>
 #include <kconfig.h>
-#include <kdialog.h>
-#include <kedittoolbar.h>
 #include <kglobalsettings.h>
-#include <khelpmenu.h>
 #include <kiconloader.h>
 #include <klocale.h>
-#include <kmenubar.h>
-#include <kpopupmenu.h>
 #include <kpushbutton.h>
 #include <ksimpleconfig.h>
-#include <kstatusbar.h>
-#include <kstdaction.h>
 #include <kstddirs.h>
 #include <kstdaction.h>
 #include <kcolorbutton.h>
@@ -594,12 +585,6 @@ void Kalzium::slotShowTimeline(bool id)
     } 
 }
 
-void Kalzium::slotValues()
-{
-        ValueVisualisation *valuesDlg = new ValueVisualisation( this, "valuesDlg", this ); 
-        valuesDlg->show();
-}
-
 void Kalzium::timeline()
 {
     dateLCD->display(dateS->value());
@@ -720,7 +705,6 @@ void Kalzium::setupActions()
     // END TIMELINEMENU
     
     (void) new KAction (i18n("Test Your &Knowledge"),0, this, SLOT(slotKnowledge()), actionCollection(), "test_your_knowledge");
-//    (void) new KAction (i18n("Values"),0, this, SLOT(slotValues()), actionCollection(), "values"); // this is for KDE 3.2
     (void) new KAction (i18n("Calculations"),0, this, SLOT(slotCalculations()), actionCollection(), "calculations");
     (void) new KAction (i18n("Define Molecular Weights"),0, this, SLOT(defineweights()), actionCollection(), "defineweights");
 
