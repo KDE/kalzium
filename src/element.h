@@ -140,8 +140,6 @@ class Element{
 		 */
 		QString parsedOrbits();
 		
-//XXX check if its really kelvin!!!
-		
 		/**
 		 * @return the boiling point of the element in Kelvin
 		 */
@@ -232,11 +230,13 @@ class Element{
 		};
 
 
+		double strippedWeight( double w );
 
 
 
 	private:
 		void setupXY();
+		
 
 		double  m_weight,
 			m_MP, 

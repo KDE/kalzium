@@ -36,16 +36,10 @@ class ElementButton : public QFrame
 {
 	Q_OBJECT
 	public:
-		ElementButton(int number, Element *el, QWidget *parent = 0, const char *name = 0);
+		ElementButton(Element *el, QWidget *parent = 0, const char *name = 0);
 
 		~ElementButton();
-		int ElementNumber();
-
-		/**
-		 * the symbol of the element
-		 */
-		QString sym;
-
+		
 		/**
 		 * the element this buttons represents
 		 */
@@ -54,13 +48,9 @@ class ElementButton : public QFrame
 		virtual void paintEvent( QPaintEvent* );
 
 	private:
-		/*
-		 * the integer num represents the number of the element
-		 */
-		int m_ElementNumber;
-		
 		void mousePressEvent( QMouseEvent* );
 		void mouseReleaseEvent( QMouseEvent* );
+
 
 	signals:
 		/*

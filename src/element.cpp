@@ -70,10 +70,18 @@ QString Element::parsedOrbits()
 }
 
 
+double Element::strippedWeight( double w )
+{
+	w = 1.1;
+	return w;
+}
+
 
 Element::~Element()
 {
 }
+
+
 
 double Element::meanweight()
 {
@@ -124,7 +132,16 @@ const QString Element::adjustUnits( double val, const int type )
 	else if ( type == LENGHT ) // its a length
 	{
 		v = QString::number( val );
-		v.append( " pm" );
+
+		switch ( Prefs::units() )
+		{
+			case 0:
+				v.append( " pm" );
+				break;
+			case 1:
+				v.append( " m" );
+				break;
+		}
 	}
 	else if ( type == WEIGHT ) // its a weight
 	{

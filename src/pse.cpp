@@ -89,9 +89,8 @@ void PSE::setupBlockLists()
 
 	while ( it != d->ElementList.end() )
 	{
-		ElementButton *b = new ElementButton( (*it)->number() , *it, this );
+		ElementButton *b = new ElementButton( *it, this );
 		QToolTip::add(b, i18n("Name: %1").arg(i18n( (*it)->elname().utf8())) );
-		b->sym = (*it)->symbol();
 
 		if ( (*it)->block() == "s" )
 			sBlockList.append( b );

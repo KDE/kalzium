@@ -25,11 +25,9 @@
 
 #include <kdebug.h>
 
-ElementButton::ElementButton(int number, Element *el, QWidget *parent, const char *name)
+ElementButton::ElementButton( Element *el, QWidget *parent, const char *name)
  : QFrame(parent, name)
 {
-	m_ElementNumber = number;
-
 	e = el;
 
 	setMaximumSize( 40, 40 );
@@ -72,35 +70,35 @@ ElementButton::~ElementButton()
 {
 }
 
-
-
-/*!
-    \fn ElementButton::m_ElementNumber
- */
-int ElementButton::ElementNumber()
-{
-	return m_ElementNumber;
-}
-
-
 /*!
     \fn ElementButton::paintEvent( QPaintEvent* )
  */
 void ElementButton::paintEvent( QPaintEvent* )
 {
     int h, w;
-    h = w = 40;
+    h = w = 50;
     QPainter p;
     p.begin( this );
-    p.drawText( w/2, h/2, sym );
-    p.drawText( 2, h/2-10, QString::number( m_ElementNumber ) );
+	
+	switch ( Prefs::pselook() )
+	{
+		case 0:
+    		p.drawText( 20, 30, e->symbol() );
+			p.drawText( 2, h/2-10, QString::number( e->strippedWeight( e->weight()) ) );
+			break;
+		case 1:
+			p.drawText( 20, 30, e->symbol() );
+			p.drawText( 2, h/2-10, QString::number( e->number() ) );
+			break;
+	}
+	
 	p.drawRect( 0, 0, w, h );
     p.end(); 
 }
 
 void ElementButton::mousePressEvent( QMouseEvent* /*e*/ )
 {
-	    emit num( m_ElementNumber );
+	    emit num( e->number() );
 }
 
 #include "elementbutton.moc"

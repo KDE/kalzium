@@ -407,10 +407,10 @@ void Kalzium::slotTempChanged( int temperature )
  			break;
  		case 1:
 			//0 Degree Celsius is 273 K. So I need to add 273
-			temperature+=273.15;
+			tempTemp+=273.15;
  			break;
  		case 2:
-			temperature = (temperature - 32)*5/9 + 273.15;
+			tempTemp = (temperature - 32)*5/9 + 273.15;
  			break;
  	}
 	//This is in Kelvin
