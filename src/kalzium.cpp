@@ -222,7 +222,39 @@ void Kalzium::timeline()
     }
 }
 
-//Slots
+//******** Slots *****************************************************
+void Kalzium::changeColorScheme(int id) 
+{
+    static void (Kalzium::*funcs[])() = {
+        &Kalzium::slotShowAcidBeh,
+        &Kalzium::slotShowBlocks,
+        &Kalzium::slotShowGroups,
+        &Kalzium::slotShowStateOfMatter
+    };
+
+    (this->*funcs[id & ~3 ? 3 : id])();
+}
+
+void Kalzium::changeNumeration(int id) 
+{
+    switch (id) {
+        case 0:
+            showIUPAC();
+            break;
+        case 1:
+            showCAS();
+            break;
+        case 2:
+            for (int n = 0; n < 18; ++n)
+                labels[n]->hide();
+            break;
+    }
+}
+
+void Kalzium::defineweights()
+{
+    (new KMolEdit(0, "kmoledit", new KMolCalc))->exec();
+}
 
 void Kalzium::hideSettingsDialog()
 {
@@ -231,6 +263,14 @@ void Kalzium::hideSettingsDialog()
         setDlg->delayedDestruct();
         setDlg=0;
     }
+}
+
+void Kalzium::showPseStyle(int i)
+{
+    if (i==0)
+        slotShowMendelejew();
+    else
+        slotShowAll();
 }
 
 void Kalzium::showSettingsDialog()
@@ -245,23 +285,25 @@ void Kalzium::showSettingsDialog()
         setDlg->show();
 }
 
-void Kalzium::slotShowMendelejew()
+void Kalzium::slotCalculations()
 {
-    static int nummer[14] = { 2,10,18,21,28,31,32,36,43,49,54,55,72,75 };
-    static int dochda[4] = { 67,69,90,92 };
+    if (!calculationdialog)
+        calculationdialog = new CalcDialog(this, "Calculationsdialog");
+    calculationdialog->show();
+}
 
-    for (int i=0; i<14 ; ++i)
-        element[nummer[i] - 1]->hide();
-
-    for (int i=83; i < 118; ++i)
-        element[i]->hide();
-
-    for (int i=58; i < 71; ++i)
-        element[i]->hide();
-
-    for (int i=0; i < 4; ++i)
-        element[dochda[i] - 1]->show();
-    timelineToggleAction->setEnabled(false);
+void Kalzium::slotKnowledge()
+{
+    bool ok = FALSE;
+    int numofquestions = QInputDialog::getInteger(
+            i18n( "How Many Questions?" ),
+            i18n( "Please enter a number" ), 10, 0, 80, 1, &ok, this );
+    if ( ok )
+    {
+        QuizDlg *quiz2 = new QuizDlg(this, "quizdialog", numofquestions); 
+        quiz2->setCaption(i18n("Test Your Knowledge"));
+        quiz2->show();
+    }
 }
 
 void Kalzium::slotShowAcidBeh() {
@@ -278,6 +320,35 @@ void Kalzium::slotShowAcidBeh() {
 
         if (s.length() == 1 && s[0] >= '0' && s[0] <= '3')
             b->setPalette(QPalette(main_config->readColorEntry(field[QChar(s[0]) - '0'])));
+    }
+}
+
+void Kalzium::slotShowAll()
+{
+    static int nummer[14] = {2,10,18,21,28,31,32,36,43,49,54,55,72,75};
+
+    for (int i = 0; i < 14 ; i++)
+        element[nummer[i] - 1]->show();
+
+    for (int i = 58; i < 71; i++)
+        element[i]->show();
+
+    for (int i = 83; i < 118; i++)
+        element[i]->show(); 
+    timelineToggleAction->setEnabled(true);
+}
+
+void Kalzium::slotShowBlocks()
+{
+    main_config->setGroup("Colors");
+    for (int i = 0; i < 118; i++)
+    {
+        PElementKP& b(element[i]);
+        QString& s(b->Data.Block);
+        
+        if (s.length() == 1)
+            if (const char *p = strchr("spdf", QChar(s[0])))
+                b->setPalette(QPalette(main_config->readColorEntry(QChar(*p))));
     }
 }
 
@@ -311,20 +382,28 @@ void Kalzium::slotShowGroups()
          */
     }
 }
-
-void Kalzium::slotShowBlocks()
+void Kalzium::slotShowMendelejew()
 {
-    main_config->setGroup("Colors");
-    for (int i = 0; i < 118; i++)
-    {
-        PElementKP& b(element[i]);
-        QString& s(b->Data.Block);
-        
-        if (s.length() == 1)
-            if (const char *p = strchr("spdf", QChar(s[0])))
-                b->setPalette(QPalette(main_config->readColorEntry(QChar(*p))));
-    }
+    static int nummer[14] = { 2,10,18,21,28,31,32,36,43,49,54,55,72,75 };
+    static int dochda[4] = { 67,69,90,92 };
+
+    for (int i=0; i<14 ; ++i)
+        element[nummer[i] - 1]->hide();
+
+    for (int i=83; i < 118; ++i)
+        element[i]->hide();
+
+    for (int i=58; i < 71; ++i)
+        element[i]->hide();
+
+    for (int i=0; i < 4; ++i)
+        element[dochda[i] - 1]->show();
+    timelineToggleAction->setEnabled(false);
 }
+
+
+
+
 
 void Kalzium::slotShowStateOfMatter()
 {
@@ -335,19 +414,9 @@ void Kalzium::slotShowStateOfMatter()
     templookup->show();
 }
 
-void Kalzium::slotShowAll()
+void Kalzium::updateColorMenu(int id) 
 {
-    static int nummer[14] = {2,10,18,21,28,31,32,36,43,49,54,55,72,75};
-
-    for (int i = 0; i < 14 ; i++)
-        element[nummer[i] - 1]->show();
-
-    for (int i = 58; i < 71; i++)
-        element[i]->show();
-
-    for (int i = 83; i < 118; i++)
-        element[i]->show(); 
-    timelineToggleAction->setEnabled(true);
+    colorschememenu->setCurrentItem(id);
 }
 
 void Kalzium::updateNumMenu(int id) 
@@ -355,38 +424,8 @@ void Kalzium::updateNumMenu(int id)
     numerationmenu->setCurrentItem(id);
 }
 
-void Kalzium::updateColorMenu(int id) 
-{
-    colorschememenu->setCurrentItem(id);
-}
 
-void Kalzium::changeColorScheme(int id) 
-{
-    static void (Kalzium::*funcs[])() = {
-        &Kalzium::slotShowAcidBeh,
-        &Kalzium::slotShowBlocks,
-        &Kalzium::slotShowGroups,
-        &Kalzium::slotShowStateOfMatter
-    };
 
-    (this->*funcs[id & ~3 ? 3 : id])();
-}
-
-void Kalzium::changeNumeration(int id) 
-{
-    switch (id) {
-        case 0:
-            showIUPAC();
-            break;
-        case 1:
-            showCAS();
-            break;
-        case 2:
-            for (int n = 0; n < 18; ++n)
-                labels[n]->hide();
-            break;
-    }
-}
 
 void Kalzium::slotShowTimeline(bool id)
 {    
@@ -408,19 +447,7 @@ void Kalzium::slotShowTimeline(bool id)
     } 
 }
 
-void Kalzium::slotKnowledge()
-{
-    bool ok = FALSE;
-    int numofquestions = QInputDialog::getInteger(
-            i18n( "How Many Questions?" ),
-            i18n( "Please enter a number" ), 10, 0, 80, 1, &ok, this );
-    if ( ok )
-    {
-        QuizDlg *quiz2 = new QuizDlg(this, "quizdialog", numofquestions); 
-        quiz2->setCaption(i18n("Test Your Knowledge"));
-        quiz2->show();
-    }
-}
+
 
 void Kalzium::slotValues()
 {
@@ -428,28 +455,11 @@ void Kalzium::slotValues()
         valuesDlg->show();
 }
 
-void Kalzium::slotCalculations()
-{
-    if (!calculationdialog)
-    {
-    calculationdialog = new CalcDialog(this, "Calculationsdialog");
-    }
-    calculationdialog->show();
-}
 
-void Kalzium::defineweights()
-{
-    (new KMolEdit(0, "kmoledit", new KMolCalc))->exec();
-}
 
-void Kalzium::pseStyleShow(int i)
-{
-    if (i==0)
-        slotShowMendelejew();
-    else
-        slotShowAll();
-}
 
+
+//*******SETUP ACTIONS*************************************************
 void Kalzium::setupConfig()
 {
 	// set the default colors settings
@@ -511,7 +521,7 @@ void Kalzium::setupActions()
     psestylelist.append( i18n("&Complete"));
     psestylemenu = new KSelectAction(i18n("&PSE Sytle"),0,actionCollection(), "psestyle");
     psestylemenu->setItems(psestylelist);
-    connect(psestylemenu, SIGNAL(activated(int)), this, SLOT(pseStyleShow(int)));
+    connect(psestylemenu, SIGNAL(activated(int)), this, SLOT(showPseStyle(int)));
     psestylemenu->setCurrentItem(main_config->readNumEntry("psestylemenu"));
 
     QStringList colorschemelist;
@@ -559,6 +569,6 @@ void Kalzium::updateMainWindow()
 {
     changeColorScheme(colorschememenu->currentItem());
     changeNumeration(numerationmenu->currentItem());
-    pseStyleShow(psestylemenu->currentItem());
+    showPseStyle(psestylemenu->currentItem());
     slotShowTimeline(timelineToggleAction->isChecked());
 }

@@ -46,7 +46,8 @@
 
 #include "quizdlg.h"
 
-QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  : KDialog (parent,name)
+QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  
+    : KDialog (parent,name)
 {
     qnum = numofquestions;
 
@@ -98,7 +99,7 @@ QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  : KDi
     gbLayout->setSpacing( 6 );
     gbLayout->setMargin( 11 );
 
-    connect( bgroup, SIGNAL(clicked(int)), SLOT(updateIt(int)) );
+    connect( bgroup, SIGNAL(clicked(int)), SLOT(updateIt()) );
 
     one = new QRadioButton ( bgroup );
     one->setChecked( FALSE );
@@ -135,11 +136,6 @@ QuizDlg::QuizDlg (QWidget *parent, const char *name, int numofquestions )  : KDi
 }
 
 
-void QuizDlg::updateIt( int index )
-{
-    update();
-}
-
 void QuizDlg::increaseIfCorrect( int i )
 {
     switch (i)
@@ -168,6 +164,51 @@ void QuizDlg::increaseIfCorrect( int i )
     } 
 
 }
+
+void QuizDlg::setTexts()
+{
+    //ok, read out the data
+    KSimpleConfig quizconfig (locate("data", "kalzium/kalziumrc"));
+    quizconfig.setGroup("q"+QString::number(order[i]));
+    question=quizconfig.readEntry("Q", "Unknown");
+    answer=quizconfig.readEntry("A", "Unknown");
+    alternative1=quizconfig.readEntry("Alternative1", "Unknown");
+    alternative2=quizconfig.readEntry("Alternative2", "Unknown");
+    titleText->setText(i18n(question.utf8()));
+    
+    //now we need to know where to put the correct answer
+    correctis = (rand()%3)+1;
+    
+    //now we put it
+    switch (correctis)
+    {
+        case 1:
+            one->setText(i18n(answer.utf8()));
+            two->setText(i18n(alternative1.utf8()));
+            three->setText(i18n(alternative2.utf8()));
+            break;
+        case 2:
+            two->setText(i18n(answer.utf8()));
+            one->setText(i18n(alternative1.utf8()));
+            three->setText(i18n(alternative2.utf8()));
+            break;
+        case 3:
+            three->setText(i18n(answer.utf8()));
+            two->setText(i18n(alternative1.utf8()));
+            one->setText(i18n(alternative2.utf8()));
+            break;
+    }
+}
+
+
+
+bool QuizDlg::wasCorrect( int i )
+{
+    if (QuestioniWasCorrect[i] == true) return TRUE;
+    return FALSE;
+}
+
+//******* Slots ******************************************************
 
 void QuizDlg::slotCheck()
 {
@@ -258,45 +299,9 @@ void QuizDlg::slotCheck()
     }
 }
 
-bool QuizDlg::wasCorrect( int i )
+void QuizDlg::updateIt()
 {
-    if (QuestioniWasCorrect[i] == true) return TRUE;
-    return FALSE;
-}
-
-void QuizDlg::setTexts()
-{
-    //ok, read out the data
-    KSimpleConfig quizconfig (locate("data", "kalzium/kalziumrc"));
-    quizconfig.setGroup("q"+QString::number(order[i]));
-    question=quizconfig.readEntry("Q", "Unknown");
-    answer=quizconfig.readEntry("A", "Unknown");
-    alternative1=quizconfig.readEntry("Alternative1", "Unknown");
-    alternative2=quizconfig.readEntry("Alternative2", "Unknown");
-    titleText->setText(i18n(question.utf8()));
-    
-    //now we need to know where to put the correct answer
-    correctis = (rand()%3)+1;
-    
-    //now we put it
-    switch (correctis)
-    {
-        case 1:
-            one->setText(i18n(answer.utf8()));
-            two->setText(i18n(alternative1.utf8()));
-            three->setText(i18n(alternative2.utf8()));
-            break;
-        case 2:
-            two->setText(i18n(answer.utf8()));
-            one->setText(i18n(alternative1.utf8()));
-            three->setText(i18n(alternative2.utf8()));
-            break;
-        case 3:
-            three->setText(i18n(answer.utf8()));
-            two->setText(i18n(alternative1.utf8()));
-            one->setText(i18n(alternative2.utf8()));
-            break;
-    }
+    update();
 }
 
 #include "quizdlg.moc"

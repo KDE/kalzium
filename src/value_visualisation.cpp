@@ -40,7 +40,6 @@ ValueVisualisation::ValueVisualisation (QWidget *parent, const char *name, Kalzi
     QCanvas *canvas = new QCanvas( this );
     canvas->resize( 1000 , 1000 );
 //    int x = ( canvas->width() )/2;
-    int x = 100;  
     int h = 0, v = 0;
     QCanvasEllipse *ball[ 85 ];
     QBrush brush( blue );

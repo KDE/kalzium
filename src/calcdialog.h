@@ -17,10 +17,10 @@
 #ifndef HEADER_CALCDIALOG
 #define HEADER_CALCDIALOG
 
-#include <qwidget.h> 
-#include <qlayout.h>
 #include <kdialog.h>
-#include "calcdlg.h"
+
+class CalcDlg;
+class QGridLayout;
 
 class CalcDialog : public KDialog
 {

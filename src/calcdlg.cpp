@@ -35,8 +35,6 @@
 
 #include "math.h"
 
-#include "calcdlg.moc"
-
 CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name)
 {
     KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
@@ -185,28 +183,7 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
     addTab(KMol, i18n("KMol"));
 }
 
-void CalcDlg::slotCalculate() 
-{
-    int ka, kb, kc, kd;   //the 4 coefficients
-    double cA, cB, cC, cD; //the 4 concentrations
-
-    //now I will get the entered values
-    ka = QLEa->text().toInt();
-    kb = QLEb->text().toInt();
-    kc = QLEc->text().toInt();
-    kd = QLEd->text().toInt();
-    cA = QLEA->text().toFloat();
-    cB = QLEB->text().toFloat();
-    cC = QLEC->text().toFloat();
-    cD = QLED->text().toFloat();
-
-    double zaehler = (pow( cA , ka ) * pow( cB , kb ));
-    double nenner = (pow( cC , kc ) * pow( cD , kd ));
-
-    QString ergebnis = QString::number( zaehler/nenner );
-
-    resultMWG->setText( ergebnis );
-}
+//******* Slots ******************************************************
 
 void CalcDlg::calc() 
 {
@@ -230,8 +207,8 @@ void CalcDlg::calc()
 }
 
 /**
- * Call the built in editor to edit the definitions file.
- */
+* Call the built in editor to edit the definitions file.
+*/
 void CalcDlg::callEditor() 
 {
     KMolEdit* kmoledit = new KMolEdit(0, "kmoledit", kmolcalc);
@@ -239,10 +216,9 @@ void CalcDlg::callEditor()
     delete kmoledit;
 }
 
-
 /** 
- * Clear all text entry / result fields.
- */
+* Clear all text entry / result fields.
+*/
 void CalcDlg::clear() 
 {
     formula->clear();
@@ -250,3 +226,27 @@ void CalcDlg::clear()
     anal_display->clear();
 }
 
+void CalcDlg::slotCalculate() 
+{
+    int ka, kb, kc, kd;   //the 4 coefficients
+    double cA, cB, cC, cD; //the 4 concentrations
+
+    //now I will get the entered values
+    ka = QLEa->text().toInt();
+    kb = QLEb->text().toInt();
+    kc = QLEc->text().toInt();
+    kd = QLEd->text().toInt();
+    cA = QLEA->text().toFloat();
+    cB = QLEB->text().toFloat();
+    cC = QLEC->text().toFloat();
+    cD = QLED->text().toFloat();
+
+    double zaehler = (pow( cA , ka ) * pow( cB , kb ));
+    double nenner = (pow( cC , kc ) * pow( cD , kd ));
+
+    QString ergebnis = QString::number( zaehler/nenner );
+
+    resultMWG->setText( ergebnis );
+}
+
+#include "calcdlg.moc"

@@ -61,76 +61,96 @@ class Kalzium : public KMainWindow
 	/** destructor */
 	~Kalzium();
 
-	PElementKP element[118];
-    PQLabel labels[18];
-    int quizresult, numofquestions, i;
-	Colors_Config_Widget *colorsconfig;
-    CalcDialog *calculationdialog;
-	QGridLayout *maingrid;
-
-    KSelectAction *numerationmenu, *psestylemenu, *colorschememenu, *weblookupmenu;
-    KToggleAction *timelineToggleAction; 
-   
-    KConfig *main_config;
-    
-    StateOfMatterDlg *templookup;
+        int numofquestions;
+	    PElementKP element[118];
+        PQLabel labels[18];
+        CalcDialog *calculationdialog;
+    	Colors_Config_Widget *colorsconfig;
+        KSelectAction *numerationmenu, *psestylemenu, *colorschememenu, *weblookupmenu;
+        StateOfMatterDlg *templookup;
     
     private:
-    QSlider *dateS;
-    QLCDNumber *dateLCD;
-    SettingsDialog *setDlg;
+        KConfig *main_config;
+        KToggleAction *timelineToggleAction; 
+	    QGridLayout *maingrid;
+        QLCDNumber *dateLCD;
+        QSlider *dateS;
+        SettingsDialog *setDlg;
 
-    QString block, acidbeh;
-    int ischecked;
+    
+    protected:
+    /**
+    * Called before the window is closed, will save the menusettings.
+    */
+    bool queryClose();
+        
+    void setupActions();
+    
+    /**
+    * This method sets the menu for kalzium using XMLGUI. 
+    */
+    void setupConfig();
     
     /**
     * numeration theme
     */
     void showCAS();
-    
+     
     /**
     * numeration theme
     */
     void showIUPAC();
 
-   
-    protected:
-        /**
-        * Called before the window is closed, will save the menusettings.
-        */
-        bool queryClose();
-        
-        void setupActions();
-        
-        /**
-        * This method sets the menu for kalzium using XMLGUI. 
-        */
-        void setupConfig();
-       
-        /**
-        * Called after setupActions , it sets the main window look 
-        * according to the menu settings
-        * @see Kalzium::setupActions
-        */
-        void updateMainWindow();
+    /**
+    * Which element has been known when? A slider will
+    * appear and you can check it out.
+    */
+    void timeline();
+  
+    /**
+    * Called after setupActions , it sets the main window look 
+    * according to the menu settings
+    * @see Kalzium::setupActions
+    */
+    void updateMainWindow();
 
     
-    // SLOTS
+//******* Slots ******************************************************
  
     public slots:
-    /**
-    * this slot hides all elements which have not been known
-    * when Mendelejew created the first PSE
-    */
-    void slotShowMendelejew();
+    
+    void changeColorScheme(int id=-1);
+    
+    void changeNumeration(int);
 
+    void defineweights();
+    
+    void showPseStyle(int);
+
+    /**
+    * this slot will open a window in which you can do some calculations
+    */
+    void slotCalculations();
+    
+    /**
+    * the quiz will start
+    */
+    void slotKnowledge();
+       
     /**
     * this slot gives you information if the elements tends to
     *built acid, bases, doesn neither or is amphoter
     */
     void slotShowAcidBeh();
     
-    //shows you the 4 different blocks
+    /**
+    * this slots shows all elements
+    */
+    void slotShowAll();
+    
+    /*
+    * shows you the 4 different blocks
+    */
     void slotShowBlocks();
     
     /**
@@ -138,6 +158,12 @@ class Kalzium : public KMainWindow
     * the elements is (1 to 8)
     */
     void slotShowGroups();
+
+    /**
+    * this slot hides all elements which have not been known
+    * when Mendelejew created the first PSE
+    */
+    void slotShowMendelejew();
     
     /**
     * this slot shows the users in what state the element
@@ -145,45 +171,19 @@ class Kalzium : public KMainWindow
     */
     void slotShowStateOfMatter();
     
-    /**
-    * this slots shows all elements
-    */
-    void slotShowAll();
-    
-    /**
-    * Which element has been known when? A slider will
-    * appear and you can check it out.
-    */
-    void timeline();
-
-    void changeNumeration(int);
-    void changeColorScheme(int id=-1);
-
-    /*
-     *  update the menues
-     */
     void updateNumMenu(int);
+    
     void updateColorMenu(int);
     
-    void pseStyleShow(int);
     void slotShowTimeline(bool);
 
-    /**
-    * the quiz will start
-    */
-    void slotKnowledge();
-    
     void slotValues();
-
-    /**
-    * this slot will open a window in which you can do some calculations
-    */
-    void slotCalculations();
-   
-    void defineweights();
+       
    
     private slots:
+        
     void showSettingsDialog();
+
     void hideSettingsDialog();
-    };
+};
 #endif

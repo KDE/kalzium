@@ -26,12 +26,15 @@ class ValueVisualisation : public KDialog  {
     Q_OBJECT
 
     public: 
-	/** construtor */
-	ValueVisualisation(QWidget *parent, const char *name, Kalzium *kalzium_tmp);
-	Kalzium *kalzium;
+	    /**
+        * construtor 
+        */
+	    ValueVisualisation(QWidget *parent, const char *name, Kalzium *kalzium_tmp);
+    
+    	Kalzium *kalzium;
+
     private:
-	KConfig *main_config;
-    public slots:
+    	KConfig *main_config;
 };
 
 #endif

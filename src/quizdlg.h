@@ -23,7 +23,7 @@ class QLabel;
 class QRadioButton;
 class QWidget;
 
-/*
+/**
 * This class provides the dialog for the knowledge test. 
 * It is a simple KDialog.
 * @author Carsten Niehaus
@@ -33,41 +33,44 @@ class QuizDlg : public KDialog  {
     Q_OBJECT
 
     public: 
-	/** construtor */
+	    /**
+        * construtor 
+        */
         QuizDlg(QWidget *parent, const char *name, int numofquestions );
     
     private:
-	bool wasCorrect( int );
-	bool QuestioniWasCorrect[10]; //FIXME s/10/numofquestions
-	                              //but I don't know, how...
-				      
-	void increaseIfCorrect( int );
-	
-        //the three QRadioButton you select when answering
-        QRadioButton *one;
-        QRadioButton *two;
-        QRadioButton *three;
-        QLabel *titleText;
-        QString question;
-        QString alternative1;
-        QString alternative2;
-        QString answer;
         int i, quizresult, currentnr, qnum, correctis;
         int order[69];
+	     QLabel *titleText;
+         
+        /*
+        * the three QRadioButton you select when answering
+        */
+        QRadioButton *one, *two, *three;
+        QString question, alternative1, alternative2, answer;
 
+        
+        void increaseIfCorrect( int );
+    	bool QuestioniWasCorrect[10]; //FIXME s/10/numofquestions
+	                              //but I don't know, how...
         void setTexts();
+    	bool wasCorrect( int );
+	
+   
 
     private slots:
-        /*
-         * update the buttons
-         */
-        void updateIt( int );
-
-        /*
-         * check if the answer is correct and do the rest 
-         * of the quiz 
-         */
+        
+        /**
+        * check if the answer is correct and do the rest 
+        * of the quiz 
+        */
         void slotCheck();
+        
+        /**
+        * update the buttons
+        */
+        void updateIt();
+
 };
 
 #endif
