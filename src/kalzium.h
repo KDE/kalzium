@@ -77,6 +77,8 @@ class Kalzium : public KMainWindow
 		 */
 		int date;
 
+		void showSOMWidgets( bool show );
+
 		/**
 		 * the slider used for the State of Matter
 		 */

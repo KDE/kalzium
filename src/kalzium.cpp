@@ -220,13 +220,6 @@ void Kalzium::slotShowLegend()
 	//now hide or show the legend...
 	m_bShowLegend ? m_pLegend->show() : m_pLegend->hide();
 
-	if ( m_bShowLegend )
-	{
-		kdDebug() << "Legende an" << endl;
-	}
-	else
-		kdDebug() << "Legende aus" << endl;
-	
 	//save the settings
 	Prefs::setShowlegend( m_bShowLegend ); 
 	Prefs::writeConfig();
@@ -234,10 +227,15 @@ void Kalzium::slotShowLegend()
 
 void Kalzium::slotShowScheme(int i)
 {
-	kdDebug() << "Kalzium::slotShowScheme()" << endl;
-		
-	if ( !m_bShowSOM )
-		currentPSE()->activateColorScheme( i );
+	kdDebug() << "Kalzium::slotShowScheme() " << i << endl;
+	
+	//hide the SOM because a look has been selected
+	showSOMWidgets( false );
+
+	if ( m_bShowSOM )
+		m_bShowSOM = false;
+	
+	currentPSE()->activateColorScheme( i );
 	
 	m_pLegend->setScheme( i );
 	Prefs::setColorschemebox(i); 
@@ -364,10 +362,29 @@ void Kalzium::slotStateOfMatter()
 		m_bShowSOM = false;
 	else
 		m_bShowSOM = true;
-
+	
 	if ( m_bShowSOM )
 	{
-		//look_action->setEnabled(false);
+		kdDebug( ) << "now show the widgets" << endl;
+		showSOMWidgets( true );
+	}
+	else
+	{
+		kdDebug( ) << "now HIDE the widgets" << endl;
+		slotShowScheme( Prefs::colorschemebox() );
+	}
+
+	Prefs::setShowsom( m_bShowSOM ); 
+	Prefs::writeConfig();
+}
+
+
+void Kalzium::showSOMWidgets( bool show )
+{
+	kdDebug() << "Kalzium::showSOMWidgets()" << endl;
+
+	if ( show )
+	{
 		m_pSOMSlider->show();
 		m_pLegend->setScheme( 4 );
 		slotTempChanged( m_pSOMSlider->slider->value() );
@@ -376,18 +393,11 @@ void Kalzium::slotStateOfMatter()
 	}
 	else
 	{
-		//look_action->setEnabled(true);
 		m_pSOMSlider->hide();
 		slotStatusBar( "", IDS_TEMPERATURE );
-		m_pLegend->setScheme( Prefs::colorschemebox() );
-		slotShowScheme( Prefs::colorschemebox() );
 		m_pSOMAction->setText( i18n( "&Show State of Matter" ));
 	}
-
-	Prefs::setShowsom( m_bShowSOM ); 
-	Prefs::writeConfig();
 }
-
 void Kalzium::slotTempChanged( int temperature )
 {
 	kdDebug() << "Kalzium::slotTempChanged()" << endl;
