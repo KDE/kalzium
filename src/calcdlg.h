@@ -106,7 +106,7 @@ class CalcDlg : public QTabWidget  {
         /**  
         * Calculates the result 
         */
-    	void slotCalculate();
+//    	void slotCalculate();
    
 };
 

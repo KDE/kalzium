@@ -38,8 +38,9 @@
 CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name)
 {
     KSimpleConfig config (locate("data", "kalzium/kalziumrc"));
+    this->setCaption(i18n( "Calculations" ));
 
-    MWG = new QWidget(this);
+//    MWG = new QWidget(this);
     KMol = new QWidget(this);
     QGridLayout *grid = new QGridLayout ( KMol, 5, 1 );
 
@@ -93,7 +94,7 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
 	symlabel[n]=config.readEntry("Symbol", "Unknown");
 	weight[n]=config.readEntry("Weight","0.0");
     }
-
+/*
     //
     // BEGIN - MWG
     //
@@ -179,7 +180,8 @@ CalcDlg::CalcDlg (QWidget *parent, const char *name )  : QTabWidget (parent,name
     QObject::connect( resultbutton, SIGNAL( clicked() ), this, SLOT( slotCalculate() ) );
     buttonVBox->addWidget( resultbutton );
 
-    addTab(MWG, i18n("MWG"));
+    addTab(MWG, i18n("MWG")); 
+    */
     addTab(KMol, i18n("KMol"));
 }
 
@@ -225,7 +227,7 @@ void CalcDlg::clear()
     result->clear();
     anal_display->clear();
 }
-
+/*
 void CalcDlg::slotCalculate() 
 {
     int ka, kb, kc, kd;   //the 4 coefficients
@@ -247,6 +249,6 @@ void CalcDlg::slotCalculate()
     QString ergebnis = QString::number( zaehler/nenner );
 
     resultMWG->setText( ergebnis );
-}
+}*/
 
 #include "calcdlg.moc"
