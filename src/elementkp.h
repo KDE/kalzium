@@ -80,7 +80,7 @@ class ElementKP : public KPushButton  {
     	void leaveEvent(QEvent *);
 
 	Kalzium *kalzium;
-        QString neighbourArray[2][2];
+        QString neighbourArray[3][3];
 
         void getNeighbours( int );
 	
