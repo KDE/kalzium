@@ -62,11 +62,15 @@
 #include "quizdlg.h"
 #include "calcdlg.h"
 #include "stateofmatterdlg.h"
+#include "KalziumGraph.h"
 
 
 Kalzium::Kalzium() : KMainWindow( 0 ), setDlg(0L)
 {
     connect(kapp, SIGNAL(kdisplayFontChanged()), this, SLOT(updateElementKPSize()));
+
+	KalziumGraphDialog *testdlg = new KalziumGraphDialog( this, "testdlg" );
+	testdlg->show();
     
     main_config=KGlobal::config();
 

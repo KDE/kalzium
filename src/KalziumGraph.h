@@ -1,6 +1,6 @@
 /***************************************************************************
 
-                           legend.h  -  description
+                           KalziumGraph.h  -  description
                              -------------------
     begin                : Wed Oct 23 2002
     copyright            : (C) 2002 by Carsten Niehaus
@@ -20,6 +20,7 @@
 #define _KALZIUMGRAPH_H
 
 class KComboBox;
+class QGridLayout;
 
 #include <qwidget.h>
 #include <kdialog.h>
@@ -30,13 +31,14 @@ class KalziumGraphDialog : public KDialog
 
 	public:
 		KalziumGraphDialog( QWidget *parent=0, const char *name =0 );
+		QGridLayout *grid;
 	public slots:
 		void slotokClicked();
 	private:
 		KComboBox *kcb;
 };
 
-class KalziumGraphDisplay : public KDialog
+class KalziumGraphDisplay : public QWidget
 {
 	public:
 		KalziumGraphDisplay( int, int, int, QWidget *parent=0, const char *name=0 );
@@ -46,6 +48,7 @@ class KalziumGraphDataContainer
 {
 	public:
 		KalziumGraphDataContainer( int, int, int);
+		QString Data[ 118 ];
 };
 
 //Datempräsentation
