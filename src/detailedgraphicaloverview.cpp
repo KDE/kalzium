@@ -45,6 +45,7 @@ email                : cniehaus@kde.org
 void DetailedGraphicalOverview::setElement( Element *el )
 {
 	e = el;
+	update();
 }
 
 void DetailedGraphicalOverview::paintEvent( QPaintEvent* )

@@ -61,7 +61,8 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	
 	
 	
-	dTab = new DetailedGraphicalOverview( e, m_pOverviewTab, "DetailedGraphicalOverview" );
+	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
+	dTab->setElement( e );
  	overviewLayout->addWidget( dTab );
 	wChemical = new detail_chemical( m_pChemicalTab );
 	wEnergy = new detail_energy( m_pEnergyTab );
@@ -91,7 +92,7 @@ void DetailedInfoDlg::createContent( Element *el )
 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( elname ).arg( num );
 	setCaption( cap );
 
-	//dTab->setElement( el );
+	dTab->setElement( el );
 
 	/////////////////////////////////
 	discovered_label->setText( i18n("Discovered: %1").arg( el->adjustUnits( Element::DATE ) ) );
