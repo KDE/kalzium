@@ -1,14 +1,14 @@
 # set the include path for X, qt and KDE
 INCLUDES= -I../calculations $(all_includes) 
 
-SUBDIRS = icons
+#SUBDIRS = icons
 
 bin_PROGRAMS = kalzium
-kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp stateofmatterdlg.cpp calcdlg.cpp calcdialog.cpp value_visualisation.cpp settingsdialog.cpp uis/infodlg.ui uis/quizdlgui.ui uis/quiz_result.ui
+kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp stateofmatterdlg.cpp calcdlg.cpp calcdialog.cpp value_visualisation.cpp settingsdialog.cpp infodlg.ui quizdlgui.ui quiz_result.ui
 kalzium_LDADD   = $(LIB_KHTML)  ../calculations/libkmol.la
 
 
-EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp calcdialog.cpp value_visualisation.cpp value_visualisation.h settingsdialog.cpp settingsdialog.h uis/infodlg.ui uis/quizdlgui.ui uis/quiz_result.ui
+EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp calcdialog.cpp value_visualisation.cpp value_visualisation.h settingsdialog.cpp settingsdialog.h infodlg.ui quizdlgui.ui quiz_result.ui
 
 METASOURCES = AUTO 
 

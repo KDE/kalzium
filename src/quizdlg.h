@@ -18,7 +18,7 @@
 #ifndef QUIZDLG_H
 #define QUIZDLG_H
 
-#include "uis/quizdlgui.h"
+#include "quizdlgui.h"
 
 class QLabel;
 class QRadioButton;
