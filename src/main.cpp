@@ -10,7 +10,7 @@
 static const char description[] =
     I18N_NOOP("A Periodic Table of the Elements");
 
-static const char version[] = "1.1.91";
+static const char version[] = "1.1.93";
 
 static KCmdLineOptions options[] =
 {
@@ -26,6 +26,8 @@ int main(int argc, char **argv)
     about.addCredit( "Marco Martin", I18N_NOOP("Thank you for some icons and inspiration for others" ));
     about.addCredit( "Chris Luetchford", I18N_NOOP("svg icon"), "chris@os11.com>");
     about.addCredit( "Anne-Marie Mahfouf", I18N_NOOP( "A lot of small things and the documentation" ));
+    about.addCredit( "Paweł Budzyński", I18N_NOOP( "The pictures of the elements iodine and bromine" ));
+    about.addCredit( "M. Stegemann", I18N_NOOP( "Almost all pictures of the elements" ));
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
