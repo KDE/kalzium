@@ -167,14 +167,17 @@ solid/liquid/vapor at a given temperature.</para>
 <sect1 id="timeline">
 <title>Timeline</title>
 
-<para>The Timeline feature allows you to explore the elements of the set time period. This is great for getting a feel for how the PSE evolved over time, as more and more elements were discovered. You can active this feature either with the most-right icon in
-the iconbar or via <menuchoice><guimenu>Settings</guimenu><guimenuitem>Show Toolbar</guimenuitem></menuchoice>. If it
-is activated you will see a slider below the <acronym>PSE</acronym> and an <acronym>LCD</acronym> which
-displays the number 2002.  If you move the slider you will notice that
-some elements disappear if you move it to the right and reappear if
-you move it to the right. Furthermore the number will change
-constantly.
-	</para>
+<para>The Timeline feature allows you to explore the elements of the
+set time period. This is great for getting a feel for how the PSE
+evolved over time, as more and more elements were discovered. You can
+active this feature either with the most-right icon in the iconbar or
+via <menuchoice><guimenu>Settings</guimenu><guimenuitem>Show
+Toolbar</guimenuitem></menuchoice>. If it is activated you will see a
+slider below the <acronym>PSE</acronym> and an <acronym>LCD</acronym>
+which displays the number 2002.  If you move the slider you will
+notice that some elements disappear if you move it to the right and
+reappear if you move it to the right. Furthermore the number will
+change constantly.</para>
 
 <para>
 The number represents the date you are looking at. If you move the slider
