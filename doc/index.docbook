@@ -96,42 +96,31 @@ It is free and licensed under the &GNU; Public License.
 usefull for pupil of all ages and also for students and such as
 a small and quick database.</para>
 
-<screenshot>
-<screeninfo>&kalzium; can show you which elementshave are
-solid/liquid/vapor at a given temperature.</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata fileref="screenshot2.png" format="PNG" width="300"/>
-</imageobject>
-<textobject>
-<phrase>the "State of Matter"-Dialog</phrase>
-</textobject>
-<caption>
-</caption>
-</mediaobject>
-</screenshot>
 
-<screenshot>
-<screeninfo>&kalzium; with the training option</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata fileref="screenshot3.png" format="PNG" width="300"/>
-</imageobject>
-<textobject>
-<phrase>&kalzium; with the training option dialog visible</phrase>
-</textobject>
-<caption><para>Here is a screenshot of &kalzium;'s training dialog.</para> 
-</caption>
-</mediaobject>
-</screenshot>
 
 <para>If you are too good for this world, you can change the
 level.</para>
 
 <sect1 id="info-dlg">
-	<title>The Informationdialog</title>
-	<para>
-	</para>
+	<title>The informationdialog</title>
+		<screenshot>
+		<screeninfo>&kalzium; with the training option</screeninfo>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="screenshot3.png" format="PNG" width="300"/>
+			</imageobject>
+			<textobject>
+				<phrase>&kalzium; with the training option dialog visible</phrase>
+			</textobject>
+			<caption><para>Here is a screenshot of &kalzium;'s training dialog.</para> 
+			</caption>
+		</mediaobject>
+	</screenshot>
+	<para>In this dialog you get all the information &kalzium; provides. The dialog is
+	divided into three parts: <guilabel>General</guilabel>, <guilabel>States</guilabel> and
+	<guilabel>Energies</guilabel>.</para>
+	<para>If you click on <guilabel>Web Lookup</guilabel> &kalzium; will get
+		more information from the web (in a new window).</para>
 </sect1>
 
 <sect1 id="quiz">
@@ -153,6 +142,20 @@ level.</para>
 <sect1 id="colors">
 	<title>Colorschemes</title>
 	<para>
+		<screenshot>
+			<screeninfo>&kalzium; can show you which elementshave are
+				solid/liquid/vapor at a given temperature.</screeninfo>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="screenshot2.png" format="PNG" width="300"/>
+				</imageobject>
+				<textobject>
+					<phrase>the "State of Matter"-Dialog</phrase>
+				</textobject>
+				<caption>
+				</caption>
+			</mediaobject>
+		</screenshot>
 	</para>
 </sect1>
 
