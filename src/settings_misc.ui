@@ -245,7 +245,7 @@
                         <cstring>radioButton12</cstring>
                     </property>
                     <property name="text">
-                        <string>Display density in the PSE in gramm per cubic centimeter</string>
+                        <string>Display density in the PSE in grams per cubic centimeter</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="2" column="0">

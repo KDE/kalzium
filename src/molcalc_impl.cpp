@@ -142,7 +142,7 @@ void MolcalcImpl::updateUI()
 	QMap<Element*, int>::Iterator itMap;
 	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) 
 	{//update the resultLabel
-		str += i18n( "%1 %2. Cummulated Weight: %3 u (%4 %)\n" ).arg( itMap.data() ).arg( i18n( itMap.key()->elname().utf8() ) ).arg( itMap.data() * itMap.key()->weight() ).arg(((  itMap.data() * itMap.key()->weight() )/m_weight )*100);
+		str += i18n( "%1 %2. Cumulative Weight: %3 u (%4 %)\n" ).arg( itMap.data() ).arg( i18n( itMap.key()->elname().utf8() ) ).arg( itMap.data() * itMap.key()->weight() ).arg(((  itMap.data() * itMap.key()->weight() )/m_weight )*100);
 	}
 	
 	resultLabel->setText( str );

@@ -696,7 +696,7 @@
                                             <cstring>textLabel2_2_2_2</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Alkalie Earth:</string>
+                                            <string>Alkali Metals:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -774,7 +774,7 @@
                                             <cstring>textLabel6_2</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Alkaline Earth:</string>
+                                            <string>Alkaline Earth Metals:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -878,7 +878,7 @@
                                             <cstring>textLabel2_2_3</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Noble Gases:</string>
+                                            <string>Nobel Gases:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">

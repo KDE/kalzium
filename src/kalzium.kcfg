@@ -161,8 +161,8 @@
 		  <default>#44EE2E</default>
 	  </entry>
 	  <entry name="alkalie" type="Color">
-		  <label>Selects the color of the alkalie elements</label>
-		  <whatsthis>Selects the color of the alkalie elements</whatsthis>
+		  <label>Selects the color of the alkali metals</label>
+		  <whatsthis>Selects the color of the alkali metals</whatsthis>
 		  <default>#FFFF2D</default>
 	  </entry>
 	  <entry name="rare" type="Color">
@@ -176,18 +176,18 @@
 		  <default>#CCBE2C</default>
 	  </entry>
 	  <entry name="alkaline" type="Color">
-		  <label>Selects the color of the alkaline elements</label>
-		  <whatsthis>Selects the color of the alkaline elements</whatsthis>
+		  <label>Selects the color of the alkaline earth metals</label>
+		  <whatsthis>Selects the color of the alkaline earth metals</whatsthis>
 		  <default>#3DD9DE</default>
 	  </entry>
 	  <entry name="other_metal" type="Color">
-		  <label>Selects the color of the metals which don't fit into the other categories</label>
-		  <whatsthis>Selects the color of the metals which don't fit into the other categories</whatsthis>
+		  <label>Selects the color of the metals which do not fit into the other categories</label>
+		  <whatsthis>Selects the color of the metals which do not fit into the other categories</whatsthis>
 		  <default>#546F56</default>
 	  </entry>
 	  <entry name="halogene" type="Color">
-		  <label>Selects the color of the halagone elements</label>
-		  <whatsthis>Selects the color of the halogene elements</whatsthis>
+		  <label>Selects the color of the halogen elements</label>
+		  <whatsthis>Selects the color of the halogen elements</whatsthis>
 		  <default>#5BF4A0</default>
 	  </entry>
 	  <entry name="transition" type="Color">
@@ -196,8 +196,8 @@
 		  <default>#97F805</default>
 	  </entry>
 	  <entry name="noble_gas" type="Color">
-		  <label>Selects the color of the noble gases</label>
-		  <whatsthis>Selects the color of the noble gases</whatsthis>
+		  <label>Selects the color of the Nobel gases</label>
+		  <whatsthis>Selects the color of the Nobel gases</whatsthis>
 		  <default>#C56188</default>
 	  </entry>
 	  <entry name="metalloid" type="Color">

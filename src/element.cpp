@@ -437,7 +437,7 @@ KalziumDataObject::KalziumDataObject()
 
 	if (!layoutFile.exists())
 	{
-		KMessageBox::information( 0, i18n("data.xml doesn't exist"), i18n( "Loading File - Error" ) );
+		KMessageBox::information( 0, i18n("data.xml does not exist"), i18n( "Loading File - Error" ) );
 	}
 
 	if (!layoutFile.open(IO_ReadOnly))
