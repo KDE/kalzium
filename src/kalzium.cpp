@@ -509,7 +509,7 @@ void Kalzium::setupActions()
 {
     main_config->setGroup("Menu Settings");
     KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
-    KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
+    KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection(), "configure");
     
     QStringList psestylelist;
     psestylelist.append( i18n("&Mendeleev"));
@@ -545,7 +545,7 @@ void Kalzium::setupActions()
     // END NUMERATIONMENU
 
     // BEGIN TIMELINE
-    timelineToggleAction = new KToggleAction(i18n("Timeline"),0,actionCollection(), "timeline2");
+    timelineToggleAction = new KToggleAction(i18n("Show Timeline"),0,actionCollection(), "timeline");
     timelineToggleAction->setChecked(true);
     connect(timelineToggleAction, SIGNAL(toggled(bool)), this, SLOT(updateTimeMenu(bool)));
     connect(timelineToggleAction, SIGNAL(toggled(bool)), this, SLOT(slotShowTimeline(bool)));

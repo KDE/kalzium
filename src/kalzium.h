@@ -128,7 +128,7 @@ class Kalzium : public KMainWindow
     void timeline();
 
     void changeNumeration(int);
-    void changeColoScheme(int id=-1);
+    void changeColorScheme(int id=-1);
 
     //update the menues
     void updateNumMenu(int);

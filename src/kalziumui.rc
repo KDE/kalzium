@@ -1,17 +1,14 @@
 <!DOCTYPE kpartgui>
 <kpartgui name="kalzium">
 <MenuBar>
-<Menu name="config"><text>&amp;Configuration</text>
-        <Action name="psestyle"/>
-        <Action name="colourscheme"/>
-        <Action name="numeration"/>
-        <Action name="timeline"/>
-        <Action name="timeline2"/>
-        
-</Menu>
-
 <Menu name="settings"><text>&amp;Settings</text>
-        <Action name="weblookupconfig"/>
+        <Action name="timeline"/>
+        <Separator/>
+        <Action name="psestyle"/>
+        <Action name="colorscheme"/>
+        <Action name="numeration"/>
+        <Separator/>
+        <Action name="configure"/>
 </Menu>
 
 <Menu name="calculations"><text>C&amp;alculations</text>
