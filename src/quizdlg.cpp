@@ -262,6 +262,8 @@ void QuizDlg::slotCheck()
 	    resultTable->setColumnStretchable( 1 , true );
 	    resultTable->adjustColumn( 0 );
 	    resultTable->adjustColumn( 1 );
+		resultTable->setTopMargin( 0 );
+		resultTable->setLeftMargin( 0 );
             grid->addWidget( resultTable, 1 , 0 );
 
 	    QPixmap good = SmallIcon("apply");
@@ -283,9 +285,13 @@ void QuizDlg::slotCheck()
     		QString ques, answ;
     		ques=quizconfig.readEntry("Q", "Unknown");
     		answ=quizconfig.readEntry("A", "Unknown");
-		
-    		resultTable->setItem( i+1 , 0 , new QTableItem( resultTable, QTableItem::Never , ques ) );
-    		resultTable->setItem( i+1 , 1 , new QTableItem( resultTable, QTableItem::Never , answ ) );
+			
+			QTableItem *item = new QTableItem(resultTable, QTableItem::Never, ques);
+			item->setWordWrap(true);
+    		resultTable->setItem( i+1 , 0 , item);
+			item = new QTableItem(resultTable, QTableItem::Never, answ);
+			item->setWordWrap(true);
+    		resultTable->setItem( i+1 , 1 , item);
 		
     		if (wasCorrect( i ) == true)
     		    resultTable->setPixmap( i+1 , 2 , good );
