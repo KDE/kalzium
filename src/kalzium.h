@@ -87,18 +87,24 @@ class Kalzium : public KMainWindow
 		 **/
 		KSelectAction *schema_action;
 		KSelectAction *quiz_action;
+		KSelectAction *nummeration_action;
 		KAction *m_pBehAcidAction,
 			*m_pBehNormalAction,
 			*m_pBehBlocksAction,
 			*m_pBehGroupAction,
 			*m_pBehSOMAction,
-			*m_pTimelineAction;
+			*m_pTimelineAction,
+			*m_pPlotAction;
 		
 	private slots:
 		/**
 		 * this slot switches Kalzium to the selected colorscheme
 		 */
 		void slotShowScheme(void);
+
+		void slotSwitchtoNummeration(int);
+
+		void slotPlotData();
 
 		/**
 		 * this slot activates the timeline.

@@ -21,8 +21,8 @@
 #define QUESTIONSEDITOR_IMPL_H
 
 #include "questioneditor.h"
-#include "quiz.h"
 #include <qdom.h>
+#include "quiz.h"
 
 /**
 basic class for the specific PSEs
@@ -52,11 +52,11 @@ class questionEditorImpl : public questionEditor
 	private:
 		QDomDocument m_questionDocument;
 
-		void addTaskToListView( Task *t );
+//		void addTaskToListView( Task *t );
 
 		void setupListView();
 
-		TaskList m_tasklist;
+		//TaskList m_tasklist;
 		
 	private slots:
 		void slotAddQuestion(); 

@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>setupMisc</class>
 <widget class="QWidget">
     <property name="name">
@@ -8,174 +8,136 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>323</width>
+            <width>308</width>
             <height>438</height>
         </rect>
     </property>
     <property name="caption">
-        <string>setupMisc</string>
+        <string></string>
     </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QButtonGroup" row="0" column="0">
+        <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>kcfg_LMBbeh</cstring>
+                <cstring>layout1</cstring>
             </property>
-            <property name="title">
-                <string>Information Dialog</string>
-            </property>
-            <grid>
+            <vbox>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QRadioButton" row="1" column="0">
+                <widget class="QButtonGroup">
                     <property name="name">
-                        <cstring>radioButton4</cstring>
+                        <cstring>kcfg_LMBbeh</cstring>
                     </property>
-                    <property name="text">
-                        <string>More information on left click</string>
+                    <property name="title">
+                        <string>Information Dialog</string>
                     </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Show a detailed information dialog when clicking an element with the left mouse button</string>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton" row="1" column="0">
+                            <property name="name">
+                                <cstring>radioButton4</cstring>
+                            </property>
+                            <property name="text">
+                                <string>More information on left click</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Show a detailed information dialog when clicking an element with the left mouse button</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Show a detailed information dialog when clicking an element with the left mouse button</string>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" row="0" column="0">
+                            <property name="name">
+                                <cstring>radioButton3</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Less Information on left click</string>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Show less information in the information dialog when clicking with the left mouse button</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Show less information in the information dialog when clicking with the left mouse button</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>kcfg_units</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Units</string>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton" row="0" column="0">
+                            <property name="name">
+                                <cstring>radioButton3_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Show energies in kJ/mol (kilojoule per mol)</string>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" row="1" column="0">
+                            <property name="name">
+                                <cstring>radioButton4_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Show energies in eV (electronvolt)</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>kcfg_temperature</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Temperatures</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Show a detailed information dialog when clicking an element with the left mouse button</string>
+                        <string>Kalzium can show you the temperature in three different scales</string>
                     </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton" row="0" column="0">
+                            <property name="name">
+                                <cstring>radioButton19</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Use Kelvin</string>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" row="2" column="0">
+                            <property name="name">
+                                <cstring>radioButton11_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Use Degrees Fahrenheit</string>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" row="1" column="0">
+                            <property name="name">
+                                <cstring>radioButton20</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Use Degrees Celsius</string>
+                            </property>
+                        </widget>
+                    </grid>
                 </widget>
-                <widget class="QRadioButton" row="0" column="0">
-                    <property name="name">
-                        <cstring>radioButton3</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Less Information on left click</string>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Show less information in the information dialog when clicking with the left mouse button</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Show less information in the information dialog when clicking with the left mouse button</string>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
-        <widget class="QButtonGroup" row="1" column="0">
-            <property name="name">
-                <cstring>kcfg_units</cstring>
-            </property>
-            <property name="title">
-                <string>Units</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QRadioButton" row="0" column="0">
-                    <property name="name">
-                        <cstring>radioButton3_2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Show energies in kJ/mol (kilojoule per mol)</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>radioButton4_2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Show energies in eV (electronvolt)</string>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
-        <widget class="QButtonGroup" row="2" column="0">
-            <property name="name">
-                <cstring>kcfg_electronegativity</cstring>
-            </property>
-            <property name="title">
-                <string>Electronegativity</string>
-            </property>
-            <property name="whatsThis" stdset="0">
-                <string>Kalzium can show you the electronegativity in four different scales</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QRadioButton" row="2" column="0">
-                    <property name="name">
-                        <cstring>radioButton10_2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Mulliken and Jaffe</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="0" column="0">
-                    <property name="name">
-                        <cstring>radioButton9</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Pauling</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="3" column="0">
-                    <property name="name">
-                        <cstring>radioButton11</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Allred and Rochow</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>radioButton10</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Mulligen</string>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
-        <widget class="QButtonGroup" row="3" column="0">
-            <property name="name">
-                <cstring>kcfg_temperature</cstring>
-            </property>
-            <property name="title">
-                <string>Temperatures</string>
-            </property>
-            <property name="whatsThis" stdset="0">
-                <string>Kalzium can show you the temperature in three different scales</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QRadioButton" row="0" column="0">
-                    <property name="name">
-                        <cstring>radioButton19</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Use Kelvin</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="2" column="0">
-                    <property name="name">
-                        <cstring>radioButton11_2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Use Degrees Fahrenheit</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>radioButton20</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Use Degrees Celsius</string>
-                    </property>
-                </widget>
-            </grid>
+            </vbox>
         </widget>
     </grid>
 </widget>

@@ -38,22 +38,23 @@ class questionAddDialogImpl : public questionAddDialog
 		 */
 		questionAddDialogImpl( QWidget* parent = 0, const char*  name = 0);
 
+	private:
 		answerList m_answers;
 
-		void updateTable();
-
 	public slots:
-		/**
-		 * this slot show a QuizWidget so that the user can test how his Task looks like
-		 * @see QuizWidget
-		 */
-		void slotTestQuestion();
-
-		void slotAdjustAnswer( int row, int col );
-
-		void slotAddAnswer();
+		void slotAddAnswers();
 };
-		
+
+class QuestionsWidget : public QWidget
+{
+	Q_OBJECT
+
+	public:
+		QuestionsWidget( int num, QWidget* parent = 0, const char* name = 0 );
+
+		QVBoxLayout *vlay;
+};
+
 
 #endif // QUESTIONADDDIALOG_IMPL_H
 

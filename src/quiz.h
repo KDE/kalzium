@@ -1,5 +1,5 @@
-/***************************************************************************
-    copyright            : (C) 2003, 2004 by Carsten Niehaus
+/* **************************************************************************
+    copyright            : (C) 2004 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 /***************************************************************************
@@ -25,14 +25,20 @@ typedef QValueList<Answer*> answerList;
 /**
  * This class represents the answer of a quiz. A answer can 
  * be either true or false.
- * @param sentence is the text of the answer
- * @param type defines if the answer is @p true or @p false
  * @author Carsten Niehaus
+ * @short An answers is one of several possible answers of a task.
  * @version 1.1
  */ 
 class Answer
 {
 	public:
+		/**
+		 * Default Contructor. Creates an Answer. The answer
+		 * has the text @p sentence. @p type defines if the 
+		 * the answer is true or false.
+		 * @param sentence is the text of the answer
+		 * @param type defines if the answer is @p true or @p false
+		 */
 		Answer( QString sentence, bool type )
 		{
 			m_sentence = sentence;
@@ -42,49 +48,89 @@ class Answer
 		/**
 		 * @return the text of the answer
 		 */
-		QString answer(){ return m_sentence; }
+		QString answer(){ 
+			return m_sentence; 
+		}
 		
-		void setAnswer( QString answer ){ m_sentence = answer; }
-
+		/**
+		 * sets the answers text of to @p answer
+		 */
+		void setAnswer( QString &answer ){ 
+			m_sentence = answer; 
+		}
 
 		/**
 		 * @return if the answer was true or false
 		 */
-		bool isTrue(){ return m_type; }
+		bool isTrue(){
+			return m_type;
+		}
 
 	private:
-		/*
+		/**
 		 * whether or not the sentence is true
 		 */
 		bool m_type;
 
-		/*
+		/**
 		 * The text of the answer
 		 */
 		QString m_sentence;
 };
 		
 /**
- * @short A task is a questions plus at least two answers
  * This class represents a task of a quiz. A task consists of
  * a question and at least two answers. 
- * @param question is the text of the question
- * @param grade defines how difficult the task is. Values from 1 to 5 or allowed.
  * @author Carsten Niehaus
+ * @short A task is a questions plus at least two answers
  * @version 1.1
- * @see Answer
  */ 
 class Task
 {
 	public:
+		/**
+		 * The Contructor of this class. Creates a task for the quiz with
+		 * the difficulty @p grade. A Task consists of one @p question and at least two answers.
+		 * @param question is the text of the question
+		 * @param grade defines how difficult the task is. Values from 1 to 3 are allowed.
+		 *
+		 * @see Answer
+		 */
 		Task( QString question, 
 				int grade );
 
 		/**
 		 * @return the question of the task
 		 */
-		QString question() {return m_question; }
+		QString question() const{
+			return m_question;
+		}
 		
+		/**
+		 * @return the number of answers the task owns
+		 */
+		int numberOfAnswers();
+
+		/**
+		 * add the answer @p a to the list of answers
+		 * @param a The Answer will be added the the list of answers
+		 */
+		void addAnswer( Answer *a );
+		
+		/**
+		 * @return the grade of the Task
+		 */
+		int isGrade() const{ 
+			return m_iGrade;
+		}
+
+		/**
+		 * @return the answer at position @p nr
+		 * @param nr is the number of the answer, starting with 0
+		 */
+		Answer* answerAt( int nr );
+	
+	private:	
 		/**
 		 * the grade of the Task
 		 */
@@ -96,86 +142,156 @@ class Task
 		answerList m_answers;
 		
 		/**
-		 * @return the number of answers the task owns
-		 */
-		int numberOfAnswers();
-
-		/**
-		 * add the answer @p a to the list of answers
-		 * @param a will be added the the list of answers
-		 */
-		void addAnswer( Answer *a );
-		
-		/**
-		 * @return the grade of the Task
-		 */
-		int isGrade(){ return m_iGrade; }
-
-		/**
 		 * the question of the task
 		 */
 		QString m_question;
-
-		/**
-		 * @return the answer at position @p nr
-		 * @param nr is the number of the answer, starting with 0
-		 */
-		Answer* answerAt( int nr );
 };
 		
 
 /**
- * A TaskList contains tasks which can be used in the quiz
+ * @short A TaskList contains tasks which can be used in the quiz
+ * @author Carsten Niehaus
  */
 class TaskList
 {
 	public:
 		TaskList();
 
-		void addTask( Task *t );
-
-		void deleteTaskList(){ Tasks.clear(); }
-
-		int numberOfTasks(){ return Tasks.count(); }
+		/**
+		 * add the Task @p t to the tasklist
+		 * @param t the Task which will be addet the the TaskList
+		 */
+		void addTask( Task *t ){
+			Tasks.append( t );
+		}
 
 		/**
-		 * @return a list of tasks with grade @param grade
+		 * removes all tasks for the internal list
+		 */
+		void deleteTaskList(){
+			Tasks.clear();
+		}
+
+		/**
+		 * @return the number of tasks
+		 */
+		int numberOfTasks(){
+			return Tasks.count(); 
+		}
+
+		/**
+		 * @param grade The grade which is queried
+		 * @return a list of tasks with grade @p grade
 		 */
 		taskList tasks( int grade );
 		
 		/**
 		 * @return all tasks
 		 */
-		taskList tasks(){ return Tasks; }
+		taskList tasks(){ 
+			return Tasks;
+		}
 
 		/**
+		 * @param pos The position of the queried task
 		 * @return the task at position @p pos
 		 */
 		Task* taskAt( int pos );
+
+	private:
 		
+		/**
+		 * the internal list of tasks
+		 */
 		taskList Tasks;
 };
 
+/**
+ * A quiz represents the rules and the set of tasks. It can be 
+ * compared with a manual of a game plus the cards of it.
+ * @author Carsten Niehaus
+ * @version 1.1
+ * @short A quiz represents the rules and the set of tasks.
+ */ 
 class Quiz
 {
 	public:
 		/**
-		 * Default Constructor
+		 * Default Contructor. Create a Quiz with @p numOfTasks Tasks 
+		 * @see Task
+		 * @see Answer
 		 */
-		Quiz();
+		Quiz( int numOfTasks );
 
+		/**
+		 * @return the number of points the player get per grade
+		 * of the task if he answers it correctly
+		 */
+		int pointsPerTask() const {
+			return m_pointsPerTask;
+		}
+		
+		/**
+		 * @return the number of seconds the player has to
+		 * answer the task
+		 */
+		int secPerTask() const {
+			return m_secPerTask;
+		}
+
+		/**
+		 * sets the number of seconds @p sec for the quiz
+		 */
+		void setNumberOfSeconds( int sec );
+		
+		/**
+		 * sets the number of points per grade to @p points
+		 */
+		void setPointsPerTask( int points );
+		
+	private:
+		/**
+		 * number of seconds the player has per task
+		 */
+		int m_secPerTask;
+
+		/**
+		 * creates the list of tasks for the quiz
+		 */
+		void generateTasks();
+
+		/**
+		 * number of points per correctly answered task and grade
+		 * of the task. 15 would mean that a Grade-3 task would
+		 * give the player 15*3 = 45 points
+		 */
+		int m_pointsPerTask;
 };
 
-class QuizWidget : public QWidget
+/**
+ * The QuizMaster controls the quiz. This class takes care
+ * of the points, when the quiz stars and ends, how many
+ * tasks have been answered correctly and so on.
+ * @author Carsten Niehaus
+ * @short A QuizMaster controls a quiz
+ * @version 1.0
+ */
+class QuizMaster
 {
 	public:
-		QuizWidget( Task *t, QWidget *parent = 0, const char *name = 0 );
-
+		/**
+		 * Default Contructor. Create a QuizMaster-Object which controls a Quiz
+		 */
+		QuizMaster();
+		
 	private:
-		Task *m_pTask;
 
-	protected:
-		virtual void paintEvent( QPaintEvent* );
+		/**
+		 * the number of points the player currently has
+		 */
+		int m_points;
+		
 };
+
 #endif // QUIZ_H
 

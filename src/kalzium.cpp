@@ -21,6 +21,7 @@
 #include "questioneditor_impl.h"
 #include "questionadddialog_impl.h"
 #include "slider_widget.h"
+#include "elementdataviewer.h"
 
 #include <qlabel.h>
 #include <qslider.h>
@@ -54,6 +55,18 @@ Kalzium::Kalzium()
 	 schema_action->setItems(schemalist);
 	 schema_action->setCurrentItem(0);
 	 connect (schema_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoPSE(int)));
+	
+	 /*
+	 * the actions for switching PSE
+	 **/
+	 QStringList numlist;
+	 numlist.append(i18n("Show CAS"));
+	 numlist.append(i18n("Show IUPAC"));
+	 numlist.append(i18n("Show Old IUPAC"));
+	 nummeration_action = new KSelectAction (i18n("Switch &Nummerationstyle"), 0, this, 0, actionCollection(), "nummerationtype");
+	 nummeration_action->setItems(schemalist);
+	 nummeration_action->setCurrentItem(0);
+	 connect (nummeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNummeration(int)));
 	 
 	/*
 	 * the actions for the quiz
@@ -76,7 +89,12 @@ Kalzium::Kalzium()
 	m_pBehBlocksAction = new KAction(i18n("Show Groups"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_groups");
 	m_pBehBlocksAction = new KAction(i18n("Show State Of Matter"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_som");
 	m_pBehBlocksAction = new KAction(i18n("No Color Scheme"), 0, this, SLOT(slotShowScheme(void)), actionCollection(), "view_normal");
+
+	/*
+	 * the misc actions
+	 **/
 	m_pTimelineAction = new KAction(i18n("Show Timeline"), 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
+	m_pPlotAction = new KAction(i18n("Plot Data"), 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
 	/*
 	 * the standardactions
@@ -119,7 +137,7 @@ void Kalzium::slotAddQuestions()
 
 	questionAddDialogImpl *q = new questionAddDialogImpl( this, "questionAddDialogImpl" );
 	q->show();
-	connect (q->kPushButton2, SIGNAL( clicked()), this, SLOT(slotQuizAction()));
+	//connect (q->kPushButton2, SIGNAL( clicked()), this, SLOT(slotQuizAction()));
 }
 
 void Kalzium::slotShowTimeline()
@@ -134,6 +152,12 @@ void Kalzium::slotShowTimeline()
 	connect( pSliderWidget->pSlider, SIGNAL( valueChanged( int ) ), currentPSE(), SLOT( setDate(int) ) );
 
 	pSliderWidget->show();
+}
+
+void Kalzium::slotPlotData()
+{
+	ElementDataViewer *edw = new ElementDataViewer( data(), this, "edw" );
+	edw->show();
 }
 
 void Kalzium::slotShowScheme(void)
@@ -152,6 +176,11 @@ void Kalzium::slotShowScheme(void)
 		i = 4;
 	
 	currentPSE()->activateColorScheme( i );
+}
+
+void Kalzium::slotSwitchtoNummeration( int index )
+{
+	currentPSE()->setNummerationType( index );
 }
 
 void Kalzium::slotSwitchtoPSE(int index)

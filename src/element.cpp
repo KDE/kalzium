@@ -84,7 +84,7 @@ const QString Element::adjustUnits( double val, const int type )
 {
 	QString v = QString::null;
 	
-	if ( type == 1 ) // convert an energy
+	if ( type == ENERGY ) // convert an energy
 	{
 		if ( val == -1 )
 			v = i18n( "Value unknown" );
@@ -102,7 +102,7 @@ const QString Element::adjustUnits( double val, const int type )
 			}
 		}
 	}
-	else if ( type == 0 ) // convert a temperature
+	else if ( type == TEMPERATURE ) // convert a temperature
 	{
 		if ( Prefs::temperature() == 0 )
 		{
@@ -116,22 +116,22 @@ const QString Element::adjustUnits( double val, const int type )
 			v.append( "K" );
 		}
 	}
-	else if ( type == 2 ) // its a lenght
+	else if ( type == LENGHT ) // its a lenght
 	{
 		v = QString::number( val );
 		v.append( " pm" );
 	}
-	else if ( type == 3 ) // its a weight
+	else if ( type == WEIGHT ) // its a weight
 	{
 		v = QString::number( val );
 		v.append( " u" );
 	}
-	else if ( type == 4 ) // its a density
+	else if ( type == DENSITY ) // its a density
 	{
 		v = QString::number( val );
 		v.append( " g/m<sup>3</sup>" );
 	}
-	else if ( type == 5 ) //its a date
+	else if ( type == DATE ) //its a date
 	{
 		if ( val < 1600 )
 		{
@@ -140,24 +140,6 @@ const QString Element::adjustUnits( double val, const int type )
 		else
 		{
 			v = i18n( "This element was discovered in the year %1" ).arg( QString::number( val ) );
-		}
-	}
-	else if ( type == 6 ) //its a electronegativity
-	{
-		if ( Prefs::electronegativity() == 0 ) //EN2
-		{
-			v = QString::number( val );
-			kdDebug() << "EN2" << endl;
-		}
-		if ( Prefs::electronegativity() == 1 ) //EN3
-		{
-			v = QString::number( val );
-			kdDebug() << "EN3" << endl;
-		}
-		if ( Prefs::electronegativity() == 2 ) //Pauling
-		{
-			v = QString::number( val );
-			kdDebug() << "Pauling" << endl;
 		}
 	}
 

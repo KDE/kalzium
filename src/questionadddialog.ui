@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>questionAddDialog</class>
 <widget class="QDialog">
     <property name="name">
@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>600</width>
-            <height>487</height>
+            <height>160</height>
         </rect>
     </property>
     <property name="caption">
@@ -22,7 +22,7 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="2">
+        <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
                 <cstring>layout3</cstring>
             </property>
@@ -45,211 +45,7 @@
                 </widget>
             </hbox>
         </widget>
-        <spacer row="1" column="1" rowspan="3" colspan="1">
-            <property name="name">
-                <cstring>spacer4</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>16</height>
-                </size>
-            </property>
-        </spacer>
-        <widget class="QLayoutWidget" row="4" column="0">
-            <property name="name">
-                <cstring>layout10</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>textLabel5</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Grade:</string>
-                    </property>
-                </widget>
-                <widget class="KIntSpinBox">
-                    <property name="name">
-                        <cstring>KSB_level</cstring>
-                    </property>
-                    <property name="prefix">
-                        <string></string>
-                    </property>
-                    <property name="specialValueText">
-                        <string></string>
-                    </property>
-                    <property name="maxValue">
-                        <number>3</number>
-                    </property>
-                    <property name="minValue">
-                        <number>1</number>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>The difficulty level of the question</string>
-                    </property>
-                </widget>
-            </hbox>
-        </widget>
-        <widget class="QLayoutWidget" row="5" column="0">
-            <property name="name">
-                <cstring>layout7</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer6</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>21</width>
-                            <height>21</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="KPushButton">
-                    <property name="name">
-                        <cstring>KPB_test</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Test Question</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+T</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Click this button to see how the new questions look like in the quiz</string>
-                    </property>
-                </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer4_3</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>120</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="KPushButton">
-                    <property name="name">
-                        <cstring>kPushButton1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Ok</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+O</string>
-                    </property>
-                </widget>
-                <widget class="KPushButton">
-                    <property name="name">
-                        <cstring>kPushButton2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Cancel</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+C</string>
-                    </property>
-                </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer5</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>60</width>
-                            <height>21</height>
-                        </size>
-                    </property>
-                </spacer>
-            </hbox>
-        </widget>
-        <widget class="QLayoutWidget" row="3" column="0">
-            <property name="name">
-                <cstring>layout5</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer5_2</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>161</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="KPushButton">
-                    <property name="name">
-                        <cstring>KPB_addAnswer</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Add Answer</string>
-                    </property>
-                </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer6_2</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>161</width>
-                            <height>21</height>
-                        </size>
-                    </property>
-                </spacer>
-            </hbox>
-        </widget>
-        <widget class="QLayoutWidget" row="2" column="0">
+        <widget class="QLayoutWidget" row="1" column="0">
             <property name="name">
                 <cstring>layout6</cstring>
             </property>
@@ -257,84 +53,89 @@
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QButtonGroup">
+                <widget class="QLabel">
                     <property name="name">
-                        <cstring>QBG_type</cstring>
+                        <cstring>textLabel1_2</cstring>
                     </property>
-                    <property name="title">
-                        <string>buttonGroup1</string>
+                    <property name="text">
+                        <string>Numbers Of Questions:</string>
                     </property>
-                    <property name="radioButtonExclusive">
-                        <bool>true</bool>
-                    </property>
-                    <grid>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QRadioButton" row="0" column="0">
-                            <property name="name">
-                                <cstring>radioButton2</cstring>
-                            </property>
-                            <property name="text">
-                                <string>true</string>
-                            </property>
-                            <property name="checked">
-                                <bool>true</bool>
-                            </property>
-                        </widget>
-                        <widget class="QRadioButton" row="1" column="0">
-                            <property name="name">
-                                <cstring>radioButton3</cstring>
-                            </property>
-                            <property name="text">
-                                <string>false</string>
-                            </property>
-                        </widget>
-                    </grid>
                 </widget>
-                <widget class="KTextEdit">
+                <widget class="KIntNumInput">
                     <property name="name">
-                        <cstring>KTE_answers</cstring>
+                        <cstring>KINI_number</cstring>
+                    </property>
+                    <property name="value">
+                        <number>2</number>
+                    </property>
+                    <property name="minValue">
+                        <number>2</number>
+                    </property>
+                    <property name="maxValue">
+                        <number>8</number>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Enter the number of questions this task has. After that click on the button "Add Questions" to enter the questions themself.</string>
                     </property>
                 </widget>
             </hbox>
         </widget>
-        <widget class="QTable" row="1" column="0">
-            <column>
-                <property name="text">
-                    <string>Questionstext</string>
-                </property>
-                <property name="pixmap">
-                    <pixmap></pixmap>
-                </property>
-            </column>
-            <column>
-                <property name="text">
-                    <string>true/false</string>
-                </property>
-                <property name="pixmap">
-                    <pixmap></pixmap>
-                </property>
-            </column>
+        <widget class="QLayoutWidget" row="2" column="0">
             <property name="name">
-                <cstring>table</cstring>
+                <cstring>layout8</cstring>
             </property>
-            <property name="numRows">
-                <number>0</number>
-            </property>
-            <property name="numCols">
-                <number>2</number>
-            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer7</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>121</width>
+                            <height>31</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>KPB_addQuestions</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Add Questions</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+A</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer8</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>131</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+            </hbox>
         </widget>
     </grid>
 </widget>
-<connections>
-    <connection>
-        <sender>kPushButton2</sender>
-        <signal>clicked()</signal>
-        <receiver>questionAddDialog</receiver>
-        <slot>reject()</slot>
-    </connection>
-</connections>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

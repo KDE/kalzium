@@ -50,6 +50,20 @@ class PSE : public QWidget
 
 		KalziumDataObject *d;
 
+		enum NUMMERATIONTYPE
+		{
+			CAS = 0,
+			IUPAC = 1,
+			IUPACOLD = 2
+		};
+
+		/**
+		 * sets the NUMMERATIONTYPE @p num of the periodic table
+		 */
+		void setNummerationType( int num ){
+			m_num;
+		}
+
 		/**
 		 * This method sets the colors of the PSE. 
 		 @param nr takes 5 different values:
@@ -64,7 +78,9 @@ class PSE : public QWidget
 		/**
 		 * @return the short and descriptive name of this PSE
 		 */
-		const QString shortName( ){ return m_ShortName; }
+		const QString shortName( ){ 
+			return m_ShortName; 
+		}
 
 		/**
 		 * In this list all buttons corresponding the the block
@@ -92,9 +108,16 @@ class PSE : public QWidget
 
 	private:
 		/**
+		 * updates the nummeration of the PSE
+		 */
+		void updateNummeration();
+		
+		/**
 		 * this is a short, descriptive name of the PSE
 		 */
 		QString m_ShortName;
+
+		int m_num;
 
 		/**
 		 * this sets up the 4 blocklists. Every PSE has 4 lists for
@@ -182,6 +205,5 @@ class MendeljevPSE : public PSE
 		
 		~MendeljevPSE();
 };
-		
 
 #endif

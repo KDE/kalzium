@@ -1,0 +1,69 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>QuestionTextWidget</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>QuestionTextWidget</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>110</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string></string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout5</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QGroupBox">
+                    <property name="name">
+                        <cstring>type</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Type</string>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton" row="0" column="0">
+                            <property name="name">
+                                <cstring>radioButton2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>true</string>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" row="1" column="0">
+                            <property name="name">
+                                <cstring>radioButton3</cstring>
+                            </property>
+                            <property name="text">
+                                <string>false</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+                <widget class="KTextEdit">
+                    <property name="name">
+                        <cstring>KTE_question</cstring>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

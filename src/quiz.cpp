@@ -1,5 +1,5 @@
 /***************************************************************************
-    copyright            : (C) 2003, 2004 by Carsten Niehaus
+    copyright            : (C) 2004 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 /***************************************************************************
@@ -43,11 +43,6 @@ TaskList::TaskList()
 {
 }
 
-void TaskList::addTask( Task *t )
-{
-	Tasks.append( t );
-}
-
 Task* TaskList::taskAt( int pos )
 {
 	/*
@@ -76,17 +71,7 @@ taskList TaskList::tasks( int grade )
 	return newList;
 }
 	
-Quiz::Quiz()
+Quiz::Quiz( int numOfTasks )
 {
 }
 
-QuizWidget::QuizWidget( Task *t, QWidget *parent, const char *name ) 
-	: QWidget( parent, name )
-{
-	m_pTask = t;
-}
-
-void QuizWidget::paintEvent( QPaintEvent* /*e*/ )
-{ 
-
-}

@@ -40,6 +40,11 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 
 PSE::~PSE(){}
 
+void PSE::updateNummeration()
+{
+	//TODO
+}
+
 void PSE::slotUpdatePSE()
 {
 	kdDebug() << "slotUpdatePSE(), Colorscheme: " << Prefs::colorschemebox() << endl;
@@ -52,11 +57,8 @@ void PSE::setupBlockLists()
 
 	while ( it != d->ElementList.end() )
 	{
-		/*
-		 * ElementButton( int number, Element *el, QWidget *parent)
-		 */
 		ElementButton *b = new ElementButton( (*it)->number() , *it, this );
-		QToolTip::add(b, i18n("Name: %1").arg((*it)->elname().utf8()));
+		QToolTip::add(b, i18n("Name: %1").arg(i18n( (*it)->elname().utf8())) );
 		b->sym = (*it)->symbol();
 
 		if ( (*it)->block() == "s" )
@@ -413,6 +415,22 @@ SimplifiedPSE::SimplifiedPSE(KalziumDataObject *data, QWidget *parent, const cha
 	{
 		button->hide();
 	}
+//X 	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
+//X 	{
+//X 		grid->addWidget( button , button->e->s_y-1 , button->e->s_x-1 );
+//X 	}
+//X 	for ( button = pBlockList.first() ; button ; button = pBlockList.next() )
+//X 	{
+//X 		grid->addWidget( button , button->e->s_y-1 , button->e->s_x-1 );
+//X 	}
+//X 	for ( button = dBlockList.first() ; button ; button = dBlockList.next() )
+//X 	{
+//X 		button->hide();
+//X 	}
+//X 	for ( button = fBlockList.first() ; button ; button = fBlockList.next() )
+//X 	{
+//X 		button->hide();
+//X 	}
 	vbox->addLayout( grid );
 
 	for (  int n=0; n<8; n++ ) grid->addColSpacing(  n, 40 );

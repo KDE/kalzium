@@ -19,7 +19,6 @@
  ***************************************************************************/
 #include "questioneditor_impl.h"
 #include "questionadddialog_impl.h"
-#include "quiz.h"
 
 #include <qfile.h>
 #include <qstring.h>
@@ -33,6 +32,7 @@
 questionEditorImpl::questionEditorImpl(QWidget* parent, const char* name)
  : questionEditor(parent,name)
 {
+	kdDebug() << "questionEditor()" << endl;
 	KLV_qa->setSorting( -1 );
 	
 	bool ok = loadLayout( m_questionDocument );
@@ -42,7 +42,11 @@ questionEditorImpl::questionEditorImpl(QWidget* parent, const char* name)
 
 void questionEditorImpl::setupListView()
 {
+	/*
+	kdDebug() << "questionEditorImpl::setupListView()" << endl;
 	TaskList t = m_tasklist; //just to be safe
+	
+	kdDebug() << "#: " << t.numberOfTasks() << endl;
 	
 	for ( int i = 0; i < t.numberOfTasks(); ++i )
 	{
@@ -69,17 +73,20 @@ void questionEditorImpl::setupListView()
 		childItemQuestion->setText( 1, task->question() );
 		
 	}
+	*/
 }	
 
-void questionEditorImpl::addTaskToListView( Task * /*t*/ ){}
+//void questionEditorImpl::addTaskToListView( Task * /*t*/ ){}
 
 bool questionEditorImpl::loadLayout( QDomDocument &layoutDocument )
 {
-	QFile layoutFile( "/home/carsten/cvs/kdeedu/kalzium33/src/questions.xml" );
+	kdDebug() << "questionEditorImpl::loadLayout()" << endl;
+	//XXX let the user decide
+	QFile layoutFile( "/home/carsten/cvs/kdeedu/kalzium/src/questions.xml" );
 
 	if (!layoutFile.exists())
 	{
-		kdWarning() << "sounds.xml file not found in $KDEDIR/share/apps/klettres/data/" << endl;
+		kdDebug() << "questionEditorImpl::loadLayout(): file does not exist" << endl;
 		QString mString=i18n("The file questions.xml was not found in\n"
 				"$KDEDIR/share/apps/klettres/data/\n\n"
 				"Please install this file and start Kalzium again.\n\n");
@@ -92,6 +99,7 @@ bool questionEditorImpl::loadLayout( QDomDocument &layoutDocument )
 	///Check if document is well-formed
 	if (!layoutDocument.setContent(&layoutFile))
 	{
+		kdDebug() << "wrong xml" << endl;
 		layoutFile.close();
 		return false;
 	}
@@ -102,6 +110,7 @@ bool questionEditorImpl::loadLayout( QDomDocument &layoutDocument )
 
 bool questionEditorImpl::readTasks( QDomDocument &questionDocument )
 {
+	kdDebug() << "questionEditorImpl::readTasks()" << endl;
 	QDomNodeList taskList,             //the list of all tasks
 					questionList,
 					answerList;
@@ -114,9 +123,9 @@ bool questionEditorImpl::readTasks( QDomDocument &questionDocument )
 				questionElement,
 				aElement;
 
-	/*
-	 * read in all tasks
-	 */
+	//
+	//read in all tasks
+	//
 	taskList = questionDocument.elementsByTagName( "task" );
 	
 	for ( uint i = 0; i < taskList.count(); ++i )
@@ -125,32 +134,30 @@ bool questionEditorImpl::readTasks( QDomDocument &questionDocument )
 		taskElement = ( const QDomElement& ) taskList.item( i ).toElement();
 		gradeAttribute = taskElement.attributeNode( "grade" );
 
-		/*
-		 * get the question
-		 */
+		//
+		//get the question
+		//
 		questionList = taskElement.elementsByTagName( "question" );
 		questionElement = ( const QDomElement& ) questionList.item( 0 ).toElement();
 		const QString q = questionElement.attributeNode( "text" ).value();
 		
-		/*
-		 * get the grade of the task
-		 */
+		//
+		//get the grade of the task
+		//
 		const int g = gradeAttribute.value().toInt();
 
-		/*
-		 * get the answers. In most cases you will get three or for answers.
-		 * Probably one will be true, the rest false
-		 */
+		//
+		//get the answers. In most cases you will get three or for answers.
+		//Probably one will be true, the rest false
+		//
 		answerList = taskElement.elementsByTagName( "answer" );
 
-		/*
-		 * get the number of answers
-		 */
+		 //get the number of answers
 		int count = answerList.count();
 		
-		/*
-		 * generate the task, the answers will be added inside the next loop
-		 */
+		//
+		//generate the task, the answers will be added inside the next loop
+		//
 		Task *t = new Task( q, g );
 		
 		for ( int i = 0; i < count; ++i )
@@ -160,9 +167,7 @@ bool questionEditorImpl::readTasks( QDomDocument &questionDocument )
 			
 			QString answerString = aElement.attributeNode( "text" ).value();
 
-			/*
-			 * check if the answer is true or not
-			 */
+			// check if the answer is true or not
 			aElement.attributeNode( "type" ).value() == "true" ? answerisTrue = true : answerisTrue = false;
 			
 			Answer *answer = new Answer( answerString, answerisTrue );
@@ -170,11 +175,11 @@ bool questionEditorImpl::readTasks( QDomDocument &questionDocument )
 			t->addAnswer( answer );
 		}
 		
-		/*
-		 * the task has now all answers, the grade and the question.
-		 * Now we can add the Task to the list of tasks
-		 */
-		m_tasklist.addTask( t );
+		//
+		//the task has now all answers, the grade and the question.
+		//Now we can add the Task to the list of tasks
+		//
+		//m_tasklist.addTask( t );
 	}
 		
 	setupListView();		

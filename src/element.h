@@ -54,11 +54,17 @@ class Element{
 		/**
 		 * @return the number of the element
 		 */
-		int number() const {return m_number;}
+		int number() const {
+			return m_number;
+		}
+		
 		/**
 		 * @return the date of discovery of the element
 		 */
-		int date() const { return m_date; }
+		int date() const { 
+			return m_date; 
+		}
+		
 		/**
 		 * @return the importance of the element for biological
 		 * systems.
@@ -70,37 +76,58 @@ class Element{
 		 * @li 5: blub
 		 * @li 6: blub
 		 */
-		int biological() const {return m_biological;}
+		int biological() const {
+			return m_biological;
+		}
+		
 		/**
 		 * @return the condition of aggrgation of the element at 
 		 * room temperature. 0 means solid, 1 means liquid, 2 means vapor
 		 */
-		int az() const {return m_az;}
+		int az() const {return m_az;
+		}
 		
 		/**
 		 * @return the symbol of the element
 		 */
-		QString symbol() const {return m_symbol;}
+		QString symbol() const {
+			return m_symbol;
+		}
 		/**
 		 * @return the name of the element
 		 */
-		QString elname() const {return m_name;}
+		QString elname() const {
+			return m_name;
+		}
 		/**
 		 * @return the chemical block (s, p, d, f) of the element
 		 */
-		QString block() const {return m_block;}
+		QString block() const {
+			return m_block;
+		}
+		
 		/**
 		 * @return the group of the element
 		 */
-		QString group() const {return m_group;}
+		QString group() const {
+			return m_group;
+		}
+		
 		/**
 		 * @return the acidic behaviour of the element
 		 */
-		QString acidicbeh() const {return m_acidbeh;}
+		QString acidicbeh() const {
+			return m_acidbeh;
+		}
+		
 		/**
 		 * @return the oxydationstages of the element
 		 */
-		QString oxstage() const { return m_oxstage; }
+		
+		QString oxstage() const {
+			return m_oxstage;
+		}
+		
 		/**
 		 * @return the orbits of the element. The QString is already
 		 * parsed so that the numbers are superscripts and the first
@@ -113,40 +140,62 @@ class Element{
 		/**
 		 * @return the boiling point of the element in Kelvin
 		 */
-		double boiling() const {return m_BP;}
+		double boiling() const {
+			return m_BP;
+		}
+		
 		/**
 		 * @return the melting point of the element in Kelvin
 		 */
-		double melting() const {return m_MP;}
+		double melting() const {
+			return m_MP;
+		}
+		
 		/**
 		 * @return the electronegativity of the element in the 
 		 * Pauling-scale
 		 */
-		double electroneg() const {return m_EN;}
+		double electroneg() const {
+			return m_EN;
+		}
+		
 		/**
 		 * @return the atomic weight of the element in units
 		 */
-		double weight() const {return m_weight;}
+		double weight() const {
+			return m_weight;
+		}
+		
 		/**
 		 * @return the density of the element in gramm per mol
 		 */
-		double density() const {return m_Density;}
+		double density() const {
+			return m_Density;
+		}
+		
 		/**
 		 * @return the radius of the element in picometers
 		 */
-		double radius() const {return m_AR;}
+		double radius() const {
+			return m_AR;
+		}
+		
 		/**
-		 * @return the  of the element
+		 * @return the first ionizationenergie of the element
 		 */
-
-		//XXX add the rest
-		double ie() const {return m_IE;}
+		double ie() const {
+			return m_IE;
+		}
+		
 		/**
-		 * @return the  of the element
+		 * @return the first ionizationenergie of the element
 		 */
-		double ie2() const {return m_IE2;}
+		double ie2() const {
+			return m_IE2;
+		}
+		
 		/**
-		 * @return the  of the element
+		 * @return the meanweight of the element
 		 */
 		double meanweight();
 
@@ -154,9 +203,32 @@ class Element{
 		int s_x, s_y; //for the SimplifiedPSE
 
 		/**
-		 * @return the  of the element
+		 * adjusts the units for the data. The user can
+		 * eg define if Fahrenheit, Kelvin or Degrees Celsius
+		 * should be used for the temperature. This method
+		 * takes care of that.
+		 * @param val the value which has to be adjusted
+		 * @parem type the TYPE of the data
+		 * @return the adjusted datastring
 		 */
 		static const QString adjustUnits( double val, const int type );
+
+		/**
+		 * missing
+		 */
+		enum TYPE
+		{
+			TEMPERATURE = 0,
+			ENERGY = 1,
+			LENGHT = 2,
+			WEIGHT = 3,
+			DENSITY = 4,
+			DATE = 5
+		};
+
+
+
+
 
 	private:
 		void setupXY();

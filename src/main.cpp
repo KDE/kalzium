@@ -11,7 +11,7 @@
 static const char description[] =
     I18N_NOOP("A Periodic Table of the Elements");
 
-static const char version[] = "1.1.90";
+static const char version[] = "1.1.91";
 
 static KCmdLineOptions options[] =
 {

@@ -2,15 +2,20 @@
 <kpartgui name="kalzium" version="1">
 <MenuBar>
   <Action name="change_pse" />
+  <Action name="nummerationtype" />
   <Action name="quiz_menu" />
+  <Menu name="miscmenu">
+	<text>Miscellaneous</text>
+	<Action name="use_timeline" />
+	<Action name="plotdata" />
+  </Menu>
   <Menu name="stylemenu">
-	<text>Look and Timeline</text>
+	<text>Look</text>
 	<Action name="view_normal" />
 	<Action name="view_groups" />
 	<Action name="view_blocks" />
 	<Action name="view_som" />
 	<Action name="view_acidic" />
-	<Action name="use_timeline" />
   </Menu>
 </MenuBar>
 </kpartgui>

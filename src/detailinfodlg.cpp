@@ -94,7 +94,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	wEnergy->bp_label->setText( Element::adjustUnits( e->boiling(), 0 ) );
 	wEnergy->sion_label->setText( Element::adjustUnits(  e->ie2(), 1 ) );
 	wEnergy->ion_label->setText( Element::adjustUnits( e->ie(), 1 ) );
-	wEnergy->en_label->setText(  Element::adjustUnits( e->electroneg(),6 ) );
+	wEnergy->en_label->setText(  QString::number( e->electroneg() ) );
 	energyLayout->addWidget( wEnergy );
 	
 	////////////////////////////////////7
