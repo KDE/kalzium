@@ -30,8 +30,6 @@
 #include <qregexp.h>
 
 #include "searchdlg.h"
-#include "csvdialogimpl.h"
-#include "datafilterdialogimpl.h"
 
 SearchDlg::SearchDlg (QWidget *parent, const char *name, bool modal )  
     : SearchDialogUI (parent,name, modal)
@@ -136,12 +134,6 @@ void SearchDlg::slotApplyChanges()
 
 	if ( !RangeLE->text().isEmpty() ) //only parse if the user entered numbers
 		slotFilterData();
-}
-
-void SearchDlg::slotFilter()
-{
-	Datafilterdialogimpl *dfdlg = new Datafilterdialogimpl( this );
-	dfdlg->show();
 }
 
 void SearchDlg::slotFilterData()

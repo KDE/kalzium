@@ -48,7 +48,7 @@ KalziumPlotDialogImpl::KalziumPlotDialogImpl ( QWidget *parent, const char *name
 	QVBoxLayout *vlay = new QVBoxLayout( page, 0, spacingHint() );
 
 ////
-	fromSpin = new QSpinBox( 1, 108 , 1 , page );
+	fromSpin = new QSpinBox( 1, 109 , 1 , page );
 	toSpin = new QSpinBox( 2, 110 , 1 , page );
 	toSpin->setValue( 110 );
 	whatKCB = new KComboBox( false , page , "whatKCB" );

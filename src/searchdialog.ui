@@ -382,14 +382,6 @@
                                 </widget>
                             </vbox>
                         </widget>
-                        <widget class="KPushButton">
-                            <property name="name">
-                                <cstring>filerButton</cstring>
-                            </property>
-                            <property name="text">
-                                <string>&amp;Filter</string>
-                            </property>
-                        </widget>
                         <spacer>
                             <property name="name">
                                 <cstring>spacer2</cstring>
@@ -440,12 +432,6 @@
         <receiver>SearchDialogUI</receiver>
         <slot>close()</slot>
     </connection>
-    <connection>
-        <sender>filerButton</sender>
-        <signal>clicked()</signal>
-        <receiver>SearchDialogUI</receiver>
-        <slot>slotFilter()</slot>
-    </connection>
 </connections>
 <slots>
     <slot>slotExportData()</slot>
@@ -458,7 +444,6 @@
 <includehints>
     <includehint>klineedit.h</includehint>
     <includehint>kcombobox.h</includehint>
-    <includehint>kpushbutton.h</includehint>
     <includehint>kpushbutton.h</includehint>
 </includehints>
 </UI>

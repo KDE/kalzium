@@ -4,11 +4,11 @@ INCLUDES= -I../calculations $(all_includes)
 SUBDIRS = icons elementpics
 
 bin_PROGRAMS = kalzium
-kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp stateofmatterdlg.cpp calcdlg.cpp calcdialog.cpp settingsdialog.cpp legend.cpp infodlg.ui quizdlgui.ui quiz_result.ui kmolui.ui elementbutton.cpp detailinfodlg.cpp querydlg.cpp searchdialog.ui searchdlg.cpp orbitswidget.cpp  datafilterdialog.ui datafilterdialogimpl.cpp chemicaldata.cpp kalziumplotwidget.cpp kalziumplotdialogimpl.cpp csvdialogimpl.cpp csvdialog.ui infodialog.cpp 
+kalzium_SOURCES = eleminfo.cpp elementkp.cpp kalzium.cpp main.cpp quizdlg.cpp stateofmatterdlg.cpp calcdlg.cpp calcdialog.cpp settingsdialog.cpp legend.cpp infodlg.ui quizdlgui.ui quiz_result.ui kmolui.ui elementbutton.cpp detailinfodlg.cpp querydlg.cpp searchdialog.ui searchdlg.cpp orbitswidget.cpp chemicaldata.cpp kalziumplotwidget.cpp kalziumplotdialogimpl.cpp infodialog.cpp 
 kalzium_LDADD   = $(LIB_KHTML)  ../calculations/libkmol.la ../../libkdeedu/kdeeduplot/libkdeeduplot.la
 
 
-EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp calcdialog.cpp settingsdialog.cpp settingsdialog.h legend.cpp legend.h infodlg.ui quizdlgui.ui quiz_result.ui kmolui.ui elementbutton.cpp elementbutton.h detailinfodlg.cpp detailinfodlg.h querydlg.cpp querydlg.cpp searchdialog.ui searchdlg.cpp searchdlg.h orbitswidget.cpp orbitswidget.h datafilterdialog.ui  datafilterdialogimpl.cpp datafilterdialogimpl.h chemicaldata.cpp chemicaldata.h kalziumplotwidget.cpp kalziumplotwidget.h kalziumplotdialogimpl.cpp kalziumplotdialogimpl.h csvdialog.ui csvdialogimpl.cpp csvdialogimpl.h infodialog.cpp infodialog.h 
+EXTRA_DIST = main.cpp kalzium.cpp kalzium.h kalzium.desktop elementkp.cpp elementkp.h eleminfo.cpp eleminfo.h kalziumrc TODO ChangeLog quizdlg.h quizdlg.cpp stateofmatterdlg.cpp tempdlg.h calcdlg.cpp calcdlg.h calcdialog.cpp calcdialog.cpp settingsdialog.cpp settingsdialog.h legend.cpp legend.h infodlg.ui quizdlgui.ui quiz_result.ui kmolui.ui elementbutton.cpp elementbutton.h detailinfodlg.cpp detailinfodlg.h querydlg.cpp querydlg.cpp searchdialog.ui searchdlg.cpp searchdlg.h orbitswidget.cpp orbitswidget.h chemicaldata.cpp chemicaldata.h kalziumplotwidget.cpp kalziumplotwidget.h kalziumplotdialogimpl.cpp kalziumplotdialogimpl.h infodialog.cpp infodialog.h 
 
 METASOURCES = AUTO 
 
