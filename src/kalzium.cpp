@@ -162,11 +162,17 @@ Kalzium::Kalzium(const char *name) : KMainWindow( 0 ,name ), setDlg(0L)
 	three = new KPushButton( foo );
 	four = new KPushButton( foo );
 	five = new KPushButton( foo );
+	six = new KPushButton( foo );
+	seven seven new KPushButton( foo );
+	eight = new KPushButton( foo );
 	legend_layout->addWidget( one );
 	legend_layout->addWidget( two );
 	legend_layout->addWidget( three );
 	legend_layout->addWidget( four );
 	legend_layout->addWidget( five );
+	legend_layout->addWidget( six );
+	legend_layout->addWidget( seven );
+	legend_layout->addWidget( eight );
 	legend_layout->addStretch();
 	
 //neuer Kram heute morgen
@@ -291,15 +297,18 @@ void Kalzium::changeLegend(int id)
     three->setText(i18n("d-Block"));
     four->setText(i18n("f-Block"));
     }
-/*    if (id == 2) //Groups
+    if (id == 2) //Groups
     {
-        one->hide();
-        two->hide();
-        three->hide();
-        four->hide();
-        five->hide();
+    one->setPalette(QPalette(main_config->readColorEntry("Group 1")));
+    two->setPalette(QPalette(main_config->readColorEntry("Group 2")));
+    three->setPalette(QPalette(main_config->readColorEntry("Group 3")));
+    four->setPalette(QPalette(main_config->readColorEntry("Group 4")));
+    five->setPalette(QPalette(main_config->readColorEntry("Group 5")));
+    six->setPalette(QPalette(main_config->readColorEntry("Group 6")));
+    seven->setPalette(QPalette(main_config->readColorEntry("Group 7")));
+    eight->setPalette(QPalette(main_config->readColorEntry("Group 8")));
     }
-  */  if (id == 3) //State of Matter
+    if (id == 3) //State of Matter
     {
     one->setPalette(QPalette(main_config->readColorEntry("liquid")));
     two->setPalette(QPalette(main_config->readColorEntry("solid")));

@@ -73,7 +73,7 @@ class Kalzium : public KMainWindow
 		Colors_Config_Widget *colorsconfig;
 		KSelectAction *numerationmenu, *psestylemenu, *colorschememenu, *weblookupmenu;
 		StateOfMatterDlg *templookup;
-        KPushButton *one, *two, *three, *four, *five;
+        KPushButton *one, *two, *three, *four, *five, *six, *seven, *eigth;
 
 	private:
 		PQLabel labels[18];
