@@ -16,7 +16,7 @@ METASOURCES = AUTO
 ### OCAMLLIB is defined in configure.in.in
 ### if that does not work, uncomment the following lines :
 #
-# OCAMLLIB=`ocamlc -where`
+OCAMLLIB=`ocamlc -where`
 
 # the library search path. 
 eqchem_LDFLAGS = $(KDE_RPATH) $(all_libraries)
