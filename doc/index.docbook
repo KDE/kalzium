@@ -93,8 +93,8 @@ under the &GNU; Public License.
 </mediaobject>
 </screenshot>
 
-<para>&kalzium; is very easy to use. It is specially designed for pupils of all
- ages. Students can also use it as a small and quick database.</para>
+<para>&kalzium; is very easy to use. It is specially designed for students of all
+ ages to use as a small and quick database.</para>
 
 <para>If you are too good for this world, you can change the
 level.</para>
@@ -117,7 +117,7 @@ level.</para>
 </screenshot>
 
 <para>In this dialog you get all the information &kalzium;
-provides. The dialog is divided into three parts:
+provides on that element. The dialog is divided into three parts:
 <guilabel>General</guilabel>, <guilabel>States</guilabel> and
 <guilabel>Energies</guilabel>.</para> <para>If you click on
 <guilabel>Web Lookup</guilabel> &kalzium; will get more information
@@ -139,16 +139,16 @@ from the web (in a new window).</para>
 <guilabel>KMol</guilabel>. In the field <guilabel>Formula</guilabel>
 you can enter a totals formula and will get the molecular weight
 <guilabel>Mw</guilabel> measured in <quote>u</quote> and the elemental
-composition. KMol knows all elements of the <acronym>PSE</acronym>.
+composition. KMol knows about all of the elements in the <acronym>PSE</acronym>.
 </para>
 </sect1>
 
 <sect1 id="colors">
 <title>Color schemes</title>
 
+<para>&kalzium; can show you which elements are where with regard to their Periodic "block" and "group" , their behavior with acid and which matter state (solid/liquid/vapor) they are in at a given temperature.</para>
 <screenshot>
-<screeninfo>&kalzium; can show you which elements are
-solid/liquid/vapor at a given temperature.</screeninfo>
+
 <mediaobject>
 <imageobject>
 <imagedata fileref="screenshot2.png" format="PNG" width="300"/>
@@ -167,7 +167,7 @@ solid/liquid/vapor at a given temperature.</para>
 <sect1 id="timeline">
 <title>Timeline</title>
 
-<para>You can active this feature either with the most-right icon in
+<para>The Timeline feature allows you to explore the elements of the set time period. This is great for getting a feel for how the PSE evolved over time, as more and more elements were discovered. You can active this feature either with the most-right icon in
 the iconbar or via <menuchoice><guimenu>Settings</guimenu><guimenuitem>Show Toolbar</guimenuitem></menuchoice>. If it
 is activated you will see a slider below the <acronym>PSE</acronym> and an <acronym>LCD</acronym> which
 displays the number 2002.  If you move the slider you will notice that
@@ -196,14 +196,14 @@ predicted to exist.
 You can change the numeration to
 <guilabel>IUPAC</guilabel> and
 <guilabel>CAS</guilabel> or switch it
-<guilabel>off</guilabel>.</para>
+<guilabel>off</guilabel> entirely.</para>
 
 <sect2 id="iupac">
 <title><guilabel>IUPAC</guilabel></title>
 
 <para>The <acronym>IUPAC</acronym> is the <firstterm>International
 Union of Pure and Applied Chemistry</firstterm>. This is an
-organization which defines the most standards for chemical
+organization which defines most of the standards for chemical
 concerns.</para>
 
 <para>An <quote>A</quote> means that that period is a maingroup, a
@@ -219,13 +219,13 @@ lang="de">Nebengruppe</foreignphrase>.</para>
 Service</firstterm>. With their numeration the 18 groups have the
 numbers from 1 to 18. Though the <acronym>IUPAC</acronym> numeration
 is the official, the <acronym>CAS</acronym> numeration is what is
-effectivly used.</para>
+used in classrooms and laboratories.</para>
 
 </sect2>
 <sect2 id="off">
 <title><guilabel>Off</guilabel></title>
 
-<para>If this option is active of course no period-numeration will be
+<para>If this option is active, no period-numeration will be
 in effect.</para>
 
 </sect2>
@@ -266,7 +266,8 @@ window is depicted below:</para>
 </question>
 <answer>
 <para>No, never. But the auhor always welcomes a nice mail or a
-<quote>DVD</quote> as a <quote>Thank You</quote></para>
+DVD as a <quote>Thank You</quote>. &kalzium; is licensed 
+under the <ulink url="http://www.gnu.org/licenses/licenses.html#GPL">GPL</ulink>, so you will never have to pay for this program.</para>
 </answer>
 </qandaentry>
 <qandaentry>
@@ -277,8 +278,8 @@ window is depicted below:</para>
 <answer>
 <para>No, at the moment not, but you can download the source and make
 your own windows version. It should not be a big problem, because it is
-written with Trolltech's &Qt; libs. But for what do you need &Windows;?
-Get the latest &Linux;, and you will live on the edge.</para>
+written with Trolltech's &Qt; libs. But what do you need &Windows; for?
+Get the latest &Linux;, and live on the edge.</para>
 
 </answer>
 </qandaentry>
@@ -293,13 +294,13 @@ Get the latest &Linux;, and you will live on the edge.</para>
 <qandaentry>
 
 <question>
-<para>Support me with data</para>
+<para>Support me with data.</para>
 </question>
 
 <answer>
-<para>In the world of science the progress is quite fast. I you
-ever find a not correct value or a missing one please drop me
-a mail.</para>
+<para>In the world of science, the progress is quite fast. If you
+ever find an incorrect or missing value, please drop me
+an email.</para>
 </answer>
 </qandaentry>
 
@@ -309,8 +310,8 @@ a mail.</para>
 </question>
 <answer>
 <para>
-If you find some bugs in the program, or have some suggestions for
-improvements, please let me know. 
+If you find any bugs in the program, or have a few suggestions for
+improvements, please let me know at <email>cniehaus@kde.org</email>. 
 </para>
 </answer>
 
