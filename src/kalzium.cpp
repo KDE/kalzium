@@ -181,7 +181,6 @@ void Kalzium::setupAllElementKPButtons()
 	QWidget *SmallWidget = new QWidget( this );
 	QVBoxLayout *dtabLayout = new QVBoxLayout( SmallWidget , 5 );
 	dtab = new DetailedTab( SmallWidget );
-	dtab->show();
 	dtabLayout->addWidget( dtab );
 	maingrid->addMultiCellWidget( SmallWidget ,2,3,3,6 );
 }

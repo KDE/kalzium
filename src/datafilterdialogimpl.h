@@ -27,6 +27,10 @@ class Datafilterdialogimpl : public Datafilterdialog
 	public:
 		Datafilterdialogimpl( QWidget* parent = 0, const char* name = 0 );
 
+	private slots:
+		void slotSetFilterText( int id );
+
+
 };
 #endif // DATAFILTERDIALOGIMPL_H
 

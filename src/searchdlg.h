@@ -41,6 +41,7 @@ class SearchDlg : public SearchDialogUI
 		typedef QValueList<QCheckBox*> checkBoxesList;
 		checkBoxesList checkBoxes;
 		void fillCheckBoxList();
+		void slotFilter();
 
 		QStringList nameList,
 					symbolList,

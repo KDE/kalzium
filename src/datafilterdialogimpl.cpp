@@ -15,11 +15,35 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#include <klocale.h>
+#include <kdebug.h>
+
+#include <qlabel.h>
+
 #include "datafilterdialogimpl.h"
+
 
 
 Datafilterdialogimpl::Datafilterdialogimpl( QWidget* parent, const char* name )
     : Datafilterdialog( parent, name )
 {
+}
+
+void Datafilterdialogimpl::slotSetFilterText( int id )
+{
+	kdDebug() << "id is: " << id << endl;
+	switch ( id )
+	{
+	case 0:
+		ExplanationText->setText( i18n( "<b>Metals</b>: This filter will only show the metals like iron and lithium" ) );
+		break;
+	case 1:
+		ExplanationText->setText( i18n( "Gases" ) );
+		break;
+	case 2:
+		ExplanationText->setText( i18n( "Groups" ) );
+		break;
+	}
 }
 

@@ -45,7 +45,6 @@ ElementKP::ElementKP(QWidget *parent, ElementInfo ElemInfo, const char *name, in
 	
 	ElemInfoParsed *eInfo = new ElemInfoParsed( Data );
 	Data = eInfo->information();
-	kdDebug() << "Ox: " << Data.oxstage << endl;
 }
 
 //when the mousepointer is over a button
@@ -58,7 +57,7 @@ void ElementKP::enterEvent(QEvent *)
 	{
 		kalzium->dtab->show();
 		kalzium->dtab->setData( Data );
-		kalzium->dtab->repaint();
+		kalzium->dtab->update();
 	}
 }
 

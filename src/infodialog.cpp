@@ -25,7 +25,7 @@
 
 
 infoDialog::infoDialog( ElementInfo Eleminfo , QWidget *parent, const char *name)
-    : infoDlg( parent , name )
+    : infoDlg( parent , name , true )
 {
     setCaption( i18n( Eleminfo.Name.utf8() ) );
 
