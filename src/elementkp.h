@@ -3,7 +3,7 @@
                              -------------------
     begin                : Mon Dec 10 2001
     copyright            : (C) 2001 by Carsten Niehaus
-    email                : cniehaus@gmx.de
+    email                : cniehaus@kde.org
  ***************************************************************************/
 
 /***************************************************************************
@@ -26,6 +26,8 @@ class QColor;
 class QLabel;
 class QPopupMenu;
 class QString;
+
+class Kalzium;
 
 /**This class is derived from KPushButton. This is to make it be more specific
   to its tasks. I use a pointer to have MouseOver (eventEnter)-effects in the
@@ -64,7 +66,7 @@ class ElementKP : public KPushButton  {
     Q_OBJECT
     
     public: 
-        ElementKP(const QString &text, QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0);
+        ElementKP(const QString &text, QWidget *parent, ElementInfo ElemInfo, const char *name=0, int AElemNo=0, KStatusBar *zeiger=0, Kalzium *Kalzium_tmp=0);
 	
 	
     	/**
@@ -76,6 +78,11 @@ class ElementKP : public KPushButton  {
 	
     	//used when the mouse leaves the pushbutton
     	void leaveEvent(QEvent *);
+
+	Kalzium *kalzium;
+        QString neighbourArray[2][2];
+
+        void getNeighbours( int );
 	
 
     	/** loads the name of the fitting element and shows it in
@@ -93,7 +100,7 @@ class ElementKP : public KPushButton  {
     	int ElemNo;
 
     	KStatusBar *zeigerle;
-        QLabel *pmTitle;
+        QLabel *pmTitle, *label;
         QLabel *pmWeight;
         QPopupMenu *pmenu;
 

@@ -18,6 +18,7 @@
 //KDE-Includes
 #include <kconfig.h>
 #include <kdialog.h>
+#include <kglobalsettings.h>
 #include <khtml_part.h>
 #include <klocale.h>
 #include <kstatusbar.h>
@@ -26,6 +27,7 @@
 //QT-Includes
 #include <qdragobject.h>
 #include <qfont.h>
+#include <qtable.h>
 #include <qgroupbox.h>
 #include <qlabel.h>
 #include <qlayout.h>
@@ -37,13 +39,26 @@
 #include "elementkp.moc"
 #include "kalzium.h" 
 
-ElementKP::ElementKP(const QString& text, QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger)	
+ElementKP::ElementKP(const QString& text, QWidget *parent, ElementInfo ElemInfo, const char *name, int AElemNo, KStatusBar *zeiger, Kalzium *kalzium_tmp=0)	
     : KPushButton(text,parent,name)
 
 {
+    kalzium = kalzium_tmp;
     ElemNo = AElemNo;
     zeigerle=zeiger;
     Data = ElemInfo; 
+}
+
+void ElementKP::getNeighbours( int Current )
+{
+        for( int z=0 ; z < 3 ; z++ )
+        {
+            for( int s=0 ; s < 3 ; s++)
+            {
+                if (z == 0)
+                    neighbourArray[1][s]="hallO";//kalzium->element[19]->Data.Symbol;
+            }
+        }
 }
 
 //when the mousepointer is over a button
@@ -139,107 +154,233 @@ void ElementKP::lookup()
     html->show();
 }
 
+
 void ElementKP::slotShowData()
 {
-
-    KDialog *ausgabe = new KDialog ( this, "showelemetdata" );
-    QGridLayout * grid = new QGridLayout(ausgabe, 15, 2, 8);
-    if (Data.Name != "Unnamed")
-        QWhatsThis::add(ausgabe, i18n("In this dialog Kalzium shows you information about %1").arg(i18n(Data.Name.utf8().data())));
-    else
-        QWhatsThis::add(ausgabe, i18n("This dialog displays information about this unnamed element"));
-    if (Data.Name != "Unnamed") ausgabe->setCaption(i18n("About %1").arg(i18n(Data.Name.utf8())));
-    else ausgabe->setCaption(i18n("About this element"));
-
-    //this QLabel is just the "title" of the whole Dialog
-    QLabel *title = new QLabel ( ausgabe );
-    title->setAlignment(Qt::AlignHCenter);
-    title->setFont(QFont("helvetica", 20, QFont::Bold));
-    title->setText(i18n(Data.Name.utf8()));
-    grid->addWidget(title,0,1);
-
-    //Atomic Weight
-    QLabel *weightLabel = new QLabel ( ausgabe );
-    if (Data.Weight == "0")
-        weightLabel->setText(i18n("Atomic Weight: unknown"));
-    else
-        weightLabel->setText(i18n("Atomic Weight: %1 u").arg(Data.Weight));
+    QFont bold_font=KGlobalSettings::generalFont();
+    bold_font.setBold(true);
+    QFont topic_font=bold_font;
+    topic_font.setPointSize(bold_font.pointSize()+2);
     
-    grid->addMultiCellWidget ( weightLabel, 2, 2, 0, 2 );
+    QWidget *show_data = new QWidget (0L,"show_data");
+    show_data->setCaption(i18n(Data.Name.utf8()));
+    QGridLayout * grid = new QGridLayout(show_data, 7, 3, 8);
+    
+    // *** General ***
+    label = new QLabel ( show_data );
+    label->setText(i18n("General"));
+    label->setFont(topic_font);
+    grid->addMultiCellWidget(label,0,0,0,1,Qt::AlignHCenter);
+   
+    QWidget *general_group = new QWidget(show_data);
+    QGridLayout * general_grid = new QGridLayout(general_group, 4, 5, 8);
+    grid->addMultiCellWidget(general_group, 1,1,0,1);
 
-    QLabel *blockLabel = new QLabel ( ausgabe );
-    blockLabel->setText(i18n("Block: %1").arg(Data.Block));
-    grid->addMultiCellWidget ( blockLabel, 3, 3, 0, 2 );
+    // Name
+    label = new QLabel (general_group);
+    label->setText(i18n("Name:"));
+    label->setFont(bold_font);
+    general_grid->addWidget(label, 0,0);
 
-    QLabel *numberLabel = new QLabel ( ausgabe );
-    numberLabel->setText(i18n("Element number: %1").arg(Data.number));
-    grid->addMultiCellWidget ( numberLabel, 4, 4, 0, 2 );
+    label = new QLabel (general_group);
+    label->setText(i18n(Data.Name.utf8()));
+    general_grid->addWidget(label, 0,1);
 
-    //When has the element been discovered?
-    QLabel *dateLabel = new QLabel (ausgabe );
-    if (Data.date == "0")
-        dateLabel->setText(i18n("%1 was known to ancient cultures").arg(i18n(Data.Name.utf8())));
-    if (Data.date == "3333")
-        dateLabel->setText(i18n("%1 has not been discovered yet").arg(i18n(Data.Name.utf8())));
+    // Element Number
+    label = new QLabel (general_group);
+    label->setText(i18n("Element number:"));
+    label->setFont(bold_font);
+    general_grid->addWidget(label, 0, 3);
+    
+    label = new QLabel ( general_group );
+    label->setText(i18n("%1").arg(Data.number));
+    general_grid->addWidget(label, 0, 4);
+
+    // Symbol
+    label = new QLabel (general_group);
+    label->setText(i18n("Symbol:"));
+    label->setFont(bold_font);
+    general_grid->addWidget(label, 1,0);
+
+    label = new QLabel (general_group);
+    if (Data.Symbol == "0")
+        label->setText(i18n("None"));
     else
-        dateLabel->setText(i18n("%1 has been known since %2").arg(i18n(Data.Name.utf8())).arg(Data.date));
-    grid->addMultiCellWidget ( dateLabel, 5,5,0,2 );
+        label->setText(i18n("%1").arg(Data.Symbol));
+    general_grid->addWidget(label, 1,1);
+
+    // Atomic weight
+    label = new QLabel (general_group);
+    label->setText(i18n("Atomic weight:"));
+    label->setFont(bold_font);
+    general_grid->addWidget(label ,1,3);
+
+    label = new QLabel (general_group);
+     if (Data.Weight == "0")
+        label->setText(i18n("unknown"));
+    else
+        label->setText(i18n("%1 u").arg(Data.Weight));
+    general_grid->addWidget(label, 1,4);
+    
+
+    // Block
+    label = new QLabel (general_group);
+    label->setText(i18n("Block:"));
+    label->setFont(bold_font);
+    general_grid->addWidget(label, 2,0);
+
+    label = new QLabel (general_group);
+    label->setText(i18n("%1").arg(Data.Block));
+    general_grid->addWidget(label, 2,1);
+ 
+    // Discovered
+    label = new QLabel (general_group);
+    label->setText(i18n("Discovered:"));
+    label->setFont(bold_font);
+    general_grid->addWidget(label, 2,3);
+
+    label = new QLabel (general_group);
+    if (Data.date == "0")
+        label->setText(i18n("was known to ancient cultures"));
+    if (Data.date == "3333")
+        label->setText(i18n("not been discovered yet"));
+    else
+        label->setText(i18n("%1").arg(Data.date));
+    general_grid->addWidget(label, 2,4);
+
+    
+    //Density
+    label = new QLabel (general_group);
+    label->setText(i18n("Density:")); 
+    label->setFont(bold_font);
+    general_grid->addWidget(label, 3,0);
+    
+    label = new QLabel (general_group);
+    if (Data.Density == -1)
+        label->setText(i18n("Unknown"));
+    else
+        label->setText(i18n("%1").arg(Data.Density));
+    general_grid->addWidget(label, 3,1);
+
+    //Atomicradius
+    label = new QLabel (general_group);
+    label->setText(i18n("Atomic radius:")); 
+    label->setFont(bold_font);
+    general_grid->addWidget(label, 3,3);
+    
+    label = new QLabel (general_group);
+    if (Data.AR == -1)
+        label->setText(i18n("Unknown"));
+    else
+        label->setText(i18n("%1").arg(Data.AR));
+    general_grid->addWidget(label,3,4);
+ 
+     // *** States ***
+    label = new QLabel ( show_data );
+    label->setText(i18n("States"));
+    label->setFont(topic_font);
+    grid->addMultiCellWidget(label,2,2,0,1,Qt::AlignHCenter);
+    
+    QWidget *states_group = new QWidget(show_data);
+    QGridLayout *states_grid = new QGridLayout(states_group, 1, 5, 8);
+    grid->addMultiCellWidget(states_group, 3,3,0,1);
+
+    // Melting point
+    label = new QLabel (states_group);
+    label->setText(i18n("Melting point:"));
+    label->setFont(bold_font);
+    states_grid->addWidget(label, 0,0);
+
+    label = new QLabel (states_group);
+    if (Data.MP == -1)
+        label->setText(i18n("Unknown"));
+    else
+        label->setText(i18n("%1 C").arg(-273.15+Data.MP));
+    states_grid->addWidget (label, 0,1);
+
+    //Boiling point
+    label = new QLabel (states_group);
+    label->setText(i18n("Boiling point:"));
+    label->setFont(bold_font);
+    states_grid->addWidget(label, 0,3);
+    
+    label = new QLabel (states_group);
+    if (Data.BP == -1)
+        label->setText(i18n("Unknown"));
+    else
+        label->setText(i18n("%1 C").arg(-273.15+Data.BP));
+    states_grid->addWidget (label, 0,4);
+
+    /// *** Energies ***
+    label = new QLabel ( show_data );
+    label->setText(i18n("Energies"));
+    label->setFont(topic_font);
+    grid->addMultiCellWidget(label,4,4,0,1,Qt::AlignHCenter);
+
+    QWidget *energy_group = new QWidget(show_data);
+    QGridLayout *energy_grid = new QGridLayout(energy_group, 1, 5, 8);
+    grid->addMultiCellWidget(energy_group, 5,5,0,1);
+
+     //Ionization energy
+    label = new QLabel (energy_group);
+    label->setText(i18n("Ionization energy:"));
+    label->setFont(bold_font);
+    energy_grid->addWidget(label, 0,0);
+    
+    label = new QLabel (energy_group);
+    if (Data.IE == -1)
+        label->setText(i18n("Unknown"));
+    else
+        label->setText(i18n("%1").arg(Data.IE));
+    energy_grid->addWidget(label, 0,1);
 
     //Electronegativity
-    QLabel *ENLabel = new QLabel ( ausgabe );
+    label = new QLabel (energy_group);
+    label->setText(i18n("Electronegativity:"));
+    label->setFont(bold_font);
+    energy_grid->addWidget(label, 0,3);
+    
+    label = new QLabel (energy_group);
     if (Data.EN == -1)
-        ENLabel->setText(i18n("Electronegativity: Unkown"));
+        label->setText(i18n("Unkown"));
     else
-        ENLabel->setText(i18n("Electronegativity: %1").arg(Data.EN));
-    QWhatsThis::add(ENLabel, i18n("This is the electronegativity of Pauling"));
-    grid->addMultiCellWidget ( ENLabel, 6, 6, 0, 2 );
+        label->setText(i18n("%1").arg(Data.EN));
+    energy_grid->addWidget(label, 0,4);
 
-    //Symbol
-    QLabel *symbolLabel = new QLabel ( ausgabe );
-    if (Data.Symbol == "0")
-        symbolLabel->setText(i18n("Symbol: None"));
-    else
-        symbolLabel->setText(i18n("Symbol: %1").arg(Data.Symbol));
-    grid->addMultiCellWidget ( symbolLabel, 7, 7, 0, 2 );
-    QLabel *MPLabel = new QLabel ( ausgabe );
-    if (Data.MP == -1)
-        MPLabel->setText(i18n("Melting point: Unknown"));
-    else
-        MPLabel->setText(i18n("Melting point: %1 C").arg(-273.15+Data.MP));
-    grid->addMultiCellWidget ( MPLabel, 9, 9, 0, 2 );
+    grid->setColStretch(2, 1);
+    grid->setRowStretch(6, 1);
 
-    //Boilingpoint
-    QLabel *BPLabel = new QLabel ( ausgabe );
-    if (Data.BP == -1)
-        BPLabel->setText(i18n("Boiling point: Unknown"));
-    else
-        BPLabel->setText(i18n("Boiling point: %1 C").arg(-273.15+Data.BP));
-    grid->addMultiCellWidget ( BPLabel, 8, 8, 0, 2 );
+///neu
+/*	    QTable *neighbourTable = new QTable( 3 , 3 , ausgabe , "neighbourTable" );
+	    neighbourTable->setReadOnly( true );
+            grid->addWidget( neighbourTable, 3 , 3 );
 
-    //Density
-    QLabel *Density = new QLabel ( ausgabe );
-    if (Data.Density == -1)
-        Density->setText(i18n("Density: Unknown"));
-    else
-        Density->setText(i18n("Density: %1").arg(Data.Density));
-    grid->addMultiCellWidget ( Density, 10, 10, 0, 2 );
+	    neighbourTable->horizontalHeader()->hide();
+	    neighbourTable->verticalHeader()->hide();
+            neighbourTable->setTopMargin( 0 );
+            neighbourTable->setLeftMargin( 0 );
+
+            getNeighbours( ElemNo );
+            neighbourTable->setText( 0,0, neighbourArray[1][0] );
+            neighbourTable->setText( 0,1, neighbourArray[1][1] );
+            neighbourTable->setText( 0,2, neighbourArray[1][2] );
+  */      	    
+///neu
     
-    //Ionisationenergie
-    QLabel *IonEnergie = new QLabel ( ausgabe );
-    if (Data.IE == -1)
-        IonEnergie->setText(i18n("Ionization Energy: Unknown"));
-    else
-        IonEnergie->setText(i18n("Ionization Energy: %1").arg(Data.IE));
-    grid->addMultiCellWidget ( IonEnergie, 11, 11, 0, 2 );
-    
-    //Atomicradius
-    QLabel *AtomRad = new QLabel ( ausgabe );
-    if (Data.AR == -1)
-        AtomRad->setText(i18n("Atomic Radius: Unknown"));
-    else
-        AtomRad->setText(i18n("Atomradius: %1").arg(Data.AR));
-    grid->addMultiCellWidget ( AtomRad, 12, 12, 0, 2 );
+//    QWhatsThis::add(label, i18n("This is the electronegativity of Pauling"));
 
+/*    DAS GEHT NET RICHTIG?
+ 
+     if (Data.Name != "Unnamed")
+        QWhatsThis::add(show_data, i18n("In this dialog Kalzium shows you information about %1").arg(i18n(Data.Name.utf8().data())));
+    else
+        QWhatsThis::add(show_data, i18n("This dialog displays information about this unnamed element"));
+*/
+    show_data->show();
+    
+
+    
+/*
     // click on this button to load webpage for element
     KPushButton *web = new KPushButton(i18n("Web &Lookup"),ausgabe);
     QObject::connect(web, SIGNAL(clicked()), this , SLOT(lookup()));
@@ -251,8 +392,6 @@ void ElementKP::slotShowData()
     QObject::connect (exit, SIGNAL(clicked()), ausgabe, SLOT(hide()));
     QWhatsThis::add(exit, i18n("Click on this button to close this dialog"));
     grid->addWidget( exit , 14 , 1 );
-
-    ausgabe->show();
+*/
 }
-
 
