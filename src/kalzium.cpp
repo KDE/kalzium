@@ -243,7 +243,7 @@ void Kalzium::setupTimeline()
     timeline_layout->addStretch();
 }
 
-void Kalzium::showCAS() const
+void Kalzium::showIUPAC() const
 {
     int h = 0, v = 0;
     for (int n = 0; n < 18; n++)
@@ -260,7 +260,7 @@ void Kalzium::showCAS() const
     }
 }
 
-void Kalzium::showIUPAC() const
+void Kalzium::showCAS() const
 {
     int h = 0, v = 0;
     for (int n = 0; n < 18; ++n)
