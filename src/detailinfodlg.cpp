@@ -108,7 +108,10 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	wChemical->block_label->setText( e->block() );
 	wChemical->radius_label->setText( Element::adjustUnits( e->radius(), 2 ) );
 	wChemical->weight_label->setText( Element::adjustUnits( e->weight(), 3 ) );
-	wChemical->isotopeWidget->setIsotopes( el->Isotopes() );
+	if ( el->Isotopes() != "0"  )
+		wChemical->isotopeWidget->setIsotopes( el->Isotopes() );
+	else
+		wChemical->isotopeLabel->hide();
 	chemicalLayout->addWidget( wChemical );
     
     /////////////////////////////////

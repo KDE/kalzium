@@ -80,7 +80,6 @@ IE2=18.211
 AR=113.3
 Orbits=1s2 2s2
 Ox=+2
-Isotopes=foo
 
 [5]
 Name=Boron
@@ -101,6 +100,7 @@ IE2=25.154
 AR=83
 Orbits=1s2 2s2 2p1
 Ox=+3
+Isotopes=10,0129:18,83;6:11,0093:81,17
 
 [6]
 Name=Carbon
@@ -121,6 +121,7 @@ IE2=24.376
 AR=77.2
 Orbits=1s2 2s2 2p2
 Ox=-4,+2,+4
+Isotopes=6:12:98,89;7:13,0034:1,11
 
 [7]
 Name=Nitrogen
@@ -141,6 +142,7 @@ IE2=29.602
 AR=71
 Orbits=1s2 2s2 2p3
 Ox=-3,(+1,+2,+3,+4,+5)
+Isotopes=7:14,0031:99,64;8:15,0001:0,36
 
 [8]
 Name=Oxygen
@@ -161,6 +163,7 @@ IE2=35.116
 AR=60.4
 Orbits=1s2 2s2 2p4
 Ox=-2,(-1,+2)
+Isotopes=8:15,9949:99,756;9:16,9991:0,039;10:17,9992:0,205
 
 [9]
 Name=Fluorine

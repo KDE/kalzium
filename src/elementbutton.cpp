@@ -111,7 +111,8 @@ void ElementButton::paintEvent( QPaintEvent* )
     		p.drawText( h/6, h/2, e->symbol() );
 			p.setFont( f );
 			text = QString::number( e->density() );
-			p.drawText( 2, h/6, text );
+			if ( text != "-1" )
+				p.drawText( 2, h/6, text );
 			break;
 
 	}
@@ -120,7 +121,7 @@ void ElementButton::paintEvent( QPaintEvent* )
     p.end(); 
 }
 
-void ElementButton::mousePressEvent( QMouseEvent* /*e*/ )
+void ElementButton::mousePressEvent( QMouseEvent* )
 {
 	    emit num( e->number() );
 }

@@ -46,7 +46,6 @@ Element::Element( int num )
 	m_acidbeh=config.readEntry( "acidbeh","0" );
 	m_isotopes=config.readEntry( "Isotopes", "0" );
 
-	kdDebug() << m_isotopes << endl;
 	m_block=config.readEntry( "Block","s" );
 	m_EN=config.readDoubleNumEntry( "EN", -1 );
 	m_MP=config.readDoubleNumEntry( "MP", -1 );

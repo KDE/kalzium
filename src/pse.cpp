@@ -108,14 +108,14 @@ void PSE::setupPSEElementButtonsList(){}
 
 void PSE::activateColorScheme( const int nr )
 {
-	kdDebug() << "Setting scheme number: " << nr << endl;
+//	kdDebug() << "Setting scheme number: " << nr << endl;
 
 	//set the temperature to normal conditions
 	setTemperature( 295 );
 
 	if ( nr == 0) //normal view, no colors
 	{
-		kdDebug() << "Number 1 was chosen... no scheme" << endl;
+//		kdDebug() << "Number 1 was chosen... no scheme" << endl;
 		ElementButton *button;
 		QColor color = Prefs::noscheme();
 		for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
@@ -125,7 +125,7 @@ void PSE::activateColorScheme( const int nr )
 	}
 	else if ( nr == 1) //groups view
 	{
-		kdDebug() << "Number 2 was chosen... groups" << endl;
+//		kdDebug() << "Number 2 was chosen... groups" << endl;
 		
 		ElementButton *button;
 		const QColor color_1 = Prefs::group_1();
@@ -179,7 +179,7 @@ void PSE::activateColorScheme( const int nr )
 	}
 	else if ( nr == 2) //block view
 	{
-		kdDebug() << "Number 3 was chosen... blocks" << endl;
+//		kdDebug() << "Number 3 was chosen... blocks" << endl;
 		
 		ElementButton *button;
 		const QColor color_s = Prefs::block_s();
@@ -213,7 +213,7 @@ void PSE::activateColorScheme( const int nr )
 	}
 	else if ( nr == 3) //acidic beh
 	{
-		kdDebug() << "Number 4 was chosen... acidbeh" << endl;
+//		kdDebug() << "Number 4 was chosen... acidbeh" << endl;
 		ElementButton *button;
 		const QColor color_ba = Prefs::beh_basic();
 		const QColor color_ac = Prefs::beh_acidic();
@@ -282,7 +282,7 @@ void PSE::setDate( int date )
 void PSE::setTemperature( const double temp )
 {
 	//Important: The value temp is in Kelvin, not Degree Celsius!
-	kdDebug() << "PSE::setTemperature()" << endl;
+//	kdDebug() << "PSE::setTemperature()" << endl;
 	
 	ElementButton *button;
 	for ( button = m_PSEElementButtons.first() ; button; button = m_PSEElementButtons.next() )
@@ -364,7 +364,7 @@ RegularPSE::~RegularPSE(){}
 
 void RegularPSE::updateNumeration()
 {
-	kdDebug() << "RegularPSE::updateNumeration()" << endl;
+//	kdDebug() << "RegularPSE::updateNumeration()" << endl;
 	LabelList::iterator it = lList.begin();
 	for ( int i = 0 ; it != lList.end() ; ++it )
 	{
@@ -491,7 +491,7 @@ void SimplifiedPSE::updateNumeration()
  **/
 void SimplifiedPSE::setupPSEElementButtonsList()
 {
-	kdDebug() << "SimplifiedPSE::setupPSEElementButtonsList()" << endl;
+//	kdDebug() << "SimplifiedPSE::setupPSEElementButtonsList()" << endl;
 	ElementButton *button;
 	
 	for ( button = sBlockList.first() ; button ; button = sBlockList.next() )
