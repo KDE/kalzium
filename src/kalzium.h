@@ -26,7 +26,7 @@
 #include <kmainwindow.h>
 
 
-#define KALZIUM_VERSION "0.6"
+#define KALZIUM_VERSION "0.9"
 
 /** Kalzium is the base class of the project */
 
