@@ -112,7 +112,7 @@ DetailedInfoDlg::DetailedInfoDlg( const ElementInfo Eleminfo , QWidget *parent, 
 	QVBoxLayout *miscLayout = new QVBoxLayout( miscTab, 5 );
 	QLabel *discovered_label = new QLabel( i18n("Discovered: %1").arg(Data.date ) , miscTab );
 	QLabel *meanweight_label = new QLabel( i18n("Meanweight: %1").arg(Data.meanweight ) , miscTab );
-	QWhatsThis::add( meanweight_label , i18n( "The meanweight is the atomic weight devided by the number of protons" ) );
+	QWhatsThis::add( meanweight_label , i18n( "The meanweight is the atomic weight divided by the number of protons" ) );
 	miscLayout->addWidget( discovered_label );
 	miscLayout->addWidget( meanweight_label );
 	miscLayout->insertStretch(-1,1);
