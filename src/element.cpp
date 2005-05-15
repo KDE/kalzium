@@ -368,6 +368,7 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 
 	//The Y-coordinate
 	int Y = ( y-1 )*ELEMENTSIZE;
+	Y += ELEMENTSIZE;
 
 	p->setPen( elementColor() );
 	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, elementColor() );
@@ -387,7 +388,7 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 	p->drawText( X+5,Y+2 ,ELEMENTSIZE+4,h_small,Qt::AlignLeft, text );
 
 	text = QString::number( number() );
-	p->drawText( X+5,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
+	p->drawText( X+5,Y+ELEMENTSIZE-h_small , ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
 
 	p->setFont( symbol_font );
 	p->drawText( X+5,Y+2, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );

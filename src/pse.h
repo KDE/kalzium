@@ -143,14 +143,6 @@ class PSE : public QWidget
 		bool m_showTooltip;
 
 		/**
-		 * This list includes all elementbuttons which are in the 
-		 * specific PSE. For example. in the simple PSE
-		 * the elements of the f- and d-Block would not
-		 * be in this list
-		 */
-		QPtrList<Element> m_PSEElements;
-
-		/**
 		 * activates or deactivates the legend
 		 */
 		void showLegend( bool show ){
