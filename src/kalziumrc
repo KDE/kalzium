@@ -1790,7 +1790,7 @@ Density=
 IE=4.0 
 IE2=
 AR=270
-Orbits=Rd 7s1
+Orbits=Rn 7s1
 Ox=+1
 
 [88]
@@ -1810,7 +1810,7 @@ Density=5.50
 IE=5.279 
 IE2=
 AR=223
-Orbits=Rd 7s2
+Orbits=Rn 7s2
 Ox=+2
 
 [89]
@@ -1830,7 +1830,7 @@ Density=10.07
 IE=6.9 
 IE2=
 AR=187.8
-Orbits=Rd 6d1 7s2
+Orbits=Rn 6d1 7s2
 Ox=(+2),+3
 
 [90]
@@ -1851,6 +1851,7 @@ IE=6.95
 IE2=
 AR=179.8
 Ox=+3,+4
+Orbits=Rn 6d2 7s2
 
 [91]
 Name=Protactinium
@@ -1870,6 +1871,7 @@ IE=NA
 IE2=
 AR=180.6
 Ox=+4,+5
+Orbits=Rn 5f2 6d1 7s2
 
 [92]
 Name=Uranium
@@ -1889,6 +1891,7 @@ IE=6.08
 IE2=
 AR=138.5
 Ox=+3,+4,+5,+6,+7
+Orbits=Rn 5f3 6d1 7s2
 
 [93]
 Name=Neptunium
@@ -1908,6 +1911,7 @@ IE=
 IE2=
 AR=131
 Ox=+4,+3,+5,+7
+Orbits=Rn 5f4 6d1 7s2
 
 [94]
 Name=Plutonium
@@ -1927,6 +1931,7 @@ IE=5.8
 IE2=
 AR=151
 Ox=+3,+4,+5,+6,+7
+Orbits=Rn 5f6 7s2
 
 [95]
 Name=Americium
@@ -1946,6 +1951,7 @@ IE=6.0
 IE2=
 AR=184
 Ox=+2,+3,+4,+5,+6
+Orbits=Rn 5f7 7s2
 
 [96]
 Name=Curium
@@ -1965,6 +1971,7 @@ IE=
 IE2=
 AR=
 Ox=+3,+4
+Orbits=Rn 5f7 6d1 7s2
 
 [97]
 Name=Berkelium
@@ -1984,6 +1991,7 @@ IE=
 IE2=
 AR=
 Ox=+3,+4
+Orbits=Rn 5f9 7s2
 
 [98]
 Name=Californium
@@ -2003,6 +2011,7 @@ IE=
 IE2=
 AR=
 Ox=+3,+4
+Orbits=Rn 5f10 7s2
 
 [99]
 Name=Einsteinium
@@ -2022,6 +2031,7 @@ IE=
 IE2=
 AR=
 Ox=+2,+3
+Orbits=Rn 5f11 7s2
 
 [100]
 Name=Fermium
@@ -2038,6 +2048,7 @@ MP=1800
 BP=
 Density=
 IE= 
+Orbits=Rn 5f12 7s2
 IE2=
 AR=
 Ox=+2,+3
@@ -2060,6 +2071,7 @@ IE=
 IE2=
 AR=
 Ox=+2,+3
+Orbits=Rn 5f13 7s2
 
 [102]
 Name=Nobelium
@@ -2079,6 +2091,7 @@ IE=
 IE2=
 AR=
 Ox=+2,+3
+Orbits=Rn 5f14 7s2
 
 [103]
 Name=Lawrencium
@@ -2096,6 +2109,7 @@ BP=
 Density=
 IE= 
 IE2=
+Orbits=Rn 5f14 7s2 7p1
 AR=
 Ox=+3
 
@@ -2116,6 +2130,7 @@ Density=
 IE= 
 IE2=
 AR=
+Orbits=Rn 5f14 6d2 7s2
 Ox=+3
 
 [105]
