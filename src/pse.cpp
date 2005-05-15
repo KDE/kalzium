@@ -292,9 +292,6 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	if ( doFullDraw ) {
 		p.begin( table );
 		p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); //CN what is this line for?
-		//X     if ( m_showSOM )
-		//X       drawSOMPSE( &p );
-		//X     else
 		drawPSE( &p, m_isSimple );
 
 		if ( m_showLegend )
@@ -307,8 +304,6 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 				Element *e = d->element( m_tooltipElementNumber );
 				drawToolTip( &p, e );
 			}
-			else
-				qWarning( "wrong number" );
 		}
 		
 		p.end();

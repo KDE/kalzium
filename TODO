@@ -1,7 +1,13 @@
-TODO for Kalzium 1.1:
-
+TODO for Kalzium 1.5:
 Priority 1:
-	- Quiz
+	- A math dialog:
+	  -- integrate EqChem http://www.kde-apps.org/content/show.php?content=14542
+	  -- Adding a calculator for molecular weights
+
+	- Finish the learning mode
+	  -- Make the state-of-matter work
+	  -- Make the timeline work
+	  -- Add more texts for the groups and periods
 
 Priority 2:
 	- Different EN-Values
