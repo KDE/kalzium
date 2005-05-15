@@ -303,15 +303,19 @@ void Kalzium::openInformationDialog( int number )
 {
 	if ( !m_PSE->learningMode() )
 	{
-		Element *e = data()->element( number );
-
-		DetailedInfoDlg *detailedDlg = new DetailedInfoDlg( data(), e, this , "detailedDlg" );
-		detailedDlg->show();
 		m_info->hide();
+		DetailedInfoDlg info_dlg( data(), data()->element(number), this , "detailedDlg" );
+
+		m_PSE->setShowTooltip(false);
+		info_dlg.exec();
+		m_PSE->setShowTooltip(true);
+
+		
 	}
 	else
 	{
-		m_info->show( );
+		m_info->exec();
+		m_PSE->setShowTooltip(false);
 	}
 }
 

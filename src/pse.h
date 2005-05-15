@@ -115,6 +115,10 @@ class PSE : public QWidget
 			m_temperature = temp;
 		}
 
+		void setShowTooltip( bool show ){
+			m_showTooltip = show;
+		}
+
 		/**
 		 * @para simple if true the table will only show the p and s block
 		 */
@@ -294,8 +298,8 @@ class PSE : public QWidget
 		void slotUpdatePoint( QPoint point );
 
 		/**
-		 * sets the current element to @p number, activates
-		 * the tooltipmode and updates the table
+		 * sets the current element to @p number
+		 * and updates the table
 		 */
 		void slotToolTip( int number );
 

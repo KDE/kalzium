@@ -48,7 +48,7 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 
 	m_molcalcIsActive = false;
 	m_learningMode = false;
-	m_showTooltip = false;
+	m_showTooltip = true;
 	m_timeline = false;
 	m_showSOM = false;
 
@@ -102,7 +102,6 @@ void PSE::slotToolTip( int number )
 {
 	if ( m_learningMode ) return;
 
-	m_showTooltip = true;
 	m_tooltipElementNumber = number;
 	update();
 }
@@ -323,6 +322,8 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 void PSE::drawToolTip( QPainter* p, Element *e )
 {
 	if ( !e ) return;
+
+	if(!m_showTooltip) return;
 	
 	const int x1 = mapFromGlobal( QCursor::pos() ).x();
 	const int y1 = mapFromGlobal( QCursor::pos() ).y();
@@ -391,7 +392,6 @@ void PSE::slotTransientLabel( void )
 
 void PSE::mouseMoveEvent( QMouseEvent *mouse )
 {
-	m_showTooltip = false;
 	HoverTimer.start(  2000, false );
 }
 
