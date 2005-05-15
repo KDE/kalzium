@@ -2373,10 +2373,9 @@
 		<radius>
 			<atomic>270</atomic>
 		</radius>
-		<orbits>Rd 7s1</orbits>
+		<orbits>Rn 7s1</orbits>
 		<oxydation>+1</oxydation>
 		<family>Alkali_Earth</family>
-
 	</element>
 	<element>
 		<number>88</number>
@@ -2394,16 +2393,14 @@
 		<boilingpoint>1413</boilingpoint>
 		<density>5.50</density>
 		<ionisationenergy>
-			<energy>5.279 </energy>
-
+			<energy>5.279</energy>
 		</ionisationenergy>
 		<radius>
 			<atomic>223</atomic>
 		</radius>
-		<orbits>Rd 7s2</orbits>
+		<orbits>Rn 7s2</orbits>
 		<oxydation>+2</oxydation>
 		<family>Alkaline_Earth</family>
-
 	</element>
 	<element>
 		<number>89</number>
@@ -2427,10 +2424,9 @@
 		<radius>
 			<atomic>187.8</atomic>
 		</radius>
-		<orbits>Rd 6d1 7s2</orbits>
+		<orbits>Rn 6d1 7s2</orbits>
 		<oxydation>(+2),+3</oxydation>
 		<family>Rare_Earth</family>
-
 	</element>
 	<element>
 		<number>90</number>
@@ -2456,6 +2452,7 @@
 		</radius>
 		<oxydation>+3,+4</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 6d2 7s2</orbits>
 	</element>
 	<element>
 		<number>91</number>
@@ -2477,6 +2474,7 @@
 		</radius>
 		<oxydation>+4,+5</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 5f2 6d1 7s2</orbits>
 	</element>
 	<element>
 		<number>92</number>
@@ -2495,14 +2493,13 @@
 		<density>18.97</density>
 		<ionisationenergy>
 			<energy>6.08 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<atomic>138.5</atomic>
 		</radius>
 		<oxydation>+3,+4,+5,+6,+7</oxydation>
 		<family>Rare_Earth</family>
-
+		<orbits>Rn 5f3 6d1 7s2</orbits>
 	</element>
 	<element>
 		<number>93</number>
@@ -2520,14 +2517,13 @@
 		<boilingpoint>4175</boilingpoint>
 		<density>20.48</density>
 		<ionisationenergy>
-
-
 		</ionisationenergy>
 		<radius>
 			<atomic>131</atomic>
 		</radius>
 		<oxydation>+4,+3,+5,+7</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 5f4 6d1 7s2</orbits>
 	</element>
 	<element>
 		<number>94</number>
@@ -2552,6 +2548,7 @@
 		</radius>
 		<oxydation>+3,+4,+5,+6,+7</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 5f6 7s2</orbits>
 	</element>
 	<element>
 		<number>95</number>
@@ -2576,6 +2573,7 @@
 		</radius>
 		<oxydation>+2,+3,+4,+5,+6</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 5f7 7s2</orbits>
 	</element>
 	<element>
 		<number>96</number>
@@ -2594,6 +2592,7 @@
 		<density>13.51</density>
 		<oxydation>+3,+4</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 5f7 6d2 7s2</orbits>
 	</element>
 	<element>
 		<number>97</number>
@@ -2612,6 +2611,7 @@
 		<density>13.25</density>
 		<oxydation>+3,+4</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 5f9 7s2</orbits>
 	</element>
 	<element>
 		<number>98</number>
@@ -2630,6 +2630,7 @@
 		<density>15.1</density>
 		<oxydation>+3,+4</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 5f10 7s2</orbits>
 	</element>
 	<element>
 		<number>99</number>
@@ -2646,6 +2647,7 @@
 		<meltingpoint>1130</meltingpoint>
 		<oxydation>+2,+3</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 5f11 7s2</orbits>
 	</element>
 	<element>
 		<number>100</number>
@@ -2662,6 +2664,7 @@
 		<meltingpoint>1800</meltingpoint>
 		<oxydation>+2,+3</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 5f12 7s2</orbits>
 	</element>
 	<element>
 		<number>101</number>
@@ -2678,6 +2681,7 @@
 		<meltingpoint>1100</meltingpoint>
 		<oxydation>+2,+3</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 5f13 7s2</orbits>
 	</element>
 	<element>
 		<number>102</number>
@@ -2694,6 +2698,7 @@
 		<meltingpoint>1100</meltingpoint>
 		<oxydation>+2,+3</oxydation>
 		<family>Rare_Earth</family>
+		<orbits>Rn 5f14 7s2</orbits>
 	</element>
 	<element>
 		<number>103</number>
@@ -2711,15 +2716,13 @@
 		<boilingpoint></boilingpoint>
 		<density></density>
 		<ionisationenergy>
-
-
 		</ionisationenergy>
 		<radius>
 			<atomic></atomic>
 		</radius>
 		<oxydation>+3</oxydation>
 		<family>Rare_Earth</family>
-
+		<orbits>Rn 5f14 7s2 7p1</orbits>
 	</element>
 	<element>
 		<number>104</number>
@@ -2737,15 +2740,13 @@
 		<boilingpoint></boilingpoint>
 		<density></density>
 		<ionisationenergy>
-
-
 		</ionisationenergy>
 		<radius>
 			<atomic></atomic>
 		</radius>
 		<oxydation>+3</oxydation>
 		<family>Transition</family>
-
+		<orbits>Rn 5f14 6d2 7s2</orbits>
 	</element>
 	<element>
 		<number>105</number>
@@ -2763,8 +2764,6 @@
 		<boilingpoint></boilingpoint>
 		<density></density>
 		<ionisationenergy>
-
-
 		</ionisationenergy>
 		<radius>
 			<atomic></atomic>
