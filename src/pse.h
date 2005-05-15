@@ -84,6 +84,7 @@ class PSE : public QWidget
 		 */
 		void setNumerationType( int num ){
 			m_num = num;
+			update();
 		}
 
 		/**

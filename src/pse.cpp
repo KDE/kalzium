@@ -352,20 +352,63 @@ void PSE::drawNumeration( QPainter* p )
 {
 	if ( !p ) return;
 
+	const int ELEMENTSIZE = 45;
+
 	switch(m_num){
 		case PSE::NO:
 			return;
 		case PSE::CAS:
-			p->drawText( 10, height()-180, i18n( "CAS ")); 
+			if (m_isSimple)
+			{
+				for(int i = 0; i < 18 ; ++i )
+				{
+					if(i > 2 && i < 12 ) continue;
+					if(i < 2 ) 
+						p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, QString::number(i+1));
+					if(i > 11 )
+						p->drawText( (i-10)*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, QString::number(i+1));
+				}
+			}else
+				for(int i = 0; i < 18 ; ++i )
+				{
+					p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, QString::number(i+1));
+				}
 			break;
 		case PSE::IUPAC:
-			p->drawText( 10, height()-180, i18n( "IUPAC "));
+			if (m_isSimple)
+			{
+				for(int i = 0; i < 18 ; ++i )
+				{
+					if(i > 2 && i < 12 ) continue;
+					if(i < 2 ) 
+						p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPAClist[i]);
+					if(i > 11 )
+						p->drawText( (i-10)*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPAClist[i]);
+				}
+			}else
+				for(int i = 0; i < 18 ; ++i )
+				{
+					p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPAClist[i]);
+				}
 			break;
 		case PSE::IUPACOLD:
-			p->drawText( 10, height()-180, i18n( "IUPACOLD ")); 
+			if (m_isSimple)
+			{
+				for(int i = 0; i < 18 ; ++i )
+				{
+					if(i > 2 && i < 12 ) continue;
+					if(i < 2 ) 
+						p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPACOLDlist[i]);
+					if(i > 11 )
+						p->drawText( (i-10)*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPACOLDlist[i]);
+				}
+			}else
+			for(int i = 0; i < 18 ; ++i )
+			{
+				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPACOLDlist[i]);
+			}
 			break;
 	}
-
 }
 
 	
@@ -403,7 +446,7 @@ void PSE::slotTransientLabel( void )
 		emit ToolTip( num );
 }
 
-void PSE::mouseMoveEvent( QMouseEvent *mouse )
+void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 {
 	HoverTimer.start(  2000, false );
 }
