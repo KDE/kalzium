@@ -324,14 +324,10 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 {
 	if ( !e ) return;
 	
-	int x1 = mapFromGlobal( QCursor::pos() ).x();
-	int y1 = mapFromGlobal( QCursor::pos() ).y();
-	int w = 100;
-	int h = 100;
-
-	//coordinates for element symbol: near the center
-	int xA = x1 + w - (  4 * w / 10 );
-	int yA = y1 + h - ( h / 2 );
+	const int x1 = mapFromGlobal( QCursor::pos() ).x();
+	const int y1 = mapFromGlobal( QCursor::pos() ).y();
+	const int w = 200;
+	const int h = 75;
 
 	p->setBrush(Qt::SolidPattern);
 	p->setBrush( Qt::yellow );
@@ -340,33 +336,16 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 	p->setBrush( Qt::black );
 	p->setBrush(Qt::NoBrush);
 
-	QFont fA = KGlobalSettings::generalFont();
 	QFont fB = KGlobalSettings::generalFont();
-	QFont fC = KGlobalSettings::generalFont();
 
-	fA.setPointSize( fA.pointSize() + 20 ); //Huge font
-	fA.setBold( true );
-	fB.setPointSize( fB.pointSize() + 6 ); //Big font
-	fC.setPointSize( fC.pointSize() + 4 ); //Big font
-	fC.setBold( true );
-	QFontMetrics fmA = QFontMetrics( fA );
+	fB.setPointSize( fB.pointSize() + 4 );
+	
 	QFontMetrics fmB = QFontMetrics( fB );
-	QFontMetrics fmC = QFontMetrics( fC );
 
-	//coordinates for the atomic number: offset from element symbol to the upper left
-	int xB = xA - fmB.width( QString::number( e->number() ) );
-	int yB = yA - fmA.height() + fmB.height();
-
-	//Atomic number
 	p->setFont( fB );
-	p->drawText( xB, yB, QString::number( e->number() ));
-
-	//Name and other data
-	p->setFont( fC );
-	//Name
-	p->drawText( x1, y1+15, i18n( e->elname().utf8() )); 
-	//Weight
-	p->drawText( x1, y1+h-15, QString::number( e->weight() )); 
+	p->drawText( x1, y1+15, i18n( "Name: %1").arg(e->elname().utf8() )); 
+	p->drawText( x1, y1+35, i18n("Number: %1").arg( QString::number( e->number() )));
+	p->drawText( x1, y1+55, i18n("Weight: %1 u").arg(QString::number( e->weight() ))); 
 }
 
 
