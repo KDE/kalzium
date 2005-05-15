@@ -118,7 +118,7 @@ void Kalzium::setupActions()
 	m_pCalcAction = new KAction(i18n("&Calculate Molecular Weights"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_weights");
 
 	//Legend
-	m_pLengendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
+	m_pLegendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
 	
 	m_pLearningmodeAction = new KAction(i18n("Enter Learning Mode"), "legend", 0, this, SLOT(slotLearningmode()), actionCollection(), "learning_mode");
 
@@ -207,6 +207,17 @@ void Kalzium::slotCalculate()
 
 void Kalzium::slotShowLegend()
 {
+	if(m_PSE->showLegend())
+	{
+		m_PSE->showLegend(false);
+		m_pLegendAction->setText(i18n("Show &Legend"));
+	}
+	else
+	{
+		m_PSE->showLegend(true);
+		m_pLegendAction->setText(i18n("Hide &Legend"));
+	}
+	
 	//save the settings
 	Prefs::setShowlegend( m_PSE->showLegend() ); 
 	Prefs::writeConfig();

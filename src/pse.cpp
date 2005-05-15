@@ -100,17 +100,11 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 
 void PSE::slotToolTip( int number )
 {
-	if ( m_learningMode ) return;
-
 	m_tooltipElementNumber = number;
 	update();
 }
 
 PSE::~PSE(){}
-
-void PSE::updateNumeration()
-{
-}
 
 void PSE::activateColorScheme( const int nr )
 {
@@ -296,6 +290,8 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 
 		if ( m_showLegend )
 			drawLegend( &p );
+
+		drawNumeration( &p );
 		
 		if ( m_showTooltip )
 		{
@@ -347,8 +343,30 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 
 void PSE::drawLegend( QPainter* p )
 {
+	if ( !p ) return;
+
+	p->drawText( 10, height()-80, i18n( "Name test123 ")); 
 }
 
+void PSE::drawNumeration( QPainter* p )
+{
+	if ( !p ) return;
+
+	switch(m_num){
+		case PSE::NO:
+			return;
+		case PSE::CAS:
+			p->drawText( 10, height()-180, i18n( "CAS ")); 
+			break;
+		case PSE::IUPAC:
+			p->drawText( 10, height()-180, i18n( "IUPAC "));
+			break;
+		case PSE::IUPACOLD:
+			p->drawText( 10, height()-180, i18n( "IUPACOLD ")); 
+			break;
+	}
+
+}
 
 	
 void PSE::drawSOMPSE( QPainter* p )

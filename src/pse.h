@@ -84,7 +84,6 @@ class PSE : public QWidget
 		 */
 		void setNumerationType( int num ){
 			m_num = num;
-			updateNumeration();
 		}
 
 		/**
@@ -202,11 +201,6 @@ class PSE : public QWidget
 		 */
 		int ElementNumber( int x, int y );
 
-		/**
-		 * updates the numeration of the PSE
-		 */
-		virtual void updateNumeration();
-
 		///the currently selected element (the x/y-coordinates)
 		QPoint m_currentPoint;
 
@@ -263,6 +257,9 @@ class PSE : public QWidget
 
 		///draw the lengend
 		virtual void drawLegend( QPainter* p );
+		
+		//draw the numeration
+		virtual void drawNumeration( QPainter* p );
 
 	public slots:	
 		void setDate( int date ){
@@ -280,7 +277,7 @@ class PSE : public QWidget
 
 		/**
 		 * start the calculation of the element over which the mouse-cursor
-		 * is over. Finally the siganl ToolTip( int ) is emitted
+		 * is over. Finally the signal ToolTip( int ) is emitted
 		 */
 		void slotTransientLabel();
 		
@@ -311,7 +308,6 @@ class PSE : public QWidget
 		 * has to be displayed
 		 */
 		void ToolTip(int);
-
 };
 
 

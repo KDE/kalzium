@@ -97,7 +97,7 @@ class Kalzium : public KMainWindow
 			   *m_pPlotAction,
 			    *m_pSOMAction,
 				*m_pCalcAction,
-				*m_pLengendAction,
+				*m_pLegendAction,
 				*m_pLearningmodeAction;
 		
 		/**
