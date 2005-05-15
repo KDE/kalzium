@@ -5,9 +5,7 @@
   <Action name="numerationtype" />
   <Menu name="miscmenu">
 	<text>&amp;Miscellaneous</text>
-	<Action name="use_timeline" />
 	<Action name="plotdata" />
-	<Action name="show_som" />
     <Action name="toggle_legend" />
     <Action name="calculate_weights" />
     <Action name="learning_mode" />
