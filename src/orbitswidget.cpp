@@ -18,13 +18,19 @@
 
 #include "orbitswidget.h"
 
+#include <kdebug.h>
+
 //QT-Includes
 #include <qpainter.h>
 #include <qregexp.h>
 
-OrbitsWidget::OrbitsWidget( const int ElemNo , QWidget *parent, const char *name) : QWidget( parent, name )
+OrbitsWidget::OrbitsWidget( QWidget *parent, const char *name) : QWidget( parent, name )
 {
-	Elemno = ElemNo;
+}
+
+void OrbitsWidget::setElementNumber( const int num )
+{
+	Elemno = num;
 	
 	hulllist.append( "1" );
 	hulllist.append( "2" );     //Helium
