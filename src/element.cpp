@@ -35,7 +35,6 @@
 
 #include <qpainter.h>
 
-#define ELEMENTSIZE 45
 
 Element::Element()
 {

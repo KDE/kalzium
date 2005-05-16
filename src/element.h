@@ -20,6 +20,8 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
+#define ELEMENTSIZE 45
+
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>
 #include <qdom.h>

@@ -19,6 +19,7 @@
  ***************************************************************************/
 #include "pse.h"
 #include "prefs.h"
+#include "element.h"
 #include "infodialog_small_impl.h"
 #include "detailinfodlg.h"
 
@@ -108,10 +109,12 @@ PSE::~PSE(){}
 
 void PSE::activateColorScheme( const int nr )
 {
+	m_currentScheme = nr;
+	
 	EList::Iterator it = d->ElementList.begin();
 	const EList::Iterator itEnd = d->ElementList.end();
 
-	if ( nr == 0) //normal view, no colors
+	if ( nr == PSE::NOCOLOUR ) //normal view, no colors
 	{
 		const QColor color = Prefs::noscheme();
 		while ( it != itEnd )
@@ -120,7 +123,7 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( nr == 1) //groups view
+	else if ( nr == PSE::GROUPS ) //groups view
 	{
 		const QColor color_1 = Prefs::group_1();
 		const QColor color_2 = Prefs::group_2();
@@ -165,7 +168,7 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( nr == 2) //block view
+	else if ( nr == PSE::BLOCK ) //block view
 	{
 		const QColor color_s = Prefs::block_s();
 		const QColor color_p = Prefs::block_p();
@@ -192,7 +195,7 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( nr == 3) //acidic beh
+	else if ( nr == PSE::ACIDIC ) //acidic beh
 	{
 		const QColor color_ba = Prefs::beh_basic();
 		const QColor color_ac = Prefs::beh_acidic();
@@ -220,7 +223,7 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( nr == 4) //familiy of the element
+	else if ( nr ==  PSE::FAMILY ) //familiy of the element
 	{
 		const QColor c_alkalie = Prefs::alkalie();
 		const QColor c_rare = Prefs::rare();
@@ -345,14 +348,90 @@ void PSE::drawLegend( QPainter* p )
 {
 	if ( !p ) return;
 
-	p->drawText( 10, height()-80, i18n( "Name test123 ")); 
+	//the y-postion of the legend
+	int Y = ELEMENTSIZE;
+	int tableW = ELEMENTSIZE;
+	m_isSimple ? tableW *= 8 : tableW *= 18;
+	m_isSimple ? Y *= 9 : Y *= 11;
+
+	const int fieldsize = tableW/8;
+	const int fieldheight = 20;
+
+	/** old code **/
+	switch ( m_currentScheme ) {
+		case PSE::NOCOLOUR:
+			break;
+		case PSE::BLOCK:
+			{
+				const QColor color_s = Prefs::block_s();
+				const QColor color_p = Prefs::block_p();
+				const QColor color_d = Prefs::block_d();
+				const QColor color_f = Prefs::block_f();
+				p->fillRect(fieldsize*3, Y, fieldsize, fieldheight, color_s ); 
+				p->fillRect(fieldsize*4, Y, fieldsize, fieldheight, color_p ); 
+				p->fillRect(fieldsize*5, Y, fieldsize, fieldheight, color_d ); 
+				p->fillRect(fieldsize*6, Y, fieldsize, fieldheight, color_f ); 
+				break;
+			}
+		case PSE::GROUPS:
+			{
+				const QColor color_1 = Prefs::group_1();
+				const QColor color_2 = Prefs::group_2();
+				const QColor color_3 = Prefs::group_3();
+				const QColor color_4 = Prefs::group_4();
+				const QColor color_5 = Prefs::group_5();
+				const QColor color_6 = Prefs::group_6();
+				const QColor color_7 = Prefs::group_7();
+				const QColor color_8 = Prefs::group_8();
+				p->fillRect( fieldsize , Y, fieldsize, fieldheight, color_1 ); 
+				p->fillRect( fieldsize*2 , Y, fieldsize, fieldheight, color_2 ); 
+				p->fillRect( fieldsize*3 , Y, fieldsize, fieldheight, color_3 ); 
+				p->fillRect( fieldsize*4 , Y, fieldsize, fieldheight, color_4 ); 
+				p->fillRect( fieldsize*5 , Y, fieldsize, fieldheight, color_6 ); 
+				p->fillRect( fieldsize*6 , Y, fieldsize, fieldheight, color_7 ); 
+				p->fillRect( fieldsize*7 , Y, fieldsize, fieldheight, color_8 ); 
+				break;
+			}
+		case PSE::ACIDIC:
+			{
+				const QColor color_ba = Prefs::beh_basic();
+				const QColor color_ac = Prefs::beh_acidic();
+				const QColor color_neu = Prefs::beh_neutral();
+				const QColor color_amp = Prefs::beh_amphoteric();
+				p->fillRect(fieldsize*3, Y, fieldsize, fieldheight, color_ba ); 
+				p->fillRect(fieldsize*4, Y, fieldsize, fieldheight, color_ac ); 
+				p->fillRect(fieldsize*5, Y, fieldsize, fieldheight, color_neu ); 
+				p->fillRect(fieldsize*6, Y, fieldsize, fieldheight, color_amp ); 
+				break;
+			}
+		case PSE::FAMILY:
+			{
+				const QColor c_alkalie = Prefs::alkalie();
+				const QColor c_rare = Prefs::rare();
+				const QColor c_nonmetal = Prefs::nonmetal();
+				const QColor c_alkaline = Prefs::alkaline();
+				const QColor c_other_metal = Prefs::other_metal();
+				const QColor c_halogene = Prefs::halogene();
+				const QColor c_transition = Prefs::transition();
+				const QColor c_noble_gas = Prefs::noble_gas();
+				const QColor c_metalloid = Prefs::metalloid();
+				p->fillRect( fieldsize , Y, fieldsize, fieldheight, c_alkaline ); 
+				p->fillRect( fieldsize*2 , Y, fieldsize, fieldheight, c_rare ); 
+				p->fillRect( fieldsize*3 , Y, fieldsize, fieldheight, c_nonmetal ); 
+				p->fillRect( fieldsize*4 , Y, fieldsize, fieldheight, c_alkaline ); 
+				p->fillRect( fieldsize*5 , Y, fieldsize, fieldheight, c_other_metal ); 
+				p->fillRect( fieldsize*2 , Y+fieldheight+1, fieldsize, fieldheight, c_halogene ); 
+				p->fillRect( fieldsize*3 , Y+fieldheight+1, fieldsize, fieldheight, c_transition ); 
+				p->fillRect( fieldsize*4 , Y+fieldheight+1, fieldsize, fieldheight, c_noble_gas ); 
+				p->fillRect( fieldsize*5 , Y+fieldheight+1, fieldsize, fieldheight, c_metalloid ); 
+				break;
+			}
+	}
 }
 
 void PSE::drawNumeration( QPainter* p )
 {
 	if ( !p ) return;
-
-	const int ELEMENTSIZE = 45;
 
 	switch(m_num){
 		case PSE::NO:
@@ -507,11 +586,9 @@ int PSE::ElementNumber( int X, int Y )
 void PSE::slotLock(bool locked)
 {
 	if(locked){
-		kdDebug() << "die bool ist true" << endl;
 		setShowTooltip(false);
 	}
 	else{
-		kdDebug() << "die bool ist false" << endl;
 		setShowTooltip(true);
 	}
 }

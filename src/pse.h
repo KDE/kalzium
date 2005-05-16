@@ -49,6 +49,15 @@ class PSE : public QWidget
 		PSE( KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
 		~PSE();
 
+		enum SCHEMETYPE
+		{
+			NOCOLOUR = 0,
+			GROUPS,
+			BLOCK,
+			ACIDIC,
+			FAMILY
+		};
+		
 		enum NUMERATIONTYPE
 		{
 			NO=0,              //no numeration
@@ -172,10 +181,12 @@ class PSE : public QWidget
 			return m_date;
 		}
 
-
 	private:
 		///the date used in the timeline
 		int m_date;
+
+		///the current colourscheme
+		int m_currentScheme;
 		
 		bool m_timeline;
 		
