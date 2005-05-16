@@ -293,6 +293,8 @@ class PSE : public QWidget
 		 */
 		void slotToolTip( int number );
 
+		void slotLock(bool);
+
 	signals:
 		/**
 		 * this signal is emited when the table is clicked

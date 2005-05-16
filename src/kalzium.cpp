@@ -54,11 +54,8 @@ Kalzium::Kalzium()
 	m_PSE = new PSE( data(), CentralWidget, "PSE");
 
 	connect( m_PSE, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
+	connect( this, SIGNAL( tableLocked( bool ) ), m_PSE, SLOT( slotLock(bool ) ));
 	
-	m_info = new InformationWidget( m_PSE );
-	connect( m_PSE, SIGNAL( tableClicked( QPoint ) ), m_info, SLOT( slotUpdate( QPoint ) ) );
-	connect( m_info->buttonGroup, SIGNAL( clicked(int) ), m_PSE , SLOT( setLearningMode(int) ) );
-
 	// Layouting
 	m_pCentralLayout->addWidget( m_PSE );
 
@@ -111,9 +108,7 @@ void Kalzium::setupActions()
 	/*
 	 * the misc actions
 	 **/
-	m_pTimelineAction = new KAction(i18n("Show &Timeline"), "timeline", 0, this, SLOT(slotShowTimeline()), actionCollection(), "use_timeline");
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
-	m_pSOMAction = new KAction(i18n("&Show State of Matter"), "chemical", 0, this, SLOT(slotStateOfMatter()), actionCollection(), "show_som");
 	
 	m_pCalcAction = new KAction(i18n("&Calculate Molecular Weights"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_weights");
 
@@ -137,15 +132,24 @@ void Kalzium::setupActions()
 
 void Kalzium::slotLearningmode()
 {
+	kdDebug() << "slotLearningmode() " << endl;
 	if ( m_PSE->learningMode() )
 	{
+		m_pLearningmodeAction->setText(i18n("Enter &Learningmode"));
 		m_PSE->setLearning( false );
-		m_info->hide();
+		emit tableLocked(false);
 	}
 	else
 	{
+		emit tableLocked(true);
+		m_pLearningmodeAction->setText(i18n("Leave &Learningmode"));
 		m_PSE->setLearning( true );
-		m_info->show();
+		InformationWidget *l_dlg = new InformationWidget( m_PSE );
+		connect( m_PSE, SIGNAL( tableClicked( QPoint ) ), l_dlg, SLOT( slotUpdate( QPoint ) ) );
+		connect( l_dlg->buttonGroup, SIGNAL( clicked(int) ), m_PSE , SLOT( setLearningMode(int) ) );
+		connect( l_dlg, SIGNAL( closed() ), this , SLOT( slotLearningmode() ) );
+
+		l_dlg->show();
 	}
 }
 
@@ -165,30 +169,6 @@ void Kalzium::setupStatusBar()
 void Kalzium::slotStatusBar(const QString& text, int id)
 {
 	statusBar()->changeItem(text, id);
-}
-
-void Kalzium::slotShowTimeline()
-{
-	if ( m_PSE->timeline() )
-	{//don NOT display the timeline
-		m_PSE->setTimeline( false );
-		m_pTimelineAction->setText(i18n("Show &Timeline"));
-		
-		Prefs::setSliderdate( m_PSE->date() );
-
-		m_info->show();
-		m_info->showTimeline();
-	}
-	else
-	{
-		m_PSE->setTimeline( true );
-		m_PSE->setDate( Prefs::sliderdate() );
-		m_pTimelineAction->setText(i18n("Hide &Timeline"));
-		
-		m_info->hide();
-	}
-	
-	Prefs::writeConfig();
 }
 
 void Kalzium::slotPlotData()
@@ -290,43 +270,15 @@ void Kalzium::displayEnergie()
  	slotStatusBar(i18n("the argument %1 is the unit of the energy (eV or kj/mol)", "Energy: %1").arg( string ),  IDS_ENERG);
 }
 
-void Kalzium::slotStateOfMatter()
-{
-	if ( m_PSE->som() )
-	{
-		m_PSE->activateSOMMode( false );
-		m_info->show( );
-		m_info->showSOM();
-	}
-	else
-	{
-		m_PSE->activateSOMMode( true );
-		m_info->hide();
-	}
-		
-	Prefs::setShowsom( m_PSE->som() ); 
-	Prefs::writeConfig();
-
-}
-
-
 void Kalzium::openInformationDialog( int number )
 {
 	if ( !m_PSE->learningMode() )
 	{
-		m_info->hide();
+		emit tableLocked(true);
 		DetailedInfoDlg info_dlg( data(), data()->element(number), this , "detailedDlg" );
 
-		m_PSE->setShowTooltip(false);
 		info_dlg.exec();
-		m_PSE->setShowTooltip(true);
-
-		
-	}
-	else
-	{
-		m_info->exec();
-		m_PSE->setShowTooltip(false);
+		emit tableLocked(false);
 	}
 }
 

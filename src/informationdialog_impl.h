@@ -7,6 +7,7 @@
 #include <qpoint.h>
 #include <qdom.h>
 #include <qstring.h>
+#include <qevent.h>
 
 class InformationWidget : public InformationDialog
 {
@@ -28,7 +29,11 @@ class InformationWidget : public InformationDialog
 		QString getDesc(QPoint);
 
 	public slots:
+		void closeEvent(QCloseEvent*e);
 		void slotUpdate( QPoint point );
+
+	signals:
+		void closed();
 };
 
 class QuizXMLParser

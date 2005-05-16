@@ -93,9 +93,7 @@ class Kalzium : public KMainWindow
 		KSelectAction *schema_action;
 		KSelectAction *look_action;
 		KSelectAction *numeration_action;
-		KAction *m_pTimelineAction,
-			   *m_pPlotAction,
-			    *m_pSOMAction,
+		KAction *m_pPlotAction,
 				*m_pCalcAction,
 				*m_pLegendAction,
 				*m_pLearningmodeAction;
@@ -118,8 +116,6 @@ class Kalzium : public KMainWindow
 		
 		void slotShowLegend();
 		
-		void slotStateOfMatter();
-
 		void slotSwitchtoNumeration(int);
 
 		void slotPlotData();
@@ -127,11 +123,6 @@ class Kalzium : public KMainWindow
 		void slotCalculate();
 		
 		void slotLearningmode();
-
-		/**
-		 * this slot activates the timeline.
-		 */
-		void slotShowTimeline();
 
 		void slotUpdateSettings();
 	
@@ -145,6 +136,14 @@ class Kalzium : public KMainWindow
 		 * These slots are for the standardactions
 		 */
 		void showSettingsDialog();
+
+	signals:
+		/**
+		 * this signal is emited when the user activated a dialog.
+		 * For example, no tooltips will be displayed until
+		 * tableLocked(false) is emited
+		 */
+		void tableLocked(bool);
 };
 
 /**

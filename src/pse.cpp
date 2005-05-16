@@ -504,6 +504,18 @@ int PSE::ElementNumber( int X, int Y )
 	return 0;
 }
 
+void PSE::slotLock(bool locked)
+{
+	if(locked){
+		kdDebug() << "die bool ist true" << endl;
+		setShowTooltip(false);
+	}
+	else{
+		kdDebug() << "die bool ist false" << endl;
+		setShowTooltip(true);
+	}
+}
+
 void PSE::slotUpdatePoint( QPoint point )
 {
 	m_currentPoint = point;

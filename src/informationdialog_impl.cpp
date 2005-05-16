@@ -23,8 +23,15 @@ InformationWidget::InformationWidget( QWidget *parent )
 	buttonGroup->setButton( 0 );
 }
 
+void InformationWidget::closeEvent(QCloseEvent* e)
+{
+	QWidget::closeEvent(e);
+	emit closed();
+}
+
 void InformationWidget::slotUpdate( QPoint point )
 {
+	kdDebug() << "InformationWidget::slotUpdate" << endl;
 	QString appBaseDir = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
 	appBaseDir.append("kalzium/data/");
 	appBaseDir.append("bg.jpg");
@@ -56,6 +63,8 @@ QString InformationWidget::getDesc( QPoint point )
 		fn = "periods.xml";
 		position = point.y();
 	}
+
+	kdDebug() << "Position: " << position << endl;
 
 	QuizXMLParser parser;
 	QDomDocument doc(  "periods" );
