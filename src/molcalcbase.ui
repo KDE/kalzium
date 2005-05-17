@@ -154,7 +154,7 @@
                                             <bool>true</bool>
                                         </property>
                                         <property name="toolTip" stdset="0">
-                                            <string>h</string>
+                                            <string></string>
                                         </property>
                                     </widget>
                                     <spacer>
