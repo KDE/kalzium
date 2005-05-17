@@ -25,6 +25,7 @@
 
 #include <qlabel.h>
 #include <qmap.h>
+#include <qtooltip.h>
 
 MolcalcImpl::MolcalcImpl(KalziumDataObject *data, QWidget *parent, const char *name, bool modal )
  : MolcalcDialog(parent, name, modal)
@@ -33,6 +34,8 @@ MolcalcImpl::MolcalcImpl(KalziumDataObject *data, QWidget *parent, const char *n
 
 	m_data = data;
 
+	QToolTip::add( plusButton, i18n( "If this button is selected, a selected element will be added to the molecule" ) );
+	QToolTip::add( minusButton, i18n( "If this button is selected, a selected element will be removed from the molecule" ) );
 	connect( plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
 	connect( minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
 }
