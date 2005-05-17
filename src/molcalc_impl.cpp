@@ -36,6 +36,8 @@ MolcalcImpl::MolcalcImpl(KalziumDataObject *data, QWidget *parent, const char *n
 
 	QToolTip::add( plusButton, i18n( "If this button is selected, a selected element will be added to the molecule" ) );
 	QToolTip::add( minusButton, i18n( "If this button is selected, a selected element will be removed from the molecule" ) );
+	plusButton->setGuiItem( KGuiItem(i18n( "Add" ), "add")  );
+	minusButton->setGuiItem( KGuiItem(i18n( "Remove" ), "remove")  );
 	connect( plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
 	connect( minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
 }
