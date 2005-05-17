@@ -1,5 +1,5 @@
 /***************************************************************************
-    copyright            : (C) 2003, 2004 by Carsten Niehaus
+    copyright            : (C) 2003, 2004, 2005 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 /***************************************************************************
@@ -132,7 +132,6 @@ void Kalzium::setupActions()
 
 void Kalzium::slotLearningmode()
 {
-	kdDebug() << "slotLearningmode() " << endl;
 	if ( m_PSE->learningMode() )
 	{
 		m_pLearningmodeAction->setText(i18n("Enter &Learningmode"));

@@ -366,6 +366,7 @@ void PSE::drawLegend( QPainter* p )
 	int fieldheight = 20;        //the height of a legend field
 
 	switch ( m_currentScheme ) {
+		//No Legend to be drawn as only one colour is used
 		case PSE::NOCOLOUR:
 			break;
 		case PSE::BLOCK:
@@ -414,6 +415,7 @@ void PSE::drawLegend( QPainter* p )
 			}
 		case PSE::FAMILY:
 			{
+				//increase the width a little as the names are rather long
 				fieldsize += 20;
 				
 				p->fillRect( fieldsize , Y, fieldsize, fieldheight, c_alkaline ); 
@@ -444,6 +446,8 @@ void PSE::drawNumeration( QPainter* p )
 {
 	if ( !p ) return;
 
+	//I always need to check if the user is locking at the simple or the 
+	//regular PSE. Depending on that I need diffrent positions
 	switch(m_num){
 		case PSE::NO:
 			return;
@@ -544,7 +548,9 @@ void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 								//is not repainted.
 								//Of course, this causes a gazillion repaints.
 								//I need to bitBlt the table because of this.
+	
 	HoverTimer.start(  2000, false );
+
 //	update();       //XXX As soon as the bitBlt work this has to be activated (I think).
                     //Jason: If you find a smarter way than invalitating the 
 					//current tooltip-number: Feel free to implement that or
@@ -554,8 +560,8 @@ void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 {
 	///first: find out the position
-	
 	int X = mouse->x()/ELEMENTSIZE;
+	
 	//for the y-position I need to substract ELEMENTSIZE pixel because
 	//the whole table doesn't start at (0,0) but at (0,ELEMENTSIZE)
 	int Y = ( mouse->y()-ELEMENTSIZE)/ELEMENTSIZE;
@@ -574,6 +580,8 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 	emit tableClicked( point );
 	
 	const int num = ElementNumber( X, Y );
+
+	//If no element was clicked ElementNumber() will return 0
 	if ( num )
 		emit ElementClicked( num );
 }
@@ -608,13 +616,11 @@ int PSE::ElementNumber( int X, int Y )
 
 void PSE::slotLock()
 {
-	kdDebug() << "PSE::slotLock()" << endl;
 	setShowTooltip(true);
 }
 
 void PSE::slotLock(bool locked)
 {
-	kdDebug() << "PSE::slotLock(bool)" << endl;
 	if(locked){
 		setShowTooltip(false);
 	}
