@@ -35,11 +35,13 @@ class MolcalcImpl : public MolcalcDialog
 	public:
 		/**
 		 * Constructor
-		 * @param el is the element which data will be used
+		 * @param data stores all the information about the elements
 		 */
-		MolcalcImpl( QWidget *parent = 0, const char *name = 0, bool modal = FALSE);
+		MolcalcImpl( KalziumDataObject *data , QWidget *parent = 0, const char *name = 0, bool modal = FALSE);
 
 	private:
+		KalziumDataObject *m_data;
+		
 		double m_weight;
 		QValueList<Element*> m_elements;
 
@@ -49,15 +51,26 @@ class MolcalcImpl : public MolcalcDialog
 			REMOVE = 1
 		};
 		
+		/**
+		 * updates the list of elements and calles updateUI()
+		 */
 		void updateData( int number, KIND kind );
 
+		/**
+		 * return the html-code of a elementsymbol and it's subscripted
+		 * amount. Eg Mg<sub>2</sub>
+		 */
 		QString composition( QMap<Element*,int> );
 
 		/**
-		 * recalcualtes the weight
+		 * recalculates the weight
 		 */
 		void recalculate();
 
+		/**
+		 * this methods gathers all the data and updates the
+		 * data
+		 */
 		void updateUI();
 
 	public slots:
@@ -66,6 +79,11 @@ class MolcalcImpl : public MolcalcDialog
 		void slotMinusToggled(bool on);
 
 		void slotPlusToggled(bool on);
+		
+		void closeEvent(QCloseEvent*e);
+	
+	signals:
+		void closed();
 };
 		
 

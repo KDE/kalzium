@@ -23,15 +23,15 @@
 #include <klocale.h>
 #include <kpushbutton.h>
 
-#include "element.h"
-
 #include <qlabel.h>
 #include <qmap.h>
 
-MolcalcImpl::MolcalcImpl(QWidget *parent, const char *name, bool modal )
+MolcalcImpl::MolcalcImpl(KalziumDataObject *data, QWidget *parent, const char *name, bool modal )
  : MolcalcDialog(parent, name, modal)
 {
 	m_weight = 0;
+
+	m_data = data;
 
 	connect( plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
 	connect( minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
@@ -39,8 +39,6 @@ MolcalcImpl::MolcalcImpl(QWidget *parent, const char *name, bool modal )
 
 void MolcalcImpl::slotButtonClicked( int buttonnumber )
 {
-	//kdDebug() << "slotButtonClicked( int buttonnumber ) ... " << buttonnumber << endl;
-
 	if ( plusButton->isOn() )
 		updateData( buttonnumber, ADD );
 	else
@@ -49,35 +47,52 @@ void MolcalcImpl::slotButtonClicked( int buttonnumber )
 
 void MolcalcImpl::updateData( int number, KIND kind )
 {
-//TODO XML
-//X 	Element *el = new Element( number );
-//X 	if ( kind == ADD )
-//X 	{
-//X 		//kdDebug() << "ADD" << endl;
-//X 		m_weight += el->weight();
-//X 		m_elements.append( el );
-//X 	}
-//X 	else //TODO check if the element was in the list
-//X 	{
-//X 		//kdDebug() << "REMOVE" << endl;
-//X 
-//X 		QValueList<Element*>::const_iterator it = m_elements.begin( );
-//X 		QValueList<Element*>::const_iterator itEnd = m_elements.end( );
-//X 
-//X 		//kdDebug() << "Try to remove Element " << el->elname() << endl;
-//X 
-//X 		bool removed = false;
-//X 		while ( !removed && ( it != itEnd ))
-//X 		{
-//X 				if ( ( *it )->elname() == el->elname() )
-//X 				{
-//X 					m_elements.remove( *it );
-//X 					removed = true;
-//X 				}
-//X 				it++;
-//X 		}
-//X 	}
-//X 	updateUI();
+	Element *el = m_data->element( number );
+	
+	if ( kind == ADD )
+	{//adding the element
+		m_weight += el->weight();
+		m_elements.append( el );
+	}
+	else
+	{//removing the element in case there was at least on such element
+	 //added before
+		QValueList<Element*>::const_iterator it = m_elements.begin( );
+		QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+
+		//I am not sure if this is the best way, but at least it works. 
+		//QValueList<> can't simple remove a *it, it would remove all (!!)
+		//element of the same kind, for example all Carbon-elements.
+		//Therefore I am using two list, a positive-match and a negative-match
+		//list. Afterwards I append all but one elements of the positive-list
+		//to the negative list. In the end I "removed" one element.
+		QValueList<Element*> tmpList;
+		QValueList<Element*> tmpList2;
+
+		for ( ; it != itEnd ; ++it )
+		{
+			if ( ( *it )->elname() != el->elname() )
+			{//negative-list
+				tmpList.append( *it );
+			}
+			if ( ( *it )->elname() == el->elname() )
+			{//positive-list
+				tmpList2.append( *it );
+			}
+		}
+		
+		//I need to iterate it2 in order to skip on element
+		QValueList<Element*>::const_iterator it2 = tmpList2.begin(); it2++;
+		QValueList<Element*>::const_iterator itEnd2 = tmpList2.end(); 
+		for ( ; it2 != itEnd2 ; ++it2 )
+		{ 
+			tmpList.append( *it2 ); 
+		}
+
+		m_elements = tmpList;
+	}
+	//the list is updated, now update the User Interface
+	updateUI();
 }
 
 void MolcalcImpl::slotPlusToggled(bool on)
@@ -87,7 +102,6 @@ void MolcalcImpl::slotPlusToggled(bool on)
 
 void MolcalcImpl::recalculate()
 {
-	//kdDebug() << "# of elements: " << m_elements.count() << endl;
 	QValueList<Element*>::const_iterator it = m_elements.begin( );
 	const QValueList<Element*>::const_iterator itEnd = m_elements.end( );
 
@@ -172,5 +186,11 @@ void MolcalcImpl::slotMinusToggled(bool on)
 {
 	on ? plusButton->setOn( false ) : plusButton->setOn( true );
 }	
+
+void MolcalcImpl::closeEvent(QCloseEvent* e)
+{
+	QWidget::closeEvent(e);
+	emit closed();
+}
 
 #include "molcalc_impl.moc"

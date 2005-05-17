@@ -52,55 +52,89 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	m_showTooltip = true;
 	m_timeline = false;
 	m_showSOM = false;
-
-//IUPAC
-	    m_IUPAClist.append( "IA");
-	    m_IUPAClist.append( "IIA");
-	    m_IUPAClist.append( "IIIB");
-	    m_IUPAClist.append( "IVB");
-	    m_IUPAClist.append( "VB");
-	    m_IUPAClist.append( "VIB");
-	    m_IUPAClist.append( "VIIB");
-	    m_IUPAClist.append( "VIII");
-	    m_IUPAClist.append( "VIII");
-	    m_IUPAClist.append( "VIII");
-	    m_IUPAClist.append( "IB");
-	    m_IUPAClist.append( "IIB");
-	    m_IUPAClist.append( "IIIA");
-	    m_IUPAClist.append( "IVA");
-	    m_IUPAClist.append( "VA");
-	    m_IUPAClist.append( "VIA");
-	    m_IUPAClist.append( "VIIA");
-	    m_IUPAClist.append( "VIIIA");
-
-//oldIUPAC
-	    m_IUPACOLDlist.append( "1A");
-	    m_IUPACOLDlist.append( "2A");
-	    m_IUPACOLDlist.append( "3A");
-	    m_IUPACOLDlist.append( "4A");
-	    m_IUPACOLDlist.append( "5A");
-	    m_IUPACOLDlist.append( "6A");
-	    m_IUPACOLDlist.append( "7A");
-	    m_IUPACOLDlist.append( "8");
-	    m_IUPACOLDlist.append( "8");
-	    m_IUPACOLDlist.append( "8");
-	    m_IUPACOLDlist.append( "1B");
-	    m_IUPACOLDlist.append( "2B");
-	    m_IUPACOLDlist.append( "3B");
-	    m_IUPACOLDlist.append( "4B");
-	    m_IUPACOLDlist.append( "5B");
-	    m_IUPACOLDlist.append( "6B");
-	    m_IUPACOLDlist.append( "7B");
-	    m_IUPACOLDlist.append( "0");
 	
-      table = new QPixmap();
-      
-      //JH: For now, always do a full draw
-      doFullDraw = true;
+	showLegend( Prefs::showlegend() );
+
+	reloadColours();
+
+	//IUPAC
+	m_IUPAClist.append( "IA");
+	m_IUPAClist.append( "IIA");
+	m_IUPAClist.append( "IIIB");
+	m_IUPAClist.append( "IVB");
+	m_IUPAClist.append( "VB");
+	m_IUPAClist.append( "VIB");
+	m_IUPAClist.append( "VIIB");
+	m_IUPAClist.append( "VIII");
+	m_IUPAClist.append( "VIII");
+	m_IUPAClist.append( "VIII");
+	m_IUPAClist.append( "IB");
+	m_IUPAClist.append( "IIB");
+	m_IUPAClist.append( "IIIA");
+	m_IUPAClist.append( "IVA");
+	m_IUPAClist.append( "VA");
+	m_IUPAClist.append( "VIA");
+	m_IUPAClist.append( "VIIA");
+	m_IUPAClist.append( "VIIIA");
+
+	//oldIUPAC
+	m_IUPACOLDlist.append( "1A");
+	m_IUPACOLDlist.append( "2A");
+	m_IUPACOLDlist.append( "3A");
+	m_IUPACOLDlist.append( "4A");
+	m_IUPACOLDlist.append( "5A");
+	m_IUPACOLDlist.append( "6A");
+	m_IUPACOLDlist.append( "7A");
+	m_IUPACOLDlist.append( "8");
+	m_IUPACOLDlist.append( "8");
+	m_IUPACOLDlist.append( "8");
+	m_IUPACOLDlist.append( "1B");
+	m_IUPACOLDlist.append( "2B");
+	m_IUPACOLDlist.append( "3B");
+	m_IUPACOLDlist.append( "4B");
+	m_IUPACOLDlist.append( "5B");
+	m_IUPACOLDlist.append( "6B");
+	m_IUPACOLDlist.append( "7B");
+	m_IUPACOLDlist.append( "0");
+
+	table = new QPixmap();
+
+	//JH: For now, always do a full draw
+	doFullDraw = true;
+}
+
+void PSE::reloadColours()
+{
+	color_s = Prefs::block_s();
+	color_p = Prefs::block_p();
+	color_d = Prefs::block_d();
+	color_f = Prefs::block_f();
+	color_1 = Prefs::group_1();
+	color_2 = Prefs::group_2();
+	color_3 = Prefs::group_3();
+	color_4 = Prefs::group_4();
+	color_5 = Prefs::group_5();
+	color_6 = Prefs::group_6();
+	color_7 = Prefs::group_7();
+	color_8 = Prefs::group_8();
+	color_ba = Prefs::beh_basic();
+	color_ac = Prefs::beh_acidic();
+	color_neu = Prefs::beh_neutral();
+	color_amp = Prefs::beh_amphoteric();
+	c_alkalie = Prefs::alkalie();
+	c_rare = Prefs::rare();
+	c_nonmetal = Prefs::nonmetal();
+	c_alkaline = Prefs::alkaline();
+	c_other_metal = Prefs::other_metal();
+	c_halogene = Prefs::halogene();
+	c_transition = Prefs::transition();
+	c_noble_gas = Prefs::noble_gas();
+	c_metalloid = Prefs::metalloid();
 }
 
 void PSE::slotToolTip( int number )
 {
+	if ( !m_showTooltip ) return; //don't update if the table is locked
 	m_tooltipElementNumber = number;
 	update();
 }
@@ -114,7 +148,7 @@ void PSE::activateColorScheme( const int nr )
 	EList::Iterator it = d->ElementList.begin();
 	const EList::Iterator itEnd = d->ElementList.end();
 
-	if ( nr == PSE::NOCOLOUR ) //normal view, no colors
+	if ( m_currentScheme == PSE::NOCOLOUR ) //normal view, no colors
 	{
 		const QColor color = Prefs::noscheme();
 		while ( it != itEnd )
@@ -123,16 +157,8 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( nr == PSE::GROUPS ) //groups view
+	else if ( m_currentScheme == PSE::GROUPS ) //groups view
 	{
-		const QColor color_1 = Prefs::group_1();
-		const QColor color_2 = Prefs::group_2();
-		const QColor color_3 = Prefs::group_3();
-		const QColor color_4 = Prefs::group_4();
-		const QColor color_5 = Prefs::group_5();
-		const QColor color_6 = Prefs::group_6();
-		const QColor color_7 = Prefs::group_7();
-		const QColor color_8 = Prefs::group_8();
 
 		static QString group;
 
@@ -168,13 +194,8 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( nr == PSE::BLOCK ) //block view
+	else if ( m_currentScheme == PSE::BLOCK ) //block view
 	{
-		const QColor color_s = Prefs::block_s();
-		const QColor color_p = Prefs::block_p();
-		const QColor color_d = Prefs::block_d();
-		const QColor color_f = Prefs::block_f();
-
 		static QString block;
 		while ( it != itEnd )
 		{
@@ -195,13 +216,8 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( nr == PSE::ACIDIC ) //acidic beh
+	else if ( m_currentScheme == PSE::ACIDIC ) //acidic beh
 	{
-		const QColor color_ba = Prefs::beh_basic();
-		const QColor color_ac = Prefs::beh_acidic();
-		const QColor color_neu = Prefs::beh_neutral();
-		const QColor color_amp = Prefs::beh_amphoteric();
-
 		static QString acidicbeh;
 		
 		while ( it != itEnd )
@@ -223,18 +239,8 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( nr ==  PSE::FAMILY ) //familiy of the element
+	else if ( m_currentScheme ==  PSE::FAMILY ) //familiy of the element
 	{
-		const QColor c_alkalie = Prefs::alkalie();
-		const QColor c_rare = Prefs::rare();
-		const QColor c_nonmetal = Prefs::nonmetal();
-		const QColor c_alkaline = Prefs::alkaline();
-		const QColor c_other_metal = Prefs::other_metal();
-		const QColor c_halogene = Prefs::halogene();
-		const QColor c_transition = Prefs::transition();
-		const QColor c_noble_gas = Prefs::noble_gas();
-		const QColor c_metalloid = Prefs::metalloid();
-
 		static QString family;
 
 		while ( it != itEnd )
@@ -269,17 +275,15 @@ void PSE::activateColorScheme( const int nr )
 				(*it)->setElementColor( c_halogene );
 			}
 			
-
 			++it;
 		}
 	}
 		
 }
 
-
 void PSE::resizeEvent( QResizeEvent * /*e*/ ) 
 {
-  table->resize( width(), height() );  
+  table->resize( width(), height() );
 }
 
 void PSE::paintEvent( QPaintEvent * /*e*/ )
@@ -288,13 +292,13 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 
 	if ( doFullDraw ) {
 		p.begin( table );
-		p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); //CN what is this line for?
+		p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
 		drawPSE( &p, m_isSimple );
 
+		drawNumeration( &p );
+		
 		if ( m_showLegend )
 			drawLegend( &p );
-
-		drawNumeration( &p );
 		
 		if ( m_showTooltip )
 		{
@@ -332,12 +336,9 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 	p->setBrush(Qt::NoBrush);
 
 	QFont fB = KGlobalSettings::generalFont();
-
 	fB.setPointSize( fB.pointSize() + 4 );
-	
-	QFontMetrics fmB = QFontMetrics( fB );
-
 	p->setFont( fB );
+	
 	p->drawText( x1, y1+15, i18n( "Name: %1").arg(e->elname().utf8() )); 
 	p->drawText( x1, y1+35, i18n("Number: %1").arg( QString::number( e->number() )));
 	p->drawText( x1, y1+55, i18n("Weight: %1 u").arg(QString::number( e->weight() ))); 
@@ -347,83 +348,93 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 void PSE::drawLegend( QPainter* p )
 {
 	if ( !p ) return;
+	
+	QFont legendFont = KGlobalSettings::generalFont();
+	legendFont.setPointSize( legendFont.pointSize() + 1 );
+	p->setFont( legendFont );
 
-	//the y-postion of the legend
 	int Y = ELEMENTSIZE;
 	int tableW = ELEMENTSIZE;
+
+	//If the table is the simple type the width has to be smaller.
+	//For the full PSE the width will be bigger.
+	//The second line calculates the position of the legend
 	m_isSimple ? tableW *= 8 : tableW *= 18;
 	m_isSimple ? Y *= 9 : Y *= 11;
 
-	const int fieldsize = tableW/8;
-	const int fieldheight = 20;
+	int fieldsize = tableW/8;    //the width of a legend-field
+	int fieldheight = 20;        //the height of a legend field
 
-	/** old code **/
 	switch ( m_currentScheme ) {
 		case PSE::NOCOLOUR:
 			break;
 		case PSE::BLOCK:
 			{
-				const QColor color_s = Prefs::block_s();
-				const QColor color_p = Prefs::block_p();
-				const QColor color_d = Prefs::block_d();
-				const QColor color_f = Prefs::block_f();
-				p->fillRect(fieldsize*3, Y, fieldsize, fieldheight, color_s ); 
-				p->fillRect(fieldsize*4, Y, fieldsize, fieldheight, color_p ); 
-				p->fillRect(fieldsize*5, Y, fieldsize, fieldheight, color_d ); 
-				p->fillRect(fieldsize*6, Y, fieldsize, fieldheight, color_f ); 
+				p->fillRect(fieldsize*2, Y, fieldsize, fieldheight, color_s ); 
+				p->fillRect(fieldsize*3, Y, fieldsize, fieldheight, color_p ); 
+				p->fillRect(fieldsize*4, Y, fieldsize, fieldheight, color_d ); 
+				p->fillRect(fieldsize*5, Y, fieldsize, fieldheight, color_f ); 
+				p->drawText(fieldsize*2, Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("s-Block") ); 
+				p->drawText(fieldsize*3, Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("p-Block") ); 
+				p->drawText(fieldsize*4, Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("d-Block") ); 
+				p->drawText(fieldsize*5, Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("f-Block") ); 
 				break;
 			}
 		case PSE::GROUPS:
 			{
-				const QColor color_1 = Prefs::group_1();
-				const QColor color_2 = Prefs::group_2();
-				const QColor color_3 = Prefs::group_3();
-				const QColor color_4 = Prefs::group_4();
-				const QColor color_5 = Prefs::group_5();
-				const QColor color_6 = Prefs::group_6();
-				const QColor color_7 = Prefs::group_7();
-				const QColor color_8 = Prefs::group_8();
-				p->fillRect( fieldsize , Y, fieldsize, fieldheight, color_1 ); 
-				p->fillRect( fieldsize*2 , Y, fieldsize, fieldheight, color_2 ); 
-				p->fillRect( fieldsize*3 , Y, fieldsize, fieldheight, color_3 ); 
-				p->fillRect( fieldsize*4 , Y, fieldsize, fieldheight, color_4 ); 
-				p->fillRect( fieldsize*5 , Y, fieldsize, fieldheight, color_6 ); 
-				p->fillRect( fieldsize*6 , Y, fieldsize, fieldheight, color_7 ); 
-				p->fillRect( fieldsize*7 , Y, fieldsize, fieldheight, color_8 ); 
+				p->fillRect( fieldsize , Y, fieldsize, fieldheight, color_1); 
+				p->fillRect( fieldsize*2 , Y, fieldsize, fieldheight, color_2); 
+				p->fillRect( fieldsize*3 , Y, fieldsize, fieldheight, color_3); 
+				p->fillRect( fieldsize*4 , Y, fieldsize, fieldheight, color_4); 
+				p->fillRect( fieldsize , Y+fieldheight+1, fieldsize, fieldheight, color_5); 
+				p->fillRect( fieldsize*2 , Y+fieldheight+1, fieldsize, fieldheight, color_6); 
+				p->fillRect( fieldsize*3 , Y+fieldheight+1, fieldsize, fieldheight, color_7); 
+				p->fillRect( fieldsize*4 , Y+fieldheight+1, fieldsize, fieldheight, color_8 ); 
+				p->drawText( fieldsize , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 1") ); 
+				p->drawText( fieldsize*2 , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 2")); 
+				p->drawText( fieldsize*3 , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 3")); 
+				p->drawText( fieldsize*4 , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 4")); 
+				p->drawText( fieldsize , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 5")); 
+				p->drawText( fieldsize*2 , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 6")); 
+				p->drawText( fieldsize*3 , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 7")); 
+				p->drawText( fieldsize*4 , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 8")); 
 				break;
 			}
 		case PSE::ACIDIC:
 			{
-				const QColor color_ba = Prefs::beh_basic();
-				const QColor color_ac = Prefs::beh_acidic();
-				const QColor color_neu = Prefs::beh_neutral();
-				const QColor color_amp = Prefs::beh_amphoteric();
-				p->fillRect(fieldsize*3, Y, fieldsize, fieldheight, color_ba ); 
-				p->fillRect(fieldsize*4, Y, fieldsize, fieldheight, color_ac ); 
-				p->fillRect(fieldsize*5, Y, fieldsize, fieldheight, color_neu ); 
-				p->fillRect(fieldsize*6, Y, fieldsize, fieldheight, color_amp ); 
+				p->fillRect(fieldsize*2, Y, fieldsize, fieldheight, color_ba ); 
+				p->fillRect(fieldsize*3, Y, fieldsize, fieldheight, color_ac ); 
+				p->fillRect(fieldsize*4, Y, fieldsize, fieldheight, color_neu ); 
+				p->fillRect(fieldsize*5, Y, fieldsize, fieldheight, color_amp ); 
+				p->drawText(fieldsize*2, Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Basic") ); 
+				p->drawText(fieldsize*3, Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Acidic") ); 
+				p->drawText(fieldsize*4, Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Neutral") ); 
+				p->drawText(fieldsize*5, Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("both acidic and basic behaviour","Amphoteric") ); 
 				break;
 			}
 		case PSE::FAMILY:
 			{
-				const QColor c_alkalie = Prefs::alkalie();
-				const QColor c_rare = Prefs::rare();
-				const QColor c_nonmetal = Prefs::nonmetal();
-				const QColor c_alkaline = Prefs::alkaline();
-				const QColor c_other_metal = Prefs::other_metal();
-				const QColor c_halogene = Prefs::halogene();
-				const QColor c_transition = Prefs::transition();
-				const QColor c_noble_gas = Prefs::noble_gas();
-				const QColor c_metalloid = Prefs::metalloid();
+				fieldsize += 20;
+				
 				p->fillRect( fieldsize , Y, fieldsize, fieldheight, c_alkaline ); 
 				p->fillRect( fieldsize*2 , Y, fieldsize, fieldheight, c_rare ); 
 				p->fillRect( fieldsize*3 , Y, fieldsize, fieldheight, c_nonmetal ); 
-				p->fillRect( fieldsize*4 , Y, fieldsize, fieldheight, c_alkaline ); 
+				p->fillRect( fieldsize*4 , Y, fieldsize, fieldheight, c_alkalie ); 
 				p->fillRect( fieldsize*5 , Y, fieldsize, fieldheight, c_other_metal ); 
 				p->fillRect( fieldsize*2 , Y+fieldheight+1, fieldsize, fieldheight, c_halogene ); 
 				p->fillRect( fieldsize*3 , Y+fieldheight+1, fieldsize, fieldheight, c_transition ); 
 				p->fillRect( fieldsize*4 , Y+fieldheight+1, fieldsize, fieldheight, c_noble_gas ); 
 				p->fillRect( fieldsize*5 , Y+fieldheight+1, fieldsize, fieldheight, c_metalloid ); 
+
+				p->drawText( fieldsize , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Alkaline") ); 
+				p->drawText( fieldsize*2 , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Rare Earth")); 
+				p->drawText( fieldsize*3 , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Non-Metals")); 
+				p->drawText( fieldsize*4 , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Alkalie-Metals")); 
+				p->drawText( fieldsize*5 , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Other Metal")); 
+				p->drawText( fieldsize*2 , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Halogene")); 
+				p->drawText( fieldsize*3 , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Transition-Metal")); 
+				p->drawText( fieldsize*4 , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Noble Gas")); 
+				p->drawText( fieldsize*5 , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Metalloid")); 
 				break;
 			}
 	}
@@ -505,11 +516,11 @@ void PSE::drawSOMPSE( QPainter* p )
 
 void PSE::slotTransientLabel( void )
 {
-	int X = mapFromGlobal( QCursor::pos() ).x()/45;
-	int Y = mapFromGlobal( QCursor::pos() ).y()/45;
+	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
+	int Y = mapFromGlobal( QCursor::pos() ).y()/ELEMENTSIZE;
 	if ( m_isSimple )
 	{
-		if ( mapFromGlobal( QCursor::pos() ).x() > ( 2*45 ) )
+		if ( mapFromGlobal( QCursor::pos() ).x() > ( 2*ELEMENTSIZE ) )
 		{
 			X += 10;
 		}
@@ -527,18 +538,30 @@ void PSE::slotTransientLabel( void )
 
 void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 {
+	m_tooltipElementNumber = 0; //this invalidates the number. If the mouse
+	                            //is moved, the number is invalid. On the next 
+								//update() this will cause that the tooltip
+								//is not repainted.
+								//Of course, this causes a gazillion repaints.
+								//I need to bitBlt the table because of this.
 	HoverTimer.start(  2000, false );
+//	update();       //XXX As soon as the bitBlt work this has to be activated (I think).
+                    //Jason: If you find a smarter way than invalitating the 
+					//current tooltip-number: Feel free to implement that or
+					//tell me how to implement it.
 }
 
 void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 {
 	///first: find out the position
 	
-	int X = mouse->x()/45;
-	int Y = mouse->y()/45;
+	int X = mouse->x()/ELEMENTSIZE;
+	//for the y-position I need to substract ELEMENTSIZE pixel because
+	//the whole table doesn't start at (0,0) but at (0,ELEMENTSIZE)
+	int Y = ( mouse->y()-ELEMENTSIZE)/ELEMENTSIZE;
 	if ( m_isSimple )
 	{
-		if ( mouse->x() > ( 2*45 ) )
+		if ( mouse->x() > ( 2*ELEMENTSIZE ) )
 		{
 			X += 10;
 		}
@@ -565,14 +588,14 @@ int PSE::ElementNumber( int X, int Y )
 	int counter = 1;
 	while ( it != d->CoordinateList.end() )
 	{//iterate through the list of coordinates and compare the x/y values.
-	 //finally, if the 20'es iterator has the same cooridnates Element 20
+	 //finally, if the 20'es iterator has the same coordinates Element 20
 	 //has been clicked.
 	
 		coordinate c = *it;
 		if ( c.x == X )
 		{
 			if ( c.y == Y )
-			{//coordinates match. Get the position of the it in the list.
+			{//coordinates match. Return the number of the element.
 				return counter;
 			}
 		}
@@ -583,8 +606,15 @@ int PSE::ElementNumber( int X, int Y )
 	return 0;
 }
 
+void PSE::slotLock()
+{
+	kdDebug() << "PSE::slotLock()" << endl;
+	setShowTooltip(true);
+}
+
 void PSE::slotLock(bool locked)
 {
+	kdDebug() << "PSE::slotLock(bool)" << endl;
 	if(locked){
 		setShowTooltip(false);
 	}
@@ -618,7 +648,6 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 			( *it )->drawHighlight( p, coordinate, m_Vertikal );
 		++it;
 	}
-
 }
 
 

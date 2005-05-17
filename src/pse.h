@@ -128,6 +128,11 @@ class PSE : public QWidget
 			m_showTooltip = show;
 		}
 
+		///return if the table is locked
+		bool showTooltip() const {
+			return m_showTooltip;
+		}
+
 		/**
 		 * @para simple if true the table will only show the p and s block
 		 */
@@ -180,6 +185,12 @@ class PSE : public QWidget
 		int date() const{
 			return m_date;
 		}
+
+		/**
+		 * load the colours from the config-file. This is done
+		 * on startup and everytime the user changed the configuration
+		 */
+		void reloadColours();
 
 	private:
 		///the date used in the timeline
@@ -251,6 +262,33 @@ class PSE : public QWidget
 		///used for bitBlit. If true the complete table will be drawn
 		bool doFullDraw;
 		
+		//I am holding all colours as member so that they don't need to 
+		//be reloaded on every reload
+		QColor color_s;//Blocks
+		QColor color_p;
+		QColor color_d;
+		QColor color_f;
+		QColor color_1;//Groups
+		QColor color_2;
+		QColor color_3;
+		QColor color_4;
+		QColor color_5;
+		QColor color_6;
+		QColor color_7;
+		QColor color_8;
+		QColor color_ba;//Acidic
+		QColor color_ac;
+		QColor color_neu;
+		QColor color_amp;
+		QColor c_alkalie;//Family
+		QColor c_rare;
+		QColor c_nonmetal;
+		QColor c_alkaline;
+		QColor c_other_metal;
+		QColor c_halogene; 
+		QColor c_transition;
+		QColor c_noble_gas;
+		QColor c_metalloid;
 		
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
@@ -305,6 +343,7 @@ class PSE : public QWidget
 		void slotToolTip( int number );
 
 		void slotLock(bool);
+		void slotLock();
 
 	signals:
 		/**

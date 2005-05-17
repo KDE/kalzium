@@ -66,5 +66,11 @@ KDE_ICON = AUTO
 kalzium_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
 messages: rc.cpp
+	extractstrings
 	$(XGETTEXT) *.cpp -o $(podir)/kalzium.pot
+	
+extractstrings:
+	touch i18n_temp.cpp
+	grep name data/data.xml | sed s/\<name\>/i18n\(\"/ | sed s/\<\\/name\>/\"\)\;/ > i18n_temp.cpp
+
 

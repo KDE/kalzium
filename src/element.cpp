@@ -17,6 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #include "element.h"
 #include "prefs.h"
 #include <qregexp.h>
@@ -103,7 +104,7 @@ const QString Element::adjustUnits( const int type )
 			{
 				val*=96.6;
 				v = QString::number( val );
-				v.append( "kj/mol" );
+				v.append( "kJ/mol" );
 			}
 			else // use electronvolt
 			{

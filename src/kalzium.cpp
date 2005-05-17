@@ -147,7 +147,7 @@ void Kalzium::slotLearningmode()
 		InformationWidget *l_dlg = new InformationWidget( m_PSE );
 		connect( m_PSE, SIGNAL( tableClicked( QPoint ) ), l_dlg, SLOT( slotUpdate( QPoint ) ) );
 		connect( l_dlg->buttonGroup, SIGNAL( clicked(int) ), m_PSE , SLOT( setLearningMode(int) ) );
-		connect( l_dlg, SIGNAL( closed() ), this , SLOT( slotLearningmode() ) );
+		connect( l_dlg, SIGNAL( closed() ), m_PSE, SLOT(slotLock()) );
 
 		l_dlg->show();
 	}
@@ -179,9 +179,11 @@ void Kalzium::slotPlotData()
 
 void Kalzium::slotCalculate()
 {
-	m_PSE->activateMolcalcmode( true );
+	emit tableLocked(true);
 
-	MolcalcImpl *dlg = new MolcalcImpl( this, "molcalcdialog" );
+	MolcalcImpl *dlg = new MolcalcImpl( data(), this, "molcalcdialog" );
+	connect( m_PSE, SIGNAL( ElementClicked( int ) ), dlg, SLOT(slotButtonClicked( int )) );
+	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(slotLock()) );
 	dlg->show();
 }
 
@@ -205,8 +207,6 @@ void Kalzium::slotShowLegend()
 
 void Kalzium::slotShowScheme(int i)
 {
-	kdDebug() << "Kalzium::slotShowScheme() " << i << endl;
-	
 	m_PSE->activateColorScheme( i );
 	m_PSE->update();
 	
@@ -223,8 +223,6 @@ void Kalzium::slotSwitchtoNumeration( int index )
 
 void Kalzium::slotSwitchtoPSE(int index)
 {
-	kdDebug() << "pse is: " << index << endl;
-	
 	if ( index == 0 )
 		m_PSE->setPSEType( true );//simple
 	else
@@ -252,6 +250,7 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotUpdateSettings()
 {
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
+	m_PSE->reloadColours();
 
 	displayEnergie();
 }
@@ -261,18 +260,18 @@ void Kalzium::displayEnergie()
  	QString string;
  	switch (Prefs::units()) {
      		case 0:
- 			string = i18n("kJ/mol");
+ 			string = i18n("kilojoule per mol. Please enter a capital 'J'", "kJ/mol");
  			break;
  		case 1:
  			string = i18n("the symbol for electronvolt", "eV");
  			break;
  	}
- 	slotStatusBar(i18n("the argument %1 is the unit of the energy (eV or kj/mol)", "Energy: %1").arg( string ),  IDS_ENERG);
+ 	slotStatusBar(i18n("the argument %1 is the unit of the energy (eV or kJ/mol)", "Energy: %1").arg( string ),  IDS_ENERG);
 }
 
 void Kalzium::openInformationDialog( int number )
 {
-	if ( !m_PSE->learningMode() )
+	if ( !m_PSE->learningMode() && m_PSE->showTooltip() )
 	{
 		emit tableLocked(true);
 		DetailedInfoDlg info_dlg( data(), data()->element(number), this , "detailedDlg" );
@@ -285,6 +284,124 @@ void Kalzium::openInformationDialog( int number )
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
 
 Kalzium::~Kalzium(){}
+
+//The names of the elements are stored in a xml-file. As they need to be
+//grepped for the translation I am putting them here so that xgettext
+//is adding them to the pot-file.
+#if 0
+	i18n("Hydrogen");
+	i18n("Helium");
+	i18n("Lithium");
+	i18n("Beryllium");
+	i18n("Boron");
+	i18n("Carbon");
+	i18n("Nitrogen");
+	i18n("Oxygen");
+	i18n("Fluorine");
+	i18n("Neon");
+	i18n("Sodium");
+	i18n("Magnesium");
+	i18n("Aluminum");
+	i18n("Silicon");
+	i18n("Phosphorus");
+	i18n("Sulfur");
+	i18n("Chlorine");
+	i18n("Argon");
+	i18n("Potassium");
+	i18n("Calcium");
+	i18n("Scandium");
+	i18n("Titanium");
+	i18n("Vanadium");
+	i18n("Chromium");
+	i18n("Manganese");
+	i18n("Iron");
+	i18n("Cobalt");
+	i18n("Nickel");
+	i18n("Copper");
+	i18n("Zinc");
+	i18n("Gallium");
+	i18n("Germanium");
+	i18n("Arsenic");
+	i18n("Selenium");
+	i18n("Bromine");
+	i18n("Krypton");
+	i18n("Rubidium");
+	i18n("Strontium");
+	i18n("Yttrium");
+	i18n("Zirconium");
+	i18n("Niobium");
+	i18n("Molybdenum");
+	i18n("Technetium");
+	i18n("Ruthenium");
+	i18n("Rhodium");
+	i18n("Palladium");
+	i18n("Silver");
+	i18n("Cadmium");
+	i18n("Indium");
+	i18n("Tin");
+	i18n("Antimony");
+	i18n("Tellurium");
+	i18n("Iodine");
+	i18n("Xenon");
+	i18n("Caesium");
+	i18n("Barium");
+	i18n("Lanthanum");
+	i18n("Cerium");
+	i18n("Praseodymium");
+	i18n("Neodymium");
+	i18n("Promethium");
+	i18n("Samarium");
+	i18n("Europium");
+	i18n("Gadolinium");
+	i18n("Terbium");
+	i18n("Dysprosium");
+	i18n("Holmium");
+	i18n("Erbium");
+	i18n("Thulium");
+	i18n("Ytterbium");
+	i18n("Lutetium");
+	i18n("Hafnium");
+	i18n("Tantalum");
+	i18n("Tungsten");
+	i18n("Rhenium");
+	i18n("Osmium");
+	i18n("Iridium");
+	i18n("Platinum");
+	i18n("Gold");
+	i18n("Mercury");
+	i18n("Thallium");
+	i18n("Lead");
+	i18n("Bismuth");
+	i18n("Polonium");
+	i18n("Astatine");
+	i18n("Radon");
+	i18n("Francium");
+	i18n("Radium");
+	i18n("Actinium");
+	i18n("Thorium");
+	i18n("Protactinium");
+	i18n("Uranium");
+	i18n("Neptunium");
+	i18n("Plutonium");
+	i18n("Americium");
+	i18n("Curium");
+	i18n("Berkelium");
+	i18n("Californium");
+	i18n("Einsteinium");
+	i18n("Fermium");
+	i18n("Mendelevium");
+	i18n("Nobelium");
+	i18n("Lawrencium");
+	i18n("Rutherfordium");
+	i18n("Dubnium");
+	i18n("Seaborgium");
+	i18n("Bohrium");
+	i18n("Hassium");
+	i18n("Meitnerium");
+	i18n("Darmstadtium");
+	i18n("Roentgenium");
+#endif
+
 
 #include "kalzium.moc"
 
