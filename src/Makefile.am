@@ -23,9 +23,10 @@ kalzium_SOURCES = kalzium.cpp \
 			molcalcbase.ui \
 			molcalc_impl.cpp \
 			informationdialog.ui \
-			informationdialog_impl.cpp
+			informationdialog_impl.cpp \
+			glossarydialog.cpp
 			
-kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI)\
+kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)\
 		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
 		  
 SUBDIRS = icons elementpics data
@@ -49,8 +50,8 @@ EXTRA_DIST = main.cpp \
 		detailedgraphicaloverview.cpp detailedgraphicaloverview.h \
 		molcalc_impl.cpp molcalc_impl.h \
 		informationdialog.ui \
-		informationdialog_impl.cpp informationdialog_impl.h
-
+		informationdialog_impl.cpp informationdialog_impl.h \
+		glossarydialog.cpp glossarydialog.h
 
 METASOURCES = AUTO 
 

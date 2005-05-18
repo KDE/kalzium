@@ -1,0 +1,207 @@
+<wissen>
+	<Geraet klasse="Glas" bild="heizplatte.jpg">
+		<name>Heizplatte</name>
+		<beschreibung>Heizplatten dienen zum Erhitzen von Behältern, die auf der Heizplatte stehen. Außerdem
+			haben viele Heizplatten die Möglichkeit, ein Thermometer anzuschließen, so dass eine vom
+			Thermometer vorgegebene Temperatur nicht von der Heizplatte überschritten wird. Desweiteren
+			kann man die Rotationsgeschwindigkeit eines Magnetfeldes einstellen, so dass man mit Hilfe eines
+			Rührfisches Flüssigkeiten homogenisieren kann.
+		</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="korkring.jpg">
+		<name>Korkring</name>
+		<beschreibung>Mit Korkringen kann man runde Gefäße wie Rundkolben hinstellen (siehe Rundkolben).</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="tropftrichter.jpg">
+		<name>Tropftrichter</name>
+		<beschreibung>Mit dem Tropftrichter können sehr kontrolliert Flüssigkeiten aus dem Trichter in
+			den Reaktionsraum gegeben werden. Je nachdem wie weit der Sperrhahn geöffnet ist kann man 
+			die Tropfgeschwindigkeit genau einstellen.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="scheidetrichter.jpg">
+		<name>Scheidetrichter</name>
+		<beschreibung>Mit einem Scheidetrichter kann man Phasen voneinander trennen. Dazu gibt man die durchmischten Phasen
+			in den Scheidetrichter und wartet ab. Nachdem die Phasen sich ausreichend getrennt haben
+			kann man durch das Öffnen des Sperrhahns die untere Phase von der oberen Phase trennen.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="rg-staender.jpg">
+		<name>Reagenzglasständer</name>
+		<beschreibung>In einem Reagenzglasständer kann man je nach Größe unterschiedliche Anzahlen von 
+			Reagenzgläsern abstellen. Außerdem können in der Regel auch Reagenzgläser zum Abtrocken
+			umgekehrtherum aufgehängt werden.
+		</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="pileusball.jpg">
+		<name>Pileusball</name>
+		<beschreibung>Mit einem Pileusball werden Pipetten gefüllt bzw. entleert. Er wird einfach auf
+			das flache Ende eine Pipette geschoben und funktioniert mittels Druck und Überdruck.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="spritzflasche.jpg">
+		<name>Spritzflasche</name>
+		<beschreibung>Spritzflaschen dienen in Laboren in der Regel als Wasserspender, jedoch kann in ihnen theoretisch jede Flüssigkeit aufbewahrt werden. Durch sie hat man schnellen Zugang zu den Flüssigkeiten und kann zielgenau spritzen.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="rg.jpg">
+		<name>Reagenzglas</name>
+		<beschreibung>In einem Reagenzglas werden üblicherweise kleine Reaktionen durchgeführt. Es gibt sehr unterschiedliche Gläser, zum Beispiel welche mit und ohne Schliff. Einige haben auch aufgedruckte Skalen.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="schutzbrille.jpg">
+		<name>Schutzbrille</name>
+		<beschreibung>In den meisten Laboren müssen Schutzbrillen getragen werden. Ohne sie ist das Risiko einer Beschädigung der Augen beim Experimentieren zu groß. Für Brillenträger gibt es spezielle Überbrillen.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="uhrglas.jpg">
+		<name>Uhrglas</name>
+		<beschreibung>
+			Uhrgläser sind runde Glasscheiben mit einem Durchmesser von ca. 5 - 10 cm, die in der Labortechnik Anwendung finden.  Sie sind an den Außenrändern leicht nach oben gewölbt, sodass man in sie kleine Mengen Flüssigkeiten füllen kann, um diese verdampfen zu lassen. Man kann Uhrgläser auch über Bunsenbrennern erhitzen, um das Verdampfen zu beschleunigen.  Uhrgläser können auch dafür benutzt werden Bechergläser oder Petrischalen abzudecken. Desweiteren eignen sich Uhrgläser dafür, kleinere Mengen von Substanzen ein- und abzuwiegen bzw. im Trockenschrank zu trocknen.  Der Begriff Uhrglas leitet sich von früheren Taschenuhren ab, da diese meist ein gewölbtes Schutzglas hatten.
+		</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="rundkolben.jpg">
+		<name>Rundkolben</name>
+		<beschreibung>In einem Rundkolben werden häufig chemische Reaktionen durchgeführt. In der Regel haben sie ein geschliffene Stelle durch die man sie mit anderen Geräten verbinden kann.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="vollpipette.jpg">
+		<name>Vollpipette</name>
+		<beschreibung>Im Gegensatz zu einer Pipette hat eine Vollpipette nur eine einzige Markierung für ein definiertes Volumen. Beide Pipettenarten sind auf Flüssigkeiten mit der Temperatur von 20°C und auf Ausfluss (Ex.) geeicht, Auslaufzeiten werden, wenn nötig, auf den Pipetten angegeben.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="">
+		<name>Vortexer</name>
+		<beschreibung>Ein Vortexer dient in Laboren dem Homogenisieren von Substanzen. Dazu stellt man den Behälter mit den zu homogenisierenden Substanzen auf eine Platte. Durch einen Kontaktsensor fängt diese an mit bis zu 3000 Umdrehungen zu rütteln. Dadurch kann man auch extrem kleine Flüssigkeiten gut und schnell homogenisieren.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="rotationsverdampfer.jpg">
+		<name>Rotationsverdampfer</name>
+		<beschreibung>Bei einem Rotationsverdampfer befindet sich ein runder Kolben in einem Heizbad. Der Kolben rotiert wodurch das Lösungsmittel einen dünnen Film bildet. Dieser verdampft und kondensiert in einem Rückflusskühler. Das Kondensat wird in einem anderen Gefäß abgefangen. Auf diese Weise kann man Lösungen einengen und/oder reinigen. Durch eine angeschlossene Vakuumpumpe kann der Siedepunkt der Flüssigkeiten noch gesenkt werden.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="rueckflusskuehler.jpg">
+		<name>Rückflusskühler</name>
+		<beschreibung>Ein Rückflusskühler dient zum Abkühlen einer Gasphase bei einem Experiment. In der Regel wird er auf einen Rund- oder Mehrhalskolben gesteckt. Durch Wärmezufuhr entstehende Gase gelangen in den Rückflusskühler. Dessen Wände werden mit kaltem Wasser durchspült. Dadurch wird auch das Gas gekühlt und kondensiert. Dadurch gelangt es zurück in den Reaktionsraum.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="trockenrohr.jpg">
+		<name>Trockenrohr</name>
+		<beschreibung>Bei einigen Reaktionen muss wasserfrei gearbeitet werden. Damit von außen kein Wasser in den Reaktionsraum gelangen kann wird ein Trockenrohr auf die Apparatur gesteckt. In diesem befindet sich ein Trockenmittel. Dadurch wird das in die Apparatur eindringende Wasser abgefangen.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="destillierbruecke.jpg">
+		<name>Destillierbrücke</name>
+		<beschreibung>Um ein Gemisch zu trennen kann man sich unter Anderem der Destillation bedienen. Die Destillierbrücke dient dabei als Weg von einem Gefäß zu einem anderem. In dem einen Gefäß ist dabei das zu trennende Gemisch. Durch Erhitzung bildet sich ein Gas welches durch die Brücke geleitet wird. Am Ende der Brücke ist die Gasphase wieder kondensiert und tropft in einen Rundkolben hinein. In der Regel wird dabei die Brücke durch Wasserrückfluss gekühlt. Außerdem befinden sich häufig Thermometer zum Kontrollieren der Temperatur auf der Destillierbrücke.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="rg-halter.jpg">
+		<name>Reagenzglashalter</name>
+		<beschreibung>Mit einem Reagenzglashalter kann man Reagenzgläser bequem halten. Zum einen besteht so ein Sicherheitsabstand zwischen der Hand und dem Reagenzglas, zum anderen kann so das Reagenzglas auch heiß sein. Insbesondere beim Schwenken eines Reagenzglases über einer offenen Flamme wird ein solche Halter eingesetzt.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="messzylinder.jpg">
+		<name>Messzylinder</name>
+		<beschreibung>In einem Messzylinder kann man relativ genau Flüssigkeitsmengen abfüllen. Desweiteren dient ein Messzylinder dazu, dass man Schwebstoffe absacken lassen kann. Diese trennt man anschließend durch Dekantieren von der Flüssigkeit.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="thermometer.jpg">
+		<name>Thermometer</name>
+		<beschreibung>Ein Thermometer dient zum Messen von Temperaturen. In einem chemischen Labor werden spezielle Thermometer verwendet, die auch in Säuren und Basen verwendet werden können.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="ruehrfisch.jpg">
+		<name>Rührfisch</name>
+		<beschreibung>Rührfische sind chemisch fast unangreifbare kleine magnetische Stäbchen. Die meisten Heizplatten haben ebenfalls einen Magneten eingebaut der sich drehen kann. Durch diese Drehung rotiert der Rührfisch wodurch die Lösung in der sich der Rührfisch befindet homogenisiert wird.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="">
+		<name>Rührfischangel</name>
+		<beschreibung>Mit der Rührfischangel kann man Rührfische wieder aus Gefäßen entfernen. Die Angel ist ein Stab mit einem Magneten am Ende an dem der Rührfisch haften bleibt.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="thermometer2.jpg">
+		<name>Kontaktthermometer</name>
+		<beschreibung>Ein Kontaktthermometer unterscheidet sich zu einem normalen Thermometer dadurch, dass es einen elektrischen Sensor hat. Ist eine eingestellte Temperatur überschritten worden, so wird einem angeschlossenen Heizgerät mitgeteilt, dass nicht mehr geheizt werden darf. Auf diese Art und Weise kann man also relativ genau eine Temperatur bei einem Experiment einhalten.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="moerser.jpg">
+		<name>Mörser</name>
+		<beschreibung>In einem Mörser werden feste Stoffe mechanisch zerkleinert. Auch kann mit einem Mörser eine Mischung von z.B. Salzen durch Reiben homogenisiert werden. Der Stoßer zum Verreiben wird Pistill genannt.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="halter.jpg">
+		<name>Laborklammern</name>
+		<beschreibung>Mit Laborklammern werden alle möglichen Laborgeräte miteinander verbunden. So verbindet man zum Beispiel eine Tropftrichter mit einem Rundkolben mittels Laborklammern.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="exikator.jpg">
+		<name>Exsikkator</name>
+		<beschreibung>
+			Ein Exsikkator (von lat. exsiccare = austrocknen) ist ein Laborgerät aus der Chemie, das meist aus Glas gefertigt wird und zum Trocknen von chemischen Stoffen verwendet wird, das heißt zum Entzug von Wasser bzw. Feuchtigkeit.
+			&lt;br&gt;
+			Bei einem Exsikkator handelt es sich im Prinzip um eine Glasschüssel mit Deckel (siehe Bild unten), wobei der Deckel das Gefäß über einen Planschliff verschließt, was gewährleistet, daß es luftdicht verschließbar ist. Den unteren Teil des Exsikkators befüllt man gewöhnlich mit einem Trocknungsmittel, z.B. Calciumchlorid, Silicagel, Phosphorpentoxid oder Schwefelsäure. Auf einem durchlässigen Einsatz aus Kunststoff oder Keramik oberhalb des Trockenmittels wird die zu trocknende Substanz abgelegt.
+			&lt;br&gt;
+			Das Trocknungsmittel hat die Eigenschaft hygroskopisch zu sein, das heißt, es entzieht aus seiner Umgebung Feuchtigkeit und nimmt diese auf. Die durch das Trocknungsmittel getrocknete Atmosphäre im Exsikkator entzieht selbst wiederum Wasser bzw. Lösungsmittel aus dem zu trocknenden Stoff.
+		</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="spatel.jpg">
+		<name>Spatel</name>
+		<beschreibung> Der Spatel ist ein Laborgerät zum Abkratzen, Zerkleinern und Transportieren von Chemikalien. Spatel bestehen aus verschiedenen Materialien (Eisen, Titan, Platin) und können verschiedene Formen haben (z.B. Flachspatel oder Löffelspatel).</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="wasserstrahlpumpe.jpg">
+		<name>Wasserstrahlpumpe</name>
+		<beschreibung>
+			Die Wasserstrahlpumpe besitzt zwei Eingänge und einen Ausgang und besteht im Prinzip aus zwei ineinander gesteckten Rohren. Am Wassereingang spritzt ein Wasserstrahl unter dem vollen Leitungsdruck aus einer Düse in ein etwas weiteres Rohr. Dabei reißt der Wasserstrahl Luft oder Flüssigkeiten vom zweiten Eingang mit. &lt;br&gt; Dies geschieht aufgrund des Unterdrucks in einer strömenden Flüssigkeit. Es ist somit eine Anwendung des Hydrodynamischen Paradoxon. Dies besagt, dass Gegenstände, die in der Nähe von strömenden Flüssigkeiten sind, angesaugt statt abgestoßen werden.
+		</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="brechungsmesser.jpg">
+		<name>Refraktometer</name>
+		<beschreibung>Mit einem Refraktometer wird der Brechungsindex von optischen Medien bestimmt. Wenn von einer Chemikalie der Brechungsindex bekannt ist kann somit nach einer Synthese die Reinheit des Produktes oder der Erfolg einer Synthese überprüft werden.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="pipette.jpg">
+		<name>Pipette</name>
+		<beschreibung>Pipetten dienen im Labor zum Dosieren von Flüssigkeiten. Auf der Pipette findet sich eine Volumenskala. Als Pipettierhilfe dient in der Regel ein Pileusball. Beide Pipettenarten sind auf Flüssigkeiten mit der Temperatur von 20°C und auf Ausfluss (Ex.) geeicht, Auslaufzeiten werden, wenn nötig, auf den Pipetten angegeben.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="erlenmeyerkolben.jpg">
+		<name>Erlenmeyerkolben</name>
+		<beschreibung>
+			Dieser nach dem Chemiker Emil Erlenmeyer (1825-1909) benannte Kolben verfügt - im Gegensatz zum Becherglas - über einen nach oben hin enger werdenden Hals. Im Laborgebrauch existieren verschiedene Varianten des Erlenmeyerkolbens, die Enghals- und die Weithals-Form und je nach Anwendung auch Kolben mit Normschliff.
+			&lt;br&gt;
+			Durch den verjüngenden Hals ist die Gefahr, dass bei Zugabe von Substanzen, beim Schwenken, Rühren oder Sieden Flüssigkeiten aus dem Kolben unkontrolliert entweichen deutlich kleiner, als bei Bechergläsern.
+			&lt;br&gt;
+			So können im Erlenmeyerkolben bequem z.B. Flüssigkeiten vermischt oder Lösungsvorgänge durch - auch relativ heftiges - Schwenken oder Rühren beschleunigt werden. Er eignet sich - wie der Rundkolben - auch gut für den Magnetrührer, kann aber wegen seines flachen Bodens direkt abgestellt werden. (Der Rundkolben hingegen benötigt einen Korkring oder ein Stativ für den festen Stand, letzteres macht ein Schwenken mit der Hand oder ein häufiges Prüfen durch Halten ins Gegenlicht unmöglich.)
+		</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="">
+		<name>Ultraschallbad</name>
+		<beschreibung>Bei einigen chemischen Reaktionen kommt es darauf an, dass die Lösungsmittel gasfrei sind. Um dies zu erreichen wird das Reaktionsgefäß für einige Zeit in ein Ultraschallbad gegeben. Durch die hohe Schallfrequenz lösen sich Gasblasen und steigen auf. Diesen Vorgang nennt man Entgasen.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="waage.jpg">
+		<name>Waage</name>
+		<beschreibung>Im Labor muss man häufig sehr genaue Mengen von Reagenzien abwiegen. Feinwaagen messen bis auf eine 1/10000 Gramm genaue Mengen ab. Dazu stehen sie auf Granitblöcken um Erschütterungen zu vermeiden und sind durch Hauben von Windstößen geschützt.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="">
+		<name>Dewargefäß</name>
+		<beschreibung>Bei einem Dewargefäß handelt es sich um einen doppelwandigen, evakuierten Behälter mit verspiegelter Oberfläche. Dadurch eignet es sich zur Lagerung von heißen oder kalten Substanzen. Thermoskannen sind ein Beispiel für ein Dewargefäß.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="dsc.jpg">
+		<name>DSC (Differencial Scanning Calorimetry)</name>
+		<beschreibung>Bei der DSC werden die Aufnahme bzw. die Abgabe von Wärmemengen einer Substanz aufgezeichnet. Da diese z.T. sehr stoffspezifisch sind kann man hiermit Substanzen identifizieren bzw. qualifizieren.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="hplc.jpg">
+		<name>HPLC (High Performance Liquid Chromatographie)</name>
+		<beschreibung>Bei der HPLC wird die zu untersuchende Substanz mit einem flüssigen Laufmittel auf einer stationären Phase getrennt. Dabei wechselwirken die Anteile der Substanz unterschiedlich stark mit der stationären Phase wodurch sie unterschiedlich schnell durch die Säule laufen. So trennt man die einzelnen Anteile auf.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="becherglas.jpg">
+		<name>Becherglas</name>
+		<beschreibung>Bechergläser werden sehr vielseitig eingesezt. In ihnen werden Chemikalien kurzfristig aufbewahrt, man kann aber auch Reaktionen in ihnen auflaufen lassen. Oft titriert man in ein Becherglas hinein oder benutzt es einfach zum Umschütten von Flüssigkeiten.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="">
+		<name>Bürette</name>
+		<beschreibung>Eine Bürette dient zum Titrieren von Flüssigkeiten. In die Bürette wird von oben die Flüssigkeit eingefüllt. Unter sie wird ein Becherglas oder Erlenmeyerkolben gestellt. Durch das Öffnen eines Sperrhahnes wird die Flüssigkeit aus der Bürette herausgelassen. Hochwertige Büretten haben einen Druckausgleich, so dass sie aus einen Vorratsbehälter eine vorgegebene Menge selbstständig nachfüllen können. Somit muss man die Büretten nicht selber nachfüllen.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="trichter.jpg">
+		<name>Pulvertrichter</name>
+		<beschreibung>Pulvertrichter werden zum Schütten von Pulvern und anderen Feststoffen in Gefäße eingesetzt.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="abzug.jpg">
+		<name>Abzug</name>
+		<beschreibung>In chemischen Laboren müssen viele Arbeiten unter einem Abzug erledigt werden. Diese haben spezielle Entlüftungssysteme, so dass entstehende giftige Gase korrekt entsorgt werden.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="phpapier.jpg">
+		<name>pH-Papier</name>
+		<beschreibung>Es gibt viele Möglichkeiten, den pH-Wert eines Stoffes zu messen. Eine in den meisten Fällen ausreichend genaue Möglichkeit ist das hier abgebildete pH-Papier. Es wird einfach in eine Lösung gehalten. Die Färbung gibt Aufschluss über den pH-Wert.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="brenner.jpg">
+		<name>Brenner</name>
+		<beschreibung>Es gibt verschiedene Brennertypen. Die beiden bekanntesten Brennertypen im Labor sind der Bunsenbrenner und der Teclubrenner (hier abgebildet).</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="verteiler.jpg">
+		<name>Verteiler</name>
+		<beschreibung>Der Verteiler wird bei der fraktionierten Destillation eingesetzt. Der hier abgebildete Verteiler hat vier Wege. Auf die Enden werden kleine Behälter gesetzt. Nach der Erhöhung der Temperatur wird der Verteiler gedreht, so dass bis zu vier verschiedene Fraktionen getrennt werden können.</beschreibung>
+	</Geraet>
+	<Geraet klasse="Glas" bild="kolbenprober.png">
+		<name>Kolbenprober</name>
+		<beschreibung>Ein Kolbenprober besteht aus zwei Teilen. Zum einen aus einem Glasrohr. Der zweite Teil ist ein Stempel (in der Regel auch aus Glas). In das Rohr wird Gas eingeleitet. Da es sich um ein geschlossenes System handelt wird der Stempel zurückgedrückt. Nach Reaktionsende kann man so das Gasvolumen ablesen.</beschreibung>
+	</Geraet>
+</wissen>
