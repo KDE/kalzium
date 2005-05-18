@@ -23,6 +23,7 @@
 #include <qlayout.h>
 #include <qpushbutton.h>
 #include <qlistbox.h>
+#include <qregexp.h>
 
 #include "glossarydialog.h"
 #include "detailinfodlg.h"
@@ -47,8 +48,7 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	QHBoxLayout *hbox = new QHBoxLayout( this );
 	
 	m_htmlpart = new KHTMLPart();
-	connect(  m_htmlpart->browserExtension(), SIGNAL(  openURLRequest(  const KURL &, const KParts::URLArgs & ) ), this, SLOT(  displayItem( const KURL &, const KParts::URLArgs & ) ) );
-	
+	connect(  m_htmlpart->browserExtension(), SIGNAL(  openURLRequestDelayed(  const KURL &, const KParts::URLArgs & ) ), this, SLOT(  displayItem( const KURL &, const KParts::URLArgs & ) ) );
 
 	itembox = new QListBox( this, "listbox" );
 	connect( itembox, SIGNAL( clicked( QListBoxItem* ) ), this, SLOT(itemClicked( QListBoxItem* ) ) );
@@ -67,11 +67,13 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	populateList();
 }
 
-void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& args )
+void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 {
-	kdDebug() << "GlossaryDialog::displayItem()" << endl;
-
-	kdDebug() << url.url() << endl;
+	QString url_ =  url.url();
+	//as the "url" starts with item:/ I need to take from the 7th letter
+	QListBoxItem *item = itembox->findItem( url_.right( url_.length()-6 ) );
+	if ( item )
+	itemClicked( item );
 }
 
 void GlossaryDialog::populateList()
@@ -105,10 +107,41 @@ QString GlossaryDialog::itemHtml( KnowledgeItem* item )
 	code.append( item->desc() );
 	if ( !item->ref().isNull() )
 	{
-		code.append( "<h2>Reference</h2><a href=\"foo\">foobar</a><br>" );
-		code.append( item->ref() );
+		QString refcode = parseReferences( item->ref() );
+		code.append( refcode );
 	}
 	return code;
+}
+
+QString GlossaryDialog::parseReferences( const QString& ref )
+{
+	QString code = ref;
+
+	QString htmlcode;
+	
+	int pos, l;
+	for ( int num = 0; num < ref.contains( "," ); ++num )
+	{
+		pos = code.find( "," );
+		l = code.length();
+		QString tmp = code.left( pos );
+		QString new_code = code.right( l-pos-1 );
+
+		htmlcode.append( "<a href=\"item:/" );
+		htmlcode.append( tmp );
+		htmlcode.append( "\">" );
+		htmlcode.append( tmp );
+		htmlcode.append( "</a><br>" );
+
+		code = new_code;
+	}
+	htmlcode.append( "<a href=\"item:/" );
+	htmlcode.append( code );
+	htmlcode.append( "\">" );
+	htmlcode.append( code );
+	htmlcode.append( "</a>" );
+
+	return htmlcode;
 }
 
 bool GlossaryDialog::loadLayout( QDomDocument &questionDocument, const QString& filename )

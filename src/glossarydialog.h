@@ -80,6 +80,12 @@ class GlossaryDialog : public KDialog
 		 **/
 		QString itemHtml( KnowledgeItem* item );
 
+		/**
+		 * this method parses the references: It checks for the ","
+		 * inside the QString and puts the words into html-links
+		 */
+		QString parseReferences( const QString& );
+
 		bool loadLayout( QDomDocument&, const QString& );
 
 		QValueList<KnowledgeItem*> m_itemList;
@@ -89,6 +95,9 @@ class GlossaryDialog : public KDialog
 
 	private slots:
 		void itemClicked( QListBoxItem* );
+		/**
+		 * The user clicked on a href. Emit the corresponding item
+		 */
 		void displayItem( const KURL& url, const KParts::URLArgs& args );
 };
 #endif // GLOSSARYDIALOG_H
