@@ -19,6 +19,7 @@
 #include "detailinfodlg.h"
 #include "informationdialog_impl.h"
 #include "pse.h"
+#include "glossarydialog.h"
 
 #include <qinputdialog.h>
 #include <qlayout.h>
@@ -105,12 +106,15 @@ void Kalzium::setupActions()
 	look_action->setItems(looklist);
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
 	connect (look_action, SIGNAL(activated(int)), this, SLOT(slotShowScheme(int)));
+
 	/*
 	 * the misc actions
 	 **/
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
 	m_pCalcAction = new KAction(i18n("&Calculate Molecular Weights"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_weights");
+	
+	m_pGlossaryAction = new KAction(i18n("&Glossary"), "add", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
 	//Legend
 	m_pLegendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
@@ -128,6 +132,12 @@ void Kalzium::setupActions()
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
 	setupGUI();
+}
+
+void Kalzium::slotGlossary()
+{
+	GlossaryDialog *dlg = new GlossaryDialog( this, "glossary" );
+	dlg->show();
 }
 
 void Kalzium::slotLearningmode()

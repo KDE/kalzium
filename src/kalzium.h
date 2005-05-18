@@ -96,6 +96,7 @@ class Kalzium : public KMainWindow
 		KAction *m_pPlotAction,
 				*m_pCalcAction,
 				*m_pLegendAction,
+				*m_pGlossaryAction,
 				*m_pLearningmodeAction;
 		
 		/**
@@ -115,6 +116,8 @@ class Kalzium : public KMainWindow
 		void slotShowScheme(int);
 		
 		void slotShowLegend();
+		
+		void slotGlossary();
 		
 		void slotSwitchtoNumeration(int);
 
