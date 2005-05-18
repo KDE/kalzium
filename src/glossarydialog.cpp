@@ -57,31 +57,44 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	hbox->addWidget( itembox );
 	hbox->addWidget( m_htmlview );
 	
+	QDomDocument doc( "foo" );
+	QString filename = "knowledge.xml";
+
+	if ( loadLayout( doc, filename ) )
+		m_itemList = readItems( doc );
+
 	populateList();
 }
 
 void GlossaryDialog::populateList()
 {
-	for ( int i = 0; i < 10 ; i++ )
-		itembox->insertItem( QString::number( i ) );
+	QValueList<KnowledgeItem*>::iterator it = m_itemList.begin();
+	const QValueList<KnowledgeItem*>::iterator itEnd = m_itemList.end();
+	
+	for ( ; it != itEnd ; ++it )
+	{
+		itembox->insertItem( ( *it )->name() );
+	}
+	itemClicked( itembox->firstItem() );
 }
 
 void GlossaryDialog::itemClicked( QListBoxItem* item )
 {
 	QString html = m_htmlbasestring;
-	html.append( itemHtml( item->text() ) );
+	KnowledgeItem *i = m_itemList[  itembox->index(item) ];
+	html.append( itemHtml( i ) );
 	html.append( "</body></html>" );
 	m_htmlpart->begin();
-	m_htmlpart->write(html );
+	m_htmlpart->write( html );
 	m_htmlpart->end();
-	update();
 }
 
-QString GlossaryDialog::itemHtml( const QString& name )
+QString GlossaryDialog::itemHtml( KnowledgeItem* item )
 {
 	QString code = "<h1>";
-	code.append( name );
+	code.append( item->name() );
 	code.append( "</h1>" );
+	code.append( item->desc() );
 	return code;
 }
 
@@ -114,10 +127,33 @@ bool GlossaryDialog::loadLayout( QDomDocument &questionDocument, const QString& 
         return true;
 }
 
-QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &questionDocument )
+QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument )
 {
-	KnowledgeItem *item = new KnowledgeItem();
 	QValueList<KnowledgeItem*> list;
+
+	QDomNodeList itemList;
+	QDomElement itemElement;
+
+	itemList = itemDocument.elementsByTagName( "item" );
+
+	const uint num = itemList.count();
+	for ( uint i = 0; i < num; ++i )
+	{
+		KnowledgeItem *item = new KnowledgeItem();
+		
+		itemElement = ( const QDomElement& ) itemList.item( i ).toElement();
+		
+		QDomNode nameNode = itemElement.namedItem( "name" );
+		QDomNode descNode = itemElement.namedItem( "desc" );
+		QDomNode refNode =  itemElement.namedItem( "ref" );
+		
+		item->setName( nameNode.toElement( ).text() );
+		item->setDesc( descNode.toElement( ).text() );
+		item->setRef( refNode.toElement( ).text() );
+		
+		list.append( item );
+	}
+	
 	return list;
 }
 

@@ -31,6 +31,33 @@ class KnowledgeItem
 	public:
 		KnowledgeItem();
 		~KnowledgeItem();
+
+		void setName( const QString& s ){
+			m_name = s;
+		}
+		void setDesc( const QString& s){
+			m_desc = s;
+		}
+		void setRef( const QString& s){
+			m_ref = s;
+		}
+
+		QString name() const {
+			return m_name;
+		}
+		
+		QString desc() const {
+			return m_desc;
+		}
+		
+		QString ref() const {
+			return m_ref;
+		}
+
+	private:
+		QString m_name,
+				m_desc,
+				m_ref;
 };
 
 class GlossaryDialog : public KDialog
@@ -49,12 +76,14 @@ class GlossaryDialog : public KDialog
 		void populateList();
 
 		/**
-		 * @return the formated html-code for the item with a
-		 * specific @p name
-		 */
-		QString itemHtml(const QString& name);
+		 * @return the formated html-code for the @p item 
+		 **/
+		QString itemHtml( KnowledgeItem* item );
 
 		bool loadLayout( QDomDocument&, const QString& );
+
+		QValueList<KnowledgeItem*> m_itemList;
+			
 		QValueList<KnowledgeItem*> readItems( QDomDocument& );
 
 
