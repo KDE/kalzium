@@ -89,6 +89,7 @@ class GlossaryDialog : public KDialog
 
 	private slots:
 		void itemClicked( QListBoxItem* );
+		void displayItem( const KURL& url, const KParts::URLArgs& args );
 };
 #endif // GLOSSARYDIALOG_H
 

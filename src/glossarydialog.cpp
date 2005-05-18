@@ -47,7 +47,8 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	QHBoxLayout *hbox = new QHBoxLayout( this );
 	
 	m_htmlpart = new KHTMLPart();
-
+	connect(  m_htmlpart->browserExtension(), SIGNAL(  openURLRequest(  const KURL &, const KParts::URLArgs & ) ), this, SLOT(  displayItem( const KURL &, const KParts::URLArgs & ) ) );
+	
 
 	itembox = new QListBox( this, "listbox" );
 	connect( itembox, SIGNAL( clicked( QListBoxItem* ) ), this, SLOT(itemClicked( QListBoxItem* ) ) );
@@ -64,6 +65,13 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 		m_itemList = readItems( doc );
 
 	populateList();
+}
+
+void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& args )
+{
+	kdDebug() << "GlossaryDialog::displayItem()" << endl;
+
+	kdDebug() << url.url() << endl;
 }
 
 void GlossaryDialog::populateList()
@@ -95,6 +103,11 @@ QString GlossaryDialog::itemHtml( KnowledgeItem* item )
 	code.append( item->name() );
 	code.append( "</h1>" );
 	code.append( item->desc() );
+	if ( !item->ref().isNull() )
+	{
+		code.append( "<h2>Reference</h2><a href=\"foo\">foobar</a><br>" );
+		code.append( item->ref() );
+	}
 	return code;
 }
 
