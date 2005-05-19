@@ -24,6 +24,7 @@
 
 class KHTMLPart;
 class KHTMLView;
+class KLineEdit;
 class QListBox;
 
 class KnowledgeItem
@@ -74,6 +75,8 @@ class GlossaryDialog : public KDialog
 
 		void populateList();
 
+		KLineEdit *m_search;
+
 		/**
 		 * @return the formated html-code for the @p item 
 		 **/
@@ -100,6 +103,8 @@ class GlossaryDialog : public KDialog
 		 * The user clicked on a href. Emit the corresponding item
 		 */
 		void displayItem( const KURL& url, const KParts::URLArgs& args );
+
+		void slotSearch();
 	
 	signals:
 		void closed();

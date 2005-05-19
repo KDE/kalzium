@@ -15,6 +15,7 @@
 #include <khtmlview.h>
 #include <kglobal.h>
 #include <kmessagebox.h>
+#include <klineedit.h>
 
 #include <qlabel.h>
 #include <qpainter.h>
@@ -44,8 +45,12 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	QString m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
 	m_htmlbasestring.append( m_baseHtml );
 	m_htmlbasestring.append("\">");
+	
+	QVBoxLayout *vbox = new QVBoxLayout( this );
+	m_search = new KLineEdit( this );
 
-	QHBoxLayout *hbox = new QHBoxLayout( this );
+	QHBoxLayout *hbox = new QHBoxLayout( vbox );
+	vbox->addWidget( m_search );
 	
 	m_htmlpart = new KHTMLPart( this, "html-part", this );
 	connect(  m_htmlpart->browserExtension(), SIGNAL(  openURLRequestDelayed(  const KURL &, const KParts::URLArgs & ) ), this, SLOT(  displayItem( const KURL &, const KParts::URLArgs & ) ) );
@@ -64,6 +69,15 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 
 	populateList();
 }
+
+void GlossaryDialog::slotSearch()
+{
+	kdDebug() << "GlossaryDialog::slotSearch(), " << m_search->text() << endl;
+	QListBoxItem *item = itembox->findItem( m_search->text() );
+	if ( item )
+	itemClicked( item );
+}
+
 
 void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 {
