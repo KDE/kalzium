@@ -69,9 +69,8 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 
 void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 {
-	QString url_ =  url.url();
-	//as the "url" starts with item:/ I need to take from the 7th letter
-	QListBoxItem *item = itembox->findItem( url_.right( url_.length()-6 ) );
+	// using the "host" part uf a kurl as reference
+	QListBoxItem *item = itembox->findItem( url.host() );
 	if ( item )
 	itemClicked( item );
 }
@@ -101,7 +100,7 @@ void GlossaryDialog::itemClicked( QListBoxItem* item )
 	QValueList<KnowledgeItem*>::iterator it = m_itemList.begin();
 	const QValueList<KnowledgeItem*>::iterator itEnd = m_itemList.end();
 	bool found = false;
-	KnowledgeItem *i;
+	KnowledgeItem *i = 0;
 	while ( !found && it != itEnd )
 	{
 		if ( ( *it )->name() == item->text() )
@@ -150,7 +149,7 @@ QString GlossaryDialog::parseReferences( const QString& ref )
 		QString tmp = code.left( pos );
 		QString new_code = code.right( l-pos-1 );
 
-		htmlcode.append( "<a href=\"item:/" );
+		htmlcode.append( "<a href=\"item://" );
 		htmlcode.append( tmp );
 		htmlcode.append( "\">" );
 		htmlcode.append( tmp );
@@ -158,7 +157,7 @@ QString GlossaryDialog::parseReferences( const QString& ref )
 
 		code = new_code;
 	}
-	htmlcode.append( "<a href=\"item:/" );
+	htmlcode.append( "<a href=\"item://" );
 	htmlcode.append( code );
 	htmlcode.append( "\">" );
 	htmlcode.append( code );
