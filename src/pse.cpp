@@ -543,7 +543,7 @@ void PSE::drawSOMPSE( QPainter* p )
 void PSE::slotTransientLabel( void )
 {
 	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
-	int Y = mapFromGlobal( QCursor::pos() ).y()/ELEMENTSIZE;
+	int Y = ( mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE)/ELEMENTSIZE;
 	if ( m_isSimple )
 	{
 		if ( mapFromGlobal( QCursor::pos() ).x() > ( 2*ELEMENTSIZE ) )
