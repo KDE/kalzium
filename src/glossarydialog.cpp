@@ -47,16 +47,14 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 
 	QHBoxLayout *hbox = new QHBoxLayout( this );
 	
-	m_htmlpart = new KHTMLPart();
+	m_htmlpart = new KHTMLPart( this, "html-part", this );
 	connect(  m_htmlpart->browserExtension(), SIGNAL(  openURLRequestDelayed(  const KURL &, const KParts::URLArgs & ) ), this, SLOT(  displayItem( const KURL &, const KParts::URLArgs & ) ) );
 
 	itembox = new QListBox( this, "listbox" );
 	connect( itembox, SIGNAL( clicked( QListBoxItem* ) ), this, SLOT(itemClicked( QListBoxItem* ) ) );
 	
-	
-	m_htmlview = new KHTMLView( m_htmlpart, this, "html-view" );
 	hbox->addWidget( itembox );
-	hbox->addWidget( m_htmlview );
+	hbox->addWidget( m_htmlpart->view() );
 	
 	QDomDocument doc( "foo" );
 	QString filename = "knowledge.xml";

@@ -69,7 +69,6 @@ class GlossaryDialog : public KDialog
 	
 	private:
 		KHTMLPart *m_htmlpart;
-		KHTMLView *m_htmlview;
 		QString m_htmlbasestring;
 		QListBox *itembox;
 
