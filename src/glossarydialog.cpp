@@ -226,6 +226,12 @@ QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument
 	return list;
 }
 
+void GlossaryDialog::closeEvent(QCloseEvent* e)
+{
+	QWidget::closeEvent(e);
+	emit closed();
+}
+
 KnowledgeItem::KnowledgeItem()
 {
 }

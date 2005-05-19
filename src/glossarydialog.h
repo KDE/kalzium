@@ -91,7 +91,9 @@ class GlossaryDialog : public KDialog
 		QValueList<KnowledgeItem*> m_itemList;
 			
 		QValueList<KnowledgeItem*> readItems( QDomDocument& );
-
+	
+	public slots:
+		void closeEvent(QCloseEvent*e);
 
 	private slots:
 		void itemClicked( QListBoxItem* );
@@ -99,6 +101,9 @@ class GlossaryDialog : public KDialog
 		 * The user clicked on a href. Emit the corresponding item
 		 */
 		void displayItem( const KURL& url, const KParts::URLArgs& args );
+	
+	signals:
+		void closed();
 };
 #endif // GLOSSARYDIALOG_H
 

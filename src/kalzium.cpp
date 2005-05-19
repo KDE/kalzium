@@ -136,7 +136,9 @@ void Kalzium::setupActions()
 
 void Kalzium::slotGlossary()
 {
+	emit tableLocked(true);
 	GlossaryDialog *dlg = new GlossaryDialog( this, "glossary" );
+	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(slotLock()) );
 	dlg->show();
 }
 
