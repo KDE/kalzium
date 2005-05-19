@@ -85,7 +85,7 @@ class GlossaryDialog : public KDialog
 		 * inside the QString and puts the words into html-links
 		 */
 		QString parseReferences( const QString& );
-
+		
 		bool loadLayout( QDomDocument&, const QString& );
 
 		QValueList<KnowledgeItem*> m_itemList;

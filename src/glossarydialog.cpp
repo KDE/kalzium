@@ -85,13 +85,33 @@ void GlossaryDialog::populateList()
 	{
 		itembox->insertItem( ( *it )->name() );
 	}
+	itembox->sort();
 	itemClicked( itembox->firstItem() );
 }
 
 void GlossaryDialog::itemClicked( QListBoxItem* item )
 {
 	QString html = m_htmlbasestring;
-	KnowledgeItem *i = m_itemList[  itembox->index(item) ];
+	
+	/**
+	 * The next lines are searching for the correct KnowledgeItem
+	 * in the m_itemList. When it is found the HTML will be
+	 * generated
+	 */
+	QValueList<KnowledgeItem*>::iterator it = m_itemList.begin();
+	const QValueList<KnowledgeItem*>::iterator itEnd = m_itemList.end();
+	bool found = false;
+	KnowledgeItem *i;
+	while ( !found && it != itEnd )
+	{
+		if ( ( *it )->name() == item->text() )
+		{
+			i = *it;
+			found = true;
+		}
+		++it;
+	}
+	
 	html.append( itemHtml( i ) );
 	html.append( "</body></html>" );
 	m_htmlpart->begin();
@@ -101,10 +121,13 @@ void GlossaryDialog::itemClicked( QListBoxItem* item )
 
 QString GlossaryDialog::itemHtml( KnowledgeItem* item )
 {
+
 	QString code = "<h1>";
 	code.append( item->name() );
 	code.append( "</h1>" );
-	code.append( item->desc() );
+
+	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
+	code.append(  item->desc().replace( "img src=\"" , "img src=\""+pic_path ) );
 	if ( !item->ref().isNull() )
 	{
 		QString refcode = parseReferences( item->ref() );
@@ -117,7 +140,7 @@ QString GlossaryDialog::parseReferences( const QString& ref )
 {
 	QString code = ref;
 
-	QString htmlcode;
+	QString htmlcode = i18n( "<h3>References</h3>" );
 	
 	int pos, l;
 	for ( int num = 0; num < ref.contains( "," ); ++num )
