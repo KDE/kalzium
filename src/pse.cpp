@@ -37,7 +37,7 @@
 #include <qpainter.h>
 
 PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
-  : QWidget(parent, name), table(0)
+  : QWidget(parent, name), table(0), table2(0)
 {
 	d = data;
 
@@ -46,7 +46,10 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	connect(  &HoverTimer, SIGNAL(  timeout() ), this, SLOT(  slotTransientLabel() ) );
 
 	setMouseTracking( true );
-
+  
+  //JH: eliminates flicker on redraw
+  setBackgroundMode( QWidget::NoBackground );
+ 
 	m_molcalcIsActive = false;
 	m_learningMode = false;
 	m_showTooltip = true;
@@ -97,9 +100,10 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	m_IUPACOLDlist.append( "7B");
 	m_IUPACOLDlist.append( "0");
 
-	table = new QPixmap();
+ table = new QPixmap();
+ table2 = new QPixmap();
 
-	//JH: For now, always do a full draw
+	//JH: Start with a full draw
 	doFullDraw = true;
 }
 
@@ -284,14 +288,23 @@ void PSE::activateColorScheme( const int nr )
 void PSE::resizeEvent( QResizeEvent * /*e*/ ) 
 {
   table->resize( width(), height() );
+  table2->resize( width(), height() );
 }
 
 void PSE::paintEvent( QPaintEvent * /*e*/ )
 {
 	QPainter p;
 
-	if ( doFullDraw ) {
-		p.begin( table );
+  //JH: I have split the drawing into two pixmaps: table and table2.
+  //table contains the "static" PSE table, and does not change very often.
+  //table2 contains the tooltips and any other dynamic overlays.
+  //Usually, we can skip the code which renders the table, and just use the 
+  //image stored in table...when doFullDraw==false, the rendering code is skipped.
+  if ( doFullDraw ) {
+    //DEBUG
+    kdDebug() << "Drawing full table" << endl;
+    
+    p.begin( table );
 		p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
 		drawPSE( &p, m_isSimple );
 
@@ -300,21 +313,30 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		if ( m_showLegend )
 			drawLegend( &p );
 		
-		if ( m_showTooltip )
-		{
-			if ( m_tooltipElementNumber < 112 && m_tooltipElementNumber > 0 )
-			{
-				Element *e = d->element( m_tooltipElementNumber );
-				drawToolTip( &p, e );
-			}
-		}
-		
 		p.end();
-		//JH: Uncomment when ready for this
-		//    doFullDraw = false;
+		
+    doFullDraw = false;
 	}
 
-	bitBlt( this, 0, 0, table );
+  //JH: Ok, now table contains the static PSE table, and we may need to draw
+  //a tooltip on it.  However, we don't want to ruin the stored table pixmap, 
+  //so let's copy it to table2 and add the tooltip there.
+  *table2 = *table;
+ 
+  if ( m_showTooltip )
+  {
+    if ( m_tooltipElementNumber < 112 && m_tooltipElementNumber > 0 )
+    {
+      QPainter p2;
+      p2.begin( table2 );
+      Element *e = d->element( m_tooltipElementNumber );
+      drawToolTip( &p2, e );
+      p2.end();
+    }
+  }
+		
+  //JH: Finally, bitBlt the table2 pixmap to the widget
+  bitBlt( this, 0, 0, table2 );
 }
 
 void PSE::drawToolTip( QPainter* p, Element *e )
@@ -542,19 +564,14 @@ void PSE::slotTransientLabel( void )
 
 void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 {
-	m_tooltipElementNumber = 0; //this invalidates the number. If the mouse
-	                            //is moved, the number is invalid. On the next 
-								//update() this will cause that the tooltip
-								//is not repainted.
-								//Of course, this causes a gazillion repaints.
-								//I need to bitBlt the table because of this.
-	
-	HoverTimer.start(  2000, false );
-
-//	update();       //XXX As soon as the bitBlt work this has to be activated (I think).
-                    //Jason: If you find a smarter way than invalitating the 
-					//current tooltip-number: Feel free to implement that or
-					//tell me how to implement it.
+  //JH: only update() if we were showing a tooltip
+  if ( m_tooltipElementNumber ) {
+  	m_tooltipElementNumber = 0; //this invalidates the number. If the mouse
+	                            //is moved, the number is invalid. 
+  	update();       
+  }
+  
+  HoverTimer.start(  2000, true ); //JH: true = run timer once, not continuously
 }
 
 void PSE::mouseReleaseEvent( QMouseEvent *mouse )

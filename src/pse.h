@@ -192,6 +192,9 @@ class PSE : public QWidget
 		 */
 		void reloadColours();
 
+    ///JH: Draw the full table next time
+    void setFullDraw() { doFullDraw = true; }
+  
 	private:
 		///the date used in the timeline
 		int m_date;
@@ -258,6 +261,7 @@ class PSE : public QWidget
 
 		///the internal representation of the table
 		QPixmap *table;
+    QPixmap *table2;
 
 		///used for bitBlit. If true the complete table will be drawn
 		bool doFullDraw;

@@ -87,7 +87,11 @@ class Kalzium : public KMainWindow
 		 */
 		void displayEnergie();	
 		
-		/**
+    /**Signal the PSE that it should do a full draw operation
+      */
+    void setFullDraw() { m_PSE->setFullDraw(); }
+		
+    /**
 		 * all KActions Kalzium uses
 		 */
 		KSelectAction *schema_action;

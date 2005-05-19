@@ -212,6 +212,9 @@ void Kalzium::slotShowLegend()
 	//save the settings
 	Prefs::setShowlegend( m_PSE->showLegend() ); 
 	Prefs::writeConfig();
+ 
+  //JH: redraw the full table next time
+  setFullDraw();
 }	
 
 void Kalzium::slotShowScheme(int i)
@@ -221,6 +224,9 @@ void Kalzium::slotShowScheme(int i)
 	
 	Prefs::setColorschemebox(i); 
 	Prefs::writeConfig();
+
+  //JH: redraw the full table next time
+  setFullDraw();
 }
 
 void Kalzium::slotSwitchtoNumeration( int index )
@@ -228,6 +234,9 @@ void Kalzium::slotSwitchtoNumeration( int index )
 	m_PSE->setNumerationType( index );
 	Prefs::setNumeration(index); 
 	Prefs::writeConfig();
+  
+  //JH: redraw the full table next time
+  setFullDraw();
 }
 
 void Kalzium::slotSwitchtoPSE(int index)
@@ -241,6 +250,9 @@ void Kalzium::slotSwitchtoPSE(int index)
 	
 	Prefs::setSchemaPSE(index);
 	Prefs::writeConfig();
+
+  //JH: redraw the full table next time
+  setFullDraw();
 }
 
 void Kalzium::showSettingsDialog()
