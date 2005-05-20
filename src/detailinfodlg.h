@@ -21,8 +21,6 @@
 
 #include <kdialogbase.h>
 #include "element.h"
-#include "detail_chemical.h"
-#include "detail_energy.h"
 #include "orbitswidget.h"
 
 class DetailedGraphicalOverview;
