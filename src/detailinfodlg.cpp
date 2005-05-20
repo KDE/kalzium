@@ -33,8 +33,6 @@
 
 #include "detailinfodlg.h"
 #include "orbitswidget.h"
-#include "detail_chemical.h"
-#include "detail_energy.h"
 #include "prefs.h"
 #include "isotopewidget.h"
 #include "detailedgraphicaloverview.h"

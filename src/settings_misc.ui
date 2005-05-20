@@ -8,9 +8,12 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>389</width>
+            <width>422</width>
             <height>576</height>
         </rect>
+    </property>
+    <property name="caption">
+        <string></string>
     </property>
     <grid>
         <property name="name">
@@ -157,7 +160,7 @@
                         <cstring>radioButton4_2_2_2</cstring>
                     </property>
                     <property name="text">
-                        <string>Show &amp;energies in eV (electronvolt)</string>
+                        <string>Show energies &amp;in eV (electronvolt)</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>Choose the energy unit as eV (electronvolt)</string>
@@ -173,7 +176,7 @@
                 <cstring>kcfg_units</cstring>
             </property>
             <property name="title">
-                <string>U&amp;nits of distances</string>
+                <string>Other U&amp;nits</string>
             </property>
             <property name="exclusive">
                 <bool>true</bool>
@@ -187,7 +190,10 @@
                         <cstring>radioButton8</cstring>
                     </property>
                     <property name="text">
-                        <string>Use the SI-unit meter (m) for distances</string>
+                        <string>Use &amp;the SI-unit meter (m)</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+T</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="1" column="0">
@@ -195,7 +201,10 @@
                         <cstring>radioButton9</cstring>
                     </property>
                     <property name="text">
-                        <string>Use commonly used units for distances</string>
+                        <string>Use &amp;commonly used units</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+C</string>
                     </property>
                 </widget>
             </grid>
@@ -219,7 +228,7 @@
                         <cstring>radioButton10</cstring>
                     </property>
                     <property name="text">
-                        <string>Display atomic weight in the PSE</string>
+                        <string>Display atomic &amp;weight in the PSE</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="1" column="0">
@@ -227,7 +236,7 @@
                         <cstring>radioButton12</cstring>
                     </property>
                     <property name="text">
-                        <string>Display density in the PSE in grams per cubic centimeter</string>
+                        <string>Displa&amp;y density in the PSE in grams per cubic centimeter</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="2" column="0">
@@ -235,7 +244,7 @@
                         <cstring>radioButton13</cstring>
                     </property>
                     <property name="text">
-                        <string>Display only the number of the element</string>
+                        <string>Display &amp;only the number of the element</string>
                     </property>
                 </widget>
             </grid>
