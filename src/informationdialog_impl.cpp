@@ -5,27 +5,31 @@
 #include <qlabel.h>
 #include <qtextstream.h>
 #include <qfile.h>
+#include <qtextbrowser.h>
 
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <kdebug.h>
 #include <kfiledialog.h>
 #include <kmessagebox.h>
-
 #include <kdebug.h>
 
-#include <qtextbrowser.h>
+#include "pse.h"
 
 
-InformationWidget::InformationWidget( QWidget *parent )
-	: InformationDialog( parent )
+InformationWidget::InformationWidget( PSE *pse )
+	: InformationDialog( )
 {
+	m_pse = pse;
 	buttonGroup->setButton( 0 );
 }
 
 void InformationWidget::closeEvent(QCloseEvent* e)
 {
 	QWidget::closeEvent(e);
+	m_pse->setFullDraw();
+	m_pse->setTimeline( false );
+	m_pse->activateSOMMode( false );
 	emit closed();
 }
 
@@ -137,4 +141,27 @@ QString QuizXMLParser::readTasks( QDomDocument &questionDocument, int number )
         }
         
 	return html;
+}
+
+void InformationWidget::tabSelected( QWidget* /*w*/ )
+{
+	if ( tabWidget->currentPageIndex() == 1 )
+		m_pse->setTimeline( true );
+	else
+		m_pse->setTimeline( false );
+
+	if ( tabWidget->currentPageIndex() == 2 )
+		m_pse->activateSOMMode( true );
+	else
+		m_pse->activateSOMMode( false );
+
+	m_pse->setFullDraw();
+
+	kdDebug() << tabWidget->currentPageIndex() << endl;
+}
+
+void InformationWidget::slotDate(int date)
+{
+	kdDebug() << date << endl;
+	m_pse->setDate( date );
 }

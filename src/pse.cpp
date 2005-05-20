@@ -100,8 +100,8 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	m_IUPACOLDlist.append( "7B");
 	m_IUPACOLDlist.append( "0");
 
- table = new QPixmap();
- table2 = new QPixmap();
+	table = new QPixmap();
+	table2 = new QPixmap();
 
 	//JH: Start with a full draw
 	doFullDraw = true;
@@ -295,28 +295,40 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 {
 	QPainter p;
 
+
   //JH: I have split the drawing into two pixmaps: table and table2.
   //table contains the "static" PSE table, and does not change very often.
   //table2 contains the tooltips and any other dynamic overlays.
   //Usually, we can skip the code which renders the table, and just use the 
   //image stored in table...when doFullDraw==false, the rendering code is skipped.
-  if ( doFullDraw ) {
-    //DEBUG
-    kdDebug() << "Drawing full table" << endl;
-    
-    p.begin( table );
-		p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
-		drawPSE( &p, m_isSimple );
+  if ( doFullDraw ) 
+  {
+	  //DEBUG
+	  kdDebug() << "Drawing full table" << endl;
 
-		drawNumeration( &p );
-		
-		if ( m_showLegend )
-			drawLegend( &p );
-		
-		p.end();
-		
-    doFullDraw = false;
-	}
+	  p.begin( table );
+	  p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
+	  if ( m_timeline ){
+		  kdDebug() << "draw the timeline" << endl;
+		  drawTimeLine(& p );
+		  p.end();
+
+		  *table2 = *table;
+		  bitBlt( this, 0, 0, table2 );
+		  return;
+	  }
+	  kdDebug() << "don't do the timeline..." << endl;
+	  drawPSE( &p, m_isSimple );
+
+	  drawNumeration( &p );
+
+	  if ( m_showLegend )
+		  drawLegend( &p );
+
+	  p.end();
+
+	  doFullDraw = false;
+  }
 
   //JH: Ok, now table contains the static PSE table, and we may need to draw
   //a tooltip on it.  However, we don't want to ruin the stored table pixmap, 
@@ -366,6 +378,26 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 	p->drawText( x1, y1+55, i18n("Weight: %1 u").arg(QString::number( e->weight() ))); 
 }
 
+void PSE::drawTimeLine( QPainter* p )
+{
+	if ( !p ) return;
+	kdDebug() << "PSE::drawTimeLine: " << m_date << endl;
+	
+	EList::Iterator it = d->ElementList.begin();
+
+	int coordinate = 0;
+	
+	/**
+	 * this loop iterates through all elements. The Elements
+	 * draw themselfs, the PSE only tells them to do so
+	 */
+	while ( it != d->ElementList.end() )
+	{
+		if ( ( *it )->date() <= m_date )
+			( *it )->drawSelf( p, false );
+		++it;
+	}
+}
 
 void PSE::drawLegend( QPainter* p )
 {

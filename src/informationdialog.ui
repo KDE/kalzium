@@ -89,7 +89,7 @@
                     <cstring>tab</cstring>
                 </property>
                 <attribute name="title">
-                    <string>The Table</string>
+                    <string>&amp;The Table</string>
                 </attribute>
                 <grid>
                     <property name="name">
@@ -133,7 +133,7 @@
                                     <cstring>groups</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>Groups</string>
+                                    <string>&amp;Groups</string>
                                 </property>
                             </widget>
                             <widget class="QRadioButton" row="1" column="0">
@@ -141,7 +141,7 @@
                                     <cstring>periods</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>Periods</string>
+                                    <string>Period&amp;s</string>
                                 </property>
                             </widget>
                         </grid>
@@ -153,7 +153,7 @@
                     <cstring>tab</cstring>
                 </property>
                 <attribute name="title">
-                    <string>Time</string>
+                    <string>T&amp;ime</string>
                 </attribute>
                 <grid>
                     <property name="name">
@@ -200,7 +200,7 @@
                     <cstring>TabPage</cstring>
                 </property>
                 <attribute name="title">
-                    <string>Temperature</string>
+                    <string>Te&amp;mperature</string>
                 </attribute>
                 <grid>
                     <property name="name">
@@ -261,9 +261,22 @@
         <receiver>InformationDialog</receiver>
         <slot>close()</slot>
     </connection>
+    <connection>
+        <sender>time_slider</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>InformationDialog</receiver>
+        <slot>slotDate(int)</slot>
+    </connection>
+    <connection>
+        <sender>tabWidget</sender>
+        <signal>currentChanged(QWidget*)</signal>
+        <receiver>InformationDialog</receiver>
+        <slot>tabSelected(QWidget*)</slot>
+    </connection>
 </connections>
 <slots>
-    <slot>slotSelectionChanged(int)</slot>
+    <slot>slotDate(int)</slot>
+    <slot>tabSelected(QWidget*)</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

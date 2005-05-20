@@ -300,6 +300,8 @@ class PSE : public QWidget
 		///in this method the tooltops are drawn.
 		virtual void drawToolTip( QPainter *p, Element *e );
 
+		virtual void drawTimeLine( QPainter *p );
+
 		///called if the user resized the table
 		virtual void resizeEvent( QResizeEvent *e );
 
@@ -318,6 +320,7 @@ class PSE : public QWidget
 	public slots:	
 		void setDate( int date ){
 			m_date = date;
+			update();
 //These elements have always been known:
 //6 16 26 29 33 47 50 51 79 80 82 83
 		}

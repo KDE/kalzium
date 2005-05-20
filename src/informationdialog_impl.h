@@ -9,12 +9,14 @@
 #include <qstring.h>
 #include <qevent.h>
 
+class PSE;
+
 class InformationWidget : public InformationDialog
 {
 	Q_OBJECT
 
 	public:
-		InformationWidget( QWidget *parent );
+		InformationWidget( PSE *pse );
 
 		void showSOM(){
 			tabWidget->setCurrentPage( 1 );
@@ -28,9 +30,15 @@ class InformationWidget : public InformationDialog
 		///returns the text formated as html
 		QString getDesc(QPoint);
 
+		PSE *m_pse;
+
 	public slots:
 		void closeEvent(QCloseEvent*e);
 		void slotUpdate( QPoint point );
+
+		void slotDate( int );
+
+		void tabSelected( QWidget* );
 
 	signals:
 		void closed();
