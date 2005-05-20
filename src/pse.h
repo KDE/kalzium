@@ -120,8 +120,9 @@ class PSE : public QWidget
 		 * the given temperature @p temp
 		 * @param temp is the temperature to which all buttons will be set
 		 */
-		void setTemperature( const double temp ){
-			m_temperature = temp;
+		void setTemperature( int temp ){
+			m_temperature = (double)temp;
+			update();
 		}
 
 		void setShowTooltip( bool show ){

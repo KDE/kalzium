@@ -308,8 +308,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 
 	  p.begin( table );
 	  p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
-	  if ( m_timeline ){
-		  kdDebug() << "draw the timeline" << endl;
+	  if ( m_timeline ){ //use timeline
 		  drawTimeLine(& p );
 		  p.end();
 
@@ -317,7 +316,14 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		  bitBlt( this, 0, 0, table2 );
 		  return;
 	  }
-	  kdDebug() << "don't do the timeline..." << endl;
+	  if ( som() ){//use state of matter
+		  drawSOMPSE(& p );
+		  p.end();
+
+		  *table2 = *table;
+		  bitBlt( this, 0, 0, table2 );
+		  return;
+	  }
 	  drawPSE( &p, m_isSimple );
 
 	  drawNumeration( &p );

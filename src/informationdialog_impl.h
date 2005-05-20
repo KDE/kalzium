@@ -37,6 +37,7 @@ class InformationWidget : public InformationDialog
 		void slotUpdate( QPoint point );
 
 		void slotDate( int );
+		void slotTemp( int );
 
 		void tabSelected( QWidget* );
 

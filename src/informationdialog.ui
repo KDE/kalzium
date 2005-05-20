@@ -265,7 +265,7 @@
         <sender>time_slider</sender>
         <signal>valueChanged(int)</signal>
         <receiver>InformationDialog</receiver>
-        <slot>slotDate(int)</slot>
+        <slot>slotTime(int)</slot>
     </connection>
     <connection>
         <sender>tabWidget</sender>
@@ -273,10 +273,17 @@
         <receiver>InformationDialog</receiver>
         <slot>tabSelected(QWidget*)</slot>
     </connection>
+    <connection>
+        <sender>temp_slider</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>InformationDialog</receiver>
+        <slot>slotTemp(int)</slot>
+    </connection>
 </connections>
 <slots>
-    <slot>slotDate(int)</slot>
+    <slot>slotTemp(int)</slot>
     <slot>tabSelected(QWidget*)</slot>
+    <slot>slotTime(int)</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

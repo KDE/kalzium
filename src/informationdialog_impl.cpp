@@ -160,8 +160,12 @@ void InformationWidget::tabSelected( QWidget* /*w*/ )
 	kdDebug() << tabWidget->currentPageIndex() << endl;
 }
 
+void InformationWidget::slotTemp(int date)
+{
+	m_pse->setTemperature( date );
+}
+
 void InformationWidget::slotDate(int date)
 {
-	kdDebug() << date << endl;
 	m_pse->setDate( date );
 }
