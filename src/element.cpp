@@ -152,7 +152,7 @@ const QString Element::adjustUnits( const int type )
 		}
 		else//liquid or solid
 		{
-			v = i18n( "%1 g/cm<sup>2</sup>" ).arg( QString::number( val ) );
+			v = i18n( "%1 g/cm<sup>3</sup>" ).arg( QString::number( val ) );
 		}
 	}
 	else if ( type == DATE ) //its a date
