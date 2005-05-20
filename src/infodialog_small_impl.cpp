@@ -40,7 +40,7 @@ void infoDlgSmallImpl::setValues()
 	QString cap = i18n( "%1 (%2)" ).arg( name ).arg( num );
 	setCaption( cap );
 	symbol_label->setText( e->symbol() );
-	name_label->setText( e->elname().utf8() );
+	name_label->setText( name );
 	weight_label->setText(  e->adjustUnits( Element::WEIGHT ) );
 	elemno_label->setText(  QString::number( e->number() ) );
 	melting_label->setText( e->adjustUnits( Element::MELTINGPOINT ) );
