@@ -13,8 +13,6 @@ kalzium_SOURCES = kalzium.cpp \
 			infodialog_small_impl.cpp \
 			detailinfodlg.cpp \
 			orbitswidget.cpp \
-			detail_chemical.ui \
-			detail_energy.ui \
 			plotwidget.cpp \
 			elementdataviewer.cpp \
 			plotsetupwidget.ui \
@@ -42,8 +40,6 @@ EXTRA_DIST = main.cpp \
 		infodialog_small_impl.h \
 		detailinfodlg.cpp detailinfodlg.h \
 		orbitswidget.cpp orbitswidget.h \
-		detail_chemical.ui \
-		detail_energy.ui \
 		plotwidget.cpp plotwidget.h \
 		elementdataviewer.cpp elementdataviewer.h \
 		isotopewidget.h isotopewidget.cpp \

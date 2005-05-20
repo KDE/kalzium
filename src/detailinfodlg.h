@@ -25,12 +25,11 @@
 #include "detail_energy.h"
 #include "orbitswidget.h"
 
-class QFrame;
 class DetailedGraphicalOverview;
 class KalziumDataObject;
 
 class QMouseEvent;
-
+class QFrame;
 
 
 /**
@@ -42,36 +41,51 @@ class DetailedInfoDlg : public KDialogBase
     Q_OBJECT
     
 	public:
-        	DetailedInfoDlg( KalziumDataObject* data, Element *el , QWidget *parent=0, const char *name=0);
+        DetailedInfoDlg( KalziumDataObject* data, Element *el , QWidget *parent=0, const char *name=0);
+
+		enum DATATYPE
+		{
+			CHEMICAL = 0,
+			MISC,
+			ENERGY
+		};
 	
 	private:
 		KalziumDataObject *m_data;
 		Element *e;
-		QFrame *m_pEnergyTab,
-			*m_pOverviewTab,
+		QFrame *m_pOverviewTab,
 			*m_pPictureTab,
-			*m_pChemicalTab,
-			*m_pMiscTab,
 			*m_pModelTab;
 		
-		QLabel *piclabel,
-			   *discovered_label,
-			   *meanweight_label;
+		QLabel *piclabel;
 
-		QVBoxLayout *miscLayout, *mainLayout,
-					*overviewLayout, *energyLayout,
-					*chemicalLayout;
+		QVBoxLayout *miscLayout, 
+					*mainLayout,
+					*overviewLayout;
+
+		///holds the pointers to all pages of the dialog
+		QValueList<QFrame*> m_pages;
 
 		DetailedGraphicalOverview *dTab;
 
-		detail_chemical *wChemical;
-		detail_energy *wEnergy;
 		OrbitsWidget *wOrbits;
 
 		/**
 		 * create the tabs.
 		 */
 		void createContent( Element *e );
+
+		QString getHtml(DATATYPE);
+
+		QString m_baseHtml;
+
+		/**
+		 * @param htmlcode The code which will be displayed
+		 * @param title The title of the tab, appears above the htmlview
+		 * @param icontext The name of the tab, appears belov or instead of the icon
+		 * @param iconname The name of the icon
+		 */
+		void addTab( const QString& htmlcode, const QString& title, const QString icontext, const QString iconname );
 	
 	protected:
 		virtual void wheelEvent (  QWheelEvent * ev );

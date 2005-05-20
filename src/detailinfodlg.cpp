@@ -20,6 +20,8 @@
 #include <klocale.h>
 #include <kiconloader.h>
 #include <kglobalsettings.h>
+#include <khtml_part.h>
+#include <khtmlview.h>
 
 #include <qlabel.h>
 #include <qpainter.h>
@@ -27,6 +29,7 @@
 #include <qwhatsthis.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
+#include <qvaluelist.h>
 
 #include "detailinfodlg.h"
 #include "orbitswidget.h"
@@ -42,51 +45,112 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	m_data = data;
 	e = el;
 
-	( actionButton( KDialogBase::Close ) )->setFocus();
+	m_baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
+	m_baseHtml.append("kalzium/data/");
+	m_baseHtml.append("bg.jpg");
 
-	
+	( actionButton( KDialogBase::Close ) )->setFocus();
 	
 	m_pOverviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon( "overview" ));
-    m_pMiscTab = addPage(i18n("Miscellaneous"), i18n("Miscellaneous"), BarIcon( "misc" ));
 	m_pPictureTab = addPage(i18n("Picture"), i18n("What does this element look like?"), BarIcon( "elempic" ));
-	m_pEnergyTab =   addPage( i18n("Energies"), i18n( "Energy Information" ), BarIcon( "energies" ) );
-	m_pChemicalTab = addPage( i18n("Chemical Data"), i18n( "Chemical Data" ), BarIcon( "chemical") );
 	m_pModelTab = addPage( i18n("Atom Model"), i18n( "Atom Model" ), BarIcon( "orbits" ));
 	
-	miscLayout = new QVBoxLayout( m_pMiscTab );
 	mainLayout = new QVBoxLayout( m_pPictureTab );
 	overviewLayout = new QVBoxLayout( m_pOverviewTab );
-	energyLayout = new QVBoxLayout( m_pEnergyTab );
-	chemicalLayout = new QVBoxLayout( m_pChemicalTab, 0, KDialog::spacingHint() );
 	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
-	
-	
-	
+
 	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
 	dTab->setElement( e );
  	overviewLayout->addWidget( dTab );
-	wChemical = new detail_chemical( m_pChemicalTab );
-	wEnergy = new detail_energy( m_pEnergyTab );
 	wOrbits = new OrbitsWidget( m_pModelTab );
 	piclabel = new QLabel( m_pPictureTab );
-	discovered_label = new QLabel( m_pMiscTab );
-	meanweight_label = new QLabel( m_pMiscTab );
-	QWhatsThis::add( meanweight_label , i18n( "The mean weight is the atomic weight divided by the number of protons" ) );
-	QWhatsThis::add( discovered_label, i18n( "Here you can see when the element was discovered." ) );
 	
-	miscLayout->addWidget( discovered_label );
-	miscLayout->addWidget( meanweight_label );
-	miscLayout->insertStretch(-1,1);
 	mainLayout->addWidget( piclabel );
-	chemicalLayout->addWidget( wChemical );
-	energyLayout->addWidget( wEnergy );
 	modelLayout->addWidget( wOrbits );
 	
 	createContent( e );
 }
 
+void DetailedInfoDlg::addTab( const QString& htmlcode, const QString& title, const QString icontext, const QString iconname )
+{
+	QFrame *frame = addPage(title, icontext, BarIcon(iconname));
+	QVBoxLayout *layout = new QVBoxLayout( frame );
+	KHTMLPart *w = new KHTMLPart( frame, "html-part", frame );
+	layout->addWidget( w->view() );
+	
+	w->begin();
+	w->write( htmlcode );
+	w->end();
+
+	//add this page to the list of pages
+	m_pages.append( frame );
+}
+
+QString DetailedInfoDlg::getHtml(DATATYPE type)
+{
+	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
+	html.append( m_baseHtml );
+	html.append("\">");
+
+	switch ( type )
+	{
+		case CHEMICAL:
+			html.append( i18n( "Orbital structure: " ) );
+			html.append( e->parsedOrbits() );
+			html.append( "<p />" );
+			html.append( i18n("Symbol: ") );
+			html.append( e->symbol() );
+			html.append( "<p />" );
+			html.append( i18n( "Density: " ) );
+			html.append( e->adjustUnits( Element::DENSITY ) );
+			html.append( "<p />" );
+			html.append( i18n( "Block: " ) );
+			html.append( e->block() );
+			html.append( "<p />" );
+			html.append( i18n( "Radius: " ) );
+			html.append( e->adjustUnits( Element::RADIUS ) );
+			html.append( "<p />" );
+			html.append( i18n( "Weight: " ) );
+			html.append( e->adjustUnits( Element::WEIGHT  ) );
+			break;
+		case MISC:
+			html.append( "<p />" );
+			html.append( i18n( "Discovered: " ) );
+			html.append( e->adjustUnits( Element::DATE ) );
+			html.append( "<p />" );
+			html.append( i18n( "Mean weight: " ) );
+			html.append( QString::number( e->meanweight() ));
+			html.append( "u" );
+			break;
+		case ENERGY:
+			html.append( "<p>" );
+			html.append( i18n( "Melting Point: " ) );
+			html.append( e->adjustUnits( Element::MELTINGPOINT ) );
+			html.append( "<p>" );
+			html.append( i18n( "Boiling Point: " ) );
+			html.append( e->adjustUnits( Element::BOILINGPOINT ) );
+			html.append( "<p>" );
+			html.append( i18n( "Second Ionizationenergy: " ) );
+			html.append( e->adjustUnits( Element::IE2 ) );
+			html.append( "<p>" );
+			html.append( i18n( "First Ionizationenergy: " ) );
+			html.append( e->adjustUnits( Element::IE ) );
+			html.append( "<p>" );
+			html.append( i18n( "Electronegativity: " ) );
+			html.append( e->adjustUnits( Element::EN ) );
+			break;
+	}
+			
+	html.append( "</p></body></html>" );
+	
+	return html;
+}
+
 void DetailedInfoDlg::createContent( Element *el )
 {
+	addTab( getHtml(CHEMICAL), i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
+	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
+	addTab( getHtml(MISC), i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 	
 	QString num = QString::number( el->number() );
 	QString elname = i18n( el->elname().utf8() );
@@ -94,10 +158,6 @@ void DetailedInfoDlg::createContent( Element *el )
 	setCaption( cap );
 
 	dTab->setElement( el );
-
-	/////////////////////////////////
-	discovered_label->setText( i18n("Discovered: %1").arg( el->adjustUnits( Element::DATE ) ) );
-	meanweight_label->setText( i18n("Mean weight: %1 u").arg(el->meanweight() ) );
 
 	////////////////////////////////////7
 	if ( !locate(  "data" , "kalzium/elempics/" + el->symbol() + ".jpg" ).isEmpty() )
@@ -113,33 +173,6 @@ void DetailedInfoDlg::createContent( Element *el )
 		piclabel->setText( i18n( "No picture of %1 found." ).arg( elname ) );
 	}
 
-	
-	////////////////////////////////////7
-	
-
-	wEnergy->mp_label->setText( el->adjustUnits( Element::MELTINGPOINT ) );
-	wEnergy->bp_label->setText( el->adjustUnits( Element::BOILINGPOINT ) );
-	wEnergy->sion_label->setText( el->adjustUnits( Element::IE2 ) );
-	wEnergy->ion_label->setText( el->adjustUnits( Element::IE ) );
-	wEnergy->en_label->setText(  el->adjustUnits( Element::EN ) );
-	
-	////////////////////////////////////7
-	
-
-	wChemical->orbits_label->setText( el->parsedOrbits() );
-	wChemical->symbol_label->setText( el->symbol() );
-	wChemical->density_label->setText( el->adjustUnits( Element::DENSITY ) );
-	wChemical->block_label->setText( el->block() );
-	wChemical->radius_label->setText( el->adjustUnits( Element::RADIUS ) );
-	wChemical->weight_label->setText( el->adjustUnits( Element::WEIGHT  ) );
-
-	if ( el->Isotopes() != "0"  )
-		wChemical->isotopeWidget->setIsotopes( el->Isotopes() );
-	else
-		wChemical->isotopeLabel->hide();
-
-	wChemical->isotopeWidget->repaint();
-    
     /////////////////////////////////
 	
 	wOrbits->setElementNumber( el->number() );
@@ -170,9 +203,16 @@ void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 		return;
 
 	e = element;
+	
+	QValueList<QFrame*>::iterator it = m_pages.begin();
+	QValueList<QFrame*>::iterator itEnd = m_pages.end();
+	for ( ; it != itEnd ; ++it ){
+		delete *it;
+		*it = NULL;
+	}
+	m_pages.clear();
 
 	createContent( e );
 }
-
 
 #include "detailinfodlg.moc"
