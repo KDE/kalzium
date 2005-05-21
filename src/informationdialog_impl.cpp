@@ -6,6 +6,7 @@
 #include <qtextstream.h>
 #include <qfile.h>
 #include <qtextbrowser.h>
+#include <qslider.h>
 
 #include <klocale.h>
 #include <kstandarddirs.h>
@@ -155,9 +156,10 @@ void InformationWidget::tabSelected( QWidget* /*w*/ )
 	else
 		m_pse->activateSOMMode( false );
 
+	time_slider->setValue( 2000 );
+	temp_slider->setValue( 295 );
 	m_pse->setFullDraw();
-
-	kdDebug() << tabWidget->currentPageIndex() << endl;
+	m_pse->update();
 }
 
 void InformationWidget::slotTemp(int date)

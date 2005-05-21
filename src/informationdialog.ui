@@ -279,6 +279,18 @@
         <receiver>InformationDialog</receiver>
         <slot>slotTemp(int)</slot>
     </connection>
+    <connection>
+        <sender>time_slider</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>lCDNumber1</receiver>
+        <slot>display(int)</slot>
+    </connection>
+    <connection>
+        <sender>temp_slider</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>lCDNumber1_2</receiver>
+        <slot>display(int)</slot>
+    </connection>
 </connections>
 <slots>
     <slot>slotTemp(int)</slot>
