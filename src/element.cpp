@@ -341,7 +341,7 @@ void Element::drawSelf( QPainter* p, bool useSimpleView )
 	int h_small = 15; //the size for the small units like elementnumber
 
 	//The X-coordiante
-	int X;
+	int X = 0;
 	
 	if ( useSimpleView )
 	{//use the small periodic table without the d- and f-Block

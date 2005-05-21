@@ -169,3 +169,5 @@ void InformationWidget::slotDate(int date)
 {
 	m_pse->setDate( date );
 }
+
+#include "informationdialog_impl.moc"

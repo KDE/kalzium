@@ -215,4 +215,4 @@ QColor DetailedGraphicalOverview::PSEColor( const QString &block ) const
 	return  c;
 }
 
-
+#include "detailedgraphicaloverview.moc"

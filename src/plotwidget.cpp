@@ -67,7 +67,7 @@ void PlotWidget::drawObjects( QPainter *p )
 					if (m_connectPoints)
 					{
 						int 	p1x, p1y, //the first point
-							p2x, p2y; //the second point
+							p2x = 0, p2y = 0; //the second point
 						
 						DPoint *dp = po->points()->first();
 						
