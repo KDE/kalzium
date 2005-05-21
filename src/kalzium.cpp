@@ -114,7 +114,7 @@ void Kalzium::setupActions()
 	
 	m_pCalcAction = new KAction(i18n("&Calculate Molecular Weights"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_weights");
 	
-	m_pGlossaryAction = new KAction(i18n("&Glossary"), "add", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
+	m_pGlossaryAction = new KAction(i18n("&Glossary"), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
 	//Legend
 	m_pLegendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
