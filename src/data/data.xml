@@ -124,6 +124,7 @@
 		<ionisationenergy>
 			<energy>8.298 </energy>
 			<energy>25.154</energy>
+			<energy>37.9</energy>
 		</ionisationenergy>
 		<radius>
 			<atomic>83</atomic>
@@ -310,8 +311,8 @@
 		<boilingpoint>1380</boilingpoint>
 		<density>1.74</density>
 		<ionisationenergy>
-			<energy>7.646 </energy>
-
+			<energy>7.646</energy>
+			<energy>15.0</energy>
 		</ionisationenergy>
 		<radius>
 			<atomic>160</atomic>
@@ -337,8 +338,9 @@
 		<boilingpoint>2740</boilingpoint>
 		<density>2.70</density>
 		<ionisationenergy>
-			<energy>5.986 </energy>
-
+			<energy>5.986</energy>
+			<energy>18.8</energy>
+			<energy>28.4</energy>
 		</ionisationenergy>
 		<radius>
 			<atomic>143.1</atomic>
@@ -530,8 +532,8 @@
 		<boilingpoint>1757</boilingpoint>
 		<density>1.54</density>
 		<ionisationenergy>
-			<energy>6.113 </energy>
-
+			<energy>6.113</energy>
+			<energy>11.9</energy>
 		</ionisationenergy>
 		<radius>
 			<atomic>197.3</atomic>
@@ -832,8 +834,9 @@
 		<boilingpoint>2478</boilingpoint>
 		<density>5.91</density>
 		<ionisationenergy>
-			<energy>5.999 </energy>
-
+			<energy>5.999</energy>
+			<energy>20.5</energy>
+			<energy>30.7</energy>
 		</ionisationenergy>
 		<radius>
 			<atomic>122.1</atomic>
@@ -1025,8 +1028,8 @@
 		<boilingpoint>1655</boilingpoint>
 		<density>2.63</density>
 		<ionisationenergy>
-			<energy>5.695 </energy>
-
+			<energy>5.695</energy>
+			<energy>11.0</energy>
 		</ionisationenergy>
 		<radius>
 			<atomic>215.1</atomic>
@@ -1329,8 +1332,9 @@
 		<boilingpoint>2350</boilingpoint>
 		<density>7.31</density>
 		<ionisationenergy>
-			<energy>5.786 </energy>
-
+			<energy>5.786</energy>
+			<energy>18.9</energy>
+			<energy>28.0</energy>
 		</ionisationenergy>
 		<radius>
 			<atomic>162.6</atomic>
@@ -1521,8 +1525,8 @@
 		<boilingpoint>2078</boilingpoint>
 		<density>3.65</density>
 		<ionisationenergy>
-			<energy>5.212 </energy>
-
+			<energy>5.212</energy>
+			<energy>10.0</energy>
 		</ionisationenergy>
 		<radius>
 			<atomic>217.3</atomic>
@@ -2203,7 +2207,9 @@
 		<boilingpoint>1746</boilingpoint>
 		<density>11.85</density>
 		<ionisationenergy>
-			<energy>6.108 </energy>
+			<energy>6.108</energy>
+			<energy>20.4</energy>
+			<energy>29.8</energy>
 		</ionisationenergy>
 		<radius>
 			<atomic>170.4</atomic>
