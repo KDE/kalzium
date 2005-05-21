@@ -17,8 +17,7 @@
 
 
 #include <khtml_part.h>
-#include <khtmlview.h>
-#include <kdialog.h>
+#include <kdialogbase.h>
 
 #include <qdom.h>
 
@@ -61,7 +60,7 @@ class KnowledgeItem
 				m_ref;
 };
 
-class GlossaryDialog : public KDialog
+class GlossaryDialog : public KDialogBase
 {
     Q_OBJECT
     
@@ -78,7 +77,7 @@ class GlossaryDialog : public KDialog
 		KLineEdit *m_search;
 
 		/**
-		 * @return the formated html-code for the @p item 
+		 * @return the formated html-code for the @param item 
 		 **/
 		QString itemHtml( KnowledgeItem* item );
 
@@ -94,9 +93,6 @@ class GlossaryDialog : public KDialog
 			
 		QValueList<KnowledgeItem*> readItems( QDomDocument& );
 	
-	public slots:
-		void closeEvent(QCloseEvent*e);
-
 	private slots:
 		void itemClicked( QListBoxItem* );
 		/**
@@ -105,6 +101,8 @@ class GlossaryDialog : public KDialog
 		void displayItem( const KURL& url, const KParts::URLArgs& args );
 
 		void slotSearch();
+
+		void slotClose();
 	
 	signals:
 		void closed();

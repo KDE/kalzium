@@ -25,6 +25,7 @@
 #include <qpushbutton.h>
 #include <qlistbox.h>
 #include <qregexp.h>
+#include <qsplitter.h>
 
 #include "glossarydialog.h"
 #include "detailinfodlg.h"
@@ -34,7 +35,7 @@
 #include "detailedgraphicaloverview.h"
 
 GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
-    : KDialog(parent,name)
+    : KDialogBase( Plain, i18n( "Glossary" ), Close, Close, parent, name, false )
 {
 	QString m_baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
 	m_baseHtml.append("kalzium/data/");
@@ -44,22 +45,22 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	m_htmlbasestring.append( m_baseHtml );
 	m_htmlbasestring.append("\">");
 	
-	QVBoxLayout *vbox = new QVBoxLayout( this );
-	m_search = new KLineEdit( this );
+	QVBoxLayout *vbox = new QVBoxLayout( plainPage() );
+	vbox->activate();
+	m_search = new KLineEdit( plainPage() );
 	connect( m_search, SIGNAL( returnPressed() ), this, SLOT( slotSearch() ) );
 
-	QHBoxLayout *hbox = new QHBoxLayout( vbox );
 	vbox->addWidget( m_search );
 	
-	m_htmlpart = new KHTMLPart( this, "html-part", this );
+	QSplitter *vs = new QSplitter( plainPage() );
+	vbox->addWidget( vs );
+	
+	itembox = new QListBox( vs, "listbox" );
+	connect( itembox, SIGNAL( clicked( QListBoxItem* ) ), this, SLOT(itemClicked( QListBoxItem* ) ) );
+
+	m_htmlpart = new KHTMLPart( vs, "html-part" );
 	connect(  m_htmlpart->browserExtension(), SIGNAL(  openURLRequestDelayed(  const KURL &, const KParts::URLArgs & ) ), this, SLOT(  displayItem( const KURL &, const KParts::URLArgs & ) ) );
 
-	itembox = new QListBox( this, "listbox" );
-	connect( itembox, SIGNAL( clicked( QListBoxItem* ) ), this, SLOT(itemClicked( QListBoxItem* ) ) );
-	
-	hbox->addWidget( itembox );
-	hbox->addWidget( m_htmlpart->view() );
-	
 	QDomDocument doc( "foo" );
 	QString filename = "knowledge.xml";
 
@@ -67,6 +68,8 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 		m_itemList = readItems( doc );
 
 	populateList();
+
+	connect( this, SIGNAL(closeClicked()), SLOT(slotClose()) );
 }
 
 void GlossaryDialog::slotSearch()
@@ -255,10 +258,10 @@ QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument
 	return list;
 }
 
-void GlossaryDialog::closeEvent(QCloseEvent* e)
+void GlossaryDialog::slotClose()
 {
-	QWidget::closeEvent(e);
 	emit closed();
+	accept();
 }
 
 KnowledgeItem::KnowledgeItem()
