@@ -3,6 +3,8 @@ Priority 1:
 	- A math dialog:
 	  -- integrate EqChem http://www.kde-apps.org/content/show.php?content=14542
 	  -- Adding a calculator for molecular weights
+	  	-- the one part of the calculator works, now I need a parser parsing
+		   a structure the user entered (CO2 --> 1xC + 2xO --> 48 g/mol)
 
 	- Finish the learning mode
 	  -- Make the state-of-matter work
@@ -13,7 +15,22 @@ Priority 1:
 	  -- Add more texts for the groups and periods
 
 Priority 2:
-	- Different EN-Values
+	- Different EN-Values (there are at least 3 different EN-scales)
+	- create another design of the PSE. As Kalzium is now using QPainter
+	  a lot different designs can be easisly implemented.
+	  -- This is my favorite:
+	  http://www.theodoregray.com/PeriodicTableDisplay/indexS.1.html#tabletop
+	     This would need the pictures for all elements. Some are very obvious
+		 (iron could be displayed as a nail for example, Silicon as a glas
+		 or as a Computer-CPU), some are pretty hard. Some are connected with
+		 famous people (Einsteinium: Alber Einstein, Fermium: Enrique Fermi).
+		 For those elements we could use photos.
+	  -- Another one
+	  http://freshlysqueezedsoftware.com/products/ichem/
+	     Like all macintosh-application it just looks good.
+	  --Another one
+		 http://www.synergycreations.com/periodic/
+		  
 
 Priority 3:
 	- Mendeljev-PSE
