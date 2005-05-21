@@ -46,6 +46,7 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	
 	QVBoxLayout *vbox = new QVBoxLayout( this );
 	m_search = new KLineEdit( this );
+	connect( m_search, SIGNAL( returnPressed() ), this, SLOT( slotSearch() ) );
 
 	QHBoxLayout *hbox = new QHBoxLayout( vbox );
 	vbox->addWidget( m_search );
@@ -71,9 +72,19 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 void GlossaryDialog::slotSearch()
 {
 	kdDebug() << "GlossaryDialog::slotSearch(), " << m_search->text() << endl;
-	QListBoxItem *item = itembox->findItem( m_search->text() );
-	if ( item )
-	itemClicked( item );
+	
+	QValueList<KnowledgeItem*>::iterator it = m_itemList.begin();
+	const QValueList<KnowledgeItem*>::iterator itEnd = m_itemList.end();
+	
+	itembox->clear();
+	
+	for ( ; it != itEnd ; ++it )
+	{
+		if ( ( *it )->name().contains( m_search->text() ) )
+			itembox->insertItem( ( *it )->name() );
+	}
+	itembox->sort();
+	itemClicked( itembox->firstItem() );
 }
 
 
@@ -130,13 +141,14 @@ void GlossaryDialog::itemClicked( QListBoxItem* item )
 
 QString GlossaryDialog::itemHtml( KnowledgeItem* item )
 {
+	if ( !item ) return "";
 
 	QString code = "<h1>";
 	code.append( item->name() );
 	code.append( "</h1>" );
 
 	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
-	code.append(  item->desc().replace( "img src=\"" , "img src=\""+pic_path ) );
+	code.append(  item->desc() );
 	if ( !item->ref().isNull() )
 	{
 		QString refcode = parseReferences( item->ref() );
@@ -224,9 +236,17 @@ QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument
 		QDomNode nameNode = itemElement.namedItem( "name" );
 		QDomNode descNode = itemElement.namedItem( "desc" );
 		QDomNode refNode =  itemElement.namedItem( "ref" );
+
+		QDomElement tmpElement = descNode.toElement();
+		QDomNodeList domList = tmpElement.elementsByTagName( "img" );
+//X 		for ( uint i = 0; i < domList.count() ; i++ )
+//X 		{
+//X 			kdDebug() << domList.item( i ).toElement().attribute( "src" ) << endl;
+//X 		}
 		
 		item->setName( nameNode.toElement( ).text() );
 		item->setDesc( descNode.toElement( ).text() );
+//X 		kdDebug() << "item->desc() " << item->desc() << endl;
 		item->setRef( refNode.toElement( ).text() );
 		
 		list.append( item );

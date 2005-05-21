@@ -391,8 +391,6 @@ void PSE::drawTimeLine( QPainter* p )
 	
 	EList::Iterator it = d->ElementList.begin();
 
-	int coordinate = 0;
-	
 	/**
 	 * this loop iterates through all elements. The Elements
 	 * draw themselfs, the PSE only tells them to do so

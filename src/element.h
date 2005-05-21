@@ -33,6 +33,7 @@ struct coordinate;
 
 typedef QValueList<Element*> EList;
 typedef QValueList<coordinate> CList;
+typedef QValueList<double> doubleList;
 
 /**
  * @short this class contains all Element-objects as
@@ -104,6 +105,14 @@ class Element{
 		void setOxydation( QString value ) { m_oxstage = value; }
 		void setAcidicbehaviour( QString value ) { m_acidbeh = value; }
 		void setIsotopes( QString value ) { m_isotopes = value; }
+
+		void setIonisationList( doubleList l ){
+			m_ionenergies = l;
+		}
+
+		QValueList<double> ionisationList() const{
+			return m_ionenergies;
+		}
 		
 		
 		/**
@@ -279,6 +288,11 @@ class Element{
 		const QString adjustUnits( const int type );
 
 		/**
+		 * needed for values stored in a QValueList<double>
+		 */
+		const QString adjustUnits( const int type, double value );
+
+		/**
 		 * missing
 		 */
 		enum TYPE
@@ -342,6 +356,8 @@ class Element{
 			m_orbits,
 			m_isotopes,
 			m_scientist;
+
+		doubleList m_ionenergies;
 		
 	public:
 		/**

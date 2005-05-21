@@ -90,6 +90,9 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 	html.append( m_baseHtml );
 	html.append("\">");
 
+	//get the list of ionisation-energies
+	QValueList<double> ionlist = e->ionisationList();
+
 	switch ( type )
 	{
 		case CHEMICAL:
@@ -128,12 +131,14 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( i18n( "Boiling Point: " ) );
 			html.append( e->adjustUnits( Element::BOILINGPOINT ) );
 			html.append( "<p>" );
-			html.append( i18n( "Second Ionizationenergy: " ) );
-			html.append( e->adjustUnits( Element::IE2 ) );
-			html.append( "<p>" );
-			html.append( i18n( "First Ionizationenergy: " ) );
-			html.append( e->adjustUnits( Element::IE ) );
-			html.append( "<p>" );
+			
+			int i = 0;
+			for ( ; i < ionlist.count() ; ++i )
+			{
+				html.append( i18n("the variable is a number. The result is for example '1.' or '5.'", "%1. Ionizationenergy: " ).arg( QString::number( i+1 ) ) );
+				html.append( e->adjustUnits( Element::IE, ionlist[i] ) );
+				html.append( "<p>" );
+			}
 			html.append( i18n( "Electronegativity: " ) );
 			html.append( e->adjustUnits( Element::EN ) );
 			break;

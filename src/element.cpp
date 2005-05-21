@@ -83,37 +83,33 @@ double Element::meanweight()
 	return m_weight/m_number;
 }
 
+const QString Element::adjustUnits( const int type, double value )
+{
+	QString v = QString::null;
+	if ( type == IE  ) //an ionization energy
+	{
+		if ( Prefs::energies() == 0 )
+		{
+			value*=96.6;
+			v = QString::number( value );
+			v.append( "kJ/mol" );
+		}
+		else // use electronvolt
+		{
+			v = QString::number( value );
+			v.append( "eV" );
+		}
+	}
+	return v;
+}
+
 const QString Element::adjustUnits( const int type )
 {
 	QString v = QString::null;
 
 	double val = 0.0; //the value to convert
 	
-	if ( type == IE || type == IE2 ) //an ionization energy
-	{
-		if ( type == IE )
-			val = ie();
-		else
-			val = ie2();
-	
-		if ( val == -1 )
-			v = i18n( "Value unknown" );
-		else 
-		{
-			if ( Prefs::energies() == 0 )
-			{
-				val*=96.6;
-				v = QString::number( val );
-				v.append( "kJ/mol" );
-			}
-			else // use electronvolt
-			{
-				v = QString::number( val );
-				v.append( "eV" );
-			}
-		}
-	}
-	else if ( type == BOILINGPOINT || type == MELTINGPOINT ) // convert a temperature
+	if ( type == BOILINGPOINT || type == MELTINGPOINT ) // convert a temperature
 	{
 		if ( type == BOILINGPOINT )
 			val = boiling();
@@ -442,7 +438,7 @@ KalziumDataObject::KalziumDataObject()
 	}
 
 	if (!layoutFile.open(IO_ReadOnly))
-		KMessageBox::information( 0, i18n("data.xml io-errro"), i18n( "Loading File - IO_ReadOnly" ) );
+		KMessageBox::information( 0, i18n("data.xml IO-error"), i18n( "Loading File - IO_ReadOnly" ) );
 
 	///Check if document is well-formed
 	if (!doc.setContent(&layoutFile))
@@ -502,6 +498,13 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		QString oxydation = domElement.namedItem( "oxydation" ).toElement().text();
 		QString acidicbehaviour = domElement.namedItem( "acidicbehaviour" ).toElement().text();
 		QString isotopes = domElement.namedItem( "isotopes" ).toElement().text();
+
+		QDomNodeList elist = domElement.elementsByTagName( "energy" );
+		QValueList<double> ionlist;
+		for( uint i = 0; i < elist.length(); i++ )
+		{
+			ionlist.append( elist.item( i ).toElement().text().toDouble() );
+		}
 	
 		Element *e = new Element();
 		e->setDate(date);
@@ -519,6 +522,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setOxydation(oxydation);
 		e->setAcidicbehaviour(acidicbehaviour);
 		e->setIsotopes(isotopes);
+		e->setIonisationList( ionlist );
 		
 		e->setWeight( weight );	
 		e->setEN( en );
