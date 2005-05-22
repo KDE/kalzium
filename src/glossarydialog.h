@@ -25,7 +25,7 @@ class QChar;
 class QListViewItem;
 class KHTMLView;
 class KListView;
-class KListViewSearchLineWidget;
+class KListViewSearchLine;
 
 class KnowledgeItem
 {
@@ -77,7 +77,7 @@ class GlossaryDialog : public KDialogBase
 		void populateTree();
 		QListViewItem* findTreeWithLetter( const QChar&, QListViewItem* );
 
-		KListViewSearchLineWidget *m_search;
+		KListViewSearchLine *m_search;
 
 		/**
 		 * @return the formated html-code for the @param item 
@@ -102,8 +102,6 @@ class GlossaryDialog : public KDialogBase
 		 * The user clicked on a href. Emit the corresponding item
 		 */
 		void displayItem( const KURL& url, const KParts::URLArgs& args );
-
-		void slotSearch();
 
 		void slotClose();
 	

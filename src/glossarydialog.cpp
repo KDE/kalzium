@@ -47,7 +47,7 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	m_htmlbasestring.append( m_baseHtml );
 	m_htmlbasestring.append("\">");
 	
-	QVBoxLayout *vbox = new QVBoxLayout( plainPage() );
+	QVBoxLayout *vbox = new QVBoxLayout( plainPage(), 0, KDialog::spacingHint() );
 	vbox->activate();
 
 	QSplitter *vs = new QSplitter( plainPage() );
@@ -61,12 +61,18 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 
 	m_htmlpart = new KHTMLPart( vs, "html-part" );
 
-//	m_search = new KLineEdit( plainPage() );
-//	connect( m_search, SIGNAL( returnPressed() ), this, SLOT( slotSearch() ) );
-	m_search = new KListViewSearchLineWidget( m_glosstree, plainPage(), "search-line" );
-	vbox->addWidget( m_search );
+	QHBoxLayout *hbox = new QHBoxLayout( 0L, 0, KDialog::spacingHint() );
+	hbox->activate();
+
+	QLabel *lbl = new QLabel( plainPage() );
+	lbl->setText( i18n( "Search:" ) );
+	hbox->addWidget( lbl );
+
+	m_search = new KListViewSearchLine( plainPage(), m_glosstree, "search-line" );
+	hbox->addWidget( m_search );
 	QSizePolicy p = m_search->sizePolicy();
 	m_search->setSizePolicy( QSizePolicy( p.horData(), QSizePolicy::Fixed ) );
+	vbox->addLayout( hbox );
 
 	QDomDocument doc( "foo" );
 	QString filename = "knowledge.xml";
@@ -79,66 +85,33 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	connect( m_htmlpart->browserExtension(), SIGNAL( openURLRequestDelayed( const KURL &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KURL &, const KParts::URLArgs & ) ) );
 	connect( m_glosstree, SIGNAL(clicked( QListViewItem * )), this, SLOT(slotClicked( QListViewItem * )));
 	connect( this, SIGNAL(closeClicked()), SLOT(slotClose()) );
+
+	resize( 550, 400 );
 }
 
 GlossaryDialog::~GlossaryDialog()
 {
 }
 
-void GlossaryDialog::slotSearch()
-{
-/*
-	kdDebug() << "GlossaryDialog::slotSearch(), " << m_search->text() << endl;
-	
-	QValueList<KnowledgeItem*>::iterator it = m_itemList.begin();
-	const QValueList<KnowledgeItem*>::iterator itEnd = m_itemList.end();
-	
-	itembox->clear();
-	
-	for ( ; it != itEnd ; ++it )
-	{
-		if ( ( *it )->name().contains( m_search->text() ) )
-			itembox->insertItem( ( *it )->name() );
-	}
-	itembox->sort();
-	itemClicked( itembox->firstItem() );
-*/
-}
-
 void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 {
-/*
-	m_search->searchLine()->setText( "" );
-	m_search->searchLine()->updateSearch( "" );
+	m_search->setText( "" );
+	m_search->updateSearch( "" );
 	QListViewItem *found = 0;
-// 	QListViewItem *it = m_glosstree->firstChild();
-//         while ( it )
-// 	{
-// 		kdDebug() << "it: " << it <<  " - it->text(0): " << it->text(0) << endl;
-// 		// using the "host" part of a kurl as reference
-// 		if ( it->text(0) == url.host() )
-// 		{
-// 			found = it;
-// 			break;
-// 		}
-// 		it = it->itemBelow();
-// 	}
 	QListViewItemIterator it( m_glosstree );
 	QListViewItem *item;
 	while ( it.current() )
 	{
 		item = it.current();
 		// using the "host" part of a kurl as reference
-		if ( item->text(0) == url.host() )
+		if ( item->text(0).lower() == url.host() )
 		{
 			found = item;
 			break;
 		}
 		++it;
 	}
-//	QListBoxItem *item = itembox->findItem( url.host() );
-//	slotClicked( found );
-*/
+	slotClicked( found );
 }
 
 void GlossaryDialog::populateTree()
