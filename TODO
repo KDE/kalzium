@@ -14,6 +14,9 @@ Priority 1:
 		   things like "World war II ended" and so on.
 	  -- Add more texts for the groups and periods
 
+	- Add gradientdrawing for properties like density and atomic weight like here:
+	    http://www.synergycreations.com/periodic/screenshots/PT-crustal.gif
+
 Priority 2:
 	- Different EN-Values (there are at least 3 different EN-scales)
 	- create another design of the PSE. As Kalzium is now using QPainter
