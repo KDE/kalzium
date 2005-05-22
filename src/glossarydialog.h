@@ -61,6 +61,40 @@ class KnowledgeItem
 				m_ref;
 };
 
+class ToolItem
+{
+	public:
+		ToolItem();
+		~ToolItem();
+
+		void setName( const QString& s ){
+			m_name = s;
+		}
+		void setDesc( const QString& s){
+			m_desc = s;
+		}
+		void setPicture( const QString& s){
+			m_pic = s;
+		}
+
+		QString name() const {
+			return m_name;
+		}
+		
+		QString desc() const {
+			return m_desc;
+		}
+		
+		QString picture() const {
+			return m_pic;
+		}
+
+	private:
+		QString m_name;
+		QString m_desc;
+		QString m_pic;
+};
+
 class GlossaryDialog : public KDialogBase
 {
     Q_OBJECT
@@ -83,6 +117,7 @@ class GlossaryDialog : public KDialogBase
 		 * @return the formated html-code for the @param item 
 		 **/
 		QString itemHtml( KnowledgeItem* item );
+		QString toolHtml( ToolItem* item );
 
 		/**
 		 * this method parses the references: It checks for the ","
@@ -93,8 +128,10 @@ class GlossaryDialog : public KDialogBase
 		bool loadLayout( QDomDocument&, const QString& );
 
 		QValueList<KnowledgeItem*> m_itemList;
+		QValueList<ToolItem*> m_toolList;
 			
 		QValueList<KnowledgeItem*> readItems( QDomDocument& );
+		QValueList<ToolItem*> readTools( QDomDocument& );
 	
 	private slots:
 		void slotClicked( QListViewItem * );

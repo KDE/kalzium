@@ -83,6 +83,12 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	if ( loadLayout( doc, filename ) )
 		m_itemList = readItems( doc );
 
+	QDomDocument doc2( "foo" );
+	filename = "tools.xml";
+
+	if ( loadLayout( doc2, filename ) )
+		m_toolList = readTools( doc2 );
+
 	populateTree();
 
 	connect( m_htmlpart->browserExtension(), SIGNAL( openURLRequestDelayed( const KURL &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KURL &, const KParts::URLArgs & ) ) );
@@ -140,6 +146,19 @@ void GlossaryDialog::populateTree()
 		new QListViewItem( thisletteritem, ( *it )->name() );
 	}
 	main->sort();
+
+	QValueList<ToolItem*>::iterator itTools = m_toolList.begin();
+	const QValueList<ToolItem*>::iterator itEndTools = m_toolList.end();
+	
+	QListViewItem *maintools = new QListViewItem( m_glosstree, i18n( "Tools" ) );
+	maintools->setExpandable( true );
+	maintools->setSelectable( false );
+	for ( ; itTools != itEndTools ; ++itTools )
+	{
+		new QListViewItem( maintools, ( *itTools )->name() );
+	}
+	maintools->sort();
+
 }
 
 QListViewItem* GlossaryDialog::findTreeWithLetter( const QChar& l, QListViewItem* i )
@@ -179,12 +198,34 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 		}
 		++it;
 	}
-	
-	html.append( itemHtml( i ) );
-	html.append( "</body></html>" );
-	m_htmlpart->begin();
-	m_htmlpart->write( html );
-	m_htmlpart->end();
+	if ( found )
+	{
+		html += itemHtml( i ) + "</body></html>";
+		m_htmlpart->begin();
+		m_htmlpart->write( html );
+		m_htmlpart->end();
+		return;
+	}
+
+	QValueList<ToolItem*>::iterator itTools = m_toolList.begin();
+	const QValueList<ToolItem*>::iterator itEndTools = m_toolList.end();
+	ToolItem *iTools = 0;
+	while ( !found && itTools != itEndTools )
+	{
+		if ( ( *itTools )->name() == item->text( 0 ) )
+		{
+			iTools = *itTools;
+			found = true;
+		}
+		++itTools;
+	}
+	if ( found )
+	{
+		html += toolHtml( iTools ) + "</body></html>";
+		m_htmlpart->begin();
+		m_htmlpart->write( html );
+		m_htmlpart->end();
+	}
 }
 
 QString GlossaryDialog::itemHtml( KnowledgeItem* item )
@@ -200,6 +241,18 @@ QString GlossaryDialog::itemHtml( KnowledgeItem* item )
 		QString refcode = parseReferences( item->ref() );
 		code.append( refcode );
 	}
+	return code;
+}
+
+QString GlossaryDialog::toolHtml( ToolItem* item )
+{
+	if ( !item ) return "";
+
+	QString code = "<h1>" + item->name() + "</h1>";
+
+	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
+	code.append(  item->desc() );
+	// XXX draw the picture
 	return code;
 }
 
@@ -289,6 +342,35 @@ QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument
 	return list;
 }
 
+QValueList<ToolItem*> GlossaryDialog::readTools( QDomDocument &itemDocument )
+{
+	QValueList<ToolItem*> list;
+
+	QDomNodeList itemList;
+	QDomElement itemElement;
+
+	itemList = itemDocument.elementsByTagName( "tool" );
+
+	const uint num = itemList.count();
+	for ( uint i = 0; i < num; ++i )
+	{
+		ToolItem *item = new ToolItem();
+		
+		itemElement = ( const QDomElement& ) itemList.item( i ).toElement();
+		item->setPicture( itemElement.attribute( "picture" ) );
+		
+		QDomNode nameNode = itemElement.namedItem( "name" );
+		QDomNode descNode = itemElement.namedItem( "desc" );
+		
+		item->setName( nameNode.toElement().text() );
+		item->setDesc( descNode.toElement().text() );
+		
+		list.append( item );
+	}
+	
+	return list;
+}
+
 void GlossaryDialog::slotClose()
 {
 	emit closed();
@@ -300,6 +382,14 @@ KnowledgeItem::KnowledgeItem()
 }
 
 KnowledgeItem::~KnowledgeItem()
+{
+}
+
+ToolItem::ToolItem()
+{
+}
+
+ToolItem::~ToolItem()
 {
 }
 
