@@ -25,6 +25,11 @@
 
 #include <klocale.h>
 #include <kdebug.h>
+#include <kpixmap.h>
+#include <kpixmapeffect.h>
+#include <kimageeffect.h>
+
+#include <qimage.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
 #include <qlayout.h>
@@ -327,7 +332,6 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		  return;
 	  }
 	  if ( gradient() ){//show a gradient
-		  kdDebug() << "Show Gradient" << endl;
 		  calculateGradient(& p );
 		  p.end();
 
@@ -781,14 +785,17 @@ void PSE::calculateGradient( QPainter *p )
 		if ( ( *dit ) > tmpMax )
 			tmpMax = *dit;
 	}
-	kdDebug() << tmpMin << " :: " << tmpMax << endl;
-	drawGradientPSE( p, Element::EN, tmpMin, tmpMax );
+	
+	//now draw the gradient-table
+	drawGradientPSE( p, tmpMin, tmpMax );
 }
 
 
 
-void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, const double min, const double max )
+void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 {
+	QString title = QString::null;
+	
 	const double var = max-min;
 	EList::Iterator it = d->ElementList.begin();
 	const EList::Iterator itEnd = d->ElementList.end();
@@ -801,6 +808,7 @@ void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, const double min, co
 	switch ( m_gradientType )
 	{
 		case Element::RADIUS:
+			title = i18n( "Gradient: Atomic Radius" );
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->radius() - min )/var;
@@ -812,6 +820,7 @@ void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, const double min, co
 			}
 			break;
 		case Element::WEIGHT:
+			title = i18n( "Gradient: Atomic Weight" );
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->weight() - min )/var;
@@ -823,6 +832,7 @@ void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, const double min, co
 			}
 			break;
 		case Element::DENSITY:
+			title = i18n( "Gradient: Atomic Density" );
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->density() - min )/var;
@@ -834,6 +844,7 @@ void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, const double min, co
 			}
 			break;
 		case Element::BOILINGPOINT:
+			title = i18n( "Gradient: Boilingpoint" );
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->boiling() - min )/var;
@@ -845,6 +856,7 @@ void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, const double min, co
 			}
 			break;
 		case Element::MELTINGPOINT:
+			title = i18n( "Gradient: Meltingpoint" );
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->melting() - min )/var;
@@ -856,6 +868,7 @@ void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, const double min, co
 			}
 			break;
 		case Element::EN:
+			title = i18n( "Gradient: Electronegativity" );
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->electroneg() - min )/var;
@@ -867,6 +880,19 @@ void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, const double min, co
 			}
 			break;
 	}
+	//now draw the gradientwidget:
+	int x,y,w,h;
+	x = ELEMENTSIZE*2+5;
+	y= 5;
+	w = ELEMENTSIZE*10-5;
+	h = ELEMENTSIZE*4-5;
+	QSize s( ELEMENTSIZE*7,20 );
+	QImage img = KImageEffect::gradient ( s, Qt::white, Qt::red, KImageEffect::HorizontalGradient );
+	QPixmap pm( img );
+	p->drawText( x+5,y+50,ELEMENTSIZE*7,20, Qt::AlignCenter, title ); 
+	p->drawPixmap( x+50,y+80, pm );
+	p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignRight, QString::number(  max ) ); 
+	p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignLeft, QString::number( min ) ); 
 }
 
 QColor PSE::calculateColor( const double coeff )

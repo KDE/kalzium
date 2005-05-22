@@ -345,7 +345,7 @@ class PSE : public QWidget
 		virtual void drawPSE( QPainter* p, bool useSimpleView );
 
 		///draw a gradient of the type @p type
-		virtual void drawGradientPSE( QPainter* p, Element::TYPE type, const double min, const double max );
+		virtual void drawGradientPSE( QPainter* p, const double min, const double max );
 
 		///draw the state of matter
 		virtual void drawSOMPSE( QPainter* p );
