@@ -870,7 +870,7 @@ void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, double min, double m
 
 QColor PSE::calculateColor( double coeff )
 {
-	QColor color2 = Qt::blue;
+	QColor color2 = Qt::white;
 	QColor color1 = Qt::red;
 
 	int red = (int)( (color1.red() - color2.red()) * coeff + color2.red() );
