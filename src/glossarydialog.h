@@ -21,10 +21,11 @@
 
 #include <qdom.h>
 
-class KHTMLPart;
+class QChar;
+class QListViewItem;
 class KHTMLView;
-class KLineEdit;
-class QListBox;
+class KListView;
+class KListViewSearchLineWidget;
 
 class KnowledgeItem
 {
@@ -66,15 +67,17 @@ class GlossaryDialog : public KDialogBase
     
 	public:
         	GlossaryDialog( QWidget *parent=0, const char *name=0);
+		~GlossaryDialog();
 	
 	private:
 		KHTMLPart *m_htmlpart;
 		QString m_htmlbasestring;
-		QListBox *itembox;
+		KListView *m_glosstree;
 
-		void populateList();
+		void populateTree();
+		QListViewItem* findTreeWithLetter( const QChar&, QListViewItem* );
 
-		KLineEdit *m_search;
+		KListViewSearchLineWidget *m_search;
 
 		/**
 		 * @return the formated html-code for the @param item 
@@ -94,7 +97,7 @@ class GlossaryDialog : public KDialogBase
 		QValueList<KnowledgeItem*> readItems( QDomDocument& );
 	
 	private slots:
-		void itemClicked( QListBoxItem* );
+		void slotClicked( QListViewItem * );
 		/**
 		 * The user clicked on a href. Emit the corresponding item
 		 */

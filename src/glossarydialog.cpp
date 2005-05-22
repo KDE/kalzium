@@ -10,21 +10,23 @@
 #include <kdebug.h>
 #include <klocale.h>
 #include <kiconloader.h>
-#include <kglobalsettings.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
 #include <kglobal.h>
-#include <kmessagebox.h>
 #include <klineedit.h>
+#include <klistview.h>
+#include <klistviewsearchline.h>
+#include <kmessagebox.h>
 
 #include <qlabel.h>
-#include <qpainter.h>
+#include <qheader.h>
 #include <qimage.h>
 #include <qwhatsthis.h>
 #include <qlayout.h>
+#include <qpainter.h>
 #include <qpushbutton.h>
-#include <qlistbox.h>
 #include <qregexp.h>
+#include <qsizepolicy.h>
 #include <qsplitter.h>
 
 #include "glossarydialog.h"
@@ -35,7 +37,7 @@
 #include "detailedgraphicaloverview.h"
 
 GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
-    : KDialogBase( Plain, i18n( "Glossary" ), Close, Close, parent, name, false )
+    : KDialogBase( Plain, i18n( "Glossary of chemical expressions" ), Close, Close, parent, name, false )
 {
 	QString m_baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
 	m_baseHtml.append("kalzium/data/");
@@ -47,19 +49,24 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	
 	QVBoxLayout *vbox = new QVBoxLayout( plainPage() );
 	vbox->activate();
-	m_search = new KLineEdit( plainPage() );
-	connect( m_search, SIGNAL( returnPressed() ), this, SLOT( slotSearch() ) );
 
-	vbox->addWidget( m_search );
-	
 	QSplitter *vs = new QSplitter( plainPage() );
 	vbox->addWidget( vs );
 	
-	itembox = new QListBox( vs, "listbox" );
-	connect( itembox, SIGNAL( clicked( QListBoxItem* ) ), this, SLOT(itemClicked( QListBoxItem* ) ) );
+	m_glosstree = new KListView( vs, "treeview" );
+	m_glosstree->addColumn( "entries" );
+	m_glosstree->header()->hide();
+	m_glosstree->setFullWidth( true );
+	m_glosstree->setRootIsDecorated( true );
 
 	m_htmlpart = new KHTMLPart( vs, "html-part" );
-	connect(  m_htmlpart->browserExtension(), SIGNAL(  openURLRequestDelayed(  const KURL &, const KParts::URLArgs & ) ), this, SLOT(  displayItem( const KURL &, const KParts::URLArgs & ) ) );
+
+//	m_search = new KLineEdit( plainPage() );
+//	connect( m_search, SIGNAL( returnPressed() ), this, SLOT( slotSearch() ) );
+	m_search = new KListViewSearchLineWidget( m_glosstree, plainPage(), "search-line" );
+	vbox->addWidget( m_search );
+	QSizePolicy p = m_search->sizePolicy();
+	m_search->setSizePolicy( QSizePolicy( p.horData(), QSizePolicy::Fixed ) );
 
 	QDomDocument doc( "foo" );
 	QString filename = "knowledge.xml";
@@ -67,13 +74,20 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	if ( loadLayout( doc, filename ) )
 		m_itemList = readItems( doc );
 
-	populateList();
+	populateTree();
 
+	connect( m_htmlpart->browserExtension(), SIGNAL( openURLRequestDelayed( const KURL &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KURL &, const KParts::URLArgs & ) ) );
+	connect( m_glosstree, SIGNAL(clicked( QListViewItem * )), this, SLOT(slotClicked( QListViewItem * )));
 	connect( this, SIGNAL(closeClicked()), SLOT(slotClose()) );
+}
+
+GlossaryDialog::~GlossaryDialog()
+{
 }
 
 void GlossaryDialog::slotSearch()
 {
+/*
 	kdDebug() << "GlossaryDialog::slotSearch(), " << m_search->text() << endl;
 	
 	QValueList<KnowledgeItem*>::iterator it = m_itemList.begin();
@@ -88,32 +102,85 @@ void GlossaryDialog::slotSearch()
 	}
 	itembox->sort();
 	itemClicked( itembox->firstItem() );
+*/
 }
-
 
 void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 {
-	// using the "host" part uf a kurl as reference
-	QListBoxItem *item = itembox->findItem( url.host() );
-	if ( item )
-	itemClicked( item );
+/*
+	m_search->searchLine()->setText( "" );
+	m_search->searchLine()->updateSearch( "" );
+	QListViewItem *found = 0;
+// 	QListViewItem *it = m_glosstree->firstChild();
+//         while ( it )
+// 	{
+// 		kdDebug() << "it: " << it <<  " - it->text(0): " << it->text(0) << endl;
+// 		// using the "host" part of a kurl as reference
+// 		if ( it->text(0) == url.host() )
+// 		{
+// 			found = it;
+// 			break;
+// 		}
+// 		it = it->itemBelow();
+// 	}
+	QListViewItemIterator it( m_glosstree );
+	QListViewItem *item;
+	while ( it.current() )
+	{
+		item = it.current();
+		// using the "host" part of a kurl as reference
+		if ( item->text(0) == url.host() )
+		{
+			found = item;
+			break;
+		}
+		++it;
+	}
+//	QListBoxItem *item = itembox->findItem( url.host() );
+//	slotClicked( found );
+*/
 }
 
-void GlossaryDialog::populateList()
+void GlossaryDialog::populateTree()
 {
 	QValueList<KnowledgeItem*>::iterator it = m_itemList.begin();
 	const QValueList<KnowledgeItem*>::iterator itEnd = m_itemList.end();
 	
+	QListViewItem *main = new QListViewItem( m_glosstree, i18n( "Main Glossary" ) );
+	main->setExpandable( true );
+	main->setSelectable( false );
 	for ( ; it != itEnd ; ++it )
 	{
-		itembox->insertItem( ( *it )->name() );
+		QChar thisletter = ( *it )->name().upper()[0];
+		QListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
+		if ( !thisletteritem )
+		{
+			thisletteritem = new QListViewItem( main, thisletter );
+			thisletteritem->setExpandable( true );
+			thisletteritem->setSelectable( false );
+		}
+		new QListViewItem( thisletteritem, ( *it )->name() );
 	}
-	itembox->sort();
-	itemClicked( itembox->firstItem() );
+	main->sort();
 }
 
-void GlossaryDialog::itemClicked( QListBoxItem* item )
+QListViewItem* GlossaryDialog::findTreeWithLetter( const QChar& l, QListViewItem* i )
 {
+	QListViewItem *it = i->firstChild();
+        while ( it )
+	{
+		if ( it->text(0)[0] == l )
+			return it;
+		it = it->nextSibling();
+        }
+	return 0;
+}
+
+void GlossaryDialog::slotClicked( QListViewItem *item )
+{
+	if ( !item )
+		return;
+	
 	QString html = m_htmlbasestring;
 	
 	/**
@@ -127,7 +194,7 @@ void GlossaryDialog::itemClicked( QListBoxItem* item )
 	KnowledgeItem *i = 0;
 	while ( !found && it != itEnd )
 	{
-		if ( ( *it )->name() == item->text() )
+		if ( ( *it )->name() == item->text( 0 ) )
 		{
 			i = *it;
 			found = true;
@@ -268,6 +335,8 @@ KnowledgeItem::KnowledgeItem()
 {
 }
 
-KnowledgeItem::~KnowledgeItem(){}
+KnowledgeItem::~KnowledgeItem()
+{
+}
 
 #include "glossarydialog.moc"
