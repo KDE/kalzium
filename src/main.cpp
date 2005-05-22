@@ -23,6 +23,7 @@ int main(int argc, char **argv)
     KAboutData about("kalzium", I18N_NOOP("Kalzium"), version, description,
                      KAboutData::License_GPL, "(C) 2002-2005 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
     about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );
+    about.addCredit( "Pino Toscano", I18N_NOOP("Code contributions" ));
     about.addCredit( "Marco Martin", I18N_NOOP("Thank you for some icons and inspiration for others" ));
     about.addCredit( "Chris Luetchford", I18N_NOOP("svg icon"), "chris@os11.com>");
     about.addCredit( "Anne-Marie Mahfouf", I18N_NOOP( "A lot of small things and the documentation" ));

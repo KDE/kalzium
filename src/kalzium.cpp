@@ -79,6 +79,20 @@ void Kalzium::setupActions()
 	schema_action->setItems(schemalist);
 	schema_action->setCurrentItem(Prefs::schemaPSE());
 	connect (schema_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoPSE(int)));
+	
+	QStringList gradientlist;
+	gradientlist.append(i18n("Atomic Radius"));
+	gradientlist.append(i18n("Atomic Weight"));
+	gradientlist.append(i18n("Density"));
+	gradientlist.append(i18n("Boilingpoint"));
+	gradientlist.append(i18n("Meltingpoint"));
+	gradientlist.append(i18n("First Ionisationenergie"));
+	gradientlist.append(i18n("Electronegativity"));
+	gradientlist.append(i18n("No Gradient"));
+	gradient_action = new KSelectAction (i18n("&Gradient"), 0, this, 0, actionCollection(), "change_pse");
+	gradient_action->setItems(gradientlist);
+//	gradient_action->setCurrentItem(Prefs::schemaPSE());
+	connect (gradient_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoGradient(int)));
 
 	/*
 	 * the actions for switching PSE
@@ -223,12 +237,23 @@ void Kalzium::slotShowScheme(int i)
 {
 	m_PSE->activateColorScheme( i );
 	m_PSE->update();
-	
+
 	Prefs::setColorschemebox(i); 
 	Prefs::writeConfig();
 
-  //JH: redraw the full table next time
-  setFullDraw();
+	//JH: redraw the full table next time
+	setFullDraw();
+}
+
+void Kalzium::slotSwitchtoGradient( int index )
+{
+	if ( index == 7 )
+	{
+		m_PSE->setGradient( false );
+		return;
+	}
+	m_PSE->setGradientType( index );
+	m_PSE->setGradient( true );
 }
 
 void Kalzium::slotSwitchtoNumeration( int index )

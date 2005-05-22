@@ -35,6 +35,7 @@
 #include <qbuttongroup.h>
 #include <qcursor.h>
 #include <qpainter.h>
+#include <qcolor.h>
 
 PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
   : QWidget(parent, name), table(0), table2(0)
@@ -55,6 +56,7 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	m_showTooltip = true;
 	m_timeline = false;
 	m_showSOM = false;
+	m_showGradient = false;
 	
 	showLegend( Prefs::showlegend() );
 
@@ -318,6 +320,15 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	  }
 	  if ( som() ){//use state of matter
 		  drawSOMPSE(& p );
+		  p.end();
+
+		  *table2 = *table;
+		  bitBlt( this, 0, 0, table2 );
+		  return;
+	  }
+	  if ( gradient() ){//show a gradient
+		  kdDebug() << "Show Gradient" << endl;
+		  calculateGradient(& p );
 		  p.end();
 
 		  *table2 = *table;
@@ -705,6 +716,68 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 		( *it )->drawSelf( p, useSimpleView );
 		if ( m_learningMode )
 			( *it )->drawHighlight( p, coordinate, m_Vertikal );
+		++it;
+	}
+}
+
+void PSE::calculateGradient( QPainter *p )
+{
+	kdDebug() << "PSE::calculateGradient()" << endl;
+
+	EList::Iterator it = d->ElementList.begin();
+	EList::Iterator itEnd = d->ElementList.end();
+	
+	QValueList<double> tmpList;
+	for (; it != itEnd; ++it )
+	{
+		tmpList.append( ( *it )->electroneg() );
+	}
+	
+	QValueList<double>::iterator dit = tmpList.begin();
+	QValueList<double>::iterator ditEnd = tmpList.end();
+	
+	double tmpMin = 0.0;
+	double tmpMax = 0.0;
+	for ( ; dit != ditEnd; ++dit )
+	{
+		if ( ( *dit ) < tmpMin )
+			tmpMin = *dit;
+		if ( ( *dit ) > tmpMax )
+			tmpMax = *dit;
+	}
+	kdDebug() << tmpMin << " :: " << tmpMax << endl;
+	drawGradientPSE( p, Element::EN, tmpMin, tmpMax );
+}
+
+
+
+void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, double min, double max )
+{
+	kdDebug() << "Type: " << m_gradientType << endl;
+	
+	const double var = max-min;
+	EList::Iterator it = d->ElementList.begin();
+	EList::Iterator itEnd = d->ElementList.end();
+
+	QColor color2 = Qt::blue;
+	QColor color1 = Qt::red;
+
+	/**
+	 * this loop iterates through all elements. The Elements
+	 * draw themselfs, the PSE only tells them to do so
+	 */
+	it = d->ElementList.begin();
+	while ( it != d->ElementList.end() )
+	{
+		double coeff = ( (*it)->electroneg() - min )/var;
+
+		int red = (int)(color1.red() - color2.red()) * coeff + color2.red();
+		int green = (int)(color1.green() - color2.green()) * coeff + color2.green();
+		int blue = (int)(color1.blue() - color2.blue()) * coeff + color2.blue();
+		
+		QColor c( red, green, blue );
+
+		( *it )->drawGradient( p, QString::number( ( *it )->electroneg() ), c );
 		++it;
 	}
 }

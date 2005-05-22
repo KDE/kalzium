@@ -151,6 +151,21 @@ class PSE : public QWidget
 		void activateSOMMode( bool som ){
 			m_showSOM = som;
 		}
+		
+		bool gradient() const{
+			return m_showGradient;
+		}
+		
+		void setGradient( bool som ){
+			m_showGradient = som;
+			setFullDraw();
+			update();
+		}
+
+		//XXXI can't use Element::TYPE here... why?
+		void setGradientType( int type ){ 
+			m_gradientType = type;
+		}
 
 		/**
 		 * if true the tooltips will be displayed 
@@ -197,6 +212,11 @@ class PSE : public QWidget
     void setFullDraw() { doFullDraw = true; }
   
 	private:
+		//XXX I can use Element::TYPE here... Why?
+		int m_gradientType;
+
+		void calculateGradient( QPainter* );
+	
 		///the date used in the timeline
 		int m_date;
 
@@ -210,6 +230,8 @@ class PSE : public QWidget
 
 		///if true the State Of Matter will be shown
 		bool m_showSOM;
+		
+		bool m_showGradient;
 
 		///Timer used for the tooltop
 		QTimer HoverTimer;
@@ -308,6 +330,8 @@ class PSE : public QWidget
 
 		///the central place for the drawing of the table
 		virtual void drawPSE( QPainter* p, bool useSimpleView );
+
+		virtual void drawGradientPSE( QPainter* p, Element::TYPE, double min, double max );
 
 		///draw the state of matter
 		virtual void drawSOMPSE( QPainter* p );

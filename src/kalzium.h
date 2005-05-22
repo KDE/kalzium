@@ -95,6 +95,7 @@ class Kalzium : public KMainWindow
 		 * all KActions Kalzium uses
 		 */
 		KSelectAction *schema_action;
+		KSelectAction *gradient_action;
 		KSelectAction *look_action;
 		KSelectAction *numeration_action;
 		KAction *m_pPlotAction,
@@ -124,6 +125,8 @@ class Kalzium : public KMainWindow
 		void slotGlossary();
 		
 		void slotSwitchtoNumeration(int);
+		
+		void slotSwitchtoGradient(int);
 
 		void slotPlotData();
 

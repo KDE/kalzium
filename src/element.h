@@ -28,6 +28,7 @@
 #include <qfile.h>
 
 class Element;
+class QColor;
 
 struct coordinate;
 
@@ -300,12 +301,12 @@ class Element{
 			RADIUS = 0,
 			WEIGHT,
 			DENSITY,
-			DATE,
 			BOILINGPOINT,
 			MELTINGPOINT,
 			IE,
+			EN,
 			IE2,
-			EN
+			DATE
 		};
 
 
@@ -364,6 +365,8 @@ class Element{
 		 * draw the recatangle with the information
 		 * @param showFullInformation if True more information will be shown
 		 */
+		virtual void drawGradient( QPainter* p, const QString& value, const QColor );
+		
 		virtual void drawSelf( QPainter* p, bool showFullInformation );
 		
 		/**

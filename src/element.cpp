@@ -335,6 +335,42 @@ void Element::drawHighlight( QPainter* p, int coordinate, bool horizontal )
 	drawSelf( p, false );
 }
 	
+void Element::drawGradient( QPainter* p, const QString& value, const QColor c)
+{
+	//the height of a "line" inside an element
+	int h_small = 15; //the size for the small units like elementnumber
+
+	//The X-coordiante
+	int X = 0;
+	
+	X = ( x-1 )*ELEMENTSIZE;
+
+	//The Y-coordinate
+	int Y = ( y-1 )*ELEMENTSIZE;
+	Y += ELEMENTSIZE;
+
+	p->setPen( c );
+	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, c );
+	p->drawRoundRect( X+2, Y+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
+	
+	p->setPen( Qt::black );
+	QFont symbol_font = p->font();
+	symbol_font.setPointSize( 18 );
+	QFont f = p->font();
+	f.setPointSize( 9 );
+		
+	p->setFont( f );
+
+	p->drawText( X+5,Y+ELEMENTSIZE-h_small , ELEMENTSIZE-2, h_small,Qt::AlignLeft, value );
+
+	p->setFont( symbol_font );
+	p->drawText( X+5,Y+2, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	
+	//border
+	p->setPen( Qt::black );
+	p->drawRoundRect( X+1, Y+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
+}
+
 void Element::drawSelf( QPainter* p, bool useSimpleView )
 {
 	//the height of a "line" inside an element
