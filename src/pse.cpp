@@ -720,6 +720,9 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 	}
 }
 
+//CN This is called for *every* drawing of the table. This means
+//a lot overload... I would be better to chache the values in
+//member variables an only check if they need an update. 
 void PSE::calculateGradient( QPainter *p )
 {
 	EList::Iterator it = d->ElementList.begin();
@@ -784,10 +787,8 @@ void PSE::calculateGradient( QPainter *p )
 
 
 
-void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, double min, double max )
+void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, const double min, const double max )
 {
-	kdDebug() << "Type: " << m_gradientType << endl;
-
 	const double var = max-min;
 	EList::Iterator it = d->ElementList.begin();
 	const EList::Iterator itEnd = d->ElementList.end();
@@ -868,10 +869,10 @@ void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, double min, double m
 	}
 }
 
-QColor PSE::calculateColor( double coeff )
+QColor PSE::calculateColor( const double coeff )
 {
-	QColor color2 = Qt::white;
-	QColor color1 = Qt::red;
+	const QColor color2 = Qt::white;
+	const QColor color1 = Qt::red;
 
 	int red = (int)( (color1.red() - color2.red()) * coeff + color2.red() );
 	int green = (int)( (color1.green() - color2.green()) * coeff + color2.green() );

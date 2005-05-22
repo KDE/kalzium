@@ -213,11 +213,22 @@ class PSE : public QWidget
   
 	private:
 		//XXX I can use Element::TYPE here... Why?
+		
+		///The type of the gradient.
+		//@see Element::Type
 		int m_gradientType;
 
+		/**
+		 * calculates the min and max values to prepare the painting
+		 */
 		void calculateGradient( QPainter* );
 
-		QColor calculateColor( double coeff );
+		/**
+		 * calculates the color of an element which has a value which 
+		 * is @p percentage of the maximum value. This will be the
+		 * color used in the gradient view for an element.
+		 */
+		QColor calculateColor( const double percentage );
 	
 		///the date used in the timeline
 		int m_date;
@@ -333,7 +344,8 @@ class PSE : public QWidget
 		///the central place for the drawing of the table
 		virtual void drawPSE( QPainter* p, bool useSimpleView );
 
-		virtual void drawGradientPSE( QPainter* p, Element::TYPE, double min, double max );
+		///draw a gradient of the type @p type
+		virtual void drawGradientPSE( QPainter* p, Element::TYPE type, const double min, const double max );
 
 		///draw the state of matter
 		virtual void drawSOMPSE( QPainter* p );

@@ -95,7 +95,9 @@ GlossaryDialog::~GlossaryDialog()
 
 void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 {
+	QString myurl = url.host().lower();
 	m_search->setText( "" );
+	
 	m_search->updateSearch( "" );
 	QListViewItem *found = 0;
 	QListViewItemIterator it( m_glosstree );
@@ -104,7 +106,7 @@ void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 	{
 		item = it.current();
 		// using the "host" part of a kurl as reference
-		if ( item->text(0).lower() == url.host() )
+		if ( item->text(0).lower() == myurl )
 		{
 			found = item;
 			break;

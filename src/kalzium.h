@@ -126,7 +126,11 @@ class Kalzium : public KMainWindow
 		
 		void slotSwitchtoNumeration(int);
 		
-		void slotSwitchtoGradient(int);
+		/**
+		 * this will make the periodic table display the gradient
+		 * defined by @p int gradient
+		 */
+		void slotSwitchtoGradient(int gradient);
 
 		void slotPlotData();
 
