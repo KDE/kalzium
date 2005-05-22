@@ -167,26 +167,26 @@ void ElementDataViewer::setupAxisData()
 				m_pPlotWidget->setYAxisLabel(i18n("Density"));
 			}
 			break;
-		case AxisData::IE1:
-			for( ; it != d->ElementList.end() ; ++it ) {
-				double value = (*it)->ie();
-				if( value != -1 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("1. Ionization Energy"));
-			}
-			break;
-		case AxisData::IE2:
-			for( ; it != d->ElementList.end() ; ++it ) {
-				double value = (*it)->ie2();
-				if( value != -1 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("2. Ionization Energy"));
-			}
-			break;
+//X 		case AxisData::IE1:
+//X 			for( ; it != d->ElementList.end() ; ++it ) {
+//X 				double value = (*it)->ie();
+//X 				if( value != -1 )
+//X 				  l.append( value );
+//X 				else
+//X 				  l.append( 0.0 );
+//X 				m_pPlotWidget->setYAxisLabel(i18n("1. Ionization Energy"));
+//X 			}
+//X 			break;
+//X 		case AxisData::IE2:
+//X 			for( ; it != d->ElementList.end() ; ++it ) {
+//X 				double value = (*it)->ie2();
+//X 				if( value != -1 )
+//X 				  l.append( value );
+//X 				else
+//X 				  l.append( 0.0 );
+//X 				m_pPlotWidget->setYAxisLabel(i18n("2. Ionization Energy"));
+//X 			}
+//X 			break;
 		case AxisData::EN:
 			for( ; it != d->ElementList.end() ; ++it ) {
 				double value = (*it)->electroneg();

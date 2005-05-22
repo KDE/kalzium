@@ -86,7 +86,6 @@ void Kalzium::setupActions()
 	gradientlist.append(i18n("Density"));
 	gradientlist.append(i18n("Boilingpoint"));
 	gradientlist.append(i18n("Meltingpoint"));
-	gradientlist.append(i18n("First Ionisationenergie"));
 	gradientlist.append(i18n("Electronegativity"));
 	gradientlist.append(i18n("No Gradient"));
 	gradient_action = new KSelectAction (i18n("&Gradient"), 0, this, 0, actionCollection(), "change_pse");
@@ -247,7 +246,7 @@ void Kalzium::slotShowScheme(int i)
 
 void Kalzium::slotSwitchtoGradient( int index )
 {
-	if ( index == 7 )
+	if ( index == 6 )
 	{
 		m_PSE->setGradient( false );
 		return;

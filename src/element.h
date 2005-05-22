@@ -257,20 +257,6 @@ class Element{
 		}
 		
 		/**
-		 * @return the first ionizationenergie of the element
-		 */
-		double ie() const {
-			return m_IE;
-		}
-		
-		/**
-		 * @return the first ionizationenergie of the element
-		 */
-		double ie2() const {
-			return m_IE2;
-		}
-		
-		/**
 		 * @return the meanweight of the element
 		 */
 		double meanweight();
@@ -303,10 +289,9 @@ class Element{
 			DENSITY,
 			BOILINGPOINT,
 			MELTINGPOINT,
-			IE,
 			EN,
-			IE2,
-			DATE
+			DATE,
+			IE
 		};
 
 
@@ -338,8 +323,6 @@ class Element{
 			m_BP, 
 			m_EN, 
 			m_Density, 
-			m_IE, 
-			m_IE2, 
 			m_AR;
 
 		int     m_number, 

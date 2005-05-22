@@ -216,6 +216,8 @@ class PSE : public QWidget
 		int m_gradientType;
 
 		void calculateGradient( QPainter* );
+
+		QColor calculateColor( double coeff );
 	
 		///the date used in the timeline
 		int m_date;

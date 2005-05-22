@@ -722,20 +722,53 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 
 void PSE::calculateGradient( QPainter *p )
 {
-	kdDebug() << "PSE::calculateGradient()" << endl;
-
 	EList::Iterator it = d->ElementList.begin();
-	EList::Iterator itEnd = d->ElementList.end();
-	
+	const EList::Iterator itEnd = d->ElementList.end();
+
 	QValueList<double> tmpList;
-	for (; it != itEnd; ++it )
+	switch ( m_gradientType )
 	{
-		tmpList.append( ( *it )->electroneg() );
+		case Element::RADIUS:
+			for (; it != itEnd; ++it )
+			{
+				tmpList.append( ( *it )->radius() );
+			}
+			break;
+		case Element::WEIGHT:
+			for (; it != itEnd; ++it )
+			{
+				tmpList.append( ( *it )->weight() );
+			}
+			break;
+		case Element::DENSITY:
+			for (; it != itEnd; ++it )
+			{
+				tmpList.append( ( *it )->density() );
+			}
+			break;
+		case Element::BOILINGPOINT:
+			for (; it != itEnd; ++it )
+			{
+				tmpList.append( ( *it )->boiling() );
+			}
+			break;
+		case Element::MELTINGPOINT:
+			for (; it != itEnd; ++it )
+			{
+				tmpList.append( ( *it )->melting() );
+			}
+			break;
+		case Element::EN:
+			for (; it != itEnd; ++it )
+			{
+				tmpList.append( ( *it )->electroneg() );
+			}
+			break;
 	}
-	
+
 	QValueList<double>::iterator dit = tmpList.begin();
-	QValueList<double>::iterator ditEnd = tmpList.end();
-	
+	const QValueList<double>::iterator ditEnd = tmpList.end();
+
 	double tmpMin = 0.0;
 	double tmpMax = 0.0;
 	for ( ; dit != ditEnd; ++dit )
@@ -754,32 +787,97 @@ void PSE::calculateGradient( QPainter *p )
 void PSE::drawGradientPSE( QPainter *p, Element::TYPE type, double min, double max )
 {
 	kdDebug() << "Type: " << m_gradientType << endl;
-	
+
 	const double var = max-min;
 	EList::Iterator it = d->ElementList.begin();
-	EList::Iterator itEnd = d->ElementList.end();
-
-	QColor color2 = Qt::blue;
-	QColor color1 = Qt::red;
+	const EList::Iterator itEnd = d->ElementList.end();
 
 	/**
 	 * this loop iterates through all elements. The Elements
 	 * draw themselfs, the PSE only tells them to do so
 	 */
 	it = d->ElementList.begin();
-	while ( it != d->ElementList.end() )
+	switch ( m_gradientType )
 	{
-		double coeff = ( (*it)->electroneg() - min )/var;
+		case Element::RADIUS:
+			while ( it != d->ElementList.end() )
+			{
+				double coeff = ( (*it)->radius() - min )/var;
 
-		int red = (int)(color1.red() - color2.red()) * coeff + color2.red();
-		int green = (int)(color1.green() - color2.green()) * coeff + color2.green();
-		int blue = (int)(color1.blue() - color2.blue()) * coeff + color2.blue();
-		
-		QColor c( red, green, blue );
+				QColor c = calculateColor( coeff );
 
-		( *it )->drawGradient( p, QString::number( ( *it )->electroneg() ), c );
-		++it;
+				( *it )->drawGradient( p, QString::number( ( *it )->radius() ), c );
+				++it;
+			}
+			break;
+		case Element::WEIGHT:
+			while ( it != d->ElementList.end() )
+			{
+				double coeff = ( (*it)->weight() - min )/var;
+
+				QColor c = calculateColor( coeff );
+
+				( *it )->drawGradient( p, QString::number( ( *it )->weight() ), c );
+				++it;
+			}
+			break;
+		case Element::DENSITY:
+			while ( it != d->ElementList.end() )
+			{
+				double coeff = ( (*it)->density() - min )/var;
+
+				QColor c = calculateColor( coeff );
+
+				( *it )->drawGradient( p, QString::number( ( *it )->density() ), c );
+				++it;
+			}
+			break;
+		case Element::BOILINGPOINT:
+			while ( it != d->ElementList.end() )
+			{
+				double coeff = ( (*it)->boiling() - min )/var;
+
+				QColor c = calculateColor( coeff );
+
+				( *it )->drawGradient( p, QString::number( ( *it )->boiling() ), c );
+				++it;
+			}
+			break;
+		case Element::MELTINGPOINT:
+			while ( it != d->ElementList.end() )
+			{
+				double coeff = ( (*it)->melting() - min )/var;
+
+				QColor c = calculateColor( coeff );
+
+				( *it )->drawGradient( p, QString::number( ( *it )->melting() ), c );
+				++it;
+			}
+			break;
+		case Element::EN:
+			while ( it != d->ElementList.end() )
+			{
+				double coeff = ( (*it)->electroneg() - min )/var;
+
+				QColor c = calculateColor( coeff );
+
+				( *it )->drawGradient( p, QString::number( ( *it )->electroneg() ), c );
+				++it;
+			}
+			break;
 	}
+}
+
+QColor PSE::calculateColor( double coeff )
+{
+	QColor color2 = Qt::blue;
+	QColor color1 = Qt::red;
+
+	int red = (int)( (color1.red() - color2.red()) * coeff + color2.red() );
+	int green = (int)( (color1.green() - color2.green()) * coeff + color2.green() );
+	int blue = (int)( (color1.blue() - color2.blue()) * coeff + color2.blue() );
+
+	return QColor( red, green, blue );
 }
 
 
