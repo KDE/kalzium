@@ -26,8 +26,9 @@
 #include <qpainter.h>
 #include <qpushbutton.h>
 #include <qregexp.h>
-#include <qsizepolicy.h>
 #include <qsplitter.h>
+#include <qstringlist.h>
+#include <qtoolbutton.h>
 
 #include "glossarydialog.h"
 #include "detailinfodlg.h"
@@ -64,14 +65,16 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	QHBoxLayout *hbox = new QHBoxLayout( 0L, 0, KDialog::spacingHint() );
 	hbox->activate();
 
+	QToolButton *clear = new QToolButton( plainPage() );
+	clear->setIconSet( SmallIconSet( "locationbar_erase" ) );
+	hbox->addWidget( clear );
+
 	QLabel *lbl = new QLabel( plainPage() );
 	lbl->setText( i18n( "Search:" ) );
 	hbox->addWidget( lbl );
 
 	m_search = new KListViewSearchLine( plainPage(), m_glosstree, "search-line" );
 	hbox->addWidget( m_search );
-	QSizePolicy p = m_search->sizePolicy();
-	m_search->setSizePolicy( QSizePolicy( p.horData(), QSizePolicy::Fixed ) );
 	vbox->addLayout( hbox );
 
 	QDomDocument doc( "foo" );
@@ -84,6 +87,7 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 
 	connect( m_htmlpart->browserExtension(), SIGNAL( openURLRequestDelayed( const KURL &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KURL &, const KParts::URLArgs & ) ) );
 	connect( m_glosstree, SIGNAL(clicked( QListViewItem * )), this, SLOT(slotClicked( QListViewItem * )));
+	connect( clear, SIGNAL(clicked()), m_search, SLOT(clear()));
 	connect( this, SIGNAL(closeClicked()), SLOT(slotClose()) );
 
 	resize( 550, 400 );
@@ -95,9 +99,9 @@ GlossaryDialog::~GlossaryDialog()
 
 void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 {
+	// using the "host" part of a kurl as reference
 	QString myurl = url.host().lower();
 	m_search->setText( "" );
-	
 	m_search->updateSearch( "" );
 	QListViewItem *found = 0;
 	QListViewItemIterator it( m_glosstree );
@@ -105,7 +109,6 @@ void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 	while ( it.current() )
 	{
 		item = it.current();
-		// using the "host" part of a kurl as reference
 		if ( item->text(0).lower() == myurl )
 		{
 			found = item;
@@ -188,9 +191,7 @@ QString GlossaryDialog::itemHtml( KnowledgeItem* item )
 {
 	if ( !item ) return "";
 
-	QString code = "<h1>";
-	code.append( item->name() );
-	code.append( "</h1>" );
+	QString code = "<h1>" + item->name() + "</h1>";
 
 	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
 	code.append(  item->desc() );
@@ -204,31 +205,19 @@ QString GlossaryDialog::itemHtml( KnowledgeItem* item )
 
 QString GlossaryDialog::parseReferences( const QString& ref )
 {
-	QString code = ref;
-
 	QString htmlcode = i18n( "<h3>References</h3>" );
 	
-	int pos, l;
-	for ( int num = 0; num < ref.contains( "," ); ++num )
+	QStringList list = QStringList::split( ',', ref );
+	list.sort();
+	bool first = true;
+	for ( uint i = 0; i < list.size(); i++ )
 	{
-		pos = code.find( "," );
-		l = code.length();
-		QString tmp = code.left( pos );
-		QString new_code = code.right( l-pos-1 );
-
-		htmlcode.append( "<a href=\"item://" );
-		htmlcode.append( tmp );
-		htmlcode.append( "\">" );
-		htmlcode.append( tmp );
-		htmlcode.append( "</a><br>" );
-
-		code = new_code;
+		if ( !first )
+			htmlcode += "<br>";
+		else
+			first = false;
+		htmlcode += QString( "<a href=\"item://%1\">%2</a>" ).arg( list[i], list[i] );
 	}
-	htmlcode.append( "<a href=\"item://" );
-	htmlcode.append( code );
-	htmlcode.append( "\">" );
-	htmlcode.append( code );
-	htmlcode.append( "</a>" );
 
 	return htmlcode;
 }
