@@ -263,6 +263,7 @@ QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument
 
 	QDomNodeList itemList;
 	QDomElement itemElement;
+	QStringList reflist;
 
 	itemList = itemDocument.elementsByTagName( "item" );
 
@@ -287,7 +288,9 @@ QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument
 		item->setName( nameNode.toElement( ).text() );
 		item->setDesc( descNode.toElement( ).text() );
 //X 		kdDebug() << "item->desc() " << item->desc() << endl;
-		item->setRef( refNode.toElement( ).text() );
+		reflist = QStringList::split( ',', refNode.toElement( ).text() );
+		reflist.sort();
+		item->setRef( reflist );
 		
 		list.append( item );
 	}
@@ -355,16 +358,14 @@ QString KnowledgeItem::parseReferences() const
 {
 	QString htmlcode = i18n( "<h3>References</h3>" );
 	
-	QStringList list = QStringList::split( ',', m_ref );
-	list.sort();
 	bool first = true;
-	for ( uint i = 0; i < list.size(); i++ )
+	for ( uint i = 0; i < m_ref.size(); i++ )
 	{
 		if ( !first )
 			htmlcode += "<br>";
 		else
 			first = false;
-		htmlcode += QString( "<a href=\"item://%1\">%2</a>" ).arg( list[i], list[i] );
+		htmlcode += QString( "<a href=\"item://%1\">%2</a>" ).arg( m_ref[i], m_ref[i] );
 	}
 
 	return htmlcode;

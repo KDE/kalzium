@@ -39,7 +39,7 @@ class KnowledgeItem
 		void setDesc( const QString& s){
 			m_desc = s;
 		}
-		void setRef( const QString& s){
+		void setRef( const QStringList& s){
 			m_ref = s;
 		}
 
@@ -51,7 +51,7 @@ class KnowledgeItem
 			return m_desc;
 		}
 		
-		QString ref() const {
+		QStringList ref() const {
 			return m_ref;
 		}
 		
@@ -66,9 +66,9 @@ class KnowledgeItem
 		QString parseReferences() const;
 
 	private:
-		QString m_name,
-				m_desc,
-				m_ref;
+		QString m_name;
+		QString m_desc;
+		QStringList m_ref;
 };
 
 class ToolItem

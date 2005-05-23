@@ -54,12 +54,12 @@ class MolcalcImpl : public KDialogBase
 		};
 		
 		/**
-		 * updates the list of elements and calles updateUI()
+		 * updates the list of elements and calls updateUI()
 		 */
 		void updateData( int number, KIND kind );
 
 		/**
-		 * return the html-code of a elementsymbol and it's subscripted
+		 * return the HTML code of an element symbol and it's subscripted
 		 * amount. Eg Mg<sub>2</sub>
 		 */
 		QString composition( QMap<Element*,int> );
@@ -89,6 +89,6 @@ class MolcalcImpl : public KDialogBase
 	signals:
 		void closed();
 };
-		
+
 
 #endif // MOLCALC_IMPL_H
