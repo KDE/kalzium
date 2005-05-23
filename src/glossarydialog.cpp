@@ -311,7 +311,7 @@ QValueList<ToolItem*> GlossaryDialog::readTools( QDomDocument &itemDocument )
 		
 		itemElement = ( const QDomElement& ) itemList.item( i ).toElement();
 		item->setPicture( itemElement.attribute( "picture" ) );
-		
+
 		QDomNode nameNode = itemElement.namedItem( "name" );
 		QDomNode descNode = itemElement.namedItem( "desc" );
 		
@@ -383,8 +383,11 @@ QString ToolItem::toHtml() const
 	QString code = "<h1>" + m_name + "</h1>";
 
 	QString pic_path = locate("data", "kalzium/data/toolpics/");
+	pic_path.append( picture() );
+	pic_path.prepend( "<br><img src=\"" );
+	pic_path.append( "\" /><br> ");
+	code += pic_path;
 	code += m_desc;
-	// XXX draw the picture
 	return code;
 }
 
