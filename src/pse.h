@@ -210,6 +210,12 @@ class PSE : public QWidget
 
     ///JH: Draw the full table next time
     void setFullDraw() { doFullDraw = true; }
+
+		KalziumDataObject *data() const
+		{
+			return d;
+		}
+
   
 	private:
 		//XXX I can use Element::TYPE here... Why?

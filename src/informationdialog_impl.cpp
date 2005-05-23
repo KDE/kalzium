@@ -15,8 +15,11 @@
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
 
+#include <math.h>
+
 #include "pse.h"
 #include "informationdialog.h"
+#include "element.h"
 
 InformationWidget::InformationWidget( PSE *pse )
     : KDialogBase( Swallow, i18n( "Learn More About the Table of Elements" ), Help|Close, Close, 0L, "learn-dialog", false )
@@ -179,9 +182,52 @@ void InformationWidget::tabSelected( QWidget* /*w*/ )
 	m_pse->update();
 }
 
-void InformationWidget::slotTemp(int date)
+void InformationWidget::slotTemp( int temp )
 {
-	m_pse->setTemperature( date );
+	m_pse->setTemperature( temp );
+
+	QString appBaseDir = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
+	appBaseDir.append("kalzium/data/");
+	appBaseDir.append("bg.jpg");
+	QString htmlcode = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
+	htmlcode += appBaseDir + "\">";
+
+	static const int threshold = 20;
+
+	EList kdo = m_pse->data()->ElementList;
+	EList::Iterator it = kdo.begin();
+	const EList::Iterator itEnd = kdo.end();
+	QStringList listMeltingPoint;
+	QStringList listBoilingPoint;
+	for ( ; it != itEnd; ++it )
+	{
+		if ( fabs( ( *it )->melting() - temp ) <= threshold )
+			listMeltingPoint << ( *it )->elname();
+		else if ( fabs( ( *it )->boiling() - temp ) <= threshold )
+			listBoilingPoint << ( *it )->elname();
+	}
+	if ( listMeltingPoint.count() > 0 )
+	{
+		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "<br><ul type=\"disc\">";
+		for ( uint i = 0; i < listMeltingPoint.count(); i++ )
+		{
+			htmlcode += "<li>" + listMeltingPoint[i] + "</li>";
+		}
+		htmlcode += "</ul><br>";
+	}
+	if ( listBoilingPoint.count() > 0 )
+	{
+		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "<br><ul type=\"disc\">";
+		for ( uint i = 0; i < listBoilingPoint.count(); i++ )
+		{
+			htmlcode += "<li>" + listBoilingPoint[i] + "</li>";
+		}
+		htmlcode += "</ul><br>";
+	}
+
+	htmlcode += "</body></html>";
+
+	m_infoDialog->m_explanation_3->setText( htmlcode );
 }
 
 void InformationWidget::slotDate(int date)

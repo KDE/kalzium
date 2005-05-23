@@ -296,6 +296,11 @@ void PSE::resizeEvent( QResizeEvent * /*e*/ )
 {
   table->resize( width(), height() );
   table2->resize( width(), height() );
+  // XXX: I know it isn't the best way, but otherwise the table won't be redrawn
+  // on repaint... Feel *free* to remove these two lines if you foind a better
+  // solution...
+  doFullDraw = true;
+  update();
 }
 
 void PSE::paintEvent( QPaintEvent * /*e*/ )
