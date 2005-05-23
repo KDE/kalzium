@@ -382,7 +382,7 @@ QString ToolItem::toHtml() const
 {
 	QString code = "<h1>" + m_name + "</h1>";
 
-	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
+	QString pic_path = locate("data", "kalzium/data/toolpics/");
 	code += m_desc;
 	// XXX draw the picture
 	return code;
