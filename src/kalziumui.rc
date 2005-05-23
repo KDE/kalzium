@@ -5,14 +5,16 @@
   <Action name="numerationtype" />
   <Action name="gradmenu" />
   <Menu name="miscmenu">
-	<text>&amp;Miscellaneous</text>
-	<Action name="plotdata" />
+    <text>&amp;Miscellaneous</text>
     <Action name="toggle_legend" />
-    <Action name="calculate_weights" />
     <Action name="learning_mode" />
+  </Menu>
+  <Action name="look_menu" />
+  <Menu name="tools"><text>&amp;Tools</text>
+    <Action name="plotdata" />
+    <Action name="calculate_weights" />
     <Action name="glossary" />
   </Menu>
- <Action name="look_menu" />
 </MenuBar>
 
 <ToolBar name="mainToolBar" noMerge="1" fullWidth="true" >
