@@ -169,8 +169,6 @@ void Kalzium::slotLearningmode()
 		m_pLearningmodeAction->setText(i18n("Leave &Learningmode"));
 		m_PSE->setLearning( true );
 		InformationWidget *l_dlg = new InformationWidget( m_PSE );
-		connect( m_PSE, SIGNAL( tableClicked( QPoint ) ), l_dlg, SLOT( slotUpdate( QPoint ) ) );
-		connect( l_dlg->buttonGroup, SIGNAL( clicked(int) ), m_PSE , SLOT( setLearningMode(int) ) );
 		connect( l_dlg, SIGNAL( closed() ), m_PSE, SLOT(slotLock()) );
 
 		l_dlg->show();

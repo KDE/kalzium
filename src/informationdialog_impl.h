@@ -1,7 +1,7 @@
 #ifndef INFORMATIONDIALOG_IMPL_H
 #define INFORMATIONDIALOG_IMPL_H
 
-#include "informationdialog.h"
+#include <kdialogbase.h>
 
 #include <qtabwidget.h>
 #include <qpoint.h>
@@ -9,31 +9,31 @@
 #include <qstring.h>
 #include <qevent.h>
 
+class InformationDialog;
 class PSE;
 
-class InformationWidget : public InformationDialog
+class InformationWidget : public KDialogBase
 {
 	Q_OBJECT
 
 	public:
 		InformationWidget( PSE *pse );
 
-		void showSOM(){
-			tabWidget->setCurrentPage( 1 );
-		}
+		void showSOM();
 
-		void showTimeline(){
-			tabWidget->setCurrentPage( 2 );
-		}
+		void showTimeline();
 
 	private:
 		///returns the text formated as html
 		QString getDesc(QPoint);
 
 		PSE *m_pse;
+		InformationDialog *m_infoDialog;
+
+	private slots:
+		void slotClose();
 
 	public slots:
-		void closeEvent(QCloseEvent*e);
 		void slotUpdate( QPoint point );
 
 		void slotDate( int );
@@ -43,6 +43,7 @@ class InformationWidget : public InformationDialog
 
 	signals:
 		void closed();
+		void buttonGroupClicked(int);
 };
 
 class QuizXMLParser

@@ -1,6 +1,6 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>InformationDialog</class>
-<widget class="QDialog">
+<widget class="QWidget">
     <property name="name">
         <cstring>InformationDialog</cstring>
     </property>
@@ -12,75 +12,11 @@
             <height>364</height>
         </rect>
     </property>
-    <property name="caption">
-        <string>Learn More About the Table of Elements</string>
-    </property>
-    <property name="sizeGripEnabled">
-        <bool>true</bool>
-    </property>
-    <grid>
+    <vbox>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLayoutWidget" row="1" column="0">
-            <property name="name">
-                <cstring>layout7</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QPushButton">
-                    <property name="name">
-                        <cstring>buttonHelp</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Help</string>
-                    </property>
-                    <property name="accel">
-                        <string>F1</string>
-                    </property>
-                    <property name="autoDefault">
-                        <bool>true</bool>
-                    </property>
-                </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>Horizontal Spacing2</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>365</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="QPushButton">
-                    <property name="name">
-                        <cstring>buttonOk</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;OK</string>
-                    </property>
-                    <property name="accel">
-                        <string></string>
-                    </property>
-                    <property name="autoDefault">
-                        <bool>true</bool>
-                    </property>
-                    <property name="default">
-                        <bool>true</bool>
-                    </property>
-                </widget>
-            </hbox>
-        </widget>
-        <widget class="QTabWidget" row="0" column="0">
+        <widget class="QTabWidget">
             <property name="name">
                 <cstring>tabWidget</cstring>
             </property>
@@ -240,62 +176,7 @@
                 </grid>
             </widget>
         </widget>
-    </grid>
+    </vbox>
 </widget>
-<connections>
-    <connection>
-        <sender>time_slider</sender>
-        <signal>sliderMoved(int)</signal>
-        <receiver>lCDNumber1</receiver>
-        <slot>display(int)</slot>
-    </connection>
-    <connection>
-        <sender>temp_slider</sender>
-        <signal>sliderMoved(int)</signal>
-        <receiver>lCDNumber1_2</receiver>
-        <slot>display(int)</slot>
-    </connection>
-    <connection>
-        <sender>buttonOk</sender>
-        <signal>clicked()</signal>
-        <receiver>InformationDialog</receiver>
-        <slot>close()</slot>
-    </connection>
-    <connection>
-        <sender>time_slider</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>InformationDialog</receiver>
-        <slot>slotDate(int)</slot>
-    </connection>
-    <connection>
-        <sender>tabWidget</sender>
-        <signal>currentChanged(QWidget*)</signal>
-        <receiver>InformationDialog</receiver>
-        <slot>tabSelected(QWidget*)</slot>
-    </connection>
-    <connection>
-        <sender>temp_slider</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>InformationDialog</receiver>
-        <slot>slotTemp(int)</slot>
-    </connection>
-    <connection>
-        <sender>time_slider</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>lCDNumber1</receiver>
-        <slot>display(int)</slot>
-    </connection>
-    <connection>
-        <sender>temp_slider</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>lCDNumber1_2</receiver>
-        <slot>display(int)</slot>
-    </connection>
-</connections>
-<slots>
-    <slot>slotTemp(int)</slot>
-    <slot>tabSelected(QWidget*)</slot>
-    <slot>slotDate(int)</slot>
-</slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

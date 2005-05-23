@@ -1,37 +1,54 @@
 #include "informationdialog_impl.h"
 
 #include <qbuttongroup.h>
-#include <qradiobutton.h>
-#include <qlabel.h>
-#include <qtextstream.h>
 #include <qfile.h>
-#include <qtextbrowser.h>
+#include <qlabel.h>
+#include <qlcdnumber.h>
+#include <qradiobutton.h>
 #include <qslider.h>
+#include <qtextstream.h>
+#include <qtextbrowser.h>
 
-#include <klocale.h>
-#include <kstandarddirs.h>
 #include <kdebug.h>
 #include <kfiledialog.h>
+#include <klocale.h>
 #include <kmessagebox.h>
-#include <kdebug.h>
+#include <kstandarddirs.h>
 
 #include "pse.h"
-
+#include "informationdialog.h"
 
 InformationWidget::InformationWidget( PSE *pse )
-	: InformationDialog( )
+    : KDialogBase( Swallow, i18n( "Learn More About the Table of Elements" ), Help|Close, Close, 0L, "learn-dialog", false )
 {
 	m_pse = pse;
-	buttonGroup->setButton( 0 );
+	m_infoDialog = new InformationDialog( this );
+	setMainWidget( m_infoDialog );
+
+	connect( m_infoDialog->time_slider, SIGNAL( sliderMoved(int) ), m_infoDialog->lCDNumber1, SLOT( display(int) ) );
+	connect( m_infoDialog->time_slider, SIGNAL( valueChanged(int) ), this, SLOT( slotDate(int) ) );
+	connect( m_infoDialog->time_slider, SIGNAL( valueChanged(int) ), m_infoDialog->lCDNumber1, SLOT( display(int) ) );
+	connect( m_infoDialog->temp_slider, SIGNAL( sliderMoved(int) ), m_infoDialog->lCDNumber1_2, SLOT( display(int) ) );
+	connect( m_infoDialog->temp_slider, SIGNAL( valueChanged(int) ), this, SLOT( slotTemp(int) ) );
+	connect( m_infoDialog->temp_slider, SIGNAL( valueChanged(int) ), m_infoDialog->lCDNumber1_2, SLOT( display(int) ) );
+	connect( m_infoDialog->buttonGroup, SIGNAL( clicked(int) ), m_pse , SLOT( setLearningMode(int) ) );
+	connect( m_infoDialog->tabWidget, SIGNAL( currentChanged(QWidget*) ), this , SLOT( tabSelected(QWidget*) ) );
+	connect( m_pse, SIGNAL( tableClicked(QPoint) ), this, SLOT( slotUpdate(QPoint) ) );
+	connect( this, SIGNAL( closeClicked() ), SLOT( slotClose() ) );
+
+	m_infoDialog->buttonGroup->setButton( 0 );
+	tabSelected( 0L );
+
+	resize( 550, 400 );
 }
 
-void InformationWidget::closeEvent(QCloseEvent* e)
+void InformationWidget::slotClose()
 {
-	QWidget::closeEvent(e);
 	m_pse->setFullDraw();
 	m_pse->setTimeline( false );
 	m_pse->activateSOMMode( false );
 	emit closed();
+	accept();
 }
 
 void InformationWidget::slotUpdate( QPoint point )
@@ -50,7 +67,7 @@ void InformationWidget::slotUpdate( QPoint point )
 
 	htmlcode.append( "</body></html>" );
 
-	m_explanation->setText( htmlcode );
+	m_infoDialog->m_explanation->setText( htmlcode );
 }
 
 QString InformationWidget::getDesc( QPoint point )
@@ -59,7 +76,7 @@ QString InformationWidget::getDesc( QPoint point )
 	QString fn;
 	int position = 0;
 	
-	if ( buttonGroup->selectedId() == 0 ){
+	if ( m_infoDialog->buttonGroup->selectedId() == 0 ){
 		fn = "groups.xml";
 		position = point.x();
 	}
@@ -117,7 +134,7 @@ QString QuizXMLParser::readTasks( QDomDocument &questionDocument, int number )
 {
         QDomNodeList taskList;             //the list of all tasks
 
-		QString html;
+	QString html;
 
         QDomElement taskElement; //a single task
 
@@ -146,18 +163,18 @@ QString QuizXMLParser::readTasks( QDomDocument &questionDocument, int number )
 
 void InformationWidget::tabSelected( QWidget* /*w*/ )
 {
-	if ( tabWidget->currentPageIndex() == 1 )
+	if ( m_infoDialog->tabWidget->currentPageIndex() == 1 )
 		m_pse->setTimeline( true );
 	else
 		m_pse->setTimeline( false );
 
-	if ( tabWidget->currentPageIndex() == 2 )
+	if ( m_infoDialog->tabWidget->currentPageIndex() == 2 )
 		m_pse->activateSOMMode( true );
 	else
 		m_pse->activateSOMMode( false );
 
-	time_slider->setValue( 2000 );
-	temp_slider->setValue( 295 );
+	m_infoDialog->time_slider->setValue( 2000 );
+	m_infoDialog->temp_slider->setValue( 295 );
 	m_pse->setFullDraw();
 	m_pse->update();
 }
@@ -170,6 +187,16 @@ void InformationWidget::slotTemp(int date)
 void InformationWidget::slotDate(int date)
 {
 	m_pse->setDate( date );
+}
+
+void InformationWidget::showSOM()
+{
+	m_infoDialog->tabWidget->setCurrentPage( 1 );
+}
+
+void InformationWidget::showTimeline()
+{
+	m_infoDialog->tabWidget->setCurrentPage( 2 );
 }
 
 #include "informationdialog_impl.moc"
