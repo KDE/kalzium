@@ -198,9 +198,9 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 		}
 		++it;
 	}
-	if ( found )
+	if ( found && i )
 	{
-		html += itemHtml( i ) + "</body></html>";
+		html += i->toHtml() + "</body></html>";
 		m_htmlpart->begin();
 		m_htmlpart->write( html );
 		m_htmlpart->end();
@@ -219,60 +219,13 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 		}
 		++itTools;
 	}
-	if ( found )
+	if ( found && iTools )
 	{
-		html += toolHtml( iTools ) + "</body></html>";
+		html += iTools->toHtml() + "</body></html>";
 		m_htmlpart->begin();
 		m_htmlpart->write( html );
 		m_htmlpart->end();
 	}
-}
-
-QString GlossaryDialog::itemHtml( KnowledgeItem* item )
-{
-	if ( !item ) return "";
-
-	QString code = "<h1>" + item->name() + "</h1>";
-
-	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
-	code.append(  item->desc() );
-	if ( !item->ref().isNull() )
-	{
-		QString refcode = parseReferences( item->ref() );
-		code.append( refcode );
-	}
-	return code;
-}
-
-QString GlossaryDialog::toolHtml( ToolItem* item )
-{
-	if ( !item ) return "";
-
-	QString code = "<h1>" + item->name() + "</h1>";
-
-	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
-	code.append(  item->desc() );
-	// XXX draw the picture
-	return code;
-}
-
-QString GlossaryDialog::parseReferences( const QString& ref )
-{
-	QString htmlcode = i18n( "<h3>References</h3>" );
-	
-	QStringList list = QStringList::split( ',', ref );
-	list.sort();
-	bool first = true;
-	for ( uint i = 0; i < list.size(); i++ )
-	{
-		if ( !first )
-			htmlcode += "<br>";
-		else
-			first = false;
-		htmlcode += QString( "<a href=\"item://%1\">%2</a>" ).arg( list[i], list[i] );
-	}
-
-	return htmlcode;
 }
 
 bool GlossaryDialog::loadLayout( QDomDocument &questionDocument, const QString& filename )
@@ -385,12 +338,54 @@ KnowledgeItem::~KnowledgeItem()
 {
 }
 
+QString KnowledgeItem::toHtml() const
+{
+	QString code = "<h1>" + m_name + "</h1>" + m_desc;
+
+	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
+	if ( !m_ref.isEmpty() )
+	{
+		QString refcode = parseReferences();
+		code += refcode;
+	}
+	return code;
+}
+
+QString KnowledgeItem::parseReferences() const
+{
+	QString htmlcode = i18n( "<h3>References</h3>" );
+	
+	QStringList list = QStringList::split( ',', m_ref );
+	list.sort();
+	bool first = true;
+	for ( uint i = 0; i < list.size(); i++ )
+	{
+		if ( !first )
+			htmlcode += "<br>";
+		else
+			first = false;
+		htmlcode += QString( "<a href=\"item://%1\">%2</a>" ).arg( list[i], list[i] );
+	}
+
+	return htmlcode;
+}
+
 ToolItem::ToolItem()
 {
 }
 
 ToolItem::~ToolItem()
 {
+}
+
+QString ToolItem::toHtml() const
+{
+	QString code = "<h1>" + m_name + "</h1>";
+
+	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
+	code += m_desc;
+	// XXX draw the picture
+	return code;
 }
 
 #include "glossarydialog.moc"

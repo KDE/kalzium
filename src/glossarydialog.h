@@ -54,6 +54,16 @@ class KnowledgeItem
 		QString ref() const {
 			return m_ref;
 		}
+		
+		/**
+		 * @return the formated HTML code for current item.
+		 **/
+		QString toHtml() const;
+		/**
+		 * This method parses the references.
+		 * @return the HTML code with the references as HTML links
+		 */
+		QString parseReferences() const;
 
 	private:
 		QString m_name,
@@ -88,6 +98,11 @@ class ToolItem
 		QString picture() const {
 			return m_pic;
 		}
+		
+		/**
+		 * @return the formated HTML code for current item.
+		 **/
+		QString toHtml() const;
 
 	private:
 		QString m_name;
@@ -113,18 +128,6 @@ class GlossaryDialog : public KDialogBase
 
 		KListViewSearchLine *m_search;
 
-		/**
-		 * @return the formated html-code for the @param item 
-		 **/
-		QString itemHtml( KnowledgeItem* item );
-		QString toolHtml( ToolItem* item );
-
-		/**
-		 * this method parses the references: It checks for the ","
-		 * inside the QString and puts the words into html-links
-		 */
-		QString parseReferences( const QString& );
-		
 		bool loadLayout( QDomDocument&, const QString& );
 
 		QValueList<KnowledgeItem*> m_itemList;
