@@ -20,6 +20,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <kdialogbase.h>
 
 #include "molcalcbase.h"
 #include "element.h"
@@ -29,7 +30,7 @@
 /**
  * @author Carsten Niehaus
  */
-class MolcalcImpl : public MolcalcDialog
+class MolcalcImpl : public KDialogBase
 {
 	Q_OBJECT
 	public:
@@ -41,6 +42,7 @@ class MolcalcImpl : public MolcalcDialog
 
 	private:
 		KalziumDataObject *m_data;
+		MolcalcDialog *m_dialog;
 		
 		double m_weight;
 		QValueList<Element*> m_elements;
@@ -79,8 +81,10 @@ class MolcalcImpl : public MolcalcDialog
 		void slotMinusToggled(bool on);
 
 		void slotPlusToggled(bool on);
-		
-		void closeEvent(QCloseEvent*e);
+
+	private slots:
+		void slotClose();
+		void slotCalculate();
 	
 	signals:
 		void closed();

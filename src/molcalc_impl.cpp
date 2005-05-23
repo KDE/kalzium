@@ -20,6 +20,7 @@
 #include "molcalc_impl.h"
 
 #include <kdebug.h>
+#include <klineedit.h>
 #include <klocale.h>
 #include <kpushbutton.h>
 
@@ -27,25 +28,32 @@
 #include <qmap.h>
 #include <qtooltip.h>
 
-MolcalcImpl::MolcalcImpl(KalziumDataObject *data, QWidget *parent, const char *name, bool modal )
- : MolcalcDialog(parent, name, modal)
+MolcalcImpl::MolcalcImpl( KalziumDataObject *data, QWidget *parent, const char *name, bool modal )
+    : KDialogBase( Swallow, i18n( "Calculate Molecular Weights" ), Close, Close, parent, name, modal )
 {
 	m_weight = 0;
 
+	m_dialog = new MolcalcDialog( this, "calc-dialog" );
+	setMainWidget( m_dialog );
 	m_data = data;
 
-	QToolTip::add( plusButton, i18n( "If this button is selected, a selected element will be added to the molecule" ) );
-	QToolTip::add( minusButton, i18n( "If this button is selected, a selected element will be removed from the molecule" ) );
+	QToolTip::add( m_dialog->plusButton, i18n( "If this button is selected, a selected element will be added to the molecule" ) );
+	QToolTip::add( m_dialog->minusButton, i18n( "If this button is selected, a selected element will be removed from the molecule" ) );
 
-	plusButton->setGuiItem( KGuiItem(i18n( "Add" ), "add")  );
-	minusButton->setGuiItem( KGuiItem(i18n( "Remove" ), "remove")  );
-	connect( plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
-	connect( minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
+	m_dialog->plusButton->setGuiItem( KGuiItem( i18n( "&Add" ), "add" ) );
+	m_dialog->minusButton->setGuiItem( KGuiItem( i18n( "&Remove" ), "remove" ) );
+	connect( m_dialog->plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
+	connect( m_dialog->minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
+	connect( m_dialog->buttonCalculate, SIGNAL( clicked() ), this, SLOT( slotCalculate() ) );
+	connect( m_dialog->buttonClear, SIGNAL( clicked() ), m_dialog->formula, SLOT( clear() ) );
+	connect( this, SIGNAL(closeClicked()), SLOT(slotClose()) );
+
+	resize( 500, 400 );
 }
 
 void MolcalcImpl::slotButtonClicked( int buttonnumber )
 {
-	if ( plusButton->isOn() )
+	if ( m_dialog->plusButton->isOn() )
 		updateData( buttonnumber, ADD );
 	else
 		updateData( buttonnumber, REMOVE );
@@ -103,7 +111,7 @@ void MolcalcImpl::updateData( int number, KIND kind )
 
 void MolcalcImpl::slotPlusToggled(bool on)
 {
-	on ? minusButton->setOn( false ) : minusButton->setOn( true );
+	m_dialog->minusButton->setOn( !on );
 }	
 
 void MolcalcImpl::recalculate()
@@ -165,14 +173,14 @@ void MolcalcImpl::updateUI()
 		str += i18n( "%1 %2. Cumulative Weight: %3 u (%4 %)\n" ).arg( itMap.data() ).arg( i18n( itMap.key()->elname().utf8() ) ).arg( itMap.data() * itMap.key()->weight() ).arg(((  itMap.data() * itMap.key()->weight() )/m_weight )*100);
 	}
 	
-	resultLabel->setText( str );
+	m_dialog->resultLabel->setText( str );
 	
 	//the composition
-	resultComposition->setText( composition( map ) );
+	m_dialog->resultComposition->setText( composition( map ) );
 	
 	//the weight
 	recalculate();
-	resultWeight->setText( i18n( "Molecular Weight: %1u" ).arg( m_weight ) );
+	m_dialog->resultWeight->setText( i18n( "Molecular Weight: %1u" ).arg( m_weight ) );
 }
 
 QString MolcalcImpl::composition( QMap<Element*,int> map )
@@ -190,13 +198,17 @@ QString MolcalcImpl::composition( QMap<Element*,int> map )
 
 void MolcalcImpl::slotMinusToggled(bool on)
 {
-	on ? plusButton->setOn( false ) : plusButton->setOn( true );
-}	
+	m_dialog->plusButton->setOn( !on );
+}
 
-void MolcalcImpl::closeEvent(QCloseEvent* e)
+void MolcalcImpl::slotClose()
 {
-	QWidget::closeEvent(e);
 	emit closed();
+	accept();
+}
+
+void MolcalcImpl::slotCalculate()
+{
 }
 
 #include "molcalc_impl.moc"

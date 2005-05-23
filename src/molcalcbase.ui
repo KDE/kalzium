@@ -1,6 +1,6 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>MolcalcDialog</class>
-<widget class="QDialog">
+<widget class="QWidget">
     <property name="name">
         <cstring>MolcalcDialog</cstring>
     </property>
@@ -12,13 +12,7 @@
             <height>368</height>
         </rect>
     </property>
-    <property name="caption">
-        <string>Calculate Molecular Weights</string>
-    </property>
-    <property name="sizeGripEnabled">
-        <bool>true</bool>
-    </property>
-    <grid>
+    <vbox>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
@@ -28,54 +22,7 @@
         <property name="spacing">
             <number>6</number>
         </property>
-        <widget class="QLayoutWidget" row="1" column="0">
-            <property name="name">
-                <cstring>Layout1</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <property name="margin">
-                    <number>0</number>
-                </property>
-                <property name="spacing">
-                    <number>6</number>
-                </property>
-                <spacer>
-                    <property name="name">
-                        <cstring>Horizontal Spacing2</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>20</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="QPushButton">
-                    <property name="name">
-                        <cstring>buttonClose</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Close</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+C</string>
-                    </property>
-                    <property name="autoDefault">
-                        <bool>true</bool>
-                    </property>
-                </widget>
-            </hbox>
-        </widget>
-        <widget class="QTabWidget" row="0" column="0">
+        <widget class="QTabWidget">
             <property name="name">
                 <cstring>tabWidget</cstring>
             </property>
@@ -130,9 +77,6 @@
                                         <property name="text">
                                             <string></string>
                                         </property>
-                                        <property name="pixmap">
-                                            <pixmap>image0</pixmap>
-                                        </property>
                                         <property name="toggleButton">
                                             <bool>true</bool>
                                         </property>
@@ -146,9 +90,6 @@
                                         </property>
                                         <property name="text">
                                             <string></string>
-                                        </property>
-                                        <property name="pixmap">
-                                            <pixmap>image1</pixmap>
                                         </property>
                                         <property name="toggleButton">
                                             <bool>true</bool>
@@ -387,41 +328,10 @@
                 </grid>
             </widget>
         </widget>
-    </grid>
+    </vbox>
 </widget>
-<customwidgets>
-</customwidgets>
-<images>
-    <image name="image0">
-        <data format="PNG" length="1760">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af4000006a7494441545885ad9671689c671dc73f8d51dfb329be2769b993aa772cc3bcb241533bf194c1522bd45887bb3974810a49add86c5334ab43aa7f945206b651aaad304826d36cfe611cd2dd32d425d5d28b50b95607c995d2ddcdd25e425bde3bd3dbfbbea4a75fff78de4baec9256dc52f3c3cdcf3fcdedff7fbfb3dbffb3dcf3aee1e110bee4bc2c7814d166c08e05d1faecfc1db015c02fe750ffe0058772783183cfc19f86a0a76389d4e22d9917c7f3c9e80f628d4a0529965b63877ebfcdfa7e6a66e54ce4cc26b73f00650b95731b7c1864ff5c3ef2736c7feedf5f54b2f0c4be319e96c4e9a99962e9724d79516648627e96c4e85670675a8cdbae0c0b781f5ff53065230f8141c4c7f39bd3ef25017d871b0002c082af8953241a502768ce8e638380e2492b0316a1cf83ec543871979fef0d921f87e007fb95b012d693876c0b69fdefaa5b449739b0d950a337f9b227f294f1080d56e63b58764d580a0ea134dc4493ebc9d64df1eb83f69f6f233fc2efd95779fbd907fee1d3871a76cd00d47736d96b42b2d3dd92bf5f56bbad3d130686c4b970a2f0c4bd75cadc0bca7d2cba3ca3e91d658474285fd83d2bcb7b89dddd9a32e38b826b903bb2740fa744adad12dedec51c6b234dc1e53e9646625e96a289434b1ab4713db52d2b9dce2726e678f1c787635fef81198d5e684f480236debd21868b4d3598aa4e49aacbc347a773a4e1cd75887236f3c14bf208d75380b16ec5ac19e82e70b206d8e491d8e72a0e158cc54b66422b16d09cce8ebbf2b11ee7846994e479a0a33f1d6b40ec0db40ac91ff4347e08a5a916c5b9e65e938a8743a6b3e9aca2d11378ebd6b88989996c2ef4b23a3e6380a0593996706d4054717d913f078b6eed4b294058dedec5972763adb5c00989ed0889319533f20b55a8bc797ddddabd277074ddfb858d011cb2a03f7d72bff27a506a7c3a0c2c9a5739324edee6f2e6047cfd211752456eeef0eb3e4baca6ce932c15c7355d8ddab04fc08a0c5814e3bcc860f6059d8dbb6e2fbe007bed9183a6afac172bc390e5fdf035b3f0997de6952db8199a251e20fa598fdedab500d48eeec61bb29c60fb4c4e1c391d07c0eb01249b06c826a99a016e0977dfc8d513876b40901f0eb179bafefe8865fbdbcf833fe580fc5f3e760ae081f49b2d5b21e04922d56d864eb19b06c1b5a81560b6a611c651fbf7f0feced6f4ed608cb82a123f0a7c9db96e38f7c91a05a81e22cd4c0492423163cd812c0adba51040882306d353307b5006a01c14d1fffd808b437398a3af60ec0e5127caf49bf8984e2ae14a11660db3631f8586b00f37e7d1fa01a401060b55a86bc8e0d11f8d909b8b1ca2d3b3e015fd8be76765a43ff559fa865017cb0250f97eb347120b89437170c0de41ba3583f3e4ae43b4fafeefcfcd4dae4606ab25a819b15fc6a8508bcb7a508ff2836d8d840f1d424565b7489fcc51122cfed5f326a8fc1035db73b7f7e08cafeda022a61f66ecc4235c0879b2d79f8731efe53b74902c55f8e98f8dba2706a92c89e6f98cd360bf60f527e6b86f2e909e874969c572bf0f321f357bec50a944f4d61053ed47cb851a17865960acc02bc6f0072def266f4c709b90b923a1cb3be6f40eec5825c49aeebcaf524f76241dadcd0806c5b9eebc9f3b4f4520a91dd3ba0424742da3720f5f5ebb891f959001cf856a641c03468b82321f79a2befc4b0bcb33995162477de937bcd5d1a9ee4ce14a4c49208eff0217992bc796ff132f30a258dd9b6f448b7f464afbc6d29f5431ed854cfd0864198696cc913a0b15d6979925c6f19f17211974bc639486db6dc922b6fde332224657674ab64dbe69ed895d68465c98163002da1809b23f083f18633db0e907995f1c71e370da9cda229aa65b06dca275f878387608b63fa06c08608af7f730f91374f118fc54de15d38c7641054f3f0ca0a5f29383eb1ec42c98046b774a970366752eba979265ccf646341f2168ccdd813bd9a00a9dd36b5d4915006e4c02f1a82bf0debd3f0c67211d3616166fafa5598ca995a5048e479669639f252a9a4dc89610dc762ca82eaef0cb5dbca827a611a48d4099b3dcb37a6e1374fc1e796f7b529a008d0e9104fa5b03a9258ed71d3be6f94299fff2b953353d8950adb31dd15805638578357e0fa107c0d98e40eb0bbe1a55150a1c93bc005e540d9b058b3e168665b2fe801b86ac1a377226ec4ba04ec3b00573321e9aa2fa355c634681494863340ea5ec81b715f0a7e3a08736361e46b89298536c326ea420c7e086c5c35ca7b10924cc0a39f80cf3bd015834d11f36a5844196a7370fd1c9ccfc31fe6e035c2b2f97f08a8e33d986775c2828f626e7902b815c015e09fc05560e16e9cfd1740159197bad195cc0000000049454e44ae426082</data>
-    </image>
-    <image name="image1">
-        <data format="PNG" length="1770">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af4000006b1494441545885c5977d6c14c719c67f8605c66451e7c0c00247381450706b88cd478589233e6a2841a09610aa02a215a0fcd112daa469a54a14a4a89f21a455d3b4529594484d84d2421ba9448d6a2a3b88c6a0022e89ad9eb12df60a8eef0457df60afec17bcf1f48f3df0076787a8adf2cc1f7ba79d799fe79d79e69d9d226b2d9f248a3e667f1787c594508ec32cb49a48c04d443ec0f01ec205e0c6ff43408279ea09e26a2b53f503aa2436c6f36620612f82608c816c2fa4c527658e93929781d6ff8d008f2729d3df53f3e74edfbefa31d62cad407bc564421f5f7c9241927490c6cffa181fa40968e43a17333f22cbcf8151d77834018a72f52b4abd5ddbd7efe0f0b667609c902449437703bef8a482146949930ed3e00ae20ae280bc039cf0e074e655dae449a0e7e30a184bb97a95526fe74bfb0eb3b7720b0dd493ec8d32f6c5c70f7cd2611ae31870411c899e4a601ce0033ff3e084798d94ec01fa0a130d3c634031e090e0db54c49f7a7edf0ff86ae53a6afb6a69ea69a6a1ab81e69e66925d4972e3d3181580ca934e176442381031062c0da02dfe1029d385505f7806148b59ae5fc4a10c1484720347cd7c6ce70ee7f057f652db5d7b27635fa2acc5114c9b20490559400171814a030b87319c010e7a37f86be611a0f16e01e5fa985a3df7f1356b4bc961485fcf618ce199adbb512e6482cc00b993464230c78033fc9b665383d04c281328d11524d44a9631919d19281dc47248c32f3842bbd9335c80432853bcb82651a55181800884bdbc607e884245bd140802219897159ce12ae7333b815377221953441b4b68534f914cec605306764bf46eb38193de66daf931d036d403d3dc3532bbe8a119a5c5f881cf75c961888c951d9f25981c10c402648a446bdde140d651e08c232bb5c0cd41f13a30e11f693797c8c6abb882cb4a8129c045b798a6e012b7383754c02d9916ce703731dfd03dbefb8eab8d32a0891c7d1b138065022b03874e5d4e4b78939ef014c3718b2652a68e403f4cb3338dcf0b748570ca3574c99b83bb8ec1f017d272c34ff622ae19d84ac3c9076306304f00e223f40068e07c663575aa9e831a5cc0a394e8d72001f02fdae58434e58b886b102d239303d42978530564e5d828bd3ce27c014c11ffd0f09a024fcd21daa0c3e0f0305f4cf451a32da3b55b587ead2dabbc2c8a5d23102788f313367a1f240e6cb0fbfffc8a3dfefebbb6e2d9ed966a1de2b0b2f0b005eaf73ced4524855a0d96273ccb3c7d1a585520c27dc4f92eeb75a6f285ddf6ad960b76303a6d8f555fabb424789d112af042aa3dc3737a68c635cab2cfb32cf75a507c0b987cd748c552aaf4d9c4810df6ad967707d1f6d84edb692fdbcbb6c376d8afd77cdfb2d1eb033e3730f90368c4c839ea5435a241095cd4fd344a23a9cc1b04bc01a4ee2277594b75e2e886ad1b4a9edfbe97628aa9a79e5c5f2e3aaac52008b93047ac5c607ecc6181f926cdf20ef0a1332498914bdeda15d599261faee6da399b791aa8053a0baf1bd358e51dd9b07b4dc9ee4d6ba8ebae2317e630a1a137ec4542414289fed38b3882570e9946bd8ee6cc62e0dc5001596999eb79bcb46d3f8f1fdc329d389fa59de3239083c322a6aab82e178ea68f224194a91011f7127db0e0e44f4b05e61181bfe909786c2533b428814395da55d16fadb5afbc7fdcb22d6159a05ea7e0d6016026d59ecf8184f56a13565fd6567768ab3a94559dcad2456153ff525bcabd0b803b7648b87e3a432d5f0a1f9c3479cb9265b8f7c7389d4d2d624cb89a6b92a49fabc304747339a8a1878a20c96ca63b8465011213c2e230aa9c63b91b2270c69d442af8ddf0d7b78039ad93bb57cc5d1e23e61511ffcc545a7bcc2c71d597e99759748519fac902fd80836236d3d47a96b8f7c79739b8e28201c6108928846bc09992f1b498a385f6e302367ae7577f63c57da5e51a933752c3699fd4f91cb44a1f599a30a69d12ed3183c55431563d2a280d0683522a5af3e27cc4431a02f2855ba04dc3694971d6ac2cfc49165787d83cf73b15bb5474364864a09ce4902c98b4c038054a506582c44729dd6f2bf8a9b6a4e44f206370d4244432a4e40870728451c458aacf732061f53ff3c6ba9237560f568d5eb007dadfb16cf52c71f55b22471431302f1f894f53e5b5f2ac67b9768f84835badcaef227d12f0ee957438ca58aacfb1cfb3d4df23f1152ccf69cb46cf9250478199a311dccbcd68329eda4f99b78785f2292a0d2c90c8502e100219a04dc139054d1a5aa58de6cc8b04fc8651ee04f72ae03616e1a9ed94a875c4d5834c62224e5e402f1f62c89195f768376f13f0070a9d1bffa580db9804ccc1214154214342aee7093bf8888cef12f0495fcfff032de997cddcf73a390000000049454e44ae426082</data>
-    </image>
-</images>
-<connections>
-    <connection>
-        <sender>buttonClose</sender>
-        <signal>clicked()</signal>
-        <receiver>MolcalcDialog</receiver>
-        <slot>close()</slot>
-    </connection>
-    <connection>
-        <sender>buttonCalculate</sender>
-        <signal>clicked()</signal>
-        <receiver>MolcalcDialog</receiver>
-        <slot>slotCalculate()</slot>
-    </connection>
-    <connection>
-        <sender>buttonClear</sender>
-        <signal>clicked()</signal>
-        <receiver>formula</receiver>
-        <slot>clear()</slot>
-    </connection>
-</connections>
 <tabstops>
     <tabstop>tabWidget</tabstop>
-    <tabstop>buttonClose</tabstop>
     <tabstop>plusButton</tabstop>
     <tabstop>minusButton</tabstop>
     <tabstop>formula</tabstop>
@@ -429,9 +339,6 @@
     <tabstop>buttonCalculate</tabstop>
     <tabstop>buttonClear</tabstop>
 </tabstops>
-<slots>
-    <slot>slotCalculate()</slot>
-</slots>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>kpushbutton.h</includehint>
