@@ -192,26 +192,35 @@ void InformationWidget::slotTemp( int temp )
 	QString htmlcode = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
 	htmlcode += appBaseDir + "\">";
 
-	static const int threshold = 20;
+	static const int threshold = 25;
 
 	EList kdo = m_pse->data()->ElementList;
 	EList::Iterator it = kdo.begin();
 	const EList::Iterator itEnd = kdo.end();
+
 	QStringList listMeltingPoint;
 	QStringList listBoilingPoint;
+	QStringList listBoilingPointValue;
+	QStringList listMeltingPointValue;
 	for ( ; it != itEnd; ++it )
 	{
 		if ( fabs( ( *it )->melting() - temp ) <= threshold )
+		{
 			listMeltingPoint << ( *it )->elname();
+			listMeltingPointValue << QString::number( ( *it )->melting() );
+		}
 		else if ( fabs( ( *it )->boiling() - temp ) <= threshold )
-			listBoilingPoint << ( *it )->elname();
+		{
+			listBoilingPoint << ( *it )->elname().utf8();
+			listBoilingPointValue << QString::number( ( *it )->boiling() );
+		}
 	}
 	if ( listMeltingPoint.count() > 0 )
 	{
 		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "<br><ul type=\"disc\">";
 		for ( uint i = 0; i < listMeltingPoint.count(); i++ )
 		{
-			htmlcode += "<li>" + listMeltingPoint[i] + "</li>";
+			htmlcode += i18n( "<li>%1</li> (%2K)" ).arg( listMeltingPoint[i] ).arg( listMeltingPointValue[i]);
 		}
 		htmlcode += "</ul><br>";
 	}
@@ -220,7 +229,7 @@ void InformationWidget::slotTemp( int temp )
 		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "<br><ul type=\"disc\">";
 		for ( uint i = 0; i < listBoilingPoint.count(); i++ )
 		{
-			htmlcode += "<li>" + listBoilingPoint[i] + "</li>";
+			htmlcode += i18n( "<li>%1</li> (%2K)" ).arg( listBoilingPoint[i] ).arg( listBoilingPointValue[i]);
 		}
 		htmlcode += "</ul><br>";
 	}

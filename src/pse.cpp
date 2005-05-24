@@ -30,6 +30,7 @@
 #include <kimageeffect.h>
 
 #include <qimage.h>
+#include <qstring.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
 #include <qlayout.h>
