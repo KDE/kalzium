@@ -88,7 +88,7 @@ void Kalzium::setupActions()
 	gradientlist.append(i18n("Meltingpoint"));
 	gradientlist.append(i18n("Electronegativity"));
 	gradientlist.append(i18n("No Gradient"));
-	gradient_action = new KSelectAction (i18n("&Gradient"), 0, this, 0, actionCollection(), "change_pse");
+	gradient_action = new KSelectAction (i18n("&Gradient"), 0, this, 0, actionCollection(), "gradmenu");
 	gradient_action->setItems(gradientlist);
 //	gradient_action->setCurrentItem(Prefs::schemaPSE());
 	connect (gradient_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoGradient(int)));
