@@ -65,6 +65,8 @@ Kalzium::Kalzium()
 	
 	setupStatusBar();
 	setupActions();
+
+	m_PSE->repaint();
 }
 
 void Kalzium::setupActions()
@@ -151,7 +153,7 @@ void Kalzium::slotGlossary()
 {
 	emit tableLocked(true);
 	GlossaryDialog *dlg = new GlossaryDialog( this, "glossary" );
-	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(slotLock()) );
+	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
 	dlg->show();
 }
 
@@ -169,7 +171,7 @@ void Kalzium::slotLearningmode()
 		m_pLearningmodeAction->setText(i18n("Leave &Learningmode"));
 		m_PSE->setLearning( true );
 		InformationWidget *l_dlg = new InformationWidget( m_PSE );
-		connect( l_dlg, SIGNAL( closed() ), m_PSE, SLOT(slotLock()) );
+		connect( l_dlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
 
 		l_dlg->show();
 	}
@@ -205,7 +207,7 @@ void Kalzium::slotCalculate()
 
 	MolcalcImpl *dlg = new MolcalcImpl( data(), this, "molcalcdialog" );
 	connect( m_PSE, SIGNAL( ElementClicked( int ) ), dlg, SLOT(slotButtonClicked( int )) );
-	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(slotLock()) );
+	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
 	dlg->show();
 }
 

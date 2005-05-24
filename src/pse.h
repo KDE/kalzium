@@ -396,6 +396,7 @@ class PSE : public QWidget
 
 		void slotLock(bool);
 		void slotLock();
+		void slotUnlock();
 
 	signals:
 		/**

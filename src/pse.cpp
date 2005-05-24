@@ -690,6 +690,11 @@ int PSE::ElementNumber( int X, int Y )
 
 void PSE::slotLock()
 {
+	setShowTooltip(false);
+}
+
+void PSE::slotUnlock()
+{
 	setShowTooltip(true);
 }
 
