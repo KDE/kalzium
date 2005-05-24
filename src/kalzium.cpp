@@ -83,13 +83,13 @@ void Kalzium::setupActions()
 	connect (schema_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoPSE(int)));
 	
 	QStringList gradientlist;
+	gradientlist.append(i18n("No Gradient"));
 	gradientlist.append(i18n("Atomic Radius"));
 	gradientlist.append(i18n("Atomic Weight"));
 	gradientlist.append(i18n("Density"));
 	gradientlist.append(i18n("Boilingpoint"));
 	gradientlist.append(i18n("Meltingpoint"));
 	gradientlist.append(i18n("Electronegativity"));
-	gradientlist.append(i18n("No Gradient"));
 	gradient_action = new KSelectAction (i18n("&Gradient"), 0, this, 0, actionCollection(), "gradmenu");
 	gradient_action->setItems(gradientlist);
 //	gradient_action->setCurrentItem(Prefs::schemaPSE());
@@ -246,7 +246,7 @@ void Kalzium::slotShowScheme(int i)
 
 void Kalzium::slotSwitchtoGradient( int index )
 {
-	if ( index == 6 )
+	if ( index == 0 )
 	{
 		m_PSE->setGradient( false );
 		return;

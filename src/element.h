@@ -284,7 +284,8 @@ class Element{
 		 */
 		enum TYPE
 		{
-			RADIUS = 0,
+			NOGRADIENT = 0,
+			RADIUS,
 			WEIGHT,
 			DENSITY,
 			BOILINGPOINT,
