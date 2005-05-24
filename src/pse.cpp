@@ -42,6 +42,7 @@
 #include <qcursor.h>
 #include <qpainter.h>
 #include <qcolor.h>
+#include <qrect.h>
 
 PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
   : QWidget(parent, name), table(0), table2(0)
@@ -386,23 +387,55 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 	
 	const int x1 = mapFromGlobal( QCursor::pos() ).x();
 	const int y1 = mapFromGlobal( QCursor::pos() ).y();
-	const int w = 200;
-	const int h = 75;
 
-	p->setBrush(Qt::SolidPattern);
-	p->setBrush( Qt::yellow );
-	p->drawRect( x1 , y1 , w, h );
-
-	p->setBrush( Qt::black );
-	p->setBrush(Qt::NoBrush);
+	static const int padding = 3;
 
 	QFont fB = KGlobalSettings::generalFont();
 	fB.setPointSize( fB.pointSize() + 4 );
 	p->setFont( fB );
 	
-	p->drawText( x1, y1+15, i18n( "Name: %1").arg(e->elname().utf8() )); 
-	p->drawText( x1, y1+35, i18n("Number: %1").arg( QString::number( e->number() )));
-	p->drawText( x1, y1+55, i18n("Weight: %1 u").arg(QString::number( e->weight() ))); 
+	QString text = i18n( "Name: %1\n"
+	                     "Number: %2\n"
+	                     "Weight: %3 u")
+	               .arg( e->elname().utf8(),
+	                     QString::number( e->number() ),
+	                     QString::number( e->weight() ) );
+
+	QRect bRect( 0, 0, 1000, 1000 );
+	bRect = p->boundingRect( bRect, AlignLeft|AlignTop, text );
+	bRect.moveBy( x1, y1 );
+	QRect bRectExt = bRect;
+	bRect.moveBy( padding, padding );
+	bRectExt.setWidth( bRectExt.width() + 2 * padding );
+	bRectExt.setHeight( bRectExt.height() + 2 * padding );
+
+	bool vertflipped = false;
+	if ( bRectExt.bottom() > height() )
+	{
+		bRectExt.moveBy( 0, - bRectExt.height() );
+		bRect.moveBy( 0, - bRect.height() - 2 * padding );
+		vertflipped = true;
+	}
+	if ( bRectExt.right() > width() )
+	{
+		bRectExt.moveBy( - bRectExt.width(), 0 );
+		bRect.moveBy( - bRect.width() - 2 * padding, 0 );
+	}
+	else if ( !vertflipped )
+	{
+		bRectExt.moveBy( 15, 0 );
+		bRect.moveBy( 15, 0 );
+	}
+
+	p->setBrush(Qt::SolidPattern);
+//	p->setBrush( Qt::yellow );
+	p->setBrush( QColor( 255, 255, 220 ) );
+	p->drawRect( bRectExt );
+
+	p->setBrush( Qt::black );
+	p->setBrush(Qt::NoBrush);
+
+	p->drawText( bRect, AlignLeft|AlignTop, text );
 }
 
 void PSE::drawTimeLine( QPainter* p )
