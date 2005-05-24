@@ -383,11 +383,16 @@ QString ToolItem::toHtml() const
 {
 	QString code = "<h1>" + m_name + "</h1>";
 
-	QString pic_path = locate("data", "kalzium/data/toolpics/");
-	pic_path.append( picture() );
-	pic_path.prepend( "<br><img src=\"" );
-	pic_path.append( "\" /><br> ");
-	code += pic_path;
+	if ( !picture().isEmpty() )
+	{
+		QString pic_path = locate("data", "kalzium/data/toolpics/");
+		pic_path += picture();
+		if ( QFile::exists( pic_path ) )
+		{
+			pic_path = "<br><img src=\"" + pic_path + "\" /><br> ";
+			code += pic_path;
+		}
+	}
 	code += m_desc;
 	return code;
 }

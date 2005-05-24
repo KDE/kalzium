@@ -192,9 +192,6 @@
                     <property name="text">
                         <string>Use &amp;the SI-unit meter (m)</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+T</string>
-                    </property>
                 </widget>
                 <widget class="QRadioButton" row="1" column="0">
                     <property name="name">
@@ -202,9 +199,6 @@
                     </property>
                     <property name="text">
                         <string>Use &amp;commonly used units</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+C</string>
                     </property>
                 </widget>
             </grid>
