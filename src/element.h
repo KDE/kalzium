@@ -96,16 +96,16 @@ class Element{
 		void setAggregation( int value ) { m_az = value; }
 		void setNumber( int num ){ m_number = num; }
 
-		void setScientist( QString value ) { m_scientist = value; }
-		void setName( QString value ) { m_name = value; }
-		void setBlock( QString value ) { m_block = value; }
-		void setGroup( QString value ) { m_group = value; }
-		void setFamily( QString value ) { m_family = value; }
-		void setOrbits( QString value ) { m_orbits = value; }
-		void setSymbol( QString value ) { m_symbol = value; }
-		void setOxydation( QString value ) { m_oxstage = value; }
-		void setAcidicbehaviour( QString value ) { m_acidbeh = value; }
-		void setIsotopes( QString value ) { m_isotopes = value; }
+		void setScientist( const QString& value ) { m_scientist = value; }
+		void setName( const QString& value ) { m_name = value; }
+		void setBlock( const QString& value ) { m_block = value; }
+		void setGroup( const QString& value ) { m_group = value; }
+		void setFamily( const QString& value ) { m_family = value; }
+		void setOrbits( const QString& value ) { m_orbits = value; }
+		void setSymbol( const QString& value ) { m_symbol = value; }
+		void setOxydation( const QString& value ) { m_oxstage = value; }
+		void setAcidicbehaviour( const QString& value ) { m_acidbeh = value; }
+		void setIsotopes( const QString& value ) { m_isotopes = value; }
 
 		void setIonisationList( doubleList l ){
 			m_ionenergies = l;
@@ -349,7 +349,7 @@ class Element{
 		 * draw the recatangle with the information
 		 * @param showFullInformation if True more information will be shown
 		 */
-		virtual void drawGradient( QPainter* p, const QString& value, const QColor );
+		virtual void drawGradient( QPainter* p, const QString& value, const QColor& );
 		
 		virtual void drawSelf( QPainter* p, bool showFullInformation );
 		

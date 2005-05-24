@@ -1,7 +1,4 @@
 /***************************************************************************
-
-        detailinfodlg.cpp  -  description
-                             -------------------
     begin                : Tue Apr 8 2003
     copyright            : (C) 2003, 2004 by Carsten Niehaus
     email                : cniehaus@kde.org

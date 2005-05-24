@@ -1,6 +1,4 @@
 /***************************************************************************
-
-                          elementdataviewer.cpp  -  description
                              -------------------
     copyright            : (C) 2004 by Carsten Niehaus
     email                : cniehaus@kde.org
