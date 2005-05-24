@@ -66,6 +66,10 @@ Kalzium::Kalzium()
 	setupStatusBar();
 	setupActions();
 
+	m_info = new InformationWidget( m_PSE );
+	connect( m_info, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
+	connect( m_info, SIGNAL( closed() ), this, SLOT(slotLearningmode()) );
+
 	m_PSE->repaint();
 }
 
@@ -164,16 +168,17 @@ void Kalzium::slotLearningmode()
 		m_pLearningmodeAction->setText(i18n("Enter &Learningmode"));
 		m_PSE->setLearning( false );
 		emit tableLocked(false);
+		if ( m_info->isShown() )
+		{
+			m_info->hide();
+		}
 	}
 	else
 	{
 		emit tableLocked(true);
 		m_pLearningmodeAction->setText(i18n("Leave &Learningmode"));
 		m_PSE->setLearning( true );
-		InformationWidget *l_dlg = new InformationWidget( m_PSE );
-		connect( l_dlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
-
-		l_dlg->show();
+		m_info->show();
 	}
 }
 
