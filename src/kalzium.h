@@ -94,7 +94,6 @@ class Kalzium : public KMainWindow
     /**
 		 * all KActions Kalzium uses
 		 */
-		KSelectAction *schema_action;
 		KSelectAction *gradient_action;
 		KSelectAction *look_action;
 		KSelectAction *numeration_action;
@@ -140,12 +139,6 @@ class Kalzium : public KMainWindow
 
 		void slotUpdateSettings();
 	
-		/**
-		 * This slot switches Kalzium to the selected PSE
-		 * @param simple If true the PSE will be simple
-		 */
-		void slotSwitchtoPSE(int index); 
-		
 		/**
 		 * These slots are for the standardactions
 		 */

@@ -1,7 +1,6 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <kpartgui name="kalzium" version="2">
 <MenuBar>
-  <Action name="change_pse" />
   <Action name="numerationtype" />
   <Action name="gradmenu" />
   <Menu name="miscmenu">

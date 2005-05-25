@@ -345,7 +345,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		  bitBlt( this, 0, 0, table2 );
 		  return;
 	  }
-	  drawPSE( &p, m_isSimple );
+	  drawPSE( &p );
 
 	  drawNumeration( &p );
 
@@ -443,15 +443,16 @@ void PSE::drawTimeLine( QPainter* p )
 	kdDebug() << "PSE::drawTimeLine: " << m_date << endl;
 	
 	EList::Iterator it = d->ElementList.begin();
+	const EList::Iterator itEnd = d->ElementList.end();
 
 	/**
 	 * this loop iterates through all elements. The Elements
 	 * draw themselfs, the PSE only tells them to do so
 	 */
-	while ( it != d->ElementList.end() )
+	while ( it != itEnd )
 	{
 		if ( ( *it )->date() <= m_date )
-			( *it )->drawSelf( p, false );
+			( *it )->drawSelf( p );
 		++it;
 	}
 }
@@ -467,11 +468,8 @@ void PSE::drawLegend( QPainter* p )
 	int Y = ELEMENTSIZE;
 	int tableW = ELEMENTSIZE;
 
-	//If the table is the simple type the width has to be smaller.
-	//For the full PSE the width will be bigger.
-	//The second line calculates the position of the legend
-	m_isSimple ? tableW *= 8 : tableW *= 18;
-	m_isSimple ? Y *= 9 : Y *= 11;
+	tableW *= 18;
+	Y *= 11;
 
 	int fieldsize = tableW/8;    //the width of a legend-field
 	int fieldheight = 20;        //the height of a legend field
@@ -557,57 +555,22 @@ void PSE::drawNumeration( QPainter* p )
 {
 	if ( !p ) return;
 
-	//I always need to check if the user is locking at the simple or the 
-	//regular PSE. Depending on that I need diffrent positions
 	switch(m_num){
 		case PSE::NO:
 			return;
 		case PSE::CAS:
-			if (m_isSimple)
+			for(int i = 0; i < 18 ; ++i )
 			{
-				for(int i = 0; i < 18 ; ++i )
-				{
-					if(i > 2 && i < 12 ) continue;
-					if(i < 2 ) 
-						p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, QString::number(i+1));
-					if(i > 11 )
-						p->drawText( (i-10)*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, QString::number(i+1));
-				}
-			}else
-				for(int i = 0; i < 18 ; ++i )
-				{
-					p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, QString::number(i+1));
-				}
+				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, QString::number(i+1));
+			}
 			break;
 		case PSE::IUPAC:
-			if (m_isSimple)
+			for(int i = 0; i < 18 ; ++i )
 			{
-				for(int i = 0; i < 18 ; ++i )
-				{
-					if(i > 2 && i < 12 ) continue;
-					if(i < 2 ) 
-						p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPAClist[i]);
-					if(i > 11 )
-						p->drawText( (i-10)*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPAClist[i]);
-				}
-			}else
-				for(int i = 0; i < 18 ; ++i )
-				{
-					p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPAClist[i]);
-				}
+				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPAClist[i]);
+			}
 			break;
 		case PSE::IUPACOLD:
-			if (m_isSimple)
-			{
-				for(int i = 0; i < 18 ; ++i )
-				{
-					if(i > 2 && i < 12 ) continue;
-					if(i < 2 ) 
-						p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPACOLDlist[i]);
-					if(i > 11 )
-						p->drawText( (i-10)*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPACOLDlist[i]);
-				}
-			}else
 			for(int i = 0; i < 18 ; ++i )
 			{
 				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPACOLDlist[i]);
@@ -633,14 +596,7 @@ void PSE::slotTransientLabel( void )
 {
 	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
 	int Y = ( mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE)/ELEMENTSIZE;
-	if ( m_isSimple )
-	{
-		if ( mapFromGlobal( QCursor::pos() ).x() > ( 2*ELEMENTSIZE ) )
-		{
-			X += 10;
-		}
-	}
-		
+	
 	X += 1;
 	Y += 1;
 
@@ -671,13 +627,6 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 	//for the y-position I need to substract ELEMENTSIZE pixel because
 	//the whole table doesn't start at (0,0) but at (0,ELEMENTSIZE)
 	int Y = ( mouse->y()-ELEMENTSIZE)/ELEMENTSIZE;
-	if ( m_isSimple )
-	{
-		if ( mouse->x() > ( 2*ELEMENTSIZE ) )
-		{
-			X += 10;
-		}
-	}
 		
 	X += 1;
 	Y += 1;
@@ -747,7 +696,7 @@ void PSE::slotUpdatePoint( QPoint point )
 	update();
 }
 
-void PSE::drawPSE( QPainter* p, bool useSimpleView )
+void PSE::drawPSE( QPainter* p )
 {
 	EList::Iterator it = d->ElementList.begin();
 
@@ -760,7 +709,7 @@ void PSE::drawPSE( QPainter* p, bool useSimpleView )
 	 */
 	while ( it != d->ElementList.end() )
 	{
-		( *it )->drawSelf( p, useSimpleView );
+		( *it )->drawSelf( p );
 		if ( m_learningMode )
 			( *it )->drawHighlight( p, coordinate, m_Vertikal );
 		++it;

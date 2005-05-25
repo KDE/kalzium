@@ -286,8 +286,8 @@ QColor Element::currentColor( double temp )
 		if ( _az == 4 ) color=Prefs::color_artificial();
 	}
 
-	double iButton_melting = melting();
-	double iButton_boiling = boiling();
+	const double iButton_melting = melting();
+	const double iButton_boiling = boiling();
 
 	if ( temp < iButton_melting )
 	{ //the element is solid
@@ -302,8 +302,8 @@ QColor Element::currentColor( double temp )
 	{ //the element is vaporous
 		color= Prefs::color_vapor();
 	}
-	return color;
 
+	return color;
 }
 
 void Element::drawHighlight( QPainter* p, int coordinate, bool horizontal )
@@ -332,7 +332,7 @@ void Element::drawHighlight( QPainter* p, int coordinate, bool horizontal )
 	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, Qt::darkRed );
 
 	//now draw the elements over the red area
-	drawSelf( p, false );
+	drawSelf( p );
 }
 	
 void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
@@ -371,32 +371,13 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	p->drawRoundRect( X+1, Y+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
 }
 
-void Element::drawSelf( QPainter* p, bool useSimpleView )
+void Element::drawSelf( QPainter* p )
 {
 	//the height of a "line" inside an element
 	int h_small = 15; //the size for the small units like elementnumber
 
 	//The X-coordiante
-	int X = 0;
-	
-	if ( useSimpleView )
-	{//use the small periodic table without the d- and f-Block
-		if ( block() == "f" )
-			return;
-		if ( block() == "d" )
-			return;
-		if ( block() == "p" )
-		{
-			X = ( x-1 )*ELEMENTSIZE;
-			X -= 10*ELEMENTSIZE;
-		}
-		if ( block() == "s" )
-		{
-			X = ( x-1 )*ELEMENTSIZE;
-		}
-	}
-	else //use the full table
-		X = ( x-1 )*ELEMENTSIZE;
+	int X = ( x-1 )*ELEMENTSIZE;
 
 	//The Y-coordinate
 	int Y = ( y-1 )*ELEMENTSIZE;

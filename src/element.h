@@ -351,7 +351,7 @@ class Element{
 		 */
 		virtual void drawGradient( QPainter* p, const QString& value, const QColor& );
 		
-		virtual void drawSelf( QPainter* p, bool showFullInformation );
+		virtual void drawSelf( QPainter* p );
 		
 		/**
 		 * Highlight perdiods or groups.

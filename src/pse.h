@@ -135,13 +135,6 @@ class PSE : public QWidget
 		}
 
 		/**
-		 * @para simple if true the table will only show the p and s block
-		 */
-		void setPSEType( bool simple ){
-			m_isSimple = simple;
-		}
-		
-		/**
 		 * returns if the SOM is active or not
 		 */
 		bool som() const{
@@ -290,9 +283,6 @@ class PSE : public QWidget
 		 */
 		QString m_ShortName;
 
-		///if true the pse is drawn in simple mode (s+p block only)
-		bool m_isSimple;
-
 		///true if the molcalc-mode is active
 		bool m_molcalcIsActive;
 
@@ -348,7 +338,7 @@ class PSE : public QWidget
 		virtual void resizeEvent( QResizeEvent *e );
 
 		///the central place for the drawing of the table
-		virtual void drawPSE( QPainter* p, bool useSimpleView );
+		virtual void drawPSE( QPainter* p );
 
 		///draw a gradient of the type @p type
 		virtual void drawGradientPSE( QPainter* p, const double min, const double max );

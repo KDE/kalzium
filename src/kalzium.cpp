@@ -78,14 +78,6 @@ void Kalzium::setupActions()
 	/*
 	 * the actions for switching PSE
 	 **/
-	QStringList schemalist;
-	schemalist.append(i18n("Show &Simple PSE"));
-	schemalist.append(i18n("Show &Regular PSE"));
-	schema_action = new KSelectAction (i18n("&PSE"), 0, this, 0, actionCollection(), "change_pse");
-	schema_action->setItems(schemalist);
-	schema_action->setCurrentItem(Prefs::schemaPSE());
-	connect (schema_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoPSE(int)));
-	
 	QStringList gradientlist;
 	gradientlist.append(i18n("No Gradient"));
 	gradientlist.append(i18n("Atomic Radius"));
@@ -96,7 +88,6 @@ void Kalzium::setupActions()
 	gradientlist.append(i18n("Electronegativity"));
 	gradient_action = new KSelectAction (i18n("&Gradient"), 0, this, 0, actionCollection(), "gradmenu");
 	gradient_action->setItems(gradientlist);
-//	gradient_action->setCurrentItem(Prefs::schemaPSE());
 	connect (gradient_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoGradient(int)));
 
 	/*
@@ -146,7 +137,6 @@ void Kalzium::setupActions()
 
 	slotShowScheme( Prefs::colorschemebox() );
 	slotSwitchtoNumeration( Prefs::numeration() );
-	slotSwitchtoPSE( Prefs::schemaPSE() );
 
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
@@ -256,10 +246,8 @@ void Kalzium::slotSwitchtoGradient( int index )
 	if ( index == 0 )
 	{
 		m_PSE->setGradient( false );
-		schema_action->setEnabled( true );
 		return;
 	}
-	schema_action->setEnabled( false );
 	m_PSE->setGradientType( index );
 	m_PSE->setGradient( true );
 }
@@ -270,22 +258,6 @@ void Kalzium::slotSwitchtoNumeration( int index )
 	Prefs::setNumeration(index); 
 	Prefs::writeConfig();
   
-  //JH: redraw the full table next time
-  setFullDraw();
-}
-
-void Kalzium::slotSwitchtoPSE(int index)
-{
-	if ( index == 0 )
-		m_PSE->setPSEType( true );//simple
-	else
-		m_PSE->setPSEType( false );//complex
-	
-	m_PSE->update();
-	
-	Prefs::setSchemaPSE(index);
-	Prefs::writeConfig();
-
   //JH: redraw the full table next time
   setFullDraw();
 }
