@@ -1,5 +1,6 @@
 TODO for Kalzium 1.5:
 Priority 1:
+	- Reintegrate the isotope-label
 	- A math dialog:
 	  -- integrate EqChem http://www.kde-apps.org/content/show.php?content=14542
 	  -- Adding a calculator for molecular weights
@@ -7,8 +8,8 @@ Priority 1:
 		   a structure the user entered (CO2 --> 1xC + 2xO --> 48 g/mol)
 
 	- Finish the learning mode
-	  -- Make the state-of-matter work
-	  -- Make the timeline work
+	  -- Make the state-of-matter work (DONE, cn)
+	  -- Make the timeline work        (DONE, cn)
 	    -- One idea is that one could display what happend in the
 		   selected year. Perhaps what Nobelprizes where given,
 		   things like "World war II ended" and so on.
@@ -16,6 +17,7 @@ Priority 1:
 
 	- Add gradientdrawing for properties like density and atomic weight like here:
 	    http://www.synergycreations.com/periodic/screenshots/PT-crustal.gif
+		(DONE, cn)
 
 Priority 2:
 	- Different EN-Values (there are at least 3 different EN-scales)
