@@ -223,8 +223,8 @@ void Kalzium::slotShowLegend()
 	Prefs::setShowlegend( m_PSE->showLegend() ); 
 	Prefs::writeConfig();
  
-  //JH: redraw the full table next time
-  setFullDraw();
+	//JH: redraw the full table next time
+	setFullDraw();
 }	
 
 void Kalzium::slotShowScheme(int i)

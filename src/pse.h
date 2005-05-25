@@ -170,6 +170,7 @@ class PSE : public QWidget
 		 */
 		void showLegend( bool show ){
 			m_showLegend = show;
+			update();
 		}
 
 		bool showLegend() const{
