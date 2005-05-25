@@ -129,7 +129,7 @@ void Kalzium::setupActions()
 	//Legend
 	m_pLegendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
 	
-	m_pLearningmodeAction = new KAction(i18n("Enter Learning Mode"), "legend", 0, this, SLOT(slotLearningmode()), actionCollection(), "learning_mode");
+	m_pLearningmodeAction = new KAction(i18n("Enter &Learning Mode"), "legend", 0, this, SLOT(slotLearningmode()), actionCollection(), "learning_mode");
 
 	//the standardactions
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
@@ -155,7 +155,7 @@ void Kalzium::slotLearningmode()
 {
 	if ( m_PSE->learningMode() )
 	{
-		m_pLearningmodeAction->setText(i18n("Enter &Learningmode"));
+		m_pLearningmodeAction->setText(i18n("Enter &Learning Mode"));
 		m_PSE->setLearning( false );
 		emit tableLocked(false);
 		if ( m_info->isShown() )
@@ -166,7 +166,7 @@ void Kalzium::slotLearningmode()
 	else
 	{
 		emit tableLocked(true);
-		m_pLearningmodeAction->setText(i18n("Leave &Learningmode"));
+		m_pLearningmodeAction->setText(i18n("Leave &Learning Mode"));
 		m_PSE->setLearning( true );
 		m_info->show();
 	}
