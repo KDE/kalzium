@@ -505,26 +505,26 @@ void PSE::drawLegend( QPainter* p )
 				p->drawText(x2, fieldheight*3, fieldsize, fieldheight, Qt::AlignCenter, i18n("f-Block") ); 
 				break;
 			}
-//X 		case PSE::GROUPS:
-//X 			{
-//X 				p->fillRect( fieldsize , Y, fieldsize, fieldheight, color_1); 
-//X 				p->fillRect( fieldsize*2 , Y, fieldsize, fieldheight, color_2); 
-//X 				p->fillRect( fieldsize*3 , Y, fieldsize, fieldheight, color_3); 
-//X 				p->fillRect( fieldsize*4 , Y, fieldsize, fieldheight, color_4); 
-//X 				p->fillRect( fieldsize , Y+fieldheight+1, fieldsize, fieldheight, color_5); 
-//X 				p->fillRect( fieldsize*2 , Y+fieldheight+1, fieldsize, fieldheight, color_6); 
-//X 				p->fillRect( fieldsize*3 , Y+fieldheight+1, fieldsize, fieldheight, color_7); 
-//X 				p->fillRect( fieldsize*4 , Y+fieldheight+1, fieldsize, fieldheight, color_8 ); 
-//X 				p->drawText( fieldsize , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 1") ); 
-//X 				p->drawText( fieldsize*2 , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 2")); 
-//X 				p->drawText( fieldsize*3 , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 3")); 
-//X 				p->drawText( fieldsize*4 , Y, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 4")); 
-//X 				p->drawText( fieldsize , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 5")); 
-//X 				p->drawText( fieldsize*2 , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 6")); 
-//X 				p->drawText( fieldsize*3 , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 7")); 
-//X 				p->drawText( fieldsize*4 , Y+fieldheight+1, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 8")); 
-//X 				break;
-//X 			}
+		case PSE::GROUPS:
+			{
+				p->fillRect( x1 , fieldheight*2, fieldsize, fieldheight, color_1); 
+				p->fillRect( x2 , fieldheight*2, fieldsize, fieldheight, color_2); 
+				p->fillRect( x1 , fieldheight*3, fieldsize, fieldheight, color_3); 
+				p->fillRect( x2 , fieldheight*3, fieldsize, fieldheight, color_4); 
+				p->fillRect( x1 , fieldheight*4, fieldsize, fieldheight, color_5); 
+				p->fillRect( x2 , fieldheight*4, fieldsize, fieldheight, color_6); 
+				p->fillRect( x1 , fieldheight*5, fieldsize, fieldheight, color_7); 
+				p->fillRect( x2 , fieldheight*5, fieldsize, fieldheight, color_8 ); 
+				p->drawText( x1 , fieldheight*2, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 1") ); 
+				p->drawText( x2 , fieldheight*2, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 2")); 
+				p->drawText( x1 , fieldheight*3, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 3")); 
+				p->drawText( x2 , fieldheight*3, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 4")); 
+				p->drawText( x1 , fieldheight*4, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 5")); 
+				p->drawText( x2 , fieldheight*4, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 6")); 
+				p->drawText( x1 , fieldheight*5, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 7")); 
+				p->drawText( x2 , fieldheight*5, fieldsize, fieldheight, Qt::AlignCenter, i18n("Group 8")); 
+				break;
+			}
 //X 		case PSE::ACIDIC:
 //X 			{
 //X 				p->fillRect(fieldsize*2, Y, fieldsize, fieldheight, color_ba ); 
