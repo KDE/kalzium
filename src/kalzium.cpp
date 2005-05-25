@@ -240,6 +240,8 @@ void Kalzium::slotShowLegend()
 void Kalzium::slotShowScheme(int i)
 {
 	m_PSE->activateColorScheme( i );
+	slotSwitchtoGradient( 0 );//deactivate the gradient
+	gradient_action->setCurrentItem(0);
 	m_PSE->update();
 
 	Prefs::setColorschemebox(i); 
@@ -254,8 +256,10 @@ void Kalzium::slotSwitchtoGradient( int index )
 	if ( index == 0 )
 	{
 		m_PSE->setGradient( false );
+		schema_action->setEnabled( true );
 		return;
 	}
+	schema_action->setEnabled( false );
 	m_PSE->setGradientType( index );
 	m_PSE->setGradient( true );
 }
