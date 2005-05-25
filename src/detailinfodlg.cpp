@@ -84,8 +84,7 @@ void DetailedInfoDlg::addTab( const QString& htmlcode, const QString& title, con
 QString DetailedInfoDlg::getHtml(DATATYPE type)
 {
 	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title><link rel=\"stylesheet\" type=\"text/css\" href=\"";
-	html.append( m_baseHtml );
-	html.append( "\" /></head><body><div class=\"chemdata\">" );
+	html += m_baseHtml + "\" /><base href=\"" + m_baseHtml + "\"/></head><body><div class=\"chemdata\">";
 
 	//get the list of ionisation-energies
 	QValueList<double> ionlist = e->ionisationList();
@@ -138,7 +137,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( e->adjustUnits( Element::BOILINGPOINT ) );
 			html.append( "<p>" );
 			
-			int i = 0;
+			uint i = 0;
 			for ( ; i < ionlist.count() ; ++i )
 			{
 				html.append( i18n("the variable is a number. The result is for example '1.' or '5.'", "%1. Ionizationenergy: " ).arg( QString::number( i+1 ) ) );
