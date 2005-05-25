@@ -1,0 +1,70 @@
+body
+{
+	font-family:'arial';
+}
+
+/* The outer div */
+div.chemdata
+{
+	border: 1px solid rgb(50,80,150);
+	/*border: 1px solid rgb(0,0,0);	*/
+	width:300px;
+	overflow:visible;;
+}
+
+/* The header div */
+div.chemdata div
+{
+	background-image:url('header.png');
+}
+
+/* The table inside the header div */
+div.chemdata div table
+{
+	margin:0px;
+	width:100%;
+	color:rgb(240,240,240);
+	font-weight:bold;
+}
+
+/* The td inside the header table */
+div.chemdata div table td
+{
+	padding-left:4px;
+}
+
+/* The second td inside the header table */
+div.chemdata div table td+td
+{
+	text-align:right;
+	font-size:80%;
+}
+
+
+/* The table containing the characterstics */
+table.characterstics
+{
+	background-image:url('characteristics.png');
+	background-repeat:repeat-y;
+	width:100%;
+}
+
+/* The td's inside the characterstics-table */
+table.characterstics td
+{
+	padding:3px;
+	padding-left:5px;
+	vertical-align:middle;
+	text-align:center;
+}
+/* The second td inside the characterstics-table (text) */
+table.characterstics td+td
+{
+	text-align:left;
+}
+
+/* Bold text inside the td's of the characterstics-table */
+table.characterstics td b
+{
+	color:rgb(80,80,80);
+}

@@ -1,6 +1,6 @@
 /***************************************************************************
     begin                : Tue Apr 8 2003
-    copyright            : (C) 2003, 2004 by Carsten Niehaus
+    copyright            : (C) 2003, 2004, 2005 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -41,8 +41,8 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	e = el;
 
 	m_baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
-	m_baseHtml.append("kalzium/data/");
-	m_baseHtml.append("bg.jpg");
+	m_baseHtml.append("kalzium/data/htmlview/");
+	m_baseHtml.append("style.css");
 
 	( actionButton( KDialogBase::Close ) )->setFocus();
 	
@@ -83,9 +83,9 @@ void DetailedInfoDlg::addTab( const QString& htmlcode, const QString& title, con
 
 QString DetailedInfoDlg::getHtml(DATATYPE type)
 {
-	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
+	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title><link rel=\"stylesheet\" type=\"text/css\" href=\"";
 	html.append( m_baseHtml );
-	html.append("\">");
+	html.append( "\" /></head><body><div class=\"chemdata\">" );
 
 	//get the list of ionisation-energies
 	QValueList<double> ionlist = e->ionisationList();
@@ -93,23 +93,32 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 	switch ( type )
 	{
 		case CHEMICAL:
-			html.append( i18n( "Orbital structure: " ) );
-			html.append( e->parsedOrbits() );
-			html.append( "<p />" );
-			html.append( i18n("Symbol: ") );
+			html.append( "<div><table summary=\"header\"><tr><td>" );
 			html.append( e->symbol() );
-			html.append( "<p />" );
+			html.append( "<td><td>" );
+			html.append( i18n( "Block: %1" ).arg( e->block() ) );
+			html.append( "</td></tr></table></div><table summary=\"characteristics\" class=\"characterstics\">");
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td><b>" );
+			html.append( i18n( "Orbital structure: " ) );
+			html.append( "</b>" );
+			html.append( e->parsedOrbits() );
+			html.append( "</td></tr>" );
+			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td><b>" );
 			html.append( i18n( "Density: " ) );
+			html.append( "</b>" );
 			html.append( e->adjustUnits( Element::DENSITY ) );
-			html.append( "<p />" );
-			html.append( i18n( "Block: " ) );
-			html.append( e->block() );
-			html.append( "<p />" );
+			html.append( "</td></tr>" );
+			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
 			html.append( i18n( "Radius: " ) );
+			html.append( "</b>" );
 			html.append( e->adjustUnits( Element::RADIUS ) );
-			html.append( "<p />" );
+			html.append( "</td></tr>" );
+			html.append( "<tr><td stype=\"text-align:center\"><img src=\"weight.png\" alt=\"icon\"/></td><td><b>" );
 			html.append( i18n( "Weight: " ) );
-			html.append( e->adjustUnits( Element::WEIGHT  ) );
+			html.append( "</b>" );
+			html.append( e->adjustUnits( Element::WEIGHT ) );
+			html.append( "</td></tr>" );
+			html.append( "</table>" );
 			break;
 		case MISC:
 			html.append( "<p />" );
@@ -141,7 +150,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			break;
 	}
 			
-	html.append( "</p></body></html>" );
+	html.append( "</div></body></html>" );
 	
 	return html;
 }
