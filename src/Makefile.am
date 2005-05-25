@@ -9,8 +9,6 @@ kalzium_SOURCES = kalzium.cpp \
 			prefs.kcfgc \
 			settings_colors.ui \
 			settings_misc.ui \
-			infodialog_small.ui \
-			infodialog_small_impl.cpp \
 			detailinfodlg.cpp \
 			orbitswidget.cpp \
 			plotwidget.cpp \
@@ -35,9 +33,6 @@ EXTRA_DIST = main.cpp \
 		element.cpp element.h \
 		settings_colors.ui \
 		settings_misc.ui \
-		infodialog_small.ui \
-		infodialog_small_impl.cpp \
-		infodialog_small_impl.h \
 		detailinfodlg.cpp detailinfodlg.h \
 		orbitswidget.cpp orbitswidget.h \
 		plotwidget.cpp plotwidget.h \
