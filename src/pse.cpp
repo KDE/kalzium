@@ -347,6 +347,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	  }
 	  drawPSE( &p );
 
+
 	  drawNumeration( &p );
 
 	  if ( m_showLegend )

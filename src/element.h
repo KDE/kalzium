@@ -97,6 +97,7 @@ class Element{
 		void setNumber( int num ){ m_number = num; }
 
 		void setScientist( const QString& value ) { m_scientist = value; }
+		void setCrysatalstructure( const QString& value ) { m_crystalstructure = value; }
 		void setName( const QString& value ) { m_name = value; }
 		void setBlock( const QString& value ) { m_block = value; }
 		void setGroup( const QString& value ) { m_group = value; }
@@ -160,6 +161,14 @@ class Element{
 		QString symbol() const {
 			return m_symbol;
 		}
+
+		/**
+		 * @return the crystalstructure of the element
+		 */
+		QString crystalstructure() const{
+			return m_crystalstructure;
+		}
+		
 		/**
 		 * @return the name of the element
 		 */
@@ -340,7 +349,8 @@ class Element{
 			m_acidbeh,
 			m_orbits,
 			m_isotopes,
-			m_scientist;
+			m_scientist,
+			m_crystalstructure;
 
 		doubleList m_ionenergies;
 		
@@ -352,6 +362,8 @@ class Element{
 		virtual void drawGradient( QPainter* p, const QString& value, const QColor& );
 		
 		virtual void drawSelf( QPainter* p );
+
+		virtual void drawCrystalstructure( QPainter* p );
 		
 		/**
 		 * Highlight perdiods or groups.

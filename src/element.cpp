@@ -234,6 +234,44 @@ const QString Element::adjustUnits( const int type )
 	return v;
 }
 
+void Element::drawCrystalstructure( QPainter* p )
+{
+	//the height of a "line" inside an element
+	int h_small = 15; //the size for the small units like elementnumber
+	//The X-coordiante
+	int X = ( x-1 )*ELEMENTSIZE;
+
+	//The Y-coordinate
+	int Y = ( y-1 )*ELEMENTSIZE;
+	
+	QColor color = Qt::blue;
+	
+	p->setPen( color );
+	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, color );
+	p->drawRoundRect( X+2, Y+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
+	
+	QString text;
+	QFont symbol_font = p->font();
+	symbol_font.setPointSize( 18 );
+	QFont f = p->font();
+	f.setPointSize( 9 );
+		
+	p->setFont( f );
+
+	//top left
+	p->setPen( Qt::black );
+	text = crystalstructure();
+	p->drawText( X+5,Y+2 ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, text );
+
+	p->setFont( symbol_font );
+	p->drawText( X+5,Y+2, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	
+	//border
+	p->setPen( Qt::black );
+	p->drawRoundRect( X+1, Y+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
+
+}
+
 void Element::drawStateOfMatter( QPainter* p, double temp )
 {
 	//the height of a "line" inside an element
@@ -489,10 +527,6 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 	{//iterate through all elements
 		domElement = ( const QDomElement& ) elementNodes.item( i ).toElement();
 
-//TODO IE
-//X 	m_IE=config.readDoubleNumEntry( "IE", -1 );
-//X 	m_IE2=config.readDoubleNumEntry( "IE2", -1 );
-		
 		double weight = domElement.namedItem( "weight" ).toElement().text().toDouble();
 		double en = domElement.namedItem( "electronegativity" ).toElement().text().toDouble();
 		double mp = domElement.namedItem( "meltingpoint" ).toElement().text().toDouble();
@@ -506,6 +540,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		int number = domElement.namedItem( "number" ).toElement().text().toInt();
 		
 		QString scientist = domElement.namedItem( "date" ).toElement().attributeNode( "scientist" ).value();
+		QString crystal = domElement.namedItem( "crystalstructure" ).toElement().text();
 		QString name = domElement.namedItem( "name" ).toElement().text();
 		QString block = domElement.namedItem( "block" ).toElement().text();
 		QString group = domElement.namedItem( "group" ).toElement().text();
@@ -530,6 +565,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setNumber( number );
 		
 		e->setScientist(scientist);
+		e->setCrysatalstructure( crystal );
 		e->setName(name);
 		e->setBlock(block);
 		e->setGroup(group);
