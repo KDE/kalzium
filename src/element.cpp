@@ -238,19 +238,38 @@ void Element::drawCrystalstructure( QPainter* p )
 {
 	//the height of a "line" inside an element
 	int h_small = 15; //the size for the small units like elementnumber
+	
 	//The X-coordiante
-	int X = ( x-1 )*ELEMENTSIZE;
-
+	int X = xPos();
+	
 	//The Y-coordinate
-	int Y = ( y-1 )*ELEMENTSIZE;
+	int Y = yPos();
 	
-	QColor color = Qt::blue;
-	
+	QColor color;
+	QString name;
+	QString structure = crystalstructure();
+	if ( structure == "own"){
+		color = Qt::blue;
+		name = i18n( "own" );
+	}else if ( structure == "bbc" ){
+		color = Qt::red;
+		name = i18n( "bbc" );
+	}else if ( structure == "hdp" ){
+		color = Qt::yellow;
+		name = i18n( "hdp" );
+	}else if ( structure == "ccp" ){
+		color = Qt::green;
+		name = i18n( "ccp" );
+	}
+	else{
+		color = Qt::white;
+		name = QString::null;
+	}
+		
 	p->setPen( color );
 	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, color );
 	p->drawRoundRect( X+2, Y+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
 	
-	QString text;
 	QFont symbol_font = p->font();
 	symbol_font.setPointSize( 18 );
 	QFont f = p->font();
@@ -260,8 +279,7 @@ void Element::drawCrystalstructure( QPainter* p )
 
 	//top left
 	p->setPen( Qt::black );
-	text = crystalstructure();
-	p->drawText( X+5,Y+2 ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, text );
+	p->drawText( X+5,Y+2 ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, name );
 
 	p->setFont( symbol_font );
 	p->drawText( X+5,Y+2, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
@@ -269,7 +287,6 @@ void Element::drawCrystalstructure( QPainter* p )
 	//border
 	p->setPen( Qt::black );
 	p->drawRoundRect( X+1, Y+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
-
 }
 
 void Element::drawStateOfMatter( QPainter* p, double temp )
@@ -278,10 +295,10 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	int h_small = 15; //the size for the small units like elementnumber
 
 	//The X-coordiante
-	int X = ( x-1 )*ELEMENTSIZE;
-
+	int X = xPos();
+	
 	//The Y-coordinate
-	int Y = ( y-1 )*ELEMENTSIZE;
+	int Y = yPos();
 	
 	QColor color = currentColor( temp );
 	
@@ -379,13 +396,10 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	int h_small = 15; //the size for the small units like elementnumber
 
 	//The X-coordiante
-	int X = 0;
+	int X = xPos();
 	
-	X = ( x-1 )*ELEMENTSIZE;
-
 	//The Y-coordinate
-	int Y = ( y-1 )*ELEMENTSIZE;
-	Y += ELEMENTSIZE;
+	int Y = yPos();
 
 	p->setPen( c );
 	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, c );
@@ -415,11 +429,10 @@ void Element::drawSelf( QPainter* p )
 	int h_small = 15; //the size for the small units like elementnumber
 
 	//The X-coordiante
-	int X = ( x-1 )*ELEMENTSIZE;
-
+	int X = xPos();
+	
 	//The Y-coordinate
-	int Y = ( y-1 )*ELEMENTSIZE;
-	Y += ELEMENTSIZE;
+	int Y = yPos();
 
 	p->setPen( elementColor() );
 	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, elementColor() );

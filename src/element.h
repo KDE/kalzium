@@ -328,6 +328,13 @@ class Element{
     	
 		QColor m_Color;
 
+		inline int xPos() const{
+			return ( x-1 )*ELEMENTSIZE;
+		}
+		inline int yPos() const{
+			return ( y-1 )*ELEMENTSIZE + ELEMENTSIZE;
+		}
+
 		double  m_weight,
 			m_MP, 
 			m_BP, 

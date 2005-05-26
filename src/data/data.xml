@@ -296,6 +296,7 @@
 		<oxydation>+1</oxydation>
 		<family>Alkali_Earth</family>
 
+		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>12</number>
@@ -351,6 +352,7 @@
 		<orbits>1s2 2s2 2p6 3s2 3p1</orbits>
 		<oxydation>+3</oxydation>
 		<family>Other_Metal</family>
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>14</number>
@@ -517,6 +519,7 @@
 		<oxydation>+1</oxydation>
 		<isotopes>20:38,964:93,2581;22:40,962:6,73</isotopes>
 		<family>Alkali_Earth</family>
+		<crystalstructure>bbc</crystalstructure>
 
 	</element>
 	<element>
@@ -546,6 +549,7 @@
 		<isotopes>20:39,963:96,92;22:41,959:0,64;23:42,959:0,13;24:43,955:2,13;26:44,954:0,003;28:47,952:0,18</isotopes>
 		<family>Alkaline_Earth</family>
 
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>21</number>
@@ -626,6 +630,7 @@
 		<orbits>Ar 3d3 4s2</orbits>
 		<oxydation>+5,(+2,+3,+4)</oxydation>
 		<family>Transition</family>
+		<crystalstructure>bbc</crystalstructure>
 
 	</element>
 	<element>
@@ -654,6 +659,7 @@
 		<oxydation>+2,+3,(+1,+4,+5),+6</oxydation>
 		<isotopes>26:49,946:4,3;28:51,94:83,8;29:52,941:9,5;30:53,939:2,4</isotopes>
 		<family>Transition</family>
+		<crystalstructure>bbc</crystalstructure>
 
 	</element>
 	<element>
@@ -673,7 +679,6 @@
 		<density>7.44</density>
 		<ionisationenergy>
 			<energy>7.435 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<atomic>124</atomic>
@@ -681,7 +686,7 @@
 		<orbits>Ar 3d5 4s2</orbits>
 		<oxydation>+2,+4,(+5),+6,+7</oxydation>
 		<family>Transition</family>
-
+		<crystalstructure>own</crystalstructure>
 	</element>
 	<element>
 		<number>26</number>
@@ -709,6 +714,7 @@
 		<oxydation>+2,+3</oxydation>
 		<isotopes>28:53,94:5,81;30:55,935:91,64;31:56,935:2,21;32:57,933:0,34</isotopes>
 		<family>Transition</family>
+		<crystalstructure>bbc</crystalstructure>
 
 	</element>
 	<element>
@@ -765,6 +771,7 @@
 		<oxydation>0,(+2),+3</oxydation>
 		<isotopes>30:57,935:67,8;32:59,931:26,2;33:60,931:1,2;34:61,928:3,7;36:63,928:1,1</isotopes>
 		<family>Transition</family>
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>29</number>
@@ -792,6 +799,7 @@
 		<oxydation>+1,+2</oxydation>
 		<isotopes>34:62,93:68,9;36:64,928:31,1</isotopes>
 		<family>Transition</family>
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>30</number>
@@ -849,6 +857,7 @@
 		<oxydation>(+1),(+2),+3</oxydation>
 		<isotopes>38:68,926:60,1;40:70,925:39,9</isotopes>
 		<family>Other_Metal</family>
+		<crystalstructure>own</crystalstructure>
 
 	</element>
 	<element>
@@ -1015,6 +1024,7 @@
 		<oxydation>+1</oxydation>
 		<family>Alkali_Earth</family>
 
+		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>38</number>
@@ -1042,6 +1052,7 @@
 		<oxydation>+2</oxydation>
 		<isotopes>46:83,913:0,56;48:85,909:9,86;49:86,909:7,02;50:87,906:82,6</isotopes>
 		<family>Alkaline_Earth</family>
+		<crystalstructure>ccp</crystalstructure>
 
 	</element>
 	<element>
@@ -1127,6 +1138,7 @@
 		<oxydation>+3,+5</oxydation>
 		<family>Transition</family>
 
+		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>42</number>
@@ -1155,6 +1167,7 @@
 		<isotopes>50:91,906:15,9;52:93,905:9,2;53:94,906:16,5;54:95,905:15,7;55:96,905:9,4;56:97,906:23,7;58:99,908:9,6</isotopes>
 		<family>Transition</family>
 
+		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>43</number>
@@ -1238,6 +1251,7 @@
 		<orbits>Kr 4d8 5s1</orbits>
 		<oxydation>+1,(+2),+3,(+4)</oxydation>
 		<family>Transition</family>
+		<crystalstructure>ccp</crystalstructure>
 
 	</element>
 	<element>
@@ -1267,6 +1281,7 @@
 		<isotopes>56:101,905:0,8;58:103,904:9,3;59:104,905:22,6;60:105,903:27,2;62:107,904:26,08;64:109,904:13,5</isotopes>
 		<family>Transition</family>
 
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>47</number>
@@ -1294,6 +1309,7 @@
 		<oxydation>+1,(+2,+3)</oxydation>
 		<isotopes>60:106,905:51,9;62:108,905:48,1</isotopes>
 		<family>Transition</family>
+		<crystalstructure>ccp</crystalstructure>
 
 	</element>
 	<element>
@@ -1352,6 +1368,7 @@
 		<oxydation>+3,(+1,+2)</oxydation>
 		<family>Other_Metal</family>
 
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>50</number>
@@ -1379,6 +1396,7 @@
 		<oxydation>+2,+4</oxydation>
 		<isotopes>62:111,05:0,9;64:113,903:0,6;65:114,904:0,4;66:115,902:14,1;67:116,903:7,5;68:117,902:24;69:118,903:8,6;70:119,902:33;72:121,903:4,8;74:123,905:6,1</isotopes>
 		<family>Other_Metal</family>
+		<crystalstructure>own</crystalstructure>
 
 	</element>
 	<element>
@@ -1516,6 +1534,7 @@
 		<orbits>Xe 6s1</orbits>
 		<oxydation>+1</oxydation>
 		<family>Alkali_Earth</family>
+		<crystalstructure>bbc</crystalstructure>
 
 	</element>
 	<element>
@@ -1545,6 +1564,7 @@
 		<isotopes>74:129,906:0,101;76:131,905:0,097</isotopes>
 		<family>Alkaline_Earth</family>
 
+		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>57</number>
@@ -1591,7 +1611,6 @@
 		<density>6.77</density>
 		<ionisationenergy>
 			<energy>5.47 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<atomic>182.5</atomic>
@@ -1600,7 +1619,7 @@
 		<oxydation>+3,+4</oxydation>
 		<isotopes>78:135,907:0,193;80:137,906:0,25;82:139,905:88,46;84:141,909:11,07</isotopes>
 		<family>Rare_Earth</family>
-
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>59</number>
@@ -1619,7 +1638,6 @@
 		<density>6.48</density>
 		<ionisationenergy>
 			<energy>5.42 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<atomic>182.8</atomic>
@@ -1627,7 +1645,6 @@
 		<orbits>Xe 4f3 6s2</orbits>
 		<oxydation>+3,+4</oxydation>
 		<family>Rare_Earth</family>
-
 	</element>
 	<element>
 		<number>60</number>
@@ -1646,7 +1663,6 @@
 		<density>7.00</density>
 		<ionisationenergy>
 			<energy>5.49 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<atomic>182.1</atomic>
@@ -1655,7 +1671,6 @@
 		<oxydation>+3</oxydation>
 		<isotopes>82:141,907:27,1;83:142,91:12,2;85:144,912:8,3;86:145,913:17,2;88:147,916:5,72;90:149,921:5,6</isotopes>
 		<family>Rare_Earth</family>
-
 	</element>
 	<element>
 		<number>61</number>
@@ -1729,7 +1744,6 @@
 		<density>5.25</density>
 		<ionisationenergy>
 			<energy>5.67 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<atomic>204.2</atomic>
@@ -1738,8 +1752,7 @@
 		<oxydation>+2,+3</oxydation>
 		<isotopes>88:150,92:47,7;90:152,921:52,23</isotopes>
 		<family>Rare_Earth</family>
-
-
+		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>64</number>
@@ -1934,6 +1947,7 @@
 		<oxydation>+2,+3</oxydation>
 		<isotopes>98:167,934:0,06;106:175,943:13,38</isotopes>
 		<family>Rare_Earth</family>
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>71</number>
@@ -2015,6 +2029,7 @@
 		<oxydation>+3,+5</oxydation>
 		<family>Transition</family>
 
+		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>74</number>
@@ -2041,6 +2056,7 @@
 		<oxydation>(+4), +6</oxydation>
 		<isotopes>106:179,947:0,122;112:185,954:29,17</isotopes>
 		<family>Transition</family>
+		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>75</number>
@@ -2126,6 +2142,7 @@
 		<isotopes>114:190,96:38,5;116:192,96:61,5</isotopes>
 		<family>Transition</family>
 
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>78</number>
@@ -2153,6 +2170,7 @@
 		<oxydation>+2,+4</oxydation>
 		<isotopes>114:191,96:0,8;120:197,97:7,2</isotopes>
 		<family>Transition</family>
+		<crystalstructure>ccp</crystalstructure>
 
 	</element>
 	<element>
@@ -2180,6 +2198,7 @@
 		<orbits>Xe 4f14 5d10 6s1</orbits>
 		<oxydation>(+1),+3</oxydation>
 		<family>Transition</family>
+		<crystalstructure>ccp</crystalstructure>
 
 	</element>
 	<element>
@@ -2208,6 +2227,7 @@
 		<oxydation>(+1),+2</oxydation>
 		<isotopes>116:195,97:0,15;124:203,97:6,72</isotopes>
 		<family>Transition</family>
+		<crystalstructure>ccp</crystalstructure>
 
 	</element>
 	<element>
@@ -2268,6 +2288,7 @@
 		<isotopes>124:205,97:25,1;125:206,98:21,1;126:207,98:52,4</isotopes>
 		<family>Other_Metal</family>
 
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>83</number>
@@ -2427,6 +2448,7 @@
 		<orbits>Rn 7s2</orbits>
 		<oxydation>+2</oxydation>
 		<family>Alkaline_Earth</family>
+		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>89</number>
@@ -2453,6 +2475,7 @@
 		<orbits>Rn 6d1 7s2</orbits>
 		<oxydation>(+2),+3</oxydation>
 		<family>Rare_Earth</family>
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>90</number>
@@ -2479,6 +2502,7 @@
 		<oxydation>+3,+4</oxydation>
 		<family>Rare_Earth</family>
 		<orbits>Rn 6d2 7s2</orbits>
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>91</number>
@@ -2501,6 +2525,7 @@
 		<oxydation>+4,+5</oxydation>
 		<family>Rare_Earth</family>
 		<orbits>Rn 5f2 6d1 7s2</orbits>
+		<crystalstructure>own</crystalstructure>
 	</element>
 	<element>
 		<number>92</number>
@@ -2526,6 +2551,7 @@
 		<oxydation>+3,+4,+5,+6,+7</oxydation>
 		<family>Rare_Earth</family>
 		<orbits>Rn 5f3 6d1 7s2</orbits>
+		<crystalstructure>own</crystalstructure>
 	</element>
 	<element>
 		<number>93</number>
@@ -2550,6 +2576,7 @@
 		<oxydation>+4,+3,+5,+7</oxydation>
 		<family>Rare_Earth</family>
 		<orbits>Rn 5f4 6d1 7s2</orbits>
+		<crystalstructure>own</crystalstructure>
 	</element>
 	<element>
 		<number>94</number>
@@ -2575,6 +2602,7 @@
 		<oxydation>+3,+4,+5,+6,+7</oxydation>
 		<family>Rare_Earth</family>
 		<orbits>Rn 5f6 7s2</orbits>
+		<crystalstructure>own</crystalstructure>
 	</element>
 	<element>
 		<number>95</number>
