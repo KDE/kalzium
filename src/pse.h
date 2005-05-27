@@ -155,6 +155,16 @@ class PSE : public QWidget
 			update();
 		}
 
+		bool crystal() const{
+			return m_showCrystal;
+		}
+
+		void setCrystal( bool cry ){
+			m_showGradient = cry;
+			setFullDraw();
+			update();
+		}
+
 		//XXXI can't use Element::TYPE here... why?
 		void setGradientType( int type ){ 
 			m_gradientType = type;
@@ -246,6 +256,8 @@ class PSE : public QWidget
 		
 		bool m_showGradient;
 
+		bool m_showCrystal;
+
 		///Timer used for the tooltop
 		QTimer HoverTimer;
 
@@ -334,6 +346,8 @@ class PSE : public QWidget
 		virtual void drawToolTip( QPainter *p, Element *e );
 
 		virtual void drawTimeLine( QPainter *p );
+
+		virtual void drawCrystal( QPainter *p );
 
 		///called if the user resized the table
 		virtual void resizeEvent( QResizeEvent *e );

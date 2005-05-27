@@ -63,6 +63,7 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	m_timeline = false;
 	m_showSOM = false;
 	m_showGradient = false;
+	m_showCrystal = false;
 	
 	showLegend( Prefs::showlegend() );
 
@@ -339,6 +340,14 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	  }
 	  if ( gradient() ){//show a gradient
 		  calculateGradient(& p );
+		  p.end();
+
+		  *table2 = *table;
+		  bitBlt( this, 0, 0, table2 );
+		  return;
+	  }
+	  if ( crystal() ){//show a gradient
+		  drawCrystal(& p );
 		  p.end();
 
 		  *table2 = *table;
@@ -712,9 +721,28 @@ void PSE::slotUpdatePoint( QPoint point )
 	update();
 }
 
+void PSE::drawCrystal( QPainter* p )
+{
+	kdDebug() << "PSE::drawCrystal()" << endl;
+	EList::Iterator it = d->ElementList.begin();
+	const EList::Iterator itEnd = d->ElementList.end();
+
+	/**
+	 * this loop iterates through all elements. The Elements
+	 * draw themselfs, the PSE only tells them to do so
+	 */
+	while ( it != itEnd )
+	{
+		( *it )->drawCrystalstructure( p );
+		++it;
+	}
+
+}
+
 void PSE::drawPSE( QPainter* p )
 {
 	EList::Iterator it = d->ElementList.begin();
+	const EList::Iterator itEnd = d->ElementList.end();
 
 	int coordinate = 0;
 	m_Vertikal ? coordinate = m_currentPoint.x() : coordinate = m_currentPoint.y();
@@ -723,7 +751,7 @@ void PSE::drawPSE( QPainter* p )
 	 * this loop iterates through all elements. The Elements
 	 * draw themselfs, the PSE only tells them to do so
 	 */
-	while ( it != d->ElementList.end() )
+	while ( it != itEnd )
 	{
 		( *it )->drawSelf( p );
 		if ( m_learningMode )

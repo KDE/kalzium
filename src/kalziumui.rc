@@ -7,6 +7,7 @@
     <text>&amp;Miscellaneous</text>
     <Action name="toggle_legend" />
     <Action name="learning_mode" />
+    <Action name="crystalstructures" />
   </Menu>
   <Action name="look_menu" />
   <Menu name="tools"><text>&amp;Tools</text>

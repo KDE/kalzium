@@ -112,6 +112,7 @@ void Kalzium::setupActions()
 	looklist.append(i18n("Show &Blocks"));
 	looklist.append(i18n("Show &Acid Behavior"));
 	looklist.append(i18n("Show &Family"));
+	looklist.append(i18n("Show &Crystalstructures"));
 	look_action = new KSelectAction (i18n("&Look"), 0, this, 0, actionCollection(), "look_menu");
 	look_action->setItems(looklist);
 	look_action->setCurrentItem(Prefs::colorschemebox()); 
@@ -128,6 +129,8 @@ void Kalzium::setupActions()
 
 	//Legend
 	m_pLegendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
+	
+	m_pCrystalAction = new KAction(i18n("&Crystalstructures"), "crystal", 0, this, SLOT(slotShowCrystal()), actionCollection(), "crystalstructures");
 	
 	m_pLearningmodeAction = new KAction(i18n("Enter &Learning Mode"), "legend", 0, this, SLOT(slotLearningmode()), actionCollection(), "learning_mode");
 
@@ -204,6 +207,23 @@ void Kalzium::slotCalculate()
 	connect( m_PSE, SIGNAL( ElementClicked( int ) ), dlg, SLOT(slotButtonClicked( int )) );
 	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
 	dlg->show();
+}
+
+void Kalzium::slotShowCrystal()
+{
+	if(m_PSE->crystal())
+	{
+		m_PSE->setCrystal(false);
+		m_pLegendAction->setText(i18n("Show &Crystalstructures"));
+	}
+	else
+	{
+		m_PSE->setCrystal(true);
+		m_pLegendAction->setText(i18n("Hide &Crystalstructures"));
+	}
+ 
+	//JH: redraw the full table next time
+	setFullDraw();
 }
 
 void Kalzium::slotShowLegend()

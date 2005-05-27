@@ -100,6 +100,7 @@ class Kalzium : public KMainWindow
 		KAction *m_pPlotAction,
 				*m_pCalcAction,
 				*m_pLegendAction,
+				*m_pCrystalAction,
 				*m_pGlossaryAction,
 				*m_pLearningmodeAction;
 		
@@ -118,6 +119,8 @@ class Kalzium : public KMainWindow
 		 * this slot switches Kalzium to the selected colorscheme
 		 */
 		void slotShowScheme(int);
+
+		void slotShowCrystal();
 		
 		void slotShowLegend();
 		
