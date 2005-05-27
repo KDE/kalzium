@@ -51,7 +51,8 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 	 * setup the list of names
 	 **/
 	EList::iterator it = d->ElementList.begin();
-	for( ; it != d->ElementList.end() ; ++it )
+	const EList::iterator itEnd = d->ElementList.end();
+	for( ; it != itEnd ; ++it )
 	{
 		names.append( (*it)->elname() );
 	}
@@ -123,8 +124,6 @@ void ElementDataViewer::slotZoomOut(){}
 
 void ElementDataViewer::setupAxisData()
 {
-	kdDebug() << "setupAxisData()" << endl;
-
 	DoubleList l;
 
 	const int selectedData = m_pPlotSetupWidget->KCB_y->currentItem();
@@ -133,10 +132,11 @@ void ElementDataViewer::setupAxisData()
 	yData->m_currentDataType = selectedData;
 
 	EList::iterator it = d->ElementList.begin();
+	const EList::iterator itEnd = d->ElementList.end();
 	switch(selectedData)
 	{
 		case AxisData::WEIGHT:
-			for( ; it != d->ElementList.end() ; ++it ) {
+			for( ; it != itEnd ; ++it ) {
 				double value = (*it)->weight();
 				if( value != -1 )
 				  l.append( value );
@@ -146,7 +146,7 @@ void ElementDataViewer::setupAxisData()
 			}
 			break;
 		case AxisData::MEANWEIGHT:
-			for( ; it != d->ElementList.end() ; ++it ) {
+			for( ; it != itEnd ; ++it ) {
 				double value =(*it)->meanweight();
 				if( value != -1 )
 				  l.append( value );
@@ -156,7 +156,7 @@ void ElementDataViewer::setupAxisData()
 			}
 			break;
 		case AxisData::DENSITY:
-			for( ; it != d->ElementList.end() ; ++it ) {
+			for( ; it != itEnd ; ++it ) {
 				double value =(*it)->density();
 				if( value != -1 )
 				  l.append( value );
@@ -166,7 +166,7 @@ void ElementDataViewer::setupAxisData()
 			}
 			break;
 //X 		case AxisData::IE1:
-//X 			for( ; it != d->ElementList.end() ; ++it ) {
+//X 			for( ; itEnd ; ++it ) {
 //X 				double value = (*it)->ie();
 //X 				if( value != -1 )
 //X 				  l.append( value );
@@ -176,7 +176,7 @@ void ElementDataViewer::setupAxisData()
 //X 			}
 //X 			break;
 //X 		case AxisData::IE2:
-//X 			for( ; it != d->ElementList.end() ; ++it ) {
+//X 			for( ; itEnd ; ++it ) {
 //X 				double value = (*it)->ie2();
 //X 				if( value != -1 )
 //X 				  l.append( value );
@@ -186,7 +186,7 @@ void ElementDataViewer::setupAxisData()
 //X 			}
 //X 			break;
 		case AxisData::EN:
-			for( ; it != d->ElementList.end() ; ++it ) {
+			for( ; it != itEnd; ++it ) {
 				double value = (*it)->electroneg();
 				if( value != -1 )
 				  l.append( value );
@@ -196,7 +196,7 @@ void ElementDataViewer::setupAxisData()
 			}
 			break;
 		case AxisData::MELTINGPOINT:
-			for( ; it != d->ElementList.end() ; ++it ) {
+			for( ; it != itEnd ; ++it ) {
 				double value = (*it)->melting();
 				if( value != -1 )
 				  l.append( value );
@@ -206,7 +206,7 @@ void ElementDataViewer::setupAxisData()
 			}
 			break;
 		case AxisData::BOILINGPOINT:
-			for( ; it != d->ElementList.end() ; ++it ) {
+			for( ; it != itEnd ; ++it ) {
 				double value = (*it)->electroneg();
 				if( value != -1 )
 				  l.append( value );
@@ -216,7 +216,7 @@ void ElementDataViewer::setupAxisData()
 			}
 			break;
 		case AxisData::ATOMICRADIUS:
-			for( ; it != d->ElementList.end() ; ++it ) {
+			for( ; it != itEnd ; ++it ) {
 				double value = (*it)->radius();
 				if( value != -1 )
 				  l.append( value );
@@ -269,17 +269,16 @@ void ElementDataViewer::drawPlot()
 	if ( connectPoints )
 	{
 		m_pPlotWidget->setConnection( true );
-		kdDebug() << "setConnection ist wahr" << endl;
 	}
 	else
 	{
 		m_pPlotWidget->setConnection( false );
-		kdDebug() << "setConnection ist falsch" << endl;
 	}
 		
 	/*
 	 * reserve the memory for the KPlotObjects
 	 */
+	//TODO QT4 replace QMemArray with QVector
 	QMemArray<KPlotObject*> dataPoint(num);
 	QMemArray<KPlotObject*> dataPointLabel(num);
 
@@ -289,7 +288,6 @@ void ElementDataViewer::drawPlot()
 	 * iterate for example from element 20 to 30 and contruct
 	 * the KPlotObjects
 	 */
-	kdDebug() << "start the plotting with creating the KPlotObjects" << endl;
 	for( int i = from; i < to+1 ; i++ )
 	{
 		dataPoint[number] = new KPlotObject( "whocares", "Blue", KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
@@ -305,13 +303,10 @@ void ElementDataViewer::drawPlot()
 		
 		number++;
 	}
-	kdDebug() << "plotting ended" << endl;
 }
 
 void ElementDataViewer::initData()
 {
-	kdDebug() << "initData()" << endl;
-	
 	setupAxisData();
 }
 

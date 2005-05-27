@@ -40,7 +40,8 @@ void PlotWidget::drawObjects( QPainter *p )
 			//draw the plot object
 			p->setPen( QColor( po->color() ) );
 
-			switch ( po->type() ) {
+			switch ( po->type() ) 
+			{
 				case KPlotObject::POINTS :
 				{
 					p->setBrush( QColor( po->color() ) );
@@ -87,39 +88,12 @@ void PlotWidget::drawObjects( QPainter *p )
 					p->setBrush( Qt::NoBrush );
 					break;
 				}
-
-				case KPlotObject::CURVE :
-				{
-					p->setPen( QPen( QColor( po->color() ), po->size(), (QPen::PenStyle)po->param() ) );
-					DPoint *dp = po->points()->first();
-					p->moveTo( dp->qpoint( PixRect, DataRect ) );
-					for ( dp = po->points()->next(); dp; dp = po->points()->next() )
-						p->lineTo( dp->qpoint( PixRect, DataRect ) );
-					break;
-				}
-
 				case KPlotObject::LABEL : //draw label centered at point in x, and slightly below point in y.
 				{
 					QPoint q = po->points()->first()->qpoint( PixRect, DataRect );
 					p->drawText( q.x()-20, q.y()+6, 40, 10, Qt::AlignCenter | Qt::DontClip, po->name() );
 					break;
 				}
-
-				case KPlotObject::POLYGON :
-				{
-					p->setPen( QPen( QColor( po->color() ), po->size(), (QPen::PenStyle)po->param() ) );
-					p->setBrush( po->color() );
-
-					QPointArray a( po->count() );
-
-					unsigned int i=0;
-					for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() )
-						a.setPoint( i++, dp->qpoint( PixRect, DataRect ) );
-
-					p->drawPolygon( a );
-					break;
-				}
-
 				case KPlotObject::UNKNOWN_TYPE : break;
 			}
 		}
