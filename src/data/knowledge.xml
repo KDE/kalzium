@@ -56,8 +56,8 @@
 	<item>
 		<name>Gemisch</name>
 		<desc>Stoff, der aus mehreren reinen Stoffen in nicht
-			festgelegtem Mengenverhältnis besteht. _i_Homogene Gemische__i__ haben einheitliche 
-			Erscheinung, _i_Heterogene Gemische__i__ bestehen aus mehreren Phasen.</desc>
+			festgelegtem Mengenverhältnis besteht. [i]Homogene Gemische[/i] haben einheitliche 
+			Erscheinung, [i]Heterogene Gemische[/i] bestehen aus mehreren Phasen.</desc>
 	</item>
 	<item>
 		<name>Genauigkeit</name>
@@ -152,11 +152,11 @@
 	</item>
 	<item>
 		<name>Elektron</name>
-		<desc>Subatomares Teilchen mit der Masse 0,00055 u und Ladung -_i_e__i__. Diese Masse nennt man die Elementarladung.</desc>
+		<desc>Subatomares Teilchen mit der Masse 0,00055 u und Ladung -[i]e[/i]. Diese Masse nennt man die Elementarladung.</desc>
 	</item>
 	<item>
 		<name>Elementarladung</name>
-		<desc>@e.png@@ Das Elektron hat eine negative, das Proton eine positive Elementarladung.</desc>
+		<desc>[img]e.png[/img] Das Elektron hat eine negative, das Proton eine positive Elementarladung.</desc>
 	</item>
 	<item>
 		<name>Isotope</name>
@@ -211,7 +211,7 @@
 	</item>
 	<item>
 		<name>Avogadro-Zahl</name>
-		<desc>Zahl der Teilchen in einem Mol: @n.png@@
+		<desc>Zahl der Teilchen in einem Mol: [img]n.png[/img]
 		</desc>
 	</item>
 	<item>
@@ -231,7 +231,7 @@
 	</item>
 	<item>
 		<name>Massenanteil</name>
-		<desc>Anteil des Elements _i_X__i__ an der Masse der Verbindung oder Konzentrationsangabe einer Lösung als Masse des gelösten Stoffes pro Masse Lösung._i_w__i__ * 100% = Massenprozent.</desc>
+		<desc>Anteil des Elements [i]X[/i] an der Masse der Verbindung oder Konzentrationsangabe einer Lösung als Masse des gelösten Stoffes pro Masse Lösung.[i]w[/i] * 100% = Massenprozent.</desc>
 	</item>
 	<item>
 		<name>Mehratomiges Ion (Molekül-Ion)</name>
@@ -240,7 +240,7 @@
 	</item>
 	<item>
 		<name>Mol</name>
-		<desc>Stoffmenge, die genauso viele Teilchen enthält wie Atome in C-12 enthalten sind, nämlich die Avogadro-Zahl _i_N__i__.</desc>
+		<desc>Stoffmenge, die genauso viele Teilchen enthält wie Atome in C-12 enthalten sind, nämlich die Avogadro-Zahl [i]N[/i].</desc>
 	</item>
 	<item>
 		<name>Molare Masse</name>
@@ -295,15 +295,15 @@
 	</item>
 	<item>
 		<name>Enthalpie</name>
-		<desc>Es gilt @enthalpie.png@@ Die Zustandsfunktion _i_H__i__ nennt man _b_Enthalpie__b__. Die Änderung der Enthalpie entspricht also der Änderung der inneren Energie U und der Volumenarbeit pV bei konstantem Druck. Für Reaktionen ohne Volumenänderung ist also die Änderung der inneren Energie gleich der Enthalpiedifferenz. </desc>
+		<desc>Es gilt [img]enthalpie.png[/img] Die Zustandsfunktion [i]H[/i] nennt man [b]Enthalpie[/b]. Die Änderung der Enthalpie entspricht also der Änderung der inneren Energie U und der Volumenarbeit pV bei konstantem Druck. Für Reaktionen ohne Volumenänderung ist also die Änderung der inneren Energie gleich der Enthalpiedifferenz. </desc>
 	</item>
 	<item>
 		<name>Innere Energie</name>
-		<desc>Der Energieinhalt eines Systems mit dem Symbol _i_U__i__. Die Reaktionsenergie ist die Differenz der inneren Energie von Produkten und Reaktanden, es gilt dabei @enthalpie.png@@</desc>
+		<desc>Der Energieinhalt eines Systems mit dem Symbol [i]U[/i]. Die Reaktionsenergie ist die Differenz der inneren Energie von Produkten und Reaktanden, es gilt dabei [img]enthalpie.png[/img]</desc>
 	</item>
 	<item>
 		<name>Joule</name>
-		<desc>SI-Einheit für die Energie. Dabei gilt: @joule.png@@</desc>
+		<desc>SI-Einheit für die Energie. Dabei gilt: [img]joule.png[/img]</desc>
 	</item>
 	<item>
 		<name>Kalorimeter</name>
@@ -319,7 +319,7 @@
 	</item>
 	<item>
 		<name>Reaktionsenthalpie</name>
-		<desc>Energie, die als Wärme bei einer chemischen Reaktion aufgenommen oder abgeben werden kann: @enthalpie.png@@</desc>
+		<desc>Energie, die als Wärme bei einer chemischen Reaktion aufgenommen oder abgeben werden kann: [img]enthalpie.png[/img]</desc>
 	</item>
 	<item>
 		<name>Satz von Hess</name>
@@ -355,11 +355,11 @@
 	</item>
 	<item>
 		<name>Unterschale</name>
-		<desc>Durch die Nebenquantenzahl _i_l__i__ bezeichnete Gruppe von Orbitalen gleicher Energie in einer Schale.</desc>
+		<desc>Durch die Nebenquantenzahl [i]l[/i] bezeichnete Gruppe von Orbitalen gleicher Energie in einer Schale.</desc>
 	</item>
 	<item>
 		<name>Unschärferelation</name>
-		<desc>W. Heisenberg hat 1927 die Unschärferelation aufgestellt. Diese Theorie sagt aus, dass man von einem Teilchen nicht gleichzeitig Ort (_i_x__i__) und Impuls (_i_mv__i__) exakt bestimmen kann. Es ergibt sich folgende Beziehung: @unschaerfe.png@@ Die Unbestimmtheit des Ortes ist mit 70nm etwa 1300 Mal größer als der Radius im Bohr'schen Atommodell (r = 0.053 nm). Somit sind also Bahnmodelle wie bei Bohr nicht zulässig, denn diese mechanischen Modelle treffen Aussagen über Ort und Impuls gleichzeitig. Daher spricht man bei modernen Modellen auch von _b_Wahrscheinlichkeiten__b__ mit denen sich Teilchen aufhalten.</desc>
+		<desc>W. Heisenberg hat 1927 die Unschärferelation aufgestellt. Diese Theorie sagt aus, dass man von einem Teilchen nicht gleichzeitig Ort ([i]x[/i]) und Impuls ([i]mv[/i]) exakt bestimmen kann. Es ergibt sich folgende Beziehung: [img]unschaerfe.png[/img] Die Unbestimmtheit des Ortes ist mit 70nm etwa 1300 Mal größer als der Radius im Bohr'schen Atommodell (r = 0.053 nm). Somit sind also Bahnmodelle wie bei Bohr nicht zulässig, denn diese mechanischen Modelle treffen Aussagen über Ort und Impuls gleichzeitig. Daher spricht man bei modernen Modellen auch von [b]Wahrscheinlichkeiten[/b] mit denen sich Teilchen aufhalten.</desc>
 	</item>
 	<item>
 		<name>Spin</name>
@@ -371,7 +371,7 @@
 	</item>
 	<item>
 		<name>Schrödinger Gleichung</name>
-		<desc>Gleichung, mit der die Wellenfunktionen der Orbitale berechnet werden. Siehe _i_Wellenfunktion__i__</desc>
+		<desc>Gleichung, mit der die Wellenfunktionen der Orbitale berechnet werden. Siehe [i]Wellenfunktion[/i]</desc>
 	</item>
 	<item>
 		<name>Schale</name>
@@ -379,7 +379,7 @@
 	</item>
 	<item>
 		<name>Photon</name>
-		<desc>Kleinste Energieportion von elektromagnetischer Strahlung. Seine Energie E ist der Frequenz ¿ der Strahlung proportional: @energie.png@@</desc>
+		<desc>Kleinste Energieportion von elektromagnetischer Strahlung. Seine Energie E ist der Frequenz ¿ der Strahlung proportional: [img]energie.png[/img]</desc>
 	</item>
 	<item>
 		<name>Actinoide</name>
@@ -433,7 +433,7 @@
 	</item>
 	<item>
 		<name>Orbital</name>
-		<desc>Wellenfunktion eines Elektrons in einem Atom; sie ist durch die Quantenzahlen n, l und m charakterisiert. Zu jedem Orbital gehört ein definierter Energiezustand und eine definierte Verteilung der Ladungsdichte. Maximal zwei Elektronen mit entgegengesetztem Spin können das gleiche Orbital besetzen. Das folgende Bild zeigt die fünf D-Orbitale: @d_orbitale.jpg@@ </desc>
+		<desc>Wellenfunktion eines Elektrons in einem Atom; sie ist durch die Quantenzahlen n, l und m charakterisiert. Zu jedem Orbital gehört ein definierter Energiezustand und eine definierte Verteilung der Ladungsdichte. Maximal zwei Elektronen mit entgegengesetztem Spin können das gleiche Orbital besetzen. Das folgende Bild zeigt die fünf D-Orbitale: [img]d_orbitale.jpg[/img] </desc>
 	</item>
 	<item>
 		<name>Paramagnetismus</name>
@@ -441,7 +441,7 @@
 	</item>
 	<item>
 		<name>Periodensystem</name>
-		<desc>Tabelle der chemischen Elemente, geordnet nach ihrer Ordnungszahl und nach ihren chemischen Eigenschaften.@pse.png@@</desc>
+		<desc>Tabelle der chemischen Elemente, geordnet nach ihrer Ordnungszahl und nach ihren chemischen Eigenschaften.[img]pse.png[/img]</desc>
 	</item>
 	<item>
 		<name>Periode</name>
@@ -641,11 +641,11 @@
 	</item>
 	<item>
 		<name>Ideale Gaskonstante R</name>
-		<desc>Proportionalitätskonstante im idealen Gasgesetz; @r.png@@</desc>
+		<desc>Proportionalitätskonstante im idealen Gasgesetz; [img]r.png[/img]</desc>
 	</item>
 	<item>
 		<name>Ideales Gasgesetz</name>
-		<desc>Druck p, Volumen V, Stoffmenge n und Temperatur T eines Gases hängen über die ideale Gaskonstante R wie folgt miteinander zusammen: @idealesgg.png@@</desc>
+		<desc>Druck p, Volumen V, Stoffmenge n und Temperatur T eines Gases hängen über die ideale Gaskonstante R wie folgt miteinander zusammen: [img]idealesgg.png[/img]</desc>
 		<ref>Ideale Gaskonstante R</ref>
 	</item>
 	<item>
@@ -698,7 +698,7 @@
 	</item>
 	<item>
 		<name>Pascal</name>
-		<desc>SI-Einheit für den Druck @pascal.png@@</desc>
+		<desc>SI-Einheit für den Druck [img]pascal.png[/img]</desc>
 		<ref>Bar,Druck</ref>
 	</item>
 	<item>
@@ -797,7 +797,7 @@
 	</item>
 	<item>
 		<name>Clausius-Clapeyron-Gleichung</name>
-		<desc>Beziehung zwischen der Verdampfungsenthalpie und den Dampfdrücken p1 und p2 einer Flüssigkeit bei zwei verschiedenen Temperaturen: @clausius.png@@</desc>
+		<desc>Beziehung zwischen der Verdampfungsenthalpie und den Dampfdrücken p1 und p2 einer Flüssigkeit bei zwei verschiedenen Temperaturen: [img]clausius.png[/img]</desc>
 	</item>
 	<item>
 		<name>Elektrolyt</name>
@@ -805,7 +805,7 @@
 	</item>
 	<item>
 		<name>Gefrierpunktserniedrigung</name>
-		<desc>Absenkung des Gefrierpunkts eines Lösungsmittels, wenn ein nichtflüchtiger Stoff darin gelöst ist: @gfperniedrigung.png@@</desc>
+		<desc>Absenkung des Gefrierpunkts eines Lösungsmittels, wenn ein nichtflüchtiger Stoff darin gelöst ist: [img]gfperniedrigung.png[/img]</desc>
 		<ref>Siedepunktserhöhung,Siedepunkt</ref>
 	</item>
 	<item>
@@ -818,7 +818,7 @@
 	</item>
 	<item>
 		<name>Hydrathülle</name>
-		<desc>In Wasser gelöste Teilchen werden von Wassermolekülen umgeben. Diesen Vorgang nennt man auch Hydratation. Die vergrößert den Ionenradius auf den sogenannten _b_effektiven Radius__b__. Dieser Unterschied kann sehr groß sein. Beispielsweise ist hydratisiertes Lithium (das 3.kleinste Ion) größer als die des Cäsium-Ions (Elementnmmer 55).</desc>
+		<desc>In Wasser gelöste Teilchen werden von Wassermolekülen umgeben. Diesen Vorgang nennt man auch Hydratation. Die vergrößert den Ionenradius auf den sogenannten [b]effektiven Radius[/b]. Dieser Unterschied kann sehr groß sein. Beispielsweise ist hydratisiertes Lithium (das 3.kleinste Ion) größer als die des Cäsium-Ions (Elementnmmer 55).</desc>
 	</item>
 	<item>
 		<name>Hydratationsenthalpie</name>
@@ -840,7 +840,7 @@
 	</item>
 	<item>
 		<name>Molalität</name>
-		<desc>Konzentrationsangabe einer Lösung in Mol gelöster Stoffe pro kg Lösungsmittel. Symbol _i_b__i__</desc>
+		<desc>Konzentrationsangabe einer Lösung in Mol gelöster Stoffe pro kg Lösungsmittel. Symbol [i]b[/i]</desc>
 		<ref>Molare Masse</ref>
 	</item>
 	<item>
@@ -863,7 +863,7 @@
 	</item>
 	<item>
 		<name>Siedepunktserhöhung</name>
-		<desc>Erhöhung des Siedepunkts eines Lösungsmittels, wenn ein nichtflüchtiger Stoff darin gelöst ist: @sdperhoehung.png@@</desc>
+		<desc>Erhöhung des Siedepunkts eines Lösungsmittels, wenn ein nichtflüchtiger Stoff darin gelöst ist: [img]sdperhoehung.png[/img]</desc>
 		<ref>Gefrierpunktserniedrigung,Siedepunkt</ref>
 	</item>
 	<item>
@@ -897,7 +897,7 @@
 	</item>
 	<item>
 		<name>Äquivalentzahl</name>
-		<desc>Anzahl _i_z__i__ der für eine Reaktion maßgeblichen Teilchen (Protonen, Hydroxyd-Ionen, Elektronen), die von einem Molekül eines Reagenzes zur Verfügung gestellt werden kann.</desc>
+		<desc>Anzahl [i]z[/i] der für eine Reaktion maßgeblichen Teilchen (Protonen, Hydroxyd-Ionen, Elektronen), die von einem Molekül eines Reagenzes zur Verfügung gestellt werden kann.</desc>
 	</item>
 	<item>
 		<name>Äquivalenzpunkt</name>
@@ -1029,7 +1029,7 @@
 	</item>
 	<item>
 		<name>Arrhenius-Gleichung</name>
-		<desc>Beziehung zwischen der Geschwindigkeitskonstanten, der Aktivierungsenergie und der Temperatur für eine chemische Reaktion@arrhenius.png@@</desc>
+		<desc>Beziehung zwischen der Geschwindigkeitskonstanten, der Aktivierungsenergie und der Temperatur für eine chemische Reaktion[img]arrhenius.png[/img]</desc>
 	</item>
 	<item>
 		<name>Chemisorption</name>
@@ -1045,7 +1045,7 @@
 	</item>
 	<item>
 		<name>Geschwindigkeitsgesetz</name>
-		<desc>Mathematischer Ausdruck, der die Reaktionsgeschwindigkeit und die Reaktandenkonzentrationen in Beziehung setzt.@rggeschwindigkeit.png@@</desc>
+		<desc>Mathematischer Ausdruck, der die Reaktionsgeschwindigkeit und die Reaktandenkonzentrationen in Beziehung setzt.[img]rggeschwindigkeit.png[/img]</desc>
 	</item>
 	<item>
 		<name>Geschwindigkeitskonstante</name>
@@ -1123,7 +1123,7 @@
 	</item>
 	<item>
 		<name>Massenwirkungsgesetz</name>
-		<desc>Für ein System im chemischen Gleichgewicht gilt: Das Produkt aus den Stoffmengenkonzentrationen (oder Partialdrücken) der Substanzen auf der rechten Seite der Reaktionsgleichung, jeweils potenziert mit den zugehörigen Koeffizienten der Reaktionsgleichung, geteilt durch das entsprechende Produkt der Substanzen auf der linken Seite der Reaktionsgleichung, ist gleich der Gleichgewichtskonstanten. @mwg.png@@</desc>
+		<desc>Für ein System im chemischen Gleichgewicht gilt: Das Produkt aus den Stoffmengenkonzentrationen (oder Partialdrücken) der Substanzen auf der rechten Seite der Reaktionsgleichung, jeweils potenziert mit den zugehörigen Koeffizienten der Reaktionsgleichung, geteilt durch das entsprechende Produkt der Substanzen auf der linken Seite der Reaktionsgleichung, ist gleich der Gleichgewichtskonstanten. [img]mwg.png[/img]</desc>
 		<ref>Chemisches Gleichgewicht</ref>
 	</item>
 	<item>
@@ -1138,7 +1138,7 @@
 	</item>
 	<item>
 		<name>Konjugiertes Säure-Base-Paar</name>
-		<desc>Brønsted-Säure-Base-Paar, das durch Abgabe bzw. Aufnahme eines Protons in Beziehung steht. In folgendem Beispiel ist steht S für Säure und B für Base: @konjsbpaar.png@@</desc>
+		<desc>Brønsted-Säure-Base-Paar, das durch Abgabe bzw. Aufnahme eines Protons in Beziehung steht. In folgendem Beispiel ist steht S für Säure und B für Base: [img]konjsbpaar.png[/img]</desc>
 	</item>
 	<item>
 		<name>Lewis-Base</name>
@@ -1171,7 +1171,7 @@
 	</item>
 	<item>
 		<name>Aktivität</name>
-		<desc>Mit dem Aktivitätskoeffizienten _i_f__i__ korrigierte Stoffmengenkonzentration mit dem Symbol _i_a__i__ um Abweichungen vom Massenwirkungsgesetz zu korrigieren. Je größer die Konzentration der Lösung, umso mehr weicht _i_f__i__ von 1 ab.</desc>
+		<desc>Mit dem Aktivitätskoeffizienten [i]f[/i] korrigierte Stoffmengenkonzentration mit dem Symbol [i]a[/i] um Abweichungen vom Massenwirkungsgesetz zu korrigieren. Je größer die Konzentration der Lösung, umso mehr weicht [i]f[/i] von 1 ab.</desc>
 	</item>
 	<item>
 		<name>Basenkonstante</name>
@@ -1183,20 +1183,20 @@
 	</item>
 	<item>
 		<name>Henderson-Hasselbalch-Gleichung</name>
-		<desc>Gleichung zur Berechnung des pH-Werts einer Pufferlösung: @henderson.png@@ </desc>
+		<desc>Gleichung zur Berechnung des pH-Werts einer Pufferlösung: [img]henderson.png[/img] </desc>
 	</item>
 	<item>
 		<name>Ionenprodukt des Wassers</name>
-		<desc>Produkt aus der Protonenkonzentration mit der Hydroxydionenkonzentration in wässrigen Lösungen; bei 25°C gilt: @ionenprodukt.png@@</desc>
+		<desc>Produkt aus der Protonenkonzentration mit der Hydroxydionenkonzentration in wässrigen Lösungen; bei 25°C gilt: [img]ionenprodukt.png[/img]</desc>
 	</item>
 	<item>
 		<name>pH-Wert</name>
-		<desc>Der negative Logarithmus der H+(aq)-Ionenkonzentration: @ph.png@@</desc>
+		<desc>Der negative Logarithmus der H+(aq)-Ionenkonzentration: [img]ph.png[/img]</desc>
 		<ref>pOH-Wert,pH-Wert</ref>
 	</item>
 	<item>
 		<name>pK-Wert</name>
-		<desc>Der negative Logarithmus einer Gleichgewichtskonstanten: @pk.png@@</desc>
+		<desc>Der negative Logarithmus einer Gleichgewichtskonstanten: [img]pk.png[/img]</desc>
 	</item>
 	<item>
 		<name>pOH-Wert</name>
@@ -1239,7 +1239,7 @@
 	</item>
 	<item>
 		<name>Komplexzerfallskonstante</name>
-		<desc>Gleichgewichtskonstante für den Zerfall eines Komplexes: @kp.png@@</desc>
+		<desc>Gleichgewichtskonstante für den Zerfall eines Komplexes: [img]kp.png[/img]</desc>
 		<ref>Komplexbildungskonstante</ref>
 	</item>
 	<item>
@@ -1269,7 +1269,7 @@
 	</item>
 	<item>
 		<name>Zustandsgröße</name>
-		<desc>Die Zustandsgröße eines Systems ist nur von den momentanen Bedingungen, z.B. Druck und Temperatur abhängig, nicht jedoch davon wie dieser Zustand erreicht wurde, z.B. die Innere Energie _i_U__i__</desc>
+		<desc>Die Zustandsgröße eines Systems ist nur von den momentanen Bedingungen, z.B. Druck und Temperatur abhängig, nicht jedoch davon wie dieser Zustand erreicht wurde, z.B. die Innere Energie [i]U[/i]</desc>
 	</item>
 	<item>
 		<name>Verfahrensgröße</name>
@@ -1301,7 +1301,7 @@
 	</item>
 	<item>
 		<name>Freie Enthalpie</name>
-		<desc>Auch Gibbsche Enthalpie genannt. Sie beinhaltet die Enthalpieänderungen des betrachteten Systems sowie der Umgebung. Es gilt: @freieenthalpie.png@@</desc>
+		<desc>Auch Gibbsche Enthalpie genannt. Sie beinhaltet die Enthalpieänderungen des betrachteten Systems sowie der Umgebung. Es gilt: [img]freieenthalpie.png[/img]</desc>
 	</item>
 	<item>
 		<name>Freie Standardenthalpie</name>
@@ -1378,7 +1378,7 @@
 	</item>
 	<item>
 		<name>Nernst-Gleichung</name>
-		<desc>Gleichung zur Berechnung des Reduktionspotentials in Abhängigkeit von Temperatur und Konzentrationen: @nernst.png@@</desc>
+		<desc>Gleichung zur Berechnung des Reduktionspotentials in Abhängigkeit von Temperatur und Konzentrationen: [img]nernst.png[/img]</desc>
 		<ref>Oxidation,Reduktion,Elektromagnetische Kraft (EMK)</ref>
 	</item>
 	<item>
