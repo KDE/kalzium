@@ -121,6 +121,7 @@ class GlossaryDialog : public KDialogBase
 	private:
 		KHTMLPart *m_htmlpart;
 		QString m_htmlbasestring;
+		QString m_picbasestring;
 		KListView *m_glosstree;
 
 		void populateTree();

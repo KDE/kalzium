@@ -40,12 +40,17 @@
 GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
     : KDialogBase( Plain, i18n( "Glossary of chemical expressions" ), Close, Close, parent, name, false )
 {
-	QString m_baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
-	m_baseHtml.append("kalzium/data/");
-	m_baseHtml.append("bg.jpg");
+	QString baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
+	baseHtml.append("kalzium/data/");
+	baseHtml.append("bg.jpg");
+
+	m_picbasestring = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
+	m_picbasestring.append("kalzium/data/knowledgepics/");
+	m_picbasestring.prepend( "<img src=\"" );
+
 	
-	QString m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
-	m_htmlbasestring.append( m_baseHtml );
+	m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
+	m_htmlbasestring.append( baseHtml );
 	m_htmlbasestring.append("\">");
 	
 	QVBoxLayout *vbox = new QVBoxLayout( plainPage(), 0, KDialog::spacingHint() );
@@ -278,16 +283,18 @@ QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument
 		QDomNode descNode = itemElement.namedItem( "desc" );
 		QDomNode refNode =  itemElement.namedItem( "ref" );
 
-		QDomElement tmpElement = descNode.toElement();
-		QDomNodeList domList = tmpElement.elementsByTagName( "img" );
-//X 		for ( uint i = 0; i < domList.count() ; i++ )
-//X 		{
-//X 			kdDebug() << domList.item( i ).toElement().attribute( "src" ) << endl;
-//X 		}
+		QString desc = descNode.toElement().text();
+		desc.replace("[img]", m_picbasestring );
+		desc.replace("[/img]", "\" />" );
+		desc.replace("[b]", "<b>" );
+		desc.replace("[/b]", "</b>" );
+		desc.replace("[i]", "<i>" );
+		desc.replace("[/i]", "</i>" );
+
+		kdDebug() << desc << endl;
 		
 		item->setName( nameNode.toElement( ).text() );
-		item->setDesc( descNode.toElement( ).text() );
-//X 		kdDebug() << "item->desc() " << item->desc() << endl;
+		item->setDesc( desc );
 		reflist = QStringList::split( ',', refNode.toElement( ).text() );
 		reflist.sort();
 		item->setRef( reflist );
