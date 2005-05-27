@@ -160,7 +160,7 @@ class PSE : public QWidget
 		}
 
 		void setCrystal( bool cry ){
-			m_showGradient = cry;
+			m_showCrystal = cry;
 			setFullDraw();
 			update();
 		}

@@ -322,6 +322,8 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 
 	  p.begin( table );
 	  p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
+
+	  drawNumeration( &p );
 	  if ( m_timeline ){ //use timeline
 		  drawTimeLine(& p );
 		  p.end();
@@ -356,8 +358,6 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	  }
 	  drawPSE( &p );
 
-
-	  drawNumeration( &p );
 
 	  if ( m_showLegend )
 		  drawLegend( &p );
@@ -736,7 +736,36 @@ void PSE::drawCrystal( QPainter* p )
 		( *it )->drawCrystalstructure( p );
 		++it;
 	}
+	QFont legendFont = KGlobalSettings::generalFont();
+	legendFont.setPointSize( legendFont.pointSize() + 1 );
+	p->setFont( legendFont );
 
+	/*
+	 * one field is allowed to be half the gap minus 10 pixel
+	 */
+	int fieldsize = ELEMENTSIZE*5-10;
+
+	/*
+	 * one field is a maximum of half the size of an element
+	 */
+	int fieldheight = ELEMENTSIZE/2;  
+
+	int x1 = ELEMENTSIZE*2+45;
+	int x2 = ELEMENTSIZE*7+45;
+
+	const int square_w = 20;
+	const int square_h = 20;
+
+	p->fillRect(x1-25, fieldheight*2, square_w, square_h, Qt::blue ); 
+	p->fillRect(x2-25, fieldheight*2, square_w, square_h, Qt::red ); 
+	p->fillRect(x1-25, fieldheight*3, square_w, square_h, Qt::yellow ); 
+	p->fillRect(x2-25, fieldheight*3, square_w, square_h, Qt::green ); 
+	p->fillRect(x2-25, fieldheight*4, square_w, square_h, Qt::white ); 
+	p->drawText(x1, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Own") ); 
+	p->drawText(x2, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("bbc, body-centred cubic lattice") ); 
+	p->drawText(x1, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("hdp, hexagonal") ); 
+	p->drawText(x2, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("ccp, cubic close packed") ); 
+	p->drawText(x2, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Unknown") ); 
 }
 
 void PSE::drawPSE( QPainter* p )
