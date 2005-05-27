@@ -48,9 +48,7 @@ class AxisData
 		 * @return the value of the selected dataset of element @p element
 		 */
 		double value( int element ){
-			element--;
-			DoubleList::iterator it = dataList.at( element );
-			return (*it);
+			return *dataList.at( element-1 );
 		}
 
 		/**
@@ -58,14 +56,26 @@ class AxisData
 		 * @li WEIGHT: the weight of the element
 		 * @li MELTINGPOINT: the meanweight of the element
 		 */
-		enum PAXISDATA { WEIGHT=0, MEANWEIGHT=1, DENSITY=2, IE1=3, IE2=4, EN=5, MELTINGPOINT=6, BOILINGPOINT=7, ATOMICRADIUS=8  };
+		enum PAXISDATA{ 
+			WEIGHT=0, 
+			MEANWEIGHT,
+			DENSITY, 
+			EN, 
+			MELTINGPOINT, 
+			BOILINGPOINT, 
+			ATOMICRADIUS  
+		};
 
 		/**
 		 * @return the currently selected datatype
 		 * @see AxisData::PAXISDATA
 		 */
 		int currentDataType(){
-		       	return m_currentDataType;
+		       return m_currentDataType;
+		}
+
+		int numberOfElements() const{
+			return dataList.count();
 		}
 
 	private:

@@ -34,66 +34,57 @@ PlotWidget::PlotWidget( double x1,
 
 void PlotWidget::drawObjects( QPainter *p )
 {
-	for ( KPlotObject *po = ObjectList.first(); po; po = ObjectList.next() ) {
-
-		if ( po->points()->count() ) {
+	for ( KPlotObject *po = ObjectList.first(); po; po = ObjectList.next() ) 
+	{
+		if ( po->points()->count() ) 
+		{
 			//draw the plot object
 			p->setPen( QColor( po->color() ) );
 
 			switch ( po->type() ) 
 			{
 				case KPlotObject::POINTS :
-				{
-					p->setBrush( QColor( po->color() ) );
-
-					for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() ) 
 					{
-						QPoint q = dp->qpoint( PixRect, DataRect );
-						int x1 = q.x() - po->size()/2;
-						int y1 = q.y() - po->size()/2;
+						p->setBrush( QColor( po->color() ) );
 
-						switch( po->param() ) 
+						for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() ) 
 						{
-							case KPlotObject::CIRCLE : 
-								p->drawEllipse( x1, y1, po->size(), po->size() ); 
-								break;
-							case KPlotObject::SQUARE : p->drawRect( x1, y1, po->size(), po->size() ); break;
-							case KPlotObject::LETTER : p->drawText( q, po->name().left(1) ); break;
-							default: p->drawPoint( q );
+							QPoint q = dp->qpoint( PixRect, DataRect );
+							int x1 = q.x() - po->size()/2;
+							int y1 = q.y() - po->size()/2;
+
+							p->drawEllipse( x1, y1, po->size(), po->size() ); 
 						}
-					}
-					if (m_connectPoints)
-					{
-						int 	p1x, p1y, //the first point
-							p2x = 0, p2y = 0; //the second point
-						
-						DPoint *dp = po->points()->first();
-						
-						while ( dp )
+						if (m_connectPoints)
 						{
-							QPoint point = dp->qpoint( PixRect, DataRect );
-							p1x = point.x();
-							p1y = point.y();
+							int 	p1x, p1y, //the first point
+									p2x = 0, p2y = 0; //the second point
 
-							p->drawLine(p1x,p1y,p2x,p2y);
+							DPoint *dp = po->points()->first();
 
-							p2x = p1x;
-							p2y = p1y;
+							while ( dp )
+							{
+								QPoint point = dp->qpoint( PixRect, DataRect );
+								p1x = point.x();
+								p1y = point.y();
 
-							dp = po->points()->next();
+								p->drawLine(p1x,p1y,p2x,p2y);
+
+								p2x = p1x;
+								p2y = p1y;
+
+								dp = po->points()->next();
+							}
 						}
+						p->setBrush( Qt::NoBrush );
+						break;
 					}
-					kdDebug() << "nach der for-Schleife" << endl;
-
-					p->setBrush( Qt::NoBrush );
-					break;
-				}
 				case KPlotObject::LABEL : //draw label centered at point in x, and slightly below point in y.
-				{
+					{
 					QPoint q = po->points()->first()->qpoint( PixRect, DataRect );
 					p->drawText( q.x()-20, q.y()+6, 40, 10, Qt::AlignCenter | Qt::DontClip, po->name() );
 					break;
-				}
+					}
 				case KPlotObject::UNKNOWN_TYPE : break;
 			}
 		}

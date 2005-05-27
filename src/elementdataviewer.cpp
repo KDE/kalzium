@@ -24,6 +24,7 @@
 #include <qframe.h>
 #include <qlayout.h>
 #include <qcheckbox.h>
+#include <qlabel.h>
 
 ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, const char* name )
 	: KDialogBase( KDialogBase::Plain, 
@@ -165,36 +166,6 @@ void ElementDataViewer::setupAxisData()
 				m_pPlotWidget->setYAxisLabel(i18n("Density"));
 			}
 			break;
-//X 		case AxisData::IE1:
-//X 			for( ; itEnd ; ++it ) {
-//X 				double value = (*it)->ie();
-//X 				if( value != -1 )
-//X 				  l.append( value );
-//X 				else
-//X 				  l.append( 0.0 );
-//X 				m_pPlotWidget->setYAxisLabel(i18n("1. Ionization Energy"));
-//X 			}
-//X 			break;
-//X 		case AxisData::IE2:
-//X 			for( ; itEnd ; ++it ) {
-//X 				double value = (*it)->ie2();
-//X 				if( value != -1 )
-//X 				  l.append( value );
-//X 				else
-//X 				  l.append( 0.0 );
-//X 				m_pPlotWidget->setYAxisLabel(i18n("2. Ionization Energy"));
-//X 			}
-//X 			break;
-		case AxisData::EN:
-			for( ; it != itEnd; ++it ) {
-				double value = (*it)->electroneg();
-				if( value != -1 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Electronegativity"));
-			}
-			break;
 		case AxisData::MELTINGPOINT:
 			for( ; it != itEnd ; ++it ) {
 				double value = (*it)->melting();
@@ -248,15 +219,13 @@ void ElementDataViewer::drawPlot()
 	/*
 	 * if the user selected the elements 20 to 30 the list-values are 19 to 29!!!
 	 */
-	int from = m_pPlotSetupWidget->from->value();
-	int to = m_pPlotSetupWidget->to->value();
-	kdDebug() << "from :" << from << endl;
-	kdDebug() << "to :" << to << endl;
+	const int from = m_pPlotSetupWidget->from->value();
+	const int to = m_pPlotSetupWidget->to->value();
 	
 	/*
 	 * The number of elements. #20 to 30 are 30-20+1=11 Elements
 	 */
-	int num = to-from+1;
+	const int num = to-from+1;
 	
 	setLimits(from,to);
 
@@ -267,13 +236,9 @@ void ElementDataViewer::drawPlot()
 	bool connectPoints = m_pPlotSetupWidget->connectPoints->isChecked();
 
 	if ( connectPoints )
-	{
 		m_pPlotWidget->setConnection( true );
-	}
 	else
-	{
 		m_pPlotWidget->setConnection( false );
-	}
 		
 	/*
 	 * reserve the memory for the KPlotObjects
@@ -284,25 +249,41 @@ void ElementDataViewer::drawPlot()
 
 	int number = 0;
 
+	double max = 0.0, av = 0.0;
+	double min = yData->value( 1 );
+
 	/*
 	 * iterate for example from element 20 to 30 and contruct
 	 * the KPlotObjects
 	 */
 	for( int i = from; i < to+1 ; i++ )
 	{
-		dataPoint[number] = new KPlotObject( "whocares", "Blue", KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
-		dataPoint[number]->addPoint( new DPoint( (double)i , yData->value( i ) ) );
-		m_pPlotWidget->addObject( dataPoint[ number ] );
+		double v = yData->value( i );
 
-		if (showNames)
+		if ( v != 0.0 )
 		{
-		  dataPointLabel[number] = new KPlotObject( *(names.at(i)), "Red", KPlotObject::LABEL );
-		  dataPointLabel[number]->addPoint( new DPoint( (double)i , yData->value( i ) ) );
-		  m_pPlotWidget->addObject( dataPointLabel[number] );
+			if ( v < min )
+				min = v;
+			if ( v > max )
+				max = v;
+			av += v;
+
+			dataPoint[number] = new KPlotObject( "whocares", "Blue", KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
+			dataPoint[number]->addPoint( new DPoint( (double)i , v ) );
+			m_pPlotWidget->addObject( dataPoint[ number ] );
+
+			if (showNames)
+			{
+				dataPointLabel[number] = new KPlotObject( *(names.at(i)), "Red", KPlotObject::LABEL );
+				dataPointLabel[number]->addPoint( new DPoint( (double)i , yData->value( i ) ) );
+				m_pPlotWidget->addObject( dataPointLabel[number] );
+			}
 		}
-		
 		number++;
 	}
+	m_pPlotSetupWidget->aValue->setText( QString::number( av/yData->numberOfElements() ) );
+	m_pPlotSetupWidget->minValue->setText( QString::number( min ) );
+	m_pPlotSetupWidget->maxValue->setText( QString::number( max ) );
 }
 
 void ElementDataViewer::initData()
