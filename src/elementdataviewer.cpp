@@ -40,13 +40,17 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 	yData = new AxisData();
 	
 	QFrame *page = plainPage();
-	QHBoxLayout *hlay = new QHBoxLayout(page, 0, spacingHint() );
-	QVBoxLayout *vlay = new QVBoxLayout(hlay, 0 );
-	m_pPlotSetupWidget = new PlotSetupWidget( page, "psw" );	
-	m_pPlotWidget = new PlotWidget( 0.0,12.0,0.0,22.0, page, "plotwidget" );
+	QVBoxLayout *vbox = new QVBoxLayout(plainPage(), 0, KDialog::spacingHint() );
+	vbox->activate();
 
-	hlay->addWidget( m_pPlotSetupWidget );
-	vlay->addWidget( m_pPlotWidget);
+	QSplitter *vs = new QSplitter( plainPage() );
+	vbox->addWidget( vs ),
+
+	m_pPlotSetupWidget = new PlotSetupWidget( vs, "psw" );	
+	m_pPlotWidget = new PlotWidget( 0.0,12.0,0.0,22.0, vs, "plotwidget" );
+
+	vbox->addWidget( m_pPlotWidget);
+	vbox->addWidget( m_pPlotSetupWidget );
 
 	/*
 	 * setup the list of names
@@ -281,6 +285,8 @@ void ElementDataViewer::drawPlot()
 		}
 		number++;
 	}
+
+	//now set the values for the min, max and avarage value
 	m_pPlotSetupWidget->aValue->setText( QString::number( av/yData->numberOfElements() ) );
 	m_pPlotSetupWidget->minValue->setText( QString::number( min ) );
 	m_pPlotSetupWidget->maxValue->setText( QString::number( max ) );
