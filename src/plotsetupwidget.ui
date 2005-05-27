@@ -53,7 +53,7 @@
                                 <cstring>aValue</cstring>
                             </property>
                             <property name="text">
-                                <string>textLabel4</string>
+                                <string></string>
                             </property>
                         </widget>
                     </hbox>
@@ -96,7 +96,7 @@
                                 <cstring>minValue</cstring>
                             </property>
                             <property name="text">
-                                <string>textLabel6</string>
+                                <string></string>
                             </property>
                         </widget>
                     </hbox>
@@ -177,7 +177,7 @@
                                 <cstring>maxValue</cstring>
                             </property>
                             <property name="text">
-                                <string>textLabel5</string>
+                                <string></string>
                             </property>
                         </widget>
                     </hbox>
