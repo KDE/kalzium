@@ -35,7 +35,19 @@ Priority 2:
 	     Like all macintosh-application it just looks good.
 	  --Another one
 		 http://www.synergycreations.com/periodic/
-		  
+
+	  -- Plotting Dialog
+	     - Add groups of elements, for example "Metals", 4th Period transitionmetals 
+		   and so on. The user can easily select them and only plot the selected
+		   group
+		 - More than one group should be "plottable". This would enable the user 
+		   to compare two or more groups, eg. 4th with 5th group
+
+	  -- Datasets:
+	  	 - Add ionradii for the different ions
+		 - Add more ion.energies
+		 - Add electroaffinities
+		 - Add texts where an element is used
 
 Priority 3:
 	- Mendeljev-PSE
