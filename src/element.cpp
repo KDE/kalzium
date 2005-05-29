@@ -55,7 +55,7 @@ QString Element::parsedOrbits()
 }
 
 
-double Element::strippedWeight( double num )
+double Element::strippedMass( double num )
 {
 	if ( !finite( num ) )
 		return num;
@@ -78,9 +78,9 @@ Element::~Element()
 
 
 
-double Element::meanweight()
+double Element::meanmass()
 {
-	return m_weight/m_number;
+	return m_mass/m_number;
 }
 
 const QString Element::adjustUnits( const int type, double value )
@@ -169,9 +169,9 @@ const QString Element::adjustUnits( const int type )
 			}
 		}
 	}
-	else if ( type == WEIGHT ) // its a weight
+	else if ( type == WEIGHT ) // its a mass
 	{
-		val = weight();
+		val = mass();
 		if ( val == -1 )
 			v = i18n( "Value unknown" );
 		else
@@ -316,7 +316,7 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 
 	//top left
 	p->setPen( Qt::black );
-	text = QString::number( strippedWeight( weight( ) ) );
+	text = QString::number( strippedMass( mass( ) ) );
 	p->drawText( X+5,Y+2 ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, text );
 
 	text = QString::number( number() );
@@ -448,7 +448,7 @@ void Element::drawSelf( QPainter* p )
 
 	//top left
 	p->setPen( Qt::black );
-	text = QString::number( strippedWeight( weight( ) ) );
+	text = QString::number( strippedMass( mass( ) ) );
 	p->drawText( X+5,Y+2 ,ELEMENTSIZE+4,h_small,Qt::AlignLeft, text );
 
 	text = QString::number( number() );
@@ -540,7 +540,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 	{//iterate through all elements
 		domElement = ( const QDomElement& ) elementNodes.item( i ).toElement();
 
-		double weight = domElement.namedItem( "weight" ).toElement().text().toDouble();
+		double mass = domElement.namedItem( "mass" ).toElement().text().toDouble();
 		double en = domElement.namedItem( "electronegativity" ).toElement().text().toDouble();
 		double mp = domElement.namedItem( "meltingpoint" ).toElement().text().toDouble();
 		double bp = domElement.namedItem( "boilingpoint" ).toElement().text().toDouble();
@@ -590,7 +590,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setIsotopes(isotopes);
 		e->setIonisationList( ionlist );
 		
-		e->setWeight( weight );	
+		e->setMass( mass );	
 		e->setEN( en );
 		e->setMeltingpoint( mp );
 		e->setBoilingpoint( bp );

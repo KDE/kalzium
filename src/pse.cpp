@@ -405,10 +405,10 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 	
 	QString text = i18n( "Name: %1\n"
 	                     "Number: %2\n"
-	                     "Weight: %3 u")
+	                     "Mass: %3 u")
 	               .arg( e->elname().utf8(),
 	                     QString::number( e->number() ),
-	                     QString::number( e->weight() ) );
+	                     QString::number( e->mass() ) );
 
 	QRect bRect( 0, 0, 1000, 1000 );
 	bRect = p->boundingRect( bRect, AlignLeft|AlignTop, text );
@@ -809,7 +809,7 @@ void PSE::calculateGradient( QPainter *p )
 		case Element::WEIGHT:
 			for (; it != itEnd; ++it )
 			{
-				tmpList.append( ( *it )->weight() );
+				tmpList.append( ( *it )->mass() );
 			}
 			break;
 		case Element::DENSITY:
@@ -885,14 +885,14 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			}
 			break;
 		case Element::WEIGHT:
-			title = i18n( "Gradient: Atomic Weight" );
+			title = i18n( "Gradient: Atomic Mass" );
 			while ( it != d->ElementList.end() )
 			{
-				double coeff = ( (*it)->weight() - min )/var;
+				double coeff = ( (*it)->mass() - min )/var;
 
 				QColor c = calculateColor( coeff );
 
-				( *it )->drawGradient( p, QString::number( ( *it )->weight() ), c );
+				( *it )->drawGradient( p, QString::number( ( *it )->mass() ), c );
 				++it;
 			}
 			break;

@@ -44,7 +44,7 @@ class MolcalcImpl : public KDialogBase
 		KalziumDataObject *m_data;
 		MolcalcDialog *m_dialog;
 		
-		double m_weight;
+		double m_mass;
 		QValueList<Element*> m_elements;
 
 		enum KIND
@@ -65,7 +65,7 @@ class MolcalcImpl : public KDialogBase
 		QString composition( QMap<Element*,int> );
 
 		/**
-		 * recalculates the weight
+		 * recalculates the mass
 		 */
 		void recalculate();
 

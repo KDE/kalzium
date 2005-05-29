@@ -12,197 +12,215 @@
             <height>565</height>
         </rect>
     </property>
+    <property name="caption">
+        <string>PlotSetupWidget</string>
+    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
+        <widget class="QLabel" row="9" column="0">
+            <property name="name">
+                <cstring>textLabel3</cstring>
+            </property>
+            <property name="text">
+                <string>First element:</string>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="2" column="0">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Avarage Value:</string>
+                    </property>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>aValue</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="KIntNumInput" row="12" column="0">
+            <property name="name">
+                <cstring>to</cstring>
+            </property>
+            <property name="value">
+                <number>80</number>
+            </property>
+            <property name="minValue">
+                <number>2</number>
+            </property>
+            <property name="maxValue">
+                <number>110</number>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>Define the last element whose value should be plotted</string>
+            </property>
+        </widget>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>layout5</cstring>
+                <cstring>layout2</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel3_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Minimum Value:</string>
+                    </property>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>minValue</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QCheckBox" row="8" column="0">
+            <property name="name">
+                <cstring>showNames</cstring>
+            </property>
+            <property name="text">
+                <string>&amp;Show element names</string>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>Define whether the names of the plotted element should be displayed</string>
+            </property>
+        </widget>
+        <widget class="QLabel" row="11" column="0">
+            <property name="name">
+                <cstring>textLabel4</cstring>
+            </property>
+            <property name="text">
+                <string>Last element:</string>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="0">
+            <property name="name">
+                <cstring>layout3</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Maximum Value:</string>
+                    </property>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>maxValue</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QCheckBox" row="7" column="0">
+            <property name="name">
+                <cstring>connectPoints</cstring>
+            </property>
+            <property name="text">
+                <string>&amp;Connect points</string>
+            </property>
+            <property name="accel">
+                <string>Alt+C</string>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>Define whether the plotted points should be connected or not</string>
+            </property>
+        </widget>
+        <widget class="KIntNumInput" row="10" column="0">
+            <property name="name">
+                <cstring>from</cstring>
+            </property>
+            <property name="value">
+                <number>1</number>
+            </property>
+            <property name="minValue">
+                <number>1</number>
+            </property>
+            <property name="maxValue">
+                <number>109</number>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>Define the first element whose value should be plotted</string>
+            </property>
+        </widget>
+        <widget class="QCheckBox" row="6" column="0">
+            <property name="name">
+                <cstring>compareGroups</cstring>
+            </property>
+            <property name="text">
+                <string>C&amp;ompare Groups</string>
+            </property>
+            <property name="accel">
+                <string>Alt+O</string>
+            </property>
+            <property name="checked">
+                <bool>true</bool>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>Define whether the plotted points should be connected or not</string>
+            </property>
+        </widget>
+        <spacer row="3" column="0">
+            <property name="name">
+                <cstring>spacer1</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>60</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QGroupBox" row="4" column="0">
+            <property name="name">
+                <cstring>groupBox1</cstring>
+            </property>
+            <property name="title">
+                <string>groupBox1</string>
             </property>
             <grid>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QLabel" row="8" column="0">
-                    <property name="name">
-                        <cstring>textLabel3</cstring>
-                    </property>
-                    <property name="text">
-                        <string>First element:</string>
-                    </property>
-                </widget>
-                <widget class="QLayoutWidget" row="2" column="0">
-                    <property name="name">
-                        <cstring>layout4</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>textLabel1_2</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Avarage Value:</string>
-                            </property>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>aValue</cstring>
-                            </property>
-                            <property name="text">
-                                <string></string>
-                            </property>
-                        </widget>
-                    </hbox>
-                </widget>
-                <widget class="KIntNumInput" row="11" column="0">
-                    <property name="name">
-                        <cstring>to</cstring>
-                    </property>
-                    <property name="value">
-                        <number>80</number>
-                    </property>
-                    <property name="minValue">
-                        <number>2</number>
-                    </property>
-                    <property name="maxValue">
-                        <number>110</number>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Define the last element whose value should be plotted</string>
-                    </property>
-                </widget>
-                <widget class="QLayoutWidget" row="0" column="0">
-                    <property name="name">
-                        <cstring>layout2</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>textLabel3_2</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Minimum Value:</string>
-                            </property>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>minValue</cstring>
-                            </property>
-                            <property name="text">
-                                <string></string>
-                            </property>
-                        </widget>
-                    </hbox>
-                </widget>
-                <widget class="QCheckBox" row="6" column="0">
-                    <property name="name">
-                        <cstring>connectPoints</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Connect points</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Define whether the plotted points should be connected or not</string>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="4" column="0">
-                    <property name="name">
-                        <cstring>textLabel1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Y-axis:</string>
-                    </property>
-                </widget>
-                <widget class="QCheckBox" row="7" column="0">
-                    <property name="name">
-                        <cstring>showNames</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Show element names</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Define whether the names of the plotted element should be displayed</string>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="10" column="0">
-                    <property name="name">
-                        <cstring>textLabel4</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Last element:</string>
-                    </property>
-                </widget>
-                <widget class="KIntNumInput" row="9" column="0">
-                    <property name="name">
-                        <cstring>from</cstring>
-                    </property>
-                    <property name="value">
-                        <number>1</number>
-                    </property>
-                    <property name="minValue">
-                        <number>1</number>
-                    </property>
-                    <property name="maxValue">
-                        <number>109</number>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Define the first element whose value should be plotted</string>
-                    </property>
-                </widget>
-                <widget class="QLayoutWidget" row="1" column="0">
-                    <property name="name">
-                        <cstring>layout3</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>textLabel2</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Maximum Value:</string>
-                            </property>
-                        </widget>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>maxValue</cstring>
-                            </property>
-                            <property name="text">
-                                <string></string>
-                            </property>
-                        </widget>
-                    </hbox>
-                </widget>
-                <spacer row="3" column="0">
-                    <property name="name">
-                        <cstring>spacer1</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Vertical</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>20</width>
-                            <height>40</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="KComboBox" row="5" column="0">
+                <widget class="KComboBox" row="1" column="0">
                     <item>
                         <property name="text">
-                            <string>Weight</string>
+                            <string>Mass</string>
                         </property>
                     </item>
                     <item>
@@ -242,6 +260,120 @@
                         <string>Here you can define what you want to plot</string>
                     </property>
                 </widget>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Y-axis:</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QGroupBox" row="5" column="0">
+            <property name="name">
+                <cstring>groupBox2</cstring>
+            </property>
+            <property name="title">
+                <string>Groups to compare</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="KComboBox" row="0" column="0">
+                    <item>
+                        <property name="text">
+                            <string>Transitionmetals</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Transsitionmetal, 3rd group</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Transsitionmetal, 4rd group</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Transsitionmetal, 5rd group</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>compare1</cstring>
+                    </property>
+                </widget>
+                <widget class="KComboBox" row="2" column="0">
+                    <item>
+                        <property name="text">
+                            <string>Mass</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Mean Weight</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Density</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Electronegativity</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Boilingpoint</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Meltingpoint</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Atomic radius</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>compareUnit</cstring>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Here you can define what you want to plot</string>
+                    </property>
+                </widget>
+                <widget class="KComboBox" row="1" column="0">
+                    <item>
+                        <property name="text">
+                            <string>Transitionmetals</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Transsitionmetal, 3rd group</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Transsitionmetal, 4rd group</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Transsitionmetal, 5rd group</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>compare2</cstring>
+                    </property>
+                </widget>
             </grid>
         </widget>
     </grid>
@@ -254,6 +386,9 @@
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
+    <includehint>kcombobox.h</includehint>
+    <includehint>kcombobox.h</includehint>
+    <includehint>kcombobox.h</includehint>
     <includehint>kcombobox.h</includehint>
 </includehints>
 </UI>

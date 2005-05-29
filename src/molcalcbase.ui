@@ -175,7 +175,7 @@
                             </widget>
                             <widget class="QLabel">
                                 <property name="name">
-                                    <cstring>resultWeight</cstring>
+                                    <cstring>resultMass</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
@@ -222,12 +222,12 @@
                                     <cstring>textLabel3</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>Molecular Weight [u]</string>
+                                    <string>Molecular Mass [u]</string>
                                 </property>
                             </widget>
                             <widget class="QLabel">
                                 <property name="name">
-                                    <cstring>weightLabel</cstring>
+                                    <cstring>massLabel</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>

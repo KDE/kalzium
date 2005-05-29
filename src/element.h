@@ -84,7 +84,7 @@ class Element{
 			return m_number;
 		}
 		
-		void setWeight( double value ) { m_weight = value; }
+		void setMass( double value ) { m_mass = value; }
 		void setEN( double value ) { m_EN = value; }
 		void setMeltingpoint( double value ) { m_MP = value; }
 		void setBoilingpoint( double value ) { m_BP = value; }
@@ -245,10 +245,10 @@ class Element{
 		}
 		
 		/**
-		 * @return the atomic weight of the element in units
+		 * @return the atomic mass of the element in units
 		 */
-		double weight() const {
-			return m_weight;
+		double mass() const {
+			return m_mass;
 		}
 		
 		/**
@@ -266,9 +266,9 @@ class Element{
 		}
 		
 		/**
-		 * @return the meanweight of the element
+		 * @return the meanmass of the element
 		 */
-		double meanweight();
+		double meanmass();
 
 		int x, y; //for the RegularPSE
 
@@ -308,7 +308,7 @@ class Element{
 		/**
 		 * calculate the 4-digit value of the value @p w
 		 */
-		double strippedWeight( double w );
+		double strippedMass( double w );
 
 
     /**
@@ -335,7 +335,7 @@ class Element{
 			return ( y-1 )*ELEMENTSIZE + ELEMENTSIZE;
 		}
 
-		double  m_weight,
+		double  m_mass,
 			m_MP, 
 			m_BP, 
 			m_EN, 

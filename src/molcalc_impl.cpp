@@ -29,9 +29,9 @@
 #include <qtooltip.h>
 
 MolcalcImpl::MolcalcImpl( KalziumDataObject *data, QWidget *parent, const char *name, bool modal )
-    : KDialogBase( Swallow, i18n( "Calculate Molecular Weights" ), Close, Close, parent, name, modal )
+    : KDialogBase( Swallow, i18n( "Calculate Molecular Masss" ), Close, Close, parent, name, modal )
 {
-	m_weight = 0;
+	m_mass = 0;
 
 	m_dialog = new MolcalcDialog( this, "calc-dialog" );
 	setMainWidget( m_dialog );
@@ -65,7 +65,7 @@ void MolcalcImpl::updateData( int number, KIND kind )
 	
 	if ( kind == ADD )
 	{//adding the element
-		m_weight += el->weight();
+		m_mass += el->mass();
 		m_elements.append( el );
 	}
 	else
@@ -119,11 +119,11 @@ void MolcalcImpl::recalculate()
 	QValueList<Element*>::const_iterator it = m_elements.begin( );
 	const QValueList<Element*>::const_iterator itEnd = m_elements.end( );
 
-	m_weight = 0.0;
+	m_mass = 0.0;
 	
 	for ( ; it != itEnd ; ++it )
 	{
-		m_weight += ( *it )->weight();
+		m_mass += ( *it )->mass();
 	}
 }
 
@@ -170,7 +170,7 @@ void MolcalcImpl::updateUI()
 	QMap<Element*, int>::Iterator itMap;
 	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) 
 	{//update the resultLabel
-		str += i18n( "%1 %2. Cumulative Weight: %3 u (%4 %)\n" ).arg( itMap.data() ).arg( i18n( itMap.key()->elname().utf8() ) ).arg( itMap.data() * itMap.key()->weight() ).arg(((  itMap.data() * itMap.key()->weight() )/m_weight )*100);
+		str += i18n( "%1 %2. Cumulative Mass: %3 u (%4 %)\n" ).arg( itMap.data() ).arg( i18n( itMap.key()->elname().utf8() ) ).arg( itMap.data() * itMap.key()->mass() ).arg(((  itMap.data() * itMap.key()->mass() )/m_mass )*100);
 	}
 	
 	m_dialog->resultLabel->setText( str );
@@ -178,9 +178,9 @@ void MolcalcImpl::updateUI()
 	//the composition
 	m_dialog->resultComposition->setText( composition( map ) );
 	
-	//the weight
+	//the mass
 	recalculate();
-	m_dialog->resultWeight->setText( i18n( "Molecular Weight: %1u" ).arg( m_weight ) );
+	m_dialog->resultMass->setText( i18n( "Molecular Mass: %1u" ).arg( m_mass ) );
 }
 
 QString MolcalcImpl::composition( QMap<Element*,int> map )

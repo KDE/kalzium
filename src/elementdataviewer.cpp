@@ -142,7 +142,7 @@ void ElementDataViewer::setupAxisData()
 	{
 		case AxisData::WEIGHT:
 			for( ; it != itEnd ; ++it ) {
-				double value = (*it)->weight();
+				double value = (*it)->mass();
 				if( value != -1 )
 				  l.append( value );
 				else
@@ -152,7 +152,7 @@ void ElementDataViewer::setupAxisData()
 			break;
 		case AxisData::MEANWEIGHT:
 			for( ; it != itEnd ; ++it ) {
-				double value =(*it)->meanweight();
+				double value =(*it)->meanmass();
 				if( value != -1 )
 				  l.append( value );
 				else

@@ -100,12 +100,12 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 	int xC1 = 8;
 	int yC1 = h - 8;
 
-	//coordinates for oxidation: right side, above atomic weight
+	//coordinates for oxidation: right side, above atomic mass
 	int xC2 = w - fmC.width( e->oxstage() ) - 8;
 	int yC2 = h - fmC.height() - 8;
 
-	//coordinates for weight: lower right corner
-	int xC3 = w - fmC.width( QString::number( e->weight() ) ) - 8;
+	//coordinates for mass: lower right corner
+	int xC3 = w - fmC.width( QString::number( e->mass() ) ) - 8;
 	int yC3 = h - 8;
 
 	//Element Symbol
@@ -122,8 +122,8 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 	p.drawText( xC1, yC1, i18n( e->elname().utf8() )); 
 	//Oxidationszahlen
 	p.drawText( xC2, yC2, e->oxstage() ); 
-	//Weight
-	p.drawText( xC3, yC3, QString::number( e->weight() )); 
+	//Mass
+	p.drawText( xC3, yC3, QString::number( e->mass() )); 
 
 	drawBiologicalSymbol( &p );
 

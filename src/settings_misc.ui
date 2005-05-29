@@ -222,7 +222,7 @@
                         <cstring>radioButton10</cstring>
                     </property>
                     <property name="text">
-                        <string>Display atomic &amp;weight in the PSE</string>
+                        <string>Display atomic &amp;mass in the PSE</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="1" column="0">

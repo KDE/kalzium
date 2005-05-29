@@ -37,7 +37,7 @@ void IsotopeWidget::setIsotopes( const QString& isotopes_string )
 	vbox->addWidget( widget );
 	
 	QHBoxLayout *h = new QHBoxLayout( widget );
-	QLabel *l1 = new QLabel( i18n( "<b>Weight</b>" ) , widget );
+	QLabel *l1 = new QLabel( i18n( "<b>Mass</b>" ) , widget );
 	QLabel *l2 = new QLabel( i18n( "<b>Neutrons</b>" ) , widget );
 	QLabel *l3 = new QLabel( i18n( "<b>Percentage</b>" ) , widget );
 	h->addWidget( l1 );
@@ -76,24 +76,24 @@ QWidget* IsotopeWidget::isotopeLabel( const QString& str )
 	QString neutrons_str = str.left( pos );
 	QString tmp = str.right( str.length()-pos-1 );
 
-	//Weight of the isotope
+	//Mass of the isotope
 	pos = tmp.find( ":" );
-	QString weight_str = tmp.left( pos );
-	weight_str.append( i18n( " u" ) );
+	QString mass_str = tmp.left( pos );
+	mass_str.append( i18n( " u" ) );
 	
 	//Percentage of the isotope
 	tmp = tmp.right( tmp.length()-pos-1 );
 	
-	QLabel *weight = new QLabel( w );
+	QLabel *mass = new QLabel( w );
 	QLabel *neutrons = new QLabel( w );
 	QLabel *percentage = new QLabel( w );
 
 
-	weight->setText( weight_str );
+	mass->setText( mass_str );
 	neutrons->setText( neutrons_str );
 	percentage->setText( tmp );
 
-	hbox->addWidget( weight );
+	hbox->addWidget( mass );
 	hbox->addWidget( neutrons );
 	hbox->addWidget( percentage );
 

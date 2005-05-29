@@ -81,7 +81,7 @@ void Kalzium::setupActions()
 	QStringList gradientlist;
 	gradientlist.append(i18n("No Gradient"));
 	gradientlist.append(i18n("Atomic Radius"));
-	gradientlist.append(i18n("Atomic Weight"));
+	gradientlist.append(i18n("Atomic Mass"));
 	gradientlist.append(i18n("Density"));
 	gradientlist.append(i18n("Boilingpoint"));
 	gradientlist.append(i18n("Meltingpoint"));
@@ -122,7 +122,7 @@ void Kalzium::setupActions()
 	 **/
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
-	m_pCalcAction = new KAction(i18n("&Calculate Molecular Weights"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_weights");
+	m_pCalcAction = new KAction(i18n("&Calculate Molecular Masss"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_masss");
 	
 	m_pGlossaryAction = new KAction(i18n("&Glossary"), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
