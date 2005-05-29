@@ -107,7 +107,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( i18n( "<b>Radius: %1</b>" ).arg( e->adjustUnits( Element::RADIUS ) ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "<b>Mass: %1</b>" ).arg( e->adjustUnits( Element::WEIGHT ) ) );
+			html.append( i18n( "<b>Mass: %1</b>" ).arg( e->adjustUnits( Element::MASS ) ) );
 			html.append( "</td></tr>" );
 			html.append( "</table>" );
 			break;

@@ -169,7 +169,7 @@ const QString Element::adjustUnits( const int type )
 			}
 		}
 	}
-	else if ( type == WEIGHT ) // its a mass
+	else if ( type == MASS ) // its a mass
 	{
 		val = mass();
 		if ( val == -1 )

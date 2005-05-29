@@ -140,7 +140,7 @@ void ElementDataViewer::setupAxisData()
 	const EList::iterator itEnd = d->ElementList.end();
 	switch(selectedData)
 	{
-		case AxisData::WEIGHT:
+		case AxisData::MASS:
 			for( ; it != itEnd ; ++it ) {
 				double value = (*it)->mass();
 				if( value != -1 )

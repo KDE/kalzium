@@ -53,11 +53,11 @@ class AxisData
 
 		/**
 		 * This represents the nine possible datasets.
-		 * @li WEIGHT: the mass of the element
+		 * @li MASS: the mass of the element
 		 * @li MELTINGPOINT: the meanmass of the element
 		 */
 		enum PAXISDATA{ 
-			WEIGHT=0, 
+			MASS=0, 
 			MEANWEIGHT,
 			DENSITY, 
 			EN, 

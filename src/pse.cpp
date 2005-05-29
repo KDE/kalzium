@@ -806,7 +806,7 @@ void PSE::calculateGradient( QPainter *p )
 				tmpList.append( ( *it )->radius() );
 			}
 			break;
-		case Element::WEIGHT:
+		case Element::MASS:
 			for (; it != itEnd; ++it )
 			{
 				tmpList.append( ( *it )->mass() );
@@ -884,7 +884,7 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 				++it;
 			}
 			break;
-		case Element::WEIGHT:
+		case Element::MASS:
 			title = i18n( "Gradient: Atomic Mass" );
 			while ( it != d->ElementList.end() )
 			{

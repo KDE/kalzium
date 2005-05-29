@@ -295,7 +295,7 @@ class Element{
 		{
 			NOGRADIENT = 0,
 			RADIUS,
-			WEIGHT,
+			MASS,
 			DENSITY,
 			BOILINGPOINT,
 			MELTINGPOINT,

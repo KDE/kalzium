@@ -48,6 +48,8 @@ Priority 2:
 		 - Add more ion.energies
 		 - Add electroaffinities
 		 - Add texts where an element is used
+		 - Add the info where the name of an element comes from (eg Osmium means
+		   "I smell" in latin
 
 Priority 3:
 	- Mendeljev-PSE
