@@ -55,7 +55,7 @@
 	</element>
 	<element>
 		<number>3</number>
-		<name origin="greek 'lithos' mean 'stone'">Lithium</name>
+		<name origin="greek 'lithos' means 'stone'">Lithium</name>
 		<symbol>Li</symbol>
 		<mass>6.941</mass>
 		<block>s</block>
@@ -584,7 +584,7 @@
 	</element>
 	<element>
 		<number>22</number>
-		<name origin="The Titans where giants in the greek mythology">Titanium</name>
+		<name origin="The Titans were giants in the greek mythology">Titanium</name>
 		<symbol>Ti</symbol>
 		<mass>47.867</mass>
 		<block>d</block>
@@ -611,7 +611,7 @@
 	</element>
 	<element>
 		<number>23</number>
-		<name origin="'Vanadis' is another name for the nodic goddess Freyja">Vanadium</name>
+		<name origin="'Vanadis' is another name for the nordic goddess Freyja">Vanadium</name>
 		<symbol>V</symbol>
 		<mass>50.9415</mass>
 		<block>d</block>
@@ -836,7 +836,7 @@
 	</element>
 	<element>
 		<number>31</number>
-		<name origin="'Gallia' is an old name of France">Gallium</name>
+		<name origin="'Gallia' is an old name for France">Gallium</name>
 		<symbol>Ga</symbol>
 		<mass>69.723</mass>
 		<block>p</block>
@@ -949,7 +949,7 @@
 	</element>
 	<element>
 		<number>35</number>
-		<name origin="greek 'bromos' for malodorousness">Bromine</name>
+		<name origin="greek 'bromos' for 'smells badly'">Bromine</name>
 		<symbol>Br</symbol>
 		<mass>79.904</mass>
 		<block>p</block>
@@ -1061,7 +1061,7 @@
 	</element>
 	<element>
 		<number>39</number>
-		<name origin="Named after the small town of Ytterby near Stockholm in Swede">Yttrium</name>
+		<name origin="Named after the small town of Ytterby near Stockholm in Sweden">Yttrium</name>
 		<symbol>Y</symbol>
 		<mass>88.90585</mass>
 		<block>d</block>
@@ -1115,7 +1115,7 @@
 	</element>
 	<element>
 		<number>41</number>
-		<name origin="Named after the doughter of the greek god Tantalus, Niobe">Niobium</name>
+		<name origin="Named after Niobe, the doughter of the greek god Tantalus">Niobium</name>
 		<symbol>Nb</symbol>
 		<mass>92.90638</mass>
 		<block>d</block>
