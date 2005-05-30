@@ -141,19 +141,19 @@ const QString Element::adjustUnits( const int type )
 	else if ( type == EN ) //Electronegativity
 	{
 		val = electroneg();
-		if ( val == -1 )
+		if ( val <= 0 )
 			v = i18n( "Value not defined" );
 		else
 			v = QString::number( val );
 	}
-	else if ( type == RADIUS || IONICRADIUS ) // its a length
+	else if ( type == RADIUS || type == IONICRADIUS ) // its a length
 	{
 		if ( type == RADIUS )
 			val = radius();
 		else if ( type == IONICRADIUS )
 			val = ionicValue();
 
-		if ( val == -1 )
+		if ( val <= 0 )
 			v = i18n( "Value unknown" );
 		else
 		{
@@ -175,7 +175,7 @@ const QString Element::adjustUnits( const int type )
 	else if ( type == MASS ) // its a mass
 	{
 		val = mass();
-		if ( val == -1 )
+		if ( val <= 0 )
 			v = i18n( "Value unknown" );
 		else
 		{
@@ -195,7 +195,7 @@ const QString Element::adjustUnits( const int type )
 	{
 		val = density();
 
-		if ( val == -1 )
+		if ( val <= 0 )
 			v = i18n( "Value unknown" );
 		else
 		{
