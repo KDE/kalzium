@@ -584,7 +584,7 @@
 	</element>
 	<element>
 		<number>22</number>
-		<name origin="">Titanium</name>
+		<name origin="The Titans where giants in the greek mythology">Titanium</name>
 		<symbol>Ti</symbol>
 		<mass>47.867</mass>
 		<block>d</block>
@@ -611,7 +611,7 @@
 	</element>
 	<element>
 		<number>23</number>
-		<name origin="">Vanadium</name>
+		<name origin="'Vanadis' is another name for the nodic goddess Freyja">Vanadium</name>
 		<symbol>V</symbol>
 		<mass>50.9415</mass>
 		<block>d</block>
@@ -639,7 +639,7 @@
 	</element>
 	<element>
 		<number>24</number>
-		<name origin="">Chromium</name>
+		<name origin="greek 'chroma' means color">Chromium</name>
 		<symbol>Cr</symbol>
 		<mass>51.9961</mass>
 		<block>d</block>
@@ -668,7 +668,7 @@
 	</element>
 	<element>
 		<number>25</number>
-		<name origin="">Manganese</name>
+		<name origin="It was discovered near a town named Magnesia in a black earth. Thus, it was named 'magnesia nigra', short: Manganese">Manganese</name>
 		<symbol>Mn</symbol>
 		<mass>54.938049</mass>
 		<block>d</block>
@@ -694,7 +694,7 @@
 	</element>
 	<element>
 		<number>26</number>
-		<name origin="">Iron</name>
+		<name origin="lat. 'ferrum'">Iron</name>
 		<symbol>Fe</symbol>
 		<mass>55.845</mass>
 		<block>d</block>
@@ -723,7 +723,7 @@
 	</element>
 	<element>
 		<number>27</number>
-		<name origin="">Cobalt</name>
+		<name origin="Named after the german word 'Kobold' for 'goblin'">Cobalt</name>
 		<symbol>Co</symbol>
 		<mass>58.933200</mass>
 		<block>d</block>
@@ -751,7 +751,7 @@
 	</element>
 	<element>
 		<number>28</number>
-		<name origin="">Nickel</name>
+		<name origin="'Nickel' was the name of a mountain-goblin">Nickel</name>
 		<symbol>Ni</symbol>
 		<mass>58.6934</mass>
 		<block>d</block>
@@ -1091,7 +1091,7 @@
 	</element>
 	<element>
 		<number>40</number>
-		<name origin="">Zirconium</name>
+		<name origin="Named after the mineral zircon">Zirconium</name>
 		<symbol>Zr</symbol>
 		<mass>91.224</mass>
 		<block>d</block>
@@ -1120,7 +1120,7 @@
 	</element>
 	<element>
 		<number>41</number>
-		<name origin="">Niobium</name>
+		<name origin="Named after the doughter of the greek god Tantalus, Niobe">Niobium</name>
 		<symbol>Nb</symbol>
 		<mass>92.90638</mass>
 		<block>d</block>
@@ -1234,7 +1234,7 @@
 	</element>
 	<element>
 		<number>45</number>
-		<name origin="">Rhodium</name>
+		<name origin="greek 'rhodeos' means 'red like a rose'">Rhodium</name>
 		<symbol>Rh</symbol>
 		<mass>102.90550</mass>
 		<block>d</block>
@@ -1262,7 +1262,7 @@
 	</element>
 	<element>
 		<number>46</number>
-		<name origin="">Palladium</name>
+		<name origin="Named after the planetoid Pallas">Palladium</name>
 		<symbol>Pd</symbol>
 		<mass>106.42</mass>
 		<block>d</block>
@@ -1320,7 +1320,7 @@
 	</element>
 	<element>
 		<number>48</number>
-		<name origin="">Cadmium</name>
+		<name origin="greek 'kadmia' ('Galmei' = Zinccarbonate)">Cadmium</name>
 		<symbol>Cd</symbol>
 		<mass>112.411</mass>
 		<block>d</block>
@@ -1986,7 +1986,7 @@
 	</element>
 	<element>
 		<number>72</number>
-		<name origin="">Hafnium</name>
+		<name origin="'Hafnia' is the old name of Kopenhagen (Denmark)">Hafnium</name>
 		<symbol>Hf</symbol>
 		<mass>178.49</mass>
 		<block>d</block>
@@ -2014,7 +2014,7 @@
 	</element>
 	<element>
 		<number>73</number>
-		<name origin="">Tantalum</name>
+		<name origin="Named after the greek myth of Tantalos">Tantalum</name>
 		<symbol>Ta</symbol>
 		<mass>180.9479</mass>
 		<block>d</block>
@@ -2041,7 +2041,7 @@
 	</element>
 	<element>
 		<number>74</number>
-		<name origin="">Tungsten</name>
+		<name origin="'tung sten' means 'heavy stone' in swedisch. Still, the old name (and thus the symbol 'W') was Wolfram named after a minaral">Tungsten</name>
 		<symbol>W</symbol>
 		<mass>183.84</mass>
 		<block>d</block>
@@ -2068,7 +2068,7 @@
 	</element>
 	<element>
 		<number>75</number>
-		<name origin="">Rhenium</name>
+		<name origin="Named after the german river Rhine (lat: 'Rhenium')">Rhenium</name>
 		<symbol>Re</symbol>
 		<mass>186.207</mass>
 		<block>d</block>
@@ -2154,7 +2154,7 @@
 	</element>
 	<element>
 		<number>78</number>
-		<name origin="">Platinum</name>
+		<name origin="spanish 'platina' means 'small silver'">Platinum</name>
 		<symbol>Pt</symbol>
 		<mass>195.078</mass>
 		<block>d</block>
