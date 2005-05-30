@@ -2183,7 +2183,7 @@
 	</element>
 	<element>
 		<number>79</number>
-		<name origin="latin 'aurum', named after Aurora, the goddes of sunset">Gold</name>
+		<name origin="latin 'aurum', named after Aurora, the goddess of sunset">Gold</name>
 		<symbol>Au</symbol>
 		<mass>196.96654</mass>
 		<block>d</block>
