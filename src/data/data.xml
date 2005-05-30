@@ -2,7 +2,7 @@
 <kalzium>
 	<element>
 		<number>1</number>
-		<name origin="">Hydrogen</name>
+		<name origin="greek 'hydor' and 'gennáo' for 'forms water'">Hydrogen</name>
 		<symbol>H</symbol>
 		<mass>1.00794</mass>
 		<block>s</block>
@@ -28,7 +28,7 @@
 	</element>
 	<element>
 		<number>2</number>
-		<name origin="">Helium</name>
+		<name origin="The greek word for the sun was 'helios'">Helium</name>
 		<symbol>He</symbol>
 		<mass>4.002602</mass>
 		<block>p</block>
@@ -55,7 +55,7 @@
 	</element>
 	<element>
 		<number>3</number>
-		<name origin="">Lithium</name>
+		<name origin="greek 'lithos' mean 'stone'">Lithium</name>
 		<symbol>Li</symbol>
 		<mass>6.941</mass>
 		<block>s</block>
@@ -110,7 +110,7 @@
 	</element>
 	<element>
 		<number>5</number>
-		<name origin="">Boron</name>
+		<name origin="Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot like carbon">Boron</name>
 		<symbol>B</symbol>
 		<mass>10.811</mass>
 		<block>p</block>
@@ -138,7 +138,7 @@
 	</element>
 	<element>
 		<number>6</number>
-		<name origin="">Carbon</name>
+		<name origin="lat. carboneum for carbon">Carbon</name>
 		<symbol>C</symbol>
 		<mass>12.0107</mass>
 		<block>p</block>
@@ -165,7 +165,7 @@
 	</element>
 	<element>
 		<number>7</number>
-		<name origin="">Nitrogen</name>
+		<name origin="lat. nitrogenium ('forms saltpeter')">Nitrogen</name>
 		<symbol>N</symbol>
 		<mass>14.0067</mass>
 		<block>p</block>
@@ -193,7 +193,7 @@
 	</element>
 	<element>
 		<number>8</number>
-		<name origin="">Oxygen</name>
+		<name origin="Oxygen is lat. 'oxygenium' (forms acids)">Oxygen</name>
 		<symbol>O</symbol>
 		<mass>15.9994</mass>
 		<block>p</block>
@@ -221,7 +221,7 @@
 	</element>
 	<element>
 		<number>9</number>
-		<name origin="">Fluorine</name>
+		<name origin="lat. fluere ('floats')">Fluorine</name>
 		<symbol>F</symbol>
 		<mass>18.9984032</mass>
 		<block>p</block>
@@ -247,7 +247,7 @@
 	</element>
 	<element>
 		<number>10</number>
-		<name origin="">Neon</name>
+		<name origin="greek 'neo' means 'new'">Neon</name>
 		<symbol>Ne</symbol>
 		<mass>20.1797</mass>
 		<block>p</block>
@@ -274,7 +274,7 @@
 	</element>
 	<element>
 		<number>11</number>
-		<name origin="">Sodium</name>
+		<name origin="arabic 'natrun' for 'soda'">Sodium</name>
 		<symbol>Na</symbol>
 		<mass>22.989770</mass>
 		<block>s</block>
@@ -302,7 +302,7 @@
 	</element>
 	<element>
 		<number>12</number>
-		<name origin="">Magnesium</name>
+		<name origin="Named after the city of Magnesia">Magnesium</name>
 		<symbol>Mg</symbol>
 		<mass>24.3050</mass>
 		<block>s</block>
@@ -330,7 +330,7 @@
 	</element>
 	<element>
 		<number>13</number>
-		<name origin="">Aluminum</name>
+		<name origin="lat. 'alumen'">Aluminum</name>
 		<symbol>Al</symbol>
 		<mass>26.981538</mass>
 		<block>p</block>
@@ -358,7 +358,7 @@
 	</element>
 	<element>
 		<number>14</number>
-		<name origin="">Silicon</name>
+		<name origin="lat. 'silex'">Silicon</name>
 		<symbol>Si</symbol>
 		<mass>28.0855</mass>
 		<block>p</block>
@@ -386,7 +386,7 @@
 	</element>
 	<element>
 		<number>15</number>
-		<name origin="">Phosphorus</name>
+		<name origin="greek 'phosphoros' for 'carries light'">Phosphorus</name>
 		<symbol>P</symbol>
 		<mass>30.973761</mass>
 		<block>p</block>
@@ -414,7 +414,7 @@
 	</element>
 	<element>
 		<number>16</number>
-		<name origin="">Sulfur</name>
+		<name origin="In sankskrit 'sweb' means 'to sleep'">Sulfur</name>
 		<symbol>S</symbol>
 		<mass>32.065</mass>
 		<block>p</block>
@@ -443,7 +443,7 @@
 	</element>
 	<element>
 		<number>17</number>
-		<name origin="">Chlorine</name>
+		<name origin="greek 'chloros' for 'yellow-green'">Chlorine</name>
 		<symbol>Cl</symbol>
 		<mass>35.453</mass>
 		<block>p</block>
@@ -471,7 +471,7 @@
 	</element>
 	<element>
 		<number>18</number>
-		<name origin="">Argon</name>
+		<name origin="greek 'aergon' for 'inactive'">Argon</name>
 		<symbol>Ar</symbol>
 		<mass>39.948</mass>
 		<block>p</block>
@@ -499,7 +499,7 @@
 	</element>
 	<element>
 		<number>19</number>
-		<name origin="">Potassium</name>
+		<name origin="arabic 'natrun'">Potassium</name>
 		<symbol>K</symbol>
 		<mass>39.0983</mass>
 		<block>s</block>
@@ -528,7 +528,7 @@
 	</element>
 	<element>
 		<number>20</number>
-		<name origin="">Calcium</name>
+		<name origin="arabic 'al qaliy' for potash">Calcium</name>
 		<symbol>Ca</symbol>
 		<mass>40.078</mass>
 		<block>s</block>
@@ -557,7 +557,7 @@
 	</element>
 	<element>
 		<number>21</number>
-		<name origin="">Scandium</name>
+		<name origin="Named because it was found in Scandinavia">Scandium</name>
 		<symbol>Sc</symbol>
 		<mass>44.955910</mass>
 		<block>d</block>
@@ -836,7 +836,7 @@
 	</element>
 	<element>
 		<number>31</number>
-		<name origin="">Gallium</name>
+		<name origin="'Gallia' is an old name of France">Gallium</name>
 		<symbol>Ga</symbol>
 		<mass>69.723</mass>
 		<block>p</block>
@@ -866,7 +866,7 @@
 	</element>
 	<element>
 		<number>32</number>
-		<name origin="">Germanium</name>
+		<name origin="lat 'germania' is an old name for Germany">Germanium</name>
 		<symbol>Ge</symbol>
 		<mass>72.64</mass>
 		<block>p</block>
@@ -894,7 +894,7 @@
 	</element>
 	<element>
 		<number>33</number>
-		<name origin="">Arsenic</name>
+		<name origin="greek 'arsenikos' for 'male' or 'bold'">Arsenic</name>
 		<symbol>As</symbol>
 		<mass>74.92160</mass>
 		<block>p</block>
@@ -909,7 +909,6 @@
 		<density>5.72</density>
 		<ionisationenergy>
 			<energy>9.81 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<atomic>125</atomic>
@@ -918,11 +917,10 @@
 		<orbits>Ar 3d10 4s2 4p3</orbits>
 		<oxydation>(-3),+3,(+5)</oxydation>
 		<family>Metalloids</family>
-
 	</element>
 	<element>
 		<number>34</number>
-		<name origin="">Selenium</name>
+		<name origin="greek 'selena' for 'moon'">Selenium</name>
 		<symbol>Se</symbol>
 		<mass>78.96</mass>
 		<block>p</block>
@@ -951,7 +949,7 @@
 	</element>
 	<element>
 		<number>35</number>
-		<name origin="">Bromine</name>
+		<name origin="greek 'bromos' for malodorousness">Bromine</name>
 		<symbol>Br</symbol>
 		<mass>79.904</mass>
 		<block>p</block>
@@ -978,7 +976,7 @@
 	</element>
 	<element>
 		<number>36</number>
-		<name origin="">Krypton</name>
+		<name origin="greek 'kryptos' for 'hidden'">Krypton</name>
 		<symbol>Kr</symbol>
 		<mass>83.80</mass>
 		<block>p</block>
@@ -1006,7 +1004,7 @@
 	</element>
 	<element>
 		<number>37</number>
-		<name origin="">Rubidium</name>
+		<name origin="lat.: rubidus for 'dark red'">Rubidium</name>
 		<symbol>Rb</symbol>
 		<mass>85.4678</mass>
 		<block>s</block>
@@ -1034,7 +1032,7 @@
 	</element>
 	<element>
 		<number>38</number>
-		<name origin="">Strontium</name>
+		<name origin="Named after the mineral Strontianit">Strontium</name>
 		<symbol>Sr</symbol>
 		<mass>87.62</mass>
 		<block>s</block>
@@ -1063,7 +1061,7 @@
 	</element>
 	<element>
 		<number>39</number>
-		<name origin="">Yttrium</name>
+		<name origin="Named after the small town of Ytterby near Stockholm in Swede">Yttrium</name>
 		<symbol>Y</symbol>
 		<mass>88.90585</mass>
 		<block>d</block>
@@ -1078,7 +1076,6 @@
 		<density>4.47</density>
 		<ionisationenergy>
 			<energy>6.38 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<atomic>181</atomic>
@@ -1086,7 +1083,6 @@
 		<orbits>Kr 4d1 5s2</orbits>
 		<oxydation>+3</oxydation>
 		<family>Transition</family>
-
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
@@ -1115,7 +1111,6 @@
 		<oxydation>+4</oxydation>
 		<isotopes>50:89,904:51,5;51:90,905:11,2;52:91,905:17,1;54:93,906:17,4;56:95,908:2,8</isotopes>
 		<family>Transition</family>
-
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
@@ -1135,7 +1130,6 @@
 		<density>8.58</density>
 		<ionisationenergy>
 			<energy>6.88 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<atomic>142.9</atomic>
@@ -1143,7 +1137,6 @@
 		<orbits>Kr 4d4</orbits>
 		<oxydation>+3,+5</oxydation>
 		<family>Transition</family>
-
 		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
@@ -1162,8 +1155,7 @@
 		<boilingpoint>4912</boilingpoint>
 		<density>10.28</density>
 		<ionisationenergy>
-			<energy>7.099 </energy>
-
+			<energy>7.099</energy>
 		</ionisationenergy>
 		<radius>
 			<atomic>136.2</atomic>
@@ -1172,12 +1164,11 @@
 		<oxydation>(+2,+3,+4,+5),+6</oxydation>
 		<isotopes>50:91,906:15,9;52:93,905:9,2;53:94,906:16,5;54:95,905:15,7;55:96,905:9,4;56:97,906:23,7;58:99,908:9,6</isotopes>
 		<family>Transition</family>
-
 		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>43</number>
-		<name origin="">Technetium</name>
+		<name origin="greek 'technetos' for artificial">Technetium</name>
 		<symbol>Tc</symbol>
 		<mass>98.9063</mass>
 		<block>d</block>
@@ -1192,7 +1183,6 @@
 		<density>11.49</density>
 		<ionisationenergy>
 			<energy>7.28 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<atomic>135.8</atomic>
@@ -1205,7 +1195,7 @@
 	</element>
 	<element>
 		<number>44</number>
-		<name origin="">Ruthenium</name>
+		<name origin="Ruthenia is the old name of Russia">Ruthenium</name>
 		<symbol>Ru</symbol>
 		<mass>101.07</mass>
 		<block>d</block>
