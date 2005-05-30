@@ -41,10 +41,13 @@ Element::Element()
 {
 }
 
-QString Element::parsedOrbits()
+QString Element::parsedOrbits( bool canBeEmpty )
 {
-	if ( m_orbits == "0" )
-		return i18n( "structure means orbital configuration in this case", "Unknown structure" );
+	if ( m_orbits.isEmpty() )
+		if ( !canBeEmpty )
+			return i18n( "structure means orbital configuration in this case", "Unknown structure" );
+		else
+			return "";
 	
 	QString orbits = m_orbits;
 	QRegExp rxs("([a-z])([0-9]+)");

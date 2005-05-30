@@ -237,8 +237,10 @@ class Element{
 		 * @return the orbits of the element. The QString is already
 		 * parsed so that the numbers are superscripts and the first
 		 * block is bold.
+		 * @param canBeEmpty specifies if the string returned can be
+		 * empty instead of a "Unknown structure" one.
 		 */
-		QString parsedOrbits();
+		QString parsedOrbits( bool canBeEmpty = false );
 		
 		/**
 		 * @return the boiling point of the element in Kelvin
