@@ -9,6 +9,7 @@ kalzium_SOURCES = kalzium.cpp \
 			prefs.kcfgc \
 			settings_colors.ui \
 			settings_misc.ui \
+			settings_units.ui \
 			detailinfodlg.cpp \
 			orbitswidget.cpp \
 			plotwidget.cpp \
