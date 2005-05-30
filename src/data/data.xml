@@ -184,6 +184,7 @@
 		</ionisationenergy>
 		<radius>
 			<atomic>71</atomic>
+			<ionic charge="+5">13</ionic>
 		</radius>
 		<orbits>1s2 2s2 2p3</orbits>
 		<oxydation>-3,(+1,+2,+3,+4,+5)</oxydation>
@@ -211,6 +212,7 @@
 		</ionisationenergy>
 		<radius>
 			<atomic>60.4</atomic>
+			<ionic charge="-2">146</ionic>
 		</radius>
 		<orbits>1s2 2s2 2p4</orbits>
 		<oxydation>-2,(-1,+2)</oxydation>
@@ -403,6 +405,7 @@
 		</ionisationenergy>
 		<radius>
 			<atomic>93</atomic>
+			<ionic charge="+5">35</ionic>
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p3</orbits>
 		<oxydation>-3,(+1,+3),+5</oxydation>
@@ -430,6 +433,7 @@
 		</ionisationenergy>
 		<radius>
 			<atomic>104</atomic>
+			<ionic charge="-2">190</ionic>
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p4</orbits>
 		<oxydation>-2,+2,+4,+6</oxydation>
@@ -909,6 +913,7 @@
 		</ionisationenergy>
 		<radius>
 			<atomic>125</atomic>
+			<ionic charge="+5">46</ionic>
 		</radius>
 		<orbits>Ar 3d10 4s2 4p3</orbits>
 		<oxydation>(-3),+3,(+5)</oxydation>
@@ -936,6 +941,7 @@
 		</ionisationenergy>
 		<radius>
 			<atomic>116</atomic>
+			<ionic charge="-2">202</ionic>
 		</radius>
 		<orbits>Ar 3d10 4s2 4p4</orbits>
 		<oxydation>(-2),+4,(+6)</oxydation>
@@ -1142,7 +1148,7 @@
 	</element>
 	<element>
 		<number>42</number>
-		<name>Molybdenum</name>
+		<name origin="This name has greek roots. It means 'like Platinum'. It was difficult to distinguish Molybdenum from Platinum.">Molybdenum</name>
 		<symbol>Mo</symbol>
 		<mass>95.94</mass>
 		<block>d</block>
@@ -1420,6 +1426,7 @@
 		</ionisationenergy>
 		<radius>
 			<atomic>145</atomic>
+			<ionic charge="+5">62</ionic>
 		</radius>
 		<orbits>Kr 4d10 5s2 5p3</orbits>
 		<oxydation>(-3),+3,(+5)</oxydation>
@@ -1448,6 +1455,7 @@
 		</ionisationenergy>
 		<radius>
 			<atomic>143.2</atomic>
+			<ionic charge="-2">222</ionic>
 		</radius>
 		<orbits>Kr 4d10 5s2 5p4</orbits>
 		<oxydation>(-2),+4,(+6)</oxydation>
@@ -2088,7 +2096,7 @@
 	</element>
 	<element>
 		<number>76</number>
-		<name>Osmium</name>
+		<name origin="gr. for 'smell'. Its oxids smell strongly like radish">Osmium</name>
 		<symbol>Os</symbol>
 		<mass>190.23</mass>
 		<block>d</block>
@@ -2311,6 +2319,7 @@
 		</ionisationenergy>
 		<radius>
 			<atomic>155</atomic>
+			<ionic charge="+5">74</ionic>
 		</radius>
 		<orbits>Xe 4f14 5d10 6s2 6p3</orbits>
 		<oxydation>+3,(+5)</oxydation>

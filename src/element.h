@@ -83,6 +83,23 @@ class Element{
 		int number() const {
 			return m_number;
 		}
+
+		void setIonicValues(double v, const QString& c){
+			m_ionic_value = v;
+			m_ionic_charge = c;
+		}
+
+		QString ionicCharge() const{
+			return m_ionic_charge;
+		}
+
+		double ionicValue() const{
+			return m_ionic_value;
+		}
+
+		QString nameOrigin() const{
+			return m_origin;
+		}
 		
 		void setMass( double value ) { m_mass = value; }
 		void setEN( double value ) { m_EN = value; }
@@ -99,6 +116,7 @@ class Element{
 		void setScientist( const QString& value ) { m_scientist = value; }
 		void setCrysatalstructure( const QString& value ) { m_crystalstructure = value; }
 		void setName( const QString& value ) { m_name = value; }
+		void setOrigin( const QString& value ) { m_origin = value; }
 		void setBlock( const QString& value ) { m_block = value; }
 		void setGroup( const QString& value ) { m_group = value; }
 		void setFamily( const QString& value ) { m_family = value; }
@@ -295,6 +313,7 @@ class Element{
 		{
 			NOGRADIENT = 0,
 			RADIUS,
+			IONICRADIUS,
 			MASS,
 			DENSITY,
 			BOILINGPOINT,
@@ -340,7 +359,8 @@ class Element{
 			m_BP, 
 			m_EN, 
 			m_Density, 
-			m_AR;
+			m_AR,
+			m_ionic_value;
 
 		int     m_number, 
 			m_date,
@@ -349,6 +369,7 @@ class Element{
 
 		QString m_symbol,
 			m_name,
+			m_origin,
 			m_oxstage,
 			m_block,
 			m_group,
@@ -357,7 +378,8 @@ class Element{
 			m_orbits,
 			m_isotopes,
 			m_scientist,
-			m_crystalstructure;
+			m_crystalstructure,
+			m_ionic_charge;
 
 		doubleList m_ionenergies;
 		

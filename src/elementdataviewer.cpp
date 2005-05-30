@@ -39,7 +39,6 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 
 	yData = new AxisData();
 	
-	QFrame *page = plainPage();
 	QVBoxLayout *vbox = new QVBoxLayout(plainPage(), 0, KDialog::spacingHint() );
 	vbox->activate();
 

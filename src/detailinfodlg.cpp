@@ -106,7 +106,13 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
 			html.append( i18n( "<b>Radius: %1</b>" ).arg( e->adjustUnits( Element::RADIUS ) ) );
 			html.append( "</td></tr>" );
-			html.append( "<tr><td stype=\"text-align:center\"><img src=\"weight.png\" alt=\"icon\"/></td><td>" );
+			if ( e->ionicValue() )
+			{
+				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
+				html.append( i18n( "<b>Ionic Radius (Charge): %1 </b>(%2)" ).arg( e->adjustUnits(Element::IONICRADIUS) ).arg( e->ionicCharge() ) );
+				html.append( "</td></tr>" );
+			}
+			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "<b>Mass: %1</b>" ).arg( e->adjustUnits( Element::MASS ) ) );
 			html.append( "</td></tr>" );
 			html.append( "</table>" );
@@ -116,6 +122,8 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( e->adjustUnits( Element::DATE ) );
 			html.append( "<p />" );
 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( e->meanmass() ) ) );
+			html.append( "<p />" );
+			html.append( i18n( "Origin of the name: %1" ).arg( e->nameOrigin() ) );
 			break;
 		case ENERGY:
 			html.append( "<p>" );

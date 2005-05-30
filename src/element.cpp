@@ -146,9 +146,12 @@ const QString Element::adjustUnits( const int type )
 		else
 			v = QString::number( val );
 	}
-	else if ( type == RADIUS ) // its a length
+	else if ( type == RADIUS || IONICRADIUS ) // its a length
 	{
-		val = radius();
+		if ( type == RADIUS )
+			val = radius();
+		else if ( type == IONICRADIUS )
+			val = ionicValue();
 
 		if ( val == -1 )
 			v = i18n( "Value unknown" );
@@ -546,6 +549,10 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		double bp = domElement.namedItem( "boilingpoint" ).toElement().text().toDouble();
 		double density = domElement.namedItem( "density" ).toElement().text().toDouble();
 		double atomic_radius = domElement.namedItem( "radius" ).namedItem( "atomic" ).toElement().text().toDouble();
+		double ionic_radius = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().text().toDouble();
+		QString ionic_charge = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().attributeNode( "charge" ).value();
+		
+		kdDebug() << "Charge: " << ionic_charge << " Value: " << ionic_radius << endl;
 		
 		int bio = domElement.namedItem( "biologicalmeaning" ).toElement().text().toInt();
 		int az = domElement.namedItem( "aggregation" ).toElement().text().toInt();
@@ -554,7 +561,11 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		
 		QString scientist = domElement.namedItem( "date" ).toElement().attributeNode( "scientist" ).value();
 		QString crystal = domElement.namedItem( "crystalstructure" ).toElement().text();
-		QString name = domElement.namedItem( "name" ).toElement().text();
+		
+		QDomElement nameE = domElement.namedItem( "name" ).toElement();
+		QString name = nameE.text();
+		QString origin = nameE.attributeNode( "origin" ).value();
+		
 		QString block = domElement.namedItem( "block" ).toElement().text();
 		QString group = domElement.namedItem( "group" ).toElement().text();
 		QString family = domElement.namedItem( "family" ).toElement().text();
@@ -576,10 +587,12 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setBiologicalMeaning(bio);
 		e->setAggregation(az);
 		e->setNumber( number );
+		e->setIonicValues( ionic_radius, ionic_charge );
 		
 		e->setScientist(scientist);
 		e->setCrysatalstructure( crystal );
 		e->setName(name);
+		e->setOrigin(origin);
 		e->setBlock(block);
 		e->setGroup(group);
 		e->setFamily(family);
