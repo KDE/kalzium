@@ -88,15 +88,16 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
 	//get the list of ionisation-energies
 	QValueList<double> ionlist = e->ionisationList();
-
+	
+	html.append( "<div><table summary=\"header\"><tr><td>" );
+	html.append( e->symbol() );
+	html.append( "<td><td>" );
+	html.append( i18n( "Block: %1" ).arg( e->block() ) );
+	html.append( "</td></tr></table></div>" );
+	html.append( "<table summary=\"characteristics\" class=\"characterstics\">");
 	switch ( type )
 	{
 		case CHEMICAL:
-			html.append( "<div><table summary=\"header\"><tr><td>" );
-			html.append( e->symbol() );
-			html.append( "<td><td>" );
-			html.append( i18n( "Block: %1" ).arg( e->block() ) );
-			html.append( "</td></tr></table></div><table summary=\"characteristics\" class=\"characterstics\">");
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "<b>Orbital structure: %1</b>" ).arg( e->parsedOrbits() ) );
 			html.append( "</td></tr>" );
@@ -115,33 +116,44 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "<b>Mass: %1</b>" ).arg( e->adjustUnits( Element::MASS ) ) );
 			html.append( "</td></tr>" );
-			html.append( "</table>" );
 			break;
 		case MISC:
-			html.append( "<p />" );
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( e->adjustUnits( Element::DATE ) );
-			html.append( "<p />" );
+			html.append( "</td></tr>" );
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( e->meanmass() ) ) );
-			html.append( "<p />" );
+			html.append( "</td></tr>" );
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Origin of the name: %1" ).arg( e->nameOrigin() ) );
+			html.append( "</td></tr>" );
 			break;
 		case ENERGY:
-			html.append( "<p>" );
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "<b>Orbital structure: %1</b>" ).arg( e->parsedOrbits() ) );
+			html.append( "</td></tr>" );
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Melting Point: %1" ).arg( e->adjustUnits( Element::MELTINGPOINT ) ) );
-			html.append( "<p>" );
+			html.append( "</td></tr>" );
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Boiling Point: %1" ).arg( e->adjustUnits( Element::BOILINGPOINT ) ) );
-			html.append( "<p>" );
+			html.append( "</td></tr>" );
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Electronegativity: %1" ).arg( e->adjustUnits( Element::EN ) ) );
+			html.append( "</td></tr>" );
 			
 			uint i = 0;
 			for ( ; i < ionlist.count() ; ++i )
 			{
-				html += i18n("the variable is a number. The result is for example '1.' or '5.'",
-				             "%1. Ionizationenergy: %2" ).arg( QString::number( i+1 ), e->adjustUnits( Element::IE, ionlist[i] ) ) + "<p>";
+				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+				html.append( i18n("the first variable is a number. The result is for example '1.' or '5.', the second is the value of the ionisationenergie",
+				             "%1. Ionisationenergy: %2" ).arg( QString::number( i+1 ), e->adjustUnits( Element::IE, ionlist[i] ) ) );
+			html.append( "</td></tr>" );
 			}
-			html += i18n( "Electronegativity: %1" ).arg( e->adjustUnits( Element::EN ) );
 			break;
 	}
 			
+	html += ( "</table>" );
 	html += "</div></body></html>";
 	
 	return html;
