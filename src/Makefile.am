@@ -57,8 +57,9 @@ KDE_ICON = AUTO
 # the library search path. 
 kalzium_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
+#this RegExp-monster grep for <name origin=foo">bar</name> and puts the i18n() around foo and bar
 messages: rc.cpp
-	cat data/data.xml | grep name data/data.xml | sed s/\<name\>/i18n\(\"/ | sed s/\<\\/name\>/\"\)\;/ > i18n_temp.cpp
+	cat data/data.xml | grep name| sed -e 's/< *name  *origin *= *"\([^\"]*\)\">\([^<]*\)<\/ *name *>/i18n(\"\1\"); i18n(\"\2\");/;s/i18n(""); //g'
 	$(XGETTEXT) *.cpp -o $(podir)/kalzium.pot
 
 
