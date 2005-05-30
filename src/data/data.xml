@@ -2,7 +2,7 @@
 <kalzium>
 	<element>
 		<number>1</number>
-		<name>Hydrogen</name>
+		<name origin="">Hydrogen</name>
 		<symbol>H</symbol>
 		<mass>1.00794</mass>
 		<block>s</block>
@@ -28,7 +28,7 @@
 	</element>
 	<element>
 		<number>2</number>
-		<name>Helium</name>
+		<name origin="">Helium</name>
 		<symbol>He</symbol>
 		<mass>4.002602</mass>
 		<block>p</block>
@@ -55,7 +55,7 @@
 	</element>
 	<element>
 		<number>3</number>
-		<name>Lithium</name>
+		<name origin="">Lithium</name>
 		<symbol>Li</symbol>
 		<mass>6.941</mass>
 		<block>s</block>
@@ -83,7 +83,7 @@
 	</element>
 	<element>
 		<number>4</number>
-		<name>Beryllium</name>
+		<name origin="">Beryllium</name>
 		<symbol>Be</symbol>
 		<mass>9.012182</mass>
 		<block>s</block>
@@ -110,7 +110,7 @@
 	</element>
 	<element>
 		<number>5</number>
-		<name>Boron</name>
+		<name origin="">Boron</name>
 		<symbol>B</symbol>
 		<mass>10.811</mass>
 		<block>p</block>
@@ -138,7 +138,7 @@
 	</element>
 	<element>
 		<number>6</number>
-		<name>Carbon</name>
+		<name origin="">Carbon</name>
 		<symbol>C</symbol>
 		<mass>12.0107</mass>
 		<block>p</block>
@@ -165,7 +165,7 @@
 	</element>
 	<element>
 		<number>7</number>
-		<name>Nitrogen</name>
+		<name origin="">Nitrogen</name>
 		<symbol>N</symbol>
 		<mass>14.0067</mass>
 		<block>p</block>
@@ -193,7 +193,7 @@
 	</element>
 	<element>
 		<number>8</number>
-		<name>Oxygen</name>
+		<name origin="">Oxygen</name>
 		<symbol>O</symbol>
 		<mass>15.9994</mass>
 		<block>p</block>
@@ -221,7 +221,7 @@
 	</element>
 	<element>
 		<number>9</number>
-		<name>Fluorine</name>
+		<name origin="">Fluorine</name>
 		<symbol>F</symbol>
 		<mass>18.9984032</mass>
 		<block>p</block>
@@ -247,7 +247,7 @@
 	</element>
 	<element>
 		<number>10</number>
-		<name>Neon</name>
+		<name origin="">Neon</name>
 		<symbol>Ne</symbol>
 		<mass>20.1797</mass>
 		<block>p</block>
@@ -274,7 +274,7 @@
 	</element>
 	<element>
 		<number>11</number>
-		<name>Sodium</name>
+		<name origin="">Sodium</name>
 		<symbol>Na</symbol>
 		<mass>22.989770</mass>
 		<block>s</block>
@@ -302,7 +302,7 @@
 	</element>
 	<element>
 		<number>12</number>
-		<name>Magnesium</name>
+		<name origin="">Magnesium</name>
 		<symbol>Mg</symbol>
 		<mass>24.3050</mass>
 		<block>s</block>
@@ -330,7 +330,7 @@
 	</element>
 	<element>
 		<number>13</number>
-		<name>Aluminum</name>
+		<name origin="">Aluminum</name>
 		<symbol>Al</symbol>
 		<mass>26.981538</mass>
 		<block>p</block>
@@ -358,7 +358,7 @@
 	</element>
 	<element>
 		<number>14</number>
-		<name>Silicon</name>
+		<name origin="">Silicon</name>
 		<symbol>Si</symbol>
 		<mass>28.0855</mass>
 		<block>p</block>
@@ -386,7 +386,7 @@
 	</element>
 	<element>
 		<number>15</number>
-		<name>Phosphorus</name>
+		<name origin="">Phosphorus</name>
 		<symbol>P</symbol>
 		<mass>30.973761</mass>
 		<block>p</block>
@@ -414,7 +414,7 @@
 	</element>
 	<element>
 		<number>16</number>
-		<name>Sulfur</name>
+		<name origin="">Sulfur</name>
 		<symbol>S</symbol>
 		<mass>32.065</mass>
 		<block>p</block>
@@ -443,7 +443,7 @@
 	</element>
 	<element>
 		<number>17</number>
-		<name>Chlorine</name>
+		<name origin="">Chlorine</name>
 		<symbol>Cl</symbol>
 		<mass>35.453</mass>
 		<block>p</block>
@@ -471,7 +471,7 @@
 	</element>
 	<element>
 		<number>18</number>
-		<name>Argon</name>
+		<name origin="">Argon</name>
 		<symbol>Ar</symbol>
 		<mass>39.948</mass>
 		<block>p</block>
@@ -499,7 +499,7 @@
 	</element>
 	<element>
 		<number>19</number>
-		<name>Potassium</name>
+		<name origin="">Potassium</name>
 		<symbol>K</symbol>
 		<mass>39.0983</mass>
 		<block>s</block>
@@ -528,7 +528,7 @@
 	</element>
 	<element>
 		<number>20</number>
-		<name>Calcium</name>
+		<name origin="">Calcium</name>
 		<symbol>Ca</symbol>
 		<mass>40.078</mass>
 		<block>s</block>
@@ -557,7 +557,7 @@
 	</element>
 	<element>
 		<number>21</number>
-		<name>Scandium</name>
+		<name origin="">Scandium</name>
 		<symbol>Sc</symbol>
 		<mass>44.955910</mass>
 		<block>d</block>
@@ -584,7 +584,7 @@
 	</element>
 	<element>
 		<number>22</number>
-		<name>Titanium</name>
+		<name origin="">Titanium</name>
 		<symbol>Ti</symbol>
 		<mass>47.867</mass>
 		<block>d</block>
@@ -611,7 +611,7 @@
 	</element>
 	<element>
 		<number>23</number>
-		<name>Vanadium</name>
+		<name origin="">Vanadium</name>
 		<symbol>V</symbol>
 		<mass>50.9415</mass>
 		<block>d</block>
@@ -639,7 +639,7 @@
 	</element>
 	<element>
 		<number>24</number>
-		<name>Chromium</name>
+		<name origin="">Chromium</name>
 		<symbol>Cr</symbol>
 		<mass>51.9961</mass>
 		<block>d</block>
@@ -668,7 +668,7 @@
 	</element>
 	<element>
 		<number>25</number>
-		<name>Manganese</name>
+		<name origin="">Manganese</name>
 		<symbol>Mn</symbol>
 		<mass>54.938049</mass>
 		<block>d</block>
@@ -694,7 +694,7 @@
 	</element>
 	<element>
 		<number>26</number>
-		<name>Iron</name>
+		<name origin="">Iron</name>
 		<symbol>Fe</symbol>
 		<mass>55.845</mass>
 		<block>d</block>
@@ -723,7 +723,7 @@
 	</element>
 	<element>
 		<number>27</number>
-		<name>Cobalt</name>
+		<name origin="">Cobalt</name>
 		<symbol>Co</symbol>
 		<mass>58.933200</mass>
 		<block>d</block>
@@ -751,7 +751,7 @@
 	</element>
 	<element>
 		<number>28</number>
-		<name>Nickel</name>
+		<name origin="">Nickel</name>
 		<symbol>Ni</symbol>
 		<mass>58.6934</mass>
 		<block>d</block>
@@ -779,7 +779,7 @@
 	</element>
 	<element>
 		<number>29</number>
-		<name>Copper</name>
+		<name origin="greek 'cuprum' for Cypres">Copper</name>
 		<symbol>Cu</symbol>
 		<mass>63.546</mass>
 		<block>d</block>
@@ -807,7 +807,7 @@
 	</element>
 	<element>
 		<number>30</number>
-		<name>Zinc</name>
+		<name origin="german 'zinking' for 'rough' because zinc-ore is very rough">Zinc</name>
 		<symbol>Zn</symbol>
 		<mass>65.39</mass>
 		<block>d</block>
@@ -836,7 +836,7 @@
 	</element>
 	<element>
 		<number>31</number>
-		<name>Gallium</name>
+		<name origin="">Gallium</name>
 		<symbol>Ga</symbol>
 		<mass>69.723</mass>
 		<block>p</block>
@@ -866,7 +866,7 @@
 	</element>
 	<element>
 		<number>32</number>
-		<name>Germanium</name>
+		<name origin="">Germanium</name>
 		<symbol>Ge</symbol>
 		<mass>72.64</mass>
 		<block>p</block>
@@ -894,7 +894,7 @@
 	</element>
 	<element>
 		<number>33</number>
-		<name>Arsenic</name>
+		<name origin="">Arsenic</name>
 		<symbol>As</symbol>
 		<mass>74.92160</mass>
 		<block>p</block>
@@ -922,7 +922,7 @@
 	</element>
 	<element>
 		<number>34</number>
-		<name>Selenium</name>
+		<name origin="">Selenium</name>
 		<symbol>Se</symbol>
 		<mass>78.96</mass>
 		<block>p</block>
@@ -951,7 +951,7 @@
 	</element>
 	<element>
 		<number>35</number>
-		<name>Bromine</name>
+		<name origin="">Bromine</name>
 		<symbol>Br</symbol>
 		<mass>79.904</mass>
 		<block>p</block>
@@ -978,7 +978,7 @@
 	</element>
 	<element>
 		<number>36</number>
-		<name>Krypton</name>
+		<name origin="">Krypton</name>
 		<symbol>Kr</symbol>
 		<mass>83.80</mass>
 		<block>p</block>
@@ -1006,7 +1006,7 @@
 	</element>
 	<element>
 		<number>37</number>
-		<name>Rubidium</name>
+		<name origin="">Rubidium</name>
 		<symbol>Rb</symbol>
 		<mass>85.4678</mass>
 		<block>s</block>
@@ -1034,7 +1034,7 @@
 	</element>
 	<element>
 		<number>38</number>
-		<name>Strontium</name>
+		<name origin="">Strontium</name>
 		<symbol>Sr</symbol>
 		<mass>87.62</mass>
 		<block>s</block>
@@ -1063,7 +1063,7 @@
 	</element>
 	<element>
 		<number>39</number>
-		<name>Yttrium</name>
+		<name origin="">Yttrium</name>
 		<symbol>Y</symbol>
 		<mass>88.90585</mass>
 		<block>d</block>
@@ -1091,7 +1091,7 @@
 	</element>
 	<element>
 		<number>40</number>
-		<name>Zirconium</name>
+		<name origin="">Zirconium</name>
 		<symbol>Zr</symbol>
 		<mass>91.224</mass>
 		<block>d</block>
@@ -1120,7 +1120,7 @@
 	</element>
 	<element>
 		<number>41</number>
-		<name>Niobium</name>
+		<name origin="">Niobium</name>
 		<symbol>Nb</symbol>
 		<mass>92.90638</mass>
 		<block>d</block>
@@ -1177,7 +1177,7 @@
 	</element>
 	<element>
 		<number>43</number>
-		<name>Technetium</name>
+		<name origin="">Technetium</name>
 		<symbol>Tc</symbol>
 		<mass>98.9063</mass>
 		<block>d</block>
@@ -1205,7 +1205,7 @@
 	</element>
 	<element>
 		<number>44</number>
-		<name>Ruthenium</name>
+		<name origin="">Ruthenium</name>
 		<symbol>Ru</symbol>
 		<mass>101.07</mass>
 		<block>d</block>
@@ -1234,7 +1234,7 @@
 	</element>
 	<element>
 		<number>45</number>
-		<name>Rhodium</name>
+		<name origin="">Rhodium</name>
 		<symbol>Rh</symbol>
 		<mass>102.90550</mass>
 		<block>d</block>
@@ -1262,7 +1262,7 @@
 	</element>
 	<element>
 		<number>46</number>
-		<name>Palladium</name>
+		<name origin="">Palladium</name>
 		<symbol>Pd</symbol>
 		<mass>106.42</mass>
 		<block>d</block>
@@ -1291,7 +1291,7 @@
 	</element>
 	<element>
 		<number>47</number>
-		<name>Silver</name>
+		<name origin="">Silver</name>
 		<symbol>Ag</symbol>
 		<mass>107.8682</mass>
 		<block>d</block>
@@ -1320,7 +1320,7 @@
 	</element>
 	<element>
 		<number>48</number>
-		<name>Cadmium</name>
+		<name origin="">Cadmium</name>
 		<symbol>Cd</symbol>
 		<mass>112.411</mass>
 		<block>d</block>
@@ -1349,7 +1349,7 @@
 	</element>
 	<element>
 		<number>49</number>
-		<name>Indium</name>
+		<name origin="">Indium</name>
 		<symbol>In</symbol>
 		<mass>114.818</mass>
 		<block>p</block>
@@ -1378,7 +1378,7 @@
 	</element>
 	<element>
 		<number>50</number>
-		<name>Tin</name>
+		<name origin="">Tin</name>
 		<symbol>Sn</symbol>
 		<mass>118.710</mass>
 		<block>p</block>
@@ -1407,7 +1407,7 @@
 	</element>
 	<element>
 		<number>51</number>
-		<name>Antimony</name>
+		<name origin="">Antimony</name>
 		<symbol>Sb</symbol>
 		<mass>121.760</mass>
 		<block>p</block>
@@ -1436,7 +1436,7 @@
 	</element>
 	<element>
 		<number>52</number>
-		<name>Tellurium</name>
+		<name origin="">Tellurium</name>
 		<symbol>Te</symbol>
 		<mass>127.60</mass>
 		<block>p</block>
@@ -1465,7 +1465,7 @@
 	</element>
 	<element>
 		<number>53</number>
-		<name>Iodine</name>
+		<name origin="">Iodine</name>
 		<symbol>I</symbol>
 		<mass>126.90447</mass>
 		<block>p</block>
@@ -1491,7 +1491,7 @@
 	</element>
 	<element>
 		<number>54</number>
-		<name>Xenon</name>
+		<name origin="">Xenon</name>
 		<symbol>Xe</symbol>
 		<mass>131.293</mass>
 		<block>p</block>
@@ -1519,7 +1519,7 @@
 	</element>
 	<element>
 		<number>55</number>
-		<name>Caesium</name>
+		<name origin="">Caesium</name>
 		<symbol>Cs</symbol>
 		<mass>132.90545</mass>
 		<block>s</block>
@@ -1547,7 +1547,7 @@
 	</element>
 	<element>
 		<number>56</number>
-		<name>Barium</name>
+		<name origin="">Barium</name>
 		<symbol>Ba</symbol>
 		<mass>137.237</mass>
 		<block>s</block>
@@ -1576,7 +1576,7 @@
 	</element>
 	<element>
 		<number>57</number>
-		<name>Lanthanum</name>
+		<name origin="">Lanthanum</name>
 		<symbol>La</symbol>
 		<mass>138.9055</mass>
 		<block>f</block>
@@ -1604,7 +1604,7 @@
 	</element>
 	<element>
 		<number>58</number>
-		<name>Cerium</name>
+		<name origin="">Cerium</name>
 		<symbol>Ce</symbol>
 		<mass>140.116</mass>
 		<block>f</block>
@@ -1631,7 +1631,7 @@
 	</element>
 	<element>
 		<number>59</number>
-		<name>Praseodymium</name>
+		<name origin="">Praseodymium</name>
 		<symbol>Pr</symbol>
 		<mass>140.90765</mass>
 		<block>f</block>
@@ -1656,7 +1656,7 @@
 	</element>
 	<element>
 		<number>60</number>
-		<name>Neodymium</name>
+		<name origin="">Neodymium</name>
 		<symbol>Nd</symbol>
 		<mass>144.24</mass>
 		<block>f</block>
@@ -1682,7 +1682,7 @@
 	</element>
 	<element>
 		<number>61</number>
-		<name>Promethium</name>
+		<name origin="">Promethium</name>
 		<symbol>Pm</symbol>
 		<mass>146.9151</mass>
 		<block>f</block>
@@ -1709,7 +1709,7 @@
 	</element>
 	<element>
 		<number>62</number>
-		<name>Samarium</name>
+		<name origin="">Samarium</name>
 		<symbol>Sm</symbol>
 		<mass>150.36</mass>
 		<block>f</block>
@@ -1737,7 +1737,7 @@
 	</element>
 	<element>
 		<number>63</number>
-		<name>Europium</name>
+		<name origin="">Europium</name>
 		<symbol>Eu</symbol>
 		<mass>151.964</mass>
 		<block>f</block>
@@ -1764,7 +1764,7 @@
 	</element>
 	<element>
 		<number>64</number>
-		<name>Gadolinium</name>
+		<name origin="">Gadolinium</name>
 		<symbol>Gd</symbol>
 		<mass>157.25</mass>
 		<block>f</block>
@@ -1793,7 +1793,7 @@
 	</element>
 	<element>
 		<number>65</number>
-		<name>Terbium</name>
+		<name origin="">Terbium</name>
 		<symbol>Tb</symbol>
 		<mass>158.92534</mass>
 		<block>f</block>
@@ -1821,7 +1821,7 @@
 	</element>
 	<element>
 		<number>66</number>
-		<name>Dysprosium</name>
+		<name origin="">Dysprosium</name>
 		<symbol>Dy</symbol>
 		<mass>162.50</mass>
 		<block>f</block>
@@ -1849,7 +1849,7 @@
 	</element>
 	<element>
 		<number>67</number>
-		<name>Holmium</name>
+		<name origin="">Holmium</name>
 		<symbol>Ho</symbol>
 		<mass>164.93032</mass>
 		<block>f</block>
@@ -1877,7 +1877,7 @@
 	</element>
 	<element>
 		<number>68</number>
-		<name>Erbium</name>
+		<name origin="">Erbium</name>
 		<symbol>Er</symbol>
 		<mass>167.259</mass>
 		<block>f</block>
@@ -1906,7 +1906,7 @@
 	</element>
 	<element>
 		<number>69</number>
-		<name>Thulium</name>
+		<name origin="">Thulium</name>
 		<symbol>Tm</symbol>
 		<mass>168.93421</mass>
 		<block>f</block>
@@ -1932,7 +1932,7 @@
 	</element>
 	<element>
 		<number>70</number>
-		<name>Ytterbium</name>
+		<name origin="">Ytterbium</name>
 		<symbol>Yb</symbol>
 		<mass>173.04</mass>
 		<block>f</block>
@@ -1959,7 +1959,7 @@
 	</element>
 	<element>
 		<number>71</number>
-		<name>Lutetium</name>
+		<name origin="">Lutetium</name>
 		<symbol>Lu</symbol>
 		<mass>174.967</mass>
 		<block>f</block>
@@ -1986,7 +1986,7 @@
 	</element>
 	<element>
 		<number>72</number>
-		<name>Hafnium</name>
+		<name origin="">Hafnium</name>
 		<symbol>Hf</symbol>
 		<mass>178.49</mass>
 		<block>d</block>
@@ -2014,7 +2014,7 @@
 	</element>
 	<element>
 		<number>73</number>
-		<name>Tantalum</name>
+		<name origin="">Tantalum</name>
 		<symbol>Ta</symbol>
 		<mass>180.9479</mass>
 		<block>d</block>
@@ -2041,7 +2041,7 @@
 	</element>
 	<element>
 		<number>74</number>
-		<name>Tungsten</name>
+		<name origin="">Tungsten</name>
 		<symbol>W</symbol>
 		<mass>183.84</mass>
 		<block>d</block>
@@ -2068,7 +2068,7 @@
 	</element>
 	<element>
 		<number>75</number>
-		<name>Rhenium</name>
+		<name origin="">Rhenium</name>
 		<symbol>Re</symbol>
 		<mass>186.207</mass>
 		<block>d</block>
@@ -2125,7 +2125,7 @@
 	</element>
 	<element>
 		<number>77</number>
-		<name>Iridium</name>
+		<name origin="">Iridium</name>
 		<symbol>Ir</symbol>
 		<mass>192.217</mass>
 		<block>d</block>
@@ -2154,7 +2154,7 @@
 	</element>
 	<element>
 		<number>78</number>
-		<name>Platinum</name>
+		<name origin="">Platinum</name>
 		<symbol>Pt</symbol>
 		<mass>195.078</mass>
 		<block>d</block>
@@ -2183,7 +2183,7 @@
 	</element>
 	<element>
 		<number>79</number>
-		<name>Gold</name>
+		<name origin="latin 'aurum', named after Aurora, the goddes of sunset">Gold</name>
 		<symbol>Au</symbol>
 		<mass>196.96654</mass>
 		<block>d</block>
@@ -2211,8 +2211,8 @@
 	</element>
 	<element>
 		<number>80</number>
-		<name>Mercury</name>
-		<symbol>Hg</symbol>
+		<name origin="">Mercury</name>
+		<symbol origin="greek and lat 'hydragyrum' for 'liquid silver'">Hg</symbol>
 		<mass>200.59</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2240,7 +2240,7 @@
 	</element>
 	<element>
 		<number>81</number>
-		<name>Thallium</name>
+		<name origin="">Thallium</name>
 		<symbol>Tl</symbol>
 		<mass>204.3833</mass>
 		<block>p</block>
@@ -2271,7 +2271,7 @@
 	</element>
 	<element>
 		<number>82</number>
-		<name>Lead</name>
+		<name origin="">Lead</name>
 		<symbol>Pb</symbol>
 		<mass>207.2</mass>
 		<block>p</block>
@@ -2300,7 +2300,7 @@
 	</element>
 	<element>
 		<number>83</number>
-		<name>Bismuth</name>
+		<name origin="">Bismuth</name>
 		<symbol>Bi</symbol>
 		<mass>208.98038</mass>
 		<block>p</block>
@@ -2328,7 +2328,7 @@
 	</element>
 	<element>
 		<number>84</number>
-		<name>Polonium</name>
+		<name origin="">Polonium</name>
 		<symbol>Po</symbol>
 		<mass>208.9824</mass>
 		<block>p</block>
@@ -2355,7 +2355,7 @@
 	</element>
 	<element>
 		<number>85</number>
-		<name>Astatine</name>
+		<name origin="">Astatine</name>
 		<symbol>At</symbol>
 		<mass>209.9871</mass>
 		<block>p</block>
@@ -2382,7 +2382,7 @@
 	</element>
 	<element>
 		<number>86</number>
-		<name>Radon</name>
+		<name origin="">Radon</name>
 		<symbol>Rn</symbol>
 		<mass>222.0176</mass>
 		<block>p</block>
@@ -2409,7 +2409,7 @@
 	</element>
 	<element>
 		<number>87</number>
-		<name>Francium</name>
+		<name origin="">Francium</name>
 		<symbol>Fr</symbol>
 		<mass>223.0197</mass>
 		<block>s</block>
@@ -2435,7 +2435,7 @@
 	</element>
 	<element>
 		<number>88</number>
-		<name>Radium</name>
+		<name origin="">Radium</name>
 		<symbol>Ra</symbol>
 		<mass>226.0254</mass>
 		<block>s</block>
@@ -2461,7 +2461,7 @@
 	</element>
 	<element>
 		<number>89</number>
-		<name>Actinium</name>
+		<name origin="">Actinium</name>
 		<symbol>Ac</symbol>
 		<mass>227.0278</mass>
 		<block>f</block>
@@ -2488,7 +2488,7 @@
 	</element>
 	<element>
 		<number>90</number>
-		<name>Thorium</name>
+		<name origin="">Thorium</name>
 		<symbol>Th</symbol>
 		<mass>232.0381</mass>
 		<block>f</block>
@@ -2515,7 +2515,7 @@
 	</element>
 	<element>
 		<number>91</number>
-		<name>Protactinium</name>
+		<name origin="">Protactinium</name>
 		<symbol>Pa</symbol>
 		<mass>231.03588</mass>
 		<block>f</block>
@@ -2538,7 +2538,7 @@
 	</element>
 	<element>
 		<number>92</number>
-		<name>Uranium</name>
+		<name origin="">Uranium</name>
 		<symbol>U</symbol>
 		<mass>238.02891</mass>
 		<block>f</block>
@@ -2564,7 +2564,7 @@
 	</element>
 	<element>
 		<number>93</number>
-		<name>Neptunium</name>
+		<name origin="">Neptunium</name>
 		<symbol>Np</symbol>
 		<mass>237.0482</mass>
 		<block>f</block>
@@ -2589,7 +2589,7 @@
 	</element>
 	<element>
 		<number>94</number>
-		<name>Plutonium</name>
+		<name origin="">Plutonium</name>
 		<symbol>Pu</symbol>
 		<mass>244.0642</mass>
 		<block>f</block>
@@ -2615,7 +2615,7 @@
 	</element>
 	<element>
 		<number>95</number>
-		<name>Americium</name>
+		<name origin="">Americium</name>
 		<symbol>Am</symbol>
 		<mass>243.0614</mass>
 		<block>f</block>
@@ -2640,7 +2640,7 @@
 	</element>
 	<element>
 		<number>96</number>
-		<name>Curium</name>
+		<name origin="">Curium</name>
 		<symbol>Cm</symbol>
 		<mass>247.0703</mass>
 		<block>f</block>
@@ -2659,7 +2659,7 @@
 	</element>
 	<element>
 		<number>97</number>
-		<name>Berkelium</name>
+		<name origin="">Berkelium</name>
 		<symbol>Bk</symbol>
 		<mass>247.0703</mass>
 		<block>f</block>
@@ -2678,7 +2678,7 @@
 	</element>
 	<element>
 		<number>98</number>
-		<name>Californium</name>
+		<name origin="">Californium</name>
 		<symbol>Cf</symbol>
 		<mass>251.0796</mass>
 		<block>f</block>
@@ -2697,7 +2697,7 @@
 	</element>
 	<element>
 		<number>99</number>
-		<name>Einsteinium</name>
+		<name origin="">Einsteinium</name>
 		<symbol>Es</symbol>
 		<mass>252.0829</mass>
 		<block>f</block>
@@ -2714,7 +2714,7 @@
 	</element>
 	<element>
 		<number>100</number>
-		<name>Fermium</name>
+		<name origin="">Fermium</name>
 		<symbol>Fm</symbol>
 		<mass>257.0951</mass>
 		<block>f</block>
@@ -2731,7 +2731,7 @@
 	</element>
 	<element>
 		<number>101</number>
-		<name>Mendelevium</name>
+		<name origin="">Mendelevium</name>
 		<symbol>Md</symbol>
 		<mass>258.0986</mass>
 		<block>f</block>
@@ -2748,7 +2748,7 @@
 	</element>
 	<element>
 		<number>102</number>
-		<name>Nobelium</name>
+		<name origin="">Nobelium</name>
 		<symbol>No</symbol>
 		<mass>259.1009</mass>
 		<block>f</block>
@@ -2765,7 +2765,7 @@
 	</element>
 	<element>
 		<number>103</number>
-		<name>Lawrencium</name>
+		<name origin="">Lawrencium</name>
 		<symbol>Lr</symbol>
 		<mass>262.110</mass>
 		<block>f</block>
@@ -2789,7 +2789,7 @@
 	</element>
 	<element>
 		<number>104</number>
-		<name>Rutherfordium</name>
+		<name origin="">Rutherfordium</name>
 		<symbol>Rf</symbol>
 		<mass>261.1089</mass>
 		<block>d</block>
@@ -2813,7 +2813,7 @@
 	</element>
 	<element>
 		<number>105</number>
-		<name>Dubnium</name>
+		<name origin="">Dubnium</name>
 		<symbol>Db</symbol>
 		<mass>262.1144</mass>
 		<block>d</block>
@@ -2836,7 +2836,7 @@
 	</element>
 	<element>
 		<number>106</number>
-		<name>Seaborgium</name>
+		<name origin="">Seaborgium</name>
 		<symbol>Sg</symbol>
 		<mass>263.1186</mass>
 		<block>d</block>
@@ -2849,7 +2849,7 @@
 	</element>
 	<element>
 		<number>107</number>
-		<name>Bohrium</name>
+		<name origin="">Bohrium</name>
 		<symbol>Bh</symbol>
 		<mass>262.1231</mass>
 		<block>d</block>
@@ -2862,7 +2862,7 @@
 	</element>
 	<element>
 		<number>108</number>
-		<name>Hassium</name>
+		<name origin="">Hassium</name>
 		<symbol>Hs</symbol>
 		<mass>265.1306</mass>
 		<block>d</block>
@@ -2875,7 +2875,7 @@
 	</element>
 	<element>
 		<number>109</number>
-		<name>Meitnerium</name>
+		<name origin="">Meitnerium</name>
 		<symbol>Mt</symbol>
 		<mass>266.1378</mass>
 		<block>d</block>
@@ -2888,7 +2888,7 @@
 	</element>
 	<element>
 		<number>110</number>
-		<name>Darmstadtium</name>
+		<name origin="">Darmstadtium</name>
 		<symbol>Ds</symbol>
 		<mass>271</mass>
 		<block>d</block>
@@ -2901,7 +2901,7 @@
 	</element>
 	<element>
 		<number>111</number>
-		<name>Roentgenium</name>
+		<name origin="">Roentgenium</name>
 		<symbol>Rg</symbol>
 		<mass>272</mass>
 		<block>d</block>
