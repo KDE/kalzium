@@ -48,9 +48,6 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 	m_pPlotSetupWidget = new PlotSetupWidget( vs, "psw" );	
 	m_pPlotWidget = new PlotWidget( 0.0,12.0,0.0,22.0, vs, "plotwidget" );
 
-	vbox->addWidget( m_pPlotWidget);
-	vbox->addWidget( m_pPlotSetupWidget );
-
 	/*
 	 * setup the list of names
 	 **/

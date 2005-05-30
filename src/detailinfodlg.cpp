@@ -124,9 +124,12 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( e->meanmass() ) ) );
 			html.append( "</td></tr>" );
-			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Origin of the name: %1" ).arg( e->nameOrigin() ) );
-			html.append( "</td></tr>" );
+			if ( !e->nameOrigin().isEmpty() )
+			{
+				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+				html.append( i18n( "Origin of the name: %1" ).arg( e->nameOrigin() ) );
+				html.append( "</td></tr>" );
+			}
 			break;
 		case ENERGY:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );

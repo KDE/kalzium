@@ -85,19 +85,19 @@ double Element::meanmass()
 
 const QString Element::adjustUnits( const int type, double value )
 {
-	QString v = QString::null;
+	QString v;
 	if ( type == IE  ) //an ionization energy
 	{
 		if ( Prefs::energies() == 0 )
 		{
 			value*=96.6;
 			v = QString::number( value );
-			v.append( "kJ/mol" );
+			v.append( " kJ/mol" );
 		}
 		else // use electronvolt
 		{
 			v = QString::number( value );
-			v.append( "eV" );
+			v.append( " eV" );
 		}
 	}
 	return v;
@@ -116,7 +116,7 @@ const QString Element::adjustUnits( const int type )
 		else
 			val = melting();
 
-		if ( val == -1 )
+		if ( val <= 0 )
 			v = i18n( "Value unknown" );
 		else
 		{
@@ -162,7 +162,7 @@ const QString Element::adjustUnits( const int type )
 				case 0://use SI-values (meter for length)
 					v = QString::number( val );
 
-					v.append( " 10<sup>-12</sup>m" );
+					v.append( " 10<sup>-12</sup> m" );
 					break;
 				case 1://use picometer, the most common unit for radii
 					v = QString::number( val );
@@ -183,7 +183,7 @@ const QString Element::adjustUnits( const int type )
 			switch ( Prefs::units() )
 			{
 				case 0:
-					v.append( i18n( "g/mol" ) );
+					v.append( i18n( " g/mol" ) );
 					break;
 				case 1:
 					v.append( i18n( " u" ) );
