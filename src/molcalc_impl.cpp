@@ -29,7 +29,7 @@
 #include <qtooltip.h>
 
 MolcalcImpl::MolcalcImpl( KalziumDataObject *data, QWidget *parent, const char *name, bool modal )
-    : KDialogBase( Swallow, i18n( "Calculate Molecular Masss" ), Close, Close, parent, name, modal )
+    : KDialogBase( Swallow, i18n( "Calculate Molecular Mass" ), Close, Close, parent, name, modal )
 {
 	m_mass = 0;
 

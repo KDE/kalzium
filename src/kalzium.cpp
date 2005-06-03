@@ -84,8 +84,8 @@ void Kalzium::setupActions()
 	gradientlist.append(i18n("Atomic Radius"));
 	gradientlist.append(i18n("Atomic Mass"));
 	gradientlist.append(i18n("Density"));
-	gradientlist.append(i18n("Boilingpoint"));
-	gradientlist.append(i18n("Meltingpoint"));
+	gradientlist.append(i18n("Boiling point"));
+	gradientlist.append(i18n("Melting point"));
 	gradientlist.append(i18n("Electronegativity"));
 	gradient_action = new KSelectAction (i18n("&Gradient"), 0, this, 0, actionCollection(), "gradmenu");
 	gradient_action->setItems(gradientlist);
@@ -123,14 +123,14 @@ void Kalzium::setupActions()
 	 **/
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
-	m_pCalcAction = new KAction(i18n("&Calculate Molecular Masss"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_masss");
+	m_pCalcAction = new KAction(i18n("&Calculate Molecular Mass"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_masss");
 	
 	m_pGlossaryAction = new KAction(i18n("&Glossary"), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
 	//Legend
 	m_pLegendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
 	
-	m_pCrystalAction = new KAction(i18n("Show &Crystalstructures"), "crystal", 0, this, SLOT(slotShowCrystal()), actionCollection(), "crystalstructures");
+	m_pCrystalAction = new KAction(i18n("Show &Crystal Structures"), "crystal", 0, this, SLOT(slotShowCrystal()), actionCollection(), "crystalstructures");
 	
 	m_pLearningmodeAction = new KAction(i18n("Enter &Learning Mode"), "legend", 0, this, SLOT(slotLearningmode()), actionCollection(), "learning_mode");
 
@@ -214,7 +214,7 @@ void Kalzium::slotShowCrystal()
 	if(m_PSE->crystal())
 	{
 		m_PSE->setCrystal(false);
-		m_pCrystalAction->setText(i18n("Show &Crystalstructures"));
+		m_pCrystalAction->setText(i18n("Show &Crystal Structures"));
 		gradient_action->setEnabled( true );
 		look_action->setEnabled( true );
 		m_pLegendAction->setEnabled( true );
@@ -223,7 +223,7 @@ void Kalzium::slotShowCrystal()
 	else
 	{
 		m_PSE->setCrystal(true);
-		m_pCrystalAction->setText(i18n("Hide &Crystalstructures"));
+		m_pCrystalAction->setText(i18n("Hide &Crystal Structures"));
 		gradient_action->setEnabled( false );
 		look_action->setEnabled( false );
 		m_pLegendAction->setEnabled( false );

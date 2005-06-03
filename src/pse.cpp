@@ -568,7 +568,7 @@ void PSE::drawLegend( QPainter* p )
 				p->drawText( x2 , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkalie-Metals")); 
 				p->drawText( x1 , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Other Metal")); 
 				p->drawText( x2 , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Halogene")); 
-				p->drawText( x1 , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Transition-Metal")); 
+				p->drawText( x1 , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Transition Metal")); 
 				p->drawText( x2 , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Noble Gas")); 
 				p->drawText( x1 , fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Metalloid")); 
 				break;
@@ -909,7 +909,7 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			}
 			break;
 		case Element::BOILINGPOINT:
-			title = i18n( "Gradient: Boilingpoint" );
+			title = i18n( "Gradient: Boiling point" );
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->boiling() - min )/var;
@@ -921,7 +921,7 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			}
 			break;
 		case Element::MELTINGPOINT:
-			title = i18n( "Gradient: Meltingpoint" );
+			title = i18n( "Gradient: Melting point" );
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->melting() - min )/var;

@@ -150,7 +150,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			{
 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 				html.append( i18n("the first variable is a number. The result is for example '1.' or '5.', the second is the value of the ionisationenergie",
-				             "%1. Ionisationenergy: %2" ).arg( QString::number( i+1 ), e->adjustUnits( Element::IE, ionlist[i] ) ) );
+				             "%1. Ionization energie: %2" ).arg( QString::number( i+1 ), e->adjustUnits( Element::IE, ionlist[i] ) ) );
 			html.append( "</td></tr>" );
 			}
 			break;

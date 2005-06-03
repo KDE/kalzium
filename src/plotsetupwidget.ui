@@ -40,7 +40,7 @@
                         <cstring>textLabel1_2</cstring>
                     </property>
                     <property name="text">
-                        <string>Avarage Value:</string>
+                        <string>Average Value:</string>
                     </property>
                 </widget>
                 <widget class="QLabel">
@@ -284,22 +284,22 @@
                 <widget class="KComboBox" row="0" column="0">
                     <item>
                         <property name="text">
-                            <string>Transitionmetals</string>
+                            <string>Transition metals</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Transsitionmetal, 3rd group</string>
+                            <string>Transsition metal, 3rd group</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Transsitionmetal, 4rd group</string>
+                            <string>Transsition metal, 4rd group</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Transsitionmetal, 5rd group</string>
+                            <string>Transsition metal, 5rd group</string>
                         </property>
                     </item>
                     <property name="name">
