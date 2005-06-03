@@ -191,7 +191,8 @@ class PSE : public QWidget
 		}
 
 		void setTimeline( bool timeline ){
-			m_timeline = timeline;
+			if ( m_timeline != timeline )
+				m_timeline = timeline;
 		}
 		
 		int date() const{

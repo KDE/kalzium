@@ -1117,6 +1117,11 @@ void PSE::setLook( PSE::SCHEMETYPE type, int which )
 			setGradient( false );
 			break;
 		}
+		case CRYSTAL:
+		{
+			setGradient( false );
+			break;
+		}
 		case GRADIENT:
 		{
 			setGradient( true );
