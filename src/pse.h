@@ -213,6 +213,10 @@ class PSE : public QWidget
 			return d;
 		}
 
+		/**
+		 * @param which set the type of gradient
+		 * @see Element::TYPE
+		 */
 		void setLook( PSE::SCHEMETYPE type, int which = 0 );
 
   
@@ -220,7 +224,7 @@ class PSE : public QWidget
 		//XXX I can use Element::TYPE here... Why?
 		
 		///The type of the gradient.
-		//@see Element::Type
+		//@see Element::TYPE
 		int m_gradientType;
 
 		/**

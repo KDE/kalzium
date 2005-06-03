@@ -88,6 +88,8 @@ void Kalzium::setupActions()
 	 **/
 	QStringList gradientlist;
 	gradientlist.append(i18n("Atomic Radius"));
+	gradientlist.append(i18n("Covalent Radius"));
+	gradientlist.append(i18n("van der Walls Radius"));
 	gradientlist.append(i18n("Atomic Mass"));
 	gradientlist.append(i18n("Density"));
 	gradientlist.append(i18n("Boiling point"));

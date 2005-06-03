@@ -772,8 +772,6 @@ void PSE::drawPSE( QPainter* p )
 	EList::Iterator it = d->ElementList.begin();
 	const EList::Iterator itEnd = d->ElementList.end();
 
-	int coordinate = 0;
-	
 	/**
 	 * this loop iterates through all elements. The Elements
 	 * draw themselfs, the PSE only tells them to do so
@@ -796,11 +794,22 @@ void PSE::calculateGradient( QPainter *p )
 	QValueList<double> tmpList;
 	switch ( m_gradientType )
 	{
-		case Element::RADIUS:
+		case Element::ATOMICRADIUS:
 			for (; it != itEnd; ++it )
 			{
-				//FIXME
-				//tmpList.append( ( *it )->radius() );
+				tmpList.append( ( *it )->getRadius(Element::ATOMIC) );
+			}
+			break;
+		case Element::COVALENTRADIUS:
+			for (; it != itEnd; ++it )
+			{
+				tmpList.append( ( *it )->getRadius(Element::COVALENT) );
+			}
+			break;
+		case Element::VDWRADIUS:
+			for (; it != itEnd; ++it )
+			{
+				tmpList.append( ( *it )->getRadius(Element::VDW) );
 			}
 			break;
 		case Element::MASS:
@@ -869,18 +878,41 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 	it = d->ElementList.begin();
 	switch ( m_gradientType )
 	{
-		case Element::RADIUS:
-			//FIXME
-//X 			title = i18n( "Gradient: Atomic Radius" );
-//X 			while ( it != d->ElementList.end() )
-//X 			{
-//X 				double coeff = ( (*it)->radius() - min )/var;
-//X 
-//X 				QColor c = calculateColor( coeff );
-//X 
-//X 				( *it )->drawGradient( p, QString::number( ( *it )->radius() ), c );
-//X 				++it;
-//X 			}
+		case Element::ATOMICRADIUS:
+			title = i18n( "Gradient: Atomic Radius" );
+			while ( it != d->ElementList.end() )
+			{
+				double coeff = ( (*it)->getRadius(Element::ATOMIC) - min )/var;
+
+				QColor c = calculateColor( coeff );
+
+				( *it )->drawGradient( p, QString::number( ( *it )->getRadius(Element::ATOMIC) ), c );
+				++it;
+			}
+			break;
+		case Element::VDWRADIUS:
+			title = i18n( "Gradient: van der Walls Radius" );
+			while ( it != d->ElementList.end() )
+			{
+				double coeff = ( (*it)->getRadius(Element::VDW) - min )/var;
+
+				QColor c = calculateColor( coeff );
+
+				( *it )->drawGradient( p, QString::number( ( *it )->getRadius(Element::VDW) ), c );
+				++it;
+			}
+			break;
+		case Element::COVALENTRADIUS:
+			title = i18n( "Gradient: Covalent Radius" );
+			while ( it != d->ElementList.end() )
+			{
+				double coeff = ( (*it)->getRadius(Element::COVALENT) - min )/var;
+
+				QColor c = calculateColor( coeff );
+
+				( *it )->drawGradient( p, QString::number( ( *it )->getRadius(Element::COVALENT) ), c );
+				++it;
+			}
 			break;
 		case Element::MASS:
 			title = i18n( "Gradient: Atomic Mass" );

@@ -328,14 +328,17 @@ class Element{
 		enum TYPE
 		{
 			NOGRADIENT = 0,
-			RADIUS,
+			ATOMICRADIUS,
+			COVALENTRADIUS,
+			VDWRADIUS,
 			MASS,
 			DENSITY,
 			BOILINGPOINT,
 			MELTINGPOINT,
 			EN,
 			DATE,
-			IE
+			IE,
+			IONICRADIUS
 		};
 
 		/**
