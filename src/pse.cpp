@@ -989,7 +989,7 @@ void PSE::drawGradientButton( QPainter *p, Element* e, double coeff, double valu
 		e->drawGradient( p, QString::number( value ), c );
 	}
 	else
-		e->drawGradient( p, i18n( "NN" ), Qt::white );
+		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::white );
 }
 
 QColor PSE::calculateColor( const double coeff )
