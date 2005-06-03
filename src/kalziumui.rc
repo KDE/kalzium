@@ -1,14 +1,11 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <kpartgui name="kalzium" version="2">
 <MenuBar>
-  <Menu name="miscmenu">
-    <text>&amp;Miscellaneous</text>
-    <Action name="learning_mode" />
-  </Menu>
   <Menu name="table_menu"><text>&amp;Periodic Table</text>
     <Action name="numerationtype" />
     <Menu name="look_menu"><text>&amp;Look</text>
       <Action name="look_noscheme" />
+      <Separator />
       <Action name="look_groups" />
       <Action name="look_blocks" />
       <Action name="look_acid" />
@@ -19,10 +16,11 @@
     <Separator />
     <Action name="toggle_legend" />
   </Menu>
-  <Menu name="tools"><text>&amp;Tools</text>
+  <Menu name="miscmenu"><text>&amp;Miscellaneous</text>
     <Action name="plotdata" />
     <Action name="calculate_mass" />
     <Action name="glossary" />
+    <Action name="learning_mode" />
   </Menu>
 </MenuBar>
 
