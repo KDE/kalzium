@@ -59,8 +59,14 @@ KDE_ICON = AUTO
 kalzium_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
 #this RegExp-monster grep for <name origin=foo">bar</name> and puts the i18n() around foo and bar
-messages: rc.cpp
-	cat data/data.xml | grep name| sed -e 's/< *name  *origin *= *"\([^\"]*\)\">\([^<]*\)<\/ *name *>/I18N_NOOP(\"\1\"); I18N_NOOP(\"\2\");/;s/I18N_NOOP(""); //g'
+messages:
+	touch rc.cpp
+	cat data/data.xml | grep name| sed -e 's/< *name  *origin *= *"\([^\"]*\)\">\([^<]*\)<\/ *name *>/I18N_NOOP(\"\1\"); I18N_NOOP(\"\2\");/;s/I18N_NOOP(""); //g' >> rc.cpp
+	cat data/knowledge.xml | grep name| sed -e 's/< *name *>\([^<]*\)<\/ *name *>/I18N_NOOP(\"\1\");/' >> rc.cpp
+	cat data/knowledge.xml | grep desc | sed -e 's/< *name  \([^\"]*\)\">\([^<]*\)<\/ *name *>/I18N_NOOP(\"\1\");/' >> rc.cpp
+#This works. The problem: The file is not yet translated
+#	cat data/tools.xml | grep name | sed -e 's/< *name *>\([^<]*\)<\/ *name *>/I18N_NOOP(\"\1\");/' >> rc.cpp
+#	cat data/tools.xml | grep desc | sed -e 's/< *desc *>\([^<]*\)<\/ *desc *>/I18N_NOOP(\"\1\");/' >> rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kalzium.pot
 
 
