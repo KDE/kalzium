@@ -149,8 +149,8 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			for ( ; i < ionlist.count() ; ++i )
 			{
 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n("the first variable is a number. The result is for example '1.' or '5.', the second is the value of the ionisationenergie",
-				             "%1. Ionization energie: %2" ).arg( QString::number( i+1 ), e->adjustUnits( Element::IE, ionlist[i] ) ) );
+				html.append( i18n("the first variable is a number. The result is for example '1.' or '5.', the second is the value of the ionisation energy",
+				             "%1. Ionization energy: %2" ).arg( QString::number( i+1 ), e->adjustUnits( Element::IE, ionlist[i] ) ) );
 			html.append( "</td></tr>" );
 			}
 			break;
