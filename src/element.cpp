@@ -279,8 +279,8 @@ void Element::drawCrystalstructure( QPainter* p )
 	}
 		
 	p->setPen( color );
-	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, color );
-	p->drawRoundRect( X+2, Y+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
+	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, color );
+	p->drawRect( X, Y,ELEMENTSIZE,ELEMENTSIZE );
 	
 	QFont symbol_font = p->font();
 	symbol_font.setPointSize( 18 );
@@ -291,14 +291,14 @@ void Element::drawCrystalstructure( QPainter* p )
 
 	//top left
 	p->setPen( Qt::black );
-	p->drawText( X+5,Y+2 ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, name );
+	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, name );
 
 	p->setFont( symbol_font );
-	p->drawText( X+5,Y+2, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
 	
 	//border
 	p->setPen( Qt::black );
-	p->drawRoundRect( X+1, Y+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
+	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
 void Element::drawStateOfMatter( QPainter* p, double temp )
@@ -315,8 +315,7 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	QColor color = currentColor( temp );
 	
 	p->setPen( color );
-	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, color );
-	p->drawRoundRect( X+2, Y+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
+	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, color );
 	
 	QString text;
 	QFont symbol_font = p->font();
@@ -329,17 +328,17 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	//top left
 	p->setPen( Qt::black );
 	text = QString::number( strippedMass( mass( ) ) );
-	p->drawText( X+5,Y+2 ,ELEMENTSIZE-2,h_small,Qt::AlignLeft, text );
+	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
 
 	text = QString::number( number() );
-	p->drawText( X+5,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
+	p->drawText( X,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE, h_small,Qt::AlignCenter, text );
 
 	p->setFont( symbol_font );
-	p->drawText( X+5,Y+2, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
 	
 	//border
 	p->setPen( Qt::black );
-	p->drawRoundRect( X+1, Y+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
+	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 	
 QColor Element::currentColor( double temp )
@@ -373,34 +372,6 @@ QColor Element::currentColor( double temp )
 	return color;
 }
 
-void Element::drawHighlight( QPainter* p, int coordinate, bool horizontal )
-{
-	//first: test if the element is in the selected period of group
-	if ( horizontal )
-	{
-		if ( x != coordinate )
-			return;
-		//else the element is in the selected row
-	}
-	else if ( !horizontal )
-	{
-		if ( y != coordinate )
-			return;
-		//else the element is in the selected group
-	}
-
-	//the element matches. Now highlight it.
-	//The X-coordiante
-	int X = ( x-1 )*ELEMENTSIZE;
-
-	//The Y-coordinate
-	int Y = ( y-1 )*ELEMENTSIZE;
-
-	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, Qt::darkRed );
-
-	//now draw the elements over the red area
-	drawSelf( p );
-}
 	
 void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 {
@@ -414,8 +385,7 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	int Y = yPos();
 
 	p->setPen( c );
-	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, c );
-	p->drawRoundRect( X+2, Y+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
+	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, c );
 	
 	p->setPen( Qt::black );
 	QFont symbol_font = p->font();
@@ -425,14 +395,14 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 		
 	p->setFont( f );
 
-	p->drawText( X+5,Y+ELEMENTSIZE-h_small , ELEMENTSIZE-2, h_small,Qt::AlignLeft, value );
+	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, value );
 
 	p->setFont( symbol_font );
-	p->drawText( X+5,Y+2, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
 	
 	//border
 	p->setPen( Qt::black );
-	p->drawRoundRect( X+1, Y+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
+	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
 void Element::drawSelf( QPainter* p )
@@ -447,8 +417,7 @@ void Element::drawSelf( QPainter* p )
 	int Y = yPos();
 
 	p->setPen( elementColor() );
-	p->fillRect( X+3, Y+3,ELEMENTSIZE-6,ELEMENTSIZE-6, elementColor() );
-	p->drawRoundRect( X+2, Y+2,ELEMENTSIZE-4,ELEMENTSIZE-4 );
+	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, elementColor() );
 	
 	QString text;
 	QFont symbol_font = p->font();
@@ -461,17 +430,16 @@ void Element::drawSelf( QPainter* p )
 	//top left
 	p->setPen( Qt::black );
 	text = QString::number( strippedMass( mass( ) ) );
-	p->drawText( X+5,Y+2 ,ELEMENTSIZE+4,h_small,Qt::AlignLeft, text );
+	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
 
 	text = QString::number( number() );
-	p->drawText( X+5,Y+ELEMENTSIZE-h_small , ELEMENTSIZE-2, h_small,Qt::AlignLeft, text );
+	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, text );
 
 	p->setFont( symbol_font );
-	p->drawText( X+5,Y+2, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
 	
-	//border
 	p->setPen( Qt::black );
-	p->drawRoundRect( X+1, Y+1,ELEMENTSIZE-2,ELEMENTSIZE-2);
+	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
 /*!
