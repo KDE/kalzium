@@ -21,6 +21,7 @@
 #include <kmainwindow.h>
 
 class KSelectAction;
+class KToggleAction;
 class QuizsettingsDlg;
 class SliderWidget;
 class QVBoxLayout;
@@ -100,9 +101,14 @@ class Kalzium : public KMainWindow
 		KAction *m_pPlotAction,
 				*m_pCalcAction,
 				*m_pLegendAction,
-				*m_pCrystalAction,
 				*m_pGlossaryAction,
 				*m_pLearningmodeAction;
+		KToggleAction *m_actionNoScheme;
+		KToggleAction *m_actionGroups;
+		KToggleAction *m_actionBlocks;
+		KToggleAction *m_actionAcid;
+		KToggleAction *m_actionFamily;
+		KToggleAction *m_actionCrystal;
 		
 		/**
 		 * the layout of the central Widget ( CentralWidget )
@@ -120,8 +126,6 @@ class Kalzium : public KMainWindow
 		 */
 		void slotShowScheme(int);
 
-		void slotShowCrystal();
-		
 		void slotShowLegend();
 		
 		void slotGlossary();
@@ -141,6 +145,14 @@ class Kalzium : public KMainWindow
 		void slotLearningmode();
 
 		void slotUpdateSettings();
+
+		void slotNoLook();
+
+		void slotLookGroups();
+		void slotLookBlocks();
+		void slotLookAcidBehavior();
+		void slotLookFamily();
+		void slotLookCrystal();
 	
 		/**
 		 * These slots are for the standardactions

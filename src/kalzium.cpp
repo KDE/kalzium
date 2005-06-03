@@ -76,18 +76,28 @@ Kalzium::Kalzium()
 
 void Kalzium::setupActions()
 {
+	m_actionNoScheme = new KToggleAction(i18n("&No Color Scheme"), 0, this, SLOT(slotNoLook()), actionCollection(), "look_noscheme");
+
+	/*
+	 * the actions for the colorschemes
+	 **/
+	m_actionGroups = new KToggleAction(i18n("Show &Groups"), 0, this, SLOT(slotLookGroups()), actionCollection(), "look_groups");
+	m_actionBlocks = new KToggleAction(i18n("Show &Blocks"), 0, this, SLOT(slotLookBlocks()), actionCollection(), "look_blocks");
+	m_actionAcid = new KToggleAction(i18n("Show &Acid Behavior"), 0, this, SLOT(slotLookAcidBehavior()), actionCollection(), "look_acid");
+	m_actionFamily = new KToggleAction(i18n("Show &Family"), 0, this, SLOT(slotLookFamily()), actionCollection(), "look_family");
+	m_actionCrystal = new KToggleAction(i18n("Show &Crystal Structures"), 0, this, SLOT(slotLookCrystal()), actionCollection(), "look_crystal");
+
 	/*
 	 * the actions for switching PSE
 	 **/
 	QStringList gradientlist;
-	gradientlist.append(i18n("No Gradient"));
 	gradientlist.append(i18n("Atomic Radius"));
 	gradientlist.append(i18n("Atomic Mass"));
 	gradientlist.append(i18n("Density"));
 	gradientlist.append(i18n("Boiling point"));
 	gradientlist.append(i18n("Melting point"));
 	gradientlist.append(i18n("Electronegativity"));
-	gradient_action = new KSelectAction (i18n("&Gradient"), 0, this, 0, actionCollection(), "gradmenu");
+	gradient_action = new KSelectAction(i18n("&Gradient"), 0, this, 0, actionCollection(), "look_gradmenu");
 	gradient_action->setItems(gradientlist);
 	connect (gradient_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoGradient(int)));
 
@@ -105,20 +115,6 @@ void Kalzium::setupActions()
 	connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
 
 	/*
-	 * the actions for the colorschemes
-	 **/
-	QStringList looklist;
-	looklist.append(i18n("&No Color Scheme"));
-	looklist.append(i18n("Show &Groups"));
-	looklist.append(i18n("Show &Blocks"));
-	looklist.append(i18n("Show &Acid Behavior"));
-	looklist.append(i18n("Show &Family"));
-	look_action = new KSelectAction (i18n("&Look"), 0, this, 0, actionCollection(), "look_menu");
-	look_action->setItems(looklist);
-	look_action->setCurrentItem(Prefs::colorschemebox()); 
-	connect (look_action, SIGNAL(activated(int)), this, SLOT(slotShowScheme(int)));
-
-	/*
 	 * the misc actions
 	 **/
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
@@ -129,8 +125,6 @@ void Kalzium::setupActions()
 
 	//Legend
 	m_pLegendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
-	
-	m_pCrystalAction = new KAction(i18n("Show &Crystal Structures"), "crystal", 0, this, SLOT(slotShowCrystal()), actionCollection(), "crystalstructures");
 	
 	m_pLearningmodeAction = new KAction(i18n("Enter &Learning Mode"), "legend", 0, this, SLOT(slotLearningmode()), actionCollection(), "learning_mode");
 
@@ -209,31 +203,6 @@ void Kalzium::slotCalculate()
 	dlg->show();
 }
 
-void Kalzium::slotShowCrystal()
-{
-	if(m_PSE->crystal())
-	{
-		m_PSE->setCrystal(false);
-		m_pCrystalAction->setText(i18n("Show &Crystal Structures"));
-		gradient_action->setEnabled( true );
-		look_action->setEnabled( true );
-		m_pLegendAction->setEnabled( true );
-		m_pLearningmodeAction->setEnabled( true );
-	}
-	else
-	{
-		m_PSE->setCrystal(true);
-		m_pCrystalAction->setText(i18n("Hide &Crystal Structures"));
-		gradient_action->setEnabled( false );
-		look_action->setEnabled( false );
-		m_pLegendAction->setEnabled( false );
-		m_pLearningmodeAction->setEnabled( false );
-	}
- 
-	//JH: redraw the full table next time
-	setFullDraw();
-}
-
 void Kalzium::slotShowLegend()
 {
 	if(m_PSE->showLegend())
@@ -257,27 +226,48 @@ void Kalzium::slotShowLegend()
 
 void Kalzium::slotShowScheme(int i)
 {
-	m_PSE->activateColorScheme( i );
-	slotSwitchtoGradient( 0 );//deactivate the gradient
-	gradient_action->setCurrentItem(0);
-	m_PSE->update();
-
-	Prefs::setColorschemebox(i); 
-	Prefs::writeConfig();
-
-	//JH: redraw the full table next time
-	setFullDraw();
+	switch ( i )
+	{
+		case PSE::GROUPS:
+			m_actionGroups->setChecked( true );
+			m_PSE->setLook( PSE::GROUPS );
+			break;
+		case PSE::BLOCK:
+			m_actionBlocks->setChecked( true );
+			m_PSE->setLook( PSE::BLOCK );
+			break;
+		case PSE::ACIDIC:
+			m_actionAcid->setChecked( true );
+			m_PSE->setLook( PSE::ACIDIC );
+			break;
+		case PSE::FAMILY:
+			m_actionFamily->setChecked( true );
+			m_PSE->setLook( PSE::FAMILY );
+			break;
+		case PSE::CRYSTAL:
+			m_actionCrystal->setChecked( true );
+			m_PSE->setLook( PSE::CRYSTAL );
+			break;
+		case PSE::GRADIENT:
+			// XXX read better the gradient type!
+			gradient_action->setCurrentItem( 1 );
+			m_PSE->setLook( PSE::GRADIENT, 2 );
+			break;
+		case PSE::NOCOLOUR:
+		default:
+			m_actionNoScheme->setChecked( true );
+			m_PSE->setLook( PSE::NOCOLOUR );
+	}
 }
 
 void Kalzium::slotSwitchtoGradient( int index )
 {
-	if ( index == 0 )
-	{
-		m_PSE->setGradient( false );
-		return;
-	}
-	m_PSE->setGradientType( index );
-	m_PSE->setGradient( true );
+	m_PSE->setLook( PSE::GRADIENT, index + 1 );
+	m_actionNoScheme->setChecked( false );
+	m_actionGroups->setChecked( false );
+	m_actionBlocks->setChecked( false );
+	m_actionAcid->setChecked( false );
+	m_actionFamily->setChecked( false );
 }
 
 void Kalzium::slotSwitchtoNumeration( int index )
@@ -336,6 +326,72 @@ void Kalzium::openInformationDialog( int number )
 		info_dlg.exec();
 		emit tableLocked(false);
 	}
+}
+
+void Kalzium::slotNoLook()
+{
+	m_PSE->setLook( PSE::NOCOLOUR );
+	gradient_action->setCurrentItem( -1 );
+	m_actionGroups->setChecked( false );
+	m_actionBlocks->setChecked( false );
+	m_actionAcid->setChecked( false );
+	m_actionFamily->setChecked( false );
+	m_actionCrystal->setChecked( false );
+}
+
+void Kalzium::slotLookGroups()
+{
+	m_PSE->setLook( PSE::GROUPS );
+	gradient_action->setCurrentItem( -1 );
+	m_actionNoScheme->setChecked( false );
+	m_actionBlocks->setChecked( false );
+	m_actionAcid->setChecked( false );
+	m_actionFamily->setChecked( false );
+	m_actionCrystal->setChecked( false );
+}
+
+void Kalzium::slotLookBlocks()
+{
+	m_PSE->setLook( PSE::BLOCK );
+	gradient_action->setCurrentItem( -1 );
+	m_actionNoScheme->setChecked( false );
+	m_actionGroups->setChecked( false );
+	m_actionAcid->setChecked( false );
+	m_actionFamily->setChecked( false );
+	m_actionCrystal->setChecked( false );
+}
+
+void Kalzium::slotLookAcidBehavior()
+{
+	m_PSE->setLook( PSE::ACIDIC );
+	gradient_action->setCurrentItem( -1 );
+	m_actionNoScheme->setChecked( false );
+	m_actionGroups->setChecked( false );
+	m_actionBlocks->setChecked( false );
+	m_actionFamily->setChecked( false );
+	m_actionCrystal->setChecked( false );
+}
+
+void Kalzium::slotLookFamily()
+{
+	m_PSE->setLook( PSE::FAMILY );
+	gradient_action->setCurrentItem( -1 );
+	m_actionNoScheme->setChecked( false );
+	m_actionGroups->setChecked( false );
+	m_actionBlocks->setChecked( false );
+	m_actionAcid->setChecked( false );
+	m_actionCrystal->setChecked( false );
+}
+
+void Kalzium::slotLookCrystal()
+{
+	m_PSE->setLook( PSE::CRYSTAL );
+	gradient_action->setCurrentItem( -1 );
+	m_actionNoScheme->setChecked( false );
+	m_actionGroups->setChecked( false );
+	m_actionBlocks->setChecked( false );
+	m_actionAcid->setChecked( false );
+	m_actionFamily->setChecked( false );
 }
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }

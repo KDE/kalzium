@@ -2,14 +2,21 @@
 <kpartgui name="kalzium" version="2">
 <MenuBar>
   <Action name="numerationtype" />
-  <Action name="gradmenu" />
   <Menu name="miscmenu">
     <text>&amp;Miscellaneous</text>
     <Action name="toggle_legend" />
     <Action name="learning_mode" />
     <Action name="crystalstructures" />
   </Menu>
-  <Action name="look_menu" />
+  <Menu name="look_menu"><text>&amp;Look</text>
+    <Action name="look_noscheme" />
+    <Action name="look_groups" />
+    <Action name="look_blocks" />
+    <Action name="look_acid" />
+    <Action name="look_family" />
+    <Action name="look_crystal" />
+    <Action name="look_gradmenu" />
+  </Menu>
   <Menu name="tools"><text>&amp;Tools</text>
     <Action name="plotdata" />
     <Action name="calculate_mass" />

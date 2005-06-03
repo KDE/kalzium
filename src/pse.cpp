@@ -63,7 +63,6 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	m_timeline = false;
 	m_showSOM = false;
 	m_showGradient = false;
-	m_showCrystal = false;
 	
 	showLegend( Prefs::showlegend() );
 
@@ -348,7 +347,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		  bitBlt( this, 0, 0, table2 );
 		  return;
 	  }
-	  if ( crystal() ){//show a gradient
+	  if ( m_currentScheme == CRYSTAL ){//show the crystal structure
 		  drawCrystal(& p );
 		  p.end();
 
@@ -972,6 +971,171 @@ QColor PSE::calculateColor( const double coeff )
 	int blue = (int)( (color1.blue() - color2.blue()) * coeff + color2.blue() );
 
 	return QColor( red, green, blue );
+}
+
+void PSE::setLook( PSE::SCHEMETYPE type, int which )
+{
+	m_currentScheme = type;
+	
+	EList::Iterator it = d->ElementList.begin();
+	const EList::Iterator itEnd = d->ElementList.end();
+
+	switch ( type )
+	{
+		case NOCOLOUR:
+		{
+			const QColor color = Prefs::noscheme();
+			while ( it != itEnd )
+			{
+				( *it )->setElementColor( color );
+				++it;
+			}
+			setGradient( false );
+			break;
+		}
+		case PSE::GROUPS:  // group view
+		{
+			QString group;
+
+			while ( it != itEnd )
+			{
+				group = ( *it )->group();
+				
+				if (group == QString("1")) {
+					( *it )->setElementColor( color_1 );
+				}
+				if (group == QString("2")){
+					( *it )->setElementColor( color_2 );
+				}
+				if (group == QString("3")){
+					( *it )->setElementColor( color_3 );
+				}
+				if (group == QString("4")){
+					( *it )->setElementColor( color_4 );
+				}
+				if (group == QString("5")){
+					( *it )->setElementColor( color_5 );
+				}
+				if (group == QString("6")){
+					( *it )->setElementColor( color_6 );
+				}
+				if (group == QString("7")){
+					( *it )->setElementColor( color_7 );
+				}
+				if (group == QString("8")){
+					( *it )->setElementColor( color_8 );
+				}
+
+				++it;
+			}
+			setGradient( false );
+			break;
+		}
+		case PSE::BLOCK: //block view
+		{
+			static QString block;
+			while ( it != itEnd )
+			{
+				block = (*it)->block();
+	
+				if (block == QString("s")) {
+					(*it)->setElementColor( color_s );
+				}
+				if (block == QString("p")) {
+					(*it)->setElementColor( color_p );
+				}
+				if (block == QString("d")) {
+					(*it)->setElementColor( color_d );
+				}
+				if (block == QString("f")) {
+					(*it)->setElementColor( color_f );
+				}
+				++it;
+			}
+			setGradient( false );
+			break;
+		}
+		case PSE::ACIDIC: //acidic beh
+		{
+			static QString acidicbeh;
+			while ( it != itEnd )
+			{
+				acidicbeh = ( *it )->acidicbeh();
+
+				if (acidicbeh == QString("0")) {
+					(*it)->setElementColor( color_ac );
+				}
+				if (acidicbeh == QString("1")){
+					(*it)->setElementColor( color_ba );
+				}
+				if (acidicbeh == QString("2")){
+					(*it)->setElementColor( color_neu );
+				}
+				if (acidicbeh == QString("3")){
+					(*it)->setElementColor( color_amp );
+				}
+				++it;
+			}
+			setGradient( false );
+			break;
+		}
+		case PSE::FAMILY: //familiy of the element
+		{
+			static QString family;
+
+			while ( it != itEnd )
+			{
+				family = ( *it )->family();
+
+				if ( family == "Noblegas" ){
+					(*it)->setElementColor( c_noble_gas );
+				}
+				if ( family == "Non-Metal" ){
+					(*it)->setElementColor( c_nonmetal );
+				}
+				if ( family == "Rare_Earth" ){
+					(*it)->setElementColor( c_rare );
+				}
+				if ( family == "Alkaline_Earth" ){
+					(*it)->setElementColor( c_alkaline );
+				}
+				if ( family == "Alkali_Earth" ){
+					(*it)->setElementColor( c_alkalie );
+				}
+				if ( family == "Transition" ){
+					(*it)->setElementColor( c_transition );
+				}
+				if ( family == "Other_Metal" ){
+					(*it)->setElementColor( c_other_metal );
+				}
+				if ( family == "Metalloids" ){
+					(*it)->setElementColor( c_metalloid );
+				}
+				if ( family == "Halogene" ){
+					(*it)->setElementColor( c_halogene );
+				}
+			
+				++it;
+			}
+			setGradient( false );
+			break;
+		}
+		case GRADIENT:
+		{
+			setGradient( true );
+			setGradientType( which );
+			break;
+		}
+		default:
+			;
+	}
+
+	Prefs::setColorschemebox( type );
+	Prefs::writeConfig();
+
+	//JH: redraw the full table next time
+	setFullDraw();
+	update();
 }
 
 

@@ -55,7 +55,9 @@ class PSE : public QWidget
 			GROUPS,
 			BLOCK,
 			ACIDIC,
-			FAMILY
+			FAMILY,
+			GRADIENT,
+			CRYSTAL
 		};
 		
 		enum NUMERATIONTYPE
@@ -155,16 +157,6 @@ class PSE : public QWidget
 			update();
 		}
 
-		bool crystal() const{
-			return m_showCrystal;
-		}
-
-		void setCrystal( bool cry ){
-			m_showCrystal = cry;
-			setFullDraw();
-			update();
-		}
-
 		//XXXI can't use Element::TYPE here... why?
 		void setGradientType( int type ){ 
 			m_gradientType = type;
@@ -220,6 +212,8 @@ class PSE : public QWidget
 			return d;
 		}
 
+		void setLook( PSE::SCHEMETYPE type, int which = 0 );
+
   
 	private:
 		//XXX I can use Element::TYPE here... Why?
@@ -255,8 +249,6 @@ class PSE : public QWidget
 		bool m_showSOM;
 		
 		bool m_showGradient;
-
-		bool m_showCrystal;
 
 		///Timer used for the tooltop
 		QTimer HoverTimer;
