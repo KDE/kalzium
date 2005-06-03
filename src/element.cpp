@@ -86,6 +86,44 @@ double Element::meanmass()
 	return m_mass/m_number;
 }
 
+const QString Element::adjustRadius( RADIUSTYPE rtype )
+{
+	double val = 0.0;
+	QString v;
+
+	switch ( rtype )
+	{
+		case ATOMIC:
+			val = m_RadiusAR;
+			break;
+		case IONIC:
+			val = m_RadiusIon;
+			break;
+		case COVALENT:
+			val = m_RadiusCR;
+			break;
+		case VDW:
+			val = m_RadiusVDW;
+			break;
+	}
+
+	if ( val <= 0 )
+		v = i18n( "Value unknown" );
+	else
+	{
+		switch ( Prefs::units() )
+		{
+			case 0://use SI-values (meter for length)
+				v = i18n( "%1 10<sup>-12</sup> m" ).arg( QString::number( val ) );
+				break;
+			case 1://use picometer, the most common unit for radii
+				v = i18n( "%1 pm" ).arg( QString::number( val ) );
+				break;
+		}
+	}
+	return v;
+}
+
 const QString Element::adjustUnits( const int type, double value )
 {
 	QString v;
@@ -146,28 +184,6 @@ const QString Element::adjustUnits( const int type )
 		else
 			v = QString::number( val );
 	}
-//X 	else if ( type == RADIUS || type == IONICRADIUS ) // its a length
-//X 	{
-//X 		if ( type == RADIUS )
-//X 			val = radius();
-//X 		else if ( type == IONICRADIUS )
-//X 			val = ionicValue();
-//X 
-//X 		if ( val <= 0 )
-//X 			v = i18n( "Value unknown" );
-//X 		else
-//X 		{
-//X 			switch ( Prefs::units() )
-//X 			{
-//X 				case 0://use SI-values (meter for length)
-//X 					v = i18n( "%1 10<sup>-12</sup> m" ).arg( QString::number( val ) );
-//X 					break;
-//X 				case 1://use picometer, the most common unit for radii
-//X 					v = i18n( "%1 pm" ).arg( QString::number( val ) );
-//X 					break;
-//X 			}
-//X 		}
-//X 	}
 	else if ( type == MASS ) // its a mass
 	{
 		val = mass();
@@ -489,7 +505,42 @@ void Element::setupXY()
 
 void Element::setRadius( RADIUSTYPE type, double value, const QString& name )
 {
+	switch ( type )
+	{
+		case ATOMIC:
+			m_RadiusAR = value;
+			break;
+		case IONIC:
+			m_RadiusIon = value;
+			m_ionvalue = name;
+			break;
+		case COVALENT:
+			m_RadiusCR = value;
+			break;
+		case VDW:
+			m_RadiusVDW = value;
+			break;
+	}
+}
 
+double Element::getRadius( RADIUSTYPE type )
+{
+	switch ( type )
+	{
+		case ATOMIC:
+			return m_RadiusAR;
+			break;
+		case IONIC:
+			return m_RadiusIon;
+			break;
+		case COVALENT:
+			return m_RadiusCR;
+			break;
+		case VDW:
+			return m_RadiusVDW;
+			break;
+	}
+	return 0.0;
 }
 
 KalziumDataObject::KalziumDataObject()
@@ -546,9 +597,12 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		double mp = domElement.namedItem( "meltingpoint" ).toElement().text().toDouble();
 		double bp = domElement.namedItem( "boilingpoint" ).toElement().text().toDouble();
 		double density = domElement.namedItem( "density" ).toElement().text().toDouble();
-//X 		double covalent_radius = domElement.namedItem( "radius" ).namedItem( "covalent" ).toElement().text().toDouble();
-//X 		double ionic_radius = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().text().toDouble();
-//X 		QString ionic_charge = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().attributeNode( "charge" ).value();
+		double covalent_radius = domElement.namedItem( "radius" ).namedItem( "covalent" ).toElement().text().toDouble();
+		//van der Walls-Radius
+		double vdw_radius = domElement.namedItem( "radius" ).namedItem( "vdw" ).toElement().text().toDouble();
+		double atomic_radius = domElement.namedItem( "radius" ).namedItem( "atomic" ).toElement().text().toDouble();
+		double ionic_radius = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().text().toDouble();
+		QString ionic_charge = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().attributeNode( "charge" ).value();
 		
 		int bio = domElement.namedItem( "biologicalmeaning" ).toElement().text().toInt();
 		int az = domElement.namedItem( "aggregation" ).toElement().text().toInt();
@@ -583,7 +637,10 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setBiologicalMeaning(bio);
 		e->setAggregation(az);
 		e->setNumber( number );
-//		e->setIonicValues( ionic_radius, ionic_charge );
+		e->setRadius( Element::ATOMIC, atomic_radius );
+		e->setRadius( Element::IONIC, ionic_radius, ionic_charge );
+		e->setRadius( Element::COVALENT, covalent_radius );
+		e->setRadius( Element::VDW, vdw_radius );
 		
 		e->setScientist(scientist);
 		e->setCrysatalstructure( crystal );
@@ -604,7 +661,6 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setMeltingpoint( mp );
 		e->setBoilingpoint( bp );
 		e->setDensity( density );
-//		e->setCovalentRadius( covalent_radius );
 
 		e->setupXY();
 

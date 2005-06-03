@@ -109,6 +109,11 @@ class Element{
 		 * the ion (for example, +2 or -3 )
 		 */
 		void setRadius( RADIUSTYPE type, double value, const QString& name = 0 );
+		
+		/**
+		 * @return the value of the radius of the type @p type
+		 */
+		double getRadius( RADIUSTYPE type );
 
 		void setDate( int date ) { m_date = date; }
 		void setBiologicalMeaning( int value ) { m_biological = value; }
@@ -195,6 +200,12 @@ class Element{
 		QString elname() const {
 			return m_name;
 		}
+
+		//FIXME I need to add a way to have more than one ionic radius
+		QString ioncharge() const{ 
+			return m_ionvalue; 
+		}
+		
 		/**
 		 * @return the chemical block (s, p, d, f) of the element
 		 */
@@ -303,6 +314,9 @@ class Element{
 		 */
 		const QString adjustUnits( const int type );
 
+		const QString adjustRadius( RADIUSTYPE rtype );
+
+
 		/**
 		 * needed for values stored in a QValueList<double>
 		 */
@@ -358,7 +372,12 @@ class Element{
 			m_MP, 
 			m_BP, 
 			m_EN, 
-			m_Density;
+			m_Density,
+			m_RadiusAR,
+			m_RadiusCR,
+			m_RadiusVDW,
+			m_RadiusIon;
+		
 
 		int     m_number, 
 			m_date,
@@ -376,7 +395,8 @@ class Element{
 			m_orbits,
 			m_isotopes,
 			m_scientist,
-			m_crystalstructure;
+			m_crystalstructure,
+			m_ionvalue;
 
 		doubleList m_ionenergies;
 		

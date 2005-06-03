@@ -105,14 +105,14 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( i18n( "<b>Density: %1</b>" ).arg( e->adjustUnits( Element::DENSITY ) ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-			html.append( i18n( "<b>Radius: %1</b>" ).arg( e->adjustUnits( Element::RADIUS ) ) );
+			html.append( i18n( "<b>Covalent Radius: %1</b>" ).arg( e->adjustRadius( Element::COVALENT ) ) );
 			html.append( "</td></tr>" );
-//X 			if ( e->ionicValue() )
-//X 			{//FIXME
-//X 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-//X 				html.append( i18n( "<b>Ionic Radius (Charge): %1 </b>(%2)" ).arg( e->adjustUnits(Element::IONICRADIUS) ).arg( e->ionicCharge() ) );
-//X 				html.append( "</td></tr>" );
-//X 			}
+			if ( e->ioncharge() != "" )
+			{
+				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
+				html.append( i18n( "<b>Ionic Radius (Charge): %1 </b>(%2)" ).arg( e->adjustRadius(Element::IONIC) ).arg( e->ioncharge() ) );
+				html.append( "</td></tr>" );
+			}
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "<b>Mass: %1</b>" ).arg( e->adjustUnits( Element::MASS ) ) );
 			html.append( "</td></tr>" );
