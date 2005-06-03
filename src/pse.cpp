@@ -847,10 +847,11 @@ void PSE::calculateGradient( QPainter *p )
 	QValueList<double>::iterator dit = tmpList.begin();
 	const QValueList<double>::iterator ditEnd = tmpList.end();
 
-	double tmpMin = 0.0;
-	double tmpMax = 0.0;
+	double tmpMin = *dit;
+	double tmpMax = *dit;
 	for ( ; dit != ditEnd; ++dit )
 	{
+		if ((  *dit ) == 0 ) continue;
 		if ( ( *dit ) < tmpMin )
 			tmpMin = *dit;
 		if ( ( *dit ) > tmpMax )
@@ -882,11 +883,11 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			title = i18n( "Gradient: Atomic Radius" );
 			while ( it != d->ElementList.end() )
 			{
-				double coeff = ( (*it)->getRadius(Element::ATOMIC) - min )/var;
+				double value = ( *it )->getRadius( Element::ATOMIC );
+				double coeff = ( value - min )/var;
 
-				QColor c = calculateColor( coeff );
-
-				( *it )->drawGradient( p, QString::number( ( *it )->getRadius(Element::ATOMIC) ), c );
+				drawGradientButton( p, *it, coeff, value, min );
+				
 				++it;
 			}
 			break;
@@ -894,11 +895,11 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			title = i18n( "Gradient: van der Walls Radius" );
 			while ( it != d->ElementList.end() )
 			{
-				double coeff = ( (*it)->getRadius(Element::VDW) - min )/var;
+				double value = ( *it )->getRadius( Element::VDW );
+				double coeff = ( value - min )/var;
+				
+				drawGradientButton( p, *it, coeff, value, min );
 
-				QColor c = calculateColor( coeff );
-
-				( *it )->drawGradient( p, QString::number( ( *it )->getRadius(Element::VDW) ), c );
 				++it;
 			}
 			break;
@@ -906,11 +907,11 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			title = i18n( "Gradient: Covalent Radius" );
 			while ( it != d->ElementList.end() )
 			{
+				double value = ( *it )->getRadius( Element::COVALENT );
 				double coeff = ( (*it)->getRadius(Element::COVALENT) - min )/var;
+				
+				drawGradientButton( p, *it, coeff, value, min );
 
-				QColor c = calculateColor( coeff );
-
-				( *it )->drawGradient( p, QString::number( ( *it )->getRadius(Element::COVALENT) ), c );
 				++it;
 			}
 			break;
@@ -919,10 +920,8 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->mass() - min )/var;
+				drawGradientButton( p, *it, coeff, ( *it )->mass(), min );
 
-				QColor c = calculateColor( coeff );
-
-				( *it )->drawGradient( p, QString::number( ( *it )->mass() ), c );
 				++it;
 			}
 			break;
@@ -932,9 +931,7 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			{
 				double coeff = ( (*it)->density() - min )/var;
 
-				QColor c = calculateColor( coeff );
-
-				( *it )->drawGradient( p, QString::number( ( *it )->density() ), c );
+				drawGradientButton( p, *it, coeff, ( *it )->density(), min );
 				++it;
 			}
 			break;
@@ -943,10 +940,8 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->boiling() - min )/var;
+				drawGradientButton( p, *it, coeff, ( *it )->boiling(), min );
 
-				QColor c = calculateColor( coeff );
-
-				( *it )->drawGradient( p, QString::number( ( *it )->boiling() ), c );
 				++it;
 			}
 			break;
@@ -955,10 +950,8 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->melting() - min )/var;
+				drawGradientButton( p, *it, coeff, ( *it )->melting(), min );
 
-				QColor c = calculateColor( coeff );
-
-				( *it )->drawGradient( p, QString::number( ( *it )->melting() ), c );
 				++it;
 			}
 			break;
@@ -967,10 +960,8 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			while ( it != d->ElementList.end() )
 			{
 				double coeff = ( (*it)->electroneg() - min )/var;
+				drawGradientButton( p, *it, coeff, ( *it )->electroneg(), min );
 
-				QColor c = calculateColor( coeff );
-
-				( *it )->drawGradient( p, QString::number( ( *it )->electroneg() ), c );
 				++it;
 			}
 			break;
@@ -988,6 +979,17 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 	p->drawPixmap( x+50,y+80, pm );
 	p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignRight, QString::number(  max ) ); 
 	p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignLeft, QString::number( min ) ); 
+}
+
+void PSE::drawGradientButton( QPainter *p, Element* e, double coeff, double value, double minValue )
+{
+	if ( value >= minValue )
+	{
+		QColor c = calculateColor( coeff );
+		e->drawGradient( p, QString::number( value ), c );
+	}
+	else
+		e->drawGradient( p, i18n( "NN" ), Qt::white );
 }
 
 QColor PSE::calculateColor( const double coeff )

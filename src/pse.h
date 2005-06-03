@@ -233,6 +233,14 @@ class PSE : public QWidget
 		void calculateGradient( QPainter* );
 
 		/**
+		 * @param p The pointer to draw
+		 * @param e the element which is to be drawn
+		 * @param value the value 
+		 * @param minValue the smallest of alle values
+		 */
+		void drawGradientButton( QPainter* p, Element* e, double coeff, double value, double minValue );
+
+		/**
 		 * calculates the color of an element which has a value which 
 		 * is @p percentage of the maximum value. This will be the
 		 * color used in the gradient view for an element.
@@ -253,6 +261,7 @@ class PSE : public QWidget
 		///if true the State Of Matter will be shown
 		bool m_showSOM;
 		
+		///if true the gradients will be shown
 		bool m_showGradient;
 
 		///Timer used for the tooltop
