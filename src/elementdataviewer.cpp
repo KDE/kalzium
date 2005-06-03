@@ -187,14 +187,14 @@ void ElementDataViewer::setupAxisData()
 			}
 			break;
 		case AxisData::ATOMICRADIUS:
-			for( ; it != itEnd ; ++it ) {
-				double value = (*it)->radius();
-				if( value != -1 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Atomic Radius [pm]"));
-			}
+//X 			for( ; it != itEnd ; ++it ) {
+//X 				double value = (*it)->radius();
+//X 				if( value != -1 )
+//X 				  l.append( value );
+//X 				else
+//X 				  l.append( 0.0 );
+//X 				m_pPlotWidget->setYAxisLabel(i18n("Atomic Radius [pm]"));
+//X 			}
 			break;
 	}
 

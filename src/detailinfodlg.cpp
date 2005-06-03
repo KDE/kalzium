@@ -107,12 +107,12 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
 			html.append( i18n( "<b>Radius: %1</b>" ).arg( e->adjustUnits( Element::RADIUS ) ) );
 			html.append( "</td></tr>" );
-			if ( e->ionicValue() )
-			{
-				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-				html.append( i18n( "<b>Ionic Radius (Charge): %1 </b>(%2)" ).arg( e->adjustUnits(Element::IONICRADIUS) ).arg( e->ionicCharge() ) );
-				html.append( "</td></tr>" );
-			}
+//X 			if ( e->ionicValue() )
+//X 			{//FIXME
+//X 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
+//X 				html.append( i18n( "<b>Ionic Radius (Charge): %1 </b>(%2)" ).arg( e->adjustUnits(Element::IONICRADIUS) ).arg( e->ionicCharge() ) );
+//X 				html.append( "</td></tr>" );
+//X 			}
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "<b>Mass: %1</b>" ).arg( e->adjustUnits( Element::MASS ) ) );
 			html.append( "</td></tr>" );

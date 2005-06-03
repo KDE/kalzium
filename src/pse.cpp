@@ -803,7 +803,8 @@ void PSE::calculateGradient( QPainter *p )
 		case Element::RADIUS:
 			for (; it != itEnd; ++it )
 			{
-				tmpList.append( ( *it )->radius() );
+				//FIXME
+				//tmpList.append( ( *it )->radius() );
 			}
 			break;
 		case Element::MASS:
@@ -873,16 +874,17 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 	switch ( m_gradientType )
 	{
 		case Element::RADIUS:
-			title = i18n( "Gradient: Atomic Radius" );
-			while ( it != d->ElementList.end() )
-			{
-				double coeff = ( (*it)->radius() - min )/var;
-
-				QColor c = calculateColor( coeff );
-
-				( *it )->drawGradient( p, QString::number( ( *it )->radius() ), c );
-				++it;
-			}
+			//FIXME
+//X 			title = i18n( "Gradient: Atomic Radius" );
+//X 			while ( it != d->ElementList.end() )
+//X 			{
+//X 				double coeff = ( (*it)->radius() - min )/var;
+//X 
+//X 				QColor c = calculateColor( coeff );
+//X 
+//X 				( *it )->drawGradient( p, QString::number( ( *it )->radius() ), c );
+//X 				++it;
+//X 			}
 			break;
 		case Element::MASS:
 			title = i18n( "Gradient: Atomic Mass" );

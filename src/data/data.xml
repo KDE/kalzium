@@ -20,7 +20,7 @@
 			<energy>13.598</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>37.3</atomic>
+			<covalent>37.3</covalent>
 		</radius>
 		<orbits>1s1</orbits>
 		<oxydation>+1,(-1)</oxydation>
@@ -46,7 +46,7 @@
 			<energy>54.417</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>128</atomic>
+			<covalent>128</covalent>
 		</radius>
 		<orbits>1s2</orbits>
 		<oxydation>0</oxydation>
@@ -73,7 +73,7 @@
 			<energy>75.980</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>152</atomic>
+			<covalent>152</covalent>
 		</radius>
 		<orbits>1s2 2s1</orbits>
 		<oxydation>+1</oxydation>
@@ -101,7 +101,7 @@
 			<energy>18.211</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>113.3</atomic>
+			<covalent>113.3</covalent>
 		</radius>
 		<orbits>1s2 2s2</orbits>
 		<oxydation>+2</oxydation>
@@ -129,7 +129,7 @@
 			<energy>37.9</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>83</atomic>
+			<covalent>83</covalent>
 		</radius>
 		<orbits>1s2 2s2 2p1</orbits>
 		<oxydation>+3</oxydation>
@@ -156,7 +156,7 @@
 			<energy>24.376</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>77.2</atomic>
+			<covalent>77.2</covalent>
 		</radius>
 		<orbits>1s2 2s2 2p2</orbits>
 		<oxydation>-4,+2,+4</oxydation>
@@ -183,7 +183,7 @@
 			<energy>29.602</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>71</atomic>
+			<covalent>71</covalent>
 			<ionic charge="+5">13</ionic>
 		</radius>
 		<orbits>1s2 2s2 2p3</orbits>
@@ -211,7 +211,7 @@
 			<energy>35.116</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>60.4</atomic>
+			<covalent>60.4</covalent>
 			<ionic charge="-2">146</ionic>
 		</radius>
 		<orbits>1s2 2s2 2p4</orbits>
@@ -239,7 +239,7 @@
 			<energy>34.969</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>70.9</atomic>
+			<covalent>70.9</covalent>
 		</radius>
 		<orbits>1s2 2s2 2p5</orbits>
 		<oxydation>-1</oxydation>
@@ -265,7 +265,7 @@
 			<energy>40.962</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>150</atomic>
+			<covalent>150</covalent>
 		</radius>
 		<orbits>1s2 2s2 2p6</orbits>
 		<oxydation>0</oxydation>
@@ -292,7 +292,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>153.7</atomic>
+			<covalent>153.7</covalent>
 		</radius>
 		<orbits>1s2 2s2 2p6 3s1</orbits>
 		<oxydation>+1</oxydation>
@@ -320,7 +320,7 @@
 			<energy>15.0</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>160</atomic>
+			<covalent>160</covalent>
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2</orbits>
 		<oxydation>+2</oxydation>
@@ -349,7 +349,7 @@
 			<energy>28.4</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>143.1</atomic>
+			<covalent>143.1</covalent>
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p1</orbits>
 		<oxydation>+3</oxydation>
@@ -376,7 +376,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>117</atomic>
+			<covalent>117</covalent>
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p2</orbits>
 		<oxydation>+4,(-4,+2)</oxydation>
@@ -404,7 +404,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>93</atomic>
+			<covalent>93</covalent>
 			<ionic charge="+5">35</ionic>
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p3</orbits>
@@ -432,7 +432,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>104</atomic>
+			<covalent>104</covalent>
 			<ionic charge="-2">190</ionic>
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p4</orbits>
@@ -461,7 +461,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>99.4</atomic>
+			<covalent>99.4</covalent>
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p5</orbits>
 		<oxydation>-1,(+1,+3,+5,+7)</oxydation>
@@ -489,7 +489,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>174</atomic>
+			<covalent>174</covalent>
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p6</orbits>
 		<oxydation>0</oxydation>
@@ -517,7 +517,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>227</atomic>
+			<covalent>227</covalent>
 		</radius>
 		<orbits>Ar 4s1</orbits>
 		<oxydation>+1</oxydation>
@@ -546,7 +546,7 @@
 			<energy>11.9</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>197.3</atomic>
+			<covalent>197.3</covalent>
 		</radius>
 		<orbits>Ar 4s2</orbits>
 		<oxydation>+2</oxydation>
@@ -575,7 +575,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>160.6</atomic>
+			<covalent>160.6</covalent>
 		</radius>
 		<orbits>Ar 3d1 4s2</orbits>
 		<oxydation>+3</oxydation>
@@ -601,7 +601,7 @@
 			<energy>6.82 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>144.8</atomic>
+			<covalent>144.8</covalent>
 		</radius>
 		<orbits>Ar 3d2 4s2</orbits>
 		<oxydation>+4,+3</oxydation>
@@ -629,7 +629,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>132.1</atomic>
+			<covalent>132.1</covalent>
 		</radius>
 		<orbits>Ar 3d3 4s2</orbits>
 		<oxydation>+5,(+2,+3,+4)</oxydation>
@@ -657,7 +657,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>124.9</atomic>
+			<covalent>124.9</covalent>
 		</radius>
 		<orbits>Ar 3d5 4s1</orbits>
 		<oxydation>+2,+3,(+1,+4,+5),+6</oxydation>
@@ -685,7 +685,7 @@
 			<energy>7.435 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>124</atomic>
+			<covalent>124</covalent>
 		</radius>
 		<orbits>Ar 3d5 4s2</orbits>
 		<oxydation>+2,+4,(+5),+6,+7</oxydation>
@@ -712,7 +712,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>124.1</atomic>
+			<covalent>124.1</covalent>
 		</radius>
 		<orbits>Ar 3d6 4s2</orbits>
 		<oxydation>+2,+3</oxydation>
@@ -741,7 +741,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>125.3</atomic>
+			<covalent>125.3</covalent>
 		</radius>
 		<orbits>Ar 3d7 4s2</orbits>
 		<oxydation>+2,+3,(+4)</oxydation>
@@ -769,7 +769,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>124.6</atomic>
+			<covalent>124.6</covalent>
 		</radius>
 		<orbits>Ar 3d8 4s2</orbits>
 		<oxydation>0,(+2),+3</oxydation>
@@ -797,7 +797,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>127.8</atomic>
+			<covalent>127.8</covalent>
 		</radius>
 		<orbits>Ar 3d10 4s1</orbits>
 		<oxydation>+1,+2</oxydation>
@@ -825,7 +825,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>133.2</atomic>
+			<covalent>133.2</covalent>
 		</radius>
 		<orbits>Ar 3d10 4s2</orbits>
 		<oxydation>+2</oxydation>
@@ -855,7 +855,7 @@
 			<energy>30.7</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>122.1</atomic>
+			<covalent>122.1</covalent>
 		</radius>
 		<orbits>Ar 3d10 4s2 4p1</orbits>
 		<oxydation>(+1),(+2),+3</oxydation>
@@ -884,7 +884,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>122.5</atomic>
+			<covalent>122.5</covalent>
 		</radius>
 		<orbits>Ar 3d10 4s2 4p2</orbits>
 		<oxydation>+4,(+2)</oxydation>
@@ -911,7 +911,7 @@
 			<energy>9.81 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>125</atomic>
+			<covalent>125</covalent>
 			<ionic charge="+5">46</ionic>
 		</radius>
 		<orbits>Ar 3d10 4s2 4p3</orbits>
@@ -938,7 +938,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>116</atomic>
+			<covalent>116</covalent>
 			<ionic charge="-2">202</ionic>
 		</radius>
 		<orbits>Ar 3d10 4s2 4p4</orbits>
@@ -967,7 +967,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>114.5</atomic>
+			<covalent>114.5</covalent>
 		</radius>
 		<orbits>Ar 3d10 4s2 4p5</orbits>
 		<oxydation>-1,(+1,+5,+7)</oxydation>
@@ -994,7 +994,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>190</atomic>
+			<covalent>190</covalent>
 		</radius>
 		<orbits>Ar 3d10 4s2 4p6</orbits>
 		<oxydation>+2,(+4)</oxydation>
@@ -1022,7 +1022,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>247.5</atomic>
+			<covalent>247.5</covalent>
 		</radius>
 		<orbits>Kr 5s1</orbits>
 		<oxydation>+1</oxydation>
@@ -1050,7 +1050,7 @@
 			<energy>11.0</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>215.1</atomic>
+			<covalent>215.1</covalent>
 		</radius>
 		<orbits>Kr 5s2</orbits>
 		<oxydation>+2</oxydation>
@@ -1078,7 +1078,7 @@
 			<energy>6.38 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>181</atomic>
+			<covalent>181</covalent>
 		</radius>
 		<orbits>Kr 4d1 5s2</orbits>
 		<oxydation>+3</oxydation>
@@ -1105,7 +1105,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>160</atomic>
+			<covalent>160</covalent>
 		</radius>
 		<orbits>Kr 4d2 5s2</orbits>
 		<oxydation>+4</oxydation>
@@ -1132,7 +1132,7 @@
 			<energy>6.88 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>142.9</atomic>
+			<covalent>142.9</covalent>
 		</radius>
 		<orbits>Kr 4d4</orbits>
 		<oxydation>+3,+5</oxydation>
@@ -1158,7 +1158,7 @@
 			<energy>7.099</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>136.2</atomic>
+			<covalent>136.2</covalent>
 		</radius>
 		<orbits>Kr 4d5 5s1</orbits>
 		<oxydation>(+2,+3,+4,+5),+6</oxydation>
@@ -1185,7 +1185,7 @@
 			<energy>7.28 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>135.8</atomic>
+			<covalent>135.8</covalent>
 		</radius>
 		<orbits>Kr 4d6 5s1</orbits>
 		<oxydation>+7</oxydation>
@@ -1213,7 +1213,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>134</atomic>
+			<covalent>134</covalent>
 		</radius>
 		<orbits>Kr 4d7 5s1</orbits>
 		<oxydation>+3,+4,(+8)</oxydation>
@@ -1242,7 +1242,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>134.5</atomic>
+			<covalent>134.5</covalent>
 		</radius>
 		<orbits>Kr 4d8 5s1</orbits>
 		<oxydation>+1,(+2),+3,(+4)</oxydation>
@@ -1270,7 +1270,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>137.6</atomic>
+			<covalent>137.6</covalent>
 		</radius>
 		<orbits>Kr 4d10</orbits>
 		<oxydation>+2,+4</oxydation>
@@ -1299,7 +1299,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>144.4</atomic>
+			<covalent>144.4</covalent>
 		</radius>
 		<orbits>Kr 4d10 5s1</orbits>
 		<oxydation>+1,(+2,+3)</oxydation>
@@ -1328,7 +1328,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>148.9</atomic>
+			<covalent>148.9</covalent>
 		</radius>
 		<orbits>Kr 4d10 5s2</orbits>
 		<oxydation>+2</oxydation>
@@ -1358,7 +1358,7 @@
 			<energy>28.0</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>162.6</atomic>
+			<covalent>162.6</covalent>
 		</radius>
 		<orbits>Kr 4d10 5s2 5p1</orbits>
 		<oxydation>+3,(+1,+2)</oxydation>
@@ -1386,7 +1386,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>140.5</atomic>
+			<covalent>140.5</covalent>
 		</radius>
 		<orbits>Kr 4d10 5s2 5p2</orbits>
 		<oxydation>+2,+4</oxydation>
@@ -1415,7 +1415,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>145</atomic>
+			<covalent>145</covalent>
 			<ionic charge="+5">62</ionic>
 		</radius>
 		<orbits>Kr 4d10 5s2 5p3</orbits>
@@ -1444,7 +1444,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>143.2</atomic>
+			<covalent>143.2</covalent>
 			<ionic charge="-2">222</ionic>
 		</radius>
 		<orbits>Kr 4d10 5s2 5p4</orbits>
@@ -1473,7 +1473,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>133.1</atomic>
+			<covalent>133.1</covalent>
 		</radius>
 		<orbits>Kr 4d10 5s2 5p5</orbits>
 		<oxydation>-1,(+1,+3,+5,+7)</oxydation>
@@ -1499,7 +1499,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>218</atomic>
+			<covalent>218</covalent>
 		</radius>
 		<orbits>Kr 4d10 5s2 5p6</orbits>
 		<oxydation>+4,(+2,+6)</oxydation>
@@ -1527,7 +1527,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>265.5</atomic>
+			<covalent>265.5</covalent>
 		</radius>
 		<orbits>Xe 6s1</orbits>
 		<oxydation>+1</oxydation>
@@ -1555,7 +1555,7 @@
 			<energy>10.0</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>217.3</atomic>
+			<covalent>217.3</covalent>
 		</radius>
 		<orbits>Xe 6s2</orbits>
 		<oxydation>+2</oxydation>
@@ -1584,7 +1584,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>187.7</atomic>
+			<covalent>187.7</covalent>
 		</radius>
 		<orbits>Xe 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
@@ -1611,7 +1611,7 @@
 			<energy>5.47 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>182.5</atomic>
+			<covalent>182.5</covalent>
 		</radius>
 		<orbits>Xe 4f1 5d1 6s2</orbits>
 		<oxydation>+3,+4</oxydation>
@@ -1638,7 +1638,7 @@
 			<energy>5.42 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>182.8</atomic>
+			<covalent>182.8</covalent>
 		</radius>
 		<orbits>Xe 4f3 6s2</orbits>
 		<oxydation>+3,+4</oxydation>
@@ -1663,7 +1663,7 @@
 			<energy>5.49 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>182.1</atomic>
+			<covalent>182.1</covalent>
 		</radius>
 		<orbits>Xe 4f4 6s2</orbits>
 		<oxydation>+3</oxydation>
@@ -1690,7 +1690,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>181.0</atomic>
+			<covalent>181.0</covalent>
 		</radius>
 		<orbits>Xe 4f5 6s2</orbits>
 		<oxydation>+3</oxydation>
@@ -1717,7 +1717,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>180.2</atomic>
+			<covalent>180.2</covalent>
 		</radius>
 		<orbits>Xe 4f6 6s2</orbits>
 		<oxydation>+2,+3</oxydation>
@@ -1744,7 +1744,7 @@
 			<energy>5.67 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>204.2</atomic>
+			<covalent>204.2</covalent>
 		</radius>
 		<orbits>Xe 4f7 6s2</orbits>
 		<oxydation>+2,+3</oxydation>
@@ -1772,7 +1772,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>180.2</atomic>
+			<covalent>180.2</covalent>
 		</radius>
 		<orbits>Xe 4f7 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
@@ -1801,7 +1801,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>178.2</atomic>
+			<covalent>178.2</covalent>
 		</radius>
 		<orbits>Xe 4f9 6s2</orbits>
 		<oxydation>+3,+4</oxydation>
@@ -1829,7 +1829,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>177.3</atomic>
+			<covalent>177.3</covalent>
 		</radius>
 		<orbits>Xe 4f10 6s2</orbits>
 		<oxydation>+3</oxydation>
@@ -1857,7 +1857,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>176.6</atomic>
+			<covalent>176.6</covalent>
 		</radius>
 		<orbits>Xe 4f11 6s2</orbits>
 		<oxydation>+3</oxydation>
@@ -1885,7 +1885,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>175.7</atomic>
+			<covalent>175.7</covalent>
 		</radius>
 		<orbits>Xe 4f12 6s2</orbits>
 		<oxydation>+3</oxydation>
@@ -1913,7 +1913,7 @@
 			<energy>6.18 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>174.6</atomic>
+			<covalent>174.6</covalent>
 		</radius>
 		<orbits>Xe 4f13 6s2</orbits>
 		<oxydation>+2,+3</oxydation>
@@ -1939,7 +1939,7 @@
 			<energy>6.254 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>194</atomic>
+			<covalent>194</covalent>
 		</radius>
 		<orbits>Xe 4f14 6s2</orbits>
 		<oxydation>+2,+3</oxydation>
@@ -1966,7 +1966,7 @@
 			<energy>5.426 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>173.4</atomic>
+			<covalent>173.4</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
@@ -1994,7 +1994,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>156.4</atomic>
+			<covalent>156.4</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d2 6s2</orbits>
 		<oxydation>+5</oxydation>
@@ -2021,7 +2021,7 @@
 			<energy>7.89 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>143</atomic>
+			<covalent>143</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d3 6s2</orbits>
 		<oxydation>+3,+5</oxydation>
@@ -2048,7 +2048,7 @@
 			<energy>7.98 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>137.0</atomic>
+			<covalent>137.0</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d4 6s2</orbits>
 		<oxydation>(+4), +6</oxydation>
@@ -2076,7 +2076,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>137.0</atomic>
+			<covalent>137.0</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d5 6s2</orbits>
 		<oxydation>+7,+2,+4</oxydation>
@@ -2104,7 +2104,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>135</atomic>
+			<covalent>135</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d6 6s2</orbits>
 		<oxydation>+4,(+2,+3,+6,+8)</oxydation>
@@ -2133,7 +2133,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>135.7</atomic>
+			<covalent>135.7</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d7 6s2</orbits>
 		<oxydation>+1,+4,(+2,+3,+6)</oxydation>
@@ -2162,7 +2162,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>138</atomic>
+			<covalent>138</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d9 6s1</orbits>
 		<oxydation>+2,+4</oxydation>
@@ -2191,7 +2191,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>144.2</atomic>
+			<covalent>144.2</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d10 6s1</orbits>
 		<oxydation>(+1),+3</oxydation>
@@ -2219,7 +2219,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>160</atomic>
+			<covalent>160</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d10 6s2</orbits>
 		<oxydation>(+1),+2</oxydation>
@@ -2249,10 +2249,10 @@
 			<energy>29.8</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>170.4</atomic>
+			<covalent>170.4</covalent>
 		</radius>
 		<radius>
-			<atomic>160</atomic>
+			<covalent>160</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d10 6s2 6p1</orbits>
 		<oxydation>+1,(+3)</oxydation>
@@ -2279,7 +2279,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>175</atomic>
+			<covalent>175</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d10 6s2 6p2</orbits>
 		<oxydation>+2,(+4)</oxydation>
@@ -2308,7 +2308,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>155</atomic>
+			<covalent>155</covalent>
 			<ionic charge="+5">74</ionic>
 		</radius>
 		<orbits>Xe 4f14 5d10 6s2 6p3</orbits>
@@ -2336,7 +2336,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>167.5</atomic>
+			<covalent>167.5</covalent>
 		</radius>
 		<orbits>Xe 4f14 5d10 6s2 6p4</orbits>
 		<oxydation>(+2),+4,(+6)</oxydation>
@@ -2363,7 +2363,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic></atomic>
+			<covalent></covalent>
 		</radius>
 		<orbits>Xe 4f14 5d10 6s2 6p5</orbits>
 		<oxydation>-1,(1,3,5,7)</oxydation>
@@ -2390,7 +2390,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic></atomic>
+			<covalent></covalent>
 		</radius>
 		<orbits>Xe 4f14 5d10 6s2 6p6</orbits>
 		<oxydation>2</oxydation>
@@ -2417,7 +2417,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>270</atomic>
+			<covalent>270</covalent>
 		</radius>
 		<orbits>Rn 7s1</orbits>
 		<oxydation>+1</oxydation>
@@ -2442,7 +2442,7 @@
 			<energy>5.279</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>223</atomic>
+			<covalent>223</covalent>
 		</radius>
 		<orbits>Rn 7s2</orbits>
 		<oxydation>+2</oxydation>
@@ -2469,7 +2469,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>187.8</atomic>
+			<covalent>187.8</covalent>
 		</radius>
 		<orbits>Rn 6d1 7s2</orbits>
 		<oxydation>(+2),+3</oxydation>
@@ -2496,7 +2496,7 @@
 
 		</ionisationenergy>
 		<radius>
-			<atomic>179.8</atomic>
+			<covalent>179.8</covalent>
 		</radius>
 		<oxydation>+3,+4</oxydation>
 		<family>Rare_Earth</family>
@@ -2519,7 +2519,7 @@
 		<boilingpoint>4300</boilingpoint>
 		<density>15.37</density>
 		<radius>
-			<atomic>180.6</atomic>
+			<covalent>180.6</covalent>
 		</radius>
 		<oxydation>+4,+5</oxydation>
 		<family>Rare_Earth</family>
@@ -2545,7 +2545,7 @@
 			<energy>6.08 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>138.5</atomic>
+			<covalent>138.5</covalent>
 		</radius>
 		<oxydation>+3,+4,+5,+6,+7</oxydation>
 		<family>Rare_Earth</family>
@@ -2570,7 +2570,7 @@
 		<ionisationenergy>
 		</ionisationenergy>
 		<radius>
-			<atomic>131</atomic>
+			<covalent>131</covalent>
 		</radius>
 		<oxydation>+4,+3,+5,+7</oxydation>
 		<family>Rare_Earth</family>
@@ -2596,7 +2596,7 @@
 			<energy>5.8 </energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>151</atomic>
+			<covalent>151</covalent>
 		</radius>
 		<oxydation>+3,+4,+5,+6,+7</oxydation>
 		<family>Rare_Earth</family>
@@ -2622,7 +2622,7 @@
 			<energy>6.0</energy>
 		</ionisationenergy>
 		<radius>
-			<atomic>184</atomic>
+			<covalent>184</covalent>
 		</radius>
 		<oxydation>+2,+3,+4,+5,+6</oxydation>
 		<family>Rare_Earth</family>
@@ -2771,7 +2771,7 @@
 		<ionisationenergy>
 		</ionisationenergy>
 		<radius>
-			<atomic></atomic>
+			<covalent></covalent>
 		</radius>
 		<oxydation>+3</oxydation>
 		<family>Rare_Earth</family>
@@ -2795,7 +2795,7 @@
 		<ionisationenergy>
 		</ionisationenergy>
 		<radius>
-			<atomic></atomic>
+			<covalent></covalent>
 		</radius>
 		<oxydation>+3</oxydation>
 		<family>Transition</family>
@@ -2819,7 +2819,7 @@
 		<ionisationenergy>
 		</ionisationenergy>
 		<radius>
-			<atomic></atomic>
+			<covalent></covalent>
 		</radius>
 		<orbits>Rn 5f14 6d3 7s2</orbits>
 		<family>Transition</family>

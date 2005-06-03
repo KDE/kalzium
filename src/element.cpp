@@ -146,28 +146,28 @@ const QString Element::adjustUnits( const int type )
 		else
 			v = QString::number( val );
 	}
-	else if ( type == RADIUS || type == IONICRADIUS ) // its a length
-	{
-		if ( type == RADIUS )
-			val = radius();
-		else if ( type == IONICRADIUS )
-			val = ionicValue();
-
-		if ( val <= 0 )
-			v = i18n( "Value unknown" );
-		else
-		{
-			switch ( Prefs::units() )
-			{
-				case 0://use SI-values (meter for length)
-					v = i18n( "%1 10<sup>-12</sup> m" ).arg( QString::number( val ) );
-					break;
-				case 1://use picometer, the most common unit for radii
-					v = i18n( "%1 pm" ).arg( QString::number( val ) );
-					break;
-			}
-		}
-	}
+//X 	else if ( type == RADIUS || type == IONICRADIUS ) // its a length
+//X 	{
+//X 		if ( type == RADIUS )
+//X 			val = radius();
+//X 		else if ( type == IONICRADIUS )
+//X 			val = ionicValue();
+//X 
+//X 		if ( val <= 0 )
+//X 			v = i18n( "Value unknown" );
+//X 		else
+//X 		{
+//X 			switch ( Prefs::units() )
+//X 			{
+//X 				case 0://use SI-values (meter for length)
+//X 					v = i18n( "%1 10<sup>-12</sup> m" ).arg( QString::number( val ) );
+//X 					break;
+//X 				case 1://use picometer, the most common unit for radii
+//X 					v = i18n( "%1 pm" ).arg( QString::number( val ) );
+//X 					break;
+//X 			}
+//X 		}
+//X 	}
 	else if ( type == MASS ) // its a mass
 	{
 		val = mass();
@@ -487,6 +487,11 @@ void Element::setupXY()
  y = posYRegular[m_number-1];
 }
 
+void Element::setRadius( RADIUSTYPE type, double value, const QString& name )
+{
+
+}
+
 KalziumDataObject::KalziumDataObject()
 {
 	QDomDocument doc( "datadocument" );
@@ -541,11 +546,9 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		double mp = domElement.namedItem( "meltingpoint" ).toElement().text().toDouble();
 		double bp = domElement.namedItem( "boilingpoint" ).toElement().text().toDouble();
 		double density = domElement.namedItem( "density" ).toElement().text().toDouble();
-		double atomic_radius = domElement.namedItem( "radius" ).namedItem( "atomic" ).toElement().text().toDouble();
-		double ionic_radius = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().text().toDouble();
-		QString ionic_charge = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().attributeNode( "charge" ).value();
-		
-		kdDebug() << "Charge: " << ionic_charge << " Value: " << ionic_radius << endl;
+//X 		double covalent_radius = domElement.namedItem( "radius" ).namedItem( "covalent" ).toElement().text().toDouble();
+//X 		double ionic_radius = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().text().toDouble();
+//X 		QString ionic_charge = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().attributeNode( "charge" ).value();
 		
 		int bio = domElement.namedItem( "biologicalmeaning" ).toElement().text().toInt();
 		int az = domElement.namedItem( "aggregation" ).toElement().text().toInt();
@@ -580,7 +583,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setBiologicalMeaning(bio);
 		e->setAggregation(az);
 		e->setNumber( number );
-		e->setIonicValues( ionic_radius, ionic_charge );
+//		e->setIonicValues( ionic_radius, ionic_charge );
 		
 		e->setScientist(scientist);
 		e->setCrysatalstructure( crystal );
@@ -601,7 +604,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setMeltingpoint( mp );
 		e->setBoilingpoint( bp );
 		e->setDensity( density );
-		e->setAtomicRadius( atomic_radius );
+//		e->setCovalentRadius( covalent_radius );
 
 		e->setupXY();
 

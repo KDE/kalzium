@@ -76,25 +76,21 @@ class Element{
 		Element();
 
 		virtual ~Element();
+		
+		enum RADIUSTYPE
+		{
+			ATOMIC = 0,
+			IONIC,
+			VDW, //van der Waals forces
+			COVALENT
+		};
+
 
 		/**
 		 * @return the number of the element
 		 */
 		int number() const {
 			return m_number;
-		}
-
-		void setIonicValues(double v, const QString& c){
-			m_ionic_value = v;
-			m_ionic_charge = c;
-		}
-
-		QString ionicCharge() const{
-			return m_ionic_charge;
-		}
-
-		double ionicValue() const{
-			return m_ionic_value;
 		}
 
 		QString nameOrigin() const{
@@ -106,7 +102,13 @@ class Element{
 		void setMeltingpoint( double value ) { m_MP = value; }
 		void setBoilingpoint( double value ) { m_BP = value; }
 		void setDensity( double value ) { m_Density = value; }
-		void setAtomicRadius( double value ) { m_AR = value; }
+
+		/**
+		 * set the radius of the radiustype @p type to the value @p value.
+		 * The ionicradius also has a name @p name. This will store the charge of
+		 * the ion (for example, +2 or -3 )
+		 */
+		void setRadius( RADIUSTYPE type, double value, const QString& name = 0 );
 
 		void setDate( int date ) { m_date = date; }
 		void setBiologicalMeaning( int value ) { m_biological = value; }
@@ -281,9 +283,7 @@ class Element{
 		/**
 		 * @return the radius of the element in picometers
 		 */
-		double radius() const {
-			return m_AR;
-		}
+		double radius( RADIUSTYPE type );
 		
 		/**
 		 * @return the meanmass of the element
@@ -315,7 +315,6 @@ class Element{
 		{
 			NOGRADIENT = 0,
 			RADIUS,
-			IONICRADIUS,
 			MASS,
 			DENSITY,
 			BOILINGPOINT,
@@ -324,7 +323,6 @@ class Element{
 			DATE,
 			IE
 		};
-
 
 		/**
 		 * calculate the 4-digit value of the value @p w
@@ -360,9 +358,7 @@ class Element{
 			m_MP, 
 			m_BP, 
 			m_EN, 
-			m_Density, 
-			m_AR,
-			m_ionic_value;
+			m_Density;
 
 		int     m_number, 
 			m_date,
@@ -380,8 +376,7 @@ class Element{
 			m_orbits,
 			m_isotopes,
 			m_scientist,
-			m_crystalstructure,
-			m_ionic_charge;
+			m_crystalstructure;
 
 		doubleList m_ionenergies;
 		
