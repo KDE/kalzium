@@ -107,10 +107,22 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
 			html.append( i18n( "<b>Covalent Radius: %1</b>" ).arg( e->adjustRadius( Element::COVALENT ) ) );
 			html.append( "</td></tr>" );
-			if ( e->ioncharge() != "" )
+			if ( e->getRadius(Element::IONIC) != 0.0 )
 			{
 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
 				html.append( i18n( "<b>Ionic Radius (Charge): %1 </b>(%2)" ).arg( e->adjustRadius(Element::IONIC) ).arg( e->ioncharge() ) );
+				html.append( "</td></tr>" );
+			}
+			if ( e->getRadius(Element::VDW) != 0.0 )
+			{
+				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
+				html.append( i18n( "<b>van der Waals Radius: %1 </b>" ).arg( e->adjustRadius(Element::VDW) ) );
+				html.append( "</td></tr>" );
+			}
+			if ( e->getRadius(Element::ATOMIC) != 0.0 )
+			{
+				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
+				html.append( i18n( "<b>Atomic Radius: %1 </b>" ).arg( e->adjustRadius(Element::ATOMIC) ) );
 				html.append( "</td></tr>" );
 			}
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
@@ -133,7 +145,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			break;
 		case ENERGY:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "<b>Orbital structure: %1</b>" ).arg( e->parsedOrbits() ) );
+			html.append( i18n( "Orbital structure: %1" ).arg( e->parsedOrbits() ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Melting Point: %1" ).arg( e->adjustUnits( Element::MELTINGPOINT ) ) );
