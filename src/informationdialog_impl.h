@@ -34,8 +34,6 @@ class InformationWidget : public KDialogBase
 		void slotClose();
 
 	public slots:
-		void slotUpdate( QPoint point );
-
 		void slotDate( int );
 		void slotTemp( int );
 
@@ -43,7 +41,6 @@ class InformationWidget : public KDialogBase
 
 	signals:
 		void closed();
-		void buttonGroupClicked(int);
 };
 
 class QuizXMLParser

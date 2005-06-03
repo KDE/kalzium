@@ -55,7 +55,6 @@ Kalzium::Kalzium()
 	
 	m_PSE = new PSE( data(), CentralWidget, "PSE");
 
-	connect( m_PSE, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
 	connect( this, SIGNAL( tableLocked( bool ) ), m_PSE, SLOT( slotLock(bool ) ));
 	
 	// Layouting
