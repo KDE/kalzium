@@ -9,10 +9,13 @@
             <x>0</x>
             <y>0</y>
             <width>528</width>
-            <height>368</height>
+            <height>616</height>
         </rect>
     </property>
-    <vbox>
+    <property name="caption">
+        <string>MolcalcDialog</string>
+    </property>
+    <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
@@ -22,327 +25,163 @@
         <property name="spacing">
             <number>6</number>
         </property>
-        <widget class="QTabWidget">
+        <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>tabWidget</cstring>
+                <cstring>layout7</cstring>
             </property>
-            <widget class="QWidget">
+            <vbox>
                 <property name="name">
-                    <cstring>Widget8</cstring>
+                    <cstring>unnamed</cstring>
                 </property>
-                <attribute name="title">
-                    <string>Periodic &amp;Table</string>
-                </attribute>
-                <grid>
+                <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>unnamed</cstring>
+                        <cstring>layout6</cstring>
                     </property>
-                    <widget class="QLayoutWidget" row="0" column="0">
+                    <hbox>
                         <property name="name">
-                            <cstring>layout7</cstring>
+                            <cstring>unnamed</cstring>
                         </property>
-                        <vbox>
+                        <spacer>
                             <property name="name">
-                                <cstring>unnamed</cstring>
+                                <cstring>spacer3</cstring>
                             </property>
-                            <widget class="QLayoutWidget">
-                                <property name="name">
-                                    <cstring>layout6</cstring>
-                                </property>
-                                <hbox>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <spacer>
-                                        <property name="name">
-                                            <cstring>spacer3</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                        <property name="sizeType">
-                                            <enum>Expanding</enum>
-                                        </property>
-                                        <property name="sizeHint">
-                                            <size>
-                                                <width>71</width>
-                                                <height>20</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                    <widget class="KPushButton">
-                                        <property name="name">
-                                            <cstring>plusButton</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string></string>
-                                        </property>
-                                        <property name="toggleButton">
-                                            <bool>true</bool>
-                                        </property>
-                                        <property name="on">
-                                            <bool>true</bool>
-                                        </property>
-                                    </widget>
-                                    <widget class="KPushButton">
-                                        <property name="name">
-                                            <cstring>minusButton</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string></string>
-                                        </property>
-                                        <property name="toggleButton">
-                                            <bool>true</bool>
-                                        </property>
-                                        <property name="toolTip" stdset="0">
-                                            <string></string>
-                                        </property>
-                                    </widget>
-                                    <spacer>
-                                        <property name="name">
-                                            <cstring>spacer4</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                        <property name="sizeType">
-                                            <enum>Expanding</enum>
-                                        </property>
-                                        <property name="sizeHint">
-                                            <size>
-                                                <width>121</width>
-                                                <height>31</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                </hbox>
-                            </widget>
-                            <widget class="Line">
-                                <property name="name">
-                                    <cstring>line1</cstring>
-                                </property>
-                                <property name="frameShape">
-                                    <enum>HLine</enum>
-                                </property>
-                                <property name="frameShadow">
-                                    <enum>Sunken</enum>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                            </widget>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>resultComposition</cstring>
-                                </property>
-                                <property name="font">
-                                    <font>
-                                        <pointsize>16</pointsize>
-                                        <bold>1</bold>
-                                    </font>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                                <property name="alignment">
-                                    <set>AlignCenter</set>
-                                </property>
-                            </widget>
-                            <spacer>
-                                <property name="name">
-                                    <cstring>spacer5_2</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Vertical</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>MinimumExpanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>110</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>resultLabel</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>resultMass</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                        </vbox>
-                    </widget>
-                </grid>
-            </widget>
-            <widget class="QWidget">
-                <property name="name">
-                    <cstring>Widget9</cstring>
-                </property>
-                <attribute name="title">
-                    <string>Form&amp;ula</string>
-                </attribute>
-                <grid>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>71</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="KPushButton">
+                            <property name="name">
+                                <cstring>plusButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="toggleButton">
+                                <bool>true</bool>
+                            </property>
+                            <property name="on">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                        <widget class="KPushButton">
+                            <property name="name">
+                                <cstring>minusButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="toggleButton">
+                                <bool>true</bool>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer4</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>121</width>
+                                    <height>31</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </hbox>
+                </widget>
+                <widget class="Line">
                     <property name="name">
-                        <cstring>unnamed</cstring>
+                        <cstring>line1</cstring>
                     </property>
-                    <widget class="QLayoutWidget" row="0" column="0" rowspan="2" colspan="1">
-                        <property name="name">
-                            <cstring>layout4</cstring>
-                        </property>
-                        <vbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>textLabel4</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Formula</string>
-                                </property>
-                            </widget>
-                            <widget class="KLineEdit">
-                                <property name="name">
-                                    <cstring>formula</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>textLabel3</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Molecular Mass [u]</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>massLabel</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>textLabel1</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Compostion</string>
-                                </property>
-                                <property name="alignment">
-                                    <set>AlignCenter</set>
-                                </property>
-                            </widget>
-                            <widget class="QTable">
-                                <property name="name">
-                                    <cstring>table</cstring>
-                                </property>
-                                <property name="numRows">
-                                    <number>3</number>
-                                </property>
-                                <property name="numCols">
-                                    <number>2</number>
-                                </property>
-                                <property name="readOnly">
-                                    <bool>true</bool>
-                                </property>
-                                <property name="selectionMode">
-                                    <enum>NoSelection</enum>
-                                </property>
-                            </widget>
-                        </vbox>
-                    </widget>
-                    <widget class="QLayoutWidget" row="1" column="1">
-                        <property name="name">
-                            <cstring>layout6</cstring>
-                        </property>
-                        <vbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <widget class="QLayoutWidget">
-                                <property name="name">
-                                    <cstring>layout5</cstring>
-                                </property>
-                                <vbox>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="QPushButton">
-                                        <property name="name">
-                                            <cstring>buttonCalculate</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>C&amp;alculate</string>
-                                        </property>
-                                        <property name="autoDefault">
-                                            <bool>true</bool>
-                                        </property>
-                                        <property name="default">
-                                            <bool>true</bool>
-                                        </property>
-                                    </widget>
-                                    <widget class="QPushButton">
-                                        <property name="name">
-                                            <cstring>buttonClear</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>&amp;Clear Text</string>
-                                        </property>
-                                        <property name="autoDefault">
-                                            <bool>true</bool>
-                                        </property>
-                                    </widget>
-                                </vbox>
-                            </widget>
-                        </vbox>
-                    </widget>
-                    <spacer row="0" column="1">
-                        <property name="name">
-                            <cstring>spacer5</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>51</width>
-                                <height>101</height>
-                            </size>
-                        </property>
-                    </spacer>
-                </grid>
-            </widget>
+                    <property name="frameShape">
+                        <enum>HLine</enum>
+                    </property>
+                    <property name="frameShadow">
+                        <enum>Sunken</enum>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>resultComposition</cstring>
+                    </property>
+                    <property name="font">
+                        <font>
+                            <pointsize>16</pointsize>
+                            <bold>1</bold>
+                        </font>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                    <property name="alignment">
+                        <set>AlignCenter</set>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer5_2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>MinimumExpanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>110</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>resultLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>resultMass</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+            </vbox>
         </widget>
-    </vbox>
+    </grid>
 </widget>
+<customwidgets>
+</customwidgets>
 <tabstops>
-    <tabstop>tabWidget</tabstop>
     <tabstop>plusButton</tabstop>
     <tabstop>minusButton</tabstop>
-    <tabstop>formula</tabstop>
-    <tabstop>table</tabstop>
-    <tabstop>buttonCalculate</tabstop>
-    <tabstop>buttonClear</tabstop>
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>kpushbutton.h</includehint>
     <includehint>kpushbutton.h</includehint>
-    <includehint>klineedit.h</includehint>
 </includehints>
 </UI>

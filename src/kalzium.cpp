@@ -123,7 +123,7 @@ void Kalzium::setupActions()
 	 **/
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
-	m_pCalcAction = new KAction(i18n("&Calculate Molecular Mass"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_masss");
+	m_pCalcAction = new KAction(i18n("&Calculate Molecular Mass"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_mass");
 	
 	m_pGlossaryAction = new KAction(i18n("&Glossary"), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 

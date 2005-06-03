@@ -1,7 +1,7 @@
 #ifndef MOLCALC_IMPL_H
 #define MOLCALC_IMPL_H
 /***************************************************************************
- *   Copyright (C) 2003 by Carsten Niehaus                                 *
+ *   Copyright (C) 2005 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *

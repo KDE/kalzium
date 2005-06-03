@@ -44,8 +44,6 @@ MolcalcImpl::MolcalcImpl( KalziumDataObject *data, QWidget *parent, const char *
 	m_dialog->minusButton->setGuiItem( KGuiItem( i18n( "&Remove" ), "remove" ) );
 	connect( m_dialog->plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
 	connect( m_dialog->minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
-	connect( m_dialog->buttonCalculate, SIGNAL( clicked() ), this, SLOT( slotCalculate() ) );
-	connect( m_dialog->buttonClear, SIGNAL( clicked() ), m_dialog->formula, SLOT( clear() ) );
 	connect( this, SIGNAL(closeClicked()), SLOT(slotClose()) );
 
 	resize( 500, 400 );
