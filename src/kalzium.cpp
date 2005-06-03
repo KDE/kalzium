@@ -269,6 +269,7 @@ void Kalzium::slotSwitchtoGradient( int index )
 	m_actionBlocks->setChecked( false );
 	m_actionAcid->setChecked( false );
 	m_actionFamily->setChecked( false );
+	m_pLegendAction->setEnabled( false );
 }
 
 void Kalzium::slotSwitchtoNumeration( int index )
@@ -337,6 +338,7 @@ void Kalzium::slotNoLook()
 	m_actionAcid->setChecked( false );
 	m_actionFamily->setChecked( false );
 	m_actionCrystal->setChecked( false );
+	m_pLegendAction->setEnabled( true );
 }
 
 void Kalzium::slotLookGroups()
@@ -348,6 +350,7 @@ void Kalzium::slotLookGroups()
 	m_actionAcid->setChecked( false );
 	m_actionFamily->setChecked( false );
 	m_actionCrystal->setChecked( false );
+	m_pLegendAction->setEnabled( true );
 }
 
 void Kalzium::slotLookBlocks()
@@ -359,6 +362,7 @@ void Kalzium::slotLookBlocks()
 	m_actionAcid->setChecked( false );
 	m_actionFamily->setChecked( false );
 	m_actionCrystal->setChecked( false );
+	m_pLegendAction->setEnabled( true );
 }
 
 void Kalzium::slotLookAcidBehavior()
@@ -370,6 +374,7 @@ void Kalzium::slotLookAcidBehavior()
 	m_actionBlocks->setChecked( false );
 	m_actionFamily->setChecked( false );
 	m_actionCrystal->setChecked( false );
+	m_pLegendAction->setEnabled( true );
 }
 
 void Kalzium::slotLookFamily()
@@ -381,6 +386,7 @@ void Kalzium::slotLookFamily()
 	m_actionBlocks->setChecked( false );
 	m_actionAcid->setChecked( false );
 	m_actionCrystal->setChecked( false );
+	m_pLegendAction->setEnabled( true );
 }
 
 void Kalzium::slotLookCrystal()
@@ -392,6 +398,7 @@ void Kalzium::slotLookCrystal()
 	m_actionBlocks->setChecked( false );
 	m_actionAcid->setChecked( false );
 	m_actionFamily->setChecked( false );
+	m_pLegendAction->setEnabled( true );
 }
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }

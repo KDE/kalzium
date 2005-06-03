@@ -1,21 +1,23 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <kpartgui name="kalzium" version="2">
 <MenuBar>
-  <Action name="numerationtype" />
   <Menu name="miscmenu">
     <text>&amp;Miscellaneous</text>
-    <Action name="toggle_legend" />
     <Action name="learning_mode" />
-    <Action name="crystalstructures" />
   </Menu>
-  <Menu name="look_menu"><text>&amp;Look</text>
-    <Action name="look_noscheme" />
-    <Action name="look_groups" />
-    <Action name="look_blocks" />
-    <Action name="look_acid" />
-    <Action name="look_family" />
-    <Action name="look_crystal" />
-    <Action name="look_gradmenu" />
+  <Menu name="table_menu"><text>&amp;Periodic Table</text>
+    <Action name="numerationtype" />
+    <Menu name="look_menu"><text>&amp;Look</text>
+      <Action name="look_noscheme" />
+      <Action name="look_groups" />
+      <Action name="look_blocks" />
+      <Action name="look_acid" />
+      <Action name="look_family" />
+      <Action name="look_crystal" />
+      <Action name="look_gradmenu" />
+    </Menu>
+    <Separator />
+    <Action name="toggle_legend" />
   </Menu>
   <Menu name="tools"><text>&amp;Tools</text>
     <Action name="plotdata" />
