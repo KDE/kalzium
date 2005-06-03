@@ -773,7 +773,6 @@ void PSE::drawPSE( QPainter* p )
 	const EList::Iterator itEnd = d->ElementList.end();
 
 	int coordinate = 0;
-	m_Vertikal ? coordinate = m_currentPoint.x() : coordinate = m_currentPoint.y();
 	
 	/**
 	 * this loop iterates through all elements. The Elements
@@ -782,8 +781,6 @@ void PSE::drawPSE( QPainter* p )
 	while ( it != itEnd )
 	{
 		( *it )->drawSelf( p );
-		if ( m_learningMode )
-			( *it )->drawHighlight( p, coordinate, m_Vertikal );
 		++it;
 	}
 }

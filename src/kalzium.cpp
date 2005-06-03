@@ -315,18 +315,6 @@ void Kalzium::displayEnergie()
  	slotStatusBar(i18n("the argument %1 is the unit of the energy (eV or kJ/mol)", "Energy: %1").arg( string ),  IDS_ENERG);
 }
 
-void Kalzium::openInformationDialog( int number )
-{
-	if ( !m_PSE->learningMode() && m_PSE->showTooltip() )
-	{
-		emit tableLocked(true);
-		DetailedInfoDlg info_dlg( data(), data()->element(number), this , "detailedDlg" );
-
-		info_dlg.exec();
-		emit tableLocked(false);
-	}
-}
-
 void Kalzium::slotNoLook()
 {
 	m_PSE->setLook( PSE::NOCOLOUR );

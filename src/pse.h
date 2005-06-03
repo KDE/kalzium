@@ -274,9 +274,6 @@ class PSE : public QWidget
 
 		void mouseMoveEvent( QMouseEvent* );
 
-		///if true the user looks at periods
-		bool m_Vertikal;
-
 		QStringList m_IUPAClist;
 		QStringList m_IUPACOLDlist;
 
@@ -365,13 +362,6 @@ class PSE : public QWidget
 			update();
 //These elements have always been known:
 //6 16 26 29 33 47 50 51 79 80 82 83
-		}
-
-		void setLearningMode( int horizontal ){
-			if ( horizontal == 1 )
-				m_Vertikal = false;
-			else
-				m_Vertikal = true;
 		}
 
 		/**
