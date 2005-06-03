@@ -117,6 +117,11 @@ class Kalzium : public KMainWindow
 	
 	private slots:
 		/**
+		 * opens the information dialog for the element @p number
+		 */
+		void openInformationDialog( int number );
+
+		/**
 		 * this slot switches Kalzium to the selected colorscheme
 		 */
 		void slotShowScheme(int);

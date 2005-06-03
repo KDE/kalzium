@@ -55,6 +55,7 @@ Kalzium::Kalzium()
 	
 	m_PSE = new PSE( data(), CentralWidget, "PSE");
 
+	connect( m_PSE, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
 	connect( this, SIGNAL( tableLocked( bool ) ), m_PSE, SLOT( slotLock(bool ) ));
 	
 	// Layouting
@@ -314,6 +315,17 @@ void Kalzium::displayEnergie()
  			break;
  	}
  	slotStatusBar(i18n("the argument %1 is the unit of the energy (eV or kJ/mol)", "Energy: %1").arg( string ),  IDS_ENERG);
+}
+
+void Kalzium::openInformationDialog( int number )
+{
+	if ( !m_PSE->learningMode() && m_PSE->showTooltip() )
+	{
+		emit tableLocked(true);
+		DetailedInfoDlg info_dlg( data(), data()->element(number), this, "detailedDlg" );
+		info_dlg.exec();
+		emit tableLocked(false);
+	}
 }
 
 void Kalzium::slotNoLook()
