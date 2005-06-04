@@ -193,15 +193,15 @@ void Kalzium::setupStatusBar()
 
 	statusBar()->insertItem(i18n( "Temperature" ), IDS_TEMP+1, 0, false);
 	statusBar()->setItemAlignment(IDS_TEMP+1, AlignLeft);
-	statusBar()->addWidget( t_box , IDS_TEMP, false );
+	statusBar()->addWidget( t_box , 0, false );
 
 	statusBar()->insertItem(i18n( "Energy" ), IDS_ENERG+1, 0, false);
 	statusBar()->setItemAlignment(IDS_ENERG+1, AlignLeft);
-	statusBar()->addWidget( e_box , IDS_ENERG, false );
+	statusBar()->addWidget( e_box , 0, false );
 	
 	statusBar()->insertItem(i18n( "Units" ), IDS_UNITS+1, 0, false);
 	statusBar()->setItemAlignment(IDS_UNITS+1, AlignLeft);
-	statusBar()->addWidget( u_box , IDS_UNITS, false );
+	statusBar()->addWidget( u_box , 0, false );
 	
 	updateStatusbar();
 
