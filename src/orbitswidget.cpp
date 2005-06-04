@@ -205,7 +205,6 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	else r = ( w-2*w_c )/2;
 	
 	r_electron = r/20; //diameter of an electron-circle
-	kdDebug() <<"radius: "<<  r_electron << endl;
 		
 	QBrush   brush(  yellow );
 	
@@ -218,7 +217,6 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 
 	for ( int i = 0 ; i < num ; ++i )
 	{
-		kdDebug() << "i ist: " << i << endl;
 		int mx = w_c+ddx*i; //the x-coordinate for the current circle
 		int my = h_c+ddx*i; //the y-coordinate for the current circle
 
