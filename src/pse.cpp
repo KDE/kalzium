@@ -24,7 +24,6 @@
 
 #include <klocale.h>
 #include <kdebug.h>
-#include <kpixmap.h>
 #include <kpixmapeffect.h>
 #include <kimageeffect.h>
 
@@ -32,12 +31,9 @@
 #include <qstring.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
-#include <qlayout.h>
 #include <qlabel.h>
 #include <qpixmap.h>
 #include <qpoint.h>
-#include <qradiobutton.h>
-#include <qbuttongroup.h>
 #include <qcursor.h>
 #include <qpainter.h>
 #include <qcolor.h>

@@ -22,10 +22,11 @@
 
 #include <kdialogbase.h>
 
-#include "molcalcbase.h"
-#include "element.h"
-
 #include <qmap.h>
+
+class Element;
+class KalziumDataObject;
+class MolcalcDialog;
 
 /**
  * @author Carsten Niehaus

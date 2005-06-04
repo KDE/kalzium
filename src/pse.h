@@ -24,14 +24,12 @@ class QLabel;
 class QPixmap;
 class QPoint;
 class QVBoxLayout;
+class Element;
+class KalziumDataObject;
 
 #include <qvaluelist.h>
 #include <qwidget.h>
-#include <qdialog.h>
 #include <qtimer.h>
-
-#include "element.h"
-#include "informationdialog_impl.h"
 
 /**
  * @short basic class for the specific PSEs

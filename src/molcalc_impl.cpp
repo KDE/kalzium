@@ -20,13 +20,14 @@
 #include "molcalc_impl.h"
 
 #include <kdebug.h>
-#include <klineedit.h>
 #include <klocale.h>
 #include <kpushbutton.h>
 
 #include <qlabel.h>
-#include <qmap.h>
 #include <qtooltip.h>
+
+#include "molcalcbase.h"
+#include "element.h"
 
 MolcalcImpl::MolcalcImpl( KalziumDataObject *data, QWidget *parent, const char *name, bool modal )
     : KDialogBase( Swallow, i18n( "Calculate Molecular Mass" ), Close, Close, parent, name, modal )
