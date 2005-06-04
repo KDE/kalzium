@@ -301,7 +301,6 @@ void Kalzium::showSettingsDialog()
 
 void Kalzium::slotUpdateSettings()
 {
-	look_action->setCurrentItem(Prefs::colorschemebox()); 
 	m_PSE->reloadColours();
 
 	displayEnergie();

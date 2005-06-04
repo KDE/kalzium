@@ -96,7 +96,6 @@ class Kalzium : public KMainWindow
 		 * all KActions Kalzium uses
 		 */
 		KSelectAction *gradient_action;
-		KSelectAction *look_action;
 		KSelectAction *numeration_action;
 		KAction *m_pPlotAction,
 				*m_pCalcAction,
