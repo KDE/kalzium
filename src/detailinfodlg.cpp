@@ -238,18 +238,17 @@ QString DetailedInfoDlg::isotopeRow( const QString& str )
  	QString weight;
  	QString percentage;
 
-	weight_str.append( i18n( " u" ) );
 	weight.append( weight_str );
 	neutrons.append( neutrons_str );
 
 	percentage.append( tmp );
 
 	text = "<tr><td align=\"right\">";
-	text.append( weight );
+	text.append( i18n( "%1 u" ).arg( weight ) );
 	text.append( "</td><td>" );
 	text.append( neutrons );
 	text.append( "</td><td>" );
-	text.append( percentage );
+	text.append( i18n( "%1%" ).arg( percentage ) );
 	text.append( "</td></tr>" );
 
 	return text;
