@@ -17,7 +17,6 @@
 
 #include <qwidget.h>
 
-class QLabel;
 class QVBoxLayout;
 
 /**

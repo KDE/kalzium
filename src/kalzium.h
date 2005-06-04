@@ -17,7 +17,6 @@
 #include <config.h>
 #endif
 
-#include "pse.h"
 #include <kmainwindow.h>
 
 class KSelectAction;
@@ -27,6 +26,8 @@ class SliderWidget;
 class QVBoxLayout;
 class TempSlider;
 class InformationWidget;
+class KalziumDataObject;
+class PSE;
 
 /**
  * @short Application Main Window
@@ -89,11 +90,12 @@ class Kalzium : public KMainWindow
 		 */
 		void updateStatusbar();	
 		
-    /**Signal the PSE that it should do a full draw operation
-      */
-    void setFullDraw() { m_PSE->setFullDraw(); }
+		/**
+		 * Signal the PSE that it should do a full draw operation
+		 */
+		void setFullDraw();
 		
-    /**
+		/**
 		 * all KActions Kalzium uses
 		 */
 		KSelectAction *gradient_action;

@@ -19,7 +19,6 @@
 #include <klocale.h>
 
 //QT-Includes
-#include <qpainter.h>
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qstring.h>

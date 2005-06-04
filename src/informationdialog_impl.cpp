@@ -1,12 +1,14 @@
 #include "informationdialog_impl.h"
 
 #include <qbuttongroup.h>
+#include <qdom.h>
 #include <qfile.h>
 #include <qlabel.h>
 #include <qlcdnumber.h>
+#include <qpoint.h>
 #include <qradiobutton.h>
 #include <qslider.h>
-#include <qtextstream.h>
+#include <qtabwidget.h>
 #include <qtextbrowser.h>
 
 #include <kdebug.h>

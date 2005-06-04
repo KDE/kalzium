@@ -11,6 +11,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "kalzium.h"
+
 #include "prefs.h"
 #include "settings_colors.h"
 #include "settings_misc.h"
@@ -22,22 +23,14 @@
 #include "pse.h"
 #include "glossarydialog.h"
 
-#include <qinputdialog.h>
 #include <qlayout.h>
-#include <qslider.h>
-#include <qlcdnumber.h>
-#include <qbuttongroup.h>
 
 #include <kconfigdialog.h>
 #include <klocale.h>
 #include <kdebug.h>
 #include <kaction.h>
-#include <knuminput.h>
-#include <kpushbutton.h>
 #include <kapplication.h>
 #include <kstatusbar.h>
-#include <knuminput.h>
-#include <kpushbutton.h>
 #include <kcombobox.h>
 
 #define IDS_TEMP           1
@@ -418,6 +411,11 @@ void Kalzium::slotLookCrystal()
 	m_actionAcid->setChecked( false );
 	m_actionFamily->setChecked( false );
 	m_pLegendAction->setEnabled( true );
+}
+
+void Kalzium::setFullDraw()
+{
+	m_PSE->setFullDraw();
 }
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }

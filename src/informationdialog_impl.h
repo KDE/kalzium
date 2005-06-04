@@ -3,12 +3,8 @@
 
 #include <kdialogbase.h>
 
-#include <qtabwidget.h>
-#include <qpoint.h>
-#include <qdom.h>
-#include <qstring.h>
-#include <qevent.h>
-
+class QDomDocument;
+class QPoint;
 class InformationDialog;
 class PSE;
 
