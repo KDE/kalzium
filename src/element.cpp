@@ -195,7 +195,7 @@ const QString Element::adjustUnits( const int type )
 			else // use electronvolt
 			{
 				val/=96.6;
-				v = i18n( "% 1 eV" ).arg( QString::number( val ) );
+				v = i18n( "%1 eV" ).arg( QString::number( val ) );
 			}
 		}
 	}
