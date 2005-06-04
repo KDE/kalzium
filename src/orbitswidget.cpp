@@ -20,6 +20,7 @@
 //QT-Includes
 #include <qpainter.h>
 #include <qregexp.h>
+#include <qpixmap.h>
 
 OrbitsWidget::OrbitsWidget( QWidget *parent, const char *name) : QWidget( parent, name )
 {
@@ -204,6 +205,9 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	else r = ( w-2*w_c )/2;
 	
 	r_electron = r/20; //diameter of an electron-circle
+	kdDebug() <<"radius: "<<  r_electron << endl;
+		
+	QBrush   brush(  yellow );
 	
 	int d = 2*r; //Diameter
 	int	ddx = d/(2*num);//difference to the previous circle
@@ -214,15 +218,18 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 
 	for ( int i = 0 ; i < num ; ++i )
 	{
-		DC.setBrush( Dense7Pattern  );
-
+		kdDebug() << "i ist: " << i << endl;
 		int mx = w_c+ddx*i; //the x-coordinate for the current circle
 		int my = h_c+ddx*i; //the y-coordinate for the current circle
 
+		DC.setBrush(  NoBrush );
+		DC.setPen(  black ); 
+		
 		//draw the big ellipses in concentric circles
 		DC.drawEllipse( mx , my , d , d);
 
-		DC.setBrush( Qt::SolidPattern );
+		DC.setBrush( brush );
+		
 		for ( int e = 0 ; e < *it ; ++e )
 		{
 			int x = (int)translateToDX(  ( double )d/2 , ( double )e , *it);
@@ -232,6 +239,7 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 					y + mx + d/2 - r_electron,
 					2*r_electron ,
 					2*r_electron );
+			
 		}
 		--it;
 		d = d-2*ddx;

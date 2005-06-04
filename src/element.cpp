@@ -180,9 +180,27 @@ const QString Element::adjustUnits( const int type )
 	{
 		val = electroneg();
 		if ( val <= 0 )
-			v = i18n( "Value not defined" );
+		v = i18n( "Value not defined" );
 		else
 			v = QString::number( val );
+	}
+	else if ( type == EA ) //Electron affinity
+	{
+		val = electroaf();
+		if ( val == 0.0 )
+			v = i18n( "Value not defined" );
+		else
+		{
+			if ( Prefs::energies() == 0 )
+			{
+				v = i18n( "%1 kJ/mol" ).arg( QString::number( val ) );
+			}
+			else // use electronvolt
+			{
+				val/=96.6;
+				v = i18n( "% 1 eV" ).arg( QString::number( val ) );
+			}
+		}
 	}
 	else if ( type == MASS ) // its a mass
 	{

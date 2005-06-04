@@ -119,12 +119,16 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 				html.append( i18n( "<b>van der Waals Radius: %1 </b>" ).arg( e->adjustRadius(Element::VDW) ) );
 				html.append( "</td></tr>" );
 			}
+		
 			if ( e->getRadius(Element::ATOMIC) != 0.0 )
 			{
 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
 				html.append( i18n( "<b>Atomic Radius: %1 </b>" ).arg( e->adjustRadius(Element::ATOMIC) ) );
 				html.append( "</td></tr>" );
 			}
+	
+			
+		
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "<b>Mass: %1</b>" ).arg( e->adjustUnits( Element::MASS ) ) );
 			html.append( "</td></tr>" );
@@ -156,7 +160,11 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Electronegativity: %1" ).arg( e->adjustUnits( Element::EN ) ) );
 			html.append( "</td></tr>" );
-			
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Electron affinity: %1 " ).arg( e->adjustUnits(Element::EA) ) );
+			html.append( "</td></tr>" );
+						
+
 			uint i = 0;
 			for ( ; i < ionlist.count() ; ++i )
 			{

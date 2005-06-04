@@ -560,7 +560,7 @@
 		<date scientiest="H. B. Davy">1807</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>1</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-48</electronaffinity>
 		<electronegativity>0.82</electronegativity>
 		<meltingpoint>336.8</meltingpoint>
 		<boilingpoint>1033</boilingpoint>
@@ -592,7 +592,7 @@
 		<date scientiest="H. B. Davy">1808</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>2</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>10</electronaffinity>
 		<electronegativity>1.00</electronegativity>
 		<meltingpoint>1112</meltingpoint>
 		<boilingpoint>1757</boilingpoint>
@@ -624,7 +624,7 @@
 		<date scientiest="L. Nilson">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-18</electronaffinity>
 		<electronegativity>1.36</electronegativity>
 		<meltingpoint>1814</meltingpoint>
 		<boilingpoint>3109</boilingpoint>
@@ -654,7 +654,7 @@
 		<date scientiest="W. Gregor">1791</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-8</electronaffinity>
 		<electronegativity>1.54</electronegativity>
 		<meltingpoint>1935</meltingpoint>
 		<boilingpoint>3560</boilingpoint>
@@ -684,7 +684,7 @@
 		<date scientiest="N. Sefström">1830</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>5</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-51</electronaffinity>
 		<electronegativity>1.63</electronegativity>
 		<meltingpoint>2163</meltingpoint>
 		<boilingpoint>3650</boilingpoint>
@@ -715,7 +715,7 @@
 		<date scientiest="L. N. Vauquelin">1797</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>6</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-64</electronaffinity>
 		<electronegativity>1.66</electronegativity>
 		<meltingpoint>2130</meltingpoint>
 		<boilingpoint>2945</boilingpoint>
@@ -776,7 +776,7 @@
 		<date scientiest="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-16</electronaffinity>
 		<electronegativity>1.83</electronegativity>
 		<meltingpoint>1808</meltingpoint>
 		<boilingpoint>3023</boilingpoint>
@@ -808,7 +808,7 @@
 		<date scientiest="G. Brandt">1737</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-64</electronaffinity>
 		<electronegativity>1.88</electronegativity>
 		<meltingpoint>1768</meltingpoint>
 		<boilingpoint>3143</boilingpoint>
@@ -839,7 +839,7 @@
 		<date scientiest="A. F. Cronstedt">1751</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-112</electronaffinity>
 		<electronegativity>1.91</electronegativity>
 		<meltingpoint>1726</meltingpoint>
 		<boilingpoint>3005</boilingpoint>
@@ -870,7 +870,7 @@
 		<date scientiest="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>1</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-118</electronaffinity>
 		<electronegativity>1.90</electronegativity>
 		<meltingpoint>1356.6</meltingpoint>
 		<boilingpoint>2840</boilingpoint>
@@ -901,7 +901,7 @@
 		<date scientiest="">1746</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>2</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>47</electronaffinity>
 		<electronegativity>1.65</electronegativity>
 		<meltingpoint>692.73</meltingpoint>
 		<boilingpoint>1180</boilingpoint>
@@ -933,7 +933,7 @@
 		<date scientiest="P. E. Lecoq de Boisbaudran">1875</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-29</electronaffinity>
 		<electronegativity>1.81</electronegativity>
 		<meltingpoint>302.92</meltingpoint>
 		<boilingpoint>2478</boilingpoint>
@@ -966,7 +966,7 @@
 		<date scientiest="C. A. Winkler">1886</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-116</electronaffinity>
 		<electronegativity>2.01</electronegativity>
 		<meltingpoint>1211.5</meltingpoint>
 		<boilingpoint>3107</boilingpoint>
@@ -997,7 +997,7 @@
 		<date scientiest="A. Magnus">0</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>5</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-78</electronaffinity>
 		<electronegativity>2.18</electronegativity>
 		<meltingpoint>1090</meltingpoint>
 		<boilingpoint>876</boilingpoint>
@@ -1026,7 +1026,7 @@
 		<date scientiest="J. J. Berzelius">1817</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>6</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-195</electronaffinity>
 		<electronegativity>2.55</electronegativity>
 		<meltingpoint>494</meltingpoint>
 		<boilingpoint>958</boilingpoint>
@@ -1058,7 +1058,7 @@
 		<date scientiest="A. J. Balard">1826</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>7</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-325</electronaffinity>
 		<electronegativity>2.96</electronegativity>
 		<meltingpoint>265.95</meltingpoint>
 		<boilingpoint>331.85</boilingpoint>
@@ -1088,7 +1088,7 @@
 		<date scientiest="W. Ramsay, M. W. Travers">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>39</electronaffinity>
 		<electronegativity></electronegativity>
 		<meltingpoint>116</meltingpoint>
 		<boilingpoint>120.85</boilingpoint>
@@ -1119,7 +1119,7 @@
 		<date scientiest=".W Bunsen, G.R. Kirchhoff">1861</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>1</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-47</electronaffinity>
 		<electronegativity>0.82</electronegativity>
 		<meltingpoint>312.63</meltingpoint>
 		<boilingpoint>961</boilingpoint>
@@ -1182,7 +1182,7 @@
 		<date scientiest="">1794</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-30</electronaffinity>
 		<electronegativity>1.22</electronegativity>
 		<meltingpoint>1795</meltingpoint>
 		<boilingpoint>3611</boilingpoint>
@@ -1211,7 +1211,7 @@
 		<date scientiest="">1789</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-41</electronaffinity>
 		<electronegativity>1.33</electronegativity>
 		<meltingpoint>2128</meltingpoint>
 		<boilingpoint>4682</boilingpoint>
@@ -1242,7 +1242,7 @@
 		<date scientiest="Ch. Hatchett">1801</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-86</electronaffinity>
 		<electronegativity>1.6</electronegativity>
 		<meltingpoint>2742</meltingpoint>
 		<boilingpoint>5015</boilingpoint>
@@ -1271,7 +1271,7 @@
 		<date scientiest="K. W. Scheele">1778</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>6</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-72</electronaffinity>
 		<electronegativity>2.16</electronegativity>
 		<meltingpoint>2896</meltingpoint>
 		<boilingpoint>4912</boilingpoint>
@@ -1301,7 +1301,7 @@
 		<date scientiest="C. Perrier, E. G. Segre">1937</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-53</electronaffinity>
 		<electronegativity>1.9</electronegativity>
 		<meltingpoint>2477</meltingpoint>
 		<boilingpoint>4538</boilingpoint>
@@ -1331,7 +1331,7 @@
 		<date scientiest="K. Klaus">1844</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-101</electronaffinity>
 		<electronegativity>2.2</electronegativity>
 		<meltingpoint>2610</meltingpoint>
 		<boilingpoint>4425</boilingpoint>
@@ -1363,7 +1363,7 @@
 		<date scientiest="W. Wollaston">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-110</electronaffinity>
 		<electronegativity>2.28</electronegativity>
 		<meltingpoint>2236</meltingpoint>
 		<boilingpoint>3970</boilingpoint>
@@ -1394,7 +1394,7 @@
 		<date scientiest="">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-54</electronaffinity>
 		<electronegativity>2.20</electronegativity>
 		<meltingpoint>1825</meltingpoint>
 		<boilingpoint>3240</boilingpoint>
@@ -1426,7 +1426,7 @@
 		<date scientiest="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-126</electronaffinity>
 		<electronegativity>1.93</electronegativity>
 		<meltingpoint>1235.1</meltingpoint>
 		<boilingpoint>2436</boilingpoint>
@@ -1458,7 +1458,7 @@
 		<date scientiest="F. Stromeyer">1817</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>2</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>32</electronaffinity>
 		<electronegativity>1.69</electronegativity>
 		<meltingpoint>594.26</meltingpoint>
 		<boilingpoint>1040</boilingpoint>
@@ -1490,7 +1490,7 @@
 		<date scientiest="F. Reich, H.T. Richter">1863</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-29</electronaffinity>
 		<electronegativity>1.78</electronegativity>
 		<meltingpoint>429.78</meltingpoint>
 		<boilingpoint>2350</boilingpoint>
@@ -1522,7 +1522,7 @@
 		<date scientiest="">0</date>
 		<biologicalmeaning>6</biologicalmeaning>
 		<group>4</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-116</electronaffinity>
 		<electronegativity>1.96</electronegativity>
 		<meltingpoint>505.12</meltingpoint>
 		<boilingpoint>2876</boilingpoint>
@@ -1554,7 +1554,7 @@
 		<date scientiest="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-103</electronaffinity>
 		<electronegativity>2.05</electronegativity>
 		<meltingpoint>903.91</meltingpoint>
 		<boilingpoint>1860</boilingpoint>
@@ -1586,7 +1586,7 @@
 		<date scientiest="F. Müller von Reichenstein">1782</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-190</electronaffinity>
 		<electronegativity>2.1</electronegativity>
 		<meltingpoint>722.72</meltingpoint>
 		<boilingpoint>1261</boilingpoint>
@@ -1618,7 +1618,7 @@
 		<date scientiest="B. Courtois">1804</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>7</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-295</electronaffinity>
 		<electronegativity>2.66</electronegativity>
 		<meltingpoint>386.7</meltingpoint>
 		<boilingpoint>457.5</boilingpoint>
@@ -1647,7 +1647,7 @@
 		<date scientiest="W. Ramsay, M. W. Travers">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>41</electronaffinity>
 		<electronegativity></electronegativity>
 		<meltingpoint>161.39</meltingpoint>
 		<boilingpoint>165.1</boilingpoint>
@@ -1678,7 +1678,7 @@
 		<date scientiest="Robert Wilhelm Bunsen, Gustav Robert Kirchhoff">1860</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-45</electronaffinity>
 		<electronegativity>0.79</electronegativity>
 		<meltingpoint>301.54</meltingpoint>
 		<boilingpoint>944</boilingpoint>
@@ -2227,7 +2227,7 @@
 		<date scientiest="A. Ekeberg">1802</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-31</electronaffinity>
 		<electronegativity>1.5</electronegativity>
 		<meltingpoint>3293</meltingpoint>
 		<boilingpoint>5730</boilingpoint>
@@ -2257,7 +2257,7 @@
 		<date scientiest="K. W. Scheel">1783</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>6</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-79</electronaffinity>
 		<electronegativity>2.36</electronegativity>
 		<meltingpoint>3695</meltingpoint>
 		<boilingpoint>5825</boilingpoint>
@@ -2287,7 +2287,7 @@
 		<date scientiest="W. Noddack, I. Tacke-Noddack, O. Berg">1925</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-14</electronaffinity>
 		<electronegativity>1.9</electronegativity>
 		<meltingpoint>3455</meltingpoint>
 		<boilingpoint>5870</boilingpoint>
@@ -2318,7 +2318,7 @@
 		<date scientiest="S. Tennant">1804</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-106</electronaffinity>
 		<electronegativity>2.2</electronegativity>
 		<meltingpoint>3300</meltingpoint>
 		<boilingpoint>5300</boilingpoint>
@@ -2350,7 +2350,7 @@
 		<date scientiest="S. Tennant">1804</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-151</electronaffinity>
 		<electronegativity>2.20</electronegativity>
 		<meltingpoint>2720</meltingpoint>
 		<boilingpoint>4700</boilingpoint>
@@ -2382,7 +2382,7 @@
 		<date scientiest="A. de Ulloa">1735</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-205</electronaffinity>
 		<electronegativity>2.28</electronegativity>
 		<meltingpoint>2042.1</meltingpoint>
 		<boilingpoint>4100</boilingpoint>
@@ -2414,7 +2414,7 @@
 		<date scientiest="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-223</electronaffinity>
 		<electronegativity>2.54</electronegativity>
 		<meltingpoint>1337.58</meltingpoint>
 		<boilingpoint>3130</boilingpoint>
@@ -2445,7 +2445,7 @@
 		<date scientiest="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>61</electronaffinity>
 		<electronegativity>2.00</electronegativity>
 		<meltingpoint>234.31</meltingpoint>
 		<boilingpoint>629.88</boilingpoint>
@@ -2477,7 +2477,7 @@
 		<date scientiest="W. Crookes">1861</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-20</electronaffinity>
 		<electronegativity>2.04</electronegativity>
 		<meltingpoint>577</meltingpoint>
 		<boilingpoint>1746</boilingpoint>
@@ -2513,7 +2513,7 @@
 		<date scientiest="">0</date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>4</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-35</electronaffinity>
 		<electronegativity>2.33</electronegativity>
 		<meltingpoint>600.65</meltingpoint>
 		<boilingpoint>2023</boilingpoint>
@@ -2545,7 +2545,7 @@
 		<date scientiest="P. Pott, T. O. Bergmann">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-91</electronaffinity>
 		<electronegativity>2.02</electronegativity>
 		<meltingpoint>544.59</meltingpoint>
 		<boilingpoint>1837</boilingpoint>
@@ -2576,7 +2576,7 @@
 		<date scientiest="M. Sklodowska-Curie, P. Curie">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-183</electronaffinity>
 		<electronegativity>2.0</electronegativity>
 		<meltingpoint>527</meltingpoint>
 		<boilingpoint></boilingpoint>
@@ -2606,7 +2606,7 @@
 		<date scientiest="D.R. Corson, K.R. McKenzie, E. Segre">1940</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-270</electronaffinity>
 		<electronegativity>2.2</electronegativity>
 		<meltingpoint>575	</meltingpoint>
 		<boilingpoint>610</boilingpoint>
@@ -2636,7 +2636,7 @@
 		<date scientiest="E. Dorn">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>41</electronaffinity>
 		<electronegativity></electronegativity>
 		<meltingpoint>202</meltingpoint>
 		<boilingpoint>211.4</boilingpoint>
@@ -2666,7 +2666,7 @@
 		<date scientiest="M. Perey">1939</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
-		<electronaffinity></electronaffinity>
+		<electronaffinity>-44</electronaffinity>
 		<electronegativity>0.7</electronegativity>
 		<meltingpoint>300</meltingpoint>
 		<boilingpoint>950</boilingpoint>

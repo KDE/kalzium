@@ -344,6 +344,7 @@ class Element{
 			BOILINGPOINT,
 			MELTINGPOINT,
 			EN,
+			EA,
 			DATE,
 			IE,
 			IONICRADIUS
