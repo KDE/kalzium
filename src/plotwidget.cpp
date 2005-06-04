@@ -36,6 +36,7 @@ void PlotWidget::drawObjects( QPainter *p )
 {
 	int p1x, p1y, //the first point
 	    p2x = 0, p2y = 0; //the second point
+	bool first = true;
 	for ( KPlotObject *po = ObjectList.first(); po; po = ObjectList.next() ) 
 	{
 		if ( po->points()->count() ) 
@@ -67,7 +68,10 @@ void PlotWidget::drawObjects( QPainter *p )
 								p1x = point.x();
 								p1y = point.y();
 
-								p->drawLine(p1x,p1y,p2x,p2y);
+								if ( first )
+									first = false;
+								else
+									p->drawLine(p1x,p1y,p2x,p2y);
 
 								p2x = p1x;
 								p2y = p1y;

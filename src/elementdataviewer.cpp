@@ -83,10 +83,7 @@ void ElementDataViewer::setLimits(int f, int t)
 	double minY = yData->value(f);
 	double maxY = yData->value(f);
 
-	int _currentVal = f;
-	int _to = t;
-	
-	while( _currentVal < _to )
+	for ( int _currentVal = f; _currentVal < t; _currentVal++ )
 	{
 		double v = yData->value( _currentVal );
 		
@@ -94,8 +91,6 @@ void ElementDataViewer::setLimits(int f, int t)
 			minY = v;
 		if( maxY < v)
 			maxY = v;
-
-		_currentVal++;
 	}
 	
 	m_pPlotWidget->setLimits( (double)f, (double)t, minY, maxY );
@@ -284,7 +279,7 @@ void ElementDataViewer::drawPlot()
 	{
 		double v = yData->value( i );
 
-		if ( v != 0.0 )
+		if ( v >= 0.0 )
 		{
 			if ( v < min )
 				min = v;
