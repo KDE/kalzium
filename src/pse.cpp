@@ -308,7 +308,6 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 {
 	QPainter p;
 
-
   //JH: I have split the drawing into two pixmaps: table and table2.
   //table contains the "static" PSE table, and does not change very often.
   //table2 contains the tooltips and any other dynamic overlays.
@@ -323,6 +322,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	  p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
 
 	  drawNumeration( &p );
+	  
 	  if ( m_timeline ){ //use timeline
 		  drawTimeLine(& p );
 		  p.end();
@@ -357,9 +357,13 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	  }
 	  drawPSE( &p );
 
-
 	  if ( m_showLegend )
 		  drawLegend( &p );
+	  
+	  if ( !showTooltip() ){
+		paintCurrentSelection( &p );
+	  }
+	  
 
 	  p.end();
 
@@ -385,6 +389,23 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		
   //JH: Finally, bitBlt the table2 pixmap to the widget
   bitBlt( this, 0, 0, table2 );
+}
+
+void PSE::paintCurrentSelection( QPainter *p )
+{
+	int x = m_currentPoint.x()-1;
+	int y = m_currentPoint.y();
+
+	QPen pen;
+	pen.setStyle( DotLine );
+	pen.setWidth( 4 );
+	pen.setColor( Qt::blue );
+	p->setPen( pen );
+	p->drawEllipse( x*ELEMENTSIZE-10,y*ELEMENTSIZE-10,ELEMENTSIZE+20,ELEMENTSIZE+20 );
+	pen.setWidth( 3 );
+	pen.setColor( Qt::red );
+	p->setPen( pen );
+	p->drawEllipse( x*ELEMENTSIZE-5,y*ELEMENTSIZE-5,ELEMENTSIZE+10,ELEMENTSIZE+10 );
 }
 
 void PSE::drawToolTip( QPainter* p, Element *e )
@@ -607,8 +628,9 @@ void PSE::drawNumeration( QPainter* p )
 void PSE::drawSOMPSE( QPainter* p )
 {
 	EList::Iterator it = d->ElementList.begin();
+	const EList::Iterator itEnd = d->ElementList.end();
 
-	while ( it != d->ElementList.end() )
+	while ( it != itEnd )
 	{
 		( *it )->drawStateOfMatter( p, m_temperature );
 		++it;
@@ -711,11 +733,19 @@ void PSE::slotLock(bool locked)
 	else{
 		setShowTooltip(true);
 	}
+
+	setFullDraw();
+	update();
 }
 
 void PSE::slotUpdatePoint( QPoint point )
 {
+	kdDebug() << "PSE::slotUpdatePoint()" << endl;
+		
 	m_currentPoint = point;
+
+	kdDebug() << m_currentPoint.x() << endl;
+	kdDebug() << m_currentPoint.y() << endl;
 
 	update();
 }

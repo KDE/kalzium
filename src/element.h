@@ -99,6 +99,7 @@ class Element{
 		
 		void setMass( double value ) { m_mass = value; }
 		void setEN( double value ) { m_EN = value; }
+		void setEA( double value ) { m_EA = value; }
 		void setMeltingpoint( double value ) { m_MP = value; }
 		void setBoilingpoint( double value ) { m_BP = value; }
 		void setDensity( double value ) { m_Density = value; }
@@ -276,7 +277,14 @@ class Element{
 		double electroneg() const {
 			return m_EN;
 		}
-		
+
+		/**
+		* @return the electroaffinity of the element
+		*/
+		double electroaf() const {
+			return m_EA;
+		}
+
 		/**
 		 * @return the atomic mass of the element in units
 		 */
@@ -374,7 +382,8 @@ class Element{
 		double  m_mass,
 			m_MP, 
 			m_BP, 
-			m_EN, 
+			m_EN,
+			m_EA, 
 			m_Density,
 			m_RadiusAR,
 			m_RadiusCR,

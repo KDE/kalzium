@@ -562,6 +562,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 
 		double mass = domElement.namedItem( "mass" ).toElement().text().toDouble();
 		double en = domElement.namedItem( "electronegativity" ).toElement().text().toDouble();
+		double ea = domElement.namedItem( "electronaffinity" ).toElement().text().toDouble();
 		double mp = domElement.namedItem( "meltingpoint" ).toElement().text().toDouble();
 		double bp = domElement.namedItem( "boilingpoint" ).toElement().text().toDouble();
 		double density = domElement.namedItem( "density" ).toElement().text().toDouble();
@@ -626,6 +627,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		
 		e->setMass( mass );	
 		e->setEN( en );
+		e->setEA( ea );
 		e->setMeltingpoint( mp );
 		e->setBoilingpoint( bp );
 		e->setDensity( density );

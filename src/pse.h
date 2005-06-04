@@ -127,6 +127,9 @@ class PSE : public QWidget
 			update();
 		}
 
+		/**
+		 * XXX shouldn't this be renamed to m_locked?
+		 */
 		void setShowTooltip( bool show ){
 			m_showTooltip = show;
 		}
@@ -344,6 +347,8 @@ class PSE : public QWidget
 		
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
+
+		virtual void paintCurrentSelection( QPainter *p );
 
 		///in this method the tooltops are drawn.
 		virtual void drawToolTip( QPainter *p, Element *e );
