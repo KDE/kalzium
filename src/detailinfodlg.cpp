@@ -124,11 +124,12 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 				html.append( i18n( "<b>Atomic Radius: %1 </b>" ).arg( e->adjustRadius(Element::ATOMIC) ) );
 				html.append( "</td></tr>" );
 			}
-	
 			
-		
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "<b>Mass: %1</b>" ).arg( e->adjustUnits( Element::MASS ) ) );
+			html.append( "</td></tr>" );
+			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+			html.append( isotopeTable() );
 			html.append( "</td></tr>" );
 			break;
 		case MISC:
@@ -179,6 +180,81 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 	
 	return html;
 }
+
+QString DetailedInfoDlg::isotopeTable()
+{
+	const QString isotopes_string = e->Isotopes();
+	QString isotopes = isotopes_string;
+	QString html;
+
+	int pos;
+	int l;
+
+	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"3\">";
+	html += i18n( "Isotope-Table" );
+	html += "</tr></td><tr><td><b>";
+	html += i18n( "Weight" );
+	html += "</b></td><td><b>";
+	html += i18n( "Neutrons" );
+	html += "</b></td><td><b>";
+	html += i18n( "Percentage" );
+	html += "</b></td></tr>";
+	
+	for (  int num = 0; num < isotopes_string.contains(  ";" ) ; ++num )
+	{
+		pos = isotopes.find(  ";" );
+		l = isotopes.length();
+
+		QString str = isotopes.left(  pos );
+		QString new_str = isotopes.right(  l-pos-1 );
+
+		//now append the html-code... 
+		html.append( isotopeRow( str ) );
+		isotopes = new_str;
+	}
+	
+	html += ( "</table>" );
+
+	return html;
+}
+
+QString DetailedInfoDlg::isotopeRow( const QString& str )
+{
+	QString text;
+
+	//number of neutrons of the isotope
+	int pos = str.find( ":" );
+	QString neutrons_str = str.left( pos );
+	QString tmp = str.right( str.length()-pos-1 );
+
+	//Weight of the isotope
+	pos = tmp.find( ":" );
+	QString weight_str = tmp.left( pos );
+
+	//Percentage of the isotope
+	tmp = tmp.right( tmp.length()-pos-1 );
+
+ 	QString neutrons;
+ 	QString weight;
+ 	QString percentage;
+
+	weight_str.append( i18n( " u" ) );
+	weight.append( weight_str );
+	neutrons.append( neutrons_str );
+
+	percentage.append( tmp );
+
+	text = "<tr><td align=\"right\">";
+	text.append( weight );
+	text.append( "</td><td>" );
+	text.append( neutrons );
+	text.append( "</td><td>" );
+	text.append( percentage );
+	text.append( "</td></tr>" );
+
+	return text;
+}
+
 
 void DetailedInfoDlg::createContent( Element *el )
 {

@@ -57,6 +57,17 @@ table.characterstics td
 	vertical-align:middle;
 	text-align:center;
 }
+
+table.isotopes td
+{
+/*	background-color:#ffee11;    */
+	border-color:#000000; 
+	border-style:solid;
+	border-left-width:1px;
+	border-right-width:0px;
+	border-left-color:#123123;
+}
+
 /* The second td inside the characterstics-table (text) */
 table.characterstics td+td
 {

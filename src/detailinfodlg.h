@@ -51,6 +51,10 @@ class DetailedInfoDlg : public KDialogBase
 	private:
 		KalziumDataObject *m_data;
 		Element *e;
+
+		QString isotopeTable();
+		QString isotopeRow( const QString& str );
+		
 		QFrame *m_pOverviewTab,
 			*m_pPictureTab,
 			*m_pModelTab;
