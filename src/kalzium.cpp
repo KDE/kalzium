@@ -38,10 +38,11 @@
 #include <kstatusbar.h>
 #include <knuminput.h>
 #include <kpushbutton.h>
+#include <kcombobox.h>
 
 #define IDS_TEMP           1
-#define IDS_ENERG           2
-#define IDS_TEMPERATURE    3
+#define IDS_ENERG           3
+#define IDS_UNITS           5
 
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
@@ -175,20 +176,44 @@ void Kalzium::slotLearningmode()
 
 void Kalzium::setupStatusBar()
 {
-//X 	statusBar()->insertItem("", IDS_TEMP, 0, false);
-//X  	statusBar()->setItemAlignment(IDS_TEMP, AlignLeft);
- 	statusBar()->insertItem("", IDS_ENERG, 0, false);
- 	statusBar()->setItemAlignment(IDS_ENERG, AlignLeft);
-	displayEnergie();
-//X  	statusBar()->insertItem("", IDS_TEMPERATURE, 0, false);
-//X  	statusBar()->setItemAlignment(IDS_TEMPERATURE, AlignLeft);	
-	// fill the statusbar 
+	t_box = new KComboBox( statusBar() );
+	e_box = new KComboBox( statusBar() );
+	u_box = new KComboBox( statusBar() );
+	t_box->insertItem( i18n( "Kelvin" ) );
+	t_box->insertItem( i18n("Celsius") );
+	t_box->insertItem( i18n("Fahrenheit" ) );
+	e_box->insertItem( i18n("kilojoule per mol. Please enter a capital 'J'", "kJ/mol") );
+	e_box->insertItem( i18n("the symbol for electronvolt", "eV" ));
+	u_box->insertItem( i18n("SI-Units" ) );
+	u_box->insertItem( i18n("Common Units" ) );
+
+	connect( t_box, SIGNAL( activated( int ) ), this, SLOT( adjustUnits() ) );
+	connect( e_box, SIGNAL( activated( int ) ), this, SLOT( adjustUnits() ) );
+	connect( u_box, SIGNAL( activated( int ) ), this, SLOT( adjustUnits() ) );
+
+	statusBar()->insertItem(i18n( "Temperature" ), IDS_TEMP+1, 0, false);
+	statusBar()->setItemAlignment(IDS_TEMP+1, AlignLeft);
+	statusBar()->addWidget( t_box , IDS_TEMP, false );
+
+	statusBar()->insertItem(i18n( "Energy" ), IDS_ENERG+1, 0, false);
+	statusBar()->setItemAlignment(IDS_ENERG+1, AlignLeft);
+	statusBar()->addWidget( e_box , IDS_ENERG, false );
+	
+	statusBar()->insertItem(i18n( "Units" ), IDS_UNITS+1, 0, false);
+	statusBar()->setItemAlignment(IDS_UNITS+1, AlignLeft);
+	statusBar()->addWidget( u_box , IDS_UNITS, false );
+	
+	updateStatusbar();
+
 	statusBar()->show();
 }
 
-void Kalzium::slotStatusBar(const QString& text, int id)
+void Kalzium::adjustUnits()
 {
-	statusBar()->changeItem(text, id);
+	Prefs::setTemperature( t_box->currentItem() );
+	Prefs::setEnergies( e_box->currentItem() );
+	Prefs::setUnits( u_box->currentItem() );
+	Prefs::writeConfig();
 }
 
 void Kalzium::slotPlotData()
@@ -302,22 +327,14 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotUpdateSettings()
 {
 	m_PSE->reloadColours();
-
-	displayEnergie();
+	updateStatusbar();
 }
  
-void Kalzium::displayEnergie()
+void Kalzium::updateStatusbar()
  {
- 	QString string;
- 	switch (Prefs::units()) {
-     		case 0:
- 			string = i18n("kilojoule per mol. Please enter a capital 'J'", "kJ/mol");
- 			break;
- 		case 1:
- 			string = i18n("the symbol for electronvolt", "eV");
- 			break;
- 	}
- 	slotStatusBar(i18n("the argument %1 is the unit of the energy (eV or kJ/mol)", "Energy: %1").arg( string ),  IDS_ENERG);
+	t_box->setCurrentItem( Prefs::temperature() );
+	e_box->setCurrentItem( Prefs::energies() );
+	u_box->setCurrentItem( Prefs::units() );
 }
 
 void Kalzium::openInformationDialog( int number )

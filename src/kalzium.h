@@ -54,10 +54,16 @@ class Kalzium : public KMainWindow
 		privatedata* pd;
 
 	private:
-		/**
+		/**XXX obsolete?
 		 * the date which the pSliderWidget will start with
 		 */
 		int date;
+	
+		///the KComboBoxes for the statusbar (temperature and energie)
+		KComboBox *e_box,
+				  *t_box,
+				  *u_box;
+
 
 		InformationWidget *m_info;
 		
@@ -79,14 +85,9 @@ class Kalzium : public KMainWindow
 		void setupActions();
 		
 		/**
-		 *display text in the statusbar item at index int
-		 */
-		void slotStatusBar(const QString& text, int id);
-
-		/**
 		 *diplay the energy unit in the Statusbar
 		 */
-		void displayEnergie();	
+		void updateStatusbar();	
 		
     /**Signal the PSE that it should do a full draw operation
       */
@@ -119,6 +120,12 @@ class Kalzium : public KMainWindow
 		 * opens the information dialog for the element @p number
 		 */
 		void openInformationDialog( int number );
+
+	/**
+	 * called when the user changed a KComboBox in the statusbar
+	 */
+	void adjustUnits();
+	
 
 		/**
 		 * this slot switches Kalzium to the selected colorscheme
