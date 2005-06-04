@@ -12,9 +12,6 @@
             <height>616</height>
         </rect>
     </property>
-    <property name="caption">
-        <string>MolcalcDialog</string>
-    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>

@@ -12,9 +12,6 @@
             <height>364</height>
         </rect>
     </property>
-    <property name="caption">
-        <string>InformationDialog</string>
-    </property>
     <vbox>
         <property name="name">
             <cstring>unnamed</cstring>
