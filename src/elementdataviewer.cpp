@@ -143,7 +143,7 @@ void ElementDataViewer::setupAxisData()
 		case AxisData::MASS:
 			for( ; it != itEnd ; ++it ) {
 				double value = (*it)->mass();
-				if( value != -1 )
+				if( value > 0.0 )
 				  l.append( value );
 				else
 				  l.append( 0.0 );
@@ -153,7 +153,7 @@ void ElementDataViewer::setupAxisData()
 		case AxisData::MEANWEIGHT:
 			for( ; it != itEnd ; ++it ) {
 				double value =(*it)->meanmass();
-				if( value != -1 )
+				if( value > 0.0 )
 				  l.append( value );
 				else
 				  l.append( 0.0 );
@@ -163,17 +163,27 @@ void ElementDataViewer::setupAxisData()
 		case AxisData::DENSITY:
 			for( ; it != itEnd ; ++it ) {
 				double value =(*it)->density();
-				if( value != -1 )
+				if( value > 0.0 )
 				  l.append( value );
 				else
 				  l.append( 0.0 );
 				m_pPlotWidget->setYAxisLabel(i18n("Density"));
 			}
 			break;
+		case AxisData::EN:
+			for( ; it != itEnd ; ++it ) {
+				double value = (*it)->electroneg();
+				if( value > 0.0 )
+				  l.append( value );
+				else
+				  l.append( 0.0 );
+				m_pPlotWidget->setYAxisLabel(i18n("Boiling Point [K]"));
+			}
+			break;
 		case AxisData::MELTINGPOINT:
 			for( ; it != itEnd ; ++it ) {
 				double value = (*it)->melting();
-				if( value != -1 )
+				if( value > 0.0 )
 				  l.append( value );
 				else
 				  l.append( 0.0 );
@@ -182,8 +192,8 @@ void ElementDataViewer::setupAxisData()
 			break;
 		case AxisData::BOILINGPOINT:
 			for( ; it != itEnd ; ++it ) {
-				double value = (*it)->electroneg();
-				if( value != -1 )
+				double value = (*it)->boiling();
+				if( value > 0.0 )
 				  l.append( value );
 				else
 				  l.append( 0.0 );
@@ -192,13 +202,23 @@ void ElementDataViewer::setupAxisData()
 			break;
 		case AxisData::ATOMICRADIUS:
 //X 			for( ; it != itEnd ; ++it ) {
-//X 				double value = (*it)->radius();
-//X 				if( value != -1 )
+//X 				double value = (*it)->radius( Element::ATOMIC );
+//X 				if( value > 0.0 )
 //X 				  l.append( value );
 //X 				else
 //X 				  l.append( 0.0 );
 //X 				m_pPlotWidget->setYAxisLabel(i18n("Atomic Radius [pm]"));
 //X 			}
+			break;
+		case AxisData::COVALENTRADIUS:
+			for( ; it != itEnd ; ++it ) {
+				double value = (*it)->radius( Element::COVALENT );
+				if( value > 0.0 )
+				  l.append( value );
+				else
+				  l.append( 0.0 );
+				m_pPlotWidget->setYAxisLabel(i18n("Covalent Radius [pm]"));
+			}
 			break;
 	}
 

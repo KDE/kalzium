@@ -313,7 +313,7 @@ void Kalzium::showSettingsDialog()
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
 	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotUpdateSettings() ) );
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Colors"), "colorize");
-	dialog->addPage( new setupUnits( 0, "units_page"), i18n("Units"), "units");
+	dialog->addPage( new setupUnits( 0, "units_page"), i18n("Units"), "gear");
 	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Miscellaneous" ), "misc" );
 	dialog->show();
 }

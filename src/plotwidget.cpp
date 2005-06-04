@@ -34,6 +34,8 @@ PlotWidget::PlotWidget( double x1,
 
 void PlotWidget::drawObjects( QPainter *p )
 {
+	int p1x, p1y, //the first point
+	    p2x = 0, p2y = 0; //the second point
 	for ( KPlotObject *po = ObjectList.first(); po; po = ObjectList.next() ) 
 	{
 		if ( po->points()->count() ) 
@@ -57,9 +59,6 @@ void PlotWidget::drawObjects( QPainter *p )
 						}
 						if (m_connectPoints)
 						{
-							int 	p1x, p1y, //the first point
-									p2x = 0, p2y = 0; //the second point
-
 							DPoint *dp = po->points()->first();
 
 							while ( dp )
@@ -85,7 +84,7 @@ void PlotWidget::drawObjects( QPainter *p )
 					p->drawText( q.x()-20, q.y()+6, 40, 10, Qt::AlignCenter | Qt::DontClip, po->name() );
 					break;
 					}
-				case KPlotObject::UNKNOWN_TYPE : break;
+				default: ;
 			}
 		}
 	}

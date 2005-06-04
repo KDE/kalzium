@@ -110,11 +110,6 @@ class Element{
 		 */
 		void setRadius( RADIUSTYPE type, double value, const QString& name = 0 );
 		
-		/**
-		 * @return the value of the radius of the type @p type
-		 */
-		double getRadius( RADIUSTYPE type );
-
 		void setDate( int date ) { m_date = date; }
 		void setBiologicalMeaning( int value ) { m_biological = value; }
 		void setAggregation( int value ) { m_az = value; }

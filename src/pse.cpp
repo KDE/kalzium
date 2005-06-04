@@ -822,19 +822,19 @@ void PSE::calculateGradient( QPainter *p )
 		case Element::ATOMICRADIUS:
 			for (; it != itEnd; ++it )
 			{
-				tmpList.append( ( *it )->getRadius(Element::ATOMIC) );
+				tmpList.append( ( *it )->radius(Element::ATOMIC) );
 			}
 			break;
 		case Element::COVALENTRADIUS:
 			for (; it != itEnd; ++it )
 			{
-				tmpList.append( ( *it )->getRadius(Element::COVALENT) );
+				tmpList.append( ( *it )->radius(Element::COVALENT) );
 			}
 			break;
 		case Element::VDWRADIUS:
 			for (; it != itEnd; ++it )
 			{
-				tmpList.append( ( *it )->getRadius(Element::VDW) );
+				tmpList.append( ( *it )->radius(Element::VDW) );
 			}
 			break;
 		case Element::MASS:
@@ -908,7 +908,7 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			title = i18n( "Gradient: Atomic Radius" );
 			while ( it != d->ElementList.end() )
 			{
-				double value = ( *it )->getRadius( Element::ATOMIC );
+				double value = ( *it )->radius( Element::ATOMIC );
 				double coeff = ( value - min )/var;
 
 				drawGradientButton( p, *it, coeff, value, min );
@@ -920,7 +920,7 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			title = i18n( "Gradient: van der Walls Radius" );
 			while ( it != d->ElementList.end() )
 			{
-				double value = ( *it )->getRadius( Element::VDW );
+				double value = ( *it )->radius( Element::VDW );
 				double coeff = ( value - min )/var;
 				
 				drawGradientButton( p, *it, coeff, value, min );
@@ -932,8 +932,8 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			title = i18n( "Gradient: Covalent Radius" );
 			while ( it != d->ElementList.end() )
 			{
-				double value = ( *it )->getRadius( Element::COVALENT );
-				double coeff = ( (*it)->getRadius(Element::COVALENT) - min )/var;
+				double value = ( *it )->radius( Element::COVALENT );
+				double coeff = ( (*it)->radius(Element::COVALENT) - min )/var;
 				
 				drawGradientButton( p, *it, coeff, value, min );
 

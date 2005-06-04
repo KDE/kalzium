@@ -202,13 +202,13 @@
                 <cstring>groupBox1</cstring>
             </property>
             <property name="title">
-                <string>groupBox1</string>
+                <string>Y-axis:</string>
             </property>
             <grid>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="KComboBox" row="1" column="0">
+                <widget class="KComboBox" row="0" column="0">
                     <item>
                         <property name="text">
                             <string>Mass</string>
@@ -231,12 +231,12 @@
                     </item>
                     <item>
                         <property name="text">
-                            <string>Boilingpoint</string>
+                            <string>Boiling point</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Meltingpoint</string>
+                            <string>Melting point</string>
                         </property>
                     </item>
                     <item>
@@ -244,19 +244,16 @@
                             <string>Atomic radius</string>
                         </property>
                     </item>
+                    <item>
+                        <property name="text">
+                            <string>Covalent radius</string>
+                        </property>
+                    </item>
                     <property name="name">
                         <cstring>KCB_y</cstring>
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>Here you can define what you want to plot</string>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="0" column="0">
-                    <property name="name">
-                        <cstring>textLabel1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Y-axis:</string>
                     </property>
                 </widget>
             </grid>
@@ -280,17 +277,17 @@
                     </item>
                     <item>
                         <property name="text">
-                            <string>Transsition metal, 3rd group</string>
+                            <string>Transition metal, 3rd group</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Transsition metal, 4rd group</string>
+                            <string>Transition metal, 4rd group</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Transsition metal, 5rd group</string>
+                            <string>Transition metal, 5rd group</string>
                         </property>
                     </item>
                     <property name="name">
@@ -320,12 +317,12 @@
                     </item>
                     <item>
                         <property name="text">
-                            <string>Boilingpoint</string>
+                            <string>Boiling point</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Meltingpoint</string>
+                            <string>Melting point</string>
                         </property>
                     </item>
                     <item>
@@ -343,22 +340,22 @@
                 <widget class="KComboBox" row="1" column="0">
                     <item>
                         <property name="text">
-                            <string>Transitionmetals</string>
+                            <string>Transition metals</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Transsitionmetal, 3rd group</string>
+                            <string>Transition metal, 3rd group</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Transsitionmetal, 4rd group</string>
+                            <string>Transition metal, 4rd group</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Transsitionmetal, 5rd group</string>
+                            <string>Transition metal, 5rd group</string>
                         </property>
                     </item>
                     <property name="name">

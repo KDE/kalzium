@@ -105,20 +105,20 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
 			html.append( i18n( "<b>Covalent Radius: %1</b>" ).arg( e->adjustRadius( Element::COVALENT ) ) );
 			html.append( "</td></tr>" );
-			if ( e->getRadius(Element::IONIC) != 0.0 )
+			if ( e->radius(Element::IONIC) > 0.0 )
 			{
 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
 				html.append( i18n( "<b>Ionic Radius (Charge): %1 </b>(%2)" ).arg( e->adjustRadius(Element::IONIC) ).arg( e->ioncharge() ) );
 				html.append( "</td></tr>" );
 			}
-			if ( e->getRadius(Element::VDW) != 0.0 )
+			if ( e->radius(Element::VDW) > 0.0 )
 			{
 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
 				html.append( i18n( "<b>van der Waals Radius: %1 </b>" ).arg( e->adjustRadius(Element::VDW) ) );
 				html.append( "</td></tr>" );
 			}
 		
-			if ( e->getRadius(Element::ATOMIC) != 0.0 )
+			if ( e->radius(Element::ATOMIC) > 0.0 )
 			{
 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
 				html.append( i18n( "<b>Atomic Radius: %1 </b>" ).arg( e->adjustRadius(Element::ATOMIC) ) );

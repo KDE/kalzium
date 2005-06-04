@@ -506,7 +506,7 @@ void Element::setRadius( RADIUSTYPE type, double value, const QString& name )
 	}
 }
 
-double Element::getRadius( RADIUSTYPE type )
+double Element::radius( RADIUSTYPE type )
 {
 	switch ( type )
 	{

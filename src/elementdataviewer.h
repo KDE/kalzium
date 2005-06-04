@@ -63,7 +63,8 @@ class AxisData
 			EN, 
 			MELTINGPOINT, 
 			BOILINGPOINT, 
-			ATOMICRADIUS  
+			ATOMICRADIUS,
+			COVALENTRADIUS
 		};
 
 		/**
