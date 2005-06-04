@@ -867,6 +867,12 @@ void PSE::calculateGradient( QPainter *p )
 				tmpList.append( ( *it )->electroneg() );
 			}
 			break;
+		case Element::EA:
+			for (; it != itEnd; ++it )
+			{
+				tmpList.append( ( *it )->electroaf() );
+			}
+			break;
 	}
 
 	QValueList<double>::iterator dit = tmpList.begin();
@@ -990,6 +996,22 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 				++it;
 			}
 			break;
+		case Element::EA:
+			title = i18n( "Gradient: Electron affinity" );
+			double tmpVar = -1*(min - max);
+			while ( it != d->ElementList.end() )
+			{	
+				if( (*it)->electroaf() == 0.0)
+					drawGradientButton( p, *it,-1.0, (*it )->electroaf(), min );
+				else
+				{
+					double coeff = ( max - (*it)->electroaf() )/tmpVar;
+					drawGradientButton( p, *it, coeff, (*it )->electroaf(), min );
+				}
+	
+				++it;
+			}
+			break;
 	}
 	//now draw the gradientwidget:
 	int x,y,w,h;
@@ -1008,7 +1030,7 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 
 void PSE::drawGradientButton( QPainter *p, Element* e, double coeff, double value, double minValue )
 {
-	if ( value >= minValue )
+	if ( value >= minValue && coeff != -1.0)
 	{
 		QColor c = calculateColor( coeff );
 		e->drawGradient( p, QString::number( value ), c );

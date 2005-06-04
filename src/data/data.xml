@@ -567,12 +567,11 @@
 		<density>0.86</density>
 		<ionisationenergy>
 			<energy>4.341 </energy>
-
 		</ionisationenergy>
 		<radius>
-			<covalent>227</covalent>
-			<atomic></atomic>
-			<vdw></vdw>
+			<covalent>154</covalent>
+			<atomic>180</atomic>
+			<vdw>227</vdw>
 		</radius>
 		<orbits>Ar 4s1</orbits>
 		<oxydation>+1</oxydation>
@@ -602,8 +601,8 @@
 			<energy>11.9</energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>197.3</covalent>
-			<atomic></atomic>
+			<covalent>174</covalent>
+			<atomic>180</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Ar 4s2</orbits>
@@ -664,7 +663,7 @@
 		</ionisationenergy>
 		<radius>
 			<covalent>144.8</covalent>
-			<atomic></atomic>
+			<atomic>160</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Ar 3d2 4s2</orbits>
@@ -691,11 +690,10 @@
 		<density>6.09</density>
 		<ionisationenergy>
 			<energy>6.74 </energy>
-
 		</ionisationenergy>
 		<radius>
-			<covalent>132.1</covalent>
-			<atomic></atomic>
+			<covalent>125/covalent>
+			<atomic>135</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Ar 3d3 4s2</orbits>
@@ -726,7 +724,7 @@
 		</ionisationenergy>
 		<radius>
 			<covalent>124.9</covalent>
-			<atomic></atomic>
+			<atomic>140</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Ar 3d5 4s1</orbits>
@@ -756,8 +754,8 @@
 			<energy>7.435 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>124</covalent>
-			<atomic></atomic>
+			<covalent>139</covalent>
+			<atomic>140</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Ar 3d5 4s2</orbits>
@@ -783,11 +781,10 @@
 		<density>7.874</density>
 		<ionisationenergy>
 			<energy>7.870 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<covalent>124.1</covalent>
-			<atomic></atomic>
+			<atomic>140</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Ar 3d6 4s2</orbits>
@@ -815,11 +812,10 @@
 		<density>8.89</density>
 		<ionisationenergy>
 			<energy>7.86 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<covalent>125.3</covalent>
-			<atomic></atomic>
+			<atomic>135</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Ar 3d7 4s2</orbits>
@@ -846,12 +842,11 @@
 		<density>8.91</density>
 		<ionisationenergy>
 			<energy>7.635 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<covalent>124.6</covalent>
-			<atomic></atomic>
-			<vdw></vdw>
+			<atomic>135</atomic>
+			<vdw>163</vdw>
 		</radius>
 		<orbits>Ar 3d8 4s2</orbits>
 		<oxydation>0,(+2),+3</oxydation>
@@ -876,13 +871,14 @@
 		<boilingpoint>2840</boilingpoint>
 		<density>8.92</density>
 		<ionisationenergy>
-			<energy>7.726 </energy>
-
+			<energy>7.726</energy>
+			<energy>19.579</energy>
+			<energy>35.55</energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>127.8</covalent>
-			<atomic></atomic>
-			<vdw></vdw>
+			<covalent>138</covalent>
+			<atomic>135</atomic>
+			<vdw>140</vdw>
 		</radius>
 		<orbits>Ar 3d10 4s1</orbits>
 		<oxydation>+1,+2</oxydation>
