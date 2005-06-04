@@ -692,7 +692,7 @@
 			<energy>6.74 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>125/covalent>
+			<covalent>125</covalent>
 			<atomic>135</atomic>
 			<vdw></vdw>
 		</radius>
