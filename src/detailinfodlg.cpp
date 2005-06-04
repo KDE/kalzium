@@ -30,7 +30,6 @@
 
 #include "element.h"
 #include "orbitswidget.h"
-#include "isotopewidget.h"
 #include "detailedgraphicaloverview.h"
 
 DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget *parent, const char *name)

@@ -31,12 +31,6 @@
 #include <qstringlist.h>
 #include <qtoolbutton.h>
 
-#include "detailinfodlg.h"
-#include "orbitswidget.h"
-#include "prefs.h"
-#include "isotopewidget.h"
-#include "detailedgraphicaloverview.h"
-
 GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
     : KDialogBase( Plain, i18n( "Glossary of chemical expressions" ), Close, Close, parent, name, false )
 {

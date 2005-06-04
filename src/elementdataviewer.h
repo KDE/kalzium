@@ -19,12 +19,12 @@
 
 #include <kdialogbase.h>
 
-#include "element.h"
-#include "plotwidget.h"
-
 typedef QValueList<double> DoubleList;
 
+class Element;
+class KalziumDataObject;
 class PlotSetupWidget;
+class PlotWidget;
 
 /**
  * @short the values of the y-Axis

@@ -20,7 +20,6 @@
 #include "pse.h"
 #include "prefs.h"
 #include "element.h"
-#include "detailinfodlg.h"
 
 #include <klocale.h>
 #include <kdebug.h>
