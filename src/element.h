@@ -22,13 +22,12 @@
 
 #define ELEMENTSIZE 40
 
-#include <ksimpleconfig.h>
-#include <kstandarddirs.h>
-#include <qdom.h>
-#include <qfile.h>
+#include <qcolor.h>
+#include <qvaluelist.h>
 
 class Element;
-class QColor;
+class QDomDocument;
+class QPainter;
 
 struct coordinate;
 

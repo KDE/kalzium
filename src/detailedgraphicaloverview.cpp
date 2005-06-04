@@ -23,12 +23,10 @@ email                : cniehaus@kde.org
 
 //QT-Includes
 #include <qpainter.h>
-#include <qlayout.h>
-#include <qlabel.h>
 #include <qstring.h>
 #include <qpixmap.h>
 
-	DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name ) 
+DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name ) 
 : QWidget( parent, name )
 {
 	setBackgroundMode( NoBackground );

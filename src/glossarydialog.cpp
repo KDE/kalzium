@@ -7,30 +7,30 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "glossarydialog.h"
+
 #include <kdebug.h>
 #include <klocale.h>
 #include <kiconloader.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
 #include <kglobal.h>
-#include <klineedit.h>
 #include <klistview.h>
 #include <klistviewsearchline.h>
 #include <kmessagebox.h>
+#include <kstandarddirs.h>
 
+#include <qfile.h>
 #include <qlabel.h>
 #include <qheader.h>
-#include <qimage.h>
 #include <qwhatsthis.h>
 #include <qlayout.h>
-#include <qpainter.h>
 #include <qpushbutton.h>
 #include <qregexp.h>
 #include <qsplitter.h>
 #include <qstringlist.h>
 #include <qtoolbutton.h>
 
-#include "glossarydialog.h"
 #include "detailinfodlg.h"
 #include "orbitswidget.h"
 #include "prefs.h"

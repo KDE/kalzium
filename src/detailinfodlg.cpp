@@ -13,24 +13,23 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "detailinfodlg.h"
+
 #include <kdebug.h>
 #include <klocale.h>
 #include <kiconloader.h>
-#include <kglobalsettings.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
+#include <kstandarddirs.h>
 
 #include <qlabel.h>
-#include <qpainter.h>
 #include <qimage.h>
 #include <qwhatsthis.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
-#include <qvaluelist.h>
 
-#include "detailinfodlg.h"
+#include "element.h"
 #include "orbitswidget.h"
-#include "prefs.h"
 #include "isotopewidget.h"
 #include "detailedgraphicaloverview.h"
 

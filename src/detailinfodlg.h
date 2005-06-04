@@ -20,15 +20,15 @@
 #define _DETAILINFODLG_H_
 
 #include <kdialogbase.h>
-#include "element.h"
-#include "orbitswidget.h"
 
 class DetailedGraphicalOverview;
+class Element;
 class KalziumDataObject;
+class OrbitsWidget;
 
 class QMouseEvent;
 class QFrame;
-
+class QVBoxLayout;
 
 /**
  * @short The dialog which shows all availeble information

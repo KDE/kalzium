@@ -20,22 +20,19 @@
 
 #include "element.h"
 #include "prefs.h"
+
+#include <qdom.h>
+#include <qfile.h>
+#include <qpainter.h>
 #include <qregexp.h>
-#include <qmap.h>
+
 #include <kdebug.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kurl.h>
-#include <klocale.h>
 #include <kstandarddirs.h>
-#include <kdebug.h>
-#include <kfiledialog.h>
-#include <kmessagebox.h>
 
 #include <math.h>
-
-#include <qpainter.h>
-
 
 Element::Element()
 {
