@@ -2,40 +2,66 @@ TODO for Kalzium 1.5:
 
 Brainstorming with ingwa:
 
- 1: The legend (s-Block, d-Block, etc) should have tooltips
+1: The legend (s-Block, d-Block, etc) should have tooltips
    CN: done
- 2. They should have WhatsThis help as well.
+   
+2. They should have WhatsThis help as well.
    CN: not sure if that is needed if (1) is implemented
- 3. The data dialog should be non-modal (definitely)
+   
+3. The data dialog should be non-modal (definitely)
    CN: Ingwa will do this.
- 4. in "learning mode", "Time" should perhaps be "Discovery year".
+   
+4. in "learning mode", "Time" should perhaps be "Discovery year".
    CN: Not only that, there should be more data about the time, for
        example which chemitry-nobel-prize was won in that year (+/- 5 years or so)
- 5. learning mode, Temperature: Still a number of elements with melting and boiling points = 0K
+	   
+5. learning mode, Temperature: Still a number of elements with melting and boiling points = 0K
    CN: don't understand this point
- 6. There is no legend in the main window for the states (liquid, solid, gas, etc) when the
+   
+6. There is no legend in the main window for the states (liquid, solid, gas, etc) when the
     user is in the state-of-matter-feature.
    CN: This is indeed missing. Pretty easy to add
- 7. In "temperature" there is no way to set an exact temperature.  The ruler jumps 10 degrees at a time
+   
+7. In "temperature" there is no way to set an exact temperature.  The ruler jumps 10 degrees at a time
    CN: This is indeed missing. Pretty easy to add
- 8. An idea: Is there a way to get a table of different data?
+
+8. An idea: Is there a way to get a table of different data?
    CN: Export to html and csv comes into my mind. Pretty easy I guess. SOmething like that
    was in Kalzium of KDE 3.1 I think. But my implementation sucked so much I removed it
- 9. About Plot Data: The button says "Plot data", but the window caption says "visualize data"
+
+9. About Plot Data: The button says "Plot data", but the window caption says "visualize data"
    CN: Pino, will you fix that? and (10)?
- 10. The plot data window has wide buttons but a very narrow plot area. :-)
- 13. Not a bug, but an idea: Make the glossary also a tool for translation
- 14. The search for words should be above the word list.
- 15. If you hit return in the search, you close the window.  It should display the item.
-   CN: simple focus-bug. Easy to fix
- 16. In the data window, if you use the scroll mouse it goes to the next/previous element.  There should be buttons to do the same.  Hmm.  A nice one.  Ctrl-scroll in the data window zooms.  :-)
+
+10. The plot data window has wide buttons but a very narrow plot area. :-)
+
+13. Not a bug, but an idea: Make the glossary also a tool for translation
+
+14. The search for words should be above the word list.
+
+15. If you hit return in the search, you close the window.  It should display the item.
+CN: simple focus-bug. Easy to fix
+
+16. In the data window, if you use the scroll mouse it goes to the next/previous element.  There should be buttons to do the same.  Hmm.  A nice one.  Ctrl-scroll in the data window zooms.  :-)
    CN: Indeed! Good idea
- 17. ctrl-Q should close the data window.
+
+17. ctrl-Q should close the data window.
    CN: Indeed! Good idea
- 18. An idea: When you run the mouse over the element table, it shows selected data about the elements in the status bar.
- 19. Which brings us to: The settings should be above the table, not in the status bar.
+
+18. An idea: When you run the mouse over the element table, it shows selected data about the elements in the status bar.
+
+19. Which brings us to: The settings should be above the table, not in the status bar.
    CN: I implemented that on June 4th. I like it, Ellen from OpenUsability likes it as well...
- 21, There is too little space between the left edge and the table in the main window.
+
+21, There is too little space between the left edge and the table in the main window.
+
+22. The plot should be repainted immediately if something changes on the left.  The "Plot" button should go.
+
+23. When I choose "Gradient: van der Walls (sic!) Radius" the text is cut both to the left and to the right.
+   CN: Typo fixed
+   CN: The numbers are now stripped after digit number 4. Is this fixed now?
+
+24. The legend should be outlined in some way. A slight background for example...
+   CN: Indeed.
 
 Priority 1:
 	- Reintegrate the isotope-label (DONE, cn)
