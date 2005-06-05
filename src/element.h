@@ -347,7 +347,7 @@ class Element{
 		/**
 		 * calculate the 4-digit value of the value @p w
 		 */
-		double strippedMass( double w );
+		static double strippedValue( double w );
 
 
     /**

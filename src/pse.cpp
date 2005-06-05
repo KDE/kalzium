@@ -1137,7 +1137,7 @@ void PSE::drawGradientButton( QPainter *p, Element* e, double coeff, double valu
 	if ( value >= minValue && coeff != -1.0)
 	{
 		QColor c = calculateColor( coeff );
-		e->drawGradient( p, QString::number( value ), c );
+		e->drawGradient( p, QString::number( Element::strippedValue( value ) ), c );
 	}
 	else
 		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::white );

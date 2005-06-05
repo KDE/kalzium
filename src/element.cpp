@@ -55,7 +55,7 @@ QString Element::parsedOrbits( bool canBeEmpty )
 }
 
 
-double Element::strippedMass( double num )
+double Element::strippedValue( double num )
 {
 	if ( !finite( num ) )
 		return num;
@@ -342,7 +342,7 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 
 	//top left
 	p->setPen( Qt::black );
-	text = QString::number( strippedMass( mass( ) ) );
+	text = QString::number( strippedValue( mass( ) ) );
 	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
 
 	text = QString::number( number() );
@@ -444,7 +444,7 @@ void Element::drawSelf( QPainter* p )
 
 	//top left
 	p->setPen( Qt::black );
-	text = QString::number( strippedMass( mass( ) ) );
+	text = QString::number( strippedValue( mass( ) ) );
 	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
 
 	text = QString::number( number() );
