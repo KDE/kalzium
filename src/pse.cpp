@@ -605,8 +605,12 @@ void PSE::drawLegend( QPainter* p )
 	const  int square_h = 20;
 	const  int textOffset = square_w + 10;
 	
-
+#if 0
 	p->drawRect(legendLeft, legendTop, legendWidth, legendHeight);
+#else
+	p->fillRect(legendLeft, legendTop, legendWidth, legendHeight,
+				QColor(200, 200, 200));
+#endif
 
 	switch ( m_currentScheme ) {
 		//No Legend to be drawn as only one colour is used
