@@ -1140,7 +1140,7 @@ void PSE::drawGradientButton( QPainter *p, Element* e, double coeff, double valu
 		e->drawGradient( p, QString::number( Element::strippedValue( value ) ), c );
 	}
 	else
-		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::white );
+		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::gray );
 }
 
 QColor PSE::calculateColor( const double coeff )
