@@ -328,6 +328,9 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 
 	  // Draw the numbers above the table.
 	  drawNumeration( &p );
+
+	  if ( m_showLegend )
+		  drawLegend( &p );
 	  
 	  if ( m_timeline ){ //use timeline
 		  drawTimeLine(& p );
@@ -366,9 +369,6 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 
 	  drawPSE( &p );
 
-	  if ( m_showLegend )
-		  drawLegend( &p );
-	  
 	  paintCurrentSelection();
 
 	  p.end();

@@ -4,7 +4,6 @@
 #include <qdom.h>
 #include <qfile.h>
 #include <qlabel.h>
-#include <qlcdnumber.h>
 #include <qpoint.h>
 #include <qradiobutton.h>
 #include <qslider.h>
@@ -13,6 +12,7 @@
 
 #include <kdebug.h>
 #include <kfiledialog.h>
+#include <knuminput.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
@@ -29,13 +29,22 @@ InformationWidget::InformationWidget( PSE *pse )
 	m_pse = pse;
 	m_infoDialog = new InformationDialog( this );
 	setMainWidget( m_infoDialog );
+	m_prevShowLegend = m_pse->showLegend();
+	m_pse->showLegend( true );
 
-	connect( m_infoDialog->time_slider, SIGNAL( sliderMoved(int) ), m_infoDialog->lCDNumber1, SLOT( display(int) ) );
+	m_infoDialog->Number1->setMinValue( m_infoDialog->time_slider->minValue() );
+	m_infoDialog->Number1->setMaxValue( m_infoDialog->time_slider->maxValue() );
+	m_infoDialog->Number2->setMinValue( m_infoDialog->temp_slider->minValue() );
+	m_infoDialog->Number2->setMaxValue( m_infoDialog->temp_slider->maxValue() );
+
+	connect( m_infoDialog->time_slider, SIGNAL( sliderMoved(int) ), m_infoDialog->Number1, SLOT( setValue(int) ) );
 	connect( m_infoDialog->time_slider, SIGNAL( valueChanged(int) ), this, SLOT( slotDate(int) ) );
-	connect( m_infoDialog->time_slider, SIGNAL( valueChanged(int) ), m_infoDialog->lCDNumber1, SLOT( display(int) ) );
-	connect( m_infoDialog->temp_slider, SIGNAL( sliderMoved(int) ), m_infoDialog->lCDNumber1_2, SLOT( display(int) ) );
+	connect( m_infoDialog->time_slider, SIGNAL( valueChanged(int) ), m_infoDialog->Number1, SLOT( setValue(int) ) );
+	connect( m_infoDialog->Number1, SIGNAL( valueChanged(int) ), m_infoDialog->time_slider, SLOT( setValue(int) ) );
+	connect( m_infoDialog->temp_slider, SIGNAL( sliderMoved(int) ), m_infoDialog->Number2, SLOT( setValue(int) ) );
 	connect( m_infoDialog->temp_slider, SIGNAL( valueChanged(int) ), this, SLOT( slotTemp(int) ) );
-	connect( m_infoDialog->temp_slider, SIGNAL( valueChanged(int) ), m_infoDialog->lCDNumber1_2, SLOT( display(int) ) );
+	connect( m_infoDialog->temp_slider, SIGNAL( valueChanged(int) ), m_infoDialog->Number2, SLOT( setValue(int) ) );
+	connect( m_infoDialog->Number2, SIGNAL( valueChanged(int) ), m_infoDialog->temp_slider, SLOT( setValue(int) ) );
 	connect( m_infoDialog->tabWidget, SIGNAL( currentChanged(QWidget*) ), this , SLOT( tabSelected(QWidget*) ) );
 
 	tabSelected( 0L );
@@ -48,6 +57,7 @@ void InformationWidget::slotClose()
 	m_pse->setFullDraw();
 	m_pse->setTimeline( false );
 	m_pse->activateSOMMode( false );
+	m_pse->showLegend( m_prevShowLegend );
 	emit closed();
 	accept();
 }
@@ -67,6 +77,8 @@ void InformationWidget::tabSelected( QWidget* /*w*/ )
 		m_pse->activateSOMMode( true );
 	else
 		m_pse->activateSOMMode( false );
+
+	m_pse->showLegend( m_infoDialog->tabWidget->currentPageIndex() != 1 );
 
 	m_infoDialog->time_slider->setValue( 2000 );
 	m_infoDialog->temp_slider->setValue( 295 );

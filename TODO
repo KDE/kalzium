@@ -48,7 +48,7 @@ TODO for Kalzium 1.5:
 
 
 * Learning mode
-  + In "temperature" there is no way to set an exact temperature.	----
+  + In "temperature" there is no way to set an exact temperature.	DONE-PT
     The ruler jumps 10 degrees at a time.
   CN: This is indeed missing. Pretty easy to add
 
