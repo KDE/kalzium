@@ -1,8 +1,47 @@
 TODO for Kalzium 1.5:
 
 
+* Small bugs
+  + Select "Periodic Table"->Look->"Show Blocks"			----
+    Click on any element in the d block (yellow)
+    Now you get a dialog with a green background.
+    The same, but opposite happens for elements in the p block (green)
+    The legend as well as the colors should be checked.
+  + If you switch element in the details dialog, the marker on the	----
+    PSE doesn't change.  It is still the same.
+  + Some melting and boiling points are wrong.  See item 5 below.	----
+
+
+* The main window
+  + No legend for temperature states.  See item 6 below.		----
+  + Too little space between the left border and the elements (item 21)	----
+  + 
+
+
+* The data window
+  + Buttons to go to next/previous element.  See item 16 below.		----
+  + Ctrl-Q should close the window (item 17)				----
+
+
+* The plot window
+  + Fix the layout.  See item 10 below.					----
+  + Ctrl-Q should close the window (item 17)				----
+
+
+* The glossary window
+  + <Return> in the search field should show the item.  Se item 15 	----
+    below.
+  + The search for a word should be above the word list (item 14)	----
+  + Ctrl-Q should close the window (item 17)				----
+
+
+* Learning mode
+  + No way to set an exact temperature.  See item 7 below		----
+
+
 ================================================================
-Items from a brainstorming session with ingwa:
+Items from a brainstorming session with ingwa.
+This includes ideas, misfeatures and proper bugs.
 
 
 1:  The legend (s-Block, d-Block, etc) should have tooltips		DONE-CN
@@ -17,7 +56,7 @@ Items from a brainstorming session with ingwa:
    CN: Not only that, there should be more data about the time, for
        example which chemitry-nobel-prize was won in that year (+/- 5
        years or so)
-	   
+
 5.  Learning mode, Temperature: Still a number of elements with		----
     melting and boiling points = 0K
    CN: don't understand this point
