@@ -582,7 +582,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		double bp = domElement.namedItem( "boilingpoint" ).toElement().text().toDouble();
 		double density = domElement.namedItem( "density" ).toElement().text().toDouble();
 		double covalent_radius = domElement.namedItem( "radius" ).namedItem( "covalent" ).toElement().text().toDouble();
-		//van der Walls-Radius
+		//van der Waals-Radius
 		double vdw_radius = domElement.namedItem( "radius" ).namedItem( "vdw" ).toElement().text().toDouble();
 		double atomic_radius = domElement.namedItem( "radius" ).namedItem( "atomic" ).toElement().text().toDouble();
 		double ionic_radius = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().text().toDouble();

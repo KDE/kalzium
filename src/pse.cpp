@@ -1018,7 +1018,7 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			}
 			break;
 		case Element::VDWRADIUS:
-			title = i18n( "Gradient: van der Walls Radius" );
+			title = i18n( "Gradient: van der Waals Radius" );
 			while ( it != d->ElementList.end() )
 			{
 				double value = ( *it )->radius( Element::VDW );
