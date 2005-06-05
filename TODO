@@ -26,8 +26,11 @@ TODO for Kalzium 1.5:
 
 * The main window:
   + There is no legend in Learning Mode.				----
+   PT: actually, there is, but only for the time mode; we need a
+       legend for the SOM
   + There is too little space between the left edge and the table in	----
     the main window.
+   PT: which is a "good" space?
 
 
 * The data window:
@@ -63,14 +66,14 @@ up above.
 
 
 1:  The legend (s-Block, d-Block, etc) should have tooltips		DONE-CN
-   
+
 2.  They should have WhatsThis help as well.				----
    CN: not sure if that is needed if (1) is implemented
    IW: No, you are probably right.
-   
+
 3.  The data dialog should be non-modal (definitely)			DONE-IW
    CN: Ingwa will do this.
-   
+
 4.  in "learning mode", "Time" should perhaps be "Discovery year".	----
    CN: Not only that, there should be more data about the time, for
        example which chemitry-nobel-prize was won in that year (+/- 5
@@ -99,6 +102,8 @@ up above.
 
 22. The plot should be repainted immediately if something changes on	----
     the left.  The "Plot" button should go.
+   PT: and if the user wants to change more than one option at once
+       and then replot? If so, we'll replot more than once.
 
 23. When I choose "Gradient: van der Walls (sic!) Radius" the text is	DONE
     cut both to the left and to the right.  And the numbers are cut at
