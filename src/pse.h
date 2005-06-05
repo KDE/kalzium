@@ -411,6 +411,10 @@ class PSE : public QWidget
 		void selectPoint( QPoint point );
 
 		/**
+		 * this slot updates the element given in the @p num
+		 */
+		void selectElement( int num );
+		/**
 		 * this slot removes the selection of any point
 		 */
 	    void unSelect();

@@ -333,6 +333,7 @@ void DetailedInfoDlg::slotUser1()
 	if ( number < 111 )
 	{
 		setElement( m_data->element( number + 1 ) );
+		emit elementChanged( number + 1 );
 		if ( number == 110 )
 			enableButton( User1, false );
 		if ( !actionButton( User2 )->isEnabled() )
@@ -348,6 +349,7 @@ void DetailedInfoDlg::slotUser2()
 	if ( number > 1 )
 	{
 		setElement( m_data->element( number - 1 ) );
+		emit elementChanged( number - 1 );
 		if ( number == 2 )
 			enableButton( User2, false );
 		if ( !actionButton( User1 )->isEnabled() )

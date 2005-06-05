@@ -28,6 +28,7 @@
 class Element;
 class QDomDocument;
 class QPainter;
+class QPoint;
 
 struct coordinate;
 
@@ -349,6 +350,8 @@ class Element{
 		 */
 		static double strippedValue( double w );
 
+		QPoint pos() const;
+		QPoint coords() const;
 
     /**
      * accessor for the element's color
@@ -367,12 +370,8 @@ class Element{
     	
 		QColor m_Color;
 
-		inline int xPos() const{
-			return ( x-1 )*ELEMENTSIZE;
-		}
-		inline int yPos() const{
-			return ( y-1 )*ELEMENTSIZE + ELEMENTSIZE;
-		}
+		int xPos() const;
+		int yPos() const;
 
 		double  m_mass,
 			m_MP, 

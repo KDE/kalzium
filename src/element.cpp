@@ -526,6 +526,26 @@ double Element::radius( RADIUSTYPE type )
 	return 0.0;
 }
 
+int Element::xPos() const
+{
+	return ( x-1 )*ELEMENTSIZE;
+}
+
+int Element::yPos() const
+{
+	return ( y-1 )*ELEMENTSIZE + ELEMENTSIZE;
+}
+
+QPoint Element::pos() const
+{
+	return QPoint( xPos(), yPos() );
+}
+
+QPoint Element::coords() const
+{
+	return QPoint( x, y );
+}
+
 KalziumDataObject::KalziumDataObject()
 {
 	QDomDocument doc( "datadocument" );

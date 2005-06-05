@@ -97,5 +97,8 @@ class DetailedInfoDlg : public KDialogBase
 
 	protected:
 		virtual void wheelEvent (  QWheelEvent * ev );
+
+	signals:
+		void elementChanged( int );
 };
 #endif

@@ -350,6 +350,8 @@ void Kalzium::openInformationDialog( int number )
 			// Remove the selection when this dialog finishes or hides.
 			connect(m_infoDialog, SIGNAL(hidden()),
 					m_PSE,        SLOT(unSelect()));
+			connect(m_infoDialog, SIGNAL(elementChanged(int)),
+					m_PSE,        SLOT(selectElement(int)));
 		}
 		m_infoDialog->show();
 		//emit tableLocked(false);

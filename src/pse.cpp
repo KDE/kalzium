@@ -895,6 +895,13 @@ void PSE::selectPoint( QPoint point )
 	update();
 }
 
+void PSE::selectElement( int num )
+{
+	kdDebug() << "PSE::selectElement " << num << endl;
+
+	selectPoint( d->element( num )->coords() );
+}
+
 void PSE::drawCrystal( QPainter* p )
 {
 	EList::Iterator it = d->ElementList.begin();
