@@ -44,16 +44,33 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 
 	yData = new AxisData();
 	
+#if 0
 	QVBoxLayout *vbox = new QVBoxLayout(plainPage(), 0, 
 										KDialog::spacingHint() );
 	vbox->activate();
 
 	QSplitter *vs = new QSplitter( plainPage() );
 	vbox->addWidget( vs ),
+#else
+	QHBoxLayout *layout = new QHBoxLayout(plainPage(), 0, 
+										  KDialog::spacingHint() );
+	//layout->activate();
+	//layout->addWidget( vs ),
+#endif
 
+#if 0
 	m_pPlotSetupWidget = new PlotSetupWidget( vs, "psw" );	
 	m_pPlotWidget      = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, vs,
 										 "plotwidget" );
+#else
+	m_pPlotSetupWidget = new PlotSetupWidget( plainPage(), "plotsetup" );	
+	m_pPlotWidget      = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage(),
+										 "plotwidget" );
+	layout->addWidget( m_pPlotSetupWidget );
+	layout->addWidget( m_pPlotWidget );
+	layout->setStretchFactor( m_pPlotSetupWidget, 0 );
+	layout->setStretchFactor( m_pPlotWidget, 1 );
+#endif
 
 	/*
 	 * setup the list of names

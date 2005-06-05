@@ -34,7 +34,7 @@ TODO for Kalzium 1.5:
 
 
 * The plot window
-  + The plot data window has wide buttons but a very narrow plot	----
+  + The plot data window has wide buttons but a very narrow plot	DONE-IW
     area. :-)
    PT: what about removing the slider, and using an horizontal layout
        where the setup widget has the smallest width?
