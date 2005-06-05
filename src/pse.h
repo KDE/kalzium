@@ -168,6 +168,8 @@ class PSE : public QWidget
 		 */
 		bool m_showTooltip;
 
+		bool m_showLegendTooltip;
+
 		/**
 		 * activates or deactivates the legend
 		 */
@@ -232,6 +234,11 @@ class PSE : public QWidget
 		 * calculates the min and max values to prepare the painting
 		 */
 		void calculateGradient( QPainter* );
+
+		/**
+		 * @return true if the mouse is over the legendarea
+		 */
+		bool pointerOnLegend(int,int);
 
 		/**
 		 * @param p The pointer to draw
@@ -350,6 +357,9 @@ class PSE : public QWidget
 
 		///in this method the tooltops are drawn.
 		virtual void drawToolTip( QPainter *p, Element *e );
+		
+		///draw the tooltop for the legend
+		virtual void drawLegendToolTip( QPainter *p );
 
 		virtual void drawTimeLine( QPainter *p );
 
@@ -397,7 +407,7 @@ class PSE : public QWidget
 		 * and updates the table
 		 */
 		void slotToolTip( int number );
-
+		
 		void slotLock(bool);
 		void slotLock();
 		void slotUnlock();
@@ -418,6 +428,8 @@ class PSE : public QWidget
 		 * has to be displayed
 		 */
 		void ToolTip(int);
+
+		void LegendToolTip();
 };
 
 

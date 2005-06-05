@@ -55,6 +55,7 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	m_molcalcIsActive = false;
 	m_learningMode = false;
 	m_showTooltip = true;
+	m_showLegendTooltip = false;
 	m_timeline = false;
 	m_showSOM = false;
 	m_showGradient = false;
@@ -380,6 +381,13 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
       drawToolTip( &p2, e );
       p2.end();
     }
+	else if ( m_showLegendTooltip )
+	{
+      QPainter p2;
+      p2.begin( table2 );
+      drawLegendToolTip( &p2 );
+      p2.end();
+	}
   }
 		
   //JH: Finally, bitBlt the table2 pixmap to the widget
@@ -401,6 +409,76 @@ void PSE::paintCurrentSelection( QPainter *p )
 	pen.setColor( Qt::red );
 	p->setPen( pen );
 	p->drawEllipse( x*ELEMENTSIZE-5,y*ELEMENTSIZE-5,ELEMENTSIZE+10,ELEMENTSIZE+10 );
+}
+
+void PSE::drawLegendToolTip( QPainter* p )
+{
+	kdDebug() << "PSE::drawLegendToolTip()" << endl;
+	if(!m_showLegendTooltip || !m_showLegend) return;
+	
+	QString text;
+
+	switch ( m_currentScheme ) {
+		//No Legend drawn as only one colour is used
+		case PSE::NOCOLOUR:
+			break;
+		case PSE::BLOCK:
+			text = i18n( "The periodic table can be split up into four areas:\n the s-, p-, d- and f-Block. The name indicates which orbit\n is being filled last. For example, all elements in the s-block\n fill up the s-orbits." );
+			break;
+		case PSE::GROUPS:
+			text = i18n( "The periodic table can be split up into groups:\n All elements in a group show similar behaviour");
+			break;
+		case PSE::ACIDIC:
+			text = i18n( "The periodic table can be split up in groups of \nelements with different acidic behaviour.");
+			break;
+		case PSE::FAMILY:
+			text = i18n( "The periodic table can be split up into several families.");
+			break;
+	}
+
+	const int x1 = mapFromGlobal( QCursor::pos() ).x();
+	const int y1 = mapFromGlobal( QCursor::pos() ).y();
+
+	static const int padding = 3;
+
+	QFont fB = KGlobalSettings::generalFont();
+	fB.setPointSize( fB.pointSize() + 4 );
+	p->setFont( fB );
+
+	QRect bRect( 0, 0, 1000, 1000 );
+	bRect = p->boundingRect( bRect, AlignLeft|AlignTop, text );
+	bRect.moveBy( x1, y1 );
+	QRect bRectExt = bRect;
+	bRect.moveBy( padding, padding );
+	bRectExt.setWidth( bRectExt.width() + 2 * padding );
+	bRectExt.setHeight( bRectExt.height() + 2 * padding );
+
+	bool vertflipped = false;
+	if ( bRectExt.bottom() > height() )
+	{
+		bRectExt.moveBy( 0, - bRectExt.height() );
+		bRect.moveBy( 0, - bRect.height() - 2 * padding );
+		vertflipped = true;
+	}
+	if ( bRectExt.right() > width() )
+	{
+		bRectExt.moveBy( - bRectExt.width(), 0 );
+		bRect.moveBy( - bRect.width() - 2 * padding, 0 );
+	}
+	else if ( !vertflipped )
+	{
+		bRectExt.moveBy( 15, 0 );
+		bRect.moveBy( 15, 0 );
+	}
+
+	p->setBrush(Qt::SolidPattern);
+	p->setBrush( QColor( 255, 255, 220 ) );
+	p->drawRect( bRectExt );
+
+	p->setBrush( Qt::black );
+	p->setBrush(Qt::NoBrush);
+
+	p->drawText( bRect, AlignLeft|AlignTop, text );
 }
 
 void PSE::drawToolTip( QPainter* p, Element *e )
@@ -452,7 +530,6 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 	}
 
 	p->setBrush(Qt::SolidPattern);
-//	p->setBrush( Qt::yellow );
 	p->setBrush( QColor( 255, 255, 220 ) );
 	p->drawRect( bRectExt );
 
@@ -646,18 +723,42 @@ void PSE::slotTransientLabel( void )
 	const int num = ElementNumber( X, Y );
 	if ( num )
 		emit ToolTip( num );
+	else if ( pointerOnLegend( X, Y ) ) //show the tooltip for the lengend
+	{
+		m_showLegendTooltip = true;
+		update();
+	}
+	else m_showLegendTooltip = false;
 }
 
 void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 {
   //JH: only update() if we were showing a tooltip
-  if ( m_tooltipElementNumber ) {
+  if ( m_tooltipElementNumber || m_showLegendTooltip ) {
   	m_tooltipElementNumber = 0; //this invalidates the number. If the mouse
 	                            //is moved, the number is invalid. 
+	m_showLegendTooltip = false;
   	update();       
   }
   
   HoverTimer.start(  2000, true ); //JH: true = run timer once, not continuously
+}
+
+bool PSE::pointerOnLegend(int X, int Y)
+{
+	kdDebug() << "pointerOnLegend()...  X: " << X << " Y: " << Y << endl;
+	if ( X > 2 && X < 13 )
+	{
+		kdDebug() << "in x" << endl;
+		if ( Y < 4 && Y > 0 )
+		{
+			kdDebug() << "true zurück" << endl;
+			return true;
+		}
+	}
+	kdDebug() << "false zurück" << endl;
+	
+	return false;
 }
 
 void PSE::mouseReleaseEvent( QMouseEvent *mouse )
@@ -735,19 +836,13 @@ void PSE::slotLock(bool locked)
 
 void PSE::slotUpdatePoint( QPoint point )
 {
-	kdDebug() << "PSE::slotUpdatePoint()" << endl;
-		
 	m_currentPoint = point;
-
-	kdDebug() << m_currentPoint.x() << endl;
-	kdDebug() << m_currentPoint.y() << endl;
 
 	update();
 }
 
 void PSE::drawCrystal( QPainter* p )
 {
-	kdDebug() << "PSE::drawCrystal()" << endl;
 	EList::Iterator it = d->ElementList.begin();
 	const EList::Iterator itEnd = d->ElementList.end();
 
@@ -1024,8 +1119,17 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 	QPixmap pm( img );
 	p->drawText( x+5,y+50,ELEMENTSIZE*7,20, Qt::AlignCenter, title ); 
 	p->drawPixmap( x+50,y+80, pm );
-	p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignRight, QString::number(  max ) ); 
-	p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignLeft, QString::number( min ) ); 
+	if ( m_gradientType == Element::EA )
+	{
+		p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignRight, QString::number( min ) ); 
+		p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignLeft, QString::number( max ) );
+	}
+	else
+	{
+		p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignRight, QString::number( max ) ); 
+		p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignLeft, QString::number( min ) );
+
+	} 
 }
 
 void PSE::drawGradientButton( QPainter *p, Element* e, double coeff, double value, double minValue )

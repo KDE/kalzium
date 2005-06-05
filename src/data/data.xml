@@ -700,7 +700,6 @@
 		<oxydation>+5,(+2,+3,+4)</oxydation>
 		<family>Transition</family>
 		<crystalstructure>bbc</crystalstructure>
-
 	</element>
 	<element>
 		<number>24</number>
@@ -719,8 +718,7 @@
 		<boilingpoint>2945</boilingpoint>
 		<density>7.14</density>
 		<ionisationenergy>
-			<energy>6.766 </energy>
-
+			<energy>6.766</energy>
 		</ionisationenergy>
 		<radius>
 			<covalent>124.9</covalent>
@@ -732,7 +730,6 @@
 		<isotopes>26:49,946:4,3;28:51,94:83,8;29:52,941:9,5;30:53,939:2,4</isotopes>
 		<family>Transition</family>
 		<crystalstructure>bbc</crystalstructure>
-
 	</element>
 	<element>
 		<number>25</number>
@@ -751,7 +748,7 @@
 		<boilingpoint>2235</boilingpoint>
 		<density>7.44</density>
 		<ionisationenergy>
-			<energy>7.435 </energy>
+			<energy>7.435</energy>
 		</ionisationenergy>
 		<radius>
 			<covalent>139</covalent>
