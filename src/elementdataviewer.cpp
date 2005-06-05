@@ -145,8 +145,8 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Atomic Weight [u]"));
 			}
+			m_pPlotWidget->setYAxisLabel(i18n("Atomic Weight [u]"));
 			break;
 		case AxisData::MEANWEIGHT:
 			for( ; it != itEnd ; ++it ) {
@@ -155,8 +155,8 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Mean Weight [u]"));
 			}
+			m_pPlotWidget->setYAxisLabel(i18n("Mean Weight [u]"));
 			break;
 		case AxisData::DENSITY:
 			for( ; it != itEnd ; ++it ) {
@@ -165,8 +165,8 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Density"));
 			}
+			m_pPlotWidget->setYAxisLabel(i18n("Density"));
 			break;
 		case AxisData::EN:
 			for( ; it != itEnd ; ++it ) {
@@ -175,8 +175,8 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Electronegativity"));
 			}
+			m_pPlotWidget->setYAxisLabel(i18n("Electronegativity"));
 			break;
 		case AxisData::MELTINGPOINT:
 			for( ; it != itEnd ; ++it ) {
@@ -185,8 +185,8 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Melting Point [K]"));
 			}
+			m_pPlotWidget->setYAxisLabel(i18n("Melting Point [K]"));
 			break;
 		case AxisData::BOILINGPOINT:
 			for( ; it != itEnd ; ++it ) {
@@ -195,8 +195,8 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Boiling Point [K]"));
 			}
+			m_pPlotWidget->setYAxisLabel(i18n("Boiling Point [K]"));
 			break;
 		case AxisData::ATOMICRADIUS:
 //X 			for( ; it != itEnd ; ++it ) {
@@ -205,8 +205,8 @@ void ElementDataViewer::setupAxisData()
 //X 				  l.append( value );
 //X 				else
 //X 				  l.append( 0.0 );
-//X 				m_pPlotWidget->setYAxisLabel(i18n("Atomic Radius [pm]"));
 //X 			}
+//X 			m_pPlotWidget->setYAxisLabel(i18n("Atomic Radius [pm]"));
 			break;
 		case AxisData::COVALENTRADIUS:
 			for( ; it != itEnd ; ++it ) {
@@ -215,8 +215,8 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Covalent Radius [pm]"));
 			}
+			m_pPlotWidget->setYAxisLabel(i18n("Covalent Radius [pm]"));
 			break;
 	}
 
