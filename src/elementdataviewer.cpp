@@ -44,14 +44,16 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 
 	yData = new AxisData();
 	
-	QVBoxLayout *vbox = new QVBoxLayout(plainPage(), 0, KDialog::spacingHint() );
+	QVBoxLayout *vbox = new QVBoxLayout(plainPage(), 0, 
+										KDialog::spacingHint() );
 	vbox->activate();
 
 	QSplitter *vs = new QSplitter( plainPage() );
 	vbox->addWidget( vs ),
 
 	m_pPlotSetupWidget = new PlotSetupWidget( vs, "psw" );	
-	m_pPlotWidget = new PlotWidget( 0.0,12.0,0.0,22.0, vs, "plotwidget" );
+	m_pPlotWidget      = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, vs,
+										 "plotwidget" );
 
 	/*
 	 * setup the list of names
@@ -173,7 +175,7 @@ void ElementDataViewer::setupAxisData()
 				  l.append( value );
 				else
 				  l.append( 0.0 );
-				m_pPlotWidget->setYAxisLabel(i18n("Boiling Point [K]"));
+				m_pPlotWidget->setYAxisLabel(i18n("Electronegativity"));
 			}
 			break;
 		case AxisData::MELTINGPOINT:

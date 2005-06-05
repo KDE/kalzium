@@ -61,7 +61,9 @@ Items from a brainstorming session with ingwa:
     next/previous element.  There should be buttons to do the same.
    CN: Indeed! Good idea
 
-17. Ctrl-Q should close the data window.				----
+17. Ctrl-Q should close the subwindows.					----
+      Plot window							----
+      Data window							----
    CN: Indeed! Good idea
 
 18. An idea: When you run the mouse over the element table, it shows	----

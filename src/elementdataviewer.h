@@ -123,14 +123,14 @@ class ElementDataViewer : public KDialogBase
 		virtual void keyPressEvent(QKeyEvent *e);
 
 	private: 
+		PlotWidget         *m_pPlotWidget;
+		PlotSetupWidget    *m_pPlotSetupWidget;
+
+		KalziumDataObject  *d;
+
+		QStringList         names;
+
 		void initData();
-		PlotWidget *m_pPlotWidget;
-		PlotSetupWidget *m_pPlotSetupWidget;
-
-		KalziumDataObject *d;
-
-		QStringList names;
-
 		void setupAxisData();
 		
 		void setLimits(int, int);
