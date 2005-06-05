@@ -583,9 +583,9 @@ void PSE::drawLegend( QPainter* p )
 	p->setFont( legendFont );
 
 	int  legendLeft   = ELEMENTSIZE * 5 / 2;
-	int  legendTop    = ELEMENTSIZE;
+	int  legendTop    = ELEMENTSIZE * 3 / 4;
 	int  legendWidth  = ELEMENTSIZE * 9;
-	int  legendHeight = ELEMENTSIZE * 5 / 2;
+	int  legendHeight = ELEMENTSIZE * 3;
 
 	int  x1 = legendLeft + ELEMENTSIZE / 2;
 	int  x2 = legendLeft + ELEMENTSIZE * 5;
