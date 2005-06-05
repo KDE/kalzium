@@ -33,9 +33,7 @@
 #include "detailedgraphicaloverview.h"
 
 DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget *parent, const char *name)
-    : KDialogBase(KDialogBase::IconList, "",  Close, Close, parent, name, 
-				  false			// non-modal
-				  )
+    : KDialogBase( IconList, "", User1|User2|Close, Close, parent, name, false/* non modal */, false, KGuiItem("Next", "1rightarrow"), KGuiItem("Previous", "1leftarrow"))
 {
 	m_data    = data;
 	m_element = el;
@@ -319,24 +317,42 @@ void DetailedInfoDlg::createContent( Element *el )
 
 void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 {
+	if ( ev->delta() < 0 )
+		// setting the previous element
+		slotUser2();
+	else
+		// setting the next element
+		slotUser1();
+}
+
+void DetailedInfoDlg::slotUser1()
+{
+// setting the next element
 	int number = m_element->number();
 
-	Element *element;
-	if ( ev->delta() < 0 )
+	if ( number < 111 )
 	{
-		if ( number > 1 )
-			element = m_data->element( number-1 );
-		else
-			return;
+		setElement( m_data->element( number + 1 ) );
+		if ( number == 110 )
+			enableButton( User1, false );
+		if ( !actionButton( User2 )->isEnabled() )
+			enableButton( User2, true );
 	}
-	else if ( number < 111 )
-	{
-		element = m_data->element( number+1 );
-	}
-	else
-		return;
+}
 
-	setElement(element);
+void DetailedInfoDlg::slotUser2()
+{
+// setting the previous element
+	int number = m_element->number();
+
+	if ( number > 1 )
+	{
+		setElement( m_data->element( number - 1 ) );
+		if ( number == 2 )
+			enableButton( User2, false );
+		if ( !actionButton( User1 )->isEnabled() )
+			enableButton( User1, true );
+	}
 }
 
 #include "detailinfodlg.moc"

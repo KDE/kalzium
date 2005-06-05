@@ -142,7 +142,8 @@ class GlossaryDialog : public KDialogBase
 		 */
 		void displayItem( const KURL& url, const KParts::URLArgs& args );
 
-		void slotClose();
+	protected slots:
+		virtual void slotClose();
 	
 	signals:
 		void closed();

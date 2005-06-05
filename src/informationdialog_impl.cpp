@@ -37,7 +37,6 @@ InformationWidget::InformationWidget( PSE *pse )
 	connect( m_infoDialog->temp_slider, SIGNAL( valueChanged(int) ), this, SLOT( slotTemp(int) ) );
 	connect( m_infoDialog->temp_slider, SIGNAL( valueChanged(int) ), m_infoDialog->lCDNumber1_2, SLOT( display(int) ) );
 	connect( m_infoDialog->tabWidget, SIGNAL( currentChanged(QWidget*) ), this , SLOT( tabSelected(QWidget*) ) );
-	connect( this, SIGNAL( closeClicked() ), SLOT( slotClose() ) );
 
 	tabSelected( 0L );
 

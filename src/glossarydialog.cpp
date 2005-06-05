@@ -50,17 +50,6 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	QVBoxLayout *vbox = new QVBoxLayout( plainPage(), 0, KDialog::spacingHint() );
 	vbox->activate();
 
-	QSplitter *vs = new QSplitter( plainPage() );
-	vbox->addWidget( vs );
-	
-	m_glosstree = new KListView( vs, "treeview" );
-	m_glosstree->addColumn( "entries" );
-	m_glosstree->header()->hide();
-	m_glosstree->setFullWidth( true );
-	m_glosstree->setRootIsDecorated( true );
-
-	m_htmlpart = new KHTMLPart( vs, "html-part" );
-
 	QHBoxLayout *hbox = new QHBoxLayout( 0L, 0, KDialog::spacingHint() );
 	hbox->activate();
 
@@ -72,9 +61,22 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	lbl->setText( i18n( "Search:" ) );
 	hbox->addWidget( lbl );
 
-	m_search = new KListViewSearchLine( plainPage(), m_glosstree, "search-line" );
+	m_search = new KListViewSearchLine( plainPage(), 0, "search-line" );
 	hbox->addWidget( m_search );
 	vbox->addLayout( hbox );
+
+	QSplitter *vs = new QSplitter( plainPage() );
+	vbox->addWidget( vs );
+	
+	m_glosstree = new KListView( vs, "treeview" );
+	m_glosstree->addColumn( "entries" );
+	m_glosstree->header()->hide();
+	m_glosstree->setFullWidth( true );
+	m_glosstree->setRootIsDecorated( true );
+
+	m_search->setListView( m_glosstree );
+
+	m_htmlpart = new KHTMLPart( vs, "html-part" );
 
 	QDomDocument doc( "foo" );
 	QString filename = "knowledge.xml";
@@ -93,7 +95,6 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	connect( m_htmlpart->browserExtension(), SIGNAL( openURLRequestDelayed( const KURL &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KURL &, const KParts::URLArgs & ) ) );
 	connect( m_glosstree, SIGNAL(clicked( QListViewItem * )), this, SLOT(slotClicked( QListViewItem * )));
 	connect( clear, SIGNAL(clicked()), m_search, SLOT(clear()));
-	connect( this, SIGNAL(closeClicked()), SLOT(slotClose()) );
 
 	resize( 550, 400 );
 }

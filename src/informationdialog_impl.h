@@ -26,8 +26,8 @@ class InformationWidget : public KDialogBase
 		PSE *m_pse;
 		InformationDialog *m_infoDialog;
 
-	private slots:
-		void slotClose();
+	protected slots:
+		virtual void slotClose();
 
 	public slots:
 		void slotDate( int );

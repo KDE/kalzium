@@ -86,17 +86,19 @@ This includes ideas, misfeatures and proper bugs.
 
 10. The plot data window has wide buttons but a very narrow plot	----
     area. :-)
+   PT: what about removing the slider, and using an horizontal layout
+       where the setup widget has the smallest width?
 
 13. Not a bug, but an idea: Make the glossary also a tool for		----
     translation.
 
-14. The search for words should be above the word list.			----
+14. The search for words should be above the word list.			DONE-PT
 
 15. If you hit return in the search, you close the window.  It should	----
     display the item.
    CN: simple focus-bug. Easy to fix
 
-16. In the data window, if you use the scroll mouse it goes to the	----
+16. In the data window, if you use the scroll mouse it goes to the	DONE-PT
     next/previous element.  There should be buttons to do the same.
    CN: Indeed! Good idea
 
@@ -104,9 +106,11 @@ This includes ideas, misfeatures and proper bugs.
       Plot window							----
       Data window							----
    CN: Indeed! Good idea
+   PT: isn't Ctrl-Q "joined" to the main window closing?
 
 18. An idea: When you run the mouse over the element table, it shows	----
     selected data about the elements in the status bar.
+   PT: nice, but only a few datas can be displayed
 
 19. Which brings us to: The settings should be above the table, not in	----
     the status bar.

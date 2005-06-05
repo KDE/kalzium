@@ -83,8 +83,10 @@ class MolcalcImpl : public KDialogBase
 
 		void slotPlusToggled(bool on);
 
+	protected slots:
+		virtual void slotClose();
+
 	private slots:
-		void slotClose();
 		void slotCalculate();
 	
 	signals:

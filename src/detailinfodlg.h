@@ -91,6 +91,10 @@ class DetailedInfoDlg : public KDialogBase
 		 */
 		void addTab( const QString& htmlcode, const QString& title, const QString icontext, const QString iconname );
 	
+	protected slots:
+		virtual void slotUser1();
+		virtual void slotUser2();
+
 	protected:
 		virtual void wheelEvent (  QWheelEvent * ev );
 };
