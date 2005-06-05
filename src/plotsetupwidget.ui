@@ -231,12 +231,12 @@
                     </item>
                     <item>
                         <property name="text">
-                            <string>Boiling point</string>
+                            <string>Melting point</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Melting point</string>
+                            <string>Boiling point</string>
                         </property>
                     </item>
                     <item>
