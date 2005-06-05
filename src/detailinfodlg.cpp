@@ -35,8 +35,8 @@
 DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget *parent, const char *name)
     : KDialogBase(KDialogBase::IconList, "",  Close, Close, parent,name)
 {
-	m_data = data;
-	e = el;
+	m_data    = data;
+	m_element = el;
 
 	m_baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
 	m_baseHtml.append("kalzium/data/htmlview/");
@@ -53,7 +53,7 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
 
 	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
-	dTab->setElement( e );
+	dTab->setElement( m_element );
  	overviewLayout->addWidget( dTab );
 	wOrbits = new OrbitsWidget( m_pModelTab );
 	piclabel = new QLabel( m_pPictureTab );
@@ -61,8 +61,31 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	mainLayout->addWidget( piclabel );
 	modelLayout->addWidget( wOrbits );
 	
-	createContent( e );
+	createContent( m_element );
 }
+
+// FIXME: We should never have to delete the windows.  
+//        Make it more efficient!
+//
+void DetailedInfoDlg::setElement(Element *element)
+{
+	//kdDebug() << "Entering DetailedInfoDlg::setElement" << endl;
+
+	m_element = element;
+	
+	QValueList<QFrame*>::iterator it = m_pages.begin();
+	QValueList<QFrame*>::iterator itEnd = m_pages.end();
+	for ( ; it != itEnd ; ++it ){
+		delete *it;
+		*it = NULL;
+	}
+	m_pages.clear();
+
+	createContent( m_element );
+
+	//kdDebug() << "Exiting DetailedInfoDlg::setElement" << endl;
+}
+
 
 void DetailedInfoDlg::addTab( const QString& htmlcode, const QString& title, const QString icontext, const QString iconname )
 {
@@ -85,48 +108,48 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 	html += m_baseHtml + "\" /><base href=\"" + m_baseHtml + "\"/></head><body><div class=\"chemdata\">";
 
 	//get the list of ionisation-energies
-	QValueList<double> ionlist = e->ionisationList();
+	QValueList<double> ionlist = m_element->ionisationList();
 	
 	html.append( "<div><table summary=\"header\"><tr><td>" );
-	html.append( e->symbol() );
+	html.append( m_element->symbol() );
 	html.append( "<td><td>" );
-	html.append( i18n( "Block: %1" ).arg( e->block() ) );
+	html.append( i18n( "Block: %1" ).arg( m_element->block() ) );
 	html.append( "</td></tr></table></div>" );
 	html.append( "<table summary=\"characteristics\" class=\"characterstics\">");
 	switch ( type )
 	{
 		case CHEMICAL:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "<b>Orbital structure: %1</b>" ).arg( e->parsedOrbits() ) );
+			html.append( i18n( "<b>Orbital structure: %1</b>" ).arg( m_element->parsedOrbits() ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "<b>Density: %1</b>" ).arg( e->adjustUnits( Element::DENSITY ) ) );
+			html.append( i18n( "<b>Density: %1</b>" ).arg( m_element->adjustUnits( Element::DENSITY ) ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-			html.append( i18n( "<b>Covalent Radius: %1</b>" ).arg( e->adjustRadius( Element::COVALENT ) ) );
+			html.append( i18n( "<b>Covalent Radius: %1</b>" ).arg( m_element->adjustRadius( Element::COVALENT ) ) );
 			html.append( "</td></tr>" );
-			if ( e->radius(Element::IONIC) > 0.0 )
+			if ( m_element->radius(Element::IONIC) > 0.0 )
 			{
 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-				html.append( i18n( "<b>Ionic Radius (Charge): %1 </b>(%2)" ).arg( e->adjustRadius(Element::IONIC) ).arg( e->ioncharge() ) );
+				html.append( i18n( "<b>Ionic Radius (Charge): %1 </b>(%2)" ).arg( m_element->adjustRadius(Element::IONIC) ).arg( m_element->ioncharge() ) );
 				html.append( "</td></tr>" );
 			}
-			if ( e->radius(Element::VDW) > 0.0 )
+			if ( m_element->radius(Element::VDW) > 0.0 )
 			{
 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-				html.append( i18n( "<b>van der Waals Radius: %1 </b>" ).arg( e->adjustRadius(Element::VDW) ) );
+				html.append( i18n( "<b>van der Waals Radius: %1 </b>" ).arg( m_element->adjustRadius(Element::VDW) ) );
 				html.append( "</td></tr>" );
 			}
 		
-			if ( e->radius(Element::ATOMIC) > 0.0 )
+			if ( m_element->radius(Element::ATOMIC) > 0.0 )
 			{
 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-				html.append( i18n( "<b>Atomic Radius: %1 </b>" ).arg( e->adjustRadius(Element::ATOMIC) ) );
+				html.append( i18n( "<b>Atomic Radius: %1 </b>" ).arg( m_element->adjustRadius(Element::ATOMIC) ) );
 				html.append( "</td></tr>" );
 			}
 			
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "<b>Mass: %1</b>" ).arg( e->adjustUnits( Element::MASS ) ) );
+			html.append( i18n( "<b>Mass: %1</b>" ).arg( m_element->adjustUnits( Element::MASS ) ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( isotopeTable() );
@@ -134,33 +157,33 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			break;
 		case MISC:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( e->adjustUnits( Element::DATE ) );
+			html.append( m_element->adjustUnits( Element::DATE ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( e->meanmass() ) ) );
+			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );
 			html.append( "</td></tr>" );
-			if ( !e->nameOrigin().isEmpty() )
+			if ( !m_element->nameOrigin().isEmpty() )
 			{
 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "Origin of the name: %1" ).arg( e->nameOrigin() ) );
+				html.append( i18n( "Origin of the name: %1" ).arg( m_element->nameOrigin() ) );
 				html.append( "</td></tr>" );
 			}
 			break;
 		case ENERGY:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Orbital structure: %1" ).arg( e->parsedOrbits() ) );
+			html.append( i18n( "Orbital structure: %1" ).arg( m_element->parsedOrbits() ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Melting Point: %1" ).arg( e->adjustUnits( Element::MELTINGPOINT ) ) );
+			html.append( i18n( "Melting Point: %1" ).arg( m_element->adjustUnits( Element::MELTINGPOINT ) ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Boiling Point: %1" ).arg( e->adjustUnits( Element::BOILINGPOINT ) ) );
+			html.append( i18n( "Boiling Point: %1" ).arg( m_element->adjustUnits( Element::BOILINGPOINT ) ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Electronegativity: %1" ).arg( e->adjustUnits( Element::EN ) ) );
+			html.append( i18n( "Electronegativity: %1" ).arg( m_element->adjustUnits( Element::EN ) ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Electron affinity: %1 " ).arg( e->adjustUnits(Element::EA) ) );
+			html.append( i18n( "Electron affinity: %1 " ).arg( m_element->adjustUnits(Element::EA) ) );
 			html.append( "</td></tr>" );
 						
 
@@ -169,7 +192,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			{
 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 				html.append( i18n("the first variable is a number. The result is for example '1.' or '5.', the second is the value of the ionisation energy",
-				             "%1. Ionization energy: %2" ).arg( QString::number( i+1 ), e->adjustUnits( Element::IE, ionlist[i] ) ) );
+				             "%1. Ionization energy: %2" ).arg( QString::number( i+1 ), m_element->adjustUnits( Element::IE, ionlist[i] ) ) );
 			html.append( "</td></tr>" );
 			}
 			break;
@@ -183,7 +206,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
 QString DetailedInfoDlg::isotopeTable()
 {
-	const QString isotopes_string = e->Isotopes();
+	const QString isotopes_string = m_element->Isotopes();
 	QString isotopes = isotopes_string;
 	QString html;
 
@@ -294,7 +317,7 @@ void DetailedInfoDlg::createContent( Element *el )
 
 void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 {
-	int number = e->number();
+	int number = m_element->number();
 
 	Element *element;
 	if ( ev->delta() < 0 )
@@ -311,17 +334,7 @@ void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 	else
 		return;
 
-	e = element;
-	
-	QValueList<QFrame*>::iterator it = m_pages.begin();
-	QValueList<QFrame*>::iterator itEnd = m_pages.end();
-	for ( ; it != itEnd ; ++it ){
-		delete *it;
-		*it = NULL;
-	}
-	m_pages.clear();
-
-	createContent( e );
+	setElement(element);
 }
 
 #include "detailinfodlg.moc"

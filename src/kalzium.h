@@ -27,6 +27,7 @@ class QVBoxLayout;
 class TempSlider;
 class InformationWidget;
 class KalziumDataObject;
+class DetailedInfoDlg;
 class PSE;
 
 /**
@@ -67,7 +68,8 @@ class Kalzium : public KMainWindow
 
 
 		InformationWidget *m_info;
-		
+		DetailedInfoDlg   *m_infoDialog;
+
 		/**
 		 * this Pointer points to the current PSE. The pointer
 		 * is updated every time the users chooses a new 

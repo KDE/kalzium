@@ -804,6 +804,8 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 	
 	const int num = ElementNumber( X, Y );
 
+	//kdDebug() << "Element clicked: " << num << endl;
+
 	//If no element was clicked ElementNumber() will return 0
 	if ( num )
 		emit ElementClicked( num );

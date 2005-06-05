@@ -31,7 +31,7 @@ class QFrame;
 class QVBoxLayout;
 
 /**
- * @short The dialog which shows all availeble information
+ * @short The dialog which shows all available information
  * @author Carsten Niehaus
  */
 class DetailedInfoDlg : public KDialogBase
@@ -40,6 +40,8 @@ class DetailedInfoDlg : public KDialogBase
     
 	public:
         DetailedInfoDlg( KalziumDataObject* data, Element *el , QWidget *parent=0, const char *name=0);
+ 
+	    void setElement(Element *el);
 
 		enum DATATYPE
 		{
@@ -49,8 +51,8 @@ class DetailedInfoDlg : public KDialogBase
 		};
 	
 	private:
-		KalziumDataObject *m_data;
-		Element *e;
+		KalziumDataObject  *m_data;
+		Element            *m_element;
 
 		QString isotopeTable();
 		QString isotopeRow( const QString& str );

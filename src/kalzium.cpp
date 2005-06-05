@@ -49,6 +49,7 @@ Kalzium::Kalzium()
 	m_pCentralLayout = new QVBoxLayout( CentralWidget, 0, -1, "CentralLayout" );
 	
 	m_PSE = new PSE( data(), CentralWidget, "PSE");
+	m_infoDialog = 0;
 
 	connect( m_PSE, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
 	connect( this, SIGNAL( tableLocked( bool ) ), m_PSE, SLOT( slotLock(bool ) ));
@@ -333,13 +334,32 @@ void Kalzium::updateStatusbar()
 
 void Kalzium::openInformationDialog( int number )
 {
+	//kdDebug() << "Entering Kalzium::OpenInformationDialog" << endl;
+
 	if ( !m_PSE->learningMode() && m_PSE->showTooltip() )
 	{
+		kdDebug() << "Handling Information Dialog" << endl;
+
 		emit tableLocked(true);
-		DetailedInfoDlg info_dlg( data(), data()->element(number), this, "detailedDlg" );
-		info_dlg.exec();
+		if (m_infoDialog)
+			m_infoDialog->setElement(data()->element(number));
+		else
+			m_infoDialog = new DetailedInfoDlg(data(), data()->element(number),
+											   this, "detailedDlg" );
+#if 0
+		m_infoDialog->show();
+#else
+		m_infoDialog->exec();
+
+		// The following lines should be removed when we make the
+		// dialog non-modal.
+		delete m_infoDialog;
+		m_infoDialog = 0;
+#endif
 		emit tableLocked(false);
 	}
+
+	//kdDebug() << "Exiting Kalzium::OpenInformationDialog" << endl;
 }
 
 void Kalzium::slotNoLook()
