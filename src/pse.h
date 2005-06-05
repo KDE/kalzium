@@ -229,6 +229,8 @@ class PSE : public QWidget
 		void setLook( PSE::SCHEMETYPE type, int which = 0 );
 
   
+		virtual void paintCurrentSelection();
+
 	private:
 		//XXX I can use Element::TYPE here... Why?
 		
@@ -328,6 +330,8 @@ class PSE : public QWidget
 		///used for bitBlit. If true the complete table will be drawn
 		bool doFullDraw;
 		
+
+
 		//I am holding all colours as member so that they don't need to 
 		//be reloaded on every reload
 		QColor color_s;//Blocks
@@ -358,8 +362,6 @@ class PSE : public QWidget
 		
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
-
-		virtual void paintCurrentSelection( QPainter *p );
 
 		///in this method the tooltops are drawn.
 		virtual void drawToolTip( QPainter *p, Element *e );
@@ -406,7 +408,12 @@ class PSE : public QWidget
 		/**
 		 * this slot updates the currently selected point
 		 */
-		void slotUpdatePoint( QPoint point );
+		void selectPoint( QPoint point );
+
+		/**
+		 * this slot removes the selection of any point
+		 */
+	    void unSelect();
 
 		/**
 		 * sets the current element to @p number

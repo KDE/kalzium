@@ -340,23 +340,19 @@ void Kalzium::openInformationDialog( int number )
 	{
 		kdDebug() << "Handling Information Dialog" << endl;
 
-		emit tableLocked(true);
+		//emit tableLocked(true);
 		if (m_infoDialog)
 			m_infoDialog->setElement(data()->element(number));
-		else
+		else {
 			m_infoDialog = new DetailedInfoDlg(data(), data()->element(number),
 											   this, "detailedDlg" );
-#if 0
-		m_infoDialog->show();
-#else
-		m_infoDialog->exec();
 
-		// The following lines should be removed when we make the
-		// dialog non-modal.
-		delete m_infoDialog;
-		m_infoDialog = 0;
-#endif
-		emit tableLocked(false);
+			// Remove the selection when this dialog finishes or hides.
+			connect(m_infoDialog, SIGNAL(hidden()),
+					m_PSE,        SLOT(unSelect()));
+		}
+		m_infoDialog->show();
+		//emit tableLocked(false);
 	}
 
 	//kdDebug() << "Exiting Kalzium::OpenInformationDialog" << endl;

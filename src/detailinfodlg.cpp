@@ -33,7 +33,9 @@
 #include "detailedgraphicaloverview.h"
 
 DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget *parent, const char *name)
-    : KDialogBase(KDialogBase::IconList, "",  Close, Close, parent,name)
+    : KDialogBase(KDialogBase::IconList, "",  Close, Close, parent, name, 
+				  false			// non-modal
+				  )
 {
 	m_data    = data;
 	m_element = el;

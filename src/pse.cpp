@@ -43,9 +43,18 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 {
 	d = data;
 
-	connect( this, SIGNAL( tableClicked( QPoint ) ), this, SLOT( slotUpdatePoint( QPoint ) ) );
-	connect( this, SIGNAL( ToolTip( int ) ), this, SLOT( slotToolTip( int ) ) );
-	connect(  &HoverTimer, SIGNAL(  timeout() ), this, SLOT(  slotTransientLabel() ) );
+	// No selection
+	unSelect();
+
+#if 0
+	connect( this,        SIGNAL( tableClicked( QPoint ) ), 
+			 this,        SLOT( selectPoint( QPoint ) ) );
+#endif
+	connect( this,        SIGNAL( ToolTip( int ) ), 
+			 this,        SLOT( slotToolTip( int ) ) );
+
+	connect( &HoverTimer, SIGNAL( timeout() ), 
+			 this,        SLOT( slotTransientLabel() ) );
 
 	setMouseTracking( true );
   
@@ -360,10 +369,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	  if ( m_showLegend )
 		  drawLegend( &p );
 	  
-	  if ( !showTooltip() ){
-		paintCurrentSelection( &p );
-	  }
-	  
+	  paintCurrentSelection();
 
 	  p.end();
 
@@ -398,21 +404,30 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
   bitBlt( this, 0, 0, table2 );
 }
 
-void PSE::paintCurrentSelection( QPainter *p )
+void PSE::paintCurrentSelection()
 {
+	if (m_currentPoint.x() == -1)
+		return;
+
 	int x = m_currentPoint.x()-1;
 	int y = m_currentPoint.y();
+
+	QPainter p;
+	p.begin(table);
 
 	QPen pen;
 	pen.setStyle( DotLine );
 	pen.setWidth( 4 );
 	pen.setColor( Qt::blue );
-	p->setPen( pen );
-	p->drawEllipse( x*ELEMENTSIZE-10,y*ELEMENTSIZE-10,ELEMENTSIZE+20,ELEMENTSIZE+20 );
+	p.setPen( pen );
+
+	p.drawEllipse( x*ELEMENTSIZE-10,y*ELEMENTSIZE-10,ELEMENTSIZE+20,ELEMENTSIZE+20 );
 	pen.setWidth( 3 );
 	pen.setColor( Qt::red );
-	p->setPen( pen );
-	p->drawEllipse( x*ELEMENTSIZE-5,y*ELEMENTSIZE-5,ELEMENTSIZE+10,ELEMENTSIZE+10 );
+	p.setPen( pen );
+	p.drawEllipse( x*ELEMENTSIZE-5,y*ELEMENTSIZE-5,ELEMENTSIZE+10,ELEMENTSIZE+10 );
+
+	p.end();
 }
 
 void PSE::drawLegendToolTip( QPainter* p )
@@ -807,8 +822,10 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 	//kdDebug() << "Element clicked: " << num << endl;
 
 	//If no element was clicked ElementNumber() will return 0
-	if ( num )
+	if ( num ) {
 		emit ElementClicked( num );
+		selectPoint( point );
+	}
 }
 
 int PSE::ElementNumber( int X, int Y )
@@ -851,21 +868,30 @@ void PSE::slotUnlock()
 
 void PSE::slotLock(bool locked)
 {
-	if(locked){
-		setShowTooltip(false);
-	}
-	else{
-		setShowTooltip(true);
-	}
+	setShowTooltip(locked);
 
 	setFullDraw();
 	update();
 }
 
-void PSE::slotUpdatePoint( QPoint point )
+
+void PSE::unSelect()
 {
+	m_currentPoint = QPoint(-1, -1);
+
+	// Full draw needed to redraw the select mark.
+	setFullDraw();
+	update();
+}
+
+void PSE::selectPoint( QPoint point )
+{
+	kdDebug() << "PSE::selectPoint " << point << endl;
+
 	m_currentPoint = point;
 
+	// Full draw needed to redraw the select mark.
+	setFullDraw();
 	update();
 }
 

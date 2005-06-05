@@ -15,7 +15,6 @@ TODO for Kalzium 1.5:
 * The main window
   + No legend for temperature states.  See item 6 below.		----
   + Too little space between the left border and the elements (item 21)	----
-  + 
 
 
 * The data window
@@ -48,8 +47,9 @@ This includes ideas, misfeatures and proper bugs.
    
 2.  They should have WhatsThis help as well.				----
    CN: not sure if that is needed if (1) is implemented
+   IW: No, you are probably right.
    
-3.  The data dialog should be non-modal (definitely)			----
+3.  The data dialog should be non-modal (definitely)			DONE-IW
    CN: Ingwa will do this.
    
 4.  in "learning mode", "Time" should perhaps be "Discovery year".	----
