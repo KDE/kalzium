@@ -55,8 +55,16 @@ class KalziumDataObject
 
 		Element* element( int number );
 
+		/**
+		 * @return the number of elements we have
+		 */
+		const int numberOfElements() const;
+
 	private:
 		EList readData( QDomDocument &dataDocument );
+
+		// caching the number of elements
+		int m_numOfElements;
 };
 
 struct coordinate{

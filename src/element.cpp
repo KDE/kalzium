@@ -572,6 +572,7 @@ KalziumDataObject::KalziumDataObject()
 	layoutFile.close();
 
 	ElementList = readData( doc );
+	m_numOfElements = ElementList.count();
 }
 
 KalziumDataObject::~KalziumDataObject()
@@ -675,4 +676,9 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 	}
 	
 	return list;
+}
+
+const int KalziumDataObject::numberOfElements() const
+{
+	return m_numOfElements;
 }

@@ -330,11 +330,11 @@ void DetailedInfoDlg::slotUser1()
 // setting the next element
 	int number = m_element->number();
 
-	if ( number < 111 )
+	if ( number < m_data->numberOfElements() )
 	{
 		setElement( m_data->element( number + 1 ) );
 		emit elementChanged( number + 1 );
-		if ( number == 110 )
+		if ( number == ( m_data->numberOfElements() - 1 ) )
 			enableButton( User1, false );
 		if ( !actionButton( User2 )->isEnabled() )
 			enableButton( User2, true );

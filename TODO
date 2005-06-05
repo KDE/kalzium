@@ -7,7 +7,7 @@ TODO for Kalzium 1.5:
     Now you get a dialog with a green background.
     The same, but opposite happens for elements in the p block (green)
     The legend as well as the colors should be checked.
-  + If you switch element in the details dialog, the marker on the	----
+  + If you switch element in the details dialog, the marker on the	DONE-PT
     PSE doesn't change.  It is still the same.
   + Some melting and boiling points are wrong.  How to reproduce:	----
 	1. Enter Learning mode, click on Temperature tab
