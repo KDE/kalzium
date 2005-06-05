@@ -44,6 +44,14 @@
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>lbl1</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Year:</string>
+                                </property>
+                            </widget>
                             <widget class="QSlider">
                                 <property name="name">
                                     <cstring>time_slider</cstring>
@@ -91,6 +99,14 @@
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>lbl2</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Temperature:</string>
+                                </property>
+                            </widget>
                             <widget class="QSlider">
                                 <property name="name">
                                     <cstring>temp_slider</cstring>
@@ -114,6 +130,8 @@
         </widget>
     </vbox>
 </widget>
+<customwidgets>
+</customwidgets>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>knuminput.h</includehint>
