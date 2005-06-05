@@ -48,6 +48,8 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 										  KDialog::spacingHint() );
 
 	m_pPlotSetupWidget = new PlotSetupWidget( plainPage(), "plotsetup" );	
+	m_pPlotSetupWidget->from->setMaxValue( d->numberOfElements() - 1 );
+	m_pPlotSetupWidget->to->setMaxValue( d->numberOfElements() );
 	m_pPlotWidget      = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage(),
 										 "plotwidget" );
 	m_pPlotWidget->setMinimumWidth( 200 );

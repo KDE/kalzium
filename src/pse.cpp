@@ -383,7 +383,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
  
   if ( m_showTooltip )
   {
-    if ( m_tooltipElementNumber < 112 && m_tooltipElementNumber > 0 )
+    if ( m_tooltipElementNumber <= d->numberOfElements() && m_tooltipElementNumber > 0 )
     {
       QPainter p2;
       p2.begin( table2 );
@@ -868,7 +868,7 @@ void PSE::slotUnlock()
 
 void PSE::slotLock(bool locked)
 {
-	setShowTooltip(locked);
+	setShowTooltip(!locked);
 
 	setFullDraw();
 	update();

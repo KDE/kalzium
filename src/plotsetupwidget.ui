@@ -61,7 +61,7 @@
                 <number>2</number>
             </property>
             <property name="maxValue">
-                <number>110</number>
+                <number>200</number>
             </property>
             <property name="whatsThis" stdset="0">
                 <string>Define the last element whose value should be plotted</string>
@@ -160,7 +160,7 @@
                 <number>1</number>
             </property>
             <property name="maxValue">
-                <number>109</number>
+                <number>200</number>
             </property>
             <property name="whatsThis" stdset="0">
                 <string>Define the first element whose value should be plotted</string>
