@@ -30,9 +30,10 @@
 #include <qcheckbox.h>
 #include <qlabel.h>
 
+
 ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, const char* name )
 	: KDialogBase( KDialogBase::Plain, 
-			i18n( "Visualize Data") , 
+			i18n( "Plot Data") , 
 			User1 | Close,
 			User1,
 			parent, name )
