@@ -39,7 +39,7 @@ TODO for Kalzium 1.5:
     area. :-)
    PT: what about removing the slider, and using an horizontal layout
        where the setup widget has the smallest width?
-
+   IW: Set stretch factor for the setup to 0 and the plot to 1.
 
 * The glossary window
   + If you hit <Return> in the search, you close the window.  It	----
