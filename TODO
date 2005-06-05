@@ -80,13 +80,12 @@ Items from a brainstorming session with ingwa:
 22. The plot should be repainted immediately if something changes on	----
     the left.  The "Plot" button should go.
 
-23. When I choose "Gradient: van der Walls (sic!) Radius" the text is	----
-    cut both to the left and to the right.
-   CN: Typo fixed							done
-   CN: The numbers are now stripped after digit number 4. Is this	----
-       fixed now?
-   IW: The numbers were never stripped to the left/right, but at the
-       lower edge.  That is not yet fixed.
+23. When I choose "Gradient: van der Walls (sic!) Radius" the text is	DONE
+    cut both to the left and to the right.  And the numbers are cut at
+    the lower side.
+   CN: Typo fixed							done-CN
+   CN: Title is clipped to the left/right:				done-CN
+   IW: Numbers are clipped to the bottom				done-IW
 
 24. The legend should be outlined in some way. A slight background for	----
     example...

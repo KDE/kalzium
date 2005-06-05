@@ -997,7 +997,7 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 
 	/**
 	 * this loop iterates through all elements. The Elements
-	 * draw themselfs, the PSE only tells them to do so
+	 * draw themselves, the PSE only tells them to do so
 	 */
 	it = d->ElementList.begin();
 	switch ( m_gradientType )
@@ -1105,26 +1105,34 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 			}
 			break;
 	}
-	//now draw the gradientwidget:
-	int x,y,w,h;
-	x = ELEMENTSIZE*2+5;
-	y= 5;
-	w = ELEMENTSIZE*10-5;
-	h = ELEMENTSIZE*4-5;
-	QSize s( ELEMENTSIZE*7+20,20 );
-	QImage img = KImageEffect::gradient ( s, Qt::white, Qt::red, KImageEffect::HorizontalGradient );
+
+	// Now draw the legend.
+	int  x = ELEMENTSIZE*2+5;
+	int  y = 5;
+	//int  w = ELEMENTSIZE*10-5;
+	//int  h = ELEMENTSIZE*4-5;
+
+	// Create the gradient image.
+	QSize s( ELEMENTSIZE*7+20, 20 );
+	QImage img = KImageEffect::gradient ( s, Qt::white, Qt::red, 
+										  KImageEffect::HorizontalGradient );
 	QPixmap pm( img );
-	p->drawText( x+5,y+50,ELEMENTSIZE*10,20, Qt::AlignCenter, title ); 
-	p->drawPixmap( x+50,y+80, pm );
+
+	p->drawText( x+5, y+50, ELEMENTSIZE*10,20, Qt::AlignCenter, title ); 
+	p->drawPixmap( x+50, y+80, pm );
+
 	if ( m_gradientType == Element::EA )
 	{
-		p->drawText(   x+50,y+100,ELEMENTSIZE*7+20,20, Qt::AlignRight, QString::number( min ) ); 
-		p->drawText(   x+50,y+100,ELEMENTSIZE*7+20,20, Qt::AlignLeft, QString::number( max ) );
+		// FIXME: In the lines below, "30" is the max allowed text
+		//        height.  This should be calculated from the font 
+		//        metrics, not hard coded.
+		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignRight, QString::number( min ) ); 
+		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignLeft, QString::number( max ) );
 	}
 	else
 	{
-		p->drawText(   x+50,y+100,ELEMENTSIZE*7+20,20, Qt::AlignRight, QString::number( max ) ); 
-		p->drawText(   x+50,y+100,ELEMENTSIZE*7+20,20, Qt::AlignLeft, QString::number( min ) );
+		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignRight, QString::number( max ) ); 
+		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignLeft, QString::number( min ) );
 
 	} 
 }
