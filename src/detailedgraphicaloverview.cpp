@@ -205,9 +205,9 @@ QColor DetailedGraphicalOverview::PSEColor( const QString &block ) const
 	if ( block == "s" )
 		c = Prefs::block_s();
 	else if ( block == "d" )
-		c = Prefs::block_p();
-	else if ( block == "p" )
 		c = Prefs::block_d();
+	else if ( block == "p" )
+		c = Prefs::block_p();
 	else if ( block == "f" )
 		c = Prefs::block_f();
 	return  c;

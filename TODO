@@ -2,7 +2,7 @@ TODO for Kalzium 1.5:
 
 
 * Small bugs
-  + Select "Periodic Table"->Look->"Show Blocks"			----
+  + Select "Periodic Table"->Look->"Show Blocks"			DONE-HP
     Click on any element in the d block (yellow)
     Now you get a dialog with a green background.
     The same, but opposite happens for elements in the p block (green)
