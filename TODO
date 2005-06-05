@@ -23,8 +23,7 @@ TODO for Kalzium 1.5:
 
 
 * The main window
-  + There is no legend in the main window for the states (liquid,	----
-    solid, gas, etc) when the user is in the state-of-matter mode.
+  + There is no legend in Learning Mode.				----
   + There is too little space between the left edge and the table in	----
     the main window.
 
