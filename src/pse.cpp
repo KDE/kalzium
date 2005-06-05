@@ -695,16 +695,16 @@ void PSE::drawLegend( QPainter* p )
 			break;
 	    case PSE::CRYSTAL:
 			p->fillRect(x1, fieldheight*2, square_w, square_h, Qt::blue ); 
-			p->fillRect(x2, fieldheight*2, square_w, square_h, Qt::red ); 
-			p->fillRect(x1, fieldheight*3, square_w, square_h, Qt::yellow ); 
-			p->fillRect(x2, fieldheight*3, square_w, square_h, Qt::green ); 
-			p->fillRect(x2, fieldheight*4, square_w, square_h, Qt::white ); 
+			p->fillRect(x1, fieldheight*3, square_w, square_h, Qt::red ); 
+			p->fillRect(x1, fieldheight*4, square_w, square_h, Qt::yellow ); 
+			p->fillRect(x1, fieldheight*5, square_w, square_h, Qt::green ); 
+			p->fillRect(x1, fieldheight*6, square_w, square_h, Qt::white ); 
 
 			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Own") ); 
-			p->drawText(x2 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("bbc, body-centred cubic lattice") ); 
-			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("hdp, hexagonal") ); 
-			p->drawText(x2 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("ccp, cubic close packed") ); 
-			p->drawText(x2 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Unknown") ); 
+			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("bbc, body-centred cubic lattice") ); 
+			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("hdp, hexagonal") ); 
+			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("ccp, cubic close packed") ); 
+			p->drawText(x1 + textOffset, fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Unknown") ); 
 			break;
 	}
 }
