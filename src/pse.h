@@ -17,6 +17,12 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
+
+// A PSE is ...
+//
+
+
 #ifndef PSE_H
 #define PSE_H
 
@@ -315,9 +321,9 @@ class PSE : public QWidget
 		 */
 		int m_num;
 
-		///the internal representation of the table
-		QPixmap *table;
-    QPixmap *table2;
+		/// Implements double buffering of the widget.
+		QPixmap *table;			// The basic PSE
+		QPixmap *table2;		// Basic PSE + extra data such as tooltip, etc
 
 		///used for bitBlit. If true the complete table will be drawn
 		bool doFullDraw;

@@ -317,6 +317,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	  p.begin( table );
 	  p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
 
+	  // Draw the numbers above the table.
 	  drawNumeration( &p );
 	  
 	  if ( m_timeline ){ //use timeline
@@ -343,6 +344,8 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		  bitBlt( this, 0, 0, table2 );
 		  return;
 	  }
+
+	  // FIXME: This should not be drawn separately! /ingwa
 	  if ( m_currentScheme == CRYSTAL ){//show the crystal structure
 		  drawCrystal(& p );
 		  p.end();
@@ -351,6 +354,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		  bitBlt( this, 0, 0, table2 );
 		  return;
 	  }
+
 	  drawPSE( &p );
 
 	  if ( m_showLegend )
@@ -567,8 +571,8 @@ void PSE::drawLegend( QPainter* p )
 	 * The legend is drawn in the big gap of the table. The gap has
 	 * this size:
 	 * 
-	 * width: ELEMENTSIZE * 10
-	 * hight: ELEMENTSIZE * 3
+	 * width:  ELEMENTSIZE * 10
+	 * height: ELEMENTSIZE * 3
 	 *
 	 * We need to spare a few pixels on every side so that the legend
 	 * does not collide with the elements
@@ -577,6 +581,14 @@ void PSE::drawLegend( QPainter* p )
 	QFont legendFont = KGlobalSettings::generalFont();
 	legendFont.setPointSize( legendFont.pointSize() + 1 );
 	p->setFont( legendFont );
+
+	int  legendLeft   = ELEMENTSIZE * 5 / 2;
+	int  legendTop    = ELEMENTSIZE;
+	int  legendWidth  = ELEMENTSIZE * 9;
+	int  legendHeight = ELEMENTSIZE * 5 / 2;
+
+	int  x1 = legendLeft + ELEMENTSIZE / 2;
+	int  x2 = legendLeft + ELEMENTSIZE * 5;
 
 	/*
 	 * one field is allowed to be half the gap minus 10 pixel
@@ -588,83 +600,93 @@ void PSE::drawLegend( QPainter* p )
 	 */
 	int fieldheight = ELEMENTSIZE/2;  
 
-	int x1 = ELEMENTSIZE*2+45;
-	int x2 = ELEMENTSIZE*7+45;
 
-	const int square_w = 20;
-	const int square_h = 20;
+	const  int square_w = 20;
+	const  int square_h = 20;
+	const  int textOffset = square_w + 10;
 	
+
+	p->drawRect(legendLeft, legendTop, legendWidth, legendHeight);
+
 	switch ( m_currentScheme ) {
 		//No Legend to be drawn as only one colour is used
 		case PSE::NOCOLOUR:
 			break;
-		case PSE::BLOCK:
-			{
-				p->fillRect(x1-25, fieldheight*2, square_w, square_h, color_s ); 
-				p->fillRect(x2-25, fieldheight*2, square_w, square_h, color_p ); 
-				p->fillRect(x1-25, fieldheight*3, square_w, square_h, color_d ); 
-				p->fillRect(x2-25, fieldheight*3, square_w, square_h, color_f ); 
-				p->drawText(x1, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("s-Block") ); 
-				p->drawText(x2, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("p-Block") ); 
-				p->drawText(x1, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("d-Block") ); 
-				p->drawText(x2, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("f-Block") ); 
-				break;
-			}
 		case PSE::GROUPS:
-			{
-				p->fillRect( x1-25, fieldheight*2, square_w, square_h, color_1); 
-				p->fillRect( x2-25, fieldheight*2, square_w, square_h, color_2); 
-				p->fillRect( x1-25, fieldheight*3, square_w, square_h, color_3); 
-				p->fillRect( x2-25, fieldheight*3, square_w, square_h, color_4); 
-				p->fillRect( x1-25, fieldheight*4, square_w, square_h, color_5); 
-				p->fillRect( x2-25, fieldheight*4, square_w, square_h, color_6); 
-				p->fillRect( x1-25, fieldheight*5, square_w, square_h, color_7); 
-				p->fillRect( x2-25, fieldheight*5, square_w, square_h, color_8 ); 
-				p->drawText( x1 , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 1") ); 
-				p->drawText( x2 , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 2")); 
-				p->drawText( x1 , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 3")); 
-				p->drawText( x2 , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 4")); 
-				p->drawText( x1 , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 5")); 
-				p->drawText( x2 , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 6")); 
-				p->drawText( x1 , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 7")); 
-				p->drawText( x2 , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 8")); 
-				break;
-			}
+			p->fillRect( x1, fieldheight*2, square_w, square_h, color_1); 
+			p->fillRect( x2, fieldheight*2, square_w, square_h, color_2); 
+			p->fillRect( x1, fieldheight*3, square_w, square_h, color_3); 
+			p->fillRect( x2, fieldheight*3, square_w, square_h, color_4); 
+			p->fillRect( x1, fieldheight*4, square_w, square_h, color_5); 
+			p->fillRect( x2, fieldheight*4, square_w, square_h, color_6); 
+			p->fillRect( x1, fieldheight*5, square_w, square_h, color_7); 
+			p->fillRect( x2, fieldheight*5, square_w, square_h, color_8 ); 
+			
+			p->drawText( x1 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 1") ); 
+			p->drawText( x1 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 2")); 
+			p->drawText( x1 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 3")); 
+			p->drawText( x1 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 4")); 
+			p->drawText( x2 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 5")); 
+			p->drawText( x2 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 6")); 
+			p->drawText( x2 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 7")); 
+			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 8")); 
+			break;
+		case PSE::BLOCK:
+			p->fillRect(x1, fieldheight*2, square_w, square_h, color_s ); 
+			p->fillRect(x2, fieldheight*2, square_w, square_h, color_p ); 
+			p->fillRect(x1, fieldheight*3, square_w, square_h, color_d ); 
+			p->fillRect(x2, fieldheight*3, square_w, square_h, color_f ); 
+			
+			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("s-Block") ); 
+			p->drawText(x2 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("p-Block") ); 
+			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("d-Block") ); 
+			p->drawText(x2 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("f-Block") ); 
+			break;
 		case PSE::ACIDIC:
-			{
-				p->fillRect(x1-25, fieldheight*2, square_w, square_h, color_ba ); 
-				p->fillRect(x2-25, fieldheight*2, square_w, square_h, color_ac ); 
-				p->fillRect(x1-25, fieldheight*3, square_w, square_h, color_neu ); 
-				p->fillRect(x2-25, fieldheight*3, square_w, square_h, color_amp ); 
-				p->drawText(x1, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Basic") ); 
-				p->drawText(x2, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Acidic") ); 
-				p->drawText(x1, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Neutral") ); 
-				p->drawText(x2, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("both acidic and basic behaviour","Amphoteric") ); 
-				break;
-			}
+			p->fillRect(x1, fieldheight*2, square_w, square_h, color_ba ); 
+			p->fillRect(x1, fieldheight*3, square_w, square_h, color_neu );
+			p->fillRect(x2, fieldheight*2, square_w, square_h, color_ac ); 
+			p->fillRect(x2, fieldheight*3, square_w, square_h, color_amp );
+			
+			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Basic") ); 
+			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Neutral") ); 
+			p->drawText(x2 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Acidic") ); 
+			p->drawText(x2 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("both acidic and basic behaviour","Amphoteric") ); 
+			break;
 		case PSE::FAMILY:
-			{
-				p->fillRect( x1-25, fieldheight*2, square_w, square_h, c_alkaline ); 
-				p->fillRect( x2-25, fieldheight*2, square_w, square_h, c_rare ); 
-				p->fillRect( x1-25, fieldheight*3, square_w, square_h, c_nonmetal ); 
-				p->fillRect( x2-25, fieldheight*3, square_w, square_h, c_alkalie ); 
-				p->fillRect( x1-25, fieldheight*4, square_w, square_h, c_other_metal ); 
-				p->fillRect( x2-25, fieldheight*4, square_w, square_h, c_halogene ); 
-				p->fillRect( x1-25, fieldheight*5, square_w, square_h, c_transition ); 
-				p->fillRect( x2-25, fieldheight*5, square_w, square_h, c_noble_gas ); 
-				p->fillRect( x1-25, fieldheight*6, square_w, square_h, c_metalloid ); 
+			p->fillRect( x1, fieldheight*2, square_w, square_h, c_alkaline ); 
+			p->fillRect( x2, fieldheight*2, square_w, square_h, c_rare ); 
+			p->fillRect( x1, fieldheight*3, square_w, square_h, c_nonmetal ); 
+			p->fillRect( x2, fieldheight*3, square_w, square_h, c_alkalie ); 
+			p->fillRect( x1, fieldheight*4, square_w, square_h, c_other_metal ); 
+			p->fillRect( x2, fieldheight*4, square_w, square_h, c_halogene ); 
+			p->fillRect( x1, fieldheight*5, square_w, square_h, c_transition );
+			p->fillRect( x2, fieldheight*5, square_w, square_h, c_noble_gas ); 
+			p->fillRect( x1, fieldheight*6, square_w, square_h, c_metalloid ); 
+			
+			p->drawText( x1 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkaline") ); 
+			p->drawText( x2 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Rare Earth")); 
+			p->drawText( x1 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Non-Metals")); 
+			p->drawText( x2 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkalie-Metals")); 
+			p->drawText( x1 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Other Metal")); 
+			p->drawText( x2 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Halogene")); 
+			p->drawText( x1 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Transition Metal")); 
+			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Noble Gas")); 
+			p->drawText( x1 + textOffset , fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Metalloid")); 
+			break;
+	    case PSE::CRYSTAL:
+			p->fillRect(x1, fieldheight*2, square_w, square_h, Qt::blue ); 
+			p->fillRect(x2, fieldheight*2, square_w, square_h, Qt::red ); 
+			p->fillRect(x1, fieldheight*3, square_w, square_h, Qt::yellow ); 
+			p->fillRect(x2, fieldheight*3, square_w, square_h, Qt::green ); 
+			p->fillRect(x2, fieldheight*4, square_w, square_h, Qt::white ); 
 
-				p->drawText( x1 , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkaline") ); 
-				p->drawText( x2 , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Rare Earth")); 
-				p->drawText( x1 , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Non-Metals")); 
-				p->drawText( x2 , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkalie-Metals")); 
-				p->drawText( x1 , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Other Metal")); 
-				p->drawText( x2 , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Halogene")); 
-				p->drawText( x1 , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Transition Metal")); 
-				p->drawText( x2 , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Noble Gas")); 
-				p->drawText( x1 , fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Metalloid")); 
-				break;
-			}
+			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Own") ); 
+			p->drawText(x2 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("bbc, body-centred cubic lattice") ); 
+			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("hdp, hexagonal") ); 
+			p->drawText(x2 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("ccp, cubic close packed") ); 
+			p->drawText(x2 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Unknown") ); 
+			break;
 	}
 }
 
@@ -859,32 +881,7 @@ void PSE::drawCrystal( QPainter* p )
 	legendFont.setPointSize( legendFont.pointSize() + 1 );
 	p->setFont( legendFont );
 
-	/*
-	 * one field is allowed to be half the gap minus 10 pixel
-	 */
-	int fieldsize = ELEMENTSIZE*5-10;
-
-	/*
-	 * one field is a maximum of half the size of an element
-	 */
-	int fieldheight = ELEMENTSIZE/2;  
-
-	int x1 = ELEMENTSIZE*2+45;
-	int x2 = ELEMENTSIZE*7+45;
-
-	const int square_w = 20;
-	const int square_h = 20;
-
-	p->fillRect(x1-25, fieldheight*2, square_w, square_h, Qt::blue ); 
-	p->fillRect(x2-25, fieldheight*2, square_w, square_h, Qt::red ); 
-	p->fillRect(x1-25, fieldheight*3, square_w, square_h, Qt::yellow ); 
-	p->fillRect(x2-25, fieldheight*3, square_w, square_h, Qt::green ); 
-	p->fillRect(x2-25, fieldheight*4, square_w, square_h, Qt::white ); 
-	p->drawText(x1, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Own") ); 
-	p->drawText(x2, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("bbc, body-centred cubic lattice") ); 
-	p->drawText(x1, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("hdp, hexagonal") ); 
-	p->drawText(x2, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("ccp, cubic close packed") ); 
-	p->drawText(x2, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Unknown") ); 
+	drawLegend(p);
 }
 
 void PSE::drawPSE( QPainter* p )
