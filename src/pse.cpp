@@ -1114,20 +1114,20 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 	y= 5;
 	w = ELEMENTSIZE*10-5;
 	h = ELEMENTSIZE*4-5;
-	QSize s( ELEMENTSIZE*7,20 );
+	QSize s( ELEMENTSIZE*7+20,20 );
 	QImage img = KImageEffect::gradient ( s, Qt::white, Qt::red, KImageEffect::HorizontalGradient );
 	QPixmap pm( img );
-	p->drawText( x+5,y+50,ELEMENTSIZE*7,20, Qt::AlignCenter, title ); 
+	p->drawText( x+5,y+50,ELEMENTSIZE*10,20, Qt::AlignCenter, title ); 
 	p->drawPixmap( x+50,y+80, pm );
 	if ( m_gradientType == Element::EA )
 	{
-		p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignRight, QString::number( min ) ); 
-		p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignLeft, QString::number( max ) );
+		p->drawText(   x+50,y+100,ELEMENTSIZE*7+20,20, Qt::AlignRight, QString::number( min ) ); 
+		p->drawText(   x+50,y+100,ELEMENTSIZE*7+20,20, Qt::AlignLeft, QString::number( max ) );
 	}
 	else
 	{
-		p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignRight, QString::number( max ) ); 
-		p->drawText(   x+50,y+100,ELEMENTSIZE*7,20, Qt::AlignLeft, QString::number( min ) );
+		p->drawText(   x+50,y+100,ELEMENTSIZE*7+20,20, Qt::AlignRight, QString::number( max ) ); 
+		p->drawText(   x+50,y+100,ELEMENTSIZE*7+20,20, Qt::AlignLeft, QString::number( min ) );
 
 	} 
 }
@@ -1140,7 +1140,7 @@ void PSE::drawGradientButton( QPainter *p, Element* e, double coeff, double valu
 		e->drawGradient( p, QString::number( Element::strippedValue( value ) ), c );
 	}
 	else
-		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::gray );
+		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::lightGray );
 }
 
 QColor PSE::calculateColor( const double coeff )
