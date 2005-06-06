@@ -28,9 +28,9 @@ TODO for Kalzium 1.5:
   + There is no legend in Learning Mode.				----
    PT: actually, there is, but only for the time mode; we need a
        legend for the SOM
-  + There is too little space between the left edge and the table in	----
+  + There is too little space between the left edge and the table in	DONE-PT
     the main window.
-   PT: which is a "good" space?
+   PT: the margin is defined in the PSE_MARGIN symbol, in kazlium.cpp
 
 
 * The data window:

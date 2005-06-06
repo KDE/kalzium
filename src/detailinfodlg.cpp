@@ -151,9 +151,12 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "<b>Mass: %1</b>" ).arg( m_element->adjustUnits( Element::MASS ) ) );
 			html.append( "</td></tr>" );
-			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-			html.append( isotopeTable() );
-			html.append( "</td></tr>" );
+			if ( !m_element->Isotopes().isEmpty() )
+			{
+				html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+				html.append( isotopeTable() );
+				html.append( "</td></tr>" );
+			}
 			break;
 		case MISC:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );

@@ -37,6 +37,7 @@
 #define IDS_TEMP           1
 #define IDS_ENERG           3
 #define IDS_UNITS           5
+#define PSE_MARGIN          5
 
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
@@ -46,7 +47,7 @@ Kalzium::Kalzium()
 	pd->kalziumData = new KalziumDataObject();
 
 	QWidget *CentralWidget = new QWidget( this, "CentralWidget" );
-	m_pCentralLayout = new QVBoxLayout( CentralWidget, 0, -1, "CentralLayout" );
+	m_pCentralLayout = new QVBoxLayout( CentralWidget, PSE_MARGIN, -1, "CentralLayout" );
 	
 	m_PSE = new PSE( data(), CentralWidget, "PSE");
 	m_infoDialog = 0;
