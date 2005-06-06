@@ -15,6 +15,8 @@ TODO for Kalzium 1.5:
            with melting point around this temperature" in the tab.
         3. Note that quite a few, e.g. Berkelium and Rutherfordium
            have melting point of O K shown.
+   PT: Carsten, could you please check the datas?
+   PT: Ingwa, perhaps I fixed it, could you check further?
   + Ctrl-Q should close the subwindows.					----
     - Plot window							--
     - Data window							--
@@ -30,7 +32,7 @@ TODO for Kalzium 1.5:
        legend for the SOM
   + There is too little space between the left edge and the table in	DONE-PT
     the main window.
-   PT: the margin is defined in the PSE_MARGIN symbol, in kazlium.cpp
+   PT: the margin is defined in the PSE_MARGIN symbol, in kalzium.cpp
 
 
 * The data window:

@@ -108,12 +108,12 @@ void InformationWidget::slotTemp( int temp )
 	QStringList listMeltingPointValue;
 	for ( ; it != itEnd; ++it )
 	{
-		if ( fabs( ( *it )->melting() - temp ) <= threshold )
+		if ( ( ( *it )->melting() > 0.0 ) && fabs( ( *it )->melting() - temp ) <= threshold )
 		{
 			listMeltingPoint << ( *it )->elname();
 			listMeltingPointValue << QString::number( ( *it )->melting() );
 		}
-		else if ( fabs( ( *it )->boiling() - temp ) <= threshold )
+		if ( ( ( *it )->boiling() > 0.0 ) && fabs( ( *it )->boiling() - temp ) <= threshold )
 		{
 			listBoilingPoint << ( *it )->elname().utf8();
 			listBoilingPointValue << QString::number( ( *it )->boiling() );
