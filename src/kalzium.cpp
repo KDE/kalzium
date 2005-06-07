@@ -34,10 +34,11 @@
 #include <kstatusbar.h>
 #include <kcombobox.h>
 
-#define IDS_TEMP           1
+#define IDS_TEMP            1
 #define IDS_ENERG           3
 #define IDS_UNITS           5
 #define PSE_MARGIN          5
+#define IDS_ELEMENTINFO     7
 
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
@@ -53,6 +54,7 @@ Kalzium::Kalzium()
 	m_infoDialog = 0;
 
 	connect( m_PSE, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
+	connect( m_PSE, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
 	connect( this, SIGNAL( tableLocked( bool ) ), m_PSE, SLOT( slotLock(bool ) ));
 	
 	// Layouting
@@ -199,6 +201,9 @@ void Kalzium::setupStatusBar()
 	statusBar()->setItemAlignment(IDS_UNITS+1, AlignLeft);
 	statusBar()->addWidget( u_box , 0, false );
 	
+	statusBar()->insertItem(i18n( "" ), IDS_ELEMENTINFO, 1, false);
+	statusBar()->setItemAlignment(IDS_ELEMENTINFO, AlignRight);
+	
 	updateStatusbar();
 
 	statusBar()->show();
@@ -334,10 +339,14 @@ void Kalzium::updateStatusbar()
 	u_box->setCurrentItem( Prefs::units() );
 }
 
+void Kalzium::slotStatusbar( int num )
+{
+	Element *e = data()->element( num );
+	statusBar()->changeItem( i18n( "%1, Weight: %2 u" ).arg( e->elname() ).arg( e->mass() ) , IDS_ELEMENTINFO );
+}
+
 void Kalzium::openInformationDialog( int number )
 {
-	//kdDebug() << "Entering Kalzium::OpenInformationDialog" << endl;
-
 	if ( !m_PSE->learningMode() && m_PSE->showTooltip() )
 	{
 		kdDebug() << "Handling Information Dialog" << endl;

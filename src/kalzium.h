@@ -120,6 +120,8 @@ class Kalzium : public KMainWindow
 		QVBoxLayout *m_pCentralLayout;
 	
 	private slots:
+		void slotStatusbar(int);
+		
 		/**
 		 * opens the information dialog for the element @p number
 		 */

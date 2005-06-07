@@ -55,6 +55,9 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 
 	connect( &HoverTimer, SIGNAL( timeout() ), 
 			 this,        SLOT( slotTransientLabel() ) );
+	
+	connect( &MouseoverTimer, SIGNAL( timeout() ), 
+			 this,        SLOT( slotMouseover() ) );
 
 	setMouseTracking( true );
   
@@ -783,6 +786,7 @@ void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
   }
   
   HoverTimer.start(  2000, true ); //JH: true = run timer once, not continuously
+  MouseoverTimer.start(  200, true ); //JH: true = run timer once, not continuously
 }
 
 bool PSE::pointerOnLegend(int X, int Y)
@@ -835,6 +839,10 @@ int PSE::ElementNumber( int X, int Y )
 	
 	CList::ConstIterator it = d->CoordinateList.begin();
 
+	//TODO XXX FIXME
+	//Should the end() be cached into a ConstIterator? This method is
+	//rather timecritical so I guess this might be a good idea on slow
+	//systems...
 	int counter = 1;
 	while ( it != d->CoordinateList.end() )
 	{//iterate through the list of coordinates and compare the x/y values.
@@ -1174,6 +1182,24 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignLeft, QString::number( min ) );
 
 	} 
+}
+
+void PSE::slotMouseover()
+{
+	//TODO This code is identical with the code in
+	//PSE::slotTransientLabel( void )    I guess this should
+	//be moved into an method of its own
+	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
+	int Y = ( mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE)/ELEMENTSIZE;
+	
+	X += 1;
+	Y += 1;
+
+	QPoint point( X,Y );
+
+	const int num = ElementNumber( X, Y );
+	if ( num )
+		emit MouseOver( num );
 }
 
 void PSE::drawGradientButton( QPainter *p, Element* e, double coeff, double value, double minValue )

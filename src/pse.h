@@ -281,7 +281,8 @@ class PSE : public QWidget
 		bool m_showGradient;
 
 		///Timer used for the tooltop
-		QTimer HoverTimer;
+		QTimer HoverTimer,
+			   MouseoverTimer;
 
 		KalziumDataObject *d;
 
@@ -392,6 +393,8 @@ class PSE : public QWidget
 		virtual void drawNumeration( QPainter* p );
 
 	public slots:	
+		void slotMouseover();
+		
 		void setDate( int date ){
 			m_date = date;
 			update();
@@ -445,6 +448,12 @@ class PSE : public QWidget
 		 * has to be displayed
 		 */
 		void ToolTip(int);
+
+		/*
+		 * This signal is emited when the mousepointer is
+		 * over an element
+		 */
+		void MouseOver( int );
 
 		void LegendToolTip();
 };
