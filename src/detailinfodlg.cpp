@@ -65,6 +65,9 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 
 	m_currpage = 0;
 
+	setButtonTip( User2, i18n( "Goes to the previous element" ) );
+	setButtonTip( User1, i18n( "Goes to the next element" ) );
+
 	connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
 }
 

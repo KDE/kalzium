@@ -225,6 +225,7 @@ void Kalzium::slotCalculate()
 	MolcalcImpl *dlg = new MolcalcImpl( data(), this, "molcalcdialog" );
 	connect( m_PSE, SIGNAL( ElementClicked( int ) ), dlg, SLOT(slotButtonClicked( int )) );
 	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
+	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(unSelect()) );
 	dlg->show();
 }
 
