@@ -31,13 +31,17 @@ DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *pare
 {
 	setBackgroundMode( NoBackground );
 
-	e = el;
+	setElement( el );
+	setMinimumSize( 300, 140 );
 }
 
 	DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent, const char *name ) 
 : QWidget( parent, name )
 {
 	setBackgroundMode( NoBackground );
+
+	e = 0;
+	setMinimumSize( 300, 140 );
 }
 
 void DetailedGraphicalOverview::setElement( Element *el )
