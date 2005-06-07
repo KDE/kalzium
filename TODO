@@ -7,8 +7,10 @@ TODO for Kalzium 1.5:
     Now you get a dialog with a green background.
     The same, but opposite happens for elements in the p block (green)
     The legend as well as the colors should be checked.
+  
   + If you switch element in the details dialog, the marker on the	DONE-PT
     PSE doesn't change.  It is still the same.
+  
   + Some melting and boiling points are wrong.  How to reproduce:	----
 	1. Enter Learning mode, click on Temperature tab
 	2. Set temperature to zero.  There are now a list of "Elements
@@ -17,19 +19,27 @@ TODO for Kalzium 1.5:
            have melting point of O K shown.
    PT: Carsten, could you please check the datas?
    PT: Ingwa, perhaps I fixed it, could you check further?
+   CN: Pino, you fixed it by defining the correct color for elements which
+       don't have any information about the bp and mp, right?
+  
   + Ctrl-Q should close the subwindows.					----
     - Plot window							--
     - Data window							--
    CN: Indeed! Good idea
    PT: isn't Ctrl-Q "joined" to the main window closing?
+   CN: Obviously not ;) Otherwise it would work
+
   + If you go into Learning Mode, then leave it again, the Info		DONE-PT
     Dialog doesn't appear if you click an element.
 
 
 * The main window:
-  + There is no legend in Learning Mode.				----
+  + There is no legend in Learning Mode.							----
    PT: actually, there is, but only for the time mode; we need a
        legend for the SOM
+   CN: I think all the legendstuff should be unified in one drawin-
+       method in pse.cpp
+
   + There is too little space between the left edge and the table in	DONE-PT
     the main window.
    PT: the margin is defined in the PSE_MARGIN symbol, in kalzium.cpp
@@ -46,6 +56,13 @@ TODO for Kalzium 1.5:
    PT: what about removing the slider, and using an horizontal layout
        where the setup widget has the smallest width?
    IW: Set stretch factor for the setup to 0 and the plot to 1.
+
+  + Add groups of elements, for example "Metals", 4th Period transitionmetals  ----
+    and so on. The user can easily select them and only plot the selected
+    group
+	
+  + More than one group should be "plottable". This would enable the  ----
+    user to compare two or more groups, eg. 4th with 5th group
 
 * The glossary window:
   + If you hit <Return> in the search, you close the window.  It	----
@@ -74,11 +91,16 @@ up above.
    IW: No, you are probably right.
    PT: what about reducing the size for that tooltip, just like
        normal tooltips?
+   CN: Well, you have up to 9 colors in a legend, this will lead to
+       nine explanations. A short tooltip is only possible with
+	   really short explanations like "In the family-view you see
+	   different families of elements" without explaining what
+	   the members are. OTOH this migth really belong into a handbook
 
 3.  The data dialog should be non-modal (definitely)			DONE-IW
    CN: Ingwa will do this.
 
-4.  in "learning mode", "Time" should perhaps be "Discovery year".	----
+4.  In "learning mode", "Time" should perhaps be "Discovery year".	----
    CN: Not only that, there should be more data about the time, for
        example which chemitry-nobel-prize was won in that year (+/- 5
        years or so)
@@ -98,7 +120,9 @@ up above.
 18. An idea: When you run the mouse over the element table, it shows	----
     selected data about the elements in the status bar.
    PT: nice, but only a few datas can be displayed
-
+   CN: "Carbon (6), Weight: 12.01 u" would be the most important
+       and most used information. I really like that
+   
 19. Which brings us to: The settings should be above the table, not in	----
     the status bar.
    CN: I implemented that on June 4th. I like it, Ellen from
@@ -108,6 +132,10 @@ up above.
     the left.  The "Plot" button should go.
    PT: and if the user wants to change more than one option at once
        and then replot? If so, we'll replot more than once.
+   CN: Not only that. I would love to make more than one plot possible:
+       Comparing Metals from the 3rd with the metals from the 4th 
+	   periods for example. This would be impossible with this
+	   proposal.
 
 23. When I choose "Gradient: van der Walls (sic!) Radius" the text is	DONE
     cut both to the left and to the right.  And the numbers are cut at
@@ -120,64 +148,8 @@ up above.
     example...
    CN: Indeed.
    IW: Did some work on this.  More needed.
+   CN: Rounded rect perhaps? Or a gradient (dark to light gray for example)
 
-
-================================================================
-Older TODO items.  Should be merged with above.
- 
-
-Priority 1:
-	- Reintegrate the isotope-label (DONE, cn)
-	
-	- A math dialog:
-	  -- integrate EqChem http://www.kde-apps.org/content/show.php?content=14542
-	  -- Adding a calculator for molecular weights
-	  	-- the one part of the calculator works, now I need a parser parsing
-		   a structure the user entered (CO2 --> 1xC + 2xO --> 48 g/mol)
-
-	- Finish the learning mode
-	  -- Make the state-of-matter work (DONE, cn)
-	  -- Make the timeline work        (DONE, cn)
-	    -- One idea is that one could display what happend in the
-		   selected year. Perhaps what Nobelprizes where given,
-		   things like "World war II ended" and so on.
-	  -- Add more texts for the groups and periods
-
-	- Add gradientdrawing for properties like density and atomic weight like here:
-	    http://www.synergycreations.com/periodic/screenshots/PT-crustal.gif
-		(DONE, cn)
-
-Priority 2:
-	- Different EN-Values (there are at least 3 different EN-scales)
-	- create another design of the PSE. As Kalzium is now using QPainter
-	  a lot different designs can be easisly implemented.
-	  -- This is my favorite:
-	  http://www.theodoregray.com/PeriodicTableDisplay/indexS.1.html#tabletop
-	     This would need the pictures for all elements. Some are very obvious
-		 (iron could be displayed as a nail for example, Silicon as a glas
-		 or as a Computer-CPU), some are pretty hard. Some are connected with
-		 famous people (Einsteinium: Alber Einstein, Fermium: Enrique Fermi).
-		 For those elements we could use photos.
-	  -- Another one
-	  http://freshlysqueezedsoftware.com/products/ichem/
-	     Like all macintosh-application it just looks good.
-	  --Another one
-		 http://www.synergycreations.com/periodic/
-
-	  -- Plotting Dialog
-	     - Add groups of elements, for example "Metals", 4th Period transitionmetals 
-		   and so on. The user can easily select them and only plot the selected
-		   group
-		 - More than one group should be "plottable". This would enable the user 
-		   to compare two or more groups, eg. 4th with 5th group
-
-	  -- Datasets:
-	  	 - Add ionradii for the different ions
-		 - Add more ion.energies
-		 - Add electroaffinities
-		 - Add texts where an element is used
-		 - Add the info where the name of an element comes from (eg Osmium means
-		   "I smell" in latin
-
-Priority 3:
-	- Mendeljev-PSE
+25 Add more than only one mode to Kalzium, eg a mode with simplified    ----
+   userinterface (less looks, easier menustructure, less information
+   in the infodialog) and a full-mode where everything is enabled
