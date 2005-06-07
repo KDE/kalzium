@@ -365,6 +365,7 @@ QColor Element::currentColor( double temp )
 	{ //check if the element is radioactive or artificial
 		if ( _az == 3 ) color=Prefs::color_radioactive();
 		if ( _az == 4 ) color=Prefs::color_artificial();
+		return color;
 	}
 
 	const double iButton_melting = melting();
@@ -374,15 +375,18 @@ QColor Element::currentColor( double temp )
 	{ //the element is solid
 		color= Prefs::color_solid();
 	}
-	if ( temp > iButton_melting &&
+	else if ( temp > iButton_melting &&
 			temp < iButton_boiling )
 	{ //the element is liquid
 		color= Prefs::color_liquid();
 	}
-	if ( temp > iButton_boiling )
+	else if ( temp > iButton_boiling )
 	{ //the element is vaporous
 		color= Prefs::color_vapor();
 	}
+	else
+		color = Qt::lightGray;
+
 
 	return color;
 }
