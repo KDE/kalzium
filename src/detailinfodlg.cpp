@@ -126,36 +126,36 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 	{
 		case CHEMICAL:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "<b>Orbital structure: %1</b>" ).arg( m_element->parsedOrbits() ) );
+			html.append( "<b>" + i18n( "Orbital structure: %1" ).arg( m_element->parsedOrbits() ) + "</b>" );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "<b>Density: %1</b>" ).arg( m_element->adjustUnits( Element::DENSITY ) ) );
+			html.append( "<b>" + i18n( "Density: %1" ).arg( m_element->adjustUnits( Element::DENSITY ) ) + "</b>" );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-			html.append( i18n( "<b>Covalent Radius: %1</b>" ).arg( m_element->adjustRadius( Element::COVALENT ) ) );
+			html.append( "<b>" + i18n( "Covalent Radius: %1" ).arg( m_element->adjustRadius( Element::COVALENT ) ) + "</b>" );
 			html.append( "</td></tr>" );
 			if ( m_element->radius(Element::IONIC) > 0.0 )
 			{
-				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-				html.append( i18n( "<b>Ionic Radius (Charge): %1 </b>(%2)" ).arg( m_element->adjustRadius(Element::IONIC) ).arg( m_element->ioncharge() ) );
+				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+				html.append( i18n( "<b>Ionic Radius (Charge): %1</b> (%2)" ).arg( m_element->adjustRadius(Element::IONIC) ).arg( m_element->ioncharge() ) );
 				html.append( "</td></tr>" );
 			}
 			if ( m_element->radius(Element::VDW) > 0.0 )
 			{
-				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-				html.append( i18n( "<b>van der Waals Radius: %1 </b>" ).arg( m_element->adjustRadius(Element::VDW) ) );
+				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+				html.append( i18n( "<b>van der Waals Radius: %1</b>" ).arg( m_element->adjustRadius(Element::VDW) ) );
 				html.append( "</td></tr>" );
 			}
 		
 			if ( m_element->radius(Element::ATOMIC) > 0.0 )
 			{
 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-				html.append( i18n( "<b>Atomic Radius: %1 </b>" ).arg( m_element->adjustRadius(Element::ATOMIC) ) );
+				html.append( i18n( "<b>Atomic Radius: %1</b>" ).arg( m_element->adjustRadius(Element::ATOMIC) ) );
 				html.append( "</td></tr>" );
 			}
 			
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "<b>Mass: %1</b>" ).arg( m_element->adjustUnits( Element::MASS ) ) );
+			html.append( "<b>" + i18n( "Mass: %1" ).arg( m_element->adjustUnits( Element::MASS ) ) + "</b>" );
 			html.append( "</td></tr>" );
 			if ( !m_element->Isotopes().isEmpty() )
 			{

@@ -72,6 +72,8 @@ up above.
 2.  They should have WhatsThis help as well.				----
    CN: not sure if that is needed if (1) is implemented
    IW: No, you are probably right.
+   PT: what about reducing the size for that tooltip, just like
+       normal tooltips?
 
 3.  The data dialog should be non-modal (definitely)			DONE-IW
    CN: Ingwa will do this.
