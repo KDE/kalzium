@@ -83,6 +83,8 @@ class DetailedInfoDlg : public KDialogBase
 
 		QString m_baseHtml;
 
+		int m_currpage;
+
 		/**
 		 * @param htmlcode The code which will be displayed
 		 * @param title The title of the tab, appears above the htmlview
@@ -97,6 +99,9 @@ class DetailedInfoDlg : public KDialogBase
 
 	protected:
 		virtual void wheelEvent (  QWheelEvent * ev );
+
+	private slots:
+		void slotChangePage( QWidget * );
 
 	signals:
 		void elementChanged( int );

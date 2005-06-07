@@ -62,6 +62,10 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	modelLayout->addWidget( wOrbits );
 	
 	createContent( m_element );
+
+	m_currpage = 0;
+
+	connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
 }
 
 // FIXME: We should never have to delete the windows.  
@@ -79,6 +83,8 @@ void DetailedInfoDlg::setElement(Element *element)
 		delete *it;
 		*it = NULL;
 	}
+	if ( m_currpage > 2 )
+		m_currpage += m_pages.size();
 	m_pages.clear();
 
 	createContent( m_element );
@@ -335,12 +341,15 @@ void DetailedInfoDlg::slotUser1()
 
 	if ( number < m_data->numberOfElements() )
 	{
+		disconnect( this, SIGNAL( aboutToShowPage(QWidget *) ), this, SLOT( slotChangePage(QWidget *) ) );
 		setElement( m_data->element( number + 1 ) );
 		emit elementChanged( number + 1 );
 		if ( number == ( m_data->numberOfElements() - 1 ) )
 			enableButton( User1, false );
 		if ( !actionButton( User2 )->isEnabled() )
 			enableButton( User2, true );
+		showPage( m_currpage );
+		connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
 	}
 }
 
@@ -351,13 +360,21 @@ void DetailedInfoDlg::slotUser2()
 
 	if ( number > 1 )
 	{
+		disconnect( this, SIGNAL( aboutToShowPage(QWidget *) ), this, SLOT( slotChangePage(QWidget *) ) );
 		setElement( m_data->element( number - 1 ) );
 		emit elementChanged( number - 1 );
 		if ( number == 2 )
 			enableButton( User2, false );
 		if ( !actionButton( User1 )->isEnabled() )
 			enableButton( User1, true );
+		showPage( m_currpage );
+		connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
 	}
+}
+
+void DetailedInfoDlg::slotChangePage( QWidget *newpage )
+{
+	m_currpage = pageIndex( newpage );
 }
 
 #include "detailinfodlg.moc"
