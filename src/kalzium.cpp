@@ -23,10 +23,15 @@
 #include "informationdialog_impl.h"
 #include "pse.h"
 #include "glossarydialog.h"
+#include "molcalcwidget.h"
+#include "detailedgraphicaloverview.h"
 
+#include <qdockwindow.h>
 #include <qlayout.h>
+#include <qtoolbox.h>
 
 #include <kconfigdialog.h>
+#include <kiconloader.h>
 #include <klocale.h>
 #include <kdebug.h>
 #include <kaction.h>
@@ -52,6 +57,7 @@ Kalzium::Kalzium()
 	
 	m_PSE = new PSE( data(), CentralWidget, "PSE");
 	m_infoDialog = 0;
+	m_showSidebar = false;
 
 	connect( m_PSE, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
 	connect( m_PSE, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
@@ -61,10 +67,16 @@ Kalzium::Kalzium()
 	m_pCentralLayout->addWidget( m_PSE );
 
 	setCentralWidget( CentralWidget );
-	CentralWidget->show();	
-	
+	CentralWidget->show();
+
 	setupStatusBar();
 	setupActions();
+	setupSidebars();
+
+	if ( Prefs::showlegend() )
+		slotShowLegend();
+	if ( m_showSidebar )
+		slotShowHideSidebar();
 
 	m_PSE->repaint();
 }
@@ -112,6 +124,8 @@ void Kalzium::setupActions()
 	numeration_action->setCurrentItem(Prefs::numeration()); 
 	connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
 
+	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
+
 	/*
 	 * the misc actions
 	 **/
@@ -136,6 +150,40 @@ void Kalzium::setupActions()
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
 	setupGUI();
+}
+
+void Kalzium::setupSidebars()
+{
+	m_dockWin = new QDockWindow( this );
+	m_dockWin->setNewLine( true );
+ 	m_dockWin->setFixedExtentWidth( 200 );
+// 	m_dockWin->setFixedExtentHeight( 300 );
+	m_dockWin->setResizeEnabled( true );
+	m_dockWin->setFrameShape( QFrame::ToolBarPanel );
+	m_dockWin->setCaption( i18n( "Sidebar" ) );
+	
+	QToolBox *toolbox = new QToolBox( m_dockWin );
+	m_dockWin->setWidget( toolbox );
+
+	QWidget *fake = new QWidget( m_dockWin );
+	QVBoxLayout *lay = new QVBoxLayout( fake, 5 );
+	lay->activate();
+	m_detailWidget = new DetailedGraphicalOverview( fake, "DetailedGraphicalOverview" );
+	m_detailWidget->setMinimumSize( 180, m_detailWidget->minimumSize().height() );
+	connect( m_PSE, SIGNAL( MouseOver( int ) ), this, SLOT( slotSelectedNumber( int ) ));
+ 	lay->addWidget( m_detailWidget );
+	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
+	toolbox->addItem( fake, SmallIcon( "overview" ), i18n( "Overview" ) );
+	
+	m_calcWidget = new MolcalcWidget( data(), m_dockWin, "molcalcwidget" );
+	toolbox->addItem( m_calcWidget, i18n( "Calculate" ) );
+
+	connect( toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
+
+	moveDockWindow( m_dockWin, DockLeft );
+	setDockEnabled( /*m_dockWin, */DockTop, false );
+	setDockEnabled( /*m_dockWin, */DockBottom, false );
+	m_dockWin->hide();
 }
 
 void Kalzium::slotGlossary()
@@ -246,6 +294,31 @@ void Kalzium::slotShowLegend()
 		m_PSE->showLegend(true);
 		m_pLegendAction->setText(i18n("Hide &Legend"));
 	}
+	
+	//save the settings
+	Prefs::setShowlegend( m_PSE->showLegend() ); 
+	Prefs::writeConfig();
+ 
+	//JH: redraw the full table next time
+	setFullDraw();
+}	
+
+void Kalzium::slotShowHideSidebar()
+{
+	kdDebug() << k_funcinfo << m_showSidebar << endl;
+	if( m_showSidebar )
+	{
+//		m_PSE->showLegend(false);
+		m_dockWin->hide();
+		m_SidebarAction->setText(i18n("Show &Sidebar"));
+	}
+	else
+	{
+//		m_PSE->showLegend(true);
+		m_dockWin->show();
+		m_SidebarAction->setText(i18n("Hide &Sidebar"));
+	}
+	m_showSidebar = !m_showSidebar;
 	
 	//save the settings
 	Prefs::setShowlegend( m_PSE->showLegend() ); 
@@ -444,6 +517,30 @@ void Kalzium::slotLookCrystal()
 void Kalzium::setFullDraw()
 {
 	m_PSE->setFullDraw();
+}
+
+void Kalzium::slotToolboxCurrentChanged( int id )
+{
+	m_PSE->unSelect();
+	disconnect( m_PSE, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
+//	m_calcWidget->clear();
+	switch ( id )
+	{
+		case 0: // nothing
+			emit tableLocked( false );
+			m_calcWidget->clear();
+			break;
+		case 1: // molcalc
+			connect( m_PSE, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
+			emit tableLocked( true );
+			break;
+	}
+
+}
+
+void Kalzium::slotSelectedNumber( int num )
+{
+	m_detailWidget->setElement( data()->element( num ) );
 }
 
 KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }

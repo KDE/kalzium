@@ -52,8 +52,6 @@ void DetailedGraphicalOverview::setElement( Element *el )
 
 void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 {
-	if ( !e ) return;
-
 	int h = height();
 	int w = width();
 
@@ -61,6 +59,16 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
 	QPainter p;
 	p.begin( &pm );
+
+	p.setBrush(Qt::SolidPattern);
+
+	if ( !e )
+	{
+		pm.fill( paletteBackgroundColor() );
+		p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::WordBreak, i18n( "No element selected" ) );
+	}
+	else
+	{
 
 	h_t = 20; //height of the texts
 
@@ -70,7 +78,6 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 	x2 = w;
 	y2 = h;
 
-	p.setBrush(Qt::SolidPattern);
 	p.setBrush( PSEColor( e->block() ));
 	p.drawRect( x1 , y1 , x2 , y2 );
 
@@ -128,6 +135,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 	p.drawText( xC3, yC3, QString::number( e->mass() )); 
 
 	drawBiologicalSymbol( &p );
+	}
 
 	p.end();
 

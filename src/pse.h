@@ -412,6 +412,10 @@ class PSE : public QWidget
 			m_date = date;
 			update();
 		}
+		/**
+		 * this slot removes the selection of any point
+		 */
+		void unSelect();
 
 	private slots:	
 		/**
@@ -438,10 +442,6 @@ class PSE : public QWidget
 		 */
 		void selectElement( int num );
 
-		/**
-		 * this slot removes the selection of any point
-		 */
-	    void unSelect();
 
 		/**
 		 * sets the current element to @p number

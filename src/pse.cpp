@@ -67,13 +67,12 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	m_molcalcIsActive = false;
 	m_learningMode = false;
 	m_showTooltip = true;
+	m_showLegend = false;
 	m_showLegendTooltip = false;
 	m_timeline = false;
 	m_showSOM = false;
 	m_showGradient = false;
 	
-	showLegend( Prefs::showlegend() );
-
 	reloadColours();
 
 	//IUPAC

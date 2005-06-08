@@ -24,11 +24,14 @@ class KToggleAction;
 class QuizsettingsDlg;
 class SliderWidget;
 class QVBoxLayout;
+class QDockWindow;
 class TempSlider;
 class InformationWidget;
 class KalziumDataObject;
 class DetailedInfoDlg;
 class PSE;
+class MolcalcWidget;
+class DetailedGraphicalOverview;
 
 /**
  * @short Application Main Window
@@ -88,6 +91,11 @@ class Kalzium : public KMainWindow
 		void setupActions();
 		
 		/**
+		 *initialize the sidebars
+		 */		
+		void setupSidebars();
+		
+		/**
 		 *diplay the energy unit in the Statusbar
 		 */
 		void updateStatusbar();	
@@ -107,6 +115,7 @@ class Kalzium : public KMainWindow
 				*m_pLegendAction,
 				*m_pGlossaryAction,
 				*m_pLearningmodeAction;
+		KAction *m_SidebarAction;
 		KToggleAction *m_actionNoScheme;
 		KToggleAction *m_actionGroups;
 		KToggleAction *m_actionBlocks;
@@ -118,6 +127,14 @@ class Kalzium : public KMainWindow
 		 * the layout of the central Widget ( CentralWidget )
 		 */
 		QVBoxLayout *m_pCentralLayout;
+
+		MolcalcWidget *m_calcWidget;
+
+		DetailedGraphicalOverview *m_detailWidget;
+
+		bool m_showSidebar;
+
+		QDockWindow *m_dockWin;
 	
 	private slots:
 		void slotStatusbar(int);
@@ -170,6 +187,12 @@ class Kalzium : public KMainWindow
 		 * These slots are for the standardactions
 		 */
 		void showSettingsDialog();
+
+		void slotToolboxCurrentChanged(int);
+
+		void slotSelectedNumber(int);
+
+		void slotShowHideSidebar();
 
 	signals:
 		/**
