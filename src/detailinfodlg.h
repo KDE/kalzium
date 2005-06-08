@@ -77,7 +77,7 @@ class DetailedInfoDlg : public KDialogBase
 		/**
 		 * create the tabs.
 		 */
-		void createContent( Element *e );
+		void createContent();
 
 		QString getHtml(DATATYPE);
 

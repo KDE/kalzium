@@ -96,8 +96,9 @@ class PSE : public QWidget
 
 		/**
 		 * sets the NUMERATIONTYPE @p num of the periodic table
+		 * @see NUMERATIONTYPE
 		 */
-		void setNumerationType( int num ){
+		void setNumerationType( NUMERATIONTYPE num ){
 			m_num = num;
 			update();
 		}
@@ -297,6 +298,12 @@ class PSE : public QWidget
 		 * is no element it will return 0
 		 */
 		int ElementNumber( int x, int y );
+		
+		/**
+		 * @return the coordinates of the element under the mouseCursor.
+		 * For example, H will be 1/1 and Li will be 1/2
+		 */
+		QPoint ElementUnderMouse();
 
 		///the currently selected element (the x/y-coordinates)
 		QPoint m_currentPoint;
@@ -322,7 +329,7 @@ class PSE : public QWidget
 		/**
 		 * the type of the nummeration ( NO, CAS, IUPACOLD, IUPAC )
 		 */
-		int m_num;
+		NUMERATIONTYPE m_num;
 
 		/// Implements double buffering of the widget.
 		QPixmap *table;			// The basic PSE
@@ -389,19 +396,26 @@ class PSE : public QWidget
 		///draw the lengend
 		virtual void drawLegend( QPainter* p );
 		
-		//draw the numeration
+		///draw the numeration
 		virtual void drawNumeration( QPainter* p );
 
-	public slots:	
-		void slotMouseover();
-		
+	public slots:
 		void setDate( int date ){
+			//These elements have always been known:
+			//6 16 26 29 33 47 50 51 79 80 82 83
 			m_date = date;
 			update();
-//These elements have always been known:
-//6 16 26 29 33 47 50 51 79 80 82 83
 		}
 
+	private slots:	
+		/**
+		 * If called this slot will emit the signal MouseOver( num )
+		 * where num is the number of the element the mouse if over.
+		 * If the mouse is not over an element nothing will be emited
+		 * @see MouseOver
+		 */
+		void slotMouseover();
+		
 		/**
 		 * start the calculation of the element over which the mouse-cursor
 		 * is over. Finally the signal ToolTip( int ) is emitted
@@ -411,12 +425,13 @@ class PSE : public QWidget
 		/**
 		 * this slot updates the currently selected point
 		 */
-		void selectPoint( QPoint point );
+		void selectPoint( const QPoint& point );
 
 		/**
 		 * this slot updates the element given in the @p num
 		 */
 		void selectElement( int num );
+
 		/**
 		 * this slot removes the selection of any point
 		 */
@@ -428,8 +443,15 @@ class PSE : public QWidget
 		 */
 		void slotToolTip( int number );
 		
+		/**
+		 * locks the table. This means that no tooltips will be displayed
+		 */
 		void slotLock(bool);
-		void slotLock();
+
+		/**
+		 * same as slotLock( false )
+		 * @see slotLock
+		 */
 		void slotUnlock();
 
 	signals:
@@ -454,8 +476,6 @@ class PSE : public QWidget
 		 * over an element
 		 */
 		void MouseOver( int );
-
-		void LegendToolTip();
 };
 
 

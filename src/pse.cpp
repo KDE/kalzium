@@ -165,8 +165,8 @@ void PSE::activateColorScheme( const int nr )
 {
 	m_currentScheme = nr;
 	
-	EList::Iterator it = d->ElementList.begin();
-	const EList::Iterator itEnd = d->ElementList.end();
+	EList::ConstIterator it = d->ElementList.begin();
+	const EList::ConstIterator itEnd = d->ElementList.end();
 
 	if ( m_currentScheme == PSE::NOCOLOUR ) //normal view, no colors
 	{
@@ -566,8 +566,8 @@ void PSE::drawTimeLine( QPainter* p )
 	if ( !p ) return;
 	kdDebug() << "PSE::drawTimeLine: " << m_date << endl;
 	
-	EList::Iterator it = d->ElementList.begin();
-	const EList::Iterator itEnd = d->ElementList.end();
+	EList::ConstIterator it = d->ElementList.begin();
+	const EList::ConstIterator itEnd = d->ElementList.end();
 
 	/**
 	 * this loop iterates through all elements. The Elements
@@ -743,8 +743,8 @@ void PSE::drawNumeration( QPainter* p )
 	
 void PSE::drawSOMPSE( QPainter* p )
 {
-	EList::Iterator it = d->ElementList.begin();
-	const EList::Iterator itEnd = d->ElementList.end();
+	EList::ConstIterator it = d->ElementList.begin();
+	const EList::ConstIterator itEnd = d->ElementList.end();
 
 	while ( it != itEnd )
 	{
@@ -756,13 +756,10 @@ void PSE::drawSOMPSE( QPainter* p )
 
 void PSE::slotTransientLabel( void )
 {
-	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
-	int Y = ( mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE)/ELEMENTSIZE;
-	
-	X += 1;
-	Y += 1;
+	QPoint point = ElementUnderMouse();
 
-	QPoint point( X,Y );
+	int X = point.x();
+	int Y = point.y();
 
 	const int num = ElementNumber( X, Y );
 	if ( num )
@@ -838,13 +835,10 @@ int PSE::ElementNumber( int X, int Y )
 	//complete PSE. Eg, He is 1,18 and Na is 2,1
 	
 	CList::ConstIterator it = d->CoordinateList.begin();
+	const CList::ConstIterator itEnd = d->CoordinateList.end();
 
-	//TODO XXX FIXME
-	//Should the end() be cached into a ConstIterator? This method is
-	//rather timecritical so I guess this might be a good idea on slow
-	//systems...
 	int counter = 1;
-	while ( it != d->CoordinateList.end() )
+	while ( it != itEnd )
 	{//iterate through the list of coordinates and compare the x/y values.
 	 //finally, if the 20'es iterator has the same coordinates Element 20
 	 //has been clicked.
@@ -864,14 +858,9 @@ int PSE::ElementNumber( int X, int Y )
 	return 0;
 }
 
-void PSE::slotLock()
-{
-	setShowTooltip(false);
-}
-
 void PSE::slotUnlock()
 {
-	setShowTooltip(true);
+	slotLock( false );
 }
 
 void PSE::slotLock(bool locked)
@@ -892,7 +881,7 @@ void PSE::unSelect()
 	update();
 }
 
-void PSE::selectPoint( QPoint point )
+void PSE::selectPoint( const QPoint& point )
 {
 	kdDebug() << "PSE::selectPoint " << point << endl;
 
@@ -912,8 +901,8 @@ void PSE::selectElement( int num )
 
 void PSE::drawCrystal( QPainter* p )
 {
-	EList::Iterator it = d->ElementList.begin();
-	const EList::Iterator itEnd = d->ElementList.end();
+	EList::ConstIterator it = d->ElementList.begin();
+	const EList::ConstIterator itEnd = d->ElementList.end();
 
 	/**
 	 * this loop iterates through all elements. The Elements
@@ -933,8 +922,8 @@ void PSE::drawCrystal( QPainter* p )
 
 void PSE::drawPSE( QPainter* p )
 {
-	EList::Iterator it = d->ElementList.begin();
-	const EList::Iterator itEnd = d->ElementList.end();
+	EList::ConstIterator it = d->ElementList.begin();
+	const EList::ConstIterator itEnd = d->ElementList.end();
 
 	/**
 	 * this loop iterates through all elements. The Elements
@@ -952,8 +941,8 @@ void PSE::drawPSE( QPainter* p )
 //member variables an only check if they need an update. 
 void PSE::calculateGradient( QPainter *p )
 {
-	EList::Iterator it = d->ElementList.begin();
-	const EList::Iterator itEnd = d->ElementList.end();
+	EList::ConstIterator it = d->ElementList.begin();
+	const EList::ConstIterator itEnd = d->ElementList.end();
 
 	QValueList<double> tmpList;
 	switch ( m_gradientType )
@@ -1039,8 +1028,8 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 	QString title = QString::null;
 	
 	const double var = max-min;
-	EList::Iterator it = d->ElementList.begin();
-	const EList::Iterator itEnd = d->ElementList.end();
+	EList::ConstIterator it = d->ElementList.begin();
+	const EList::ConstIterator itEnd = d->ElementList.end();
 
 	/**
 	 * this loop iterates through all elements. The Elements
@@ -1184,20 +1173,23 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 	} 
 }
 
-void PSE::slotMouseover()
+QPoint PSE::ElementUnderMouse()
 {
-	//TODO This code is identical with the code in
-	//PSE::slotTransientLabel( void )    I guess this should
-	//be moved into an method of its own
 	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
 	int Y = ( mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE)/ELEMENTSIZE;
 	
 	X += 1;
 	Y += 1;
+	
+	return QPoint( X,Y );
+}
 
-	QPoint point( X,Y );
 
-	const int num = ElementNumber( X, Y );
+void PSE::slotMouseover()
+{
+	QPoint point = ElementUnderMouse();
+
+	int num = ElementNumber( point.x(), point.y() );
 	if ( num )
 		emit MouseOver( num );
 }
@@ -1229,8 +1221,8 @@ void PSE::setLook( PSE::SCHEMETYPE type, int which )
 {
 	m_currentScheme = type;
 	
-	EList::Iterator it = d->ElementList.begin();
-	const EList::Iterator itEnd = d->ElementList.end();
+	EList::ConstIterator it = d->ElementList.begin();
+	const EList::ConstIterator itEnd = d->ElementList.end();
 
 	switch ( type )
 	{

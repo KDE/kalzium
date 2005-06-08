@@ -61,7 +61,7 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	mainLayout->addWidget( piclabel );
 	modelLayout->addWidget( wOrbits );
 	
-	createContent( m_element );
+	createContent();
 
 	m_currpage = 0;
 
@@ -76,8 +76,6 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 //
 void DetailedInfoDlg::setElement(Element *element)
 {
-	//kdDebug() << "Entering DetailedInfoDlg::setElement" << endl;
-
 	m_element = element;
 	
 	QValueList<QFrame*>::iterator it = m_pages.begin();
@@ -90,9 +88,7 @@ void DetailedInfoDlg::setElement(Element *element)
 		m_currpage += m_pages.size();
 	m_pages.clear();
 
-	createContent( m_element );
-
-	//kdDebug() << "Exiting DetailedInfoDlg::setElement" << endl;
+	createContent();
 }
 
 
@@ -290,23 +286,23 @@ QString DetailedInfoDlg::isotopeRow( const QString& str )
 }
 
 
-void DetailedInfoDlg::createContent( Element *el )
+void DetailedInfoDlg::createContent( )
 {
 	addTab( getHtml(CHEMICAL), i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
 	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
 	addTab( getHtml(MISC), i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 	
-	QString num = QString::number( el->number() );
-	QString elname = i18n( el->elname().utf8() );
+	QString num = QString::number( m_element->number() );
+	QString elname = i18n( m_element->elname().utf8() );
 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( elname ).arg( num );
 	setCaption( cap );
 
-	dTab->setElement( el );
+	dTab->setElement( m_element );
 
 	////////////////////////////////////7
-	if ( !locate(  "data" , "kalzium/elempics/" + el->symbol() + ".jpg" ).isEmpty() )
+	if ( !locate(  "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" ).isEmpty() )
 	{
-		QPixmap pic ( locate( "data" , "kalzium/elempics/" + el->symbol() + ".jpg" ) );
+		QPixmap pic ( locate( "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" ) );
 		QImage img = pic.convertToImage();
 		img = img.smoothScale ( 400, 400, QImage::ScaleMin );
 		pic.convertFromImage( img );
@@ -319,12 +315,12 @@ void DetailedInfoDlg::createContent( Element *el )
 
     /////////////////////////////////
 	
-	wOrbits->setElementNumber( el->number() );
+	wOrbits->setElementNumber( m_element->number() );
 	wOrbits->repaint();
 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
 							.arg( elname )
 							.arg( elname )
-							.arg( el->parsedOrbits() ) );
+							.arg( m_element->parsedOrbits() ) );
 }
 
 void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )

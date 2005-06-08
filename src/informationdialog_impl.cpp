@@ -99,8 +99,8 @@ void InformationWidget::slotTemp( int temp )
 	static const int threshold = 25;
 
 	EList kdo = m_pse->data()->ElementList;
-	EList::Iterator it = kdo.begin();
-	const EList::Iterator itEnd = kdo.end();
+	EList::ConstIterator it = kdo.begin();
+	const EList::ConstIterator itEnd = kdo.end();
 
 	QStringList listMeltingPoint;
 	QStringList listBoilingPoint;
@@ -124,7 +124,7 @@ void InformationWidget::slotTemp( int temp )
 		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "<br><ul type=\"disc\">";
 		for ( uint i = 0; i < listMeltingPoint.count(); i++ )
 		{
-			htmlcode += i18n( "<li>%1</li> (%2K)" ).arg( listMeltingPoint[i] ).arg( listMeltingPointValue[i]);
+			htmlcode += i18n( "For example: Carbon (300K)", "<li>%1</li> (%2K)" ).arg( listMeltingPoint[i] ).arg( listMeltingPointValue[i]);
 		}
 		htmlcode += "</ul><br>";
 	}
@@ -133,7 +133,7 @@ void InformationWidget::slotTemp( int temp )
 		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "<br><ul type=\"disc\">";
 		for ( uint i = 0; i < listBoilingPoint.count(); i++ )
 		{
-			htmlcode += i18n( "<li>%1</li> (%2K)" ).arg( listBoilingPoint[i] ).arg( listBoilingPointValue[i]);
+			htmlcode += i18n( "For example: Carbon (300K)", "<li>%1</li> (%2K)" ).arg( listBoilingPoint[i] ).arg( listBoilingPointValue[i]);
 		}
 		htmlcode += "</ul><br>";
 	}

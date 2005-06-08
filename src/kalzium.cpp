@@ -304,7 +304,7 @@ void Kalzium::slotSwitchtoGradient( int index )
 
 void Kalzium::slotSwitchtoNumeration( int index )
 {
-	m_PSE->setNumerationType( index );
+	m_PSE->setNumerationType( ( PSE::NUMERATIONTYPE )index );
 	Prefs::setNumeration(index); 
 	Prefs::writeConfig();
   
@@ -367,8 +367,6 @@ void Kalzium::openInformationDialog( int number )
 		m_infoDialog->show();
 		//emit tableLocked(false);
 	}
-
-	//kdDebug() << "Exiting Kalzium::OpenInformationDialog" << endl;
 }
 
 void Kalzium::slotNoLook()
