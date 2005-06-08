@@ -346,7 +346,7 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
 
 	text = QString::number( number() );
-	p->drawText( X,( y )*ELEMENTSIZE - h_small, ELEMENTSIZE, h_small,Qt::AlignCenter, text );
+	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, text );
 
 	p->setFont( symbol_font );
 	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );

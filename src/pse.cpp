@@ -150,6 +150,11 @@ void PSE::reloadColours()
 	c_transition = Prefs::transition();
 	c_noble_gas = Prefs::noble_gas();
 	c_metalloid = Prefs::metalloid();
+	c_solid = Prefs::color_solid();
+	c_vapor = Prefs::color_vapor();
+	c_liquid = Prefs::color_liquid();
+	c_radioactive = Prefs::color_radioactive();
+	c_artificial = Prefs::color_artificial();
 }
 
 void PSE::slotToolTip( int number )
@@ -332,9 +337,8 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	  // Draw the numbers above the table.
 	  drawNumeration( &p );
 
-	  if ( m_showLegend )
-		  drawLegend( &p );
-	  
+	  drawLegend( &p );
+	 
 	  if ( m_timeline ){ //use timeline
 		  drawTimeLine(& p );
 		  p.end();
@@ -584,6 +588,8 @@ void PSE::drawTimeLine( QPainter* p )
 void PSE::drawLegend( QPainter* p )
 {
 	if ( !p ) return;
+	  
+	if ( !m_showLegend ) return;
 
 	/*
 	 * The legend is drawn in the big gap of the table. The gap has
@@ -623,13 +629,24 @@ void PSE::drawLegend( QPainter* p )
 	const  int square_h = 20;
 	const  int textOffset = square_w + 10;
 	
-#if 0
-	p->drawRect(legendLeft, legendTop, legendWidth, legendHeight);
-#else
 	p->fillRect(legendLeft, legendTop, legendWidth, legendHeight,
 				QColor(200, 200, 200));
-#endif
 
+	if ( som() )
+	{
+		p->fillRect(x1, fieldheight*2, square_w, square_h, c_solid ); 
+		p->fillRect(x2, fieldheight*2, square_w, square_h, c_vapor ); 
+		p->fillRect(x1, fieldheight*3, square_w, square_h, c_liquid ); 
+		p->fillRect(x2, fieldheight*3, square_w, square_h, c_radioactive); 
+		p->fillRect(x1, fieldheight*4, square_w, square_h, c_artificial); 
+
+		p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Solid") ); 
+		p->drawText(x2 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Vaporous") ); 
+		p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Gasoline") ); 
+		p->drawText(x2 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Radioactive")); 
+		p->drawText(x1 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Artificial")); 
+		return;
+	}
 	switch ( m_currentScheme ) {
 		//No Legend to be drawn as only one colour is used
 		case PSE::NOCOLOUR:

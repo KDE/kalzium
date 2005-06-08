@@ -153,6 +153,8 @@ class PSE : public QWidget
 		
 		void activateSOMMode( bool som ){
 			m_showSOM = som;
+			setFullDraw();
+			update();
 		}
 		
 		bool gradient() const{
@@ -182,7 +184,6 @@ class PSE : public QWidget
 		 */
 		void showLegend( bool show ){
 			m_showLegend = show;
-			update();
 		}
 
 		bool showLegend() const{
@@ -367,6 +368,11 @@ class PSE : public QWidget
 		QColor c_transition;
 		QColor c_noble_gas;
 		QColor c_metalloid;
+		QColor c_liquid;
+		QColor c_solid;
+		QColor c_vapor;
+		QColor c_radioactive;
+		QColor c_artificial;
 		
 	protected:
 		virtual void paintEvent( QPaintEvent *e );

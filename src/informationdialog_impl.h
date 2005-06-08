@@ -25,7 +25,6 @@ class InformationWidget : public KDialogBase
 
 		PSE *m_pse;
 		InformationDialog *m_infoDialog;
-		bool m_prevShowLegend;
 
 	protected slots:
 		virtual void slotClose();

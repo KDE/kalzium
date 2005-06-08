@@ -1,15 +1,15 @@
 TODO for Kalzium 1.5:
 
-
 * Miscellaneous bugs:
-  + Select "Periodic Table"->Look->"Show Blocks"			DONE-HP
+  + Select "Periodic Table"->Look->"Show Blocks"
     Click on any element in the d block (yellow)
     Now you get a dialog with a green background.
     The same, but opposite happens for elements in the p block (green)
     The legend as well as the colors should be checked.
-  
-  + If you switch element in the details dialog, the marker on the	DONE-PT
-    PSE doesn't change.  It is still the same.
+
+	CN: It was marked as done but I can still reproduce it. The background
+	    of the overview-widget is not always coresponding to the
+		current sheme
   
   + Some melting and boiling points are wrong.  How to reproduce:	----
 	1. Enter Learning mode, click on Temperature tab
@@ -29,62 +29,21 @@ TODO for Kalzium 1.5:
    PT: isn't Ctrl-Q "joined" to the main window closing?
    CN: Obviously not ;) Otherwise it would work
 
-  + If you go into Learning Mode, then leave it again, the Info		DONE-PT
-    Dialog doesn't appear if you click an element.
-
-
 * The main window:
-  + There is no legend in Learning Mode.							----
+  + There is no legend in Learning Mode.							DONE-CN
    PT: actually, there is, but only for the time mode; we need a
        legend for the SOM
    CN: I think all the legendstuff should be unified in one drawin-
        method in pse.cpp
 
-  + There is too little space between the left edge and the table in	DONE-PT
-    the main window.
-   PT: the margin is defined in the PSE_MARGIN symbol, in kalzium.cpp
-
-
-* The data window:
-  + In the data window, if you use the scroll mouse it goes to the	DONE-PT
-    next/previous element.  There should be buttons to do the same.
-
-
-* The plot window:
-  + The plot data window has wide buttons but a very narrow plot	DONE-IW
-    area. :-)
-   PT: what about removing the slider, and using an horizontal layout
-       where the setup widget has the smallest width?
-   IW: Set stretch factor for the setup to 0 and the plot to 1.
-
-  + Add groups of elements, for example "Metals", 4th Period transitionmetals  ----
-    and so on. The user can easily select them and only plot the selected
-    group
-	
-  + More than one group should be "plottable". This would enable the  ----
-    user to compare two or more groups, eg. 4th with 5th group
-
 * The glossary window:
   + If you hit <Return> in the search, you close the window.  It	----
     should display the item.
    CN: simple focus-bug. Easy to fix
-  + The search for words should be above the word list.			DONE-PT
-
-
-* Learning mode:
-  + In "temperature" there is no way to set an exact temperature.	DONE-PT
-    The ruler jumps 10 degrees at a time.
-  CN: This is indeed missing. Pretty easy to add
-
 
 ================================================================
-Items from a brainstorming session with ingwa.
-
-This includes both ideas and misfeatures.  Proper bugs have been moved
-up above.
-
-
-1:  The legend (s-Block, d-Block, etc) should have tooltips		DONE-CN
+This list includes both ideas and misfeatures. Proper bugs have been 
+moved up above.
 
 2.  They should have WhatsThis help as well.				----
    CN: not sure if that is needed if (1) is implemented
@@ -110,10 +69,6 @@ up above.
        guess. SOmething like that was in Kalzium of KDE 3.1 I
        think.  But my implementation sucked so much I removed it.
 
-9.  About Plot Data: The button says "Plot data", but the window	DONE-IW
-    caption says "visualize data"
-   CN: Pino, will you fix that? and (10)?
-
 13. Not a bug, but an idea: Make the glossary also a tool for		----
     translation.
 
@@ -137,13 +92,6 @@ up above.
 	   periods for example. This would be impossible with this
 	   proposal.
 
-23. When I choose "Gradient: van der Walls (sic!) Radius" the text is	DONE
-    cut both to the left and to the right.  And the numbers are cut at
-    the lower side.
-   CN: Typo fixed							done-CN
-   CN: Title is clipped to the left/right:				done-CN
-   IW: Numbers are clipped to the bottom				done-IW
-
 24. The legend should be outlined in some way. A slight background for	----
     example...
    CN: Indeed.
@@ -153,3 +101,54 @@ up above.
 25 Add more than only one mode to Kalzium, eg a mode with simplified    ----
    userinterface (less looks, easier menustructure, less information
    in the infodialog) and a full-mode where everything is enabled
+
+26 Plotting: Add groups of elements, for example "Metals", 4th Period    ----
+   transitionmetals and so on. The user can easily select them and only 
+   plot the selected group
+	
+27 Plotting: More than one group should be "plottable". This would enable the  ----
+    user to compare two or more groups, eg. 4th with 5th group
+
+
+
+Plans for the future:
+
++ Standalone release of Kalzium
+	* Feature freeze by the end of June. No strict date but lets try
+	  to not add new things in July.
+	
+	* After one week of testing and improving I would like to release
+	  Kalzium (together with libkdeedu for the plotting) on the 8th 
+	  of July (a friday).
+	
+	* The release will be what is in trunk
+	
+	* Releasecriteria:
+	  - Try to fix all bugs on bugs.kde.org
+	  - Try to add all icons. For this purpose I started a thread here:
+	  http://kde-artists.org/main/component/option,com_smf/Itemid,48/expv,0/topic,60.0
+	  - Try to make the release very usable:
+	  http://www.openusability.org/forum/forum.php?thread_id=397&forum_id=250
+	  - Try to write the documentation
+	  - *must be* Update edu.kde.org/kalzium with screenshots
+	  - *must be* increase the version number
+	
+	* Releasemechanismn:
+	  - Announcement on kdeedu@kde.org
+	  - Announcement on apps.kde.org 
+	  - Announcement on annoucement@kde.org
+	  - I will blog about the release and it goals
+
++ KDE 3.5-release
+	* Try to make use of the feedback we get of the standalone release
+
+	* The 3.5-release will probably be pretty identical with the standalone-release
+
+	* We should again check for bugs.kde.org
+
++ KDE4-release
+	* Switch to KCanvas2 so that scaling the table is possible?
+
+	* Port to Qt4. We use a lot QValueList<T> and paintEvents, so I expect some fun :)
+
+	* Implement the things in this TODO-file

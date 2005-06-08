@@ -29,8 +29,6 @@ InformationWidget::InformationWidget( PSE *pse )
 	m_pse = pse;
 	m_infoDialog = new InformationDialog( this );
 	setMainWidget( m_infoDialog );
-	m_prevShowLegend = m_pse->showLegend();
-	m_pse->showLegend( true );
 
 	m_infoDialog->Number1->setMinValue( m_infoDialog->time_slider->minValue() );
 	m_infoDialog->Number1->setMaxValue( m_infoDialog->time_slider->maxValue() );
@@ -57,7 +55,6 @@ void InformationWidget::slotClose()
 	m_pse->setFullDraw();
 	m_pse->setTimeline( false );
 	m_pse->activateSOMMode( false );
-	m_pse->showLegend( m_prevShowLegend );
 	emit closed();
 	accept();
 }
@@ -77,8 +74,6 @@ void InformationWidget::tabSelected( QWidget* /*w*/ )
 		m_pse->activateSOMMode( true );
 	else
 		m_pse->activateSOMMode( false );
-
-	m_pse->showLegend( m_infoDialog->tabWidget->currentPageIndex() != 1 );
 
 	m_infoDialog->time_slider->setValue( 2000 );
 	m_infoDialog->temp_slider->setValue( 295 );
