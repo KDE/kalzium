@@ -57,7 +57,6 @@ Kalzium::Kalzium()
 	
 	m_PSE = new PSE( data(), CentralWidget, "PSE");
 	m_infoDialog = 0;
-	m_showSidebar = false;
 
 	connect( m_PSE, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
 	connect( m_PSE, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
@@ -75,8 +74,12 @@ Kalzium::Kalzium()
 
 	if ( Prefs::showlegend() )
 		slotShowLegend();
+	m_showSidebar = Prefs::showsidebar();
 	if ( m_showSidebar )
-		slotShowHideSidebar();
+	{
+		m_dockWin->show();
+		m_SidebarAction->setText(i18n("Hide &Sidebar"));
+	}
 
 	m_PSE->repaint();
 }
@@ -305,28 +308,25 @@ void Kalzium::slotShowLegend()
 
 void Kalzium::slotShowHideSidebar()
 {
-	kdDebug() << k_funcinfo << m_showSidebar << endl;
 	if( m_showSidebar )
 	{
-//		m_PSE->showLegend(false);
 		m_dockWin->hide();
 		m_SidebarAction->setText(i18n("Show &Sidebar"));
 	}
 	else
 	{
-//		m_PSE->showLegend(true);
 		m_dockWin->show();
 		m_SidebarAction->setText(i18n("Hide &Sidebar"));
 	}
 	m_showSidebar = !m_showSidebar;
 	
 	//save the settings
-	Prefs::setShowlegend( m_PSE->showLegend() ); 
+	Prefs::setShowsidebar( m_showSidebar );
 	Prefs::writeConfig();
  
 	//JH: redraw the full table next time
 	setFullDraw();
-}	
+}
 
 void Kalzium::slotShowScheme(int i)
 {

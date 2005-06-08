@@ -253,4 +253,11 @@
 	<default>295</default>
     </entry>
   </group>
+  <group name="Sidebar">
+	  <entry name="showsidebar" type="Bool">
+		  <label>Show or hide the sidebar</label>
+		  <whatsthis>Show or hide the sidebar</whatsthis>
+		  <default>true</default>
+	  </entry>
+  </group>
 </kcfg>
