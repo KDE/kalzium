@@ -206,6 +206,7 @@ void Kalzium::slotGlossary()
 
 void Kalzium::setupStatusBar()
 {
+/*
 	t_box = new KComboBox( statusBar() );
 	e_box = new KComboBox( statusBar() );
 	u_box = new KComboBox( statusBar() );
@@ -232,7 +233,7 @@ void Kalzium::setupStatusBar()
 	statusBar()->insertItem(i18n( "Units" ), IDS_UNITS+1, 0, false);
 	statusBar()->setItemAlignment(IDS_UNITS+1, AlignLeft);
 	statusBar()->addWidget( u_box , 0, false );
-	
+*/	
 	statusBar()->insertItem( "" , IDS_ELEMENTINFO, 1, false);
 	statusBar()->setItemAlignment(IDS_ELEMENTINFO, AlignRight);
 	
@@ -243,10 +244,12 @@ void Kalzium::setupStatusBar()
 
 void Kalzium::adjustUnits()
 {
+	/*
 	Prefs::setTemperature( t_box->currentItem() );
 	Prefs::setEnergies( e_box->currentItem() );
 	Prefs::setUnits( u_box->currentItem() );
 	Prefs::writeConfig();
+	*/
 }
 
 void Kalzium::slotPlotData()
@@ -377,15 +380,17 @@ void Kalzium::slotUpdateSettings()
  
 void Kalzium::updateStatusbar()
  {
+/*
 	t_box->setCurrentItem( Prefs::temperature() );
 	e_box->setCurrentItem( Prefs::energies() );
 	u_box->setCurrentItem( Prefs::units() );
+*/
 }
 
 void Kalzium::slotStatusbar( int num )
 {
 	Element *e = data()->element( num );
-	statusBar()->changeItem( i18n( "%1, Weight: %2 u" ).arg( e->elname().utf8() ).arg( e->mass() ) , IDS_ELEMENTINFO );
+	statusBar()->changeItem( i18n( "%1 (%2), Weight: %3 u" ).arg( e->elname().utf8() ).arg(e->number() ).arg( e->mass() ) , IDS_ELEMENTINFO );
 }
 
 void Kalzium::openInformationDialog( int number )

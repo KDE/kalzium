@@ -60,11 +60,12 @@ class Kalzium : public KMainWindow
 		friend class privatedata;
 		privatedata* pd;
 
+/*
 		///the KComboBoxes for the statusbar (temperature and energie)
 		KComboBox *e_box,
 				  *t_box,
 				  *u_box;
-
+*/
 
 		DetailedInfoDlg   *m_infoDialog;
 
