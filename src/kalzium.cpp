@@ -19,7 +19,6 @@
 #include "settings_units.h"
 #include "elementdataviewer.h"
 #include "detailinfodlg.h"
-#include "informationdialog_impl.h"
 #include "pse.h"
 #include "glossarydialog.h"
 #include "molcalcwidget.h"
@@ -141,8 +140,6 @@ void Kalzium::setupActions()
 	//Legend
 	m_pLegendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
 	
-	m_pLearningmodeAction = new KAction(i18n("Enter &Learning Mode"), "legend", 0, this, SLOT(slotLearningmode()), actionCollection(), "learning_mode");
-
 	//the standardactions
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
@@ -205,32 +202,6 @@ void Kalzium::slotGlossary()
 	GlossaryDialog *dlg = new GlossaryDialog( this, "glossary" );
 	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
 	dlg->show();
-}
-
-void Kalzium::slotLearningmode()
-{
-	if ( m_PSE->learningMode() )
-	{
-		m_pLearningmodeAction->setText(i18n("Enter &Learning Mode"));
-		m_PSE->setLearning( false );
-		emit tableLocked(false);
-		if ( m_info && m_info->isShown() )
-		{
-			disconnect( m_info, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
-			disconnect( m_info, SIGNAL( closed() ), this, SLOT(slotLearningmode()) );
-			m_info->close();
-		}
-	}
-	else
-	{
-		emit tableLocked(true);
-		m_pLearningmodeAction->setText(i18n("Leave &Learning Mode"));
-		m_PSE->setLearning( true );
-		m_info = new InformationWidget( m_PSE );
-		connect( m_info, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
-		connect( m_info, SIGNAL( closed() ), this, SLOT(slotLearningmode()) );
-		m_info->show();
-	}
 }
 
 void Kalzium::setupStatusBar()

@@ -18,11 +18,9 @@ kalzium_SOURCES = kalzium.cpp \
 			detailedgraphicaloverview.cpp \
 			molcalcwidgetbase.ui \
 			molcalcwidget.cpp \
-			informationdialog.ui \
 			timewidget.ui \
 			somwidget.ui \
 			somwidget_impl.cpp \
-			informationdialog_impl.cpp \
 			glossarydialog.cpp
 			
 kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)\
@@ -42,11 +40,9 @@ EXTRA_DIST = main.cpp \
 		elementdataviewer.cpp elementdataviewer.h \
 		detailedgraphicaloverview.cpp detailedgraphicaloverview.h \
 		molcalcwidget.cpp molcalcwidget.h \
-		informationdialog.ui \
 		timewidget.ui \
 		somwidget.ui \
 		somwidget_impl.cpp somwidget_impl.h \
-		informationdialog_impl.cpp informationdialog_impl.h \
 		glossarydialog.cpp glossarydialog.h
 
 METASOURCES = AUTO 

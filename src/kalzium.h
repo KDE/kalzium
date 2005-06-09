@@ -26,7 +26,6 @@ class SliderWidget;
 class QVBoxLayout;
 class QDockWindow;
 class TempSlider;
-class InformationWidget;
 class KalziumDataObject;
 class DetailedInfoDlg;
 class PSE;
@@ -61,18 +60,12 @@ class Kalzium : public KMainWindow
 		friend class privatedata;
 		privatedata* pd;
 
-		/**XXX obsolete?
-		 * the date which the pSliderWidget will start with
-		 */
-		int date;
-	
 		///the KComboBoxes for the statusbar (temperature and energie)
 		KComboBox *e_box,
 				  *t_box,
 				  *u_box;
 
 
-		InformationWidget *m_info;
 		DetailedInfoDlg   *m_infoDialog;
 
 		/**
@@ -115,8 +108,8 @@ class Kalzium : public KMainWindow
 		KAction *m_pPlotAction,
 				*m_pLegendAction,
 				*m_pGlossaryAction,
-				*m_pLearningmodeAction;
-		KAction *m_SidebarAction;
+				*m_SidebarAction;
+
 		KToggleAction *m_actionNoScheme;
 		KToggleAction *m_actionGroups;
 		KToggleAction *m_actionBlocks;
@@ -149,10 +142,10 @@ class Kalzium : public KMainWindow
 		 */
 		void openInformationDialog( int number );
 
-	/**
-	 * called when the user changed a KComboBox in the statusbar
-	 */
-	void adjustUnits();
+		/**
+		 * called when the user changed a KComboBox in the statusbar
+		 */
+		void adjustUnits();
 	
 
 		/**
@@ -173,8 +166,6 @@ class Kalzium : public KMainWindow
 		void slotSwitchtoGradient(int gradient);
 
 		void slotPlotData();
-
-		void slotLearningmode();
 
 		void slotUpdateSettings();
 
