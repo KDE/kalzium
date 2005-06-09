@@ -252,7 +252,7 @@ void Kalzium::setupStatusBar()
 	statusBar()->setItemAlignment(IDS_UNITS+1, AlignLeft);
 	statusBar()->addWidget( u_box , 0, false );
 	
-	statusBar()->insertItem(i18n( "" ), IDS_ELEMENTINFO, 1, false);
+	statusBar()->insertItem( "" , IDS_ELEMENTINFO, 1, false);
 	statusBar()->setItemAlignment(IDS_ELEMENTINFO, AlignRight);
 	
 	updateStatusbar();
@@ -276,6 +276,7 @@ void Kalzium::slotPlotData()
 
 void Kalzium::slotCalculate()
 {
+	kdDebug() << "Kalzium::slotCalculate()" << endl;
 	emit tableLocked(true);
 
 	MolcalcImpl *dlg = new MolcalcImpl( data(), this, "molcalcdialog" );

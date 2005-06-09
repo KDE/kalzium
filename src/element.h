@@ -355,6 +355,7 @@ class Element{
 
 		/**
 		 * calculate the 4-digit value of the value @p w
+		 * @return the 4-digit value
 		 */
 		static double strippedValue( double w );
 

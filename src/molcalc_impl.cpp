@@ -46,7 +46,7 @@ MolcalcImpl::MolcalcImpl( KalziumDataObject *data, QWidget *parent, const char *
 	connect( m_dialog->plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
 	connect( m_dialog->minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
 
-	resize( 500, 400 );
+//	resize( 500, 400 ); //shouldn't be needed XXX
 }
 
 void MolcalcImpl::slotButtonClicked( int buttonnumber )
@@ -70,7 +70,7 @@ void MolcalcImpl::updateData( int number, KIND kind )
 	{//removing the element in case there was at least on such element
 	 //added before
 		QValueList<Element*>::const_iterator it = m_elements.begin( );
-		QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+		const QValueList<Element*>::const_iterator itEnd = m_elements.end( );
 
 		//I am not sure if this is the best way, but at least it works. 
 		//QValueList<> can't simple remove a *it, it would remove all (!!)
@@ -95,7 +95,7 @@ void MolcalcImpl::updateData( int number, KIND kind )
 		
 		//I need to iterate it2 in order to skip on element
 		QValueList<Element*>::const_iterator it2 = tmpList2.begin(); it2++;
-		QValueList<Element*>::const_iterator itEnd2 = tmpList2.end(); 
+		const QValueList<Element*>::const_iterator itEnd2 = tmpList2.end(); 
 		for ( ; it2 != itEnd2 ; ++it2 )
 		{ 
 			tmpList.append( *it2 ); 
@@ -127,6 +127,7 @@ void MolcalcImpl::recalculate()
 
 void MolcalcImpl::updateUI()
 {
+	kdDebug() << "MolcalcImpl::updateUI()" << endl;
 	QString str;
 	
 	//the elements
@@ -188,8 +189,10 @@ QString MolcalcImpl::composition( QMap<Element*,int> map )
 	QMap<Element*, int>::Iterator itMap;
 	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) 
 	{
-		str += i18n( "%1<sub>%2</sub>" ).arg( itMap.key()->symbol() ).arg( itMap.data() );
+		str += i18n( "%1 is a chemical symbol, %1 is a index, for Example: C<sub>2</sub>", "%1<sub>%2</sub>" ).arg( itMap.key()->symbol() ).arg( itMap.data() );
 	}
+
+	kdDebug() << "composition: " << str << endl;
 	
 	return str;
 }

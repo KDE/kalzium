@@ -46,6 +46,8 @@ MolcalcWidget::MolcalcWidget( KalziumDataObject *data, QWidget *parent, const ch
 	connect( plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
 	connect( minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
 
+	resultComposition->setText( i18n("To start, click\non the elements") );
+
 	resize( 500, 400 );
 }
 
@@ -95,7 +97,7 @@ void MolcalcWidget::updateData( int number, KIND kind )
 		
 		//I need to iterate it2 in order to skip on element
 		QValueList<Element*>::const_iterator it2 = tmpList2.begin(); it2++;
-		QValueList<Element*>::const_iterator itEnd2 = tmpList2.end(); 
+		const QValueList<Element*>::const_iterator itEnd2 = tmpList2.end(); 
 		for ( ; it2 != itEnd2 ; ++it2 )
 		{ 
 			tmpList.append( *it2 ); 
@@ -128,6 +130,10 @@ void MolcalcWidget::recalculate()
 void MolcalcWidget::updateUI()
 {
 	QString str;
+
+	//The complexString stores the whole molecule like this:
+	//1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
+	QString complexString;
 	
 	//the elements
 	QMap<Element*, int> map;
@@ -168,8 +174,8 @@ void MolcalcWidget::updateUI()
 	QMap<Element*, int>::Iterator itMap;
 	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) 
 	{//update the resultLabel
-		str += i18n( "%1 %2."/* Cumulative Mass: %3 u*/"\n" ).arg( itMap.data() ).arg( i18n( itMap.key()->elname().utf8() ) );
-//.arg( itMap.data() * itMap.key()->mass() )
+		str += i18n( "%1 %2.\n" ).arg( itMap.data() ).arg( i18n( itMap.key()->elname().utf8() ) );
+		complexString += i18n( "For example: 1 Seaborgium. Cumulative Mass: 263.119 u (39.25%)", "%1 %2. Cumulative Mass: %3 u (%4%)\n" ).arg( itMap.data() ).arg( i18n( itMap.key()->elname().utf8() ) ).arg( itMap.data() * itMap.key()->mass() ).arg(Element::strippedValue( ((  itMap.data() * itMap.key()->mass() )/m_mass )*100) );
 	}
 	
 	resultLabel->setText( str );
@@ -180,6 +186,10 @@ void MolcalcWidget::updateUI()
 	//the mass
 	recalculate();
 	resultMass->setText( i18n( "Molecular Mass: %1u" ).arg( m_mass ) );
+	
+	QToolTip::add( resultMass, complexString );
+	QToolTip::add( resultComposition, complexString );
+	QToolTip::add( resultLabel, complexString );
 }
 
 QString MolcalcWidget::composition( QMap<Element*,int> map )
@@ -191,7 +201,7 @@ QString MolcalcWidget::composition( QMap<Element*,int> map )
 	{
 		str += i18n( "%1<sub>%2</sub>" ).arg( itMap.key()->symbol() ).arg( itMap.data() );
 	}
-	
+
 	return str;
 }
 
