@@ -56,11 +56,11 @@ class Kalzium : public KMainWindow
 
 		KalziumDataObject* data() const;
 
+	private:
 		class privatedata;
 		friend class privatedata;
 		privatedata* pd;
 
-	private:
 		/**XXX obsolete?
 		 * the date which the pSliderWidget will start with
 		 */

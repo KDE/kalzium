@@ -552,9 +552,13 @@ void Kalzium::slotSelectedNumber( int num )
 	m_detailWidget->setElement( data()->element( num ) );
 }
 
-KalziumDataObject* Kalzium::data() const { return pd->kalziumData; }
+KalziumDataObject* Kalzium::data() const
+{
+	return pd->kalziumData;
+}
 
-Kalzium::~Kalzium(){}
+Kalzium::~Kalzium()
+{
+}
 
 #include "kalzium.moc"
-
