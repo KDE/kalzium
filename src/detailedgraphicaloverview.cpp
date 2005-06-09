@@ -29,19 +29,22 @@ email                : cniehaus@kde.org
 DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name ) 
 : QWidget( parent, name )
 {
-	setBackgroundMode( NoBackground );
-
-	setElement( el );
-	setMinimumSize( 300, 140 );
+	init( el );
 }
 
-	DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent, const char *name ) 
+DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent, const char *name ) 
 : QWidget( parent, name )
+{
+	init( 0L );
+}
+
+void DetailedGraphicalOverview::init( Element *el )
 {
 	setBackgroundMode( NoBackground );
 
-	e = 0;
-	setMinimumSize( 300, 140 );
+	e = el;
+	setMinimumSize( 300, 200 );
+	update();
 }
 
 void DetailedGraphicalOverview::setElement( Element *el )
