@@ -152,8 +152,6 @@ void PSE::reloadColours()
 	c_solid = Prefs::color_solid();
 	c_vapor = Prefs::color_vapor();
 	c_liquid = Prefs::color_liquid();
-	c_radioactive = Prefs::color_radioactive();
-	c_artificial = Prefs::color_artificial();
 }
 
 void PSE::slotToolTip( int number )
@@ -624,8 +622,8 @@ void PSE::drawLegend( QPainter* p )
 	int fieldheight = ELEMENTSIZE/2;  
 
 
-	const  int square_w = 20;
-	const  int square_h = 20;
+	const  int square_w = 18;
+	const  int square_h = 18;
 	const  int textOffset = square_w + 10;
 	
 	p->fillRect(legendLeft, legendTop, legendWidth, legendHeight,
@@ -634,16 +632,12 @@ void PSE::drawLegend( QPainter* p )
 	if ( som() )
 	{
 		p->fillRect(x1, fieldheight*2, square_w, square_h, c_solid ); 
-		p->fillRect(x2, fieldheight*2, square_w, square_h, c_vapor ); 
-		p->fillRect(x1, fieldheight*3, square_w, square_h, c_liquid ); 
-		p->fillRect(x2, fieldheight*3, square_w, square_h, c_radioactive); 
-		p->fillRect(x1, fieldheight*4, square_w, square_h, c_artificial); 
+		p->fillRect(x1, fieldheight*3, square_w, square_h, c_vapor ); 
+		p->fillRect(x1, fieldheight*4, square_w, square_h, c_liquid ); 
 
 		p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Solid") ); 
-		p->drawText(x2 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Vaporous") ); 
-		p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Gasoline") ); 
-		p->drawText(x2 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Radioactive")); 
-		p->drawText(x1 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Artificial")); 
+		p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Vaporous") ); 
+		p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Gasoline") ); 
 		return;
 	}
 	switch ( m_currentScheme ) {
@@ -671,14 +665,14 @@ void PSE::drawLegend( QPainter* p )
 			break;
 		case PSE::BLOCK:
 			p->fillRect(x1, fieldheight*2, square_w, square_h, color_s ); 
-			p->fillRect(x2, fieldheight*2, square_w, square_h, color_p ); 
-			p->fillRect(x1, fieldheight*3, square_w, square_h, color_d ); 
-			p->fillRect(x2, fieldheight*3, square_w, square_h, color_f ); 
+			p->fillRect(x1, fieldheight*3, square_w, square_h, color_p ); 
+			p->fillRect(x1, fieldheight*4, square_w, square_h, color_d ); 
+			p->fillRect(x1, fieldheight*5, square_w, square_h, color_f ); 
 			
 			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("s-Block") ); 
-			p->drawText(x2 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("p-Block") ); 
-			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("d-Block") ); 
-			p->drawText(x2 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("f-Block") ); 
+			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("p-Block") ); 
+			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("d-Block") ); 
+			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("f-Block") ); 
 			break;
 		case PSE::ACIDIC:
 			p->fillRect(x1, fieldheight*2, square_w, square_h, color_ba ); 

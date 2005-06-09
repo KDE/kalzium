@@ -78,7 +78,7 @@ void SOMWidgetIMPL::slotTemp( int temp )
 		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "<br><ul type=\"disc\">";
 		for ( uint i = 0; i < listBoilingPoint.count(); i++ )
 		{
-			htmlcode += i18n( "For example: Carbon (300K)", "<li>%1</li> (%2K)" ).arg( listBoilingPoint[i] ).arg( listBoilingPointValue[i]);
+			htmlcode += i18n( "For example: Carbon (300K)", "<li>%1</li> (%2)" ).arg( listBoilingPoint[i] ).arg( listBoilingPointValue[i]);
 		}
 		htmlcode += "</ul><br>";
 	}

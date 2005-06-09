@@ -36,6 +36,8 @@
 
 Element::Element()
 {
+	m_radioactive = false;
+	m_artificial = false;
 }
 
 QString Element::parsedOrbits( bool canBeEmpty )
@@ -233,7 +235,7 @@ const QString Element::adjustUnits( const int type )
 					v = i18n( "%1 kg/m<sup>3</sup>" ).arg( QString::number( val ) );
 					break;
 				case 1://use more common units
-					if ( az() == 2 )//gasoline
+					if ( boiling() < 295.0 )//gasoline
 					{
 						v = i18n( "%1 g/L" ).arg( QString::number( val ) );
 					}
@@ -356,27 +358,25 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 	
-QColor Element::currentColor( double temp )
+QColor Element::currentColor( const double temp )
 {
 	QColor color;
+	
 	//take the colours for the given temperature
-	const int _az = az();
-	if ( _az == 3 || _az == 4 )
-	{ //check if the element is radioactive or artificial
-		if ( _az == 3 ) color=Prefs::color_radioactive();
-		if ( _az == 4 ) color=Prefs::color_artificial();
-		return color;
-	}
-
 	const double iButton_melting = melting();
 	const double iButton_boiling = boiling();
+
+	//If either the mp or bp is not known return
+	//This is to avoid undefined behaviour
+	if ( iButton_boiling <= 0.0 || iButton_melting <= 0.0 )
+		return Qt::lightGray;
 
 	if ( temp < iButton_melting )
 	{ //the element is solid
 		color= Prefs::color_solid();
 	}
 	else if ( temp > iButton_melting &&
-			temp < iButton_boiling )
+			temp < iButton_boiling ) 
 	{ //the element is liquid
 		color= Prefs::color_liquid();
 	}
@@ -386,7 +386,6 @@ QColor Element::currentColor( double temp )
 	}
 	else
 		color = Qt::lightGray;
-
 
 	return color;
 }
@@ -614,7 +613,8 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		QString ionic_charge = domElement.namedItem( "radius" ).namedItem( "ionic" ).toElement().attributeNode( "charge" ).value();
 		
 		int bio = domElement.namedItem( "biologicalmeaning" ).toElement().text().toInt();
-		int az = domElement.namedItem( "aggregation" ).toElement().text().toInt();
+		int radioactive = domElement.namedItem( "radioactive" ).toElement().text().toInt();
+		int artificial = domElement.namedItem( "artificial" ).toElement().text().toInt();
 		int date = domElement.namedItem( "date" ).toElement().text().toInt();
 		int number = domElement.namedItem( "number" ).toElement().text().toInt();
 		
@@ -644,16 +644,20 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		Element *e = new Element();
 		e->setDate(date);
 		e->setBiologicalMeaning(bio);
-		e->setAggregation(az);
 		e->setNumber( number );
+		e->setName(name);
 		e->setRadius( Element::ATOMIC, atomic_radius );
 		e->setRadius( Element::IONIC, ionic_radius, ionic_charge );
 		e->setRadius( Element::COVALENT, covalent_radius );
 		e->setRadius( Element::VDW, vdw_radius );
+
+		if ( artificial == 1 )
+			e->setArtificial();
+		if ( radioactive == 1 )
+			e->setRadioactive();
 		
 		e->setScientist(scientist);
 		e->setCrysatalstructure( crystal );
-		e->setName(name);
 		e->setOrigin(origin);
 		e->setBlock(block);
 		e->setGroup(group);

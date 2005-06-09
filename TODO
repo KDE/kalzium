@@ -15,6 +15,9 @@ TODO for Kalzium 1.5:
     - make the html fit into the window
 	- make the dialog have a sane size if there is no picture of 
 	  the element
+
+  + Make use of the biological symbol.                              ----
+    CN: I lost the "translation" though, will have to look after it.
   
   + Some melting and boiling points are wrong.  How to reproduce:	----
 	1. Enter Learning mode, click on Temperature tab

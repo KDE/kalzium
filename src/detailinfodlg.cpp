@@ -176,6 +176,18 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 				html.append( i18n( "Origin of the name: %1" ).arg( m_element->nameOrigin() ) );
 				html.append( "</td></tr>" );
 			}
+			if ( m_element->artificial() )
+			{
+				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+				html.append( i18n( "This element is artificial" ));
+				html.append( "</td></tr>" );
+			}
+			if ( m_element->radioactive() )
+			{
+				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+				html.append( i18n( "This element is radioactive" ));
+				html.append( "</td></tr>" );
+			}
 			break;
 		case ENERGY:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );

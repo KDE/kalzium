@@ -361,8 +361,6 @@ class PSE : public QWidget
 		QColor c_liquid;
 		QColor c_solid;
 		QColor c_vapor;
-		QColor c_radioactive;
-		QColor c_artificial;
 		
 	protected:
 		virtual void paintEvent( QPaintEvent *e );

@@ -89,7 +89,7 @@ class Element{
 		{
 			ATOMIC = 0,
 			IONIC,
-			VDW, //van der Waals forces
+			VDW, //van der Waals radius
 			COVALENT
 		};
 
@@ -99,6 +99,14 @@ class Element{
 		 */
 		int number() const {
 			return m_number;
+		}
+
+		bool radioactive() const{
+			return m_radioactive;
+		}
+		
+		bool artificial() const{
+			return m_artificial;
 		}
 
 		QString nameOrigin() const{
@@ -121,7 +129,6 @@ class Element{
 		
 		void setDate( int date ) { m_date = date; }
 		void setBiologicalMeaning( int value ) { m_biological = value; }
-		void setAggregation( int value ) { m_az = value; }
 		void setNumber( int num ){ m_number = num; }
 
 		void setScientist( const QString& value ) { m_scientist = value; }
@@ -136,6 +143,9 @@ class Element{
 		void setOxydation( const QString& value ) { m_oxstage = value; }
 		void setAcidicbehaviour( const QString& value ) { m_acidbeh = value; }
 		void setIsotopes( const QString& value ) { m_isotopes = value; }
+
+		void setArtificial(){ m_artificial = true; }
+		void setRadioactive(){ m_radioactive = true; }
 
 		void setIonisationList( doubleList l ){
 			m_ionenergies = l;
@@ -153,12 +163,15 @@ class Element{
 			return m_date; 
 		}
 
-		///return the correct color of the element
-		QColor currentColor( double temp );
+		/**
+		 * return the correct color of the element at the
+		 * temperature @p temp
+		 */
+		QColor currentColor( const double temp );
     
-    /**
-     * mutator for the element's color
-     */
+		/**
+		 * mutator for the element's color
+		 */
 		void setElementColor( const QColor &c ) { m_Color = c; }
 		
 		/**
@@ -174,14 +187,6 @@ class Element{
 		 */
 		int biological() const {
 			return m_biological;
-		}
-		
-		/**
-		 * @return the condition of aggrgation of the element at 
-		 * room temperature. 0 means solid, 1 means liquid, 2 means vapor
-		 */
-		int az() const {
-			return m_az;
 		}
 		
 		/**
@@ -396,7 +401,6 @@ class Element{
 
 		int     m_number, 
 			m_date,
-			m_az,
 			m_biological;
 
 		QString m_symbol,
@@ -412,6 +416,9 @@ class Element{
 			m_scientist,
 			m_crystalstructure,
 			m_ionvalue;
+
+		bool m_artificial,
+			 m_radioactive;
 
 		doubleList m_ionenergies;
 		

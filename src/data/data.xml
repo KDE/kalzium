@@ -7,7 +7,6 @@
 		<mass>1.00794</mass>
 		<block>s</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		<aggregation>2</aggregation>
 		<date scientist="C. Cavendish">1766</date>
 		<biologicalmeaning></biologicalmeaning>
 		<group>1</group>
@@ -36,7 +35,6 @@
 		<mass>4.002602</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		<aggregation>2</aggregation>
 		<date scientiest="P. J. Janssen, J. N. Lockyer">1895</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -66,7 +64,7 @@
 		<mass>6.941</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="A. Arfvedson">1817</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>1</group>
@@ -126,7 +124,7 @@
 		<mass>10.811</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="Louis Joseph Gay-Lussac, Louis Jacques Thenard">1808 </date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>3</group>
@@ -156,7 +154,7 @@
 		<mass>12.0107</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>4</group>
@@ -186,7 +184,7 @@
 		<mass>14.0067</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>2</aggregation>
+		
 		<date scientiest="D. Rutherford">1772</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>5</group>
@@ -217,7 +215,7 @@
 		<mass>15.9994</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>2</aggregation>
+		
 		<date scientiest="J. Priestley">1774</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>6</group>
@@ -248,7 +246,7 @@
 		<mass>18.9984032</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>2</aggregation>
+		
 		<date scientiest="H. F. Moissan">1886</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>7</group>
@@ -277,7 +275,7 @@
 		<mass>20.1797</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		<aggregation>2</aggregation>
+		
 		<date scientiest="W. Ramsay, M.W. Travers">1898 </date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -307,7 +305,7 @@
 		<mass>22.989770</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">1807</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>1</group>
@@ -338,7 +336,7 @@
 		<mass>24.3050</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="H. B. Davy">1808</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>2</group>
@@ -369,7 +367,7 @@
 		<mass>26.981538</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="H. Ch. Oersted">1825</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -400,7 +398,7 @@
 		<mass>28.0855</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="J. J. Berzelius">1823</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>4</group>
@@ -431,7 +429,7 @@
 		<mass>30.973761</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="H. Brandt">1669</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>5</group>
@@ -461,7 +459,7 @@
 		<mass>32.065</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>6</group>
@@ -493,7 +491,7 @@
 		<mass>35.453</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>2</aggregation>
+		
 		<date scientiest="K. Scheele">1774</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>7</group>
@@ -522,7 +520,7 @@
 		<mass>39.948</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		<aggregation>2</aggregation>
+		
 		<date scientiest="W. Ramsay, J. Rayleigh">1894</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -551,7 +549,7 @@
 		<mass>39.0983</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="H. B. Davy">1807</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>1</group>
@@ -581,7 +579,7 @@
 		<mass>40.078</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="H. B. Davy">1808</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>2</group>
@@ -612,7 +610,7 @@
 		<mass>44.955910</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="L. Nilson">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -641,7 +639,7 @@
 		<mass>47.867</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="W. Gregor">1791</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -671,7 +669,7 @@
 		<mass>50.9415</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="N. Sefström">1830</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>5</group>
@@ -700,7 +698,7 @@
 		<mass>51.9961</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="L. N. Vauquelin">1797</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>6</group>
@@ -730,7 +728,7 @@
 		<mass>54.938049</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="K. W. Scheele">1774</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>7</group>
@@ -759,7 +757,7 @@
 		<mass>55.845</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>8</group>
@@ -790,7 +788,7 @@
 		<mass>58.933200</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="G. Brandt">1737</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>8</group>
@@ -819,7 +817,7 @@
 		<mass>58.6934</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="A. F. Cronstedt">1751</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>8</group>
@@ -849,7 +847,7 @@
 		<mass>63.546</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>1</group>
@@ -881,7 +879,7 @@
 		<mass>65.39</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">1746</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>2</group>
@@ -911,7 +909,7 @@
 		<mass>69.723</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="P. E. Lecoq de Boisbaudran">1875</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -943,7 +941,7 @@
 		<mass>72.64</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="C. A. Winkler">1886</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -972,7 +970,7 @@
 		<mass>74.92160</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="A. Magnus">0</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>5</group>
@@ -1001,7 +999,7 @@
 		<mass>78.96</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="J. J. Berzelius">1817</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>6</group>
@@ -1031,7 +1029,7 @@
 		<mass>79.904</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>1</aggregation>
+		
 		<date scientiest="A. J. Balard">1826</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>7</group>
@@ -1060,7 +1058,7 @@
 		<mass>83.80</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		<aggregation>2</aggregation>
+		
 		<date scientiest="W. Ramsay, M. W. Travers">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1089,7 +1087,7 @@
 		<mass>85.4678</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		A<aggregation>0</aggregation>
+		A
 		<date scientiest=".W Bunsen, G.R. Kirchhoff">1861</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>1</group>
@@ -1118,7 +1116,7 @@
 		<mass>87.62</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="H. B. Davy">1790</date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>2</group>
@@ -1149,7 +1147,7 @@
 		<mass>88.90585</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">1794</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -1178,7 +1176,7 @@
 		<mass>91.224</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">1789</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -1208,7 +1206,7 @@
 		<mass>92.90638</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="Ch. Hatchett">1801</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -1237,7 +1235,7 @@
 		<mass>95.94</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="K. W. Scheele">1778</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>6</group>
@@ -1267,7 +1265,7 @@
 		<mass>98.9063</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="C. Perrier, E. G. Segre">1937</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -1296,7 +1294,7 @@
 		<mass>101.07</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="K. Klaus">1844</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1327,7 +1325,7 @@
 		<mass>102.90550</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="W. Wollaston">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1358,7 +1356,7 @@
 		<mass>106.42</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1390,7 +1388,7 @@
 		<mass>107.8682</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
@@ -1422,7 +1420,7 @@
 		<mass>112.411</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="F. Stromeyer">1817</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>2</group>
@@ -1454,7 +1452,7 @@
 		<mass>114.818</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="F. Reich, H.T. Richter">1863</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -1486,7 +1484,7 @@
 		<mass>118.710</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">0</date>
 		<biologicalmeaning>6</biologicalmeaning>
 		<group>4</group>
@@ -1518,7 +1516,7 @@
 		<mass>121.760</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -1550,7 +1548,7 @@
 		<mass>127.60</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="F. Müller von Reichenstein">1782</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
@@ -1582,7 +1580,7 @@
 		<mass>126.90447</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="B. Courtois">1804</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>7</group>
@@ -1611,7 +1609,7 @@
 		<mass>131.293</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		<aggregation>2</aggregation>
+		
 		<date scientiest="W. Ramsay, M. W. Travers">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1642,7 +1640,7 @@
 		<mass>132.90545</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="Robert Wilhelm Bunsen, Gustav Robert Kirchhoff">1860</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
@@ -1673,7 +1671,7 @@
 		<mass>137.237</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="Humphry Bartholomew Davy">1808</date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>2</group>
@@ -1705,7 +1703,7 @@
 		<mass>138.9055</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="K. G. Mosander">1839</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -1736,7 +1734,7 @@
 		<mass>140.116</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="Jöns Jacob Berzelius, W. Hisinger, M. Klaproth">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -1766,7 +1764,7 @@
 		<mass>140.90765</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="K. C. Auer von Welsbach">1885</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -1794,7 +1792,7 @@
 		<mass>144.24</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="C. Auer von Welsbach">1925</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
@@ -1823,7 +1821,7 @@
 		<mass>146.9151</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="J. A. Marinsky, C. D. Coryell, L. E. Glendenin">1945</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -1853,7 +1851,7 @@
 		<mass>150.36</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="P. Lecoq de Boisbaudran">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1884,7 +1882,7 @@
 		<mass>151.964</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="E. A. Demarcay">1901</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1914,7 +1912,7 @@
 		<mass>157.25</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">1880</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1946,7 +1944,7 @@
 		<mass>158.92534</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="K. G. Mosander">1843</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
@@ -1977,7 +1975,7 @@
 		<mass>162.50</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="F. E. Lecoq de Boisbaudran">1886</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
@@ -2008,7 +2006,7 @@
 		<mass>164.93032</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="J. L. Soret, P.T. Cleve">1878</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -2039,7 +2037,7 @@
 		<mass>167.259</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="K. G. Mosander">1843</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -2071,7 +2069,7 @@
 		<mass>168.93421</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="P. T. Cleve">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -2100,7 +2098,7 @@
 		<mass>173.04</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="J. Ch. Marignac">1878</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
@@ -2130,7 +2128,7 @@
 		<mass>174.967</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="C. Auer von Welsbach, G. Urbain">1907</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -2160,7 +2158,7 @@
 		<mass>178.49</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="D. Coster, G. Hevesy">1923</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -2191,7 +2189,7 @@
 		<mass>180.9479</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="A. Ekeberg">1802</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -2221,7 +2219,7 @@
 		<mass>183.84</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="K. W. Scheel">1783</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>6</group>
@@ -2251,7 +2249,7 @@
 		<mass>186.207</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="W. Noddack, I. Tacke-Noddack, O. Berg">1925</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -2282,7 +2280,7 @@
 		<mass>190.23</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="S. Tennant">1804</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -2314,7 +2312,7 @@
 		<mass>192.217</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="S. Tennant">1804</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -2346,7 +2344,7 @@
 		<mass>195.078</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="A. de Ulloa">1735</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -2378,7 +2376,7 @@
 		<mass>196.96654</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
@@ -2409,7 +2407,7 @@
 		<mass>200.59</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>1</aggregation>
+		
 		<date scientiest="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
@@ -2441,7 +2439,7 @@
 		<mass>204.3833</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="W. Crookes">1861</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -2477,7 +2475,7 @@
 		<mass>207.2</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>0</aggregation>
+		
 		<date scientiest="">0</date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>4</group>
@@ -2499,7 +2497,6 @@
 		<oxydation>+2,(+4)</oxydation>
 		<isotopes>124:205,97:25,1;125:206,98:21,1;126:207,98:52,4</isotopes>
 		<family>Other_Metal</family>
-
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
@@ -2509,7 +2506,6 @@
 		<mass>208.98038</mass>
 		<block>p</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>0</aggregation>
 		<date scientiest="P. Pott, T. O. Bergmann">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -2520,7 +2516,6 @@
 		<density>9.80</density>
 		<ionisationenergy>
 			<energy>7.289 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<covalent>155</covalent>
@@ -2531,7 +2526,6 @@
 		<orbits>Xe 4f14 5d10 6s2 6p3</orbits>
 		<oxydation>+3,(+5)</oxydation>
 		<family>Other_Metal</family>
-
 	</element>
 	<element>
 		<number>84</number>
@@ -2540,7 +2534,7 @@
 		<mass>208.9824</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="M. Sklodowska-Curie, P. Curie">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
@@ -2551,7 +2545,6 @@
 		<density>9.20</density>
 		<ionisationenergy>
 			<energy>8.42 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<covalent>167.5</covalent>
@@ -2561,7 +2554,6 @@
 		<orbits>Xe 4f14 5d10 6s2 6p4</orbits>
 		<oxydation>(+2),+4,(+6)</oxydation>
 		<family>Metalloids</family>
-
 	</element>
 	<element>
 		<number>85</number>
@@ -2570,7 +2562,7 @@
 		<mass>209.9871</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="D.R. Corson, K.R. McKenzie, E. Segre">1940</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -2581,7 +2573,6 @@
 		<density></density>
 		<ionisationenergy>
 			<energy>9.5 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<covalent></covalent>
@@ -2591,7 +2582,6 @@
 		<orbits>Xe 4f14 5d10 6s2 6p5</orbits>
 		<oxydation>-1,(1,3,5,7)</oxydation>
 		<family>Halogene</family>
-
 	</element>
 	<element>
 		<number>86</number>
@@ -2600,7 +2590,7 @@
 		<mass>222.0176</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="E. Dorn">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -2611,7 +2601,6 @@
 		<density>9.23</density>
 		<ionisationenergy>
 			<energy>10.748 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<covalent></covalent>
@@ -2621,7 +2610,6 @@
 		<orbits>Xe 4f14 5d10 6s2 6p6</orbits>
 		<oxydation>2</oxydation>
 		<family>Noblegas</family>
-
 	</element>
 	<element>
 		<number>87</number>
@@ -2630,7 +2618,7 @@
 		<mass>223.0197</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="M. Perey">1939</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
@@ -2659,7 +2647,7 @@
 		<mass>226.0254</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="M. Sklodowska-Curie, P. Curie">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
@@ -2688,7 +2676,7 @@
 		<mass>227.0278</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="A.L. Debierne">1899</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -2718,7 +2706,7 @@
 		<mass>232.0381</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="J. J. Berzelius">1828</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -2748,7 +2736,7 @@
 		<mass>231.03588</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="O. Hahn, L. Meitern, W. Wollaston">1917</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -2774,7 +2762,7 @@
 		<mass>238.02891</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="M. M. Klaproth">1789</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
@@ -2803,7 +2791,7 @@
 		<mass>237.0482</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="E. M. McMillan, P. Aberson">1940</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -2831,7 +2819,7 @@
 		<mass>244.0642</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>3</aggregation>
+		<radioactive>1</radioactive>
 		<date scientiest="G.T. Seaborg, E.M. McMillan, J.W. Kennedy, A.C. Wahl">1940</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -2860,7 +2848,7 @@
 		<mass>243.0614</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="G.T. Seaborg, L.O. Morgan, R.A. James, A. Ghiors">1945</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -2888,7 +2876,7 @@
 		<mass>247.0703</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="G. T. Seaborg, R. A. James, A. Ghiors">1944</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -2908,7 +2896,7 @@
 		<mass>247.0703</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="G. T. Seaborg, A. Ghiors, S.G. Thompson">1949</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
@@ -2928,7 +2916,7 @@
 		<mass>251.0796</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="G. T. Seaborg, A Ghiors, S. G. Thompson">1950</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
@@ -2948,7 +2936,7 @@
 		<mass>252.0829</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="G. T. Seaborg et al.">1952</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -2966,7 +2954,7 @@
 		<mass>257.0951</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="G. T. Seaborg et al.">1953</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -2984,7 +2972,7 @@
 		<mass>258.0986</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="G. T. Seaborg et al.">1955</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -3002,7 +2990,7 @@
 		<mass>259.1009</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="">1957</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
@@ -3020,7 +3008,7 @@
 		<mass>262.110</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="">1961</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -3047,7 +3035,7 @@
 		<mass>261.1089</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="G.N. Florow; independently A. Ghiorso">1969</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -3074,7 +3062,7 @@
 		<mass>262.1144</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="">1970</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -3100,7 +3088,7 @@
 		<mass>263.1186</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="">1974</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
@@ -3114,7 +3102,7 @@
 		<mass>262.1231</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="">1976</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -3128,7 +3116,7 @@
 		<mass>265.1306</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="">1984</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -3142,7 +3130,7 @@
 		<mass>266.1378</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="">1982</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -3156,7 +3144,7 @@
 		<mass>271</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="">1994</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -3170,7 +3158,7 @@
 		<mass>272</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<aggregation>4</aggregation>
+		<artificial>1</artificial>
 		<date scientiest="">1994</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
