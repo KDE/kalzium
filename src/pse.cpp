@@ -677,13 +677,13 @@ void PSE::drawLegend( QPainter* p )
 		case PSE::ACIDIC:
 			p->fillRect(x1, fieldheight*2, square_w, square_h, color_ba ); 
 			p->fillRect(x1, fieldheight*3, square_w, square_h, color_neu );
-			p->fillRect(x2, fieldheight*2, square_w, square_h, color_ac ); 
-			p->fillRect(x2, fieldheight*3, square_w, square_h, color_amp );
+			p->fillRect(x1, fieldheight*4, square_w, square_h, color_ac ); 
+			p->fillRect(x1, fieldheight*5, square_w, square_h, color_amp );
 			
 			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Basic") ); 
 			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Neutral") ); 
-			p->drawText(x2 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Acidic") ); 
-			p->drawText(x2 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("both acidic and basic behaviour","Amphoteric") ); 
+			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Acidic") ); 
+			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("both acidic and basic behaviour","Amphoteric") ); 
 			break;
 		case PSE::FAMILY:
 			p->fillRect( x1, fieldheight*2, square_w, square_h, c_alkaline ); 
