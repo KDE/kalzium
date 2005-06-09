@@ -10,6 +10,11 @@ TODO for Kalzium 1.5:
 	CN: It was marked as done but I can still reproduce it. The background
 	    of the overview-widget is not always coresponding to the
 		current sheme
+
+  + Fix the startsize of the infodialog                             ----
+    - make the html fit into the window
+	- make the dialog have a sane size if there is no picture of 
+	  the element
   
   + Some melting and boiling points are wrong.  How to reproduce:	----
 	1. Enter Learning mode, click on Temperature tab
@@ -72,7 +77,7 @@ moved up above.
 13. Not a bug, but an idea: Make the glossary also a tool for		----
     translation.
 
-18. An idea: When you run the mouse over the element table, it shows	----
+18. An idea: When you run the mouse over the element table, it shows	DONE-CN
     selected data about the elements in the status bar.
    PT: nice, but only a few datas can be displayed
    CN: "Carbon (6), Weight: 12.01 u" would be the most important
@@ -90,7 +95,7 @@ moved up above.
    CN: Not only that. I would love to make more than one plot possible:
        Comparing Metals from the 3rd with the metals from the 4th 
 	   periods for example. This would be impossible with this
-	   proposal.
+	   proposal. (see item 26)
 
 24. The legend should be outlined in some way. A slight background for	----
     example...
