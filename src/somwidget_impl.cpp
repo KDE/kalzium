@@ -55,12 +55,12 @@ void SOMWidgetIMPL::slotTemp( int temp )
 		if ( ( ( *it )->melting() > 0.0 ) && fabs( ( *it )->melting() - temp ) <= threshold )
 		{
 			listMeltingPoint << ( *it )->elname();
-			listMeltingPointValue << QString::number( ( *it )->melting() );
+			listMeltingPointValue << ( *it )->adjustUnits( Element::MELTINGPOINT );
 		}
 		if ( ( ( *it )->boiling() > 0.0 ) && fabs( ( *it )->boiling() - temp ) <= threshold )
 		{
 			listBoilingPoint << ( *it )->elname().utf8();
-			listBoilingPointValue << QString::number( ( *it )->boiling() );
+			listBoilingPointValue << ( *it )->adjustUnits( Element::BOILINGPOINT );
 		}
 	}
 	QString htmlcode;
@@ -69,7 +69,7 @@ void SOMWidgetIMPL::slotTemp( int temp )
 		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "<br><ul type=\"disc\">";
 		for ( uint i = 0; i < listMeltingPoint.count(); i++ )
 		{
-			htmlcode += i18n( "For example: Carbon (300K)", "<li>%1</li> (%2K)" ).arg( listMeltingPoint[i] ).arg( listMeltingPointValue[i]);
+			htmlcode += i18n( "For example: Carbon (300K)", "<li>%1</li> (%2)" ).arg( listMeltingPoint[i] ).arg( listMeltingPointValue[i] );
 		}
 		htmlcode += "</ul><br>";
 	}
