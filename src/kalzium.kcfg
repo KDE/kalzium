@@ -4,25 +4,26 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="kalziumrc"/>
-  <group name="PSE">
+  <group name="Periodic Table">
     <entry name="schemaPSE" type="Int">
         <label>Selects the PSE</label>
 	<whatsthis>Select the PSE you want</whatsthis>
 	<default>0</default>
     </entry>
-  </group>
-  <group name="Color Scheme">
     <entry name="colorschemebox" type="Int">
 	<label>Selects the default color scheme</label>
 	<whatsthis>Select the color scheme you prefer by clicking on the corresponding radio button</whatsthis>
 	<default>1</default>
     </entry>
-  </group>
-    <group name="Numeration">
     <entry name="numeration" type="Int">
 	<label>Selects the default numeration (IUPAC)</label>
 	<whatsthis>Select the numeration you want</whatsthis>
 	<default>1</default>
+    </entry>
+    <entry name="showlegend" type="Bool">
+	<label>Show or hide the legend</label>
+	<whatsthis>Show or hide the legend</whatsthis>
+	<default>true</default>
     </entry>
   </group>
   <group name="Slider">
@@ -30,23 +31,6 @@
 		  <label>The date with which the slider starts</label>
 		  <whatsthis>The date with which the slider starts</whatsthis>
 		  <default>2004</default>
-	  </entry>
-  </group>
-  <group name="Legend">
-	  <entry name="showsom" type="Bool">
-		  <label>Show or hide the state of matter</label>
-		  <whatsthis>Show or hide the state of matter</whatsthis>
-		  <default>false</default>
-	  </entry>
-	  <entry name="showtimeline" type="Bool">
-		  <label>Show or hide the timeline</label>
-		  <whatsthis>Show or hide the timeline</whatsthis>
-		  <default>false</default>
-	  </entry>
-	  <entry name="showlegend" type="Bool">
-		  <label>Show or hide the legend</label>
-		  <whatsthis>Show or hide the legend</whatsthis>
-		  <default>true</default>
 	  </entry>
   </group>
   <group name="Colors">
@@ -206,21 +190,12 @@
 		  <default>#E8D888</default>
 	  </entry>
   </group>
-  <group name="Mouseclick">
-    <entry name="LMBbeh" type="Int">
-	<label>This value defines whether a click with the left mouse button should open the detailed or the small information dialog</label>
-	<whatsthis>If this is true a click with the left mouse button opens the small information dialog with less information</whatsthis>
-	<default>0</default>
-    </entry>
-  </group>
-  <group name="Energies">
+  <group name="Units">
     <entry name="energies" type="Int">
 	<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
 	<whatsthis>Use eV or kJ/mol</whatsthis>
 	<default>0</default>
     </entry>
-  </group>
-  <group name="SIUnits">
     <entry name="units" type="Int">
 	<label>This value defines whether SI-Units will be used</label>
 	<whatsthis>Use SI-units or not</whatsthis>

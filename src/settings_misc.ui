@@ -21,47 +21,6 @@
         </property>
         <widget class="QButtonGroup" row="0" column="0">
             <property name="name">
-                <cstring>kcfg_LMBbeh</cstring>
-            </property>
-            <property name="title">
-                <string>&amp;Information Dialog</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QRadioButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>radioButton4</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;More information on left click</string>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Show a detailed information dialog when clicking an element with the left mouse button</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Show a detailed information dialog when clicking an element with the left mouse button</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="0" column="0">
-                    <property name="name">
-                        <cstring>radioButton3</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Less information on left click</string>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Show less information in the information dialog when clicking with the left mouse button</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Show less information in the information dialog when clicking with the left mouse button</string>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
-        <widget class="QButtonGroup" row="1" column="0">
-            <property name="name">
                 <cstring>kcfg_pselook</cstring>
             </property>
             <property name="title">
@@ -100,6 +59,23 @@
                 </widget>
             </grid>
         </widget>
+        <spacer row="1" column="0">
+            <property name="name">
+                <cstring>spacer1</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
