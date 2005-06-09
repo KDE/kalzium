@@ -123,16 +123,6 @@ class PSE : public QWidget
 		}
 
 		/**
-		 * This method sets the color for the buttons corresponding to
-		 * the given temperature @p temp
-		 * @param temp is the temperature to which all buttons will be set
-		 */
-		void setTemperature( int temp ){
-			m_temperature = (double)temp;
-			update();
-		}
-
-		/**
 		 * XXX shouldn't this be renamed to m_locked?
 		 */
 		void setShowTooltip( bool show ){
@@ -406,6 +396,16 @@ class PSE : public QWidget
 		virtual void drawNumeration( QPainter* p );
 
 	public slots:
+		/**
+		 * This method sets the color for the buttons corresponding to
+		 * the given temperature @p temp
+		 * @param temp is the temperature to which all buttons will be set
+		 */
+		void setTemperature( int temp ){
+			m_temperature = (double)temp;
+			update();
+		}
+
 		void setDate( int date ){
 			//These elements have always been known:
 			//6 16 26 29 33 47 50 51 79 80 82 83

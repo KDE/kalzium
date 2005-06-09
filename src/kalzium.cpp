@@ -25,6 +25,7 @@
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
 #include "timewidget.h"
+#include "somwidget.h"
 
 #include <qdockwindow.h>
 #include <qlayout.h>
@@ -185,6 +186,11 @@ void Kalzium::setupSidebars()
 			m_PSE, 						SLOT( setDate( int ) ) );
 	toolbox->addItem( m_timeWidget, i18n( "Timeline" ) );
 
+	m_somWidget = new SOMWidget( this, "somWidget" );
+	connect( m_somWidget->temp_slider, SIGNAL( valueChanged( int ) ), 
+			m_PSE, 						SLOT( setTemperature( int ) ) );
+	toolbox->addItem( m_somWidget, i18n( "State of Matter" ) );
+	
 	connect( toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
 	moveDockWindow( m_dockWin, DockLeft );
@@ -530,6 +536,10 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 			break;
 		case 2: // timeline
 			m_PSE->setTimeline( true );
+			m_PSE->setDate( m_timeWidget->time_slider->value() );
+			break;
+		case 3: // state of matter
+			m_PSE->activateSOMMode( true );
 			m_PSE->setDate( m_timeWidget->time_slider->value() );
 			break;
 	}
