@@ -176,7 +176,7 @@ void Kalzium::setupSidebars()
 	toolbox->addItem( fake, SmallIcon( "overview" ), i18n( "Overview" ) );
 	
 	m_calcWidget = new MolcalcWidget( data(), m_dockWin, "molcalcwidget" );
-	toolbox->addItem( m_calcWidget, i18n( "Calculate" ) );
+	toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
 
 	m_timeWidget = new timeWidget( this, "timeWidget" );
 	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ), 
@@ -186,7 +186,7 @@ void Kalzium::setupSidebars()
 	m_somWidget = new SOMWidgetIMPL( data()->ElementList, this, "somWidget" );
 	connect( m_somWidget->temp_slider, SIGNAL( valueChanged( int ) ), 
 			m_PSE, 						SLOT( setTemperature( int ) ) );
-	toolbox->addItem( m_somWidget, i18n( "State of Matter" ) );
+	toolbox->addItem( m_somWidget, SmallIcon( "statematter" ), i18n( "State of Matter" ) );
 	
 	connect( toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
 

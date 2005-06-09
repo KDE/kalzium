@@ -26,6 +26,8 @@ class SOMWidgetIMPL : public SOMWidget
 
 	private:
 		QValueList<Element*> m_list;
+		QString m_htmlBegin;
+		QString m_htmlEnd;
 
 	private slots:
 		void slotTemp( int temp );

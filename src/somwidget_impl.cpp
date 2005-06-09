@@ -13,40 +13,34 @@
 
 #include "somwidget_impl.h"
 
-#include <qdom.h>
-#include <qfile.h>
 #include <qlabel.h>
+#include <qslider.h>
 #include <qvaluelist.h>
 
 #include <kdebug.h>
-#include <kfiledialog.h>
 #include <knuminput.h>
 #include <klocale.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
 
 #include <math.h>
 
 #include "element.h"
-#include <qslider.h>
 
 SOMWidgetIMPL::SOMWidgetIMPL( QValueList<Element*> l, QWidget *parent, const char* name )
 	: SOMWidget( parent,name )
 {
 	m_list = l;
-	
+
+	text->setAlignment( text->alignment() | Qt::WordBreak );
+
+	m_htmlBegin = "<qt>";
+	m_htmlEnd = "</qt>";
+
 	connect( temp_slider, 	SIGNAL( valueChanged( int ) ),
 			 this, 			SLOT( slotTemp( int ) ) );
 }
 
 void SOMWidgetIMPL::slotTemp( int temp )
 {
-	QString appBaseDir = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
-	appBaseDir.append("kalzium/data/");
-	appBaseDir.append("bg.jpg");
-	QString htmlcode = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
-	htmlcode += appBaseDir + "\">";
-
 	static const int threshold = 25;
 
 	QValueList<Element*>::ConstIterator it = m_list.begin();
@@ -69,6 +63,7 @@ void SOMWidgetIMPL::slotTemp( int temp )
 			listBoilingPointValue << QString::number( ( *it )->boiling() );
 		}
 	}
+	QString htmlcode;
 	if ( listMeltingPoint.count() > 0 )
 	{
 		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "<br><ul type=\"disc\">";
@@ -88,11 +83,9 @@ void SOMWidgetIMPL::slotTemp( int temp )
 		htmlcode += "</ul><br>";
 	}
 
-	htmlcode += "</body></html>";
+//	kdDebug() << m_htmlBegin + htmlcode + m_htmlEnd << endl;
 
-	kdDebug() << htmlcode << endl;
-
-	text->setText( htmlcode );
+	text->setText( m_htmlBegin + htmlcode + m_htmlEnd );
 
 }
 
