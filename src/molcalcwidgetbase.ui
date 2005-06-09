@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>218</width>
-            <height>616</height>
+            <width>2180</width>
+            <height>400</height>
         </rect>
     </property>
     <property name="caption">
@@ -69,7 +69,7 @@
             <property name="sizeHint">
                 <size>
                     <width>20</width>
-                    <height>452</height>
+                    <height>10</height>
                 </size>
             </property>
         </spacer>
@@ -109,7 +109,7 @@
                     </property>
                     <property name="sizeHint">
                         <size>
-                            <width>211</width>
+                            <width>5</width>
                             <height>20</height>
                         </size>
                     </property>
@@ -126,7 +126,7 @@
                     </property>
                     <property name="sizeHint">
                         <size>
-                            <width>120</width>
+                            <width>5</width>
                             <height>20</height>
                         </size>
                     </property>
@@ -145,9 +145,6 @@
                     </property>
                     <property name="text">
                         <string>&amp;Clear</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+C</string>
                     </property>
                 </widget>
                 <widget class="QLayoutWidget" row="0" column="1">

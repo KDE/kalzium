@@ -18,7 +18,6 @@
 #include "settings_misc.h"
 #include "settings_units.h"
 #include "elementdataviewer.h"
-#include "molcalc_impl.h"
 #include "detailinfodlg.h"
 #include "informationdialog_impl.h"
 #include "pse.h"
@@ -136,8 +135,6 @@ void Kalzium::setupActions()
 	 **/
 	m_pPlotAction = new KAction(i18n("&Plot Data"), "kmplot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
-	m_pCalcAction = new KAction(i18n("&Calculate Molecular Mass"), "calculate", 0, this, SLOT(slotCalculate()), actionCollection(), "calculate_mass");
-	
 	m_pGlossaryAction = new KAction(i18n("&Glossary"), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
 	//Legend
@@ -161,7 +158,7 @@ void Kalzium::setupSidebars()
 {
 	m_dockWin = new QDockWindow( this );
 	m_dockWin->setNewLine( true );
- 	m_dockWin->setFixedExtentWidth( 200 );
+ 	m_dockWin->setFixedExtentWidth( 220 );
 // 	m_dockWin->setFixedExtentHeight( 300 );
 	m_dockWin->setResizeEnabled( true );
 	m_dockWin->setFrameShape( QFrame::ToolBarPanel );
@@ -174,7 +171,7 @@ void Kalzium::setupSidebars()
 	QVBoxLayout *lay = new QVBoxLayout( fake, 5 );
 	lay->activate();
 	m_detailWidget = new DetailedGraphicalOverview( fake, "DetailedGraphicalOverview" );
-	m_detailWidget->setMinimumSize( 180, m_detailWidget->minimumSize().height() );
+	m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
 	connect( m_PSE, SIGNAL( MouseOver( int ) ), this, SLOT( slotSelectedNumber( int ) ));
  	lay->addWidget( m_detailWidget );
 	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
@@ -279,18 +276,6 @@ void Kalzium::slotPlotData()
 {
 	ElementDataViewer *edw = new ElementDataViewer( data(), this, "edw" );
 	edw->show();
-}
-
-void Kalzium::slotCalculate()
-{
-	kdDebug() << "Kalzium::slotCalculate()" << endl;
-	emit tableLocked(true);
-
-	MolcalcImpl *dlg = new MolcalcImpl( data(), this, "molcalcdialog" );
-	connect( m_PSE, SIGNAL( ElementClicked( int ) ), dlg, SLOT(slotButtonClicked( int )) );
-	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
-	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(unSelect()) );
-	dlg->show();
 }
 
 void Kalzium::slotShowLegend()

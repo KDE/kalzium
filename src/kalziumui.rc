@@ -21,18 +21,15 @@
   </Menu>
   <Menu name="miscmenu"><text>&amp;Miscellaneous</text>
     <Action name="plotdata" />
-    <Action name="calculate_mass" />
     <Action name="glossary" />
     <Action name="learning_mode" />
   </Menu>
 </MenuBar>
 
 <ToolBar name="mainToolBar" noMerge="1" fullWidth="true" >
-  <Action name="use_timeline" />
   <Action name="plotdata" />
   <Action name="show_som" />
   <Action name="toggle_legend" />
-  <Action name="calculate_mass" />
   <Action name="glossary" />
   <Action name="learning_mode" />
  </ToolBar>

@@ -16,10 +16,8 @@ kalzium_SOURCES = kalzium.cpp \
 			elementdataviewer.cpp \
 			plotsetupwidget.ui \
 			detailedgraphicaloverview.cpp \
-			molcalcbase.ui \
 			molcalcwidgetbase.ui \
 			molcalcwidget.cpp \
-			molcalc_impl.cpp \
 			informationdialog.ui \
 			timewidget.ui \
 			informationdialog_impl.cpp \
@@ -41,7 +39,6 @@ EXTRA_DIST = main.cpp \
 		plotwidget.cpp plotwidget.h \
 		elementdataviewer.cpp elementdataviewer.h \
 		detailedgraphicaloverview.cpp detailedgraphicaloverview.h \
-		molcalc_impl.cpp molcalc_impl.h \
 		molcalcwidget.cpp molcalcwidget.h \
 		informationdialog.ui \
 		timewidget.ui \

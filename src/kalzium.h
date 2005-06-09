@@ -112,7 +112,6 @@ class Kalzium : public KMainWindow
 		KSelectAction *gradient_action;
 		KSelectAction *numeration_action;
 		KAction *m_pPlotAction,
-				*m_pCalcAction,
 				*m_pLegendAction,
 				*m_pGlossaryAction,
 				*m_pLearningmodeAction;
@@ -172,8 +171,6 @@ class Kalzium : public KMainWindow
 
 		void slotPlotData();
 
-		void slotCalculate();
-		
 		void slotLearningmode();
 
 		void slotUpdateSettings();
