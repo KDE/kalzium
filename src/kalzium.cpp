@@ -25,7 +25,7 @@
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
 #include "timewidget.h"
-#include "somwidget.h"
+#include "somwidget_impl.h"
 
 #include <qdockwindow.h>
 #include <qlayout.h>
@@ -186,7 +186,7 @@ void Kalzium::setupSidebars()
 			m_PSE, 						SLOT( setDate( int ) ) );
 	toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
 
-	m_somWidget = new SOMWidget( this, "somWidget" );
+	m_somWidget = new SOMWidgetIMPL( data()->ElementList, this, "somWidget" );
 	connect( m_somWidget->temp_slider, SIGNAL( valueChanged( int ) ), 
 			m_PSE, 						SLOT( setTemperature( int ) ) );
 	toolbox->addItem( m_somWidget, i18n( "State of Matter" ) );
@@ -414,7 +414,7 @@ void Kalzium::updateStatusbar()
 void Kalzium::slotStatusbar( int num )
 {
 	Element *e = data()->element( num );
-	statusBar()->changeItem( i18n( "%1, Weight: %2 u" ).arg( e->elname() ).arg( e->mass() ) , IDS_ELEMENTINFO );
+	statusBar()->changeItem( i18n( "%1, Weight: %2 u" ).arg( e->elname().utf8() ).arg( e->mass() ) , IDS_ELEMENTINFO );
 }
 
 void Kalzium::openInformationDialog( int number )

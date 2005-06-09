@@ -15,11 +15,19 @@
 
 #include "somwidget.h"
 
+class Element;
+
 class SOMWidgetIMPL : public SOMWidget
 {
 	Q_OBJECT
 
 	public:
-		SOMWidgetIMPL( QWidget *parent = 0, const char* name = 0 );
+		SOMWidgetIMPL( QValueList<Element*>, QWidget *parent = 0, const char* name = 0 );
+
+	private:
+		QValueList<Element*> m_list;
+
+	private slots:
+		void slotTemp( int temp );
 };
 #endif // SOMWIDGET_IMPL_H
