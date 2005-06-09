@@ -184,7 +184,7 @@ void Kalzium::setupSidebars()
 	m_timeWidget = new timeWidget( this, "timeWidget" );
 	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ), 
 			m_PSE, 						SLOT( setDate( int ) ) );
-	toolbox->addItem( m_timeWidget, i18n( "Timeline" ) );
+	toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
 
 	m_somWidget = new SOMWidget( this, "somWidget" );
 	connect( m_somWidget->temp_slider, SIGNAL( valueChanged( int ) ), 
@@ -522,6 +522,7 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 {
 	m_PSE->unSelect();
 	m_PSE->setTimeline( false );
+	m_PSE->activateSOMMode( false );
 
 	disconnect( m_PSE, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
 	switch ( id )
@@ -540,7 +541,7 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 			break;
 		case 3: // state of matter
 			m_PSE->activateSOMMode( true );
-			m_PSE->setDate( m_timeWidget->time_slider->value() );
+			m_PSE->setTemperature( m_somWidget->temp_slider->value() );
 			break;
 	}
 
