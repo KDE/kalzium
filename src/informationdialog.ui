@@ -22,61 +22,6 @@
             </property>
             <widget class="QWidget">
                 <property name="name">
-                    <cstring>tab</cstring>
-                </property>
-                <attribute name="title">
-                    <string>T&amp;ime</string>
-                </attribute>
-                <grid>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <widget class="QTextBrowser" row="0" column="0">
-                        <property name="name">
-                            <cstring>m_explanation_2</cstring>
-                        </property>
-                    </widget>
-                    <widget class="QLayoutWidget" row="1" column="0">
-                        <property name="name">
-                            <cstring>layout5</cstring>
-                        </property>
-                        <hbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <widget class="QLabel">
-                                <property name="name">
-                                    <cstring>lbl1</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Year:</string>
-                                </property>
-                            </widget>
-                            <widget class="QSlider">
-                                <property name="name">
-                                    <cstring>time_slider</cstring>
-                                </property>
-                                <property name="minValue">
-                                    <number>1600</number>
-                                </property>
-                                <property name="maxValue">
-                                    <number>2005</number>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                            </widget>
-                            <widget class="KIntSpinBox">
-                                <property name="name">
-                                    <cstring>Number1</cstring>
-                                </property>
-                            </widget>
-                        </hbox>
-                    </widget>
-                </grid>
-            </widget>
-            <widget class="QWidget">
-                <property name="name">
                     <cstring>TabPage</cstring>
                 </property>
                 <attribute name="title">
@@ -134,7 +79,6 @@
 </customwidgets>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
-    <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
 </includehints>
 </UI>

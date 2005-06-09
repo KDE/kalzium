@@ -42,22 +42,13 @@ InformationWidget::InformationWidget( PSE *pse )
 	m_infoDialog = new InformationDialog( this );
 	setMainWidget( m_infoDialog );
 
-	m_infoDialog->Number1->setMinValue( m_infoDialog->time_slider->minValue() );
-	m_infoDialog->Number1->setMaxValue( m_infoDialog->time_slider->maxValue() );
 	m_infoDialog->Number2->setMinValue( m_infoDialog->temp_slider->minValue() );
 	m_infoDialog->Number2->setMaxValue( m_infoDialog->temp_slider->maxValue() );
 
-	connect( m_infoDialog->time_slider, SIGNAL( sliderMoved(int) ), m_infoDialog->Number1, SLOT( setValue(int) ) );
-	connect( m_infoDialog->time_slider, SIGNAL( valueChanged(int) ), this, SLOT( slotDate(int) ) );
-	connect( m_infoDialog->time_slider, SIGNAL( valueChanged(int) ), m_infoDialog->Number1, SLOT( setValue(int) ) );
-	connect( m_infoDialog->Number1, SIGNAL( valueChanged(int) ), m_infoDialog->time_slider, SLOT( setValue(int) ) );
 	connect( m_infoDialog->temp_slider, SIGNAL( sliderMoved(int) ), m_infoDialog->Number2, SLOT( setValue(int) ) );
 	connect( m_infoDialog->temp_slider, SIGNAL( valueChanged(int) ), this, SLOT( slotTemp(int) ) );
 	connect( m_infoDialog->temp_slider, SIGNAL( valueChanged(int) ), m_infoDialog->Number2, SLOT( setValue(int) ) );
 	connect( m_infoDialog->Number2, SIGNAL( valueChanged(int) ), m_infoDialog->temp_slider, SLOT( setValue(int) ) );
-	connect( m_infoDialog->tabWidget, SIGNAL( currentChanged(QWidget*) ), this , SLOT( tabSelected(QWidget*) ) );
-
-	tabSelected( 0L );
 
 	resize( 550, 400 );
 }
@@ -65,32 +56,9 @@ InformationWidget::InformationWidget( PSE *pse )
 void InformationWidget::slotClose()
 {
 	m_pse->setFullDraw();
-	m_pse->setTimeline( false );
 	m_pse->activateSOMMode( false );
 	emit closed();
 	accept();
-}
-
-QuizXMLParser::QuizXMLParser()
-{
-}
-
-void InformationWidget::tabSelected( QWidget* /*w*/ )
-{
-	if ( m_infoDialog->tabWidget->currentPageIndex() == 0 )
-		m_pse->setTimeline( true );
-	else
-		m_pse->setTimeline( false );
-
-	if ( m_infoDialog->tabWidget->currentPageIndex() == 1 )
-		m_pse->activateSOMMode( true );
-	else
-		m_pse->activateSOMMode( false );
-
-	m_infoDialog->time_slider->setValue( 2000 );
-	m_infoDialog->temp_slider->setValue( 295 );
-	m_pse->setFullDraw();
-	m_pse->update();
 }
 
 void InformationWidget::slotTemp( int temp )
@@ -150,19 +118,9 @@ void InformationWidget::slotTemp( int temp )
 	m_infoDialog->m_explanation_3->setText( htmlcode );
 }
 
-void InformationWidget::slotDate(int date)
-{
-	m_pse->setDate( date );
-}
-
 void InformationWidget::showSOM()
 {
 	m_infoDialog->tabWidget->setCurrentPage( 0 );
-}
-
-void InformationWidget::showTimeline()
-{
-	m_infoDialog->tabWidget->setCurrentPage( 1 );
 }
 
 #include "informationdialog_impl.moc"

@@ -21,6 +21,7 @@ kalzium_SOURCES = kalzium.cpp \
 			molcalcwidget.cpp \
 			molcalc_impl.cpp \
 			informationdialog.ui \
+			timewidget.ui \
 			informationdialog_impl.cpp \
 			glossarydialog.cpp
 			
@@ -43,6 +44,7 @@ EXTRA_DIST = main.cpp \
 		molcalc_impl.cpp molcalc_impl.h \
 		molcalcwidget.cpp molcalcwidget.h \
 		informationdialog.ui \
+		timewidget.ui \
 		informationdialog_impl.cpp informationdialog_impl.h \
 		glossarydialog.cpp glossarydialog.h
 

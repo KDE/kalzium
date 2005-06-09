@@ -25,10 +25,12 @@
 #include "glossarydialog.h"
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
+#include "timewidget.h"
 
 #include <qdockwindow.h>
 #include <qlayout.h>
 #include <qtoolbox.h>
+#include <qslider.h>
 
 #include <kconfigdialog.h>
 #include <kiconloader.h>
@@ -180,6 +182,11 @@ void Kalzium::setupSidebars()
 	
 	m_calcWidget = new MolcalcWidget( data(), m_dockWin, "molcalcwidget" );
 	toolbox->addItem( m_calcWidget, i18n( "Calculate" ) );
+
+	m_timeWidget = new timeWidget( this, "timeWidget" );
+	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ), 
+			m_PSE, 						SLOT( setDate( int ) ) );
+	toolbox->addItem( m_timeWidget, i18n( "Timeline" ) );
 
 	connect( toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
@@ -523,17 +530,22 @@ void Kalzium::setFullDraw()
 void Kalzium::slotToolboxCurrentChanged( int id )
 {
 	m_PSE->unSelect();
+	m_PSE->setTimeline( false );
+
 	disconnect( m_PSE, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
-//	m_calcWidget->clear();
 	switch ( id )
 	{
 		case 0: // nothing
 			emit tableLocked( false );
-			m_calcWidget->clear();
+//			m_calcWidget->clear();
 			break;
 		case 1: // molcalc
 			connect( m_PSE, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
 			emit tableLocked( true );
+			break;
+		case 2: // timeline
+			m_PSE->setTimeline( true );
+			m_PSE->setDate( m_timeWidget->time_slider->value() );
 			break;
 	}
 

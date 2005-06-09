@@ -45,10 +45,10 @@ MolcalcWidget::MolcalcWidget( KalziumDataObject *data, QWidget *parent, const ch
 	minusButton->setGuiItem( KGuiItem( i18n( "&Remove" ), "remove" ) );
 	connect( plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
 	connect( minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
+	
+	connect( clearButton, SIGNAL( clicked() ), this, SLOT( clear() ) );
 
-	resultComposition->setText( i18n("To start, click\non the elements") );
-
-	resize( 500, 400 );
+	clear();
 }
 
 void MolcalcWidget::slotButtonClicked( int buttonnumber )
@@ -216,8 +216,9 @@ void MolcalcWidget::clear()
 	m_elements.clear();
 
 	resultLabel->setText( "" );
-	resultComposition->setText( "" );
 	resultMass->setText( "" );
+	
+	resultComposition->setText( i18n("To start, click\non the elements") );
 }
 
 

@@ -32,6 +32,7 @@ class DetailedInfoDlg;
 class PSE;
 class MolcalcWidget;
 class DetailedGraphicalOverview;
+class timeWidget;
 
 /**
  * @short Application Main Window
@@ -129,6 +130,8 @@ class Kalzium : public KMainWindow
 		QVBoxLayout *m_pCentralLayout;
 
 		MolcalcWidget *m_calcWidget;
+
+		timeWidget *m_timeWidget;
 
 		DetailedGraphicalOverview *m_detailWidget;
 

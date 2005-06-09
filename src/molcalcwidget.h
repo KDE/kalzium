@@ -41,6 +41,7 @@ class MolcalcWidget : public MolcalcWidgetBase
 		 */
 		MolcalcWidget( KalziumDataObject *data , QWidget *parent = 0, const char *name = 0 );
 
+	private slots:
 		void clear();
 
 	private:

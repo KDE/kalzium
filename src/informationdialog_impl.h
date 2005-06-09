@@ -29,8 +29,6 @@ class InformationWidget : public KDialogBase
 
 		void showSOM();
 
-		void showTimeline();
-
 	private:
 		///returns the text formated as html
 		QString getDesc(QPoint);
@@ -42,22 +40,10 @@ class InformationWidget : public KDialogBase
 		virtual void slotClose();
 
 	public slots:
-		void slotDate( int );
 		void slotTemp( int );
-
-		void tabSelected( QWidget* );
 
 	signals:
 		void closed();
-};
-
-class QuizXMLParser
-{
-	public: 
-		QuizXMLParser();
-
-		QString readTasks( QDomDocument &questionDocument, int number );
-		bool loadLayout( QDomDocument &questionDocument, const QString& filename );
 };
 
 #endif // INFORMATIONDIALOG_IMPL_H
