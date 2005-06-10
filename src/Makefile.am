@@ -21,10 +21,12 @@ kalzium_SOURCES = kalzium.cpp \
 			timewidget.ui \
 			somwidget.ui \
 			somwidget_impl.cpp \
-			glossarydialog.cpp
+			glossarydialog.cpp \
+			kalziumtip.cpp
 			
-kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)\
-		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la
+kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) \
+		  $(top_builddir)/libkdeedu/kdeeduplot/libkdeeduplot.la 
+		 
 		  
 SUBDIRS = icons elementpics data
 

@@ -32,10 +32,15 @@ class QPoint;
 class QVBoxLayout;
 class Element;
 class KalziumDataObject;
+class KalziumTip;
 
 #include <qvaluelist.h>
 #include <qwidget.h>
 #include <qtimer.h>
+
+
+
+
 
 /**
  * @short basic class for the specific PSEs
@@ -261,7 +266,8 @@ class PSE : public QWidget
 
 		///the current colourscheme
 		int m_currentScheme;
-		
+	
+		KalziumTip* m_kalziumTip;	
 		bool m_timeline;
 		
 		///the temperature of the table (for the SOM-feature)
@@ -301,7 +307,7 @@ class PSE : public QWidget
 		QPoint m_currentPoint;
 
 		void mouseReleaseEvent( QMouseEvent* );
-
+		void mousePressEvent( QMouseEvent* );
 		void mouseMoveEvent( QMouseEvent* );
 
 		QStringList m_IUPAClist;
@@ -330,7 +336,6 @@ class PSE : public QWidget
 		///used for bitBlit. If true the complete table will be drawn
 		bool doFullDraw;
 		
-
 
 		//I am holding all colours as member so that they don't need to 
 		//be reloaded on every reload

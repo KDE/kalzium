@@ -20,6 +20,7 @@
 #include "pse.h"
 #include "prefs.h"
 #include "element.h"
+#include "kalziumtip.h"
 
 #include <klocale.h>
 #include <kdebug.h>
@@ -39,7 +40,7 @@
 #include <qrect.h>
 
 PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
-  : QWidget(parent, name), table(0), table2(0)
+  : QWidget(parent, name), table(0), table2(0), m_kalziumTip(0)
 {
 	d = data;
 
@@ -118,6 +119,8 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	table = new QPixmap();
 	table2 = new QPixmap();
 
+	m_kalziumTip = new KalziumTip(this);
+
 	//JH: Start with a full draw
 	doFullDraw = true;
 }
@@ -156,9 +159,12 @@ void PSE::reloadColours()
 
 void PSE::slotToolTip( int number )
 {
-	if ( !m_showTooltip ) return; //don't update if the table is locked
+	if ( !m_showTooltip ) 
+		return; //don't update if the table is locked
+
 	m_tooltipElementNumber = number;
-	update();
+
+	m_kalziumTip->showTip(mapFromGlobal(QCursor::pos()), d->element(number));	
 }
 
 PSE::~PSE(){}
@@ -385,6 +391,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
   //so let's copy it to table2 and add the tooltip there.
   *table2 = *table;
  
+  /*
   if ( m_showTooltip )
   {
     if ( m_tooltipElementNumber <= d->numberOfElements() && m_tooltipElementNumber > 0 )
@@ -402,7 +409,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
       drawLegendToolTip( &p2 );
       p2.end();
 	}
-  }
+  }*/
 		
   //JH: Finally, bitBlt the table2 pixmap to the widget
   bitBlt( this, 0, 0, table2 );
@@ -782,16 +789,39 @@ void PSE::slotTransientLabel( void )
 	else m_showLegendTooltip = false;
 }
 
+void PSE::mousePressEvent( QMouseEvent *)
+{
+	if( m_kalziumTip->isVisible() )
+		m_kalziumTip->hide();
+}
+
 void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 {
   //JH: only update() if we were showing a tooltip
-  if ( m_tooltipElementNumber || m_showLegendTooltip ) {
+  if ( m_tooltipElementNumber || m_showLegendTooltip )
+  {
   	m_tooltipElementNumber = 0; //this invalidates the number. If the mouse
 	                            //is moved, the number is invalid. 
 	m_showLegendTooltip = false;
-  	update();       
+	update();
   }
-  
+
+  if( m_kalziumTip->isVisible() )
+  {
+	QPoint point = ElementUnderMouse();
+
+	int X = point.x();
+	int Y = point.y();
+
+	const int num = ElementNumber( X, Y );
+
+	if ( num != 0 )
+		emit ToolTip( num );
+	else
+		m_kalziumTip->hide();
+
+  } 	  
+
   HoverTimer.start(  2000, true ); //JH: true = run timer once, not continuously
   MouseoverTimer.start(  200, true ); //JH: true = run timer once, not continuously
 }
@@ -1396,6 +1426,5 @@ void PSE::setLook( PSE::SCHEMETYPE type, int which )
 	setFullDraw();
 	update();
 }
-
 
 #include "pse.moc"
