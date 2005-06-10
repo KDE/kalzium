@@ -80,6 +80,7 @@ Bugs
        legend for the SOM
    CN: I think all the legendstuff should be unified in one drawin-
        method in pse.cpp
+  + Select a gradient, restart kalzium, go to Timeline -> black PSE	----
 
 * The glossary window:
   + If you hit <Return> in the search, you close the window.  It	----
@@ -90,34 +91,10 @@ Bugs
 Features
 --------
 
-This list includes both ideas and misfeatures. Proper bugs have been 
-moved up above.
-
-2.  They should have WhatsThis help as well.				----
-   CN: not sure if that is needed if (1) is implemented
-   IW: No, you are probably right.
-   PT: what about reducing the size for that tooltip, just like
-       normal tooltips?
-   CN: Well, you have up to 9 colors in a legend, this will lead to
-       nine explanations. A short tooltip is only possible with
-	   really short explanations like "In the family-view you see
-	   different families of elements" without explaining what
-	   the members are. OTOH this migth really belong into a handbook
-
-4.  In "learning mode", "Time" should perhaps be "Discovery year".	----
-   CN: Not only that, there should be more data about the time, for
-       example which chemitry-nobel-prize was won in that year (+/- 5
-       years or so)
-
-19. Which brings us to: The settings should be above the table, not in	----
-    the status bar.
-   CN: I implemented that on June 4th. I like it, Ellen from
-       OpenUsability likes it as well...
-
-
 * PSE widget
   + The legend should be outlined in some way. 				----
-   This is done, but could it be improved, perhaps?
+   IW: This is done, but could it be improved, perhaps?
+  + The settings should be above the table, not in the status bar.	----
 
 * Plotting
   + Add groups of elements, for example "Metals", 4th Period		----
@@ -137,9 +114,12 @@ moved up above.
 
 * Make the glossary also into a dictionary
 
-* Add more than only one mode to Kalzium, eg a mode with simplified	----
+* Add more than only one mode to Kalzium, eg a mode with simplified
   user interface (less looks, easier menu structure, less information
   in the infodialog) and a full-mode where everything is enabled.
+
+* There should be more data about the elements, for example which
+  chemitry-nobel-prize was won in that year (+/- 5 years or so)
 
 
 
