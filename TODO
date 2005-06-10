@@ -80,7 +80,7 @@ Bugs
        legend for the SOM
    CN: I think all the legendstuff should be unified in one drawin-
        method in pse.cpp
-  + Select a gradient, restart kalzium, go to Timeline -> black PSE	----
+  + Select a gradient, restart kalzium, go to Timeline -> black PSE	DONE-HP
 
 * The glossary window:
   + If you hit <Return> in the search, you close the window.  It	----

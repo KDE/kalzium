@@ -249,7 +249,7 @@ void KalziumTip::loadIcon()
 	}
 	else
 	{
-		QPixmap pic ( locate( "data" , "kalzium/hi128-app-kalzium.png" ) );
+		QPixmap pic ( locate( "data" , "kalzium/icons/crystalsvg/128x128/actions/orbits.png" ) );
 		m_icon = pic;
 	}
 }

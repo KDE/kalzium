@@ -371,9 +371,6 @@ class PSE : public QWidget
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 
-		///in this method the tooltops are drawn.
-		virtual void drawToolTip( QPainter *p, Element *e );
-		
 		///draw the tooltop for the legend
 		virtual void drawLegendToolTip( QPainter *p );
 

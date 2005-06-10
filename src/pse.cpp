@@ -345,7 +345,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	  if ( m_timeline ){ //use timeline
 		  drawTimeLine(& p );
 		  p.end();
-
+		
 		  *table2 = *table;
 		  bitBlt( this, 0, 0, table2 );
 		  return;
@@ -493,72 +493,17 @@ void PSE::drawLegendToolTip( QPainter* p )
 	p->drawText( bRect, AlignLeft|AlignTop, text );
 }
 
-void PSE::drawToolTip( QPainter* p, Element *e )
-{
-	if ( !e ) return;
-
-	if(!m_showTooltip) return;
-	
-	const int x1 = mapFromGlobal( QCursor::pos() ).x();
-	const int y1 = mapFromGlobal( QCursor::pos() ).y();
-
-	static const int padding = 3;
-
-	QFont fB = KGlobalSettings::generalFont();
-	fB.setPointSize( fB.pointSize() + 4 );
-	p->setFont( fB );
-	
-	QString text = i18n( "Name: %1\n"
-	                     "Number: %2\n"
-	                     "Mass: %3 u")
-	               .arg( e->elname(),
-	                     QString::number( e->number() ),
-	                     QString::number( e->mass() ) );
-
-	QRect bRect( 0, 0, 1000, 1000 );
-	bRect = p->boundingRect( bRect, AlignLeft|AlignTop, text );
-	bRect.moveBy( x1, y1 );
-	QRect bRectExt = bRect;
-	bRect.moveBy( padding, padding );
-	bRectExt.setWidth( bRectExt.width() + 2 * padding );
-	bRectExt.setHeight( bRectExt.height() + 2 * padding );
-
-	bool vertflipped = false;
-	if ( bRectExt.bottom() > height() )
-	{
-		bRectExt.moveBy( 0, - bRectExt.height() );
-		bRect.moveBy( 0, - bRect.height() - 2 * padding );
-		vertflipped = true;
-	}
-	if ( bRectExt.right() > width() )
-	{
-		bRectExt.moveBy( - bRectExt.width(), 0 );
-		bRect.moveBy( - bRect.width() - 2 * padding, 0 );
-	}
-	else if ( !vertflipped )
-	{
-		bRectExt.moveBy( 15, 0 );
-		bRect.moveBy( 15, 0 );
-	}
-
-	p->setBrush(Qt::SolidPattern);
-	p->setBrush( QColor( 255, 255, 220 ) );
-	p->drawRect( bRectExt );
-
-	p->setBrush( Qt::black );
-	p->setBrush(Qt::NoBrush);
-
-	p->drawText( bRect, AlignLeft|AlignTop, text );
-}
-
 void PSE::drawTimeLine( QPainter* p )
 {
 	if ( !p ) return;
 	kdDebug() << "PSE::drawTimeLine: " << m_date << endl;
 	
+	if ( gradient() )
+		activateColorScheme( PSE::NOCOLOUR );
+	
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
-
+	
 	/**
 	 * this loop iterates through all elements. The Elements
 	 * draw themselfs, the PSE only tells them to do so
@@ -566,7 +511,9 @@ void PSE::drawTimeLine( QPainter* p )
 	while ( it != itEnd )
 	{
 		if ( ( *it )->date() <= m_date )
+		{
 			( *it )->drawSelf( p );
+		}
 		++it;
 	}
 }
