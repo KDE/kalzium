@@ -1,15 +1,52 @@
-TODO for Kalzium 1.5:
+                           Release plan
+                           ============
+
+Status: Under discussion
+
+
+Overview
+--------
+
+Currently we plan for 3 releases:
+
+ - A standalone release of Kalzium in July
+ - The release for KDE 3.5
+ - The release for KDE 4.0
+
+The reason for the standalone release is that we want user feedback
+for the KDE 3.5 release.  We will 
+
+All details of the release plan are below the TODO items for the
+respective release.
+
+Dates
+
+2005-06-30    Feature freeze.  All features in the TODO for
+              version 1.5 should be done at the end of this day.
+
+2005-07-08    End of bug testing and fixing period.
+
+2005-07-11    Release of Kalzium 1.5
+
+
+----------------------------------------------------------------
+                       TODO for Kalzium 1.5
+
+
+Bugs
+----
+
 
 * Miscellaneous bugs:
-  + Select "Periodic Table"->Look->"Show Blocks"
+  + Select "Periodic Table"->Look->"Show Blocks"			----
     Click on any element in the d block (yellow)
     Now you get a dialog with a green background.
     The same, but opposite happens for elements in the p block (green)
     The legend as well as the colors should be checked.
 
-	CN: It was marked as done but I can still reproduce it. The background
-	    of the overview-widget is not always coresponding to the
-		current sheme
+   CN: It was marked as done but I can still reproduce it. The background
+       of the overview-widget is not always coresponding to the
+       current sheme
 
   + Fix the startsize of the infodialog                             ----
     - make the html fit into the window
@@ -49,7 +86,10 @@ TODO for Kalzium 1.5:
     should display the item.
    CN: simple focus-bug. Easy to fix
 
-================================================================
+
+Features
+--------
+
 This list includes both ideas and misfeatures. Proper bugs have been 
 moved up above.
 
@@ -64,21 +104,10 @@ moved up above.
 	   different families of elements" without explaining what
 	   the members are. OTOH this migth really belong into a handbook
 
-3.  The data dialog should be non-modal (definitely)			DONE-IW
-   CN: Ingwa will do this.
-
 4.  In "learning mode", "Time" should perhaps be "Discovery year".	----
    CN: Not only that, there should be more data about the time, for
        example which chemitry-nobel-prize was won in that year (+/- 5
        years or so)
-
-8.  An idea: Is there a way to get a table of different data?		----
-   CN: Export to html and csv comes into my mind. Pretty easy I
-       guess. SOmething like that was in Kalzium of KDE 3.1 I
-       think.  But my implementation sucked so much I removed it.
-
-13. Not a bug, but an idea: Make the glossary also a tool for		----
-    translation.
 
 18. An idea: When you run the mouse over the element table, it shows	DONE-CN
     selected data about the elements in the status bar.
@@ -92,7 +121,7 @@ moved up above.
        OpenUsability likes it as well...
 
 22. The plot should be repainted immediately if something changes on	----
-    the left. Â The "Plot" button should go.
+    the left. The "Plot" button should go.
    PT: and if the user wants to change more than one option at once
        and then replot? If so, we'll replot more than once.
    CN: Not only that. I would love to make more than one plot possible:
@@ -118,45 +147,60 @@ moved up above.
     user to compare two or more groups, eg. 4th with 5th group
 
 
+================================================================
+                       Future versions
 
-Plans for the future:
+* Export to html and csv comes into my mind. Pretty easy I
+  guess. SOmething like that was in Kalzium of KDE 3.1 I
+  think.  But my implementation sucked so much I removed it.
 
-+ Standalone release of Kalzium
-	* Feature freeze by the end of June. No strict date but lets try
-	  to not add new things in July.
+* Make the glossary also into a dictionary
+
+
+================================================================
+                  Details of the release plan
+
+
+* Standalone release of Kalzium
+  + After one week of testing and improving I would like to release
+    Kalzium (together with libkdeedu for the plotting) on the 8th 
+    of July (a friday).
+   IW: I changed this to Monday 11th for two reasons:
+     - We have the weekend to fix really urgent bugs, and to do the
+       packaging without stress.
+     - It's better to do the release when people don't only want to
+       think about the upcoming weekend.  This way, the release can
+       get more attention.
 	
-	* After one week of testing and improving I would like to release
-	  Kalzium (together with libkdeedu for the plotting) on the 8th 
-	  of July (a friday).
-	
-	* The release will be what is in trunk
-	
-	* Releasecriteria:
-	  - Try to fix all bugs on bugs.kde.org
-	  - Try to add all icons. For this purpose I started a thread here:
-	  http://kde-artists.org/main/component/option,com_smf/Itemid,48/expv,0/topic,60.0
-	  - Try to make the release very usable:
-	  http://www.openusability.org/forum/forum.php?thread_id=397&forum_id=250
-	  - Try to write the documentation
-	  - *must be* Update edu.kde.org/kalzium with screenshots
-	  - *must be* increase the version number
-	
-	* Releasemechanismn:
-	  - Announcement on kdeedu@kde.org
-	  - Announcement on apps.kde.org 
-	  - Announcement on annoucement@kde.org
-	  - I will blog about the release and it goals
+  + Releasecriteria, prio 1:
+    - Fix all bugs on bugs.kde.org
+    - Add all icons. For this purpose I started a thread here:
+      http://kde-artists.org/main/component/option,com_smf/Itemid,48/expv,0/topic,60.0
+    - *must be* Update edu.kde.org/kalzium with screenshots
+    - *must be* increase the version number
+  + Releasecriteria, prio 2:
+    - Make the release very usable:
+      http://www.openusability.org/forum/forum.php?thread_id=397&forum_id=250
+    - Write the documentation
+   These prio 2 issues will be prio 1 for KDE 3.5
 
-+ KDE 3.5-release
-	* Try to make use of the feedback we get of the standalone release
+  + Releasemechanism:
+    - Announcement on http://dot.kde.org
+    - Announcement on kdeedu@kde.org
+    - Announcement on apps.kde.org 
+    - Announcement on announcement@kde.org (is this the correct address?)
+    - I will blog about the release and it goals
 
-	* The 3.5-release will probably be pretty identical with the standalone-release
+* KDE 3.5-release
+   + Make use of the feedback we get of the standalone release
+   + The 3.5-release will probably be pretty identical with the
+     standalone-release, except for bug fixes and usability issues.
 
-	* We should again check for bugs.kde.org
 
-+ KDE4-release
-	* Switch to KCanvas2 so that scaling the table is possible?
+* KDE4-release
 
-	* Port to Qt4. We use a lot QValueList<T> and paintEvents, so I expect some fun :)
-
-	* Implement the things in this TODO-file
+  + Port to Qt4. We use a lot QValueList<T> and paintEvents, so I
+    expect some fun :)
+  + Switch to KCanvas2 so that scaling the table is possible?
+    IW: Scaling can be made possible without KCanvas2 as well.
+  + Implement the things in this TODO-file
