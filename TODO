@@ -92,9 +92,12 @@ Features
 --------
 
 * PSE widget
-  + The legend should be outlined in some way. 				----
+  + The legend should be outlined in some way. 				        ----
    IW: This is done, but could it be improved, perhaps?
   + The settings should be above the table, not in the status bar.	----
+  + The misc-settings are not used                                  ----
+    (Misc.Tab in the Settings-Dialog)
+  
 
 * Plotting
   + Add groups of elements, for example "Metals", 4th Period		----

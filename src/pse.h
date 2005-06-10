@@ -215,6 +215,7 @@ class PSE : public QWidget
 		}
 
 		/**
+		 * @param type set the scheme
 		 * @param which set the type of gradient
 		 * @see Element::TYPE
 		 */
