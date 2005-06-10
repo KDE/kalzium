@@ -270,6 +270,7 @@ void Kalzium::slotShowLegend()
 		m_PSE->showLegend(true);
 		m_pLegendAction->setText(i18n("Hide &Legend"));
 	}
+	m_PSE->update();
 	
 	//save the settings
 	Prefs::setShowlegend( m_PSE->showLegend() ); 
