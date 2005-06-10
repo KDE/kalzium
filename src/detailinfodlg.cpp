@@ -68,6 +68,11 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	setButtonTip( User2, i18n( "Goes to the previous element" ) );
 	setButtonTip( User1, i18n( "Goes to the next element" ) );
 
+	if ( m_element->number() == 1 )
+		enableButton( User2, false );
+	else if ( m_element->number() == m_data->numberOfElements() )
+		enableButton( User1, false );
+
 	connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
 }
 
@@ -89,6 +94,13 @@ void DetailedInfoDlg::setElement(Element *element)
 	m_pages.clear();
 
 	createContent();
+
+	enableButton( User1, true );
+	enableButton( User2, true );
+	if ( m_element->number() == 1 )
+		enableButton( User2, false );
+	else if ( m_element->number() == m_data->numberOfElements() )
+		enableButton( User1, false );
 }
 
 

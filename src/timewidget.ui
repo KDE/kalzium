@@ -49,6 +49,23 @@
                         <string>Year:</string>
                     </property>
                 </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>5</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
                 <widget class="KIntSpinBox">
                     <property name="name">
                         <cstring>Number1</cstring>
@@ -63,23 +80,6 @@
                         <number>1994</number>
                     </property>
                 </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer1</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>81</width>
-                            <height>21</height>
-                        </size>
-                    </property>
-                </spacer>
             </hbox>
         </widget>
         <spacer row="3" column="1">

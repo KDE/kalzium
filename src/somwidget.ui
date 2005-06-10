@@ -100,6 +100,23 @@
                         <string>Temperature:</string>
                     </property>
                 </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>5</width>
+                            <height>21</height>
+                        </size>
+                    </property>
+                </spacer>
                 <widget class="KIntSpinBox">
                     <property name="name">
                         <cstring>Number1</cstring>
@@ -114,23 +131,6 @@
                         <number>295</number>
                     </property>
                 </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer1</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>20</width>
-                            <height>21</height>
-                        </size>
-                    </property>
-                </spacer>
             </hbox>
         </widget>
         <widget class="QLabel" row="4" column="0" rowspan="1" colspan="2">
