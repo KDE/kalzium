@@ -59,7 +59,7 @@ void SOMWidgetIMPL::slotTemp( int temp )
 		}
 		if ( ( ( *it )->boiling() > 0.0 ) && fabs( ( *it )->boiling() - temp ) <= threshold )
 		{
-			listBoilingPoint << ( *it )->elname().utf8();
+			listBoilingPoint << ( *it )->elname();
 			listBoilingPointValue << ( *it )->adjustUnits( Element::BOILINGPOINT );
 		}
 	}

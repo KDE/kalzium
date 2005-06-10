@@ -305,8 +305,7 @@ void DetailedInfoDlg::createContent( )
 	addTab( getHtml(MISC), i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 	
 	QString num = QString::number( m_element->number() );
-	QString elname = i18n( m_element->elname().utf8() );
-	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( elname ).arg( num );
+	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elname() ).arg( num );
 	setCaption( cap );
 
 	dTab->setElement( m_element );
@@ -322,7 +321,7 @@ void DetailedInfoDlg::createContent( )
 	}
 	else 
 	{
-		piclabel->setText( i18n( "No picture of %1 found." ).arg( elname ) );
+		piclabel->setText( i18n( "No picture of %1 found." ).arg( m_element->elname() ) );
 	}
 
     /////////////////////////////////
@@ -330,8 +329,8 @@ void DetailedInfoDlg::createContent( )
 	wOrbits->setElementNumber( m_element->number() );
 	wOrbits->repaint();
 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
-							.arg( elname )
-							.arg( elname )
+							.arg( m_element->elname() )
+							.arg( m_element->elname() )
 							.arg( m_element->parsedOrbits() ) );
 }
 

@@ -131,7 +131,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 	//Name and other data
 	p.setFont( fC );
 	//Name
-	p.drawText( xC1, yC1, i18n( e->elname().utf8() )); 
+	p.drawText( xC1, yC1, e->elname() );
 	//Oxidationszahlen
 	p.drawText( xC2, yC2, e->oxstage() ); 
 	//Mass

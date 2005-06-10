@@ -391,7 +391,7 @@ void Kalzium::updateStatusbar()
 void Kalzium::slotStatusbar( int num )
 {
 	Element *e = data()->element( num );
-	statusBar()->changeItem( i18n( "%1 (%2), Weight: %3 u" ).arg( e->elname().utf8() ).arg(e->number() ).arg( e->mass() ) , IDS_ELEMENTINFO );
+	statusBar()->changeItem( i18n( "%1 (%2), Weight: %3 u" ).arg( e->elname() ).arg(e->number() ).arg( e->mass() ) , IDS_ELEMENTINFO );
 }
 
 void Kalzium::openInformationDialog( int number )

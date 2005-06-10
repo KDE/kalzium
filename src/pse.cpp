@@ -522,7 +522,7 @@ void PSE::drawToolTip( QPainter* p, Element *e )
 	QString text = i18n( "Name: %1\n"
 	                     "Number: %2\n"
 	                     "Mass: %3 u")
-	               .arg( e->elname().utf8(),
+	               .arg( e->elname(),
 	                     QString::number( e->number() ),
 	                     QString::number( e->mass() ) );
 
