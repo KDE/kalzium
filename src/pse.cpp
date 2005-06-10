@@ -391,25 +391,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
   //so let's copy it to table2 and add the tooltip there.
   *table2 = *table;
  
-  /*
-  if ( m_showTooltip )
-  {
-    if ( m_tooltipElementNumber <= d->numberOfElements() && m_tooltipElementNumber > 0 )
-    {
-      QPainter p2;
-      p2.begin( table2 );
-      Element *e = d->element( m_tooltipElementNumber );
-      drawToolTip( &p2, e );
-      p2.end();
-    }
-	else if ( m_showLegendTooltip )
-	{
-      QPainter p2;
-      p2.begin( table2 );
-      drawLegendToolTip( &p2 );
-      p2.end();
-	}
-  }*/
+
 		
   //JH: Finally, bitBlt the table2 pixmap to the widget
   bitBlt( this, 0, 0, table2 );

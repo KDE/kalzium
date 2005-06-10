@@ -2,11 +2,11 @@
 #define KALZIUMTIP_H
 /***************************************************************************
 
-                           kalziumtip.h  -  description
+                           The header for the tooltip class of Kalzium
                              -------------------
     begin                : June 2003
-    copyright            : (C) 2003, 2004, 2005 by Carsten Niehaus
-    email                : cniehaus@kde.org
+    copyright            : (C) 2003, 2004, 2005 by Martin Pfeiffer
+    email                : hubipete@gmx.net
  ***************************************************************************/
 
 /***************************************************************************
@@ -21,14 +21,14 @@
 
 #include <qwidget.h>
 #include <qbitmap.h>
-#include <qpixmap.h>
 #include <qtimer.h>
-
-#include "element.h"
 
 class QPaintEvent;
 class QSimpleRichText;
+class QPixmap;
+class Element;
 class QTimer;
+
 
 /**
  * @short tooltip for kalzium
@@ -44,19 +44,20 @@ class KalziumTip : public QWidget
 
 		KalziumTip(QWidget * parent);
 
-		void showTip(QPoint, Element* element);
-		void hide();
+		void showTip(QPoint, Element* element); //show the tip
+		void hide(); // hide it
 
 	protected:
 		void paintEvent(QPaintEvent * e);
-    		//void mousePressEvent(QMouseEvent * e);
 
-    		void plainMask();
+     		void plainMask();
     		void dissolveMask();
     	
 		void displayInternal();
 		void display();	
-
+		
+		void loadIcon(); //loads the elements icon
+	
 	protected slots:
 		void internalUpdate();
 		
@@ -64,30 +65,19 @@ class KalziumTip : public QWidget
 		QBitmap m_mask;
 		QPoint m_mousePointer;
     		QPixmap m_pixmap;
-    		QPixmap m_icon;
+    		QPixmap m_icon; //icon shown on the tip
+
     		MaskEffect m_maskEffect; //inidicates to show mask effect or plain
     		QSimpleRichText* m_richText;
 
     		int m_dissolveSize;
     		int m_dissolveDelta;
 
-    		QTimer m_frameTimer;
+    		QTimer m_frameTimer; //timer for the dissolve effect
     		bool m_dirty;	//indicates repainting the tooltip internal
 
 		const Element* m_tippedElement; //the element the tip is about
 };
 
-
 #endif
-
-    		
-    		
-            		
-            		
-            		
-            		
-            		
-            		
-    		
-
 

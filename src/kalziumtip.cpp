@@ -19,11 +19,15 @@
  ***************************************************************************/
 
 #include "kalziumtip.h"
-#include <qtimer.h>
+#include "element.h"
+
+#include <qpixmap.h>
+#include <qimage.h>
 #include <qsimplerichtext.h>
 #include <qpainter.h>
 #include <kdialog.h>
 #include <qapplication.h>
+#include <kstandarddirs.h>
 #include <kdebug.h>
 
 
@@ -35,19 +39,22 @@ KalziumTip::KalziumTip(QWidget* parent) : QWidget(parent)
 	hide(); //initailly hide it
 
 	connect(&m_frameTimer, SIGNAL(timeout()), SLOT(internalUpdate()));
-	kdDebug() << "KalziumTip()" << endl;
 }
 
 void KalziumTip::showTip(QPoint mouse, Element* element)
 {
-	if ( element !=  0)
-		m_tippedElement = element;
-
-	kdDebug() << QString::number(mouse.x()) << endl;
-	kdDebug() << QString::number(mouse.y()) << endl;
 	m_mousePointer = mouse;
 	
-	display();
+	if( element == m_tippedElement )
+		move(m_mousePointer); //do not paint again if already painted
+	else
+	{
+		if ( element !=  0)
+			m_tippedElement = element;
+
+		loadIcon(); //load icon	
+		display();
+	}
 }
 
 void KalziumTip::paintEvent(QPaintEvent* e)
@@ -65,21 +72,22 @@ void KalziumTip::paintEvent(QPaintEvent* e)
 void KalziumTip::display()
 {
 	if( !m_tippedElement )
-	{
 		return;
-	}
 	
 	delete m_richText;
 	
 	QString elementname = m_tippedElement->elname();
-	QString number = QString::number(m_tippedElement->number());
-				
+	QString number = QString( "Number: %1" )
+			.arg( QString::number(m_tippedElement->number()) );
+	QString mass = QString( "Mass: %1" )
+			.arg( QString::number(m_tippedElement->mass()) );				
 
-	m_richText = new QSimpleRichText("<qt><h3>" + elementname + "</h3><p>" + number + "</p></qt>", font());
+	m_richText = new QSimpleRichText("<qt><h1>" + elementname + "</h1><p>"
+						    + number + "</p><p>"
+						    + mass  +"</p></qt>", font());
+
 
         m_richText->setWidth(400);
-
-	// load m_icon as QPixmap
 
 	m_maskEffect = isVisible() ? Plain : Dissolve;
     	m_dissolveSize = 24;
@@ -95,9 +103,8 @@ void KalziumTip::display()
 void KalziumTip::displayInternal()
 {
     	if (!m_richText)
-    	{
         	return;
-    	}
+    	
 
 	// determine text rectangel sizes
 	QRect textRect(0,0,0,0);
@@ -178,8 +185,9 @@ void KalziumTip::dissolveMask()
 
         int x, y, s;
         const int size = 16;
+	const int heightsize = size + height();
 
-        for (y = 0; y < height() + size; y += size)
+        for (y = 0; y < heightsize; y += size)
         {
             x = width();
             s = m_dissolveSize * x / 128;
@@ -227,6 +235,23 @@ void KalziumTip::internalUpdate()
 {
 	m_dirty = true;
     	update();
+}
+
+void KalziumTip::loadIcon()
+{
+	if ( !locate(  "data" , "kalzium/elempics/" + m_tippedElement->symbol() + ".jpg" ).isEmpty() )
+	{
+		QPixmap pic ( locate( "data" , "kalzium/elempics/" + m_tippedElement->symbol() + ".jpg" ) );
+		QImage img = pic.convertToImage();
+		img = img.smoothScale ( 128, 128, QImage::ScaleMin );
+		pic.convertFromImage( img );
+		m_icon = pic;
+	}
+	else
+	{
+		QPixmap pic ( locate( "data" , "kalzium/hi128-app-kalzium.png" ) );
+		m_icon = pic;
+	}
 }
 
 #include "kalziumtip.moc"
