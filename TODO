@@ -48,12 +48,12 @@ Bugs
        of the overview-widget is not always coresponding to the
        current sheme
 
-  + Fix the startsize of the infodialog                             ----
+  + Fix the startsize of the infodialog					----
     - make the html fit into the window
 	- make the dialog have a sane size if there is no picture of 
 	  the element
 
-  + Make use of the biological symbol.                              ----
+  + Make use of the biological symbol.					----
     CN: I lost the "translation" though, will have to look after it.
   
   + Some melting and boiling points are wrong.  How to reproduce:	----
@@ -75,7 +75,7 @@ Bugs
    CN: Obviously not ;) Otherwise it would work
 
 * The main window:
-  + There is no legend in Learning Mode.							DONE-CN
+  + There is no legend in Learning Mode.				DONE-CN
    PT: actually, there is, but only for the time mode; we need a
        legend for the SOM
    CN: I think all the legendstuff should be unified in one drawin-
@@ -109,42 +109,23 @@ moved up above.
        example which chemitry-nobel-prize was won in that year (+/- 5
        years or so)
 
-18. An idea: When you run the mouse over the element table, it shows	DONE-CN
-    selected data about the elements in the status bar.
-   PT: nice, but only a few datas can be displayed
-   CN: "Carbon (6), Weight: 12.01 u" would be the most important
-       and most used information. I really like that
-   
 19. Which brings us to: The settings should be above the table, not in	----
     the status bar.
    CN: I implemented that on June 4th. I like it, Ellen from
        OpenUsability likes it as well...
 
-22. The plot should be repainted immediately if something changes on	----
-    the left. The "Plot" button should go.
-   PT: and if the user wants to change more than one option at once
-       and then replot? If so, we'll replot more than once.
-   CN: Not only that. I would love to make more than one plot possible:
-       Comparing Metals from the 3rd with the metals from the 4th 
-	   periods for example. This would be impossible with this
-	   proposal. (see item 26)
 
-24. The legend should be outlined in some way. A slight background for	----
-    example...
-   CN: Indeed.
-   IW: Did some work on this.  More needed.
-   CN: Rounded rect perhaps? Or a gradient (dark to light gray for example)
+* PSE widget
+  + The legend should be outlined in some way. 				----
+   This is done, but could it be improved, perhaps?
 
-25 Add more than only one mode to Kalzium, eg a mode with simplified    ----
-   userinterface (less looks, easier menustructure, less information
-   in the infodialog) and a full-mode where everything is enabled
-
-26 Plotting: Add groups of elements, for example "Metals", 4th Period    ----
-   transitionmetals and so on. The user can easily select them and only 
-   plot the selected group
-	
-27 Plotting: More than one group should be "plottable". This would enable the  ----
-    user to compare two or more groups, eg. 4th with 5th group
+* Plotting
+  + Add groups of elements, for example "Metals", 4th Period		----
+    transitionmetals and so on. The user can easily select them 
+    and only plot the selected group
+  + More than one group should be plottable at once.			----
+    This would enable the user to compare two or more groups, eg. 4th 
+    with 5th group
 
 
 ================================================================
@@ -155,6 +136,11 @@ moved up above.
   think.  But my implementation sucked so much I removed it.
 
 * Make the glossary also into a dictionary
+
+* Add more than only one mode to Kalzium, eg a mode with simplified	----
+  user interface (less looks, easier menu structure, less information
+  in the infodialog) and a full-mode where everything is enabled.
+
 
 
 ================================================================
