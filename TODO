@@ -38,16 +38,6 @@ Bugs
 
 
 * Miscellaneous bugs:
-  + Select "Periodic Table"->Look->"Show Blocks"			----
-    Click on any element in the d block (yellow)
-    Now you get a dialog with a green background.
-    The same, but opposite happens for elements in the p block (green)
-    The legend as well as the colors should be checked.
-
-   CN: It was marked as done but I can still reproduce it. The background
-       of the overview-widget is not always coresponding to the
-       current sheme
-
   + Fix the startsize of the infodialog					----
     - make the html fit into the window
 	- make the dialog have a sane size if there is no picture of 
@@ -55,17 +45,6 @@ Bugs
 
   + Make use of the biological symbol.					----
     CN: I lost the "translation" though, will have to look after it.
-  
-  + Some melting and boiling points are wrong.  How to reproduce:	----
-	1. Enter Learning mode, click on Temperature tab
-	2. Set temperature to zero.  There are now a list of "Elements
-           with melting point around this temperature" in the tab.
-        3. Note that quite a few, e.g. Berkelium and Rutherfordium
-           have melting point of O K shown.
-   PT: Carsten, could you please check the datas?
-   PT: Ingwa, perhaps I fixed it, could you check further?
-   CN: Pino, you fixed it by defining the correct color for elements which
-       don't have any information about the bp and mp, right?
   
   + Ctrl-Q should close the subwindows.					----
     - Plot window							--
@@ -75,37 +54,23 @@ Bugs
    CN: Obviously not ;) Otherwise it would work
 
 * The main window:
-  + There is no legend in Learning Mode.				DONE-CN
-   PT: actually, there is, but only for the time mode; we need a
-       legend for the SOM
-   CN: I think all the legendstuff should be unified in one drawin-
-       method in pse.cpp
-  + Select a gradient, restart kalzium, go to Timeline -> black PSE	DONE-HP
 
 * The glossary window:
   + If you hit <Return> in the search, you close the window.  It	----
     should display the item.
-   CN: simple focus-bug. Easy to fix
-
 
 Features
 --------
 
 * PSE widget
-  + The legend should be outlined in some way. 				        ----
-   IW: This is done, but could it be improved, perhaps?
-  + The settings should be above the table, not in the status bar.	----
-  + The misc-settings are not used                                  ----
-    (Misc.Tab in the Settings-Dialog)
-  
 
 * Plotting
   + Add groups of elements, for example "Metals", 4th Period		----
     transitionmetals and so on. The user can easily select them 
     and only plot the selected group
-  + More than one group should be plottable at once.			----
-    This would enable the user to compare two or more groups, eg. 4th 
-    with 5th group
+  + More than one group should be plottable at once.			    ----
+    This would enable the user to compare two or more groups, 
+	eg. 4th with 5th group
 
 
 ================================================================
