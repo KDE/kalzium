@@ -18,6 +18,7 @@
     </Menu>
     <Separator />
     <Action name="toggle_legend" />
+    <Action name="toggle_tooltip" />
   </Menu>
   <Menu name="miscmenu"><text>&amp;Miscellaneous</text>
     <Action name="plotdata" />
@@ -30,6 +31,7 @@
   <Action name="show_som" />
   <Action name="toggle_legend" />
   <Action name="glossary" />
+  <Action name="toggle_tooltip" />
  </ToolBar>
 
 </kpartgui>

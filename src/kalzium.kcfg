@@ -25,6 +25,11 @@
 	<whatsthis>Show or hide the legend</whatsthis>
 	<default>true</default>
     </entry>
+    <entry name="tooltip" type="Bool">
+	<label>Show or hide the tooltips</label>
+	<whatsthis>Show or hide the tooltips</whatsthis>
+	<default>true</default>
+    </entry>
   </group>
   <group name="Slider">
 	  <entry name="sliderdate" type="Int">

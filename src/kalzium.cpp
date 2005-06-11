@@ -140,6 +140,8 @@ void Kalzium::setupActions()
 	//Legend
 	m_pLegendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
 	
+	m_pTooltipAction = new KAction(i18n("Hide &Tooltip"), "tooltip", 0, this, SLOT(slotEnableTooltips()), actionCollection(), "toggle_tooltip");
+	
 	//the standardactions
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
@@ -256,6 +258,22 @@ void Kalzium::slotPlotData()
 {
 	ElementDataViewer *edw = new ElementDataViewer( data(), this, "edw" );
 	edw->show();
+}
+
+void Kalzium::slotEnableTooltips()
+{
+	bool enabled = m_PSE->tooltipsEnabled();
+	enabled = !enabled;
+
+	if ( enabled )
+		m_pTooltipAction->setText(i18n("Hide &Tooltips"));
+	else
+		m_pTooltipAction->setText(i18n("Show &Tooltips"));
+
+	m_PSE->setTooltipsEnabled( enabled );
+	
+	Prefs::setTooltip( enabled ); 
+	Prefs::writeConfig();
 }
 
 void Kalzium::slotShowLegend()

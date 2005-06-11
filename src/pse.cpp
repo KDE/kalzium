@@ -73,6 +73,7 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	m_timeline = false;
 	m_showSOM = false;
 	m_showGradient = false;
+	m_tooltipsEnabled = Prefs::tooltip();
 	
 	reloadColours();
 
@@ -159,7 +160,7 @@ void PSE::reloadColours()
 
 void PSE::slotToolTip( int number )
 {
-	if ( !m_showTooltip ) 
+	if ( !m_showTooltip || !m_tooltipsEnabled ) 
 		return; //don't update if the table is locked
 
 	m_tooltipElementNumber = number;

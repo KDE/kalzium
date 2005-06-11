@@ -8,12 +8,12 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>400</width>
+            <width>422</width>
             <height>220</height>
         </rect>
     </property>
     <property name="caption">
-        <string></string>
+        <string>setupMisc</string>
     </property>
     <grid>
         <property name="name">
@@ -41,14 +41,6 @@
                         <string>Display atomic &amp;mass in the PSE</string>
                     </property>
                 </widget>
-                <widget class="QRadioButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>radioButton12</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Displa&amp;y density in the PSE in grams per cubic centimeter</string>
-                    </property>
-                </widget>
                 <widget class="QRadioButton" row="2" column="0">
                     <property name="name">
                         <cstring>radioButton13</cstring>
@@ -59,7 +51,7 @@
                 </widget>
             </grid>
         </widget>
-        <spacer row="1" column="0">
+        <spacer row="2" column="0">
             <property name="name">
                 <cstring>spacer1</cstring>
             </property>
@@ -72,10 +64,21 @@
             <property name="sizeHint">
                 <size>
                     <width>20</width>
-                    <height>20</height>
+                    <height>30</height>
                 </size>
             </property>
         </spacer>
+        <widget class="QCheckBox" row="1" column="0">
+            <property name="name">
+                <cstring>kcfg_tooltip</cstring>
+            </property>
+            <property name="text">
+                <string>Show &amp;Tooltips</string>
+            </property>
+            <property name="accel">
+                <string>Alt+T</string>
+            </property>
+        </widget>
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>

@@ -109,7 +109,8 @@ class Kalzium : public KMainWindow
 		KAction *m_pPlotAction,
 				*m_pLegendAction,
 				*m_pGlossaryAction,
-				*m_SidebarAction;
+				*m_SidebarAction,
+				*m_pTooltipAction;
 
 		KToggleAction *m_actionNoScheme;
 		KToggleAction *m_actionGroups;
@@ -132,7 +133,7 @@ class Kalzium : public KMainWindow
 		DetailedGraphicalOverview *m_detailWidget;
 
 		bool m_showSidebar;
-
+		
 		QDockWindow *m_dockWin;
 	
 	private slots:
@@ -155,6 +156,11 @@ class Kalzium : public KMainWindow
 		void slotShowScheme(int);
 
 		void slotShowLegend();
+		
+		/**
+		 * Hide or show the tooltips
+		 */
+		void slotEnableTooltips();
 		
 		void slotGlossary();
 		

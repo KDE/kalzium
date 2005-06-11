@@ -107,6 +107,20 @@ class PSE : public QWidget
 			m_num = num;
 			update();
 		}
+		/**
+		 * @return if the tooltips are enabled
+		 */
+		bool tooltipsEnabled() const{
+			return m_tooltipsEnabled;
+		}
+
+		/**
+		 * if @p enabled is true the tooltips
+		 * will be enabled
+		 */
+		void setTooltipsEnabled( bool enabled ){
+			m_tooltipsEnabled = enabled;
+		}
 
 		/**
 		 * This method sets the colors of the PSE. 
@@ -168,9 +182,14 @@ class PSE : public QWidget
 		}
 
 		/**
-		 * if true the tooltips will be displayed 
+		 * if true the tooltips will be displayed
 		 */
 		bool m_showTooltip;
+
+		/**
+		 * if false, the user disabled tooltips
+		 */
+		bool m_tooltipsEnabled;
 
 		bool m_showLegendTooltip;
 
