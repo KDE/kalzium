@@ -49,26 +49,32 @@ Bugs
   + Ctrl-Q should close the subwindows.					----
     - Plot window							--
     - Data window							--
+    - Glossary window							--
    CN: Indeed! Good idea
    PT: isn't Ctrl-Q "joined" to the main window closing?
    CN: Obviously not ;) Otherwise it would work
 
 * The main window:
+  + Too long delay before the tooltip arrives				----
 
 * The glossary window:
   + If you hit <Return> in the search, you close the window.  It	----
     should display the item.
 
+* Plotting:
+  + Atomic Radius is commented out in the code.  Why?			----
+  + The Y axis value inside the "Groups to compare" box is unnecessary.	DONE-IW
+  + The default value for "Last Element" should be number of elements.	DONE-IW
+
+
 Features
 --------
-
-* PSE widget
 
 * Plotting
   + Add groups of elements, for example "Metals", 4th Period		----
     transitionmetals and so on. The user can easily select them 
     and only plot the selected group
-  + More than one group should be plottable at once.			    ----
+  + More than one group should be plottable at once.			----
     This would enable the user to compare two or more groups, 
 	eg. 4th with 5th group
 
