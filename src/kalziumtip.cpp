@@ -46,6 +46,16 @@ KalziumTip::KalziumTip(QWidget* parent) : QWidget(parent)
 
 void KalziumTip::showTip(QPoint mouse, Element* element)
 {
+	QWidget *p = 0;
+	if ( dynamic_cast<QWidget*>( parent() ) )
+		p = static_cast<QWidget*>( parent() );
+	if ( p )
+	{
+		if ( mouse.x() + size().width() > p->size().width() )
+			mouse.setX( mouse.x() - size().width() );
+		if ( mouse.y() + size().height() > p->size().height() )
+			mouse.setY( mouse.y() - size().height() );
+	}
 	m_mousePointer = mouse;
 	
 	if( element == m_tippedElement )
