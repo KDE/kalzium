@@ -429,7 +429,7 @@ class Element{
 		 */
 		virtual void drawGradient( QPainter* p, const QString& value, const QColor& );
 		
-		virtual void drawSelf( QPainter* p );
+		virtual void drawSelf( QPainter* p, bool simple = false );
 
 		virtual void drawCrystalstructure( QPainter* p );
 		

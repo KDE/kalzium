@@ -394,6 +394,7 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotUpdateSettings()
 {
 	m_PSE->reloadColours();
+	m_PSE->setFullDraw();
 	updateStatusbar();
 }
  

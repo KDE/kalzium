@@ -423,7 +423,7 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
-void Element::drawSelf( QPainter* p )
+void Element::drawSelf( QPainter* p, bool simple )
 {
 	//the height of a "line" inside an element
 	int h_small = 15; //the size for the small units like elementnumber
@@ -444,17 +444,22 @@ void Element::drawSelf( QPainter* p )
 	f.setPointSize( 9 );
 		
 	p->setFont( f );
-
-	//top left
 	p->setPen( Qt::black );
-	text = QString::number( strippedValue( mass( ) ) );
-	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
+
+	if ( !simple )
+	{//the user only want a simply pse, no weight the cell
+		text = QString::number( strippedValue( mass( ) ) );
+		p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
+	}
 
 	text = QString::number( number() );
 	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, text );
 
 	p->setFont( symbol_font );
-	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	if ( !simple )
+		p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	else
+		p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignHCenter, symbol() );
 	
 	p->setPen( Qt::black );
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);

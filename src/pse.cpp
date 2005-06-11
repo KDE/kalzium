@@ -504,6 +504,8 @@ void PSE::drawTimeLine( QPainter* p )
 	
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
+
+	bool simple = Prefs::pselook();
 	
 	/**
 	 * this loop iterates through all elements. The Elements
@@ -513,7 +515,7 @@ void PSE::drawTimeLine( QPainter* p )
 	{
 		if ( ( *it )->date() <= m_date )
 		{
-			( *it )->drawSelf( p );
+			( *it )->drawSelf( p, simple );
 		}
 		++it;
 	}
@@ -895,13 +897,14 @@ void PSE::drawPSE( QPainter* p )
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
 
+	bool simple = Prefs::pselook();
 	/**
 	 * this loop iterates through all elements. The Elements
 	 * draw themselfs, the PSE only tells them to do so
 	 */
 	while ( it != itEnd )
 	{
-		( *it )->drawSelf( p );
+		( *it )->drawSelf( p, simple );
 		++it;
 	}
 }
