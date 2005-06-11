@@ -56,6 +56,7 @@ class DetailedGraphicalOverview : public QWidget
 
 	protected:
 		virtual void paintEvent( QPaintEvent* );
+		void init( Element* );
 };
 
 #endif // DETAILEDGRAPHICALOVERVIEW_H

@@ -29,11 +29,22 @@ email                : cniehaus@kde.org
 DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name ) 
 : QWidget( parent, name )
 {
+	init( el );
 }
 
 DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent, const char *name ) 
 : QWidget( parent, name )
 {
+	init( 0L );
+}
+
+void DetailedGraphicalOverview::init( Element *el )
+{
+	setBackgroundMode( NoBackground );
+
+	m_element = el;
+	setMinimumSize( 300, 200 );
+	update();
 }
 
 void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
@@ -55,74 +66,76 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 	}
 	else
 	{
-		h_t = 20; //height of the texts
 
-		x1 =  0;
-		y1 =  0;
+	h_t = 20; //height of the texts
 
-		x2 = w;
-		y2 = h;
+	x1 =  0;
+	y1 =  0;
 
-		p.setBrush( m_element->elementColor() );
-		p.drawRect( x1 , y1 , x2 , y2 );
+	x2 = w;
+	y2 = h;
 
-		p.setBrush( Qt::black );
-		p.setBrush(Qt::NoBrush);
+	p.setBrush( m_element->elementColor() );
+	p.drawRect( x1 , y1 , x2 , y2 );
 
-		QFont fA = KGlobalSettings::generalFont();
-		QFont fB = KGlobalSettings::generalFont();
-		QFont fC = KGlobalSettings::generalFont();
+	p.setBrush( Qt::black );
+	p.setBrush(Qt::NoBrush);
 
-		fA.setPointSize( fA.pointSize() + 20 ); //Huge font
-		fA.setBold( true );
-		fB.setPointSize( fB.pointSize() + 6 ); //Big font
-		fC.setPointSize( fC.pointSize() + 4 ); //Big font
-		fC.setBold( true );
-		QFontMetrics fmA = QFontMetrics( fA );
-		QFontMetrics fmB = QFontMetrics( fB );
-		QFontMetrics fmC = QFontMetrics( fC );
+	QFont fA = KGlobalSettings::generalFont();
+	QFont fB = KGlobalSettings::generalFont();
+	QFont fC = KGlobalSettings::generalFont();
 
-		//coordinates for element symbol: near the center
-		int xA = 4 * w / 10;
-		int yA = h / 2;
+	fA.setPointSize( fA.pointSize() + 20 ); //Huge font
+	fA.setBold( true );
+	fB.setPointSize( fB.pointSize() + 6 ); //Big font
+	fC.setPointSize( fC.pointSize() + 4 ); //Big font
+	fC.setBold( true );
+	QFontMetrics fmA = QFontMetrics( fA );
+	QFontMetrics fmB = QFontMetrics( fB );
+	QFontMetrics fmC = QFontMetrics( fC );
 
-		//coordinates for the atomic number: offset from element symbol to the upper left
-		int xB = xA - fmB.width( QString::number( m_element->number() ) );
-		int yB = yA - fmA.height() + fmB.height();
+	//coordinates for element symbol: near the center
+	int xA = 4 * w / 10;
+	int yA = h / 2;
 
-		//coordinates for element name: lower left
-		int xC1 = 8;
-		int yC1 = h - 8;
+	//coordinates for the atomic number: offset from element symbol to the upper left
+	int xB = xA - fmB.width( QString::number( m_element->number() ) );
+	int yB = yA - fmA.height() + fmB.height();
 
-		//coordinates for oxidation: right side, above atomic mass
-		int xC2 = w - fmC.width( m_element->oxstage() ) - 8;
-		int yC2 = h - fmC.height() - 8;
+	//coordinates for element name: lower left
+	int xC1 = 8;
+	int yC1 = h - 8;
 
-		//coordinates for mass: lower right corner
-		int xC3 = w - fmC.width( QString::number( m_element->mass() ) ) - 8;
-		int yC3 = h - 8;
+	//coordinates for oxidation: right side, above atomic mass
+	int xC2 = w - fmC.width( m_element->oxstage() ) - 8;
+	int yC2 = h - fmC.height() - 8;
 
-		//Element Symbol
-		p.setFont( fA );
-		p.drawText( xA, yA , m_element->symbol() ); 
+	//coordinates for mass: lower right corner
+	int xC3 = w - fmC.width( QString::number( m_element->mass() ) ) - 8;
+	int yC3 = h - 8;
 
-		//Atomic number
-		p.setFont( fB );
-		p.drawText( xB, yB, QString::number( m_element->number() ));
+	//Element Symbol
+	p.setFont( fA );
+	p.drawText( xA, yA , m_element->symbol() ); 
 
-		//Name and other data
-		p.setFont( fC );
-		//Name
-		p.drawText( xC1, yC1, m_element->elname() );
-		//Oxidationszahlen
-		p.drawText( xC2, yC2, m_element->oxstage() ); 
-		//Mass
-		p.drawText( xC3, yC3, QString::number( m_element->mass() )); 
+	//Atomic number
+	p.setFont( fB );
+	p.drawText( xB, yB, QString::number( m_element->number() ));
 
-		drawBiologicalSymbol( &p );
+	//Name and other data
+	p.setFont( fC );
+	//Name
+	p.drawText( xC1, yC1, m_element->elname() );
+	//Oxidationszahlen
+	p.drawText( xC2, yC2, m_element->oxstage() ); 
+	//Mass
+	p.drawText( xC3, yC3, QString::number( m_element->mass() )); 
+
+	drawBiologicalSymbol( &p );
 	}
 
 	p.end();
+
 
 	bitBlt( this, 0, 0, &pm );
 }
