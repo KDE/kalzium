@@ -33,13 +33,14 @@ class DetailedGraphicalOverview : public QWidget
 		DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name=0 );
 		DetailedGraphicalOverview( QWidget *parent, const char *name=0 );
 
-		void setElement( Element* el );
-
 		/**
-		 * @return the QColor of the block
+		 * sets the elements whose data will be used to @p el
 		 */
-		QColor PSEColor( const QString &Block ) const;
-		
+		void setElement( Element* el ){
+			m_element = el;
+			update();
+		}
+
 		/**
 		 * draw the small symbol which symbolises the
 		 * relevence for humans
@@ -48,13 +49,13 @@ class DetailedGraphicalOverview : public QWidget
 	
 		//calculation of the corners
 		int x1,x2,y1,y2,h_t;
+
 	private:
-		Element *e;
+		///the element whose data will be used
+		Element *m_element;
 
 	protected:
 		virtual void paintEvent( QPaintEvent* );
-
-		void init( Element *el );
 };
 
 #endif // DETAILEDGRAPHICALOVERVIEW_H
