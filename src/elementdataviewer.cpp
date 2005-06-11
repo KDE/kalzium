@@ -74,7 +74,8 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 
 	setButtonText( User1, i18n("&Plot") );
 
-	connect ( m_pPlotSetupWidget->showNames, SIGNAL( toggled(bool)), this, SLOT(slotUser1()));
+	connect ( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled(bool)), this, SLOT(slotUser1()));
+	connect ( m_pPlotSetupWidget->showNames,     SIGNAL( toggled(bool)), this, SLOT(slotUser1()));
 }
 
 void ElementDataViewer::slotUser1()

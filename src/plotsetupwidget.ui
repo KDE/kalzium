@@ -12,6 +12,9 @@
             <height>565</height>
         </rect>
     </property>
+    <property name="caption">
+        <string>PlotSetupWidget</string>
+    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -55,7 +58,7 @@
                 <cstring>to</cstring>
             </property>
             <property name="value">
-                <number>80</number>
+                <number>115</number>
             </property>
             <property name="minValue">
                 <number>2</number>
@@ -294,49 +297,6 @@
                         <cstring>compare1</cstring>
                     </property>
                 </widget>
-                <widget class="KComboBox" row="2" column="0">
-                    <item>
-                        <property name="text">
-                            <string>Mass</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Mean Weight</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Density</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Electronegativity</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Boiling point</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Melting point</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Atomic radius</string>
-                        </property>
-                    </item>
-                    <property name="name">
-                        <cstring>compareUnit</cstring>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Here you can define what you want to plot</string>
-                    </property>
-                </widget>
                 <widget class="KComboBox" row="1" column="0">
                     <item>
                         <property name="text">
@@ -366,15 +326,12 @@
         </widget>
     </grid>
 </widget>
-<customwidgets>
-</customwidgets>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
-    <includehint>kcombobox.h</includehint>
     <includehint>kcombobox.h</includehint>
     <includehint>kcombobox.h</includehint>
     <includehint>kcombobox.h</includehint>
