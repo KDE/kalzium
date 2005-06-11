@@ -585,12 +585,12 @@ void PSE::drawLegend( QPainter* p )
 			break;
 		case PSE::GROUPS:
 			p->fillRect( x1, fieldheight*2, square_w, square_h, color_1); 
-			p->fillRect( x2, fieldheight*2, square_w, square_h, color_2); 
-			p->fillRect( x1, fieldheight*3, square_w, square_h, color_3); 
-			p->fillRect( x2, fieldheight*3, square_w, square_h, color_4); 
-			p->fillRect( x1, fieldheight*4, square_w, square_h, color_5); 
-			p->fillRect( x2, fieldheight*4, square_w, square_h, color_6); 
-			p->fillRect( x1, fieldheight*5, square_w, square_h, color_7); 
+			p->fillRect( x1, fieldheight*3, square_w, square_h, color_2); 
+			p->fillRect( x1, fieldheight*4, square_w, square_h, color_3); 
+			p->fillRect( x1, fieldheight*5, square_w, square_h, color_4); 
+			p->fillRect( x2, fieldheight*2, square_w, square_h, color_5); 
+			p->fillRect( x2, fieldheight*3, square_w, square_h, color_6); 
+			p->fillRect( x2, fieldheight*4, square_w, square_h, color_7); 
 			p->fillRect( x2, fieldheight*5, square_w, square_h, color_8 ); 
 			
 			p->drawText( x1 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 1") ); 
