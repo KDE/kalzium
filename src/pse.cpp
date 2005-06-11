@@ -570,13 +570,13 @@ void PSE::drawLegend( QPainter* p )
 
 	if ( som() )
 	{
-		p->fillRect(x1, fieldheight*2, square_w, square_h, c_solid ); 
-		p->fillRect(x1, fieldheight*3, square_w, square_h, c_vapor ); 
-		p->fillRect(x1, fieldheight*4, square_w, square_h, c_liquid ); 
+		p->fillRect(x1, fieldheight*2, square_w, square_h, c_solid );
+		p->fillRect(x1, fieldheight*3, square_w, square_h, c_liquid );
+		p->fillRect(x1, fieldheight*4, square_w, square_h, c_vapor );
 
 		p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Solid") ); 
-		p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Vaporous") ); 
-		p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Liquid") ); 
+		p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Liquid") ); 
+		p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Vaporous") ); 
 		return;
 	}
 	switch ( m_currentScheme ) {
