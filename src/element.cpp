@@ -113,10 +113,10 @@ const QString Element::adjustRadius( RADIUSTYPE rtype )
 		switch ( Prefs::units() )
 		{
 			case 0://use SI-values (meter for length)
-				v = i18n( "%1 10<sup>-12</sup> m" ).arg( QString::number( val ) );
+				v = i18n( "%1 is a length", "%1 10<sup>-12</sup> m" ).arg( QString::number( val ) );
 				break;
 			case 1://use picometer, the most common unit for radii
-				v = i18n( "%1 pm" ).arg( QString::number( val ) );
+				v = i18n( "%1 is a length, eg: 12.3 pm", "%1 pm" ).arg( QString::number( val ) );
 				break;
 		}
 	}
@@ -277,18 +277,26 @@ void Element::drawCrystalstructure( QPainter* p )
 	QColor color;
 	QString name;
 	QString structure = crystalstructure();
+	/**
+	 * hcp: hexagonal close packed
+	 * fcc: face centered cubic
+	 * krz/bbc cubic body centered // kubisch raumzentriert
+	 * kdp: kubisch dicht gepackt
+	 * hdp: hexagonal dicht gepackt
+	 * ccp: cubic close packed // kubisch dichteste Kugelpackung
+	 */
 	if ( structure == "own"){
 		color = Qt::blue;
-		name = i18n( "own" );
+		name = i18n( "this means, the element has its 'own' structur", "own" );
 	}else if ( structure == "bbc" ){
 		color = Qt::red;
-		name = i18n( "bbc" );
+		name = i18n( "Crystalsystem body centered cubic", "bbc" );
 	}else if ( structure == "hdp" ){
 		color = Qt::yellow;
-		name = i18n( "hdp" );
+		name = i18n( "Crystalsystem hexagonal dense packed", "hdp" );
 	}else if ( structure == "ccp" ){
 		color = Qt::green;
-		name = i18n( "ccp" );
+		name = i18n( "Crystalsystem cubic close packed", "ccp" );
 	}
 	else{
 		color = Qt::white;

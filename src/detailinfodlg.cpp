@@ -303,7 +303,7 @@ QString DetailedInfoDlg::isotopeRow( const QString& str )
 	text.append( "</td><td>" );
 	text.append( neutrons );
 	text.append( "</td><td>" );
-	text.append( i18n( "%1%" ).arg( percentage ) );
+	text.append( i18n( "this can for example be '24%'", "%1%" ).arg( percentage ) );
 	text.append( "</td></tr>" );
 
 	return text;
