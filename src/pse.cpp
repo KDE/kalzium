@@ -40,7 +40,7 @@
 #include <qrect.h>
 
 PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
-  : QWidget(parent, name), table(0), table2(0), m_kalziumTip(0)
+  : QWidget(parent, name), m_kalziumTip(0), table(0), table2(0)
 {
 	d = data;
 

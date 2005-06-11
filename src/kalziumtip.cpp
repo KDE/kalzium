@@ -21,15 +21,18 @@
 #include "kalziumtip.h"
 #include "element.h"
 
+#include <qapplication.h>
 #include <qpixmap.h>
 #include <qimage.h>
 #include <qsimplerichtext.h>
 #include <qpainter.h>
-#include <kdialog.h>
-#include <qapplication.h>
-#include <kstandarddirs.h>
-#include <kdebug.h>
 
+#include <kdialog.h>
+#include <kdebug.h>
+#include <kglobal.h>
+#include <kiconloader.h>
+#include <klocale.h>
+#include <kstandarddirs.h>
 
 KalziumTip::KalziumTip(QWidget* parent) : QWidget(parent) 
 {
@@ -77,9 +80,9 @@ void KalziumTip::display()
 	delete m_richText;
 	
 	QString elementname = m_tippedElement->elname();
-	QString number = QString( "Number: %1" )
+	QString number = i18n( "Number: %1" )
 			.arg( QString::number(m_tippedElement->number()) );
-	QString mass = QString( "Mass: %1" )
+	QString mass = i18n( "Mass: %1" )
 			.arg( QString::number(m_tippedElement->mass()) );				
 
 	m_richText = new QSimpleRichText("<qt><h1>" + elementname + "</h1><p>"
@@ -239,18 +242,16 @@ void KalziumTip::internalUpdate()
 
 void KalziumTip::loadIcon()
 {
-	if ( !locate(  "data" , "kalzium/elempics/" + m_tippedElement->symbol() + ".jpg" ).isEmpty() )
+	QString iconpath = locate(  "data" , "kalzium/elempics/" + m_tippedElement->symbol() + ".jpg" );
+	if ( !iconpath.isEmpty() )
 	{
-		QPixmap pic ( locate( "data" , "kalzium/elempics/" + m_tippedElement->symbol() + ".jpg" ) );
-		QImage img = pic.convertToImage();
+		QImage img ( iconpath, "JPEG" );
 		img = img.smoothScale ( 128, 128, QImage::ScaleMin );
-		pic.convertFromImage( img );
-		m_icon = pic;
+		m_icon.convertFromImage( img );
 	}
 	else
 	{
-		QPixmap pic ( locate( "data" , "kalzium/icons/crystalsvg/128x128/actions/orbits.png" ) );
-		m_icon = pic;
+		m_icon = KGlobal::iconLoader()->loadIcon( "orbits", KIcon::NoGroup, 64 );
 	}
 }
 

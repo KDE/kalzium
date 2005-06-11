@@ -174,7 +174,7 @@ void MolcalcWidget::updateUI()
 	QMap<Element*, int>::Iterator itMap;
 	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) 
 	{//update the resultLabel
-		str += i18n( "%1 %2.\n" ).arg( itMap.data() ).arg( itMap.key()->elname() );
+		str += i18n( "For example: \"1 Cesius\" or \"3 Oxygen\"", "%1 %2.\n" ).arg( itMap.data() ).arg( itMap.key()->elname() );
 		complexString += i18n( "For example: 1 Seaborgium. Cumulative Mass: 263.119 u (39.25%)", "%1 %2. Cumulative Mass: %3 u (%4%)\n" ).arg( itMap.data() ).arg( itMap.key()->elname() ).arg( itMap.data() * itMap.key()->mass() ).arg(Element::strippedValue( ((  itMap.data() * itMap.key()->mass() )/m_mass )*100) );
 	}
 	
