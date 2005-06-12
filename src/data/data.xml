@@ -14,7 +14,10 @@
 		<electronegativity>2.1</electronegativity>
 		<meltingpoint>13.81</meltingpoint>
 		<boilingpoint>20.28</boilingpoint>
-		<isotope>0:1,007825:99,985;1:2,0141:0,015</isotope>
+		<isotopes>0:1,007825:99,985;1:2,0141:0,015</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<density>0.084</density>
 		<ionisationenergy>
 			<energy>13.598</energy>
@@ -55,6 +58,9 @@
 		<orbits>1s2</orbits>
 		<oxydation>0</oxydation>
 		<isotopes>1:3,01603:0,00013;2:4,0026:99,9998</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Noblegas</family>
 	</element>
 	<element>
@@ -64,7 +70,7 @@
 		<mass>6.941</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="A. Arfvedson">1817</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>1</group>
@@ -85,12 +91,15 @@
 		<orbits>1s2 2s1</orbits>
 		<oxydation>+1</oxydation>
 		<isotopes>3:6,0151:7,5;4:7,016:92,5</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Alkali_Earth</family>
 		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>4</number>
-		<name origin="">Beryllium</name>
+		<name origin="greek 'beryllos' for 'lightgreen stone'">Beryllium</name>
 		<symbol>Be</symbol>
 		<mass>9.012182</mass>
 		<block>s</block>
@@ -124,7 +133,7 @@
 		<mass>10.811</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
+
 		<date scientist="Louis Joseph Gay-Lussac, Louis Jacques Thenard">1808 </date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>3</group>
@@ -145,6 +154,9 @@
 		<orbits>1s2 2s2 2p1</orbits>
 		<oxydation>+3</oxydation>
 		<isotopes>10,0129:18,83;6:11,0093:81,17</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Metalloids</family>
 	</element>
 	<element>
@@ -154,7 +166,7 @@
 		<mass>12.0107</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
+
 		<date scientist="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>4</group>
@@ -175,6 +187,9 @@
 		<orbits>1s2 2s2 2p2</orbits>
 		<oxydation>-4,+2,+4</oxydation>
 		<isotopes>6:12:98,89;7:13,0034:1,11</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Non-Metal</family>
 	</element>
 	<element>
@@ -184,7 +199,7 @@
 		<mass>14.0067</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
+
 		<date scientist="D. Rutherford">1772</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>5</group>
@@ -206,6 +221,9 @@
 		<orbits>1s2 2s2 2p3</orbits>
 		<oxydation>-3,(+1,+2,+3,+4,+5)</oxydation>
 		<isotopes>7:14,0031:99,64;8:15,0001:0,36</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Non-Metal</family>
 	</element>
 	<element>
@@ -215,7 +233,7 @@
 		<mass>15.9994</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
+
 		<date scientist="J. Priestley">1774</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>6</group>
@@ -237,6 +255,9 @@
 		<orbits>1s2 2s2 2p4</orbits>
 		<oxydation>-2,(-1,+2)</oxydation>
 		<isotopes>8:15,9949:99,756;9:16,9991:0,039;10:17,9992:0,205</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Non-Metal</family>
 	</element>
 	<element>
@@ -246,7 +267,7 @@
 		<mass>18.9984032</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
+
 		<date scientist="H. F. Moissan">1886</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>7</group>
@@ -275,7 +296,7 @@
 		<mass>20.1797</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		
+
 		<date scientist="W. Ramsay, M.W. Travers">1898 </date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -296,6 +317,9 @@
 		<orbits>1s2 2s2 2p6</orbits>
 		<oxydation>0</oxydation>
 		<isotopes>10:19,9924:90,5;11:20,9938:0,27;12:21,9914:9,2</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Noblegas</family>
 	</element>
 	<element>
@@ -305,7 +329,7 @@
 		<mass>22.989770</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="">1807</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>1</group>
@@ -357,6 +381,9 @@
 		<orbits>1s2 2s2 2p6 3s2</orbits>
 		<oxydation>+2</oxydation>
 		<isotopes>12:23,985:78,99;13:24,986:10;14:25,983:11,01</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Alkaline_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
@@ -418,6 +445,9 @@
 		<orbits>1s2 2s2 2p6 3s2 3p2</orbits>
 		<oxydation>+4,(-4,+2)</oxydation>
 		<isotopes>14:27,977:92,28;15:28,976:4,67;16:29,974:3,05</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Metalloids</family>
 	</element>
 	<element>
@@ -479,6 +509,9 @@
 		<orbits>1s2 2s2 2p6 3s2 3p4</orbits>
 		<oxydation>-2,+2,+4,+6</oxydation>
 		<isotopes>16:31,972:95,1;17:32,971:0,74;18:33,968:4,2;20:35,967:0,016</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Non-Metal</family>
 	</element>
 	<element>
@@ -509,6 +542,9 @@
 		<orbits>1s2 2s2 2p6 3s2 3p5</orbits>
 		<oxydation>-1,(+1,+3,+5,+7)</oxydation>
 		<isotopes>18:34,968853:75,77;20:36,966:24,23</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Halogene</family>
 	</element>
 	<element>
@@ -539,6 +575,9 @@
 		<orbits>1s2 2s2 2p6 3s2 3p6</orbits>
 		<oxydation>0</oxydation>
 		<isotopes>18:35,968:0,307;20:37,963:0,061;22:39,962:99,632</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Noblegas</family>
 	</element>
 	<element>
@@ -567,6 +606,9 @@
 		<orbits>Ar 4s1</orbits>
 		<oxydation>+1</oxydation>
 		<isotopes>20:38,964:93,2581;22:40,962:6,73</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Alkali_Earth</family>
 		<crystalstructure>bbc</crystalstructure>
 	</element>
@@ -577,7 +619,7 @@
 		<mass>40.078</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="H. B. Davy">1808</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>2</group>
@@ -598,6 +640,9 @@
 		<orbits>Ar 4s2</orbits>
 		<oxydation>+2</oxydation>
 		<isotopes>20:39,963:96,92;22:41,959:0,64;23:42,959:0,13;24:43,955:2,13;26:44,954:0,003;28:47,952:0,18</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Alkaline_Earth</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
@@ -608,7 +653,7 @@
 		<mass>44.955910</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="L. Nilson">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -637,7 +682,7 @@
 		<mass>47.867</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="W. Gregor">1791</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -657,6 +702,9 @@
 		<orbits>Ar 3d2 4s2</orbits>
 		<oxydation>+4,+3</oxydation>
 		<isotopes>24:45,953:7,95;25:46,952:7,75;26:47,948:73,45;27:48,948:5,51;28:49,945:5,34</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
@@ -667,7 +715,7 @@
 		<mass>50.9415</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="N. Sefström">1830</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>5</group>
@@ -696,7 +744,7 @@
 		<mass>51.9961</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="L. N. Vauquelin">1797</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>6</group>
@@ -716,6 +764,9 @@
 		<orbits>Ar 3d5 4s1</orbits>
 		<oxydation>+2,+3,(+1,+4,+5),+6</oxydation>
 		<isotopes>26:49,946:4,3;28:51,94:83,8;29:52,941:9,5;30:53,939:2,4</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>bbc</crystalstructure>
 	</element>
@@ -726,7 +777,7 @@
 		<mass>54.938049</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="K. W. Scheele">1774</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>7</group>
@@ -755,7 +806,7 @@
 		<mass>55.845</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>8</group>
@@ -775,6 +826,9 @@
 		<orbits>Ar 3d6 4s2</orbits>
 		<oxydation>+2,+3</oxydation>
 		<isotopes>28:53,94:5,81;30:55,935:91,64;31:56,935:2,21;32:57,933:0,34</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>bbc</crystalstructure>
 
@@ -786,7 +840,7 @@
 		<mass>58.933200</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="G. Brandt">1737</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>8</group>
@@ -815,7 +869,7 @@
 		<mass>58.6934</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="A. F. Cronstedt">1751</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>8</group>
@@ -835,6 +889,9 @@
 		<orbits>Ar 3d8 4s2</orbits>
 		<oxydation>0,(+2),+3</oxydation>
 		<isotopes>30:57,935:67,8;32:59,931:26,2;33:60,931:1,2;34:61,928:3,7;36:63,928:1,1</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
@@ -845,7 +902,7 @@
 		<mass>63.546</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>1</group>
@@ -867,6 +924,9 @@
 		<orbits>Ar 3d10 4s1</orbits>
 		<oxydation>+1,+2</oxydation>
 		<isotopes>34:62,93:68,9;36:64,928:31,1</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
@@ -877,7 +937,7 @@
 		<mass>65.39</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="">1746</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>2</group>
@@ -897,6 +957,9 @@
 		<orbits>Ar 3d10 4s2</orbits>
 		<oxydation>+2</oxydation>
 		<isotopes>34:63,929:48,9;36:65,926:27,82;37:66,927:4,16;38:67,925:18,5;40:69,925:0,62</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
@@ -907,7 +970,7 @@
 		<mass>69.723</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="P. E. Lecoq de Boisbaudran">1875</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -929,6 +992,9 @@
 		<orbits>Ar 3d10 4s2 4p1</orbits>
 		<oxydation>(+1),(+2),+3</oxydation>
 		<isotopes>38:68,926:60,1;40:70,925:39,9</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Other_Metal</family>
 		<crystalstructure>own</crystalstructure>
 	</element>
@@ -939,7 +1005,7 @@
 		<mass>72.64</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="C. A. Winkler">1886</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -959,6 +1025,9 @@
 		<orbits>Ar 3d10 4s2 4p2</orbits>
 		<oxydation>+4,(+2)</oxydation>
 		<isotopes>38:69,924:20,6;40:71,922:27,4;41:72,923:7,8;42:73,921:36,4;44:75,921:7,8</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Metalloids</family>
 	</element>
 	<element>
@@ -968,7 +1037,7 @@
 		<mass>74.92160</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="A. Magnus">0</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>5</group>
@@ -997,7 +1066,7 @@
 		<mass>78.96</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
+
 		<date scientist="J. J. Berzelius">1817</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>6</group>
@@ -1018,6 +1087,9 @@
 		<orbits>Ar 3d10 4s2 4p4</orbits>
 		<oxydation>(-2),+4,(+6)</oxydation>
 		<isotopes>40:73,922:0,9;42:75,919:9,5;43:76,92:8,3;44:77,917:24;46:79,917:48;48:81,917:9,3</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Non-Metal</family>
 	</element>
 	<element>
@@ -1027,7 +1099,7 @@
 		<mass>79.904</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
+
 		<date scientist="A. J. Balard">1826</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>7</group>
@@ -1047,6 +1119,9 @@
 		<orbits>Ar 3d10 4s2 4p5</orbits>
 		<oxydation>-1,(+1,+5,+7)</oxydation>
 		<isotopes>44:78,918:50,6;46:80,916:49,4</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Halogene</family>
 	</element>
 	<element>
@@ -1056,7 +1131,7 @@
 		<mass>83.80</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		
+
 		<date scientist="W. Ramsay, M. W. Travers">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1076,6 +1151,9 @@
 		<orbits>Ar 3d10 4s2 4p6</orbits>
 		<oxydation>+2,(+4)</oxydation>
 		<isotopes>42:77,92:0,35;44:79,916:2,01;46:81,913:11,5;47:82,914:11,5;48:83,912:57,18;50:85,911:17,5</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Noblegas</family>
 	</element>
 	<element>
@@ -1113,7 +1191,7 @@
 		<mass>87.62</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="H. B. Davy">1790</date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>2</group>
@@ -1134,6 +1212,9 @@
 		<orbits>Kr 5s2</orbits>
 		<oxydation>+2</oxydation>
 		<isotopes>46:83,913:0,56;48:85,909:9,86;49:86,909:7,02;50:87,906:82,6</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Alkaline_Earth</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
@@ -1172,7 +1253,7 @@
 		<mass>91.224</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="">1789</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -1192,6 +1273,9 @@
 		<orbits>Kr 4d2 5s2</orbits>
 		<oxydation>+4</oxydation>
 		<isotopes>50:89,904:51,5;51:90,905:11,2;52:91,905:17,1;54:93,906:17,4;56:95,908:2,8</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
@@ -1202,7 +1286,7 @@
 		<mass>92.90638</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="Ch. Hatchett">1801</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -1231,7 +1315,7 @@
 		<mass>95.94</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="K. W. Scheele">1778</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>6</group>
@@ -1251,6 +1335,9 @@
 		<orbits>Kr 4d5 5s1</orbits>
 		<oxydation>(+2,+3,+4,+5),+6</oxydation>
 		<isotopes>50:91,906:15,9;52:93,905:9,2;53:94,906:16,5;54:95,905:15,7;55:96,905:9,4;56:97,906:23,7;58:99,908:9,6</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>bbc</crystalstructure>
 	</element>
@@ -1261,7 +1348,7 @@
 		<mass>98.9063</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="C. Perrier, E. G. Segre">1937</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -1290,7 +1377,7 @@
 		<mass>101.07</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="K. Klaus">1844</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1310,6 +1397,9 @@
 		<orbits>Kr 4d7 5s1</orbits>
 		<oxydation>+3,+4,(+8)</oxydation>
 		<isotopes>52:95,908:5,68;54:97,906:2,22;55:98,906:12,91;56:99,903:12,7;57:100,904:16,98;58:101,904:31,34;60:103,906:18,27</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 
@@ -1321,7 +1411,7 @@
 		<mass>102.90550</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="W. Wollaston">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1352,7 +1442,7 @@
 		<mass>106.42</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1373,6 +1463,9 @@
 		<orbits>Kr 4d10</orbits>
 		<oxydation>+2,+4</oxydation>
 		<isotopes>56:101,905:0,8;58:103,904:9,3;59:104,905:22,6;60:105,903:27,2;62:107,904:26,08;64:109,904:13,5</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 
 		<crystalstructure>ccp</crystalstructure>
@@ -1403,6 +1496,9 @@
 		<orbits>Kr 4d10 5s1</orbits>
 		<oxydation>+1,(+2,+3)</oxydation>
 		<isotopes>60:106,905:51,9;62:108,905:48,1</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
@@ -1432,6 +1528,9 @@
 		<orbits>Kr 4d10 5s2</orbits>
 		<oxydation>+2</oxydation>
 		<isotopes>58:105,906:1,215;60:107,904:0,875;68:115,905:7,58</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
@@ -1493,6 +1592,9 @@
 		<orbits>Kr 4d10 5s2 5p2</orbits>
 		<oxydation>+2,+4</oxydation>
 		<isotopes>62:111,05:0,9;64:113,903:0,6;65:114,904:0,4;66:115,902:14,1;67:116,903:7,5;68:117,902:24;69:118,903:8,6;70:119,902:33;72:121,903:4,8;74:123,905:6,1</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Other_Metal</family>
 		<crystalstructure>own</crystalstructure>
 
@@ -1504,7 +1606,7 @@
 		<mass>121.760</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -1526,6 +1628,9 @@
 		<orbits>Kr 4d10 5s2 5p3</orbits>
 		<oxydation>(-3),+3,(+5)</oxydation>
 		<isotopes>70:120,904:57,25;72:122,904:42,75</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Metalloids</family>
 	</element>
 	<element>
@@ -1556,6 +1661,9 @@
 		<orbits>Kr 4d10 5s2 5p4</orbits>
 		<oxydation>(-2),+4,(+6)</oxydation>
 		<isotopes>68:119,904048:0,09;78:129,906229:34,08</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Metalloids</family>
 	</element>
 	<element>
@@ -1613,6 +1721,9 @@
 		<orbits>Kr 4d10 5s2 5p6</orbits>
 		<oxydation>+4,(+2,+6)</oxydation>
 		<isotopes>70:123,906:0,094;72:125,904:0,088;74:127,904:1,9;75:128,905:26,23;76:129,904:4,07;77:130,905:21,17;78:131,904:26,96;80:133,905:10,54;82:135,907:8,95</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Noblegas</family>
 	</element>
 	<element>
@@ -1652,7 +1763,7 @@
 		<mass>137.237</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="Humphry Bartholomew Davy">1808</date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>2</group>
@@ -1673,6 +1784,9 @@
 		<orbits>Xe 6s2</orbits>
 		<oxydation>+2</oxydation>
 		<isotopes>74:129,906:0,101;76:131,905:0,097</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Alkaline_Earth</family>
 		<crystalstructure>bbc</crystalstructure>
 	</element>
@@ -1706,6 +1820,9 @@
 		<orbits>Xe 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
 		<isotopes>81:137,907:0,089;82:138,91:99,911</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Rare_Earth</family>
 	</element>
 	<element>
@@ -1738,6 +1855,9 @@
 		<orbits>Xe 4f1 5d1 6s2</orbits>
 		<oxydation>+3,+4</oxydation>
 		<isotopes>78:135,907:0,193;80:137,906:0,25;82:139,905:88,46;84:141,909:11,07</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Rare_Earth</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
@@ -1777,7 +1897,7 @@
 		<mass>144.24</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="C. Auer von Welsbach">1925</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
@@ -1797,6 +1917,9 @@
 		<orbits>Xe 4f4 6s2</orbits>
 		<oxydation>+3</oxydation>
 		<isotopes>82:141,907:27,1;83:142,91:12,2;85:144,912:8,3;86:145,913:17,2;88:147,916:5,72;90:149,921:5,6</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Rare_Earth</family>
 	</element>
 	<element>
@@ -1834,7 +1957,7 @@
 		<mass>150.36</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="P. Lecoq de Boisbaudran">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1855,6 +1978,9 @@
 		<orbits>Xe 4f6 6s2</orbits>
 		<oxydation>+2,+3</oxydation>
 		<isotopes>82:143,912:3;90:151,919:26;92:153,922:20</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Rare_Earth</family>
 
 	</element>
@@ -1865,7 +1991,7 @@
 		<mass>151.964</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="E. A. Demarcay">1901</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1885,6 +2011,9 @@
 		<orbits>Xe 4f7 6s2</orbits>
 		<oxydation>+2,+3</oxydation>
 		<isotopes>88:150,92:47,7;90:152,921:52,23</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Rare_Earth</family>
 		<crystalstructure>bbc</crystalstructure>
 	</element>
@@ -1895,7 +2024,7 @@
 		<mass>157.25</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="">1880</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1916,6 +2045,9 @@
 		<orbits>Xe 4f7 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
 		<isotopes>90:153,921:2,15;91:154,923:14,78;92:155,922:20,59;93:156,924:15,71;94:157,924:24,79;96:159,927:21,79</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Rare_Earth</family>
 
 		<crystalstructure>hdp</crystalstructure>
@@ -1927,7 +2059,7 @@
 		<mass>158.92534</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="K. G. Mosander">1843</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
@@ -1958,7 +2090,7 @@
 		<mass>162.50</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="F. E. Lecoq de Boisbaudran">1886</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
@@ -1989,7 +2121,7 @@
 		<mass>164.93032</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="J. L. Soret, P.T. Cleve">1878</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -2020,7 +2152,7 @@
 		<mass>167.259</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="K. G. Mosander">1843</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -2041,6 +2173,9 @@
 		<orbits>Xe 4f12 6s2</orbits>
 		<oxydation>+3</oxydation>
 		<isotopes>94:161,929:0,25;96:163,929:2;102:169,935:10</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Rare_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 
@@ -2052,7 +2187,7 @@
 		<mass>168.93421</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="P. T. Cleve">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -2081,7 +2216,7 @@
 		<mass>173.04</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="J. Ch. Marignac">1878</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
@@ -2101,6 +2236,9 @@
 		<orbits>Xe 4f14 6s2</orbits>
 		<oxydation>+2,+3</oxydation>
 		<isotopes>98:167,934:0,06;106:175,943:13,38</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Rare_Earth</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
@@ -2111,7 +2249,7 @@
 		<mass>174.967</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="C. Auer von Welsbach, G. Urbain">1907</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -2131,6 +2269,9 @@
 		<orbits>Xe 4f14 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
 		<isotopes>104:174,941:97,5;105:175,943:2,5</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Rare_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
@@ -2141,7 +2282,7 @@
 		<mass>178.49</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="D. Coster, G. Hevesy">1923</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -2172,7 +2313,7 @@
 		<mass>180.9479</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="A. Ekeberg">1802</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -2202,7 +2343,7 @@
 		<mass>183.84</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="K. W. Scheel">1783</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>6</group>
@@ -2222,6 +2363,9 @@
 		<orbits>Xe 4f14 5d4 6s2</orbits>
 		<oxydation>(+4), +6</oxydation>
 		<isotopes>106:179,947:0,122;112:185,954:29,17</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>bbc</crystalstructure>
 	</element>
@@ -2232,7 +2376,7 @@
 		<mass>186.207</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="W. Noddack, I. Tacke-Noddack, O. Berg">1925</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -2263,7 +2407,7 @@
 		<mass>190.23</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="S. Tennant">1804</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -2284,6 +2428,9 @@
 		<orbits>Xe 4f14 5d6 6s2</orbits>
 		<oxydation>+4,(+2,+3,+6,+8)</oxydation>
 		<isotopes>108:183,953:0,018;116:191,96:41</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 
 		<crystalstructure>hdp</crystalstructure>
@@ -2295,7 +2442,7 @@
 		<mass>192.217</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="S. Tennant">1804</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -2316,6 +2463,9 @@
 		<orbits>Xe 4f14 5d7 6s2</orbits>
 		<oxydation>+1,+4,(+2,+3,+6)</oxydation>
 		<isotopes>114:190,96:38,5;116:192,96:61,5</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 
 		<crystalstructure>ccp</crystalstructure>
@@ -2327,7 +2477,7 @@
 		<mass>195.078</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="A. de Ulloa">1735</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -2348,6 +2498,9 @@
 		<orbits>Xe 4f14 5d9 6s1</orbits>
 		<oxydation>+2,+4</oxydation>
 		<isotopes>114:191,96:0,8;120:197,97:7,2</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
@@ -2388,7 +2541,7 @@
 		<mass>200.59</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
+
 		<date scientist="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
@@ -2409,6 +2562,9 @@
 		<orbits>Xe 4f14 5d10 6s2</orbits>
 		<oxydation>(+1),+2</oxydation>
 		<isotopes>116:195,97:0,15;124:203,97:6,72</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 
@@ -2420,7 +2576,7 @@
 		<mass>204.3833</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="W. Crookes">1861</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -2456,7 +2612,7 @@
 		<mass>207.2</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
+
 		<date scientist="">0</date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>4</group>
@@ -2477,6 +2633,9 @@
 		<orbits>Xe 4f14 5d10 6s2 6p2</orbits>
 		<oxydation>+2,(+4)</oxydation>
 		<isotopes>124:205,97:25,1;125:206,98:21,1;126:207,98:52,4</isotopes>
+		<isotopes>
+			<isotope halflive="" halfliveformat="seconds" neutron="" percentage="" />
+		</isotopes>
 		<family>Other_Metal</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
@@ -3011,7 +3170,7 @@
 	</element>
 	<element>
 		<number>104</number>
-		<name origin="">Rutherfordium</name>
+		<name origin="named after the scientist Ernest Rutherford">Rutherfordium</name>
 		<symbol>Rf</symbol>
 		<mass>261.1089</mass>
 		<block>d</block>
@@ -3038,7 +3197,7 @@
 	</element>
 	<element>
 		<number>105</number>
-		<name origin="">Dubnium</name>
+		<name origin="named after the science-town Dubna in Russia">Dubnium</name>
 		<symbol>Db</symbol>
 		<mass>262.1144</mass>
 		<block>d</block>
