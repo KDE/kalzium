@@ -754,23 +754,19 @@ void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 
   } 	  
 
-  HoverTimer.start(  2000, true ); //JH: true = run timer once, not continuously
+  HoverTimer.start(  500, true ); //JH: true = run timer once, not continuously
   MouseoverTimer.start(  200, true ); //JH: true = run timer once, not continuously
 }
 
 bool PSE::pointerOnLegend(int X, int Y)
 {
-	kdDebug() << "pointerOnLegend()...  X: " << X << " Y: " << Y << endl;
 	if ( X > 2 && X < 13 )
 	{
-		kdDebug() << "in x" << endl;
 		if ( Y < 4 && Y > 0 )
 		{
-			kdDebug() << "true zurück" << endl;
 			return true;
 		}
 	}
-	kdDebug() << "false zurück" << endl;
 	
 	return false;
 }

@@ -45,6 +45,13 @@ Bugs
 
   + Make use of the biological symbol.					----
     CN: I lost the "translation" though, will have to look after it.
+
+
+  + I don't know how to name this, have a look at the comment     ----
+    in kalzium.cpp, method void Kalzium::slotShowScheme(int i) in
+    case PSE::GRADIENT:
+	Why is the number "2" there? Is the comment right and we
+	should read the gradient? If so: Why does it work?
   
   + Ctrl-Q should close the subwindows.					----
     - Plot window							--
@@ -55,14 +62,19 @@ Bugs
    CN: Obviously not ;) Otherwise it would work
 
 * The main window:
-  + Too long delay before the tooltip arrives				----
+  + Too long delay before the tooltip arrives				DONE-CN
+    CN: I made it a 500ms delay, that is 0.25 of what
+	    it used to be
 
 * The glossary window:
   + If you hit <Return> in the search, you close the window.  It	----
     should display the item.
 
 * Plotting:
-  + Atomic Radius is commented out in the code.  Why?			----
+  + Atomic Radius is commented out in the code.  Why?			DONE-CN
+    CN: The reason is no longer uptodate. I commented it out
+	    because of the changes of the radii (I added atomic+vdW-
+		radius and needed to change the datastructure)
   + The Y axis value inside the "Groups to compare" box is unnecessary.	DONE-IW
   + The default value for "Last Element" should be number of elements.	DONE-IW
 

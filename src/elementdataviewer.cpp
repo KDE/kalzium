@@ -205,14 +205,14 @@ void ElementDataViewer::setupAxisData()
 			m_pPlotWidget->setYAxisLabel(i18n("Boiling Point [K]"));
 			break;
 		case AxisData::ATOMICRADIUS:
-//X 			for( ; it != itEnd ; ++it ) {
-//X 				double value = (*it)->radius( Element::ATOMIC );
-//X 				if( value > 0.0 )
-//X 				  l.append( value );
-//X 				else
-//X 				  l.append( 0.0 );
-//X 			}
-//X 			m_pPlotWidget->setYAxisLabel(i18n("Atomic Radius [pm]"));
+			for( ; it != itEnd ; ++it ) {
+				double value = (*it)->radius( Element::ATOMIC );
+				if( value > 0.0 )
+				  l.append( value );
+				else
+				  l.append( 0.0 );
+			}
+			m_pPlotWidget->setYAxisLabel(i18n("Atomic Radius [pm]"));
 			break;
 		case AxisData::COVALENTRADIUS:
 			for( ; it != itEnd ; ++it ) {
