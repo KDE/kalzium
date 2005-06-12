@@ -89,6 +89,10 @@ Bugs
 Features
 --------
 
+* Data
+  + Add the half-life period of radioactive elements.
+    CN: See Promethium, element 61
+
 * Plotting
   + Add groups of elements, for example "Metals", 4th Period		----
     transitionmetals and so on. The user can easily select them 

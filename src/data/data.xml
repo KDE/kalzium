@@ -336,7 +336,6 @@
 		<mass>24.3050</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
 		<date scientiest="H. B. Davy">1808</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>2</group>
@@ -348,6 +347,7 @@
 		<ionisationenergy>
 			<energy>7.646</energy>
 			<energy>15.0</energy>
+			<energy>80.1</energy>
 		</ionisationenergy>
 		<radius>
 			<covalent>160</covalent>
@@ -367,7 +367,6 @@
 		<mass>26.981538</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
 		<date scientiest="H. Ch. Oersted">1825</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -398,7 +397,6 @@
 		<mass>28.0855</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
 		<date scientiest="J. J. Berzelius">1823</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>4</group>
@@ -408,19 +406,19 @@
 		<boilingpoint>2630</boilingpoint>
 		<density>2.33</density>
 		<ionisationenergy>
-			<energy>8.151 </energy>
-
+			<energy>8.151</energy>
+			<energy>16.3</energy>
+			<energy>33.4</energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>117</covalent>
-			<atomic></atomic>
-			<vdw></vdw>
+			<covalent>111</covalent>
+			<atomic>110</atomic>
+			<vdw>210</vdw>
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p2</orbits>
 		<oxydation>+4,(-4,+2)</oxydation>
 		<isotopes>14:27,977:92,28;15:28,976:4,67;16:29,974:3,05</isotopes>
 		<family>Metalloids</family>
-
 	</element>
 	<element>
 		<number>15</number>
@@ -429,7 +427,6 @@
 		<mass>30.973761</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
 		<date scientiest="H. Brandt">1669</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>5</group>
@@ -439,7 +436,9 @@
 		<boilingpoint>553</boilingpoint>
 		<density>1.82</density>
 		<ionisationenergy>
-			<energy>10.486 </energy>
+			<energy>10.486</energy>
+			<energy>19.8</energy>
+			<energy>30.2</energy>
 		</ionisationenergy>
 		<radius>
 			<covalent>106</covalent>
@@ -450,7 +449,6 @@
 		<orbits>1s2 2s2 2p6 3s2 3p3</orbits>
 		<oxydation>-3,(+1,+3),+5</oxydation>
 		<family>Non-Metal</family>
-
 	</element>
 	<element>
 		<number>16</number>
@@ -459,7 +457,6 @@
 		<mass>32.065</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
 		<date scientiest="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>6</group>
@@ -469,8 +466,9 @@
 		<boilingpoint>717.82</boilingpoint>
 		<density>2.06</density>
 		<ionisationenergy>
-			<energy>10.360 </energy>
-
+			<energy>10.360</energy>
+			<energy>23.3</energy>
+			<energy>34.8</energy>
 		</ionisationenergy>
 		<radius>
 			<covalent>104</covalent>
@@ -482,7 +480,6 @@
 		<oxydation>-2,+2,+4,+6</oxydation>
 		<isotopes>16:31,972:95,1;17:32,971:0,74;18:33,968:4,2;20:35,967:0,016</isotopes>
 		<family>Non-Metal</family>
-
 	</element>
 	<element>
 		<number>17</number>
@@ -491,7 +488,6 @@
 		<mass>35.453</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
 		<date scientiest="K. Scheele">1774</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>7</group>
@@ -501,7 +497,9 @@
 		<boilingpoint>239.18</boilingpoint>
 		<density>2.95</density>
 		<ionisationenergy>
-			<energy>12.967 </energy>
+			<energy>12.967</energy>
+			<energy>23.8</energy>
+			<energy>39.6</energy>
 		</ionisationenergy>
 		<radius>
 			<covalent>99.4</covalent>
@@ -520,7 +518,6 @@
 		<mass>39.948</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		
 		<date scientiest="W. Ramsay, J. Rayleigh">1894</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -530,7 +527,9 @@
 		<boilingpoint>87.45</boilingpoint>
 		<density>1.66</density>
 		<ionisationenergy>
-			<energy>15.759 </energy>
+			<energy>15.759</energy>
+			<energy>27.6</energy>
+			<energy>40.7</energy>
 		</ionisationenergy>
 		<radius>
 			<covalent>97</covalent>
@@ -549,7 +548,6 @@
 		<mass>39.0983</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
 		<date scientiest="H. B. Davy">1807</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>1</group>
@@ -1142,12 +1140,11 @@
 	</element>
 	<element>
 		<number>39</number>
-		<name origin="Named after the small town of Ytterby near Stockholm in Sweden">Yttrium</name>
+		<name origin="Named after the small town of Ytterby near Stockholm in Sweden. Terbium, Ytterbium and Gadolinium are also named after this town.">Yttrium</name>
 		<symbol>Y</symbol>
 		<mass>88.90585</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
 		<date scientiest="">1794</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -1383,12 +1380,11 @@
 	</element>
 	<element>
 		<number>47</number>
-		<name origin="">Silver</name>
+		<name origin="lat. 'agrentum' for silver">Silver</name>
 		<symbol>Ag</symbol>
 		<mass>107.8682</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
 		<date scientiest="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
@@ -1399,7 +1395,6 @@
 		<density>10.49</density>
 		<ionisationenergy>
 			<energy>7.576 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<covalent>144.4</covalent>
@@ -1411,7 +1406,6 @@
 		<isotopes>60:106,905:51,9;62:108,905:48,1</isotopes>
 		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
-
 	</element>
 	<element>
 		<number>48</number>
@@ -1420,7 +1414,6 @@
 		<mass>112.411</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
 		<date scientiest="F. Stromeyer">1817</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>2</group>
@@ -1431,7 +1424,6 @@
 		<density>8.64</density>
 		<ionisationenergy>
 			<energy>8.993 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<covalent>148.9</covalent>
@@ -1442,17 +1434,15 @@
 		<oxydation>+2</oxydation>
 		<isotopes>58:105,906:1,215;60:107,904:0,875;68:115,905:7,58</isotopes>
 		<family>Transition</family>
-
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>49</number>
-		<name origin="">Indium</name>
+		<name origin="named after 'Indigo' because of its blue spectrum">Indium</name>
 		<symbol>In</symbol>
 		<mass>114.818</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
 		<date scientiest="F. Reich, H.T. Richter">1863</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -1479,12 +1469,11 @@
 	</element>
 	<element>
 		<number>50</number>
-		<name origin="">Tin</name>
+		<name origin="lat. 'stannum' for tin">Tin</name>
 		<symbol>Sn</symbol>
 		<mass>118.710</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
 		<date scientiest="">0</date>
 		<biologicalmeaning>6</biologicalmeaning>
 		<group>4</group>
@@ -1511,7 +1500,7 @@
 	</element>
 	<element>
 		<number>51</number>
-		<name origin="">Antimony</name>
+		<name origin="arab. 'anthos ammonos' for 'blossom of the god Ammon'">Antimony</name>
 		<symbol>Sb</symbol>
 		<mass>121.760</mass>
 		<block>p</block>
@@ -1539,16 +1528,14 @@
 		<oxydation>(-3),+3,(+5)</oxydation>
 		<isotopes>70:120,904:57,25;72:122,904:42,75</isotopes>
 		<family>Metalloids</family>
-
 	</element>
 	<element>
 		<number>52</number>
-		<name origin="">Tellurium</name>
+		<name origin="lat. 'tellus' or 'telluris' for 'Planet Earth'">Tellurium</name>
 		<symbol>Te</symbol>
 		<mass>127.60</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		
 		<date scientiest="F. Müller von Reichenstein">1782</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
@@ -1571,16 +1558,14 @@
 		<oxydation>(-2),+4,(+6)</oxydation>
 		<isotopes>68:119,904048:0,09;78:129,906229:34,08</isotopes>
 		<family>Metalloids</family>
-
 	</element>
 	<element>
 		<number>53</number>
-		<name origin="">Iodine</name>
+		<name origin="greek 'ioeides' for 'violett'">Iodine</name>
 		<symbol>I</symbol>
 		<mass>126.90447</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		
 		<date scientiest="B. Courtois">1804</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>7</group>
@@ -1604,12 +1589,11 @@
 	</element>
 	<element>
 		<number>54</number>
-		<name origin="">Xenon</name>
+		<name origin="greek 'xenos' for 'foreigner'">Xenon</name>
 		<symbol>Xe</symbol>
 		<mass>131.293</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		
 		<date scientiest="W. Ramsay, M. W. Travers">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -1631,16 +1615,14 @@
 		<oxydation>+4,(+2,+6)</oxydation>
 		<isotopes>70:123,906:0,094;72:125,904:0,088;74:127,904:1,9;75:128,905:26,23;76:129,904:4,07;77:130,905:21,17;78:131,904:26,96;80:133,905:10,54;82:135,907:8,95</isotopes>
 		<family>Noblegas</family>
-
 	</element>
 	<element>
 		<number>55</number>
-		<name origin="">Caesium</name>
+		<name origin="lat. 'caesius' for 'heavenblue'">Caesium</name>
 		<symbol>Cs</symbol>
 		<mass>132.90545</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
 		<date scientiest="Robert Wilhelm Bunsen, Gustav Robert Kirchhoff">1860</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
@@ -1666,7 +1648,7 @@
 	</element>
 	<element>
 		<number>56</number>
-		<name origin="">Barium</name>
+		<name origin="greek 'barys' for 'heavy'">Barium</name>
 		<symbol>Ba</symbol>
 		<mass>137.237</mass>
 		<block>s</block>
@@ -1693,17 +1675,15 @@
 		<oxydation>+2</oxydation>
 		<isotopes>74:129,906:0,101;76:131,905:0,097</isotopes>
 		<family>Alkaline_Earth</family>
-
 		<crystalstructure>bbc</crystalstructure>
 	</element>
 	<element>
 		<number>57</number>
-		<name origin="">Lanthanum</name>
+		<name origin="greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare earth'">Lanthanum</name>
 		<symbol>La</symbol>
 		<mass>138.9055</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
 		<date scientiest="K. G. Mosander">1839</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
@@ -1713,28 +1693,29 @@
 		<boilingpoint>3737</boilingpoint>
 		<density>6.16</density>
 		<ionisationenergy>
-			<energy>5.577 </energy>
-
+			<energy>5.577</energy>
+			<energy>11.0</energy>
+			<energy>19.17</energy>
+			<energy>49.9</energy>
+			<energy>61.6</energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>187.7</covalent>
-			<atomic></atomic>
+			<covalent>169</covalent>
+			<atomic>195</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
 		<isotopes>81:137,907:0,089;82:138,91:99,911</isotopes>
 		<family>Rare_Earth</family>
-
 	</element>
 	<element>
 		<number>58</number>
-		<name origin="">Cerium</name>
+		<name origin="named after the planetoid Ceres">Cerium</name>
 		<symbol>Ce</symbol>
 		<mass>140.116</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
 		<date scientiest="Jöns Jacob Berzelius, W. Hisinger, M. Klaproth">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -1744,11 +1725,15 @@
 		<boilingpoint>3715</boilingpoint>
 		<density>6.77</density>
 		<ionisationenergy>
-			<energy>5.47 </energy>
+			<energy>5.47</energy>
+			<energy>10.9</energy>
+			<energy>20.2</energy>
+			<energy>36.8</energy>
+			<energy>65.5</energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>182.5</covalent>
-			<atomic></atomic>
+			<covalent></covalent>
+			<atomic>185</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f1 5d1 6s2</orbits>
@@ -1759,12 +1744,11 @@
 	</element>
 	<element>
 		<number>59</number>
-		<name origin="">Praseodymium</name>
+		<name origin="greek 'prasinos didymos' for 'green twin'">Praseodymium</name>
 		<symbol>Pr</symbol>
 		<mass>140.90765</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
 		<date scientiest="K. C. Auer von Welsbach">1885</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -1774,7 +1758,9 @@
 		<boilingpoint>3785</boilingpoint>
 		<density>6.48</density>
 		<ionisationenergy>
-			<energy>5.42 </energy>
+			<energy>5.42</energy>
+			<energy>10.6</energy>
+			<energy>21.6</energy>
 		</ionisationenergy>
 		<radius>
 			<covalent>182.8</covalent>
@@ -1787,7 +1773,7 @@
 	</element>
 	<element>
 		<number>60</number>
-		<name origin="">Neodymium</name>
+		<name origin="greek 'neos didymos' for 'new twin'">Neodymium</name>
 		<symbol>Nd</symbol>
 		<mass>144.24</mass>
 		<block>f</block>
@@ -1816,12 +1802,12 @@
 	</element>
 	<element>
 		<number>61</number>
-		<name origin="">Promethium</name>
+		<name origin="named after the greek Prometheus. Prometheus stole the fire from the gods and gave it to mankind.">Promethium</name>
 		<symbol>Pm</symbol>
 		<mass>146.9151</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<radioactive>1</radioactive>
+		<radioactive halflive="17.7" >1</radioactive>
 		<date scientiest="J. A. Marinsky, C. D. Coryell, L. E. Glendenin">1945</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -1832,7 +1818,6 @@
 		<density>7.22</density>
 		<ionisationenergy>
 			<energy>5.55 </energy>
-
 		</ionisationenergy>
 		<radius>
 			<covalent>181.0</covalent>
@@ -1842,11 +1827,10 @@
 		<orbits>Xe 4f5 6s2</orbits>
 		<oxydation>+3</oxydation>
 		<family>Rare_Earth</family>
-
 	</element>
 	<element>
 		<number>62</number>
-		<name origin="">Samarium</name>
+		<name origin="named after the mineral Samarskit">Samarium</name>
 		<symbol>Sm</symbol>
 		<mass>150.36</mass>
 		<block>f</block>
@@ -1877,7 +1861,7 @@
 	</element>
 	<element>
 		<number>63</number>
-		<name origin="">Europium</name>
+		<name origin="named after Europe">Europium</name>
 		<symbol>Eu</symbol>
 		<mass>151.964</mass>
 		<block>f</block>
@@ -1907,7 +1891,7 @@
 	</element>
 	<element>
 		<number>64</number>
-		<name origin="">Gadolinium</name>
+		<name origin="named after the finish chemist Johan Gadolin">Gadolinium</name>
 		<symbol>Gd</symbol>
 		<mass>157.25</mass>
 		<block>f</block>
@@ -1939,7 +1923,7 @@
 	</element>
 	<element>
 		<number>65</number>
-		<name origin="">Terbium</name>
+		<name origin="named after the swedish town of Ytterby">Terbium</name>
 		<symbol>Tb</symbol>
 		<mass>158.92534</mass>
 		<block>f</block>
@@ -1970,7 +1954,7 @@
 	</element>
 	<element>
 		<number>66</number>
-		<name origin="">Dysprosium</name>
+		<name origin="greek 'dysprositor' for 'difficult to reach'">Dysprosium</name>
 		<symbol>Dy</symbol>
 		<mass>162.50</mass>
 		<block>f</block>
@@ -2001,7 +1985,7 @@
 	</element>
 	<element>
 		<number>67</number>
-		<name origin="">Holmium</name>
+		<name origin="lat. 'holmia' for the old name of Stockholm">Holmium</name>
 		<symbol>Ho</symbol>
 		<mass>164.93032</mass>
 		<block>f</block>
@@ -2032,7 +2016,7 @@
 	</element>
 	<element>
 		<number>68</number>
-		<name origin="">Erbium</name>
+		<name origin="named ofter the swedish town of Ytterby. Terbium and Ytterbium are also named after this town.">Erbium</name>
 		<symbol>Er</symbol>
 		<mass>167.259</mass>
 		<block>f</block>
@@ -2064,7 +2048,7 @@
 	</element>
 	<element>
 		<number>69</number>
-		<name origin="">Thulium</name>
+		<name origin="named after the old name of Scandinavia 'Thule'">Thulium</name>
 		<symbol>Tm</symbol>
 		<mass>168.93421</mass>
 		<block>f</block>
@@ -2093,7 +2077,7 @@
 	</element>
 	<element>
 		<number>70</number>
-		<name origin="">Ytterbium</name>
+		<name origin="Like Terbium and Gadolinium this is named after the swedish town of Ytterby">Ytterbium</name>
 		<symbol>Yb</symbol>
 		<mass>173.04</mass>
 		<block>f</block>
@@ -2123,7 +2107,7 @@
 	</element>
 	<element>
 		<number>71</number>
-		<name origin="">Lutetium</name>
+		<name origin="Named after the roman name 'Lutetia' for Paris">Lutetium</name>
 		<symbol>Lu</symbol>
 		<mass>174.967</mass>
 		<block>f</block>
@@ -2307,7 +2291,7 @@
 	</element>
 	<element>
 		<number>77</number>
-		<name origin="">Iridium</name>
+		<name origin="greek 'iris' for rainbow">Iridium</name>
 		<symbol>Ir</symbol>
 		<mass>192.217</mass>
 		<block>d</block>
