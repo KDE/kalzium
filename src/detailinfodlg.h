@@ -55,7 +55,6 @@ class DetailedInfoDlg : public KDialogBase
 		Element            *m_element;
 
 		QString isotopeTable();
-		QString isotopeRow( const QString& str );
 		
 		QFrame *m_pOverviewTab,
 			*m_pPictureTab,

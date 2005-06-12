@@ -649,13 +649,28 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		QString symbol = domElement.namedItem( "symbol" ).toElement().text();
 		QString oxydation = domElement.namedItem( "oxydation" ).toElement().text();
 		QString acidicbehaviour = domElement.namedItem( "acidicbehaviour" ).toElement().text();
-		QString isotopes = domElement.namedItem( "isotopes" ).toElement().text();
 
 		QDomNodeList elist = domElement.elementsByTagName( "energy" );
 		QValueList<double> ionlist;
 		for( uint i = 0; i < elist.length(); i++ )
 		{
-			ionlist.append( elist.item( i ).toElement().text().toDouble() );
+			ionlist.append(  elist.item(  i ).toElement().text().toDouble() );
+		}
+		
+		//now read in all the date for the isotopes
+		QDomNodeList isotopelist = domElement.elementsByTagName( "isotope" );
+		QValueList<Isotope*> isolist;
+		for( uint i = 0; i < isotopelist.length(); i++ )
+		{
+			QDomElement iso = elist.item( i ).toElement();
+			double halflife = iso.attributeNode( "halflife" ).value().toDouble();
+			double weight = iso.attributeNode( "weight" ).value().toDouble();
+			QString format = iso.attributeNode( "halflifeformat" ).value();
+			int neutrons  = iso.attributeNode( "neutron" ).value().toInt();
+			double percentage = iso.attributeNode( "percentage" ).value().toDouble();
+
+			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format );
+			isolist.append( isotope );
 		}
 	
 		Element *e = new Element();
@@ -683,8 +698,8 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setSymbol(symbol);
 		e->setOxydation(oxydation);
 		e->setAcidicbehaviour(acidicbehaviour);
-		e->setIsotopes(isotopes);
 		e->setIonisationList( ionlist );
+		e->setIsotopeList( isolist );
 		
 		e->setMass( mass );	
 		e->setEN( en );
@@ -706,4 +721,13 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 const int KalziumDataObject::numberOfElements() const
 {
 	return m_numOfElements;
+}
+
+Isotope::Isotope(  int neutrons, double percentage, double weight, double halflife, QString format )
+{
+	m_neutrons = neutrons;
+	m_percentage = percentage;
+	m_halflife = halflife;
+	m_format = format;
+	m_weight = weight;
 }

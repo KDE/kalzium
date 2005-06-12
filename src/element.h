@@ -36,6 +36,65 @@ typedef QValueList<Element*> EList;
 typedef QValueList<coordinate> CList;
 typedef QValueList<double> doubleList;
 
+class Isotope
+{
+	public:
+		Isotope( int neutrons, double percentage, double weight, double halflife, QString format );
+
+		bool seconds() {
+			if ( m_format == "seconds" )
+				return true;
+			else
+				return false;
+		}
+
+		double halflife() const{
+			return m_halflife;
+		}
+		
+		double percentage() const{
+			return m_percentage;
+		}
+
+		int neutrons() const{
+			return m_neutrons;
+		}
+
+		double weight() const{
+			return m_weight;
+		}
+
+	private:
+		/**
+		 * it is either "years" or "seconds". Usually we use seconds. But some
+		 * isotopes have half-lifes of billion of years. This simply
+		 * doesn't fit into a unsigned int or double
+		 */
+		QString m_format;
+
+		/**
+		 * the weight of the isotope
+		 */
+		double m_weight;
+
+		/**
+		 * the half-life of an isotope, usually in seconds
+		 * @see m_format
+		 */
+		double m_halflife;
+		
+		/**
+		 * If 95.2% of the isotopes are of this type, this 
+		 * variable will have the value 95.2
+		 */
+		double m_percentage;
+
+		/**
+		 * the number of neutrons
+		 */
+		int m_neutrons;
+};
+
 /**
  * @short this class contains all Element-objects as
  * a QValueList<Element*>
@@ -151,7 +210,15 @@ class Element{
 			m_ionenergies = l;
 		}
 
-		QValueList<double> ionisationList() const{
+		QValueList<Isotope*> isotopeList()const{
+			return m_isotopeList;
+		}
+
+		void setIsotopeList( QValueList<Isotope*> list ){
+			m_isotopeList = list;
+		}
+
+		doubleList ionisationList() const{
 			return m_ionenergies;
 		}
 		
@@ -248,16 +315,8 @@ class Element{
 		}
 
 		/**
-		 * @return the isotopes of the element
-		 */
-		QString Isotopes() const {
-			return m_isotopes;
-		}
-		
-		/**
 		 * @return the oxydationstages of the element
 		 */
-		
 		QString oxstage() const {
 			return m_oxstage;
 		}
@@ -380,6 +439,10 @@ class Element{
     QColor elementColor() const { 
 		return m_Color; 
 	}
+
+	QValueList<Isotope*> isotopes() const{
+		return m_isotopeList;
+	}
 		
 	void setupXY();
 
@@ -388,6 +451,8 @@ class Element{
 		 * the integer num represents the number of the element
 		 */
 		int m_ElementNumber;
+
+		QValueList<Isotope*> m_isotopeList;
     	
 		QColor m_Color;
 

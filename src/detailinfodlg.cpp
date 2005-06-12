@@ -168,11 +168,11 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( "<b>" + i18n( "Mass: %1" ).arg( m_element->adjustUnits( Element::MASS ) ) + "</b>" );
 			html.append( "</td></tr>" );
-			if ( !m_element->Isotopes().isEmpty() )
+			if ( !m_element->isotopeList().count() > 0 )
 			{
-				html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-				html.append( isotopeTable() );
-				html.append( "</td></tr>" );
+//X 				html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+//X 				html.append( isotopeTable() );
+//X 				html.append( "</td></tr>" );
 			}
 			break;
 		case MISC:
@@ -240,13 +240,10 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
 QString DetailedInfoDlg::isotopeTable()
 {
-	const QString isotopes_string = m_element->Isotopes();
-	QString isotopes = isotopes_string;
+	QValueList<Isotope*> list = m_element->isotopeList();
+
 	QString html;
-
-	int pos;
-	int l;
-
+	
 	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"3\">";
 	html += i18n( "Isotope-Table" );
 	html += "</tr></td><tr><td><b>";
@@ -256,61 +253,38 @@ QString DetailedInfoDlg::isotopeTable()
 	html += "</b></td><td><b>";
 	html += i18n( "Percentage" );
 	html += "</b></td></tr>";
-	
-	for (  int num = 0; num < isotopes_string.contains(  ";" ) ; ++num )
+
+	QValueList<Isotope*>::const_iterator it = list.begin();
+	const QValueList<Isotope*>::const_iterator itEnd = list.end();
+
+	for ( ; it != itEnd; ++it )
 	{
-		pos = isotopes.find(  ";" );
-		l = isotopes.length();
-
-		QString str = isotopes.left(  pos );
-		QString new_str = isotopes.right(  l-pos-1 );
-
-		//now append the html-code... 
-		html.append( isotopeRow( str ) );
-		isotopes = new_str;
+//X 		html = "<tr><td align=\"right\">";
+//X 		html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
+//X 		html.append( "</td><td>" );
+//X 		html.append( ( *it )->neutrons() );
+//X 		html.append( "</td><td>" );
+//X 		html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
+//X 		html.append( "</td></tr>" );
 	}
+
+//X 	for (  int num = 0; num < isotopes_string.contains(  ";" ) ; ++num )
+//X 	{
+//X 		pos = isotopes.find(  ";" );
+//X 		l = isotopes.length();
+//X 
+//X 		QString str = isotopes.left(  pos );
+//X 		QString new_str = isotopes.right(  l-pos-1 );
+//X 
+//X 		//now append the html-code... 
+//X 		html.append( isotopeRow( str ) );
+//X 		isotopes = new_str;
+//X 	}
 	
 	html += ( "</table>" );
 
 	return html;
 }
-
-QString DetailedInfoDlg::isotopeRow( const QString& str )
-{
-	QString text;
-
-	//number of neutrons of the isotope
-	int pos = str.find( ":" );
-	QString neutrons_str = str.left( pos );
-	QString tmp = str.right( str.length()-pos-1 );
-
-	//Weight of the isotope
-	pos = tmp.find( ":" );
-	QString weight_str = tmp.left( pos );
-
-	//Percentage of the isotope
-	tmp = tmp.right( tmp.length()-pos-1 );
-
- 	QString neutrons;
- 	QString weight;
- 	QString percentage;
-
-	weight.append( weight_str );
-	neutrons.append( neutrons_str );
-
-	percentage.append( tmp );
-
-	text = "<tr><td align=\"right\">";
-	text.append( i18n( "%1 u" ).arg( weight ) );
-	text.append( "</td><td>" );
-	text.append( neutrons );
-	text.append( "</td><td>" );
-	text.append( i18n( "this can for example be '24%'", "%1%" ).arg( percentage ) );
-	text.append( "</td></tr>" );
-
-	return text;
-}
-
 
 void DetailedInfoDlg::createContent( )
 {
