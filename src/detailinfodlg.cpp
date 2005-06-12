@@ -178,6 +178,8 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 		case MISC:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( m_element->adjustUnits( Element::DATE ) );
+			if ( !m_element->scientist( ).isEmpty() )
+				html.append( i18n("<br />It was discovered by %1").arg(m_element->scientist() ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );

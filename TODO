@@ -93,7 +93,7 @@ Features
   + Add the half-life period of radioactive elements.
     CN: See Promethium, element 61
 
-  + Make use of the scientist=""-tag in the file
+  + Make use of the scientist=""-tag in the file                    DONE-CN
 
 * Plotting
   + Add groups of elements, for example "Metals", 4th Period		----
