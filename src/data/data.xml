@@ -1201,7 +1201,7 @@
 	</element>
 	<element>
 		<number>41</number>
-		<name origin="Named after Niobe, the doughter of the greek god Tantalus">Niobium</name>
+		<name origin="Named after Niobe, the daughter of the greek god Tantalus">Niobium</name>
 		<symbol>Nb</symbol>
 		<mass>92.90638</mass>
 		<block>d</block>
@@ -2367,16 +2367,14 @@
 		<isotopes>114:191,96:0,8;120:197,97:7,2</isotopes>
 		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
-
 	</element>
 	<element>
 		<number>79</number>
-		<name origin="latin 'aurum', named after Aurora, the goddess of sunset">Gold</name>
+		<name origin="latin 'aurum', named after Aurora, the goddess of sunrise">Gold</name>
 		<symbol>Au</symbol>
 		<mass>196.96654</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		
 		<date scientiest="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
