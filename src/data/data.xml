@@ -14,9 +14,9 @@
 		<electronegativity>2.1</electronegativity>
 		<meltingpoint>13.81</meltingpoint>
 		<boilingpoint>20.28</boilingpoint>
-		<isotopes>0:1,007825:99,985;1:2,0141:0,015</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="1,007825" neutron="0" percentage="99,985" />
+			<isotope halflife="" halflifeformat="seconds" weight="2,0141" neutron="1" percentage="0,015" />
 		</isotopes>
 		<density>0.084</density>
 		<ionisationenergy>
@@ -57,9 +57,9 @@
 		</radius>
 		<orbits>1s2</orbits>
 		<oxydation>0</oxydation>
-		<isotopes>1:3,01603:0,00013;2:4,0026:99,9998</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="3,01603" neutron="1" percentage="0,00013" />
+			<isotope halflife="" halflifeformat="seconds" weight="4,0026" neutron="2" percentage="99,9998" />
 		</isotopes>
 		<family>Noblegas</family>
 	</element>
@@ -90,9 +90,9 @@
 		</radius>
 		<orbits>1s2 2s1</orbits>
 		<oxydation>+1</oxydation>
-		<isotopes>3:6,0151:7,5;4:7,016:92,5</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="6,0151" neutron="3" percentage="7,5" />
+			<isotope halflife="" halflifeformat="seconds" weight="7,016" neutron="4" percentage="92,5" />
 		</isotopes>
 		<family>Alkali_Earth</family>
 		<crystalstructure>bbc</crystalstructure>
@@ -153,9 +153,9 @@
 		</radius>
 		<orbits>1s2 2s2 2p1</orbits>
 		<oxydation>+3</oxydation>
-		<isotopes>10,0129:18,83;6:11,0093:81,17</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="0,0093" neutron="10" percentage="18,83" />
+			<isotope halflife="" halflifeformat="seconds" weight="0,0129" neutron="11" percentage="81,17" />
 		</isotopes>
 		<family>Metalloids</family>
 	</element>
@@ -186,9 +186,9 @@
 		</radius>
 		<orbits>1s2 2s2 2p2</orbits>
 		<oxydation>-4,+2,+4</oxydation>
-		<isotopes>6:12:98,89;7:13,0034:1,11</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="12" neutron="6" percentage="98,89" />
+			<isotope halflife="" halflifeformat="seconds" weight="13,0034" neutron="7" percentage="1,11" />
 		</isotopes>
 		<family>Non-Metal</family>
 	</element>
@@ -220,9 +220,9 @@
 		</radius>
 		<orbits>1s2 2s2 2p3</orbits>
 		<oxydation>-3,(+1,+2,+3,+4,+5)</oxydation>
-		<isotopes>7:14,0031:99,64;8:15,0001:0,36</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="14,0031" neutron="7" percentage="99,64" />
+			<isotope halflife="" halflifeformat="seconds" weight="15,0001" neutron="8" percentage="0,36" />
 		</isotopes>
 		<family>Non-Metal</family>
 	</element>
@@ -254,9 +254,10 @@
 		</radius>
 		<orbits>1s2 2s2 2p4</orbits>
 		<oxydation>-2,(-1,+2)</oxydation>
-		<isotopes>8:15,9949:99,756;9:16,9991:0,039;10:17,9992:0,205</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="15,9949" neutron="8" percentage="99,756" />
+			<isotope halflife="" halflifeformat="seconds" weight="16,9991" neutron="9" percentage="0,039" />
+			<isotope halflife="" halflifeformat="seconds" weight="17,9992" neutron="10" percentage="0,205" />
 		</isotopes>
 		<family>Non-Metal</family>
 	</element>
@@ -316,9 +317,10 @@
 		</radius>
 		<orbits>1s2 2s2 2p6</orbits>
 		<oxydation>0</oxydation>
-		<isotopes>10:19,9924:90,5;11:20,9938:0,27;12:21,9914:9,2</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="19,9924" neutron="10" percentage="90,5" />
+			<isotope halflife="" halflifeformat="seconds" weight="20,9938" neutron="11" percentage="0,27" />
+			<isotope halflife="" halflifeformat="seconds" weight="21,9914" neutron="12" percentage="9,2" />
 		</isotopes>
 		<family>Noblegas</family>
 	</element>
@@ -380,9 +382,10 @@
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2</orbits>
 		<oxydation>+2</oxydation>
-		<isotopes>12:23,985:78,99;13:24,986:10;14:25,983:11,01</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="23,985" neutron="12" percentage="78,99" />
+			<isotope halflife="" halflifeformat="seconds" weight="24,986" neutron="13" percentage="10" />
+			<isotope halflife="" halflifeformat="seconds" weight="25,983" neutron="14" percentage="11,01" />
 		</isotopes>
 		<family>Alkaline_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
@@ -444,9 +447,10 @@
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p2</orbits>
 		<oxydation>+4,(-4,+2)</oxydation>
-		<isotopes>14:27,977:92,28;15:28,976:4,67;16:29,974:3,05</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="27,977" neutron="14" percentage="92,28" />
+			<isotope halflife="" halflifeformat="seconds" weight="28,976" neutron="15" percentage="4,67" />
+			<isotope halflife="" halflifeformat="seconds" weight="29,974" neutron="16" percentage="3,05" />
 		</isotopes>
 		<family>Metalloids</family>
 	</element>
@@ -508,9 +512,11 @@
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p4</orbits>
 		<oxydation>-2,+2,+4,+6</oxydation>
-		<isotopes>16:31,972:95,1;17:32,971:0,74;18:33,968:4,2;20:35,967:0,016</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="31,972" neutron="16" percentage="95,1" />
+			<isotope halflife="" halflifeformat="seconds" weight="32,971:" neutron="17" percentage="0,74" />
+			<isotope halflife="" halflifeformat="seconds" weight="33,968" neutron="18" percentage="4,2" />
+			<isotope halflife="" halflifeformat="seconds" weight="35,967" neutron="20" percentage="0,016" />
 		</isotopes>
 		<family>Non-Metal</family>
 	</element>
@@ -541,9 +547,9 @@
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p5</orbits>
 		<oxydation>-1,(+1,+3,+5,+7)</oxydation>
-		<isotopes>18:34,968853:75,77;20:36,966:24,23</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="34,968853" neutron="18" percentage="75,77" />
+			<isotope halflife="" halflifeformat="seconds" weight="36,966" neutron="20" percentage="24,23" />
 		</isotopes>
 		<family>Halogene</family>
 	</element>
@@ -574,9 +580,10 @@
 		</radius>
 		<orbits>1s2 2s2 2p6 3s2 3p6</orbits>
 		<oxydation>0</oxydation>
-		<isotopes>18:35,968:0,307;20:37,963:0,061;22:39,962:99,632</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="35,968" neutron="18" percentage="0,307" />
+			<isotope halflife="" halflifeformat="seconds" weight="37,963" neutron="20" percentage="0,061" />
+			<isotope halflife="" halflifeformat="seconds" weight="39,962" neutron="22" percentage="99,632" />
 		</isotopes>
 		<family>Noblegas</family>
 	</element>
@@ -605,9 +612,9 @@
 		</radius>
 		<orbits>Ar 4s1</orbits>
 		<oxydation>+1</oxydation>
-		<isotopes>20:38,964:93,2581;22:40,962:6,73</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="38,964" neutron="20" percentage="93,2581" />
+			<isotope halflife="" halflifeformat="seconds" weight="40,962" neutron="22" percentage="6,73" />
 		</isotopes>
 		<family>Alkali_Earth</family>
 		<crystalstructure>bbc</crystalstructure>
@@ -639,9 +646,13 @@
 		</radius>
 		<orbits>Ar 4s2</orbits>
 		<oxydation>+2</oxydation>
-		<isotopes>20:39,963:96,92;22:41,959:0,64;23:42,959:0,13;24:43,955:2,13;26:44,954:0,003;28:47,952:0,18</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="39,963" neutron="20" percentage="96,92" />
+			<isotope halflife="" halflifeformat="seconds" weight="41,959" neutron="22" percentage="0,64" />
+			<isotope halflife="" halflifeformat="seconds" weight="42,959" neutron="23" percentage="0,13" />
+			<isotope halflife="" halflifeformat="seconds" weight="43,955" neutron="24" percentage="2,13" />
+			<isotope halflife="" halflifeformat="seconds" weight="44,954" neutron="26" percentage="0,003" />
+			<isotope halflife="" halflifeformat="seconds" weight="47,952" neutron="28" percentage="0,18" />
 		</isotopes>
 		<family>Alkaline_Earth</family>
 		<crystalstructure>ccp</crystalstructure>
@@ -701,9 +712,12 @@
 		</radius>
 		<orbits>Ar 3d2 4s2</orbits>
 		<oxydation>+4,+3</oxydation>
-		<isotopes>24:45,953:7,95;25:46,952:7,75;26:47,948:73,45;27:48,948:5,51;28:49,945:5,34</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="45,953" neutron="24" percentage="7,95" />
+			<isotope halflife="" halflifeformat="seconds" weight="46,952" neutron="25" percentage="7,75" />
+			<isotope halflife="" halflifeformat="seconds" weight="47,948" neutron="26" percentage="73,45" />
+			<isotope halflife="" halflifeformat="seconds" weight="48,948" neutron="27" percentage="5,51" />
+			<isotope halflife="" halflifeformat="seconds" weight="49,945" neutron="28" percentage="5,34" />
 		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
@@ -716,7 +730,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 
-		<date scientist="N. Sefström">1830</date>
+		<date scientist="N. Sefstrï¿½">1830</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity>-51</electronaffinity>
@@ -763,9 +777,11 @@
 		</radius>
 		<orbits>Ar 3d5 4s1</orbits>
 		<oxydation>+2,+3,(+1,+4,+5),+6</oxydation>
-		<isotopes>26:49,946:4,3;28:51,94:83,8;29:52,941:9,5;30:53,939:2,4</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="49,946" neutron="26" percentage="4,3" />
+			<isotope halflife="" halflifeformat="seconds" weight="51,94" neutron="28" percentage="83,8" />
+			<isotope halflife="" halflifeformat="seconds" weight="52,941" neutron="29" percentage="9,5" />
+			<isotope halflife="" halflifeformat="seconds" weight="53,939" neutron="30" percentage="2,4" />
 		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>bbc</crystalstructure>
@@ -825,9 +841,11 @@
 		</radius>
 		<orbits>Ar 3d6 4s2</orbits>
 		<oxydation>+2,+3</oxydation>
-		<isotopes>28:53,94:5,81;30:55,935:91,64;31:56,935:2,21;32:57,933:0,34</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="53,94" neutron="28" percentage="5,81" />
+			<isotope halflife="" halflifeformat="seconds" weight="55,935" neutron="30" percentage="91,64" />
+			<isotope halflife="" halflifeformat="seconds" weight="56,935" neutron="31" percentage="2,21" />
+			<isotope halflife="" halflifeformat="seconds" weight="57,933" neutron="32" percentage="0,34" />
 		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>bbc</crystalstructure>
@@ -888,9 +906,12 @@
 		</radius>
 		<orbits>Ar 3d8 4s2</orbits>
 		<oxydation>0,(+2),+3</oxydation>
-		<isotopes>30:57,935:67,8;32:59,931:26,2;33:60,931:1,2;34:61,928:3,7;36:63,928:1,1</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="57,935" neutron="30" percentage="67,8" />
+			<isotope halflife="" halflifeformat="seconds" weight="59,931" neutron="32" percentage="26,2" />
+			<isotope halflife="" halflifeformat="seconds" weight="60,931" neutron="33" percentage="1,2" />
+			<isotope halflife="" halflifeformat="seconds" weight="61,928" neutron="34" percentage="3,7" />
+			<isotope halflife="" halflifeformat="seconds" weight="63,928" neutron="36" percentage="1,1" />
 		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
@@ -923,9 +944,9 @@
 		</radius>
 		<orbits>Ar 3d10 4s1</orbits>
 		<oxydation>+1,+2</oxydation>
-		<isotopes>34:62,93:68,9;36:64,928:31,1</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="62,93" neutron="34" percentage="68,9" />
+			<isotope halflife="" halflifeformat="seconds" weight="64,928" neutron="36" percentage="31,1" />
 		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
@@ -956,9 +977,12 @@
 		</radius>
 		<orbits>Ar 3d10 4s2</orbits>
 		<oxydation>+2</oxydation>
-		<isotopes>34:63,929:48,9;36:65,926:27,82;37:66,927:4,16;38:67,925:18,5;40:69,925:0,62</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="63,929" neutron="34" percentage="48,9" />
+			<isotope halflife="" halflifeformat="seconds" weight="65,926" neutron="36" percentage="27,82" />
+			<isotope halflife="" halflifeformat="seconds" weight="66,927" neutron="37" percentage="4,16" />
+			<isotope halflife="" halflifeformat="seconds" weight="67,925" neutron="38" percentage="18,5" />
+			<isotope halflife="" halflifeformat="seconds" weight="69,925" neutron="40" percentage="0,62" />
 		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
@@ -991,9 +1015,9 @@
 		</radius>
 		<orbits>Ar 3d10 4s2 4p1</orbits>
 		<oxydation>(+1),(+2),+3</oxydation>
-		<isotopes>38:68,926:60,1;40:70,925:39,9</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="68,926" neutron="38" percentage="60,1" />
+			<isotope halflife="" halflifeformat="seconds" weight="70,925" neutron="40" percentage="39,9" />
 		</isotopes>
 		<family>Other_Metal</family>
 		<crystalstructure>own</crystalstructure>
@@ -1024,9 +1048,12 @@
 		</radius>
 		<orbits>Ar 3d10 4s2 4p2</orbits>
 		<oxydation>+4,(+2)</oxydation>
-		<isotopes>38:69,924:20,6;40:71,922:27,4;41:72,923:7,8;42:73,921:36,4;44:75,921:7,8</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="69,924" neutron="38" percentage="20,6" />
+			<isotope halflife="" halflifeformat="seconds" weight="71,922" neutron="40" percentage="27,4" />
+			<isotope halflife="" halflifeformat="seconds" weight="72,923" neutron="41" percentage="7,8" />
+			<isotope halflife="" halflifeformat="seconds" weight="73,921" neutron="42" percentage="36,4" />
+			<isotope halflife="" halflifeformat="seconds" weight="75,921" neutron="44" percentage="7,8" />
 		</isotopes>
 		<family>Metalloids</family>
 	</element>
@@ -1086,9 +1113,13 @@
 		</radius>
 		<orbits>Ar 3d10 4s2 4p4</orbits>
 		<oxydation>(-2),+4,(+6)</oxydation>
-		<isotopes>40:73,922:0,9;42:75,919:9,5;43:76,92:8,3;44:77,917:24;46:79,917:48;48:81,917:9,3</isotopes>
 		<isotopes>
-			<isotope halflife="" halflifeformat="seconds" weight="" neutron="" percentage="" />
+			<isotope halflife="" halflifeformat="seconds" weight="73,922" neutron="40" percentage="0,9" />
+			<isotope halflife="" halflifeformat="seconds" weight="75,919" neutron="42" percentage="9,5" />
+			<isotope halflife="" halflifeformat="seconds" weight="76,92" neutron="43" percentage="8,3" />
+			<isotope halflife="" halflifeformat="seconds" weight="77,917" neutron="44" percentage="24" />
+			<isotope halflife="" halflifeformat="seconds" weight="79,917" neutron="46" percentage="48" />
+			<isotope halflife="" halflifeformat="seconds" weight="81,917" neutron="48" percentage="9,3" />
 		</isotopes>
 		<family>Non-Metal</family>
 	</element>
@@ -1640,7 +1671,7 @@
 		<mass>127.60</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<date scientist="F. Müller von Reichenstein">1782</date>
+		<date scientist="F. Mller von Reichenstein">1782</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-190</electronaffinity>
@@ -1832,7 +1863,7 @@
 		<mass>140.116</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientist="Jöns Jacob Berzelius, W. Hisinger, M. Klaproth">1803</date>
+		<date scientist="Jï¿½s Jacob Berzelius, W. Hisinger, M. Klaproth">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity></electronaffinity>
@@ -3293,7 +3324,7 @@
 	</element>
 	<element>
 		<number>111</number>
-		<name origin="named after Wilhelm Conrad Röntgen.">Roentgenium</name>
+		<name origin="named after Wilhelm Conrad Rï¿½tgen.">Roentgenium</name>
 		<symbol>Rg</symbol>
 		<mass>272</mass>
 		<block>d</block>
