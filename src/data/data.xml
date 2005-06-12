@@ -35,7 +35,7 @@
 		<mass>4.002602</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		<date scientiest="P. J. Janssen, J. N. Lockyer">1895</date>
+		<date scientist="P. J. Janssen, J. N. Lockyer">1895</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>21</electronaffinity>
@@ -65,7 +65,7 @@
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="A. Arfvedson">1817</date>
+		<date scientist="A. Arfvedson">1817</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity>-60</electronaffinity>
@@ -96,7 +96,7 @@
 		<block>s</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<aggregation>0 </aggregation>
-		<date scientiest="">1798</date>
+		<date scientist="">1798</date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>2</group>
 		<electronaffinity>19</electronaffinity>
@@ -125,7 +125,7 @@
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
 		
-		<date scientiest="Louis Joseph Gay-Lussac, Louis Jacques Thenard">1808 </date>
+		<date scientist="Louis Joseph Gay-Lussac, Louis Jacques Thenard">1808 </date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>3</group>
 		<electronaffinity>-27</electronaffinity>
@@ -155,7 +155,7 @@
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
 		
-		<date scientiest="">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity>-122</electronaffinity>
@@ -185,7 +185,7 @@
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
 		
-		<date scientiest="D. Rutherford">1772</date>
+		<date scientist="D. Rutherford">1772</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity>7</electronaffinity>
@@ -216,7 +216,7 @@
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
 		
-		<date scientiest="J. Priestley">1774</date>
+		<date scientist="J. Priestley">1774</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-141</electronaffinity>
@@ -247,7 +247,7 @@
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
 		
-		<date scientiest="H. F. Moissan">1886</date>
+		<date scientist="H. F. Moissan">1886</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity>-328</electronaffinity>
@@ -276,7 +276,7 @@
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
 		
-		<date scientiest="W. Ramsay, M.W. Travers">1898 </date>
+		<date scientist="W. Ramsay, M.W. Travers">1898 </date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>29</electronaffinity>
@@ -306,7 +306,7 @@
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="">1807</date>
+		<date scientist="">1807</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity>-53</electronaffinity>
@@ -336,7 +336,7 @@
 		<mass>24.3050</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientiest="H. B. Davy">1808</date>
+		<date scientist="H. B. Davy">1808</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>2</group>
 		<electronaffinity>19</electronaffinity>
@@ -367,7 +367,7 @@
 		<mass>26.981538</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<date scientiest="H. Ch. Oersted">1825</date>
+		<date scientist="H. Ch. Oersted">1825</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
 		<electronaffinity>-43</electronaffinity>
@@ -397,7 +397,7 @@
 		<mass>28.0855</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<date scientiest="J. J. Berzelius">1823</date>
+		<date scientist="J. J. Berzelius">1823</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity>-134</electronaffinity>
@@ -427,7 +427,7 @@
 		<mass>30.973761</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<date scientiest="H. Brandt">1669</date>
+		<date scientist="H. Brandt">1669</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity>-72</electronaffinity>
@@ -457,7 +457,7 @@
 		<mass>32.065</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<date scientiest="">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-200</electronaffinity>
@@ -488,7 +488,7 @@
 		<mass>35.453</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<date scientiest="K. Scheele">1774</date>
+		<date scientist="K. Scheele">1774</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity>-349</electronaffinity>
@@ -518,7 +518,7 @@
 		<mass>39.948</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		<date scientiest="W. Ramsay, J. Rayleigh">1894</date>
+		<date scientist="W. Ramsay, J. Rayleigh">1894</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>29</electronaffinity>
@@ -548,7 +548,7 @@
 		<mass>39.0983</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientiest="H. B. Davy">1807</date>
+		<date scientist="H. B. Davy">1807</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity>-48</electronaffinity>
@@ -578,7 +578,7 @@
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="H. B. Davy">1808</date>
+		<date scientist="H. B. Davy">1808</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>2</group>
 		<electronaffinity>10</electronaffinity>
@@ -609,7 +609,7 @@
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="L. Nilson">1879</date>
+		<date scientist="L. Nilson">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
 		<electronaffinity>-18</electronaffinity>
@@ -638,7 +638,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="W. Gregor">1791</date>
+		<date scientist="W. Gregor">1791</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity>-8</electronaffinity>
@@ -668,7 +668,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="N. Sefström">1830</date>
+		<date scientist="N. Sefström">1830</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity>-51</electronaffinity>
@@ -697,7 +697,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="L. N. Vauquelin">1797</date>
+		<date scientist="L. N. Vauquelin">1797</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-64</electronaffinity>
@@ -727,7 +727,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="K. W. Scheele">1774</date>
+		<date scientist="K. W. Scheele">1774</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity></electronaffinity>
@@ -756,7 +756,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>-16</electronaffinity>
@@ -787,7 +787,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="G. Brandt">1737</date>
+		<date scientist="G. Brandt">1737</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>-64</electronaffinity>
@@ -816,7 +816,7 @@
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="A. F. Cronstedt">1751</date>
+		<date scientist="A. F. Cronstedt">1751</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>-112</electronaffinity>
@@ -846,7 +846,7 @@
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity>-118</electronaffinity>
@@ -878,7 +878,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="">1746</date>
+		<date scientist="">1746</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>2</group>
 		<electronaffinity>47</electronaffinity>
@@ -908,7 +908,7 @@
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="P. E. Lecoq de Boisbaudran">1875</date>
+		<date scientist="P. E. Lecoq de Boisbaudran">1875</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
 		<electronaffinity>-29</electronaffinity>
@@ -940,7 +940,7 @@
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="C. A. Winkler">1886</date>
+		<date scientist="C. A. Winkler">1886</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity>-116</electronaffinity>
@@ -969,7 +969,7 @@
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="A. Magnus">0</date>
+		<date scientist="A. Magnus">0</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity>-78</electronaffinity>
@@ -998,7 +998,7 @@
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
 		
-		<date scientiest="J. J. Berzelius">1817</date>
+		<date scientist="J. J. Berzelius">1817</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-195</electronaffinity>
@@ -1028,7 +1028,7 @@
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
 		
-		<date scientiest="A. J. Balard">1826</date>
+		<date scientist="A. J. Balard">1826</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity>-325</electronaffinity>
@@ -1057,7 +1057,7 @@
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
 		
-		<date scientiest="W. Ramsay, M. W. Travers">1898</date>
+		<date scientist="W. Ramsay, M. W. Travers">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>39</electronaffinity>
@@ -1085,8 +1085,7 @@
 		<mass>85.4678</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		A
-		<date scientiest=".W Bunsen, G.R. Kirchhoff">1861</date>
+		<date scientist="Robert W. Bunsen, Gustav R. Kirchhoff">1861</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity>-47</electronaffinity>
@@ -1115,7 +1114,7 @@
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="H. B. Davy">1790</date>
+		<date scientist="H. B. Davy">1790</date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>2</group>
 		<electronaffinity></electronaffinity>
@@ -1145,7 +1144,7 @@
 		<mass>88.90585</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientiest="">1794</date>
+		<date scientist="">1794</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
 		<electronaffinity>-30</electronaffinity>
@@ -1174,7 +1173,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="">1789</date>
+		<date scientist="">1789</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity>-41</electronaffinity>
@@ -1204,7 +1203,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="Ch. Hatchett">1801</date>
+		<date scientist="Ch. Hatchett">1801</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity>-86</electronaffinity>
@@ -1233,7 +1232,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="K. W. Scheele">1778</date>
+		<date scientist="K. W. Scheele">1778</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-72</electronaffinity>
@@ -1263,7 +1262,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="C. Perrier, E. G. Segre">1937</date>
+		<date scientist="C. Perrier, E. G. Segre">1937</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity>-53</electronaffinity>
@@ -1292,7 +1291,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="K. Klaus">1844</date>
+		<date scientist="K. Klaus">1844</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>-101</electronaffinity>
@@ -1323,7 +1322,7 @@
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="W. Wollaston">1803</date>
+		<date scientist="W. Wollaston">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>-110</electronaffinity>
@@ -1354,7 +1353,7 @@
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="">1803</date>
+		<date scientist="">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>-54</electronaffinity>
@@ -1385,7 +1384,7 @@
 		<mass>107.8682</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientiest="">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity>-126</electronaffinity>
@@ -1414,7 +1413,7 @@
 		<mass>112.411</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientiest="F. Stromeyer">1817</date>
+		<date scientist="F. Stromeyer">1817</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>2</group>
 		<electronaffinity>32</electronaffinity>
@@ -1443,7 +1442,7 @@
 		<mass>114.818</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<date scientiest="F. Reich, H.T. Richter">1863</date>
+		<date scientist="F. Reich, H.T. Richter">1863</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
 		<electronaffinity>-29</electronaffinity>
@@ -1474,7 +1473,7 @@
 		<mass>118.710</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<date scientiest="">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>6</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity>-116</electronaffinity>
@@ -1506,7 +1505,7 @@
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity>-103</electronaffinity>
@@ -1536,7 +1535,7 @@
 		<mass>127.60</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<date scientiest="F. Müller von Reichenstein">1782</date>
+		<date scientist="F. Müller von Reichenstein">1782</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-190</electronaffinity>
@@ -1566,7 +1565,7 @@
 		<mass>126.90447</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<date scientiest="B. Courtois">1804</date>
+		<date scientist="B. Courtois">1804</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity>-295</electronaffinity>
@@ -1594,7 +1593,7 @@
 		<mass>131.293</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
-		<date scientiest="W. Ramsay, M. W. Travers">1898</date>
+		<date scientist="W. Ramsay, M. W. Travers">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>41</electronaffinity>
@@ -1623,7 +1622,7 @@
 		<mass>132.90545</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientiest="Robert Wilhelm Bunsen, Gustav Robert Kirchhoff">1860</date>
+		<date scientist="Robert Wilhelm Bunsen, Gustav Robert Kirchhoff">1860</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity>-45</electronaffinity>
@@ -1654,7 +1653,7 @@
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="Humphry Bartholomew Davy">1808</date>
+		<date scientist="Humphry Bartholomew Davy">1808</date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>2</group>
 		<electronaffinity></electronaffinity>
@@ -1684,7 +1683,7 @@
 		<mass>138.9055</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientiest="K. G. Mosander">1839</date>
+		<date scientist="K. G. Mosander">1839</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
 		<electronaffinity></electronaffinity>
@@ -1716,7 +1715,7 @@
 		<mass>140.116</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientiest="Jöns Jacob Berzelius, W. Hisinger, M. Klaproth">1803</date>
+		<date scientist="Jöns Jacob Berzelius, W. Hisinger, M. Klaproth">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity></electronaffinity>
@@ -1749,7 +1748,7 @@
 		<mass>140.90765</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientiest="K. C. Auer von Welsbach">1885</date>
+		<date scientist="K. C. Auer von Welsbach">1885</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity></electronaffinity>
@@ -1779,7 +1778,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="C. Auer von Welsbach">1925</date>
+		<date scientist="C. Auer von Welsbach">1925</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity></electronaffinity>
@@ -1808,7 +1807,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<radioactive halflive="17.7" >1</radioactive>
-		<date scientiest="J. A. Marinsky, C. D. Coryell, L. E. Glendenin">1945</date>
+		<date scientist="J. A. Marinsky, C. D. Coryell, L. E. Glendenin">1945</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity></electronaffinity>
@@ -1836,7 +1835,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="P. Lecoq de Boisbaudran">1879</date>
+		<date scientist="P. Lecoq de Boisbaudran">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
@@ -1867,7 +1866,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="E. A. Demarcay">1901</date>
+		<date scientist="E. A. Demarcay">1901</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
@@ -1897,7 +1896,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="">1880</date>
+		<date scientist="">1880</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
@@ -1929,7 +1928,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="K. G. Mosander">1843</date>
+		<date scientist="K. G. Mosander">1843</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity></electronaffinity>
@@ -1960,7 +1959,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="F. E. Lecoq de Boisbaudran">1886</date>
+		<date scientist="F. E. Lecoq de Boisbaudran">1886</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
 		<electronaffinity></electronaffinity>
@@ -1991,7 +1990,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="J. L. Soret, P.T. Cleve">1878</date>
+		<date scientist="J. L. Soret, P.T. Cleve">1878</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
 		<electronaffinity></electronaffinity>
@@ -2022,7 +2021,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="K. G. Mosander">1843</date>
+		<date scientist="K. G. Mosander">1843</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity></electronaffinity>
@@ -2054,7 +2053,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="P. T. Cleve">1879</date>
+		<date scientist="P. T. Cleve">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity></electronaffinity>
@@ -2083,7 +2082,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="J. Ch. Marignac">1878</date>
+		<date scientist="J. Ch. Marignac">1878</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity></electronaffinity>
@@ -2113,7 +2112,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="C. Auer von Welsbach, G. Urbain">1907</date>
+		<date scientist="C. Auer von Welsbach, G. Urbain">1907</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity></electronaffinity>
@@ -2143,7 +2142,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="D. Coster, G. Hevesy">1923</date>
+		<date scientist="D. Coster, G. Hevesy">1923</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity></electronaffinity>
@@ -2174,7 +2173,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="A. Ekeberg">1802</date>
+		<date scientist="A. Ekeberg">1802</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity>-31</electronaffinity>
@@ -2204,7 +2203,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="K. W. Scheel">1783</date>
+		<date scientist="K. W. Scheel">1783</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-79</electronaffinity>
@@ -2234,7 +2233,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="W. Noddack, I. Tacke-Noddack, O. Berg">1925</date>
+		<date scientist="W. Noddack, I. Tacke-Noddack, O. Berg">1925</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity>-14</electronaffinity>
@@ -2265,7 +2264,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="S. Tennant">1804</date>
+		<date scientist="S. Tennant">1804</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>-106</electronaffinity>
@@ -2297,7 +2296,7 @@
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="S. Tennant">1804</date>
+		<date scientist="S. Tennant">1804</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>-151</electronaffinity>
@@ -2329,7 +2328,7 @@
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="A. de Ulloa">1735</date>
+		<date scientist="A. de Ulloa">1735</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>-205</electronaffinity>
@@ -2359,7 +2358,7 @@
 		<mass>196.96654</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientiest="">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity>-223</electronaffinity>
@@ -2384,13 +2383,13 @@
 	</element>
 	<element>
 		<number>80</number>
-		<name origin="">Mercury</name>
-		<symbol origin="greek and lat 'hydragyrum' for 'liquid silver'">Hg</symbol>
+		<name origin="greek-latin 'hydrargyrum' for 'liquid silver'">Mercury</name>
+		<symbol>Hg</symbol>
 		<mass>200.59</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		
-		<date scientiest="">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
 		<electronaffinity>61</electronaffinity>
@@ -2416,13 +2415,13 @@
 	</element>
 	<element>
 		<number>81</number>
-		<name origin="">Thallium</name>
+		<name origin="greek 'tallos' for 'young twig'">Thallium</name>
 		<symbol>Tl</symbol>
 		<mass>204.3833</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="W. Crookes">1861</date>
+		<date scientist="W. Crookes">1861</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
 		<electronaffinity>-20</electronaffinity>
@@ -2452,13 +2451,13 @@
 	</element>
 	<element>
 		<number>82</number>
-		<name origin="">Lead</name>
+		<name origin="lat. 'plumbum' for Lead">Lead</name>
 		<symbol>Pb</symbol>
 		<mass>207.2</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		
-		<date scientiest="">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>3</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity>-35</electronaffinity>
@@ -2483,12 +2482,12 @@
 	</element>
 	<element>
 		<number>83</number>
-		<name origin="">Bismuth</name>
+		<name origin="the old name of Bismuth is 'Wismut'. This stood for 'white mass'">Bismuth</name>
 		<symbol>Bi</symbol>
 		<mass>208.98038</mass>
 		<block>p</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientiest="P. Pott, T. O. Bergmann">0</date>
+		<date scientist="P. Pott, T. O. Bergmann">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity>-91</electronaffinity>
@@ -2511,13 +2510,13 @@
 	</element>
 	<element>
 		<number>84</number>
-		<name origin="">Polonium</name>
+		<name origin="named after Poland to honor Marie Curie">Polonium</name>
 		<symbol>Po</symbol>
 		<mass>208.9824</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<radioactive>1</radioactive>
-		<date scientiest="M. Sklodowska-Curie, P. Curie">1898</date>
+		<date scientist="M. Sklodowska-Curie, P. Curie">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-183</electronaffinity>
@@ -2539,13 +2538,13 @@
 	</element>
 	<element>
 		<number>85</number>
-		<name origin="">Astatine</name>
+		<name origin="greek 'astator' for 'changing'">Astatine</name>
 		<symbol>At</symbol>
 		<mass>209.9871</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
 		<radioactive>1</radioactive>
-		<date scientiest="D.R. Corson, K.R. McKenzie, E. Segre">1940</date>
+		<date scientist="D.R. Corson, K.R. McKenzie, E. Segre">1940</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity>-270</electronaffinity>
@@ -2567,13 +2566,13 @@
 	</element>
 	<element>
 		<number>86</number>
-		<name origin="">Radon</name>
+		<name origin="named after Radium. It ends on 'on' to make clear it is a noble gas">Radon</name>
 		<symbol>Rn</symbol>
 		<mass>222.0176</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
 		<radioactive>1</radioactive>
-		<date scientiest="E. Dorn">1898</date>
+		<date scientist="E. Dorn">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity>41</electronaffinity>
@@ -2595,13 +2594,13 @@
 	</element>
 	<element>
 		<number>87</number>
-		<name origin="">Francium</name>
+		<name origin="Named after France to honor Marguerite Perey">Francium</name>
 		<symbol>Fr</symbol>
 		<mass>223.0197</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<radioactive>1</radioactive>
-		<date scientiest="M. Perey">1939</date>
+		<date scientist="M. Perey">1939</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity>-44</electronaffinity>
@@ -2624,13 +2623,13 @@
 	</element>
 	<element>
 		<number>88</number>
-		<name origin="">Radium</name>
+		<name origin="lat. 'radius' for 'beam' as it is radioactive">Radium</name>
 		<symbol>Ra</symbol>
 		<mass>226.0254</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<radioactive>1</radioactive>
-		<date scientiest="M. Sklodowska-Curie, P. Curie">1898</date>
+		<date scientist="M. Sklodowska-Curie, P. Curie">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
 		<electronaffinity></electronaffinity>
@@ -2653,13 +2652,13 @@
 	</element>
 	<element>
 		<number>89</number>
-		<name origin="">Actinium</name>
+		<name origin="greek 'aktis' for 'beam'. Actinium is radioactive">Actinium</name>
 		<symbol>Ac</symbol>
 		<mass>227.0278</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<radioactive>1</radioactive>
-		<date scientiest="A.L. Debierne">1899</date>
+		<date scientist="A.L. Debierne">1899</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
 		<electronaffinity></electronaffinity>
@@ -2683,13 +2682,13 @@
 	</element>
 	<element>
 		<number>90</number>
-		<name origin="">Thorium</name>
+		<name origin="named after the german god of thunder Thor">Thorium</name>
 		<symbol>Th</symbol>
 		<mass>232.0381</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<radioactive>1</radioactive>
-		<date scientiest="J. J. Berzelius">1828</date>
+		<date scientist="J. J. Berzelius">1828</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity></electronaffinity>
@@ -2713,13 +2712,13 @@
 	</element>
 	<element>
 		<number>91</number>
-		<name origin="">Protactinium</name>
+		<name origin="greek 'protos' for 'ancester'">Protactinium</name>
 		<symbol>Pa</symbol>
 		<mass>231.03588</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<radioactive>1</radioactive>
-		<date scientiest="O. Hahn, L. Meitern, W. Wollaston">1917</date>
+		<date scientist="O. Hahn, L. Meitern, W. Wollaston">1917</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity></electronaffinity>
@@ -2739,13 +2738,13 @@
 	</element>
 	<element>
 		<number>92</number>
-		<name origin="">Uranium</name>
+		<name origin="greek 'ouranos' for 'heaven', named after the planet Uranus">Uranium</name>
 		<symbol>U</symbol>
 		<mass>238.02891</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<radioactive>1</radioactive>
-		<date scientiest="M. M. Klaproth">1789</date>
+		<date scientist="M. M. Klaproth">1789</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity></electronaffinity>
@@ -2768,13 +2767,13 @@
 	</element>
 	<element>
 		<number>93</number>
-		<name origin="">Neptunium</name>
+		<name origin="named after the planet Neptun.">Neptunium</name>
 		<symbol>Np</symbol>
 		<mass>237.0482</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<radioactive>1</radioactive>
-		<date scientiest="E. M. McMillan, P. Aberson">1940</date>
+		<date scientist="E. M. McMillan, P. Aberson">1940</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity></electronaffinity>
@@ -2796,13 +2795,13 @@
 	</element>
 	<element>
 		<number>94</number>
-		<name origin="">Plutonium</name>
+		<name origin="named after the planet Pluto.">Plutonium</name>
 		<symbol>Pu</symbol>
 		<mass>244.0642</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<radioactive>1</radioactive>
-		<date scientiest="G.T. Seaborg, E.M. McMillan, J.W. Kennedy, A.C. Wahl">1940</date>
+		<date scientist="G.T. Seaborg, E.M. McMillan, J.W. Kennedy, A.C. Wahl">1940</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
@@ -2825,13 +2824,13 @@
 	</element>
 	<element>
 		<number>95</number>
-		<name origin="">Americium</name>
+		<name origin="named after America.">Americium</name>
 		<symbol>Am</symbol>
 		<mass>243.0614</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="G.T. Seaborg, L.O. Morgan, R.A. James, A. Ghiors">1945</date>
+		<date scientist="G.T. Seaborg, L.O. Morgan, R.A. James, A. Ghiors">1945</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
@@ -2853,13 +2852,13 @@
 	</element>
 	<element>
 		<number>96</number>
-		<name origin="">Curium</name>
+		<name origin="named after Marie Curie.">Curium</name>
 		<symbol>Cm</symbol>
 		<mass>247.0703</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="G. T. Seaborg, R. A. James, A. Ghiors">1944</date>
+		<date scientist="G. T. Seaborg, R. A. James, A. Ghiors">1944</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
@@ -2873,13 +2872,13 @@
 	</element>
 	<element>
 		<number>97</number>
-		<name origin="">Berkelium</name>
+		<name origin="named after the town Berkely where it was discovered.">Berkelium</name>
 		<symbol>Bk</symbol>
 		<mass>247.0703</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="G. T. Seaborg, A. Ghiors, S.G. Thompson">1949</date>
+		<date scientist="G. T. Seaborg, A. Ghiors, S.G. Thompson">1949</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity></electronaffinity>
@@ -2893,13 +2892,13 @@
 	</element>
 	<element>
 		<number>98</number>
-		<name origin="">Californium</name>
+		<name origin="named after the US-State of California.">Californium</name>
 		<symbol>Cf</symbol>
 		<mass>251.0796</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="G. T. Seaborg, A Ghiors, S. G. Thompson">1950</date>
+		<date scientist="G. T. Seaborg, A Ghiors, S. G. Thompson">1950</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
 		<electronaffinity></electronaffinity>
@@ -2913,13 +2912,13 @@
 	</element>
 	<element>
 		<number>99</number>
-		<name origin="">Einsteinium</name>
+		<name origin="named after the scientist Albert Einstein.">Einsteinium</name>
 		<symbol>Es</symbol>
 		<mass>252.0829</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="G. T. Seaborg et al.">1952</date>
+		<date scientist="G. T. Seaborg et al.">1952</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
 		<electronaffinity></electronaffinity>
@@ -2931,13 +2930,13 @@
 	</element>
 	<element>
 		<number>100</number>
-		<name origin="">Fermium</name>
+		<name origin="named after the scientist Enrico Fermi.">Fermium</name>
 		<symbol>Fm</symbol>
 		<mass>257.0951</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="G. T. Seaborg et al.">1953</date>
+		<date scientist="G. T. Seaborg et al.">1953</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity></electronaffinity>
@@ -2949,13 +2948,13 @@
 	</element>
 	<element>
 		<number>101</number>
-		<name origin="">Mendelevium</name>
+		<name origin="named after the scientist D.I. Mendelejew.">Mendelevium</name>
 		<symbol>Md</symbol>
 		<mass>258.0986</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="G. T. Seaborg et al.">1955</date>
+		<date scientist="G. T. Seaborg et al.">1955</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity></electronaffinity>
@@ -2967,13 +2966,13 @@
 	</element>
 	<element>
 		<number>102</number>
-		<name origin="">Nobelium</name>
+		<name origin="named after the scientist Alfred Nobel.">Nobelium</name>
 		<symbol>No</symbol>
 		<mass>259.1009</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="">1957</date>
+		<date scientist="">1957</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity></electronaffinity>
@@ -2985,13 +2984,13 @@
 	</element>
 	<element>
 		<number>103</number>
-		<name origin="">Lawrencium</name>
+		<name origin="named after the scientist Ernest Orlando Lawrence.">Lawrencium</name>
 		<symbol>Lr</symbol>
 		<mass>262.110</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="">1961</date>
+		<date scientist="">1961</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity></electronaffinity>
@@ -3018,7 +3017,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="G.N. Florow; independently A. Ghiorso">1969</date>
+		<date scientist="G.N. Florow; independently A. Ghiorso">1969</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity></electronaffinity>
@@ -3045,7 +3044,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="">1970</date>
+		<date scientist="">1970</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity></electronaffinity>
@@ -3071,7 +3070,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="">1974</date>
+		<date scientist="">1974</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity></electronaffinity>
@@ -3085,7 +3084,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="">1976</date>
+		<date scientist="">1976</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity></electronaffinity>
@@ -3099,7 +3098,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="">1984</date>
+		<date scientist="">1984</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
@@ -3113,7 +3112,7 @@
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="">1982</date>
+		<date scientist="">1982</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
@@ -3127,7 +3126,7 @@
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="">1994</date>
+		<date scientist="">1994</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
@@ -3141,7 +3140,7 @@
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
-		<date scientiest="">1994</date>
+		<date scientist="">1994</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
 		<electronaffinity></electronaffinity>

@@ -197,6 +197,13 @@ class Element{
 		}
 
 		/**
+		 * @return the scientist who discovered the element
+		 */
+		QString scientist() const{
+			return m_scientist;
+		}
+
+		/**
 		 * @return the crystalstructure of the element
 		 */
 		QString crystalstructure() const{
