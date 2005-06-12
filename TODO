@@ -45,7 +45,14 @@ Bugs
 
   + Make use of the biological symbol.					----
     CN: I lost the "translation" though, will have to look after it.
+	
 
+  + In the SOM: If the html-code gets to long the slider is also ----
+    resized. Because of this the date jumps. This make the SOM
+	unusable. Solution: Fix the layout of the SOM
+
+  + Black overviewwidget if you hover over the table because     DONE-CN
+    currentColor() is not set.
 
   + I don't know how to name this, have a look at the comment     ----
     in kalzium.cpp, method void Kalzium::slotShowScheme(int i) in
@@ -95,7 +102,7 @@ Features
                        Future versions
 
 * Export to html and csv comes into my mind. Pretty easy I
-  guess. SOmething like that was in Kalzium of KDE 3.1 I
+  guess. Something like that was in Kalzium of KDE 3.1 I
   think.  But my implementation sucked so much I removed it.
 
 * Make the glossary also into a dictionary

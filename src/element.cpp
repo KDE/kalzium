@@ -401,6 +401,10 @@ QColor Element::currentColor( const double temp )
 	
 void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 {
+	//Set the elementColor to c to make the overviewwidget show
+	//the correct color
+	setElementColor( c );
+	
 	//the height of a "line" inside an element
 	int h_small = 15; //the size for the small units like elementnumber
 
