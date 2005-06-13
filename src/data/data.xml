@@ -2881,8 +2881,10 @@
 		<density>10.07</density>
 		<ionisationenergy>
 			<energy>6.9 </energy>
-
 		</ionisationenergy>
+		<isotopes>
+			<isotope halflife="78372" halflifeformat="seconds" weight="227.0277" neutron="227" percentage="" />
+		</isotopes>
 		<radius>
 			<covalent>187.8</covalent>
 			<atomic></atomic>

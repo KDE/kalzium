@@ -168,12 +168,12 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( "<b>" + i18n( "Mass: %1" ).arg( m_element->adjustUnits( Element::MASS ) ) + "</b>" );
 			html.append( "</td></tr>" );
-//X 			if ( !m_element->isotopeList().count() > 0 )
-//X 			{
+			if ( m_element->isotopeList().count() > 0 )
+			{
 				html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 				html.append( isotopeTable() );
 				html.append( "</td></tr>" );
-//X 			}
+			}
 			break;
 		case MISC:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
@@ -269,13 +269,32 @@ QString DetailedInfoDlg::isotopeTable()
 		html.append( "</td><td>" );
 		html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
 		html.append( "</td><td>" );
-		html.append( QString::number( ( *it )->halflife() ) );
+		html.append( createHalflifeString( ( *it )->halflife(), ( *it )->seconds() ) );
 		html.append( "</td></tr>" );
 	}
 	
 	html += ( "</table>" );
 
 	return html;
+}
+
+QString DetailedInfoDlg::createHalflifeString( double time, bool seconds )
+{
+	QString halflife;
+	
+	if ( !seconds )//years
+	{
+		halflife = i18n("%1 years").arg( time );
+		return halflife;
+	}
+	if ( time < 120 )
+		halflife = i18n("%1 seconds").arg( time );
+	else if ( time > 1200 )
+		halflife = i18n("%1 minutes").arg( time/60.0 );
+	else if ( time > 12000 )
+		halflife = i18n("%1 days").arg( time/( 60.0 * 60.0 ) );
+
+	return halflife;
 }
 
 void DetailedInfoDlg::createContent( )
