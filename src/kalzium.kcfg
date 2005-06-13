@@ -30,12 +30,22 @@
 	<whatsthis>Show or hide the tooltips</whatsthis>
 	<default>true</default>
     </entry>
+    <entry name="pselook" type="Int">
+	<label>whether the atomic mass will be displayed in the PSE-Table</label>
+	<whatsthis>Display the atomic mass in the PSE</whatsthis>
+	<default>0</default>
+    </entry>
   </group>
   <group name="Slider">
 	  <entry name="sliderdate" type="Int">
 		  <label>The date with which the slider starts</label>
 		  <whatsthis>The date with which the slider starts</whatsthis>
 		  <default>2004</default>
+    <entry name="temperaturevalue" type="Int">
+	<label>The default value for the state of matter view</label>
+	<whatsthis>Sets the temperature in Kelvin which will be used for the state of matter view</whatsthis>
+	<default>295</default>
+    </entry>
 	  </entry>
   </group>
   <group name="Colors">
@@ -206,11 +216,9 @@
 	<whatsthis>Use SI-units or not</whatsthis>
 	<default>0</default>
     </entry>
-  </group>
-  <group name="PSELook">
-    <entry name="pselook" type="Int">
-	<label>whether the atomic mass will be displayed in the PSE-Table</label>
-	<whatsthis>Display the atomic mass in the PSE</whatsthis>
+    <entry name="temperature" type="Int">
+	<label>This value defines which temperature scale should be used within Kalzium</label>
+	<whatsthis>Select the scale for the temperature</whatsthis>
 	<default>0</default>
     </entry>
   </group>
@@ -219,18 +227,6 @@
 	<label>This value defines which electronegativity-scale should be used within Kalzium</label>
 	<whatsthis>Select the scale for the electronegativity</whatsthis>
 	<default>1</default>
-    </entry>
-  </group>
-  <group name="Temperature">
-    <entry name="temperature" type="Int">
-	<label>This value defines which temperature scale should be used within Kalzium</label>
-	<whatsthis>Select the scale for the temperature</whatsthis>
-	<default>0</default>
-    </entry>
-    <entry name="temperaturevalue" type="Int">
-	<label>The default value for the state of matter view</label>
-	<whatsthis>Sets the temperature in Kelvin which will be used for the state of matter view</whatsthis>
-	<default>295</default>
     </entry>
   </group>
   <group name="Sidebar">
