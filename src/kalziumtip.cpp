@@ -41,6 +41,7 @@ KalziumTip::KalziumTip(QWidget* parent) : QWidget(parent)
 	resize(0,0);
 	hide(); //initailly hide it
 	m_richText = 0;
+	m_noElemIcon = KGlobal::iconLoader()->loadIcon( "orbits", KIcon::NoGroup, 64 );
 
 	connect(&m_frameTimer, SIGNAL(timeout()), SLOT(internalUpdate()));
 }
@@ -262,7 +263,7 @@ void KalziumTip::loadIcon()
 	}
 	else
 	{
-		m_icon = KGlobal::iconLoader()->loadIcon( "orbits", KIcon::NoGroup, 64 );
+		m_icon = m_noElemIcon;
 	}
 }
 

@@ -1335,6 +1335,12 @@ void PSE::setLook( PSE::SCHEMETYPE type, int which )
 		}
 		case CRYSTAL:
 		{
+			while ( it != itEnd )
+			{
+				//XXX TEMP!!!!
+				(*it)->setElementColor( Qt::white );
+				++it;
+			}
 			setGradient( false );
 			break;
 		}

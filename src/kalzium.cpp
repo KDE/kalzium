@@ -138,9 +138,9 @@ void Kalzium::setupActions()
 	m_pGlossaryAction = new KAction(i18n("&Glossary"), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
 	//Legend
-	m_pLegendAction = new KToggleAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
+	m_pLegendAction = new KAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
 	
-	m_pTooltipAction = new KToggleAction(i18n("Hide &Tooltip"), "tooltip", 0, this, SLOT(slotEnableTooltips()), actionCollection(), "toggle_tooltip");
+	m_pTooltipAction = new KAction(i18n("Hide &Tooltip"), "tooltip", 0, this, SLOT(slotEnableTooltips()), actionCollection(), "toggle_tooltip");
 	
 	//the standardactions
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());

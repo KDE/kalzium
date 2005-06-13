@@ -66,6 +66,7 @@ class KalziumTip : public QWidget
 		QPoint m_mousePointer;
     		QPixmap m_pixmap;
     		QPixmap m_icon; //icon shown on the tip
+		QPixmap m_noElemIcon; //icon for element wich have no image
 
     		MaskEffect m_maskEffect; //inidicates to show mask effect or plain
     		QSimpleRichText* m_richText;
