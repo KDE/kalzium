@@ -1,0 +1,78 @@
+                           Release plan
+                           ============
+
+Status: Under discussion
+
+
+Overview
+--------
+
+Currently we plan for 3 releases:
+
+ - A standalone release of Kalzium in July
+ - The release for KDE 3.5
+ - The release for KDE 4.0
+
+The reason for the standalone release is that we want user feedback
+for the KDE 3.5 release.
+
+All details of the release plan are below the TODO items for the
+respective release.
+
+Dates
+
+2005-06-30    Feature freeze.  All features in the TODO for
+              version 1.5 should be done at the end of this day.
+
+2005-07-08    End of bug testing and fixing period.
+
+2005-07-11    Release of Kalzium 1.5
+
+
+================================================================
+                  Details of the release plan
+
+
+* Standalone release of Kalzium
+  + After one week of testing and improving I would like to release
+    Kalzium (together with libkdeedu for the plotting) on the 8th 
+    of July (a friday).
+   IW: I changed this to Monday 11th for two reasons:
+     - We have the weekend to fix really urgent bugs, and to do the
+       packaging without stress.
+     - It's better to do the release when people don't only want to
+       think about the upcoming weekend.  This way, the release can
+       get more attention.
+	
+  + Release criteria, prio 1:
+    - Fix all bugs on bugs.kde.org
+    - Add all icons. For this purpose I started a thread here:
+      http://kde-artists.org/main/component/option,com_smf/Itemid,48/expv,0/topic,60.0
+    - *must be* Update edu.kde.org/kalzium with screenshots
+    - *must be* increase the version number
+  + Release criteria, prio 2:
+    - Make the release very usable:
+      http://www.openusability.org/forum/forum.php?thread_id=397&forum_id=250
+    - Write the documentation
+   These prio 2 issues will be prio 1 for KDE 3.5
+
+  + Release mechanism:
+    - Announcement on http://dot.kde.org
+    - Announcement on kde-edu@kde.org
+    - Announcement on apps.kde.org
+    - Announcement on kde-announce@kde.org
+    - I will blog about the release and it goals
+
+* KDE 3.5-release
+   + Make use of the feedback we get of the standalone release
+   + The 3.5-release will probably be pretty identical with the
+     standalone-release, except for bug fixes and usability issues.
+
+
+* KDE 4-release
+
+  + Port to Qt4. We use a lot QValueList<T> and paintEvents, so I
+    expect some fun :)
+  + Switch to KCanvas2 so that scaling the table is possible?
+    IW: Scaling can be made possible without KCanvas2 as well.
+  + Implement the things in the TODO-file

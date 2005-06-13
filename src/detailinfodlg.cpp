@@ -57,6 +57,7 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
  	overviewLayout->addWidget( dTab );
 	wOrbits = new OrbitsWidget( m_pModelTab );
 	piclabel = new QLabel( m_pPictureTab );
+	piclabel->setMinimumSize( 400, 300 );
 	
 	mainLayout->addWidget( piclabel );
 	modelLayout->addWidget( wOrbits );
@@ -310,11 +311,12 @@ void DetailedInfoDlg::createContent( )
 	dTab->setElement( m_element );
 
 	////////////////////////////////////7
-	if ( !locate(  "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" ).isEmpty() )
+	QString picpath = locate(  "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" );
+	if ( !picpath.isEmpty() )
 	{
-		QPixmap pic ( locate( "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" ) );
-		QImage img = pic.convertToImage();
+		QImage img( picpath, "JPEG" );
 		img = img.smoothScale ( 400, 400, QImage::ScaleMin );
+		QPixmap pic;
 		pic.convertFromImage( img );
 		piclabel->setPixmap( pic );
 	}
