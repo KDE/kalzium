@@ -286,11 +286,15 @@ QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument
 		desc.replace("[i]", "<i>" );
 		desc.replace("[/i]", "</i>" );
 
-		kdDebug() << desc << endl;
+//		kdDebug() << desc << endl;
 		
-		item->setName( nameNode.toElement( ).text() );
-		item->setDesc( desc );
+		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
+		item->setDesc( i18n( desc.utf8() ) );
 		reflist = QStringList::split( ',', refNode.toElement( ).text() );
+		for ( uint it = 0; it < reflist.size(); it++ )
+		{
+			reflist[it] = i18n( reflist[it].utf8() );
+		}
 		reflist.sort();
 		item->setRef( reflist );
 		

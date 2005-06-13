@@ -40,6 +40,7 @@ KalziumTip::KalziumTip(QWidget* parent) : QWidget(parent)
 	setBackgroundMode(NoBackground); // widget has no background
 	resize(0,0);
 	hide(); //initailly hide it
+	m_richText = 0;
 
 	connect(&m_frameTimer, SIGNAL(timeout()), SLOT(internalUpdate()));
 }
