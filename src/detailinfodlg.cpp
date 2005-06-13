@@ -245,7 +245,7 @@ QString DetailedInfoDlg::isotopeTable()
 
 	QString html;
 	
-	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"3\">";
+	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"4\">";
 	html += i18n( "Isotope-Table" );
 	html += "</tr></td><tr><td><b>";
 	html += i18n( "Weight" );
@@ -253,25 +253,24 @@ QString DetailedInfoDlg::isotopeTable()
 	html += i18n( "Neutrons" );
 	html += "</b></td><td><b>";
 	html += i18n( "Percentage" );
+	html += "</b></td><td><b>";
+	html += i18n( "Half-life period" );
 	html += "</b></td></tr>";
 
 	QValueList<Isotope*>::const_iterator it = list.begin();
 	const QValueList<Isotope*>::const_iterator itEnd = list.end();
 
-	int julia = 1;
-
 	for ( ; it != itEnd; ++it )
 	{
-		kdDebug() << "Iterator " << julia << endl;
 		html.append( "<tr><td align=\"right\">" );
 		html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
 		html.append( "</td><td>" );
 		html.append( QString::number( ( *it )->neutrons() ) );
 		html.append( "</td><td>" );
 		html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
+		html.append( "</td><td>" );
+		html.append( QString::number( ( *it )->halflife() ) );
 		html.append( "</td></tr>" );
-
-		julia++;
 	}
 	
 	html += ( "</table>" );
