@@ -662,7 +662,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		QValueList<Isotope*> isolist;
 		for( uint i = 0; i < isotopelist.length(); i++ )
 		{
-			QDomElement iso = elist.item( i ).toElement();
+			QDomElement iso = isotopelist.item( i ).toElement();
 			double halflife = iso.attributeNode( "halflife" ).value().toDouble();
 			double weight = iso.attributeNode( "weight" ).value().toDouble();
 			QString format = iso.attributeNode( "halflifeformat" ).value();
@@ -671,6 +671,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 
 			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format );
 			isolist.append( isotope );
+			kdDebug() << "Neutrons: " << neutrons << " :: " << percentage << weight << halflife << format << endl;
 		}
 	
 		Element *e = new Element();

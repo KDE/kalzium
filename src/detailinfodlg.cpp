@@ -168,12 +168,12 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( "<b>" + i18n( "Mass: %1" ).arg( m_element->adjustUnits( Element::MASS ) ) + "</b>" );
 			html.append( "</td></tr>" );
-			if ( !m_element->isotopeList().count() > 0 )
-			{
-//X 				html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-//X 				html.append( isotopeTable() );
-//X 				html.append( "</td></tr>" );
-			}
+//X 			if ( !m_element->isotopeList().count() > 0 )
+//X 			{
+				html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+				html.append( isotopeTable() );
+				html.append( "</td></tr>" );
+//X 			}
 			break;
 		case MISC:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
@@ -240,6 +240,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
 QString DetailedInfoDlg::isotopeTable()
 {
+	kdDebug() << "DetailedInfoDlg::isotopeTable()" << endl;
 	QValueList<Isotope*> list = m_element->isotopeList();
 
 	QString html;
@@ -257,31 +258,26 @@ QString DetailedInfoDlg::isotopeTable()
 	QValueList<Isotope*>::const_iterator it = list.begin();
 	const QValueList<Isotope*>::const_iterator itEnd = list.end();
 
+	int julia = 1;
+
 	for ( ; it != itEnd; ++it )
 	{
-//X 		html = "<tr><td align=\"right\">";
-//X 		html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
-//X 		html.append( "</td><td>" );
-//X 		html.append( ( *it )->neutrons() );
-//X 		html.append( "</td><td>" );
-//X 		html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
-//X 		html.append( "</td></tr>" );
-	}
+		kdDebug() << "Iterator " << julia << endl;
+		html.append( "<tr><td align=\"right\">" );
+		html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
+		html.append( "</td><td>" );
+		//for some reasons the encoding is not working... The iterator returns
+		//the correct number as an int...
+		html.append( ( *it )->neutrons() );
+		html.append( "</td><td>" );
+		html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
+		html.append( "</td></tr>" );
 
-//X 	for (  int num = 0; num < isotopes_string.contains(  ";" ) ; ++num )
-//X 	{
-//X 		pos = isotopes.find(  ";" );
-//X 		l = isotopes.length();
-//X 
-//X 		QString str = isotopes.left(  pos );
-//X 		QString new_str = isotopes.right(  l-pos-1 );
-//X 
-//X 		//now append the html-code... 
-//X 		html.append( isotopeRow( str ) );
-//X 		isotopes = new_str;
-//X 	}
+		julia++;
+	}
 	
 	html += ( "</table>" );
+	kdDebug() << "Html-code: " << html << endl;
 
 	return html;
 }
