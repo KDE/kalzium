@@ -152,7 +152,7 @@ void ElementDataViewer::setupAxisData()
 				else
 				  l.append( 0.0 );
 			}
-			m_pPlotWidget->setYAxisLabel(i18n("Atomic Weight [u]"));
+			m_pPlotWidget->setYAxisLabel(i18n("Atomic Mass [u]"));
 			break;
 		case AxisData::MEANWEIGHT:
 			for( ; it != itEnd ; ++it ) {
@@ -162,7 +162,7 @@ void ElementDataViewer::setupAxisData()
 				else
 				  l.append( 0.0 );
 			}
-			m_pPlotWidget->setYAxisLabel(i18n("Mean Weight [u]"));
+			m_pPlotWidget->setYAxisLabel(i18n("Mean Mass [u]"));
 			break;
 		case AxisData::DENSITY:
 			for( ; it != itEnd ; ++it ) {

@@ -209,8 +209,8 @@
   </group>
   <group name="PSELook">
     <entry name="pselook" type="Int">
-	<label>This value defines whether the atomic weight or the atomic number will be displayed in the PSE-Table</label>
-	<whatsthis>Display the atomic weight in the PSE or the number</whatsthis>
+	<label>whether the atomic mass will be displayed in the PSE-Table</label>
+	<whatsthis>Display the atomic mass in the PSE</whatsthis>
 	<default>0</default>
     </entry>
   </group>
