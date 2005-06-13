@@ -8,8 +8,8 @@ Bugs
 * Miscellaneous bugs:
   + Fix the startsize of the infodialog					DONE-PT
     - make the dialog have a sane size if there is no picture of 
-      the element							DONE-PT
-    - make the html fit into the window					----
+      the element										DONE-PT
+    - make the html fit into the window					DONE-CN
 
   + Make use of the biological symbol.					----
     CN: I lost the "translation" though, will have to look after it.
@@ -36,16 +36,19 @@ Bugs
    CN: Obviously not ;) Otherwise it would work
 
 * The main window:
-  + Too long delay before the tooltip arrives				DONE-CN
+  + Too long delay before the tooltip arrives							DONE-CN
     CN: I made it a 500ms delay, that is 0.25 of what
 	    it used to be
+	CN: After using it for some days I find the 500ms to
+	    short. The tooltip is constantly in my way. What
+		do you say?
 
 * The glossary window:
-  + If you hit <Return> in the search, you close the window.  It	----
+  + If you hit <Return> in the search, you close the window.  It		----
     should display the item.
 
 * Plotting:
-  + Atomic Radius is commented out in the code.  Why?			DONE-CN
+  + Atomic Radius is commented out in the code.  Why?					DONE-CN
     CN: The reason is no longer uptodate. I commented it out
 	    because of the changes of the radii (I added atomic+vdW-
 		radius and needed to change the datastructure)
@@ -57,7 +60,7 @@ Features
 --------
 
 * Data
-  + Add the half-life period of radioactive elements.
+  + Add the half-life period of radioactive elements.				DONE-CN
     CN: See Promethium, element 61
 
   + Make use of the scientist=""-tag in the file                    DONE-CN
@@ -87,3 +90,10 @@ Features
 * There should be more data about the elements, for example which
   chemitry-nobel-prize was won in that year (+/- 5 years or so)
 
+* Make use of hotnewstuff. In the detailinfodlg there should be
+  a weblookup. If the user click on a button Konq will start with
+  a page about the element. Of course, the user should be able
+  to decide which page.
+  For this we could create a simple editor and store it in xml.
+  on edu.kde.org we would enable KHNS so that users can share
+  their pages. Imaginge for example the different wikipedia-languages

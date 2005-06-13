@@ -241,7 +241,6 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
 QString DetailedInfoDlg::isotopeTable()
 {
-	kdDebug() << "DetailedInfoDlg::isotopeTable()" << endl;
 	QValueList<Isotope*> list = m_element->isotopeList();
 
 	QString html;
@@ -264,13 +263,16 @@ QString DetailedInfoDlg::isotopeTable()
 	for ( ; it != itEnd; ++it )
 	{
 		html.append( "<tr><td align=\"right\">" );
-		html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
+		if ( ( *it )->weight() > 0.0 )
+			html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
 		html.append( "</td><td>" );
 		html.append( QString::number( ( *it )->neutrons() ) );
 		html.append( "</td><td>" );
-		html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
+		if ( ( *it )->percentage() > 0.0 )
+			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
 		html.append( "</td><td>" );
-		html.append( createHalflifeString( ( *it )->halflife(), ( *it )->seconds() ) );
+		if ( ( *it )->halflife() > 0.0 )
+			html.append( createHalflifeString( ( *it )->halflife(), ( *it )->seconds() ) );
 		html.append( "</td></tr>" );
 	}
 	
@@ -285,7 +287,12 @@ QString DetailedInfoDlg::createHalflifeString( double time, bool seconds )
 	
 	if ( !seconds )//years
 	{
-		halflife = i18n("%1 years").arg( time );
+		if ( time > 1000000 )
+			halflife = i18n("%1 million years").arg( time/1000000.0 );
+		if ( time > 1000000000 )
+			halflife = i18n("%1 billion years").arg( time/1000000000.0 );
+		else
+			halflife = i18n("%1 years").arg( time );
 		return halflife;
 	}
 	if ( time < 120 )

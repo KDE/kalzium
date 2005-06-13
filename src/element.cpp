@@ -671,7 +671,6 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 
 			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format );
 			isolist.append( isotope );
-			kdDebug() << "Neutrons: " << neutrons << " :: " << percentage << weight << halflife << format << endl;
 		}
 	
 		Element *e = new Element();

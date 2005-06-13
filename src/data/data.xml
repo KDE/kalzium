@@ -1983,7 +1983,7 @@
 		<mass>146.9151</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<radioactive halflife="17.7" >1</radioactive>
+		<radioactive>1</radioactive>
 		<date scientist="J. A. Marinsky, C. D. Coryell, L. E. Glendenin">1945</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -2740,6 +2740,16 @@
 		<ionisationenergy>
 			<energy>8.42 </energy>
 		</ionisationenergy>
+		<isotopes>
+			<isotope halflife="102" halflifeformat="years" weight="" neutron="209" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="210" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="211" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="212" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="214" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="215" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="216" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="218" percentage="" />
+		</isotopes>
 		<radius>
 			<covalent>167.5</covalent>
 			<atomic></atomic>
@@ -2762,12 +2772,19 @@
 		<group>7</group>
 		<electronaffinity>-270</electronaffinity>
 		<electronegativity>2.2</electronegativity>
-		<meltingpoint>575	</meltingpoint>
+		<meltingpoint>575</meltingpoint>
 		<boilingpoint>610</boilingpoint>
 		<density></density>
 		<ionisationenergy>
 			<energy>9.5 </energy>
 		</ionisationenergy>
+		<isotopes>
+			<isotope halflife="29160" halflifeformat="seconds" weight="" neutron="210" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="215" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="216" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="218" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="219" percentage="" />
+		</isotopes>
 		<radius>
 			<covalent></covalent>
 			<atomic>127</atomic>
@@ -2882,9 +2899,6 @@
 		<ionisationenergy>
 			<energy>6.9 </energy>
 		</ionisationenergy>
-		<isotopes>
-			<isotope halflife="78372" halflifeformat="seconds" weight="227.0277" neutron="227" percentage="" />
-		</isotopes>
 		<radius>
 			<covalent>187.8</covalent>
 			<atomic></atomic>
@@ -2913,8 +2927,16 @@
 		<density>11.72</density>
 		<ionisationenergy>
 			<energy>6.95 </energy>
-
 		</ionisationenergy>
+		<isotopes>
+			<isotope halflife="" halflifeformat="" weight="" neutron="227" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="228" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="229" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="230" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="231" percentage="" />
+			<isotope halflife="14000000000" halflifeformat="years" weight="232.0" neutron="232" percentage="" />
+			<isotope halflife="" halflifeformat="" weight="" neutron="234" percentage="" />
+		</isotopes>
 		<radius>
 			<covalent>179.8</covalent>
 			<atomic></atomic>
@@ -2970,6 +2992,11 @@
 		<ionisationenergy>
 			<energy>6.08 </energy>
 		</ionisationenergy>
+		<isotopes>
+			<isotope halflife="" halflifeformat="" weight="134.0409" neutron="234" percentage="0.0055" />
+			<isotope halflife="" halflifeformat="" weight="235.0439" neutron="232" percentage="0.07200" />
+			<isotope halflife="4468000000" halflifeformat="years" weight="238.0508" neutron="238" percentage="99.2745" />
+		</isotopes>
 		<radius>
 			<covalent>138.5</covalent>
 			<atomic></atomic>
@@ -3187,6 +3214,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="">1957</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
@@ -3196,6 +3224,9 @@
 		<oxydation>+2,+3</oxydation>
 		<family>Rare_Earth</family>
 		<orbits>Rn 5f14 7s2</orbits>
+		<isotopes>
+			<isotope halflife="3480" halflifeformat="seconds" weight="259.1009" neutron="259" percentage="100" />
+		</isotopes>
 	</element>
 	<element>
 		<number>103</number>
@@ -3205,6 +3236,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="">1961</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>7</group>
@@ -3215,6 +3247,9 @@
 		<density></density>
 		<ionisationenergy>
 		</ionisationenergy>
+		<isotopes>
+			<isotope halflife="12960" halflifeformat="seconds" weight="262.110" neutron="262" percentage="100" />
+		</isotopes>
 		<radius>
 			<covalent></covalent>
 			<atomic></atomic>
