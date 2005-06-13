@@ -14,7 +14,7 @@ Bugs
   + Make use of the biological symbol.					----
     CN: I lost the "translation" though, will have to look after it.
 
-  + In the SOM: If the html-code gets to long the slider is also ----
+  + In the SOM: If the html-code gets to long the slider is also	DONE-PT
     resized. Because of this the date jumps. This make the SOM
 	unusable. Solution: Fix the layout of the SOM
 

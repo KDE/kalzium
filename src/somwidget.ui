@@ -50,23 +50,6 @@
                 </size>
             </property>
         </spacer>
-        <spacer row="5" column="1">
-            <property name="name">
-                <cstring>spacer2</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>20</height>
-                </size>
-            </property>
-        </spacer>
         <widget class="QSlider" row="1" column="0" rowspan="1" colspan="2">
             <property name="name">
                 <cstring>temp_slider</cstring>
@@ -133,7 +116,7 @@
                 </widget>
             </hbox>
         </widget>
-        <widget class="QLabel" row="4" column="0" rowspan="1" colspan="2">
+        <widget class="QTextEdit" row="4" column="0" rowspan="1" colspan="2">
             <property name="name">
                 <cstring>text</cstring>
             </property>

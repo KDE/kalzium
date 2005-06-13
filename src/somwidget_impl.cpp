@@ -13,8 +13,8 @@
 
 #include "somwidget_impl.h"
 
-#include <qlabel.h>
 #include <qslider.h>
+#include <qtextedit.h>
 #include <qvaluelist.h>
 
 #include <kdebug.h>
@@ -31,6 +31,10 @@ SOMWidgetIMPL::SOMWidgetIMPL( QValueList<Element*> l, QWidget *parent, const cha
 	m_list = l;
 
 	text->setAlignment( text->alignment() | Qt::WordBreak );
+	text->setTextFormat( Qt::RichText );
+	text->setReadOnly( true );
+	text->setPaletteBackgroundColor( paletteBackgroundColor() );
+	text->setFrameStyle( QFrame::NoFrame );
 
 	m_htmlBegin = "<qt>";
 	m_htmlEnd = "</qt>";
