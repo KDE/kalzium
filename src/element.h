@@ -41,7 +41,7 @@ class Isotope
 	public:
 		Isotope( int neutrons, double percentage, double weight, double halflife, QString format );
 
-		bool seconds() {
+		bool seconds() const{
 			if ( m_format == "seconds" )
 				return true;
 			else
@@ -63,6 +63,8 @@ class Isotope
 		double weight() const{
 			return m_weight;
 		}
+
+		QString halflifeToHtml() const;
 
 	private:
 		/**

@@ -272,37 +272,13 @@ QString DetailedInfoDlg::isotopeTable()
 			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
 		html.append( "</td><td>" );
 		if ( ( *it )->halflife() > 0.0 )
-			html.append( createHalflifeString( ( *it )->halflife(), ( *it )->seconds() ) );
+			html.append( ( *it )->halflifeToHtml() );
 		html.append( "</td></tr>" );
 	}
 	
 	html += ( "</table>" );
 
 	return html;
-}
-
-QString DetailedInfoDlg::createHalflifeString( double time, bool seconds )
-{
-	QString halflife;
-	
-	if ( !seconds )//years
-	{
-		if ( time > 1000000 )
-			halflife = i18n("%1 million years").arg( time/1000000.0 );
-		if ( time > 1000000000 )
-			halflife = i18n("%1 billion years").arg( time/1000000000.0 );
-		else
-			halflife = i18n("%1 years").arg( time );
-		return halflife;
-	}
-	if ( time < 120 )
-		halflife = i18n("%1 seconds").arg( time );
-	else if ( time > 1200 )
-		halflife = i18n("%1 minutes").arg( time/60.0 );
-	else if ( time > 12000 )
-		halflife = i18n("%1 days").arg( time/( 60.0 * 60.0 ) );
-
-	return halflife;
 }
 
 void DetailedInfoDlg::createContent( )

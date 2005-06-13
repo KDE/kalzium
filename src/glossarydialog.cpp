@@ -324,8 +324,8 @@ QValueList<ToolItem*> GlossaryDialog::readTools( QDomDocument &itemDocument )
 		QDomNode nameNode = itemElement.namedItem( "name" );
 		QDomNode descNode = itemElement.namedItem( "desc" );
 		
-		item->setName( nameNode.toElement().text() );
-		item->setDesc( descNode.toElement().text() );
+		item->setName( i18n( nameNode.toElement().text().utf8() ) );
+		item->setDesc( i18n( descNode.toElement().text().utf8() ) );
 		
 		list.append( item );
 	}
@@ -351,7 +351,7 @@ QString KnowledgeItem::toHtml() const
 {
 	QString code = "<h1>" + m_name + "</h1>" + m_desc;
 
-	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
+//	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
 	if ( !m_ref.isEmpty() )
 	{
 		QString refcode = parseReferences();

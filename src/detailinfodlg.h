@@ -56,13 +56,6 @@ class DetailedInfoDlg : public KDialogBase
 
 		QString isotopeTable();
 
-		/**
-		 * @param seconds if true, the @p time is in seconds, else
-		 * it is in years
-		 * @param time the halflife period. The format is defined by @p seconds
-		 */
-		QString createHalflifeString( double time, bool seconds );
-		
 		QFrame *m_pOverviewTab,
 			*m_pPictureTab,
 			*m_pModelTab;

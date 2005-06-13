@@ -731,3 +731,30 @@ Isotope::Isotope(  int neutrons, double percentage, double weight, double halfli
 	m_format = format;
 	m_weight = weight;
 }
+
+QString Isotope::halflifeToHtml() const
+{
+	QString halflife;
+
+	if ( !seconds() )//years
+	{
+		if ( m_halflife > 1000000 )
+			halflife = i18n("%1 million years").arg( m_halflife/1000000.0 );
+		if ( m_halflife > 1000000000 )
+			halflife = i18n("%1 billion years").arg( m_halflife/1000000000.0 );
+		else
+			halflife = i18n("%1 years").arg( m_halflife );
+//		return halflife;
+	}
+	else
+	{
+		if ( m_halflife < 120 )
+			halflife = i18n("%1 seconds").arg( m_halflife );
+		else if ( m_halflife > 1200 )
+			halflife = i18n("%1 minutes").arg( m_halflife/60.0 );
+		else if ( m_halflife > 12000 )
+			halflife = i18n("%1 days").arg( m_halflife/3600.0 );
+	}
+
+	return halflife;
+}
