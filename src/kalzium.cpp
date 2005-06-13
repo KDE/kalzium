@@ -107,10 +107,10 @@ void Kalzium::setupActions()
 	gradientlist.append(i18n("van der Waals Radius"));
 	gradientlist.append(i18n("Atomic Mass"));
 	gradientlist.append(i18n("Density"));
-	gradientlist.append(i18n("Boiling point"));
-	gradientlist.append(i18n("Melting point"));
+	gradientlist.append(i18n("Boiling Point"));
+	gradientlist.append(i18n("Melting Point"));
 	gradientlist.append(i18n("Electronegativity"));
-	gradientlist.append(i18n("Electron affinity"));
+	gradientlist.append(i18n("Electron Affinity"));
 	gradient_action = new KSelectAction(i18n("&Gradient"), 0, this, 0, actionCollection(), "look_gradmenu");
 	gradient_action->setItems(gradientlist);
 	connect (gradient_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoGradient(int)));
