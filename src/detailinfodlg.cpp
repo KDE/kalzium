@@ -266,9 +266,7 @@ QString DetailedInfoDlg::isotopeTable()
 		html.append( "<tr><td align=\"right\">" );
 		html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
 		html.append( "</td><td>" );
-		//for some reasons the encoding is not working... The iterator returns
-		//the correct number as an int...
-		html.append( ( *it )->neutrons() );
+		html.append( QString::number( ( *it )->neutrons() ) );
 		html.append( "</td><td>" );
 		html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
 		html.append( "</td></tr>" );
@@ -277,7 +275,6 @@ QString DetailedInfoDlg::isotopeTable()
 	}
 	
 	html += ( "</table>" );
-	kdDebug() << "Html-code: " << html << endl;
 
 	return html;
 }
