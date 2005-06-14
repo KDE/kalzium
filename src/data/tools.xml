@@ -59,7 +59,6 @@
 		<name>Drying Tube</name>
 		<desc>There are reactions which need to be keept free of water. To make this possible one uses a drying tube. In it there is a hygroscopic chemical which will absorb all water.</desc>
 	</tool>
-	<!--
 	<tool picture="rg-halter.jpg">
 		<name>Test tube fastener</name>
 		<desc>With a test tube fastener you can easily hold test tubes. If you use a fastener there is a safe distance between the hand and the test tube and the tube can be hot. In particular it is use when you brandisha test tube over an open flame.</desc>
@@ -80,6 +79,7 @@
 		<name>Distillation bridge</name>
 		<desc>To separate a mixture you can use distillation among others. The distillation bridge is thereby the way between the two pots. In the one pot there is the mixture to be separated. Caused by heating a gas forms which is lead through the bridge. At the end of the bridge the gas phase is condensed again and drips in a round flask. As a rule  the bridge is cooled by return flow. In addition there is often a thermometer for controlling the temperature on the distillation bridge.</desc>
 	</tool>
+	<!--
 	<tool picture="uhrglas.jpg">
 		<name>Uhrglas</name>
 		<desc>

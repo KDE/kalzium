@@ -196,7 +196,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 				if ( !m_element->radioactive() )
 					html.append( i18n( "This element is artificial" ));
-				if ( !m_element->artificial() )
+				else if ( !m_element->artificial() )
 					html.append( i18n( "This element is radioactive" ));
 				else
 					html.append( i18n( "This element is radioactive and artificial" ));
