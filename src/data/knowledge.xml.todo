@@ -1,0 +1,1282 @@
+<wissen>
+	<item>
+		<name>Elektron</name>
+		<desc>Subatomares Teilchen mit der Masse 0,00055 u und Ladung -[i]e[/i]. Diese Masse nennt man die Elementarladung.</desc>
+	</item>
+	<item>
+		<name>Elementarladung</name>
+		<desc>[img]e.png[/img] Das Elektron hat eine negative, das Proton eine positive Elementarladung.</desc>
+	</item>
+	<item>
+		<name>Isotope</name>
+		<desc>Atome des gleichen Elements und daher gleicher Ordnungszahl, aber unterschiedlicher Massen- und Neutronenzahl.</desc>
+	</item>
+	<item>
+		<name>Kanalstrahlen oder positive Strahlen</name>
+		<desc>Strahlen von positiven Ionen.</desc>
+	</item>
+	<item>
+		<name>Kathodenstrahl</name>
+		<desc>Strahl von Elektronen, die von der Kathode (negativen
+			Elektrode) in einem evakuierten Rohr ausgehen.</desc>
+	</item>
+	<item>
+		<name>Kernbindungsenergie</name>
+		<desc>Das Energieäquivalent zum Massendefekt eines Atomkerns.
+			Sie entspricht der Energie, die aufzubringen wäre, um den Atomkern in seine
+			Nucleonen zu zerlegen.</desc>
+	</item>
+	<item>
+		<name>Massenspektrometer</name>
+		<desc>Instrument, mit dem die Masse von Isotopen und deren relative Häufigkeit gemessen werden kann.</desc>
+	</item>
+	<item>
+		<name>Massenzahl</name>
+		<desc>Summe aller Protonen und Neutronen im Atomkern. Symbol: "A"</desc>
+	</item>
+	<item>
+		<name>Neutron</name>
+		<desc>Subatomares Teilchen ohne elektrische Ladung, mit Masse 1,0087 u, das im Atomkern vorkommt.</desc>
+	</item>
+	<item>
+		<name>Proton</name>
+		<desc>Subatomares Teilchen mit positiver Ladung und Masse 1,0073 u
+			und das im Atomkern vorkommt.</desc>
+	</item>
+	<item>
+		<name>Radioaktivität</name>
+		<desc>Der spontane Zerfall von Atomkernen unter Ausstoß von radioaktiver Strahlung und Umwandlung zu anderen Kernen; natürliche radioaktive Stoffe geben Alpha-, Beta- oder Gamma-Strahlen ab.</desc>
+	</item>
+	<item>
+		<name>Relative Atommasse A</name>
+		<desc>Relative Atommasse A Masse eines Atoms relativ zum zwölften Teil der Masse eines Atoms C-12</desc>
+		<ref>Atom</ref>
+	</item>
+	<item>
+		<name>Anion</name>
+		<desc>Negativ geladenes Ion, entstanden durch Aufnahme eines
+			oder mehrerer Elektronen durch ein Atom oder eine Gruppe von kovalent
+			miteinander verbundenen Atomen.</desc>
+	</item>
+	<item>
+		<name>Avogadro-Zahl</name>
+		<desc>Zahl der Teilchen in einem Mol: [img]n.png[/img]
+		</desc>
+	</item>
+	<item>
+		<name>Chemische Formel</name>
+		<desc>Formel zur Bezeichnung der Art und relativen Anzahl der
+			Atome in einer Verbindung mit Hilfe von Elementsymbolen.</desc>
+	</item>
+	<item>
+		<name>Einatomiges Ion</name>
+		<desc>Geladenes Atom. Zum Beispiel F(-)</desc>
+		<ref>Atom</ref>
+	</item>
+	<item>
+		<name>Empirische Formel</name>
+		<desc>Chemische Formel, die das einfachste ganzzahlige
+			Verhältnis der Atome in einer Verbindung bezeichnet.</desc>
+	</item>
+	<item>
+		<name>Massenanteil</name>
+		<desc>Anteil des Elements [i]X[/i] an der Masse der Verbindung oder Konzentrationsangabe einer Lösung als Masse des gelösten Stoffes pro Masse Lösung.[i]w[/i] * 100% = Massenprozent.</desc>
+	</item>
+	<item>
+		<name>Mehratomiges Ion (Molekül-Ion)</name>
+		<desc>Ion, das aus mehreren Atomen besteht.</desc>
+		<ref>Atom</ref>
+	</item>
+	<item>
+		<name>Mol</name>
+		<desc>Stoffmenge, die genauso viele Teilchen enthält wie Atome in C-12 enthalten sind, nämlich die Avogadro-Zahl [i]N[/i].</desc>
+	</item>
+	<item>
+		<name>Molare Masse</name>
+		<desc>Masse eines Mols eines Stoffes. Diese Masse eines Moleküls ergibt sich aus der Summe der molaren Massen der Atome.</desc>
+	</item>
+	<item>
+		<name>Molmasse</name>
+		<desc></desc>
+		<ref>Molare Masse,Avogadro-Zahl</ref>
+	</item>
+	<item>
+		<name>Molekül</name>
+		<desc>Teilchen, das aus mehreren aneinander gebundenen Atomen besteht.</desc>
+		<ref>Atom</ref>
+	</item>
+	<item>
+		<name>Molekülformel oder Molekularformel</name>
+		<desc>Chemische Formel, welche die Art und Zahl der Atome in einem Molekül bezeichnet.</desc>
+	</item>
+	<item>
+		<name>Molekülmasse</name>
+		<desc>Masse eines Moleküls in u-Einheiten.</desc>
+	</item>
+	<item>
+		<name>Relative Formelmasse und relative Molekülmasse</name>
+		<desc>Summe der relativen Atommassen aller Atome in der Anzahl wie in der chemischen Formel bezeichnet.</desc>
+	</item>
+	<item>
+		<name>Stöchiometrie</name>
+		<desc>Die quantitativen Beziehungen zwischen Elementen in einer Verbindung und zwischen Elementen und Verbindungen, die an einer chemischen Reaktion beteiligt sind.</desc>
+	</item>
+	<item>
+		<name>Bildungsenthalpie</name>
+		<desc>Reaktionsenthalpie für die Bildung einer Verbindung aus den Elementen in deren stabilster Form. Die Standard-Bildungsenthalpie bezieht sich auf die Bildungsreaktion unter Standard-Bedingungen, d.h. Norm-Atmosphärendruck (101,3kPa) und einer Standard-Temperatur, in der Regel 25°C = 298 K.</desc>
+	</item>
+	<item>
+		<name>Bildungsenergie</name>
+		<desc>Benötigte Energie, um die Bindung zwischen zwei Atomen aufzubrechen. Die (Bindungs-) Dissoziationsenergie bezieht sich auf die aufzuwendende Energie zur Trennung der Atome eines zweiatomigen Moleküls. Die mittlere Bindungsenergie bezieht sich auf mehratomige Moleküle und ist ein Mittelwert für gleichartige Bindungen.
+		</desc>
+	</item>
+	<item>
+		<name>Endotherme Reaktion</name>
+		<desc>Chemische Reaktion unter Aufnahme von Wärme</desc>
+	</item>
+	<item>
+		<name>Energie</name>
+		<desc>Die Fähigkeit, Arbeit zu leisten</desc>
+	</item>
+	<item>
+		<name>Exotherme Reaktion</name>
+		<desc>Chemische Reaktion unter Abgabe von Wärme</desc>
+	</item>
+	<item>
+		<name>Enthalpie</name>
+		<desc>Es gilt [img]enthalpie.png[/img] Die Zustandsfunktion [i]H[/i] nennt man [b]Enthalpie[/b]. Die Änderung der Enthalpie entspricht also der Änderung der inneren Energie U und der Volumenarbeit pV bei konstantem Druck. Für Reaktionen ohne Volumenänderung ist also die Änderung der inneren Energie gleich der Enthalpiedifferenz. </desc>
+	</item>
+	<item>
+		<name>Innere Energie</name>
+		<desc>Der Energieinhalt eines Systems mit dem Symbol [i]U[/i]. Die Reaktionsenergie ist die Differenz der inneren Energie von Produkten und Reaktanden, es gilt dabei [img]enthalpie.png[/img]</desc>
+	</item>
+	<item>
+		<name>Joule</name>
+		<desc>SI-Einheit für die Energie. Dabei gilt: [img]joule.png[/img]</desc>
+	</item>
+	<item>
+		<name>Kalorimeter</name>
+		<desc>Gerät zur Messung der umgesetzten Wärme bei chemischen oder physikalischen Vorgängen.</desc>
+	</item>
+	<item>
+		<name>Kalorie</name>
+		<desc>Ältere Einheit für Wärmeenergie. Sie entspricht der Energie, die zum Erwärmen von 1g Wasser von 14,5 auf 15,5 °C benötigt wird; genaue Definition: 1 cal = 4.184 J (exakt).</desc>
+	</item>
+	<item>
+		<name>Reaktionsenergie</name>
+		<desc>Gesamtenergie, die bei einer chemischen Reaktion aufgenommen oder abgegeben wird; sie entspricht der Differenz der inneren Energien von Produkten und Reaktanden.</desc>
+	</item>
+	<item>
+		<name>Reaktionsenthalpie</name>
+		<desc>Energie, die als Wärme bei einer chemischen Reaktion aufgenommen oder abgeben werden kann: [img]enthalpie.png[/img]</desc>
+	</item>
+	<item>
+		<name>Satz von Hess</name>
+		<desc>Die Reaktionsenthalpie ist unabhängig davon, ob eine Reaktion in einem oder mehreren Schritten abläuft.  </desc>
+	</item>
+	<item>
+		<name>Satz der konstanten Wärmesummen</name>
+		<desc>Die Reaktionsenthalpie ist unabhängig davon, ob eine Reaktion in einem oder mehreren Schritten abläuft.  </desc>
+	</item>
+	<item>
+		<name>Spezifische Wärme</name>
+		<desc>Benötigte Wärmemenge, um 1 g einer Substanz um 1°C zu erwärmen.</desc>
+	</item>
+	<item>
+		<name>Thermochemie</name>
+		<desc>Studium der bei chemischen Prozessen umgesetzten Wärmemengen</desc>
+	</item>
+	<item>
+		<name>Volumenarbeit</name>
+		<desc>Energieform, die spontan von einem Körper höherer Temperatur zu einem niedrigerer Temperatur fließt.</desc>
+	</item>
+	<item>
+		<name>Wärmekapazität</name>
+		<desc>Benötigte Wärmemenge, um eine gegebene Masse um 1K zu erwärmen.</desc>
+	</item>
+	<item>
+		<name>Wellenfunktion</name>
+		<desc>Die Wellenfunktion (gr. Symbol Psi) ist eine mathematische Funktion zur Beschreibung eines Elektrons als Welle. Eine Wellenfunktion beschreibt nicht mehr die exakte Bewegung von Teilchen sondern sind ein Maß für die Wahrscheinlichkeit mit der sich ein Teilchen an einem Ort aufhält.</desc>
+	</item>
+	<item>
+		<name>Valenzelektronen</name>
+		<desc>Elektronen der äußersten Schale eines Hauptgruppenelements, der äußersten zwei Schalen eines Nebengruppenelements oder der äußersten drei Schalen eines Lanthanoids oder Actinoids.</desc>
+	</item>
+	<item>
+		<name>Unterschale</name>
+		<desc>Durch die Nebenquantenzahl [i]l[/i] bezeichnete Gruppe von Orbitalen gleicher Energie in einer Schale.</desc>
+	</item>
+	<item>
+		<name>Unschärferelation</name>
+		<desc>W. Heisenberg hat 1927 die Unschärferelation aufgestellt. Diese Theorie sagt aus, dass man von einem Teilchen nicht gleichzeitig Ort ([i]x[/i]) und Impuls ([i]mv[/i]) exakt bestimmen kann. Es ergibt sich folgende Beziehung: [img]unschaerfe.png[/img] Die Unbestimmtheit des Ortes ist mit 70nm etwa 1300 Mal größer als der Radius im Bohr'schen Atommodell (r = 0.053 nm). Somit sind also Bahnmodelle wie bei Bohr nicht zulässig, denn diese mechanischen Modelle treffen Aussagen über Ort und Impuls gleichzeitig. Daher spricht man bei modernen Modellen auch von [b]Wahrscheinlichkeiten[/b] mit denen sich Teilchen aufhalten.</desc>
+	</item>
+	<item>
+		<name>Spin</name>
+		<desc>Deutung des Magnetfelds eines Elektrons als Folge einer Drehung um seine eigene Achse. Nur zwei Spinzustände sind möglich, die durch die Spinquantenzahl s = +0.5 oder -0.5 charakterisiert werden.</desc>
+	</item>
+	<item>
+		<name>Spektrum</name>
+		<desc>Durch Aufteilung von Licht in Abhängigkeit von der Wellenlänge erhaltenes Muster. Weißes Licht, in dem alle Wellenlängen vorkommen, ergibt ein kontinuierliches Spektrum. Substanzen, die aus einem angeregten Zustand Licht emittieren, ergeben ein Linienspektrum.</desc>
+	</item>
+	<item>
+		<name>Schrödinger Gleichung</name>
+		<desc>Gleichung, mit der die Wellenfunktionen der Orbitale berechnet werden. Siehe [i]Wellenfunktion[/i]</desc>
+	</item>
+	<item>
+		<name>Schale</name>
+		<desc>Gruppe von Orbitalen eines Atoms mit gleicher Hauptquantenzahl n.</desc>
+	</item>
+	<item>
+		<name>Photon</name>
+		<desc>Kleinste Energieportion von elektromagnetischer Strahlung. Seine Energie E ist der Frequenz ¿ der Strahlung proportional: [img]energie.png[/img]</desc>
+	</item>
+	<item>
+		<name>Actinoide</name>
+		<desc>Die Elemente, die im Periodensystem dem Actinium (Z = 89) folgen und bei denen als letztes ein 5f-Orbital besetzt wird.</desc>
+	</item>
+	<item>
+		<name>Angeregter Zustand</name>
+		<desc>Zustand eines Atoms oder Moleküls mit einer Elektronenkonfiguration mit höherer Energie als im Grundzustand.</desc>
+	</item>
+	<item>
+		<name>Aufbauprinzip</name>
+		<desc>Prinzip zum Aufbau der Atome durch sukzessives Hinzufügen von Protonen und Elektronen.</desc>
+	</item>
+	<item>
+		<name>Ausschließungsprinzip (Pauli-Prinzip)</name>
+		<desc>Es dürfen keine zwei Elektronen in einem Atom in allen vier Quantenzahlen (n, l, m und s) übereinstimmen.</desc>
+	</item>
+	<item>
+		<name>Bohr-Atommodell </name>
+		<desc>Modell für das Wasserstoff-Atom, bei dem das Elektron nur auf definierten Kreisbahnen umlaufen kann.</desc>
+		<ref>Atom</ref>
+	</item>
+	<item>
+		<name>de Broglie-Beziehung </name>
+		<desc>Beziehung zwischen der Wellenlänge und dem Impuls eines Quants, wenn ein Teilchen als Welle beschrieben wird.</desc>
+	</item>
+	<item>
+		<name>Diamagnetismus</name>
+		<desc>Substanz, in der alle Elektronen gepaart sind. Sie wird von einem Magnetfeld abgestoßen.</desc>
+	</item>
+	<item>
+		<name>Edelgase</name>
+		<desc>Elemente der 0. Gruppe (VIII. Hauptgruppe) des Periodensystems. Es sind: Helium, Neon, Argon, Krypton, Xenon und Radon. Sie zeichnen sich durch besondere chemische Reaktionsträgheit aus, woher auch der Name kommt.</desc>
+	</item>
+	<item>
+		<name>Elektromagnetische Strahlung</name>
+		<desc>Strahlung, die sich mit Lichtgeschwindigkeit (c = 2997.9 Kilometer pro Sekunde) ausbreitet und je nach Experiment als Welle oder als Strahl von Photonen beschrieben werden. </desc>
+	</item>
+	<item>
+		<name>Elektronenkonfiguration</name>
+		<desc>Anordnung der Elektronen in einem Atom (Verteilung auf die Orbitale).</desc>
+		<ref>Grundzustand</ref>
+	</item>
+	<item>
+		<name>Grundzustand</name>
+		<desc>Zustand mit der geringsten möglichen Energie für ein Atom oder Molekül.</desc>
+	</item>
+	<item>
+		<name>Ionisierungsenergie</name>
+		<desc>Aufzuwendende Energie, um einem Atom oder Ion das am schwächsten gebundene Elektron zu entreißen. Die erste Ionisierungsenergie betrifft das erste Elektron eines Atoms, die zweite das zweite Elektron usw.</desc>
+	</item>
+	<item>
+		<name>Orbital</name>
+		<desc>Wellenfunktion eines Elektrons in einem Atom; sie ist durch die Quantenzahlen n, l und m charakterisiert. Zu jedem Orbital gehört ein definierter Energiezustand und eine definierte Verteilung der Ladungsdichte. Maximal zwei Elektronen mit entgegengesetztem Spin können das gleiche Orbital besetzen. Das folgende Bild zeigt die fünf D-Orbitale: [img]d_orbitale.jpg[/img] </desc>
+	</item>
+	<item>
+		<name>Paramagnetismus</name>
+		<desc>Substanzen, die ungepaarte Elektronen enthalten, sind paramagnetisch und werden in ein magnetisches Feld hineingezogen</desc>
+	</item>
+	<item>
+		<name>Periodensystem</name>
+		<desc>Tabelle der chemischen Elemente, geordnet nach ihrer Ordnungszahl und nach ihren chemischen Eigenschaften.[img]pse.png[/img]</desc>
+	</item>
+	<item>
+		<name>Periode</name>
+		<desc>Elemente, die in einer Zeile des Periodensystems stehen.</desc>
+	</item>
+	<item>
+		<name>Bindungslänge</name>
+		<desc>Abstand zwischen den Atomkernen zweier aneinander gebundener Atome.</desc>
+	</item>
+	<item>
+		<name>Born-Haber-Kreisprozess</name>
+		<desc>Berechnungsverfahren für die Gitterenergie einer Ionenverbindung aus meßbaren Enthalpiewerten</desc>
+	</item>
+	<item>
+		<name>Abschirmung</name>
+		<desc>Verringerung der auf die Außenelektronen wirksamen Kernladung durch innere Elektronen.</desc>
+	</item>
+	<item>
+		<name>Effektive Atomgröße</name>
+		<desc>Aufgrund des Abstands zwischen Atomen ermittelte Größe eines Atoms. Je nach der Art der Bindung variiert die effektive Größe, die als Kovalenz-, Ionen-, Metall- oder van der Waals-Radius zum Ausdruck gebracht wird.</desc>
+		<ref>Atom</ref>
+	</item>
+	<item>
+		<name>Elektronenaffinität</name>
+		<desc>Die erste Elektronenaffinität ist die Energie, die umgesetzt wird, wenn in einem Gas ein Atom im Grundzustand ein Elektron aufnimmt. Die zweite Elektronenaffinität bezieht sich auf die Aufnahme eines zweiten Elektrons usw.</desc>
+	</item>
+	<item>
+		<name>Gitterenergie</name>
+		<desc>Freigesetzte Energie, wenn Ionen aus dem Gaszustand zu einem Ionenkristall zusammengefügt werden.</desc>
+	</item>
+	<item>
+		<name>Ionenbindung</name>
+		<desc>Anziehende Kraft, die negative und positive Ionen zusammenhält und zu einem Ionenkristall führt. Sie kommt durch den Übergang von Elektronen von einer Atom­sorte auf eine andere zustande.</desc>
+	</item>
+	<item>
+		<name>Ionenradius</name>
+		<desc>Radius für die effektive Größe eines einatomigen Ions in einem Ionengitter. Er wird aus den Abständen zwischen den Ionen berechnet.</desc>
+	</item>
+	<item>
+		<name>Ionenverbindung</name>
+		<desc>Verbindung, die aus Kationen und Anionen aufgebaut ist und durch die elektrostati­sche Anziehung zwischen ihnen zusammengehalten wird.</desc>
+	</item>
+	<item>
+		<name>Isoelektronisch</name>
+		<desc>Zwei Teilchen sind dann isoelektronisch wenn sie die gleiche Elektronenkonfiguration haben.</desc>
+	</item>
+	<item>
+		<name>Kation</name>
+		<desc>Positiv geladenes Ion, entstanden durch Abgabe von einem oder mehreren Elektro­nen aus einem Atom oder einer Gruppe von kovalent miteinander verbundenen Atomen.</desc>
+	</item>
+	<item>
+		<name>Koordinationszahl</name>
+		<desc>Die Anzahl der nächsten Nachbarionen um ein Ion in einem Ionenkristall oder die Anzahl der an ein Zentralatom direkt gebundenen Atome.</desc>
+	</item>
+	<item>
+		<name>Kovalenzradius</name>
+		<desc>Radius für die effektive Größe eines Atoms, das durch kovalente Bindung mit einem anderen Atom verknüpft ist.</desc>
+	</item>
+	<item>
+		<name>van der Waals-Radius</name>
+		<desc>Radius für die effektive Größe eines Atoms, das nur durch die schwachen van der Waals-Kräfte in Kontakt zu einem anderen Atom gehalten wird.</desc>
+	</item>
+	<item>
+		<name>Binäre Verbindung</name>
+		<desc>Verbindung, die aus zwei Elementen aufgebaut ist. Zum Beispiel Salzsäure (HCl) oder Kochsalz (NaCl) </desc>
+	</item>
+	<item>
+		<name>Bindendes Elektronenpaar</name>
+		<desc>Elektronenpaar, das eine kovalente Bindung zwischen zwei Atomen vermittelt.</desc>
+	</item>
+	<item>
+		<name>Dipolmoment</name>
+		<desc>Produkt aus dem Abstand zwischen den Ladungen und dem Betrag der Ladungen eines elektrischen Dipols.</desc>
+	</item>
+	<item>
+		<name>Einsames Elektronenpaar</name>
+		<desc>Valenzelektronenpaar, das nicht an einer kovalenten Bindung beteiligt ist. </desc>
+	</item>
+	<item>
+		<name>Freies Elektronenpaar</name>
+		<desc></desc>
+		<ref>Einsames Elektronenpaar</ref>
+	</item>
+	<item>
+		<name>Formalladung</name>
+		<desc>Eine willkürlich einem Atom zugewiesene elektrische Ladung, die sich ergibt, wenn die Bindungselektronen gleichmäßig auf die beteiligten Atome aufgeteilt werden. Formalladungen sind nützlich zur Bewertung und Interpretation von Formeln, Strukturen und Eigenschaften von Molekülen und Molekül-Ionen, geben aber nicht die tatsächliche Ladungsverteilung wieder.</desc>
+	</item>
+	<item>
+		<name>Kovalente Bindung</name>
+		<desc>Bindung die durch gemeinsame Elektronen zwischen zwei Atomen bewirkt wird. Bei einer Einfachbindung ist ein gemeinsames Elektronenpaar vorhanden, bei einer Doppel- und einer Dreifachbindung sind es zwei bzw. drei gemeinsame Elektronenpaare.</desc>
+	</item>
+	<item>
+		<name>Mesomerie</name>
+		<desc>Bindung die durch gemeinsame Elektronen zwischen zwei Atomen bewirkt wird. Bei einer Einfachbindung ist ein gemeinsames Elektronenpaar vorhanden, bei einer Doppel- und einer Dreifachbindung sind es zwei bzw. drei gemeinsame Elektronenpaare.</desc>
+	</item>
+	<item>
+		<name>Resonanz</name>
+		<desc></desc>
+		<ref>Mesomerie</ref>
+	</item>
+	<item>
+		<name>Oktett-Regel</name>
+		<desc>Nichtmetalle (außer Wasserstoff) gehen so viele kovalente Bindungen ein, bis sie die acht Elektronen der folgenden Edelgaskonfiguration um sich haben. Das sind in der Regel 8 - N kovalente Bindungen, wenn N die Hauptgruppennummer ist.</desc>
+	</item>
+	<item>
+		<name>Partieller Ionencharakter</name>
+		<desc>Ein Zahlenwert in Prozent, der die tatsächliche Polarität einer kovalenten Bindung im Verhältnis zur hypothetischen Polarität angibt, die vorläge, wenn zwischen den Atomen eine Ionenbindung bestünde.</desc>
+	</item>
+	<item>
+		<name>Antibindendes Molekülorbital</name>
+		<desc>Molekülorbital mit geringer Elektronendichte im Bereich zwischen zwei Atomen. Elektronen eines antibindenden Molekülorbitals liegen energetisch höher als Elektronen der Atomorbitale, von denen sie abgeleitet wurden. Die Besetzung eines antibindenden Orbitals mit Elektronen schwächt die Bindung zwischen den Atomen.</desc>
+	</item>
+	<item>
+		<name>Bindendes Molekülorbital</name>
+		<desc>Molekülorbital mit hoher Elektronendichte im Bereich zwischen zwei Atomen. Elektronen eines bindenden Molekülorbitals liegen energetisch tiefer als Elektronen der Atomorbitale, von denen sie abgeleitet wurden.</desc>
+	</item>
+	<item>
+		<name>Bindungsordnung</name>
+		<desc>Die Hälfte aus dem Betrag der Anzahl der bindenden minus der Anzahl der antibindenden Elektronen einer Bindung.</desc>
+	</item>
+	<item>
+		<name>Delokalisierte Bindung</name>
+		<desc>Molekülorbital, dessen Ladungswolke sich über mehr als zwei Atome erstreckt (s. auch Mehrzentrenbindung).</desc>
+	</item>
+	<item>
+		<name>Hybridisierung</name>
+		<desc>Mathematisches Verfahren, bei dem Wellenfunktionen von Atomorbitalen kombiniert werden, um Wellenfunktion für einen neuen Satz von gleichwertigen Orbitalen zu erhalten. Hybridorbitale werden so gewählt, dass sie der tatsächlichen Struktur eines Moleküls entsprechen.</desc>
+	</item>
+	<item>
+		<name>Molekülorbital</name>
+		<desc>Orbital, das zu einem Molekül und nicht zu einem einzelnen Atom gehört.</desc>
+	</item>
+	<item>
+		<name>Pi-Bindung</name>
+		<desc>Kovalente Bindung, deren Ladungsdichte sich auf zwei Bereiche neben der Verbindungslinie zwischen den Atomkernen erstreckt.</desc>
+		<ref>Sigma-Bindung</ref>
+	</item>
+	<item>
+		<name>Sigma-Bindung</name>
+		<desc>Kovalente Bindung mit hoher, rotationssymmetrisch verteilter Ladungsdichte im Bereich zwischen zwei Atomkernen.</desc>
+		<ref>Pi-Bindung</ref>
+	</item>
+	<item>
+		<name>Valenzelektronenpaar-Abstoßungs-Theorie</name>
+		<desc>Theorie zur Voraussage der Molekülgestalt durch Beachtung der gegenseitigen Abstoßung zwischen bindenden wie auch nichtbindenden Valenzelektronenpaaren eines Atoms. Druck, Volumen und Temperatur sind die Zustandsgrößen eines Gases.</desc>
+	</item>
+	<item>
+		<name>VSEPR</name>
+		<desc></desc>
+		<ref>Valenzelektronenpaar-Abstoßungs-Theorie</ref>
+	</item>
+	<item>
+		<name>Atmosphärendruck</name>
+		<desc>Gasdruck der Atmosphäre. Der mittlere Atmosphärendruck auf Höhe des Meeresspiegels beträgt 101,325 kPa = 1,01325 bar und entspricht der alten Einheit einer physikalischen Atmosphäre (1 atm).</desc>
+		<ref>Bar</ref>
+	</item>
+	<item>
+		<name>Avogadro-Gesetz</name>
+		<desc>Gleiche Volumina beliebiger Gase enthalten bei gleichem Druck und gleicher Temperatur gleich viele Teilchen.</desc>
+	</item>
+	<item>
+		<name>Bar</name>
+		<desc>Einheit für den Druck; 1 bar = 105 Pa.</desc>
+		<ref>Druck</ref>
+	</item>
+	<item>
+		<name>Barometer</name>
+		<desc>Gerät zum Messen des Atmosphärendrucks.</desc>
+		<ref>Druck</ref>
+	</item>
+	<item>
+		<name>Boyle-Mariotte-Gesetz</name>
+		<desc>Bei konstanter Temperatur ist das Volumen eines Gases umgekehrt proportional zu seinem Druck.</desc>
+	</item>
+	<item>
+		<name>Dalton-Gesetz der Partialdrücke</name>
+		<desc>Der Gesamtdruck eines Gasgemisches ist gleich der Summe der Partialdrücke aller anwesenden Gase.</desc>
+		<ref>Druck,Barometer</ref>
+	</item>
+	<item>
+		<name>Druck</name>
+		<desc>Kraft pro Fläche.</desc>
+	</item>
+	<item>
+		<name>Effusion</name>
+		<desc>Als Effusion bezeichnet man das Ausströmen eines Gases.</desc>
+		<ref>Graham-Effusionsgesetz</ref>
+	</item>
+	<item>
+		<name>Gay-Lussag-Gesetze</name>
+		<desc>Bei konstantem Druck ist das Volumen eines Gases proportional zur absoluten Temperatur. Bei konstantem Volumen ist der Druck eines Gases proportional zur absoluten Temperatur.</desc>
+	</item>
+	<item>
+		<name>Graham-Effusionsgesetz</name>
+		<desc>Die Ausströmungsgeschwindigkeit eines Gases ist umgekehrt proportional zur Wurzel seiner Dichte oder zur Wurzel seiner molaren Masse.</desc>
+		<ref>Effusion</ref>
+	</item>
+	<item>
+		<name>Ideale Gaskonstante R</name>
+		<desc>Proportionalitätskonstante im idealen Gasgesetz; [img]r.png[/img]</desc>
+	</item>
+	<item>
+		<name>Ideales Gasgesetz</name>
+		<desc>Druck p, Volumen V, Stoffmenge n und Temperatur T eines Gases hängen über die ideale Gaskonstante R wie folgt miteinander zusammen: [img]idealesgg.png[/img]</desc>
+		<ref>Ideale Gaskonstante R</ref>
+	</item>
+	<item>
+		<name>Kelvin</name>
+		<desc>SI-Einheit zur Temperaturmessung auf der absoluten Temperaturskala. Die Temperatur in Kelvin ergibt sich aus der Temperatur in °C durch Addition von 273,15.</desc>
+		<ref>Temperatur</ref>
+	</item>
+	<item>
+		<name>Kinetische Gastheorie</name>
+		<desc>Modell zur Erklärung der Eigenschaften von Gasen und zur Ableitung des idealen Gasgesetzes.</desc>
+	</item>
+	<item>
+		<name>Kompressibilitätsfaktor</name>
+		<desc>pV/RT; für 1 mol eines idealen Gases ist er immer gleich 1.</desc>
+	</item>
+	<item>
+		<name>Kritischer Druck</name>
+		<desc>Druck, der mindestens ausgeübt werden muss, um ein Gas bei der kritischen Temperatur zu verflüssigen.</desc>
+		<ref>Kritischer Druck</ref>
+	</item>
+	<item>
+		<name>Kritische Temperatur</name>
+		<desc>Höchste Temperatur, bei der ein Gas durch Druckausübung verflüssigt werden kann.</desc>
+	</item>
+	<item>
+		<name>Manometer</name>
+		<desc>Gerät zur Messung des Druckes in einem Behälter.</desc>
+		<ref>Barometer</ref>
+	</item>
+	<item>
+		<name>Maxwell-Boltzmann-Geschwindigkeitsverteilung</name>
+		<desc>Statistische Verteilung der Geschwindigkeiten der Teilchen in einem Gas.</desc>
+	</item>
+	<item>
+		<name>Mittlere freie Weglänge</name>
+		<desc>Mittlere Weglänge, die ein Teilchen in einem Gas zwischen zwei Kollisionen mit anderen Teilchen zurücklegt.</desc>
+	</item>
+	<item>
+		<name>Molvolumen</name>
+		<desc>Volumen, das ein Mol eines Gases einnimmt. Bei Normbedingungen ist das Volumen 22,414 L</desc>
+	</item>
+	<item>
+		<name>Normbedingungen</name>
+		<desc>Druck p = 101,325 kPa und Temperatur T = 273,15 K.</desc>
+	</item>
+	<item>
+		<name>Partialdruck</name>
+		<desc>Druck, den eine Komponente eines Gasgemisches ausüben würde, wenn sie als einzige im gleichen Volumen anwesend wäre.</desc>
+		<ref>Bar,Druck,Pascal</ref>
+	</item>
+	<item>
+		<name>Pascal</name>
+		<desc>SI-Einheit für den Druck [img]pascal.png[/img]</desc>
+		<ref>Bar,Druck</ref>
+	</item>
+	<item>
+		<name>Temperatur</name>
+		<desc>Zustandsgröße von Materie, die bestimmt, in welcher Richtung Wärme fließt. Bei einem Gas ist sie der mittleren kinetischen Energie der Teilchen proportional.</desc>
+	</item>
+	<item>
+		<name>Amorpher Feststoff</name>
+		<desc>Feststoff, in dem die Teilchen nicht zu einem regelmäßig geordneten Muster angeordnet sind; er hat keinen definierten Schmelzpunkt. Gläser sind amorphe Feststoffe.</desc>
+	</item>
+	<item>
+		<name>Dampfdruck</name>
+		<desc>Druck des Dampfes, der mit einer Flüssigkeit oder einem Feststoff im Gleichgewicht steht.</desc>
+	</item>
+	<item>
+		<name>Dipol-Dipol-Kräfte</name>
+		<desc>Anziehungskräfte zwischen polaren Molekülen aufgrund der Anziehung zwischen entgegengesetzten Polen.</desc>
+		<ref>Intermolekulare Kräfte,van der Waals-Kräfte</ref>
+	</item>
+	<item>
+		<name>Gefrierpunkt</name>
+		<desc>Temperatur, bei der Flüssigkeit und Feststoff miteinander im Gleichgewicht sind.</desc>
+		<ref>Siedepunkt</ref>
+	</item>
+	<item>
+		<name>Schmelzpunkt</name>
+		<desc></desc>
+		<ref>Gefrierpunkt</ref>
+	</item>
+	<item>
+		<name>Intermolekulare Kräfte</name>
+		<desc>Kräfte zwischen Molekülen, die diese in Feststoffen und Flüssigkeiten aneinander halten.</desc>
+	</item>
+	<item>
+		<name>van der Waals-Kräfte</name>
+		<desc>Anziehungskräfte zwischen polaren Molekülen aufgrund der Anziehung zwischen entgegengesetzten Polen.</desc>
+		<ref>Intermolekulare Kräfte,Dipol-Dipol-Kräfte</ref>
+	</item>
+	<item>
+		<name>London-Kräfte</name>
+		<desc>Stets vorhandene, zwischenmolekulare Anziehungskräfte. Sie werden durch Anziehung zwischen momentanen Dipolen bewirkt, die durch die Bewegung der Elektronen zustande kommen.</desc>
+	</item>
+	<item>
+		<name>Dispersionskräfte</name>
+		<desc></desc>
+		<ref>London-Kräfte</ref>
+	</item>
+	<item>
+		<name>Modifikationen</name>
+		<desc>Unterschiedliche Kristallstrukturen bei ein und derselben Substanz.</desc>
+	</item>
+	<item>
+		<name>Oberflächenspannung</name>
+		<desc>In das Innere einer Flüssigkeit gerichtete Kraft, bedingt durch die intermolekularen Anziehungen.</desc>
+	</item>
+	<item>
+		<name>Phasendiagramm</name>
+		<desc>Diagramm, aus dem sich die Existenzbereiche der Phasen einer Substanz in Abhängigkeit von Druck und Temperatur ersehen lassen.</desc>
+	</item>
+	<item>
+		<name>Polymorphie</name>
+		<desc>Das Auftreten mehrerer Modifikationen für eine feste Substanz.</desc>
+	</item>
+	<item>
+		<name>Schmelzenthalpie</name>
+		<desc>Aufzuwendende Energie, um eine gegebene Menge eines Feststoffes bei gegebener Temperatur zu verflüssigen; die Kristallisationsenthalpie hat den gleichen Betrag, jedoch negatives Vorzeichen.</desc>
+	</item>
+	<item>
+		<name>Siedepunkt</name>
+		<desc>Temperatur, bei welcher der Dampfdruck einer Flüssigkeit gleich groß ist wie der äußere Atmosphärendruck; der normale Siedepunkt wird bei einem Dampfdruck von 101,3 kPa beobachtet.</desc>
+		<ref>Gefrierpunkt</ref>
+	</item>
+	<item>
+		<name>Sublimation</name>
+		<desc>Direkte Verdampfung eines Feststoffes ohne zwischenzeitliche Verflüssigung. Bekannt ist dieser Vorgang beim sog. Trockeneis. Hierbei handelt es sich um gefrorenen Kohlendioxid der direkt gasförmig wird.</desc>
+	</item>
+	<item>
+		<name>Tripelpunkt</name>
+		<desc>Temperatur und Druck, bei dem von einer Substanz die feste, flüssige und gasförmige Phase miteinander im Gleichgewicht stehen.</desc>
+	</item>
+	<item>
+		<name>Verdampfungsenthalpie</name>
+		<desc>Aufzuwendende Energie, um eine gegebene Flüssigkeitsmenge bei gegebener Temperatur zu verdampfen; die Kondensationsenthalpie hat den gleichen Betrag, jedoch negatives Vorzeichen.</desc>
+	</item>
+	<item>
+		<name>Viskosität</name>
+		<desc>Widerstand, den eine Flüssigkeit dem Fließen entgegensetzt.</desc>
+	</item>
+	<item>
+		<name>Wasserstoffbrücke</name>
+		<desc>Intermolekulare Anziehung zwischen dem Wasserstoff-Atom eines Moleküls und einem einsamen Elektronenpaar eines anderen Moleküls; das Wasserstoff-Atom muss eine relativ hohe Partialladung haben, das einsame Elektronenpaar muss zu einem elektronegativen Atom gehören (vorzugsweise F, O oder N).</desc>
+	</item>
+	<item>
+		<name>Azeotropes Gemisch</name>
+		<desc>Eine Lösung, die einen höheren oder niedrigeren Dampfdruck als jede ihrer Reinkomponenten hat. Durch Destillation kann sie nicht in ihre Reinkomponenten getrennt werden.</desc>
+	</item>
+	<item>
+		<name>Clausius-Clapeyron-Gleichung</name>
+		<desc>Beziehung zwischen der Verdampfungsenthalpie und den Dampfdrücken p1 und p2 einer Flüssigkeit bei zwei verschiedenen Temperaturen: [img]clausius.png[/img]</desc>
+	</item>
+	<item>
+		<name>Elektrolyt</name>
+		<desc>Ein Stoff, der in wässriger Lösung Ionen bildet. Elektrolyten leiten Strom.</desc>
+	</item>
+	<item>
+		<name>Gefrierpunktserniedrigung</name>
+		<desc>Absenkung des Gefrierpunkts eines Lösungsmittels, wenn ein nichtflüchtiger Stoff darin gelöst ist: [img]gfperniedrigung.png[/img]</desc>
+		<ref>Siedepunktserhöhung,Siedepunkt</ref>
+	</item>
+	<item>
+		<name>Henry-Dalton-Gesetz</name>
+		<desc>Die Löslichkeit eines Gases in einer Flüssigkeit, mit der es nicht reagiert, ist proportional zum Partialdruck des Gases über der Lösung.</desc>
+	</item>
+	<item>
+		<name>Hydratation</name>
+		<desc>Umhüllung von in Wasser gelösten Teilchen durch Wasser-Moleküle aufgrund von anziehenden Kräften.</desc>
+	</item>
+	<item>
+		<name>Hydrathülle</name>
+		<desc>In Wasser gelöste Teilchen werden von Wassermolekülen umgeben. Diesen Vorgang nennt man auch Hydratation. Die vergrößert den Ionenradius auf den sogenannten [b]effektiven Radius[/b]. Dieser Unterschied kann sehr groß sein. Beispielsweise ist hydratisiertes Lithium (das 3.kleinste Ion) größer als die des Cäsium-Ions (Elementnmmer 55).</desc>
+	</item>
+	<item>
+		<name>Hydratationsenthalpie</name>
+		<desc>Energie, die freigesetzt wird, wenn Ionen aus dem Gaszustand in hydratisierte Ionen in wässriger Lösung überführt werden.</desc>
+		<ref>Hydrathülle</ref>
+	</item>
+	<item>
+		<name>Ideale Lösung</name>
+		<desc>Lösung, die dem Raoult-Gesetz gehorcht.</desc>
+	</item>
+	<item>
+		<name>Lösungsenthalpie</name>
+		<desc>Beim Lösen einer bestimmten Stoffmenge freigesetzte oder aufgenommene Wärme; sie hängt von der Temperatur und der Konzentration der Lösung ab.</desc>
+	</item>
+	<item>
+		<name>Massenkonzentration</name>
+		<desc>Konzentrationsangabe einer Lösung als Masse gelöster Stoff pro Volumen Lösung.</desc>
+		<ref>Masse</ref>
+	</item>
+	<item>
+		<name>Molalität</name>
+		<desc>Konzentrationsangabe einer Lösung in Mol gelöster Stoffe pro kg Lösungsmittel. Symbol [i]b[/i]</desc>
+		<ref>Molare Masse</ref>
+	</item>
+	<item>
+		<name>Osmose</name>
+		<desc>Fluss von Lösungsmittel-Molekülen durch eine semipermeable Membran von einer verdünnten in eine konzentriertere Lösung.</desc>
+	</item>
+	<item>
+		<name>Prinzip des kleinsten Zwanges</name>
+		<desc>Wird auf ein im Gleichgewicht befindliches System ein Zwang ausgeübt, so weicht es aus und ein verlagertes Gleichgewicht stellt sich ein.</desc>
+	</item>
+	<item>
+		<name>Le Chatelier-Prinzip</name>
+		<desc></desc>
+		<ref>Prinzip des kleinsten Zwanges</ref>
+	</item>
+	<item>
+		<name>Raoult-Gesetz</name>
+		<desc>Der Partialdruck einer Komponente einer idealen Lösung ist gleich Stoffmengenanteil der Komponente mal Dampfdruck der einen Komponente.</desc>
+		<ref>Dalton-Gesetz der Partialdrücke</ref>
+	</item>
+	<item>
+		<name>Siedepunktserhöhung</name>
+		<desc>Erhöhung des Siedepunkts eines Lösungsmittels, wenn ein nichtflüchtiger Stoff darin gelöst ist: [img]sdperhoehung.png[/img]</desc>
+		<ref>Gefrierpunktserniedrigung,Siedepunkt</ref>
+	</item>
+	<item>
+		<name>Gesättigte Lösung</name>
+		<desc>Wenn man in ein Lösungsmittel eine größere Menge eines Stoffes hinzufügt, als sich darin lösen kann, so stellt sich eine Gleichgewicht zwischen der Lösung und dem Bodensatz ein. Es geht also ständig ungelöster Stoff in Lösung und gelöster Stoff wird ausgeschieden. Die Konzentration der Lösung bleibt dabei konstant.</desc>
+	</item>
+	<item>
+		<name>Solvatation</name>
+		<desc>Umhüllung von gelösten Teilchen durch Lösungsmittel-Moleküle aufgrund von anziehenden Kräften.</desc>
+	</item>
+	<item>
+		<name>Van't Hoff-Faktor</name>
+		<desc>Verhältnis der beobachteten Gefrierpunktserniedrigung, Siedepunktserhöhung, Dampfdruckerniedrigung oder des osmotischen Druckes einer Elektrolyt-Lösung relativ zum Erwartungswert für eine Nichtelektrolyt-Lösung.</desc>
+		<ref>Siedepunktserhöhung,Gefrierpunktserniedrigung,Osmose</ref>
+	</item>
+	<item>
+		<name>Volumenanteil</name>
+		<desc>Konzentrationsangabe als Verhältnis des Volumens einer Komponente zur Summe der Volumina aller Komponenten.</desc>
+	</item>
+	<item>
+		<name>Amphotere Verbindungen</name>
+		<desc>Verbindungen, die sowohl saure wie basische Eigenschaften hat und sowohl mit Basen als auch mit Säuren reagiert.</desc>
+	</item>
+	<item>
+		<name>Äquivalentkonzentration</name>
+		<desc>Stoffmengenkonzentration multipliziert mit der Äquivalentzahl (alte Bezeichnung: Normalität).</desc>
+	</item>
+	<item>
+		<name>Äquivalentmasse</name>
+		<desc>Molare Masse geteilt durch die Äquivalentzahl.</desc>
+	</item>
+	<item>
+		<name>Äquivalentzahl</name>
+		<desc>Anzahl [i]z[/i] der für eine Reaktion maßgeblichen Teilchen (Protonen, Hydroxyd-Ionen, Elektronen), die von einem Molekül eines Reagenzes zur Verfügung gestellt werden kann.</desc>
+	</item>
+	<item>
+		<name>Äquivalenzpunkt</name>
+		<desc>Punkt während einer Titration, bei dem äquivalente Mengen der Reaktanden zusammengegeben wurden.</desc>
+	</item>
+	<item>
+		<name>Arrhenius-Base</name>
+		<desc>Verbindung, die in Wasser Hydroxyd-Ionen bildet.</desc>
+		<ref>Arrhenius-Säure</ref>
+	</item>
+	<item>
+		<name>Arrhenius-Neutralisation</name>
+		<desc>Reaktion zwischen H+(aq)- und OH-(aq)-Ionen unter Bildung von Wasser.</desc>
+	</item>
+	<item>
+		<name>Arrhenius-Säure</name>
+		<desc>Verbindung, die in Wasser Protonen abgibt.</desc>
+		<ref>Arrhenius-Base</ref>
+	</item>
+	<item>
+		<name>Base</name>
+		<desc>Nach Arrhenius ein Stoff, der in wässriger Lösung Hydroxyd-Ionen bildet. Nach Brønstedt ein Stoff, der Protonen anlagern kann. Nach Lewis ein Elektronenpaar-Donator.</desc>
+		<ref>Säure</ref>
+	</item>
+	<item>
+		<name>Basisches Oxid</name>
+		<desc>Oxid, das mit Wasser eine Base und mit Säuren Salze bildet.</desc>
+	</item>
+	<item>
+		<name>Disproportionierung</name>
+		<desc>Reaktion, bei der eine Substanz gleichzeitig zum Teil oxidiert und zum Teil reduziert wird.</desc>
+		<ref>Komproportionierung</ref>
+	</item>
+	<item>
+		<name>Einprotonige Säure</name>
+		<desc>Säure, die nur ein Proton pro Molekül abgeben kann.</desc>
+	</item>
+	<item>
+		<name>Fällung</name>
+		<desc>Reaktion in einer Lösung, bei der eine unlösliche Verbindung, ein Niederschlag, gebildet wird.</desc>
+	</item>
+	<item>
+		<name>Indikator</name>
+		<desc>Substanz, die z.B. bei einer Titration das Erreichen des Äquivalenzpunktes anzeigt. Ein Säure-Base-Indikator hat verschiedene Farben bei verschiedenen pH-Werten.</desc>
+	</item>
+	<item>
+		<name>Komproportionierung</name>
+		<desc>Reaktion, bei der zwei Verbindungen, in denen das gleiche Element mit unterschiedlichen Oxidationszahlen vorliegt, zu einer Verbindung mit einer dazwischen liegenden Oxidationszahl reagieren.</desc>
+		<ref>Disproportionierung</ref>
+	</item>
+	<item>
+		<name>Mehrprotonige Säure</name>
+		<desc>Säure, die mehr als ein Proton pro Molekül abgeben kann.</desc>
+	</item>
+	<item>
+		<name>Metathese-Reaktion</name>
+		<desc>Reaktion zwischen zwei Verbindungen, bei der Kationen und Anionen ihre Partner tauschen.</desc>
+	</item>
+	<item>
+		<name>Netto-Ionengleichung</name>
+		<desc>Reaktionsgleichung, bei der nur die miteinander reagierenden Ionen berücksichtigt werden.</desc>
+	</item>
+	<item>
+		<name>Neutralisation</name>
+		<desc>Reaktion zwischen einer Säure und einer Base.</desc>
+	</item>
+	<item>
+		<name>Normallösung</name>
+		<desc>Lösung mit einer definierten Äquivalentkonzentration.</desc>
+	</item>
+	<item>
+		<name>Oxidation</name>
+		<desc>Teil einer Reaktion, bei der es zur Abgabe von Elektronen, d.h. zur Erhöhung der Oxidationszahl kommt.</desc>
+	</item>
+	<item>
+		<name>Oxidationsmittel</name>
+		<desc>Substanz, die bei einer chemischen Reaktion reduziert wird und dadurch die Oxidation einer anderen Substanz bewirkt.</desc>
+		<ref>Oxidation</ref>
+	</item>
+	<item>
+		<name>Oxidationszahl</name>
+		<desc>Fiktive Ionenladung an einem Atom, die sich ergibt, wenn man alle Elektronenpaare von kovalenten Bindungen dem jeweils elektronegativeren Bindungspartner zuteilt.</desc>
+		<ref>Oxidation</ref>
+	</item>
+	<item>
+		<name>Oxonium-Ion (Hydronium-Ion)</name>
+		<desc>Ion, das aus einem Proton und einem Wasser-Molekül gebildet wird.</desc>
+	</item>
+	<item>
+		<name>Reduktion</name>
+		<desc>Teil einer Reaktion, bei der es zur Aufnahme von Elektronen, d.h. zur Erniedrigung der Oxidationszahl kommt.</desc>
+	</item>
+	<item>
+		<name>Reduktionsmittel</name>
+		<desc>Substanz, die bei einer chemischen Reaktion oxidiert wird und dadurch die Reduktion einer anderen Substanz bewirkt.</desc>
+	</item>
+	<item>
+		<name>Säure</name>
+		<desc>Nach Arrhenius, eine Wasserstoff-Verbindung, die in wässriger Lösung unter Abgabe von H(+)-Ionen und Bildung von Hydronium-Ionen dissoziiert. Nach Brønstedt eine Verbindung, die H(+)-Ionen abgeben kann (Protonen-Donator). Nach Lewis ein Elektronenpaar-Akzeptor.</desc>
+		<ref>Base</ref>
+	</item>
+	<item>
+		<name>Säureanhydrid, saures Oxid</name>
+		<desc>Nichtmetalloxid, das mit Wasser eine Säure bildet.</desc>
+	</item>
+	<item>
+		<name>Schwache Säuren und Basen</name>
+		<desc>Säuren und Basen, die nur partiell Hydronium- bzw. Hydroxyd-Ionen in wässriger Lösung bilden, also nicht vollständig dissoziieren.</desc>
+	</item>
+	<item>
+		<name>Starke Säuren und Basen</name>
+		<desc>Säuren und Basen, die in wässriger Lösung vollständig dissoziieren.</desc>
+	</item>
+	<item>
+		<name>Volumetrische Analyse</name>
+		<desc>Quantitative chemische Analyse, die auf der Messung von Lösungsvolumina basiert.</desc>
+	</item>
+	<item>
+		<name>Adsorption</name>
+		<desc>Vorgang, bei dem Moleküle an der Oberfläche eines Feststoffs haften bleiben.</desc>
+	</item>
+	<item>
+		<name>Aktivierter Komplex (Übergangszustand)</name>
+		<desc>Instabile Atom-Anordnung, die vorübergehend im Verlaufe einer chemischen Reaktion auftritt.</desc>
+	</item>
+	<item>
+		<name>Aktivierungsenergie</name>
+		<desc>Energiedifferenz zwischen der potentiellen Energie des aktivierten Komplexes und derjenigen der Reaktanden.</desc>
+	</item>
+	<item>
+		<name>Arrhenius-Gleichung</name>
+		<desc>Beziehung zwischen der Geschwindigkeitskonstanten, der Aktivierungsenergie und der Temperatur für eine chemische Reaktion[img]arrhenius.png[/img]</desc>
+	</item>
+	<item>
+		<name>Chemisorption</name>
+		<desc>Adsorption aufgrund von chemischen Bindungen zwischen einem adsorbierten Stoff und der Oberfläche des adsorbierenden Feststoffes; dadurch werden die chemischen Eigenschaften der adsorbierten Moleküle verändert und Katalyseprozesse ermöglicht.</desc>
+	</item>
+	<item>
+		<name>Effektive Kollision</name>
+		<desc>Kollision zwischen Teilchen, die zu einer Reaktion führt.</desc>
+	</item>
+	<item>
+		<name>Geschwindigkeitsbestimmender Schritt</name>
+		<desc>Der langsamste Schritt bei einer mehrstufigen Reaktion; von ihm hängt die Geschwindigkeit der Gesamtreaktion ab.</desc>
+	</item>
+	<item>
+		<name>Geschwindigkeitsgesetz</name>
+		<desc>Mathematischer Ausdruck, der die Reaktionsgeschwindigkeit und die Reaktandenkonzentrationen in Beziehung setzt.[img]rggeschwindigkeit.png[/img]</desc>
+	</item>
+	<item>
+		<name>Geschwindigkeitskonstante</name>
+		<desc>Proportionalitätskonstante in einem Geschwindigkeitsgesetz.</desc>
+	</item>
+	<item>
+		<name>Halbwertszeit</name>
+		<desc>Benötigte Zeit, bis bei einer Reaktion die Hälfte der Reaktanden verbraucht ist. Bei radioaktiven Substanzen: Zeit, die vergeht, bis die Hälfte der Probe zerfallen ist.</desc>
+	</item>
+	<item>
+		<name>Heterogene Katalyse</name>
+		<desc>Reaktionsbeschleunigung an einem Katalysator, der in einer anderen Phase als die Reaktanden vorliegt.</desc>
+		<ref>Homogene Katalyse,Katalysator</ref>
+	</item>
+	<item>
+		<name>Homogene Katalyse</name>
+		<desc>Reaktionsbeschleunigung durch einen Katalysator, der in der gleichen Phase wie die Reaktanden vorliegt.</desc>
+		<ref>Heterogene Katalyse,Katalysator</ref>
+	</item>
+	<item>
+		<name>Katalysator</name>
+		<desc>Substanz, die eine chemische Reaktion beschleunigt, ohne selbst verbraucht zu werden. Es findet dabei keine Gleichgewichtsverlagerung statt da sowohl die Hin- als auch die Rück-Reaktion beschleunigt werden.</desc>
+		<ref>Homogene Katalyse,Heterogene Katalyse</ref>
+	</item>
+	<item>
+		<name>Kettenreaktion</name>
+		<desc>Vielstufige Reaktion, bei der nach einem Startschritt zwei Reaktionsschritte abwechselnd vielfach wiederholt werden.</desc>
+	</item>
+	<item>
+		<name>Nucleophile Substitution</name>
+		<desc>Reaktion, bei der in einem Molekül eine nucleophile Gruppe (Lewis-Base) durch eine andere substituiert wird. Bei der SN1-Reaktion wird zuerst die eine Gruppe abgespalten, dann die neue Gruppe angelagert; bei der SN2-Reaktion verlaufen Anlagerung und Abspaltung synchron.</desc>
+		<ref>Substitution</ref>
+	</item>
+	<item>
+		<name>Reaktionsgeschwindigkeit</name>
+		<desc>Konzentrationsabnahme eines Reaktanden oder Konzentrationszunahme eines Reaktionsprodukts pro Zeiteinheit; sie ändert sich in der Regel im Verlaufe der Reaktion</desc>
+		<ref>Reaktionskinetik</ref>
+	</item>
+	<item>
+		<name>Reaktionskinetik</name>
+		<desc>Lehre der Reaktionsgeschwindigkeiten und Reaktionsmechanismen.</desc>
+		<ref>Reaktionsgeschwindigkeit</ref>
+	</item>
+	<item>
+		<name>Reaktionsmechanismus</name>
+		<desc>Beschreibung des Ablaufs einer chemischen Reaktion im einzelnen.</desc>
+	</item>
+	<item>
+		<name>Reaktionsordnung</name>
+		<desc>Die Summe der Exponenten der Konzentrationen im Geschwindigkeitsgesetz.</desc>
+		<ref>Reaktionskinetik</ref>
+	</item>
+	<item>
+		<name>Theorie des Übergangszustands</name>
+		<desc>Theorie, bei der das vorübergehende Auftreten eines Übergangszustands (oder aktivierten Komplexes) im Verlaufe eine Reaktionsschrittes angenommen wird.</desc>
+	</item>
+	<item>
+		<name>Zwischenprodukt</name>
+		<desc>Substanz, die im Verlaufe einer chemischen Reaktion entsteht und wieder verbraucht wird.</desc>
+	</item>
+	<item>
+		<name>Chemisches Gleichgewicht</name>
+		<desc>Zustand einer reversiblen chemischen Reaktion, bei dem die Hinreaktion gleich schnell wie die Rückreaktion abläuft.</desc>
+	</item>
+	<item>
+		<name>Gleichgewichtskonstante</name>
+		<desc>Die Konstante im Massenwirkungsgesetz. Wird es mit Stoffmengenkonzentrationen formuliert, so erhält man das Symbol Kc, wird es mit Partialdrücken von Gasen formuliert, so ist das Symbol Kp.
+		</desc>
+		<ref>Chemisches Gleichgewicht,Massenwirkungsgesetz</ref>
+	</item>
+	<item>
+		<name>Heterogenes Gleichgewicht</name>
+		<desc>Gleichgewicht, an dem Substanzen in verschiedenen Phasen beteiligt sind.</desc>
+		<ref>Chemisches Gleichgewicht</ref>
+	</item>
+	<item>
+		<name>Massenwirkungsgesetz</name>
+		<desc>Für ein System im chemischen Gleichgewicht gilt: Das Produkt aus den Stoffmengenkonzentrationen (oder Partialdrücken) der Substanzen auf der rechten Seite der Reaktionsgleichung, jeweils potenziert mit den zugehörigen Koeffizienten der Reaktionsgleichung, geteilt durch das entsprechende Produkt der Substanzen auf der linken Seite der Reaktionsgleichung, ist gleich der Gleichgewichtskonstanten. [img]mwg.png[/img]</desc>
+		<ref>Chemisches Gleichgewicht</ref>
+	</item>
+	<item>
+		<name>Reaktionsquotient</name>
+		<desc>Zahlenwert, der sich ergibt, wenn beliebige Stoffmengenkonzentrationen (oder Partialdrücke) in den Ausdruck des Massenwirkungsgesetzes eingesetzt werden. Wenn Q = K, so herrscht Gleichgewicht; wenn Q kleiner K, so läuft die Reaktion nach  rechts ab, wenn Q größer K, so läuft sie nach links ab.</desc>
+		<ref>Massenwirkungsgesetz</ref>
+	</item>
+	<item>
+		<name>Elektrophile Verdrängungsreaktion</name>
+		<desc>Reaktion, bei der eine Lewis-Säure eine andere, schwächere Lewis-Säure verdrängt.</desc>
+		<ref>Nucleophile Verdrängungsreaktion</ref>
+	</item>
+	<item>
+		<name>Konjugiertes Säure-Base-Paar</name>
+		<desc>Brønsted-Säure-Base-Paar, das durch Abgabe bzw. Aufnahme eines Protons in Beziehung steht. In folgendem Beispiel ist steht S für Säure und B für Base: [img]konjsbpaar.png[/img]</desc>
+	</item>
+	<item>
+		<name>Lewis-Base</name>
+		<desc>Teilchenart, die ein Elektronenpaar zur Verfügung stellen kann unter Ausbildung einer kovalenten Bindung: eine nucleophile Spezies.</desc>
+		<ref>Lewis-Säure,Base,Säure</ref>
+	</item>
+	<item>
+		<name>Lewis-Säure</name>
+		<desc>Teilchenart, die eine kovalente Bindung mit dem von einer Base zur Verfügung gestellten Elektronenpaar bilden kann: eine elektrophile Spezies.</desc>
+		<ref>Lewis-Base,Base,Säure</ref>
+	</item>
+	<item>
+		<name>Lösungsmittelbezogene Base</name>
+		<desc>Substanz, die in Lösung das charakteristische Anion des Lösungsmittel bildet.</desc>
+		<ref>Lösungsmittelbezogene Säure</ref>
+	</item>
+	<item>
+		<name>Lösungsmittelbezogene Säure</name>
+		<desc>Substanz, die in Lösung das charakteristische Kation des Lösungsmittel bildet.</desc>
+		<ref>Lösungsmittelbezogene Base</ref>
+	</item>
+	<item>
+		<name>Nivellierender Effekt</name>
+		<desc>Effekt des Lösungsmittels auf die Säurestärke von Brønsted-Säuren und -Basen. Eine gelöste Säure kann nicht stärker sauer wirken als die zum Lösungsmittel konjugierte Säure; eine gelöste Base kann nicht stärker basisch wirken als die zum Lösungsmittel konjugierte Base.</desc>
+	</item>
+	<item>
+		<name>Nucleophile Verdrängungsreaktion</name>
+		<desc>Nucleophile Substitution, bei der eine Lewis-Base eine andere, schwächere Lewis-Base verdrängt.</desc>
+		<ref>Elektrophile Verdrängungsreaktion</ref>
+	</item>
+	<item>
+		<name>Aktivität</name>
+		<desc>Mit dem Aktivitätskoeffizienten [i]f[/i] korrigierte Stoffmengenkonzentration mit dem Symbol [i]a[/i] um Abweichungen vom Massenwirkungsgesetz zu korrigieren. Je größer die Konzentration der Lösung, umso mehr weicht [i]f[/i] von 1 ab.</desc>
+	</item>
+	<item>
+		<name>Basenkonstante</name>
+		<desc>Gleichgewichtskonstante für die Reaktion einer Base mit Wasser.</desc>
+	</item>
+	<item>
+		<name>Dissoziationsgrad</name>
+		<desc>Anteil der Gesamtkonzentration eines schwachen Elektrolyten, der zu Ionen dissoziiert ist.</desc>
+	</item>
+	<item>
+		<name>Henderson-Hasselbalch-Gleichung</name>
+		<desc>Gleichung zur Berechnung des pH-Werts einer Pufferlösung: [img]henderson.png[/img] </desc>
+	</item>
+	<item>
+		<name>Ionenprodukt des Wassers</name>
+		<desc>Produkt aus der Protonenkonzentration mit der Hydroxydionenkonzentration in wässrigen Lösungen; bei 25°C gilt: [img]ionenprodukt.png[/img]</desc>
+	</item>
+	<item>
+		<name>pH-Wert</name>
+		<desc>Der negative Logarithmus der H+(aq)-Ionenkonzentration: [img]ph.png[/img]</desc>
+		<ref>pOH-Wert,pH-Wert</ref>
+	</item>
+	<item>
+		<name>pK-Wert</name>
+		<desc>Der negative Logarithmus einer Gleichgewichtskonstanten: [img]pk.png[/img]</desc>
+	</item>
+	<item>
+		<name>pOH-Wert</name>
+		<desc>Der negative Logarithmus der OH-(aq)-Ionenkonzentration.</desc>
+		<ref>pH-Wert,pK-Wert</ref>
+	</item>
+	<item>
+		<name>Pufferlösung</name>
+		<desc>Lösung, die eine schwache Säure und ihre konjugierte Base enthält. Sie ändert ihren pH-Wert nur geringfügig bei Zugabe begrenzter Mengen von Säuren oder Basen.</desc>
+	</item>
+	<item>
+		<name>Säuredissoziationskonstante</name>
+		<desc>Gleichgewichtskonstante für die Dissoziation einer Säure.</desc>
+	</item>
+	<item>
+		<name>Titrationskurve</name>
+		<desc>Graph zur Darstellung des pH-Werts oder des Reduktionspotentials als Funktion der zugegebenen Reagenzmenge im Verlaufe einer Titration.</desc>
+	</item>
+	<item>
+		<name>Amphoteres Hydroxid</name>
+		<desc>Schwerlösliches Hydroxid, das sowohl bei Zusatz von Basen wie auch von Säuren in Lösung geht.</desc>
+	</item>
+	<item>
+		<name>Gleichionige Zusätze</name>
+		<desc>Wird eine an einem Gleichgewicht beteiligte Ionenart einer Lösung zugesetzt, so verschiebt sich das Gleichgewicht. Gleichionige Zusätze verringern im allgemeinen die Löslichkeit von schwerlöslichen Verbindungen.
+		</desc>
+	</item>
+	<item>
+		<name>Ionenprodukt bei schwerlöslichen Verbindungen</name>
+		<desc>Das wie beim Löslichkeitsprodukt gebildete mathematische Produkt der Ionenkonzentrationen einer Lösung. Ist es größer als das Löslichkeitsprodukte, so kommt es zur Fällungsreaktion.</desc>
+	</item>
+	<item>
+		<name>Komplex</name>
+		<desc>Verbindung, die durch Anlagerung von Liganden (Lewis-Basen) an ein Zentralatom (Lewis-Säure) entsteht.</desc>
+	</item>
+	<item>
+		<name>Komplexbildungskonstante</name>
+		<desc>Gleichgewichtskonstante für die Bildungsreaktion eines Komplexes.</desc>
+		<ref>Komplexzerfallskonstante</ref>
+	</item>
+	<item>
+		<name>Komplexzerfallskonstante</name>
+		<desc>Gleichgewichtskonstante für den Zerfall eines Komplexes: [img]kp.png[/img]</desc>
+		<ref>Komplexbildungskonstante</ref>
+	</item>
+	<item>
+		<name>Dissoziationskonstante</name>
+		<desc>Komplexzerfallskonstante</desc>
+		<ref>Komplexzerfallskonstante</ref>
+	</item>
+	<item>
+		<name>Löslichkeitsprodukt</name>
+		<desc>Gleichgewichtskonstante für den Vorgang der Auflösung einer schwerlöslichen Verbindung. Die schwerlösliche Verbindung ("Bodenkörper") befindet sich im Gleichgewicht mit Ionen in der Lösung.</desc>
+	</item>
+	<item>
+		<name>Salzeffekt</name>
+		<desc>Zusatz von Salzen zu einer Lösung erhöht die Löslichkeit von schwerlöslichen Verbindungen.</desc>
+	</item>
+	<item>
+		<name>Thermodynamik</name>
+		<desc>Die Thermodynamik beschreibt die Veränderung von Energien im Laufe eines Prozesses</desc>
+	</item>
+	<item>
+		<name>1. Hauptsatz der Thermodynamik</name>
+		<desc>Energie kann von einer Form in eine andere Form umgewandelt werden. Die Gesamtsumme aller Energieformen ist konstant, sie kann weder erzeugt noch vernichtet werden.</desc>
+	</item>
+	<item>
+		<name>2. Hauptsatz der Thermodynamik</name>
+		<desc>Bei spontanen Zustandsänderungen eines Systems vergrößert sich dessen Entropie, die Unordnung des Systems nimmt zu.</desc>
+	</item>
+	<item>
+		<name>Zustandsgröße</name>
+		<desc>Die Zustandsgröße eines Systems ist nur von den momentanen Bedingungen, z.B. Druck und Temperatur abhängig, nicht jedoch davon wie dieser Zustand erreicht wurde, z.B. die Innere Energie [i]U[/i]</desc>
+	</item>
+	<item>
+		<name>Verfahrensgröße</name>
+		<desc>Die Verfahrensgröße eines Systems ist von der Art und Weise wie der momentane Zustand des Systems erreicht wurde abhängig, z.B. die Volumenarbeit</desc>
+	</item>
+	<item>
+		<name>System</name>
+		<desc>Eingegrenzter Bereich, der für den aktuell ablaufenden Vorgang betrachtet wird. Über die Grenzen des Systems können je nach Randbedingungen Energie und Stoffe ausgetauscht werden</desc>
+	</item>
+	<item>
+		<name>Umgebung</name>
+		<desc>Alles was außerhalb des Systems ist. Die Umgebung kann Stoff und Energie mit dem System austauschen</desc>
+	</item>
+	<item>
+		<name>Innere Energie</name>
+		<desc>Die Summe aller möglichen Energien, die ein System abgeben kann</desc>
+	</item>
+	<item>
+		<name>Entropie</name>
+		<desc>Ist ein Maß für die Unordnung in einem System. Bei freiwillig ablaufenden Prozessen nimmt die Entropie und somit die Unordnung immer zu.</desc>
+	</item>
+	<item>
+		<name>Absolute Standardentropie</name>
+		<desc>Ist die Entropie die 1 mol eines Stoffes enthält, wenn er von einem perfekten Kristallgitter bei 0 K in den momentanen Zustand überführt wurde</desc>
+	</item>
+	<item>
+		<name>Standardreaktionsentropie</name>
+		<desc>Ist die Differenz der Entropie zwischen den Edukten und den Produkten einer Reaktion.</desc>
+	</item>
+	<item>
+		<name>Freie Enthalpie</name>
+		<desc>Auch Gibbsche Enthalpie genannt. Sie beinhaltet die Enthalpieänderungen des betrachteten Systems sowie der Umgebung. Es gilt: [img]freieenthalpie.png[/img]</desc>
+	</item>
+	<item>
+		<name>Freie Standardenthalpie</name>
+		<desc>Beschreibt die Veränderung der Enthalpien einer Reaktion wenn diese bei Standardbedingungen, Druck = 1013 hPa, Temperatur meist 298 K durchgeführt wird. Die Edukte und Produkte liegen dabei im Standardzustand vor.</desc>
+	</item>
+	<item>
+		<name>Freie Standardbildungsenthalpie</name>
+		<desc>Gibt die Reaktionsenthalpie für 1 mol einer Substanz an, wenn diese aus den Elementen im Standardzustand hergestellt wird.</desc>
+	</item>
+	<item>
+		<name>Gleichgewicht</name>
+		<desc>Zustand bei dem die Reaktionsenthalpie eines Systems = 0 ist.</desc>
+	</item>
+	<item>
+		<name>Anode</name>
+		<desc>Elektrode, an der die Oxidation erfolgt.</desc>
+		<ref>Kathode</ref>
+	</item>
+	<item>
+		<name>Bezugselektrode</name>
+		<desc>Elektrode, deren Potential unabhängig von den Verhältnissen in der Lösung ist.</desc>
+	</item>
+	<item>
+		<name>Brennstoffzelle</name>
+		<desc>Galvanisches Element, bei dem die Reaktionsenthalpie eines Verbrennungsvorgangs direkt in elektrische Energie umgewandelt wird.</desc>
+	</item>
+	<item>
+		<name>Daniell-Element</name>
+		<desc>Galvanische Zelle mit Zink als Anode und Kupfer als Kathode.</desc>
+		<ref>Elektrode,Elektrolyse</ref>
+	</item>
+	<item>
+		<name>Elektrode</name>
+		<desc>Metallisch leitender Gegenstand, der zur Zu- oder Ableitung von elektrischem Strom in einen Elektrolyten eingetaucht ist.</desc>
+	</item>
+	<item>
+		<name>Elektrolyse</name>
+		<desc>Chemische Reaktion, die durch elektrischen Strom bewirkt wird.</desc>
+	</item>
+	<item>
+		<name>Elektrolytische Leitung</name>
+		<desc>Leitung von elektrischem Strom durch die Wanderung von Ionen durch eine Salzschmelze oder -lösung. Auch Leitung zweiter Ordnung</desc>
+	</item>
+	<item>
+		<name>Elektromotorische Kraft (EMK)</name>
+		<desc>Potentialdifferenz zwischen den Elektroden einer galvanischen Zelle; sie ist ein Maß für die Tendenz zum Ablaufen einer Redoxreaktion.</desc>
+		<ref>Elektrode</ref>
+	</item>
+	<item>
+		<name>Faraday-Gesetz</name>
+		<desc>Um durch Elektrolyse ein Äquivalent eines Stoffes umzusetzen, werden F = 96485 C benötigt; F ist die Faraday-Konstante, sie entspricht der elektrischen Ladung von 1 mol Elektronen.</desc>
+	</item>
+	<item>
+		<name>Galvanische Zelle</name>
+		<desc>Zelle, in der eine Redoxreaktion zur Gewinnung von elektrischer Energie ausgenutzt wird.</desc>
+	</item>
+	<item>
+		<name>Halbzelle</name>
+		<desc>Hälfte einer galvanischen Zelle, in der entweder eine Oxidation oder eine Reduktion abläuft.</desc>
+		<ref>Galvanische Zelle</ref>
+	</item>
+	<item>
+		<name>Kathode</name>
+		<desc>Elektrode, an der die Reduktion erfolgt.</desc>
+		<ref>Anode</ref>
+	</item>
+	<item>
+		<name>Konzentrationskette</name>
+		<desc>Galvanische Zelle, deren Halbzellen die gleichen Stoffe in unterschiedlichen Konzentrationen enthalten.</desc>
+	</item>
+	<item>
+		<name>Lokalelement</name>
+		<desc>Kleines, kurzgeschlossenes galvanisches Element an der Berührungsstelle von zwei verschiedenen Metallen; ist eine Elektrolytflüssigkeit anwesend, so wird das unedlere Metall oxidiert.</desc>
+	</item>
+	<item>
+		<name>Nernst-Gleichung</name>
+		<desc>Gleichung zur Berechnung des Reduktionspotentials in Abhängigkeit von Temperatur und Konzentrationen: [img]nernst.png[/img]</desc>
+		<ref>Oxidation,Reduktion,Elektromagnetische Kraft (EMK)</ref>
+	</item>
+	<item>
+		<name>Normalpotential</name>
+		<desc>Halbzellenpotential relativ zur Norm-Wasserstoffelektrode; alle anwesenden Stoffe müssen im Standardzustand vorliegen.</desc>
+		<ref>Norm-Wasserstoffelektrode</ref>
+	</item>
+	<item>
+		<name>Norm-Wasserstoffelektrode</name>
+		<desc>Bezugselektrode, deren Normalpotential willkürlich auf0V festgelegt ist. Sie besteht aus einem Platindraht, der von Wasserstoff bei 101,3 kPa umspült wird und in eine Lösung mit Protonenaktivität von 1 taucht.</desc>
+	</item>
+	<item>
+		<name>Potentiometrische Titration</name>
+		<desc>Titration, bei welcher der Äquivalenzpunkt durch Messung des Potentials einer Elektrode ermittelt wird, das von der Konzentration des zu bestimmenden Stoffes abhängt.</desc>
+	</item>
+	<item>
+		<name>Reduktionspotential</name>
+		<desc>Halbzellenpotential für einen Reduktionsprozess.</desc>
+	</item>
+	<item>
+		<name>Salzbrücke</name>
+		<desc>Rohr, das mit einer Salzlösung gefüllt ist und die zwei Halbzellen einer galvanischen Zelle verbindet.</desc>
+	</item>
+	<item>
+		<name>Silbercoulombmeter</name>
+		<desc>Elektrolysezelle, in der Silber abgeschieden wird; aus der abgeschiedenen Silbermenge kann die durchflossene Elektrizitätsmenge berechnet werden.</desc>
+	</item>
+	<item>
+		<name>Spannungsreihe</name>
+		<desc>
+		 Werden zwei Metalle in einen Behälter mit einer Säure getaucht, so läuft eine chemische Reaktion ab, bei der Ionen vom einen Stoff zum anderen wandern und zum Schluss eine ungleichgewichtige Verteilung von freien Elektronen an den beiden Stoffen angelagert ist (Redoxreaktion). Aus der unterschiedlichen Verteilung der Elektronen ergibt sich stets ein bestimmtes Maß der elektrischen Spannung. Metalle, die dabei gegenüber dem Wasserstoff in der Säure eine positive Spannung haben, werden edle, die mit einer negativen Spannung als unedle Metalle bezeichnet. Die Auflistung in der Reihenfolge der einzelnen Element-Spannungen ergibt die elektrochemische Spannungsreihe.
+		</desc>
+		<ref>Nernst-Gleichung,Reduktion,Oxidation,Spannung</ref>
+	</item>
+	<item>
+		<name>Spannung</name>
+		<desc>
+		Die Elektrische Spannung ist eine physikalische Größe, die angibt, wie viel Arbeit nötig ist bzw. frei wird, wenn ein Objekt mit einer bestimmten Ladung entlang eines elektrischen Feldes bewegt wird. Die Einheit ist Volt (V).
+		</desc>
+		<ref>Spannungsreihe</ref>
+	</item>
+	<item>
+		<name>Überspannung</name>
+		<desc>Zusätzliche Spannung, die über das theoretische Zellenpotential hinaus angelegt werden muss, um eine Elektrolysereaktion in Gang zu bringen.</desc>
+		<ref>Spannung</ref>
+	</item>
+	<item>
+		<name>Substitution</name>
+		<desc>Reaktion, bei der ein Substituent durch einen anderen Substituent ersetzt wird.</desc>
+		<ref>Nucleophile Substitution</ref>
+	</item>
+</wissen>
