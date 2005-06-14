@@ -262,6 +262,7 @@ QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument
 	QValueList<KnowledgeItem*> list;
 
 	QDomNodeList itemList;
+	QDomNodeList refNodeList;
 	QDomElement itemElement;
 	QStringList reflist;
 
@@ -270,13 +271,14 @@ QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument
 	const uint num = itemList.count();
 	for ( uint i = 0; i < num; ++i )
 	{
+		reflist.clear();
 		KnowledgeItem *item = new KnowledgeItem();
 		
 		itemElement = ( const QDomElement& ) itemList.item( i ).toElement();
 		
 		QDomNode nameNode = itemElement.namedItem( "name" );
 		QDomNode descNode = itemElement.namedItem( "desc" );
-		QDomNode refNode =  itemElement.namedItem( "ref" );
+		QDomElement refNode = ( const QDomElement& ) itemElement.namedItem( "references" ).toElement();
 
 		QString desc = descNode.toElement().text();
 		desc.replace("[img]", m_picbasestring );
@@ -290,10 +292,10 @@ QValueList<KnowledgeItem*> GlossaryDialog::readItems( QDomDocument &itemDocument
 		
 		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
 		item->setDesc( i18n( desc.utf8() ) );
-		reflist = QStringList::split( ',', refNode.toElement( ).text() );
-		for ( uint it = 0; it < reflist.size(); it++ )
+		refNodeList = refNode.elementsByTagName( "refitem" );
+		for ( uint it = 0; it < refNodeList.count(); it++ )
 		{
-			reflist[it] = i18n( reflist[it].utf8() );
+			reflist << i18n( refNodeList.item( it ).toElement().text().utf8() );
 		}
 		reflist.sort();
 		item->setRef( reflist );

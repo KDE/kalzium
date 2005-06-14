@@ -48,7 +48,7 @@
                 </widget>
             </grid>
         </widget>
-        <spacer row="2" column="0">
+        <spacer row="1" column="0">
             <property name="name">
                 <cstring>spacer1</cstring>
             </property>
@@ -65,14 +65,6 @@
                 </size>
             </property>
         </spacer>
-        <widget class="QCheckBox" row="1" column="0">
-            <property name="name">
-                <cstring>kcfg_tooltip</cstring>
-            </property>
-            <property name="text">
-                <string>Show &amp;Tooltips</string>
-            </property>
-        </widget>
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>

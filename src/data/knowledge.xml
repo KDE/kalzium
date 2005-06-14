@@ -2,12 +2,17 @@
 	<item>
 		<name>State of matter</name>
 		<desc>Form of a substance; dsependant on form stability and whether it takes up a definite volume: solid, liquid or gaseous. [img]e.png[/img]</desc>
-		<ref>Boiling point,Melting point</ref>
+		<references>
+			<refitem>Boiling point</refitem>
+			<refitem>Melting point</refitem>
+		</references>
 	</item>
 	<item>
 		<name>Chemical Symbol</name>
 		<desc>One, two, or three letter abbreviation; set through international convention.</desc>
-		<ref>Element</ref>
+		<references>
+			<refitem>Element</refitem>
+		</references>
 	</item>
 	<item>
 		<name>Chromatography</name>
@@ -28,7 +33,9 @@
 	<item>
 		<name>Extraction</name>
 		<desc>Processing a homogenous or heterogenous mix to get pure matter.</desc>
-		<ref>Mix</ref>
+		<references>
+			<refitem>Mix</refitem>
+		</references>
 	</item>
 	<item>
 		<name>Filtering</name>
@@ -105,17 +112,24 @@
 	<item>
 		<name>Atom</name>
 		<desc>Atoms are chemically unseparatable and building blocks of matter. Atoms of one kind are alled Element.</desc>
-		<ref>Element</ref>
+		<references>
+			<refitem>Element</refitem>
+		</references>
 	</item>
 	<item>
 		<name>Atomic nucleus</name>
 		<desc>The small, positively-charged center of an Atom, in which Protons and Neutrons are found.</desc>
-		<ref>Atom</ref>
+		<references>
+			<refitem>Atom</refitem>
+		</references>
 	</item>
 	<item>
 		<name>Atomic Mass</name>
 		<desc>Mass of an atom, taken on a scale where the the mass of the Atom C 12u is. In elements that consist of different isotopes the mid-range mass of the isotope mix is given.</desc>
-		<ref>Atom,Mass</ref>
+		<references>
+			<refitem>Atom</refitem>
+			<refitem>Mass</refitem>
+		</references>
 	</item>
 	<item>
 		<name>Beta rays</name>
