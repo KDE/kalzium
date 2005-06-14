@@ -20,24 +20,6 @@
 </affiliation>
 </author>
 
-<othercredit role="developer">
-<firstname>Robert</firstname>
-<surname>Gogolok</surname>
-<affiliation>
-<address><email>mail@robert-gogolok.de</email></address>
-</affiliation>
-<contrib>Developer</contrib>
-</othercredit>
-
-<othercredit role="developer">
-<firstname>Anne-Marie</firstname>
-<surname>Mahfouf</surname>
-<affiliation>
-<address><email>annma@kde.org</email></address>
-</affiliation>
-<contrib>Help in documentation</contrib>
-</othercredit>
-
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 
 </authorgroup>
@@ -50,10 +32,15 @@
 <holder>Carsten Niehaus</holder>
 </copyright>
 
+<copyright>
+<year>2005</year>
+<holder>Anne-Marie Mahfouf</holder>
+</copyright>
+
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2005-01-19</date>
-<releaseinfo>1.2</releaseinfo>
+<date>2005-06-13</date>
+<releaseinfo>1.5</releaseinfo>
 
 <abstract>
 <para>&kalzium; is a program which shows you the Periodic System of
@@ -85,7 +72,7 @@ under the &GNU; Public License.
 </para>
 
 <para>
-You can visualize the Periodic Table of the Elements by blocks, groups, acidic behavior or different states of matter. You can plot data for a range of elements (weight, mean weight, density, IE1, IE2, electronegativity). You can go back in time and see what elements were known at a given date..
+You can visualize the Periodic Table of the Elements by groups, blocks, acidic behavior, families, crystal structure or different states of matter. You can plot data for a range of elements (weight, mean weight, density, IE1, IE2, electronegativity). You can go back in time and see what elements were known at a given date. You can also calculate the molecular mass of molecules.
 </para>
 
 </chapter>
@@ -113,48 +100,34 @@ You can visualize the Periodic Table of the Elements by blocks, groups, acidic b
 <sect1 id="info-dlg">
 <title>The information dialog</title>
 
-<screenshot>
-<screeninfo>&kalzium;'s simplified information dialog</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata fileref="screenshot3.png" format="PNG"/>
-</imageobject>
-<textobject>
-<phrase>&kalzium;'s simplified information dialog</phrase>
-</textobject>
-<caption><para>Here is a screenshot of &kalzium;'s simplified information dialog.</para> 
-</caption>
-</mediaobject>
-</screenshot>
-
-<para>In the simplified information dialog,  you only get the main information you should know about an element. The dialog covers three aspects of the element: <guilabel>General</guilabel>, <guilabel>States</guilabel> and
-<guilabel>Energies</guilabel>.This dialog is available on right or left mouse click on an element, depending on your settings (default is right click).</para>
+<para>The information dialog is accessed by right or left button mouse click on any element. It is not available in the Calculate mode.</para>
 
 <screenshot>
-<screeninfo>&kalzium;'s detailed information dialog</screeninfo>
+<screeninfo>&kalzium; information dialog</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="screenshot4.png" format="PNG"/>
 </imageobject>
 <textobject>
-<phrase>&kalzium;'s detailed information dialog</phrase>
+<phrase>&kalzium; information dialog</phrase>
 </textobject>
-<caption><para>Here is a screenshot of &kalzium;'s detailed information dialog.</para>
+<caption><para>Here is a screenshot of &kalzium; information dialog.</para>
 </caption>
 </mediaobject>
 </screenshot>
 
-<para>In the detailed information dialog,  you get a lot of information on an
-	element. First an overview presents you with the element, its symbol and
-	atomic weight. The <guilabel>Miscellaneous</guilabel> tab tells you when it
-	was discovered and its mean weight. The <guilabel>Picture</guilabel> tab
-	displays a picture of the element when available. The
-	<guilabel>Energies</guilabel> tab tells you about different energy facts
-	related to the element. The <guilabel>Chemical Data</guilabel> tab presents
+<para>In the  information dialog,  you get a lot of information on an
+	element. First an <guilabel>overview</guilabel> presents you with the element, its symbol and
+	atomic weight. The <guilabel>Picture</guilabel> tab
+	displays a picture of the element when available. The <guilabel>Atom Model</guilabel> tab displays the atomic shells. Every
+    orbits stands for a atomic shell and every circle represents an electron.  The <guilabel>Chemical Data</guilabel> tab presents
 	some atomic data. For example you can see the isotopes of the selected
-	elements and the isotopes frequency of occurrence and the number of protons.
+	elements and the isotopes frequency of occurrence and the number of protons. The
+    <guilabel>Energies</guilabel> tab tells you about different energy facts
+    related to the element.
 	The <guilabel>Atom Model</guilabel> tab displays the atomic shells. Every
-	orbits stands for a atomic shell and every circle represents an electron.</para>
+	orbits stands for a atomic shell and every circle represents an electron. The <guilabel>Miscellaneous</guilabel> tab tells you when it
+    was discovered and its mean weight. </para>
 
 </sect1>
 
@@ -165,33 +138,6 @@ You can visualize the Periodic Table of the Elements by blocks, groups, acidic b
 	<para>
 	</para>
 </sect1> -->
-
-
-<sect1 id="colors">
-<title>Color schemes</title>
-
-<para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote>, their behavior with acid and which state of matter (&ie; solid/liquid/vapor) they are in at a given temperature.</para>
-
-<para>Color schemes are changed in the <guimenu>Look</guimenu> menu. </para>
-<itemizedlist>
-<listitem><para>
-<guimenuitem>No Color Scheme</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure Kalzium...</guimenuitem>
-</menuchoice> and going to the Colors tab.
-</para></listitem>
-<listitem><para>
-<guimenuitem>Show Groups</guimenuitem>: displays a color for each group. A group is a vertical column in the periodic table of the elements. There are 18 groups in the standard periodic table. Elements in a group have similar configurations of their valence shell electrons, which gives them similar properties.
-</para></listitem>
-<listitem><para>
-<guimenuitem>Show Blocks</guimenuitem>: displays a color for each block.
-</para></listitem>
-<listitem><para>
-<guimenuitem>Show Acid Behavior</guimenuitem>: each acidic behavior is represented by a different color.
-</para></listitem>
-</itemizedlist>
-
-</sect1>
-
-
 <sect1 id="numeration">
 <title>Numeration</title>
 
@@ -199,7 +145,7 @@ You can visualize the Periodic Table of the Elements by blocks, groups, acidic b
 <guilabel>IUPAC</guilabel>, <guilabel>old IUPAC</guilabel> or
 <guilabel>CAS</guilabel>, or you can switch it off entirely.</para>
 
-<para>The following options in the <guimenu>Numeration</guimenu> menu can be used to change the numeration shown:
+<para>The following options in the <guimenu>Periodic Table</guimenu> <guimenuitem>Numeration</guimenuitem> menu can be used to change the numeration shown:
 <itemizedlist>
 <listitem><para>
 <guimenuitem>No Numeration</guimenuitem>: if this option is active, no period-numeration will be
@@ -222,6 +168,62 @@ used in classrooms and laboratories.</para></listitem>
 </para>
 
 </sect1>
+
+<sect1 id="colors">
+<title>Color schemes</title>
+
+<para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote>, their behavior with acid and which state of matter (&ie; solid/liquid/vapor) they are in at a given temperature.</para>
+
+<para>Color schemes are changed in the <guimenu>Periodic Table</guimenu> <guimenuitem>Look</guimenuitem> menu. </para>
+<itemizedlist>
+<listitem><para>
+<guimenuitem>No Color Scheme</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure Kalzium...</guimenuitem>
+</menuchoice> and going to the Colors tab.
+</para></listitem>
+<listitem><para>
+<guimenuitem>Show Groups</guimenuitem>: displays a color for each group. A group is a vertical column in the periodic table of the elements. There are 18 groups in the standard periodic table. Elements in a group have similar configurations of their valence shell electrons, which gives them similar properties.
+</para></listitem>
+<listitem><para>
+<guimenuitem>Show Blocks</guimenuitem>: displays a color for each block.
+</para></listitem>
+<listitem><para>
+<guimenuitem>Show Acid Behavior</guimenuitem>: each acidic behavior is represented by a different color.
+</para></listitem>
+<listitem><para>
+<guimenuitem>Show Family</guimenuitem>: the nine families are each epresented with a color.
+</para></listitem>
+<listitem><para>
+<guimenuitem>Show Crystal Structures</guimenuitem>: every element is colored  depending on its crystal strycture.
+</para></listitem>
+<listitem><para>
+<guimenuitem>Gradient</guimenuitem>
+    <itemizedlist>
+<listitem><para><guimenuitem>Atomic Radius</guimenuitem>:
+</para></listitem>
+<listitem><para><guimenuitem>Covalent Radius</guimenuitem>
+</para></listitem>
+<listitem><para><guimenuitem>van dew Waals Radius</guimenuitem>
+</para></listitem>
+<listitem><para><guimenuitem>Atomic Mass</guimenuitem>
+</para></listitem>
+<listitem><para><guimenuitem>Density</guimenuitem>
+</para></listitem>
+<listitem><para><guimenuitem>Boiling Point</guimenuitem>
+</para></listitem>
+<listitem><para><guimenuitem>Melting Point</guimenuitem>
+</para></listitem>
+<listitem><para><guimenuitem>Electronegativity</guimenuitem>
+</para></listitem>
+<listitem><para><guimenuitem>Electron Affinity</guimenuitem>
+</para></listitem>
+     </itemizedlist>
+</para></listitem>
+</itemizedlist>
+
+</sect1>
+
+
+
 
 <sect1 id="miscellaneous">
 <title>Miscellaneous</title>
@@ -374,6 +376,21 @@ the configuration dialog by selecting <guimenuitem>Configure
 <guimenuitem>Quit</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Quits</action> &kalzium;</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>The <guimenu>View</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>View</guimenu>
+<guimenuitem>Show/Hide Sidebar</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Toggle</action> the sidebar</para></listitem>
 </varlistentry>
 </variablelist>
 
