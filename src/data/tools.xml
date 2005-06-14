@@ -52,16 +52,16 @@
 		<desc>Im Gegensatz zu einer Pipette hat eine Vollpipette nur eine einzige Markierung für ein definiertes Volumen. Beide Pipettenarten sind auf Flüssigkeiten mit der Temperatur von 20°C und auf Ausfluss (Ex.) geeicht, Auslaufzeiten werden, wenn nötig, auf den Pipetten angegeben.</desc>
 	</tool>
 	<tool picture="">
-		<name>Vortexer</name>
-		<desc>Ein Vortexer dient in Laboren dem Homogenisieren von Substanzen. Dazu stellt man den Behälter mit den zu homogenisierenden Substanzen auf eine Platte. Durch einen Kontaktsensor fängt diese an mit bis zu 3000 Umdrehungen zu rütteln. Dadurch kann man auch extrem kleine Flüssigkeiten gut und schnell homogenisieren.</desc>
+		<name>vortexer</name>
+		<desc>A vortexer serves to homogenise matters at laboratories. Thereto the pot with the matters to homogenise is put on a crust. This one begins to shake with up to 3000 turns by a contact sensor. Thereby extreme little fluids can be homogenised well and quick, too.</desc>
 	</tool>
 	<tool picture="rotationsverdampfer.jpg">
-		<name>Rotationsverdampfer</name>
-		<desc>Bei einem Rotationsverdampfer befindet sich ein runder Kolben in einem Heizbad. Der Kolben rotiert wodurch das Lösungsmittel einen dünnen Film bildet. Dieser verdampft und kondensiert in einem Rückflusskühler. Das Kondensat wird in einem anderen Gefäß abgefangen. Auf diese Weise kann man Lösungen einengen und/oder reinigen. Durch eine angeschlossene Vakuumpumpe kann der Siedepunkt der Flüssigkeiten noch gesenkt werden.</desc>
+		<name>rotary evaporator</name>
+		<desc>A rotary evaporator consists of a round flask into a bath of hot water. The flask is rotating whereby the dissolver forms a thin film. This one evaporates and condenses again in a reflux condenser. The condensate is intercepted in an other pot. That way solutions can be concentrated and/ or cleaned. Through a affliated vacuum pump the fluid's boiling point can be decreased again.</desc>
 	</tool>
 	<tool picture="rueckflusskuehler.jpg">
-		<name>Rückflusskühler</name>
-		<desc>Ein Rückflusskühler dient zum Abkühlen einer Gasphase bei einem Experiment. In der Regel wird er auf einen Rund- oder Mehrhalskolben gesteckt. Durch Wärmezufuhr entstehende Gase gelangen in den Rückflusskühler. Dessen Wände werden mit kaltem Wasser durchspült. Dadurch wird auch das Gas gekühlt und kondensiert. Dadurch gelangt es zurück in den Reaktionsraum.</desc>
+		<name>reflux condenser</name>
+		<desc>A reflux condenser serves to anneal a gas phase during an experiment. As a rule it is put on round-bottom or several neck flasks. Gas which arise from heat addition attain to the reflux condenser, whose walls are rinsed thoroughly with cold water. Thereby the gas is refrigerated. Finally it condenses and attains back to the room of reaction.</desc>
 	</tool>
 	<tool picture="trockenrohr.jpg">
 		<name>Trockenrohr</name>
