@@ -2978,7 +2978,7 @@
 	</element>
 	<element>
 		<number>91</number>
-		<name origin="greek 'protos' for 'ancester'">Protactinium</name>
+		<name origin="greek 'protos' for 'ancester'. Protactinium is before Actinium in the periodic table.">Protactinium</name>
 		<symbol>Pa</symbol>
 		<mass>231.03588</mass>
 		<block>f</block>
@@ -2996,6 +2996,8 @@
 			<covalent>180.6</covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<ionic charge="+4">98</ionic>
+			<ionic charge="+5">89</ionic>
 		</radius>
 		<oxydation>+4,+5</oxydation>
 		<family>Rare_Earth</family>
@@ -3023,13 +3025,15 @@
 		</ionisationenergy>
 		<isotopes>
 			<isotope halflife="" halflifeformat="" weight="134.0409" neutron="234" percentage="0.0055" />
-			<isotope halflife="" halflifeformat="" weight="235.0439" neutron="232" percentage="0.07200" />
+			<isotope halflife="703800000" halflifeformat="years" weight="235.0439" neutron="235" percentage="0.07200" />
 			<isotope halflife="4468000000" halflifeformat="years" weight="238.0508" neutron="238" percentage="99.2745" />
 		</isotopes>
 		<radius>
 			<covalent>138.5</covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<ionic charge="+4">97</ionic>
+			<ionic charge="+6">80</ionic>
 		</radius>
 		<oxydation>+3,+4,+5,+6,+7</oxydation>
 		<family>Rare_Earth</family>
@@ -3101,6 +3105,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="G.T. Seaborg, L.O. Morgan, R.A. James, A. Ghiors">1945</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -3129,6 +3134,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="G. T. Seaborg, R. A. James, A. Ghiors">1944</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
@@ -3149,6 +3155,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="G. T. Seaborg, A. Ghiors, S.G. Thompson">1949</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
@@ -3169,6 +3176,7 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="G. T. Seaborg, A Ghiors, S. G. Thompson">1950</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>2</group>
@@ -3189,13 +3197,22 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="G. T. Seaborg et al.">1952</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>3</group>
+		<radius>
+			<covalent></covalent>
+			<atomic>186</atomic>
+			<vdw></vdw>
+		</radius>
+		<isotopes>
+			<isotope halflife="4078080" halflifeformat="seconds" weight="" neutron="252" percentage="" />
+		</isotopes>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
 		<meltingpoint>1130</meltingpoint>
-		<oxydation>+2,+3</oxydation>
+		<oxydation>+2,+3,+4</oxydation>
 		<family>Rare_Earth</family>
 		<orbits>Rn 5f11 7s2</orbits>
 	</element>
@@ -3207,10 +3224,19 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="G. T. Seaborg et al.">1953</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity></electronaffinity>
+		<radius>
+			<covalent></covalent>
+			<atomic>190</atomic>
+			<vdw></vdw>
+		</radius>
+		<isotopes>
+			<isotope halflife="9072000" halflifeformat="seconds" weight="" neutron="257" percentage="" />
+		</isotopes>
 		<electronegativity>1.3</electronegativity>
 		<meltingpoint>1800</meltingpoint>
 		<oxydation>+2,+3</oxydation>
@@ -3225,11 +3251,15 @@
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="G. T. Seaborg et al.">1955</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
+		<isotopes>
+			<isotope halflife="4449600" halflifeformat="seconds" weight="" neutron="258" percentage="" />
+		</isotopes>
 		<meltingpoint>1100</meltingpoint>
 		<oxydation>+2,+3</oxydation>
 		<family>Rare_Earth</family>
@@ -3250,7 +3280,7 @@
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
 		<meltingpoint>1100</meltingpoint>
-		<oxydation>+2,+3</oxydation>
+		<oxydation>+2,+3,+4</oxydation>
 		<family>Rare_Earth</family>
 		<orbits>Rn 5f14 7s2</orbits>
 		<isotopes>
@@ -3296,6 +3326,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="G.N. Florow; independently A. Ghiorso">1969</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
@@ -3304,6 +3335,9 @@
 		<meltingpoint></meltingpoint>
 		<boilingpoint></boilingpoint>
 		<density></density>
+		<isotopes>
+			<isotope halflife="66" halflifeformat="seconds" weight="" neutron="261" percentage="" />
+		</isotopes>
 		<ionisationenergy>
 		</ionisationenergy>
 		<radius>
@@ -3323,6 +3357,7 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="">1970</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
@@ -3333,6 +3368,9 @@
 		<density></density>
 		<ionisationenergy>
 		</ionisationenergy>
+		<isotopes>
+			<isotope halflife="34" halflifeformat="seconds" weight="" neutron="262" percentage="" />
+		</isotopes>
 		<radius>
 			<covalent></covalent>
 			<atomic></atomic>
@@ -3349,7 +3387,11 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="">1974</date>
+		<isotopes>
+			<isotope halflife="20" halflifeformat="seconds" weight="" neutron="266" percentage="" />
+		</isotopes>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity></electronaffinity>
@@ -3363,8 +3405,12 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="">1976</date>
 		<biologicalmeaning>0</biologicalmeaning>
+		<isotopes>
+			<isotope halflife="0.4" halflifeformat="seconds" weight="" neutron="264" percentage="" />
+		</isotopes>
 		<group>7</group>
 		<electronaffinity></electronaffinity>
 		<family>Transition</family>
@@ -3377,10 +3423,14 @@
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="">1984</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
+		<isotopes>
+			<isotope halflife="9.3" halflifeformat="seconds" weight="" neutron="269" percentage="" />
+		</isotopes>
 		<family>Transition</family>
 	</element>
 	<element>
@@ -3390,9 +3440,13 @@
 		<mass>266.1378</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
+		<radioactive>1</radioactive>
 		<artificial>1</artificial>
 		<date scientist="">1982</date>
 		<biologicalmeaning>0</biologicalmeaning>
+		<isotopes>
+			<isotope halflife="0.7" halflifeformat="seconds" weight="" neutron="268" percentage="" />
+		</isotopes>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<family>Transition</family>
@@ -3405,22 +3459,30 @@
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="">1994</date>
 		<biologicalmeaning>0</biologicalmeaning>
+		<isotopes>
+			<isotope halflife="0.001" halflifeformat="seconds" weight="" neutron="271" percentage="" />
+		</isotopes>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<family>Transition</family>
 	</element>
 	<element>
 		<number>111</number>
-		<name origin="named after Wilhelm Conrad R�tgen.">Roentgenium</name>
+		<name origin="named after Wilhelm Conrad Röntgen.">Roentgenium</name>
 		<symbol>Rg</symbol>
 		<mass>272</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="">1994</date>
 		<biologicalmeaning>0</biologicalmeaning>
+		<isotopes>
+			<isotope halflife="0.0015" halflifeformat="seconds" weight="" neutron="272" percentage="" />
+		</isotopes>
 		<group>1</group>
 		<electronaffinity></electronaffinity>
 		<family>Transition</family>
