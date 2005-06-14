@@ -187,20 +187,19 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "</td></tr>" );
 			if ( !m_element->nameOrigin().isEmpty() )
 			{
-				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+				html.append( "<tr><td><img src=\"book.png\" alt=\"icon\"/></td><td>" );
 				html.append( i18n( "Origin of the name: %1" ).arg( m_element->nameOrigin() ) );
 				html.append( "</td></tr>" );
 			}
-			if ( m_element->artificial() )
+			if ( m_element->artificial() || m_element->radioactive() )
 			{
 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "This element is artificial" ));
-				html.append( "</td></tr>" );
-			}
-			if ( m_element->radioactive() )
-			{
-				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "This element is radioactive" ));
+				if ( !m_element->radioactive() )
+					html.append( i18n( "This element is artificial" ));
+				if ( !m_element->artificial() )
+					html.append( i18n( "This element is radioactive" ));
+				else
+					html.append( i18n( "This element is radioactive and artificial" ));
 				html.append( "</td></tr>" );
 			}
 			break;
@@ -208,16 +207,16 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Orbital structure: %1" ).arg( m_element->parsedOrbits() ) );
 			html.append( "</td></tr>" );
-			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Melting Point: %1" ).arg( m_element->adjustUnits( Element::MELTINGPOINT ) ) );
 			html.append( "</td></tr>" );
-			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+			html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Boiling Point: %1" ).arg( m_element->adjustUnits( Element::BOILINGPOINT ) ) );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Electronegativity: %1" ).arg( m_element->adjustUnits( Element::EN ) ) );
 			html.append( "</td></tr>" );
-			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+			html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Electron affinity: %1 " ).arg( m_element->adjustUnits(Element::EA) ) );
 			html.append( "</td></tr>" );
 						
@@ -225,7 +224,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			uint i = 0;
 			for ( ; i < ionlist.count() ; ++i )
 			{
-				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+				html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
 				html.append( i18n("the first variable is a number. The result is for example '1.' or '5.', the second is the value of the ionisation energy",
 				             "%1. Ionization energy: %2" ).arg( QString::number( i+1 ), m_element->adjustUnits( Element::IE, ionlist[i] ) ) );
 			html.append( "</td></tr>" );
