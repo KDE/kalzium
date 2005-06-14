@@ -1,190 +1,124 @@
 <wissen>
 	<item>
-		<name>Aggregatzustand</name>
-		<desc>
-			Form of a substance; dsependant on form stability and whether it takes up a definite volume: solid, liquid or gaseous.
-		</desc>
+		<name>State of matter</name>
+		<desc>Form of a substance; dsependant on form stability and whether it takes up a definite volume: solid, liquid or gaseous. [img]e.png[/img]</desc>
 		<ref>Boiling point,Melting point</ref>
 	</item>
 	<item>
 		<name>Chemical Symbol</name>
-		<desc>
-			One, two, or three letter abbreviation; set through international convention.
-		</desc>
+		<desc>One, two, or three letter abbreviation; set through international convention.</desc>
 		<ref>Element</ref>
 	</item>
 	<item>
 		<name>Chromatography</name>
-		<desc>
-			Matter separation in a moving medium (mobile Phase) through differentiated absorbtion on a static medium (stationary phase).
-		</desc>
-	</item>
-	<item>
-		<name>Decanting</name>
-		<desc>
-			Der Ausdruck Dekantieren bezeichnet den Prozess der Abtrennung eines ungelösten Stoffes aus einem Flüssigkeitsgemisch. Nach einer mehr oder weniger langen Ruhezeit in einem Gefäß trennen sich Feststoffe durch Absetzen, das Dekantat. Nicht mischbare Flüssigkeiten (z.B. Wasser-Öl) trennen sich auf Grund der unterschiedlichen Dichte, meist schwimmt das Öl auf dem Wasser. Durch vorsichtiges Abgießen einer Schicht kann man die Stoffe trennen, "die Kante entfernen".
-
-			Dekantieren findet häufig Anwendung in der qualitativen anorganischen Analyse, es ist eine wenig aufwendige Aufreinigungsmethode mit bemerkenswertem Erfolg.
-		</desc>
+		<desc>Matter separation in a moving medium (mobile Phase) through differentiated absorbtion on a static medium (stationary phase).</desc>
 	</item>
 	<item>
 		<name>Distillation</name>
-		<desc>
-			Separation of a liquid solution (homogenous mix) into its component through evaporation and condensation. In a fractionary distillation the process is repeated several times in a column.
-		</desc>
+		<desc>Separation of a liquid solution (homogenous mix) into its component through evaporation and condensation. In a fractionary distillation the process is repeated several times in a column.</desc>
 	</item>
 	<item>
 		<name>Element</name>
-		<desc>
-			Matter that can't be broken down into simpler matter. Chemical elements are cornerstones of Materials. Elements consist of atoms that consist of a nucleus of positive protons and neutral neutrons and a shell of electrons.
-		</desc>
+		<desc>Matter that can't be broken down into simpler matter. Chemical elements are cornerstones of Materials. Elements consist of atoms that consist of a nucleus of positive protons and neutral neutrons and a shell of electrons.</desc>
 	</item>
 	<item>
 		<name>Emulsion</name>
-		<desc>
-			Heterogenous mix of two liquids.
-		</desc>
+		<desc>Heterogenous mix of two liquids.</desc>
 	</item>
 	<item>
 		<name>Extraction</name>
-		<desc>
-			Processing a homogenous or heterogenous mix to get pure matter.
-		</desc>
+		<desc>Processing a homogenous or heterogenous mix to get pure matter.</desc>
 		<ref>Mix</ref>
 	</item>
 	<item>
 		<name>Filtering</name>
-		<desc>
-			Separation of a solid matter from a liquid matter or gaseous matter with a filter (porous seperation wall).
-		</desc>
+		<desc>Separation of a solid matter from a liquid matter or gaseous matter with a filter (porous seperation wall).</desc>
 	</item>
 	<item>
 		<name>Mix</name>
-		<desc>
-			Matter consisting of differentiated matter, combined in non-set ratios. [i]Homogenous mixes[/i] have a coherent look, [i]heterogenous mixes[/i] consist of multiple phases.
-		</desc>
+		<desc>Matter consisting of differentiated matter, combined in non-set ratios. [i]Homogenous mixes[/i] have a coherent look, [i]heterogenous mixes[/i] consist of multiple phases.</desc>
 	</item>
 	<item>
 		<name>Accuracy</name>
-		<desc>
-			Consisting of accidental and systematic errors.
-		</desc>
+		<desc>Consisting of accidental and systematic errors.</desc>
 	</item>
 	<item>
 		<name>Law of Mass Preservation</name>
-		<desc>
-			During a chemical reaction mass is neither lost nor gained. The sum mass of the material going into the reaction equals the sum of the mass of the products of the reaction.
-		</desc>
+		<desc>During a chemical reaction mass is neither lost nor gained. The sum mass of the material going into the reaction equals the sum of the mass of the products of the reaction.</desc>
 	</item>
 	<item>
 		<name>Law of constant proportions</name>
-		<desc>
-			An alloy always contains the same elements in the same mass ration. Should two or more elements bind together then the mass ratio is constant.
-		</desc>
+		<desc>An alloy always contains the same elements in the same mass ration. Should two or more elements bind together then the mass ratio is constant.</desc>
 	</item>
 	<item>
 		<name>Crystalization</name>
-		<desc>
-			Separation of solid, crystallic matter from a solution, or the liquid or gaseous phases.
-		</desc>
+		<desc>Separation of solid, crystallic matter from a solution, or the liquid or gaseous phases.</desc>
 	</item>
 	<item>
 		<name>Solution</name>
-		<desc>
-			Homogenous mix of multiple pure materials
-		</desc>
+		<desc>Homogenous mix of multiple pure materials</desc>
 	</item>
 	<item>
 		<name>Mass</name>
-		<desc>
-			Measurement of an ammount of matter.
-		</desc>
+		<desc>Measurement of an ammount of matter.</desc>
 	</item>
 	<item>
 		<name>Matter</name>
-		<desc>
-			All that takes up space andhas mass.
-		</desc>
+		<desc>All that takes up space andhas mass.</desc>
 	</item>
 	<item>
 		<name>Phase</name>
-		<desc>
-			Through chemical composition and physical attributes homogenous portion of matter, that separated from its environment in its expantion through a surface.
-		</desc>
+		<desc>Through chemical composition and physical attributes homogenous portion of matter, that separated from its environment in its expantion through a surface.</desc>
 	</item>
 	<item>
 		<name>Precision</name>
-		<desc>
-			Expressed through standard deviation: Values given over accidental errors.
-		</desc>
+		<desc>Expressed through standard deviation: Values given over accidental errors.</desc>
 	</item>
 	<item>
 		<name>Correctness</name>
-		<desc>
-			Values given over accidental errors.
-		</desc>
+		<desc>Values given over accidental errors.</desc>
 	</item>
 	<item>
 		<name>SI-Unit</name>
-		<desc>
-			Measurement unit using International Symbols.
-		</desc>
+		<desc>Measurement unit using International Symbols.</desc>
 	</item>
 	<item>
 		<name>Significant Point</name>
-		<desc>
-			The amount of numbers in a number that are enumeration-worthy.
-		</desc>
+		<desc>The amount of numbers in a number that are enumeration-worthy.</desc>
 	</item>
 	<item>
 		<name>Standard deviation</name>
-		<desc>
-			An amount with which the precision of a measurement can be estimates.
-		</desc>
+		<desc>An amount with which the precision of a measurement can be estimates.</desc>
 	</item>
 	<item>
 		<name>Suspension</name>
-		<desc>
-			Heterogenous mix consisting of a liquid and solid matter.
-		</desc>
+		<desc>Heterogenous mix consisting of a liquid and solid matter.</desc>
 	</item>
 	<item>
 		<name>Alloys</name>
-		<desc>
-			Pure matter consisting of multiple elements in a set ratio.
-		</desc>
+		<desc>Pure matter consisting of multiple elements in a set ratio.</desc>
 	</item>
 	<item>
 		<name>Alpha rays</name>
-		<desc>
-			Rays consisting of alpha particles, consisting of two protons and two neutrons that are emitted from the Atoms of certain radioactive elements.
-		</desc>
+		<desc>Rays consisting of alpha particles, consisting of two protons and two neutrons that are emitted from the Atoms of certain radioactive elements.</desc>
 	</item>
 	<item>
 		<name>Atom</name>
-		<desc>
-			Atoms are chemically unseparatable and building blocks of matter. Atoms of one kind are alled Element.
-		</desc>
+		<desc>Atoms are chemically unseparatable and building blocks of matter. Atoms of one kind are alled Element.</desc>
 		<ref>Element</ref>
 	</item>
 	<item>
 		<name>Atomic nucleus</name>
-		<desc>
-			The small, positively-charged center of an Atom, in which Protons and Neutrons are found.
-		</desc>
+		<desc>The small, positively-charged center of an Atom, in which Protons and Neutrons are found.</desc>
 		<ref>Atom</ref>
 	</item>
 	<item>
 		<name>Atomic Mass</name>
-		<desc>
-			Mass of an atom, taken on a scale where the the mass of the Atom C 12u is. In elements that consist of different isotopes the mid-range mass of the isotope mix is given.
-		</desc>
+		<desc>Mass of an atom, taken on a scale where the the mass of the Atom C 12u is. In elements that consist of different isotopes the mid-range mass of the isotope mix is given.</desc>
 		<ref>Atom,Mass</ref>
 	</item>
 	<item>
 		<name>Beta rays</name>
-		<desc>
-			Rays consisting of electrons that are emitted from Atoms of radioactive elements.
-		</desc>
+		<desc>Rays consisting of electrons that are emitted from Atoms of radioactive elements.</desc>
 	</item>
 </wissen>

@@ -1,36 +1,25 @@
 <tools>
 	<tool picture="heizplatte.jpg">
-		<name>Heizplatte</name>
-		<desc>Heizplatten dienen zum Erhitzen von Behältern, die auf der Heizplatte stehen. Außerdem
-			haben viele Heizplatten die Möglichkeit, ein Thermometer anzuschließen, so dass eine vom
-			Thermometer vorgegebene Temperatur nicht von der Heizplatte überschritten wird. Desweiteren
-			kann man die Rotationsgeschwindigkeit eines Magnetfeldes einstellen, so dass man mit Hilfe eines
-			Rührfisches Flüssigkeiten homogenisieren kann.
-		</desc>
+		<name>Heating Coil</name>
+		<desc>Heating coils are used to heat flawsks and other containers. Furthermore, a lot heating coils can be connected with a thermometer so that the heat won't exceed a specified temperature. Using an magnetic field inside the plate it is possible to stir fluids with a magnetic stir bar. This will homogenize the fluid in terms of temperature and composition.</desc>
 	</tool>
 	<tool picture="korkring.jpg">
-		<name>Korkring</name>
-		<desc>Mit Korkringen kann man runde Gefäße wie Rundkolben hinstellen (siehe Rundkolben).</desc>
+		<name>Cork Ring</name>
+		<desc>Ring made of corc are used to place bigger containers like round-bottomed flasks.</desc>
 	</tool>
 	<tool picture="tropftrichter.jpg">
-		<name>Tropftrichter</name>
-		<desc>Mit dem Tropftrichter können sehr kontrolliert Flüssigkeiten aus dem Trichter in
-			den Reaktionsraum gegeben werden. Je nachdem wie weit der Sperrhahn geöffnet ist kann man 
-			die Tropfgeschwindigkeit genau einstellen.</desc>
+		<name>Dropping Funnel</name>
+		<desc>Using a dropping funnel it is easy to drop precise amounts of of fluid into something. With a valve you can control the speed</desc>
 	</tool>
 	<tool picture="scheidetrichter.jpg">
-		<name>Scheidetrichter</name>
-		<desc>Mit einem Scheidetrichter kann man Phasen voneinander trennen. Dazu gibt man die durchmischten Phasen
-			in den Scheidetrichter und wartet ab. Nachdem die Phasen sich ausreichend getrennt haben
-			kann man durch das Öffnen des Sperrhahns die untere Phase von der oberen Phase trennen.</desc>
+		<name>Separating Funnel</name>
+		<desc>Using a separating funnel you can disperse chemical phases of fluids because of their different density. After a while one can use a valve to let the bottom-phase go.</desc>
 	</tool>
 	<tool picture="rg-staender.jpg">
-		<name>Reagenzglasständer</name>
-		<desc>In einem Reagenzglasständer kann man je nach Größe unterschiedliche Anzahlen von 
-			Reagenzgläsern abstellen. Außerdem können in der Regel auch Reagenzgläser zum Abtrocken
-			umgekehrtherum aufgehängt werden.
-		</desc>
+		<name>Test Tube Rack</name>
+		<desc>Such a rack comes handy if you want to test a lot small amounts of chemicals in a row or if you want to dry test tubes.</desc>
 	</tool>
+	<!--
 	<tool picture="pileusball.jpg">
 		<name>Pileusball</name>
 		<desc>Mit einem Pileusball werden Pipetten gefüllt bzw. entleert. Er wird einfach auf
@@ -204,4 +193,5 @@
 		<name>Kolbenprober</name>
 		<desc>Ein Kolbenprober besteht aus zwei Teilen. Zum einen aus einem Glasrohr. Der zweite Teil ist ein Stempel (in der Regel auch aus Glas). In das Rohr wird Gas eingeleitet. Da es sich um ein geschlossenes System handelt wird der Stempel zurückgedrückt. Nach Reaktionsende kann man so das Gasvolumen ablesen.</desc>
 	</tool>
+	-->
 </tools>
