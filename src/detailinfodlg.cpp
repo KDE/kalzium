@@ -204,9 +204,6 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			}
 			break;
 		case ENERGY:
-			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Orbital structure: %1" ).arg( m_element->parsedOrbits() ) );
-			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Melting Point: %1" ).arg( m_element->adjustUnits( Element::MELTINGPOINT ) ) );
 			html.append( "</td></tr>" );

@@ -3207,7 +3207,7 @@
 			<vdw></vdw>
 		</radius>
 		<isotopes>
-			<isotope halflife="4078080" halflifeformat="seconds" weight="" neutron="252" percentage="" />
+			<isotope halflife="40780800" halflifeformat="seconds" weight="" neutron="252" percentage="" />
 		</isotopes>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
@@ -3235,7 +3235,7 @@
 			<vdw></vdw>
 		</radius>
 		<isotopes>
-			<isotope halflife="9072000" halflifeformat="seconds" weight="" neutron="257" percentage="" />
+			<isotope halflife="9115200" halflifeformat="seconds" weight="" neutron="257" percentage="" />
 		</isotopes>
 		<electronegativity>1.3</electronegativity>
 		<meltingpoint>1800</meltingpoint>

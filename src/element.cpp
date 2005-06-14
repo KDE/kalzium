@@ -744,16 +744,19 @@ QString Isotope::halflifeToHtml() const
 			halflife = i18n("%1 billion years").arg( m_halflife/1000000000.0 );
 		else
 			halflife = i18n("%1 years").arg( m_halflife );
-//		return halflife;
 	}
 	else
 	{
 		if ( m_halflife < 120 )
 			halflife = i18n("%1 seconds").arg( m_halflife );
-		else if ( m_halflife > 1200 )
+		else if ( m_halflife > 1000 )
 			halflife = i18n("%1 minutes").arg( m_halflife/60.0 );
-		else if ( m_halflife > 12000 )
-			halflife = i18n("%1 days").arg( m_halflife/3600.0 );
+		else if ( m_halflife > 3600 )
+			halflife = i18n("%1 hours").arg( m_halflife/( 60*60 ) );
+		if ( m_halflife > 86400 )   //one day
+			halflife = i18n("%1 days").arg( m_halflife/( 60*60*24 ) );
+		if ( m_halflife > ( 31536000 * 2 ) ) //two year
+			halflife = i18n("%1 years").arg( m_halflife/( 3600.0*365 ));
 	}
 
 	return halflife;
