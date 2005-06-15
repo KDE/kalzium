@@ -395,13 +395,11 @@ class PSE : public QWidget
 
 		virtual void drawTimeLine( QPainter *p );
 
-		virtual void drawCrystal( QPainter *p );
-
 		///called if the user resized the table
 		virtual void resizeEvent( QResizeEvent *e );
 
 		///the central place for the drawing of the table
-		virtual void drawPSE( QPainter* p );
+		virtual void drawPSE( QPainter* p, bool isCrystal );
 
 		///draw a gradient of the type @p type
 		virtual void drawGradientPSE( QPainter* p, const double min, const double max );

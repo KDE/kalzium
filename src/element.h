@@ -497,16 +497,14 @@ class Element{
 		doubleList m_ionenergies;
 		
 	public:
-		/**
-		 * draw the recatangle with the information
-		 * @param showFullInformation if True more information will be shown
-		 */
 		virtual void drawGradient( QPainter* p, const QString& value, const QColor& );
 		
-		virtual void drawSelf( QPainter* p, bool simple = false );
+		/**
+		 * draw the rectangle with the information
+		 * @param simple if True more information will be shown
+		 */
+		virtual void drawSelf( QPainter* p, bool simple = false, bool isCrystal = false );
 
-		virtual void drawCrystalstructure( QPainter* p );
-		
 		virtual void drawStateOfMatter( QPainter* p, double temperature );
 };
 

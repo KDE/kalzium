@@ -263,70 +263,6 @@ const QString Element::adjustUnits( const int type )
 	return v;
 }
 
-void Element::drawCrystalstructure( QPainter* p )
-{
-	//the height of a "line" inside an element
-	int h_small = 15; //the size for the small units like elementnumber
-	
-	//The X-coordiante
-	int X = xPos();
-	
-	//The Y-coordinate
-	int Y = yPos();
-	
-	QColor color;
-	QString name;
-	QString structure = crystalstructure();
-	/**
-	 * hcp: hexagonal close packed
-	 * fcc: face centered cubic
-	 * krz/bbc cubic body centered // kubisch raumzentriert
-	 * kdp: kubisch dicht gepackt
-	 * hdp: hexagonal dicht gepackt
-	 * ccp: cubic close packed // kubisch dichteste Kugelpackung
-	 */
-	if ( structure == "own"){
-		color = Qt::blue;
-		name = i18n( "this means, the element has its 'own' structur", "own" );
-	}else if ( structure == "bbc" ){
-		color = Qt::red;
-		name = i18n( "Crystalsystem body centered cubic", "bbc" );
-	}else if ( structure == "hdp" ){
-		color = Qt::yellow;
-		name = i18n( "Crystalsystem hexagonal dense packed", "hdp" );
-	}else if ( structure == "ccp" ){
-		color = Qt::green;
-		name = i18n( "Crystalsystem cubic close packed", "ccp" );
-	}
-	else{
-		color = Qt::white;
-		name = QString::null;
-	}
-	setElementColor( color );
-		
-	p->setPen( color );
-	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, color );
-	p->drawRect( X, Y,ELEMENTSIZE,ELEMENTSIZE );
-	
-	QFont symbol_font = p->font();
-	symbol_font.setPointSize( 18 );
-	QFont f = p->font();
-	f.setPointSize( 9 );
-		
-	p->setFont( f );
-
-	//top left
-	p->setPen( Qt::black );
-	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, name );
-
-	p->setFont( symbol_font );
-	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
-	
-	//border
-	p->setPen( Qt::black );
-	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
-}
-
 void Element::drawStateOfMatter( QPainter* p, double temp )
 {
 	//the height of a "line" inside an element
@@ -436,7 +372,7 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
-void Element::drawSelf( QPainter* p, bool simple )
+void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 {
 	//the height of a "line" inside an element
 	int h_small = 15; //the size for the small units like elementnumber
@@ -461,7 +397,31 @@ void Element::drawSelf( QPainter* p, bool simple )
 
 	if ( !simple )
 	{//the user only want a simply pse, no weight the cell
-		text = QString::number( strippedValue( mass( ) ) );
+		QString text;
+		if ( isCrystal )
+		{
+			QString structure = crystalstructure();
+			/**
+			 * hcp: hexagonal close packed
+			 * fcc: face centered cubic
+			 * krz/bbc cubic body centered // kubisch raumzentriert
+			 * kdp: kubisch dicht gepackt
+			 * hdp: hexagonal dicht gepackt
+			 * ccp: cubic close packed // kubisch dichteste Kugelpackung
+			 */
+			if ( structure == "own")
+				text = i18n( "this means, the element has its 'own' structur", "own" );
+			else if ( structure == "bbc" )
+				text = i18n( "Crystalsystem body centered cubic", "bbc" );
+			else if ( structure == "hdp" )
+				text = i18n( "Crystalsystem hexagonal dense packed", "hdp" );
+			else if ( structure == "ccp" )
+				text = i18n( "Crystalsystem cubic close packed", "ccp" );
+//			else
+//				text = QString::null;
+		}
+		else
+			text = QString::number( strippedValue( mass( ) ) );
 		p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
 	}
 

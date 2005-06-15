@@ -368,17 +368,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		  return;
 	  }
 
-	  // FIXME: This should not be drawn separately! /ingwa
-	  if ( m_currentScheme == CRYSTAL ){//show the crystal structure
-		  drawCrystal(& p );
-		  p.end();
-
-		  *table2 = *table;
-		  bitBlt( this, 0, 0, table2 );
-		  return;
-	  }
-
-	  drawPSE( &p );
+	  drawPSE( &p, m_currentScheme == CRYSTAL );
 
 	  paintCurrentSelection();
 
@@ -646,7 +636,7 @@ void PSE::drawLegend( QPainter* p )
 			p->drawText( x1 + textOffset , fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Metalloid")); 
 			break;
 	    case PSE::CRYSTAL:
-			p->fillRect(x1, fieldheight*2, square_w, square_h, Qt::blue ); 
+			p->fillRect(x1, fieldheight*2, square_w, square_h, Qt::cyan ); 
 			p->fillRect(x1, fieldheight*3, square_w, square_h, Qt::red ); 
 			p->fillRect(x1, fieldheight*4, square_w, square_h, Qt::yellow ); 
 			p->fillRect(x1, fieldheight*5, square_w, square_h, Qt::green ); 
@@ -867,28 +857,7 @@ void PSE::selectElement( int num )
 	selectPoint( d->element( num )->coords() );
 }
 
-void PSE::drawCrystal( QPainter* p )
-{
-	EList::ConstIterator it = d->ElementList.begin();
-	const EList::ConstIterator itEnd = d->ElementList.end();
-
-	/**
-	 * this loop iterates through all elements. The Elements
-	 * draw themselfs, the PSE only tells them to do so
-	 */
-	while ( it != itEnd )
-	{
-		( *it )->drawCrystalstructure( p );
-		++it;
-	}
-	QFont legendFont = KGlobalSettings::generalFont();
-	legendFont.setPointSize( legendFont.pointSize() + 1 );
-	p->setFont( legendFont );
-
-	drawLegend(p);
-}
-
-void PSE::drawPSE( QPainter* p )
+void PSE::drawPSE( QPainter* p, bool isCrystal )
 {
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
@@ -900,7 +869,7 @@ void PSE::drawPSE( QPainter* p )
 	 */
 	while ( it != itEnd )
 	{
-		( *it )->drawSelf( p, simple );
+		( *it )->drawSelf( p, simple, isCrystal );
 		++it;
 	}
 }
@@ -1335,10 +1304,20 @@ void PSE::setLook( PSE::SCHEMETYPE type, int which )
 		}
 		case CRYSTAL:
 		{
+			QString structure;
 			while ( it != itEnd )
 			{
-				//XXX TEMP!!!!
-				(*it)->setElementColor( Qt::white );
+				structure = ( *it )->crystalstructure();
+				if ( structure == "own")
+					(*it)->setElementColor( Qt::cyan );
+				else if ( structure == "bbc" )
+					(*it)->setElementColor( Qt::red );
+				else if ( structure == "hdp" )
+					(*it)->setElementColor( Qt::yellow );
+				else if ( structure == "ccp" )
+					(*it)->setElementColor( Qt::green );
+				else
+					(*it)->setElementColor( Qt::white );
 				++it;
 			}
 			setGradient( false );
