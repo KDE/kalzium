@@ -29,13 +29,11 @@
 	</tool>
 	<tool picture="rotationsverdampfer.jpg">
 		<name>Rotary Evaporator</name>
-		<desc>A rotary evaporator consists of a round flask in a bath of hot water that is designed to evaporate solvents. The flask is rotated and the solvent collects under a vacuum onto a condenser and drips into a condensate collecting flask. This way solutions can be concentrated or purified.
-			<!-- I'm really not sure about this sentence below here? Does it mean the temperature is reduced or does the vacuum actually affect the boiling point of the liquid?  -->
-	Through an attached vacuum pump the boiling point of the fluid can be decreased.</desc>
+		<desc>A rotary evaporator consists of a round flask in a bath of hot water that is designed to evaporate solvents. The flask is rotated and the solvent collects under a vacuum onto a condenser and drips into a condensate collecting flask. This way solutions can be concentrated or purified. Through an attached vacuum pump the boiling point of the fluid can be decreased.</desc>
 	</tool>
 	<tool picture="rueckflusskuehler.jpg">
 		<name>Reflux Condenser</name>
-		<desc>A reflux condenser serves to anneal a gas phase during an experiment. As a rule it is put on round-bottom or several neck flasks. Gas which arise from heat addition attain to the reflux condenser, whose walls are rinsed thoroughly with cold water. Thereby the gas is refrigerated. Finally it condenses and attains back to the room of reaction.</desc>
+		<desc>A reflux condenser subjects fluid to a process where a gas produced by heating is collected on the reflux condenser, where it is cooled until it condenses and runs back into the original fluid. Usually it is put on a round bottom flask or several neck flasks.</desc>
 	</tool>
 	<tool picture="pileusball.jpg">
 		<name>Pileusball</name>
