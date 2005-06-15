@@ -589,7 +589,7 @@
 	</element>
 	<element>
 		<number>19</number>
-		<name origin="arabic 'natrun'">Potassium</name>
+		<name origin="arabic 'al qaliy' for potash">Potassium</name>
 		<symbol>K</symbol>
 		<mass>39.0983</mass>
 		<block>s</block>
@@ -621,7 +621,7 @@
 	</element>
 	<element>
 		<number>20</number>
-		<name origin="arabic 'al qaliy' for potash">Calcium</name>
+		<name origin="lat. 'calx' for 'lime'">Calcium</name>
 		<symbol>Ca</symbol>
 		<mass>40.078</mass>
 		<block>s</block>
