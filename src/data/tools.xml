@@ -25,11 +25,13 @@
 	</tool>
 	<tool picture="spritzflasche.jpg">
 		<name>Wash Bottle</name>
-		<desc>These bottles are used for a lot of purposes. In most laboratories you will find water, salt acid or other commonly used fluids in them. They make it easy to access the fluid if the amount you use is not that important.</desc>
+		<desc>These bottles are used for many purposes. In most laboratories they're usually filled with water, salt acid or other commonly used fluids. They make it easy to apply the fluid if you don't need to measure a precise amount.</desc>
 	</tool>
 	<tool picture="rotationsverdampfer.jpg">
 		<name>Rotary Evaporator</name>
-		<desc>A rotary evaporator consists of a round flask into a bath of hot water. The flask is rotating whereby the dissolver forms a thin film. This one evaporates and condenses again in a reflux condenser. The condensate is intercepted in an other pot. That way solutions can be concentrated and/ or cleaned. Through a affliated vacuum pump the fluid's boiling point can be decreased again.</desc>
+		<desc>A rotary evaporator consists of a round flask in a bath of hot water that is designed to evaporate solvents. The flask is rotated and the solvent collects under a vacuum onto a condenser and drips into a condensate collecting flask. This way solutions can be concentrated or purified.
+			<!-- I'm really not sure about this sentence below here? Does it mean the temperature is reduced or does the vacuum actually affect the boiling point of the liquid?  -->
+	Through an attached vacuum pump the boiling point of the fluid can be decreased.</desc>
 	</tool>
 	<tool picture="rueckflusskuehler.jpg">
 		<name>Reflux Condenser</name>
