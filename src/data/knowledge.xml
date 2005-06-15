@@ -1,7 +1,7 @@
 <wissen>
 	<item>
 		<name>State of matter</name>
-		<desc>Form of a substance; dsependant on form stability and whether it takes up a definite volume: solid, liquid or gaseous. [img]e.png[/img]</desc>
+		<desc>Form of a substance; dependant on form stability and whether it takes up a definite volume: solid, liquid or gaseous. [img]e.png[/img]</desc>
 		<references>
 			<refitem>Boiling point</refitem>
 			<refitem>Melting point</refitem>
@@ -16,23 +16,23 @@
 	</item>
 	<item>
 		<name>Chromatography</name>
-		<desc>Matter separation in a moving medium (mobile Phase) through differentiated absorbtion on a static medium (stationary phase).</desc>
+		<desc>Matter separation in a moving medium (mobile Phase) through differentiated absorption on a static medium (stationary phase).</desc>
 	</item>
 	<item>
 		<name>Distillation</name>
-		<desc>Separation of a liquid solution (homogenous mix) into its component through evaporation and condensation. In a fractionary distillation the process is repeated several times in a column.</desc>
+		<desc>Separation of a liquid solution (homogeneous mix) into its components through evaporation and condensation. In a fractionary distillation the process is repeated several times in a column.</desc>
 	</item>
 	<item>
 		<name>Element</name>
-		<desc>Matter that can't be broken down into simpler matter. Chemical elements are cornerstones of Materials. Elements consist of atoms that consist of a nucleus of positive protons and neutral neutrons and a shell of electrons.</desc>
+		<desc>Matter that cannot be broken down into simpler matter. Chemical elements are cornerstones of Materials. Elements consist of atoms that consist of a nucleus of positive protons, neutral neutrons, and a shell of electrons.</desc>
 	</item>
 	<item>
 		<name>Emulsion</name>
-		<desc>Heterogenous mix of two liquids.</desc>
+		<desc>Heterogeneous mix of two liquids.</desc>
 	</item>
 	<item>
 		<name>Extraction</name>
-		<desc>Processing a homogenous or heterogenous mix to get pure matter.</desc>
+		<desc>Processing a homogeneous or heterogeneous mix to get pure matter.</desc>
 		<references>
 			<refitem>Mix</refitem>
 		</references>
@@ -43,7 +43,7 @@
 	</item>
 	<item>
 		<name>Mix</name>
-		<desc>Matter consisting of differentiated matter, combined in non-set ratios. [i]Homogenous mixes[/i] have a coherent look, [i]heterogenous mixes[/i] consist of multiple phases.</desc>
+		<desc>Matter consisting of differentiated matter, combined in non-set ratios. [i]Homogeneous mixes[/i] have a coherent look, [i]heterogeneous mixes[/i] consist of multiple phases.</desc>
 	</item>
 	<item>
 		<name>Accuracy</name>
@@ -55,7 +55,7 @@
 	</item>
 	<item>
 		<name>Law of constant proportions</name>
-		<desc>An alloy always contains the same elements in the same mass ration. Should two or more elements bind together then the mass ratio is constant.</desc>
+		<desc>An alloy always contains the same elements in the same mass ratio. Should two or more elements bind together then the mass ratio is constant.</desc>
 	</item>
 	<item>
 		<name>Crystalization</name>
@@ -63,19 +63,19 @@
 	</item>
 	<item>
 		<name>Solution</name>
-		<desc>Homogenous mix of multiple pure materials</desc>
+		<desc>Homogeneous mix of multiple pure materials</desc>
 	</item>
 	<item>
 		<name>Mass</name>
-		<desc>Measurement of an ammount of matter.</desc>
+		<desc>Measurement of an amount of matter.</desc>
 	</item>
 	<item>
 		<name>Matter</name>
-		<desc>All that takes up space andhas mass.</desc>
+		<desc>All that takes up space and has mass.</desc>
 	</item>
 	<item>
 		<name>Phase</name>
-		<desc>Through chemical composition and physical attributes homogenous portion of matter, that separated from its environment in its expantion through a surface.</desc>
+		<desc>Through chemical composition and physical attributes, homogeneous portion of matter that separated from its environment in its expansion through a surface.</desc>
 	</item>
 	<item>
 		<name>Precision</name>
@@ -99,7 +99,7 @@
 	</item>
 	<item>
 		<name>Suspension</name>
-		<desc>Heterogenous mix consisting of a liquid and solid matter.</desc>
+		<desc>Heterogeneous mix consisting of a liquid and solid matter.</desc>
 	</item>
 	<item>
 		<name>Alloys</name>
@@ -111,7 +111,7 @@
 	</item>
 	<item>
 		<name>Atom</name>
-		<desc>Atoms are chemically unseparatable and building blocks of matter. Atoms of one kind are alled Element.</desc>
+		<desc>Atoms are chemically inseparable and building blocks of matter. Atoms of one kind are called an Element.</desc>
 		<references>
 			<refitem>Element</refitem>
 		</references>
@@ -125,7 +125,7 @@
 	</item>
 	<item>
 		<name>Atomic Mass</name>
-		<desc>Mass of an atom, taken on a scale where the the mass of the Atom C 12u is. In elements that consist of different isotopes the mid-range mass of the isotope mix is given.</desc>
+		<desc>Mass of an atom, taken on a scale where the the mass of a carbon atom is 12u. In elements that consist of different isotopes the mid-range mass of the isotope mix is given.</desc>
 		<references>
 			<refitem>Atom</refitem>
 			<refitem>Mass</refitem>

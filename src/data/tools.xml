@@ -1,7 +1,7 @@
 <tools>
 	<tool picture="heizplatte.jpg">
 		<name>Heating Coil</name>
-		<desc>Heating coils are used to heat flasks and other containers. Multiple heating coils can be connected with a thermometer so that the heat wont exceed a specified temperature. It is possible to use a magnetic field inside the heating coil to stir fluids with a magnetic stirrer. This will homogenize the fluid in terms of temperature and composition.</desc>
+		<desc>Heating coils are used to heat flasks and other containers. Multiple heating coils can be connected with a thermometer so that the heat will not exceed a specified temperature. It is possible to use a magnetic field inside the heating coil to stir fluids with a magnetic stirrer. This will homogenize the fluid in terms of temperature and composition.</desc>
 	</tool>
 	<tool picture="korkring.jpg">
 		<name>Cork Ring</name>
@@ -21,11 +21,11 @@
 	</tool>
 	<tool picture="">
 		<name>Vortexer</name>
-		<desc>A vortexer serves to homogenise reagents found in laboratories. The container containing liquid to be homogenised is put on a platform. The platform shakes by rotary agitation up to 3000RPM when a contact sensor is activated. This way extremely small volumes of fluid can be homogenised quickly as well.</desc>
+		<desc>A vortexer serves to homogenize reagents found in laboratories. The container containing liquid to be homogenized is put on a platform. The platform shakes by rotary agitation up to 3000RPM when a contact sensor is activated. This way extremely small volumes of fluid can be homogenized quickly as well.</desc>
 	</tool>
 	<tool picture="spritzflasche.jpg">
 		<name>Wash Bottle</name>
-		<desc>These bottles are used for many purposes. In most laboratories they're usually filled with water, salt acid or other commonly used fluids. They make it easy to apply the fluid if you don't need to measure a precise amount.</desc>
+		<desc>These bottles are used for many purposes. In most laboratories they are usually filled with water, salt acid or other commonly used fluids. They make it easy to apply the fluid if you do not need to measure a precise amount.</desc>
 	</tool>
 	<tool picture="rotationsverdampfer.jpg">
 		<name>Rotary Evaporator</name>
@@ -41,15 +41,15 @@
 	</tool>
 	<tool picture="rg.jpg">
 		<name>Test Tube</name>
-		<desc>In test tube a chemist usually performs small reaktions. There a lots of differnet tubs, for example those with and without grinding.</desc>
+		<desc>In test tube a chemist usually performs small reactions. There are a lot of different tubes, for example those with and without grinding.</desc>
 	</tool>
 	<tool picture="schutzbrille.jpg">
 		<name>Protective Goggles</name>
-		<desc>Most labarotories insist that everyone is wearing protective gooles. Without them it is to risky to work with most chemicals. Usually, their glass is some kind of specific plastic which protects you from mechanical impats as well as acids and bases.</desc>
+		<desc>Most labarotories insist that everyone is wearing protective goggles: without them, it is too risky to work with most chemicals. Usually, their glass is some kind of specific plastic which protects you from mechanical impacts as well as acids and bases.</desc>
 	</tool>
 	<tool picture="rundkolben.jpg">
 		<name>Round-bottomed Flask</name>
-		<desc>A round-bottomed flask is used for a lot of reaktions. They can be connected to other items, most of them are grinded. With corc rings they can be placed on a table.</desc>
+		<desc>A round-bottomed flask is used for a lot of reactions. They can be connected to other items, most of them are grinded. With cork rings they can be placed on a table.</desc>
 	</tool>
 	<tool picture="vollpipette.jpg">
 		<name>Full Pipette</name>
@@ -57,15 +57,15 @@
 	</tool>
 	<tool picture="trockenrohr.jpg">
 		<name>Drying Tube</name>
-		<desc>There are reactions which need to be keept free of water. To make this possible one uses a drying tube. In it there is a hygroscopic chemical which will absorb all water.</desc>
+		<desc>There are reactions which need to be kept free of water. To make this possible one uses a drying tube. In it there is a hygroscopic chemical which will absorb all water.</desc>
 	</tool>
 	<tool picture="rg-halter.jpg">
 		<name>Test tube fastener</name>
-		<desc>With a test tube fastener you can easily hold test tubes. If you use a fastener there is a safe distance between the hand and the test tube and the tube can be hot. In particular it is use when you brandisha test tube over an open flame.</desc>
+		<desc>With a test tube fastener you can easily hold test tubes. If you use a fastener there is a safe distance between the hand and the test tube and the tube can be hot. In particular it is use when you brandish a test tube over an open flame.</desc>
 	</tool>
 	<tool picture="messzylinder.jpg">
 		<name>Graduate</name>
-		<desc>In a graduate you can fill amounts of liquids relatively precise. Furthermore a graduate serves to let sack particulate matter. Following you can separate them from the fluid by decanting.</desc>
+		<desc>In a graduate you can fill amounts of liquids relatively precisely. Furthermore, a graduate serves to let particulate matter sink. Following this, you can separate it from the fluid by decanting.</desc>
 	</tool>
 	<tool picture="thermometer.jpg">
 		<name>Thermometer</name>
@@ -73,10 +73,10 @@
 	</tool>
 	<tool picture="ruehrfisch.jpg">
 		<name>Magnetic stir bar</name>
-		<desc>Magnetic stir bars are chemically nearly unassailable little magnetic bars. Most heaters have a built-in magnet which can rotate. Through this rotation the magnetic stir bars are spinned and the solution the magnetic stir bar is in is homogenised.</desc>
+		<desc>Magnetic stir bars are chemically nearly unassailable little magnetic bars. Most heaters have a built-in magnet which can rotate. Through this rotation the magnetic stir bars are spinned and the solution the magnetic stir bar is in is homogenized.</desc>
 	</tool>
 	<tool picture="destillierbruecke.jpg">
 		<name>Distillation bridge</name>
-		<desc>To separate a mixture you can use distillation among others. The distillation bridge is thereby the way between the two pots. In the one pot there is the mixture to be separated. Caused by heating a gas forms which is lead through the bridge. At the end of the bridge the gas phase is condensed again and drips in a round flask. As a rule  the bridge is cooled by return flow. In addition there is often a thermometer for controlling the temperature on the distillation bridge.</desc>
+		<desc>To separate a mixture you can use distillation amongst others. The distillation bridge is thereby the way between the two pots. In the one pot there is the mixture to be separated. Through heating, a gas forms which is lead through the bridge. At the end of the bridge the gas phase is condensed again and drips in a round flask. As a rule, the bridge is cooled by return flow. In addition, there is often a thermometer for controlling the temperature on the distillation bridge.</desc>
 	</tool>
 </tools>

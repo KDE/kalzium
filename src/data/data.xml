@@ -2,7 +2,7 @@
 <kalzium>
 	<element>
 		<number>1</number>
-		<name origin="greek 'hydor' and 'gennao' for 'forms water'">Hydrogen</name>
+		<name origin="Greek 'hydro' and 'gennao' for 'forms water'">Hydrogen</name>
 		<symbol>H</symbol>
 		<mass>1.00794</mass>
 		<block>s</block>
@@ -33,7 +33,7 @@
 	</element>
 	<element>
 		<number>2</number>
-		<name origin="The greek word for the sun was 'helios'">Helium</name>
+		<name origin="The Greek word for the sun was 'helios'">Helium</name>
 		<symbol>He</symbol>
 		<mass>4.002602</mass>
 		<block>p</block>
@@ -65,7 +65,7 @@
 	</element>
 	<element>
 		<number>3</number>
-		<name origin="greek 'lithos' means 'stone'">Lithium</name>
+		<name origin="Greek 'lithos' means 'stone'">Lithium</name>
 		<symbol>Li</symbol>
 		<mass>6.941</mass>
 		<block>s</block>
@@ -99,7 +99,7 @@
 	</element>
 	<element>
 		<number>4</number>
-		<name origin="greek 'beryllos' for 'lightgreen stone'">Beryllium</name>
+		<name origin="Greek 'beryllos' for 'light-green stone'">Beryllium</name>
 		<symbol>Be</symbol>
 		<mass>9.012182</mass>
 		<block>s</block>
@@ -161,7 +161,7 @@
 	</element>
 	<element>
 		<number>6</number>
-		<name origin="lat. carboneum for carbon">Carbon</name>
+		<name origin="Latin 'carboneum' for carbon">Carbon</name>
 		<symbol>C</symbol>
 		<mass>12.0107</mass>
 		<block>p</block>
@@ -194,7 +194,7 @@
 	</element>
 	<element>
 		<number>7</number>
-		<name origin="lat. nitrogenium ('forms saltpeter')">Nitrogen</name>
+		<name origin="Latin 'nitrogenium' ('forms saltpeter')">Nitrogen</name>
 		<symbol>N</symbol>
 		<mass>14.0067</mass>
 		<block>p</block>
@@ -228,7 +228,7 @@
 	</element>
 	<element>
 		<number>8</number>
-		<name origin="Oxygen is lat. 'oxygenium' (forms acids)">Oxygen</name>
+		<name origin="Latin 'oxygenium' (forms acids)">Oxygen</name>
 		<symbol>O</symbol>
 		<mass>15.9994</mass>
 		<block>p</block>
@@ -263,7 +263,7 @@
 	</element>
 	<element>
 		<number>9</number>
-		<name origin="lat. fluere ('floats')">Fluorine</name>
+		<name origin="Latin 'fluere' ('floats')">Fluorine</name>
 		<symbol>F</symbol>
 		<mass>18.9984032</mass>
 		<block>p</block>
@@ -292,7 +292,7 @@
 	</element>
 	<element>
 		<number>10</number>
-		<name origin="greek 'neo' means 'new'">Neon</name>
+		<name origin="Greek 'neo', meaning 'new'">Neon</name>
 		<symbol>Ne</symbol>
 		<mass>20.1797</mass>
 		<block>p</block>
@@ -326,7 +326,7 @@
 	</element>
 	<element>
 		<number>11</number>
-		<name origin="arabic 'natrun' for 'soda'">Sodium</name>
+		<name origin="Arabic 'natrun' for 'soda'">Sodium</name>
 		<symbol>Na</symbol>
 		<mass>22.989770</mass>
 		<block>s</block>
@@ -392,7 +392,7 @@
 	</element>
 	<element>
 		<number>13</number>
-		<name origin="lat. 'alumen'">Aluminum</name>
+		<name origin="Latin 'alumen'">Aluminum</name>
 		<symbol>Al</symbol>
 		<mass>26.981538</mass>
 		<block>p</block>
@@ -422,7 +422,7 @@
 	</element>
 	<element>
 		<number>14</number>
-		<name origin="lat. 'silex'">Silicon</name>
+		<name origin="Latin 'silex'">Silicon</name>
 		<symbol>Si</symbol>
 		<mass>28.0855</mass>
 		<block>p</block>
@@ -456,7 +456,7 @@
 	</element>
 	<element>
 		<number>15</number>
-		<name origin="greek 'phosphoros' for 'carries light'">Phosphorus</name>
+		<name origin="Greek 'phosphoros' for 'carries light'">Phosphorus</name>
 		<symbol>P</symbol>
 		<mass>30.973761</mass>
 		<block>p</block>
@@ -522,7 +522,7 @@
 	</element>
 	<element>
 		<number>17</number>
-		<name origin="greek 'chloros' for 'yellow-green'">Chlorine</name>
+		<name origin="Greek 'chloros' for 'yellow-green'">Chlorine</name>
 		<symbol>Cl</symbol>
 		<mass>35.453</mass>
 		<block>p</block>
@@ -555,7 +555,7 @@
 	</element>
 	<element>
 		<number>18</number>
-		<name origin="greek 'aergon' for 'inactive'">Argon</name>
+		<name origin="Greek 'aergon' for 'inactive'">Argon</name>
 		<symbol>Ar</symbol>
 		<mass>39.948</mass>
 		<block>p</block>
@@ -589,7 +589,7 @@
 	</element>
 	<element>
 		<number>19</number>
-		<name origin="arabic 'al qaliy' for potash">Potassium</name>
+		<name origin="Arabic 'al qaliy' for potash">Potassium</name>
 		<symbol>K</symbol>
 		<mass>39.0983</mass>
 		<block>s</block>
@@ -621,7 +621,7 @@
 	</element>
 	<element>
 		<number>20</number>
-		<name origin="lat. 'calx' for 'lime'">Calcium</name>
+		<name origin="Latin 'calx' for 'lime'">Calcium</name>
 		<symbol>Ca</symbol>
 		<mass>40.078</mass>
 		<block>s</block>
@@ -688,7 +688,7 @@
 	</element>
 	<element>
 		<number>22</number>
-		<name origin="The Titans were giants in the greek mythology">Titanium</name>
+		<name origin="The Titans were giants in Greek mythology">Titanium</name>
 		<symbol>Ti</symbol>
 		<mass>47.867</mass>
 		<block>d</block>
@@ -724,7 +724,7 @@
 	</element>
 	<element>
 		<number>23</number>
-		<name origin="'Vanadis' is another name for the nordic goddess Freyja">Vanadium</name>
+		<name origin="'Vanadis' is another name for the Nordic goddess Freyja">Vanadium</name>
 		<symbol>V</symbol>
 		<mass>50.9415</mass>
 		<block>d</block>
@@ -753,7 +753,7 @@
 	</element>
 	<element>
 		<number>24</number>
-		<name origin="greek 'chroma' means color">Chromium</name>
+		<name origin="Greek 'chroma' means 'color'">Chromium</name>
 		<symbol>Cr</symbol>
 		<mass>51.9961</mass>
 		<block>d</block>
@@ -817,7 +817,7 @@
 	</element>
 	<element>
 		<number>26</number>
-		<name origin="lat. 'ferrum'">Iron</name>
+		<name origin="Latin 'ferrum'">Iron</name>
 		<symbol>Fe</symbol>
 		<mass>55.845</mass>
 		<block>d</block>
@@ -853,7 +853,7 @@
 	</element>
 	<element>
 		<number>27</number>
-		<name origin="Named after the german word 'Kobold' for 'goblin'">Cobalt</name>
+		<name origin="Named after the German word 'Kobold' for 'goblin'">Cobalt</name>
 		<symbol>Co</symbol>
 		<mass>58.933200</mass>
 		<block>d</block>
@@ -882,7 +882,7 @@
 	</element>
 	<element>
 		<number>28</number>
-		<name origin="'Nickel' was the name of a mountain-goblin">Nickel</name>
+		<name origin="'Nickel' was the name of a mountain goblin">Nickel</name>
 		<symbol>Ni</symbol>
 		<mass>58.6934</mass>
 		<block>d</block>
@@ -918,7 +918,7 @@
 	</element>
 	<element>
 		<number>29</number>
-		<name origin="greek 'cuprum' for Cypres">Copper</name>
+		<name origin="Greek 'cuprum' for Cypres">Copper</name>
 		<symbol>Cu</symbol>
 		<mass>63.546</mass>
 		<block>d</block>
@@ -953,7 +953,7 @@
 	</element>
 	<element>
 		<number>30</number>
-		<name origin="german 'zinking' for 'rough' because zinc-ore is very rough">Zinc</name>
+		<name origin="German 'zinking' for 'rough', because zinc ore is very rough">Zinc</name>
 		<symbol>Zn</symbol>
 		<mass>65.39</mass>
 		<block>d</block>
@@ -1024,7 +1024,7 @@
 	</element>
 	<element>
 		<number>32</number>
-		<name origin="lat 'germania' is an old name for Germany">Germanium</name>
+		<name origin="Latin 'germania' is an old name for Germany">Germanium</name>
 		<symbol>Ge</symbol>
 		<mass>72.64</mass>
 		<block>p</block>
@@ -1059,7 +1059,7 @@
 	</element>
 	<element>
 		<number>33</number>
-		<name origin="greek 'arsenikos' for 'male' or 'bold'">Arsenic</name>
+		<name origin="Greek 'arsenikos' for 'male' or 'bold'">Arsenic</name>
 		<symbol>As</symbol>
 		<mass>74.92160</mass>
 		<block>p</block>
@@ -1088,7 +1088,7 @@
 	</element>
 	<element>
 		<number>34</number>
-		<name origin="greek 'selena' for 'moon'">Selenium</name>
+		<name origin="Greek 'selena' for 'moon'">Selenium</name>
 		<symbol>Se</symbol>
 		<mass>78.96</mass>
 		<block>p</block>
@@ -1125,7 +1125,7 @@
 	</element>
 	<element>
 		<number>35</number>
-		<name origin="greek 'bromos' for 'smells badly'">Bromine</name>
+		<name origin="Greek 'bromos' for 'smells badly'">Bromine</name>
 		<symbol>Br</symbol>
 		<mass>79.904</mass>
 		<block>p</block>
@@ -1157,7 +1157,7 @@
 	</element>
 	<element>
 		<number>36</number>
-		<name origin="greek 'kryptos' for 'hidden'">Krypton</name>
+		<name origin="Greek 'kryptos' for 'hidden'">Krypton</name>
 		<symbol>Kr</symbol>
 		<mass>83.80</mass>
 		<block>p</block>
@@ -1193,7 +1193,7 @@
 	</element>
 	<element>
 		<number>37</number>
-		<name origin="lat.: rubidus for 'dark red'">Rubidium</name>
+		<name origin="Latin 'rubidus' for 'dark red'">Rubidium</name>
 		<symbol>Rb</symbol>
 		<mass>85.4678</mass>
 		<block>s</block>
@@ -1321,7 +1321,7 @@
 	</element>
 	<element>
 		<number>41</number>
-		<name origin="Named after Niobe, the daughter of the greek god Tantalus">Niobium</name>
+		<name origin="Named after Niobe, the daughter of the Greek god Tantalus">Niobium</name>
 		<symbol>Nb</symbol>
 		<mass>92.90638</mass>
 		<block>d</block>
@@ -1350,7 +1350,7 @@
 	</element>
 	<element>
 		<number>42</number>
-		<name origin="This name has greek roots. It means 'like Platinum'. It was difficult to distinguish Molybdenum from Platinum.">Molybdenum</name>
+		<name origin="This name has Greek roots. It means 'like Platinum' - it was difficult to distinguish Molybdenum from Platinum.">Molybdenum</name>
 		<symbol>Mo</symbol>
 		<mass>95.94</mass>
 		<block>d</block>
@@ -1388,7 +1388,7 @@
 	</element>
 	<element>
 		<number>43</number>
-		<name origin="greek 'technetos' for artificial">Technetium</name>
+		<name origin="Greek 'technetos' for artificial">Technetium</name>
 		<symbol>Tc</symbol>
 		<mass>98.9063</mass>
 		<block>d</block>
@@ -1456,7 +1456,7 @@
 	</element>
 	<element>
 		<number>45</number>
-		<name origin="greek 'rhodeos' means 'red like a rose'">Rhodium</name>
+		<name origin="Greek 'rhodeos' means 'red like a rose'">Rhodium</name>
 		<symbol>Rh</symbol>
 		<mass>102.90550</mass>
 		<block>d</block>
@@ -1526,7 +1526,7 @@
 	</element>
 	<element>
 		<number>47</number>
-		<name origin="lat. 'agrentum' for silver">Silver</name>
+		<name origin="Latin 'agrentum' for silver">Silver</name>
 		<symbol>Ag</symbol>
 		<mass>107.8682</mass>
 		<block>d</block>
@@ -1558,7 +1558,7 @@
 	</element>
 	<element>
 		<number>48</number>
-		<name origin="greek 'kadmia' ('Galmei' = Zinccarbonate)">Cadmium</name>
+		<name origin="Greek 'kadmia' ('Galmei' = Zinc carbonate)">Cadmium</name>
 		<symbol>Cd</symbol>
 		<mass>112.411</mass>
 		<block>d</block>
@@ -1591,7 +1591,7 @@
 	</element>
 	<element>
 		<number>49</number>
-		<name origin="named after 'Indigo' because of its blue spectrum">Indium</name>
+		<name origin="Named after 'Indigo' because of its blue spectrum">Indium</name>
 		<symbol>In</symbol>
 		<mass>114.818</mass>
 		<block>p</block>
@@ -1622,7 +1622,7 @@
 	</element>
 	<element>
 		<number>50</number>
-		<name origin="lat. 'stannum' for tin">Tin</name>
+		<name origin="Latin 'stannum' for tin">Tin</name>
 		<symbol>Sn</symbol>
 		<mass>118.710</mass>
 		<block>p</block>
@@ -1664,7 +1664,7 @@
 	</element>
 	<element>
 		<number>51</number>
-		<name origin="arab. 'anthos ammonos' for 'blossom of the god Ammon'">Antimony</name>
+		<name origin="Arabic 'anthos ammonos' for 'blossom of the god Ammon'">Antimony</name>
 		<symbol>Sb</symbol>
 		<mass>121.760</mass>
 		<block>p</block>
@@ -1698,7 +1698,7 @@
 	</element>
 	<element>
 		<number>52</number>
-		<name origin="lat. 'tellus' or 'telluris' for 'Planet Earth'">Tellurium</name>
+		<name origin="Latin 'tellus' or 'telluris' for 'Planet Earth'">Tellurium</name>
 		<symbol>Te</symbol>
 		<mass>127.60</mass>
 		<block>p</block>
@@ -1731,7 +1731,7 @@
 	</element>
 	<element>
 		<number>53</number>
-		<name origin="greek 'ioeides' for 'violett'">Iodine</name>
+		<name origin="Greek 'ioeides' for 'violett'">Iodine</name>
 		<symbol>I</symbol>
 		<mass>126.90447</mass>
 		<block>p</block>
@@ -1759,7 +1759,7 @@
 	</element>
 	<element>
 		<number>54</number>
-		<name origin="greek 'xenos' for 'foreigner'">Xenon</name>
+		<name origin="Greek 'xenos' for 'foreigner'">Xenon</name>
 		<symbol>Xe</symbol>
 		<mass>131.293</mass>
 		<block>p</block>
@@ -1798,7 +1798,7 @@
 	</element>
 	<element>
 		<number>55</number>
-		<name origin="lat. 'caesius' for 'heavenblue'">Caesium</name>
+		<name origin="Latin 'caesius' for 'heavenblue'">Caesium</name>
 		<symbol>Cs</symbol>
 		<mass>132.90545</mass>
 		<block>s</block>
@@ -1828,7 +1828,7 @@
 	</element>
 	<element>
 		<number>56</number>
-		<name origin="greek 'barys' for 'heavy'">Barium</name>
+		<name origin="Greek 'barys' for 'heavy'">Barium</name>
 		<symbol>Ba</symbol>
 		<mass>137.237</mass>
 		<block>s</block>
@@ -1862,7 +1862,7 @@
 	</element>
 	<element>
 		<number>57</number>
-		<name origin="greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare earth'">Lanthanum</name>
+		<name origin="Greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare earth'">Lanthanum</name>
 		<symbol>La</symbol>
 		<mass>138.9055</mass>
 		<block>f</block>
@@ -1897,7 +1897,7 @@
 	</element>
 	<element>
 		<number>58</number>
-		<name origin="named after the planetoid Ceres">Cerium</name>
+		<name origin="Named after the planetoid Ceres">Cerium</name>
 		<symbol>Ce</symbol>
 		<mass>140.116</mass>
 		<block>f</block>
@@ -1935,7 +1935,7 @@
 	</element>
 	<element>
 		<number>59</number>
-		<name origin="greek 'prasinos didymos' for 'green twin'">Praseodymium</name>
+		<name origin="Greek 'prasinos didymos' for 'green twin'">Praseodymium</name>
 		<symbol>Pr</symbol>
 		<mass>140.90765</mass>
 		<block>f</block>
@@ -1964,7 +1964,7 @@
 	</element>
 	<element>
 		<number>60</number>
-		<name origin="greek 'neos didymos' for 'new twin'">Neodymium</name>
+		<name origin="Greek 'neos didymos' for 'new twin'">Neodymium</name>
 		<symbol>Nd</symbol>
 		<mass>144.24</mass>
 		<block>f</block>
@@ -2000,7 +2000,7 @@
 	</element>
 	<element>
 		<number>61</number>
-		<name origin="named after the greek Prometheus. Prometheus stole the fire from the gods and gave it to mankind.">Promethium</name>
+		<name origin="Named after the greek Prometheus. Prometheus stole the fire from the gods and gave it to mankind.">Promethium</name>
 		<symbol>Pm</symbol>
 		<mass>146.9151</mass>
 		<block>f</block>
@@ -2028,7 +2028,7 @@
 	</element>
 	<element>
 		<number>62</number>
-		<name origin="named after the mineral Samarskit">Samarium</name>
+		<name origin="Named after the mineral Samarskit">Samarium</name>
 		<symbol>Sm</symbol>
 		<mass>150.36</mass>
 		<block>f</block>
@@ -2063,7 +2063,7 @@
 	</element>
 	<element>
 		<number>63</number>
-		<name origin="named after Europe">Europium</name>
+		<name origin="Named after Europe">Europium</name>
 		<symbol>Eu</symbol>
 		<mass>151.964</mass>
 		<block>f</block>
@@ -2096,7 +2096,7 @@
 	</element>
 	<element>
 		<number>64</number>
-		<name origin="named after the finish chemist Johan Gadolin">Gadolinium</name>
+		<name origin="Named after the Finnish chemist Johan Gadolin">Gadolinium</name>
 		<symbol>Gd</symbol>
 		<mass>157.25</mass>
 		<block>f</block>
@@ -2135,7 +2135,7 @@
 	</element>
 	<element>
 		<number>65</number>
-		<name origin="named after the swedish town of Ytterby">Terbium</name>
+		<name origin="Named after the Swedish town of Ytterby">Terbium</name>
 		<symbol>Tb</symbol>
 		<mass>158.92534</mass>
 		<block>f</block>
@@ -2166,7 +2166,7 @@
 	</element>
 	<element>
 		<number>66</number>
-		<name origin="greek 'dysprositor' for 'difficult to reach'">Dysprosium</name>
+		<name origin="Greek 'dysprositor' for 'difficult to reach'">Dysprosium</name>
 		<symbol>Dy</symbol>
 		<mass>162.50</mass>
 		<block>f</block>
@@ -2197,7 +2197,7 @@
 	</element>
 	<element>
 		<number>67</number>
-		<name origin="lat. 'holmia' for the old name of Stockholm">Holmium</name>
+		<name origin="Latin 'holmia' for the old name of Stockholm">Holmium</name>
 		<symbol>Ho</symbol>
 		<mass>164.93032</mass>
 		<block>f</block>
@@ -2228,7 +2228,7 @@
 	</element>
 	<element>
 		<number>68</number>
-		<name origin="named ofter the swedish town of Ytterby. Terbium and Ytterbium are also named after this town.">Erbium</name>
+		<name origin="Named ofter the Swedish town of Ytterby. Terbium and Ytterbium are also named after this town.">Erbium</name>
 		<symbol>Er</symbol>
 		<mass>167.259</mass>
 		<block>f</block>
@@ -2264,7 +2264,7 @@
 	</element>
 	<element>
 		<number>69</number>
-		<name origin="named after the old name of Scandinavia 'Thule'">Thulium</name>
+		<name origin="Named after the old name of Scandinavia, 'Thule'">Thulium</name>
 		<symbol>Tm</symbol>
 		<mass>168.93421</mass>
 		<block>f</block>
@@ -2293,7 +2293,7 @@
 	</element>
 	<element>
 		<number>70</number>
-		<name origin="Like Terbium and Gadolinium this is named after the swedish town of Ytterby">Ytterbium</name>
+		<name origin="Like Terbium and Gadolinium, this is named after the Swedish town of Ytterby">Ytterbium</name>
 		<symbol>Yb</symbol>
 		<mass>173.04</mass>
 		<block>f</block>
@@ -2326,7 +2326,7 @@
 	</element>
 	<element>
 		<number>71</number>
-		<name origin="Named after the roman name 'Lutetia' for Paris">Lutetium</name>
+		<name origin="Named after the Roman name 'Lutetia' for Paris">Lutetium</name>
 		<symbol>Lu</symbol>
 		<mass>174.967</mass>
 		<block>f</block>
@@ -2390,7 +2390,7 @@
 	</element>
 	<element>
 		<number>73</number>
-		<name origin="Named after the greek myth of Tantalos">Tantalum</name>
+		<name origin="Named after the Greek myth of Tantalos">Tantalum</name>
 		<symbol>Ta</symbol>
 		<mass>180.9479</mass>
 		<block>d</block>
@@ -2420,7 +2420,7 @@
 	</element>
 	<element>
 		<number>74</number>
-		<name origin="'tung sten' means 'heavy stone' in swedisch. Still, the old name (and thus the symbol 'W') was Wolfram named after a minaral">Tungsten</name>
+		<name origin="'tung sten' means 'heavy stone' in Swedish. The old name (and thus the symbol 'W') was Wolfram, named after a mineral">Tungsten</name>
 		<symbol>W</symbol>
 		<mass>183.84</mass>
 		<block>d</block>
@@ -2453,7 +2453,7 @@
 	</element>
 	<element>
 		<number>75</number>
-		<name origin="Named after the german river Rhine (lat: 'Rhenium')">Rhenium</name>
+		<name origin="Named after the German river Rhine (latin 'Rhenium')">Rhenium</name>
 		<symbol>Re</symbol>
 		<mass>186.207</mass>
 		<block>d</block>
@@ -2484,7 +2484,7 @@
 	</element>
 	<element>
 		<number>76</number>
-		<name origin="gr. for 'smell'. Its oxids smell strongly like radish">Osmium</name>
+		<name origin="Greek for 'smell'. Its oxides smell strongly like radishes">Osmium</name>
 		<symbol>Os</symbol>
 		<mass>190.23</mass>
 		<block>d</block>
@@ -2519,7 +2519,7 @@
 	</element>
 	<element>
 		<number>77</number>
-		<name origin="greek 'iris' for rainbow">Iridium</name>
+		<name origin="Greek 'iris' for 'rainbow'">Iridium</name>
 		<symbol>Ir</symbol>
 		<mass>192.217</mass>
 		<block>d</block>
@@ -2554,7 +2554,7 @@
 	</element>
 	<element>
 		<number>78</number>
-		<name origin="spanish 'platina' means 'small silver'">Platinum</name>
+		<name origin="Spanish 'platina' means 'small silver'">Platinum</name>
 		<symbol>Pt</symbol>
 		<mass>195.078</mass>
 		<block>d</block>
@@ -2588,7 +2588,7 @@
 	</element>
 	<element>
 		<number>79</number>
-		<name origin="latin 'aurum', named after Aurora, the goddess of sunrise">Gold</name>
+		<name origin="Latin 'aurum', named after Aurora, the goddess of sunrise">Gold</name>
 		<symbol>Au</symbol>
 		<mass>196.96654</mass>
 		<block>d</block>
@@ -2618,7 +2618,7 @@
 	</element>
 	<element>
 		<number>80</number>
-		<name origin="greek-latin 'hydrargyrum' for 'liquid silver'">Mercury</name>
+		<name origin="Graeco-Latin 'hydrargyrum' for 'liquid silver'">Mercury</name>
 		<symbol>Hg</symbol>
 		<mass>200.59</mass>
 		<block>d</block>
@@ -2653,7 +2653,7 @@
 	</element>
 	<element>
 		<number>81</number>
-		<name origin="greek 'tallos' for 'young twig'">Thallium</name>
+		<name origin="Greek 'tallos' for 'young twig'">Thallium</name>
 		<symbol>Tl</symbol>
 		<mass>204.3833</mass>
 		<block>p</block>
@@ -2689,7 +2689,7 @@
 	</element>
 	<element>
 		<number>82</number>
-		<name origin="lat. 'plumbum' for Lead">Lead</name>
+		<name origin="Latin 'plumbum' for Lead">Lead</name>
 		<symbol>Pb</symbol>
 		<mass>207.2</mass>
 		<block>p</block>
@@ -2724,7 +2724,7 @@
 	</element>
 	<element>
 		<number>83</number>
-		<name origin="the old name of Bismuth is 'Wismut'. This stood for 'white mass'">Bismuth</name>
+		<name origin="The old name of Bismuth is 'Wismut'. This stood for 'white mass'">Bismuth</name>
 		<symbol>Bi</symbol>
 		<mass>208.98038</mass>
 		<block>p</block>
@@ -2752,7 +2752,7 @@
 	</element>
 	<element>
 		<number>84</number>
-		<name origin="named after Poland to honor Marie Curie">Polonium</name>
+		<name origin="Named after Poland to honor Marie Curie">Polonium</name>
 		<symbol>Po</symbol>
 		<mass>208.9824</mass>
 		<block>p</block>
@@ -2790,7 +2790,7 @@
 	</element>
 	<element>
 		<number>85</number>
-		<name origin="greek 'astator' for 'changing'">Astatine</name>
+		<name origin="Greek 'astator' for 'changing'">Astatine</name>
 		<symbol>At</symbol>
 		<mass>209.9871</mass>
 		<block>p</block>
@@ -2825,7 +2825,7 @@
 	</element>
 	<element>
 		<number>86</number>
-		<name origin="named after Radium. It ends on 'on' to make clear it is a noble gas">Radon</name>
+		<name origin="Named after Radium. It ends with 'on' to make it clear that it is a noble gas">Radon</name>
 		<symbol>Rn</symbol>
 		<mass>222.0176</mass>
 		<block>p</block>
@@ -2882,7 +2882,7 @@
 	</element>
 	<element>
 		<number>88</number>
-		<name origin="lat. 'radius' for 'beam' as it is radioactive">Radium</name>
+		<name origin="Latin 'radius' for 'beam', as it is radioactive">Radium</name>
 		<symbol>Ra</symbol>
 		<mass>226.0254</mass>
 		<block>s</block>
@@ -2911,7 +2911,7 @@
 	</element>
 	<element>
 		<number>89</number>
-		<name origin="greek 'aktis' for 'beam'. Actinium is radioactive">Actinium</name>
+		<name origin="Greek 'aktis' for 'beam' - actinium is radioactive">Actinium</name>
 		<symbol>Ac</symbol>
 		<mass>227.0278</mass>
 		<block>f</block>
@@ -2940,7 +2940,7 @@
 	</element>
 	<element>
 		<number>90</number>
-		<name origin="named after the german god of thunder Thor">Thorium</name>
+		<name origin="Named after the German god of thunder, Thor">Thorium</name>
 		<symbol>Th</symbol>
 		<mass>232.0381</mass>
 		<block>f</block>
@@ -2978,7 +2978,7 @@
 	</element>
 	<element>
 		<number>91</number>
-		<name origin="greek 'protos' for 'ancester'. Protactinium is before Actinium in the periodic table.">Protactinium</name>
+		<name origin="Greek 'protos' for 'ancester'. Protactinium is before Actinium in the periodic table.">Protactinium</name>
 		<symbol>Pa</symbol>
 		<mass>231.03588</mass>
 		<block>f</block>
@@ -3006,7 +3006,7 @@
 	</element>
 	<element>
 		<number>92</number>
-		<name origin="greek 'ouranos' for 'heaven', named after the planet Uranus">Uranium</name>
+		<name origin="Greek 'ouranos' for 'heaven', named after the planet Uranus">Uranium</name>
 		<symbol>U</symbol>
 		<mass>238.02891</mass>
 		<block>f</block>
@@ -3042,7 +3042,7 @@
 	</element>
 	<element>
 		<number>93</number>
-		<name origin="named after the planet Neptun.">Neptunium</name>
+		<name origin="Named after the planet Neptune.">Neptunium</name>
 		<symbol>Np</symbol>
 		<mass>237.0482</mass>
 		<block>f</block>
@@ -3070,7 +3070,7 @@
 	</element>
 	<element>
 		<number>94</number>
-		<name origin="named after the planet Pluto.">Plutonium</name>
+		<name origin="Named after the planet Pluto.">Plutonium</name>
 		<symbol>Pu</symbol>
 		<mass>244.0642</mass>
 		<block>f</block>
@@ -3099,7 +3099,7 @@
 	</element>
 	<element>
 		<number>95</number>
-		<name origin="named after America.">Americium</name>
+		<name origin="Named after America.">Americium</name>
 		<symbol>Am</symbol>
 		<mass>243.0614</mass>
 		<block>f</block>
@@ -3128,7 +3128,7 @@
 	</element>
 	<element>
 		<number>96</number>
-		<name origin="named after Marie Curie.">Curium</name>
+		<name origin="Named after Marie Curie.">Curium</name>
 		<symbol>Cm</symbol>
 		<mass>247.0703</mass>
 		<block>f</block>
@@ -3149,7 +3149,7 @@
 	</element>
 	<element>
 		<number>97</number>
-		<name origin="named after the town Berkely where it was discovered.">Berkelium</name>
+		<name origin="Named after the town Berkely where it was discovered.">Berkelium</name>
 		<symbol>Bk</symbol>
 		<mass>247.0703</mass>
 		<block>f</block>
@@ -3170,7 +3170,7 @@
 	</element>
 	<element>
 		<number>98</number>
-		<name origin="named after the US-State of California.">Californium</name>
+		<name origin="Named after the US-State of California.">Californium</name>
 		<symbol>Cf</symbol>
 		<mass>251.0796</mass>
 		<block>f</block>
@@ -3191,7 +3191,7 @@
 	</element>
 	<element>
 		<number>99</number>
-		<name origin="named after the scientist Albert Einstein.">Einsteinium</name>
+		<name origin="Named after the scientist Albert Einstein.">Einsteinium</name>
 		<symbol>Es</symbol>
 		<mass>252.0829</mass>
 		<block>f</block>
@@ -3218,7 +3218,7 @@
 	</element>
 	<element>
 		<number>100</number>
-		<name origin="named after the scientist Enrico Fermi.">Fermium</name>
+		<name origin="Named after the scientist Enrico Fermi.">Fermium</name>
 		<symbol>Fm</symbol>
 		<mass>257.0951</mass>
 		<block>f</block>
@@ -3245,7 +3245,7 @@
 	</element>
 	<element>
 		<number>101</number>
-		<name origin="named after the scientist D.I. Mendelejew.">Mendelevium</name>
+		<name origin="Named after the scientist D.I. Mendelejew.">Mendelevium</name>
 		<symbol>Md</symbol>
 		<mass>258.0986</mass>
 		<block>f</block>
@@ -3267,7 +3267,7 @@
 	</element>
 	<element>
 		<number>102</number>
-		<name origin="named after the scientist Alfred Nobel.">Nobelium</name>
+		<name origin="Named after the scientist Alfred Nobel.">Nobelium</name>
 		<symbol>No</symbol>
 		<mass>259.1009</mass>
 		<block>f</block>
@@ -3289,7 +3289,7 @@
 	</element>
 	<element>
 		<number>103</number>
-		<name origin="named after the scientist Ernest Orlando Lawrence.">Lawrencium</name>
+		<name origin="Named after the scientist Ernest Orlando Lawrence.">Lawrencium</name>
 		<symbol>Lr</symbol>
 		<mass>262.110</mass>
 		<block>f</block>
@@ -3320,7 +3320,7 @@
 	</element>
 	<element>
 		<number>104</number>
-		<name origin="named after the scientist Ernest Rutherford">Rutherfordium</name>
+		<name origin="Named after the scientist Ernest Rutherford">Rutherfordium</name>
 		<symbol>Rf</symbol>
 		<mass>261.1089</mass>
 		<block>d</block>
@@ -3351,7 +3351,7 @@
 	</element>
 	<element>
 		<number>105</number>
-		<name origin="named after the science-town Dubna in Russia">Dubnium</name>
+		<name origin="Named after the science-town Dubna in Russia">Dubnium</name>
 		<symbol>Db</symbol>
 		<mass>262.1144</mass>
 		<block>d</block>
@@ -3381,7 +3381,7 @@
 	</element>
 	<element>
 		<number>106</number>
-		<name origin="named after the scientist G. Theodore Seaborg.">Seaborgium</name>
+		<name origin="Named after the scientist G. Theodore Seaborg.">Seaborgium</name>
 		<symbol>Sg</symbol>
 		<mass>263.1186</mass>
 		<block>d</block>
@@ -3399,7 +3399,7 @@
 	</element>
 	<element>
 		<number>107</number>
-		<name origin="named after the scientist Niels Bohr.">Bohrium</name>
+		<name origin="Named after the scientist Niels Bohr.">Bohrium</name>
 		<symbol>Bh</symbol>
 		<mass>262.1231</mass>
 		<block>d</block>
@@ -3417,7 +3417,7 @@
 	</element>
 	<element>
 		<number>108</number>
-		<name origin="lat. 'hassia' for the german county Hessen. In Hessen, a lot elements have been discovered.">Hassium</name>
+		<name origin="Latin 'hassia' for the German county Hessen. In Hessen, a lot elements have been discovered.">Hassium</name>
 		<symbol>Hs</symbol>
 		<mass>265.1306</mass>
 		<block>d</block>
@@ -3435,7 +3435,7 @@
 	</element>
 	<element>
 		<number>109</number>
-		<name origin="named after the scientist Lise Meitner.">Meitnerium</name>
+		<name origin="Named after the scientist Lise Meitner.">Meitnerium</name>
 		<symbol>Mt</symbol>
 		<mass>266.1378</mass>
 		<block>d</block>
@@ -3453,7 +3453,7 @@
 	</element>
 	<element>
 		<number>110</number>
-		<name origin="named after the german city Darmstadt where many elements have been discovered.">Darmstadtium</name>
+		<name origin="Named after the German city Darmstadt where many elements have been discovered.">Darmstadtium</name>
 		<symbol>Ds</symbol>
 		<mass>271</mass>
 		<block>d</block>
@@ -3471,7 +3471,7 @@
 	</element>
 	<element>
 		<number>111</number>
-		<name origin="named after Wilhelm Conrad Röntgen.">Roentgenium</name>
+		<name origin="Named after Wilhelm Conrad Röntgen.">Roentgenium</name>
 		<symbol>Rg</symbol>
 		<mass>272</mass>
 		<block>d</block>
