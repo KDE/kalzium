@@ -77,12 +77,8 @@ Kalzium::Kalzium()
 		slotShowLegend();
 	if ( Prefs::tooltip() )
 		slotEnableTooltips();
-	m_showSidebar = Prefs::showsidebar();
-	if ( m_showSidebar )
-	{
+	if ( Prefs::showsidebar() )
 		m_dockWin->show();
-		m_SidebarAction->setText(i18n("Hide &Sidebar"));
-	}
 
 	m_PSE->repaint();
 }
@@ -165,6 +161,7 @@ void Kalzium::setupSidebars()
 	m_dockWin->setResizeEnabled( true );
 	m_dockWin->setFrameShape( QFrame::ToolBarPanel );
 	m_dockWin->setCaption( i18n( "Sidebar" ) );
+	m_dockWin->setCloseMode( QDockWindow::Always );
 	
 	QToolBox *toolbox = new QToolBox( m_dockWin );
 	m_dockWin->setWidget( toolbox );
@@ -198,6 +195,7 @@ void Kalzium::setupSidebars()
 	setDockEnabled( /*m_dockWin, */DockTop, false );
 	setDockEnabled( /*m_dockWin, */DockBottom, false );
 	m_dockWin->hide();
+	connect( m_dockWin, SIGNAL(visibilityChanged(bool)), this, SLOT(slotSidebarVisibilityChanged(bool)));
 }
 
 void Kalzium::slotGlossary()
@@ -302,24 +300,11 @@ void Kalzium::slotShowLegend()
 
 void Kalzium::slotShowHideSidebar()
 {
-	if( m_showSidebar )
-	{
+	if( m_dockWin->isShown() )
 		m_dockWin->hide();
-		m_SidebarAction->setText(i18n("Show &Sidebar"));
-	}
 	else
-	{
 		m_dockWin->show();
-		m_SidebarAction->setText(i18n("Hide &Sidebar"));
-	}
-	m_showSidebar = !m_showSidebar;
 	
-	//save the settings
-	Prefs::setShowsidebar( m_showSidebar );
-	Prefs::writeConfig();
- 
-	//JH: redraw the full table next time
-	setFullDraw();
 }
 
 void Kalzium::slotShowScheme(int i)
@@ -549,6 +534,21 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 void Kalzium::slotSelectedNumber( int num )
 {
 	m_detailWidget->setElement( data()->element( num ) );
+}
+
+void Kalzium::slotSidebarVisibilityChanged( bool visible )
+{
+	if( visible )
+		m_SidebarAction->setText(i18n("Hide &Sidebar"));
+	else
+		m_SidebarAction->setText(i18n("Show &Sidebar"));
+
+	//save the settings
+	Prefs::setShowsidebar( m_dockWin->isShown() );
+	Prefs::writeConfig();
+ 
+	//JH: redraw the full table next time
+	setFullDraw();
 }
 
 KalziumDataObject* Kalzium::data() const

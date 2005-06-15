@@ -133,8 +133,6 @@ class Kalzium : public KMainWindow
 
 		DetailedGraphicalOverview *m_detailWidget;
 
-		bool m_showSidebar;
-		
 		QDockWindow *m_dockWin;
 	
 	private slots:
@@ -195,6 +193,8 @@ class Kalzium : public KMainWindow
 		void slotSelectedNumber(int);
 
 		void slotShowHideSidebar();
+
+		void slotSidebarVisibilityChanged(bool);
 
 	signals:
 		/**
