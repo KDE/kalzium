@@ -351,6 +351,7 @@ void Kalzium::slotSwitchtoGradient( int index )
 	m_actionBlocks->setChecked( false );
 	m_actionAcid->setChecked( false );
 	m_actionFamily->setChecked( false );
+	m_actionCrystal->setChecked( false );
 	m_pLegendAction->setEnabled( false );
 }
 
