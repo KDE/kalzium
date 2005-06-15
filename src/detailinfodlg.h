@@ -31,17 +31,17 @@ class QFrame;
 class QVBoxLayout;
 
 /**
- * @short The dialog which shows all available information
+ * @short The dialog which shows all available information of an element
  * @author Carsten Niehaus
  */
 class DetailedInfoDlg : public KDialogBase
 {
-    Q_OBJECT
-    
+	Q_OBJECT
+
 	public:
-        DetailedInfoDlg( KalziumDataObject* data, Element *el , QWidget *parent=0, const char *name=0);
+		DetailedInfoDlg( KalziumDataObject* data, Element *el , QWidget *parent=0, const char *name=0);
  
-	    void setElement(Element *el);
+		void setElement(Element *el);
 
 		enum DATATYPE
 		{
@@ -62,11 +62,13 @@ class DetailedInfoDlg : public KDialogBase
 		
 		QLabel *piclabel;
 
-		QVBoxLayout *miscLayout, 
+		QVBoxLayout *miscLayout,
 					*mainLayout,
 					*overviewLayout;
 
-		///holds the pointers to all pages of the dialog
+		/**
+		 * holds the pointers to all pages of the dialog
+		 */
 		QValueList<QFrame*> m_pages;
 
 		DetailedGraphicalOverview *dTab;
@@ -74,7 +76,7 @@ class DetailedInfoDlg : public KDialogBase
 		OrbitsWidget *wOrbits;
 
 		/**
-		 * create the tabs.
+		 * create the tabs
 		 */
 		void createContent();
 
@@ -105,4 +107,5 @@ class DetailedInfoDlg : public KDialogBase
 	signals:
 		void elementChanged( int );
 };
+
 #endif

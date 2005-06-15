@@ -70,31 +70,29 @@ class Kalzium : public KMainWindow
 		DetailedInfoDlg   *m_infoDialog;
 
 		/**
-		 * this Pointer points to the current PSE. The pointer
-		 * is updated every time the users chooses a new 
-		 * PSE
+		 * this pointer points to the PSE.
 		 */
 		PSE *m_PSE;
-			
+		
 		/**
 		 *initialize the Statusbar
-		 */		
+		 */
 		void setupStatusBar();
 
 		/**
 		 *initialize actions
-		 */		
+		 */
 		void setupActions();
 		
 		/**
 		 *initialize the sidebars
-		 */		
+		 */
 		void setupSidebars();
 		
 		/**
 		 *diplay the energy unit in the Statusbar
 		 */
-		void updateStatusbar();	
+		void updateStatusbar();
 		
 		/**
 		 * Signal the PSE that it should do a full draw operation
@@ -150,7 +148,7 @@ class Kalzium : public KMainWindow
 	
 
 		/**
-		 * this slot switches Kalzium to the selected colorscheme
+		 * this slot switches Kalzium to the selected color scheme
 		 */
 		void slotShowScheme(int);
 
@@ -184,7 +182,7 @@ class Kalzium : public KMainWindow
 		void slotLookCrystal();
 	
 		/**
-		 * These slots are for the standardactions
+		 * These slots are for the standard actions
 		 */
 		void showSettingsDialog();
 

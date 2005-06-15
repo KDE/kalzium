@@ -86,7 +86,7 @@ class Isotope
 		double m_halflife;
 		
 		/**
-		 * If 95.2% of the isotopes are of this type, this 
+		 * If 95.2% of the isotopes are of this type, this
 		 * variable will have the value 95.2
 		 */
 		double m_percentage;
@@ -224,11 +224,10 @@ class Element{
 			return m_ionenergies;
 		}
 		
-		
 		/**
 		 * @return the date of discovery of the element
 		 */
-		int date() const { 
+		int date() const {
 			return m_date; 
 		}
 
@@ -273,7 +272,7 @@ class Element{
 		}
 
 		/**
-		 * @return the crystalstructure of the element
+		 * @return the crystal structure of the element
 		 */
 		QString crystalstructure() const{
 			return m_crystalstructure;
@@ -287,8 +286,8 @@ class Element{
 		}
 
 		//FIXME I need to add a way to have more than one ionic radius
-		QString ioncharge() const{ 
-			return m_ionvalue; 
+		QString ioncharge() const{
+			return m_ionvalue;
 		}
 		
 		/**
@@ -347,7 +346,7 @@ class Element{
 		}
 		
 		/**
-		 * @return the electronegativity of the element in the 
+		 * @return the electronegativity of the element in the
 		 * Pauling-scale
 		 */
 		double electroneg() const {
@@ -369,7 +368,7 @@ class Element{
 		}
 		
 		/**
-		 * @return the density of the element in gramm per mol
+		 * @return the density of the element in gramms per mol
 		 */
 		double density() const {
 			return m_Density;
@@ -381,7 +380,7 @@ class Element{
 		double radius( RADIUSTYPE type );
 		
 		/**
-		 * @return the meanmass of the element
+		 * @return the mean mass of the element
 		 */
 		double meanmass();
 
@@ -407,7 +406,7 @@ class Element{
 		const QString adjustUnits( const int type, double value );
 
 		/**
-		 * missing
+		 * types of datas
 		 */
 		enum TYPE
 		{
@@ -435,21 +434,21 @@ class Element{
 		QPoint pos() const;
 		QPoint coords() const;
 
-    /**
-     * accessor for the element's color
-     */
-    QColor elementColor() const { 
-		return m_Color; 
-	}
+		/**
+		 * accessor for the element's color
+		 */
+		QColor elementColor() const {
+			return m_Color; 
+		}
 
-	QValueList<Isotope*> isotopes() const{
-		return m_isotopeList;
-	}
-		
-	void setupXY();
+		QValueList<Isotope*> isotopes() const{
+			return m_isotopeList;
+		}
+
+		void setupXY();
 
 	private:
-		/*
+		/**
 		 * the integer num represents the number of the element
 		 */
 		int m_ElementNumber;
@@ -462,10 +461,10 @@ class Element{
 		int yPos() const;
 
 		double  m_mass,
-			m_MP, 
-			m_BP, 
+			m_MP,
+			m_BP,
 			m_EN,
-			m_EA, 
+			m_EA,
 			m_Density,
 			m_RadiusAR,
 			m_RadiusCR,
@@ -473,7 +472,7 @@ class Element{
 			m_RadiusIon;
 		
 
-		int     m_number, 
+		int     m_number,
 			m_date,
 			m_biological;
 
@@ -502,6 +501,7 @@ class Element{
 		/**
 		 * draw the rectangle with the information
 		 * @param simple if True more information will be shown
+		 * @param isCrystal whether the elements should draw its crystal structure
 		 */
 		virtual void drawSelf( QPainter* p, bool simple = false, bool isCrystal = false );
 

@@ -71,10 +71,10 @@ class PSE : public QWidget
 		
 		enum NUMERATIONTYPE
 		{
-			NO=0,              //no numeration
-			CAS = 1,           //Chemical Abstract Service
-			IUPAC = 2,         //Intern. Union of Pure and Applied Chemistry
-			IUPACOLD = 3       //old IUPAC numeration
+			NO=0,              /// no numeration
+			CAS = 1,           /// Chemical Abstract Service
+			IUPAC = 2,         /// International Union of Pure and Applied Chemistry
+			IUPACOLD = 3       /// old IUPAC numeration
 		};
 
 		/**
@@ -108,7 +108,7 @@ class PSE : public QWidget
 			update();
 		}
 		/**
-		 * @return if the tooltips are enabled
+		 * @return whether the tooltips are enabled
 		 */
 		bool tooltipsEnabled() const{
 			return m_tooltipsEnabled;
@@ -123,7 +123,7 @@ class PSE : public QWidget
 		}
 
 		/**
-		 * This method sets the colors of the PSE. 
+		 * This method sets the colors of the PSE.
 		 @param nr takes 5 different values:
 		 @li normal view
 		 @li groups
@@ -137,8 +137,8 @@ class PSE : public QWidget
 		/**
 		 * @return the short and descriptive name of this PSE
 		 */
-		QString shortName() const{ 
-			return m_ShortName; 
+		QString shortName() const{
+			return m_ShortName;
 		}
 
 		/**
@@ -148,13 +148,15 @@ class PSE : public QWidget
 			m_showTooltip = show;
 		}
 
-		///return if the table is locked
+		/**
+		 * @return whether the table is locked
+		 */
 		bool showTooltip() const {
 			return m_showTooltip;
 		}
 
 		/**
-		 * returns if the SOM is active or not
+		 * @return whether if the SOM is active or not
 		 */
 		bool som() const{
 			return m_showSOM;
@@ -176,7 +178,7 @@ class PSE : public QWidget
 			update();
 		}
 
-		//XXXI can't use Element::TYPE here... why?
+		//XXX can't use Element::TYPE here... why?
 		void setGradientType( int type ){ 
 			m_gradientType = type;
 		}
@@ -230,8 +232,12 @@ class PSE : public QWidget
 		 */
 		void reloadColours();
 
-    ///JH: Draw the full table next time
-    void setFullDraw() { doFullDraw = true; }
+		/**
+		 * JH: Draw the full table next time
+		 */
+		void setFullDraw(){
+			doFullDraw = true;
+		}
 
 		KalziumDataObject *data() const
 		{
@@ -245,14 +251,13 @@ class PSE : public QWidget
 		 */
 		void setLook( PSE::SCHEMETYPE type, int which = 0 );
 
-  
 		virtual void paintCurrentSelection();
 
 	private:
-		//XXX I can use Element::TYPE here... Why?
-		
-		///The type of the gradient.
-		//@see Element::TYPE
+		/**
+		 * the type of the gradient.
+		 * @see Element::TYPE
+		 */
 		int m_gradientType;
 
 		/**
@@ -261,53 +266,70 @@ class PSE : public QWidget
 		void calculateGradient( QPainter* );
 
 		/**
-		 * @return true if the mouse is over the legendarea
+		 * @return true if the mouse is over the legend area
 		 */
 		bool pointerOnLegend(int,int);
 
 		/**
-		 * @param p The pointer to draw
+		 * @param p The painter for drawing
 		 * @param e the element which is to be drawn
-		 * @param value the value 
+		 * @param coeff ?
+		 * @param value the value
 		 * @param minValue the smallest of alle values
 		 */
 		void drawGradientButton( QPainter* p, Element* e, double coeff, double value, double minValue );
 
 		/**
-		 * calculates the color of an element which has a value which 
+		 * calculates the color of an element which has a value which
 		 * is @p percentage of the maximum value. This will be the
 		 * color used in the gradient view for an element.
 		 */
 		QColor calculateColor( const double percentage );
 	
-		///the date used in the timeline
+		/**
+		 * the date used in the timeline
+		 */
 		int m_date;
 
-		///the current colourscheme
+		/**
+		 * the current colour scheme
+		 */
 		int m_currentScheme;
 	
 		KalziumTip* m_kalziumTip;	
 		bool m_timeline;
 		
-		///the temperature of the table (for the SOM-feature)
+		/**
+		 * the temperature of the table (for the SOM-feature)
+		 */
 		double m_temperature;
 
-		///if true the State Of Matter will be shown
+		/**
+		 * if true the State Of Matter will be shown
+		 */
 		bool m_showSOM;
 		
-		///if true the gradients will be shown
+		/**
+		 * if true the gradients will be shown
+		 */
 		bool m_showGradient;
 
-		///Timer used for the tooltop
+		/**
+		 * timer used for the tooltop
+		 */
 		QTimer HoverTimer,
 			   MouseoverTimer;
 
 		KalziumDataObject *d;
 
-		///if true the periodic table is in the leraningmode
+		/**
+		 * if true the periodic table is in the leraning mode
+		 */
 		bool m_learningMode;
 
-		///the number of the element the mouse-cursor is over
+		/**
+		 * the number of the element the mouse-cursor is over
+		 */
 		int m_tooltipElementNumber;
 
 		/**
@@ -322,7 +344,9 @@ class PSE : public QWidget
 		 */
 		QPoint ElementUnderMouse();
 
-		///the currently selected element (the x/y-coordinates)
+		/**
+		 * the currently selected element (the x/y-coordinates)
+		 */
 		QPoint m_currentPoint;
 
 		void mouseReleaseEvent( QMouseEvent* );
@@ -332,7 +356,9 @@ class PSE : public QWidget
 		QStringList m_IUPAClist;
 		QStringList m_IUPACOLDlist;
 
-		///if the the legend will be displayed
+		/**
+		 * if the the legend will be displayed
+		 */
 		bool m_showLegend;
 
 		/**
@@ -340,7 +366,9 @@ class PSE : public QWidget
 		 */
 		QString m_ShortName;
 
-		///true if the molcalc-mode is active
+		/**
+		 * true if the molcalc-mode is active
+		 */
 		bool m_molcalcIsActive;
 
 		/**
@@ -348,11 +376,15 @@ class PSE : public QWidget
 		 */
 		NUMERATIONTYPE m_num;
 
-		/// Implements double buffering of the widget.
+		/**
+		 * implements double buffering of the widget.
+		 */
 		QPixmap *table;			// The basic PSE
 		QPixmap *table2;		// Basic PSE + extra data such as tooltip, etc
 
-		///used for bitBlit. If true the complete table will be drawn
+		/**
+		 * used for bitBlit. If true the complete table will be drawn
+		 */
 		bool doFullDraw;
 		
 
@@ -390,27 +422,41 @@ class PSE : public QWidget
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 
-		///draw the tooltop for the legend
+		/**
+		 * draw the tooltip for the legend
+		 */
 		virtual void drawLegendToolTip( QPainter *p );
 
 		virtual void drawTimeLine( QPainter *p );
 
-		///called if the user resized the table
+		/**
+		 * called if the user resized the table
+		 */
 		virtual void resizeEvent( QResizeEvent *e );
 
-		///the central place for the drawing of the table
+		/**
+		 * the central place for the drawing of the table
+		 */
 		virtual void drawPSE( QPainter* p, bool isCrystal );
 
-		///draw a gradient of the type @p type
+		/**
+		 * draw a gradient of the type @p type
+		 */
 		virtual void drawGradientPSE( QPainter* p, const double min, const double max );
 
-		///draw the state of matter
+		/**
+		 * draw the state of matter
+		 */
 		virtual void drawSOMPSE( QPainter* p );
 
-		///draw the lengend
+		/**
+		 * draw the legend
+		 */
 		virtual void drawLegend( QPainter* p );
 		
-		///draw the numeration
+		/**
+		 * draw the numeration
+		 */
 		virtual void drawNumeration( QPainter* p );
 
 	public slots:
@@ -435,7 +481,7 @@ class PSE : public QWidget
 		 */
 		void unSelect();
 
-	private slots:	
+	private slots:
 		/**
 		 * If called this slot will emit the signal MouseOver( num )
 		 * where num is the number of the element the mouse if over.
@@ -460,7 +506,6 @@ class PSE : public QWidget
 		 */
 		void selectElement( int num );
 
-
 		/**
 		 * sets the current element to @p number
 		 * and updates the table
@@ -480,22 +525,22 @@ class PSE : public QWidget
 
 	signals:
 		/**
-		 * this signal is emited when the table is clicked
+		 * this signal is emitted when the table is clicked
 		 */
 		void tableClicked(QPoint);
 
 		/**
-		 * this signal is emited when an element is clicked
+		 * this signal is emitted when an element is clicked
 		 */
 		void ElementClicked(int);
 
 		/**
-		 * this signal is emited when the tooltip of an element
+		 * this signal is emitted when the tooltip of an element
 		 * has to be displayed
 		 */
 		void ToolTip(int);
 
-		/*
+		/**
 		 * This signal is emited when the mousepointer is
 		 * over an element
 		 */

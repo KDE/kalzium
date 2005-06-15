@@ -110,10 +110,10 @@ class ToolItem
 
 class GlossaryDialog : public KDialogBase
 {
-    Q_OBJECT
-    
+	Q_OBJECT
+
 	public:
-        	GlossaryDialog( QWidget *parent=0, const char *name=0);
+		GlossaryDialog( QWidget *parent=0, const char *name=0);
 		~GlossaryDialog();
 	
 	private:

@@ -34,7 +34,7 @@ class AxisData
 {
 	friend class ElementDataViewer;
 	
-	public: 
+	public:
 		AxisData();
 		
 		/**
@@ -52,23 +52,23 @@ class AxisData
 		}
 
 		/**
-		 * This represents the nine possible datasets.
+		 * This represents the possible datasets.
 		 * @li MASS: the mass of the element
 		 * @li MELTINGPOINT: the meanmass of the element
 		 */
-		enum PAXISDATA{ 
-			MASS=0, 
+		enum PAXISDATA{
+			MASS=0,
 			MEANWEIGHT,
-			DENSITY, 
-			EN, 
-			MELTINGPOINT, 
-			BOILINGPOINT, 
+			DENSITY,
+			EN,
+			MELTINGPOINT,
+			BOILINGPOINT,
 			ATOMICRADIUS,
 			COVALENTRADIUS
 		};
 
 		/**
-		 * @return the currently selected datatype
+		 * @return the currently selected data type
 		 * @see AxisData::PAXISDATA
 		 */
 		int currentDataType(){
@@ -82,8 +82,8 @@ class AxisData
 	private:
 		/**
 		 * the dataList contains the values off all elements
-		 * but only of the currently selected datatyp. This
-		 * means that it eg contains all boilingpoints
+		 * but only of the currently selected data type. This
+		 * means that it eg contains all boiling points
 		 */
 		DoubleList dataList;
 

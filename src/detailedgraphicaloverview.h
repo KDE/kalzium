@@ -51,11 +51,17 @@ class DetailedGraphicalOverview : public QWidget
 		int x1,x2,y1,y2,h_t;
 
 	private:
-		///the element whose data will be used
+		/**
+		 * the element whose data will be used
+		 */
 		Element *m_element;
 
 	protected:
 		virtual void paintEvent( QPaintEvent* );
+
+		/**
+		 * initialization method
+		 */
 		void init( Element* );
 };
 
