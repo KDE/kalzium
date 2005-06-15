@@ -302,6 +302,7 @@ void Element::drawCrystalstructure( QPainter* p )
 		color = Qt::white;
 		name = QString::null;
 	}
+	setElementColor( color );
 		
 	p->setPen( color );
 	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, color );
