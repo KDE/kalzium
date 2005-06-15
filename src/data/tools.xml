@@ -1,27 +1,27 @@
 <tools>
 	<tool picture="heizplatte.jpg">
 		<name>Heating Coil</name>
-		<desc>Heating coils are used to heat flawsks and other containers. Furthermore, a lot heating coils can be connected with a thermometer so that the heat won't exceed a specified temperature. Using an magnetic field inside the plate it is possible to stir fluids with a magnetic stir bar. This will homogenize the fluid in terms of temperature and composition.</desc>
+		<desc>Heating coils are used to heat flasks and other containers. Multiple heating coils can be connected with a thermometer so that the heat wont exceed a specified temperature. It is possible to use a magnetic field inside the heating coil to stir fluids with a magnetic stirrer. This will homogenize the fluid in terms of temperature and composition.</desc>
 	</tool>
 	<tool picture="korkring.jpg">
 		<name>Cork Ring</name>
-		<desc>Ring made of corc are used to place bigger containers like round-bottomed flasks.</desc>
+		<desc>Large containers like round-bottomed flasks are placed on rings made of cork.</desc>
 	</tool>
 	<tool picture="tropftrichter.jpg">
 		<name>Dropping Funnel</name>
-		<desc>Using a dropping funnel it is easy to drop precise amounts of of fluid into something. With a valve you can control the speed</desc>
+		<desc>A dropping funnel can be used to drop precise amounts of fluid. You can control the dropping speed with a valve.</desc>
 	</tool>
 	<tool picture="scheidetrichter.jpg">
 		<name>Separating Funnel</name>
-		<desc>Using a separating funnel you can disperse chemical phases of fluids because of their different density. After a while one can use a valve to let the bottom-phase go.</desc>
+		<desc>A separating funnel can be used to separate a mixture of fluids by differing density. A valve at the bottom allows you to drain the more dense fluid for transfer to another container.</desc>
 	</tool>
 	<tool picture="rg-staender.jpg">
 		<name>Test Tube Rack</name>
-		<desc>Such a rack comes handy if you want to test a lot small amounts of chemicals in a row or if you want to dry test tubes.</desc>
+		<desc>This rack comes in handy if you want to test a lot of small amounts of checmicals in a row, or if you want to dry test tubes.</desc>
 	</tool>
 	<tool picture="">
 		<name>Vortexer</name>
-		<desc>A vortexer serves to homogenise matters at laboratories. Thereto the pot with the matters to homogenise is put on a crust. This one begins to shake with up to 3000 turns by a contact sensor. Thereby extreme little fluids can be homogenised well and quick, too.</desc>
+		<desc>A vortexer serves to homogenise reagents found in laboratories. The container containing liquid to be homogenised is put on a platform. The platform shakes by rotary agitation up to 3000RPM when a contact sensor is activated. This way extremely small volumes of fluid can be homogenised quickly as well.</desc>
 	</tool>
 	<tool picture="spritzflasche.jpg">
 		<name>Wash Bottle</name>
