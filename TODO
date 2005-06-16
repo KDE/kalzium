@@ -97,3 +97,5 @@ Features
   For this we could create a simple editor and store it in xml.
   on edu.kde.org we would enable KHNS so that users can share
   their pages. Imaginge for example the different wikipedia-languages
+
+* Add the weblookup also in the glossary
