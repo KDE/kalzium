@@ -73,16 +73,16 @@ void SOMWidgetIMPL::slotTemp( int temp )
 		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "<br><ul type=\"disc\">";
 		for ( uint i = 0; i < listMeltingPoint.count(); i++ )
 		{
-			htmlcode += i18n( "For example: Carbon (300K)", "<li>%1</li> (%2)" ).arg( listMeltingPoint[i] ).arg( listMeltingPointValue[i] );
+			htmlcode += "<li>" + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listMeltingPoint[i] ).arg( listMeltingPointValue[i] ) + "</li>";
 		}
-		htmlcode += "</ul><br>";
+		htmlcode += "</ul>";
 	}
 	if ( listBoilingPoint.count() > 0 )
 	{
 		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "<br><ul type=\"disc\">";
 		for ( uint i = 0; i < listBoilingPoint.count(); i++ )
 		{
-			htmlcode += i18n( "For example: Carbon (300K)", "<li>%1</li> (%2)" ).arg( listBoilingPoint[i] ).arg( listBoilingPointValue[i]);
+			htmlcode += "<li>" + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listBoilingPoint[i] ).arg( listBoilingPointValue[i] ) + "</li>";
 		}
 		htmlcode += "</ul><br>";
 	}
