@@ -73,13 +73,18 @@ Kalzium::Kalzium()
 	setupActions();
 	setupSidebars();
 
-	if ( Prefs::showlegend() )
-		slotShowLegend();
-	if ( Prefs::tooltip() )
-		slotEnableTooltips();
+	if ( m_PSE->showLegend() )
+	{
+		m_pLegendAction->setChecked( true );
+		m_pLegendAction->setText( i18n( "Hide &Legend") );
+	}
+	if ( m_PSE->tooltipsEnabled() )
+	{
+		m_pTooltipAction->setChecked( true );
+		m_pTooltipAction->setText( i18n( "Hide &Tooltip") );
+	}
 	if ( Prefs::showsidebar() )
 		m_dockWin->show();
-
 	m_PSE->repaint();
 }
 
@@ -136,7 +141,7 @@ void Kalzium::setupActions()
 	m_pGlossaryAction = new KAction(i18n("&Glossary"), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
 	//Legend
-	m_pLegendAction = new KToggleAction(i18n("Hide &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
+	m_pLegendAction = new KToggleAction(i18n("Show &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
 	
 	m_pTooltipAction = new KToggleAction(i18n("Show &Tooltip"), "tooltip", 0, this, SLOT(slotEnableTooltips()), actionCollection(), "toggle_tooltip");
 	

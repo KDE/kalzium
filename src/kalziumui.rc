@@ -20,18 +20,21 @@
     <Action name="toggle_legend" />
     <Action name="toggle_tooltip" />
   </Menu>
-  <Menu name="miscmenu"><text>&amp;Miscellaneous</text>
+  <Menu name="miscmenu"><text>&amp;Tools</text>
     <Action name="plotdata" />
     <Action name="glossary" />
   </Menu>
 </MenuBar>
 
-<ToolBar name="mainToolBar" noMerge="1" fullWidth="true" >
-  <Action name="plotdata" />
-  <Action name="show_som" />
+<ToolBar name="mainToolBar">
+  <text>Main Toolbar</text>
   <Action name="toggle_legend" />
-  <Action name="glossary" />
   <Action name="toggle_tooltip" />
  </ToolBar>
+<ToolBar name="toolsToolBar">
+  <text>Tools</text>
+  <Action name="plotdata" />
+  <Action name="glossary" />
+</ToolBar>
 
 </kpartgui>
