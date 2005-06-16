@@ -32,7 +32,7 @@
 #include <qtoolbutton.h>
 
 GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
-    : KDialogBase( Plain, i18n( "Glossary of chemical expressions" ), Close, Close, parent, name, false )
+    : KDialogBase( Plain, i18n( "Glossary" ), Close, Close, parent, name, false )
 {
 	QString baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
 	baseHtml.append("kalzium/data/");
@@ -232,12 +232,12 @@ bool GlossaryDialog::loadLayout( QDomDocument &questionDocument, const QString& 
 {
         KURL url;
         url.setPath( locate("data", "kalzium/data/"));
-		url.setFileName( filename );
+	url.setFileName( filename );
 
         QFile layoutFile( url.path() );
 
         if (!layoutFile.exists())
-                kdDebug() <<"Loading File - Error" << endl;
+		kdDebug() << "no such file: " << layoutFile.name() << endl;
 
 		//TODO really needed?
         if (!layoutFile.open(IO_ReadOnly))
@@ -362,7 +362,7 @@ QString KnowledgeItem::toHtml() const
 
 QString KnowledgeItem::parseReferences() const
 {
-	QString htmlcode = i18n( "<h3>References</h3>" );
+	QString htmlcode = "<h3>" + i18n( "References" ) + "</h3>";
 	
 	bool first = true;
 	for ( uint i = 0; i < m_ref.size(); i++ )

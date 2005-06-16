@@ -155,14 +155,14 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			if ( m_element->radius(Element::VDW) > 0.0 )
 			{
 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "<b>van der Waals Radius: %1</b>" ).arg( m_element->adjustRadius(Element::VDW) ) );
+				html.append( "<b>" + i18n( "van der Waals Radius: %1" ).arg( m_element->adjustRadius(Element::VDW) ) + "</b>" );
 				html.append( "</td></tr>" );
 			}
 		
 			if ( m_element->radius(Element::ATOMIC) > 0.0 )
 			{
 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-				html.append( i18n( "<b>Atomic Radius: %1</b>" ).arg( m_element->adjustRadius(Element::ATOMIC) ) );
+				html.append( "<b>" + i18n( "Atomic Radius: %1" ).arg( m_element->adjustRadius(Element::ATOMIC) ) + "</b>" );
 				html.append( "</td></tr>" );
 			}
 			
@@ -180,7 +180,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( m_element->adjustUnits( Element::DATE ) );
 			if ( !m_element->scientist( ).isEmpty() )
-				html.append( i18n("<br />It was discovered by %1").arg(m_element->scientist() ) );
+				html += "<br />" + i18n("It was discovered by %1").arg(m_element->scientist() );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );
@@ -244,7 +244,7 @@ QString DetailedInfoDlg::isotopeTable()
 	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"4\">";
 	html += i18n( "Isotope-Table" );
 	html += "</tr></td><tr><td><b>";
-	html += i18n( "Weight" );
+	html += i18n( "Mass" );
 	html += "</b></td><td><b>";
 	html += i18n( "Neutrons" );
 	html += "</b></td><td><b>";
