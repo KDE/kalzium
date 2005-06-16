@@ -115,7 +115,8 @@ class GlossaryDialog : public KDialogBase
 	public:
 		GlossaryDialog( QWidget *parent=0, const char *name=0);
 		~GlossaryDialog();
-	
+
+		void keyPressEvent(QKeyEvent*);
 	private:
 		KHTMLPart *m_htmlpart;
 		QString m_htmlbasestring;

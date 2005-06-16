@@ -64,6 +64,7 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	m_search = new KListViewSearchLine( plainPage(), 0, "search-line" );
 	hbox->addWidget( m_search );
 	vbox->addLayout( hbox );
+	setFocusProxy(m_search);
 
 	QSplitter *vs = new QSplitter( plainPage() );
 	vbox->addWidget( vs );
@@ -101,6 +102,13 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 
 GlossaryDialog::~GlossaryDialog()
 {
+}
+
+void GlossaryDialog::keyPressEvent(QKeyEvent* e)
+{
+	if (e->key() == Qt::Key_Return) {
+		e->ignore();
+	}
 }
 
 void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
