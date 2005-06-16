@@ -196,7 +196,7 @@
 				 <listitem><para>
 						 <guimenuitem>Gradient</guimenuitem>
 						 <itemizedlist>
-							 <listitem><para><guimenuitem>Atomic Radius</guimenuitem>:
+							 <listitem><para><guimenuitem>Atomic Radius</guimenuitem>
 							 </para></listitem>
 							 <listitem><para><guimenuitem>Covalent Radius</guimenuitem>
 							 </para></listitem>
@@ -246,6 +246,18 @@
 				 <title>Glossary</title>
 				 <para>
 				 </para>
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="screenshot7.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase>the <quote>Glossary</quote></phrase>
+							 </textobject>
+							 <caption><para>The glossary</para>
+							 </caption>
+						 </mediaobject>
+					 </screenshot>
 			 </sect2>
 
 			 <sect2 id="sidebar">
@@ -255,10 +267,7 @@
 
 					 <para>The Timeline feature allows you to explore the elements of the
 						 set time period. This is great for getting a feel for how the PSE
-						 evolved over time, as more and more elements were discovered. You can
-						 active this feature via <menuchoice><guimenu>Miscellaneous</guimenu><guimenuitem>Show/Hide
-								 Timeline</guimenuitem></menuchoice> or by clicking the Clock icon on the toolbar. If it is activated you will see a slider below the <acronym>PSE</acronym> and an <acronym>LCD</acronym>
-						 which displays the current year.  If you move the slider you will
+						 evolved over time, as more and more elements were discovered. If you move the slider you will
 						 notice that some elements disappear if you move it to the right and
 						 reappear if you move it to the right. Furthermore the number will
 						 change constantly.</para>
@@ -275,9 +284,6 @@
 						 predicted to exist.
 					 </para>
 
-					 <para>
-						 After you hide the Timeline, the display will stay at the year you choose and if closed, Kalzium will restore that date at next run.
-					 </para>
 					 <screenshot>
 						 <mediaobject>
 							 <imageobject>
@@ -296,7 +302,7 @@
 				 <sect3 id="state_of_matter">
 					 <title>State of Matter</title>
 					 <para>
-						 With the <guimenuitem>Show/Hide State Of Matter</guimenuitem> menu entry, you can choose a temperature and view the state of each element at that temperature. You can easily visualize how many elements and what elements are for example solid at a given temperature. So you can learn that almost all are solid at very low temperatures and that most are liquid or even vaporous at high temperatures.
+						 With the State Of Matter-function, you can choose a temperature and view the state of each element at that temperature. You can easily visualize how many elements and what elements are for example solid at a given temperature. So you can learn that almost all are solid at very low temperatures and that most are liquid or even vaporous at high temperatures.
 					 </para>
 					 <screenshot>
 						 <mediaobject>
@@ -438,6 +444,51 @@
 							 </menuchoice></term>
 							 <listitem><para><action>Toggle</action> the Legend</para></listitem>
 						 </varlistentry>
+						 <!-- second entry -->
+						 <varlistentry>
+							 <term><menuchoice>
+									 <guimenu>Look</guimenu>
+									 <guimenuitem>No Color Scheme</guimenuitem>
+							 </menuchoice></term>
+							 <listitem><para><action>Display</action> no color scheme</para></listitem>
+						 </varlistentry>
+						 <varlistentry>
+							 <term><menuchoice>
+									 <guimenu>Look</guimenu>
+									 <guimenuitem>Show Groups</guimenuitem>
+							 </menuchoice></term>
+							 <listitem><para><action>Display</action> the groups of elements</para></listitem>
+						 </varlistentry>
+						 <varlistentry>
+							 <term><menuchoice>
+									 <guimenu>Look</guimenu>
+									 <guimenuitem>Show Blocks</guimenuitem>
+							 </menuchoice></term>
+							 <listitem><para><action>Display</action> the four blocks of
+									 elements</para></listitem>
+						 </varlistentry>
+						 <varlistentry>
+							 <term><menuchoice>
+									 <guimenu>Look</guimenu>
+									 <guimenuitem>Show Acid Behaviour</guimenuitem>
+							 </menuchoice></term>
+							 <listitem><para><action>Display</action> the acidic behaviour</para></listitem>
+						 </varlistentry>
+						 <varlistentry>
+							 <term><menuchoice>
+									 <guimenu>Look</guimenu>
+									 <guimenuitem>Show Families</guimenuitem>
+							 </menuchoice></term>
+							 <listitem><para><action>Display</action> the familes of
+									 elements</para></listitem>
+						 </varlistentry>
+						 <varlistentry>
+							 <term><menuchoice>
+									 <guimenu>Look</guimenu>
+									 <guimenuitem>Show Crystal Structures</guimenuitem>
+							 </menuchoice></term>
+							 <listitem><para><action>Display</action> crystal structures</para></listitem>
+						 </varlistentry>
 					 </variablelist>
 
 				 </sect2>
@@ -471,41 +522,6 @@
 
 				 </sect2>
 
-				 <sect2>
-					 <title>The <guimenu>Look</guimenu> Menu</title>
-
-					 <variablelist>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Look</guimenu>
-									 <guimenuitem>No Color Scheme</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> all elements in the same color.</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Look</guimenu>
-									 <guimenuitem>Show/Hide Groups</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the elements with a different color for each group</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Look</guimenu>
-									 <guimenuitem>Show/Hide Blocks</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the elements with a different color for each block</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Look</guimenu>
-									 <guimenuitem>Show Acid Behavior</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the elements with a different color for each acid behavior</para></listitem>
-						 </varlistentry>
-					 </variablelist>
-
-				 </sect2>
 				 <sect2>
 					 <title>The <guimenu>Settings</guimenu> Menu</title>
 
