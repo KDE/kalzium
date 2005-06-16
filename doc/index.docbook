@@ -442,57 +442,57 @@ If you want to know facts about a precise element, click on it in the table and 
 					 <variablelist>
 						 <varlistentry>
 							 <term><menuchoice>
-									 <guimenu>Numeration</guimenu>
+                                <guimenu>Periodic Table</guimenu>
+									 <guimenuitem>Numeration</guimenuitem>
 									 <guimenuitem>No Numeration</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> no numeration scheme</para></listitem>
 						 </varlistentry>
 						 <varlistentry>
 							 <term><menuchoice>
-									 <guimenu>Numeration</guimenu>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Numeration</guimenuitem>
 									 <guimenuitem>Show IUPAC</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> the IUPAC numeration</para></listitem>
 						 </varlistentry>
 						 <varlistentry>
 							 <term><menuchoice>
-									 <guimenu>Numeration</guimenu>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Numeration</guimenuitem>
 									 <guimenuitem>Show CAS</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> the CAS numeration</para></listitem>
 						 </varlistentry>
 						 <varlistentry>
 							 <term><menuchoice>
-									 <guimenu>Numeration</guimenu>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Numeration</guimenuitem>
 									 <guimenuitem>Show Old IUPAC</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> the Old IUPAC numeration</para></listitem>
 						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Periodic Table</guimenu>
-									 <guimenuitem>Hide Legend</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Toggle</action> the Legend</para></listitem>
-						 </varlistentry>
 						 <!-- second entry -->
 						 <varlistentry>
 							 <term><menuchoice>
-									 <guimenu>Look</guimenu>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
 									 <guimenuitem>No Color Scheme</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> no color scheme</para></listitem>
 						 </varlistentry>
 						 <varlistentry>
 							 <term><menuchoice>
-									 <guimenu>Look</guimenu>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
 									 <guimenuitem>Show Groups</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> the groups of elements</para></listitem>
 						 </varlistentry>
 						 <varlistentry>
 							 <term><menuchoice>
-									 <guimenu>Look</guimenu>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
 									 <guimenuitem>Show Blocks</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> the four blocks of
@@ -500,14 +500,16 @@ If you want to know facts about a precise element, click on it in the table and 
 						 </varlistentry>
 						 <varlistentry>
 							 <term><menuchoice>
-									 <guimenu>Look</guimenu>
+	                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
 									 <guimenuitem>Show Acid Behaviour</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> the acidic behaviour</para></listitem>
 						 </varlistentry>
 						 <varlistentry>
 							 <term><menuchoice>
-									 <guimenu>Look</guimenu>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
 									 <guimenuitem>Show Families</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> the familes of
@@ -515,40 +517,145 @@ If you want to know facts about a precise element, click on it in the table and 
 						 </varlistentry>
 						 <varlistentry>
 							 <term><menuchoice>
-									 <guimenu>Look</guimenu>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
 									 <guimenuitem>Show Crystal Structures</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> crystal structures</para></listitem>
 						 </varlistentry>
+
+                         <varlistentry>
+                             <term><menuchoice>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
+                                     <guimenuitem>Gradient</guimenuitem>
+                                    <guimenuitem>Atomic Radius</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
+                         </varlistentry>
+                         <varlistentry>
+                             <term><menuchoice>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
+                                     <guimenuitem>Gradient</guimenuitem>
+                                    <guimenuitem>Covalent Radius</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Display</action> the elements covalent radius</para></listitem>
+                         </varlistentry>
+                         <varlistentry>
+                             <term><menuchoice>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
+                                     <guimenuitem>Gradient</guimenuitem>
+                                    <guimenuitem>van der Waals Radius</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Display</action> the elements van der Waals radius</para></listitem>
+                         </varlistentry>
+                         <varlistentry>
+                             <term><menuchoice>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
+                                     <guimenuitem>Gradient</guimenuitem>
+                                    <guimenuitem>Atomic Mass</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
+                         </varlistentry>
+                         <varlistentry>
+                             <term><menuchoice>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
+                                     <guimenuitem>Gradient</guimenuitem>
+                                    <guimenuitem>Density</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
+                         </varlistentry>
+                         <varlistentry>
+                             <term><menuchoice>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
+                                     <guimenuitem>Gradient</guimenuitem>
+                                    <guimenuitem>Boiling Point</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Display</action> the elements boiling point</para></listitem>
+                         </varlistentry>
+                         <varlistentry>
+                             <term><menuchoice>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
+                                     <guimenuitem>Gradient</guimenuitem>
+                                    <guimenuitem>Melting Point</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Display</action> the elements melting point</para></listitem>
+                         </varlistentry>
+                         <varlistentry>
+                             <term><menuchoice>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
+                                     <guimenuitem>Gradient</guimenuitem>
+                                    <guimenuitem>Electronegativity</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Display</action> the elements electronegativity</para></listitem>
+                         </varlistentry>
+                         <varlistentry>
+                             <term><menuchoice>
+                                <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Look</guimenuitem>
+                                     <guimenuitem>Gradient</guimenuitem>
+                                    <guimenuitem>Electron Affinity</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Display</action> the elements electron affinity</para></listitem>
+                         </varlistentry>
+
+                               <varlistentry>
+                             <term><menuchoice>
+                                     <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Show/Hide Legend</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Toggle</action> the legend view</para></listitem>
+                         </varlistentry>
+                        <varlistentry>
+                             <term><menuchoice>
+                                     <guimenu>Periodic Table</guimenu>
+                                     <guimenuitem>Show/Hide Tooltip</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Toggle</action> tooltip display on elements</para></listitem>
+                         </varlistentry>
 					 </variablelist>
 
 				 </sect2>
 
 
 <sect2>
-<title>The <guimenu>Periodic Table</guimenu> Menu</title>
+<title>The <guimenu>Miscellaneous</guimenu> Menu</title>
 					 <variablelist>
-						 <varlistentry>
+						 <!--<varlistentry>
 							 <term><menuchoice>
 									 <guimenu>Miscellaneous</guimenu>
 									 <guimenuitem>Show/Hide Timeline</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> the Timeline Slider</para></listitem>
-						 </varlistentry>
+						 </varlistentry>-->
 						 <varlistentry>
 							 <term><menuchoice>
 									 <guimenu>Miscellaneous</guimenu>
 									 <guimenuitem>Plot Data</guimenuitem>
 							 </menuchoice></term>
-							 <listitem><para><action>Open</action> Plot Data dialog</para></listitem>
+							 <listitem><para><action>Open</action> the Plot Data dialog</para></listitem>
 						 </varlistentry>
-						 <varlistentry>
+                            <varlistentry>
+                             <term><menuchoice>
+                                     <guimenu>Miscellaneous</guimenu>
+                                     <guimenuitem>Glossary</guimenuitem>
+                             </menuchoice></term>
+                             <listitem><para><action>Open</action> the Glossary</para></listitem>
+                         </varlistentry>
+						 <!--<varlistentry>
 							 <term><menuchoice>
 									 <guimenu>Miscellaneous</guimenu>
 									 <guimenuitem>Show/Hide State Of Matter</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Display</action> the State Of Matter dialog</para></listitem>
-						 </varlistentry>
+						 </varlistentry>-->
 					 </variablelist>
 
 				 </sect2>
