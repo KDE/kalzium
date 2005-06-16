@@ -81,6 +81,37 @@
 
 	 </chapter>
 
+<chapter id="quick-start">
+<title>Quick Start to &kalzium;</title>
+
+<para>Here is &kalzium; the first time you run it, either form the K menu,  Edutaintment, Science or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and type <command>kalzium</command> in the field.</para>
+<screenshot>
+<screeninfo>&kalzium; main window</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="quick-1.png" format="PNG" /></imageobject>
+<textobject><phrase>&kalzium; main window</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+<para>
+&kalzium; is divided in a sidebar on the left and the table view which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the statusbar reports facts.
+</para>
+
+<para>
+You can choose several views for the table: display the elements per families, per groups, per crystal structure, depending on their acidic behaviour. You can change all that in the menubar in the <guimenu>Look</guimenu> menu.
+</para>
+<para>
+If you want to know facts about a precise element, click on it in the table and the information dialog will be displayed.
+</para>
+<screenshot>
+<screeninfo>Information dialog</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="quick-2.png" format="PNG" /></imageobject>
+<textobject><phrase>information dialog</phrase></textobject>
+</mediaobject>
+</screenshot>
+</chapter>
+
 	 <chapter id="using-kalzium">
 		 <title>Using &kalzium;</title>
 
@@ -493,9 +524,9 @@
 
 				 </sect2>
 
-				 <sect2>
-					 <title>The <guimenu>Miscellaneous</guimenu> Menu</title>
 
+<sect2>
+<title>The <guimenu>Periodic Table</guimenu> Menu</title>
 					 <variablelist>
 						 <varlistentry>
 							 <term><menuchoice>
