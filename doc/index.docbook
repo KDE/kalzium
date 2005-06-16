@@ -248,9 +248,9 @@
 				 </para>
 			 </sect2>
 
-			 <sect1 id="sidebar">
+			 <sect2 id="sidebar">
 				 <title>Sidebar</title>
-				 <sect2 id="timeline">
+				 <sect3 id="timeline">
 					 <title>Timeline</title>
 
 					 <para>The Timeline feature allows you to explore the elements of the
@@ -290,10 +290,10 @@
 							 </caption>
 						 </mediaobject>
 					 </screenshot>
-				 </sect2>
+				 </sect3>
 
 
-				 <sect2 id="state_of_matter">
+				 <sect3 id="state_of_matter">
 					 <title>State of Matter</title>
 					 <para>
 						 With the <guimenuitem>Show/Hide State Of Matter</guimenuitem> menu entry, you can choose a temperature and view the state of each element at that temperature. You can easily visualize how many elements and what elements are for example solid at a given temperature. So you can learn that almost all are solid at very low temperatures and that most are liquid or even vaporous at high temperatures.
@@ -311,14 +311,15 @@
 							 </caption>
 						 </mediaobject>
 					 </screenshot>
-				 </sect2>
-				 <sect2 id="show_hide_legend">
+				 </sect3>
+				 <sect3 id="show_hide_legend">
 					 <title>Show/Hide Legend</title>
 					 <para>The Show/Hide Legend action allows you to display the legend for the scheme you are in (Groups, Blocks, Acid Behavior). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. &kalzium; will keep this setting in its configuration file, so that the next time you run it, the setting will be as you left it.
 					 </para>
-				 </sect2>
+				 </sect3>
 
-			 </sect1>
+			 </sect2>
+		</sect1>
 		 </chapter>
 
 		 <chapter id="config">
