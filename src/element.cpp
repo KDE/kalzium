@@ -537,12 +537,10 @@ KalziumDataObject::KalziumDataObject()
 	QFile layoutFile( url.path() );
 
 	if (!layoutFile.exists())
-	{
-		KMessageBox::information( 0, i18n("data.xml does not exist"), i18n( "Loading File - Error" ) );
-	}
+		kdDebug() << "data.xml not found" << endl;
 
 	if (!layoutFile.open(IO_ReadOnly))
-		KMessageBox::information( 0, i18n("data.xml IO-error"), i18n( "Loading File - IO_ReadOnly" ) );
+		kdDebug() << "data.xml IO-error" << endl;
 
 	///Check if document is well-formed
 	if (!doc.setContent(&layoutFile))

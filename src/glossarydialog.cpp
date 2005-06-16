@@ -237,9 +237,7 @@ bool GlossaryDialog::loadLayout( QDomDocument &questionDocument, const QString& 
         QFile layoutFile( url.path() );
 
         if (!layoutFile.exists())
-        {
-                KMessageBox::information( 0, i18n("Error"), i18n( "Loading File - Error" ) );
-        }
+                kdDebug() <<"Loading File - Error" << endl;
 
 		//TODO really needed?
         if (!layoutFile.open(IO_ReadOnly))
