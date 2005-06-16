@@ -79,4 +79,21 @@
 		<name>Distillation bridge</name>
 		<desc>To separate a mixture you can use distillation amongst others. The distillation bridge is thereby the way between the two pots. In the one pot there is the mixture to be separated. Through heating, a gas forms which is lead through the bridge. At the end of the bridge the gas phase is condensed again and drips in a round flask. As a rule, the bridge is cooled by return flow. In addition, there is often a thermometer for controlling the temperature on the distillation bridge.</desc>
 	</tool>
+	<!-- proofreaders: start here! -->
+	<tool picture="kolbenprober.png">
+		<name>Syringe</name>
+		<desc>A syringe consists of two parts: A glass tube and a punch. Both are normaly made of glass. A gas floats into the glass tube. As the syringe is a closed system the punch has to give way. This can be used to the gasoline volume of an reaktion can be measured.</desc>
+	</tool>
+	<tool picture="verteiler.jpg">
+		<name>Separation Beaker</name>
+		<desc>At the four ends of this separation beaker you put four small caps. In a distillation you can turn the beaker by 60 degree after a certain temperatur has been reached. This way, at the end of the distillation all four caps have a specific liquid in it, depending on the boilingpoints of the liquid distilled.</desc>
+	</tool>
+	<tool picture="brenner.jpg">
+		<name>Burner</name>
+		<desc>There are several types of burners. The picture shows a Teclu-Burner. Each type has specific uses and varies for example in the temperature which can be reached.</desc>
+	</tool>
+	<tool picture="abzug.jpg">
+		<name>Extractor Hood</name>
+		<desc>In most laboratories are extractor hoods. The filter the steam of chemical reaktions and pump the cleaned air outside of the building.</desc>
+	</tool>
 </tools>

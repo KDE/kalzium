@@ -1,6 +1,7 @@
+See: http://www.labdepotinc.com/default.aspx
 <tools>
 	<tool picture="uhrglas.jpg">
-		<name>Uhrglas</name>
+		<name>Uhrglas/Watchglas</name>
 		<desc>
 			Uhrgläser sind runde Glasscheiben mit einem Durchmesser von ca. 5 - 10 cm, die in der Labortechnik Anwendung finden.  Sie sind an den Außenrändern leicht nach oben gewölbt, sodass man in sie kleine Mengen Flüssigkeiten füllen kann, um diese verdampfen zu lassen. Man kann Uhrgläser auch über Bunsenbrennern erhitzen, um das Verdampfen zu beschleunigen.  Uhrgläser können auch dafür benutzt werden Bechergläser oder Petrischalen abzudecken. Desweiteren eignen sich Uhrgläser dafür, kleinere Mengen von Substanzen ein- und abzuwiegen bzw. im Trockenschrank zu trocknen.  Der Begriff Uhrglas leitet sich von früheren Taschenuhren ab, da diese meist ein gewölbtes Schutzglas hatten.
 		</desc>
@@ -89,24 +90,8 @@
 		<name>Pulvertrichter</name>
 		<desc>Pulvertrichter werden zum Schütten von Pulvern und anderen Feststoffen in Gefäße eingesetzt.</desc>
 	</tool>
-	<tool picture="abzug.jpg">
-		<name>Abzug</name>
-		<desc>In chemischen Laboren müssen viele Arbeiten unter einem Abzug erledigt werden. Diese haben spezielle Entlüftungssysteme, so dass entstehende giftige Gase korrekt entsorgt werden.</desc>
-	</tool>
 	<tool picture="phpapier.jpg">
 		<name>pH-Papier</name>
 		<desc>Es gibt viele Möglichkeiten, den pH-Wert eines Stoffes zu messen. Eine in den meisten Fällen ausreichend genaue Möglichkeit ist das hier abgebildete pH-Papier. Es wird einfach in eine Lösung gehalten. Die Färbung gibt Aufschluss über den pH-Wert.</desc>
-	</tool>
-	<tool picture="brenner.jpg">
-		<name>Brenner</name>
-		<desc>Es gibt verschiedene Brennertypen. Die beiden bekanntesten Brennertypen im Labor sind der Bunsenbrenner und der Teclubrenner (hier abgebildet).</desc>
-	</tool>
-	<tool picture="verteiler.jpg">
-		<name>Verteiler</name>
-		<desc>Der Verteiler wird bei der fraktionierten Destillation eingesetzt. Der hier abgebildete Verteiler hat vier Wege. Auf die Enden werden kleine Behälter gesetzt. Nach der Erhöhung der Temperatur wird der Verteiler gedreht, so dass bis zu vier verschiedene Fraktionen getrennt werden können.</desc>
-	</tool>
-	<tool picture="kolbenprober.png">
-		<name>Kolbenprober</name>
-		<desc>Ein Kolbenprober besteht aus zwei Teilen. Zum einen aus einem Glasrohr. Der zweite Teil ist ein Stempel (in der Regel auch aus Glas). In das Rohr wird Gas eingeleitet. Da es sich um ein geschlossenes System handelt wird der Stempel zurückgedrückt. Nach Reaktionsende kann man so das Gasvolumen ablesen.</desc>
 	</tool>
 </tools>
