@@ -7,7 +7,7 @@
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 
-#define APP_VERSION "carsten julia"
+#define APP_VERSION "1.4.2pre3"
 
 static const char description[] =
     I18N_NOOP("A periodic table of the elements");
