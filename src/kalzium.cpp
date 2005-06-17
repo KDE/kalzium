@@ -338,8 +338,8 @@ void Kalzium::slotShowScheme(int i)
 			break;
 		case PSE::GRADIENT:
 			// XXX read better the gradient type!
-			gradient_action->setCurrentItem( 1 );
-			m_PSE->setLook( PSE::GRADIENT, 2 );
+			gradient_action->setCurrentItem( Prefs::gradient()-1 );
+			m_PSE->setLook( PSE::GRADIENT, Prefs::gradient() );
 			break;
 		case PSE::NOCOLOUR:
 		default:
@@ -358,6 +358,9 @@ void Kalzium::slotSwitchtoGradient( int index )
 	m_actionFamily->setChecked( false );
 	m_actionCrystal->setChecked( false );
 	m_pLegendAction->setEnabled( false );
+
+	Prefs::setGradient(index + 1);
+	Prefs::writeConfig();
 }
 
 void Kalzium::slotSwitchtoNumeration( int index )

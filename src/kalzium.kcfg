@@ -15,6 +15,11 @@
 	<whatsthis>Select the color scheme you prefer by clicking on the corresponding radio button</whatsthis>
 	<default>1</default>
     </entry>
+    <entry name="gradient" type="Int">
+	<label>Selects the default gradient</label>
+	<whatsthis>Select the gradient you want by clicking on the menu entry</whatsthis>
+	<default>1</default>
+    </entry>	
     <entry name="numeration" type="Int">
 	<label>Selects the default numeration (IUPAC)</label>
 	<whatsthis>Select the numeration you want</whatsthis>

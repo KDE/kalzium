@@ -21,7 +21,7 @@ Bugs
   + Black overviewwidget if you hover over the table because		DONE-CN
     currentColor() is not set.
 
-  + I don't know how to name this, have a look at the comment		 ----
+  + I don't know how to name this, have a look at the comment		DONE-HP	
     in kalzium.cpp, method void Kalzium::slotShowScheme(int i) in
     case PSE::GRADIENT:
     CN: Why is the number "2" there? Is the comment right and we
