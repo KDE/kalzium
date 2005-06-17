@@ -5,7 +5,7 @@
 	</tool>
 	<tool picture="korkring.jpg">
 		<name>Cork Ring</name>
-		<desc>Large containers like round-bottomed flasks are placed on rings made of cork.</desc>
+		<desc>Large containers like round-bottomed flasks are placed on rings made of cork, a special soft lightweight wood with good insulating qualities to protect fragile instruments.</desc>
 	</tool>
 	<tool picture="tropftrichter.jpg">
 		<name>Dropping Funnel</name>
@@ -17,11 +17,11 @@
 	</tool>
 	<tool picture="rg-staender.jpg">
 		<name>Test Tube Rack</name>
-		<desc>This rack comes in handy if you want to test a lot of small amounts of checmicals in a row, or if you want to dry test tubes.</desc>
+		<desc>This rack comes in handy when you want to test many small amounts of chemicals in a row, or if you want to dry test tubes.</desc>
 	</tool>
 	<tool picture="">
 		<name>Vortexer</name>
-		<desc>A vortexer serves to homogenize reagents found in laboratories. The container containing liquid to be homogenized is put on a platform. The platform shakes by rotary agitation up to 3000RPM when a contact sensor is activated. This way extremely small volumes of fluid can be homogenized quickly as well.</desc>
+		<desc>A vortexer serves to homogenize reagents found in laboratories. The container containing liquid to be homogenized is put on a platform. The platform shakes by rotary agitation up to 3000RPM when a contact sensor is activated. This way extremely small volumes of fluid can be homogenized quickly as well. It is the opposite of a centrifuge, used to separate fluids.</desc>
 	</tool>
 	<tool picture="spritzflasche.jpg">
 		<name>Wash Bottle</name>
@@ -41,15 +41,15 @@
 	</tool>
 	<tool picture="rg.jpg">
 		<name>Test Tube</name>
-		<desc>In test tube a chemist usually performs small reactions. There are a lot of different tubes, for example those with and without grinding.</desc>
+		<desc>In a test tube a chemist usually performs small reactions or experiements. There are many different types of tubes. For example some have connectors, some are etched for measurements, some are hardened for durability.</desc>
 	</tool>
 	<tool picture="schutzbrille.jpg">
 		<name>Protective Goggles</name>
-		<desc>Most labarotories insist that everyone is wearing protective goggles: without them, it is too risky to work with most chemicals. Usually, their glass is some kind of specific plastic which protects you from mechanical impacts as well as acids and bases.</desc>
+		<desc>Most laboratories insist that everyone wears protective goggles. Without them, it is too risky to work with most chemicals. Usually, the lens is a special type plastic which protects you from both mechanical impacts along with acid and base chemicals.</desc>
 	</tool>
 	<tool picture="rundkolben.jpg">
 		<name>Round-bottomed Flask</name>
-		<desc>A round-bottomed flask is used for a lot of reactions. They can be connected to other items, most of them are grinded. With cork rings they can be placed on a table.</desc>
+		<desc>A round-bottomed flask is used for a lot of reactions. Some can be connected to other items, as the frosting on the neck shows. With cork rings they can be placed on a table.</desc>
 	</tool>
 	<tool picture="vollpipette.jpg">
 		<name>Full Pipette</name>
@@ -61,11 +61,11 @@
 	</tool>
 	<tool picture="rg-halter.jpg">
 		<name>Test tube fastener</name>
-		<desc>With a test tube fastener you can easily hold test tubes. If you use a fastener there is a safe distance between the hand and the test tube and the tube can be hot. In particular it is use when you brandish a test tube over an open flame.</desc>
+		<desc>With a test tube fastener you can easily hold test tubes. If you use a fastener there is a safe distance between the hand and the test tube and the tube can be hot. In particular, it is used when you hold a test tube over an open flame.</desc>
 	</tool>
 	<tool picture="messzylinder.jpg">
 		<name>Graduate</name>
-		<desc>In a graduate you can fill amounts of liquids relatively precisely. Furthermore, a graduate serves to let particulate matter sink. Following this, you can separate it from the fluid by decanting.</desc>
+		<desc>In a graduate you can fill amounts of liquids relatively precisely. Furthermore, a graduate serves to let particulate matter sink. Following this, you can separate particulates from the fluid by decanting.</desc>
 	</tool>
 	<tool picture="thermometer.jpg">
 		<name>Thermometer</name>
@@ -73,7 +73,7 @@
 	</tool>
 	<tool picture="ruehrfisch.jpg">
 		<name>Magnetic stir bar</name>
-		<desc>Magnetic stir bars are chemically nearly unassailable little magnetic bars. Most heaters have a built-in magnet which can rotate. Through this rotation the magnetic stir bars are spinned and the solution the magnetic stir bar is in is homogenized.</desc>
+		<desc>Magnetic stir bars are highly chemically inert, small magnetic bars. Most heaters have a built-in magnet which can rotate. Through this rotation the magnetic stir bars are spun and the solution the magnetic stir bar is in is homogenized.</desc>
 	</tool>
 	<tool picture="destillierbruecke.jpg">
 		<name>Distillation bridge</name>
@@ -82,18 +82,18 @@
 	<!-- proofreaders: start here! -->
 	<tool picture="kolbenprober.png">
 		<name>Syringe</name>
-		<desc>A syringe consists of two parts: A glass tube and a punch. Both are normaly made of glass. A gas floats into the glass tube. As the syringe is a closed system the punch has to give way. This can be used to the gasoline volume of an reaktion can be measured.</desc>
+		<desc>A syringe consists of two parts: A glass tube and a punch. Both are normally made of glass. A gas floats into the glass tube. As the syringe is a closed system the punch has to give way. This can be used measuring the volume of an reaction.</desc>
 	</tool>
 	<tool picture="verteiler.jpg">
 		<name>Separation Beaker</name>
-		<desc>At the four ends of this separation beaker you put four small caps. In a distillation you can turn the beaker by 60 degree after a certain temperatur has been reached. This way, at the end of the distillation all four caps have a specific liquid in it, depending on the boilingpoints of the liquid distilled.</desc>
+		<desc>At the four ends of this separation beaker you put four small caps. While distilling, you can turn the beaker by 60 degree after a certain temperate has been reached. This way, at the end of the distillation all four caps have a specific liquid in it, depending on the boiling points of the liquid distilled.</desc>
 	</tool>
 	<tool picture="brenner.jpg">
 		<name>Burner</name>
-		<desc>There are several types of burners. The picture shows a Teclu-Burner. Each type has specific uses and varies for example in the temperature which can be reached.</desc>
+		<desc>There are several types of burners. The picture shows a Teclu-Burner. Each type has specific uses. They vary in the peak temperature and overall heating capability.</desc>
 	</tool>
 	<tool picture="abzug.jpg">
 		<name>Extractor Hood</name>
-		<desc>In most laboratories are extractor hoods. The filter the steam of chemical reaktions and pump the cleaned air outside of the building.</desc>
+		<desc>Most laboratories use extractor hoods. They filter the gasses from chemical reactions and pump the cleaned air outside of the building.</desc>
 	</tool>
 </tools>

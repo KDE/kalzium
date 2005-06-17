@@ -39,7 +39,7 @@
 	</item>
 	<item>
 		<name>Filtering</name>
-		<desc>Separation of a solid matter from a liquid matter or gaseous matter with a filter (porous seperation wall).</desc>
+		<desc>Separation of a solid matter from a liquid matter or gaseous matter with a filter (porous separation wall).</desc>
 	</item>
 	<item>
 		<name>Mix</name>
@@ -58,8 +58,8 @@
 		<desc>An alloy always contains the same elements in the same mass ratio. Should two or more elements bind together then the mass ratio is constant.</desc>
 	</item>
 	<item>
-		<name>Crystalization</name>
-		<desc>Separation of solid, crystallic matter from a solution, or the liquid or gaseous phases.</desc>
+		<name>Crystallization</name>
+		<desc>Separation of solid, crystalline matter from a solution, or the liquid or gaseous phases.</desc>
 	</item>
 	<item>
 		<name>Solution</name>
