@@ -8,20 +8,16 @@
 # License: GPL V2
 
 
-# Ask user for app version 
+#Ask user for app version and name
 version  = `kdialog --inputbox "Name"`.chomp
 name     = `kdialog --inputbox "Versionnumber: "`.chomp
 
 folder   = "#{name}-#{version}"
 dogpg  = `kdialog --yesno "Sign the file with GnuPG afterwards";echo $?`
-doi18n = `kdialog --yesno "Create i18n as well?";echo $?`
-
-puts doi18n
-puts dogpg
+doi18n = `kdialog --yesno "Create i18n as well?";echo $?`.chomp
 
 # Some helper methods
 def svn( command, dir )
-	#	puts "svn: " + command + #{svnprepend} + dir
     `svn #{command} svn://anonsvn.kde.org/home/kde/#{dir}`
 end
 
@@ -51,46 +47,48 @@ svn( "co -N", "/trunk/KDE/kdeedu/" )
 svn( "co", "/trunk/KDE/kde-common/" )
 Dir.chdir( "kdeedu")
 
-puts "Entering "+`pwd`
-puts "Checking out libkdeedu"
-svnup("libkdeedu")
-puts "Checking out kalzium"
-svnup("kalzium")
-`cp -R ../kde-common/admin .`
+#puts "Entering "+`pwd`
+#puts "Checking out libkdeedu"
+#svnup("libkdeedu")
+#puts "Checking out kalzium"
+#svnup("kalzium")
+#`cp -R ../kde-common/admin .`
 
-# we check out kde-i18n/subdirs in kde-i18n..
-if doi18n == "1"
-	puts "\n"
-	puts "**** i18n ****"
-	puts "\n"
+# we check out kde-i18n/subdirs in kde-l10n..
+puts doi18n
+if doi18n == "0"
+    puts "\n"
+    puts "**** l10n ****"
+    puts "\n"
 
-    svn( "co -P", "kde-i18n/subdirs" )
-    i18nlangs = `cat kde-i18n/subdirs`
+    i18nlangs = `svn cat https://svn.kde.org/home/kde/trunk/l10n/subdirs`
+    Dir.mkdir( "l10n" )
+    Dir.chdir( "l10n" )
 
     # docs
     for lang in i18nlangs
         lang.chomp!
-        if FileTest.exists? "doc/#{lang}"
-            `rm -Rf doc/#{lang}`
-        end
-        docdirname = "kde-i18n/#{lang}/docs/kdeedu/kalzium"
-        svnQuiet( "co -P #{docdirname}" )
-        next unless FileTest.exists?( docdirname )
+        `rm -Rf ../doc/#{lang}`
+        `rm -rf kalzium`
+        docdirname = "l10n/#{lang}/docs/kdeedu/kalzium"
+        `svn co -q https://svn.kde.org/home/kde/trunk/#{docdirname} > /dev/null 2>&1`
+        next unless FileTest.exists?( "kalzium" )
         print "Copying #{lang}'s #{name} documentation over..  "
-        `cp -R #{docdirname} doc/#{lang}`
+        `cp -R kdeedu/kalzium/ ../doc/#{lang}`
 
         # we don't want KDE_DOCS = AUTO, cause that makes the
         # build system assume that the name of the app is the
         # same as the name of the dir the Makefile.am is in.
         # Instead, we explicitly pass the name..
-        makefile = File.new( "doc/#{lang}/Makefile.am", File::CREAT | File::RDWR | File::TRUNC )
-        makefile << "KDE_LANG = #{lang}\n"
-        makefile << "KDE_DOCS = #{name}\n"
-        makefile.close
+		#makefile = File.new( "../doc/#{lang}/Makefile.am", File::CREAT | File::RDWR | File::TRUNC )
+		#makefile << "KDE_LANG = #{lang}\n"
+		#makefile << "KDE_DOCS = #{name}\n"
+		#makefile.close()
 
         puts( "done.\n" )
     end
 
+    Dir.chdir( ".." ) # multimedia
     puts "\n"
 
     $subdirs = false
@@ -98,21 +96,21 @@ if doi18n == "1"
 
     for lang in i18nlangs
         lang.chomp!
-        pofilename = "kde-i18n/#{lang}/messages/kdeedu/kalzium.po"
-        svnQuiet( "co -P #{pofilename}" )
-        next unless FileTest.exists? pofilename
+        pofilename = "l10n/#{lang}/messages/kdeedu/kalzium.po"
+        `svn cat https://svn.kde.org/home/kde/trunk/#{pofilename} 2> /dev/null | tee l10n/kalzium.po`
+        next if FileTest.size( "l10n/kalzium.po" ) == 0
 
         dest = "po/#{lang}"
         Dir.mkdir( dest )
-        print "Copying #{lang}'s #{name}.po over..  "
-        `cp #{pofilename} #{dest}`
+        print "Copying #{lang}'s #{name}.po over ..  "
+        `mv l10n/kalzium.po #{dest}`
         puts( "done.\n" )
 
         makefile = File.new( "#{dest}/Makefile.am", File::CREAT | File::RDWR | File::TRUNC )
         makefile << "KDE_LANG = #{lang}\n"
         makefile << "SUBDIRS  = $(AUTODIRS)\n"
         makefile << "POFILES  = AUTO\n"
-        makefile.close
+        makefile.close()
 
         $subdirs = true
     end
@@ -120,12 +118,12 @@ if doi18n == "1"
     if $subdirs
         makefile = File.new( "po/Makefile.am", File::CREAT | File::RDWR | File::TRUNC )
         makefile << "SUBDIRS = $(AUTODIRS)\n"
-        makefile.close
+        makefile.close()
     else
         `rm -Rf po`
     end
 
-    `rm -rf kde-i18n`
+    `rm -rf l10n`
 end
 
 puts "\n"
