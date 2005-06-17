@@ -166,20 +166,6 @@
                 <string>Define the first element whose value should be plotted</string>
             </property>
         </widget>
-        <widget class="QCheckBox" row="6" column="0">
-            <property name="name">
-                <cstring>compareGroups</cstring>
-            </property>
-            <property name="text">
-                <string>C&amp;ompare Groups</string>
-            </property>
-            <property name="checked">
-                <bool>true</bool>
-            </property>
-            <property name="whatsThis" stdset="0">
-                <string>Define whether the plotted points should be connected or not</string>
-            </property>
-        </widget>
         <spacer row="3" column="0">
             <property name="name">
                 <cstring>spacer1</cstring>
@@ -258,79 +244,13 @@
                 </widget>
             </grid>
         </widget>
-        <widget class="QGroupBox" row="5" column="0">
-            <property name="name">
-                <cstring>groupBox2</cstring>
-            </property>
-            <property name="title">
-                <string>Groups to compare</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="KComboBox" row="0" column="0">
-                    <item>
-                        <property name="text">
-                            <string>Transition metals</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Transition metal, 3rd group</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Transition metal, 4rd group</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Transition metal, 5rd group</string>
-                        </property>
-                    </item>
-                    <property name="name">
-                        <cstring>compare1</cstring>
-                    </property>
-                </widget>
-                <widget class="KComboBox" row="1" column="0">
-                    <item>
-                        <property name="text">
-                            <string>Transition metals</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Transition metal, 3rd group</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Transition metal, 4rd group</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Transition metal, 5rd group</string>
-                        </property>
-                    </item>
-                    <property name="name">
-                        <cstring>compare2</cstring>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
     </grid>
 </widget>
+<customwidgets>
+</customwidgets>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>kcombobox.h</includehint>
-    <includehint>kcombobox.h</includehint>
     <includehint>kcombobox.h</includehint>
 </includehints>
 </UI>
