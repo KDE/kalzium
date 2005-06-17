@@ -23,6 +23,7 @@ class KSelectAction;
 class KToggleAction;
 class QuizsettingsDlg;
 class SliderWidget;
+class QToolBox;
 class QVBoxLayout;
 class QDockWindow;
 class TempSlider;
@@ -132,6 +133,8 @@ class Kalzium : public KMainWindow
 		DetailedGraphicalOverview *m_detailWidget;
 
 		QDockWindow *m_dockWin;
+		QToolBox *m_toolbox;
+		int m_toolboxCurrent;
 	
 	private slots:
 		void slotStatusbar(int);

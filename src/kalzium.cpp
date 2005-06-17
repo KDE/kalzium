@@ -57,6 +57,7 @@ Kalzium::Kalzium()
 	
 	m_PSE = new PSE( data(), CentralWidget, "PSE");
 	m_infoDialog = 0;
+	m_toolboxCurrent = 0;
 
 	connect( m_PSE, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
 	connect( m_PSE, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
@@ -167,8 +168,8 @@ void Kalzium::setupSidebars()
 	m_dockWin->setCaption( i18n( "Sidebar" ) );
 	m_dockWin->setCloseMode( QDockWindow::Always );
 	
-	QToolBox *toolbox = new QToolBox( m_dockWin );
-	m_dockWin->setWidget( toolbox );
+	QToolBox *m_toolbox = new QToolBox( m_dockWin );
+	m_dockWin->setWidget( m_toolbox );
 
 	QWidget *fake = new QWidget( m_dockWin );
 	QVBoxLayout *lay = new QVBoxLayout( fake, 5 );
@@ -178,22 +179,22 @@ void Kalzium::setupSidebars()
 	connect( m_PSE, SIGNAL( MouseOver( int ) ), this, SLOT( slotSelectedNumber( int ) ));
  	lay->addWidget( m_detailWidget );
 	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
-	toolbox->addItem( fake, SmallIcon( "overview" ), i18n( "Overview" ) );
+	m_toolbox->addItem( fake, SmallIcon( "overview" ), i18n( "Overview" ) );
 	
 	m_calcWidget = new MolcalcWidget( data(), m_dockWin, "molcalcwidget" );
-	toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
+	m_toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
 
 	m_timeWidget = new timeWidget( this, "timeWidget" );
 	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ), 
 			m_PSE, 						SLOT( setDate( int ) ) );
-	toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
+	m_toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
 
 	m_somWidget = new SOMWidgetIMPL( data()->ElementList, this, "somWidget" );
 	connect( m_somWidget->temp_slider, SIGNAL( valueChanged( int ) ), 
 			m_PSE, 						SLOT( setTemperature( int ) ) );
-	toolbox->addItem( m_somWidget, SmallIcon( "statematter" ), i18n( "State of Matter" ) );
+	m_toolbox->addItem( m_somWidget, SmallIcon( "statematter" ), i18n( "State of Matter" ) );
 	
-	connect( toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
+	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
 	moveDockWindow( m_dockWin, DockLeft );
 	setDockEnabled( /*m_dockWin, */DockTop, false );
@@ -533,7 +534,8 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 			m_PSE->setTemperature( m_somWidget->temp_slider->value() );
 			break;
 	}
-
+	if ( m_dockWin->isShown() )
+		m_toolboxCurrent = id;
 }
 
 void Kalzium::slotSelectedNumber( int num )
@@ -544,9 +546,15 @@ void Kalzium::slotSelectedNumber( int num )
 void Kalzium::slotSidebarVisibilityChanged( bool visible )
 {
 	if( visible )
+	{
 		m_SidebarAction->setText(i18n("Hide &Sidebar"));
+		slotToolboxCurrentChanged( m_toolboxCurrent );
+	}
 	else
+	{
 		m_SidebarAction->setText(i18n("Show &Sidebar"));
+		slotToolboxCurrentChanged( 0 );
+	}
 
 	//save the settings
 	Prefs::setShowsidebar( m_dockWin->isShown() );
