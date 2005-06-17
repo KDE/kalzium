@@ -8,10 +8,9 @@
 # License: GPL V2
 
 
-# Ask user for app version and CVS username
+# Ask user for app version 
 version  = `kdialog --inputbox "Kalzium version: "`.chomp
-username = `kdialog --inputbox "SVN username: "`.chomp
-
+svnprepend = "svn://anonsvn.kde.org/home/kde/"
 
 name     = "kalzium"
 folder   = "kalzium-#{version}"
@@ -19,12 +18,13 @@ doi18n   = "no"
 
 
 # Some helper methods
-def svn( command )
-    `cvs -z3 #{command}`
+def svn( command, dir )
+	#	puts "svn: " + command + #{svnprepend} + dir
+    `svn #{command} svn://anonsvn.kde.org/home/kde/#{dir}`
 end
 
-def cvsQuiet( command )
-    `cvs -z3 #{command} > /dev/null 2>&1`
+def svnQuiet( command )
+    `svn #{command} > /dev/null 2>&1`
 end
 
 
@@ -39,9 +39,9 @@ ENV["UNSERMAKE"] = "no"
 Dir.mkdir( folder )
 Dir.chdir( folder )
 
-cvs( "co kdeextragear-1/doc/amarok" )
-Dir.chdir( "kdeextragear-1" )
-cvs( "co admin" )
+svn( "co", "/trunk/KDE/kdeedu/" )
+Dir.chdir( "kalzium" )
+svn( "co admin" )
 
 puts "\n"
 puts "**** i18n ****"
@@ -50,7 +50,7 @@ puts "\n"
 
 # we check out kde-i18n/subdirs in kde-i18n..
 if doi18n == "yes"
-    cvs( "co -P kde-i18n/subdirs" )
+    svn( "co -P kde-i18n/subdirs" )
     i18nlangs = `cat kde-i18n/subdirs`
 
     # docs
@@ -60,7 +60,7 @@ if doi18n == "yes"
             `rm -Rf doc/#{lang}`
         end
         docdirname = "kde-i18n/#{lang}/docs/kdeextragear-1/amarok"
-        cvsQuiet( "co -P #{docdirname}" )
+        svnQuiet( "co -P #{docdirname}" )
         next unless FileTest.exists?( docdirname )
         print "Copying #{lang}'s #{name} documentation over..  "
         `cp -R #{docdirname} doc/#{lang}`
@@ -85,7 +85,7 @@ if doi18n == "yes"
     for lang in i18nlangs
         lang.chomp!
         pofilename = "kde-i18n/#{lang}/messages/kdeextragear-1/amarok.po"
-        cvsQuiet( "co -P #{pofilename}" )
+        svnQuiet( "co -P #{pofilename}" )
         next unless FileTest.exists? pofilename
 
         dest = "po/#{lang}"
@@ -116,7 +116,7 @@ end
 
 puts "\n"
 
-# Remove CVS relevant files
+# Remove SVN relevant files
 #`find -name "CVS" | xargs rm -rf`
 #`find -name ".cvsignore" | xargs rm`
 
@@ -133,7 +133,7 @@ Dir.chdir( "kalzium" )
 Dir.chdir( "src" )
 
 # Exchange APP_VERSION string with new version
-`cat main.h | sed -e 's/APP_VERSION \".*\"/APP_VERSION \"#{version}\"/' | tee amarok.h > /dev/null`
+`cat main.h | sed -e 's/APP_VERSION \".*\"/APP_VERSION \"#{version}\"/' | tee main.h > /dev/null`
 
 Dir.chdir( ".." ) # amarok
 `rm -rf debian`
@@ -173,7 +173,7 @@ puts "Congratulations :) Kalzium #{version} tarball generated.\n"
 puts "Now follow the steps in the RELEASE_HOWTO, from\n"
 puts "SECTION 3 onwards.\n"
 puts "\n"
-puts "Then drink a few pints and have some fun on #amarok\n"
+puts "Then drink a few pints and have some fun on #kalzium\n"
 puts "\n"
 puts "MD5 checksum: " + `md5sum #{folder}.tar.bz2`
 puts "\n"
