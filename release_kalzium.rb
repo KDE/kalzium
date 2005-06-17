@@ -14,6 +14,7 @@ version  = `kdialog --inputbox "Kalzium version: "`.chomp
 name     = "kalzium"
 folder   = "kalzium-#{version}"
 doi18n   = "no"
+dogpg    = "yes"
 
 
 # Some helper methods
@@ -174,12 +175,21 @@ puts "done.\n"
 
 ENV["UNSERMAKE"] = oldmake
 
+if dogpg == "yes"
+	`gpg --detach-sign #{folder}.tar.bz2`
+end
+
 
 puts "\n"
 puts "====================================================="
 puts "Congratulations :) Kalzium #{version} tarball generated.\n"
 puts "\n"
 puts "MD5 checksum: " + `md5sum #{folder}.tar.bz2`
+if dogpg == "yes"
+	puts "The user can verify this package with "
+	puts "\n"
+	puts "gpg --verify #{folder}.tar.bz2.sig #{folder}.tar.bz2"
+end
 puts "\n"
 puts "\n"
 
