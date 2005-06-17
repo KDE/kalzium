@@ -27,10 +27,10 @@ Bugs
     CN: Why is the number "2" there? Is the comment right and we
         should read the gradient? If so: Why does it work?
 
-  + Ctrl-Q should close the subwindows.					----
-    - Plot window							--
-    - Data window							--
-    - Glossary window							--
+  + Ctrl-Q should close the subwindows.					DONE-HP
+    - Plot window							HP
+    - Data window							HP
+    - Glossary window							HP
    CN: Indeed! Good idea
    PT: isn't Ctrl-Q "joined" to the main window closing?
    CN: Obviously not ;) Otherwise it would work

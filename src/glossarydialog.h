@@ -24,6 +24,7 @@ class QDomDocument;
 class QListViewItem;
 class KListView;
 class KListViewSearchLine;
+class KActionCollection;
 
 class KnowledgeItem
 {
@@ -122,6 +123,8 @@ class GlossaryDialog : public KDialogBase
 		QString m_htmlbasestring;
 		QString m_picbasestring;
 		KListView *m_glosstree;
+
+		KActionCollection* m_actionCollection;
 
 		void populateTree();
 		QListViewItem* findTreeWithLetter( const QChar&, QListViewItem* );

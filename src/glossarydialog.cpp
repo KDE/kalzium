@@ -18,6 +18,7 @@
 #include <klistview.h>
 #include <klistviewsearchline.h>
 #include <kstandarddirs.h>
+#include <kactioncollection.h>
 
 #include <qfile.h>
 #include <qlabel.h>
@@ -75,6 +76,9 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	m_search->setListView( m_glosstree );
 
 	m_htmlpart = new KHTMLPart( vs, "html-part" );
+
+	m_actionCollection = new KActionCollection(this);
+        KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);
 
 	QDomDocument doc( "foo" );
 	QString filename = "knowledge.xml";

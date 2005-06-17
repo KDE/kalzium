@@ -23,6 +23,7 @@
 #include <knuminput.h>
 #include <kcombobox.h>
 #include <kdebug.h>
+#include <kactioncollection.h>
 
 //QT-Includes
 #include <qlayout.h>
@@ -71,6 +72,9 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 	resize(500, 500);
 
 	setButtonText( User1, i18n("&Plot") );
+
+	m_actionCollection = new KActionCollection(this);
+        KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);	
 
 	connect ( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled(bool)), this, SLOT(slotUser1()));
 	connect ( m_pPlotSetupWidget->showNames,     SIGNAL( toggled(bool)), this, SLOT(slotUser1()));

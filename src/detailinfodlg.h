@@ -29,6 +29,7 @@ class OrbitsWidget;
 class QMouseEvent;
 class QFrame;
 class QVBoxLayout;
+class KActionCollection;
 
 /**
  * @short The dialog which shows all available information of an element
@@ -53,6 +54,8 @@ class DetailedInfoDlg : public KDialogBase
 	private:
 		KalziumDataObject  *m_data;
 		Element            *m_element;
+
+		KActionCollection* m_actionCollection;
 
 		QString isotopeTable();
 

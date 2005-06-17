@@ -21,6 +21,7 @@
 #include <khtml_part.h>
 #include <khtmlview.h>
 #include <kstandarddirs.h>
+#include <kactioncollection.h>
 
 #include <qlabel.h>
 #include <qimage.h>
@@ -65,6 +66,9 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	createContent();
 
 	m_currpage = 0;
+
+	m_actionCollection = new KActionCollection(this);	
+	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);
 
 	setButtonTip( User2, i18n( "Goes to the previous element" ) );
 	setButtonTip( User1, i18n( "Goes to the next element" ) );

@@ -25,6 +25,7 @@ class Element;
 class KalziumDataObject;
 class PlotSetupWidget;
 class PlotWidget;
+class KActionCollection;
 
 /**
  * @short the values of the y-Axis
@@ -129,6 +130,8 @@ class ElementDataViewer : public KDialogBase
 		KalziumDataObject  *d;
 
 		QStringList         names;
+
+		KActionCollection* m_actionCollection;
 
 		void initData();
 		void setupAxisData();
