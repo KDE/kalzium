@@ -9,13 +9,15 @@
 
 
 # Ask user for app version 
-version  = `kdialog --inputbox "Kalzium version: "`.chomp
+version  = `kdialog --inputbox "Name"`.chomp
+name     = `kdialog --inputbox "Versionnumber: "`.chomp
 
-name     = "kalzium"
-folder   = "kalzium-#{version}"
-doi18n   = "no"
-dogpg    = "yes"
+folder   = "#{name}-#{version}"
+dogpg  = `kdialog --yesno "Sign the file with GnuPG afterwards";echo $?`
+doi18n = `kdialog --yesno "Create i18n as well?";echo $?`
 
+puts doi18n
+puts dogpg
 
 # Some helper methods
 def svn( command, dir )
@@ -57,12 +59,12 @@ svnup("kalzium")
 `cp -R ../kde-common/admin .`
 
 # we check out kde-i18n/subdirs in kde-i18n..
-if doi18n == "yes"
+if doi18n == "1"
 	puts "\n"
 	puts "**** i18n ****"
 	puts "\n"
 
-    svn( "co -P kde-i18n/subdirs" )
+    svn( "co -P", "kde-i18n/subdirs" )
     i18nlangs = `cat kde-i18n/subdirs`
 
     # docs
@@ -71,7 +73,7 @@ if doi18n == "yes"
         if FileTest.exists? "doc/#{lang}"
             `rm -Rf doc/#{lang}`
         end
-        docdirname = "kde-i18n/#{lang}/docs/kdeextragear-1/amarok"
+        docdirname = "kde-i18n/#{lang}/docs/kdeedu/kalzium"
         svnQuiet( "co -P #{docdirname}" )
         next unless FileTest.exists?( docdirname )
         print "Copying #{lang}'s #{name} documentation over..  "
@@ -96,7 +98,7 @@ if doi18n == "yes"
 
     for lang in i18nlangs
         lang.chomp!
-        pofilename = "kde-i18n/#{lang}/messages/kdeextragear-1/amarok.po"
+        pofilename = "kde-i18n/#{lang}/messages/kdeedu/kalzium.po"
         svnQuiet( "co -P #{pofilename}" )
         next unless FileTest.exists? pofilename
 
@@ -175,7 +177,7 @@ puts "done.\n"
 
 ENV["UNSERMAKE"] = oldmake
 
-if dogpg == "yes"
+if dogpg == "0"
 	`gpg --detach-sign #{folder}.tar.bz2`
 end
 
@@ -185,7 +187,7 @@ puts "====================================================="
 puts "Congratulations :) Kalzium #{version} tarball generated.\n"
 puts "\n"
 puts "MD5 checksum: " + `md5sum #{folder}.tar.bz2`
-if dogpg == "yes"
+if dogpg == "0"
 	puts "The user can verify this package with "
 	puts "\n"
 	puts "gpg --verify #{folder}.tar.bz2.sig #{folder}.tar.bz2"
