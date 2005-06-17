@@ -10,7 +10,6 @@
 
 # Ask user for app version 
 version  = `kdialog --inputbox "Kalzium version: "`.chomp
-svnprepend = "svn://anonsvn.kde.org/home/kde/"
 
 name     = "kalzium"
 folder   = "kalzium-#{version}"
@@ -52,14 +51,9 @@ Dir.chdir( "kdeedu")
 puts "Entering "+`pwd`
 puts "Checking out libkdeedu"
 svnup("libkdeedu")
-puts "Content of "+`pwd`+": "+`ls`
 puts "Checking out kalzium"
 svnup("kalzium")
-puts "Content of "+`pwd`+": "+`ls`
-puts "Checking out the admin-directory"
-svnup("admin")
-puts "Content of "+`pwd`+": "+`ls`
-`ln -s ../kde-common/admin .`
+`cp -R ../kde-common/admin .`
 
 # we check out kde-i18n/subdirs in kde-i18n..
 if doi18n == "yes"
@@ -133,22 +127,25 @@ end
 
 puts "\n"
 
+puts "Removing svn-history files (almost 10 megabyte)"
+`find -name ".svn" | xargs rm -rf`
+
 Dir.chdir( "kalzium" )
-puts "Current position "+`pwd`
 
 # Move some important files to the root folder
 `mv TODO ..`
+`mv RELEASE-PLAN ..`
+`mv ChangeLog ..`
 
 Dir.chdir( "src" )
 
 # Exchange APP_VERSION string with new version
-#`cat main.h | sed -e 's/APP_VERSION \".*\"/APP_VERSION \"#{version}\"/' | tee main.h > /dev/null`
+`cat main.cpp | sed -e 's/APP_VERSION \".*\"/APP_VERSION \"#{version}\"/' | tee main.cpp > /dev/null`
 
-Dir.chdir( ".." ) # amarok
+Dir.chdir( ".." ) # kalzium
 `rm -rf debian`
 
-
-Dir.chdir( ".." ) # kalziumbasedir for libkdeedu
+Dir.chdir( ".." ) # kdeedu 
 puts( "\n" )
 
 `find | xargs touch`
@@ -162,14 +159,16 @@ puts "done.\n"
 `rm stamp-h.in`
 
 
-#puts "**** Compressing..  "
-#`mv * ..`
-#Dir.chdir( ".." ) # kalzium-foo
-#Dir.chdir( ".." ) # root folder
-#`tar -cf #{folder}.tar #{folder}`
-#`bzip2 #{folder}.tar`
-#`rm -rf #{folder}`
-#puts "done.\n"
+puts "**** Compressing..  "
+`mv * ..`
+Dir.chdir( ".." ) # kalzium-foo
+`rm -rf kde-common`
+`rm -rf kdeedu` # after the moving of the directory this is empty
+Dir.chdir( ".." ) # root folder
+`tar -cf #{folder}.tar #{folder}`
+`bzip2 #{folder}.tar`
+`rm -rf #{folder}`
+puts "done.\n"
 
 
 ENV["UNSERMAKE"] = oldmake
@@ -178,10 +177,6 @@ ENV["UNSERMAKE"] = oldmake
 puts "\n"
 puts "====================================================="
 puts "Congratulations :) Kalzium #{version} tarball generated.\n"
-puts "Now follow the steps in the RELEASE_HOWTO, from\n"
-puts "SECTION 3 onwards.\n"
-puts "\n"
-puts "Then drink a few pints and have some fun on #kalzium\n"
 puts "\n"
 puts "MD5 checksum: " + `md5sum #{folder}.tar.bz2`
 puts "\n"
