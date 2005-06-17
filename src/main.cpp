@@ -7,10 +7,12 @@
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 
+#define APP_VERSION "1.4pre2"
+
 static const char description[] =
     I18N_NOOP("A periodic table of the elements");
 
-static const char version[] = "1.4pre2";
+static const char version[] = APP_VERSION;
 
 static KCmdLineOptions options[] =
 {
