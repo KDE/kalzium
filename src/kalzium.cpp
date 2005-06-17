@@ -38,7 +38,6 @@
 #include <kaction.h>
 #include <kapplication.h>
 #include <kstatusbar.h>
-#include <kcombobox.h>
 
 #define IDS_TEMP            1
 #define IDS_ENERG           3

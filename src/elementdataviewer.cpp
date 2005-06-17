@@ -25,11 +25,9 @@
 #include <kdebug.h>
 
 //QT-Includes
-#include <qframe.h>
 #include <qlayout.h>
 #include <qcheckbox.h>
 #include <qlabel.h>
-
 
 ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, const char* name )
 	: KDialogBase( KDialogBase::Plain, 

@@ -17,16 +17,13 @@
 #include <kglobal.h>
 #include <klistview.h>
 #include <klistviewsearchline.h>
-#include <kmessagebox.h>
 #include <kstandarddirs.h>
 
 #include <qfile.h>
 #include <qlabel.h>
 #include <qheader.h>
-#include <qwhatsthis.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
-#include <qregexp.h>
 #include <qsplitter.h>
 #include <qstringlist.h>
 #include <qtoolbutton.h>

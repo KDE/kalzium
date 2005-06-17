@@ -14,7 +14,6 @@ email                : cniehaus@kde.org
  ***************************************************************************/
 #include "detailedgraphicaloverview.h"
 #include "element.h"
-#include "prefs.h"
 
 //KDE-Includes
 #include <kdebug.h>
