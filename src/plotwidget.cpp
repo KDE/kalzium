@@ -53,20 +53,16 @@ void PlotWidget::drawObjects( QPainter *p )
 						for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() ) 
 						{
 							QPoint q = dp->qpoint( PixRect, DataRect );
+//							q += QPoint( rightPadding(), topPadding() );
 							int x1 = q.x() - po->size()/2;
 							int y1 = q.y() - po->size()/2;
 
 							p->drawEllipse( x1, y1, po->size(), po->size() ); 
-						}
-						if (m_connectPoints)
-						{
-							DPoint *dp = po->points()->first();
 
-							while ( dp )
+							if ( m_connectPoints )
 							{
-								QPoint point = dp->qpoint( PixRect, DataRect );
-								p1x = point.x();
-								p1y = point.y();
+								p1x = q.x();
+								p1y = q.y();
 
 								if ( first )
 									first = false;
@@ -75,8 +71,6 @@ void PlotWidget::drawObjects( QPainter *p )
 
 								p2x = p1x;
 								p2y = p1y;
-
-								dp = po->points()->next();
 							}
 						}
 						p->setBrush( Qt::NoBrush );

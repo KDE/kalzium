@@ -311,7 +311,7 @@ void ElementDataViewer::drawPlot()
 	}
 
 	//now set the values for the min, max and avarage value
-	m_pPlotSetupWidget->aValue->setText( QString::number( av/yData->numberOfElements() ) );
+	m_pPlotSetupWidget->aValue->setText( QString::number( av/number ) );
 	m_pPlotSetupWidget->minValue->setText( QString::number( min ) );
 	m_pPlotSetupWidget->maxValue->setText( QString::number( max ) );
 }
