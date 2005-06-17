@@ -27,6 +27,10 @@ def svnQuiet( command )
     `svn #{command} > /dev/null 2>&1`
 end
 
+def svnup( dir )
+    `svn up #{dir}`
+end
+
 
 # Prevent using unsermake
 oldmake = ENV["UNSERMAKE"]
@@ -39,17 +43,30 @@ ENV["UNSERMAKE"] = "no"
 Dir.mkdir( folder )
 Dir.chdir( folder )
 
-svn( "co", "/trunk/KDE/kdeedu/" )
-Dir.chdir( "kalzium" )
-svn( "co admin" )
+puts "Entering "+`pwd`
 
-puts "\n"
-puts "**** i18n ****"
-puts "\n"
+svn( "co -N", "/trunk/KDE/kdeedu/" )
+svn( "co", "/trunk/KDE/kde-common/" )
+Dir.chdir( "kdeedu")
 
+puts "Entering "+`pwd`
+puts "Checking out libkdeedu"
+svnup("libkdeedu")
+puts "Content of "+`pwd`+": "+`ls`
+puts "Checking out kalzium"
+svnup("kalzium")
+puts "Content of "+`pwd`+": "+`ls`
+puts "Checking out the admin-directory"
+svnup("admin")
+puts "Content of "+`pwd`+": "+`ls`
+`ln -s ../kde-common/admin .`
 
 # we check out kde-i18n/subdirs in kde-i18n..
 if doi18n == "yes"
+	puts "\n"
+	puts "**** i18n ****"
+	puts "\n"
+
     svn( "co -P kde-i18n/subdirs" )
     i18nlangs = `cat kde-i18n/subdirs`
 
@@ -116,24 +133,16 @@ end
 
 puts "\n"
 
-# Remove SVN relevant files
-#`find -name "CVS" | xargs rm -rf`
-#`find -name ".cvsignore" | xargs rm`
-
 Dir.chdir( "kalzium" )
+puts "Current position "+`pwd`
 
 # Move some important files to the root folder
-`mv AUTHORS ..`
-`mv ChangeLog ..`
-`mv COPYING ..`
-`mv INSTALL ..`
-`mv README ..`
 `mv TODO ..`
 
 Dir.chdir( "src" )
 
 # Exchange APP_VERSION string with new version
-`cat main.h | sed -e 's/APP_VERSION \".*\"/APP_VERSION \"#{version}\"/' | tee main.h > /dev/null`
+#`cat main.h | sed -e 's/APP_VERSION \".*\"/APP_VERSION \"#{version}\"/' | tee main.h > /dev/null`
 
 Dir.chdir( ".." ) # amarok
 `rm -rf debian`
@@ -153,15 +162,14 @@ puts "done.\n"
 `rm stamp-h.in`
 
 
-puts "**** Compressing..  "
-`mv * ..`
-Dir.chdir( ".." ) # kalzium-foo
-`rm -rf kdeextragear-1`
-Dir.chdir( ".." ) # root folder
-`tar -cf #{folder}.tar #{folder}`
-`bzip2 #{folder}.tar`
-`rm -rf #{folder}`
-puts "done.\n"
+#puts "**** Compressing..  "
+#`mv * ..`
+#Dir.chdir( ".." ) # kalzium-foo
+#Dir.chdir( ".." ) # root folder
+#`tar -cf #{folder}.tar #{folder}`
+#`bzip2 #{folder}.tar`
+#`rm -rf #{folder}`
+#puts "done.\n"
 
 
 ENV["UNSERMAKE"] = oldmake
