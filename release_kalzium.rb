@@ -136,6 +136,7 @@ Dir.chdir( "kalzium" )
 `mv TODO ..`
 `mv RELEASE-PLAN ..`
 `mv ChangeLog ..`
+`mv release_kalzium.rb ..`
 
 Dir.chdir( "src" )
 

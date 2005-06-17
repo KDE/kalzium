@@ -44,7 +44,7 @@ Bugs
         do you say?
 
 * The glossary window:
-  + If you hit <Return> in the search, you close the window.  It	----
+  + If you hit <Return> in the search, you close the window.  It	DONE
     should display the item.
 
 * Plotting:
