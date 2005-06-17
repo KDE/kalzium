@@ -94,11 +94,11 @@
 </screenshot>
 
 <para>
-&kalzium; is divided in a sidebar on the left (in red, 1) and the table view (in blue, 2) which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the statusbar reports facts. You can hide the sidebar using the <guimenu>View</guimenu> <guimenuitem>Hide Sidebar</guimenuitem> menu.
+&kalzium; is divided in a sidebar on the left (in red, 1) and the table view (in blue, 2) which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the statusbar reports facts. You can hide the sidebar using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide Sidebar</guimenuitem> </menuchoice> menu.
 </para>
 
 <para>
-You can choose several views for the table: display the elements per families, per groups, per crystal structure, depending on their acidic behaviour, etc. You can change all that in the menubar in the <guimenu>Periodic Table</guimenu><guimenuitem>Look</guimenuitem> menu.
+You can choose several views for the table: display the elements per families, per groups, per crystal structure, depending on their acidic behaviour, etc. You can change all that in the menubar in the <menuchoice> <guimenu>Periodic Table</guimenu> <guimenuitem>Look</guimenuitem> </menuchoice> menu.
 </para>
 <para>
 If you want to know facts about a precise element, click on it in the table and the information dialog will be displayed.
@@ -112,7 +112,7 @@ If you want to know facts about a precise element, click on it in the table and 
 </mediaobject>
 </screenshot>
 
-<para>You can plot data using the  <guimenu>Miscellaneous</guimenu> -&gt; <guimenuitem>Plot Data</guimenuitem> menu. You choose what you want to plot on the y -axis and a range of elements to plot taht for on the x-axis. The screenshot below shows the mass of the elements 1 to 10. </para>
+<para>You can plot data using the <menuchoice> <guimenu>Tools</guimenu> <guimenuitem>Plot Data</guimenuitem> </menuchoice> menu. You choose what you want to plot on the y -axis and a range of elements to plot taht for on the x-axis. The screenshot below shows the mass of the elements 1 to 10. </para>
 
 <screenshot>
 <screeninfo>The Plot Data dialog</screeninfo>
@@ -122,7 +122,7 @@ If you want to know facts about a precise element, click on it in the table and 
 </mediaobject>
 </screenshot>
 
-<para>The Glossary (<guimenu>Miscellaneous</guimenu> -&gt; <guimenuitem>Glossary</guimenuitem>) explains the most important chemical words and shows you pictures of the most common tools along with an explanation.</para>
+<para>The Glossary (<menuchoice> <guimenu>Tools</guimenu> <guimenuitem>Glossary</guimenuitem> </menuchoice>) explains the most important chemical words and shows you pictures of the most common tools along with an explanation.</para>
 
 <screenshot>
 <screeninfo>The Glossary</screeninfo>
@@ -174,16 +174,15 @@ If you want to know facts about a precise element, click on it in the table and 
 			 </screenshot>
 
 			 <para>In the  information dialog,  you get a lot of information on an
-				 element. First an <guilabel>overview</guilabel> presents you with the element, its symbol and
+				 element. First an <guilabel>Overview</guilabel> presents you with the element, its symbol and
 				 atomic weight. The <guilabel>Picture</guilabel> tab
 				 displays a picture of the element when available. The <guilabel>Atom Model</guilabel> tab displays the atomic shells. Every
-				 orbits stands for a atomic shell and every circle represents an electron.  The <guilabel>Chemical Data</guilabel> tab presents
+				 orbit stands for a atomic shell and every circle represents an electron. The <guilabel>Chemical Data</guilabel> tab presents
 				 some atomic data. For example you can see the isotopes of the selected
-				 elements and the isotopes frequency of occurrence and the number of protons. The
+				 elements, the frequency of occurrence of the various isotopes and the number of protons. The
 				 <guilabel>Energies</guilabel> tab tells you about different energy facts
 				 related to the element.
-				 The <guilabel>Atom Model</guilabel> tab displays the atomic shells. Every
-				 orbits stands for a atomic shell and every circle represents an electron. The <guilabel>Miscellaneous</guilabel> tab tells you when it
+				 The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it
 				 was discovered and its mean weight. </para>
 
 		 </sect1>
@@ -229,7 +228,7 @@ If you want to know facts about a precise element, click on it in the table and 
 			 <itemizedlist>
 				 <listitem><para>
 						 <guimenuitem>No Color Scheme</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure Kalzium...</guimenuitem>
-						 </menuchoice> and going to the Colors tab.
+						 </menuchoice> and going to the <guilabel>Colors</guilabel> tab.
 				 </para></listitem>
 				 <listitem><para>
 						 <guimenuitem>Show Groups</guimenuitem>: displays a color for each group. A group is a vertical column in the periodic table of the elements. There are 18 groups in the standard periodic table. Elements in a group have similar configurations of their valence shell electrons, which gives them similar properties.
@@ -274,12 +273,12 @@ If you want to know facts about a precise element, click on it in the table and 
 		 </sect1>
 
 
-		 <sect1 id="miscellaneous">
-			 <title>Miscellaneous</title>
+		 <sect1 id="tools">
+			 <title>Tools</title>
 			 <sect2 id="plot_data">
 				 <title>Plot Data</title>
 				 <para>
-					 The <guimenuitem>Plot Data</guimenuitem> dialog allows you to plot some information about elements. The X-axis represents a range of elements (from one number to a higher number). You set this range using the First Element and Last Element fields on the dialog. The display does not change until you click on the <guibutton>Plot</guibutton> button.
+					 The <guimenuitem>Plot Data</guimenuitem> dialog allows you to plot some information about elements. The X-axis represents a range of elements (from one number to a higher number). You set this range using the <guilabel>First Element</guilabel> and <guilabel>Last Element</guilabel> fields on the dialog. The display does not change until you click on the <guibutton>Plot</guibutton> button.
 				 </para>
 				 <screenshot>
 					 <mediaobject>
@@ -386,8 +385,8 @@ If you want to know facts about a precise element, click on it in the table and 
 
 			 <para>
 				 &kalzium; has many configuration options, which you can access by opening
-				 the configuration dialog by selecting <guimenuitem>Configure
-					 &kalzium;...</guimenuitem> from the <guimenu>Settings</guimenu> menu. </para>
+				 the configuration dialog by selecting <menuchoice> <guimenu>Settings</guimenu> <guimenuitem>Configure
+					 &kalzium;...</guimenuitem> </menuchoice> from the menu.</para>
 
 			 <screenshot>
 				 <screeninfo>Configure Kalzium Dialog</screeninfo>
@@ -405,10 +404,10 @@ If you want to know facts about a precise element, click on it in the table and 
 			 <itemizedlist>
 				 <listitem><para>
 						 The Color Scheme tab allows you to choose your Color Scheme (No colors, Groups, Blocks, State of matter, Acid behavior). </para></listitem>
-				 <listitem><para>In the Colors tab, you can change the different colors for each scheme. 
+				 <listitem><para>In the <guilabel>Colors</guilabel> tab, you can change the different colors for each scheme. 
 				 </para></listitem>
 				 <listitem>
-					 <para>in the Miscellaneous tab, you will be able to choose if you want the
+					 <para>in the <guilabel>Miscellaneous</guilabel> tab, you will be able to choose if you want the
 						 More Information dialog on left click (default) or right click. You can
 						 also choose the units. You can select if you prefer kJ/mol by default but 
 						 you can choose eV and the Temperature is in Kelvin by default but you can 
@@ -648,7 +647,7 @@ If you want to know facts about a precise element, click on it in the table and 
 
 
 <sect2>
-<title>The <guimenu>Miscellaneous</guimenu> Menu</title>
+<title>The <guimenu>Tools</guimenu> Menu</title>
 					 <variablelist>
 						 <!--<varlistentry>
 							 <term><menuchoice>
@@ -659,14 +658,14 @@ If you want to know facts about a precise element, click on it in the table and 
 						 </varlistentry>-->
 						 <varlistentry>
 							 <term><menuchoice>
-									 <guimenu>Miscellaneous</guimenu>
+									 <guimenu>Tools</guimenu>
 									 <guimenuitem>Plot Data</guimenuitem>
 							 </menuchoice></term>
 							 <listitem><para><action>Open</action> the Plot Data dialog</para></listitem>
 						 </varlistentry>
                             <varlistentry>
                              <term><menuchoice>
-                                     <guimenu>Miscellaneous</guimenu>
+                                     <guimenu>Tools</guimenu>
                                      <guimenuitem>Glossary</guimenuitem>
                              </menuchoice></term>
                              <listitem><para><action>Open</action> the Glossary</para></listitem>
@@ -812,7 +811,7 @@ If you want to know facts about a precise element, click on it in the table and 
 
 			 <itemizedlist>
 				 <listitem><para>
-						 Pino Toscano
+						 Pino Toscano <email>toscano DOT pino AT tiscali DOT it</email>
 				 </para></listitem>
 			 </itemizedlist>
 
