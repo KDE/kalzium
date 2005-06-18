@@ -13,6 +13,7 @@
  ***************************************************************************/
 
 #include "plotwidget.h"
+#include "plotwidget.moc"
 
 //KDE-Includes
 #include <kdebug.h>
@@ -33,58 +34,36 @@ PlotWidget::PlotWidget( double x1,
 
 void PlotWidget::drawObjects( QPainter *p )
 {
-	int p1x, p1y, //the first point
-	    p2x = 0, p2y = 0; //the second point
+	// let the KPlotWidget draw the default stuff first
+	KPlotWidget::drawObjects(p);
+	// then draw the connecting lines 
+	if (!m_connectPoints) return; // bail out if connect points is not enabled
+
+	QPoint old; // used to remember last coordinates
 	bool first = true;
 	for ( KPlotObject *po = ObjectList.first(); po; po = ObjectList.next() ) 
 	{
-		if ( po->points()->count() ) 
+		// skip empty plot objects
+		if ( po->points()->count() == 0 ) continue;
+		// skip non-point plot objects
+		if (po->type() != KPlotObject::POINTS) continue;
+
+		// draw the connecting lines
+		p->setPen( QColor( po->color() ) );
+		p->setBrush( QColor( po->color() ) );
+		for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() ) 
 		{
-			//draw the plot object
-			p->setPen( QColor( po->color() ) );
+			QPoint q = dp->qpoint( PixRect, DataRect );
 
-			switch ( po->type() ) 
-			{
-				case KPlotObject::POINTS :
-					{
-						p->setBrush( QColor( po->color() ) );
+			if ( first ) 
+				first = false;
+			else
+				p->drawLine(old.x(), old.y(), q.x(), q.y());
 
-						for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() ) 
-						{
-							QPoint q = dp->qpoint( PixRect, DataRect );
-//							q += QPoint( rightPadding(), topPadding() );
-							int x1 = q.x() - po->size()/2;
-							int y1 = q.y() - po->size()/2;
-
-							p->drawEllipse( x1, y1, po->size(), po->size() ); 
-
-							if ( m_connectPoints )
-							{
-								p1x = q.x();
-								p1y = q.y();
-
-								if ( first )
-									first = false;
-								else
-									p->drawLine(p1x,p1y,p2x,p2y);
-
-								p2x = p1x;
-								p2y = p1y;
-							}
-						}
-						p->setBrush( Qt::NoBrush );
-						break;
-					}
-				case KPlotObject::LABEL : //draw label centered at point in x, and slightly below point in y.
-					{
-					QPoint q = po->points()->first()->qpoint( PixRect, DataRect );
-					p->drawText( q.x()-20, q.y()+6, 40, 10, Qt::AlignCenter | Qt::DontClip, po->name() );
-					break;
-					}
-				default: ;
-			}
+			old.setX( q.x() );
+			old.setY( q.y() );
 		}
+		p->setBrush( Qt::NoBrush );
 	}
 }
 
-#include "plotwidget.moc"
