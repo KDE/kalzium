@@ -18,10 +18,6 @@ See: http://www.labdepotinc.com/default.aspx
 		<name>Mörser</name>
 		<desc>In einem Mörser werden feste Stoffe mechanisch zerkleinert. Auch kann mit einem Mörser eine Mischung von z.B. Salzen durch Reiben homogenisiert werden. Der Stoßer zum Verreiben wird Pistill genannt.</desc>
 	</tool>
-	<tool picture="halter.jpg">
-		<name>Laborklammern</name>
-		<desc>Mit Laborklammern werden alle möglichen Laborgeräte miteinander verbunden. So verbindet man zum Beispiel eine Tropftrichter mit einem Rundkolben mittels Laborklammern.</desc>
-	</tool>
 	<tool picture="exikator.jpg">
 		<name>Exsikkator</name>
 		<desc>
@@ -74,24 +70,8 @@ See: http://www.labdepotinc.com/default.aspx
 		<name>DSC (Differencial Scanning Calorimetry)</name>
 		<desc>Bei der DSC werden die Aufnahme bzw. die Abgabe von Wärmemengen einer Substanz aufgezeichnet. Da diese z.T. sehr stoffspezifisch sind kann man hiermit Substanzen identifizieren bzw. qualifizieren.</desc>
 	</tool>
-	<tool picture="hplc.jpg">
-		<name>HPLC (High Performance Liquid Chromatographie)</name>
-		<desc>Bei der HPLC wird die zu untersuchende Substanz mit einem flüssigen Laufmittel auf einer stationären Phase getrennt. Dabei wechselwirken die Anteile der Substanz unterschiedlich stark mit der stationären Phase wodurch sie unterschiedlich schnell durch die Säule laufen. So trennt man die einzelnen Anteile auf.</desc>
-	</tool>
 	<tool picture="becherglas.jpg">
 		<name>Becherglas</name>
 		<desc>Bechergläser werden sehr vielseitig eingesezt. In ihnen werden Chemikalien kurzfristig aufbewahrt, man kann aber auch Reaktionen in ihnen auflaufen lassen. Oft titriert man in ein Becherglas hinein oder benutzt es einfach zum Umschütten von Flüssigkeiten.</desc>
-	</tool>
-	<tool picture="">
-		<name>Bürette</name>
-		<desc>Eine Bürette dient zum Titrieren von Flüssigkeiten. In die Bürette wird von oben die Flüssigkeit eingefüllt. Unter sie wird ein Becherglas oder Erlenmeyerkolben gestellt. Durch das Öffnen eines Sperrhahnes wird die Flüssigkeit aus der Bürette herausgelassen. Hochwertige Büretten haben einen Druckausgleich, so dass sie aus einen Vorratsbehälter eine vorgegebene Menge selbstständig nachfüllen können. Somit muss man die Büretten nicht selber nachfüllen.</desc>
-	</tool>
-	<tool picture="trichter.jpg">
-		<name>Pulvertrichter</name>
-		<desc>Pulvertrichter werden zum Schütten von Pulvern und anderen Feststoffen in Gefäße eingesetzt.</desc>
-	</tool>
-	<tool picture="phpapier.jpg">
-		<name>pH-Papier</name>
-		<desc>Es gibt viele Möglichkeiten, den pH-Wert eines Stoffes zu messen. Eine in den meisten Fällen ausreichend genaue Möglichkeit ist das hier abgebildete pH-Papier. Es wird einfach in eine Lösung gehalten. Die Färbung gibt Aufschluss über den pH-Wert.</desc>
 	</tool>
 </tools>
