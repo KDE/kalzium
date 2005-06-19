@@ -99,3 +99,12 @@ Features
   their pages. Imaginge for example the different wikipedia-languages
 
 * Add the weblookup also in the glossary
+
+* Add lesson-mode? The idea is that a teacher could create xml-files
+  which can somehow be used as lessons. Perhaps something like
+  "find out how many element boild at 200 Degree Celsius and above.
+  With that information: Why is it so?"
+
+* Add experiental mode: A teacher defines experiments (in xml) where
+  fotos and texts are used to represent a experiment/task. Perhaps
+  combined with openoffice-files (charts and so on). Like in CheExp.

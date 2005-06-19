@@ -1,6 +1,21 @@
 /*
- * Copyright (C) 2003 Carsten Niehaus <cniehaus@kde.org>
- */
+ *   Copyright (C) 2003-2005 Carsten Niehaus <cniehaus@kde.org>
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
 
 #include "kalzium.h"
 #include <kapplication.h>
@@ -31,6 +46,7 @@ int main(int argc, char **argv)
     about.addCredit( "Anne-Marie Mahfouf", I18N_NOOP( "A lot of small things and the documentation" ));
     about.addCredit( "Paweł Budzyński", I18N_NOOP( "The pictures of the elements iodine and bromine" ));
     about.addCredit( "M. Stegemann", I18N_NOOP( "Almost all pictures of the elements" ));
+    about.addCredit( "Daniel Haas", I18N_NOOP( "The design of the information dialog" ));
     about.addCredit( "Brian Beck", I18N_NOOP( "The orbits-icon" ));
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions( options );
