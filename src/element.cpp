@@ -403,15 +403,15 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 			/**
 			 * hcp: hexagonal close packed
 			 * fcc: face centered cubic
-			 * krz/bbc cubic body centered // kubisch raumzentriert
+			 * krz/bcc body centered cubic// kubisch raumzentriert
 			 * kdp: kubisch dicht gepackt
 			 * hdp: hexagonal dicht gepackt
 			 * ccp: cubic close packed // kubisch dichteste Kugelpackung
 			 */
 			if ( structure == "own")
 				text = i18n( "this means, the element has its 'own' structur", "own" );
-			else if ( structure == "bbc" )
-				text = i18n( "Crystalsystem body centered cubic", "bbc" );
+			else if ( structure == "bcc" )
+				text = i18n( "Crystalsystem body centered cubic", "bcc" );
 			else if ( structure == "hdp" )
 				text = i18n( "Crystalsystem hexagonal dense packed", "hdp" );
 			else if ( structure == "ccp" )

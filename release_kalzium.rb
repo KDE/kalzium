@@ -7,22 +7,48 @@
 # Some parts of this code taken from cvs2dist
 # License: GPL V2
 
+doi18n = "0"
+dogpg = "0"
+
+unless $*.empty?()
+    case $*[0]
+        when "--nogpg"
+			dogpg = "1"
+        when "--noi18n"
+			doi18n = "1"
+        when "--help"
+			puts "use --noi18n or --nogpg"
+			exit
+        else
+            puts("Unknown option #{$1}. Use --noi18n or --nogpg.\n")
+			exit
+    end
+    case $*[1]
+        when "--nogpg"
+			dogpg = "1"
+        when "--noi18n"
+			doi18n = "1"
+        when "--help"
+			puts "use --noi18n or --nogpg"
+			exit
+        else
+            puts("Unknown option #{$1}. Use --noi18n or --nogpg.\n")
+			exit
+    end
+end
+
+puts doi18n
+puts dogpg
 
 #Ask user for app version and name
 version  = `kdialog --inputbox "Name"`.chomp
 name     = `kdialog --inputbox "Versionnumber: "`.chomp
 
 folder   = "#{name}-#{version}"
-dogpg  = `kdialog --yesno "Sign the file with GnuPG afterwards";echo $?`
-doi18n = `kdialog --yesno "Create i18n as well?";echo $?`.chomp
 
 # Some helper methods
 def svn( command, dir )
     `svn #{command} svn://anonsvn.kde.org/home/kde/#{dir}`
-end
-
-def svnQuiet( command )
-    `svn #{command} > /dev/null 2>&1`
 end
 
 def svnup( dir )
@@ -44,15 +70,13 @@ Dir.chdir( folder )
 puts "Entering "+`pwd`
 
 svn( "co -N", "/trunk/KDE/kdeedu/" )
-svn( "co", "/trunk/KDE/kde-common/" )
 Dir.chdir( "kdeedu")
 
-#puts "Entering "+`pwd`
-#puts "Checking out libkdeedu"
-#svnup("libkdeedu")
-#puts "Checking out kalzium"
-#svnup("kalzium")
-#`cp -R ../kde-common/admin .`
+puts "Checking out libkdeedu"
+svnup("libkdeedu")
+puts "Checking out kalzium"
+svnup("kalzium")
+svn( "co", "/trunk/KDE/kde-common/admin")
 
 # we check out kde-i18n/subdirs in kde-l10n..
 puts doi18n
@@ -142,7 +166,12 @@ Dir.chdir( "kalzium" )
 Dir.chdir( "src" )
 
 # Exchange APP_VERSION string with new version
-`cat main.cpp | sed -e 's/APP_VERSION \".*\"/APP_VERSION \"#{version}\"/' | tee main.cpp > /dev/null`
+file = File.new( "main-cpp", File::RDWR )
+str = file.read()
+file.rewind()
+str.sub!( /APP_VERSION \".*\"/, "APP_VERSION \"#{version}\"" )
+file << str
+file.close()
 
 Dir.chdir( ".." ) # kalzium
 `rm -rf debian`

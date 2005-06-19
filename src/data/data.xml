@@ -95,7 +95,7 @@
 			<isotope halflife="" halflifeformat="seconds" weight="7,016" neutron="4" percentage="92,5" />
 		</isotopes>
 		<family>Alkali_Earth</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>4</number>
@@ -353,7 +353,7 @@
 		<oxydation>+1</oxydation>
 		<family>Alkali_Earth</family>
 
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>12</number>
@@ -617,7 +617,7 @@
 			<isotope halflife="" halflifeformat="seconds" weight="40,962" neutron="22" percentage="6,73" />
 		</isotopes>
 		<family>Alkali_Earth</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>20</number>
@@ -749,7 +749,7 @@
 		<orbits>Ar 3d3 4s2</orbits>
 		<oxydation>+5,(+2,+3,+4)</oxydation>
 		<family>Transition</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>24</number>
@@ -784,7 +784,7 @@
 			<isotope halflife="" halflifeformat="seconds" weight="53,939" neutron="30" percentage="2,4" />
 		</isotopes>
 		<family>Transition</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>25</number>
@@ -848,7 +848,7 @@
 			<isotope halflife="" halflifeformat="seconds" weight="57,933" neutron="32" percentage="0,34" />
 		</isotopes>
 		<family>Transition</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 
 	</element>
 	<element>
@@ -1217,7 +1217,7 @@
 		<orbits>Kr 5s1</orbits>
 		<oxydation>+1</oxydation>
 		<family>Alkali_Earth</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>38</number>
@@ -1346,7 +1346,7 @@
 		<orbits>Kr 4d4</orbits>
 		<oxydation>+3,+5</oxydation>
 		<family>Transition</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>42</number>
@@ -1384,7 +1384,7 @@
 			<isotope halflife="" halflifeformat="seconds" weight="99,908" neutron="58" percentage="9,6" />
 		</isotopes>
 		<family>Transition</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>43</number>
@@ -1823,7 +1823,7 @@
 		<orbits>Xe 6s1</orbits>
 		<oxydation>+1</oxydation>
 		<family>Alkali_Earth</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 
 	</element>
 	<element>
@@ -1858,7 +1858,7 @@
 			<isotope halflife="" halflifeformat="seconds" weight="131,905" neutron="76" percentage="0,097" />
 		</isotopes>
 		<family>Alkaline_Earth</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>57</number>
@@ -2092,7 +2092,7 @@
 			<isotope halflife="" halflifeformat="seconds" weight="152,921" neutron="90" percentage="52,23" />
 		</isotopes>
 		<family>Rare_Earth</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>64</number>
@@ -2416,7 +2416,7 @@
 		<oxydation>+3,+5</oxydation>
 		<family>Transition</family>
 
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>74</number>
@@ -2449,7 +2449,7 @@
 			<isotope halflife="" halflifeformat="seconds" weight="185,954" neutron="112" percentage="29,17" />
 		</isotopes>
 		<family>Transition</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>75</number>
@@ -2907,7 +2907,7 @@
 		<orbits>Rn 7s2</orbits>
 		<oxydation>+2</oxydation>
 		<family>Alkaline_Earth</family>
-		<crystalstructure>bbc</crystalstructure>
+		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>89</number>
