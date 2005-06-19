@@ -22,6 +22,7 @@
 #include <khtmlview.h>
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
+#include <kcombobox.h>
 
 #include <qlabel.h>
 #include <qimage.h>
@@ -286,7 +287,7 @@ void DetailedInfoDlg::createContent( )
 	addTab( getHtml(CHEMICAL), i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
 	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
 	addTab( getHtml(MISC), i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
-	
+
 	QString num = QString::number( m_element->number() );
 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elname() ).arg( num );
 	setCaption( cap );

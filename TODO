@@ -108,3 +108,6 @@ Features
 * Add experiental mode: A teacher defines experiments (in xml) where
   fotos and texts are used to represent a experiment/task. Perhaps
   combined with openoffice-files (charts and so on). Like in CheExp.
+
+* Add two comboboxes to the infodialog: That way the user can search
+  for an element by name and number. Like in CheExp
