@@ -113,14 +113,4 @@
 		<name>Short-stem Funnel</name>
 		<desc>A funnel is used in the laboratory to fill powder into something.</desc>
 	</tool>
-	<!--
-	<tool picture="">
-		<name>Buret</name>
-		<desc>Eine Bürette dient zum Titrieren von Flüssigkeiten. In die Bürette wird von oben die Flüssigkeit eingefüllt. Unter sie wird ein Becherglas oder Erlenmeyerkolben gestellt. Durch das Öffnen eines Sperrhahnes wird die Flüssigkeit aus der Bürette herausgelassen. Hochwertige Büretten haben einen Druckausgleich, so dass sie aus einen Vorratsbehälter eine vorgegebene Menge selbstständig nachfüllen können. Somit muss man die Büretten nicht selber nachfüllen.</desc>
-	</tool>
-	<tool picture="hplc.jpg">
-		<name>HPLC (High Performance Liquid Chromatographie)</name>
-		<desc>Bei der HPLC wird die zu untersuchende Substanz mit einem flüssigen Laufmittel auf einer stationären Phase getrennt. Dabei wechselwirken die Anteile der Substanz unterschiedlich stark mit der stationären Phase wodurch sie unterschiedlich schnell durch die Säule laufen. So trennt man die einzelnen Anteile auf.</desc>
-	</tool>
-	-->
 </tools>

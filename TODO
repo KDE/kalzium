@@ -111,3 +111,15 @@ Features
 
 * Add two comboboxes to the infodialog: That way the user can search
   for an element by name and number. Like in CheExp
+
+* Thinking on people with some disabilities, it would be great if they can 
+select the elements on the grid by using cursor keys (or just tab key).
+
+* Perhaps there must be a KComboBox in the toolbar where you can select the 
+different views of the PTE.
+
+* There's no view of the natural occurrence of the elements. Look at 
+http://en.wikipedia.org/wiki/Periodic_table_(standard) and see the notes 
+about borders.
+
+
