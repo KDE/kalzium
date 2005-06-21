@@ -41,7 +41,7 @@ puts doi18n
 puts dogpg
 
 #Ask user for app version and name
-version  = kdialog --inputbox "Name"`.chomp
+version  = `kdialog --inputbox "Name"`.chomp
 name     = "kalzium" #`kdialog --inputbox "Versionnumber: "`.chomp
 
 folder   = "#{name}-#{version}"
