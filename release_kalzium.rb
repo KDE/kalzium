@@ -176,12 +176,16 @@ Dir.chdir( "kalzium" )
 Dir.chdir( "src" )
 
 # Exchange APP_VERSION string with new version
-file = File.new( "main.cpp", File::RDWR )
-str = file.read()
-file.rewind()
-str.sub!( /APP_VERSION \".*\"/, "APP_VERSION \"#{version}\"" )
-file << str
-file.close()
+
+#TODO: For some reasons this substitution is not working...
+#      it adds ); to the EOF
+
+#file = File.new( "main.cpp", File::RDWR )
+#str = file.read()
+#file.rewind()
+#str.sub!( /APP_VERSION \".*\"/, "APP_VERSION \"#{version}\"" )
+#file << str
+#file.close()
 
 Dir.chdir( ".." ) # kalzium
 `rm -rf debian`
