@@ -337,7 +337,6 @@ void Kalzium::slotShowScheme(int i)
 			m_PSE->setLook( PSE::CRYSTAL );
 			break;
 		case PSE::GRADIENT:
-			// XXX read better the gradient type!
 			gradient_action->setCurrentItem( Prefs::gradient()-1 );
 			m_PSE->setLook( PSE::GRADIENT, Prefs::gradient() );
 			break;

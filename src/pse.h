@@ -142,7 +142,7 @@ class PSE : public QWidget
 		}
 
 		/**
-		 * XXX shouldn't this be renamed to m_locked?
+		 * if @p show is true toolstips will be displayed 
 		 */
 		void setShowTooltip( bool show ){
 			m_showTooltip = show;
@@ -182,11 +182,6 @@ class PSE : public QWidget
 		void setGradientType( int type ){ 
 			m_gradientType = type;
 		}
-
-		/**
-		 * if true the tooltips will be displayed
-		 */
-		bool m_showTooltip;
 
 		/**
 		 * if false, the user disabled tooltips
@@ -254,6 +249,11 @@ class PSE : public QWidget
 		virtual void paintCurrentSelection();
 
 	private:
+		/**
+		 * if true the tooltips will be displayed
+		 */
+		bool m_showTooltip;
+
 		/**
 		 * the type of the gradient.
 		 * @see Element::TYPE

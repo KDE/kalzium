@@ -6,64 +6,11 @@ Bugs
 
 
 * Miscellaneous bugs:
-  + Fix the startsize of the infodialog					DONE-PT
-    - make the dialog have a sane size if there is no picture of 
-      the element							DONE-PT
-    - make the html fit into the window					DONE-CN
-
   + Make use of the biological symbol.					----
     CN: I lost the "translation" though, will have to look after it.
 
-  + In the SOM: If the html-code gets to long the slider is also	DONE-PT
-    resized. Because of this the date jumps. This make the SOM
-	unusable. Solution: Fix the layout of the SOM
-
-  + Black overviewwidget if you hover over the table because		DONE-CN
-    currentColor() is not set.
-
-  + I don't know how to name this, have a look at the comment		DONE-HP	
-    in kalzium.cpp, method void Kalzium::slotShowScheme(int i) in
-    case PSE::GRADIENT:
-    CN: Why is the number "2" there? Is the comment right and we
-        should read the gradient? If so: Why does it work?
-
-  + Ctrl-Q should close the subwindows.					DONE-HP
-    - Plot window							HP
-    - Data window							HP
-    - Glossary window							HP
-   CN: Indeed! Good idea
-   PT: isn't Ctrl-Q "joined" to the main window closing?
-   CN: Obviously not ;) Otherwise it would work
-
-* The main window:
-  + Too long delay before the tooltip arrives				DONE-CN
-    CN: I made it a 500ms delay, that is 0.25 of what
-        it used to be
-    CN: After using it for some days I find the 500ms to
-        short. The tooltip is constantly in my way. What
-        do you say?
-
-* The glossary window:
-  + If you hit <Return> in the search, you close the window.  It	DONE
-    should display the item.
-
-* Plotting:
-  + Atomic Radius is commented out in the code.  Why?			DONE-CN
-    CN: The reason is no longer uptodate. I commented it out
-        because of the changes of the radii (I added atomic+vdW-
-        radius and needed to change the datastructure)
-  + The Y axis value inside the "Groups to compare" box is unnecessary.	DONE-IW
-  + The default value for "Last Element" should be number of elements.	DONE-IW
-
-
 Features
 --------
-
-* Data
-  + Add the half-life period of radioactive elements.			DONE-CN
-    CN: See Promethium, element 61
-
-  + Make use of the scientist=""-tag in the file			DONE-CN
 
 * Plotting
   + Add groups of elements, for example "Metals", 4th Period		----

@@ -113,4 +113,20 @@
 		<name>Short-stem Funnel</name>
 		<desc>A funnel is used in the laboratory to fill powder into something.</desc>
 	</tool>
+	<tool picture="">
+		<name>Buret</name>
+		<desc>A buret is used to titrate liquids. The buret is filled with a specified volume of a liquid. Below it a container |||the word container is not good here. You place any kind of "glas" under it...||| like an Erlenmeyer flask is placed. By opening the valve the liquid in the container will be titrated. High-quality buret have a venting-mechanism with which they can be very easily refilled with the exact volume for which the buret is calibrated.</desc>
+	</tool>
+	<tool picture="becherglas.jpg">
+		<name>Beaker</name>
+		<desc>Beakers are used in many places for a lot of tasks. They are used to store chemicals are to perform chemical reactions. They are also often used for titrations.</desc>
+	</tool>
+	<tool picture="dsc.jpg">
+		<name>DSC (Differencial Scanning Calorimetry)</name>
+		<desc>The DSC measures the heat flow volume of a compound. This value is very specific for every kind of matter. Thus, the DSC is used to identify chemicals or to describe them.</desc>
+	</tool>
+	<tool picture="">
+		<name>Dewar vessel</name>
+		<desc>a dewar vessel (or dewar flask) is designed for a good thermal insulation. Its hull is a double-layer construction with vacuum between the two layers. Because of this they are appropriote for keeping liquids cold or warm. A thermos flawsk is an example of a dewar vessel.</desc>
+	</tool>
 </tools>

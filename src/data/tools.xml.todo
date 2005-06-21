@@ -62,16 +62,3 @@ See: http://www.labdepotinc.com/default.aspx
 		<name>Waage</name>
 		<desc>Im Labor muss man häufig sehr genaue Mengen von Reagenzien abwiegen. Feinwaagen messen bis auf eine 1/10000 Gramm genaue Mengen ab. Dazu stehen sie auf Granitblöcken um Erschütterungen zu vermeiden und sind durch Hauben von Windstößen geschützt.</desc>
 	</tool>
-	<tool picture="">
-		<name>Dewargefäß</name>
-		<desc>Bei einem Dewargefäß handelt es sich um einen doppelwandigen, evakuierten Behälter mit verspiegelter Oberfläche. Dadurch eignet es sich zur Lagerung von heißen oder kalten Substanzen. Thermoskannen sind ein Beispiel für ein Dewargefäß.</desc>
-	</tool>
-	<tool picture="dsc.jpg">
-		<name>DSC (Differencial Scanning Calorimetry)</name>
-		<desc>Bei der DSC werden die Aufnahme bzw. die Abgabe von Wärmemengen einer Substanz aufgezeichnet. Da diese z.T. sehr stoffspezifisch sind kann man hiermit Substanzen identifizieren bzw. qualifizieren.</desc>
-	</tool>
-	<tool picture="becherglas.jpg">
-		<name>Becherglas</name>
-		<desc>Bechergläser werden sehr vielseitig eingesezt. In ihnen werden Chemikalien kurzfristig aufbewahrt, man kann aber auch Reaktionen in ihnen auflaufen lassen. Oft titriert man in ein Becherglas hinein oder benutzt es einfach zum Umschütten von Flüssigkeiten.</desc>
-	</tool>
-</tools>
