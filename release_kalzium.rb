@@ -41,8 +41,8 @@ puts doi18n
 puts dogpg
 
 #Ask user for app version and name
-version  = `kdialog --inputbox "Name"`.chomp
-name     = `kdialog --inputbox "Versionnumber: "`.chomp
+version  = "foo" #`kdialog --inputbox "Name"`.chomp
+name     = "kalzium" #`kdialog --inputbox "Versionnumber: "`.chomp
 
 folder   = "#{name}-#{version}"
 
@@ -84,6 +84,8 @@ if doi18n == "0"
     puts "\n"
     puts "**** l10n ****"
     puts "\n"
+	
+	Dir.mkdir( "doc" )
 
     i18nlangs = `svn cat https://svn.kde.org/home/kde/trunk/l10n/subdirs`
     Dir.mkdir( "l10n" )
@@ -92,25 +94,32 @@ if doi18n == "0"
     # docs
     for lang in i18nlangs
         lang.chomp!
-        `rm -Rf ../doc/#{lang}`
+        `rm -rf ../doc/#{lang}`
         `rm -rf kalzium`
         docdirname = "l10n/#{lang}/docs/kdeedu/kalzium"
         `svn co -q https://svn.kde.org/home/kde/trunk/#{docdirname} > /dev/null 2>&1`
         next unless FileTest.exists?( "kalzium" )
         print "Copying #{lang}'s #{name} documentation over..  "
-        `cp -R kdeedu/kalzium/ ../doc/#{lang}`
+		`cp -R kalzium/ ../doc/#{lang}`
 
         # we don't want KDE_DOCS = AUTO, cause that makes the
         # build system assume that the name of the app is the
         # same as the name of the dir the Makefile.am is in.
         # Instead, we explicitly pass the name..
-		#makefile = File.new( "../doc/#{lang}/Makefile.am", File::CREAT | File::RDWR | File::TRUNC )
-		#makefile << "KDE_LANG = #{lang}\n"
-		#makefile << "KDE_DOCS = #{name}\n"
-		#makefile.close()
+		makefile = File.new( "../doc/#{lang}/Makefile.am", File::CREAT | File::RDWR | File::TRUNC )
+		makefile << "KDE_LANG = #{lang}\n"
+		makefile << "KDE_DOCS = #{name}\n"
+		makefile.close()
 
         puts( "done.\n" )
     end
+	
+	#now create the Makefile.am so that the docs will be build
+	makefile = File.new( "../doc/Makefile.am", File::CREAT | File::RDWR | File::TRUNC )
+	makefile << "KDE_LANG = en\n"
+	makefile << "KDE_DOCS = AUTO\n"
+	makefile << "SUBDIRS = $(AUTODIRS)\n"
+	makefile.close()
 
     Dir.chdir( ".." ) # multimedia
     puts "\n"
@@ -144,6 +153,7 @@ if doi18n == "0"
         makefile << "SUBDIRS = $(AUTODIRS)\n"
         makefile.close()
     else
+		puts "Removing po-subdirectory"
         `rm -Rf po`
     end
 
@@ -166,7 +176,7 @@ Dir.chdir( "kalzium" )
 Dir.chdir( "src" )
 
 # Exchange APP_VERSION string with new version
-file = File.new( "main-cpp", File::RDWR )
+file = File.new( "main.cpp", File::RDWR )
 str = file.read()
 file.rewind()
 str.sub!( /APP_VERSION \".*\"/, "APP_VERSION \"#{version}\"" )
