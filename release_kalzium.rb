@@ -41,7 +41,7 @@ puts doi18n
 puts dogpg
 
 #Ask user for app version and name
-version  = "foo" #`kdialog --inputbox "Name"`.chomp
+version  = kdialog --inputbox "Name"`.chomp
 name     = "kalzium" #`kdialog --inputbox "Versionnumber: "`.chomp
 
 folder   = "#{name}-#{version}"
@@ -74,8 +74,8 @@ Dir.chdir( "kdeedu")
 
 puts "Checking out libkdeedu"
 svnup("libkdeedu")
-puts "Checking out kalzium"
-svnup("kalzium")
+puts "Checking out #{name}"
+svnup("#{name}")
 svn( "co", "/trunk/KDE/kde-common/admin")
 
 # we check out kde-i18n/subdirs in kde-l10n..
@@ -95,8 +95,8 @@ if doi18n == "0"
     for lang in i18nlangs
         lang.chomp!
         `rm -rf ../doc/#{lang}`
-        `rm -rf kalzium`
-        docdirname = "l10n/#{lang}/docs/kdeedu/kalzium"
+        `rm -rf #{name}`
+        docdirname = "l10n/#{lang}/docs/kdeedu/#{name}"
         `svn co -q https://svn.kde.org/home/kde/trunk/#{docdirname} > /dev/null 2>&1`
         next unless FileTest.exists?( "kalzium" )
         print "Copying #{lang}'s #{name} documentation over..  "
@@ -165,7 +165,7 @@ puts "\n"
 puts "Removing svn-history files (almost 10 megabyte)"
 `find -name ".svn" | xargs rm -rf`
 
-Dir.chdir( "kalzium" )
+Dir.chdir( "#{name}" )
 
 # Move some important files to the root folder
 `mv TODO ..`
@@ -225,7 +225,7 @@ end
 
 puts "\n"
 puts "====================================================="
-puts "Congratulations :) Kalzium #{version} tarball generated.\n"
+puts "Congratulations :) #{name} #{version} tarball generated.\n"
 puts "\n"
 puts "MD5 checksum: " + `md5sum #{folder}.tar.bz2`
 if dogpg == "0"
