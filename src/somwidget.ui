@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>502</width>
-            <height>512</height>
+            <width>200</width>
+            <height>400</height>
         </rect>
     </property>
     <property name="caption">
@@ -32,7 +32,7 @@
             <property name="sizeHint">
                 <size>
                     <width>21</width>
-                    <height>16</height>
+                    <height>10</height>
                 </size>
             </property>
         </spacer>
@@ -64,7 +64,7 @@ the state of matter</string>
             <property name="sizeHint">
                 <size>
                     <width>21</width>
-                    <height>16</height>
+                    <height>10</height>
                 </size>
             </property>
         </spacer>
@@ -96,7 +96,7 @@ the state of matter</string>
                     </property>
                     <property name="sizeHint">
                         <size>
-                            <width>226</width>
+                            <width>20</width>
                             <height>21</height>
                         </size>
                     </property>
@@ -111,52 +111,28 @@ the state of matter</string>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QLayoutWidget">
+                <widget class="QSlider">
                     <property name="name">
-                        <cstring>layout2</cstring>
+                        <cstring>temp_slider</cstring>
                     </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QSlider">
-                            <property name="name">
-                                <cstring>temp_slider</cstring>
-                            </property>
-                            <property name="minValue">
-                                <number>0</number>
-                            </property>
-                            <property name="maxValue">
-                                <number>5000</number>
-                            </property>
-                            <property name="value">
-                                <number>295</number>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="tickmarks">
-                                <enum>Below</enum>
-                            </property>
-                            <property name="tickInterval">
-                                <number>500</number>
-                            </property>
-                        </widget>
-                        <widget class="KIntSpinBox">
-                            <property name="name">
-                                <cstring>Number1</cstring>
-                            </property>
-                            <property name="maxValue">
-                                <number>5000</number>
-                            </property>
-                            <property name="minValue">
-                                <number>0</number>
-                            </property>
-                            <property name="value">
-                                <number>295</number>
-                            </property>
-                        </widget>
-                    </hbox>
+                    <property name="minValue">
+                        <number>0</number>
+                    </property>
+                    <property name="maxValue">
+                        <number>5000</number>
+                    </property>
+                    <property name="value">
+                        <number>295</number>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="tickmarks">
+                        <enum>Below</enum>
+                    </property>
+                    <property name="tickInterval">
+                        <number>500</number>
+                    </property>
                 </widget>
                 <spacer>
                     <property name="name">
@@ -166,15 +142,29 @@ the state of matter</string>
                         <enum>Horizontal</enum>
                     </property>
                     <property name="sizeType">
-                        <enum>Expanding</enum>
+                        <enum>Fixed</enum>
                     </property>
                     <property name="sizeHint">
                         <size>
-                            <width>51</width>
+                            <width>5</width>
                             <height>20</height>
                         </size>
                     </property>
                 </spacer>
+                <widget class="KIntSpinBox">
+                    <property name="name">
+                        <cstring>Number1</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>5000</number>
+                    </property>
+                    <property name="minValue">
+                        <number>0</number>
+                    </property>
+                    <property name="value">
+                        <number>295</number>
+                    </property>
+                </widget>
             </hbox>
         </widget>
     </grid>

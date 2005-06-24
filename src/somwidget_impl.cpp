@@ -80,7 +80,7 @@ void SOMWidgetIMPL::slotTemp( int temp )
 	else
 	{
 		htmlcode += i18n( "No elements with a melting point around this temperature" );
-		htmlcode += "<br>";
+		htmlcode += "<br><br>";
 	}
 	if ( listBoilingPoint.count() > 0 )
 	{

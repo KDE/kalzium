@@ -33,11 +33,11 @@
 #include <qbuttongroup.h>
 
 ExportDialog::ExportDialog( KalziumDataObject *data, QWidget *parent, const char *name)
-    : KDialogBase( Plain, i18n( "Export Data" ), User1|Close, Close, parent, name, false )
+    : KDialogBase( Plain, i18n( "Export Data" ), User1|Close, Close, parent, name, false, false, KGuiItem( "Export" ) )
 {
-	QVBoxLayout *vbox = new QVBoxLayout( this, 0, KDialog::spacingHint() );
+	QVBoxLayout *vbox = new QVBoxLayout( plainPage(), 0, KDialog::spacingHint() );
 	
-	QButtonGroup *group = new QButtonGroup( i18n( "Selectable Datasets" ), this );
+	QButtonGroup *group = new QButtonGroup( 1, Qt::Horizontal, i18n( "Selectable Datasets" ), plainPage() );
 
 	vbox->addWidget( group );
 
@@ -47,15 +47,15 @@ ExportDialog::ExportDialog( KalziumDataObject *data, QWidget *parent, const char
 	names.append( i18n( "van der Waals Radius" ) );
 	names.append( i18n( "Atomic Mass" ) );
 	names.append( i18n( "Density" ) );
-	names.append( i18n( "Boilingpoint" ) );
-	names.append( i18n( "Meltingpoint" ) );
+	names.append( i18n( "Boiling point" ) );
+	names.append( i18n( "Melting point" ) );
 	
 	QStringList::Iterator iterator = names.begin();
 	QStringList::Iterator itEnd = names.end();
 
 	for ( ; iterator != itEnd; ++iterator )
 	{
-		group->insert( new QCheckBox( *iterator, this, "names-item" ) );
+		new QCheckBox( *iterator, group, "names-item" );
 	}
 
 	m_data = data;
