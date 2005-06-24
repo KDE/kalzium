@@ -28,6 +28,23 @@ Features
   guess. Something like that was in Kalzium of KDE 3.1 I
   think.  But my implementation sucked so much I removed it.
 
+* Calculator: On "Remove": 'Grey out' the elements which are not
+  in the molecule so that it is easier to spot the elements which
+  can be removed.
+
+* Add KHotNewStuff support (xml) so that a user can define which
+  dates are displayed in the timeline (see SOM)
+
+* Slider of Timeline/SOM: Add Tickmarks for min and max
+
+* Move "Temperature" and "Year" above the slider
+  ** move the KIntNumSpinbox to the right of the slider
+
+* Log-scale of the gradient
+
+* Timeline+SOM: some font+align like in the calculator
+
+
 * Make the glossary also into a dictionary
 
 * Add more than only one mode to Kalzium, eg a mode with simplified

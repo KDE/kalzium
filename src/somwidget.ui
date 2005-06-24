@@ -8,9 +8,12 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>200</width>
-            <height>332</height>
+            <width>502</width>
+            <height>512</height>
         </rect>
+    </property>
+    <property name="caption">
+        <string>SOMWidget</string>
     </property>
     <grid>
         <property name="name">
@@ -29,10 +32,25 @@
             <property name="sizeHint">
                 <size>
                     <width>21</width>
-                    <height>5</height>
+                    <height>16</height>
                 </size>
             </property>
         </spacer>
+        <widget class="QTextEdit" row="4" column="0">
+            <property name="name">
+                <cstring>text</cstring>
+            </property>
+            <property name="font">
+                <font>
+                    <bold>1</bold>
+                </font>
+            </property>
+            <property name="text">
+                <string>Move the slider
+to find out about
+the state of matter</string>
+            </property>
+        </widget>
         <spacer row="3" column="0">
             <property name="name">
                 <cstring>spacer3</cstring>
@@ -46,30 +64,13 @@
             <property name="sizeHint">
                 <size>
                     <width>21</width>
-                    <height>5</height>
+                    <height>16</height>
                 </size>
             </property>
         </spacer>
-        <widget class="QSlider" row="1" column="0" rowspan="1" colspan="2">
+        <widget class="QLayoutWidget" row="1" column="0">
             <property name="name">
-                <cstring>temp_slider</cstring>
-            </property>
-            <property name="minValue">
-                <number>0</number>
-            </property>
-            <property name="maxValue">
-                <number>5000</number>
-            </property>
-            <property name="value">
-                <number>295</number>
-            </property>
-            <property name="orientation">
-                <enum>Horizontal</enum>
-            </property>
-        </widget>
-        <widget class="QLayoutWidget" row="2" column="0" rowspan="1" colspan="2">
-            <property name="name">
-                <cstring>layout7</cstring>
+                <cstring>layout3</cstring>
             </property>
             <hbox>
                 <property name="name">
@@ -95,36 +96,86 @@
                     </property>
                     <property name="sizeHint">
                         <size>
-                            <width>5</width>
+                            <width>226</width>
                             <height>21</height>
                         </size>
                     </property>
                 </spacer>
-                <widget class="KIntSpinBox">
-                    <property name="name">
-                        <cstring>Number1</cstring>
-                    </property>
-                    <property name="maxValue">
-                        <number>5000</number>
-                    </property>
-                    <property name="minValue">
-                        <number>0</number>
-                    </property>
-                    <property name="value">
-                        <number>295</number>
-                    </property>
-                </widget>
             </hbox>
         </widget>
-        <widget class="QTextEdit" row="4" column="0" rowspan="1" colspan="2">
+        <widget class="QLayoutWidget" row="2" column="0">
             <property name="name">
-                <cstring>text</cstring>
+                <cstring>layout4</cstring>
             </property>
-            <property name="text">
-                <string>Move the slider
-to find out about
-the state of matter</string>
-            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout2</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QSlider">
+                            <property name="name">
+                                <cstring>temp_slider</cstring>
+                            </property>
+                            <property name="minValue">
+                                <number>0</number>
+                            </property>
+                            <property name="maxValue">
+                                <number>5000</number>
+                            </property>
+                            <property name="value">
+                                <number>295</number>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="tickmarks">
+                                <enum>Below</enum>
+                            </property>
+                            <property name="tickInterval">
+                                <number>500</number>
+                            </property>
+                        </widget>
+                        <widget class="KIntSpinBox">
+                            <property name="name">
+                                <cstring>Number1</cstring>
+                            </property>
+                            <property name="maxValue">
+                                <number>5000</number>
+                            </property>
+                            <property name="minValue">
+                                <number>0</number>
+                            </property>
+                            <property name="value">
+                                <number>295</number>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer4</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>51</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+            </hbox>
         </widget>
     </grid>
 </widget>

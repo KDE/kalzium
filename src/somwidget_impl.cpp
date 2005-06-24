@@ -77,6 +77,11 @@ void SOMWidgetIMPL::slotTemp( int temp )
 		}
 		htmlcode += "<br>";
 	}
+	else
+	{
+		htmlcode += i18n( "No elements with a melting point around this temperature" );
+		htmlcode += "<br>";
+	}
 	if ( listBoilingPoint.count() > 0 )
 	{
 		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "<br>";
@@ -84,6 +89,11 @@ void SOMWidgetIMPL::slotTemp( int temp )
 		{
 			htmlcode += "&nbsp;<b>&middot;</b>&nbsp;" + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listBoilingPoint[i] ).arg( listBoilingPointValue[i] ) + "<br>";
 		}
+		htmlcode += "<br>";
+	}
+	else
+	{
+		htmlcode += i18n( "No elements with a boiling point around this temperature" );
 		htmlcode += "<br>";
 	}
 
