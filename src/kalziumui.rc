@@ -2,9 +2,8 @@
 <kpartgui name="kalzium" version="2">
 <MenuBar>
   <Menu name="view"><text>&amp;View</text>
-    <Action name="view_sidebar"/>
   </Menu>
-  <Menu name="table_menu"><text>&amp;Periodic Table</text>
+  <Menu name="table_menu"><text>&amp;View</text>
     <Action name="numerationtype" />
     <Menu name="look_menu"><text>&amp;Look</text>
       <Action name="look_noscheme" />
@@ -23,6 +22,7 @@
   <Menu name="miscmenu"><text>&amp;Tools</text>
     <Action name="plotdata" />
     <Action name="glossary" />
+    <Action name="export_data"/>
   </Menu>
 </MenuBar>
 

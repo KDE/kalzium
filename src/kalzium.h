@@ -107,7 +107,8 @@ class Kalzium : public KMainWindow
 		KSelectAction *numeration_action;
 		KAction *m_pPlotAction,
 				*m_pGlossaryAction,
-				*m_SidebarAction;
+				*m_SidebarAction,
+				*m_ExportAction;
 		
 		KToggleAction *m_pTooltipAction;
 		KToggleAction *m_pLegendAction;
@@ -154,6 +155,8 @@ class Kalzium : public KMainWindow
 		 * this slot switches Kalzium to the selected color scheme
 		 */
 		void slotShowScheme(int);
+
+		void slotExportData();
 
 		void slotShowLegend();
 		

@@ -25,6 +25,7 @@
 #include "detailedgraphicaloverview.h"
 #include "timewidget.h"
 #include "somwidget_impl.h"
+#include "exportdialog.h"
 
 #include <qdockwindow.h>
 #include <qlayout.h>
@@ -76,12 +77,10 @@ Kalzium::Kalzium()
 	if ( m_PSE->showLegend() )
 	{
 		m_pLegendAction->setChecked( true );
-		m_pLegendAction->setText( i18n( "Hide &Legend") );
 	}
 	if ( m_PSE->tooltipsEnabled() )
 	{
 		m_pTooltipAction->setChecked( true );
-		m_pTooltipAction->setText( i18n( "Hide &Tooltip") );
 	}
 	if ( Prefs::showsidebar() )
 		m_dockWin->show();
@@ -132,6 +131,8 @@ void Kalzium::setupActions()
 	connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
 
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
+	
+	m_ExportAction = new KAction(i18n("Export Data"), "sidebar", 0, this, SLOT(slotExportData()), actionCollection(), "export_data");
 
 	/*
 	 * the misc actions
@@ -270,11 +271,6 @@ void Kalzium::slotEnableTooltips()
 	bool enabled = m_PSE->tooltipsEnabled();
 	enabled = !enabled;
 
-	if ( enabled )
-		m_pTooltipAction->setText(i18n("Hide &Tooltips"));
-	else
-		m_pTooltipAction->setText(i18n("Show &Tooltips"));
-
 	m_PSE->setTooltipsEnabled( enabled );
 	
 	Prefs::setTooltip( enabled ); 
@@ -286,12 +282,10 @@ void Kalzium::slotShowLegend()
 	if(m_PSE->showLegend())
 	{
 		m_PSE->showLegend(false);
-		m_pLegendAction->setText(i18n("Show &Legend"));
 	}
 	else
 	{
 		m_PSE->showLegend(true);
-		m_pLegendAction->setText(i18n("Hide &Legend"));
 	}
 	m_PSE->update();
 	
@@ -310,6 +304,12 @@ void Kalzium::slotShowHideSidebar()
 	else
 		m_dockWin->show();
 	
+}
+
+void Kalzium::slotExportData()
+{
+	ExportDialog *dlg = new ExportDialog( data(), this );
+	dlg->show();
 }
 
 void Kalzium::slotShowScheme(int i)

@@ -22,7 +22,8 @@ kalzium_SOURCES = kalzium.cpp \
 			somwidget.ui \
 			somwidget_impl.cpp \
 			glossarydialog.cpp \
-			kalziumtip.cpp
+			kalziumtip.cpp \
+			exportdialog.cpp
 			
 kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) -lkdeeduplot
 		 
@@ -44,7 +45,8 @@ EXTRA_DIST = main.cpp \
 		timewidget.ui \
 		somwidget.ui \
 		somwidget_impl.cpp somwidget_impl.h \
-		glossarydialog.cpp glossarydialog.h
+		glossarydialog.cpp glossarydialog.h \
+		exportdialog.cpp exportdialog.h
 
 METASOURCES = AUTO 
 
