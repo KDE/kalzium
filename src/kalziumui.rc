@@ -1,7 +1,8 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <kpartgui name="kalzium" version="2">
 <MenuBar>
-  <Menu name="view"><text>&amp;View</text>
+  <Menu name="file" noMerge="0"><text>&amp;File</text>
+    <Action name="export_data"/>
   </Menu>
   <Menu name="table_menu"><text>&amp;View</text>
     <Action name="numerationtype" />
@@ -22,7 +23,9 @@
   <Menu name="miscmenu"><text>&amp;Tools</text>
     <Action name="plotdata" />
     <Action name="glossary" />
-    <Action name="export_data"/>
+  </Menu>
+  <Menu name="settings"><text>&amp;Settings</text>
+    <Action name="view_sidebar" append="show_merge"/>
   </Menu>
 </MenuBar>
 
@@ -30,9 +33,7 @@
   <text>Main Toolbar</text>
   <Action name="toggle_legend" />
   <Action name="toggle_tooltip" />
- </ToolBar>
-<ToolBar name="toolsToolBar">
-  <text>Tools</text>
+  <Separator />
   <Action name="plotdata" />
   <Action name="glossary" />
 </ToolBar>
