@@ -70,3 +70,21 @@ http://en.wikipedia.org/wiki/Periodic_table_(standard) and see the notes
 about borders.
 
 
+*** WIKIPEDIA ***
+
+What do I need from kdelibs:
+
+* validate if an article exists
+  bool articleExists( const QString& articlename )
+* return an article (wiketext, xml or html) which I request
+  -- getArticle( const QString& articlename )
+* return several articles (wiketext, xml or html) which I request by
+  using QStringList
+  -- getArticles( QStringList articles )
+* return the users who modified an article
+  -- articleAuthors( const QString& articlename )
+* return the full-size version of an image. In an article there are usually
+  resized pics, sometimes even on stamp-size. There has to be a 
+  mechanismn to retrieve the fullsized version.
+
+
