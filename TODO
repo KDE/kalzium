@@ -64,6 +64,10 @@ Features
 
 * Add the weblookup also in the glossary
 
+* Besides although for the "common user" is more easy to understand 
+  the information in "... years", it's more correct and flexible in 
+  scientific terms to use the scientific notation: ...x10e9 years.
+
 * Add lesson-mode? The idea is that a teacher could create xml-files
   which can somehow be used as lessons. Perhaps something like
   "find out how many element boild at 200 Degree Celsius and above.
