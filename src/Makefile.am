@@ -25,7 +25,7 @@ kalzium_SOURCES = kalzium.cpp \
 			kalziumtip.cpp \
 			exportdialog.cpp
 			
-kalzium_LDADD   = $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) -lkdeeduplot
+kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) 
 		 
 		  
 SUBDIRS = icons elementpics data
