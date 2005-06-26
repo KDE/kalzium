@@ -3024,7 +3024,7 @@
 			<energy>6.08 </energy>
 		</ionisationenergy>
 		<isotopes>
-			<isotope halflife="" halflifeformat="" weight="134.0409" neutron="234" percentage="0.0055" />
+			<isotope halflife="" halflifeformat="" weight="234.0409" neutron="234" percentage="0.0055" />
 			<isotope halflife="703800000" halflifeformat="years" weight="235.0439" neutron="235" percentage="0.07200" />
 			<isotope halflife="4468000000" halflifeformat="years" weight="238.0508" neutron="238" percentage="99.2745" />
 		</isotopes>
