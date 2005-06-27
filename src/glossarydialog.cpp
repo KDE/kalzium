@@ -110,6 +110,7 @@ void GlossaryDialog::keyPressEvent(QKeyEvent* e)
 	if (e->key() == Qt::Key_Return) {
 		e->ignore();
 	}
+        KDialogBase::keyPressEvent(e);
 }
 
 void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
