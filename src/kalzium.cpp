@@ -132,14 +132,14 @@ void Kalzium::setupActions()
 
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
-	m_ExportAction = new KAction(i18n("Export Data"), "sidebar", 0, this, SLOT(slotExportData()), actionCollection(), "export_data");
+	m_ExportAction = new KAction(i18n("Export &Data..."), 0, this, SLOT(slotExportData()), actionCollection(), "export_data");
 
 	/*
 	 * the misc actions
 	 **/
-	m_pPlotAction = new KAction(i18n("&Plot Data"), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
+	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
-	m_pGlossaryAction = new KAction(i18n("&Glossary"), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
+	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
 	//Legend
 	m_pLegendAction = new KToggleAction(i18n("Show &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");

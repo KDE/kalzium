@@ -48,18 +48,19 @@ MolcalcWidget::MolcalcWidget( KalziumDataObject *data, QWidget *parent, const ch
 
 	plusButton = new KToggleAction( i18n( "&Add" ), "add", 0, 0, 0, this, "add" );
 	plusButton->setChecked( true );
-	plusButton->setWhatsThis( i18n( "If this button is selected, a selected element will be added to the molecule" ) );
+	plusButton->setWhatsThis( i18n( "Toggle this button to allow selected elements to be added to the current molecule" ) );
 	connect( plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
 	plusButton->plug( toolbar );
 
 	minusButton = new KToggleAction( i18n( "&Remove" ), "remove", 0, 0, 0, this, "remove" );
-	minusButton->setWhatsThis( i18n( "If this button is selected, a selected element will be removed from the molecule" ) );
+	minusButton->setWhatsThis( i18n( "Toggle this button to allow selected elements to be added to the current molecule" ) );
 	connect( minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
 	minusButton->plug( toolbar );
 
 	toolbar->insertLineSeparator();
 
 	KAction *clearButton = new KAction( i18n( "&Clear" ), "trashcan_empty", 0, this, SLOT( clear() ), this, "clear" );
+	clearButton->setWhatsThis( i18n( "Click this button to drop the created molecule" ) );
 	clearButton->plug( toolbar );
 
 	clear();
