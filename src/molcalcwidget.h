@@ -24,6 +24,7 @@
 
 #include <qmap.h>
 
+class KToggleAction;
 class Element;
 class KalziumDataObject;
 class MolcalcDialog;
@@ -49,6 +50,9 @@ class MolcalcWidget : public MolcalcWidgetBase
 		
 		double m_mass;
 		QValueList<Element*> m_elements;
+
+		KToggleAction *plusButton;
+		KToggleAction *minusButton;
 
 		enum KIND
 		{
