@@ -1,4 +1,16 @@
 <tools>
+	<tool picture="uhrglas.jpg">
+		<name>Watchglas</name>
+		<desc>Watchglasses are round glass panes with a diameter of circa 5 - 10 cm which are used in the laboratory technics. Their border is a bit bent up so that you can fill them with little amounts of liquids in order to let them evaporate. The evaporation can be accelerated by heating the watchglass with a Bunsen burner. Watchglassen also can be used to cover petri dishes or beakers. Moreover watchglasses are suited to weigh little amounts of matter or alternatively dry them in the airing cupboard. The term watchglass is derived from the former pocket watches' protection glass which was often domed.</desc>
+	</tool>
+	<tool picture="thermometer2.jpg">
+		<name>Contact Thermometer</name>
+		<desc>The difference between a contact thermometer and a normal thermometer is that the contact thermometer has an electric sensor. When a set temperature is overstepped the contact thermometer tells an attached heating device to stop heating. In this way you can keep relatively exact one temperature during an experiment.</desc>
+	</tool>
+	<tool picture="moerser.jpg">
+		<name>Mortar</name>
+		<desc>In a mortar solid matters are mechanically hackled. Also you can homogenise a mixture of e.g. salts through grating using a mortar. The thruster for levigating is called pestle.</desc>
+	</tool>
 	<tool picture="heizplatte.jpg">
 		<name>Heating Coil</name>
 		<desc>Heating coils are used to heat flasks and other containers. Multiple heating coils can be connected with a thermometer so that the heat will not exceed a specified temperature. It is possible to use a magnetic field inside the heating coil to stir fluids with a magnetic stirrer. This will homogenize the fluid in terms of temperature and composition.</desc>
