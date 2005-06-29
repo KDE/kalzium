@@ -7,6 +7,24 @@
 		<name>Contact Thermometer</name>
 		<desc>The difference between a contact thermometer and a normal thermometer is that the contact thermometer has an electric sensor. When a set temperature is overstepped the contact thermometer tells an attached heating device to stop heating. In this way you can keep relatively exact one temperature during an experiment.</desc>
 	</tool>
+	<tool picture="exikator.jpg">
+                <name>Dehydrator</name>
+		<desc>A dehydrator is a laboratory apparatus which is often made of glass and serves to dry chemical matters, means for deprivation of water alternatively liquid.
+                        In principle it is a glass bowl with cap which has a planar grinding so that the bowl is air tight closeable. The dehydrator's lower part is ordinarily filled with a drying agent e.g. calcium chloride, silica gel, phosphoric anhydride or sulphuric acid. On a diaphanous cartridge of plastic or ceramics above the drying agent the matter is put in order to dry.
+                        The drying agent is hygroscopic that means it dehumidifies its environment and absorbs the humidity. The atmosphere in the dehydrator dryed by the drying agent dehumidifies water alternatively dissolver tself from the matter to dry.</desc>
+        </tool>
+        <tool picture="spatel.jpg">
+                <name>Spattle</name>
+                <desc> The spattle is a laboratory apparatus to scrape off, hackle and transport chemicals. The material they are made of (e.g. iron, titan, platinum) and their design (e.g. flat spattle or spoon spattle) can be different.</desc>
+        </tool>
+        <tool picture="wasserstrahlpumpe.jpg">
+                <name>Water Jet Pump</name>
+                <desc>The water jet pump has two entries and one exit and consists in principle of two pipes that are sticked into each other. At the water entry a water jet shoots under full fuel-line pressure out of a nozzle into a bit larger pipe. Thereby the water jet carries away air or fluid from the second entry. &lt;br&gt; this is caused by the negativ pressure in a drifting fluid. Thus it is an appliance of the hydrodynamic paradox. This says that objects close to drifting fluids are aspirated instead of being pushed away.</desc>
+        </tool>
+        <tool picture="brechungsmesser.jpg">
+                <name>Refractometer</name>
+                <desc>With a refractometer the refraction index of optical medias is determined. If the refraction index of a chemical is known it can be used after a synthesis to determine the product's pureness or to audit the synthesis' success.</desc>
+        </tool>
 	<tool picture="moerser.jpg">
 		<name>Mortar</name>
 		<desc>In a mortar solid matters are mechanically hackled. Also you can homogenise a mixture of e.g. salts through grating using a mortar. The thruster for levigating is called pestle.</desc>
