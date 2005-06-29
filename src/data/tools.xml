@@ -105,6 +105,30 @@
 		<name>Magnetic stir bar</name>
 		<desc>Magnetic stir bars are highly chemically inert, small magnetic bars. Most heaters have a built-in magnet which can rotate. Through this rotation the magnetic stir bars are spun and the solution the magnetic stir bar is in is homogenized.</desc>
 	</tool>
+	<tool picture="">
+		<name>Magnetic Stir Bar Retriever</name>
+		<desc>With a magnetic stir bar retriever you can remove magnetic stir bars from a pot. The retriever is a bar with a magnet at the end which attracts the stir bars.</desc>
+	</tool>
+	<tool picture="pipette.jpg">
+		<name>Pipette</name>
+		<desc>Pipettes serve to dose liquids in laboratories. On a pipette there is a volume scale. As a rule pileusballs are used as pipettors. Both sorts of pipettes are adjusted to fluids with a temperature of 20°C and to outflow (Ex.). If needed times of outflow are indicated on the pipettes.</desc>
+	</tool>
+	<tool picture="erlenmeyerkolben.jpg">
+		<name>Erlenmeyer Flask</name>
+		<desc>This flask named after the chemist Emil Erlenmeyer (1825-1909) comes - unlike the beaker - with an inverted conical base with a cylindrical neck. There are different types of erlenmeyer flasks in the laboratory application, the narrow and wide neck form and depending on the application also flasks with a normed grinding.
+			&lt;br&gt;
+			Through the narrowing neck the danger that fluids escape uncontrolled of the flask while addition of matter, brandishing, stiring or boiling is explicit smaller than by a beaker.
+			&lt;br&gt;
+			So you can in an Erlenmeyer flask easily e.g. mix fluids or accelerate solution processes by - also relatively keenly - stiring or brandishing. He also is suited - like the round-bottomed flask - for the magnetic stirrer but can be put directly because of his flat bottom. (The round-bottomed flask whereas needs a cork ring or a stage for a safe stand, the latter makes brandishing with the hand or checking by holding into back light impossible.)</desc>
+	</tool>
+	<tool picture="">
+		<name>Ultrasonic Bath</name>
+		<desc>For some chemical reactions it is important that the dissolver is gas free. To achieve this the reaction vessel is put for some time into a ultrasonic bath. Through the high sound frequency the vapour locks peel away and ascend. This procedure is called outgassing.</desc>
+	</tool>
+	<tool picture="waage.jpg">
+		<name>Scales</name>
+		<desc>In a laboratory you often have to weigh out very precise amounts of reagents. High precise scales can measure masses down to 1/10000 gram.Therefor they stand on granite blocks to avoid vibrancies and are protected against blasts by a dome.</desc>
+	</tool>
 	<tool picture="destillierbruecke.jpg">
 		<name>Distillation bridge</name>
 		<desc>To separate a mixture you can use distillation amongst others. The distillation bridge is thereby the way between the two pots. In the one pot there is the mixture to be separated. Through heating, a gas forms which is lead through the bridge. At the end of the bridge the gas phase is condensed again and drips in a round flask. As a rule, the bridge is cooled by return flow. In addition, there is often a thermometer for controlling the temperature on the distillation bridge.</desc>
