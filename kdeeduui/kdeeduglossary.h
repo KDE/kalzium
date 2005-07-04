@@ -68,16 +68,25 @@ class Glossary
 		QString name()const{
 			return m_name;
 		}
-		
+
+		void setItemlist( QValueList<GlossaryItem*> list ){
+			m_itemlist = list;
+		}
+
 		/**
-		 * @param path The path where to look for the file
-		 * @param filename The file to be loaded
-		 * @return true if the file was successfully loaded
+		 * Read a glossary from an XML file.
+		 *
+		 * @param url The path of the file to load
+		 *
+		 * @return a pointer to the loaded glossary. Even in case of
+		 *         error, this won't return 0 but an empty Glossary.
 		 */
-		bool loadLayout( QDomDocument&, const QString& path, const QString& filename );
+		static Glossary* readFromXML( const KURL& url );
 	
 	private:
 		QValueList<GlossaryItem*> readItems( QDomDocument &itemDocument );
+		
+		bool loadLayout( QDomDocument&, const KURL& url );
 		
 		QValueList<GlossaryItem*> m_itemlist;
 		

@@ -29,12 +29,8 @@
 #include <qstringlist.h>
 #include <qtoolbutton.h>
 
-bool Glossary::loadLayout( QDomDocument &questionDocument, const QString& path, const QString& filename )
+bool Glossary::loadLayout( QDomDocument &questionDocument, const KURL& url )
 {
-        KURL url;
-        url.setPath( path );
-		url.setFileName( filename );
-
         QFile layoutFile( url.path() );
 
         if (!layoutFile.exists())
@@ -54,6 +50,22 @@ bool Glossary::loadLayout( QDomDocument &questionDocument, const QString& path, 
 //X         layoutFile.close();
 
         return true;
+}
+
+Glossary* Glossary::readFromXML( const KURL& url )
+{
+	QDomDocument doc( "document" );
+
+	Glossary *glossary = new Glossary();
+
+	if ( glossary->loadLayout( doc, url ) )
+	{
+		QValueList<GlossaryItem*> itemList;
+		itemList = glossary->readItems( doc );
+		glossary->setItemlist( itemList );
+	}
+
+	return glossary;
 }
 
 QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
