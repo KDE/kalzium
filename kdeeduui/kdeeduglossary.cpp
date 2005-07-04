@@ -7,7 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "glossarydialog.h"
+#include "kdeeduglossary.h"
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -102,7 +102,7 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 //X 		list.append( item );
 //X 	}
 //X 	
-//X 	return list;
+	return list;
 }
 
 
@@ -324,6 +324,8 @@ void GlossaryDialog::slotClose()
 
 QString GlossaryItem::toHtml() const
 {
+	//XXX TMP!!!
+	QString code;
 //X 	QString code = "<h1>" + m_name + "</h1>" + m_desc;
 //X 
 //X //	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
@@ -332,11 +334,13 @@ QString GlossaryItem::toHtml() const
 //X 		QString refcode = parseReferences();
 //X 		code += refcode;
 //X 	}
-//X 	return code;
+	return code;
 }
 
-QString KnowledgeItem::parseReferences() const
+QString GlossaryItem::parseReferences() const
 {
+	//XXX TMP!!!
+	QString htmlcode;
 //X 	QString htmlcode = "<h3>" + i18n( "References" ) + "</h3>";
 //X 	
 //X 	bool first = true;
@@ -349,7 +353,7 @@ QString KnowledgeItem::parseReferences() const
 //X 		htmlcode += QString( "<a href=\"item://%1\">%2</a>" ).arg( m_ref[i], m_ref[i] );
 //X 	}
 //X 
-//X 	return htmlcode;
+	return htmlcode;
 }
 
 
