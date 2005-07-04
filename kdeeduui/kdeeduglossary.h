@@ -76,6 +76,14 @@ class Glossary
 			m_itemlist = list;
 		}
 
+		/**
+		 * Read a glossary from an XML file.
+		 *
+		 * @param url The path of the file to load
+		 *
+		 * @return a pointer to the loaded glossary. Even in case of
+		 *         error, this won't return 0 but an empty Glossary.
+		 */
 		static Glossary* readFromXML( const KURL& url );
 	
 	private:
@@ -87,14 +95,16 @@ class Glossary
 		virtual QValueList<GlossaryItem*> readItems( QDomDocument &itemDocument );
 		
 		/**
-		 * Read a glossary from an XML file.
+		 * Load the layout from an XML file.
 		 *
+		 * @param doc The QDomDocument which will contain the read XML
+		 *            contents.
 		 * @param url The path of the file to load
 		 *
-		 * @return a pointer to the loaded glossary. Even in case of
-		 *         error, this won't return 0 but an empty Glossary.
+		 * @return a bool indicating whether the loading of the XML was
+		 *         successfull or not
 		 */
-		bool loadLayout( QDomDocument&, const KURL& url );
+		bool loadLayout( QDomDocument& doc, const KURL& url );
 	
 		QValueList<GlossaryItem*> m_itemlist;
 		
