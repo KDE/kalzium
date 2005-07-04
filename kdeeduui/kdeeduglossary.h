@@ -47,6 +47,10 @@ class Glossary
 			m_itemlist.append( item );
 		}
 
+		QValueList<GlossaryItem*> itemlist()const{
+			return m_itemlist;
+		}
+
 		/**
 		 * clear the Glossary
 		 */
@@ -126,8 +130,8 @@ class Glossary
 class GlossaryItem
 {
 	public:
-		GlossaryItem();
-		~GlossaryItem();
+		GlossaryItem(){};
+		~GlossaryItem(){};
 
 		void setName( const QString& s ){
 			m_name = s;

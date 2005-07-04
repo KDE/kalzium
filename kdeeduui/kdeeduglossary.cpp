@@ -75,48 +75,47 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 {
 	QValueList<GlossaryItem*> list;
 
-//X 	QDomNodeList itemList;
-//X 	QDomNodeList refNodeList;
-//X 	QDomElement itemElement;
-//X 	QStringList reflist;
-//X 
-//X 	itemList = itemDocument.elementsByTagName( "item" );
-//X 
-//X 	const uint num = itemList.count();
-//X 	for ( uint i = 0; i < num; ++i )
-//X 	{
-//X 		reflist.clear();
-//X 		KnowledgeItem *item = new KnowledgeItem();
-//X 		
-//X 		itemElement = ( const QDomElement& ) itemList.item( i ).toElement();
-//X 		
-//X 		QDomNode nameNode = itemElement.namedItem( "name" );
-//X 		QDomNode descNode = itemElement.namedItem( "desc" );
-//X 		QDomElement refNode = ( const QDomElement& ) itemElement.namedItem( "references" ).toElement();
-//X 
-//X 		QString desc = descNode.toElement().text();
+	QDomNodeList itemList;
+	QDomNodeList refNodeList;
+	QDomElement itemElement;
+	QStringList reflist;
+
+	itemList = itemDocument.elementsByTagName( "item" );
+
+	const uint num = itemList.count();
+	for ( uint i = 0; i < num; ++i )
+	{
+		reflist.clear();
+		GlossaryItem *item = new GlossaryItem();
+		
+		itemElement = ( const QDomElement& ) itemList.item( i ).toElement();
+		
+		QDomNode nameNode = itemElement.namedItem( "name" );
+		QDomNode descNode = itemElement.namedItem( "desc" );
+		QDomElement refNode = ( const QDomElement& ) itemElement.namedItem( "references" ).toElement();
+
+		QString desc = descNode.toElement().text();
+//TODO fix the pictures-tag
 //X 		desc.replace("[img]", m_picbasestring );
 //X 		desc.replace("[/img]", "\" />" );
-//X 		desc.replace("[b]", "<b>" );
-//X 		desc.replace("[/b]", "</b>" );
-//X 		desc.replace("[i]", "<i>" );
-//X 		desc.replace("[/i]", "</i>" );
-//X 
-//X //		kdDebug() << desc << endl;
-//X 		
-//X 		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
-//X 		item->setDesc( i18n( desc.utf8() ) );
-//X 		refNodeList = refNode.elementsByTagName( "refitem" );
-//X 		for ( uint it = 0; it < refNodeList.count(); it++ )
-//X 		{
-//X 			reflist << i18n( refNodeList.item( it ).toElement().text().utf8() );
-//X 		}
-//X 		reflist.sort();
-//X 		item->setRef( reflist );
-//X 		
-//X 		list.append( item );
-//X 	}
-//X 	
+		desc.replace("[b]", "<b>" );
+		desc.replace("[/b]", "</b>" );
+		desc.replace("[i]", "<i>" );
+		desc.replace("[/i]", "</i>" );
+
+		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
+		item->setDesc( i18n( desc.utf8() ) );
+		refNodeList = refNode.elementsByTagName( "refitem" );
+		for ( uint it = 0; it < refNodeList.count(); it++ )
+		{
+			reflist << i18n( refNodeList.item( it ).toElement().text().utf8() );
+		}
+		reflist.sort();
+		item->setRef( reflist );
+		
+		list.append( item );
+	}
+	
 	return list;
 }
 
@@ -208,60 +207,47 @@ void GlossaryDialog::keyPressEvent(QKeyEvent* e)
 
 void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 {
-//X 	// using the "host" part of a kurl as reference
-//X 	QString myurl = url.host().lower();
-//X 	m_search->setText( "" );
-//X 	m_search->updateSearch( "" );
-//X 	QListViewItem *found = 0;
-//X 	QListViewItemIterator it( m_glosstree );
-//X 	QListViewItem *item;
-//X 	while ( it.current() )
-//X 	{
-//X 		item = it.current();
-//X 		if ( item->text(0).lower() == myurl )
-//X 		{
-//X 			found = item;
-//X 			break;
-//X 		}
-//X 		++it;
-//X 	}
-//X 	slotClicked( found );
+	// using the "host" part of a kurl as reference
+	QString myurl = url.host().lower();
+	m_search->setText( "" );
+	m_search->updateSearch( "" );
+	QListViewItem *found = 0;
+	QListViewItemIterator it( m_glosstree );
+	QListViewItem *item;
+	while ( it.current() )
+	{
+		item = it.current();
+		if ( item->text(0).lower() == myurl )
+		{
+			found = item;
+			break;
+		}
+		++it;
+	}
+	slotClicked( found );
 }
 
 void GlossaryDialog::populateTree()
 {
-//X 	QValueList<KnowledgeItem*>::iterator it = m_itemList.begin();
-//X 	const QValueList<KnowledgeItem*>::iterator itEnd = m_itemList.end();
-//X 	
-//X 	QListViewItem *main = new QListViewItem( m_glosstree, i18n( "Main Glossary" ) );
-//X 	main->setExpandable( true );
-//X 	main->setSelectable( false );
-//X 	for ( ; it != itEnd ; ++it )
-//X 	{
-//X 		QChar thisletter = ( *it )->name().upper()[0];
-//X 		QListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
-//X 		if ( !thisletteritem )
-//X 		{
-//X 			thisletteritem = new QListViewItem( main, thisletter );
-//X 			thisletteritem->setExpandable( true );
-//X 			thisletteritem->setSelectable( false );
-//X 		}
-//X 		new QListViewItem( thisletteritem, ( *it )->name() );
-//X 	}
-//X 	main->sort();
-//X 
-//X 	QValueList<ToolItem*>::iterator itTools = m_toolList.begin();
-//X 	const QValueList<ToolItem*>::iterator itEndTools = m_toolList.end();
-//X 	
-//X 	QListViewItem *maintools = new QListViewItem( m_glosstree, i18n( "Tools" ) );
-//X 	maintools->setExpandable( true );
-//X 	maintools->setSelectable( false );
-//X 	for ( ; itTools != itEndTools ; ++itTools )
-//X 	{
-//X 		new QListViewItem( maintools, ( *itTools )->name() );
-//X 	}
-//X 	maintools->sort();
-
+	QValueList<GlossaryItem*>::iterator it = m_glossary.itemlist().begin();
+	const QValueList<GlossaryItem*>::iterator itEnd = m_glossary.itemlist().end();
+	
+	QListViewItem *main = new QListViewItem( m_glosstree, m_glossary.name() );
+	main->setExpandable( true );
+	main->setSelectable( false );
+	for ( ; it != itEnd ; ++it )
+	{
+		QChar thisletter = ( *it )->name().upper()[0];
+		QListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
+		if ( !thisletteritem )
+		{
+			thisletteritem = new QListViewItem( main, thisletter );
+			thisletteritem->setExpandable( true );
+			thisletteritem->setSelectable( false );
+		}
+		new QListViewItem( thisletteritem, ( *it )->name() );
+	}
+	main->sort();
 }
 
 QListViewItem* GlossaryDialog::findTreeWithLetter( const QChar& l, QListViewItem* i )
@@ -278,57 +264,37 @@ QListViewItem* GlossaryDialog::findTreeWithLetter( const QChar& l, QListViewItem
 
 void GlossaryDialog::slotClicked( QListViewItem *item )
 {
-//X 	if ( !item )
-//X 		return;
-//X 	
-//X 	QString html = m_htmlbasestring;
-//X 	
-//X 	/**
-//X 	 * The next lines are searching for the correct KnowledgeItem
-//X 	 * in the m_itemList. When it is found the HTML will be
-//X 	 * generated
-//X 	 */
-//X 	QValueList<KnowledgeItem*>::iterator it = m_itemList.begin();
-//X 	const QValueList<KnowledgeItem*>::iterator itEnd = m_itemList.end();
-//X 	bool found = false;
-//X 	KnowledgeItem *i = 0;
-//X 	while ( !found && it != itEnd )
-//X 	{
-//X 		if ( ( *it )->name() == item->text( 0 ) )
-//X 		{
-//X 			i = *it;
-//X 			found = true;
-//X 		}
-//X 		++it;
-//X 	}
-//X 	if ( found && i )
-//X 	{
-//X 		html += i->toHtml() + "</body></html>";
-//X 		m_htmlpart->begin();
-//X 		m_htmlpart->write( html );
-//X 		m_htmlpart->end();
-//X 		return;
-//X 	}
-//X 
-//X 	QValueList<ToolItem*>::iterator itTools = m_toolList.begin();
-//X 	const QValueList<ToolItem*>::iterator itEndTools = m_toolList.end();
-//X 	ToolItem *iTools = 0;
-//X 	while ( !found && itTools != itEndTools )
-//X 	{
-//X 		if ( ( *itTools )->name() == item->text( 0 ) )
-//X 		{
-//X 			iTools = *itTools;
-//X 			found = true;
-//X 		}
-//X 		++itTools;
-//X 	}
-//X 	if ( found && iTools )
-//X 	{
-//X 		html += iTools->toHtml() + "</body></html>";
-//X 		m_htmlpart->begin();
-//X 		m_htmlpart->write( html );
-//X 		m_htmlpart->end();
-//X 	}
+	if ( !item )
+		return;
+	
+	QString html = m_htmlbasestring;
+	
+	/**
+	 * The next lines are searching for the correct KnowledgeItem
+	 * in the m_itemList. When it is found the HTML will be
+	 * generated
+	 */
+	QValueList<GlossaryItem*>::iterator it = m_glossary.itemlist().begin();
+	const QValueList<GlossaryItem*>::iterator itEnd = m_glossary.itemlist().end();
+	bool found = false;
+	GlossaryItem *i = 0;
+	while ( !found && it != itEnd )
+	{
+		if ( ( *it )->name() == item->text( 0 ) )
+		{
+			i = *it;
+			found = true;
+		}
+		++it;
+	}
+	if ( found && i )
+	{
+		html += i->toHtml() + "</body></html>";
+		m_htmlpart->begin();
+		m_htmlpart->write( html );
+		m_htmlpart->end();
+		return;
+	}
 }
 
 void GlossaryDialog::slotClose()
