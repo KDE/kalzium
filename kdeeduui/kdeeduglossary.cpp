@@ -29,28 +29,28 @@
 #include <qstringlist.h>
 #include <qtoolbutton.h>
 
-bool Glossary::loadLayout( QDomDocument &questionDocument, const KURL& url )
+bool Glossary::loadLayout( QDomDocument &Document, const KURL& url )
 {
         QFile layoutFile( url.path() );
 
         if (!layoutFile.exists())
 			kdDebug() << "no such file: " << layoutFile.name() << endl;
-//X 
-//X 		//TODO really needed?
-//X         if (!layoutFile.open(IO_ReadOnly))
-//X                 return false;
-//X 
-//X         ///Check if document is well-formed
-//X         if (!questionDocument.setContent(&layoutFile))
-//X         {
-//X                 kdDebug() << "wrong xml" << endl;
-//X                 layoutFile.close();
-//X                 return false;
-//X         }
-//X         layoutFile.close();
+		
+        if (!layoutFile.open(IO_ReadOnly))
+                return false;
+
+        ///Check if document is well-formed
+        if (!Document.setContent(&layoutFile))
+        {
+                kdDebug() << "wrong xml" << endl;
+                layoutFile.close();
+                return false;
+        }
+        layoutFile.close();
 
         return true;
 }
+
 
 Glossary* Glossary::readFromXML( const KURL& url )
 {

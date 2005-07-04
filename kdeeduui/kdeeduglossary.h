@@ -69,10 +69,23 @@ class Glossary
 			return m_name;
 		}
 
+		/**
+		 * sets the internal list of items to @p list
+		 */
 		void setItemlist( QValueList<GlossaryItem*> list ){
 			m_itemlist = list;
 		}
 
+		static Glossary* readFromXML( const KURL& url );
+	
+	private:
+		/**
+		 * This methods parses the given xml-code. It will extract
+		 * the information of the items and return them as a
+		 * QValueList<GlossaryItem*>
+		 */
+		virtual QValueList<GlossaryItem*> readItems( QDomDocument &itemDocument );
+		
 		/**
 		 * Read a glossary from an XML file.
 		 *
@@ -81,15 +94,13 @@ class Glossary
 		 * @return a pointer to the loaded glossary. Even in case of
 		 *         error, this won't return 0 but an empty Glossary.
 		 */
-		static Glossary* readFromXML( const KURL& url );
-	
-	private:
-		QValueList<GlossaryItem*> readItems( QDomDocument &itemDocument );
-		
 		bool loadLayout( QDomDocument&, const KURL& url );
-		
+	
 		QValueList<GlossaryItem*> m_itemlist;
 		
+		/**
+		 * the name of the glossary
+		 */
 		QString m_name;
 };
 
