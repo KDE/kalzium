@@ -70,7 +70,8 @@ class Glossary
 		 * @returns the name of the glossary
 		 */
 		QString name()const{
-			return m_name;
+			return "GlossaryName";
+//X			return m_name;
 		}
 
 		/**
@@ -150,7 +151,8 @@ class GlossaryItem
 		}
 
 		QString name() const {
-			return m_name;
+			return "moin moin";
+//X			return m_name;
 		}
 		
 		QString desc() const {
@@ -198,9 +200,10 @@ class GlossaryDialog : public KDialogBase
 		 */
 		void addGlossary( Glossary* newgloss );
 
-
 	private:
 		QValueList<Glossary*> m_glossaries;
+
+		void updateTree();
 		
 		KHTMLPart *m_htmlpart;
 		QString m_htmlbasestring;
