@@ -49,6 +49,7 @@ int main(int argc, char **argv)
     about.addCredit( "M. Stegemann", I18N_NOOP( "Almost all pictures of the elements" ));
     about.addCredit( "Daniel Haas", I18N_NOOP( "The design of the information dialog" ));
     about.addCredit( "Brian Beck", I18N_NOOP( "The orbits-icon" ));
+    about.addCredit( "Lee Olson", I18N_NOOP( "Several icons in the information dialog" ));
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
