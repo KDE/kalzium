@@ -20,7 +20,6 @@
 #include "elementdataviewer.h"
 #include "detailinfodlg.h"
 #include "pse.h"
-#include "glossarydialog.h"
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
 #include "timewidget.h"
@@ -39,6 +38,9 @@
 #include <kaction.h>
 #include <kapplication.h>
 #include <kstatusbar.h>
+#include <kstandarddirs.h>
+
+#include <libkdeedu/kdeeduglossary.h>
 
 #define IDS_TEMP            1
 #define IDS_ENERG           3
@@ -85,6 +87,19 @@ Kalzium::Kalzium()
 	if ( Prefs::showsidebar() )
 		m_dockWin->show();
 	m_PSE->repaint();
+
+	// creating the glossary dialog and loading the glossaries we have
+	m_glossarydlg = new GlossaryDialog( this, "glossary" );
+	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
+	KURL u = dir + "kalzium/data/knowledge.xml";
+	Glossary *g = Glossary::readFromXML( u );
+	g->setName( i18n( "Knowledge" ) );
+	m_glossarydlg->addGlossary( g );
+	u = dir + "kalzium/data/tools.xml";
+	g = Glossary::readFromXML( u );
+	g->setName( i18n( "Tools" ) );
+	m_glossarydlg->addGlossary( g );
+	connect( m_glossarydlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
 }
 
 void Kalzium::setupActions()
@@ -207,9 +222,7 @@ void Kalzium::setupSidebars()
 void Kalzium::slotGlossary()
 {
 	emit tableLocked(true);
-	GlossaryDialog *dlg = new GlossaryDialog( this, "glossary" );
-	connect( dlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
-	dlg->show();
+	m_glossarydlg->show();
 }
 
 void Kalzium::setupStatusBar()

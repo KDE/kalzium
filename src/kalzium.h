@@ -34,6 +34,7 @@ class MolcalcWidget;
 class DetailedGraphicalOverview;
 class timeWidget;
 class SOMWidgetIMPL;
+class GlossaryDialog;
 
 /**
  * @short Application Main Window
@@ -136,6 +137,8 @@ class Kalzium : public KMainWindow
 		QDockWindow *m_dockWin;
 		QToolBox *m_toolbox;
 		int m_toolboxCurrent;
+
+		GlossaryDialog *m_glossarydlg;
 	
 	private slots:
 		void slotStatusbar(int);
