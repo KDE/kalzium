@@ -81,11 +81,28 @@ Glossary* Glossary::readFromXML( const KURL& url )
 		QValueList<GlossaryItem*> itemList;
 		itemList = glossary->readItems( doc );
 		glossary->setItemlist( itemList );
+		glossary->fixImagePath();
 	}
 
 	return glossary;
 }
 
+void Glossary::fixImagePath()
+{
+	kdDebug() << "Glossary::fixImagePath()" << endl;
+	QValueList<GlossaryItem*>::iterator it = m_itemlist.begin();
+	const QValueList<GlossaryItem*>::iterator itEnd = m_itemlist.end();
+	QString path = m_picturepath;
+	QString firstpart = "<img src=\"";
+	firstpart += path;
+
+	for ( ; it != itEnd ; ++it )
+	{
+		( *it )->desc().replace("[img]", firstpart );
+		( *it )->desc().replace("[/img]", "\" />" );
+	}
+}
+	
 QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 {
 	QValueList<GlossaryItem*> list;
@@ -110,9 +127,6 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		QDomElement refNode = ( const QDomElement& ) itemElement.namedItem( "references" ).toElement();
 
 		QString desc = descNode.toElement().text();
-//TODO fix the pictures-tag
-//X 		desc.replace("[img]", m_picbasestring );
-//X 		desc.replace("[/img]", "\" />" );
 		desc.replace("[b]", "<b>" );
 		desc.replace("[/b]", "</b>" );
 		desc.replace("[i]", "<i>" );
@@ -136,22 +150,14 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 
 
 
-GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
+GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent, const char *name)
     : KDialogBase( Plain, i18n( "Glossary" ), Close, Close, parent, name, false )
 {
-	//XX TMP!!!
-	QString baseHtml = "foo.png";
-//X 	QString baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
-//X 	baseHtml.append("kalzium/data/");
-//X 	baseHtml.append("bg.jpg");
+	//this string will be used for all items. If a backgroundpicutures should
+	//be used call Glossary::setBackgroundPicture().
+	m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body>" ;
 
-//X 	m_picbasestring = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
-//X 	m_picbasestring.append("kalzium/data/knowledgepics/");
-//X 	m_picbasestring.prepend( "<img src=\"" );
-
-	m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
-	m_htmlbasestring.append( baseHtml );
-	m_htmlbasestring.append("\">");
+	m_folded = folded;
 	
 	QVBoxLayout *vbox = new QVBoxLayout( plainPage(), 0, KDialog::spacingHint() );
 	vbox->activate();
@@ -185,23 +191,6 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
  
 	m_htmlpart = new KHTMLPart( vs, "html-part" );
  
-//X 	m_actionCollection = new KActionCollection(this);
-//X         KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);
-//X 
-//X 	QDomDocument doc( "foo" );
-//X 	QString filename = "knowledge.xml";
-//X 
-//X 	if ( loadLayout( doc, filename ) )
-//X 		m_itemList = readItems( doc );
-//X 
-//X 	QDomDocument doc2( "foo" );
-//X 	filename = "tools.xml";
-//X 
-//X 	if ( loadLayout( doc2, filename ) )
-//X 		m_toolList = readTools( doc2 );
-//X 
-//X 	populateTree();
-//X 
 	connect( m_htmlpart->browserExtension(), SIGNAL( openURLRequestDelayed( const KURL &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KURL &, const KParts::URLArgs & ) ) );
 	connect( m_glosstree, SIGNAL(clicked( QListViewItem * )), this, SLOT(slotClicked( QListViewItem * )));
 	connect( clear, SIGNAL(clicked()), m_search, SLOT(clear()));
@@ -245,7 +234,6 @@ void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 
 void GlossaryDialog::updateTree()
 {
-	//XXX hack hack hack hack
 	m_glosstree->clear();
 
 	QValueList<Glossary*>::iterator itGl = m_glossaries.begin();
@@ -261,9 +249,8 @@ void GlossaryDialog::updateTree()
 		main->setExpandable( true );
 		main->setSelectable( false );
 		//XXX TMP!!!
-		bool foldinsubtrees = true;
+		bool foldinsubtrees = m_folded;
 
-		///FIXME The next line is crashing for some unkown reasons...
 		for ( ; it != itEnd ; ++it )
 		{
 			if ( foldinsubtrees )
@@ -314,8 +301,6 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 	if ( !item )
 		return;
 	
-	QString html = m_htmlbasestring;
-	
 	/**
 	 * The next lines are searching for the correct KnowledgeItem
 	 * in the m_itemList. When it is found the HTML will be
@@ -325,6 +310,9 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 	const QValueList<Glossary*>::iterator itGlEnd = m_glossaries.end();
 	bool found = false;
 	GlossaryItem *i = 0;
+
+	QString bg_picture;
+	
 	while ( !found && itGl != itGlEnd )
 	{
 		QValueList<GlossaryItem*> items = ( *itGl )->itemlist();
@@ -335,6 +323,7 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 			if ( ( *it )->name() == item->text( 0 ) )
 			{
 				i = *it;
+				bg_picture = ( *itGl )->backgroundPicture();
 				found = true;
 			}
 			++it;
@@ -343,9 +332,20 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 	}
 	if ( found && i )
 	{
+		QString html;
+		if ( !bg_picture.isEmpty() )
+		{
+			html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
+			html.append( bg_picture );
+			html.append("\">");
+		}else
+			html = m_htmlbasestring;
+	
 		html += i->toHtml() + "</body></html>";
 		m_htmlpart->begin();
 		m_htmlpart->write( html );
+
+		kdDebug() << "the html " << html << endl;
 		m_htmlpart->end();
 		return;
 	}
@@ -361,7 +361,6 @@ QString GlossaryItem::toHtml() const
 {
 	QString code = "<h1>" + m_name + "</h1>" + m_desc;
 
-//	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
 	if ( !m_ref.isEmpty() )
 	{
 		QString refcode = parseReferences();

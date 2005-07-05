@@ -94,6 +94,36 @@ class Glossary
 		 *         error, this won't return 0 but an empty Glossary.
 		 */
 		static Glossary* readFromXML( const KURL& url );
+
+		/**
+		 * Every glossaryitem can show pictures. [img src="foo.png]
+		 * will look for the file foo.png in the path defined be
+		 * @p path
+		 */
+		void setPicturePath( const QString& path ){
+			m_picturepath = path;
+		}
+
+		QString picturePath()const{
+			return m_picturepath;
+		}
+
+		/**
+		 * defines which picture to use as the background
+		 * of the htmlview. The dialog
+		 * will use the file specifiec by the @p filename
+		 */
+		void setBackgroundPicture( const QString& filename ){
+			m_backgroundpicture = filename;
+		}
+
+		/**
+		 * @return the picuture used as the background in 
+		 * this background
+		 */
+		QString backgroundPicture()const{
+			return m_backgroundpicture;
+		}
 	
 	private:
 		/**
@@ -102,6 +132,19 @@ class Glossary
 		 * QValueList<GlossaryItem*>
 		 */
 		virtual QValueList<GlossaryItem*> readItems( QDomDocument &itemDocument );
+		
+		QString m_backgroundpicture;
+
+		/**
+		 * replaces the [img]-pseudocode with valid html. The path where
+		 * the pictures are stored will be used for pictures
+		 */
+		void fixImagePath();
+
+		/**
+		 * the path in which pictures of the glossary will be searched
+		 */
+		QString m_picturepath;
 		
 		/**
 		 * Load the layout from an XML file.
@@ -198,7 +241,7 @@ class GlossaryDialog : public KDialogBase
 	Q_OBJECT
 
 	public:
-		GlossaryDialog( QWidget *parent=0, const char *name=0);
+		GlossaryDialog( bool folded = true, QWidget *parent=0, const char *name=0);
 		~GlossaryDialog();
 
 		void keyPressEvent(QKeyEvent*);
@@ -213,12 +256,16 @@ class GlossaryDialog : public KDialogBase
 	private:
 		QValueList<Glossary*> m_glossaries;
 
+		/**
+		 * if true the items will be displayed folded
+		 */
+		bool m_folded;
+
 		void updateTree();
 
 		KHTMLPart *m_htmlpart;
-		QString m_htmlbasestring;
-		QString m_picbasestring;
 		KListView *m_glosstree;
+		QString m_htmlbasestring;
 
 		KActionCollection* m_actionCollection;
 
