@@ -37,8 +37,8 @@ class GlossaryItem;
 class Glossary
 {
 	public:
-		Glossary(){};
-		~Glossary(){};
+		Glossary();
+		~Glossary();
 
 		/**
 		 * add the item @p item to the glossary
@@ -59,6 +59,11 @@ class Glossary
 		}
 
 		/**
+		 * does this glossary have items?
+		 */
+		bool isEmpty() const;
+
+		/**
 		 * Every glossary can have a name. It will be
 		 * set to @p name
 		 */
@@ -70,8 +75,7 @@ class Glossary
 		 * @returns the name of the glossary
 		 */
 		QString name()const{
-			return "GlossaryName";
-//X			return m_name;
+			return m_name;
 		}
 
 		/**
@@ -151,8 +155,7 @@ class GlossaryItem
 		}
 
 		QString name() const {
-			return "moin moin";
-//X			return m_name;
+			return m_name;
 		}
 		
 		QString desc() const {

@@ -29,6 +29,15 @@
 #include <qstringlist.h>
 #include <qtoolbutton.h>
 
+Glossary::Glossary()
+{
+	m_name = i18n( "Glossary" );
+}
+
+Glossary::~Glossary()
+{
+}
+
 bool Glossary::loadLayout( QDomDocument &Document, const KURL& url )
 {
         QFile layoutFile( url.path() );
@@ -52,6 +61,11 @@ bool Glossary::loadLayout( QDomDocument &Document, const KURL& url )
         layoutFile.close();
 
         return true;
+}
+
+bool Glossary::isEmpty() const
+{
+	return m_itemlist.count() == 0;
 }
 
 
@@ -127,13 +141,15 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
     : KDialogBase( Plain, i18n( "Glossary" ), Close, Close, parent, name, false )
 {
-	QString baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
-	baseHtml.append("kalzium/data/");
-	baseHtml.append("bg.jpg");
+	//XX TMP!!!
+	QString baseHtml = "foo.png";
+//X 	QString baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
+//X 	baseHtml.append("kalzium/data/");
+//X 	baseHtml.append("bg.jpg");
 
-	m_picbasestring = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
-	m_picbasestring.append("kalzium/data/knowledgepics/");
-	m_picbasestring.prepend( "<img src=\"" );
+//X 	m_picbasestring = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
+//X 	m_picbasestring.append("kalzium/data/knowledgepics/");
+//X 	m_picbasestring.prepend( "<img src=\"" );
 
 	m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
 	m_htmlbasestring.append( baseHtml );
@@ -192,7 +208,7 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
 	connect( m_glosstree, SIGNAL(clicked( QListViewItem * )), this, SLOT(slotClicked( QListViewItem * )));
 	connect( clear, SIGNAL(clicked()), m_search, SLOT(clear()));
  
-	resize( 550, 400 );
+	resize( 600, 400 );
 }
 
 GlossaryDialog::~GlossaryDialog()
@@ -231,13 +247,17 @@ void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 
 void GlossaryDialog::updateTree()
 {
+	//XXX hack hack hack hack
+	m_glosstree->clear();
+
 	QValueList<Glossary*>::iterator itGl = m_glossaries.begin();
 	const QValueList<Glossary*>::iterator itGlEnd = m_glossaries.end();
 	
 	for ( ; itGl != itGlEnd ; ++itGl )
 	{
-		QValueList<GlossaryItem*>::iterator it = ( *itGl )->itemlist().begin();
-		const QValueList<GlossaryItem*>::iterator itEnd = ( *itGl )->itemlist().end();
+		QValueList<GlossaryItem*> items = ( *itGl )->itemlist();
+		QValueList<GlossaryItem*>::iterator it = items.begin();
+		const QValueList<GlossaryItem*>::iterator itEnd = items.end();
 
 		QListViewItem *main = new QListViewItem( m_glosstree, ( *itGl )->name() );
 		main->setExpandable( true );
@@ -246,30 +266,31 @@ void GlossaryDialog::updateTree()
 		bool foldinsubtrees = true;
 
 		///FIXME The next line is crashing for some unkown reasons...
-//X 		for ( ; it != itEnd ; ++it )
-//X 		{
-//X 			if ( foldinsubtrees )
-//X 			{
-//X 				QChar thisletter = ( *it )->name().upper()[0];
-				//X 			QListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
-				//X 			if ( !thisletteritem )
-				//X 			{
-				//X 				thisletteritem = new QListViewItem( main, thisletter );
-				//X 				thisletteritem->setExpandable( true );
-				//X 				thisletteritem->setSelectable( false );
-				//X 			}
-				//X 			new QListViewItem( thisletteritem, ( *it )->name() );
-//X 			}
-			//X 		else
-			//X 			new QListViewItem( main, ( *it )->name() );
-//X 		}
-//X 		main->sort();
+		for ( ; it != itEnd ; ++it )
+		{
+			if ( foldinsubtrees )
+			{
+				QChar thisletter = ( *it )->name().upper()[0];
+				QListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
+				if ( !thisletteritem )
+				{
+					thisletteritem = new QListViewItem( main, thisletter );
+					thisletteritem->setExpandable( true );
+					thisletteritem->setSelectable( false );
+				}
+				new QListViewItem( thisletteritem, ( *it )->name() );
+			}
+			else
+				new QListViewItem( main, ( *it )->name() );
+		}
+		main->sort();
 	}
 }
 
 void GlossaryDialog::addGlossary( Glossary* newgloss )
 {
 	if ( !newgloss ) return;
+	if ( newgloss->isEmpty() ) return;
 	m_glossaries.append( newgloss );
 
 	kdDebug() << "Count of the new glossary: " << newgloss->itemlist().count() << endl;
@@ -294,41 +315,42 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 {
 	if ( !item )
 		return;
-//X 	
-//X 	QString html = m_htmlbasestring;
-//X 	
-//X 	/**
-//X 	 * The next lines are searching for the correct KnowledgeItem
-//X 	 * in the m_itemList. When it is found the HTML will be
-//X 	 * generated
-//X 	 */
-//X 	QValueList<Glossary*>::iterator itGl = m_glossaries.begin();
-//X 	const QValueList<Glossary*>::iterator itGlEnd = m_glossaries.end();
-//X 	bool found = false;
-//X 	GlossaryItem *i = 0;
-//X 	while ( !found && itGl != itGlEnd )
-//X 	{
-//X 		QValueList<GlossaryItem*>::iterator it = ( *itGl )->itemlist().begin();
-//X 		const QValueList<GlossaryItem*>::iterator itEnd = ( *itGl )->itemlist().end();
-//X 		while ( !found && it != itEnd )
-//X 		{
-//X 			if ( ( *it )->name() == item->text( 0 ) )
-//X 			{
-//X 				i = *it;
-//X 				found = true;
-//X 			}
-//X 			++it;
-//X 		}
-//X 		++itGl;
-//X 	}
-//X 	if ( found && i )
-//X 	{
-//X 		html += i->toHtml() + "</body></html>";
-//X 		m_htmlpart->begin();
-//X 		m_htmlpart->write( html );
-//X 		m_htmlpart->end();
-//X 		return;
-//X 	}
+	
+	QString html = m_htmlbasestring;
+	
+	/**
+	 * The next lines are searching for the correct KnowledgeItem
+	 * in the m_itemList. When it is found the HTML will be
+	 * generated
+	 */
+	QValueList<Glossary*>::iterator itGl = m_glossaries.begin();
+	const QValueList<Glossary*>::iterator itGlEnd = m_glossaries.end();
+	bool found = false;
+	GlossaryItem *i = 0;
+	while ( !found && itGl != itGlEnd )
+	{
+		QValueList<GlossaryItem*> items = ( *itGl )->itemlist();
+		QValueList<GlossaryItem*>::iterator it = items.begin();
+		const QValueList<GlossaryItem*>::iterator itEnd = items.end();
+		while ( !found && it != itEnd )
+		{
+			if ( ( *it )->name() == item->text( 0 ) )
+			{
+				i = *it;
+				found = true;
+			}
+			++it;
+		}
+		++itGl;
+	}
+	if ( found && i )
+	{
+		html += i->toHtml() + "</body></html>";
+		m_htmlpart->begin();
+		m_htmlpart->write( html );
+		m_htmlpart->end();
+		return;
+	}
 }
 
 void GlossaryDialog::slotClose()
