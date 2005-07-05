@@ -89,7 +89,7 @@ Kalzium::Kalzium()
 	m_PSE->repaint();
 
 	// creating the glossary dialog and loading the glossaries we have
-	m_glossarydlg = new GlossaryDialog( this, "glossary" );
+	m_glossarydlg = new GlossaryDialog( true, this, "glossary" );
 	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
 	QString picturepath = dir + "kalzium/data/bg.jpg";
 	KURL u = dir + "kalzium/data/knowledge.xml";
