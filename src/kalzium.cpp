@@ -91,13 +91,16 @@ Kalzium::Kalzium()
 	// creating the glossary dialog and loading the glossaries we have
 	m_glossarydlg = new GlossaryDialog( this, "glossary" );
 	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
+	QString picturepath = dir + "kalzium/data/bg.jpg";
 	KURL u = dir + "kalzium/data/knowledge.xml";
 	Glossary *g = Glossary::readFromXML( u );
 	g->setName( i18n( "Knowledge" ) );
+	g->setBackgroundPicture( picturepath );
 	m_glossarydlg->addGlossary( g );
 	u = dir + "kalzium/data/tools.xml";
 	g = Glossary::readFromXML( u );
 	g->setName( i18n( "Tools" ) );
+	g->setBackgroundPicture( picturepath );
 	m_glossarydlg->addGlossary( g );
 	connect( m_glossarydlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
 }
