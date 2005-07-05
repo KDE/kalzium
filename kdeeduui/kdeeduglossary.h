@@ -188,6 +188,11 @@ class GlossaryItem
 		QStringList m_pic;
 };
 
+/**
+ * @class GlossaryDialog
+ * @author Pino Toscano
+ * @author Carsten Niehaus
+ */
 class GlossaryDialog : public KDialogBase
 {
 	Q_OBJECT
@@ -200,6 +205,8 @@ class GlossaryDialog : public KDialogBase
 
 		/**
 		 * add a new glossary
+		 *
+		 * @param newgloss the new glossary to add
 		 */
 		void addGlossary( Glossary* newgloss );
 
@@ -207,7 +214,7 @@ class GlossaryDialog : public KDialogBase
 		QValueList<Glossary*> m_glossaries;
 
 		void updateTree();
-		
+
 		KHTMLPart *m_htmlpart;
 		QString m_htmlbasestring;
 		QString m_picbasestring;

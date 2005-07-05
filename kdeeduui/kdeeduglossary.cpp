@@ -31,6 +31,7 @@
 
 Glossary::Glossary()
 {
+	// setting a generic name for a new glossary
 	m_name = i18n( "Glossary" );
 }
 
@@ -117,15 +118,12 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		desc.replace("[i]", "<i>" );
 		desc.replace("[/i]", "</i>" );
 
-//		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
-//		item->setDesc( i18n( desc.utf8() ) );
-		item->setName( nameNode.toElement().text() );
-		item->setDesc( desc );
+		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
+		item->setDesc( i18n( desc.utf8() ) );
 		refNodeList = refNode.elementsByTagName( "refitem" );
 		for ( uint it = 0; it < refNodeList.count(); it++ )
 		{
-//			reflist << i18n( refNodeList.item( it ).toElement().text().utf8() );
-			reflist << refNodeList.item( it ).toElement().text();
+			reflist << i18n( refNodeList.item( it ).toElement().text().utf8() );
 		}
 		reflist.sort();
 		item->setRef( reflist );
@@ -176,7 +174,7 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
  
 	QSplitter *vs = new QSplitter( plainPage() );
 	vbox->addWidget( vs );
-	
+
 	m_glosstree = new KListView( vs, "treeview" );
 	m_glosstree->addColumn( "entries" );
 	m_glosstree->header()->hide();
