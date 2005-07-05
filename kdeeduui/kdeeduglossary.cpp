@@ -103,12 +103,15 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		desc.replace("[i]", "<i>" );
 		desc.replace("[/i]", "</i>" );
 
-		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
-		item->setDesc( i18n( desc.utf8() ) );
+//		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
+//		item->setDesc( i18n( desc.utf8() ) );
+		item->setName( nameNode.toElement().text() );
+		item->setDesc( desc );
 		refNodeList = refNode.elementsByTagName( "refitem" );
 		for ( uint it = 0; it < refNodeList.count(); it++ )
 		{
-			reflist << i18n( refNodeList.item( it ).toElement().text().utf8() );
+//			reflist << i18n( refNodeList.item( it ).toElement().text().utf8() );
+			reflist << refNodeList.item( it ).toElement().text();
 		}
 		reflist.sort();
 		item->setRef( reflist );
@@ -124,19 +127,18 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 GlossaryDialog::GlossaryDialog( QWidget *parent, const char *name)
     : KDialogBase( Plain, i18n( "Glossary" ), Close, Close, parent, name, false )
 {
-//X 	QString baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
-//X 	baseHtml.append("kalzium/data/");
-//X 	baseHtml.append("bg.jpg");
-//X 
-//X 	m_picbasestring = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
-//X 	m_picbasestring.append("kalzium/data/knowledgepics/");
-//X 	m_picbasestring.prepend( "<img src=\"" );
-//X 
-//X 	
-//X 	m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
-//X 	m_htmlbasestring.append( baseHtml );
-//X 	m_htmlbasestring.append("\">");
-//X 	
+	QString baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
+	baseHtml.append("kalzium/data/");
+	baseHtml.append("bg.jpg");
+
+	m_picbasestring = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
+	m_picbasestring.append("kalzium/data/knowledgepics/");
+	m_picbasestring.prepend( "<img src=\"" );
+
+	m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
+	m_htmlbasestring.append( baseHtml );
+	m_htmlbasestring.append("\">");
+	
 	QVBoxLayout *vbox = new QVBoxLayout( plainPage(), 0, KDialog::spacingHint() );
 	vbox->activate();
 
@@ -227,25 +229,34 @@ void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 	slotClicked( found );
 }
 
-void GlossaryDialog::populateTree()
+void GlossaryDialog::addGlossary( Glossary* newgloss )
 {
-	QValueList<GlossaryItem*>::iterator it = m_glossary.itemlist().begin();
-	const QValueList<GlossaryItem*>::iterator itEnd = m_glossary.itemlist().end();
+	m_glossaries.append( newgloss );
+
+	QValueList<GlossaryItem*>::iterator it = newgloss->itemlist().begin();
+	const QValueList<GlossaryItem*>::iterator itEnd = newgloss->itemlist().end();
 	
-	QListViewItem *main = new QListViewItem( m_glosstree, m_glossary.name() );
+	QListViewItem *main = new QListViewItem( m_glosstree, newgloss->name() );
 	main->setExpandable( true );
 	main->setSelectable( false );
+	//XXX TMP!!!
+	bool foldinsubtrees = true;
 	for ( ; it != itEnd ; ++it )
 	{
-		QChar thisletter = ( *it )->name().upper()[0];
-		QListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
-		if ( !thisletteritem )
+		if ( foldinsubtrees )
 		{
-			thisletteritem = new QListViewItem( main, thisletter );
-			thisletteritem->setExpandable( true );
-			thisletteritem->setSelectable( false );
+			QChar thisletter = ( *it )->name().upper()[0];
+			QListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
+			if ( !thisletteritem )
+			{
+				thisletteritem = new QListViewItem( main, thisletter );
+				thisletteritem->setExpandable( true );
+				thisletteritem->setSelectable( false );
+			}
+			new QListViewItem( thisletteritem, ( *it )->name() );
 		}
-		new QListViewItem( thisletteritem, ( *it )->name() );
+		else
+			new QListViewItem( main, ( *it )->name() );
 	}
 	main->sort();
 }
@@ -274,18 +285,24 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 	 * in the m_itemList. When it is found the HTML will be
 	 * generated
 	 */
-	QValueList<GlossaryItem*>::iterator it = m_glossary.itemlist().begin();
-	const QValueList<GlossaryItem*>::iterator itEnd = m_glossary.itemlist().end();
+	QValueList<Glossary*>::iterator itGl = m_glossaries.begin();
+	const QValueList<Glossary*>::iterator itGlEnd = m_glossaries.end();
 	bool found = false;
 	GlossaryItem *i = 0;
-	while ( !found && it != itEnd )
+	while ( !found && itGl != itGlEnd )
 	{
-		if ( ( *it )->name() == item->text( 0 ) )
+		QValueList<GlossaryItem*>::iterator it = ( *itGl )->itemlist().begin();
+		const QValueList<GlossaryItem*>::iterator itEnd = ( *itGl )->itemlist().end();
+		while ( !found && it != itEnd )
 		{
-			i = *it;
-			found = true;
+			if ( ( *it )->name() == item->text( 0 ) )
+			{
+				i = *it;
+				found = true;
+			}
+			++it;
 		}
-		++it;
+		++itGl;
 	}
 	if ( found && i )
 	{
@@ -305,35 +322,31 @@ void GlossaryDialog::slotClose()
 
 QString GlossaryItem::toHtml() const
 {
-	//XXX TMP!!!
-	QString code;
-//X 	QString code = "<h1>" + m_name + "</h1>" + m_desc;
-//X 
-//X //	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
-//X 	if ( !m_ref.isEmpty() )
-//X 	{
-//X 		QString refcode = parseReferences();
-//X 		code += refcode;
-//X 	}
+	QString code = "<h1>" + m_name + "</h1>" + m_desc;
+
+//	QString pic_path = locate("data", "kalzium/data/knowledgepics/");
+	if ( !m_ref.isEmpty() )
+	{
+		QString refcode = parseReferences();
+		code += refcode;
+	}
 	return code;
 }
 
 QString GlossaryItem::parseReferences() const
 {
-	//XXX TMP!!!
-	QString htmlcode;
-//X 	QString htmlcode = "<h3>" + i18n( "References" ) + "</h3>";
-//X 	
-//X 	bool first = true;
-//X 	for ( uint i = 0; i < m_ref.size(); i++ )
-//X 	{
-//X 		if ( !first )
-//X 			htmlcode += "<br>";
-//X 		else
-//X 			first = false;
-//X 		htmlcode += QString( "<a href=\"item://%1\">%2</a>" ).arg( m_ref[i], m_ref[i] );
-//X 	}
-//X 
+	QString htmlcode = "<h3>" + i18n( "References" ) + "</h3>";
+	
+	bool first = true;
+	for ( uint i = 0; i < m_ref.size(); i++ )
+	{
+		if ( !first )
+			htmlcode += "<br>";
+		else
+			first = false;
+		htmlcode += QString( "<a href=\"item://%1\">%2</a>" ).arg( m_ref[i], m_ref[i] );
+	}
+
 	return htmlcode;
 }
 

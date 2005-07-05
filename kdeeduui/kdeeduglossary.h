@@ -194,14 +194,13 @@ class GlossaryDialog : public KDialogBase
 		void keyPressEvent(QKeyEvent*);
 
 		/**
-		 * sets the glossary
+		 * add a new glossary
 		 */
-		void setGlossary( const Glossary& glossary ){
-			m_glossary = glossary;
-		}
+		void addGlossary( Glossary* newgloss );
+
 
 	private:
-		Glossary m_glossary;
+		QValueList<Glossary*> m_glossaries;
 		
 		KHTMLPart *m_htmlpart;
 		QString m_htmlbasestring;
@@ -210,7 +209,6 @@ class GlossaryDialog : public KDialogBase
 
 		KActionCollection* m_actionCollection;
 
-		void populateTree();
 		QListViewItem* findTreeWithLetter( const QChar&, QListViewItem* );
 
 		KListViewSearchLine *m_search;
