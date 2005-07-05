@@ -40,7 +40,7 @@
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
 
-#include <libkdeedu/kdeeduglossary.h>
+#include <kdeeduglossary.h>
 
 #define IDS_TEMP            1
 #define IDS_ENERG           3
