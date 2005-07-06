@@ -54,6 +54,8 @@ class PSE : public QWidget
 		/**
 		 * Constructor
 		 * @param data is the object in which all data is stored
+		 * @param parent parent widget
+		 * @param name name of this widget
 		 */
 		PSE( KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
 		~PSE();

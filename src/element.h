@@ -500,6 +500,7 @@ class Element{
 		
 		/**
 		 * draw the rectangle with the information
+		 * @param p painter to do the drawing on
 		 * @param simple if True more information will be shown
 		 * @param isCrystal whether the elements should draw its crystal structure
 		 */
