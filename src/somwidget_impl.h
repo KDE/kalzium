@@ -17,12 +17,27 @@
 
 class Element;
 
+/**
+ * @class SOMWidgetIMPL
+ * @author Carsten Niehaus
+ * @author Pino Toscana
+ *
+ * The SOMWidgetIMPL provides a QSlider. When this slider ist moved
+ * it will display which elements have similat boiling- and 
+ * meltingoints (compared to the temperature the user entered using 
+ * the slider )
+ */
 class SOMWidgetIMPL : public SOMWidget
 {
 	Q_OBJECT
 
 	public:
-		SOMWidgetIMPL( QValueList<Element*>, QWidget *parent = 0, const char* name = 0 );
+		/**
+		 * @param l this QValueList<> stores the elements of the periodic table
+		 * @param parent The parent of this widget
+		 * @param name The name of this widget
+		 */
+		SOMWidgetIMPL( QValueList<Element*> , QWidget *parent = 0, const char* name = 0 );
 
 	private:
 		QValueList<Element*> m_list;
@@ -30,6 +45,11 @@ class SOMWidgetIMPL : public SOMWidget
 		QString m_htmlEnd;
 
 	private slots:
+		/**
+		 * in this slot the elements will be compared with 
+		 * the given temperature. The content of the html
+		 * will be generated
+		 */
 		void slotTemp( int temp );
 };
 #endif // SOMWIDGET_IMPL_H

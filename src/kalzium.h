@@ -39,7 +39,10 @@ class GlossaryDialog;
 /**
  * @short Application Main Window
  * @author Carsten Niehaus <cniehaus@kde.org>
- * @version 1.1
+ * @version 1.2
+ *
+ * This class connects the parts of kalzium. All actions will
+ * be set, the menu generated and so on.
  */
 class Kalzium : public KMainWindow
 {
@@ -55,6 +58,9 @@ class Kalzium : public KMainWindow
 		 */
 		virtual ~Kalzium();
 
+		/**
+		 * @return the data of Kalzium
+		 */
 		KalziumDataObject* data() const;
 
 	private:
@@ -168,6 +174,9 @@ class Kalzium : public KMainWindow
 		 */
 		void slotEnableTooltips();
 		
+		/**
+		 * start the glossary
+		 */
 		void slotGlossary();
 		
 		void slotSwitchtoNumeration(int);

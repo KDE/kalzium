@@ -170,12 +170,20 @@ class PSE : public QWidget
 			update();
 		}
 		
+		/**
+		 * @return if the gradient-mode is active
+		 */
 		bool gradient() const{
 			return m_showGradient;
 		}
 		
-		void setGradient( bool som ){
-			m_showGradient = som;
+		/**
+		 * Defines if the gradientmode will be activated or 
+		 * deactivated
+		 * @param som defines if the gradientmode should be activated or not
+		 */
+		void setGradient( bool gradient ){
+			m_showGradient = gradient;
 			setFullDraw();
 			update();
 		}
@@ -248,6 +256,10 @@ class PSE : public QWidget
 		 */
 		void setLook( PSE::SCHEMETYPE type, int which = 0 );
 
+		/**
+		 * This method paints the marker around the currently selected
+		 * element
+		 */
 		virtual void paintCurrentSelection();
 
 	private:
@@ -478,6 +490,7 @@ class PSE : public QWidget
 			m_date = date;
 			update();
 		}
+
 		/**
 		 * this slot removes the selection of any point
 		 */
@@ -505,6 +518,7 @@ class PSE : public QWidget
 
 		/**
 		 * this slot updates the element given in the @p num
+		 * @param num The number of the selected element
 		 */
 		void selectElement( int num );
 

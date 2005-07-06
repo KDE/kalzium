@@ -134,7 +134,7 @@ struct coordinate{
 };
 
 /**
- * In this class all information available are stored. This means that
+ * In this class all information about an element are stored. This means that
  * both the chemical date and the data about the position are stored
  * in this class.
  * @short This class is the represention of a chemical element
@@ -388,10 +388,10 @@ class Element{
 
 		/**
 		 * adjusts the units for the data. The user can
-		 * eg define if Fahrenheit, Kelvin or Degrees Celsius
-		 * should be used for the temperature. This method
-		 * takes care of that.
-		 * @param val the value which has to be adjusted
+		 * for example define if Fahrenheit, Kelvin or 
+		 * Degrees Celsius should be used for the temperature. 
+		 * This method takes care of that and adjust the 
+		 * values.
 		 * @param type the TYPE of the data
 		 * @return the adjusted datastring
 		 */
@@ -399,9 +399,16 @@ class Element{
 
 		const QString adjustRadius( RADIUSTYPE rtype );
 
-
 		/**
-		 * needed for values stored in a QValueList<double>
+		 * adjusts the units for the data. The user can
+		 * for example define if Fahrenheit, Kelvin or 
+		 * Degrees Celsius should be used for the temperature. 
+		 * This method takes care of that and adjust the 
+		 * values. Depending on @p type a unit will be
+		 * added to the adjusted value.
+		 * @param type the TYPE of the data
+		 * @param value the value of the data. 
+		 * @return the adjusted datastring
 		 */
 		const QString adjustUnits( const int type, double value );
 
