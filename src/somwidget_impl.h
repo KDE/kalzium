@@ -37,7 +37,7 @@ class SOMWidgetIMPL : public SOMWidget
 		 * @param parent The parent of this widget
 		 * @param name The name of this widget
 		 */
-		SOMWidgetIMPL( QValueList<Element*> , QWidget *parent = 0, const char* name = 0 );
+		SOMWidgetIMPL( QValueList<Element*> l, QWidget *parent = 0, const char* name = 0 );
 
 	private:
 		QValueList<Element*> m_list;

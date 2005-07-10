@@ -180,7 +180,7 @@ class PSE : public QWidget
 		/**
 		 * Defines if the gradientmode will be activated or 
 		 * deactivated
-		 * @param som defines if the gradientmode should be activated or not
+		 * @param gradient defines if the gradientmode should be activated or not
 		 */
 		void setGradient( bool gradient ){
 			m_showGradient = gradient;
