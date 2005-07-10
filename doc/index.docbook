@@ -82,9 +82,9 @@
 	 </chapter>
 
 <chapter id="quick-start">
-<title>Quick Start to &kalzium;</title>
+<title>&kalzium; quick start guide</title>
 
-<para>Here is &kalzium; the first time you run it, either form the K menu,  Edutaintment, Science or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and type <command>kalzium</command> in the field.</para>
+<para>Here is &kalzium; the first time you run it, either from the K menu->Edutainment->Science->Kalzium or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
 <screenshot>
 <screeninfo>&kalzium; main window</screeninfo>
 <mediaobject>
