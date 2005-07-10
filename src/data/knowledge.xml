@@ -90,8 +90,8 @@
 		<desc>Measurement unit using International Symbols.</desc>
 	</item>
 	<item>
-		<name>Significant Point</name>
-		<desc>The amount of numbers in a number that are enumeration-worthy.</desc>
+		<name>Significant digits</name>
+		<desc>The number of digits which are meaningful in a number.</desc>
 	</item>
 	<item>
 		<name>Standard deviation</name>
