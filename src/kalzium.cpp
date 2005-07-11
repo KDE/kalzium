@@ -24,7 +24,6 @@
 #include "detailedgraphicaloverview.h"
 #include "timewidget.h"
 #include "somwidget_impl.h"
-#include "exportdialog.h"
 
 #include <qdockwindow.h>
 #include <qlayout.h>
@@ -150,8 +149,6 @@ void Kalzium::setupActions()
 
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
-	m_ExportAction = new KAction(i18n("Export &Data..."), 0, this, SLOT(slotExportData()), actionCollection(), "export_data");
-
 	/*
 	 * the misc actions
 	 **/
@@ -320,12 +317,6 @@ void Kalzium::slotShowHideSidebar()
 	else
 		m_dockWin->show();
 	
-}
-
-void Kalzium::slotExportData()
-{
-	ExportDialog *dlg = new ExportDialog( data(), this );
-	dlg->show();
 }
 
 void Kalzium::slotShowScheme(int i)
