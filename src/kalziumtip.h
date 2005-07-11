@@ -5,8 +5,11 @@
                            The header for the tooltip class of Kalzium
                              -------------------
     begin                : June 2003
-    copyright            : (C) 2003, 2004, 2005 by Martin Pfeiffer
-    email                : hubipete@gmx.net
+    copyright            : (C) 2003, 2004, 2005 by Zack Rusin <zrusin@kde.org>
+						Sami Kyostil <skyostil@kempele.fi>
+                   				Aaron J. Seigo <aseigo@kde.org>
+						Martin Pfeiffer <hubipete@gmx.net>
+   
  ***************************************************************************/
 
 /***************************************************************************

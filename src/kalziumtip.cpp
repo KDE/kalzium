@@ -1,6 +1,8 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Martin Pfeiffer                                 *
- *   hubipete@gmx.net                                                      *
+ *   Copyright (C) 2005 by Zack Rusin <zrusin@kde.org>			   *
+ *                   Sami Kyostil <skyostil@kempele.fi>			   *
+ *                   Aaron J. Seigo <aseigo@kde.org>			   *
+ *		     Martin Pfeiffer <hubipete@gmx.net>                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -64,9 +66,11 @@ void KalziumTip::showTip(QPoint mouse, Element* element)
 		move(m_mousePointer); //do not paint again if already painted
 	else
 	{
-		if ( element !=  0)
-			m_tippedElement = element;
-
+		if ( element == 0)
+			return;	
+	
+		m_tippedElement = element;
+		
 		loadIcon(); //load icon	
 		display();
 	}
@@ -88,21 +92,22 @@ void KalziumTip::display()
 {
 	if( !m_tippedElement )
 		return;
-	
+
 	delete m_richText;
 	
 	QString elementname = m_tippedElement->elname();
+	
 	QString number = i18n( "Number: %1" )
 			.arg( QString::number(m_tippedElement->number()) );
+	
 	QString mass = i18n( "Mass: %1" )
-			.arg( QString::number(m_tippedElement->mass()) );				
+			.arg( QString::number(m_tippedElement->mass()) );
 
 	m_richText = new QSimpleRichText("<qt><h1>" + elementname + "</h1><p>"
 						    + number + "</p><p>"
 						    + mass  +"</p></qt>", font());
 
-
-        m_richText->setWidth(400);
+	m_richText->setWidth(400);
 
 	m_maskEffect = isVisible() ? Plain : Dissolve;
     	m_dissolveSize = 24;
@@ -260,6 +265,7 @@ void KalziumTip::loadIcon()
 		QImage img ( iconpath, "JPEG" );
 		img = img.smoothScale ( 128, 128, QImage::ScaleMin );
 		m_icon.convertFromImage( img );
+
 	}
 	else
 	{
