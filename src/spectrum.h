@@ -17,6 +17,8 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+#ifndef SPECTRUMWIDGET_H_
+#define SPECTRUMWIDGET_H_
 
 #include <qwidget.h>
 #include <qcolor.h>
@@ -59,3 +61,5 @@ class SpectrumWidget : public QWidget
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 };
+
+#endif
