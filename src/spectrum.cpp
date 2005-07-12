@@ -81,7 +81,11 @@ void SpectrumWidget::drawLines( QPainter *p )
 			temp = 0;
 		
 		p->drawLine( x,0,x, m_realHeight+10+temp );
-		p->drawText( x,m_realHeight+10+15+temp, QString::number( *it ));
+		p->save();
+		p->translate(x, m_realHeight+10+15+temp);
+		p->rotate(-90);
+		p->drawText(0, 0, QString::number( *it ));
+		p->restore();
 
 		i++;
 	}
