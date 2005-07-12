@@ -626,8 +626,12 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			QString format = iso.attributeNode( "halflifeformat" ).value();
 			int neutrons  = iso.attributeNode( "neutron" ).value().toInt();
 			double percentage = iso.attributeNode( "percentage" ).value().toDouble();
+			double alphadecay = iso.attributeNode( "alphadecay" ).value().toDouble();
+			double betaplusdecay = iso.attributeNode( "betaplusdecay" ).value().toDouble();
+			double betaminusdecay = iso.attributeNode( "betaminusdecay" ).value().toDouble();
+			double ecdecay = iso.attributeNode( "ecdecay" ).value().toDouble();
 
-			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format );
+			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format, alphadecay, betaplusdecay, betaminusdecay, ecdecay );
 			isolist.append( isotope );
 		}
 	
@@ -681,13 +685,17 @@ const int KalziumDataObject::numberOfElements() const
 	return m_numOfElements;
 }
 
-Isotope::Isotope(  int neutrons, double percentage, double weight, double halflife, QString format )
+Isotope::Isotope(  int neutrons, double percentage, double weight, double halflife, QString format, double alphadecay, double betaplusdecay, double betaminusdecay, double ecdecay )
 {
 	m_neutrons = neutrons;
 	m_percentage = percentage;
 	m_halflife = halflife;
 	m_format = format;
 	m_weight = weight;
+	m_alphadecay = alphadecay;
+	m_betaplusdecay = betaplusdecay;
+	m_betaminusdecay = betaminusdecay;
+	m_ecdecay = ecdecay;
 }
 
 QString Isotope::halflifeToHtml() const

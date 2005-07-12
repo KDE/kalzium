@@ -174,7 +174,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( "<b>" + i18n( "Mass: %1" ).arg( m_element->adjustUnits( Element::MASS ) ) + "</b>" );
 			html.append( "</td></tr>" );
-			if ( m_element->isotopeList().count() > 0 )
+			if ( !m_element->isotopes().isEmpty() )
 			{
 				html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 				html.append( isotopeTable() );
@@ -242,11 +242,11 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
 QString DetailedInfoDlg::isotopeTable()
 {
-	QValueList<Isotope*> list = m_element->isotopeList();
+	QValueList<Isotope*> list = m_element->isotopes();
 
 	QString html;
 	
-	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"4\">";
+	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"5\">";
 	html += i18n( "Isotope-Table" );
 	html += "</tr></td><tr><td><b>";
 	html += i18n( "Mass" );
@@ -256,6 +256,8 @@ QString DetailedInfoDlg::isotopeTable()
 	html += i18n( "Percentage" );
 	html += "</b></td><td><b>";
 	html += i18n( "Half-life period" );
+	html += "</b></td><td><b>";
+	html += i18n( "Kind and Energy of Decay" );
 	html += "</b></td></tr>";
 
 	QValueList<Isotope*>::const_iterator it = list.begin();
@@ -274,6 +276,15 @@ QString DetailedInfoDlg::isotopeTable()
 		html.append( "</td><td>" );
 		if ( ( *it )->halflife() > 0.0 )
 			html.append( ( *it )->halflifeToHtml() );
+		html.append( "</td><td>" );
+		if ( ( *it )->alphadecay() > 0.0 )
+			html.append( i18n( "%1 MeV alpha " ).arg(( *it )->alphadecay() ) );
+		if ( ( *it )->betaplusdecay() > 0.0 )
+			html.append( i18n( "%1 MeV betaplus" ).arg(( *it )->betaplusdecay() ) );
+		if ( ( *it )->betaminusdecay() > 0.0 )
+			html.append( i18n( "%1 MeV betaminus" ).arg(( *it )->betaminusdecay() ) );
+		if ( ( *it )->ecdecay() > 0.0 )
+			html.append( i18n( "%1 MeV EC" ).arg(( *it )->ecdecay() ) );
 		html.append( "</td></tr>" );
 	}
 	

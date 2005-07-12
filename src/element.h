@@ -39,7 +39,7 @@ typedef QValueList<double> doubleList;
 class Isotope
 {
 	public:
-		Isotope( int neutrons, double percentage, double weight, double halflife, QString format );
+		Isotope( int neutrons, double percentage, double weight, double halflife, QString format, double alphadecay, double betaplusdecay, double betaminusdecay, double ecdecay);
 
 		bool seconds() const{
 			if ( m_format == "seconds" )
@@ -62,6 +62,22 @@ class Isotope
 
 		double weight() const{
 			return m_weight;
+		}
+		
+		double alphadecay() const{
+			return m_alphadecay;
+		}
+		
+		double betaplusdecay() const{
+			return m_betaplusdecay;
+		}
+		
+		double betaminusdecay() const{
+			return m_betaminusdecay;
+		}
+		
+		double ecdecay() const{
+			return m_ecdecay;
 		}
 
 		QString halflifeToHtml() const;
@@ -95,6 +111,15 @@ class Isotope
 		 * the number of neutrons
 		 */
 		int m_neutrons;
+		
+		/**
+		* Thees variables specify the kind of decay
+		* their values specify the decay-energy
+		*/
+		double m_alphadecay;
+		double m_betaplusdecay;
+		double m_betaminusdecay;
+		double m_ecdecay;
 };
 
 /**
@@ -212,9 +237,9 @@ class Element{
 			m_ionenergies = l;
 		}
 
-		QValueList<Isotope*> isotopeList()const{
-			return m_isotopeList;
-		}
+		QValueList<Isotope*> isotopes() const{
+                        return m_isotopeList;
+                }
 
 		void setIsotopeList( QValueList<Isotope*> list ){
 			m_isotopeList = list;
@@ -446,10 +471,6 @@ class Element{
 		 */
 		QColor elementColor() const {
 			return m_Color; 
-		}
-
-		QValueList<Isotope*> isotopes() const{
-			return m_isotopeList;
 		}
 
 		void setupXY();
