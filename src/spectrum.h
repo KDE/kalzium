@@ -1,6 +1,9 @@
+#ifndef SPECTRUM_H
+#define SPECTRUM_H
 /***************************************************************************
- *   Copyright (C) 2003-2005 by Carsten Niehaus                            *
+ *   Copyright (C) 2005 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
+ *   
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,9 +20,6 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifndef SPECTRUMWIDGET_H_
-#define SPECTRUMWIDGET_H_
-
 #include <qwidget.h>
 #include <qcolor.h>
 #include <qpainter.h>
@@ -52,14 +52,22 @@ class SpectrumWidget : public QWidget
 		 */
 		void drawLines( QPainter *p );
 
+		int xPos( double value );
+
 		/**
 		 * @returns the color of a line
 		 * @param spectrum the value of the spectrum
 		 */
 		QColor linecolor( double spectrum );
+	
+		double startValue;
+		double endValue;
+	
+		int m_realWidth;
+		int m_realHeight;
 
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 };
+#endif // SPECTRUM_H
 
-#endif
