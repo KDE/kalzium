@@ -23,10 +23,12 @@ SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
 	: QWidget( parent,name )
 {
 	startValue = 450;
-	endValue = 800;
+	endValue = 760;
 
 	m_realWidth = 360;
 	m_realHeight = 200;
+
+	ref_image = QImage( "/home/carsten/cvs/trunk/kdeedu/kalzium/src/data/spectrum.png" );
 }
 
 SpectrumWidget::~SpectrumWidget(){}
@@ -48,13 +50,19 @@ void SpectrumWidget::drawLines( QPainter *p )
 	//580 green
 	//500 light blue
 	//400 dark blue
+	//
+	//(0,166,172)  is for 500 nm
+	//(99,182,82)  is for 550 nm
+	//(255,231,49) is for 600 nm
+	//(246,144,49) is for 650 nm
 	
-	for(int h = 0; h < 300 ; ++h)
+	for(int h = 450; h < 750 ; ++h)
 	{
-		p->setPen(linecolor( h+450 ));
-		int xvalue = m_realWidth/360;
-		p->drawLine(xvalue*h,0,xvalue*h,m_realHeight );
+		p->setPen(linecolor(h) );
+		p->drawLine(h-450,0,h-450,m_realHeight );
 	}
+		
+	p->setPen(Qt::black);
 
 	int i = 0;
 	for ( QValueList<double>::Iterator it = m_spectra.begin();
@@ -89,8 +97,21 @@ int SpectrumWidget::xPos( double value )
 
 QColor SpectrumWidget::linecolor( double spectrum )
 {
-//	int Hcolor = 
-	QColor c( ( int )spectrum-450,255,255, QColor::Hsv );
+//The picture has 575 pixel
+//
+
+	int max = endValue;
+	int min = startValue;
+
+	//Example: Freq is 600nm. 760-450 = 360.
+	//760 - 600 = 160.   360/160 = 2.25
+	int proportion = ( max-min )/( max - spectrum );
+
+	QRgb rgb = ref_image.pixel(proportion, 2 );
+
+	kdDebug() << "RGB: " << rgb << " Prop " << proportion << endl;
+	
+	QColor c( rgb );
 	return c;
 }
 

@@ -31,6 +31,8 @@
 #include <kdebug.h>
 #include <kpixmapeffect.h>
 
+#define MAXCOLOR = 750
+#define MINCOLOR = 450
 
 class SpectrumWidget : public QWidget
 {
@@ -46,6 +48,8 @@ class SpectrumWidget : public QWidget
 	
 	private:
 		QValueList<double> m_spectra;
+
+		QImage ref_image;
 
 		/**
 		 * draws the spectra-lines
