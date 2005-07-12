@@ -26,7 +26,7 @@ SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
 	: QWidget( parent,name )
 {
 	startValue = 450;
-	endValue = 760;
+	endValue = 700;
 
 	m_realWidth = 360;
 	m_realHeight = 200;
@@ -35,6 +35,8 @@ SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
 	spectrumpix += "kalzium/data/spektrum.png";
 
 	ref_image = QImage( spectrumpix );
+
+	m_stretch = 1;
 }
 
 SpectrumWidget::~SpectrumWidget(){}
@@ -45,6 +47,11 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	p.begin( this );
 	p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
 	p.drawRect( 0,0, width(), height() );
+	QImage i = ref_image;
+	QPixmap px;
+	px.convertFromImage( i.smoothScale( width(), height() ) );
+	m_stretch = ( width() * 1.0 ) / ref_image.width();
+	bitBlt( this, 0, 0, &px );
 	drawLines(  &p );
 }
 
@@ -62,6 +69,7 @@ void SpectrumWidget::drawLines( QPainter *p )
 	//(255,231,49) is for 600 nm
 	//(246,144,49) is for 650 nm
 	
+/*
 	for(int h = 450; h < 760 ; ++h)
 	{
 		p->setPen(linecolor(h) );
@@ -69,6 +77,7 @@ void SpectrumWidget::drawLines( QPainter *p )
 	}
 		
 	p->setPen(Qt::black);
+*/
 
 	int i = 0;
 	for ( QValueList<double>::Iterator it = m_spectra.begin();
@@ -99,10 +108,14 @@ void SpectrumWidget::drawLines( QPainter *p )
 
 int SpectrumWidget::xPos( double value )
 {
+/*
 	double var = ( endValue-startValue );
 	double coeff = ( value - startValue )/var;
 
 	return coeff * m_realWidth;
+*/
+	int proportion = width() * ( value - startValue ) / ( endValue - startValue );
+	return proportion;
 }
 
 QColor SpectrumWidget::linecolor( double spectrum )
@@ -112,7 +125,7 @@ QColor SpectrumWidget::linecolor( double spectrum )
 
 	//Example: Freq is 600nm. 760-450 = 360.
 	//760 - 600 = 160.   360/160 = 2.25
-	int proportion = m_realWidth * ( spectrum - startValue ) / ( endValue - startValue );
+	int proportion = m_stretch * ( spectrum - startValue ) / ( endValue - startValue );
 
 	QRgb rgb = ref_image.pixel(proportion, 2 );
 

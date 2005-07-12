@@ -66,10 +66,12 @@ class SpectrumWidget : public QWidget
 	
 		double startValue;
 		double endValue;
-	
+
 		int m_realWidth;
 		int m_realHeight;
 
+		double m_stretch;
+	
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 };
