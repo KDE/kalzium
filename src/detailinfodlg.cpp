@@ -50,17 +50,19 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	m_pOverviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon( "overview" ));
 	m_pPictureTab = addPage(i18n("Picture"), i18n("What does this element look like?"), BarIcon( "elempic" ));
 	m_pModelTab = addPage( i18n("Atom Model"), i18n( "Atom Model" ), BarIcon( "orbits" ));
+	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
 	
 	mainLayout = new QVBoxLayout( m_pPictureTab );
 	overviewLayout = new QVBoxLayout( m_pOverviewTab );
 	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
+	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
 
 	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
 	dTab->setElement( m_element );
  	overviewLayout->addWidget( dTab );
 	
 	//MOVE
-	SpectrumWidget *spec = new SpectrumWidget( m_pModelTab, "spectrumwidget" );
+	SpectrumWidget *spec = new SpectrumWidget( m_pSpectrumTab, "spectrumwidget" );
 	QValueList<double> l;
 	l.append( 400.0 );
 	l.append( 410.0 );
@@ -91,14 +93,13 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	l.append( 750.0 );
 	spec->setSpectra( l );
 
-
 	wOrbits = new OrbitsWidget( m_pModelTab );
 	piclabel = new QLabel( m_pPictureTab );
 	piclabel->setMinimumSize( 400, 300 );
 	
 	mainLayout->addWidget( piclabel );
-	modelLayout->addWidget( spec );
-	//modelLayout->addWidget( wOrbits );
+	spectrumLayout->addWidget( spec );
+	modelLayout->addWidget( wOrbits );
 	
 	createContent();
 
