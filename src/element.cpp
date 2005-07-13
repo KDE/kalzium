@@ -635,7 +635,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			isolist.append( isotope );
 		}
 
-		QDomNodeList spectrumList = domElement.elementsByTagName( "spectra" );
+		QDomNodeList spectrumList = domElement.namedItem( "spectra" ).toElement().elementsByTagName( "spectrum" );
 		QValueList<double> speclist;
 		for( uint i = 0; i < spectrumList.length(); i++ )
 		{
