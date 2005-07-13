@@ -33,6 +33,7 @@
 #include "element.h"
 #include "orbitswidget.h"
 #include "detailedgraphicaloverview.h"
+#include "spectrum.h"
 
 DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget *parent, const char *name)
     : KDialogBase( IconList, "", User1|User2|Close, Close, parent, name, false/* non modal */, false, KGuiItem("Next", "1rightarrow"), KGuiItem("Previous", "1leftarrow"))
@@ -57,12 +58,47 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
 	dTab->setElement( m_element );
  	overviewLayout->addWidget( dTab );
+	
+	//MOVE
+	SpectrumWidget *spec = new SpectrumWidget( m_pModelTab, "spectrumwidget" );
+	QValueList<double> l;
+	l.append( 400.0 );
+	l.append( 410.0 );
+	l.append( 420.9 );
+	l.append( 430.0 );
+	l.append( 440.0 );
+	l.append( 450.0 );
+	l.append( 460.0 );
+	l.append( 470.0 );
+	l.append( 480.9 );
+	l.append( 490.0 );
+	l.append( 500.0 );
+	l.append( 510.0 );
+	l.append( 520.9 );
+	l.append( 530.0 );
+	l.append( 540.0 );
+	l.append( 550.0 );
+	l.append( 560.0 );
+	l.append( 570.0 );
+	l.append( 580.9 );
+	l.append( 590.0 );
+	l.append( 600.0 );
+	l.append( 630.0 );
+	l.append( 660.0 );
+	l.append( 680.0 );
+	l.append( 720.0 );
+	l.append( 730.0 );
+	l.append( 750.0 );
+	spec->setSpectra( l );
+
+
 	wOrbits = new OrbitsWidget( m_pModelTab );
 	piclabel = new QLabel( m_pPictureTab );
 	piclabel->setMinimumSize( 400, 300 );
 	
 	mainLayout->addWidget( piclabel );
-	modelLayout->addWidget( wOrbits );
+	modelLayout->addWidget( spec );
+	//modelLayout->addWidget( wOrbits );
 	
 	createContent();
 

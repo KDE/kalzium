@@ -56,11 +56,6 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	p.begin( this );
 	p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
 	p.drawRect( 0,0, width(), height() );
-//X 	QImage i = ref_image;
-//X 	QPixmap px;
-//X 	px.convertFromImage( i.smoothScale( width(), height() ) );
-//X 	m_stretch = ( width() * 1.0 ) / ref_image.width();
-//X 	bitBlt( this, 0, 0, &px );
 	drawLines(  &p );
 }
 
@@ -72,11 +67,6 @@ void SpectrumWidget::drawLines( QPainter *p )
 	//580 green
 	//500 light blue
 	//400 dark blue
-	//
-	//(0,166,172)  is for 500 nm
-	//(99,182,82)  is for 550 nm
-	//(255,231,49) is for 600 nm
-	//(246,144,49) is for 650 nm
 	
 
 	int i = 0;
@@ -100,10 +90,18 @@ void SpectrumWidget::drawLines( QPainter *p )
 		p->save();
 		p->translate(x, m_realHeight+10+15+temp);
 		p->rotate(-90);
+		p->setPen( Qt::black );
 		p->drawText(0, 0, QString::number( *it ));
 		p->restore();
 
 		i++;
+	}
+		
+	for ( double va = 400; va <= 770 ; va += 3.1 )
+	{
+		int x = xPos( va );
+		p->setPen(linecolor( va ));
+		p->drawLine( x,0,x, m_realHeight+10 );
 	}
 }
 
@@ -111,54 +109,58 @@ void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b 
 {
 	double blue, green, red, factor;
 
-	if ( wavelength > 380 && wavelength < 439 )
+	double wavelength_ = floor( wavelength );
+
+	kdDebug() << wavelength << " :: " << wavelength_ << endl;
+
+	if ( wavelength_ > 380 && wavelength_ < 439 )
 	{
 		red = -( wavelength-440 ) / ( 440-380 );
 		green = 0.0;
 		blue = 1.0;
-		kdDebug() << "RGB on wavelength 1" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+		kdDebug() << "RGB on wavelength " << wavelength << " (1): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	
 	}
-	if ( wavelength > 440 && wavelength < 489 )
+	if ( wavelength_ > 440 && wavelength_ < 489 )
 	{
 		red = 0.0;
-		green = -( wavelength-440 ) / ( 490-440 );
+		green = ( wavelength-440 ) / ( 490-440 );
 		blue = 1.0;
-		kdDebug() << "RGB on wavelength 2" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+		kdDebug() << "RGB on wavelength " << wavelength << " (2): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	}
-	if ( wavelength > 490 && wavelength < 509 )
+	if ( wavelength_ > 490 && wavelength_ < 509 )
 	{
 		red = 0.0;
 		green = 1.0;
 		blue = -( wavelength-510 ) / ( 510-490 );
-		kdDebug() << "RGB on wavelength 3" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+		kdDebug() << "RGB on wavelength " << wavelength << " (3): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	}
-	if ( wavelength > 510 && wavelength < 579 )
+	if ( wavelength_ > 510 && wavelength_ < 579 )
 	{
-		red = -( wavelength-510 ) / ( 580-510 );
+		red = ( wavelength-510 ) / ( 580-510 );
 		green = 1.0;
 		blue = 0.0;
-		kdDebug() << "RGB on wavelength 4" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+		kdDebug() << "RGB on wavelength " << wavelength << " (4): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	}
-	if ( wavelength > 580 && wavelength < 644 )
+	if ( wavelength_ > 580 && wavelength_ < 644 )
 	{
 		red = 1.0;
 		green = -( wavelength-645 ) / ( 645-580 );
 		blue = 0.0;
-		kdDebug() << "RGB on wavelength 5" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+		kdDebug() << "RGB on wavelength " << wavelength << "(5): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	}
-	if ( wavelength > 645 && wavelength < 780 )
+	if ( wavelength_ > 645 && wavelength_ < 780 )
 	{
 		red = 1.0;
 		green = 0.0;
 		blue = 0.0;
-		kdDebug() << "RGB on wavelength 6" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+		kdDebug() << "RGB on wavelength " << wavelength << " (6): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	}
-	if ( wavelength > 380 && wavelength < 419 )
+	if ( wavelength_ > 380 && wavelength_ < 419 )
 		factor = 0.3 + 0.7*( wavelength - 380 ) / ( 420 - 380 );
-	else if ( wavelength > 420 && wavelength < 700 )
+	else if ( wavelength_ > 420 && wavelength_ < 700 )
 		factor = 1.0;
-	else if ( wavelength > 701 && wavelength < 780 )
+	else if ( wavelength_ > 701 && wavelength_ < 780 )
 		factor = 0.3 + 0.7*( 780 - wavelength ) / ( 780 - 700 );
 	else
 		factor = 0.0;
