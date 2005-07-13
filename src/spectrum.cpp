@@ -20,6 +20,7 @@
 #include "spectrum.h"
 
 #include <qlayout.h>
+#include <qlabel.h>
 
 #include <kglobal.h>
 #include <kstandarddirs.h>
@@ -203,7 +204,15 @@ SpectrumView::SpectrumView( QWidget *parent, const char* name )
 	QHBoxLayout *hbox = new QHBoxLayout( this );
 	m_spinbox_left = new QSpinBox( 380, 779, 1, this );
 	m_spinbox_right = new QSpinBox( 381, 780, 1, this );
+	m_spinbox_right->setValue( 700 );
+	m_spinbox_left->setValue( 400 );
+	
+	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrum, SLOT( setRightBorder( int ) ) );
+	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrum, SLOT( setLeftBorder( int ) ) );
+	
+	hbox->addWidget( new QLabel( i18n( "Minimumvalue" ), this ) );
 	hbox->addWidget( m_spinbox_left );
+	hbox->addWidget( new QLabel( i18n( "Maximumvalue" ), this ) );
 	hbox->addWidget( m_spinbox_right );
 
 	spectrumLayout->addLayout( hbox );

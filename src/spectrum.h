@@ -103,6 +103,27 @@ class SpectrumWidget : public QWidget
 		int m_realHeight;
 
 		double m_stretch;
+
+	public slots:
+		/**
+		 * set the the minimumvalue to @p value
+		 */
+		void setRightBorder( int value ){
+			endValue = value;
+			if ( endValue < startValue )
+				startValue = endValue-1;
+			update();
+		}
+		
+		/**
+		 * set the the maximumvalue to @p value
+		 */
+		void setLeftBorder( int value ){
+			startValue = value;
+			if ( startValue > endValue )
+				endValue = startValue+1;
+			update();
+		}
 	
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
