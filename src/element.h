@@ -238,11 +238,19 @@ class Element{
 		}
 
 		QValueList<Isotope*> isotopes() const{
-                        return m_isotopeList;
-                }
+			return m_isotopeList;
+        }
+
+		QValueList<double> spectrumList() const{
+			return m_spectrumList;
+		}
 
 		void setIsotopeList( QValueList<Isotope*> list ){
 			m_isotopeList = list;
+		}
+
+		void setSpectrumList( QValueList<double> list ){
+			m_spectrumList = list;
 		}
 
 		doubleList ionisationList() const{
@@ -482,6 +490,8 @@ class Element{
 		int m_ElementNumber;
 
 		QValueList<Isotope*> m_isotopeList;
+
+		QValueList<double> m_spectrumList;
     	
 		QColor m_Color;
 

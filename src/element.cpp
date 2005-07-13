@@ -634,8 +634,19 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format, alphadecay, betaplusdecay, betaminusdecay, ecdecay );
 			isolist.append( isotope );
 		}
+
+		QDomNodeList spectrumList = domElement.elementsByTagName( "spectra" );
+		QValueList<double> speclist;
+		for( uint i = 0; i < spectrumList.length(); i++ )
+		{
+			QDomElement spec = spectrumList.item( i ).toElement();
+			double wavelenght = spec.text().toDouble();
+			kdDebug() << "double ist: " << wavelenght  << " Length: " << spectrumList.length() << endl;
+			speclist.append( wavelenght );
+		}
 	
 		Element *e = new Element();
+		e->setSpectrumList( speclist );
 		e->setDate(date);
 		e->setBiologicalMeaning(bio);
 		e->setNumber( number );
