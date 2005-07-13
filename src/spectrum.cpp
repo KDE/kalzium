@@ -22,9 +22,18 @@
 #include <kglobal.h>
 #include <kstandarddirs.h>
 
+#include <math.h>
+
+const double Gamma = 0.80;
+const int IntensityMax = 255;
+
 SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
 	: QWidget( parent,name )
 {
+	//For the colorcalculation
+	Gamma = 0.8;
+	IntensityMax = 255,
+	
 	startValue = 450;
 	endValue = 700;
 
@@ -47,11 +56,11 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	p.begin( this );
 	p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
 	p.drawRect( 0,0, width(), height() );
-	QImage i = ref_image;
-	QPixmap px;
-	px.convertFromImage( i.smoothScale( width(), height() ) );
-	m_stretch = ( width() * 1.0 ) / ref_image.width();
-	bitBlt( this, 0, 0, &px );
+//X 	QImage i = ref_image;
+//X 	QPixmap px;
+//X 	px.convertFromImage( i.smoothScale( width(), height() ) );
+//X 	m_stretch = ( width() * 1.0 ) / ref_image.width();
+//X 	bitBlt( this, 0, 0, &px );
 	drawLines(  &p );
 }
 
@@ -69,15 +78,6 @@ void SpectrumWidget::drawLines( QPainter *p )
 	//(255,231,49) is for 600 nm
 	//(246,144,49) is for 650 nm
 	
-/*
-	for(int h = 450; h < 760 ; ++h)
-	{
-		p->setPen(linecolor(h) );
-		p->drawLine(h-450,0,h-450,m_realHeight );
-	}
-		
-	p->setPen(Qt::black);
-*/
 
 	int i = 0;
 	for ( QValueList<double>::Iterator it = m_spectra.begin();
@@ -91,10 +91,11 @@ void SpectrumWidget::drawLines( QPainter *p )
 		
 		int temp = 0; // every second item will have a little offset
 		if ( i%2 )
-			temp = 15;
+			temp = 55;
 		else
 			temp = 0;
 		
+		p->setPen(linecolor( *it ));
 		p->drawLine( x,0,x, m_realHeight+10+temp );
 		p->save();
 		p->translate(x, m_realHeight+10+15+temp);
@@ -104,6 +105,75 @@ void SpectrumWidget::drawLines( QPainter *p )
 
 		i++;
 	}
+}
+
+void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b )
+{
+	double blue, green, red, factor;
+
+	if ( wavelength > 380 && wavelength < 439 )
+	{
+		red = -( wavelength-440 ) / ( 440-380 );
+		green = 0.0;
+		blue = 1.0;
+		kdDebug() << "RGB on wavelength 1" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+	
+	}
+	if ( wavelength > 440 && wavelength < 489 )
+	{
+		red = 0.0;
+		green = -( wavelength-440 ) / ( 490-440 );
+		blue = 1.0;
+		kdDebug() << "RGB on wavelength 2" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+	}
+	if ( wavelength > 490 && wavelength < 509 )
+	{
+		red = 0.0;
+		green = 1.0;
+		blue = -( wavelength-510 ) / ( 510-490 );
+		kdDebug() << "RGB on wavelength 3" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+	}
+	if ( wavelength > 510 && wavelength < 579 )
+	{
+		red = -( wavelength-510 ) / ( 580-510 );
+		green = 1.0;
+		blue = 0.0;
+		kdDebug() << "RGB on wavelength 4" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+	}
+	if ( wavelength > 580 && wavelength < 644 )
+	{
+		red = 1.0;
+		green = -( wavelength-645 ) / ( 645-580 );
+		blue = 0.0;
+		kdDebug() << "RGB on wavelength 5" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+	}
+	if ( wavelength > 645 && wavelength < 780 )
+	{
+		red = 1.0;
+		green = 0.0;
+		blue = 0.0;
+		kdDebug() << "RGB on wavelength 6" << wavelength << ": " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
+	}
+	if ( wavelength > 380 && wavelength < 419 )
+		factor = 0.3 + 0.7*( wavelength - 380 ) / ( 420 - 380 );
+	else if ( wavelength > 420 && wavelength < 700 )
+		factor = 1.0;
+	else if ( wavelength > 701 && wavelength < 780 )
+		factor = 0.3 + 0.7*( 780 - wavelength ) / ( 780 - 700 );
+	else
+		factor = 0.0;
+
+	r = Adjust( red, factor );
+	g = Adjust( green, factor );
+	b = Adjust( blue, factor );
+}
+
+int SpectrumWidget::Adjust( double color, double factor )
+{
+	if ( color == 0.0 )
+		return 0;
+	else
+		return round( IntensityMax * pow( color*factor, Gamma ) );
 }
 
 int SpectrumWidget::xPos( double value )
@@ -120,18 +190,10 @@ int SpectrumWidget::xPos( double value )
 
 QColor SpectrumWidget::linecolor( double spectrum )
 {
-//The picture has 575 pixel
-//
-
-	//Example: Freq is 600nm. 760-450 = 360.
-	//760 - 600 = 160.   360/160 = 2.25
-	int proportion = m_stretch * ( spectrum - startValue ) / ( endValue - startValue );
-
-	QRgb rgb = ref_image.pixel(proportion, 2 );
-
-	kdDebug() << "RGB: " << rgb << " Prop " << proportion << endl;
+	int r,g,b;
+	wavelengthToRGB( spectrum, r,g,b );
 	
-	QColor c( rgb );
+	QColor c( r,g,b );
 	return c;
 }
 

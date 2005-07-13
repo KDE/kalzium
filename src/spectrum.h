@@ -51,6 +51,13 @@ class SpectrumWidget : public QWidget
 
 		QImage ref_image;
 
+		int Adjust( double color, double factor );
+
+		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
+
+		double Gamma;
+		int IntensityMax;
+
 		/**
 		 * draws the spectra-lines
 		 */
