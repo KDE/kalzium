@@ -278,11 +278,11 @@ QString DetailedInfoDlg::isotopeTable()
 			html.append( ( *it )->halflifeToHtml() );
 		html.append( "</td><td>" );
 		if ( ( *it )->alphadecay() > 0.0 )
-			html.append( i18n( "%1 MeV alpha " ).arg(( *it )->alphadecay() ) );
+			html.append( i18n( "%1 MeV %2" ).arg(( *it )->alphadecay() ).arg( QChar( 945 ) ) );
 		if ( ( *it )->betaplusdecay() > 0.0 )
-			html.append( i18n( "%1 MeV betaplus" ).arg(( *it )->betaplusdecay() ) );
+			html.append( i18n( "%1 MeV %2" ).arg(( *it )->betaplusdecay() ).arg(QChar( 946 )) );
 		if ( ( *it )->betaminusdecay() > 0.0 )
-			html.append( i18n( "%1 MeV betaminus" ).arg(( *it )->betaminusdecay() ) );
+			html.append( i18n( "%1 MeV %2" ).arg(( *it )->betaminusdecay() ).arg( QChar( 946 ) ) );
 		if ( ( *it )->ecdecay() > 0.0 )
 			html.append( i18n( "%1 MeV EC" ).arg(( *it )->ecdecay() ) );
 		html.append( "</td></tr>" );
