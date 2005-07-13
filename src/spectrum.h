@@ -49,10 +49,21 @@ class SpectrumWidget : public QWidget
 	private:
 		QValueList<double> m_spectra;
 
-		QImage ref_image;
-
+		/**
+		 * @return the adjusted value of the @p color. The
+		 * correction depends on @p factor which has been
+		 * figured out emperically
+		 */
 		int Adjust( double color, double factor );
 
+		/**
+		 * This method changes the three values @p r @p g and @p b to the 
+		 * correct values
+		 * param wavelength the wavelength for which the color is searched
+		 * param r red
+		 * param g green 
+		 * param b blue
+		 */
 		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
 
 		double Gamma;

@@ -641,7 +641,6 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		{
 			QDomElement spec = spectrumList.item( i ).toElement();
 			double wavelenght = spec.text().toDouble();
-			kdDebug() << "double ist: " << wavelenght  << " Length: " << spectrumList.length() << endl;
 			speclist.append( wavelenght );
 		}
 	

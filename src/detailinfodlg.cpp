@@ -50,55 +50,21 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 	m_pOverviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon( "overview" ));
 	m_pPictureTab = addPage(i18n("Picture"), i18n("What does this element look like?"), BarIcon( "elempic" ));
 	m_pModelTab = addPage( i18n("Atom Model"), i18n( "Atom Model" ), BarIcon( "orbits" ));
-	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
 	
 	mainLayout = new QVBoxLayout( m_pPictureTab );
 	overviewLayout = new QVBoxLayout( m_pOverviewTab );
 	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
-	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
 
 	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
 	dTab->setElement( m_element );
  	overviewLayout->addWidget( dTab );
 	
-	//MOVE
-	SpectrumWidget *spec = new SpectrumWidget( m_pSpectrumTab, "spectrumwidget" );
-	QValueList<double> l;
-	l.append( 400.0 );
-	l.append( 410.0 );
-	l.append( 420.9 );
-	l.append( 430.0 );
-	l.append( 440.0 );
-	l.append( 450.0 );
-	l.append( 460.0 );
-	l.append( 470.0 );
-	l.append( 480.9 );
-	l.append( 490.0 );
-	l.append( 500.0 );
-	l.append( 510.0 );
-	l.append( 520.9 );
-	l.append( 530.0 );
-	l.append( 540.0 );
-	l.append( 550.0 );
-	l.append( 560.0 );
-	l.append( 570.0 );
-	l.append( 580.9 );
-	l.append( 590.0 );
-	l.append( 600.0 );
-	l.append( 630.0 );
-	l.append( 660.0 );
-	l.append( 680.0 );
-	l.append( 720.0 );
-	l.append( 730.0 );
-	l.append( 750.0 );
-	spec->setSpectra( l );
 
 	wOrbits = new OrbitsWidget( m_pModelTab );
 	piclabel = new QLabel( m_pPictureTab );
 	piclabel->setMinimumSize( 400, 300 );
 	
 	mainLayout->addWidget( piclabel );
-	spectrumLayout->addWidget( spec );
 	modelLayout->addWidget( wOrbits );
 	
 	createContent();
@@ -335,7 +301,27 @@ void DetailedInfoDlg::createContent( )
 	addTab( getHtml(CHEMICAL), i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
 	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
 	addTab( getHtml(MISC), i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
+	
+	
+	
+	
+	if ( m_element->spectrumList().count() > 0 )
+	{
+		m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
+		QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
+		m_spectrumwidget = new SpectrumWidget( m_pSpectrumTab, "spectrumwidget" );
 
+
+		m_spectrumwidget->setSpectra( m_element->spectrumList() );
+
+		spectrumLayout->addWidget( m_spectrumwidget );
+		m_pages.append( m_pSpectrumTab );
+	}
+
+	
+	
+	
+	
 	QString num = QString::number( m_element->number() );
 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elname() ).arg( num );
 	setCaption( cap );
