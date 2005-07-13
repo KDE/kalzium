@@ -19,9 +19,11 @@
  ***************************************************************************/
 #include "spectrum.h"
 
-#include <klocale.h>
+#include <qlayout.h>
+
 #include <kglobal.h>
 #include <kstandarddirs.h>
+#include <klocale.h>
 
 #include <math.h>
 
@@ -105,9 +107,9 @@ void SpectrumWidget::drawLines( QPainter *p )
 
 void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b )
 {
-	double blue, green, red, factor;
+	double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
-	double wavelength_ = floor( wavelength );
+	int wavelength_ = floor( wavelength );
 
 	kdDebug() << wavelength << " :: " << wavelength_ << endl;
 
@@ -189,6 +191,22 @@ QColor SpectrumWidget::linecolor( double spectrum )
 	
 	QColor c( r,g,b );
 	return c;
+}
+
+SpectrumView::SpectrumView( QWidget *parent, const char* name )
+	: QWidget( parent, name )
+{
+	QVBoxLayout *spectrumLayout = new QVBoxLayout( this );
+	m_spectrum = new SpectrumWidget( this, "spectrum" );
+	spectrumLayout->addWidget( m_spectrum );
+
+	QHBoxLayout *hbox = new QHBoxLayout( this );
+	m_spinbox_left = new QSpinBox( 380, 779, 1, this );
+	m_spinbox_right = new QSpinBox( 381, 780, 1, this );
+	hbox->addWidget( m_spinbox_left );
+	hbox->addWidget( m_spinbox_right );
+
+	spectrumLayout->addLayout( hbox );
 }
 
 #include "spectrum.moc"

@@ -26,6 +26,7 @@
 #include <qimage.h>
 #include <qstring.h>
 #include <qvaluelist.h>
+#include <qspinbox.h>
 
 #include <kimageeffect.h>
 #include <kdebug.h>
@@ -44,6 +45,19 @@ class SpectrumWidget : public QWidget
 
 		void setSpectra( QValueList<double> l ){
 			m_spectra = l;
+		}
+
+		/**
+		 * This limits the width of the spectrum in terms of
+		 * wavelength. For example you can set it to only
+		 * show the area between 500 and 550 nm
+		 *
+		 * @param left the left border
+		 * @param right the right border
+		 */
+		void setBorders( double left, double right ){
+			startValue = left;
+			endValue = right;
 		}
 	
 	private:
@@ -93,5 +107,23 @@ class SpectrumWidget : public QWidget
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 };
+
+class SpectrumView : public QWidget
+{
+	Q_OBJECT
+
+	public: 
+		SpectrumView( QWidget* parent, const char* name );
+
+		void setSpectra( QValueList<double> l ){
+			m_spectrum->setSpectra( l );
+		}
+
+	private:
+		SpectrumWidget *m_spectrum;
+
+		QSpinBox *m_spinbox_left, *m_spinbox_right;
+};
+
 #endif // SPECTRUM_H
 

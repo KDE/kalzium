@@ -31,7 +31,7 @@ class QFrame;
 class QVBoxLayout;
 class KActionCollection;
 
-class SpectrumWidget;
+class SpectrumView;
 
 /**
  * @short The dialog which shows all available information of an element
@@ -59,7 +59,7 @@ class DetailedInfoDlg : public KDialogBase
 
 		KActionCollection* m_actionCollection;
 
-		SpectrumWidget *m_spectrumwidget;
+		SpectrumView *m_spectrumview;
 
 		QString isotopeTable();
 
