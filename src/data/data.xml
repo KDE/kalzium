@@ -4,6 +4,17 @@
 		<number>1</number>
 		<name origin="Greek 'hydro' and 'gennao' for 'forms water'">Hydrogen</name>
 		<symbol>H</symbol>
+		<spectra>
+			<spectrum>383.5384</spectrum>
+			<spectrum>388.9049</spectrum>
+			<spectrum>397.0072</spectrum>
+			<spectrum>410.174</spectrum>
+			<spectrum>434.047</spectrum>
+			<spectrum>486.133</spectrum>
+			<spectrum>486.133</spectrum>
+			<spectrum>656.272</spectrum>
+			<spectrum>656.2852</spectrum>
+		</spectra>
 		<mass>1.00794</mass>
 		<block>s</block>
 		<acidicbehaviour>1</acidicbehaviour>
@@ -36,6 +47,16 @@
 		<number>2</number>
 		<name origin="The Greek word for the sun was 'helios'">Helium</name>
 		<symbol>He</symbol>
+		<spectra>
+			<spectrum>438.793</spectrum>
+			<spectrum>443.755</spectrum>
+			<spectrum>447.148</spectrum>
+			<spectrum>471.314</spectrum>
+			<spectrum>492.193</spectrum>
+			<spectrum>501.567</spectrum>
+			<spectrum>587.562</spectrum>
+			<spectrum>667.815</spectrum>
+		</spectra>
 		<mass>4.002602</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
@@ -335,6 +356,11 @@
 	<element>
 		<number>11</number>
 		<name origin="Arabic 'natrun' for 'soda'">Sodium</name>
+		<spectra>
+			<spectrum>568.8205</spectrum>
+			<spectrum>588.995</spectrum>
+			<spectrum>589.5924</spectrum>
+		</spectra>
 		<symbol>Na</symbol>
 		<mass>22.989770</mass>
 		<block>s</block>
