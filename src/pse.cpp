@@ -124,6 +124,9 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 
 	//JH: Start with a full draw
 	doFullDraw = true;
+
+  // according to carsten :)
+  setMinimumSize(ELEMENTSIZE*18, ELEMENTSIZE*10+30);
 }
 
 void PSE::reloadColours()

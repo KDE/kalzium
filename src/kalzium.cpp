@@ -29,6 +29,7 @@
 #include <qlayout.h>
 #include <qtoolbox.h>
 #include <qslider.h>
+#include <qscrollview.h>
 
 #include <kconfigdialog.h>
 #include <kiconloader.h>
@@ -51,10 +52,15 @@ Kalzium::Kalzium()
 
 	pd->kalziumData = new KalziumDataObject();
 
-	QWidget *CentralWidget = new QWidget( this, "CentralWidget" );
-	m_pCentralLayout = new QVBoxLayout( CentralWidget, PSE_MARGIN, -1, "CentralLayout" );
+	QWidget *centralWidget = new QWidget( this, "centralWidget" );
+	m_pCentralLayout = new QVBoxLayout( centralWidget, PSE_MARGIN, -1, "CentralLayout" );
 	
-	m_PSE = new PSE( data(), CentralWidget, "PSE");
+  QScrollView *helperSV = new QScrollView(centralWidget);
+	m_pCentralLayout->addWidget(helperSV);
+  helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
+
+	m_PSE = new PSE( data(), helperSV->viewport(), "PSE");
+  helperSV->addChild( m_PSE );
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
 
@@ -63,10 +69,9 @@ Kalzium::Kalzium()
 	connect( this, SIGNAL( tableLocked( bool ) ), m_PSE, SLOT( slotLock(bool ) ));
 	
 	// Layouting
-	m_pCentralLayout->addWidget( m_PSE );
 
-	setCentralWidget( CentralWidget );
-	CentralWidget->show();
+	setCentralWidget( centralWidget );
+	centralWidget->show();
 
 	setupActions();
 	setupSidebars();
