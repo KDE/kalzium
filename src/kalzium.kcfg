@@ -204,11 +204,6 @@
 	<whatsthis>Use eV or kJ/mol</whatsthis>
 	<default>0</default>
     </entry>
-    <entry name="units" type="Int">
-	<label>This value defines whether SI-Units will be used</label>
-	<whatsthis>Use SI-units or not</whatsthis>
-	<default>0</default>
-    </entry>
     <entry name="temperature" type="Int">
 	<label>This value defines which temperature scale should be used within Kalzium</label>
 	<whatsthis>Select the scale for the temperature</whatsthis>

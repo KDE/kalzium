@@ -9,11 +9,8 @@
             <x>0</x>
             <y>0</y>
             <width>400</width>
-            <height>250</height>
+            <height>210</height>
         </rect>
-    </property>
-    <property name="caption">
-        <string></string>
     </property>
     <grid>
         <property name="name">
@@ -126,38 +123,6 @@
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>Check this if you prefer the energy unit in eV (electronvolt). The other choice you have is kJ/mol (kilojoule per mol).</string>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
-        <widget class="QButtonGroup" row="2" column="0">
-            <property name="name">
-                <cstring>kcfg_units</cstring>
-            </property>
-            <property name="title">
-                <string>Other U&amp;nits</string>
-            </property>
-            <property name="exclusive">
-                <bool>true</bool>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QRadioButton" row="0" column="0">
-                    <property name="name">
-                        <cstring>radioButton8</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Use &amp;the SI-unit meter (m)</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>radioButton9</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Use &amp;commonly used units</string>
                     </property>
                 </widget>
             </grid>

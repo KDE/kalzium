@@ -108,17 +108,7 @@ const QString Element::adjustRadius( RADIUSTYPE rtype )
 	if ( val <= 0 )
 		v = i18n( "Value unknown" );
 	else
-	{
-		switch ( Prefs::units() )
-		{
-			case 0://use SI-values (meter for length)
-				v = i18n( "%1 is a length", "%1 10<sup>-12</sup> m" ).arg( QString::number( val ) );
-				break;
-			case 1://use picometer, the most common unit for radii
-				v = i18n( "%1 is a length, eg: 12.3 pm", "%1 pm" ).arg( QString::number( val ) );
-				break;
-		}
-	}
+		v = i18n( "%1 is a length, eg: 12.3 pm", "%1 pm" ).arg( QString::number( val ) );
 	return v;
 }
 
@@ -206,18 +196,7 @@ const QString Element::adjustUnits( const int type )
 		if ( val <= 0 )
 			v = i18n( "Value unknown" );
 		else
-		{
-			v = QString::number( val );
-			switch ( Prefs::units() )
-			{
-				case 0:
-					v = i18n( "%1 g/mol" ).arg( QString::number( val ) );
-					break;
-				case 1:
-					v = i18n( "%1 u" ).arg( QString::number( val ) );
-					break;
-			}
-		}
+			v = i18n( "%1 u" ).arg( QString::number( val ) );
 	}
 	else if ( type == DENSITY ) // its a density
 	{
@@ -227,22 +206,13 @@ const QString Element::adjustUnits( const int type )
 			v = i18n( "Value unknown" );
 		else
 		{
-			switch ( Prefs::units() )
+			if ( boiling() < 295.0 )//gasoline
 			{
-				case 0://use SI (kg per cubic-meter)
-					val *= 1000;
-					v = i18n( "%1 kg/m<sup>3</sup>" ).arg( QString::number( val ) );
-					break;
-				case 1://use more common units
-					if ( boiling() < 295.0 )//gasoline
-					{
-						v = i18n( "%1 g/L" ).arg( QString::number( val ) );
-					}
-					else//liquid or solid
-					{
-						v = i18n( "%1 g/cm<sup>3</sup>" ).arg( QString::number( val ) );
-					}
-					break;
+				v = i18n( "%1 g/L" ).arg( QString::number( val ) );
+			}
+			else//liquid or solid
+			{
+				v = i18n( "%1 g/cm<sup>3</sup>" ).arg( QString::number( val ) );
 			}
 		}
 	}

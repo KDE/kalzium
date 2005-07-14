@@ -68,13 +68,6 @@ class Kalzium : public KMainWindow
 		friend class privatedata;
 		privatedata* pd;
 
-/*
-		///the KComboBoxes for the statusbar (temperature and energie)
-		KComboBox *e_box,
-				  *t_box,
-				  *u_box;
-*/
-
 		DetailedInfoDlg   *m_infoDialog;
 
 		/**
@@ -82,11 +75,6 @@ class Kalzium : public KMainWindow
 		 */
 		PSE *m_PSE;
 		
-		/**
-		 *initialize the Statusbar
-		 */
-		void setupStatusBar();
-
 		/**
 		 *initialize actions
 		 */
@@ -96,11 +84,6 @@ class Kalzium : public KMainWindow
 		 *initialize the sidebars
 		 */
 		void setupSidebars();
-		
-		/**
-		 *diplay the energy unit in the Statusbar
-		 */
-		void updateStatusbar();
 		
 		/**
 		 * Signal the PSE that it should do a full draw operation
@@ -146,18 +129,14 @@ class Kalzium : public KMainWindow
 		GlossaryDialog *m_glossarydlg;
 	
 	private slots:
-		void slotStatusbar(int);
-		
 		/**
 		 * opens the information dialog for the element @p number
 		 */
 		void openInformationDialog( int number );
 
-		/**
-		 * called when the user changed a KComboBox in the statusbar
-		 */
-		void adjustUnits();
-	
+		void slotStatusbar( int num );
+		void setupStatusBar();
+
 
 		/**
 		 * this slot switches Kalzium to the selected color scheme

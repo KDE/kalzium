@@ -41,9 +41,6 @@
 
 #include <kdeeduglossary.h>
 
-#define IDS_TEMP            1
-#define IDS_ENERG           3
-#define IDS_UNITS           5
 #define PSE_MARGIN          5
 #define IDS_ELEMENTINFO     7
 
@@ -71,7 +68,6 @@ Kalzium::Kalzium()
 	setCentralWidget( CentralWidget );
 	CentralWidget->show();
 
-	setupStatusBar();
 	setupActions();
 	setupSidebars();
 
@@ -102,6 +98,8 @@ Kalzium::Kalzium()
 	g->setBackgroundPicture( picturepath );
 	m_glossarydlg->addGlossary( g );
 	connect( m_glossarydlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
+
+	setupStatusBar();
 }
 
 void Kalzium::setupActions()
@@ -223,54 +221,6 @@ void Kalzium::slotGlossary()
 {
 	emit tableLocked(true);
 	m_glossarydlg->show();
-}
-
-void Kalzium::setupStatusBar()
-{
-/*
-	t_box = new KComboBox( statusBar() );
-	e_box = new KComboBox( statusBar() );
-	u_box = new KComboBox( statusBar() );
-	t_box->insertItem( i18n( "Kelvin" ) );
-	t_box->insertItem( i18n("Celsius") );
-	t_box->insertItem( i18n("Fahrenheit" ) );
-	e_box->insertItem( i18n("kilojoule per mol. Please enter a capital 'J'", "kJ/mol") );
-	e_box->insertItem( i18n("the symbol for electronvolt", "eV" ));
-	u_box->insertItem( i18n("SI-Units" ) );
-	u_box->insertItem( i18n("Common Units" ) );
-
-	connect( t_box, SIGNAL( activated( int ) ), this, SLOT( adjustUnits() ) );
-	connect( e_box, SIGNAL( activated( int ) ), this, SLOT( adjustUnits() ) );
-	connect( u_box, SIGNAL( activated( int ) ), this, SLOT( adjustUnits() ) );
-
-	statusBar()->insertItem(i18n( "Temperature" ), IDS_TEMP+1, 0, false);
-	statusBar()->setItemAlignment(IDS_TEMP+1, AlignLeft);
-	statusBar()->addWidget( t_box , 0, false );
-
-	statusBar()->insertItem(i18n( "Energy" ), IDS_ENERG+1, 0, false);
-	statusBar()->setItemAlignment(IDS_ENERG+1, AlignLeft);
-	statusBar()->addWidget( e_box , 0, false );
-	
-	statusBar()->insertItem(i18n( "Units" ), IDS_UNITS+1, 0, false);
-	statusBar()->setItemAlignment(IDS_UNITS+1, AlignLeft);
-	statusBar()->addWidget( u_box , 0, false );
-*/	
-	statusBar()->insertItem( "" , IDS_ELEMENTINFO, 1, false);
-	statusBar()->setItemAlignment(IDS_ELEMENTINFO, AlignRight);
-	
-	updateStatusbar();
-
-	statusBar()->show();
-}
-
-void Kalzium::adjustUnits()
-{
-	/*
-	Prefs::setTemperature( t_box->currentItem() );
-	Prefs::setEnergies( e_box->currentItem() );
-	Prefs::setUnits( u_box->currentItem() );
-	Prefs::writeConfig();
-	*/
 }
 
 void Kalzium::slotPlotData()
@@ -398,16 +348,13 @@ void Kalzium::slotUpdateSettings()
 	m_PSE->reloadColours();
 	m_PSE->setFullDraw();
     slotEnableTooltips();
-	updateStatusbar();
 }
  
-void Kalzium::updateStatusbar()
- {
-/*
-	t_box->setCurrentItem( Prefs::temperature() );
-	e_box->setCurrentItem( Prefs::energies() );
-	u_box->setCurrentItem( Prefs::units() );
-*/
+void Kalzium::setupStatusBar()
+{
+	statusBar()->insertItem(  "" , IDS_ELEMENTINFO, 1, false );
+	statusBar()->setItemAlignment( IDS_ELEMENTINFO, AlignRight );
+	statusBar()->show();
 }
 
 void Kalzium::slotStatusbar( int num )
