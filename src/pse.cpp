@@ -393,8 +393,10 @@ void PSE::paintCurrentSelection()
 	if (m_currentPoint.x() == -1)
 		return;
 
-	int x = m_currentPoint.x()-1;
-	int y = m_currentPoint.y();
+	int x = (m_currentPoint.x()-1)*ELEMENTSIZE;
+	int y = m_currentPoint.y()*ELEMENTSIZE;
+
+	if (m_currentPoint.y() > 7) y += ELEMENTSIZE/3;
 
 	QPainter p;
 	p.begin(table);
@@ -405,11 +407,11 @@ void PSE::paintCurrentSelection()
 	pen.setColor( Qt::blue );
 	p.setPen( pen );
 
-	p.drawEllipse( x*ELEMENTSIZE-10,y*ELEMENTSIZE-10,ELEMENTSIZE+20,ELEMENTSIZE+20 );
+	p.drawEllipse( x-10,y-10,ELEMENTSIZE+20,ELEMENTSIZE+20 );
 	pen.setWidth( 3 );
 	pen.setColor( Qt::red );
 	p.setPen( pen );
-	p.drawEllipse( x*ELEMENTSIZE-5,y*ELEMENTSIZE-5,ELEMENTSIZE+10,ELEMENTSIZE+10 );
+	p.drawEllipse( x-5,y-5,ELEMENTSIZE+10,ELEMENTSIZE+10 );
 
 	p.end();
 }
@@ -768,7 +770,9 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 	
 	//for the y-position I need to substract ELEMENTSIZE pixel because
 	//the whole table doesn't start at (0,0) but at (0,ELEMENTSIZE)
-	int Y = ( mouse->y()-ELEMENTSIZE)/ELEMENTSIZE;
+	int Y = mouse->y()-ELEMENTSIZE;
+	if (Y > (ELEMENTSIZE*7)) Y -= ELEMENTSIZE/3;
+	Y /= ELEMENTSIZE;
 		
 	X += 1;
 	Y += 1;
@@ -1114,7 +1118,11 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 QPoint PSE::ElementUnderMouse()
 {
 	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
-	int Y = ( mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE)/ELEMENTSIZE;
+	int Y = mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE;
+
+	if (Y > (ELEMENTSIZE*7)) Y -= ELEMENTSIZE/3;
+
+	Y /= ELEMENTSIZE;
 	
 	X += 1;
 	Y += 1;

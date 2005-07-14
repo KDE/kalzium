@@ -483,7 +483,14 @@ int Element::xPos() const
 
 int Element::yPos() const
 {
-	return ( y-1 )*ELEMENTSIZE + ELEMENTSIZE;
+// original
+//	return ( y-1 )*ELEMENTSIZE + ELEMENTSIZE;
+  int tmp_y = ( y-1 )*ELEMENTSIZE + ELEMENTSIZE;
+
+  if ( (m_number > 57 && m_number < 72) || (m_number > 89 && m_number < 104) )
+	tmp_y += ELEMENTSIZE/3;
+
+  return tmp_y;
 }
 
 QPoint Element::pos() const
