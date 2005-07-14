@@ -58,6 +58,7 @@ Kalzium::Kalzium()
   QScrollView *helperSV = new QScrollView(centralWidget);
 	m_pCentralLayout->addWidget(helperSV);
   helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
+  helperSV->setFrameShape(QFrame::NoFrame);
 
 	m_PSE = new PSE( data(), helperSV->viewport(), "PSE");
   helperSV->addChild( m_PSE );
