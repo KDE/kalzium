@@ -152,7 +152,7 @@ class SpectrumWidget : public QWidget
 		 * @param wavelength the wavelength for which the position is needed
 		 */
 		inline int xPos( double wavelength ){
-			return ( int ) ( width() * ( value - startValue ) / ( endValue - startValue ) );
+			return ( int ) ( width() * ( wavelength - startValue ) / ( endValue - startValue ) );
 		}
 
 		/**
