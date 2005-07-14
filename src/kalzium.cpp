@@ -145,7 +145,7 @@ void Kalzium::setupActions()
 	numeration_action->setCurrentItem(Prefs::numeration()); 
 	connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
 
-	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
+	m_SidebarAction = new KToggleAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
 	/*
 	 * the misc actions
@@ -266,7 +266,6 @@ void Kalzium::slotShowHideSidebar()
 		m_dockWin->hide();
 	else
 		m_dockWin->show();
-	
 }
 
 void Kalzium::slotShowScheme(int i)
@@ -502,15 +501,9 @@ void Kalzium::slotSelectedNumber( int num )
 void Kalzium::slotSidebarVisibilityChanged( bool visible )
 {
 	if( visible )
-	{
-		m_SidebarAction->setText(i18n("Hide &Sidebar"));
 		slotToolboxCurrentChanged( m_toolboxCurrent );
-	}
 	else
-	{
-		m_SidebarAction->setText(i18n("Show &Sidebar"));
 		slotToolboxCurrentChanged( 0 );
-	}
 
 	//save the settings
 	Prefs::setShowsidebar( m_dockWin->isShown() );

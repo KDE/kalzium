@@ -96,11 +96,11 @@ class Kalzium : public KMainWindow
 		KSelectAction *gradient_action;
 		KSelectAction *numeration_action;
 		KAction *m_pPlotAction,
-				*m_pGlossaryAction,
-				*m_SidebarAction;
+				*m_pGlossaryAction;
 		
 		KToggleAction *m_pTooltipAction;
 		KToggleAction *m_pLegendAction;
+		KToggleAction *m_SidebarAction;
 
 		KToggleAction *m_actionNoScheme;
 		KToggleAction *m_actionGroups;
