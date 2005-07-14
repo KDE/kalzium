@@ -114,7 +114,7 @@ void SpectrumWidget::drawEmmissionSpectrum( QPainter *p )
 			continue;
 
 		int x = xPos( *it );
-		
+	
 		int temp = 0; // every second item will have a little offset
 		if ( i%2 )
 			temp = 35;
@@ -123,6 +123,7 @@ void SpectrumWidget::drawEmmissionSpectrum( QPainter *p )
 		
 		p->setPen(linecolor( *it ));
 		p->drawLine( x,0,x, m_realHeight );
+		//p->drawRect( x,0,x+width()/(endValue-startValue),m_realHeight );
 		p->setPen( Qt::black );
 		p->drawLine( x,m_realHeight,x, m_realHeight+10+temp );
 		p->setPen( Qt::black );
@@ -144,8 +145,8 @@ void SpectrumWidget::drawEmmissionSpectrum( QPainter *p )
 void SpectrumWidget::drawTickmarks( QPainter* p )
 {
 	const int space = 13;
-/*	
-	for ( int i = 0; i < width() ; i+=10 )
+	
+/*	for ( int i = 0; i < width() ; i+=10 )
 	{
 		p->drawLine( i,m_realHeight,i, m_realHeight+5 );
 	}
@@ -158,23 +159,23 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 		p->drawLine( i,m_realHeight,i, m_realHeight+10 );
 		p->fillRect( i-space, m_realHeight+12, 2*space, 15, Qt::white );
 		p->drawText( i-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( wave ) );
-	}*/
-
+	}
+*/
 	int start = (int)startValue % 10;
 	double dist =  width()/(endValue-startValue) * 10;	//distance between the tickles in px
 
-	int count = startValue + start;
+	int count = startValue - start + 10;
 	start *= width()/(endValue-startValue);
 
 	for ( int i = start; i < width(); i += dist )
 	{
 		if(count%50 == 0 )
 		{
-			int wave = ( int )Wavelength( i/width() );
+			//int wave = ( int )Wavelength( count );
 
 			p->drawLine( i, m_realHeight, i, m_realHeight+10 );	
 			p->fillRect( i-space, m_realHeight+12, 2*space, 15, Qt::white );
-			p->drawText( i-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( wave ) );		
+			p->drawText( i-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( count ) );		
 		}
 		else
 		{
