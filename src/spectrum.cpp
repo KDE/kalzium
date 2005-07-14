@@ -28,9 +28,6 @@
 
 #include <math.h>
 
-const double Gamma = 0.80;
-const int IntensityMax = 255;
-
 SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
 	: QWidget( parent,name )
 {
@@ -43,8 +40,6 @@ SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
 
 	m_realWidth = 360;
 	m_realHeight = 200;
-
-	m_stretch = 1;
 
 	setType( EmissionSpectrum );
 }
@@ -158,7 +153,7 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 	{
 		double pos = ( double )i/width();
 
-		int wave = Wavelength( pos );
+		int wave = ( int )Wavelength( pos );
 		
 		p->drawLine( i,m_realHeight,i, m_realHeight+10 );
 		p->fillRect( i-space, m_realHeight+12, 2*space, 15, Qt::white );
@@ -170,7 +165,7 @@ void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b 
 {
 	double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
-	int wavelength_ = floor( wavelength );
+	int wavelength_ = ( int ) floor( wavelength );
 
 	if ( wavelength_ > 380 && wavelength_ < 439 )
 	{
@@ -228,29 +223,14 @@ int SpectrumWidget::Adjust( double color, double factor )
 	if ( color == 0.0 )
 		return 0;
 	else
-		return round( IntensityMax * pow( color*factor, Gamma ) );
-}
-
-int SpectrumWidget::xPos( double value )
-{
-	return ( int ) width() * ( value - startValue ) / ( endValue - startValue );
-//X 	int proportion = ( int ) width() * ( value - startValue ) / ( endValue - startValue );
-//X 	return proportion;
-}
-
-int SpectrumWidget::Wavelength( double position )
-{
-	double range = endValue-startValue;
-	int result = ( int ) ( startValue + ( range *  position ) );
-	
-	return result;
+		return ( int )( round( IntensityMax * pow( color*factor, Gamma ) ) );
 }
 
 QColor SpectrumWidget::linecolor( double spectrum )
 {
 	int r,g,b;
 	wavelengthToRGB( spectrum, r,g,b );
-	
+
 	QColor c( r,g,b );
 	return c;
 }
@@ -272,8 +252,8 @@ SpectrumView::SpectrumView( QWidget *parent, const char* name )
 	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrum, SLOT( setLeftBorder( int ) ) );
 
 	m_spectrumbox = new KComboBox( this, "combobox" );
-	m_spectrumbox->insertItem( "EmissionSpectrum" );
-	m_spectrumbox->insertItem( "AbsorptionSpectrum" );
+	m_spectrumbox->insertItem( "Emission Spectrum" );
+	m_spectrumbox->insertItem( "Absorption Spectrum" );
 	connect( m_spectrumbox, SIGNAL( activated( int ) ), m_spectrum, SLOT( slotActivateSpectrum( int ) ) );
 	
 	

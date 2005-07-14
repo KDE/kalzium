@@ -33,9 +33,9 @@
 #include <kpixmapeffect.h>
 #include <kcombobox.h>
 
-#define MAXCOLOR = 750
-#define MINCOLOR = 450
-
+/**
+ * @author Carsten Niehaus
+ */
 class SpectrumWidget : public QWidget
 {
 	Q_OBJECT
@@ -84,6 +84,14 @@ class SpectrumWidget : public QWidget
 		void setType( SpectrumType t ){
 			m_type = t;
 		}
+
+		/**
+		 * @return the currently active type
+		 * of the spectrum
+		 */
+		SpectrumType spectrumType() const{
+			return m_type;
+		}
 	
 	private:
 		QValueList<double> m_spectra;
@@ -105,7 +113,9 @@ class SpectrumWidget : public QWidget
 		 * @param position the position on a 0 to 1 scale.
 		 * @return the Wavelength on @p position
 		 */
-		int Wavelength( double position );
+		inline double Wavelength( double position ){
+			return startValue + ( ( endValue-startValue ) *  position );
+		}
 
 		/**
 		 * This method changes the three values @p r @p g and @p b to the 
@@ -135,7 +145,15 @@ class SpectrumWidget : public QWidget
 		 */
 		void drawTickmarks( QPainter *p );
 
-		inline int xPos( double value );
+		/**
+		 * @return the postion in the widget of a band 
+		 * with the wavelength @p wavelength
+		 * 
+		 * @param wavelength the wavelength for which the position is needed
+		 */
+		inline int xPos( double wavelength ){
+			return ( int ) ( width() * ( value - startValue ) / ( endValue - startValue ) );
+		}
 
 		/**
 		 * @returns the color of a line
@@ -148,8 +166,6 @@ class SpectrumWidget : public QWidget
 
 		int m_realWidth;
 		int m_realHeight;
-
-		double m_stretch;
 
 	public slots:
 		/**
@@ -172,6 +188,9 @@ class SpectrumWidget : public QWidget
 			update();
 		}
 
+		/**
+		 * activates the spectrum of the type @p spectrumtype
+		 */
 		void slotActivateSpectrum( int spectrumtype ){
 			m_type = ( SpectrumType )spectrumtype;
 			update();
