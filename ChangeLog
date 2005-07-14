@@ -1,2 +1,9 @@
-* Fix string: bcc instead of bbc for 'body centered cubic'
-* Add Alt-q-shortcut for all dialogs
+*** Changes after Kalzium Hydrogen ***
+Add:
+ - The spectrium dialog
+ - The table now has a small gap over the rare earth
+ - The isotope table provides now more data
+ - The documentation has been overhauled
+ - The menustructure is now more consistent
+ - One icon has been added
+ - Make the mainwidget a QScrollView. This make sizehandling easier

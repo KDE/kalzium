@@ -1,5 +1,5 @@
                             Release plan
-                           ============
+                            ============
 
 Status: Under discussion
 
@@ -9,7 +9,7 @@ Overview
 
 Currently we plan for 3 releases:
 
- - A standalone release of Kalzium in July
+ - A standalone release of Kalzium in August
  - The release for KDE 3.5
  - The release for KDE 4.0
 
@@ -21,12 +21,12 @@ respective release.
 
 Dates
 
-2005-06-30    Feature freeze.  All features in the TODO for
-              version 1.5 should be done at the end of this day.
+2005-08-07    Feature freeze.  All features in the TODO for
+              version Helium should be done at the end of this day.
 
-2005-07-08    End of bug testing and fixing period.
+2005-08-26    End of bug testing and fixing period.
 
-2005-07-11    Release of Kalzium 1.5
+2005-08-30    Release of Kalzium Helium
 
 
 ================================================================
@@ -35,31 +35,23 @@ Dates
 
 * Standalone release of Kalzium
   + After one week of testing and improving I would like to release
-    Kalzium (together with libkdeedu for the plotting) on the 8th 
-    of July (a friday).
-   IW: I changed this to Monday 11th for two reasons:
-     - We have the weekend to fix really urgent bugs, and to do the
-       packaging without stress.
-     - It's better to do the release when people don't only want to
-       think about the upcoming weekend.  This way, the release can
-       get more attention.
+    Kalzium (together with libkdeedu for the plotting and the glossary) 
+	on the 30th of August (a tuesday). Two days later I leave to to
+	aKademy in Malaga, Spain.
 	
   + Release criteria, prio 1:
     - Fix all bugs on bugs.kde.org
-    - Add all icons. For this purpose I started a thread here:
-      http://kde-artists.org/main/component/option,com_smf/Itemid,48/expv,0/topic,60.0
     - *must be* Update edu.kde.org/kalzium with screenshots
     - *must be* increase the version number
   + Release criteria, prio 2:
     - Make the release very usable:
-      http://www.openusability.org/forum/forum.php?thread_id=397&forum_id=250
     - Write the documentation
    These prio 2 issues will be prio 1 for KDE 3.5
 
   + Release mechanism:
-    - Announcement on http://dot.kde.org
     - Announcement on kde-edu@kde.org
-    - Announcement on apps.kde.org
+    - Announcement on kalzium@kde.org
+    - Announcement on www.kde-apps.org
     - Announcement on kde-announce@kde.org
     - I will blog about the release and it goals
 

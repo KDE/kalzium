@@ -1,5 +1,5 @@
                        TODO for Kalzium 1.5
-
+					   ===================
 
 Bugs
 ----
@@ -8,6 +8,15 @@ Bugs
 * Miscellaneous bugs:
   + Make use of the biological symbol.					----
     CN: I lost the "translation" though, will have to look after it.
+
+* Slider of Timeline/SOM: Add Tickmarks for min and max       -----
+
+* Move "Temperature" and "Year" above the slider              -----
+  ** move the KIntNumSpinbox to the right of the slider
+
+* Log-scale of the gradient                                   -----
+
+* Timeline+SOM: some font+align like in the calculator        -----
 
 Features
 --------
@@ -35,17 +44,8 @@ Features
 * Add KHotNewStuff support (xml) so that a user can define which
   dates are displayed in the timeline (see SOM)
 
-* Slider of Timeline/SOM: Add Tickmarks for min and max
-
-* Move "Temperature" and "Year" above the slider
-  ** move the KIntNumSpinbox to the right of the slider
-
-* Log-scale of the gradient
-
-* Timeline+SOM: some font+align like in the calculator
-
-
 * Make the glossary also into a dictionary
+  CN: I don't understand this point...
 
 * Add more than only one mode to Kalzium, eg a mode with simplified
   user interface (less looks, easier menu structure, less information
@@ -90,28 +90,14 @@ different views of the PTE.
 http://en.wikipedia.org/wiki/Periodic_table_(standard) and see the notes 
 about borders.
 
+* Spectrum-Classes
+  + Create an editor. The user enters some wavelength and Kalzium will
+    create a graphic from that data.
+
 * Some websites with a lot of information:
 http://en.wikipedia.org/wiki/History_of_chemistry
 http://en.wikipedia.org/wiki/Timeline_of_chemical_element_discovery
 http://en.wikipedia.org/wiki/Nobel_Prize_in_chemistry
 http://chemipedia.org/mediawiki/index.php/Hauptseite
-
-
-*** WIKIPEDIA ***
-
-What do I need from kdelibs:
-
-* validate if an article exists
-  bool articleExists( const QString& articlename )
-* return an article (wiketext, xml or html) which I request
-  -- getArticle( const QString& articlename )
-* return several articles (wiketext, xml or html) which I request by
-  using QStringList
-  -- getArticles( QStringList articles )
-* return the users who modified an article
-  -- articleAuthors( const QString& articlename )
-* return the full-size version of an image. In an article there are usually
-  resized pics, sometimes even on stamp-size. There has to be a 
-  mechanismn to retrieve the fullsized version.
-
+http://physics.nist.gov/PhysRefData/Handbook/periodictable.htm
 

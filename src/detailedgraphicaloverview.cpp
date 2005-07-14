@@ -130,7 +130,8 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 	//Mass
 	p.drawText( xC3, yC3, QString::number( m_element->mass() )); 
 
-	drawBiologicalSymbol( &p );
+	//TODO until I found again what those symbols mean disable this
+	//drawBiologicalSymbol( &p );
 	}
 
 	p.end();
