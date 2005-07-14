@@ -98,7 +98,14 @@
 </para>
 
 <para>
-You can choose several views for the table: display the elements per families, per groups, per crystal structure, depending on their acidic behaviour, &etc;. You can change all that in the menubar in the <menuchoice> <guimenu>Periodic Table</guimenu> <guimenuitem>Look</guimenuitem> </menuchoice> menu.
+When you move the mouse cursor on an element of the table, a tooltip appears with a pictureof this element if available, its number and its mass. In the sidebar is displayed an overview of the current element in the <guilabel>Overview</guilabel> tab.
+</para>
+
+<para>You can disable the tooltips using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide tooltip</guimenuitem> </menuchoice> menu.
+</para>
+
+<para>
+You can choose several views for the table: display the elements per families, per groups, per crystal structure, depending on their acidic behaviour, &etc;. You can change all that in the menubar in the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Look</guimenuitem> </menuchoice> menu.
 </para>
 <para>
 If you want to know facts about a precise element, click on it in the table and the information dialog will be displayed.
@@ -196,7 +203,7 @@ If you want to know facts about a precise element, click on it in the table and 
 				 <guilabel>IUPAC</guilabel>, <guilabel>old IUPAC</guilabel> or
 				 <guilabel>CAS</guilabel>, or you can switch it off entirely.</para>
 
-			 <para>The following options in the <guimenu>Periodic Table</guimenu> <guimenuitem>Numeration</guimenuitem> menu can be used to change the numeration shown:
+			 <para>The following options in the <guimenu>View</guimenu> <guimenuitem>Numeration</guimenuitem> menu can be used to change the numeration shown:
 				 <itemizedlist>
 					 <listitem><para>
 							 <guimenuitem>No Numeration</guimenuitem>: if this option is active, no period-numeration will be
@@ -225,7 +232,7 @@ If you want to know facts about a precise element, click on it in the table and 
 
 			 <para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote>, their behavior with acid and which state of matter (&ie; solid/liquid/vapor) they are in at a given temperature.</para>
 
-			 <para>Color schemes are changed in the <guimenu>Periodic Table</guimenu> <guimenuitem>Look</guimenuitem> menu. </para>
+			 <para>Color schemes are changed in the <guimenu>View</guimenu> <guimenuitem>Look</guimenuitem> menu. </para>
 			 <itemizedlist>
 				 <listitem><para>
 						 <guimenuitem>No Color Scheme</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kalzium;...</guimenuitem>
@@ -297,7 +304,7 @@ If you want to know facts about a precise element, click on it in the table and 
 
 			 <sect2 id="glossary">
 				 <title>Glossary</title>
-				 <para>
+				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data.
 				 </para>
 					 <screenshot>
 						 <mediaobject>
@@ -307,15 +314,60 @@ If you want to know facts about a precise element, click on it in the table and 
 							 <textobject>
 								 <phrase>the <quote>Glossary</quote></phrase>
 							 </textobject>
-							 <caption><para>The glossary</para>
-							 </caption>
 						 </mediaobject>
 					 </screenshot>
 			 </sect2>
 
 			 <sect2 id="sidebar">
 				 <title>Sidebar</title>
-				 <sect3 id="timeline">
+                                    <sect3 id="overview">
+					 <title>Overview</title>
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="sidebar1.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase>Overview</phrase>
+							 </textobject>
+						 </mediaobject>
+					 </screenshot>
+					 <para>The Overview tab is the first one and it shows you an overview of the element the mouse is over.</para>
+
+				 </sect3>
+                                    <sect3 id="calculate">
+					 <title>Calculate</title>
+
+					 <para>The Calculate tab is the second in the sidebar. It alows you to calculate molecules weights.</para>
+<para>You are first presented with the following icons and text:</para>
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="sidebar2.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase>Calculate</phrase>
+							 </textobject>
+							 <caption><para>Calculate</para>
+							 </caption>
+						 </mediaobject>
+					 </screenshot>
+<para>You have to click on the elements that compose the molecule.</para>
+					 <screenshot>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="sidebar3.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase>Weight</phrase>
+							 </textobject>
+							 <caption><para>Weight</para>
+							 </caption>
+						 </mediaobject>
+					 </screenshot>
+<para>You can remove some elements after you click on the Remove icon. You can also clear all the elements with the Clear icon on the most right.</para>
+				 </sect3>
+                        <sect3 id="timeline">
 					 <title>Timeline</title>
 
 					 <para>The Timeline feature allows you to explore the elements of the
@@ -350,7 +402,6 @@ If you want to know facts about a precise element, click on it in the table and 
 						 </mediaobject>
 					 </screenshot>
 				 </sect3>
-
 
 				 <sect3 id="state_of_matter">
 					 <title>State of Matter</title>
@@ -393,34 +444,46 @@ If you want to know facts about a precise element, click on it in the table and 
 				 <screeninfo>Configure &kalzium; Dialog</screeninfo>
 				 <mediaobject>
 					 <imageobject>
-						 <imagedata fileref="settings.png" format="PNG"/>
+						 <imagedata fileref="settings1.png" format="PNG"/>
 					 </imageobject>
 					 <textobject>
-						 <phrase>Configure &kalzium; Dialog</phrase>
+						 <phrase>Colors</phrase>
 					 </textobject>
 				 </mediaobject>
 			 </screenshot>
-
-
-			 <itemizedlist>
-				 <listitem>
 					<para>In the <guilabel>Colors</guilabel> tab, you can change the different
 						colors for each scheme.
 					</para>
-				</listitem>
-				<listitem>
+			 <screenshot>
+				 <screeninfo>Configure &kalzium; Dialog</screeninfo>
+				 <mediaobject>
+					 <imageobject>
+						 <imagedata fileref="settings2.png" format="PNG"/>
+					 </imageobject>
+					 <textobject>
+						 <phrase>Units</phrase>
+					 </textobject>
+				 </mediaobject>
+			 </screenshot>
 					<para>In the <guilabel>Units</guilabel> tab, you can
 						choose the units. You can select if you prefer kJ/mol by default but 
 						you can choose eV and the Temperature is in Kelvin by default but you can 
 						change to degrees Celsius or degrees Fahrenheit.
 					</para>
-				</listitem>
-				<listitem>
+			 <screenshot>
+				 <screeninfo>Configure &kalzium; Dialog</screeninfo>
+				 <mediaobject>
+					 <imageobject>
+						 <imagedata fileref="settings3.png" format="PNG"/>
+					 </imageobject>
+					 <textobject>
+						 <phrase>Miscellaneous</phrase>
+					 </textobject>
+				 </mediaobject>
+			 </screenshot>
 					<para>In the <guilabel>Miscellaneous</guilabel> tab, you can find other options not
 						related with the previous tabs.
 					</para>
-				</listitem>
-			 </itemizedlist>
 
 		 </chapter>
 
@@ -633,6 +696,13 @@ If you want to know facts about a precise element, click on it in the table and 
                              </menuchoice></term>
                              <listitem><para><action>Toggle</action> tooltip display on elements</para></listitem>
                          </varlistentry>
+                            <varlistentry>
+                                    <term><menuchoice>
+                                                    <guimenu>View</guimenu>
+                                                    <guimenuitem>Show/Hide Sidebar</guimenuitem>
+                                    </menuchoice></term>
+                                    <listitem><para><action>Toggle</action> the Sidebar</para></listitem>
+                            </varlistentry>
 					 </variablelist>
 
 				 </sect2>
