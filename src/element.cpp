@@ -501,7 +501,7 @@ KalziumDataObject::KalziumDataObject()
 	QDomDocument doc( "datadocument" );
 
 	KURL url;
-	url.setPath( locate("data", "kalzium/data/"));
+	url.setPath( locate("data", "kalzium/data/data.xml"));
 	url.setFileName( "data.xml" );
 	QFile layoutFile( url.path() );
 
