@@ -39,8 +39,8 @@
 
 		 <legalnotice>&FDLNotice;</legalnotice>
 
-		 <date>2005-06-16</date>
-		 <releaseinfo>1.5</releaseinfo>
+		 <date>2005-07-14</date>
+		 <releaseinfo>1.4.2pre3</releaseinfo>
 
 		 <abstract>
 			 <para>&kalzium; is a program which shows you the Periodic System of
@@ -255,6 +255,18 @@ If you want to know facts about a precise element, click on it in the table and 
 				 </para></listitem>
 				 <listitem><para>
 						 <guimenuitem>Gradient</guimenuitem>
+                                                <para>The gradient views displays the elements according to one property you can select below and with a gradient colored scheme. The elements for which the data is non available are displayed in grey.</para>
+			 <screenshot>
+				 <screeninfo>Gradient for Covalent Radius</screeninfo>
+				 <mediaobject>
+					 <imageobject>
+						 <imagedata fileref="gradient.png" format="PNG"/>
+					 </imageobject>
+					 <textobject>
+						 <phrase>Gradient for Covalent Radius</phrase>
+					 </textobject>
+				 </mediaobject>
+			 </screenshot>
 						 <itemizedlist>
 							 <listitem><para><guimenuitem>Atomic Radius</guimenuitem>
 							 </para></listitem>
