@@ -45,6 +45,8 @@ SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
 	m_realHeight = 200;
 
 	m_stretch = 1;
+
+	setType( EmissionSpectrum );
 }
 
 SpectrumWidget::~SpectrumWidget(){}
@@ -54,20 +56,61 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	QPainter p;
 	p.begin( this );
 	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
-	drawLines(  &p );
+	
+	switch ( m_type )
+	{
+		case EmissionSpectrum:	
+			drawEmmissionSpectrum(  &p );
+			break;
+		case AbsorptionSpectrum:
+			drawAbsorptionSpectrum( &p );
+			break;
+	}
 	drawTickmarks( &p );
 }
 
-void SpectrumWidget::drawLines( QPainter *p )
+void SpectrumWidget::drawAbsorptionSpectrum( QPainter *p )
 {
-	//the spectrum goes from about 780nm to about 400nm
-	//700 is a dark red 
-	//660 yellow
-	//580 green
-	//500 light blue
-	//400 dark blue
+	kdDebug() << "SpectrumWidget::drawAbsorptionSpectrum()" << endl;
 
 	int i = 0;
+
+	for ( double va = startValue; va <= endValue ; va += 0.1 )
+	{
+		int x = xPos( va );
+		p->setPen(linecolor( va ));
+		p->drawLine( x,0,x, m_realHeight+10 );
+	}
+	
+	for ( QValueList<double>::Iterator it = m_spectra.begin();
+			it != m_spectra.end();
+			++it )
+	{
+		if ( (*it) < startValue || ( *it ) > endValue )
+			continue;
+
+		int x = xPos( *it );
+		
+		int temp = 0; // every second item will have a little offset
+		if ( i%2 )
+			temp = 35;
+		else
+			temp = 0;
+		
+		p->setPen( Qt::black );
+		p->drawLine( x,0,x, m_realHeight+10+temp );
+		QString text = QString::number( *it );
+		p->drawText(0, 0, text);
+
+		i++;
+	}
+}
+
+void SpectrumWidget::drawEmmissionSpectrum( QPainter *p )
+{
+	kdDebug() << "SpectrumWidget::drawEmmissionSpectrum()" << endl;
+	int i = 0;
+	
 	for ( QValueList<double>::Iterator it = m_spectra.begin();
 			it != m_spectra.end();
 			++it )
@@ -128,8 +171,6 @@ void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b 
 	double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
 	int wavelength_ = floor( wavelength );
-
-//	kdDebug() << wavelength << " :: " << wavelength_ << endl;
 
 	if ( wavelength_ > 380 && wavelength_ < 439 )
 	{
@@ -192,8 +233,9 @@ int SpectrumWidget::Adjust( double color, double factor )
 
 int SpectrumWidget::xPos( double value )
 {
-	int proportion = width() * ( value - startValue ) / ( endValue - startValue );
-	return proportion;
+	return ( int ) width() * ( value - startValue ) / ( endValue - startValue );
+//X 	int proportion = ( int ) width() * ( value - startValue ) / ( endValue - startValue );
+//X 	return proportion;
 }
 
 int SpectrumWidget::Wavelength( double position )
@@ -228,11 +270,18 @@ SpectrumView::SpectrumView( QWidget *parent, const char* name )
 	
 	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrum, SLOT( setRightBorder( int ) ) );
 	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrum, SLOT( setLeftBorder( int ) ) );
+
+	m_spectrumbox = new KComboBox( this, "combobox" );
+	m_spectrumbox->insertItem( "EmissionSpectrum" );
+	m_spectrumbox->insertItem( "AbsorptionSpectrum" );
+	connect( m_spectrumbox, SIGNAL( activated( int ) ), m_spectrum, SLOT( slotActivateSpectrum( int ) ) );
+	
 	
 	hbox->addWidget( new QLabel( i18n( "Minimumvalue" ), this ) );
 	hbox->addWidget( m_spinbox_left );
 	hbox->addWidget( new QLabel( i18n( "Maximumvalue" ), this ) );
 	hbox->addWidget( m_spinbox_right );
+	hbox->addWidget( m_spectrumbox );
 
 	spectrumLayout->addLayout( hbox );
 }

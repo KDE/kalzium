@@ -31,6 +31,7 @@
 #include <kimageeffect.h>
 #include <kdebug.h>
 #include <kpixmapeffect.h>
+#include <kcombobox.h>
 
 #define MAXCOLOR = 750
 #define MINCOLOR = 450
@@ -66,9 +67,28 @@ class SpectrumWidget : public QWidget
 		 * of pixel the next band is away
 		 */
 		int findNearestBand( QValueList<double>::iterator it );
+
+		/**
+		 * there are several possible types.
+		 */
+		enum SpectrumType
+		{
+			EmissionSpectrum = 0,
+			AbsorptionSpectrum
+		};
+
+		/**
+		 * sets the type of the spectrum to @p t
+		 * @param t the type of the spectrum
+		 */
+		void setType( SpectrumType t ){
+			m_type = t;
+		}
 	
 	private:
 		QValueList<double> m_spectra;
+
+		SpectrumType m_type;
 
 		/**
 		 * @return the adjusted value of the @p color. The
@@ -103,11 +123,19 @@ class SpectrumWidget : public QWidget
 		/**
 		 * draws the spectra-lines
 		 */
-		void drawLines( QPainter *p );
+		void drawAbsorptionSpectrum( QPainter *p );
+		
+		/**
+		 * draws the spectra-lines
+		 */
+		void drawEmmissionSpectrum( QPainter *p );
 
+		/**
+		 * Draw the scale
+		 */
 		void drawTickmarks( QPainter *p );
 
-		int xPos( double value );
+		inline int xPos( double value );
 
 		/**
 		 * @returns the color of a line
@@ -143,6 +171,11 @@ class SpectrumWidget : public QWidget
 				endValue = startValue+1;
 			update();
 		}
+
+		void slotActivateSpectrum( int spectrumtype ){
+			m_type = ( SpectrumType )spectrumtype;
+			update();
+		}
 	
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
@@ -164,6 +197,8 @@ class SpectrumView : public QWidget
 		SpectrumWidget *m_spectrum;
 
 		QSpinBox *m_spinbox_left, *m_spinbox_right;
+
+		KComboBox *m_spectrumbox;
 };
 
 #endif // SPECTRUM_H
