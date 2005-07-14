@@ -19,7 +19,7 @@
     <Separator />
     <Action name="toggle_legend" />
     <Action name="toggle_tooltip" />
-    <Action name="view_sidebar" append="show_merge"/>
+    <Action name="view_sidebar"/>
   </Menu>
   <Menu name="miscmenu"><text>&amp;Tools</text>
     <Action name="plotdata" />
@@ -33,7 +33,7 @@
   <text>Main Toolbar</text>
   <Action name="toggle_legend" />
   <Action name="toggle_tooltip" />
-  <Action name="view_sidebar" append="show_merge"/>
+  <Action name="view_sidebar"/>
   <Separator />
   <Action name="plotdata" />
   <Action name="glossary" />
