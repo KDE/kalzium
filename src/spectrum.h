@@ -45,6 +45,7 @@ class SpectrumWidget : public QWidget
 
 		void setSpectra( QValueList<double> l ){
 			m_spectra = l;
+			update();
 		}
 
 		/**
@@ -59,6 +60,12 @@ class SpectrumWidget : public QWidget
 			startValue = left;
 			endValue = right;
 		}
+		
+		/**
+		 * find the nearest band. The returnvalue is the number
+		 * of pixel the next band is away
+		 */
+		int findNearestBand( QValueList<double>::iterator it );
 	
 	private:
 		QValueList<double> m_spectra;
@@ -69,6 +76,16 @@ class SpectrumWidget : public QWidget
 		 * figured out emperically
 		 */
 		int Adjust( double color, double factor );
+
+		/**
+		 * @param the position on a 0 to 1-scale in the widget. 0.5 mean 
+		 * that you want the wavelength in the middle of the widget,
+		 * 0.25 mean at one quarter of the width of the widget
+		 *
+		 * @param position the position on a 0 to 1 scale.
+		 * @return the Wavelength on @p position
+		 */
+		int Wavelength( double position );
 
 		/**
 		 * This method changes the three values @p r @p g and @p b to the 
@@ -87,6 +104,8 @@ class SpectrumWidget : public QWidget
 		 * draws the spectra-lines
 		 */
 		void drawLines( QPainter *p );
+
+		void drawTickmarks( QPainter *p );
 
 		int xPos( double value );
 
@@ -138,6 +157,7 @@ class SpectrumView : public QWidget
 
 		void setSpectra( QValueList<double> l ){
 			m_spectrum->setSpectra( l );
+			update();
 		}
 
 	private:

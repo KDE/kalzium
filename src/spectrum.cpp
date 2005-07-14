@@ -55,6 +55,7 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	p.begin( this );
 	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
 	drawLines(  &p );
+	drawTickmarks( &p );
 }
 
 void SpectrumWidget::drawLines( QPainter *p )
@@ -86,13 +87,9 @@ void SpectrumWidget::drawLines( QPainter *p )
 		p->drawLine( x,0,x, m_realHeight );
 		p->setPen( Qt::black );
 		p->drawLine( x,m_realHeight,x, m_realHeight+10+temp );
-		p->save();
-		p->translate(x, m_realHeight+10+15+temp);
-		p->rotate(-90);
 		p->setPen( Qt::black );
 		QString text = QString::number( *it );
 		p->drawText(0, 0, text);
-		p->restore();
 
 		i++;
 	}
@@ -106,20 +103,39 @@ void SpectrumWidget::drawLines( QPainter *p )
 //X 	}
 }
 
+void SpectrumWidget::drawTickmarks( QPainter* p )
+{
+	const int space = 13;
+	
+	for ( int i = 0; i < width() ; i+=10 )
+	{
+		p->drawLine( i,m_realHeight,i, m_realHeight+5 );
+	}
+	for ( int i = 50; i < width() ; i+=50 )
+	{
+		double pos = ( double )i/width();
+
+		int wave = Wavelength( pos );
+		
+		p->drawLine( i,m_realHeight,i, m_realHeight+10 );
+		p->fillRect( i-space, m_realHeight+12, 2*space, 15, Qt::white );
+		p->drawText( i-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( wave ) );
+	}
+}
+
 void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b )
 {
 	double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
 	int wavelength_ = floor( wavelength );
 
-	kdDebug() << wavelength << " :: " << wavelength_ << endl;
+//	kdDebug() << wavelength << " :: " << wavelength_ << endl;
 
 	if ( wavelength_ > 380 && wavelength_ < 439 )
 	{
 		red = -( wavelength-440 ) / ( 440-380 );
 		green = 0.0;
 		blue = 1.0;
-//		kdDebug() << "RGB on wavelength " << wavelength << " (1): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	
 	}
 	if ( wavelength_ > 440 && wavelength_ < 489 )
@@ -127,35 +143,30 @@ void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b 
 		red = 0.0;
 		green = ( wavelength-440 ) / ( 490-440 );
 		blue = 1.0;
-//		kdDebug() << "RGB on wavelength " << wavelength << " (2): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	}
 	if ( wavelength_ > 490 && wavelength_ < 509 )
 	{
 		red = 0.0;
 		green = 1.0;
 		blue = -( wavelength-510 ) / ( 510-490 );
-//		kdDebug() << "RGB on wavelength " << wavelength << " (3): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	}
 	if ( wavelength_ > 510 && wavelength_ < 579 )
 	{
 		red = ( wavelength-510 ) / ( 580-510 );
 		green = 1.0;
 		blue = 0.0;
-//		kdDebug() << "RGB on wavelength " << wavelength << " (4): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	}
 	if ( wavelength_ > 580 && wavelength_ < 644 )
 	{
 		red = 1.0;
 		green = -( wavelength-645 ) / ( 645-580 );
 		blue = 0.0;
-//		kdDebug() << "RGB on wavelength " << wavelength << "(5): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	}
 	if ( wavelength_ > 645 && wavelength_ < 780 )
 	{
 		red = 1.0;
 		green = 0.0;
 		blue = 0.0;
-//		kdDebug() << "RGB on wavelength " << wavelength << " (6): " << red << " :: " << green << " :: " << blue << " Factor: " << factor << endl;
 	}
 	if ( wavelength_ > 380 && wavelength_ < 419 )
 		factor = 0.3 + 0.7*( wavelength - 380 ) / ( 420 - 380 );
@@ -183,6 +194,14 @@ int SpectrumWidget::xPos( double value )
 {
 	int proportion = width() * ( value - startValue ) / ( endValue - startValue );
 	return proportion;
+}
+
+int SpectrumWidget::Wavelength( double position )
+{
+	double range = endValue-startValue;
+	int result = ( int ) ( startValue + ( range *  position ) );
+	
+	return result;
 }
 
 QColor SpectrumWidget::linecolor( double spectrum )
