@@ -1,5 +1,5 @@
-                       TODO for Kalzium 1.5
-					   ===================
+			 TODO for Kalzium 1.5
+			 ===================
 
 Bugs
 ----
@@ -8,15 +8,10 @@ Bugs
 * Miscellaneous bugs:
   + Make use of the biological symbol.					----
     CN: I lost the "translation" though, will have to look after it.
-
-* Slider of Timeline/SOM: Add Tickmarks for min and max       -----
-
-* Move "Temperature" and "Year" above the slider              -----
-  ** move the KIntNumSpinbox to the right of the slider
-
-* Log-scale of the gradient                                   -----
-
-* Timeline+SOM: some font+align like in the calculator        -----
+  + Slider of Timeline/SOM: Add Tickmarks for min and max		-----
+  + Move "Temperature" and "Year" above the slider			-----
+    - move the KIntNumSpinbox to the right of the slider
+  + Timeline+SOM: some font+align like in the calculator		-----
 
 Features
 --------
@@ -28,6 +23,7 @@ Features
   + More than one group should be plottable at once.			----
     This would enable the user to compare two or more groups, 
     eg. 4th with 5th group
+  + Log-scale of the gradient						-----
 
 
 ================================================================
