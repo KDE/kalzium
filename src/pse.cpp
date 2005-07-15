@@ -120,7 +120,7 @@ PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
 	table = new QPixmap();
 	table2 = new QPixmap();
 
-	m_kalziumTip = new KalziumTip(this);
+	m_kalziumTip = new KalziumTip(0 , "tip", Qt::WStyle_Customize|Qt::WStyle_NoBorder|Qt::WStyle_Tool );
 
 	//JH: Start with a full draw
 	doFullDraw = true;
@@ -168,7 +168,7 @@ void PSE::slotToolTip( int number )
 
 	m_tooltipElementNumber = number;
 
-	m_kalziumTip->showTip(mapFromGlobal(QCursor::pos()), d->element(number));	
+	m_kalziumTip->showTip(QCursor::pos(), d->element(number));	
 }
 
 PSE::~PSE(){}
@@ -735,6 +735,7 @@ void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 
   if( m_kalziumTip->isVisible() )
   {
+	kdDebug()<< "visible" << endl;
 	QPoint point = ElementUnderMouse();
 
 	int X = point.x();

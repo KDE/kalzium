@@ -36,7 +36,7 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 
-KalziumTip::KalziumTip(QWidget* parent) : QWidget(parent) 
+KalziumTip::KalziumTip( QWidget * parent, const char * name, WFlags f ) : QWidget( parent, name, f ) 
 {
 	setFocusPolicy(NoFocus); //the widget don't get the keyboard focus
 	setBackgroundMode(NoBackground); // widget has no background
@@ -50,20 +50,27 @@ KalziumTip::KalziumTip(QWidget* parent) : QWidget(parent)
 
 void KalziumTip::showTip(QPoint mouse, Element* element)
 {
-	QWidget *p = 0;
-	if ( dynamic_cast<QWidget*>( parent() ) )
-		p = static_cast<QWidget*>( parent() );
-	if ( p )
-	{
-		if ( mouse.x() + size().width() > p->size().width() )
-			mouse.setX( mouse.x() - size().width() );
-		if ( mouse.y() + size().height() > p->size().height() )
-			mouse.setY( mouse.y() - size().height() );
-	}
+	kdDebug() << "showTip" << endl;
+	/*QWidget *p = 0;
+        if ( dynamic_cast<QWidget*>( parent() ) )
+                p = static_cast<QWidget*>( parent() );
+        if ( p )
+        {
+                if ( mouse.x() + size().width() > p->size().width() )
+                        mouse.setX( mouse.x() - size().width() );
+                if ( mouse.y() + size().height() > p->size().height() )
+                        mouse.setY( mouse.y() - size().height() );
+        }*/
+	
 	m_mousePointer = mouse;
 	
 	if( element == m_tippedElement )
+	{
+//		kdDebug() << "sinnlos" << endl;
+//		hide();
+//		showTip(mouse, element);
 		move(m_mousePointer); //do not paint again if already painted
+	}
 	else
 	{
 		if ( element == 0)

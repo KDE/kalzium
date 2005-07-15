@@ -45,7 +45,7 @@ class KalziumTip : public QWidget
 	public:
 		enum MaskEffect { Plain, Dissolve };
 
-		KalziumTip(QWidget * parent);
+		KalziumTip( QWidget * parent = 0, const char * name = 0, WFlags f = 0 );
 
 		void showTip(QPoint, Element* element); //show the tip
 		void hide(); // hide it
