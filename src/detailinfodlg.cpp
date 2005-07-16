@@ -284,14 +284,16 @@ QString DetailedInfoDlg::isotopeTable()
 		if ( ( *it )->halflife() > 0.0 )
 			html.append( ( *it )->halflifeToHtml() );
 		html.append( "</td><td>" );
+		if ( ( *it )->decayenergy() > 0.0 )
+			html.append( i18n( "%1 MeV" ).arg(( *it )->decayenergy() ) );
 		if ( ( *it )->alphadecay() )
-			html.append( i18n( "%1 MeV %2" ).arg(( *it )->decayenergy() ).arg( QChar( 945 ) ) );
+			html.append( i18n( " %1" ).arg( QChar( 945 ) ) );
 		if ( ( *it )->betaplusdecay() )
-			html.append( i18n( "%1 MeV %2%3" ).arg(( *it )->decayenergy() ).arg(QChar( 946 ) ).arg( i18n("<sup>+</sup>") ) );
+			html.append( i18n( " %1%2" ).arg(QChar( 946 ) ).arg( i18n("<sup>+</sup>") ) );
 		if ( ( *it )->betaminusdecay() )
-			html.append( i18n( "%1 MeV %2" ).arg(( *it )->decayenergy() ).arg( QChar( 946 ) ) );
+			html.append( i18n( " %1" ).arg( QChar( 946 ) ) );
 		if ( ( *it )->ecdecay() )
-			html.append( i18n( "%1 MeV EC" ).arg(( *it )->decayenergy() ) );
+			html.append( i18n( " EC" ) );
 		html.append( "</td><td>" );
 		html.append( i18n("%1 ").arg(( *it )->spin() ) );
 		html.append( "</td><td>" );
