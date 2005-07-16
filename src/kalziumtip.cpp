@@ -49,27 +49,28 @@ KalziumTip::KalziumTip( QWidget * parent, const char * name, WFlags f ) : QWidge
 	connect(&m_frameTimer, SIGNAL(timeout()), SLOT(internalUpdate()));
 }
 
-void KalziumTip::showTip(QPoint mouse, Element* element)
+void KalziumTip::showTip( QPoint mouse, Element* element, int visibleWidth, int visibleHeight )
 {
 	kdDebug() << "showTip" << endl;
-	/*QWidget *p = 0;
-        if ( dynamic_cast<QWidget*>( parent() ) )
-                p = static_cast<QWidget*>( parent() );
-        if ( p )
-        {
-                if ( mouse.x() + size().width() > p->size().width() )
+	//QWidget *p = 0;
+        //if ( dynamic_cast<QWidget*>( parent() ) )
+        //        p = static_cast<QWidget*>( parent() );
+	//QScrollView *p = 0;
+	//if ( dynamic_cast<QScrollView*>( parent() ) )
+	//	p = static_cast<QScrollView*>( parent() );
+
+        //if ( p )
+        //{
+                if ( mouse.x() + size().width() > visibleWidth )
                         mouse.setX( mouse.x() - size().width() );
-                if ( mouse.y() + size().height() > p->size().height() )
+                if ( mouse.y() + size().height() > visibleHeight )
                         mouse.setY( mouse.y() - size().height() );
-        }*/
+        //}
 	
 	m_mousePointer = mouse;
 	
 	if( element == m_tippedElement )
 	{
-//		kdDebug() << "sinnlos" << endl;
-//		hide();
-//		showTip(mouse, element);
 		// Avoid moving out of the current screen
 		if (m_mousePointer.x()+width() > qApp->desktop()->width())
 				m_mousePointer.setX(qApp->desktop()->width() - width());
