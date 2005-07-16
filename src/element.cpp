@@ -609,9 +609,9 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			QString ecdecay = iso.attributeNode( "ecdecay" ).value();
 			double decayenergy = iso.attributeNode( "decayenergy" ).value().toDouble();
 			QString spin = iso.attributeNode( "spin" ).value();
-			double moment = iso.attributeNode( "moment" ).value().toDouble(); 
+			double magmoment = iso.attributeNode( "magmoment" ).value().toDouble(); 
 
-			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format, alphadecay, betaplusdecay, betaminusdecay, ecdecay, decayenergy, spin, moment );
+			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format, alphadecay, betaplusdecay, betaminusdecay, ecdecay, decayenergy, spin, magmoment );
 			isolist.append( isotope );
 		}
 
@@ -675,7 +675,7 @@ const int KalziumDataObject::numberOfElements() const
 	return m_numOfElements;
 }
 
-Isotope::Isotope(  int neutrons, double percentage, double weight, double halflife, QString format, QString alphadecay, QString betaplusdecay, QString betaminusdecay, QString ecdecay, double decayenergy, QString spin, double moment )
+Isotope::Isotope(  int neutrons, double percentage, double weight, double halflife, QString format, QString alphadecay, QString betaplusdecay, QString betaminusdecay, QString ecdecay, double decayenergy, QString spin, double magmoment )
 {
 	m_neutrons = neutrons;
 	m_percentage = percentage;
@@ -688,7 +688,7 @@ Isotope::Isotope(  int neutrons, double percentage, double weight, double halfli
 	m_ecdecay = ecdecay;
 	m_decayenergy = decayenergy;
 	m_spin = spin;
-	m_moment = moment;
+	m_magmoment = magmoment;
 }
 
 QString Isotope::halflifeToHtml() const
