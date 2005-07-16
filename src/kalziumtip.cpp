@@ -28,6 +28,7 @@
 #include <qimage.h>
 #include <qsimplerichtext.h>
 #include <qpainter.h>
+#include <qdesktopwidget.h>
 
 #include <kdialog.h>
 #include <kdebug.h>
@@ -69,6 +70,10 @@ void KalziumTip::showTip(QPoint mouse, Element* element)
 //		kdDebug() << "sinnlos" << endl;
 //		hide();
 //		showTip(mouse, element);
+		// Avoid moving out of the current screen
+		if (m_mousePointer.x()+width() > qApp->desktop()->width())
+				m_mousePointer.setX(qApp->desktop()->width() - width());
+
 		move(m_mousePointer); //do not paint again if already painted
 	}
 	else
