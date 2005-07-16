@@ -253,8 +253,8 @@ If you want to know facts about a precise element, click on it in the table and 
 				 <listitem><para>
 						 <guimenuitem>Show Crystal Structures</guimenuitem>: every element is colored  depending on its crystal strycture.
 				 </para></listitem>
-				 <listitem><para>
-						 <guimenuitem>Gradient</guimenuitem>
+				 <listitem>
+						<para><guimenuitem>Gradient</guimenuitem></para>
                                                 <para>The gradient views displays the elements according to one property you can select below and with a gradient colored scheme. The elements for which the data is non available are displayed in grey.</para>
 			 <screenshot>
 				 <screeninfo>Gradient for Covalent Radius</screeninfo>
@@ -287,7 +287,7 @@ If you want to know facts about a precise element, click on it in the table and 
 							 <listitem><para><guimenuitem>Electron Affinity</guimenuitem>
 							 </para></listitem>
 						 </itemizedlist>
-				 </para></listitem>
+				 </listitem>
 			 </itemizedlist>
 
 		 </sect1>
