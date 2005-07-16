@@ -249,7 +249,7 @@ QString DetailedInfoDlg::isotopeTable()
 
 	QString html;
 	
-	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"5\">";
+	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"7\">";
 	html += i18n( "Isotope-Table" );
 	html += "</tr></td><tr><td><b>";
 	html += i18n( "Mass" );
@@ -261,6 +261,10 @@ QString DetailedInfoDlg::isotopeTable()
 	html += i18n( "Half-life period" );
 	html += "</b></td><td><b>";
 	html += i18n( "Kind and Energy of Decay" );
+	html += "</b></td><td><b>";
+	html += i18n( "Spin and Parity" );
+	html += "</b></td><td><b>";
+	html += i18n( "Magnetic Moment" );
 	html += "</b></td></tr>";
 
 	QValueList<Isotope*>::const_iterator it = list.begin();
@@ -280,14 +284,19 @@ QString DetailedInfoDlg::isotopeTable()
 		if ( ( *it )->halflife() > 0.0 )
 			html.append( ( *it )->halflifeToHtml() );
 		html.append( "</td><td>" );
-		if ( ( *it )->alphadecay() > 0.0 )
-			html.append( i18n( "%1 MeV %2" ).arg(( *it )->alphadecay() ).arg( QChar( 945 ) ) );
-		if ( ( *it )->betaplusdecay() > 0.0 )
-			html.append( i18n( "%1 MeV %2" ).arg(( *it )->betaplusdecay() ).arg(QChar( 946 )) );
-		if ( ( *it )->betaminusdecay() > 0.0 )
-			html.append( i18n( "%1 MeV %2" ).arg(( *it )->betaminusdecay() ).arg( QChar( 946 ) ) );
-		if ( ( *it )->ecdecay() > 0.0 )
-			html.append( i18n( "%1 MeV EC" ).arg(( *it )->ecdecay() ) );
+		if ( ( *it )->alphadecay() )
+			html.append( i18n( "%1 MeV %2" ).arg(( *it )->decayenergy() ).arg( QChar( 945 ) ) );
+		if ( ( *it )->betaplusdecay() )
+			html.append( i18n( "%1 MeV %2%3" ).arg(( *it )->decayenergy() ).arg(QChar( 946 ) ).arg( i18n("<sup>+</sup>") ) );
+		if ( ( *it )->betaminusdecay() )
+			html.append( i18n( "%1 MeV %2" ).arg(( *it )->decayenergy() ).arg( QChar( 946 ) ) );
+		if ( ( *it )->ecdecay() )
+			html.append( i18n( "%1 MeV EC" ).arg(( *it )->decayenergy() ) );
+		html.append( "</td><td>" );
+		html.append( i18n("%1 ").arg(( *it )->spin() ) );
+		html.append( "</td><td>" );
+		if ( ( *it )->moment() > 0.0 )
+			html.append( i18n( "%1 %2%3" ).arg( ( *it )->moment() ).arg( QChar( 956 ) ).arg( i18n( "<sub>n</sub>" ) ) );
 		html.append( "</td></tr>" );
 	}
 	

@@ -603,12 +603,15 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			QString format = iso.attributeNode( "halflifeformat" ).value();
 			int neutrons  = iso.attributeNode( "neutron" ).value().toInt();
 			double percentage = iso.attributeNode( "percentage" ).value().toDouble();
-			double alphadecay = iso.attributeNode( "alphadecay" ).value().toDouble();
-			double betaplusdecay = iso.attributeNode( "betaplusdecay" ).value().toDouble();
-			double betaminusdecay = iso.attributeNode( "betaminusdecay" ).value().toDouble();
-			double ecdecay = iso.attributeNode( "ecdecay" ).value().toDouble();
+			QString alphadecay = iso.attributeNode( "alphadecay" ).value();
+			QString betaplusdecay = iso.attributeNode( "betaplusdecay" ).value();
+			QString betaminusdecay = iso.attributeNode( "betaminusdecay" ).value();
+			QString ecdecay = iso.attributeNode( "ecdecay" ).value();
+			double decayenergy = iso.attributeNode( "decayenergy" ).value().toDouble();
+			QString spin = iso.attributeNode( "spin" ).value();
+			double moment = iso.attributeNode( "moment" ).value().toDouble(); 
 
-			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format, alphadecay, betaplusdecay, betaminusdecay, ecdecay );
+			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format, alphadecay, betaplusdecay, betaminusdecay, ecdecay, decayenergy, spin, moment );
 			isolist.append( isotope );
 		}
 
@@ -672,7 +675,7 @@ const int KalziumDataObject::numberOfElements() const
 	return m_numOfElements;
 }
 
-Isotope::Isotope(  int neutrons, double percentage, double weight, double halflife, QString format, double alphadecay, double betaplusdecay, double betaminusdecay, double ecdecay )
+Isotope::Isotope(  int neutrons, double percentage, double weight, double halflife, QString format, QString alphadecay, QString betaplusdecay, QString betaminusdecay, QString ecdecay, double decayenergy, QString spin, double moment )
 {
 	m_neutrons = neutrons;
 	m_percentage = percentage;
@@ -683,6 +686,9 @@ Isotope::Isotope(  int neutrons, double percentage, double weight, double halfli
 	m_betaplusdecay = betaplusdecay;
 	m_betaminusdecay = betaminusdecay;
 	m_ecdecay = ecdecay;
+	m_decayenergy = decayenergy;
+	m_spin = spin;
+	m_moment = moment;
 }
 
 QString Isotope::halflifeToHtml() const

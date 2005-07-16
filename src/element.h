@@ -39,7 +39,7 @@ typedef QValueList<double> doubleList;
 class Isotope
 {
 	public:
-		Isotope( int neutrons, double percentage, double weight, double halflife, QString format, double alphadecay, double betaplusdecay, double betaminusdecay, double ecdecay);
+		Isotope( int neutrons, double percentage, double weight, double halflife, QString format, QString alphadecay, QString betaplusdecay, QString betaminusdecay, QString ecdecay, double decayenergy, QString spin, double moment);
 
 		bool seconds() const{
 			if ( m_format == "seconds" )
@@ -64,20 +64,42 @@ class Isotope
 			return m_weight;
 		}
 		
-		double alphadecay() const{
-			return m_alphadecay;
+		bool alphadecay() const{
+			if ( m_alphadecay == "true" )
+				return true;
+			else
+				return false;
 		}
 		
-		double betaplusdecay() const{
-			return m_betaplusdecay;
+		bool betaplusdecay() const{
+			if ( m_betaplusdecay == "true" )
+				return true;
+			else
+				return false;
 		}
 		
-		double betaminusdecay() const{
-			return m_betaminusdecay;
+		bool betaminusdecay() const{
+			if ( m_betaminusdecay == "true" )
+				return true;
+			else
+				return false;
 		}
 		
-		double ecdecay() const{
-			return m_ecdecay;
+		bool ecdecay() const{
+			if ( m_ecdecay == "true" )
+				return true;
+			else
+				return false;
+		}
+		
+		double decayenergy() const{
+			return m_decayenergy;
+		}
+		QString spin() const{
+			return m_spin;
+		}
+		double moment() const{
+			return m_moment;
 		}
 
 		QString halflifeToHtml() const;
@@ -113,13 +135,24 @@ class Isotope
 		int m_neutrons;
 		
 		/**
-		* Thees variables specify the kind of decay
-		* their values specify the decay-energy
+		* Theese variables specify the kind of decay
+		* and the decay-energy
 		*/
-		double m_alphadecay;
-		double m_betaplusdecay;
-		double m_betaminusdecay;
-		double m_ecdecay;
+		QString m_alphadecay;
+		QString m_betaplusdecay;
+		QString m_betaminusdecay;
+		QString m_ecdecay;
+		double m_decayenergy;
+		
+		/**
+		*spin and parity
+		*/
+		QString m_spin;
+		
+		/**
+		* magnetic moment
+		*/
+		double m_moment;
 };
 
 /**
