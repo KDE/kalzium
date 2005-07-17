@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Zack Rusin <zrusin@kde.org>			   *
- *                   Sami Kyostil <skyostil@kempele.fi>			   *
- *                   Aaron J. Seigo <aseigo@kde.org>			   *
+ *  �Sami Kyostil <skyostil@kempele.fi>			 		   *
+ *   Aaron J. Seigo <aseigo@kde.org>		 			   *
  *		     Martin Pfeiffer <hubipete@gmx.net>                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
