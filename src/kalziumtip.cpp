@@ -51,7 +51,6 @@ KalziumTip::KalziumTip( QWidget * parent, const char * name, WFlags f ) : QWidge
 
 void KalziumTip::showTip( QPoint mouse, Element* element, int visibleWidth, int visibleHeight )
 {
-	kdDebug() << "showTip" << endl;
 	//QWidget *p = 0;
         //if ( dynamic_cast<QWidget*>( parent() ) )
         //        p = static_cast<QWidget*>( parent() );

@@ -174,7 +174,10 @@ void PSE::slotToolTip( int number )
               p = static_cast<QWidget*>( parent() );
 
 	if( p )
-		m_kalziumTip->showTip( mapFromGlobal(QCursor::pos()), d->element(number), p->width(), p->height() );	
+		m_kalziumTip->showTip( mapFromGlobal(QCursor::pos()), 
+				d->element(number), 
+				p->width(), 
+				p->height() );	
 }
 
 PSE::~PSE(){}

@@ -48,6 +48,7 @@ class KalziumTip : public QWidget
 		KalziumTip( QWidget * parent = 0, const char * name = 0, WFlags f = 0 );
 
 		void showTip(QPoint, Element* element); //show the tip
+		void showTip( QPoint mouse, Element* element, int visibleWidth, int visibleHeight );
 		void hide(); // hide it
 
 	protected:
