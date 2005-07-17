@@ -51,20 +51,29 @@ KalziumTip::KalziumTip( QWidget * parent, const char * name, WFlags f ) : QWidge
 
 void KalziumTip::showTip( QPoint mouse, Element* element, int visibleWidth, int visibleHeight )
 {
-	//QWidget *p = 0;
-        //if ( dynamic_cast<QWidget*>( parent() ) )
-        //        p = static_cast<QWidget*>( parent() );
-	//QScrollView *p = 0;
-	//if ( dynamic_cast<QScrollView*>( parent() ) )
-	//	p = static_cast<QScrollView*>( parent() );
+	QWidget *p = 0;
+        if ( dynamic_cast<QWidget*>( parent() ) )
+                p = static_cast<QWidget*>( parent() );
 
-        //if ( p )
-        //{
-                if ( mouse.x() + size().width() > visibleWidth )
-                        mouse.setX( mouse.x() - size().width() );
-                if ( mouse.y() + size().height() > visibleHeight )
+        if ( p )
+        {
+	 	if ( mouse.y() + size().height() > visibleHeight )
                         mouse.setY( mouse.y() - size().height() );
-        //}
+               	if ( mouse.x() + size().width() > visibleWidth )
+                       	mouse.setX( mouse.x() - size().width() );
+	
+		if ( p->width() < visibleWidth )
+		{	 
+                	if ( mouse.x() + size().width() > p->width() )
+                        	mouse.setX( mouse.x() - size().width() );
+		}
+
+		if ( p->height() < visibleHeight ) 
+		{
+			if ( mouse.y() + size().height() > p->height() )
+                        	mouse.setY( mouse.y() - size().height() );
+		}
+        }
 	
 	m_mousePointer = mouse;
 	
