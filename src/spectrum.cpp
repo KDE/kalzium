@@ -28,6 +28,32 @@
 
 #include <math.h>
 
+double Spectrum::minBand()
+{
+	double value = ( *m_bandlist.begin() ).wavelength;
+	QValueList<band>::Iterator it = m_bandlist.begin();
+	const QValueList<band>::Iterator itEnd = m_bandlist.end();
+	for (;it!=itEnd;++it)
+	{
+		if ( value > ( *it ).wavelength )
+			value = ( *it ).wavelength;
+	}
+	return value;
+}
+
+double Spectrum::maxBand()
+{
+	double value = ( *m_bandlist.begin() ).wavelength;
+	QValueList<band>::Iterator it = m_bandlist.begin();
+	const QValueList<band>::Iterator itEnd = m_bandlist.end();
+	for (;it!=itEnd;++it)
+	{
+		if ( value < ( *it ).wavelength )
+			value = ( *it ).wavelength;
+	}
+	return value;
+}
+
 SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
 	: QWidget( parent,name )
 {
@@ -263,8 +289,8 @@ SpectrumView::SpectrumView( QWidget *parent, const char* name )
 	: QWidget( parent, name )
 {
 	QVBoxLayout *spectrumLayout = new QVBoxLayout( this );
-	m_spectrum = new SpectrumWidget( this, "spectrum" );
-	spectrumLayout->addWidget( m_spectrum );
+	m_spectrumWidget = new SpectrumWidget( this, "spectrum" );
+	spectrumLayout->addWidget( m_spectrumWidget );
 
 	QHBoxLayout *hbox = new QHBoxLayout( this );
 	m_spinbox_left = new QSpinBox( 380, 779, 1, this );
@@ -272,13 +298,13 @@ SpectrumView::SpectrumView( QWidget *parent, const char* name )
 	m_spinbox_right->setValue( 700 );
 	m_spinbox_left->setValue( 400 );
 	
-	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrum, SLOT( setRightBorder( int ) ) );
-	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrum, SLOT( setLeftBorder( int ) ) );
+	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setRightBorder( int ) ) );
+	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
 
 	m_spectrumbox = new KComboBox( this, "combobox" );
 	m_spectrumbox->insertItem( "Emission Spectrum" );
 	m_spectrumbox->insertItem( "Absorption Spectrum" );
-	connect( m_spectrumbox, SIGNAL( activated( int ) ), m_spectrum, SLOT( slotActivateSpectrum( int ) ) );
+	connect( m_spectrumbox, SIGNAL( activated( int ) ), m_spectrumWidget, SLOT( slotActivateSpectrum( int ) ) );
 	
 	
 	hbox->addWidget( new QLabel( i18n( "Minimumvalue" ), this ) );

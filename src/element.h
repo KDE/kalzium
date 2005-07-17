@@ -29,48 +29,13 @@ class Element;
 class QDomDocument;
 class QPainter;
 class QPoint;
+class Spectrum;
 
 struct coordinate;
 
 typedef QValueList<Element*> EList;
 typedef QValueList<coordinate> CList;
 typedef QValueList<double> doubleList;
-
-/**
- * @author Carsten Niehaus
- *
- * This class represents an spectrum with all its properties
- */
-class Spektrum
-{
-	public:
-		Spektrum(){};
-		~Spektrum(){};
-
-		/**
-		 * a band is one line in the spektrum of an element
-		 */
-		struct band
-		{
-			double wavelength;
-			double aki;
-			double energy1;
-			double energy2;
-			int intensity;
-			QString electronconfig1;
-			QString electronconfig2;
-			QString term1;
-			QString term2;
-			QString J1;
-			QString J2;
-		};
-
-		void addBand( band b ){
-			m_bandlist.append( b );
-		}
-
-		QValueList<band> m_bandlist;
-};
 
 /**
  * @author Carsten Niehaus
@@ -322,7 +287,7 @@ class Element{
 			m_isotopeList = list;
 		}
 
-		void setSpektrum( Spektrum *spec ){
+		void setSpectrum( Spectrum *spec ){
 			m_spectrum = spec;
 		}
 
@@ -562,7 +527,7 @@ class Element{
 		 */
 		int m_ElementNumber;
 
-		Spektrum *m_spectrum;
+		Spectrum *m_spectrum;
 
 		QValueList<Isotope*> m_isotopeList;
 

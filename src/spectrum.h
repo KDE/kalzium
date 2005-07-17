@@ -37,6 +37,58 @@
 
 /**
  * @author Carsten Niehaus
+ *
+ * This class represents an spectrum with all its properties
+ */
+class Spectrum
+{
+	public:
+		Spectrum(){
+			m_min = minBand();
+			m_max = maxBand();
+		};
+		~Spectrum(){};
+
+		/**
+		 * a band is one line in the spectrum of an element
+		 */
+		struct band
+		{
+			double wavelength;
+			double aki;
+			double energy1;
+			double energy2;
+			int intensity;
+			QString electronconfig1;
+			QString electronconfig2;
+			QString term1;
+			QString term2;
+			QString J1;
+			QString J2;
+		};
+
+		void addBand( band b ){
+			m_bandlist.append( b );
+		}
+
+	private:
+		/**
+		 * @return the smallest wavelength
+		 */
+		double minBand();
+		
+		/**
+		 * @return the biggest wavelength
+		 */
+		double maxBand();
+
+		QValueList<band> m_bandlist;
+
+		double m_max, m_min;
+};
+
+/**
+ * @author Carsten Niehaus
  */
 class SpectrumWidget : public QWidget
 {
@@ -46,8 +98,8 @@ class SpectrumWidget : public QWidget
 		SpectrumWidget( QWidget *parent, const char* name = 0 );
 		~SpectrumWidget();
 
-		void setSpektrum( Spektrum* spec ){
-			m_spektrum = spec;
+		void setSpectrum( Spectrum* spec ){
+			m_spectrum = spec;
 		}
 
 		/**
@@ -106,7 +158,7 @@ class SpectrumWidget : public QWidget
 		 */
 		int Adjust( double color, double factor );
 
-		Spektrum *m_spektrum;
+		Spectrum *m_spectrum;
 
 		/**
 		 * @param the position on a 0 to 1-scale in the widget. 0.5 mean 
@@ -210,13 +262,14 @@ class SpectrumView : public QWidget
 	public: 
 		SpectrumView( QWidget* parent, const char* name );
 
-//X 		void setSpectra( QValueList<double> l ){
-//X 			m_spectrum->setSpektrum( l );
-//X 			update();
-//X 		}
+		void setSpectra( Spectrum* spec ){
+			m_spectrum = spec;
+		}
 
 	private:
-		SpectrumWidget *m_spectrum;
+		SpectrumWidget *m_spectrumWidget;
+
+		Spectrum* m_spectrum;
 
 		QSpinBox *m_spinbox_left, *m_spinbox_right;
 

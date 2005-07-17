@@ -20,6 +20,7 @@
 
 #include "element.h"
 #include "prefs.h"
+#include "spectrum.h"
 
 #include <qdom.h>
 #include <qfile.h>
@@ -625,10 +626,10 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 
 		QDomNodeList spectrumList = domElement.namedItem( "spectra" ).toElement().elementsByTagName( "spectrum" );
 
-		Spektrum *spectrum = new Spektrum();
+		Spectrum *spectrum = new Spectrum();
 		for( uint i = 0; i < spectrumList.length(); i++ )
 		{
-			Spektrum::band b;
+			Spectrum::band b;
 			QDomElement spec = spectrumList.item( i ).toElement();
 			
 			b.intensity = spec.attributeNode( "intensity" ).value().toInt();
@@ -647,7 +648,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		}
 	
 		Element *e = new Element();
-		e->setSpektrum( spectrum );
+		e->setSpectrum( spectrum );
 		e->setDate(date);
 		e->setBiologicalMeaning(bio);
 		e->setNumber( number );
