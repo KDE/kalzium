@@ -38,6 +38,42 @@ typedef QValueList<double> doubleList;
 
 /**
  * @author Carsten Niehaus
+ *
+ * This class represents an spectrum with all its properties
+ */
+class Spektrum
+{
+	public:
+		Spektrum(){};
+		~Spektrum(){};
+
+		/**
+		 * a band is one line in the spektrum of an element
+		 */
+		struct band
+		{
+			double wavelength;
+			double aki;
+			double energy1;
+			double energy2;
+			int intensity;
+			QString electronconfig1;
+			QString electronconfig2;
+			QString term1;
+			QString term2;
+			QString J1;
+			QString J2;
+		};
+
+		void addBand( band b ){
+			m_bandlist.append( b );
+		}
+
+		QValueList<band> m_bandlist;
+};
+
+/**
+ * @author Carsten Niehaus
  * @author Jörg Buchwald
  *
  * This class represents an Isotope with all its properties
@@ -286,8 +322,8 @@ class Element{
 			m_isotopeList = list;
 		}
 
-		void setSpectrumList( QValueList<double> list ){
-			m_spectrumList = list;
+		void setSpektrum( Spektrum *spec ){
+			m_spectrum = spec;
 		}
 
 		doubleList ionisationList() const{
@@ -525,6 +561,8 @@ class Element{
 		 * the integer num represents the number of the element
 		 */
 		int m_ElementNumber;
+
+		Spektrum *m_spectrum;
 
 		QValueList<Isotope*> m_isotopeList;
 

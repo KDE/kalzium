@@ -624,16 +624,30 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		}
 
 		QDomNodeList spectrumList = domElement.namedItem( "spectra" ).toElement().elementsByTagName( "spectrum" );
-		QValueList<double> speclist;
+
+		Spektrum *spectrum = new Spektrum();
 		for( uint i = 0; i < spectrumList.length(); i++ )
 		{
+			Spektrum::band b;
 			QDomElement spec = spectrumList.item( i ).toElement();
-			double wavelenght = spec.text().toDouble();
-			speclist.append( wavelenght );
+			
+			b.intensity = spec.attributeNode( "intensity" ).value().toInt();
+			b.wavelength = spec.attributeNode( "wavelength" ).value().toDouble();
+			b.aki = spec.attributeNode( "aki" ).value().toDouble();
+			b.energy1 = spec.attributeNode( "energy1" ).value().toDouble();
+			b.energy2 = spec.attributeNode( "energy2" ).value().toDouble();
+			b.electronconfig1 = spec.attributeNode( "electronconfig1" ).value();
+			b.electronconfig2 = spec.attributeNode( "electronconfig1" ).value();
+			b.term1 = spec.attributeNode( "term1" ).value();
+			b.term2 = spec.attributeNode( "term2" ).value();
+			b.J1 = spec.attributeNode( "J1" ).value();
+			b.J2 = spec.attributeNode( "J2" ).value();
+
+			spectrum->addBand( b );
 		}
 	
 		Element *e = new Element();
-		e->setSpectrumList( speclist );
+		e->setSpektrum( spectrum );
 		e->setDate(date);
 		e->setBiologicalMeaning(bio);
 		e->setNumber( number );

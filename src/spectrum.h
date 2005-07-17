@@ -33,6 +33,8 @@
 #include <kpixmapeffect.h>
 #include <kcombobox.h>
 
+#include "element.h"
+
 /**
  * @author Carsten Niehaus
  */
@@ -44,9 +46,8 @@ class SpectrumWidget : public QWidget
 		SpectrumWidget( QWidget *parent, const char* name = 0 );
 		~SpectrumWidget();
 
-		void setSpectra( QValueList<double> l ){
-			m_spectra = l;
-			update();
+		void setSpektrum( Spektrum* spec ){
+			m_spektrum = spec;
 		}
 
 		/**
@@ -104,6 +105,8 @@ class SpectrumWidget : public QWidget
 		 * figured out emperically
 		 */
 		int Adjust( double color, double factor );
+
+		Spektrum *m_spektrum;
 
 		/**
 		 * @param the position on a 0 to 1-scale in the widget. 0.5 mean 
@@ -207,10 +210,10 @@ class SpectrumView : public QWidget
 	public: 
 		SpectrumView( QWidget* parent, const char* name );
 
-		void setSpectra( QValueList<double> l ){
-			m_spectrum->setSpectra( l );
-			update();
-		}
+//X 		void setSpectra( QValueList<double> l ){
+//X 			m_spectrum->setSpektrum( l );
+//X 			update();
+//X 		}
 
 	private:
 		SpectrumWidget *m_spectrum;
