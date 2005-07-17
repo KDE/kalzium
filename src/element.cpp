@@ -626,9 +626,10 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 
 		QDomNodeList spectrumList = domElement.namedItem( "spectra" ).toElement().elementsByTagName( "spectrum" );
 
-		Spectrum *spectrum = new Spectrum();
+		Spectrum *spectrum;
 		for( uint i = 0; i < spectrumList.length(); i++ )
 		{
+			spectrum = new Spectrum();
 			Spectrum::band b;
 			QDomElement spec = spectrumList.item( i ).toElement();
 			

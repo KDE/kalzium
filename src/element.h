@@ -217,7 +217,6 @@ class Element{
 			COVALENT
 		};
 
-
 		/**
 		 * @return the number of the element
 		 */
@@ -289,6 +288,14 @@ class Element{
 
 		void setSpectrum( Spectrum *spec ){
 			m_spectrum = spec;
+		}
+
+		bool hasSpectrum() const{
+			return m_spectrum;
+		}
+
+		Spectrum* spectrum() const{
+			return m_spectrum;
 		}
 
 		doubleList ionisationList() const{

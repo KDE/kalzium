@@ -315,17 +315,15 @@ void DetailedInfoDlg::createContent( )
 	addTab( getHtml(MISC), i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 	
 	//now add the spectrum-widget if needed
-//X 	if ( m_element->spectrumList().count() > 0 )
-//X 	{
-//X 		m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
-//X 		QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
-//X 		m_spectrumview = new SpectrumView( m_pSpectrumTab, "spectrumwidget" );
-//X 
-//X 		m_spectrumview->setSpectra( m_element->spectrumList() );
-//X 
-//X 		spectrumLayout->addWidget( m_spectrumview );
-//X 		m_pages.append( m_pSpectrumTab );
-//X 	}
+	if ( m_element->hasSpectrum() )
+	{
+		m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
+		QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
+		m_spectrumview = new SpectrumView( m_element->spectrum(), m_pSpectrumTab, "spectrumwidget" );
+		
+		spectrumLayout->addWidget( m_spectrumview );
+		m_pages.append( m_pSpectrumTab );
+	}
 	
 	QString num = QString::number( m_element->number() );
 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elname() ).arg( num );
