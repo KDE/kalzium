@@ -318,11 +318,10 @@ void DetailedInfoDlg::createContent( )
 	
 	//now add the spectrum-widget if needed
 	if ( m_element->hasSpectrum() )
-	{
+	{	
 		m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
 		QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
 		m_spectrumview = new SpectrumView( m_element->spectrum(), m_pSpectrumTab, "spectrumwidget" );
-		
 		spectrumLayout->addWidget( m_spectrumview );
 		m_pages.append( m_pSpectrumTab );
 	}

@@ -25,6 +25,7 @@
 #include <kglobal.h>
 #include <kstandarddirs.h>
 #include <klocale.h>
+#include <kdebug.h>
 
 #include <math.h>
 
@@ -76,6 +77,7 @@ void Spectrum::paintBands( QPainter* p, double startValue, double endValue, bool
 			it != m_bandlist.end();
 			++it )
 	{
+		kdDebug() << "band gemalt" << endl;
 		if ( ( *it ).wavelength < startValue || ( *it ).wavelength > endValue )
 			continue;
 
@@ -107,6 +109,7 @@ void Spectrum::paintBands( QPainter* p, double startValue, double endValue, bool
 
 		i++;
 	}
+	kdDebug() << "fertig" << endl;
 }
 
 SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
@@ -175,6 +178,7 @@ QColor Spectrum::linecolor( double spectrum )
 
 void SpectrumWidget::drawTickmarks( QPainter* p )
 {
+	kdDebug() << "tickmarks" << endl;
 	const int space = 13;
 	
 /*	for ( int i = 0; i < width() ; i+=10 )
@@ -290,6 +294,7 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	
 	QVBoxLayout *spectrumLayout = new QVBoxLayout( this );
 	m_spectrumWidget = new SpectrumWidget( this, "spectrum" );
+	m_spectrumWidget->setSpectrum( m_spectrum );
 	m_spectrumWidget->setBorders( spec->min(), spec->max() );
 	
 	spectrumLayout->addWidget( m_spectrumWidget );
