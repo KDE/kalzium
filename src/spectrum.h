@@ -30,7 +30,6 @@
 
 #include <kimageeffect.h>
 #include <kdebug.h>
-#include <kpixmapeffect.h>
 #include <kcombobox.h>
 
 #include "element.h"
@@ -69,6 +68,14 @@ class Spectrum
 
 		void addBand( band b ){
 			m_bandlist.append( b );
+		}
+
+		double min() const{
+			return m_min;
+		}
+		
+		double max() const{
+			return m_max;
 		}
 
 	private:
@@ -111,8 +118,8 @@ class SpectrumWidget : public QWidget
 		 * @param right the right border
 		 */
 		void setBorders( double left, double right ){
-			startValue = left;
-			endValue = right;
+			startValue = ( int )left;
+			endValue = ( int )right;
 		}
 		
 		/**
@@ -260,11 +267,7 @@ class SpectrumView : public QWidget
 	Q_OBJECT
 
 	public: 
-		SpectrumView( QWidget* parent, const char* name );
-
-		void setSpectra( Spectrum* spec ){
-			m_spectrum = spec;
-		}
+		SpectrumView( Spectrum *spec, QWidget* parent, const char* name );
 
 	private:
 		SpectrumWidget *m_spectrumWidget;

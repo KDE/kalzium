@@ -61,9 +61,6 @@ SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
 	Gamma = 0.8;
 	IntensityMax = 255,
 	
-	startValue = 400;
-	endValue = 700;
-
 	m_realWidth = 360;
 	m_realHeight = 200;
 
@@ -190,7 +187,7 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 	int start = (int)startValue % 10;
 	double dist =  width()/(endValue-startValue) * 10;	//distance between the tickles in px
 
-	int count = startValue - start + 10;
+	int count = ( int )startValue - start + 10;
 	start *= width()/(endValue-startValue);
 
 	for ( int i = start; i < width(); i += dist )
@@ -285,11 +282,15 @@ QColor SpectrumWidget::linecolor( double spectrum )
 	return c;
 }
 
-SpectrumView::SpectrumView( QWidget *parent, const char* name )
+SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	: QWidget( parent, name )
 {
+	m_spectrum = spec;
+	
 	QVBoxLayout *spectrumLayout = new QVBoxLayout( this );
 	m_spectrumWidget = new SpectrumWidget( this, "spectrum" );
+	m_spectrumWidget->setBorders( spec->min(), spec->max() );
+	
 	spectrumLayout->addWidget( m_spectrumWidget );
 
 	QHBoxLayout *hbox = new QHBoxLayout( this );
