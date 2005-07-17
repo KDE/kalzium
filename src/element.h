@@ -45,7 +45,7 @@ typedef QValueList<double> doubleList;
 class Isotope
 {
 	public:
-		Isotope( int neutrons, double percentage, double weight, double halflife, QString format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, bool ecdecay, double decayenergy, QString spin, double magmoment);
+		Isotope( int neutrons, double percentage, double weight, double halflife, QString format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, bool ecdecay, double decayenergy, QString spin, QString magmoment);
 
 		bool seconds() const{
 			if ( m_format == "seconds" )
@@ -101,7 +101,7 @@ class Isotope
 			return m_spin;
 		}
 		
-		double magmoment() const{
+		QString magmoment() const{
 			return m_magmoment;
 		}
 
@@ -156,7 +156,7 @@ class Isotope
 		/**
 		* magnetic moment
 		*/
-		double m_magmoment;
+		QString m_magmoment;
 };
 
 /**

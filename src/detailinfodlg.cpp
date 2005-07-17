@@ -297,10 +297,14 @@ QString DetailedInfoDlg::isotopeTable()
 		html.append( "</td><td>" );
 		html.append( i18n("%1 ").arg(( *it )->spin() ) );
 		html.append( "</td><td>" );
+		if ( !( *it )->magmoment().isEmpty){
+		double ( *it )->magmoment() = ( *it )->magmoment().toDouble;
 		if ( ( *it )->magmoment() > 0.0 )
 			html.append( i18n( "+" ));
 		html.append( i18n( "%1 %2%3" ).arg( ( *it )->magmoment() ).arg( QChar( 956 ) ).arg( i18n( "<sub>n</sub>" ) ) );
+		}
 		html.append( "</td></tr>" );
+	
 	}
 	
 	html += ( "</table>" );
