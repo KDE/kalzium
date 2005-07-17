@@ -36,6 +36,12 @@ typedef QValueList<Element*> EList;
 typedef QValueList<coordinate> CList;
 typedef QValueList<double> doubleList;
 
+/**
+ * @author Carsten Niehaus
+ * @author Jörg Buchwald
+ *
+ * This class represents an Isotope with all its properties
+ */
 class Isotope
 {
 	public:
@@ -95,9 +101,11 @@ class Isotope
 		double decayenergy() const{
 			return m_decayenergy;
 		}
+		
 		QString spin() const{
 			return m_spin;
 		}
+		
 		double magmoment() const{
 			return m_magmoment;
 		}

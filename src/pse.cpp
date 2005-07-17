@@ -408,6 +408,7 @@ void PSE::paintCurrentSelection()
 	int x = (m_currentPoint.x()-1)*ELEMENTSIZE;
 	int y = m_currentPoint.y()*ELEMENTSIZE;
 
+	// make a small gap (ELEMENTSIZE/3) over the rare earths
 	if (m_currentPoint.y() > 7) y += ELEMENTSIZE/3;
 
 	QPainter p;
@@ -784,6 +785,11 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 	//for the y-position I need to substract ELEMENTSIZE pixel because
 	//the whole table doesn't start at (0,0) but at (0,ELEMENTSIZE)
 	int Y = mouse->y()-ELEMENTSIZE;
+
+	// ignore clicks on the small gap over rare earth
+	if (Y >= (ELEMENTSIZE*7) && Y < (ELEMENTSIZE*7+ELEMENTSIZE/3+1)) return;
+
+	// mind the gap!
 	if (Y > (ELEMENTSIZE*7)) Y -= ELEMENTSIZE/3;
 	Y /= ELEMENTSIZE;
 		
@@ -1132,6 +1138,9 @@ QPoint PSE::ElementUnderMouse()
 {
 	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
 	int Y = mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE;
+
+	// mind the gap over rare earth!
+	if (Y >= (ELEMENTSIZE*7) && Y < (ELEMENTSIZE*7+ELEMENTSIZE/3+1)) return QPoint( 0, 0 );
 
 	if (Y > (ELEMENTSIZE*7)) Y -= ELEMENTSIZE/3;
 

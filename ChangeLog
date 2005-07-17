@@ -3,7 +3,17 @@ Add:
  - The spectrium dialog
  - The table now has a small gap over the rare earth
  - The isotope table provides now more data
+   - halflife-periods
+   - weight
+   - number of neutrons
+   - abundance
+   - alpha-decay
+   - betadecay (both plus and minus)
+   - spin
+   - magnetic moment
  - The documentation has been overhauled
  - The menustructure is now more consistent
  - One icon has been added
  - Make the mainwidget a QScrollView. This make sizehandling easier
+ - Improve the drawing of the tooltip. It is now handeled
+   by the windowmanager
