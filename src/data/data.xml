@@ -311,7 +311,7 @@
 		<isotopes>
 			<isotope alphadecay="" betaplusdecay="true" betaminusdecay="" ecdecay="" decayenergy="0,96" spin="3/2-" magmoment="" halflife="1223" halflifeformat="seconds" weight="11,01143" neutron="5" pecentage="" />
 			<isotope alphadecay="" betaplusdecay="" betaminusdecay="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="12" neutron="6" percentage="98,89" />
-			<isotope alphadecay="" betaplusdecay="" betaminusdecay="" ecdecay="" decayenergy="" halflife="" spin="1/2-" magmoment="0,702411" halflifeformat="seconds" weight="13,0034" neutron="7" percentage="1,11" />
+			<isotope alphadecay="" betaplusdecay="" betaminusdecay="" ecdecay="" decayenergy="" halflife="" spin="1/2-" magmoment="+0,702411" halflifeformat="seconds" weight="13,0034" neutron="7" percentage="1,11" />
 			<isotope alphadecay="" betaplusdecay="" betaminusdecay="true" ecdecay="" decayenergy="0,156" spin="0+" magmoment="0" halflife="5730" halflifeformat="years" weight="14,00324" neutron="8" percentage="" />
 		</isotopes>
 		<family>Non-Metal</family>
