@@ -45,7 +45,7 @@ typedef QValueList<double> doubleList;
 class Isotope
 {
 	public:
-		Isotope( int neutrons, double percentage, double weight, double halflife, QString format, QString alphadecay, QString betaplusdecay, QString betaminusdecay, QString ecdecay, double decayenergy, QString spin, double magmoment);
+		Isotope( int neutrons, double percentage, double weight, double halflife, QString format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, bool ecdecay, double decayenergy, QString spin, double magmoment);
 
 		bool seconds() const{
 			if ( m_format == "seconds" )
@@ -54,6 +54,10 @@ class Isotope
 				return false;
 		}
 
+		/**
+		 * @return the halflife period of the isotope it if has one. The format
+		 * is defined by seconds()
+		 */
 		double halflife() const{
 			return m_halflife;
 		}
@@ -62,6 +66,9 @@ class Isotope
 			return m_percentage;
 		}
 
+		/**
+		 * @return the number of neutrons the isotope has
+		 */
 		int neutrons() const{
 			return m_neutrons;
 		}
@@ -71,31 +78,19 @@ class Isotope
 		}
 		
 		bool alphadecay() const{
-			if ( m_alphadecay == "true" )
-				return true;
-			else
-				return false;
+			return m_alphadecay;
 		}
 		
 		bool betaplusdecay() const{
-			if ( m_betaplusdecay == "true" )
-				return true;
-			else
-				return false;
+			return m_betaplusdecay;
 		}
 		
 		bool betaminusdecay() const{
-			if ( m_betaminusdecay == "true" )
-				return true;
-			else
-				return false;
+			return m_betaminusdecay;
 		}
 		
 		bool ecdecay() const{
-			if ( m_ecdecay == "true" )
-				return true;
-			else
-				return false;
+			return m_ecdecay;
 		}
 		
 		double decayenergy() const{
@@ -142,14 +137,15 @@ class Isotope
 		 */
 		int m_neutrons;
 		
-		/**
-		* Theese variables specify the kind of decay
-		* and the decay-energy
-		*/
-		QString m_alphadecay;
-		QString m_betaplusdecay;
-		QString m_betaminusdecay;
-		QString m_ecdecay;
+		///Specify if the decay is of this kind
+		bool  m_alphadecay;
+		///Specify if the decay is of this kind
+		bool  m_betaplusdecay;
+		///Specify if the decay is of this kind
+		bool  m_betaminusdecay;
+		///Specify if the decay is of this kind
+		bool  m_ecdecay;
+		
 		double m_decayenergy;
 		
 		/**
