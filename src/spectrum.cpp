@@ -54,15 +54,68 @@ double Spectrum::maxBand()
 	return value;
 }
 
+void Spectrum::paintBands( QPainter* p, double startValue, double endValue, bool emissionSpectrum )
+{
+	kdDebug() << "Spectrum::paintBands" << endl;
+	
+	if ( !emissionSpectrum )
+	{
+		for ( double va = startValue; va <= endValue ; va += 0.1 )
+		{
+			int x = xPos( va, startValue, endValue );
+			p->setPen( linecolor( va ) );
+			p->drawLine( x,0,x, m_realHeight+10 );
+		}
+
+		p->setPen( Qt::black );
+	}
+
+	int i = 0;	
+
+	for ( QValueList<band>::Iterator it = m_bandlist.begin();
+			it != m_bandlist.end();
+			++it )
+	{
+		if ( ( *it ).wavelength < startValue || ( *it ).wavelength > endValue )
+			continue;
+
+		int x = xPos( ( *it ).wavelength, startValue, endValue );
+		
+		int temp = 0; // every second item will have a little offset
+
+		if ( i%2 )
+			temp = 35;
+		else
+			temp = 0;
+
+		if ( emissionSpectrum )
+		{
+			p->setPen( linecolor( ( *it ).wavelength ) );
+			
+                	p->drawLine( x,0,x, m_realHeight );
+                
+                	p->setPen( Qt::black );
+               		p->drawLine( x,m_realHeight,x, m_realHeight+10+temp );
+		}
+		else
+		{
+	                p->drawLine( x,0,x, m_realHeight+10+temp );
+		}
+		
+		QString text = QString::number( ( *it ).wavelength );
+		p->drawText(0, 0, text);
+
+		i++;
+	}
+}
+
 SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
 	: QWidget( parent,name )
 {
-	//For the colorcalculation
-	Gamma = 0.8;
-	IntensityMax = 255,
-	
+	kdDebug() << "SpectrumWidget::SpectrumWidget()" << endl;
+
 	m_realWidth = 360;
-	m_realHeight = 200;
+        m_realHeight = 200;
 
 	setType( EmissionSpectrum );
 }
@@ -74,6 +127,8 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	QPainter p;
 	p.begin( this );
 	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
+
+	m_spectrum->setWidth ( width() );
 	
 	switch ( m_type )
 	{
@@ -91,70 +146,14 @@ void SpectrumWidget::drawAbsorptionSpectrum( QPainter *p )
 {
 	kdDebug() << "SpectrumWidget::drawAbsorptionSpectrum()" << endl;
 
-	int i = 0;
-
-	for ( double va = startValue; va <= endValue ; va += 0.1 )
-	{
-		int x = xPos( va );
-		p->setPen(linecolor( va ));
-		p->drawLine( x,0,x, m_realHeight+10 );
-	}
-	
-	for ( QValueList<double>::Iterator it = m_spectra.begin();
-			it != m_spectra.end();
-			++it )
-	{
-		if ( (*it) < startValue || ( *it ) > endValue )
-			continue;
-
-		int x = xPos( *it );
-		
-		int temp = 0; // every second item will have a little offset
-		if ( i%2 )
-			temp = 35;
-		else
-			temp = 0;
-		
-		p->setPen( Qt::black );
-		p->drawLine( x,0,x, m_realHeight+10+temp );
-		QString text = QString::number( *it );
-		p->drawText(0, 0, text);
-
-		i++;
-	}
+	m_spectrum->paintBands ( p, startValue, endValue, false );
 }
 
 void SpectrumWidget::drawEmmissionSpectrum( QPainter *p )
 {
 	kdDebug() << "SpectrumWidget::drawEmmissionSpectrum()" << endl;
-	int i = 0;
-	
-	for ( QValueList<double>::Iterator it = m_spectra.begin();
-			it != m_spectra.end();
-			++it )
-	{
-		if ( (*it) < startValue || ( *it ) > endValue )
-			continue;
 
-		int x = xPos( *it );
-	
-		int temp = 0; // every second item will have a little offset
-		if ( i%2 )
-			temp = 35;
-		else
-			temp = 0;
-		
-		p->setPen(linecolor( *it ));
-		p->drawLine( x,0,x, m_realHeight );
-		//p->drawRect( x,0,x+width()/(endValue-startValue),m_realHeight );
-		p->setPen( Qt::black );
-		p->drawLine( x,m_realHeight,x, m_realHeight+10+temp );
-		p->setPen( Qt::black );
-		QString text = QString::number( *it );
-		p->drawText(0, 0, text);
-
-		i++;
-	}
+	m_spectrum->paintBands ( p, startValue, endValue, true );
 		
 //To test the widget uncomment this code.
 //X 	for ( double va = startValue; va <= endValue ; va += 0.7 )
@@ -163,6 +162,15 @@ void SpectrumWidget::drawEmmissionSpectrum( QPainter *p )
 //X 		p->setPen(linecolor( va ));
 //X 		p->drawLine( x,0,x, m_realHeight+10 );
 //X 	}
+}
+
+QColor Spectrum::linecolor( double spectrum )
+{
+        int r,g,b;
+        wavelengthToRGB( spectrum, r,g,b );
+
+        QColor c( r,g,b );
+        return c;
 }
 
 void SpectrumWidget::drawTickmarks( QPainter* p )
@@ -208,7 +216,7 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 	}
 }
 
-void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b )
+void Spectrum::wavelengthToRGB( double wavelength, int& r, int& g, int& b )
 {
 	double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
@@ -265,7 +273,7 @@ void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b 
 	b = Adjust( blue, factor );
 }
 
-int SpectrumWidget::Adjust( double color, double factor )
+int Spectrum::Adjust( double color, double factor )
 {
 	if ( color == 0.0 )
 		return 0;
@@ -273,18 +281,11 @@ int SpectrumWidget::Adjust( double color, double factor )
 		return ( int )( round( IntensityMax * pow( color*factor, Gamma ) ) );
 }
 
-QColor SpectrumWidget::linecolor( double spectrum )
-{
-	int r,g,b;
-	wavelengthToRGB( spectrum, r,g,b );
-
-	QColor c( r,g,b );
-	return c;
-}
-
 SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	: QWidget( parent, name )
 {
+	kdDebug()<<"SpectrumView::SpectrumView()" << endl;
+
 	m_spectrum = spec;
 	
 	QVBoxLayout *spectrumLayout = new QVBoxLayout( this );

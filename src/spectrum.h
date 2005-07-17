@@ -43,8 +43,17 @@ class Spectrum
 {
 	public:
 		Spectrum(){
+			kdDebug() <<"Spectrum::Spectrum" << endl;
+
 			m_min = minBand();
 			m_max = maxBand();
+
+			//For the colorcalculation
+        		Gamma = 0.8;
+        		IntensityMax = 255,
+
+        		m_realWidth = 360;
+        		m_realHeight = 200;
 		};
 		~Spectrum(){};
 
@@ -78,6 +87,19 @@ class Spectrum
 			return m_max;
 		}
 
+		void setWidth( int width ){
+			m_width = width;
+		}
+
+		void paintBands( QPainter* p, double startValue, double endValue, bool emissionSpectrum );
+
+		/**
+		 * @returns the color of a line
+		 * @param spectrum the value of the spectrum
+		 */
+		QColor linecolor( double spectrum );
+
+
 	private:
 		/**
 		 * @return the smallest wavelength
@@ -89,9 +111,44 @@ class Spectrum
 		 */
 		double maxBand();
 
+		/**
+		 * @return the postion in the widget of a band 
+		 * with the wavelength @p wavelength
+		 * 
+		 * @param wavelength the wavelength for which the position is needed
+		 */
+		inline int xPos( double wavelength, double startValue, double endValue ){
+			return ( int ) ( m_width * ( wavelength - startValue ) / ( endValue - startValue ) );
+		}
+
+		/**
+		 * This method changes the three values @p r @p g and @p b to the 
+		 * correct values
+		 * param wavelength the wavelength for which the color is searched
+		 * param r red
+		 * param g green 
+		 * param b blue
+		 */
+		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
+
+		double Gamma;
+		int IntensityMax;
+
+		int m_realWidth;
+		int m_realHeight;
+
+		/**
+		 * @return the adjusted value of the @p color. The
+		 * correction depends on @p factor which has been
+		 * figured out emperically
+		 */
+		int Adjust( double color, double factor );
+
 		QValueList<band> m_bandlist;
 
 		double m_max, m_min;
+
+		int m_width;
 };
 
 /**
@@ -158,39 +215,7 @@ class SpectrumWidget : public QWidget
 
 		SpectrumType m_type;
 
-		/**
-		 * @return the adjusted value of the @p color. The
-		 * correction depends on @p factor which has been
-		 * figured out emperically
-		 */
-		int Adjust( double color, double factor );
-
 		Spectrum *m_spectrum;
-
-		/**
-		 * @param the position on a 0 to 1-scale in the widget. 0.5 mean 
-		 * that you want the wavelength in the middle of the widget,
-		 * 0.25 mean at one quarter of the width of the widget
-		 *
-		 * @param position the position on a 0 to 1 scale.
-		 * @return the Wavelength on @p position
-		 */
-		inline double Wavelength( double position ){
-			return startValue + ( ( endValue-startValue ) *  position );
-		}
-
-		/**
-		 * This method changes the three values @p r @p g and @p b to the 
-		 * correct values
-		 * param wavelength the wavelength for which the color is searched
-		 * param r red
-		 * param g green 
-		 * param b blue
-		 */
-		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
-
-		double Gamma;
-		int IntensityMax;
 
 		/**
 		 * draws the spectra-lines
@@ -207,27 +232,11 @@ class SpectrumWidget : public QWidget
 		 */
 		void drawTickmarks( QPainter *p );
 
-		/**
-		 * @return the postion in the widget of a band 
-		 * with the wavelength @p wavelength
-		 * 
-		 * @param wavelength the wavelength for which the position is needed
-		 */
-		inline int xPos( double wavelength ){
-			return ( int ) ( width() * ( wavelength - startValue ) / ( endValue - startValue ) );
-		}
-
-		/**
-		 * @returns the color of a line
-		 * @param spectrum the value of the spectrum
-		 */
-		QColor linecolor( double spectrum );
-	
 		double startValue;
 		double endValue;
 
-		int m_realWidth;
 		int m_realHeight;
+		int m_realWidth;
 
 	public slots:
 		/**
