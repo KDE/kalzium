@@ -14,6 +14,8 @@
  ***************************************************************************/
 
 #include "detailinfodlg.h"
+#include "isotope.h"
+#include "kalziumdataobject.h"
 
 #include <kdebug.h>
 #include <klocale.h>

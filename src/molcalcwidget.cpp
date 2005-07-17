@@ -18,6 +18,9 @@
  *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.             *
  ***************************************************************************/
 #include "molcalcwidget.h"
+#include "kalziumdataobject.h"
+#include "molcalcwidgetbase.h"
+#include "element.h"
 
 #include <kaction.h>
 #include <kdebug.h>
@@ -28,9 +31,6 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qtooltip.h>
-
-#include "molcalcwidgetbase.h"
-#include "element.h"
 
 MolcalcWidget::MolcalcWidget( KalziumDataObject *data, QWidget *parent, const char *name )
     : MolcalcWidgetBase( parent, "molcalcwidgetbase" )

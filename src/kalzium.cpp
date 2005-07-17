@@ -24,6 +24,7 @@
 #include "detailedgraphicaloverview.h"
 #include "timewidget.h"
 #include "somwidget_impl.h"
+#include "kalziumdataobject.h"
 
 #include <qdockwindow.h>
 #include <qlayout.h>
