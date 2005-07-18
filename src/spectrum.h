@@ -48,7 +48,6 @@ class Spectrum
 		 * public ctor
 		 */
 		Spectrum(){
-			kdDebug() <<"Spectrum::Spectrum" << endl;
 		};
 		
 		/**
@@ -122,6 +121,10 @@ class Spectrum
 		 */
 		double max() const{
 			return m_max;
+		}
+
+		QValueList<band>* bandlist(){
+			return &m_bandlist;
 		}
 
 	private:

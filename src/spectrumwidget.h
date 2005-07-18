@@ -45,6 +45,7 @@ class SpectrumWidget : public QWidget
 			IntensityMax = 255;
 
 			setType( EmissionSpectrum );
+			update();
 		};
 			
 		~SpectrumWidget(){};
@@ -97,10 +98,6 @@ class SpectrumWidget : public QWidget
 			return m_type;
 		}
 		
-		void setWidth( int width ){
-			m_width = width;
-		}
-		
 		/**
 		 * @returns the color of a line
 		 * @param spectrum the value of the spectrum
@@ -110,8 +107,6 @@ class SpectrumWidget : public QWidget
 		double Gamma;
 		int IntensityMax;
 		
-		int m_width;
-
 		/**
 		 * @return the adjusted value of the @p color. The
 		 * correction depends on @p factor which has been
@@ -125,8 +120,8 @@ class SpectrumWidget : public QWidget
 		 * 
 		 * @param wavelength the wavelength for which the position is needed
 		 */
-		inline int xPos( double wavelength, double startValue, double endValue ){
-			return ( int ) ( m_width * ( wavelength - startValue ) / ( endValue - startValue ) );
+		inline int xPos( double wavelength ){
+			return ( int ) ( width() * ( wavelength - startValue ) / ( endValue - startValue ) );
 		}
 
 		/**
@@ -146,17 +141,7 @@ class SpectrumWidget : public QWidget
 
 		Spectrum *m_spectrum;
 		
-		void paintBands( QPainter* p, double startValue, double endValue, bool emissionSpectrum );
-
-		/**
-		 * draws the spectra-lines
-		 */
-		void drawAbsorptionSpectrum( QPainter *p );
-		
-		/**
-		 * draws the spectra-lines
-		 */
-		void drawEmmissionSpectrum( QPainter *p );
+		void paintBands( QPainter* p, bool emissionSpectrum );
 
 		/**
 		 * Draw the scale
