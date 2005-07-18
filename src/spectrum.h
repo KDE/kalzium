@@ -48,6 +48,8 @@ class Spectrum
 		 * public ctor
 		 */
 		Spectrum(){
+			m_min = 400;
+			m_max = 700;
 		};
 		
 		/**

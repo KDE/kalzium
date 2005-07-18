@@ -35,19 +35,8 @@ class SpectrumWidget : public QWidget
 	Q_OBJECT
 
 	public:
-		SpectrumWidget( QWidget *parent, const char* name = 0 ){
-			kdDebug() << "SpectrumWidget::SpectrumWidget()" << endl;
-
-			m_realWidth = 360;
-			m_realHeight = 200;
-
-			Gamma = 0.8;
-			IntensityMax = 255;
-
-			setType( EmissionSpectrum );
-			update();
-		};
-			
+		SpectrumWidget( QWidget *parent, const char* name );
+		
 		~SpectrumWidget(){};
 
 		void setSpectrum( Spectrum* spec ){
@@ -141,7 +130,7 @@ class SpectrumWidget : public QWidget
 
 		Spectrum *m_spectrum;
 		
-		void paintBands( QPainter* p, bool emissionSpectrum );
+		void paintBands( QPainter* p );
 
 		/**
 		 * Draw the scale
