@@ -120,3 +120,6 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 		count += 10;
 	}
 }
+
+#include "spectrumwidget.moc"
+
