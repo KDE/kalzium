@@ -22,6 +22,7 @@
 #define SPECTRUMWIDGET_H
 
 #include <qwidget.h>
+#include <kdebug.h>
 
 class Spectrum;
 
@@ -34,8 +35,19 @@ class SpectrumWidget : public QWidget
 	Q_OBJECT
 
 	public:
-		SpectrumWidget( QWidget *parent, const char* name = 0 );
-		~SpectrumWidget();
+		SpectrumWidget( QWidget *parent, const char* name = 0 ){
+			kdDebug() << "SpectrumWidget::SpectrumWidget()" << endl;
+
+			m_realWidth = 360;
+			m_realHeight = 200;
+
+			Gamma = 0.8;
+			IntensityMax = 255;
+
+			setType( EmissionSpectrum );
+		};
+			
+		~SpectrumWidget(){};
 
 		void setSpectrum( Spectrum* spec ){
 			m_spectrum = spec;
@@ -84,6 +96,48 @@ class SpectrumWidget : public QWidget
 		SpectrumType spectrumType() const{
 			return m_type;
 		}
+		
+		void setWidth( int width ){
+			m_width = width;
+		}
+		
+		/**
+		 * @returns the color of a line
+		 * @param spectrum the value of the spectrum
+		 */
+		QColor linecolor( double spectrum );
+		
+		double Gamma;
+		int IntensityMax;
+		
+		int m_width;
+
+		/**
+		 * @return the adjusted value of the @p color. The
+		 * correction depends on @p factor which has been
+		 * figured out emperically
+		 */
+		int Adjust( double color, double factor );
+		
+		/**
+		 * @return the postion in the widget of a band 
+		 * with the wavelength @p wavelength
+		 * 
+		 * @param wavelength the wavelength for which the position is needed
+		 */
+		inline int xPos( double wavelength, double startValue, double endValue ){
+			return ( int ) ( m_width * ( wavelength - startValue ) / ( endValue - startValue ) );
+		}
+
+		/**
+		 * This method changes the three values @p r @p g and @p b to the 
+		 * correct values
+		 * param wavelength the wavelength for which the color is searched
+		 * param r red
+		 * param g green 
+		 * param b blue
+		 */
+		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
 	
 	private:
 		QValueList<double> m_spectra;
@@ -91,6 +145,8 @@ class SpectrumWidget : public QWidget
 		SpectrumType m_type;
 
 		Spectrum *m_spectrum;
+		
+		void paintBands( QPainter* p, double startValue, double endValue, bool emissionSpectrum );
 
 		/**
 		 * draws the spectra-lines

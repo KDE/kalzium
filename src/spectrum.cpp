@@ -43,6 +43,31 @@ double Spectrum::minBand()
 	return value;
 }
 
+Spectrum* Spectrum::adjustToWavelength( double min, double max )
+{
+	Spectrum *spec = new Spectrum();
+
+	QValueList<band>::Iterator it = m_bandlist.begin();
+	QValueList<band>::Iterator itEnd = m_bandlist.end();
+
+	for ( ; it != itEnd; ++it )
+	{
+		if ( ( *it ).wavelength < min || ( *it ).wavelength > max )
+			continue;
+
+		spec->addBand( *it );
+	}
+
+	spec->adjustMinMax();
+
+	return spec;
+}
+
+Spectrum* Spectrum::adjustIntensities()
+{
+	return this;
+}
+
 double Spectrum::maxBand()
 {
 	double value = ( *m_bandlist.begin() ).wavelength;
@@ -54,138 +79,6 @@ double Spectrum::maxBand()
 			value = ( *it ).wavelength;
 	}
 	return value;
-}
-
-void Spectrum::paintBands( QPainter* p, double startValue, double endValue, bool emissionSpectrum )
-{
-	kdDebug() << "Spectrum::paintBands()" << endl;
-	
-	if ( !emissionSpectrum )
-	{
-		for ( double va = startValue; va <= endValue ; va += 0.1 )
-		{
-			int x = xPos( va, startValue, endValue );
-			p->setPen( linecolor( va ) );
-			p->drawLine( x,0,x, m_realHeight+10 );
-		}
-
-		p->setPen( Qt::black );
-	}
-
-	int i = 0;	
-
-	for ( QValueList<band>::Iterator it = m_bandlist.begin();
-			it != m_bandlist.end();
-			++it )
-	{
-		kdDebug() << "band painted" << endl;
-		if ( ( *it ).wavelength < startValue || ( *it ).wavelength > endValue )
-			continue;
-
-		int x = xPos( ( *it ).wavelength, startValue, endValue );
-		
-		int temp = 0; // every second item will have a little offset
-
-		if ( i%2 )
-			temp = 35;
-		else
-			temp = 0;
-
-		if ( emissionSpectrum )
-		{
-			p->setPen( linecolor( ( *it ).wavelength ) );
-			
-                	p->drawLine( x,0,x, m_realHeight );
-                
-                	p->setPen( Qt::black );
-               		p->drawLine( x,m_realHeight,x, m_realHeight+10+temp );
-		}
-		else
-		{
-	                p->drawLine( x,0,x, m_realHeight+10+temp );
-		}
-		
-		QString text = QString::number( ( *it ).wavelength );
-		p->drawText(0, 0, text);
-
-		i++;
-	}
-	kdDebug() << "leaving Spectrum::paintBands()" << endl;
-}
-
-QColor Spectrum::linecolor( double spectrum )
-{
-        int r,g,b;
-        wavelengthToRGB( spectrum, r,g,b );
-
-        QColor c( r,g,b );
-        return c;
-}
-
-
-void Spectrum::wavelengthToRGB( double wavelength, int& r, int& g, int& b )
-{
-	double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
-
-	int wavelength_ = ( int ) floor( wavelength );
-
-	if ( wavelength_ > 380 && wavelength_ < 439 )
-	{
-		red = -( wavelength-440 ) / ( 440-380 );
-		green = 0.0;
-		blue = 1.0;
-	
-	}
-	if ( wavelength_ > 440 && wavelength_ < 489 )
-	{
-		red = 0.0;
-		green = ( wavelength-440 ) / ( 490-440 );
-		blue = 1.0;
-	}
-	if ( wavelength_ > 490 && wavelength_ < 509 )
-	{
-		red = 0.0;
-		green = 1.0;
-		blue = -( wavelength-510 ) / ( 510-490 );
-	}
-	if ( wavelength_ > 510 && wavelength_ < 579 )
-	{
-		red = ( wavelength-510 ) / ( 580-510 );
-		green = 1.0;
-		blue = 0.0;
-	}
-	if ( wavelength_ > 580 && wavelength_ < 644 )
-	{
-		red = 1.0;
-		green = -( wavelength-645 ) / ( 645-580 );
-		blue = 0.0;
-	}
-	if ( wavelength_ > 645 && wavelength_ < 780 )
-	{
-		red = 1.0;
-		green = 0.0;
-		blue = 0.0;
-	}
-	if ( wavelength_ > 380 && wavelength_ < 419 )
-		factor = 0.3 + 0.7*( wavelength - 380 ) / ( 420 - 380 );
-	else if ( wavelength_ > 420 && wavelength_ < 700 )
-		factor = 1.0;
-	else if ( wavelength_ > 701 && wavelength_ < 780 )
-		factor = 0.3 + 0.7*( 780 - wavelength ) / ( 780 - 700 );
-	else
-		factor = 0.0;
-
-	r = Adjust( red, factor );
-	g = Adjust( green, factor );
-	b = Adjust( blue, factor );
-}
-
-int Spectrum::Adjust( double color, double factor )
-{
-	if ( color == 0.0 )
-		return 0;
-	else
-		return ( int )( round( IntensityMax * pow( color*factor, Gamma ) ) );
 }
 
 SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )

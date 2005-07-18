@@ -46,16 +46,6 @@ class Spectrum
 	public:
 		Spectrum(){
 			kdDebug() <<"Spectrum::Spectrum" << endl;
-
-			m_min = minBand();
-			m_max = maxBand();
-
-			//For the colorcalculation
-        		Gamma = 0.8;
-        		IntensityMax = 255,
-
-        		m_realWidth = 360;
-        		m_realHeight = 200;
 		};
 		~Spectrum(){};
 
@@ -81,6 +71,19 @@ class Spectrum
 			m_bandlist.append( b );
 		}
 
+		/**
+		 * @param min the lowest allowed wavalength
+		 * @param max the highest allowed wavalength
+		 * 
+		 * @returns a spectrum with the wavelength in the range
+		 * of @p min to @p max. The intensities are readjusted
+		 * so that the biggest intensity is again 1000 and the 
+		 * others are adopted.
+		 */
+		Spectrum* adjustToWavelength( double min, double max );
+
+		Spectrum* adjustIntensities();
+
 		double min() const{
 			return m_min;
 		}
@@ -88,19 +91,6 @@ class Spectrum
 		double max() const{
 			return m_max;
 		}
-
-		void setWidth( int width ){
-			m_width = width;
-		}
-
-		void paintBands( QPainter* p, double startValue, double endValue, bool emissionSpectrum );
-
-		/**
-		 * @returns the color of a line
-		 * @param spectrum the value of the spectrum
-		 */
-		QColor linecolor( double spectrum );
-
 
 	private:
 		/**
@@ -112,45 +102,15 @@ class Spectrum
 		 * @return the biggest wavelength
 		 */
 		double maxBand();
-
-		/**
-		 * @return the postion in the widget of a band 
-		 * with the wavelength @p wavelength
-		 * 
-		 * @param wavelength the wavelength for which the position is needed
-		 */
-		inline int xPos( double wavelength, double startValue, double endValue ){
-			return ( int ) ( m_width * ( wavelength - startValue ) / ( endValue - startValue ) );
+		
+		void adjustMinMax(){
+			m_min = minBand();
+			m_max = maxBand();
 		}
-
-		/**
-		 * This method changes the three values @p r @p g and @p b to the 
-		 * correct values
-		 * param wavelength the wavelength for which the color is searched
-		 * param r red
-		 * param g green 
-		 * param b blue
-		 */
-		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
-
-		double Gamma;
-		int IntensityMax;
-
-		int m_realWidth;
-		int m_realHeight;
-
-		/**
-		 * @return the adjusted value of the @p color. The
-		 * correction depends on @p factor which has been
-		 * figured out emperically
-		 */
-		int Adjust( double color, double factor );
 
 		QValueList<band> m_bandlist;
 
 		double m_max, m_min;
-
-		int m_width;
 };
 
 class SpectrumView : public QWidget
