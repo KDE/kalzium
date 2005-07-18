@@ -61,11 +61,22 @@ class Spectrum
 		 */
 		struct band
 		{
+			///in Angstrom (1/10 nm)
 			double wavelength;
+
+			///Transition Probabilities
+			///10^8s-1  (1000000000 per second)
 			double aki;
+
+			///per centimeter
 			double energy1;
+
+			///per centimeter
 			double energy2;
+
+			///relative. The highest is per definition 1000
 			int intensity;
+
 			QString electronconfig1;
 			QString electronconfig2;
 			QString term1;
