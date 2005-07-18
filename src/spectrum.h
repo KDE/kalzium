@@ -44,9 +44,16 @@ class SpectrumWidget;
 class Spectrum
 {
 	public:
+		/**
+		 * public ctor
+		 */
 		Spectrum(){
 			kdDebug() <<"Spectrum::Spectrum" << endl;
 		};
+		
+		/**
+		 * public dtor
+		 */
 		~Spectrum(){};
 
 		/**
@@ -67,6 +74,10 @@ class Spectrum
 			QString J2;
 		};
 
+		/**
+		 * adds the band @p b to the internal
+		 * lists of bands
+		 */
 		void addBand( band b ){
 			m_bandlist.append( b );
 		}
@@ -82,12 +93,22 @@ class Spectrum
 		 */
 		Spectrum* adjustToWavelength( double min, double max );
 
-		Spectrum* adjustIntensities();
+		/**
+		 * sets the highest intensity to 1000 and adjusts the
+		 * others
+		 */
+		void adjustIntensities();
 
+		/**
+		 * @return the smallest wavelength
+		 */
 		double min() const{
 			return m_min;
 		}
 		
+		/**
+		 * @return the highest wavelength
+		 */
 		double max() const{
 			return m_max;
 		}
@@ -103,16 +124,29 @@ class Spectrum
 		 */
 		double maxBand();
 		
+		/**
+		 * cache the values of the biggest and
+		 * smallest wavelenght
+		 */
 		void adjustMinMax(){
 			m_min = minBand();
 			m_max = maxBand();
 		}
 
+		/**
+		 * the internal dataset
+		 */
 		QValueList<band> m_bandlist;
 
+		/**
+		 * the cached values of the highest and lowest wavelength
+		 */
 		double m_max, m_min;
 };
 
+/**
+ * @author Carsten Niehaus
+ */
 class SpectrumView : public QWidget
 {
 	Q_OBJECT

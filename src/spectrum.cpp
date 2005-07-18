@@ -48,7 +48,7 @@ Spectrum* Spectrum::adjustToWavelength( double min, double max )
 	Spectrum *spec = new Spectrum();
 
 	QValueList<band>::Iterator it = m_bandlist.begin();
-	QValueList<band>::Iterator itEnd = m_bandlist.end();
+	const QValueList<band>::Iterator itEnd = m_bandlist.end();
 
 	for ( ; it != itEnd; ++it )
 	{
@@ -63,13 +63,43 @@ Spectrum* Spectrum::adjustToWavelength( double min, double max )
 	return spec;
 }
 
-Spectrum* Spectrum::adjustIntensities()
+void Spectrum::adjustIntensities()
 {
-	return this;
+	kdDebug() << "Spectrum::adjustIntensities()" << endl;
+
+	int maxInt = 0;
+	QValueList<band>::Iterator it = m_bandlist.begin();
+	const QValueList<band>::Iterator itEnd = m_bandlist.end();
+
+	//find the highest intensity
+	for ( ; it != itEnd; ++it )
+	{
+		if ( ( *it ).intensity > maxInt )
+			maxInt = ( *it ).intensity;
+	}
+
+	kdDebug() << "maxInt" << maxInt << endl;
+
+	//check if an adjustment is needed or not
+	if ( maxInt == 1000 ) return;
+
+	double max = ( double ) maxInt;
+
+	//now adjust the intensities.
+	it = m_bandlist.begin();
+	for ( ; it != itEnd; ++it )
+	{
+		double curInt = ( ( double )( *it ).intensity );
+		
+		double newInt = max*1000/curInt;
+		( *it ).intensity = ( int ) round( newInt );
+	}
 }
 
 double Spectrum::maxBand()
 {
+	kdDebug() << "Spectrum::maxBand()" << endl;
+
 	double value = ( *m_bandlist.begin() ).wavelength;
 	QValueList<band>::Iterator it = m_bandlist.begin();
 	const QValueList<band>::Iterator itEnd = m_bandlist.end();
