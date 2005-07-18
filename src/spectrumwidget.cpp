@@ -76,11 +76,11 @@ void SpectrumWidget::paintBands( QPainter* p )
  			it != m_spectrum->bandlist()->end();
  			++it )
  	{
- 		if ( ( *it ).wavelength*10 < startValue || ( *it ).wavelength*10 > endValue )
+ 		if ( ( *it ).wavelength/10 < startValue || ( *it ).wavelength/10 > endValue )
 			continue;
  
- 		int x = xPos( ( *it ).wavelength*10 );
- 		
+ 		int x = xPos( ( *it ).wavelength/10 );
+ 	
  		int temp = 0; // every second item will have a little offset
  
  		if ( i%2 )
@@ -91,8 +91,7 @@ void SpectrumWidget::paintBands( QPainter* p )
  		switch ( m_type )
  		{
 			case EmissionSpectrum:
-				kdDebug() << "EmissionSpectrum" << endl;
- 				p->setPen( linecolor( ( *it ).wavelength*10 ) );
+				p->setPen( linecolor( ( *it ).wavelength/10 ) );
                  		p->drawLine( x,0,x, m_realHeight );
                 
                  		p->setPen( Qt::black );
@@ -100,9 +99,8 @@ void SpectrumWidget::paintBands( QPainter* p )
 				break;
  		
 			case AbsorptionSpectrum:
-				kdDebug() << "AbsorptionSpectrum" << endl;
-				//p->setPen( Qt:black );
- 	                	//p->drawLine( x,0,x, m_realHeight+10+temp );
+				p->setPen( Qt::black );
+ 	                	p->drawLine( x,0,x, m_realHeight+10+temp );
 				break;
  		}
  		
