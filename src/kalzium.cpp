@@ -56,13 +56,13 @@ Kalzium::Kalzium()
 	QWidget *centralWidget = new QWidget( this, "centralWidget" );
 	m_pCentralLayout = new QVBoxLayout( centralWidget, PSE_MARGIN, -1, "CentralLayout" );
 	
-  QScrollView *helperSV = new QScrollView(centralWidget);
+	QScrollView *helperSV = new QScrollView(centralWidget);
 	m_pCentralLayout->addWidget(helperSV);
-  helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
-  helperSV->setFrameShape(QFrame::NoFrame);
+	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
+	helperSV->setFrameShape(QFrame::NoFrame);
 
 	m_PSE = new PSE( data(), helperSV->viewport(), "PSE");
-  helperSV->addChild( m_PSE );
+	helperSV->addChild( m_PSE );
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
 
@@ -75,19 +75,13 @@ Kalzium::Kalzium()
 	setCentralWidget( centralWidget );
 	centralWidget->show();
 
-	setupActions();
 	setupSidebars();
+	setupActions();
 
-	if ( m_PSE->showLegend() )
-	{
-		m_pLegendAction->setChecked( true );
-	}
-	if ( m_PSE->tooltipsEnabled() )
-	{
-		m_pTooltipAction->setChecked( true );
-	}
 	if ( Prefs::showsidebar() )
 		m_dockWin->show();
+	else
+		m_dockWin->hide();
 	m_PSE->repaint();
 
 	// creating the glossary dialog and loading the glossaries we have
@@ -152,7 +146,7 @@ void Kalzium::setupActions()
 	numeration_action->setCurrentItem(Prefs::numeration()); 
 	connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
 
-	m_SidebarAction = new KToggleAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
+	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
 	/*
 	 * the misc actions
@@ -162,9 +156,9 @@ void Kalzium::setupActions()
 	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
 	//Legend
-	m_pLegendAction = new KToggleAction(i18n("Show &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
+	m_pLegendAction = new KAction(i18n("Show &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
 	
-	m_pTooltipAction = new KToggleAction(i18n("Show &Tooltip"), "tooltip", 0, this, SLOT(slotEnableTooltips()), actionCollection(), "toggle_tooltip");
+	m_pTooltipAction = new KAction(i18n("Show &Tooltip"), "tooltip", 0, this, SLOT(slotEnableTooltips()), actionCollection(), "toggle_tooltip");
 	
 	//the standardactions
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
@@ -172,6 +166,14 @@ void Kalzium::setupActions()
 
 	slotShowScheme( Prefs::colorschemebox() );
 	slotSwitchtoNumeration( Prefs::numeration() );
+	
+	//FIXME I am calling this twice to toggle it twice.
+	slotShowLegend();
+	slotEnableTooltips();
+	slotShowHideSidebar();
+	slotShowLegend();
+	slotEnableTooltips();
+	slotShowHideSidebar();
 
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
@@ -241,6 +243,11 @@ void Kalzium::slotEnableTooltips()
 	bool enabled = m_PSE->tooltipsEnabled();
 	enabled = !enabled;
 
+	if ( enabled )
+		m_pTooltipAction->setText( i18n( "Hide &Tooltips" ) );
+	else
+		m_pTooltipAction->setText( i18n( "Show &Tooltips" ) );
+
 	m_PSE->setTooltipsEnabled( enabled );
 	
 	Prefs::setTooltip( enabled ); 
@@ -252,10 +259,12 @@ void Kalzium::slotShowLegend()
 	if(m_PSE->showLegend())
 	{
 		m_PSE->showLegend(false);
+		m_pLegendAction->setText( i18n( "Show &Legend" ) );
 	}
 	else
 	{
 		m_PSE->showLegend(true);
+		m_pLegendAction->setText( i18n( "Hide &Legend" ) );
 	}
 	m_PSE->update();
 	
@@ -270,9 +279,15 @@ void Kalzium::slotShowLegend()
 void Kalzium::slotShowHideSidebar()
 {
 	if( m_dockWin->isShown() )
+	{
 		m_dockWin->hide();
+		m_SidebarAction->setText( i18n( "Show &Sidebar" ) );
+	}
 	else
+	{
 		m_dockWin->show();
+		m_SidebarAction->setText( i18n( "Hide &Sidebar" ) );
+	}
 }
 
 void Kalzium::slotShowScheme(int i)

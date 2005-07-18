@@ -1,5 +1,5 @@
 /***************************************************************************
-    copyright            : (C) 2003, 2004 by Carsten Niehaus
+    copyright            : (C) 2003, 2004, 2005 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 /***************************************************************************
@@ -98,9 +98,9 @@ class Kalzium : public KMainWindow
 		KAction *m_pPlotAction,
 				*m_pGlossaryAction;
 		
-		KToggleAction *m_pTooltipAction;
-		KToggleAction *m_pLegendAction;
-		KToggleAction *m_SidebarAction;
+		KAction *m_pTooltipAction;
+		KAction *m_pLegendAction;
+		KAction *m_SidebarAction;
 
 		KToggleAction *m_actionNoScheme;
 		KToggleAction *m_actionGroups;

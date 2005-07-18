@@ -127,6 +127,7 @@ SpectrumWidget::~SpectrumWidget(){}
 
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 {
+	if ( !m_spectrum ) return;
 	QPainter p;
 	p.begin( this );
 	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
