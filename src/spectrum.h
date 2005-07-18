@@ -34,6 +34,8 @@
 
 #include "element.h"
 
+class SpectrumWidget;
+
 /**
  * @author Carsten Niehaus
  *
@@ -149,126 +151,6 @@ class Spectrum
 		double m_max, m_min;
 
 		int m_width;
-};
-
-/**
- * @author Carsten Niehaus
- */
-class SpectrumWidget : public QWidget
-{
-	Q_OBJECT
-
-	public:
-		SpectrumWidget( QWidget *parent, const char* name = 0 );
-		~SpectrumWidget();
-
-		void setSpectrum( Spectrum* spec ){
-			m_spectrum = spec;
-		}
-
-		/**
-		 * This limits the width of the spectrum in terms of
-		 * wavelength. For example you can set it to only
-		 * show the area between 500 and 550 nm
-		 *
-		 * @param left the left border
-		 * @param right the right border
-		 */
-		void setBorders( double left, double right ){
-			startValue = ( int )left;
-			endValue = ( int )right;
-		}
-		
-		/**
-		 * find the nearest band. The returnvalue is the number
-		 * of pixel the next band is away
-		 */
-		int findNearestBand( QValueList<double>::iterator it );
-
-		/**
-		 * there are several possible types.
-		 */
-		enum SpectrumType
-		{
-			EmissionSpectrum = 0,
-			AbsorptionSpectrum
-		};
-
-		/**
-		 * sets the type of the spectrum to @p t
-		 * @param t the type of the spectrum
-		 */
-		void setType( SpectrumType t ){
-			m_type = t;
-		}
-
-		/**
-		 * @return the currently active type
-		 * of the spectrum
-		 */
-		SpectrumType spectrumType() const{
-			return m_type;
-		}
-	
-	private:
-		QValueList<double> m_spectra;
-
-		SpectrumType m_type;
-
-		Spectrum *m_spectrum;
-
-		/**
-		 * draws the spectra-lines
-		 */
-		void drawAbsorptionSpectrum( QPainter *p );
-		
-		/**
-		 * draws the spectra-lines
-		 */
-		void drawEmmissionSpectrum( QPainter *p );
-
-		/**
-		 * Draw the scale
-		 */
-		void drawTickmarks( QPainter *p );
-
-		double startValue;
-		double endValue;
-
-		int m_realHeight;
-		int m_realWidth;
-
-	public slots:
-		/**
-		 * set the the maximumvalue to @p value
-		 */
-		void setRightBorder( int value ){
-			endValue = value;
-			if ( endValue < startValue )
-				startValue = endValue-1;
-			update();
-		}
-		
-		/**
-		 * set the the minimumvalue to @p value
-		 */
-		void setLeftBorder( int value ){
-			startValue = value;
-			if ( startValue > endValue )
-				endValue = startValue+1;
-			update();
-		}
-
-		/**
-		 * activates the spectrum of the type @p spectrumtype
-		 */
-		void slotActivateSpectrum( int spectrumtype ){
-			m_type = ( SpectrumType )spectrumtype;
-			update();
-		}
-	
-	protected:
-		virtual void paintEvent( QPaintEvent *e );
 };
 
 class SpectrumView : public QWidget

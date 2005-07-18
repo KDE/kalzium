@@ -18,6 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "spectrum.h"
+#include "spectrumwidget.h"
 
 #include <qlayout.h>
 #include <qlabel.h>
@@ -57,7 +58,7 @@ double Spectrum::maxBand()
 
 void Spectrum::paintBands( QPainter* p, double startValue, double endValue, bool emissionSpectrum )
 {
-	kdDebug() << "Spectrum::paintBands" << endl;
+	kdDebug() << "Spectrum::paintBands()" << endl;
 	
 	if ( !emissionSpectrum )
 	{
@@ -77,7 +78,7 @@ void Spectrum::paintBands( QPainter* p, double startValue, double endValue, bool
 			it != m_bandlist.end();
 			++it )
 	{
-		kdDebug() << "band gemalt" << endl;
+		kdDebug() << "band painted" << endl;
 		if ( ( *it ).wavelength < startValue || ( *it ).wavelength > endValue )
 			continue;
 
@@ -109,63 +110,7 @@ void Spectrum::paintBands( QPainter* p, double startValue, double endValue, bool
 
 		i++;
 	}
-	kdDebug() << "fertig" << endl;
-}
-
-SpectrumWidget::SpectrumWidget( QWidget* parent, const char* name )
-	: QWidget( parent,name )
-{
-	kdDebug() << "SpectrumWidget::SpectrumWidget()" << endl;
-
-	m_realWidth = 360;
-        m_realHeight = 200;
-
-	setType( EmissionSpectrum );
-}
-
-SpectrumWidget::~SpectrumWidget(){}
-
-void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
-{
-	if ( !m_spectrum ) return;
-	QPainter p;
-	p.begin( this );
-	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
-
-	m_spectrum->setWidth ( width() );
-	
-	switch ( m_type )
-	{
-		case EmissionSpectrum:	
-			drawEmmissionSpectrum(  &p );
-			break;
-		case AbsorptionSpectrum:
-			drawAbsorptionSpectrum( &p );
-			break;
-	}
-	drawTickmarks( &p );
-}
-
-void SpectrumWidget::drawAbsorptionSpectrum( QPainter *p )
-{
-	kdDebug() << "SpectrumWidget::drawAbsorptionSpectrum()" << endl;
-
-	m_spectrum->paintBands ( p, startValue, endValue, false );
-}
-
-void SpectrumWidget::drawEmmissionSpectrum( QPainter *p )
-{
-	kdDebug() << "SpectrumWidget::drawEmmissionSpectrum()" << endl;
-
-	m_spectrum->paintBands ( p, startValue, endValue, true );
-		
-//To test the widget uncomment this code.
-//X 	for ( double va = startValue; va <= endValue ; va += 0.7 )
-//X 	{
-//X 		int x = xPos( va );
-//X 		p->setPen(linecolor( va ));
-//X 		p->drawLine( x,0,x, m_realHeight+10 );
-//X 	}
+	kdDebug() << "leaving Spectrum::paintBands()" << endl;
 }
 
 QColor Spectrum::linecolor( double spectrum )
@@ -177,49 +122,6 @@ QColor Spectrum::linecolor( double spectrum )
         return c;
 }
 
-void SpectrumWidget::drawTickmarks( QPainter* p )
-{
-	kdDebug() << "tickmarks" << endl;
-	const int space = 13;
-	
-/*	for ( int i = 0; i < width() ; i+=10 )
-	{
-		p->drawLine( i,m_realHeight,i, m_realHeight+5 );
-	}
-	for ( int i = 50; i < width() ; i+=50 )
-	{
-		double pos = ( double )i/width();
-
-		int wave = ( int )Wavelength( pos );
-		
-		p->drawLine( i,m_realHeight,i, m_realHeight+10 );
-		p->fillRect( i-space, m_realHeight+12, 2*space, 15, Qt::white );
-		p->drawText( i-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( wave ) );
-	}
-*/
-	int start = (int)startValue % 10;
-	double dist =  width()/(endValue-startValue) * 10;	//distance between the tickles in px
-
-	int count = ( int )startValue - start + 10;
-	start *= width()/(endValue-startValue);
-
-	for ( int i = start; i < width(); i += dist )
-	{
-		if(count%50 == 0 )
-		{
-			//int wave = ( int )Wavelength( count );
-
-			p->drawLine( i, m_realHeight, i, m_realHeight+10 );	
-			p->fillRect( i-space, m_realHeight+12, 2*space, 15, Qt::white );
-			p->drawText( i-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( count ) );		
-		}
-		else
-		{
-			p->drawLine( i, m_realHeight, i, m_realHeight+5 );
-		}
-		count += 10;
-	}
-}
 
 void Spectrum::wavelengthToRGB( double wavelength, int& r, int& g, int& b )
 {
