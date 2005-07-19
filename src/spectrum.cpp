@@ -146,19 +146,17 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	
 	kdDebug() << "minumum: " << m_spectrum->min() << " maximum: " << m_spectrum->max() << endl;
 
-	m_spectrumWidget->setBorders( m_spectrum->min(), m_spectrum->max() );
+	//m_spectrumWidget->setBorders( m_spectrum->min(), m_spectrum->max() );
 	
 	spectrumLayout->addWidget( m_spectrumWidget );
 
 	QHBoxLayout *hbox = new QHBoxLayout( this );
 //X 	m_spinbox_left = new QSpinBox( m_spectrum->min(), m_spectrum->max()-1, 1, this );
-//X 	m_spinbox_right = new QSpinBox( m_spectrum->min()+1, m_spectrum->max(), 1, this );
+//X 	m_spinbox_right = new QSpinBox( m_spectrum->min()+1, m_spectrum->max(), 1, this );i
 	m_spinbox_left = new QSpinBox( 100, 1000, 1, this );
 	m_spinbox_right = new QSpinBox( 100, 1000, 1, this );
 //X 	m_spinbox_left->setValue(  ( double ) m_spectrum->min() );
 //X 	m_spinbox_right->setValue( ( double ) m_spectrum->max() );
-	m_spinbox_left->setValue(  100  );
-	m_spinbox_right->setValue( 1000 );
 	
 	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setRightBorder( int ) ) );
 	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
@@ -168,7 +166,10 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	m_spectrumbox->insertItem( "Absorption Spectrum" );
 	connect( m_spectrumbox, SIGNAL( activated( int ) ), m_spectrumWidget, SLOT( slotActivateSpectrum( int ) ) );
 	
-	
+	m_spinbox_left->setValue( 100 );
+	m_spinbox_right->setValue( 1000 );
+	m_spectrumWidget->setBorders( 100, 1000 );
+
 	hbox->addWidget( new QLabel( i18n( "Minimumvalue" ), this ) );
 	hbox->addWidget( m_spinbox_left );
 	hbox->addWidget( new QLabel( i18n( "Maximumvalue" ), this ) );

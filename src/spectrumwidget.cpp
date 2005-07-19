@@ -29,6 +29,12 @@
 SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name = 0 ) : QWidget( parent, name )
 {
 	kdDebug() << "SpectrumWidget::SpectrumWidget()" << endl;
+	
+	startValue = 0;
+	endValue = 0;
+
+	m_LMBPointCurrent.setX( -1 );
+	m_LMBPointPress.setX( -1 );
 
 	m_realHeight = 200;
 
@@ -41,6 +47,7 @@ SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name = 0 ) : QWidge
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 {
 	kdDebug() << "SpectrumWidget::paintEvent()" << endl;
+
 	if ( !m_spectrum )
 		 return;
 
@@ -50,7 +57,8 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 
 	paintBands( &p );
 	
-	drawZoomLine( &p );
+	if ( m_LMBPointPress.x() != -1 && m_LMBPointCurrent.x() != -1 )
+		drawZoomLine( &p );
 
 	drawTickmarks( &p );
 }
@@ -67,7 +75,7 @@ void SpectrumWidget::drawZoomLine( QPainter* p )
 void SpectrumWidget::paintBands( QPainter* p )
 {
 	kdDebug() << "Spectrum::paintBands()" << endl;
-	
+
 	if ( m_type == AbsorptionSpectrum )
 	{
 		for ( double va = startValue; va <= endValue ; va += 0.1 )
@@ -208,10 +216,10 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 	const int space = 13;
 
 	int start = (int)startValue % 10;
-	double dist =  width()/(endValue-startValue) * 10;	//distance between the tickles in px
+	int dist = floor(( width()/(endValue-startValue)) * 10 );	//distance between the tickles in px
 
 	int count = ( int )startValue - start + 10;
-	start *= width()/(endValue-startValue);
+	start = floor( (width() / ( endValue-startValue )) * (10-start) );
 
 	for ( int i = start; i < width(); i += dist )
 	{
@@ -231,6 +239,7 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 
 void SpectrumWidget::keyPressEvent( QKeyEvent *e )
 {
+	 kdDebug() << "SpectrumWidget::keyPressEvent()" << endl;
 	switch ( e->key() )
 	{
 		case Key_Plus:
@@ -251,12 +260,14 @@ void SpectrumWidget::slotZoomOut()
 {}
 
 void SpectrumWidget::slotZoomIn()
-{}
+{
+	kdDebug() << "zoomIn" << endl;
+}
 
 void SpectrumWidget::mouseMoveEvent( QMouseEvent *e )
 {
-		m_LMBPointCurrent = e->pos();
-		update();
+	m_LMBPointCurrent = e->pos();
+	update();
 }
 
 void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
@@ -268,9 +279,14 @@ void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
 void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 {
 	double left = Wavelength( ( double )m_LMBPointPress.x()/width() );
-	double right = Wavelength( ( double )m_LMBPointCurrent.x()/width() );
+	double right = Wavelength( ( double )e->pos().x()/width() );
 	
+	kdDebug() << "left:" << QString::number( left ) << endl;
+	kdDebug() << "right:" << QString::number( right ) << endl;	
 	setBorders( left, right );
+
+	m_LMBPointPress.setX( -1 );
+	m_LMBPointCurrent.setX( -1 );
 }
 
 #include "spectrumwidget.moc"

@@ -54,8 +54,8 @@ class SpectrumWidget : public QWidget
 		 * @param right the right border
 		 */
 		void setBorders( double left, double right ){
-			startValue = ( int )left;
-			endValue = ( int )right;
+			setLeftBorder( left );
+			setRightBorder( right );
 		}
 		
 		/**
@@ -112,7 +112,7 @@ class SpectrumWidget : public QWidget
 		 * @param wavelength the wavelength for which the position is needed
 		 */
 		inline int xPos( double wavelength ){
-			return ( int ) ( width() * ( wavelength - startValue ) / ( endValue - startValue ) );
+			return ( int ) (wavelength * width() / ( endValue - startValue ) );
 		}
 		
 		/**
