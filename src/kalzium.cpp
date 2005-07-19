@@ -78,12 +78,6 @@ Kalzium::Kalzium()
 	setupSidebars();
 	setupActions();
 
-	if ( Prefs::showsidebar() )
-		m_dockWin->show();
-	else
-		m_dockWin->hide();
-	m_PSE->repaint();
-
 	// creating the glossary dialog and loading the glossaries we have
 	m_glossarydlg = new GlossaryDialog( true, this, "glossary" );
 	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
@@ -166,14 +160,33 @@ void Kalzium::setupActions()
 
 	slotShowScheme( Prefs::colorschemebox() );
 	slotSwitchtoNumeration( Prefs::numeration() );
-	
-	//FIXME I am calling this twice to toggle it twice.
-	slotShowLegend();
-	slotEnableTooltips();
-	slotShowHideSidebar();
-	slotShowLegend();
-	slotEnableTooltips();
-	slotShowHideSidebar();
+
+	if ( Prefs::showsidebar() ) {
+		m_dockWin->show();
+		m_SidebarAction->setText( i18n( "Hide &Sidebar" ) );
+	}
+	else {
+		m_dockWin->hide();
+		m_SidebarAction->setText( i18n( "Show &Sidebar" ) );
+	}
+
+	if ( Prefs::showlegend() ) {
+		m_PSE->showLegend(true);
+		m_pLegendAction->setText( i18n( "Hide &Legend" ) );
+	} else
+	{
+		m_PSE->showLegend(false);
+		m_pLegendAction->setText( i18n( "Show &Legend" ) );
+	}
+
+	if ( Prefs::tooltip() ) {
+		m_PSE->setTooltipsEnabled( true );
+		m_pTooltipAction->setText( i18n( "Hide &Tooltips" ) );
+	} else
+	{
+		m_PSE->setTooltipsEnabled( false );
+		m_pTooltipAction->setText( i18n( "Show &Tooltips" ) );
+	}
 
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
@@ -185,7 +198,6 @@ void Kalzium::setupSidebars()
 	m_dockWin = new QDockWindow( this );
 	m_dockWin->setNewLine( true );
  	m_dockWin->setFixedExtentWidth( 220 );
-// 	m_dockWin->setFixedExtentHeight( 300 );
 	m_dockWin->setResizeEnabled( true );
 	m_dockWin->setFrameShape( QFrame::ToolBarPanel );
 	m_dockWin->setCaption( i18n( "Sidebar" ) );
@@ -281,13 +293,18 @@ void Kalzium::slotShowHideSidebar()
 	if( m_dockWin->isShown() )
 	{
 		m_dockWin->hide();
+		Prefs::setShowsidebar( false ); 
 		m_SidebarAction->setText( i18n( "Show &Sidebar" ) );
 	}
 	else
 	{
 		m_dockWin->show();
+		Prefs::setShowsidebar( true ); 
 		m_SidebarAction->setText( i18n( "Hide &Sidebar" ) );
 	}
+	
+	//save the settings
+	Prefs::writeConfig();
 }
 
 void Kalzium::slotShowScheme(int i)
