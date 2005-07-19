@@ -117,11 +117,11 @@ void ElementDataViewer::keyPressEvent(QKeyEvent *e)
 	switch ( e->key() )
 	{
 		case Key_Plus:
+		case Key_Equal:
 			slotZoomIn();
 			break;
-		case Key_Equal:
-		case Key_Underscore:
 		case Key_Minus:
+		case Key_Underscore:
 			slotZoomOut();
 			break;
 		case Key_Escape:
