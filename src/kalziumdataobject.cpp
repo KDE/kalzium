@@ -154,6 +154,8 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		QDomNodeList spectrumList = domElement.namedItem( "spectra" ).toElement().elementsByTagName( "spectrum" );
 
 		Spectrum *spectrum = new Spectrum();
+		bool spectrum_temp = false;
+		if ( spectrumList.length() > 0 ) spectrum_temp = true;
 		for( uint i = 0; i < spectrumList.length(); i++ )
 		{
 			Spectrum::band b;
@@ -175,7 +177,9 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		}
 	
 		Element *e = new Element();
-		e->setSpectrum( spectrum );
+		if ( spectrum_temp ) //if no spectrumdata are found don't use this object
+			e->setSpectrum( spectrum );
+		e->setHasSepctrum( spectrum_temp );
 		e->setDate(date);
 		e->setBiologicalMeaning(bio);
 		e->setNumber( number );

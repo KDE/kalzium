@@ -137,8 +137,15 @@ class Element{
 			m_spectrum = spec;
 		}
 
+		/**
+		 * @return if the element has information about spectra
+		 */
 		bool hasSpectrum() const{
-			return m_spectrum;
+			return m_hasSpectrum;
+		}
+
+		void setHasSepctrum(bool value){
+			m_hasSpectrum = value;
 		}
 
 		Spectrum* spectrum() const{
@@ -382,6 +389,8 @@ class Element{
 		int m_ElementNumber;
 
 		Spectrum *m_spectrum;
+
+		bool m_hasSpectrum;
 
 		QValueList<Isotope*> m_isotopeList;
 
