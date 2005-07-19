@@ -145,8 +145,8 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	QVBoxLayout *spectrumLayout = new QVBoxLayout( this, 0, -1, "spectrumLayout" );
 	m_spectrumWidget = new SpectrumWidget( this, "spectrum" );
 	m_spectrumWidget->setSpectrum( m_spectrum );
-	kdDebug() << spec->min() << " max: " << spec->max() << endl;
-	m_spectrumWidget->setBorders( spec->min(), spec->max() );
+	kdDebug() << m_spectrum->min() << " max: " << m_spectrum->max() << endl;
+	m_spectrumWidget->setBorders( m_spectrum->min(), m_spectrum->max() );
 	
 	spectrumLayout->addWidget( m_spectrumWidget );
 

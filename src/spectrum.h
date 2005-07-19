@@ -141,9 +141,7 @@ class Spectrum
 		 */
 		void adjustMinMax(){
 			m_min = minBand();
-			kdDebug() << "adjustMinMax::m_min: " << m_min << endl;
 			m_max = maxBand();
-			kdDebug() << "adjustMinMax::m_max: " << m_max << endl;
 		}
 
 	private:
