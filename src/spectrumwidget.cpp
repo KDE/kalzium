@@ -24,11 +24,12 @@
 #include <kdebug.h>
 #include <math.h>
 
+#include <qcursor.h>
+
 SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name = 0 ) : QWidget( parent, name )
 {
 	kdDebug() << "SpectrumWidget::SpectrumWidget()" << endl;
 
-	m_realWidth = 360;
 	m_realHeight = 200;
 
 	Gamma = 0.8;
@@ -48,8 +49,19 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
 
 	paintBands( &p );
+	
+	drawZoomLine( &p );
 
 	drawTickmarks( &p );
+}
+
+void SpectrumWidget::drawZoomLine( QPainter* p )
+{
+	p->setPen( Qt::white );
+	p->drawLine( m_LMBPointPress.x(), m_LMBPointPress.y(), m_LMBPointCurrent.x(), m_LMBPointPress.y() );
+	p->drawLine( m_LMBPointCurrent.x(), m_LMBPointPress.y()+10, m_LMBPointCurrent.x(), m_LMBPointPress.y()-10 );
+	p->drawLine( m_LMBPointPress.x(), m_LMBPointPress.y()+10, m_LMBPointPress.x(), m_LMBPointPress.y()-10 );
+
 }
 
 void SpectrumWidget::paintBands( QPainter* p )
@@ -215,6 +227,50 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 		}
 		count += 10;
 	}
+}
+
+void SpectrumWidget::keyPressEvent( QKeyEvent *e )
+{
+	switch ( e->key() )
+	{
+		case Key_Plus:
+		case Key_Equal:
+			slotZoomIn();
+			break;
+		case Key_Minus:
+		case Key_Underscore:
+			slotZoomOut();
+			break;
+		case Key_Escape:
+			close();
+			break;
+	}
+}
+
+void SpectrumWidget::slotZoomOut()
+{}
+
+void SpectrumWidget::slotZoomIn()
+{}
+
+void SpectrumWidget::mouseMoveEvent( QMouseEvent *e )
+{
+		m_LMBPointCurrent = e->pos();
+		update();
+}
+
+void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
+{
+	if (  e->button() == QMouseEvent::LeftButton )
+		m_LMBPointPress = e->pos();
+}
+
+void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
+{
+	double left = Wavelength( ( double )m_LMBPointPress.x()/width() );
+	double right = Wavelength( ( double )m_LMBPointCurrent.x()/width() );
+	
+	setBorders( left, right );
 }
 
 #include "spectrumwidget.moc"

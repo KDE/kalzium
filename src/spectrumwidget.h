@@ -25,6 +25,8 @@
 #include <kdebug.h>
 
 class Spectrum;
+class QMouseEvent;
+class QKeyEvent;
 
 /**
  * @author Carsten Niehaus
@@ -112,6 +114,15 @@ class SpectrumWidget : public QWidget
 		inline int xPos( double wavelength ){
 			return ( int ) ( width() * ( wavelength - startValue ) / ( endValue - startValue ) );
 		}
+		
+		/**
+		 * @param xpos The ratio of the position relative to the width
+		 * of the widget.
+		 * @return the wavelength on position @p xpos
+		 */
+		inline double Wavelength( double xpos ){
+			return startValue + (  (  endValue-startValue ) *  ( double )xpos );
+		}
 
 		/**
 		 * This method changes the three values @p r @p g and @p b to the 
@@ -131,7 +142,8 @@ class SpectrumWidget : public QWidget
 		Spectrum *m_spectrum;
 		
 		void paintBands( QPainter* p );
-
+		void drawZoomLine( QPainter* p );
+		
 		/**
 		 * Draw the scale
 		 */
@@ -141,7 +153,13 @@ class SpectrumWidget : public QWidget
 		double endValue;
 
 		int m_realHeight;
-		int m_realWidth;
+
+		///this QPoint stores the information where
+		//the left mouse button has been pressed. This
+		//is used for the mouse-zooming
+		QPoint m_LMBPointPress;
+		
+		QPoint m_LMBPointCurrent;
 
 	public slots:
 		/**
@@ -171,9 +189,17 @@ class SpectrumWidget : public QWidget
 			m_type = ( SpectrumType )spectrumtype;
 			update();
 		}
+
+	private slots:
+		void slotZoomIn();
+		void slotZoomOut();
 	
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
+		virtual void keyPressEvent(QKeyEvent *e);
+		virtual void mouseMoveEvent( QMouseEvent *e );
+		virtual void mousePressEvent( QMouseEvent *e );
+		virtual void mouseReleaseEvent( QMouseEvent *e );
 };
 
 #endif // SPECTRUMWIDGET_H
