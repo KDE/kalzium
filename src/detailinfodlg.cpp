@@ -262,7 +262,7 @@ QString DetailedInfoDlg::isotopeTable()
 	html += "</b></td><td><b>";
 	html += i18n( "Half-life period" );
 	html += "</b></td><td><b>";
-	html += i18n( "Kind and Energy of Decay" );
+	html += i18n( "Energy and Mode of Decay" );
 	html += "</b></td><td><b>";
 	html += i18n( "Spin and Parity" );
 	html += "</b></td><td><b>";
