@@ -88,7 +88,9 @@ void SpectrumWidget::paintBands( QPainter* p )
 		p->setPen( Qt::black );
 	}
 
- 	int i = 0;	
+ 	int i = 0;
+	int x = 0;
+	int temp = 0;	
 
  	for ( QValueList<Spectrum::band>::Iterator it = m_spectrum->bandlist()->begin();
  			it != m_spectrum->bandlist()->end();
@@ -97,9 +99,9 @@ void SpectrumWidget::paintBands( QPainter* p )
  		if ( ( *it ).wavelength < startValue || ( *it ).wavelength > endValue )
 			continue;
  
- 		int x = xPos( ( *it ).wavelength );
+ 		x = xPos( ( *it ).wavelength );
  	
- 		int temp = 0; // every second item will have a little offset
+ 		temp = 0; // every second item will have a little offset
  
  		if ( i%2 )
  			temp = 35;
@@ -122,8 +124,8 @@ void SpectrumWidget::paintBands( QPainter* p )
 				break;
  		}
  		
- 		QString text = QString::number( ( *it ).wavelength );
- 		p->drawText(0, 0, text);
+ 		//QString text = QString::number( ( *it ).wavelength );
+ 		//p->drawText(x, m_realHeight+10+temp, text);
  
  		i++;
  	}

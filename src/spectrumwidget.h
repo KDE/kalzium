@@ -57,9 +57,6 @@ class SpectrumWidget : public QWidget
 			startValue = left;
 			endValue = right;
 			
-			if( endValue-startValue == 0 )
-				startValue -= 1;
-
 			update();
 		}
 		
@@ -117,7 +114,7 @@ class SpectrumWidget : public QWidget
 		 * @param wavelength the wavelength for which the position is needed
 		 */
 		inline int xPos( double wavelength ){
-			return ( int ) (wavelength * width() / ( endValue - startValue ) );
+			return ( int ) ( ( wavelength-startValue ) * width() / ( endValue - startValue ) );
 		}
 		
 		/**
