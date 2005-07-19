@@ -37,11 +37,29 @@ double Spectrum::minBand()
 	const QValueList<band>::Iterator itEnd = m_bandlist.end();
 	for (;it!=itEnd;++it)
 	{
+		kdDebug() << "value: " << ( *it ).wavelength << " Current min-value: " << value << endl;
 		if ( value > ( *it ).wavelength )
 			value = ( *it ).wavelength;
 	}
 	return value;
 }
+
+double Spectrum::maxBand()
+{
+	kdDebug() << "Spectrum::maxBand()" << endl;
+
+	double value = ( *m_bandlist.begin() ).wavelength;
+	QValueList<band>::Iterator it = m_bandlist.begin();
+	const QValueList<band>::Iterator itEnd = m_bandlist.end();
+	for (;it!=itEnd;++it)
+	{
+		kdDebug() << "value: " << ( *it ).wavelength << " Current max-value: " << value << endl;
+		if ( value < ( *it ).wavelength )
+			value = ( *it ).wavelength;
+	}
+	return value;
+}
+
 
 Spectrum* Spectrum::adjustToWavelength( double min, double max )
 {
@@ -52,6 +70,7 @@ Spectrum* Spectrum::adjustToWavelength( double min, double max )
 
 	for ( ; it != itEnd; ++it )
 	{
+		kdDebug( ) << "WL: " << ( *it ).wavelength << endl;
 		if ( ( *it ).wavelength < min || ( *it ).wavelength > max )
 			continue;
 
@@ -96,19 +115,22 @@ void Spectrum::adjustIntensities()
 	}
 }
 
-double Spectrum::maxBand()
+QValueList<double> Spectrum::wavelengths( double min, double max )
 {
-	kdDebug() << "Spectrum::maxBand()" << endl;
-
-	double value = ( *m_bandlist.begin() ).wavelength;
+	QValueList<double> list;
+	
 	QValueList<band>::Iterator it = m_bandlist.begin();
 	const QValueList<band>::Iterator itEnd = m_bandlist.end();
-	for (;it!=itEnd;++it)
+
+	for ( ; it != itEnd; ++it )
 	{
-		if ( value < ( *it ).wavelength )
-			value = ( *it ).wavelength;
+		if ( ( *it ).wavelength < min || ( *it ).wavelength > max )
+			continue;
+
+		list.append( ( *it ).wavelength );
 	}
-	return value;
+
+	return list;
 }
 
 SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
@@ -116,11 +138,14 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 {
 	kdDebug()<<"SpectrumView::SpectrumView()" << endl;
 
-	m_spectrum = spec;
+	//make sure only visible light will be plotted
+	m_spectrum = spec->adjustToWavelength( 380.0, 780.0 );
+	m_spectrum->adjustMinMax();
 	
 	QVBoxLayout *spectrumLayout = new QVBoxLayout( this, 0, -1, "spectrumLayout" );
 	m_spectrumWidget = new SpectrumWidget( this, "spectrum" );
 	m_spectrumWidget->setSpectrum( m_spectrum );
+	kdDebug() << spec->min() << " max: " << spec->max() << endl;
 	m_spectrumWidget->setBorders( spec->min(), spec->max() );
 	
 	spectrumLayout->addWidget( m_spectrumWidget );

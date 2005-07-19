@@ -28,13 +28,13 @@ SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name = 0 ) : QWidge
 {
 	kdDebug() << "SpectrumWidget::SpectrumWidget()" << endl;
 
-        m_realWidth = 360;
-        m_realHeight = 200;
+	m_realWidth = 360;
+	m_realHeight = 200;
 
-        Gamma = 0.8;
-        IntensityMax = 255;
+	Gamma = 0.8;
+	IntensityMax = 255;
 
-        setType( EmissionSpectrum );
+	setType( EmissionSpectrum );
 };
 
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
@@ -76,10 +76,10 @@ void SpectrumWidget::paintBands( QPainter* p )
  			it != m_spectrum->bandlist()->end();
  			++it )
  	{
- 		if ( ( *it ).wavelength/10 < startValue || ( *it ).wavelength/10 > endValue )
+ 		if ( ( *it ).wavelength < startValue || ( *it ).wavelength > endValue )
 			continue;
  
- 		int x = xPos( ( *it ).wavelength/10 );
+ 		int x = xPos( ( *it ).wavelength );
  	
  		int temp = 0; // every second item will have a little offset
  
@@ -91,7 +91,7 @@ void SpectrumWidget::paintBands( QPainter* p )
  		switch ( m_type )
  		{
 			case EmissionSpectrum:
-				p->setPen( linecolor( ( *it ).wavelength/10 ) );
+				p->setPen( linecolor( ( *it ).wavelength ) );
                  		p->drawLine( x,0,x, m_realHeight );
                 
                  		p->setPen( Qt::black );
@@ -104,7 +104,7 @@ void SpectrumWidget::paintBands( QPainter* p )
 				break;
  		}
  		
- 		QString text = QString::number( ( *it ).wavelength*10 );
+ 		QString text = QString::number( ( *it ).wavelength );
  		p->drawText(0, 0, text);
  
  		i++;
@@ -197,22 +197,22 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 	int count = ( int )startValue - start + 10;
 	start *= width()/(endValue-startValue);
 
-	for ( int i = start; i < width(); i += dist )
-	{
-		if(count%50 == 0 )
-		{
-			//int wave = ( int )Wavelength( count );
-
-			p->drawLine( i, m_realHeight, i, m_realHeight+10 );	
-			p->fillRect( i-space, m_realHeight+12, 2*space, 15, Qt::white );
-			p->drawText( i-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( count ) );		
-		}
-		else
-		{
-			p->drawLine( i, m_realHeight, i, m_realHeight+5 );
-		}
-		count += 10;
-	}
+//X 	for ( int i = start; i < width(); i += dist )
+//X 	{
+//X 		if(count%50 == 0 )
+//X 		{
+//X 			//int wave = ( int )Wavelength( count );
+//X 
+//X 			p->drawLine( i, m_realHeight, i, m_realHeight+10 );	
+//X 			p->fillRect( i-space, m_realHeight+12, 2*space, 15, Qt::white );
+//X 			p->drawText( i-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( count ) );		
+//X 		}
+//X 		else
+//X 		{
+//X 			p->drawLine( i, m_realHeight, i, m_realHeight+5 );
+//X 		}
+//X 		count += 10;
+//X 	}
 }
 
 #include "spectrumwidget.moc"

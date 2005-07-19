@@ -48,8 +48,6 @@ class Spectrum
 		 * public ctor
 		 */
 		Spectrum(){
-			m_min = 400;
-			m_max = 700;
 		};
 		
 		/**
@@ -62,7 +60,7 @@ class Spectrum
 		 */
 		struct band
 		{
-			///in Angstrom (1/10 nm)
+			///in nm)
 			double wavelength;
 
 			///Transition Probabilities
@@ -95,8 +93,8 @@ class Spectrum
 		}
 
 		/**
-		 * @param min the lowest allowed wavalength
-		 * @param max the highest allowed wavalength
+		 * @param min the lowest allowed wavalength in nanometer
+		 * @param max the highest allowed wavalength in nanometer
 		 * 
 		 * @returns a spectrum with the wavelength in the range
 		 * of @p min to @p max. The intensities are readjusted
@@ -110,6 +108,14 @@ class Spectrum
 		 * others
 		 */
 		void adjustIntensities();
+
+		/**
+		 * @param min the lowest allowed wavalength in nanometer
+		 * @param max the highest allowed wavalength in nanometer
+		 * 
+		 * @return the wavelength in a QValueList<double>
+		 */
+		QValueList<double> wavelengths( double min, double max );
 
 		/**
 		 * @return the smallest wavelength
@@ -128,6 +134,17 @@ class Spectrum
 		QValueList<band>* bandlist(){
 			return &m_bandlist;
 		}
+	
+		/**
+		 * cache the values of the biggest and
+		 * smallest wavelenght
+		 */
+		void adjustMinMax(){
+			m_min = minBand();
+			kdDebug() << "adjustMinMax::m_min: " << m_min << endl;
+			m_max = maxBand();
+			kdDebug() << "adjustMinMax::m_max: " << m_max << endl;
+		}
 
 	private:
 		/**
@@ -139,15 +156,6 @@ class Spectrum
 		 * @return the biggest wavelength
 		 */
 		double maxBand();
-		
-		/**
-		 * cache the values of the biggest and
-		 * smallest wavelenght
-		 */
-		void adjustMinMax(){
-			m_min = minBand();
-			m_max = maxBand();
-		}
 
 		/**
 		 * the internal dataset

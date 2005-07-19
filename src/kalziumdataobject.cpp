@@ -162,7 +162,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			QDomElement spec = spectrumList.item( i ).toElement();
 			
 			b.intensity = spec.attributeNode( "intensity" ).value().toInt();
-			b.wavelength = spec.attributeNode( "wavelength" ).value().toDouble();
+			b.wavelength = spec.attributeNode( "wavelength" ).value().toDouble()/10.0;
 			b.aki = spec.attributeNode( "aki" ).value().toDouble();
 			b.energy1 = spec.attributeNode( "energy1" ).value().toDouble();
 			b.energy2 = spec.attributeNode( "energy2" ).value().toDouble();
