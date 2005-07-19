@@ -160,6 +160,7 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	
 	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setRightBorder( int ) ) );
 	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
+	connect( m_spectrumWidget, SIGNAL( bordersChanged( int, int ) ), this, SLOT( slotBordersChanged( int, int ) ) );	
 
 	m_spectrumbox = new KComboBox( this, "combobox" );
 	m_spectrumbox->insertItem( "Emission Spectrum" );
@@ -177,6 +178,12 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	hbox->addWidget( m_spectrumbox );
 
 	spectrumLayout->addLayout( hbox );
+}
+
+void SpectrumView::slotBordersChanged( int left, int right )
+{
+	m_spinbox_left->setValue( left );
+	m_spinbox_right->setValue( right );
 }
 
 #include "spectrum.moc"

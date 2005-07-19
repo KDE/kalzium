@@ -54,8 +54,13 @@ class SpectrumWidget : public QWidget
 		 * @param right the right border
 		 */
 		void setBorders( double left, double right ){
-			setLeftBorder( left );
-			setRightBorder( right );
+			startValue = left;
+			endValue = right;
+			
+			if( endValue-startValue == 0 )
+				startValue -= 1;
+
+			update();
 		}
 		
 		/**
@@ -189,6 +194,9 @@ class SpectrumWidget : public QWidget
 			m_type = ( SpectrumType )spectrumtype;
 			update();
 		}
+
+	signals:
+		void bordersChanged( int, int );
 
 	private slots:
 		void slotZoomIn();

@@ -184,6 +184,9 @@ class SpectrumView : public QWidget
 		QSpinBox *m_spinbox_left, *m_spinbox_right;
 
 		KComboBox *m_spectrumbox;
+
+	public slots:
+		void slotBordersChanged( int, int );
 };
 
 #endif // SPECTRUM_H

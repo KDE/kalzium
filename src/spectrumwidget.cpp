@@ -57,10 +57,10 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 
 	paintBands( &p );
 	
+	drawTickmarks( &p );
+
 	if ( m_LMBPointPress.x() != -1 && m_LMBPointCurrent.x() != -1 )
 		drawZoomLine( &p );
-
-	drawTickmarks( &p );
 }
 
 void SpectrumWidget::drawZoomLine( QPainter* p )
@@ -221,6 +221,12 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 	int count = ( int )startValue - start + 10;
 	start = floor( (width() / ( endValue-startValue )) * (10-start) );
 
+	if ( dist == 0 || width() < start )
+	{
+		kdDebug()<< "malformed Values" << endl;
+		return;
+	}
+
 	for ( int i = start; i < width(); i += dist )
 	{
 		if(count%50 == 0 )
@@ -280,10 +286,22 @@ void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 {
 	double left = Wavelength( ( double )m_LMBPointPress.x()/width() );
 	double right = Wavelength( ( double )e->pos().x()/width() );
+
+	if ( (int)left == (int)right )
+		return;
 	
 	kdDebug() << "left:" << QString::number( left ) << endl;
 	kdDebug() << "right:" << QString::number( right ) << endl;	
-	setBorders( left, right );
+	if ( left > right )
+	{
+		setBorders( right, left );
+		emit bordersChanged( right, left );
+	}
+	else
+	{
+		setBorders( left, right );
+		emit bordersChanged( left, right );
+	}
 
 	m_LMBPointPress.setX( -1 );
 	m_LMBPointCurrent.setX( -1 );
