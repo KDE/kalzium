@@ -39,7 +39,7 @@ SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name = 0 ) : QWidge
 
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 {
-	kdDebug() << "paintEvent" << endl;
+	kdDebug() << "SpectrumWidget::paintEvent()" << endl;
 	if ( !m_spectrum )
 		 return;
 
@@ -69,8 +69,6 @@ void SpectrumWidget::paintBands( QPainter* p )
 	}
 
  	int i = 0;	
-
-	kdDebug() << "type:"<<QString::number( m_type ) << endl;
 
  	for ( QValueList<Spectrum::band>::Iterator it = m_spectrum->bandlist()->begin();
  			it != m_spectrum->bandlist()->end();
@@ -126,44 +124,50 @@ void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b 
 	double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
 	int wavelength_ = ( int ) floor( wavelength );
-
-	if ( wavelength_ > 380 && wavelength_ < 439 )
+	if ( wavelength_ < 380 || wavelength_ > 780 )
+	{
+		//make everything white
+		r = g = b = 255;
+		return;
+	}
+	else if ( wavelength_ > 380 && wavelength_ < 439 )
 	{
 		red = -( wavelength-440 ) / ( 440-380 );
 		green = 0.0;
 		blue = 1.0;
 	
 	}
-	if ( wavelength_ > 440 && wavelength_ < 489 )
+	else if ( wavelength_ > 440 && wavelength_ < 489 )
 	{
 		red = 0.0;
 		green = ( wavelength-440 ) / ( 490-440 );
 		blue = 1.0;
 	}
-	if ( wavelength_ > 490 && wavelength_ < 509 )
+	else if ( wavelength_ > 490 && wavelength_ < 509 )
 	{
 		red = 0.0;
 		green = 1.0;
 		blue = -( wavelength-510 ) / ( 510-490 );
 	}
-	if ( wavelength_ > 510 && wavelength_ < 579 )
+	else if ( wavelength_ > 510 && wavelength_ < 579 )
 	{
 		red = ( wavelength-510 ) / ( 580-510 );
 		green = 1.0;
 		blue = 0.0;
 	}
-	if ( wavelength_ > 580 && wavelength_ < 644 )
+	else if ( wavelength_ > 580 && wavelength_ < 644 )
 	{
 		red = 1.0;
 		green = -( wavelength-645 ) / ( 645-580 );
 		blue = 0.0;
 	}
-	if ( wavelength_ > 645 && wavelength_ < 780 )
+	else if ( wavelength_ > 645 && wavelength_ < 780 )
 	{
 		red = 1.0;
 		green = 0.0;
 		blue = 0.0;
 	}
+
 	if ( wavelength_ > 380 && wavelength_ < 419 )
 		factor = 0.3 + 0.7*( wavelength - 380 ) / ( 420 - 380 );
 	else if ( wavelength_ > 420 && wavelength_ < 700 )
@@ -197,22 +201,20 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 	int count = ( int )startValue - start + 10;
 	start *= width()/(endValue-startValue);
 
-//X 	for ( int i = start; i < width(); i += dist )
-//X 	{
-//X 		if(count%50 == 0 )
-//X 		{
-//X 			//int wave = ( int )Wavelength( count );
-//X 
-//X 			p->drawLine( i, m_realHeight, i, m_realHeight+10 );	
-//X 			p->fillRect( i-space, m_realHeight+12, 2*space, 15, Qt::white );
-//X 			p->drawText( i-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( count ) );		
-//X 		}
-//X 		else
-//X 		{
-//X 			p->drawLine( i, m_realHeight, i, m_realHeight+5 );
-//X 		}
-//X 		count += 10;
-//X 	}
+	for ( int i = start; i < width(); i += dist )
+	{
+		if(count%50 == 0 )
+		{
+			p->drawLine( i, m_realHeight, i, m_realHeight+10 );	
+			p->fillRect( i-space, m_realHeight+12, 2*space, 15, Qt::white );
+			p->drawText( i-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( count ) );		
+		}
+		else
+		{
+			p->drawLine( i, m_realHeight, i, m_realHeight+5 );
+		}
+		count += 10;
+	}
 }
 
 #include "spectrumwidget.moc"
