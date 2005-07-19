@@ -30,7 +30,7 @@ kalzium_SOURCES = kalzium.cpp \
 kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) 
 		 
 		  
-SUBDIRS = icons elementpics data
+SUBDIRS = icons elementpics data # solver
 
 EXTRA_DIST = main.cpp \
 		kalzium.cpp kalzium.h \
