@@ -136,25 +136,26 @@ QValueList<double> Spectrum::wavelengths( double min, double max )
 SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	: QWidget( parent, name )
 {
-	kdDebug()<<"SpectrumView::SpectrumView()" << endl;
+	QVBoxLayout *spectrumLayout = new QVBoxLayout( this, 0, -1, "spectrumLayout" );
 
 	//make sure only visible light will be plotted
 	m_spectrum = spec->adjustToWavelength( 380.0, 780.0 );
 	m_spectrum->adjustMinMax();
 	
-	QVBoxLayout *spectrumLayout = new QVBoxLayout( this, 0, -1, "spectrumLayout" );
 	m_spectrumWidget = new SpectrumWidget( this, "spectrum" );
 	m_spectrumWidget->setSpectrum( m_spectrum );
-	kdDebug() << m_spectrum->min() << " max: " << m_spectrum->max() << endl;
+	
+	kdDebug() << "minumum: " << m_spectrum->min() << " maximum: " << m_spectrum->max() << endl;
+
 	m_spectrumWidget->setBorders( m_spectrum->min(), m_spectrum->max() );
 	
 	spectrumLayout->addWidget( m_spectrumWidget );
 
 	QHBoxLayout *hbox = new QHBoxLayout( this );
-	m_spinbox_left = new QSpinBox( 380, 779, 1, this );
-	m_spinbox_right = new QSpinBox( 381, 780, 1, this );
-	m_spinbox_right->setValue( 700 );
-	m_spinbox_left->setValue( 400 );
+	m_spinbox_left = new QSpinBox( m_spectrum->min(), m_spectrum->max()-1, 1, this );
+	m_spinbox_right = new QSpinBox( m_spectrum->min()+1, m_spectrum->max(), 1, this );
+	m_spinbox_left->setValue(  ( double ) m_spectrum->min() );
+	m_spinbox_right->setValue( ( double ) m_spectrum->max() );
 	
 	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setRightBorder( int ) ) );
 	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
