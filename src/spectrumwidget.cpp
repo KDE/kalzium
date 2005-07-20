@@ -115,6 +115,9 @@ void SpectrumWidget::paintBands( QPainter* p )
                 
                  		p->setPen( Qt::black );
                			p->drawLine( x,m_realHeight,x, m_realHeight+10+temp );
+                 		p->setPen( Qt::red );
+						p->drawText( x,m_realHeight/2+temp, QString::number( ( *it ).wavelength ) );
+                 		p->setPen( Qt::black );
 				break;
  		
 			case AbsorptionSpectrum:
