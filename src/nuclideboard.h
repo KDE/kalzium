@@ -21,8 +21,12 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <kdialog.h>
 #include <qwidget.h>
 #include <qpainter.h>
+#include <isotope.h>
+#include <qvaluelist.h>
+#include "element.h"
 
 /**
  * @author Jörg Buchwald
@@ -33,9 +37,15 @@ class NuclideBoard : public QWidget
 	Q_OBJECT
 
 	public:
-		NuclideBoard(QWidget* parent = 0, const char* name = 0);
+		NuclideBoard(QValueList<Element*> list, QWidget* parent = 0, const char* name = 0);
 
 		~NuclideBoard(){};
+
+	private:
+		QValueList<Element*> m_list;
+
+		int highestNeutronCount();
+		
 	protected:
 		virtual void paintEvent(QPaintEvent*);
 };

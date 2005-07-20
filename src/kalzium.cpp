@@ -25,6 +25,7 @@
 #include "timewidget.h"
 #include "somwidget_impl.h"
 #include "kalziumdataobject.h"
+#include "nuclideboard.h"
 
 #include <qdockwindow.h>
 #include <qlayout.h>
@@ -191,6 +192,13 @@ void Kalzium::setupActions()
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
 	setupGUI();
+	
+	KDialog *dlg = new KDialog( this, "dlg" );
+	QVBoxLayout *vbox = new QVBoxLayout( dlg );
+	NuclideBoard *b = new NuclideBoard( data()->ElementList, dlg, "nb" );
+	vbox->addWidget( b );
+	b->show();
+	dlg->show();
 }
 
 void Kalzium::setupSidebars()
@@ -236,6 +244,7 @@ void Kalzium::setupSidebars()
 	setDockEnabled( /*m_dockWin, */DockBottom, false );
 	m_dockWin->hide();
 	connect( m_dockWin, SIGNAL(visibilityChanged(bool)), this, SLOT(slotSidebarVisibilityChanged(bool)));
+
 }
 
 void Kalzium::slotGlossary()
