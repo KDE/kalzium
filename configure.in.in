@@ -1,0 +1,39 @@
+#MIN_CONFIG(3.3)
+
+eqchem_enabled=no
+
+AC_DEFUN([OCAML_PROG],[
+    KDE_FIND_PATH(ocamlopt, OCAML, [$bindir],
+      [
+        OCAML=''
+      ])
+])
+
+AC_DEFUN([FACILE_PROG],[
+    AC_REQUIRE([OCAML_PROG])
+
+    AC_MSG_CHECKING([if the facile constraint solver is installed])
+    FACILE="`ocamlopt -where`/facile"
+    if test -d "$FACILE" ; then
+        eqchem_enabled=yes
+        AC_MSG_RESULT([yes])
+        facile_installed=yes
+    else
+        eqchem_enabled=no
+        AC_MSG_RESULT([no])
+        facile_installed=no
+    fi
+
+    AC_SUBST([FACILE])
+])
+
+OCAML_PROG
+if test -n "$OCAML"; then
+   FACILE_PROG
+fi
+
+
+if test "$eqchem_enabled" != "yes"; then
+   DO_NOT_COMPILE="$DO_NOT_COMPILE eqchem"
+fi
+
