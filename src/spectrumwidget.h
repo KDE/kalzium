@@ -23,6 +23,7 @@
 
 #include <qwidget.h>
 #include <kdebug.h>
+#include "spectrum.h"
 
 class Spectrum;
 class QMouseEvent;
@@ -116,6 +117,10 @@ class SpectrumWidget : public QWidget
 		inline int xPos( double wavelength ){
 			return ( int ) ( ( wavelength-startValue ) * width() / ( endValue - startValue ) );
 		}
+
+		void PrepareTooltip( double wavelength );
+
+		void showTooltip( Spectrum::band band );
 		
 		/**
 		 * @param xpos The ratio of the position relative to the width
@@ -144,9 +149,14 @@ class SpectrumWidget : public QWidget
 		SpectrumType m_type;
 
 		Spectrum *m_spectrum;
+
+		bool m_showtooltip;
+
+		Spectrum::band m_band;
 		
 		void paintBands( QPainter* p );
 		void drawZoomLine( QPainter* p );
+		void drawTooltip( QPainter *p );
 		
 		/**
 		 * Draw the scale

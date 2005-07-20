@@ -22,19 +22,21 @@
 #include "spectrum.h"
 
 #include <kdebug.h>
+#include <klocale.h>
 #include <math.h>
 
 #include <qcursor.h>
+#include <qtooltip.h>
 
 SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name = 0 ) : QWidget( parent, name )
 {
-	kdDebug() << "SpectrumWidget::SpectrumWidget()" << endl;
-	
 	startValue = 0;
 	endValue = 0;
 
 	m_LMBPointCurrent.setX( -1 );
 	m_LMBPointPress.setX( -1 );
+
+	m_showtooltip = false;
 
 	m_realHeight = 200;
 
@@ -46,8 +48,6 @@ SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name = 0 ) : QWidge
 
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 {
-	kdDebug() << "SpectrumWidget::paintEvent()" << endl;
-
 	if ( !m_spectrum )
 		 return;
 
@@ -58,6 +58,9 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	paintBands( &p );
 	
 	drawTickmarks( &p );
+
+	if ( m_showtooltip )
+		drawTooltip( &p );
 
 	if ( m_LMBPointPress.x() != -1 && m_LMBPointCurrent.x() != -1 )
 		drawZoomLine( &p );
@@ -115,9 +118,6 @@ void SpectrumWidget::paintBands( QPainter* p )
                 
                  		p->setPen( Qt::black );
                			p->drawLine( x,m_realHeight,x, m_realHeight+10+temp );
-                 		p->setPen( Qt::red );
-						p->drawText( x,m_realHeight/2+temp, QString::number( ( *it ).wavelength ) );
-                 		p->setPen( Qt::black );
 				break;
  		
 			case AbsorptionSpectrum:
@@ -280,11 +280,13 @@ void SpectrumWidget::keyPressEvent( QKeyEvent *e )
 }
 
 void SpectrumWidget::slotZoomOut()
-{}
+{
+	kdDebug() << "SpectrumWidget::slotZoomOut()" << endl;
+}
 
 void SpectrumWidget::slotZoomIn()
 {
-	kdDebug() << "zoomIn" << endl;
+	kdDebug() << "SpectrumWidget::slotZoomIn()" << endl;
 }
 
 void SpectrumWidget::mouseMoveEvent( QMouseEvent *e )
@@ -297,27 +299,91 @@ void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
 {
 	if (  e->button() == QMouseEvent::LeftButton )
 		m_LMBPointPress = e->pos();
+	if (  e->button() == QMouseEvent::RightButton )
+		PrepareTooltip( Wavelength( ( double )e->pos().x()/width() ) );
+}
+
+void SpectrumWidget::PrepareTooltip( double wavelength )
+{
+	Spectrum::band band;
+	
+ 	QValueList<Spectrum::band>::const_iterator it = m_spectrum->bandlist()->begin();
+	const QValueList<Spectrum::band>::const_iterator itEnd = m_spectrum->bandlist()->end();
+
+	//find the difference in percent (1.0 is 100%, 0.1 is 10%)
+	double dif = 0.0;
+
+	bool foundWavelentgh = false;
+	
+	//find the highest intensity
+	for ( ; it != itEnd; ++it )
+	{
+		double thisdif = ( *it ).wavelength / wavelength;
+	
+		if ( thisdif < 0.9 || thisdif > 1.1 )
+			continue;
+		
+		if ( thisdif > 1.0 ){//convert for example 1.3 to 0.7
+			thisdif = thisdif-1;
+			thisdif = 1-thisdif;
+		}
+
+		if ( thisdif > dif )
+		{
+			dif = thisdif;
+			band = *it;
+			foundWavelentgh = true;
+		}
+	}
+	if ( foundWavelentgh )
+	{
+		m_band = band;
+		m_showtooltip = true;
+	}
+	else 
+		m_showtooltip = false;
+	
+	kdDebug() << "SpectrumWidget::PrepareTooltip(): "<< m_showtooltip << endl;
+	update();
+}
+
+void SpectrumWidget::drawTooltip( QPainter *p )
+{
+	p->setPen( Qt::white );
+	QPoint pt = mapFromGlobal( QCursor::pos() );
+	p->drawText( pt, i18n("Wavelength: %1").arg(m_band.wavelength) ); 
+	pt.setY( pt.y() + 15 );
+	p->drawText( pt, i18n("Intensity: %1").arg(m_band.intensity) ); 
+	pt.setY( pt.y() + 15 );
+	p->drawText( pt, i18n("Energy 1, Energy 2: %1, %2").arg(m_band.energy1).arg( m_band.energy2 ));
+	pt.setY( pt.y() + 15 );
+	p->drawText( pt, i18n("Term 1, Term 2: %1, %2").arg(m_band.term1).arg( m_band.term2 ));
+	pt.setY( pt.y() + 15 );
+	p->drawText( pt, i18n("J 1, J 2: %1, %2").arg(m_band.J1).arg( m_band.J2 ));
 }
 
 void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 {
-	double left = Wavelength( ( double )m_LMBPointPress.x()/width() );
-	double right = Wavelength( ( double )e->pos().x()/width() );
+	if (  e->button() == QMouseEvent::LeftButton )
+	{
+		double left = Wavelength( ( double )m_LMBPointPress.x()/width() );
+		double right = Wavelength( ( double )e->pos().x()/width() );
 
-	if ( (int)left == (int)right )
-		return;
-	
-	kdDebug() << "left:" << QString::number( left ) << endl;
-	kdDebug() << "right:" << QString::number( right ) << endl;	
-	if ( left > right )
-	{
-		setBorders( right, left );
-		emit bordersChanged( right, left );
-	}
-	else
-	{
-		setBorders( left, right );
-		emit bordersChanged( left, right );
+		if ( (int)left == (int)right )
+			return;
+
+//X 		kdDebug() << "left:" << QString::number( left ) << endl;
+//X 		kdDebug() << "right:" << QString::number( right ) << endl;	
+		if ( left > right )
+		{
+			setBorders( right, left );
+			emit bordersChanged( right, left );
+		}
+		else
+		{
+			setBorders( left, right );
+			emit bordersChanged( left, right );
+		}
 	}
 
 	m_LMBPointPress.setX( -1 );
