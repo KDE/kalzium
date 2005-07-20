@@ -53,15 +53,25 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 
 			if ( ( *i_it )->betaminusdecay() )
 				c = Qt::blue;
-			if ( ( *i_it )->betaplusdecay() )
+			else if ( ( *i_it )->betaplusdecay() )
 				c = Qt::red;
-			if (  ( *i_it )->alphadecay() )
-				c = Qt::green;
-			if (  ( *i_it )->ecdecay() )
+			else if (  ( *i_it )->alphadecay() )
 				c = Qt::yellow;
+			else if (  ( *i_it )->ecdecay() )
+				c = Qt::green;
+			else
+				c= Qt::magenta;
 
-			p.fillRect( i*w, ( *i_it )->neutrons()*h, w, h,c );
-			p.drawRect( i*w, ( *i_it )->neutrons()*h, w, h );
+			//the offset of 20 for the axis
+			int y = ( *i_it )->neutrons()*h;
+			y = numberOfElement*h-y;
+			
+			
+			p.fillRect( i*w+20, y, w-1, h-1,c );
+			p.drawRect( i*w+20, y, w-1, h-1 );
+
+			p.drawText( i*w, 20, "ah");
+			p.drawText( 0, ( *i_it )->neutrons()*h+20, "wh");
 		}
 		i++;
 	}
