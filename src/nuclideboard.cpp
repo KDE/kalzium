@@ -36,7 +36,7 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 
 	QValueList<Element*>::const_iterator it = m_list.at(m_start-1);
 	const QValueList<Element*>::const_iterator itEnd = m_list.at(m_stop);
-
+	
 	const int numberOfElement = m_list.count();
 	const int highestNumberOfNeutrons = highestNeutronCount();
 	const int lowestNumberOfNeutrons = lowestNeutronCount();
