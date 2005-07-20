@@ -31,8 +31,6 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 	QPainter p;
 	p.begin( this );
 
-	p.drawLine( 0,0,width(), height() );
-
 	QValueList<Element*>::const_iterator it = m_list.begin();
 	const QValueList<Element*>::const_iterator itEnd = m_list.end();
 
@@ -51,7 +49,19 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 
 		for ( ; i_it != i_itEnd; ++i_it )
 		{
-			p.drawRect( i*w, ( *i_it )->neutrons()*h, w, h);
+			QColor c;
+
+			if ( ( *i_it )->betaminusdecay() )
+				c = Qt::blue;
+			if ( ( *i_it )->betaplusdecay() )
+				c = Qt::red;
+			if (  ( *i_it )->alphadecay() )
+				c = Qt::green;
+			if (  ( *i_it )->ecdecay() )
+				c = Qt::yellow;
+
+			p.fillRect( i*w, ( *i_it )->neutrons()*h, w, h,c );
+			p.drawRect( i*w, ( *i_it )->neutrons()*h, w, h );
 		}
 		i++;
 	}

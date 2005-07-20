@@ -194,13 +194,6 @@ void Kalzium::setupActions()
 	// set the shell's ui resource file
 	setXMLFile("kalziumui.rc");
 	setupGUI();
-	
-	KDialog *dlg = new KDialog( this, "dlg" );
-	QVBoxLayout *vbox = new QVBoxLayout( dlg );
-	NuclideBoard *b = new NuclideBoard( data()->ElementList, dlg, "nb" );
-	vbox->addWidget( b );
-	b->show();
-	dlg->show();
 }
 
 void Kalzium::setupSidebars()
@@ -254,11 +247,17 @@ void Kalzium::slotGlossary()
 	emit tableLocked(true);
 	m_glossarydlg->show();
 }
+
 void Kalzium::slotNuclideBoard()
 {
-	NuclideBoard *board = new NuclideBoard( data()->ElementList, this, "somWidget" );
-· 	board->show();
+	KDialog *dlg = new KDialog( this, "dlg" );
+	QVBoxLayout *vbox = new QVBoxLayout( dlg );
+	NuclideBoard *b = new NuclideBoard( data()->ElementList, dlg, "nb" );
+	vbox->addWidget( b );
+	b->show();
+	dlg->show();
 }
+
 void Kalzium::slotPlotData()
 {
 	ElementDataViewer *edw = new ElementDataViewer( data(), this, "edw" );
