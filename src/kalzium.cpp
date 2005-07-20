@@ -256,7 +256,8 @@ void Kalzium::slotGlossary()
 }
 void Kalzium::slotNuclideBoard()
 {
-	NuclideBoard( data()->ElementList, this, "somWidget" );
+	NuclideBoard *board = new NuclideBoard( data()->ElementList, this, "somWidget" );
+· 	board->show();
 }
 void Kalzium::slotPlotData()
 {
