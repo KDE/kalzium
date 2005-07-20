@@ -25,8 +25,8 @@
 NuclideBoard::NuclideBoard(QValueList<Element*> list, QWidget *parent, const char* name) : QWidget(parent, name)
 {
 	m_list = list;
-	m_start = 20;
-	m_stop = 40;
+	m_start = 1;
+	m_stop = 18;
 }
 
 void NuclideBoard::paintEvent( QPaintEvent* /* e */ )

@@ -32,6 +32,7 @@
 #include <qtoolbox.h>
 #include <qslider.h>
 #include <qscrollview.h>
+#include <qspinbox.h>
 
 #include <kconfigdialog.h>
 #include <kiconloader.h>
@@ -253,7 +254,17 @@ void Kalzium::slotNuclideBoard()
 	KDialog *dlg = new KDialog( this, "dlg" );
 	QVBoxLayout *vbox = new QVBoxLayout( dlg );
 	NuclideBoard *b = new NuclideBoard( data()->ElementList, dlg, "nb" );
+	QSpinBox *spin1 = new QSpinBox( 1,110,1,dlg );
+	QSpinBox *spin2 = new QSpinBox( 2,111,1,dlg );
+	spin1->setValue( 1 );
+	spin2->setValue( 18 );
+
+	connect( spin1, SIGNAL( valueChanged( int ) ), b, SLOT( setStart( int ) ) );
+	connect( spin2, SIGNAL( valueChanged( int ) ), b, SLOT( setStop( int ) ) );
+
 	vbox->addWidget( b );
+	vbox->addWidget( spin1 );
+	vbox->addWidget( spin2 );
 	b->show();
 	dlg->show();
 }

@@ -51,7 +51,18 @@ class NuclideBoard : public QWidget
 		int m_start;
 
 		int m_stop;
-		
+
+	public slots:
+		void setStart( int v ){
+			m_start = v;
+			update();
+		}
+
+		void setStop( int v ){
+			m_stop = v;
+			update();
+		}
+
 	protected:
 		virtual void paintEvent(QPaintEvent*);
 };
