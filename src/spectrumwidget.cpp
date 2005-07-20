@@ -77,14 +77,13 @@ void SpectrumWidget::drawZoomLine( QPainter* p )
 
 void SpectrumWidget::paintBands( QPainter* p )
 {
-
 	if ( m_type == AbsorptionSpectrum )
 	{
 		for ( double va = startValue; va <= endValue ; va += 0.1 )
 		{
 			int x = xPos( va );
 			p->setPen( linecolor( va ) );
-			p->drawLine( x,0,x, m_realHeight+10 );
+			p->drawLine( x,0,x, m_realHeight );
 		}
 
 		p->setPen( Qt::black );
@@ -105,24 +104,19 @@ void SpectrumWidget::paintBands( QPainter* p )
  	
  		temp = 0;  
 
- 		if ( i%2 )//every second item will have a little offset
- 			temp = 35;
- 		else
- 			temp = 0;
- 
  		switch ( m_type )
  		{
 			case EmissionSpectrum:
 				p->setPen( linecolor( ( *it ).wavelength ) );
-                 		p->drawLine( x,0,x, m_realHeight );
-                
-                 		p->setPen( Qt::black );
-               			p->drawLine( x,m_realHeight,x, m_realHeight+10+temp );
+				p->drawLine( x,0,x, m_realHeight-1 );
+
+				p->setPen( Qt::black );
+//				p->drawLine( x,m_realHeight,x, m_realHeight );
 				break;
  		
 			case AbsorptionSpectrum:
 				p->setPen( Qt::black );
- 	                	p->drawLine( x,0,x, m_realHeight+10+temp );
+				p->drawLine( x,0,x, m_realHeight-1 );
 				break;
  		}
  		
