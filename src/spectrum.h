@@ -144,6 +144,11 @@ class Spectrum
 			m_max = maxBand();
 		}
 
+		/**
+		 * @return the data of a spectrum as html-code
+		 */
+		QString BandsAsHtml();
+
 	private:
 		/**
 		 * @return the smallest wavelength

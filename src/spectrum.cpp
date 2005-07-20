@@ -37,7 +37,6 @@ double Spectrum::minBand()
 	const QValueList<band>::const_iterator itEnd = m_bandlist.end();
 	for (;it!=itEnd;++it)
 	{
-		kdDebug() << "value: " << ( *it ).wavelength << " Current min-value: " << value << endl;
 		if ( value > ( *it ).wavelength )
 			value = ( *it ).wavelength;
 	}
@@ -133,6 +132,37 @@ QValueList<double> Spectrum::wavelengths( double min, double max )
 	return list;
 }
 
+QString Spectrum::BandsAsHtml()
+{
+	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title>i<body>";
+
+	html.append( "<table>" );
+	
+	QValueList<band>::const_iterator it = m_bandlist.begin();
+	const QValueList<band>::const_iterator itEnd = m_bandlist.end();
+	for (;it!=itEnd;++it)
+	{
+		html.append( "<tr>" );
+		html.append( i18n( "<td>Wavelength: %1 nm</td>" ).arg( ( *it ).wavelength ) );
+		html.append( i18n( "<td>Intensity: %1</td>" ).arg( ( *it ).intensity ) );
+		html.append( i18n( "<td>Probability: %1 10<sup>8</sup>s<sup>-1</sup></td>" ).arg( ( *it ).aki ) );
+		html.append( i18n( "<td>Energy 1: %1</td>" ).arg( ( *it ).energy1 ) );
+		html.append( i18n( "<td>Energy 2: %1</td>" ).arg( ( *it ).energy2 ) );
+		html.append( i18n( "<td>Electronconfiguration 1: %1</td>" ).arg( ( *it ).electronconfig1 ) );
+		html.append( i18n( "<td>Electronconfiguration 2: %1</td>" ).arg( ( *it ).electronconfig2 ) );
+		html.append( i18n( "<td>Term 1: %1</td>" ).arg( ( *it ).term1 ) );
+		html.append( i18n( "<td>Term 2: %1</td>" ).arg( ( *it ).term2 ) );
+		html.append( i18n( "<td>J 1: %1</td>" ).arg( ( *it ).J1 ) );
+		html.append( i18n( "<td>J 2: %1</td>" ).arg( ( *it ).J2 ) );
+		html.append( "</tr>\n");
+	}
+	
+	html.append( "</table>" );
+
+	html.append( "</body></html>" );
+	return html;
+}
+
 SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	: QWidget( parent, name )
 {
@@ -143,9 +173,8 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	
 	m_spectrumWidget = new SpectrumWidget( this, "spectrum" );
 	m_spectrumWidget->setSpectrum( m_spectrum );
+	kdDebug() <<  m_spectrum->BandsAsHtml() << endl;
 	
-	kdDebug() << "minumum: " << m_spectrum->min() << " maximum: " << m_spectrum->max() << endl;
-
 	//m_spectrumWidget->setBorders( m_spectrum->min(), m_spectrum->max() );
 	
 	spectrumLayout->addWidget( m_spectrumWidget );
