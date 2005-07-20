@@ -63,12 +63,14 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 				c= Qt::magenta;
 
 			//the offset of 20 for the axis
-			int y = ( *i_it )->neutrons()*h;
-			y = numberOfElement*h-y;
+			int x = ( *i_it )->neutrons()*h;
+			kdDebug() << "X1: " << x << endl;
+			x = numberOfElement*h-x;
+			kdDebug() << "X2: " << x << endl;
+
 			
-			
-			p.fillRect( i*w+20, y, w-1, h-1,c );
-			p.drawRect( i*w+20, y, w-1, h-1 );
+			p.fillRect( x, i*w+20, w-1, h-1,c );
+			p.drawRect( x, i*w+20, w-1, h-1 );
 
 			p.drawText( i*w, 20, "ah");
 			p.drawText( 0, ( *i_it )->neutrons()*h+20, "wh");
