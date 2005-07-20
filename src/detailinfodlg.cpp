@@ -64,7 +64,7 @@ DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget
 
 	wOrbits = new OrbitsWidget( m_pModelTab );
 	piclabel = new QLabel( m_pPictureTab );
-	piclabel->setMinimumSize( 400, 300 );
+	piclabel->setMinimumSize( 400, 350 );
 	
 	mainLayout->addWidget( piclabel );
 	modelLayout->addWidget( wOrbits );
