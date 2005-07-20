@@ -22,5 +22,11 @@
 NuclideBoard::NuclideBoard(QWidget *parent, const char* name) : QWidget(parent, name)
 {
 }
+
+void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
+{
+	QPainter p;
+	p.begin( this );
+}
  
  #include "nuclideboard.moc"

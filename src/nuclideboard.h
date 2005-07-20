@@ -1,3 +1,5 @@
+#ifndef NUCLIDEBOARD_H
+#define NUCLIDEBOARD_H
 /***************************************************************************
  *   Copyright (C) 2005 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
@@ -19,6 +21,9 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <qwidget.h>
+#include <qpainter.h>
+
 /**
  * @author Jörg Buchwald
  * 
@@ -26,11 +31,13 @@
 class NuclideBoard : public QWidget
 {
 	Q_OBJECT
-	
+
 	public:
 		NuclideBoard(QWidget* parent = 0, const char* name = 0);
-	 
-	 	~NuclideBoard(){};
-protected:
-	virtual void paintEvent(QPainter*)
-}
+
+		~NuclideBoard(){};
+	protected:
+		virtual void paintEvent(QPaintEvent*);
+};
+
+#endif // NUCLIDEBOARD_H
