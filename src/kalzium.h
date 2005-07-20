@@ -35,6 +35,7 @@ class DetailedGraphicalOverview;
 class timeWidget;
 class SOMWidgetIMPL;
 class GlossaryDialog;
+class NuclideBoard;
 
 /**
  * @short Application Main Window
@@ -95,7 +96,7 @@ class Kalzium : public KMainWindow
 		 */
 		KSelectAction *gradient_action;
 		KSelectAction *numeration_action;
-		KAction *m_pPlotAction,
+		KAction *m_pPlotAction, *m_pNuclideBoardAction,
 				*m_pGlossaryAction;
 		
 		KAction *m_pTooltipAction;
@@ -157,6 +158,12 @@ class Kalzium : public KMainWindow
 		
 		void slotSwitchtoNumeration(int);
 		
+		/**
+		 *start the nuclideboard
+		 */
+		 void slotNuclideBoard();
+		 		 
+		 
 		/**
 		 * this will make the periodic table display the gradient
 		 * defined by @p int gradient

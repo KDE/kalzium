@@ -148,6 +148,8 @@ void Kalzium::setupActions()
 	 **/
 	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
+	m_pNuclideBoardAction = new KAction(i18n("&Nuclideboard..."), "nuclideboard", 0, this, SLOT(slotNuclideBoard()), actionCollection(), "nuclideboard");
+	
 	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
 	//Legend
@@ -252,7 +254,10 @@ void Kalzium::slotGlossary()
 	emit tableLocked(true);
 	m_glossarydlg->show();
 }
-
+void Kalzium::slotNuclideBoard()
+{
+	NuclideBoard( data()->ElementList, this, "somWidget" );
+}
 void Kalzium::slotPlotData()
 {
 	ElementDataViewer *edw = new ElementDataViewer( data(), this, "edw" );
