@@ -123,8 +123,10 @@ class SpectrumWidget : public QWidget
 		 * @return the wavelength on position @p xpos
 		 */
 		inline double Wavelength( double xpos ){
-			return startValue + (  (  endValue-startValue ) *  ( double )xpos );
+			return startValue + (  (  endValue-startValue ) *  xpos );
 		}
+
+		double strippedValue( double num );
 
 		/**
 		 * This method changes the three values @p r @p g and @p b to the 

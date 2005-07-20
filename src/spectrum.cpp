@@ -173,7 +173,6 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	
 	m_spectrumWidget = new SpectrumWidget( this, "spectrum" );
 	m_spectrumWidget->setSpectrum( m_spectrum );
-	kdDebug() <<  m_spectrum->BandsAsHtml() << endl;
 	
 	//m_spectrumWidget->setBorders( m_spectrum->min(), m_spectrum->max() );
 	

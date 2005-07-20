@@ -74,7 +74,6 @@ void SpectrumWidget::drawZoomLine( QPainter* p )
 
 void SpectrumWidget::paintBands( QPainter* p )
 {
-	kdDebug() << "Spectrum::paintBands()" << endl;
 
 	if ( m_type == AbsorptionSpectrum )
 	{
@@ -101,9 +100,9 @@ void SpectrumWidget::paintBands( QPainter* p )
  
  		x = xPos( ( *it ).wavelength );
  	
- 		temp = 0; // every second item will have a little offset
- 
- 		if ( i%2 )
+ 		temp = 0;  
+
+ 		if ( i%2 )//every second item will have a little offset
  			temp = 35;
  		else
  			temp = 0;
@@ -124,9 +123,6 @@ void SpectrumWidget::paintBands( QPainter* p )
 				break;
  		}
  		
- 		//QString text = QString::number( ( *it ).wavelength );
- 		//p->drawText(x, m_realHeight+10+temp, text);
- 
  		i++;
  	}
 }
@@ -214,35 +210,51 @@ int SpectrumWidget::Adjust( double color, double factor )
 
 void SpectrumWidget::drawTickmarks( QPainter* p )
 {
-	kdDebug() << "SpectrumWidget::drawTickmarks()" << endl;
-	const int space = 13;
+	//the size of the text on the tickmarks
+	const int space = 20;
 
-	int start = (int)startValue % 10;
-	int dist = floor(( width()/(endValue-startValue)) * 10 );	//distance between the tickles in px
+	//the distance between the tickmarks in pixel
+	const int d = 10;
 
-	int count = ( int )startValue - start + 10;
-	start = floor( (width() / ( endValue-startValue )) * (10-start) );
+	//the total number of tickmarks to draw (small and long)
+	const int numberOfTickmarks = ( int )floor( width()/d );
 
-	if ( dist == 0 || width() < start )
+	double pos = 0.0;
+		
+	for ( int i = 0; i < numberOfTickmarks; i++  )
 	{
-		kdDebug()<< "malformed Values" << endl;
-		return;
+		if( i%5 == 0 )
+		{//long tickmarks plus text
+			p->drawLine( i*d, m_realHeight, i*d, m_realHeight+10 );	
+			if ( i%10 == 0 && 
+					i*d > space && 
+					i*d < width()-space )
+			{
+				pos = ( double ) ( i*d )/width();
+				p->fillRect( i*d-space, m_realHeight+12, 2*space, 15, Qt::white );
+				p->drawText( i*d-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( strippedValue( Wavelength( pos ) ) ) );
+			}
+		}
+		else {//small tickmarks
+			p->drawLine( i*d, m_realHeight, i*d, m_realHeight+5 );
+		}
 	}
+}
 
-	for ( int i = start; i < width(); i += dist )
-	{
-		if(count%50 == 0 )
-		{
-			p->drawLine( i, m_realHeight, i, m_realHeight+10 );	
-			p->fillRect( i-space, m_realHeight+12, 2*space, 15, Qt::white );
-			p->drawText( i-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( count ) );		
-		}
-		else
-		{
-			p->drawLine( i, m_realHeight, i, m_realHeight+5 );
-		}
-		count += 10;
-	}
+double SpectrumWidget::strippedValue( double num )
+{
+	if ( !finite( num ) )
+		return num;
+
+	double power;
+	power = 1e-6;
+	while ( power < num )
+		power *= 10;
+
+	num = num / power * 10000;
+	num = round( num );
+
+	return num * power / 10000;
 }
 
 void SpectrumWidget::keyPressEvent( QKeyEvent *e )
