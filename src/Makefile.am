@@ -25,7 +25,8 @@ kalzium_SOURCES = kalzium.cpp \
 			spectrum.cpp \
 			isotope.cpp \
 			kalziumdataobject.cpp \
-			spectrumwidget.cpp
+			spectrumwidget.cpp \
+			nuclideboard.cpp
 			
 kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) 
 		 
@@ -50,7 +51,8 @@ EXTRA_DIST = main.cpp \
 		spectrum.cpp spectrum.h \
 		isotope.cpp isotope.h \
 		kalziumdataobject.cpp kalziumdataobject.h \
-		spectrumwidget.cpp spectrumwidget.h
+		spectrumwidget.cpp spectrumwidget.h \
+		nuclideboard.cpp nuclideboar.h
 		
 
 METASOURCES = AUTO 
