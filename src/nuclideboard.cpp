@@ -25,8 +25,8 @@
 NuclideBoard::NuclideBoard(QValueList<Element*> list, QWidget *parent, const char* name) : QWidget(parent, name)
 {
 	m_list = list;
-	m_start = 40;
-	m_stop = 80;
+	m_start = 20;
+	m_stop = 40;
 }
 
 void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
@@ -34,7 +34,7 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 	QPainter p;
 	p.begin( this );
 
-	QValueList<Element*>::const_iterator it = m_list.at(m_start);
+	QValueList<Element*>::const_iterator it = m_list.at(m_start-1);
 	const QValueList<Element*>::const_iterator itEnd = m_list.at(m_stop);
 
 	const int numberOfElement = m_list.count();
@@ -44,8 +44,8 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 	const int rangeOfElements = m_stop-m_start;
 
 	//the width and height for each square
-	int w_ = width()/rangeOfNeutrons;
-	int h_ = height()/rangeOfElements;
+	int w_ = width()/( rangeOfNeutrons+1 );
+	int h_ = height()/( rangeOfElements+1 );
 
 	int w;
 
@@ -53,9 +53,7 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 
 	const int h = w;
 
-	kdDebug() << h << " :: " << w << endl;
-
-	const int offset = h;
+	kdDebug() << " :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::" << endl;
 
 	for ( int i = m_start ; it != itEnd; ++it )
 	{
@@ -86,20 +84,19 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 			int position = n_count - lowestNumberOfNeutrons;
 			int x = position * w;
 
-			kdDebug() << n_count << " :: " << position << " :: " << x << endl;
-			y = height()-( ( i-rangeOfElements )*h );
-
-			kdDebug() << "x: " << x << " y: " << y << endl;
+			y = height()-( ( i-m_start )*h );
 			
-			p.fillRect( x+20, y-20, w-1, h-1,c );
-			p.drawRect( x+20, y-20, w-1, h-1 );
+			kdDebug() << n_count << " :: " << position << " :: " << x << endl;
+
+			p.fillRect( x+w, y-h, w-1, h-1,c );
+			p.drawRect( x+w, y-h, w-1, h-1 );
 		}
 		i++;
 	}
-	for ( int i = 0; i < rangeOfElements; ++i )
-		p.drawText( 0, height( )-( i*h )-20,w-1,h-1, Qt::AlignCenter, QString::number( m_start+i ));
-	for ( int i = 0; i < rangeOfNeutrons; ++i )
-		p.drawText( i*w, 0,w-1,h-1, Qt::AlignCenter, QString::number( lowestNumberOfNeutrons+i ));
+	for ( int i = 0; i <= rangeOfElements; ++i )
+		p.drawText( 0, height()-( i*h )-h,w-1,h-1, Qt::AlignCenter, QString::number( m_start+i ));
+	for ( int i = 0; i <= rangeOfNeutrons; ++i )
+		p.drawText( i*w+w, 0,w-1,h-1, Qt::AlignCenter, QString::number( lowestNumberOfNeutrons+i ));
 	
 	p.end();
 }
@@ -108,7 +105,7 @@ int NuclideBoard::highestNeutronCount()
 {
 	int count = 0;
 	
-	QValueList<Element*>::const_iterator it = m_list.at(m_start);
+	QValueList<Element*>::const_iterator it = m_list.at(m_start-1);
 	const QValueList<Element*>::const_iterator itEnd = m_list.at(m_stop);
 	
 	for (; it != itEnd; ++it )
@@ -128,7 +125,7 @@ int NuclideBoard::highestNeutronCount()
 
 int NuclideBoard::lowestNeutronCount()
 {
-	QValueList<Element*>::const_iterator it = m_list.at(m_start);
+	QValueList<Element*>::const_iterator it = m_list.at(m_start-1);
 	const QValueList<Element*>::const_iterator itEnd = m_list.at(m_stop);
 	
 	int count = 200;
