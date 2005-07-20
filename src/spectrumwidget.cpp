@@ -28,7 +28,7 @@
 #include <qcursor.h>
 #include <qtooltip.h>
 
-SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name = 0 ) : QWidget( parent, name )
+SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name ) : QWidget( parent, name )
 {
 	startValue = 0;
 	endValue = 0;
