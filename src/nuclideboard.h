@@ -46,6 +46,12 @@ class NuclideBoard : public QWidget
 
 		int highestNeutronCount();
 		
+		int lowestNeutronCount();
+
+		int m_start;
+
+		int m_stop;
+		
 	protected:
 		virtual void paintEvent(QPaintEvent*);
 };
