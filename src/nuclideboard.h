@@ -202,7 +202,7 @@ class Decay
 	private:
 };
 
-class NuclideBoardDialog : public KDialog
+class NuclideBoardDialog : public KDialogBase
 {
 	Q_OBJECT
 	public:

@@ -18,25 +18,29 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #include "nuclideboard.h"
-#include <kdebug.h>
 
 #include <qlayout.h>
 #include <qspinbox.h>
 #include <qcursor.h>
 
+#include <kdebug.h>
+#include <klocale.h>
+
 #include "math.h"
 
 NuclideBoardDialog::NuclideBoardDialog( KalziumDataObject* data, QWidget* parent, const char* name )
-	: KDialog( parent, name )
+	: KDialogBase( Plain, i18n( "Nuclide Board" ), Close, Close, parent, name, false )
 {
-	QVBoxLayout *vbox = new QVBoxLayout( this );
-	NuclideBoard *b = new NuclideBoard( data->ElementList, this, "nb" );
-	spin1 = new QSpinBox( 1,110,1,this );
-	spin2 = new QSpinBox( 2,111,1,this );
+	QVBoxLayout *vbox = new QVBoxLayout( plainPage() );
+	vbox->activate();
+	NuclideBoard *b = new NuclideBoard( data->ElementList, plainPage(), "nb" );
+	spin1 = new QSpinBox( 1, 110, 1, plainPage() );
+	spin2 = new QSpinBox( 2, 111, 1, plainPage() );
 	connect( spin1, SIGNAL( valueChanged( int ) ), b, SLOT( setStart( int ) ) );
 	connect( spin2, SIGNAL( valueChanged( int ) ), b, SLOT( setStop( int ) ) );
-	
+
 	connect( b, SIGNAL( emitStartValue( int ) ), spin1, SLOT( setValue( int ) ) );
 	connect( b, SIGNAL( emitStopValue( int ) ), spin2, SLOT( setValue( int ) ) );
 	spin1->setValue( 1 );
@@ -45,8 +49,9 @@ NuclideBoardDialog::NuclideBoardDialog( KalziumDataObject* data, QWidget* parent
 	vbox->addWidget( b );
 	vbox->addWidget( spin1 );
 	vbox->addWidget( spin2 );
-	
-	setMinimumSize( 400, 350 );
+
+	setMinimumSize( 500, 450 );
+	resize( minimumSize() );
 }
 
 NuclideBoard::NuclideBoard(QValueList<Element*> list, QWidget *parent, const char* name) 
