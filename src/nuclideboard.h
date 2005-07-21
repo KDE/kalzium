@@ -28,8 +28,11 @@
 #include <qvaluelist.h>
 #include "element.h"
 
+class IsotopeWidget;
+
 /**
  * @author Jörg Buchwald
+ * @author Carsten Niehaus
  * 
  */
 class NuclideBoard : public QWidget
@@ -44,6 +47,10 @@ class NuclideBoard : public QWidget
 	private:
 		QValueList<Element*> m_list;
 
+		QValueList<IsotopeWidget*> m_isotopeWidgetList;
+
+		void updateList();
+
 		int highestNeutronCount();
 		
 		int lowestNeutronCount();
@@ -55,16 +62,57 @@ class NuclideBoard : public QWidget
 	public slots:
 		void setStart( int v ){
 			m_start = v;
+			updateList();
 			update();
 		}
 
 		void setStop( int v ){
 			m_stop = v;
+			updateList();
 			update();
 		}
 
 	protected:
 		virtual void paintEvent(QPaintEvent*);
 };
+
+class IsotopeWidget
+{
+public:
+		IsotopeWidget( Isotope* isotope );
+		~IsotopeWidget(){};
+
+		void setSize( int size ){
+			m_size = size;
+		}
+
+		void setPoint( QPoint p ){
+			m_point = p;
+		}
+
+		void drawSelf( QPainter* p );
+
+private:
+		Isotope* m_isotope;
+
+		QPoint m_point;
+		int m_size;
+};
+
+class Decay
+{
+public:
+	Decay(QValueList<IsotopeWidget*> list){
+		m_list = list;
+	};
+
+	~Decay(){};
+
+private:
+	QValueList<IsotopeWidget*> m_list;
+
+private:
+};
+
 
 #endif // NUCLIDEBOARD_H

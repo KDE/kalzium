@@ -34,10 +34,6 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 	QPainter p;
 	p.begin( this );
 
-	QValueList<Element*>::const_iterator it = m_list.at(m_start-1);
-	const QValueList<Element*>::const_iterator itEnd = m_list.at(m_stop);
-	
-	const int numberOfElement = m_list.count();
 	const int highestNumberOfNeutrons = highestNeutronCount();
 	const int lowestNumberOfNeutrons = lowestNeutronCount();
 	const int rangeOfNeutrons = highestNumberOfNeutrons-lowestNumberOfNeutrons;
@@ -53,50 +49,19 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 
 	const int h = w;
 
-	kdDebug() << " :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::" << endl;
-
-	for ( int i = m_start ; it != itEnd; ++it )
-	{
-		QValueList<Isotope*> i_list = ( *it )->isotopes();
-		QValueList<Isotope*>::const_iterator i_it = i_list.begin();
-		QValueList<Isotope*>::const_iterator i_itEnd = i_list.end();
-
-		for ( ; i_it != i_itEnd; ++i_it )
-		{
-			QColor c;
-
-			if ( ( *i_it )->betaminusdecay() )
-				c = Qt::blue;
-			else if ( ( *i_it )->betaplusdecay() )
-				c = Qt::red;
-			else if (  ( *i_it )->alphadecay() )
-				c = Qt::yellow;
-			else if (  ( *i_it )->ecdecay() )
-				c = Qt::green;
-			else
-				c= Qt::magenta;
-
-			//on the x-axis the neutrons are places
-			//on the y-axis the elements
-			int y;
-			
-			int n_count = ( *i_it )->neutrons();
-			int position = n_count - lowestNumberOfNeutrons;
-			int x = position * w;
-
-			y = height()-( ( i-m_start )*h );
-			
-			kdDebug() << n_count << " :: " << position << " :: " << x << endl;
-
-			p.fillRect( x+w, y-h, w-1, h-1,c );
-			p.drawRect( x+w, y-h, w-1, h-1 );
-		}
-		i++;
-	}
 	for ( int i = 0; i <= rangeOfElements; ++i )
 		p.drawText( 0, height()-( i*h )-h,w-1,h-1, Qt::AlignCenter, QString::number( m_start+i ));
 	for ( int i = 0; i <= rangeOfNeutrons; ++i )
 		p.drawText( i*w+w, 0,w-1,h-1, Qt::AlignCenter, QString::number( lowestNumberOfNeutrons+i ));
+
+	QValueList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
+	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
+
+	while ( it != itEnd )
+	{
+		( *it )->drawSelf( &p );
+		++it;
+	}
 	
 	p.end();
 }
@@ -143,6 +108,89 @@ int NuclideBoard::lowestNeutronCount()
 		}
 	}
 	return count;
+}
+
+void NuclideBoard::updateList()
+{
+	kdDebug() << "IsotopeWidget::updateList()" << endl;
+			
+	m_isotopeWidgetList.clear();
+
+	QValueList<Element*>::const_iterator it = m_list.at(m_start-1);
+	const QValueList<Element*>::const_iterator itEnd = m_list.at(m_stop);
+	
+	const int highestNumberOfNeutrons = highestNeutronCount();
+	const int lowestNumberOfNeutrons = lowestNeutronCount();
+	const int rangeOfNeutrons = highestNumberOfNeutrons-lowestNumberOfNeutrons;
+	const int rangeOfElements = m_stop-m_start;
+
+	//the width and height for each square
+	int w_ = width()/( rangeOfNeutrons+1 );
+	int h_ = height()/( rangeOfElements+1 );
+
+	int w;
+
+	w_ < h_ ? w = w_ : w = h_;
+
+	const int h = w;
+
+	kdDebug() << " :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::" << endl;
+
+	for ( int i = m_start ; it != itEnd; ++it )
+	{
+		QValueList<Isotope*> i_list = ( *it )->isotopes();
+		QValueList<Isotope*>::Iterator i_it = i_list.begin();
+		const QValueList<Isotope*>::Iterator i_itEnd = i_list.end();
+
+		for ( ; i_it != i_itEnd; ++i_it )
+		{
+			//on the x-axis the neutrons are places
+			//on the y-axis the elements
+			int y;
+			
+			int n_count = ( *i_it )->neutrons();
+			int position = n_count - lowestNumberOfNeutrons;
+			int x = position * w;
+
+			y = height()-( ( i-m_start )*h );
+			
+			//kdDebug() << n_count << " :: " << position << " :: " << x << endl;
+
+			IsotopeWidget *widget = new IsotopeWidget( *i_it );
+			widget->setSize( w );
+			widget->setPoint( QPoint(x,y) );
+
+			m_isotopeWidgetList.append( widget );
+		}
+		i++;
+	}
+}
+
+IsotopeWidget::IsotopeWidget( Isotope* isotope )
+{
+	m_isotope = isotope;	
+}
+
+
+void IsotopeWidget::drawSelf( QPainter*p )
+{
+	kdDebug() << "IsotopeWidget::drawSelf()" << endl;
+
+	QColor c;
+
+	if ( m_isotope->betaminusdecay() )
+		c = Qt::blue;
+	else if ( m_isotope->betaplusdecay() )
+		c = Qt::red;
+	else if (  m_isotope->alphadecay() )
+		c = Qt::yellow;
+	else if (  m_isotope->ecdecay() )
+		c = Qt::green;
+	else
+		c= Qt::magenta;
+
+	p->fillRect( m_point.x()+m_size, m_point.y()-m_size, m_size-1, m_size-1, c );
+	p->drawRect( m_point.x()+m_size, m_point.y()-m_size, m_size-1, m_size-1 );
 }
  
  #include "nuclideboard.moc"
