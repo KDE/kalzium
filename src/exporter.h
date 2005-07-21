@@ -28,7 +28,7 @@ public:
 	Exporter();
 	~Exporter();
 
-	bool saveAsPNG( const QWidget* widget, QString fileName, int x = 0, int y = 0, int width = 0, int height = 0 );
+	bool saveAsPNG( const QWidget& widget, QString fileName, int x = 0, int y = 0, int width = 0, int height = 0 );
 
 };
 

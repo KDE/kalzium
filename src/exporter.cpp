@@ -20,9 +20,9 @@
 #include "exporter.h"
 
 #include <qpixmap.h>
-#include <qpainter.h>
-
+#include <qpaintdevice.h>
 #include <kdebug.h>
+#include <qwidget.h> 
 
 Exporter::Exporter()
 {
@@ -32,19 +32,12 @@ Exporter::~Exporter()
 {
 }
 
-bool Exporter::saveAsPNG( const QWidget* widget, QString fileName, int x, int y, int width, int height )
+bool Exporter::saveAsPNG( const QWidget& widget, QString fileName, int x, int y, int width, int height )
 {
-	QPixmap* tmpPixmap = new QPixmap();
-	
-	if( x != 0 || y != 0 || width != 0 || height != 0 )
-	{
-		bitBlt( tmpPixmap, 0, 0, widget, x, y, width, height );
-		kdDebug() <<"special area" << endl;
-	}
-	else
-		bitBlt( tmpPixmap, 0, 0, widget );
+	QPixmap tmpPixmap;
 
-	return tmpPixmap->save( fileName, "PNG" );
-	delete tmpPixmap;
+	bitBlt( &tmpPixmap, 0, 0, &widget, x, y, width, height );
+
+	return tmpPixmap.save( fileName, "PNG" );
 }
 
