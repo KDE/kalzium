@@ -21,16 +21,18 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <kdialog.h>
+#include <kdialogbase.h>
 #include <qwidget.h>
 #include <qpainter.h>
 #include <isotope.h>
 #include <qvaluelist.h>
 #include "element.h"
+#include "kalziumdataobject.h"
 
 class IsotopeWidget;
 class Decay;
 class QColor;
+class QSpinBox;
 
 /**
  * @author Jörg Buchwald
@@ -73,7 +75,10 @@ class NuclideBoard : public QWidget
 		 */
 		void setStart( int v ){
 			if ( v > m_stop )
+			{
+				emitStartValue( m_start );
 				return;
+			}
 			m_start = v;
 			updateList();
 		}
@@ -84,10 +89,17 @@ class NuclideBoard : public QWidget
 		 */
 		void setStop( int v ){
 			if ( v < m_start )
+			{
+				emitStopValue( m_stop );
 				return;
+			}
 			m_stop = v;
 			updateList();
 		}
+
+	signals:
+		void emitStartValue( int );
+		void emitStopValue( int );
 
 	protected:
 		virtual void paintEvent(QPaintEvent*);
@@ -153,18 +165,30 @@ private:
  */
 class Decay
 {
-public:
-	Decay(QValueList<IsotopeWidget*> list){
-		m_list = list;
-	};
+	public:
+		Decay(QValueList<IsotopeWidget*> list){
+			m_list = list;
+		};
 
-	~Decay(){};
+		~Decay(){};
 
-private:
-	QValueList<IsotopeWidget*> m_list;
+	private:
+		QValueList<IsotopeWidget*> m_list;
 
-private:
+	private:
 };
+
+class NuclideBoardDialog : public KDialog
+{
+	Q_OBJECT
+	public:
+		NuclideBoardDialog( KalziumDataObject *data, QWidget* parent, const char* name = 0 );
+		~NuclideBoardDialog(){};
+
+	private:
+		QSpinBox *spin1, *spin2;
+};
+
 
 
 #endif // NUCLIDEBOARD_H

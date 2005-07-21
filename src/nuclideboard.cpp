@@ -20,7 +20,33 @@
  ***************************************************************************/
 #include "nuclideboard.h"
 #include <kdebug.h>
+
+#include <qlayout.h>
+#include <qspinbox.h>
+
 #include "math.h"
+
+NuclideBoardDialog::NuclideBoardDialog( KalziumDataObject* data, QWidget* parent, const char* name )
+	: KDialog( parent, name )
+{
+	QVBoxLayout *vbox = new QVBoxLayout( this );
+	NuclideBoard *b = new NuclideBoard( data->ElementList, this, "nb" );
+	spin1 = new QSpinBox( 1,110,1,this );
+	spin2 = new QSpinBox( 2,111,1,this );
+	connect( spin1, SIGNAL( valueChanged( int ) ), b, SLOT( setStart( int ) ) );
+	connect( spin2, SIGNAL( valueChanged( int ) ), b, SLOT( setStop( int ) ) );
+	
+	connect( b, SIGNAL( emitStartValue( int ) ), spin1, SLOT( setValue( int ) ) );
+	connect( b, SIGNAL( emitStopValue( int ) ), spin2, SLOT( setValue( int ) ) );
+	spin1->setValue( 1 );
+	spin2->setValue( 18 );
+
+	vbox->addWidget( b );
+	vbox->addWidget( spin1 );
+	vbox->addWidget( spin2 );
+	
+	setMinimumSize( 400, 350 );
+}
 
 NuclideBoard::NuclideBoard(QValueList<Element*> list, QWidget *parent, const char* name) : QWidget(parent, name)
 {
@@ -188,7 +214,6 @@ IsotopeWidget::IsotopeWidget( Isotope* isotope )
 
 void IsotopeWidget::drawSelf( QPainter*p )
 {
-	kdDebug() << "IsotopeWidget::drawSelf()" << endl;
 	QColor color = m_color;
 	if ( m_active )
 		color = m_color.dark();
