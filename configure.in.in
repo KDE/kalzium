@@ -35,8 +35,16 @@ fi
 AH_TEMPLATE(HAVE_FACILE, facile solver available?)
 
 EQCHEM_SUB=
+OCAMLLIB=
+EQCHEM_LDADD=
 if test "$eqchem_enabled" = "yes"; then
    EQCHEM_SUB=solver
+   OCAMLLIB=`ocamlc -where`
+   EQCHEM_LDADD="solver/libsolver.la"
+
+   AC_SUBST([OCAMLLIB])
+   AC_SUBST([EQCHEM_SUB])
+
    AC_DEFINE(HAVE_FACILE, 1)
 fi
 

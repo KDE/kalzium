@@ -8,6 +8,8 @@ INCLUDES         = $(all_includes)
 # let automoc handle all of the meta source files (moc)
 METASOURCES = AUTO
 
+# TODO: someone write the kalzium/configure.in.in please
+OCAMLLIB=`ocamlc -where`
 
 lib_LTLIBRARIES = libsolver.la
 
