@@ -72,9 +72,10 @@ class NuclideBoard : public QWidget
 		 * @param v the number of the element
 		 */
 		void setStart( int v ){
+			if ( v > m_stop )
+				return;
 			m_start = v;
 			updateList();
-			update();
 		}
 
 		/**
@@ -82,9 +83,10 @@ class NuclideBoard : public QWidget
 		 * @param v the number of the element
 		 */
 		void setStop( int v ){
+			if ( v < m_start )
+				return;
 			m_stop = v;
 			updateList();
-			update();
 		}
 
 	protected:
