@@ -28,6 +28,7 @@
 class Spectrum;
 class QMouseEvent;
 class QKeyEvent;
+class QPixmap;
 
 /**
  * @author Carsten Niehaus
@@ -142,6 +143,9 @@ class SpectrumWidget : public QWidget
 		 * param b blue
 		 */
 		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
+
+		QPixmap pixmap()
+		{ return m_pixmap; }
 	
 	private:
 		QValueList<double> m_spectra;
@@ -149,6 +153,8 @@ class SpectrumWidget : public QWidget
 		SpectrumType m_type;
 
 		Spectrum *m_spectrum;
+
+		QPixmap m_pixmap;
 
 		bool m_showtooltip;
 

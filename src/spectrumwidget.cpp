@@ -51,8 +51,10 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	if ( !m_spectrum )
 		 return;
 
+	m_pixmap.resize( width(), height() );
+
 	QPainter p;
-	p.begin( this );
+	p.begin( &m_pixmap );
 	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
 
 	paintBands( &p );
@@ -64,6 +66,11 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 
 	if ( m_LMBPointPress.x() != -1 && m_LMBPointCurrent.x() != -1 )
 		drawZoomLine( &p );
+
+	p.end();
+	p.begin( this );
+	p.drawPixmap( 0, 0, m_pixmap );
+	p.end();
 }
 
 void SpectrumWidget::drawZoomLine( QPainter* p )

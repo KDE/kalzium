@@ -219,7 +219,7 @@ void SpectrumView::slotSave()
 	if( !fileName.isEmpty() )
 	{
     		Exporter* exporter = new Exporter();
-		if ( !exporter->saveAsPNG( *m_spectrumWidget, fileName ) )
+		if ( !exporter->saveAsPNG( &m_spectrumWidget->pixmap(), fileName ) )
 			KMessageBox::error( this, i18n( "The spectrum could not be saved"), i18n( "PNG could not be saved") );
 		delete exporter;
 	}	
