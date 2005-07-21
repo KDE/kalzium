@@ -392,5 +392,24 @@ void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 	m_LMBPointCurrent.setX( -1 );
 }
 
+QPixmap SpectrumWidget::pixmap()
+{
+	QPixmap tmp( m_pixmap );
+	QString text;
+
+	if( m_type == EmissionSpectrum )	
+		text = i18n( "Emission spectrum of " );
+	else
+		text = i18n( "Absorption spectrum of " );
+
+	text.append( m_spectrum->parentElement()->elname() );
+
+	QPainter p( &tmp );
+	p.setPen( Qt::black );
+	p.drawText( 30, m_realHeight + 70, text );
+
+	return tmp;
+}
+
 #include "spectrumwidget.moc"
 

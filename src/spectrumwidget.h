@@ -144,8 +144,7 @@ class SpectrumWidget : public QWidget
 		 */
 		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
 
-		QPixmap pixmap()
-		{ return m_pixmap; }
+		QPixmap pixmap();
 	
 	private:
 		QValueList<double> m_spectra;

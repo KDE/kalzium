@@ -48,7 +48,8 @@ class Spectrum
 		/**
 		 * public ctor
 		 */
-		Spectrum(){
+		Spectrum( Element* parent ){
+			m_parentElement = parent;
 		};
 		
 		/**
@@ -150,6 +151,12 @@ class Spectrum
 		 */
 		QString BandsAsHtml();
 
+		/**
+		 * @return the parent element of this spectrum
+		 */
+		Element* parentElement()
+		{ return m_parentElement; }
+
 	private:
 		/**
 		 * @return the smallest wavelength
@@ -170,6 +177,8 @@ class Spectrum
 		 * the cached values of the highest and lowest wavelength
 		 */
 		double m_max, m_min;
+
+		Element* m_parentElement;
 };
 
 /**
