@@ -35,6 +35,7 @@
   <Action name="toggle_legend" />
   <Action name="toggle_tooltip" />
   <Action name="view_sidebar"/>
+  <Action name="nuclideboard" />
   <Separator />
   <Action name="plotdata" />
   <Action name="nuclideboard" />

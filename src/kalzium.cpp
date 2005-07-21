@@ -256,11 +256,11 @@ void Kalzium::slotNuclideBoard()
 	NuclideBoard *b = new NuclideBoard( data()->ElementList, dlg, "nb" );
 	QSpinBox *spin1 = new QSpinBox( 1,110,1,dlg );
 	QSpinBox *spin2 = new QSpinBox( 2,111,1,dlg );
+	connect( spin1, SIGNAL( valueChanged( int ) ), b, SLOT( setStart( int ) ) );
+	connect( spin2, SIGNAL( valueChanged( int ) ), b, SLOT( setStop( int ) ) );
 	spin1->setValue( 1 );
 	spin2->setValue( 18 );
 
-	connect( spin1, SIGNAL( valueChanged( int ) ), b, SLOT( setStart( int ) ) );
-	connect( spin2, SIGNAL( valueChanged( int ) ), b, SLOT( setStop( int ) ) );
 
 	vbox->addWidget( b );
 	vbox->addWidget( spin1 );

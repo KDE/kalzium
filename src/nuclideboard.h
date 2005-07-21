@@ -29,6 +29,8 @@
 #include "element.h"
 
 class IsotopeWidget;
+class Decay;
+class QColor;
 
 /**
  * @author Jörg Buchwald
@@ -40,6 +42,9 @@ class NuclideBoard : public QWidget
 	Q_OBJECT
 
 	public:
+		/**
+		 * @param list the list of all elements
+		 */
 		NuclideBoard(QValueList<Element*> list, QWidget* parent = 0, const char* name = 0);
 
 		~NuclideBoard(){};
@@ -48,6 +53,8 @@ class NuclideBoard : public QWidget
 		QValueList<Element*> m_list;
 
 		QValueList<IsotopeWidget*> m_isotopeWidgetList;
+		
+		QValueList<Decay*> m_decayList;
 
 		void updateList();
 
@@ -60,12 +67,20 @@ class NuclideBoard : public QWidget
 		int m_stop;
 
 	public slots:
+		/**
+		 * defines the first isotope which will be displayed
+		 * @param v the number of the element
+		 */
 		void setStart( int v ){
 			m_start = v;
 			updateList();
 			update();
 		}
 
+		/**
+		 * defines the last isotope which will be displayed
+		 * @param v the number of the element
+		 */
 		void setStop( int v ){
 			m_stop = v;
 			updateList();
@@ -76,29 +91,64 @@ class NuclideBoard : public QWidget
 		virtual void paintEvent(QPaintEvent*);
 };
 
+/**
+ * @author Carsten Niehaus
+ */
 class IsotopeWidget
 {
 public:
+		/**
+		 * public constructor
+		 * @param isotope the Isotope which this widget represents
+		 */
 		IsotopeWidget( Isotope* isotope );
 		~IsotopeWidget(){};
 
+		/**
+		 * defines the dimension of the widget
+		 * @param size the size of the widget
+		 */
 		void setSize( int size ){
 			m_size = size;
 		}
 
+		/**
+		 * define the coordinate of this widget
+		 * @param p the coordinate
+		 */
 		void setPoint( QPoint p ){
 			m_point = p;
 		}
 
+		/**
+		 * in this method the widget paints itself
+		 */
 		void drawSelf( QPainter* p );
+
+		/**
+		 * if a IsotopeWidget is activated it will
+		 * look a bit diffent. This is used to show
+		 * and highligt row of decay
+		 * @param a if true the widget will be activated
+		 */
+		void activate( bool a ){
+			m_active = a;
+		}
 
 private:
 		Isotope* m_isotope;
 
+		QColor m_color;
+
 		QPoint m_point;
 		int m_size;
+
+		bool m_active;
 };
 
+/**
+ * @author Carsten Niehaus
+ */
 class Decay
 {
 public:

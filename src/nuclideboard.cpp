@@ -134,8 +134,6 @@ void NuclideBoard::updateList()
 
 	const int h = w;
 
-	kdDebug() << " :: :: :: :: :: :: :: :: :: :: :: :: :: :: :: ::" << endl;
-
 	for ( int i = m_start ; it != itEnd; ++it )
 	{
 		QValueList<Isotope*> i_list = ( *it )->isotopes();
@@ -154,8 +152,6 @@ void NuclideBoard::updateList()
 
 			y = height()-( ( i-m_start )*h );
 			
-			//kdDebug() << n_count << " :: " << position << " :: " << x << endl;
-
 			IsotopeWidget *widget = new IsotopeWidget( *i_it );
 			widget->setSize( w );
 			widget->setPoint( QPoint(x,y) );
@@ -169,13 +165,7 @@ void NuclideBoard::updateList()
 IsotopeWidget::IsotopeWidget( Isotope* isotope )
 {
 	m_isotope = isotope;	
-}
-
-
-void IsotopeWidget::drawSelf( QPainter*p )
-{
-	kdDebug() << "IsotopeWidget::drawSelf()" << endl;
-
+	
 	QColor c;
 
 	if ( m_isotope->betaminusdecay() )
@@ -189,8 +179,31 @@ void IsotopeWidget::drawSelf( QPainter*p )
 	else
 		c= Qt::magenta;
 
-	p->fillRect( m_point.x()+m_size, m_point.y()-m_size, m_size-1, m_size-1, c );
+	m_color = c;
+
+	m_active = false;
+}
+
+
+void IsotopeWidget::drawSelf( QPainter*p )
+{
+	kdDebug() << "IsotopeWidget::drawSelf()" << endl;
+	QColor color = m_color;
+	if ( m_active )
+		color = m_color.dark();
+
+	p->fillRect( m_point.x()+m_size, m_point.y()-m_size, m_size-1, m_size-1, color );
+	
 	p->drawRect( m_point.x()+m_size, m_point.y()-m_size, m_size-1, m_size-1 );
+
+//X 	if ( m_active )
+//X 	{
+//X 		p->setPen( Qt::white );
+//X 
+//X 		p->drawRect( m_point.x()+m_size+1, m_point.y()-m_size-1, m_size-4, m_size-4 );
+//X 
+//X 		p->setPen( Qt::black );
+//X 	}
 }
  
  #include "nuclideboard.moc"
