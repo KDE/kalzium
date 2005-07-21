@@ -105,7 +105,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		
 		QDomElement nameE = domElement.namedItem( "name" ).toElement();
 		QString name = nameE.text();
-		QString origin = nameE.attributeNode( "origin" ).value();
+		QString origin = i18n( nameE.attributeNode( "origin" ).value().utf8() );
 		
 		QString block = domElement.namedItem( "block" ).toElement().text();
 		QString group = domElement.namedItem( "group" ).toElement().text();
