@@ -33,7 +33,10 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 {
 	QPainter p;
 	p.begin( this );
-
+	while ( m_start >= m_stop)
+	{
+	m_stop = m_stop+1;
+	}
 	const int highestNumberOfNeutrons = highestNeutronCount();
 	const int lowestNumberOfNeutrons = lowestNeutronCount();
 	const int rangeOfNeutrons = highestNumberOfNeutrons-lowestNumberOfNeutrons;
