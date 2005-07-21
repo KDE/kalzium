@@ -19,12 +19,16 @@
  ***************************************************************************/
 #include "spectrum.h"
 #include "spectrumwidget.h"
+#include "exporter.h"
 
 #include <qlayout.h>
 #include <qlabel.h>
+#include <qpushbutton.h>
 
 #include <kglobal.h>
 #include <kstandarddirs.h>
+#include <kfiledialog.h>
+#include <kmessagebox.h>
 #include <klocale.h>
 #include <kdebug.h>
 
@@ -177,10 +181,12 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	m_spinbox_right = new QSpinBox( 100, 1000, 1, this );
 //X 	m_spinbox_left->setValue(  ( double ) m_spectrum->min() );
 //X 	m_spinbox_right->setValue( ( double ) m_spectrum->max() );
+	m_button_save = new QPushButton( i18n("Save spectrum as PNG"), this, "button_save" );
 	
 	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setRightBorder( int ) ) );
 	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
 	connect( m_spectrumWidget, SIGNAL( bordersChanged( int, int ) ), this, SLOT( slotBordersChanged( int, int ) ) );	
+	connect( m_button_save, SIGNAL( pressed() ), this, SLOT( slotSave() ) ); 
 
 	m_spectrumbox = new KComboBox( this, "combobox" );
 	m_spectrumbox->insertItem( "Emission Spectrum" );
@@ -195,6 +201,7 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	hbox->addWidget( m_spinbox_left );
 	hbox->addWidget( new QLabel( i18n( "Maximumvalue" ), this ) );
 	hbox->addWidget( m_spinbox_right );
+	hbox->addWidget( m_button_save );
 	hbox->addWidget( m_spectrumbox );
 
 	spectrumLayout->addLayout( hbox );
@@ -204,6 +211,18 @@ void SpectrumView::slotBordersChanged( int left, int right )
 {
 	m_spinbox_left->setValue( left );
 	m_spinbox_right->setValue( right );
+}
+
+void SpectrumView::slotSave()
+{
+	QString fileName = KFileDialog::getSaveFileName( QString::null, "*.png", this, i18n( "Save Spectrum" ) ); 
+	if( !fileName.isEmpty() )
+	{
+    		Exporter* exporter = new Exporter();
+		if ( !exporter->saveAsPNG( m_spectrumWidget, fileName ) )
+			KMessageBox::error( this, i18n( "The spectrum could not be saved"), i18n( "PNG could not be saved") );
+		delete exporter;
+	}	
 }
 
 #include "spectrum.moc"

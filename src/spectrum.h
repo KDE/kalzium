@@ -35,6 +35,7 @@
 #include "element.h"
 
 class SpectrumWidget;
+class QPushButton;
 
 /**
  * @author Carsten Niehaus
@@ -190,8 +191,11 @@ class SpectrumView : public QWidget
 
 		KComboBox *m_spectrumbox;
 
+		QPushButton *m_button_save;
+
 	public slots:
 		void slotBordersChanged( int, int );
+		void slotSave();
 };
 
 #endif // SPECTRUM_H
