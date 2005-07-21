@@ -295,7 +295,7 @@ QString DetailedInfoDlg::isotopeTable()
 		if ( ( *it )->betaminusdecay() )
 			html.append( i18n( " %1" ).arg( QChar( 946 ) ) );
 		if ( ( *it )->ecdecay() )
-			html.append( i18n( " EC" ) );
+			html.append( i18n( "Acronym of Electron Capture"," EC" ) );
 		html.append( "</td><td>" );
 		html.append( i18n("%1 ").arg(( *it )->spin() ) );
 		html.append( "</td><td>" );
