@@ -52,6 +52,7 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 		 return;
 
 	m_pixmap.resize( width(), height() );
+	m_pixmap.fill( this, width(), height() );
 
 	QPainter p;
 	p.begin( &m_pixmap );
