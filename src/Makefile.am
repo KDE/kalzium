@@ -29,7 +29,7 @@ kalzium_SOURCES = kalzium.cpp \
 			nuclideboard.cpp \
 			exporter.cpp 
 			
-kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) 
+kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) $(EQCHEM_LDADD)
 		 
 		  
 SUBDIRS = icons elementpics data $(EQCHEM_SUB)

@@ -31,7 +31,6 @@
 
 #include "eqresult.h"
 #include "eqchemview.h"
-#include "settings.h"
 
 #include <stdlib.h>
 
