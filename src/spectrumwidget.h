@@ -39,7 +39,7 @@ class SpectrumWidget : public QWidget
 	Q_OBJECT
 
 	public:
-		SpectrumWidget( QWidget *parent, const char* name = 0);
+		SpectrumWidget( QWidget *parent, const char* name = 0 );
 		
 		~SpectrumWidget(){};
 
