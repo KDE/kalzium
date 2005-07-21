@@ -64,6 +64,9 @@ class NuclideBoard : public QWidget
 		
 		int lowestNeutronCount();
 
+		int m_lowestNumberOfNeutrons;
+		int m_highestNumberOfNeutrons;
+
 		int m_start;
 
 		int m_stop;
@@ -80,6 +83,8 @@ class NuclideBoard : public QWidget
 				return;
 			}
 			m_start = v;
+			m_highestNumberOfNeutrons = highestNeutronCount();
+			m_lowestNumberOfNeutrons = lowestNeutronCount();
 			updateList();
 		}
 
@@ -87,15 +92,24 @@ class NuclideBoard : public QWidget
 		 * defines the last isotope which will be displayed
 		 * @param v the number of the element
 		 */
-		void setStop( int v ){
-			if ( v < m_start )
-			{
-				emitStopValue( m_stop );
-				return;
-			}
-			m_stop = v;
-			updateList();
+	void setStop( int v ){
+		if ( v < m_start )
+		{
+			emitStopValue( m_stop );
+			return;
 		}
+		m_stop = v;
+		m_highestNumberOfNeutrons = highestNeutronCount();
+		m_lowestNumberOfNeutrons = lowestNeutronCount();
+		updateList();
+	}
+
+	private slots:
+		/**
+		 * Draw the decay of an isotope
+		 * @param the first istope in the row
+		 */
+		void slotDrawDecayRow( Isotope* isotope );
 
 	signals:
 		void emitStartValue( int );
@@ -103,19 +117,22 @@ class NuclideBoard : public QWidget
 
 	protected:
 		virtual void paintEvent(QPaintEvent*);
+
+		virtual void mousePressEvent( QMouseEvent* e );
 };
 
 /**
  * @author Carsten Niehaus
  */
-class IsotopeWidget
+class IsotopeWidget : public QWidget
 {
-public:
+	Q_OBJECT
+	public:
 		/**
 		 * public constructor
 		 * @param isotope the Isotope which this widget represents
 		 */
-		IsotopeWidget( Isotope* isotope );
+		IsotopeWidget( Isotope* isotope, QWidget *parent );
 		~IsotopeWidget(){};
 
 		/**
@@ -124,6 +141,10 @@ public:
 		 */
 		void setSize( int size ){
 			m_size = size;
+		}
+
+		int size() const {
+			return m_size;
 		}
 
 		/**
@@ -149,7 +170,7 @@ public:
 			m_active = a;
 		}
 
-private:
+	private:
 		Isotope* m_isotope;
 
 		QColor m_color;
@@ -158,6 +179,9 @@ private:
 		int m_size;
 
 		bool m_active;
+
+	signals:
+		void clicked( Isotope* );
 };
 
 /**

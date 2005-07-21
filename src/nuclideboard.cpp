@@ -23,6 +23,7 @@
 
 #include <qlayout.h>
 #include <qspinbox.h>
+#include <qcursor.h>
 
 #include "math.h"
 
@@ -48,11 +49,45 @@ NuclideBoardDialog::NuclideBoardDialog( KalziumDataObject* data, QWidget* parent
 	setMinimumSize( 400, 350 );
 }
 
-NuclideBoard::NuclideBoard(QValueList<Element*> list, QWidget *parent, const char* name) : QWidget(parent, name)
+NuclideBoard::NuclideBoard(QValueList<Element*> list, QWidget *parent, const char* name) 
+	: QWidget(parent, name)
 {
 	m_list = list;
-	m_start = 1;
-	m_stop = 18;
+	m_start = 80;
+	m_stop = 100;
+}
+
+void NuclideBoard::mousePressEvent( QMouseEvent *e )
+{
+	kdDebug() << "NuclideBoard::mousePressEvent()" << endl;
+	
+	QValueList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
+	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
+	
+	QPoint pt = mapFromGlobal( QCursor::pos() );
+	
+	int size = ( *it )->size();
+
+	QPoint point( pt.x()/size+m_lowestNumberOfNeutrons, ( height()-pt.y() )/size+m_start );
+
+	kdDebug() << "point : " << point << endl;
+	
+	if (  e->button() == QMouseEvent::LeftButton )
+	{
+//X 		emit clicked( m_isotope );
+	}
+}
+
+
+void NuclideBoard::slotDrawDecayRow( Isotope* isotope )
+{
+	kdDebug() << "NuclideBoard::slotDrawDecayRow()" << endl;
+	if ( !isotope->alphadecay() 
+			&& !isotope->betaplusdecay()
+			&& !isotope->betaminusdecay() )
+		return;
+
+	kdDebug() << "Isotope: " << isotope->neutrons() << endl;
 }
 
 void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
@@ -60,9 +95,7 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 	QPainter p;
 	p.begin( this );
 	
-	const int highestNumberOfNeutrons = highestNeutronCount();
-	const int lowestNumberOfNeutrons = lowestNeutronCount();
-	const int rangeOfNeutrons = highestNumberOfNeutrons-lowestNumberOfNeutrons;
+	const int rangeOfNeutrons = m_highestNumberOfNeutrons-m_lowestNumberOfNeutrons;
 	const int rangeOfElements = m_stop-m_start;
 
 	//the width and height for each square
@@ -78,7 +111,7 @@ void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
 	for ( int i = 0; i <= rangeOfElements; ++i )
 		p.drawText( 0, height()-( i*h )-h,w-1,h-1, Qt::AlignCenter, QString::number( m_start+i ));
 	for ( int i = 0; i <= rangeOfNeutrons; ++i )
-		p.drawText( i*w+w, 0,w-1,h-1, Qt::AlignCenter, QString::number( lowestNumberOfNeutrons+i ));
+		p.drawText( i*w+w, 0,w-1,h-1, Qt::AlignCenter, QString::number( m_lowestNumberOfNeutrons+i ));
 
 	QValueList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
 	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
@@ -138,16 +171,12 @@ int NuclideBoard::lowestNeutronCount()
 
 void NuclideBoard::updateList()
 {
-	kdDebug() << "IsotopeWidget::updateList()" << endl;
-			
 	m_isotopeWidgetList.clear();
 
 	QValueList<Element*>::const_iterator it = m_list.at(m_start-1);
 	const QValueList<Element*>::const_iterator itEnd = m_list.at(m_stop);
 	
-	const int highestNumberOfNeutrons = highestNeutronCount();
-	const int lowestNumberOfNeutrons = lowestNeutronCount();
-	const int rangeOfNeutrons = highestNumberOfNeutrons-lowestNumberOfNeutrons;
+	const int rangeOfNeutrons = m_highestNumberOfNeutrons-m_lowestNumberOfNeutrons;
 	const int rangeOfElements = m_stop-m_start;
 
 	//the width and height for each square
@@ -173,12 +202,15 @@ void NuclideBoard::updateList()
 			int y;
 			
 			int n_count = ( *i_it )->neutrons();
-			int position = n_count - lowestNumberOfNeutrons;
+			int position = n_count - m_lowestNumberOfNeutrons;
 			int x = position * w;
 
 			y = height()-( ( i-m_start )*h );
 			
-			IsotopeWidget *widget = new IsotopeWidget( *i_it );
+			IsotopeWidget *widget = new IsotopeWidget( *i_it, this );
+	
+			connect( widget, SIGNAL( clicked( Isotope* ) ), this, SLOT(slotDrawDecayRow( Isotope* ) ) );
+
 			widget->setSize( w );
 			widget->setPoint( QPoint(x,y) );
 
@@ -189,7 +221,7 @@ void NuclideBoard::updateList()
 	update();
 }
 
-IsotopeWidget::IsotopeWidget( Isotope* isotope )
+IsotopeWidget::IsotopeWidget( Isotope* isotope, QWidget *parent ) : QWidget(parent)
 {
 	m_isotope = isotope;	
 	
@@ -210,7 +242,6 @@ IsotopeWidget::IsotopeWidget( Isotope* isotope )
 
 	m_active = false;
 }
-
 
 void IsotopeWidget::drawSelf( QPainter*p )
 {
