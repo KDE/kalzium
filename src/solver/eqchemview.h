@@ -36,7 +36,7 @@ class KPushButton;
  * here.
  *
  * @short Main view
- * @author Thomas Nagy <tnagy2^8@yahoo.fr>
+ * @author Thomas Nagy <tnagy2^8\@yahoo.fr>
  * @version 0.1
  */
 class eqchemView : public QWidget

@@ -45,7 +45,11 @@ class NuclideBoard : public QWidget
 
 	public:
 		/**
-		 * @param list the list of all elements
+		 * Constructor.
+		 *
+		 * @param list   the list of all elements
+		 * @param parent parent widget for this one
+		 * @param name   object name
 		 */
 		NuclideBoard(QValueList<Element*> list, QWidget* parent = 0, const char* name = 0);
 
@@ -131,6 +135,7 @@ class IsotopeWidget : public QWidget
 		/**
 		 * public constructor
 		 * @param isotope the Isotope which this widget represents
+		 * @param parent  parent widget for this widget
 		 */
 		IsotopeWidget( Isotope* isotope, QWidget *parent );
 		~IsotopeWidget(){};
