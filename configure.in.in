@@ -32,8 +32,12 @@ if test -n "$OCAML"; then
    FACILE_PROG
 fi
 
+AH_TEMPLATE(HAVE_FACILE, facile solver available?)
 
-if test "$eqchem_enabled" != "yes"; then
-   DO_NOT_COMPILE="$DO_NOT_COMPILE eqchem"
+EQCHEM_SUB=
+if test "$eqchem_enabled" = "yes"; then
+   EQCHEM_SUB=solver
+   AC_DEFINE(HAVE_FACILE, 1)
 fi
 
+AC_SUBST(EQCHEM_SUB)
