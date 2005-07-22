@@ -98,6 +98,7 @@ class Element{
 		void setRadius( RADIUSTYPE type, double value, const QString& name = 0 );
 		
 		void setDate( int date ) { m_date = date; }
+		void setPeriod( int period ){ m_period = period; }
 		void setBiologicalMeaning( int value ) { m_biological = value; }
 		void setNumber( int num ){ m_number = num; }
 
@@ -415,7 +416,8 @@ class Element{
 
 		int     m_number,
 			m_date,
-			m_biological;
+			m_biological,
+			m_period;
 
 		QString m_symbol,
 			m_name,
@@ -437,7 +439,13 @@ class Element{
 		doubleList m_ionenergies;
 		
 	public:
-		virtual void drawGradient( QPainter* p, const QString& value, const QColor& );
+		/**
+		 * draw the rectangle with the information
+		 * @param p painter to do the drawing on
+		 * @param value the value to display as text
+		 * @param c the color used to paint the element
+		 */
+		virtual void drawGradient( QPainter* p, const QString& value, const QColor& c);
 		
 		/**
 		 * draw the rectangle with the information

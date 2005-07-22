@@ -40,6 +40,10 @@ class KalziumDataObject
 		
 		CList CoordinateList;
 
+		/**
+		 * @return the Element with the number @p number
+		 * @param the number of the Element which will be returned
+		 */
 		Element* element( int number );
 
 		/**

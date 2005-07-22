@@ -102,6 +102,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		
 		int bio = domElement.namedItem( "biologicalmeaning" ).toElement().text().toInt();
 		int radioactive = domElement.namedItem( "radioactive" ).toElement().text().toInt();
+		int period = domElement.namedItem( "period" ).toElement().text().toInt();
 		int artificial = domElement.namedItem( "artificial" ).toElement().text().toInt();
 		int date = domElement.namedItem( "date" ).toElement().text().toInt();
 		int number = domElement.namedItem( "number" ).toElement().text().toInt();
@@ -175,6 +176,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			e->setRadioactive();
 		
 		e->setScientist(scientist);
+		e->setPeriod( period );
 		e->setCrysatalstructure( crystal );
 		e->setOrigin(origin);
 		e->setBlock(block);
