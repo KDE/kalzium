@@ -29,7 +29,7 @@ kalzium_SOURCES = kalzium.cpp \
 			nuclideboard.cpp \
 			exporter.cpp 
 			
-kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) $(EQCHEM_LDADD) # solver/libsolver.la
+kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) $(EQCHEM_LDADD)
 
 # temporary hack, just to disable eqchem compilation and to shut auto* up
 EQCHEM_SUB =
