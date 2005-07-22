@@ -53,7 +53,6 @@ class PSE : public QWidget
 	public:
 		/**
 		 * Constructor
-		 * @param data is the object in which all data is stored
 		 * @param parent parent widget
 		 * @param name name of this widget
 		 */
