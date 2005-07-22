@@ -54,19 +54,19 @@ PSE::PSE(QWidget *parent, const char *name)
 			 this,        SLOT( selectPoint( QPoint ) ) );
 #endif
 	connect( this,        SIGNAL( ToolTip( int ) ), 
-			 this,        SLOT( slotToolTip( int ) ) );
+	         this,        SLOT( slotToolTip( int ) ) );
 
 	connect( &HoverTimer, SIGNAL( timeout() ), 
-			 this,        SLOT( slotTransientLabel() ) );
+	         this,        SLOT( slotTransientLabel() ) );
 	
 	connect( &MouseoverTimer, SIGNAL( timeout() ), 
-			 this,        SLOT( slotMouseover() ) );
+	         this,        SLOT( slotMouseover() ) );
 
 	setMouseTracking( true );
-  
-  //JH: eliminates flicker on redraw
-  setBackgroundMode( QWidget::NoBackground );
- 
+
+	//JH: eliminates flicker on redraw
+	setBackgroundMode( QWidget::NoBackground );
+
 	m_molcalcIsActive = false;
 	m_learningMode = false;
 	m_showTooltip = true;
@@ -76,7 +76,7 @@ PSE::PSE(QWidget *parent, const char *name)
 	m_showSOM = false;
 	m_showGradient = false;
 	m_tooltipsEnabled = Prefs::tooltip();
-	
+
 	reloadColours();
 
 	//IUPAC
@@ -127,8 +127,8 @@ PSE::PSE(QWidget *parent, const char *name)
 	//JH: Start with a full draw
 	doFullDraw = true;
 
-  // according to carsten :)
-  setMinimumSize(ELEMENTSIZE*18+1, ELEMENTSIZE*10+30);
+	// according to carsten :)
+	setMinimumSize(ELEMENTSIZE*18+1, ELEMENTSIZE*10+30);
 }
 
 void PSE::reloadColours()
@@ -171,8 +171,8 @@ void PSE::slotToolTip( int number )
 	m_tooltipElementNumber = number;
 
 	QWidget *p = 0;
-        if ( dynamic_cast<QWidget*>( parent() ) )
-              p = static_cast<QWidget*>( parent() );
+	if ( dynamic_cast<QWidget*>( parent() ) )
+		p = static_cast<QWidget*>( parent() );
 
 	if( p )
 		m_kalziumTip->showTip( mapFromGlobal(QCursor::pos()), 
@@ -338,67 +338,68 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 {
 	QPainter p;
 
-  //JH: I have split the drawing into two pixmaps: table and table2.
-  //table contains the "static" PSE table, and does not change very often.
-  //table2 contains the tooltips and any other dynamic overlays.
-  //Usually, we can skip the code which renders the table, and just use the 
-  //image stored in table...when doFullDraw==false, the rendering code is skipped.
-  if ( doFullDraw ) 
-  {
-	  //DEBUG
-	  kdDebug() << "Drawing full table" << endl;
+	//JH: I have split the drawing into two pixmaps: table and table2.
+	//table contains the "static" PSE table, and does not change very often.
+	//table2 contains the tooltips and any other dynamic overlays.
+	//Usually, we can skip the code which renders the table, and just use the 
+	//image stored in table...when doFullDraw==false, the rendering code is skipped.
+	if ( doFullDraw )
+	{
+		//DEBUG
+		kdDebug() << "Drawing full table" << endl;
 
-	  p.begin( table );
-	  p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
+		p.begin( table );
+		p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
 
-	  // Draw the numbers above the table.
-	  drawNumeration( &p );
+		// Draw the numbers above the table.
+		drawNumeration( &p );
 
-	  drawLegend( &p );
-	 
-	  if ( m_timeline ){ //use timeline
-		  drawTimeLine(& p );
-		  p.end();
-		
-		  *table2 = *table;
-		  bitBlt( this, 0, 0, table2 );
-		  return;
-	  }
-	  if ( som() ){//use state of matter
-		  drawSOMPSE(& p );
-		  p.end();
+		drawLegend( &p );
 
-		  *table2 = *table;
-		  bitBlt( this, 0, 0, table2 );
-		  return;
-	  }
-	  if ( gradient() ){//show a gradient
-		  calculateGradient(& p );
-		  p.end();
+		if ( m_timeline )
+		{ //use timeline
+			drawTimeLine(& p );
+			p.end();
 
-		  *table2 = *table;
-		  bitBlt( this, 0, 0, table2 );
-		  return;
-	  }
+			*table2 = *table;
+			bitBlt( this, 0, 0, table2 );
+			return;
+		}
+		if ( som() )
+		{//use state of matter
+			drawSOMPSE(& p );
+			p.end();
 
-	  drawPSE( &p, m_currentScheme == CRYSTAL );
+			*table2 = *table;
+			bitBlt( this, 0, 0, table2 );
+			return;
+		}
+		if ( gradient() )
+		{//show a gradient
+			calculateGradient(& p );
+			p.end();
 
-	  paintCurrentSelection();
+			*table2 = *table;
+			bitBlt( this, 0, 0, table2 );
+		return;
+		}
 
-	  p.end();
+		drawPSE( &p, m_currentScheme == CRYSTAL );
 
-	  doFullDraw = false;
-  }
+		paintCurrentSelection();
 
-  //JH: Ok, now table contains the static PSE table, and we may need to draw
-  //a tooltip on it.  However, we don't want to ruin the stored table pixmap, 
-  //so let's copy it to table2 and add the tooltip there.
-  *table2 = *table;
- 
+		p.end();
 
-		
-  //JH: Finally, bitBlt the table2 pixmap to the widget
-  bitBlt( this, 0, 0, table2 );
+		doFullDraw = false;
+	}
+
+	//JH: Ok, now table contains the static PSE table, and we may need to draw
+	//a tooltip on it.  However, we don't want to ruin the stored table pixmap, 
+	//so let's copy it to table2 and add the tooltip there.
+	*table2 = *table;
+
+	//JH: Finally, bitBlt the table2 pixmap to the widget
+	bitBlt( this, 0, 0, table2 );
 }
 
 void PSE::paintCurrentSelection()
@@ -434,7 +435,7 @@ void PSE::drawLegendToolTip( QPainter* p )
 {
 	kdDebug() << "PSE::drawLegendToolTip()" << endl;
 	if(!m_showLegendTooltip || !m_showLegend) return;
-	
+
 	QString text;
 
 	switch ( m_currentScheme ) {
@@ -530,7 +531,7 @@ void PSE::drawTimeLine( QPainter* p )
 void PSE::drawLegend( QPainter* p )
 {
 	if ( !p ) return;
-	  
+
 	if ( !m_showLegend ) return;
 
 	/*
@@ -572,7 +573,7 @@ void PSE::drawLegend( QPainter* p )
 	const  int textOffset = square_w + 10;
 	
 	p->fillRect(legendLeft, legendTop, legendWidth, legendHeight,
-				QColor(200, 200, 200));
+	            QColor(200, 200, 200));
 
 	if ( som() )
 	{
@@ -585,7 +586,7 @@ void PSE::drawLegend( QPainter* p )
 		p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Vaporous") ); 
 		return;
 	}
-	switch ( m_currentScheme ) {
+	switch ( m_currentScheme ){
 		//No Legend to be drawn as only one colour is used
 		case PSE::NOCOLOUR:
 			break;
@@ -651,7 +652,7 @@ void PSE::drawLegend( QPainter* p )
 			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Noble Gas")); 
 			p->drawText( x1 + textOffset , fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Metalloid")); 
 			break;
-	    case PSE::CRYSTAL:
+		case PSE::CRYSTAL:
 			p->fillRect(x1, fieldheight*2, square_w, square_h, Qt::cyan ); 
 			p->fillRect(x1, fieldheight*3, square_w, square_h, Qt::red ); 
 			p->fillRect(x1, fieldheight*4, square_w, square_h, Qt::yellow ); 
@@ -709,7 +710,7 @@ void PSE::drawSOMPSE( QPainter* p )
 
 }
 
-void PSE::slotTransientLabel( void )
+void PSE::slotTransientLabel()
 {
 	QPoint point = ElementUnderMouse();
 
@@ -724,7 +725,8 @@ void PSE::slotTransientLabel( void )
 		m_showLegendTooltip = true;
 		update();
 	}
-	else m_showLegendTooltip = false;
+	else
+		m_showLegendTooltip = false;
 }
 
 void PSE::mousePressEvent( QMouseEvent *)
@@ -735,34 +737,34 @@ void PSE::mousePressEvent( QMouseEvent *)
 
 void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 {
-  //JH: only update() if we were showing a tooltip
-  if ( m_tooltipElementNumber || m_showLegendTooltip )
-  {
-  	m_tooltipElementNumber = 0; //this invalidates the number. If the mouse
-	                            //is moved, the number is invalid. 
-	m_showLegendTooltip = false;
-	update();
-  }
+	//JH: only update() if we were showing a tooltip
+	if ( m_tooltipElementNumber || m_showLegendTooltip )
+	{
+		//this invalidates the number. If the mouse
+		//is moved, the number is invalid. 
+		m_tooltipElementNumber = 0;
+		m_showLegendTooltip = false;
+		update();
+	}
 
-  if( m_kalziumTip->isVisible() )
-  {
-//	kdDebug()<< "visible" << endl;
-	QPoint point = ElementUnderMouse();
+	if( m_kalziumTip->isVisible() )
+	{
+//		kdDebug()<< "visible" << endl;
+		QPoint point = ElementUnderMouse();
 
-	int X = point.x();
-	int Y = point.y();
+		int X = point.x();
+		int Y = point.y();
 
-	const int num = ElementNumber( X, Y );
+		const int num = ElementNumber( X, Y );
 
-	if ( num != 0 )
-		emit ToolTip( num );
-	else
-		m_kalziumTip->hide();
+		if ( num != 0 )
+			emit ToolTip( num );
+		else
+			m_kalziumTip->hide();
+	}
 
-  } 	  
-
-  HoverTimer.start(  500, true ); //JH: true = run timer once, not continuously
-  MouseoverTimer.start(  200, true ); //JH: true = run timer once, not continuously
+	HoverTimer.start(  500, true ); //JH: true = run timer once, not continuously
+	MouseoverTimer.start(  200, true ); //JH: true = run timer once, not continuously
 }
 
 bool PSE::pointerOnLegend(int X, int Y)

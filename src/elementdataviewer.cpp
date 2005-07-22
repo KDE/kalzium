@@ -43,14 +43,12 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 
 	yData = new AxisData();
 	
-	QHBoxLayout *layout = new QHBoxLayout(plainPage(), 0, 
-										  KDialog::spacingHint() );
+	QHBoxLayout *layout = new QHBoxLayout(plainPage(), 0, KDialog::spacingHint() );
 
 	m_pPlotSetupWidget = new PlotSetupWidget( plainPage(), "plotsetup" );	
 	m_pPlotSetupWidget->from->setMaxValue( d->numberOfElements() - 1 );
 	m_pPlotSetupWidget->to->setMaxValue( d->numberOfElements() );
-	m_pPlotWidget      = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage(),
-										 "plotwidget" );
+	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage(), "plotwidget" );
 	m_pPlotWidget->setMinimumWidth( 200 );
 	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );
 
@@ -59,9 +57,7 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 	layout->setStretchFactor( m_pPlotSetupWidget, 0 );
 	layout->setStretchFactor( m_pPlotWidget, 1 );
 
-	/*
-	 * setup the list of names
-	 **/
+	// setup the list of names
 	EList::iterator it = d->ElementList.begin();
 	const EList::iterator itEnd = d->ElementList.end();
 	for( ; it != itEnd ; ++it )
@@ -323,7 +319,7 @@ void ElementDataViewer::initData()
 	setupAxisData();
 }
 
-///////////////////////////////////////////////7
+///////////////////////////////////////////////
 
 AxisData::AxisData()
 {}

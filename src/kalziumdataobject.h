@@ -25,7 +25,6 @@
 /**
  * @author Carsten Niehaus
  *
- * 
  * @short this class contains all Element-objects as
  * a QValueList<Element*>
  */
@@ -54,7 +53,9 @@ class KalziumDataObject
 
 		EList readData( QDomDocument &dataDocument );
 
-		// caching the number of elements
+		/**
+		 * Caching the number of elements
+		 */
 		int m_numOfElements;
 };
 #endif // KALZIUMDATAOBJECT_H

@@ -59,8 +59,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 
 	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
 	dTab->setElement( m_element );
- 	overviewLayout->addWidget( dTab );
-	
+	overviewLayout->addWidget( dTab );
 
 	wOrbits = new OrbitsWidget( m_pModelTab );
 	piclabel = new QLabel( m_pPictureTab );
@@ -115,7 +114,7 @@ void DetailedInfoDlg::setElement(Element *element)
 }
 
 
-void DetailedInfoDlg::addTab( const QString& htmlcode, const QString& title, const QString icontext, const QString iconname )
+void DetailedInfoDlg::addTab( const QString& htmlcode, const QString& title, const QString& icontext, const QString& iconname )
 {
 	QFrame *frame = addPage(title, icontext, BarIcon(iconname));
 	QVBoxLayout *layout = new QVBoxLayout( frame );
@@ -318,7 +317,7 @@ void DetailedInfoDlg::createContent( )
 	
 	//now add the spectrum-widget if needed
 	if ( m_element->hasSpectrum() )
-	{	
+	{
 		m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
 		QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
 		m_spectrumview = new SpectrumView( m_element->spectrum(), m_pSpectrumTab, "spectrumwidget" );
@@ -332,7 +331,7 @@ void DetailedInfoDlg::createContent( )
 
 	dTab->setElement( m_element );
 
-	////////////////////////////////////7
+	////////////////////////////////////
 	QString picpath = locate(  "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" );
 	if ( !picpath.isEmpty() )
 	{
@@ -347,7 +346,7 @@ void DetailedInfoDlg::createContent( )
 		piclabel->setText( i18n( "No picture of %1 found." ).arg( m_element->elname() ) );
 	}
 
-    /////////////////////////////////
+	/////////////////////////////////
 	
 	wOrbits->setElementNumber( m_element->number() );
 	wOrbits->repaint();

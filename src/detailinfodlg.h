@@ -100,7 +100,7 @@ class DetailedInfoDlg : public KDialogBase
 		 * @param icontext The name of the tab, appears belov or instead of the icon
 		 * @param iconname The name of the icon
 		 */
-		void addTab( const QString& htmlcode, const QString& title, const QString icontext, const QString iconname );
+		void addTab( const QString& htmlcode, const QString& title, const QString& icontext, const QString& iconname );
 	
 	protected slots:
 		virtual void slotUser1();

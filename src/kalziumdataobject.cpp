@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include "kalziumdataobject.h"
+
 #include "isotope.h"
 #include "spectrum.h"
 
@@ -31,12 +32,10 @@
 #include <kurl.h>
 #include <kstandarddirs.h>
 
-#include <kstandarddirs.h>
-
 KalziumDataObject* KalziumDataObject::instance()
 {
-  static KalziumDataObject kdo;
-  return &kdo;
+	static KalziumDataObject kdo;
+	return &kdo;
 }
 
 KalziumDataObject::KalziumDataObject()
@@ -67,7 +66,8 @@ KalziumDataObject::KalziumDataObject()
 }
 
 KalziumDataObject::~KalziumDataObject()
-{}
+{
+}
 
 Element* KalziumDataObject::element( int number )
 {
@@ -198,7 +198,8 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 
 		Spectrum *spectrum = new Spectrum( e );
 		bool spectrum_temp = false;
-		if ( spectrumList.length() > 0 ) spectrum_temp = true;
+		if ( spectrumList.length() > 0 )
+			spectrum_temp = true;
 		for( uint i = 0; i < spectrumList.length(); i++ )
 		{
 			Spectrum::band b;
@@ -226,7 +227,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		coordinate point; point.x =  e->x; point.y = e->y;
 		CoordinateList.append( point );
 	}
-	
+
 	return list;
 }
 
@@ -234,4 +235,3 @@ const int KalziumDataObject::numberOfElements() const
 {
 	return m_numOfElements;
 }
-

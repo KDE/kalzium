@@ -373,9 +373,9 @@ void Kalzium::slotSwitchtoNumeration( int index )
 	m_PSE->setNumerationType( ( PSE::NUMERATIONTYPE )index );
 	Prefs::setNumeration(index); 
 	Prefs::writeConfig();
-  
-  //JH: redraw the full table next time
-  setFullDraw();
+
+	//JH: redraw the full table next time
+	setFullDraw();
 }
 
 void Kalzium::showSettingsDialog()
@@ -421,15 +421,17 @@ void Kalzium::openInformationDialog( int number )
 		//emit tableLocked(true);
 		if (m_infoDialog)
 			m_infoDialog->setElement(KalziumDataObject::instance()->element(number));
-		else {
-			m_infoDialog = new DetailedInfoDlg(KalziumDataObject::instance()->element(number),
-											   this, "detailedDlg" );
+		else
+		{
+			m_infoDialog = new DetailedInfoDlg(
+			                        KalziumDataObject::instance()->element(number),
+			                        this, "detailedDlg" );
 
 			// Remove the selection when this dialog finishes or hides.
 			connect(m_infoDialog, SIGNAL(hidden()),
-					m_PSE,        SLOT(unSelect()));
+			        m_PSE,        SLOT(unSelect()));
 			connect(m_infoDialog, SIGNAL(elementChanged(int)),
-					m_PSE,        SLOT(selectElement(int)));
+			        m_PSE,        SLOT(selectElement(int)));
 		}
 		m_infoDialog->show();
 		//emit tableLocked(false);

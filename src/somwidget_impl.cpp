@@ -41,7 +41,7 @@ SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
 	m_htmlEnd = "</qt>";
 
 	connect( temp_slider, 	SIGNAL( valueChanged( int ) ),
-			 this, 			SLOT( slotTemp( int ) ) );
+	         this, SLOT( slotTemp( int ) ) );
 }
 
 void SOMWidgetIMPL::slotTemp( int temp )

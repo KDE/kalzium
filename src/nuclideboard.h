@@ -36,7 +36,7 @@ class QSpinBox;
 /**
  * @author Jörg Buchwald
  * @author Carsten Niehaus
- * 
+ *
  */
 class NuclideBoard : public QWidget
 {
