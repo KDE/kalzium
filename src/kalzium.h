@@ -96,6 +96,10 @@ class Kalzium : public KMainWindow
 		KAction *m_pTooltipAction;
 		KAction *m_pLegendAction;
 		KAction *m_SidebarAction;
+		
+#ifdef HAVE_FACLIE
+		KAction *m_EQSolverAction;
+#endif
 
 		KToggleAction *m_actionNoScheme;
 		KToggleAction *m_actionGroups;
@@ -137,6 +141,10 @@ class Kalzium : public KMainWindow
 		 * this slot switches Kalzium to the selected color scheme
 		 */
 		void slotShowScheme(int);
+
+#ifdef HAVE_FACLIE
+		void slotShowEQSolver();
+#endif
 
 		void slotShowLegend();
 		

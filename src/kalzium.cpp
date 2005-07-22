@@ -26,6 +26,7 @@
 #include "somwidget_impl.h"
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
+#include "config.h"
 
 #include <qdockwindow.h>
 #include <qlayout.h>
@@ -144,6 +145,10 @@ void Kalzium::setupActions()
 
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
+#ifdef HAVE_FACLIE
+	m_EQSolverAction = new KAction(i18n("Show &Equationsolver"), "sidebar", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "view_eqsolver");
+#endif
+	
 	/*
 	 * the misc actions
 	 **/
@@ -248,6 +253,14 @@ void Kalzium::slotGlossary()
 	emit tableLocked(true);
 	m_glossarydlg->show();
 }
+
+#ifdef HAVE_FACLIE
+void Kalzium::slotShowEQSolver()
+{
+	eqchemView *eqsolver = new eqchemView( this );
+	eqsolver->show();
+}
+#endif
 
 void Kalzium::slotNuclideBoard()
 {
