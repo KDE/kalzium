@@ -38,7 +38,7 @@
 #include "spectrum.h"
 
 DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *name)
-    : KDialogBase( IconList, "", User1|User2|Close, Close, parent, name, false/* non modal */, false, KGuiItem("Next", "1rightarrow"), KGuiItem("Previous", "1leftarrow"))
+    : KDialogBase( IconList, "", User1|User2|Close, Close, parent, name, false/* non modal */, false, KGuiItem(i18n("Next element", "Next"), "1rightarrow"), KGuiItem(i18n("Previous element", "Previous"), "1leftarrow"))
 {
 	m_data    = KalziumDataObject::instance();
 	m_element = el;

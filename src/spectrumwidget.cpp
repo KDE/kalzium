@@ -397,12 +397,10 @@ QPixmap SpectrumWidget::pixmap()
 	QPixmap tmp( m_pixmap );
 	QString text;
 
-	if( m_type == EmissionSpectrum )	
-		text = i18n( "Emission spectrum of " );
+	if( m_type == EmissionSpectrum )
+		text = i18n( "Emission spectrum of %1" ).arg( m_spectrum->parentElement()->elname() );
 	else
-		text = i18n( "Absorption spectrum of " );
-
-	text.append( m_spectrum->parentElement()->elname() );
+		text = i18n( "Absorption spectrum of %1" ).arg( m_spectrum->parentElement()->elname() );
 
 	QPainter p( &tmp );
 	p.setPen( Qt::black );
