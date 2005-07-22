@@ -40,12 +40,15 @@ EQCHEM_LDADD=
 if test "$eqchem_enabled" = "yes"; then
    EQCHEM_SUB=solver
    OCAMLLIB=`ocamlc -where`
-   EQCHEM_LDADD="solver/libsolver.la"
+   FACILELIB=`ocamlc -where`/facile
+   EQCHEM_LDADD="-lasmrun -lstr -lnums -lm -ldl solver.o modwrap.o"
 
    AC_DEFINE(HAVE_FACILE, 1)
 fi
 
 AC_SUBST(EQCHEM_SUB)
 AC_SUBST(OCAMLLIB)
+AC_SUBST(FACILELIB)
 AC_SUBST(EQCHEM_LDADD)
+
 

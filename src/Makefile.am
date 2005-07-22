@@ -2,7 +2,7 @@
 INCLUDES= -I$(srcdir)/../../libkdeedu/kdeeduplot -I$(srcdir)/../../libkdeedu/kdeeduui $(all_includes)
 
 bin_PROGRAMS = kalzium
-kalzium_SOURCES = kalzium.cpp \
+kalzium_SOURCES = eqresult.cpp eqchemview.cpp kalzium.cpp \
 			main.cpp \
 			pse.cpp \
 			element.cpp \
@@ -29,10 +29,7 @@ kalzium_SOURCES = kalzium.cpp \
 			nuclideboard.cpp \
 			exporter.cpp 
 			
-kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) $(EQCHEM_LDADD)
-
-# temporary hack, just to disable eqchem compilation and to shut auto* up
-EQCHEM_SUB =
+kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) -L$(OCAMLLIB) -L$(FACILELIB) $(EQCHEM_LDADD)
 
 SUBDIRS = icons elementpics data $(EQCHEM_SUB)
 

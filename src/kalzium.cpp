@@ -13,7 +13,7 @@
 #include "kalzium.h"
 
 #ifdef HAVE_FACILE
-#include "solver/eqchemview.h"
+#include "eqchemview.h"
 #endif
 
 #include "element.h"

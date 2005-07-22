@@ -17,10 +17,12 @@
  *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.             *
  ***************************************************************************/
 
-#include "kalzium.h"
 #include <kapplication.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
+
+#include "config.h"
+#include "kalzium.h"
 
 #define APP_VERSION "1.4.2pre3"
 
@@ -35,8 +37,18 @@ static KCmdLineOptions options[] =
     KCmdLineLastOption
 };
 
+#ifdef HAVE_FACILE
+extern "C" {
+        void caml_startup(char**);
+};
+#endif
+
 int main(int argc, char **argv)
 {
+#ifdef HAVE_FACILE
+    caml_startup(argv);
+#endif
+
     KAboutData about("kalzium", I18N_NOOP("Kalzium"), version, description,
                      KAboutData::License_GPL, "(C) 2002-2005 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
     about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );

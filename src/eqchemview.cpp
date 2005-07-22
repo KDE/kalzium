@@ -29,15 +29,21 @@
 #include <kiconloader.h>
 #include <kglobal.h>
 
+#include "config.h"
 #include "eqresult.h"
 #include "eqchemview.h"
 
 #include <stdlib.h>
 
+#ifdef HAVE_FACILE
 extern "C" {
     char* solve_equation(const char *);
 }
+#endif
 
+#ifndef HAVE_FACILE
+char* solve_equation(const char *) { return NULL; }
+#endif
 
 eqchemView::eqchemView(QWidget *parent) : QWidget(parent)
 {
@@ -99,7 +105,6 @@ void eqchemView::compute()
     // add the equation in the result window
     m_eqresult->add( equation, disp );
 }
-
 
 #include "eqchemview.moc"
 
