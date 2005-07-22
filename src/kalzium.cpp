@@ -258,13 +258,13 @@ void Kalzium::slotGlossary()
 	m_glossarydlg->show();
 }
 
-#ifdef HAVE_FACILE
 void Kalzium::slotShowEQSolver()
 {
+#ifdef HAVE_FACILE
 	eqchemView *eqsolver = new eqchemView( this );
 	eqsolver->show();
-}
 #endif
+}
 
 void Kalzium::slotNuclideBoard()
 {

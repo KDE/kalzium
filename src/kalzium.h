@@ -97,9 +97,7 @@ class Kalzium : public KMainWindow
 		KAction *m_pLegendAction;
 		KAction *m_SidebarAction;
 		
-#ifdef HAVE_FACLIE
 		KAction *m_EQSolverAction;
-#endif
 
 		KToggleAction *m_actionNoScheme;
 		KToggleAction *m_actionGroups;
@@ -142,9 +140,7 @@ class Kalzium : public KMainWindow
 		 */
 		void slotShowScheme(int);
 
-#ifdef HAVE_FACILE
 		void slotShowEQSolver();
-#endif
 
 		void slotShowLegend();
 		
