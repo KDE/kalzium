@@ -25,11 +25,19 @@
 
 ElementBox::ElementBox( QWidget *parent, const char* name ) : QWidget( parent, name )
 {
-	setBackgroundMode( NoBackground ); // widget has no background
+	m_rowCount = 18;
+	m_colCount = 9;
+	m_border = 25;
+	m_lanthanoidDist = 50;
 
-	setCoordiantes();
+	setRowCol();
 
 	m_richText = 0;
+
+	setBackgroundMode( NoBackground ); // widget has no background
+
+	connect( &hoverTimer, SIGNAL( timeout() ), this, SLOT( slotToolTip() ) );
+	connect( &mouseOverTimer, SIGNAL( timeout() ),this, SLOT( slotMouseover() ) );
 }
 
 void ElementBox::paintEvent( QPaintEvent* e )
@@ -39,39 +47,85 @@ void ElementBox::paintEvent( QPaintEvent* e )
 
 	delete m_richText;
 
-	m_richText = new QSimpleRichText( "<qt><h1>" + m_element->symbol() + "</h1><p>"
-                                                    + m_underline + "</p><p>"
-                                                    +   +"</p></qt>", font() );
+	m_richText = new QSimpleRichText( "<qt><h1>" + m_element->symbol() + "</h1><p>", font() );
+                                               //     + m_underline + "</p><p>"
+                                               //     +   +"</p></qt>", font() );
+
+	m_richText->setWidth( width() - 5 );
+	m_richText->draw( p, 5, 5, rect(), colorGroup() );
+	
+	setCoordiantes();
+	show();
 }
 
 void ElementBox::mouseMoveEvent( QMouseEvent *e )
 {
+	emit mouseMove( m_element->number() );
 }
 
 void ElementBox::mousePressEvent( QMouseEvent *e )
 {
-}
-
-void ElementBox::mouseReleaseEvent( QMouseEvent *e )
-{
+	emit mousePress( m_element->number() );
 }
 
 void ElementBox::focusInEvent( QFocusEvent* e )
 {
-
+	//do some kind of highlighting
 }
 
 void ElementBox::focusOutEvent( QFocusEvent* e )
 {
+	// remove highlighting
 }
 
 void ElementBox::setCoordinates()
 {
-	// move to the correct coordinates... 
-	//move();
+	// resize the box
+	int width = ( parent->width() - 2 * m_border ) / m_colCount;
+	int height = ( parent->height() - 2 * m_border ) / m_rowCount;
+
+	resize( width, height );
+
+	
+	// move to correct position
+	m_dynVertBorder = ( ( parent->height() - 2 * m_border ) % height ) / 2;
+	m_dynHoriBorder = ( ( parent->width() - 2 * m_border ) % width ) / 2;
+
+	if ( m_row < 8 )
+		move( m_border + m_dynHoriBorder + width * m_col, m_border + m_dynVertBorder + height * m_row );
+	else
+		move( m_border + m_dynHoriBorder + width * m_col, 
+					m_border + m_dynVertBorder + height * m_row + m_lanthanoidDist );
 }
 
+void ElementBox::setRowCol()
+{	
+	m_row = m_element->period();
 
+	// exception for lanthanoids and actinoids
+	if ( m_element->number() > 57 && m_element->number() < 72 )
+		m_row = 8;
+	else if ( m_element->number() > 89 && m_element->number() < 104 )
+		m_row = 9;
+
+
+ 	if ( m_element->number() > 105 )	// elements without known orbital structure
+		m_col = m_element->number() - 100;
+	else if ( m_element->block() == "s" )
+		m_col = m_element->group();
+	else if ( m_element->block() == "p" )
+		m_col = m_element->group() + 10;
+	else if ( m_element->block() == "d" || m_element->number() == 57 || m_element->number() == 89 )
+	{	
+		QString tmp = m_element->orbits().section( " ", -2, -2 ); 
+		m_col = tmp.section( "d", -1, -1 ).toInt();
+	}
+	else if ( m_element->block() == "f" && m_element->number() != 57 && m_element->number() != 89 )
+	{
+		QString tmp = m_element->orbits().section( " ", 1, 1 );
+		m_col = tmp.section( "f", -1, -1 ) .toInt();	
+	}	
+}
 
 #include "elementbox.moc"
 

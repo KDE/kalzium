@@ -1503,7 +1503,7 @@
 		<number>37</number>
 		<name origin="Latin 'rubidus' for 'dark red'">Rubidium</name>
 		<symbol>Rb</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>85.4678</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -1537,7 +1537,7 @@
 		<number>38</number>
 		<name origin="Named after the mineral Strontianit">Strontium</name>
 		<symbol>Sr</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>87.62</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -1574,7 +1574,7 @@
 		<number>39</number>
 		<name origin="Named after the small town of Ytterby near Stockholm in Sweden. Terbium. Ytterbium and Gadolinium are also named after this town.">Yttrium</name>
 		<symbol>Y</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>88.90585</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -1607,7 +1607,7 @@
 		<number>40</number>
 		<name origin="Named after the mineral zircon">Zirconium</name>
 		<symbol>Zr</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>91.224</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -1645,7 +1645,7 @@
 		<number>41</number>
 		<name origin="Named after Niobe. the daughter of the Greek god Tantalus">Niobium</name>
 		<symbol>Nb</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>92.90638</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -1678,7 +1678,7 @@
 		<number>42</number>
 		<name origin="This name has Greek roots. It means 'like Platinum' - it was difficult to distinguish Molybdenum from Platinum.">Molybdenum</name>
 		<symbol>Mo</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>95.94</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -1718,7 +1718,7 @@
 		<number>43</number>
 		<name origin="Greek 'technetos' for artificial">Technetium</name>
 		<symbol>Tc</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>98.9063</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -1751,7 +1751,7 @@
 		<number>44</number>
 		<name origin="Ruthenia is the old name of Russia">Ruthenium</name>
 		<symbol>Ru</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>101.07</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -1791,7 +1791,7 @@
 		<number>45</number>
 		<name origin="Greek 'rhodeos' means 'red like a rose'">Rhodium</name>
 		<symbol>Rh</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>102.90550</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -1823,7 +1823,7 @@
 		<number>46</number>
 		<name origin="Named after the planetoid Pallas">Palladium</name>
 		<symbol>Pd</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>106.42</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -1863,7 +1863,7 @@
 		<number>47</number>
 		<name origin="Latin 'agrentum' for silver">Silver</name>
 		<symbol>Ag</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>107.8682</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -1896,7 +1896,7 @@
 		<number>48</number>
 		<name origin="Greek 'kadmia' ('Galmei' = Zinc carbonate)">Cadmium</name>
 		<symbol>Cd</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>112.411</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -1938,7 +1938,7 @@
 		<number>49</number>
 		<name origin="Named after 'Indigo' because of its blue spectrum">Indium</name>
 		<symbol>In</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>114.818</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -1973,7 +1973,7 @@
 		<number>50</number>
 		<name origin="Latin 'stannum' for tin">Tin</name>
 		<symbol>Sn</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>118.710</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -2016,7 +2016,7 @@
 		<number>51</number>
 		<name origin="Arabic 'anthos ammonos' for 'blossom of the god Ammon'">Antimony</name>
 		<symbol>Sb</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>121.760</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -2049,7 +2049,7 @@
 		<number>52</number>
 		<name origin="Latin 'tellus' or 'telluris' for 'Planet Earth'">Tellurium</name>
 		<symbol>Te</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>127.60</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -2090,7 +2090,7 @@
 		<number>53</number>
 		<name origin="Greek 'ioeides' for 'violett'">Iodine</name>
 		<symbol>I</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>126.90447</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
@@ -2122,7 +2122,7 @@
 		<number>54</number>
 		<name origin="Greek 'xenos' for 'foreigner'">Xenon</name>
 		<symbol>Xe</symbol>
-		<period></period>
+		<period>5</period>
 		<mass>131.293</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
@@ -2165,7 +2165,7 @@
 		<number>55</number>
 		<name origin="Latin 'caesius' for 'heavenblue'">Caesium</name>
 		<symbol>Cs</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>132.90545</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2198,7 +2198,7 @@
 		<number>56</number>
 		<name origin="Greek 'barys' for 'heavy'">Barium</name>
 		<symbol>Ba</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>137.237</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2238,7 +2238,7 @@
 		<number>57</number>
 		<name origin="Greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare earth'">Lanthanum</name>
 		<symbol>La</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>138.9055</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2275,7 +2275,7 @@
 		<number>58</number>
 		<name origin="Named after the planetoid Ceres">Cerium</name>
 		<symbol>Ce</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>140.116</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2317,7 +2317,7 @@
 		<number>59</number>
 		<name origin="Greek 'prasinos didymos' for 'green twin'">Praseodymium</name>
 		<symbol>Pr</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>140.90765</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2351,7 +2351,7 @@
 		<number>60</number>
 		<name origin="Greek 'neos didymos' for 'new twin'">Neodymium</name>
 		<symbol>Nd</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>144.24</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2390,7 +2390,7 @@
 		<number>61</number>
 		<name origin="Named after the greek Prometheus. Prometheus stole the fire from the gods and gave it to mankind.">Promethium</name>
 		<symbol>Pm</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>146.9151</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2425,7 +2425,7 @@
 		<number>62</number>
 		<name origin="Named after the mineral Samarskit">Samarium</name>
 		<symbol>Sm</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>150.36</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2466,7 +2466,7 @@
 		<number>63</number>
 		<name origin="Named after Europe">Europium</name>
 		<symbol>Eu</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>151.964</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2499,7 +2499,7 @@
 		<number>64</number>
 		<name origin="Named after the Finnish chemist Johan Gadolin">Gadolinium</name>
 		<symbol>Gd</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>157.25</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2539,7 +2539,7 @@
 		<number>65</number>
 		<name origin="Named after the Swedish town of Ytterby">Terbium</name>
 		<symbol>Tb</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>158.92534</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2572,7 +2572,7 @@
 		<number>66</number>
 		<name origin="Greek 'dysprositor' for 'difficult to reach'">Dysprosium</name>
 		<symbol>Dy</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>162.50</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2611,7 +2611,7 @@
 		<number>67</number>
 		<name origin="Latin 'holmia' for the old name of Stockholm">Holmium</name>
 		<symbol>Ho</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>164.93032</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2644,7 +2644,7 @@
 		<number>68</number>
 		<name origin="Named ofter the Swedish town of Ytterby. Terbium and Ytterbium are also named after this town.">Erbium</name>
 		<symbol>Er</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>167.259</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2681,7 +2681,7 @@
 		<number>69</number>
 		<name origin="Named after the old name of Scandinavia. 'Thule'">Thulium</name>
 		<symbol>Tm</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>168.93421</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2713,7 +2713,7 @@
 		<number>70</number>
 		<name origin="Like Terbium and Gadolinium. this is named after the Swedish town of Ytterby">Ytterbium</name>
 		<symbol>Yb</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>173.04</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2752,7 +2752,7 @@
 		<number>71</number>
 		<name origin="Named after the Roman name 'Lutetia' for Paris">Lutetium</name>
 		<symbol>Lu</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>174.967</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2785,7 +2785,7 @@
 		<number>72</number>
 		<name origin="'Hafnia' is the old name of Kopenhagen (Denmark)">Hafnium</name>
 		<symbol>Hf</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>178.49</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -2814,7 +2814,7 @@
 		<number>73</number>
 		<name origin="Named after the Greek myth of Tantalos">Tantalum</name>
 		<symbol>Ta</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>180.9479</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -2843,7 +2843,7 @@
 		<number>74</number>
 		<name origin="'tung sten' means 'heavy stone' in Swedish. The old name (and thus the symbol 'W') was Wolfram. named after a mineral">Tungsten</name>
 		<symbol>W</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>183.84</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -2876,7 +2876,7 @@
 		<number>75</number>
 		<name origin="Named after the German river Rhine (latin 'Rhenium')">Rhenium</name>
 		<symbol>Re</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>186.207</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -2905,7 +2905,7 @@
 		<number>76</number>
 		<name origin="Greek for 'smell'. Its oxides smell strongly like radishes">Osmium</name>
 		<symbol>Os</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>190.23</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -2938,7 +2938,7 @@
 		<number>77</number>
 		<name origin="Greek 'iris' for 'rainbow'">Iridium</name>
 		<symbol>Ir</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>192.217</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2971,7 +2971,7 @@
 		<number>78</number>
 		<name origin="Spanish 'platina' means 'small silver'">Platinum</name>
 		<symbol>Pt</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>195.078</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3004,7 +3004,7 @@
 		<number>79</number>
 		<name origin="Latin 'aurum'. named after Aurora. the goddess of sunrise">Gold</name>
 		<symbol>Au</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>196.96654</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3033,7 +3033,7 @@
 		<number>80</number>
 		<name origin="Graeco-Latin 'hydrargyrum' for 'liquid silver'">Mercury</name>
 		<symbol>Hg</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>200.59</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3066,7 +3066,7 @@
 		<number>81</number>
 		<name origin="Greek 'tallos' for 'young twig'">Thallium</name>
 		<symbol>Tl</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>204.3833</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -3102,7 +3102,7 @@
 		<number>82</number>
 		<name origin="Latin 'plumbum' for Lead">Lead</name>
 		<symbol>Pb</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>207.2</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -3136,7 +3136,7 @@
 		<number>83</number>
 		<name origin="The old name of Bismuth is 'Wismut'. This stood for 'white mass'">Bismuth</name>
 		<symbol>Bi</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>208.98038</mass>
 		<block>p</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3165,7 +3165,7 @@
 		<number>84</number>
 		<name origin="Named after Poland to honor Marie Curie">Polonium</name>
 		<symbol>Po</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>208.9824</mass>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -3204,7 +3204,7 @@
 		<number>85</number>
 		<name origin="Greek 'astator' for 'changing'">Astatine</name>
 		<symbol>At</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>209.9871</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
@@ -3240,7 +3240,7 @@
 		<number>86</number>
 		<name origin="Named after Radium. It ends with 'on' to make it clear that it is a noble gas">Radon</name>
 		<symbol>Rn</symbol>
-		<period></period>
+		<period>6</period>
 		<mass>222.0176</mass>
 		<block>p</block>
 		<acidicbehaviour>1</acidicbehaviour>
@@ -3269,7 +3269,7 @@
 		<number>87</number>
 		<name origin="Named after France to honor Marguerite Perey">Francium</name>
 		<symbol>Fr</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>223.0197</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3298,7 +3298,7 @@
 		<number>88</number>
 		<name origin="Latin 'radius' for 'beam'. as it is radioactive">Radium</name>
 		<symbol>Ra</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>226.0254</mass>
 		<block>s</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3328,7 +3328,7 @@
 		<number>89</number>
 		<name origin="Greek 'aktis' for 'beam' - actinium is radioactive">Actinium</name>
 		<symbol>Ac</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>227.0278</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3358,7 +3358,7 @@
 		<number>90</number>
 		<name origin="Named after the German god of thunder. Thor">Thorium</name>
 		<symbol>Th</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>232.0381</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3397,7 +3397,7 @@
 		<number>91</number>
 		<name origin="Greek 'protos' for 'ancester'. Protactinium is before Actinium in the periodic table.">Protactinium</name>
 		<symbol>Pa</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>231.03588</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3431,7 +3431,7 @@
 		<number>92</number>
 		<name origin="Greek 'ouranos' for 'heaven'. named after the planet Uranus">Uranium</name>
 		<symbol>U</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>238.02891</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3473,7 +3473,7 @@
 		<number>93</number>
 		<name origin="Named after the planet Neptune.">Neptunium</name>
 		<symbol>Np</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>237.0482</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3507,7 +3507,7 @@
 		<number>94</number>
 		<name origin="Named after the planet Pluto.">Plutonium</name>
 		<symbol>Pu</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>244.0642</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3546,7 +3546,7 @@
 		<number>95</number>
 		<name origin="Named after America.">Americium</name>
 		<symbol>Am</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>243.0614</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3581,7 +3581,7 @@
 		<number>96</number>
 		<name origin="Named after Marie Curie.">Curium</name>
 		<symbol>Cm</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>247.0703</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3603,7 +3603,7 @@
 		<number>97</number>
 		<name origin="Named after the town Berkely where it was discovered.">Berkelium</name>
 		<symbol>Bk</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>247.0703</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3625,7 +3625,7 @@
 		<number>98</number>
 		<name origin="Named after the US-State of California.">Californium</name>
 		<symbol>Cf</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>251.0796</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3647,7 +3647,7 @@
 		<number>99</number>
 		<name origin="Named after the scientist Albert Einstein.">Einsteinium</name>
 		<symbol>Es</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>252.0829</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3675,7 +3675,7 @@
 		<number>100</number>
 		<name origin="Named after the scientist Enrico Fermi.">Fermium</name>
 		<symbol>Fm</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>257.0951</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3703,7 +3703,7 @@
 		<number>101</number>
 		<name origin="Named after the scientist D.I. Mendelejew.">Mendelevium</name>
 		<symbol>Md</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>258.0986</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3726,7 +3726,7 @@
 		<number>102</number>
 		<name origin="Named after the scientist Alfred Nobel.">Nobelium</name>
 		<symbol>No</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>259.1009</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3749,7 +3749,7 @@
 		<number>103</number>
 		<name origin="Named after the scientist Ernest Orlando Lawrence.">Lawrencium</name>
 		<symbol>Lr</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>262.110</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3781,7 +3781,7 @@
 		<number>104</number>
 		<name origin="Named after the scientist Ernest Rutherford">Rutherfordium</name>
 		<symbol>Rf</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>261.1089</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -3813,7 +3813,7 @@
 		<number>105</number>
 		<name origin="Named after the science-town Dubna in Russia">Dubnium</name>
 		<symbol>Db</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>262.1144</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -3844,7 +3844,7 @@
 		<number>106</number>
 		<name origin="Named after the scientist G. Theodore Seaborg.">Seaborgium</name>
 		<symbol>Sg</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>263.1186</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -3863,7 +3863,7 @@
 		<number>107</number>
 		<name origin="Named after the scientist Niels Bohr.">Bohrium</name>
 		<symbol>Bh</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>262.1231</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -3882,7 +3882,7 @@
 		<number>108</number>
 		<name origin="Latin 'hassia' for the German county Hessen. In Hessen. a lot elements have been discovered.">Hassium</name>
 		<symbol>Hs</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>265.1306</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -3901,7 +3901,7 @@
 		<number>109</number>
 		<name origin="Named after the scientist Lise Meitner.">Meitnerium</name>
 		<symbol>Mt</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>266.1378</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3920,7 +3920,7 @@
 		<number>110</number>
 		<name origin="Named after the German city Darmstadt where many elements have been discovered.">Darmstadtium</name>
 		<symbol>Ds</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>271</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -3939,7 +3939,7 @@
 		<number>111</number>
 		<name origin="Named after Wilhelm Conrad Röntgen.">Roentgenium</name>
 		<symbol>Rg</symbol>
-		<period></period>
+		<period>7</period>
 		<mass>272</mass>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>

@@ -25,6 +25,7 @@
 class Element;
 class QSimpleRichText;
 class QString;
+class QTimer;
 
 class ElementBox : public QWidget
 {
@@ -54,19 +55,34 @@ class ElementBox : public QWidget
 		virtual void paintEvent( QPaintEvent *e );
                 virtual void mouseMoveEvent( QMouseEvent *e );
                 virtual void mousePressEvent( QMouseEvent *e );
-                virtual void mouseReleaseEvent( QMouseEvent *e );
 		virtual void focusInEvent( QFocusEvent* e );
 		virtual void focusOutEvent( QFocusEvent* e );
+	
+	signals:
+		void mouseMove( int );	
+		void mousePress( int );
 
 	private:
 		Element* m_element;
-
+		
 		QColor m_color;	//the element's box current color
 
 		QSimpleRichText* m_richText;
 		QString m_underline;
 
+		QTimer hoverTimer, mouseOverTimer;
+
 		void setCoordinates();
+		void setRowCol();
+		int m_col;
+		int m_row;
+		int m_dynVertBorder;
+		int m_dynHoriBorder;
+
+		static const int m_rowCount;
+		static const int m_colCount;
+		static const int m_border;
+		static const int m_lanthanoidDist;
 };
 
 #endif

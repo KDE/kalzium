@@ -82,6 +82,10 @@ class Element{
 		QString nameOrigin() const{
 			return m_origin;
 		}
+
+		QString orbits() const{
+			return m_orbits;
+		}
 		
 		void setMass( double value ) { m_mass = value; }
 		void setEN( double value ) { m_EN = value; }
@@ -235,6 +239,10 @@ class Element{
 		 */
 		QString group() const {
 			return m_group;
+		}
+		
+		int period() const {
+			return m_period;
 		}
 
 		QString family() const {
