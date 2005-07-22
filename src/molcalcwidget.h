@@ -38,11 +38,10 @@ class MolcalcWidget : public MolcalcWidgetBase
 	public:
 		/**
 		 * Constructor
-		 * @param data stores all the information about the elements
 		 * @param parent parent widget
 		 * @param name name of this widget
 		 */
-		MolcalcWidget( KalziumDataObject *data , QWidget *parent = 0, const char *name = 0 );
+		MolcalcWidget( QWidget *parent = 0, const char *name = 0 );
 
 	private slots:
 		void clear();

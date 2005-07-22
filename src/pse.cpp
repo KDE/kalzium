@@ -40,10 +40,10 @@
 #include <qcolor.h>
 #include <qrect.h>
 
-PSE::PSE(KalziumDataObject *data, QWidget *parent, const char *name)
+PSE::PSE(QWidget *parent, const char *name)
   : QWidget(parent, name), m_kalziumTip(0), table(0), table2(0)
 {
-	d = data;
+	d = KalziumDataObject::instance();
 
 
 	// No selection

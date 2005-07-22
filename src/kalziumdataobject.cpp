@@ -33,6 +33,12 @@
 
 #include <kstandarddirs.h>
 
+KalziumDataObject* KalziumDataObject::instance()
+{
+  static KalziumDataObject kdo;
+  return &kdo;
+}
+
 KalziumDataObject::KalziumDataObject()
 {
 	QDomDocument doc( "datadocument" );

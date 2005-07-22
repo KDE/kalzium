@@ -29,14 +29,16 @@
 #include <kdebug.h>
 #include <klocale.h>
 
+#include "kalziumdataobject.h"
+
 #include "math.h"
 
-NuclideBoardDialog::NuclideBoardDialog( KalziumDataObject* data, QWidget* parent, const char* name )
+NuclideBoardDialog::NuclideBoardDialog( QWidget* parent, const char* name )
 	: KDialogBase( Plain, i18n( "Nuclide Board" ), Close, Close, parent, name, false )
 {
 	QVBoxLayout *vbox = new QVBoxLayout( plainPage(), 0, spacingHint() );
 	vbox->activate();
-	NuclideBoard *b = new NuclideBoard( data->ElementList, plainPage(), "nb" );
+	NuclideBoard *b = new NuclideBoard( plainPage(), "nb" );
 	spin1 = new QSpinBox( 1, 110, 1, plainPage() );
 	spin2 = new QSpinBox( 2, 111, 1, plainPage() );
 	connect( spin1, SIGNAL( valueChanged( int ) ), b, SLOT( setStart( int ) ) );
@@ -62,10 +64,10 @@ NuclideBoardDialog::NuclideBoardDialog( KalziumDataObject* data, QWidget* parent
 	resize( minimumSize() );
 }
 
-NuclideBoard::NuclideBoard(QValueList<Element*> list, QWidget *parent, const char* name) 
+NuclideBoard::NuclideBoard(QWidget *parent, const char* name) 
 	: QWidget(parent, name)
 {
-	m_list = list;
+	m_list = KalziumDataObject::instance()->ElementList;
 	m_start = 80;
 	m_stop = 100;
 }

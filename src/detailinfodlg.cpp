@@ -37,10 +37,10 @@
 #include "detailedgraphicaloverview.h"
 #include "spectrum.h"
 
-DetailedInfoDlg::DetailedInfoDlg( KalziumDataObject *data, Element *el , QWidget *parent, const char *name)
+DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *name)
     : KDialogBase( IconList, "", User1|User2|Close, Close, parent, name, false/* non modal */, false, KGuiItem("Next", "1rightarrow"), KGuiItem("Previous", "1leftarrow"))
 {
-	m_data    = data;
+	m_data    = KalziumDataObject::instance();
 	m_element = el;
 
 	m_baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );

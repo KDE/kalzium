@@ -101,7 +101,7 @@ class ElementDataViewer : public KDialogBase
 	Q_OBJECT
 
 	public:
-		ElementDataViewer( KalziumDataObject *data, QWidget *parent=0 , const char *name =0 );
+		ElementDataViewer( QWidget *parent=0 , const char *name =0 );
 
 		/**
 		 * the AxixData for the y-Axis

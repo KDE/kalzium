@@ -32,14 +32,14 @@
 #include <qlayout.h>
 #include <qtooltip.h>
 
-MolcalcWidget::MolcalcWidget( KalziumDataObject *data, QWidget *parent, const char *name )
+MolcalcWidget::MolcalcWidget( QWidget *parent, const char *name )
     : MolcalcWidgetBase( parent, "molcalcwidgetbase" )
 {
 	setName( name );
 
 	m_mass = 0;
 
-	m_data = data;
+	m_data = KalziumDataObject::instance();
 
 	// setting up the toolbar
 	KToolBar *toolbar = new KToolBar( this, "toolbar", this );

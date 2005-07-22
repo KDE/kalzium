@@ -57,7 +57,7 @@ class PSE : public QWidget
 		 * @param parent parent widget
 		 * @param name name of this widget
 		 */
-		PSE( KalziumDataObject *data, QWidget *parent = 0, const char *name = 0);
+		PSE( QWidget *parent = 0, const char *name = 0);
 		~PSE();
 
 		enum SCHEMETYPE
@@ -242,11 +242,6 @@ class PSE : public QWidget
 		 */
 		void setFullDraw(){
 			doFullDraw = true;
-		}
-
-		KalziumDataObject *data() const
-		{
-			return d;
 		}
 
 		/**

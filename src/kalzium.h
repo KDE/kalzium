@@ -27,7 +27,6 @@ class QToolBox;
 class QVBoxLayout;
 class QDockWindow;
 class TempSlider;
-class KalziumDataObject;
 class DetailedInfoDlg;
 class PSE;
 class MolcalcWidget;
@@ -58,11 +57,6 @@ class Kalzium : public KMainWindow
 		 * Default Destructor
 		 */
 		virtual ~Kalzium();
-
-		/**
-		 * @return the data of Kalzium
-		 */
-		KalziumDataObject* data() const;
 
 	private:
 		class privatedata;
@@ -203,20 +197,5 @@ class Kalzium : public KMainWindow
 		 */
 		void tableLocked(bool);
 };
-
-/**
- * @short A private data class Kalzium uses
- * @author Carsten Niehaus <cniehaus@kde.org>
- * @version 1.0
- */
-class Kalzium::privatedata
-{
-	public:
-		Kalzium *k;
-		KalziumDataObject *kalziumData;
-
-		privatedata( Kalzium *parent ) : k( parent ){};
-};
-	
 
 #endif // _KALZIUM_H_

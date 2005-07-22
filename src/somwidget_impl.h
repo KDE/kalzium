@@ -33,11 +33,10 @@ class SOMWidgetIMPL : public SOMWidget
 
 	public:
 		/**
-		 * @param l this QValueList<> stores the elements of the periodic table
 		 * @param parent The parent of this widget
 		 * @param name The name of this widget
 		 */
-		SOMWidgetIMPL( QValueList<Element*> l, QWidget *parent = 0, const char* name = 0 );
+		SOMWidgetIMPL( QWidget *parent = 0, const char* name = 0 );
 
 	private:
 		QValueList<Element*> m_list;

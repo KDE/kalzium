@@ -24,11 +24,12 @@
 #include <math.h>
 
 #include "element.h"
+#include "kalziumdataobject.h"
 
-SOMWidgetIMPL::SOMWidgetIMPL( QValueList<Element*> l, QWidget *parent, const char* name )
+SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
 	: SOMWidget( parent,name )
 {
-	m_list = l;
+	m_list = KalziumDataObject::instance()->ElementList;
 
 	text->setAlignment( text->alignment() | Qt::WordBreak );
 	text->setTextFormat( Qt::RichText );

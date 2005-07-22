@@ -52,9 +52,8 @@
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
 {
-	pd = new privatedata( this );
-
-	pd->kalziumData = new KalziumDataObject();
+	// reading the elements from file
+	KalziumDataObject::instance();
 
 	QWidget *centralWidget = new QWidget( this, "centralWidget" );
 	m_pCentralLayout = new QVBoxLayout( centralWidget, PSE_MARGIN, -1, "CentralLayout" );
@@ -64,7 +63,7 @@ Kalzium::Kalzium()
 	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
 	helperSV->setFrameShape(QFrame::NoFrame);
 
-	m_PSE = new PSE( data(), helperSV->viewport(), "PSE");
+	m_PSE = new PSE( helperSV->viewport(), "PSE");
 	helperSV->addChild( m_PSE );
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
@@ -221,7 +220,7 @@ void Kalzium::setupSidebars()
 	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
 	m_toolbox->addItem( fake, SmallIcon( "overview" ), i18n( "Overview" ) );
 	
-	m_calcWidget = new MolcalcWidget( data(), m_dockWin, "molcalcwidget" );
+	m_calcWidget = new MolcalcWidget( m_dockWin, "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
 
 	m_timeWidget = new timeWidget( this, "timeWidget" );
@@ -229,7 +228,7 @@ void Kalzium::setupSidebars()
 			m_PSE, 						SLOT( setDate( int ) ) );
 	m_toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
 
-	m_somWidget = new SOMWidgetIMPL( data()->ElementList, this, "somWidget" );
+	m_somWidget = new SOMWidgetIMPL( this, "somWidget" );
 	connect( m_somWidget->temp_slider, SIGNAL( valueChanged( int ) ), 
 			m_PSE, 						SLOT( setTemperature( int ) ) );
 	m_toolbox->addItem( m_somWidget, SmallIcon( "statematter" ), i18n( "State of Matter" ) );
@@ -252,13 +251,13 @@ void Kalzium::slotGlossary()
 
 void Kalzium::slotNuclideBoard()
 {
-	NuclideBoardDialog *ndialog = new NuclideBoardDialog( data(), this, "dlg" );
+	NuclideBoardDialog *ndialog = new NuclideBoardDialog( this, "dlg" );
 	ndialog->show();
 }
 
 void Kalzium::slotPlotData()
 {
-	ElementDataViewer *edw = new ElementDataViewer( data(), this, "edw" );
+	ElementDataViewer *edw = new ElementDataViewer( this, "edw" );
 	edw->show();
 }
 
@@ -409,7 +408,7 @@ void Kalzium::setupStatusBar()
 
 void Kalzium::slotStatusbar( int num )
 {
-	Element *e = data()->element( num );
+	Element *e = KalziumDataObject::instance()->element( num );
 	statusBar()->changeItem( i18n( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ).arg( e->elname() ).arg(e->number() ).arg( e->mass() ) , IDS_ELEMENTINFO );
 }
 
@@ -421,9 +420,9 @@ void Kalzium::openInformationDialog( int number )
 
 		//emit tableLocked(true);
 		if (m_infoDialog)
-			m_infoDialog->setElement(data()->element(number));
+			m_infoDialog->setElement(KalziumDataObject::instance()->element(number));
 		else {
-			m_infoDialog = new DetailedInfoDlg(data(), data()->element(number),
+			m_infoDialog = new DetailedInfoDlg(KalziumDataObject::instance()->element(number),
 											   this, "detailedDlg" );
 
 			// Remove the selection when this dialog finishes or hides.
@@ -546,7 +545,7 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 
 void Kalzium::slotSelectedNumber( int num )
 {
-	m_detailWidget->setElement( data()->element( num ) );
+	m_detailWidget->setElement( KalziumDataObject::instance()->element( num ) );
 }
 
 void Kalzium::slotSidebarVisibilityChanged( bool visible )
@@ -562,11 +561,6 @@ void Kalzium::slotSidebarVisibilityChanged( bool visible )
  
 	//JH: redraw the full table next time
 	setFullDraw();
-}
-
-KalziumDataObject* Kalzium::data() const
-{
-	return pd->kalziumData;
 }
 
 Kalzium::~Kalzium()

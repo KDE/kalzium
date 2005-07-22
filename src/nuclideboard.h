@@ -27,7 +27,6 @@
 #include <isotope.h>
 #include <qvaluelist.h>
 #include "element.h"
-#include "kalziumdataobject.h"
 
 class IsotopeWidget;
 class Decay;
@@ -47,11 +46,10 @@ class NuclideBoard : public QWidget
 		/**
 		 * Constructor.
 		 *
-		 * @param list   the list of all elements
 		 * @param parent parent widget for this one
 		 * @param name   object name
 		 */
-		NuclideBoard(QValueList<Element*> list, QWidget* parent = 0, const char* name = 0);
+		NuclideBoard(QWidget* parent = 0, const char* name = 0);
 
 		~NuclideBoard(){};
 
@@ -211,7 +209,7 @@ class NuclideBoardDialog : public KDialogBase
 {
 	Q_OBJECT
 	public:
-		NuclideBoardDialog( KalziumDataObject *data, QWidget* parent, const char* name = 0 );
+		NuclideBoardDialog( QWidget* parent, const char* name = 0 );
 		~NuclideBoardDialog(){};
 
 	private:

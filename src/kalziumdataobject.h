@@ -32,8 +32,7 @@
 class KalziumDataObject
 {
 	public:
-		KalziumDataObject();
-		~KalziumDataObject();
+		static KalziumDataObject* instance();
 
 		/**
 		 * The list of element in a QValueList<Element*>
@@ -50,6 +49,9 @@ class KalziumDataObject
 		const int numberOfElements() const;
 
 	private:
+		KalziumDataObject();
+		~KalziumDataObject();
+
 		EList readData( QDomDocument &dataDocument );
 
 		// caching the number of elements

@@ -42,7 +42,7 @@ class DetailedInfoDlg : public KDialogBase
 	Q_OBJECT
 
 	public:
-		DetailedInfoDlg( KalziumDataObject* data, Element *el , QWidget *parent=0, const char *name=0);
+		DetailedInfoDlg( Element *el , QWidget *parent=0, const char *name=0);
  
 		void setElement(Element *el);
 

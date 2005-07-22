@@ -30,7 +30,7 @@
 #include <qcheckbox.h>
 #include <qlabel.h>
 
-ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, const char* name )
+ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 	: KDialogBase( KDialogBase::Plain, 
 			i18n( "Plot Data") , 
 			User1 | Close,
@@ -39,7 +39,7 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 {
 	kdDebug() << "ElementDataViewer" << endl;
 	
-	d = data;
+	d = KalziumDataObject::instance();
 
 	yData = new AxisData();
 	
