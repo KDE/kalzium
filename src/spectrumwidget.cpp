@@ -44,7 +44,7 @@ SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name ) : QWidget( p
 	IntensityMax = 255;
 
 	setType( EmissionSpectrum );
-};
+}
 
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 {
