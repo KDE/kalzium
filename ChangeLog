@@ -17,3 +17,6 @@ Add:
  - Make the mainwidget a QScrollView. This make sizehandling easier
  - Improve the drawing of the tooltip. It is now handeled
    by the windowmanager
+ - Improved Layout of the detailed information dialog
+ - Added a widget which shows you a table of the isotopes
+ - Added EqChem, a chemical equation solver
