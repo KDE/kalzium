@@ -149,7 +149,7 @@ void Kalzium::setupActions()
 
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
-#ifdef HAVE_FACLIE
+#ifdef HAVE_FACILE
 	m_EQSolverAction = new KAction(i18n("Show &Equationsolver"), "sidebar", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "view_eqsolver");
 #endif
 	
