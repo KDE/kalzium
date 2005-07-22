@@ -31,10 +31,13 @@
 class KalziumDataObject
 {
 	public:
+		/**
+		 * @return a instance of this class
+		 */
 		static KalziumDataObject* instance();
 
 		/**
-		 * The list of element in a QValueList<Element*>
+		 * The list of elements in a QValueList<Element*>
 		 */
 		EList ElementList;
 		

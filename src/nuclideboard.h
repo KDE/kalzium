@@ -173,6 +173,21 @@ class IsotopeWidget : public QWidget
 			m_active = a;
 		}
 
+		/**
+		 * @return the istope of this widget
+		 */
+		Isotope* isotope()const{
+			return m_isotope;
+		}
+
+		QPoint position()const{
+			return m_point;
+		}
+
+		void clicked(){
+			emit clicked( m_isotope );
+		}
+
 	private:
 		Isotope* m_isotope;
 

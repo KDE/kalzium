@@ -46,8 +46,8 @@ NuclideBoardDialog::NuclideBoardDialog( QWidget* parent, const char* name )
 
 	connect( b, SIGNAL( emitStartValue( int ) ), spin1, SLOT( setValue( int ) ) );
 	connect( b, SIGNAL( emitStopValue( int ) ), spin2, SLOT( setValue( int ) ) );
-	spin1->setValue( 1 );
-	spin2->setValue( 18 );
+	spin1->setValue( 80 );
+	spin2->setValue( 100 );
 
 	QHBoxLayout *hbox1 = new QHBoxLayout( 0L, 0, KDialog::spacingHint() );
 	hbox1->addWidget( new QLabel( i18n( "First Element:" ), plainPage() ) );
@@ -74,22 +74,24 @@ NuclideBoard::NuclideBoard(QWidget *parent, const char* name)
 
 void NuclideBoard::mousePressEvent( QMouseEvent *e )
 {
-	kdDebug() << "NuclideBoard::mousePressEvent()" << endl;
-	
-	QValueList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
-	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
-	
-	QPoint pt = mapFromGlobal( QCursor::pos() );
-	
-	int size = ( *it )->size();
-
-	QPoint point( pt.x()/size+m_lowestNumberOfNeutrons, ( height()-pt.y() )/size+m_start );
-
-	kdDebug() << "point : " << point << endl;
-	
 	if (  e->button() == QMouseEvent::LeftButton )
 	{
-//X 		emit clicked( m_isotope );
+		QValueList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
+		const QValueList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
+
+		QPoint pt = mapFromGlobal( QCursor::pos() );
+
+		int size = ( *it )->size();
+
+		QPoint point( pt.x()/size+m_lowestNumberOfNeutrons-1, ( height()-pt.y() )/size+m_start );
+
+		for ( ; it != itEnd; ++it )
+		{//find the correct istope
+		QPoint point_ = ( *it )->position();
+		QPoint newPoint ( point_.x()/size+m_lowestNumberOfNeutrons-1, ( height()-point_.y() )/size+m_start );
+			if ( newPoint == point )
+				( *it )->clicked();
+		}
 	}
 }
 
