@@ -25,6 +25,7 @@
     <Action name="plotdata" />
     <Action name="nuclideboard" />
     <Action name="glossary" />
+    <Action name="view_eqsolver" />
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
   </Menu>
