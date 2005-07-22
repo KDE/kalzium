@@ -30,8 +30,10 @@ kalzium_SOURCES = kalzium.cpp \
 			exporter.cpp 
 			
 kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) $(EQCHEM_LDADD) # solver/libsolver.la
-		 
-		  
+
+# temporary hack, just to disable eqchem compilation and to shut auto* up
+EQCHEM_SUB =
+
 SUBDIRS = icons elementpics data $(EQCHEM_SUB)
 
 EXTRA_DIST = main.cpp \

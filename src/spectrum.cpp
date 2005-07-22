@@ -23,9 +23,13 @@
 
 #include <qlayout.h>
 #include <qlabel.h>
-#include <qpushbutton.h>
+#include <qpopupmenu.h>
 
+#include <kaction.h>
+#include <kactioncollection.h>
 #include <kglobal.h>
+#include <kguiitem.h>
+#include <kpushbutton.h>
 #include <kstandarddirs.h>
 #include <kfiledialog.h>
 #include <kmessagebox.h>
@@ -132,37 +136,37 @@ QString Spectrum::BandsAsHtml()
 {
 	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title>i<body>";
 
-	html.append( "<table>" );
+	html += "<table>";
 	
 	QValueList<band>::const_iterator it = m_bandlist.begin();
 	const QValueList<band>::const_iterator itEnd = m_bandlist.end();
 	for (;it!=itEnd;++it)
 	{
-		html.append( "<tr>" );
-		html.append( i18n( "<td>Wavelength: %1 nm</td>" ).arg( ( *it ).wavelength ) );
-		html.append( i18n( "<td>Intensity: %1</td>" ).arg( ( *it ).intensity ) );
-		html.append( i18n( "<td>Probability: %1 10<sup>8</sup>s<sup>-1</sup></td>" ).arg( ( *it ).aki ) );
-		html.append( i18n( "<td>Energy 1: %1</td>" ).arg( ( *it ).energy1 ) );
-		html.append( i18n( "<td>Energy 2: %1</td>" ).arg( ( *it ).energy2 ) );
-		html.append( i18n( "<td>Electronconfiguration 1: %1</td>" ).arg( ( *it ).electronconfig1 ) );
-		html.append( i18n( "<td>Electronconfiguration 2: %1</td>" ).arg( ( *it ).electronconfig2 ) );
-		html.append( i18n( "<td>Term 1: %1</td>" ).arg( ( *it ).term1 ) );
-		html.append( i18n( "<td>Term 2: %1</td>" ).arg( ( *it ).term2 ) );
-		html.append( i18n( "<td>J 1: %1</td>" ).arg( ( *it ).J1 ) );
-		html.append( i18n( "<td>J 2: %1</td>" ).arg( ( *it ).J2 ) );
-		html.append( "</tr>\n");
+		html += QString( "<tr>" )
+		     + "<td>" + i18n( "Wavelength: %1 nm" ).arg( ( *it ).wavelength ) + "</td>"
+		     + "<td>" + i18n( "Intensity: %1" ).arg( ( *it ).intensity ) + "</td>"
+		     + "<td>" + i18n( "Probability: %1 10<sup>8</sup>s<sup>-1</sup>" ).arg( ( *it ).aki ) + "</td>"
+		     + "<td>" + i18n( "Energy 1: %1" ).arg( ( *it ).energy1 ) + "</td>"
+		     + "<td>" + i18n( "Energy 2: %1" ).arg( ( *it ).energy2 ) + "</td>"
+		     + "<td>" + i18n( "Electron Configuration 1: %1" ).arg( ( *it ).electronconfig1 ) + "</td>"
+		     + "<td>" + i18n( "Electron Configuration 2: %1" ).arg( ( *it ).electronconfig2 ) + "</td>"
+		     + "<td>" + i18n( "Term 1: %1" ).arg( ( *it ).term1 ) + "</td>"
+		     + "<td>" + i18n( "Term 2: %1" ).arg( ( *it ).term2 ) + "</td>"
+		     + "<td>" + i18n( "J 1: %1" ).arg( ( *it ).J1 ) + "</td>"
+		     + "<td>" + i18n( "J 2: %1" ).arg( ( *it ).J2 ) + "</td>"
+		     + "</tr>\n";
 	}
 	
-	html.append( "</table>" );
+	html += "</table>";
 
-	html.append( "</body></html>" );
+	html += "</body></html>";
 	return html;
 }
 
 SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	: QWidget( parent, name )
 {
-	QVBoxLayout *spectrumLayout = new QVBoxLayout( this, 0, -1, "spectrumLayout" );
+	QVBoxLayout *spectrumLayout = new QVBoxLayout( this, 0, KDialog::spacingHint(), "spectrumLayout" );
 
 	m_spectrum = spec->adjustToWavelength( 100.0, 1000.0 );
 	m_spectrum->adjustMinMax();
@@ -174,19 +178,26 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	
 	spectrumLayout->addWidget( m_spectrumWidget );
 
-	QHBoxLayout *hbox = new QHBoxLayout( this );
+	QHBoxLayout *hbox = new QHBoxLayout( this, 0, KDialog::spacingHint() );
+	QHBoxLayout *hbox1 = new QHBoxLayout( this, 0, KDialog::spacingHint() );
+	QHBoxLayout *hbox2 = new QHBoxLayout( this, 0, KDialog::spacingHint() );
 //X 	m_spinbox_left = new QSpinBox( m_spectrum->min(), m_spectrum->max()-1, 1, this );
 //X 	m_spinbox_right = new QSpinBox( m_spectrum->min()+1, m_spectrum->max(), 1, this );i
 	m_spinbox_left = new QSpinBox( 100, 1000, 1, this );
 	m_spinbox_right = new QSpinBox( 100, 1000, 1, this );
 //X 	m_spinbox_left->setValue(  ( double ) m_spectrum->min() );
 //X 	m_spinbox_right->setValue( ( double ) m_spectrum->max() );
-	m_button_save = new QPushButton( i18n("Save spectrum as PNG"), this, "button_save" );
-	
+	m_button_save = new KPushButton( KGuiItem( i18n( "Export spectrum as..." ), "fileexport" ), this, "button_save" );
+	QPopupMenu *pp = new QPopupMenu( m_button_save );
+	m_button_save->setPopup( pp );
+	KActionCollection *coll = new KActionCollection( this );
+	KAction *actExpImage = new KAction( i18n( "PNG" ), 0, 0,
+	                          this, SLOT( slotExportAsImage() ), coll, "export_image" );
+	actExpImage->plug( pp );
+
 	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setRightBorder( int ) ) );
 	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
 	connect( m_spectrumWidget, SIGNAL( bordersChanged( int, int ) ), this, SLOT( slotBordersChanged( int, int ) ) );	
-	connect( m_button_save, SIGNAL( pressed() ), this, SLOT( slotSave() ) ); 
 
 	m_spectrumbox = new KComboBox( this, "combobox" );
 	m_spectrumbox->insertItem( "Emission Spectrum" );
@@ -197,14 +208,20 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	m_spinbox_right->setValue( 1000 );
 	m_spectrumWidget->setBorders( 100, 1000 );
 
-	hbox->addWidget( new QLabel( i18n( "Minimumvalue" ), this ) );
+	hbox->addWidget( new QLabel( i18n( "Minimum Value:" ), this ) );
 	hbox->addWidget( m_spinbox_left );
-	hbox->addWidget( new QLabel( i18n( "Maximumvalue" ), this ) );
+	hbox->addWidget( new QLabel( i18n( "Maximum Value:" ), this ) );
 	hbox->addWidget( m_spinbox_right );
-	hbox->addWidget( m_button_save );
-	hbox->addWidget( m_spectrumbox );
+
+	hbox1->addWidget( new QLabel( i18n( "Type of Spectrum:" ), this ) );
+	hbox1->addWidget( m_spectrumbox );
+
+	hbox2->addItem( new QSpacerItem( 10, 10, QSizePolicy::Expanding, QSizePolicy::Fixed ) );
+	hbox2->addWidget( m_button_save );
 
 	spectrumLayout->addLayout( hbox );
+	spectrumLayout->addLayout( hbox1 );
+	spectrumLayout->addLayout( hbox2 );
 }
 
 void SpectrumView::slotBordersChanged( int left, int right )
@@ -213,7 +230,7 @@ void SpectrumView::slotBordersChanged( int left, int right )
 	m_spinbox_right->setValue( right );
 }
 
-void SpectrumView::slotSave()
+void SpectrumView::slotExportAsImage()
 {
 	QString fileName = KFileDialog::getSaveFileName( QString::null, "*.png", this, i18n( "Save Spectrum" ) ); 
 	if( !fileName.isEmpty() )

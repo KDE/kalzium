@@ -21,6 +21,7 @@
 
 #include "nuclideboard.h"
 
+#include <qlabel.h>
 #include <qlayout.h>
 #include <qspinbox.h>
 #include <qcursor.h>
@@ -33,7 +34,7 @@
 NuclideBoardDialog::NuclideBoardDialog( KalziumDataObject* data, QWidget* parent, const char* name )
 	: KDialogBase( Plain, i18n( "Nuclide Board" ), Close, Close, parent, name, false )
 {
-	QVBoxLayout *vbox = new QVBoxLayout( plainPage() );
+	QVBoxLayout *vbox = new QVBoxLayout( plainPage(), 0, spacingHint() );
 	vbox->activate();
 	NuclideBoard *b = new NuclideBoard( data->ElementList, plainPage(), "nb" );
 	spin1 = new QSpinBox( 1, 110, 1, plainPage() );
@@ -46,9 +47,16 @@ NuclideBoardDialog::NuclideBoardDialog( KalziumDataObject* data, QWidget* parent
 	spin1->setValue( 1 );
 	spin2->setValue( 18 );
 
+	QHBoxLayout *hbox1 = new QHBoxLayout( 0L, 0, KDialog::spacingHint() );
+	hbox1->addWidget( new QLabel( i18n( "First Element:" ), plainPage() ) );
+	hbox1->addWidget( spin1 );
+	QHBoxLayout *hbox2 = new QHBoxLayout( 0L, 0, KDialog::spacingHint() );
+	hbox2->addWidget( new QLabel( i18n( "Last Element:" ), plainPage() ) );
+	hbox2->addWidget( spin2 );
+
 	vbox->addWidget( b );
-	vbox->addWidget( spin1 );
-	vbox->addWidget( spin2 );
+	vbox->addLayout( hbox1 );
+	vbox->addLayout( hbox2 );
 
 	setMinimumSize( 500, 450 );
 	resize( minimumSize() );
