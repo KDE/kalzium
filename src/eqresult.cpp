@@ -110,12 +110,12 @@ int questionitem::height( const QListBox*lb ) const
     return QFontMetrics( font ).height() + 4;
 }
 
-int answeritem::width( const QListBox*l ) const
+int answeritem::width( const QListBox* ) const
 {
     return m_richtext->width();
 }
 
-int answeritem::height( const QListBox*l ) const
+int answeritem::height( const QListBox* ) const
 {
     return m_richtext->height();
 }
