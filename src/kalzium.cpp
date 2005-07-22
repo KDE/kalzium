@@ -12,6 +12,10 @@
  ***************************************************************************/
 #include "kalzium.h"
 
+#ifdef HAVE_FACILE
+#include "solver/eqchemview.h"
+#endif
+
 #include "element.h"
 #include "prefs.h"
 #include "settings_colors.h"
@@ -254,7 +258,7 @@ void Kalzium::slotGlossary()
 	m_glossarydlg->show();
 }
 
-#ifdef HAVE_FACLIE
+#ifdef HAVE_FACILE
 void Kalzium::slotShowEQSolver()
 {
 	eqchemView *eqsolver = new eqchemView( this );

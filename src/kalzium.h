@@ -142,7 +142,7 @@ class Kalzium : public KMainWindow
 		 */
 		void slotShowScheme(int);
 
-#ifdef HAVE_FACLIE
+#ifdef HAVE_FACILE
 		void slotShowEQSolver();
 #endif
 
