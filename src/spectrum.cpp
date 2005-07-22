@@ -191,7 +191,7 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	QPopupMenu *pp = new QPopupMenu( m_button_save );
 	m_button_save->setPopup( pp );
 	KActionCollection *coll = new KActionCollection( this );
-	KAction *actExpImage = new KAction( i18n( "PNG" ), 0, 0,
+	KAction *actExpImage = new KAction( i18n( "Image" ), "image", 0,
 	                          this, SLOT( slotExportAsImage() ), coll, "export_image" );
 	actExpImage->plug( pp );
 
@@ -200,8 +200,8 @@ SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
 	connect( m_spectrumWidget, SIGNAL( bordersChanged( int, int ) ), this, SLOT( slotBordersChanged( int, int ) ) );	
 
 	m_spectrumbox = new KComboBox( this, "combobox" );
-	m_spectrumbox->insertItem( "Emission Spectrum" );
-	m_spectrumbox->insertItem( "Absorption Spectrum" );
+	m_spectrumbox->insertItem( i18n( "Emission Spectrum" ) );
+	m_spectrumbox->insertItem( i18n( "Absorption Spectrum" ) );
 	connect( m_spectrumbox, SIGNAL( activated( int ) ), m_spectrumWidget, SLOT( slotActivateSpectrum( int ) ) );
 	
 	m_spinbox_left->setValue( 100 );
@@ -232,14 +232,16 @@ void SpectrumView::slotBordersChanged( int left, int right )
 
 void SpectrumView::slotExportAsImage()
 {
-	QString fileName = KFileDialog::getSaveFileName( QString::null, "*.png", this, i18n( "Save Spectrum" ) ); 
+	Exporter* exporter = new Exporter();
+	QString fileName = KFileDialog::getSaveFileName(
+	                        QString::null, exporter->supportedImageFormats(),
+	                        this, i18n( "Save Spectrum" ) );
 	if( !fileName.isEmpty() )
 	{
-    		Exporter* exporter = new Exporter();
-		if ( !exporter->saveAsPNG( &m_spectrumWidget->pixmap(), fileName ) )
-			KMessageBox::error( this, i18n( "The spectrum could not be saved"), i18n( "PNG could not be saved") );
-		delete exporter;
+		if ( !exporter->saveAsImage( &m_spectrumWidget->pixmap(), fileName ) )
+			KMessageBox::error( this, i18n( "The spectrum could not be saved" ), i18n( "Image could not be saved") );
 	}	
+	delete exporter;
 }
 
 #include "spectrum.moc"

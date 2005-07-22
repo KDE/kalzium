@@ -28,8 +28,9 @@ public:
 	Exporter();
 	~Exporter();
 
-	bool saveAsPNG( const QPixmap* pixmap, QString fileName, int x = 0, int y = 0, int width = 0, int height = 0 );
+	bool saveAsImage( const QPixmap* pixmap, QString fileName, int x = 0, int y = 0, int width = 0, int height = 0 );
 
+	QString supportedImageFormats();
 };
 
 #endif

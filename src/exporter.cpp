@@ -20,17 +20,26 @@
 #include "exporter.h"
 
 #include <qpixmap.h>
+
 #include <kdebug.h>
+#include <kimageio.h>
 
 Exporter::Exporter()
 {
+	static bool kimageioRegistered = false;
+	if ( ! kimageioRegistered )
+	{
+		KImageIO::registerFormats();
+		kimageioRegistered = true;
+	}
+
 }
 
 Exporter::~Exporter()
 {
 }
 
-bool Exporter::saveAsPNG( const QPixmap* pixmap, QString fileName, int x, int y, int width, int height )
+bool Exporter::saveAsImage( const QPixmap* pixmap, QString fileName, int x, int y, int width, int height )
 {
 	if ( x != 0 || y != 0 || width != 0 || height != 0 )
 	{
@@ -44,5 +53,10 @@ bool Exporter::saveAsPNG( const QPixmap* pixmap, QString fileName, int x, int y,
 	}
 
 	return pixmap->save( fileName, "PNG" );
+}
+
+QString Exporter::supportedImageFormats()
+{
+	return KImageIO::pattern( KImageIO::Writing );
 }
 
