@@ -125,6 +125,7 @@ class IsotopeWidget : public QWidget
 		 */
 		void activate( bool a ){
 			m_active = a;
+			update();
 		}
 
 		/**
@@ -163,10 +164,11 @@ class Decay
 
 		~Decay(){};
 
-	private:
-		QValueList<IsotopeWidget*> m_list;
+		void showDecay();
+		void hideDecay();
 
 	private:
+		QValueList<IsotopeWidget*> m_list;
 };
 
 class NuclideBoardDialog : public KDialogBase

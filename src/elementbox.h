@@ -21,11 +21,11 @@
  ***************************************************************************/
 
 #include <qwidget.h>
+#include <qtimer.h>
 
 class Element;
 class QSimpleRichText;
 class QString;
-class QTimer;
 
 class ElementBox : public QWidget
 {
@@ -79,10 +79,10 @@ class ElementBox : public QWidget
 		int m_dynVertBorder;
 		int m_dynHoriBorder;
 
-		static const int m_rowCount;
-		static const int m_colCount;
-		static const int m_border;
-		static const int m_lanthanoidDist;
+		int m_rowCount;
+		int m_colCount;
+		int m_border;
+		int m_lanthanoidDist;
 };
 
 #endif

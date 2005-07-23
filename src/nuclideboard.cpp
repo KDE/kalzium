@@ -285,6 +285,34 @@ void IsotopeWidget::paintEvent( QPaintEvent* e )
 
 	p.drawRect( 0, 0, width(), height() );
 }
+
+void Decay::showDecay()
+{
+	// iterate through all isotopeWidgets and set them active = true
+
+	QValueList<IsotopeWidget*>::const_iterator it = m_list.begin();
+	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_list.end();
+
+	while ( it != itEnd )
+	{
+		( *it )->activate( true );
+		++it;
+	}
+}
+
+void Decay::hideDecay()
+{
+	// iterate through all isotopeWidgets and set them active = false
+
+ 	QValueList<IsotopeWidget*>::const_iterator it = m_list.begin();
+	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_list.end();
+
+	while ( it != itEnd )
+	{
+		( *it )->activate( false );
+		++it;
+	}
+}
  
 #include "nuclideboard.moc"
 

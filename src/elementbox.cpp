@@ -23,6 +23,10 @@
 
 #include "element.h"
 
+#include <qpainter.h>
+#include <qsimplerichtext.h>
+#include <qscrollview.h>
+
 ElementBox::ElementBox( QWidget *parent, const char* name ) : QWidget( parent, name )
 {
 	m_rowCount = 18;
@@ -40,10 +44,15 @@ ElementBox::ElementBox( QWidget *parent, const char* name ) : QWidget( parent, n
 	connect( &mouseOverTimer, SIGNAL( timeout() ),this, SLOT( slotMouseover() ) );
 }
 
-void ElementBox::paintEvent( QPaintEvent* e )
+ElementBox::~ElementBox()
+{
+	delete m_richText;
+}
+
+void ElementBox::paintEvent( QPaintEvent* /*e*/ )
 {
 	QPainter p( this );
-	p->drawRoundRect( 0, 0, width(), height() ); 
+	p.drawRoundRect( 0, 0, width(), height() ); 
 
 	delete m_richText;
 
@@ -52,44 +61,48 @@ void ElementBox::paintEvent( QPaintEvent* e )
                                                //     +   +"</p></qt>", font() );
 
 	m_richText->setWidth( width() - 5 );
-	m_richText->draw( p, 5, 5, rect(), colorGroup() );
+	m_richText->draw( &p, 5, 5, rect(), colorGroup() );
 	
-	setCoordiantes();
+	setCoordinates();
 	show();
 }
 
-void ElementBox::mouseMoveEvent( QMouseEvent *e )
+void ElementBox::mouseMoveEvent( QMouseEvent* /*e*/ )
 {
 	emit mouseMove( m_element->number() );
 }
 
-void ElementBox::mousePressEvent( QMouseEvent *e )
+void ElementBox::mousePressEvent( QMouseEvent* /*e*/ )
 {
 	emit mousePress( m_element->number() );
 }
 
-void ElementBox::focusInEvent( QFocusEvent* e )
+void ElementBox::focusInEvent( QFocusEvent* /*e*/ )
 {
 	//do some kind of highlighting
 }
 
-void ElementBox::focusOutEvent( QFocusEvent* e )
+void ElementBox::focusOutEvent( QFocusEvent* /*e*/ )
 {
 	// remove highlighting
 }
 
 void ElementBox::setCoordinates()
 {
+	QScrollView *p = 0;
+        if ( dynamic_cast<QScrollView*>( parent() ) )
+                p = static_cast<QScrollView*>( parent() );
+
 	// resize the box
-	int width = ( parent->width() - 2 * m_border ) / m_colCount;
-	int height = ( parent->height() - 2 * m_border ) / m_rowCount;
+	int width = ( p->contentsWidth() - 2 * m_border ) / m_colCount;
+	int height = ( p->contentsHeight() - 2 * m_border ) / m_rowCount;
 
 	resize( width, height );
 
 	
 	// move to correct position
-	m_dynVertBorder = ( ( parent->height() - 2 * m_border ) % height ) / 2;
-	m_dynHoriBorder = ( ( parent->width() - 2 * m_border ) % width ) / 2;
+	m_dynVertBorder = ( ( p->contentsHeight() - 2 * m_border ) % height ) / 2;
+	m_dynHoriBorder = ( ( p->contentsWidth() - 2 * m_border ) % width ) / 2;
 
 	if ( m_row < 8 )
 		move( m_border + m_dynHoriBorder + width * m_col, m_border + m_dynVertBorder + height * m_row );
@@ -112,9 +125,9 @@ void ElementBox::setRowCol()
  	if ( m_element->number() > 105 )	// elements without known orbital structure
 		m_col = m_element->number() - 100;
 	else if ( m_element->block() == "s" )
-		m_col = m_element->group();
+		m_col = m_element->group().toInt();
 	else if ( m_element->block() == "p" )
-		m_col = m_element->group() + 10;
+		m_col = m_element->group().toInt() + 10;
 	else if ( m_element->block() == "d" || m_element->number() == 57 || m_element->number() == 89 )
 	{	
 		QString tmp = m_element->orbits().section( " ", -2, -2 ); 
