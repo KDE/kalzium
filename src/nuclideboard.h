@@ -23,6 +23,7 @@
 
 #include <kdialogbase.h>
 #include <qwidget.h>
+#include <qscrollview.h>
 #include <qpainter.h>
 #include <isotope.h>
 #include <qvaluelist.h>
@@ -38,7 +39,7 @@ class QSpinBox;
  * @author Carsten Niehaus
  *
  */
-class NuclideBoard : public QWidget
+class NuclideBoard : public QScrollView
 {
 	Q_OBJECT
 
@@ -78,33 +79,13 @@ class NuclideBoard : public QWidget
 		 * defines the first isotope which will be displayed
 		 * @param v the number of the element
 		 */
-		void setStart( int v ){
-			if ( v > m_stop )
-			{
-				emitStartValue( m_start );
-				return;
-			}
-			m_start = v;
-			m_highestNumberOfNeutrons = highestNeutronCount();
-			m_lowestNumberOfNeutrons = lowestNeutronCount();
-			updateList();
-		}
+		void setStart( int value );
 
 		/**
 		 * defines the last isotope which will be displayed
 		 * @param v the number of the element
 		 */
-	void setStop( int v ){
-		if ( v < m_start )
-		{
-			emitStopValue( m_stop );
-			return;
-		}
-		m_stop = v;
-		m_highestNumberOfNeutrons = highestNeutronCount();
-		m_lowestNumberOfNeutrons = lowestNeutronCount();
-		updateList();
-	}
+		void setStop( int value );
 
 	private slots:
 		/**
@@ -118,9 +99,7 @@ class NuclideBoard : public QWidget
 		void emitStopValue( int );
 
 	protected:
-		virtual void paintEvent(QPaintEvent*);
-
-		virtual void mousePressEvent( QMouseEvent* e );
+		void drawContents( QPainter * p, int clipx, int clipy, int clipw, int cliph );
 };
 
 /**
@@ -139,31 +118,6 @@ class IsotopeWidget : public QWidget
 		~IsotopeWidget(){};
 
 		/**
-		 * defines the dimension of the widget
-		 * @param size the size of the widget
-		 */
-		void setSize( int size ){
-			m_size = size;
-		}
-
-		int size() const {
-			return m_size;
-		}
-
-		/**
-		 * define the coordinate of this widget
-		 * @param p the coordinate
-		 */
-		void setPoint( QPoint p ){
-			m_point = p;
-		}
-
-		/**
-		 * in this method the widget paints itself
-		 */
-		void drawSelf( QPainter* p );
-
-		/**
 		 * if a IsotopeWidget is activated it will
 		 * look a bit diffent. This is used to show
 		 * and highligt row of decay
@@ -180,21 +134,16 @@ class IsotopeWidget : public QWidget
 			return m_isotope;
 		}
 
-		QPoint position()const{
-			return m_point;
-		}
+	protected slots:
+		virtual void mousePressEvent ( QMouseEvent * e );				
 
-		void clicked(){
-			emit clicked( m_isotope );
-		}
+	protected:
+		virtual void paintEvent(QPaintEvent*);
 
 	private:
 		Isotope* m_isotope;
 
 		QColor m_color;
-
-		QPoint m_point;
-		int m_size;
 
 		bool m_active;
 
