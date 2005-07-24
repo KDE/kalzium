@@ -194,7 +194,6 @@ void NuclideBoard::setStop( int value )
 
 	m_stop = value;
 	updateList();
-	update();
 }
 
 void NuclideBoard::setStart( int value )
@@ -207,7 +206,6 @@ void NuclideBoard::setStart( int value )
 
 	m_start = value;
 	updateList();
-	update();
 }
 
 void NuclideBoard::updateList()
@@ -237,16 +235,14 @@ void NuclideBoard::updateList()
 					 SLOT( slotDrawDecayRow( Isotope* ) ) );
 
 			addChild( widget );
-			kdDebug() << "Neutrons:" << QString::number( (*isotope)->neutrons() ) << endl;
-			kdDebug() << "lowest:" << QString::number( m_lowestNumberOfNeutrons ) << endl;
-			
+		
 			widget->move( 60 + ( ( *isotope )->neutrons() - m_lowestNumberOfNeutrons ) * 50,
 					  50 + ( m_stop - ( *it )->number() ) * 50 );
 			m_isotopeWidgetList.append( widget );
 		}
 	}
 
-	update();
+	updateContents();
 }
 
 IsotopeWidget::IsotopeWidget( Isotope* isotope, QWidget *parent ) : QWidget(parent)
