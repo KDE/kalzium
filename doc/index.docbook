@@ -39,7 +39,7 @@
 
 		 <legalnotice>&FDLNotice;</legalnotice>
 
-		 <date>2005-07-14</date>
+		 <date>2005-07-24</date>
 		 <releaseinfo>1.4.2pre3</releaseinfo>
 
 		 <abstract>
@@ -81,65 +81,65 @@
 
 	 </chapter>
 
-<chapter id="quick-start">
-<title>&kalzium; quick start guide</title>
+	 <chapter id="quick-start">
+		 <title>&kalzium; quick start guide</title>
 
-<para>Here is &kalzium; the first time you run it, either from the K menu->Edutainment->Science->Kalzium or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
-<screenshot>
-<screeninfo>&kalzium; main window</screeninfo>
-<mediaobject>
-<imageobject><imagedata fileref="quick-1.png" format="PNG" /></imageobject>
-<textobject><phrase>&kalzium; main window</phrase></textobject>
-</mediaobject>
-</screenshot>
+		 <para>Here is &kalzium; the first time you run it, either from the K menu->Edutainment->Science->Kalzium or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
+		 <screenshot>
+			 <screeninfo>&kalzium; main window</screeninfo>
+			 <mediaobject>
+				 <imageobject><imagedata fileref="quick-1.png" format="PNG" /></imageobject>
+				 <textobject><phrase>&kalzium; main window</phrase></textobject>
+			 </mediaobject>
+		 </screenshot>
 
-<para>
-&kalzium; is divided in a sidebar on the left (in red, 1) and the table view (in blue, 2) which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the statusbar reports facts. You can hide the sidebar using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide Sidebar</guimenuitem> </menuchoice> menu.
-</para>
+		 <para>
+			 &kalzium; is divided in a sidebar on the left (in red, 1) and the table view (in blue, 2) which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the statusbar reports facts. You can hide the sidebar using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide Sidebar</guimenuitem> </menuchoice> menu.
+		 </para>
 
-<para>
-When you move the mouse cursor on an element of the table, a tooltip appears with a pictureof this element if available, its number and its mass. In the sidebar is displayed an overview of the current element in the <guilabel>Overview</guilabel> tab.
-</para>
+		 <para>
+			 When you move the mouse cursor on an element of the table, a tooltip appears with a pictureof this element if available, its number and its mass. In the sidebar is displayed an overview of the current element in the <guilabel>Overview</guilabel> tab.
+		 </para>
 
-<para>You can disable the tooltips using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide tooltip</guimenuitem> </menuchoice> menu.
-</para>
+		 <para>You can disable the tooltips using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide tooltip</guimenuitem> </menuchoice> menu.
+		 </para>
 
-<para>
-You can choose several views for the table: display the elements per families, per groups, per crystal structure, depending on their acidic behaviour, &etc;. You can change all that in the menubar in the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Look</guimenuitem> </menuchoice> menu.
-</para>
-<para>
-If you want to know facts about a precise element, click on it in the table and the information dialog will be displayed.
-</para>
+		 <para>
+			 You can choose several views for the table: display the elements per families, per groups, per crystal structure, depending on their acidic behaviour, &etc;. You can change all that in the menubar in the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Look</guimenuitem> </menuchoice> menu.
+		 </para>
+		 <para>
+			 If you want to know facts about a precise element, click on it in the table and the information dialog will be displayed.
+		 </para>
 
-<screenshot>
-<screeninfo>Information dialog</screeninfo>
-<mediaobject>
-<imageobject><imagedata fileref="quick-2.png" format="PNG" /></imageobject>
-<textobject><phrase>Information dialog</phrase></textobject>
-</mediaobject>
-</screenshot>
+		 <screenshot>
+			 <screeninfo>Information dialog</screeninfo>
+			 <mediaobject>
+				 <imageobject><imagedata fileref="quick-2.png" format="PNG" /></imageobject>
+				 <textobject><phrase>Information dialog</phrase></textobject>
+			 </mediaobject>
+		 </screenshot>
 
-<para>You can plot data using the <menuchoice> <guimenu>Tools</guimenu> <guimenuitem>Plot Data</guimenuitem> </menuchoice> menu. You choose what you want to plot on the y -axis and a range of elements to plot taht for on the x-axis. The screenshot below shows the mass of the elements 1 to 10. </para>
+		 <para>You can plot data using the <menuchoice> <guimenu>Tools</guimenu> <guimenuitem>Plot Data</guimenuitem> </menuchoice> menu. You choose what you want to plot on the y -axis and a range of elements to plot taht for on the x-axis. The screenshot below shows the mass of the elements 1 to 10. </para>
 
-<screenshot>
-<screeninfo>The Plot Data dialog</screeninfo>
-<mediaobject>
-<imageobject><imagedata fileref="quick-3.png" format="PNG" /></imageobject>
-<textobject><phrase>The Plot Data dialog</phrase></textobject>
-</mediaobject>
-</screenshot>
+		 <screenshot>
+			 <screeninfo>The Plot Data dialog</screeninfo>
+			 <mediaobject>
+				 <imageobject><imagedata fileref="quick-3.png" format="PNG" /></imageobject>
+				 <textobject><phrase>The Plot Data dialog</phrase></textobject>
+			 </mediaobject>
+		 </screenshot>
 
-<para>The Glossary (<menuchoice> <guimenu>Tools</guimenu> <guimenuitem>Glossary</guimenuitem> </menuchoice>) explains the most important chemical words and shows you pictures of the most common tools along with an explanation.</para>
+		 <para>The Glossary (<menuchoice> <guimenu>Tools</guimenu> <guimenuitem>Glossary</guimenuitem> </menuchoice>) explains the most important chemical words and shows you pictures of the most common tools along with an explanation.</para>
 
-<screenshot>
-<screeninfo>The Glossary</screeninfo>
-<mediaobject>
-<imageobject><imagedata fileref="quick-4.png" format="PNG" /></imageobject>
-<textobject><phrase>The Glossary</phrase></textobject>
-</mediaobject>
-</screenshot>
+		 <screenshot>
+			 <screeninfo>The Glossary</screeninfo>
+			 <mediaobject>
+				 <imageobject><imagedata fileref="quick-4.png" format="PNG" /></imageobject>
+				 <textobject><phrase>The Glossary</phrase></textobject>
+			 </mediaobject>
+		 </screenshot>
 
-</chapter>
+	 </chapter>
 
 	 <chapter id="using-kalzium">
 		 <title>Using &kalzium;</title>
@@ -165,7 +165,7 @@ If you want to know facts about a precise element, click on it in the table and 
 			 <title>The information dialog</title>
 
 			 <para>The information dialog is accessed by right or left button mouse click on any element.
-				It is available only in the <guilabel>Overview</guilabel> mode of when the sidebar is hidden.</para>
+				 It is available only in the <guilabel>Overview</guilabel> mode of when the sidebar is hidden.</para>
 
 			 <screenshot>
 				 <screeninfo>&kalzium; information dialog</screeninfo>
@@ -254,39 +254,39 @@ If you want to know facts about a precise element, click on it in the table and 
 						 <guimenuitem>Show Crystal Structures</guimenuitem>: every element is colored  depending on its crystal strycture.
 				 </para></listitem>
 				 <listitem>
-						<para><guimenuitem>Gradient</guimenuitem></para>
-                                                <para>The gradient views displays the elements according to one property you can select below and with a gradient colored scheme. The elements for which the data is non available are displayed in grey.</para>
-			 <screenshot>
-				 <screeninfo>Gradient for Covalent Radius</screeninfo>
-				 <mediaobject>
-					 <imageobject>
-						 <imagedata fileref="gradient.png" format="PNG"/>
-					 </imageobject>
-					 <textobject>
-						 <phrase>Gradient for Covalent Radius</phrase>
-					 </textobject>
-				 </mediaobject>
-			 </screenshot>
-						 <itemizedlist>
-							 <listitem><para><guimenuitem>Atomic Radius</guimenuitem>
-							 </para></listitem>
-							 <listitem><para><guimenuitem>Covalent Radius</guimenuitem>
-							 </para></listitem>
-							 <listitem><para><guimenuitem>van dew Waals Radius</guimenuitem>
-							 </para></listitem>
-							 <listitem><para><guimenuitem>Atomic Mass</guimenuitem>
-							 </para></listitem>
-							 <listitem><para><guimenuitem>Density</guimenuitem>
-							 </para></listitem>
-							 <listitem><para><guimenuitem>Boiling Point</guimenuitem>
-							 </para></listitem>
-							 <listitem><para><guimenuitem>Melting Point</guimenuitem>
-							 </para></listitem>
-							 <listitem><para><guimenuitem>Electronegativity</guimenuitem>
-							 </para></listitem>
-							 <listitem><para><guimenuitem>Electron Affinity</guimenuitem>
-							 </para></listitem>
-						 </itemizedlist>
+					 <para><guimenuitem>Gradient</guimenuitem></para>
+					 <para>The gradient views displays the elements according to one property you can select below and with a gradient colored scheme. The elements for which the data is non available are displayed in grey.</para>
+					 <screenshot>
+						 <screeninfo>Gradient for Covalent Radius</screeninfo>
+						 <mediaobject>
+							 <imageobject>
+								 <imagedata fileref="gradient.png" format="PNG"/>
+							 </imageobject>
+							 <textobject>
+								 <phrase>Gradient for Covalent Radius</phrase>
+							 </textobject>
+						 </mediaobject>
+					 </screenshot>
+					 <itemizedlist>
+						 <listitem><para><guimenuitem>Atomic Radius</guimenuitem>
+						 </para></listitem>
+						 <listitem><para><guimenuitem>Covalent Radius</guimenuitem>
+						 </para></listitem>
+						 <listitem><para><guimenuitem>van dew Waals Radius</guimenuitem>
+						 </para></listitem>
+						 <listitem><para><guimenuitem>Atomic Mass</guimenuitem>
+						 </para></listitem>
+						 <listitem><para><guimenuitem>Density</guimenuitem>
+						 </para></listitem>
+						 <listitem><para><guimenuitem>Boiling Point</guimenuitem>
+						 </para></listitem>
+						 <listitem><para><guimenuitem>Melting Point</guimenuitem>
+						 </para></listitem>
+						 <listitem><para><guimenuitem>Electronegativity</guimenuitem>
+						 </para></listitem>
+						 <listitem><para><guimenuitem>Electron Affinity</guimenuitem>
+						 </para></listitem>
+					 </itemizedlist>
 				 </listitem>
 			 </itemizedlist>
 
@@ -295,6 +295,40 @@ If you want to know facts about a precise element, click on it in the table and 
 
 		 <sect1 id="tools">
 			 <title>Tools</title>
+			 <sect2 id="nuclid_board">
+				 <title>Nuclid Board</title>
+				 <para>
+					 The <guimenuitem>Nulidboard</guimenuitem>...</para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshotnuclidboard.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Nuclidboard</quote> Dialog</phrase>
+						 </textobject>
+						 <caption><para>&kalzium; can display the isoptes of a range of
+								 elements</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+
+			 <sect2 id="glossary">
+				 <title>Glossary</title>
+				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data.
+				 </para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshot7.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Glossary</quote></phrase>
+						 </textobject>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
 			 <sect2 id="plot_data">
 				 <title>Plot Data</title>
 				 <para>
@@ -313,26 +347,27 @@ If you want to know facts about a precise element, click on it in the table and 
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
-
-			 <sect2 id="glossary">
-				 <title>Glossary</title>
-				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data.
-				 </para>
-					 <screenshot>
-						 <mediaobject>
-							 <imageobject>
-								 <imagedata fileref="screenshot7.png" format="PNG"/>
-							 </imageobject>
-							 <textobject>
-								 <phrase>the <quote>Glossary</quote></phrase>
-							 </textobject>
-						 </mediaobject>
-					 </screenshot>
+			 <sect2 id="eq_solver">
+				 <title>Equation Solver</title>
+				 <para>
+					 The <guimenuitem>Equation Solver</guimenuitem>...</para>
+				 <screenshot>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="screenshoteqsolver.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>the <quote>Equation Solver</quote> Dialog</phrase>
+						 </textobject>
+						 <caption><para>&kalzium; can solve chemical equations</para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
 			 </sect2>
 
 			 <sect2 id="sidebar">
 				 <title>Sidebar</title>
-                                    <sect3 id="overview">
+				 <sect3 id="overview">
 					 <title>Overview</title>
 					 <screenshot>
 						 <mediaobject>
@@ -347,11 +382,11 @@ If you want to know facts about a precise element, click on it in the table and 
 					 <para>The Overview tab is the first one and it shows you an overview of the element the mouse is over.</para>
 
 				 </sect3>
-                                    <sect3 id="calculate">
+				 <sect3 id="calculate">
 					 <title>Calculate</title>
 
 					 <para>The Calculate tab is the second in the sidebar. It alows you to calculate molecules weights.</para>
-<para>You are first presented with the following icons and text:</para>
+					 <para>You are first presented with the following icons and text:</para>
 					 <screenshot>
 						 <mediaobject>
 							 <imageobject>
@@ -364,7 +399,7 @@ If you want to know facts about a precise element, click on it in the table and 
 							 </caption>
 						 </mediaobject>
 					 </screenshot>
-<para>You have to click on the elements that compose the molecule.</para>
+					 <para>You have to click on the elements that compose the molecule.</para>
 					 <screenshot>
 						 <mediaobject>
 							 <imageobject>
@@ -377,9 +412,9 @@ If you want to know facts about a precise element, click on it in the table and 
 							 </caption>
 						 </mediaobject>
 					 </screenshot>
-<para>You can remove some elements after you click on the Remove icon. You can also clear all the elements with the Clear icon on the most right.</para>
+					 <para>You can remove some elements after you click on the Remove icon. You can also clear all the elements with the Clear icon on the most right.</para>
 				 </sect3>
-                        <sect3 id="timeline">
+				 <sect3 id="timeline">
 					 <title>Timeline</title>
 
 					 <para>The Timeline feature allows you to explore the elements of the
@@ -441,503 +476,503 @@ If you want to know facts about a precise element, click on it in the table and 
 				 </sect3>
 
 			 </sect2>
-		</sect1>
-		 </chapter>
+		 </sect1>
+	 </chapter>
 
-		 <chapter id="config">
-			 <title>Configuring &kalzium;</title>
+	 <chapter id="config">
+		 <title>Configuring &kalzium;</title>
 
-			 <para>
-				 &kalzium; has many configuration options, which you can access by opening
-				 the configuration dialog by selecting <menuchoice> <guimenu>Settings</guimenu> <guimenuitem>Configure
+		 <para>
+			 &kalzium; has many configuration options, which you can access by opening
+			 the configuration dialog by selecting <menuchoice> <guimenu>Settings</guimenu> <guimenuitem>Configure
 					 &kalzium;...</guimenuitem> </menuchoice> from the menu.</para>
 
-			 <screenshot>
-				 <screeninfo>Configure &kalzium; Dialog</screeninfo>
-				 <mediaobject>
-					 <imageobject>
-						 <imagedata fileref="settings1.png" format="PNG"/>
-					 </imageobject>
-					 <textobject>
-						 <phrase>Colors</phrase>
-					 </textobject>
-				 </mediaobject>
-			 </screenshot>
-					<para>In the <guilabel>Colors</guilabel> tab, you can change the different
-						colors for each scheme.
-					</para>
-			 <screenshot>
-				 <screeninfo>Configure &kalzium; Dialog</screeninfo>
-				 <mediaobject>
-					 <imageobject>
-						 <imagedata fileref="settings2.png" format="PNG"/>
-					 </imageobject>
-					 <textobject>
-						 <phrase>Units</phrase>
-					 </textobject>
-				 </mediaobject>
-			 </screenshot>
-					<para>In the <guilabel>Units</guilabel> tab, you can
-						choose the units. You can select if you prefer kJ/mol by default but 
-						you can choose eV and the Temperature is in Kelvin by default but you can 
-						change to degrees Celsius or degrees Fahrenheit.
-					</para>
-			 <screenshot>
-				 <screeninfo>Configure &kalzium; Dialog</screeninfo>
-				 <mediaobject>
-					 <imageobject>
-						 <imagedata fileref="settings3.png" format="PNG"/>
-					 </imageobject>
-					 <textobject>
-						 <phrase>Miscellaneous</phrase>
-					 </textobject>
-				 </mediaobject>
-			 </screenshot>
-					<para>In the <guilabel>Miscellaneous</guilabel> tab, you can find other options not
-						related with the previous tabs.
-					</para>
+		 <screenshot>
+			 <screeninfo>Configure &kalzium; Dialog</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings1.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase>Colors</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para>In the <guilabel>Colors</guilabel> tab, you can change the different
+			 colors for each scheme.
+		 </para>
+		 <screenshot>
+			 <screeninfo>Configure &kalzium; Dialog</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings2.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase>Units</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para>In the <guilabel>Units</guilabel> tab, you can
+			 choose the units. You can select if you prefer kJ/mol by default but 
+			 you can choose eV and the Temperature is in Kelvin by default but you can 
+			 change to degrees Celsius or degrees Fahrenheit.
+		 </para>
+		 <screenshot>
+			 <screeninfo>Configure &kalzium; Dialog</screeninfo>
+			 <mediaobject>
+				 <imageobject>
+					 <imagedata fileref="settings3.png" format="PNG"/>
+				 </imageobject>
+				 <textobject>
+					 <phrase>Miscellaneous</phrase>
+				 </textobject>
+			 </mediaobject>
+		 </screenshot>
+		 <para>In the <guilabel>Miscellaneous</guilabel> tab, you can find other options not
+			 related with the previous tabs.
+		 </para>
 
-		 </chapter>
+	 </chapter>
 
-		 <chapter id="commands">
-			 <title>Command Reference</title>
+	 <chapter id="commands">
+		 <title>Command Reference</title>
 
-			 <sect1 id="kalzium-mainwindow">
-				 <title>Menus and shortcut keys</title>
+		 <sect1 id="kalzium-mainwindow">
+			 <title>Menus and shortcut keys</title>
 
-				 <sect2>
-					 <title>The <guimenu>File</guimenu> Menu</title>
+			 <sect2>
+				 <title>The <guimenu>File</guimenu> Menu</title>
 
-					 <variablelist>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <shortcut>
-										 <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
-									 </shortcut>
-									 <guimenu>File</guimenu>
-									 <guimenuitem>Quit</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Quits</action> &kalzium;</para></listitem>
-						 </varlistentry>
-					 </variablelist>
+				 <variablelist>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <shortcut>
+									 <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
+								 </shortcut>
+								 <guimenu>File</guimenu>
+								 <guimenuitem>Quit</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Quits</action> &kalzium;</para></listitem>
+					 </varlistentry>
+				 </variablelist>
 
-				 </sect2>
+			 </sect2>
 
-				 <sect2>
-					 <title>The <guimenu>View</guimenu> Menu</title>
+			 <sect2>
+				 <title>The <guimenu>View</guimenu> Menu</title>
 
-					 <variablelist>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>View</guimenu>
-                                                            <guisubmenu>Numeration</guisubmenu>
-                                                            <guimenuitem>No Numeration</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> no numeration scheme</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>View</guimenu>
-                                                            <guisubmenu>Numeration</guisubmenu>
-									 <guimenuitem>Show IUPAC</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the IUPAC numeration</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>View</guimenu>
-                                                            <guisubmenu>Numeration</guisubmenu>
-									 <guimenuitem>Show CAS</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the CAS numeration</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>View</guimenu>
-                                                            <guisubmenu>Numeration</guisubmenu>
-									 <guimenuitem>Show Old IUPAC</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the Old IUPAC numeration</para></listitem>
-						 </varlistentry>
-							 
-						 <!-- second entry -->
-						 <varlistentry>
-							 <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-									 <guimenuitem>No Color Scheme</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> no color scheme</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-									 <guimenuitem>Show Groups</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the groups of elements</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-									 <guimenuitem>Show Blocks</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the four blocks of
-									 elements</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-									 <guimenuitem>Show Acid Behaviour</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the acidic behaviour</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-									 <guimenuitem>Show Families</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the familes of
-									 elements</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-									 <guimenuitem>Show Crystal Structures</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> crystal structures</para></listitem>
-						 </varlistentry>
+				 <variablelist>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Numeration</guisubmenu>
+								 <guimenuitem>No Numeration</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> no numeration scheme</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Numeration</guisubmenu>
+								 <guimenuitem>Show IUPAC</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the IUPAC numeration</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Numeration</guisubmenu>
+								 <guimenuitem>Show CAS</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the CAS numeration</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Numeration</guisubmenu>
+								 <guimenuitem>Show Old IUPAC</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the Old IUPAC numeration</para></listitem>
+					 </varlistentry>
 
-                         <varlistentry>
-                             <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-                                     <guimenuitem>Gradient</guimenuitem>
-                                    <guimenuitem>Atomic Radius</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
-                         </varlistentry>
-                         <varlistentry>
-                             <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-                                     <guimenuitem>Gradient</guimenuitem>
-                                    <guimenuitem>Covalent Radius</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Display</action> the elements covalent radius</para></listitem>
-                         </varlistentry>
-                         <varlistentry>
-                             <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-                                     <guimenuitem>Gradient</guimenuitem>
-                                    <guimenuitem>van der Waals Radius</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Display</action> the elements van der Waals radius</para></listitem>
-                         </varlistentry>
-                         <varlistentry>
-                             <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-                                     <guimenuitem>Gradient</guimenuitem>
-                                    <guimenuitem>Atomic Mass</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
-                         </varlistentry>
-                         <varlistentry>
-                             <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-                                     <guimenuitem>Gradient</guimenuitem>
-                                    <guimenuitem>Density</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
-                         </varlistentry>
-                         <varlistentry>
-                             <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-                                     <guimenuitem>Gradient</guimenuitem>
-                                    <guimenuitem>Boiling Point</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Display</action> the elements boiling point</para></listitem>
-                         </varlistentry>
-                         <varlistentry>
-                             <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-                                     <guimenuitem>Gradient</guimenuitem>
-                                    <guimenuitem>Melting Point</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Display</action> the elements melting point</para></listitem>
-                         </varlistentry>
-                         <varlistentry>
-                             <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-                                     <guimenuitem>Gradient</guimenuitem>
-                                    <guimenuitem>Electronegativity</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Display</action> the elements electronegativity</para></listitem>
-                         </varlistentry>
-                         <varlistentry>
-                             <term><menuchoice>
-                                <guimenu>View</guimenu>
-                                     <guisubmenu>Look</guisubmenu>
-                                     <guimenuitem>Gradient</guimenuitem>
-                                    <guimenuitem>Electron Affinity</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Display</action> the elements electron affinity</para></listitem>
-                         </varlistentry>
+					 <!-- second entry -->
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>No Color Scheme</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> no color scheme</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Show Groups</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the groups of elements</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Show Blocks</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the four blocks of
+								 elements</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Show Acid Behaviour</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the acidic behaviour</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Show Families</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the familes of
+								 elements</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Show Crystal Structures</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> crystal structures</para></listitem>
+					 </varlistentry>
 
-                               <varlistentry>
-                             <term><menuchoice>
-                                     <guimenu>View</guimenu>
-                                     <guimenuitem>Show/Hide Legend</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Toggle</action> the legend view</para></listitem>
-                         </varlistentry>
-                        <varlistentry>
-                             <term><menuchoice>
-                                     <guimenu>View</guimenu>
-                                     <guimenuitem>Show/Hide Tooltip</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Toggle</action> tooltip display on elements</para></listitem>
-                         </varlistentry>
-                            <varlistentry>
-                                    <term><menuchoice>
-                                                    <guimenu>View</guimenu>
-                                                    <guimenuitem>Show/Hide Sidebar</guimenuitem>
-                                    </menuchoice></term>
-                                    <listitem><para><action>Toggle</action> the Sidebar</para></listitem>
-                            </varlistentry>
-					 </variablelist>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Gradient</guimenuitem>
+								 <guimenuitem>Atomic Radius</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Gradient</guimenuitem>
+								 <guimenuitem>Covalent Radius</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the elements covalent radius</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Gradient</guimenuitem>
+								 <guimenuitem>van der Waals Radius</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the elements van der Waals radius</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Gradient</guimenuitem>
+								 <guimenuitem>Atomic Mass</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Gradient</guimenuitem>
+								 <guimenuitem>Density</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Gradient</guimenuitem>
+								 <guimenuitem>Boiling Point</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the elements boiling point</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Gradient</guimenuitem>
+								 <guimenuitem>Melting Point</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the elements melting point</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Gradient</guimenuitem>
+								 <guimenuitem>Electronegativity</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the elements electronegativity</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guisubmenu>Look</guisubmenu>
+								 <guimenuitem>Gradient</guimenuitem>
+								 <guimenuitem>Electron Affinity</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the elements electron affinity</para></listitem>
+					 </varlistentry>
 
-				 </sect2>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guimenuitem>Show/Hide Legend</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Toggle</action> the legend view</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guimenuitem>Show/Hide Tooltip</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Toggle</action> tooltip display on elements</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>View</guimenu>
+								 <guimenuitem>Show/Hide Sidebar</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Toggle</action> the Sidebar</para></listitem>
+					 </varlistentry>
+				 </variablelist>
+
+			 </sect2>
 
 
-<sect2>
-<title>The <guimenu>Tools</guimenu> Menu</title>
-					 <variablelist>
-						 <!--<varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Miscellaneous</guimenu>
-									 <guimenuitem>Show/Hide Timeline</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the Timeline Slider</para></listitem>
-						 </varlistentry>-->
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Tools</guimenu>
-									 <guimenuitem>Plot Data</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Open</action> the Plot Data dialog</para></listitem>
-						 </varlistentry>
-                            <varlistentry>
-                             <term><menuchoice>
-                                     <guimenu>Tools</guimenu>
-                                     <guimenuitem>Glossary</guimenuitem>
-                             </menuchoice></term>
-                             <listitem><para><action>Open</action> the Glossary</para></listitem>
-                         </varlistentry>
-						 <!--<varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Miscellaneous</guimenu>
-									 <guimenuitem>Show/Hide State Of Matter</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the State Of Matter dialog</para></listitem>
-						 </varlistentry>-->
-					 </variablelist>
+			 <sect2>
+				 <title>The <guimenu>Tools</guimenu> Menu</title>
+				 <variablelist>
+					 <!--<varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Miscellaneous</guimenu>
+								 <guimenuitem>Show/Hide Timeline</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the Timeline Slider</para></listitem>
+					 </varlistentry>-->
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Tools</guimenu>
+								 <guimenuitem>Plot Data</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Open</action> the Plot Data dialog</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Tools</guimenu>
+								 <guimenuitem>Glossary</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Open</action> the Glossary</para></listitem>
+					 </varlistentry>
+					 <!--<varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Miscellaneous</guimenu>
+								 <guimenuitem>Show/Hide State Of Matter</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the State Of Matter dialog</para></listitem>
+					 </varlistentry>-->
+				 </variablelist>
 
-				 </sect2>
+			 </sect2>
 
-				 <sect2>
-					 <title>The <guimenu>Settings</guimenu> Menu</title>
+			 <sect2>
+				 <title>The <guimenu>Settings</guimenu> Menu</title>
 
-					 <variablelist>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Settings</guimenu>
-									 <guimenuitem>Show/Hide Toolbar</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Toggle</action> the Main Toolbar</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Settings</guimenu>
-									 <guimenuitem>Show/Hide Statusbar</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Toggle</action> the Statusbar</para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Settings</guimenu>
-									 <guimenuitem>Configure Shortcuts...</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Configure</action> the keyboard keys you use to access the different actions.</para>
-							 </listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Settings</guimenu>
-									 <guimenuitem>Configure Toolbars...</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Configure</action> the items you want to put in the toolbar
-							 </para></listitem>
-						 </varlistentry>
-						 <varlistentry>
-							 <term><menuchoice>
-									 <guimenu>Settings</guimenu>
-									 <guimenuitem>Configure &kalzium;...</guimenuitem>
-							 </menuchoice></term>
-							 <listitem><para><action>Display</action> the &kalzium; settings dialog
-							 </para></listitem>
-						 </varlistentry>
+				 <variablelist>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Settings</guimenu>
+								 <guimenuitem>Show/Hide Toolbar</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Toggle</action> the Main Toolbar</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Settings</guimenu>
+								 <guimenuitem>Show/Hide Statusbar</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Toggle</action> the Statusbar</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Settings</guimenu>
+								 <guimenuitem>Configure Shortcuts...</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Configure</action> the keyboard keys you use to access the different actions.</para>
+						 </listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Settings</guimenu>
+								 <guimenuitem>Configure Toolbars...</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Configure</action> the items you want to put in the toolbar
+						 </para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Settings</guimenu>
+								 <guimenuitem>Configure &kalzium;...</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Display</action> the &kalzium; settings dialog
+						 </para></listitem>
+					 </varlistentry>
 
-					 </variablelist>
+				 </variablelist>
 
-				 </sect2>
+			 </sect2>
 
-				 <sect2>
-					 <title>The <guimenu>Help</guimenu> Menu</title>
-					 &help.menu.documentation;
-				 </sect2>
-			 </sect1>
-		 </chapter>
+			 <sect2>
+				 <title>The <guimenu>Help</guimenu> Menu</title>
+				 &help.menu.documentation;
+			 </sect2>
+		 </sect1>
+	 </chapter>
 
-		 <chapter id="faq">
-			 <title>Questions and Answers</title>
+	 <chapter id="faq">
+		 <title>Questions and Answers</title>
 
-			 <qandaset id="faqlist">
-				 <qandaentry>
-					 <question>
-						 <para>Will I ever have to pay for &kalzium;?</para>
-					 </question>
-					 <answer>
-						 <para>No, never. But the author always welcomes a nice mail or a
-							 DVD as a <quote>Thank You</quote>. &kalzium; is licensed 
-							 under the <ulink url="http://www.gnu.org/licenses/licenses.html#GPL">GPL</ulink>, so you will never have to pay for this program.</para>
-					 </answer>
-				 </qandaentry>
-				 <qandaentry>
+		 <qandaset id="faqlist">
+			 <qandaentry>
+				 <question>
+					 <para>Will I ever have to pay for &kalzium;?</para>
+				 </question>
+				 <answer>
+					 <para>No, never. But the author always welcomes a nice mail or a
+						 DVD as a <quote>Thank You</quote>. &kalzium; is licensed 
+						 under the <ulink url="http://www.gnu.org/licenses/licenses.html#GPL">GPL</ulink>, so you will never have to pay for this program.</para>
+				 </answer>
+			 </qandaentry>
+			 <qandaentry>
 
-					 <question>
-						 <para>Will there ever be a &Windows; version?</para>
-					 </question>
-					 <answer>
-						 <para>No, at the moment not, but you can download the source and make
-							 your own Windows version. It should not be a big problem, because it is
-							 written with Trolltech &Qt; libs. But what do you need &Windows; for?
-							 Get the latest &Linux;, and live on the edge.</para>
+				 <question>
+					 <para>Will there ever be a &Windows; version?</para>
+				 </question>
+				 <answer>
+					 <para>No, at the moment not, but you can download the source and make
+						 your own Windows version. It should not be a big problem, because it is
+						 written with Trolltech &Qt; libs. But what do you need &Windows; for?
+						 Get the latest &Linux;, and live on the edge.</para>
 
-					 </answer>
-				 </qandaentry>
+				 </answer>
+			 </qandaentry>
 
-			 </qandaset>
-		 </chapter>
+		 </qandaset>
+	 </chapter>
 
-		 <chapter id="contribute">
-			 <title>How can I contribute?</title>
+	 <chapter id="contribute">
+		 <title>How can I contribute?</title>
 
-			 <qandaset id="tasks">
-				 <qandaentry>
+		 <qandaset id="tasks">
+			 <qandaentry>
 
-					 <question>
-						 <para>Support me with data.</para>
-					 </question>
+				 <question>
+					 <para>Support me with data.</para>
+				 </question>
 
-					 <answer>
-						 <para>In the world of science, the progress is quite fast. If you
-							 ever find an incorrect or missing value, please drop me
-							 an email.</para>
-					 </answer>
-				 </qandaentry>
+				 <answer>
+					 <para>In the world of science, the progress is quite fast. If you
+						 ever find an incorrect or missing value, please drop me
+						 an email.</para>
+				 </answer>
+			 </qandaentry>
 
-				 <qandaentry>
-					 <question>
-						 <para>Find some bugs or give some suggestions</para>
-					 </question>
-					 <answer>
-						 <para>
-							 If you find any bugs in the program, or have a few suggestions for
-							 improvements, please let me know at <email>cniehaus@kde.org</email>. 
-						 </para>
-					 </answer>
+			 <qandaentry>
+				 <question>
+					 <para>Find some bugs or give some suggestions</para>
+				 </question>
+				 <answer>
+					 <para>
+						 If you find any bugs in the program, or have a few suggestions for
+						 improvements, please let me know at <email>cniehaus@kde.org</email>. 
+					 </para>
+				 </answer>
 
-				 </qandaentry>
-			 </qandaset>
-		 </chapter>
+			 </qandaentry>
+		 </qandaset>
+	 </chapter>
 
-		 <chapter id="credits">
+	 <chapter id="credits">
 
-			 <title>Credits and License</title>
-			 <para>&kalzium;</para>
+		 <title>Credits and License</title>
+		 <para>&kalzium;</para>
+		 <para>
+			 Program Copyright, 2001-2005 Carsten Niehaus
+			 <email>cniehaus@kde.org</email>
+		 </para>
+
+		 <para> Contributors:</para>
+
+		 <itemizedlist>
+			 <listitem><para>
+					 Pino Toscano <email>toscano.pino@tiscali.it</email>
+			 </para></listitem>
+		 </itemizedlist>
+
+		 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+		 &underFDL;           <!-- FDL: do not remove -->
+		 &underGPL;        	 <!-- GPL License -->
+
+	 </chapter>
+
+	 <appendix id="installation">
+		 <title>Installation</title>
+
+		 <sect1 id="getting-kalzium">
+			 <title>How to obtain &kalzium;</title>
+
+			 &install.intro.documentation;
+
+		 </sect1>
+
+		 <sect1 id="requirements">
+			 <title>Requirements</title>
+
 			 <para>
-				 Program Copyright, 2001-2005 Carsten Niehaus
-				 <email>cniehaus@kde.org</email>
-			 </para>
+				 &kalzium; itself can be found on <ulink
+					 url="http://edu.kde.org/kalzium">The &kalzium; home page</ulink> and
+				 is part of the KDE-Edu project</para>
 
-			 <para> Contributors:</para>
+			 <para>You can find a list of changes in the file
+				 <filename>ChangeLog</filename> in the distribution of
+				 &kalzium;.</para>
+		 </sect1>
 
-			 <itemizedlist>
-				 <listitem><para>
-						 Pino Toscano <email>toscano.pino@tiscali.it</email>
-				 </para></listitem>
-			 </itemizedlist>
+		 <sect1 id="compilation">
+			 <title>Compilation and Installation</title>
 
-			 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+			 &install.compile.documentation;
 
-			 &underFDL;           <!-- FDL: do not remove -->
-			 &underGPL;        	 <!-- GPL License -->
+		 </sect1>
 
-		 </chapter>
+	 </appendix>
 
-		 <appendix id="installation">
-			 <title>Installation</title>
+	 &documentation.index;
+ </book>
+ <!--
+ Local Variables:
+ mode: sgml
+ sgml-minimize-attributes:nil
+ sgml-general-insert-case:lower
+ sgml-indent-step:0
+ sgml-indent-data:nil
+ End:
 
-			 <sect1 id="getting-kalzium">
-				 <title>How to obtain &kalzium;</title>
-
-				 &install.intro.documentation;
-
-			 </sect1>
-
-			 <sect1 id="requirements">
-				 <title>Requirements</title>
-
-				 <para>
-					 &kalzium; itself can be found on <ulink
-						 url="http://edu.kde.org/kalzium">The &kalzium; home page</ulink> and
-					 is part of the KDE-Edu project</para>
-
-				 <para>You can find a list of changes in the file
-					 <filename>ChangeLog</filename> in the distribution of
-					 &kalzium;.</para>
-			 </sect1>
-
-			 <sect1 id="compilation">
-				 <title>Compilation and Installation</title>
-
-				 &install.compile.documentation;
-
-			 </sect1>
-
-		 </appendix>
-
-		 &documentation.index;
-	 </book>
-	 <!--
-	 Local Variables:
-	 mode: sgml
-	 sgml-minimize-attributes:nil
-	 sgml-general-insert-case:lower
-	 sgml-indent-step:0
-	 sgml-indent-data:nil
-	 End:
-
-	 // vim:ts=2:sw=2:tw=78:noet:noai
-	 -->
+ // vim:ts=2:sw=2:tw=78:noet:noai
+ -->
