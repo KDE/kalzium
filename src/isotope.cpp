@@ -43,7 +43,7 @@ Isotope::Isotope( int neutrons, double percentage, double weight, double halflif
 	m_betaplusdecay = betapluspercentage;
 }
 
-QString Isotope::halflifeToHtml()
+QString Isotope::halflifeAsString()
 {
 	QString halflife;
 

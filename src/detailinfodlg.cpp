@@ -283,7 +283,7 @@ QString DetailedInfoDlg::isotopeTable()
 			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
 		html.append( "</td><td>" );
 		if ( ( *it )->halflife() > 0.0 )
-			html.append( ( *it )->halflifeToHtml() );
+			html.append( ( *it )->halflifeAsString() );
 		html.append( "</td><td>" );
 		if ( ( *it )->decayenergy() > 0.0 )
 			html.append( i18n( "%1 MeV" ).arg(( *it )->decayenergy() ) );

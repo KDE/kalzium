@@ -103,7 +103,33 @@ class Isotope
 			return m_magmoment;
 		}
 
-		QString halflifeToHtml();
+		/**
+		 * @return the halflife as a QString. The format will be
+		 * appended, for example "seconds" or "years" depending 
+		 * on the timeframe
+		 */
+		QString halflifeAsString();
+
+		/**
+		 * @return the percentage of the betaminus decay
+		 */
+		double betaminuspercentage() const{
+			return m_betaminuspercentage;
+		}
+		
+		/**
+		 * @return the percentage of the betaplus decay
+		 */
+		double betapluspercentage() const{
+			return m_betapluspercentage;
+		}
+		
+		/**
+		 * @return the percentage of the alpha decay
+		 */
+		double alphapercentage() const{
+			return m_alphapercentage;
+		}
 
 	private:
 		/**
