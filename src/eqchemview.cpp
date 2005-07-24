@@ -100,8 +100,6 @@ void eqchemView::compute()
     // mem leak ?
     free(result);
 
-    //kdWarning()<<equation<<" "<<disp<<endl;
-    
     // add the equation in the result window
     m_eqresult->add( equation, disp );
 }

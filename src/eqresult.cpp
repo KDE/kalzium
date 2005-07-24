@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Thomas Nagy                                     *
+ *   Copyright (C) 2004, 2005 by Thomas Nagy                               *
  *   tnagy2^8@yahoo.fr                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -20,7 +20,6 @@
 
 #include <qtimer.h>
 #include <qpainter.h>
-#include <qsimplerichtext.h>
 #include <qcolor.h>
 
 #include <kdebug.h>
@@ -28,36 +27,6 @@
 #include "eqresult.h"
 
 // inspired by speedcrunch
-
-class questionitem : public QListBoxItem
-{
-    public:
-	questionitem( QListBox*, const QString&, QColor bg );
-    protected:
-	void paint( QPainter* p );
-	int width( const QListBox* ) const;
-	int height( const QListBox* ) const;
-    private:
-	QString m_msg;
-	QColor m_bgcolor;
-};
-
-class answeritem : public QListBoxItem
-{
-    public:
-	answeritem(  QListBox*, const QString&, const QString&, QColor bg );
-	~answeritem() { delete m_richtext; }
-	void checkSize();
-    protected:
-	void paint( QPainter* p );
-	int width( const QListBox* ) const;
-	int height( const QListBox* ) const;
-    private:
-	QString m_msg;
-	QString m_origmsg;
-	QColor m_bgcolor;
-	QSimpleRichText * m_richtext;
-};
 
 questionitem::questionitem( QListBox* listBox, const QString& e, QColor bg ):
 QListBoxItem ( listBox )
@@ -108,16 +77,6 @@ int questionitem::height( const QListBox*lb ) const
 {
     QFont font = lb->font();
     return QFontMetrics( font ).height() + 4;
-}
-
-int answeritem::width( const QListBox* ) const
-{
-    return m_richtext->width();
-}
-
-int answeritem::height( const QListBox* ) const
-{
-    return m_richtext->height();
 }
 
 void answeritem::checkSize()

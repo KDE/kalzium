@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Thomas Nagy                                     *
+ *   Copyright (C) 2004, 2005 by Thomas Nagy                               *
  *   tnagy2^8@yahoo.fr                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -22,7 +22,53 @@
 #define _EQRESULT_H_
 
 #include <qlistbox.h>
+#include <qsimplerichtext.h>
 
+/**
+ * @author Thomas Nagy
+ */
+class questionitem : public QListBoxItem
+{
+    public:
+	questionitem( QListBox*, const QString&, QColor bg );
+    protected:
+	void paint( QPainter* p );
+	int width( const QListBox* ) const;
+	int height( const QListBox* ) const;
+    private:
+	QString m_msg;
+	QColor m_bgcolor;
+};
+
+/**
+ * @author Thomas Nagy
+ */
+class answeritem : public QListBoxItem
+{
+    public:
+	answeritem(  QListBox*, const QString&, const QString&, QColor bg );
+	~answeritem() { delete m_richtext; }
+	void checkSize();
+    protected:
+	void paint( QPainter* p );
+	int width( const QListBox* ) const{
+		return m_richtext->height();
+	}
+	
+	int height( const QListBox* ) const{
+		return m_richtext->height();
+	}
+	
+    private:
+	QString m_msg;
+	QString m_origmsg;
+	QColor m_bgcolor;
+	QSimpleRichText * m_richtext;
+};
+
+/**
+ * @author Thomas Nagy
+ */
 class eqresult : public QListBox
 {
     Q_OBJECT

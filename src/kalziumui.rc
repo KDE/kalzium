@@ -40,6 +40,7 @@
   <Action name="plotdata" />
   <Action name="nuclideboard" />
   <Action name="glossary" />
+  <Action name="view_eqsolver" />
 </ToolBar>
 
 </kpartgui>
