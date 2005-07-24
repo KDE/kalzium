@@ -20,3 +20,5 @@ Add:
  - Improved Layout of the detailed information dialog
  - Added a widget which shows you a table of the isotopes
  - Added EqChem, a chemical equation solver
+ - Added several glossary-items
+ - display no legend when the No Color-mode is choosen

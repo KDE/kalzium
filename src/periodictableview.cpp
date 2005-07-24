@@ -572,8 +572,9 @@ void PerodicTableView::drawLegend( QPainter* p )
 	const  int square_h = 18;
 	const  int textOffset = square_w + 10;
 	
-	p->fillRect(legendLeft, legendTop, legendWidth, legendHeight,
-	            QColor(200, 200, 200));
+	if ( !m_currentScheme == PerodicTableView::NOCOLOUR )
+		p->fillRect(legendLeft, legendTop, legendWidth, legendHeight, 
+				QColor(200, 200, 200));
 
 	if ( som() )
 	{
