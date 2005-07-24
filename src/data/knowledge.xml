@@ -148,7 +148,7 @@
 	<item>
 		<name>Magnetic Moment</name>
 		<desc>The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself.
-		It's measured in units of the nuclear magneton &#956;[sub]n[/sub]=5.0507866 &#177; 0.0000017 e-27 J/T</desc>
+		It's measured in units of the nuclear magneton &#956;[sub]n[/sub]=5.0507866 &#177; 0.0000017 e-27 JT<sup>-</sup></desc>
 		<references>
 			<refitem>Isotopes</refitem>
 		</references>
@@ -160,10 +160,10 @@
 		-> alpha decay (emission of a Helium-4 nucleus).[br]
 		-> &#946;[sup]-[/sup] decay (emission of an electron)[br]
 		-> &#946;[sup]+[/sup] decay (emission of a positron) [br]
-		-> electron capture [br]
+		-> electron capture (EC) [br]
 		-> proton emission [br]
 		-> spontaneous fission [br]
-		-> Typically one decay mode predominates for a particular nuclide. </desc>
+		Typically one decay mode predominates for a particular nuclide. </desc>
 		<references>
 			<refitem>Isotopes</refitem>
 		</references>
@@ -173,6 +173,47 @@
 		<desc>The decay energy is the energy released by a nuclear decay.</desc>
 		<references>
 			<refitem>Isotopes</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Nuclides</name>
+		<desc>[i]see isotopes[/i]</desc>
+		<references>
+			<refitem>Isotopes</refitem>
+			<refitem>Isotopes</refitem>
+			<refitem>Isotones</refitem>
+			<refitem>Nuclear Isomers</refitem>
+			<refitem>Isobars</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Isotones</name>
+		<desc>Two nuclides are isotones if they have the same number N of neutrons.</desc>
+		<references>
+			<refitem>Isotopes</refitem>
+			<refitem>Nuclear Isomers</refitem>
+			<refitem>Isobars</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Isobars</name>
+		<desc>Isobars are nuclides having the same mass number, i.e. sum of protons plus neutrons.</desc>
+		<references>
+			<refitem>Isotopes</refitem>
+			<refitem>Isotones</refitem>
+			<refitem>Nuclear Isomers</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Nuclear Isomers</name>
+		<desc>A nuclear isomer is a metastable or isomeric state of an atom caused by the excitation of a proton or neutron in its nucleus so that it requires a change in spin before it can release its extra energy. They decay to lower energy states of the nuclide through two isomeric transitions:[br]
+		-> &#947;- emission (emission of a high-energy photon)[br]
+    		-> internal conversion (the energy is used to ionize the atom)[br]
+		Contrast this with the definition of a chemical isomer, the more common use of the word. Also contrast with the meaning of isotope, in which the difference is the number of neutrons in the nucleus. Metastable isomers of a particular atom are usually designated with an "m" (or, in the case of atoms with more than one isomer, 2m, 3m, and so on). This designation is usually placed after the atomic symbol and number of the atom (e.g., Co-58m), but is sometimes placed as a superscript before (e.g., [sup]m[/sup]Co-58 or [sup]58m[/sup]Co).</desc>
+		<references>
+			<refitem>Isotopes</refitem>
+			<refitem>Isobars</refitem>
+			<refitem>Isotones</refitem>
 		</references>
 	</item>
 	<item>
