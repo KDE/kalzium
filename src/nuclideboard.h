@@ -77,13 +77,13 @@ class NuclideBoard : public QScrollView
 	public slots:
 		/**
 		 * defines the first isotope which will be displayed
-		 * @param v the number of the element
+		 * @param value the number of the element
 		 */
 		void setStart( int value );
 
 		/**
 		 * defines the last isotope which will be displayed
-		 * @param v the number of the element
+		 * @param value the number of the element
 		 */
 		void setStop( int value );
 

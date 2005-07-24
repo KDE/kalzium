@@ -176,7 +176,7 @@ int NuclideBoard::lowestNeutronCount()
 	QValueList<Isotope*>::const_iterator isotope;
 	QValueList<Isotope*>::const_iterator isotopeEnd;
 
-	int count;
+	int count = 0;
 	
 	for (; it != itEnd; ++it )
 	{
