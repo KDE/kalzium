@@ -54,25 +54,27 @@ class NuclideBoard : public QScrollView
 
 		~NuclideBoard(){};
 
+		IsotopeWidget* getIsotopeWidget( Isotope* isotope );	
+
 	private:
 		QValueList<Element*> m_list;
 
 		QValueList<IsotopeWidget*> m_isotopeWidgetList;
 		
-		QValueList<Decay*> m_decayList;
+		Decay* m_decay;
 
 		void updateList();
 
 		int highestNeutronCount();
-		
 		int lowestNeutronCount();
 
 		int m_lowestNumberOfNeutrons;
 		int m_highestNumberOfNeutrons;
 
 		int m_start;
-
 		int m_stop;
+
+		int m_isoWidth;	// width of a isotopeWidget on the board
 
 	public slots:
 		/**
@@ -115,7 +117,7 @@ class IsotopeWidget : public QWidget
 		 * @param parent  parent widget for this widget
 		 */
 		IsotopeWidget( Isotope* isotope, QWidget *parent );
-		~IsotopeWidget(){};
+		~IsotopeWidget();
 
 		/**
 		 * if a IsotopeWidget is activated it will
@@ -158,10 +160,7 @@ class IsotopeWidget : public QWidget
 class Decay
 {
 	public:
-		Decay(QValueList<IsotopeWidget*> list){
-			m_list = list;
-		};
-
+		Decay( NuclideBoard* parent, Isotope* isotope, Element* element );
 		~Decay(){};
 
 		void showDecay();
@@ -169,6 +168,13 @@ class Decay
 
 	private:
 		QValueList<IsotopeWidget*> m_list;
+		QValueList<Element*> m_elements;
+		Isotope* m_startIsotope;
+		Element* m_startElement;
+		NuclideBoard* m_parent;
+	
+		void buildDecayRow();
+		Isotope* getIsotope( int protones, int neutrons );
 };
 
 class NuclideBoardDialog : public KDialogBase
