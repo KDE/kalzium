@@ -131,13 +131,21 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 
 		QString desc = descNode.toElement().text();
 		desc.prepend("[img]"+picName +"[/img]" );
-		desc.replace("[b]", "<b>" );
-		desc.replace("[/b]", "</b>" );
-		desc.replace("[i]", "<i>" );
-		desc.replace("[/i]", "</i>" );
 
 		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
-		item->setDesc( i18n( desc.utf8() ) );
+		
+		item->setDesc( item->desc().replace("[b]", "<b>" ) );
+		item->setDesc( item->desc().replace("[/b]", "</b>" ) );
+		item->setDesc( item->desc().replace("[i]", "<i>" ) );
+		item->setDesc( item->desc().replace("[/i]", "</i>" ) );
+		item->setDesc( item->desc().replace("[sub]", "<sub>" ) );
+		item->setDesc( item->desc().replace("[/sub]", "</sub>" ) );
+		item->setDesc( item->desc().replace("[sup]", "<sup>" ) );
+		item->setDesc( item->desc().replace("[/sup]", "</sup>" ) );
+		item->setDesc( item->desc().replace("[br]", "<br />" ) );
+		
+		item->setDesc( i18n( item->desc().utf8() ) );
+
 		refNodeList = refNode.elementsByTagName( "refitem" );
 		for ( uint it = 0; it < refNodeList.count(); it++ )
 		{
