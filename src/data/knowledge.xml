@@ -148,7 +148,7 @@
 	<item>
 		<name>Magnetic Moment</name>
 		<desc>The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself.
-		It's measured in units of 5.0507866 &#177; 0.0000017 e-27 J/T</desc>
+		It's measured in units of the nuclear magneton &#956;[sub]n[/sub]=5.0507866 &#177; 0.0000017 e-27 J/T</desc>
 		<references>
 			<refitem>Isotopes</refitem>
 		</references>
@@ -156,13 +156,13 @@
 	<item>
 		<name>Decay Mode</name>
 		<desc>The decay mode describes a particular way a particle decays.
-		For radioactive decay (the decay of nuclides) the decay modes are:
-		-> alpha decay (emission of a Helium-4 nucleus).
-		-> &#946;- decay (emission of an electron)
-		-> &#946;+ decay (emission of a positron)
-		-> electron capture
-		-> proton emission
-		-> spontaneous fission
+		For radioactive decay (the decay of nuclides) the decay modes are:[br]
+		-> alpha decay (emission of a Helium-4 nucleus).[br]
+		-> &#946;[sup]-[/sup] decay (emission of an electron)[br]
+		-> &#946;[sup]+[/sup] decay (emission of a positron) [br]
+		-> electron capture [br]
+		-> proton emission [br]
+		-> spontaneous fission [br]
 		-> Typically one decay mode predominates for a particular nuclide. </desc>
 		<references>
 			<refitem>Isotopes</refitem>
