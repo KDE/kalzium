@@ -95,7 +95,7 @@ Kalzium::Kalzium()
 	g->setBackgroundPicture( picturepath );
 	m_glossarydlg->addGlossary( g );
 	u = dir + "kalzium/data/tools.xml";
-	g = Glossary::readFromXML( u );
+	g = Glossary::readFromXML( u, dir+"kalzium/data/toolpics/" );
 	g->setName( i18n( "Tools" ) );
 	g->setBackgroundPicture( picturepath );
 	m_glossarydlg->addGlossary( g );
@@ -232,7 +232,7 @@ void Kalzium::setupSidebars()
 	m_calcWidget = new MolcalcWidget( m_dockWin, "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
 
-	m_imeWidget = new TimeWidget( this, "TimeWidget" );
+	m_timeWidget = new TimeWidget( this, "TimeWidget" );
 	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ), 
 			m_PSE, 						SLOT( setDate( int ) ) );
 	m_toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
@@ -269,6 +269,7 @@ void Kalzium::slotShowEQSolver()
 	QVBoxLayout *vbox = new QVBoxLayout( page , 0, KDialogBase:: spacingHint() );
 	
 	eqchemView *eqsolver = new eqchemView( page );
+	eqsolver->setMinimumSize( 600,400 );
 
 	vbox->addWidget( eqsolver );
 

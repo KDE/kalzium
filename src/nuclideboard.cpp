@@ -78,8 +78,6 @@ NuclideBoard::NuclideBoard( QWidget *parent, const char* name )
 
 	m_highestNumberOfNeutrons = highestNeutronCount();
 	m_lowestNumberOfNeutrons = lowestNeutronCount();
-
-	update();
 }
 
 void NuclideBoard::slotDrawDecayRow( Isotope* isotope )
