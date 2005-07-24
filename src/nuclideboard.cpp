@@ -29,20 +29,26 @@
 
 #include <kdebug.h>
 #include <klocale.h>
+#include <kapplication.h>
 
 #include "kalziumdataobject.h"
 
 #include "math.h"
 
 NuclideBoardDialog::NuclideBoardDialog( QWidget* parent, const char* name )
-	: KDialogBase( Plain, i18n( "Nuclide Board" ), Close, Close, parent, name, false )
+	: KDialogBase(parent, "NuclideBoardDialog", true, i18n( "Nuclide Board" ),
+			KDialogBase::Apply|KDialogBase::Close|KDialogBase::Help, KDialogBase::Apply, true )
 {
-	QVBoxLayout *vbox = new QVBoxLayout( plainPage(), 0, spacingHint() );
-	vbox->activate();
+	QWidget *page = new QWidget( this );
 
-	NuclideBoard *b = new NuclideBoard( plainPage(), "nb" );
-	spin1 = new QSpinBox( 1, 110, 1, plainPage() );
-	spin2 = new QSpinBox( 2, 111, 1, plainPage() );
+	NuclideBoard *b = new NuclideBoard( page, "nb" );
+
+	setMainWidget( page );
+
+	QVBoxLayout *vbox = new QVBoxLayout(  page , 0, KDialogBase:: spacingHint() );
+	
+	spin1 = new QSpinBox( 1, 110, 1, page );
+	spin2 = new QSpinBox( 2, 111, 1, page );
 	connect( spin1, SIGNAL( valueChanged( int ) ), b, SLOT( setStart( int ) ) );
 	connect( spin2, SIGNAL( valueChanged( int ) ), b, SLOT( setStop( int ) ) );
 
@@ -51,11 +57,11 @@ NuclideBoardDialog::NuclideBoardDialog( QWidget* parent, const char* name )
 	spin1->setValue( 80 );
 	spin2->setValue( 100 );
 
-	QHBoxLayout *hbox1 = new QHBoxLayout( 0L, 0, KDialog::spacingHint() );
-	hbox1->addWidget( new QLabel( i18n( "First Element:" ), plainPage() ) );
+	QHBoxLayout *hbox1 = new QHBoxLayout( page, 0, KDialog::spacingHint() );
+	hbox1->addWidget( new QLabel( i18n( "First Element:" ), page ) );
 	hbox1->addWidget( spin1 );
-	QHBoxLayout *hbox2 = new QHBoxLayout( 0L, 0, KDialog::spacingHint() );
-	hbox2->addWidget( new QLabel( i18n( "Last Element:" ), plainPage() ) );
+	QHBoxLayout *hbox2 = new QHBoxLayout( page, 0, KDialog::spacingHint() );
+	hbox2->addWidget( new QLabel( i18n( "Last Element:" ), page ) );
 	hbox2->addWidget( spin2 );
 
 	vbox->addWidget( b );
@@ -66,6 +72,14 @@ NuclideBoardDialog::NuclideBoardDialog( QWidget* parent, const char* name )
 	resize( minimumSize() );
 	update();
 }
+
+void NuclideBoardDialog::slotHelp()
+{
+	emit helpClicked();
+	if ( kapp )
+		kapp->invokeHelp ( "nuclid_board", "kalzium" );
+}
+
 
 NuclideBoard::NuclideBoard( QWidget *parent, const char* name ) 
 	: QScrollView( parent, name )

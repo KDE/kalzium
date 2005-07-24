@@ -150,7 +150,7 @@ void Kalzium::setupActions()
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
 #ifdef HAVE_FACILE
-	m_EQSolverAction = new KAction(i18n("Show &Equationsolver"), "sidebar", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "view_eqsolver");
+	m_EQSolverAction = new KAction(i18n("Show &Equationsolver"), "eqsolver", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "view_eqsolver");
 #endif
 	
 	/*
@@ -261,8 +261,7 @@ void Kalzium::slotGlossary()
 void Kalzium::slotShowEQSolver()
 {
 #ifdef HAVE_FACILE
-	KDialogBase *dlg = new KDialogBase(this, "eqding", true, i18n( "Solve chemical equations" ), 
-			 KDialogBase::Apply|KDialogBase::Close|KDialogBase::Help, KDialogBase::Apply, true );
+	EQChemDialog *dlg = new EQChemDialog( this );
 	
 	QWidget *page = new QWidget( dlg );
 	dlg->setMainWidget( page );
@@ -279,7 +278,7 @@ void Kalzium::slotShowEQSolver()
 
 void Kalzium::slotNuclideBoard()
 {
-	NuclideBoardDialog *ndialog = new NuclideBoardDialog( this, "dlg" );
+	NuclideBoardDialog *ndialog = new NuclideBoardDialog( this );
 	ndialog->show();
 }
 

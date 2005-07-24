@@ -22,6 +22,7 @@
 #define _EQCHEMVIEW_H_
 
 #include <qwidget.h>
+#include <kdialogbase.h>
 
 class QPainter;
 class KURL;
@@ -76,6 +77,28 @@ private:
     KLineEdit * m_eqedit;
     KPushButton * m_eqclear;
     EqResult * m_eqResult;
+};
+
+/**
+ * @author Carsten Niehaus
+ */
+class EQChemDialog : public KDialogBase
+{
+	Q_OBJECT
+
+	public: 
+		/**
+		 * public constructor
+		 *
+		 * @param parent the parent widget
+		 */
+		EQChemDialog( QWidget *parent );
+
+	private slots:
+		/**
+		 * invokes the help for this widget
+		 */
+		void slotHelp();
 };
 
 #endif // _EQCHEMVIEW_H_

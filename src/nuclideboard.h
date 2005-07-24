@@ -180,6 +180,12 @@ class NuclideBoardDialog : public KDialogBase
 
 	private:
 		QSpinBox *spin1, *spin2;
+	
+	private slots:
+		/**
+		 * invokes the help for this widget
+		 */
+		void slotHelp();
 };
 
 

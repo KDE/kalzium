@@ -28,6 +28,7 @@
 #include <kpushbutton.h>
 #include <kiconloader.h>
 #include <kglobal.h>
+#include <kapplication.h>
 
 #include "config.h"
 #include "eqresult.h"
@@ -102,6 +103,19 @@ void eqchemView::compute()
 
     // add the equation in the result window
     m_eqResult->add( equation, disp );
+}
+
+EQChemDialog::EQChemDialog( QWidget *parent )
+	: KDialogBase(parent, "EQChemDialog", true, i18n( "Solve Chemical Equations" ),
+			KDialogBase::Apply|KDialogBase::Close|KDialogBase::Help, KDialogBase::Apply, true )
+{
+}
+
+void EQChemDialog::slotHelp()
+{
+	emit helpClicked();
+	if ( kapp )
+		kapp->invokeHelp ( "eq_solver", "kalzium" );
 }
 
 #include "eqchemview.moc"
