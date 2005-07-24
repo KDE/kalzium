@@ -4,7 +4,7 @@ INCLUDES= -I$(srcdir)/../../libkdeedu/kdeeduplot -I$(srcdir)/../../libkdeedu/kde
 bin_PROGRAMS = kalzium
 kalzium_SOURCES = eqresult.cpp eqchemview.cpp kalzium.cpp \
 			main.cpp \
-			pse.cpp \
+			periodictableview.cpp \
 			element.cpp \
 			prefs.kcfgc \
 			settings_colors.ui \
@@ -36,7 +36,7 @@ SUBDIRS = icons elementpics data $(EQCHEM_SUB)
 
 EXTRA_DIST = main.cpp \
 		kalzium.cpp kalzium.h \
-		pse.cpp pse.h \
+		periodictableview.cpp periodictableview.h \
 		element.cpp element.h \
 		settings_colors.ui \
 		settings_misc.ui \

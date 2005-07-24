@@ -23,7 +23,7 @@
 #include "settings_units.h"
 #include "elementdataviewer.h"
 #include "detailinfodlg.h"
-#include "pse.h"
+#include "periodictableview.h"
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
 #include "timewidget.h"

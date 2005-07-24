@@ -17,7 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
-#include "pse.h"
+#include "periodictableview.h"
 #include "prefs.h"
 #include "element.h"
 #include "kalziumtip.h"
@@ -1374,4 +1374,4 @@ void PerodicTableView::setLook( PerodicTableView::SCHEMETYPE type, int which )
 	update();
 }
 
-#include "pse.moc"
+#include "periodictable.moc"

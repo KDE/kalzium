@@ -368,7 +368,7 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	p->setPen( Qt::black );
 
 	if ( !simple )
-	{//the user only want a simply pse, no weight the cell
+	{//the user only wants a simple periodic table, don't weight the cell
 		QString text;
 		if ( isCrystal )
 		{
