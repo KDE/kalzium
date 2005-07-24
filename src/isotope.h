@@ -31,7 +31,7 @@
 class Isotope
 {
 	public:
-		Isotope( int neutrons, double percentage, double weight, double halflife, QString format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, bool ecdecay, double decayenergy, QString spin, QString magmoment);
+		Isotope( int neutrons, double percentage, double weight, double halflife, QString format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, double alphapercentage, double betaminuspercentage, double betapluspercentage, bool ecdecay, double decayenergy, QString spin, QString magmoment);
 
 		bool seconds() const{
 			if ( m_format == "seconds" )

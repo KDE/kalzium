@@ -140,6 +140,9 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			QString format = iso.attributeNode( "halflifeformat" ).value();
 			int neutrons  = iso.attributeNode( "neutron" ).value().toInt();
 			double percentage = iso.attributeNode( "percentage" ).value().toDouble();
+			double alphapercentage = iso.attributeNode( "alphapercentage" ).value().toDouble();
+			double betapluspercentage = iso.attributeNode( "betapluspercentage" ).value().toDouble();
+			double betaminuspercentage = iso.attributeNode( "betaminuspercentage" ).value().toDouble();
 			QString alphadecay = iso.attributeNode( "alphadecay" ).value();
 			QString betaplusdecay = iso.attributeNode( "betaplusdecay" ).value();
 			QString betaminusdecay = iso.attributeNode( "betaminusdecay" ).value();
@@ -154,7 +157,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			if ( ecdecay == "true" ) ecdecay_ = true;
 			if ( alphadecay == "true" ) alphadecay_ = true;
 			
-			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format, alphadecay_, betaplusdecay_, betaminusdecay_, ecdecay_, decayenergy, spin, magmoment );
+			Isotope *isotope = new Isotope( neutrons, percentage, weight, halflife, format, alphadecay_, betaplusdecay_, betaminusdecay_, alphapercentage, betaminuspercentage, betapluspercentage, ecdecay_, decayenergy, spin, magmoment );
 			isolist.append( isotope );
 		}
 
