@@ -40,7 +40,7 @@
 #include <qcolor.h>
 #include <qrect.h>
 
-PSE::PSE(QWidget *parent, const char *name)
+PerodicTableView::PerodicTableView(QWidget *parent, const char *name)
   : QWidget(parent, name), m_kalziumTip(0), table(0), table2(0)
 {
 	d = KalziumDataObject::instance();
@@ -131,7 +131,7 @@ PSE::PSE(QWidget *parent, const char *name)
 	setMinimumSize(ELEMENTSIZE*18+1, ELEMENTSIZE*10+30);
 }
 
-void PSE::reloadColours()
+void PerodicTableView::reloadColours()
 {
 	color_s = Prefs::block_s();
 	color_p = Prefs::block_p();
@@ -163,7 +163,7 @@ void PSE::reloadColours()
 	c_liquid = Prefs::color_liquid();
 }
 
-void PSE::slotToolTip( int number )
+void PerodicTableView::slotToolTip( int number )
 {
 	if ( !m_showTooltip || !m_tooltipsEnabled ) 
 		return; //don't update if the table is locked
@@ -181,16 +181,16 @@ void PSE::slotToolTip( int number )
 				p->height() );	
 }
 
-PSE::~PSE(){}
+PerodicTableView::~PerodicTableView(){}
 
-void PSE::activateColorScheme( const int nr )
+void PerodicTableView::activateColorScheme( const int nr )
 {
 	m_currentScheme = nr;
 	
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
 
-	if ( m_currentScheme == PSE::NOCOLOUR ) //normal view, no colors
+	if ( m_currentScheme == PerodicTableView::NOCOLOUR ) //normal view, no colors
 	{
 		const QColor color = Prefs::noscheme();
 		while ( it != itEnd )
@@ -199,7 +199,7 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( m_currentScheme == PSE::GROUPS ) //groups view
+	else if ( m_currentScheme == PerodicTableView::GROUPS ) //groups view
 	{
 
 		static QString group;
@@ -236,7 +236,7 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( m_currentScheme == PSE::BLOCK ) //block view
+	else if ( m_currentScheme == PerodicTableView::BLOCK ) //block view
 	{
 		static QString block;
 		while ( it != itEnd )
@@ -258,7 +258,7 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( m_currentScheme == PSE::ACIDIC ) //acidic beh
+	else if ( m_currentScheme == PerodicTableView::ACIDIC ) //acidic beh
 	{
 		static QString acidicbeh;
 		
@@ -281,7 +281,7 @@ void PSE::activateColorScheme( const int nr )
 			++it;
 		}
 	}
-	else if ( m_currentScheme ==  PSE::FAMILY ) //familiy of the element
+	else if ( m_currentScheme ==  PerodicTableView::FAMILY ) //familiy of the element
 	{
 		static QString family;
 
@@ -323,7 +323,7 @@ void PSE::activateColorScheme( const int nr )
 		
 }
 
-void PSE::resizeEvent( QResizeEvent * /*e*/ ) 
+void PerodicTableView::resizeEvent( QResizeEvent * /*e*/ ) 
 {
   table->resize( width(), height() );
   table2->resize( width(), height() );
@@ -334,12 +334,12 @@ void PSE::resizeEvent( QResizeEvent * /*e*/ )
   update();
 }
 
-void PSE::paintEvent( QPaintEvent * /*e*/ )
+void PerodicTableView::paintEvent( QPaintEvent * /*e*/ )
 {
 	QPainter p;
 
 	//JH: I have split the drawing into two pixmaps: table and table2.
-	//table contains the "static" PSE table, and does not change very often.
+	//table contains the "static" PerodicTableView table, and does not change very often.
 	//table2 contains the tooltips and any other dynamic overlays.
 	//Usually, we can skip the code which renders the table, and just use the 
 	//image stored in table...when doFullDraw==false, the rendering code is skipped.
@@ -367,7 +367,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		}
 		if ( som() )
 		{//use state of matter
-			drawSOMPSE(& p );
+			drawSOMPerodicTableView(& p );
 			p.end();
 
 			*table2 = *table;
@@ -384,7 +384,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		return;
 		}
 
-		drawPSE( &p, m_currentScheme == CRYSTAL );
+		drawPerodicTableView( &p, m_currentScheme == CRYSTAL );
 
 		paintCurrentSelection();
 
@@ -393,7 +393,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 		doFullDraw = false;
 	}
 
-	//JH: Ok, now table contains the static PSE table, and we may need to draw
+	//JH: Ok, now table contains the static PerodicTableView table, and we may need to draw
 	//a tooltip on it.  However, we don't want to ruin the stored table pixmap, 
 	//so let's copy it to table2 and add the tooltip there.
 	*table2 = *table;
@@ -402,7 +402,7 @@ void PSE::paintEvent( QPaintEvent * /*e*/ )
 	bitBlt( this, 0, 0, table2 );
 }
 
-void PSE::paintCurrentSelection()
+void PerodicTableView::paintCurrentSelection()
 {
 	if (m_currentPoint.x() == -1)
 		return;
@@ -431,27 +431,27 @@ void PSE::paintCurrentSelection()
 	p.end();
 }
 
-void PSE::drawLegendToolTip( QPainter* p )
+void PerodicTableView::drawLegendToolTip( QPainter* p )
 {
-	kdDebug() << "PSE::drawLegendToolTip()" << endl;
+	kdDebug() << "PerodicTableView::drawLegendToolTip()" << endl;
 	if(!m_showLegendTooltip || !m_showLegend) return;
 
 	QString text;
 
 	switch ( m_currentScheme ) {
 		//No Legend drawn as only one colour is used
-		case PSE::NOCOLOUR:
+		case PerodicTableView::NOCOLOUR:
 			break;
-		case PSE::BLOCK:
+		case PerodicTableView::BLOCK:
 			text = i18n( "The periodic table can be split up into four areas:\n the s-, p-, d- and f-Block. The name indicates which orbit\n is being filled last. For example, all elements in the s-block\n fill up the s-orbits." );
 			break;
-		case PSE::GROUPS:
+		case PerodicTableView::GROUPS:
 			text = i18n( "The periodic table can be split up into groups:\n All elements in a group show similar behaviour");
 			break;
-		case PSE::ACIDIC:
+		case PerodicTableView::ACIDIC:
 			text = i18n( "The periodic table can be split up in groups of \nelements with different acidic behaviour.");
 			break;
-		case PSE::FAMILY:
+		case PerodicTableView::FAMILY:
 			text = i18n( "The periodic table can be split up into several families.");
 			break;
 	}
@@ -501,13 +501,13 @@ void PSE::drawLegendToolTip( QPainter* p )
 	p->drawText( bRect, AlignLeft|AlignTop, text );
 }
 
-void PSE::drawTimeLine( QPainter* p )
+void PerodicTableView::drawTimeLine( QPainter* p )
 {
 	if ( !p ) return;
-	kdDebug() << "PSE::drawTimeLine: " << m_date << endl;
+	kdDebug() << "PerodicTableView::drawTimeLine: " << m_date << endl;
 	
 	if ( gradient() )
-		activateColorScheme( PSE::NOCOLOUR );
+		activateColorScheme( PerodicTableView::NOCOLOUR );
 	
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
@@ -516,7 +516,7 @@ void PSE::drawTimeLine( QPainter* p )
 	
 	/**
 	 * this loop iterates through all elements. The Elements
-	 * draw themselfs, the PSE only tells them to do so
+	 * draw themselfs, the PerodicTableView only tells them to do so
 	 */
 	while ( it != itEnd )
 	{
@@ -528,7 +528,7 @@ void PSE::drawTimeLine( QPainter* p )
 	}
 }
 
-void PSE::drawLegend( QPainter* p )
+void PerodicTableView::drawLegend( QPainter* p )
 {
 	if ( !p ) return;
 
@@ -588,9 +588,9 @@ void PSE::drawLegend( QPainter* p )
 	}
 	switch ( m_currentScheme ){
 		//No Legend to be drawn as only one colour is used
-		case PSE::NOCOLOUR:
+		case PerodicTableView::NOCOLOUR:
 			break;
-		case PSE::GROUPS:
+		case PerodicTableView::GROUPS:
 			p->fillRect( x1, fieldheight*2, square_w, square_h, color_1); 
 			p->fillRect( x1, fieldheight*3, square_w, square_h, color_2); 
 			p->fillRect( x1, fieldheight*4, square_w, square_h, color_3); 
@@ -609,7 +609,7 @@ void PSE::drawLegend( QPainter* p )
 			p->drawText( x2 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 7")); 
 			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 8")); 
 			break;
-		case PSE::BLOCK:
+		case PerodicTableView::BLOCK:
 			p->fillRect(x1, fieldheight*2, square_w, square_h, color_s ); 
 			p->fillRect(x1, fieldheight*3, square_w, square_h, color_p ); 
 			p->fillRect(x1, fieldheight*4, square_w, square_h, color_d ); 
@@ -620,7 +620,7 @@ void PSE::drawLegend( QPainter* p )
 			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("d-Block") ); 
 			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("f-Block") ); 
 			break;
-		case PSE::ACIDIC:
+		case PerodicTableView::ACIDIC:
 			p->fillRect(x1, fieldheight*2, square_w, square_h, color_ba ); 
 			p->fillRect(x1, fieldheight*3, square_w, square_h, color_neu );
 			p->fillRect(x1, fieldheight*4, square_w, square_h, color_ac ); 
@@ -631,7 +631,7 @@ void PSE::drawLegend( QPainter* p )
 			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Acidic") ); 
 			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("both acidic and basic behaviour","Amphoteric") ); 
 			break;
-		case PSE::FAMILY:
+		case PerodicTableView::FAMILY:
 			p->fillRect( x1, fieldheight*2, square_w, square_h, c_alkaline ); 
 			p->fillRect( x2, fieldheight*2, square_w, square_h, c_rare ); 
 			p->fillRect( x1, fieldheight*3, square_w, square_h, c_nonmetal ); 
@@ -652,7 +652,7 @@ void PSE::drawLegend( QPainter* p )
 			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Noble Gas")); 
 			p->drawText( x1 + textOffset , fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Metalloid")); 
 			break;
-		case PSE::CRYSTAL:
+		case PerodicTableView::CRYSTAL:
 			p->fillRect(x1, fieldheight*2, square_w, square_h, Qt::cyan ); 
 			p->fillRect(x1, fieldheight*3, square_w, square_h, Qt::red ); 
 			p->fillRect(x1, fieldheight*4, square_w, square_h, Qt::yellow ); 
@@ -668,26 +668,26 @@ void PSE::drawLegend( QPainter* p )
 	}
 }
 
-void PSE::drawNumeration( QPainter* p )
+void PerodicTableView::drawNumeration( QPainter* p )
 {
 	if ( !p ) return;
 
 	switch(m_num){
-		case PSE::NO:
+		case PerodicTableView::NO:
 			return;
-		case PSE::CAS:
+		case PerodicTableView::CAS:
 			for(int i = 0; i < 18 ; ++i )
 			{
 				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, QString::number(i+1));
 			}
 			break;
-		case PSE::IUPAC:
+		case PerodicTableView::IUPAC:
 			for(int i = 0; i < 18 ; ++i )
 			{
 				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPAClist[i]);
 			}
 			break;
-		case PSE::IUPACOLD:
+		case PerodicTableView::IUPACOLD:
 			for(int i = 0; i < 18 ; ++i )
 			{
 				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPACOLDlist[i]);
@@ -697,7 +697,7 @@ void PSE::drawNumeration( QPainter* p )
 }
 
 	
-void PSE::drawSOMPSE( QPainter* p )
+void PerodicTableView::drawSOMPerodicTableView( QPainter* p )
 {
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
@@ -710,7 +710,7 @@ void PSE::drawSOMPSE( QPainter* p )
 
 }
 
-void PSE::slotTransientLabel()
+void PerodicTableView::slotTransientLabel()
 {
 	QPoint point = ElementUnderMouse();
 
@@ -729,13 +729,13 @@ void PSE::slotTransientLabel()
 		m_showLegendTooltip = false;
 }
 
-void PSE::mousePressEvent( QMouseEvent *)
+void PerodicTableView::mousePressEvent( QMouseEvent *)
 {
 	if( m_kalziumTip->isVisible() )
 		m_kalziumTip->hide();
 }
 
-void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
+void PerodicTableView::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 {
 	//JH: only update() if we were showing a tooltip
 	if ( m_tooltipElementNumber || m_showLegendTooltip )
@@ -767,7 +767,7 @@ void PSE::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 	MouseoverTimer.start(  200, true ); //JH: true = run timer once, not continuously
 }
 
-bool PSE::pointerOnLegend(int X, int Y)
+bool PerodicTableView::pointerOnLegend(int X, int Y)
 {
 	if ( X > 2 && X < 13 )
 	{
@@ -780,7 +780,7 @@ bool PSE::pointerOnLegend(int X, int Y)
 	return false;
 }
 
-void PSE::mouseReleaseEvent( QMouseEvent *mouse )
+void PerodicTableView::mouseReleaseEvent( QMouseEvent *mouse )
 {
 	///first: find out the position
 	int X = mouse->x()/ELEMENTSIZE;
@@ -813,10 +813,10 @@ void PSE::mouseReleaseEvent( QMouseEvent *mouse )
 	}
 }
 
-int PSE::ElementNumber( int X, int Y )
+int PerodicTableView::ElementNumber( int X, int Y )
 {
 	//from this on I can use X and Y. Both contain the position of an element in the
-	//complete PSE. Eg, He is 1,18 and Na is 2,1
+	//complete PerodicTableView. Eg, He is 1,18 and Na is 2,1
 	
 	CList::ConstIterator it = d->CoordinateList.begin();
 	const CList::ConstIterator itEnd = d->CoordinateList.end();
@@ -842,12 +842,12 @@ int PSE::ElementNumber( int X, int Y )
 	return 0;
 }
 
-void PSE::slotUnlock()
+void PerodicTableView::slotUnlock()
 {
 	slotLock( false );
 }
 
-void PSE::slotLock(bool locked)
+void PerodicTableView::slotLock(bool locked)
 {
 	setShowTooltip(!locked);
 
@@ -856,7 +856,7 @@ void PSE::slotLock(bool locked)
 }
 
 
-void PSE::unSelect()
+void PerodicTableView::unSelect()
 {
 	m_currentPoint = QPoint(-1, -1);
 
@@ -865,9 +865,9 @@ void PSE::unSelect()
 	update();
 }
 
-void PSE::selectPoint( const QPoint& point )
+void PerodicTableView::selectPoint( const QPoint& point )
 {
-	kdDebug() << "PSE::selectPoint " << point << endl;
+	kdDebug() << "PerodicTableView::selectPoint " << point << endl;
 
 	m_currentPoint = point;
 
@@ -876,14 +876,14 @@ void PSE::selectPoint( const QPoint& point )
 	update();
 }
 
-void PSE::selectElement( int num )
+void PerodicTableView::selectElement( int num )
 {
-	kdDebug() << "PSE::selectElement " << num << endl;
+	kdDebug() << "PerodicTableView::selectElement " << num << endl;
 
 	selectPoint( d->element( num )->coords() );
 }
 
-void PSE::drawPSE( QPainter* p, bool isCrystal )
+void PerodicTableView::drawPerodicTableView( QPainter* p, bool isCrystal )
 {
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
@@ -891,7 +891,7 @@ void PSE::drawPSE( QPainter* p, bool isCrystal )
 	bool simple = Prefs::pselook();
 	/**
 	 * this loop iterates through all elements. The Elements
-	 * draw themselfs, the PSE only tells them to do so
+	 * draw themselfs, the PerodicTableView only tells them to do so
 	 */
 	while ( it != itEnd )
 	{
@@ -903,7 +903,7 @@ void PSE::drawPSE( QPainter* p, bool isCrystal )
 //CN This is called for *every* drawing of the table. This means
 //a lot overload... I would be better to chache the values in
 //member variables an only check if they need an update. 
-void PSE::calculateGradient( QPainter *p )
+void PerodicTableView::calculateGradient( QPainter *p )
 {
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
@@ -982,12 +982,12 @@ void PSE::calculateGradient( QPainter *p )
 	}
 	
 	//now draw the gradient-table
-	drawGradientPSE( p, tmpMin, tmpMax );
+	drawGradientPerodicTableView( p, tmpMin, tmpMax );
 }
 
 
 
-void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
+void PerodicTableView::drawGradientPerodicTableView( QPainter *p, const double min, const double max )
 {
 	QString title = QString::null;
 	
@@ -997,7 +997,7 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 
 	/**
 	 * this loop iterates through all elements. The Elements
-	 * draw themselves, the PSE only tells them to do so
+	 * draw themselves, the PerodicTableView only tells them to do so
 	 */
 	it = d->ElementList.begin();
 	switch ( m_gradientType )
@@ -1137,7 +1137,7 @@ void PSE::drawGradientPSE( QPainter *p, const double min, const double max )
 	} 
 }
 
-QPoint PSE::ElementUnderMouse()
+QPoint PerodicTableView::ElementUnderMouse()
 {
 	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
 	int Y = mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE;
@@ -1156,7 +1156,7 @@ QPoint PSE::ElementUnderMouse()
 }
 
 
-void PSE::slotMouseover()
+void PerodicTableView::slotMouseover()
 {
 	QPoint point = ElementUnderMouse();
 
@@ -1165,7 +1165,7 @@ void PSE::slotMouseover()
 		emit MouseOver( num );
 }
 
-void PSE::drawGradientButton( QPainter *p, Element* e, double coeff, double value, double minValue )
+void PerodicTableView::drawGradientButton( QPainter *p, Element* e, double coeff, double value, double minValue )
 {
 	if ( value >= minValue && coeff != -1.0)
 	{
@@ -1176,7 +1176,7 @@ void PSE::drawGradientButton( QPainter *p, Element* e, double coeff, double valu
 		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::lightGray );
 }
 
-QColor PSE::calculateColor( const double coeff )
+QColor PerodicTableView::calculateColor( const double coeff )
 {
 	const QColor color2 = Qt::white;
 	const QColor color1 = Qt::red;
@@ -1188,7 +1188,7 @@ QColor PSE::calculateColor( const double coeff )
 	return QColor( red, green, blue );
 }
 
-void PSE::setLook( PSE::SCHEMETYPE type, int which )
+void PerodicTableView::setLook( PerodicTableView::SCHEMETYPE type, int which )
 {
 	m_currentScheme = type;
 	
@@ -1208,7 +1208,7 @@ void PSE::setLook( PSE::SCHEMETYPE type, int which )
 			setGradient( false );
 			break;
 		}
-		case PSE::GROUPS:  // group view
+		case PerodicTableView::GROUPS:  // group view
 		{
 			QString group;
 
@@ -1246,7 +1246,7 @@ void PSE::setLook( PSE::SCHEMETYPE type, int which )
 			setGradient( false );
 			break;
 		}
-		case PSE::BLOCK: //block view
+		case PerodicTableView::BLOCK: //block view
 		{
 			static QString block;
 			while ( it != itEnd )
@@ -1270,7 +1270,7 @@ void PSE::setLook( PSE::SCHEMETYPE type, int which )
 			setGradient( false );
 			break;
 		}
-		case PSE::ACIDIC: //acidic beh
+		case PerodicTableView::ACIDIC: //acidic beh
 		{
 			static QString acidicbeh;
 			while ( it != itEnd )
@@ -1294,7 +1294,7 @@ void PSE::setLook( PSE::SCHEMETYPE type, int which )
 			setGradient( false );
 			break;
 		}
-		case PSE::FAMILY: //familiy of the element
+		case PerodicTableView::FAMILY: //familiy of the element
 		{
 			static QString family;
 

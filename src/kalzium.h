@@ -28,7 +28,7 @@ class QVBoxLayout;
 class QDockWindow;
 class TempSlider;
 class DetailedInfoDlg;
-class PSE;
+class PerodicTableView;
 class MolcalcWidget;
 class DetailedGraphicalOverview;
 class TimeWidget;
@@ -66,9 +66,9 @@ class Kalzium : public KMainWindow
 		DetailedInfoDlg   *m_infoDialog;
 
 		/**
-		 * this pointer points to the PSE.
+		 * this pointer points to the PerodicTableView.
 		 */
-		PSE *m_PSE;
+		PerodicTableView *m_PerodicTableView;
 		
 		/**
 		 *initialize actions
@@ -81,7 +81,7 @@ class Kalzium : public KMainWindow
 		void setupSidebars();
 		
 		/**
-		 * Signal the PSE that it should do a full draw operation
+		 * Signal the PerodicTableView that it should do a full draw operation
 		 */
 		void setFullDraw();
 		

@@ -19,12 +19,12 @@
  ***************************************************************************/
 
 
-// A PSE is ...
+// A PerodicTableView is ...
 //
 
 
-#ifndef PSE_H
-#define PSE_H
+#ifndef PerodicTableView_H
+#define PerodicTableView_H
 
 class QLabel;
 class QPixmap;
@@ -43,10 +43,10 @@ class KalziumTip;
 
 
 /**
- * @short basic class for the specific PSEs
+ * @short basic class for the specific PerodicTableViews
  * @author Carsten Niehaus
  */
-class PSE : public QWidget
+class PerodicTableView : public QWidget
 {
 	Q_OBJECT
 
@@ -56,8 +56,8 @@ class PSE : public QWidget
 		 * @param parent parent widget
 		 * @param name name of this widget
 		 */
-		PSE( QWidget *parent = 0, const char *name = 0);
-		~PSE();
+		PerodicTableView( QWidget *parent = 0, const char *name = 0);
+		~PerodicTableView();
 
 		enum SCHEMETYPE
 		{
@@ -124,7 +124,7 @@ class PSE : public QWidget
 		}
 
 		/**
-		 * This method sets the colors of the PSE.
+		 * This method sets the colors of the PerodicTableView.
 		 @param nr takes 5 different values:
 		 @li normal view
 		 @li groups
@@ -136,7 +136,7 @@ class PSE : public QWidget
 		void activateColorScheme( const int nr);
 
 		/**
-		 * @return the short and descriptive name of this PSE
+		 * @return the short and descriptive name of this PerodicTableView
 		 */
 		QString shortName() const{
 			return m_ShortName;
@@ -248,7 +248,7 @@ class PSE : public QWidget
 		 * @param which set the type of gradient
 		 * @see Element::TYPE
 		 */
-		void setLook( PSE::SCHEMETYPE type, int which = 0 );
+		void setLook( PerodicTableView::SCHEMETYPE type, int which = 0 );
 
 		/**
 		 * This method paints the marker around the currently selected
@@ -370,7 +370,7 @@ class PSE : public QWidget
 		bool m_showLegend;
 
 		/**
-		 * this is a short, descriptive name of the PSE
+		 * this is a short, descriptive name of the PerodicTableView
 		 */
 		QString m_ShortName;
 
@@ -387,8 +387,8 @@ class PSE : public QWidget
 		/**
 		 * implements double buffering of the widget.
 		 */
-		QPixmap *table;			// The basic PSE
-		QPixmap *table2;		// Basic PSE + extra data such as tooltip, etc
+		QPixmap *table;			// The basic PerodicTableView
+		QPixmap *table2;		// Basic PerodicTableView + extra data such as tooltip, etc
 
 		/**
 		 * used for bitBlit. If true the complete table will be drawn
@@ -445,17 +445,17 @@ class PSE : public QWidget
 		/**
 		 * the central place for the drawing of the table
 		 */
-		virtual void drawPSE( QPainter* p, bool isCrystal );
+		virtual void drawPerodicTableView( QPainter* p, bool isCrystal );
 
 		/**
 		 * draw a gradient of the type @p type
 		 */
-		virtual void drawGradientPSE( QPainter* p, const double min, const double max );
+		virtual void drawGradientPerodicTableView( QPainter* p, const double min, const double max );
 
 		/**
 		 * draw the state of matter
 		 */
-		virtual void drawSOMPSE( QPainter* p );
+		virtual void drawSOMPerodicTableView( QPainter* p );
 
 		/**
 		 * draw the legend

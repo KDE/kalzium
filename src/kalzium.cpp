@@ -51,7 +51,7 @@
 
 #include <kdeeduglossary.h>
 
-#define PSE_MARGIN          5
+#define PerodicTableView_MARGIN          5
 #define IDS_ELEMENTINFO     7
 
 Kalzium::Kalzium()
@@ -61,21 +61,21 @@ Kalzium::Kalzium()
 	KalziumDataObject::instance();
 
 	QWidget *centralWidget = new QWidget( this, "centralWidget" );
-	m_pCentralLayout = new QVBoxLayout( centralWidget, PSE_MARGIN, -1, "CentralLayout" );
+	m_pCentralLayout = new QVBoxLayout( centralWidget, PerodicTableView_MARGIN, -1, "CentralLayout" );
 	
 	QScrollView *helperSV = new QScrollView(centralWidget);
 	m_pCentralLayout->addWidget(helperSV);
 	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
 	helperSV->setFrameShape(QFrame::NoFrame);
 
-	m_PSE = new PSE( helperSV->viewport(), "PSE");
-	helperSV->addChild( m_PSE );
+	m_PerodicTableView = new PerodicTableView( helperSV->viewport(), "PerodicTableView");
+	helperSV->addChild( m_PerodicTableView );
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
 
-	connect( m_PSE, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
-	connect( m_PSE, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
-	connect( this, SIGNAL( tableLocked( bool ) ), m_PSE, SLOT( slotLock(bool ) ));
+	connect( m_PerodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
+	connect( m_PerodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
+	connect( this, SIGNAL( tableLocked( bool ) ), m_PerodicTableView, SLOT( slotLock(bool ) ));
 	
 	// Layouting
 
@@ -99,7 +99,7 @@ Kalzium::Kalzium()
 	g->setName( i18n( "Tools" ) );
 	g->setBackgroundPicture( picturepath );
 	m_glossarydlg->addGlossary( g );
-	connect( m_glossarydlg, SIGNAL( closed() ), m_PSE, SLOT(slotUnlock()) );
+	connect( m_glossarydlg, SIGNAL( closed() ), m_PerodicTableView, SLOT(slotUnlock()) );
 
 	setupStatusBar();
 }
@@ -118,7 +118,7 @@ void Kalzium::setupActions()
 	m_actionCrystal = new KToggleAction(i18n("Show &Crystal Structures"), 0, this, SLOT(slotLookCrystal()), actionCollection(), "look_crystal");
 
 	/*
-	 * the actions for switching PSE
+	 * the actions for switching PerodicTableView
 	 **/
 	QStringList gradientlist;
 	gradientlist.append(i18n("Atomic Radius"));
@@ -135,7 +135,7 @@ void Kalzium::setupActions()
 	connect (gradient_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoGradient(int)));
 
 	/*
-	 * the actions for switching PSE
+	 * the actions for switching PerodicTableView
 	 **/
 	QStringList numlist;
 	numlist.append(i18n("No N&umeration"));
@@ -184,20 +184,20 @@ void Kalzium::setupActions()
 	}
 
 	if ( Prefs::showlegend() ) {
-		m_PSE->showLegend(true);
+		m_PerodicTableView->showLegend(true);
 		m_pLegendAction->setText( i18n( "Hide &Legend" ) );
 	} else
 	{
-		m_PSE->showLegend(false);
+		m_PerodicTableView->showLegend(false);
 		m_pLegendAction->setText( i18n( "Show &Legend" ) );
 	}
 
 	if ( Prefs::tooltip() ) {
-		m_PSE->setTooltipsEnabled( true );
+		m_PerodicTableView->setTooltipsEnabled( true );
 		m_pTooltipAction->setText( i18n( "Hide &Tooltips" ) );
 	} else
 	{
-		m_PSE->setTooltipsEnabled( false );
+		m_PerodicTableView->setTooltipsEnabled( false );
 		m_pTooltipAction->setText( i18n( "Show &Tooltips" ) );
 	}
 
@@ -224,7 +224,7 @@ void Kalzium::setupSidebars()
 	lay->activate();
 	m_detailWidget = new DetailedGraphicalOverview( fake, "DetailedGraphicalOverview" );
 	m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
-	connect( m_PSE, SIGNAL( MouseOver( int ) ), this, SLOT( slotSelectedNumber( int ) ));
+	connect( m_PerodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotSelectedNumber( int ) ));
  	lay->addWidget( m_detailWidget );
 	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
 	m_toolbox->addItem( fake, SmallIcon( "overview" ), i18n( "Overview" ) );
@@ -234,12 +234,12 @@ void Kalzium::setupSidebars()
 
 	m_timeWidget = new TimeWidget( this, "TimeWidget" );
 	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ), 
-			m_PSE, 						SLOT( setDate( int ) ) );
+			m_PerodicTableView, 						SLOT( setDate( int ) ) );
 	m_toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
 
 	m_somWidget = new SOMWidgetIMPL( this, "somWidget" );
 	connect( m_somWidget->temp_slider, SIGNAL( valueChanged( int ) ), 
-			m_PSE, 						SLOT( setTemperature( int ) ) );
+			m_PerodicTableView, 						SLOT( setTemperature( int ) ) );
 	m_toolbox->addItem( m_somWidget, SmallIcon( "statematter" ), i18n( "State of Matter" ) );
 	
 	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
@@ -291,7 +291,7 @@ void Kalzium::slotPlotData()
 
 void Kalzium::slotEnableTooltips()
 {
-	bool enabled = m_PSE->tooltipsEnabled();
+	bool enabled = m_PerodicTableView->tooltipsEnabled();
 	enabled = !enabled;
 
 	if ( enabled )
@@ -299,7 +299,7 @@ void Kalzium::slotEnableTooltips()
 	else
 		m_pTooltipAction->setText( i18n( "Show &Tooltips" ) );
 
-	m_PSE->setTooltipsEnabled( enabled );
+	m_PerodicTableView->setTooltipsEnabled( enabled );
 	
 	Prefs::setTooltip( enabled ); 
 	Prefs::writeConfig();
@@ -307,20 +307,20 @@ void Kalzium::slotEnableTooltips()
 
 void Kalzium::slotShowLegend()
 {
-	if(m_PSE->showLegend())
+	if(m_PerodicTableView->showLegend())
 	{
-		m_PSE->showLegend(false);
+		m_PerodicTableView->showLegend(false);
 		m_pLegendAction->setText( i18n( "Show &Legend" ) );
 	}
 	else
 	{
-		m_PSE->showLegend(true);
+		m_PerodicTableView->showLegend(true);
 		m_pLegendAction->setText( i18n( "Hide &Legend" ) );
 	}
-	m_PSE->update();
+	m_PerodicTableView->update();
 	
 	//save the settings
-	Prefs::setShowlegend( m_PSE->showLegend() ); 
+	Prefs::setShowlegend( m_PerodicTableView->showLegend() ); 
 	Prefs::writeConfig();
  
 	//JH: redraw the full table next time
@@ -350,40 +350,40 @@ void Kalzium::slotShowScheme(int i)
 {
 	switch ( i )
 	{
-		case PSE::GROUPS:
+		case PerodicTableView::GROUPS:
 			m_actionGroups->setChecked( true );
-			m_PSE->setLook( PSE::GROUPS );
+			m_PerodicTableView->setLook( PerodicTableView::GROUPS );
 			break;
-		case PSE::BLOCK:
+		case PerodicTableView::BLOCK:
 			m_actionBlocks->setChecked( true );
-			m_PSE->setLook( PSE::BLOCK );
+			m_PerodicTableView->setLook( PerodicTableView::BLOCK );
 			break;
-		case PSE::ACIDIC:
+		case PerodicTableView::ACIDIC:
 			m_actionAcid->setChecked( true );
-			m_PSE->setLook( PSE::ACIDIC );
+			m_PerodicTableView->setLook( PerodicTableView::ACIDIC );
 			break;
-		case PSE::FAMILY:
+		case PerodicTableView::FAMILY:
 			m_actionFamily->setChecked( true );
-			m_PSE->setLook( PSE::FAMILY );
+			m_PerodicTableView->setLook( PerodicTableView::FAMILY );
 			break;
-		case PSE::CRYSTAL:
+		case PerodicTableView::CRYSTAL:
 			m_actionCrystal->setChecked( true );
-			m_PSE->setLook( PSE::CRYSTAL );
+			m_PerodicTableView->setLook( PerodicTableView::CRYSTAL );
 			break;
-		case PSE::GRADIENT:
+		case PerodicTableView::GRADIENT:
 			gradient_action->setCurrentItem( Prefs::gradient()-1 );
-			m_PSE->setLook( PSE::GRADIENT, Prefs::gradient() );
+			m_PerodicTableView->setLook( PerodicTableView::GRADIENT, Prefs::gradient() );
 			break;
-		case PSE::NOCOLOUR:
+		case PerodicTableView::NOCOLOUR:
 		default:
 			m_actionNoScheme->setChecked( true );
-			m_PSE->setLook( PSE::NOCOLOUR );
+			m_PerodicTableView->setLook( PerodicTableView::NOCOLOUR );
 	}
 }
 
 void Kalzium::slotSwitchtoGradient( int index )
 {
-	m_PSE->setLook( PSE::GRADIENT, index + 1 );
+	m_PerodicTableView->setLook( PerodicTableView::GRADIENT, index + 1 );
 	m_actionNoScheme->setChecked( false );
 	m_actionGroups->setChecked( false );
 	m_actionBlocks->setChecked( false );
@@ -398,7 +398,7 @@ void Kalzium::slotSwitchtoGradient( int index )
 
 void Kalzium::slotSwitchtoNumeration( int index )
 {
-	m_PSE->setNumerationType( ( PSE::NUMERATIONTYPE )index );
+	m_PerodicTableView->setNumerationType( ( PerodicTableView::NUMERATIONTYPE )index );
 	Prefs::setNumeration(index); 
 	Prefs::writeConfig();
 
@@ -422,8 +422,8 @@ void Kalzium::showSettingsDialog()
 
 void Kalzium::slotUpdateSettings()
 {
-	m_PSE->reloadColours();
-	m_PSE->setFullDraw();
+	m_PerodicTableView->reloadColours();
+	m_PerodicTableView->setFullDraw();
     slotEnableTooltips();
 }
  
@@ -442,7 +442,7 @@ void Kalzium::slotStatusbar( int num )
 
 void Kalzium::openInformationDialog( int number )
 {
-	if ( !m_PSE->learningMode() && m_PSE->showTooltip() )
+	if ( !m_PerodicTableView->learningMode() && m_PerodicTableView->showTooltip() )
 	{
 		kdDebug() << "Handling Information Dialog" << endl;
 
@@ -457,9 +457,9 @@ void Kalzium::openInformationDialog( int number )
 
 			// Remove the selection when this dialog finishes or hides.
 			connect(m_infoDialog, SIGNAL(hidden()),
-			        m_PSE,        SLOT(unSelect()));
+			        m_PerodicTableView,        SLOT(unSelect()));
 			connect(m_infoDialog, SIGNAL(elementChanged(int)),
-			        m_PSE,        SLOT(selectElement(int)));
+			        m_PerodicTableView,        SLOT(selectElement(int)));
 		}
 		m_infoDialog->show();
 		//emit tableLocked(false);
@@ -468,7 +468,7 @@ void Kalzium::openInformationDialog( int number )
 
 void Kalzium::slotNoLook()
 {
-	m_PSE->setLook( PSE::NOCOLOUR );
+	m_PerodicTableView->setLook( PerodicTableView::NOCOLOUR );
 	gradient_action->setCurrentItem( -1 );
 	m_actionGroups->setChecked( false );
 	m_actionBlocks->setChecked( false );
@@ -480,7 +480,7 @@ void Kalzium::slotNoLook()
 
 void Kalzium::slotLookGroups()
 {
-	m_PSE->setLook( PSE::GROUPS );
+	m_PerodicTableView->setLook( PerodicTableView::GROUPS );
 	gradient_action->setCurrentItem( -1 );
 	m_actionNoScheme->setChecked( false );
 	m_actionBlocks->setChecked( false );
@@ -492,7 +492,7 @@ void Kalzium::slotLookGroups()
 
 void Kalzium::slotLookBlocks()
 {
-	m_PSE->setLook( PSE::BLOCK );
+	m_PerodicTableView->setLook( PerodicTableView::BLOCK );
 	gradient_action->setCurrentItem( -1 );
 	m_actionNoScheme->setChecked( false );
 	m_actionGroups->setChecked( false );
@@ -504,7 +504,7 @@ void Kalzium::slotLookBlocks()
 
 void Kalzium::slotLookAcidBehavior()
 {
-	m_PSE->setLook( PSE::ACIDIC );
+	m_PerodicTableView->setLook( PerodicTableView::ACIDIC );
 	gradient_action->setCurrentItem( -1 );
 	m_actionNoScheme->setChecked( false );
 	m_actionGroups->setChecked( false );
@@ -516,7 +516,7 @@ void Kalzium::slotLookAcidBehavior()
 
 void Kalzium::slotLookFamily()
 {
-	m_PSE->setLook( PSE::FAMILY );
+	m_PerodicTableView->setLook( PerodicTableView::FAMILY );
 	gradient_action->setCurrentItem( -1 );
 	m_actionNoScheme->setChecked( false );
 	m_actionGroups->setChecked( false );
@@ -528,7 +528,7 @@ void Kalzium::slotLookFamily()
 
 void Kalzium::slotLookCrystal()
 {
-	m_PSE->setLook( PSE::CRYSTAL );
+	m_PerodicTableView->setLook( PerodicTableView::CRYSTAL );
 	gradient_action->setCurrentItem( -1 );
 	m_actionNoScheme->setChecked( false );
 	m_actionGroups->setChecked( false );
@@ -540,16 +540,16 @@ void Kalzium::slotLookCrystal()
 
 void Kalzium::setFullDraw()
 {
-	m_PSE->setFullDraw();
+	m_PerodicTableView->setFullDraw();
 }
 
 void Kalzium::slotToolboxCurrentChanged( int id )
 {
-	m_PSE->unSelect();
-	m_PSE->setTimeline( false );
-	m_PSE->activateSOMMode( false );
+	m_PerodicTableView->unSelect();
+	m_PerodicTableView->setTimeline( false );
+	m_PerodicTableView->activateSOMMode( false );
 
-	disconnect( m_PSE, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
+	disconnect( m_PerodicTableView, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
 	switch ( id )
 	{
 		case 0: // nothing
@@ -557,16 +557,16 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 //			m_calcWidget->clear();
 			break;
 		case 1: // molcalc
-			connect( m_PSE, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
+			connect( m_PerodicTableView, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
 			emit tableLocked( true );
 			break;
 		case 2: // timeline
-			m_PSE->setTimeline( true );
-			m_PSE->setDate( m_timeWidget->time_slider->value() );
+			m_PerodicTableView->setTimeline( true );
+			m_PerodicTableView->setDate( m_timeWidget->time_slider->value() );
 			break;
 		case 3: // state of matter
-			m_PSE->activateSOMMode( true );
-			m_PSE->setTemperature( m_somWidget->temp_slider->value() );
+			m_PerodicTableView->activateSOMMode( true );
+			m_PerodicTableView->setTemperature( m_somWidget->temp_slider->value() );
 			break;
 	}
 	if ( m_dockWin->isShown() )

@@ -325,7 +325,7 @@ class Element{
 		 */
 		double meanmass();
 
-		int x, y; //for the RegularPSE
+		int x, y; //for the RegularPerodicTableView
 
 		/**
 		 * adjusts the units for the data. The user can
