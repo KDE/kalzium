@@ -98,8 +98,8 @@ void NuclideBoard::slotDrawDecayRow( Isotope* isotope )
 {
 	kdDebug() << "NuclideBoard::slotDrawDecayRow()" << endl;
 	if ( !isotope->alphadecay() 
-			&& !isotope->betaplusdecay()
-			&& !isotope->betaminusdecay() )
+			|| !isotope->betaplusdecay()
+			|| !isotope->betaminusdecay() )
 		return;
 
 	kdDebug() << "Isotope: " << isotope->neutrons() << endl;
