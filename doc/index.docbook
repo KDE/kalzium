@@ -43,10 +43,9 @@
 		 <releaseinfo>1.4.2pre3</releaseinfo>
 
 		 <abstract>
-			 <para>&kalzium; is a program which shows you the Periodic System of
-				 Elements (<acronym>PSE</acronym>). You can use &kalzium; to search
-				 for information about the elements or to learn facts about the
-				 <acronym>PSE</acronym>.</para>
+			 <para>&kalzium; is a program which shows you the Periodic Table of
+				 Elements. You can use &kalzium; to search for information about the elements or to learn facts about the
+				 periodic table.</para>
 		 </abstract>
 
 		 <keywordset>
@@ -54,7 +53,6 @@
 			 <keyword>education</keyword>
 			 <keyword>elements</keyword>
 			 <keyword>chemistry</keyword>
-			 <keyword>PSE</keyword>
 			 <keyword>education</keyword>
 			 <keyword>kalzium</keyword>
 		 </keywordset>
@@ -65,7 +63,7 @@
 		 <title>Introduction</title>
 
 		 <para>&kalzium; provides you with all kinds of information about the
-			 <acronym>PSE</acronym> (Periodic System of Elements.) You can lookup
+			 Periodic Table of the Elements. You can lookup
 			 lots of information about the elements and also use visualizations to
 			 show them. It is free and licensed
 			 under the &GNU; Public License.
@@ -164,8 +162,7 @@
 		 <sect1 id="info-dlg">
 			 <title>The information dialog</title>
 
-			 <para>The information dialog is accessed by right or left button mouse click on any element.
-				 It is available only in the <guilabel>Overview</guilabel> mode of when the sidebar is hidden.</para>
+			 <para>The information dialog is accessed by left button mouse click on any element. It is available only in the <guilabel>Overview</guilabel> mode or when the sidebar is hidden.</para>
 
 			 <screenshot>
 				 <screeninfo>&kalzium; information dialog</screeninfo>
@@ -291,14 +288,16 @@
 			 </itemizedlist>
 
 		 </sect1>
-
-
 		 <sect1 id="tools">
 			 <title>Tools</title>
 			 <sect2 id="nuclid_board">
-				 <title>Nuclid Board</title>
-				 <para>
-					 The <guimenuitem>Nulidboard</guimenuitem>...</para>
+				 <title>Nuclidboard</title>
+				<para>
+					 The <guimenuitem>Nulidboard</guimenuitem> shows you the isotopes of the elements. You can select the range of elements to display with the spinboxes at the bottom of the dialog.
+				</para>
+				<para>
+					The dialog show the elements-number on the y-axis. The x-axis displays There are diffent kinds of isotopes, some are stable, some are not. The instable isotopes can decay as alpha-rays are two diffent beta-rays. These differences are encoded by using diffenrent colors. 
+				</para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -307,8 +306,7 @@
 						 <textobject>
 							 <phrase>the <quote>Nuclidboard</quote> Dialog</phrase>
 						 </textobject>
-						 <caption><para>&kalzium; can display the isoptes of a range of
-								 elements</para>
+						 <caption><para>&kalzium; can display the isoptes of a range of elements</para>
 						 </caption>
 					 </mediaobject>
 				 </screenshot>
@@ -316,8 +314,9 @@
 
 			 <sect2 id="glossary">
 				 <title>Glossary</title>
-				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data.
-				 </para>
+				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data. On the left side of the windows you can see the tree of items. On top, there are chemical terms, below that there is a second tree of labaratory-tools. </para>
+				 <para>On the top of the widget you can see a searchbar. If you tpye in the bar the trees will be adjusted immediately. The small button left of the searchbar will clear it.
+				</para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -350,7 +349,11 @@
 			 <sect2 id="eq_solver">
 				 <title>Equation Solver</title>
 				 <para>
-					 The <guimenuitem>Equation Solver</guimenuitem>...</para>
+					 The <guimenuitem>Equation Solver</guimenuitem> enables the user to solve chemical equations. This is an example:
+					<blockquote>aH2O + bCO2 -> cH2CO3</blockquote>
+				</para>
+				<para>
+					The computed equation will be displayed on the right side of the window. As you can see in the first example you can also define the value of one or more coefficients. The other coefficients will be ajusted. Furthermore, it is possible to use brackets around elements or electronic charges as shown in the last two examples.</para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -775,9 +778,24 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
+								 <guimenuitem>Nuclide Board</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Open</action> the Nuclide Board dialog</para></listitem>
+					 </varlistentry>
+
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Tools</guimenu>
 								 <guimenuitem>Glossary</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Open</action> the Glossary</para></listitem>
+					 </varlistentry>
+					<varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Tools</guimenu>
+								 <guimenuitem>Show Equationsolver</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Open</action> the Equationsolver dialog</para></listitem>
 					 </varlistentry>
 					 <!--<varlistentry>
 						 <term><menuchoice>
