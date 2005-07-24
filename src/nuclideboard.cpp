@@ -125,7 +125,7 @@ void NuclideBoard::drawContents( QPainter * p, int clipx, int clipy, int clipw, 
 
 	for ( int i = m_lowestNumberOfNeutrons; i <= m_highestNumberOfNeutrons; ++i )
 	 	p->drawText( ( i - m_lowestNumberOfNeutrons ) * m_isoWidth + 10 + m_isoWidth, 0, m_isoWidth,
-                                m_isoWidth, Qt::AlignCenter, QString::number( i ) )
+                                m_isoWidth, Qt::AlignCenter, QString::number( i ) );
 }
 
 int NuclideBoard::highestNeutronCount()
