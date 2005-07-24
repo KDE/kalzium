@@ -18,11 +18,6 @@
  *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.             *
  ***************************************************************************/
 
-
-// A PerodicTableView is ...
-//
-
-
 #ifndef PerodicTableView_H
 #define PerodicTableView_H
 
@@ -38,10 +33,7 @@ class KalziumTip;
 #include <qwidget.h>
 #include <qtimer.h>
 
-
-
-
-
+// A PerodicTableView is ...
 /**
  * @short basic class for the specific PerodicTableViews
  * @author Carsten Niehaus
@@ -80,21 +72,21 @@ class PerodicTableView : public QWidget
 
 		/**
 		 * if this mode is activated a click on a button will not open
-		 * a informationdialog
+		 * a information dialog
 		 */
 		virtual void activateMolcalcmode( bool mode ){
 			m_molcalcIsActive = mode;
 		}
 
 		/**
-		 * @return if the the learningmode is active or not
+		 * @return if the the learning mode is active or not
 		 */
 		virtual bool learningMode() const{
 			return m_learningMode;
 		}
 
 		/**
-		 * @return if the the molcalc-Modus is active or not
+		 * @return if the molcalc mode is active or not
 		 */
 		virtual bool molcalcMode() const{
 			return m_molcalcIsActive;
@@ -125,13 +117,13 @@ class PerodicTableView : public QWidget
 
 		/**
 		 * This method sets the colors of the PerodicTableView.
-		 @param nr takes 5 different values:
-		 @li normal view
-		 @li groups
-		 @li blocks
-		 @li state-of-matter
-		 @li acidic behavior
-		 @li family view 
+		 * @param nr takes 5 different values:
+		 * @li normal view
+		 * @li groups
+		 * @li blocks
+		 * @li state of matter
+		 * @li acidic behavior
+		 * @li family view
 		 */
 		void activateColorScheme( const int nr);
 
@@ -143,7 +135,7 @@ class PerodicTableView : public QWidget
 		}
 
 		/**
-		 * if @p show is true toolstips will be displayed 
+		 * if @p show is true the tooltip will be displayed
 		 */
 		void setShowTooltip( bool show ){
 			m_showTooltip = show;
@@ -170,16 +162,16 @@ class PerodicTableView : public QWidget
 		}
 		
 		/**
-		 * @return if the gradient-mode is active
+		 * @return if the gradient mode is active
 		 */
 		bool gradient() const{
 			return m_showGradient;
 		}
 		
 		/**
-		 * Defines if the gradientmode will be activated or 
+		 * Defines if the gradient mode will be activated or
 		 * deactivated
-		 * @param gradient defines if the gradientmode should be activated or not
+		 * @param gradient defines if the gradient mode should be activated or not
 		 */
 		void setGradient( bool gradient ){
 			m_showGradient = gradient;
@@ -211,7 +203,7 @@ class PerodicTableView : public QWidget
 		}
 
 		/**
-		 * activates or deactivates the learningmode
+		 * activates or deactivates the learning mode
 		 */
 		void setLearning( bool learningmode ){
 			m_learningMode = learningmode;
@@ -231,7 +223,7 @@ class PerodicTableView : public QWidget
 		}
 
 		/**
-		 * load the colours from the config-file. This is done
+		 * load the colours from the config file. This is done
 		 * on startup and everytime the user changed the configuration
 		 */
 		void reloadColours();
@@ -283,7 +275,7 @@ class PerodicTableView : public QWidget
 		 * @param e the element which is to be drawn
 		 * @param coeff ?
 		 * @param value the value
-		 * @param minValue the smallest of alle values
+		 * @param minValue the smallest of all the values
 		 */
 		void drawGradientButton( QPainter* p, Element* e, double coeff, double value, double minValue );
 
@@ -495,7 +487,7 @@ class PerodicTableView : public QWidget
 		 * If called this slot will emit the signal MouseOver( num )
 		 * where num is the number of the element the mouse if over.
 		 * If the mouse is not over an element nothing will be emited
-		 * @see MouseOver
+		 * @see MouseOver()
 		 */
 		void slotMouseover();
 		
@@ -523,13 +515,14 @@ class PerodicTableView : public QWidget
 		void slotToolTip( int number );
 		
 		/**
-		 * locks the table. This means that no tooltips will be displayed
+		 * locks the table. This means that no tooltip will be displayed
+		 * @see slotUnlock()
 		 */
 		void slotLock(bool);
 
 		/**
 		 * same as slotLock( false )
-		 * @see slotLock
+		 * @see slotLock()
 		 */
 		void slotUnlock();
 
@@ -551,7 +544,7 @@ class PerodicTableView : public QWidget
 		void ToolTip(int);
 
 		/**
-		 * This signal is emited when the mousepointer is
+		 * This signal is emited when the mouse pointer is
 		 * over an element
 		 */
 		void MouseOver( int );

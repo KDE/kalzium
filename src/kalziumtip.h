@@ -37,7 +37,6 @@ class QTimer;
  * @short tooltip for kalzium
  * @author Martin Pfeiffer
  */
-
 class KalziumTip : public QWidget
 {
 	Q_OBJECT	

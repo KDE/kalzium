@@ -63,7 +63,7 @@ class SpectrumWidget : public QWidget
 		}
 		
 		/**
-		 * find the nearest band. The returnvalue is the number
+		 * find the nearest band. The returned value is the number
 		 * of pixel the next band is away
 		 */
 		int findNearestBand( QValueList<double>::iterator it );
@@ -135,12 +135,12 @@ class SpectrumWidget : public QWidget
 		double strippedValue( double num );
 
 		/**
-		 * This method changes the three values @p r @p g and @p b to the 
+		 * This method changes the three values @p r, @p g and @p b to the
 		 * correct values
-		 * param wavelength the wavelength for which the color is searched
-		 * param r red
-		 * param g green 
-		 * param b blue
+		 * @param wavelength the wavelength for which the color is searched
+		 * @param r red
+		 * @param g green
+		 * @param b blue
 		 */
 		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
 
@@ -173,16 +173,18 @@ class SpectrumWidget : public QWidget
 
 		int m_realHeight;
 
-		///this QPoint stores the information where
-		//the left mouse button has been pressed. This
-		//is used for the mouse-zooming
+		/**
+		 * this QPoint stores the information where
+		 * the left mouse button has been pressed. This
+		 * is used for the mouse zooming
+		 */
 		QPoint m_LMBPointPress;
 		
 		QPoint m_LMBPointCurrent;
 
 	public slots:
 		/**
-		 * set the the maximumvalue to @p value
+		 * set the the maximum value to @p value
 		 */
 		void setRightBorder( int value ){
 			endValue = value;
@@ -192,7 +194,7 @@ class SpectrumWidget : public QWidget
 		}
 		
 		/**
-		 * set the the minimumvalue to @p value
+		 * set the the minimum value to @p value
 		 */
 		void setLeftBorder( int value ){
 			startValue = value;

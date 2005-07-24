@@ -92,7 +92,7 @@ class NuclideBoard : public QScrollView
 	private slots:
 		/**
 		 * Draw the decay of an isotope
-		 * @param the first istope in the row
+		 * @param isotope the first Isotope in the row
 		 */
 		void slotDrawDecayRow( Isotope* isotope );
 
@@ -131,7 +131,7 @@ class IsotopeWidget : public QWidget
 		}
 
 		/**
-		 * @return the istope of this widget
+		 * @return the Istope of this widget
 		 */
 		Isotope* isotope()const{
 			return m_isotope;

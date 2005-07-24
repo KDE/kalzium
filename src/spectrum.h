@@ -46,14 +46,14 @@ class Spectrum
 {
 	public:
 		/**
-		 * public ctor
+		 * public costructor
 		 */
 		Spectrum( Element* parent ){
 			m_parentElement = parent;
 		};
 		
 		/**
-		 * public dtor
+		 * public destructor
 		 */
 		~Spectrum(){};
 
@@ -147,7 +147,7 @@ class Spectrum
 		}
 
 		/**
-		 * @return the data of a spectrum as html-code
+		 * @return the data of a spectrum as HTML code
 		 */
 		QString BandsAsHtml();
 

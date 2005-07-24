@@ -22,10 +22,9 @@ class Element;
  * @author Carsten Niehaus
  * @author Pino Toscano
  *
- * The SOMWidgetIMPL provides a QSlider. When this slider ist moved
- * it will display which elements have similat boiling- and
- * meltingoints (compared to the temperature the user entered using
- * the slider )
+ * The SOMWidgetIMPL provides a QSlider. When this slider is moved,
+ * this widget will display which elements have a boiling or melting
+ * point near the temperature the user entered using the slider.
  */
 class SOMWidgetIMPL : public SOMWidget
 {
@@ -46,7 +45,7 @@ class SOMWidgetIMPL : public SOMWidget
 	private slots:
 		/**
 		 * in this slot the elements will be compared with
-		 * the given temperature. The content of the html
+		 * the temperature @p temp. The content of the HTML
 		 * will be generated
 		 */
 		void slotTemp( int temp );

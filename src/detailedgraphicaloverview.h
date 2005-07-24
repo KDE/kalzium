@@ -3,7 +3,7 @@
 /***************************************************************************
     copyright            : (C) 2004 by Carsten Niehaus
     email                : cniehaus@kde.org
-	
+
  ***************************************************************************/
 
 /***************************************************************************
@@ -62,7 +62,7 @@ class DetailedGraphicalOverview : public QWidget
 		/**
 		 * initialization method
 		 */
-		void init( Element* );
+		virtual void init( Element* );
 };
 
 #endif // DETAILEDGRAPHICALOVERVIEW_H

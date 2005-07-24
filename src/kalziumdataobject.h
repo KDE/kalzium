@@ -23,16 +23,27 @@
 #include "element.h"
 
 /**
- * @author Carsten Niehaus
+ * @short This class contains all Element objects
  *
- * @short this class contains all Element-objects as
- * a QValueList<Element*>
+ * This singleton class collects all the information about the elements of the
+ * Periodic Table as list of Element (QValueList<Element*>).
+ * Use:
+ * @code
+ * KalziumDataObject::instance()->ElementList;
+ * @endcode
+ * to get the whole list of Element, while a
+ * @code
+ * KalziumDataObject::instance()->element( num );
+ * @endcode
+ * will return you the pointer to the num'th element of the Periodic Table.
+ *
+ * @author Carsten Niehaus
  */
 class KalziumDataObject
 {
 	public:
 		/**
-		 * @return a instance of this class
+		 * @return the instance of this class
 		 */
 		static KalziumDataObject* instance();
 

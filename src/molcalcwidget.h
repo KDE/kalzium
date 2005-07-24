@@ -62,13 +62,13 @@ class MolcalcWidget : public MolcalcWidgetBase
 		};
 		
 		/**
-		 * updates the list of elements and calls updateUI()
+		 * updates the list of elements and calls \ref updateUI()
 		 */
 		void updateData( int number, KIND kind );
 
 		/**
-		 * return the HTML code of an element symbol and it's subscripted
-		 * amount. Eg Mg<sub>2</sub>
+		 * @return the HTML code of an element symbol and its
+		 * subscripted amount. Eg: Mg<sub>2</sub>
 		 */
 		QString composition( QMap<Element*,int> );
 
