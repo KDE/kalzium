@@ -131,8 +131,8 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		QDomElement refNode = ( const QDomElement& ) itemElement.namedItem( "references" ).toElement();
 
 		QString desc = descNode.toElement().text();
-		
-		desc.prepend("[img]"+picName +"[/img]" );
+		if ( !picName.isEmpty() )
+			desc.prepend("[img]"+picName +"[/img]" );
 
 		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
 		
