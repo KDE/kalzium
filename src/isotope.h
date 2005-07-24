@@ -31,7 +31,7 @@
 class Isotope
 {
 	public:
-		Isotope( int neutrons, double percentage, double weight, double halflife, QString format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, double alphapercentage, double betaminuspercentage, double betapluspercentage, bool ecdecay, double decayenergy, QString spin, QString magmoment);
+		Isotope( int neutrons, double percentage, double weight, double halflife, const QString& format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, double alphapercentage, double betaminuspercentage, double betapluspercentage, bool ecdecay, double decayenergy, const QString& spin, const QString& magmoment);
 
 		bool seconds() const{
 			if ( m_format == "seconds" )
@@ -59,18 +59,30 @@ class Isotope
 			return m_neutrons;
 		}
 
+		/**
+		 * the weight of the isotope
+		 */
 		double weight() const{
 			return m_weight;
 		}
 		
+		/**
+		 * @return true if the isotopes decays in alpha rays
+		 */
 		bool alphadecay() const{
 			return m_alphadecay;
 		}
 		
+		/**
+		 * @return true if the isotopes decays in beta plus rays
+		 */
 		bool betaplusdecay() const{
 			return m_betaplusdecay;
 		}
 		
+		/**
+		 * @return true if the isotopes decays in beta-minus rays
+		 */
 		bool betaminusdecay() const{
 			return m_betaminusdecay;
 		}
@@ -143,6 +155,21 @@ class Isotope
 		* magnetic moment
 		*/
 		QString m_magmoment;
+
+		/**
+		 * the percentage with which the istope decays as alpha-rays
+		 */
+		double m_alphapercentage;
+		
+		/**
+		 * the percentage with which the istope decays as beta-plus 
+		 */
+		double m_betapluspercentage;
+		
+		/**
+		 * the percentage with which the istope decays as beta-minus
+		 */
+		double m_betaminuspercentage;
 };
 
 #endif // ISOTOPE_H
