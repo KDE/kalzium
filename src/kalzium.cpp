@@ -261,12 +261,18 @@ void Kalzium::slotGlossary()
 void Kalzium::slotShowEQSolver()
 {
 #ifdef HAVE_FACILE
-	//KDialogBase *dlg = new KDialogBase(this);
+	KDialogBase *dlg = new KDialogBase(this, "eqding", true, i18n( "Solve chemical equations" ), 
+			 KDialogBase::Apply|KDialogBase::Close|KDialogBase::Help, KDialogBase::Apply, true );
 	
-	eqchemView *eqsolver = new eqchemView( NULL/*dlg*/ );
-	//dlg->setMainWidget(eqsolver);
-	//dlg->show();
-	eqsolver->show();
+	QWidget *page = new QWidget( dlg );
+	dlg->setMainWidget( page );
+	QVBoxLayout *vbox = new QVBoxLayout( page , 0, KDialogBase:: spacingHint() );
+	
+	eqchemView *eqsolver = new eqchemView( page );
+
+	vbox->addWidget( eqsolver );
+
+	dlg->show();
 #endif
 }
 
