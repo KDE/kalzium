@@ -1374,4 +1374,4 @@ void PerodicTableView::setLook( PerodicTableView::SCHEMETYPE type, int which )
 	update();
 }
 
-#include "periodictable.moc"
+#include "periodictableview.moc"
