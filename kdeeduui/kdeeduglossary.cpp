@@ -126,15 +126,17 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		
 		QDomNode nameNode = itemElement.namedItem( "name" );
 		QDomNode descNode = itemElement.namedItem( "desc" );
+		
 		QString picName = itemElement.namedItem( "picture" ).toElement().text();
 		QDomElement refNode = ( const QDomElement& ) itemElement.namedItem( "references" ).toElement();
 
 		QString desc = descNode.toElement().text();
+		
 		desc.prepend("[img]"+picName +"[/img]" );
 
 		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
 		
-		item->setDesc( item->desc().replace("[b]", "<b>" ) );
+		item->setDesc( desc.replace("[b]", "<b>" ) );
 		item->setDesc( item->desc().replace("[/b]", "</b>" ) );
 		item->setDesc( item->desc().replace("[i]", "<i>" ) );
 		item->setDesc( item->desc().replace("[/i]", "</i>" ) );
