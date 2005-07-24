@@ -132,6 +132,50 @@
 		</references>
 	</item>
 	<item>
+		<name>Isotopes</name>
+		<desc>Isotopes are forms of a chemical element whose nuclei have the same atomic number, Z, but different atomic masses, A. The word isotope, meaning at the same place, comes from the fact that all isotopes of an element are located at the same place on the periodic table.</desc>
+		<references>
+			<refitem>Atom</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Spin</name>
+		<desc>The spin is an intrinsic angular momentum associated with microscopic particles. It is a purely quantum mechanical phenomenon without any analogy in classical mechanics. Whereas classical angular momentum arises from the rotation of an extended object, spin is not associated with any rotating internal masses, but is intrinsic to the particle itself.</desc>
+		<references>
+			<refitem>Isotopes</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Magnetic Moment</name>
+		<desc>The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself.
+		It's measured in units of 5.0507866 &#177; 0.0000017 e-27 J/T</desc>
+		<references>
+			<refitem>Isotopes</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Decay Mode</name>
+		<desc>The decay mode describes a particular way a particle decays.
+		For radioactive decay (the decay of nuclides) the decay modes are:
+		-> alpha decay (emission of a Helium-4 nucleus).
+		-> &#946;- decay (emission of an electron)
+		-> &#946;+ decay (emission of a positron)
+		-> electron capture
+		-> proton emission
+		-> spontaneous fission
+		-> Typically one decay mode predominates for a particular nuclide. </desc>
+		<references>
+			<refitem>Isotopes</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Decay Energy</name>
+		<desc>The decay energy is the energy released by a nuclear decay.</desc>
+		<references>
+			<refitem>Isotopes</refitem>
+		</references>
+	</item>
+	<item>
 		<name>Beta rays</name>
 		<desc>Rays consisting of electrons that are emitted from Atoms of radioactive elements.</desc>
 	</item>
