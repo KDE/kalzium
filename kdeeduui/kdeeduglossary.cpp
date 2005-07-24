@@ -70,11 +70,13 @@ bool Glossary::isEmpty() const
 }
 
 
-Glossary* Glossary::readFromXML( const KURL& url )
+Glossary* Glossary::readFromXML( const KURL& url, const QString& path )
 {
 	QDomDocument doc( "document" );
 
 	Glossary *glossary = new Glossary();
+	
+	glossary->setPicturePath( path );
 
 	if ( glossary->loadLayout( doc, url ) )
 	{
@@ -98,8 +100,8 @@ void Glossary::fixImagePath()
 
 	for ( ; it != itEnd ; ++it )
 	{
-		( *it )->desc().replace("[img]", firstpart );
-		( *it )->desc().replace("[/img]", "\" />" );
+		( *it )->setDesc( ( *it )->desc().replace("[img]", firstpart ) );
+		( *it )->setDesc( ( *it )->desc().replace("[/img]", "\" />" ) );
 	}
 }
 	
@@ -124,9 +126,11 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		
 		QDomNode nameNode = itemElement.namedItem( "name" );
 		QDomNode descNode = itemElement.namedItem( "desc" );
+		QString picName = itemElement.namedItem( "picture" ).toElement().text();
 		QDomElement refNode = ( const QDomElement& ) itemElement.namedItem( "references" ).toElement();
 
 		QString desc = descNode.toElement().text();
+		desc.prepend("[img]"+picName +"[/img]" );
 		desc.replace("[b]", "<b>" );
 		desc.replace("[/b]", "</b>" );
 		desc.replace("[i]", "<i>" );
@@ -151,9 +155,9 @@ QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 
 
 GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent, const char *name)
-    : KDialogBase( Plain, i18n( "Glossary" ), Close, Close, parent, name, false )
+    : KDialogBase( Plain, i18n( "Glossary" ), Close, NoDefault, parent, name, false )
 {
-	//this string will be used for all items. If a backgroundpicutures should
+	//this string will be used for all items. If a backgroundpicture should
 	//be used call Glossary::setBackgroundPicture().
 	m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body>" ;
 
@@ -236,8 +240,8 @@ void GlossaryDialog::updateTree()
 {
 	m_glosstree->clear();
 
-	QValueList<Glossary*>::iterator itGl = m_glossaries.begin();
-	const QValueList<Glossary*>::iterator itGlEnd = m_glossaries.end();
+	QValueList<Glossary*>::const_iterator itGl = m_glossaries.begin();
+	const QValueList<Glossary*>::const_iterator itGlEnd = m_glossaries.end();
 	
 	for ( ; itGl != itGlEnd ; ++itGl )
 	{
@@ -316,8 +320,8 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 	while ( !found && itGl != itGlEnd )
 	{
 		QValueList<GlossaryItem*> items = ( *itGl )->itemlist();
-		QValueList<GlossaryItem*>::iterator it = items.begin();
-		const QValueList<GlossaryItem*>::iterator itEnd = items.end();
+		QValueList<GlossaryItem*>::const_iterator it = items.begin();
+		const QValueList<GlossaryItem*>::const_iterator itEnd = items.end();
 		while ( !found && it != itEnd )
 		{
 			if ( ( *it )->name() == item->text( 0 ) )
@@ -345,7 +349,6 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 		m_htmlpart->begin();
 		m_htmlpart->write( html );
 
-		kdDebug() << "the html " << html << endl;
 		m_htmlpart->end();
 		return;
 	}

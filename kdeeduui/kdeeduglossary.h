@@ -89,11 +89,12 @@ class Glossary
 		 * Read a glossary from an XML file.
 		 *
 		 * @param url The path of the file to load
+		 * @param path The path of the pictures. Will be used as m_picturepath
 		 *
 		 * @return a pointer to the loaded glossary. Even in case of
 		 *         error, this won't return 0 but an empty Glossary.
 		 */
-		static Glossary* readFromXML( const KURL& url );
+		static Glossary* readFromXML( const KURL& url, const QString& path = 0 );
 
 		/**
 		 * Every glossaryitem can show pictures. [img src="foo.png]
