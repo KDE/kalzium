@@ -31,7 +31,7 @@
 class Isotope
 {
 	public:
-		Isotope( int neutrons, double percentage, double weight, double halflife, const QString& format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, double alphapercentage, double betaminuspercentage, double betapluspercentage, bool ecdecay, double decayenergy, const QString& spin, const QString& magmoment);
+		Isotope( int neutrons, int protones, double percentage, double weight, double halflife, QString format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, double alphapercentage, double betaminuspercentage, double betapluspercentage, bool ecdecay, double decayenergy, QString spin, QString magmoment);
 
 		bool seconds() const{
 			if ( m_format == "seconds" )
@@ -57,6 +57,13 @@ class Isotope
 		 */
 		int neutrons() const{
 			return m_neutrons;
+		}
+
+		/**
+		 * @return the number of protones the isotope has
+		 */
+		int protones() const{
+			return m_protones;
 		}
 
 		/**
@@ -160,7 +167,12 @@ class Isotope
 		 * the number of neutrons
 		 */
 		int m_neutrons;
-		
+
+		/**
+		 * the number of protones
+		 */
+		int m_protones;
+	
 		///Specify if the decay is of this kind
 		bool  m_alphadecay;
 		///Specify if the decay is of this kind
