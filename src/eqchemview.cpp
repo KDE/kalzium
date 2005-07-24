@@ -51,11 +51,11 @@ eqchemView::eqchemView(QWidget *parent) : QWidget(parent)
 
     QGridLayout *l = new QGridLayout(this, 2, 2, 11, 6, "eqchemView::eqchemView layout");
 
-    m_eqresult = new eqresult(this);
+    m_eqResult = new EqResult(this);
     m_eqedit = new KLineEdit(this);
     m_eqclear = new KPushButton(this);
 
-    l->addMultiCellWidget(m_eqresult, 0, 0, 0, 1);
+    l->addMultiCellWidget(m_eqResult, 0, 0, 0, 1);
     l->addWidget(m_eqedit, 1, 1);
     l->addWidget(m_eqclear, 1, 0);
 
@@ -83,7 +83,7 @@ void eqchemView::clear()
     kdWarning()<<"eqchemView::clear"<<endl;
 
     // clear the result window
-    m_eqresult->clear();
+    m_eqResult->clear();
 }
 
 void eqchemView::compute()
@@ -101,7 +101,7 @@ void eqchemView::compute()
     free(result);
 
     // add the equation in the result window
-    m_eqresult->add( equation, disp );
+    m_eqResult->add( equation, disp );
 }
 
 #include "eqchemview.moc"

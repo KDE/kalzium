@@ -25,7 +25,7 @@
 
 class QPainter;
 class KURL;
-class eqresult;
+class EqResult;
 
 class KLineEdit;
 class KPushButton;
@@ -75,7 +75,7 @@ private slots:
 private:
     KLineEdit * m_eqedit;
     KPushButton * m_eqclear;
-    eqresult * m_eqresult;
+    EqResult * m_eqResult;
 };
 
 #endif // _EQCHEMVIEW_H_

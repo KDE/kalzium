@@ -28,14 +28,14 @@
 
 // inspired by speedcrunch
 
-questionitem::questionitem( QListBox* listBox, const QString& e, QColor bg ):
+QuestionItem::QuestionItem( QListBox* listBox, const QString& e, QColor bg ):
 QListBoxItem ( listBox )
 {
     m_msg = e;
     m_bgcolor = bg;
 }
 
-answeritem::answeritem( QListBox* listBox, const QString& e, const QString &r, QColor bg ):
+AnswerItem::AnswerItem( QListBox* listBox, const QString& e, const QString &r, QColor bg ):
 QListBoxItem ( listBox )
 {
     m_msg = "<p align=\"right\">"+r+"</p>";
@@ -45,7 +45,7 @@ QListBoxItem ( listBox )
     m_richtext->setWidth( listBox->width() );
 }
 
-void questionitem::paint( QPainter* painter )
+void QuestionItem::paint( QPainter* painter )
 {
     int tf = Qt::NoAccel | Qt::SingleLine | Qt::AlignVCenter;
 
@@ -54,7 +54,7 @@ void questionitem::paint( QPainter* painter )
     painter->drawText( r, tf, m_msg );
 }
 
-void answeritem::paint( QPainter* painter )
+void AnswerItem::paint( QPainter* painter )
 {
     checkSize();
 
@@ -67,19 +67,19 @@ void answeritem::paint( QPainter* painter )
     m_richtext->draw(painter, 0, 0, r, cg );
 }
 
-int questionitem::width( const QListBox*lb ) const
+int QuestionItem::width( const QListBox*lb ) const
 {
     QFont font = lb->font();
     return QFontMetrics( font ).width( m_msg );
 }
 
-int questionitem::height( const QListBox*lb ) const
+int QuestionItem::height( const QListBox*lb ) const
 {
     QFont font = lb->font();
     return QFontMetrics( font ).height() + 4;
 }
 
-void answeritem::checkSize()
+void AnswerItem::checkSize()
 {
     QFont font = listBox()->font();
     int t1 = QFontMetrics( font ).width( m_origmsg+"padding" );
@@ -89,17 +89,17 @@ void answeritem::checkSize()
     m_richtext->setWidth(   (t1>t2)?t1:t2   );
 }
 
-eqresult::eqresult(QWidget *parent) : QListBox(parent)
+EqResult::EqResult(QWidget *parent) : QListBox(parent)
 {
     m_alternate_color = false;
     setMinimumWidth(140);
 }
 
-eqresult::~eqresult()
+EqResult::~EqResult()
 {
 }
 
-void eqresult::add(const QString & question, const QString & answer)
+void EqResult::add(const QString & question, const QString & answer)
 {
     QColor bgcolor = colorGroup().base();
 
@@ -108,18 +108,18 @@ void eqresult::add(const QString & question, const QString & answer)
 
     m_alternate_color = !m_alternate_color;
 
-    new questionitem( this, question, bgcolor );
-    new answeritem( this, question, answer, bgcolor );
+    new QuestionItem( this, question, bgcolor );
+    new AnswerItem( this, question, answer, bgcolor );
 
     QTimer::singleShot( 100, this, SLOT( scrollToEnd() ) );
 }
 
-void eqresult::scrollToEnd()
+void EqResult::scrollToEnd()
 {
     ensureVisible( 0, contentsHeight()-1 );
 }
 
-void eqresult::resizeEvent( QResizeEvent* )
+void EqResult::resizeEvent( QResizeEvent* )
 {
     triggerUpdate( true );
 }

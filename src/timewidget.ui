@@ -1,8 +1,8 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>timeWidget</class>
+<class>TimeWidget</class>
 <widget class="QWidget">
     <property name="name">
-        <cstring>timeWidget</cstring>
+        <cstring>TimeWidget</cstring>
     </property>
     <property name="geometry">
         <rect>

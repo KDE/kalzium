@@ -27,10 +27,10 @@
 /**
  * @author Thomas Nagy
  */
-class questionitem : public QListBoxItem
+class QuestionItem : public QListBoxItem
 {
     public:
-	questionitem( QListBox*, const QString&, QColor bg );
+	QuestionItem( QListBox*, const QString&, QColor bg );
     protected:
 	void paint( QPainter* p );
 	int width( const QListBox* ) const;
@@ -43,11 +43,11 @@ class questionitem : public QListBoxItem
 /**
  * @author Thomas Nagy
  */
-class answeritem : public QListBoxItem
+class AnswerItem : public QListBoxItem
 {
     public:
-	answeritem(  QListBox*, const QString&, const QString&, QColor bg );
-	~answeritem() { delete m_richtext; }
+	AnswerItem(  QListBox*, const QString&, const QString&, QColor bg );
+	~AnswerItem() { delete m_richtext; }
 	void checkSize();
     protected:
 	void paint( QPainter* p );
@@ -69,13 +69,13 @@ class answeritem : public QListBoxItem
 /**
  * @author Thomas Nagy
  */
-class eqresult : public QListBox
+class EqResult : public QListBox
 {
     Q_OBJECT
 public:
     
-    eqresult(QWidget *parent);
-    ~eqresult();
+    EqResult(QWidget *parent);
+    ~EqResult();
 
 public slots:
     void add(const QString &, const QString &);
