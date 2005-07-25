@@ -140,16 +140,6 @@
                                 <cstring>j1</cstring>
                             </property>
                         </widget>
-                    </hbox>
-                </widget>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layout4</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
                         <widget class="QLabel">
                             <property name="name">
                                 <cstring>textLabel1</cstring>
@@ -186,16 +176,6 @@
                                 <cstring>t1</cstring>
                             </property>
                         </widget>
-                    </hbox>
-                </widget>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layout2</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
                         <widget class="QLabel">
                             <property name="name">
                                 <cstring>textLabel4</cstring>

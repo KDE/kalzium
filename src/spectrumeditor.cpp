@@ -24,21 +24,22 @@
 
 SpectrumEditor::SpectrumEditor( QWidget *parent, const char* name )
 	: KDialogBase(parent, name, true, i18n( "Spectrum Editor" ),
-			KDialogBase::User1|KDialogBase::Close|KDialogBase::Help, KDialogBase::NoDefault, true, KGuiItem(i18n( "Export Spectrum..." )) )
+			Help|User1|Close, NoDefault, true, KGuiItem( i18n( "Export Spectrum..." ), "fileexport" ) )
 {
 	QWidget *page = new QWidget( this, "page" );
 	setMainWidget( page );
 	
-	QVBoxLayout *spectrumLayout = new QVBoxLayout(  page , 0, KDialogBase::spacingHint() );
+	QVBoxLayout *spectrumLayout = new QVBoxLayout( page, 0, spacingHint() );
 	
-	QHBoxLayout *hbox = new QHBoxLayout(  page, 0, KDialog::spacingHint(), "hbox" );
-	QHBoxLayout *hbox1 = new QHBoxLayout( page, 0, KDialog::spacingHint(), "hbox1" );
-	QHBoxLayout *hbox2 = new QHBoxLayout( page, 0, KDialog::spacingHint(), "hbox2" );
+	QHBoxLayout *hbox = new QHBoxLayout( 0L, 0, spacingHint(), "hbox" );
+	QHBoxLayout *hbox1 = new QHBoxLayout( 0L, 0, spacingHint(), "hbox1" );
+	QHBoxLayout *hbox2 = new QHBoxLayout( 0L, 0, spacingHint(), "hbox2" );
 	
 	m_spinbox_left = new QSpinBox( 100, 1000, 1,  page );
 	m_spinbox_right = new QSpinBox( 100, 1000, 1, page );
 
 	m_bandEditor = new bandEditor( page, "m_bandEditor" );
+	m_bandEditor->layout()->setMargin( 0 );
 	
 	m_spectrumWidget = new SpectrumWidget( page, "sw" );
 	spectrumLayout->addWidget( m_spectrumWidget );
@@ -72,7 +73,7 @@ void SpectrumEditor::slotAddBand()
 {
 	double value = m_bandEditor->wl->value();
 
-	if ( !value > 0.0 ) return; //invalid wavelength
+	if ( !( value > 0.0 ) ) return; //invalid wavelength
 
 	double e1 = m_bandEditor->e1->value();
 	double e2 = m_bandEditor->e2->value();

@@ -26,6 +26,7 @@
 #include <math.h>
 
 #include <qcursor.h>
+#include <qsizepolicy.h>
 #include <qtooltip.h>
 
 SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name ) : QWidget( parent, name )
@@ -44,6 +45,9 @@ SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name ) : QWidget( p
 	IntensityMax = 255;
 
 	setType( EmissionSpectrum );
+
+	setMinimumSize( 400, 230 );
+	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
 }
 
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
@@ -368,10 +372,10 @@ void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 {
 	if (  e->button() == QMouseEvent::LeftButton )
 	{
-		double left = Wavelength( ( double )m_LMBPointPress.x()/width() );
-		double right = Wavelength( ( double )e->pos().x()/width() );
+		int left = (int)Wavelength( ( double )m_LMBPointPress.x()/width() );
+		int right = (int)Wavelength( ( double )e->pos().x()/width() );
 
-		if ( (int)left == (int)right )
+		if ( left == right )
 			return;
 
 //X 		kdDebug() << "left:" << QString::number( left ) << endl;
