@@ -30,7 +30,13 @@ SpectrumEditor::SpectrumEditor( QWidget *parent, const char* name )
 	Spectrum *spectrum = new Spectrum();
 	m_bandEditor->m_spectrumWidget->setSpectrum( spectrum );
 	m_bandEditor->m_spectrumWidget->setBorders( 380, 780 );
-	
+
+	const int widthOfZero = m_bandEditor->spinMin->fontMetrics().width( '0' );
+	m_bandEditor->spinMin->setMinimumWidth( widthOfZero * 10 );
+	m_bandEditor->spinMin->setMaximumWidth( widthOfZero * 12 );
+	m_bandEditor->spinMax->setMinimumWidth( widthOfZero * 10 );
+	m_bandEditor->spinMax->setMaximumWidth( widthOfZero * 12 );
+
 	setMainWidget( m_bandEditor );
 	
 	setMinimumSize( 500, 450 );

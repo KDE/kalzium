@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>529</width>
-            <height>381</height>
+            <width>531</width>
+            <height>382</height>
         </rect>
     </property>
     <property name="caption">
@@ -32,169 +32,6 @@
             <property name="accel">
                 <string>Alt+A</string>
             </property>
-        </widget>
-        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="2">
-            <property name="name">
-                <cstring>layout15</cstring>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLayoutWidget" row="0" column="1">
-                    <property name="name">
-                        <cstring>layout14</cstring>
-                    </property>
-                    <grid>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel" row="1" column="0">
-                            <property name="name">
-                                <cstring>textLabel5</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Intensity:</string>
-                            </property>
-                        </widget>
-                        <widget class="QLabel" row="2" column="0">
-                            <property name="name">
-                                <cstring>textLabel6</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Aki: [10&lt;sup&gt;-8&lt;/sup&gt; s&lt;sup&gt;-1&lt;/sup&gt;]</string>
-                            </property>
-                        </widget>
-                        <widget class="KIntNumInput" row="1" column="1">
-                            <property name="name">
-                                <cstring>intensity</cstring>
-                            </property>
-                            <property name="minValue">
-                                <number>0</number>
-                            </property>
-                            <property name="maxValue">
-                                <number>1000</number>
-                            </property>
-                        </widget>
-                        <widget class="KDoubleNumInput" row="2" column="1">
-                            <property name="name">
-                                <cstring>aki</cstring>
-                            </property>
-                        </widget>
-                        <widget class="QLabel" row="0" column="0">
-                            <property name="name">
-                                <cstring>textLabel9</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>4</hsizetype>
-                                    <vsizetype>5</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="text">
-                                <string>Wavelength [nm]:</string>
-                            </property>
-                        </widget>
-                        <widget class="KDoubleNumInput" row="0" column="1">
-                            <property name="name">
-                                <cstring>wl</cstring>
-                            </property>
-                            <property name="value">
-                                <number>500</number>
-                            </property>
-                        </widget>
-                    </grid>
-                </widget>
-                <widget class="QLayoutWidget" row="0" column="0" rowspan="2" colspan="1">
-                    <property name="name">
-                        <cstring>layout13</cstring>
-                    </property>
-                    <grid>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QSpinBox" row="1" column="0">
-                            <property name="name">
-                                <cstring>spinMin</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>3</hsizetype>
-                                    <vsizetype>0</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="maxValue">
-                                <number>1000</number>
-                            </property>
-                            <property name="value">
-                                <number>380</number>
-                            </property>
-                        </widget>
-                        <widget class="SpectrumWidget" row="0" column="0" rowspan="1" colspan="3">
-                            <property name="name">
-                                <cstring>m_spectrumWidget</cstring>
-                            </property>
-                        </widget>
-                        <widget class="QSpinBox" row="1" column="2">
-                            <property name="name">
-                                <cstring>spinMax</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>3</hsizetype>
-                                    <vsizetype>0</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="maxValue">
-                                <number>1000</number>
-                            </property>
-                            <property name="value">
-                                <number>780</number>
-                            </property>
-                        </widget>
-                        <spacer row="1" column="1">
-                            <property name="name">
-                                <cstring>spacer2</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>40</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                    </grid>
-                </widget>
-                <spacer row="1" column="1">
-                    <property name="name">
-                        <cstring>spacer4</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Vertical</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>20</width>
-                            <height>40</height>
-                        </size>
-                    </property>
-                </spacer>
-            </grid>
         </widget>
         <spacer row="2" column="0">
             <property name="name">
@@ -378,6 +215,185 @@
                 </widget>
             </hbox>
         </widget>
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>layout6</cstring>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <spacer row="1" column="1">
+                    <property name="name">
+                        <cstring>spacer4</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>107</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QLayoutWidget" row="0" column="0" rowspan="2" colspan="1">
+                    <property name="name">
+                        <cstring>layout5</cstring>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QSpinBox" row="1" column="4">
+                            <property name="name">
+                                <cstring>spinMax</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>3</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="maxValue">
+                                <number>1000</number>
+                            </property>
+                            <property name="value">
+                                <number>780</number>
+                            </property>
+                        </widget>
+                        <spacer row="1" column="2">
+                            <property name="name">
+                                <cstring>spacer2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>70</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="SpectrumWidget" row="0" column="0" rowspan="1" colspan="5">
+                            <property name="name">
+                                <cstring>m_spectrumWidget</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="1" column="3">
+                            <property name="name">
+                                <cstring>textLabel1_3</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Max:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="1" column="0">
+                            <property name="name">
+                                <cstring>textLabel2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Min:</string>
+                            </property>
+                        </widget>
+                        <widget class="QSpinBox" row="1" column="1">
+                            <property name="name">
+                                <cstring>spinMin</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>3</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="maxValue">
+                                <number>1000</number>
+                            </property>
+                            <property name="value">
+                                <number>380</number>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+                <widget class="QLayoutWidget" row="0" column="1">
+                    <property name="name">
+                        <cstring>layout14</cstring>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel" row="1" column="0">
+                            <property name="name">
+                                <cstring>textLabel5</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Intensity:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="2" column="0">
+                            <property name="name">
+                                <cstring>textLabel6</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Aki: [10&lt;sup&gt;-8&lt;/sup&gt; s&lt;sup&gt;-1&lt;/sup&gt;]</string>
+                            </property>
+                        </widget>
+                        <widget class="KIntNumInput" row="1" column="1">
+                            <property name="name">
+                                <cstring>intensity</cstring>
+                            </property>
+                            <property name="minValue">
+                                <number>0</number>
+                            </property>
+                            <property name="maxValue">
+                                <number>1000</number>
+                            </property>
+                        </widget>
+                        <widget class="KDoubleNumInput" row="2" column="1">
+                            <property name="name">
+                                <cstring>aki</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="0" column="0">
+                            <property name="name">
+                                <cstring>textLabel9</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>4</hsizetype>
+                                    <vsizetype>5</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>Wavelength [nm]:</string>
+                            </property>
+                        </widget>
+                        <widget class="KDoubleNumInput" row="0" column="1">
+                            <property name="name">
+                                <cstring>wl</cstring>
+                            </property>
+                            <property name="value">
+                                <number>500</number>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+            </grid>
+        </widget>
     </grid>
 </widget>
 <customwidgets>
@@ -408,20 +424,20 @@
     <includehint>kpushbutton.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
+    <includehint>klineedit.h</includehint>
+    <includehint>klineedit.h</includehint>
+    <includehint>klineedit.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
+    <includehint>klineedit.h</includehint>
+    <includehint>klineedit.h</includehint>
+    <includehint>klineedit.h</includehint>
     <includehint>spectrumwidget.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>klineedit.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>klineedit.h</includehint>
+    <includehint>knuminput.h</includehint>
+    <includehint>knuminput.h</includehint>
 </includehints>
 </UI>
