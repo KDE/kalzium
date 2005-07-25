@@ -39,7 +39,7 @@
 
 		 <legalnotice>&FDLNotice;</legalnotice>
 
-		 <date>2005-07-24</date>
+		 <date>2005-07-25</date>
 		 <releaseinfo>1.4.2pre3</releaseinfo>
 
 		 <abstract>
@@ -96,7 +96,7 @@
 		 </para>
 
 		 <para>
-			 When you move the mouse cursor on an element of the table, a tooltip appears with a pictureof this element if available, its number and its mass. In the sidebar is displayed an overview of the current element in the <guilabel>Overview</guilabel> tab.
+			 When you move the mouse cursor on an element of the table, a tooltip appears with a picture of this element if available, its number and its mass. In the sidebar is displayed an overview of the current element in the <guilabel>Overview</guilabel> tab.
 		 </para>
 
 		 <para>You can disable the tooltips using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide tooltip</guimenuitem> </menuchoice> menu.
@@ -138,58 +138,132 @@
 		 </screenshot>
 
 	 </chapter>
-
 	 <chapter id="using-kalzium">
 		 <title>Using &kalzium;</title>
+				 
+		 <sect1 id="foo"><title>Overview of Kalziums usage</title>
+			 <para>Here are some screenshots of &kalzium; in action:</para>
 
-		 <para>Here are some screenshots of &kalzium; in action:</para>
-
-		 <screenshot>
-			 <screeninfo>&kalzium; main screen, immediately after the first start</screeninfo>
-			 <mediaobject>
-				 <imageobject>
-					 <imagedata fileref="screenshot1.png" format="PNG"/>
-				 </imageobject>
-				 <textobject>
-					 <phrase>&kalzium; main screen</phrase>
-				 </textobject>
-			 </mediaobject>
-		 </screenshot>
-
-		 <para>&kalzium; is very easy to use. It is specially designed for students of all
-			 ages to use as a small and quick database.</para>
-
-		 <sect1 id="info-dlg">
-			 <title>The information dialog</title>
-
-			 <para>The information dialog is accessed by left button mouse click on any element. It is available only in the <guilabel>Overview</guilabel> mode or when the sidebar is hidden.</para>
-
+			 <para>&kalzium; is very easy to use. It is specially designed for students of all ages to use as a small and quick database.</para>
 			 <screenshot>
-				 <screeninfo>&kalzium; information dialog</screeninfo>
+				 <screeninfo>&kalzium; main screen, immediately after the first start</screeninfo>
 				 <mediaobject>
 					 <imageobject>
-						 <imagedata fileref="screenshot4.png" format="PNG"/>
+						 <imagedata fileref="screenshot1.png" format="PNG"/>
 					 </imageobject>
 					 <textobject>
-						 <phrase>&kalzium; information dialog</phrase>
+						 <phrase>&kalzium; main screen</phrase>
 					 </textobject>
-					 <caption><para>Here is a screenshot of &kalzium; information dialog.</para>
-					 </caption>
 				 </mediaobject>
 			 </screenshot>
+		 </sect1>
+		 <sect1 id="info-dlg">
+			 <title>The information dialog</title>
+			<para>In the  information dialog,  you get a lot of information on an
+			 element. First an <guilabel>Overview</guilabel> presents you with the element, its symbol and
+			 atomic weight. The <guilabel>Picture</guilabel> tab
+			 displays a picture of the element when available. The <guilabel>Atom Model</guilabel> tab displays the atomic shells. Every orbit stands for a atomic shell and every circle represents an electron. The <guilabel>Chemical Data</guilabel> tab presents some atomic data. For example you can see the isotopes of the selected
+			 elements, the frequency of occurrence of the various isotopes and the number of protons. The
+			 <guilabel>Energies</guilabel> tab tells you about different energy facts
+			 related to the element. The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it was discovered and its mean weight.</para>
+			 <sect2 id="infodialog_overview">
 
-			 <para>In the  information dialog,  you get a lot of information on an
-				 element. First an <guilabel>Overview</guilabel> presents you with the element, its symbol and
-				 atomic weight. The <guilabel>Picture</guilabel> tab
-				 displays a picture of the element when available. The <guilabel>Atom Model</guilabel> tab displays the atomic shells. Every
-				 orbit stands for a atomic shell and every circle represents an electron. The <guilabel>Chemical Data</guilabel> tab presents
-				 some atomic data. For example you can see the isotopes of the selected
-				 elements, the frequency of occurrence of the various isotopes and the number of protons. The
-				 <guilabel>Energies</guilabel> tab tells you about different energy facts
-				 related to the element.
-				 The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it
-				 was discovered and its mean weight. </para>
+				 <title>Overview</title>
+				 <para>The information dialog is accessed by left button mouse click on any element. It is available only in the <guilabel>Overview</guilabel> mode or when the sidebar is hidden. Depending on the element you will see the spectrum-icon.</para>
 
+				 <screenshot>
+					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_overview.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>&kalzium; information dialog</phrase>
+						 </textobject>
+						 <caption><para></para></caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_picture">
+				 <title>Picture</title>
+				 <screenshot>
+					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_picture.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>&kalzium; information dialog</phrase>
+						 </textobject>
+						 <caption><para></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			</sect2>
+			<sect2 id="infodialog_orbits">
+				 <title>Bohr Orbitals</title>
+				 <screenshot>
+					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_bohr.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>&kalzium; information dialog</phrase>
+						 </textobject>
+						 <caption><para></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			</sect2>
+			<sect2 id="infodialog_chemical">
+				 <title>Chemical Data</title>
+				 <screenshot>
+					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_chemicaldata.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>&kalzium; information dialog</phrase>
+						 </textobject>
+						 <caption><para></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			</sect2>
+			<sect2 id="infodialog_energies">
+				 <title>Chemical Energies</title>
+				 <screenshot>
+					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_energies.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>&kalzium; information dialog</phrase>
+						 </textobject>
+						 <caption><para></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			</sect2>
+			<sect2 id="infodialog_spectrum">
+				 <title>Spectrum</title>
+				 <screenshot>
+					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_spectrum.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>&kalzium; information dialog</phrase>
+						 </textobject>
+						 <caption><para></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
 		 </sect1>
 
 		 <!-- Don't have empty chapters if possible - comment them out until -->
@@ -292,12 +366,12 @@
 			 <title>Tools</title>
 			 <sect2 id="nuclid_board">
 				 <title>Nuclidboard</title>
-				<para>
+				 <para>
 					 The <guimenuitem>Nulidboard</guimenuitem> shows you the isotopes of the elements. You can select the range of elements to display with the spinboxes at the bottom of the dialog.
-				</para>
-				<para>
-					The dialog show the elements-number on the y-axis. The x-axis displays There are diffent kinds of isotopes, some are stable, some are not. The instable isotopes can decay as alpha-rays are two diffent beta-rays. These differences are encoded by using diffenrent colors. 
-				</para>
+				 </para>
+				 <para>
+					 The dialog show the elements-number on the y-axis. The x-axis displays There are diffent kinds of isotopes, some are stable, some are not. The instable isotopes can decay as alpha-rays are two diffent beta-rays. These differences are encoded by using diffenrent colors. 
+				 </para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -316,7 +390,7 @@
 				 <title>Glossary</title>
 				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data. On the left side of the windows you can see the tree of items. On top, there are chemical terms, below that there is a second tree of labaratory-tools. </para>
 				 <para>On the top of the widget you can see a searchbar. If you tpye in the bar the trees will be adjusted immediately. The small button left of the searchbar will clear it.
-				</para>
+				 </para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -350,10 +424,10 @@
 				 <title>Equation Solver</title>
 				 <para>
 					 The <guimenuitem>Equation Solver</guimenuitem> enables the user to solve chemical equations. This is an example:
-				</para>
-					<blockquote><para>aH2O + bCO2 -> cH2CO3</para></blockquote>
-				<para>
-					The computed equation will be displayed on the right side of the window. As you can see in the first example you can also define the value of one or more coefficients. The other coefficients will be ajusted. Furthermore, it is possible to use brackets around elements or electronic charges as shown in the last two examples.</para>
+				 </para>
+				 <blockquote><para>aH2O + bCO2 -> cH2CO3</para></blockquote>
+				 <para>
+					 The computed equation will be displayed on the right side of the window. As you can see in the first example you can also define the value of one or more coefficients. The other coefficients will be ajusted. Furthermore, it is possible to use brackets around elements or electronic charges as shown in the last two examples.</para>
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
@@ -790,7 +864,7 @@
 						 </menuchoice></term>
 						 <listitem><para><action>Open</action> the Glossary</para></listitem>
 					 </varlistentry>
-					<varlistentry>
+					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
 								 <guimenuitem>Show Equationsolver</guimenuitem>
