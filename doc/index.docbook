@@ -40,7 +40,7 @@
 		 <legalnotice>&FDLNotice;</legalnotice>
 
 		 <date>2005-07-25</date>
-		 <releaseinfo>1.4.2pre3</releaseinfo>
+		 <releaseinfo>1.4.2pre4</releaseinfo>
 
 		 <abstract>
 			 <para>&kalzium; is a program which shows you the Periodic Table of
@@ -140,7 +140,7 @@
 	 </chapter>
 	 <chapter id="using-kalzium">
 		 <title>Using &kalzium;</title>
-				 
+
 		 <sect1 id="foo"><title>Overview of Kalziums usage</title>
 			 <para>Here are some screenshots of &kalzium; in action:</para>
 
@@ -159,18 +159,21 @@
 		 </sect1>
 		 <sect1 id="info-dlg">
 			 <title>The information dialog</title>
-			<para>In the  information dialog,  you get a lot of information on an
-			 element. First an <guilabel>Overview</guilabel> presents you with the element, its symbol and
-			 atomic weight. The <guilabel>Picture</guilabel> tab
-			 displays a picture of the element when available. The <guilabel>Atom Model</guilabel> tab displays the atomic shells. Every orbit stands for a atomic shell and every circle represents an electron. The <guilabel>Chemical Data</guilabel> tab presents some atomic data. For example you can see the isotopes of the selected
-			 elements, the frequency of occurrence of the various isotopes and the number of protons. The
-			 <guilabel>Energies</guilabel> tab tells you about different energy facts
-			 related to the element. The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it was discovered and its mean weight.</para>
+			 <para>The information dialog is accessed by left button mouse click on
+				 any element. It is available only in the
+				 <guilabel>Overview</guilabel> mode or when the sidebar is hidden.
+				 This is the place to get information about an element. With the
+				 buttons an the bottom of the dialog or with the use of the mousewheel
+				 you can change the element which is displayed without closing the
+				 dialog.</para>
 			 <sect2 id="infodialog_overview">
-
 				 <title>Overview</title>
-				 <para>The information dialog is accessed by left button mouse click on any element. It is available only in the <guilabel>Overview</guilabel> mode or when the sidebar is hidden. Depending on the element you will see the spectrum-icon.</para>
-
+				 <para>In the <guilabel>Overview</guilabel> you will find the most
+					 important information about the element. In the middle you see the
+					 symbol of the Element with it's elemental number in the top left.
+					 The bottom-left corner displays the name of the element while the
+					 bottom-right corner show the most important oxidation-stages and,
+					 below that, the elemental weight</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
@@ -186,6 +189,7 @@
 			 </sect2>
 			 <sect2 id="infodialog_picture">
 				 <title>Picture</title>
+				 <para>The <guilabel>Picture</guilabel> tab displays a picture of the element when available.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
@@ -199,9 +203,12 @@
 						 </caption>
 					 </mediaobject>
 				 </screenshot>
-			</sect2>
-			<sect2 id="infodialog_orbits">
+			 </sect2>
+			 <sect2 id="infodialog_orbits">
 				 <title>Bohr Orbitals</title>
+				 <para>The <guilabel>Atom Model</guilabel> tab displays the atomic
+					 shells. Every orbit stands for a atomic shell and every yellow
+					 circle represents an electron.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
@@ -215,9 +222,82 @@
 						 </caption>
 					 </mediaobject>
 				 </screenshot>
-			</sect2>
-			<sect2 id="infodialog_chemical">
+			 </sect2>
+			 <sect2 id="infodialog_chemical">
 				 <title>Chemical Data</title>
+				 <para>
+					 The <guilabel>Chemical Data</guilabel> tab presents some atomic
+					 data. The first entry is the <guilabel>Orbital structure</guilabel>. The next is the
+					 <guilabel>density</guilabel>.
+				 </para>
+				 <para> Depending on the data available in Kalzium you will see
+					 different radii of the element. The covalent radius is the radius
+					 of a not charged atom of the element in a molecule. The could for
+					 example be the O-H-distance in Water. The atomic radius is the
+					 radius of an elemental atom, eg. not bound to anything. The van der
+					 Waals-radius is defined as the distance of two atoms of the same
+					 sort in two equal molecules, for example two carbon-atoms in
+					 propane. The last possible radius is the ionic radius including its
+					 charge.</para>
+				 <para>The mass of an element is the avarage mass of all isotopes in
+					 relation to their percentage.
+				 </para>
+				 <para>
+					 Some elements have information about their isotopes.
+					 <variablelist>
+
+						 <varlistentry>
+							 <term>Mass</term>
+							 <listitem><para>
+									 The mass of this isotope.
+							 </para></listitem>
+						 </varlistentry>
+
+						 <varlistentry>
+							 <term>Neutrons</term>
+							 <listitem><para>
+									 The number of neutrons this isopte has.
+							 </para></listitem>
+						 </varlistentry>
+
+						 <varlistentry>
+							 <term>Percentage</term>
+							 <listitem><para>
+									 The percentage with which this isotope appears. Also called abundance.
+							 </para></listitem>
+						 </varlistentry>
+
+						 <varlistentry>
+							 <term>Half-life period</term>
+							 <listitem><para>
+									 Only instable isotopes do have a half-life period. It is defined as the time in which half the isotopes decay.
+							 </para></listitem>
+						 </varlistentry>
+
+						 <varlistentry>
+							 <term>Energy and Mode of Decay</term>
+							 <listitem><para>
+									 no clue... JBuchwald
+							 </para></listitem>
+						 </varlistentry>
+
+						 <varlistentry>
+							 <term>Spin and parity</term>
+							 <listitem><para>
+									 no clue... JBuchwald
+							 </para></listitem>
+						 </varlistentry>
+
+						 <varlistentry>
+							 <term>Magnetic Moment</term>
+							 <listitem><para>
+									 no clue... JBuchwald
+							 </para></listitem>
+						 </varlistentry>
+
+					 </variablelist>
+
+				 </para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
@@ -231,9 +311,28 @@
 						 </caption>
 					 </mediaobject>
 				 </screenshot>
-			</sect2>
-			<sect2 id="infodialog_energies">
+			 </sect2>
+			 <sect2 id="infodialog_misc">
+				 <title>Miscellaneous</title>
+				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it was discovered and its mean mass (the mass per neutron) and the origin of the name.</para>
+				 <screenshot>
+					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <mediaobject>
+						 <imageobject>
+							 <imagedata fileref="infodialog_misc.png" format="PNG"/>
+						 </imageobject>
+						 <textobject>
+							 <phrase>&kalzium; information dialog</phrase>
+						 </textobject>
+						 <caption><para></para>
+						 </caption>
+					 </mediaobject>
+				 </screenshot>
+			 </sect2>
+			 <sect2 id="infodialog_energies">
 				 <title>Chemical Energies</title>
+				 <para>The <guilabel>Energies</guilabel> tab tells you about different
+					 energy facts related to the element.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
@@ -247,8 +346,8 @@
 						 </caption>
 					 </mediaobject>
 				 </screenshot>
-			</sect2>
-			<sect2 id="infodialog_spectrum">
+			 </sect2>
+			 <sect2 id="infodialog_spectrum">
 				 <title>Spectrum</title>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
