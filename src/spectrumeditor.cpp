@@ -35,38 +35,28 @@ SpectrumEditor::SpectrumEditor( QWidget *parent, const char* name )
 	QHBoxLayout *hbox1 = new QHBoxLayout( 0L, 0, spacingHint(), "hbox1" );
 	QHBoxLayout *hbox2 = new QHBoxLayout( 0L, 0, spacingHint(), "hbox2" );
 	
-	m_spinbox_left = new QSpinBox( 100, 1000, 1,  page );
-	m_spinbox_right = new QSpinBox( 100, 1000, 1, page );
-
 	m_bandEditor = new bandEditor( page, "m_bandEditor" );
 	m_bandEditor->layout()->setMargin( 0 );
 	
-	m_spectrumWidget = new SpectrumWidget( page, "sw" );
+//	m_spectrumWidget = new SpectrumWidget( page, "sw" );
 	Spectrum *spectrum = new Spectrum();
-	m_spectrumWidget->setSpectrum( spectrum );
+	m_bandEditor->m_spectrumWidget->setSpectrum( spectrum );
 	
-	m_spinbox_left->setValue( 100 );
-	m_spinbox_right->setValue( 1000 );
-	m_spectrumWidget->setBorders( 100, 1000 );
-	
-	hbox->addWidget( new QLabel( i18n( "Minimum Value:" ), page ) );
-	hbox->addWidget( m_spinbox_left );
-	hbox->addWidget( new QLabel( i18n( "Maximum Value:" ), page ) );
-	hbox->addWidget( m_spinbox_right );
+	m_bandEditor->m_spectrumWidget->setBorders( 380, 780 );
 	
 	
 	spectrumLayout->addWidget( new QLabel( "<b>"+i18n( "Wavelength range to display on graph." )+"</b>", page ) );
 	spectrumLayout->addLayout( hbox );
-	spectrumLayout->addWidget( m_spectrumWidget );
+//	spectrumLayout->addWidget( m_spectrumWidget );
 	spectrumLayout->addWidget( m_bandEditor );
 	spectrumLayout->addLayout( hbox1 );
 	spectrumLayout->addLayout( hbox2 );
 
 	setMinimumSize( 500, 450 );
 	
-	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setRightBorder( int ) ) );
-	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
-	connect( m_bandEditor->addButton, SIGNAL( clicked() ), this, SLOT( slotAddBand( ) ) );
+//X 	connect( m_bandEditor->spinMin, SIGNAL( valueChanged( int ) ), m_bandEditor->m_spectrumWidget, SLOT( setRightBorder( int ) ) );
+//X 	connect( m_bandEditor->spinMax, SIGNAL( valueChanged( int ) ), m_bandEditor->m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
+//X 	connect( m_bandEditor->addButton, SIGNAL( clicked() ), this, SLOT( slotAddBand( ) ) );
 }
 
 void SpectrumEditor::slotAddBand()
@@ -103,8 +93,8 @@ void SpectrumEditor::slotAddBand()
 	band.electronconfig1 = conf1;
 	band.electronconfig2 = conf2;
 	
-	m_spectrumWidget->spectrum()->addBand( band );
-	m_spectrumWidget->update();
+	m_bandEditor->m_spectrumWidget->spectrum()->addBand( band );
+	m_bandEditor->m_spectrumWidget->update();
 }
 
 void SpectrumEditor::slotUser1()
@@ -115,7 +105,7 @@ void SpectrumEditor::slotUser1()
 	                        this, i18n( "Save Spectrum" ) );
 	if( !fileName.isEmpty() )
 	{
-		if ( !exporter->saveAsImage( &m_spectrumWidget->pixmap(), fileName ) )
+		if ( !exporter->saveAsImage( &m_bandEditor->m_spectrumWidget->pixmap(), fileName ) )
 			KMessageBox::error( this, i18n( "The spectrum could not be saved" ), i18n( "Image could not be saved") );
 	}	
 	delete exporter;

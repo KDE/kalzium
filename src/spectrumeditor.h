@@ -29,8 +29,8 @@ class SpectrumEditor : public KDialogBase
 		SpectrumEditor( QWidget *parent, const char* name );
 
 	private:
-		SpectrumWidget *m_spectrumWidget;
-		QSpinBox *m_spinbox_right, *m_spinbox_left;
+//		SpectrumWidget *m_spectrumWidget;
+//		QSpinBox *m_spinbox_right, *m_spinbox_left;
 
 		bandEditor *m_bandEditor;
 	
