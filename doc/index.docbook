@@ -159,11 +159,11 @@
 		 </sect1>
 		 <sect1 id="info-dlg">
 			 <title>The information dialog</title>
-			 <para>The information dialog is accessed by left button mouse click on
+			 <para>The information dialog is accessed by clicking with the &LMB; on
 				 any element. It is available only in the
 				 <guilabel>Overview</guilabel> mode or when the sidebar is hidden.
 				 This is the place to get information about an element. With the
-				 buttons an the bottom of the dialog or with the use of the mousewheel
+				 buttons at the bottom of the dialog or with the use of the mousewheel
 				 you can change the element which is displayed without closing the
 				 dialog.</para>
 			 <sect2 id="infodialog_overview">
@@ -172,7 +172,7 @@
 					 important information about the element. In the middle you see the
 					 symbol of the Element with it's elemental number in the top left.
 					 The bottom-left corner displays the name of the element while the
-					 bottom-right corner show the most important oxidation-stages and,
+					 bottom-right corner shows the most important oxidation-stages and,
 					 below that, the elemental weight</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
@@ -232,7 +232,7 @@
 				 </para>
 				 <para> Depending on the data available in Kalzium you will see
 					 different radii of the element. The covalent radius is the radius
-					 of a not charged atom of the element in a molecule. The could for
+					 of a non charged atom of the element in a molecule. The could for
 					 example be the O-H-distance in Water. The atomic radius is the
 					 radius of an elemental atom, eg. not bound to anything. The van der
 					 Waals-radius is defined as the distance of two atoms of the same
@@ -263,14 +263,14 @@
 						 <varlistentry>
 							 <term>Percentage</term>
 							 <listitem><para>
-									 The percentage with which this isotope appears. Also called abundance.
+									 The percentage of atoms occuring that are of this isotope type. Also called abundance.
 							 </para></listitem>
 						 </varlistentry>
 
 						 <varlistentry>
 							 <term>Half-life period</term>
 							 <listitem><para>
-									 Only instable isotopes do have a half-life period. It is defined as the time in which half the isotopes decay.
+									 Only unstable isotopes have a half-life period. It is defined as the time in which half the isotopes decay.
 							 </para></listitem>
 						 </varlistentry>
 
@@ -314,7 +314,7 @@
 			 </sect2>
 			 <sect2 id="infodialog_misc">
 				 <title>Miscellaneous</title>
-				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it was discovered and its mean mass (the mass per neutron) and the origin of the name.</para>
+				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it was discovered, its mean mass (the mass per neutron) and the origin of the name.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
@@ -402,7 +402,7 @@
 
 			 <para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote>, their behavior with acid and which state of matter (&ie; solid/liquid/vapor) they are in at a given temperature.</para>
 
-			 <para>Color schemes are changed in the <guimenu>View</guimenu> <guimenuitem>Look</guimenuitem> menu. </para>
+			 <para>Color schemes can be changed in the <guimenu>View</guimenu> <guimenuitem>Look</guimenuitem> menu. </para>
 			 <itemizedlist>
 				 <listitem><para>
 						 <guimenuitem>No Color Scheme</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kalzium;...</guimenuitem>
@@ -415,17 +415,17 @@
 						 <guimenuitem>Show Blocks</guimenuitem>: displays a color for each block.
 				 </para></listitem>
 				 <listitem><para>
-						 <guimenuitem>Show Acid Behavior</guimenuitem>: each acidic behavior is represented by a different color.
+						 <guimenuitem>Show Acid Behavior</guimenuitem>: represents each acidic behaviour with a different color.
 				 </para></listitem>
 				 <listitem><para>
-						 <guimenuitem>Show Family</guimenuitem>: the nine families are each represented with a color.
+						 <guimenuitem>Show Family</guimenuitem>: represents each of the nine families with a color.
 				 </para></listitem>
 				 <listitem><para>
-						 <guimenuitem>Show Crystal Structures</guimenuitem>: every element is colored  depending on its crystal strycture.
+						 <guimenuitem>Show Crystal Structures</guimenuitem>: colors each element depending on it's crystal structure.
 				 </para></listitem>
 				 <listitem>
 					 <para><guimenuitem>Gradient</guimenuitem></para>
-					 <para>The gradient views displays the elements according to one property you can select below and with a gradient colored scheme. The elements for which the data is non available are displayed in grey.</para>
+					 <para>The gradient views displays the elements according to a property you can select below and with a gradient colored scheme. The elements for which the data is not available are displayed in grey.</para>
 					 <screenshot>
 						 <screeninfo>Gradient for Covalent Radius</screeninfo>
 						 <mediaobject>
@@ -469,7 +469,7 @@
 					 The <guimenuitem>Nulidboard</guimenuitem> shows you the isotopes of the elements. You can select the range of elements to display with the spinboxes at the bottom of the dialog.
 				 </para>
 				 <para>
-					 The dialog show the elements-number on the y-axis. The x-axis displays There are diffent kinds of isotopes, some are stable, some are not. The instable isotopes can decay as alpha-rays are two diffent beta-rays. These differences are encoded by using diffenrent colors. 
+					 The dialog show the elements-number on the y-axis. The x-axis displays There are diffent kinds of isotopes, some are stable, some are not. The unstable isotopes can decay as alpha-rays are two diffent beta-rays. These differences are encoded by using diffenrent colors. 
 				 </para>
 				 <screenshot>
 					 <mediaobject>
@@ -488,7 +488,7 @@
 			 <sect2 id="glossary">
 				 <title>Glossary</title>
 				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data. On the left side of the windows you can see the tree of items. On top, there are chemical terms, below that there is a second tree of labaratory-tools. </para>
-				 <para>On the top of the widget you can see a searchbar. If you tpye in the bar the trees will be adjusted immediately. The small button left of the searchbar will clear it.
+				 <para>On the top of the widget you can see a searchbar. If you type in the bar the trees will be adjusted immediately. The small button left of the searchbar will clear it.
 				 </para>
 				 <screenshot>
 					 <mediaobject>
@@ -596,7 +596,7 @@
 					 <para>The Timeline feature allows you to explore the elements of the
 						 set time period. This is great for getting a feel for how the PSE
 						 evolved over time, as more and more elements were discovered. If you move the slider you will
-						 notice that some elements disappear if you move it to the right and
+						 notice that some elements disappear if you move it to the left and
 						 reappear if you move it to the right. Furthermore the number will
 						 change constantly.</para>
 
@@ -689,8 +689,8 @@
 			 </mediaobject>
 		 </screenshot>
 		 <para>In the <guilabel>Units</guilabel> tab, you can
-			 choose the units. You can select if you prefer kJ/mol by default but 
-			 you can choose eV and the Temperature is in Kelvin by default but you can 
+			 choose the units. You can select if you prefer kJ/mol by default or
+			 you can choose eV. The Temperature is in Kelvin by default but you can 
 			 change to degrees Celsius or degrees Fahrenheit.
 		 </para>
 		 <screenshot>
