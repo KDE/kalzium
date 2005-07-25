@@ -8,441 +8,377 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>699</width>
-            <height>589</height>
+            <width>529</width>
+            <height>381</height>
         </rect>
     </property>
     <property name="caption">
         <string>Form1</string>
     </property>
-    <widget class="SpectrumWidget">
+    <grid>
         <property name="name">
-            <cstring>m_spectrumWidget</cstring>
+            <cstring>unnamed</cstring>
         </property>
-        <property name="geometry">
-            <rect>
-                <x>20</x>
-                <y>20</y>
-                <width>281</width>
-                <height>291</height>
-            </rect>
+        <property name="margin">
+            <number>0</number>
         </property>
-    </widget>
-    <widget class="QLayoutWidget">
-        <property name="name">
-            <cstring>layout10</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>120</x>
-                <y>560</y>
-                <width>318</width>
-                <height>26</height>
-            </rect>
-        </property>
-        <hbox>
+        <widget class="KPushButton" row="2" column="1">
             <property name="name">
-                <cstring>unnamed</cstring>
+                <cstring>addButton</cstring>
             </property>
-            <spacer>
-                <property name="name">
-                    <cstring>spacer1</cstring>
-                </property>
-                <property name="orientation">
-                    <enum>Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                    <enum>Expanding</enum>
-                </property>
-                <property name="sizeHint">
-                    <size>
-                        <width>261</width>
-                        <height>21</height>
-                    </size>
-                </property>
-            </spacer>
-            <widget class="KPushButton">
-                <property name="name">
-                    <cstring>addButton</cstring>
-                </property>
-                <property name="text">
-                    <string>&amp;Add Band to Graph</string>
-                </property>
-                <property name="accel">
-                    <string>Alt+A</string>
-                </property>
-            </widget>
-        </hbox>
-    </widget>
-    <widget class="QLayoutWidget">
-        <property name="name">
-            <cstring>layout9</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>320</x>
-                <y>20</y>
-                <width>318</width>
-                <height>26</height>
-            </rect>
-        </property>
-        <hbox>
+            <property name="text">
+                <string>&amp;Add Band to Graph</string>
+            </property>
+            <property name="accel">
+                <string>Alt+A</string>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="2">
             <property name="name">
-                <cstring>unnamed</cstring>
+                <cstring>layout15</cstring>
             </property>
-            <widget class="QLabel">
+            <grid>
                 <property name="name">
-                    <cstring>textLabel9</cstring>
+                    <cstring>unnamed</cstring>
                 </property>
-                <property name="text">
-                    <string>Wavelength [nm]:</string>
-                </property>
-            </widget>
-            <widget class="KDoubleNumInput">
-                <property name="name">
-                    <cstring>wl</cstring>
-                </property>
-                <property name="value">
-                    <number>500</number>
-                </property>
-            </widget>
-        </hbox>
-    </widget>
-    <widget class="QLayoutWidget">
-        <property name="name">
-            <cstring>layout1</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>320</x>
-                <y>60</y>
-                <width>318</width>
-                <height>26</height>
-            </rect>
-        </property>
-        <hbox>
+                <widget class="QLayoutWidget" row="0" column="1">
+                    <property name="name">
+                        <cstring>layout14</cstring>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel" row="1" column="0">
+                            <property name="name">
+                                <cstring>textLabel5</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Intensity:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="2" column="0">
+                            <property name="name">
+                                <cstring>textLabel6</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Aki: [10&lt;sup&gt;-8&lt;/sup&gt; s&lt;sup&gt;-1&lt;/sup&gt;]</string>
+                            </property>
+                        </widget>
+                        <widget class="KIntNumInput" row="1" column="1">
+                            <property name="name">
+                                <cstring>intensity</cstring>
+                            </property>
+                            <property name="minValue">
+                                <number>0</number>
+                            </property>
+                            <property name="maxValue">
+                                <number>1000</number>
+                            </property>
+                        </widget>
+                        <widget class="KDoubleNumInput" row="2" column="1">
+                            <property name="name">
+                                <cstring>aki</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="0" column="0">
+                            <property name="name">
+                                <cstring>textLabel9</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>4</hsizetype>
+                                    <vsizetype>5</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>Wavelength [nm]:</string>
+                            </property>
+                        </widget>
+                        <widget class="KDoubleNumInput" row="0" column="1">
+                            <property name="name">
+                                <cstring>wl</cstring>
+                            </property>
+                            <property name="value">
+                                <number>500</number>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+                <widget class="QLayoutWidget" row="0" column="0" rowspan="2" colspan="1">
+                    <property name="name">
+                        <cstring>layout13</cstring>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QSpinBox" row="1" column="0">
+                            <property name="name">
+                                <cstring>spinMin</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>3</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="maxValue">
+                                <number>1000</number>
+                            </property>
+                            <property name="value">
+                                <number>380</number>
+                            </property>
+                        </widget>
+                        <widget class="SpectrumWidget" row="0" column="0" rowspan="1" colspan="3">
+                            <property name="name">
+                                <cstring>m_spectrumWidget</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QSpinBox" row="1" column="2">
+                            <property name="name">
+                                <cstring>spinMax</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>3</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="maxValue">
+                                <number>1000</number>
+                            </property>
+                            <property name="value">
+                                <number>780</number>
+                            </property>
+                        </widget>
+                        <spacer row="1" column="1">
+                            <property name="name">
+                                <cstring>spacer2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>40</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </grid>
+                </widget>
+                <spacer row="1" column="1">
+                    <property name="name">
+                        <cstring>spacer4</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>40</height>
+                        </size>
+                    </property>
+                </spacer>
+            </grid>
+        </widget>
+        <spacer row="2" column="0">
             <property name="name">
-                <cstring>unnamed</cstring>
+                <cstring>spacer1</cstring>
             </property>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>textLabel5</cstring>
-                </property>
-                <property name="text">
-                    <string>Intensity:</string>
-                </property>
-            </widget>
-            <widget class="KIntNumInput">
-                <property name="name">
-                    <cstring>intensity</cstring>
-                </property>
-                <property name="minValue">
-                    <number>0</number>
-                </property>
-                <property name="maxValue">
-                    <number>1000</number>
-                </property>
-            </widget>
-        </hbox>
-    </widget>
-    <widget class="QLayoutWidget">
-        <property name="name">
-            <cstring>layout6</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>320</x>
-                <y>100</y>
-                <width>318</width>
-                <height>26</height>
-            </rect>
-        </property>
-        <hbox>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>176</width>
+                    <height>21</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QLayoutWidget" row="1" column="0" rowspan="1" colspan="2">
             <property name="name">
-                <cstring>unnamed</cstring>
+                <cstring>layout16</cstring>
             </property>
-            <widget class="QLabel">
+            <hbox>
                 <property name="name">
-                    <cstring>textLabel6</cstring>
+                    <cstring>unnamed</cstring>
                 </property>
-                <property name="text">
-                    <string>Aki: [10&lt;sup&gt;-8&lt;/sup&gt; s&lt;sup&gt;-1&lt;/sup&gt;]</string>
-                </property>
-            </widget>
-            <widget class="KDoubleNumInput">
-                <property name="name">
-                    <cstring>aki</cstring>
-                </property>
-            </widget>
-        </hbox>
-    </widget>
-    <widget class="QGroupBox">
-        <property name="name">
-            <cstring>groupBox1</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>310</x>
-                <y>370</y>
-                <width>226</width>
-                <height>159</height>
-            </rect>
-        </property>
-        <property name="title">
-            <string>Second Sample</string>
-        </property>
-        <vbox>
-            <property name="name">
-                <cstring>unnamed</cstring>
-            </property>
-            <widget class="QLayoutWidget">
-                <property name="name">
-                    <cstring>layout8</cstring>
-                </property>
-                <hbox>
+                <widget class="QGroupBox">
                     <property name="name">
-                        <cstring>unnamed</cstring>
+                        <cstring>groupBox3</cstring>
                     </property>
-                    <widget class="QLabel">
+                    <property name="title">
+                        <string>First Sample</string>
+                    </property>
+                    <grid>
                         <property name="name">
-                            <cstring>textLabel7</cstring>
+                            <cstring>unnamed</cstring>
                         </property>
-                        <property name="text">
-                            <string>Energylevel [cm&lt;sup&gt;-1&lt;/sup&gt;]:</string>
-                        </property>
-                    </widget>
-                    <widget class="KDoubleNumInput">
-                        <property name="name">
-                            <cstring>e2</cstring>
-                        </property>
-                        <property name="suffix">
-                            <string></string>
-                        </property>
-                    </widget>
-                </hbox>
-            </widget>
-            <widget class="QLayoutWidget">
-                <property name="name">
-                    <cstring>layout13</cstring>
-                </property>
-                <hbox>
+                        <widget class="KDoubleNumInput" row="0" column="1">
+                            <property name="name">
+                                <cstring>e1</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="1" column="0">
+                            <property name="name">
+                                <cstring>textLabel8_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Configuration:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="2" column="0">
+                            <property name="name">
+                                <cstring>textLabel3</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Term:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="3" column="0">
+                            <property name="name">
+                                <cstring>textLabel1_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>J Value:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="0" column="0">
+                            <property name="name">
+                                <cstring>textLabel8</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>4</hsizetype>
+                                    <vsizetype>5</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>Energylevel [cm&lt;sup&gt;-1&lt;/sup&gt;]:</string>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignVCenter</set>
+                            </property>
+                        </widget>
+                        <widget class="KLineEdit" row="1" column="1">
+                            <property name="name">
+                                <cstring>conf1</cstring>
+                            </property>
+                        </widget>
+                        <widget class="KLineEdit" row="2" column="1">
+                            <property name="name">
+                                <cstring>t1</cstring>
+                            </property>
+                        </widget>
+                        <widget class="KLineEdit" row="3" column="1">
+                            <property name="name">
+                                <cstring>j1</cstring>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+                <widget class="QGroupBox">
                     <property name="name">
-                        <cstring>unnamed</cstring>
+                        <cstring>groupBox1</cstring>
                     </property>
-                    <widget class="QLabel">
-                        <property name="name">
-                            <cstring>textLabel7_2</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Configuration:</string>
-                        </property>
-                    </widget>
-                    <widget class="KLineEdit">
-                        <property name="name">
-                            <cstring>conf2</cstring>
-                        </property>
-                    </widget>
-                </hbox>
-            </widget>
-            <widget class="QLayoutWidget">
-                <property name="name">
-                    <cstring>layout19</cstring>
-                </property>
-                <hbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
+                    <property name="title">
+                        <string>Second Sample</string>
                     </property>
-                    <widget class="QLabel">
+                    <grid>
                         <property name="name">
-                            <cstring>textLabel4</cstring>
+                            <cstring>unnamed</cstring>
                         </property>
-                        <property name="text">
-                            <string>Term:</string>
-                        </property>
-                    </widget>
-                    <widget class="KLineEdit">
-                        <property name="name">
-                            <cstring>t2</cstring>
-                        </property>
-                    </widget>
-                </hbox>
-            </widget>
-            <widget class="QLayoutWidget">
-                <property name="name">
-                    <cstring>layout17</cstring>
-                </property>
-                <hbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <widget class="QLabel">
-                        <property name="name">
-                            <cstring>textLabel1</cstring>
-                        </property>
-                        <property name="text">
-                            <string>J value:</string>
-                        </property>
-                    </widget>
-                    <widget class="KLineEdit">
-                        <property name="name">
-                            <cstring>j2</cstring>
-                        </property>
-                    </widget>
-                </hbox>
-            </widget>
-        </vbox>
-    </widget>
-    <widget class="QGroupBox">
-        <property name="name">
-            <cstring>groupBox3</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>20</x>
-                <y>380</y>
-                <width>226</width>
-                <height>159</height>
-            </rect>
-        </property>
-        <property name="title">
-            <string>First Sample</string>
-        </property>
-        <vbox>
-            <property name="name">
-                <cstring>unnamed</cstring>
-            </property>
-            <widget class="QLayoutWidget">
-                <property name="name">
-                    <cstring>layout7</cstring>
-                </property>
-                <hbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <widget class="QLabel">
-                        <property name="name">
-                            <cstring>textLabel8</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Energylevel [cm&lt;sup&gt;-1&lt;/sup&gt;]:</string>
-                        </property>
-                    </widget>
-                    <widget class="KDoubleNumInput">
-                        <property name="name">
-                            <cstring>e1</cstring>
-                        </property>
-                    </widget>
-                </hbox>
-            </widget>
-            <widget class="QLayoutWidget">
-                <property name="name">
-                    <cstring>layout12</cstring>
-                </property>
-                <hbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <widget class="QLabel">
-                        <property name="name">
-                            <cstring>textLabel8_2</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Configuration:</string>
-                        </property>
-                    </widget>
-                    <widget class="KLineEdit">
-                        <property name="name">
-                            <cstring>conf1</cstring>
-                        </property>
-                    </widget>
-                </hbox>
-            </widget>
-            <widget class="QLayoutWidget">
-                <property name="name">
-                    <cstring>layout18</cstring>
-                </property>
-                <hbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <widget class="QLabel">
-                        <property name="name">
-                            <cstring>textLabel3</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Term:</string>
-                        </property>
-                    </widget>
-                    <widget class="KLineEdit">
-                        <property name="name">
-                            <cstring>t1</cstring>
-                        </property>
-                    </widget>
-                </hbox>
-            </widget>
-            <widget class="QLayoutWidget">
-                <property name="name">
-                    <cstring>layout15</cstring>
-                </property>
-                <hbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <widget class="QLabel">
-                        <property name="name">
-                            <cstring>textLabel1_2</cstring>
-                        </property>
-                        <property name="text">
-                            <string>J Value:</string>
-                        </property>
-                    </widget>
-                    <widget class="KLineEdit">
-                        <property name="name">
-                            <cstring>j1</cstring>
-                        </property>
-                    </widget>
-                </hbox>
-            </widget>
-        </vbox>
-    </widget>
-    <widget class="QSpinBox">
-        <property name="name">
-            <cstring>spinMax</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>220</x>
-                <y>320</y>
-                <width>71</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="maxValue">
-            <number>1000</number>
-        </property>
-        <property name="value">
-            <number>780</number>
-        </property>
-    </widget>
-    <widget class="QSpinBox">
-        <property name="name">
-            <cstring>spinMin</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>20</x>
-                <y>320</y>
-                <width>91</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="maxValue">
-            <number>1000</number>
-        </property>
-        <property name="value">
-            <number>380</number>
-        </property>
-    </widget>
+                        <widget class="KDoubleNumInput" row="0" column="1">
+                            <property name="name">
+                                <cstring>e2</cstring>
+                            </property>
+                            <property name="suffix">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="1" column="0">
+                            <property name="name">
+                                <cstring>textLabel7_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Configuration:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="2" column="0">
+                            <property name="name">
+                                <cstring>textLabel4</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Term:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="3" column="0">
+                            <property name="name">
+                                <cstring>textLabel1</cstring>
+                            </property>
+                            <property name="text">
+                                <string>J value:</string>
+                            </property>
+                        </widget>
+                        <widget class="KLineEdit" row="2" column="1">
+                            <property name="name">
+                                <cstring>t2</cstring>
+                            </property>
+                        </widget>
+                        <widget class="KLineEdit" row="1" column="1">
+                            <property name="name">
+                                <cstring>conf2</cstring>
+                            </property>
+                        </widget>
+                        <widget class="KLineEdit" row="3" column="1">
+                            <property name="name">
+                                <cstring>j2</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="0" column="0">
+                            <property name="name">
+                                <cstring>textLabel7</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>4</hsizetype>
+                                    <vsizetype>5</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>Energylevel [cm&lt;sup&gt;-1&lt;/sup&gt;]:</string>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignVCenter</set>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+            </hbox>
+        </widget>
+    </grid>
 </widget>
 <customwidgets>
     <customwidget>
@@ -469,7 +405,6 @@
 </images>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
-    <includehint>spectrumwidget.h</includehint>
     <includehint>kpushbutton.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
@@ -477,6 +412,7 @@
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
+    <includehint>spectrumwidget.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>klineedit.h</includehint>

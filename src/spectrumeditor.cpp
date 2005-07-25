@@ -26,32 +26,13 @@ SpectrumEditor::SpectrumEditor( QWidget *parent, const char* name )
 	: KDialogBase(parent, name, true, i18n( "Spectrum Editor" ),
 			Help|User1|Close, NoDefault, true, KGuiItem( i18n( "Export Spectrum..." ), "fileexport" ) )
 {
-	QWidget *page = new QWidget( this, "page" );
-	setMainWidget( page );
-	
-	QVBoxLayout *spectrumLayout = new QVBoxLayout( page, 0, spacingHint() );
-	
-	QHBoxLayout *hbox = new QHBoxLayout( 0L, 0, spacingHint(), "hbox" );
-	QHBoxLayout *hbox1 = new QHBoxLayout( 0L, 0, spacingHint(), "hbox1" );
-	QHBoxLayout *hbox2 = new QHBoxLayout( 0L, 0, spacingHint(), "hbox2" );
-	
-	m_bandEditor = new bandEditor( page, "m_bandEditor" );
-	m_bandEditor->layout()->setMargin( 0 );
-	
-//	m_spectrumWidget = new SpectrumWidget( page, "sw" );
+	m_bandEditor = new bandEditor( this, "m_bandEditor" );
 	Spectrum *spectrum = new Spectrum();
 	m_bandEditor->m_spectrumWidget->setSpectrum( spectrum );
-	
 	m_bandEditor->m_spectrumWidget->setBorders( 380, 780 );
 	
+	setMainWidget( m_bandEditor );
 	
-	spectrumLayout->addWidget( new QLabel( "<b>"+i18n( "Wavelength range to display on graph." )+"</b>", page ) );
-	spectrumLayout->addLayout( hbox );
-//	spectrumLayout->addWidget( m_spectrumWidget );
-	spectrumLayout->addWidget( m_bandEditor );
-	spectrumLayout->addLayout( hbox1 );
-	spectrumLayout->addLayout( hbox2 );
-
 	setMinimumSize( 500, 450 );
 	
 //X 	connect( m_bandEditor->spinMin, SIGNAL( valueChanged( int ) ), m_bandEditor->m_spectrumWidget, SLOT( setRightBorder( int ) ) );
