@@ -75,10 +75,10 @@ class Spectrum
 			///10^8s-1  (1000000000 per second)
 			double aki;
 
-			///per centimeter
+			///number of energylevels per centimeter
 			double energy1;
 
-			///per centimeter
+			///number of energylevels per centimeter
 			double energy2;
 
 			///relative. The highest is per definition 1000

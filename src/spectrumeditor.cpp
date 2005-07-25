@@ -42,7 +42,6 @@ SpectrumEditor::SpectrumEditor( QWidget *parent, const char* name )
 	m_bandEditor->layout()->setMargin( 0 );
 	
 	m_spectrumWidget = new SpectrumWidget( page, "sw" );
-	spectrumLayout->addWidget( m_spectrumWidget );
 	Spectrum *spectrum = new Spectrum();
 	m_spectrumWidget->setSpectrum( spectrum );
 	
@@ -55,9 +54,11 @@ SpectrumEditor::SpectrumEditor( QWidget *parent, const char* name )
 	hbox->addWidget( new QLabel( i18n( "Maximum Value:" ), page ) );
 	hbox->addWidget( m_spinbox_right );
 	
-	spectrumLayout->addWidget( m_bandEditor );
 	
+	spectrumLayout->addWidget( new QLabel( "<b>"+i18n( "Wavelength range to display on graph." )+"</b>", page ) );
 	spectrumLayout->addLayout( hbox );
+	spectrumLayout->addWidget( m_spectrumWidget );
+	spectrumLayout->addWidget( m_bandEditor );
 	spectrumLayout->addLayout( hbox1 );
 	spectrumLayout->addLayout( hbox2 );
 
@@ -65,7 +66,6 @@ SpectrumEditor::SpectrumEditor( QWidget *parent, const char* name )
 	
 	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setRightBorder( int ) ) );
 	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
-	
 	connect( m_bandEditor->addButton, SIGNAL( clicked() ), this, SLOT( slotAddBand( ) ) );
 }
 
@@ -78,6 +78,9 @@ void SpectrumEditor::slotAddBand()
 	double e1 = m_bandEditor->e1->value();
 	double e2 = m_bandEditor->e2->value();
 	double aki = m_bandEditor->aki->value();
+	
+	QString conf1 = m_bandEditor->conf1->text();
+	QString conf2 = m_bandEditor->conf2->text();
 
 	QString J1 = m_bandEditor->j1->text();
 	QString J2 = m_bandEditor->j2->text();
@@ -97,6 +100,8 @@ void SpectrumEditor::slotAddBand()
 	band.J1 = J1;
 	band.J2 = J2;
 	band.intensity = intensity;
+	band.electronconfig1 = conf1;
+	band.electronconfig2 = conf2;
 	
 	m_spectrumWidget->spectrum()->addBand( band );
 	m_spectrumWidget->update();
