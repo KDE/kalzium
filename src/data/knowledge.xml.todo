@@ -1,14 +1,14 @@
 <wissen>
 	<item>
-		<name>Elektron</name>
-		<desc>Subatomares Teilchen mit der Masse 0,00055 u und Ladung -[i]e[/i]. Diese Masse nennt man die Elementarladung.</desc>
+		<name>Elektron</name>DONE-JB
+		<desc>Subatomares Teilchen mit der Masse 0,00055 u und Ladung -[i]e[/i]. Diese Ladung nennt man die Elementarladung.</desc>
 	</item>
 	<item>
 		<name>Elementarladung</name>
 		<desc>[img]e.png[/img] Das Elektron hat eine negative, das Proton eine positive Elementarladung.</desc>
 	</item>
 	<item>
-		<name>Isotope</name>
+		<name>Isotope</name>DONE-JB
 		<desc>Atome des gleichen Elements und daher gleicher Ordnungszahl, aber unterschiedlicher Massen- und Neutronenzahl.</desc>
 	</item>
 	<item>
@@ -16,7 +16,7 @@
 		<desc>Strahlen von positiven Ionen.</desc>
 	</item>
 	<item>
-		<name>Kathodenstrahl</name>
+		<name>Kathodenstrahl</name>DONE-JB
 		<desc>Strahl von Elektronen, die von der Kathode (negativen
 			Elektrode) in einem evakuierten Rohr ausgehen.</desc>
 	</item>
@@ -35,11 +35,11 @@
 		<desc>Summe aller Protonen und Neutronen im Atomkern. Symbol: "A"</desc>
 	</item>
 	<item>
-		<name>Neutron</name>
+		<name>Neutron</name>DONE-JB
 		<desc>Subatomares Teilchen ohne elektrische Ladung, mit Masse 1,0087 u, das im Atomkern vorkommt.</desc>
 	</item>
 	<item>
-		<name>Proton</name>
+		<name>Proton</name>DONE-JB
 		<desc>Subatomares Teilchen mit positiver Ladung und Masse 1,0073 u
 			und das im Atomkern vorkommt.</desc>
 	</item>
@@ -211,7 +211,7 @@
 		<desc>W. Heisenberg hat 1927 die Unschärferelation aufgestellt. Diese Theorie sagt aus, dass man von einem Teilchen nicht gleichzeitig Ort ([i]x[/i]) und Impuls ([i]mv[/i]) exakt bestimmen kann. Es ergibt sich folgende Beziehung: [img]unschaerfe.png[/img] Die Unbestimmtheit des Ortes ist mit 70nm etwa 1300 Mal größer als der Radius im Bohr'schen Atommodell (r = 0.053 nm). Somit sind also Bahnmodelle wie bei Bohr nicht zulässig, denn diese mechanischen Modelle treffen Aussagen über Ort und Impuls gleichzeitig. Daher spricht man bei modernen Modellen auch von [b]Wahrscheinlichkeiten[/b] mit denen sich Teilchen aufhalten.</desc>
 	</item>
 	<item>
-		<name>Spin</name>
+		<name>Spin</name>DONE-JB
 		<desc>Deutung des Magnetfelds eines Elektrons als Folge einer Drehung um seine eigene Achse. Nur zwei Spinzustände sind möglich, die durch die Spinquantenzahl s = +0.5 oder -0.5 charakterisiert werden.</desc>
 	</item>
 	<item>

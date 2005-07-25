@@ -114,6 +114,9 @@
 		<desc>Atoms are chemically inseparable and building blocks of matter. Atoms of one kind are called an Element.</desc>
 		<references>
 			<refitem>Element</refitem>
+			<refitem>Electron</refitem>
+			<refitem>Proton</refitem>
+			<refitem>Neutron</refitem>
 		</references>
 	</item>
 	<item>
@@ -148,7 +151,7 @@
 	<item>
 		<name>Magnetic Moment</name>
 		<desc>The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself.
-		It's measured in units of the nuclear magneton &#956;[sub]n[/sub]=5.0507866 &#177; 0.0000017 e-27 JT<sup>-</sup></desc>
+		It's measured in units of the nuclear magneton &#956;[sub]n[/sub]=(5.0507866 &#177; 0.0000017) e-27 JT<sup>-</sup></desc>
 		<references>
 			<refitem>Isotopes</refitem>
 		</references>
@@ -219,5 +222,40 @@
 	<item>
 		<name>Beta rays</name>
 		<desc>Rays consisting of electrons that are emitted from Atoms of radioactive elements.</desc>
+	</item>
+	<item>
+		<name>Electron</name>
+		<desc>The electron is a subatomic particle with a mass of m[sub]e[/sub]=(9.1093897 &#177; 0.0000054)e-31 kg and a negative charge of [i]e[/i]=(1.60217733 &#177; 0.00000049)e-19 C
+		</desc>
+		<references>
+			<refitem>Atom</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Proton</name>
+		<desc>The proton is a subatomic particle with a mass of m[sub]e[/sub]=(1.6726231 &#177; 0.0000010)e-27 kg and a positive charge of [i]e[/i]=(1.60217733 &#177; 0.00000049)e-19 C which occurs in the nucleus of an atom.</desc>
+		<references>
+			<refitem>Atom</refitem>
+			<refitem>Electron</refitem>
+			<refitem>Neutron</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Neutron</name>
+		<desc>The neutron is a subatomic particle with a mass of m[sub]e[/sub]=(1.6749286 &#177; 0.0000010)e-27 kg which occurs in the nucleus of an atom.
+		</desc>
+		<references>
+			<refitem>Atom</refitem>
+			<refitem>Electron</refitem>
+			<refitem>Proton</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Cathode Rays</name>
+		<desc>Cathode rays are streams of electrons observed in vacuum tubes, i.e. evacuated glass tubes that are equipped with at least two electrodes, a cathode (negative electrode) and an anode (positive electrode) in a configuration known as a diode.
+		</desc>
+		<references>
+			<refitem>Electron</refitem>
+		</references>
 	</item>
 </wissen>
