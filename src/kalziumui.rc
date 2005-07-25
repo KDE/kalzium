@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="kalzium" version="2">
+<kpartgui name="kalzium" version="3">
 <MenuBar>
   <Menu name="file" noMerge="0"><text>&amp;File</text>
     <Action name="export_data"/>
@@ -26,6 +26,7 @@
     <Action name="nuclideboard" />
     <Action name="glossary" />
     <Action name="view_eqsolver" />
+    <Action name="spectrum_editor" />
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
   </Menu>
@@ -41,6 +42,7 @@
   <Action name="nuclideboard" />
   <Action name="glossary" />
   <Action name="view_eqsolver" />
+  <Action name="spectrum_editor" />
 </ToolBar>
 
 </kpartgui>

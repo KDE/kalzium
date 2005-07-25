@@ -47,6 +47,10 @@ class SpectrumWidget : public QWidget
 			m_spectrum = spec;
 		}
 
+		Spectrum* spectrum()const{
+			return m_spectrum;
+		}
+
 		/**
 		 * This limits the width of the spectrum in terms of
 		 * wavelength. For example you can set it to only

@@ -47,10 +47,16 @@ class Spectrum
 	public:
 		/**
 		 * public costructor
+		 * @param parent the Element this spectrum belongs to
 		 */
 		Spectrum( Element* parent ){
 			m_parentElement = parent;
 		};
+
+		/**
+		 * This spectrum doesn't belong to any element
+		 */
+		Spectrum(){};
 		
 		/**
 		 * public destructor
