@@ -350,8 +350,8 @@
 				 <title>Equation Solver</title>
 				 <para>
 					 The <guimenuitem>Equation Solver</guimenuitem> enables the user to solve chemical equations. This is an example:
-					<blockquote>aH2O + bCO2 -> cH2CO3</blockquote>
 				</para>
+					<blockquote><para>aH2O + bCO2 -> cH2CO3</para></blockquote>
 				<para>
 					The computed equation will be displayed on the right side of the window. As you can see in the first example you can also define the value of one or more coefficients. The other coefficients will be ajusted. Furthermore, it is possible to use brackets around elements or electronic charges as shown in the last two examples.</para>
 				 <screenshot>
