@@ -7,21 +7,30 @@
 
 /**
  * @author Carsten Niehaus
- * 
  */
 class SpectrumViewImpl : public SpectrumView
 {
 	Q_OBJECT
 
 	public: 
+		/**
+		 * @param parent the parent widget
+		 * @param name the name used internally
+		 */
 		SpectrumViewImpl( QWidget* parent, const char* name );
 
+		/**
+		 * sets the spectrum to @p spec
+		 * @param spec the spectrum to display
+		 */
 		void setSpectrum( Spectrum* spec ){
 			m_spectrumWidget->setSpectrum( spec );
 		}
 
-	public slots:
-		void slotBordersChanged( int, int );
+	private slots:
+		/**
+		 * export the spectrum as an image
+		 */
 		void slotExportAsImage();
 };
 

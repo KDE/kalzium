@@ -42,6 +42,7 @@ class DetailedInfoDlg : public KDialogBase
  
 		void setElement(Element *el);
 
+	private:
 		enum DATATYPE
 		{
 			CHEMICAL = 0,
@@ -49,7 +50,6 @@ class DetailedInfoDlg : public KDialogBase
 			ENERGY
 		};
 	
-	private:
 		KalziumDataObject  *m_data;
 		Element            *m_element;
 

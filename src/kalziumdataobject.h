@@ -63,7 +63,9 @@ class KalziumDataObject
 		/**
 		 * @return the number of elements we have
 		 */
-		const int numberOfElements() const;
+		int numberOfElements() const{
+			return m_numOfElements;
+		}
 
 	private:
 		KalziumDataObject();

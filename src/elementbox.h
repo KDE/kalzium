@@ -27,6 +27,9 @@ class Element;
 class QSimpleRichText;
 class QString;
 
+/**
+ * @author Martin Pfeiffer
+ */
 class ElementBox : public QWidget
 {
 	Q_OBJECT

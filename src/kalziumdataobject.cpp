@@ -83,7 +83,9 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 	//read in all elements
 	elementNodes = dataDocument.elementsByTagName( "element" );
 
-	for ( uint i = 0; i < elementNodes.count(); ++i )
+	const uint count = elementNodes.count();
+
+	for ( uint i = 0; i < count; ++i )
 	{//iterate through all elements
 		domElement = ( const QDomElement& ) elementNodes.item( i ).toElement();
 
@@ -218,7 +220,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 
 		e->setupXY();
 
-		Spectrum *spectrum = new Spectrum( e );
+		Spectrum *spectrum = new Spectrum();
 		bool spectrum_temp = false;
 		if ( spectrumList.length() > 0 )
 			spectrum_temp = true;
@@ -253,7 +255,3 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 	return list;
 }
 
-const int KalziumDataObject::numberOfElements() const
-{
-	return m_numOfElements;
-}

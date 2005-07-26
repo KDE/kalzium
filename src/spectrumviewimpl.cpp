@@ -32,11 +32,4 @@ void SpectrumViewImpl::slotExportAsImage()
 	}	
 	delete exporter;
 }
-
-void SpectrumViewImpl::slotBordersChanged( int l, int r )
-{
-	(void)l;
-	(void)r;
-}
-
 #include "spectrumviewimpl.moc"

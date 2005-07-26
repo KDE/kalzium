@@ -54,7 +54,7 @@ double Spectrum::maxBand()
 
 Spectrum* Spectrum::adjustToWavelength( double min, double max )
 {
-	Spectrum *spec = new Spectrum( m_parentElement );
+	Spectrum *spec = new Spectrum();
 
 	QValueList<band>::const_iterator it = m_bandlist.begin();
 	const QValueList<band>::const_iterator itEnd = m_bandlist.end();

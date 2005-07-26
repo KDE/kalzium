@@ -36,14 +36,6 @@ class Spectrum
 {
 	public:
 		/**
-		 * public costructor
-		 * @param parent the Element this spectrum belongs to
-		 */
-		Spectrum( Element* parent ){
-			m_parentElement = parent;
-		};
-
-		/**
 		 * This spectrum doesn't belong to any element
 		 */
 		Spectrum(){};
@@ -129,6 +121,9 @@ class Spectrum
 			return m_max;
 		}
 
+		/**
+		 * @return the list of bands of the spectrum
+		 */
 		QValueList<band>* bandlist(){
 			return &m_bandlist;
 		}
