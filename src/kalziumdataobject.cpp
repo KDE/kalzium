@@ -158,7 +158,23 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			if ( ecdecay == "true" ) ecdecay_ = true;
 			if ( alphadecay == "true" ) alphadecay_ = true;
 			
-			Isotope *isotope = new Isotope( neutrons, number, percentage, weight, halflife, format, alphadecay_, betaplusdecay_, betaminusdecay_, alphapercentage, betaminuspercentage, betapluspercentage, ecpercentage, ecdecay_, decayenergy, spin, magmoment );
+			Isotope *isotope = new Isotope( neutrons, 
+					number, 
+					percentage, 
+					weight, 
+					halflife, 
+					format, 
+					alphadecay_, 
+					betaplusdecay_, 
+					betaminusdecay_, 
+					alphapercentage, 
+					betaminuspercentage, 
+					betapluspercentage, 
+					ecpercentage, 
+					ecdecay_, 
+					decayenergy, 
+					spin, 
+					magmoment );
 			isolist.append( isotope );
 		}
 
