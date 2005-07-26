@@ -25,6 +25,7 @@
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
 #include <kcombobox.h>
+#include <kapplication.h>
 
 #include <qlabel.h>
 #include <qimage.h>
@@ -315,15 +316,18 @@ void DetailedInfoDlg::createContent( )
 	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
 	addTab( getHtml(MISC), i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 	
+	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
+	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
+	m_pages.append( m_pSpectrumTab );
+	
 	//now add the spectrum-widget if needed
 	if ( m_element->hasSpectrum() )
 	{
-		m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
-		QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
 		m_spectrumview = new SpectrumView( m_element->spectrum(), m_pSpectrumTab, "spectrumwidget" );
 		spectrumLayout->addWidget( m_spectrumview );
-		m_pages.append( m_pSpectrumTab );
 	}
+	else
+		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elname() ), m_pSpectrumTab ) );
 	
 	QString num = QString::number( m_element->number() );
 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elname() ).arg( num );
@@ -342,9 +346,7 @@ void DetailedInfoDlg::createContent( )
 		piclabel->setPixmap( pic );
 	}
 	else 
-	{
 		piclabel->setText( i18n( "No picture of %1 found." ).arg( m_element->elname() ) );
-	}
 
 	/////////////////////////////////
 	
@@ -354,6 +356,39 @@ void DetailedInfoDlg::createContent( )
 							.arg( m_element->elname() )
 							.arg( m_element->elname() )
 							.arg( m_element->parsedOrbits() ) );
+}
+
+void DetailedInfoDlg::slotHelp()
+{
+	emit helpClicked();
+	
+	QString chapter = "infodialog_overview";
+	switch ( activePageIndex() ){
+		case 0: 
+			chapter = "infodialog_overview";
+			break;
+		case 1:
+			 chapter = "infodialog_picture";
+			break;
+		case 2:
+			 chapter = "infodialog_orbits";
+			break;
+		case 3:
+			 chapter = "infodialog_chemical";
+			break;
+		case 4:
+			 chapter = "infodialog_energies";
+			break;
+		case 5:
+			 chapter = "infodialog_misc";
+			break;
+		case 6:
+			 chapter = "infodialog_spectrum";
+			break;
+	}
+
+	if ( kapp )
+		kapp->invokeHelp ( chapter, "kalzium" );
 }
 
 void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )

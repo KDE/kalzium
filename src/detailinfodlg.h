@@ -105,6 +105,10 @@ class DetailedInfoDlg : public KDialogBase
 	protected slots:
 		virtual void slotUser1();
 		virtual void slotUser2();
+		/**
+		 * invoke the help of the correct chapter
+		 */
+		virtual void slotHelp();
 
 	protected:
 		virtual void wheelEvent (  QWheelEvent * ev );
