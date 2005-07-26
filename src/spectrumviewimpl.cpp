@@ -20,6 +20,9 @@ void SpectrumViewImpl::slotExportAsImage()
 }
 
 void SpectrumViewImpl::slotBordersChanged( int l, int r )
-{}
+{
+	(void)l;
+	(void)r;
+}
 
 #include "spectrumviewimpl.moc"

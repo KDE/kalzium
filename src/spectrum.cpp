@@ -164,5 +164,3 @@ QString Spectrum::BandsAsHtml()
 	html += "</body></html>";
 	return html;
 }
-
-#include "spectrum.moc"
