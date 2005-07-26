@@ -167,11 +167,11 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 					alphadecay_, 
 					betaplusdecay_, 
 					betaminusdecay_, 
+					ecdecay_, 
 					alphapercentage, 
 					betaminuspercentage, 
 					betapluspercentage, 
 					ecpercentage, 
-					ecdecay_, 
 					decayenergy, 
 					spin, 
 					magmoment );
