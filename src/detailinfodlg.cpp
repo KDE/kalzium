@@ -287,18 +287,24 @@ QString DetailedInfoDlg::isotopeTable()
 		if ( ( *it )->halflife() > 0.0 )
 			html.append( ( *it )->halflifeAsString() );
 		html.append( "</td><td>" );
-		if ( ( *it )->ecpercentage() > 0.0 )
-			html.append( i18n( "%1% %2% %3% %4%" ).arg(( *it )->alphapercentage() ).arg(( *it )->betapluspercentage() ).arg(( *it )->betaminuspercentage() ).arg(( *it )->ecpercentage() ));
 		if ( ( *it )->decayenergy() > 0.0 )
 			html.append( i18n( "%1 MeV" ).arg(( *it )->decayenergy() ) );
 		if ( ( *it )->alphadecay() )
 			html.append( i18n( " %1" ).arg( QChar( 945 ) ) );
+		if ( ( *it )->alphapercentage() > 0.0 && ( *it )->alphapercentage() < 100.0)
+			html.append( i18n( "(%1%)" ).arg(( *it )->alphapercentage() ));
 		if ( ( *it )->betaplusdecay() )
 			html.append( i18n( " %1%2" ).arg(QChar( 946 ) ).arg( i18n("<sup>+</sup>") ) );
+		if ( ( *it )->betapluspercentage() > 0.0 && ( *it )->betapluspercentage() < 100.0)
+			html.append( i18n( "(%1%)" ).arg(( *it )->betapluspercentage() ));
 		if ( ( *it )->betaminusdecay() )
 			html.append( i18n( " %1" ).arg( QChar( 946 ) ) );
+		if ( ( *it )->betaminuspercentage() > 0.0 && ( *it )->betaminuspercentage() < 100.0)
+			html.append( i18n( "(%1%)" ).arg(( *it )->betaminuspercentage() ));
 		if ( ( *it )->ecdecay() )
 			html.append( i18n( "Acronym of Electron Capture"," EC" ) );
+		if ( ( *it )->ecpercentage() > 0.0 && ( *it )->ecpercentage() < 100.0)
+			html.append( i18n( "(%1%)" ).arg(( *it )->ecpercentage() ));
 		html.append( "</td><td>" );
 		html.append( i18n("%1 ").arg(( *it )->spin() ) );
 		html.append( "</td><td>" );
