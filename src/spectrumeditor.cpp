@@ -23,8 +23,9 @@
 #include <klineedit.h>
 
 SpectrumEditor::SpectrumEditor( QWidget *parent, const char* name )
-	: KDialogBase(parent, name, true, i18n( "Spectrum Editor" ),
-			Help|User1|Close, NoDefault, true, KGuiItem( i18n( "Export Spectrum..." ), "fileexport" ) )
+  : KDialogBase(parent, name, true, i18n( "Spectrum Editor" ),
+                Help|User1|Close, NoDefault, true,
+                KGuiItem( i18n( "&Export Spectrum as Image" ), "fileexport" ) )
 {
 	m_bandEditor = new bandEditor( this, "m_bandEditor" );
 	Spectrum *spectrum = new Spectrum();

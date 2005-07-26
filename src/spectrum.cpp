@@ -119,7 +119,7 @@ QValueList<double> Spectrum::wavelengths( double min, double max )
 	return list;
 }
 
-QString Spectrum::BandsAsHtml()
+QString Spectrum::bandsAsHtml()
 {
 	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title>i<body>";
 
@@ -143,7 +143,7 @@ QString Spectrum::BandsAsHtml()
 		     + "<td>" + i18n( "J 2: %1" ).arg( ( *it ).J2 ) + "</td>"
 		     + "</tr>\n";
 	}
-	
+
 	html += "</table>";
 
 	html += "</body></html>";

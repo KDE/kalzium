@@ -114,7 +114,7 @@
                         <cstring>exportButton</cstring>
                     </property>
                     <property name="text">
-                        <string>E&amp;xport Spectrum as Image</string>
+                        <string></string>
                     </property>
                 </widget>
             </hbox>

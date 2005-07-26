@@ -3,8 +3,10 @@
 #include <qspinbox.h>
 
 #include <kfiledialog.h>
+#include <kguiitem.h>
 #include <klocale.h>
 #include <kmessagebox.h>
+#include <kpushbutton.h>
 
 #include "exporter.h"
 
@@ -14,6 +16,7 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent, const char* name )
 	resize( minimumSizeHint() );
 	// simulating an update
 	m_spectrumWidget->setRightBorder( maximumValue->value() );
+	exportButton->setGuiItem( KGuiItem( i18n( "&Export Spectrum as Image" ), "fileexport" ) );
 }
 
 void SpectrumViewImpl::slotExportAsImage()

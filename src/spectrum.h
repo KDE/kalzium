@@ -145,7 +145,7 @@ class Spectrum
 		/**
 		 * @return the data of a spectrum as HTML code
 		 */
-		QString BandsAsHtml();
+		QString bandsAsHtml();
 
 		/**
 		 * @return the parent element of this spectrum
