@@ -277,21 +277,24 @@
 						 <varlistentry>
 							 <term>Energy and Mode of Decay</term>
 							 <listitem><para>
-									 no clue... JBuchwald
+									 Some elements are known to emit particle under the process
+									 of radioactive decay.  Each decay transformation has a
+									 typical energy release, which is listed along with the mode
+									 of decay.
 							 </para></listitem>
 						 </varlistentry>
 
 						 <varlistentry>
 							 <term>Spin and parity</term>
 							 <listitem><para>
-									 no clue... JBuchwald
+									 These values are used in quantum theory.
 							 </para></listitem>
 						 </varlistentry>
 
 						 <varlistentry>
 							 <term>Magnetic Moment</term>
 							 <listitem><para>
-									 no clue... JBuchwald
+									 Measures the overall magnetic field induced by the element.
 							 </para></listitem>
 						 </varlistentry>
 
