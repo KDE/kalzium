@@ -2172,17 +2172,17 @@
 		<period>5</period>
 		<mass>101.07</mass>
 		<spectra>
-<spectrum intensity="600" wavelength="3436.737" aki="0.728" energy1="1190.64" energy2="4" electronconfig1="4d7(a" electronconfig2="30279.68" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
-<spectrum intensity="800" wavelength="3498.944" aki="0.861" energy1="0.00" energy2="5" electronconfig1="4d7(a" electronconfig2="28571.89" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
-<spectrum intensity="600" wavelength="3589.220" aki="0.911" energy1="3105.49" energy2="1" electronconfig1="4d7(a" electronconfig2="30958.80" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
-<spectrum intensity="600" wavelength="3593.029" aki="0.817" energy1="2713.24" energy2="2" electronconfig1="4d7(a" electronconfig2="30537.06" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
-<spectrum intensity="600" wavelength="3596.185" aki="0.420" energy1="2091.54" energy2="3" electronconfig1="4d7(a" electronconfig2="29890.91" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
-<spectrum intensity="800" wavelength="3726.926" aki="0.753" energy1="1190.64" energy2="4" electronconfig1="4d7(a" electronconfig2="28014.79" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
-<spectrum intensity="1000" wavelength="3728.026" aki="0.820" energy1="0.00" energy2="5" electronconfig1="4d7(a" electronconfig2="26816.23" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
-<spectrum intensity="600" wavelength="3730.432" aki="0.706" energy1="2091.54" energy2="3" electronconfig1="4d7(a" electronconfig2="28890.47" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
-<spectrum intensity="700" wavelength="3798.899" aki="0.598" energy1="1190.64" energy2="4" electronconfig1="4d7(a" electronconfig2="27506.59" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
-<spectrum intensity="700" wavelength="3799.353" aki="0.533" energy1="0.00" energy2="5" electronconfig1="4d7(a" electronconfig2="26312.83" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
-<spectrum intensity="700" wavelength="4199.892" aki="0.399" energy1="6545.03" energy2="4" electronconfig1="4d7(a" electronconfig2="30348.45" term1="4F)5s" term2="4d7(a" J1="a3F" J2="4F)5p" />
+			<spectrum intensity="600" wavelength="3436.737" aki="0.728" energy1="1190.64" energy2="4" electronconfig1="4d7(a" electronconfig2="30279.68" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
+			<spectrum intensity="800" wavelength="3498.944" aki="0.861" energy1="0.00" energy2="5" electronconfig1="4d7(a" electronconfig2="28571.89" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
+			<spectrum intensity="600" wavelength="3589.220" aki="0.911" energy1="3105.49" energy2="1" electronconfig1="4d7(a" electronconfig2="30958.80" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
+			<spectrum intensity="600" wavelength="3593.029" aki="0.817" energy1="2713.24" energy2="2" electronconfig1="4d7(a" electronconfig2="30537.06" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
+			<spectrum intensity="600" wavelength="3596.185" aki="0.420" energy1="2091.54" energy2="3" electronconfig1="4d7(a" electronconfig2="29890.91" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
+			<spectrum intensity="800" wavelength="3726.926" aki="0.753" energy1="1190.64" energy2="4" electronconfig1="4d7(a" electronconfig2="28014.79" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
+			<spectrum intensity="1000" wavelength="3728.026" aki="0.820" energy1="0.00" energy2="5" electronconfig1="4d7(a" electronconfig2="26816.23" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
+			<spectrum intensity="600" wavelength="3730.432" aki="0.706" energy1="2091.54" energy2="3" electronconfig1="4d7(a" electronconfig2="28890.47" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
+			<spectrum intensity="700" wavelength="3798.899" aki="0.598" energy1="1190.64" energy2="4" electronconfig1="4d7(a" electronconfig2="27506.59" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
+			<spectrum intensity="700" wavelength="3799.353" aki="0.533" energy1="0.00" energy2="5" electronconfig1="4d7(a" electronconfig2="26312.83" term1="4F)5s" term2="4d7(a" J1="a5F" J2="4F)5p" />
+			<spectrum intensity="700" wavelength="4199.892" aki="0.399" energy1="6545.03" energy2="4" electronconfig1="4d7(a" electronconfig2="30348.45" term1="4F)5s" term2="4d7(a" J1="a3F" J2="4F)5p" />
 		</spectra>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
@@ -2225,16 +2225,16 @@
 		<period>5</period>
 		<mass>102.90550</mass>
 		<spectra>
-<spectrum intensity="400" wavelength="3323.09" aki="0.63" energy1="1529.97" energy2="31613.78" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z2G°" J1="7/2" J2="9/2" />
-<spectrum intensity="600" wavelength="3396.82" aki="0.65" energy1="0.00" energy2="29430.86" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4F°" J1="9/2" J2="9/2" />
-<spectrum intensity="900" wavelength="3434.89" aki="0.0" energy1="0.00" energy2="29104.71" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4G°" J1="9/2" J2="11/2" />
-<spectrum intensity="600" wavelength="3502.52" aki="0.43" energy1="0.00" energy2="28542.69" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4G°" J1="9/2" J2="9/2" />
-<spectrum intensity="300" wavelength="3507.32" aki="0.34" energy1="2598.03" energy2="31101.75" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4G°" J1="5/2" J2="7/2" />
-<spectrum intensity="900" wavelength="3528.02" aki="0.85" energy1="1529.97" energy2="29866.34" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4F°" J1="7/2" J2="7/2" />
-<spectrum intensity="900" wavelength="3657.99" aki="0.88" energy1="1529.97" energy2="28859.64" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4D°" J1="7/2" J2="5/2" />
-<spectrum intensity="1000" wavelength="3692.36" aki="0.91" energy1="0.00" energy2="27075.26" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4D°" J1="9/2" J2="7/2" />
-<spectrum intensity="800" wavelength="3700.91" aki="0.39" energy1="1529.97" energy2="28542.69" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4G°" J1="7/2" J2="9/2" />
-<spectrum intensity="400" wavelength="4374.80" aki="0.164" energy1="5690.97" energy2="28542.69" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a2F" term2="z4G°" J1="7/2" J2="9/2" />
+			<spectrum intensity="400" wavelength="3323.09" aki="0.63" energy1="1529.97" energy2="31613.78" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z2G&deg;" J1="7/2" J2="9/2" />
+			<spectrum intensity="600" wavelength="3396.82" aki="0.65" energy1="0.00" energy2="29430.86" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4F&deg;" J1="9/2" J2="9/2" />
+			<spectrum intensity="900" wavelength="3434.89" aki="0.0" energy1="0.00" energy2="29104.71" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4G&deg;" J1="9/2" J2="11/2" />
+			<spectrum intensity="600" wavelength="3502.52" aki="0.43" energy1="0.00" energy2="28542.69" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4G&deg;" J1="9/2" J2="9/2" />
+			<spectrum intensity="300" wavelength="3507.32" aki="0.34" energy1="2598.03" energy2="31101.75" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4G&deg;" J1="5/2" J2="7/2" />
+			<spectrum intensity="900" wavelength="3528.02" aki="0.85" energy1="1529.97" energy2="29866.34" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4F&deg;" J1="7/2" J2="7/2" />
+			<spectrum intensity="900" wavelength="3657.99" aki="0.88" energy1="1529.97" energy2="28859.64" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4D&deg;" J1="7/2" J2="5/2" />
+			<spectrum intensity="1000" wavelength="3692.36" aki="0.91" energy1="0.00" energy2="27075.26" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4D&deg;" J1="9/2" J2="7/2" />
+			<spectrum intensity="800" wavelength="3700.91" aki="0.39" energy1="1529.97" energy2="28542.69" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a4F" term2="z4G&deg;" J1="7/2" J2="9/2" />
+			<spectrum intensity="400" wavelength="4374.80" aki="0.164" energy1="5690.97" energy2="28542.69" electronconfig1="4d8(3F)5s" electronconfig2="4d8(3F)5p" term1="a2F" term2="z4G&deg;" J1="7/2" J2="9/2" />
 		</spectra>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2269,18 +2269,18 @@
 		<period>5</period>
 		<mass>106.42</mass>
 		<spectra>
-<spectrum intensity="300" wavelength="2447.9058" aki="0.111" energy1="0.000" energy2="40838.874" electronconfig1="4d10" electronconfig2="4d9(2D5/2)5p" term1="1S" term2="2[1/2]°" J1="0" J2="1" />
-<spectrum intensity="250" wavelength="2476.4127" aki="0.188" energy1="0.000" energy2="40368.796" electronconfig1="4d10" electronconfig2="4d9(2D5/2)5p" term1="1S" term2="2[3/2]°" J1="0" J2="1" />
-<spectrum intensity="400" wavelength="2763.0899" aki="0.169" energy1="0.000" energy2="36180.677" electronconfig1="4d10" electronconfig2="4d9(2D5/2)5p" term1="1S" term2="2[3/2]°" J1="0" J2="1" />
-<spectrum intensity="500" wavelength="3242.6983" aki="0.77" energy1="6564.148" energy2="37393.762" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[5/2]°" J1="3" J2="3" />
-<spectrum intensity="1000" wavelength="3404.5764" aki="1.34" energy1="6564.148" energy2="35927.948" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[7/2]°" J1="3" J2="4" />
-<spectrum intensity="500" wavelength="3421.2214" aki="0.0" energy1="7755.025" energy2="36975.973" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[5/2]°" J1="2" J2="2" />
-<spectrum intensity="300" wavelength="3460.7381" aki="0.30" energy1="6564.148" energy2="35451.443" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[7/2]°" J1="3" J2="3" />
-<spectrum intensity="400" wavelength="3481.1516" aki="0.0" energy1="10093.992" energy2="38811.896" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[3/2]" term2="2[5/2]°" J1="1" J2="2" />
-<spectrum intensity="500" wavelength="3516.9438" aki="1.03" energy1="7755.025" energy2="36180.677" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[3/2]°" J1="2" J2="1" />
-<spectrum intensity="500" wavelength="3553.0803" aki="0.0" energy1="11721.809" energy2="39858.361" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[3/2]" term2="2[5/2]°" J1="2" J2="3" />
-<spectrum intensity="800" wavelength="3609.5547" aki="0.82" energy1="7755.025" energy2="35451.443" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[7/2]°" J1="2" J2="3" />
-<spectrum intensity="800" wavelength="3634.6884" aki="0.0" energy1="6564.148" energy2="34068.977" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[3/2]°" J1="3" J2="2" />
+			<spectrum intensity="300" wavelength="2447.9058" aki="0.111" energy1="0.000" energy2="40838.874" electronconfig1="4d10" electronconfig2="4d9(2D5/2)5p" term1="1S" term2="2[1/2]&deg;" J1="0" J2="1" />
+			<spectrum intensity="250" wavelength="2476.4127" aki="0.188" energy1="0.000" energy2="40368.796" electronconfig1="4d10" electronconfig2="4d9(2D5/2)5p" term1="1S" term2="2[3/2]&deg;" J1="0" J2="1" />
+			<spectrum intensity="400" wavelength="2763.0899" aki="0.169" energy1="0.000" energy2="36180.677" electronconfig1="4d10" electronconfig2="4d9(2D5/2)5p" term1="1S" term2="2[3/2]&deg;" J1="0" J2="1" />
+			<spectrum intensity="500" wavelength="3242.6983" aki="0.77" energy1="6564.148" energy2="37393.762" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[5/2]&deg;" J1="3" J2="3" />
+			<spectrum intensity="1000" wavelength="3404.5764" aki="1.34" energy1="6564.148" energy2="35927.948" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[7/2]&deg;" J1="3" J2="4" />
+			<spectrum intensity="500" wavelength="3421.2214" aki="0.0" energy1="7755.025" energy2="36975.973" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[5/2]&deg;" J1="2" J2="2" />
+			<spectrum intensity="300" wavelength="3460.7381" aki="0.30" energy1="6564.148" energy2="35451.443" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[7/2]&deg;" J1="3" J2="3" />
+			<spectrum intensity="400" wavelength="3481.1516" aki="0.0" energy1="10093.992" energy2="38811.896" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[3/2]" term2="2[5/2]&deg;" J1="1" J2="2" />
+			<spectrum intensity="500" wavelength="3516.9438" aki="1.03" energy1="7755.025" energy2="36180.677" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[3/2]&deg;" J1="2" J2="1" />
+			<spectrum intensity="500" wavelength="3553.0803" aki="0.0" energy1="11721.809" energy2="39858.361" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[3/2]" term2="2[5/2]&deg;" J1="2" J2="3" />
+			<spectrum intensity="800" wavelength="3609.5547" aki="0.82" energy1="7755.025" energy2="35451.443" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[7/2]&deg;" J1="2" J2="3" />
+			<spectrum intensity="800" wavelength="3634.6884" aki="0.0" energy1="6564.148" energy2="34068.977" electronconfig1="4d9(2D5/2)5s" electronconfig2="4d9(2D5/2)5p" term1="2[5/2]" term2="2[3/2]&deg;" J1="3" J2="2" />
 		</spectra>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2323,12 +2323,12 @@
 		<period>5</period>
 		<mass>107.8682</mass>
 		<spectra>
-<spectrum intensity="1000" wavelength="3280.680" aki="1.47" energy1="0.000" energy2="30472.703" electronconfig1="4d10(1S)5s" electronconfig2="4d10(1S)5p" term1="2S" term2="2P°" J1="1/2" J2="3/2" />
-<spectrum intensity="500" wavelength="3382.887" aki="1.35" energy1="0.000" energy2="29552.061" electronconfig1="4d10(1S)5s" electronconfig2="4d10(1S)5p" term1="2S" term2="2P°" J1="1/2" J2="1/2" />
-<spectrum intensity="90" wavelength="5209.078" aki="0.75" energy1="29552.061" energy2="48743.969" electronconfig1="4d10(1S)5p" electronconfig2="4d10(1S)5d" term1="2P°" term2="2D" J1="1/2" J2="3/2" />
-<spectrum intensity="90" wavelength="5465.497" aki="0.86" energy1="30472.703" energy2="48764.219" electronconfig1="4d10(1S)5p" electronconfig2="4d10(1S)5d" term1="2P°" term2="2D" J1="3/2" J2="5/2" />
-<spectrum intensity="30" wavelength="7687.772" aki="0.0" energy1="29552.061" energy2="42556.152" electronconfig1="4d10(1S)5p" electronconfig2="4d10(1S)6s" term1="2P°" term2="2S" J1="1/2" J2="1/2" />
-<spectrum intensity="50" wavelength="8273.509" aki="0.0" energy1="30472.703" energy2="42556.152" electronconfig1="4d10(1S)5p" electronconfig2="4d10(1S)6s" term1="2P°" term2="2S" J1="3/2" J2="1/2" />
+			<spectrum intensity="1000" wavelength="3280.680" aki="1.47" energy1="0.000" energy2="30472.703" electronconfig1="4d10(1S)5s" electronconfig2="4d10(1S)5p" term1="2S" term2="2P&deg;" J1="1/2" J2="3/2" />
+			<spectrum intensity="500" wavelength="3382.887" aki="1.35" energy1="0.000" energy2="29552.061" electronconfig1="4d10(1S)5s" electronconfig2="4d10(1S)5p" term1="2S" term2="2P&deg;" J1="1/2" J2="1/2" />
+			<spectrum intensity="90" wavelength="5209.078" aki="0.75" energy1="29552.061" energy2="48743.969" electronconfig1="4d10(1S)5p" electronconfig2="4d10(1S)5d" term1="2P&deg;" term2="2D" J1="1/2" J2="3/2" />
+			<spectrum intensity="90" wavelength="5465.497" aki="0.86" energy1="30472.703" energy2="48764.219" electronconfig1="4d10(1S)5p" electronconfig2="4d10(1S)5d" term1="2P&deg;" term2="2D" J1="3/2" J2="5/2" />
+			<spectrum intensity="30" wavelength="7687.772" aki="0.0" energy1="29552.061" energy2="42556.152" electronconfig1="4d10(1S)5p" electronconfig2="4d10(1S)6s" term1="2P&deg;" term2="2S" J1="1/2" J2="1/2" />
+			<spectrum intensity="50" wavelength="8273.509" aki="0.0" energy1="30472.703" energy2="42556.152" electronconfig1="4d10(1S)5p" electronconfig2="4d10(1S)6s" term1="2P&deg;" term2="2S" J1="3/2" J2="1/2" />
 		</spectra>
 		<block>d</block>
 		<acidicbehaviour>0</acidicbehaviour>
@@ -2365,16 +2365,16 @@
 		<mass>112.411</mass>
 		<block>d</block>
 		<spectra>
-<spectrum intensity="800" wavelength="2288.022" aki="5.3" energy1="0.000" energy2="43692.384" electronconfig1="5s2" electronconfig2="5s5p" term1="1S" term2="1P°" J1="0" J2="1" />
-<spectrum intensity="400" wavelength="3403.652" aki="0.77" energy1="30113.990" energy2="59485.768" electronconfig1="5s5p" electronconfig2="5s5d" term1="3P°" term2="3D" J1="0" J2="1" />
-<spectrum intensity="500" wavelength="3466.200" aki="1.2" energy1="30656.087" energy2="59497.868" electronconfig1="5s5p" electronconfig2="5s5d" term1="3P°" term2="3D" J1="1" J2="2" />
-<spectrum intensity="400" wavelength="3467.655" aki="0.67" energy1="30656.087" energy2="59485.768" electronconfig1="5s5p" electronconfig2="5s5d" term1="3P°" term2="3D" J1="1" J2="1" />
-<spectrum intensity="500" wavelength="3610.508" aki="1.3" energy1="31826.952" energy2="59515.980" electronconfig1="5s5p" electronconfig2="5s5d" term1="3P°" term2="3D" J1="2" J2="3" />
-<spectrum intensity="400" wavelength="3612.873" aki="0.35" energy1="31826.952" energy2="59497.868" electronconfig1="5s5p" electronconfig2="5s5d" term1="3P°" term2="3D" J1="2" J2="2" />
-<spectrum intensity="100" wavelength="4678.149" aki="0.13" energy1="30113.990" energy2="51483.980" electronconfig1="5s5p" electronconfig2="5s6s" term1="3P°" term2="3S" J1="0" J2="1" />
-<spectrum intensity="150" wavelength="4799.912" aki="0.41" energy1="30656.087" energy2="51483.980" electronconfig1="5s5p" electronconfig2="5s6s" term1="3P°" term2="3S" J1="1" J2="1" />
-<spectrum intensity="500" wavelength="5085.822" aki="0.56" energy1="31826.952" energy2="51483.980" electronconfig1="5s5p" electronconfig2="5s6s" term1="3P°" term2="3S" J1="2" J2="1" />
-<spectrum intensity="1000" wavelength="6438.470" aki="0.59" energy1="43692.384" energy2="59219.734" electronconfig1="5s5p" electronconfig2="5s5d" term1="1P°" term2="1D" J1="1" J2="2" />
+			<spectrum intensity="800" wavelength="2288.022" aki="5.3" energy1="0.000" energy2="43692.384" electronconfig1="5s2" electronconfig2="5s5p" term1="1S" term2="1P&deg;" J1="0" J2="1" />
+			<spectrum intensity="400" wavelength="3403.652" aki="0.77" energy1="30113.990" energy2="59485.768" electronconfig1="5s5p" electronconfig2="5s5d" term1="3P&deg;" term2="3D" J1="0" J2="1" />
+			<spectrum intensity="500" wavelength="3466.200" aki="1.2" energy1="30656.087" energy2="59497.868" electronconfig1="5s5p" electronconfig2="5s5d" term1="3P&deg;" term2="3D" J1="1" J2="2" />
+			<spectrum intensity="400" wavelength="3467.655" aki="0.67" energy1="30656.087" energy2="59485.768" electronconfig1="5s5p" electronconfig2="5s5d" term1="3P&deg;" term2="3D" J1="1" J2="1" />
+			<spectrum intensity="500" wavelength="3610.508" aki="1.3" energy1="31826.952" energy2="59515.980" electronconfig1="5s5p" electronconfig2="5s5d" term1="3P&deg;" term2="3D" J1="2" J2="3" />
+			<spectrum intensity="400" wavelength="3612.873" aki="0.35" energy1="31826.952" energy2="59497.868" electronconfig1="5s5p" electronconfig2="5s5d" term1="3P&deg;" term2="3D" J1="2" J2="2" />
+			<spectrum intensity="100" wavelength="4678.149" aki="0.13" energy1="30113.990" energy2="51483.980" electronconfig1="5s5p" electronconfig2="5s6s" term1="3P&deg;" term2="3S" J1="0" J2="1" />
+			<spectrum intensity="150" wavelength="4799.912" aki="0.41" energy1="30656.087" energy2="51483.980" electronconfig1="5s5p" electronconfig2="5s6s" term1="3P&deg;" term2="3S" J1="1" J2="1" />
+			<spectrum intensity="500" wavelength="5085.822" aki="0.56" energy1="31826.952" energy2="51483.980" electronconfig1="5s5p" electronconfig2="5s6s" term1="3P&deg;" term2="3S" J1="2" J2="1" />
+			<spectrum intensity="1000" wavelength="6438.470" aki="0.59" energy1="43692.384" energy2="59219.734" electronconfig1="5s5p" electronconfig2="5s5d" term1="1P&deg;" term2="1D" J1="1" J2="2" />
 		</spectra>
 		<acidicbehaviour>0</acidicbehaviour>
 		<date scientist="F. Stromeyer">1817</date>
@@ -2417,19 +2417,19 @@
 		<symbol>In</symbol>
 		<period>5</period>
 		<spectra>
-<spectrum intensity="14" wavelength="1711.1" aki="0.0" energy1="2212.598" energy2="60654" electronconfig1="5p" electronconfig2="5s5p2" term1="2P°" term2="2P" J1="3/2" J2="3/2" />
-<spectrum intensity="14" wavelength="1757.3" aki="0.0" energy1="0.000" energy2="56905" electronconfig1="5p" electronconfig2="5s5p2" term1="2P°" term2="2S" J1="1/2" J2="1/2" />
-<spectrum intensity="60" wavelength="2560.150" aki="0.20" energy1="0.000" energy2="39048.53" electronconfig1="5p" electronconfig2="6d" term1="2P°" term2="2D" J1="1/2" J2="3/2" />
-<spectrum intensity="90" wavelength="2710.265" aki="0.27" energy1="2212.598" energy2="39098.38" electronconfig1="5p" electronconfig2="6d" term1="2P°" term2="2D" J1="3/2" J2="5/2" />
-<spectrum intensity="40" wavelength="2753.878" aki="0.13" energy1="0.000" energy2="36301.84" electronconfig1="5p" electronconfig2="7s" term1="2P°" term2="2S" J1="1/2" J2="1/2" />
-<spectrum intensity="60" wavelength="2932.630" aki="0.23" energy1="2212.598" energy2="36301.84" electronconfig1="5p" electronconfig2="7s" term1="2P°" term2="2S" J1="3/2" J2="1/2" />
-<spectrum intensity="400" wavelength="3039.356" aki="1.11" energy1="0.000" energy2="32892.21" electronconfig1="5p" electronconfig2="5d" term1="2P°" term2="2D" J1="1/2" J2="3/2" />
-<spectrum intensity="700" wavelength="3256.089" aki="1.30" energy1="2212.598" energy2="32915.54" electronconfig1="5p" electronconfig2="5d" term1="2P°" term2="2D" J1="3/2" J2="5/2" />
-<spectrum intensity="150" wavelength="3258.565" aki="0.30" energy1="2212.598" energy2="32892.21" electronconfig1="5p" electronconfig2="5d" term1="2P°" term2="2D" J1="3/2" J2="3/2" />
-<spectrum intensity="900" wavelength="4101.7504" aki="0.50" energy1="0.000" energy2="24372.956" electronconfig1="5p" electronconfig2="6s" term1="2P°" term2="2S" J1="1/2" J2="1/2" />
-<spectrum intensity="1000" wavelength="4511.2972" aki="0.89" energy1="2212.598" energy2="24372.956" electronconfig1="5p" electronconfig2="6s" term1="2P°" term2="2S" J1="3/2" J2="1/2" />
-<spectrum intensity="1" wavelength="12912.59" aki="0.0" energy1="24372.956" energy2="32115.22" electronconfig1="6s" electronconfig2="6p" term1="2S" term2="2P°" J1="1/2" J2="3/2" />
-<spectrum intensity="1" wavelength="13429.96" aki="0.0" energy1="24372.956" energy2="31816.96" electronconfig1="6s" electronconfig2="6p" term1="2S" term2="2P°" J1="1/2" J2="1/2" />
+			<spectrum intensity="14" wavelength="1711.1" aki="0.0" energy1="2212.598" energy2="60654" electronconfig1="5p" electronconfig2="5s5p2" term1="2P&deg;" term2="2P" J1="3/2" J2="3/2" />
+			<spectrum intensity="14" wavelength="1757.3" aki="0.0" energy1="0.000" energy2="56905" electronconfig1="5p" electronconfig2="5s5p2" term1="2P&deg;" term2="2S" J1="1/2" J2="1/2" />
+			<spectrum intensity="60" wavelength="2560.150" aki="0.20" energy1="0.000" energy2="39048.53" electronconfig1="5p" electronconfig2="6d" term1="2P&deg;" term2="2D" J1="1/2" J2="3/2" />
+			<spectrum intensity="90" wavelength="2710.265" aki="0.27" energy1="2212.598" energy2="39098.38" electronconfig1="5p" electronconfig2="6d" term1="2P&deg;" term2="2D" J1="3/2" J2="5/2" />
+			<spectrum intensity="40" wavelength="2753.878" aki="0.13" energy1="0.000" energy2="36301.84" electronconfig1="5p" electronconfig2="7s" term1="2P&deg;" term2="2S" J1="1/2" J2="1/2" />
+			<spectrum intensity="60" wavelength="2932.630" aki="0.23" energy1="2212.598" energy2="36301.84" electronconfig1="5p" electronconfig2="7s" term1="2P&deg;" term2="2S" J1="3/2" J2="1/2" />
+			<spectrum intensity="400" wavelength="3039.356" aki="1.11" energy1="0.000" energy2="32892.21" electronconfig1="5p" electronconfig2="5d" term1="2P&deg;" term2="2D" J1="1/2" J2="3/2" />
+			<spectrum intensity="700" wavelength="3256.089" aki="1.30" energy1="2212.598" energy2="32915.54" electronconfig1="5p" electronconfig2="5d" term1="2P&deg;" term2="2D" J1="3/2" J2="5/2" />
+			<spectrum intensity="150" wavelength="3258.565" aki="0.30" energy1="2212.598" energy2="32892.21" electronconfig1="5p" electronconfig2="5d" term1="2P&deg;" term2="2D" J1="3/2" J2="3/2" />
+			<spectrum intensity="900" wavelength="4101.7504" aki="0.50" energy1="0.000" energy2="24372.956" electronconfig1="5p" electronconfig2="6s" term1="2P&deg;" term2="2S" J1="1/2" J2="1/2" />
+			<spectrum intensity="1000" wavelength="4511.2972" aki="0.89" energy1="2212.598" energy2="24372.956" electronconfig1="5p" electronconfig2="6s" term1="2P&deg;" term2="2S" J1="3/2" J2="1/2" />
+			<spectrum intensity="1" wavelength="12912.59" aki="0.0" energy1="24372.956" energy2="32115.22" electronconfig1="6s" electronconfig2="6p" term1="2S" term2="2P&deg;" J1="1/2" J2="3/2" />
+			<spectrum intensity="1" wavelength="13429.96" aki="0.0" energy1="24372.956" energy2="31816.96" electronconfig1="6s" electronconfig2="6p" term1="2S" term2="2P&deg;" J1="1/2" J2="1/2" />
 		</spectra>
 		<mass>114.818</mass>
 		<block>p</block>
@@ -2468,6 +2468,26 @@
 		<period>5</period>
 		<mass>118.710</mass>
 		<block>p</block>
+		<spectra>
+			<spectrum intensity="200" wavelength="2091.590" aki="0.0" energy1="1691.806" energy2="49487.127" electronconfig1="5p2" electronconfig2="5p5d" term1="3P" term2="3P&deg;" J1="1" J2="0" />
+			<spectrum intensity="200" wavelength="2199.346" aki="0.29" energy1="1691.806" energy2="47145.684" electronconfig1="5p2" electronconfig2="5p5d" term1="3P" term2="3F&deg;" J1="1" J2="2" />
+			<spectrum intensity="300" wavelength="2209.660" aki="0.56" energy1="3427.673" energy2="48669.409" electronconfig1="5p2" electronconfig2="5p5d" term1="3P" term2="3P&deg;" J1="2" J2="2" />
+			<spectrum intensity="300" wavelength="2246.057" aki="1.48" energy1="0.000" energy2="44508.677" electronconfig1="5p2" electronconfig2="5p5d" term1="3P" term2="3D&deg;" J1="0" J2="1" />
+			<spectrum intensity="300" wavelength="2268.930" aki="1.14" energy1="3427.673" energy2="47487.696" electronconfig1="5p2" electronconfig2="5p5d" term1="3P" term2="3F&deg;" J1="2" J2="3" />
+			<spectrum intensity="700" wavelength="2354.850" aki="1.85" energy1="1691.806" energy2="44144.368" electronconfig1="5p2" electronconfig2="5p5d" term1="3P" term2="3D&deg;" J1="1" J2="2" />
+			<spectrum intensity="600" wavelength="2421.694" aki="2.5" energy1="8612.955" energy2="49893.823" electronconfig1="5p2" electronconfig2="5p5d" term1="1D" term2="1F&deg;" J1="2" J2="3" />
+			<spectrum intensity="700" wavelength="2429.495" aki="1.5" energy1="3427.673" energy2="44576.006" electronconfig1="5p2" electronconfig2="5p5d" term1="3P" term2="3D&deg;" J1="2" J2="3" />
+			<spectrum intensity="140" wavelength="2661.244" aki="0.153" energy1="1691.806" energy2="39257.053" electronconfig1="5p2" electronconfig2="5p6s" term1="3P" term2="1P&deg;" J1="1" J2="1" />
+			<spectrum intensity="500" wavelength="2706.505" aki="0.539" energy1="1691.806" energy2="38628.876" electronconfig1="5p2" electronconfig2="5p6s" term1="3P" term2="3P&deg;" J1="1" J2="2" />
+			<spectrum intensity="1000" wavelength="2839.976" aki="1.57" energy1="3427.673" energy2="38628.876" electronconfig1="5p2" electronconfig2="5p6s" term1="3P" term2="3P&deg;" J1="2" J2="2" />
+			<spectrum intensity="700" wavelength="2863.315" aki="0.544" energy1="0.000" energy2="34914.282" electronconfig1="5p2" electronconfig2="5p6s" term1="3P" term2="3P&deg;" J1="0" J2="1" />
+			<spectrum intensity="500" wavelength="3009.133" aki="0.355" energy1="1691.806" energy2="34914.282" electronconfig1="5p2" electronconfig2="5p6s" term1="3P" term2="3P&deg;" J1="1" J2="1" />
+			<spectrum intensity="600" wavelength="3034.115" aki="1.89" energy1="1691.806" energy2="34640.758" electronconfig1="5p2" electronconfig2="5p6s" term1="3P" term2="3P&deg;" J1="1" J2="0" />
+			<spectrum intensity="400" wavelength="3175.035" aki="0.893" energy1="3427.673" energy2="34914.282" electronconfig1="5p2" electronconfig2="5p6s" term1="3P" term2="3P&deg;" J1="2" J2="1" />
+			<spectrum intensity="400" wavelength="3262.331" aki="2.7" energy1="8612.955" energy2="39257.053" electronconfig1="5p2" electronconfig2="5p6s" term1="1D" term2="1P&deg;" J1="2" J2="1" />
+			<spectrum intensity="200" wavelength="3801.011" aki="0.28" energy1="8612.955" energy2="34914.282" electronconfig1="5p2" electronconfig2="5p6s" term1="1D" term2="3P&deg;" J1="2" J2="1" />
+			<spectrum intensity="110" wavelength="4524.734" aki="0.26" energy1="17162.499" energy2="39257.053" electronconfig1="5p2" electronconfig2="5p6s" term1="1S" term2="1P&deg;" J1="0" J2="1" />
+		</spectra>
 		<acidicbehaviour>2</acidicbehaviour>
 		<date scientist="">0</date>
 		<biologicalmeaning>6</biologicalmeaning>
@@ -2510,6 +2530,22 @@
 		<symbol>Sb</symbol>
 		<period>5</period>
 		<mass>121.760</mass>
+		<spectra>
+			<spectrum intensity="400" wavelength="1871.154" aki="0.0" energy1="0.000" energy2="53442.967" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)5d" term1="4S&deg;" term2="4P" J1="3/2" J2="5/2" />
+			<spectrum intensity="60" wavelength="2049.577" aki="0.0" energy1="8512.125" energy2="57287.052" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)5d" term1="2D&deg;" term2="2F" J1="3/2" J2="5/2" />
+			<spectrum intensity="400" wavelength="2068.344" aki="1.81" energy1="0.000" energy2="48332.424" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)6s" term1="4S&deg;" term2="4P" J1="3/2" J2="5/2" />
+			<spectrum intensity="40" wavelength="2139.698" aki="1.74" energy1="8512.125" energy2="55232.963" electronconfig1="5s25p3" electronconfig2="5s25p2(1D)6s" term1="2D&deg;" term2="2D" J1="3/2" J2="3/2" />
+			<spectrum intensity="40" wavelength="2144.841" aki="0.0" energy1="8512.125" energy2="55120.943" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)5d" term1="2D&deg;" term2="4F" J1="3/2" J2="5/2" />
+			<spectrum intensity="600" wavelength="2175.818" aki="1.75" energy1="0.000" energy2="45945.340" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)6s" term1="4S&deg;" term2="4P" J1="3/2" J2="3/2" />
+			<spectrum intensity="100" wavelength="2179.190" aki="2.39" energy1="9854.018" energy2="55728.264" electronconfig1="5s25p3" electronconfig2="5s25p2(1D)6s" term1="2D&deg;" term2="2D" J1="5/2" J2="5/2" />
+			<spectrum intensity="120" wavelength="2208.430" aki="0.0" energy1="9854.018" energy2="55120.943" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)5d" term1="2D&deg;" term2="4F" J1="5/2" J2="5/2" />
+			<spectrum intensity="1000" wavelength="2311.463" aki="1.69" energy1="0.000" energy2="43249.337" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)6s" term1="4S&deg;" term2="4P" J1="3/2" J2="1/2" />
+			<spectrum intensity="800" wavelength="2528.509" aki="1.77" energy1="9854.018" energy2="49391.133" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)6s" term1="2D&deg;" term2="2P" J1="5/2" J2="3/2" />
+			<spectrum intensity="600" wavelength="2598.048" aki="0.210" energy1="8512.125" energy2="46991.058" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)6s" term1="2D&deg;" term2="2P" J1="3/2" J2="1/2" />
+			<spectrum intensity="400" wavelength="2877.913" aki="0.424" energy1="8512.125" energy2="43249.337" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)6s" term1="2D&deg;" term2="4P" J1="3/2" J2="1/2" />
+			<spectrum intensity="250" wavelength="3232.495" aki="0.307" energy1="18464.202" energy2="49391.133" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)6s" term1="2P&deg;" term2="2P" J1="3/2" J2="3/2" />
+			<spectrum intensity="300" wavelength="3267.491" aki="0.495" energy1="16395.359" energy2="46991.058" electronconfig1="5s25p3" electronconfig2="5s25p2(3P)6s" term1="2P&deg;" term2="2P" J1="1/2" J2="1/2" />
+		</spectra>
 		<block>p</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<date scientist="">0</date>
@@ -2544,6 +2580,22 @@
 		<period>5</period>
 		<mass>127.60</mass>
 		<block>p</block>
+		<spectra>
+			<spectrum intensity="500" wavelength="1822.155" aki="0.0" energy1="0.000" energy2="54880.070" electronconfig1="5p4" electronconfig2="5p3(2D)6s" term1="3P" term2="3D&deg;" J1="2" J2="2" />
+			<spectrum intensity="500" wavelength="1857.296" aki="0.0" energy1="4750.712" energy2="58592.434" electronconfig1="5p4" electronconfig2="5p3(4S)5d" term1="3P" term2="3D&deg;" J1="1" J2="2" />
+			<spectrum intensity="500" wavelength="1994.839" aki="0.0" energy1="4750.712" energy2="54880.070" electronconfig1="5p4" electronconfig2="5p3(2D)6s" term1="3P" term2="3D&deg;" J1="1" J2="2" />
+			<spectrum intensity="1000" wavelength="2002.028" aki="0.0" energy1="4750.712" energy2="54683.886" electronconfig1="5p4" electronconfig2="5p3(2D)6s" term1="3P" term2="3D&deg;" J1="1" J2="1" />
+			<spectrum intensity="250" wavelength="2081.172" aki="0.0" energy1="10557.877" energy2="58592.434" electronconfig1="5p4" electronconfig2="5p3(4S)5d" term1="1D" term2="3D&deg;" J1="2" J2="2" />
+			<spectrum intensity="700" wavelength="2142.822" aki="3.11" energy1="0.000" energy2="46652.738" electronconfig1="5p4" electronconfig2="5p3(4S)6s" term1="3P" term2="3S&deg;" J1="2" J2="1" />
+			<spectrum intensity="120" wavelength="2147.260" aki="0.0" energy1="10557.877" energy2="57114.206" electronconfig1="5p4" electronconfig2="5p3(2D)6s" term1="1D" term2="1D&deg;" J1="2" J2="2" />
+			<spectrum intensity="20" wavelength="2259.034" aki="0.13" energy1="0.000" energy2="44253.000" electronconfig1="5p4" electronconfig2="5p3(4S)6s" term1="3P" term2="5S&deg;" J1="2" J2="2" />
+			<spectrum intensity="50" wavelength="2383.277" aki="0.40" energy1="4706.500" energy2="46652.738" electronconfig1="5p4" electronconfig2="5p3(4S)6s" term1="3P" term2="3S&deg;" J1="0" J2="1" />
+			<spectrum intensity="60" wavelength="2385.792" aki="0.81" energy1="4750.712" energy2="46652.738" electronconfig1="5p4" electronconfig2="5p3(4S)6s" term1="3P" term2="3S&deg;" J1="1" J2="1" />
+			<spectrum intensity="200" wavelength="9722.742" aki="0.0" energy1="44253.000" energy2="54535.345" electronconfig1="5p3(4S)6s" electronconfig2="5p3(4S)6p" term1="5S&deg;" term2="5P" J1="2" J2="3" />
+			<spectrum intensity="250" wavelength="10051.41" aki="0.0" energy1="44253.000" energy2="54199.122" electronconfig1="5p3(4S)6s" electronconfig2="5p3(4S)6p" term1="5S&deg;" term2="5P" J1="2" J2="2" />
+			<spectrum intensity="400" wavelength="11089.56" aki="0.0" energy1="46652.738" energy2="55667.758" electronconfig1="5p3(4S)6s" electronconfig2="5p3(4S)6p" term1="3S&deg;" term2="3P" J1="1" J2="2" />
+			<spectrum intensity="250" wavelength="11487.23" aki="0.0" energy1="46652.738" energy2="55355.672" electronconfig1="5p3(4S)6s" electronconfig2="5p3(4S)6p" term1="3S&deg;" term2="3P" J1="1" J2="1" />
+		</spectra>
 		<acidicbehaviour>2</acidicbehaviour>
 		<date scientist="F. Mller von Reichenstein">1782</date>
 		<biologicalmeaning>0</biologicalmeaning>

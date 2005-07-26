@@ -41,9 +41,9 @@ SpectrumEditor::SpectrumEditor( QWidget *parent, const char* name )
 	
 	setMinimumSize( 500, 450 );
 	
-//X 	connect( m_bandEditor->spinMin, SIGNAL( valueChanged( int ) ), m_bandEditor->m_spectrumWidget, SLOT( setRightBorder( int ) ) );
-//X 	connect( m_bandEditor->spinMax, SIGNAL( valueChanged( int ) ), m_bandEditor->m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
-//X 	connect( m_bandEditor->addButton, SIGNAL( clicked() ), this, SLOT( slotAddBand( ) ) );
+	connect( m_bandEditor->spinMin, SIGNAL( valueChanged( int ) ), m_bandEditor->m_spectrumWidget, SLOT( setRightBorder( int ) ) );
+	connect( m_bandEditor->spinMax, SIGNAL( valueChanged( int ) ), m_bandEditor->m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
+	connect( m_bandEditor->addButton, SIGNAL( clicked() ), this, SLOT( slotAddBand( ) ) );
 }
 
 void SpectrumEditor::slotAddBand()
