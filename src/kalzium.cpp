@@ -151,7 +151,7 @@ void Kalzium::setupActions()
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
 #ifdef HAVE_FACILE
-	m_EQSolverAction = new KAction(i18n("&Equation solver..."), "eqsolver", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "view_eqsolver");
+	m_EQSolverAction = new KAction(i18n("&Equation Solver..."), "eqsolver", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "view_eqsolver");
 #endif
 	
 	m_SpectrumEditorAction = new KAction(i18n("S&pectrum Editor..."), "spectrum", 0, this, SLOT(slotShowSpectrumEditor()), actionCollection(), "spectrum_editor");
