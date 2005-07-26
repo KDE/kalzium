@@ -3,6 +3,8 @@
 SpectrumViewImpl::SpectrumViewImpl( QWidget *parent, const char* name )
 	: SpectrumView( parent, name )
 {
+	resize( minimumSizeHint() );
+	m_spectrumWidget->setRightBorder( maximumValue->value() );
 }
 
 void SpectrumViewImpl::slotExportAsImage()

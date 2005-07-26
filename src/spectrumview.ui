@@ -1,6 +1,6 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>SpectrumView</class>
-<widget class="QDialog">
+<widget class="QWidget">
     <property name="name">
         <cstring>SpectrumView</cstring>
     </property>
@@ -8,21 +8,83 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>678</width>
-            <height>419</height>
+            <width>400</width>
+            <height>300</height>
         </rect>
     </property>
-    <property name="caption">
-        <string>MyDialog</string>
-    </property>
-    <property name="sizeGripEnabled">
-        <bool>true</bool>
-    </property>
-    <grid>
+    <vbox>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLayoutWidget" row="3" column="0">
+        <property name="margin">
+            <number>0</number>
+        </property>
+        <widget class="SpectrumWidget">
+            <property name="name">
+                <cstring>m_spectrumWidget</cstring>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout2</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>label1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Minimum Value:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
+                        <cstring>minimumValue</cstring>
+                    </property>
+                </widget>
+                <widget class="QSpinBox">
+                    <property name="name">
+                        <cstring>minimumValue</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>999</number>
+                    </property>
+                    <property name="minValue">
+                        <number>1</number>
+                    </property>
+                    <property name="value">
+                        <number>380</number>
+                    </property>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>label2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Maximum Value:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
+                        <cstring>maximumValue</cstring>
+                    </property>
+                </widget>
+                <widget class="QSpinBox">
+                    <property name="name">
+                        <cstring>maximumValue</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>1000</number>
+                    </property>
+                    <property name="minValue">
+                        <number>2</number>
+                    </property>
+                    <property name="value">
+                        <number>780</number>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget">
             <property name="name">
                 <cstring>layout4</cstring>
             </property>
@@ -60,7 +122,7 @@
                 </widget>
             </hbox>
         </widget>
-        <spacer row="2" column="0">
+        <spacer>
             <property name="name">
                 <cstring>spacer3</cstring>
             </property>
@@ -73,71 +135,11 @@
             <property name="sizeHint">
                 <size>
                     <width>21</width>
-                    <height>51</height>
+                    <height>1</height>
                 </size>
             </property>
         </spacer>
-        <widget class="QLayoutWidget" row="1" column="0">
-            <property name="name">
-                <cstring>layout2</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QSpinBox">
-                    <property name="name">
-                        <cstring>spinBox1</cstring>
-                    </property>
-                    <property name="maxValue">
-                        <number>999</number>
-                    </property>
-                    <property name="minValue">
-                        <number>1</number>
-                    </property>
-                    <property name="value">
-                        <number>380</number>
-                    </property>
-                </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer2</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>151</width>
-                            <height>21</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="QSpinBox">
-                    <property name="name">
-                        <cstring>spinBox2</cstring>
-                    </property>
-                    <property name="maxValue">
-                        <number>1000</number>
-                    </property>
-                    <property name="minValue">
-                        <number>2</number>
-                    </property>
-                    <property name="value">
-                        <number>780</number>
-                    </property>
-                </widget>
-            </hbox>
-        </widget>
-        <widget class="SpectrumWidget" row="0" column="0">
-            <property name="name">
-                <cstring>m_spectrumWidget</cstring>
-            </property>
-        </widget>
-    </grid>
+    </vbox>
 </widget>
 <customwidgets>
     <customwidget>
@@ -166,13 +168,13 @@
 </images>
 <connections>
     <connection>
-        <sender>spinBox1</sender>
+        <sender>minimumValue</sender>
         <signal>valueChanged(int)</signal>
         <receiver>m_spectrumWidget</receiver>
         <slot>setLeftBorder(int)</slot>
     </connection>
     <connection>
-        <sender>spinBox2</sender>
+        <sender>maximumValue</sender>
         <signal>valueChanged(int)</signal>
         <receiver>m_spectrumWidget</receiver>
         <slot>setRightBorder(int)</slot>
