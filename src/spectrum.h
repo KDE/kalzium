@@ -20,23 +20,12 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include <qwidget.h>
-#include <qcolor.h>
-#include <qpainter.h>
-#include <qimage.h>
+
 #include <qstring.h>
 #include <qvaluelist.h>
-#include <qspinbox.h>
 
-#include <kimageeffect.h>
-#include <kdebug.h>
-#include <kcombobox.h>
-
-#include "element.h"
-
-class SpectrumWidget;
-class KPushButton;
-class SpectrumView;
+class QPixmap;
+class Element;
 
 /**
  * @author Carsten Niehaus

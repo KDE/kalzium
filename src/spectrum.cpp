@@ -18,25 +18,10 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "spectrum.h"
-#include "spectrumwidget.h"
-#include "exporter.h"
-#include "spectrumview.h"
 
-#include <qlayout.h>
-#include <qlabel.h>
-#include <qpopupmenu.h>
-#include <qtooltip.h>
+#include "element.h"
 
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kglobal.h>
-#include <kguiitem.h>
-#include <kpushbutton.h>
-#include <kstandarddirs.h>
-#include <kfiledialog.h>
-#include <kmessagebox.h>
 #include <klocale.h>
-#include <kdebug.h>
 
 #include <math.h>
 

@@ -20,6 +20,7 @@
  ***************************************************************************/
 #include "spectrumwidget.h"
 #include "spectrum.h"
+#include "element.h"
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -27,6 +28,8 @@
 
 #include <qcursor.h>
 #include <qsizepolicy.h>
+#include <qpainter.h>
+#include <qpixmap.h>
 #include <qtooltip.h>
 
 SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name ) : QWidget( parent, name )

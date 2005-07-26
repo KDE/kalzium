@@ -22,13 +22,10 @@
 #define SPECTRUMWIDGET_H
 
 #include <qwidget.h>
-#include <kdebug.h>
-#include "spectrum.h"
 
-class Spectrum;
-class QMouseEvent;
-class QKeyEvent;
-class QPixmap;
+#include <qpixmap.h>
+
+#include "spectrum.h"
 
 /**
  * @author Carsten Niehaus
