@@ -37,6 +37,7 @@
 #include "orbitswidget.h"
 #include "detailedgraphicaloverview.h"
 #include "spectrum.h"
+#include "spectrumviewimpl.h"
 
 DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *name)
     : KDialogBase( IconList, "", Help|User1|User2|Close, Close, parent, name, false/* non modal */, false, KGuiItem(i18n("Next element", "Next"), "1rightarrow"), KGuiItem(i18n("Previous element", "Previous"), "1leftarrow"))
@@ -325,7 +326,8 @@ void DetailedInfoDlg::createContent( )
 	//now add the spectrum-widget if needed
 	if ( m_element->hasSpectrum() )
 	{
-		m_spectrumview = new SpectrumView( m_element->spectrum(), m_pSpectrumTab, "spectrumwidget" );
+		m_spectrumview = new SpectrumViewImpl( m_pSpectrumTab, "spectrumwidget" );
+		m_spectrumview->setSpectrum( m_element->spectrum() );
 		spectrumLayout->addWidget( m_spectrumview );
 	}
 	else

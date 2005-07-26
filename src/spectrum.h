@@ -36,6 +36,7 @@
 
 class SpectrumWidget;
 class KPushButton;
+class SpectrumView;
 
 /**
  * @author Carsten Niehaus
@@ -186,32 +187,4 @@ class Spectrum
 
 		Element* m_parentElement;
 };
-
-/**
- * @author Carsten Niehaus
- */
-class SpectrumView : public QWidget
-{
-	Q_OBJECT
-
-	public: 
-		SpectrumView( Spectrum *spec, QWidget* parent, const char* name );
-
-	private:
-		SpectrumWidget *m_spectrumWidget;
-
-		Spectrum* m_spectrum;
-
-		QSpinBox *m_spinbox_left, *m_spinbox_right;
-
-		KComboBox *m_spectrumbox;
-
-		KPushButton *m_button_save;
-
-	public slots:
-		void slotBordersChanged( int, int );
-		void slotExportAsImage();
-};
-
 #endif // SPECTRUM_H
-

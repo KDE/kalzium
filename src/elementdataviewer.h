@@ -1,10 +1,7 @@
 #ifndef ELEMENTDATAVIEWER_H
 #define ELEMENTDATAVIEWER_H
 /***************************************************************************
-
-                           elementdataviewer.h  -  description
-                             -------------------
-    copyright            : (C) 2004 by Carsten Niehaus
+    copyright            : (C) 2004, 2005 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -122,6 +119,12 @@ class ElementDataViewer : public KDialogBase
 	protected:
 		virtual void paintEvent(QPaintEvent*);
 		virtual void keyPressEvent(QKeyEvent *e);
+		
+	protected slots:
+		/**
+		 * invoke the help of the correct chapter
+		 */
+		virtual void slotHelp();
 
 	private: 
 		PlotWidget         *m_pPlotWidget;

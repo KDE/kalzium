@@ -1,9 +1,6 @@
 /***************************************************************************
-
-        detailedinfodlg.h  -  description
-                             -------------------
     begin                : Tue Apr 2 20:43:44 2002 UTC
-    copyright            : (C) 2003, 2004 by Carsten Niehaus
+    copyright            : (C) 2003, 2004, 2005 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -25,13 +22,12 @@ class DetailedGraphicalOverview;
 class Element;
 class KalziumDataObject;
 class OrbitsWidget;
+class SpectrumViewImpl;
 
 class QMouseEvent;
 class QFrame;
 class QVBoxLayout;
 class KActionCollection;
-
-class SpectrumView;
 
 /**
  * @short The dialog which shows all available information of an element
@@ -59,7 +55,7 @@ class DetailedInfoDlg : public KDialogBase
 
 		KActionCollection* m_actionCollection;
 
-		SpectrumView *m_spectrumview;
+		SpectrumViewImpl *m_spectrumview;
 
 		QString isotopeTable();
 

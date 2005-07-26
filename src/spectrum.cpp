@@ -20,10 +20,12 @@
 #include "spectrum.h"
 #include "spectrumwidget.h"
 #include "exporter.h"
+#include "spectrumview.h"
 
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qpopupmenu.h>
+#include <qtooltip.h>
 
 #include <kaction.h>
 #include <kactioncollection.h>
@@ -161,87 +163,6 @@ QString Spectrum::BandsAsHtml()
 
 	html += "</body></html>";
 	return html;
-}
-
-SpectrumView::SpectrumView( Spectrum *spec, QWidget *parent, const char* name )
-	: QWidget( parent, name )
-{
-	QVBoxLayout *spectrumLayout = new QVBoxLayout( this, 0, KDialog::spacingHint(), "spectrumLayout" );
-
-	m_spectrum = spec->adjustToWavelength( 100.0, 1000.0 );
-	m_spectrum->adjustMinMax();
-	
-	m_spectrumWidget = new SpectrumWidget( this, "spectrum" );
-	m_spectrumWidget->setSpectrum( m_spectrum );
-	
-	//m_spectrumWidget->setBorders( m_spectrum->min(), m_spectrum->max() );
-	
-	spectrumLayout->addWidget( m_spectrumWidget );
-
-	QHBoxLayout *hbox = new QHBoxLayout( this, 0, KDialog::spacingHint() );
-	QHBoxLayout *hbox1 = new QHBoxLayout( this, 0, KDialog::spacingHint() );
-	QHBoxLayout *hbox2 = new QHBoxLayout( this, 0, KDialog::spacingHint() );
-//X 	m_spinbox_left = new QSpinBox( m_spectrum->min(), m_spectrum->max()-1, 1, this );
-//X 	m_spinbox_right = new QSpinBox( m_spectrum->min()+1, m_spectrum->max(), 1, this );i
-	m_spinbox_left = new QSpinBox( 100, 1000, 1, this );
-	m_spinbox_right = new QSpinBox( 100, 1000, 1, this );
-//X 	m_spinbox_left->setValue(  ( double ) m_spectrum->min() );
-//X 	m_spinbox_right->setValue( ( double ) m_spectrum->max() );
-	m_button_save = new KPushButton( KGuiItem( i18n( "Export spectrum as..." ), "fileexport" ), this, "button_save" );
-	QPopupMenu *pp = new QPopupMenu( m_button_save );
-	m_button_save->setPopup( pp );
-	KActionCollection *coll = new KActionCollection( this );
-	KAction *actExpImage = new KAction( i18n( "Image" ), "image", 0,
-	                          this, SLOT( slotExportAsImage() ), coll, "export_image" );
-	actExpImage->plug( pp );
-
-	connect( m_spinbox_right, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setRightBorder( int ) ) );
-	connect( m_spinbox_left, SIGNAL( valueChanged( int ) ), m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
-	connect( m_spectrumWidget, SIGNAL( bordersChanged( int, int ) ), this, SLOT( slotBordersChanged( int, int ) ) );	
-
-	m_spectrumbox = new KComboBox( this, "combobox" );
-	m_spectrumbox->insertItem( i18n( "Emission Spectrum" ) );
-	m_spectrumbox->insertItem( i18n( "Absorption Spectrum" ) );
-	connect( m_spectrumbox, SIGNAL( activated( int ) ), m_spectrumWidget, SLOT( slotActivateSpectrum( int ) ) );
-	
-	m_spinbox_left->setValue( 100 );
-	m_spinbox_right->setValue( 1000 );
-	m_spectrumWidget->setBorders( 100, 1000 );
-
-	hbox->addWidget( new QLabel( i18n( "Minimum Value:" ), this ) );
-	hbox->addWidget( m_spinbox_left );
-	hbox->addWidget( new QLabel( i18n( "Maximum Value:" ), this ) );
-	hbox->addWidget( m_spinbox_right );
-
-	hbox1->addWidget( new QLabel( i18n( "Type of Spectrum:" ), this ) );
-	hbox1->addWidget( m_spectrumbox );
-
-	hbox2->addItem( new QSpacerItem( 10, 10, QSizePolicy::Expanding, QSizePolicy::Fixed ) );
-	hbox2->addWidget( m_button_save );
-
-	spectrumLayout->addLayout( hbox );
-	spectrumLayout->addLayout( hbox1 );
-	spectrumLayout->addLayout( hbox2 );
-}
-
-void SpectrumView::slotBordersChanged( int left, int right )
-{
-	m_spinbox_left->setValue( left );
-	m_spinbox_right->setValue( right );
-}
-
-void SpectrumView::slotExportAsImage()
-{
-	Exporter* exporter = new Exporter();
-	QString fileName = KFileDialog::getSaveFileName(
-	                        QString::null, exporter->supportedImageFormats(),
-	                        this, i18n( "Save Spectrum" ) );
-	if( !fileName.isEmpty() )
-	{
-		if ( !exporter->saveAsImage( &m_spectrumWidget->pixmap(), fileName ) )
-			KMessageBox::error( this, i18n( "The spectrum could not be saved" ), i18n( "Image could not be saved") );
-	}	
-	delete exporter;
 }
 
 #include "spectrum.moc"

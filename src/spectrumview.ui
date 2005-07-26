@@ -1,0 +1,200 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>SpectrumView</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>SpectrumView</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>678</width>
+            <height>419</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>MyDialog</string>
+    </property>
+    <property name="sizeGripEnabled">
+        <bool>true</bool>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="3" column="0">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer4</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>211</width>
+                            <height>21</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>kPushButton1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>E&amp;xport spectrum...</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+X</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <spacer row="2" column="0">
+            <property name="name">
+                <cstring>spacer3</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>21</width>
+                    <height>51</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QLayoutWidget" row="1" column="0">
+            <property name="name">
+                <cstring>layout2</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QSpinBox">
+                    <property name="name">
+                        <cstring>spinBox1</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>999</number>
+                    </property>
+                    <property name="minValue">
+                        <number>1</number>
+                    </property>
+                    <property name="value">
+                        <number>380</number>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>151</width>
+                            <height>21</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QSpinBox">
+                    <property name="name">
+                        <cstring>spinBox2</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>1000</number>
+                    </property>
+                    <property name="minValue">
+                        <number>2</number>
+                    </property>
+                    <property name="value">
+                        <number>780</number>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="SpectrumWidget" row="0" column="0">
+            <property name="name">
+                <cstring>m_spectrumWidget</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>4</hsizetype>
+                    <vsizetype>4</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>200</width>
+                    <height>50</height>
+                </size>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<customwidgets>
+    <customwidget>
+        <class>SpectrumWidget</class>
+        <header location="local">spectrumwidget.h</header>
+        <sizehint>
+            <width>-1</width>
+            <height>-1</height>
+        </sizehint>
+        <container>0</container>
+        <sizepolicy>
+            <hordata>5</hordata>
+            <verdata>5</verdata>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+        <pixmap>image0</pixmap>
+        <slot access="public" specifier="">setRightBorder(int)</slot>
+        <slot access="public" specifier="">setLeftBorder(int)</slot>
+    </customwidget>
+</customwidgets>
+<images>
+    <image name="image0">
+        <data format="PNG" length="1034">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000003d149444154388dad954f681d551487bf49c77a475ee55e4c6006d2920781faa0224f709162170db80904da88480b5d98951b71d12252620beeb40d82db58bad04650cc26255d54ec42308b045fa181111a9c275467a0917ba1c13995db8e8b99971ab445c10387e1ce9f6f7ee7ce6fce09aaaa621041100c017b8010180282269f1455930f010f3ca8aaea613000cf9d9d7bb6fb7cf7adc215b376cb1ecc5d4e44444989c160b1ffb8b6ce92de4e3757d75717f15c027e03ee0755551104c1d0d52faf9e31c3f2212d8795942884d25b226528bdc52803be843042bc45858335f4d294af2ff7b8f18dbb007c02d8b029674f3fefcf9a51455a5c817b19d60b661fd8125ca1c80b41a18886a1d301424101ce8336108d08c01bc015e0fe001c96ae3c687d06e2b0de618c265d83efaf09abeb052a04f1820a35f1b8e2b51386ee4449acc089106b05c801c0fc55f150b695f15228d832c3ecd37c7b4d585c70e0416b4532ae500af2bed0df14e6cf67cc9c8a993905ba55c39b8880bd03706094a1f439c628d235586aa033c76226a6a1bddf2058f08695e592a505c7d2677ddaa31d26a623b41240685c150c0dc0562c51a8b0f76065d9215e983a1633350bc97ec19121772396beb2cc9c309c7c5b43a8b874390707e21fb91608068a31ca5092235b09e9cd14ad638e4e836e49fd9024cc5fb0641b0e7b174e9f4d58bdeec87e147ab74a746bb7b9078ab162314a91ddc92184640c92049c1764db307f2e27dd7028ad983c621065e97435e285fc0e38790cb8f62998508117e216f5ffe712e63fb0641b527fc896c28c42d25c57a1429af38f554c086820d4f4fa023e62e55a592b6d29e2514dbf5f70f17c4e6fcd90678278a13d1621b25bf2ae3d169fd3edc0d898a2e80b2bcb2527df4cb07785c9570d66182e9e87fe66c1dc3b39b2ed88634da70b76eb097bac428584c2d4eb0af1c2d282636539e7f4bb099d8992cecb2567de4f88638ddb2ac0c3e1694de7d02e1fff5d31dea2501c3e02ae8859bcdc67f16358bdeee8763502e499c56d492d0221fd4ee8ad47242d45e3e35de02a2f72a07641ac60ea84420f7758fa2227dd10d29bfdfa6e0f7a5833795cf3c30d21df7680212b76a01550ed80d3dbe966efb61ad7230ae705dd82c9e992c9a36d7ab72cb60011688f1bda2f089d43d09b8e50b41172b25b00fc0a3c00aa41db8c08796fe21575ce24b5754404546d21d5bc5e8575b175d1f5763807694fc80bc1155c013e057ea269f44f0107808f809f793415fe6dfe027c0e1c075e0446761a3d755732c073cd31a269283c39aaa6fc12b0d413c4ee8ca6200842e069e09906ba97ff36f3fe68e0bf33184d83f83f87e99fca28efc1cbb57a140000000049454e44ae426082</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>spinBox1</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>m_spectrumWidget</receiver>
+        <slot>setLeftBorder(int)</slot>
+    </connection>
+    <connection>
+        <sender>spinBox2</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>m_spectrumWidget</receiver>
+        <slot>setRightBorder(int)</slot>
+    </connection>
+</connections>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>kpushbutton.h</includehint>
+    <includehint>spectrumwidget.h</includehint>
+</includehints>
+</UI>

@@ -1,6 +1,5 @@
 /***************************************************************************
-                             -------------------
-    copyright            : (C) 2004 by Carsten Niehaus
+    copyright            : (C) 2004, 2005  by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -24,6 +23,7 @@
 #include <kcombobox.h>
 #include <kdebug.h>
 #include <kactioncollection.h>
+#include <kapplication.h>
 
 //QT-Includes
 #include <qlayout.h>
@@ -33,12 +33,10 @@
 ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 	: KDialogBase( KDialogBase::Plain, 
 			i18n( "Plot Data") , 
-			User1 | Close,
+			Help | User1 | Close,
 			User1,
 			parent, name )
 {
-	kdDebug() << "ElementDataViewer" << endl;
-	
 	d = KalziumDataObject::instance();
 
 	yData = new AxisData();
@@ -74,6 +72,13 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 
 	connect ( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled(bool)), this, SLOT(slotUser1()));
 	connect ( m_pPlotSetupWidget->showNames,     SIGNAL( toggled(bool)), this, SLOT(slotUser1()));
+}
+
+void ElementDataViewer::slotHelp()
+{
+	emit helpClicked();
+	if ( kapp )
+		kapp->invokeHelp ( "plot_data", "kalzium" );
 }
 
 void ElementDataViewer::slotUser1()
