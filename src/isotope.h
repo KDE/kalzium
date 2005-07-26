@@ -31,7 +31,7 @@
 class Isotope
 {
 	public:
-		Isotope( int neutrons, int protones, double percentage, double weight, double halflife, QString format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, double alphapercentage, double betaminuspercentage, double betapluspercentage, bool ecdecay, double decayenergy, QString spin, QString magmoment);
+		Isotope( int neutrons, int protones, double percentage, double weight, double halflife, QString format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, bool ecdecay, double alphapercentage, double betaminuspercentage, double betapluspercentage, double ecpercentage, double decayenergy, QString spin, QString magmoment);
 
 		bool seconds() const{
 			if ( m_format == "seconds" )
@@ -137,6 +137,13 @@ class Isotope
 		double alphapercentage() const{
 			return m_alphapercentage;
 		}
+		
+		/**
+		 * @return the percentage of the EC decay
+		 */
+		double ecpercentage() const{
+			return m_ecpercentage;
+		}
 
 	private:
 		/**
@@ -208,6 +215,10 @@ class Isotope
 		 * the percentage with which the istope decays as beta-minus
 		 */
 		double m_betaminuspercentage;
+		/**
+		 * the percentage with which the istope decays as EC
+		 */
+		double m_ecpercentage;
 };
 
 #endif // ISOTOPE_H

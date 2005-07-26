@@ -22,7 +22,7 @@
 #include <kdebug.h>
 #include <klocale.h>
 
-Isotope::Isotope( int neutrons, int protones,  double percentage, double weight, double halflife, QString format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, double alphapercentage, double betaminuspercentage, double betapluspercentage, bool ecdecay, double decayenergy, QString spin, QString magmoment)
+Isotope::Isotope( int neutrons, int protones,  double percentage, double weight, double halflife, QString format, bool alphadecay, bool betaplusdecay, bool betaminusdecay, bool ecdecay, double alphapercentage, double betapluspercentage, double betaminuspercentage, double ecpercentage, double decayenergy, QString spin, QString magmoment)
 {
 	m_neutrons = neutrons;
 	m_protones = protones;
@@ -33,15 +33,16 @@ Isotope::Isotope( int neutrons, int protones,  double percentage, double weight,
 	m_alphadecay = alphadecay;
 	m_betaplusdecay = betaplusdecay;
 	m_betaminusdecay = betaminusdecay;
-
 	m_ecdecay = ecdecay;
+	
 	m_decayenergy = decayenergy;
 	m_spin = spin;
 	m_magmoment = magmoment;
 
 	m_alphapercentage = alphapercentage;
-	m_betaminusdecay = betaminuspercentage;
-	m_betaplusdecay = betapluspercentage;
+	m_betapluspercentage = betapluspercentage;
+	m_betaminuspercentage = betaminuspercentage;
+	m_ecpercentage = ecpercentage;
 }
 
 QString Isotope::halflifeAsString()
