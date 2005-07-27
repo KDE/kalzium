@@ -33,7 +33,7 @@
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="1/2+" magmoment="+2.792846" halflife="" halflifeformat="seconds" weight="1.007825" neutron="0" percentage="99.985" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="1+" magmoment="+0.857438" halflife="" halflifeformat="seconds" weight="2.0141" neutron="1" percentage="0.015" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.018" spin="1/2+" magmoment="+2.978960" halflife="12.3" halflifeformat="years" weight="3.016049" neutron="2" pecentage=""  />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.018" spin="1/2+" magmoment="+2.978960" halflife="12.3" halflifeformat="years" weight="3.016049" neutron="2" pecentage=""  />
 		</isotopes>
 		<density>0.084</density>
 		<ionisationenergy>
@@ -175,9 +175,9 @@
 		<orbits>1s2 2s2</orbits>
 		<oxydation>+2</oxydation>
 		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="0.86" spin="3/2-" magmoment="" halflife="4611168" halflifeformat="seconds" weight="7.0169" neutron="3" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="true" decayenergy="0.86" spin="3/2-" magmoment="" halflife="4611168" halflifeformat="seconds" weight="7.0169" neutron="3" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="3/2-" magmoment="-1.1778" halflife="" halflifeformat="seconds" weight="9.012182" neutron="5" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.55" spin="0+" magmoment="" halflife="1600000" halflifeformat="years" weight="10.01353" neutron="6" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.55" spin="0+" magmoment="" halflife="1600000" halflifeformat="years" weight="10.01353" neutron="6" percentage="" />
 		</isotopes>
 		<family>Alkaline_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
@@ -286,10 +286,10 @@
 		<orbits>1s2 2s2 2p2</orbits>
 		<oxydation>-4.+2.+4</oxydation>
 		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="0.96" spin="3/2-" magmoment="" halflife="1223" halflifeformat="seconds" weight="11.01143" neutron="5" pecentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="100.0" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="0.96" spin="3/2-" magmoment="" halflife="1223" halflifeformat="seconds" weight="11.01143" neutron="5" pecentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="12" neutron="6" percentage="98.89" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" halflife="" spin="1/2-" magmoment="+0.702411" halflifeformat="seconds" weight="13.0034" neutron="7" percentage="1.11" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.156" spin="0+" magmoment="0" halflife="5730" halflifeformat="years" weight="14.00324" neutron="8" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.15648" spin="0+" magmoment="0" halflife="5730" halflifeformat="years" weight="14.00324" neutron="8" percentage="" />
 		</isotopes>
 		<family>Non-Metal</family>
 	</element>
@@ -435,7 +435,7 @@
 		<orbits>1s2 2s2 2p5</orbits>
 		<oxydation>-1</oxydation>
 		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="0.64" spin="1+" magmoment="" halflife="6582" halflifeformat="seconds" weight="18.000937" neutron="9" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="97.0" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="3.0" ecdecay="true" decayenergy="0.64" spin="1+" magmoment="" halflife="6582" halflifeformat="seconds" weight="18.000937" neutron="9" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="1/2+" magmoment="+2.628866" halflife="" halflifeformat="seconds" weight="18.998404" neutron="10" percentage="100" />
 		</isotopes>
 		<family>Halogene</family>
@@ -545,9 +545,9 @@
 		<oxydation>+1</oxydation>
 		<family>Alkali_Earth</family>
 		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="2.842" spin="3+" magmoment="+1.746" halflife="2.6" halflifeformat="years" weight="21.99440" neutron="11" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="100.0" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="true" decayenergy="2.842" spin="3+" magmoment="+1.746" halflife="2.6" halflifeformat="years" weight="21.99440" neutron="11" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="3/2+" magmoment="-2.217520" halflife="" halflifeformat="seconds" weight="22.98977" neutron="12" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="5.51" spin="4+" magmoment="+1.6903" halflife="54000" halflifeformat="seconds" weight="23.99097" neutron="13" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="5.51" spin="4+" magmoment="+1.6903" halflife="54000" halflifeformat="seconds" weight="23.99097" neutron="13" percentage="" />
 		</isotopes>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
@@ -641,7 +641,7 @@
 		<orbits>1s2 2s2 2p6 3s2 3p1</orbits>
 		<oxydation>+3</oxydation>
 		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="4.0" spin="5+" magmoment="" halflife="740000" halflifeformat="years" weight="25.986892" neutron="13" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="82" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="18" ecdecay="true" decayenergy="4.0" spin="5+" magmoment="" halflife="740000" halflifeformat="years" weight="25.986892" neutron="13" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="5/2+" magmoment="+3.641504" halflife="" halflifeformat="seconds" weight="26.981538" neutron="14" percentage="100" />
 		</isotopes>
 		<family>Other_Metal</family>
@@ -754,7 +754,7 @@
 		<oxydation>-3.(+1.+3).+5</oxydation>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="1/2+" magmoment="+1.13160" halflife="" halflifeformat="seconds" weight="30.97376" neutron="16" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="1.71" spin="1+" magmoment="-0.2524" halflife="1231372" halflifeformat="seconds" weight="31.97391" neutron="17" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="1.71" spin="1+" magmoment="-0.2524" halflife="1231372" halflifeformat="seconds" weight="31.97391" neutron="17" percentage="" />
 		</isotopes>
 		<family>Non-Metal</family>
 	</element>
@@ -808,7 +808,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="31.972" neutron="16" percentage="95.1" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="3/2+" magmoment="+0.643821" halflife="" halflifeformat="seconds" weight="32.971:" neutron="17" percentage="0.74" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="33.968" neutron="18" percentage="4.2" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="4.8" spin="3/2+" magmoment="+1" halflife="7525440" halflifeformat="seconds" weight="34.96903" neutron="19" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="4.8" spin="3/2+" magmoment="+1" halflife="7525440" halflifeformat="seconds" weight="34.96903" neutron="19" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="35.967" neutron="20" percentage="0.016" />
 		</isotopes>
 		<family>Non-Metal</family>
@@ -951,7 +951,7 @@
 		<oxydation>+1</oxydation>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="3/2+" magmoment="+0.391466" halflife="" halflifeformat="seconds" weight="38.964" neutron="20" percentage="93.2581" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="51.4" spin="4-" magmoment="-1.298099" halflife="1277000000" halflifeformat="years" weight="39.964" neutron="21" percentage="0.0117" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="89.33" betaminusdecay="true" ecpercentage="10.67" ecdecay="true" decayenergy="51.4" spin="4-" magmoment="-1.298099" halflife="1277000000" halflifeformat="years" weight="39.964" neutron="21" percentage="0.0117" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="3/2+" magmoment="+0.2148699" halflife="" halflifeformat="seconds" weight="40.962" neutron="22" percentage="6.73" />
 		</isotopes>
 		<family>Alkali_Earth</family>
@@ -1051,9 +1051,9 @@
 		<oxydation>+3</oxydation>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="7/2-" magmoment="+4.756483" halflife="" halflifeformat="seconds" weight="44.95591" neutron="24" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="2.37" spin="4+" magmoment="" halflife="7241184" halflifeformat="seconds" weight="45.95517" neutron="25" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.6" spin="7/2-" magmoment="" halflife="289008" halflifeformat="seconds" weight="46.95241" neutron="26" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="4.0" spin="6+" magmoment="" halflife="157320" halflifeformat="seconds" weight="48.04776" neutron="27" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="2.37" spin="4+" magmoment="" halflife="7241184" halflifeformat="seconds" weight="45.95517" neutron="25" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.6" spin="7/2-" magmoment="" halflife="289008" halflifeformat="seconds" weight="46.95241" neutron="26" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="4.0" spin="6+" magmoment="" halflife="157320" halflifeformat="seconds" weight="48.04776" neutron="27" percentage="" />
 		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
@@ -1159,7 +1159,7 @@
 		<orbits>Ar 3d3 4s2</orbits>
 		<oxydation>+5.(+2.+3.+4)</oxydation>
 		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="true" decayenergy="" spin="6+" magmoment="+3.34745" halflife="140000000000000000" halflifeformat="years" weight="49.93643" neutron="27" percentage="0.25" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="17.0" betaminusdecay="true" ecpercentage="83" ecdecay="true" decayenergy="" spin="6+" magmoment="+3.34745" halflife="140000000000000000" halflifeformat="years" weight="49.93643" neutron="27" percentage="0.25" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="7/2-" magmoment="+5.1514" halflife="" halflifeformat="seconds" weight="50.94396" neutron="28" percentage="99.750" />
 		</isotopes>
 		<family>Transition</family>
@@ -1251,8 +1251,8 @@
 		<orbits>Ar 3d5 4s2</orbits>
 		<oxydation>+2.+4.(+5).+6.+7</oxydation>
 		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="1.4" spin="3+" magmoment="+3.2818" halflife="26967168" halflifeformat="seconds" weight="53.94036" neutron="29" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="5/2-" magmoment="+3.4532" halflife="" halflifeformat="seconds" weight="53.939" neutron="30" percentage="100" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="true" decayenergy="1.377" spin="3+" magmoment="+3.2818" halflife="26967168" halflifeformat="seconds" weight="53.94036" neutron="29" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="5/2-" magmoment="+3.4532" halflife="" halflifeformat="seconds" weight="54.93805" neutron="30" percentage="100" />
 		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>own</crystalstructure>
@@ -1356,11 +1356,11 @@
 		<orbits>Ar 3d7 4s2</orbits>
 		<oxydation>+2.+3.(+4)</oxydation>
 		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="4.57" spin="4+" magmoment="" halflife="6663168" halflifeformat="seconds" weight="55.93984" neutron="29" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="0.8" spin="7/2-" magmoment="" halflife="23483520" halflifeformat="seconds" weight="56.93629" neutron="30" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="2.3" spin="2+" magmoment="" halflife="6118848" halflifeformat="seconds" weight="57.93576" neutron="31" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="100.0" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="true" decayenergy="4.566" spin="4+" magmoment="" halflife="6663168" halflifeformat="seconds" weight="55.93984" neutron="29" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="true" decayenergy="0.836" spin="7/2-" magmoment="" halflife="23483520" halflifeformat="seconds" weight="56.93629" neutron="30" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="100.0" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="true" decayenergy="2.3" spin="2+" magmoment="" halflife="6118848" halflifeformat="seconds" weight="57.93576" neutron="31" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="7/2-" magmoment="+4.627" halflife="" halflifeformat="seconds" weight="58.93320" neutron="32" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="2.8" spin="5+" magmoment="+3.799" halflife="5.2714" halflifeformat="years" weight="59.93382" neutron="33" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="2.824" spin="5+" magmoment="+3.799" halflife="5.2714" halflifeformat="years" weight="59.93382" neutron="33" percentage="" />
 		</isotopes>
 		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
@@ -1411,11 +1411,11 @@
 		<oxydation>0.(+2).+3</oxydation>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="57.935" neutron="30" percentage="67.8" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="1.07" spin="3/2-" magmoment="" halflife="75000" halflifeformat="years" weight="58.93435" neutron="31" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="1.072" spin="3/2-" magmoment="" halflife="75000" halflifeformat="years" weight="58.93435" neutron="31" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="59.931" neutron="32" percentage="26.2" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="3/2-" magmoment="-0.75002" halflife="" halflifeformat="seconds" weight="60.931" neutron="33" percentage="1.2" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="61.928" neutron="34" percentage="3.7" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.067" spin="1/2-" magmoment="" halflife="100.1" halflifeformat="years" weight="62.92967" neutron="35" percentage="1.2" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.067" spin="1/2-" magmoment="" halflife="100.1" halflifeformat="years" weight="62.92967" neutron="35" percentage="1.2" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="63.928" neutron="36" percentage="1.1" />
 		</isotopes>
 		<family>Transition</family>
@@ -1466,7 +1466,7 @@
 		<oxydation>+1.+2</oxydation>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="3/2-" magmoment="+2.2233" halflife="" halflifeformat="seconds" weight="62.93" neutron="34" percentage="68.9" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="1.7" spin="1+" magmoment="-0.217" halflife="45723.6" halflifeformat="seconds" weight="63.92977" neutron="35" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="19.0" betaplusdecay="true" betaminuspercentage="39.0" betaminusdecay="true" ecpercentage="41.0" ecdecay="true" decayenergy="1.7" spin="1+" magmoment="-0.217" halflife="45723.6" halflifeformat="seconds" weight="63.92977" neutron="35" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="3/2-" magmoment="+2.3817" halflife="" halflifeformat="seconds" weight="64.928" neutron="36" percentage="31.1" />
 		</isotopes>
 		<family>Transition</family>
@@ -1515,7 +1515,7 @@
 		<oxydation>+2</oxydation>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="63.929" neutron="34" percentage="48.9" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="1.35" spin="5/2-" magmoment="+0.7690" halflife="21072960" halflifeformat="seconds" weight="64.92924" neutron="35" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="98.0" betaplusdecay="true" betaminuspercentage="" betaminusdecay="" ecpercentage="1.5" ecdecay="true" decayenergy="1.35" spin="5/2-" magmoment="+0.7690" halflife="21072960" halflifeformat="seconds" weight="64.92924" neutron="35" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="65.926" neutron="36" percentage="27.82" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="5/2-" magmoment="+0.875478" halflife="" halflifeformat="seconds" weight="66.927" neutron="37" percentage="4.16" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="67.925" neutron="38" percentage="18.5" />
@@ -2991,7 +2991,7 @@
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="141.907" neutron="82" percentage="27.1" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="7/2-" magmoment="-1.065" halflife="" halflifeformat="seconds" weight="142.91" neutron="83" percentage="12.2" />
-			<isotope alphapercentage="" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="1.8" spin="0+" magmoment="0" halflife="2290000000000000" halflifeformat="years" weight="143.91008" neutron="84" percentage="23.8" />
+			<isotope alphapercentage="100.0" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="1.8" spin="0+" magmoment="0" halflife="2290000000000000" halflifeformat="years" weight="143.91008" neutron="84" percentage="23.8" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="7/2-" magmoment="-0.656" halflife="" halflifeformat="seconds" weight="144.912" neutron="85" percentage="8.3" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="145.913" neutron="86" percentage="17.2" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.91" spin="5/2-" magmoment="" halflife="948672" halflifeformat="seconds" weight="146.91610" neutron="87" percentage="" />
@@ -3065,10 +3065,10 @@
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="143.912" neutron="82" percentage="3" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="0.65" spin="7/2-" magmoment="" halflife="29376000" halflifeformat="seconds" weight="144.91341" neutron="83" percentage="" />
-			<isotope alphapercentage="" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.55" spin="0+" magmoment="0" halflife="103100000" halflifeformat="years" weight="145.91340" neutron="84" percentage="" />
-			<isotope alphapercentage="" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.31" spin="7/2-" magmoment="-0.8148" halflife="106000000000" halflifeformat="years" weight="146.91489" neutron="85" percentage="14.97" />
-			<isotope alphapercentage="" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.00" spin="0+" magmoment="0" halflife="12000000000000" halflifeformat="years" weight="147.91482" neutron="86" percentage="11.3" />
-			<isotope alphapercentage="" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="1.9" spin="7/2-" magmoment="-0.6717" halflife="400000000000000" halflifeformat="years" weight="148.91718" neutron="87" percentage="13.83" />
+			<isotope alphapercentage="100.0" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.55" spin="0+" magmoment="0" halflife="103100000" halflifeformat="years" weight="145.91340" neutron="84" percentage="" />
+			<isotope alphapercentage="100.0" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.31" spin="7/2-" magmoment="-0.8148" halflife="106000000000" halflifeformat="years" weight="146.91489" neutron="85" percentage="14.97" />
+			<isotope alphapercentage="100.0" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.00" spin="0+" magmoment="0" halflife="12000000000000" halflifeformat="years" weight="147.91482" neutron="86" percentage="11.3" />
+			<isotope alphapercentage="100.0" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="1.9" spin="7/2-" magmoment="-0.6717" halflife="400000000000000" halflifeformat="years" weight="148.91718" neutron="87" percentage="13.83" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="149.91727" neutron="88" percentage="7.44" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="true" ecpercentage="" ecdecay="" decayenergy="0.076" spin="5/2-" magmoment="" halflife="93" halflifeformat="years" weight="150.91933" neutron="89" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="151.919" neutron="90" percentage="26" />
@@ -3137,7 +3137,7 @@
 		<orbits>Xe 4f7 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
 		<isotopes>
-			<isotope alphapercentage="" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.24" spin="0+" magmoment="0" halflife="108000000000000" halflifeformat="years" weight="151.91979" neutron="88" percentage="0.2" />
+			<isotope alphapercentage="100.0" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.24" spin="0+" magmoment="0" halflife="108000000000000" halflifeformat="years" weight="151.91979" neutron="88" percentage="0.2" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="0.24" spin="3/2-" magmoment="" halflife="20874240" halflifeformat="seconds" weight="152.92175" neutron="89" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="153.921" neutron="90" percentage="2.15" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="3/2-" magmoment="-0.2591" halflife="" halflifeformat="seconds" weight="154.923" neutron="91" percentage="14.78" />
@@ -3424,7 +3424,7 @@
 		<orbits>Xe 4f14 5d2 6s2</orbits>
 		<oxydation>+5</oxydation>
 		<isotopes>
-			<isotope alphapercentage="100" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.55" spin="0+" magmoment="0" halflife="2000000000000000" halflifeformat="years" weight="173.94004" neutron="102" percentage="0.18" />
+			<isotope alphapercentage="100.0" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.55" spin="0+" magmoment="0" halflife="2000000000000000" halflifeformat="years" weight="173.94004" neutron="102" percentage="0.18" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="true" decayenergy="0.59" spin="5/2-" magmoment="0.70" halflife="6048000" halflifeformat="seconds" weight="174.94151" neutron="103" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="175.94140" neutron="104" percentage="5.206" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="7/2-" magmoment="" halflife="" halflifeformat="seconds" weight="176.94322" neutron="105" percentage="18.5" />   
@@ -3572,7 +3572,7 @@
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="183.953" neutron="108" percentage="0.018" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100" ecdecay="true" decayenergy="0.98" spin="1/2-" magmoment="" halflife="8087040" halflifeformat="seconds" weight="184.954041" neutron="109" percentage="" />
-			<isotope alphapercentage="100" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="2000000000000000" halflifeformat="years" weight="185.953830" neutron="110" percentage="1.58" />
+			<isotope alphapercentage="100.0" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="2000000000000000" halflifeformat="years" weight="185.953830" neutron="110" percentage="1.58" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="1/2-" magmoment="+0.06465" halflife="" halflifeformat="seconds" weight="186.955741" neutron="111" percentage="1.59" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="187.955860" neutron="112" percentage="13.3" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="3/2+" magmoment="+0.659933" halflife="" halflifeformat="seconds" weight="188.958137" neutron="113" percentage="16.1" />
@@ -3644,8 +3644,8 @@
 		<orbits>Xe 4f14 5d9 6s1</orbits>
 		<oxydation>+2.+4</oxydation>
 		<isotopes>
-			<isotope alphapercentage="100" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="3.18" spin="0+" magmoment="0" halflife="650000000000" halflifeformat="years" weight="189.959917" neutron="112" percentage="0.0127" />
-			<isotope alphapercentage="100" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.6" spin="0+" magmoment="0" halflife="1000000000000000" halflifeformat="years" weight="191.961019" neutron="114" percentage="0.78" />
+			<isotope alphapercentage="100.0" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="3.18" spin="0+" magmoment="0" halflife="650000000000" halflifeformat="years" weight="189.959917" neutron="112" percentage="0.0127" />
+			<isotope alphapercentage="100.0" alphadecay="true" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="2.6" spin="0+" magmoment="0" halflife="1000000000000000" halflifeformat="years" weight="191.961019" neutron="114" percentage="0.78" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="193.962655" neutron="116" percentage="32.9" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="1/2-" magmoment="+0.60949" halflife="" halflifeformat="seconds" weight="194.964766" neutron="117" percentage="33.8" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" decayenergy="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="195.9650" neutron="118" percentage="25.3" />
