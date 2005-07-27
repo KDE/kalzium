@@ -28,7 +28,7 @@ class QVBoxLayout;
 class QDockWindow;
 class TempSlider;
 class DetailedInfoDlg;
-class PerodicTableView;
+class PeriodicTableView;
 class MolcalcWidget;
 class DetailedGraphicalOverview;
 class TimeWidget;
@@ -66,9 +66,9 @@ class Kalzium : public KMainWindow
 		DetailedInfoDlg   *m_infoDialog;
 
 		/**
-		 * this pointer points to the PerodicTableView.
+		 * this pointer points to the PeriodicTableView.
 		 */
-		PerodicTableView *m_PerodicTableView;
+		PeriodicTableView *m_PeriodicTableView;
 		
 		/**
 		 *initialize actions
@@ -81,7 +81,7 @@ class Kalzium : public KMainWindow
 		void setupSidebars();
 		
 		/**
-		 * Signal the PerodicTableView that it should do a full draw operation
+		 * Signal the PeriodicTableView that it should do a full draw operation
 		 */
 		void setFullDraw();
 		

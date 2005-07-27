@@ -411,7 +411,7 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 }
 
 /*!
-    This looks pretty evil and it is. The problem is that a PerodicTableView is pretty
+    This looks pretty evil and it is. The problem is that a PeriodicTableView is pretty
     irregular and you cannot "calculate" the position. 
  */
 void Element::setupXY()

@@ -18,8 +18,8 @@
  *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.             *
  ***************************************************************************/
 
-#ifndef PerodicTableView_H
-#define PerodicTableView_H
+#ifndef PeriodicTableView_H
+#define PeriodicTableView_H
 
 class QLabel;
 class QPixmap;
@@ -33,12 +33,12 @@ class KalziumTip;
 #include <qwidget.h>
 #include <qtimer.h>
 
-// A PerodicTableView is ...
+// A PeriodicTableView is ...
 /**
- * @short basic class for the specific PerodicTableViews
+ * @short basic class for the specific PeriodicTableViews
  * @author Carsten Niehaus
  */
-class PerodicTableView : public QWidget
+class PeriodicTableView : public QWidget
 {
 	Q_OBJECT
 
@@ -48,8 +48,8 @@ class PerodicTableView : public QWidget
 		 * @param parent parent widget
 		 * @param name name of this widget
 		 */
-		PerodicTableView( QWidget *parent = 0, const char *name = 0);
-		~PerodicTableView();
+		PeriodicTableView( QWidget *parent = 0, const char *name = 0);
+		~PeriodicTableView();
 
 		enum SCHEMETYPE
 		{
@@ -116,7 +116,7 @@ class PerodicTableView : public QWidget
 		}
 
 		/**
-		 * This method sets the colors of the PerodicTableView.
+		 * This method sets the colors of the PeriodicTableView.
 		 * @param nr takes 5 different values:
 		 * @li normal view
 		 * @li groups
@@ -128,7 +128,7 @@ class PerodicTableView : public QWidget
 		void activateColorScheme( const int nr);
 
 		/**
-		 * @return the short and descriptive name of this PerodicTableView
+		 * @return the short and descriptive name of this PeriodicTableView
 		 */
 		QString shortName() const{
 			return m_ShortName;
@@ -240,7 +240,7 @@ class PerodicTableView : public QWidget
 		 * @param which set the type of gradient
 		 * @see Element::TYPE
 		 */
-		void setLook( PerodicTableView::SCHEMETYPE type, int which = 0 );
+		void setLook( PeriodicTableView::SCHEMETYPE type, int which = 0 );
 
 		/**
 		 * This method paints the marker around the currently selected
@@ -362,7 +362,7 @@ class PerodicTableView : public QWidget
 		bool m_showLegend;
 
 		/**
-		 * this is a short, descriptive name of the PerodicTableView
+		 * this is a short, descriptive name of the PeriodicTableView
 		 */
 		QString m_ShortName;
 
@@ -379,8 +379,8 @@ class PerodicTableView : public QWidget
 		/**
 		 * implements double buffering of the widget.
 		 */
-		QPixmap *table;			// The basic PerodicTableView
-		QPixmap *table2;		// Basic PerodicTableView + extra data such as tooltip, etc
+		QPixmap *table;			// The basic PeriodicTableView
+		QPixmap *table2;		// Basic PeriodicTableView + extra data such as tooltip, etc
 
 		/**
 		 * used for bitBlit. If true the complete table will be drawn
@@ -437,17 +437,17 @@ class PerodicTableView : public QWidget
 		/**
 		 * the central place for the drawing of the table
 		 */
-		virtual void drawPerodicTableView( QPainter* p, bool isCrystal );
+		virtual void drawPeriodicTableView( QPainter* p, bool isCrystal );
 
 		/**
 		 * draw a gradient of the type @p type
 		 */
-		virtual void drawGradientPerodicTableView( QPainter* p, const double min, const double max );
+		virtual void drawGradientPeriodicTableView( QPainter* p, const double min, const double max );
 
 		/**
 		 * draw the state of matter
 		 */
-		virtual void drawSOMPerodicTableView( QPainter* p );
+		virtual void drawSOMPeriodicTableView( QPainter* p );
 
 		/**
 		 * draw the legend

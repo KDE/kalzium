@@ -325,7 +325,7 @@ class Element{
 		 */
 		double meanmass();
 
-		int x, y; //for the RegularPerodicTableView
+		int x, y; //for the RegularPeriodicTableView
 
 		/**
 		 * adjusts the units for the data. The user can
