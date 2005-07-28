@@ -26,6 +26,30 @@ Features
   + Log-scale of the gradient						-----
 
 
+Data / Terminology
+------------------
+
+* XML
+  + data.xml  ==>  elements.xml?
+    - spectra    -->  spectrum
+    - spectrum   -->  band
+    - date       -->  discovery?
+    - scientist --> discoverer?
+    - oxydation  -->  oxidation?
+    - orbits shall have <orbit> tags?
+    - ionisationenergy  -->  ionisationenergies?
+  + groups.xml
+    - unit  -->  group?
+    - unit 11  Münzmetalle  --> English?
+    - flour  -->  fluor?
+    - noblegas  -->  noble gas?
+    - <br> --> <p>?
+    - Nobel gases  --> noble gases?
+  + knowledge.xml
+    - name  -->  term?
+  + tools.xml
+    - rename images into english?
+
 ================================================================
                        Future versions
 
