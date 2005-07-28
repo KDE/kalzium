@@ -1,6 +1,6 @@
 SUBDIRS = $(AUTODIRS)
 
-xml_DATA = periods.xml groups.xml bg.jpg data.xml knowledge.xml tools.xml spektrum.png
+xml_DATA = bg.jpg data.xml knowledge.xml tools.xm
 
 xmldir = $(kde_datadir)/kalzium/data
 
