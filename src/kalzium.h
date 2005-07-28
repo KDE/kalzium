@@ -97,7 +97,6 @@ class Kalzium : public KMainWindow
 		KAction *m_pLegendAction;
 		KAction *m_SidebarAction;
 		KAction *m_EQSolverAction;
-		KAction *m_SpectrumEditorAction;
 
 		KToggleAction *m_actionNoScheme;
 		KToggleAction *m_actionGroups;
@@ -142,8 +141,6 @@ class Kalzium : public KMainWindow
 
 		void slotShowEQSolver();
 		
-		void slotShowSpectrumEditor();
-
 		void slotShowLegend();
 		
 		/**

@@ -28,9 +28,7 @@ kalzium_SOURCES = eqresult.cpp eqchemview.cpp kalzium.cpp \
 			spectrumwidget.cpp \
 			nuclideboard.cpp \
 			exporter.cpp \
-			elementbox.cpp \
-			spectrumeditor.cpp \
-			bandeditor.ui spectrumview.ui \
+			spectrumview.ui \
 			spectrumviewimpl.cpp
 			
 			
@@ -59,9 +57,7 @@ EXTRA_DIST = main.cpp \
 		spectrumwidget.cpp spectrumwidget.h \
 		nuclideboard.cpp nuclideboar.h \
 		exporter.cpp exporter.h \
-		elementbox.cpp elementbox.h \
-		spectrumeditor.cpp spectrumeditor.h \
-		bandeditor.ui spectrumview.ui \
+		spectrumview.ui \
 		spectrumviewimpl.cpp spectrumviewimpl.h	
 		
 

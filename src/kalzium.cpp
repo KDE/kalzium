@@ -31,7 +31,6 @@
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
 #include "config.h"
-#include "spectrumeditor.h"
 
 #include <qdockwindow.h>
 #include <qlayout.h>
@@ -153,8 +152,6 @@ void Kalzium::setupActions()
 #ifdef HAVE_FACILE
 	m_EQSolverAction = new KAction(i18n("&Equation Solver..."), "eqsolver", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "view_eqsolver");
 #endif
-	
-	m_SpectrumEditorAction = new KAction(i18n("S&pectrum Editor..."), "spectrum", 0, this, SLOT(slotShowSpectrumEditor()), actionCollection(), "spectrum_editor");
 	
 	/*
 	 * the misc actions
@@ -305,12 +302,6 @@ void Kalzium::slotEnableTooltips()
 	
 	Prefs::setTooltip( enabled ); 
 	Prefs::writeConfig();
-}
-
-void Kalzium::slotShowSpectrumEditor()
-{
-	SpectrumEditor *dlg = new SpectrumEditor( this, "se" );
-	dlg->show();
 }
 
 void Kalzium::slotShowLegend()
