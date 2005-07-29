@@ -1,339 +1,482 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
-"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
-   sodipodi:docname="emission-spectrum.svg"
-   sodipodi:docbase="/home/carsten/cvs/trunk/kdeedu/kalzium/src/icons"
-   inkscape:version="0.40"
-   sodipodi:version="0.32"
-   id="svg1291"
-   height="64px"
-   width="64px"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:cc="http://web.resource.org/cc/"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:xlink="http://www.w3.org/1999/xlink">
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64px"
+   height="64px"
+   id="svg1337"
+   sodipodi:version="0.32"
+   inkscape:version="0.42"
+   sodipodi:docbase="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium"
+   sodipodi:docname="tooltip.svg">
   <defs
-     id="defs3" />
+     id="defs1339">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4312">
+      <stop
+         style="stop-color:#757575;stop-opacity:1;"
+         offset="0"
+         id="stop4314" />
+      <stop
+         style="stop-color:#a6a6a6;stop-opacity:1.0000000"
+         offset="1"
+         id="stop4316" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient24212">
+      <stop
+         style="stop-color:#fcee01;stop-opacity:1;"
+         offset="0"
+         id="stop24214" />
+      <stop
+         style="stop-color:#fcee01;stop-opacity:0;"
+         offset="1"
+         id="stop24216" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient25738">
+      <stop
+         style="stop-color:#fcf2e6;stop-opacity:1;"
+         offset="0"
+         id="stop25740" />
+      <stop
+         style="stop-color:#fcf2e6;stop-opacity:0;"
+         offset="1"
+         id="stop25742" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient1387"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.431241,0.000000,0.000000,0.362252,20.99995,25.56676)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient1389"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient1391"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.218322,0.000000,0.000000,0.168798,42.79290,27.74815)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient1393"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4312"
+       id="linearGradient4322"
+       x1="50.368908"
+       y1="12.900184"
+       x2="50.400642"
+       y2="33.000000"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       y2="22.406782"
+       x2="42.132103"
+       y1="11.958027"
+       x1="42.213173"
+       spreadMethod="pad"
+       gradientTransform="scale(1.486046,0.672927)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient1625"
+       xlink:href="#linearGradient25738"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="8.7529297"
+       x2="66.575188"
+       y1="18.705542"
+       x1="66.575195"
+       gradientTransform="matrix(0.106158,0.000000,0.000000,6.387949e-2,53.49313,54.87870)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient1623"
+       xlink:href="#linearGradient24212"
+       inkscape:collect="always" />
+    <linearGradient
+       spreadMethod="pad"
+       gradientUnits="userSpaceOnUse"
+       y2="22.406782"
+       x2="42.132103"
+       y1="11.958027"
+       x1="42.213173"
+       gradientTransform="scale(1.486046,0.672927)"
+       id="linearGradient25744"
+       xlink:href="#linearGradient25738"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="8.7529297"
+       x2="66.575188"
+       y1="18.705542"
+       x1="66.575195"
+       gradientTransform="matrix(0.209688,0.000000,0.000000,0.137090,40.43576,53.96640)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient25747"
+       xlink:href="#linearGradient24212"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4363">
+      <stop
+         id="stop4365"
+         offset="0"
+         style="stop-color:#fcee01;stop-opacity:1;" />
+      <stop
+         id="stop4367"
+         offset="1"
+         style="stop-color:#fcee01;stop-opacity:0;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient4409"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.106158,0.000000,0.000000,6.387949e-2,46.96485,-7.958490)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient4417"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.209688,0.000000,0.000000,0.137090,33.90748,-8.870790)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient4445"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.450709,0.000000,0.000000,0.317036,-10.97249,12.12556)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient4447"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4312"
+       id="linearGradient4477"
+       gradientUnits="userSpaceOnUse"
+       x1="50.368908"
+       y1="12.900184"
+       x2="50.400642"
+       y2="33.000000" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient4479"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.450709,0.000000,0.000000,0.317036,-10.97249,12.12556)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient4481"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient4485"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.664832,0.000000,0.000000,0.448892,-23.51827,11.20269)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4312"
+       id="linearGradient4495"
+       gradientUnits="userSpaceOnUse"
+       x1="50.368908"
+       y1="12.900184"
+       x2="50.400642"
+       y2="33.000000"
+       gradientTransform="scale(1.015873,1.000000)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient4497"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4312"
+       id="linearGradient1356"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.015873,1.000000)"
+       x1="50.368908"
+       y1="12.900184"
+       x2="50.400642"
+       y2="33.000000" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient1358"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.664832,0.000000,0.000000,0.448892,-23.51827,11.20269)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient1360"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient1364"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.591422,0.000000,0.000000,0.388330,-18.68713,11.91781)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4312"
+       id="linearGradient1374"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.015873,1.000000)"
+       x1="50.368908"
+       y1="12.900184"
+       x2="50.400642"
+       y2="33.000000" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient1377"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+  </defs>
   <sodipodi:namedview
-     inkscape:window-y="0"
-     inkscape:window-x="0"
-     inkscape:window-height="721"
-     inkscape:window-width="985"
-     inkscape:grid-bbox="true"
-     inkscape:document-units="px"
-     showgrid="true"
-     inkscape:current-layer="layer1"
-     inkscape:cy="41.705498"
-     inkscape:cx="30.785889"
-     inkscape:zoom="4.0000000"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     borderopacity="1.0"
-     bordercolor="#666666"
+     id="base"
      pagecolor="#ffffff"
-     id="base" />
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.5000000"
+     inkscape:cx="35.422391"
+     inkscape:cy="50.074774"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:document-units="px"
+     inkscape:grid-bbox="true"
+     inkscape:window-width="1024"
+     inkscape:window-height="721"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4" />
   <metadata
-     id="metadata4">
-    <rdf:RDF
-       id="RDF5">
+     id="metadata1342">
+    <rdf:RDF>
       <cc:Work
-         id="Work6"
          rdf:about="">
-        <dc:format
-           id="format7">image/svg+xml</dc:format>
+        <dc:format>image/svg+xml</dc:format>
         <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage"
-           id="type9" />
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:groupmode="layer"
+     id="layer1"
      inkscape:label="Layer 1"
-     id="layer1">
+     inkscape:groupmode="layer">
     <g
-       inkscape:export-ydpi="90.000000"
-       inkscape:export-xdpi="90.000000"
-       inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-       id="g2379"
-       transform="matrix(1.000000,0.000000,0.000000,0.660925,0.000000,10.85039)">
+       id="g1379">
       <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         ry="7.5651526"
+         ry="5.0000005"
+         rx="5.0000000"
+         y="0.00000000"
+         x="1.0158730"
+         height="33.000000"
+         width="62.984127"
+         id="rect2124"
+         style="opacity:1.0000000;fill:url(#linearGradient1374);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#fc5f01;stroke-width:0.00000000;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <rect
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         style="fill:#000006;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#fc5f01;stroke-width:0.00000000;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000"
+         id="rect12239"
+         width="62.461704"
+         height="32.000000"
+         x="0.00000000"
+         y="0.00000000"
+         rx="5.0000000"
+         ry="5.0000005" />
+      <rect
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#fc5f01;stroke-width:0.00000000;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000"
+         id="rect13761"
+         width="59.198841"
+         height="29.291002"
+         x="1.6134157"
+         y="1.2204607"
+         rx="5.0000000"
+         ry="5.0000005" />
+      <rect
+         ry="5.0000005"
          rx="5.0000005"
-         y="0.0000000"
-         x="0.0000000"
-         height="64.000000"
-         width="64.000000"
-         id="rect1350"
-         style="fill:#080101;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
+         y="4.0826383"
+         x="5.0000000"
+         height="23.754158"
+         width="27.000000"
+         id="rect1384"
+         style="fill:#000006;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#fc5f01;stroke-width:0.00000000;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
       <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="2.0000000"
-         height="55.000000"
-         width="1.1112323"
-         id="rect2111"
-         style="fill:#3e017f;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="7.1112323"
-         height="55.000000"
-         width="1.3960009"
-         id="rect2115"
-         style="fill:#3101fe;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="14.111233"
-         height="55.000000"
-         width="0.25999999"
-         id="rect2117"
-         style="fill:#0193fe;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="18.431141"
-         height="55.000000"
-         width="0.38000000"
-         id="rect2119"
-         style="fill:#01f6fe;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="22.111233"
-         height="55.000000"
-         width="0.44999999"
-         id="rect2121"
-         style="fill:#39fe01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="34.408855"
-         height="55.000000"
-         width="0.28999999"
-         id="rect2123"
-         style="fill:#acfe01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="40.111233"
-         height="55.000000"
-         width="0.59776330"
-         id="rect2125"
-         style="fill:#7f7301;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="46.430000"
-         height="55.000000"
-         width="0.78270340"
-         id="rect2127"
-         style="fill:#fe7301;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="52.049999"
-         height="55.000000"
-         width="0.63000000"
-         id="rect2129"
-         style="fill:#f60101;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="10.340231"
-         height="55.000000"
-         width="0.77100086"
-         id="rect2131"
-         style="fill:#3101fe;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="9.3402309"
-         height="55.000000"
-         width="0.27100086"
-         id="rect2133"
-         style="fill:#3101fe;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="5.1112323"
-         height="55.000000"
-         width="0.77100086"
-         id="rect2135"
-         style="fill:#3101fe;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="11.840231"
-         height="55.000000"
-         width="0.27100086"
-         id="rect2139"
-         style="fill:#3101fe;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="25.111233"
-         height="55.000000"
-         width="0.44999999"
-         id="rect2159"
-         style="fill:#39fe01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="27.010000"
-         height="55.000000"
-         width="0.74553871"
-         id="rect2161"
-         style="fill:#39fe01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="34.900002"
-         height="55.000000"
-         width="0.80000001"
-         id="rect2165"
-         style="fill:#acfe01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="34.000000"
-         height="55.000000"
-         width="0.21614480"
-         id="rect2167"
-         style="fill:#acfe01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="31.783855"
-         height="55.000000"
-         width="0.21614480"
-         id="rect2169"
-         style="fill:#acfe01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="43.779999"
-         height="55.000000"
-         width="0.43000001"
-         id="rect2171"
-         style="fill:#fe7301;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="44.578529"
-         height="55.000000"
-         width="0.43000001"
-         id="rect2173"
-         style="fill:#fe7301;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="53.183475"
-         height="55.000000"
-         width="0.42775583"
-         id="rect2175"
-         style="fill:#f60101;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="55.683475"
-         height="55.000000"
-         width="0.42775583"
-         id="rect2177"
-         style="fill:#f60101;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="58.111233"
-         height="55.000000"
-         width="0.42775583"
-         id="rect2179"
-         style="fill:#f60101;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="60.683475"
-         height="55.000000"
-         width="0.42775583"
-         id="rect2181"
-         style="fill:#f60101;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="53.683475"
-         height="55.000000"
-         width="0.42775583"
-         id="rect2183"
-         style="fill:#f60101;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
-      <rect
-         inkscape:export-ydpi="90.000000"
-         inkscape:export-xdpi="90.000000"
-         inkscape:export-filename="C:\Documents and Settings\Owner\Desktop\emission-spectrum.png"
-         y="4.5000000"
-         x="54.211231"
-         height="55.000000"
-         width="0.42775583"
-         id="rect2185"
-         style="fill:#f60101;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.0000000;stroke-miterlimit:0.0000000;stroke-opacity:1.0000000" />
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         style="fill:#a6a6a6;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#fc5f01;stroke-width:0.00000000;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000"
+         id="rect2112"
+         width="25.388386"
+         height="22.409000"
+         x="5.7361526"
+         y="4.6274772"
+         rx="5.0000005"
+         ry="5.0000005" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path4435"
+         sodipodi:cx="63.000000"
+         sodipodi:cy="17.000000"
+         sodipodi:rx="12.375000"
+         sodipodi:ry="12.125000"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         transform="matrix(0.810352,0.000000,0.000000,0.772108,-33.10962,2.750027)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#fc5f01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path4437"
+         sodipodi:cx="63.000000"
+         sodipodi:cy="17.000000"
+         sodipodi:rx="12.375000"
+         sodipodi:ry="12.125000"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         transform="matrix(0.710997,0.000000,0.000000,0.676405,-26.64329,4.299715)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#fc8701;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path4439"
+         sodipodi:cx="63.000000"
+         sodipodi:cy="17.000000"
+         sodipodi:rx="12.375000"
+         sodipodi:ry="12.125000"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         transform="matrix(0.654108,0.000000,0.000000,0.622288,-23.05991,5.219728)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         style="fill:url(#linearGradient1364);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         d="M 25.891719,17.520830 C 25.891719,20.146576 22.193236,23.343801 18.194228,23.343801 C 14.195226,23.343801 10.406327,19.736514 10.406327,17.110757 C 10.406327,14.485012 14.195226,13.830218 18.194228,13.830218 C 22.193236,13.830218 25.891719,14.895084 25.891719,17.520830 z "
+         id="path4441"
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         sodipodi:type="arc"
+         style="opacity:0.86910993;fill:url(#linearGradient1377);fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path4443"
+         sodipodi:cx="63.875000"
+         sodipodi:cy="10.625000"
+         sodipodi:rx="6.6250000"
+         sodipodi:ry="3.0000000"
+         d="M 70.500000 10.625000 A 6.6250000 3.0000000 0 1 1  57.250000,10.625000 A 6.6250000 3.0000000 0 1 1  70.500000 10.625000 z"
+         transform="matrix(0.956216,0.000000,0.000000,1.257544,-42.92887,-1.335442)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
     </g>
   </g>
 </svg>

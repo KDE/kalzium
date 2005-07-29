@@ -23,7 +23,6 @@
 
 #include <kdialogbase.h>
 #include <qwidget.h>
-#include <qscrollview.h>
 #include <qpainter.h>
 #include <isotope.h>
 #include <qvaluelist.h>
@@ -37,9 +36,9 @@ class QSpinBox;
 /**
  * @author Jörg Buchwald
  * @author Carsten Niehaus
- *
+ * 
  */
-class NuclideBoard : public QScrollView
+class NuclideBoard : public QWidget
 {
 	Q_OBJECT
 
@@ -54,45 +53,63 @@ class NuclideBoard : public QScrollView
 
 		~NuclideBoard(){};
 
-		IsotopeWidget* getIsotopeWidget( Isotope* isotope );	
-
 	private:
 		QValueList<Element*> m_list;
 
 		QValueList<IsotopeWidget*> m_isotopeWidgetList;
 		
-		Decay* m_decay;
+		QValueList<Decay*> m_decayList;
 
 		void updateList();
 
 		int highestNeutronCount();
+		
 		int lowestNeutronCount();
 
 		int m_lowestNumberOfNeutrons;
 		int m_highestNumberOfNeutrons;
 
 		int m_start;
-		int m_stop;
 
-		int m_isoWidth;	// width of a isotopeWidget on the board
+		int m_stop;
 
 	public slots:
 		/**
 		 * defines the first isotope which will be displayed
-		 * @param value the number of the element
+		 * @param v the number of the element
 		 */
-		void setStart( int value );
+		void setStart( int v ){
+			if ( v > m_stop )
+			{
+				emitStartValue( m_start );
+				return;
+			}
+			m_start = v;
+			m_highestNumberOfNeutrons = highestNeutronCount();
+			m_lowestNumberOfNeutrons = lowestNeutronCount();
+			updateList();
+		}
 
 		/**
 		 * defines the last isotope which will be displayed
-		 * @param value the number of the element
+		 * @param v the number of the element
 		 */
-		void setStop( int value );
+	void setStop( int v ){
+		if ( v < m_start )
+		{
+			emitStopValue( m_stop );
+			return;
+		}
+		m_stop = v;
+		m_highestNumberOfNeutrons = highestNeutronCount();
+		m_lowestNumberOfNeutrons = lowestNeutronCount();
+		updateList();
+	}
 
 	private slots:
 		/**
 		 * Draw the decay of an isotope
-		 * @param isotope the first Isotope in the row
+		 * @param the first istope in the row
 		 */
 		void slotDrawDecayRow( Isotope* isotope );
 
@@ -101,7 +118,9 @@ class NuclideBoard : public QScrollView
 		void emitStopValue( int );
 
 	protected:
-		void drawContents( QPainter * p, int clipx, int clipy, int clipw, int cliph );
+		virtual void paintEvent(QPaintEvent*);
+
+		virtual void mousePressEvent( QMouseEvent* e );
 };
 
 /**
@@ -117,7 +136,32 @@ class IsotopeWidget : public QWidget
 		 * @param parent  parent widget for this widget
 		 */
 		IsotopeWidget( Isotope* isotope, QWidget *parent );
-		~IsotopeWidget();
+		~IsotopeWidget(){};
+
+		/**
+		 * defines the dimension of the widget
+		 * @param size the size of the widget
+		 */
+		void setSize( int size ){
+			m_size = size;
+		}
+
+		int size() const {
+			return m_size;
+		}
+
+		/**
+		 * define the coordinate of this widget
+		 * @param p the coordinate
+		 */
+		void setPoint( QPoint p ){
+			m_point = p;
+		}
+
+		/**
+		 * in this method the widget paints itself
+		 */
+		void drawSelf( QPainter* p );
 
 		/**
 		 * if a IsotopeWidget is activated it will
@@ -127,26 +171,15 @@ class IsotopeWidget : public QWidget
 		 */
 		void activate( bool a ){
 			m_active = a;
-			update();
 		}
-
-		/**
-		 * @return the Istope of this widget
-		 */
-		Isotope* isotope()const{
-			return m_isotope;
-		}
-
-	protected slots:
-		virtual void mousePressEvent ( QMouseEvent * e );				
-
-	protected:
-		virtual void paintEvent(QPaintEvent*);
 
 	private:
 		Isotope* m_isotope;
 
 		QColor m_color;
+
+		QPoint m_point;
+		int m_size;
 
 		bool m_active;
 
@@ -160,21 +193,16 @@ class IsotopeWidget : public QWidget
 class Decay
 {
 	public:
-		Decay( NuclideBoard* parent, Isotope* isotope, Element* element );
-		~Decay(){};
+		Decay(QValueList<IsotopeWidget*> list){
+			m_list = list;
+		};
 
-		void showDecay();
-		void hideDecay();
+		~Decay(){};
 
 	private:
 		QValueList<IsotopeWidget*> m_list;
-		QValueList<Element*> m_elements;
-		Isotope* m_startIsotope;
-		Element* m_startElement;
-		NuclideBoard* m_parent;
-	
-		void buildDecayRow();
-		Isotope* getIsotope( int protones, int neutrons );
+
+	private:
 };
 
 class NuclideBoardDialog : public KDialogBase
@@ -186,12 +214,6 @@ class NuclideBoardDialog : public KDialogBase
 
 	private:
 		QSpinBox *spin1, *spin2;
-	
-	private slots:
-		/**
-		 * invokes the help for this widget
-		 */
-		void slotHelp();
 };
 
 

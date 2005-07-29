@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64px"
+   height="64px"
+   id="svg1337"
+   sodipodi:version="0.32"
+   inkscape:version="0.42"
+   sodipodi:docbase="C:\Documents and Settings\Owner\Desktop\Lee\linux\kde-artists\kalzium"
+   sodipodi:docname="eqchem.svg">
+  <defs
+     id="defs1339">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient25747"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.605657,0.000000,0.000000,0.416777,-21.77831,10.73699)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient25744"
+       gradientTransform="scale(1.486046,0.672927)"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="pad" />
+    <linearGradient
+       id="linearGradient24212">
+      <stop
+         style="stop-color:#fcee01;stop-opacity:1;"
+         offset="0"
+         id="stop24214" />
+      <stop
+         style="stop-color:#fcee01;stop-opacity:0;"
+         offset="1"
+         id="stop24216" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient1623"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.322421,0.000000,0.000000,0.229858,29.71475,13.57220)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient25738">
+      <stop
+         style="stop-color:#fcf2e6;stop-opacity:1;"
+         offset="0"
+         id="stop25740" />
+      <stop
+         style="stop-color:#fcf2e6;stop-opacity:0;"
+         offset="1"
+         id="stop25742" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient1625"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient1387"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.431241,0.000000,0.000000,0.362252,20.99995,25.56676)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient1389"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient1391"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.218322,0.000000,0.000000,0.168798,42.79290,27.74815)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient1393"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient1409"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.605657,0.000000,0.000000,0.416777,-7.652525,46.73698)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient1411"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24212"
+       id="linearGradient1423"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.322421,0.000000,0.000000,0.229858,21.69727,49.93023)"
+       x1="66.575195"
+       y1="18.705542"
+       x2="66.575188"
+       y2="8.7529297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25738"
+       id="linearGradient1425"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.486046,0.672927)"
+       spreadMethod="pad"
+       x1="42.213173"
+       y1="11.958027"
+       x2="42.132103"
+       y2="22.406782" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.8890873"
+     inkscape:cx="32.000000"
+     inkscape:cy="32.000000"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:document-units="px"
+     inkscape:grid-bbox="true"
+     inkscape:window-width="704"
+     inkscape:window-height="510"
+     inkscape:window-x="88"
+     inkscape:window-y="88" />
+  <metadata
+     id="metadata1342">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <g
+       id="g1438">
+      <rect
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         style="fill:#000006;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#fc5f01;stroke-width:0.00000000;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000"
+         id="rect12239"
+         width="64.000000"
+         height="64.000000"
+         x="0.00000000"
+         y="0.00000000"
+         rx="5.0000000"
+         ry="5.0000005" />
+      <rect
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#fc5f01;stroke-width:0.00000000;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000"
+         id="rect13761"
+         width="60.153664"
+         height="59.597881"
+         x="1.6394386"
+         y="2.4832497"
+         rx="5.0000000"
+         ry="5.0000005" />
+      <path
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         transform="matrix(0.816918,0.000000,0.000000,0.816144,-35.60202,1.083541)"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         sodipodi:ry="12.125000"
+         sodipodi:rx="12.375000"
+         sodipodi:cy="17.000000"
+         sodipodi:cx="63.000000"
+         id="path3937"
+         style="fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         transform="matrix(0.728099,0.000000,0.000000,0.725951,-29.92579,2.560884)"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         sodipodi:ry="12.125000"
+         sodipodi:rx="12.375000"
+         sodipodi:cy="17.000000"
+         sodipodi:cx="63.000000"
+         id="path22688"
+         style="fill:#fc5f01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         transform="matrix(0.669850,0.000000,0.000000,0.667875,-26.25574,3.548178)"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         sodipodi:ry="12.125000"
+         sodipodi:rx="12.375000"
+         sodipodi:cy="17.000000"
+         sodipodi:cx="63.000000"
+         id="path23448"
+         style="fill:#fc8701;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         sodipodi:nodetypes="ccccc"
+         id="path23450"
+         d="M 23.873834,16.750466 C 23.873834,19.568564 20.086470,23.000000 15.991194,23.000000 C 11.895913,23.000000 8.0157929,19.128456 8.0157929,16.310358 C 8.0157929,13.492266 11.895913,12.789504 15.991194,12.789504 C 20.086470,12.789504 23.873834,13.932372 23.873834,16.750466 z "
+         style="fill:url(#linearGradient25747);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000" />
+      <path
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         transform="matrix(0.979226,0.000000,0.000000,1.349663,-46.60327,-3.264026)"
+         d="M 70.500000 10.625000 A 6.6250000 3.0000000 0 1 1  57.250000,10.625000 A 6.6250000 3.0000000 0 1 1  70.500000 10.625000 z"
+         sodipodi:ry="3.0000000"
+         sodipodi:rx="6.6250000"
+         sodipodi:cy="10.625000"
+         sodipodi:cx="63.875000"
+         id="path24978"
+         style="opacity:0.86910993;fill:url(#linearGradient25744);fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         transform="matrix(0.441773,0.000000,0.000000,0.457021,21.85215,8.145685)"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         sodipodi:ry="12.125000"
+         sodipodi:rx="12.375000"
+         sodipodi:cy="17.000000"
+         sodipodi:cx="63.000000"
+         id="path3939"
+         style="fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         transform="matrix(0.387608,0.000000,0.000000,0.400374,25.37735,9.062973)"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         sodipodi:ry="12.125000"
+         sodipodi:rx="12.375000"
+         sodipodi:cy="17.000000"
+         sodipodi:cx="63.000000"
+         id="path1615"
+         style="fill:#fc5f01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         transform="matrix(0.356595,0.000000,0.000000,0.368342,27.33087,9.607536)"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         sodipodi:ry="12.125000"
+         sodipodi:rx="12.375000"
+         sodipodi:cy="17.000000"
+         sodipodi:cx="63.000000"
+         id="path1617"
+         style="fill:#fc8701;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         sodipodi:nodetypes="ccccc"
+         id="path1619"
+         d="M 54.017475,16.888730 C 54.017475,18.442944 52.001200,20.335425 49.821092,20.335425 C 47.640985,20.335425 45.575420,18.200224 45.575420,16.646002 C 45.575420,15.091788 47.640985,14.704207 49.821092,14.704207 C 52.001200,14.704207 54.017475,15.334514 54.017475,16.888730 z "
+         style="fill:url(#linearGradient1623);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000" />
+      <path
+         inkscape:export-ydpi="90.099998"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         transform="matrix(0.521293,0.000000,0.000000,0.744356,16.49906,5.727453)"
+         d="M 70.500000 10.625000 A 6.6250000 3.0000000 0 1 1  57.250000,10.625000 A 6.6250000 3.0000000 0 1 1  70.500000 10.625000 z"
+         sodipodi:ry="3.0000000"
+         sodipodi:rx="6.6250000"
+         sodipodi:cy="10.625000"
+         sodipodi:cx="63.875000"
+         id="path1621"
+         style="opacity:0.86910993;fill:url(#linearGradient1625);fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         sodipodi:type="arc" />
+      <text
+         transform="scale(1.011920,0.988220)"
+         sodipodi:linespacing="100.00000%"
+         id="text1395"
+         y="25.202242"
+         x="25.883236"
+         style="font-size:28.333752px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:100.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bookman Old Style"
+         xml:space="preserve"><tspan
+           y="25.202242"
+           x="25.883236"
+           id="tspan1397"
+           sodipodi:role="line">+</tspan></text>
+      <path
+         sodipodi:type="arc"
+         style="fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path1399"
+         sodipodi:cx="63.000000"
+         sodipodi:cy="17.000000"
+         sodipodi:rx="12.375000"
+         sodipodi:ry="12.125000"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         transform="matrix(0.816918,0.000000,0.000000,0.816144,-21.47625,37.08354)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#fc5f01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path1401"
+         sodipodi:cx="63.000000"
+         sodipodi:cy="17.000000"
+         sodipodi:rx="12.375000"
+         sodipodi:ry="12.125000"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         transform="matrix(0.728099,0.000000,0.000000,0.725951,-15.80001,38.56088)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#fc8701;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path1403"
+         sodipodi:cx="63.000000"
+         sodipodi:cy="17.000000"
+         sodipodi:rx="12.375000"
+         sodipodi:ry="12.125000"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         transform="matrix(0.669850,0.000000,0.000000,0.667875,-12.12996,39.54817)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         style="fill:url(#linearGradient1409);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         d="M 37.999611,52.750466 C 37.999611,55.568564 34.212247,59.000000 30.116971,59.000000 C 26.021690,59.000000 22.141570,55.128456 22.141570,52.310358 C 22.141570,49.492266 26.021690,48.789504 30.116971,48.789504 C 34.212247,48.789504 37.999611,49.932372 37.999611,52.750466 z "
+         id="path1405"
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         sodipodi:type="arc"
+         style="opacity:0.86910993;fill:url(#linearGradient1411);fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path1407"
+         sodipodi:cx="63.875000"
+         sodipodi:cy="10.625000"
+         sodipodi:rx="6.6250000"
+         sodipodi:ry="3.0000000"
+         d="M 70.500000 10.625000 A 6.6250000 3.0000000 0 1 1  57.250000,10.625000 A 6.6250000 3.0000000 0 1 1  70.500000 10.625000 z"
+         transform="matrix(0.979226,0.000000,0.000000,1.349663,-32.47749,32.73597)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path1413"
+         sodipodi:cx="63.000000"
+         sodipodi:cy="17.000000"
+         sodipodi:rx="12.375000"
+         sodipodi:ry="12.125000"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         transform="matrix(0.441773,0.000000,0.000000,0.457021,13.83466,44.50372)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#fc5f01;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path1415"
+         sodipodi:cx="63.000000"
+         sodipodi:cy="17.000000"
+         sodipodi:rx="12.375000"
+         sodipodi:ry="12.125000"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         transform="matrix(0.387608,0.000000,0.000000,0.400374,17.35987,45.42101)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#fc8701;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path1417"
+         sodipodi:cx="63.000000"
+         sodipodi:cy="17.000000"
+         sodipodi:rx="12.375000"
+         sodipodi:ry="12.125000"
+         d="M 75.375000 17.000000 A 12.375000 12.125000 0 1 1  50.625000,17.000000 A 12.375000 12.125000 0 1 1  75.375000 17.000000 z"
+         transform="matrix(0.356595,0.000000,0.000000,0.368342,19.31338,45.96557)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         style="fill:url(#linearGradient1423);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         d="M 46.000000,53.246766 C 46.000000,54.800980 43.983725,56.693461 41.803617,56.693461 C 39.623510,56.693461 37.557945,54.558260 37.557945,53.004038 C 37.557945,51.449824 39.623510,51.062243 41.803617,51.062243 C 43.983725,51.062243 46.000000,51.692550 46.000000,53.246766 z "
+         id="path1419"
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <path
+         sodipodi:type="arc"
+         style="opacity:0.86910993;fill:url(#linearGradient1425);fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000"
+         id="path1421"
+         sodipodi:cx="63.875000"
+         sodipodi:cy="10.625000"
+         sodipodi:rx="6.6250000"
+         sodipodi:ry="3.0000000"
+         d="M 70.500000 10.625000 A 6.6250000 3.0000000 0 1 1  57.250000,10.625000 A 6.6250000 3.0000000 0 1 1  70.500000 10.625000 z"
+         transform="matrix(0.521293,0.000000,0.000000,0.744356,8.481580,42.08549)"
+         inkscape:export-filename="C:\DOCUME~1\Owner\Desktop\Lee\linux\KDE-AR~1\kalzium\discovery-date-28x28.png"
+         inkscape:export-xdpi="90.099998"
+         inkscape:export-ydpi="90.099998" />
+      <text
+         transform="matrix(0.000000,1.155259,-0.865607,0.000000,0.000000,0.000000)"
+         sodipodi:linespacing="100.00000%"
+         id="text1431"
+         y="-32.930824"
+         x="20.049627"
+         style="font-size:29.084234px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:100.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bookman Old Style"
+         xml:space="preserve"><tspan
+           y="-32.930824"
+           x="20.049627"
+           id="tspan1433"
+           sodipodi:role="line">-</tspan></text>
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="rect1435"
+         d="M 30.915263,29.945312 L 38.524308,29.945312 L 34.925436,40.745257 L 34.822611,40.745257 L 30.915263,29.945312 z "
+         style="fill:#000000;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.00000000;stroke-miterlimit:0.00000000;stroke-opacity:1.0000000" />
+    </g>
+  </g>
+</svg>
