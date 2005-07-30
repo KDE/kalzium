@@ -30,6 +30,7 @@ class QDomDocument;
 class QPainter;
 class QPoint;
 class QFont;
+class QRect;
 class Spectrum;
 class Isotope;
 
@@ -398,7 +399,15 @@ class Element{
 		 */
 		int m_ElementNumber;
 
-		int maxSize( const QFont );
+		/**
+		 * @param string the string which is measured
+		 * @param maxW the maximum allowed width
+		 * @param maxH the maximum allowed height
+		 * @param rect the rect needed for measurement
+		 * @param font the used font
+		 * @param painter the used painter
+		 */
+		int maxSize( const QString& string, int maxW, int maxH, const QRect& rect, QFont font, QPainter* painter );
 
 		Spectrum *m_spectrum;
 
