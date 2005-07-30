@@ -15,11 +15,11 @@
     <property name="caption">
         <string>TimeWidget</string>
     </property>
-    <grid>
+    <vbox>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <spacer row="0" column="1">
+        <spacer>
             <property name="name">
                 <cstring>spacer3</cstring>
             </property>
@@ -36,7 +36,7 @@
                 </size>
             </property>
         </spacer>
-        <widget class="QLayoutWidget" row="1" column="0" rowspan="1" colspan="2">
+        <widget class="QLayoutWidget">
             <property name="name">
                 <cstring>layout3</cstring>
             </property>
@@ -47,6 +47,14 @@
                 <widget class="QLabel">
                     <property name="name">
                         <cstring>lbl1_2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
                     </property>
                     <property name="text">
                         <string>Year:</string>
@@ -71,7 +79,7 @@
                 </spacer>
             </hbox>
         </widget>
-        <widget class="QLayoutWidget" row="2" column="0" rowspan="1" colspan="2">
+        <widget class="QLayoutWidget">
             <property name="name">
                 <cstring>layout5</cstring>
             </property>
@@ -108,7 +116,7 @@
                     </property>
                     <property name="sizeHint">
                         <size>
-                            <width>21</width>
+                            <width>5</width>
                             <height>21</height>
                         </size>
                     </property>
@@ -129,9 +137,9 @@
                 </widget>
             </hbox>
         </widget>
-        <spacer row="3" column="0">
+        <spacer>
             <property name="name">
-                <cstring>spacer2</cstring>
+                <cstring>verticalSpacer</cstring>
             </property>
             <property name="orientation">
                 <enum>Vertical</enum>
@@ -146,7 +154,7 @@
                 </size>
             </property>
         </spacer>
-        <widget class="QTextEdit" row="4" column="0" rowspan="1" colspan="2">
+        <widget class="QTextEdit">
             <property name="name">
                 <cstring>text</cstring>
             </property>
@@ -165,7 +173,7 @@ of the elements</string>
                 <enum>WidgetWidth</enum>
             </property>
         </widget>
-    </grid>
+    </vbox>
 </widget>
 <customwidgets>
 </customwidgets>

@@ -1,17 +1,11 @@
 #include "timewidget_impl.h"
 
+#include <qlayout.h>
+#include <qsizepolicy.h>
 #include <qslider.h>
 #include <qtextedit.h>
-#include <qvaluelist.h>
 
-#include <kdebug.h>
 #include <knuminput.h>
-#include <klocale.h>
-
-#include <math.h>
-
-#include "element.h"
-#include "kalziumdataobject.h"
 
 TimeWidgetIMPL::TimeWidgetIMPL( QWidget *parent, const char* name )
 	: TimeWidget( parent, name )
@@ -26,7 +20,8 @@ TimeWidgetIMPL::TimeWidgetIMPL( QWidget *parent, const char* name )
 void TimeWidgetIMPL::slotChanged( int value )
 {
 	( void )value;
-	text->hide(  );
+	text->hide();
+	verticalSpacer->changeSize( 21, 5, QSizePolicy::Fixed, QSizePolicy::Expanding );
 }
 
 #include "timewidget_impl.moc"
