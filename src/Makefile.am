@@ -49,6 +49,7 @@ EXTRA_DIST = main.cpp \
 		detailedgraphicaloverview.cpp detailedgraphicaloverview.h \
 		molcalcwidget.cpp molcalcwidget.h \
 		timewidget.ui \
+		timewidget_impl.cpp timewidget_impl.h \
 		somwidget.ui \
 		somwidget_impl.cpp somwidget_impl.h \
 		spectrum.cpp spectrum.h \
