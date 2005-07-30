@@ -103,6 +103,12 @@
                     <property name="orientation">
                         <enum>Horizontal</enum>
                     </property>
+                    <property name="tickmarks">
+                        <enum>Below</enum>
+                    </property>
+                    <property name="tickInterval">
+                        <number>50</number>
+                    </property>
                 </widget>
                 <spacer>
                     <property name="name">
