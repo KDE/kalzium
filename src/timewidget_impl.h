@@ -16,6 +16,9 @@
 
 #include "timewidget.h"
 
+/**
+ * @author Carsten Niehaus
+ */
 class TimeWidgetIMPL : public TimeWidget
 {
 	Q_OBJECT
@@ -26,6 +29,13 @@ class TimeWidgetIMPL : public TimeWidget
 		 * @param name The name of this widget
 		 */
 		TimeWidgetIMPL( QWidget *parent = 0, const char* name = 0 );
+
+	public slots:
+		/**
+		 * this slot will react to the new year
+		 * @param value the new year
+		 */
+		void slotChanged( int value );
 };
 #endif // TIMEWIDGET_IMPL_H
 

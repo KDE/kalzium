@@ -19,6 +19,7 @@ kalzium_SOURCES = eqresult.cpp eqchemview.cpp kalzium.cpp \
 			molcalcwidgetbase.ui \
 			molcalcwidget.cpp \
 			timewidget.ui \
+			timewidget_impl.cpp \
 			somwidget.ui \
 			somwidget_impl.cpp \
 			kalziumtip.cpp \

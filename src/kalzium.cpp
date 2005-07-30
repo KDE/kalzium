@@ -26,7 +26,7 @@
 #include "periodictableview.h"
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
-#include "timewidget.h"
+#include "timewidget_impl.h"
 #include "somwidget_impl.h"
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
@@ -48,6 +48,7 @@
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
 #include <kdialogbase.h>
+#include <knuminput.h>
 
 #include <kdeeduglossary.h>
 
@@ -232,9 +233,13 @@ void Kalzium::setupSidebars()
 	m_calcWidget = new MolcalcWidget( m_dockWin, "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
 
-	m_timeWidget = new TimeWidget( this, "TimeWidget" );
+	m_timeWidget = new TimeWidgetIMPL( this, "TimeWidget" );
 	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ), 
 			m_PerodicTableView, 						SLOT( setDate( int ) ) );
+	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ), 
+			m_timeWidget, 						SLOT( slotChanged( int ) ) );
+	connect( m_timeWidget->Number1, SIGNAL( valueChanged( int ) ), 
+			m_timeWidget, 						SLOT( slotChanged( int ) ) );
 	m_toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
 
 	m_somWidget = new SOMWidgetIMPL( this, "somWidget" );

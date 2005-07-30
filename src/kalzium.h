@@ -31,7 +31,7 @@ class DetailedInfoDlg;
 class PerodicTableView;
 class MolcalcWidget;
 class DetailedGraphicalOverview;
-class TimeWidget;
+class TimeWidgetIMPL;
 class SOMWidgetIMPL;
 class GlossaryDialog;
 class NuclideBoard;
@@ -112,7 +112,7 @@ class Kalzium : public KMainWindow
 
 		MolcalcWidget *m_calcWidget;
 
-		TimeWidget *m_timeWidget;
+		TimeWidgetIMPL *m_timeWidget;
 		
 		SOMWidgetIMPL *m_somWidget;
 
