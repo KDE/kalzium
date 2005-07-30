@@ -352,21 +352,21 @@
 			 </sect2>
 			 <sect2 id="infodialog_spectrum">
 				 <title>Spectrum</title>
-				 <para>If Kalzium has the information about the emission-spectrum of
-					 the current element this page will show it at the top. From left to
-				 right the displayed wavelength increases. The wavelength between 380
+				 <para>If Kalzium has information about the emission-spectrum of
+					 the current element, this page will display it at the top. The displayed wavelength increases from left to
+				 right. The wavelength between 380
 				 nanometer (nm) and 780 nm have the colors of the visual light
-				 spectrum. For example, 550 nm is green light.</para>
+				 spectrum. For example, 550 nm is the color green.</para>
 				 <para>There are two ways to zoom into the spectrum. With the
-					 spinboxes displayed right below the spectrum the first and the last
+					 spinboxes displayed right below the spectrum, the first and the last
 					 wavelength of the spectrum are defined. Furthermore, you can hold
-					 the left mousebutton pressed and move on the spectrum. You will see
+					 the left mouse button pressed whilst moving the mouse cursor over the spectrum. You will see
 					 the area in which Kalzium would zoom into marked with a white line.
-					 If you stop pressing the left mouse button Kalzium will zoom into
-					 the marked area.</para>
+					 Once you release the left mouse button, Kalzium will zoom into
+					 the selected area.</para>
 				 <para>At the bottom of the page is the <guilabel>Export Spectrum as 
-						 Image</guilabel>-button. With it you can safe the current spectrum
-				 to a graphic file.</para>
+						 Image</guilabel>-button. With it you can save the current spectrum
+				 as an image file.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
