@@ -150,7 +150,7 @@ void Kalzium::setupActions()
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
 #ifdef HAVE_FACILE
-	m_EQSolverAction = new KAction(i18n("&Equation Solver..."), "eqsolver", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "view_eqsolver");
+	m_EQSolverAction = new KAction(i18n("&Equation Solver..."), "eqchem", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "view_eqsolver");
 #endif
 	
 	/*
@@ -158,7 +158,7 @@ void Kalzium::setupActions()
 	 **/
 	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
-	m_pNuclideBoardAction = new KAction(i18n("&Nuclideboard..."), "nuclideboard", 0, this, SLOT(slotNuclideBoard()), actionCollection(), "nuclideboard");
+	m_pNuclideBoardAction = new KAction(i18n("&Nuclideboard..."), "isotopemap", 0, this, SLOT(slotNuclideBoard()), actionCollection(), "nuclideboard");
 	
 	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
