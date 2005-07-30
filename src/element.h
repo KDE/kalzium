@@ -29,6 +29,7 @@ class Element;
 class QDomDocument;
 class QPainter;
 class QPoint;
+class QFont;
 class Spectrum;
 class Isotope;
 
@@ -396,6 +397,8 @@ class Element{
 		 * the integer num represents the number of the element
 		 */
 		int m_ElementNumber;
+
+		int maxSize( const QFont );
 
 		Spectrum *m_spectrum;
 

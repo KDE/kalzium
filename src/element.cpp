@@ -28,6 +28,7 @@
 #include <qfile.h>
 #include <qpainter.h>
 #include <qregexp.h>
+#include <qfontmetrics.h>
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -253,7 +254,8 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	
 	QString text;
 	QFont symbol_font = p->font();
-	symbol_font.setPointSize( 18 );
+
+	symbol_font.setPointSize( 10 );
 	QFont f = p->font();
 	f.setPointSize( 9 );
 		
@@ -273,6 +275,11 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	//border
 	p->setPen( Qt::black );
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
+}
+
+int Element::maxSize( const QFont font )
+{
+	return 16;
 }
 	
 QColor Element::currentColor( const double temp )
@@ -357,15 +364,42 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 
 	p->setPen( elementColor() );
 	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, elementColor() );
+	p->setPen( Qt::black );
 	
 	QString text;
 	QFont symbol_font = p->font();
-	symbol_font.setPointSize( 18 );
+	
+	bool goodSizeFound = false;
+	const int max = ELEMENTSIZE-10;
+		
+	int size = 18;
+	
+	while ( !goodSizeFound )
+	{
+		if ( size < 1 ) return; //miscalculation, better do nothing and don't end in a 
+		                        //endless loop
+		symbol_font.setPointSize( size );
+		p->setFont( symbol_font );
+		QRect rect = p->boundingRect( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+		int wr = rect.width();
+		int hr = rect.height();
+		if ( wr <= max && hr <= max )
+		{
+			p->drawRect( X+5,Y+5,wr,hr );
+			kdDebug() << "size:: " << size << " the rect: " << rect << endl;
+			if ( !simple )
+				p->drawText( X+5,Y+5, max,max,Qt::AlignCenter, symbol() );
+			else
+				p->drawText( X+5,Y+5, max,max,Qt::AlignHCenter, symbol() );
+			goodSizeFound = true;
+		}else
+			size--;
+	}
+
 	QFont f = p->font();
 	f.setPointSize( 9 );
 		
 	p->setFont( f );
-	p->setPen( Qt::black );
 
 	if ( !simple )
 	{//the user only wants a simple periodic table, don't weight the cell
@@ -389,8 +423,6 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 				text = i18n( "Crystalsystem hexagonal dense packed", "hdp" );
 			else if ( structure == "ccp" )
 				text = i18n( "Crystalsystem cubic close packed", "ccp" );
-//			else
-//				text = QString::null;
 		}
 		else
 			text = QString::number( strippedValue( mass( ) ) );
@@ -400,13 +432,7 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	text = QString::number( number() );
 	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, text );
 
-	p->setFont( symbol_font );
-	if ( !simple )
-		p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
-	else
-		p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignHCenter, symbol() );
 	
-	p->setPen( Qt::black );
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
