@@ -644,7 +644,7 @@
                                             <cstring>textLabel2_2_2_2</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Alkali Metals:</string>
+                                            <string>Alkali metals:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -670,7 +670,7 @@
                                             <cstring>textLabel8_2</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Rare Earth:</string>
+                                            <string>Rare earth:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -696,7 +696,7 @@
                                             <cstring>textLabel7_2</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Non-Metals</string>
+                                            <string>Non-metals:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -722,7 +722,7 @@
                                             <cstring>textLabel6_2</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Alkaline Earth Metals:</string>
+                                            <string>Alkaline earth metals:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -748,7 +748,7 @@
                                             <cstring>textLabel5_2_2</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Other Metals:</string>
+                                            <string>Other metals:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -800,7 +800,7 @@
                                             <cstring>textLabel3_2_2</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Transition Metals:</string>
+                                            <string>Transition metals:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">
@@ -826,7 +826,7 @@
                                             <cstring>textLabel2_2_3</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Noble Gases:</string>
+                                            <string>Noble gases:</string>
                                         </property>
                                     </widget>
                                     <widget class="KColorButton">

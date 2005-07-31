@@ -37,7 +37,7 @@
                         <cstring>textLabel1_2</cstring>
                     </property>
                     <property name="text">
-                        <string>Average Value:</string>
+                        <string>Average value:</string>
                     </property>
                 </widget>
                 <widget class="QLabel">
@@ -80,7 +80,7 @@
                         <cstring>textLabel3_2</cstring>
                     </property>
                     <property name="text">
-                        <string>Minimum Value:</string>
+                        <string>Minimum value:</string>
                     </property>
                 </widget>
                 <widget class="QLabel">
@@ -125,7 +125,7 @@
                         <cstring>textLabel2</cstring>
                     </property>
                     <property name="text">
-                        <string>Maximum Value:</string>
+                        <string>Maximum value:</string>
                     </property>
                 </widget>
                 <widget class="QLabel">
@@ -188,7 +188,7 @@
                 <cstring>groupBox1</cstring>
             </property>
             <property name="title">
-                <string>Y-axis:</string>
+                <string>Y-axis</string>
             </property>
             <grid>
                 <property name="name">
@@ -217,22 +217,22 @@
                     </item>
                     <item>
                         <property name="text">
-                            <string>Melting point</string>
+                            <string>Melting Point</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Boiling point</string>
+                            <string>Boiling Point</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Atomic radius</string>
+                            <string>Atomic Radius</string>
                         </property>
                     </item>
                     <item>
                         <property name="text">
-                            <string>Covalent radius</string>
+                            <string>Covalent Radius</string>
                         </property>
                     </item>
                     <property name="name">
