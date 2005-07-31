@@ -294,23 +294,36 @@ QString DetailedInfoDlg::isotopeTable()
 //		if ( ( *it )->decayenergy() > 0.0 )
 //			html.append( i18n( "%1 MeV" ).arg(( *it )->decayenergy() ) );
 		if ( ( *it )->alphapercentage() > 0.0 ){
+			if ( ( *it )->alphadecay() > 0.0 )
+			html.append( i18n( "%1 MeV" ).arg(( *it )->alphadecay() ) );
 			html.append( i18n( " %1" ).arg( QChar( 945 ) ) );
 			if ( ( *it )->alphapercentage() < 100.0)
 				html.append( i18n( "(%1%)" ).arg(( *it )->alphapercentage() ));
+			if ( ( *it )->betaminuspercentage() > 0.0 || ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0)
+			html.append( i18n( ", " ) );
 			}
 		if ( ( *it )->betaminuspercentage() > 0.0 ){
+			if ( ( *it )->betaminusdecay() > 0.0 )
+				html.append( i18n( "%1 MeV" ).arg(( *it )->betaminusdecay() ) );
 			html.append( i18n( " %1" ).arg( QChar( 946 ) ) );
 			if ( ( *it )->betaminuspercentage() < 100.0)
 				html.append( i18n( "(%1%)" ).arg(( *it )->betaminuspercentage() ));
+			if ( ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0 )
+			html.append( i18n( ", " ) );
 			}
 		if ( ( *it )->betapluspercentage() > 0.0 ){
+			if ( ( *it )->betaplusdecay() > 0.0 )
+				html.append( i18n( "%1 MeV" ).arg(( *it )->betaplusdecay() ) );
 			html.append( i18n( " %1%2" ).arg(QChar( 946 ) ).arg( i18n("<sup>+</sup>") ) );
 			if ( ( *it )->betapluspercentage() < 100.0)
 				html.append( i18n( "(%1%)" ).arg(( *it )->betapluspercentage() ));
+			html.append( i18n( " " ) );
 			}	
 		if ( ( *it )->ecpercentage() > 0.0 ){
+			if ( ( *it )->ecdecay() > 0.0 )
+				html.append( i18n( "%1 MeV" ).arg(( *it )->ecdecay() ) );
 			html.append( i18n( "Acronym of Electron Capture"," EC" ) );
-			if ( ( *it )->ecpercentage() < 100.0)
+			if ( ( *it )->ecpercentage() < 100.0 && ( *it )->ecpercentage()!=( *it )->betapluspercentage() )
 				html.append( i18n( "(%1%)" ).arg(( *it )->ecpercentage() ));
 			}
 		html.append( "</td><td>" );
