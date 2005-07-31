@@ -52,7 +52,7 @@
                         <cstring>label1</cstring>
                     </property>
                     <property name="text">
-                        <string>&amp;Minimum Value:</string>
+                        <string>&amp;Minimum value:</string>
                     </property>
                     <property name="buddy" stdset="0">
                         <cstring>minimumValue</cstring>
@@ -83,7 +83,7 @@
                         <cstring>label2</cstring>
                     </property>
                     <property name="text">
-                        <string>Maximum &amp;Value:</string>
+                        <string>Maximum &amp;value:</string>
                     </property>
                     <property name="buddy" stdset="0">
                         <cstring>maximumValue</cstring>
