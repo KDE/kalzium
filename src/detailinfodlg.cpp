@@ -298,16 +298,16 @@ QString DetailedInfoDlg::isotopeTable()
 			if ( ( *it )->alphapercentage() < 100.0)
 				html.append( i18n( "(%1%)" ).arg(( *it )->alphapercentage() ));
 			}
-		if ( ( *it )->betapluspercentage() > 0.0 ){
-			html.append( i18n( " %1%2" ).arg(QChar( 946 ) ).arg( i18n("<sup>+</sup>") ) );
-			if ( ( *it )->betapluspercentage() < 100.0)
-				html.append( i18n( "(%1%)" ).arg(( *it )->betapluspercentage() ));
-			}	
 		if ( ( *it )->betaminuspercentage() > 0.0 ){
 			html.append( i18n( " %1" ).arg( QChar( 946 ) ) );
 			if ( ( *it )->betaminuspercentage() < 100.0)
 				html.append( i18n( "(%1%)" ).arg(( *it )->betaminuspercentage() ));
 			}
+		if ( ( *it )->betapluspercentage() > 0.0 ){
+			html.append( i18n( " %1%2" ).arg(QChar( 946 ) ).arg( i18n("<sup>+</sup>") ) );
+			if ( ( *it )->betapluspercentage() < 100.0)
+				html.append( i18n( "(%1%)" ).arg(( *it )->betapluspercentage() ));
+			}	
 		if ( ( *it )->ecpercentage() > 0.0 ){
 			html.append( i18n( "Acronym of Electron Capture"," EC" ) );
 			if ( ( *it )->ecpercentage() < 100.0)

@@ -35,7 +35,6 @@ Isotope::Isotope( int neutrons, int protones,  double percentage, double weight,
 	m_betaminusdecay = betaminusdecay;
 	m_ecdecay = ecdecay;
 	
-//	m_decayenergy = decayenergy;
 	m_spin = spin;
 	m_magmoment = magmoment;
 

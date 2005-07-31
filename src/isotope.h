@@ -113,11 +113,7 @@ class Isotope
 		bool ecdecay() const{
 			return m_ecdecay;
 		}
-		
-	/*	double decayenergy() const{
-			return m_decayenergy;
-		}
-	*/	
+	
 		QString spin() const{
 			return m_spin;
 		}
@@ -205,7 +201,6 @@ class Isotope
 		///Specify if the decay is of this kind
 		bool  m_ecdecay;
 		
-//		double m_decayenergy;
 		
 		/**
 		*spin and parity
