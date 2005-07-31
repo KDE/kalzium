@@ -37,15 +37,14 @@ class Isotope
 				double weight, 
 				double halflife, 
 				QString format, 
-				bool alphadecay, 
-				bool betaplusdecay, 
-				bool betaminusdecay, 
-				bool ecdecay, 
+				double alphadecay, 
+				double betaplusdecay, 
+				double betaminusdecay, 
+				double ecdecay, 
 				double alphapercentage, 
 				double betapluspercentage, 
 				double betaminuspercentage, 
 				double ecpercentage, 
-			//	double decayenergy, 
 				QString spin, 
 				QString magmoment);
 
@@ -90,27 +89,30 @@ class Isotope
 		}
 		
 		/**
-		 * @return true if the isotopes decays in alpha rays
+		 * @return the energy of isotope's alpha decay 
 		 */
-		bool alphadecay() const{
+		double alphadecay() const{
 			return m_alphadecay;
 		}
 		
 		/**
-		 * @return true if the isotopes decays in beta plus rays
+		 * @return the energy of isotope's beta plus decay
 		 */
-		bool betaplusdecay() const{
+		double betaplusdecay() const{
 			return m_betaplusdecay;
 		}
 		
 		/**
-		 * @return true if the isotopes decays in beta-minus rays
+		 * @return the energy of isotope's beta-minus decay
 		 */
-		bool betaminusdecay() const{
+		double betaminusdecay() const{
 			return m_betaminusdecay;
 		}
 		
-		bool ecdecay() const{
+		/**
+		 * @return the energy of isotope's EC- decay
+		 */
+		double ecdecay() const{
 			return m_ecdecay;
 		}
 	
@@ -192,14 +194,14 @@ class Isotope
 		 */
 		int m_protones;
 	
-		///Specify if the decay is of this kind
-		bool  m_alphadecay;
-		///Specify if the decay is of this kind
-		bool  m_betaplusdecay;
-		///Specify if the decay is of this kind
-		bool  m_betaminusdecay;
-		///Specify if the decay is of this kind
-		bool  m_ecdecay;
+		///Specify if the decay is the energy
+		double  m_alphadecay;
+		///Specify if the decay is the energy
+		double  m_betaplusdecay;
+		///Specify if the decay is the energy
+		double  m_betaminusdecay;
+		///Specify if the decay is the energy
+		double  m_ecdecay;
 		
 		
 		/**

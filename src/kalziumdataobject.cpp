@@ -146,29 +146,24 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			double betapluspercentage = iso.attributeNode( "betapluspercentage" ).value().toDouble();
 			double betaminuspercentage = iso.attributeNode( "betaminuspercentage" ).value().toDouble();
 			double ecpercentage = iso.attributeNode( "ecpercentage" ).value().toDouble();
-			QString alphadecay = iso.attributeNode( "alphadecay" ).value();
-			QString betaplusdecay = iso.attributeNode( "betaplusdecay" ).value();
-			QString betaminusdecay = iso.attributeNode( "betaminusdecay" ).value();
-			QString ecdecay = iso.attributeNode( "ecdecay" ).value();
+			double alphadecay = iso.attributeNode( "alphadecay" ).value().toDouble();
+			double betaplusdecay = iso.attributeNode( "betaplusdecay" ).value().toDouble();
+			double betaminusdecay = iso.attributeNode( "betaminusdecay" ).value().toDouble();
+			double ecdecay = iso.attributeNode( "ecdecay" ).value().toDouble();
 			QString spin = iso.attributeNode( "spin" ).value();
 			QString magmoment = iso.attributeNode( "magmoment" ).value();
 			
-			bool alphadecay_ = false, betaminusdecay_ = false, betaplusdecay_ = false, ecdecay_ = false;
-			if ( betaplusdecay == "true" ) betaplusdecay_ = true;
-			if ( betaminusdecay == "true" ) betaminusdecay_ = true;
-			if ( ecdecay == "true" ) ecdecay_ = true;
-			if ( alphadecay == "true" ) alphadecay_ = true;
-			
+						
 			Isotope *isotope = new Isotope( neutrons, 
 					number, 
 					percentage, 
 					weight, 
 					halflife, 
 					format, 
-					alphadecay_, 
-					betaplusdecay_, 
-					betaminusdecay_, 
-					ecdecay_, 
+					alphadecay, 
+					betaplusdecay, 
+					betaminusdecay, 
+					ecdecay, 
 					alphapercentage, 
 					betapluspercentage, 
 					betaminuspercentage, 
