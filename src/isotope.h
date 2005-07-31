@@ -45,7 +45,7 @@ class Isotope
 				double betapluspercentage, 
 				double betaminuspercentage, 
 				double ecpercentage, 
-				double decayenergy, 
+			//	double decayenergy, 
 				QString spin, 
 				QString magmoment);
 
@@ -114,10 +114,10 @@ class Isotope
 			return m_ecdecay;
 		}
 		
-		double decayenergy() const{
+	/*	double decayenergy() const{
 			return m_decayenergy;
 		}
-		
+	*/	
 		QString spin() const{
 			return m_spin;
 		}
@@ -205,7 +205,7 @@ class Isotope
 		///Specify if the decay is of this kind
 		bool  m_ecdecay;
 		
-		double m_decayenergy;
+//		double m_decayenergy;
 		
 		/**
 		*spin and parity

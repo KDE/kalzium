@@ -150,7 +150,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			QString betaplusdecay = iso.attributeNode( "betaplusdecay" ).value();
 			QString betaminusdecay = iso.attributeNode( "betaminusdecay" ).value();
 			QString ecdecay = iso.attributeNode( "ecdecay" ).value();
-			double decayenergy = iso.attributeNode( "decayenergy" ).value().toDouble();
+		//	double decayenergy = iso.attributeNode( "decayenergy" ).value().toDouble();
 			QString spin = iso.attributeNode( "spin" ).value();
 			QString magmoment = iso.attributeNode( "magmoment" ).value();
 			
@@ -174,7 +174,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 					betapluspercentage, 
 					betaminuspercentage, 
 					ecpercentage, 
-					decayenergy, 
+				//	decayenergy, 
 					spin, 
 					magmoment );
 			isolist.append( isotope );
