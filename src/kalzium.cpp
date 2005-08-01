@@ -159,7 +159,7 @@ void Kalzium::setupActions()
 	 **/
 	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
 	
-	m_pNuclideBoardAction = new KAction(i18n("&Nuclideboard..."), "isotopemap", 0, this, SLOT(slotNuclideBoard()), actionCollection(), "nuclideboard");
+	m_pNuclideBoardAction = new KAction(i18n("&Nuclide Board..."), "isotopemap", 0, this, SLOT(slotNuclideBoard()), actionCollection(), "nuclideboard");
 	
 	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
 
