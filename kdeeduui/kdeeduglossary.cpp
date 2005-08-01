@@ -22,12 +22,17 @@
 
 #include <qfile.h>
 #include <qlabel.h>
-#include <qheader.h>
+#include <q3header.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
 #include <qsplitter.h>
 #include <qstringlist.h>
 #include <qtoolbutton.h>
+//Added by qt3to4:
+#include <QKeyEvent>
+#include <QHBoxLayout>
+#include <Q3ValueList>
+#include <QVBoxLayout>
 
 Glossary::Glossary()
 {
@@ -49,7 +54,7 @@ bool Glossary::loadLayout( QDomDocument &Document, const KURL& url )
 		return false;
 	}
 
-        if (!layoutFile.open(IO_ReadOnly))
+        if (!layoutFile.open(QIODevice::ReadOnly))
                 return false;
 
         ///Check if document is well-formed
@@ -80,7 +85,7 @@ Glossary* Glossary::readFromXML( const KURL& url, const QString& path )
 
 	if ( glossary->loadLayout( doc, url ) )
 	{
-		QValueList<GlossaryItem*> itemList;
+		Q3ValueList<GlossaryItem*> itemList;
 		itemList = glossary->readItems( doc );
 		glossary->setItemlist( itemList );
 		glossary->fixImagePath();
@@ -92,8 +97,8 @@ Glossary* Glossary::readFromXML( const KURL& url, const QString& path )
 void Glossary::fixImagePath()
 {
 	kdDebug() << "Glossary::fixImagePath()" << endl;
-	QValueList<GlossaryItem*>::iterator it = m_itemlist.begin();
-	const QValueList<GlossaryItem*>::iterator itEnd = m_itemlist.end();
+	Q3ValueList<GlossaryItem*>::iterator it = m_itemlist.begin();
+	const Q3ValueList<GlossaryItem*>::iterator itEnd = m_itemlist.end();
 	QString path = m_picturepath;
 	QString firstpart = "<img src=\"";
 	firstpart += path;
@@ -105,9 +110,9 @@ void Glossary::fixImagePath()
 	}
 }
 	
-QValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
+Q3ValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 {
-	QValueList<GlossaryItem*> list;
+	Q3ValueList<GlossaryItem*> list;
 
 	QDomNodeList itemList;
 	QDomNodeList refNodeList;
@@ -206,7 +211,7 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent, const char *name)
 	m_htmlpart = new KHTMLPart( vs, "html-part" );
  
 	connect( m_htmlpart->browserExtension(), SIGNAL( openURLRequestDelayed( const KURL &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KURL &, const KParts::URLArgs & ) ) );
-	connect( m_glosstree, SIGNAL(clicked( QListViewItem * )), this, SLOT(slotClicked( QListViewItem * )));
+	connect( m_glosstree, SIGNAL(clicked( Q3ListViewItem * )), this, SLOT(slotClicked( Q3ListViewItem * )));
 	connect( clear, SIGNAL(clicked()), m_search, SLOT(clear()));
  
 	resize( 600, 400 );
@@ -230,9 +235,9 @@ void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 	QString myurl = url.host().lower();
 	m_search->setText( "" );
 	m_search->updateSearch( "" );
-	QListViewItem *found = 0;
-	QListViewItemIterator it( m_glosstree );
-	QListViewItem *item;
+	Q3ListViewItem *found = 0;
+	Q3ListViewItemIterator it( m_glosstree );
+	Q3ListViewItem *item;
 	while ( it.current() )
 	{
 		item = it.current();
@@ -250,16 +255,16 @@ void GlossaryDialog::updateTree()
 {
 	m_glosstree->clear();
 
-	QValueList<Glossary*>::const_iterator itGl = m_glossaries.begin();
-	const QValueList<Glossary*>::const_iterator itGlEnd = m_glossaries.end();
+	Q3ValueList<Glossary*>::const_iterator itGl = m_glossaries.begin();
+	const Q3ValueList<Glossary*>::const_iterator itGlEnd = m_glossaries.end();
 	
 	for ( ; itGl != itGlEnd ; ++itGl )
 	{
-		QValueList<GlossaryItem*> items = ( *itGl )->itemlist();
-		QValueList<GlossaryItem*>::iterator it = items.begin();
-		const QValueList<GlossaryItem*>::iterator itEnd = items.end();
+		Q3ValueList<GlossaryItem*> items = ( *itGl )->itemlist();
+		Q3ValueList<GlossaryItem*>::iterator it = items.begin();
+		const Q3ValueList<GlossaryItem*>::iterator itEnd = items.end();
 
-		QListViewItem *main = new QListViewItem( m_glosstree, ( *itGl )->name() );
+		Q3ListViewItem *main = new Q3ListViewItem( m_glosstree, ( *itGl )->name() );
 		main->setExpandable( true );
 		main->setSelectable( false );
 		//XXX TMP!!!
@@ -270,17 +275,17 @@ void GlossaryDialog::updateTree()
 			if ( foldinsubtrees )
 			{
 				QChar thisletter = ( *it )->name().upper()[0];
-				QListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
+				Q3ListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
 				if ( !thisletteritem )
 				{
-					thisletteritem = new QListViewItem( main, thisletter );
+					thisletteritem = new Q3ListViewItem( main, thisletter );
 					thisletteritem->setExpandable( true );
 					thisletteritem->setSelectable( false );
 				}
-				new QListViewItem( thisletteritem, ( *it )->name() );
+				new Q3ListViewItem( thisletteritem, ( *it )->name() );
 			}
 			else
-				new QListViewItem( main, ( *it )->name() );
+				new Q3ListViewItem( main, ( *it )->name() );
 		}
 		main->sort();
 	}
@@ -298,9 +303,9 @@ void GlossaryDialog::addGlossary( Glossary* newgloss )
 	updateTree();
 }
 
-QListViewItem* GlossaryDialog::findTreeWithLetter( const QChar& l, QListViewItem* i )
+Q3ListViewItem* GlossaryDialog::findTreeWithLetter( const QChar& l, Q3ListViewItem* i )
 {
-	QListViewItem *it = i->firstChild();
+	Q3ListViewItem *it = i->firstChild();
 	while ( it )
 	{
 		if ( it->text(0)[0] == l )
@@ -310,7 +315,7 @@ QListViewItem* GlossaryDialog::findTreeWithLetter( const QChar& l, QListViewItem
 	return 0;
 }
 
-void GlossaryDialog::slotClicked( QListViewItem *item )
+void GlossaryDialog::slotClicked( Q3ListViewItem *item )
 {
 	if ( !item )
 		return;
@@ -320,8 +325,8 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 	 * in the m_itemList. When it is found the HTML will be
 	 * generated
 	 */
-	QValueList<Glossary*>::iterator itGl = m_glossaries.begin();
-	const QValueList<Glossary*>::iterator itGlEnd = m_glossaries.end();
+	Q3ValueList<Glossary*>::iterator itGl = m_glossaries.begin();
+	const Q3ValueList<Glossary*>::iterator itGlEnd = m_glossaries.end();
 	bool found = false;
 	GlossaryItem *i = 0;
 
@@ -329,9 +334,9 @@ void GlossaryDialog::slotClicked( QListViewItem *item )
 	
 	while ( !found && itGl != itGlEnd )
 	{
-		QValueList<GlossaryItem*> items = ( *itGl )->itemlist();
-		QValueList<GlossaryItem*>::const_iterator it = items.begin();
-		const QValueList<GlossaryItem*>::const_iterator itEnd = items.end();
+		Q3ValueList<GlossaryItem*> items = ( *itGl )->itemlist();
+		Q3ValueList<GlossaryItem*>::const_iterator it = items.begin();
+		const Q3ValueList<GlossaryItem*>::const_iterator itEnd = items.end();
 		while ( !found && it != itEnd )
 		{
 			if ( ( *it )->name() == item->text( 0 ) )

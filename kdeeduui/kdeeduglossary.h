@@ -18,10 +18,13 @@
 
 #include <khtml_part.h>
 #include <kdialogbase.h>
+//Added by qt3to4:
+#include <Q3ValueList>
+#include <QKeyEvent>
 
 class QChar;
 class QDomDocument;
-class QListViewItem;
+class Q3ListViewItem;
 class KListView;
 class KListViewSearchLine;
 class KActionCollection;
@@ -47,7 +50,7 @@ class Glossary
 			m_itemlist.append( item );
 		}
 
-		QValueList<GlossaryItem*> itemlist()const{
+		Q3ValueList<GlossaryItem*> itemlist()const{
 			return m_itemlist;
 		}
 
@@ -81,7 +84,7 @@ class Glossary
 		/**
 		 * sets the internal list of items to @p list
 		 */
-		void setItemlist( QValueList<GlossaryItem*> list ){
+		void setItemlist( Q3ValueList<GlossaryItem*> list ){
 			m_itemlist = list;
 		}
 
@@ -132,7 +135,7 @@ class Glossary
 		 * the information of the items and return them as a
 		 * QValueList<GlossaryItem*>
 		 */
-		virtual QValueList<GlossaryItem*> readItems( QDomDocument &itemDocument );
+		virtual Q3ValueList<GlossaryItem*> readItems( QDomDocument &itemDocument );
 		
 		QString m_backgroundpicture;
 
@@ -159,7 +162,7 @@ class Glossary
 		 */
 		bool loadLayout( QDomDocument& doc, const KURL& url );
 	
-		QValueList<GlossaryItem*> m_itemlist;
+		Q3ValueList<GlossaryItem*> m_itemlist;
 		
 		/**
 		 * the name of the glossary
@@ -255,7 +258,7 @@ class GlossaryDialog : public KDialogBase
 		void addGlossary( Glossary* newgloss );
 
 	private:
-		QValueList<Glossary*> m_glossaries;
+		Q3ValueList<Glossary*> m_glossaries;
 
 		/**
 		 * if true the items will be displayed folded
@@ -270,12 +273,12 @@ class GlossaryDialog : public KDialogBase
 
 		KActionCollection* m_actionCollection;
 
-		QListViewItem* findTreeWithLetter( const QChar&, QListViewItem* );
+		Q3ListViewItem* findTreeWithLetter( const QChar&, Q3ListViewItem* );
 
 		KListViewSearchLine *m_search;
 
 	private slots:
-		void slotClicked( QListViewItem * );
+		void slotClicked( Q3ListViewItem * );
 		/**
 		 * The user clicked on a href. Emit the corresponding item
 		 */
