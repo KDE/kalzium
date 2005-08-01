@@ -366,7 +366,7 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	QFont symbol_font = p->font();
 	
 	bool goodSizeFound = false;
-	const int max = ELEMENTSIZE-12;
+	const int max = ELEMENTSIZE-10;
 	
 	const QRect rect = QRect( X,Y,max,max );
 
@@ -375,9 +375,9 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	p->setFont( symbol_font );
 	
 	if ( !simple )
-		p->drawText( X+6,Y+6, max,max,Qt::AlignCenter, symbol() );
+		p->drawText( X+5,Y+5, max,max,Qt::AlignCenter, symbol() );
 	else
-		p->drawText( X+6,Y+6, max,max,Qt::AlignHCenter, symbol() );
+		p->drawText( X+5,Y+5, max,max,Qt::AlignHCenter, symbol() );
 	
 	QFont f = p->font();
 
