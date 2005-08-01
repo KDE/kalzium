@@ -58,10 +58,10 @@ NuclideBoardDialog::NuclideBoardDialog( QWidget* parent, const char* name )
 	spin2->setValue( 100 );
 
 	QHBoxLayout *hbox1 = new QHBoxLayout( page, 0, KDialog::spacingHint() );
-	hbox1->addWidget( new QLabel( i18n( "First Element:" ), page ) );
+	hbox1->addWidget( new QLabel( i18n( "First element:" ), page ) );
 	hbox1->addWidget( spin1 );
 	QHBoxLayout *hbox2 = new QHBoxLayout( page, 0, KDialog::spacingHint() );
-	hbox2->addWidget( new QLabel( i18n( "Last Element:" ), page ) );
+	hbox2->addWidget( new QLabel( i18n( "Last element:" ), page ) );
 	hbox2->addWidget( spin2 );
 
 	vbox->addWidget( b );
