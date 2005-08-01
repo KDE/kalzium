@@ -28,7 +28,7 @@ void SpectrumViewImpl::slotExportAsImage()
 	if( !fileName.isEmpty() )
 	{
 		if ( !exporter->saveAsImage( &m_spectrumWidget->pixmap(), fileName ) )
-			KMessageBox::error( this, i18n( "The spectrum could not be saved" ), i18n( "Image could not be saved") );
+			KMessageBox::error( this, i18n( "The spectrum could not be saved" ), i18n( "Image Could Not Be Saved") );
 	}	
 	delete exporter;
 }

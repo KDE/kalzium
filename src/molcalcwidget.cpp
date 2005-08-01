@@ -202,7 +202,7 @@ void MolcalcWidget::updateUI()
 	
 	//the mass
 	recalculate();
-	resultMass->setText( i18n( "Molecular Mass: %1 u" ).arg( m_mass ) );
+	resultMass->setText( i18n( "Molecular mass: %1 u" ).arg( m_mass ) );
 	
 	QToolTip::add( resultMass, complexString );
 	QToolTip::add( resultComposition, complexString );
