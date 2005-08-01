@@ -368,16 +368,16 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	bool goodSizeFound = false;
 	const int max = ELEMENTSIZE-10;
 	
-	const QRect rect = QRect( X,Y,max,max );
+	const QRect rect = QRect( X,Y,ELEMENTSIZE-2,max );
 
 	int goodsize = KalziumUtils::maxSize( symbol(), rect, symbol_font, p );
 	symbol_font.setPointSize( goodsize );
 	p->setFont( symbol_font );
 	
 	if ( !simple )
-		p->drawText( X+5,Y+5, max,max,Qt::AlignCenter, symbol() );
+		p->drawText( X+1,Y+5, ELEMENTSIZE-2,max,Qt::AlignCenter, symbol() );
 	else
-		p->drawText( X+5,Y+5, max,max,Qt::AlignHCenter, symbol() );
+		p->drawText( X+1,Y+5, ELEMENTSIZE-2,max,Qt::AlignHCenter, symbol() );
 	
 	QFont f = p->font();
 
