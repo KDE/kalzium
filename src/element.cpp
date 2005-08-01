@@ -283,24 +283,23 @@ int Element::maxSize( const QString& string, const QRect& rect, QFont font, QPai
 	int size = 25;
 	QRect r;
 
-	const int maxW = rect.width();
-	const int maxH = rect.height();
-	
-	while ( !goodSizeFound )
+	kdDebug() << "At the beginning: " << rect << endl;
+
+	do
 	{
-		if ( size < 10 ) return 10; //miscalculation, better do nothing and don't end in a 
-		                        //endless loop
 		font.setPointSize( size );
 		p->setFont( font );
 		r = p->boundingRect( QRect(), Qt::AlignAuto, string );
-		const int wr = r.width();
-		const int hr = r.height();
-//		kdDebug() << "String: " << string << " size: " << font.pointSize() << " wr: " << wr << " hr: " << hr << " maxW: " << maxW << " maxH: " << maxH << endl;
-		if ( wr < maxW && hr < maxH )
-			return size;
+		r.moveBy( rect.left(), rect.top() );
+		kdDebug() << "String: " << string << " size: " << font.pointSize() << " r: " << r << " rect: " << rect << endl;
+		if ( rect.contains( r ) )
+			goodSizeFound = true;
 		else
 			size--;
 	}
+	while ( !goodSizeFound && ( size > 4 ) );
+
+	return size;
 }
 	
 QColor Element::currentColor( const double temp )
@@ -343,7 +342,7 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	setElementColor( c );
 	
 	//the height of a "line" inside an element
-	int h_small = 12; //the size for the small units like elementnumber
+	int h_small = 10; //the size for the small units like elementnumber
 
 	//The X-coordiante
 	int X = xPos();
@@ -396,7 +395,6 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	const QRect rect = QRect( X,Y,max,max );
 
 	int goodsize = maxSize( symbol(), rect, symbol_font, p );
-	kdDebug() << "goodsize: " << goodsize << endl;
 	symbol_font.setPointSize( goodsize );
 	p->setFont( symbol_font );
 	
@@ -405,15 +403,11 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	else
 		p->drawText( X+6,Y+6, max,max,Qt::AlignHCenter, symbol() );
 	
-	p->drawRect( X+6, Y+6, max,max );//for debuging
-
 	QFont f = p->font();
 
-	QRect smallRect( X,Y ,ELEMENTSIZE-2,h_small );
+	QRect smallRect( X,Y ,ELEMENTSIZE-4,h_small );
 	f.setPointSize( maxSize( QString::number( number() ), smallRect, f, p ) );
 	
-	p->drawRect( X+6,Y+6,max,max );
-		
 	p->setFont( f );
 
 	if ( !simple )
@@ -441,11 +435,11 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 		}
 		else
 			text = QString::number( strippedValue( mass( ) ) );
-		p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
+		p->drawText( X+2,Y ,ELEMENTSIZE-4 ,h_small,Qt::AlignCenter, text );
 	}
 	
 	text = QString::number( number() );
-	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, text );
+	p->drawText( X+2,Y+ELEMENTSIZE-h_small , ELEMENTSIZE-4, h_small,Qt::AlignCenter, text );
 	
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
