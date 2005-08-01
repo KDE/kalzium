@@ -280,27 +280,29 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 int Element::maxSize( const QString& string, const QRect& rect, QFont font, QPainter* p )
 {
 	bool goodSizeFound = false;
-	int size = 30;
+	int size = 25;
+	QRect r;
 
 	const int maxW = rect.width();
 	const int maxH = rect.height();
+	kdDebug() << "At the beginning: " << " maxW: " << maxW << " maxH: " << maxH << endl;
 	
 	while ( !goodSizeFound )
 	{
-		if ( size < 1 ) return 10; //miscalculation, better do nothing and don't end in a 
+		if ( size < 10 ) return 10; //miscalculation, better do nothing and don't end in a 
 		                        //endless loop
 		font.setPointSize( size );
-		const QRect newrect = p->boundingRect( rect, Qt::AlignCenter, string );
-		const int wr = newrect.width();
-		const int hr = newrect.height();
+		r = p->boundingRect( QRect(), Qt::AlignAuto, string );
+		const int wr = r.width();
+		const int hr = r.height();
+		kdDebug() << "String: " << string << " size: " << font.pointSize() << " wr: " << wr << " hr: " << hr << " maxW: " << maxW << " maxH: " << maxH << endl;
 		if ( wr < maxW && hr < maxH )
+		{
 			return size;
+		}
 		else
 			size--;
-		kdDebug() << "Size is now: " << size << endl;
 	}
-	
-	return size;
 }
 	
 QColor Element::currentColor( const double temp )
@@ -395,57 +397,60 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	
 	const QRect rect = QRect( X,Y,max,max );
 
-	symbol_font.setPointSize( maxSize( symbol(), rect, symbol_font, p ) );
+	int goodsize = maxSize( symbol(), rect, symbol_font, p );
+	kdDebug() << "goodsize: " << goodsize << endl;
+	symbol_font.setPointSize( goodsize );
 	p->setFont( symbol_font );
 	
-	if ( !simple )
-		p->drawText( X+6,Y+6, max,max,Qt::AlignCenter, symbol() );
-	else
+//	if ( !simple )
+//		p->drawText( X+6,Y+6, max,max,Qt::AlignCenter, symbol() );
+//	else
 		p->drawText( X+6,Y+6, max,max,Qt::AlignHCenter, symbol() );
+		p->drawRect( X+6, Y+6, max,max );
 
 	QFont f = p->font();
 
-	QRect smallRect( X,Y ,ELEMENTSIZE-2,h_small );
-	f.setPointSize( maxSize( QString::number( number() ), smallRect, f, p ) );
-	
-	p->drawRect( X+6,Y+6,max,max );
-	//p->drawRect( smallRect );
-
-		
-	p->setFont( f );
-
-	if ( !simple )
-	{//the user only wants a simple periodic table, don't weight the cell
-		QString text;
-		if ( isCrystal )
-		{
-			QString structure = crystalstructure();
-			/**
-			 * hcp: hexagonal close packed
-			 * fcc: face centered cubic
-			 * krz/bcc body centered cubic// kubisch raumzentriert
-			 * kdp: kubisch dicht gepackt
-			 * hdp: hexagonal dicht gepackt
-			 * ccp: cubic close packed // kubisch dichteste Kugelpackung
-			 */
-			if ( structure == "own")
-				text = i18n( "this means, the element has its 'own' structur", "own" );
-			else if ( structure == "bcc" )
-				text = i18n( "Crystalsystem body centered cubic", "bcc" );
-			else if ( structure == "hdp" )
-				text = i18n( "Crystalsystem hexagonal dense packed", "hdp" );
-			else if ( structure == "ccp" )
-				text = i18n( "Crystalsystem cubic close packed", "ccp" );
-		}
-		else
-			text = QString::number( strippedValue( mass( ) ) );
-		p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
-	}
-	
-	text = QString::number( number() );
-	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, text );
-	
-	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
+//	QRect smallRect( X,Y ,ELEMENTSIZE-2,h_small );
+//	f.setPointSize( maxSize( QString::number( number() ), smallRect, f, p ) );
+//	
+//	p->drawRect( X+6,Y+6,max,max );
+//	//p->drawRect( smallRect );
+//
+//		
+//	p->setFont( f );
+//
+//	if ( !simple )
+//	{//the user only wants a simple periodic table, don't weight the cell
+//		QString text;
+//		if ( isCrystal )
+//		{
+//			QString structure = crystalstructure();
+//			/**
+//			 * hcp: hexagonal close packed
+//			 * fcc: face centered cubic
+//			 * krz/bcc body centered cubic// kubisch raumzentriert
+//			 * kdp: kubisch dicht gepackt
+//			 * hdp: hexagonal dicht gepackt
+//			 * ccp: cubic close packed // kubisch dichteste Kugelpackung
+//			 */
+//			if ( structure == "own")
+//				text = i18n( "this means, the element has its 'own' structur", "own" );
+//			else if ( structure == "bcc" )
+//				text = i18n( "Crystalsystem body centered cubic", "bcc" );
+//			else if ( structure == "hdp" )
+//				text = i18n( "Crystalsystem hexagonal dense packed", "hdp" );
+//			else if ( structure == "ccp" )
+//				text = i18n( "Crystalsystem cubic close packed", "ccp" );
+//		}
+//		else
+//			text = QString::number( strippedValue( mass( ) ) );
+//		p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
+//	}
+//	
+//	text = QString::number( number() );
+//	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, text );
+//	
+//	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
 /*!
