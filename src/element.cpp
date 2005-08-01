@@ -23,6 +23,7 @@
 #include "spectrum.h"
 #include "isotope.h"
 #include "kalziumdataobject.h"
+#include "kalziumutils.h"
 
 #include <qdom.h>
 #include <qfile.h>
@@ -277,31 +278,6 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
-int Element::maxSize( const QString& string, const QRect& rect, QFont font, QPainter* p )
-{
-	bool goodSizeFound = false;
-	int size = 25;
-	QRect r;
-
-	kdDebug() << "At the beginning: " << rect << endl;
-
-	do
-	{
-		font.setPointSize( size );
-		p->setFont( font );
-		r = p->boundingRect( QRect(), Qt::AlignAuto, string );
-		r.moveBy( rect.left(), rect.top() );
-		kdDebug() << "String: " << string << " size: " << font.pointSize() << " r: " << r << " rect: " << rect << endl;
-		if ( rect.contains( r ) )
-			goodSizeFound = true;
-		else
-			size--;
-	}
-	while ( !goodSizeFound && ( size > 4 ) );
-
-	return size;
-}
-	
 QColor Element::currentColor( const double temp )
 {
 	QColor color;
@@ -394,7 +370,7 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	
 	const QRect rect = QRect( X,Y,max,max );
 
-	int goodsize = maxSize( symbol(), rect, symbol_font, p );
+	int goodsize = KalziumUtils::maxSize( symbol(), rect, symbol_font, p );
 	symbol_font.setPointSize( goodsize );
 	p->setFont( symbol_font );
 	
@@ -406,7 +382,7 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	QFont f = p->font();
 
 	QRect smallRect( X,Y ,ELEMENTSIZE-4,h_small );
-	f.setPointSize( maxSize( QString::number( number() ), smallRect, f, p ) );
+	f.setPointSize( KalziumUtils::maxSize( QString::number( number() ), smallRect, f, p ) );
 	
 	p->setFont( f );
 

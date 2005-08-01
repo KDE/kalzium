@@ -30,7 +30,8 @@ kalzium_SOURCES = eqresult.cpp eqchemview.cpp kalzium.cpp \
 			nuclideboard.cpp \
 			exporter.cpp \
 			spectrumview.ui \
-			spectrumviewimpl.cpp
+			spectrumviewimpl.cpp \
+			kalziumutils.cpp
 			
 			
 kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) -L$(OCAMLLIB) -L$(FACILELIB) $(EQCHEM_LDADD)
@@ -60,7 +61,8 @@ EXTRA_DIST = main.cpp \
 		nuclideboard.cpp nuclideboar.h \
 		exporter.cpp exporter.h \
 		spectrumview.ui \
-		spectrumviewimpl.cpp spectrumviewimpl.h	
+		spectrumviewimpl.cpp spectrumviewimpl.h	\
+		kalziumutils.cpp kalziumutils.h
 		
 
 METASOURCES = AUTO 
