@@ -14,16 +14,19 @@ email                : cniehaus@kde.org
  ***************************************************************************/
 #include "detailedgraphicaloverview.h"
 #include "element.h"
+#include "kalziumutils.h"
 
 //KDE-Includes
 #include <kdebug.h>
 #include <klocale.h>
 #include <kglobalsettings.h>
+#include <kglobal.h>
 
 //QT-Includes
 #include <qpainter.h>
 #include <qstring.h>
 #include <qpixmap.h>
+#include <qrect.h>
 
 DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name ) 
 : QWidget( parent, name )
@@ -91,7 +94,6 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		fC.setBold( true );
 		QFontMetrics fmA = QFontMetrics( fA );
 		QFontMetrics fmB = QFontMetrics( fB );
-		QFontMetrics fmC = QFontMetrics( fC );
 
 		//coordinates for element symbol: near the center
 		int xA = 4 * w / 10;
@@ -101,18 +103,6 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		int xB = xA - fmB.width( QString::number( m_element->number() ) );
 		int yB = yA - fmA.height() + fmB.height();
 
-		//coordinates for element name: lower left
-		int xC1 = 8;
-		int yC1 = h - 8;
-
-		//coordinates for oxidation: right side, above atomic mass
-		int xC2 = w - fmC.width( m_element->oxstage() ) - 8;
-		int yC2 = h - fmC.height() - 8;
-
-		//coordinates for mass: lower right corner
-		int xC3 = w - fmC.width( QString::number( m_element->mass() ) ) - 8;
-		int yC3 = h - 8;
-
 		//Element Symbol
 		p.setFont( fA );
 		p.drawText( xA, yA , m_element->symbol() ); 
@@ -121,14 +111,32 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		p.setFont( fB );
 		p.drawText( xB, yB, QString::number( m_element->number() ));
 
-		//Name and other data
+		QRect rect( 0, 20, w/2, h );
+		
 		p.setFont( fC );
+				
+		int size = KalziumUtils::maxSize(m_element->elname(), rect , fC, &p);
+		int size2 = KalziumUtils::maxSize(m_element->oxstage(), rect, fC, &p);
+		int size3 = KalziumUtils::maxSize(QString::number( m_element->mass() ), rect , fC, &p);
+
+		//Name and other data
+		fC.setPointSize( size );
+		p.setFont( fC );
+		
 		//Name
-		p.drawText( xC1, yC1, m_element->elname() );
-		//Oxidationszahlen
-		p.drawText( xC2, yC2, m_element->oxstage() ); 
+		p.drawText( 1, 0, w/2, h, Qt::AlignLeft, m_element->elname() );
+		
+		//Oxidationstates
+		fC.setPointSize( size2 );
+		p.setFont( fC );
+		int offsetOx = KalziumUtils::StringHeight( QString::number( m_element->mass() ), fC, &p );
+		p.drawText( 1, h-offsetOx, w/2, offsetOx, Qt::AlignLeft, m_element->oxstage() );
+
 		//Mass
-		p.drawText( xC3, yC3, QString::number( m_element->mass() )); 
+		fC.setPointSize( size3 );
+		p.setFont( fC );
+		int offset = KalziumUtils::StringHeight( QString::number( m_element->mass() ), fC, &p );
+		p.drawText( w/2, h-offset, w/2, offset, Qt::AlignRight, QString::number( m_element->mass() ) );
 
 		//TODO until I found again what those symbols mean disable this
 		//drawBiologicalSymbol( &p );

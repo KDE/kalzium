@@ -30,6 +30,16 @@ int KalziumUtils::maxSize( const QString& string, const QRect& rect, QFont font,
 	return size;
 }
 
+int KalziumUtils::StringHeight( const QString& string, const QFont& font, QPainter* p )
+{
+	return p->boundingRect( QRect(), Qt::AlignAuto, string ).height();
+}
+
+int KalziumUtils::StringWidth( const QString& string, const QFont& font, QPainter* p )
+{
+	return p->boundingRect( QRect(), Qt::AlignAuto, string ).width();
+}
+
 double KalziumUtils::strippedValue( double num )
 {
 	if ( !finite( num ) )
