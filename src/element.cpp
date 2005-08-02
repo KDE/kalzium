@@ -309,16 +309,18 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	
 	p->setPen( Qt::black );
 	QFont symbol_font = p->font();
-	symbol_font.setPointSize( 18 );
 	QFont f = p->font();
-	f.setPointSize( 9 );
-		
+
+	f.setPointSize( KalziumUtils::maxSize(value, QRect( X,Y+ELEMENTSIZE-h_small, ELEMENTSIZE, h_small ),f, p ) );
 	p->setFont( f );
 
 	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, value );
 
+	const QRect rect = QRect( X,Y,ELEMENTSIZE-2,ELEMENTSIZE-10 );
+	int goodsize = KalziumUtils::maxSize( symbol(), rect, symbol_font, p );
+	symbol_font.setPointSize( goodsize );
 	p->setFont( symbol_font );
-	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	p->drawText( X+1,Y+5, ELEMENTSIZE-2,ELEMENTSIZE-10,Qt::AlignCenter, symbol() );
 	
 	//border
 	p->setPen( Qt::black );
