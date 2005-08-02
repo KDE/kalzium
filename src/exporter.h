@@ -5,8 +5,8 @@
 
                            The header for the exporter class of Kalzium
                              -------------------
-    begin                : June 2003
-    copyright            : (C) 2003, 2004, 2005 by Martin Pfeiffer
+    begin                : June 2005
+    copyright            : (C) 2005 by Martin Pfeiffer
     email                : hubipete@gmx.net
  ***************************************************************************/
 
@@ -23,7 +23,8 @@ class QPixmap;
 class QString;
 
 /**
- * Small class that provides some exporting functions.
+ * Small class that provides some exporting functions for graphics.
+ * @class Martin Pfeiffer
  */
 class Exporter
 {
@@ -38,7 +39,7 @@ public:
 	 * exported.
 	 * @return whether the image was saved successfully
 	 */
-	bool saveAsImage( const QPixmap* pixmap, QString fileName, int x = 0, int y = 0, int width = 0, int height = 0 );
+	bool saveAsImage( const QPixmap* pixmap, const QString& fileName, int x = 0, int y = 0, int width = 0, int height = 0 );
 
 	/**
 	 * Which image type can we export to?

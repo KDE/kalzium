@@ -17,6 +17,11 @@ class KalziumUtils
 		 */
 		static int maxSize( const QString& string, const QRect& rect, QFont font, QPainter* painter );
 
+		/**
+		 * calculate the 4-digit value of the value @p w
+		 * @return the 4-digit value
+		 */
+		static double strippedValue( double w );
 };
 
 #endif // KALZIUMUTILS_H

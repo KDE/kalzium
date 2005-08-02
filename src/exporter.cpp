@@ -39,7 +39,7 @@ Exporter::~Exporter()
 {
 }
 
-bool Exporter::saveAsImage( const QPixmap* pixmap, QString fileName, int x, int y, int width, int height )
+bool Exporter::saveAsImage( const QPixmap* pixmap, const QString& fileName, int x, int y, int width, int height )
 {
 	if ( x != 0 || y != 0 || width != 0 || height != 0 )
 	{

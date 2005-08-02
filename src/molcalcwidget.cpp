@@ -22,6 +22,7 @@
 #include "kalziumdataobject.h"
 #include "molcalcwidgetbase.h"
 #include "element.h"
+#include "kalziumutils.h"
 
 #include <kaction.h>
 #include <kdebug.h>
@@ -192,7 +193,7 @@ void MolcalcWidget::updateUI()
 	{//update the resultLabel
 		str += i18n( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2." ).arg( itMap.data() ).arg( itMap.key()->elname() );
 		str += "\n";
-		complexString += i18n( "For example: 1 Seaborgium. Cumulative Mass: 263.119 u (39.25%)", "%1 %2. Cumulative Mass: %3 u (%4%)\n" ).arg( itMap.data() ).arg( itMap.key()->elname() ).arg( itMap.data() * itMap.key()->mass() ).arg(Element::strippedValue( ((  itMap.data() * itMap.key()->mass() )/m_mass )*100) );
+		complexString += i18n( "For example: 1 Seaborgium. Cumulative Mass: 263.119 u (39.25%)", "%1 %2. Cumulative Mass: %3 u (%4%)\n" ).arg( itMap.data() ).arg( itMap.key()->elname() ).arg( itMap.data() * itMap.key()->mass() ).arg(KalziumUtils::strippedValue( ((  itMap.data() * itMap.key()->mass() )/m_mass )*100) );
 	}
 	
 	resultLabel->setText( str );

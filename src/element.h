@@ -375,12 +375,6 @@ class Element{
 			IONICRADIUS
 		};
 
-		/**
-		 * calculate the 4-digit value of the value @p w
-		 * @return the 4-digit value
-		 */
-		static double strippedValue( double w );
-
 		QPoint pos() const;
 		QPoint coords() const;
 

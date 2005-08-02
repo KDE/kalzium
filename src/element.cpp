@@ -36,8 +36,6 @@
 #include <kurl.h>
 #include <kstandarddirs.h>
 
-#include <math.h>
-
 Element::Element()
 {
 	m_radioactive = false;
@@ -60,29 +58,9 @@ QString Element::parsedOrbits( bool canBeEmpty )
 	return orbits;
 }
 
-
-double Element::strippedValue( double num )
-{
-	if ( !finite( num ) )
-		return num;
-
-	double power;
-	power = 1e-6;
-	while ( power < num )
-		power *= 10;
-
-	num = num / power * 10000;
-	num = round( num );
-
-	return num * power / 10000;
-}
-
-
 Element::~Element()
 {
 }
-
-
 
 double Element::meanmass()
 {
@@ -264,7 +242,7 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 
 	//top left
 	p->setPen( Qt::black );
-	text = QString::number( strippedValue( mass( ) ) );
+	text = QString::number( KalziumUtils::strippedValue( mass( ) ) );
 	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
 
 	text = QString::number( number() );
@@ -365,7 +343,6 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 	QString text;
 	QFont symbol_font = p->font();
 	
-	bool goodSizeFound = false;
 	const int max = ELEMENTSIZE-10;
 	
 	const QRect rect = QRect( X,Y,ELEMENTSIZE-2,max );
@@ -410,7 +387,7 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 				text = i18n( "Crystalsystem cubic close packed", "ccp" );
 		}
 		else
-			text = QString::number( strippedValue( mass( ) ) );
+			text = QString::number( KalziumUtils::strippedValue( mass( ) ) );
 		p->drawText( X+2,Y ,ELEMENTSIZE-4 ,h_small,Qt::AlignCenter, text );
 	}
 	
