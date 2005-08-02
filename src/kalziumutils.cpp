@@ -7,10 +7,10 @@
 
 #include <math.h>
 
-int KalziumUtils::maxSize( const QString& string, const QRect& rect, QFont font, QPainter* p )
+int KalziumUtils::maxSize( const QString& string, const QRect& rect, QFont font, QPainter* p, int minFontSize, int maxFontSize )
 {
 	bool goodSizeFound = false;
-	int size = 20;
+	int size = maxFontSize;
 	QRect r;
 
 	do
@@ -25,7 +25,7 @@ int KalziumUtils::maxSize( const QString& string, const QRect& rect, QFont font,
 		else
 			size--;
 	}
-	while ( !goodSizeFound && ( size > 4 ) );
+	while ( !goodSizeFound && ( size > minFontSize ) );
 
 	return size;
 }

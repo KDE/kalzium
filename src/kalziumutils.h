@@ -14,8 +14,10 @@ class KalziumUtils
 		 * @param rect the rect needed for measurement
 		 * @param font the used font
 		 * @param painter the used painter
+		 * @param maxFontSize the maximum fontsize
+		 * @param minFontSize the maximum fontsize
 		 */
-		static int maxSize( const QString& string, const QRect& rect, QFont font, QPainter* painter );
+		static int maxSize( const QString& string, const QRect& rect, QFont font, QPainter* painter, int minFontSize = 4, int maxFontSize = 20 );
 
 		/**
 		 * calculate the 4-digit value of the value @p w. For 
