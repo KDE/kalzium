@@ -1466,7 +1466,7 @@
 		<oxydation>+1.+2</oxydation>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+2.2233" halflife="" halflifeformat="seconds" weight="62.93" neutron="34" percentage="68.9" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="19.0" betaplusdecay="" betaminuspercentage="39.0" betaminusdecay="0.578" ecpercentage="41.0" ecdecay="1.675" spin="1+" magmoment="-0.217" halflife="45723.6" halflifeformat="seconds" weight="63.92977" neutron="35" percentage="" />
+			<isotope alphapercentage="" alphadecay="" betapluspercentage="19.0" betaplusdecay="1.7" betaminuspercentage="39.0" betaminusdecay="0.578" ecpercentage="41.0" ecdecay="1.675" spin="1+" magmoment="-0.217" halflife="45723.6" halflifeformat="seconds" weight="63.92977" neutron="35" percentage="" />
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+2.3817" halflife="" halflifeformat="seconds" weight="64.928" neutron="36" percentage="31.1" />
 		</isotopes>
 		<family>Transition</family>
