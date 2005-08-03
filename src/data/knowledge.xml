@@ -50,11 +50,11 @@
 		<desc>Consisting of accidental and systematic errors.</desc>
 	</item>
 	<item>
-		<name>Law of Mass Preservation</name>
+		<name>Law of Conservation of Mass</name>
 		<desc>During a chemical reaction mass is neither lost nor gained. The sum mass of the material going into the reaction equals the sum of the mass of the products of the reaction.</desc>
 	</item>
 	<item>
-		<name>Law of constant proportions</name>
+		<name>Law of multiple proportions</name>
 		<desc>An alloy always contains the same elements in the same mass ratio. Should two or more elements bind together then the mass ratio is constant.</desc>
 	</item>
 	<item>
@@ -78,7 +78,7 @@
 		<desc>Through chemical composition and physical attributes, homogeneous portion of matter that separated from its environment in its expansion through a surface.</desc>
 	</item>
 	<item>
-		<name>Precision</name>
+		<name>Accuracy and precision</name>
 		<desc>Expressed through standard deviation: Values given over accidental errors.</desc>
 	</item>
 	<item>
@@ -90,7 +90,7 @@
 		<desc>Measurement unit using International Symbols.</desc>
 	</item>
 	<item>
-		<name>Significant digits</name>
+		<name>Significant figures</name>
 		<desc>The number of digits which are meaningful in a number.</desc>
 	</item>
 	<item>
@@ -135,7 +135,7 @@
 		</references>
 	</item>
 	<item>
-		<name>Isotopes</name>
+		<name>Isotope</name>
 		<desc>Isotopes are forms of a chemical element whose nuclei have the same atomic number, Z, but different atomic masses, A. The word isotope, meaning at the same place, comes from the fact that all isotopes of an element are located at the same place on the periodic table.</desc>
 		<references>
 			<refitem>Atom</refitem>
@@ -145,66 +145,65 @@
 		<name>Spin</name>
 		<desc>The spin is an intrinsic angular momentum associated with microscopic particles. It is a purely quantum mechanical phenomenon without any analogy in classical mechanics. Whereas classical angular momentum arises from the rotation of an extended object, spin is not associated with any rotating internal masses, but is intrinsic to the particle itself.</desc>
 		<references>
-			<refitem>Isotopes</refitem>
+			<refitem>Isotope</refitem>
 		</references>
 	</item>
 	<item>
 		<name>Magnetic Moment</name>
 		<desc>The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself. It's measured in units of the nuclear magneton &#956;[sub]n[/sub]=(5.0507866 &#177; 0.0000017) 10[sup]-27[/sup] JT<sup>-</sup></desc>
 		<references>
-			<refitem>Isotopes</refitem>
+			<refitem>Isotope</refitem>
 		</references>
 	</item>
 	<item>
 		<name>Decay Mode</name>
 		<desc>The decay mode describes a particular way a particle decays. For radioactive decay (the decay of nuclides) the decay modes are:[br] -> alpha decay (emission of a Helium-4 nucleus).[br] -> &#946;[sup]-[/sup] decay (emission of an electron)[br] -> &#946;[sup]+[/sup] decay (emission of a positron) [br] -> electron capture (EC) [br] -> proton emission [br] -> spontaneous fission [br] Typically one decay mode predominates for a particular nuclide.</desc>
 		<references>
-			<refitem>Isotopes</refitem>
+			<refitem>Isotope</refitem>
 		</references>
 	</item>
 	<item>
 		<name>Decay Energy</name>
 		<desc>The decay energy is the energy released by a nuclear decay.</desc>
 		<references>
-			<refitem>Isotopes</refitem>
+			<refitem>Isotope</refitem>
 		</references>
 	</item>
 	<item>
 		<name>Nuclides</name>
 		<desc>[i]see isotopes[/i]</desc>
 		<references>
-			<refitem>Isotopes</refitem>
-			<refitem>Isotopes</refitem>
-			<refitem>Isotones</refitem>
-			<refitem>Nuclear Isomers</refitem>
+			<refitem>Isotope</refitem>
+			<refitem>Isotone</refitem>
+			<refitem>Nuclear Isomer</refitem>
 			<refitem>Isobars</refitem>
 		</references>
 	</item>
 	<item>
-		<name>Isotones</name>
+		<name>Isotone</name>
 		<desc>Two nuclides are isotones if they have the same number N of neutrons.</desc>
 		<references>
-			<refitem>Isotopes</refitem>
-			<refitem>Nuclear Isomers</refitem>
-			<refitem>Isobars</refitem>
+			<refitem>Isotope</refitem>
+			<refitem>Nuclear Isomer</refitem>
+			<refitem>Isobar</refitem>
 		</references>
 	</item>
 	<item>
-		<name>Isobars</name>
+		<name>Isobar</name>
 		<desc>Isobars are nuclides having the same mass number, i.e. sum of protons plus neutrons.</desc>
 		<references>
-			<refitem>Isotopes</refitem>
-			<refitem>Isotones</refitem>
-			<refitem>Nuclear Isomers</refitem>
+			<refitem>Isotope</refitem>
+			<refitem>Isotone</refitem>
+			<refitem>Nuclear Isomer</refitem>
 		</references>
 	</item>
 	<item>
-		<name>Nuclear Isomers</name>
+		<name>Nuclear Isomer</name>
 		<desc>A nuclear isomer is a metastable or isomeric state of an atom caused by the excitation of a proton or neutron in its nucleus so that it requires a change in spin before it can release its extra energy. They decay to lower energy states of the nuclide through two isomeric transitions:[br] -> &#947;- emission (emission of a high-energy photon)[br] -> internal conversion (the energy is used to ionize the atom)[br] Contrast this with the definition of a chemical isomer, the more common use of the word. Also contrast with the meaning of isotope, in which the difference is the number of neutrons in the nucleus. Metastable isomers of a particular atom are usually designated with an "m" (or, in the case of atoms with more than one isomer, 2m, 3m, and so on). This designation is usually placed after the atomic symbol and number of the atom (e.g., Co-58m), but is sometimes placed as a superscript before (e.g., [sup]m[/sup]Co-58 or [sup]58m[/sup]Co).</desc>
 		<references>
-			<refitem>Isotopes</refitem>
-			<refitem>Isobars</refitem>
-			<refitem>Isotones</refitem>
+			<refitem>Isotope</refitem>
+			<refitem>Isobar</refitem>
+			<refitem>Isotone</refitem>
 		</references>
 	</item>
 	<item>
