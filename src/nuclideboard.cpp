@@ -25,35 +25,43 @@
 #include <qlayout.h>
 #include <qspinbox.h>
 #include <qcursor.h>
+#include <qstring.h>
 
 #include <kdebug.h>
 #include <klocale.h>
+#include <kapplication.h>
 
 #include "kalziumdataobject.h"
 
 #include "math.h"
 
 NuclideBoardDialog::NuclideBoardDialog( QWidget* parent, const char* name )
-	: KDialogBase( Plain, i18n( "Nuclide Board" ), Close, Close, parent, name, false )
+	: KDialogBase(parent, "NuclideBoardDialog", true, i18n( "Nuclide Board" ),
+			KDialogBase::Apply|KDialogBase::Close|KDialogBase::Help, KDialogBase::Apply, true )
 {
-	QVBoxLayout *vbox = new QVBoxLayout( plainPage(), 0, spacingHint() );
-	vbox->activate();
-	NuclideBoard *b = new NuclideBoard( plainPage(), "nb" );
-	spin1 = new QSpinBox( 1, 110, 1, plainPage() );
-	spin2 = new QSpinBox( 2, 111, 1, plainPage() );
+	QWidget *page = new QWidget( this );
+
+	NuclideBoard *b = new NuclideBoard( page, "nb" );
+
+	setMainWidget( page );
+
+	QVBoxLayout *vbox = new QVBoxLayout(  page , 0, KDialogBase:: spacingHint() );
+	
+	spin1 = new QSpinBox( 1, 110, 1, page );
+	spin2 = new QSpinBox( 2, 111, 1, page );
 	connect( spin1, SIGNAL( valueChanged( int ) ), b, SLOT( setStart( int ) ) );
 	connect( spin2, SIGNAL( valueChanged( int ) ), b, SLOT( setStop( int ) ) );
 
 	connect( b, SIGNAL( emitStartValue( int ) ), spin1, SLOT( setValue( int ) ) );
 	connect( b, SIGNAL( emitStopValue( int ) ), spin2, SLOT( setValue( int ) ) );
-	spin1->setValue( 1 );
-	spin2->setValue( 18 );
+	spin1->setValue( 80 );
+	spin2->setValue( 100 );
 
-	QHBoxLayout *hbox1 = new QHBoxLayout( 0L, 0, KDialog::spacingHint() );
-	hbox1->addWidget( new QLabel( i18n( "First element:" ), plainPage() ) );
+	QHBoxLayout *hbox1 = new QHBoxLayout( page, 0, KDialog::spacingHint() );
+	hbox1->addWidget( new QLabel( i18n( "First Element:" ), page ) );
 	hbox1->addWidget( spin1 );
-	QHBoxLayout *hbox2 = new QHBoxLayout( 0L, 0, KDialog::spacingHint() );
-	hbox2->addWidget( new QLabel( i18n( "Last element:" ), plainPage() ) );
+	QHBoxLayout *hbox2 = new QHBoxLayout( page, 0, KDialog::spacingHint() );
+	hbox2->addWidget( new QLabel( i18n( "Last Element:" ), page ) );
 	hbox2->addWidget( spin2 );
 
 	vbox->addWidget( b );
@@ -62,37 +70,31 @@ NuclideBoardDialog::NuclideBoardDialog( QWidget* parent, const char* name )
 
 	setMinimumSize( 500, 450 );
 	resize( minimumSize() );
+	update();
 }
 
-NuclideBoard::NuclideBoard(QWidget *parent, const char* name) 
-	: QWidget(parent, name)
+void NuclideBoardDialog::slotHelp()
 {
+	emit helpClicked();
+	if ( kapp )
+		kapp->invokeHelp ( "nuclid_board", "kalzium" );
+}
+
+
+NuclideBoard::NuclideBoard( QWidget *parent, const char* name ) 
+	: QScrollView( parent, name )
+{
+	kdDebug() << "NuclideBoard()" << endl;
+
 	m_list = KalziumDataObject::instance()->ElementList;
+	m_decay = 0;
 	m_start = 80;
 	m_stop = 100;
+	m_isoWidth = 30;
+
+	m_highestNumberOfNeutrons = highestNeutronCount();
+	m_lowestNumberOfNeutrons = lowestNeutronCount();
 }
-
-void NuclideBoard::mousePressEvent( QMouseEvent *e )
-{
-	kdDebug() << "NuclideBoard::mousePressEvent()" << endl;
-	
-	QValueList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
-	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
-	
-	QPoint pt = mapFromGlobal( QCursor::pos() );
-	
-	int size = ( *it )->size();
-
-	QPoint point( pt.x()/size+m_lowestNumberOfNeutrons, ( height()-pt.y() )/size+m_start );
-
-	kdDebug() << "point : " << point << endl;
-	
-	if (  e->button() == QMouseEvent::LeftButton )
-	{
-//X 		emit clicked( m_isotope );
-	}
-}
-
 
 void NuclideBoard::slotDrawDecayRow( Isotope* isotope )
 {
@@ -102,180 +104,337 @@ void NuclideBoard::slotDrawDecayRow( Isotope* isotope )
 			&& !isotope->betaminusdecay() )
 		return;
 
+	m_decay = new Decay( this, isotope, m_list[isotope->protones() -1] );
+	m_decay->showDecay();
+
 	kdDebug() << "Isotope: " << isotope->neutrons() << endl;
 }
 
-void NuclideBoard::paintEvent( QPaintEvent* /* e */ )
+void NuclideBoard::drawContents( QPainter * p, int clipx, int clipy, int clipw, int cliph ) 
 {
-	QPainter p;
-	p.begin( this );
-	
-	const int rangeOfNeutrons = m_highestNumberOfNeutrons-m_lowestNumberOfNeutrons;
-	const int rangeOfElements = m_stop-m_start;
+	kdDebug() << "NuclideBoard::drawContents()" << endl;
 
-	//the width and height for each square
-	int w_ = width()/( rangeOfNeutrons+1 );
-	int h_ = height()/( rangeOfElements+1 );
+//	m_highestNumberOfNeutrons = highestNeutronCount();
+//	m_lowestNumberOfNeutrons = lowestNeutronCount();
 
-	int w;
+	resizeContents( ( m_highestNumberOfNeutrons - m_lowestNumberOfNeutrons ) * m_isoWidth + 10 + m_isoWidth,
+                       ( m_stop - m_start ) * m_isoWidth + m_isoWidth );
 
-	w_ < h_ ? w = w_ : w = h_;
+//	viewport()->erase();
 
-	const int h = w;
+	for ( int i = m_start; i <= m_stop; ++i )
+		p->drawText( 0, ( m_stop - i ) * m_isoWidth + m_isoWidth, m_isoWidth, m_isoWidth, Qt::AlignCenter,				 m_list[i - 1]->symbol() );
 
-	for ( int i = 0; i <= rangeOfElements; ++i )
-		p.drawText( 0, height()-( i*h )-h,w-1,h-1, Qt::AlignCenter, QString::number( m_start+i ));
-	for ( int i = 0; i <= rangeOfNeutrons; ++i )
-		p.drawText( i*w+w, 0,w-1,h-1, Qt::AlignCenter, QString::number( m_lowestNumberOfNeutrons+i ));
+	for ( int i = m_lowestNumberOfNeutrons; i <= m_highestNumberOfNeutrons; i += 2 )
+	 	p->drawText( ( i - m_lowestNumberOfNeutrons ) * m_isoWidth + 10 + m_isoWidth, 0, m_isoWidth,
+                                m_isoWidth, Qt::AlignCenter, QString::number( i ) );
 
-	QValueList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
-	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
-
-	while ( it != itEnd )
-	{
-		( *it )->drawSelf( &p );
-		++it;
-	}
-	
-	p.end();
 }
 
 int NuclideBoard::highestNeutronCount()
 {
-	int count = 0;
-	
-	QValueList<Element*>::const_iterator it = m_list.at(m_start-1);
-	const QValueList<Element*>::const_iterator itEnd = m_list.at(m_stop);
-	
-	for (; it != itEnd; ++it )
-	{
-		QValueList<Isotope*> i_list = ( *it )->isotopes();
-		QValueList<Isotope*>::const_iterator i_it = i_list.begin();
-		QValueList<Isotope*>::const_iterator i_itEnd = i_list.end();
+	kdDebug() << "NuclideBoard::highestNeutronCount()" << endl;
 
-		for ( ; i_it != i_itEnd; ++i_it )
+	QValueList<Element*>::const_iterator it;
+	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
+
+	QValueList<Isotope*> isotopeList;
+	QValueList<Isotope*>::const_iterator isotope;
+	QValueList<Isotope*>::const_iterator isotopeEnd;
+
+	int count = 0;
+
+	for ( it = m_list.at( m_start - 1 ); it != itEnd; ++it )
+	{
+		isotopeList = ( *it )->isotopes();
+
+		if ( isotopeList.empty() )
+			continue;
+
+		isotopeEnd = isotopeList.end();
+	
+		for ( isotope = isotopeList.begin(); isotope != isotopeEnd; ++isotope )
 		{
-			if ( count < ( *i_it )->neutrons() )	
-				count = ( *i_it )->neutrons();
+			if ( count < ( *isotope )->neutrons() )	
+				count = ( *isotope )->neutrons();
 		}
 	}
+
 	return count;
 }
 
 int NuclideBoard::lowestNeutronCount()
 {
-	QValueList<Element*>::const_iterator it = m_list.at(m_start-1);
-	const QValueList<Element*>::const_iterator itEnd = m_list.at(m_stop);
-	
-	int count = 200;
+	kdDebug() << "NuclideBoard::lowestNeutronCount()" << endl;
+
+	QValueList<Element*>::const_iterator it = m_list.at( m_start - 1 );
+	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
+
+	QValueList<Isotope*> isotopeList;
+	QValueList<Isotope*>::const_iterator isotope;
+	QValueList<Isotope*>::const_iterator isotopeEnd;
+
+	int count = 1000;
 	
 	for (; it != itEnd; ++it )
 	{
-		QValueList<Isotope*> i_list = ( *it )->isotopes();
-		QValueList<Isotope*>::const_iterator i_it = i_list.begin();
-		QValueList<Isotope*>::const_iterator i_itEnd = i_list.end();
+		isotopeList = ( *it )->isotopes();
+		if ( isotopeList.empty() )
+			continue;
 
-		for ( ; i_it != i_itEnd; ++i_it )
+		isotopeEnd = isotopeList.end();
+
+		for ( isotope = isotopeList.begin(); isotope != isotopeEnd; ++isotope )
 		{
-			if ( count > ( *i_it )->neutrons() )	
-				count = ( *i_it )->neutrons();
+			if ( count > ( *isotope )->neutrons() )	
+				count = ( *isotope )->neutrons();
 		}
 	}
+
 	return count;
+}
+
+void NuclideBoard::setStop( int value )
+{
+	kdDebug() << "NuclideBoard::setStop()" << endl;
+
+	if ( value < m_start )
+	{
+		m_start = value - 1;
+		emitStartValue( m_start );
+	}
+
+	m_stop = value;
+	updateList();
+}
+
+void NuclideBoard::setStart( int value )
+{
+	kdDebug() << "NuclideBoard::setStart()" << endl;	
+
+	if ( value > m_stop )
+	{
+		m_stop = value + 1;
+		emitStopValue( m_stop );
+	}
+
+	m_start = value;
+	updateList();
 }
 
 void NuclideBoard::updateList()
 {
-	m_isotopeWidgetList.clear();
+	kdDebug() << "NuclideBoard::updateList()" << endl;
 
-	QValueList<Element*>::const_iterator it = m_list.at(m_start-1);
-	const QValueList<Element*>::const_iterator itEnd = m_list.at(m_stop);
-	
-	const int rangeOfNeutrons = m_highestNumberOfNeutrons-m_lowestNumberOfNeutrons;
-	const int rangeOfElements = m_stop-m_start;
+	m_highestNumberOfNeutrons = highestNeutronCount();
+	m_lowestNumberOfNeutrons = lowestNeutronCount();
 
-	//the width and height for each square
-	int w_ = width()/( rangeOfNeutrons+1 );
-	int h_ = height()/( rangeOfElements+1 );
-
-	int w;
-
-	w_ < h_ ? w = w_ : w = h_;
-
-	const int h = w;
-
-	for ( int i = m_start ; it != itEnd; ++it )
+	if( !m_isotopeWidgetList.empty() ) //!= 0 )
 	{
-		QValueList<Isotope*> i_list = ( *it )->isotopes();
-		QValueList<Isotope*>::Iterator i_it = i_list.begin();
-		const QValueList<Isotope*>::Iterator i_itEnd = i_list.end();
+		QValueList<IsotopeWidget*>::const_iterator wid = m_isotopeWidgetList.begin();
+		QValueList<IsotopeWidget*>::const_iterator widEnd = m_isotopeWidgetList.end();
 
-		for ( ; i_it != i_itEnd; ++i_it )
+		for ( ; wid != widEnd; ++wid )
 		{
-			//on the x-axis the neutrons are places
-			//on the y-axis the elements
-			int y;
-			
-			int n_count = ( *i_it )->neutrons();
-			int position = n_count - m_lowestNumberOfNeutrons;
-			int x = position * w;
+			( *wid )->hide();
+			delete ( *wid );
+		}
 
-			y = height()-( ( i-m_start )*h );
-			
-			IsotopeWidget *widget = new IsotopeWidget( *i_it, this );
+		m_isotopeWidgetList.clear();
+	}	
 	
-			connect( widget, SIGNAL( clicked( Isotope* ) ), this, SLOT(slotDrawDecayRow( Isotope* ) ) );
+	QValueList<Element*>::const_iterator it = m_list.at( m_start - 1 );
+	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
 
-			widget->setSize( w );
-			widget->setPoint( QPoint(x,y) );
+	QValueList<Isotope*> isotopeList;
+	QValueList<Isotope*>::const_iterator isotope;
+	QValueList<Isotope*>::const_iterator isotopeEnd;
 
+	for ( ; it != itEnd; ++it )
+	{
+		isotopeList = ( *it )->isotopes();
+		isotope = isotopeList.begin();
+		isotopeEnd = isotopeList.end();
+
+		for ( ; isotope != isotopeEnd; ++isotope )
+		{
+			IsotopeWidget *widget = new IsotopeWidget( *isotope, viewport() );
+	
+//			connect( widget, SIGNAL( clicked( Isotope* ) ), this,
+//					 SLOT( slotDrawDecayRow( Isotope* ) ) );
+
+			addChild( widget );
+			widget->resize( m_isoWidth, m_isoWidth );		
+			widget->move( m_isoWidth + 10 + ( ( *isotope )->neutrons() - m_lowestNumberOfNeutrons )
+				 * m_isoWidth, m_isoWidth + ( m_stop - ( *it )->number() ) * m_isoWidth );
+
+			widget->show();
 			m_isotopeWidgetList.append( widget );
 		}
-		i++;
 	}
-	update();
+
+	updateContents();
+}
+
+
+IsotopeWidget* NuclideBoard::getIsotopeWidget( Isotope* isotope )
+{
+       QValueList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
+       const QValueList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
+
+       for (; it != itEnd; ++it )
+       {
+               if ( ( *it )->isotope() == isotope )
+                       return ( *it );
+       }
+
+       return 0;
 }
 
 IsotopeWidget::IsotopeWidget( Isotope* isotope, QWidget *parent ) : QWidget(parent)
 {
 	m_isotope = isotope;	
-	
-	QColor c;
 
 	if ( m_isotope->betaminusdecay() )
-		c = Qt::blue;
+		m_color = Qt::blue;
 	else if ( m_isotope->betaplusdecay() )
-		c = Qt::red;
-	else if (  m_isotope->alphadecay() )
-		c = Qt::yellow;
+		m_color = Qt::red;
+	else if ( m_isotope->alphadecay() )
+		m_color = Qt::yellow;
 	else if (  m_isotope->ecdecay() )
-		c = Qt::green;
+		m_color = Qt::green;
 	else
-		c= Qt::magenta;
-
-	m_color = c;
+		m_color = Qt::magenta;
 
 	m_active = false;
+
+	resize( 50, 50 );
 }
 
-void IsotopeWidget::drawSelf( QPainter*p )
+IsotopeWidget::~IsotopeWidget()
 {
-	QColor color = m_color;
-	if ( m_active )
-		color = m_color.dark();
-
-	p->fillRect( m_point.x()+m_size, m_point.y()-m_size, m_size-1, m_size-1, color );
-	
-	p->drawRect( m_point.x()+m_size, m_point.y()-m_size, m_size-1, m_size-1 );
-
-//X 	if ( m_active )
-//X 	{
-//X 		p->setPen( Qt::white );
-//X 
-//X 		p->drawRect( m_point.x()+m_size+1, m_point.y()-m_size-1, m_size-4, m_size-4 );
-//X 
-//X 		p->setPen( Qt::black );
-//X 	}
+//	kdDebug() << "IsotopeWidget::~IsotopeWidget()" << endl;
+//	hide();
 }
- 
- #include "nuclideboard.moc"
+
+void IsotopeWidget::paintEvent( QPaintEvent* /*e*/ )
+{
+//	kdDebug() << "IsotopeWidget::paintEvent()" << endl;
+
+	QPainter p( this );
+
+	if ( m_active )
+		p.fillRect( 0, 0, width(), height(), m_color.dark() );
+	else
+		p.fillRect( 0, 0, width(), height(), m_color );
+
+	p.drawRect( 0, 0, width(), height() );
+}
+
+void Decay::showDecay()
+{
+	// iterate through all isotopeWidgets and set them active = true
+
+	QValueList<IsotopeWidget*>::const_iterator it = m_list.begin();
+	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_list.end();
+
+	while ( it != itEnd )
+	{
+		( *it )->activate( true );
+		++it;
+	}
+}
+
+void Decay::hideDecay()
+{
+	// iterate through all isotopeWidgets and set them active = false
+
+ 	QValueList<IsotopeWidget*>::const_iterator it = m_list.begin();
+	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_list.end();
+
+	while ( it != itEnd )
+	{
+		( *it )->activate( false );
+		++it;
+	}
+}
+
+Decay::Decay( NuclideBoard* parent, Isotope* isotope, Element* element )
+{
+       kdDebug() << "Decay::Decay()" << endl;
+       m_parent = parent;
+       m_startIsotope = isotope;
+       m_startElement = element;
+       m_elements = KalziumDataObject::instance()->ElementList;
+       buildDecayRow();
+}
+
+void Decay::buildDecayRow()
+{
+       	kdDebug() << "Decay::buildDecayRow()" << endl;
+
+       	QValueList<Isotope*> tmpIsotopes;
+       	QValueList<Isotope*> tmp;
+       	QValueList<Isotope*>::const_iterator iso;
+       	QValueList<Isotope*>::const_iterator isoEnd;
+
+       	tmpIsotopes.append( m_startIsotope );
+
+       	while( !tmpIsotopes.isEmpty() )
+	{
+               iso = tmpIsotopes.begin();
+               isoEnd = tmpIsotopes.end();
+
+               for ( ; iso != isoEnd; ++iso )
+               {
+                       if( ( *iso )->betaminusdecay() )
+                       {
+                               if ( getIsotope( (*iso)->neutrons()-1 ,(*iso)->protones()+1 ) != 0 )
+                                       tmp.append( getIsotope( (*iso)->neutrons()-1,
+                                                               (*iso)->protones()+1 ) );
+                       }
+                       if( ( *iso )->betaplusdecay() )
+                       {
+                               if ( getIsotope( (*iso)->neutrons()+1 ,(*iso)->protones()-1 ) != 0 )
+                                       tmp.append( getIsotope( (*iso)->neutrons()+1,
+                                                               (*iso)->protones()-1 ) );
+                       }
+                       if( ( *iso )->alphadecay() )
+                       {
+                               if ( getIsotope( (*iso)->neutrons()-2 ,(*iso)->protones()-2 ) != 0 )
+                                       tmp.append( getIsotope( (*iso)->neutrons()-2,
+                                                               (*iso)->protones()-2 ) );
+                       }
+
+                       if( m_parent->getIsotopeWidget( *iso ) != 0 )
+                               m_list.append( m_parent->getIsotopeWidget( *iso ) );
+
+                       tmpIsotopes.remove( *iso );
+               }
+               tmpIsotopes = tmp;
+               tmp.clear();
+       }
+}
+
+Isotope* Decay::getIsotope( int protones, int neutrons )
+{
+       kdDebug() << "Decay::getIsotope()" << endl;
+       QValueList<Isotope*> tmpList = m_elements[ protones ]->isotopes();
+       QValueList<Isotope*>::const_iterator it;
+
+       if ( tmpList.empty() )
+               return 0;
+
+       for ( it = tmpList.begin(); it != tmpList.end(); ++it )
+       {
+               if ( ( *it )->neutrons() == neutrons )
+               {
+                       kdDebug() << "leaving value"<< endl;
+                       return ( *it );
+               }
+       }
+       kdDebug() << "leaving null" << endl;
+       return 0;
+} 
+#include "nuclideboard.moc"
+
