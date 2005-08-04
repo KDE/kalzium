@@ -291,8 +291,6 @@ QString DetailedInfoDlg::isotopeTable()
 		if ( ( *it )->halflife() > 0.0 )
 			html.append( ( *it )->halflifeAsString() );
 		html.append( "</td><td>" );
-//		if ( ( *it )->decayenergy() > 0.0 )
-//			html.append( i18n( "%1 MeV" ).arg(( *it )->decayenergy() ) );
 		if ( ( *it )->alphapercentage() > 0.0 ){
 			if ( ( *it )->alphadecay() > 0.0 )
 			html.append( i18n( "%1 MeV" ).arg(( *it )->alphadecay() ) );
