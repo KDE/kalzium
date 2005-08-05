@@ -442,38 +442,33 @@ Isotope* Decay::getIsotope( int protones, int neutrons )
 
 NuclideLegend::NuclideLegend( QWidget* parent, const char* name ) : QWidget( parent, name )
 {
-//	KDialog::sizeHint();
+	setMinimumWidth( 300 );
 }
 
 void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
 {
-/*	QPainter p( this );
-	QString text;
+	QPainter p( this );
+        QString text;
 
-	p.fillRect( 10, 10, 10, 10, Qt::blue );
-	p.drawRect( 10, 10, 30, 30 );
-	text = i18n( "%1- %2" ).arg( QChar( 946 ) ).arg( i18n( "Decay" ) );
-	p.drawText( 10 + 30, 10, text );
+        p.fillRect( 10, 10, 10, 10, Qt::blue );
+        text = i18n( "%1- %2" ).arg( QChar( 946 ) ).arg( i18n( "Decay" ) );
+        p.drawText( 30, 20, text );
 
-	p.fillRect( 10, 30, 10, 10, Qt::red );
-	p.drawRect( 30,30 );
-	text =  i18n( "%1+ %2" ).arg( QChar( 946) ).arg( i18n( "Decay" ) );
-	p.drawText( 30, 10, text );
+        p.fillRect( 10, 30, 10, 10, Qt::red );
+        text =  i18n( "%1+ %2" ).arg( QChar( 946) ).arg( i18n( "Decay" ) );
+        p.drawText( 30, 40, text );
 
-	p.fillRect( );
-	p.drawRect( 30, 30 );
-	text =  i18n( "Stable" ) 
-	p.drawText( text )
+        p.fillRect( 120, 10, 10, 10, Qt::yellow );
+        text =  i18n( "%1 %2" ).arg( QChar( 945 ) ).arg( i18n( "Decay" ) );
+        p.drawText( 140, 20, text );
 
-	p.fillRect( 50, 10, 10, 10, Qt::yellow );
-	p.drawRect( 30,30 );
-	text =  i18n( "%1%2" ).arg( QChar( 945 ) ).arg( i18n( "Decay" ) );
-	p.drawText( 30, 10, text );
+        p.fillRect( 120, 30, 10, 10, Qt::green );
+        text = i18n( "Acronym of Electron Capture Decay", "EC Decay" );
+        p.drawText( 140, 40, text );
 
-	p.fillRect( 50, 30, 10, 10, Qt::green );
-	p.drawRect( 30,30 );
-	text = i18n( "Acronym of Electron Capture Decay", "EC Decay" ) 
-	p.drawText( 30, 10, text );*/
+	p.fillRect( 230, 10, 10, 10, Qt::magenta );
+        text =  i18n( "Stable" );
+        p.drawText( 250, 20, text ); 
 }
  
 #include "nuclideboard.moc"
