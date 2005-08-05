@@ -36,7 +36,7 @@
 #include "math.h"
 
 IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
-	: KDialogBase(parent, "IsotopeTableDialog", true, i18n( "Nuclide Board" ),
+	: KDialogBase(parent, "IsotopeTableDialog", true, i18n( "Isotope Table" ),
 			KDialogBase::Apply|KDialogBase::Close|KDialogBase::Help, KDialogBase::Apply, true )
 {
 	QWidget *page = new QWidget( this );
@@ -77,7 +77,7 @@ void IsotopeTableDialog::slotHelp()
 {
 	emit helpClicked();
 	if ( kapp )
-		kapp->invokeHelp ( "nuclid_board", "kalzium" );
+		kapp->invokeHelp ( "isotope_table", "kalzium" );
 }
 
 
