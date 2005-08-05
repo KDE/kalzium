@@ -42,6 +42,7 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
 	QWidget *page = new QWidget( this );
 
 	IsotopeTable *b = new IsotopeTable( page, "nb" );
+	NuclideLegend *legend = new NuclideLegend( page );
 
 	setMainWidget( page );
 
@@ -57,16 +58,27 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
 	spin1->setValue( 80 );
 	spin2->setValue( 100 );
 
-	QHBoxLayout *hbox1 = new QHBoxLayout( page, 0, KDialog::spacingHint() );
+/*	QHBoxLayout *hbox1 = new QHBoxLayout( page, 0, KDialog::spacingHint() );
 	hbox1->addWidget( new QLabel( i18n( "First Element:" ), page ) );
 	hbox1->addWidget( spin1 );
 	QHBoxLayout *hbox2 = new QHBoxLayout( page, 0, KDialog::spacingHint() );
 	hbox2->addWidget( new QLabel( i18n( "Last Element:" ), page ) );
 	hbox2->addWidget( spin2 );
+*/
+	QGridLayout *spinLayout = new QGridLayout( page, 2, 2, 0, KDialogBase::spacingHint() );
+	spinLayout->addWidget( new QLabel( i18n( "First Element:" ), page ), 0, 0 );
+	spinLayout->addWidget( new QLabel( i18n( "Last Element:" ), page ), 1, 0 );
+	spinLayout->addWidget( spin1, 0, 1 );
+	spinLayout->addWidget( spin2, 1, 1 );
+
+	QHBoxLayout *legendBox = new QHBoxLayout( page, 0, KDialog::spacingHint() );
+	legendBox->addWidget( legend );
+	legendBox->addLayout( spinLayout );	
 
 	vbox->addWidget( b );
-	vbox->addLayout( hbox1 );
-	vbox->addLayout( hbox2 );
+//	vbox->addLayout( hbox1 );
+	vbox->addLayout( legendBox );
+//	vbox->addLayout( hbox2 );
 
 	setMinimumSize( 500, 450 );
 	resize( minimumSize() );
@@ -113,14 +125,10 @@ void IsotopeTable::slotDrawDecayRow( Isotope* isotope )
 void IsotopeTable::drawContents( QPainter * p, int clipx, int clipy, int clipw, int cliph ) 
 {
 	kdDebug() << "IsotopeTable::drawContents()" << endl;
+	const int border = 10;
 
-//	m_highestNumberOfNeutrons = highestNeutronCount();
-//	m_lowestNumberOfNeutrons = lowestNeutronCount();
-
-	resizeContents( ( m_highestNumberOfNeutrons - m_lowestNumberOfNeutrons ) * m_isoWidth + 10 + m_isoWidth,
-                       ( m_stop - m_start ) * m_isoWidth + m_isoWidth );
-
-//	viewport()->erase();
+	resizeContents( ( m_highestNumberOfNeutrons - m_lowestNumberOfNeutrons + 1 ) * m_isoWidth + 10 
+		+ m_isoWidth + border, ( m_stop - m_start + 1 ) * m_isoWidth + m_isoWidth + border );
 
 	for ( int i = m_start; i <= m_stop; ++i )
 		p->drawText( 0, ( m_stop - i ) * m_isoWidth + m_isoWidth, m_isoWidth, m_isoWidth, Qt::AlignCenter,				 m_list[i - 1]->symbol() );
@@ -128,15 +136,14 @@ void IsotopeTable::drawContents( QPainter * p, int clipx, int clipy, int clipw, 
 	for ( int i = m_lowestNumberOfNeutrons; i <= m_highestNumberOfNeutrons; i += 2 )
 	 	p->drawText( ( i - m_lowestNumberOfNeutrons ) * m_isoWidth + 10 + m_isoWidth, 0, m_isoWidth,
                                 m_isoWidth, Qt::AlignCenter, QString::number( i ) );
-
 }
 
 int IsotopeTable::highestNeutronCount()
 {
 	kdDebug() << "IsotopeTable::highestNeutronCount()" << endl;
 
-	QValueList<Element*>::const_iterator it;
-	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
+	QValueList<Element*>::const_iterator it = m_list.at( m_start - 1 );
+	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop );
 
 	QValueList<Isotope*> isotopeList;
 	QValueList<Isotope*>::const_iterator isotope;
@@ -144,7 +151,7 @@ int IsotopeTable::highestNeutronCount()
 
 	int count = 0;
 
-	for ( it = m_list.at( m_start - 1 ); it != itEnd; ++it )
+	for ( ; it != itEnd; ++it )
 	{
 		isotopeList = ( *it )->isotopes();
 
@@ -168,7 +175,7 @@ int IsotopeTable::lowestNeutronCount()
 	kdDebug() << "IsotopeTable::lowestNeutronCount()" << endl;
 
 	QValueList<Element*>::const_iterator it = m_list.at( m_start - 1 );
-	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
+	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop );
 
 	QValueList<Isotope*> isotopeList;
 	QValueList<Isotope*>::const_iterator isotope;
@@ -176,7 +183,7 @@ int IsotopeTable::lowestNeutronCount()
 
 	int count = 1000;
 	
-	for (; it != itEnd; ++it )
+	for ( ; it != itEnd; ++it )
 	{
 		isotopeList = ( *it )->isotopes();
 		if ( isotopeList.empty() )
@@ -229,7 +236,7 @@ void IsotopeTable::updateList()
 	m_highestNumberOfNeutrons = highestNeutronCount();
 	m_lowestNumberOfNeutrons = lowestNeutronCount();
 
-	if( !m_isotopeWidgetList.empty() ) //!= 0 )
+	if( !m_isotopeWidgetList.empty() )
 	{
 		QValueList<IsotopeWidget*>::const_iterator wid = m_isotopeWidgetList.begin();
 		QValueList<IsotopeWidget*>::const_iterator widEnd = m_isotopeWidgetList.end();
@@ -244,7 +251,7 @@ void IsotopeTable::updateList()
 	}	
 	
 	QValueList<Element*>::const_iterator it = m_list.at( m_start - 1 );
-	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
+	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop );
 
 	QValueList<Isotope*> isotopeList;
 	QValueList<Isotope*>::const_iterator isotope;
@@ -307,14 +314,10 @@ IsotopeWidget::IsotopeWidget( Isotope* isotope, QWidget *parent ) : QWidget(pare
 		m_color = Qt::magenta;
 
 	m_active = false;
-
-	resize( 50, 50 );
 }
 
 IsotopeWidget::~IsotopeWidget()
 {
-//	kdDebug() << "IsotopeWidget::~IsotopeWidget()" << endl;
-//	hide();
 }
 
 void IsotopeWidget::paintEvent( QPaintEvent* /*e*/ )
@@ -435,6 +438,43 @@ Isotope* Decay::getIsotope( int protones, int neutrons )
        }
        kdDebug() << "leaving null" << endl;
        return 0;
-} 
+}
+
+NuclideLegend::NuclideLegend( QWidget* parent, const char* name ) : QWidget( parent, name )
+{
+//	KDialog::sizeHint();
+}
+
+void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
+{
+/*	QPainter p( this );
+	QString text;
+
+	p.fillRect( 10, 10, 10, 10, Qt::blue );
+	p.drawRect( 10, 10, 30, 30 );
+	text = i18n( "%1- %2" ).arg( QChar( 946 ) ).arg( i18n( "Decay" ) );
+	p.drawText( 10 + 30, 10, text );
+
+	p.fillRect( 10, 30, 10, 10, Qt::red );
+	p.drawRect( 30,30 );
+	text =  i18n( "%1+ %2" ).arg( QChar( 946) ).arg( i18n( "Decay" ) );
+	p.drawText( 30, 10, text );
+
+	p.fillRect( );
+	p.drawRect( 30, 30 );
+	text =  i18n( "Stable" ) 
+	p.drawText( text )
+
+	p.fillRect( 50, 10, 10, 10, Qt::yellow );
+	p.drawRect( 30,30 );
+	text =  i18n( "%1%2" ).arg( QChar( 945 ) ).arg( i18n( "Decay" ) );
+	p.drawText( 30, 10, text );
+
+	p.fillRect( 50, 30, 10, 10, Qt::green );
+	p.drawRect( 30,30 );
+	text = i18n( "Acronym of Electron Capture Decay", "EC Decay" ) 
+	p.drawText( 30, 10, text );*/
+}
+ 
 #include "nuclideboard.moc"
 

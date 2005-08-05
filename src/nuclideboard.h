@@ -141,7 +141,7 @@ class IsotopeWidget : public QWidget
 		virtual void mousePressEvent ( QMouseEvent * e );				*/
 
 	protected:
-		virtual void paintEvent(QPaintEvent*);
+		virtual void paintEvent( QPaintEvent* );
 
 	private:
 		Isotope* m_isotope;
@@ -192,6 +192,16 @@ class IsotopeTableDialog : public KDialogBase
 		 * invokes the help for this widget
 		 */
 		void slotHelp();
+};
+
+class NuclideLegend : public QWidget
+{
+	public:
+		NuclideLegend( QWidget* parent, const char* name = 0 );
+		~NuclideLegend() {};
+		
+	protected:
+		virtual void paintEvent( QPaintEvent* );
 };
 
 
