@@ -39,7 +39,7 @@ class QSpinBox;
  * @author Carsten Niehaus
  *
  */
-class NuclideBoard : public QScrollView
+class IsotopeTable : public QScrollView
 {
 	Q_OBJECT
 
@@ -50,9 +50,9 @@ class NuclideBoard : public QScrollView
 		 * @param parent parent widget for this one
 		 * @param name   object name
 		 */
-		NuclideBoard(QWidget* parent = 0, const char* name = 0);
+		IsotopeTable(QWidget* parent = 0, const char* name = 0);
 
-		~NuclideBoard(){};
+		~IsotopeTable(){};
 
 		IsotopeWidget* getIsotopeWidget( Isotope* isotope );	
 
@@ -160,7 +160,7 @@ class IsotopeWidget : public QWidget
 class Decay
 {
 	public:
-		Decay( NuclideBoard* parent, Isotope* isotope, Element* element );
+		Decay( IsotopeTable* parent, Isotope* isotope, Element* element );
 		~Decay(){};
 
 		void showDecay();
@@ -171,18 +171,18 @@ class Decay
 		QValueList<Element*> m_elements;
 		Isotope* m_startIsotope;
 		Element* m_startElement;
-		NuclideBoard* m_parent;
+		IsotopeTable* m_parent;
 	
 		void buildDecayRow();
 		Isotope* getIsotope( int protones, int neutrons );
 };
 
-class NuclideBoardDialog : public KDialogBase
+class IsotopeTableDialog : public KDialogBase
 {
 	Q_OBJECT
 	public:
-		NuclideBoardDialog( QWidget* parent, const char* name = 0 );
-		~NuclideBoardDialog(){};
+		IsotopeTableDialog( QWidget* parent, const char* name = 0 );
+		~IsotopeTableDialog(){};
 
 	private:
 		QSpinBox *spin1, *spin2;

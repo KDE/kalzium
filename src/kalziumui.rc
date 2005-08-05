@@ -23,7 +23,7 @@
   </Menu>
   <Menu name="miscmenu"><text>&amp;Tools</text>
     <Action name="plotdata" />
-    <Action name="nuclideboard" />
+    <Action name="isotopetable" />
     <Action name="glossary" />
     <Action name="view_eqsolver" />
   </Menu>
@@ -38,7 +38,7 @@
   <Action name="view_sidebar"/>
   <Separator />
   <Action name="plotdata" />
-  <Action name="nuclideboard" />
+  <Action name="isotopetable" />
   <Action name="glossary" />
   <Action name="view_eqsolver" />
 </ToolBar>

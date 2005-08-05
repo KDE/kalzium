@@ -34,7 +34,7 @@ class DetailedGraphicalOverview;
 class TimeWidgetIMPL;
 class SOMWidgetIMPL;
 class GlossaryDialog;
-class NuclideBoard;
+class IsotopeTable;
 
 /**
  * @short Application Main Window
@@ -90,7 +90,7 @@ class Kalzium : public KMainWindow
 		 */
 		KSelectAction *gradient_action;
 		KSelectAction *numeration_action;
-		KAction *m_pPlotAction, *m_pNuclideBoardAction,
+		KAction *m_pPlotAction, *m_pIsotopeTableAction,
 				*m_pGlossaryAction;
 		
 		KAction *m_pTooltipAction;
@@ -156,9 +156,9 @@ class Kalzium : public KMainWindow
 		void slotSwitchtoNumeration(int);
 		
 		/**
-		 *start the nuclideboard
+		 *start the isotopetable
 		 */
-		 void slotNuclideBoard();
+		 void slotIsotopeTable();
 		 		 
 		 
 		/**

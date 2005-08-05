@@ -35,13 +35,13 @@
 
 #include "math.h"
 
-NuclideBoardDialog::NuclideBoardDialog( QWidget* parent, const char* name )
-	: KDialogBase(parent, "NuclideBoardDialog", true, i18n( "Nuclide Board" ),
+IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
+	: KDialogBase(parent, "IsotopeTableDialog", true, i18n( "Nuclide Board" ),
 			KDialogBase::Apply|KDialogBase::Close|KDialogBase::Help, KDialogBase::Apply, true )
 {
 	QWidget *page = new QWidget( this );
 
-	NuclideBoard *b = new NuclideBoard( page, "nb" );
+	IsotopeTable *b = new IsotopeTable( page, "nb" );
 
 	setMainWidget( page );
 
@@ -73,7 +73,7 @@ NuclideBoardDialog::NuclideBoardDialog( QWidget* parent, const char* name )
 	update();
 }
 
-void NuclideBoardDialog::slotHelp()
+void IsotopeTableDialog::slotHelp()
 {
 	emit helpClicked();
 	if ( kapp )
@@ -81,10 +81,10 @@ void NuclideBoardDialog::slotHelp()
 }
 
 
-NuclideBoard::NuclideBoard( QWidget *parent, const char* name ) 
+IsotopeTable::IsotopeTable( QWidget *parent, const char* name ) 
 	: QScrollView( parent, name )
 {
-	kdDebug() << "NuclideBoard()" << endl;
+	kdDebug() << "IsotopeTable()" << endl;
 
 	m_list = KalziumDataObject::instance()->ElementList;
 	m_decay = 0;
@@ -96,9 +96,9 @@ NuclideBoard::NuclideBoard( QWidget *parent, const char* name )
 	m_lowestNumberOfNeutrons = lowestNeutronCount();
 }
 
-void NuclideBoard::slotDrawDecayRow( Isotope* isotope )
+void IsotopeTable::slotDrawDecayRow( Isotope* isotope )
 {
-	kdDebug() << "NuclideBoard::slotDrawDecayRow()" << endl;
+	kdDebug() << "IsotopeTable::slotDrawDecayRow()" << endl;
 	if ( !isotope->alphadecay() 
 			&& !isotope->betaplusdecay()
 			&& !isotope->betaminusdecay() )
@@ -110,9 +110,9 @@ void NuclideBoard::slotDrawDecayRow( Isotope* isotope )
 	kdDebug() << "Isotope: " << isotope->neutrons() << endl;
 }
 
-void NuclideBoard::drawContents( QPainter * p, int clipx, int clipy, int clipw, int cliph ) 
+void IsotopeTable::drawContents( QPainter * p, int clipx, int clipy, int clipw, int cliph ) 
 {
-	kdDebug() << "NuclideBoard::drawContents()" << endl;
+	kdDebug() << "IsotopeTable::drawContents()" << endl;
 
 //	m_highestNumberOfNeutrons = highestNeutronCount();
 //	m_lowestNumberOfNeutrons = lowestNeutronCount();
@@ -131,9 +131,9 @@ void NuclideBoard::drawContents( QPainter * p, int clipx, int clipy, int clipw, 
 
 }
 
-int NuclideBoard::highestNeutronCount()
+int IsotopeTable::highestNeutronCount()
 {
-	kdDebug() << "NuclideBoard::highestNeutronCount()" << endl;
+	kdDebug() << "IsotopeTable::highestNeutronCount()" << endl;
 
 	QValueList<Element*>::const_iterator it;
 	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
@@ -163,9 +163,9 @@ int NuclideBoard::highestNeutronCount()
 	return count;
 }
 
-int NuclideBoard::lowestNeutronCount()
+int IsotopeTable::lowestNeutronCount()
 {
-	kdDebug() << "NuclideBoard::lowestNeutronCount()" << endl;
+	kdDebug() << "IsotopeTable::lowestNeutronCount()" << endl;
 
 	QValueList<Element*>::const_iterator it = m_list.at( m_start - 1 );
 	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
@@ -194,9 +194,9 @@ int NuclideBoard::lowestNeutronCount()
 	return count;
 }
 
-void NuclideBoard::setStop( int value )
+void IsotopeTable::setStop( int value )
 {
-	kdDebug() << "NuclideBoard::setStop()" << endl;
+	kdDebug() << "IsotopeTable::setStop()" << endl;
 
 	if ( value < m_start )
 	{
@@ -208,9 +208,9 @@ void NuclideBoard::setStop( int value )
 	updateList();
 }
 
-void NuclideBoard::setStart( int value )
+void IsotopeTable::setStart( int value )
 {
-	kdDebug() << "NuclideBoard::setStart()" << endl;	
+	kdDebug() << "IsotopeTable::setStart()" << endl;	
 
 	if ( value > m_stop )
 	{
@@ -222,9 +222,9 @@ void NuclideBoard::setStart( int value )
 	updateList();
 }
 
-void NuclideBoard::updateList()
+void IsotopeTable::updateList()
 {
-	kdDebug() << "NuclideBoard::updateList()" << endl;
+	kdDebug() << "IsotopeTable::updateList()" << endl;
 
 	m_highestNumberOfNeutrons = highestNeutronCount();
 	m_lowestNumberOfNeutrons = lowestNeutronCount();
@@ -277,7 +277,7 @@ void NuclideBoard::updateList()
 }
 
 
-IsotopeWidget* NuclideBoard::getIsotopeWidget( Isotope* isotope )
+IsotopeWidget* IsotopeTable::getIsotopeWidget( Isotope* isotope )
 {
        QValueList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
        const QValueList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
@@ -359,7 +359,7 @@ void Decay::hideDecay()
 	}
 }
 
-Decay::Decay( NuclideBoard* parent, Isotope* isotope, Element* element )
+Decay::Decay( IsotopeTable* parent, Isotope* isotope, Element* element )
 {
        kdDebug() << "Decay::Decay()" << endl;
        m_parent = parent;
