@@ -57,6 +57,12 @@ class Element{
 		Element();
 
 		virtual ~Element();
+
+		/**
+		 * @returns a pointer to the istope with @p numberOfNucleons
+		 * nucleons
+		 */
+		Isotope* isotopeByNucleons( int numberOfNucleons );
 		
 		enum RADIUSTYPE
 		{

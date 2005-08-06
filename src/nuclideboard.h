@@ -27,156 +27,113 @@
 #include <qpainter.h>
 #include <isotope.h>
 #include <qvaluelist.h>
+#include <qpoint.h>
+#include <qrect.h>
+#include <quuid.h>
 #include "element.h"
 
 class IsotopeWidget;
-class Decay;
 class QColor;
 class QSpinBox;
+class QEvent;
+
+typedef QValueList<Isotope*> IsotopeList;
+typedef QValueList<Element*> ElementList;
+
+class IsotopeAdapter
+{
+	public:
+		IsotopeAdapter()
+		{
+			QUuid uuid;
+			mUID = uuid.toString();
+		}
+
+		///the istopte this widgets represents
+		Isotope* m_isotope;
+
+		///the postition (x,y) in the "table" of the isotopes.
+		//If the grid is 20x30 for example, the x and y values
+		//cannot be bigger than 20 or 30. 
+		QPoint m_point;
+
+		bool operator< ( const IsotopeAdapter &adapter ) const
+		{
+			return true;
+		}
+		
+	private:
+		QString mUID;
+};
+
+class IsotopeTableView : public QWidget
+{
+	friend class IsotopeTableDialog;
+	
+	Q_OBJECT
+
+	public:
+		IsotopeTableView( QWidget* parent = 0, const char * name = 0 );
+	
+	public slots:
+		/**
+		 *	Dieses Ding updated nach jedem zoom die Liste mit QMap<Isotope*, QRect>
+		 *	D.h. dass in ihr all sichtbaren Isotope incl. Größe und Position drin.
+		 *	Mit Schnittmengenberechnung kann bei zoom-in also geschaut werden,
+		 *	welche Isotope in der Schnittmenge liegen. Die anderen fliegen raus.
+		 */
+		void updateIsoptopeRectList();
+		
+	private: IsotopeList m_isotopeList;
+
+		int highestNeutronCount(); int lowestNeutronCount();
+
+		QValueList<Element*>::ConstIterator m_startElementIterator;
+		QValueList<Element*>::ConstIterator m_stopElementIterator;
+		
+		QValueList<Element*> m_list;
+
+		//the lowest and highest number of neutrons, of all visible elements
+		int m_lowestNumberOfNeutrons; int m_highestNumberOfNeutrons;
+
+		static int m_minIsoSize;	// size of a isotopeWidget on the board
+		static int m_maxIsoSize;	// size of a isotopeWidget on the board
+
+		/** @return the color of the isotope
+		 */
+		QColor isotopeColor( Isotope* );
+
+		QMap<IsotopeAdapter, QRect> m_IsotopeAdapterRectMap;
+
+		QPoint m_firstPoint;
+
+		QPoint m_topLeft;
+		QPoint m_bottomRight;
+		
+		QRect m_selectedRegion;
+		
+		bool m_duringSelection; ///true if user is currently mouse the pressed mouse
+
+		 
+	protected:
+		virtual void paintEvent( QPaintEvent*e );
+		
+		/**
+		 * draw the x and y axis 
+		 */
+		void drawAxisLabels( QPainter *p );
+		
+		/**
+		 * draw the isotopewidgets
+		 */
+		void drawIsotopeWidgets( QPainter *p );
+};
 
 /**
- * @author J�rg Buchwald
+ * @author Martin Pfeiffer
  * @author Carsten Niehaus
  *
  */
-class IsotopeTable : public QScrollView
-{
-	Q_OBJECT
-
-	public:
-		/**
-		 * Constructor.
-		 *
-		 * @param parent parent widget for this one
-		 * @param name   object name
-		 */
-		IsotopeTable(QWidget* parent = 0, const char* name = 0);
-
-		~IsotopeTable(){};
-
-		IsotopeWidget* getIsotopeWidget( Isotope* isotope );	
-
-	private:
-		QValueList<Element*> m_list;
-
-		QValueList<IsotopeWidget*> m_isotopeWidgetList;
-		
-		Decay* m_decay;
-
-		void updateList();
-
-		int highestNeutronCount();
-		int lowestNeutronCount();
-
-		int m_lowestNumberOfNeutrons;
-		int m_highestNumberOfNeutrons;
-
-		int m_start;
-		int m_stop;
-
-		int m_isoWidth;	// width of a isotopeWidget on the board
-
-	public slots:
-		/**
-		 * defines the first isotope which will be displayed
-		 * @param value the number of the element
-		 */
-		void setStart( int value );
-
-		/**
-		 * defines the last isotope which will be displayed
-		 * @param value the number of the element
-		 */
-		void setStop( int value );
-
-	private slots:
-		/**
-		 * Draw the decay of an isotope
-		 * @param isotope the first Isotope in the row
-		 */
-		void slotDrawDecayRow( Isotope* isotope );
-
-	signals:
-		void emitStartValue( int );
-		void emitStopValue( int );
-
-	protected:
-		void drawContents( QPainter * p, int clipx, int clipy, int clipw, int cliph );
-};
-
-/**
- * @author Carsten Niehaus
- */
-class IsotopeWidget : public QWidget
-{
-	Q_OBJECT
-	public:
-		/**
-		 * public constructor
-		 * @param isotope the Isotope which this widget represents
-		 * @param parent  parent widget for this widget
-		 */
-		IsotopeWidget( Isotope* isotope, QWidget *parent );
-		~IsotopeWidget();
-
-		/**
-		 * if a IsotopeWidget is activated it will
-		 * look a bit diffent. This is used to show
-		 * and highligt row of decay
-		 * @param a if true the widget will be activated
-		 */
-		void activate( bool a ){
-			m_active = a;
-			update();
-		}
-
-		/**
-		 * @return the Istope of this widget
-		 */
-		Isotope* isotope()const{
-			return m_isotope;
-		}
-
-/*	protected slots:
-		virtual void mousePressEvent ( QMouseEvent * e );				*/
-
-	protected:
-		virtual void paintEvent( QPaintEvent* );
-
-	private:
-		Isotope* m_isotope;
-
-		QColor m_color;
-
-		bool m_active;
-/*
-	signals:
-		void clicked( Isotope* );*/
-};
-
-/**
- * @author Carsten Niehaus
- */
-class Decay
-{
-	public:
-		Decay( IsotopeTable* parent, Isotope* isotope, Element* element );
-		~Decay(){};
-
-		void showDecay();
-		void hideDecay();
-
-	private:
-		QValueList<IsotopeWidget*> m_list;
-		QValueList<Element*> m_elements;
-		Isotope* m_startIsotope;
-		Element* m_startElement;
-		IsotopeTable* m_parent;
-	
-		void buildDecayRow();
-		Isotope* getIsotope( int protones, int neutrons );
-};
-
 class IsotopeTableDialog : public KDialogBase
 {
 	Q_OBJECT
@@ -185,16 +142,29 @@ class IsotopeTableDialog : public KDialogBase
 		~IsotopeTableDialog(){};
 
 	private:
-		QSpinBox *spin1, *spin2;
-	
+		IsotopeTableView* m_view;
+
 	private slots:
 		/**
 		 * invokes the help for this widget
 		 */
 		void slotHelp();
+		
+	protected:
+		/**
+		 * This method is never called. I don't know why.
+		 * A mousePressEvent() is caught, though... Same for 
+		 * the View...
+		 */
+		virtual bool eventFilter( QObject *obj, QEvent *ev );
 };
 
+
+/**
+ * @author Martin Pfeiffer
+ */
 class NuclideLegend : public QWidget
+					  
 {
 	public:
 		NuclideLegend( QWidget* parent, const char* name = 0 );

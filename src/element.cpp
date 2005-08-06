@@ -42,6 +42,19 @@ Element::Element()
 	m_artificial = false;
 }
 
+Isotope* Element::isotopeByNucleons( int numberOfNucleons )
+{
+	QValueList<Isotope*>::ConstIterator it = m_isotopeList.begin();
+	const QValueList<Isotope*>::ConstIterator itEnd = m_isotopeList.end();
+
+	for ( ; it != itEnd; ++it )
+	{
+		if ( ( ( *it )->neutrons() + ( *it )->protones() ) == numberOfNucleons )
+			return *it;
+	}
+	return 0;
+}
+
 QString Element::parsedOrbits( bool canBeEmpty )
 {
 	if ( m_orbits.isEmpty() )
