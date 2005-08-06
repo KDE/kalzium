@@ -53,7 +53,7 @@ method isSolved () = m_solved
 method get_eq_sol () =
     let str = ref "" in
     for j=0 to (self#getsize_j () -1) do
-        if (j == m_middle) then str := (!str)^" &rarr; "
+        if (j == m_middle) then str := (!str)^" -&gt; "
         else if (j>0 && j<self#getsize_j ()) then str := (!str)^" + ";
             
         str := (!str)^"<b>"^string_of_int(self#getsol j)^"</b> "^(self#getformula j);
@@ -63,7 +63,7 @@ method get_eq_sol () =
 method get_eq_orig () =
     let str = ref "" in
     for j=0 to (self#getsize_j () -1) do
-        if (j == m_middle) then str := (!str)^" &rarr; "
+        if (j == m_middle) then str := (!str)^" -&gt; "
         else if (j>0 && j<self#getsize_j ()) then str := (!str)^" + ";
             
         str := (!str)^"<b>"^(self#getvar j)^"</b> "^(self#getformula j);
