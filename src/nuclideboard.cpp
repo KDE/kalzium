@@ -27,6 +27,7 @@
 #include <qspinbox.h>
 #include <qcursor.h>
 #include <qstring.h>
+#include <qpixmap.h>
 #include <qtimer.h>
 #include <qwidget.h>
 #include <qmainwindow.h>
@@ -44,6 +45,7 @@ int IsotopeTableView::m_minIsoSize = 20;
 IsotopeTableView::IsotopeTableView( QWidget* parent, const char* name )
 	: QWidget( parent, name )
 {
+	setBackgroundMode( NoBackground );
 	m_duringSelection = false;
 
 	m_list = KalziumDataObject::instance()->ElementList;
@@ -68,8 +70,9 @@ void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 {
 	kdDebug() << "IsotopeTableView::paintEvent()" << endl;
 	
+	QPixmap pm( width(), height() );
 	QPainter p;
-	p.begin( this );
+	p.begin( &pm, this );
 	
 	drawAxisLabels( &p );
 	drawIsotopeWidgets( &p );
@@ -78,11 +81,14 @@ void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 
 	if ( m_duringSelection )
 	{//draw the selection-rectangle
-		p.setBrush( QBrush( Qt::green ) );
+		p.setRasterOp( Qt::XorROP );
+		p.setPen( QPen( Qt::white, 1, Qt::DotLine ) );
 		p.drawRect( m_selectedRegion );
+		p.setRasterOp( Qt::CopyROP );
 	}
 
 	p.end();
+	bitBlt( this, 0, 0, &pm );
 }
 
 ///FIXME there are more than just one decay possible...
