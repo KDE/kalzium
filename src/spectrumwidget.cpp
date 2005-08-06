@@ -51,6 +51,7 @@ SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name ) : QWidget( p
 
 	setMinimumSize( 400, 230 );
 	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
+	setBackgroundMode( NoBackground );
 }
 
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
@@ -62,7 +63,7 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	m_pixmap.fill( this, width(), height() );
 
 	QPainter p;
-	p.begin( &m_pixmap );
+	p.begin( &m_pixmap, this );
 	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
 
 	paintBands( &p );
@@ -76,9 +77,7 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 		drawZoomLine( &p );
 
 	p.end();
-	p.begin( this );
-	p.drawPixmap( 0, 0, m_pixmap );
-	p.end();
+	bitBlt( this, 0, 0, &m_pixmap );
 }
 
 void SpectrumWidget::drawZoomLine( QPainter* p )
