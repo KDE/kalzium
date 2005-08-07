@@ -83,6 +83,8 @@ class IsotopeTableView : public QWidget
 		 *	welche Isotope in der Schnittmenge liegen. Die anderen fliegen raus.
 		 */
 		void updateIsoptopeRectList();
+
+		void selectionDone( QRect selectedRect );
 		
 	private: IsotopeList m_isotopeList;
 
@@ -98,6 +100,8 @@ class IsotopeTableView : public QWidget
 
 		static int m_minIsoSize;	// size of a isotopeWidget on the board
 		static int m_maxIsoSize;	// size of a isotopeWidget on the board
+
+		int m_rectSize;
 
 		/** @return the color of the isotope
 		 */
@@ -149,13 +153,11 @@ class IsotopeTableDialog : public KDialogBase
 		 * invokes the help for this widget
 		 */
 		void slotHelp();
+
+	signals:
+		void selectionDone( QRect );
 		
 	protected:
-		/**
-		 * This method is never called. I don't know why.
-		 * A mousePressEvent() is caught, though... Same for 
-		 * the View...
-		 */
 		virtual bool eventFilter( QObject *obj, QEvent *ev );
 };
 

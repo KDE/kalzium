@@ -56,7 +56,7 @@ IsotopeTableView::IsotopeTableView( QWidget* parent, const char* name )
 	m_stopElementIterator = m_list.end();
 
 	m_topLeft = QPoint( 0, 0 );
-	m_bottomRight = QPoint( 220, 110 );
+	m_bottomRight = QPoint( 80, 30 );
 
 	QTimer::singleShot( 50, this, SLOT( updateIsoptopeRectList() ) );
 }
@@ -75,8 +75,6 @@ void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 	drawAxisLabels( &p );
 	drawIsotopeWidgets( &p );
 
-	p.drawLine( 0,0,width(),height() );
-
 	if ( m_duringSelection )
 	{//draw the selection-rectangle
 		p.setRasterOp( Qt::XorROP );
@@ -87,6 +85,32 @@ void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 
 	p.end();
 	bitBlt( this, 0, 0, &pm );
+}
+
+void IsotopeTableView::selectionDone( QRect selectedRect )
+{
+	m_selectedRegion = selectedRect;
+
+	QRect tempRect = QRect( m_selectedRegion.x()/m_rectSize, 
+			m_selectedRegion.y()/m_rectSize, 
+			m_selectedRegion.width()/m_rectSize, 
+			m_selectedRegion.height()/m_rectSize );
+
+//	kdDebug() << tempRect << " ..::.. " << selectedRect << endl;
+
+	//get the article which is selected
+	QRect intersection = QRect( m_topLeft, m_bottomRight ).intersect( tempRect );
+
+//	kdDebug( ) << "now the final rect: " << intersection << endl;
+
+	m_topLeft = QPoint( intersection.x(), intersection.y() );
+	m_bottomRight = QPoint( intersection.x()+intersection.width(),
+				   		    intersection.y()+intersection.height());
+
+	kdDebug() << m_topLeft << " ;; " << m_bottomRight << endl;
+	
+	updateIsoptopeRectList();
+	update();
 }
 
 ///FIXME there are more than just one decay possible...
@@ -147,7 +171,7 @@ void IsotopeTableView::updateIsoptopeRectList()
 	double tmp2 = this->width()/m_bottomRight.x();
 
 	//take the better size
-	const int rectSize = (int) kMin( tmp1, tmp2 );
+	m_rectSize = (int) kMin( tmp1, tmp2 );
 
 	for (int i = m_topLeft.y(); i < m_bottomRight.y(); ++i )
 	{//first, the elements
@@ -170,9 +194,9 @@ void IsotopeTableView::updateIsoptopeRectList()
 			else
 				adapter.m_isotope = 0;
 
-			QRect boundingRect = QRect( j*rectSize, 
-					realYValue*rectSize, 
-					rectSize, rectSize );
+			QRect boundingRect = QRect( j*m_rectSize, 
+					realYValue*m_rectSize, 
+					m_rectSize, m_rectSize );
 
 			m_IsotopeAdapterRectMap.insert(adapter, boundingRect);
 		}
@@ -285,6 +309,9 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
 	vbox->addWidget( helperSV );
 	
 	m_view = new IsotopeTableView( big_box, "view" );
+
+	connect( this, SIGNAL(selectionDone( QRect ) ), 
+			m_view, SLOT(selectionDone( QRect ) ) );
 	
 	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
 	helperSV->setFrameShape(QFrame::NoFrame);
@@ -333,9 +360,9 @@ bool IsotopeTableDialog::eventFilter( QObject *obj, QEvent *ev )
 		QRect startPoint( m_view->m_firstPoint, m_view->m_firstPoint );
 		QRect endPoint( mev->pos(), mev->pos() );
 
-		m_view->m_selectedRegion = startPoint.unite( endPoint );
 		m_view->m_duringSelection = false;
-		m_view->update();
+
+		emit selectionDone( startPoint.unite( endPoint ) );
 		return true;
 	}
 	KDialogBase::eventFilter(obj,ev);
