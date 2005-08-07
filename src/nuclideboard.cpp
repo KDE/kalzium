@@ -68,8 +68,6 @@ IsotopeTableView::IsotopeTableView( QWidget* parent, const char* name )
  */
 void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 {
-	kdDebug() << "IsotopeTableView::paintEvent()" << endl;
-	
 	QPixmap pm( width(), height() );
 	QPainter p;
 	p.begin( &pm, this );
@@ -127,7 +125,6 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 			QColor color( isotopeColor( i ) ) ;
 			p->setBrush( color );
 			p->drawRect( it.data() );
- 			kdDebug() << "Drawing: " << it.data() << " with " << i->protones() << " Protones and " << i->neutrons() << " Neutrons." << endl;
 		}
 	}
 	p->setBrush( Qt::black );
@@ -149,12 +146,8 @@ void IsotopeTableView::updateIsoptopeRectList()
 	double tmp1 = this->height()/m_bottomRight.y();
 	double tmp2 = this->width()/m_bottomRight.x();
 
-	const int rectSize = (int) kMax( tmp1, tmp2 );
-			
-
-	//if the size is 1000 pixel and there are 100 elements the size
-	//should of one isotope course be 10.
-//	const int rectSize = ( int ) floor( height/numOfElements ); //the size of a isotope-widget
+	//take the better size
+	const int rectSize = (int) kMin( tmp1, tmp2 );
 
 	for (int i = m_topLeft.y(); i < m_bottomRight.y(); ++i )
 	{//first, the elements
@@ -169,8 +162,6 @@ void IsotopeTableView::updateIsoptopeRectList()
 			//numbOfElement - 0, the second numbOfElement - 1
 			int realYValue = numOfElements - i;
 
-//			kdDebug() << realYValue << " :: " << i << endl;
-			
 			IsotopeAdapter adapter;
 
 			adapter.m_point = QPoint( j, realYValue );
@@ -318,7 +309,6 @@ bool IsotopeTableDialog::eventFilter( QObject *obj, QEvent *ev )
 {
 	if (ev->type() == QEvent::MouseButtonPress )	
 	{
-//		kdDebug() << "IsotopeTableDialog::eventFilter()::MouseButtonPress" << endl;
 		QMouseEvent *mev = (QMouseEvent*) ( ev );
 
 		m_view->m_firstPoint = mev->pos();
@@ -327,7 +317,6 @@ bool IsotopeTableDialog::eventFilter( QObject *obj, QEvent *ev )
 	}
 	if (ev->type() == QEvent::MouseMove )	
 	{
-//		kdDebug() << "IsotopeTableDialog::eventFilter()::MouseMove" << endl;
 		QMouseEvent *mev = (QMouseEvent*) ( ev );
 
 		QRect startPoint( m_view->m_firstPoint, m_view->m_firstPoint );
@@ -339,7 +328,6 @@ bool IsotopeTableDialog::eventFilter( QObject *obj, QEvent *ev )
 	}
 	if (ev->type() == QEvent::MouseButtonRelease )	
 	{
-//		kdDebug() << "IsotopeTableDialog::eventFilter()::MouseButtonRelease" << endl;
 		QMouseEvent *mev = (QMouseEvent*) ( ev );
 		
 		QRect startPoint( m_view->m_firstPoint, m_view->m_firstPoint );
