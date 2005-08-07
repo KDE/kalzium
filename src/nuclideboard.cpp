@@ -94,6 +94,8 @@ void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 ///FIXME there are more than just one decay possible...
 QColor IsotopeTableView::isotopeColor( Isotope* isotope )
 {
+	if ( !isotope ) return Qt::magenta;
+
 	if ( isotope->betaminusdecay() )
 		return Qt::blue;
 	else if ( isotope->betaplusdecay() )
@@ -135,6 +137,25 @@ void IsotopeTableView::updateIsoptopeRectList()
 {
 	m_IsotopeAdapterRectMap.clear();
 
+	/*
+	 * this code will go from top left to bottom right.
+	 * i = y-value
+	 * j = x-value
+	 */
+			
+	//calculate the number of shown elements
+	const int numOfElements = m_bottomRight.y() - m_topLeft.y();
+			
+	double tmp1 = this->height()/m_bottomRight.y();
+	double tmp2 = this->width()/m_bottomRight.x();
+
+	const int rectSize = (int) kMax( tmp1, tmp2 );
+			
+
+	//if the size is 1000 pixel and there are 100 elements the size
+	//should of one isotope course be 10.
+//	const int rectSize = ( int ) floor( height/numOfElements ); //the size of a isotope-widget
+
 	for (int i = m_topLeft.y(); i < m_bottomRight.y(); ++i )
 	{//first, the elements
 		QValueList<Element*>::ConstIterator it = m_list.at( i );
@@ -142,25 +163,24 @@ void IsotopeTableView::updateIsoptopeRectList()
 		for (int j = m_topLeft.x(); j < m_bottomRight.x(); ++j )
 		{//second, the isotopes
 			//the istopes will be drawn from bottomleft to
-			//bottomright. To do this I need to "flip" the
-			//widget horizontally. This is done in the next line
- 			int realYValue = m_bottomRight.y() - j;
+			//topright. To do this I need to "flip" the
+			//widget horizontally. The last line is always 
+			//"numbOfElement". The first element is thus
+			//numbOfElement - 0, the second numbOfElement - 1
+			int realYValue = numOfElements - i;
+
+//			kdDebug() << realYValue << " :: " << i << endl;
 			
 			IsotopeAdapter adapter;
 
-			adapter.m_point = QPoint( realYValue, i );
+			adapter.m_point = QPoint( j, realYValue );
 			if ( it != m_list.end() )
 				adapter.m_isotope = ( *it )->isotopeByNucleons( j );
 			else
 				adapter.m_isotope = 0;
 
-
-			int rectSize = 6; //the size of a isotope-widget
-//X 			QRect boundingRect = QRect( realYValue*rectSize, 
-//X 					i*rectSize, 
-//X 					rectSize, rectSize );
-			QRect boundingRect = QRect( realYValue*rectSize, 
-					i*rectSize, 
+			QRect boundingRect = QRect( j*rectSize, 
+					realYValue*rectSize, 
 					rectSize, rectSize );
 
 			m_IsotopeAdapterRectMap.insert(adapter, boundingRect);
