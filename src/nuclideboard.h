@@ -148,11 +148,11 @@ class IsotopeTableDialog : public KDialogBase
 	private:
 		IsotopeTableView* m_view;
 
-	private slots:
+	protected slots:
 		/**
 		 * invokes the help for this widget
 		 */
-		void slotHelp();
+		virtual void slotHelp();
 
 	signals:
 		void selectionDone( QRect );
@@ -166,7 +166,6 @@ class IsotopeTableDialog : public KDialogBase
  * @author Martin Pfeiffer
  */
 class NuclideLegend : public QWidget
-					  
 {
 	public:
 		NuclideLegend( QWidget* parent, const char* name = 0 );
