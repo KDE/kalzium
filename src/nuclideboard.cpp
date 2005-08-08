@@ -69,6 +69,8 @@ IsotopeTableView::IsotopeTableView( QWidget* parent, const char* name )
 void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 {
 	QPixmap pm( width(), height() );
+	pm.fill( Qt::black );
+
 	QPainter p;
 	p.begin( &pm, this );
 	
