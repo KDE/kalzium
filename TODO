@@ -12,6 +12,8 @@ Bugs
   + Move "Temperature" and "Year" above the slider			-----
     - move the KIntNumSpinbox to the right of the slider
   + Timeline+SOM: some font+align like in the calculator		-----
+  + correct mass-rounding
+    presumably, the arg()-funktion now rounds wrong			-----
 
 Features
 --------

@@ -282,6 +282,7 @@ QString DetailedInfoDlg::isotopeTable()
 		html.append( "<tr><td align=\"right\">" );
 		if ( ( *it )->weight() > 0.0 )
 			html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
+		//	html.append( i18n( "%1 u" ).arg( QString::number( ( *it )->weight() ) ));
 		html.append( "</td><td>" );
 		html.append( QString::number( ( *it )->neutrons() ) );
 		html.append( "</td><td>" );
