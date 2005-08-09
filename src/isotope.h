@@ -82,6 +82,13 @@ class Isotope
 		}
 
 		/**
+		 * @return the number of nucleons of ths isotope
+		 */
+		int nucleons() const{
+			return m_protones+m_neutrons;
+		}
+
+		/**
 		 * the weight of the isotope
 		 */
 		double weight() const{

@@ -40,6 +40,11 @@ class QEvent;
 typedef QValueList<Isotope*> IsotopeList;
 typedef QValueList<Element*> ElementList;
 
+/**
+ * This class represents the drawn rectangle of an isotope.
+ * It consits only of a point and a pointer to the iotope
+ * it represents.
+ */
 class IsotopeAdapter
 {
 	public:
@@ -66,6 +71,10 @@ class IsotopeAdapter
 		QString mUID;
 };
 
+/**
+ *@author Carsten Niehaus
+ *This class is the drawing widget for the whole table
+ */
 class IsotopeTableView : public QWidget
 {
 	friend class IsotopeTableDialog;
@@ -77,31 +86,38 @@ class IsotopeTableView : public QWidget
 	
 	public slots:
 		/**
-		 *	Dieses Ding updated nach jedem zoom die Liste mit QMap<Isotope*, QRect>
-		 *	D.h. dass in ihr all sichtbaren Isotope incl. Größe und Position drin.
-		 *	Mit Schnittmengenberechnung kann bei zoom-in also geschaut werden,
-		 *	welche Isotope in der Schnittmenge liegen. Die anderen fliegen raus.
+		 * update the QMap<> of of IsotopeAdapter. Only visible isotopes
+		 * will be in the list. Therefor, in the paintEvent the class
+		 * can simply iterate through all keys and paint them
 		 */
 		void updateIsoptopeRectList();
 
+		/**
+		 * Calculate the intersection of the selected region and the
+		 * update the list of isotopes to be drawn
+		 */
 		void selectionDone( QRect selectedRect );
 		
-	private: IsotopeList m_isotopeList;
-
-		int highestNeutronCount(); int lowestNeutronCount();
-
-		QValueList<Element*>::ConstIterator m_startElementIterator;
-		QValueList<Element*>::ConstIterator m_stopElementIterator;
-		
+	private: 
 		QValueList<Element*> m_list;
 
-		//the lowest and highest number of neutrons, of all visible elements
-		int m_lowestNumberOfNeutrons; int m_highestNumberOfNeutrons;
+		static QPoint m_maxBottomRight;
 
-		static int m_minIsoSize;	// size of a isotopeWidget on the board
-		static int m_maxIsoSize;	// size of a isotopeWidget on the board
+		static int m_minIsoSize;	// min size of a isotopeWidget on the board
+		static int m_maxIsoSize;	// max size of a isotopeWidget on the board
 
-		int m_rectSize;
+		int maxElementNumberDisplayed;
+		int minElementNumberDisplayed;
+
+		int minNumberOfNucleons(
+				QValueList<Element*>::ConstIterator it,
+				QValueList<Element*>::ConstIterator itEnd );
+		
+		int maxNumberOfNucleons( 
+				QValueList<Element*>::ConstIterator it,
+				QValueList<Element*>::ConstIterator itEnd );
+
+		int m_rectSize; ///the current size of a drawn isotope
 
 		/** @return the color of the isotope
 		 */
@@ -111,8 +127,8 @@ class IsotopeTableView : public QWidget
 
 		QPoint m_firstPoint;
 
-		QPoint m_topLeft;
-		QPoint m_bottomRight;
+		QPoint m_topLeft, m_oldTopLeft;
+		QPoint m_bottomRight, m_oldBottomRight;
 		
 		QRect m_selectedRegion;
 		
