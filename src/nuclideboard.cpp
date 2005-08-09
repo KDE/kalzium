@@ -155,8 +155,6 @@ void IsotopeTableView::updateIsoptopeRectList()
 	IsotopeList::const_iterator isotope;
 	IsotopeList::const_iterator isotopeEnd;
 
-	IsotopeAdapter adapter;
-
 	for ( int countY = numOfElements ; it != itEnd; ++it )
 	{
 		Element* el = *it;
@@ -167,25 +165,21 @@ void IsotopeTableView::updateIsoptopeRectList()
 		isotopeEnd = isotopeList.constEnd();
 		isotope = isotopeList.constBegin();
 		
-		for ( int countX = 0 ; isotope != isotopeEnd; ++isotope )
+		for ( ; isotope != isotopeEnd; ++isotope )
 		{
 			Isotope* iso = *isotope;
 			if ( !iso ) continue;
 			
-			int Ypositon = iso->nucleons() - minNucleons;
+			int Xpositon = iso->nucleons() - minNucleons;
 			
-			adapter.m_point = QPoint( Ypositon , countY );
-			adapter.m_isotope = iso;
-
-			kdDebug() << "point of the adapter: " << adapter.m_point << " Isotope of the adapter with " << adapter.m_isotope->neutrons() << " neutrons." << endl;
-
 			QRect boundingRect = QRect( 
-					countX*m_rectSize, 
-					Ypositon*m_rectSize, 
+					Xpositon*m_rectSize, 
+					countY*m_rectSize, 
 					m_rectSize, m_rectSize);
 			
- 			m_IsotopeAdapterRectMap.insert(adapter, boundingRect);
-			countX++;
+			kdDebug() << "boundRect of the adapter: " << boundingRect << " Isotope of the adapter with " << iso->neutrons() << " neutrons." << endl;
+			
+ 			m_IsotopeAdapterRectMap.insert(iso, boundingRect);
 		}
 		countY--;
 	}
@@ -266,12 +260,12 @@ void IsotopeTableView::drawAxisLabels( QPainter *p )
 		
 void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 {
-	QMap<IsotopeAdapter, QRect>::ConstIterator it = m_IsotopeAdapterRectMap.constBegin();
-	const QMap<IsotopeAdapter, QRect>::ConstIterator itEnd = m_IsotopeAdapterRectMap.constEnd();
+	QMap<Isotope*, QRect>::ConstIterator it = m_IsotopeAdapterRectMap.constBegin();
+	const QMap<Isotope*, QRect>::ConstIterator itEnd = m_IsotopeAdapterRectMap.constEnd();
 
 	for ( ; it != itEnd ; ++it )
 	{
-		Isotope* i = it.key().m_isotope;
+		Isotope* i = it.key();
 
 		if ( i )
 		{

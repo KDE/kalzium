@@ -41,37 +41,6 @@ typedef QValueList<Isotope*> IsotopeList;
 typedef QValueList<Element*> ElementList;
 
 /**
- * This class represents the drawn rectangle of an isotope.
- * It consits only of a point and a pointer to the iotope
- * it represents.
- */
-class IsotopeAdapter
-{
-	public:
-		IsotopeAdapter()
-		{
-			QUuid uuid;
-			mUID = uuid.toString();
-		}
-
-		///the istopte this widgets represents
-		Isotope* m_isotope;
-
-		///the postition (x,y) in the "table" of the isotopes.
-		//If the grid is 20x30 for example, the x and y values
-		//cannot be bigger than 20 or 30. 
-		QPoint m_point;
-
-		bool operator< ( const IsotopeAdapter &adapter ) const
-		{
-			return true;
-		}
-		
-	private:
-		QString mUID;
-};
-
-/**
  *@author Carsten Niehaus
  *This class is the drawing widget for the whole table
  */
@@ -123,7 +92,7 @@ class IsotopeTableView : public QWidget
 		 */
 		QColor isotopeColor( Isotope* );
 
-		QMap<IsotopeAdapter, QRect> m_IsotopeAdapterRectMap;
+		QMap<Isotope*, QRect> m_IsotopeAdapterRectMap;
 
 		QPoint m_firstPoint;
 
