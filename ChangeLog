@@ -22,3 +22,4 @@ Add:
  - Display no legend when the No Color-mode is choosen
  - The dialogboxes now have a help-button which will open the
    correct page in the help
+ - The molecule parser for the weight calculator.
