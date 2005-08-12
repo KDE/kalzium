@@ -92,7 +92,8 @@ messages-old: rc.cpp
 	rm -f rc.cpp # for testing
 
 messages: rc.cpp
-	cat data/data.xml | grep name| sed -e 's/< *name *origin *= *"\([^\"]*\)\">\([^<]*\)<\/ *name *>/I18N_NOOP(\"\1\"); I18N_NOOP(\"\2\");/;s/I18N_NOOP("");//g' | grep I18N_NOOP >> rc.cpp
+	$(EXTRACTATTR) --attr=name,origin data/data.xml >> rc.cpp
+	$(EXTRACTRC) --tag-group=none --tag=name data/data.xml >> rc.cpp
 	$(EXTRACTRC) --tag-group=none --tag=name --tag=desc --tag=refitem data/knowledge.xml >> rc.cpp
 	$(EXTRACTRC) --tag-group=none --tag=name --tag=desc data/tools.xml >> rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kalzium.pot
