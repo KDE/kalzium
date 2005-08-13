@@ -3970,7 +3970,7 @@
 	</element>
 	<element>
 		<number>88</number>
-		<name origin="Latin 'radius' for 'beam'. as it is radioactive">Radium</name>
+		<name origin="Latin 'radius' for 'beam', as it is radioactive">Radium</name>
 		<symbol>Ra</symbol>
 		<period>7</period>
 		<mass>226.0254</mass>
@@ -4030,7 +4030,7 @@
 	</element>
 	<element>
 		<number>90</number>
-		<name origin="Named after the German god of thunder. Thor">Thorium</name>
+		<name origin="Named after the German god of thunder: Thor">Thorium</name>
 		<symbol>Th</symbol>
 		<period>7</period>
 		<mass>232.0381</mass>
@@ -4103,7 +4103,7 @@
 	</element>
 	<element>
 		<number>92</number>
-		<name origin="Greek 'ouranos' for 'heaven'. named after the planet Uranus">Uranium</name>
+		<name origin="Greek 'ouranos' for 'heaven'. Named after the planet Uranus">Uranium</name>
 		<symbol>U</symbol>
 		<period>7</period>
 		<mass>238.02891</mass>
@@ -4275,7 +4275,7 @@
 	</element>
 	<element>
 		<number>97</number>
-		<name origin="Named after the town Berkely where it was discovered.">Berkelium</name>
+		<name origin="Named after the town Berkeley where it was discovered.">Berkelium</name>
 		<symbol>Bk</symbol>
 		<period>7</period>
 		<mass>247.0703</mass>
@@ -4375,7 +4375,7 @@
 	</element>
 	<element>
 		<number>101</number>
-		<name origin="Named after the scientist D.I. Mendelejew.">Mendelevium</name>
+		<name origin="Named after the scientist D.I. Mendeleev.">Mendelevium</name>
 		<symbol>Md</symbol>
 		<period>7</period>
 		<mass>258.0986</mass>
