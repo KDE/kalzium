@@ -47,6 +47,7 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 	m_pPlotSetupWidget->from->setMaxValue( d->numberOfElements() - 1 );
 	m_pPlotSetupWidget->to->setMaxValue( d->numberOfElements() );
 	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage(), "plotwidget" );
+	m_pPlotWidget->setYAxisLabel(" ");
 	m_pPlotWidget->setMinimumWidth( 200 );
 	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );
 
