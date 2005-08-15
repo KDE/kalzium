@@ -45,6 +45,7 @@ ElementDataViewer::ElementDataViewer( KalziumDataObject *data, QWidget *parent, 
 	QVBoxLayout *vlay = new QVBoxLayout(hlay, 0 );
 	m_pPlotSetupWidget = new PlotSetupWidget( page, "psw" );	
 	m_pPlotWidget = new PlotWidget( 0.0,12.0,0.0,22.0, page, "plotwidget" );
+	m_pPlotWidget->setYAxisLabel(" ");
 
 	hlay->addWidget( m_pPlotSetupWidget );
 	vlay->addWidget( m_pPlotWidget);
