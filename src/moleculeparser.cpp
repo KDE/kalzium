@@ -74,8 +74,10 @@ MoleculeParser::parseSubmolecule(double *_result)
     double  subresult = 0.0;
 
     *_result = 0.0;
-    while (parseTerm(&subresult))
+    while (parseTerm(&subresult)) {
+	//kdDebug() << "Parsed a term, weight = " << subresult << endl;
 	*_result += subresult;
+    }
 
     return true;
 }
@@ -100,6 +102,7 @@ MoleculeParser::parseTerm(double *_result)
 #endif
 
     if (nextToken() == ELEMENT_TOKEN) {
+	//kdDebug() << "Parsed an element: " << m_elementVal->symbol() << endl;
 	*_result = m_elementVal->mass();
 	getNextToken();
     }
@@ -111,22 +114,26 @@ MoleculeParser::parseTerm(double *_result)
 	parseSubmolecule(_result);
 
 	// Must end in a ")".
-	if (nextToken() == ')')
+	if (nextToken() == ')') {
+	    //kdDebug() << "Parsed a submolecule. weight = " << *_result << endl;
 	    getNextToken();
+	}
 	else
 	    return false;
     }
-
     else 
 	// Neither an element nor a list within ().
 	return false;
 
     // Optional number.
     if (nextToken() == INT_TOKEN) {
-	*_result *= intVal();
+	//kdDebug() << "Parsed a number: " << intVal() << endl;
+
+    	*_result *= intVal();
 	getNextToken();
     }
 
+    kdDebug() << "Weight of term = " << *_result << endl;
     return true;
 }
 
@@ -157,6 +164,8 @@ MoleculeParser::getNextToken()
 	    getNextChar();
 	}
 
+	//kdDebug() << "Found element name " << elementName << endl;
+
 	// Look up the element from the name..
 	m_elementVal = lookupElement(elementName);
 	if (m_elementVal)
@@ -186,10 +195,13 @@ MoleculeParser::lookupElement(QString _name)
     const EList::ConstIterator  end = elementList.end();
 
     for (; it != end; ++it) {
-	if ( (*it)->symbol() == _name )
+	if ( (*it)->symbol() == _name ) {
+	    kdDebug() << "Found element " << _name << endl;
 	    return *it;
+	}
     }
 
+    kdDebug() << "Didn't find any element" << endl;
     return NULL;
 }
 
