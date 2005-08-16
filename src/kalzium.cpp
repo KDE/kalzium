@@ -106,20 +106,28 @@ Kalzium::Kalzium()
 
 	setupStatusBar();
 
-#if 0
 	// Test of the molecule parser.
 	// FIXME: Remove this when it is done.
 	MoleculeParser  parser;
-	QString         substance = "NaCl";
+	QString         substance = "Na2COCo2(H20)2";
+	QString         substance2 = "Na2COCO2(H20)2";
+	QString         substance3 = "Na2COCo2(H40)2";
 	double          weight;
 
 	kdDebug() << "================================================================" << endl;
 	if (parser.weight(substance, &weight))
-	    kdDebug() << "Weight of " << substance << " = " << weight << ".\n";
+	    kdDebug() << "Weight of " << substance << " = " << weight << " (should be 227.887 u).\n";
+	else
+	    kdDebug() << "Parse error\n";
+	if (parser.weight(substance2, &weight))
+	    kdDebug() << "Weight of " << substance2 << " = " << weight << " (should be 138.02 u).\n";
+	else
+	    kdDebug() << "Parse error\n";
+	if (parser.weight(substance3, &weight))
+	    kdDebug() << "Weight of " << substance3 << " = " << weight << " (should be 231.918 u).\n";
 	else
 	    kdDebug() << "Parse error\n";
 	kdDebug() << "================================================================" << endl;
-#endif
 }
 
 void Kalzium::setupActions()
