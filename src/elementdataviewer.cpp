@@ -69,10 +69,19 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 	setButtonText( User1, i18n("&Plot") );
 
 	m_actionCollection = new KActionCollection(this);
-        KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);	
+	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);	
 
-	connect ( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled(bool)), this, SLOT(slotUser1()));
-	connect ( m_pPlotSetupWidget->showNames,     SIGNAL( toggled(bool)), this, SLOT(slotUser1()));
+	connect ( m_pPlotSetupWidget->KCB_y,         SIGNAL( activated(int) ),
+			  this,                              SLOT( drawPlot()) );
+
+	connect ( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled(bool) ),
+			  this,                              SLOT( drawPlot()) );
+	connect ( m_pPlotSetupWidget->showNames,     SIGNAL( toggled(bool) ),
+			  this,                              SLOT( drawPlot()) );
+
+	// Draw the plot so that the user doesn't have to press the "Plot"
+	// button to seee anything.
+	drawPlot();
 }
 
 void ElementDataViewer::slotHelp()
@@ -82,12 +91,15 @@ void ElementDataViewer::slotHelp()
 		kapp->invokeHelp ( "plot_data", "kalzium" );
 }
 
+// Reimplement slotUser1 from KDialogBase
+
 void ElementDataViewer::slotUser1()
 {
 	kdDebug() << "slotUser1" << endl;
 
 	drawPlot();
 }
+
 
 void ElementDataViewer::setLimits(int f, int t)
 {

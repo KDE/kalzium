@@ -1,4 +1,8 @@
 *** Changes after Kalzium Hydrogen ***
+Change:
+ - Make the plot window always plot on changes of setting
+   (No more having to press the Plot button.)
+	
 Add:
  - The spectrum dialog
  - The table now has a small gap over the rare earth
