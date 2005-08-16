@@ -109,14 +109,14 @@ Kalzium::Kalzium()
 	// Test of the molecule parser.
 	// FIXME: Remove this when it is done.
 	MoleculeParser  parser;
-	QString         substance = "Na2COCo2(H20)2";
-	QString         substance2 = "Na2COCO2(H20)2";
-	QString         substance3 = "Na2COCo2(H40)2";
+	QString         substance1 = "Na2COCo2(H2O)2";
+	QString         substance2 = "Na2COCO2(H2O)2";
+	QString         substance3 = "Na2COCo2(H4O)2";
 	double          weight;
 
 	kdDebug() << "================================================================" << endl;
-	if (parser.weight(substance, &weight))
-	    kdDebug() << "Weight of " << substance << " = " << weight << " (should be 227.887 u).\n";
+	if (parser.weight(substance1, &weight))
+	    kdDebug() << "Weight of " << substance1 << " = " << weight << " (should be 227.887 u).\n";
 	else
 	    kdDebug() << "Parse error\n";
 	if (parser.weight(substance2, &weight))
