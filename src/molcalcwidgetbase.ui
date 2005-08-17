@@ -36,7 +36,41 @@
                 <enum>Horizontal</enum>
             </property>
         </widget>
-        <widget class="QLabel" row="2" column="0">
+        <widget class="QLayoutWidget" row="2" column="0">
+            <hbox>
+                <widget class="KLineEdit">
+                    <property name="name">
+                        <cstring>formulaEdit</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="KPushButton">
+                    <property name="name">
+                        <cstring>buttonCalc</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Calc</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="Line" row="3" column="0">
+            <property name="name">
+                <cstring>line1</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>HLine</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Sunken</enum>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+        </widget>
+        <widget class="QLabel" row="4" column="0">
             <property name="name">
                 <cstring>resultComposition</cstring>
             </property>
@@ -53,7 +87,7 @@
                 <set>AlignCenter</set>
             </property>
         </widget>
-        <spacer row="3" column="0">
+        <spacer row="5" column="0">
             <property name="name">
                 <cstring>spacer5_2</cstring>
             </property>
@@ -70,7 +104,7 @@
                 </size>
             </property>
         </spacer>
-        <widget class="QLabel" row="4" column="0">
+        <widget class="QLabel" row="6" column="0">
             <property name="name">
                 <cstring>resultLabel</cstring>
             </property>
@@ -78,7 +112,7 @@
                 <string></string>
             </property>
         </widget>
-        <widget class="QLabel" row="5" column="0">
+        <widget class="QLabel" row="7" column="0">
             <property name="name">
                 <cstring>resultMass</cstring>
             </property>
@@ -90,7 +124,20 @@
 </widget>
 <customwidgets>
 </customwidgets>
+<connections>
+    <connection>
+        <sender>buttonCalc</sender>
+        <signal>pressed()</signal>
+        <receiver>this</receiver>
+        <slot>slotCalcButtonClicked()</slot>
+    </connection>
+</connections>
+<slots>
+    <slot access="protected">slotCalcButtonClicked()</slot>
+</slots>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
+    <includehint>klineedit.h</includehint>
+    <includehint>kpushbutton.h</includehint>
 </includehints>
 </UI>
