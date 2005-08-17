@@ -37,7 +37,7 @@ Parser::~Parser()
 
 
 void
-Parser::start(QString _str)
+Parser::start(const QString& _str)
 {
     m_str = _str;
 

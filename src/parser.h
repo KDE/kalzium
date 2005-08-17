@@ -11,23 +11,18 @@
  *                                                                         *
  ***************************************************************************/
 
-
 #ifndef PARSER_H
 #define PARSER_H
 
-
-#include "qstring.h"
-
-// This is a general purpose parser originally written by Inge Wallin.
-//
-// It is intended to be subclassed; see MoleculeParser.
-//
-
+#include <qstring.h>
 
 /**
-@author Inge Wallin
-*/
-
+ * This is a general purpose parser originally written by Inge Wallin.
+ *
+ * It is intended to be subclassed; see MoleculeParser.
+ *
+ * @author Inge Wallin
+ */
 class Parser {
 public:
     // All characters are 
@@ -39,13 +34,19 @@ public:
     Parser(const QString& _str);
     ~Parser();
 
-    // Start a new parse.
-    void   start(QString _str);
+    /**
+     * Start a new parse.
+     */
+    void   start(const QString& _str);
 
-    // Peek at the next character;
+    /**
+     * Peek at the next character;
+     */
     int    nextChar()  const { return m_nextChar;  }
 
-    // Peek at the next token.
+    /**
+     * Peek at the next token.
+     */
     int    nextToken() const { return m_nextToken; }
     int    intVal()    const { return m_intVal;    }
     float  floatVal()  const { return m_floatVal;  }
@@ -58,10 +59,14 @@ private:
 
 protected:
 
-    // Make the next character the current one.
+    /**
+     * Make the next character the current one.
+     */
     int   getNextChar();
 
-    // Make the next non-space character the current one.
+    /**
+     * Make the next non-space character the current one.
+     */
     int   skipWhitespace();
 
     virtual int   getNextToken();
@@ -77,7 +82,9 @@ private:
     // protected instead of private since we want to be able to
     // reimplement getNextToken().
 
-    // The next token to be used in the parser.
+    /**
+     * The next token to be used in the parser.
+     */
     int      m_nextToken;
 
     // Values for the respective token.  These could be made into a

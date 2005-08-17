@@ -11,7 +11,6 @@
  *                                                                         *
  ***************************************************************************/
 
-
 #ifndef MOLECULEPARSER_H
 #define MOLECULEPARSER_H
 
@@ -21,24 +20,23 @@
 #include <qmap.h>
 #include <qvaluelist.h>
 
-// Parse molecule formulas.
-//
-//
-// Usage:
-//   MoleculeParser  parser;
-//   QString         substance = "C2H5OH";
-//   double          weight;
-//
-//   if (parser.weight(substance, &weight))
-//       cout << "Weight of " << substance << " = " << weight << ".\n";
-//   else
-//       cout << "Parse error\n";
-
-
 /**
+ * Parse molecule formulas.
+ *
+ * Usage:
+ * @code
+ *   MoleculeParser  parser;
+ *   QString         chemical_formula = "C2H5OH";
+ *   double          weight;
+ *
+ *   if (parser.weight(chemical_formula, &weight))
+ *     cout << "Weight of " << chemical_formula << " = " << weight << ".\n";
+ *   else
+ *     cout << "Parse error\n";
+ * @endcode
+ *
  * @author Inge Wallin
  */
-
 class MoleculeParser : public Parser {
 
 public:
@@ -48,7 +46,12 @@ public:
     MoleculeParser( const QString& _str);
     ~MoleculeParser();
 
-    // Try to parse the molecule and get the weight of it.
+    /**
+     * Try to parse the molecule @p molecule and get the weight of it.
+     * The calced weight is stored in @p _result.
+     *
+     * @return whether the parsing was successful or not
+     */
     bool      weight(QString _molecule, double *_result);
     QMap<Element*, int> elementMap();
     QValueList<Element*> elementList();
@@ -65,7 +68,9 @@ public:
 
 protected:
 
-    // Extends the standard tokenizer in Parser::getNextToken().
+    /**
+     * Extends the standard tokenizer in @ref Parser::getNextToken().
+     */
     virtual int  getNextToken();
 
 private:

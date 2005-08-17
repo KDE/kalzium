@@ -35,7 +35,10 @@ class MolcalcDialog;
 class MoleculeParser;
 
 /**
+ * This widget is a small calculator for moleculas.
+ *
  * @author Carsten Niehaus
+ * @author Pino Toscano
  */
 class MolcalcWidget : public MolcalcWidgetBase
 {
