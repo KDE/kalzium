@@ -69,7 +69,7 @@ public:
 protected:
 
     /**
-     * Extends the standard tokenizer in @ref Parser::getNextToken().
+     * Extends the standard tokenizer in Parser::getNextToken().
      */
     virtual int  getNextToken();
 
