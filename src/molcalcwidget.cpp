@@ -58,7 +58,7 @@ MolcalcWidget::MolcalcWidget( QWidget *parent, const char *name )
 	plusButton->plug( toolbar );
 
 	minusButton = new KToggleAction( i18n( "&Remove" ), "remove", 0, 0, 0, this, "remove" );
-	minusButton->setWhatsThis( i18n( "Toggle this button to allow selected elements to be added to the current molecule" ) );
+	minusButton->setWhatsThis( i18n( "Toggle this button to allow selected elements to be removed from the current molecule" ) );
 	connect( minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
 	minusButton->plug( toolbar );
 

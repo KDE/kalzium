@@ -131,6 +131,12 @@
         <receiver>this</receiver>
         <slot>slotCalcButtonClicked()</slot>
     </connection>
+    <connection>
+        <sender>formulaEdit</sender>
+        <signal>returnPressed(const QString&amp;)</signal>
+        <receiver>this</receiver>
+        <slot>slotCalcButtonClicked()</slot>
+    </connection>
 </connections>
 <slots>
     <slot access="protected">slotCalcButtonClicked()</slot>
