@@ -49,6 +49,7 @@ MoleculeParser::~MoleculeParser()
 bool
 MoleculeParser::weight(QString _molecule, double *_result)
 {
+	m_elementList.clear();
     *_result = 0.0;
     start(_molecule);
 
@@ -90,6 +91,11 @@ MoleculeParser::parseSubmolecule(double *_result)
 // correct, otherwise return false.  If correct, the weight of the
 // term is returned in *_result.
 //
+
+QValueList<Element*> MoleculeParser::elementList()
+{
+	return m_elementList;
+}
 
 bool
 MoleculeParser::parseTerm(double *_result)
@@ -164,12 +170,16 @@ MoleculeParser::getNextToken()
 	    getNextChar();
 	}
 
-	//kdDebug() << "Found element name " << elementName << endl;
-
-	// Look up the element from the name..
+		// Look up the element from the name..
 	m_elementVal = lookupElement(elementName);
 	if (m_elementVal)
+	{
 	    m_nextToken = ELEMENT_TOKEN;
+		//append the Element to the list of elements.
+		//FIXME: If the element comes like "H2" it has
+		//to be appended twice!
+	    m_elementList.append(m_elementVal);
+	}
 	else
 	    m_nextToken = -1;
     }

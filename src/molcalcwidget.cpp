@@ -23,11 +23,14 @@
 #include "molcalcwidgetbase.h"
 #include "element.h"
 #include "kalziumutils.h"
+#include "parser.h"
+#include "moleculeparser.h"
 
 #include <kaction.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kpushbutton.h>
+#include <klineedit.h>
 #include <ktoolbar.h>
 
 #include <qlabel.h>
@@ -237,6 +240,23 @@ void MolcalcWidget::clear()
 	resultMass->setText( "" );
 	
 	resultComposition->setText( i18n("To start, click\non the elements") );
+}
+
+void MolcalcWidget::slotCalcButtonClicked()
+{
+	m_elements.clear();
+	m_mass = 0;
+	QString substance = formulaEdit->text();
+	double weight;
+	
+	if (m_parser.weight(substance, &weight))
+	{
+	    kdDebug() << "Weight of " << substance << " = " << weight << ".\n";
+		m_elements = m_parser.elementList();
+		updateUI();
+	}
+	else
+	    kdDebug() << "Parse error\n";
 }
 
 

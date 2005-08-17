@@ -15,7 +15,7 @@
 #ifndef MOLECULEPARSER_H
 #define MOLECULEPARSER_H
 
-
+#include <qvaluelist.h>
 #include "element.h"
 #include "parser.h"
 
@@ -34,8 +34,8 @@
 
 
 /**
-@author Inge Wallin
-*/
+ * @author Inge Wallin
+ */
 
 class MoleculeParser : public Parser {
 
@@ -48,6 +48,7 @@ public:
 
     // Try to parse the molecule and get the weight of it.
     bool      weight(QString _molecule, double *_result);
+    QValueList<Element*> elementList();
 
  private:
     // Helper functions
@@ -55,6 +56,7 @@ public:
     bool      parseTerm(double *_result);
 
     Element  *lookupElement(QString _name);
+    QValueList<Element*> m_elementList;
 
 protected:
 

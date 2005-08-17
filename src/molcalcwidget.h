@@ -24,7 +24,12 @@
 
 #include <qmap.h>
 
+#include "parser.h"
+#include "moleculeparser.h"
+
 class KToggleAction;
+class KLineEdit;
+
 class Element;
 class KalziumDataObject;
 class MolcalcDialog;
@@ -48,6 +53,8 @@ class MolcalcWidget : public MolcalcWidgetBase
 
 	private:
 		KalziumDataObject *m_data;
+
+		MoleculeParser m_parser;
 		
 		double m_mass;
 		QValueList<Element*> m_elements;
@@ -89,6 +96,9 @@ class MolcalcWidget : public MolcalcWidgetBase
 		void slotMinusToggled(bool on);
 
 		void slotPlusToggled(bool on);
+
+	protected slots:
+		void slotCalcButtonClicked();
 };
 
 

@@ -75,8 +75,8 @@ class IsotopeTableView : public QWidget
 		static int m_minIsoSize;	// min size of a isotopeWidget on the board
 		static int m_maxIsoSize;	// max size of a isotopeWidget on the board
 
-		int maxElementNumberDisplayed;
-		int minElementNumberDisplayed;
+		static int maxElementNumberDisplayed;
+		static int minElementNumberDisplayed;
 
 		int minNumberOfNucleons(
 				QValueList<Element*>::ConstIterator it,
@@ -95,6 +95,8 @@ class IsotopeTableView : public QWidget
 		QMap<Isotope*, QRect> m_IsotopeAdapterRectMap;
 
 		QPoint m_firstPoint;
+
+		void updateMinMaxValue();
 
 		QPoint m_topLeft, m_oldTopLeft;
 		QPoint m_bottomRight, m_oldBottomRight;

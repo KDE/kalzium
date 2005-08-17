@@ -32,8 +32,6 @@
 #include "nuclideboard.h"
 #include "config.h"
 
-#include "moleculeparser.h"
-
 #include <qdockwindow.h>
 #include <qlayout.h>
 #include <qtoolbox.h>
@@ -105,29 +103,6 @@ Kalzium::Kalzium()
 	connect( m_glossarydlg, SIGNAL( closed() ), m_PerodicTableView, SLOT(slotUnlock()) );
 
 	setupStatusBar();
-
-	// Test of the molecule parser.
-	// FIXME: Remove this when it is done.
-	MoleculeParser  parser;
-	QString         substance1 = "Na2COCo2(H2O)2";
-	QString         substance2 = "Na2COCO2(H2O)2";
-	QString         substance3 = "Na2COCo2(H4O)2";
-	double          weight;
-
-	kdDebug() << "================================================================" << endl;
-	if (parser.weight(substance1, &weight))
-	    kdDebug() << "Weight of " << substance1 << " = " << weight << " (should be 227.887 u).\n";
-	else
-	    kdDebug() << "Parse error\n";
-	if (parser.weight(substance2, &weight))
-	    kdDebug() << "Weight of " << substance2 << " = " << weight << " (should be 138.02 u).\n";
-	else
-	    kdDebug() << "Parse error\n";
-	if (parser.weight(substance3, &weight))
-	    kdDebug() << "Weight of " << substance3 << " = " << weight << " (should be 231.918 u).\n";
-	else
-	    kdDebug() << "Parse error\n";
-	kdDebug() << "================================================================" << endl;
 }
 
 void Kalzium::setupActions()
