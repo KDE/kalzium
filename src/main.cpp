@@ -57,7 +57,7 @@ int main(int argc, char **argv)
     about.addCredit( "Thomas Nagy", I18N_NOOP("Contributed EqChem, the equation solver" ));
     about.addCredit( "Jörg Buchwald", I18N_NOOP("Contributed most isotope information" ));
     about.addCredit( "Marco Martin", I18N_NOOP("Thank you for some icons and inspiration for others" ));
-    about.addCredit( "Chris Luetchford", I18N_NOOP("svg icon"), "chris@os11.com");
+    about.addCredit( "Chris Luetchford", I18N_NOOP("SVG icon"), "chris@os11.com");
     about.addCredit( "Anne-Marie Mahfouf", I18N_NOOP( "A lot of small things and the documentation" ));
     about.addCredit( "Paweł Budzyński", I18N_NOOP( "The pictures of the elements iodine and bromine" ));
     about.addCredit( "M. Stegemann", I18N_NOOP( "Almost all pictures of the elements" ));
