@@ -69,6 +69,9 @@ protected:
      */
     int   skipWhitespace();
 
+    /**
+     * Fetches the next token.
+     */
     virtual int   getNextToken();
 
 private:

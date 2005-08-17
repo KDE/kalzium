@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2003, 2004 by Carsten Niehaus                                 *
+ *   Copyright (C) 2003, 2004 by Carsten Niehaus                           *
  *   cniehaus@kde.org                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -15,7 +15,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.             *
+ *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 #include "molcalcwidget.h"
 
@@ -42,9 +42,7 @@ MolcalcWidget::MolcalcWidget( QWidget *parent, const char *name )
 {
 	setName( name );
 
-	m_mass = 0;
-
-	m_data = KalziumDataObject::instance();
+	m_mass = 0.0;
 
 	// setting up the toolbar
 	KToolBar *toolbar = new KToolBar( this, "toolbar", this );
@@ -81,7 +79,7 @@ void MolcalcWidget::slotButtonClicked( int buttonnumber )
 
 void MolcalcWidget::updateData( int number, KIND kind )
 {
-	Element *el = m_data->element( number );
+	Element *el = KalziumDataObject::instance()->element( number );
 	
 	if ( kind == ADD )
 	{//adding the element
@@ -183,10 +181,11 @@ QString MolcalcWidget::composition( QMap<Element*,int> map )
 {
 	QString str;
 	
-	QMap<Element*, int>::Iterator itMap;
-	for ( itMap = map.begin(); itMap != map.end(); ++itMap )
+	QMap<Element*, int>::Iterator itMap = map.begin();
+	QMap<Element*, int>::Iterator itMapEnd = map.end();
+	for ( ; itMap != itMapEnd; ++itMap )
 	{
-		str += i18n( "%1<sub>%2</sub>" ).arg( itMap.key()->symbol() ).arg( itMap.data() );
+		str += i18n( "%1<sub>%2</sub>" ).arg( itMap.key()->symbol() ).arg( itMap.data() ) + " ";
 	}
 
 	return str;
@@ -206,6 +205,10 @@ void MolcalcWidget::clear()
 	resultMass->setText( "" );
 	
 	resultComposition->setText( i18n("To start, click\non the elements") );
+
+	QToolTip::remove( resultMass );
+	QToolTip::remove( resultComposition );
+	QToolTip::remove( resultLabel );
 }
 
 void MolcalcWidget::slotCalcButtonClicked()

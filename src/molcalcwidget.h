@@ -30,7 +30,6 @@ class KToggleAction;
 class KLineEdit;
 
 class Element;
-class KalziumDataObject;
 class MolcalcDialog;
 class MoleculeParser;
 
@@ -55,8 +54,6 @@ class MolcalcWidget : public MolcalcWidgetBase
 		void clear();
 
 	private:
-		KalziumDataObject *m_data;
-
 		MoleculeParser m_parser;
 		
 		double m_mass;

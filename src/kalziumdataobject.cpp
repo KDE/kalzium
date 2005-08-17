@@ -48,16 +48,23 @@ KalziumDataObject::KalziumDataObject()
 	QFile layoutFile( url.path() );
 
 	if (!layoutFile.exists())
+	{
 		kdDebug() << "data.xml not found" << endl;
+		return;
+	}
 
 	if (!layoutFile.open(IO_ReadOnly))
+	{
 		kdDebug() << "data.xml IO-error" << endl;
+		return;
+	}
 
-	///Check if document is well-formed
+	// Check if the document is well-formed
 	if (!doc.setContent(&layoutFile))
 	{
 		kdDebug() << "wrong xml" << endl;
 		layoutFile.close();
+		return;
 	}
 	layoutFile.close();
 
@@ -71,6 +78,9 @@ KalziumDataObject::~KalziumDataObject()
 
 Element* KalziumDataObject::element( int number )
 {
+	// checking that we are requesting a valid element
+	if ( ( number <= 0 ) || ( number > m_numOfElements ) )
+		return 0;
 	return *( ElementList.at( number-1 ) );
 }
 
