@@ -11,14 +11,13 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "moleculeparser.h"
 
 #include <ctype.h>
 
 #include <kdebug.h>
 
 #include "kalziumdataobject.h"
-#include "moleculeparser.h"
-
 
 MoleculeParser::MoleculeParser()
     : Parser()
@@ -26,7 +25,7 @@ MoleculeParser::MoleculeParser()
 }
 
 
-MoleculeParser::MoleculeParser(QString _str)
+MoleculeParser::MoleculeParser(const QString& _str)
     : Parser(_str)
 {
 }
@@ -118,10 +117,13 @@ MoleculeParser::parseTerm(double *_result)
     kdDebug() << "parseTerm(): Next token =  "
 	      << nextToken() << endl;
 #endif
+    bool maybeadded = false;
 
     if (nextToken() == ELEMENT_TOKEN) {
 	//kdDebug() << "Parsed an element: " << m_elementVal->symbol() << endl;
 	*_result = m_elementVal->mass();
+	addElementToMolecule( m_elementVal, 1 );
+	maybeadded = true;
 	getNextToken();
     }
 
@@ -148,7 +150,7 @@ MoleculeParser::parseTerm(double *_result)
 	//kdDebug() << "Parsed a number: " << intVal() << endl;
 
     	*_result *= intVal();
-	m_elementMap.insert( m_elementVal, intVal() );
+	addElementToMolecule( m_elementVal, maybeadded ? intVal() - 1 : intVal() );
 	getNextToken();
     }
 
@@ -204,7 +206,7 @@ MoleculeParser::getNextToken()
 
 
 Element *
-MoleculeParser::lookupElement(QString _name)
+MoleculeParser::lookupElement( const QString& _name )
 {
     EList elementList = KalziumDataObject::instance()->ElementList;
 
@@ -220,7 +222,27 @@ MoleculeParser::lookupElement(QString _name)
 	}
     }
 
-    kdDebug() << "Didn't find any element" << endl;
+    kdDebug() << k_funcinfo << "no such element: " << _name << endl;
     return NULL;
+}
+
+void MoleculeParser::addElementToMolecule( Element* el, const int n )
+{
+	QMap<Element*, int> newelements;
+	QMap<Element*, int>::ConstIterator it = m_elementMap.constBegin();
+	QMap<Element*, int>::ConstIterator itEnd = m_elementMap.constEnd();
+	bool found = false;
+	for ( ; it != itEnd; ++it ) {
+		if ( it.key()->elname() == el->elname() )
+		{
+			newelements.insert( it.key(), it.data() + n );
+			found = true;
+		}
+		else
+			newelements.insert( it.key(), it.data() );
+        }
+	if ( !found )
+		newelements.insert( el, n );
+	m_elementMap = newelements;
 }
 

@@ -112,7 +112,6 @@ void MolcalcWidget::updateData( int number, KIND kind )
 		QMap<Element*, int> newelements;
 		QMap<Element*, int>::Iterator it = m_elements.begin();
 		QMap<Element*, int>::Iterator itEnd = m_elements.end();
-		bool found = false;
 		// searching for the element
 	        for ( ; it != itEnd; ++it ) {
 			if ( it.key()->elname() == el->elname() )
@@ -149,6 +148,9 @@ void MolcalcWidget::recalculate()
 
 void MolcalcWidget::updateUI()
 {
+	// first of all, recalculating the total weight
+	recalculate();
+
 	QString str;
 
 	//The complexString stores the whole molecule like this:
@@ -170,7 +172,6 @@ void MolcalcWidget::updateUI()
 	resultComposition->setText( composition( m_elements ) );
 	
 	//the mass
-	recalculate();
 	resultMass->setText( i18n( "Molecular mass: %1 u" ).arg( m_mass ) );
 	
 	QToolTip::add( resultMass, complexString );
@@ -216,12 +217,12 @@ void MolcalcWidget::slotCalcButtonClicked()
 	
 	if (m_parser.weight(substance, &weight))
 	{
-	    kdDebug() << "Weight of " << substance << " = " << weight << endl;;
+		kdDebug() << "Weight of " << substance << " = " << weight << endl;
 		m_elements = m_parser.elementMap();
 		updateUI();
 	}
 	else
-	    kdDebug() << "Parse error" << endl;
+		kdDebug() << "Parse error" << endl;
 }
 
 

@@ -25,7 +25,7 @@ Parser::Parser()
 }
 
 
-Parser::Parser(QString _str)
+Parser::Parser(const QString& _str)
 {
     start(_str);
 }

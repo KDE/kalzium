@@ -45,7 +45,7 @@ public:
     static const int  ELEMENT_TOKEN = 300;
 
     MoleculeParser();
-    MoleculeParser(QString _str);
+    MoleculeParser( const QString& _str);
     ~MoleculeParser();
 
     // Try to parse the molecule and get the weight of it.
@@ -58,7 +58,9 @@ public:
     bool      parseSubmolecule(double *_result);
     bool      parseTerm(double *_result);
 
-    Element  *lookupElement(QString _name);
+    Element  *lookupElement( const QString& _name );
+    void      addElementToMolecule( Element* el, const int n );
+
     QMap<Element*, int> m_elementMap;
 
 protected:

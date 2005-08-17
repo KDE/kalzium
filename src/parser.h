@@ -36,7 +36,7 @@ public:
     // Extend this list in your subclass to make a more advanced parser.
 
     Parser();
-    Parser(QString _str);
+    Parser(const QString& _str);
     ~Parser();
 
     // Start a new parse.
