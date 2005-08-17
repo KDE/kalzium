@@ -49,7 +49,7 @@ MoleculeParser::~MoleculeParser()
 bool
 MoleculeParser::weight(QString _molecule, double *_result)
 {
-	m_elementList.clear();
+	m_elementMap.clear();
     *_result = 0.0;
     start(_molecule);
 
@@ -94,7 +94,19 @@ MoleculeParser::parseSubmolecule(double *_result)
 
 QValueList<Element*> MoleculeParser::elementList()
 {
-	return m_elementList;
+	QValueList<Element*> el;
+	QMap<Element*, int>::ConstIterator it = m_elementMap.constBegin();
+	QMap<Element*, int>::ConstIterator itEnd = m_elementMap.constEnd();
+	for ( ; it != itEnd; ++it ) {
+		for ( int i = 0; i < it.data(); i++ )
+			el.append( it.key() );
+        }
+	return el;
+}
+
+QMap<Element*, int> MoleculeParser::elementMap()
+{
+	return m_elementMap;
 }
 
 bool
@@ -136,6 +148,7 @@ MoleculeParser::parseTerm(double *_result)
 	//kdDebug() << "Parsed a number: " << intVal() << endl;
 
     	*_result *= intVal();
+	m_elementMap.insert( m_elementVal, intVal() );
 	getNextToken();
     }
 
@@ -175,10 +188,6 @@ MoleculeParser::getNextToken()
 	if (m_elementVal)
 	{
 	    m_nextToken = ELEMENT_TOKEN;
-		//append the Element to the list of elements.
-		//FIXME: If the element comes like "H2" it has
-		//to be appended twice!
-	    m_elementList.append(m_elementVal);
 	}
 	else
 	    m_nextToken = -1;
@@ -197,12 +206,12 @@ MoleculeParser::getNextToken()
 Element *
 MoleculeParser::lookupElement(QString _name)
 {
-    EList  elementList = KalziumDataObject::instance()->ElementList;;
+    EList elementList = KalziumDataObject::instance()->ElementList;
 
     //kdDebug() << "looking up " << _name << endl;
 
-    EList::ConstIterator        it  = elementList.begin();
-    const EList::ConstIterator  end = elementList.end();
+    EList::ConstIterator        it  = elementList.constBegin();
+    const EList::ConstIterator  end = elementList.constEnd();
 
     for (; it != end; ++it) {
 	if ( (*it)->symbol() == _name ) {

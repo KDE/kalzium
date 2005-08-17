@@ -24,7 +24,6 @@
 
 #include <qmap.h>
 
-#include "parser.h"
 #include "moleculeparser.h"
 
 class KToggleAction;
@@ -33,6 +32,7 @@ class KLineEdit;
 class Element;
 class KalziumDataObject;
 class MolcalcDialog;
+class MoleculeParser;
 
 /**
  * @author Carsten Niehaus
@@ -57,7 +57,7 @@ class MolcalcWidget : public MolcalcWidgetBase
 		MoleculeParser m_parser;
 		
 		double m_mass;
-		QValueList<Element*> m_elements;
+		QMap<Element*, int> m_elements;
 
 		KToggleAction *plusButton;
 		KToggleAction *minusButton;

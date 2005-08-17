@@ -85,45 +85,45 @@ void MolcalcWidget::updateData( int number, KIND kind )
 	
 	if ( kind == ADD )
 	{//adding the element
-		m_mass += el->mass();
-		m_elements.append( el );
+		bool found = false;
+		QMap<Element*, int> newelements;
+		QMap<Element*, int>::Iterator it = m_elements.begin();
+		QMap<Element*, int>::Iterator itEnd = m_elements.end();
+		// searching for the element
+	        for ( ; it != itEnd; ++it ) {
+			if ( it.key()->elname() == el->elname() )
+			{
+				newelements.insert( it.key(), it.data() + 1 );
+				found = true;
+			}
+			else
+				newelements.insert( it.key(), it.data() );
+		}
+		if ( !found )
+		{
+			// element not found, adding it
+			newelements.insert( el, 1 );
+		}
+		m_elements = newelements;
 	}
 	else
 	{//removing the element in case there was at least on such element
 	 //added before
-		QValueList<Element*>::const_iterator it = m_elements.begin( );
-		QValueList<Element*>::const_iterator itEnd = m_elements.end( );
-
-		//I am not sure if this is the best way, but at least it works. 
-		//QValueList<> can't simple remove a *it, it would remove all (!!)
-		//element of the same kind, for example all Carbon-elements.
-		//Therefore I am using two list, a positive-match and a negative-match
-		//list. Afterwards I append all but one elements of the positive-list
-		//to the negative list. In the end I "removed" one element.
-		QValueList<Element*> tmpList;
-		QValueList<Element*> tmpList2;
-
-		for ( ; it != itEnd ; ++it )
-		{
-			if ( ( *it )->elname() != el->elname() )
-			{//negative-list
-				tmpList.append( *it );
+		QMap<Element*, int> newelements;
+		QMap<Element*, int>::Iterator it = m_elements.begin();
+		QMap<Element*, int>::Iterator itEnd = m_elements.end();
+		bool found = false;
+		// searching for the element
+	        for ( ; it != itEnd; ++it ) {
+			if ( it.key()->elname() == el->elname() )
+			{
+				if ( it.data() > 1 )
+					newelements.insert( it.key(), it.data() - 1 );
 			}
-			if ( ( *it )->elname() == el->elname() )
-			{//positive-list
-				tmpList2.append( *it );
-			}
-		}
-		
-		//I need to iterate it2 in order to skip on element
-		QValueList<Element*>::const_iterator it2 = tmpList2.begin(); it2++;
-		const QValueList<Element*>::const_iterator itEnd2 = tmpList2.end(); 
-		for ( ; it2 != itEnd2 ; ++it2 )
-		{ 
-			tmpList.append( *it2 ); 
-		}
-
-		m_elements = tmpList;
+			else
+				newelements.insert( it.key(), it.data() );
+	        }
+		m_elements = newelements;
 	}
 	//the list is updated, now update the User Interface
 	updateUI();
@@ -136,15 +136,15 @@ void MolcalcWidget::slotPlusToggled(bool on)
 
 void MolcalcWidget::recalculate()
 {
-	QValueList<Element*>::const_iterator it = m_elements.begin( );
-	const QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+	QMap<Element*, int>::Iterator it = m_elements.begin();
+	QMap<Element*, int>::Iterator itEnd = m_elements.end();
 
 	m_mass = 0.0;
-	
-	for ( ; it != itEnd ; ++it )
+
+	for ( ; it != itEnd; ++it )
 	{
-		m_mass += ( *it )->mass();
-	}
+		m_mass += it.key()->mass() * it.data();
+        }
 }
 
 void MolcalcWidget::updateUI()
@@ -155,44 +155,9 @@ void MolcalcWidget::updateUI()
 	//1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
 	QString complexString;
 	
-	//the elements
-	QMap<Element*, int> map;
-	
-	QValueList<Element*>::const_iterator it = m_elements.begin( );
-	const QValueList<Element*>::const_iterator itEnd = m_elements.end( );
-
-	QValueList<Element*> differentElements;
-	QValueList<Element*>::const_iterator itNames;
-
-	for ( ; it != itEnd ; ++it )
-	{//get the different elements in the molecule
-		bool contains = false;
-		for ( itNames = differentElements.begin(); itNames != differentElements.end() ; ++itNames )
-		{
-			if (  ( *it )->elname() == ( *itNames )->elname()     )
-				contains = true;
-		}
-		if ( !contains )
-			differentElements.append( *it );
-	}
-
-	itNames = differentElements.begin( );
-	
-	for ( ; itNames != differentElements.end() ; ++itNames )
-	{//count the different elements (write the result in a QMap)
-		it = m_elements.begin( );
-		
-		int count = 0;
-		for ( ; it != itEnd ; ++it )
-		{
-			if ( ( *it )->elname() == ( *itNames )->elname() )
-				count++;
-		}
-		map[ *itNames ] = count;
-	}
-
-	QMap<Element*, int>::Iterator itMap;
-	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) 
+	QMap<Element*, int>::Iterator itMap = m_elements.begin();
+	QMap<Element*, int>::Iterator itMapEnd = m_elements.end();
+	for ( ; itMap != itMapEnd; ++itMap )
 	{//update the resultLabel
 		str += i18n( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2." ).arg( itMap.data() ).arg( itMap.key()->elname() );
 		str += "\n";
@@ -202,7 +167,7 @@ void MolcalcWidget::updateUI()
 	resultLabel->setText( str );
 	
 	//the composition
-	resultComposition->setText( composition( map ) );
+	resultComposition->setText( composition( m_elements ) );
 	
 	//the mass
 	recalculate();
@@ -218,7 +183,7 @@ QString MolcalcWidget::composition( QMap<Element*,int> map )
 	QString str;
 	
 	QMap<Element*, int>::Iterator itMap;
-	for ( itMap = map.begin(); itMap != map.end(); ++itMap ) 
+	for ( itMap = map.begin(); itMap != map.end(); ++itMap )
 	{
 		str += i18n( "%1<sub>%2</sub>" ).arg( itMap.key()->symbol() ).arg( itMap.data() );
 	}
@@ -251,12 +216,12 @@ void MolcalcWidget::slotCalcButtonClicked()
 	
 	if (m_parser.weight(substance, &weight))
 	{
-	    kdDebug() << "Weight of " << substance << " = " << weight << ".\n";
-		m_elements = m_parser.elementList();
+	    kdDebug() << "Weight of " << substance << " = " << weight << endl;;
+		m_elements = m_parser.elementMap();
 		updateUI();
 	}
 	else
-	    kdDebug() << "Parse error\n";
+	    kdDebug() << "Parse error" << endl;
 }
 
 

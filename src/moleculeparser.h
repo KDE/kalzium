@@ -15,9 +15,11 @@
 #ifndef MOLECULEPARSER_H
 #define MOLECULEPARSER_H
 
-#include <qvaluelist.h>
 #include "element.h"
 #include "parser.h"
+
+#include <qmap.h>
+#include <qvaluelist.h>
 
 // Parse molecule formulas.
 //
@@ -48,6 +50,7 @@ public:
 
     // Try to parse the molecule and get the weight of it.
     bool      weight(QString _molecule, double *_result);
+    QMap<Element*, int> elementMap();
     QValueList<Element*> elementList();
 
  private:
@@ -56,7 +59,7 @@ public:
     bool      parseTerm(double *_result);
 
     Element  *lookupElement(QString _name);
-    QValueList<Element*> m_elementList;
+    QMap<Element*, int> m_elementMap;
 
 protected:
 
