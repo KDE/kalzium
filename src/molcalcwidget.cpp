@@ -44,37 +44,7 @@ MolcalcWidget::MolcalcWidget( QWidget *parent, const char *name )
 
 	m_mass = 0.0;
 
-	// setting up the toolbar
-	KToolBar *toolbar = new KToolBar( this, "toolbar", this );
-	toolbar->setIconSize( 22 );
-	MolcalcWidgetBaseLayout->addWidget( toolbar, 0, 0 );
-
-	plusButton = new KToggleAction( i18n( "&Add" ), "add", 0, 0, 0, this, "add" );
-	plusButton->setChecked( true );
-	plusButton->setWhatsThis( i18n( "Toggle this button to allow selected elements to be added to the current molecule" ) );
-	connect( plusButton, SIGNAL( toggled(bool) ), this, SLOT( slotPlusToggled(bool) ) );
-	plusButton->plug( toolbar );
-
-	minusButton = new KToggleAction( i18n( "&Remove" ), "remove", 0, 0, 0, this, "remove" );
-	minusButton->setWhatsThis( i18n( "Toggle this button to allow selected elements to be removed from the current molecule" ) );
-	connect( minusButton, SIGNAL( toggled(bool) ), this, SLOT( slotMinusToggled(bool) ) );
-	minusButton->plug( toolbar );
-
-	toolbar->insertLineSeparator();
-
-	KAction *clearButton = new KAction( i18n( "&Clear" ), "trashcan_empty", 0, this, SLOT( clear() ), this, "clear" );
-	clearButton->setWhatsThis( i18n( "Click this button to drop the created molecule" ) );
-	clearButton->plug( toolbar );
-
 	clear();
-}
-
-void MolcalcWidget::slotButtonClicked( int buttonnumber )
-{
-	if ( plusButton->isChecked() )
-		updateData( buttonnumber, ADD );
-	else
-		updateData( buttonnumber, REMOVE );
 }
 
 void MolcalcWidget::updateData( int number, KIND kind )
@@ -86,7 +56,7 @@ void MolcalcWidget::updateData( int number, KIND kind )
 		bool found = false;
 		QMap<Element*, int> newelements;
 		QMap<Element*, int>::Iterator it = m_elements.begin();
-		QMap<Element*, int>::Iterator itEnd = m_elements.end();
+		const QMap<Element*, int>::Iterator itEnd = m_elements.end();
 		// searching for the element
 	        for ( ; it != itEnd; ++it ) {
 			if ( it.key()->elname() == el->elname() )
@@ -109,7 +79,7 @@ void MolcalcWidget::updateData( int number, KIND kind )
 	 //added before
 		QMap<Element*, int> newelements;
 		QMap<Element*, int>::Iterator it = m_elements.begin();
-		QMap<Element*, int>::Iterator itEnd = m_elements.end();
+		const QMap<Element*, int>::Iterator itEnd = m_elements.end();
 		// searching for the element
 	        for ( ; it != itEnd; ++it ) {
 			if ( it.key()->elname() == el->elname() )
@@ -126,22 +96,17 @@ void MolcalcWidget::updateData( int number, KIND kind )
 	updateUI();
 }
 
-void MolcalcWidget::slotPlusToggled(bool on)
-{
-	minusButton->setChecked( !on );
-}	
-
 void MolcalcWidget::recalculate()
 {
 	QMap<Element*, int>::Iterator it = m_elements.begin();
-	QMap<Element*, int>::Iterator itEnd = m_elements.end();
+	const QMap<Element*, int>::Iterator itEnd = m_elements.end();
 
 	m_mass = 0.0;
 
 	for ( ; it != itEnd; ++it )
 	{
 		m_mass += it.key()->mass() * it.data();
-        }
+	}
 }
 
 void MolcalcWidget::updateUI()
@@ -156,7 +121,7 @@ void MolcalcWidget::updateUI()
 	QString complexString;
 	
 	QMap<Element*, int>::Iterator itMap = m_elements.begin();
-	QMap<Element*, int>::Iterator itMapEnd = m_elements.end();
+	const QMap<Element*, int>::Iterator itMapEnd = m_elements.end();
 	for ( ; itMap != itMapEnd; ++itMap )
 	{//update the resultLabel
 		str += i18n( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2." ).arg( itMap.data() ).arg( itMap.key()->elname() );
@@ -191,11 +156,6 @@ QString MolcalcWidget::composition( QMap<Element*,int> map )
 	return str;
 }
 
-void MolcalcWidget::slotMinusToggled(bool on)
-{
-	plusButton->setChecked( !on );
-}
-
 void MolcalcWidget::clear()
 {
 	m_mass = 0;
@@ -204,7 +164,7 @@ void MolcalcWidget::clear()
 	resultLabel->setText( "" );
 	resultMass->setText( "" );
 	
-	resultComposition->setText( i18n("To start, click\non the elements") );
+	resultComposition->setText( i18n("To start, enter\na formula in the\nwidget above and\nclick on 'Calc'.") );
 
 	QToolTip::remove( resultMass );
 	QToolTip::remove( resultComposition );

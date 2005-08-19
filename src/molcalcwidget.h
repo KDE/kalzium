@@ -59,9 +59,6 @@ class MolcalcWidget : public MolcalcWidgetBase
 		double m_mass;
 		QMap<Element*, int> m_elements;
 
-		KToggleAction *plusButton;
-		KToggleAction *minusButton;
-
 		enum KIND
 		{
 			ADD = 0,
@@ -89,13 +86,6 @@ class MolcalcWidget : public MolcalcWidgetBase
 		 * data
 		 */
 		void updateUI();
-
-	public slots:
-		void slotButtonClicked( int buttonnumber );
-
-		void slotMinusToggled(bool on);
-
-		void slotPlusToggled(bool on);
 
 	protected slots:
 		void slotCalcButtonClicked();

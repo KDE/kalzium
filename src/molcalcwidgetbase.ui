@@ -22,20 +22,6 @@
         <property name="spacing">
             <number>6</number>
         </property>
-        <widget class="Line" row="1" column="0">
-            <property name="name">
-                <cstring>line1</cstring>
-            </property>
-            <property name="frameShape">
-                <enum>HLine</enum>
-            </property>
-            <property name="frameShadow">
-                <enum>Sunken</enum>
-            </property>
-            <property name="orientation">
-                <enum>Horizontal</enum>
-            </property>
-        </widget>
         <widget class="QLayoutWidget" row="2" column="0">
             <hbox>
                 <widget class="KLineEdit">
@@ -76,7 +62,7 @@
             </property>
             <property name="font">
                 <font>
-                    <pointsize>16</pointsize>
+                    <pointsize>14</pointsize>
                     <bold>1</bold>
                 </font>
             </property>
