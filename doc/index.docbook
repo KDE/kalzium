@@ -578,9 +578,8 @@
 				 </sect3>
 				 <sect3 id="calculate">
 					 <title>Calculate</title>
-
 					 <para>The Calculate tab is the second in the sidebar. It alows you to calculate molecules weights.</para>
-					 <para>You are first presented with the following icons and text:</para>
+					 <para>You are first presented with the following:</para>
 					 <screenshot>
 						 <mediaobject>
 							 <imageobject>
@@ -589,28 +588,39 @@
 							 <textobject>
 								 <phrase>Calculate</phrase>
 							 </textobject>
-							 <caption><para>Calculate</para>
+							 <caption><para>The calculator when it is started.</para>
 							 </caption>
 						 </mediaobject>
 					 </screenshot>
-					 <para>You have to click on the elements that compose the molecule.</para>
+					 <para>In this example, the mass of ethyl alcohol (regular
+						 alcohol) H<subscript>3</subscript>CH<subscript>2</subscript>OH will be calculated. For this, simply enter the formula in the lineedit
+						 and either press enter or click on the
+						 <guibutton>Calc</guibutton>-button. The result of the calculation
+						 will be displayed below.</para>
+					 <para>As you can see you will get several answers. For one, on top
+						 of the widget you will see the empirical formula,
+						 H<subscript>6</subscript>C<subscript>1</subscript>O<subscript>1</subscript>. At the
+						 bottom of the widget there is a list of elements and their
+						 abundance in the entered molecule and finally the mass of the
+						 molecule.</para>
+					 <para>The tooltip of the widget will show you the relativ masses of
+						 the elements in the molecule. In this example, the six hydrogen
+						 have only 17.76% of the mass of the molecule.</para>
 					 <screenshot>
 						 <mediaobject>
 							 <imageobject>
 								 <imagedata fileref="sidebar3.png" format="PNG"/>
 							 </imageobject>
 							 <textobject>
-								 <phrase>Weight</phrase>
+								 <phrase>The result of the calculation.</phrase>
 							 </textobject>
-							 <caption><para>Weight</para>
+							 <caption><para>The result of the calculation.</para>
 							 </caption>
 						 </mediaobject>
 					 </screenshot>
-					 <para>You can remove some elements after you click on the Remove icon. You can also clear all the elements with the Clear icon on the most right.</para>
 				 </sect3>
 				 <sect3 id="timeline">
 					 <title>Timeline</title>
-
 					 <para>The Timeline feature allows you to explore the elements of the
 						 set time period. This is great for getting a feel for how the PSE
 						 evolved over time, as more and more elements were discovered. If you move the slider you will
