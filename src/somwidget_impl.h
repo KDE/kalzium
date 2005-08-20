@@ -44,9 +44,12 @@ class SOMWidgetIMPL : public SOMWidget
 		void reloadUnits();
 
 	private:
+		void setNewTemp( double newtemp );
+
 		QValueList<Element*> m_list;
 		QString m_htmlBegin;
 		QString m_htmlEnd;
+		int m_prevUnit;
 
 	private slots:
 		/**

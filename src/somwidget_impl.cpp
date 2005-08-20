@@ -27,6 +27,7 @@
 
 #include "element.h"
 #include "kalziumdataobject.h"
+#include "tempunit.h"
 
 SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
 	: SOMWidget( parent,name )
@@ -41,48 +42,33 @@ SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
 
 	m_htmlBegin = "<qt>";
 	m_htmlEnd = "</qt>";
+	m_prevUnit = Prefs::temperature();
 
-	connect( temp_slider, 	SIGNAL( valueChanged( int ) ),
+	connect( temp_slider, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( slotTemp( int ) ) );
+
 	reloadUnits();
 }
 
 void SOMWidgetIMPL::reloadUnits()
 {
-	switch (Prefs::temperature()) {
-		case 0: //Kelvin
-			lblUnit->setText( "K" );
-			break;
-		case 1: //Celsius
-			lblUnit->setText( QString::fromUtf8("°C") );
-			break;
-		case 2: //Fahrenheit
-			lblUnit->setText( QString::fromUtf8("°F") );
-			break;
-	}
+	lblUnit->setText( TempUnit::unitListSymbol( Prefs::temperature() ) );
 
 	// calling slotTemp(), so the current value will be updated
-	slotTemp( Number1->value() );
+	setNewTemp( TempUnit::convert( Number1->value(), m_prevUnit, Prefs::temperature() ) );
+	m_prevUnit = Prefs::temperature();
 }
 
 void SOMWidgetIMPL::slotTemp( int temp )
 {
+	setNewTemp( (double)temp );
+}
+
+void SOMWidgetIMPL::setNewTemp( double newtemp )
+{
 	static const int threshold = 25;
 
-	double temp_ = ( double )temp;
-			
-	//We won't to use the user's settings for the temperature here.
-	switch (Prefs::temperature()) {
-		case 1: //convert from Celsius to Kelvin
-			temp_ += 273.15;
-			break;
-		case 2: //convert from Fahrenheit to Kelvin
-			temp_ = ( int )( temp_ + 459.67 ) / 1.8;
-			break;
-	}
-
-	//Ok, now make 'temp' store the temperature in Kelvin
-	temp = ( int )temp_;
+	double temp = TempUnit::convert( newtemp, Prefs::temperature(), (int)TempUnit::Kelvin );
 
 	QValueList<Element*>::ConstIterator it = m_list.begin();
 	const QValueList<Element*>::ConstIterator itEnd = m_list.end();
