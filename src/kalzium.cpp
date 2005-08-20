@@ -541,7 +541,6 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 	m_PerodicTableView->setTimeline( false );
 	m_PerodicTableView->activateSOMMode( false );
 
-	disconnect( m_PerodicTableView, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
 	switch ( id )
 	{
 		case 0: // nothing
@@ -549,7 +548,6 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 //			m_calcWidget->clear();
 			break;
 		case 1: // molcalc
-			connect( m_PerodicTableView, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
 			emit tableLocked( true );
 			break;
 		case 2: // timeline
