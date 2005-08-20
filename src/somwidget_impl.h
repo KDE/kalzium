@@ -37,6 +37,12 @@ class SOMWidgetIMPL : public SOMWidget
 		 */
 		SOMWidgetIMPL( QWidget *parent = 0, const char* name = 0 );
 
+	public slots:
+		/**
+		 * Reload the current unit from the preferences
+		 */
+		void reloadUnits();
+
 	private:
 		QValueList<Element*> m_list;
 		QString m_htmlBegin;

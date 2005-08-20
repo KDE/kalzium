@@ -152,9 +152,6 @@ the state of matter</string>
                     <property name="name">
                         <cstring>Number1</cstring>
                     </property>
-                    <property name="suffix">
-                        <string>K</string>
-                    </property>
                     <property name="maxValue">
                         <number>5000</number>
                     </property>
@@ -165,7 +162,15 @@ the state of matter</string>
                         <number>295</number>
                     </property>
                 </widget>
-            </hbox>
+                 <widget class="QLabel">
+                    <property name="name">
+                        <cstring>lblUnit</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+           </hbox>
         </widget>
     </grid>
 </widget>
