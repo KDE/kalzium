@@ -152,6 +152,9 @@ the state of matter</string>
                     <property name="name">
                         <cstring>Number1</cstring>
                     </property>
+                    <property name="suffix">
+                        <string>K</string>
+                    </property>
                     <property name="maxValue">
                         <number>5000</number>
                     </property>

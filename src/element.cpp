@@ -151,11 +151,11 @@ const QString Element::adjustUnits( const int type )
 					break;
 				case 1://Kelvin to Celsius
 					val-=273.15;
-					v = i18n( "%1 is the temperature in Celsius", "%1 C" ).arg( QString::number( val ) );
+					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( QString::number( val ) ).arg( "\xB0" );
 					break;
 				case 2: // Kelvin to Fahrenheit
 					val = val * 1.8 - 459.67;
-					v = i18n( "%1 is the temperature in Fahrenheit", "%1 F" ).arg( QString::number( val ) );
+					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( QString::number( val ) ).arg("\xB0");
 					break;
 			}
 		}

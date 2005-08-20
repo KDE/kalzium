@@ -12,6 +12,7 @@
  ***************************************************************************/
 
 #include "somwidget_impl.h"
+#include "prefs.h"
 
 #include <qslider.h>
 #include <qtextedit.h>
@@ -47,6 +48,28 @@ SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
 void SOMWidgetIMPL::slotTemp( int temp )
 {
 	static const int threshold = 25;
+
+	double temp_ = ( double )temp;
+			
+	//We won't to use the user's settings for the temperature here.
+	switch (Prefs::temperature()) {
+		case 0: //Kelvin
+			//The tempearature is already Kelin, doesn't need to
+			//be adjusted...
+			Number1->setSuffix( "K" );
+			break;
+		case 1: //convert from Celsius to Kelvin
+			temp_ += 273.15;
+			Number1->setSuffix( i18n("%1C").arg( "\xB0" ) );
+			break;
+		case 2: //convert from Fahrenheit to Kelvin
+			temp_ = ( int )( temp_ + 459.67 ) / 1.8;
+			Number1->setSuffix( i18n("%1C").arg( "\xB0" ) );
+			break;
+	}
+
+	//Ok, now make 'temp' store the temperature in Kelvin
+	temp = ( int )temp_;
 
 	QValueList<Element*>::ConstIterator it = m_list.begin();
 	const QValueList<Element*>::ConstIterator itEnd = m_list.end();
