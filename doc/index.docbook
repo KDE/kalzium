@@ -647,7 +647,7 @@
 					 <screenshot>
 						 <mediaobject>
 							 <imageobject>
-								 <imagedata fileref="screenshot6.png" format="PNG"/>
+								 <imagedata fileref="timeline.png" format="PNG"/>
 							 </imageobject>
 							 <textobject>
 								 <phrase>the <quote>Timeline</quote></phrase>
