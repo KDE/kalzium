@@ -20,34 +20,52 @@
 
 #include "tempunit.h"
 
-double TempUnit::convert( const double value, TempUnit::Unit from, TempUnit::Unit to )
+double TempUnit::convert( double value, TempUnit::Unit from, TempUnit::Unit to )
+{
+	/**
+	 * These are the four formula needed to convert from
+	 * Kelvin the the other units:
+
+	 Kelvin  Celsius  °C = K - 273,15
+	 Kelvin  Fahrenheit  °F = K × 1,8 - 459,67
+	 Kelvin  Rankine  °Ra = K × 1,8
+	 Kelvin  Reaumur  °R = ( K - 273,15 ) × 0,8
+	 */
+
+	if ( from != Kelvin )
+		value = convertToKelvin( value, from );
+
+	//now 'value' is in Kelvin
+	switch( to )
+	{
+		case Celsius:
+			return value - 273.16;
+		case Fahrenheit:
+			return value * 1.8 - 459.67;
+		case Rankine:
+			return value * 1.8;
+		case Reaumur:
+			return ( value - 273.15 )* 0.8;
+		case Kelvin:
+			return value;
+	}
+	return value;
+}
+
+double TempUnit::convertToKelvin( const double value, TempUnit::Unit from )
 {
 	switch( from )
 	{
 		case Kelvin:
-		{
-			if ( to == Celsius )
-				return value - 273.16;
-			if ( to == Fahrenheit )
-				return value * 1.8 - 459.67;
-			break;
-		}
+			return value;
 		case Celsius:
-		{
-			if ( to == Kelvin )
-				return value + 273.16;
-			if ( to == Fahrenheit )
-				return ( value + 273.16 ) * 1.8 - 459.67;
-			break;
-		}
+			return value + 273.16;
 		case Fahrenheit:
-		{
-			if ( to == Kelvin )
-				return ( value + 459.67 ) / 1.8;
-			if ( to == Celsius )
-				return ( value + 459.67 ) / 1.8 + 273.16;
-			break;
-		}
+			return ( value + 459.67 )/1.8;
+		case Rankine:
+			return value / 1.8;
+		case Reaumur:
+			return ( value * 1.25 ) + 273.15;
 	}
 	return value;
 }
@@ -91,6 +109,16 @@ QPair<double, double> TempUnit::rangeForUnit( TempUnit::Unit u )
 		case Fahrenheit:
 		{
 			return QPair<double, double>( -459.67, 8540.33 );
+			break;
+		}
+		case Rankine:
+		{
+			return QPair<double, double>( 0.0, 9000.0 );
+			break;
+		}
+		case Reaumur:
+		{
+			return QPair<double, double>( -218.52, 3781.48 );
 			break;
 		}
 	}

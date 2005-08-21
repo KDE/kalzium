@@ -9,8 +9,11 @@
             <x>0</x>
             <y>0</y>
             <width>400</width>
-            <height>210</height>
+            <height>253</height>
         </rect>
+    </property>
+    <property name="caption">
+        <string>setupUnits</string>
     </property>
     <grid>
         <property name="name">
@@ -37,6 +40,9 @@
                     <property name="text">
                         <string>&amp;Use Kelvin</string>
                     </property>
+                    <property name="accel">
+                        <string>Alt+U</string>
+                    </property>
                     <property name="buttonGroupId">
                         <number>0</number>
                     </property>
@@ -47,29 +53,15 @@
                         <string>If selected, the temperatures will be displayed in Kelvin. This is then saved in configuration and restored next time you start Kalzium.</string>
                     </property>
                 </widget>
-                <widget class="QRadioButton" row="1" column="0">
-                    <property name="name">
-                        <cstring>radioButton20</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Use de&amp;grees Celsius</string>
-                    </property>
-                    <property name="buttonGroupId">
-                        <number>1</number>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>If selected, the temperatures will be displayed in Degrees Celsius</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>If selected, the temperatures will be displayed in Degrees Celsius. This is then saved in configuration and restored next time you start Kalzium.</string>
-                    </property>
-                </widget>
                 <widget class="QRadioButton" row="2" column="0">
                     <property name="name">
                         <cstring>radioButton11_2</cstring>
                     </property>
                     <property name="text">
                         <string>Use degrees &amp;Fahrenheit</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+F</string>
                     </property>
                     <property name="buttonGroupId">
                         <number>2</number>
@@ -79,6 +71,66 @@
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>If selected, the temperatures will be displayed in Degrees Fahrenheit. This is then saved in configuration and restored next time you start Kalzium.</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="3" column="0">
+                    <property name="name">
+                        <cstring>radioButton21</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use degrees R&amp;ankine</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+A</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>2</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Degrees Rankine</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Degrees Rankine. This is then saved in configuration and restored next time you start Kalzium.</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="4" column="0">
+                    <property name="name">
+                        <cstring>radioButton22</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use degrees &amp;Réamur</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+R</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>2</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Degrees Réamur.</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Degrees Réamur. This is then saved in configuration and restored next time you start Kalzium.</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>radioButton20</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use de&amp;grees Celsius</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+G</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>1</number>
+                    </property>
+                    <property name="toolTip" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Degrees Celsius</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If selected, the temperatures will be displayed in Degrees Celsius. This is then saved in configuration and restored next time you start Kalzium.</string>
                     </property>
                 </widget>
             </grid>
@@ -104,6 +156,9 @@
                     <property name="text">
                         <string>&amp;Show energies in kJ/mol (kilojoule per mol)</string>
                     </property>
+                    <property name="accel">
+                        <string>Alt+S</string>
+                    </property>
                     <property name="toolTip" stdset="0">
                         <string>Chose the energy unit as kJ/mol (kilojoule per mol)</string>
                     </property>
@@ -117,6 +172,9 @@
                     </property>
                     <property name="text">
                         <string>Show energies &amp;in eV (electronvolt)</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+I</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>Choose the energy unit as eV (electronvolt)</string>

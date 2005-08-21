@@ -36,7 +36,12 @@ class TempUnit
 {
 	public:
 
-		enum Unit { Kelvin = 0, Celsius, Fahrenheit };
+		enum Unit { Kelvin = 0, 
+			Celsius, 
+			Fahrenheit,
+			Rankine,
+			Reaumur 
+		};
 
 		/**
 		 * Convert the temperature unit @p value given in the unit
@@ -44,10 +49,20 @@ class TempUnit
 		 *
 		 * @return the value converted
 		 */
-		static double convert( const double value,
+		static double convert( double value,
 		                       TempUnit::Unit from,
 		                       TempUnit::Unit to );
 
+
+		/**
+		 * @param value the temperature to convert
+		 * @param from the unit from which to convert
+		 *
+		 * @return the temperature to Kelvin
+		 */
+		static double convertToKelvin( const double value,
+				TempUnit::Unit from );
+		
 		/**
 		 * @overload
 		 */

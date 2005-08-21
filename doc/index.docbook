@@ -39,7 +39,7 @@
 
 		 <legalnotice>&FDLNotice;</legalnotice>
 
-		 <date>2005-07-28</date>
+		 <date>2005-08-21</date>
 		 <releaseinfo>1.4.2pre4</releaseinfo>
 
 		 <abstract>
@@ -112,17 +112,21 @@
 		 <screenshot>
 			 <screeninfo>Information dialog</screeninfo>
 			 <mediaobject>
-				 <imageobject><imagedata fileref="quick-2.png" format="PNG" /></imageobject>
+				 <imageobject><imagedata fileref="infodialog_overview.png" format="PNG" /></imageobject>
 				 <textobject><phrase>Information dialog</phrase></textobject>
 			 </mediaobject>
 		 </screenshot>
 
-		 <para>You can plot data using the <menuchoice> <guimenu>Tools</guimenu> <guimenuitem>Plot Data</guimenuitem> </menuchoice> menu. You choose what you want to plot on the y -axis and a range of elements to plot taht for on the x-axis. The screenshot below shows the mass of the elements 1 to 10. </para>
+		 <para>You can plot data using the <menuchoice> <guimenu>Tools</guimenu>
+				 <guimenuitem>Plot Data</guimenuitem> </menuchoice> menu. You choose
+			 what you want to plot on the y -axis and a range of elements to plot
+			 taht for on the x-axis. The screenshot below shows the mass of the
+			 elements 1 to 111. </para>
 
 		 <screenshot>
 			 <screeninfo>The Plot Data dialog</screeninfo>
 			 <mediaobject>
-				 <imageobject><imagedata fileref="quick-3.png" format="PNG" /></imageobject>
+				 <imageobject><imagedata fileref="plottingdialog.png" format="PNG" /></imageobject>
 				 <textobject><phrase>The Plot Data dialog</phrase></textobject>
 			 </mediaobject>
 		 </screenshot>
@@ -132,7 +136,7 @@
 		 <screenshot>
 			 <screeninfo>The Glossary</screeninfo>
 			 <mediaobject>
-				 <imageobject><imagedata fileref="quick-4.png" format="PNG" /></imageobject>
+				 <imageobject><imagedata fileref="screenshot7.png" format="PNG" /></imageobject>
 				 <textobject><phrase>The Glossary</phrase></textobject>
 			 </mediaobject>
 		 </screenshot>
@@ -527,7 +531,7 @@
 				 <screenshot>
 					 <mediaobject>
 						 <imageobject>
-							 <imagedata fileref="screenshot5.png" format="PNG"/>
+							 <imagedata fileref="plottingdialog.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
 							 <phrase>the <quote>Plot Data</quote> Dialog</phrase>
@@ -630,8 +634,8 @@
 
 					 <para>
 						 The number represents the date you are looking at. If you move the slider
-						 to &eg; 1856 you will only see the elements which where known in the
-						 year 1856. 
+						 to &eg; 1891 you will only see the elements which where known in the
+						 year 1891. 
 					 </para>
 
 					 <para>
@@ -648,7 +652,7 @@
 							 <textobject>
 								 <phrase>the <quote>Timeline</quote></phrase>
 							 </textobject>
-							 <caption><para>The PSE back in time (elements known in 1856)</para>
+							 <caption><para>The PSE back in time (elements known in 1891)</para>
 							 </caption>
 						 </mediaobject>
 					 </screenshot>
@@ -718,8 +722,11 @@
 		 </screenshot>
 		 <para>In the <guilabel>Units</guilabel> tab, you can
 			 choose the units. You can select if you prefer kJ/mol by default or
-			 you can choose eV. The Temperature is in Kelvin by default but you can 
-			 change to degrees Celsius or degrees Fahrenheit.
+			 you can choose eV. The temperature is in Kelvin by default but you can 
+			 change to degrees Celsius, degrees Fahrenheit, Reamur or Rankine. The
+			 last two units are not often used today but can still be found
+			 sometimes. Furthermore, they teach us, that temperatures are nothing
+			 absolut. It doesn't matter, which unit you are using.
 		 </para>
 		 <screenshot>
 			 <screeninfo>Configure &kalzium; Dialog</screeninfo>
