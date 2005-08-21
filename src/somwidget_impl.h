@@ -44,19 +44,20 @@ class SOMWidgetIMPL : public SOMWidget
 		void reloadUnits();
 
 	private:
-		void setNewTemp( double newtemp );
-
 		QValueList<Element*> m_list;
 		QString m_htmlBegin;
 		QString m_htmlEnd;
 		int m_prevUnit;
 
 	private slots:
+		void sliderValueChanged( int temp );
+		void spinValueChanged( double temp );
+
 		/**
 		 * in this slot the elements will be compared with
-		 * the temperature @p temp. The content of the HTML
+		 * the temperature @p newtemp. The content of the HTML
 		 * will be generated
 		 */
-		void slotTemp( int temp );
+		void setNewTemp( double newtemp );
 };
 #endif // SOMWIDGET_IMPL_H

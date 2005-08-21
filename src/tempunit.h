@@ -20,6 +20,7 @@
  *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
+#include <qpair.h>
 #include <qstringlist.h>
 
 /**
@@ -64,6 +65,13 @@ class TempUnit
 		 * @return the symbol of the @p i -th unit 
 		 */
 		static QString unitListSymbol( int i );
+
+		static QPair<double, double> rangeForUnit( TempUnit::Unit u );
+
+		/**
+		 * @overload
+		 */
+		static QPair<double, double> rangeForUnit( int u );
 
 };
 #endif // TEMPUNIT_H

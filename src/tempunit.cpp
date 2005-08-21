@@ -27,7 +27,7 @@ double TempUnit::convert( const double value, TempUnit::Unit from, TempUnit::Uni
 		case Kelvin:
 		{
 			if ( to == Celsius )
-				return value + 273.16;
+				return value - 273.16;
 			if ( to == Fahrenheit )
 				return value * 1.8 - 459.67;
 			break;
@@ -35,9 +35,9 @@ double TempUnit::convert( const double value, TempUnit::Unit from, TempUnit::Uni
 		case Celsius:
 		{
 			if ( to == Kelvin )
-				return value - 273.16;
+				return value + 273.16;
 			if ( to == Fahrenheit )
-				return ( value - 273.16 ) * 1.8 - 459.67;
+				return ( value + 273.16 ) * 1.8 - 459.67;
 			break;
 		}
 		case Fahrenheit:
@@ -45,7 +45,7 @@ double TempUnit::convert( const double value, TempUnit::Unit from, TempUnit::Uni
 			if ( to == Kelvin )
 				return ( value + 459.67 ) / 1.8;
 			if ( to == Celsius )
-				return ( value + 459.67 ) / 1.8 - 273.16;
+				return ( value + 459.67 ) / 1.8 + 273.16;
 			break;
 		}
 	}
@@ -72,5 +72,33 @@ QString TempUnit::unitListSymbol( int i )
 	if ( ( i < 0 ) || ( i >= (int)l.count() ) )
 		return l[0];
 	return l[i];
+}
+
+QPair<double, double> TempUnit::rangeForUnit( TempUnit::Unit u )
+{
+	switch( u )
+	{
+		case Kelvin:
+		{
+			return QPair<double, double>( 0.0, 5000.0 );
+			break;
+		}
+		case Celsius:
+		{
+			return QPair<double, double>( -273.16, 4726.84 );
+			break;
+		}
+		case Fahrenheit:
+		{
+			return QPair<double, double>( -459.67, 8540.33 );
+			break;
+		}
+	}
+	return QPair<double, double>( 0.0, 5000.0 );
+}
+
+QPair<double, double> TempUnit::rangeForUnit( int u )
+{
+	return rangeForUnit( (TempUnit::Unit)u );
 }
 

@@ -148,7 +148,7 @@ the state of matter</string>
                         </size>
                     </property>
                 </spacer>
-                <widget class="KIntSpinBox">
+                <widget class="KDoubleSpinBox">
                     <property name="name">
                         <cstring>Number1</cstring>
                     </property>
@@ -177,18 +177,6 @@ the state of matter</string>
 <customwidgets>
 </customwidgets>
 <connections>
-    <connection>
-        <sender>Number1</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>temp_slider</receiver>
-        <slot>setValue(int)</slot>
-    </connection>
-    <connection>
-        <sender>temp_slider</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>Number1</receiver>
-        <slot>setValue(int)</slot>
-    </connection>
 </connections>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
