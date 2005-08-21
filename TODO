@@ -4,28 +4,12 @@
 Bugs
 ----
 
-
 * Miscellaneous bugs:
-  + Make use of the biological symbol.					----
+  + Make use of the biological symbol.	     				----
     CN: I lost the "translation" though, will have to look after it.
-  + Slider of Timeline/SOM: Add Tickmarks for min and max		-----
-  + Move "Temperature" and "Year" above the slider			-----
-    - move the KIntNumSpinbox to the right of the slider
-  + Timeline+SOM: some font+align like in the calculator		-----
+	CN: I have deactivated the drawingconde
   + correct mass-rounding
     presumably, the arg()-funktion now rounds wrong			-----
-
-Features
---------
-
-* Plotting
-  + Add groups of elements, for example "Metals", 4th Period		----
-    transitionmetals and so on. The user can easily select them 
-    and only plot the selected group
-  + More than one group should be plottable at once.			----
-    This would enable the user to compare two or more groups, 
-    eg. 4th with 5th group
-  + Log-scale of the gradient						-----
 
 
 ================================================================
@@ -41,9 +25,19 @@ Features
 
 * Add KHotNewStuff support (xml) so that a user can define which
   dates are displayed in the timeline (see SOM)
+  
+* Log-scale of the gradient						
 
 * Make the glossary also into a dictionary
   CN: I don't understand this point...
+
+* Plotting
+  + Add groups of elements, for example "Metals", 4th Period		
+    transitionmetals and so on. The user can easily select them 
+    and only plot the selected group
+  + More than one group should be plottable at once.			
+    This would enable the user to compare two or more groups, 
+    eg. 4th with 5th group
 
 * Add more than only one mode to Kalzium, eg a mode with simplified
   user interface (less looks, easier menu structure, less information
