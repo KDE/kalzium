@@ -3,7 +3,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
- *   
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -21,28 +20,26 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <kdialogbase.h>
 #include <qwidget.h>
-#include <qpainter.h>
-#include <isotope.h>
 #include <qvaluelist.h>
 #include <qpoint.h>
 #include <qrect.h>
-#include <quuid.h>
-#include "element.h"
 
-class IsotopeWidget;
+#include <kdialogbase.h>
+
 class QColor;
+class QPainter;
 class QScrollView;
-class QSpinBox;
-class QEvent;
+class Element;
+class Isotope;
 
 typedef QValueList<Isotope*> IsotopeList;
 typedef QValueList<Element*> ElementList;
 
 /**
- *@author Carsten Niehaus
- *This class is the drawing widget for the whole table
+ * This class is the drawing widget for the whole table
+ *
+ * @author Carsten Niehaus
  */
 class IsotopeTableView : public QWidget
 {
@@ -55,8 +52,8 @@ class IsotopeTableView : public QWidget
 	
 	public slots:
 		/**
-		 * update the QMap<> of of IsotopeAdapter. Only visible isotopes
-		 * will be in the list. Therefor, in the paintEvent the class
+		 * Update the QMap of IsotopeAdapter. Only visible isotopes
+		 * will be in the list. Therefore, in the paintEvent the class
 		 * can simply iterate through all keys and paint them
 		 */
 		void updateIsoptopeRectList();
@@ -70,8 +67,6 @@ class IsotopeTableView : public QWidget
 	private:
 		QWidget *m_parent;
 		QScrollView *m_scroll;
-
-		static QPoint m_maxBottomRight;
 
 		int minNumberOfNucleons(
 				QValueList<Element*>::ConstIterator it,
@@ -87,11 +82,17 @@ class IsotopeTableView : public QWidget
 
 		QValueList<Isotope*> isotopesWithNucleonsInRange( Element* el, int lowerbound, int upperbound ) const;
 
-		int m_rectSize; ///the current size of a drawn isotope
+		QRect getNewCoords( const QRect& rect ) const;
 
-		/** @return the color of the isotope
+		/**
+		 * The current size of a drawn isotope
 		 */
-		QColor isotopeColor( Isotope* );
+		int m_rectSize;
+
+		/**
+		 * @return the color of the isotope @p isotope
+		 */
+		QColor isotopeColor( Isotope* isotope );
 
 		QMap<Isotope*, QRect> m_IsotopeAdapterRectMap;
 
@@ -99,8 +100,6 @@ class IsotopeTableView : public QWidget
 
 		void updateMinMaxValue();
 
-		QPoint m_topLeft, m_oldTopLeft;
-		QPoint m_bottomRight, m_oldBottomRight;
 		int m_firstElem;
 		int m_lastElem;
 		int m_firstElemNucleon;
@@ -108,9 +107,11 @@ class IsotopeTableView : public QWidget
 		
 		QRect m_selectedRegion;
 		
-		bool m_duringSelection; ///true if user is currently mouse the pressed mouse
+		/**
+		 * true if user is currently mouse the pressed mouse
+		 */
+		bool m_duringSelection;
 
-		 
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 		
@@ -122,15 +123,16 @@ class IsotopeTableView : public QWidget
 		void drawAxisLabels( QPainter *p );
 		
 		/**
-		 * draw the isotopewidgets
+		 * draw the isotope widgets
 		 */
 		void drawIsotopeWidgets( QPainter *p );
 };
 
 /**
+ * The dialog representing the isotope table.
+ *
  * @author Martin Pfeiffer
  * @author Carsten Niehaus
- *
  */
 class IsotopeTableDialog : public KDialogBase
 {
@@ -157,6 +159,8 @@ class IsotopeTableDialog : public KDialogBase
 
 
 /**
+ * Simply widget that represents the legend of the isotope table.
+ *
  * @author Martin Pfeiffer
  */
 class NuclideLegend : public QWidget
@@ -168,7 +172,5 @@ class NuclideLegend : public QWidget
 	protected:
 		virtual void paintEvent( QPaintEvent* );
 };
-
-
 
 #endif // NUCLIDEBOARD_H

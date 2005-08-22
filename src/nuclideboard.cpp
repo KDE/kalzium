@@ -19,38 +19,34 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "kalziumdataobject.h"
 #include "nuclideboard.h"
+
+#include "element.h"
+#include "isotope.h"
+#include "kalziumdataobject.h"
 #include "kalziumutils.h"
 
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qspinbox.h>
-#include <qcursor.h>
-#include <qstring.h>
+#include <qpainter.h>
 #include <qpixmap.h>
 #include <qscrollview.h>
 #include <qsizepolicy.h>
 #include <qtimer.h>
-#include <qwidget.h>
-#include <qmainwindow.h>
 #include <qvbox.h>
 
+#include <kapplication.h>
 #include <kdebug.h>
 #include <kglobal.h>
 #include <klocale.h>
-#include <kapplication.h>
 
-#include "math.h"
+#include <math.h>
 
 static const int MaxIsotopeSize = 45;
 static const int MinIsotopeSize = 12;
 
 static const int MaxElementDisplayed = 111;
 static const int MinElementDisplayed = 1;
-
-//the last element has the number 111 and has 272 nucleons (proton+neutron)
-QPoint IsotopeTableView::m_maxBottomRight = QPoint(272,111);
 
 IsotopeTableView::IsotopeTableView( QWidget* parent, QScrollView *scroll, const char* name )
 	: QWidget( parent, name ), m_parent( parent ), m_scroll( scroll )
@@ -65,11 +61,6 @@ IsotopeTableView::IsotopeTableView( QWidget* parent, QScrollView *scroll, const 
 
 	m_duringSelection = false;
 
-	//for the start of the dialog there need to be two points set, the
-	//top left and the bottom right corner. To speed things up I will only
-	//display the first 80 elements. They have a maximum of about 200 isotopes
-	m_topLeft = QPoint( 0, 0 );
-	m_bottomRight = QPoint( 210, 80 );
 	m_rectSize = -1;
 
 	m_firstElem = MinElementDisplayed;
@@ -122,6 +113,45 @@ void IsotopeTableView::resizeEvent( QResizeEvent */*e*/ )
 	update();
 }
 
+QRect IsotopeTableView::getNewCoords( const QRect& rect1 ) const
+{
+	QRect ret;
+
+	int i = 0;
+	int a = 0;
+
+	QRect rect( m_scroll->viewportToContents( rect1.topLeft() ),
+	            m_scroll->viewportToContents( rect1.bottomRight() ) );
+
+	i = 0;
+kdDebug() << "ORIG RECT: " << rect
+          << "OUR SIZE:  " << size() << endl;
+	a = height() - rect.top();
+	while ( i * m_rectSize < a ) i++;
+kdDebug() << "TOP: " << i << endl;
+	ret.setTop( m_firstElem + i );
+
+	i = 0;
+	a = width() - rect.right();
+	while ( i * m_rectSize < a ) i++;
+kdDebug() << "RIGHT: " << i << endl;
+	ret.setRight( m_firstElemNucleon + i );
+
+	i = 0;
+	while ( i * m_rectSize < rect.bottom() ) i++;
+kdDebug() << "BOTTOM: " << i << endl;
+	ret.setBottom( m_firstElem + i - 1 );
+
+	i = 0;
+	while ( i * m_rectSize < rect.left() ) i++;
+kdDebug() << "LEFT: " << i << endl;
+	ret.setLeft( m_firstElemNucleon + i - 1 );
+
+kdDebug() << "RECT: " << ret << endl;
+
+	return ret;
+}
+
 void IsotopeTableView::selectionDone( QRect selectedRect )
 {
 /*
@@ -154,6 +184,7 @@ void IsotopeTableView::selectionDone( QRect selectedRect )
 
 	updateMinMaxValue();
 */
+/*
 	int i = 0;
 	int a = height() - selectedRect.bottom();
 	while ( i * m_rectSize < a ) i++;
@@ -175,6 +206,12 @@ kdDebug() << "TOP: " << i << endl;
 	while ( i * m_rectSize < a ) i++;
 kdDebug() << "RIGHT: " << i << endl;
 	m_lastElemNucleon -= i - 1;
+*/
+	QRect r = getNewCoords( selectedRect );
+	m_firstElem = r.bottom();
+	m_lastElem = r.top();
+	m_firstElemNucleon = r.left();
+	m_lastElemNucleon = r.right();
 
 	m_rectSize = -1;
 
@@ -509,8 +546,6 @@ void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
 	p.fillRect( 230, 10, 10, 10, Qt::magenta );
 	text =  i18n( "Stable" );
 	p.drawText( 250, 20, text ); 
-
-	p.drawRect( rect() );
 }
 
 IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
