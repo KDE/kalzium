@@ -151,7 +151,7 @@
 	</item>
 	<item>
 		<name>Magnetic Moment</name>
-		<desc>The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself. It's measured in units of the nuclear magneton &#956;[sub]n[/sub]=(5.0507866 &#177; 0.0000017) 10[sup]-27[/sup] JT<sup>-</sup></desc>
+		<desc>The magnetic moment of an object is a vector relating the aligning torque in a magnetic field experienced by the object to the field vector itself. It's measured in units of the nuclear magneton &#956;[sub]n[/sub]=(5.0507866 &#177; 0.0000017) 10[sup]-27[/sup] JT[sup]-1[/sup]</desc>
 		<references>
 			<refitem>Isotope</refitem>
 		</references>
