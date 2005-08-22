@@ -124,6 +124,7 @@ void IsotopeTableView::resizeEvent( QResizeEvent */*e*/ )
 
 void IsotopeTableView::selectionDone( QRect selectedRect )
 {
+/*
 	//safe the old positions
 	m_oldBottomRight = m_bottomRight;
 	m_oldTopLeft = m_topLeft;
@@ -152,6 +153,30 @@ void IsotopeTableView::selectionDone( QRect selectedRect )
 	m_bottomRight /= m_rectSize;
 
 	updateMinMaxValue();
+*/
+	int i = 0;
+	int a = height() - selectedRect.bottom();
+	while ( i * m_rectSize < a ) i++;
+kdDebug() << "BOTTOM: " << i << endl;
+	m_firstElem += i - 1;
+
+	i = 0;
+	while ( i * m_rectSize < selectedRect.left() ) i++;
+kdDebug() << "LEFT: " << i << endl;
+	m_firstElemNucleon += i - 1;
+
+	i = 0;
+	while ( i * m_rectSize < selectedRect.top() ) i++;
+kdDebug() << "TOP: " << i << endl;
+	m_lastElem -= i - 1;
+
+	i = 0;
+	a = width() - selectedRect.right();
+	while ( i * m_rectSize < a ) i++;
+kdDebug() << "RIGHT: " << i << endl;
+	m_lastElemNucleon -= i - 1;
+
+	m_rectSize = -1;
 
 	//now update the list of isotopes to be displayed
 	updateIsoptopeRectList();
@@ -247,7 +272,7 @@ kdDebug() << "size(): " << size() << endl;
 	IsotopeList::ConstIterator isotopeEnd;
 
 //	for ( int countY = numOfElements ; it != itEnd; ++it )
-	for ( int i = m_firstElem; i < m_lastElem; i++ )
+	for ( int i = m_firstElem; i <= m_lastElem; i++ )
 	{
 //kdDebug() << k_funcinfo << "i: " << i << endl;
 		Element* el = KalziumDataObject::instance()->element( i );
@@ -455,7 +480,9 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 
 NuclideLegend::NuclideLegend( QWidget* parent, const char* name ) : QWidget( parent, name )
 {
-	setMinimumWidth( 300 );
+	setMinimumSize( 300, 50 );
+	setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
+	resize( minimumSizeHint() );
 }
 
 void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
@@ -482,6 +509,8 @@ void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
 	p.fillRect( 230, 10, 10, 10, Qt::magenta );
 	text =  i18n( "Stable" );
 	p.drawText( 250, 20, text ); 
+
+	p.drawRect( rect() );
 }
 
 IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
@@ -493,20 +522,22 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
 	QVBoxLayout *vbox = new QVBoxLayout(  page , 0, -1, "vbox" );
 
 	QScrollView *helperSV = new QScrollView(page);
+	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());
+	helperSV->setFrameShape(QFrame::NoFrame);
+	helperSV->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
 	QVBox *big_box = new QVBox( helperSV->viewport() );
 	helperSV->addChild( big_box );
 	vbox->addWidget( helperSV );
 
 	m_view = new IsotopeTableView( big_box, helperSV, "view" );
+//	m_view->setMinimumSize( 800,800 );
+	m_view->installEventFilter( this );
+
+	NuclideLegend *legend = new NuclideLegend( page, "legend" );
+	vbox->addWidget( legend );
 
 	connect( this, SIGNAL(selectionDone( QRect ) ),
 	         m_view, SLOT(selectionDone( QRect ) ) );
-
-	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());
-	helperSV->setFrameShape(QFrame::NoFrame);
-
-//	m_view->setMinimumSize( 800,800 );
-	m_view->installEventFilter( this );
 
 	setMinimumSize( 750, 500 );
 	resize( minimumSize() );
