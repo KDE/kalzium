@@ -42,15 +42,15 @@
 #include <kapplication.h>
 
 #include "math.h"
-	
-int IsotopeTableView::m_maxIsoSize = 30;
-int IsotopeTableView::m_minIsoSize = 20;
+
+static const int MaxIsotopeSize = 45;
+static const int MinIsotopeSize = 12;
+
+static const int MaxElementDisplayed = 111;
+static const int MinElementDisplayed = 1;
 
 //the last element has the number 111 and has 272 nucleons (proton+neutron)
 QPoint IsotopeTableView::m_maxBottomRight = QPoint(272,111);
-	
-int IsotopeTableView::maxElementNumberDisplayed = 111;
-int IsotopeTableView::minElementNumberDisplayed = 1;
 
 IsotopeTableView::IsotopeTableView( QWidget* parent, QScrollView *scroll, const char* name )
 	: QWidget( parent, name ), m_parent( parent ), m_scroll( scroll )
@@ -65,8 +65,6 @@ IsotopeTableView::IsotopeTableView( QWidget* parent, QScrollView *scroll, const 
 
 	m_duringSelection = false;
 
-	m_list = KalziumDataObject::instance()->ElementList;
-
 	//for the start of the dialog there need to be two points set, the
 	//top left and the bottom right corner. To speed things up I will only
 	//display the first 80 elements. They have a maximum of about 200 isotopes
@@ -74,20 +72,18 @@ IsotopeTableView::IsotopeTableView( QWidget* parent, QScrollView *scroll, const 
 	m_bottomRight = QPoint( 210, 80 );
 	m_rectSize = -1;
 
-	m_firstElem = 1;
-	m_lastElem = 100;
+	m_firstElem = MinElementDisplayed;
+	m_lastElem = MaxElementDisplayed;
 	m_firstElemNucleon = minNucleonOf( KalziumDataObject::instance()->element( m_firstElem ) );
 	m_lastElemNucleon = maxNucleonOf( KalziumDataObject::instance()->element( m_lastElem ) );
 
 kdDebug() << k_funcinfo << m_firstElemNucleon << " ... " << m_lastElemNucleon << endl;
-if ( parent )
-	kdDebug() << "PARENT: " << parent->size() << endl;
 
-	QTimer::singleShot( 0, this, SLOT( updateIsoptopeRectList() ) );
-//	updateIsoptopeRectList();
+//	QTimer::singleShot( 0, this, SLOT( updateIsoptopeRectList() ) );
+	updateIsoptopeRectList();
 
 //	QTimer::singleShot( 100, this, SLOT( repaint() ) );
-//	repaint();
+	repaint();
 }
 
 /**
@@ -217,13 +213,13 @@ kdDebug() << "width(): " << width() << " - height(): " << height()
           << " - m_rectSize: " << m_rectSize << endl;
 //*/
 //kdDebug() << "m_rectSize: " << m_rectSize << endl;
-		if ( m_rectSize < 12 )
+		if ( m_rectSize < MinIsotopeSize )
 		{
-			m_rectSize = 12;
+			m_rectSize = MinIsotopeSize;
 		}
-		else if ( m_rectSize > 40 )
+		else if ( m_rectSize > MaxIsotopeSize )
 		{
-			m_rectSize = 40;
+			m_rectSize = MaxIsotopeSize;
 		}
 		resize( numOfNucleons * m_rectSize, numOfElements * m_rectSize );
 		if ( m_scroll )
@@ -257,7 +253,7 @@ kdDebug() << "size(): " << size() << endl;
 		Element* el = KalziumDataObject::instance()->element( i );
 		if ( !el ) continue;
 
-//X		kdDebug() << "=== countY: " << countY << " Name: " << el->elname() << " (" << el->number() <<") ================" << endl;
+//		kdDebug() << "el: " << el->elname() << " (" << el->number() <<")" << endl;
 		isotopeList = isotopesWithNucleonsInRange( el, m_firstElemNucleon, m_lastElemNucleon );
 //		isotopeList = el->isotopes();
 		isotopeEnd = isotopeList.constEnd();
@@ -357,7 +353,7 @@ int IsotopeTableView::minNucleonOf( Element* el, int lowerbound ) const
 	for ( ; isoIt != isoItEnd; ++isoIt )
 	{
 		if ( ( ( *isoIt )->nucleons() < minNumber ) &&
-		     ( ( *isoIt )->nucleons() > lowerbound ) )
+		     ( ( *isoIt )->nucleons() >= lowerbound ) )
 			minNumber = ( *isoIt )->nucleons();
 	}
 	return minNumber;
@@ -376,7 +372,7 @@ int IsotopeTableView::maxNucleonOf( Element* el, int upperbound ) const
 	for ( ; isoIt != isoItEnd; ++isoIt )
 	{
 		if ( ( ( *isoIt )->nucleons() > maxNumber ) &&
-		     ( ( *isoIt )->nucleons() < upperbound ) )
+		     ( ( *isoIt )->nucleons() <= upperbound ) )
 			maxNumber = ( *isoIt )->nucleons();
 	}
 	return maxNumber;
@@ -398,8 +394,8 @@ QValueList<Isotope*> IsotopeTableView::isotopesWithNucleonsInRange( Element* el,
 	for ( ; isoIt != isoItEnd; ++isoIt )
 	{
 //kdDebug() << "# NUCLEONS: " << ( *isoIt )->nucleons() << endl;
-		if ( ( ( *isoIt )->nucleons() > lowerbound ) &&
-		     ( ( *isoIt )->nucleons() < upperbound ) )
+		if ( ( ( *isoIt )->nucleons() >= lowerbound ) &&
+		     ( ( *isoIt )->nucleons() <= upperbound ) )
 			isolist.append( ( *isoIt ) );
 	}
 
@@ -435,7 +431,7 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 	const QMap<Isotope*, QRect>::ConstIterator itEnd = m_IsotopeAdapterRectMap.constEnd();
 		
 	QFont f = p->font();
-	f.setPointSize( KalziumUtils::maxSize( "22", QRect( 0,0,10,10 ),f, p ) );
+	f.setPointSize( KalziumUtils::maxSize( "22", QRect( 0, 0, m_rectSize, m_rectSize ), f, p ) );
 	p->setFont( f );
 
 	for ( ; it != itEnd ; ++it )
@@ -450,7 +446,8 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 			p->drawRect( it.data() );
 			
 			//For debugging, lets add the information
-			p->drawText( it.data() ,Qt::AlignCenter, QString::number( it.key()->neutrons() ) );
+//			p->drawText( it.data() ,Qt::AlignCenter, QString::number( it.key()->neutrons() ) );
+			p->drawText( it.data() ,Qt::AlignCenter, QString::number( it.key()->nucleons() ) );
 		}
 	}
 	p->setBrush( Qt::black );
@@ -512,32 +509,6 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
 	m_view->installEventFilter( this );
 
 	setMinimumSize( 750, 500 );
-
-/*
-	QWidget *page = new QWidget( this );
-	setMainWidget( page );
-//	QWidget *page = makeMainWidget();
-	
-	QVBoxLayout *vbox = new QVBoxLayout( page , 0, -1, "vbox" );
-
-        QScrollView* sv = new QScrollView( page );
-        QWidget* big_box = new QWidget( sv->viewport() );
-        sv->addChild( big_box );
-
-	QVBoxLayout *vbox_view = new QVBoxLayout( big_box , 0, -1, "vbox" );
-
-	m_view = new IsotopeTableView( big_box, "view" );
-	vbox_view->addWidget( sv );
-
-	vbox->addWidget( sv );
-	
-	connect( this, SIGNAL(selectionDone( QRect ) ),
-		 m_view, SLOT(selectionDone( QRect ) ) );
-	
-	m_view->installEventFilter( this );
-	
-	setMinimumSize( 750, 500 );
-*/
 	resize( minimumSize() );
 
 	update();
