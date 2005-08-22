@@ -12,9 +12,6 @@
             <height>253</height>
         </rect>
     </property>
-    <property name="caption">
-        <string>setupUnits</string>
-    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -40,9 +37,6 @@
                     <property name="text">
                         <string>&amp;Use Kelvin</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+U</string>
-                    </property>
                     <property name="buttonGroupId">
                         <number>0</number>
                     </property>
@@ -59,9 +53,6 @@
                     </property>
                     <property name="text">
                         <string>Use degrees &amp;Fahrenheit</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+F</string>
                     </property>
                     <property name="buttonGroupId">
                         <number>2</number>
@@ -80,9 +71,6 @@
                     <property name="text">
                         <string>Use degrees R&amp;ankine</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+A</string>
-                    </property>
                     <property name="buttonGroupId">
                         <number>2</number>
                     </property>
@@ -100,9 +88,6 @@
                     <property name="text">
                         <string>Use degrees &amp;Réamur</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+R</string>
-                    </property>
                     <property name="buttonGroupId">
                         <number>2</number>
                     </property>
@@ -119,9 +104,6 @@
                     </property>
                     <property name="text">
                         <string>Use de&amp;grees Celsius</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+G</string>
                     </property>
                     <property name="buttonGroupId">
                         <number>1</number>
@@ -156,9 +138,6 @@
                     <property name="text">
                         <string>&amp;Show energies in kJ/mol (kilojoule per mol)</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+S</string>
-                    </property>
                     <property name="toolTip" stdset="0">
                         <string>Chose the energy unit as kJ/mol (kilojoule per mol)</string>
                     </property>
@@ -172,9 +151,6 @@
                     </property>
                     <property name="text">
                         <string>Show energies &amp;in eV (electronvolt)</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+I</string>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>Choose the energy unit as eV (electronvolt)</string>

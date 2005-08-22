@@ -81,6 +81,8 @@ QStringList TempUnit::unitListSymbols()
 	list << "K";
 	list << QString::fromUtf8("°C");
 	list << QString::fromUtf8("°F");
+	list << QString::fromUtf8("°Ra");
+	list << QString::fromUtf8("°R");
 	return list;
 }
 

@@ -23,7 +23,6 @@
 
 #include <kdialogbase.h>
 #include <qwidget.h>
-#include <qscrollview.h>
 #include <qpainter.h>
 #include <isotope.h>
 #include <qvaluelist.h>
@@ -34,6 +33,7 @@
 
 class IsotopeWidget;
 class QColor;
+class QScrollView;
 class QSpinBox;
 class QEvent;
 
@@ -51,7 +51,7 @@ class IsotopeTableView : public QWidget
 	Q_OBJECT
 
 	public:
-		IsotopeTableView( QWidget* parent = 0, const char * name = 0 );
+		IsotopeTableView( QWidget* parent = 0, QScrollView* scroll = 0, const char * name = 0 );
 	
 	public slots:
 		/**
@@ -67,7 +67,10 @@ class IsotopeTableView : public QWidget
 		 */
 		void selectionDone( QRect selectedRect );
 		
-	private: 
+	private:
+		QWidget *m_parent;
+		QScrollView *m_scroll;
+
 		QValueList<Element*> m_list;
 
 		static QPoint m_maxBottomRight;
@@ -86,6 +89,12 @@ class IsotopeTableView : public QWidget
 				QValueList<Element*>::ConstIterator it,
 				QValueList<Element*>::ConstIterator itEnd );
 
+		int minNucleonOf( Element* el, int lowerbound = 0 ) const;
+
+		int maxNucleonOf( Element* el, int upperbound = 500 ) const;
+
+		QValueList<Isotope*> isotopesWithNucleonsInRange( Element* el, int lowerbound, int upperbound ) const;
+
 		int m_rectSize; ///the current size of a drawn isotope
 
 		/** @return the color of the isotope
@@ -100,6 +109,10 @@ class IsotopeTableView : public QWidget
 
 		QPoint m_topLeft, m_oldTopLeft;
 		QPoint m_bottomRight, m_oldBottomRight;
+		int m_firstElem;
+		int m_lastElem;
+		int m_firstElemNucleon;
+		int m_lastElemNucleon;
 		
 		QRect m_selectedRegion;
 		
@@ -107,7 +120,9 @@ class IsotopeTableView : public QWidget
 
 		 
 	protected:
-		virtual void paintEvent( QPaintEvent*e );
+		virtual void paintEvent( QPaintEvent *e );
+		
+		virtual void resizeEvent( QResizeEvent *e );
 		
 		/**
 		 * draw the x and y axis 
