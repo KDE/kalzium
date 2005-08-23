@@ -41,6 +41,7 @@
 #include <klocale.h>
 
 #include <math.h>
+#include <stdlib.h>
 
 static const int MaxIsotopeSize = 45;
 static const int MinIsotopeSize = 12;
@@ -123,22 +124,28 @@ QRect IsotopeTableView::getNewCoords( const QRect& rect1 ) const
 	QRect rect( m_scroll->viewportToContents( rect1.topLeft() ),
 	            m_scroll->viewportToContents( rect1.bottomRight() ) );
 
-	i = 0;
-kdDebug() << "ORIG RECT: " << rect
+kdDebug() << "ORIG RECT: " << rect << endl
           << "OUR SIZE:  " << size() << endl;
-	a = height() - rect.top();
-	while ( i * m_rectSize < a ) i++;
-kdDebug() << "TOP: " << i << endl;
-	ret.setTop( m_firstElem + i );
 
 	i = 0;
-	a = width() - rect.right();
-	while ( i * m_rectSize < a ) i++;
+	a = abs( height() - rect.topLeft().y() );
+kdDebug() << "a: " << a << endl;
+	while ( i * m_rectSize < a )
+	{
+//kdDebug() << i << " - " << i * m_rectSize << endl;
+		i++;
+	}
+kdDebug() << "TOP: " << i << endl;
+	ret.setTop( m_firstElem + i - 1 );
+
+	i = 0;
+	while ( i * m_rectSize < rect.right() ) i++;
 kdDebug() << "RIGHT: " << i << endl;
 	ret.setRight( m_firstElemNucleon + i );
 
 	i = 0;
-	while ( i * m_rectSize < rect.bottom() ) i++;
+	a = abs( height() - rect.bottomLeft().y() );
+	while ( i * m_rectSize < a ) i++;
 kdDebug() << "BOTTOM: " << i << endl;
 	ret.setBottom( m_firstElem + i - 1 );
 
@@ -148,6 +155,11 @@ kdDebug() << "LEFT: " << i << endl;
 	ret.setLeft( m_firstElemNucleon + i - 1 );
 
 kdDebug() << "RECT: " << ret << endl;
+
+	// normalize
+	ret = ret.normalize();
+
+kdDebug() << "RECT normalized: " << ret << endl;
 
 	return ret;
 }
@@ -184,34 +196,13 @@ void IsotopeTableView::selectionDone( QRect selectedRect )
 
 	updateMinMaxValue();
 */
-/*
-	int i = 0;
-	int a = height() - selectedRect.bottom();
-	while ( i * m_rectSize < a ) i++;
-kdDebug() << "BOTTOM: " << i << endl;
-	m_firstElem += i - 1;
-
-	i = 0;
-	while ( i * m_rectSize < selectedRect.left() ) i++;
-kdDebug() << "LEFT: " << i << endl;
-	m_firstElemNucleon += i - 1;
-
-	i = 0;
-	while ( i * m_rectSize < selectedRect.top() ) i++;
-kdDebug() << "TOP: " << i << endl;
-	m_lastElem -= i - 1;
-
-	i = 0;
-	a = width() - selectedRect.right();
-	while ( i * m_rectSize < a ) i++;
-kdDebug() << "RIGHT: " << i << endl;
-	m_lastElemNucleon -= i - 1;
-*/
 	QRect r = getNewCoords( selectedRect );
-	m_firstElem = r.bottom();
-	m_lastElem = r.top();
-	m_firstElemNucleon = r.left();
-	m_lastElemNucleon = r.right();
+	// I know it's strange, but somehow sometimes the bottom and the
+	// top are swapped...
+	m_firstElem = kMin( r.bottom(), r.top() );
+	m_lastElem = kMax( r.bottom(), r.top() );
+	m_firstElemNucleon = kMin( r.left(), r.right() );
+	m_lastElemNucleon = kMax( r.left(), r.right() );
 
 	m_rectSize = -1;
 
@@ -240,6 +231,7 @@ void IsotopeTableView::updateIsoptopeRectList()
 	kdDebug () << firstElement << " ... " << lastElement << endl;
 */
 	kdDebug () << m_firstElem << " ... " << m_lastElem << endl;
+	kdDebug () << "Nucleons: " << m_firstElemNucleon << " ... " << m_lastElemNucleon << endl;
 
 /*
 	if ( firstElement < 1 || firstElement > 111 ) return;
@@ -308,6 +300,8 @@ kdDebug() << "size(): " << size() << endl;
 	IsotopeList::ConstIterator isotope;
 	IsotopeList::ConstIterator isotopeEnd;
 
+	int id = 0;
+
 //	for ( int countY = numOfElements ; it != itEnd; ++it )
 	for ( int i = m_firstElem; i <= m_lastElem; i++ )
 	{
@@ -320,13 +314,12 @@ kdDebug() << "size(): " << size() << endl;
 //		isotopeList = el->isotopes();
 		isotopeEnd = isotopeList.constEnd();
 		isotope = isotopeList.constBegin();
-//kdDebug() << k_funcinfo << "isolist: " << isotopeList.count() << endl;
+kdDebug() << k_funcinfo << "isolist: " << isotopeList.count() << endl;
 		
 		for ( ; isotope != isotopeEnd; ++isotope )
 		{
 			Isotope* iso = *isotope;
 			if ( !iso ) continue;
-			
 
 //			int Xpositon = iso->nucleons() - minNucleons;
 			int Xpositon = iso->nucleons() - m_firstElemNucleon;
@@ -339,15 +332,16 @@ kdDebug() << "size(): " << size() << endl;
 */
 			QRect boundingRect = QRect( 
 					Xpositon*m_rectSize, 
-					( numOfElements - i ) * m_rectSize,
+					( numOfElements - id - 1 ) * m_rectSize,
 					m_rectSize, m_rectSize);
-//kdDebug() << k_funcinfo << boundingRect << endl;
+kdDebug() << k_funcinfo << boundingRect << endl;
 			
 //X			kdDebug() << "boundRect of the adapter: " << boundingRect << " Isotope of the adapter with " << iso->neutrons() << " neutrons." << endl;
 			
  			m_IsotopeAdapterRectMap.insert(iso, boundingRect);
 		}
 //		countY--;
+		++id;
 	}
 
 	update();
@@ -458,7 +452,10 @@ QValueList<Isotope*> IsotopeTableView::isotopesWithNucleonsInRange( Element* el,
 //kdDebug() << "# NUCLEONS: " << ( *isoIt )->nucleons() << endl;
 		if ( ( ( *isoIt )->nucleons() >= lowerbound ) &&
 		     ( ( *isoIt )->nucleons() <= upperbound ) )
+		{
 			isolist.append( ( *isoIt ) );
+//kdDebug() << "             ---> OK" << endl;
+		}
 	}
 
 	return isolist;
@@ -615,8 +612,11 @@ bool IsotopeTableDialog::eventFilter( QObject *obj, QEvent *ev )
 		QRect endPoint( mev->pos(), mev->pos() );
 
 		m_view->m_duringSelection = false;
+		
+		// ensure to have a valid QRect
+		QRect ourrect = startPoint.unite( endPoint ).normalize();
 
-		emit selectionDone( startPoint.unite( endPoint ) );
+		emit selectionDone( ourrect );
 		return true;
 	}
 	KDialogBase::eventFilter(obj,ev);

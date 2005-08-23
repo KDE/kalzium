@@ -24,7 +24,8 @@ class QString;
 
 /**
  * Small class that provides some exporting functions for graphics.
- * @class Martin Pfeiffer
+ *
+ * @author Martin Pfeiffer
  */
 class Exporter
 {
