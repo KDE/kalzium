@@ -244,4 +244,40 @@
 			<refitem>Electron</refitem>
 		</references>
 	</item>
+	<item>
+		<name>Ionic Radius</name>
+		<desc>The Ionic Radius is the radius of a charged atom, a so called ion. The ion can have a positive or a negative charge. The charge of the ion which radius you see is also displayed in Kalzium. A positive ion has less electrons in its shell then the atom, a negative ion has more electrons. Therefore, a postive ion has a smaller radius than its atom and vice versa.</desc>
+		<references>
+			<refitem>Covalent Radius</refitem>
+			<refitem>Atomic Radius</refitem>
+			<refitem>Van der Waals Radius</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Van der Waals Radius</name>
+		<desc>The van der Waals radius of an atom is the radius of an imaginary hard sphere which can be used to model the atom for many purposes. Van der Waals radii are determined from measurements of atomic spacing between pairs of unbonded atoms in crystals.</desc>
+		<references>
+			<refitem>Covalent Radius</refitem>
+			<refitem>Atomic Radius</refitem>
+			<refitem>Ionic Radius</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Atomic Radius</name>
+		<desc>The atomic radius is the distance from the atomic nucleus to the outmost stable electron orbital in a atom that is at equilibrium.</desc>
+		<references>
+			<refitem>Covalent Radius</refitem>
+			<refitem>Van der Waals Radius</refitem>
+			<refitem>Ionic Radius</refitem>
+		</references>
+	</item>
+	<item>
+		<name>Covalent Radius</name>
+		<desc>Covalent radius in chemistry corresponds to half of the distance between two identical atomic nuclei, bound by a covalent bond.</desc>
+		<references>
+			<refitem>Atomic Radius</refitem>
+			<refitem>Ionic Radius</refitem>
+			<refitem>Van der Waals Radius</refitem>
+		</references>
+	</item>
 </wissen>
