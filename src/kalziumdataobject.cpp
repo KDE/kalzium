@@ -118,6 +118,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		int artificial = domElement.namedItem( "artificial" ).toElement().text().toInt();
 		int date = domElement.namedItem( "date" ).toElement().text().toInt();
 		int number = domElement.namedItem( "number" ).toElement().text().toInt();
+		int abundance = domElement.namedItem( "abundance" ).toElement().text().toInt();
 		
 		QString scientist = domElement.namedItem( "date" ).toElement().attributeNode( "scientist" ).value();
 		QString crystal = domElement.namedItem( "crystalstructure" ).toElement().text();
@@ -194,6 +195,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setRadius( Element::IONIC, ionic_radius, ionic_charge );
 		e->setRadius( Element::COVALENT, covalent_radius );
 		e->setRadius( Element::VDW, vdw_radius );
+		e->setAbundance( abundance );
 
 		if ( artificial == 1 )
 			e->setArtificial();

@@ -40,6 +40,7 @@ Element::Element()
 {
 	m_radioactive = false;
 	m_artificial = false;
+	m_abundance = 0;
 }
 
 Isotope* Element::isotopeByNucleons( int numberOfNucleons )

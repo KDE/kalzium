@@ -79,14 +79,23 @@ class Element{
 			return m_number;
 		}
 
+		/**
+		 * @return if the Element is radioactive
+		 */
 		bool radioactive() const{
 			return m_radioactive;
 		}
 		
+		/**
+		 * @return if the Element is artificial
+		 */
 		bool artificial() const{
 			return m_artificial;
 		}
 
+		/**
+		 * @return the information where the name of the Element comes from
+		 */
 		QString nameOrigin() const{
 			return m_origin;
 		}
@@ -100,6 +109,11 @@ class Element{
 		void setEA( double value ) { m_EA = value; }
 		void setMeltingpoint( double value ) { m_MP = value; }
 		void setBoilingpoint( double value ) { m_BP = value; }
+
+		/**
+		 * sets the density of the Element
+		 * @param value the density of the Element
+		 */
 		void setDensity( double value ) { m_Density = value; }
 
 		/**
@@ -114,6 +128,12 @@ class Element{
 		void setBiologicalMeaning( int value ) { m_biological = value; }
 		void setNumber( int num ){ m_number = num; }
 
+		/**
+		 * set the abundance in crustal rocks [pm]
+		 * @param abundance the abundace in crustal rocks
+		 */
+		void setAbundance( int abundance ){ m_abundance = abundance; }
+
 		void setScientist( const QString& value ) { m_scientist = value; }
 		void setCrysatalstructure( const QString& value ) { m_crystalstructure = value; }
 		void setName( const QString& value ) { m_name = value; }
@@ -126,13 +146,11 @@ class Element{
 		void setOxydation( const QString& value ) { m_oxstage = value; }
 		void setAcidicbehaviour( const QString& value ) { m_acidbeh = value; }
 		void setIsotopes( const QString& value ) { m_isotopes = value; }
-
+		
 		void setArtificial(){ m_artificial = true; }
 		void setRadioactive(){ m_radioactive = true; }
-
-		void setIonisationList( doubleList l ){
-			m_ionenergies = l;
-		}
+		
+		void setIonisationList( doubleList l ){ m_ionenergies = l; }
 
 		QValueList<Isotope*> isotopes() const{
 			return m_isotopeList;
@@ -146,6 +164,10 @@ class Element{
 			m_isotopeList = list;
 		}
 
+		/**
+		 * sets the Spectrum of the Element
+		 * @param spec the Spectrum of the Element
+		 */
 		void setSpectrum( Spectrum *spec ){
 			m_spectrum = spec;
 		}
@@ -157,10 +179,17 @@ class Element{
 			return m_hasSpectrum;
 		}
 
+		/**
+		 * define if the element has a known Spectrum
+		 * @param value if true, the Element has a Spectrum
+		 */
 		void setHasSepctrum(bool value){
 			m_hasSpectrum = value;
 		}
 
+		/**
+		 * @return the Spectrum of the element
+		 */
 		Spectrum* spectrum() const{
 			return m_spectrum;
 		}
@@ -200,6 +229,13 @@ class Element{
 		 */
 		int biological() const {
 			return m_biological;
+		}
+
+		/**
+		 * @return the abundance in crustal rocks in parts per million
+		 */
+		int abundance() const {
+			return 12;
 		}
 		
 		/**
@@ -427,7 +463,8 @@ class Element{
 		int     m_number,
 			m_date,
 			m_biological,
-			m_period;
+			m_period,
+			m_abundance;
 
 		QString m_symbol,
 			m_name,

@@ -568,7 +568,10 @@
 			<covalent>153.7</covalent>
 			<atomic>180</atomic>
 			<vdw>227</vdw>
+			<ionic charge="+1">102</ionic>
+			<bondxx>371.7</bondxx>
 		</radius>
+		<abundance>22700</abundance>
 		<orbits>1s2 2s2 2p6 3s1</orbits>
 		<oxydation>+1</oxydation>
 		<family>Alkali_Earth</family>
@@ -618,7 +621,10 @@
 			<covalent>130</covalent>
 			<atomic>150</atomic>
 			<vdw>173</vdw>
+			<bondxx>319.7</bondxx>
+			<ionic charge="+2">72</ionic>
 		</radius>
+		<abundance>27640</abundance>
 		<orbits>1s2 2s2 2p6 3s2</orbits>
 		<oxydation>+2</oxydation>
 		<isotopes>
@@ -665,7 +671,8 @@
 			<covalent>118</covalent>
 			<atomic>125</atomic>
 			<vdw></vdw>
-			<ionic charge="+3">33</ionic>
+			<ionic charge="+3">53</ionic>
+			<bondxx>286.3</bondxx>
 		</radius>
 		<abundance>83000</abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p1</orbits>
@@ -725,7 +732,10 @@
 			<covalent>111</covalent>
 			<atomic>110</atomic>
 			<vdw>210</vdw>
+			<bondxx>235.2</bondxx>
+			<ionic charge="+4">40</ionic>
 		</radius>
+		<abundance>272200</abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p2</orbits>
 		<oxydation>+4.(-4.+2)</oxydation>
 		<isotopes>
@@ -779,7 +789,10 @@
 			<atomic>100</atomic>
 			<vdw>180</vdw>
 			<ionic charge="+5">35</ionic>
+			<ionic charge="+3">44</ionic>
+			<bondxx>221</bondxx>
 		</radius>
+		<abundance>1120</abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p3</orbits>
 		<oxydation>-3.(+1.+3).+5</oxydation>
 		<isotopes>
@@ -827,11 +840,13 @@
 			<energy>34.8</energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>104</covalent>
+			<covalent>102</covalent>
 			<atomic>100</atomic>
 			<vdw>180</vdw>
-			<ionic charge="-2">190</ionic>
+			<ionic charge="-2">184</ionic>
+			<bondxx>205</bondxx>
 		</radius>
+		<abundance>340</abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p4</orbits>
 		<oxydation>-2.+2.+4.+6</oxydation>
 		<isotopes>
@@ -880,7 +895,10 @@
 			<covalent>99.4</covalent>
 			<atomic>100</atomic>
 			<vdw>175</vdw>
+			<bondxx>189.1</bondxx>
+			<ionic charge="-1">181</ionic>
 		</radius>
+		<abundance>126</abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p5</orbits>
 		<oxydation>-1.(+1.+3.+5.+7)</oxydation>
 		<isotopes>
@@ -934,7 +952,9 @@
 			<covalent>97</covalent>
 			<atomic>71</atomic>
 			<vdw>188</vdw>
+			<bondxx>372</bondxx>
 		</radius>
+		<abundance></abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p6</orbits>
 		<oxydation>0</oxydation>
 		<isotopes>

@@ -39,6 +39,8 @@
 #include "spectrum.h"
 #include "spectrumviewimpl.h"
 
+//TODO add bondxx-radius (H-H-distance for example)
+
 DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *name)
     : KDialogBase( IconList, name, Help|User1|User2|Close, Close, parent, name, 
 			false, //non modal
@@ -197,6 +199,13 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			if ( !m_element->scientist( ).isEmpty() )
 				html += "<br />" + i18n("It was discovered by %1").arg(m_element->scientist() );
 			html.append( "</td></tr>" );
+			
+			if ( m_element->abundance() > 0 ){
+			html.append( "<tr><td><img src=\"abundance.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Abundance in crustal rocks: %1 ppm" ).arg( m_element->abundance() ) );
+			html.append( "</td></tr>" );
+			}
+			
 			html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );
 			html.append( "</td></tr>" );

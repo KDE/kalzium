@@ -27,3 +27,4 @@ Add:
  - The dialogboxes now have a help-button which will open the
    correct page in the help
  - The molecule parser for the weight calculator.
+ - adding the abundance of an element in a crustal rock (measured in ppm)
