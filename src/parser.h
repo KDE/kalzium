@@ -25,7 +25,7 @@
  */
 class Parser {
 public:
-    // All characters are 
+    // All characters are their own token value per default.
     static const  int  INT_TOKEN   = 257;
     static const  int  FLOAT_TOKEN = 258;
     // Extend this list in your subclass to make a more advanced parser.
@@ -48,12 +48,16 @@ public:
      * Peek at the next token.
      */
     int    nextToken() const { return m_nextToken; }
+
+    /**
+     * Get the value stored for different types of tokens.
+     */
     int    intVal()    const { return m_intVal;    }
     float  floatVal()  const { return m_floatVal;  }
 
 private:
 
-    // Try to parse the following characters as special datatypes.
+    // Try to parse some special datatypes.
     bool  parseInt(int *_result);
     bool  parseSimpleFloat(double *_result);
 

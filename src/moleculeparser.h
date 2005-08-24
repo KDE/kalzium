@@ -48,13 +48,13 @@ public:
 
     /**
      * Try to parse the molecule @p molecule and get the weight of it.
-     * The calced weight is stored in @p _result.
+     * The calculated weight is stored in @p _result.
      *
      * @return whether the parsing was successful or not
      */
-    bool      weight(QString _molecule, double *_result);
-    QMap<Element*, int> elementMap();
-    QValueList<Element*> elementList();
+    bool                  weight(QString _molecule, double *_result);
+    QMap<Element*, int>   elementMap();
+    QValueList<Element*>  elementList();
 
  private:
     // Helper functions
