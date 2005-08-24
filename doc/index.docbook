@@ -321,7 +321,9 @@
 			 </sect2>
 			 <sect2 id="infodialog_misc">
 				 <title>Miscellaneous</title>
-				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it was discovered, its mean mass (the mass per neutron) and the origin of the name.</para>
+				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other
+					 informations about the current element, including when it was
+					 discovered, its abundance in crustal rocks, its mean mass (the mass per neutron) and the origin of the name.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
