@@ -154,7 +154,7 @@ Q3ValueList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		item->setDesc( i18n( item->desc().utf8() ) );
 
 		refNodeList = refNode.elementsByTagName( "refitem" );
-		for ( uint it = 0; it < refNodeList.count(); it++ )
+		for ( int it = 0; it < refNodeList.count(); it++ )
 		{
 			reflist << i18n( refNodeList.item( it ).toElement().text().utf8() );
 		}
@@ -278,7 +278,7 @@ void GlossaryDialog::updateTree()
 				Q3ListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
 				if ( !thisletteritem )
 				{
-					thisletteritem = new Q3ListViewItem( main, thisletter );
+					thisletteritem = new Q3ListViewItem( main, QString(thisletter) );
 					thisletteritem->setExpandable( true );
 					thisletteritem->setSelectable( false );
 				}
@@ -392,7 +392,7 @@ QString GlossaryItem::parseReferences() const
 	QString htmlcode = "<h3>" + i18n( "References" ) + "</h3>";
 	
 	bool first = true;
-	for ( uint i = 0; i < m_ref.size(); i++ )
+	for ( int i = 0; i < m_ref.size(); i++ )
 	{
 		if ( !first )
 			htmlcode += "<br>";

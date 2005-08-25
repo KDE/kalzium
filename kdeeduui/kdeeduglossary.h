@@ -198,7 +198,7 @@ class GlossaryItem
 		}
 	
 		void setPictures( const QString& s ){
-			m_pic = s;
+			m_pic = QStringList(s);
 		}
 
 		QString name() const {
