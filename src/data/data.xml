@@ -3295,6 +3295,7 @@
 			<covalent>176.6</covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
 		<orbits>Xe 4f11 6s2</orbits>
 		<isotopes>
@@ -3328,7 +3329,9 @@
 			<covalent>175.7</covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance></abundance>
 		<orbits>Xe 4f12 6s2</orbits>
 		<oxydation>+3</oxydation>
 		<isotopes>
@@ -3365,7 +3368,9 @@
 			<covalent>174.6</covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance></abundance>
 		<orbits>Xe 4f13 6s2</orbits>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="-0.2316" halflife="" halflifeformat="seconds" weight="168.93421" neutron="100" percentage="100" />
@@ -3397,7 +3402,9 @@
 			<covalent>194</covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance></abundance>
 		<orbits>Xe 4f14 6s2</orbits>
 		<oxydation>+2.+3</oxydation>
 		<isotopes>
@@ -3436,7 +3443,9 @@
 			<covalent>173.4</covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance></abundance>
 		<orbits>Xe 4f14 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
 		<isotopes>
@@ -3470,7 +3479,9 @@
 			<covalent>156.4</covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance></abundance>
 		<orbits>Xe 4f14 5d2 6s2</orbits>
 		<oxydation>+5</oxydation>
 		<isotopes>
@@ -3508,7 +3519,9 @@
 			<covalent>143</covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance></abundance>
 		<orbits>Xe 4f14 5d3 6s2</orbits>
 		<oxydation>+3.+5</oxydation>
 		<isotopes>
@@ -3542,7 +3555,9 @@
 			<covalent>137.0</covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance></abundance>
 		<orbits>Xe 4f14 5d4 6s2</orbits>
 		<oxydation>(+4). +6</oxydation>
 		<isotopes>
@@ -3575,13 +3590,16 @@
 		<boilingpoint>5870</boilingpoint>
 		<density>21.03</density>
 		<ionisationenergy>
-			<energy>7.88 </energy>
+			<energy>7.88</energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>137.0</covalent>
-			<atomic></atomic>
+			<covalent>159</covalent>
+			<atomic>135</atomic>
 			<vdw></vdw>
+			<bondxx>274.1</bondxx>
+			<ionic charge="+4">63</ionic>
 		</radius>
+		<abundance>0.0007</abundance>
 		<orbits>Xe 4f14 5d5 6s2</orbits>
 		<oxydation>+7.+2.+4</oxydation>
 		<isotopes>
@@ -3613,10 +3631,13 @@
 			<energy>8.7 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>135</covalent>
-			<atomic></atomic>
+			<covalent>128</covalent>
+			<atomic>130</atomic>
 			<vdw></vdw>
+			<bondxx>267.5</bondxx>
+			<ionic charge="+4">63</ionic>
 		</radius>
+		<abundance>0.005</abundance>
 		<orbits>Xe 4f14 5d6 6s2</orbits>
 		<oxydation>+4.(+2.+3.+6.+8)</oxydation>
 		<isotopes>
@@ -3653,10 +3674,13 @@
 			<energy>9.1 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>135.7</covalent>
-			<atomic></atomic>
+			<covalent>137</covalent>
+			<atomic>135</atomic>
 			<vdw></vdw>
+			<bondxx>271.4</bondxx>
+			<ionic charge="+4">63</ionic>
 		</radius>
+		<abundance>0.001</abundance>
 		<orbits>Xe 4f14 5d7 6s2</orbits>
 		<oxydation>+1.+4.(+2.+3.+6)</oxydation>
 		<isotopes>
@@ -3687,10 +3711,13 @@
 			<energy>9.0 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>138</covalent>
-			<atomic></atomic>
-			<vdw></vdw>
+			<covalent>128</covalent>
+			<atomic>135</atomic>
+			<vdw>175</vdw>
+			<bondxx>277.5</bondxx>
+			<ionic charge="+2">80</ionic>
 		</radius>
+		<abundance>0.01</abundance>
 		<orbits>Xe 4f14 5d9 6s1</orbits>
 		<oxydation>+2.+4</oxydation>
 		<isotopes>
@@ -3726,9 +3753,12 @@
 		</ionisationenergy>
 		<radius>
 			<covalent>144.2</covalent>
-			<atomic></atomic>
-			<vdw></vdw>
+			<atomic>135</atomic>
+			<vdw>166</vdw>
+			<bondxx>288.4</bondxx>
+			<ionic charge="+1">137</ionic>
 		</radius>
+		<abundance>0.004</abundance>
 		<orbits>Xe 4f14 5d10 6s1</orbits>
 		<oxydation>(+1).+3</oxydation>
 		<isotopes>
@@ -3761,9 +3791,12 @@
 		</ionisationenergy>
 		<radius>
 			<covalent>160</covalent>
-			<atomic></atomic>
-			<vdw></vdw>
+			<atomic>150</atomic>
+			<vdw>155</vdw>
+			<bondxx>300.5</bondxx>
+			<ionic charge="+2">102</ionic>
 		</radius>
+		<abundance>0.08</abundance>
 		<orbits>Xe 4f14 5d10 6s2</orbits>
 		<oxydation>(+1).+2</oxydation>
 		<isotopes>
@@ -3803,14 +3836,12 @@
 		</ionisationenergy>
 		<radius>
 			<covalent>170.4</covalent>
-			<atomic></atomic>
-			<vdw></vdw>
+			<atomic>190</atomic>
+			<vdw>196</vdw>
+			<ionic charge="+1">150</ionic>
+			<bondxx>340.8</bondxx>
 		</radius>
-		<radius>
-			<covalent>160</covalent>
-			<atomic></atomic>
-			<vdw></vdw>
-		</radius>
+		<abundance>0.7</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p1</orbits>
 		<oxydation>+1.(+3)</oxydation>
 		<isotopes>
@@ -3841,10 +3872,13 @@
 			<energy>7.416 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>175</covalent>
-			<atomic></atomic>
-			<vdw></vdw>
+			<covalent>147</covalent>
+			<atomic>180</atomic>
+			<vdw>202</vdw>
+			<bondxx>350.0</bondxx>
+			<ionic charge="+2">118</ionic>
 		</radius>
+		<abundance>13</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p2</orbits>
 		<oxydation>+2.(+4)</oxydation>
 		<isotopes>
@@ -3876,10 +3910,13 @@
 		</ionisationenergy>
 		<radius>
 			<covalent>155</covalent>
-			<atomic></atomic>
+			<atomic>160</atomic>
 			<vdw></vdw>
 			<ionic charge="+5">74</ionic>
+			<ionic charge="+3">102</ionic>
+			<bondxx>309</bondxx>
 		</radius>
+		<abundance>13</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p3</orbits>
 		<oxydation>+3.(+5)</oxydation>
 		<family>Other_Metal</family>
@@ -3916,9 +3953,12 @@
 		</isotopes>
 		<radius>
 			<covalent>167.5</covalent>
-			<atomic></atomic>
+			<atomic>190</atomic>
 			<vdw></vdw>
+			<bondxx>334.5</bondxx>
+			<ionic charge="+6">97</ionic>
 		</radius>
+		<abundance>0</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p4</orbits>
 		<oxydation>(+2).+4.(+6)</oxydation>
 		<family>Metalloids</family>
@@ -3955,7 +3995,9 @@
 			<covalent></covalent>
 			<atomic>127</atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p5</orbits>
 		<oxydation>-1.(1.3.5.7)</oxydation>
 		<family>Halogene</family>
@@ -3984,7 +4026,9 @@
 			<covalent>145</covalent>
 			<atomic>120</atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p6</orbits>
 		<oxydation>2</oxydation>
 		<family>Noblegas</family>
@@ -4014,7 +4058,9 @@
 			<atomic></atomic>
 			<vdw></vdw>
 			<ionic charge="+1">180</ionic>
+			<bondxx></bondxx>
 		</radius>
+		<abundance></abundance>
 		<orbits>Rn 7s1</orbits>
 		<oxydation>+1</oxydation>
 		<family>Alkali_Earth</family>
@@ -4044,7 +4090,9 @@
 			<atomic>215</atomic>
 			<vdw></vdw>
 			<ionic charge="+2">143</ionic>
+			<bondxx>445.8</bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<orbits>Rn 7s2</orbits>
 		<oxydation>+2</oxydation>
 		<family>Alkaline_Earth</family>
@@ -4075,7 +4123,9 @@
 			<atomic>195</atomic>
 			<vdw></vdw>
 			<ionic charge="+3">118</ionic>
+			<bondxx>375.6</bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<orbits>Rn 6d1 7s2</orbits>
 		<oxydation>(+2).+3</oxydation>
 		<family>Rare_Earth</family>
@@ -4115,7 +4165,9 @@
 			<atomic>179.8</atomic>
 			<vdw></vdw>
 			<ionic charge="+4">100</ionic>
+			<bondxx>359.5</bondxx>
 		</radius>
+		<abundance>12</abundance>
 		<oxydation>+3.+4</oxydation>
 		<family>Rare_Earth</family>
 		<orbits>Rn 6d2 7s2</orbits>
@@ -4144,7 +4196,10 @@
 			<vdw></vdw>
 			<ionic charge="+4">98</ionic>
 			<ionic charge="+5">89</ionic>
+			<ionic charge="+3">113</ionic>
+			<bondxx>321.2</bondxx>
 		</radius>
+		<abundance>12</abundance>
 		<oxydation>+4.+5</oxydation>
 		<isotopes>
 			<isotope alphapercentage="100.0" alphadecay="5.148" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="&#177;2.01" halflife="32760" halflifeformat="years" weight="231.03588" neutron="140" percentage="" />
@@ -4191,7 +4246,10 @@
 			<vdw>186</vdw>
 			<ionic charge="+4">97</ionic>
 			<ionic charge="+6">80</ionic>
+			<ionic charge="+6">73</ionic>
+			<bondxx>277</bondxx>
 		</radius>
+		<abundance>2.3</abundance>
 		<oxydation>+3.+4.+5.+6.+7</oxydation>
 		<family>Rare_Earth</family>
 		<orbits>Rn 5f3 6d1 7s2</orbits>
@@ -4221,7 +4279,9 @@
 			<atomic>175</atomic>
 			<vdw></vdw>
 			<ionic charge="+4">95</ionic>
+			<bondxx>262</bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<oxydation>+4.+3.+5.+7</oxydation>
 		<isotopes>
 			<isotope alphapercentage="100.0" alphadecay="4.96" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="" halflife="2140000" halflifeformat="years" weight="237.04817" neutron="144" percentage="" />
@@ -4257,7 +4317,9 @@
 			<atomic>175</atomic>
 			<vdw></vdw>
 			<ionic charge="+4">80</ionic>
+			<bondxx>302.6</bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<oxydation>+3.+4.+5.+6.+7</oxydation>
 		<isotopes>
 			<isotope alphapercentage="100.0" alphadecay="5.87" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="2.87" halflifeformat="years" weight="236.04603" neutron="142" percentage="" />
@@ -4298,7 +4360,9 @@
 			<atomic>175</atomic>
 			<vdw></vdw>
 			<ionic charge="+3">100</ionic>
+			<bondxx>345.0</bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<oxydation>+2.+3.+4.+5.+6</oxydation>
 		<isotopes>
 			<isotope alphapercentage="100.0" alphadecay="5.637" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2-" magmoment="+1.61" halflife="432.7" halflifeformat="years" weight="241.05682" neutron="146" percentage="" />
@@ -4328,7 +4392,9 @@
 			<atomic></atomic>
 			<vdw></vdw>
 			<ionic charge="+3">98</ionic>
+			<bondxx>347.7</bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<meltingpoint>1620</meltingpoint>
 		<boilingpoint></boilingpoint>
 		<density>13.51</density>
@@ -4351,7 +4417,9 @@
 			<atomic></atomic>
 			<vdw></vdw>
 			<ionic charge="+3">98</ionic>
+			<bondxx>339.8</bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<date scientist="G. T. Seaborg. A. Ghiors. S.G. Thompson">1949</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>1</group>
@@ -4383,7 +4451,9 @@
 			<atomic></atomic>
 			<vdw></vdw>
 			<ionic charge="+3">98</ionic>
+			<bondxx>337.7</bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<electronegativity>1.3</electronegativity>
 		<meltingpoint>1170</meltingpoint>
 		<boilingpoint></boilingpoint>
@@ -4410,7 +4480,9 @@
 			<atomic>186</atomic>
 			<vdw></vdw>
 			<ionic charge="+3">98</ionic>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="40780800" halflifeformat="seconds" weight="" neutron="153" percentage="" />
 		</isotopes>
@@ -4440,7 +4512,9 @@
 			<atomic>190</atomic>
 			<vdw></vdw>
 			<ionic charge="+3">97</ionic>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="9115200" halflifeformat="seconds" weight="" neutron="157" percentage="" />
 		</isotopes>
@@ -4468,7 +4542,9 @@
 			<atomic></atomic>
 			<vdw></vdw>
 			<ionic charge="+3">96</ionic>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
 		<isotopes>
@@ -4490,8 +4566,10 @@
 			<covalent></covalent>
 			<atomic></atomic>
 			<vdw></vdw>
-			<ionic charge="+2">113</ionic>
+			<ionic charge="+2">113</ionic>	
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
@@ -4536,7 +4614,9 @@
 			<atomic></atomic>
 			<vdw></vdw>
 			<ionic charge="+3">94</ionic>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<oxydation>+3</oxydation>
 		<family>Rare_Earth</family>
 		<orbits>Rn 5f14 7s2 7p1</orbits>
@@ -4568,7 +4648,9 @@
 			<covalent></covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<oxydation>+3</oxydation>
 		<family>Transition</family>
 		<orbits>Rn 5f14 6d2 7s2</orbits>
@@ -4600,7 +4682,9 @@
 			<covalent></covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<orbits>Rn 5f14 6d3 7s2</orbits>
 		<family>Transition</family>
 	</element>
@@ -4619,7 +4703,9 @@
 			<covalent></covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="20" halflifeformat="seconds" weight="" neutron="160" percentage="" />
 		</isotopes>
@@ -4643,7 +4729,9 @@
 			<covalent></covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<biologicalmeaning>0</biologicalmeaning>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.4" halflifeformat="seconds" weight="" neutron="157" percentage="" />
@@ -4668,7 +4756,9 @@
 			<covalent></covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<isotopes>
@@ -4691,7 +4781,9 @@
 			<covalent></covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<biologicalmeaning>0</biologicalmeaning>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.7" halflifeformat="seconds" weight="" neutron="159" percentage="" />
@@ -4716,7 +4808,9 @@
 			<covalent></covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.001" halflifeformat="seconds" weight="" neutron="161" percentage="" />
 		</isotopes>
@@ -4740,7 +4834,9 @@
 			<covalent></covalent>
 			<atomic></atomic>
 			<vdw></vdw>
+			<bondxx></bondxx>
 		</radius>
+		<abundance>0</abundance>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.0015" halflifeformat="seconds" weight="" neutron="161" percentage="" />
 		</isotopes>
