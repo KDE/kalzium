@@ -138,8 +138,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		int offset = KalziumUtils::StringHeight( QString::number( m_element->mass() ), fC, &p );
 		p.drawText( w/2, h-offset, w/2, offset, Qt::AlignRight, QString::number( m_element->mass() ) );
 
-		//TODO until I found again what those symbols mean disable this
-		//drawBiologicalSymbol( &p );
+		drawBiologicalSymbol( &p );
 	}
 
 	p.end();
