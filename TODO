@@ -93,3 +93,24 @@ http://en.wikipedia.org/wiki/Nobel_Prize_in_chemistry
 http://chemipedia.org/mediawiki/index.php/Hauptseite
 http://physics.nist.gov/PhysRefData/Handbook/periodictable.htm
 
+Properties listed on my periodic table:
+Page 1:
+- electronconfig 						[DONE]
+- Atomic radius (covalent, ionic, vdw   [Semi-DONE]
+- reduction potential
+- EN 									[DONE, there are more values, other scales]
+- abundance 							[Semi-Done]
+- biological symbol 					[DONE]
+- IUPAC-Name 							[DONE]
+- number 								[DONE]
+- oxidation-numer(s)					[DONE, need to be checked]
+- orbitals 								[DONE]
+
+Page 2:
+- number of natural isotopes
+- massenzahlen (# of neutrons) of the most important isotopes
+- natural abundance of the isotopes
+- first IE 								[DONE]
+- density 								[DONE]
+- SP and BP 							[DONE]
+- Infos about the most important isotope [DONE but needs to be improved]
