@@ -580,6 +580,43 @@
 						 </mediaobject>
 					 </screenshot>
 					 <para>The Overview tab is the first one and it shows you an overview of the element the mouse is over.</para>
+					 <para>
+						 <variablelist>
+
+							 <varlistentry>
+								 <term>Full red circle</term>
+								 <listitem><para>
+										 Element is essential to all species
+								 </para></listitem>
+							 </varlistentry>
+							 <varlistentry>
+								 <term>Full green circle</term>
+								 <listitem><para>
+										 Element is essential for at least one species
+								 </para></listitem>
+							 </varlistentry>
+							 <varlistentry>
+								 <term>Full blue circle</term>
+								 <listitem><para>
+										 Biolocial function is proposed
+								 </para></listitem>
+							 </varlistentry>
+							 <varlistentry>
+								 <term>Red outer circle</term>
+								 <listitem><para>
+										 Element is essential for humans
+								 </para></listitem>
+							 </varlistentry>
+							 <varlistentry>
+								 <term>Blue outer circle</term>
+								 <listitem><para>
+										 Element is probably essential for humans
+								 </para></listitem>
+							 </varlistentry>
+
+						 </variablelist>
+					 
+					 </para>
 
 				 </sect3>
 				 <sect3 id="calculate">
