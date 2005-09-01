@@ -22,16 +22,22 @@
 
 #include "molcalcwidgetbase.h"
 
-#include <qlist.h>
 #include <qmap.h>
 
+#include "moleculeparser.h"
+
 class KToggleAction;
+class KLineEdit;
+
 class Element;
-class KalziumDataObject;
 class MolcalcDialog;
+class MoleculeParser;
 
 /**
+ * This widget is a small calculator for moleculas.
+ *
  * @author Carsten Niehaus
+ * @author Pino Toscano
  */
 class MolcalcWidget : public MolcalcWidgetBase
 {
@@ -48,13 +54,10 @@ class MolcalcWidget : public MolcalcWidgetBase
 		void clear();
 
 	private:
-		KalziumDataObject *m_data;
+		MoleculeParser m_parser;
 		
 		double m_mass;
-		QList<Element*> m_elements;
-
-		KToggleAction *plusButton;
-		KToggleAction *minusButton;
+		QMap<Element*, int> m_elements;
 
 		enum KIND
 		{
@@ -84,12 +87,8 @@ class MolcalcWidget : public MolcalcWidgetBase
 		 */
 		void updateUI();
 
-	public slots:
-		void slotButtonClicked( int buttonnumber );
-
-		void slotMinusToggled(bool on);
-
-		void slotPlusToggled(bool on);
+	protected slots:
+		void slotCalcButtonClicked();
 };
 
 

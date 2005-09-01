@@ -15,7 +15,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   51 Franklin Steet, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************)
 
 open List;;
@@ -53,7 +53,7 @@ method isSolved () = m_solved
 method get_eq_sol () =
     let str = ref "" in
     for j=0 to (self#getsize_j () -1) do
-        if (j == m_middle) then str := (!str)^" &rarr; "
+        if (j == m_middle) then str := (!str)^" -&gt; "
         else if (j>0 && j<self#getsize_j ()) then str := (!str)^" + ";
             
         str := (!str)^"<b>"^string_of_int(self#getsol j)^"</b> "^(self#getformula j);
@@ -63,7 +63,7 @@ method get_eq_sol () =
 method get_eq_orig () =
     let str = ref "" in
     for j=0 to (self#getsize_j () -1) do
-        if (j == m_middle) then str := (!str)^" &rarr; "
+        if (j == m_middle) then str := (!str)^" -&gt; "
         else if (j>0 && j<self#getsize_j ()) then str := (!str)^" + ";
             
         str := (!str)^"<b>"^(self#getvar j)^"</b> "^(self#getformula j);

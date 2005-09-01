@@ -149,7 +149,7 @@ the state of matter</string>
                         </size>
                     </property>
                 </spacer>
-                <widget class="KIntSpinBox">
+                <widget class="KDoubleSpinBox">
                     <property name="name">
                         <cstring>Number1</cstring>
                     </property>
@@ -163,29 +163,25 @@ the state of matter</string>
                         <number>295</number>
                     </property>
                 </widget>
-            </hbox>
+                 <widget class="QLabel">
+                    <property name="name">
+                        <cstring>lblUnit</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+           </hbox>
         </widget>
     </grid>
 </widget>
 <customwidgets>
     <customwidget>
-        <class>KIntSpinBox</class>
+        <class>KDoubleSpinBox</class>
         <header location="local">knuminput.h</header>
     </customwidget>
 </customwidgets>
 <connections>
-    <connection>
-        <sender>Number1</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>temp_slider</receiver>
-        <slot>setValue(int)</slot>
-    </connection>
-    <connection>
-        <sender>temp_slider</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>Number1</receiver>
-        <slot>setValue(int)</slot>
-    </connection>
 </connections>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>

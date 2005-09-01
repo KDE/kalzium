@@ -26,12 +26,11 @@
 #include "periodictableview.h"
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
-#include "timewidget.h"
+#include "timewidget_impl.h"
 #include "somwidget_impl.h"
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
 #include "config.h"
-#include "spectrumeditor.h"
 
 #include <q3dockwindow.h>
 #include <qlayout.h>
@@ -49,6 +48,7 @@
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
 #include <kdialogbase.h>
+#include <knuminput.h>
 
 #include <kdeeduglossary.h>
 
@@ -78,8 +78,7 @@ Kalzium::Kalzium()
 	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
 	connect( this, SIGNAL( tableLocked( bool ) ), m_PeriodicTableView, SLOT( slotLock(bool ) ));
 	
-	// Layouting
-
+	// layouting
 	setCentralWidget( centralWidget );
 	centralWidget->show();
 
@@ -107,20 +106,16 @@ Kalzium::Kalzium()
 
 void Kalzium::setupActions()
 {
-	m_actionNoScheme = new KToggleAction(i18n("&No Color Scheme"), 0, this, SLOT(slotNoLook()), actionCollection(), "look_noscheme");
+	m_actionNoScheme = new KToggleAction(i18n("&No Color Scheme"), 0, this, SLOT(slotNoLook()), actionCollection(), "view_look_noscheme");
 
-	/*
-	 * the actions for the colorschemes
-	 **/
-	m_actionGroups = new KToggleAction(i18n("Show &Groups"), 0, this, SLOT(slotLookGroups()), actionCollection(), "look_groups");
-	m_actionBlocks = new KToggleAction(i18n("Show &Blocks"), 0, this, SLOT(slotLookBlocks()), actionCollection(), "look_blocks");
-	m_actionAcid = new KToggleAction(i18n("Show &Acid Behavior"), 0, this, SLOT(slotLookAcidBehavior()), actionCollection(), "look_acid");
-	m_actionFamily = new KToggleAction(i18n("Show &Family"), 0, this, SLOT(slotLookFamily()), actionCollection(), "look_family");
-	m_actionCrystal = new KToggleAction(i18n("Show &Crystal Structures"), 0, this, SLOT(slotLookCrystal()), actionCollection(), "look_crystal");
+	// the actions for the color schemes
+	m_actionGroups = new KToggleAction(i18n("Show &Groups"), 0, this, SLOT(slotLookGroups()), actionCollection(), "view_look_groups");
+	m_actionBlocks = new KToggleAction(i18n("Show &Blocks"), 0, this, SLOT(slotLookBlocks()), actionCollection(), "view_look_blocks");
+	m_actionAcid = new KToggleAction(i18n("Show &Acid Behavior"), 0, this, SLOT(slotLookAcidBehavior()), actionCollection(), "view_look_acid");
+	m_actionFamily = new KToggleAction(i18n("Show &Family"), 0, this, SLOT(slotLookFamily()), actionCollection(), "view_look_family");
+	m_actionCrystal = new KToggleAction(i18n("Show &Crystal Structures"), 0, this, SLOT(slotLookCrystal()), actionCollection(), "view_look_crystal");
 
-	/*
-	 * the actions for switching PeriodicTableView
-	 **/
+	//the actions for switching PeriodicTableView
 	QStringList gradientlist;
 	gradientlist.append(i18n("Atomic Radius"));
 	gradientlist.append(i18n("Covalent Radius"));
@@ -131,19 +126,17 @@ void Kalzium::setupActions()
 	gradientlist.append(i18n("Melting Point"));
 	gradientlist.append(i18n("Electronegativity"));
 	gradientlist.append(i18n("Electron Affinity"));
-	gradient_action = new KSelectAction(i18n("&Gradient"), 0, this, 0, actionCollection(), "look_gradmenu");
+	gradient_action = new KSelectAction(i18n("&Gradient"), 0, this, 0, actionCollection(), "view_look_gradmenu");
 	gradient_action->setItems(gradientlist);
 	connect (gradient_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoGradient(int)));
 
-	/*
-	 * the actions for switching PeriodicTableView
-	 **/
+	// the actions for switching PeriodicTableView
 	QStringList numlist;
 	numlist.append(i18n("No N&umeration"));
 	numlist.append(i18n("Show &IUPAC"));
 	numlist.append(i18n("Show &CAS"));
 	numlist.append(i18n("Show &Old IUPAC"));
-	numeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "numerationtype");
+	numeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "view_numerationtype");
 	numeration_action->setItems(numlist);
 	numeration_action->setCurrentItem(Prefs::numeration()); 
 	connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
@@ -151,26 +144,19 @@ void Kalzium::setupActions()
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
 #ifdef HAVE_FACILE
-	m_EQSolverAction = new KAction(i18n("&Equation Solver..."), "eqsolver", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "view_eqsolver");
+	m_EQSolverAction = new KAction(i18n("&Equation Solver..."), "eqchem", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "tools_eqsolver");
 #endif
 	
-	m_SpectrumEditorAction = new KAction(i18n("S&pectrum Editor..."), "spectrum", 0, this, SLOT(slotShowSpectrumEditor()), actionCollection(), "spectrum_editor");
-	
-	/*
-	 * the misc actions
-	 **/
-	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "plotdata");
-	
-	m_pNuclideBoardAction = new KAction(i18n("&Nuclideboard..."), "nuclideboard", 0, this, SLOT(slotNuclideBoard()), actionCollection(), "nuclideboard");
-	
-	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "glossary");
+	// tools actions
+	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "tools_plotdata");
+	m_pIsotopeTableAction = new KAction(i18n("&Isotope Table..."), "isotopemap", 0, this, SLOT(slotIsotopeTable()), actionCollection(), "tools_isotopetable");
+	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "tools_glossary");
 
-	//Legend
-	m_pLegendAction = new KAction(i18n("Show &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "toggle_legend");
+	// other period view options
+	m_pLegendAction = new KAction(i18n("Show &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "view_legend");
+	m_pTooltipAction = new KAction(i18n("Show &Tooltip"), "tooltip", 0, this, SLOT(slotEnableTooltips()), actionCollection(), "view_tooltip");
 	
-	m_pTooltipAction = new KAction(i18n("Show &Tooltip"), "tooltip", 0, this, SLOT(slotEnableTooltips()), actionCollection(), "toggle_tooltip");
-	
-	//the standardactions
+	// the standard actions
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 
@@ -213,7 +199,7 @@ void Kalzium::setupSidebars()
 {
 	m_dockWin = new Q3DockWindow( this );
 	m_dockWin->setNewLine( true );
- 	m_dockWin->setFixedExtentWidth( 220 );
+	m_dockWin->setFixedExtentWidth( 220 );
 	m_dockWin->setResizeEnabled( true );
 	m_dockWin->setFrameShape( QFrame::ToolBarPanel );
 	m_dockWin->setCaption( i18n( "Sidebar" ) );
@@ -235,14 +221,18 @@ void Kalzium::setupSidebars()
 	m_calcWidget = new MolcalcWidget( m_dockWin, "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
 
-	m_timeWidget = new TimeWidget( this, "TimeWidget" );
-	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ), 
-			m_PeriodicTableView, 						SLOT( setDate( int ) ) );
+	m_timeWidget = new TimeWidgetIMPL( this, "TimeWidget" );
+	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ),
+	         m_PeriodicTableView, SLOT( setDate( int ) ) );
+	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ),
+	         m_timeWidget, SLOT( slotChanged( int ) ) );
+	connect( m_timeWidget->Number1, SIGNAL( valueChanged( int ) ),
+	         m_timeWidget, SLOT( slotChanged( int ) ) );
 	m_toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
 
 	m_somWidget = new SOMWidgetIMPL( this, "somWidget" );
-	connect( m_somWidget->temp_slider, SIGNAL( valueChanged( int ) ), 
-			m_PeriodicTableView, 						SLOT( setTemperature( int ) ) );
+	connect( m_somWidget->temp_slider, SIGNAL( valueChanged( int ) ),
+	         m_PeriodicTableView, SLOT( setTemperature( int ) ) );
 	m_toolbox->addItem( m_somWidget, SmallIcon( "statematter" ), i18n( "State of Matter" ) );
 	
 	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
@@ -279,9 +269,9 @@ void Kalzium::slotShowEQSolver()
 #endif
 }
 
-void Kalzium::slotNuclideBoard()
+void Kalzium::slotIsotopeTable()
 {
-	NuclideBoardDialog *ndialog = new NuclideBoardDialog( this );
+	IsotopeTableDialog *ndialog = new IsotopeTableDialog( this );
 	ndialog->show();
 }
 
@@ -303,14 +293,8 @@ void Kalzium::slotEnableTooltips()
 
 	m_PeriodicTableView->setTooltipsEnabled( enabled );
 	
-	Prefs::setTooltip( enabled ); 
+	Prefs::setTooltip( enabled );
 	Prefs::writeConfig();
-}
-
-void Kalzium::slotShowSpectrumEditor()
-{
-	SpectrumEditor *dlg = new SpectrumEditor( this, "se" );
-	dlg->show();
 }
 
 void Kalzium::slotShowLegend()
@@ -333,20 +317,20 @@ void Kalzium::slotShowLegend()
  
 	//JH: redraw the full table next time
 	setFullDraw();
-}	
+}
 
 void Kalzium::slotShowHideSidebar()
 {
 	if( m_dockWin->isShown() )
 	{
 		m_dockWin->hide();
-		Prefs::setShowsidebar( false ); 
+		Prefs::setShowsidebar( false );
 		m_SidebarAction->setText( i18n( "Show &Sidebar" ) );
 	}
 	else
 	{
 		m_dockWin->show();
-		Prefs::setShowsidebar( true ); 
+		Prefs::setShowsidebar( true );
 		m_SidebarAction->setText( i18n( "Hide &Sidebar" ) );
 	}
 	
@@ -422,6 +406,7 @@ void Kalzium::showSettingsDialog()
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
 	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotUpdateSettings() ) );
+	connect( dialog, SIGNAL( settingsChanged() ), m_somWidget, SLOT( reloadUnits() ) );
 	dialog->addPage( new setColors( 0, "colors_page"), i18n("Colors"), "colorize");
 	dialog->addPage( new setupUnits( 0, "units_page"), i18n("Units"), "gear");
 	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Miscellaneous" ), "misc" );
@@ -432,7 +417,7 @@ void Kalzium::slotUpdateSettings()
 {
 	m_PeriodicTableView->reloadColours();
 	m_PeriodicTableView->setFullDraw();
-    slotEnableTooltips();
+	slotEnableTooltips();
 }
  
 void Kalzium::setupStatusBar()
@@ -557,7 +542,6 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 	m_PeriodicTableView->setTimeline( false );
 	m_PeriodicTableView->activateSOMMode( false );
 
-	disconnect( m_PeriodicTableView, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
 	switch ( id )
 	{
 		case 0: // nothing
@@ -565,7 +549,6 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 //			m_calcWidget->clear();
 			break;
 		case 1: // molcalc
-			connect( m_PeriodicTableView, SIGNAL( ElementClicked( int ) ), m_calcWidget, SLOT( slotButtonClicked( int ) ) );
 			emit tableLocked( true );
 			break;
 		case 2: // timeline

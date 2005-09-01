@@ -31,10 +31,10 @@ class DetailedInfoDlg;
 class PeriodicTableView;
 class MolcalcWidget;
 class DetailedGraphicalOverview;
-class TimeWidget;
+class TimeWidgetIMPL;
 class SOMWidgetIMPL;
 class GlossaryDialog;
-class NuclideBoard;
+class IsotopeTable;
 
 /**
  * @short Application Main Window
@@ -90,14 +90,13 @@ class Kalzium : public KMainWindow
 		 */
 		KSelectAction *gradient_action;
 		KSelectAction *numeration_action;
-		KAction *m_pPlotAction, *m_pNuclideBoardAction,
+		KAction *m_pPlotAction, *m_pIsotopeTableAction,
 				*m_pGlossaryAction;
 		
 		KAction *m_pTooltipAction;
 		KAction *m_pLegendAction;
 		KAction *m_SidebarAction;
 		KAction *m_EQSolverAction;
-		KAction *m_SpectrumEditorAction;
 
 		KToggleAction *m_actionNoScheme;
 		KToggleAction *m_actionGroups;
@@ -113,7 +112,7 @@ class Kalzium : public KMainWindow
 
 		MolcalcWidget *m_calcWidget;
 
-		TimeWidget *m_timeWidget;
+		TimeWidgetIMPL *m_timeWidget;
 		
 		SOMWidgetIMPL *m_somWidget;
 
@@ -142,8 +141,6 @@ class Kalzium : public KMainWindow
 
 		void slotShowEQSolver();
 		
-		void slotShowSpectrumEditor();
-
 		void slotShowLegend();
 		
 		/**
@@ -159,9 +156,9 @@ class Kalzium : public KMainWindow
 		void slotSwitchtoNumeration(int);
 		
 		/**
-		 *start the nuclideboard
+		 *start the isotopetable
 		 */
-		 void slotNuclideBoard();
+		 void slotIsotopeTable();
 		 		 
 		 
 		/**

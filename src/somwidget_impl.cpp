@@ -13,6 +13,8 @@
 
 #include "somwidget_impl.h"
 
+#include <qlabel.h>
+#include <qpair.h>
 #include <qslider.h>
 #include <qtextedit.h>
 #include <qlist.h>
@@ -25,6 +27,8 @@
 
 #include "element.h"
 #include "kalziumdataobject.h"
+#include "prefs.h"
+#include "tempunit.h"
 
 SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
 	: SOMWidget( parent,name )
@@ -39,14 +43,53 @@ SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
 
 	m_htmlBegin = "<qt>";
 	m_htmlEnd = "</qt>";
+	m_prevUnit = Prefs::temperature();
 
-	connect( temp_slider, 	SIGNAL( valueChanged( int ) ),
-	         this, SLOT( slotTemp( int ) ) );
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( spinValueChanged( double ) ) );
+	connect( temp_slider, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( sliderValueChanged( int ) ) );
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( setNewTemp( double ) ) );
+
+	reloadUnits();
 }
 
-void SOMWidgetIMPL::slotTemp( int temp )
+void SOMWidgetIMPL::reloadUnits()
+{
+	lblUnit->setText( TempUnit::unitListSymbol( Prefs::temperature() ) );
+	QPair<double, double> range = TempUnit::rangeForUnit( Prefs::temperature() );
+
+	double newvalue = TempUnit::convert( Number1->value(), m_prevUnit, Prefs::temperature() );
+	Number1->setRange( range.first, range.second, 0.1, 1 );
+	Number1->setValue( newvalue );
+	setNewTemp( newvalue );
+kdDebug() << "min: " << Number1->minValue() << " - max: " << Number1->maxValue() << endl;
+	m_prevUnit = Prefs::temperature();
+}
+
+void SOMWidgetIMPL::sliderValueChanged( int temp )
+{
+	double newvalue = TempUnit::convert( (double)temp, (int)TempUnit::Kelvin, Prefs::temperature() );
+kdDebug() << "temp: " << temp << " - newvalue: " << newvalue << endl;
+	Number1->setValue( newvalue );
+kdDebug() << "min: " << Number1->minValue() << " - max: " << Number1->maxValue()
+          << " - value: " << Number1->value() << endl;
+	setNewTemp( newvalue );
+}
+
+void SOMWidgetIMPL::spinValueChanged( double temp )
+{
+	int newvalue = (int)TempUnit::convert( temp, Prefs::temperature(), (int)TempUnit::Kelvin );
+	Number1->setValue( newvalue );
+	setNewTemp( temp );
+}
+
+void SOMWidgetIMPL::setNewTemp( double newtemp )
 {
 	static const int threshold = 25;
+
+	double temp = TempUnit::convert( newtemp, Prefs::temperature(), (int)TempUnit::Kelvin );
 
 	QList<Element*>::ConstIterator it = m_list.begin();
 	const QList<Element*>::ConstIterator itEnd = m_list.end();

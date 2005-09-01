@@ -16,7 +16,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   51 Franklin Steet, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 #include "spectrumwidget.h"
 #include "spectrum.h"
@@ -52,6 +52,7 @@ SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name ) : QWidget( p
 
 	setMinimumSize( 400, 230 );
 	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
+	setBackgroundMode( Qt::NoBackground );
 }
 
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
@@ -63,7 +64,7 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	m_pixmap.fill( this, width(), height() );
 
 	QPainter p;
-	p.begin( &m_pixmap );
+	p.begin( &m_pixmap, this );
 	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
 
 	paintBands( &p );
@@ -77,9 +78,7 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 		drawZoomLine( &p );
 
 	p.end();
-	p.begin( this );
-	p.drawPixmap( 0, 0, m_pixmap );
-	p.end();
+	bitBlt( this, 0, 0, &m_pixmap );
 }
 
 void SpectrumWidget::drawZoomLine( QPainter* p )

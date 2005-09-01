@@ -21,8 +21,8 @@
 #include "prefs.h"
 #include "element.h"
 #include "kalziumtip.h"
-#include "kalziumdataobject.h"
 #include "kalziumutils.h"
+#include "kalziumdataobject.h"
 
 #include <klocale.h>
 #include <kdebug.h>

@@ -16,408 +16,615 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   51 Franklin Steet, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
 #include "nuclideboard.h"
 
+#include "element.h"
+#include "isotope.h"
+#include "kalziumdataobject.h"
+#include "kalziumutils.h"
+
+#include <qevent.h>
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qspinbox.h>
-#include <qcursor.h>
-#include <qstring.h>
+#include <qpainter.h>
+#include <qpixmap.h>
+#include <q3scrollview.h>
+#include <qsizepolicy.h>
+#include <qtimer.h>
+#include <q3vbox.h>
 
-#include <kdebug.h>
-#include <klocale.h>
 #include <kapplication.h>
+#include <kdebug.h>
+#include <kglobal.h>
+#include <klocale.h>
 
-#include "kalziumdataobject.h"
+#include <math.h>
+#include <stdlib.h>
 
-#include "math.h"
+static const int MaxIsotopeSize = 45;
+static const int MinIsotopeSize = 12;
 
-NuclideBoardDialog::NuclideBoardDialog( QWidget* parent, const char* name )
-	: KDialogBase(parent, "NuclideBoardDialog", true, i18n( "Nuclide Board" ),
-			KDialogBase::Apply|KDialogBase::Close|KDialogBase::Help, KDialogBase::Apply, true )
+static const int MaxElementDisplayed = 111;
+static const int MinElementDisplayed = 1;
+
+IsotopeTableView::IsotopeTableView( QWidget* parent, Q3ScrollView *scroll, const char* name )
+	: QWidget( parent, name ), m_parent( parent ), m_scroll( scroll )
 {
-	QWidget *page = new QWidget( this );
+	setBackgroundMode( Qt::NoBackground );
+//	setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed );
+	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
+//	setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
+	setMinimumSize( 200, 200 );
+	// resizing to a fake size
+	resize( sizeHint() );
 
-	NuclideBoard *b = new NuclideBoard( page, "nb" );
+	m_duringSelection = false;
 
-	setMainWidget( page );
+	m_rectSize = -1;
 
-	QVBoxLayout *vbox = new QVBoxLayout(  page , 0, KDialogBase:: spacingHint() );
+	m_firstElem = MinElementDisplayed;
+	m_lastElem = MaxElementDisplayed;
+	m_firstElemNucleon = minNucleonOf( KalziumDataObject::instance()->element( m_firstElem ) );
+	m_lastElemNucleon = maxNucleonOf( KalziumDataObject::instance()->element( m_lastElem ) );
+
+kdDebug() << k_funcinfo << m_firstElemNucleon << " ... " << m_lastElemNucleon << endl;
+
+//	QTimer::singleShot( 0, this, SLOT( updateIsoptopeRectList() ) );
+	updateIsoptopeRectList();
+
+//	QTimer::singleShot( 100, this, SLOT( repaint() ) );
+	repaint();
+}
+
+/**
+ * in this method everything beside the drawing is correct.
+ * For some reasons the QRect is not drawn, the dimentions
+ * of it are absolutly correct
+ */
+void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
+{
+	QPixmap pm( width(), height() );
+	pm.fill( Qt::lightGray );
+
+	QPainter p;
+	p.begin( &pm, this );
 	
-	spin1 = new QSpinBox( 1, 110, 1, page );
-	spin2 = new QSpinBox( 2, 111, 1, page );
-	connect( spin1, SIGNAL( valueChanged( int ) ), b, SLOT( setStart( int ) ) );
-	connect( spin2, SIGNAL( valueChanged( int ) ), b, SLOT( setStop( int ) ) );
+	drawAxisLabels( &p );
+	drawIsotopeWidgets( &p );
 
-	connect( b, SIGNAL( emitStartValue( int ) ), spin1, SLOT( setValue( int ) ) );
-	connect( b, SIGNAL( emitStopValue( int ) ), spin2, SLOT( setValue( int ) ) );
-	spin1->setValue( 80 );
-	spin2->setValue( 100 );
+	if ( m_duringSelection )
+	{//draw the selection-rectangle
+#warning QPainter::rasterOp()
+//		p.setRasterOp( Qt::XorROP );
+		p.setPen( QPen( Qt::white, 1, Qt::DotLine ) );
+		p.drawRect( m_selectedRegion );
+#warning QPainter::rasterOp()
+//		p.setRasterOp( Qt::CopyROP );
+	}
 
-	QHBoxLayout *hbox1 = new QHBoxLayout( page, 0, KDialog::spacingHint() );
-	hbox1->addWidget( new QLabel( i18n( "First element:" ), page ) );
-	hbox1->addWidget( spin1 );
-	QHBoxLayout *hbox2 = new QHBoxLayout( page, 0, KDialog::spacingHint() );
-	hbox2->addWidget( new QLabel( i18n( "Last element:" ), page ) );
-	hbox2->addWidget( spin2 );
+	p.end();
+	bitBlt( this, 0, 0, &pm );
+}
 
-	vbox->addWidget( b );
-	vbox->addLayout( hbox1 );
-	vbox->addLayout( hbox2 );
+void IsotopeTableView::resizeEvent( QResizeEvent */*e*/ )
+{
+	m_rectSize = -1;
 
-	setMinimumSize( 500, 450 );
-	resize( minimumSize() );
+	updateIsoptopeRectList();
 	update();
 }
 
-void NuclideBoardDialog::slotHelp()
+QRect IsotopeTableView::getNewCoords( const QRect& rect1 ) const
 {
-	emit helpClicked();
-	if ( kapp )
-		kapp->invokeHelp ( "nuclid_board", "kalzium" );
-}
+	QRect ret;
 
+	int i = 0;
+	int a = 0;
 
-NuclideBoard::NuclideBoard( QWidget *parent, const char* name ) 
-	: Q3ScrollView( parent, name )
-{
-	kdDebug() << "NuclideBoard()" << endl;
+	QRect rect( m_scroll->viewportToContents( rect1.topLeft() ),
+	            m_scroll->viewportToContents( rect1.bottomRight() ) );
 
-	m_list = KalziumDataObject::instance()->ElementList;
-	m_decay = 0;
-	m_start = 80;
-	m_stop = 100;
-	m_isoWidth = 30;
+kdDebug() << "ORIG RECT: " << rect << endl
+          << "OUR SIZE:  " << size() << endl;
 
-	m_highestNumberOfNeutrons = highestNeutronCount();
-	m_lowestNumberOfNeutrons = lowestNeutronCount();
-}
-
-void NuclideBoard::slotDrawDecayRow( Isotope* isotope )
-{
-	kdDebug() << "NuclideBoard::slotDrawDecayRow()" << endl;
-	if ( !isotope->alphadecay() 
-			&& !isotope->betaplusdecay()
-			&& !isotope->betaminusdecay() )
-		return;
-
-	m_decay = new Decay( this, isotope, m_list[isotope->protones() -1] );
-	m_decay->showDecay();
-
-	kdDebug() << "Isotope: " << isotope->neutrons() << endl;
-}
-
-void NuclideBoard::drawContents( QPainter * p, int clipx, int clipy, int clipw, int cliph ) 
-{
-	kdDebug() << "NuclideBoard::drawContents()" << endl;
-
-	m_highestNumberOfNeutrons = highestNeutronCount();
-	m_lowestNumberOfNeutrons = lowestNeutronCount();
-
-	resizeContents( ( m_highestNumberOfNeutrons - m_lowestNumberOfNeutrons ) * m_isoWidth + 10 + m_isoWidth,
-                       ( m_stop - m_start ) * m_isoWidth + m_isoWidth );
-
-	for ( int i = m_start; i <= m_stop; ++i )
-		p->drawText( 0, ( m_stop - i ) * m_isoWidth + m_isoWidth, m_isoWidth, m_isoWidth, Qt::AlignCenter,				 m_list[i - 1]->symbol() );
-
-	for ( int i = m_lowestNumberOfNeutrons; i <= m_highestNumberOfNeutrons; ++i )
-	 	p->drawText( ( i - m_lowestNumberOfNeutrons ) * m_isoWidth + 10 + m_isoWidth, 0, m_isoWidth,
-                                m_isoWidth, Qt::AlignCenter, QString::number( i ) );
-}
-
-int NuclideBoard::highestNeutronCount()
-{
-	kdDebug() << "NuclideBoard::highestNeutronCount()" << endl;
-
-/*
-	QList<Element*>::const_iterator it;
-	const QList<Element*>::const_iterator itEnd = m_list.at( m_stop );
-*/
-	QList<Isotope*> isotopeList;
-	QList<Isotope*>::const_iterator isotope;
-	QList<Isotope*>::const_iterator isotopeEnd;
-
-	int count = 0;
-
-//	for ( it = m_list.at( m_start - 1 ); it != itEnd; ++it )
-	for ( int i = m_start - 1; i < m_stop; i++ )
+	i = 0;
+	a = abs( height() - rect.topLeft().y() );
+kdDebug() << "a: " << a << endl;
+	while ( i * m_rectSize < a )
 	{
-		isotopeList = m_list[i]->isotopes();
+//kdDebug() << i << " - " << i * m_rectSize << endl;
+		i++;
+	}
+kdDebug() << "TOP: " << i << endl;
+	ret.setTop( m_firstElem + i - 1 );
 
-		if ( isotopeList.empty() )
-			continue;
+	i = 0;
+	while ( i * m_rectSize < rect.right() ) i++;
+kdDebug() << "RIGHT: " << i << endl;
+	ret.setRight( m_firstElemNucleon + i );
 
-		isotopeEnd = isotopeList.end();
+	i = 0;
+	a = abs( height() - rect.bottomLeft().y() );
+	while ( i * m_rectSize < a ) i++;
+kdDebug() << "BOTTOM: " << i << endl;
+	ret.setBottom( m_firstElem + i - 1 );
+
+	i = 0;
+	while ( i * m_rectSize < rect.left() ) i++;
+kdDebug() << "LEFT: " << i << endl;
+	ret.setLeft( m_firstElemNucleon + i - 1 );
+
+kdDebug() << "RECT: " << ret << endl;
+
+	// normalize
+	ret = ret.normalize();
+
+kdDebug() << "RECT normalized: " << ret << endl;
+
+	return ret;
+}
+
+void IsotopeTableView::selectionDone( QRect selectedRect )
+{
+/*
+	//safe the old positions
+	m_oldBottomRight = m_bottomRight;
+	m_oldTopLeft = m_topLeft;
 	
-		for ( isotope = isotopeList.begin(); isotope != isotopeEnd; ++isotope )
-		{
-			if ( count < ( *isotope )->neutrons() )	
-				count = ( *isotope )->neutrons();
-		}
-	}
+	//FIXME This is plain wrong. I need to calculate realive to the old
+	//size...
+	//for thie maxElementNumberDisplayed and minElementNumberDisplayed
+	//have to be adjusted: The first and the last line which is displaying
+	//and element. If line 1 show element 90 and the last line displays element
+	//34 the will have the value 90 and 34
+	m_topLeft =  QPoint( selectedRect.x(), selectedRect.y() );
+	m_bottomRight = QPoint( selectedRect.x() + selectedRect.width(),
+							selectedRect.y() + selectedRect.height() );
 
-	return count;
+	kdDebug() << "links, x:" <<
+		m_topLeft.x() - m_oldTopLeft.x() <<
+		" :links, y: " <<
+		m_topLeft.y() - m_oldTopLeft.y() <<
+		" :rechts, x: " <<
+		m_oldBottomRight.x() - m_bottomRight.x() <<
+		" :rechts,y: " <<
+		m_oldBottomRight.y() - m_bottomRight.y() <<
+		endl;
+
+	m_topLeft /= m_rectSize;
+	m_bottomRight /= m_rectSize;
+
+	updateMinMaxValue();
+*/
+	QRect r = getNewCoords( selectedRect );
+	// I know it's strange, but somehow sometimes the bottom and the
+	// top are swapped...
+	m_firstElem = kMin( r.bottom(), r.top() );
+	m_lastElem = kMax( r.bottom(), r.top() );
+	m_firstElemNucleon = kMin( r.left(), r.right() );
+	m_lastElemNucleon = kMax( r.left(), r.right() );
+
+	m_rectSize = -1;
+
+	//now update the list of isotopes to be displayed
+	updateIsoptopeRectList();
 }
 
-int NuclideBoard::lowestNeutronCount()
+void IsotopeTableView::updateMinMaxValue()
 {
-	kdDebug() << "NuclideBoard::lowestNeutronCount()" << endl;
 
-/*
-	QList<Element*>::const_iterator it = m_list.at( m_start - 1 );
-	const QList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
-*/
-	QList<Isotope*> isotopeList;
-	QList<Isotope*>::const_iterator isotope;
-	QList<Isotope*>::const_iterator isotopeEnd;
+}
 
-	int count = 1000;
+void IsotopeTableView::updateIsoptopeRectList()
+{
+	kdDebug() << "IsotopeTableView::updateIsoptopeRectList()" << endl;
+	m_IsotopeAdapterRectMap.clear();
 	
-//	for (; it != itEnd; ++it )
-	for ( int i = m_start - 1; i < m_stop - 1; i++ )
-	{
-		isotopeList = m_list[i]->isotopes();
-		if ( isotopeList.empty() )
-			continue;
-
-		isotopeEnd = isotopeList.end();
-
-		for ( isotope = isotopeList.begin(); isotope != isotopeEnd; ++isotope )
-		{
-			if ( count > ( *isotope )->neutrons() )	
-				count = ( *isotope )->neutrons();
-		}
-	}
-
-	return count;
-}
-
-void NuclideBoard::setStop( int value )
-{
-	if ( value < m_start )
-	{
-		m_start = value - 1;
-		emitStartValue( m_start );
-	}
-
-	m_stop = value;
-	updateList();
-}
-
-void NuclideBoard::setStart( int value )
-{
-	if ( value > m_stop )
-	{
-		m_stop = value + 1;
-		emitStopValue( m_stop );
-	}
-
-	m_start = value;
-	updateList();
-}
-
-void NuclideBoard::updateList()
-{
-	kdDebug() << "NuclideBoard::updateList()" << endl;
-
-	m_isotopeWidgetList.clear();
+//	const int numOfElements = m_bottomRight.y() - m_topLeft.y();
+	const int numOfElements = m_lastElem - m_firstElem + 1;
+	const int numOfNucleons = m_lastElemNucleon - m_firstElemNucleon + 1;
 
 /*
-	QList<Element*>::const_iterator it = m_list.at( m_start - 1 );
-	const QList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
+	int firstElement = maxElementNumberDisplayed-m_bottomRight.y();
+	int lastElement = maxElementNumberDisplayed-m_topLeft.y();
+
+	kdDebug () << firstElement << " ... " << lastElement << endl;
 */
-	QList<Isotope*> isotopeList;
-	QList<Isotope*>::const_iterator isotope;
-	QList<Isotope*>::const_iterator isotopeEnd;
+	kdDebug () << m_firstElem << " ... " << m_lastElem << endl;
+	kdDebug () << "Nucleons: " << m_firstElemNucleon << " ... " << m_lastElemNucleon << endl;
 
-//	for ( ; it != itEnd; ++it )
-	for ( int i = m_start - 1; i < m_stop - 1; i++ )
+/*
+	if ( firstElement < 1 || firstElement > 111 ) return;
+	if ( lastElement < 1 || lastElement > 111 ) return;
+*/
+
+/*	
+	QList<Element*>::ConstIterator it = m_list.at( m_firstElem );
+	const QList<Element*>::ConstIterator itEnd = m_list.at( m_lastElem );
+	
+	//get the min/max numbers of the isotopes.
+	const int minNucleons = minNumberOfNucleons( it, itEnd );
+	const int maxNucleons = maxNumberOfNucleons( it, itEnd );
+*/
+
+	if ( m_rectSize < 1 ) // need to recalc the size
 	{
-		isotopeList = m_list[i]->isotopes();
-		isotope = isotopeList.begin();
-		isotopeEnd = isotopeList.end();
+		if ( m_scroll )
+		{
+			m_rectSize = (int)kMin( m_scroll->viewport()->height() / (double)numOfElements,
+			                        m_scroll->viewport()->width() / (double)numOfNucleons );
+		}
+		else
+		{
+			m_rectSize = (int)kMin( height() / (double)numOfElements,
+			                        width() / (double)numOfNucleons );
+		}
+//*
+kdDebug() << "width(): " << width() << " - height(): " << height()
+          << " - noe: " << numOfElements << " - non: " << numOfNucleons
+//          << " - a: " << a << " - b: " << b
+          << " - size(): " << size()
+          << " - m_rectSize: " << m_rectSize << endl;
+//*/
+//kdDebug() << "m_rectSize: " << m_rectSize << endl;
+		if ( m_rectSize < MinIsotopeSize )
+		{
+			m_rectSize = MinIsotopeSize;
+		}
+		else if ( m_rectSize > MaxIsotopeSize )
+		{
+			m_rectSize = MaxIsotopeSize;
+		}
+		resize( numOfNucleons * m_rectSize, numOfElements * m_rectSize );
+		if ( m_scroll )
+			m_scroll->resizeContents( numOfNucleons * m_rectSize, numOfElements * m_rectSize );
+		if ( m_parent )
+			m_parent->resize( numOfNucleons * m_rectSize, numOfElements * m_rectSize );
+kdDebug() << "size(): " << size() << endl;
+/*
+		m_rectSize = (int)kMin( (double)numOfElements / width(),
+		                        (double)numOfNucleons / height() );
+*/
+	}
+	
+//	if ( minNucleons < 1 ) return;
+	
+//X 	int tempSizeH = ( lastElement-firstElement )/height();
+//X 	int tempSizeW = ( maxNucleons - minNucleons )/width();
+//X 
+//X 	m_rectSize = kMin( tempSizeW, tempSizeH );
+//X 
+//X 	kdDebug() << "Size calculation: " << tempSizeH << " and " << tempSizeW << endl;
+	
+	IsotopeList isotopeList;
+	IsotopeList::ConstIterator isotope;
+	IsotopeList::ConstIterator isotopeEnd;
 
+	int id = 0;
+
+//	for ( int countY = numOfElements ; it != itEnd; ++it )
+	for ( int i = m_firstElem; i <= m_lastElem; i++ )
+	{
+//kdDebug() << k_funcinfo << "i: " << i << endl;
+		Element* el = KalziumDataObject::instance()->element( i );
+		if ( !el ) continue;
+
+//		kdDebug() << "el: " << el->elname() << " (" << el->number() <<")" << endl;
+		isotopeList = isotopesWithNucleonsInRange( el, m_firstElemNucleon, m_lastElemNucleon );
+//		isotopeList = el->isotopes();
+		isotopeEnd = isotopeList.constEnd();
+		isotope = isotopeList.constBegin();
+kdDebug() << k_funcinfo << "isolist: " << isotopeList.count() << endl;
+		
 		for ( ; isotope != isotopeEnd; ++isotope )
 		{
-			IsotopeWidget *widget = new IsotopeWidget( *isotope, this );
-	
-			connect( widget, SIGNAL( clicked( Isotope* ) ), this,
-					 SLOT( slotDrawDecayRow( Isotope* ) ) );
+			Isotope* iso = *isotope;
+			if ( !iso ) continue;
 
-			addChild( widget );
-			widget->resize( m_isoWidth, m_isoWidth );		
-			widget->move( 60 + ( ( *isotope )->neutrons() - m_lowestNumberOfNeutrons ) * 50,
-					  50 + ( m_stop - m_list[i]->number() ) * 50 );
-			m_isotopeWidgetList.append( widget );
+//			int Xpositon = iso->nucleons() - minNucleons;
+			int Xpositon = iso->nucleons() - m_firstElemNucleon;
+
+/*
+			QRect boundingRect = QRect( 
+					Xpositon*m_rectSize, 
+					countY*m_rectSize, 
+					m_rectSize, m_rectSize);
+*/
+			QRect boundingRect = QRect( 
+					Xpositon*m_rectSize, 
+					( numOfElements - id - 1 ) * m_rectSize,
+					m_rectSize, m_rectSize);
+kdDebug() << k_funcinfo << boundingRect << endl;
+			
+//X			kdDebug() << "boundRect of the adapter: " << boundingRect << " Isotope of the adapter with " << iso->neutrons() << " neutrons." << endl;
+			
+ 			m_IsotopeAdapterRectMap.insert(iso, boundingRect);
+		}
+//		countY--;
+		++id;
+	}
+
+	update();
+}
+
+int IsotopeTableView::maxNumberOfNucleons( 
+		QList<Element*>::ConstIterator it,
+		QList<Element*>::ConstIterator itEnd )
+{
+	int maxNumber = 0;
+	for ( ; it != itEnd; ++it )
+	{
+		Element* el = *it;
+
+		if ( !el ) continue;
+
+		IsotopeList isotopeList = el->isotopes();
+		IsotopeList::const_iterator isoIt = isotopeList.constBegin();
+		IsotopeList::const_iterator isoItEnd = isotopeList.constEnd();
+
+		for ( ; isoIt != isoItEnd; ++isoIt )
+		{
+			if ( ( *isoIt )->nucleons() > maxNumber )
+				maxNumber = ( *isoIt )->nucleons();
+		}
+	}
+	return maxNumber;
+}
+
+int IsotopeTableView::minNumberOfNucleons( QList<Element*>::ConstIterator it,
+		QList<Element*>::ConstIterator itEnd )
+{
+	int minNumber = 1000;
+
+	for ( ; it != itEnd; ++it )
+	{
+		Element* el = *it;
+
+		if ( !el ) continue;
+
+		IsotopeList isotopeList = el->isotopes();
+		IsotopeList::const_iterator isoIt = isotopeList.constBegin();
+		IsotopeList::const_iterator isoItEnd = isotopeList.constEnd();
+		
+		for ( ; isoIt != isoItEnd; ++isoIt )
+		{
+			if ( ( *isoIt )->nucleons() < minNumber )
+				minNumber = ( *isoIt )->nucleons();
 		}
 	}
 
-	updateContents();
+	return minNumber;
 }
 
-IsotopeWidget* NuclideBoard::getIsotopeWidget( Isotope* isotope )
+int IsotopeTableView::minNucleonOf( Element* el, int lowerbound ) const
 {
-       QList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
-       const QList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
+	if ( !el ) return lowerbound;
 
-       for (; it != itEnd; ++it )
-       {
-               if ( ( *it )->isotope() == isotope )
-                       return ( *it );
-       }
+	int minNumber = 1000;
 
-       return 0;
+	IsotopeList isotopeList = el->isotopes();
+	IsotopeList::const_iterator isoIt = isotopeList.constBegin();
+	IsotopeList::const_iterator isoItEnd = isotopeList.constEnd();
+
+	for ( ; isoIt != isoItEnd; ++isoIt )
+	{
+		if ( ( ( *isoIt )->nucleons() < minNumber ) &&
+		     ( ( *isoIt )->nucleons() >= lowerbound ) )
+			minNumber = ( *isoIt )->nucleons();
+	}
+	return minNumber;
 }
 
-IsotopeWidget::IsotopeWidget( Isotope* isotope, QWidget *parent ) : QWidget(parent)
+int IsotopeTableView::maxNucleonOf( Element* el, int upperbound ) const
 {
-	m_isotope = isotope;	
+	if ( !el ) return upperbound;
 
-	if ( m_isotope->betaminusdecay() )
-		m_color = Qt::blue;
-	else if ( m_isotope->betaplusdecay() )
-		m_color = Qt::red;
-	else if ( m_isotope->alphadecay() )
-		m_color = Qt::yellow;
-	else if (  m_isotope->ecdecay() )
-		m_color = Qt::green;
+	int maxNumber = 0;
+
+	IsotopeList isotopeList = el->isotopes();
+	IsotopeList::const_iterator isoIt = isotopeList.constBegin();
+	IsotopeList::const_iterator isoItEnd = isotopeList.constEnd();
+
+	for ( ; isoIt != isoItEnd; ++isoIt )
+	{
+		if ( ( ( *isoIt )->nucleons() > maxNumber ) &&
+		     ( ( *isoIt )->nucleons() <= upperbound ) )
+			maxNumber = ( *isoIt )->nucleons();
+	}
+	return maxNumber;
+}
+
+QList<Isotope*> IsotopeTableView::isotopesWithNucleonsInRange( Element* el, int lowerbound, int upperbound ) const
+{
+	QList<Isotope*> isolist;
+
+	if ( !el ) return isolist;
+
+//kdDebug() << "isotopesWithNucleonsInRange(): " << el << " - low: " << lowerbound
+//          << " - up: " << upperbound << endl;
+
+	IsotopeList isotopeList = el->isotopes();
+	IsotopeList::ConstIterator isoIt = isotopeList.constBegin();
+	IsotopeList::ConstIterator isoItEnd = isotopeList.constEnd();
+
+	for ( ; isoIt != isoItEnd; ++isoIt )
+	{
+//kdDebug() << "# NUCLEONS: " << ( *isoIt )->nucleons() << endl;
+		if ( ( ( *isoIt )->nucleons() >= lowerbound ) &&
+		     ( ( *isoIt )->nucleons() <= upperbound ) )
+		{
+			isolist.append( ( *isoIt ) );
+//kdDebug() << "             ---> OK" << endl;
+		}
+	}
+
+	return isolist;
+}
+
+
+///FIXME there are more than just one decay possible...
+QColor IsotopeTableView::isotopeColor( Isotope* isotope )
+{
+	if ( !isotope ) return Qt::magenta;
+
+	if ( isotope->betaminusdecay() )
+		return Qt::blue;
+	else if ( isotope->betaplusdecay() )
+		return Qt::red;
+	else if ( isotope->alphadecay() )
+		return Qt::yellow;
+	else if (  isotope->ecdecay() )
+		return Qt::green;
 	else
-		m_color = Qt::magenta;
-
-	m_active = false;
-
-	resize( 50, 50 );
+		return Qt::magenta;
 }
 
-IsotopeWidget::~IsotopeWidget()
+void IsotopeTableView::drawAxisLabels( QPainter *p )
 {
-       kdDebug() << "destroy" << endl;
+	( void )p;
 }
-
-void IsotopeWidget::mousePressEvent( QMouseEvent* /*e*/ )
+		
+void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 {
-	emit clicked( m_isotope );
+	QMap<Isotope*, QRect>::ConstIterator it = m_IsotopeAdapterRectMap.constBegin();
+	const QMap<Isotope*, QRect>::ConstIterator itEnd = m_IsotopeAdapterRectMap.constEnd();
+		
+	QFont f = p->font();
+	f.setPointSize( KalziumUtils::maxSize( "22", QRect( 0, 0, m_rectSize, m_rectSize ), f, p ) );
+	p->setFont( f );
+
+	for ( ; it != itEnd ; ++it )
+	{
+		Isotope* i = it.key();
+	
+
+		if ( i )
+		{
+			QColor color( isotopeColor( i ) ) ;
+			p->setBrush( color );
+			p->drawRect( it.data() );
+			
+			//For debugging, lets add the information
+//			p->drawText( it.data() ,Qt::AlignCenter, QString::number( it.key()->neutrons() ) );
+			p->drawText( it.data() ,Qt::AlignCenter, QString::number( it.key()->nucleons() ) );
+		}
+	}
+	p->setBrush( Qt::black );
 }
 
-void IsotopeWidget::paintEvent( QPaintEvent* /*e*/ )
+NuclideLegend::NuclideLegend( QWidget* parent, const char* name ) : QWidget( parent, name )
+{
+	setMinimumSize( 300, 50 );
+	setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
+	resize( minimumSizeHint() );
+}
+
+void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
 {
 	QPainter p( this );
+	QString text;
 
-	if ( m_active )
-		p.fillRect( 0, 0, width(), height(), m_color.dark() );
-	else
-		p.fillRect( 0, 0, width(), height(), m_color );
+	p.fillRect( 10, 10, 10, 10, Qt::blue );
+	text = i18n( "%1- %2" ).arg( QChar( 946 ) ).arg( i18n( "Decay" ) );
+	p.drawText( 30, 20, text );
 
-	p.drawRect( 0, 0, width(), height() );
+	p.fillRect( 10, 30, 10, 10, Qt::red );
+	text =  i18n( "%1+ %2" ).arg( QChar( 946) ).arg( i18n( "Decay" ) );
+	p.drawText( 30, 40, text );
+
+	p.fillRect( 120, 10, 10, 10, Qt::yellow );
+	text =  i18n( "%1 %2" ).arg( QChar( 945 ) ).arg( i18n( "Decay" ) );
+	p.drawText( 140, 20, text );
+
+	p.fillRect( 120, 30, 10, 10, Qt::green );
+	text = i18n( "Acronym of Electron Capture Decay", "EC Decay" );
+	p.drawText( 140, 40, text );
+
+	p.fillRect( 230, 10, 10, 10, Qt::magenta );
+	text =  i18n( "Stable" );
+	p.drawText( 250, 20, text ); 
 }
 
-void Decay::showDecay()
+IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
+	: KDialogBase( parent, name, true, i18n( "Isotope Table" ), Help|Close, Close, true )
 {
-	// iterate through all isotopeWidgets and set them active = true
+	QWidget *page = new QWidget( this );
+	setMainWidget( page );
 
-	QList<IsotopeWidget*>::const_iterator it = m_list.begin();
-	const QList<IsotopeWidget*>::const_iterator itEnd = m_list.end();
+	QVBoxLayout *vbox = new QVBoxLayout(  page , 0, -1, "vbox" );
 
-	while ( it != itEnd )
+	Q3ScrollView *helperSV = new Q3ScrollView(page);
+	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());
+	helperSV->setFrameShape(QFrame::NoFrame);
+	helperSV->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
+	Q3VBox *big_box = new Q3VBox( helperSV->viewport() );
+	helperSV->addChild( big_box );
+	vbox->addWidget( helperSV );
+
+	m_view = new IsotopeTableView( big_box, helperSV, "view" );
+//	m_view->setMinimumSize( 800,800 );
+	m_view->installEventFilter( this );
+
+	NuclideLegend *legend = new NuclideLegend( page, "legend" );
+	vbox->addWidget( legend );
+
+	connect( this, SIGNAL(selectionDone( QRect ) ),
+	         m_view, SLOT(selectionDone( QRect ) ) );
+
+	setMinimumSize( 750, 500 );
+	resize( minimumSize() );
+
+	update();
+}
+
+void IsotopeTableDialog::slotHelp()
+{
+	if ( kapp )
+		kapp->invokeHelp ( "isotope_table", "kalzium" );
+}
+
+bool IsotopeTableDialog::eventFilter( QObject *obj, QEvent *ev )
+{
+	if (ev->type() == QEvent::MouseButtonPress )	
 	{
-		( *it )->activate( true );
-		++it;
+		QMouseEvent *mev = static_cast<QMouseEvent*>( ev );
+
+		m_view->m_firstPoint = mev->pos();
+		m_view->m_duringSelection = true;
+		return true;
 	}
-}
-
-void Decay::hideDecay()
-{
-	// iterate through all isotopeWidgets and set them active = false
-
- 	QList<IsotopeWidget*>::const_iterator it = m_list.begin();
-	const QList<IsotopeWidget*>::const_iterator itEnd = m_list.end();
-
-	while ( it != itEnd )
+	else if (ev->type() == QEvent::MouseMove )
 	{
-		( *it )->activate( false );
-		++it;
+		QMouseEvent *mev = static_cast<QMouseEvent*>( ev );
+
+		QRect startPoint( m_view->m_firstPoint, m_view->m_firstPoint );
+		QRect endPoint( mev->pos(), mev->pos() );
+
+		m_view->m_selectedRegion = startPoint.unite( endPoint );
+		m_view->update();
+		return true;
 	}
-}
-
-Decay::Decay( NuclideBoard* parent, Isotope* isotope, Element* element )
-{
-       kdDebug() << "Decay::Decay()" << endl;
-       m_parent = parent;
-       m_startIsotope = isotope;
-       m_startElement = element;
-       m_elements = KalziumDataObject::instance()->ElementList;
-       buildDecayRow();
-}
-
-void Decay::buildDecayRow()
-{
-       	kdDebug() << "Decay::buildDecayRow()" << endl;
-
-       	QList<Isotope*> tmpIsotopes;
-       	QList<Isotope*> tmp;
-       	QList<Isotope*>::const_iterator iso;
-       	QList<Isotope*>::const_iterator isoEnd;
-
-       	tmpIsotopes.append( m_startIsotope );
-
-       	while( !tmpIsotopes.isEmpty() )
+	else if (ev->type() == QEvent::MouseButtonRelease )
 	{
-               iso = tmpIsotopes.begin();
-               isoEnd = tmpIsotopes.end();
+		QMouseEvent *mev = static_cast<QMouseEvent*>( ev );
+		
+		QRect startPoint( m_view->m_firstPoint, m_view->m_firstPoint );
+		QRect endPoint( mev->pos(), mev->pos() );
 
-               for ( ; iso != isoEnd; ++iso )
-               {
-                       if( ( *iso )->betaminusdecay() )
-                       {
-                               if ( getIsotope( (*iso)->neutrons()-1 ,(*iso)->protones()+1 ) != 0 )
-                                       tmp.append( getIsotope( (*iso)->neutrons()-1,
-                                                               (*iso)->protones()+1 ) );
-                       }
-                       if( ( *iso )->betaplusdecay() )
-                       {
-                               if ( getIsotope( (*iso)->neutrons()+1 ,(*iso)->protones()-1 ) != 0 )
-                                       tmp.append( getIsotope( (*iso)->neutrons()+1,
-                                                               (*iso)->protones()-1 ) );
-                       }
-                       if( ( *iso )->alphadecay() )
-                       {
-                               if ( getIsotope( (*iso)->neutrons()-2 ,(*iso)->protones()-2 ) != 0 )
-                                       tmp.append( getIsotope( (*iso)->neutrons()-2,
-                                                               (*iso)->protones()-2 ) );
-                       }
+		m_view->m_duringSelection = false;
+		
+		// ensure to have a valid QRect
+		QRect ourrect = startPoint.unite( endPoint ).normalize();
 
-                       if( m_parent->getIsotopeWidget( *iso ) != 0 )
-                               m_list.append( m_parent->getIsotopeWidget( *iso ) );
-
-                       tmpIsotopes.remove( *iso );
-               }
-               tmpIsotopes = tmp;
-               tmp.clear();
-       }
+		emit selectionDone( ourrect );
+		return true;
+	}
+	KDialogBase::eventFilter(obj,ev);
+	return false;
 }
 
-Isotope* Decay::getIsotope( int protones, int neutrons )
-{
-       kdDebug() << "Decay::getIsotope()" << endl;
-       QList<Isotope*> tmpList = m_elements[ protones ]->isotopes();
-       QList<Isotope*>::const_iterator it;
-
-       if ( tmpList.empty() )
-               return 0;
-
-       for ( it = tmpList.begin(); it != tmpList.end(); ++it )
-       {
-               if ( ( *it )->neutrons() == neutrons )
-               {
-                       kdDebug() << "leaving value"<< endl;
-                       return ( *it );
-               }
-       }
-       kdDebug() << "leaving null" << endl;
-       return 0;
-} 
 #include "nuclideboard.moc"
 

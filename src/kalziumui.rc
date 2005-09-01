@@ -1,32 +1,31 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="kalzium" version="3">
+<kpartgui name="kalzium" version="4">
 <MenuBar>
   <Menu name="file" noMerge="0"><text>&amp;File</text>
     <Action name="export_data"/>
   </Menu>
   <Menu name="table_menu"><text>&amp;View</text>
-    <Action name="numerationtype" />
+    <Action name="view_numerationtype" />
     <Menu name="look_menu"><text>&amp;Look</text>
-      <Action name="look_noscheme" />
+      <Action name="view_look_noscheme" />
       <Separator />
-      <Action name="look_groups" />
-      <Action name="look_blocks" />
-      <Action name="look_acid" />
-      <Action name="look_family" />
-      <Action name="look_crystal" />
-      <Action name="look_gradmenu" />
+      <Action name="view_look_groups" />
+      <Action name="view_look_blocks" />
+      <Action name="view_look_acid" />
+      <Action name="view_look_family" />
+      <Action name="view_look_crystal" />
+      <Action name="view_look_gradmenu" />
     </Menu>
     <Separator />
-    <Action name="toggle_legend" />
-    <Action name="toggle_tooltip" />
+    <Action name="view_legend" />
+    <Action name="view_tooltip" />
     <Action name="view_sidebar"/>
   </Menu>
   <Menu name="miscmenu"><text>&amp;Tools</text>
-    <Action name="plotdata" />
-    <Action name="nuclideboard" />
-    <Action name="glossary" />
-    <Action name="view_eqsolver" />
-    <Action name="spectrum_editor" />
+    <Action name="tools_plotdata" />
+    <Action name="tools_isotopetable" />
+    <Action name="tools_glossary" />
+    <Action name="tools_eqsolver" />
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
   </Menu>
@@ -34,15 +33,14 @@
 
 <ToolBar name="mainToolBar">
   <text>Main Toolbar</text>
-  <Action name="toggle_legend" />
-  <Action name="toggle_tooltip" />
+  <Action name="view_legend" />
+  <Action name="view_tooltip" />
   <Action name="view_sidebar"/>
   <Separator />
-  <Action name="plotdata" />
-  <Action name="nuclideboard" />
-  <Action name="glossary" />
-  <Action name="view_eqsolver" />
-  <Action name="spectrum_editor" />
+  <Action name="tools_plotdata" />
+  <Action name="tools_isotopetable" />
+  <Action name="tools_glossary" />
+  <Action name="tools_eqsolver" />
 </ToolBar>
 
 </kpartgui>

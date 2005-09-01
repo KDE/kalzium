@@ -3,7 +3,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
- *   
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,182 +17,160 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   51 Franklin Steet, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <kdialogbase.h>
 #include <qwidget.h>
-#include <q3scrollview.h>
-#include <qpainter.h>
-#include <isotope.h>
 #include <qlist.h>
-#include "element.h"
+#include <qpoint.h>
+#include <qrect.h>
 
-class IsotopeWidget;
-class Decay;
+#include <kdialogbase.h>
+
 class QColor;
-class QSpinBox;
+class QPainter;
+class Q3ScrollView;
+class Element;
+class Isotope;
+
+typedef QList<Isotope*> IsotopeList;
+typedef QList<Element*> ElementList;
 
 /**
- * @author J�g Buchwald
- * @author Carsten Niehaus
+ * This class is the drawing widget for the whole table
  *
+ * @author Carsten Niehaus
  */
-class NuclideBoard : public Q3ScrollView
+class IsotopeTableView : public QWidget
 {
+	friend class IsotopeTableDialog;
+	
 	Q_OBJECT
 
 	public:
-		/**
-		 * Constructor.
-		 *
-		 * @param parent parent widget for this one
-		 * @param name   object name
-		 */
-		NuclideBoard(QWidget* parent = 0, const char* name = 0);
-
-		~NuclideBoard(){};
-
-		IsotopeWidget* getIsotopeWidget( Isotope* isotope );	
-
-	private:
-		QList<Element*> m_list;
-
-		QList<IsotopeWidget*> m_isotopeWidgetList;
-		
-		Decay* m_decay;
-
-		void updateList();
-
-		int highestNeutronCount();
-		int lowestNeutronCount();
-
-		int m_lowestNumberOfNeutrons;
-		int m_highestNumberOfNeutrons;
-
-		int m_start;
-		int m_stop;
-
-		int m_isoWidth;	// width of a isotopeWidget on the board
-
+		IsotopeTableView( QWidget* parent = 0, Q3ScrollView* scroll = 0, const char * name = 0 );
+	
 	public slots:
 		/**
-		 * defines the first isotope which will be displayed
-		 * @param value the number of the element
+		 * Update the QMap of IsotopeAdapter. Only visible isotopes
+		 * will be in the list. Therefore, in the paintEvent the class
+		 * can simply iterate through all keys and paint them
 		 */
-		void setStart( int value );
+		void updateIsoptopeRectList();
 
 		/**
-		 * defines the last isotope which will be displayed
-		 * @param value the number of the element
+		 * Calculate the intersection of the selected region and the
+		 * update the list of isotopes to be drawn
 		 */
-		void setStop( int value );
+		void selectionDone( QRect selectedRect );
+		
+	private:
+		QWidget *m_parent;
+		Q3ScrollView *m_scroll;
 
-	private slots:
+		int minNumberOfNucleons(
+				QList<Element*>::ConstIterator it,
+				QList<Element*>::ConstIterator itEnd );
+		
+		int maxNumberOfNucleons( 
+				QList<Element*>::ConstIterator it,
+				QList<Element*>::ConstIterator itEnd );
+
+		int minNucleonOf( Element* el, int lowerbound = 0 ) const;
+
+		int maxNucleonOf( Element* el, int upperbound = 500 ) const;
+
+		QList<Isotope*> isotopesWithNucleonsInRange( Element* el, int lowerbound, int upperbound ) const;
+
+		QRect getNewCoords( const QRect& rect ) const;
+
 		/**
-		 * Draw the decay of an isotope
-		 * @param isotope the first Isotope in the row
+		 * The current size of a drawn isotope
 		 */
-		void slotDrawDecayRow( Isotope* isotope );
+		int m_rectSize;
 
-	signals:
-		void emitStartValue( int );
-		void emitStopValue( int );
+		/**
+		 * @return the color of the isotope @p isotope
+		 */
+		QColor isotopeColor( Isotope* isotope );
+
+		QMap<Isotope*, QRect> m_IsotopeAdapterRectMap;
+
+		QPoint m_firstPoint;
+
+		void updateMinMaxValue();
+
+		int m_firstElem;
+		int m_lastElem;
+		int m_firstElemNucleon;
+		int m_lastElemNucleon;
+		
+		QRect m_selectedRegion;
+		
+		/**
+		 * true if user is currently mouse the pressed mouse
+		 */
+		bool m_duringSelection;
 
 	protected:
-		void drawContents( QPainter * p, int clipx, int clipy, int clipw, int cliph );
+		virtual void paintEvent( QPaintEvent *e );
+		
+		virtual void resizeEvent( QResizeEvent *e );
+		
+		/**
+		 * draw the x and y axis 
+		 */
+		void drawAxisLabels( QPainter *p );
+		
+		/**
+		 * draw the isotope widgets
+		 */
+		void drawIsotopeWidgets( QPainter *p );
 };
 
 /**
+ * The dialog representing the isotope table.
+ *
+ * @author Martin Pfeiffer
  * @author Carsten Niehaus
  */
-class IsotopeWidget : public QWidget
+class IsotopeTableDialog : public KDialogBase
 {
 	Q_OBJECT
 	public:
-		/**
-		 * public constructor
-		 * @param isotope the Isotope which this widget represents
-		 * @param parent  parent widget for this widget
-		 */
-		IsotopeWidget( Isotope* isotope, QWidget *parent );
-		~IsotopeWidget();
+		IsotopeTableDialog( QWidget* parent, const char* name = 0 );
+		~IsotopeTableDialog(){};
 
-		/**
-		 * if a IsotopeWidget is activated it will
-		 * look a bit diffent. This is used to show
-		 * and highligt row of decay
-		 * @param a if true the widget will be activated
-		 */
-		void activate( bool a ){
-			m_active = a;
-			update();
-		}
-
-		/**
-		 * @return the Istope of this widget
-		 */
-		Isotope* isotope()const{
-			return m_isotope;
-		}
+	private:
+		IsotopeTableView* m_view;
 
 	protected slots:
-		virtual void mousePressEvent ( QMouseEvent * e );				
-
-	protected:
-		virtual void paintEvent(QPaintEvent*);
-
-	private:
-		Isotope* m_isotope;
-
-		QColor m_color;
-
-		bool m_active;
-
-	signals:
-		void clicked( Isotope* );
-};
-
-/**
- * @author Carsten Niehaus
- */
-class Decay
-{
-	public:
-		Decay( NuclideBoard* parent, Isotope* isotope, Element* element );
-		~Decay(){};
-
-		void showDecay();
-		void hideDecay();
-
-	private:
-		QList<IsotopeWidget*> m_list;
-		QList<Element*> m_elements;
-		Isotope* m_startIsotope;
-		Element* m_startElement;
-		NuclideBoard* m_parent;
-	
-		void buildDecayRow();
-		Isotope* getIsotope( int protones, int neutrons );
-};
-
-class NuclideBoardDialog : public KDialogBase
-{
-	Q_OBJECT
-	public:
-		NuclideBoardDialog( QWidget* parent, const char* name = 0 );
-		~NuclideBoardDialog(){};
-
-	private:
-		QSpinBox *spin1, *spin2;
-	
-	private slots:
 		/**
 		 * invokes the help for this widget
 		 */
-		void slotHelp();
+		virtual void slotHelp();
+
+	signals:
+		void selectionDone( QRect );
+		
+	protected:
+		virtual bool eventFilter( QObject *obj, QEvent *ev );
 };
 
 
+/**
+ * Simply widget that represents the legend of the isotope table.
+ *
+ * @author Martin Pfeiffer
+ */
+class NuclideLegend : public QWidget
+{
+	public:
+		NuclideLegend( QWidget* parent, const char* name = 0 );
+		~NuclideLegend() {};
+		
+	protected:
+		virtual void paintEvent( QPaintEvent* );
+};
 
 #endif // NUCLIDEBOARD_H
