@@ -96,7 +96,7 @@ class Kalzium : public KMainWindow
 		KAction *m_pTooltipAction;
 		KAction *m_pLegendAction;
 		KAction *m_SidebarAction;
-		KAction *m_EQSolverAction;
+//		KAction *m_EQSolverAction;
 
 		KToggleAction *m_actionNoScheme;
 		KToggleAction *m_actionGroups;

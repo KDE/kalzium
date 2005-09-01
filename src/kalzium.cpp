@@ -13,7 +13,7 @@
 #include "kalzium.h"
 
 #ifdef HAVE_FACILE
-#include "eqchemview.h"
+//#include "eqchemview.h"
 #endif
 
 #include "element.h"
@@ -144,7 +144,7 @@ void Kalzium::setupActions()
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
 #ifdef HAVE_FACILE
-	m_EQSolverAction = new KAction(i18n("&Equation Solver..."), "eqchem", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "tools_eqsolver");
+//	m_EQSolverAction = new KAction(i18n("&Equation Solver..."), "eqchem", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "tools_eqsolver");
 #endif
 	
 	// tools actions
@@ -254,18 +254,18 @@ void Kalzium::slotGlossary()
 void Kalzium::slotShowEQSolver()
 {
 #ifdef HAVE_FACILE
-	EQChemDialog *dlg = new EQChemDialog( this );
-	
-	QWidget *page = new QWidget( dlg );
-	dlg->setMainWidget( page );
-	QVBoxLayout *vbox = new QVBoxLayout( page , 0, KDialogBase:: spacingHint() );
-	
-	eqchemView *eqsolver = new eqchemView( page );
-	eqsolver->setMinimumSize( 600,400 );
-
-	vbox->addWidget( eqsolver );
-
-	dlg->show();
+//X 	EQChemDialog *dlg = new EQChemDialog( this );
+//X 	
+//X 	QWidget *page = new QWidget( dlg );
+//X 	dlg->setMainWidget( page );
+//X 	QVBoxLayout *vbox = new QVBoxLayout( page , 0, KDialogBase:: spacingHint() );
+//X 	
+//X 	eqchemView *eqsolver = new eqchemView( page );
+//X 	eqsolver->setMinimumSize( 600,400 );
+//X 
+//X 	vbox->addWidget( eqsolver );
+//X 
+//X 	dlg->show();
 #endif
 }
 
