@@ -155,7 +155,7 @@ void DetailedGraphicalOverview::drawBiologicalSymbol( QPainter *p )
 
 	int d_ds = ( db/2 )-( ds/2 ); //the delta-x/y of the inner circle
 
-	int pos_x = 8;
+	int pos_x = width() - 8 - db;
 	int pos_y = 8;
 
 	switch ( m_element->biological() )

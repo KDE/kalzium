@@ -523,9 +523,9 @@ void PeriodicTableView::drawTimeLine( QPainter* p )
 	while ( it != itEnd )
 	{
 		if ( ( *it )->date() <= m_date )
-		{
 			( *it )->drawSelf( p, simple );
-		}
+		else
+			( *it )->drawGrayedOut( p );
 		++it;
 	}
 }
