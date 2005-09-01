@@ -23,23 +23,37 @@
 #include "spectrum.h"
 #include "isotope.h"
 #include "kalziumdataobject.h"
+#include "kalziumutils.h"
 
 #include <qdom.h>
 #include <qfile.h>
 #include <qpainter.h>
 #include <qregexp.h>
+#include <qfontmetrics.h>
 
 #include <kdebug.h>
 #include <klocale.h>
 #include <kurl.h>
 #include <kstandarddirs.h>
 
-#include <math.h>
-
 Element::Element()
 {
 	m_radioactive = false;
 	m_artificial = false;
+	m_abundance = 0;
+}
+
+Isotope* Element::isotopeByNucleons( int numberOfNucleons )
+{
+	QList<Isotope*>::ConstIterator it = m_isotopeList.begin();
+	const QList<Isotope*>::ConstIterator itEnd = m_isotopeList.end();
+
+	for ( ; it != itEnd; ++it )
+	{
+		if ( ( ( *it )->neutrons() + ( *it )->protones() ) == numberOfNucleons )
+			return *it;
+	}
+	return 0;
 }
 
 QString Element::parsedOrbits( bool canBeEmpty )
@@ -58,29 +72,9 @@ QString Element::parsedOrbits( bool canBeEmpty )
 	return orbits;
 }
 
-
-double Element::strippedValue( double num )
-{
-	if ( !finite( num ) )
-		return num;
-
-	double power;
-	power = 1e-6;
-	while ( power < num )
-		power *= 10;
-
-	num = num / power * 10000;
-	num = round( num );
-
-	return num * power / 10000;
-}
-
-
 Element::~Element()
 {
 }
-
-
 
 double Element::meanmass()
 {
@@ -158,11 +152,11 @@ const QString Element::adjustUnits( const int type )
 					break;
 				case 1://Kelvin to Celsius
 					val-=273.15;
-					v = i18n( "%1 is the temperature in Celsius", "%1 C" ).arg( QString::number( val ) );
+					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( QString::number( val ) ).arg( "\xB0" );
 					break;
 				case 2: // Kelvin to Fahrenheit
 					val = val * 1.8 - 459.67;
-					v = i18n( "%1 is the temperature in Fahrenheit", "%1 F" ).arg( QString::number( val ) );
+					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( QString::number( val ) ).arg("\xB0");
 					break;
 			}
 		}
@@ -253,7 +247,8 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	
 	QString text;
 	QFont symbol_font = p->font();
-	symbol_font.setPointSize( 18 );
+
+	symbol_font.setPointSize( 10 );
 	QFont f = p->font();
 	f.setPointSize( 9 );
 		
@@ -261,7 +256,7 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 
 	//top left
 	p->setPen( Qt::black );
-	text = QString::number( strippedValue( mass( ) ) );
+	text = QString::number( KalziumUtils::strippedValue( mass( ) ) );
 	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
 
 	text = QString::number( number() );
@@ -274,7 +269,7 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 	p->setPen( Qt::black );
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
-	
+
 QColor Element::currentColor( const double temp )
 {
 	QColor color;
@@ -315,7 +310,7 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	setElementColor( c );
 	
 	//the height of a "line" inside an element
-	int h_small = 15; //the size for the small units like elementnumber
+	int h_small = 10; //the size for the small units like elementnumber
 
 	//The X-coordiante
 	int X = xPos();
@@ -328,16 +323,18 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	
 	p->setPen( Qt::black );
 	QFont symbol_font = p->font();
-	symbol_font.setPointSize( 18 );
 	QFont f = p->font();
-	f.setPointSize( 9 );
-		
+
+	f.setPointSize( KalziumUtils::maxSize(value, QRect( X,Y+ELEMENTSIZE-h_small, ELEMENTSIZE, h_small ),f, p ) );
 	p->setFont( f );
 
 	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, value );
 
+	const QRect rect = QRect( X,Y,ELEMENTSIZE-2,ELEMENTSIZE-10 );
+	int goodsize = KalziumUtils::maxSize( symbol(), rect, symbol_font, p );
+	symbol_font.setPointSize( goodsize );
 	p->setFont( symbol_font );
-	p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
+	p->drawText( X+1,Y+5, ELEMENTSIZE-2,ELEMENTSIZE-10,Qt::AlignCenter, symbol() );
 	
 	//border
 	p->setPen( Qt::black );
@@ -347,7 +344,7 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 {
 	//the height of a "line" inside an element
-	int h_small = 15; //the size for the small units like elementnumber
+	int h_small = 12; //the size for the small units like elementnumber
 
 	//The X-coordiante
 	int X = xPos();
@@ -357,15 +354,30 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 
 	p->setPen( elementColor() );
 	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, elementColor() );
+	p->setPen( Qt::black );
 	
 	QString text;
 	QFont symbol_font = p->font();
-	symbol_font.setPointSize( 18 );
+	
+	const int max = ELEMENTSIZE-10;
+	
+	const QRect rect = QRect( X,Y,ELEMENTSIZE-2,max );
+
+	int goodsize = KalziumUtils::maxSize( symbol(), rect, symbol_font, p );
+	symbol_font.setPointSize( goodsize );
+	p->setFont( symbol_font );
+	
+	if ( !simple )
+		p->drawText( X+1,Y+5, ELEMENTSIZE-2,max,Qt::AlignCenter, symbol() );
+	else
+		p->drawText( X+1,Y+5, ELEMENTSIZE-2,max,Qt::AlignHCenter, symbol() );
+	
 	QFont f = p->font();
-	f.setPointSize( 9 );
-		
+
+	QRect smallRect( X,Y ,ELEMENTSIZE-4,h_small );
+	f.setPointSize( KalziumUtils::maxSize( QString::number( number() ), smallRect, f, p ) );
+	
 	p->setFont( f );
-	p->setPen( Qt::black );
 
 	if ( !simple )
 	{//the user only wants a simple periodic table, don't weight the cell
@@ -389,24 +401,15 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 				text = i18n( "Crystalsystem hexagonal dense packed", "hdp" );
 			else if ( structure == "ccp" )
 				text = i18n( "Crystalsystem cubic close packed", "ccp" );
-//			else
-//				text = QString::null;
 		}
 		else
-			text = QString::number( strippedValue( mass( ) ) );
-		p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
+			text = QString::number( KalziumUtils::strippedValue( mass( ) ) );
+		p->drawText( X+2,Y ,ELEMENTSIZE-4 ,h_small,Qt::AlignCenter, text );
 	}
-
-	text = QString::number( number() );
-	p->drawText( X,Y+ELEMENTSIZE-h_small , ELEMENTSIZE, h_small,Qt::AlignCenter, text );
-
-	p->setFont( symbol_font );
-	if ( !simple )
-		p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignCenter, symbol() );
-	else
-		p->drawText( X,Y, ELEMENTSIZE,ELEMENTSIZE,Qt::AlignHCenter, symbol() );
 	
-	p->setPen( Qt::black );
+	text = QString::number( number() );
+	p->drawText( X+2,Y+ELEMENTSIZE-h_small , ELEMENTSIZE-4, h_small,Qt::AlignCenter, text );
+	
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 

@@ -1,5 +1,6 @@
-#ifndef SOMWIDGET_IMPL_H
-#define SOMWIDGET_IMPL_H
+#ifndef TIMEWIDGET_IMPL_H
+#define TIMEWIDGET_IMPL_H
+
 /***************************************************************************
     copyright            : (C) 2005 by Carsten Niehaus
     email                : cniehaus@kde.org
@@ -13,20 +14,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "somwidget.h"
-
-class Element;
+#include "timewidget.h"
 
 /**
- * @class SOMWidgetIMPL
  * @author Carsten Niehaus
- * @author Pino Toscano
- *
- * The SOMWidgetIMPL provides a QSlider. When this slider is moved,
- * this widget will display which elements have a boiling or melting
- * point near the temperature the user entered using the slider.
  */
-class SOMWidgetIMPL : public SOMWidget
+class TimeWidgetIMPL : public TimeWidget
 {
 	Q_OBJECT
 
@@ -35,19 +28,14 @@ class SOMWidgetIMPL : public SOMWidget
 		 * @param parent The parent of this widget
 		 * @param name The name of this widget
 		 */
-		SOMWidgetIMPL( QWidget *parent = 0, const char* name = 0 );
+		TimeWidgetIMPL( QWidget *parent = 0, const char* name = 0 );
 
-	private:
-		QList<Element*> m_list;
-		QString m_htmlBegin;
-		QString m_htmlEnd;
-
-	private slots:
+	public slots:
 		/**
-		 * in this slot the elements will be compared with
-		 * the temperature @p temp. The content of the HTML
-		 * will be generated
+		 * this slot will react to the new year
+		 * @param value the new year
 		 */
-		void slotTemp( int temp );
+		void slotChanged( int value );
 };
-#endif // SOMWIDGET_IMPL_H
+#endif // TIMEWIDGET_IMPL_H
+

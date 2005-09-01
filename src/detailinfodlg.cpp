@@ -39,6 +39,8 @@
 #include "spectrum.h"
 #include "spectrumviewimpl.h"
 
+//TODO add bondxx-radius (H-H-distance for example)
+
 DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *name)
     : KDialogBase( IconList, name, Help|User1|User2|Close, Close, parent, name, 
 			false, //non modal
@@ -99,8 +101,8 @@ void DetailedInfoDlg::setElement(Element *element)
 {
 	m_element = element;
 	
-	QValueList<QFrame*>::iterator it = m_pages.begin();
-	QValueList<QFrame*>::iterator itEnd = m_pages.end();
+	QList<QFrame*>::iterator it = m_pages.begin();
+	QList<QFrame*>::iterator itEnd = m_pages.end();
 	for ( ; it != itEnd ; ++it ){
 		delete *it;
 		*it = NULL;
@@ -141,7 +143,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 	html += m_baseHtml + "\" /><base href=\"" + m_baseHtml + "\"/></head><body><div class=\"chemdata\">";
 
 	//get the list of ionisation-energies
-	QValueList<double> ionlist = m_element->ionisationList();
+	QList<double> ionlist = m_element->ionisationList();
 	
 	html.append( "<div><table summary=\"header\"><tr><td>" );
 	html.append( m_element->symbol() );
@@ -197,6 +199,13 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			if ( !m_element->scientist( ).isEmpty() )
 				html += "<br />" + i18n("It was discovered by %1").arg(m_element->scientist() );
 			html.append( "</td></tr>" );
+			
+			if ( m_element->abundance() > 0 ){
+			html.append( "<tr><td><img src=\"abundance.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Abundance in crustal rocks: %1 ppm" ).arg( m_element->abundance() ) );
+			html.append( "</td></tr>" );
+			}
+			
 			html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );
 			html.append( "</td></tr>" );
@@ -252,7 +261,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
 QString DetailedInfoDlg::isotopeTable()
 {
-	QValueList<Isotope*> list = m_element->isotopes();
+	QList<Isotope*> list = m_element->isotopes();
 
 	QString html;
 	
@@ -274,14 +283,15 @@ QString DetailedInfoDlg::isotopeTable()
 	html += i18n( "Magnetic Moment" );
 	html += "</b></td></tr>";
 
-	QValueList<Isotope*>::const_iterator it = list.begin();
-	const QValueList<Isotope*>::const_iterator itEnd = list.end();
+	QList<Isotope*>::const_iterator it = list.begin();
+	const QList<Isotope*>::const_iterator itEnd = list.end();
 
 	for ( ; it != itEnd; ++it )
 	{
 		html.append( "<tr><td align=\"right\">" );
 		if ( ( *it )->weight() > 0.0 )
 			html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
+		//	html.append( i18n( "%1 u" ).arg( QString::number( ( *it )->weight() ) ));
 		html.append( "</td><td>" );
 		html.append( QString::number( ( *it )->neutrons() ) );
 		html.append( "</td><td>" );
@@ -291,24 +301,44 @@ QString DetailedInfoDlg::isotopeTable()
 		if ( ( *it )->halflife() > 0.0 )
 			html.append( ( *it )->halflifeAsString() );
 		html.append( "</td><td>" );
-		if ( ( *it )->decayenergy() > 0.0 )
-			html.append( i18n( "%1 MeV" ).arg(( *it )->decayenergy() ) );
-		if ( ( *it )->alphadecay() )
+		if ( ( *it )->alphapercentage() > 0.0 ){
+			if ( ( *it )->alphadecay() > 0.0 )
+			html.append( i18n( "%1 MeV" ).arg(( *it )->alphadecay() ) );
 			html.append( i18n( " %1" ).arg( QChar( 945 ) ) );
-		if ( ( *it )->alphapercentage() > 0.0 && ( *it )->alphapercentage() < 100.0)
-			html.append( i18n( "(%1%)" ).arg(( *it )->alphapercentage() ));
-		if ( ( *it )->betaplusdecay() )
+			if ( ( *it )->alphapercentage() < 100.0)
+				html.append( i18n( "(%1%)" ).arg(( *it )->alphapercentage() ));
+			if ( ( *it )->betaminuspercentage() > 0.0 || ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0)
+			html.append( i18n( ", " ) );
+			}
+		if ( ( *it )->betaminuspercentage() > 0.0 ){
+			if ( ( *it )->betaminusdecay() > 0.0 )
+				html.append( i18n( "%1 MeV" ).arg(( *it )->betaminusdecay() ) );
+			html.append( i18n( " %1%2" ).arg( QChar( 946 ) ).arg( i18n("<sup>-</sup>") ) );
+			if ( ( *it )->betaminuspercentage() < 100.0)
+				html.append( i18n( "(%1%)" ).arg(( *it )->betaminuspercentage() ));
+			if ( ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0 )
+			html.append( i18n( ", " ) );
+			}
+		if ( ( *it )->betapluspercentage() > 0.0 ){
+			if ( ( *it )->betaplusdecay() > 0.0 )
+				html.append( i18n( "%1 MeV" ).arg(( *it )->betaplusdecay() ) );
 			html.append( i18n( " %1%2" ).arg(QChar( 946 ) ).arg( i18n("<sup>+</sup>") ) );
-		if ( ( *it )->betapluspercentage() > 0.0 && ( *it )->betapluspercentage() < 100.0)
-			html.append( i18n( "(%1%)" ).arg(( *it )->betapluspercentage() ));
-		if ( ( *it )->betaminusdecay() )
-			html.append( i18n( " %1" ).arg( QChar( 946 ) ) );
-		if ( ( *it )->betaminuspercentage() > 0.0 && ( *it )->betaminuspercentage() < 100.0)
-			html.append( i18n( "(%1%)" ).arg(( *it )->betaminuspercentage() ));
-		if ( ( *it )->ecdecay() )
+			if ( ( *it )->betapluspercentage() == ( *it )->ecpercentage() ) {
+				if ( ( *it )->ecdecay() > 0.0 ) {
+				html.append( i18n( "%1 MeV" ).arg(( *it )->ecdecay() ) ); }
+				html.append( i18n( "Acronym of Electron Capture"," EC" ) ); 
+			}
+			if ( ( *it )->betapluspercentage() < 100.0)	
+				html.append( i18n( "(%1%)" ).arg(( *it )->betapluspercentage() )); 
+			html.append( i18n( " " ) );
+			}	
+		if ( ( *it )->ecpercentage() > 0.0 && ( *it )->ecpercentage()!=( *it )->betapluspercentage()){
+			if ( ( *it )->ecdecay() > 0.0 )
+				html.append( i18n( "%1 MeV" ).arg(( *it )->ecdecay() ) );
 			html.append( i18n( "Acronym of Electron Capture"," EC" ) );
-		if ( ( *it )->ecpercentage() > 0.0 && ( *it )->ecpercentage() < 100.0)
-			html.append( i18n( "(%1%)" ).arg(( *it )->ecpercentage() ));
+			if ( ( *it )->ecpercentage() < 100.0 )
+				html.append( i18n( "(%1%)" ).arg(( *it )->ecpercentage() ));
+			}
 		html.append( "</td><td>" );
 		html.append( i18n("%1 ").arg(( *it )->spin() ) );
 		html.append( "</td><td>" );
@@ -354,7 +384,7 @@ void DetailedInfoDlg::createContent( )
 	if ( !picpath.isEmpty() )
 	{
 		QImage img( picpath, "JPEG" );
-		img = img.smoothScale ( 400, 400, QImage::ScaleMin );
+		img = img.smoothScale ( 400, 400, Qt::ScaleMin );
 		QPixmap pic;
 		pic.convertFromImage( img );
 		piclabel->setPixmap( pic );

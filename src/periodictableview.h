@@ -29,7 +29,6 @@ class Element;
 class KalziumDataObject;
 class KalziumTip;
 
-#include <qvaluelist.h>
 #include <qwidget.h>
 #include <qtimer.h>
 

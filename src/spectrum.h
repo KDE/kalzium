@@ -22,7 +22,7 @@
  ***************************************************************************/
 
 #include <qstring.h>
-#include <qvaluelist.h>
+#include <qlist.h>
 
 class QPixmap;
 class Element;
@@ -103,9 +103,9 @@ class Spectrum
 		 * @param min the lowest allowed wavalength in nanometer
 		 * @param max the highest allowed wavalength in nanometer
 		 * 
-		 * @return the wavelength in a QValueList<double>
+		 * @return the wavelength in a QList<double>
 		 */
-		QValueList<double> wavelengths( double min, double max );
+		QList<double> wavelengths( double min, double max );
 
 		/**
 		 * @return the smallest wavelength
@@ -124,7 +124,7 @@ class Spectrum
 		/**
 		 * @return the list of bands of the spectrum
 		 */
-		QValueList<band>* bandlist(){
+		QList<band>* bandlist(){
 			return &m_bandlist;
 		}
 	
@@ -162,7 +162,7 @@ class Spectrum
 		/**
 		 * the internal dataset
 		 */
-		QValueList<band> m_bandlist;
+		QList<band> m_bandlist;
 
 		/**
 		 * the cached values of the highest and lowest wavelength

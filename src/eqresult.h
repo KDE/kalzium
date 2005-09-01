@@ -15,26 +15,26 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   51 Franklin Steet, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
 #ifndef _EQRESULT_H_
 #define _EQRESULT_H_
 
-#include <qlistbox.h>
-#include <qsimplerichtext.h>
+#include <q3listbox.h>
+#include <q3simplerichtext.h>
 
 /**
  * @author Thomas Nagy
  */
-class QuestionItem : public QListBoxItem
+class QuestionItem : public Q3ListBoxItem
 {
     public:
-	QuestionItem( QListBox*, const QString&, QColor bg );
+	QuestionItem( Q3ListBox*, const QString&, QColor bg );
     protected:
 	void paint( QPainter* p );
-	int width( const QListBox* ) const;
-	int height( const QListBox* ) const;
+	int width( const Q3ListBox* ) const;
+	int height( const Q3ListBox* ) const;
     private:
 	QString m_msg;
 	QColor m_bgcolor;
@@ -43,19 +43,19 @@ class QuestionItem : public QListBoxItem
 /**
  * @author Thomas Nagy
  */
-class AnswerItem : public QListBoxItem
+class AnswerItem : public Q3ListBoxItem
 {
     public:
-	AnswerItem(  QListBox*, const QString&, const QString&, QColor bg );
+	AnswerItem(  Q3ListBox*, const QString&, const QString&, QColor bg );
 	~AnswerItem() { delete m_richtext; }
 	void checkSize();
     protected:
 	void paint( QPainter* p );
-	int width( const QListBox* ) const{
+	int width( const Q3ListBox* ) const{
 		return m_richtext->height();
 	}
 	
-	int height( const QListBox* ) const{
+	int height( const Q3ListBox* ) const{
 		return m_richtext->height();
 	}
 	
@@ -63,13 +63,13 @@ class AnswerItem : public QListBoxItem
 	QString m_msg;
 	QString m_origmsg;
 	QColor m_bgcolor;
-	QSimpleRichText * m_richtext;
+	Q3SimpleRichText * m_richtext;
 };
 
 /**
  * @author Thomas Nagy
  */
-class EqResult : public QListBox
+class EqResult : public Q3ListBox
 {
     Q_OBJECT
 public:

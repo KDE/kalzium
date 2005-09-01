@@ -23,10 +23,10 @@
 
 #include <kdialogbase.h>
 #include <qwidget.h>
-#include <qscrollview.h>
+#include <q3scrollview.h>
 #include <qpainter.h>
 #include <isotope.h>
-#include <qvaluelist.h>
+#include <qlist.h>
 #include "element.h"
 
 class IsotopeWidget;
@@ -35,11 +35,11 @@ class QColor;
 class QSpinBox;
 
 /**
- * @author Jörg Buchwald
+ * @author Jï¿½g Buchwald
  * @author Carsten Niehaus
  *
  */
-class NuclideBoard : public QScrollView
+class NuclideBoard : public Q3ScrollView
 {
 	Q_OBJECT
 
@@ -57,9 +57,9 @@ class NuclideBoard : public QScrollView
 		IsotopeWidget* getIsotopeWidget( Isotope* isotope );	
 
 	private:
-		QValueList<Element*> m_list;
+		QList<Element*> m_list;
 
-		QValueList<IsotopeWidget*> m_isotopeWidgetList;
+		QList<IsotopeWidget*> m_isotopeWidgetList;
 		
 		Decay* m_decay;
 
@@ -167,8 +167,8 @@ class Decay
 		void hideDecay();
 
 	private:
-		QValueList<IsotopeWidget*> m_list;
-		QValueList<Element*> m_elements;
+		QList<IsotopeWidget*> m_list;
+		QList<Element*> m_elements;
 		Isotope* m_startIsotope;
 		Element* m_startElement;
 		NuclideBoard* m_parent;

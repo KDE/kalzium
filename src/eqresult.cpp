@@ -15,7 +15,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   51 Franklin Steet, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
 #include <qtimer.h>
@@ -28,20 +28,20 @@
 
 // inspired by speedcrunch
 
-QuestionItem::QuestionItem( QListBox* listBox, const QString& e, QColor bg ):
-QListBoxItem ( listBox )
+QuestionItem::QuestionItem( Q3ListBox* listBox, const QString& e, QColor bg ):
+Q3ListBoxItem ( listBox )
 {
     m_msg = e;
     m_bgcolor = bg;
 }
 
-AnswerItem::AnswerItem( QListBox* listBox, const QString& e, const QString &r, QColor bg ):
-QListBoxItem ( listBox )
+AnswerItem::AnswerItem( Q3ListBox* listBox, const QString& e, const QString &r, QColor bg ):
+Q3ListBoxItem ( listBox )
 {
     m_msg = "<p align=\"right\">"+r+"</p>";
     m_origmsg = e;
     m_bgcolor = bg;
-    m_richtext = new QSimpleRichText(m_msg, listBox->font());
+    m_richtext = new Q3SimpleRichText(m_msg, listBox->font());
     m_richtext->setWidth( listBox->width() );
 }
 
@@ -67,13 +67,13 @@ void AnswerItem::paint( QPainter* painter )
     m_richtext->draw(painter, 0, 0, r, cg );
 }
 
-int QuestionItem::width( const QListBox*lb ) const
+int QuestionItem::width( const Q3ListBox*lb ) const
 {
     QFont font = lb->font();
     return QFontMetrics( font ).width( m_msg );
 }
 
-int QuestionItem::height( const QListBox*lb ) const
+int QuestionItem::height( const Q3ListBox*lb ) const
 {
     QFont font = lb->font();
     return QFontMetrics( font ).height() + 4;
@@ -89,7 +89,7 @@ void AnswerItem::checkSize()
     m_richtext->setWidth(   (t1>t2)?t1:t2   );
 }
 
-EqResult::EqResult(QWidget *parent) : QListBox(parent)
+EqResult::EqResult(QWidget *parent) : Q3ListBox(parent)
 {
     m_alternate_color = false;
     setMinimumWidth(140);

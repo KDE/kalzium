@@ -48,16 +48,23 @@ KalziumDataObject::KalziumDataObject()
 	QFile layoutFile( url.path() );
 
 	if (!layoutFile.exists())
+	{
 		kdDebug() << "data.xml not found" << endl;
+		return;
+	}
 
 	if (!layoutFile.open(IO_ReadOnly))
+	{
 		kdDebug() << "data.xml IO-error" << endl;
+		return;
+	}
 
-	///Check if document is well-formed
+	// Check if the document is well-formed
 	if (!doc.setContent(&layoutFile))
 	{
 		kdDebug() << "wrong xml" << endl;
 		layoutFile.close();
+		return;
 	}
 	layoutFile.close();
 
@@ -71,7 +78,10 @@ KalziumDataObject::~KalziumDataObject()
 
 Element* KalziumDataObject::element( int number )
 {
-	return *( ElementList.at( number-1 ) );
+	// checking that we are requesting a valid element
+	if ( ( number <= 0 ) || ( number > m_numOfElements ) )
+		return 0;
+	return ElementList[ number-1 ];
 }
 
 EList KalziumDataObject::readData(  QDomDocument &dataDocument )
@@ -108,6 +118,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		int artificial = domElement.namedItem( "artificial" ).toElement().text().toInt();
 		int date = domElement.namedItem( "date" ).toElement().text().toInt();
 		int number = domElement.namedItem( "number" ).toElement().text().toInt();
+		int abundance = domElement.namedItem( "abundance" ).toElement().text().toInt();
 		
 		QString scientist = domElement.namedItem( "date" ).toElement().attributeNode( "scientist" ).value();
 		QString crystal = domElement.namedItem( "crystalstructure" ).toElement().text();
@@ -125,7 +136,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		QString acidicbehaviour = domElement.namedItem( "acidicbehaviour" ).toElement().text();
 
 		QDomNodeList elist = domElement.elementsByTagName( "energy" );
-		QValueList<double> ionlist;
+		QList<double> ionlist;
 		for( uint i = 0; i < elist.length(); i++ )
 		{
 			ionlist.append(  elist.item(  i ).toElement().text().toDouble() );
@@ -133,7 +144,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		
 		//now read in all the date for the isotopes
 		QDomNodeList isotopelist = domElement.elementsByTagName( "isotope" );
-		QValueList<Isotope*> isolist;
+		QList<Isotope*> isolist;
 		for( uint i = 0; i < isotopelist.length(); i++ )
 		{
 			QDomElement iso = isotopelist.item( i ).toElement();
@@ -146,35 +157,28 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			double betapluspercentage = iso.attributeNode( "betapluspercentage" ).value().toDouble();
 			double betaminuspercentage = iso.attributeNode( "betaminuspercentage" ).value().toDouble();
 			double ecpercentage = iso.attributeNode( "ecpercentage" ).value().toDouble();
-			QString alphadecay = iso.attributeNode( "alphadecay" ).value();
-			QString betaplusdecay = iso.attributeNode( "betaplusdecay" ).value();
-			QString betaminusdecay = iso.attributeNode( "betaminusdecay" ).value();
-			QString ecdecay = iso.attributeNode( "ecdecay" ).value();
-			double decayenergy = iso.attributeNode( "decayenergy" ).value().toDouble();
+			double alphadecay = iso.attributeNode( "alphadecay" ).value().toDouble();
+			double betaplusdecay = iso.attributeNode( "betaplusdecay" ).value().toDouble();
+			double betaminusdecay = iso.attributeNode( "betaminusdecay" ).value().toDouble();
+			double ecdecay = iso.attributeNode( "ecdecay" ).value().toDouble();
 			QString spin = iso.attributeNode( "spin" ).value();
 			QString magmoment = iso.attributeNode( "magmoment" ).value();
 			
-			bool alphadecay_ = false, betaminusdecay_ = false, betaplusdecay_ = false, ecdecay_ = false;
-			if ( betaplusdecay == "true" ) betaplusdecay_ = true;
-			if ( betaminusdecay == "true" ) betaminusdecay_ = true;
-			if ( ecdecay == "true" ) ecdecay_ = true;
-			if ( alphadecay == "true" ) alphadecay_ = true;
-			
+						
 			Isotope *isotope = new Isotope( neutrons, 
 					number, 
 					percentage, 
 					weight, 
 					halflife, 
 					format, 
-					alphadecay_, 
-					betaplusdecay_, 
-					betaminusdecay_, 
-					ecdecay_, 
+					alphadecay, 
+					betaplusdecay, 
+					betaminusdecay, 
+					ecdecay, 
 					alphapercentage, 
 					betapluspercentage, 
 					betaminuspercentage, 
 					ecpercentage, 
-					decayenergy, 
 					spin, 
 					magmoment );
 			isolist.append( isotope );
@@ -191,6 +195,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setRadius( Element::IONIC, ionic_radius, ionic_charge );
 		e->setRadius( Element::COVALENT, covalent_radius );
 		e->setRadius( Element::VDW, vdw_radius );
+		e->setAbundance( abundance );
 
 		if ( artificial == 1 )
 			e->setArtificial();

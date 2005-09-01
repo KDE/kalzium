@@ -40,6 +40,7 @@
             <property name="font">
                 <font>
                     <bold>1</bold>
+                    <pointsize>10</pointsize>
                 </font>
             </property>
             <property name="text">
@@ -167,6 +168,10 @@ the state of matter</string>
     </grid>
 </widget>
 <customwidgets>
+    <customwidget>
+        <class>KIntSpinBox</class>
+        <header location="local">knuminput.h</header>
+    </customwidget>
 </customwidgets>
 <connections>
     <connection>

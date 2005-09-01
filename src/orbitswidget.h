@@ -46,7 +46,7 @@ class OrbitsWidget : public QWidget
 		 */
 		int num;
 		
-		typedef QValueList<int> intList;
+		typedef QList<int> intList;
 		intList numOfElectrons;
 
 		QStringList hulllist;

@@ -47,6 +47,7 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 	m_pPlotSetupWidget->from->setMaxValue( d->numberOfElements() - 1 );
 	m_pPlotSetupWidget->to->setMaxValue( d->numberOfElements() );
 	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage(), "plotwidget" );
+	m_pPlotWidget->setYAxisLabel(" ");
 	m_pPlotWidget->setMinimumWidth( 200 );
 	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );
 
@@ -68,10 +69,19 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 	setButtonText( User1, i18n("&Plot") );
 
 	m_actionCollection = new KActionCollection(this);
-        KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);	
+	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);	
 
-	connect ( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled(bool)), this, SLOT(slotUser1()));
-	connect ( m_pPlotSetupWidget->showNames,     SIGNAL( toggled(bool)), this, SLOT(slotUser1()));
+	connect ( m_pPlotSetupWidget->KCB_y,         SIGNAL( activated(int) ),
+			  this,                              SLOT( drawPlot()) );
+
+	connect ( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled(bool) ),
+			  this,                              SLOT( drawPlot()) );
+	connect ( m_pPlotSetupWidget->showNames,     SIGNAL( toggled(bool) ),
+			  this,                              SLOT( drawPlot()) );
+
+	// Draw the plot so that the user doesn't have to press the "Plot"
+	// button to seee anything.
+	drawPlot();
 }
 
 void ElementDataViewer::slotHelp()
@@ -81,12 +91,15 @@ void ElementDataViewer::slotHelp()
 		kapp->invokeHelp ( "plot_data", "kalzium" );
 }
 
+// Reimplement slotUser1 from KDialogBase
+
 void ElementDataViewer::slotUser1()
 {
 	kdDebug() << "slotUser1" << endl;
 
 	drawPlot();
 }
+
 
 void ElementDataViewer::setLimits(int f, int t)
 {
@@ -117,15 +130,15 @@ void ElementDataViewer::keyPressEvent(QKeyEvent *e)
 {
 	switch ( e->key() )
 	{
-		case Key_Plus:
-		case Key_Equal:
+		case Qt::Key_Plus:
+		case Qt::Key_Equal:
 			slotZoomIn();
 			break;
-		case Key_Minus:
-		case Key_Underscore:
+		case Qt::Key_Minus:
+		case Qt::Key_Underscore:
 			slotZoomOut();
 			break;
-		case Key_Escape:
+		case Qt::Key_Escape:
 			close();
 			break;
 	}
@@ -274,9 +287,8 @@ void ElementDataViewer::drawPlot()
 	/*
 	 * reserve the memory for the KPlotObjects
 	 */
-	//TODO QT4 replace QMemArray with QVector
-	QMemArray<KPlotObject*> dataPoint(num);
-	QMemArray<KPlotObject*> dataPointLabel(num);
+	QVector<KPlotObject*> dataPoint(num);
+	QVector<KPlotObject*> dataPointLabel(num);
 
 	int number = 0;
 
@@ -305,7 +317,7 @@ void ElementDataViewer::drawPlot()
 
 			if (showNames)
 			{
-				dataPointLabel[number] = new KPlotObject( *(names.at(i)), "Red", KPlotObject::LABEL );
+				dataPointLabel[number] = new KPlotObject( names[i], "Red", KPlotObject::LABEL );
 				dataPointLabel[number]->addPoint( new DPoint( (double)i , yData->value( i ) ) );
 				m_pPlotWidget->addObject( dataPointLabel[number] );
 			}

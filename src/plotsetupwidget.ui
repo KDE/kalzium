@@ -247,6 +247,10 @@
     </grid>
 </widget>
 <customwidgets>
+    <customwidget>
+        <class>KIntNumInput</class>
+        <header location="local">knuminput.h</header>
+    </customwidget>
 </customwidgets>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>

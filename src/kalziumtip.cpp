@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Zack Rusin <zrusin@kde.org>			   *
- *   Sami Kyostil <skyostil@kempele.fi>			 		   *
+ *  Sami Kyostil <skyostil@kempele.fi>			 		   *
  *   Aaron J. Seigo <aseigo@kde.org>		 			   *
  *		     Martin Pfeiffer <hubipete@gmx.net>                    *
  *                                                                         *
@@ -24,9 +24,10 @@
 #include "element.h"
 
 #include <qapplication.h>
+#include <qevent.h>
 #include <qpixmap.h>
 #include <qimage.h>
-#include <qsimplerichtext.h>
+#include <q3simplerichtext.h>
 #include <qpainter.h>
 #include <qdesktopwidget.h>
 
@@ -37,10 +38,10 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 
-KalziumTip::KalziumTip( QWidget * parent, const char * name, WFlags f ) : QWidget( parent, name, f ) 
+KalziumTip::KalziumTip( QWidget * parent, const char * name, Qt::WFlags f ) : QWidget( parent, name, f ) 
 {
-	setFocusPolicy(NoFocus); //the widget don't get the keyboard focus
-	setBackgroundMode(NoBackground); // widget has no background
+	setFocusPolicy(Qt::NoFocus); //the widget don't get the keyboard focus
+	setBackgroundMode(Qt::NoBackground); // widget has no background
 	resize(0,0);
 	hide(); //initailly hide it
 	m_richText = 0;
@@ -124,7 +125,7 @@ void KalziumTip::display()
 	QString mass = i18n( "Mass: %1" )
 			.arg( QString::number(m_tippedElement->mass()) );
 
-	m_richText = new QSimpleRichText("<qt><h1>" + elementname + "</h1><p>"
+	m_richText = new Q3SimpleRichText("<qt><h1>" + elementname + "</h1><p>"
 						    + number + "</p><p>"
 						    + mass  +"</p></qt>", font());
 
@@ -222,7 +223,8 @@ void KalziumTip::dissolveMask()
 
     if (m_dissolveSize > 0)
     {
-        maskPainter.setRasterOp(Qt::EraseROP);
+#warning workaround the QPainter::setRasterOp(Qt::EraseROP)
+//        maskPainter.setRasterOp(Qt::EraseROP);
 
         int x, y, s;
         const int size = 16;
@@ -284,7 +286,7 @@ void KalziumTip::loadIcon()
 	if ( !iconpath.isEmpty() )
 	{
 		QImage img ( iconpath, "JPEG" );
-		img = img.smoothScale ( 128, 128, QImage::ScaleMin );
+		img = img.smoothScale ( 128, 128, Qt::ScaleMin );
 		m_icon.convertFromImage( img );
 
 	}

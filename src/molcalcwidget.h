@@ -22,6 +22,7 @@
 
 #include "molcalcwidgetbase.h"
 
+#include <qlist.h>
 #include <qmap.h>
 
 class KToggleAction;
@@ -50,7 +51,7 @@ class MolcalcWidget : public MolcalcWidgetBase
 		KalziumDataObject *m_data;
 		
 		double m_mass;
-		QValueList<Element*> m_elements;
+		QList<Element*> m_elements;
 
 		KToggleAction *plusButton;
 		KToggleAction *minusButton;

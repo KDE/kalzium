@@ -67,7 +67,7 @@ class SpectrumWidget : public QWidget
 		 * find the nearest band. The returned value is the number
 		 * of pixel the next band is away
 		 */
-		int findNearestBand( QValueList<double>::iterator it );
+		int findNearestBand( QList<double>::iterator it );
 
 		/**
 		 * there are several possible types.
@@ -148,7 +148,7 @@ class SpectrumWidget : public QWidget
 		QPixmap pixmap();
 	
 	private:
-		QValueList<double> m_spectra;
+		QList<double> m_spectra;
 
 		SpectrumType m_type;
 

@@ -27,6 +27,7 @@
 #include <math.h>
 
 #include <qcursor.h>
+#include <qevent.h>
 #include <qsizepolicy.h>
 #include <qpainter.h>
 #include <qpixmap.h>
@@ -108,7 +109,7 @@ void SpectrumWidget::paintBands( QPainter* p )
 	int x = 0;
 	int temp = 0;	
 
- 	for ( QValueList<Spectrum::band>::Iterator it = m_spectrum->bandlist()->begin();
+ 	for ( QList<Spectrum::band>::Iterator it = m_spectrum->bandlist()->begin();
  			it != m_spectrum->bandlist()->end();
  			++it )
  	{
@@ -274,15 +275,15 @@ void SpectrumWidget::keyPressEvent( QKeyEvent *e )
 	 kdDebug() << "SpectrumWidget::keyPressEvent()" << endl;
 	switch ( e->key() )
 	{
-		case Key_Plus:
-		case Key_Equal:
+		case Qt::Key_Plus:
+		case Qt::Key_Equal:
 			slotZoomIn();
 			break;
-		case Key_Minus:
-		case Key_Underscore:
+		case Qt::Key_Minus:
+		case Qt::Key_Underscore:
 			slotZoomOut();
 			break;
-		case Key_Escape:
+		case Qt::Key_Escape:
 			close();
 			break;
 	}
@@ -306,9 +307,9 @@ void SpectrumWidget::mouseMoveEvent( QMouseEvent *e )
 
 void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
 {
-	if (  e->button() == QMouseEvent::LeftButton )
+	if (  e->button() == Qt::LeftButton )
 		m_LMBPointPress = e->pos();
-	if (  e->button() == QMouseEvent::RightButton )
+	if (  e->button() == Qt::RightButton )
 		PrepareTooltip( Wavelength( ( double )e->pos().x()/width() ) );
 }
 
@@ -316,8 +317,8 @@ void SpectrumWidget::PrepareTooltip( double wavelength )
 {
 	Spectrum::band band;
 	
- 	QValueList<Spectrum::band>::const_iterator it = m_spectrum->bandlist()->begin();
-	const QValueList<Spectrum::band>::const_iterator itEnd = m_spectrum->bandlist()->end();
+ 	QList<Spectrum::band>::const_iterator it = m_spectrum->bandlist()->begin();
+	const QList<Spectrum::band>::const_iterator itEnd = m_spectrum->bandlist()->end();
 
 	//find the difference in percent (1.0 is 100%, 0.1 is 10%)
 	double dif = 0.0;
@@ -373,7 +374,7 @@ void SpectrumWidget::drawTooltip( QPainter *p )
 
 void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 {
-	if (  e->button() == QMouseEvent::LeftButton )
+	if (  e->button() == Qt::LeftButton )
 	{
 		int left = (int)Wavelength( ( double )m_LMBPointPress.x()/width() );
 		int right = (int)Wavelength( ( double )e->pos().x()/width() );

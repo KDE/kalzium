@@ -15,7 +15,7 @@
 
 #include <qslider.h>
 #include <qtextedit.h>
-#include <qvaluelist.h>
+#include <qlist.h>
 
 #include <kdebug.h>
 #include <knuminput.h>
@@ -48,8 +48,8 @@ void SOMWidgetIMPL::slotTemp( int temp )
 {
 	static const int threshold = 25;
 
-	QValueList<Element*>::ConstIterator it = m_list.begin();
-	const QValueList<Element*>::ConstIterator itEnd = m_list.end();
+	QList<Element*>::ConstIterator it = m_list.begin();
+	const QList<Element*>::ConstIterator itEnd = m_list.end();
 
 	QStringList listMeltingPoint;
 	QStringList listBoilingPoint;

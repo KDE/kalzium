@@ -73,7 +73,7 @@ class DetailedInfoDlg : public KDialogBase
 		/**
 		 * holds the pointers to all pages of the dialog
 		 */
-		QValueList<QFrame*> m_pages;
+		QList<QFrame*> m_pages;
 
 		DetailedGraphicalOverview *dTab;
 

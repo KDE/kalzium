@@ -180,7 +180,7 @@ void OrbitsWidget::getNumberOfOrbits()
 
 const QString& OrbitsWidget::getNumber() const
 {
-	return *hulllist.at( Elemno-1 );
+	return hulllist[ Elemno-1 ];
 }
 
 void OrbitsWidget::paintEvent(  QPaintEvent* )
@@ -207,7 +207,7 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	
 	r_electron = r/20; //diameter of an electron-circle
 		
-	QBrush   brush(  yellow );
+	QBrush brush( Qt::yellow );
 	
 	int d = 2*r; //Diameter
 	int	ddx = d/(2*num);//difference to the previous circle
@@ -221,8 +221,8 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 		int mx = w_c+ddx*i; //the x-coordinate for the current circle
 		int my = h_c+ddx*i; //the y-coordinate for the current circle
 
-		DC.setBrush(  NoBrush );
-		DC.setPen(  black ); 
+		DC.setBrush( Qt::NoBrush );
+		DC.setPen( Qt::black );
 		
 		//draw the big ellipses in concentric circles
 		DC.drawEllipse( mx , my , d , d);

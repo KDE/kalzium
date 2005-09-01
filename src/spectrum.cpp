@@ -28,8 +28,8 @@
 double Spectrum::minBand()
 {
 	double value = ( *m_bandlist.begin() ).wavelength;
-	QValueList<band>::const_iterator it = m_bandlist.begin();
-	const QValueList<band>::const_iterator itEnd = m_bandlist.end();
+	QList<band>::const_iterator it = m_bandlist.begin();
+	const QList<band>::const_iterator itEnd = m_bandlist.end();
 	for (;it!=itEnd;++it)
 	{
 		if ( value > ( *it ).wavelength )
@@ -41,8 +41,8 @@ double Spectrum::minBand()
 double Spectrum::maxBand()
 {
 	double value = ( *m_bandlist.begin() ).wavelength;
-	QValueList<band>::const_iterator it = m_bandlist.begin();
-	const QValueList<band>::const_iterator itEnd = m_bandlist.end();
+	QList<band>::const_iterator it = m_bandlist.begin();
+	const QList<band>::const_iterator itEnd = m_bandlist.end();
 	for (;it!=itEnd;++it)
 	{
 		if ( value < ( *it ).wavelength )
@@ -56,8 +56,8 @@ Spectrum* Spectrum::adjustToWavelength( double min, double max )
 {
 	Spectrum *spec = new Spectrum();
 
-	QValueList<band>::const_iterator it = m_bandlist.begin();
-	const QValueList<band>::const_iterator itEnd = m_bandlist.end();
+	QList<band>::const_iterator it = m_bandlist.begin();
+	const QList<band>::const_iterator itEnd = m_bandlist.end();
 
 	for ( ; it != itEnd; ++it )
 	{
@@ -75,8 +75,8 @@ Spectrum* Spectrum::adjustToWavelength( double min, double max )
 void Spectrum::adjustIntensities()
 {
 	int maxInt = 0;
-	QValueList<band>::Iterator it = m_bandlist.begin();
-	const QValueList<band>::Iterator itEnd = m_bandlist.end();
+	QList<band>::Iterator it = m_bandlist.begin();
+	const QList<band>::Iterator itEnd = m_bandlist.end();
 
 	//find the highest intensity
 	for ( ; it != itEnd; ++it )
@@ -101,12 +101,12 @@ void Spectrum::adjustIntensities()
 	}
 }
 
-QValueList<double> Spectrum::wavelengths( double min, double max )
+QList<double> Spectrum::wavelengths( double min, double max )
 {
-	QValueList<double> list;
+	QList<double> list;
 	
-	QValueList<band>::const_iterator it = m_bandlist.begin();
-	const QValueList<band>::const_iterator itEnd = m_bandlist.end();
+	QList<band>::const_iterator it = m_bandlist.begin();
+	const QList<band>::const_iterator itEnd = m_bandlist.end();
 
 	for ( ; it != itEnd; ++it )
 	{
@@ -125,8 +125,8 @@ QString Spectrum::bandsAsHtml()
 
 	html += "<table>";
 	
-	QValueList<band>::const_iterator it = m_bandlist.begin();
-	const QValueList<band>::const_iterator itEnd = m_bandlist.end();
+	QList<band>::const_iterator it = m_bandlist.begin();
+	const QList<band>::const_iterator itEnd = m_bandlist.end();
 	for (;it!=itEnd;++it)
 	{
 		html += QString( "<tr>" )

@@ -33,11 +33,11 @@
 #include "config.h"
 #include "spectrumeditor.h"
 
-#include <qdockwindow.h>
+#include <q3dockwindow.h>
 #include <qlayout.h>
 #include <qtoolbox.h>
 #include <qslider.h>
-#include <qscrollview.h>
+#include <q3scrollview.h>
 #include <qspinbox.h>
 
 #include <kconfigdialog.h>
@@ -64,7 +64,7 @@ Kalzium::Kalzium()
 	QWidget *centralWidget = new QWidget( this, "centralWidget" );
 	m_pCentralLayout = new QVBoxLayout( centralWidget, PeriodicTableView_MARGIN, -1, "CentralLayout" );
 	
-	QScrollView *helperSV = new QScrollView(centralWidget);
+	Q3ScrollView *helperSV = new Q3ScrollView(centralWidget);
 	m_pCentralLayout->addWidget(helperSV);
 	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
 	helperSV->setFrameShape(QFrame::NoFrame);
@@ -211,13 +211,13 @@ void Kalzium::setupActions()
 
 void Kalzium::setupSidebars()
 {
-	m_dockWin = new QDockWindow( this );
+	m_dockWin = new Q3DockWindow( this );
 	m_dockWin->setNewLine( true );
  	m_dockWin->setFixedExtentWidth( 220 );
 	m_dockWin->setResizeEnabled( true );
 	m_dockWin->setFrameShape( QFrame::ToolBarPanel );
 	m_dockWin->setCaption( i18n( "Sidebar" ) );
-	m_dockWin->setCloseMode( QDockWindow::Always );
+	m_dockWin->setCloseMode( Q3DockWindow::Always );
 	
 	QToolBox *m_toolbox = new QToolBox( m_dockWin );
 	m_dockWin->setWidget( m_toolbox );
@@ -247,9 +247,9 @@ void Kalzium::setupSidebars()
 	
 	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
-	moveDockWindow( m_dockWin, DockLeft );
-	setDockEnabled( /*m_dockWin, */DockTop, false );
-	setDockEnabled( /*m_dockWin, */DockBottom, false );
+	moveDockWindow( m_dockWin, Qt::DockLeft );
+	setDockEnabled( /*m_dockWin, */Qt::DockTop, false );
+	setDockEnabled( /*m_dockWin, */Qt::DockBottom, false );
 	m_dockWin->hide();
 	connect( m_dockWin, SIGNAL(visibilityChanged(bool)), this, SLOT(slotSidebarVisibilityChanged(bool)));
 
@@ -438,7 +438,7 @@ void Kalzium::slotUpdateSettings()
 void Kalzium::setupStatusBar()
 {
 	statusBar()->insertItem(  "" , IDS_ELEMENTINFO, 1, false );
-	statusBar()->setItemAlignment( IDS_ELEMENTINFO, AlignRight );
+	statusBar()->setItemAlignment( IDS_ELEMENTINFO, Qt::AlignRight );
 	statusBar()->show();
 }
 

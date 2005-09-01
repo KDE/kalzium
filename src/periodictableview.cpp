@@ -22,12 +22,14 @@
 #include "element.h"
 #include "kalziumtip.h"
 #include "kalziumdataobject.h"
+#include "kalziumutils.h"
 
 #include <klocale.h>
 #include <kdebug.h>
 #include <kpixmapeffect.h>
 #include <kimageeffect.h>
 
+#include <qevent.h>
 #include <qimage.h>
 #include <qstring.h>
 #include <qtooltip.h>
@@ -65,7 +67,7 @@ PeriodicTableView::PeriodicTableView(QWidget *parent, const char *name)
 	setMouseTracking( true );
 
 	//JH: eliminates flicker on redraw
-	setBackgroundMode( QWidget::NoBackground );
+	setBackgroundMode( Qt::NoBackground );
 
 	m_molcalcIsActive = false;
 	m_learningMode = false;
@@ -417,7 +419,7 @@ void PeriodicTableView::paintCurrentSelection()
 	p.begin(table);
 
 	QPen pen;
-	pen.setStyle( DotLine );
+	pen.setStyle( Qt::DotLine );
 	pen.setWidth( 4 );
 	pen.setColor( Qt::blue );
 	p.setPen( pen );
@@ -466,7 +468,7 @@ void PeriodicTableView::drawLegendToolTip( QPainter* p )
 	p->setFont( fB );
 
 	QRect bRect( 0, 0, 1000, 1000 );
-	bRect = p->boundingRect( bRect, AlignLeft|AlignTop, text );
+	bRect = p->boundingRect( bRect, Qt::AlignLeft|Qt::AlignTop, text );
 	bRect.moveBy( x1, y1 );
 	QRect bRectExt = bRect;
 	bRect.moveBy( padding, padding );
@@ -498,7 +500,7 @@ void PeriodicTableView::drawLegendToolTip( QPainter* p )
 	p->setBrush( Qt::black );
 	p->setBrush(Qt::NoBrush);
 
-	p->drawText( bRect, AlignLeft|AlignTop, text );
+	p->drawText( bRect, Qt::AlignLeft|Qt::AlignTop, text );
 }
 
 void PeriodicTableView::drawTimeLine( QPainter* p )
@@ -909,7 +911,7 @@ void PeriodicTableView::calculateGradient( QPainter *p )
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
 
-	QValueList<double> tmpList;
+	QList<double> tmpList;
 	switch ( m_gradientType )
 	{
 		case Element::ATOMICRADIUS:
@@ -968,8 +970,8 @@ void PeriodicTableView::calculateGradient( QPainter *p )
 			break;
 	}
 
-	QValueList<double>::iterator dit = tmpList.begin();
-	const QValueList<double>::iterator ditEnd = tmpList.end();
+	QList<double>::iterator dit = tmpList.begin();
+	const QList<double>::iterator ditEnd = tmpList.end();
 
 	double tmpMin = *dit;
 	double tmpMax = *dit;
@@ -1171,7 +1173,7 @@ void PeriodicTableView::drawGradientButton( QPainter *p, Element* e, double coef
 	if ( value >= minValue && coeff != -1.0)
 	{
 		QColor c = calculateColor( coeff );
-		e->drawGradient( p, QString::number( Element::strippedValue( value ) ), c );
+		e->drawGradient( p, QString::number( KalziumUtils::strippedValue( value ) ), c );
 	}
 	else
 		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::lightGray );

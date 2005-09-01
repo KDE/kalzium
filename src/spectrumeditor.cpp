@@ -7,7 +7,6 @@
 #include <qlayout.h>
 #include <qspinbox.h>
 #include <qlabel.h>
-#include <qpopupmenu.h>
 
 #include <kaction.h>
 #include <kactioncollection.h>

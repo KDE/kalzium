@@ -16,7 +16,7 @@
 
 #include <kdialogbase.h>
 
-typedef QValueList<double> DoubleList;
+typedef QList<double> DoubleList;
 
 class Element;
 class KalziumDataObject;
@@ -46,7 +46,7 @@ class AxisData
 		 * @return the value of the selected dataset of element @p element
 		 */
 		double value( int element ){
-			return *dataList.at( element-1 );
+			return dataList[ element-1 ];
 		}
 
 		/**

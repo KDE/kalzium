@@ -20,6 +20,7 @@
 #include "molcalcwidget.h"
 
 #include "kalziumdataobject.h"
+#include "kalziumutils.h"
 #include "molcalcwidgetbase.h"
 #include "element.h"
 
@@ -45,7 +46,7 @@ MolcalcWidget::MolcalcWidget( QWidget *parent, const char *name )
 	// setting up the toolbar
 	KToolBar *toolbar = new KToolBar( this, "toolbar", this );
 	toolbar->setIconSize( 22 );
-	MolcalcWidgetBaseLayout->addWidget( toolbar, 0, 0 );
+	gridLayout->addWidget( toolbar, 0, 0 );
 
 	plusButton = new KToggleAction( i18n( "&Add" ), "add", 0, 0, 0, this, "add" );
 	plusButton->setChecked( true );
@@ -87,17 +88,17 @@ void MolcalcWidget::updateData( int number, KIND kind )
 	else
 	{//removing the element in case there was at least on such element
 	 //added before
-		QValueList<Element*>::const_iterator it = m_elements.begin( );
-		QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+		QList<Element*>::const_iterator it = m_elements.begin( );
+		QList<Element*>::const_iterator itEnd = m_elements.end( );
 
 		//I am not sure if this is the best way, but at least it works. 
-		//QValueList<> can't simple remove a *it, it would remove all (!!)
+		//QList<> can't simple remove a *it, it would remove all (!!)
 		//element of the same kind, for example all Carbon-elements.
 		//Therefore I am using two list, a positive-match and a negative-match
 		//list. Afterwards I append all but one elements of the positive-list
 		//to the negative list. In the end I "removed" one element.
-		QValueList<Element*> tmpList;
-		QValueList<Element*> tmpList2;
+		QList<Element*> tmpList;
+		QList<Element*> tmpList2;
 
 		for ( ; it != itEnd ; ++it )
 		{
@@ -112,8 +113,8 @@ void MolcalcWidget::updateData( int number, KIND kind )
 		}
 		
 		//I need to iterate it2 in order to skip on element
-		QValueList<Element*>::const_iterator it2 = tmpList2.begin(); it2++;
-		const QValueList<Element*>::const_iterator itEnd2 = tmpList2.end(); 
+		QList<Element*>::const_iterator it2 = tmpList2.begin(); it2++;
+		const QList<Element*>::const_iterator itEnd2 = tmpList2.end(); 
 		for ( ; it2 != itEnd2 ; ++it2 )
 		{ 
 			tmpList.append( *it2 ); 
@@ -132,8 +133,8 @@ void MolcalcWidget::slotPlusToggled(bool on)
 
 void MolcalcWidget::recalculate()
 {
-	QValueList<Element*>::const_iterator it = m_elements.begin( );
-	const QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+	QList<Element*>::const_iterator it = m_elements.begin( );
+	const QList<Element*>::const_iterator itEnd = m_elements.end( );
 
 	m_mass = 0.0;
 	
@@ -154,11 +155,11 @@ void MolcalcWidget::updateUI()
 	//the elements
 	QMap<Element*, int> map;
 	
-	QValueList<Element*>::const_iterator it = m_elements.begin( );
-	const QValueList<Element*>::const_iterator itEnd = m_elements.end( );
+	QList<Element*>::const_iterator it = m_elements.begin( );
+	const QList<Element*>::const_iterator itEnd = m_elements.end( );
 
-	QValueList<Element*> differentElements;
-	QValueList<Element*>::const_iterator itNames;
+	QList<Element*> differentElements;
+	QList<Element*>::const_iterator itNames;
 
 	for ( ; it != itEnd ; ++it )
 	{//get the different elements in the molecule
@@ -192,7 +193,7 @@ void MolcalcWidget::updateUI()
 	{//update the resultLabel
 		str += i18n( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2." ).arg( itMap.data() ).arg( itMap.key()->elname() );
 		str += "\n";
-		complexString += i18n( "For example: 1 Seaborgium. Cumulative Mass: 263.119 u (39.25%)", "%1 %2. Cumulative Mass: %3 u (%4%)\n" ).arg( itMap.data() ).arg( itMap.key()->elname() ).arg( itMap.data() * itMap.key()->mass() ).arg(Element::strippedValue( ((  itMap.data() * itMap.key()->mass() )/m_mass )*100) );
+		complexString += i18n( "For example: 1 Seaborgium. Cumulative Mass: 263.119 u (39.25%)", "%1 %2. Cumulative Mass: %3 u (%4%)\n" ).arg( itMap.data() ).arg( itMap.key()->elname() ).arg( itMap.data() * itMap.key()->mass() ).arg(KalziumUtils::strippedValue( ((  itMap.data() * itMap.key()->mass() )/m_mass )*100) );
 	}
 	
 	resultLabel->setText( str );

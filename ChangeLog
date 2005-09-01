@@ -1,6 +1,10 @@
 *** Changes after Kalzium Hydrogen ***
+Change:
+ - Make the plot window always plot on changes of setting
+   (No more having to press the Plot button.)
+	
 Add:
- - The spectrium dialog
+ - The spectrum dialog
  - The table now has a small gap over the rare earth
  - The isotope table provides now more data
    - halflife-periods
@@ -15,10 +19,12 @@ Add:
  - The menustructure is now more consistent
  - One icon has been added
  - Make the mainwidget a QScrollView. This make sizehandling easier
- - Improve the drawing of the tooltip. It is now handeled
-   by the windowmanager
- - Improved Layout of the detailed information dialog
+ - Improved layout of the detailed information dialog
  - Added a widget which shows you a table of the isotopes
  - Added EqChem, a chemical equation solver
  - Added several glossary-items
- - display no legend when the No Color-mode is choosen
+ - Display no legend when the No Color-mode is choosen
+ - The dialogboxes now have a help-button which will open the
+   correct page in the help
+ - The molecule parser for the weight calculator.
+ - adding the abundance of an element in a crustal rock (measured in ppm)

@@ -27,7 +27,7 @@
 #include <qtimer.h>
 
 class QPaintEvent;
-class QSimpleRichText;
+class Q3SimpleRichText;
 class QPixmap;
 class Element;
 class QTimer;
@@ -44,7 +44,7 @@ class KalziumTip : public QWidget
 	public:
 		enum MaskEffect { Plain, Dissolve };
 
-		KalziumTip( QWidget * parent = 0, const char * name = 0, WFlags f = 0 );
+		KalziumTip( QWidget * parent = 0, const char * name = 0, Qt::WFlags f = 0 );
 
 		void showTip( QPoint, Element* element, int visibleWidth, int visibleHeight ); //show the tip
 		void hide(); // hide it
@@ -71,7 +71,7 @@ class KalziumTip : public QWidget
 		QPixmap m_noElemIcon; //icon for element wich have no image
 
     		MaskEffect m_maskEffect; //inidicates to show mask effect or plain
-    		QSimpleRichText* m_richText;
+    		Q3SimpleRichText* m_richText;
 
     		int m_dissolveSize;
     		int m_dissolveDelta;

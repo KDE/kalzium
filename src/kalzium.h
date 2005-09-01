@@ -25,7 +25,7 @@ class QuizsettingsDlg;
 class SliderWidget;
 class QToolBox;
 class QVBoxLayout;
-class QDockWindow;
+class Q3DockWindow;
 class TempSlider;
 class DetailedInfoDlg;
 class PeriodicTableView;
@@ -119,7 +119,7 @@ class Kalzium : public KMainWindow
 
 		DetailedGraphicalOverview *m_detailWidget;
 
-		QDockWindow *m_dockWin;
+		Q3DockWindow *m_dockWin;
 		QToolBox *m_toolbox;
 		int m_toolboxCurrent;
 

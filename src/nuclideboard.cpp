@@ -82,7 +82,7 @@ void NuclideBoardDialog::slotHelp()
 
 
 NuclideBoard::NuclideBoard( QWidget *parent, const char* name ) 
-	: QScrollView( parent, name )
+	: Q3ScrollView( parent, name )
 {
 	kdDebug() << "NuclideBoard()" << endl;
 
@@ -132,18 +132,20 @@ int NuclideBoard::highestNeutronCount()
 {
 	kdDebug() << "NuclideBoard::highestNeutronCount()" << endl;
 
-	QValueList<Element*>::const_iterator it;
-	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop );
-
-	QValueList<Isotope*> isotopeList;
-	QValueList<Isotope*>::const_iterator isotope;
-	QValueList<Isotope*>::const_iterator isotopeEnd;
+/*
+	QList<Element*>::const_iterator it;
+	const QList<Element*>::const_iterator itEnd = m_list.at( m_stop );
+*/
+	QList<Isotope*> isotopeList;
+	QList<Isotope*>::const_iterator isotope;
+	QList<Isotope*>::const_iterator isotopeEnd;
 
 	int count = 0;
 
-	for ( it = m_list.at( m_start - 1 ); it != itEnd; ++it )
+//	for ( it = m_list.at( m_start - 1 ); it != itEnd; ++it )
+	for ( int i = m_start - 1; i < m_stop; i++ )
 	{
-		isotopeList = ( *it )->isotopes();
+		isotopeList = m_list[i]->isotopes();
 
 		if ( isotopeList.empty() )
 			continue;
@@ -164,18 +166,20 @@ int NuclideBoard::lowestNeutronCount()
 {
 	kdDebug() << "NuclideBoard::lowestNeutronCount()" << endl;
 
-	QValueList<Element*>::const_iterator it = m_list.at( m_start - 1 );
-	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
-
-	QValueList<Isotope*> isotopeList;
-	QValueList<Isotope*>::const_iterator isotope;
-	QValueList<Isotope*>::const_iterator isotopeEnd;
+/*
+	QList<Element*>::const_iterator it = m_list.at( m_start - 1 );
+	const QList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
+*/
+	QList<Isotope*> isotopeList;
+	QList<Isotope*>::const_iterator isotope;
+	QList<Isotope*>::const_iterator isotopeEnd;
 
 	int count = 1000;
 	
-	for (; it != itEnd; ++it )
+//	for (; it != itEnd; ++it )
+	for ( int i = m_start - 1; i < m_stop - 1; i++ )
 	{
-		isotopeList = ( *it )->isotopes();
+		isotopeList = m_list[i]->isotopes();
 		if ( isotopeList.empty() )
 			continue;
 
@@ -221,16 +225,18 @@ void NuclideBoard::updateList()
 
 	m_isotopeWidgetList.clear();
 
-	QValueList<Element*>::const_iterator it = m_list.at( m_start - 1 );
-	const QValueList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
+/*
+	QList<Element*>::const_iterator it = m_list.at( m_start - 1 );
+	const QList<Element*>::const_iterator itEnd = m_list.at( m_stop - 1 );
+*/
+	QList<Isotope*> isotopeList;
+	QList<Isotope*>::const_iterator isotope;
+	QList<Isotope*>::const_iterator isotopeEnd;
 
-	QValueList<Isotope*> isotopeList;
-	QValueList<Isotope*>::const_iterator isotope;
-	QValueList<Isotope*>::const_iterator isotopeEnd;
-
-	for ( ; it != itEnd; ++it )
+//	for ( ; it != itEnd; ++it )
+	for ( int i = m_start - 1; i < m_stop - 1; i++ )
 	{
-		isotopeList = ( *it )->isotopes();
+		isotopeList = m_list[i]->isotopes();
 		isotope = isotopeList.begin();
 		isotopeEnd = isotopeList.end();
 
@@ -244,7 +250,7 @@ void NuclideBoard::updateList()
 			addChild( widget );
 			widget->resize( m_isoWidth, m_isoWidth );		
 			widget->move( 60 + ( ( *isotope )->neutrons() - m_lowestNumberOfNeutrons ) * 50,
-					  50 + ( m_stop - ( *it )->number() ) * 50 );
+					  50 + ( m_stop - m_list[i]->number() ) * 50 );
 			m_isotopeWidgetList.append( widget );
 		}
 	}
@@ -254,8 +260,8 @@ void NuclideBoard::updateList()
 
 IsotopeWidget* NuclideBoard::getIsotopeWidget( Isotope* isotope )
 {
-       QValueList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
-       const QValueList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
+       QList<IsotopeWidget*>::const_iterator it = m_isotopeWidgetList.begin();
+       const QList<IsotopeWidget*>::const_iterator itEnd = m_isotopeWidgetList.end();
 
        for (; it != itEnd; ++it )
        {
@@ -312,8 +318,8 @@ void Decay::showDecay()
 {
 	// iterate through all isotopeWidgets and set them active = true
 
-	QValueList<IsotopeWidget*>::const_iterator it = m_list.begin();
-	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_list.end();
+	QList<IsotopeWidget*>::const_iterator it = m_list.begin();
+	const QList<IsotopeWidget*>::const_iterator itEnd = m_list.end();
 
 	while ( it != itEnd )
 	{
@@ -326,8 +332,8 @@ void Decay::hideDecay()
 {
 	// iterate through all isotopeWidgets and set them active = false
 
- 	QValueList<IsotopeWidget*>::const_iterator it = m_list.begin();
-	const QValueList<IsotopeWidget*>::const_iterator itEnd = m_list.end();
+ 	QList<IsotopeWidget*>::const_iterator it = m_list.begin();
+	const QList<IsotopeWidget*>::const_iterator itEnd = m_list.end();
 
 	while ( it != itEnd )
 	{
@@ -350,10 +356,10 @@ void Decay::buildDecayRow()
 {
        	kdDebug() << "Decay::buildDecayRow()" << endl;
 
-       	QValueList<Isotope*> tmpIsotopes;
-       	QValueList<Isotope*> tmp;
-       	QValueList<Isotope*>::const_iterator iso;
-       	QValueList<Isotope*>::const_iterator isoEnd;
+       	QList<Isotope*> tmpIsotopes;
+       	QList<Isotope*> tmp;
+       	QList<Isotope*>::const_iterator iso;
+       	QList<Isotope*>::const_iterator isoEnd;
 
        	tmpIsotopes.append( m_startIsotope );
 
@@ -396,8 +402,8 @@ void Decay::buildDecayRow()
 Isotope* Decay::getIsotope( int protones, int neutrons )
 {
        kdDebug() << "Decay::getIsotope()" << endl;
-       QValueList<Isotope*> tmpList = m_elements[ protones ]->isotopes();
-       QValueList<Isotope*>::const_iterator it;
+       QList<Isotope*> tmpList = m_elements[ protones ]->isotopes();
+       QList<Isotope*>::const_iterator it;
 
        if ( tmpList.empty() )
                return 0;
