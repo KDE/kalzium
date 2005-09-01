@@ -41,8 +41,9 @@ void PlotWidget::drawObjects( QPainter *p )
 
 	QPoint old; // used to remember last coordinates
 	bool first = true;
-	for ( KPlotObject *po = ObjectList.first(); po; po = ObjectList.next() ) 
+	for ( QList<KPlotObject*>::ConstIterator it = ObjectList.begin(); it != ObjectList.constEnd(); ++it ) 
 	{
+		KPlotObject* po = *it;
 		// skip empty plot objects
 		if ( po->points()->count() == 0 ) continue;
 		// skip non-point plot objects
@@ -51,9 +52,10 @@ void PlotWidget::drawObjects( QPainter *p )
 		// draw the connecting lines
 		p->setPen( QColor( po->color() ) );
 		p->setBrush( QColor( po->color() ) );
-		for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() ) 
+//		for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() ) 
+		for ( QList<DPoint*>::ConstIterator dpit = po->points()->begin(); dpit != po->points()->constEnd(); ++dpit ) 
 		{
-			QPoint q = dp->qpoint( PixRect, DataRect );
+			QPoint q = ( *dpit )->qpoint( PixRect, DataRect );
 
 			if ( first ) 
 				first = false;

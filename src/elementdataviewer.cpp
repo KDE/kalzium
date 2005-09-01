@@ -26,6 +26,7 @@
 #include <kapplication.h>
 
 //QT-Includes
+#include <qevent.h>
 #include <qlayout.h>
 #include <qcheckbox.h>
 #include <qlabel.h>
