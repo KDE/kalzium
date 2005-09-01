@@ -44,7 +44,7 @@ public:
 
     MoleculeParser();
     MoleculeParser( const QString& _str);
-    ~MoleculeParser();
+    virtual ~MoleculeParser();
 
     /**
      * Try to parse the molecule @p molecule and get the weight of it.

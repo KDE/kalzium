@@ -32,7 +32,7 @@ public:
 
     Parser();
     Parser(const QString& _str);
-    ~Parser();
+    virtual ~Parser();
 
     /**
      * Start a new parse.
