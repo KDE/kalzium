@@ -341,6 +341,29 @@ void Element::drawGradient( QPainter* p, const QString& value, const QColor& c)
 	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
 }
 
+void Element::drawGrayedOut( QPainter *p )
+{ 
+	//The X-coordiante
+	int X = xPos();
+	
+	//The Y-coordinate
+	int Y = yPos();
+	
+	p->fillRect( X, Y,ELEMENTSIZE,ELEMENTSIZE, Qt::lightGray );
+	
+	p->setPen( Qt::darkGray );
+	
+	QFont symbol_font = p->font();
+	const QRect rect = QRect( X,Y,ELEMENTSIZE-2,ELEMENTSIZE-10 );
+	int goodsize = KalziumUtils::maxSize( symbol(), rect, symbol_font, p );
+	symbol_font.setPointSize( goodsize );
+	p->setFont( symbol_font );
+	p->drawText( X+1,Y+5, ELEMENTSIZE-2,ELEMENTSIZE-10,Qt::AlignCenter, symbol() );
+
+	p->setPen( Qt::black );
+	p->drawRect( X, Y,ELEMENTSIZE+1,ELEMENTSIZE+1);
+}
+
 void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 {
 	//the height of a "line" inside an element

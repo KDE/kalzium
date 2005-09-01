@@ -495,6 +495,12 @@ class Element{
 		virtual void drawGradient( QPainter* p, const QString& value, const QColor& c);
 		
 		/**
+		 * Draw the Element grayed out. Used in the timeline
+		 * @param p the painter used for the painting
+		 */
+		virtual void drawGrayedOut( QPainter* p );
+		
+		/**
 		 * draw the rectangle with the information
 		 * @param p painter to do the drawing on
 		 * @param simple if True more information will be shown
