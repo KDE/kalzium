@@ -2,7 +2,7 @@
 INCLUDES= -I$(srcdir)/../../libkdeedu/kdeeduplot -I$(srcdir)/../../libkdeedu/kdeeduui $(all_includes)
 
 bin_PROGRAMS = kalzium
-kalzium_SOURCES = eqresult.cpp eqchemview.cpp kalzium.cpp \
+kalzium_SOURCES = kalzium.cpp \
 			main.cpp \
 			periodictableview.cpp \
 			element.cpp \
