@@ -38,9 +38,9 @@ kalzium_SOURCES = eqresult.cpp eqchemview.cpp kalzium.cpp \
 			moleculeparser.cpp \
 			tempunit.cpp
 
-kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) -L$(OCAMLLIB) -L$(FACILELIB) $(EQCHEM_LDADD)
+kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)
 
-SUBDIRS = icons elementpics data $(EQCHEM_SUB)
+SUBDIRS = icons elementpics data 
 
 EXTRA_DIST = main.cpp \
 		kalzium.cpp kalzium.h \
