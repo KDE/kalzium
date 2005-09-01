@@ -155,7 +155,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 	{
 		case CHEMICAL:
 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( "<b>" + i18n( "Orbital structure: %1" ).arg( m_element->parsedOrbits() ) + "</b>" );
+			html.append( "<b>" + i18n( "Electronic configuration: %1" ).arg( m_element->parsedOrbits() ) + "</b>" );
 			html.append( "</td></tr>" );
 			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
 			html.append( "<b>" + i18n( "Density: %1" ).arg( m_element->adjustUnits( Element::DENSITY ) ) + "</b>" );
