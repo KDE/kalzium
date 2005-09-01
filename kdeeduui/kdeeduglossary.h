@@ -242,6 +242,14 @@ class GlossaryDialog : public KDialogBase
 	Q_OBJECT
 
 	public:
+		/**
+		 * Creates a new dialog for a glossary.
+		 *
+		 * @param folded whether to fold the various items in subtrees depending on the
+		 * first letter of every item
+		 * @param parent the parent of the new dialog
+		 * @param name the optional name of the new dialog
+		 */
 		GlossaryDialog( bool folded = true, QWidget *parent=0, const char *name=0);
 		~GlossaryDialog();
 
