@@ -373,6 +373,8 @@
 				 <para>At the bottom of the page is the <guilabel>Export Spectrum as 
 						 Image</guilabel>-button. With it you can save the current spectrum
 				 as an image file.</para>
+			 <para>To zoom out of the view by 10% press the right mouse button while
+			 the mouse is inside the spectrum.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
