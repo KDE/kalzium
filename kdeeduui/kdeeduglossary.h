@@ -18,9 +18,6 @@
 
 #include <khtml_part.h>
 #include <kdialogbase.h>
-//Added by qt3to4:
-#include <Q3ValueList>
-#include <QKeyEvent>
 
 class QChar;
 class QDomDocument;
@@ -41,7 +38,7 @@ class Glossary
 {
 	public:
 		Glossary();
-		~Glossary();
+		virtual ~Glossary();
 
 		/**
 		 * add the item @p item to the glossary
@@ -50,7 +47,7 @@ class Glossary
 			m_itemlist.append( item );
 		}
 
-		Q3ValueList<GlossaryItem*> itemlist()const{
+		QList<GlossaryItem*> itemlist()const{
 			return m_itemlist;
 		}
 
@@ -84,7 +81,7 @@ class Glossary
 		/**
 		 * sets the internal list of items to @p list
 		 */
-		void setItemlist( Q3ValueList<GlossaryItem*> list ){
+		void setItemlist( QList<GlossaryItem*> list ){
 			m_itemlist = list;
 		}
 
@@ -133,9 +130,9 @@ class Glossary
 		/**
 		 * This methods parses the given xml-code. It will extract
 		 * the information of the items and return them as a
-		 * QValueList<GlossaryItem*>
+		 * QList<GlossaryItem*>
 		 */
-		virtual Q3ValueList<GlossaryItem*> readItems( QDomDocument &itemDocument );
+		virtual QList<GlossaryItem*> readItems( QDomDocument &itemDocument );
 		
 		QString m_backgroundpicture;
 
@@ -162,7 +159,7 @@ class Glossary
 		 */
 		bool loadLayout( QDomDocument& doc, const KURL& url );
 	
-		Q3ValueList<GlossaryItem*> m_itemlist;
+		QList<GlossaryItem*> m_itemlist;
 		
 		/**
 		 * the name of the glossary
@@ -258,7 +255,7 @@ class GlossaryDialog : public KDialogBase
 		void addGlossary( Glossary* newgloss );
 
 	private:
-		Q3ValueList<Glossary*> m_glossaries;
+		QList<Glossary*> m_glossaries;
 
 		/**
 		 * if true the items will be displayed folded
