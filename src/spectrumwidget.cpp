@@ -275,27 +275,51 @@ void SpectrumWidget::keyPressEvent( QKeyEvent *e )
 	switch ( e->key() )
 	{
 		case Qt::Key_Plus:
-		case Qt::Key_Equal:
 			slotZoomIn();
 			break;
 		case Qt::Key_Minus:
-		case Qt::Key_Underscore:
 			slotZoomOut();
-			break;
-		case Qt::Key_Escape:
-			close();
 			break;
 	}
 }
 
 void SpectrumWidget::slotZoomOut()
 {
-	kdDebug() << "SpectrumWidget::slotZoomOut()" << endl;
+	kdDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue << endl;
+
+	double diff = endValue - startValue;
+	
+	double offset = diff * 0.05;
+
+	endValue = endValue + offset;
+	startValue = startValue - offset;
+
+	//check for invalid values
+	if ( startValue < 0.0 )
+		startValue = 0.0;
+
+	if ( endValue > 800.0 )
+		endValue = 800.0;
+
+	setBorders( ( int ) startValue, ( int )endValue );
+			
+	kdDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue << endl;
 }
 
 void SpectrumWidget::slotZoomIn()
 {
-	kdDebug() << "SpectrumWidget::slotZoomIn()" << endl;
+	kdDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue << endl;
+
+	double diff = endValue - startValue;
+	
+	double offset = diff * 0.05;
+
+	endValue = endValue - offset;
+	startValue = startValue + offset;
+
+	setBorders( ( int ) startValue, ( int )endValue );
+			
+	kdDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue << endl;
 }
 
 void SpectrumWidget::mouseMoveEvent( QMouseEvent *e )
@@ -309,7 +333,11 @@ void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
 	if (  e->button() == Qt::LeftButton )
 		m_LMBPointPress = e->pos();
 	if (  e->button() == Qt::RightButton )
-		PrepareTooltip( Wavelength( ( double )e->pos().x()/width() ) );
+		slotZoomOut();
+//FIXME
+//the tooltip is not really working. Better to not have it
+//in KDE 3.4 and think of a better solution.
+//PrepareTooltip( Wavelength( ( double )e->pos().x()/width() ) );
 }
 
 void SpectrumWidget::PrepareTooltip( double wavelength )
@@ -381,18 +409,10 @@ void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 		if ( left == right )
 			return;
 
-//X 		kdDebug() << "left:" << QString::number( left ) << endl;
-//X 		kdDebug() << "right:" << QString::number( right ) << endl;	
 		if ( left > right )
-		{
 			setBorders( right, left );
-			emit bordersChanged( right, left );
-		}
 		else
-		{
 			setBorders( left, right );
-			emit bordersChanged( left, right );
-		}
 	}
 
 	m_LMBPointPress.setX( -1 );
