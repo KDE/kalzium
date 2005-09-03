@@ -51,15 +51,23 @@ class SpectrumWidget : public QWidget
 		/**
 		 * This limits the width of the spectrum in terms of
 		 * wavelength. For example you can set it to only
-		 * show the area between 500 and 550 nm
+		 * show the area between 500 and 550 nm. Invalid values
+		 * will be set back to the default start- and stopvalues
 		 *
 		 * @param left the left border
 		 * @param right the right border
 		 */
 		void setBorders( double left, double right ){
+			//check for invalid values
+			if ( startValue < 0.0 )
+				startValue = 0.0;
+
+			if ( endValue > 800.0 )
+				endValue = 800.0;
+			
 			startValue = left;
 			endValue = right;
-			
+
 			update();
 		}
 		
@@ -211,9 +219,6 @@ class SpectrumWidget : public QWidget
 			m_type = ( SpectrumType )spectrumtype;
 			update();
 		}
-
-	signals:
-		void bordersChanged( int, int );
 
 	private slots:
 		void slotZoomIn();

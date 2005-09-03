@@ -415,6 +415,12 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 			 * kdp: kubisch dicht gepackt
 			 * hdp: hexagonal dicht gepackt
 			 * ccp: cubic close packed // kubisch dichteste Kugelpackung
+			 * d  : diamond
+			 * sc : simple cubic
+			 * tet: tetragonal
+			 * rh : rhombohedral
+			 * or : orthorhombic
+			 * mono: monoclinic
 			 */
 			if ( structure == "own")
 				text = i18n( "this means, the element has its 'own' structur", "own" );

@@ -5,7 +5,7 @@ OCAMLOPT = ocamlopt
 OCAMLDEP = ocamldep
 INCLUDES = -I +facile
 OPTOPT = 
-OCAMLLIB := $(shell echo `ocamlc -where`)
+OCAMLLIB := /usr/lib/ocaml/3.08
 FACILELIB = $(OCAMLLIB)/facile
 
 
