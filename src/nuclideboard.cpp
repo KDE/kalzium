@@ -43,7 +43,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-static const int MaxIsotopeSize = 45;
+static const int MaxIsotopeSize = 60;
 static const int MinIsotopeSize = 12;
 
 static const int MaxElementDisplayed = 111;
@@ -78,11 +78,6 @@ kdDebug() << k_funcinfo << m_firstElemNucleon << " ... " << m_lastElemNucleon <<
 	repaint();
 }
 
-/**
- * in this method everything beside the drawing is correct.
- * For some reasons the QRect is not drawn, the dimentions
- * of it are absolutly correct
- */
 void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 {
 	QPixmap pm( width(), height() );
@@ -91,7 +86,6 @@ void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 	QPainter p;
 	p.begin( &pm, this );
 	
-	drawAxisLabels( &p );
 	drawIsotopeWidgets( &p );
 
 	if ( m_duringSelection )
@@ -114,34 +108,26 @@ void IsotopeTableView::resizeEvent( QResizeEvent */*e*/ )
 	update();
 }
 
-QRect IsotopeTableView::getNewCoords( const QRect& rect1 ) const
+QRect IsotopeTableView::getNewCoords( const QRect& rect ) const
 {
 	QRect ret;
 
 	int i = 0;
 	int a = 0;
 
-	QRect rect( m_scroll->viewportToContents( rect1.topLeft() ),
-	            m_scroll->viewportToContents( rect1.bottomRight() ) );
-
 kdDebug() << "ORIG RECT: " << rect << endl
           << "OUR SIZE:  " << size() << endl;
 
 	i = 0;
-	a = abs( height() - rect.topLeft().y() );
-kdDebug() << "a: " << a << endl;
-	while ( i * m_rectSize < a )
-	{
-//kdDebug() << i << " - " << i * m_rectSize << endl;
-		i++;
-	}
+	a = height() - rect.top();
+	while ( i * m_rectSize < a ) i++;
 kdDebug() << "TOP: " << i << endl;
 	ret.setTop( m_firstElem + i - 1 );
 
 	i = 0;
 	while ( i * m_rectSize < rect.right() ) i++;
 kdDebug() << "RIGHT: " << i << endl;
-	ret.setRight( m_firstElemNucleon + i );
+	ret.setRight( m_firstElemNucleon + i - 1 );
 
 	i = 0;
 	a = abs( height() - rect.bottomLeft().y() );
@@ -166,36 +152,6 @@ kdDebug() << "RECT normalized: " << ret << endl;
 
 void IsotopeTableView::selectionDone( QRect selectedRect )
 {
-/*
-	//safe the old positions
-	m_oldBottomRight = m_bottomRight;
-	m_oldTopLeft = m_topLeft;
-	
-	//FIXME This is plain wrong. I need to calculate realive to the old
-	//size...
-	//for thie maxElementNumberDisplayed and minElementNumberDisplayed
-	//have to be adjusted: The first and the last line which is displaying
-	//and element. If line 1 show element 90 and the last line displays element
-	//34 the will have the value 90 and 34
-	m_topLeft =  QPoint( selectedRect.x(), selectedRect.y() );
-	m_bottomRight = QPoint( selectedRect.x() + selectedRect.width(),
-							selectedRect.y() + selectedRect.height() );
-
-	kdDebug() << "links, x:" <<
-		m_topLeft.x() - m_oldTopLeft.x() <<
-		" :links, y: " <<
-		m_topLeft.y() - m_oldTopLeft.y() <<
-		" :rechts, x: " <<
-		m_oldBottomRight.x() - m_bottomRight.x() <<
-		" :rechts,y: " <<
-		m_oldBottomRight.y() - m_bottomRight.y() <<
-		endl;
-
-	m_topLeft /= m_rectSize;
-	m_bottomRight /= m_rectSize;
-
-	updateMinMaxValue();
-*/
 	QRect r = getNewCoords( selectedRect );
 	// I know it's strange, but somehow sometimes the bottom and the
 	// top are swapped...
@@ -204,48 +160,23 @@ void IsotopeTableView::selectionDone( QRect selectedRect )
 	m_firstElemNucleon = kMin( r.left(), r.right() );
 	m_lastElemNucleon = kMax( r.left(), r.right() );
 
+	// tell to the updateIsoptopeRectList() to recalc the size of every
+	// element rect
 	m_rectSize = -1;
 
 	//now update the list of isotopes to be displayed
 	updateIsoptopeRectList();
 }
 
-void IsotopeTableView::updateMinMaxValue()
-{
-
-}
-
 void IsotopeTableView::updateIsoptopeRectList()
 {
-	kdDebug() << "IsotopeTableView::updateIsoptopeRectList()" << endl;
 	m_IsotopeAdapterRectMap.clear();
 	
-//	const int numOfElements = m_bottomRight.y() - m_topLeft.y();
 	const int numOfElements = m_lastElem - m_firstElem + 1;
 	const int numOfNucleons = m_lastElemNucleon - m_firstElemNucleon + 1;
 
-/*
-	int firstElement = maxElementNumberDisplayed-m_bottomRight.y();
-	int lastElement = maxElementNumberDisplayed-m_topLeft.y();
-
-	kdDebug () << firstElement << " ... " << lastElement << endl;
-*/
 	kdDebug () << m_firstElem << " ... " << m_lastElem << endl;
 	kdDebug () << "Nucleons: " << m_firstElemNucleon << " ... " << m_lastElemNucleon << endl;
-
-/*
-	if ( firstElement < 1 || firstElement > 111 ) return;
-	if ( lastElement < 1 || lastElement > 111 ) return;
-*/
-
-/*	
-	QValueList<Element*>::ConstIterator it = m_list.at( m_firstElem );
-	const QValueList<Element*>::ConstIterator itEnd = m_list.at( m_lastElem );
-	
-	//get the min/max numbers of the isotopes.
-	const int minNucleons = minNumberOfNucleons( it, itEnd );
-	const int maxNucleons = maxNumberOfNucleons( it, itEnd );
-*/
 
 	if ( m_rectSize < 1 ) // need to recalc the size
 	{
@@ -259,14 +190,13 @@ void IsotopeTableView::updateIsoptopeRectList()
 			m_rectSize = (int)kMin( height() / (double)numOfElements,
 			                        width() / (double)numOfNucleons );
 		}
-//*
+/*
 kdDebug() << "width(): " << width() << " - height(): " << height()
           << " - noe: " << numOfElements << " - non: " << numOfNucleons
 //          << " - a: " << a << " - b: " << b
           << " - size(): " << size()
           << " - m_rectSize: " << m_rectSize << endl;
 //*/
-//kdDebug() << "m_rectSize: " << m_rectSize << endl;
 		if ( m_rectSize < MinIsotopeSize )
 		{
 			m_rectSize = MinIsotopeSize;
@@ -287,22 +217,12 @@ kdDebug() << "size(): " << size() << endl;
 */
 	}
 	
-//	if ( minNucleons < 1 ) return;
-	
-//X 	int tempSizeH = ( lastElement-firstElement )/height();
-//X 	int tempSizeW = ( maxNucleons - minNucleons )/width();
-//X 
-//X 	m_rectSize = kMin( tempSizeW, tempSizeH );
-//X 
-//X 	kdDebug() << "Size calculation: " << tempSizeH << " and " << tempSizeW << endl;
-	
 	IsotopeList isotopeList;
 	IsotopeList::ConstIterator isotope;
 	IsotopeList::ConstIterator isotopeEnd;
 
 	int id = 0;
 
-//	for ( int countY = numOfElements ; it != itEnd; ++it )
 	for ( int i = m_firstElem; i <= m_lastElem; i++ )
 	{
 //kdDebug() << k_funcinfo << "i: " << i << endl;
@@ -311,89 +231,29 @@ kdDebug() << "size(): " << size() << endl;
 
 //		kdDebug() << "el: " << el->elname() << " (" << el->number() <<")" << endl;
 		isotopeList = isotopesWithNucleonsInRange( el, m_firstElemNucleon, m_lastElemNucleon );
-//		isotopeList = el->isotopes();
 		isotopeEnd = isotopeList.constEnd();
 		isotope = isotopeList.constBegin();
-kdDebug() << k_funcinfo << "isolist: " << isotopeList.count() << endl;
+//kdDebug() << k_funcinfo << "isolist: " << isotopeList.count() << endl;
 		
 		for ( ; isotope != isotopeEnd; ++isotope )
 		{
 			Isotope* iso = *isotope;
 			if ( !iso ) continue;
 
-//			int Xpositon = iso->nucleons() - minNucleons;
 			int Xpositon = iso->nucleons() - m_firstElemNucleon;
 
-/*
-			QRect boundingRect = QRect( 
-					Xpositon*m_rectSize, 
-					countY*m_rectSize, 
-					m_rectSize, m_rectSize);
-*/
 			QRect boundingRect = QRect( 
 					Xpositon*m_rectSize, 
 					( numOfElements - id - 1 ) * m_rectSize,
 					m_rectSize, m_rectSize);
-kdDebug() << k_funcinfo << boundingRect << endl;
-			
-//X			kdDebug() << "boundRect of the adapter: " << boundingRect << " Isotope of the adapter with " << iso->neutrons() << " neutrons." << endl;
-			
+//kdDebug() << k_funcinfo << boundingRect << endl;
+
  			m_IsotopeAdapterRectMap.insert(iso, boundingRect);
 		}
-//		countY--;
 		++id;
 	}
 
 	update();
-}
-
-int IsotopeTableView::maxNumberOfNucleons( 
-		QValueList<Element*>::ConstIterator it,
-		QValueList<Element*>::ConstIterator itEnd )
-{
-	int maxNumber = 0;
-	for ( ; it != itEnd; ++it )
-	{
-		Element* el = *it;
-
-		if ( !el ) continue;
-
-		IsotopeList isotopeList = el->isotopes();
-		IsotopeList::const_iterator isoIt = isotopeList.constBegin();
-		IsotopeList::const_iterator isoItEnd = isotopeList.constEnd();
-
-		for ( ; isoIt != isoItEnd; ++isoIt )
-		{
-			if ( ( *isoIt )->nucleons() > maxNumber )
-				maxNumber = ( *isoIt )->nucleons();
-		}
-	}
-	return maxNumber;
-}
-
-int IsotopeTableView::minNumberOfNucleons( QValueList<Element*>::ConstIterator it,
-		QValueList<Element*>::ConstIterator itEnd )
-{
-	int minNumber = 1000;
-
-	for ( ; it != itEnd; ++it )
-	{
-		Element* el = *it;
-
-		if ( !el ) continue;
-
-		IsotopeList isotopeList = el->isotopes();
-		IsotopeList::const_iterator isoIt = isotopeList.constBegin();
-		IsotopeList::const_iterator isoItEnd = isotopeList.constEnd();
-		
-		for ( ; isoIt != isoItEnd; ++isoIt )
-		{
-			if ( ( *isoIt )->nucleons() < minNumber )
-				minNumber = ( *isoIt )->nucleons();
-		}
-	}
-
-	return minNumber;
 }
 
 int IsotopeTableView::minNucleonOf( Element* el, int lowerbound ) const
@@ -449,12 +309,10 @@ QValueList<Isotope*> IsotopeTableView::isotopesWithNucleonsInRange( Element* el,
 
 	for ( ; isoIt != isoItEnd; ++isoIt )
 	{
-//kdDebug() << "# NUCLEONS: " << ( *isoIt )->nucleons() << endl;
 		if ( ( ( *isoIt )->nucleons() >= lowerbound ) &&
 		     ( ( *isoIt )->nucleons() <= upperbound ) )
 		{
 			isolist.append( ( *isoIt ) );
-//kdDebug() << "             ---> OK" << endl;
 		}
 	}
 
@@ -479,16 +337,11 @@ QColor IsotopeTableView::isotopeColor( Isotope* isotope )
 		return Qt::magenta;
 }
 
-void IsotopeTableView::drawAxisLabels( QPainter *p )
-{
-	( void )p;
-}
-		
 void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 {
 	QMap<Isotope*, QRect>::ConstIterator it = m_IsotopeAdapterRectMap.constBegin();
 	const QMap<Isotope*, QRect>::ConstIterator itEnd = m_IsotopeAdapterRectMap.constEnd();
-		
+
 	QFont f = p->font();
 	f.setPointSize( KalziumUtils::maxSize( "22", QRect( 0, 0, m_rectSize, m_rectSize ), f, p ) );
 	p->setFont( f );
@@ -497,7 +350,6 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 	{
 		Isotope* i = it.key();
 	
-
 		if ( i )
 		{
 			QColor color( isotopeColor( i ) ) ;
@@ -525,15 +377,15 @@ void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
 	QString text;
 
 	p.fillRect( 10, 10, 10, 10, Qt::blue );
-	text = i18n( "%1- %2" ).arg( QChar( 946 ) ).arg( i18n( "Decay" ) );
+	text = i18n( "%1- Decay" ).arg( QChar( 946 ) );
 	p.drawText( 30, 20, text );
 
 	p.fillRect( 10, 30, 10, 10, Qt::red );
-	text =  i18n( "%1+ %2" ).arg( QChar( 946) ).arg( i18n( "Decay" ) );
+	text =  i18n( "%1+ Decay" ).arg( QChar( 946) );
 	p.drawText( 30, 40, text );
 
 	p.fillRect( 120, 10, 10, 10, Qt::yellow );
-	text =  i18n( "%1 %2" ).arg( QChar( 945 ) ).arg( i18n( "Decay" ) );
+	text =  i18n( "%1 Decay" ).arg( QChar( 945 ) );
 	p.drawText( 140, 20, text );
 
 	p.fillRect( 120, 30, 10, 10, Qt::green );
@@ -542,7 +394,7 @@ void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
 
 	p.fillRect( 230, 10, 10, 10, Qt::magenta );
 	text =  i18n( "Stable" );
-	p.drawText( 250, 20, text ); 
+	p.drawText( 250, 20, text );
 }
 
 IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
@@ -562,7 +414,6 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
 	vbox->addWidget( helperSV );
 
 	m_view = new IsotopeTableView( big_box, helperSV, "view" );
-//	m_view->setMinimumSize( 800,800 );
 	m_view->installEventFilter( this );
 
 	NuclideLegend *legend = new NuclideLegend( page, "legend" );

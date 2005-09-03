@@ -68,14 +68,6 @@ class IsotopeTableView : public QWidget
 		QWidget *m_parent;
 		QScrollView *m_scroll;
 
-		int minNumberOfNucleons(
-				QValueList<Element*>::ConstIterator it,
-				QValueList<Element*>::ConstIterator itEnd );
-		
-		int maxNumberOfNucleons( 
-				QValueList<Element*>::ConstIterator it,
-				QValueList<Element*>::ConstIterator itEnd );
-
 		int minNucleonOf( Element* el, int lowerbound = 0 ) const;
 
 		int maxNucleonOf( Element* el, int upperbound = 500 ) const;
@@ -98,8 +90,6 @@ class IsotopeTableView : public QWidget
 
 		QPoint m_firstPoint;
 
-		void updateMinMaxValue();
-
 		int m_firstElem;
 		int m_lastElem;
 		int m_firstElemNucleon;
@@ -116,11 +106,6 @@ class IsotopeTableView : public QWidget
 		virtual void paintEvent( QPaintEvent *e );
 		
 		virtual void resizeEvent( QResizeEvent *e );
-		
-		/**
-		 * draw the x and y axis 
-		 */
-		void drawAxisLabels( QPainter *p );
 		
 		/**
 		 * draw the isotope widgets
