@@ -19,17 +19,10 @@ Bugs
   guess. Something like that was in Kalzium of KDE 3.1 I
   think.  But my implementation sucked so much I removed it.
 
-* Calculator: On "Remove": 'Grey out' the elements which are not
-  in the molecule so that it is easier to spot the elements which
-  can be removed.
-
 * Add KHotNewStuff support (xml) so that a user can define which
   dates are displayed in the timeline (see SOM)
   
 * Log-scale of the gradient						
-
-* Make the glossary also into a dictionary
-  CN: I don't understand this point...
 
 * Plotting
   + Add groups of elements, for example "Metals", 4th Period		
@@ -63,7 +56,7 @@ Bugs
 * Add lesson-mode? The idea is that a teacher could create xml-files
   which can somehow be used as lessons. Perhaps something like
   "find out how many element boild at 200 Degree Celsius and above.
-  With that information: Why is it so?"
+  With the information: Why is it so?"
 
 * Add experiental mode: A teacher defines experiments (in xml) where
   fotos and texts are used to represent a experiment/task. Perhaps

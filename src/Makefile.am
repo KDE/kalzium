@@ -27,7 +27,6 @@ kalzium_SOURCES = eqresult.cpp eqchemview.cpp kalzium.cpp \
 			isotope.cpp \
 			kalziumdataobject.cpp \
 			spectrumwidget.cpp \
-			nuclideboard.cpp \
 			exporter.cpp \
 			spectrumview.ui \
 			spectrumviewimpl.cpp \
@@ -60,7 +59,6 @@ EXTRA_DIST = main.cpp \
 		isotope.cpp isotope.h \
 		kalziumdataobject.cpp kalziumdataobject.h \
 		spectrumwidget.cpp spectrumwidget.h \
-		nuclideboard.cpp nuclideboar.h \
 		exporter.cpp exporter.h \
 		spectrumview.ui \
 		spectrumviewimpl.cpp spectrumviewimpl.h	\

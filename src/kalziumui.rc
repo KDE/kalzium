@@ -23,7 +23,6 @@
   </Menu>
   <Menu name="miscmenu"><text>&amp;Tools</text>
     <Action name="tools_plotdata" />
-    <Action name="tools_isotopetable" />
     <Action name="tools_glossary" />
     <Action name="tools_eqsolver" />
   </Menu>

@@ -34,7 +34,6 @@ class DetailedGraphicalOverview;
 class TimeWidgetIMPL;
 class SOMWidgetIMPL;
 class GlossaryDialog;
-class IsotopeTable;
 
 /**
  * @short Application Main Window
@@ -90,7 +89,7 @@ class Kalzium : public KMainWindow
 		 */
 		KSelectAction *gradient_action;
 		KSelectAction *numeration_action;
-		KAction *m_pPlotAction, *m_pIsotopeTableAction,
+		KAction *m_pPlotAction, 
 				*m_pGlossaryAction;
 		
 		KAction *m_pTooltipAction;
@@ -155,12 +154,6 @@ class Kalzium : public KMainWindow
 		
 		void slotSwitchtoNumeration(int);
 		
-		/**
-		 *start the isotopetable
-		 */
-		 void slotIsotopeTable();
-		 		 
-		 
 		/**
 		 * this will make the periodic table display the gradient
 		 * defined by @p int gradient

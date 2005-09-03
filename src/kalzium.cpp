@@ -29,7 +29,6 @@
 #include "timewidget_impl.h"
 #include "somwidget_impl.h"
 #include "kalziumdataobject.h"
-#include "nuclideboard.h"
 #include "config.h"
 
 #include <qdockwindow.h>
@@ -149,7 +148,6 @@ void Kalzium::setupActions()
 	
 	// tools actions
 	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "tools_plotdata");
-	m_pIsotopeTableAction = new KAction(i18n("&Isotope Table..."), "isotopemap", 0, this, SLOT(slotIsotopeTable()), actionCollection(), "tools_isotopetable");
 	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "tools_glossary");
 
 	// other period view options
@@ -267,12 +265,6 @@ void Kalzium::slotShowEQSolver()
 
 	dlg->show();
 #endif
-}
-
-void Kalzium::slotIsotopeTable()
-{
-	IsotopeTableDialog *ndialog = new IsotopeTableDialog( this );
-	ndialog->show();
 }
 
 void Kalzium::slotPlotData()
