@@ -22,6 +22,7 @@
 
 #include <qwidget.h>
 #include <qlist.h>
+#include <qpair.h>
 #include <qpoint.h>
 #include <qrect.h>
 
@@ -84,7 +85,7 @@ class IsotopeTableView : public QWidget
 		/**
 		 * @return the color of the isotope @p isotope
 		 */
-		QColor isotopeColor( Isotope* isotope );
+		QPair<QColor, QColor> isotopeColor( Isotope* isotope );
 
 		QMap<Isotope*, QRect> m_IsotopeAdapterRectMap;
 

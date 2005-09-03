@@ -31,6 +31,7 @@
 #include <qlayout.h>
 #include <qpainter.h>
 #include <qpixmap.h>
+#include <qpolygon.h>
 #include <q3scrollview.h>
 #include <qsizepolicy.h>
 #include <qtimer.h>
@@ -72,10 +73,9 @@ IsotopeTableView::IsotopeTableView( QWidget* parent, Q3ScrollView *scroll, const
 
 kdDebug() << k_funcinfo << m_firstElemNucleon << " ... " << m_lastElemNucleon << endl;
 
-//	QTimer::singleShot( 0, this, SLOT( updateIsoptopeRectList() ) );
+	// updating the list of isotope rects...
 	updateIsoptopeRectList();
-
-//	QTimer::singleShot( 100, this, SLOT( repaint() ) );
+	// ... and repainting
 	repaint();
 }
 
@@ -123,32 +123,30 @@ kdDebug() << "ORIG RECT: " << rect << endl
 
 	i = 0;
 	a = height() - rect.top();
-	while ( i * m_rectSize < a ) i++;
+	while ( i * ( m_rectSize - 1 ) < a ) i++;
 kdDebug() << "TOP: " << i << endl;
 	ret.setTop( m_firstElem + i - 1 );
 
 	i = 0;
-	while ( i * m_rectSize < rect.right() ) i++;
+	while ( i * ( m_rectSize - 1 ) < rect.right() ) i++;
 kdDebug() << "RIGHT: " << i << endl;
 	ret.setRight( m_firstElemNucleon + i - 1 );
 
 	i = 0;
-	a = abs( height() - rect.bottomLeft().y() );
-	while ( i * m_rectSize < a ) i++;
+	a = height() - rect.bottom();
+	while ( i * ( m_rectSize - 1 ) < a ) i++;
 kdDebug() << "BOTTOM: " << i << endl;
 	ret.setBottom( m_firstElem + i - 1 );
 
 	i = 0;
-	while ( i * m_rectSize < rect.left() ) i++;
+	while ( i * ( m_rectSize - 1 ) < rect.left() ) i++;
 kdDebug() << "LEFT: " << i << endl;
 	ret.setLeft( m_firstElemNucleon + i - 1 );
 
-kdDebug() << "RECT: " << ret << endl;
-
-	// normalize
+	// normalize the rect - needed to get valid coordinates
 	ret = ret.normalize();
 
-kdDebug() << "RECT normalized: " << ret << endl;
+kdDebug() << "RECT: " << ret << endl;
 
 	return ret;
 }
@@ -208,16 +206,14 @@ kdDebug() << "width(): " << width() << " - height(): " << height()
 		{
 			m_rectSize = MaxIsotopeSize;
 		}
-		resize( numOfNucleons * m_rectSize, numOfElements * m_rectSize );
+		const int newsizex = numOfNucleons * ( m_rectSize - 1 ) + 2;
+		const int newsizey = numOfElements * ( m_rectSize - 1 ) + 2;
+		resize( newsizex, newsizey );
 		if ( m_scroll )
-			m_scroll->resizeContents( numOfNucleons * m_rectSize, numOfElements * m_rectSize );
+			m_scroll->resizeContents( newsizex, newsizey );
 		if ( m_parent )
-			m_parent->resize( numOfNucleons * m_rectSize, numOfElements * m_rectSize );
-kdDebug() << "size(): " << size() << endl;
-/*
-		m_rectSize = (int)kMin( (double)numOfElements / width(),
-		                        (double)numOfNucleons / height() );
-*/
+			m_parent->resize( newsizex, newsizey );
+//kdDebug() << "size(): " << size() << endl;
 	}
 	
 	IsotopeList isotopeList;
@@ -246,8 +242,8 @@ kdDebug() << "size(): " << size() << endl;
 			int Xpositon = iso->nucleons() - m_firstElemNucleon;
 
 			QRect boundingRect = QRect( 
-					Xpositon*m_rectSize, 
-					( numOfElements - id - 1 ) * m_rectSize,
+					Xpositon*(m_rectSize-1)+1, 
+					( numOfElements - id - 1 ) * ( m_rectSize - 1 ) + 1,
 					m_rectSize, m_rectSize);
 //kdDebug() << k_funcinfo << boundingRect << endl;
 
@@ -324,20 +320,43 @@ QList<Isotope*> IsotopeTableView::isotopesWithNucleonsInRange( Element* el, int 
 
 
 ///FIXME there are more than just one decay possible...
-QColor IsotopeTableView::isotopeColor( Isotope* isotope )
+QPair<QColor, QColor> IsotopeTableView::isotopeColor( Isotope* isotope )
 {
-	if ( !isotope ) return Qt::magenta;
+	QPair<QColor, QColor> def = qMakePair( QColor( Qt::magenta ), QColor( Qt::magenta ) );
+	QPair<QColor, QColor> c = qMakePair( QColor(), QColor() );
+	if ( !isotope ) return def;
 
-	if ( isotope->betaminusdecay() )
-		return Qt::blue;
-	else if ( isotope->betaplusdecay() )
-		return Qt::red;
-	else if ( isotope->alphadecay() )
-		return Qt::yellow;
-	else if (  isotope->ecdecay() )
-		return Qt::green;
+	if ( !isotope->betaminusdecay() && !isotope->betaplusdecay() &&
+	     !isotope->alphadecay() && !isotope->ecdecay() )
+		c = def;
 	else
-		return Qt::magenta;
+	{
+		if ( isotope->betaminusdecay() )
+			if ( c.first.isValid() )
+				c.second = Qt::cyan;
+			else
+				c.first = Qt::cyan;
+		if ( isotope->betaplusdecay() )
+			if ( c.first.isValid() )
+				c.second = Qt::red;
+			else
+				c.first = Qt::red;
+		if ( isotope->alphadecay() )
+			if ( c.first.isValid() )
+				c.second = Qt::yellow;
+			else
+				c.first = Qt::yellow;
+		if ( isotope->ecdecay() )
+			if ( c.first.isValid() )
+				c.second = Qt::green;
+			else
+				c.first = Qt::green;
+
+		if ( !c.second.isValid() )
+			c.second = c.first;
+	}
+
+	return c;
 }
 
 void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
@@ -346,7 +365,7 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 	const QMap<Isotope*, QRect>::ConstIterator itEnd = m_IsotopeAdapterRectMap.constEnd();
 
 	QFont f = p->font();
-	f.setPointSize( KalziumUtils::maxSize( "22", QRect( 0, 0, m_rectSize, m_rectSize ), f, p ) );
+	f.setPointSize( KalziumUtils::maxSize( "Mn", QRect( 0, 0, m_rectSize, m_rectSize ), f, p ) );
 	p->setFont( f );
 
 	for ( ; it != itEnd ; ++it )
@@ -355,13 +374,38 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 	
 		if ( i )
 		{
-			QColor color( isotopeColor( i ) ) ;
-			p->setBrush( color );
-			p->drawRect( it.data() );
+			QPair<QColor, QColor> colors( isotopeColor( i ) ) ;
+			if ( colors.first.name() == colors.second.name() )
+			{
+				p->setBrush( colors.first );
+				p->drawRect( it.data() );
+			}
+			else
+			{
+				QPen oldpen = p->pen();
+				p->setPen( Qt::NoPen );
+				QPolygon poly( 3 );
+				poly.setPoint( 1, it.data().topRight() );
+				poly.setPoint( 2, it.data().bottomLeft() );
+
+				poly.setPoint( 0, it.data().topLeft() );
+				p->setBrush( colors.first );
+				p->drawPolygon( poly );
+
+				poly.setPoint( 0, it.data().bottomRight() );
+				p->setBrush( colors.second );
+				p->drawPolygon( poly );
+
+				p->setPen( oldpen );
+				QBrush oldbrush = p->brush();
+				p->setBrush( Qt::NoBrush );
+				p->drawRect( it.data() );
+				p->setBrush( oldbrush );
+			}
 			
 			//For debugging, lets add the information
 //			p->drawText( it.data() ,Qt::AlignCenter, QString::number( it.key()->neutrons() ) );
-			p->drawText( it.data() ,Qt::AlignCenter, QString::number( it.key()->nucleons() ) );
+			p->drawText( it.data(), Qt::AlignCenter, KalziumDataObject::instance()->element( it.key()->protones() )->symbol() );
 		}
 	}
 	p->setBrush( Qt::black );
@@ -379,7 +423,7 @@ void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
 	QPainter p( this );
 	QString text;
 
-	p.fillRect( 10, 10, 10, 10, Qt::blue );
+	p.fillRect( 10, 10, 10, 10, Qt::cyan );
 	text = i18n( "%1- Decay" ).arg( QChar( 946 ) );
 	p.drawText( 30, 20, text );
 
