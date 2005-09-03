@@ -489,28 +489,6 @@
 		 </sect1>
 		 <sect1 id="tools">
 			 <title>Tools</title>
-			 <sect2 id="nuclid_board">
-				 <title>Nuclidboard</title>
-				 <para>
-					 The <guimenuitem>Nulidboard</guimenuitem> shows you the isotopes of the elements. You can select the range of elements to display with the spinboxes at the bottom of the dialog.
-				 </para>
-				 <para>
-					 The dialog show the elements-number on the y-axis. The x-axis displays There are diffent kinds of isotopes, some are stable, some are not. The unstable isotopes can decay as alpha-rays are two diffent beta-rays. These differences are encoded by using diffenrent colors. 
-				 </para>
-				 <screenshot>
-					 <mediaobject>
-						 <imageobject>
-							 <imagedata fileref="screenshotnuclidboard.png" format="PNG"/>
-						 </imageobject>
-						 <textobject>
-							 <phrase>the <quote>Nuclidboard</quote> Dialog</phrase>
-						 </textobject>
-						 <caption><para>&kalzium; can display the isoptes of a range of elements</para>
-						 </caption>
-					 </mediaobject>
-				 </screenshot>
-			 </sect2>
-
 			 <sect2 id="glossary">
 				 <title>Glossary</title>
 				 <para>The Glossary gives you definitions of the most used tools in chemistry as well as some knowledge data. On the left side of the windows you can see the tree of items. On top, there are chemical terms, below that there is a second tree of labaratory-tools. </para>
@@ -1024,14 +1002,6 @@
 						 </menuchoice></term>
 						 <listitem><para><action>Open</action> the Plot Data dialog</para></listitem>
 					 </varlistentry>
-					 <varlistentry>
-						 <term><menuchoice>
-								 <guimenu>Tools</guimenu>
-								 <guimenuitem>Nuclide Board</guimenuitem>
-						 </menuchoice></term>
-						 <listitem><para><action>Open</action> the Nuclide Board dialog</para></listitem>
-					 </varlistentry>
-
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Tools</guimenu>
