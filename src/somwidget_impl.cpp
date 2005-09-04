@@ -70,19 +70,41 @@ kdDebug() << "min: " << Number1->minValue() << " - max: " << Number1->maxValue()
 
 void SOMWidgetIMPL::sliderValueChanged( int temp )
 {
+// TODO check if in Qt4 the RangeControl emits the signal again
+	disconnect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( spinValueChanged( double ) ) );
+	disconnect( temp_slider, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( sliderValueChanged( int ) ) );
+	disconnect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( setNewTemp( double ) ) );
 	double newvalue = TempUnit::convert( (double)temp, (int)TempUnit::Kelvin, Prefs::temperature() );
-kdDebug() << "temp: " << temp << " - newvalue: " << newvalue << endl;
 	Number1->setValue( newvalue );
-kdDebug() << "min: " << Number1->minValue() << " - max: " << Number1->maxValue()
-          << " - value: " << Number1->value() << endl;
 	setNewTemp( newvalue );
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( spinValueChanged( double ) ) );
+	connect( temp_slider, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( sliderValueChanged( int ) ) );
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( setNewTemp( double ) ) );
 }
 
 void SOMWidgetIMPL::spinValueChanged( double temp )
 {
+	disconnect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( spinValueChanged( double ) ) );
+	disconnect( temp_slider, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( sliderValueChanged( int ) ) );
+	disconnect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( setNewTemp( double ) ) );
 	int newvalue = (int)TempUnit::convert( temp, Prefs::temperature(), (int)TempUnit::Kelvin );
-	Number1->setValue( newvalue );
+	temp_slider->setValue( newvalue );
 	setNewTemp( temp );
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( spinValueChanged( double ) ) );
+	connect( temp_slider, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( sliderValueChanged( int ) ) );
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( setNewTemp( double ) ) );
 }
 
 void SOMWidgetIMPL::setNewTemp( double newtemp )

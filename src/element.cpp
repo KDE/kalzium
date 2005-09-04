@@ -280,8 +280,8 @@ QColor Element::currentColor( const double temp )
 
 	//If either the mp or bp is not known return
 	//This is to avoid undefined behaviour
-	if ( iButton_boiling <= 0.0 || iButton_melting <= 0.0 )
-		return Qt::lightGray;
+//	if ( iButton_boiling <= 0.0 || iButton_melting <= 0.0 )
+//		return Qt::lightGray;
 
 	if ( temp < iButton_melting )
 	{ //the element is solid
@@ -292,7 +292,7 @@ QColor Element::currentColor( const double temp )
 	{ //the element is liquid
 		color= Prefs::color_liquid();
 	}
-	else if ( temp > iButton_boiling )
+	else if ( temp > iButton_boiling && iButton_boiling > 0.0 )
 	{ //the element is vaporous
 		color= Prefs::color_vapor();
 	}

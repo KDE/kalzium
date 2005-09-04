@@ -313,7 +313,7 @@ QString DetailedInfoDlg::isotopeTable()
 		if ( ( *it )->betaminuspercentage() > 0.0 ){
 			if ( ( *it )->betaminusdecay() > 0.0 )
 				html.append( i18n( "%1 MeV" ).arg(( *it )->betaminusdecay() ) );
-			html.append( i18n( " %1%2" ).arg( QChar( 946 ) ).arg( i18n("<sup>-</sup>") ) );
+			html.append( i18n( " %1<sup>-</sup>" ).arg( QChar( 946 ) ) );
 			if ( ( *it )->betaminuspercentage() < 100.0)
 				html.append( i18n( "(%1%)" ).arg(( *it )->betaminuspercentage() ));
 			if ( ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0 )
@@ -322,7 +322,7 @@ QString DetailedInfoDlg::isotopeTable()
 		if ( ( *it )->betapluspercentage() > 0.0 ){
 			if ( ( *it )->betaplusdecay() > 0.0 )
 				html.append( i18n( "%1 MeV" ).arg(( *it )->betaplusdecay() ) );
-			html.append( i18n( " %1%2" ).arg(QChar( 946 ) ).arg( i18n("<sup>+</sup>") ) );
+			html.append( i18n( " %1<sup>+</sup>" ).arg(QChar( 946 ) ) );
 			if ( ( *it )->betapluspercentage() == ( *it )->ecpercentage() ) {
 				if ( ( *it )->ecdecay() > 0.0 ) {
 				html.append( i18n( "%1 MeV" ).arg(( *it )->ecdecay() ) ); }
@@ -330,7 +330,7 @@ QString DetailedInfoDlg::isotopeTable()
 			}
 			if ( ( *it )->betapluspercentage() < 100.0)	
 				html.append( i18n( "(%1%)" ).arg(( *it )->betapluspercentage() )); 
-			html.append( i18n( " " ) );
+			html += " ";
 			}	
 		if ( ( *it )->ecpercentage() > 0.0 && ( *it )->ecpercentage()!=( *it )->betapluspercentage()){
 			if ( ( *it )->ecdecay() > 0.0 )
@@ -340,15 +340,15 @@ QString DetailedInfoDlg::isotopeTable()
 				html.append( i18n( "(%1%)" ).arg(( *it )->ecpercentage() ));
 			}
 		html.append( "</td><td>" );
-		html.append( i18n("%1 ").arg(( *it )->spin() ) );
+		html.append( ( *it )->spin() );
 		html.append( "</td><td>" );
 		if ( !( *it )->magmoment().isEmpty() )
-			html.append( i18n( "%1 %2%3" ).arg( ( *it )->magmoment() ).arg( QChar( 956 ) ).arg( i18n( "<sub>n</sub>" ) ) );
+			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( ( *it )->magmoment() ).arg( QChar( 956 ) ) );
 		html.append( "</td></tr>" );
 	
 	}
 	
-	html += ( "</table>" );
+	html += "</table>";
 
 	return html;
 }

@@ -4450,7 +4450,7 @@
 		<group>1</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
-		<meltingpoint></meltingpoint>
+		<meltingpoint>1258</meltingpoint>
 		<boilingpoint></boilingpoint>
 		<density>13.25</density>
 		<oxydation>+3.+4</oxydation>
@@ -4480,7 +4480,7 @@
 		</radius>
 		<abundance>0</abundance>
 		<electronegativity>1.3</electronegativity>
-		<meltingpoint>1170</meltingpoint>
+		<meltingpoint>1172</meltingpoint>
 		<boilingpoint></boilingpoint>
 		<density>15.1</density>
 		<oxydation>+3.+4</oxydation>
