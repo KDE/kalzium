@@ -20,6 +20,54 @@
 #include <qmap.h>
 #include <qvaluelist.h>
 
+
+class ElementCount {
+ public:
+    ElementCount(Element *_element, int _count)
+    {
+	    m_element = _element;
+	    m_count   = _count;
+	}
+    ElementCount(Element *_element)
+        {
+	    m_element = _element;
+	    m_count   = 0;
+	}
+	
+    ~ElementCount();
+
+    Element *element() const    { return m_element;   }
+    int   count()  const        { return m_count;     }
+    void  add(int _count)       { m_count += _count;  }
+	void  multiply(int _factor) { m_count *= _factor; }
+
+    Element  *m_element;
+    int       m_count;
+};
+
+
+class ElementCountMap {
+ public:
+    ElementCountMap();
+    ~ElementCountMap();
+
+    void  clear()          { m_map.clear(); }
+
+    ElementCount  *search(Element *_element);
+    void           add(ElementCountMap &_map);
+    void           add(Element *_element, int _count);
+	void           multiply(int _factor);
+
+	typedef QValueList<ElementCount*>::Iterator  Iterator;
+	Iterator   begin() { return  m_map.begin(); }
+	Iterator   end()   { return  m_map.end();   }
+
+ private:
+    QValueList<ElementCount*>  m_map;
+};
+
+
+
 /**
  * Parse molecule formulas.
  *
@@ -52,17 +100,20 @@ public:
      *
      * @return whether the parsing was successful or not
      */
-    bool                  weight(QString _molecule, double *_result);
-    QMap<Element*, int>   elementMap();
-    QValueList<Element*>  elementList();
+    bool  weight(QString         _moleculeString,
+				 double          *_resultMass,
+				 ElementCountMap *_resultMap);
+    //QMap<Element*, int>   elementMap();
+    //QValueList<Element*>  elementList();
 
  private:
     // Helper functions
-    bool      parseSubmolecule(double *_result);
-    bool      parseTerm(double *_result);
+    bool      parseSubmolecule(double          *_resultMass,
+							   ElementCountMap *_resultMap);
+    bool      parseTerm(double          *_resultMass, 
+						ElementCountMap *_resultMap);
 
     Element  *lookupElement( const QString& _name );
-    void      addElementToMolecule( Element* el, const int n );
 
     QMap<Element*, int> m_elementMap;
 
