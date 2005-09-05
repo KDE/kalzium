@@ -24,6 +24,7 @@
 #include "isotope.h"
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
+#include "tempunit.h"
 
 #include <qdom.h>
 #include <qfile.h>
@@ -146,17 +147,17 @@ const QString Element::adjustUnits( const int type )
 			v = i18n( "Value unknown" );
 		else
 		{
+			int newvalue = (int)TempUnit::convert( val, Prefs::temperature(), (int)TempUnit::Kelvin );
+			QString value = QString::number( newvalue );
 			switch (Prefs::temperature()) {
 				case 0: //Kelvin
 					v = i18n( "%1 is the temperature in Kelvin", "%1 K" ).arg( QString::number( val ) );
 					break;
 				case 1://Kelvin to Celsius
-					val-=273.15;
-					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( QString::number( val ) ).arg( "\xB0" );
+					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( val ).arg(  "\xB0" );
 					break;
 				case 2: // Kelvin to Fahrenheit
-					val = val * 1.8 - 459.67;
-					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( QString::number( val ) ).arg("\xB0");
+					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( val ).arg(  "\xB0" );
 					break;
 			}
 		}
