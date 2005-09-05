@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>400</width>
-            <height>253</height>
+            <height>256</height>
         </rect>
     </property>
     <grid>
@@ -72,7 +72,7 @@
                         <string>Use degrees R&amp;ankine</string>
                     </property>
                     <property name="buttonGroupId">
-                        <number>2</number>
+                        <number>3</number>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>If selected, the temperatures will be displayed in Degrees Rankine</string>
@@ -89,7 +89,7 @@
                         <string>Use degrees &amp;Réamur</string>
                     </property>
                     <property name="buttonGroupId">
-                        <number>2</number>
+                        <number>4</number>
                     </property>
                     <property name="toolTip" stdset="0">
                         <string>If selected, the temperatures will be displayed in Degrees Réamur.</string>
