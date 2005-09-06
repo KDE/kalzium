@@ -159,6 +159,12 @@ const QString Element::adjustUnits( const int type )
 				case 2: // Kelvin to Fahrenheit
 					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( val ).arg(  "\xB0" );
 					break;
+				case 3: // Kelvin to Rankine
+					v = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( val ).arg(  "\xB0" );
+					break;
+				case 4: // Kelvin to Reamur
+					v = i18n( "%1 is the temperature in Reamur", "%1 %2R" ).arg( val ).arg(  "\xB0" );
+					break;
 			}
 		}
 	}
