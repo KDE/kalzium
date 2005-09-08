@@ -40,12 +40,11 @@ typedef QList<Element*> ElementList;
 /**
  * This class is the drawing widget for the whole table
  *
+ * @author Pino Toscano
  * @author Carsten Niehaus
  */
 class IsotopeTableView : public QWidget
 {
-	friend class IsotopeTableDialog;
-	
 	Q_OBJECT
 
 	public:
@@ -63,7 +62,7 @@ class IsotopeTableView : public QWidget
 		 * Calculate the intersection of the selected region and the
 		 * update the list of isotopes to be drawn
 		 */
-		void selectionDone( QRect selectedRect );
+		void selectionDone( const QRect& selectedRect );
 		
 	private:
 		QWidget *m_parent;
@@ -83,7 +82,7 @@ class IsotopeTableView : public QWidget
 		int m_rectSize;
 
 		/**
-		 * @return the color of the isotope @p isotope
+		 * @return the color(s) of the isotope @p isotope
 		 */
 		QPair<QColor, QColor> isotopeColor( Isotope* isotope );
 
@@ -103,10 +102,16 @@ class IsotopeTableView : public QWidget
 		 */
 		bool m_duringSelection;
 
+		bool m_isMoving;
+
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 		
 		virtual void resizeEvent( QResizeEvent *e );
+		
+		virtual void mousePressEvent( QMouseEvent *e );
+		virtual void mouseReleaseEvent( QMouseEvent *e );
+		virtual void mouseMoveEvent( QMouseEvent *e );
 		
 		/**
 		 * draw the isotope widgets
@@ -135,12 +140,6 @@ class IsotopeTableDialog : public KDialogBase
 		 * invokes the help for this widget
 		 */
 		virtual void slotHelp();
-
-	signals:
-		void selectionDone( QRect );
-		
-	protected:
-		virtual bool eventFilter( QObject *obj, QEvent *ev );
 };
 
 

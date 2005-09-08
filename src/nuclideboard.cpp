@@ -38,6 +38,7 @@
 #include <q3vbox.h>
 
 #include <kapplication.h>
+#include <kcursor.h>
 #include <kdebug.h>
 #include <kglobal.h>
 #include <klocale.h>
@@ -63,6 +64,7 @@ IsotopeTableView::IsotopeTableView( QWidget* parent, Q3ScrollView *scroll, const
 	resize( sizeHint() );
 
 	m_duringSelection = false;
+	m_isMoving = false;
 
 	m_rectSize = -1;
 
@@ -151,7 +153,7 @@ kdDebug() << "RECT: " << ret << endl;
 	return ret;
 }
 
-void IsotopeTableView::selectionDone( QRect selectedRect )
+void IsotopeTableView::selectionDone( const QRect& selectedRect )
 {
 	QRect r = getNewCoords( selectedRect );
 	// I know it's strange, but somehow sometimes the bottom and the
@@ -319,7 +321,6 @@ QList<Isotope*> IsotopeTableView::isotopesWithNucleonsInRange( Element* el, int 
 }
 
 
-///FIXME there are more than just one decay possible...
 QPair<QColor, QColor> IsotopeTableView::isotopeColor( Isotope* isotope )
 {
 	QPair<QColor, QColor> def = qMakePair( QColor( Qt::magenta ), QColor( Qt::magenta ) );
@@ -411,7 +412,69 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 	p->setBrush( Qt::black );
 }
 
-NuclideLegend::NuclideLegend( QWidget* parent, const char* name ) : QWidget( parent, name )
+void IsotopeTableView::mousePressEvent( QMouseEvent *e )
+{
+	if ( e->button() == Qt::LeftButton )
+	{
+		m_isMoving = true;
+		m_firstPoint = m_scroll->contentsToViewport( e->pos() );
+		setCursor( KCursor::handCursor() );
+//kdDebug() << "HERE!! " << m_firstPoint << endl;
+	}
+	else if ( e->button() == Qt::RightButton )
+	{
+		m_firstPoint = e->pos();
+		m_duringSelection = true;
+	}
+}
+
+void IsotopeTableView::mouseReleaseEvent( QMouseEvent *e )
+{
+	if ( e->button() == Qt::LeftButton )
+	{
+		m_isMoving = false;
+		setCursor( KCursor::arrowCursor() );
+	}
+	else if ( e->button() == Qt::RightButton )
+	{
+		QRect startPoint( m_firstPoint, m_firstPoint );
+		QRect endPoint( e->pos(), e->pos() );
+
+		m_duringSelection = false;
+		
+		// ensure to have a valid QRect
+		QRect ourrect = startPoint.unite( endPoint ).normalize();
+
+		// ensure to zoom in a valid region
+		if ( ( ourrect.width() > m_rectSize ) &&
+		     ( ourrect.height() > m_rectSize ) )
+			selectionDone( ourrect );
+	}
+}
+
+void IsotopeTableView::mouseMoveEvent( QMouseEvent *e )
+{
+	if ( m_duringSelection )
+	{
+		QRect startPoint( m_firstPoint, m_firstPoint );
+		QRect endPoint( e->pos(), e->pos() );
+
+		m_selectedRegion = startPoint.unite( endPoint );
+		update();
+	}
+	if ( m_isMoving )
+	{
+		QPoint now = m_scroll->contentsToViewport( e->pos() );
+		QPoint diff = m_firstPoint - now;
+		m_scroll->scrollBy( diff.x(), diff.y() );
+//kdDebug() << "MOVING " << m_firstPoint << " ... " << now << endl;
+		m_firstPoint = now;
+	}
+}
+
+
+NuclideLegend::NuclideLegend( QWidget* parent, const char* name )
+	: QWidget( parent, name )
 {
 	setMinimumSize( 300, 50 );
 	setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
@@ -461,13 +524,9 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
 	vbox->addWidget( helperSV );
 
 	m_view = new IsotopeTableView( big_box, helperSV, "view" );
-	m_view->installEventFilter( this );
 
 	NuclideLegend *legend = new NuclideLegend( page, "legend" );
 	vbox->addWidget( legend );
-
-	connect( this, SIGNAL(selectionDone( QRect ) ),
-	         m_view, SLOT(selectionDone( QRect ) ) );
 
 	setMinimumSize( 750, 500 );
 	resize( minimumSize() );
@@ -479,46 +538,6 @@ void IsotopeTableDialog::slotHelp()
 {
 	if ( kapp )
 		kapp->invokeHelp ( "isotope_table", "kalzium" );
-}
-
-bool IsotopeTableDialog::eventFilter( QObject *obj, QEvent *ev )
-{
-	if (ev->type() == QEvent::MouseButtonPress )	
-	{
-		QMouseEvent *mev = static_cast<QMouseEvent*>( ev );
-
-		m_view->m_firstPoint = mev->pos();
-		m_view->m_duringSelection = true;
-		return true;
-	}
-	else if (ev->type() == QEvent::MouseMove )
-	{
-		QMouseEvent *mev = static_cast<QMouseEvent*>( ev );
-
-		QRect startPoint( m_view->m_firstPoint, m_view->m_firstPoint );
-		QRect endPoint( mev->pos(), mev->pos() );
-
-		m_view->m_selectedRegion = startPoint.unite( endPoint );
-		m_view->update();
-		return true;
-	}
-	else if (ev->type() == QEvent::MouseButtonRelease )
-	{
-		QMouseEvent *mev = static_cast<QMouseEvent*>( ev );
-		
-		QRect startPoint( m_view->m_firstPoint, m_view->m_firstPoint );
-		QRect endPoint( mev->pos(), mev->pos() );
-
-		m_view->m_duringSelection = false;
-		
-		// ensure to have a valid QRect
-		QRect ourrect = startPoint.unite( endPoint ).normalize();
-
-		emit selectionDone( ourrect );
-		return true;
-	}
-	KDialogBase::eventFilter(obj,ev);
-	return false;
 }
 
 #include "nuclideboard.moc"
