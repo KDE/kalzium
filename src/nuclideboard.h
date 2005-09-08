@@ -31,6 +31,7 @@
 class QColor;
 class QPainter;
 class Q3ScrollView;
+class KActionCollection;
 class Element;
 class Isotope;
 
@@ -53,14 +54,21 @@ class IsotopeTableView : public QWidget
 		 * will be in the list. Therefore, in the paintEvent the class
 		 * can simply iterate through all keys and paint them
 		 */
-		void updateIsoptopeRectList();
+		void updateIsoptopeRectList( bool redoSize = false );
 
 		/**
 		 * Calculate the intersection of the selected region and the
 		 * update the list of isotopes to be drawn
 		 */
 		void selectionDone( const QRect& selectedRect );
-		
+
+		void slotZoomIn();
+		void slotZoomOut();
+		void slotToogleZoomMode( bool );
+
+	signals:
+		void toggleZoomAction( bool );
+
 	private:
 		QWidget *m_parent;
 		Q3ScrollView *m_scroll;
@@ -129,8 +137,11 @@ class IsotopeTableDialog : public KDialogBase
 		IsotopeTableDialog( QWidget* parent, const char* name = 0 );
 		~IsotopeTableDialog(){};
 
+		KActionCollection* actionCollection();
+
 	private:
 		IsotopeTableView* m_view;
+		KActionCollection* m_ac;
 
 	protected slots:
 		/**

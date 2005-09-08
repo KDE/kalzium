@@ -37,11 +37,15 @@
 #include <qtimer.h>
 #include <q3vbox.h>
 
+#include <kaction.h>
+#include <kactioncollection.h>
 #include <kapplication.h>
 #include <kcursor.h>
 #include <kdebug.h>
 #include <kglobal.h>
 #include <klocale.h>
+#include <kstdaction.h>
+#include <ktoolbar.h>
 
 #include <math.h>
 #include <stdlib.h>
@@ -107,10 +111,12 @@ void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 
 void IsotopeTableView::resizeEvent( QResizeEvent */*e*/ )
 {
+/*
 	m_rectSize = -1;
 
 	updateIsoptopeRectList();
 	update();
+*/
 }
 
 QRect IsotopeTableView::getNewCoords( const QRect& rect ) const
@@ -171,7 +177,7 @@ void IsotopeTableView::selectionDone( const QRect& selectedRect )
 	updateIsoptopeRectList();
 }
 
-void IsotopeTableView::updateIsoptopeRectList()
+void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 {
 	m_IsotopeAdapterRectMap.clear();
 	
@@ -193,6 +199,8 @@ void IsotopeTableView::updateIsoptopeRectList()
 			m_rectSize = (int)kMin( height() / (double)numOfElements,
 			                        width() / (double)numOfNucleons );
 		}
+		redoSize = true;
+	}
 /*
 kdDebug() << "width(): " << width() << " - height(): " << height()
           << " - noe: " << numOfElements << " - non: " << numOfNucleons
@@ -200,6 +208,8 @@ kdDebug() << "width(): " << width() << " - height(): " << height()
           << " - size(): " << size()
           << " - m_rectSize: " << m_rectSize << endl;
 //*/
+	if ( redoSize )
+	{
 		if ( m_rectSize < MinIsotopeSize )
 		{
 			m_rectSize = MinIsotopeSize;
@@ -416,14 +426,16 @@ void IsotopeTableView::mousePressEvent( QMouseEvent *e )
 {
 	if ( e->button() == Qt::LeftButton )
 	{
-		m_isMoving = true;
-		m_firstPoint = m_scroll->contentsToViewport( e->pos() );
-		setCursor( KCursor::handCursor() );
-	}
-	else if ( e->button() == Qt::RightButton )
-	{
-		m_firstPoint = e->pos();
-		m_duringSelection = true;
+		if ( m_duringSelection )
+		{
+			m_firstPoint = e->pos();
+		}
+		else
+		{
+			m_isMoving = true;
+			m_firstPoint = m_scroll->contentsToViewport( e->pos() );
+			setCursor( KCursor::handCursor() );
+		}
 	}
 }
 
@@ -431,23 +443,28 @@ void IsotopeTableView::mouseReleaseEvent( QMouseEvent *e )
 {
 	if ( e->button() == Qt::LeftButton )
 	{
-		m_isMoving = false;
-		setCursor( KCursor::arrowCursor() );
-	}
-	else if ( e->button() == Qt::RightButton )
-	{
-		QRect startPoint( m_firstPoint, m_firstPoint );
-		QRect endPoint( e->pos(), e->pos() );
+		if ( m_duringSelection )
+		{
+			QRect startPoint( m_firstPoint, m_firstPoint );
+			QRect endPoint( e->pos(), e->pos() );
 
-		m_duringSelection = false;
-		
-		// ensure to have a valid QRect
-		QRect ourrect = startPoint.unite( endPoint ).normalize();
+			m_duringSelection = false;
 
-		// ensure to zoom in a valid region
-		if ( ( ourrect.width() > m_rectSize ) &&
-		     ( ourrect.height() > m_rectSize ) )
-			selectionDone( ourrect );
+			// ensure to have a valid QRect
+			QRect ourrect = startPoint.unite( endPoint ).normalize();
+
+			emit toggleZoomAction( false );
+
+			// ensure to zoom in a valid region
+			if ( ( ourrect.width() > m_rectSize ) &&
+			     ( ourrect.height() > m_rectSize ) )
+				selectionDone( ourrect );
+		}
+		else
+		{
+			m_isMoving = false;
+			setCursor( KCursor::arrowCursor() );
+		}
 	}
 }
 
@@ -469,6 +486,26 @@ void IsotopeTableView::mouseMoveEvent( QMouseEvent *e )
 		m_firstPoint = now;
 	}
 }
+
+void IsotopeTableView::slotZoomIn()
+{
+	m_rectSize = (int)( m_rectSize * 1.2 );
+	updateIsoptopeRectList( true );
+	repaint();
+}
+
+void IsotopeTableView::slotZoomOut()
+{
+	m_rectSize = (int)( m_rectSize * 0.8 );
+	updateIsoptopeRectList( true );
+	repaint();
+}
+
+void IsotopeTableView::slotToogleZoomMode( bool state )
+{
+	m_duringSelection = state;
+}
+
 
 
 NuclideLegend::NuclideLegend( QWidget* parent, const char* name )
@@ -519,11 +556,25 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
 	helperSV->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
 	Q3VBox *big_box = new Q3VBox( helperSV->viewport() );
 	helperSV->addChild( big_box );
-	vbox->addWidget( helperSV );
 
 	m_view = new IsotopeTableView( big_box, helperSV, "view" );
 
 	NuclideLegend *legend = new NuclideLegend( page, "legend" );
+
+	m_ac = new KActionCollection( this );
+	KToolBar *toolbar = new KToolBar( page, "toolbar", true, false );
+	toolbar->setIconSize( 22 );
+	KAction *a = KStdAction::zoomIn( m_view, SLOT( slotZoomIn() ), m_ac, "zoomin" );
+	a->plug( toolbar );
+	a = KStdAction::zoomOut( m_view, SLOT( slotZoomOut() ), m_ac, "zoomout" );
+	a->plug( toolbar );
+	KToggleAction *ta = new KToggleAction( i18n( "Select Zoom Area" ), "viewmagfit", 0, 0, 0, m_ac, "zoomselect" );
+	connect( ta, SIGNAL( toggled( bool ) ), m_view, SLOT( slotToogleZoomMode( bool ) ) );
+	connect( m_view, SIGNAL( toggleZoomAction( bool ) ), ta, SLOT( setChecked( bool ) ) );
+	ta->plug( toolbar );
+
+	vbox->addWidget( toolbar );
+	vbox->addWidget( helperSV );
 	vbox->addWidget( legend );
 
 	setMinimumSize( 750, 500 );
@@ -536,6 +587,11 @@ void IsotopeTableDialog::slotHelp()
 {
 	if ( kapp )
 		kapp->invokeHelp ( "isotope_table", "kalzium" );
+}
+
+KActionCollection* IsotopeTableDialog::actionCollection()
+{
+	return m_ac;
 }
 
 #include "nuclideboard.moc"
