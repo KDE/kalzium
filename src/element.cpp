@@ -24,6 +24,7 @@
 #include "isotope.h"
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
+#include "tempunit.h"
 
 #include <qdom.h>
 #include <qfile.h>
@@ -146,17 +147,23 @@ const QString Element::adjustUnits( const int type )
 			v = i18n( "Value unknown" );
 		else
 		{
+			int newvalue = (int)TempUnit::convert( val, Prefs::temperature(), (int)TempUnit::Kelvin );
+			QString value = QString::number( newvalue );
 			switch (Prefs::temperature()) {
 				case 0: //Kelvin
 					v = i18n( "%1 is the temperature in Kelvin", "%1 K" ).arg( QString::number( val ) );
 					break;
 				case 1://Kelvin to Celsius
-					val-=273.15;
-					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( QString::number( val ) ).arg( "\xB0" );
+					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( val ).arg(  "\xB0" );
 					break;
 				case 2: // Kelvin to Fahrenheit
-					val = val * 1.8 - 459.67;
-					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( QString::number( val ) ).arg("\xB0");
+					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( val ).arg(  "\xB0" );
+					break;
+				case 3: // Kelvin to Rankine
+					v = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( val ).arg(  "\xB0" );
+					break;
+				case 4: // Kelvin to Reamur
+					v = i18n( "%1 is the temperature in Reamur", "%1 %2R" ).arg( val ).arg(  "\xB0" );
 					break;
 			}
 		}
@@ -280,8 +287,8 @@ QColor Element::currentColor( const double temp )
 
 	//If either the mp or bp is not known return
 	//This is to avoid undefined behaviour
-	if ( iButton_boiling <= 0.0 || iButton_melting <= 0.0 )
-		return Qt::lightGray;
+//	if ( iButton_boiling <= 0.0 || iButton_melting <= 0.0 )
+//		return Qt::lightGray;
 
 	if ( temp < iButton_melting )
 	{ //the element is solid
@@ -292,7 +299,7 @@ QColor Element::currentColor( const double temp )
 	{ //the element is liquid
 		color= Prefs::color_liquid();
 	}
-	else if ( temp > iButton_boiling )
+	else if ( temp > iButton_boiling && iButton_boiling > 0.0 )
 	{ //the element is vaporous
 		color= Prefs::color_vapor();
 	}

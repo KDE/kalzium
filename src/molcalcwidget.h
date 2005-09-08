@@ -22,8 +22,6 @@
 
 #include "molcalcwidgetbase.h"
 
-#include <qmap.h>
-
 #include "moleculeparser.h"
 
 class KToggleAction;
@@ -34,10 +32,11 @@ class MolcalcDialog;
 class MoleculeParser;
 
 /**
- * This widget is a small calculator for moleculas.
+ * This widget is a small calculator for molecules.
  *
  * @author Carsten Niehaus
  * @author Pino Toscano
+ * @author Inge Wallin
  */
 class MolcalcWidget : public MolcalcWidgetBase
 {
@@ -50,45 +49,30 @@ class MolcalcWidget : public MolcalcWidgetBase
 		 */
 		MolcalcWidget( QWidget *parent = 0, const char *name = 0 );
 
+	protected slots:
+		void slotCalcButtonClicked();
+
 	private slots:
 		void clear();
 
-	private:
-		MoleculeParser m_parser;
-		
-		double m_mass;
-		QMap<Element*, int> m_elements;
-
-		enum KIND
-		{
-			ADD = 0,
-			REMOVE = 1
-		};
-		
-		/**
-		 * updates the list of elements and calls \ref updateUI()
-		 */
-		void updateData( int number, KIND kind );
-
+    private:
 		/**
 		 * @return the HTML code of an element symbol and its
 		 * subscripted amount. Eg: Mg<sub>2</sub>
 		 */
-		QString composition( QMap<Element*,int> );
+		QString compositionString( ElementCountMap &_map );
 
 		/**
-		 * recalculates the mass
-		 */
-		void recalculate();
-
-		/**
-		 * this methods gathers all the data and updates the
-		 * data
+		 * This methods gathers all the data and updates the 
+		 * contents of the widget.
 		 */
 		void updateUI();
 
-	protected slots:
-		void slotCalcButtonClicked();
+	private:
+		MoleculeParser   m_parser;
+		
+		double           m_mass;
+		ElementCountMap  m_elementMap;
 };
 
 

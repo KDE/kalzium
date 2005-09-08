@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE kalzium [
-<!ENTITY deg "&#x00b0;">
-]>
+<!DOCTYPE kalzium SYSTEM "data.dtd">
 <kalzium>
 	<element>
 		<number>1</number>
@@ -104,6 +102,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="4.0026" neutron="2" percentage="99.999862" />
 		</isotopes>
 		<family>Noblegas</family>
+		<crystalstructure>hcp</crystalstructure>
 	</element>
 	<element>
 		<number>3</number>
@@ -249,6 +248,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+2.688637" halflife="" halflifeformat="seconds" weight="11.009305" neutron="6" percentage="80.1" />
 		</isotopes>
 		<family>Metalloids</family>
+		<crystalstructure>rh</crystalstructure>
 	</element>
 	<element>
 		<number>6</number>
@@ -362,6 +362,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="-0.283189" halflife="" halflifeformat="seconds" weight="15.0001" neutron="8" percentage="0.36" />
 		</isotopes>
 		<family>Non-Metal</family>
+		<crystalstructure>hcp</crystalstructure>
 	</element>
 	<element>
 		<number>8</number>
@@ -413,6 +414,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="17.9992" neutron="10" percentage="0.205" />
 		</isotopes>
 		<family>Non-Metal</family>
+		<crystalstructure>sc</crystalstructure>
 	</element>
 	<element>
 		<number>9</number>
@@ -530,6 +532,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="21.9914" neutron="12" percentage="9.215" />
 		</isotopes>
 		<family>Noblegas</family>
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>11</number>
@@ -744,6 +747,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="29.974" neutron="16" percentage="3.05" />
 		</isotopes>
 		<family>Metalloids</family>
+		<crystalstructure>d</crystalstructure>
 	</element>
 	<element>
 		<number>15</number>
@@ -800,6 +804,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.710" ecpercentage="" ecdecay="" spin="1+" magmoment="-0.2524" halflife="1231372" halflifeformat="seconds" weight="31.97391" neutron="17" percentage="" />
 		</isotopes>
 		<family>Non-Metal</family>
+		<crystalstructure>sc</crystalstructure>
 	</element>
 	<element>
 		<number>16</number>
@@ -857,6 +862,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="35.967" neutron="20" percentage="0.016" />
 		</isotopes>
 		<family>Non-Metal</family>
+		<crystalstructure>or</crystalstructure>
 	</element>
 	<element>
 		<number>17</number>
@@ -906,6 +912,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.68412" halflife="" halflifeformat="seconds" weight="36.966" neutron="20" percentage="24.23" />
 		</isotopes>
 		<family>Halogene</family>
+		<crystalstructure>tet</crystalstructure>
 	</element>
 	<element>
 		<number>18</number>
@@ -963,6 +970,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="39.962" neutron="22" percentage="99.600" />
 		</isotopes>
 		<family>Noblegas</family>
+		<crystalstructure>tet</crystalstructure>
 	</element>
 	<element>
 		<number>19</number>
@@ -1668,6 +1676,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="75.921" neutron="44" percentage="7.8" />
 		</isotopes>
 		<family>Metalloids</family>
+		<crystalstructure>d</crystalstructure>
 	</element>
 	<element>
 		<number>33</number>
@@ -1712,6 +1721,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="2.97" ecpercentage="" ecdecay="" spin="2-" magmoment="-0.906" halflife="94752" halflifeformat="seconds" weight="75.92239" neutron="43" percentage="" />
 		</isotopes>
 		<family>Metalloids</family>
+		<crystalstructure>rh</crystalstructure>
 	</element>
 	<element>
 		<number>34</number>
@@ -1762,6 +1772,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="81.917" neutron="48" percentage="9.3" />
 		</isotopes>
 		<family>Non-Metal</family>
+		<crystalstructure>hcp</crystalstructure>
 	</element>
 	<element>
 		<number>35</number>
@@ -1807,6 +1818,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+2.2706" halflife="" halflifeformat="seconds" weight="80.916" neutron="46" percentage="49.31" />
 		</isotopes>
 		<family>Halogene</family>
+		<crystalstructure>or</crystalstructure>
 	</element>
 	<element>
 		<number>36</number>
@@ -1860,6 +1872,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="85.911" neutron="50" percentage="17.5" />
 		</isotopes>
 		<family>Noblegas</family>
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>37</number>
@@ -2622,6 +2635,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2+" magmoment="+2.5466" halflife="" halflifeformat="seconds" weight="122.904" neutron="72" percentage="42.75" />
 		</isotopes>
 		<family>Metalloids</family>
+		<crystalstructure>rh</crystalstructure>
 	</element>
 	<element>
 		<number>52</number>
@@ -2679,6 +2693,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="129.906229" neutron="78" percentage="34.08" />
 		</isotopes>
 		<family>Metalloids</family>
+		<crystalstructure>hcp</crystalstructure>
 	</element>
 	<element>
 		<number>53</number>
@@ -2723,6 +2738,7 @@
 		</isotopes>
 		<oxydation>-1.(+1.+3.+5.+7)</oxydation>
 		<family>Halogene</family>
+		<crystalstructure>or</crystalstructure>
 	</element>
 	<element>
 		<number>54</number>
@@ -2935,6 +2951,7 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="3.761" ecpercentage="" ecdecay="" spin="3-" magmoment="+0.73" halflife="144987.84" halflifeformat="seconds" weight="139.90947" neutron="83" percentage="" />
 		</isotopes>
 		<family>Rare_Earth</family>
+		<crystalstructure>hcp</crystalstructure>
 	</element>
 	<element>
 		<number>58</number>
@@ -3925,6 +3942,7 @@
 		<orbits>Xe 4f14 5d10 6s2 6p3</orbits>
 		<oxydation>+3.(+5)</oxydation>
 		<family>Other_Metal</family>
+		<crystalstructure>rh</crystalstructure>
 	</element>
 	<element>
 		<number>84</number>
@@ -3967,6 +3985,7 @@
 		<orbits>Xe 4f14 5d10 6s2 6p4</orbits>
 		<oxydation>(+2).+4.(+6)</oxydation>
 		<family>Metalloids</family>
+		<crystalstructure>mono</crystalstructure>
 	</element>
 	<element>
 		<number>85</number>
@@ -4037,6 +4056,7 @@
 		<orbits>Xe 4f14 5d10 6s2 6p6</orbits>
 		<oxydation>2</oxydation>
 		<family>Noblegas</family>
+		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>87</number>
@@ -4430,7 +4450,7 @@
 		<group>1</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
-		<meltingpoint></meltingpoint>
+		<meltingpoint>1258</meltingpoint>
 		<boilingpoint></boilingpoint>
 		<density>13.25</density>
 		<oxydation>+3.+4</oxydation>
@@ -4460,7 +4480,7 @@
 		</radius>
 		<abundance>0</abundance>
 		<electronegativity>1.3</electronegativity>
-		<meltingpoint>1170</meltingpoint>
+		<meltingpoint>1172</meltingpoint>
 		<boilingpoint></boilingpoint>
 		<density>15.1</density>
 		<oxydation>+3.+4</oxydation>

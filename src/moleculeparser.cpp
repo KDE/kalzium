@@ -11,13 +11,87 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "moleculeparser.h"
 
 #include <ctype.h>
 
 #include <kdebug.h>
 
 #include "kalziumdataobject.h"
+#include "moleculeparser.h"
+
+
+// ================================================================
+//                    class ElementCountMap
+
+
+
+ElementCountMap::ElementCountMap()
+{
+	m_map.clear();
+}
+
+
+ElementCountMap::~ElementCountMap()
+{
+}
+
+
+ElementCount *
+ElementCountMap::search(Element *_element)
+{
+	QList<ElementCount *>::ConstIterator       it    = m_map.constBegin();
+	const QList<ElementCount *>::ConstIterator itEnd = m_map.constEnd();
+
+	for (; it != itEnd; ++it) {
+		if ((*it)->element() == _element)
+			return *it;
+	}
+
+	return 0;
+}
+
+
+void
+ElementCountMap::add(ElementCountMap &_map)
+{
+	QList<ElementCount *>::ConstIterator       it    = _map.m_map.constBegin();
+	const QList<ElementCount *>::ConstIterator itEnd = _map.m_map.constEnd();
+
+	// Step throught _map and for each element, add it to the current one.
+	for (; it != itEnd; ++it) {
+		add((*it)->m_element, (*it)->m_count);
+	}
+	
+}
+
+
+void
+ElementCountMap::add(Element *_element, int _count)
+{
+	ElementCount  *elemCount;
+
+	elemCount = search(_element);
+	if (elemCount)
+		elemCount->m_count += _count;
+	else
+		m_map.append(new ElementCount(_element, _count));
+}
+
+
+void
+ElementCountMap::multiply(int _factor)
+{
+	Iterator  it    = begin();
+	Iterator  itEnd = end();
+
+	for (; it != itEnd; ++it)
+		(*it)->multiply(_factor);
+}
+
+
+// ================================================================
+//                    class MoleculeParser
+
 
 MoleculeParser::MoleculeParser()
     : Parser()
@@ -46,16 +120,20 @@ MoleculeParser::~MoleculeParser()
 // This method also acts as the main loop.
 
 bool
-MoleculeParser::weight(QString _molecule, double *_result)
+MoleculeParser::weight(QString         _moleculeString, 
+					   double          *_resultMass,
+					   ElementCountMap *_resultMap)
 {
-	m_elementMap.clear();
-    *_result = 0.0;
-    start(_molecule);
+    // Clear the result variables.
+    _resultMap->clear();
+    *_resultMass = 0.0;
 
-    parseSubmolecule(_result);
+	// Initialize the parsing process, and parse te molecule.
+    start(_moleculeString);
+    parseSubmolecule(_resultMass, _resultMap);
 
     if (nextToken() != -1)
-	return false;
+		return false;
 
     return true;
 }
@@ -69,92 +147,84 @@ MoleculeParser::weight(QString _molecule, double *_result)
 //
 
 bool
-MoleculeParser::parseSubmolecule(double *_result)
+MoleculeParser::parseSubmolecule(double          *_resultMass,
+								 ElementCountMap *_resultMap)
 {
-    double  subresult = 0.0;
+    double           subMass = 0.0;
+    ElementCountMap  subMap;
 
-    *_result = 0.0;
-    while (parseTerm(&subresult)) {
-	//kdDebug() << "Parsed a term, weight = " << subresult << endl;
-	*_result += subresult;
+    *_resultMass = 0.0;
+	_resultMap->clear();
+    while (parseTerm(&subMass, &subMap)) {
+		//kdDebug() << "Parsed a term, weight = " << subresult << endl;
+
+		// Add the mass and composition of the submolecule to the total.
+		*_resultMass += subMass;
+		_resultMap->add(subMap);
     }
 
     return true;
 }
 
 
-// Parse a term in a molecule.
+// Parse a term within the molecule, i.e. a single atom or a
+// submolecule within parenthesis followed by an optional number.
+// Examples: Bk, Mn2, (COOH)2
 //
-// In this context, a term is an element or a submolecule in
-// parenthesis followed by an optional number.  Return true if
-// correct, otherwise return false.  If correct, the weight of the
-// term is returned in *_result.
+// Return true if correct, otherwise return false.  
+
+// If correct, the mass of the term is returned in *_resultMass, and
+// the flattened composition of the molecule in *_resultMap.
 //
-
-QList<Element*> MoleculeParser::elementList()
-{
-	QList<Element*> el;
-	QMap<Element*, int>::ConstIterator it = m_elementMap.constBegin();
-	QMap<Element*, int>::ConstIterator itEnd = m_elementMap.constEnd();
-	for ( ; it != itEnd; ++it ) {
-		for ( int i = 0; i < it.data(); i++ )
-			el.append( it.key() );
-        }
-	return el;
-}
-
-QMap<Element*, int> MoleculeParser::elementMap()
-{
-	return m_elementMap;
-}
 
 bool
-MoleculeParser::parseTerm(double *_result)
+MoleculeParser::parseTerm(double          *_resultMass,
+						  ElementCountMap *_resultMap)
 {
-    *_result = 0.0;
+    *_resultMass = 0.0;
+	_resultMap->clear();
  
 #if 0
     kdDebug() << "parseTerm(): Next token =  "
-	      << nextToken() << endl;
+			  << nextToken() << endl;
 #endif
-    bool maybeadded = false;
-
     if (nextToken() == ELEMENT_TOKEN) {
-	//kdDebug() << "Parsed an element: " << m_elementVal->symbol() << endl;
-	*_result = m_elementVal->mass();
-	addElementToMolecule( m_elementVal, 1 );
-	maybeadded = true;
-	getNextToken();
+		//kdDebug() << "Parsed an element: " << m_elementVal->symbol() << endl;
+		*_resultMass = m_elementVal->mass();
+		_resultMap->add(m_elementVal, 1);
+
+		getNextToken();
     }
 
     else if (nextToken() == '(') {
-	// A submolecule.
+		// A submolecule.
 
-	getNextToken();
-	parseSubmolecule(_result);
+		getNextToken();
+		parseSubmolecule(_resultMass, _resultMap);
 
-	// Must end in a ")".
-	if (nextToken() == ')') {
-	    //kdDebug() << "Parsed a submolecule. weight = " << *_result << endl;
-	    getNextToken();
-	}
-	else
-	    return false;
+		// Must end in a ")".
+		if (nextToken() == ')') {
+			//kdDebug() << "Parsed a submolecule. weight = " << *_result << endl;
+			getNextToken();
+		}
+		else
+			return false;
     }
     else 
-	// Neither an element nor a list within ().
-	return false;
+		// Neither an element nor a list within ().
+		return false;
 
     // Optional number.
     if (nextToken() == INT_TOKEN) {
-	//kdDebug() << "Parsed a number: " << intVal() << endl;
+		//kdDebug() << "Parsed a number: " << intVal() << endl;
 
-    	*_result *= intVal();
-	addElementToMolecule( m_elementVal, maybeadded ? intVal() - 1 : intVal() );
-	getNextToken();
+    	*_resultMass *= intVal();
+		_resultMap->multiply(intVal());
+
+		getNextToken();
     }
 
-    kdDebug() << "Weight of term = " << *_result << endl;
+    kdDebug() << "Weight of term = " << *_resultMass << endl;
     return true;
 }
 
@@ -225,24 +295,3 @@ MoleculeParser::lookupElement( const QString& _name )
     kdDebug() << k_funcinfo << "no such element: " << _name << endl;
     return NULL;
 }
-
-void MoleculeParser::addElementToMolecule( Element* el, const int n )
-{
-	QMap<Element*, int> newelements;
-	QMap<Element*, int>::ConstIterator it = m_elementMap.constBegin();
-	QMap<Element*, int>::ConstIterator itEnd = m_elementMap.constEnd();
-	bool found = false;
-	for ( ; it != itEnd; ++it ) {
-		if ( it.key()->elname() == el->elname() )
-		{
-			newelements.insert( it.key(), it.data() + n );
-			found = true;
-		}
-		else
-			newelements.insert( it.key(), it.data() );
-        }
-	if ( !found )
-		newelements.insert( el, n );
-	m_elementMap = newelements;
-}
-
