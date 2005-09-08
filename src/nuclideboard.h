@@ -34,9 +34,6 @@ class Q3ScrollView;
 class Element;
 class Isotope;
 
-typedef QList<Isotope*> IsotopeList;
-typedef QList<Element*> ElementList;
-
 /**
  * This class is the drawing widget for the whole table
  *

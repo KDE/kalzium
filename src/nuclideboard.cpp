@@ -218,9 +218,9 @@ kdDebug() << "width(): " << width() << " - height(): " << height()
 //kdDebug() << "size(): " << size() << endl;
 	}
 	
-	IsotopeList isotopeList;
-	IsotopeList::ConstIterator isotope;
-	IsotopeList::ConstIterator isotopeEnd;
+	QList<Isotope*> isotopeList;
+	QList<Isotope*>::ConstIterator isotope;
+	QList<Isotope*>::ConstIterator isotopeEnd;
 
 	int id = 0;
 
@@ -263,9 +263,9 @@ int IsotopeTableView::minNucleonOf( Element* el, int lowerbound ) const
 
 	int minNumber = 1000;
 
-	IsotopeList isotopeList = el->isotopes();
-	IsotopeList::const_iterator isoIt = isotopeList.constBegin();
-	IsotopeList::const_iterator isoItEnd = isotopeList.constEnd();
+	QList<Isotope*> isotopeList = el->isotopes();
+	QList<Isotope*>::const_iterator isoIt = isotopeList.constBegin();
+	QList<Isotope*>::const_iterator isoItEnd = isotopeList.constEnd();
 
 	for ( ; isoIt != isoItEnd; ++isoIt )
 	{
@@ -282,9 +282,9 @@ int IsotopeTableView::maxNucleonOf( Element* el, int upperbound ) const
 
 	int maxNumber = 0;
 
-	IsotopeList isotopeList = el->isotopes();
-	IsotopeList::const_iterator isoIt = isotopeList.constBegin();
-	IsotopeList::const_iterator isoItEnd = isotopeList.constEnd();
+	QList<Isotope*> isotopeList = el->isotopes();
+	QList<Isotope*>::const_iterator isoIt = isotopeList.constBegin();
+	QList<Isotope*>::const_iterator isoItEnd = isotopeList.constEnd();
 
 	for ( ; isoIt != isoItEnd; ++isoIt )
 	{
@@ -304,9 +304,9 @@ QList<Isotope*> IsotopeTableView::isotopesWithNucleonsInRange( Element* el, int 
 //kdDebug() << "isotopesWithNucleonsInRange(): " << el << " - low: " << lowerbound
 //          << " - up: " << upperbound << endl;
 
-	IsotopeList isotopeList = el->isotopes();
-	IsotopeList::ConstIterator isoIt = isotopeList.constBegin();
-	IsotopeList::ConstIterator isoItEnd = isotopeList.constEnd();
+	QList<Isotope*> isotopeList = el->isotopes();
+	QList<Isotope*>::ConstIterator isoIt = isotopeList.constBegin();
+	QList<Isotope*>::ConstIterator isoItEnd = isotopeList.constEnd();
 
 	for ( ; isoIt != isoItEnd; ++isoIt )
 	{
@@ -419,7 +419,6 @@ void IsotopeTableView::mousePressEvent( QMouseEvent *e )
 		m_isMoving = true;
 		m_firstPoint = m_scroll->contentsToViewport( e->pos() );
 		setCursor( KCursor::handCursor() );
-//kdDebug() << "HERE!! " << m_firstPoint << endl;
 	}
 	else if ( e->button() == Qt::RightButton )
 	{
@@ -467,7 +466,6 @@ void IsotopeTableView::mouseMoveEvent( QMouseEvent *e )
 		QPoint now = m_scroll->contentsToViewport( e->pos() );
 		QPoint diff = m_firstPoint - now;
 		m_scroll->scrollBy( diff.x(), diff.y() );
-//kdDebug() << "MOVING " << m_firstPoint << " ... " << now << endl;
 		m_firstPoint = now;
 	}
 }
