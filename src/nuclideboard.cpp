@@ -66,6 +66,7 @@ IsotopeTableView::IsotopeTableView( QWidget* parent, Q3ScrollView *scroll, const
 	setMinimumSize( 200, 200 );
 	// resizing to a fake size
 	resize( sizeHint() );
+	m_pix.resize( size() );
 
 	m_duringSelection = false;
 	m_isMoving = false;
@@ -82,30 +83,27 @@ kdDebug() << k_funcinfo << m_firstElemNucleon << " ... " << m_lastElemNucleon <<
 	// updating the list of isotope rects...
 	updateIsoptopeRectList();
 	// ... and repainting
+	drawInternally();
 	repaint();
 }
 
 void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 {
-	QPixmap pm( width(), height() );
-	pm.fill( Qt::lightGray );
-
-	QPainter p;
-	p.begin( &pm, this );
-	
-	drawIsotopeWidgets( &p );
+	QPixmap pm( size() );
+	bitBlt( &pm, 0, 0, &m_pix );
 
 	if ( m_duringSelection )
-	{//draw the selection-rectangle
-#warning QPainter::rasterOp()
-//		p.setRasterOp( Qt::XorROP );
-		p.setPen( QPen( Qt::white, 1, Qt::DotLine ) );
+	{
+		//draw the selection-rectangle
+		QPainter p;
+		p.begin( &pm, this );
+	
+		p.setPen( QPen( Qt::black, 1, Qt::DotLine ) );
 		p.drawRect( m_selectedRegion );
-#warning QPainter::rasterOp()
-//		p.setRasterOp( Qt::CopyROP );
+
+		p.end();
 	}
 
-	p.end();
 	bitBlt( this, 0, 0, &pm );
 }
 
@@ -221,6 +219,7 @@ kdDebug() << "width(): " << width() << " - height(): " << height()
 		const int newsizex = numOfNucleons * ( m_rectSize - 1 ) + 2;
 		const int newsizey = numOfElements * ( m_rectSize - 1 ) + 2;
 		resize( newsizex, newsizey );
+		m_pix.resize( size() );
 		if ( m_scroll )
 			m_scroll->resizeContents( newsizex, newsizey );
 		if ( m_parent )
@@ -264,6 +263,7 @@ kdDebug() << "width(): " << width() << " - height(): " << height()
 		++id;
 	}
 
+	drawInternally();
 	update();
 }
 
@@ -370,6 +370,18 @@ QPair<QColor, QColor> IsotopeTableView::isotopeColor( Isotope* isotope )
 	return c;
 }
 
+void IsotopeTableView::drawInternally()
+{
+	m_pix.fill( Qt::lightGray );
+
+	QPainter p( &m_pix );
+
+	drawIsotopeWidgets( &p );
+
+	p.end();
+}
+
+
 void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 {
 	QMap<Isotope*, QRect>::ConstIterator it = m_IsotopeAdapterRectMap.constBegin();
@@ -448,17 +460,21 @@ void IsotopeTableView::mouseReleaseEvent( QMouseEvent *e )
 			QRect startPoint( m_firstPoint, m_firstPoint );
 			QRect endPoint( e->pos(), e->pos() );
 
-			m_duringSelection = false;
-
 			// ensure to have a valid QRect
 			QRect ourrect = startPoint.unite( endPoint ).normalize();
-
-			emit toggleZoomAction( false );
 
 			// ensure to zoom in a valid region
 			if ( ( ourrect.width() > m_rectSize ) &&
 			     ( ourrect.height() > m_rectSize ) )
+			{
+				m_duringSelection = false;
+
+				emit toggleZoomAction( false );
+
 				selectionDone( ourrect );
+			}
+			else
+				update();
 		}
 		else
 		{
@@ -491,6 +507,7 @@ void IsotopeTableView::slotZoomIn()
 {
 	m_rectSize = (int)( m_rectSize * 1.2 );
 	updateIsoptopeRectList( true );
+	drawInternally();
 	repaint();
 }
 
@@ -498,6 +515,7 @@ void IsotopeTableView::slotZoomOut()
 {
 	m_rectSize = (int)( m_rectSize * 0.8 );
 	updateIsoptopeRectList( true );
+	drawInternally();
 	repaint();
 }
 

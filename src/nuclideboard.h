@@ -23,6 +23,7 @@
 #include <qwidget.h>
 #include <qlist.h>
 #include <qpair.h>
+#include <qpixmap.h>
 #include <qpoint.h>
 #include <qrect.h>
 
@@ -57,8 +58,8 @@ class IsotopeTableView : public QWidget
 		void updateIsoptopeRectList( bool redoSize = false );
 
 		/**
-		 * Calculate the intersection of the selected region and the
-		 * update the list of isotopes to be drawn
+		 * Calculate the new area to show, using @p selectedRect ,
+		 * and update the list of isotopes to be drawn
 		 */
 		void selectionDone( const QRect& selectedRect );
 
@@ -73,12 +74,34 @@ class IsotopeTableView : public QWidget
 		QWidget *m_parent;
 		Q3ScrollView *m_scroll;
 
+		QPixmap m_pix;
+
+		/**
+		 * Finds the isotope of the element @p el with the lower number
+		 * of nucleons and returns that number of nucleons.
+		 * The @p lowerbound parameter indicates which is the minimum
+		 * index allowed.
+		 */
 		int minNucleonOf( Element* el, int lowerbound = 0 ) const;
 
+		/**
+		 * Finds the isotope of the element @p el with the higher number
+		 * of nucleons and returns that number of nucleons.
+		 * The @p upperbound parameter indicates which is the maximum
+		 * index allowed.
+		 */
 		int maxNucleonOf( Element* el, int upperbound = 500 ) const;
 
+		/**
+		 * @returns a list of the isotopes of the element @p el whose
+		 * nucleons are in the range [ @p lowerbound , @p upperbound ]
+		 */
 		QList<Isotope*> isotopesWithNucleonsInRange( Element* el, int lowerbound, int upperbound ) const;
 
+		/**
+		 * @returns a rect containing the new "coordinates" of the
+		 * area to show
+		 */
 		QRect getNewCoords( const QRect& rect ) const;
 
 		/**
@@ -118,6 +141,7 @@ class IsotopeTableView : public QWidget
 		virtual void mouseReleaseEvent( QMouseEvent *e );
 		virtual void mouseMoveEvent( QMouseEvent *e );
 		
+		void drawInternally();
 		/**
 		 * draw the isotope widgets
 		 */
