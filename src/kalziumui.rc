@@ -26,6 +26,7 @@
     <Action name="tools_isotopetable" />
     <Action name="tools_glossary" />
     <Action name="tools_eqsolver" />
+	<Action name="tools_crystalviewer" />
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
   </Menu>
@@ -41,6 +42,7 @@
   <Action name="tools_isotopetable" />
   <Action name="tools_glossary" />
   <Action name="tools_eqsolver" />
+  <Action name="tools_crystalviewer" />
 </ToolBar>
 
 </kpartgui>

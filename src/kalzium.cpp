@@ -31,6 +31,7 @@
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
 #include "config.h"
+#include "crystalviewer.h"
 
 #include <q3dockwindow.h>
 #include <qlayout.h>
@@ -151,6 +152,7 @@ void Kalzium::setupActions()
 	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "tools_plotdata");
 	m_pIsotopeTableAction = new KAction(i18n("&Isotope Table..."), "isotopemap", 0, this, SLOT(slotIsotopeTable()), actionCollection(), "tools_isotopetable");
 	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "tools_glossary");
+	m_pCrystalViewer = new KAction(i18n("&Crystalviewer..."), "crystal", 0, this, SLOT(slotCrystalViewer()), actionCollection(), "tools_crystalviewer");
 
 	// other period view options
 	m_pLegendAction = new KAction(i18n("Show &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "view_legend");
@@ -268,6 +270,13 @@ void Kalzium::slotShowEQSolver()
 //X 	dlg->show();
 #endif
 }
+
+void Kalzium::slotCrystalViewer()
+{
+	CrystalviewerImpl *dlg = new CrystalviewerImpl( this, "viewer" );
+	dlg->show();
+}
+
 
 void Kalzium::slotIsotopeTable()
 {
