@@ -6,5 +6,5 @@ class CrystalviewerImpl : public QWidget
 	Q_OBJECT
 
 	public:
-		CrystalviewerImpl( QWidget *parent = 0 , const char* name = 0 );
+		CrystalviewerImpl( QWidget *parent = 0, const char* name = 0 );
 };

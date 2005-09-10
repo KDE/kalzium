@@ -31,7 +31,10 @@
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
 #include "config.h"
-#include "crystalviewer.h"
+#if 0
+#include "crystalviewer_impl.h"
+#endif
+#include "crystalmoviewidget.h"
 
 #include <q3dockwindow.h>
 #include <qlayout.h>
@@ -114,7 +117,9 @@ void Kalzium::setupActions()
 	m_actionBlocks = new KToggleAction(i18n("Show &Blocks"), 0, this, SLOT(slotLookBlocks()), actionCollection(), "view_look_blocks");
 	m_actionAcid = new KToggleAction(i18n("Show &Acid Behavior"), 0, this, SLOT(slotLookAcidBehavior()), actionCollection(), "view_look_acid");
 	m_actionFamily = new KToggleAction(i18n("Show &Family"), 0, this, SLOT(slotLookFamily()), actionCollection(), "view_look_family");
+#if 0
 	m_actionCrystal = new KToggleAction(i18n("Show &Crystal Structures"), 0, this, SLOT(slotLookCrystal()), actionCollection(), "view_look_crystal");
+#endif
 
 	//the actions for switching PeriodicTableView
 	QStringList gradientlist;
@@ -273,8 +278,10 @@ void Kalzium::slotShowEQSolver()
 
 void Kalzium::slotCrystalViewer()
 {
+#if 0
 	CrystalviewerImpl *dlg = new CrystalviewerImpl( this, "viewer" );
 	dlg->show();
+#endif
 }
 
 

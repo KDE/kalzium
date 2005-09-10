@@ -91,7 +91,7 @@ class Kalzium : public KMainWindow
 		KSelectAction *gradient_action;
 		KSelectAction *numeration_action;
 		KAction *m_pPlotAction, *m_pIsotopeTableAction,
-				*m_pGlossaryAction;
+				*m_pGlossaryAction, *m_pCrystalViewer;
 		
 		KAction *m_pTooltipAction;
 		KAction *m_pLegendAction;

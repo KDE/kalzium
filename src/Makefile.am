@@ -37,8 +37,9 @@ kalzium_SOURCES = kalzium.cpp \
 			parser.cpp \
 			moleculeparser.cpp \
 			tempunit.cpp \
-			crystalviewer_impl.cpp \
-			crystalviewer.ui
+			crystalmoviewidget.cpp
+#			crystalviewer_impl.cpp \
+#			crystalviewer.ui
 
 kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)
 
@@ -74,8 +75,9 @@ EXTRA_DIST = main.cpp \
 		parser.cpp parser.h \
 		moleculeparser.cpp moleculeparser.h \
 		tempunit.cpp tempunit.h \
-		crystalviewer.ui \
-		crystalviewer_impl.cpp crystalviewer_impl.h
+		crystalmoviewidget.cpp crystalmoviewidget.h
+#		crystalviewer.ui \
+#		crystalviewer_impl.cpp crystalviewer_impl.h
 
 METASOURCES = AUTO 
 
