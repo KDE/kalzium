@@ -37,13 +37,14 @@ kalzium_SOURCES = kalzium.cpp \
 			parser.cpp \
 			moleculeparser.cpp \
 			tempunit.cpp \
-			crystalmoviewidget.cpp
+			crystalmoviewidget.cpp \
+			simplecrystalviewer.cpp
 #			crystalviewer_impl.cpp \
 #			crystalviewer.ui
 
 kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)
 
-SUBDIRS = icons elementpics data 
+SUBDIRS = icons elementpics data lattice
 
 EXTRA_DIST = main.cpp \
 		kalzium.cpp kalzium.h \
@@ -75,7 +76,8 @@ EXTRA_DIST = main.cpp \
 		parser.cpp parser.h \
 		moleculeparser.cpp moleculeparser.h \
 		tempunit.cpp tempunit.h \
-		crystalmoviewidget.cpp crystalmoviewidget.h
+		crystalmoviewidget.cpp crystalmoviewidget.h \
+		simplecrystalviewer.cpp simplecrystalviewer.h
 #		crystalviewer.ui \
 #		crystalviewer_impl.cpp crystalviewer_impl.h
 

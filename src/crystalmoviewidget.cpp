@@ -24,8 +24,8 @@
 #include <qlayout.h>
 #include <qpixmap.h>
 #include <qregexp.h>
+#include <qsizepolicy.h>
 
-#include <kdebug.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <kpushbutton.h>
@@ -55,6 +55,7 @@ void CrystalMovieWidget::init()
 	m_pix = new QLabel( this );
 	m_pix->setFrameStyle( QFrame::Panel | QFrame::Sunken );
 	m_pix->setLineWidth( 1 );
+	m_pix->setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed );
 	mainlay->addWidget( m_pix );
 	
 	QHBoxLayout *hlay = new QHBoxLayout( 0L, 0, 5 );
@@ -81,6 +82,8 @@ void CrystalMovieWidget::init()
 
 	m_currentPictureId = 0;
 
+	setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed );
+
 	connect( m_prev, SIGNAL( clicked() ), this, SLOT( prevFrame() ) );
 	connect( m_start, SIGNAL( clicked() ), this, SLOT( start() ) );
 	connect( m_pause, SIGNAL( clicked() ), this, SLOT( pause() ) );
@@ -94,6 +97,9 @@ void CrystalMovieWidget::setPicturePath( const QString& path )
 {
 	if ( path.isEmpty() )
 		return;
+
+	// first, stop the current animation (if animating)
+	pause();
 
 	m_picpath = path;
 
@@ -125,7 +131,6 @@ void CrystalMovieWidget::reloadImages()
 	{
 		m_pics[i] = m_pics[i].rightJustify( maxlength, '0' );
 	}
-kdDebug() << "OK: " << m_pics << endl;
 	if ( m_pics.size() > 0 )
 	{
 		// ok, we have a valid animation inside the folder
@@ -138,6 +143,7 @@ kdDebug() << "OK: " << m_pics << endl;
 		m_pix->setPixmap( QPixmap() );
 		m_pix->resize( 100, 100 );
 	}
+	resize( minimumSizeHint() );
 }
 
 void CrystalMovieWidget::loadImage( int id )
@@ -145,7 +151,7 @@ void CrystalMovieWidget::loadImage( int id )
 	if ( ( id < 0 ) || ( id >= m_pics.size() ) )
 		return;
 
-	QPixmap tmp( m_picpath + m_pics[id] );
+	QPixmap tmp( m_picpath + "/" + m_pics[id] );
 	m_pix->setPixmap( tmp );
 	m_pix->resize( tmp.size() );
 }
@@ -171,6 +177,9 @@ void CrystalMovieWidget::start()
 
 void CrystalMovieWidget::pause()
 {
+	if ( !m_timer.isActive() )
+		return;
+
 	m_timer.stop();
 	m_prev->setEnabled( true );
 	m_start->setEnabled( true );

@@ -35,6 +35,7 @@
 #include "crystalviewer_impl.h"
 #endif
 #include "crystalmoviewidget.h"
+#include "simplecrystalviewer.h"
 
 #include <q3dockwindow.h>
 #include <qlayout.h>
@@ -117,9 +118,7 @@ void Kalzium::setupActions()
 	m_actionBlocks = new KToggleAction(i18n("Show &Blocks"), 0, this, SLOT(slotLookBlocks()), actionCollection(), "view_look_blocks");
 	m_actionAcid = new KToggleAction(i18n("Show &Acid Behavior"), 0, this, SLOT(slotLookAcidBehavior()), actionCollection(), "view_look_acid");
 	m_actionFamily = new KToggleAction(i18n("Show &Family"), 0, this, SLOT(slotLookFamily()), actionCollection(), "view_look_family");
-#if 0
 	m_actionCrystal = new KToggleAction(i18n("Show &Crystal Structures"), 0, this, SLOT(slotLookCrystal()), actionCollection(), "view_look_crystal");
-#endif
 
 	//the actions for switching PeriodicTableView
 	QStringList gradientlist;
@@ -157,7 +156,7 @@ void Kalzium::setupActions()
 	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "tools_plotdata");
 	m_pIsotopeTableAction = new KAction(i18n("&Isotope Table..."), "isotopemap", 0, this, SLOT(slotIsotopeTable()), actionCollection(), "tools_isotopetable");
 	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "tools_glossary");
-	m_pCrystalViewer = new KAction(i18n("&Crystalviewer..."), "crystal", 0, this, SLOT(slotCrystalViewer()), actionCollection(), "tools_crystalviewer");
+	m_pCrystalViewer = new KAction(i18n("&Crystal Viewer..."), "crystal", 0, this, SLOT(slotCrystalViewer()), actionCollection(), "tools_crystalviewer");
 
 	// other period view options
 	m_pLegendAction = new KAction(i18n("Show &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "view_legend");
@@ -278,12 +277,9 @@ void Kalzium::slotShowEQSolver()
 
 void Kalzium::slotCrystalViewer()
 {
-#if 0
-	CrystalviewerImpl *dlg = new CrystalviewerImpl( this, "viewer" );
+	SimpleCrystalViewer *dlg = new SimpleCrystalViewer( this, "viewer" );
 	dlg->show();
-#endif
 }
-
 
 void Kalzium::slotIsotopeTable()
 {
