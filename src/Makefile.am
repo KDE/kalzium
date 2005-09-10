@@ -36,6 +36,7 @@ kalzium_SOURCES = eqresult.cpp eqchemview.cpp kalzium.cpp \
 			tempunit.cpp
 
 kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML) -L$(OCAMLLIB) -L$(FACILELIB) $(EQCHEM_LDADD)
+KDE_CXXFLAGS    = -D_ISOC99_SOURCE
 
 SUBDIRS = icons elementpics data $(EQCHEM_SUB)
 
