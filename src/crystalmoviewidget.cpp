@@ -128,8 +128,15 @@ void CrystalMovieWidget::reloadImages()
 kdDebug() << "OK: " << m_pics << endl;
 	if ( m_pics.size() > 0 )
 	{
+		// ok, we have a valid animation inside the folder
 		m_pics.sort();
 		loadImage( 0 );
+	}
+	else
+	{
+		// no valid animation, cleaning the label
+		m_pix->setPixmap( QPixmap() );
+		m_pix->resize( 100, 100 );
 	}
 }
 
