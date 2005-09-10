@@ -1,5 +1,5 @@
-#ifndef CRYSTALMOVIEWIDGET_H
-#define CRYSTALMOVIEWIDGET_H
+#ifndef ANIMATEDMOVIEWIDGET_H
+#define ANIMATEDMOVIEWIDGET_H
 /***************************************************************************
  *   Copyright (C) 2005 by Pino Toscano     toscano.pino@tiscali.it        *
  *                                                                         *
@@ -31,7 +31,7 @@ class KPushButton;
  *
  * @author Pino Toscano
  */
-class CrystalMovieWidget : public QWidget
+class AnimatedMovieWidget : public QWidget
 {
 	Q_OBJECT
 
@@ -42,7 +42,7 @@ class CrystalMovieWidget : public QWidget
 		 * @param parent parent widget
 		 * @param name name of this widget
 		 */
-		CrystalMovieWidget( QWidget *parent = 0, const char *name = 0 );
+		AnimatedMovieWidget( QWidget *parent = 0, const char *name = 0 );
 		/**
 		 * Constructor.
 		 *
@@ -50,7 +50,7 @@ class CrystalMovieWidget : public QWidget
 		 * @param parent parent widget
 		 * @param name name of this widget
 		 */
-		CrystalMovieWidget( const QString& picturePath, QWidget *parent = 0, const char *name = 0 );
+		AnimatedMovieWidget( const QString& picturePath, QWidget *parent = 0, const char *name = 0 );
 
 		/**
 		 * Set the path of the images to @p path and reload the
@@ -88,4 +88,4 @@ class CrystalMovieWidget : public QWidget
 		KPushButton *m_next;
 };
 
-#endif // CRYSTALMOVIEWIDGET_H
+#endif // ANIMATEDMOVIEWIDGET_H

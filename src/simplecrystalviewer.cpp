@@ -30,7 +30,7 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 
-#include "crystalmoviewidget.h"
+#include "animatedmoviewidget.h"
 
 SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent, const char* name )
 	: KDialogBase( parent, name, true, i18n( "Simple Crystal Viewer" ), Close, Close, true )
@@ -50,7 +50,7 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent, const char* name )
 	vlay->addWidget( combo );
 	vlay->addItem( new QSpacerItem( 5, 5, QSizePolicy::Fixed, QSizePolicy::Expanding ) );
 
-	m_movie = new CrystalMovieWidget( page );
+	m_movie = new AnimatedMovieWidget( page );
 	hlay->addWidget( m_movie );
 
 	connect( combo, SIGNAL( activated( const QString& ) ), this, SLOT( slotCrystalChanged( const QString& ) ) );

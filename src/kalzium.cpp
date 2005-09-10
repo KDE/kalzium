@@ -34,7 +34,6 @@
 #if 0
 #include "crystalviewer_impl.h"
 #endif
-#include "crystalmoviewidget.h"
 #include "simplecrystalviewer.h"
 
 #include <q3dockwindow.h>

@@ -22,7 +22,7 @@
 
 #include <kdialogbase.h>
 
-class CrystalMovieWidget;
+class AnimatedMovieWidget;
 
 class SimpleCrystalViewer : public KDialogBase
 {
@@ -36,7 +36,7 @@ class SimpleCrystalViewer : public KDialogBase
 
 	private:
 		QString m_basePath;
-		CrystalMovieWidget *m_movie;
+		AnimatedMovieWidget *m_movie;
 
 };
 

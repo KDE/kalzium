@@ -17,7 +17,7 @@
  *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-#include "crystalmoviewidget.h"
+#include "animatedmoviewidget.h"
 
 #include <qdir.h>
 #include <qlabel.h>
@@ -30,7 +30,7 @@
 #include <kiconloader.h>
 #include <kpushbutton.h>
 
-CrystalMovieWidget::CrystalMovieWidget( QWidget *parent, const char *name )
+AnimatedMovieWidget::AnimatedMovieWidget( QWidget *parent, const char *name )
     : QWidget( parent, name )
 {
 	m_picpath = ".";
@@ -38,7 +38,7 @@ CrystalMovieWidget::CrystalMovieWidget( QWidget *parent, const char *name )
 	init();
 }
 
-CrystalMovieWidget::CrystalMovieWidget( const QString& picturePath, QWidget *parent, const char *name )
+AnimatedMovieWidget::AnimatedMovieWidget( const QString& picturePath, QWidget *parent, const char *name )
     : QWidget( parent, name )
 {
 	m_picpath = picturePath.isEmpty() ? "." : picturePath;
@@ -46,7 +46,7 @@ CrystalMovieWidget::CrystalMovieWidget( const QString& picturePath, QWidget *par
 	init();
 }
 
-void CrystalMovieWidget::init()
+void AnimatedMovieWidget::init()
 {
 	KIconLoader *il = KGlobal::iconLoader();
 
@@ -93,7 +93,7 @@ void CrystalMovieWidget::init()
 	reloadImages();
 }
 
-void CrystalMovieWidget::setPicturePath( const QString& path )
+void AnimatedMovieWidget::setPicturePath( const QString& path )
 {
 	if ( path.isEmpty() )
 		return;
@@ -106,7 +106,7 @@ void CrystalMovieWidget::setPicturePath( const QString& path )
 	reloadImages();
 }
 
-void CrystalMovieWidget::reloadImages()
+void AnimatedMovieWidget::reloadImages()
 {
 	m_pics.clear();
 	QDir dir( m_picpath );
@@ -146,7 +146,7 @@ void CrystalMovieWidget::reloadImages()
 	resize( minimumSizeHint() );
 }
 
-void CrystalMovieWidget::loadImage( int id )
+void AnimatedMovieWidget::loadImage( int id )
 {
 	if ( ( id < 0 ) || ( id >= m_pics.size() ) )
 		return;
@@ -156,7 +156,7 @@ void CrystalMovieWidget::loadImage( int id )
 	m_pix->resize( tmp.size() );
 }
 
-void CrystalMovieWidget::prevFrame()
+void AnimatedMovieWidget::prevFrame()
 {
 	if ( m_timer.isActive() )
 		return;
@@ -166,7 +166,7 @@ void CrystalMovieWidget::prevFrame()
 	loadImage( m_currentPictureId );
 }
 
-void CrystalMovieWidget::start()
+void AnimatedMovieWidget::start()
 {
 	m_prev->setEnabled( false );
 	m_start->setEnabled( false );
@@ -175,7 +175,7 @@ void CrystalMovieWidget::start()
 	m_timer.start( 300 );
 }
 
-void CrystalMovieWidget::pause()
+void AnimatedMovieWidget::pause()
 {
 	if ( !m_timer.isActive() )
 		return;
@@ -187,7 +187,7 @@ void CrystalMovieWidget::pause()
 	m_pause->setEnabled( false );
 }
 
-void CrystalMovieWidget::nextFrame()
+void AnimatedMovieWidget::nextFrame()
 {
 	if ( m_timer.isActive() )
 		return;
@@ -195,11 +195,11 @@ void CrystalMovieWidget::nextFrame()
 	animate();
 }
 
-void CrystalMovieWidget::animate()
+void AnimatedMovieWidget::animate()
 {
 	if ( ( ++m_currentPictureId ) >= m_pics.size() )
 		m_currentPictureId = 0;
 	loadImage( m_currentPictureId );
 }
 
-#include "crystalmoviewidget.moc"
+#include "animatedmoviewidget.moc"
