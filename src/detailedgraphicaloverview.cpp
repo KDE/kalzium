@@ -163,10 +163,13 @@ void DetailedGraphicalOverview::drawBiologicalSymbol( QPainter *p )
 		const int radius = db + 8;
 		p->setBrush( Qt::SolidPattern );
 		p->setBrush( Qt::white );
-		p->setPen( Qt::white );
-		p->drawRoundRect( QRect( width() - radius, -radius, 2 * radius, 2 * radius ), 40, 40 );
+		p->setPen( Qt::black );
+		p->drawRoundRect( QRect( width() - radius, 
+					-radius, 
+					2 * radius, 
+					2 * radius ), 70, 70 );
 	}
-
+	
 	switch ( m_element->biological() )
 	{
 		case 0:        //nothing
