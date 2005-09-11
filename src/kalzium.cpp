@@ -445,11 +445,10 @@ void Kalzium::slotStatusbar( int num )
 
 void Kalzium::openInformationDialog( int number )
 {
-	if ( !m_PeriodicTableView->learningMode() && m_PeriodicTableView->showTooltip() )
+	if ( m_PeriodicTableView->showTooltip() )
 	{
 		kdDebug() << "Handling Information Dialog" << endl;
 
-		//emit tableLocked(true);
 		if (m_infoDialog)
 			m_infoDialog->setElement(KalziumDataObject::instance()->element(number));
 		else
@@ -465,7 +464,6 @@ void Kalzium::openInformationDialog( int number )
 			        m_PeriodicTableView,        SLOT(selectElement(int)));
 		}
 		m_infoDialog->show();
-		//emit tableLocked(false);
 	}
 }
 

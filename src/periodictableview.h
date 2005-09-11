@@ -79,13 +79,6 @@ class PeriodicTableView : public QWidget
 		}
 
 		/**
-		 * @return if the the learning mode is active or not
-		 */
-		virtual bool learningMode() const{
-			return m_learningMode;
-		}
-
-		/**
 		 * @return if the molcalc mode is active or not
 		 */
 		virtual bool molcalcMode() const{
@@ -202,13 +195,6 @@ class PeriodicTableView : public QWidget
 			return m_showLegend;
 		}
 
-		/**
-		 * activates or deactivates the learning mode
-		 */
-		void setLearning( bool learningmode ){
-			m_learningMode = learningmode;
-		}
-
 		bool timeline() const{
 			return m_timeline;
 		}
@@ -321,11 +307,6 @@ class PeriodicTableView : public QWidget
 			   MouseoverTimer;
 
 		KalziumDataObject *d;
-
-		/**
-		 * if true the periodic table is in the leraning mode
-		 */
-		bool m_learningMode;
 
 		/**
 		 * the number of the element the mouse-cursor is over

@@ -70,7 +70,6 @@ PeriodicTableView::PeriodicTableView(QWidget *parent, const char *name)
 	setBackgroundMode( Qt::NoBackground );
 
 	m_molcalcIsActive = false;
-	m_learningMode = false;
 	m_showTooltip = true;
 	m_showLegend = Prefs::showlegend();
 	m_showLegendTooltip = Prefs::tooltip();
