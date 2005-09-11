@@ -409,7 +409,6 @@ void Kalzium::slotUpdateSettings()
 {
 	m_PerodicTableView->reloadColours();
 	m_PerodicTableView->setFullDraw();
-	slotEnableTooltips();
 }
  
 void Kalzium::setupStatusBar()
