@@ -155,8 +155,17 @@ void DetailedGraphicalOverview::drawBiologicalSymbol( QPainter *p )
 
 	int d_ds = ( db/2 )-( ds/2 ); //the delta-x/y of the inner circle
 
-	int pos_x = width() - 8 - db;
-	int pos_y = 8;
+	int pos_x = width() - 4 - db;
+	int pos_y = 4;
+
+	if ( m_element->biological() > 0 )
+	{
+		const int radius = db + 8;
+		p->setBrush( Qt::SolidPattern );
+		p->setBrush( Qt::white );
+		p->setPen( Qt::white );
+		p->drawRoundRect( QRect( width() - radius, -radius, 2 * radius, 2 * radius ), 40, 40 );
+	}
 
 	switch ( m_element->biological() )
 	{
