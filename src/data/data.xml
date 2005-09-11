@@ -2188,6 +2188,7 @@
 		<mass>98.9063</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
+		<artificial>1</artificial>
 		<date scientist="C. Perrier. E. G. Segre">1937</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<spectra>
