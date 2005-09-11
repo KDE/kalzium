@@ -27,18 +27,43 @@
 #include <qlayout.h>
 #include <qlist.h>
 #include <qpushbutton.h>
+#include <qregexp.h>
 #include <qsplitter.h>
 #include <qstringlist.h>
 #include <qtoolbutton.h>
 
+Glossary::Glossary( const KURL& url, const QString& path )
+{
+	init( url, path );
+}
+
 Glossary::Glossary()
 {
-	// setting a generic name for a new glossary
-	m_name = i18n( "Glossary" );
+	init( KURL(), QString() );
 }
 
 Glossary::~Glossary()
 {
+}
+
+void Glossary::init( const KURL& url, const QString& path )
+{
+	// setting a generic name for a new glossary
+	m_name = i18n( "Glossary" );
+
+	if ( url.isEmpty() )
+		return;
+
+	QDomDocument doc( "document" );
+
+	setPicturePath( path );
+
+	if ( loadLayout( doc, url ) )
+	{
+		setItemlist( readItems( doc ) );
+		if ( !m_picturepath.isEmpty() )
+			fixImagePath();
+	}
 }
 
 bool Glossary::loadLayout( QDomDocument &Document, const KURL& url )
@@ -54,7 +79,7 @@ bool Glossary::loadLayout( QDomDocument &Document, const KURL& url )
         if (!layoutFile.open(QIODevice::ReadOnly))
                 return false;
 
-        ///Check if document is well-formed
+        // check if document is well-formed
         if (!Document.setContent(&layoutFile))
         {
                 kdDebug() << "wrong xml" << endl;
@@ -71,24 +96,25 @@ bool Glossary::isEmpty() const
 	return m_itemlist.count() == 0;
 }
 
-
-Glossary* Glossary::readFromXML( const KURL& url, const QString& path )
+void Glossary::setName( const QString& name )
 {
-	QDomDocument doc( "document" );
+	if ( name.isEmpty())
+		return;
+	m_name = name;
+}
 
-	Glossary *glossary = new Glossary();
-	
-	glossary->setPicturePath( path );
+void Glossary::setPicturePath( const QString& path )
+{
+	if ( path.isEmpty())
+		return;
+	m_picturepath = path;
+}
 
-	if ( glossary->loadLayout( doc, url ) )
-	{
-		QList<GlossaryItem*> itemList;
-		itemList = glossary->readItems( doc );
-		glossary->setItemlist( itemList );
-		glossary->fixImagePath();
-	}
-
-	return glossary;
+void Glossary::setBackgroundPicture( const QString& filename )
+{
+	if ( filename.isEmpty())
+		return;
+	m_backgroundpicture = filename;
 }
 
 void Glossary::fixImagePath()
@@ -96,14 +122,17 @@ void Glossary::fixImagePath()
 	kdDebug() << "Glossary::fixImagePath()" << endl;
 	QList<GlossaryItem*>::iterator it = m_itemlist.begin();
 	const QList<GlossaryItem*>::iterator itEnd = m_itemlist.end();
-	QString path = m_picturepath;
-	QString firstpart = "<img src=\"";
-	firstpart += path;
+	QString imgtag = "<img src=\"" + m_picturepath + "/" + "\\1\" />";
+	QRegExp exp( "\\[img\\]([^[]+)\\[/img\\]" );
 
 	for ( ; it != itEnd ; ++it )
 	{
-		( *it )->setDesc( ( *it )->desc().replace("[img]", firstpart ) );
-		( *it )->setDesc( ( *it )->desc().replace("[/img]", "\" />" ) );
+		QString tmp = ( *it )->desc();
+		while ( exp.search( tmp ) > -1 )
+		{
+			tmp = tmp.replace( exp, imgtag );
+		}
+		( *it )->setDesc( tmp );
 	}
 }
 
@@ -183,6 +212,7 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent, const char *name)
 
 	QToolButton *clear = new QToolButton( plainPage() );
 	clear->setIconSet( SmallIconSet( "locationbar_erase" ) );
+	clear->setToolTip( i18n( "Clear filter" ) );
 	hbox->addWidget( clear );
 
 	QLabel *lbl = new QLabel( plainPage() );
@@ -317,11 +347,9 @@ void GlossaryDialog::slotClicked( Q3ListViewItem *item )
 	if ( !item )
 		return;
 	
-	/**
-	 * The next lines are searching for the correct KnowledgeItem
-	 * in the m_itemList. When it is found the HTML will be
-	 * generated
-	 */
+	// The next lines are searching for the correct KnowledgeItem
+	// in the m_itemList. When it is found the HTML will be
+	// generated
 	QList<Glossary*>::iterator itGl = m_glossaries.begin();
 	const QList<Glossary*>::iterator itGlEnd = m_glossaries.end();
 	bool found = false;

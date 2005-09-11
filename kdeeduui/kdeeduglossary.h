@@ -30,6 +30,7 @@ class GlossaryItem;
 /**
  * @class Glossary
  * @author Carsten Niehaus
+ * @author Pino Toscano
  *
  * This class stores all items to be displayed. It also
  * has access-methods to the items
@@ -37,7 +38,20 @@ class GlossaryItem;
 class Glossary
 {
 	public:
+		/**
+		 * Creates a new glossary and add contents from an XML file.
+		 * Use isEmpty() to know if any items were loaded.
+		 *
+		 * @param url the path of the file to load
+		 * @param path the path of the pictures
+		 */
+		Glossary( const KURL& url, const QString& path = 0 );
+
+		/**
+		 * Creates a new empty glossary
+		 */
 		Glossary();
+
 		virtual ~Glossary();
 
 		/**
@@ -67,9 +81,7 @@ class Glossary
 		 * Every glossary can have a name. It will be
 		 * set to @p name
 		 */
-		void setName( const QString& name ){
-			m_name = name;
-		}
+		void setName( const QString& name );
 
 		/**
 		 * @returns the name of the glossary
@@ -86,24 +98,11 @@ class Glossary
 		}
 
 		/**
-		 * Read a glossary from an XML file.
-		 *
-		 * @param url The path of the file to load
-		 * @param path The path of the pictures. Will be used as m_picturepath
-		 *
-		 * @return a pointer to the loaded glossary. Even in case of
-		 *         error, this won't return 0 but an empty Glossary.
-		 */
-		static Glossary* readFromXML( const KURL& url, const QString& path = 0 );
-
-		/**
 		 * Every glossaryitem can show pictures. [img src="foo.png]
-		 * will look for the file foo.png in the path defined be
+		 * will look for the file foo.png in the path defined by
 		 * @p path
 		 */
-		void setPicturePath( const QString& path ){
-			m_picturepath = path;
-		}
+		void setPicturePath( const QString& path );
 
 		QString picturePath()const{
 			return m_picturepath;
@@ -114,9 +113,7 @@ class Glossary
 		 * of the htmlview. The dialog
 		 * will use the file specifiec by the @p filename
 		 */
-		void setBackgroundPicture( const QString& filename ){
-			m_backgroundpicture = filename;
-		}
+		void setBackgroundPicture( const QString& filename );
 
 		/**
 		 * @return the picuture used as the background in 
@@ -125,10 +122,13 @@ class Glossary
 		QString backgroundPicture()const{
 			return m_backgroundpicture;
 		}
+
+	protected:
+		void init( const KURL& url, const QString& path );
 	
 	private:
 		/**
-		 * This methods parses the given xml-code. It will extract
+		 * This methods parses the given XML code. It will extract
 		 * the information of the items and return them as a
 		 * QList<GlossaryItem*>
 		 */
@@ -137,7 +137,7 @@ class Glossary
 		QString m_backgroundpicture;
 
 		/**
-		 * replaces the [img]-pseudocode with valid html. The path where
+		 * replaces the [img]-pseudocode with valid HTML. The path where
 		 * the pictures are stored will be used for pictures
 		 */
 		void fixImagePath();
@@ -216,7 +216,7 @@ class GlossaryItem
 		
 		/**
 		 * @return the formated HTML code for current item.
-		 **/
+		 */
 		QString toHtml() const;
 
 		/**
@@ -256,7 +256,7 @@ class GlossaryDialog : public KDialogBase
 		void keyPressEvent(QKeyEvent*);
 
 		/**
-		 * add a new glossary
+		 * Add a new glossary.
 		 *
 		 * @param newgloss the new glossary to add
 		 */
