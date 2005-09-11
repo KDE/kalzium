@@ -192,14 +192,6 @@ class Kalzium : public KMainWindow
 		void slotShowHideSidebar();
 
 		void slotSidebarVisibilityChanged(bool);
-
-	signals:
-		/**
-		 * this signal is emited when the user activated a dialog.
-		 * For example, no tooltips will be displayed until
-		 * tableLocked(false) is emited
-		 */
-		void tableLocked(bool);
 };
 
 #endif // _KALZIUM_H_

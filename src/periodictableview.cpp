@@ -844,19 +844,6 @@ int PeriodicTableView::ElementNumber( int X, int Y )
 	return 0;
 }
 
-void PeriodicTableView::slotUnlock()
-{
-	slotLock( false );
-}
-
-void PeriodicTableView::slotLock(bool locked)
-{
-	setShowTooltip(!locked);
-
-	setFullDraw();
-	update();
-}
-
 
 void PeriodicTableView::unSelect()
 {
