@@ -135,7 +135,7 @@ class PerodicTableView : public QWidget
 		}
 
 		/**
-		 * @return whether the table is locked
+		 * @return whether tooltips will be displayed
 		 */
 		bool showTooltip() const {
 			return m_showTooltip;
@@ -495,18 +495,6 @@ class PerodicTableView : public QWidget
 		 */
 		void slotToolTip( int number );
 		
-		/**
-		 * locks the table. This means that no tooltip will be displayed
-		 * @see slotUnlock()
-		 */
-		void slotLock(bool);
-
-		/**
-		 * same as slotLock( false )
-		 * @see slotLock()
-		 */
-		void slotUnlock();
-
 	signals:
 		/**
 		 * this signal is emitted when the table is clicked

@@ -75,7 +75,6 @@ Kalzium::Kalzium()
 
 	connect( m_PerodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
 	connect( m_PerodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
-	connect( this, SIGNAL( tableLocked( bool ) ), m_PerodicTableView, SLOT( slotLock(bool ) ));
 	
 	// layouting
 	setCentralWidget( centralWidget );
@@ -98,7 +97,6 @@ Kalzium::Kalzium()
 	g->setName( i18n( "Tools" ) );
 	g->setBackgroundPicture( picturepath );
 	m_glossarydlg->addGlossary( g );
-	connect( m_glossarydlg, SIGNAL( closed() ), m_PerodicTableView, SLOT(slotUnlock()) );
 
 	setupStatusBar();
 }
@@ -245,7 +243,6 @@ void Kalzium::setupSidebars()
 
 void Kalzium::slotGlossary()
 {
-	emit tableLocked(true);
 	m_glossarydlg->show();
 }
 
@@ -534,11 +531,8 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 	switch ( id )
 	{
 		case 0: // nothing
-			emit tableLocked( false );
-//			m_calcWidget->clear();
 			break;
 		case 1: // molcalc
-			emit tableLocked( true );
 			break;
 		case 2: // timeline
 			m_PerodicTableView->setTimeline( true );

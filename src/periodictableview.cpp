@@ -843,19 +843,6 @@ int PerodicTableView::ElementNumber( int X, int Y )
 	return 0;
 }
 
-void PerodicTableView::slotUnlock()
-{
-	slotLock( false );
-}
-
-void PerodicTableView::slotLock(bool locked)
-{
-	setShowTooltip(!locked);
-
-	setFullDraw();
-	update();
-}
-
 
 void PerodicTableView::unSelect()
 {
