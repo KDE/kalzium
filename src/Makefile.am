@@ -43,6 +43,7 @@ kalzium_SOURCES = kalzium.cpp \
 #			crystalviewer.ui
 
 kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)
+KDE_CXXFLAGS    = -D_ISOC99_SOURCE
 
 SUBDIRS = icons elementpics data lattice
 
