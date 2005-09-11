@@ -147,23 +147,22 @@ const QString Element::adjustUnits( const int type )
 			v = i18n( "Value unknown" );
 		else
 		{
-			int newvalue = (int)TempUnit::convert( val, Prefs::temperature(), (int)TempUnit::Kelvin );
-			QString value = QString::number( newvalue );
+			double newvalue = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperature() );
 			switch (Prefs::temperature()) {
 				case 0: //Kelvin
-					v = i18n( "%1 is the temperature in Kelvin", "%1 K" ).arg( QString::number( val ) );
+					v = i18n( "%1 is the temperature in Kelvin", "%1 K" ).arg( newvalue );
 					break;
 				case 1://Kelvin to Celsius
-					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( val ).arg(  "\xB0" );
+					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( newvalue ).arg(  "\xB0" );
 					break;
 				case 2: // Kelvin to Fahrenheit
-					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( val ).arg(  "\xB0" );
+					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( newvalue ).arg(  "\xB0" );
 					break;
 				case 3: // Kelvin to Rankine
-					v = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( val ).arg(  "\xB0" );
+					v = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( newvalue ).arg(  "\xB0" );
 					break;
 				case 4: // Kelvin to Reamur
-					v = i18n( "%1 is the temperature in Reamur", "%1 %2R" ).arg( val ).arg(  "\xB0" );
+					v = i18n( "%1 is the temperature in Reamur", "%1 %2R" ).arg( newvalue ).arg(  "\xB0" );
 					break;
 			}
 		}
