@@ -31,6 +31,7 @@
 #include <klocale.h>
 #include <kurl.h>
 #include <kstandarddirs.h>
+#include <kapplication.h>
 
 KalziumDataObject* KalziumDataObject::instance()
 {
@@ -49,7 +50,8 @@ KalziumDataObject::KalziumDataObject()
 
 	if (!layoutFile.exists())
 	{
-		kdDebug() << "data.xml not found" << endl;
+		kdDebug() << "data.xml not found, exiting" << endl;
+		kapp->exit(0);
 		return;
 	}
 
