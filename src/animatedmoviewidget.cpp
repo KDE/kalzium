@@ -46,6 +46,11 @@ AnimatedMovieWidget::AnimatedMovieWidget( const QString& picturePath, QWidget *p
 	init();
 }
 
+AnimatedMovieWidget::~AnimatedMovieWidget()
+{
+	m_timer.stop();
+}
+
 void AnimatedMovieWidget::init()
 {
 	KIconLoader *il = KGlobal::iconLoader();
@@ -80,8 +85,6 @@ void AnimatedMovieWidget::init()
 
 	mainlay->addLayout( hlay );
 
-	m_currentPictureId = 0;
-
 	setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed );
 
 	connect( m_prev, SIGNAL( clicked() ), this, SLOT( prevFrame() ) );
@@ -108,6 +111,8 @@ void AnimatedMovieWidget::setPicturePath( const QString& path )
 
 void AnimatedMovieWidget::reloadImages()
 {
+	m_currentPictureId = 0;
+
 	m_pics.clear();
 	QDir dir( m_picpath );
 	QStringList tmplist = dir.entryList();

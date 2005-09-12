@@ -53,6 +53,11 @@ class AnimatedMovieWidget : public QWidget
 		AnimatedMovieWidget( const QString& picturePath, QWidget *parent = 0, const char *name = 0 );
 
 		/**
+		 * Destructor.
+		 */
+		~AnimatedMovieWidget();
+
+		/**
 		 * Set the path of the images to @p path and reload the
 		 * animation for that directory
 		 */
