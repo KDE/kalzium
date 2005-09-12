@@ -253,14 +253,15 @@ class GlossaryDialog : public KDialogBase
 		GlossaryDialog( bool folded = true, QWidget *parent=0, const char *name=0);
 		~GlossaryDialog();
 
-		void keyPressEvent(QKeyEvent*);
-
 		/**
 		 * Add a new glossary.
 		 *
 		 * @param newgloss the new glossary to add
 		 */
 		void addGlossary( Glossary* newgloss );
+
+	protected:
+		void keyPressEvent(QKeyEvent*);
 
 	private:
 		QList<Glossary*> m_glossaries;
@@ -285,15 +286,9 @@ class GlossaryDialog : public KDialogBase
 	private slots:
 		void slotClicked( Q3ListViewItem * );
 		/**
-		 * The user clicked on a href. Emit the corresponding item
+		 * The user clicked on a href. Find and display the right item
 		 */
 		void displayItem( const KURL& url, const KParts::URLArgs& args );
-
-	protected slots:
-		virtual void slotClose();
-	
-	signals:
-		void closed();
 };
 
 #endif // KDEEDUGLOSSARY_H

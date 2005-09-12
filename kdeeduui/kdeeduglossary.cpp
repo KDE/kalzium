@@ -51,44 +51,45 @@ void Glossary::init( const KURL& url, const QString& path )
 	// setting a generic name for a new glossary
 	m_name = i18n( "Glossary" );
 
-	if ( url.isEmpty() )
-		return;
-
-	QDomDocument doc( "document" );
-
 	setPicturePath( path );
 
-	if ( loadLayout( doc, url ) )
+	if ( !url.isEmpty() )
 	{
-		setItemlist( readItems( doc ) );
-		if ( !m_picturepath.isEmpty() )
-			fixImagePath();
+
+		QDomDocument doc( "document" );
+
+		if ( loadLayout( doc, url ) )
+		{
+			setItemlist( readItems( doc ) );
+			if ( !m_picturepath.isEmpty() )
+				fixImagePath();
+		}
 	}
 }
 
 bool Glossary::loadLayout( QDomDocument &Document, const KURL& url )
 {
-        QFile layoutFile( url.path() );
+	QFile layoutFile( url.path() );
 
-        if (!layoutFile.exists())
+	if ( !layoutFile.exists() )
 	{
 		kdDebug() << "no such file: " << layoutFile.name() << endl;
 		return false;
 	}
 
-        if (!layoutFile.open(QIODevice::ReadOnly))
-                return false;
+	if ( !layoutFile.open( QIODevice::ReadOnly ) )
+		return false;
 
-        // check if document is well-formed
-        if (!Document.setContent(&layoutFile))
-        {
-                kdDebug() << "wrong xml" << endl;
-                layoutFile.close();
-                return false;
-        }
-        layoutFile.close();
+	// check if document is well-formed
+	if ( !Document.setContent( &layoutFile ) )
+	{
+		kdDebug() << "wrong xml of " << layoutFile.name() << endl;
+		layoutFile.close();
+		return false;
+	}
+	layoutFile.close();
 
-        return true;
+	return true;
 }
 
 bool Glossary::isEmpty() const
@@ -161,23 +162,22 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		QString picName = itemElement.namedItem( "picture" ).toElement().text();
 		QDomElement refNode = ( const QDomElement& ) itemElement.namedItem( "references" ).toElement();
 
-		QString desc = descNode.toElement().text();
+		QString desc = descNode.toElement().text().utf8();
 		if ( !picName.isEmpty() )
 			desc.prepend("[img]"+picName +"[/img]" );
 
 		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
 		
-		item->setDesc( desc.replace("[b]", "<b>" ) );
-		item->setDesc( item->desc().replace("[/b]", "</b>" ) );
-		item->setDesc( item->desc().replace("[i]", "<i>" ) );
-		item->setDesc( item->desc().replace("[/i]", "</i>" ) );
-		item->setDesc( item->desc().replace("[sub]", "<sub>" ) );
-		item->setDesc( item->desc().replace("[/sub]", "</sub>" ) );
-		item->setDesc( item->desc().replace("[sup]", "<sup>" ) );
-		item->setDesc( item->desc().replace("[/sup]", "</sup>" ) );
-		item->setDesc( item->desc().replace("[br]", "<br />" ) );
-		
-		item->setDesc( i18n( item->desc().utf8() ) );
+		desc = desc.replace("[b]", "<b>" );
+		desc = desc.replace("[/b]", "</b>" );
+		desc = desc.replace("[i]", "<i>" );
+		desc = desc.replace("[/i]", "</i>" );
+		desc = desc.replace("[sub]", "<sub>" );
+		desc = desc.replace("[/sub]", "</sub>" );
+		desc = desc.replace("[sup]", "<sup>" );
+		desc = desc.replace("[/sup]", "</sup>" );
+		desc = desc.replace("[br]", "<br />" );
+		item->setDesc( desc );
 
 		refNodeList = refNode.elementsByTagName( "refitem" );
 		for ( int it = 0; it < refNodeList.count(); it++ )
@@ -392,12 +392,6 @@ void GlossaryDialog::slotClicked( Q3ListViewItem *item )
 		m_htmlpart->end();
 		return;
 	}
-}
-
-void GlossaryDialog::slotClose()
-{
-	emit closed();
-	accept();
 }
 
 QString GlossaryItem::toHtml() const
