@@ -31,9 +31,6 @@
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
 #include "config.h"
-#if 0
-#include "crystalviewer_impl.h"
-#endif
 #include "simplecrystalviewer.h"
 
 #include <q3dockwindow.h>

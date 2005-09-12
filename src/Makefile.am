@@ -39,8 +39,6 @@ kalzium_SOURCES = kalzium.cpp \
 			tempunit.cpp \
 			animatedmoviewidget.cpp \
 			simplecrystalviewer.cpp
-#			crystalviewer_impl.cpp \
-#			crystalviewer.ui
 
 kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)
 KDE_CXXFLAGS    = -D_ISOC99_SOURCE
@@ -79,8 +77,6 @@ EXTRA_DIST = main.cpp \
 		tempunit.cpp tempunit.h \
 		animatedmoviewidget.cpp animatedmoviewidget.h \
 		simplecrystalviewer.cpp simplecrystalviewer.h
-#		crystalviewer.ui \
-#		crystalviewer_impl.cpp crystalviewer_impl.h
 
 METASOURCES = AUTO 
 
