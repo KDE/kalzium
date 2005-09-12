@@ -164,7 +164,7 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 
 		QString desc = descNode.toElement().text().utf8();
 		if ( !picName.isEmpty() )
-			desc.prepend("[img]"+picName +"[/img]" );
+			desc.prepend("[img]"+picName +"[/img][brclear][br]" );
 
 		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
 		
@@ -177,6 +177,7 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		desc = desc.replace("[sup]", "<sup>" );
 		desc = desc.replace("[/sup]", "</sup>" );
 		desc = desc.replace("[br]", "<br />" );
+		desc = desc.replace("[brclear]", "<br clear=\"left\"/>" );
 		item->setDesc( desc );
 
 		refNodeList = refNode.elementsByTagName( "refitem" );
@@ -184,7 +185,6 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		{
 			reflist << i18n( refNodeList.item( it ).toElement().text().utf8() );
 		}
-		reflist.sort();
 		item->setRef( reflist );
 		
 		list.append( item );
@@ -193,14 +193,12 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 	return list;
 }
 
-
-
 GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent, const char *name)
     : KDialogBase( Plain, i18n( "Glossary" ), Close, NoDefault, parent, name, false )
 {
 	//this string will be used for all items. If a backgroundpicture should
 	//be used call Glossary::setBackgroundPicture().
-	m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body>" ;
+	m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body%1>" ;
 
 	m_folded = folded;
 	
@@ -236,11 +234,11 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent, const char *name)
 	m_search->setListView( m_glosstree );
  
 	m_htmlpart = new KHTMLPart( vs, "html-part" );
- 
+
 	connect( m_htmlpart->browserExtension(), SIGNAL( openURLRequestDelayed( const KURL &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KURL &, const KParts::URLArgs & ) ) );
 	connect( m_glosstree, SIGNAL(clicked( Q3ListViewItem * )), this, SLOT(slotClicked( Q3ListViewItem * )));
 	connect( clear, SIGNAL(clicked()), m_search, SLOT(clear()));
- 
+
 	resize( 600, 400 );
 }
 
@@ -294,12 +292,10 @@ void GlossaryDialog::updateTree()
 		Q3ListViewItem *main = new Q3ListViewItem( m_glosstree, ( *itGl )->name() );
 		main->setExpandable( true );
 		main->setSelectable( false );
-		//XXX TMP!!!
-		bool foldinsubtrees = m_folded;
 
 		for ( ; it != itEnd ; ++it )
 		{
-			if ( foldinsubtrees )
+			if ( m_folded )
 			{
 				QChar thisletter = ( *it )->name().upper()[0];
 				Q3ListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
@@ -379,46 +375,44 @@ void GlossaryDialog::slotClicked( Q3ListViewItem *item )
 		QString html;
 		if ( !bg_picture.isEmpty() )
 		{
-			html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body background=\"" ;
-			html.append( bg_picture );
-			html.append("\">");
-		}else
-			html = m_htmlbasestring;
-	
+			html = " background=\"" + bg_picture + "\"";
+		}
+
+		html = m_htmlbasestring.arg( html );
 		html += i->toHtml() + "</body></html>";
+
 		m_htmlpart->begin();
 		m_htmlpart->write( html );
-
 		m_htmlpart->end();
 		return;
 	}
 }
 
+void GlossaryItem::setRef( const QStringList& s )
+{
+	m_ref = s;
+	m_ref.sort();
+}
+
 QString GlossaryItem::toHtml() const
 {
-	QString code = "<h1>" + m_name + "</h1>" + m_desc;
+	QString code = "<h1>" + m_name + "</h1>" + m_desc + parseReferences();
 
-	if ( !m_ref.isEmpty() )
-	{
-		QString refcode = parseReferences();
-		code += refcode;
-	}
 	return code;
 }
 
 QString GlossaryItem::parseReferences() const
 {
-	QString htmlcode = "<h3>" + i18n( "References" ) + "</h3>";
+	if ( m_ref.isEmpty() )
+		return QString();
+
+	QString htmlcode = "<h3>" + i18n( "References" ) + "</h3><ul type=\"disc\">";
 	
-	bool first = true;
 	for ( int i = 0; i < m_ref.size(); i++ )
 	{
-		if ( !first )
-			htmlcode += "<br>";
-		else
-			first = false;
-		htmlcode += QString( "<a href=\"item://%1\">%2</a>" ).arg( m_ref[i], m_ref[i] );
+		htmlcode += QString( "<li><a href=\"item://%1\">%2</a></li>" ).arg( m_ref[i], m_ref[i] );
 	}
+	htmlcode += "</ul>";
 
 	return htmlcode;
 }

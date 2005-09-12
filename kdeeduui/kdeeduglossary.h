@@ -190,9 +190,13 @@ class GlossaryItem
 			m_desc = s;
 		}
 
-		void setRef( const QStringList& s){
-			m_ref = s;
-		}
+		/**
+		 * Set the references for the current GlossaryItem to
+		 * @p s.
+		 * There's no need to sort the list before, as they
+		 * will be sorted automatically
+		 */
+		void setRef( const QStringList& s);
 	
 		void setPictures( const QString& s ){
 			m_pic = QStringList(s);
