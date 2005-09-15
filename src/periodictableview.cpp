@@ -983,6 +983,7 @@ void PerodicTableView::drawGradientPerodicTableView( QPainter *p, const double m
 	EList::ConstIterator it = d->ElementList.begin();
 	const EList::ConstIterator itEnd = d->ElementList.end();
 
+
 	/**
 	 * this loop iterates through all elements. The Elements
 	 * draw themselves, the PerodicTableView only tells them to do so
@@ -1105,6 +1106,21 @@ void PerodicTableView::drawGradientPerodicTableView( QPainter *p, const double m
 	QImage img = KImageEffect::gradient ( s, Qt::white, Qt::red, 
 										  KImageEffect::HorizontalGradient );
 	QPixmap pm( img );
+	
+	/**
+	 * now find the optimum stringsize for the caption
+	 * i18n( "Gradient: van der Waals Radius" ); is at least 
+	 * for english the longest possible string. As "van der Waals"
+	 * is a name it should be the same in all languages and be
+	 * probably always the longest string
+	 */
+	QString tmp = i18n( "Gradient: van der Waals Radius" );
+	QRect rect(x+5, y+50, ELEMENTSIZE*10,20);
+	QFont font = p->font();
+	int maxSize = KalziumUtils::maxSize( tmp, rect, p->font(), p, 8, 24 );
+	kdDebug() << "maxSize: " << maxSize << endl;
+	font.setPointSize(maxSize);
+	p->setFont(font);
 
 	p->drawText( x+5, y+50, ELEMENTSIZE*10,20, Qt::AlignCenter, title ); 
 	p->drawPixmap( x+50, y+80, pm );
