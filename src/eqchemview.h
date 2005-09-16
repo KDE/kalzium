@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Thomas Nagy                                     *
+ *   Copyright (C) 2004, 2005 by Thomas Nagy                               *
  *   tnagy2^8@yahoo.fr                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -15,7 +15,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Steet, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Steet, Fifth Floor, Boston, MA 02110-1301, USA.           *
  ***************************************************************************/
 
 #ifndef _EQCHEMVIEW_H_
