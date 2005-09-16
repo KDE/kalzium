@@ -1,7 +1,7 @@
 #ifndef PLOTWIDGET_H
 #define PLOTWIDGET_H
 /***************************************************************************
-    copyright            : (C) 2004 by Carsten Niehaus
+    copyright            : (C) 2004, 2005 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
