@@ -2114,7 +2114,7 @@
 			<atomic>145</atomic>
 			<vdw></vdw>
 		</radius>
-		<orbits>Kr 4d4</orbits>
+		<orbits>Kr 4d4 5s1</orbits>
 		<oxydation>+3.+5</oxydation>
 		<family>Transition</family>
 		<isotopes>
@@ -4426,7 +4426,7 @@
 		<density>13.51</density>
 		<oxydation>+3.+4</oxydation>
 		<family>Rare_Earth</family>
-		<orbits>Rn 5f7 6d2 7s2</orbits>
+		<orbits>Rn 5f7 6d1 7s2</orbits>
 	</element>
 	<element>
 		<number>97</number>
