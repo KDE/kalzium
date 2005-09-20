@@ -193,8 +193,8 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 	return list;
 }
 
-GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent, const char *name)
-    : KDialogBase( Plain, i18n( "Glossary" ), Close, NoDefault, parent, name, false )
+GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
+    : KDialogBase( Plain, i18n( "Glossary" ), Close, NoDefault, parent, "glossary-dialog", false )
 {
 	//this string will be used for all items. If a backgroundpicture should
 	//be used call Glossary::setBackgroundPicture().

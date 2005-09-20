@@ -252,9 +252,8 @@ class GlossaryDialog : public KDialogBase
 		 * @param folded whether to fold the various items in subtrees depending on the
 		 * first letter of every item
 		 * @param parent the parent of the new dialog
-		 * @param name the optional name of the new dialog
 		 */
-		GlossaryDialog( bool folded = true, QWidget *parent=0, const char *name=0);
+		GlossaryDialog( bool folded = true, QWidget *parent = 0 );
 		~GlossaryDialog();
 
 		/**
