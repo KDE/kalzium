@@ -25,9 +25,8 @@ PlotWidget::PlotWidget( double x1,
 		double x2,
 		double y1,
 		double y2,
-		QWidget *parent,
-		const char* name)
-		: KPlotWidget( x1, x2, y1, y2, parent, name )
+		QWidget *parent )
+		: KPlotWidget( x1, x2, y1, y2, parent )
 {
 	m_connectPoints = false;
 }
