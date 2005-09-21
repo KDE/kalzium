@@ -32,10 +32,7 @@
 #include <qpainter.h>
 #include <qpixmap.h>
 #include <qpolygon.h>
-#include <q3scrollview.h>
 #include <qsizepolicy.h>
-#include <qtimer.h>
-#include <q3vbox.h>
 
 #include <kaction.h>
 #include <kactioncollection.h>
@@ -56,8 +53,8 @@ static const int MinIsotopeSize = 12;
 static const int MaxElementDisplayed = 111;
 static const int MinElementDisplayed = 1;
 
-IsotopeTableView::IsotopeTableView( QWidget* parent, Q3ScrollView *scroll, const char* name )
-	: QWidget( parent, name ), m_parent( parent ), m_scroll( scroll )
+IsotopeTableView::IsotopeTableView( QWidget* parent, IsotopeScrollArea *scroll )
+	: QWidget( parent ), m_parent( parent ), m_scroll( scroll )
 {
 	setBackgroundMode( Qt::NoBackground );
 //	setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed );
@@ -107,16 +104,6 @@ void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
 	bitBlt( this, 0, 0, &pm );
 }
 
-void IsotopeTableView::resizeEvent( QResizeEvent */*e*/ )
-{
-/*
-	m_rectSize = -1;
-
-	updateIsoptopeRectList();
-	update();
-*/
-}
-
 QRect IsotopeTableView::getNewCoords( const QRect& rect ) const
 {
 	QRect ret;
@@ -128,24 +115,34 @@ kdDebug() << "ORIG RECT: " << rect << endl
           << "OUR SIZE:  " << size() << endl;
 
 	i = 0;
-	a = height() - rect.top();
-	while ( i * ( m_rectSize - 1 ) < a ) i++;
+	a = height() - rect.top() - 30;
+	if ( a > 0 )
+	{
+		while ( i * ( m_rectSize - 1 ) < a ) i++;
 kdDebug() << "TOP: " << i << endl;
-	ret.setTop( m_firstElem + i - 1 );
+		ret.setTop( m_firstElem + i - 1 );
+	}
+	else
+		ret.setTop( m_firstElem + 2 );
 
 	i = 0;
-	while ( i * ( m_rectSize - 1 ) < rect.right() ) i++;
+	while ( i * ( m_rectSize - 1 ) < rect.right() - 30 ) i++;
 kdDebug() << "RIGHT: " << i << endl;
 	ret.setRight( m_firstElemNucleon + i - 1 );
 
 	i = 0;
-	a = height() - rect.bottom();
-	while ( i * ( m_rectSize - 1 ) < a ) i++;
+	a = height() - rect.bottom() - 30;
+	if ( a > 0 )
+	{
+		while ( i * ( m_rectSize - 1 ) < a ) i++;
 kdDebug() << "BOTTOM: " << i << endl;
-	ret.setBottom( m_firstElem + i - 1 );
+		ret.setBottom( m_firstElem + i - 1 );
+	}
+	else
+		ret.setBottom( m_firstElem );
 
 	i = 0;
-	while ( i * ( m_rectSize - 1 ) < rect.left() ) i++;
+	while ( i * ( m_rectSize - 1 ) < rect.left() - 30 ) i++;
 kdDebug() << "LEFT: " << i << endl;
 	ret.setLeft( m_firstElemNucleon + i - 1 );
 
@@ -189,13 +186,13 @@ void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 	{
 		if ( m_scroll )
 		{
-			m_rectSize = (int)kMin( m_scroll->viewport()->height() / (double)numOfElements,
-			                        m_scroll->viewport()->width() / (double)numOfNucleons );
+			m_rectSize = (int)kMin( ( m_scroll->viewport()->height() - 30 ) / (double)numOfElements,
+			                        ( m_scroll->viewport()->width() - 30 ) / (double)numOfNucleons );
 		}
 		else
 		{
-			m_rectSize = (int)kMin( height() / (double)numOfElements,
-			                        width() / (double)numOfNucleons );
+			m_rectSize = (int)kMin( ( height() - 30 ) / (double)numOfElements,
+			                        ( width() - 30 ) / (double)numOfNucleons );
 		}
 		redoSize = true;
 	}
@@ -216,14 +213,10 @@ kdDebug() << "width(): " << width() << " - height(): " << height()
 		{
 			m_rectSize = MaxIsotopeSize;
 		}
-		const int newsizex = numOfNucleons * ( m_rectSize - 1 ) + 2;
-		const int newsizey = numOfElements * ( m_rectSize - 1 ) + 2;
+		const int newsizex = numOfNucleons * ( m_rectSize - 1 ) + 2 + 30;
+		const int newsizey = numOfElements * ( m_rectSize - 1 ) + 2 + 30;
 		resize( newsizex, newsizey );
 		m_pix.resize( size() );
-		if ( m_scroll )
-			m_scroll->resizeContents( newsizex, newsizey );
-		if ( m_parent )
-			m_parent->resize( newsizex, newsizey );
 //kdDebug() << "size(): " << size() << endl;
 	}
 	
@@ -255,7 +248,7 @@ kdDebug() << "width(): " << width() << " - height(): " << height()
 			QRect boundingRect = QRect( 
 					Xpositon*(m_rectSize-1)+1, 
 					( numOfElements - id - 1 ) * ( m_rectSize - 1 ) + 1,
-					m_rectSize, m_rectSize);
+					m_rectSize - 1, m_rectSize - 1 );
 //kdDebug() << k_funcinfo << boundingRect << endl;
 
  			m_IsotopeAdapterRectMap.insert(iso, boundingRect);
@@ -378,12 +371,15 @@ void IsotopeTableView::drawInternally()
 
 	drawIsotopeWidgets( &p );
 
+	drawLegends( &p );
+
 	p.end();
 }
 
-
 void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 {
+	p->translate( 30, 0 );
+
 	QMap<Isotope*, QRect>::ConstIterator it = m_IsotopeAdapterRectMap.constBegin();
 	const QMap<Isotope*, QRect>::ConstIterator itEnd = m_IsotopeAdapterRectMap.constEnd();
 
@@ -408,14 +404,14 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 				QPen oldpen = p->pen();
 				p->setPen( Qt::NoPen );
 				QPolygon poly( 3 );
-				poly.setPoint( 1, it.data().topRight() );
-				poly.setPoint( 2, it.data().bottomLeft() );
+				poly.setPoint( 1, it.data().topRight() + QPoint( 1, 0 ) );
+				poly.setPoint( 2, it.data().bottomLeft() + QPoint( 0, 1 ) );
 
 				poly.setPoint( 0, it.data().topLeft() );
 				p->setBrush( colors.first );
 				p->drawPolygon( poly );
 
-				poly.setPoint( 0, it.data().bottomRight() );
+				poly.setPoint( 0, it.data().bottomRight() + QPoint( 1, 1 ) );
 				p->setBrush( colors.second );
 				p->drawPolygon( poly );
 
@@ -432,6 +428,52 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 		}
 	}
 	p->setBrush( Qt::black );
+
+	p->translate( -30, 0 );
+}
+
+void IsotopeTableView::drawLegends( QPainter *p )
+{
+	QFont oldfont = p->font();
+
+	const int numElems = m_lastElem - m_firstElem + 1;
+	const int numNucleons = m_lastElemNucleon - m_firstElemNucleon + 1;
+	int i;
+	QRect rect;
+
+	QFont f = p->font();
+	f.setPointSize( KalziumUtils::maxSize( "Mn", QRect( 0, 0, 30, m_rectSize ), f, p ) );
+	p->setFont( f );
+
+	// elements
+	for ( i = 0; i < numElems; i++ )
+	{
+		rect = QRect( 0, ( numElems - i - 1 ) * ( m_rectSize - 1 ),
+		              30, m_rectSize - 1 );
+		p->drawText( rect, Qt::AlignCenter,
+		             KalziumDataObject::instance()->element( m_firstElem + i )->symbol() );
+	}
+
+	f = p->font();
+	f.setPointSize( KalziumUtils::maxSize( "222", QRect( 0, 0, m_rectSize, 30 ), f, p ) );
+	p->setFont( f );
+
+	// number of protons
+	for ( i = 0; i < numNucleons; i++ )
+	{
+		rect = QRect( i * ( m_rectSize - 1 ) + 30, height() - 30,
+		              m_rectSize - 1, 30 );
+		p->drawText( rect, Qt::AlignCenter, QString::number( m_firstElemNucleon + i ) );
+	}
+/*
+	int Xpositon = iso->nucleons() - m_firstElemNucleon;
+
+	QRect boundingRect = QRect( 
+		Xpositon*(m_rectSize-1)+1, 
+		( numOfElements - id - 1 ) * ( m_rectSize - 1 ) + 1,
+		m_rectSize - 1, m_rectSize - 1 );
+*/
+	p->setFont( oldfont );
 }
 
 void IsotopeTableView::mousePressEvent( QMouseEvent *e )
@@ -445,7 +487,7 @@ void IsotopeTableView::mousePressEvent( QMouseEvent *e )
 		else
 		{
 			m_isMoving = true;
-			m_firstPoint = m_scroll->contentsToViewport( e->pos() );
+			m_firstPoint = m_scroll->mapToParent( e->pos() );
 			setCursor( KCursor::handCursor() );
 		}
 	}
@@ -496,8 +538,9 @@ void IsotopeTableView::mouseMoveEvent( QMouseEvent *e )
 	}
 	if ( m_isMoving )
 	{
-		QPoint now = m_scroll->contentsToViewport( e->pos() );
+		QPoint now = m_scroll->mapToParent( e->pos() );
 		QPoint diff = m_firstPoint - now;
+//kdDebug() << "m_firstPoint: " << m_firstPoint << " - now: " << now << endl;
 		m_scroll->scrollBy( diff.x(), diff.y() );
 		m_firstPoint = now;
 	}
@@ -526,8 +569,8 @@ void IsotopeTableView::slotToogleZoomMode( bool state )
 
 
 
-NuclideLegend::NuclideLegend( QWidget* parent, const char* name )
-	: QWidget( parent, name )
+NuclideLegend::NuclideLegend( QWidget* parent )
+	: QWidget( parent )
 {
 	setMinimumSize( 300, 50 );
 	setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
@@ -560,24 +603,32 @@ void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
 	p.drawText( 250, 20, text );
 }
 
-IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
-	: KDialogBase( parent, name, true, i18n( "Isotope Table" ), Help|Close, Close, true )
+IsotopeScrollArea::IsotopeScrollArea( QWidget* parent )
+	: QScrollArea( parent )
+{
+	viewport()->setPaletteBackgroundColor( parent->paletteBackgroundColor() );
+	setFrameShape( QFrame::NoFrame );
+	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
+}
+
+void IsotopeScrollArea::scrollBy( int x, int y )
+{
+	scrollContentsBy( x, y );
+}
+
+IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
+	: KDialogBase( parent, "isotope-table", true, i18n( "Isotope Table" ), Help|Close, Close, true )
 {
 	QWidget *page = new QWidget( this );
 	setMainWidget( page );
 
-	QVBoxLayout *vbox = new QVBoxLayout(  page , 0, -1, "vbox" );
+	QVBoxLayout *vbox = new QVBoxLayout( page , 0, -1 );
 
-	Q3ScrollView *helperSV = new Q3ScrollView(page);
-	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());
-	helperSV->setFrameShape(QFrame::NoFrame);
-	helperSV->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
-	Q3VBox *big_box = new Q3VBox( helperSV->viewport() );
-	helperSV->addChild( big_box );
+	IsotopeScrollArea *scrollarea = new IsotopeScrollArea( page );
+	m_view = new IsotopeTableView( scrollarea, scrollarea );
+	scrollarea->setWidget( m_view );
 
-	m_view = new IsotopeTableView( big_box, helperSV, "view" );
-
-	NuclideLegend *legend = new NuclideLegend( page, "legend" );
+	NuclideLegend *legend = new NuclideLegend( page );
 
 	m_ac = new KActionCollection( this );
 	KToolBar *toolbar = new KToolBar( page, "toolbar", true, false );
@@ -592,7 +643,7 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent, const char* name )
 	ta->plug( toolbar );
 
 	vbox->addWidget( toolbar );
-	vbox->addWidget( helperSV );
+	vbox->addWidget( scrollarea );
 	vbox->addWidget( legend );
 
 	setMinimumSize( 750, 500 );

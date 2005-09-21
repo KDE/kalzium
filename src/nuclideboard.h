@@ -26,12 +26,13 @@
 #include <qpixmap.h>
 #include <qpoint.h>
 #include <qrect.h>
+#include <qscrollarea.h>
 
 #include <kdialogbase.h>
 
 class QColor;
 class QPainter;
-class Q3ScrollView;
+class IsotopeScrollArea;
 class KActionCollection;
 class Element;
 class Isotope;
@@ -47,7 +48,7 @@ class IsotopeTableView : public QWidget
 	Q_OBJECT
 
 	public:
-		IsotopeTableView( QWidget* parent = 0, Q3ScrollView* scroll = 0, const char * name = 0 );
+		IsotopeTableView( QWidget* parent = 0, IsotopeScrollArea* scroll = 0 );
 	
 	public slots:
 		/**
@@ -72,7 +73,7 @@ class IsotopeTableView : public QWidget
 
 	private:
 		QWidget *m_parent;
-		Q3ScrollView *m_scroll;
+		IsotopeScrollArea *m_scroll;
 
 		QPixmap m_pix;
 
@@ -135,8 +136,6 @@ class IsotopeTableView : public QWidget
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 		
-		virtual void resizeEvent( QResizeEvent *e );
-		
 		virtual void mousePressEvent( QMouseEvent *e );
 		virtual void mouseReleaseEvent( QMouseEvent *e );
 		virtual void mouseMoveEvent( QMouseEvent *e );
@@ -146,6 +145,10 @@ class IsotopeTableView : public QWidget
 		 * draw the isotope widgets
 		 */
 		void drawIsotopeWidgets( QPainter *p );
+		/**
+		 * draw the two legends
+		 */
+		void drawLegends( QPainter *p );
 };
 
 /**
@@ -158,7 +161,7 @@ class IsotopeTableDialog : public KDialogBase
 {
 	Q_OBJECT
 	public:
-		IsotopeTableDialog( QWidget* parent, const char* name = 0 );
+		IsotopeTableDialog( QWidget* parent );
 		~IsotopeTableDialog(){};
 
 		KActionCollection* actionCollection();
@@ -183,11 +186,28 @@ class IsotopeTableDialog : public KDialogBase
 class NuclideLegend : public QWidget
 {
 	public:
-		NuclideLegend( QWidget* parent, const char* name = 0 );
+		NuclideLegend( QWidget* parent );
 		~NuclideLegend() {};
 		
 	protected:
 		virtual void paintEvent( QPaintEvent* );
+};
+
+
+/**
+ * Small QScollArea derived class to allow the scrolling even outside
+ * the class' methods.
+ *
+ * @author Pino Toscano
+ */
+class IsotopeScrollArea : public QScrollArea
+{
+	Q_OBJECT
+	public:
+		IsotopeScrollArea( QWidget* parent );
+		~IsotopeScrollArea() {};
+
+		void scrollBy( int x, int y );
 };
 
 #endif // NUCLIDEBOARD_H

@@ -272,7 +272,7 @@ void Kalzium::slotShowEQSolver()
 
 void Kalzium::slotCrystalViewer()
 {
-	SimpleCrystalViewer *dlg = new SimpleCrystalViewer( this, "viewer" );
+	SimpleCrystalViewer *dlg = new SimpleCrystalViewer( this );
 	dlg->show();
 }
 

@@ -28,7 +28,7 @@ class SimpleCrystalViewer : public KDialogBase
 {
 	Q_OBJECT
 	public:
-		SimpleCrystalViewer( QWidget* parent, const char* name = 0 );
+		SimpleCrystalViewer( QWidget* parent );
 		~SimpleCrystalViewer(){};
 
 	private slots:
