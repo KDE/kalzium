@@ -34,11 +34,12 @@
 #include "simplecrystalviewer.h"
 
 #include <q3dockwindow.h>
-#include <qlayout.h>
-#include <qtoolbox.h>
-#include <qslider.h>
+#include <QLayout>
+#include <QToolBox>
+#include <QSlider>
 #include <q3scrollview.h>
-#include <qspinbox.h>
+#include <QScrollArea>
+#include <QSpinBox>
 
 #include <kconfigdialog.h>
 #include <kiconloader.h>
@@ -62,16 +63,15 @@ Kalzium::Kalzium()
 	// reading the elements from file
 	KalziumDataObject::instance();
 
-	QWidget *centralWidget = new QWidget( this, "centralWidget" );
-	m_pCentralLayout = new QVBoxLayout( centralWidget, PeriodicTableView_MARGIN, -1, "CentralLayout" );
-	
-	Q3ScrollView *helperSV = new Q3ScrollView(centralWidget);
-	m_pCentralLayout->addWidget(helperSV);
-	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
-	helperSV->setFrameShape(QFrame::NoFrame);
+//	QWidget *centralWidget = new QWidget( this, "centralWidget" );
+//	m_pCentralLayout = new QVBoxLayout( centralWidget, PeriodicTableView_MARGIN, -1, "CentralLayout" );
 
-	m_PeriodicTableView = new PeriodicTableView( helperSV->viewport(), "PeriodicTableView");
-	helperSV->addChild( m_PeriodicTableView );
+	QScrollArea *helperSV = new QScrollArea( this );
+	m_PeriodicTableView = new PeriodicTableView( helperSV->viewport(), "PeriodicTableView" );	
+	helperSV->setWidget( m_PeriodicTableView );
+//	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
+//	helperSV->setFrameShape(QFrame::NoFrame);
+
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
 
@@ -79,11 +79,12 @@ Kalzium::Kalzium()
 	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
 	
 	// layouting
-	setCentralWidget( centralWidget );
-	centralWidget->show();
+	setCentralWidget( helperSV );
 
 	setupSidebars();
 	setupActions();
+
+	kdDebug() << "hier sin wir" << endl;
 
 	// creating the glossary dialog and loading the glossaries we have
 	m_glossarydlg = new GlossaryDialog( true, this );
