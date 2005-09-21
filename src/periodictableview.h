@@ -29,9 +29,10 @@ class Element;
 class KalziumDataObject;
 class KalziumTip;
 
-#include <qlist.h>
-#include <qwidget.h>
-#include <qtimer.h>
+#include <QList>
+#include <QWidget>
+#include <QTimer>
+#include <QMap>
 
 // A PeriodicTableView is ...
 /**
@@ -368,37 +369,7 @@ class PeriodicTableView : public QWidget
 		 */
 		bool doFullDraw;
 		
-
-		//I am holding all colours as member so that they don't need to 
-		//be reloaded on every reload
-		QColor color_s;//Blocks
-		QColor color_p;
-		QColor color_d;
-		QColor color_f;
-		QColor color_1;//Groups
-		QColor color_2;
-		QColor color_3;
-		QColor color_4;
-		QColor color_5;
-		QColor color_6;
-		QColor color_7;
-		QColor color_8;
-		QColor color_ba;//Acidic
-		QColor color_ac;
-		QColor color_neu;
-		QColor color_amp;
-		QColor c_alkalie;//Family
-		QColor c_rare;
-		QColor c_nonmetal;
-		QColor c_alkaline;
-		QColor c_other_metal;
-		QColor c_halogene; 
-		QColor c_transition;
-		QColor c_noble_gas;
-		QColor c_metalloid;
-		QColor c_liquid;
-		QColor c_solid;
-		QColor c_vapor;
+		QMap<QString, QColor> m_colors;	// color map holding the colors loaded in reloadColours()
 		
 	protected:
 		virtual void paintEvent( QPaintEvent *e );

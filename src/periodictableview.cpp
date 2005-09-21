@@ -29,18 +29,19 @@
 #include <kpixmapeffect.h>
 #include <kimageeffect.h>
 
-#include <qevent.h>
-#include <qimage.h>
-#include <qstring.h>
-#include <qtooltip.h>
-#include <qwhatsthis.h>
-#include <qlabel.h>
-#include <qpixmap.h>
-#include <qpoint.h>
-#include <qcursor.h>
-#include <qpainter.h>
-#include <qcolor.h>
-#include <qrect.h>
+#include <QEvent>
+#include <QImage>
+#include <QString>
+#include <QToolTip>
+#include <QWhatsThis>
+#include <QLabel>
+#include <QPixmap>
+#include <QPoint>
+#include <QCursor>
+#include <QMouseEvent>
+#include <QPainter>
+#include <QColor>
+#include <QRect>
 
 PeriodicTableView::PeriodicTableView(QWidget *parent, const char *name)
   : QWidget(parent, name), m_kalziumTip(0), table(0), table2(0)
@@ -134,34 +135,37 @@ PeriodicTableView::PeriodicTableView(QWidget *parent, const char *name)
 
 void PeriodicTableView::reloadColours()
 {
-	color_s = Prefs::block_s();
-	color_p = Prefs::block_p();
-	color_d = Prefs::block_d();
-	color_f = Prefs::block_f();
-	color_1 = Prefs::group_1();
-	color_2 = Prefs::group_2();
-	color_3 = Prefs::group_3();
-	color_4 = Prefs::group_4();
-	color_5 = Prefs::group_5();
-	color_6 = Prefs::group_6();
-	color_7 = Prefs::group_7();
-	color_8 = Prefs::group_8();
-	color_ba = Prefs::beh_basic();
-	color_ac = Prefs::beh_acidic();
-	color_neu = Prefs::beh_neutral();
-	color_amp = Prefs::beh_amphoteric();
-	c_alkalie = Prefs::alkalie();
-	c_rare = Prefs::rare();
-	c_nonmetal = Prefs::nonmetal();
-	c_alkaline = Prefs::alkaline();
-	c_other_metal = Prefs::other_metal();
-	c_halogene = Prefs::halogene();
-	c_transition = Prefs::transition();
-	c_noble_gas = Prefs::noble_gas();
-	c_metalloid = Prefs::metalloid();
-	c_solid = Prefs::color_solid();
-	c_vapor = Prefs::color_vapor();
-	c_liquid = Prefs::color_liquid();
+	if ( !m_colors.isEmpty() )	// if the color map is not empty,
+		m_colors.clear();	// clear it, so there are no souble entries
+
+	m_colors["color_s"] = Prefs::block_s();
+	m_colors["color_p"] = Prefs::block_p();
+	m_colors["color_d"] = Prefs::block_d();
+	m_colors["color_f"] = Prefs::block_f();
+	m_colors["color_1"] = Prefs::group_1();
+	m_colors["color_2"] = Prefs::group_2();
+	m_colors["color_3"] = Prefs::group_3();
+	m_colors["color_4"] = Prefs::group_4();
+	m_colors["color_5"] = Prefs::group_5();
+	m_colors["color_6"] = Prefs::group_6();
+	m_colors["color_7"] = Prefs::group_7();
+	m_colors["color_8"] = Prefs::group_8();
+	m_colors["color_ba"] = Prefs::beh_basic();
+	m_colors["color_ac"] = Prefs::beh_acidic();
+	m_colors["color_neu"] = Prefs::beh_neutral();
+	m_colors["color_amp"] = Prefs::beh_amphoteric();
+	m_colors["c_alkalie"] = Prefs::alkalie();
+	m_colors["c_rare"] = Prefs::rare();
+	m_colors["c_nonmetal"] = Prefs::nonmetal();
+	m_colors["c_alkaline"] = Prefs::alkaline();
+	m_colors["c_other_metal"] = Prefs::other_metal();
+	m_colors["c_halogene"] = Prefs::halogene();
+	m_colors["c_transition"] = Prefs::transition();
+	m_colors["c_noble_gas"] = Prefs::noble_gas();
+	m_colors["c_metalloid"] = Prefs::metalloid();
+	m_colors["c_solid"]= Prefs::color_solid();
+	m_colors["c_vapor"] = Prefs::color_vapor();
+	m_colors["c_liquid"] = Prefs::color_liquid();
 }
 
 void PeriodicTableView::slotToolTip( int number )
@@ -210,28 +214,28 @@ void PeriodicTableView::activateColorScheme( const int nr )
 			group = ( *it )->group();
 			
 			if (group == QString("1")) {
-				( *it )->setElementColor( color_1 );
+				( *it )->setElementColor( m_colors["color_1"] );
 			}
 			if (group == QString("2")){
-				( *it )->setElementColor( color_2 );
+				( *it )->setElementColor( m_colors["color_2"] );
 			}
 			if (group == QString("3")){
-				( *it )->setElementColor( color_3 );
+				( *it )->setElementColor( m_colors["color_3"] );
 			}
 			if (group == QString("4")){
-				( *it )->setElementColor( color_4 );
+				( *it )->setElementColor( m_colors["color_4"] );
 			}
 			if (group == QString("5")){
-				( *it )->setElementColor( color_5 );
+				( *it )->setElementColor( m_colors["color_5"] );
 			}
 			if (group == QString("6")){
-				( *it )->setElementColor( color_6 );
+				( *it )->setElementColor( m_colors["color_6"] );
 			}
 			if (group == QString("7")){
-				( *it )->setElementColor( color_7 );
+				( *it )->setElementColor( m_colors["color_7"] );
 			}
 			if (group == QString("8")){
-				( *it )->setElementColor( color_8 );
+				( *it )->setElementColor( m_colors["color_8"] );
 			}
 
 			++it;
@@ -245,16 +249,16 @@ void PeriodicTableView::activateColorScheme( const int nr )
 			block = (*it)->block();
 
 			if (block == QString("s")) {
-				(*it)->setElementColor( color_s );
+				(*it)->setElementColor( m_colors["color_s"] );
 			}
 			if (block == QString("p")) {
-				(*it)->setElementColor( color_p );
+				(*it)->setElementColor( m_colors["color_p"] );
 			}
 			if (block == QString("d")) {
-				(*it)->setElementColor( color_d );
+				(*it)->setElementColor( m_colors["color_d"] );
 			}
 			if (block == QString("f")) {
-				(*it)->setElementColor( color_f );
+				(*it)->setElementColor( m_colors["color_f"] );
 			}
 			++it;
 		}
@@ -268,16 +272,16 @@ void PeriodicTableView::activateColorScheme( const int nr )
 			acidicbeh = ( *it )->acidicbeh();
 
 			if (acidicbeh == QString("0")) {
-				(*it)->setElementColor( color_ac );
+				(*it)->setElementColor( m_colors["color_ac"] );
 			}
 			if (acidicbeh == QString("1")){
-				(*it)->setElementColor( color_ba );
+				(*it)->setElementColor( m_colors["color_ba"] );
 			}
 			if (acidicbeh == QString("2")){
-				(*it)->setElementColor( color_neu );
+				(*it)->setElementColor( m_colors["color_neu"] );
 			}
 			if (acidicbeh == QString("3")){
-				(*it)->setElementColor( color_amp );
+				(*it)->setElementColor( m_colors["color_amp"] );
 			}
 			++it;
 		}
@@ -291,31 +295,31 @@ void PeriodicTableView::activateColorScheme( const int nr )
 			family = ( *it )->family();
 
 			if ( family == "Noblegas" ){
-				(*it)->setElementColor( c_noble_gas );
+				(*it)->setElementColor( m_colors["c_noble_gas"] );
 			}
 			if ( family == "Non-Metal" ){
-				(*it)->setElementColor( c_nonmetal );
+				(*it)->setElementColor( m_colors["c_nonmetal"] );
 			}
 			if ( family == "Rare_Earth" ){
-				(*it)->setElementColor( c_rare );
+				(*it)->setElementColor( m_colors["c_rare"] );
 			}
 			if ( family == "Alkaline_Earth" ){
-				(*it)->setElementColor( c_alkaline );
+				(*it)->setElementColor( m_colors["c_alkaline"] );
 			}
 			if ( family == "Alkali_Earth" ){
-				(*it)->setElementColor( c_alkalie );
+				(*it)->setElementColor( m_colors["c_alkalie"] );
 			}
 			if ( family == "Transition" ){
-				(*it)->setElementColor( c_transition );
+				(*it)->setElementColor( m_colors["c_transition"] );
 			}
 			if ( family == "Other_Metal" ){
-				(*it)->setElementColor( c_other_metal );
+				(*it)->setElementColor( m_colors["c_other_metal"] );
 			}
 			if ( family == "Metalloids" ){
-				(*it)->setElementColor( c_metalloid );
+				(*it)->setElementColor( m_colors["c_metalloid"] );
 			}
 			if ( family == "Halogene" ){
-				(*it)->setElementColor( c_halogene );
+				(*it)->setElementColor( m_colors["c_halogene"] );
 			}
 			
 			++it;
@@ -579,9 +583,9 @@ void PeriodicTableView::drawLegend( QPainter* p )
 
 	if ( som() )
 	{
-		p->fillRect(x1, fieldheight*2, square_w, square_h, c_solid );
-		p->fillRect(x1, fieldheight*3, square_w, square_h, c_liquid );
-		p->fillRect(x1, fieldheight*4, square_w, square_h, c_vapor );
+		p->fillRect(x1, fieldheight*2, square_w, square_h, m_colors["c_solid"] );
+		p->fillRect(x1, fieldheight*3, square_w, square_h, m_colors["c_liquid"] );
+		p->fillRect(x1, fieldheight*4, square_w, square_h, m_colors["c_vapor"] );
 
 		p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Solid") ); 
 		p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Liquid") ); 
@@ -593,14 +597,14 @@ void PeriodicTableView::drawLegend( QPainter* p )
 		case PeriodicTableView::NOCOLOUR:
 			break;
 		case PeriodicTableView::GROUPS:
-			p->fillRect( x1, fieldheight*2, square_w, square_h, color_1); 
-			p->fillRect( x1, fieldheight*3, square_w, square_h, color_2); 
-			p->fillRect( x1, fieldheight*4, square_w, square_h, color_3); 
-			p->fillRect( x1, fieldheight*5, square_w, square_h, color_4); 
-			p->fillRect( x2, fieldheight*2, square_w, square_h, color_5); 
-			p->fillRect( x2, fieldheight*3, square_w, square_h, color_6); 
-			p->fillRect( x2, fieldheight*4, square_w, square_h, color_7); 
-			p->fillRect( x2, fieldheight*5, square_w, square_h, color_8 ); 
+			p->fillRect( x1, fieldheight*2, square_w, square_h, m_colors["color_1"]); 
+			p->fillRect( x1, fieldheight*3, square_w, square_h, m_colors["color_2"]); 
+			p->fillRect( x1, fieldheight*4, square_w, square_h, m_colors["color_3"]); 
+			p->fillRect( x1, fieldheight*5, square_w, square_h, m_colors["color_4"]); 
+			p->fillRect( x2, fieldheight*2, square_w, square_h, m_colors["color_5"]); 
+			p->fillRect( x2, fieldheight*3, square_w, square_h, m_colors["color_6"]); 
+			p->fillRect( x2, fieldheight*4, square_w, square_h, m_colors["color_7"]); 
+			p->fillRect( x2, fieldheight*5, square_w, square_h, m_colors["color_8"]); 
 			
 			p->drawText( x1 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 1") ); 
 			p->drawText( x1 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 2")); 
@@ -612,10 +616,10 @@ void PeriodicTableView::drawLegend( QPainter* p )
 			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 8")); 
 			break;
 		case PeriodicTableView::BLOCK:
-			p->fillRect(x1, fieldheight*2, square_w, square_h, color_s ); 
-			p->fillRect(x1, fieldheight*3, square_w, square_h, color_p ); 
-			p->fillRect(x1, fieldheight*4, square_w, square_h, color_d ); 
-			p->fillRect(x1, fieldheight*5, square_w, square_h, color_f ); 
+			p->fillRect(x1, fieldheight*2, square_w, square_h, m_colors["color_s"] ); 
+			p->fillRect(x1, fieldheight*3, square_w, square_h, m_colors["color_p"] ); 
+			p->fillRect(x1, fieldheight*4, square_w, square_h, m_colors["color_d"] ); 
+			p->fillRect(x1, fieldheight*5, square_w, square_h, m_colors["color_f"] ); 
 			
 			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("s-Block") ); 
 			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("p-Block") ); 
@@ -623,10 +627,10 @@ void PeriodicTableView::drawLegend( QPainter* p )
 			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("f-Block") ); 
 			break;
 		case PeriodicTableView::ACIDIC:
-			p->fillRect(x1, fieldheight*2, square_w, square_h, color_ba ); 
-			p->fillRect(x1, fieldheight*3, square_w, square_h, color_neu );
-			p->fillRect(x1, fieldheight*4, square_w, square_h, color_ac ); 
-			p->fillRect(x1, fieldheight*5, square_w, square_h, color_amp );
+			p->fillRect(x1, fieldheight*2, square_w, square_h, m_colors["color_ba"] ); 
+			p->fillRect(x1, fieldheight*3, square_w, square_h, m_colors["color_neu"] );
+			p->fillRect(x1, fieldheight*4, square_w, square_h, m_colors["color_ac"] ); 
+			p->fillRect(x1, fieldheight*5, square_w, square_h, m_colors["color_amp"] );
 			
 			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Basic") ); 
 			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Neutral") ); 
@@ -634,15 +638,15 @@ void PeriodicTableView::drawLegend( QPainter* p )
 			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("both acidic and basic behaviour","Amphoteric") ); 
 			break;
 		case PeriodicTableView::FAMILY:
-			p->fillRect( x1, fieldheight*2, square_w, square_h, c_alkaline ); 
-			p->fillRect( x2, fieldheight*2, square_w, square_h, c_rare ); 
-			p->fillRect( x1, fieldheight*3, square_w, square_h, c_nonmetal ); 
-			p->fillRect( x2, fieldheight*3, square_w, square_h, c_alkalie ); 
-			p->fillRect( x1, fieldheight*4, square_w, square_h, c_other_metal ); 
-			p->fillRect( x2, fieldheight*4, square_w, square_h, c_halogene ); 
-			p->fillRect( x1, fieldheight*5, square_w, square_h, c_transition );
-			p->fillRect( x2, fieldheight*5, square_w, square_h, c_noble_gas ); 
-			p->fillRect( x1, fieldheight*6, square_w, square_h, c_metalloid ); 
+			p->fillRect( x1, fieldheight*2, square_w, square_h, m_colors["c_alkaline"] ); 
+			p->fillRect( x2, fieldheight*2, square_w, square_h, m_colors["c_rare"] ); 
+			p->fillRect( x1, fieldheight*3, square_w, square_h, m_colors["c_nonmetal"] ); 
+			p->fillRect( x2, fieldheight*3, square_w, square_h, m_colors["c_alkalie"] ); 
+			p->fillRect( x1, fieldheight*4, square_w, square_h, m_colors["c_other_metal"] ); 
+			p->fillRect( x2, fieldheight*4, square_w, square_h, m_colors["c_halogene"] ); 
+			p->fillRect( x1, fieldheight*5, square_w, square_h, m_colors["c_transition"] );
+			p->fillRect( x2, fieldheight*5, square_w, square_h, m_colors["c_noble_gas"] ); 
+			p->fillRect( x1, fieldheight*6, square_w, square_h, m_colors["c_metalloid"] ); 
 			
 			p->drawText( x1 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkaline") ); 
 			p->drawText( x2 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Rare Earth")); 
@@ -1206,28 +1210,28 @@ void PeriodicTableView::setLook( PeriodicTableView::SCHEMETYPE type, int which )
 				group = ( *it )->group();
 				
 				if (group == QString("1")) {
-					( *it )->setElementColor( color_1 );
+					( *it )->setElementColor( m_colors["color_1"] );
 				}
 				if (group == QString("2")){
-					( *it )->setElementColor( color_2 );
+					( *it )->setElementColor( m_colors["color_2"] );
 				}
 				if (group == QString("3")){
-					( *it )->setElementColor( color_3 );
+					( *it )->setElementColor( m_colors["color_3"] );
 				}
 				if (group == QString("4")){
-					( *it )->setElementColor( color_4 );
+					( *it )->setElementColor( m_colors["color_4"] );
 				}
 				if (group == QString("5")){
-					( *it )->setElementColor( color_5 );
+					( *it )->setElementColor( m_colors["color_5"] );
 				}
 				if (group == QString("6")){
-					( *it )->setElementColor( color_6 );
+					( *it )->setElementColor( m_colors["color_6"] );
 				}
 				if (group == QString("7")){
-					( *it )->setElementColor( color_7 );
+					( *it )->setElementColor( m_colors["color_7"] );
 				}
 				if (group == QString("8")){
-					( *it )->setElementColor( color_8 );
+					( *it )->setElementColor( m_colors["color_8"] );
 				}
 
 				++it;
@@ -1243,16 +1247,16 @@ void PeriodicTableView::setLook( PeriodicTableView::SCHEMETYPE type, int which )
 				block = (*it)->block();
 	
 				if (block == QString("s")) {
-					(*it)->setElementColor( color_s );
+					(*it)->setElementColor( m_colors["color_s"] );
 				}
 				if (block == QString("p")) {
-					(*it)->setElementColor( color_p );
+					(*it)->setElementColor( m_colors["color_p"] );
 				}
 				if (block == QString("d")) {
-					(*it)->setElementColor( color_d );
+					(*it)->setElementColor( m_colors["color_d"] );
 				}
 				if (block == QString("f")) {
-					(*it)->setElementColor( color_f );
+					(*it)->setElementColor( m_colors["color_f"] );
 				}
 				++it;
 			}
@@ -1267,16 +1271,16 @@ void PeriodicTableView::setLook( PeriodicTableView::SCHEMETYPE type, int which )
 				acidicbeh = ( *it )->acidicbeh();
 
 				if (acidicbeh == QString("0")) {
-					(*it)->setElementColor( color_ac );
+					(*it)->setElementColor( m_colors["color_ac"] );
 				}
 				if (acidicbeh == QString("1")){
-					(*it)->setElementColor( color_ba );
+					(*it)->setElementColor( m_colors["color_ba"] );
 				}
 				if (acidicbeh == QString("2")){
-					(*it)->setElementColor( color_neu );
+					(*it)->setElementColor( m_colors["color_neu"] );
 				}
 				if (acidicbeh == QString("3")){
-					(*it)->setElementColor( color_amp );
+					(*it)->setElementColor( m_colors["color_amp"] );
 				}
 				++it;
 			}
@@ -1292,31 +1296,31 @@ void PeriodicTableView::setLook( PeriodicTableView::SCHEMETYPE type, int which )
 				family = ( *it )->family();
 
 				if ( family == "Noblegas" ){
-					(*it)->setElementColor( c_noble_gas );
+					(*it)->setElementColor( m_colors["c_noble_gas"] );
 				}
 				if ( family == "Non-Metal" ){
-					(*it)->setElementColor( c_nonmetal );
+					(*it)->setElementColor( m_colors["c_nonmetal"] );
 				}
 				if ( family == "Rare_Earth" ){
-					(*it)->setElementColor( c_rare );
+					(*it)->setElementColor( m_colors["c_rare"] );
 				}
 				if ( family == "Alkaline_Earth" ){
-					(*it)->setElementColor( c_alkaline );
+					(*it)->setElementColor( m_colors["c_alkaline"] );
 				}
 				if ( family == "Alkali_Earth" ){
-					(*it)->setElementColor( c_alkalie );
+					(*it)->setElementColor( m_colors["c_alkalie"] );
 				}
 				if ( family == "Transition" ){
-					(*it)->setElementColor( c_transition );
+					(*it)->setElementColor( m_colors["c_transition"] );
 				}
 				if ( family == "Other_Metal" ){
-					(*it)->setElementColor( c_other_metal );
+					(*it)->setElementColor( m_colors["c_other_metal"] );
 				}
 				if ( family == "Metalloids" ){
-					(*it)->setElementColor( c_metalloid );
+					(*it)->setElementColor( m_colors["c_metalloid"] );
 				}
 				if ( family == "Halogene" ){
-					(*it)->setElementColor( c_halogene );
+					(*it)->setElementColor( m_colors["c_halogene"] );
 				}
 			
 				++it;
