@@ -242,7 +242,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "</td></tr>" );
 						
 
-			uint i = 0;
+			int i = 0;
 			for ( ; i < ionlist.count() ; ++i )
 			{
 				html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );

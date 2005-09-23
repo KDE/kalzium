@@ -100,9 +100,9 @@ void MolcalcWidget::updateUI()
 	// The mass
 	resultMass->setText( i18n( "Molecular mass: %1 u" ).arg( m_mass ) );
 	
-	QToolTip::add( resultMass,        complexString );
-	QToolTip::add( resultComposition, complexString );
-	QToolTip::add( resultLabel,       complexString );
+	resultMass->setToolTip(        complexString );
+	resultComposition->setToolTip( complexString );
+	resultLabel->setToolTip(       complexString );
 }
 
 
