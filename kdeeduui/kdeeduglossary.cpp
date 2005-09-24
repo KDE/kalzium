@@ -162,11 +162,11 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		QString picName = itemElement.namedItem( "picture" ).toElement().text();
 		QDomElement refNode = ( const QDomElement& ) itemElement.namedItem( "references" ).toElement();
 
-		QString desc = descNode.toElement().text().utf8();
+		QString desc = descNode.toElement().text().toUtf8();
 		if ( !picName.isEmpty() )
 			desc.prepend("[img]"+picName +"[/img][brclear][br]" );
 
-		item->setName( i18n( nameNode.toElement( ).text().utf8() ) );
+		item->setName( i18n( nameNode.toElement( ).text().toUtf8() ) );
 		
 		desc = desc.replace("[b]", "<b>" );
 		desc = desc.replace("[/b]", "</b>" );
@@ -183,7 +183,7 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		refNodeList = refNode.elementsByTagName( "refitem" );
 		for ( int it = 0; it < refNodeList.count(); it++ )
 		{
-			reflist << i18n( refNodeList.item( it ).toElement().text().utf8() );
+			reflist << i18n( refNodeList.item( it ).toElement().text().toUtf8() );
 		}
 		item->setRef( reflist );
 		
