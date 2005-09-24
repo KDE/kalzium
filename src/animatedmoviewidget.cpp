@@ -134,7 +134,7 @@ void AnimatedMovieWidget::reloadImages()
 	}
 	for ( i = 0; i < m_pics.size(); i++ )
 	{
-		m_pics[i] = m_pics[i].rightJustify( maxlength, '0' );
+		m_pics[i] = m_pics[i].rightJustified( maxlength, '0' );
 	}
 	if ( m_pics.size() > 0 )
 	{

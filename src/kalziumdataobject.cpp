@@ -127,7 +127,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		
 		QDomElement nameE = domElement.namedItem( "name" ).toElement();
 		QString name = nameE.text();
-		QString origin = i18n( nameE.attributeNode( "origin" ).value().utf8() );
+		QString origin = i18n( nameE.attributeNode( "origin" ).value().toUtf8() );
 		
 		QString block = domElement.namedItem( "block" ).toElement().text();
 		QString group = domElement.namedItem( "group" ).toElement().text();
@@ -192,7 +192,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setDate(date);
 		e->setBiologicalMeaning(bio);
 		e->setNumber( number );
-		e->setName(i18n(name.utf8()));
+		e->setName(i18n(name.toUtf8()));
 		e->setRadius( Element::ATOMIC, atomic_radius );
 		e->setRadius( Element::IONIC, ionic_radius, ionic_charge );
 		e->setRadius( Element::COVALENT, covalent_radius );
