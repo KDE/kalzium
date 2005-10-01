@@ -259,7 +259,7 @@ void Kalzium::slotShowEQSolver()
 	eqsolver->setMinimumSize( 600,400 );
 
 	vbox->addWidget( eqsolver );
-
+        connect(dlg, SIGNAL(applyClicked()), eqsolver, SLOT(compute()));
 	dlg->show();
 #endif
 }
