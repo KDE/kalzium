@@ -266,6 +266,7 @@ void Kalzium::slotShowEQSolver()
 //X 
 //X 	vbox->addWidget( eqsolver );
 //X 
+//X 	connect(dlg, SIGNAL(applyClicked()), eqsolver, SLOT(compute()));
 //X 	dlg->show();
 #endif
 }

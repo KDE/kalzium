@@ -63,7 +63,6 @@ eqchemView::eqchemView(QWidget *parent) : QWidget(parent)
     m_eqclear->setIconSet( KGlobal::instance()->iconLoader()->loadIconSet("locationbar_erase", 
 		KIcon::NoGroup, 22 /*KIcon::SizeSmallMedium*/) );
 
-    connect(m_eqedit, SIGNAL(returnPressed()), this, SLOT(compute()));
     connect(m_eqclear, SIGNAL(clicked()), m_eqedit, SLOT(clear()) );
 }
 
