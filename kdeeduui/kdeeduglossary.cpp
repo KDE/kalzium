@@ -259,7 +259,7 @@ void GlossaryDialog::keyPressEvent(QKeyEvent* e)
 void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 {
 	// using the "host" part of a kurl as reference
-	QString myurl = url.host().lower();
+	QString myurl = url.host().toLower();
 	m_search->setText( "" );
 	m_search->updateSearch( "" );
 	Q3ListViewItem *found = 0;
@@ -268,7 +268,7 @@ void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
 	while ( it.current() )
 	{
 		item = it.current();
-		if ( item->text(0).lower() == myurl )
+		if ( item->text(0).toLower() == myurl )
 		{
 			found = item;
 			break;
@@ -299,7 +299,7 @@ void GlossaryDialog::updateTree()
 		{
 			if ( m_folded )
 			{
-				QChar thisletter = ( *it )->name().upper()[0];
+				QChar thisletter = ( *it )->name().toUpper()[0];
 				Q3ListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
 				if ( !thisletteritem )
 				{
