@@ -35,6 +35,7 @@
 #include "eqchemview.h"
 
 #include <stdlib.h>
+#include <ktoolinvocation.h>
 
 #ifdef HAVE_FACILE
 extern "C" {
@@ -114,7 +115,7 @@ void EQChemDialog::slotHelp()
 {
 	emit helpClicked();
 	if ( kapp )
-		kapp->invokeHelp ( "eq_solver", "kalzium" );
+		KToolInvocation::invokeHelp ( "eq_solver", "kalzium" );
 }
 
 #include "eqchemview.moc"
