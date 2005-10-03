@@ -23,7 +23,8 @@
 #include <kcombobox.h>
 #include <kdebug.h>
 #include <kactioncollection.h>
-#include <kapplication.h>
+#include <kstdaction.h>
+#include <ktoolinvocation.h>
 
 //QT-Includes
 #include <qevent.h>
@@ -89,8 +90,7 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 void ElementDataViewer::slotHelp()
 {
 	emit helpClicked();
-	if ( kapp )
-		kapp->invokeHelp ( "plot_data", "kalzium" );
+	KToolInvocation::invokeHelp( QLatin1String( "plot_data" ), QLatin1String( "kalzium" ) );
 }
 
 // Reimplement slotUser1 from KDialogBase

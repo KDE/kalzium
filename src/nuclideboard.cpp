@@ -36,13 +36,13 @@
 
 #include <kaction.h>
 #include <kactioncollection.h>
-#include <kapplication.h>
 #include <kcursor.h>
 #include <kdebug.h>
 #include <kglobal.h>
 #include <klocale.h>
 #include <kstdaction.h>
 #include <ktoolbar.h>
+#include <ktoolinvocation.h>
 
 #include <math.h>
 #include <stdlib.h>
@@ -654,8 +654,7 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 
 void IsotopeTableDialog::slotHelp()
 {
-	if ( kapp )
-		kapp->invokeHelp ( "isotope_table", "kalzium" );
+	KToolInvocation::invokeHelp( QLatin1String( "isotope_table" ), QLatin1String( "kalzium" ) );
 }
 
 KActionCollection* IsotopeTableDialog::actionCollection()

@@ -25,7 +25,8 @@
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
 #include <kcombobox.h>
-#include <kapplication.h>
+#include <kstdaction.h>
+#include <ktoolinvocation.h>
 
 #include <qlabel.h>
 #include <qimage.h>
@@ -431,8 +432,7 @@ void DetailedInfoDlg::slotHelp()
 			break;
 	}
 
-	if ( kapp )
-		kapp->invokeHelp ( chapter, "kalzium" );
+	KToolInvocation::invokeHelp( chapter, QLatin1String( "kalzium" ) );
 }
 
 void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
