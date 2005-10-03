@@ -217,7 +217,8 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 	lbl->setText( i18n( "Search:" ) );
 	hbox->addWidget( lbl );
 
-	m_search = new KListViewSearchLine( plainPage(), 0, "search-line" );
+	m_search = new KListViewSearchLine( plainPage(), 0L );
+	m_search->setObjectName( "search-line" );
 	hbox->addWidget( m_search );
 	vbox->addLayout( hbox );
 	setFocusProxy(m_search);
@@ -225,7 +226,8 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 	QSplitter *vs = new QSplitter( plainPage() );
 	vbox->addWidget( vs );
 
-	m_glosstree = new KListView( vs, "treeview" );
+	m_glosstree = new KListView( vs );
+	m_glosstree->setObjectName( "treeview" );
 	m_glosstree->addColumn( "entries" );
 	m_glosstree->header()->hide();
 	m_glosstree->setFullWidth( true );
