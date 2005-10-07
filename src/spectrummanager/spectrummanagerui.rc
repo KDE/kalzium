@@ -1,0 +1,9 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="spectrummanager" version="1">
+<MenuBar>
+  <Menu name="file" noMerge="0"><text>&amp;File</text>
+    <Action name="export_data"/>
+  </Menu>
+</MenuBar>
+
+</kpartgui>
