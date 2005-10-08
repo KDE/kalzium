@@ -24,7 +24,6 @@
 #include <qlist.h>
 #include <qstring.h>
 
-class QPixmap;
 class Element;
 
 /**
@@ -124,8 +123,8 @@ class Spectrum
 		/**
 		 * @return the list of bands of the spectrum
 		 */
-		QList<band>* bandlist(){
-			return &m_bandlist;
+		QList<band> bandlist(){
+			return m_bandlist;
 		}
 	
 		/**
