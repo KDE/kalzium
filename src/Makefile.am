@@ -31,8 +31,6 @@ kalzium_SOURCES = kalzium.cpp \
 			exporter.cpp \
 			spectrumview.ui \
 			spectrumviewimpl.cpp \
-			bandeditor.ui \
-			spectrumeditor.cpp \
 			kalziumutils.cpp \
 			parser.cpp \
 			moleculeparser.cpp \
@@ -69,8 +67,6 @@ EXTRA_DIST = main.cpp \
 		exporter.cpp exporter.h \
 		spectrumview.ui \
 		spectrumviewimpl.cpp spectrumviewimpl.h	\
-		bandeditor.ui \
-		spectrumeditor.cpp spectrumeditor.h \
 		kalziumutils.cpp kalziumutils.h \
 		parser.cpp parser.h \
 		moleculeparser.cpp moleculeparser.h \

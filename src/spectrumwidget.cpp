@@ -92,51 +92,51 @@ void SpectrumWidget::drawZoomLine( QPainter* p )
 
 void SpectrumWidget::paintBands( QPainter* p )
 {
-	if ( m_type == AbsorptionSpectrum )
-	{
-		for ( double va = startValue; va <= endValue ; va += 0.1 )
-		{
-			int x = xPos( va );
-			p->setPen( linecolor( va ) );
-			p->drawLine( x,0,x, m_realHeight );
-		}
-
-		p->setPen( Qt::black );
-	}
-
- 	int i = 0;
-	int x = 0;
-	int temp = 0;	
-
- 	for ( QList<Spectrum::band>::Iterator it = m_spectrum->bandlist()->begin();
- 			it != m_spectrum->bandlist()->end();
- 			++it )
- 	{
- 		if ( ( *it ).wavelength < startValue || ( *it ).wavelength > endValue )
-			continue;
- 
- 		x = xPos( ( *it ).wavelength );
- 	
- 		temp = 0;  
-
- 		switch ( m_type )
- 		{
-			case EmissionSpectrum:
-				p->setPen( linecolor( ( *it ).wavelength ) );
-				p->drawLine( x,0,x, m_realHeight-1 );
-
-				p->setPen( Qt::black );
-//				p->drawLine( x,m_realHeight,x, m_realHeight );
-				break;
- 		
-			case AbsorptionSpectrum:
-				p->setPen( Qt::black );
-				p->drawLine( x,0,x, m_realHeight-1 );
-				break;
- 		}
- 		
- 		i++;
- 	}
+//X 	if ( m_type == AbsorptionSpectrum )
+//X 	{
+//X 		for ( double va = startValue; va <= endValue ; va += 0.1 )
+//X 		{
+//X 			int x = xPos( va );
+//X 			p->setPen( linecolor( va ) );
+//X 			p->drawLine( x,0,x, m_realHeight );
+//X 		}
+//X 
+//X 		p->setPen( Qt::black );
+//X 	}
+//X 
+//X  	int i = 0;
+//X 	int x = 0;
+//X 	int temp = 0;	
+//X 
+//X  	for ( QList<Spectrum::band>::Iterator it = m_spectrum->bandlist()->begin();
+//X  			it != m_spectrum->bandlist()->end();
+//X  			++it )
+//X  	{
+//X  		if ( ( *it ).wavelength < startValue || ( *it ).wavelength > endValue )
+//X 			continue;
+//X  
+//X  		x = xPos( ( *it ).wavelength );
+//X  	
+//X  		temp = 0;  
+//X 
+//X  		switch ( m_type )
+//X  		{
+//X 			case EmissionSpectrum:
+//X 				p->setPen( linecolor( ( *it ).wavelength ) );
+//X 				p->drawLine( x,0,x, m_realHeight-1 );
+//X 
+//X 				p->setPen( Qt::black );
+//X //				p->drawLine( x,m_realHeight,x, m_realHeight );
+//X 				break;
+//X  		
+//X 			case AbsorptionSpectrum:
+//X 				p->setPen( Qt::black );
+//X 				p->drawLine( x,0,x, m_realHeight-1 );
+//X 				break;
+//X  		}
+//X  		
+//X  		i++;
+//X  	}
 }
 
 QColor SpectrumWidget::linecolor( double spectrum )
@@ -342,46 +342,46 @@ void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
 
 void SpectrumWidget::PrepareTooltip( double wavelength )
 {
-	Spectrum::band band;
-	
- 	QList<Spectrum::band>::const_iterator it = m_spectrum->bandlist()->begin();
-	const QList<Spectrum::band>::const_iterator itEnd = m_spectrum->bandlist()->end();
-
-	//find the difference in percent (1.0 is 100%, 0.1 is 10%)
-	double dif = 0.0;
-
-	bool foundWavelentgh = false;
-	
-	//find the highest intensity
-	for ( ; it != itEnd; ++it )
-	{
-		double thisdif = ( *it ).wavelength / wavelength;
-	
-		if ( thisdif < 0.9 || thisdif > 1.1 )
-			continue;
-		
-		if ( thisdif > 1.0 ){//convert for example 1.3 to 0.7
-			thisdif = thisdif-1;
-			thisdif = 1-thisdif;
-		}
-
-		if ( thisdif > dif )
-		{
-			dif = thisdif;
-			band = *it;
-			foundWavelentgh = true;
-		}
-	}
-	if ( foundWavelentgh )
-	{
-		m_band = band;
-		m_showtooltip = true;
-	}
-	else 
-		m_showtooltip = false;
-	
-	kdDebug() << "SpectrumWidget::PrepareTooltip(): "<< m_showtooltip << endl;
-	update();
+//X 	Spectrum::band band;
+//X 	
+//X  	QList<Spectrum::band>::const_iterator it = m_spectrum->bandlist()->begin();
+//X 	const QList<Spectrum::band>::const_iterator itEnd = m_spectrum->bandlist()->end();
+//X 
+//X 	//find the difference in percent (1.0 is 100%, 0.1 is 10%)
+//X 	double dif = 0.0;
+//X 
+//X 	bool foundWavelentgh = false;
+//X 	
+//X 	//find the highest intensity
+//X 	for ( ; it != itEnd; ++it )
+//X 	{
+//X 		double thisdif = ( *it ).wavelength / wavelength;
+//X 	
+//X 		if ( thisdif < 0.9 || thisdif > 1.1 )
+//X 			continue;
+//X 		
+//X 		if ( thisdif > 1.0 ){//convert for example 1.3 to 0.7
+//X 			thisdif = thisdif-1;
+//X 			thisdif = 1-thisdif;
+//X 		}
+//X 
+//X 		if ( thisdif > dif )
+//X 		{
+//X 			dif = thisdif;
+//X 			band = *it;
+//X 			foundWavelentgh = true;
+//X 		}
+//X 	}
+//X 	if ( foundWavelentgh )
+//X 	{
+//X 		m_band = band;
+//X 		m_showtooltip = true;
+//X 	}
+//X 	else 
+//X 		m_showtooltip = false;
+//X 	
+//X 	kdDebug() << "SpectrumWidget::PrepareTooltip(): "<< m_showtooltip << endl;
+//X 	update();
 }
 
 void SpectrumWidget::drawTooltip( QPainter *p )
