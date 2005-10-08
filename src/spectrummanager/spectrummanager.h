@@ -19,6 +19,14 @@
 
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
+ * The SpectrumManager is an application which allows the user to manage 
+ * spectra. This means the user is able to create, load, save and change
+ * absorption or emmission spectra. He can add or remove bands for a spectra
+ * and for example export a spectra as a graphic which can be useful for 
+ * teachers.
+ * Another usecase is the export as csv (comma separated values)-file or 
+ * the direct printing of the values.
+ * 
  */
 class SpectrumManager : public KMainWindow
 {
