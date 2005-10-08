@@ -12,6 +12,7 @@ email                : cniehaus@kde.org
  ***************************************************************************/
 #include "spectrummanager.h"
 #include "spectrumeditor.h"
+#include "spectrumparser.h"
 #include "bandeditor.h"
 #include "smprintdialogpage.h"
 
@@ -47,6 +48,8 @@ email                : cniehaus@kde.org
 
 	connect( editor, SIGNAL( bandAdded( Spectrum::band ) ), 
 			this, SLOT( addBandToSpectrum( Spectrum::band ) ) );
+
+	SpectrumParser *parser = new SpectrumParser();
 }
 
 void SpectrumManager::addBandToSpectrum( Spectrum::band band ){
