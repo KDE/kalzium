@@ -27,26 +27,26 @@
 
 double Spectrum::minBand()
 {
-	double value = ( *m_bandlist.begin() ).wavelength;
-	QList<band>::const_iterator it = m_bandlist.begin();
-	const QList<band>::const_iterator itEnd = m_bandlist.end();
+	double value = ( *m_bandlist.begin() )->wavelength;
+	QList<band*>::const_iterator it = m_bandlist.begin();
+	const QList<band*>::const_iterator itEnd = m_bandlist.end();
 	for (;it!=itEnd;++it)
 	{
-		if ( value > ( *it ).wavelength )
-			value = ( *it ).wavelength;
+		if ( value > ( *it )->wavelength )
+			value = ( *it )->wavelength;
 	}
 	return value;
 }
 
 double Spectrum::maxBand()
 {
-	double value = ( *m_bandlist.begin() ).wavelength;
-	QList<band>::const_iterator it = m_bandlist.begin();
-	const QList<band>::const_iterator itEnd = m_bandlist.end();
+	double value = ( *m_bandlist.begin() )->wavelength;
+	QList<band*>::const_iterator it = m_bandlist.begin();
+	const QList<band*>::const_iterator itEnd = m_bandlist.end();
 	for (;it!=itEnd;++it)
 	{
-		if ( value < ( *it ).wavelength )
-			value = ( *it ).wavelength;
+		if ( value < ( *it )->wavelength )
+			value = ( *it )->wavelength;
 	}
 	return value;
 }
@@ -56,12 +56,12 @@ Spectrum* Spectrum::adjustToWavelength( double min, double max )
 {
 	Spectrum *spec = new Spectrum();
 
-	QList<band>::const_iterator it = m_bandlist.begin();
-	const QList<band>::const_iterator itEnd = m_bandlist.end();
+	QList<band*>::const_iterator it = m_bandlist.begin();
+	const QList<band*>::const_iterator itEnd = m_bandlist.end();
 
 	for ( ; it != itEnd; ++it )
 	{
-		if ( ( *it ).wavelength < min || ( *it ).wavelength > max )
+		if ( ( *it )->wavelength < min || ( *it )->wavelength > max )
 			continue;
 
 		spec->addBand( *it );
@@ -75,14 +75,14 @@ Spectrum* Spectrum::adjustToWavelength( double min, double max )
 void Spectrum::adjustIntensities()
 {
 	int maxInt = 0;
-	QList<band>::Iterator it = m_bandlist.begin();
-	const QList<band>::Iterator itEnd = m_bandlist.end();
+	QList<band*>::Iterator it = m_bandlist.begin();
+	const QList<band*>::Iterator itEnd = m_bandlist.end();
 
 	//find the highest intensity
 	for ( ; it != itEnd; ++it )
 	{
-		if ( ( *it ).intensity > maxInt )
-			maxInt = ( *it ).intensity;
+		if ( ( *it )->intensity > maxInt )
+			maxInt = ( *it )->intensity;
 	}
 
 	//check if an adjustment is needed or not
@@ -94,10 +94,10 @@ void Spectrum::adjustIntensities()
 	it = m_bandlist.begin();
 	for ( ; it != itEnd; ++it )
 	{
-		double curInt = ( ( double )( *it ).intensity );
+		double curInt = ( ( double )( *it )->intensity );
 		
 		double newInt = max*1000/curInt;
-		( *it ).intensity = ( int ) round( newInt );
+		( *it )->intensity = ( int ) round( newInt );
 	}
 }
 
@@ -105,15 +105,15 @@ QList<double> Spectrum::wavelengths( double min, double max )
 {
 	QList<double> list;
 	
-	QList<band>::const_iterator it = m_bandlist.begin();
-	const QList<band>::const_iterator itEnd = m_bandlist.end();
+	QList<band*>::const_iterator it = m_bandlist.begin();
+	const QList<band*>::const_iterator itEnd = m_bandlist.end();
 
 	for ( ; it != itEnd; ++it )
 	{
-		if ( ( *it ).wavelength < min || ( *it ).wavelength > max )
+		if ( ( *it )->wavelength < min || ( *it )->wavelength > max )
 			continue;
 
-		list.append( ( *it ).wavelength );
+		list.append( ( *it )->wavelength );
 	}
 
 	return list;
@@ -125,22 +125,22 @@ QString Spectrum::bandsAsHtml()
 
 	html += "<table>";
 	
-	QList<band>::const_iterator it = m_bandlist.begin();
-	const QList<band>::const_iterator itEnd = m_bandlist.end();
+	QList<band*>::const_iterator it = m_bandlist.begin();
+	const QList<band*>::const_iterator itEnd = m_bandlist.end();
 	for (;it!=itEnd;++it)
 	{
 		html += QString( "<tr>" )
-		     + "<td>" + i18n( "Wavelength: %1 nm" ).arg( ( *it ).wavelength ) + "</td>"
-		     + "<td>" + i18n( "Intensity: %1" ).arg( ( *it ).intensity ) + "</td>"
-		     + "<td>" + i18n( "Probability: %1 10<sup>8</sup>s<sup>-1</sup>" ).arg( ( *it ).aki ) + "</td>"
-		     + "<td>" + i18n( "Energy 1: %1" ).arg( ( *it ).energy1 ) + "</td>"
-		     + "<td>" + i18n( "Energy 2: %1" ).arg( ( *it ).energy2 ) + "</td>"
-		     + "<td>" + i18n( "Electron Configuration 1: %1" ).arg( ( *it ).electronconfig1 ) + "</td>"
-		     + "<td>" + i18n( "Electron Configuration 2: %1" ).arg( ( *it ).electronconfig2 ) + "</td>"
-		     + "<td>" + i18n( "Term 1: %1" ).arg( ( *it ).term1 ) + "</td>"
-		     + "<td>" + i18n( "Term 2: %1" ).arg( ( *it ).term2 ) + "</td>"
-		     + "<td>" + i18n( "J 1: %1" ).arg( ( *it ).J1 ) + "</td>"
-		     + "<td>" + i18n( "J 2: %1" ).arg( ( *it ).J2 ) + "</td>"
+		     + "<td>" + i18n( "Wavelength: %1 nm" ).arg( ( *it )->wavelength ) + "</td>"
+		     + "<td>" + i18n( "Intensity: %1" ).arg( ( *it )->intensity ) + "</td>"
+		     + "<td>" + i18n( "Probability: %1 10<sup>8</sup>s<sup>-1</sup>" ).arg( ( *it )->aki ) + "</td>"
+		     + "<td>" + i18n( "Energy 1: %1" ).arg( ( *it )->energy1 ) + "</td>"
+		     + "<td>" + i18n( "Energy 2: %1" ).arg( ( *it )->energy2 ) + "</td>"
+		     + "<td>" + i18n( "Electron Configuration 1: %1" ).arg( ( *it )->electronconfig1 ) + "</td>"
+		     + "<td>" + i18n( "Electron Configuration 2: %1" ).arg( ( *it )->electronconfig2 ) + "</td>"
+		     + "<td>" + i18n( "Term 1: %1" ).arg( ( *it )->term1 ) + "</td>"
+		     + "<td>" + i18n( "Term 2: %1" ).arg( ( *it )->term2 ) + "</td>"
+		     + "<td>" + i18n( "J 1: %1" ).arg( ( *it )->J1 ) + "</td>"
+		     + "<td>" + i18n( "J 2: %1" ).arg( ( *it )->J2 ) + "</td>"
 		     + "</tr>\n";
 	}
 
@@ -149,3 +149,4 @@ QString Spectrum::bandsAsHtml()
 	html += "</body></html>";
 	return html;
 }
+

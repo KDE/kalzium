@@ -233,20 +233,20 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 			spectrum_temp = true;
 		for( uint i = 0; i < spectrumList.length(); i++ )
 		{
-			Spectrum::band b;
+			Spectrum::band *b = new Spectrum::band();
 			QDomElement spec = spectrumList.item( i ).toElement();
 			
-			b.intensity = spec.attributeNode( "intensity" ).value().toInt();
-			b.wavelength = spec.attributeNode( "wavelength" ).value().toDouble()/10.0;
-			b.aki = spec.attributeNode( "aki" ).value().toDouble();
-			b.energy1 = spec.attributeNode( "energy1" ).value().toDouble();
-			b.energy2 = spec.attributeNode( "energy2" ).value().toDouble();
-			b.electronconfig1 = spec.attributeNode( "electronconfig1" ).value();
-			b.electronconfig2 = spec.attributeNode( "electronconfig1" ).value();
-			b.term1 = spec.attributeNode( "term1" ).value();
-			b.term2 = spec.attributeNode( "term2" ).value();
-			b.J1 = spec.attributeNode( "J1" ).value();
-			b.J2 = spec.attributeNode( "J2" ).value();
+			b->intensity = spec.attributeNode( "intensity" ).value().toInt();
+			b->wavelength = spec.attributeNode( "wavelength" ).value().toDouble()/10.0;
+			b->aki = spec.attributeNode( "aki" ).value().toDouble();
+			b->energy1 = spec.attributeNode( "energy1" ).value().toDouble();
+			b->energy2 = spec.attributeNode( "energy2" ).value().toDouble();
+			b->electronconfig1 = spec.attributeNode( "electronconfig1" ).value();
+			b->electronconfig2 = spec.attributeNode( "electronconfig1" ).value();
+			b->term1 = spec.attributeNode( "term1" ).value();
+			b->term2 = spec.attributeNode( "term2" ).value();
+			b->J1 = spec.attributeNode( "J1" ).value();
+			b->J2 = spec.attributeNode( "J2" ).value();
 
 			spectrum->addBand( b );
 		}

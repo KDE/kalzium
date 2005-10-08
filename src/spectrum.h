@@ -47,9 +47,18 @@ class Spectrum
 		/**
 		 * a band is one line in the spectrum of an element
 		 */
-		struct band
+		class band
 		{
-			///in nm)
+			public:
+				band(){
+					wavelength = -1.0;
+					aki = -1.0;
+					energy1 = -1.0;
+					energy2 = -1.0;
+					intensity = -1;
+				}
+
+			///in nm
 			double wavelength;
 
 			///Transition Probabilities
@@ -77,8 +86,9 @@ class Spectrum
 		 * adds the band @p b to the internal
 		 * lists of bands
 		 */
-		void addBand( band b ){
-			m_bandlist.append( b );
+		void addBand( Spectrum::band* b ){
+			if ( b )
+				m_bandlist.append( b );
 		}
 
 		/**
@@ -123,8 +133,12 @@ class Spectrum
 		/**
 		 * @return the list of bands of the spectrum
 		 */
-		QList<band> bandlist(){
+		QList<Spectrum::band*> bandlist(){
 			return m_bandlist;
+		}
+		
+		QList<Spectrum::band*> bandList(){
+			return bandlist();
 		}
 	
 		/**
@@ -161,7 +175,7 @@ class Spectrum
 		/**
 		 * the internal dataset
 		 */
-		QList<band> m_bandlist;
+		QList<band*> m_bandlist;
 
 		/**
 		 * the cached values of the highest and lowest wavelength
