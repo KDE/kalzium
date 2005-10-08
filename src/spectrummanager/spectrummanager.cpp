@@ -49,10 +49,30 @@ email                : cniehaus@kde.org
 	connect( editor, SIGNAL( bandAdded( Spectrum::band ) ), 
 			this, SLOT( addBandToSpectrum( Spectrum::band ) ) );
 
-	SpectrumParser *parser = new SpectrumParser();
+	QFile file;
+	SpectrumParser *parser = new SpectrumParser(file);
+	Spectrum *s = new Spectrum();
+
+	Spectrum::band * spectrumband = new Spectrum::band();
+	
+	spectrumband->wavelength = 123.456;
+	spectrumband->aki = 567.789;
+	spectrumband->energy1 = 567.789;
+	spectrumband->energy2 = 567.789;
+
+	s->addBand( spectrumband );
+	s->addBand( spectrumband );
+	s->addBand( spectrumband );
+	s->addBand( spectrumband );
+	spectrumband = new Spectrum::band();
+	spectrumband->energy2 = 123.123;
+	s->addBand( spectrumband );
+ 	
+	parser->saveSpectrum( s );
+	( void ) parser;
 }
 
-void SpectrumManager::addBandToSpectrum( Spectrum::band band ){
+void SpectrumManager::addBandToSpectrum( Spectrum::band* band ){
 	m_spectrum->addBand( band );
 }
 
@@ -71,13 +91,13 @@ QString	filename = "/home/carsten/svn/trunk/KDE/kdeedu/kalzium/src/spectrummanag
 
 	QTextStream out( &file );
 
-	QList<Spectrum::band> bL = m_spectrum->bandlist();
+	QList<Spectrum::band*> bL = m_spectrum->bandlist();
 
 	out << "Wavelength,aki,energy1,energy2,intensity,electronconfig1,electronconfig2,term1,term2,J1,J2" << "\n";
 
-	for(int i = 0; i < bL.count(); ++i)
+	foreach( Spectrum::band* band, bL )
 	{
-		out << bandData(bL.at( i )) << "\n";
+	( void )band;	
 	}
 }
 

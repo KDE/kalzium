@@ -42,7 +42,7 @@ class SpectrumManager : public KMainWindow
 		void slotPrint();
 		void slotSave();
 		void slotSaveas();
-		void addBandToSpectrum( Spectrum::band );
+		void addBandToSpectrum( Spectrum::band* );
 
 	private:
 		QWidget *bandEditor;

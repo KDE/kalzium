@@ -12,6 +12,11 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#include <QFile>
+
+class Spectrum;
+
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
  */
@@ -20,9 +25,22 @@ class SpectrumParser
 	public:
 		/**
 		 * public contructor
+		 * @param file The file which to read or write
 		 */
-		SpectrumParser();
+		SpectrumParser(const QFile& file);
+		
+		/**
+		 * public contructor
+		 * @param filename the filename of the xml-file
+		 */
+		SpectrumParser(const QString& filename);
 
+		void saveSpectrum( Spectrum *spectrum );
+
+		Spectrum* loadSpectrum( QFile *file );
+
+//	private:
+		QFile m_file;
 };
 #endif // SPECTRUMPARSER_H
 
