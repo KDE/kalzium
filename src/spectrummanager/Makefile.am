@@ -1,4 +1,4 @@
-INCLUDES= -I$(srcdir)/../../../libkdeedu/libphysics/ $(all_includes)
+INCLUDES= -I$(srcdir)/../../../libkdeedu/libscience/ $(all_includes)
 
 bin_PROGRAMS = spectrummanager
 
@@ -7,7 +7,7 @@ spectrummanager_SOURCES = main.cpp \
 						  smprintdialogpage.cpp \
 						  bandeditor.ui
 
-spectrummanager_LDADD = $(LIB_KIO) $(LIB_KDEUI) $(LIB_KDEPRINT) ../spectrumwidget.o
+spectrummanager_LDADD = $(LIB_KIO) $(LIB_KDEUI) $(LIB_KDEPRINT) ../spectrumwidget.o ../../../libkdeedu/libscience/libscience.la
 
 EXTRA_DIST = main.cpp \
 			 spectrumeditor.cpp spectrumeditor.h \
