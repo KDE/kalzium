@@ -1,5 +1,5 @@
 # set the include path for X, qt and KDE
-INCLUDES= -I$(srcdir)/../../libkdeedu/kdeeduplot -I$(srcdir)/../../libkdeedu/kdeeduui -I$(srcdir)/../../libkdeedu/libphysics/ $(all_includes)
+INCLUDES= -I$(srcdir)/../../libkdeedu/kdeeduplot -I$(srcdir)/../../libkdeedu/kdeeduui -I$(srcdir)/../../libkdeedu/libscience/ $(all_includes)
 
 bin_PROGRAMS = kalzium
 kalzium_SOURCES = kalzium.cpp \
@@ -35,7 +35,7 @@ kalzium_SOURCES = kalzium.cpp \
 			animatedmoviewidget.cpp \
 			simplecrystalviewer.cpp 
 
-kalzium_LDADD   = ../../libkdeedu/libphysics/libphysics.la \
+kalzium_LDADD   = ../../libkdeedu/libscience/libscience.la \
 				  ../../libkdeedu/kdeeduplot/libkdeeduplot.la \
 				  ../../libkdeedu/kdeeduui/libkdeeduui.la \
 				  $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)
