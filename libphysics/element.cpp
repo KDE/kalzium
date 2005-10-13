@@ -19,7 +19,6 @@
  ***************************************************************************/
 
 #include "element.h"
-#include "prefs.h"
 #include "spectrum.h"
 #include "isotope.h"
 #include "tempunit.h"
@@ -107,17 +106,17 @@ const QString Element::adjustUnits( const int type, double value )
 	QString v;
 	if ( type == IE  ) //an ionization energy
 	{
-		if ( Prefs::energies() == 0 )
-		{
-			value*=96.6;
-			v = QString::number( value );
-			v.append( " kJ/mol" );
-		}
-		else // use electronvolt
-		{
-			v = QString::number( value );
-			v.append( " eV" );
-		}
+//X 		if ( Prefs::energies() == 0 )
+//X 		{
+//X 			value*=96.6;
+//X 			v = QString::number( value );
+//X 			v.append( " kJ/mol" );
+//X 		}
+//X 		else // use electronvolt
+//X 		{
+//X 			v = QString::number( value );
+//X 			v.append( " eV" );
+//X 		}
 	}
 	return v;
 }
@@ -128,101 +127,101 @@ const QString Element::adjustUnits( const int type )
 
 	double val = 0.0; //the value to convert
 	
-	if ( type == BOILINGPOINT || type == MELTINGPOINT ) // convert a temperature
-	{
-		if ( type == BOILINGPOINT )
-			val = boiling();
-		else
-			val = melting();
-
-		if ( val <= 0 )
-			v = i18n( "Value unknown" );
-		else
-		{
-			double newvalue = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperature() );
-			switch (Prefs::temperature()) {
-				case 0: //Kelvin
-					v = i18n( "%1 is the temperature in Kelvin", "%1 K" ).arg( newvalue );
-					break;
-				case 1://Kelvin to Celsius
-					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( newvalue ).arg( QChar(0xB0) );
-					break;
-				case 2: // Kelvin to Fahrenheit
-					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( newvalue ).arg( QChar(0xB0) );
-					break;
-				case 3: // Kelvin to Rankine
-					v = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( newvalue ).arg( QChar(0xB0) );
-					break;
-				case 4: // Kelvin to Reamur
-					v = i18n( "%1 is the temperature in Reamur", "%1 %2R" ).arg( newvalue ).arg( QChar(0xB0) );
-					break;
-			}
-		}
-	}
-	else if ( type == EN ) //Electronegativity
-	{
-		val = electroneg();
-		if ( val <= 0 )
-		v = i18n( "Value not defined" );
-		else
-			v = QString::number( val );
-	}
-	else if ( type == EA ) //Electron affinity
-	{
-		val = electroaf();
-		if ( val == 0.0 )
-			v = i18n( "Value not defined" );
-		else
-		{
-			if ( Prefs::energies() == 0 )
-			{
-				v = i18n( "%1 kJ/mol" ).arg( QString::number( val ) );
-			}
-			else // use electronvolt
-			{
-				val/=96.6;
-				v = i18n( "%1 eV" ).arg( QString::number( val ) );
-			}
-		}
-	}
-	else if ( type == MASS ) // its a mass
-	{
-		val = mass();
-		if ( val <= 0 )
-			v = i18n( "Value unknown" );
-		else
-			v = i18n( "%1 u" ).arg( QString::number( val ) );
-	}
-	else if ( type == DENSITY ) // its a density
-	{
-		val = density();
-
-		if ( val <= 0 )
-			v = i18n( "Value unknown" );
-		else
-		{
-			if ( boiling() < 295.0 )//gasoline
-			{
-				v = i18n( "%1 g/L" ).arg( QString::number( val ) );
-			}
-			else//liquid or solid
-			{
-				v = i18n( "%1 g/cm<sup>3</sup>" ).arg( QString::number( val ) );
-			}
-		}
-	}
-	else if ( type == DATE ) //its a date
-	{
-		val = date();
-		if ( val < 1600 )
-		{
-			v = i18n( "This element was known to ancient cultures" );
-		}
-		else
-		{
-			v = i18n( "This element was discovered in the year %1" ).arg( QString::number( val ) );
-		}
-	}
+//X 	if ( type == BOILINGPOINT || type == MELTINGPOINT ) // convert a temperature
+//X 	{
+//X 		if ( type == BOILINGPOINT )
+//X 			val = boiling();
+//X 		else
+//X 			val = melting();
+//X 
+//X 		if ( val <= 0 )
+//X 			v = i18n( "Value unknown" );
+//X 		else
+//X 		{
+//X 			double newvalue = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperature() );
+//X 			switch (Prefs::temperature()) {
+//X 				case 0: //Kelvin
+//X 					v = i18n( "%1 is the temperature in Kelvin", "%1 K" ).arg( newvalue );
+//X 					break;
+//X 				case 1://Kelvin to Celsius
+//X 					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( newvalue ).arg( QChar(0xB0) );
+//X 					break;
+//X 				case 2: // Kelvin to Fahrenheit
+//X 					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( newvalue ).arg( QChar(0xB0) );
+//X 					break;
+//X 				case 3: // Kelvin to Rankine
+//X 					v = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( newvalue ).arg( QChar(0xB0) );
+//X 					break;
+//X 				case 4: // Kelvin to Reamur
+//X 					v = i18n( "%1 is the temperature in Reamur", "%1 %2R" ).arg( newvalue ).arg( QChar(0xB0) );
+//X 					break;
+//X 			}
+//X 		}
+//X 	}
+//X 	else if ( type == EN ) //Electronegativity
+//X 	{
+//X 		val = electroneg();
+//X 		if ( val <= 0 )
+//X 		v = i18n( "Value not defined" );
+//X 		else
+//X 			v = QString::number( val );
+//X 	}
+//X 	else if ( type == EA ) //Electron affinity
+//X 	{
+//X 		val = electroaf();
+//X 		if ( val == 0.0 )
+//X 			v = i18n( "Value not defined" );
+//X 		else
+//X 		{
+//X 			if ( Prefs::energies() == 0 )
+//X 			{
+//X 				v = i18n( "%1 kJ/mol" ).arg( QString::number( val ) );
+//X 			}
+//X 			else // use electronvolt
+//X 			{
+//X 				val/=96.6;
+//X 				v = i18n( "%1 eV" ).arg( QString::number( val ) );
+//X 			}
+//X 		}
+//X 	}
+//X 	else if ( type == MASS ) // its a mass
+//X 	{
+//X 		val = mass();
+//X 		if ( val <= 0 )
+//X 			v = i18n( "Value unknown" );
+//X 		else
+//X 			v = i18n( "%1 u" ).arg( QString::number( val ) );
+//X 	}
+//X 	else if ( type == DENSITY ) // its a density
+//X 	{
+//X 		val = density();
+//X 
+//X 		if ( val <= 0 )
+//X 			v = i18n( "Value unknown" );
+//X 		else
+//X 		{
+//X 			if ( boiling() < 295.0 )//gasoline
+//X 			{
+//X 				v = i18n( "%1 g/L" ).arg( QString::number( val ) );
+//X 			}
+//X 			else//liquid or solid
+//X 			{
+//X 				v = i18n( "%1 g/cm<sup>3</sup>" ).arg( QString::number( val ) );
+//X 			}
+//X 		}
+//X 	}
+//X 	else if ( type == DATE ) //its a date
+//X 	{
+//X 		val = date();
+//X 		if ( val < 1600 )
+//X 		{
+//X 			v = i18n( "This element was known to ancient cultures" );
+//X 		}
+//X 		else
+//X 		{
+//X 			v = i18n( "This element was discovered in the year %1" ).arg( QString::number( val ) );
+//X 		}
+//X 	}
 
 	return v;
 }
