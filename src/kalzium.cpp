@@ -16,7 +16,8 @@
 //#include "eqchemview.h"
 #endif
 
-#include "element.h"
+#include <element.h>
+
 #include "prefs.h"
 #include "settings_colors.h"
 #include "settings_misc.h"

@@ -13,10 +13,11 @@
  ***************************************************************************/
 
 #include "elementdataviewer.h"
-#include "element.h"
 #include "plotsetupwidget.h"
 #include "plotwidget.h"
 #include "kalziumdataobject.h"
+
+#include <element.h>
 
 #include <klocale.h>
 #include <knuminput.h>

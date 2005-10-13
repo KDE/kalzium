@@ -1,11 +1,10 @@
 # set the include path for X, qt and KDE
-INCLUDES= -I$(srcdir)/../../libkdeedu/kdeeduplot -I$(srcdir)/../../libkdeedu/kdeeduui $(all_includes)
+INCLUDES= -I$(srcdir)/../../libkdeedu/kdeeduplot -I$(srcdir)/../../libkdeedu/kdeeduui -I$(srcdir)/../../libkdeedu/libphysics/ $(all_includes)
 
 bin_PROGRAMS = kalzium
 kalzium_SOURCES = kalzium.cpp \
 			main.cpp \
 			periodictableview.cpp \
-			element.cpp \
 			prefs.kcfgc \
 			settings_colors.ui \
 			settings_misc.ui \
@@ -23,8 +22,6 @@ kalzium_SOURCES = kalzium.cpp \
 			somwidget.ui \
 			somwidget_impl.cpp \
 			kalziumtip.cpp \
-			spectrum.cpp \
-			isotope.cpp \
 			kalziumdataobject.cpp \
 			spectrumwidget.cpp \
 			nuclideboard.cpp \
@@ -36,9 +33,12 @@ kalzium_SOURCES = kalzium.cpp \
 			moleculeparser.cpp \
 			tempunit.cpp \
 			animatedmoviewidget.cpp \
-			simplecrystalviewer.cpp
+			simplecrystalviewer.cpp 
 
-kalzium_LDADD   = ../../libkdeedu/kdeeduplot/libkdeeduplot.la ../../libkdeedu/kdeeduui/libkdeeduui.la $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)
+kalzium_LDADD   = ../../libkdeedu/libphysics/libphysics.la \
+				  ../../libkdeedu/kdeeduplot/libkdeeduplot.la \
+				  ../../libkdeedu/kdeeduui/libkdeeduui.la \
+				  $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)
 KDE_CXXFLAGS    = -D_ISOC99_SOURCE
 
 SUBDIRS = icons elementpics data lattice
@@ -46,7 +46,6 @@ SUBDIRS = icons elementpics data lattice
 EXTRA_DIST = main.cpp \
 		kalzium.cpp kalzium.h \
 		periodictableview.cpp periodictableview.h \
-		element.cpp element.h \
 		settings_colors.ui \
 		settings_misc.ui \
 		detailinfodlg.cpp detailinfodlg.h \
@@ -59,8 +58,6 @@ EXTRA_DIST = main.cpp \
 		timewidget_impl.cpp timewidget_impl.h \
 		somwidget.ui \
 		somwidget_impl.cpp somwidget_impl.h \
-		spectrum.cpp spectrum.h \
-		isotope.cpp isotope.h \
 		kalziumdataobject.cpp kalziumdataobject.h \
 		spectrumwidget.cpp spectrumwidget.h \
 		nuclideboard.cpp nuclideboar.h \

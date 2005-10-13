@@ -21,8 +21,9 @@
 
 #include "nuclideboard.h"
 
-#include "element.h"
-#include "isotope.h"
+#include <element.h>
+#include <isotope.h>
+
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 

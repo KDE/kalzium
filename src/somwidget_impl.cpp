@@ -25,10 +25,11 @@
 
 #include <math.h>
 
-#include "element.h"
+#include <element.h>
+#include <tempunit.h>
+
 #include "kalziumdataobject.h"
 #include "prefs.h"
-#include "tempunit.h"
 
 SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
 	: SOMWidget( parent,name )
