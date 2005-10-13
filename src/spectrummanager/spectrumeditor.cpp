@@ -18,9 +18,10 @@
  *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.          *
 ***************************************************************************/
 #include "spectrumeditor.h"
-#include "../spectrum.h"
 #include "../spectrumwidget.h"
 #include "../exporter.h"
+
+#include <spectrum.h>
 
 #include <qlayout.h>
 #include <qspinbox.h>

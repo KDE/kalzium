@@ -17,6 +17,9 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
+
+#define ELEMENTSIZE 45
+
 #include "periodictableview.h"
 #include "prefs.h"
 #include "element.h"
@@ -523,14 +526,14 @@ void PeriodicTableView::drawTimeLine( QPainter* p )
 	 * this loop iterates through all elements. The Elements
 	 * draw themselfs, the PeriodicTableView only tells them to do so
 	 */
-	while ( it != itEnd )
-	{
-		if ( ( *it )->date() <= m_date )
-			( *it )->drawSelf( p, simple );
-		else
-			( *it )->drawGrayedOut( p );
-		++it;
-	}
+//X 	while ( it != itEnd )
+//X 	{
+//X 		if ( ( *it )->date() <= m_date )
+//X 			( *it )->drawSelf( p, simple );
+//X 		else
+//X 			( *it )->drawGrayedOut( p );
+//X 		++it;
+//X 	}
 }
 
 void PeriodicTableView::drawLegend( QPainter* p )
@@ -705,14 +708,14 @@ void PeriodicTableView::drawNumeration( QPainter* p )
 	
 void PeriodicTableView::drawSOMPeriodicTableView( QPainter* p )
 {
-	EList::ConstIterator it = d->ElementList.begin();
-	const EList::ConstIterator itEnd = d->ElementList.end();
-
-	while ( it != itEnd )
-	{
-		( *it )->drawStateOfMatter( p, m_temperature );
-		++it;
-	}
+//X 	EList::ConstIterator it = d->ElementList.begin();
+//X 	const EList::ConstIterator itEnd = d->ElementList.end();
+//X 
+//X 	while ( it != itEnd )
+//X 	{
+//X 		( *it )->drawStateOfMatter( p, m_temperature );
+//X 		++it;
+//X 	}
 
 }
 
@@ -873,24 +876,24 @@ void PeriodicTableView::selectElement( int num )
 {
 	kdDebug() << "PeriodicTableView::selectElement " << num << endl;
 
-	selectPoint( d->element( num )->coords() );
+//	selectPoint( d->element( num )->coords() );
 }
 
 void PeriodicTableView::drawPeriodicTableView( QPainter* p, bool isCrystal )
 {
-	EList::ConstIterator it = d->ElementList.begin();
-	const EList::ConstIterator itEnd = d->ElementList.end();
-
-	bool simple = Prefs::pselook();
-	/**
-	 * this loop iterates through all elements. The Elements
-	 * draw themselfs, the PeriodicTableView only tells them to do so
-	 */
-	while ( it != itEnd )
-	{
-		( *it )->drawSelf( p, simple, isCrystal );
-		++it;
-	}
+//X 	EList::ConstIterator it = d->ElementList.begin();
+//X 	const EList::ConstIterator itEnd = d->ElementList.end();
+//X 
+//X 	bool simple = Prefs::pselook();
+//X 	/**
+//X 	 * this loop iterates through all elements. The Elements
+//X 	 * draw themselfs, the PeriodicTableView only tells them to do so
+//X 	 */
+//X 	while ( it != itEnd )
+//X 	{
+//X 		( *it )->drawSelf( p, simple, isCrystal );
+//X 		++it;
+//X 	}
 }
 
 //CN This is called for *every* drawing of the table. This means
@@ -1160,13 +1163,13 @@ void PeriodicTableView::slotMouseover()
 
 void PeriodicTableView::drawGradientButton( QPainter *p, Element* e, double coeff, double value, double minValue )
 {
-	if ( value >= minValue && coeff != -1.0)
-	{
-		QColor c = calculateColor( coeff );
-		e->drawGradient( p, QString::number( KalziumUtils::strippedValue( value ) ), c );
-	}
-	else
-		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::lightGray );
+//X 	if ( value >= minValue && coeff != -1.0)
+//X 	{
+//X 		QColor c = calculateColor( coeff );
+//X 		e->drawGradient( p, QString::number( KalziumUtils::strippedValue( value ) ), c );
+//X 	}
+//X 	else
+//X 		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::lightGray );
 }
 
 QColor PeriodicTableView::calculateColor( const double coeff )

@@ -225,7 +225,7 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setBoilingpoint( bp );
 		e->setDensity( density );
 
-		e->setupXY();
+//X 		e->setupXY();
 
 		Spectrum *spectrum = new Spectrum();
 		bool spectrum_temp = false;

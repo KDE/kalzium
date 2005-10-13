@@ -10,7 +10,8 @@ email                : cniehaus@kde.org
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "spectrummanager.h"
+#include <spectrummanager.h>
+
 #include "spectrumeditor.h"
 #include "spectrumparser.h"
 #include "bandeditor.h"
@@ -50,26 +51,7 @@ email                : cniehaus@kde.org
 			this, SLOT( addBandToSpectrum( Spectrum::band ) ) );
 
 	QFile file;
-	SpectrumParser *parser = new SpectrumParser(file);
-	Spectrum *s = new Spectrum();
-
-	Spectrum::band * spectrumband = new Spectrum::band();
-	
-	spectrumband->wavelength = 123.456;
-	spectrumband->aki = 567.789;
-	spectrumband->energy1 = 567.789;
-	spectrumband->energy2 = 567.789;
-
-	s->addBand( spectrumband );
-	s->addBand( spectrumband );
-	s->addBand( spectrumband );
-	s->addBand( spectrumband );
-	spectrumband = new Spectrum::band();
-	spectrumband->energy2 = 123.123;
-	s->addBand( spectrumband );
- 	
-	parser->saveSpectrum( s );
-	( void ) parser;
+	SpectrumParser *parser = new SpectrumParser( file );
 }
 
 void SpectrumManager::addBandToSpectrum( Spectrum::band* band ){

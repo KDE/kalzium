@@ -15,7 +15,7 @@
 
 #include <kmainwindow.h>
 
-#include "../spectrum.h"
+#include <spectrum.h>
 
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
