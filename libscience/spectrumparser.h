@@ -37,7 +37,7 @@ class SpectrumParser
 
 		void saveSpectrum( Spectrum *spectrum );
 
-		Spectrum* loadSpectrum( QFile *file );
+		Spectrum* loadSpectrum( QFile *file, int elementnumber );
 
 //	private:
 		QFile m_file;
