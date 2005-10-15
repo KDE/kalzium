@@ -9,6 +9,7 @@ libscience_la_SOURCES = \
 	spectrum.cpp \
 	isotope.cpp \
 	spectrumparser.cpp \
+	elementparser.cpp \
 	tempunit.cpp
 
 libscience_la_LDFLAGS = $(all_libraries) -no-undefined -version-info 4:0:0

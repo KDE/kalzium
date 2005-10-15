@@ -23,6 +23,8 @@
 #include <QColor>
 #include <QList>
 
+#include <kdemacros.h>
+
 class Element;
 class QDomDocument;
 class QPainter;
@@ -260,7 +262,11 @@ class Element{
 		/**
 		 * @return the name of the element
 		 */
-		QString elname() const {
+		QString elname() const KDE_DEPRECATED{
+			return elementName();
+		}
+
+		QString elementName() const{
 			return m_name;
 		}
 
