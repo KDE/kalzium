@@ -258,14 +258,10 @@ class Element{
 		QString crystalstructure() const{
 			return m_crystalstructure;
 		}
-		
+
 		/**
 		 * @return the name of the element
 		 */
-		QString elname() const KDE_DEPRECATED{
-			return elementName();
-		}
-
 		QString elementName() const{
 			return m_name;
 		}
@@ -420,9 +416,6 @@ class Element{
 			IE,
 			IONICRADIUS
 		};
-
-		QPoint pos() const;
-		QPoint coords() const;
 
 		/**
 		 * accessor for the element's color

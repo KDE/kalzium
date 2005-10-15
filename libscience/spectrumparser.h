@@ -24,23 +24,17 @@ class SpectrumParser
 {
 	public:
 		/**
-		 * public contructor
-		 * @param file The file which to read or write
+		 * Save the Spectrum @p spectrum
+		 * @param spectrum the Spectrum to save
 		 */
-		SpectrumParser(const QFile& file);
-		
+		static void saveSpectrum( Spectrum *spectrum );
+
 		/**
-		 * public contructor
-		 * @param filename the filename of the xml-file
+		 * @return the Spectrum specified by the @p id
+		 * @param file the file from which the data will be loaded
+		 * @param id The id of the Spectrum
 		 */
-		SpectrumParser(const QString& filename);
-
-		void saveSpectrum( Spectrum *spectrum );
-
-		Spectrum* loadSpectrum( QFile *file, int elementnumber );
-
-//	private:
-		QFile m_file;
+		static Spectrum* loadSpectrum( QFile *file, const QString& id );
 };
 #endif // SPECTRUMPARSER_H
 

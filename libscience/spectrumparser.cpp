@@ -22,14 +22,8 @@ email                : cniehaus@kde.org
 
 #include <kdebug.h>
 
-SpectrumParser::SpectrumParser(const QString& filename)
+Spectrum* SpectrumParser::loadSpectrum( QFile*file, const QString& id )
 {
-//	m_file = QFile(filename);
-}
-
-SpectrumParser::SpectrumParser(const QFile& file)
-{
-//	m_file = file;
 }
 
 void SpectrumParser::saveSpectrum( Spectrum *spectrum )
