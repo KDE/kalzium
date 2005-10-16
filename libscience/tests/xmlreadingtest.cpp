@@ -22,7 +22,11 @@ int main(int argc, char *argv[])
 	QList<Element*> v = parser->getElements();
 
 	foreach( Element* e, v ){
-		kdDebug() << "Elementname: " << e->elementName() << ", mass: " << e->mass() << endl;
+		if ( e )
+			kdDebug() << "(" << e->number() << ", " <<
+				       e->elementName() << ", " << e->symbol() << ") " << 
+				", mass: " << e->mass() << 
+				endl;
 	}
 
 	return 0;

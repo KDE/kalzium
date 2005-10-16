@@ -21,81 +21,13 @@ email                : cniehaus@kde.org
 #include <kdebug.h>
 #include <kurl.h>
 
-QList<Element*> ElementParser::loadAllElements( const QDomDocument& dataDocument )
-{
-	QList<Element*> elementList;
-	QStringList elementSymbols = loadElementSymbols(dataDocument);
-
-	foreach(QString symbol, elementSymbols)
-	{
-		Element *e = loadElement( symbol, dataDocument );
-		if ( e )
-			elementList.append( e );
-	}
-
-	return elementList;
-}
-
-QStringList ElementParser::loadElementSymbols( const QDomDocument& dataDocument )
-{
-	QStringList symbolList;
-
-	//xml-reading
-	QDomNodeList elementNodes = dataDocument.elementsByTagName( "elementType" );
-
-	const uint count = elementNodes.count();
-
-	for ( uint i = 0; i < count; ++i )
-	{
-		QString symbol = elementNodes.item( i ).toElement().attribute("id");
-		symbolList.append( symbol );
-	}
-
-	return symbolList;
-}
-
-Element* ElementParser::loadElement( const QString& symbol, const QDomDocument& dataDocument )
-{
-	QDomNodeList elementNodes = dataDocument.elementsByTagName( "elementType" );
-	const uint count = elementNodes.count();
-
-	for ( uint i = 0; i < count; ++i )
-	{
-		QDomElement currentElement = elementNodes.item( i ).toElement();
-		QString currentSymbol = currentElement.attribute("id");
-
-		if ( currentSymbol == symbol )
-			return loadElement( currentElement );
-	}
-
-	//the element was not found...
-	return 0;
-}
-
-Element* ElementParser::loadElement( const QDomElement& element )
-{
-	Element *e = new Element();
-
-	QString symbol = element.attribute( "id" );
-	
-	QDomNodeList scalarList = element.elementsByTagName( "scalar" );
-
-	e->setSymbol( symbol );
-
-	kdDebug() << "scalarList::count of element " << e->symbol() << ": " << scalarList.count() << endl;
-	
-	return e;
-}
-
-
-
-
-
-////////////
-//
-
 ElementSaxParser::ElementSaxParser()
-: QXmlDefaultHandler(), currentElement_(0), inElement_(false), inName_(false)
+: QXmlDefaultHandler(), currentElement_(0), 
+	inElement_(false), 
+	inName_(false), 
+	inMass_( false ),
+	inAtomicNumber_(false), 
+	inSymbol_( false )
 {
 }
 
@@ -108,17 +40,24 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 		for (int i = 0; i < attrs.length(); ++i) {
 			if (attrs.value(i) == "bo:name")
 				inName_ = true;
+			if (attrs.value(i) == "bo:mass")
+				inMass_ = true;
+			if (attrs.value(i) == "bo:atomicNumber")
+				inAtomicNumber_ = true;
+			if (attrs.value(i) == "bo:symbol")
+				inSymbol_ = true;
 		}
 	}
 	return true;
 }
-
-bool ElementSaxParser::endElement(const QString&, const QString &localName, const QString&, const QXmlAttributes&)
+		
+bool ElementSaxParser::endElement (  const QString & namespaceURI, const QString & localName, const QString & qName )
 {
-	if (localName == "elementType") {
-		inElement_ = false;
+	if ( localName == "elementType" )
+	{
 		elements_.append(currentElement_);
 		currentElement_ = 0;
+		inElement_ = false;
 	}
 	return true;
 }
@@ -126,10 +65,22 @@ bool ElementSaxParser::endElement(const QString&, const QString &localName, cons
 bool ElementSaxParser::characters(const QString &ch)
 {
 	if (inName_) {
-		kdDebug() << "nimi: " << ch << endl;
 		currentElement_->setName(ch);
 		inName_ = false;
 	}
+	if ( inMass_ ){
+		currentElement_->setMass( ch.toDouble() );
+		inMass_ = false;
+	}
+	if (inSymbol_) {
+		currentElement_->setSymbol(ch);
+		inSymbol_ = false;
+	}
+	if (inAtomicNumber_) {
+		currentElement_->setNumber(ch.toInt());
+		inAtomicNumber_ = false;
+	}
+
 	return true;
 }
 
