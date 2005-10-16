@@ -1,3 +1,5 @@
+#ifndef ELEMENTPARSER_H
+#define ELEMENTPARSER_H
 /***************************************************************************
     copyright            : (C) 2005 by Carsten Niehaus
     email                : cniehaus@kde.org
@@ -15,6 +17,8 @@
 #include <QList>
 #include <QStringList>
 #include <qdom.h>
+
+#include <qxml.h>
 
 class Element;
 
@@ -53,3 +57,21 @@ class ElementParser
 
 };
 
+
+class ElementSaxParser : public QXmlDefaultHandler
+{
+	public:
+		ElementSaxParser();
+		bool startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs);
+		bool endElement(const QString&, const QString &localName, const QString&, const QXmlAttributes&);
+		bool characters(const QString &ch);
+		QList<Element*> getElements();
+
+	private:
+		Element *currentElement_;
+		QList<Element*> elements_;
+		bool inElement_;
+		bool inName_;
+
+};
+#endif // ELEMENTPARSER_H

@@ -86,3 +86,54 @@ Element* ElementParser::loadElement( const QDomElement& element )
 	
 	return e;
 }
+
+
+
+
+
+////////////
+//
+
+ElementSaxParser::ElementSaxParser()
+: QXmlDefaultHandler(), currentElement_(0), inElement_(false), inName_(false)
+{
+}
+
+bool ElementSaxParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
+{
+	if (localName == "elementType") {
+		currentElement_ = new Element();
+		inElement_ = true;
+	} else if (inElement_ && localName == "scalar") {
+		for (int i = 0; i < attrs.length(); ++i) {
+			if (attrs.value(i) == "bo:name")
+				inName_ = true;
+		}
+	}
+	return true;
+}
+
+bool ElementSaxParser::endElement(const QString&, const QString &localName, const QString&, const QXmlAttributes&)
+{
+	if (localName == "elementType") {
+		inElement_ = false;
+		elements_.append(currentElement_);
+		currentElement_ = 0;
+	}
+	return true;
+}
+
+bool ElementSaxParser::characters(const QString &ch)
+{
+	if (inName_) {
+		kdDebug() << "nimi: " << ch << endl;
+		currentElement_->setName(ch);
+		inName_ = false;
+	}
+	return true;
+}
+
+QList<Element*> ElementSaxParser::getElements()
+{
+	return elements_;
+}
