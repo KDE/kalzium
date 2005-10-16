@@ -31,7 +31,6 @@ kalzium_SOURCES = kalzium.cpp \
 			kalziumutils.cpp \
 			parser.cpp \
 			moleculeparser.cpp \
-			tempunit.cpp \
 			animatedmoviewidget.cpp \
 			simplecrystalviewer.cpp 
 
@@ -67,7 +66,6 @@ EXTRA_DIST = main.cpp \
 		kalziumutils.cpp kalziumutils.h \
 		parser.cpp parser.h \
 		moleculeparser.cpp moleculeparser.h \
-		tempunit.cpp tempunit.h \
 		animatedmoviewidget.cpp animatedmoviewidget.h \
 		simplecrystalviewer.cpp simplecrystalviewer.h
 
