@@ -21,31 +21,9 @@ email                : cniehaus@kde.org
 #include <kdebug.h>
 #include <kurl.h>
 
-QList<Element*> ElementParser::loadAllElements( const QDomDocument& dataDocument2 )
+QList<Element*> ElementParser::loadAllElements( const QDomDocument& dataDocument )
 {
-	//only for testing!
-	QDomDocument dataDocument = dataDocument2;
-	
 	QList<Element*> elementList;
-
-	KURL url;
-	url.setPath("/home/carsten/svn/trunk/KDE/kdeedu/libkdeedu/libscience/" );
-	url.setFileName( "elements.xml" );
-	QFile layoutFile( url.path() );
-	
-	if (!layoutFile.open(IO_ReadOnly))
-	{
-		kdDebug() << "layoutfile IO-error" << endl;
-	}
-
-	// Check if the document is well-formed
-	if (!dataDocument.setContent(&layoutFile))
-	{
-		kdDebug() << "wrong xml" << endl;
-		layoutFile.close();
-	}
-	layoutFile.close();
-
 	QStringList elementSymbols = loadElementSymbols(dataDocument);
 
 	foreach(QString symbol, elementSymbols)
@@ -54,8 +32,6 @@ QList<Element*> ElementParser::loadAllElements( const QDomDocument& dataDocument
 		if ( e )
 			elementList.append( e );
 	}
-
-	kdDebug() << elementList.count() << endl;
 
 	return elementList;
 }
@@ -66,16 +42,13 @@ QStringList ElementParser::loadElementSymbols( const QDomDocument& dataDocument 
 
 	//xml-reading
 	QDomNodeList elementNodes = dataDocument.elementsByTagName( "elementType" );
-	
+
 	const uint count = elementNodes.count();
 
 	for ( uint i = 0; i < count; ++i )
 	{
 		QString symbol = elementNodes.item( i ).toElement().attribute("id");
 		symbolList.append( symbol );
-
-		//for debugging!
-		loadElement( symbol, dataDocument );
 	}
 
 	return symbolList;
