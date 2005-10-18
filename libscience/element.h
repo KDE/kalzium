@@ -431,17 +431,17 @@ class Element{
 			return m_Color; 
 		}
 
-		QList<ChemicalDataObject*> dataList;
-
 		void addData( ChemicalDataObject*o ){
 			dataList.append( o );
 		}
 
-		QVariant data( ChemicalDataObject::BlueObelisk type );
+		ChemicalDataObject* data( ChemicalDataObject::BlueObelisk type );
 		
 		QString dataAsString( ChemicalDataObject::BlueObelisk type );
 
 	private:
+		QList<ChemicalDataObject*> dataList;
+
 		/**
 		 * the integer num represents the number of the element
 		 */

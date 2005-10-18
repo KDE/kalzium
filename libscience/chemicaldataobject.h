@@ -53,6 +53,9 @@ class ChemicalDataObject
 			radiusCovalent/**< the covalent radius */,
 			radiusVDW/**< the van der Waals radius */
 		};
+
+		bool operator== ( const int );
+		bool operator== ( const QString& );
 		
 		/**
 		 * public constructor

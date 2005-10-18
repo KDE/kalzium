@@ -33,3 +33,25 @@ QString ChemicalDataObject::valueAsString()
 {
 	return m_value.toString();
 }
+
+bool ChemicalDataObject::operator==( const int v )
+{
+	if ( m_value.type() != QVariant::Int )	
+		return false;
+	
+	if ( m_value.toInt() == v )
+		return true;
+	
+	return false;
+}
+
+bool ChemicalDataObject::operator==( const QString& v )
+{
+	if ( m_value.type() != QVariant::String )	
+		return false;
+
+	if ( m_value.toString() == v )
+		return true;
+
+	return false;
+}

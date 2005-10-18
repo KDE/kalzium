@@ -38,12 +38,14 @@ Element::Element()
 	m_abundance = 0;
 }
 
-QVariant Element::data(ChemicalDataObject::BlueObelisk type)
+ChemicalDataObject* Element::data(ChemicalDataObject::BlueObelisk type)
 {
 	foreach( ChemicalDataObject*o, dataList ) {
 		if ( o->type() == type )
-			return o->value();
+			return o;
 	}
+
+	return 0;
 }
 
 QString Element::dataAsString(ChemicalDataObject::BlueObelisk type)
@@ -52,6 +54,7 @@ QString Element::dataAsString(ChemicalDataObject::BlueObelisk type)
 		if ( o->type() == type )
 			return o->valueAsString();
 	}
+	return "";
 }
 
 Isotope* Element::isotopeByNucleons( int numberOfNucleons )
