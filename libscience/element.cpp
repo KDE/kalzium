@@ -28,6 +28,8 @@
 #include <kurl.h>
 #include <kstandarddirs.h>
 
+#include <QVariant>
+
 Element::Element()
 {
 	m_radioactive = false;
@@ -266,3 +268,18 @@ double Element::radius( RADIUSTYPE type )
 	return 0.0;
 }
 
+
+ChemicalDataObject::ChemicalDataObject( QVariant v, BlueObelisk type )
+{
+	m_value = v;
+	m_type = type;
+};
+
+ChemicalDataObject::ChemicalDataObject() 
+{
+}
+
+QString ChemicalDataObject::valueAsString()
+{
+	return m_value.toString();
+}

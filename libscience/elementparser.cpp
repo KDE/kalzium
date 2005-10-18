@@ -19,7 +19,6 @@ email                : cniehaus@kde.org
 #include <QStringList>
 
 #include <kdebug.h>
-#include <kurl.h>
 
 ElementSaxParser::ElementSaxParser()
 : QXmlDefaultHandler(), currentElement_(0), 
