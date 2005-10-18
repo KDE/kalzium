@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 	QFile xmlFile(argv[1]);
 	QXmlInputSource source(xmlFile);
 	QXmlSimpleReader reader;
+
 	reader.setContentHandler(parser);
 	reader.parse(source);
 
@@ -23,10 +24,19 @@ int main(int argc, char *argv[])
 
 	foreach( Element* e, v ){
 		if ( e )
-			kdDebug() << "(" << e->number() << ", " <<
-				       e->elementName() << ", " << e->symbol() << ") " << 
-				", mass: " << e->mass() << 
-				endl;
+		{
+			QList<ChemicalDataObject*> list = e->dataList;
+
+			//Give me the name of the element
+			kdDebug() << "Name: " << e->dataAsString( ChemicalDataObject::name ) << endl;
+			
+//X 			//give me all you have
+//X 			foreach( ChemicalDataObject*o, list ){
+//X 				if ( o )
+//X 					kdDebug() << o->valueAsString() << endl;
+//X 			}
+		}
+
 	}
 
 	return 0;

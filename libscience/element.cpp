@@ -22,6 +22,7 @@
 #include "spectrum.h"
 #include "isotope.h"
 #include "tempunit.h"
+#include "chemicaldataobject.h"
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -35,6 +36,22 @@ Element::Element()
 	m_radioactive = false;
 	m_artificial = false;
 	m_abundance = 0;
+}
+
+QVariant Element::data(ChemicalDataObject::BlueObelisk type)
+{
+	foreach( ChemicalDataObject*o, dataList ) {
+		if ( o->type() == type )
+			return o->value();
+	}
+}
+
+QString Element::dataAsString(ChemicalDataObject::BlueObelisk type)
+{
+	foreach( ChemicalDataObject*o, dataList ) {
+		if ( o->type() == type )
+			return o->valueAsString();
+	}
 }
 
 Isotope* Element::isotopeByNucleons( int numberOfNucleons )
@@ -268,18 +285,3 @@ double Element::radius( RADIUSTYPE type )
 	return 0.0;
 }
 
-
-ChemicalDataObject::ChemicalDataObject( QVariant v, BlueObelisk type )
-{
-	m_value = v;
-	m_type = type;
-};
-
-ChemicalDataObject::ChemicalDataObject() 
-{
-}
-
-QString ChemicalDataObject::valueAsString()
-{
-	return m_value.toString();
-}

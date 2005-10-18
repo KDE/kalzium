@@ -37,6 +37,7 @@ class ElementSaxParser : public QXmlDefaultHandler
 		bool inElement_;
 		bool inName_,
 			 inMass_,
+			 inExactMass_,
 			 inAtomicNumber_,
 			 inSymbol_;
 };

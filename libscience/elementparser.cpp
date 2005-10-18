@@ -25,6 +25,7 @@ ElementSaxParser::ElementSaxParser()
 	inElement_(false), 
 	inName_(false), 
 	inMass_( false ),
+	inExactMass_( false ),
 	inAtomicNumber_(false), 
 	inSymbol_( false )
 {
@@ -37,8 +38,11 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 		inElement_ = true;
 	} else if (inElement_ && localName == "scalar") {
 		for (int i = 0; i < attrs.length(); ++i) {
+
 			if (attrs.value(i) == "bo:name")
 				inName_ = true;
+			if (attrs.value(i) == "bo:exactMass")
+				inExactMass_ = true;
 			if (attrs.value(i) == "bo:mass")
 				inMass_ = true;
 			if (attrs.value(i) == "bo:atomicNumber")
@@ -55,6 +59,8 @@ bool ElementSaxParser::endElement (  const QString & namespaceURI, const QString
 	if ( localName == "elementType" )
 	{
 		elements_.append(currentElement_);
+//X 		if ( currentElement_ )
+//X 			kdDebug() << "Number of ChemicalDataObject: " << currentElement_->dataList.count() << endl;
 		currentElement_ = 0;
 		inElement_ = false;
 	}
@@ -63,22 +69,43 @@ bool ElementSaxParser::endElement (  const QString & namespaceURI, const QString
 
 bool ElementSaxParser::characters(const QString &ch)
 {
+	ChemicalDataObject *dataobject = new ChemicalDataObject();
+	ChemicalDataObject::BlueObelisk type;
+	QVariant value;
+
 	if (inName_) {
-		currentElement_->setName(ch);
+		value = ch;
+		type = ChemicalDataObject::name; 
 		inName_ = false;
 	}
-	if ( inMass_ ){
-		currentElement_->setMass( ch.toDouble() );
+	else if ( inMass_ ){
+		value = ch.toDouble();
+		type = ChemicalDataObject::mass; 
 		inMass_ = false;
 	}
-	if (inSymbol_) {
-		currentElement_->setSymbol(ch);
+	else if ( inExactMass_ ){
+		value = ch.toDouble();
+		type = ChemicalDataObject::exactMass; 
+		inExactMass_ = false;
+	}
+	else if (inSymbol_) {
+		value = ch;
+		type = ChemicalDataObject::symbol; 
 		inSymbol_ = false;
 	}
-	if (inAtomicNumber_) {
-		currentElement_->setNumber(ch.toInt());
+	else if (inAtomicNumber_) {
+		value = ch.toInt();
+		type = ChemicalDataObject::atomicNumber; 
 		inAtomicNumber_ = false;
 	}
+
+	dataobject->setData( value );
+	dataobject->setType( type );
+
+//X 	kdDebug() << dataobject->valueAsString() << endl;
+
+	if ( currentElement_ )
+		currentElement_->addData( dataobject );
 
 	return true;
 }
