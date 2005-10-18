@@ -49,9 +49,6 @@ email                : cniehaus@kde.org
 
 	connect( editor, SIGNAL( bandAdded( Spectrum::band ) ), 
 			this, SLOT( addBandToSpectrum( Spectrum::band ) ) );
-
-	QFile file;
-	SpectrumParser *parser = new SpectrumParser( file );
 }
 
 void SpectrumManager::addBandToSpectrum( Spectrum::band* band ){
