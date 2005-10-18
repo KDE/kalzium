@@ -438,9 +438,10 @@ class Element{
 		ChemicalDataObject* data( ChemicalDataObject::BlueObelisk type );
 		
 		QString dataAsString( ChemicalDataObject::BlueObelisk type );
+		
+		QList<ChemicalDataObject*> dataList;
 
 	private:
-		QList<ChemicalDataObject*> dataList;
 
 		/**
 		 * the integer num represents the number of the element
