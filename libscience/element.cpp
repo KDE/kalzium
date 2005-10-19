@@ -33,9 +33,6 @@
 
 Element::Element()
 {
-	m_radioactive = false;
-	m_artificial = false;
-	m_abundance = 0;
 }
 
 ChemicalDataObject& Element::data(ChemicalDataObject::BlueObelisk type)
@@ -76,64 +73,43 @@ Isotope* Element::isotopeByNucleons( int numberOfNucleons )
 	return 0;
 }
 
-QString Element::parsedOrbits( bool canBeEmpty )
-{
-	if ( m_orbits.isEmpty() )
-		if ( !canBeEmpty )
-			return i18n( "structure means orbital configuration in this case", "Unknown structure" );
-		else
-			return "";
-	
-	QString orbits = m_orbits;
-	QRegExp rxs("([a-z])([0-9]+)");
-	QRegExp rxb("([a-z]{2}) ",false);
-	orbits.replace(rxs,"\\1<sup>\\2</sup>"); //superscript around electron number
-	orbits.replace(rxb,"<b>\\1</b> "); //bold around element symbols
-	return orbits;
-}
-
 Element::~Element()
 {
 }
 
-double Element::meanmass()
-{
-	return m_mass/m_number;
-}
-
 const QString Element::adjustRadius( RADIUSTYPE rtype )
 {
-	double val = 0.0;
-	QString v;
-
-	switch ( rtype )
-	{
-		case ATOMIC:
-			val = m_RadiusAR;
-			break;
-		case IONIC:
-			val = m_RadiusIon;
-			break;
-		case COVALENT:
-			val = m_RadiusCR;
-			break;
-		case VDW:
-			val = m_RadiusVDW;
-			break;
-	}
-
-	if ( val <= 0 )
-		v = i18n( "Value unknown" );
-	else
-		v = i18n( "%1 is a length, eg: 12.3 pm", "%1 pm" ).arg( QString::number( val ) );
-	return v;
+//X 	double val = 0.0;
+//X 	QString v;
+//X 
+//X 	switch ( rtype )
+//X 	{
+//X 		case ATOMIC:
+//X 			val = m_RadiusAR;
+//X 			break;
+//X 		case IONIC:
+//X 			val = m_RadiusIon;
+//X 			break;
+//X 		case COVALENT:
+//X 			val = m_RadiusCR;
+//X 			break;
+//X 		case VDW:
+//X 			val = m_RadiusVDW;
+//X 			break;
+//X 	}
+//X 
+//X 	if ( val <= 0 )
+//X 		v = i18n( "Value unknown" );
+//X 	else
+//X 		v = i18n( "%1 is a length, eg: 12.3 pm", "%1 pm" ).arg( QString::number( val ) );
+//X 	return v;
 }
 
 const QString Element::adjustUnits( const int type, double value )
 {
-	QString v;
-	if ( type == IE  ) //an ionization energy
-	{
+//X 	QString v;
+//X 	if ( type == IE  ) //an ionization energy
+//X 	{
 //X 		if ( Prefs::energies() == 0 )
 //X 		{
 //X 			value*=96.6;
@@ -145,8 +121,8 @@ const QString Element::adjustUnits( const int type, double value )
 //X 			v = QString::number( value );
 //X 			v.append( " eV" );
 //X 		}
-	}
-	return v;
+//X 	}
+//X 	return v;
 }
 
 const QString Element::adjustUnits( const int type )
@@ -252,45 +228,5 @@ const QString Element::adjustUnits( const int type )
 //X 	}
 
 	return v;
-}
-
-void Element::setRadius( RADIUSTYPE type, double value, const QString& name )
-{
-	switch ( type )
-	{
-		case ATOMIC:
-			m_RadiusAR = value;
-			break;
-		case IONIC:
-			m_RadiusIon = value;
-			m_ionvalue = name;
-			break;
-		case COVALENT:
-			m_RadiusCR = value;
-			break;
-		case VDW:
-			m_RadiusVDW = value;
-			break;
-	}
-}
-
-double Element::radius( RADIUSTYPE type )
-{
-	switch ( type )
-	{
-		case ATOMIC:
-			return m_RadiusAR;
-			break;
-		case IONIC:
-			return m_RadiusIon;
-			break;
-		case COVALENT:
-			return m_RadiusCR;
-			break;
-		case VDW:
-			return m_RadiusVDW;
-			break;
-	}
-	return 0.0;
 }
 

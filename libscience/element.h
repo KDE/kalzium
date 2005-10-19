@@ -26,27 +26,13 @@
 
 #include "chemicaldataobject.h"
 
-class QDomDocument;
-class QPainter;
-class QPoint;
-class QFont;
-class QRect;
-
 class Spectrum;
 class Isotope;
 class Element;
 class ChemicalDataObject;
 
-struct coordinate;
-
 typedef QList<Element*> EList;
-typedef QList<coordinate> CList;
 typedef QList<double> doubleList;
-
-struct coordinate{
-	int x;
-	int y;
-};
 
 /**
  * In this class all information about an element are stored. This means that
@@ -71,93 +57,9 @@ class Element{
 		{
 			ATOMIC = 0,
 			IONIC,
-			VDW, //van der Waals radius
+			VDW /**< van der Waals radius */,
 			COVALENT
 		};
-
-		/**
-		 * @return the number of the element
-		 */
-/*		int number() const {
-			return m_number;
-		}*/
-
-		/**
-		 * @return if the Element is radioactive
-		 */
-		bool radioactive() const{
-			return m_radioactive;
-		}
-		
-		/**
-		 * @return if the Element is artificial
-		 */
-		bool artificial() const{
-			return m_artificial;
-		}
-
-		/**
-		 * @return the information where the name of the Element comes from
-		 */
-		QString nameOrigin() const{
-			return m_origin;
-		}
-
-		/**
-		 * The orbit of for example Lithium (Li) is "He 2s1"
-		 * @return the orbital structure of the element
-		 */
-		QString orbits() const{
-			return m_orbits;
-		}
-		
-//		void setMass( double value ) { m_mass = value; }
-		void setEN( double value ) { m_EN = value; }
-		void setEA( double value ) { m_EA = value; }
-		void setMeltingpoint( double value ) { m_MP = value; }
-		void setBoilingpoint( double value ) { m_BP = value; }
-
-		/**
-		 * sets the density of the Element
-		 * @param value the density of the Element
-		 */
-		void setDensity( double value ) { m_Density = value; }
-
-		/**
-		 * set the radius of the radiustype @p type to the value @p value.
-		 * The ionicradius also has a name @p name. This will store the charge of
-		 * the ion (for example, +2 or -3 )
-		 */
-		void setRadius( RADIUSTYPE type, double value, const QString& name = 0 );
-		
-		void setDate( int date ) { m_date = date; }
-		void setPeriod( int period ){ m_period = period; }
-		void setBiologicalMeaning( int value ) { m_biological = value; }
-//		void setNumber( int num ){ m_number = num; }
-
-		/**
-		 * set the abundance in crustal rocks [pm]
-		 * @param abundance the abundace in crustal rocks
-		 */
-		void setAbundance( int abundance ){ m_abundance = abundance; }
-
-		void setScientist( const QString& value ) { m_scientist = value; }
-		void setCrysatalstructure( const QString& value ) { m_crystalstructure = value; }
-		void setName( const QString& value ) { m_name = value; }
-		void setOrigin( const QString& value ) { m_origin = value; }
-		void setBlock( const QString& value ) { m_block = value; }
-		void setGroup( const QString& value ) { m_group = value; }
-		void setFamily( const QString& value ) { m_family = value; }
-		void setOrbits( const QString& value ) { m_orbits = value; }
-		void setSymbol( const QString& value ) { m_symbol = value; }
-		void setOxydation( const QString& value ) { m_oxstage = value; }
-		void setAcidicbehaviour( const QString& value ) { m_acidbeh = value; }
-		void setIsotopes( const QString& value ) { m_isotopes = value; }
-		
-		void setArtificial(){ m_artificial = true; }
-		void setRadioactive(){ m_radioactive = true; }
-		
-		void setIonisationList( doubleList l ){ m_ionenergies = l; }
 
 		QList<Isotope*> isotopes() const{
 			return m_isotopeList;
@@ -200,181 +102,6 @@ class Element{
 		Spectrum* spectrum() const{
 			return m_spectrum;
 		}
-
-		doubleList ionisationList() const{
-			return m_ionenergies;
-		}
-		
-		/**
-		 * @return the date of discovery of the element
-		 */
-		int date() const {
-			return m_date; 
-		}
-
-		/**
-		 * return the correct color of the element at the
-		 * temperature @p temp
-		 */
-		QColor currentColor( const double temp );
-    
-		/**
-		 * mutator for the element's color
-		 */
-		void setElementColor( const QColor &c ) { m_Color = c; }
-		
-		/**
-		 * @return the importance of the element for biological
-		 * systems.
-		 * @li 0: blah
-		 * @li 1: blub
-		 * @li 2: blub
-		 * @li 3: blub
-		 * @li 4: blub
-		 * @li 5: blub
-		 * @li 6: blub
-		 */
-		int biological() const {
-			return m_biological;
-		}
-
-		/**
-		 * @return the abundance in crustal rocks in parts per million
-		 */
-		int abundance() const {
-			return 12;
-		}
-		
-		/**
-		 * @return the symbol of the element
-		 */
-		QString symbol() const {
-			return m_symbol;
-		}
-
-		/**
-		 * @return the scientist who discovered the element
-		 */
-		QString scientist() const{
-			return m_scientist;
-		}
-
-		/**
-		 * @return the crystal structure of the element
-		 */
-		QString crystalstructure() const{
-			return m_crystalstructure;
-		}
-
-		/**
-		 * @return the name of the element
-		 */
-		QString elementName() const{
-			return m_name;
-		}
-
-		//FIXME I need to add a way to have more than one ionic radius
-		QString ioncharge() const{
-			return m_ionvalue;
-		}
-		
-		/**
-		 * @return the chemical block (s, p, d, f) of the element
-		 */
-		QString block() const {
-			return m_block;
-		}
-		
-		/**
-		 * @return the group of the element
-		 */
-		QString group() const {
-			return m_group;
-		}
-		
-		int period() const {
-			return m_period;
-		}
-
-		QString family() const {
-			return m_family;
-		}
-		
-		/**
-		 * @return the acidic behavior of the element
-		 */
-		QString acidicbeh() const {
-			return m_acidbeh;
-		}
-
-		/**
-		 * @return the oxydationstages of the element
-		 */
-		QString oxstage() const {
-			return m_oxstage;
-		}
-		
-		/**
-		 * @return the orbits of the element. The QString is already
-		 * parsed so that the numbers are superscripts and the first
-		 * block is bold.
-		 * @param canBeEmpty specifies if the string returned can be
-		 * empty instead of a "Unknown structure" one.
-		 */
-		QString parsedOrbits( bool canBeEmpty = false );
-		
-		/**
-		 * @return the boiling point of the element in Kelvin
-		 */
-		double boiling() const {
-			return m_BP;
-		}
-		
-		/**
-		 * @return the melting point of the element in Kelvin
-		 */
-		double melting() const {
-			return m_MP;
-		}
-		
-		/**
-		 * @return the electronegativity of the element in the
-		 * Pauling-scale
-		 */
-		double electroneg() const {
-			return m_EN;
-		}
-
-		/**
-		* @return the electroaffinity of the element
-		*/
-		double electroaf() const {
-			return m_EA;
-		}
-
-		/**
-		 * @return the atomic mass of the element in units
-		 */
-/*		double mass() const {
-			return m_mass;
-		}*/
-		
-		/**
-		 * @return the density of the element in gramms per mol
-		 */
-		double density() const {
-			return m_Density;
-		}
-		
-		/**
-		 * @return the radius of the element in picometers
-		 */
-		double radius( RADIUSTYPE type );
-		
-		/**
-		 * @return the mean mass of the element
-		 */
-		double meanmass();
 
 		/**
 		 * adjusts the units for the data. The user can
@@ -421,13 +148,6 @@ class Element{
 			IE,
 			IONICRADIUS
 		};
-
-		/**
-		 * accessor for the element's color
-		 */
-		QColor elementColor() const {
-			return m_Color; 
-		}
 
 		/**
 		 * add the ChemicalDataObject @p o to this Element
@@ -485,45 +205,8 @@ class Element{
 		QList<Isotope*> m_isotopeList;
 
 		QList<double> m_spectrumList;
-    	
-		QColor m_Color;
-
-		double  m_mass,
-			m_MP,
-			m_BP,
-			m_EN,
-			m_EA,
-			m_Density,
-			m_RadiusAR,
-			m_RadiusCR,
-			m_RadiusVDW,
-			m_RadiusIon;
 		
-
-		int     m_number,
-			m_date,
-			m_biological,
-			m_period,
-			m_abundance;
-
-		QString m_symbol,
-			m_name,
-			m_origin,
-			m_oxstage,
-			m_block,
-			m_group,
-			m_family,
-			m_acidbeh,
-			m_orbits,
-			m_isotopes,
-			m_scientist,
-			m_crystalstructure,
-			m_ionvalue;
-
-		bool m_artificial,
-			 m_radioactive;
-
-		doubleList m_ionenergies;
+		QList<double> m_ionenergies;
 };
 
 #endif
