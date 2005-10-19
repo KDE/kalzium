@@ -65,7 +65,7 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 	const EList::iterator itEnd = d->ElementList.end();
 	for( ; it != itEnd ; ++it )
 	{
-		names.append( (*it)->elname() );
+		names.append( (*it)->elementName() );
 	}
 
 	resize(500, 500);

@@ -87,9 +87,9 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	setButtonTip( User2, i18n( "Goes to the previous element" ) );
 	setButtonTip( User1, i18n( "Goes to the next element" ) );
 
-	if ( m_element->number() == 1 )
+	if ( m_element->data( ChemicalDataObject::atomicNumber ) == 1 )
 		enableButton( User2, false );
-	else if ( m_element->number() == m_data->numberOfElements() )
+	else if ( m_element->data( ChemicalDataObject::atomicNumber ) == m_data->numberOfElements() )
 		enableButton( User1, false );
 
 	connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
@@ -116,9 +116,9 @@ void DetailedInfoDlg::setElement(Element *element)
 
 	enableButton( User1, true );
 	enableButton( User2, true );
-	if ( m_element->number() == 1 )
+	if ( m_element->data( ChemicalDataObject::atomicNumber ) == 1 )
 		enableButton( User2, false );
-	else if ( m_element->number() == m_data->numberOfElements() )
+	else if ( m_element->data( ChemicalDataObject::atomicNumber ) == m_data->numberOfElements() )
 		enableButton( User1, false );
 }
 
@@ -147,7 +147,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 	QList<double> ionlist = m_element->ionisationList();
 	
 	html.append( "<div><table summary=\"header\"><tr><td>" );
-	html.append( m_element->symbol() );
+	html.append( m_element->dataAsString( ChemicalDataObject::symbol ) );
 	html.append( "<td><td>" );
 	html.append( i18n( "Block: %1" ).arg( m_element->block() ) );
 	html.append( "</td></tr></table></div>" );
@@ -372,10 +372,10 @@ void DetailedInfoDlg::createContent( )
 		spectrumLayout->addWidget( m_spectrumview );
 	}
 	else
-		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elname() ), m_pSpectrumTab ) );
+		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elementName() ), m_pSpectrumTab ) );
 	
 	QString num = QString::number( m_element->number() );
-	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elname() ).arg( num );
+	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elementName() ).arg( num );
 	setCaption( cap );
 
 	dTab->setElement( m_element );
@@ -391,15 +391,15 @@ void DetailedInfoDlg::createContent( )
 		piclabel->setPixmap( pic );
 	}
 	else 
-		piclabel->setText( i18n( "No picture of %1 found." ).arg( m_element->elname() ) );
+		piclabel->setText( i18n( "No picture of %1 found." ).arg( m_element->elementName() ) );
 
 	/////////////////////////////////
 	
 	wOrbits->setElementNumber( m_element->number() );
 	wOrbits->repaint();
 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
-							.arg( m_element->elname() )
-							.arg( m_element->elname() )
+							.arg( m_element->elementName() )
+							.arg( m_element->elementName() )
 							.arg( m_element->parsedOrbits() ) );
 }
 
