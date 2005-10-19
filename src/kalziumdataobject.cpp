@@ -20,8 +20,10 @@
 
 #include "kalziumdataobject.h"
 
-#include "isotope.h"
-#include "spectrum.h"
+#include <elementparser.h>
+#include <spectrumparser.h>
+#include <isotope.h>
+#include <spectrum.h>
 
 #include <qdom.h>
 #include <qfile.h>
@@ -43,35 +45,45 @@ KalziumDataObject::KalziumDataObject()
 {
 	QDomDocument doc( "datadocument" );
 
-	KURL url;
-	url.setPath( locate("data", "kalzium/data/"));
-	url.setFileName( "data.xml" );
-	QFile layoutFile( url.path() );
+    KURL url;
+//X     url.setPath("/home/carsten/svn/trunk/KDE/kdeedu/libkdeedu/libscience/" );
+    url.setPath("/home/carsten/svn/trunk/KDE/kdeedu/kalzium/src/data/" );
+    url.setFileName( "data.xml" );
+//X     url.setFileName( "elements.xml" );
+    QFile layoutFile( url.path() );
 
-	if (!layoutFile.exists())
+    if (!layoutFile.open(IO_ReadOnly)){
+        kdDebug() << "layoutfile IO-error" << endl;
+    }
+
+    // Check if the document is well-formed
+    if (!doc.setContent(&layoutFile))
+    {
+        kdDebug() << "wrong xml" << endl;
+        layoutFile.close();
+    }
+    layoutFile.close();
+	
+	QList<Element*> foo = readData( doc );
+
+	foreach( Element* e, foo )
 	{
-		kdDebug() << "data.xml not found, exiting" << endl;
-		kapp->exit(0);
-		return;
-	}
+		//kdDebug() << e->number() << " " << e->nameOrigin() << endl;
+//X 		kdDebug() << e->number() << " " << e->orbits() << endl;
+//X 		kdDebug() << e->number() << " " << e->melting() << endl;
+//X 		kdDebug() << e->number() << " " << e->boiling() << endl;
+	
+		QList<double> list = e->ionisationList();
+		int i = 1;
+		foreach( double d, list )
+		{
+			if ( i == 3 )
+				kdDebug() << e->number() << " " << "moin" << endl;
 
-	if (!layoutFile.open(IO_ReadOnly))
-	{
-		kdDebug() << "data.xml IO-error" << endl;
-		return;
-	}
+			i++;
+		}
 
-	// Check if the document is well-formed
-	if (!doc.setContent(&layoutFile))
-	{
-		kdDebug() << "wrong xml" << endl;
-		layoutFile.close();
-		return;
 	}
-	layoutFile.close();
-
-	ElementList = readData( doc );
-	m_numOfElements = ElementList.count();
 }
 
 KalziumDataObject::~KalziumDataObject()
@@ -255,8 +267,6 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setHasSepctrum( spectrum_temp );
 
 		list.append( e );
-		coordinate point; point.x =  e->x; point.y = e->y;
-		CoordinateList.append( point );
 	}
 
 	return list;

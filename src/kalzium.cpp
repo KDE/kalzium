@@ -64,46 +64,46 @@ Kalzium::Kalzium()
 	// reading the elements from file
 	KalziumDataObject::instance();
 
-//	QWidget *centralWidget = new QWidget( this, "centralWidget" );
-//	m_pCentralLayout = new QVBoxLayout( centralWidget, PeriodicTableView_MARGIN, -1, "CentralLayout" );
-
-	QScrollArea *helperSV = new QScrollArea( this );
-	m_PeriodicTableView = new PeriodicTableView( helperSV->viewport(), "PeriodicTableView" );	
-	helperSV->setWidget( m_PeriodicTableView );
-//	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
-//	helperSV->setFrameShape(QFrame::NoFrame);
-
-	m_infoDialog = 0;
-	m_toolboxCurrent = 0;
-
-	connect( m_PeriodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
-	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
-	
-	// layouting
-	setCentralWidget( helperSV );
-
-	setupSidebars();
-	setupActions();
-
-	kdDebug() << "hier sin wir" << endl;
-
-	// creating the glossary dialog and loading the glossaries we have
-	m_glossarydlg = new GlossaryDialog( true, this );
-	m_glossarydlg->setObjectName( QLatin1String( "glossary" ) );
-	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
-	QString picturepath = dir + "kalzium/data/bg.jpg";
-	KURL u = dir + "kalzium/data/knowledge.xml";
-	Glossary *g = new Glossary( u );
-	g->setName( i18n( "Knowledge" ) );
-	g->setBackgroundPicture( picturepath );
-	m_glossarydlg->addGlossary( g );
-	u = dir + "kalzium/data/tools.xml";
-	g = new Glossary( u, dir + "kalzium/data/toolpics/" );
-	g->setName( i18n( "Tools" ) );
-	g->setBackgroundPicture( picturepath );
-	m_glossarydlg->addGlossary( g );
-
-	setupStatusBar();
+//X //	QWidget *centralWidget = new QWidget( this, "centralWidget" );
+//X //	m_pCentralLayout = new QVBoxLayout( centralWidget, PeriodicTableView_MARGIN, -1, "CentralLayout" );
+//X 
+//X 	QScrollArea *helperSV = new QScrollArea( this );
+//X 	m_PeriodicTableView = new PeriodicTableView( helperSV->viewport(), "PeriodicTableView" );	
+//X 	helperSV->setWidget( m_PeriodicTableView );
+//X //	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
+//X //	helperSV->setFrameShape(QFrame::NoFrame);
+//X 
+//X 	m_infoDialog = 0;
+//X 	m_toolboxCurrent = 0;
+//X 
+//X 	connect( m_PeriodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
+//X 	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
+//X 	
+//X 	// layouting
+//X 	setCentralWidget( helperSV );
+//X 
+//X 	setupSidebars();
+//X 	setupActions();
+//X 
+//X 	kdDebug() << "hier sin wir" << endl;
+//X 
+//X 	// creating the glossary dialog and loading the glossaries we have
+//X 	m_glossarydlg = new GlossaryDialog( true, this );
+//X 	m_glossarydlg->setObjectName( QLatin1String( "glossary" ) );
+//X 	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
+//X 	QString picturepath = dir + "kalzium/data/bg.jpg";
+//X 	KURL u = dir + "kalzium/data/knowledge.xml";
+//X 	Glossary *g = new Glossary( u );
+//X 	g->setName( i18n( "Knowledge" ) );
+//X 	g->setBackgroundPicture( picturepath );
+//X 	m_glossarydlg->addGlossary( g );
+//X 	u = dir + "kalzium/data/tools.xml";
+//X 	g = new Glossary( u, dir + "kalzium/data/toolpics/" );
+//X 	g->setName( i18n( "Tools" ) );
+//X 	g->setBackgroundPicture( picturepath );
+//X 	m_glossarydlg->addGlossary( g );
+//X 
+//X 	setupStatusBar();
 }
 
 void Kalzium::setupActions()
@@ -438,7 +438,7 @@ void Kalzium::setupStatusBar()
 void Kalzium::slotStatusbar( int num )
 {
 	Element *e = KalziumDataObject::instance()->element( num );
-	statusBar()->changeItem( i18n( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ).arg( e->elname() ).arg(e->number() ).arg( e->mass() ) , IDS_ELEMENTINFO );
+	statusBar()->changeItem( i18n( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ).arg( e->elementName() ).arg(e->number() ).arg( e->mass() ) , IDS_ELEMENTINFO );
 }
 
 void Kalzium::openInformationDialog( int number )

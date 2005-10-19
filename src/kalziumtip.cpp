@@ -117,7 +117,7 @@ void KalziumTip::display()
 
 	delete m_richText;
 	
-	QString elementname = m_tippedElement->elname();
+	QString elementname = m_tippedElement->elementName();
 	
 	QString number = i18n( "Number: %1" )
 			.arg( QString::number(m_tippedElement->number()) );

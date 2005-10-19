@@ -125,12 +125,12 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 	{
 		if ( ( ( *it )->melting() > 0.0 ) && fabs( ( *it )->melting() - temp ) <= threshold )
 		{
-			listMeltingPoint << ( *it )->elname();
+			listMeltingPoint << ( *it )->elementName();
 			listMeltingPointValue << ( *it )->adjustUnits( Element::MELTINGPOINT );
 		}
 		if ( ( ( *it )->boiling() > 0.0 ) && fabs( ( *it )->boiling() - temp ) <= threshold )
 		{
-			listBoilingPoint << ( *it )->elname();
+			listBoilingPoint << ( *it )->elementName();
 			listBoilingPointValue << ( *it )->adjustUnits( Element::BOILINGPOINT );
 		}
 	}

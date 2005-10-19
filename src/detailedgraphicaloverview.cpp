@@ -115,7 +115,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		
 		p.setFont( fC );
 				
-		int size = KalziumUtils::maxSize(m_element->elname(), rect , fC, &p);
+		int size = KalziumUtils::maxSize(m_element->elementName(), rect , fC, &p);
 		int size2 = KalziumUtils::maxSize(m_element->oxstage(), rect, fC, &p);
 		int size3 = KalziumUtils::maxSize(QString::number( m_element->mass() ), rect , fC, &p);
 
@@ -124,7 +124,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		p.setFont( fC );
 		
 		//Name
-		p.drawText( 1, 0, w/2, h, Qt::AlignLeft, m_element->elname() );
+		p.drawText( 1, 0, w/2, h, Qt::AlignLeft, m_element->elementName() );
 		
 		//Oxidationstates
 		fC.setPointSize( size2 );

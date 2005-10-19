@@ -81,13 +81,13 @@ void MolcalcWidget::updateUI()
 		// Update the resultLabel
 		str += i18n( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" )
 		  .arg( (*it)->count() )
-		  .arg( (*it)->element()->elname() );
+		  .arg( (*it)->element()->elementName() );
 
 		complexString
 		  += i18n( "For example: 1 Seaborgium. Cumulative Mass: 263.119 u (39.25%)",
 				   "%1 %2. Cumulative Mass: %3 u (%4%)\n" )
 		  .arg( (*it)->count() )
-		  .arg( (*it)->element()->elname() )
+		  .arg( (*it)->element()->elementName() )
 		  .arg( (*it)->count() * (*it)->element()->mass() )
 		  .arg( KalziumUtils::strippedValue( (( (*it)->count() * (*it)->element()->mass() )
 											  / m_mass ) * 100 ) );

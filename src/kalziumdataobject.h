@@ -69,7 +69,7 @@ class KalziumDataObject
 		KalziumDataObject();
 		~KalziumDataObject();
 
-		EList readData( QDomDocument &dataDocument );
+		QList<Element*> readData( QDomDocument &dataDocument );
 
 		/**
 		 * Caching the number of elements
