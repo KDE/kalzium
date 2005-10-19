@@ -190,7 +190,7 @@ MoleculeParser::parseTerm(double          *_resultMass,
 #endif
     if (nextToken() == ELEMENT_TOKEN) {
 		//kdDebug() << "Parsed an element: " << m_elementVal->symbol() << endl;
-		*_resultMass = m_elementVal->mass();
+		*_resultMass = m_elementVal->dataAsVariant( ChemicalDataObject::mass ).toDouble();
 		_resultMap->add(m_elementVal, 1);
 
 		getNextToken();

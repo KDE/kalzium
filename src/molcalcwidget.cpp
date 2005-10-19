@@ -88,8 +88,8 @@ void MolcalcWidget::updateUI()
 				   "%1 %2. Cumulative Mass: %3 u (%4%)\n" )
 		  .arg( (*it)->count() )
 		  .arg( (*it)->element()->elementName() )
-		  .arg( (*it)->count() * (*it)->element()->mass() )
-		  .arg( KalziumUtils::strippedValue( (( (*it)->count() * (*it)->element()->mass() )
+		  .arg( (*it)->count() * (*it)->element()->data( ChemicalDataObject::mass ).value().toDouble() )
+		  .arg( KalziumUtils::strippedValue( (( (*it)->count() * (*it)->element()->data( ChemicalDataObject::mass ).value().toDouble() )
 											  / m_mass ) * 100 ) );
 	}
 	resultLabel->setText( str );

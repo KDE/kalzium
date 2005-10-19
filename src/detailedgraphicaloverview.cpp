@@ -100,7 +100,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		int yA = h / 2;
 
 		//coordinates for the atomic number: offset from element symbol to the upper left
-		int xB = xA - fmB.width( QString::number( m_element->number() ) );
+		int xB = xA - fmB.width( m_element->dataAsString( ChemicalDataObject::atomicNumber ) );
 		int yB = yA - fmA.height() + fmB.height();
 
 		//Element Symbol
@@ -109,7 +109,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
 		//Atomic number
 		p.setFont( fB );
-		p.drawText( xB, yB, QString::number( m_element->number() ));
+		p.drawText( xB, yB, m_element->dataAsString( ChemicalDataObject::atomicNumber ) );
 
 		QRect rect( 0, 20, w/2, h );
 		
@@ -117,7 +117,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 				
 		int size = KalziumUtils::maxSize(m_element->elementName(), rect , fC, &p);
 		int size2 = KalziumUtils::maxSize(m_element->oxstage(), rect, fC, &p);
-		int size3 = KalziumUtils::maxSize(QString::number( m_element->mass() ), rect , fC, &p);
+		int size3 = KalziumUtils::maxSize(QString::number( m_element->data( ChemicalDataObject::mass ).value().toDouble() ), rect , fC, &p);
 
 		//Name and other data
 		fC.setPointSize( size );
@@ -129,14 +129,14 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		//Oxidationstates
 		fC.setPointSize( size2 );
 		p.setFont( fC );
-		int offsetOx = KalziumUtils::StringHeight( QString::number( m_element->mass() ), fC, &p );
+		int offsetOx = KalziumUtils::StringHeight( QString::number( m_element->data( ChemicalDataObject::mass ).value().toDouble() ), fC, &p );
 		p.drawText( 1, h-offsetOx, w/2, offsetOx, Qt::AlignLeft, m_element->oxstage() );
 
 		//Mass
 		fC.setPointSize( size3 );
 		p.setFont( fC );
-		int offset = KalziumUtils::StringHeight( QString::number( m_element->mass() ), fC, &p );
-		p.drawText( w/2, h-offset, w/2, offset, Qt::AlignRight, QString::number( m_element->mass() ) );
+		int offset = KalziumUtils::StringHeight( QString::number( m_element->data( ChemicalDataObject::mass ).value().toDouble() ), fC, &p );
+		p.drawText( w/2, h-offset, w/2, offset, Qt::AlignRight, QString::number( m_element->data( ChemicalDataObject::mass ).value().toDouble() ) );
 
 		drawBiologicalSymbol( &p );
 	}

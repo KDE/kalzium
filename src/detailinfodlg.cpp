@@ -28,11 +28,11 @@
 #include <kstdaction.h>
 #include <ktoolinvocation.h>
 
-#include <qlabel.h>
-#include <qimage.h>
-#include <qwhatsthis.h>
-#include <qlayout.h>
-#include <qpushbutton.h>
+#include <QLabel>
+#include <QImage>
+#include <QWhatsThis>
+#include <QLayout>
+#include <QPushButton>
 
 #include "element.h"
 #include "orbitswidget.h"
@@ -374,7 +374,7 @@ void DetailedInfoDlg::createContent( )
 	else
 		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elementName() ), m_pSpectrumTab ) );
 	
-	QString num = QString::number( m_element->number() );
+	QString num = m_element->dataAsString( ChemicalDataObject::atomicNumber );
 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elementName() ).arg( num );
 	setCaption( cap );
 
@@ -395,7 +395,7 @@ void DetailedInfoDlg::createContent( )
 
 	/////////////////////////////////
 	
-	wOrbits->setElementNumber( m_element->number() );
+	wOrbits->setElementNumber( m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt() );
 	wOrbits->repaint();
 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
 							.arg( m_element->elementName() )
@@ -448,7 +448,7 @@ void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 void DetailedInfoDlg::slotUser1()
 {
 // setting the next element
-	int number = m_element->number();
+	int number = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
 
 	if ( number < m_data->numberOfElements() )
 	{
@@ -467,7 +467,7 @@ void DetailedInfoDlg::slotUser1()
 void DetailedInfoDlg::slotUser2()
 {
 // setting the previous element
-	int number = m_element->number();
+	int number = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
 
 	if ( number > 1 )
 	{

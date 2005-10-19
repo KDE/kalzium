@@ -928,7 +928,7 @@ void PeriodicTableView::calculateGradient( QPainter *p )
 		case Element::MASS:
 			for (; it != itEnd; ++it )
 			{
-				tmpList.append( ( *it )->mass() );
+				tmpList.append( ( *it )->data( ChemicalDataObject::mass ).value().toDouble() );
 			}
 			break;
 		case Element::DENSITY:
@@ -1038,8 +1038,8 @@ void PeriodicTableView::drawGradientPeriodicTableView( QPainter *p, const double
 			title = i18n( "Gradient: Atomic Mass" );
 			while ( it != d->ElementList.end() )
 			{
-				double coeff = ( (*it)->mass() - min )/var;
-				drawGradientButton( p, *it, coeff, ( *it )->mass(), min );
+				double coeff = ( (*it)->data( ChemicalDataObject::mass ).value().toDouble() - min )/var;
+				drawGradientButton( p, *it, coeff, ( *it )->data( ChemicalDataObject::mass ).value().toDouble(), min );
 
 				++it;
 			}

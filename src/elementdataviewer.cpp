@@ -165,7 +165,7 @@ void ElementDataViewer::setupAxisData()
 	{
 		case AxisData::MASS:
 			for( ; it != itEnd ; ++it ) {
-				double value = (*it)->mass();
+				double value = (*it)->data( ChemicalDataObject::mass ).value().toDouble();
 				if( value > 0.0 )
 				  l.append( value );
 				else

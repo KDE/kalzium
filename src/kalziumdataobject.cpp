@@ -78,7 +78,7 @@ KalziumDataObject::KalziumDataObject()
 		foreach( double d, list )
 		{
 			if ( i == 3 )
-				kdDebug() << e->number() << " " << "moin" << endl;
+	//			kdDebug() << e->number() << " " << "moin" << endl;
 
 			i++;
 		}
@@ -203,12 +203,15 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		Element *e = new Element();
 		e->setDate(date);
 		e->setBiologicalMeaning(bio);
-		e->setNumber( number );
+//		e->setNumber( number );
+//		e->addData( number, ChemicalDataObject::atomicNumber );
 		e->setName(i18n(name.toUtf8()));
 		e->setRadius( Element::ATOMIC, atomic_radius );
 		e->setRadius( Element::IONIC, ionic_radius, ionic_charge );
-		e->setRadius( Element::COVALENT, covalent_radius );
-		e->setRadius( Element::VDW, vdw_radius );
+//		e->setRadius( Element::COVALENT, covalent_radius );
+		e->addData( covalent_radius, ChemicalDataObject::radiusCovalent );
+//		e->setRadius( Element::VDW, vdw_radius );
+		e->addData( vdw_radius, ChemicalDataObject::radiusVDW );
 		e->setAbundance( abundance );
 
 		if ( artificial == 1 )
@@ -230,7 +233,8 @@ EList KalziumDataObject::readData(  QDomDocument &dataDocument )
 		e->setIonisationList( ionlist );
 		e->setIsotopeList( isolist );
 		
-		e->setMass( mass );	
+//		e->setMass( mass );
+		e->addData(  mass, ChemicalDataObject::mass );	
 		e->setEN( en );
 		e->setEA( ea );
 		e->setMeltingpoint( mp );

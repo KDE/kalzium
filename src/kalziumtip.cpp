@@ -119,15 +119,15 @@ void KalziumTip::display()
 	
 	QString elementname = m_tippedElement->elementName();
 	
-	QString number = i18n( "Number: %1" )
-			.arg( QString::number(m_tippedElement->number()) );
+/*	QString number = i18n( "Number: %1" )
+			.arg( m_tippedElement->dataAsString( ChemicalDataObject::atomicNumber ) );*/
 	
-	QString mass = i18n( "Mass: %1" )
-			.arg( QString::number(m_tippedElement->mass()) );
+//	QString mass = i18n( "Mass: %1" )
+//			.arg( QString::number(m_tippedElement->mass()) );
 
-	m_richText = new Q3SimpleRichText("<qt><h1>" + elementname + "</h1><p>"
+	m_richText = new Q3SimpleRichText("<qt><h1>" + elementname + "</h1><p>"+/*
 						    + number + "</p><p>"
-						    + mass  +"</p></qt>", font());
+						    + mass  +*/"</p></qt>", font());
 
 	m_richText->setWidth(400);
 
