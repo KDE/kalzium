@@ -54,9 +54,6 @@ class ChemicalDataObject
 			radiusVDW/**< the van der Waals radius */
 		};
 
-		bool operator== ( const int );
-		bool operator== ( const QString& );
-		
 		/**
 		 * public constructor
 		 */
@@ -126,6 +123,26 @@ class ChemicalDataObject
 		void setType( int type ){
 			m_type = ( BlueObelisk ) type;
 		}
+		
+		/**
+		 * Compare the value @v with the data of this object
+		 */
+		bool operator== ( const int v);
+		
+		/**
+		 * Compare the value @v with the data of this object
+		 */
+		bool operator== ( const double v);
+		
+		/**
+		 * Compare the value @v with the data of this object
+		 */
+		bool operator== ( const bool v);
+		
+		/**
+		 * Compare the value @v with the data of this object
+		 */
+		bool operator== ( const QString& v);
 
 	private:
 		QVariant m_value;

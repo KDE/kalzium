@@ -38,14 +38,12 @@ Element::Element()
 	m_abundance = 0;
 }
 
-ChemicalDataObject* Element::data(ChemicalDataObject::BlueObelisk type)
+ChemicalDataObject& Element::data(ChemicalDataObject::BlueObelisk type)
 {
 	foreach( ChemicalDataObject*o, dataList ) {
 		if ( o->type() == type )
-			return o;
+			return *o;
 	}
-
-	return 0;
 }
 
 QString Element::dataAsString(ChemicalDataObject::BlueObelisk type)

@@ -25,12 +25,20 @@ int main(int argc, char *argv[])
 	foreach( Element* e, v ){
 		if ( e )
 		{
-			QList<ChemicalDataObject*> list = e->dataList;
+			QList<ChemicalDataObject*> list = e->data();
 
-			//Give me the name of the element
-			kdDebug() << "Name: " << e->dataAsString( ChemicalDataObject::name ) << endl;
+			//Test: Check if the string-comparison works
+//X 			if ( e->data( ChemicalDataObject::name ) == "Helium" )
+//X 				kdDebug() << "Mass: " << e->dataAsString( ChemicalDataObject::mass ) << endl;
 			
-//X 			//give me all you have
+			//Test: Check if the double-comparison works
+//X 			if ( e->data( ChemicalDataObject::mass ) == 4.002602 )
+//X 				kdDebug() << "Correct mass found" << endl;
+
+			//Test: Give me the name of the element
+//X 			kdDebug() << "Name: " << e->dataAsString( ChemicalDataObject::name ) << endl;
+			
+			//Test: give me all data available
 //X 			foreach( ChemicalDataObject*o, list ){
 //X 				if ( o )
 //X 					kdDebug() << o->valueAsString() << endl;

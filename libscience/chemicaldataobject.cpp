@@ -19,6 +19,8 @@
  ***************************************************************************/
 #include "chemicaldataobject.h"
 
+#include <kdebug.h>
+
 ChemicalDataObject::ChemicalDataObject( QVariant v, BlueObelisk type )
 {
 	m_value = v;
@@ -36,16 +38,40 @@ QString ChemicalDataObject::valueAsString()
 
 bool ChemicalDataObject::operator==( const int v )
 {
+	kdDebug() << "ChemicalDataObject::operator==() with int" << endl;
 	if ( m_value.type() != QVariant::Int )	
 		return false;
 	
 	return m_value.toInt() == v;
 }
 
+bool ChemicalDataObject::operator==( const bool v )
+{
+	kdDebug() << "ChemicalDataObject::operator==() with bool" << endl;
+	if ( m_value.type() != QVariant::Bool )	
+		return false;
+	
+	return m_value.toBool() == v;
+}
+
+bool ChemicalDataObject::operator==( const double v )
+{
+	kdDebug() << "ChemicalDataObject::operator==() with double" << endl;
+	if ( m_value.type() != QVariant::Double )	
+		return false;
+	
+	return m_value.toDouble() == v;
+}
+
 bool ChemicalDataObject::operator==( const QString& v )
 {
+	kdDebug() << "ChemicalDataObject::operator==() with QString" << endl;
 	if ( m_value.type() != QVariant::String )	
 		return false;
 
 	return m_value.toString() == v;
 }
+
+ChemicalDataObject::~ChemicalDataObject()
+{}
+	

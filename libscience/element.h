@@ -376,8 +376,6 @@ class Element{
 		 */
 		double meanmass();
 
-		int x, y; //for the RegularPeriodicTableView
-
 		/**
 		 * adjusts the units for the data. The user can
 		 * for example define if Fahrenheit, Kelvin or 
@@ -431,17 +429,37 @@ class Element{
 			return m_Color; 
 		}
 
+		/**
+		 * add the ChemicalDataObject @p o to this Element
+		 * @param o the ChemicalDataObject to be added
+		 */
 		void addData( ChemicalDataObject*o ){
 			dataList.append( o );
 		}
 
-		ChemicalDataObject* data( ChemicalDataObject::BlueObelisk type );
+		/**
+		 * @return the ChemicalDataObject which stores the information
+		 * of the type @p type
+		 * @param type the type of the requested data
+		 */
+		ChemicalDataObject& data( ChemicalDataObject::BlueObelisk type );
 		
+		/**
+		 * @return the requested data of the type @p type as a QString
+		 */
 		QString dataAsString( ChemicalDataObject::BlueObelisk type );
 		
-		QList<ChemicalDataObject*> dataList;
-
+		/**
+		 * @return the data of the Element
+		 */
+		QList<ChemicalDataObject*> data()const{
+			return dataList;
+		}
 	private:
+		/**
+		 * this QList stores all information about an element
+		 */
+		QList<ChemicalDataObject*> dataList;
 
 		/**
 		 * the integer num represents the number of the element
