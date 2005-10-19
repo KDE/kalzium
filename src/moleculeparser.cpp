@@ -286,7 +286,7 @@ MoleculeParser::lookupElement( const QString& _name )
     const EList::ConstIterator  end = elementList.constEnd();
 
     for (; it != end; ++it) {
-	if ( (*it)->symbol() == _name ) {
+	if ( (*it)->dataAsVariant(ChemicalDataObject::symbol) == _name ) {
 	    kdDebug() << "Found element " << _name << endl;
 	    return *it;
 	}

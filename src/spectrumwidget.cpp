@@ -421,19 +421,19 @@ void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 
 QPixmap SpectrumWidget::pixmap()
 {
-	QPixmap tmp( m_pixmap );
-	QString text;
-
-	if( m_type == EmissionSpectrum )
-		text = i18n( "Emission spectrum of %1" ).arg( m_spectrum->parentElement()->elementName() );
-	else
-		text = i18n( "Absorption spectrum of %1" ).arg( m_spectrum->parentElement()->elementName() );
-
-	QPainter p( &tmp );
-	p.setPen( Qt::black );
-	p.drawText( 30, m_realHeight + 70, text );
-
-	return tmp;
+//X 	QPixmap tmp( m_pixmap );
+//X 	QString text;
+//X 
+//X 	if( m_type == EmissionSpectrum )
+//X 		text = i18n( "Emission spectrum of %1" ).arg( m_spectrum->parentElement()->dataAsString( ChemicalDataObject::name) );
+//X 	else
+//X 		text = i18n( "Absorption spectrum of %1" ).arg( m_spectrum->parentElement()->dataAsString(ChemicalDataObject::name) );
+//X 
+//X 	QPainter p( &tmp );
+//X 	p.setPen( Qt::black );
+//X 	p.drawText( 30, m_realHeight + 70, text );
+//X 
+//X 	return tmp;
 }
 
 #include "spectrumwidget.moc"

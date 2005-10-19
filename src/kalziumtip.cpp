@@ -117,7 +117,8 @@ void KalziumTip::display()
 
 	delete m_richText;
 	
-	QString elementname = m_tippedElement->elementName();
+//X 	QString elementname = m_tippedElement->dataAsString(ChemicalDataObject::name);
+	QString elementname = "";
 	
 /*	QString number = i18n( "Number: %1" )
 			.arg( m_tippedElement->dataAsString( ChemicalDataObject::atomicNumber ) );*/
@@ -282,7 +283,8 @@ void KalziumTip::internalUpdate()
 
 void KalziumTip::loadIcon()
 {
-	QString iconpath = locate(  "data" , "kalzium/elempics/" + m_tippedElement->symbol() + ".jpg" );
+//X 	QString iconpath = locate(  "data" , "kalzium/elempics/" + m_tippedElement->symbol() + ".jpg" );
+	QString iconpath="";
 	if ( !iconpath.isEmpty() )
 	{
 		QImage img ( iconpath, "JPEG" );

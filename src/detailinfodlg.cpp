@@ -140,218 +140,218 @@ void DetailedInfoDlg::addTab( const QString& htmlcode, const QString& title, con
 
 QString DetailedInfoDlg::getHtml(DATATYPE type)
 {
-	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title><link rel=\"stylesheet\" type=\"text/css\" href=\"";
-	html += m_baseHtml + "\" /><base href=\"" + m_baseHtml + "\"/></head><body><div class=\"chemdata\">";
-
-	//get the list of ionisation-energies
-	QList<double> ionlist = m_element->ionisationList();
-	
-	html.append( "<div><table summary=\"header\"><tr><td>" );
-	html.append( m_element->dataAsString( ChemicalDataObject::symbol ) );
-	html.append( "<td><td>" );
-	html.append( i18n( "Block: %1" ).arg( m_element->block() ) );
-	html.append( "</td></tr></table></div>" );
-	html.append( "<table summary=\"characteristics\" class=\"characterstics\">");
-	switch ( type )
-	{
-		case CHEMICAL:
-			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( "<b>" + i18n( "Electronic configuration: %1" ).arg( m_element->parsedOrbits() ) + "</b>" );
-			html.append( "</td></tr>" );
-			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
-			html.append( "<b>" + i18n( "Density: %1" ).arg( m_element->adjustUnits( Element::DENSITY ) ) + "</b>" );
-			html.append( "</td></tr>" );
-			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-			html.append( "<b>" + i18n( "Covalent Radius: %1" ).arg( m_element->adjustRadius( Element::COVALENT ) ) + "</b>" );
-			html.append( "</td></tr>" );
-			if ( m_element->radius(Element::IONIC) > 0.0 )
-			{
-				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "<b>Ionic Radius (Charge): %1</b> (%2)" ).arg( m_element->adjustRadius(Element::IONIC) ).arg( m_element->ioncharge() ) );
-				html.append( "</td></tr>" );
-			}
-			if ( m_element->radius(Element::VDW) > 0.0 )
-			{
-				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-				html.append( "<b>" + i18n( "van der Waals Radius: %1" ).arg( m_element->adjustRadius(Element::VDW) ) + "</b>" );
-				html.append( "</td></tr>" );
-			}
-		
-			if ( m_element->radius(Element::ATOMIC) > 0.0 )
-			{
-				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-				html.append( "<b>" + i18n( "Atomic Radius: %1" ).arg( m_element->adjustRadius(Element::ATOMIC) ) + "</b>" );
-				html.append( "</td></tr>" );
-			}
-			
-			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-			html.append( "<b>" + i18n( "Mass: %1" ).arg( m_element->adjustUnits( Element::MASS ) ) + "</b>" );
-			html.append( "</td></tr>" );
-			if ( !m_element->isotopes().isEmpty() )
-			{
-				html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-				html.append( isotopeTable() );
-				html.append( "</td></tr>" );
-			}
-			break;
-		case MISC:
-			html.append( "<tr><td><img src=\"discovery.png\" alt=\"icon\"/></td><td>" );
-			html.append( m_element->adjustUnits( Element::DATE ) );
-			if ( !m_element->scientist( ).isEmpty() )
-				html += "<br />" + i18n("It was discovered by %1").arg(m_element->scientist() );
-			html.append( "</td></tr>" );
-			
-			if ( m_element->abundance() > 0 ){
-			html.append( "<tr><td><img src=\"abundance.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Abundance in crustal rocks: %1 ppm" ).arg( m_element->abundance() ) );
-			html.append( "</td></tr>" );
-			}
-			
-			html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );
-			html.append( "</td></tr>" );
-			if ( !m_element->nameOrigin().isEmpty() )
-			{
-				html.append( "<tr><td><img src=\"book.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "Origin of the name: %1" ).arg( m_element->nameOrigin() ) );
-				html.append( "</td></tr>" );
-			}
-			if ( m_element->artificial() || m_element->radioactive() )
-			{
-				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-				if ( !m_element->radioactive() )
-					html.append( i18n( "This element is artificial" ));
-				else if ( !m_element->artificial() )
-					html.append( i18n( "This element is radioactive" ));
-				else
-					html.append( i18n( "This element is radioactive and artificial" ));
-				html.append( "</td></tr>" );
-			}
-			break;
-		case ENERGY:
-			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Melting Point: %1" ).arg( m_element->adjustUnits( Element::MELTINGPOINT ) ) );
-			html.append( "</td></tr>" );
-			html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Boiling Point: %1" ).arg( m_element->adjustUnits( Element::BOILINGPOINT ) ) );
-			html.append( "</td></tr>" );
-			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Electronegativity: %1" ).arg( m_element->adjustUnits( Element::EN ) ) );
-			html.append( "</td></tr>" );
-			html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Electron affinity: %1 " ).arg( m_element->adjustUnits(Element::EA) ) );
-			html.append( "</td></tr>" );
-						
-
-			int i = 0;
-			for ( ; i < ionlist.count() ; ++i )
-			{
-				html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n("the first variable is a number. The result is for example '1.' or '5.', the second is the value of the ionisation energy",
-				             "%1. Ionization energy: %2" ).arg( QString::number( i+1 ), m_element->adjustUnits( Element::IE, ionlist[i] ) ) );
-			html.append( "</td></tr>" );
-			}
-			break;
-	}
-			
-	html += ( "</table>" );
-	html += "</div></body></html>";
-	
-	return html;
+//X 	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title><link rel=\"stylesheet\" type=\"text/css\" href=\"";
+//X 	html += m_baseHtml + "\" /><base href=\"" + m_baseHtml + "\"/></head><body><div class=\"chemdata\">";
+//X 
+//X 	//get the list of ionisation-energies
+//X 	QList<double> ionlist = m_element->ionisationList();
+//X 	
+//X 	html.append( "<div><table summary=\"header\"><tr><td>" );
+//X 	html.append( m_element->dataAsString( ChemicalDataObject::symbol ) );
+//X 	html.append( "<td><td>" );
+//X 	html.append( i18n( "Block: %1" ).arg( m_element->block() ) );
+//X 	html.append( "</td></tr></table></div>" );
+//X 	html.append( "<table summary=\"characteristics\" class=\"characterstics\">");
+//X 	switch ( type )
+//X 	{
+//X 		case CHEMICAL:
+//X 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+//X 			html.append( "<b>" + i18n( "Electronic configuration: %1" ).arg( m_element->parsedOrbits() ) + "</b>" );
+//X 			html.append( "</td></tr>" );
+//X 			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
+//X 			html.append( "<b>" + i18n( "Density: %1" ).arg( m_element->adjustUnits( Element::DENSITY ) ) + "</b>" );
+//X 			html.append( "</td></tr>" );
+//X 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
+//X 			html.append( "<b>" + i18n( "Covalent Radius: %1" ).arg( m_element->adjustRadius( Element::COVALENT ) ) + "</b>" );
+//X 			html.append( "</td></tr>" );
+//X 			if ( m_element->radius(Element::IONIC) > 0.0 )
+//X 			{
+//X 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+//X 				html.append( i18n( "<b>Ionic Radius (Charge): %1</b> (%2)" ).arg( m_element->adjustRadius(Element::IONIC) ).arg( m_element->ioncharge() ) );
+//X 				html.append( "</td></tr>" );
+//X 			}
+//X 			if ( m_element->radius(Element::VDW) > 0.0 )
+//X 			{
+//X 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+//X 				html.append( "<b>" + i18n( "van der Waals Radius: %1" ).arg( m_element->adjustRadius(Element::VDW) ) + "</b>" );
+//X 				html.append( "</td></tr>" );
+//X 			}
+//X 		
+//X 			if ( m_element->radius(Element::ATOMIC) > 0.0 )
+//X 			{
+//X 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
+//X 				html.append( "<b>" + i18n( "Atomic Radius: %1" ).arg( m_element->adjustRadius(Element::ATOMIC) ) + "</b>" );
+//X 				html.append( "</td></tr>" );
+//X 			}
+//X 			
+//X 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+//X 			html.append( "<b>" + i18n( "Mass: %1" ).arg( m_element->adjustUnits( Element::MASS ) ) + "</b>" );
+//X 			html.append( "</td></tr>" );
+//X 			if ( !m_element->isotopes().isEmpty() )
+//X 			{
+//X 				html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+//X 				html.append( isotopeTable() );
+//X 				html.append( "</td></tr>" );
+//X 			}
+//X 			break;
+//X 		case MISC:
+//X 			html.append( "<tr><td><img src=\"discovery.png\" alt=\"icon\"/></td><td>" );
+//X 			html.append( m_element->adjustUnits( Element::DATE ) );
+//X 			if ( !m_element->scientist( ).isEmpty() )
+//X 				html += "<br />" + i18n("It was discovered by %1").arg(m_element->scientist() );
+//X 			html.append( "</td></tr>" );
+//X 			
+//X 			if ( m_element->abundance() > 0 ){
+//X 			html.append( "<tr><td><img src=\"abundance.png\" alt=\"icon\"/></td><td>" );
+//X 			html.append( i18n( "Abundance in crustal rocks: %1 ppm" ).arg( m_element->abundance() ) );
+//X 			html.append( "</td></tr>" );
+//X 			}
+//X 			
+//X 			html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+//X 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );
+//X 			html.append( "</td></tr>" );
+//X 			if ( !m_element->nameOrigin().isEmpty() )
+//X 			{
+//X 				html.append( "<tr><td><img src=\"book.png\" alt=\"icon\"/></td><td>" );
+//X 				html.append( i18n( "Origin of the name: %1" ).arg( m_element->nameOrigin() ) );
+//X 				html.append( "</td></tr>" );
+//X 			}
+//X 			if ( m_element->artificial() || m_element->radioactive() )
+//X 			{
+//X 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+//X 				if ( !m_element->radioactive() )
+//X 					html.append( i18n( "This element is artificial" ));
+//X 				else if ( !m_element->artificial() )
+//X 					html.append( i18n( "This element is radioactive" ));
+//X 				else
+//X 					html.append( i18n( "This element is radioactive and artificial" ));
+//X 				html.append( "</td></tr>" );
+//X 			}
+//X 			break;
+//X 		case ENERGY:
+//X 			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
+//X 			html.append( i18n( "Melting Point: %1" ).arg( m_element->adjustUnits( Element::MELTINGPOINT ) ) );
+//X 			html.append( "</td></tr>" );
+//X 			html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
+//X 			html.append( i18n( "Boiling Point: %1" ).arg( m_element->adjustUnits( Element::BOILINGPOINT ) ) );
+//X 			html.append( "</td></tr>" );
+//X 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+//X 			html.append( i18n( "Electronegativity: %1" ).arg( m_element->adjustUnits( Element::EN ) ) );
+//X 			html.append( "</td></tr>" );
+//X 			html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
+//X 			html.append( i18n( "Electron affinity: %1 " ).arg( m_element->adjustUnits(Element::EA) ) );
+//X 			html.append( "</td></tr>" );
+//X 						
+//X 
+//X 			int i = 0;
+//X 			for ( ; i < ionlist.count() ; ++i )
+//X 			{
+//X 				html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
+//X 				html.append( i18n("the first variable is a number. The result is for example '1.' or '5.', the second is the value of the ionisation energy",
+//X 				             "%1. Ionization energy: %2" ).arg( QString::number( i+1 ), m_element->adjustUnits( Element::IE, ionlist[i] ) ) );
+//X 			html.append( "</td></tr>" );
+//X 			}
+//X 			break;
+//X 	}
+//X 			
+//X 	html += ( "</table>" );
+//X 	html += "</div></body></html>";
+//X 	
+//X 	return html;
 }
 
 QString DetailedInfoDlg::isotopeTable()
 {
-	QList<Isotope*> list = m_element->isotopes();
-
-	QString html;
-	
-	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"7\">";
-	html += i18n( "Isotope-Table" );
-	html += "</tr></td><tr><td><b>";
-	html += i18n( "Mass" );
-	html += "</b></td><td><b>";
-	html += i18n( "Neutrons" );
-	html += "</b></td><td><b>";
-	html += i18n( "Percentage" );
-	html += "</b></td><td><b>";
-	html += i18n( "Half-life period" );
-	html += "</b></td><td><b>";
-	html += i18n( "Energy and Mode of Decay" );
-	html += "</b></td><td><b>";
-	html += i18n( "Spin and Parity" );
-	html += "</b></td><td><b>";
-	html += i18n( "Magnetic Moment" );
-	html += "</b></td></tr>";
-
-	QList<Isotope*>::const_iterator it = list.begin();
-	const QList<Isotope*>::const_iterator itEnd = list.end();
-
-	for ( ; it != itEnd; ++it )
-	{
-		html.append( "<tr><td align=\"right\">" );
-		if ( ( *it )->weight() > 0.0 )
-			html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
-		//	html.append( i18n( "%1 u" ).arg( QString::number( ( *it )->weight() ) ));
-		html.append( "</td><td>" );
-		html.append( QString::number( ( *it )->neutrons() ) );
-		html.append( "</td><td>" );
-		if ( ( *it )->percentage() > 0.0 )
-			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
-		html.append( "</td><td>" );
-		if ( ( *it )->halflife() > 0.0 )
-			html.append( ( *it )->halflifeAsString() );
-		html.append( "</td><td>" );
-		if ( ( *it )->alphapercentage() > 0.0 ){
-			if ( ( *it )->alphadecay() > 0.0 )
-			html.append( i18n( "%1 MeV" ).arg(( *it )->alphadecay() ) );
-			html.append( i18n( " %1" ).arg( QChar( 945 ) ) );
-			if ( ( *it )->alphapercentage() < 100.0)
-				html.append( i18n( "(%1%)" ).arg(( *it )->alphapercentage() ));
-			if ( ( *it )->betaminuspercentage() > 0.0 || ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0)
-			html.append( i18n( ", " ) );
-			}
-		if ( ( *it )->betaminuspercentage() > 0.0 ){
-			if ( ( *it )->betaminusdecay() > 0.0 )
-				html.append( i18n( "%1 MeV" ).arg(( *it )->betaminusdecay() ) );
-			html.append( i18n( " %1<sup>-</sup>" ).arg( QChar( 946 ) ) );
-			if ( ( *it )->betaminuspercentage() < 100.0)
-				html.append( i18n( "(%1%)" ).arg(( *it )->betaminuspercentage() ));
-			if ( ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0 )
-			html.append( i18n( ", " ) );
-			}
-		if ( ( *it )->betapluspercentage() > 0.0 ){
-			if ( ( *it )->betaplusdecay() > 0.0 )
-				html.append( i18n( "%1 MeV" ).arg(( *it )->betaplusdecay() ) );
-			html.append( i18n( " %1<sup>+</sup>" ).arg(QChar( 946 ) ) );
-			if ( ( *it )->betapluspercentage() == ( *it )->ecpercentage() ) {
-				if ( ( *it )->ecdecay() > 0.0 ) {
-				html.append( i18n( "%1 MeV" ).arg(( *it )->ecdecay() ) ); }
-				html.append( i18n( "Acronym of Electron Capture"," EC" ) ); 
-			}
-			if ( ( *it )->betapluspercentage() < 100.0)	
-				html.append( i18n( "(%1%)" ).arg(( *it )->betapluspercentage() )); 
-			html += " ";
-			}	
-		if ( ( *it )->ecpercentage() > 0.0 && ( *it )->ecpercentage()!=( *it )->betapluspercentage()){
-			if ( ( *it )->ecdecay() > 0.0 )
-				html.append( i18n( "%1 MeV" ).arg(( *it )->ecdecay() ) );
-			html.append( i18n( "Acronym of Electron Capture"," EC" ) );
-			if ( ( *it )->ecpercentage() < 100.0 )
-				html.append( i18n( "(%1%)" ).arg(( *it )->ecpercentage() ));
-			}
-		html.append( "</td><td>" );
-		html.append( ( *it )->spin() );
-		html.append( "</td><td>" );
-		if ( !( *it )->magmoment().isEmpty() )
-			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( ( *it )->magmoment() ).arg( QChar( 956 ) ) );
-		html.append( "</td></tr>" );
-	
-	}
-	
-	html += "</table>";
-
-	return html;
+//X 	QList<Isotope*> list = m_element->isotopes();
+//X 
+//X 	QString html;
+//X 	
+//X 	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"7\">";
+//X 	html += i18n( "Isotope-Table" );
+//X 	html += "</tr></td><tr><td><b>";
+//X 	html += i18n( "Mass" );
+//X 	html += "</b></td><td><b>";
+//X 	html += i18n( "Neutrons" );
+//X 	html += "</b></td><td><b>";
+//X 	html += i18n( "Percentage" );
+//X 	html += "</b></td><td><b>";
+//X 	html += i18n( "Half-life period" );
+//X 	html += "</b></td><td><b>";
+//X 	html += i18n( "Energy and Mode of Decay" );
+//X 	html += "</b></td><td><b>";
+//X 	html += i18n( "Spin and Parity" );
+//X 	html += "</b></td><td><b>";
+//X 	html += i18n( "Magnetic Moment" );
+//X 	html += "</b></td></tr>";
+//X 
+//X 	QList<Isotope*>::const_iterator it = list.begin();
+//X 	const QList<Isotope*>::const_iterator itEnd = list.end();
+//X 
+//X 	for ( ; it != itEnd; ++it )
+//X 	{
+//X 		html.append( "<tr><td align=\"right\">" );
+//X 		if ( ( *it )->weight() > 0.0 )
+//X 			html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
+//X 		//	html.append( i18n( "%1 u" ).arg( QString::number( ( *it )->weight() ) ));
+//X 		html.append( "</td><td>" );
+//X 		html.append( QString::number( ( *it )->neutrons() ) );
+//X 		html.append( "</td><td>" );
+//X 		if ( ( *it )->percentage() > 0.0 )
+//X 			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
+//X 		html.append( "</td><td>" );
+//X 		if ( ( *it )->halflife() > 0.0 )
+//X 			html.append( ( *it )->halflifeAsString() );
+//X 		html.append( "</td><td>" );
+//X 		if ( ( *it )->alphapercentage() > 0.0 ){
+//X 			if ( ( *it )->alphadecay() > 0.0 )
+//X 			html.append( i18n( "%1 MeV" ).arg(( *it )->alphadecay() ) );
+//X 			html.append( i18n( " %1" ).arg( QChar( 945 ) ) );
+//X 			if ( ( *it )->alphapercentage() < 100.0)
+//X 				html.append( i18n( "(%1%)" ).arg(( *it )->alphapercentage() ));
+//X 			if ( ( *it )->betaminuspercentage() > 0.0 || ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0)
+//X 			html.append( i18n( ", " ) );
+//X 			}
+//X 		if ( ( *it )->betaminuspercentage() > 0.0 ){
+//X 			if ( ( *it )->betaminusdecay() > 0.0 )
+//X 				html.append( i18n( "%1 MeV" ).arg(( *it )->betaminusdecay() ) );
+//X 			html.append( i18n( " %1<sup>-</sup>" ).arg( QChar( 946 ) ) );
+//X 			if ( ( *it )->betaminuspercentage() < 100.0)
+//X 				html.append( i18n( "(%1%)" ).arg(( *it )->betaminuspercentage() ));
+//X 			if ( ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0 )
+//X 			html.append( i18n( ", " ) );
+//X 			}
+//X 		if ( ( *it )->betapluspercentage() > 0.0 ){
+//X 			if ( ( *it )->betaplusdecay() > 0.0 )
+//X 				html.append( i18n( "%1 MeV" ).arg(( *it )->betaplusdecay() ) );
+//X 			html.append( i18n( " %1<sup>+</sup>" ).arg(QChar( 946 ) ) );
+//X 			if ( ( *it )->betapluspercentage() == ( *it )->ecpercentage() ) {
+//X 				if ( ( *it )->ecdecay() > 0.0 ) {
+//X 				html.append( i18n( "%1 MeV" ).arg(( *it )->ecdecay() ) ); }
+//X 				html.append( i18n( "Acronym of Electron Capture"," EC" ) ); 
+//X 			}
+//X 			if ( ( *it )->betapluspercentage() < 100.0)	
+//X 				html.append( i18n( "(%1%)" ).arg(( *it )->betapluspercentage() )); 
+//X 			html += " ";
+//X 			}	
+//X 		if ( ( *it )->ecpercentage() > 0.0 && ( *it )->ecpercentage()!=( *it )->betapluspercentage()){
+//X 			if ( ( *it )->ecdecay() > 0.0 )
+//X 				html.append( i18n( "%1 MeV" ).arg(( *it )->ecdecay() ) );
+//X 			html.append( i18n( "Acronym of Electron Capture"," EC" ) );
+//X 			if ( ( *it )->ecpercentage() < 100.0 )
+//X 				html.append( i18n( "(%1%)" ).arg(( *it )->ecpercentage() ));
+//X 			}
+//X 		html.append( "</td><td>" );
+//X 		html.append( ( *it )->spin() );
+//X 		html.append( "</td><td>" );
+//X 		if ( !( *it )->magmoment().isEmpty() )
+//X 			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( ( *it )->magmoment() ).arg( QChar( 956 ) ) );
+//X 		html.append( "</td></tr>" );
+//X 	
+//X 	}
+//X 	
+//X 	html += "</table>";
+//X 
+//X 	return html;
 }
 
 void DetailedInfoDlg::createContent( )
@@ -371,17 +371,18 @@ void DetailedInfoDlg::createContent( )
 		m_spectrumview->setSpectrum( m_element->spectrum() );
 		spectrumLayout->addWidget( m_spectrumview );
 	}
-	else
-		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elementName() ), m_pSpectrumTab ) );
+//X 	else
+//X 		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elementName() ), m_pSpectrumTab ) );
 	
 	QString num = m_element->dataAsString( ChemicalDataObject::atomicNumber );
-	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elementName() ).arg( num );
-	setCaption( cap );
+//X 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elementName() ).arg( num );
+//X 	setCaption( cap );
 
 	dTab->setElement( m_element );
 
 	////////////////////////////////////
-	QString picpath = locate(  "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" );
+	QString picpath = "";
+	//QString picpath = locate(  "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" );
 	if ( !picpath.isEmpty() )
 	{
 		QImage img( picpath, "JPEG" );
@@ -390,17 +391,17 @@ void DetailedInfoDlg::createContent( )
 		pic.convertFromImage( img );
 		piclabel->setPixmap( pic );
 	}
-	else 
-		piclabel->setText( i18n( "No picture of %1 found." ).arg( m_element->elementName() ) );
+//X 	else 
+//X 		piclabel->setText( i18n( "No picture of %1 found." ).arg( m_element->elementName() ) );
 
 	/////////////////////////////////
 	
 	wOrbits->setElementNumber( m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt() );
 	wOrbits->repaint();
 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
-							.arg( m_element->elementName() )
-							.arg( m_element->elementName() )
-							.arg( m_element->parsedOrbits() ) );
+							.arg( m_element->dataAsString( ChemicalDataObject::name ) )
+							.arg( m_element->dataAsString( ChemicalDataObject::name ) )
+							.arg( "" ));//m_element->parsedOrbits() ) );
 }
 
 void DetailedInfoDlg::slotHelp()

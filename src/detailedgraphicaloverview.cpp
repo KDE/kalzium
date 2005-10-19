@@ -76,8 +76,8 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
 		x2 = w;
 		y2 = h;
-
-		p.setBrush( m_element->elementColor() );
+//FIXME
+		p.setBrush( Qt::green );//m_element->elementColor() );
 		p.drawRect( x1 , y1 , x2 , y2 );
 
 		p.setBrush( Qt::black );
@@ -105,7 +105,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
 		//Element Symbol
 		p.setFont( fA );
-		p.drawText( xA, yA , m_element->symbol() ); 
+		p.drawText( xA, yA , m_element->dataAsString( ChemicalDataObject::symbol) ); 
 
 		//Atomic number
 		p.setFont( fB );
@@ -115,28 +115,38 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		
 		p.setFont( fC );
 				
-		int size = KalziumUtils::maxSize(m_element->elementName(), rect , fC, &p);
-		int size2 = KalziumUtils::maxSize(m_element->oxstage(), rect, fC, &p);
-		int size3 = KalziumUtils::maxSize(QString::number( m_element->data( ChemicalDataObject::mass ).value().toDouble() ), rect , fC, &p);
+		int size = KalziumUtils::maxSize(m_element->dataAsString( ChemicalDataObject::name), rect , fC, &p);
+
+		//FIXME data missing
+		//int size2 = KalziumUtils::maxSize(m_element->oxstage(), rect, fC, &p);
+		
+		int size3 = KalziumUtils::maxSize( m_element->dataAsString( ChemicalDataObject::mass ), rect , fC, &p);
 
 		//Name and other data
 		fC.setPointSize( size );
 		p.setFont( fC );
 		
 		//Name
-		p.drawText( 1, 0, w/2, h, Qt::AlignLeft, m_element->elementName() );
+		p.drawText( 1, 0, w/2, h, Qt::AlignLeft, m_element->dataAsString( ChemicalDataObject::name) );
 		
 		//Oxidationstates
-		fC.setPointSize( size2 );
+//		fC.setPointSize( size2 );
 		p.setFont( fC );
-		int offsetOx = KalziumUtils::StringHeight( QString::number( m_element->data( ChemicalDataObject::mass ).value().toDouble() ), fC, &p );
-		p.drawText( 1, h-offsetOx, w/2, offsetOx, Qt::AlignLeft, m_element->oxstage() );
+		int offsetOx = KalziumUtils::StringHeight( m_element->dataAsString( ChemicalDataObject::mass ), fC, &p );
+				//Fixme, missing data
+//		p.drawText( 1, h-offsetOx, w/2, offsetOx, Qt::AlignLeft, m_element->oxstage() );
 
 		//Mass
 		fC.setPointSize( size3 );
 		p.setFont( fC );
-		int offset = KalziumUtils::StringHeight( QString::number( m_element->data( ChemicalDataObject::mass ).value().toDouble() ), fC, &p );
-		p.drawText( w/2, h-offset, w/2, offset, Qt::AlignRight, QString::number( m_element->data( ChemicalDataObject::mass ).value().toDouble() ) );
+		int offset = KalziumUtils::StringHeight( m_element->dataAsString( ChemicalDataObject::mass ), fC, &p );
+		p.drawText( w/2, 
+			h-offset, 
+			w/2, 
+			offset, 
+			Qt::AlignRight, 
+			m_element->dataAsString( ChemicalDataObject::mass ) 
+		);
 
 		drawBiologicalSymbol( &p );
 	}
@@ -149,81 +159,81 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
 void DetailedGraphicalOverview::drawBiologicalSymbol( QPainter *p )
 {
-	if ( !m_element ) return;
-	const int db = h_t;        //diameter of the big circle
-	const int ds = db/2;      //diameter of the inner circle
-
-	int d_ds = ( db/2 )-( ds/2 ); //the delta-x/y of the inner circle
-
-	int pos_x = width() - 4 - db;
-	int pos_y = 4;
-
-	if ( m_element->biological() > 0 )
-	{
-		const int radius = db + 8;
-		p->setBrush( Qt::SolidPattern );
-		p->setBrush( Qt::white );
-		p->setPen( Qt::black );
-		p->drawRoundRect( QRect( width() - radius, 
-					-radius, 
-					2 * radius, 
-					2 * radius ), 70, 70 );
-	}
-	
-	switch ( m_element->biological() )
-	{
-		case 0:        //nothing
-			break;
-		case 1:        //red, red
-			p->setBrush( Qt::red );
-			p->setBrush(Qt::NoBrush);
-			p->setPen( Qt::red );
-			p->drawEllipse( pos_x,pos_y,db,db );
-			p->setBrush(Qt::SolidPattern);
-			p->setBrush( Qt::red );
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-		case 2:        //green, red
-			p->setBrush( Qt::red );
-			p->setBrush(Qt::NoBrush);
-			p->setPen( Qt::red );
-			p->drawEllipse( pos_x,pos_y,db,db );
-			p->setBrush(Qt::SolidPattern);
-			p->setBrush( Qt::green );
-			p->setPen( Qt::green );
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-		case 3:        //green
-			p->setBrush(Qt::SolidPattern);
-			p->setBrush( Qt::green );
-			p->setPen( Qt::green );
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-		case 4:        //green, blue
-			p->setBrush( Qt::blue );
-			p->setBrush(Qt::NoBrush);
-			p->setPen( Qt::blue );
-			p->drawEllipse( pos_x,pos_y,db,db );
-			p->setBrush(Qt::SolidPattern);
-			p->setBrush( Qt::green );
-			p->setPen( Qt::green );
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-		case 5:        //blue
-			p->setBrush(Qt::SolidPattern);
-			p->setBrush( Qt::blue );
-			p->setPen( Qt::blue );
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-		case 6:        //blue, blue
-			p->setBrush( Qt::blue );
-			p->setBrush(Qt::NoBrush);
-			p->setPen( Qt::blue );
-			p->drawEllipse( pos_x,pos_y,db,db );
-			p->setBrush(Qt::SolidPattern);
-			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
-			break;
-	}
+//X 	if ( !m_element ) return;
+//X 	const int db = h_t;        //diameter of the big circle
+//X 	const int ds = db/2;      //diameter of the inner circle
+//X 
+//X 	int d_ds = ( db/2 )-( ds/2 ); //the delta-x/y of the inner circle
+//X 
+//X 	int pos_x = width() - 4 - db;
+//X 	int pos_y = 4;
+//X 
+//X 	if ( m_element->biological() > 0 )
+//X 	{
+//X 		const int radius = db + 8;
+//X 		p->setBrush( Qt::SolidPattern );
+//X 		p->setBrush( Qt::white );
+//X 		p->setPen( Qt::black );
+//X 		p->drawRoundRect( QRect( width() - radius, 
+//X 					-radius, 
+//X 					2 * radius, 
+//X 					2 * radius ), 70, 70 );
+//X 	}
+//X 	
+//X 	switch ( m_element->biological() )
+//X 	{
+//X 		case 0:        //nothing
+//X 			break;
+//X 		case 1:        //red, red
+//X 			p->setBrush( Qt::red );
+//X 			p->setBrush(Qt::NoBrush);
+//X 			p->setPen( Qt::red );
+//X 			p->drawEllipse( pos_x,pos_y,db,db );
+//X 			p->setBrush(Qt::SolidPattern);
+//X 			p->setBrush( Qt::red );
+//X 			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+//X 			break;
+//X 		case 2:        //green, red
+//X 			p->setBrush( Qt::red );
+//X 			p->setBrush(Qt::NoBrush);
+//X 			p->setPen( Qt::red );
+//X 			p->drawEllipse( pos_x,pos_y,db,db );
+//X 			p->setBrush(Qt::SolidPattern);
+//X 			p->setBrush( Qt::green );
+//X 			p->setPen( Qt::green );
+//X 			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+//X 			break;
+//X 		case 3:        //green
+//X 			p->setBrush(Qt::SolidPattern);
+//X 			p->setBrush( Qt::green );
+//X 			p->setPen( Qt::green );
+//X 			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+//X 			break;
+//X 		case 4:        //green, blue
+//X 			p->setBrush( Qt::blue );
+//X 			p->setBrush(Qt::NoBrush);
+//X 			p->setPen( Qt::blue );
+//X 			p->drawEllipse( pos_x,pos_y,db,db );
+//X 			p->setBrush(Qt::SolidPattern);
+//X 			p->setBrush( Qt::green );
+//X 			p->setPen( Qt::green );
+//X 			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+//X 			break;
+//X 		case 5:        //blue
+//X 			p->setBrush(Qt::SolidPattern);
+//X 			p->setBrush( Qt::blue );
+//X 			p->setPen( Qt::blue );
+//X 			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+//X 			break;
+//X 		case 6:        //blue, blue
+//X 			p->setBrush( Qt::blue );
+//X 			p->setBrush(Qt::NoBrush);
+//X 			p->setPen( Qt::blue );
+//X 			p->drawEllipse( pos_x,pos_y,db,db );
+//X 			p->setBrush(Qt::SolidPattern);
+//X 			p->drawEllipse( pos_x+d_ds, pos_y+d_ds, ds, ds );
+//X 			break;
+//X 	}
 }
 
 #include "detailedgraphicaloverview.moc"

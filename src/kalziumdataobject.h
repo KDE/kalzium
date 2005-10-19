@@ -22,6 +22,8 @@
 
 #include "element.h"
 
+#include <qdom.h>
+
 /**
  * @short This class contains all Element objects
  *
@@ -52,8 +54,6 @@ class KalziumDataObject
 		 */
 		EList ElementList;
 		
-		CList CoordinateList;
-
 		/**
 		 * @return the Element with the number @p number
 		 * @param number the number of the Element which will be returned
@@ -68,8 +68,6 @@ class KalziumDataObject
 	private:
 		KalziumDataObject();
 		~KalziumDataObject();
-
-		QList<Element*> readData( QDomDocument &dataDocument );
 
 		/**
 		 * Caching the number of elements

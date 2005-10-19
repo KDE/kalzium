@@ -173,359 +173,348 @@ void PeriodicTableView::reloadColours()
 
 void PeriodicTableView::slotToolTip( int number )
 {
-	if ( !m_showTooltip || !m_tooltipsEnabled ) 
-		return; //don't update if the table is locked
-
-	m_tooltipElementNumber = number;
-
-	QWidget *p = 0;
-	if ( dynamic_cast<QWidget*>( parent() ) )
-		p = static_cast<QWidget*>( parent() );
-
-	if( p )
-		m_kalziumTip->showTip( mapFromGlobal(QCursor::pos()), 
-				d->element(number), 
-				p->width(), 
-				p->height() );	
+//X 	if ( !m_showTooltip || !m_tooltipsEnabled ) 
+//X 		return; //don't update if the table is locked
+//X 
+//X 	m_tooltipElementNumber = number;
+//X 
+//X 	QWidget *p = 0;
+//X 	if ( dynamic_cast<QWidget*>( parent() ) )
+//X 		p = static_cast<QWidget*>( parent() );
+//X 
+//X 	if( p )
+//X 		m_kalziumTip->showTip( mapFromGlobal(QCursor::pos()), 
+//X 				d->element(number), 
+//X 				p->width(), 
+//X 				p->height() );	
 }
 
 PeriodicTableView::~PeriodicTableView(){}
 
 void PeriodicTableView::activateColorScheme( const int nr )
 {
-	m_currentScheme = nr;
-	
-	EList::ConstIterator it = d->ElementList.begin();
-	const EList::ConstIterator itEnd = d->ElementList.end();
-
-	if ( m_currentScheme == PeriodicTableView::NOCOLOUR ) //normal view, no colors
-	{
-		const QColor color = Prefs::noscheme();
-		while ( it != itEnd )
-		{
-			( *it )->setElementColor( color );
-			++it;
-		}
-	}
-	else if ( m_currentScheme == PeriodicTableView::GROUPS ) //groups view
-	{
-
-		static QString group;
-
-		while ( it != itEnd )
-		{
-			group = ( *it )->group();
-			
-			if (group == QString("1")) {
-				( *it )->setElementColor( m_colors["color_1"] );
-			}
-			if (group == QString("2")){
-				( *it )->setElementColor( m_colors["color_2"] );
-			}
-			if (group == QString("3")){
-				( *it )->setElementColor( m_colors["color_3"] );
-			}
-			if (group == QString("4")){
-				( *it )->setElementColor( m_colors["color_4"] );
-			}
-			if (group == QString("5")){
-				( *it )->setElementColor( m_colors["color_5"] );
-			}
-			if (group == QString("6")){
-				( *it )->setElementColor( m_colors["color_6"] );
-			}
-			if (group == QString("7")){
-				( *it )->setElementColor( m_colors["color_7"] );
-			}
-			if (group == QString("8")){
-				( *it )->setElementColor( m_colors["color_8"] );
-			}
-
-			++it;
-		}
-	}
-	else if ( m_currentScheme == PeriodicTableView::BLOCK ) //block view
-	{
-		static QString block;
-		while ( it != itEnd )
-		{
-			block = (*it)->block();
-
-			if (block == QString("s")) {
-				(*it)->setElementColor( m_colors["color_s"] );
-			}
-			if (block == QString("p")) {
-				(*it)->setElementColor( m_colors["color_p"] );
-			}
-			if (block == QString("d")) {
-				(*it)->setElementColor( m_colors["color_d"] );
-			}
-			if (block == QString("f")) {
-				(*it)->setElementColor( m_colors["color_f"] );
-			}
-			++it;
-		}
-	}
-	else if ( m_currentScheme == PeriodicTableView::ACIDIC ) //acidic beh
-	{
-		static QString acidicbeh;
-		
-		while ( it != itEnd )
-		{
-			acidicbeh = ( *it )->acidicbeh();
-
-			if (acidicbeh == QString("0")) {
-				(*it)->setElementColor( m_colors["color_ac"] );
-			}
-			if (acidicbeh == QString("1")){
-				(*it)->setElementColor( m_colors["color_ba"] );
-			}
-			if (acidicbeh == QString("2")){
-				(*it)->setElementColor( m_colors["color_neu"] );
-			}
-			if (acidicbeh == QString("3")){
-				(*it)->setElementColor( m_colors["color_amp"] );
-			}
-			++it;
-		}
-	}
-	else if ( m_currentScheme ==  PeriodicTableView::FAMILY ) //familiy of the element
-	{
-		static QString family;
-
-		while ( it != itEnd )
-		{
-			family = ( *it )->family();
-
-			if ( family == "Noblegas" ){
-				(*it)->setElementColor( m_colors["c_noble_gas"] );
-			}
-			if ( family == "Non-Metal" ){
-				(*it)->setElementColor( m_colors["c_nonmetal"] );
-			}
-			if ( family == "Rare_Earth" ){
-				(*it)->setElementColor( m_colors["c_rare"] );
-			}
-			if ( family == "Alkaline_Earth" ){
-				(*it)->setElementColor( m_colors["c_alkaline"] );
-			}
-			if ( family == "Alkali_Earth" ){
-				(*it)->setElementColor( m_colors["c_alkalie"] );
-			}
-			if ( family == "Transition" ){
-				(*it)->setElementColor( m_colors["c_transition"] );
-			}
-			if ( family == "Other_Metal" ){
-				(*it)->setElementColor( m_colors["c_other_metal"] );
-			}
-			if ( family == "Metalloids" ){
-				(*it)->setElementColor( m_colors["c_metalloid"] );
-			}
-			if ( family == "Halogene" ){
-				(*it)->setElementColor( m_colors["c_halogene"] );
-			}
-			
-			++it;
-		}
-	}
-		
-}
-
-void PeriodicTableView::resizeEvent( QResizeEvent * /*e*/ ) 
-{
-  table->resize( width(), height() );
-  table2->resize( width(), height() );
-  // XXX: I know it isn't the best way, but otherwise the table won't be redrawn
-  // on repaint... Feel *free* to remove these two lines if you foind a better
-  // solution...
-  doFullDraw = true;
-  update();
+//X 	m_currentScheme = nr;
+//X 	
+//X 	EList::ConstIterator it = d->ElementList.begin();
+//X 	const EList::ConstIterator itEnd = d->ElementList.end();
+//X 
+//X 	if ( m_currentScheme == PeriodicTableView::NOCOLOUR ) //normal view, no colors
+//X 	{
+//X 		const QColor color = Prefs::noscheme();
+//X 		while ( it != itEnd )
+//X 		{
+//X 			( *it )->setElementColor( color );
+//X 			++it;
+//X 		}
+//X 	}
+//X 	else if ( m_currentScheme == PeriodicTableView::GROUPS ) //groups view
+//X 	{
+//X 
+//X 		static QString group;
+//X 
+//X 		while ( it != itEnd )
+//X 		{
+//X 			group = ( *it )->group();
+//X 			
+//X 			if (group == QString("1")) {
+//X 				( *it )->setElementColor( m_colors["color_1"] );
+//X 			}
+//X 			if (group == QString("2")){
+//X 				( *it )->setElementColor( m_colors["color_2"] );
+//X 			}
+//X 			if (group == QString("3")){
+//X 				( *it )->setElementColor( m_colors["color_3"] );
+//X 			}
+//X 			if (group == QString("4")){
+//X 				( *it )->setElementColor( m_colors["color_4"] );
+//X 			}
+//X 			if (group == QString("5")){
+//X 				( *it )->setElementColor( m_colors["color_5"] );
+//X 			}
+//X 			if (group == QString("6")){
+//X 				( *it )->setElementColor( m_colors["color_6"] );
+//X 			}
+//X 			if (group == QString("7")){
+//X 				( *it )->setElementColor( m_colors["color_7"] );
+//X 			}
+//X 			if (group == QString("8")){
+//X 				( *it )->setElementColor( m_colors["color_8"] );
+//X 			}
+//X 
+//X 			++it;
+//X 		}
+//X 	}
+//X 	else if ( m_currentScheme == PeriodicTableView::BLOCK ) //block view
+//X 	{
+//X 		static QString block;
+//X 		while ( it != itEnd )
+//X 		{
+//X 			block = (*it)->block();
+//X 
+//X 			if (block == QString("s")) {
+//X 				(*it)->setElementColor( m_colors["color_s"] );
+//X 			}
+//X 			if (block == QString("p")) {
+//X 				(*it)->setElementColor( m_colors["color_p"] );
+//X 			}
+//X 			if (block == QString("d")) {
+//X 				(*it)->setElementColor( m_colors["color_d"] );
+//X 			}
+//X 			if (block == QString("f")) {
+//X 				(*it)->setElementColor( m_colors["color_f"] );
+//X 			}
+//X 			++it;
+//X 		}
+//X 	}
+//X 	else if ( m_currentScheme == PeriodicTableView::ACIDIC ) //acidic beh
+//X 	{
+//X 		static QString acidicbeh;
+//X 		
+//X 		while ( it != itEnd )
+//X 		{
+//X 			acidicbeh = ( *it )->acidicbeh();
+//X 
+//X 			if (acidicbeh == QString("0")) {
+//X 				(*it)->setElementColor( m_colors["color_ac"] );
+//X 			}
+//X 			if (acidicbeh == QString("1")){
+//X 				(*it)->setElementColor( m_colors["color_ba"] );
+//X 			}
+//X 			if (acidicbeh == QString("2")){
+//X 				(*it)->setElementColor( m_colors["color_neu"] );
+//X 			}
+//X 			if (acidicbeh == QString("3")){
+//X 				(*it)->setElementColor( m_colors["color_amp"] );
+//X 			}
+//X 			++it;
+//X 		}
+//X 	}
+//X 	else if ( m_currentScheme ==  PeriodicTableView::FAMILY ) //familiy of the element
+//X 	{
+//X 		static QString family;
+//X 
+//X 		while ( it != itEnd )
+//X 		{
+//X 			family = ( *it )->family();
+//X 
+//X 			if ( family == "Noblegas" ){
+//X 				(*it)->setElementColor( m_colors["c_noble_gas"] );
+//X 			}
+//X 			if ( family == "Non-Metal" ){
+//X 				(*it)->setElementColor( m_colors["c_nonmetal"] );
+//X 			}
+//X 			if ( family == "Rare_Earth" ){
+//X 				(*it)->setElementColor( m_colors["c_rare"] );
+//X 			}
+//X 			if ( family == "Alkaline_Earth" ){
+//X 				(*it)->setElementColor( m_colors["c_alkaline"] );
+//X 			}
+//X 			if ( family == "Alkali_Earth" ){
+//X 				(*it)->setElementColor( m_colors["c_alkalie"] );
+//X 			}
+//X 			if ( family == "Transition" ){
+//X 				(*it)->setElementColor( m_colors["c_transition"] );
+//X 			}
+//X 			if ( family == "Other_Metal" ){
+//X 				(*it)->setElementColor( m_colors["c_other_metal"] );
+//X 			}
+//X 			if ( family == "Metalloids" ){
+//X 				(*it)->setElementColor( m_colors["c_metalloid"] );
+//X 			}
+//X 			if ( family == "Halogene" ){
+//X 				(*it)->setElementColor( m_colors["c_halogene"] );
+//X 			}
+//X 			
+//X 			++it;
+//X 		}
+//X 	}
+//X 		
 }
 
 void PeriodicTableView::paintEvent( QPaintEvent * /*e*/ )
 {
-	QPainter p;
-
-	//JH: I have split the drawing into two pixmaps: table and table2.
-	//table contains the "static" PeriodicTableView table, and does not change very often.
-	//table2 contains the tooltips and any other dynamic overlays.
-	//Usually, we can skip the code which renders the table, and just use the 
-	//image stored in table...when doFullDraw==false, the rendering code is skipped.
-	if ( doFullDraw )
-	{
-		//DEBUG
-		kdDebug() << "Drawing full table" << endl;
-
-		p.begin( table );
-		p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
-
-		// Draw the numbers above the table.
-		drawNumeration( &p );
-
-		drawLegend( &p );
-
-		if ( m_timeline )
-		{ //use timeline
-			drawTimeLine(& p );
-			p.end();
-
-			*table2 = *table;
-			bitBlt( this, 0, 0, table2 );
-			return;
-		}
-		if ( som() )
-		{//use state of matter
-			drawSOMPeriodicTableView(& p );
-			p.end();
-
-			*table2 = *table;
-			bitBlt( this, 0, 0, table2 );
-			return;
-		}
-		if ( gradient() )
-		{//show a gradient
-			calculateGradient(& p );
-			p.end();
-
-			*table2 = *table;
-			bitBlt( this, 0, 0, table2 );
-		return;
-		}
-
-		drawPeriodicTableView( &p, m_currentScheme == CRYSTAL );
-
-		paintCurrentSelection();
-
-		p.end();
-
-		doFullDraw = false;
-	}
-
-	//JH: Ok, now table contains the static PeriodicTableView table, and we may need to draw
-	//a tooltip on it.  However, we don't want to ruin the stored table pixmap, 
-	//so let's copy it to table2 and add the tooltip there.
-	*table2 = *table;
-
-	//JH: Finally, bitBlt the table2 pixmap to the widget
-	bitBlt( this, 0, 0, table2 );
+//X 	QPainter p;
+//X 
+//X 	//JH: I have split the drawing into two pixmaps: table and table2.
+//X 	//table contains the "static" PeriodicTableView table, and does not change very often.
+//X 	//table2 contains the tooltips and any other dynamic overlays.
+//X 	//Usually, we can skip the code which renders the table, and just use the 
+//X 	//image stored in table...when doFullDraw==false, the rendering code is skipped.
+//X 	if ( doFullDraw )
+//X 	{
+//X 		//DEBUG
+//X 		kdDebug() << "Drawing full table" << endl;
+//X 
+//X 		p.begin( table );
+//X 		p.fillRect( 0, 0, width(), height(), paletteBackgroundColor() ); 
+//X 
+//X 		// Draw the numbers above the table.
+//X 		drawNumeration( &p );
+//X 
+//X 		drawLegend( &p );
+//X 
+//X 		if ( m_timeline )
+//X 		{ //use timeline
+//X 			drawTimeLine(& p );
+//X 			p.end();
+//X 
+//X 			*table2 = *table;
+//X 			bitBlt( this, 0, 0, table2 );
+//X 			return;
+//X 		}
+//X 		if ( som() )
+//X 		{//use state of matter
+//X 			drawSOMPeriodicTableView(& p );
+//X 			p.end();
+//X 
+//X 			*table2 = *table;
+//X 			bitBlt( this, 0, 0, table2 );
+//X 			return;
+//X 		}
+//X 		if ( gradient() )
+//X 		{//show a gradient
+//X 			calculateGradient(& p );
+//X 			p.end();
+//X 
+//X 			*table2 = *table;
+//X 			bitBlt( this, 0, 0, table2 );
+//X 		return;
+//X 		}
+//X 
+//X 		drawPeriodicTableView( &p, m_currentScheme == CRYSTAL );
+//X 
+//X 		paintCurrentSelection();
+//X 
+//X 		p.end();
+//X 
+//X 		doFullDraw = false;
+//X 	}
+//X 
+//X 	//JH: Ok, now table contains the static PeriodicTableView table, and we may need to draw
+//X 	//a tooltip on it.  However, we don't want to ruin the stored table pixmap, 
+//X 	//so let's copy it to table2 and add the tooltip there.
+//X 	*table2 = *table;
+//X 
+//X 	//JH: Finally, bitBlt the table2 pixmap to the widget
+//X 	bitBlt( this, 0, 0, table2 );
 }
 
 void PeriodicTableView::paintCurrentSelection()
 {
-	if (m_currentPoint.x() == -1)
-		return;
-
-	int x = (m_currentPoint.x()-1)*ELEMENTSIZE;
-	int y = m_currentPoint.y()*ELEMENTSIZE;
-
-	// make a small gap (ELEMENTSIZE/3) over the rare earths
-	if (m_currentPoint.y() > 7) y += ELEMENTSIZE/3;
-
-	QPainter p;
-	p.begin(table);
-
-	QPen pen;
-	pen.setStyle( Qt::DotLine );
-	pen.setWidth( 4 );
-	pen.setColor( Qt::blue );
-	p.setPen( pen );
-
-	p.drawEllipse( x-10,y-10,ELEMENTSIZE+20,ELEMENTSIZE+20 );
-	pen.setWidth( 3 );
-	pen.setColor( Qt::red );
-	p.setPen( pen );
-	p.drawEllipse( x-5,y-5,ELEMENTSIZE+10,ELEMENTSIZE+10 );
-
-	p.end();
+//X 	if (m_currentPoint.x() == -1)
+//X 		return;
+//X 
+//X 	int x = (m_currentPoint.x()-1)*ELEMENTSIZE;
+//X 	int y = m_currentPoint.y()*ELEMENTSIZE;
+//X 
+//X 	// make a small gap (ELEMENTSIZE/3) over the rare earths
+//X 	if (m_currentPoint.y() > 7) y += ELEMENTSIZE/3;
+//X 
+//X 	QPainter p;
+//X 	p.begin(table);
+//X 
+//X 	QPen pen;
+//X 	pen.setStyle( Qt::DotLine );
+//X 	pen.setWidth( 4 );
+//X 	pen.setColor( Qt::blue );
+//X 	p.setPen( pen );
+//X 
+//X 	p.drawEllipse( x-10,y-10,ELEMENTSIZE+20,ELEMENTSIZE+20 );
+//X 	pen.setWidth( 3 );
+//X 	pen.setColor( Qt::red );
+//X 	p.setPen( pen );
+//X 	p.drawEllipse( x-5,y-5,ELEMENTSIZE+10,ELEMENTSIZE+10 );
+//X 
+//X 	p.end();
 }
 
 void PeriodicTableView::drawLegendToolTip( QPainter* p )
 {
-	kdDebug() << "PeriodicTableView::drawLegendToolTip()" << endl;
-	if(!m_showLegendTooltip || !m_showLegend) return;
-
-	QString text;
-
-	switch ( m_currentScheme ) {
-		//No Legend drawn as only one colour is used
-		case PeriodicTableView::NOCOLOUR:
-			break;
-		case PeriodicTableView::BLOCK:
-			text = i18n( "The periodic table can be split up into four areas:\n the s-, p-, d- and f-Block. The name indicates which orbit\n is being filled last. For example, all elements in the s-block\n fill up the s-orbits." );
-			break;
-		case PeriodicTableView::GROUPS:
-			text = i18n( "The periodic table can be split up into groups:\n All elements in a group show similar behaviour");
-			break;
-		case PeriodicTableView::ACIDIC:
-			text = i18n( "The periodic table can be split up in groups of \nelements with different acidic behaviour.");
-			break;
-		case PeriodicTableView::FAMILY:
-			text = i18n( "The periodic table can be split up into several families.");
-			break;
-	}
-
-	const int x1 = mapFromGlobal( QCursor::pos() ).x();
-	const int y1 = mapFromGlobal( QCursor::pos() ).y();
-
-	static const int padding = 3;
-
-	QFont fB = KGlobalSettings::generalFont();
-	fB.setPointSize( fB.pointSize() + 4 );
-	p->setFont( fB );
-
-	QRect bRect( 0, 0, 1000, 1000 );
-	bRect = p->boundingRect( bRect, Qt::AlignLeft|Qt::AlignTop, text );
-	bRect.moveBy( x1, y1 );
-	QRect bRectExt = bRect;
-	bRect.moveBy( padding, padding );
-	bRectExt.setWidth( bRectExt.width() + 2 * padding );
-	bRectExt.setHeight( bRectExt.height() + 2 * padding );
-
-	bool vertflipped = false;
-	if ( bRectExt.bottom() > height() )
-	{
-		bRectExt.moveBy( 0, - bRectExt.height() );
-		bRect.moveBy( 0, - bRect.height() - 2 * padding );
-		vertflipped = true;
-	}
-	if ( bRectExt.right() > width() )
-	{
-		bRectExt.moveBy( - bRectExt.width(), 0 );
-		bRect.moveBy( - bRect.width() - 2 * padding, 0 );
-	}
-	else if ( !vertflipped )
-	{
-		bRectExt.moveBy( 15, 0 );
-		bRect.moveBy( 15, 0 );
-	}
-
-	p->setBrush(Qt::SolidPattern);
-	p->setBrush( QColor( 255, 255, 220 ) );
-	p->drawRect( bRectExt );
-
-	p->setBrush( Qt::black );
-	p->setBrush(Qt::NoBrush);
-
-	p->drawText( bRect, Qt::AlignLeft|Qt::AlignTop, text );
+//X 	kdDebug() << "PeriodicTableView::drawLegendToolTip()" << endl;
+//X 	if(!m_showLegendTooltip || !m_showLegend) return;
+//X 
+//X 	QString text;
+//X 
+//X 	switch ( m_currentScheme ) {
+//X 		//No Legend drawn as only one colour is used
+//X 		case PeriodicTableView::NOCOLOUR:
+//X 			break;
+//X 		case PeriodicTableView::BLOCK:
+//X 			text = i18n( "The periodic table can be split up into four areas:\n the s-, p-, d- and f-Block. The name indicates which orbit\n is being filled last. For example, all elements in the s-block\n fill up the s-orbits." );
+//X 			break;
+//X 		case PeriodicTableView::GROUPS:
+//X 			text = i18n( "The periodic table can be split up into groups:\n All elements in a group show similar behaviour");
+//X 			break;
+//X 		case PeriodicTableView::ACIDIC:
+//X 			text = i18n( "The periodic table can be split up in groups of \nelements with different acidic behaviour.");
+//X 			break;
+//X 		case PeriodicTableView::FAMILY:
+//X 			text = i18n( "The periodic table can be split up into several families.");
+//X 			break;
+//X 	}
+//X 
+//X 	const int x1 = mapFromGlobal( QCursor::pos() ).x();
+//X 	const int y1 = mapFromGlobal( QCursor::pos() ).y();
+//X 
+//X 	static const int padding = 3;
+//X 
+//X 	QFont fB = KGlobalSettings::generalFont();
+//X 	fB.setPointSize( fB.pointSize() + 4 );
+//X 	p->setFont( fB );
+//X 
+//X 	QRect bRect( 0, 0, 1000, 1000 );
+//X 	bRect = p->boundingRect( bRect, Qt::AlignLeft|Qt::AlignTop, text );
+//X 	bRect.moveBy( x1, y1 );
+//X 	QRect bRectExt = bRect;
+//X 	bRect.moveBy( padding, padding );
+//X 	bRectExt.setWidth( bRectExt.width() + 2 * padding );
+//X 	bRectExt.setHeight( bRectExt.height() + 2 * padding );
+//X 
+//X 	bool vertflipped = false;
+//X 	if ( bRectExt.bottom() > height() )
+//X 	{
+//X 		bRectExt.moveBy( 0, - bRectExt.height() );
+//X 		bRect.moveBy( 0, - bRect.height() - 2 * padding );
+//X 		vertflipped = true;
+//X 	}
+//X 	if ( bRectExt.right() > width() )
+//X 	{
+//X 		bRectExt.moveBy( - bRectExt.width(), 0 );
+//X 		bRect.moveBy( - bRect.width() - 2 * padding, 0 );
+//X 	}
+//X 	else if ( !vertflipped )
+//X 	{
+//X 		bRectExt.moveBy( 15, 0 );
+//X 		bRect.moveBy( 15, 0 );
+//X 	}
+//X 
+//X 	p->setBrush(Qt::SolidPattern);
+//X 	p->setBrush( QColor( 255, 255, 220 ) );
+//X 	p->drawRect( bRectExt );
+//X 
+//X 	p->setBrush( Qt::black );
+//X 	p->setBrush(Qt::NoBrush);
+//X 
+//X 	p->drawText( bRect, Qt::AlignLeft|Qt::AlignTop, text );
 }
 
 void PeriodicTableView::drawTimeLine( QPainter* p )
 {
-	if ( !p ) return;
-	kdDebug() << "PeriodicTableView::drawTimeLine: " << m_date << endl;
-	
-	if ( gradient() )
-		activateColorScheme( PeriodicTableView::NOCOLOUR );
-	
-	EList::ConstIterator it = d->ElementList.begin();
-	const EList::ConstIterator itEnd = d->ElementList.end();
-
-	bool simple = Prefs::pselook();
-	
-	/**
-	 * this loop iterates through all elements. The Elements
-	 * draw themselfs, the PeriodicTableView only tells them to do so
-	 */
+//X 	if ( !p ) return;
+//X 	kdDebug() << "PeriodicTableView::drawTimeLine: " << m_date << endl;
+//X 	
+//X 	if ( gradient() )
+//X 		activateColorScheme( PeriodicTableView::NOCOLOUR );
+//X 	
+//X 	EList::ConstIterator it = d->ElementList.begin();
+//X 	const EList::ConstIterator itEnd = d->ElementList.end();
+//X 
+//X 	bool simple = Prefs::pselook();
+//X 	
+//X 	/**
+//X 	 * this loop iterates through all elements. The Elements
+//X 	 * draw themselfs, the PeriodicTableView only tells them to do so
+//X 	 */
 //X 	while ( it != itEnd )
 //X 	{
 //X 		if ( ( *it )->date() <= m_date )
@@ -538,171 +527,171 @@ void PeriodicTableView::drawTimeLine( QPainter* p )
 
 void PeriodicTableView::drawLegend( QPainter* p )
 {
-	if ( !p ) return;
-
-	if ( !m_showLegend ) return;
-
-	/*
-	 * The legend is drawn in the big gap of the table. The gap has
-	 * this size:
-	 * 
-	 * width:  ELEMENTSIZE * 10
-	 * height: ELEMENTSIZE * 3
-	 *
-	 * We need to spare a few pixels on every side so that the legend
-	 * does not collide with the elements
-	 */
-	
-	QFont legendFont = KGlobalSettings::generalFont();
-	legendFont.setPointSize( legendFont.pointSize() + 1 );
-	p->setFont( legendFont );
-
-	int  legendLeft   = ELEMENTSIZE * 5 / 2;
-	int  legendTop    = ELEMENTSIZE * 3 / 4;
-	int  legendWidth  = ELEMENTSIZE * 9;
-	int  legendHeight = ELEMENTSIZE * 3;
-
-	int  x1 = legendLeft + ELEMENTSIZE / 2;
-	int  x2 = legendLeft + ELEMENTSIZE * 5;
-
-	/*
-	 * one field is allowed to be half the gap minus 10 pixel
-	 */
-	int fieldsize = ELEMENTSIZE*5-10;
-
-	/*
-	 * one field is a maximum of half the size of an element
-	 */
-	int fieldheight = ELEMENTSIZE/2;  
-
-
-	const  int square_w = 18;
-	const  int square_h = 18;
-	const  int textOffset = square_w + 10;
-	
-	if ( !m_currentScheme == PeriodicTableView::NOCOLOUR )
-		p->fillRect(legendLeft, legendTop, legendWidth, legendHeight, 
-				QColor(200, 200, 200));
-
-	if ( som() )
-	{
-		p->fillRect(x1, fieldheight*2, square_w, square_h, m_colors["c_solid"] );
-		p->fillRect(x1, fieldheight*3, square_w, square_h, m_colors["c_liquid"] );
-		p->fillRect(x1, fieldheight*4, square_w, square_h, m_colors["c_vapor"] );
-
-		p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Solid") ); 
-		p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Liquid") ); 
-		p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Vaporous") ); 
-		return;
-	}
-	switch ( m_currentScheme ){
-		//No Legend to be drawn as only one colour is used
-		case PeriodicTableView::NOCOLOUR:
-			break;
-		case PeriodicTableView::GROUPS:
-			p->fillRect( x1, fieldheight*2, square_w, square_h, m_colors["color_1"]); 
-			p->fillRect( x1, fieldheight*3, square_w, square_h, m_colors["color_2"]); 
-			p->fillRect( x1, fieldheight*4, square_w, square_h, m_colors["color_3"]); 
-			p->fillRect( x1, fieldheight*5, square_w, square_h, m_colors["color_4"]); 
-			p->fillRect( x2, fieldheight*2, square_w, square_h, m_colors["color_5"]); 
-			p->fillRect( x2, fieldheight*3, square_w, square_h, m_colors["color_6"]); 
-			p->fillRect( x2, fieldheight*4, square_w, square_h, m_colors["color_7"]); 
-			p->fillRect( x2, fieldheight*5, square_w, square_h, m_colors["color_8"]); 
-			
-			p->drawText( x1 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 1") ); 
-			p->drawText( x1 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 2")); 
-			p->drawText( x1 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 3")); 
-			p->drawText( x1 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 4")); 
-			p->drawText( x2 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 5")); 
-			p->drawText( x2 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 6")); 
-			p->drawText( x2 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 7")); 
-			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 8")); 
-			break;
-		case PeriodicTableView::BLOCK:
-			p->fillRect(x1, fieldheight*2, square_w, square_h, m_colors["color_s"] ); 
-			p->fillRect(x1, fieldheight*3, square_w, square_h, m_colors["color_p"] ); 
-			p->fillRect(x1, fieldheight*4, square_w, square_h, m_colors["color_d"] ); 
-			p->fillRect(x1, fieldheight*5, square_w, square_h, m_colors["color_f"] ); 
-			
-			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("s-Block") ); 
-			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("p-Block") ); 
-			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("d-Block") ); 
-			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("f-Block") ); 
-			break;
-		case PeriodicTableView::ACIDIC:
-			p->fillRect(x1, fieldheight*2, square_w, square_h, m_colors["color_ba"] ); 
-			p->fillRect(x1, fieldheight*3, square_w, square_h, m_colors["color_neu"] );
-			p->fillRect(x1, fieldheight*4, square_w, square_h, m_colors["color_ac"] ); 
-			p->fillRect(x1, fieldheight*5, square_w, square_h, m_colors["color_amp"] );
-			
-			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Basic") ); 
-			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Neutral") ); 
-			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Acidic") ); 
-			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("both acidic and basic behaviour","Amphoteric") ); 
-			break;
-		case PeriodicTableView::FAMILY:
-			p->fillRect( x1, fieldheight*2, square_w, square_h, m_colors["c_alkaline"] ); 
-			p->fillRect( x2, fieldheight*2, square_w, square_h, m_colors["c_rare"] ); 
-			p->fillRect( x1, fieldheight*3, square_w, square_h, m_colors["c_nonmetal"] ); 
-			p->fillRect( x2, fieldheight*3, square_w, square_h, m_colors["c_alkalie"] ); 
-			p->fillRect( x1, fieldheight*4, square_w, square_h, m_colors["c_other_metal"] ); 
-			p->fillRect( x2, fieldheight*4, square_w, square_h, m_colors["c_halogene"] ); 
-			p->fillRect( x1, fieldheight*5, square_w, square_h, m_colors["c_transition"] );
-			p->fillRect( x2, fieldheight*5, square_w, square_h, m_colors["c_noble_gas"] ); 
-			p->fillRect( x1, fieldheight*6, square_w, square_h, m_colors["c_metalloid"] ); 
-			
-			p->drawText( x1 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkaline") ); 
-			p->drawText( x2 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Rare Earth")); 
-			p->drawText( x1 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Non-Metals")); 
-			p->drawText( x2 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkalie-Metals")); 
-			p->drawText( x1 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Other Metal")); 
-			p->drawText( x2 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Halogene")); 
-			p->drawText( x1 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Transition Metal")); 
-			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Noble Gas")); 
-			p->drawText( x1 + textOffset , fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Metalloid")); 
-			break;
-		case PeriodicTableView::CRYSTAL:
-			p->fillRect(x1, fieldheight*2, square_w, square_h, Qt::cyan ); 
-			p->fillRect(x1, fieldheight*3, square_w, square_h, Qt::red ); 
-			p->fillRect(x1, fieldheight*4, square_w, square_h, Qt::yellow ); 
-			p->fillRect(x1, fieldheight*5, square_w, square_h, Qt::green ); 
-			p->fillRect(x1, fieldheight*6, square_w, square_h, Qt::white ); 
-
-			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Own") ); 
-			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("bcc, body centered cubic") ); 
-			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("hdp, hexagonal") ); 
-			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("ccp, cubic close packed") ); 
-			p->drawText(x1 + textOffset, fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Unknown") ); 
-			break;
-	}
+//X 	if ( !p ) return;
+//X 
+//X 	if ( !m_showLegend ) return;
+//X 
+//X 	/*
+//X 	 * The legend is drawn in the big gap of the table. The gap has
+//X 	 * this size:
+//X 	 * 
+//X 	 * width:  ELEMENTSIZE * 10
+//X 	 * height: ELEMENTSIZE * 3
+//X 	 *
+//X 	 * We need to spare a few pixels on every side so that the legend
+//X 	 * does not collide with the elements
+//X 	 */
+//X 	
+//X 	QFont legendFont = KGlobalSettings::generalFont();
+//X 	legendFont.setPointSize( legendFont.pointSize() + 1 );
+//X 	p->setFont( legendFont );
+//X 
+//X 	int  legendLeft   = ELEMENTSIZE * 5 / 2;
+//X 	int  legendTop    = ELEMENTSIZE * 3 / 4;
+//X 	int  legendWidth  = ELEMENTSIZE * 9;
+//X 	int  legendHeight = ELEMENTSIZE * 3;
+//X 
+//X 	int  x1 = legendLeft + ELEMENTSIZE / 2;
+//X 	int  x2 = legendLeft + ELEMENTSIZE * 5;
+//X 
+//X 	/*
+//X 	 * one field is allowed to be half the gap minus 10 pixel
+//X 	 */
+//X 	int fieldsize = ELEMENTSIZE*5-10;
+//X 
+//X 	/*
+//X 	 * one field is a maximum of half the size of an element
+//X 	 */
+//X 	int fieldheight = ELEMENTSIZE/2;  
+//X 
+//X 
+//X 	const  int square_w = 18;
+//X 	const  int square_h = 18;
+//X 	const  int textOffset = square_w + 10;
+//X 	
+//X 	if ( !m_currentScheme == PeriodicTableView::NOCOLOUR )
+//X 		p->fillRect(legendLeft, legendTop, legendWidth, legendHeight, 
+//X 				QColor(200, 200, 200));
+//X 
+//X 	if ( som() )
+//X 	{
+//X 		p->fillRect(x1, fieldheight*2, square_w, square_h, m_colors["c_solid"] );
+//X 		p->fillRect(x1, fieldheight*3, square_w, square_h, m_colors["c_liquid"] );
+//X 		p->fillRect(x1, fieldheight*4, square_w, square_h, m_colors["c_vapor"] );
+//X 
+//X 		p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Solid") ); 
+//X 		p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Liquid") ); 
+//X 		p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Vaporous") ); 
+//X 		return;
+//X 	}
+//X 	switch ( m_currentScheme ){
+//X 		//No Legend to be drawn as only one colour is used
+//X 		case PeriodicTableView::NOCOLOUR:
+//X 			break;
+//X 		case PeriodicTableView::GROUPS:
+//X 			p->fillRect( x1, fieldheight*2, square_w, square_h, m_colors["color_1"]); 
+//X 			p->fillRect( x1, fieldheight*3, square_w, square_h, m_colors["color_2"]); 
+//X 			p->fillRect( x1, fieldheight*4, square_w, square_h, m_colors["color_3"]); 
+//X 			p->fillRect( x1, fieldheight*5, square_w, square_h, m_colors["color_4"]); 
+//X 			p->fillRect( x2, fieldheight*2, square_w, square_h, m_colors["color_5"]); 
+//X 			p->fillRect( x2, fieldheight*3, square_w, square_h, m_colors["color_6"]); 
+//X 			p->fillRect( x2, fieldheight*4, square_w, square_h, m_colors["color_7"]); 
+//X 			p->fillRect( x2, fieldheight*5, square_w, square_h, m_colors["color_8"]); 
+//X 			
+//X 			p->drawText( x1 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 1") ); 
+//X 			p->drawText( x1 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 2")); 
+//X 			p->drawText( x1 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 3")); 
+//X 			p->drawText( x1 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 4")); 
+//X 			p->drawText( x2 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 5")); 
+//X 			p->drawText( x2 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 6")); 
+//X 			p->drawText( x2 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 7")); 
+//X 			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 8")); 
+//X 			break;
+//X 		case PeriodicTableView::BLOCK:
+//X 			p->fillRect(x1, fieldheight*2, square_w, square_h, m_colors["color_s"] ); 
+//X 			p->fillRect(x1, fieldheight*3, square_w, square_h, m_colors["color_p"] ); 
+//X 			p->fillRect(x1, fieldheight*4, square_w, square_h, m_colors["color_d"] ); 
+//X 			p->fillRect(x1, fieldheight*5, square_w, square_h, m_colors["color_f"] ); 
+//X 			
+//X 			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("s-Block") ); 
+//X 			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("p-Block") ); 
+//X 			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("d-Block") ); 
+//X 			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("f-Block") ); 
+//X 			break;
+//X 		case PeriodicTableView::ACIDIC:
+//X 			p->fillRect(x1, fieldheight*2, square_w, square_h, m_colors["color_ba"] ); 
+//X 			p->fillRect(x1, fieldheight*3, square_w, square_h, m_colors["color_neu"] );
+//X 			p->fillRect(x1, fieldheight*4, square_w, square_h, m_colors["color_ac"] ); 
+//X 			p->fillRect(x1, fieldheight*5, square_w, square_h, m_colors["color_amp"] );
+//X 			
+//X 			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Basic") ); 
+//X 			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Neutral") ); 
+//X 			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Acidic") ); 
+//X 			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("both acidic and basic behaviour","Amphoteric") ); 
+//X 			break;
+//X 		case PeriodicTableView::FAMILY:
+//X 			p->fillRect( x1, fieldheight*2, square_w, square_h, m_colors["c_alkaline"] ); 
+//X 			p->fillRect( x2, fieldheight*2, square_w, square_h, m_colors["c_rare"] ); 
+//X 			p->fillRect( x1, fieldheight*3, square_w, square_h, m_colors["c_nonmetal"] ); 
+//X 			p->fillRect( x2, fieldheight*3, square_w, square_h, m_colors["c_alkalie"] ); 
+//X 			p->fillRect( x1, fieldheight*4, square_w, square_h, m_colors["c_other_metal"] ); 
+//X 			p->fillRect( x2, fieldheight*4, square_w, square_h, m_colors["c_halogene"] ); 
+//X 			p->fillRect( x1, fieldheight*5, square_w, square_h, m_colors["c_transition"] );
+//X 			p->fillRect( x2, fieldheight*5, square_w, square_h, m_colors["c_noble_gas"] ); 
+//X 			p->fillRect( x1, fieldheight*6, square_w, square_h, m_colors["c_metalloid"] ); 
+//X 			
+//X 			p->drawText( x1 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkaline") ); 
+//X 			p->drawText( x2 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Rare Earth")); 
+//X 			p->drawText( x1 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Non-Metals")); 
+//X 			p->drawText( x2 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkalie-Metals")); 
+//X 			p->drawText( x1 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Other Metal")); 
+//X 			p->drawText( x2 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Halogene")); 
+//X 			p->drawText( x1 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Transition Metal")); 
+//X 			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Noble Gas")); 
+//X 			p->drawText( x1 + textOffset , fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Metalloid")); 
+//X 			break;
+//X 		case PeriodicTableView::CRYSTAL:
+//X 			p->fillRect(x1, fieldheight*2, square_w, square_h, Qt::cyan ); 
+//X 			p->fillRect(x1, fieldheight*3, square_w, square_h, Qt::red ); 
+//X 			p->fillRect(x1, fieldheight*4, square_w, square_h, Qt::yellow ); 
+//X 			p->fillRect(x1, fieldheight*5, square_w, square_h, Qt::green ); 
+//X 			p->fillRect(x1, fieldheight*6, square_w, square_h, Qt::white ); 
+//X 
+//X 			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Own") ); 
+//X 			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("bcc, body centered cubic") ); 
+//X 			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("hdp, hexagonal") ); 
+//X 			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("ccp, cubic close packed") ); 
+//X 			p->drawText(x1 + textOffset, fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Unknown") ); 
+//X 			break;
+//X 	}
 }
 
 void PeriodicTableView::drawNumeration( QPainter* p )
 {
-	if ( !p ) return;
-
-	switch(m_num){
-		case PeriodicTableView::NO:
-			return;
-		case PeriodicTableView::CAS:
-			for(int i = 0; i < 18 ; ++i )
-			{
-				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, QString::number(i+1));
-			}
-			break;
-		case PeriodicTableView::IUPAC:
-			for(int i = 0; i < 18 ; ++i )
-			{
-				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPAClist[i]);
-			}
-			break;
-		case PeriodicTableView::IUPACOLD:
-			for(int i = 0; i < 18 ; ++i )
-			{
-				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPACOLDlist[i]);
-			}
-			break;
-	}
+//X 	if ( !p ) return;
+//X 
+//X 	switch(m_num){
+//X 		case PeriodicTableView::NO:
+//X 			return;
+//X 		case PeriodicTableView::CAS:
+//X 			for(int i = 0; i < 18 ; ++i )
+//X 			{
+//X 				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, QString::number(i+1));
+//X 			}
+//X 			break;
+//X 		case PeriodicTableView::IUPAC:
+//X 			for(int i = 0; i < 18 ; ++i )
+//X 			{
+//X 				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPAClist[i]);
+//X 			}
+//X 			break;
+//X 		case PeriodicTableView::IUPACOLD:
+//X 			for(int i = 0; i < 18 ; ++i )
+//X 			{
+//X 				p->drawText( i*ELEMENTSIZE,0 ,ELEMENTSIZE,ELEMENTSIZE, Qt::AlignCenter, m_IUPACOLDlist[i]);
+//X 			}
+//X 			break;
+//X 	}
 }
 
 	
@@ -716,167 +705,166 @@ void PeriodicTableView::drawSOMPeriodicTableView( QPainter* p )
 //X 		( *it )->drawStateOfMatter( p, m_temperature );
 //X 		++it;
 //X 	}
-
 }
 
 void PeriodicTableView::slotTransientLabel()
 {
-	QPoint point = ElementUnderMouse();
-
-	int X = point.x();
-	int Y = point.y();
-
-	const int num = ElementNumber( X, Y );
-	if ( num )
-		emit ToolTip( num );
-	else if ( pointerOnLegend( X, Y ) ) //show the tooltip for the lengend
-	{
-		m_showLegendTooltip = true;
-		update();
-	}
-	else
-		m_showLegendTooltip = false;
+//X 	QPoint point = ElementUnderMouse();
+//X 
+//X 	int X = point.x();
+//X 	int Y = point.y();
+//X 
+//X 	const int num = ElementNumber( X, Y );
+//X 	if ( num )
+//X 		emit ToolTip( num );
+//X 	else if ( pointerOnLegend( X, Y ) ) //show the tooltip for the lengend
+//X 	{
+//X 		m_showLegendTooltip = true;
+//X 		update();
+//X 	}
+//X 	else
+//X 		m_showLegendTooltip = false;
 }
 
 void PeriodicTableView::mousePressEvent( QMouseEvent *)
 {
-	if( m_kalziumTip->isVisible() )
-		m_kalziumTip->hide();
+//X 	if( m_kalziumTip->isVisible() )
+//X 		m_kalziumTip->hide();
 }
 
 void PeriodicTableView::mouseMoveEvent( QMouseEvent * /*mouse*/ )
 {
-	//JH: only update() if we were showing a tooltip
-	if ( m_tooltipElementNumber || m_showLegendTooltip )
-	{
-		//this invalidates the number. If the mouse
-		//is moved, the number is invalid. 
-		m_tooltipElementNumber = 0;
-		m_showLegendTooltip = false;
-		update();
-	}
-
-	if( m_kalziumTip->isVisible() )
-	{
-//		kdDebug()<< "visible" << endl;
-		QPoint point = ElementUnderMouse();
-
-		int X = point.x();
-		int Y = point.y();
-
-		const int num = ElementNumber( X, Y );
-
-		if ( num != 0 )
-			emit ToolTip( num );
-		else
-			m_kalziumTip->hide();
-	}
-
-	HoverTimer.start(  500, true ); //JH: true = run timer once, not continuously
-	MouseoverTimer.start(  200, true ); //JH: true = run timer once, not continuously
+//X 	//JH: only update() if we were showing a tooltip
+//X 	if ( m_tooltipElementNumber || m_showLegendTooltip )
+//X 	{
+//X 		//this invalidates the number. If the mouse
+//X 		//is moved, the number is invalid. 
+//X 		m_tooltipElementNumber = 0;
+//X 		m_showLegendTooltip = false;
+//X 		update();
+//X 	}
+//X 
+//X 	if( m_kalziumTip->isVisible() )
+//X 	{
+//X //		kdDebug()<< "visible" << endl;
+//X 		QPoint point = ElementUnderMouse();
+//X 
+//X 		int X = point.x();
+//X 		int Y = point.y();
+//X 
+//X 		const int num = ElementNumber( X, Y );
+//X 
+//X 		if ( num != 0 )
+//X 			emit ToolTip( num );
+//X 		else
+//X 			m_kalziumTip->hide();
+//X 	}
+//X 
+//X 	HoverTimer.start(  500, true ); //JH: true = run timer once, not continuously
+//X 	MouseoverTimer.start(  200, true ); //JH: true = run timer once, not continuously
 }
 
 bool PeriodicTableView::pointerOnLegend(int X, int Y)
 {
-	if ( X > 2 && X < 13 )
-	{
-		if ( Y < 4 && Y > 0 )
-		{
-			return true;
-		}
-	}
-	
-	return false;
+//X 	if ( X > 2 && X < 13 )
+//X 	{
+//X 		if ( Y < 4 && Y > 0 )
+//X 		{
+//X 			return true;
+//X 		}
+//X 	}
+//X 	
+//X 	return false;
 }
 
 void PeriodicTableView::mouseReleaseEvent( QMouseEvent *mouse )
 {
-	///first: find out the position
-	int X = mouse->x()/ELEMENTSIZE;
-	
-	//for the y-position I need to substract ELEMENTSIZE pixel because
-	//the whole table doesn't start at (0,0) but at (0,ELEMENTSIZE)
-	int Y = mouse->y()-ELEMENTSIZE;
-
-	// ignore clicks on the small gap over rare earth
-	if (Y >= (ELEMENTSIZE*7) && Y < (ELEMENTSIZE*7+ELEMENTSIZE/3+1)) return;
-
-	// mind the gap!
-	if (Y > (ELEMENTSIZE*7)) Y -= ELEMENTSIZE/3;
-	Y /= ELEMENTSIZE;
-		
-	X += 1;
-	Y += 1;
-
-	QPoint point( X,Y );
-	emit tableClicked( point );
-	
-	const int num = ElementNumber( X, Y );
-
-	//kdDebug() << "Element clicked: " << num << endl;
-
-	//If no element was clicked ElementNumber() will return 0
-	if ( num ) {
-		emit ElementClicked( num );
-		selectPoint( point );
-	}
+//X 	///first: find out the position
+//X 	int X = mouse->x()/ELEMENTSIZE;
+//X 	
+//X 	//for the y-position I need to substract ELEMENTSIZE pixel because
+//X 	//the whole table doesn't start at (0,0) but at (0,ELEMENTSIZE)
+//X 	int Y = mouse->y()-ELEMENTSIZE;
+//X 
+//X 	// ignore clicks on the small gap over rare earth
+//X 	if (Y >= (ELEMENTSIZE*7) && Y < (ELEMENTSIZE*7+ELEMENTSIZE/3+1)) return;
+//X 
+//X 	// mind the gap!
+//X 	if (Y > (ELEMENTSIZE*7)) Y -= ELEMENTSIZE/3;
+//X 	Y /= ELEMENTSIZE;
+//X 		
+//X 	X += 1;
+//X 	Y += 1;
+//X 
+//X 	QPoint point( X,Y );
+//X 	emit tableClicked( point );
+//X 	
+//X 	const int num = ElementNumber( X, Y );
+//X 
+//X 	//kdDebug() << "Element clicked: " << num << endl;
+//X 
+//X 	//If no element was clicked ElementNumber() will return 0
+//X 	if ( num ) {
+//X 		emit ElementClicked( num );
+//X 		selectPoint( point );
+//X 	}
 }
 
 int PeriodicTableView::ElementNumber( int X, int Y )
 {
-	//from this on I can use X and Y. Both contain the position of an element in the
-	//complete PeriodicTableView. Eg, He is 1,18 and Na is 2,1
-	
-	CList::ConstIterator it = d->CoordinateList.begin();
-	const CList::ConstIterator itEnd = d->CoordinateList.end();
-
-	int counter = 1;
-	while ( it != itEnd )
-	{//iterate through the list of coordinates and compare the x/y values.
-	 //finally, if the 20'es iterator has the same coordinates Element 20
-	 //has been clicked.
-	
-		coordinate c = *it;
-		if ( c.x == X )
-		{
-			if ( c.y == Y )
-			{//coordinates match. Return the number of the element.
-				return counter;
-			}
-		}
-		++it;
-		++counter;
-	}
-
+//X 	//from this on I can use X and Y. Both contain the position of an element in the
+//X 	//complete PeriodicTableView. Eg, He is 1,18 and Na is 2,1
+//X 	
+//X 	CList::ConstIterator it = d->CoordinateList.begin();
+//X 	const CList::ConstIterator itEnd = d->CoordinateList.end();
+//X 
+//X 	int counter = 1;
+//X 	while ( it != itEnd )
+//X 	{//iterate through the list of coordinates and compare the x/y values.
+//X 	 //finally, if the 20'es iterator has the same coordinates Element 20
+//X 	 //has been clicked.
+//X 	
+//X 		coordinate c = *it;
+//X 		if ( c.x == X )
+//X 		{
+//X 			if ( c.y == Y )
+//X 			{//coordinates match. Return the number of the element.
+//X 				return counter;
+//X 			}
+//X 		}
+//X 		++it;
+//X 		++counter;
+//X 	}
+//X 
 	return 0;
 }
 
 
 void PeriodicTableView::unSelect()
 {
-	m_currentPoint = QPoint(-1, -1);
-
-	// Full draw needed to redraw the select mark.
-	setFullDraw();
-	update();
+//X 	m_currentPoint = QPoint(-1, -1);
+//X 
+//X 	// Full draw needed to redraw the select mark.
+//X 	setFullDraw();
+//X 	update();
 }
 
 void PeriodicTableView::selectPoint( const QPoint& point )
 {
-	kdDebug() << "PeriodicTableView::selectPoint " << point << endl;
-
-	m_currentPoint = point;
-
-	// Full draw needed to redraw the select mark.
-	setFullDraw();
-	update();
+//X 	kdDebug() << "PeriodicTableView::selectPoint " << point << endl;
+//X 
+//X 	m_currentPoint = point;
+//X 
+//X 	// Full draw needed to redraw the select mark.
+//X 	setFullDraw();
+//X 	update();
 }
 
 void PeriodicTableView::selectElement( int num )
 {
-	kdDebug() << "PeriodicTableView::selectElement " << num << endl;
-
-//	selectPoint( d->element( num )->coords() );
+//X 	kdDebug() << "PeriodicTableView::selectElement " << num << endl;
+//X 
+//X //	selectPoint( d->element( num )->coords() );
 }
 
 void PeriodicTableView::drawPeriodicTableView( QPainter* p, bool isCrystal )
@@ -901,264 +889,264 @@ void PeriodicTableView::drawPeriodicTableView( QPainter* p, bool isCrystal )
 //member variables an only check if they need an update. 
 void PeriodicTableView::calculateGradient( QPainter *p )
 {
-	EList::ConstIterator it = d->ElementList.begin();
-	const EList::ConstIterator itEnd = d->ElementList.end();
-
-	QList<double> tmpList;
-	switch ( m_gradientType )
-	{
-		case Element::ATOMICRADIUS:
-			for (; it != itEnd; ++it )
-			{
-				tmpList.append( ( *it )->radius(Element::ATOMIC) );
-			}
-			break;
-		case Element::COVALENTRADIUS:
-			for (; it != itEnd; ++it )
-			{
-				tmpList.append( ( *it )->radius(Element::COVALENT) );
-			}
-			break;
-		case Element::VDWRADIUS:
-			for (; it != itEnd; ++it )
-			{
-				tmpList.append( ( *it )->radius(Element::VDW) );
-			}
-			break;
-		case Element::MASS:
-			for (; it != itEnd; ++it )
-			{
-				tmpList.append( ( *it )->data( ChemicalDataObject::mass ).value().toDouble() );
-			}
-			break;
-		case Element::DENSITY:
-			for (; it != itEnd; ++it )
-			{
-				tmpList.append( ( *it )->density() );
-			}
-			break;
-		case Element::BOILINGPOINT:
-			for (; it != itEnd; ++it )
-			{
-				tmpList.append( ( *it )->boiling() );
-			}
-			break;
-		case Element::MELTINGPOINT:
-			for (; it != itEnd; ++it )
-			{
-				tmpList.append( ( *it )->melting() );
-			}
-			break;
-		case Element::EN:
-			for (; it != itEnd; ++it )
-			{
-				tmpList.append( ( *it )->electroneg() );
-			}
-			break;
-		case Element::EA:
-			for (; it != itEnd; ++it )
-			{
-				tmpList.append( ( *it )->electroaf() );
-			}
-			break;
-	}
-
-	QList<double>::iterator dit = tmpList.begin();
-	const QList<double>::iterator ditEnd = tmpList.end();
-
-	double tmpMin = *dit;
-	double tmpMax = *dit;
-	for ( ; dit != ditEnd; ++dit )
-	{
-		if ((  *dit ) == 0 ) continue;
-		if ( ( *dit ) < tmpMin )
-			tmpMin = *dit;
-		if ( ( *dit ) > tmpMax )
-			tmpMax = *dit;
-	}
-	
-	//now draw the gradient-table
-	drawGradientPeriodicTableView( p, tmpMin, tmpMax );
+//X 	EList::ConstIterator it = d->ElementList.begin();
+//X 	const EList::ConstIterator itEnd = d->ElementList.end();
+//X 
+//X 	QList<double> tmpList;
+//X 	switch ( m_gradientType )
+//X 	{
+//X 		case Element::ATOMICRADIUS:
+//X 			for (; it != itEnd; ++it )
+//X 			{
+//X 				tmpList.append( ( *it )->radius(Element::ATOMIC) );
+//X 			}
+//X 			break;
+//X 		case Element::COVALENTRADIUS:
+//X 			for (; it != itEnd; ++it )
+//X 			{
+//X 				tmpList.append( ( *it )->radius(Element::COVALENT) );
+//X 			}
+//X 			break;
+//X 		case Element::VDWRADIUS:
+//X 			for (; it != itEnd; ++it )
+//X 			{
+//X 				tmpList.append( ( *it )->radius(Element::VDW) );
+//X 			}
+//X 			break;
+//X 		case Element::MASS:
+//X 			for (; it != itEnd; ++it )
+//X 			{
+//X 				tmpList.append( ( *it )->data( ChemicalDataObject::mass ).value().toDouble() );
+//X 			}
+//X 			break;
+//X 		case Element::DENSITY:
+//X 			for (; it != itEnd; ++it )
+//X 			{
+//X 				tmpList.append( ( *it )->density() );
+//X 			}
+//X 			break;
+//X 		case Element::BOILINGPOINT:
+//X 			for (; it != itEnd; ++it )
+//X 			{
+//X 				tmpList.append( ( *it )->boiling() );
+//X 			}
+//X 			break;
+//X 		case Element::MELTINGPOINT:
+//X 			for (; it != itEnd; ++it )
+//X 			{
+//X 				tmpList.append( ( *it )->melting() );
+//X 			}
+//X 			break;
+//X 		case Element::EN:
+//X 			for (; it != itEnd; ++it )
+//X 			{
+//X 				tmpList.append( ( *it )->electroneg() );
+//X 			}
+//X 			break;
+//X 		case Element::EA:
+//X 			for (; it != itEnd; ++it )
+//X 			{
+//X 				tmpList.append( ( *it )->electroaf() );
+//X 			}
+//X 			break;
+//X 	}
+//X 
+//X 	QList<double>::iterator dit = tmpList.begin();
+//X 	const QList<double>::iterator ditEnd = tmpList.end();
+//X 
+//X 	double tmpMin = *dit;
+//X 	double tmpMax = *dit;
+//X 	for ( ; dit != ditEnd; ++dit )
+//X 	{
+//X 		if ((  *dit ) == 0 ) continue;
+//X 		if ( ( *dit ) < tmpMin )
+//X 			tmpMin = *dit;
+//X 		if ( ( *dit ) > tmpMax )
+//X 			tmpMax = *dit;
+//X 	}
+//X 	
+//X 	//now draw the gradient-table
+//X 	drawGradientPeriodicTableView( p, tmpMin, tmpMax );
 }
 
 
 
 void PeriodicTableView::drawGradientPeriodicTableView( QPainter *p, const double min, const double max )
 {
-	QString title = QString::null;
-	
-	const double var = max-min;
-	EList::ConstIterator it = d->ElementList.begin();
-	const EList::ConstIterator itEnd = d->ElementList.end();
-
-	/**
-	 * this loop iterates through all elements. The Elements
-	 * draw themselves, the PeriodicTableView only tells them to do so
-	 */
-	it = d->ElementList.begin();
-	switch ( m_gradientType )
-	{
-		case Element::ATOMICRADIUS:
-			title = i18n( "Gradient: Atomic Radius" );
-			while ( it != d->ElementList.end() )
-			{
-				double value = ( *it )->radius( Element::ATOMIC );
-				double coeff = ( value - min )/var;
-
-				drawGradientButton( p, *it, coeff, value, min );
-				
-				++it;
-			}
-			break;
-		case Element::VDWRADIUS:
-			title = i18n( "Gradient: van der Waals Radius" );
-			while ( it != d->ElementList.end() )
-			{
-				double value = ( *it )->radius( Element::VDW );
-				double coeff = ( value - min )/var;
-				
-				drawGradientButton( p, *it, coeff, value, min );
-
-				++it;
-			}
-			break;
-		case Element::COVALENTRADIUS:
-			title = i18n( "Gradient: Covalent Radius" );
-			while ( it != d->ElementList.end() )
-			{
-				double value = ( *it )->radius( Element::COVALENT );
-				double coeff = ( (*it)->radius(Element::COVALENT) - min )/var;
-				
-				drawGradientButton( p, *it, coeff, value, min );
-
-				++it;
-			}
-			break;
-		case Element::MASS:
-			title = i18n( "Gradient: Atomic Mass" );
-			while ( it != d->ElementList.end() )
-			{
-				double coeff = ( (*it)->data( ChemicalDataObject::mass ).value().toDouble() - min )/var;
-				drawGradientButton( p, *it, coeff, ( *it )->data( ChemicalDataObject::mass ).value().toDouble(), min );
-
-				++it;
-			}
-			break;
-		case Element::DENSITY:
-			title = i18n( "Gradient: Atomic Density" );
-			while ( it != d->ElementList.end() )
-			{
-				double coeff = ( (*it)->density() - min )/var;
-
-				drawGradientButton( p, *it, coeff, ( *it )->density(), min );
-				++it;
-			}
-			break;
-		case Element::BOILINGPOINT:
-			title = i18n( "Gradient: Boiling point" );
-			while ( it != d->ElementList.end() )
-			{
-				double coeff = ( (*it)->boiling() - min )/var;
-				drawGradientButton( p, *it, coeff, ( *it )->boiling(), min );
-
-				++it;
-			}
-			break;
-		case Element::MELTINGPOINT:
-			title = i18n( "Gradient: Melting point" );
-			while ( it != d->ElementList.end() )
-			{
-				double coeff = ( (*it)->melting() - min )/var;
-				drawGradientButton( p, *it, coeff, ( *it )->melting(), min );
-
-				++it;
-			}
-			break;
-		case Element::EN:
-			title = i18n( "Gradient: Electronegativity" );
-			while ( it != d->ElementList.end() )
-			{
-				double coeff = ( (*it)->electroneg() - min )/var;
-				drawGradientButton( p, *it, coeff, ( *it )->electroneg(), min );
-
-				++it;
-			}
-			break;
-		case Element::EA:
-			title = i18n( "Gradient: Electron affinity" );
-			double tmpVar = -1*(min - max);
-			while ( it != d->ElementList.end() )
-			{	
-				if( (*it)->electroaf() == 0.0)
-					drawGradientButton( p, *it,-1.0, (*it )->electroaf(), min );
-				else
-				{
-					double coeff = ( max - (*it)->electroaf() )/tmpVar;
-					drawGradientButton( p, *it, coeff, (*it )->electroaf(), min );
-				}
-	
-				++it;
-			}
-			break;
-	}
-
-	// Now draw the legend.
-	int  x = ELEMENTSIZE*2+5;
-	int  y = 5;
-	//int  w = ELEMENTSIZE*10-5;
-	//int  h = ELEMENTSIZE*4-5;
-
-	// Create the gradient image.
-	QSize s( ELEMENTSIZE*7+20, 20 );
-	QImage img = KImageEffect::gradient ( s, Qt::white, Qt::red, 
-										  KImageEffect::HorizontalGradient );
-	QPixmap pm( img );
-
-	p->drawText( x+5, y+50, ELEMENTSIZE*10,20, Qt::AlignCenter, title ); 
-	p->drawPixmap( x+50, y+80, pm );
-
-	if ( m_gradientType == Element::EA )
-	{
-		// FIXME: In the lines below, "30" is the max allowed text
-		//        height.  This should be calculated from the font 
-		//        metrics, not hard coded.
-		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignRight, QString::number( min ) ); 
-		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignLeft, QString::number( max ) );
-	}
-	else
-	{
-		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignRight, QString::number( max ) ); 
-		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignLeft, QString::number( min ) );
-
-	} 
+//X 	QString title = QString::null;
+//X 	
+//X 	const double var = max-min;
+//X 	EList::ConstIterator it = d->ElementList.begin();
+//X 	const EList::ConstIterator itEnd = d->ElementList.end();
+//X 
+//X 	/**
+//X 	 * this loop iterates through all elements. The Elements
+//X 	 * draw themselves, the PeriodicTableView only tells them to do so
+//X 	 */
+//X 	it = d->ElementList.begin();
+//X 	switch ( m_gradientType )
+//X 	{
+//X 		case Element::ATOMICRADIUS:
+//X 			title = i18n( "Gradient: Atomic Radius" );
+//X 			while ( it != d->ElementList.end() )
+//X 			{
+//X 				double value = ( *it )->radius( Element::ATOMIC );
+//X 				double coeff = ( value - min )/var;
+//X 
+//X 				drawGradientButton( p, *it, coeff, value, min );
+//X 				
+//X 				++it;
+//X 			}
+//X 			break;
+//X 		case Element::VDWRADIUS:
+//X 			title = i18n( "Gradient: van der Waals Radius" );
+//X 			while ( it != d->ElementList.end() )
+//X 			{
+//X 				double value = ( *it )->radius( Element::VDW );
+//X 				double coeff = ( value - min )/var;
+//X 				
+//X 				drawGradientButton( p, *it, coeff, value, min );
+//X 
+//X 				++it;
+//X 			}
+//X 			break;
+//X 		case Element::COVALENTRADIUS:
+//X 			title = i18n( "Gradient: Covalent Radius" );
+//X 			while ( it != d->ElementList.end() )
+//X 			{
+//X 				double value = ( *it )->radius( Element::COVALENT );
+//X 				double coeff = ( (*it)->radius(Element::COVALENT) - min )/var;
+//X 				
+//X 				drawGradientButton( p, *it, coeff, value, min );
+//X 
+//X 				++it;
+//X 			}
+//X 			break;
+//X 		case Element::MASS:
+//X 			title = i18n( "Gradient: Atomic Mass" );
+//X 			while ( it != d->ElementList.end() )
+//X 			{
+//X 				double coeff = ( (*it)->data( ChemicalDataObject::mass ).value().toDouble() - min )/var;
+//X 				drawGradientButton( p, *it, coeff, ( *it )->data( ChemicalDataObject::mass ).value().toDouble(), min );
+//X 
+//X 				++it;
+//X 			}
+//X 			break;
+//X 		case Element::DENSITY:
+//X 			title = i18n( "Gradient: Atomic Density" );
+//X 			while ( it != d->ElementList.end() )
+//X 			{
+//X 				double coeff = ( (*it)->density() - min )/var;
+//X 
+//X 				drawGradientButton( p, *it, coeff, ( *it )->density(), min );
+//X 				++it;
+//X 			}
+//X 			break;
+//X 		case Element::BOILINGPOINT:
+//X 			title = i18n( "Gradient: Boiling point" );
+//X 			while ( it != d->ElementList.end() )
+//X 			{
+//X 				double coeff = ( (*it)->boiling() - min )/var;
+//X 				drawGradientButton( p, *it, coeff, ( *it )->boiling(), min );
+//X 
+//X 				++it;
+//X 			}
+//X 			break;
+//X 		case Element::MELTINGPOINT:
+//X 			title = i18n( "Gradient: Melting point" );
+//X 			while ( it != d->ElementList.end() )
+//X 			{
+//X 				double coeff = ( (*it)->melting() - min )/var;
+//X 				drawGradientButton( p, *it, coeff, ( *it )->melting(), min );
+//X 
+//X 				++it;
+//X 			}
+//X 			break;
+//X 		case Element::EN:
+//X 			title = i18n( "Gradient: Electronegativity" );
+//X 			while ( it != d->ElementList.end() )
+//X 			{
+//X 				double coeff = ( (*it)->electroneg() - min )/var;
+//X 				drawGradientButton( p, *it, coeff, ( *it )->electroneg(), min );
+//X 
+//X 				++it;
+//X 			}
+//X 			break;
+//X 		case Element::EA:
+//X 			title = i18n( "Gradient: Electron affinity" );
+//X 			double tmpVar = -1*(min - max);
+//X 			while ( it != d->ElementList.end() )
+//X 			{	
+//X 				if( (*it)->electroaf() == 0.0)
+//X 					drawGradientButton( p, *it,-1.0, (*it )->electroaf(), min );
+//X 				else
+//X 				{
+//X 					double coeff = ( max - (*it)->electroaf() )/tmpVar;
+//X 					drawGradientButton( p, *it, coeff, (*it )->electroaf(), min );
+//X 				}
+//X 	
+//X 				++it;
+//X 			}
+//X 			break;
+//X 	}
+//X 
+//X 	// Now draw the legend.
+//X 	int  x = ELEMENTSIZE*2+5;
+//X 	int  y = 5;
+//X 	//int  w = ELEMENTSIZE*10-5;
+//X 	//int  h = ELEMENTSIZE*4-5;
+//X 
+//X 	// Create the gradient image.
+//X 	QSize s( ELEMENTSIZE*7+20, 20 );
+//X 	QImage img = KImageEffect::gradient ( s, Qt::white, Qt::red, 
+//X 										  KImageEffect::HorizontalGradient );
+//X 	QPixmap pm( img );
+//X 
+//X 	p->drawText( x+5, y+50, ELEMENTSIZE*10,20, Qt::AlignCenter, title ); 
+//X 	p->drawPixmap( x+50, y+80, pm );
+//X 
+//X 	if ( m_gradientType == Element::EA )
+//X 	{
+//X 		// FIXME: In the lines below, "30" is the max allowed text
+//X 		//        height.  This should be calculated from the font 
+//X 		//        metrics, not hard coded.
+//X 		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignRight, QString::number( min ) ); 
+//X 		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignLeft, QString::number( max ) );
+//X 	}
+//X 	else
+//X 	{
+//X 		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignRight, QString::number( max ) ); 
+//X 		p->drawText( x+50,y+100,ELEMENTSIZE*7+20,30, Qt::AlignLeft, QString::number( min ) );
+//X 
+//X 	} 
 }
 
 QPoint PeriodicTableView::ElementUnderMouse()
 {
-	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
-	int Y = mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE;
-
-	// mind the gap over rare earth!
-	if (Y >= (ELEMENTSIZE*7) && Y < (ELEMENTSIZE*7+ELEMENTSIZE/3+1)) return QPoint( 0, 0 );
-
-	if (Y > (ELEMENTSIZE*7)) Y -= ELEMENTSIZE/3;
-
-	Y /= ELEMENTSIZE;
-	
-	X += 1;
-	Y += 1;
-	
-	return QPoint( X,Y );
+//X 	int X = mapFromGlobal( QCursor::pos() ).x()/ELEMENTSIZE;
+//X 	int Y = mapFromGlobal( QCursor::pos() ).y( )-ELEMENTSIZE;
+//X 
+//X 	// mind the gap over rare earth!
+//X 	if (Y >= (ELEMENTSIZE*7) && Y < (ELEMENTSIZE*7+ELEMENTSIZE/3+1)) return QPoint( 0, 0 );
+//X 
+//X 	if (Y > (ELEMENTSIZE*7)) Y -= ELEMENTSIZE/3;
+//X 
+//X 	Y /= ELEMENTSIZE;
+//X 	
+//X 	X += 1;
+//X 	Y += 1;
+//X 	
+//X 	return QPoint( X,Y );
 }
 
 
 void PeriodicTableView::slotMouseover()
 {
-	QPoint point = ElementUnderMouse();
-
-	int num = ElementNumber( point.x(), point.y() );
-	if ( num )
-		emit MouseOver( num );
+//X 	QPoint point = ElementUnderMouse();
+//X 
+//X 	int num = ElementNumber( point.x(), point.y() );
+//X 	if ( num )
+//X 		emit MouseOver( num );
 }
 
 void PeriodicTableView::drawGradientButton( QPainter *p, Element* e, double coeff, double value, double minValue )
@@ -1174,200 +1162,200 @@ void PeriodicTableView::drawGradientButton( QPainter *p, Element* e, double coef
 
 QColor PeriodicTableView::calculateColor( const double coeff )
 {
-	const QColor color2 = Qt::white;
-	const QColor color1 = Qt::red;
-
-	int red = (int)( (color1.red() - color2.red()) * coeff + color2.red() );
-	int green = (int)( (color1.green() - color2.green()) * coeff + color2.green() );
-	int blue = (int)( (color1.blue() - color2.blue()) * coeff + color2.blue() );
-
-	return QColor( red, green, blue );
+//X 	const QColor color2 = Qt::white;
+//X 	const QColor color1 = Qt::red;
+//X 
+//X 	int red = (int)( (color1.red() - color2.red()) * coeff + color2.red() );
+//X 	int green = (int)( (color1.green() - color2.green()) * coeff + color2.green() );
+//X 	int blue = (int)( (color1.blue() - color2.blue()) * coeff + color2.blue() );
+//X 
+//X 	return QColor( red, green, blue );
 }
 
 void PeriodicTableView::setLook( PeriodicTableView::SCHEMETYPE type, int which )
 {
-	m_currentScheme = type;
-	
-	EList::ConstIterator it = d->ElementList.begin();
-	const EList::ConstIterator itEnd = d->ElementList.end();
-
-	switch ( type )
-	{
-		case NOCOLOUR:
-		{
-			const QColor color = Prefs::noscheme();
-			while ( it != itEnd )
-			{
-				( *it )->setElementColor( color );
-				++it;
-			}
-			setGradient( false );
-			break;
-		}
-		case PeriodicTableView::GROUPS:  // group view
-		{
-			QString group;
-
-			while ( it != itEnd )
-			{
-				group = ( *it )->group();
-				
-				if (group == QString("1")) {
-					( *it )->setElementColor( m_colors["color_1"] );
-				}
-				if (group == QString("2")){
-					( *it )->setElementColor( m_colors["color_2"] );
-				}
-				if (group == QString("3")){
-					( *it )->setElementColor( m_colors["color_3"] );
-				}
-				if (group == QString("4")){
-					( *it )->setElementColor( m_colors["color_4"] );
-				}
-				if (group == QString("5")){
-					( *it )->setElementColor( m_colors["color_5"] );
-				}
-				if (group == QString("6")){
-					( *it )->setElementColor( m_colors["color_6"] );
-				}
-				if (group == QString("7")){
-					( *it )->setElementColor( m_colors["color_7"] );
-				}
-				if (group == QString("8")){
-					( *it )->setElementColor( m_colors["color_8"] );
-				}
-
-				++it;
-			}
-			setGradient( false );
-			break;
-		}
-		case PeriodicTableView::BLOCK: //block view
-		{
-			static QString block;
-			while ( it != itEnd )
-			{
-				block = (*it)->block();
-	
-				if (block == QString("s")) {
-					(*it)->setElementColor( m_colors["color_s"] );
-				}
-				if (block == QString("p")) {
-					(*it)->setElementColor( m_colors["color_p"] );
-				}
-				if (block == QString("d")) {
-					(*it)->setElementColor( m_colors["color_d"] );
-				}
-				if (block == QString("f")) {
-					(*it)->setElementColor( m_colors["color_f"] );
-				}
-				++it;
-			}
-			setGradient( false );
-			break;
-		}
-		case PeriodicTableView::ACIDIC: //acidic beh
-		{
-			static QString acidicbeh;
-			while ( it != itEnd )
-			{
-				acidicbeh = ( *it )->acidicbeh();
-
-				if (acidicbeh == QString("0")) {
-					(*it)->setElementColor( m_colors["color_ac"] );
-				}
-				if (acidicbeh == QString("1")){
-					(*it)->setElementColor( m_colors["color_ba"] );
-				}
-				if (acidicbeh == QString("2")){
-					(*it)->setElementColor( m_colors["color_neu"] );
-				}
-				if (acidicbeh == QString("3")){
-					(*it)->setElementColor( m_colors["color_amp"] );
-				}
-				++it;
-			}
-			setGradient( false );
-			break;
-		}
-		case PeriodicTableView::FAMILY: //familiy of the element
-		{
-			static QString family;
-
-			while ( it != itEnd )
-			{
-				family = ( *it )->family();
-
-				if ( family == "Noblegas" ){
-					(*it)->setElementColor( m_colors["c_noble_gas"] );
-				}
-				if ( family == "Non-Metal" ){
-					(*it)->setElementColor( m_colors["c_nonmetal"] );
-				}
-				if ( family == "Rare_Earth" ){
-					(*it)->setElementColor( m_colors["c_rare"] );
-				}
-				if ( family == "Alkaline_Earth" ){
-					(*it)->setElementColor( m_colors["c_alkaline"] );
-				}
-				if ( family == "Alkali_Earth" ){
-					(*it)->setElementColor( m_colors["c_alkalie"] );
-				}
-				if ( family == "Transition" ){
-					(*it)->setElementColor( m_colors["c_transition"] );
-				}
-				if ( family == "Other_Metal" ){
-					(*it)->setElementColor( m_colors["c_other_metal"] );
-				}
-				if ( family == "Metalloids" ){
-					(*it)->setElementColor( m_colors["c_metalloid"] );
-				}
-				if ( family == "Halogene" ){
-					(*it)->setElementColor( m_colors["c_halogene"] );
-				}
-			
-				++it;
-			}
-			setGradient( false );
-			break;
-		}
-		case CRYSTAL:
-		{
-			QString structure;
-			while ( it != itEnd )
-			{
-				structure = ( *it )->crystalstructure();
-				if ( structure == "own")
-					(*it)->setElementColor( Qt::cyan );
-				else if ( structure == "bcc" )
-					(*it)->setElementColor( Qt::red );
-				else if ( structure == "hdp" )
-					(*it)->setElementColor( Qt::yellow );
-				else if ( structure == "ccp" )
-					(*it)->setElementColor( Qt::green );
-				else
-					(*it)->setElementColor( Qt::white );
-				++it;
-			}
-			setGradient( false );
-			break;
-		}
-		case GRADIENT:
-		{
-			setGradient( true );
-			setGradientType( which );
-			break;
-		}
-		default:
-			;
-	}
-
-	Prefs::setColorschemebox( type );
-	Prefs::writeConfig();
-
-	//JH: redraw the full table next time
-	setFullDraw();
-	update();
+//X 	m_currentScheme = type;
+//X 	
+//X 	EList::ConstIterator it = d->ElementList.begin();
+//X 	const EList::ConstIterator itEnd = d->ElementList.end();
+//X 
+//X 	switch ( type )
+//X 	{
+//X 		case NOCOLOUR:
+//X 		{
+//X 			const QColor color = Prefs::noscheme();
+//X 			while ( it != itEnd )
+//X 			{
+//X 				( *it )->setElementColor( color );
+//X 				++it;
+//X 			}
+//X 			setGradient( false );
+//X 			break;
+//X 		}
+//X 		case PeriodicTableView::GROUPS:  // group view
+//X 		{
+//X 			QString group;
+//X 
+//X 			while ( it != itEnd )
+//X 			{
+//X 				group = ( *it )->group();
+//X 				
+//X 				if (group == QString("1")) {
+//X 					( *it )->setElementColor( m_colors["color_1"] );
+//X 				}
+//X 				if (group == QString("2")){
+//X 					( *it )->setElementColor( m_colors["color_2"] );
+//X 				}
+//X 				if (group == QString("3")){
+//X 					( *it )->setElementColor( m_colors["color_3"] );
+//X 				}
+//X 				if (group == QString("4")){
+//X 					( *it )->setElementColor( m_colors["color_4"] );
+//X 				}
+//X 				if (group == QString("5")){
+//X 					( *it )->setElementColor( m_colors["color_5"] );
+//X 				}
+//X 				if (group == QString("6")){
+//X 					( *it )->setElementColor( m_colors["color_6"] );
+//X 				}
+//X 				if (group == QString("7")){
+//X 					( *it )->setElementColor( m_colors["color_7"] );
+//X 				}
+//X 				if (group == QString("8")){
+//X 					( *it )->setElementColor( m_colors["color_8"] );
+//X 				}
+//X 
+//X 				++it;
+//X 			}
+//X 			setGradient( false );
+//X 			break;
+//X 		}
+//X 		case PeriodicTableView::BLOCK: //block view
+//X 		{
+//X 			static QString block;
+//X 			while ( it != itEnd )
+//X 			{
+//X 				block = (*it)->block();
+//X 	
+//X 				if (block == QString("s")) {
+//X 					(*it)->setElementColor( m_colors["color_s"] );
+//X 				}
+//X 				if (block == QString("p")) {
+//X 					(*it)->setElementColor( m_colors["color_p"] );
+//X 				}
+//X 				if (block == QString("d")) {
+//X 					(*it)->setElementColor( m_colors["color_d"] );
+//X 				}
+//X 				if (block == QString("f")) {
+//X 					(*it)->setElementColor( m_colors["color_f"] );
+//X 				}
+//X 				++it;
+//X 			}
+//X 			setGradient( false );
+//X 			break;
+//X 		}
+//X 		case PeriodicTableView::ACIDIC: //acidic beh
+//X 		{
+//X 			static QString acidicbeh;
+//X 			while ( it != itEnd )
+//X 			{
+//X 				acidicbeh = ( *it )->acidicbeh();
+//X 
+//X 				if (acidicbeh == QString("0")) {
+//X 					(*it)->setElementColor( m_colors["color_ac"] );
+//X 				}
+//X 				if (acidicbeh == QString("1")){
+//X 					(*it)->setElementColor( m_colors["color_ba"] );
+//X 				}
+//X 				if (acidicbeh == QString("2")){
+//X 					(*it)->setElementColor( m_colors["color_neu"] );
+//X 				}
+//X 				if (acidicbeh == QString("3")){
+//X 					(*it)->setElementColor( m_colors["color_amp"] );
+//X 				}
+//X 				++it;
+//X 			}
+//X 			setGradient( false );
+//X 			break;
+//X 		}
+//X 		case PeriodicTableView::FAMILY: //familiy of the element
+//X 		{
+//X 			static QString family;
+//X 
+//X 			while ( it != itEnd )
+//X 			{
+//X 				family = ( *it )->family();
+//X 
+//X 				if ( family == "Noblegas" ){
+//X 					(*it)->setElementColor( m_colors["c_noble_gas"] );
+//X 				}
+//X 				if ( family == "Non-Metal" ){
+//X 					(*it)->setElementColor( m_colors["c_nonmetal"] );
+//X 				}
+//X 				if ( family == "Rare_Earth" ){
+//X 					(*it)->setElementColor( m_colors["c_rare"] );
+//X 				}
+//X 				if ( family == "Alkaline_Earth" ){
+//X 					(*it)->setElementColor( m_colors["c_alkaline"] );
+//X 				}
+//X 				if ( family == "Alkali_Earth" ){
+//X 					(*it)->setElementColor( m_colors["c_alkalie"] );
+//X 				}
+//X 				if ( family == "Transition" ){
+//X 					(*it)->setElementColor( m_colors["c_transition"] );
+//X 				}
+//X 				if ( family == "Other_Metal" ){
+//X 					(*it)->setElementColor( m_colors["c_other_metal"] );
+//X 				}
+//X 				if ( family == "Metalloids" ){
+//X 					(*it)->setElementColor( m_colors["c_metalloid"] );
+//X 				}
+//X 				if ( family == "Halogene" ){
+//X 					(*it)->setElementColor( m_colors["c_halogene"] );
+//X 				}
+//X 			
+//X 				++it;
+//X 			}
+//X 			setGradient( false );
+//X 			break;
+//X 		}
+//X 		case CRYSTAL:
+//X 		{
+//X 			QString structure;
+//X 			while ( it != itEnd )
+//X 			{
+//X 				structure = ( *it )->crystalstructure();
+//X 				if ( structure == "own")
+//X 					(*it)->setElementColor( Qt::cyan );
+//X 				else if ( structure == "bcc" )
+//X 					(*it)->setElementColor( Qt::red );
+//X 				else if ( structure == "hdp" )
+//X 					(*it)->setElementColor( Qt::yellow );
+//X 				else if ( structure == "ccp" )
+//X 					(*it)->setElementColor( Qt::green );
+//X 				else
+//X 					(*it)->setElementColor( Qt::white );
+//X 				++it;
+//X 			}
+//X 			setGradient( false );
+//X 			break;
+//X 		}
+//X 		case GRADIENT:
+//X 		{
+//X 			setGradient( true );
+//X 			setGradientType( which );
+//X 			break;
+//X 		}
+//X 		default:
+//X 			;
+//X 	}
+//X 
+//X 	Prefs::setColorschemebox( type );
+//X 	Prefs::writeConfig();
+//X 
+//X 	//JH: redraw the full table next time
+//X 	setFullDraw();
+//X 	update();
 }
 
 #include "periodictableview.moc"

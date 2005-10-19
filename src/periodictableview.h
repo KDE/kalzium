@@ -382,11 +382,6 @@ class PeriodicTableView : public QWidget
 		virtual void drawTimeLine( QPainter *p );
 
 		/**
-		 * called if the user resized the table
-		 */
-		virtual void resizeEvent( QResizeEvent *e );
-
-		/**
 		 * the central place for the drawing of the table
 		 */
 		virtual void drawPeriodicTableView( QPainter* p, bool isCrystal );

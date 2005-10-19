@@ -24,10 +24,11 @@
 
 #include "kalziumdataobject.h"
 #include "molcalcwidgetbase.h"
-#include "element.h"
 #include "kalziumutils.h"
 #include "parser.h"
 #include "moleculeparser.h"
+
+#include <element.h>
 
 #include <kaction.h>
 #include <kdebug.h>
@@ -81,16 +82,17 @@ void MolcalcWidget::updateUI()
 		// Update the resultLabel
 		str += i18n( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" )
 		  .arg( (*it)->count() )
-		  .arg( (*it)->element()->elementName() );
+		  .arg( (*it)->element()->dataAsString( ChemicalDataObject::name) );
 
-		complexString
-		  += i18n( "For example: 1 Seaborgium. Cumulative Mass: 263.119 u (39.25%)",
-				   "%1 %2. Cumulative Mass: %3 u (%4%)\n" )
-		  .arg( (*it)->count() )
-		  .arg( (*it)->element()->elementName() )
-		  .arg( (*it)->count() * (*it)->element()->data( ChemicalDataObject::mass ).value().toDouble() )
-		  .arg( KalziumUtils::strippedValue( (( (*it)->count() * (*it)->element()->data( ChemicalDataObject::mass ).value().toDouble() )
-											  / m_mass ) * 100 ) );
+//X 		complexString
+//X 		  += i18n( "For example: 1 Seaborgium. Cumulative Mass: 263.119 u (39.25%)",
+//X 				   "%1 %2. Cumulative Mass: %3 u (%4%)\n" )
+//X 		  .arg( (*it)->count() )
+//X 		  .arg( (*it)->element()->dataAsString( ChemicalDataObject::name) ),
+//X 			.arg( 123.123 ),
+//X //X 		  .arg( (*it)->count() * (*it)->element()->data( ChemicalDataObject::mass ).value().toDouble() ),
+//X 		  .arg( KalziumUtils::strippedValue( (( (*it)->count() * (*it)->element()->data( ChemicalDataObject::mass ).value().toDouble() )
+//X 											  / m_mass ) * 100 ) );
 	}
 	resultLabel->setText( str );
 	
@@ -114,7 +116,7 @@ QString MolcalcWidget::compositionString( ElementCountMap &_map )
 	ElementCountMap::Iterator  itEnd = _map.end();
 	for (; it != itEnd; ++it) {
 		str += i18n( "%1<sub>%2</sub> " )
-			.arg( (*it)->element()->symbol() )
+			.arg( (*it)->element()->dataAsString( ChemicalDataObject::symbol ) )
 			.arg( (*it)->count() );
 	}
 

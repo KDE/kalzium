@@ -425,7 +425,7 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 			
 			//For debugging, lets add the information
 //			p->drawText( it.data() ,Qt::AlignCenter, QString::number( it.key()->neutrons() ) );
-			p->drawText( it.data(), Qt::AlignCenter, KalziumDataObject::instance()->element( it.key()->protones() )->symbol() );
+//X 			p->drawText( it.data(), Qt::AlignCenter, KalziumDataObject::instance()->element( it.key()->protones() )->symbol() );
 		}
 	}
 	p->setBrush( Qt::black );
@@ -451,8 +451,8 @@ void IsotopeTableView::drawLegends( QPainter *p )
 	{
 		rect = QRect( 0, ( numElems - i - 1 ) * ( m_rectSize - 1 ),
 		              30, m_rectSize - 1 );
-		p->drawText( rect, Qt::AlignCenter,
-		             KalziumDataObject::instance()->element( m_firstElem + i )->symbol() );
+//X 		p->drawText( rect, Qt::AlignCenter,
+//X 		             KalziumDataObject::instance()->element( m_firstElem + i )->symbol() );
 	}
 
 	f = p->font();

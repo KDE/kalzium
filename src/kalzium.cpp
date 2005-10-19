@@ -439,7 +439,7 @@ void Kalzium::slotStatusbar( int num )
 {
 	Element *e = KalziumDataObject::instance()->element( num );
 	statusBar()->changeItem( i18n( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" )
-			.arg( e->elementName() )
+			.arg( e->dataAsString( ChemicalDataObject::name ) )
 			.arg( e->dataAsString( ChemicalDataObject::atomicNumber ) )
 			.arg( e->dataAsString( ChemicalDataObject::mass ) ) , IDS_ELEMENTINFO );
 }

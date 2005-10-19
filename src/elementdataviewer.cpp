@@ -40,52 +40,52 @@ ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
 			User1,
 			parent, name )
 {
-	d = KalziumDataObject::instance();
-
-	yData = new AxisData();
-	
-	QHBoxLayout *layout = new QHBoxLayout(plainPage(), 0, KDialog::spacingHint() );
-
-	m_pPlotSetupWidget = new PlotSetupWidget( plainPage(), "plotsetup" );	
-	m_pPlotSetupWidget->from->setMaxValue( d->numberOfElements() - 1 );
-	m_pPlotSetupWidget->to->setMaxValue( d->numberOfElements() );
-	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage() );
-	m_pPlotWidget->setObjectName( QLatin1String( "plotwidget" ) );
-	m_pPlotWidget->setYAxisLabel(" ");
-	m_pPlotWidget->setMinimumWidth( 200 );
-	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );
-
-	layout->addWidget( m_pPlotSetupWidget );
-	layout->addWidget( m_pPlotWidget );
-	layout->setStretchFactor( m_pPlotSetupWidget, 0 );
-	layout->setStretchFactor( m_pPlotWidget, 1 );
-
-	// setup the list of names
-	EList::iterator it = d->ElementList.begin();
-	const EList::iterator itEnd = d->ElementList.end();
-	for( ; it != itEnd ; ++it )
-	{
-		names.append( (*it)->elementName() );
-	}
-
-	resize(500, 500);
-
-	setButtonText( User1, i18n("&Plot") );
-
-	m_actionCollection = new KActionCollection(this);
-	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);	
-
-	connect ( m_pPlotSetupWidget->KCB_y,         SIGNAL( activated(int) ),
-			  this,                              SLOT( drawPlot()) );
-
-	connect ( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled(bool) ),
-			  this,                              SLOT( drawPlot()) );
-	connect ( m_pPlotSetupWidget->showNames,     SIGNAL( toggled(bool) ),
-			  this,                              SLOT( drawPlot()) );
-
-	// Draw the plot so that the user doesn't have to press the "Plot"
-	// button to seee anything.
-	drawPlot();
+//X 	d = KalziumDataObject::instance();
+//X 
+//X 	yData = new AxisData();
+//X 	
+//X 	QHBoxLayout *layout = new QHBoxLayout(plainPage(), 0, KDialog::spacingHint() );
+//X 
+//X 	m_pPlotSetupWidget = new PlotSetupWidget( plainPage(), "plotsetup" );	
+//X 	m_pPlotSetupWidget->from->setMaxValue( d->numberOfElements() - 1 );
+//X 	m_pPlotSetupWidget->to->setMaxValue( d->numberOfElements() );
+//X 	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage() );
+//X 	m_pPlotWidget->setObjectName( QLatin1String( "plotwidget" ) );
+//X 	m_pPlotWidget->setYAxisLabel(" ");
+//X 	m_pPlotWidget->setMinimumWidth( 200 );
+//X 	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );
+//X 
+//X 	layout->addWidget( m_pPlotSetupWidget );
+//X 	layout->addWidget( m_pPlotWidget );
+//X 	layout->setStretchFactor( m_pPlotSetupWidget, 0 );
+//X 	layout->setStretchFactor( m_pPlotWidget, 1 );
+//X 
+//X 	// setup the list of names
+//X 	EList::iterator it = d->ElementList.begin();
+//X 	const EList::iterator itEnd = d->ElementList.end();
+//X 	for( ; it != itEnd ; ++it )
+//X 	{
+//X 		names.append( (*it)->elementName() );
+//X 	}
+//X 
+//X 	resize(500, 500);
+//X 
+//X 	setButtonText( User1, i18n("&Plot") );
+//X 
+//X 	m_actionCollection = new KActionCollection(this);
+//X 	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);	
+//X 
+//X 	connect ( m_pPlotSetupWidget->KCB_y,         SIGNAL( activated(int) ),
+//X 			  this,                              SLOT( drawPlot()) );
+//X 
+//X 	connect ( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled(bool) ),
+//X 			  this,                              SLOT( drawPlot()) );
+//X 	connect ( m_pPlotSetupWidget->showNames,     SIGNAL( toggled(bool) ),
+//X 			  this,                              SLOT( drawPlot()) );
+//X 
+//X 	// Draw the plot so that the user doesn't have to press the "Plot"
+//X 	// button to seee anything.
+//X 	drawPlot();
 }
 
 void ElementDataViewer::slotHelp()
@@ -163,86 +163,86 @@ void ElementDataViewer::setupAxisData()
 	const EList::iterator itEnd = d->ElementList.end();
 	switch(selectedData)
 	{
-		case AxisData::MASS:
-			for( ; it != itEnd ; ++it ) {
-				double value = (*it)->data( ChemicalDataObject::mass ).value().toDouble();
-				if( value > 0.0 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-			}
-			m_pPlotWidget->setYAxisLabel(i18n("Atomic Mass [u]"));
-			break;
-		case AxisData::MEANWEIGHT:
-			for( ; it != itEnd ; ++it ) {
-				double value =(*it)->meanmass();
-				if( value > 0.0 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-			}
-			m_pPlotWidget->setYAxisLabel(i18n("Mean Mass [u]"));
-			break;
-		case AxisData::DENSITY:
-			for( ; it != itEnd ; ++it ) {
-				double value =(*it)->density();
-				if( value > 0.0 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-			}
-			m_pPlotWidget->setYAxisLabel(i18n("Density"));
-			break;
-		case AxisData::EN:
-			for( ; it != itEnd ; ++it ) {
-				double value = (*it)->electroneg();
-				if( value > 0.0 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-			}
-			m_pPlotWidget->setYAxisLabel(i18n("Electronegativity"));
-			break;
-		case AxisData::MELTINGPOINT:
-			for( ; it != itEnd ; ++it ) {
-				double value = (*it)->melting();
-				if( value > 0.0 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-			}
-			m_pPlotWidget->setYAxisLabel(i18n("Melting Point [K]"));
-			break;
-		case AxisData::BOILINGPOINT:
-			for( ; it != itEnd ; ++it ) {
-				double value = (*it)->boiling();
-				if( value > 0.0 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-			}
-			m_pPlotWidget->setYAxisLabel(i18n("Boiling Point [K]"));
-			break;
-		case AxisData::ATOMICRADIUS:
-			for( ; it != itEnd ; ++it ) {
-				double value = (*it)->radius( Element::ATOMIC );
-				if( value > 0.0 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-			}
-			m_pPlotWidget->setYAxisLabel(i18n("Atomic Radius [pm]"));
-			break;
-		case AxisData::COVALENTRADIUS:
-			for( ; it != itEnd ; ++it ) {
-				double value = (*it)->radius( Element::COVALENT );
-				if( value > 0.0 )
-				  l.append( value );
-				else
-				  l.append( 0.0 );
-			}
-			m_pPlotWidget->setYAxisLabel(i18n("Covalent Radius [pm]"));
-			break;
+//X 		case AxisData::MASS:
+//X 			for( ; it != itEnd ; ++it ) {
+//X 				double value = (*it)->data( ChemicalDataObject::mass ).value().toDouble();
+//X 				if( value > 0.0 )
+//X 				  l.append( value );
+//X 				else
+//X 				  l.append( 0.0 );
+//X 			}
+//X 			m_pPlotWidget->setYAxisLabel(i18n("Atomic Mass [u]"));
+//X 			break;
+//X 		case AxisData::MEANWEIGHT:
+//X 			for( ; it != itEnd ; ++it ) {
+//X 				double value =(*it)->meanmass();
+//X 				if( value > 0.0 )
+//X 				  l.append( value );
+//X 				else
+//X 				  l.append( 0.0 );
+//X 			}
+//X 			m_pPlotWidget->setYAxisLabel(i18n("Mean Mass [u]"));
+//X 			break;
+//X 		case AxisData::DENSITY:
+//X 			for( ; it != itEnd ; ++it ) {
+//X 				double value =(*it)->density();
+//X 				if( value > 0.0 )
+//X 				  l.append( value );
+//X 				else
+//X 				  l.append( 0.0 );
+//X 			}
+//X 			m_pPlotWidget->setYAxisLabel(i18n("Density"));
+//X 			break;
+//X 		case AxisData::EN:
+//X 			for( ; it != itEnd ; ++it ) {
+//X 				double value = (*it)->electroneg();
+//X 				if( value > 0.0 )
+//X 				  l.append( value );
+//X 				else
+//X 				  l.append( 0.0 );
+//X 			}
+//X 			m_pPlotWidget->setYAxisLabel(i18n("Electronegativity"));
+//X 			break;
+//X 		case AxisData::MELTINGPOINT:
+//X 			for( ; it != itEnd ; ++it ) {
+//X 				double value = (*it)->melting();
+//X 				if( value > 0.0 )
+//X 				  l.append( value );
+//X 				else
+//X 				  l.append( 0.0 );
+//X 			}
+//X 			m_pPlotWidget->setYAxisLabel(i18n("Melting Point [K]"));
+//X 			break;
+//X 		case AxisData::BOILINGPOINT:
+//X 			for( ; it != itEnd ; ++it ) {
+//X 				double value = (*it)->boiling();
+//X 				if( value > 0.0 )
+//X 				  l.append( value );
+//X 				else
+//X 				  l.append( 0.0 );
+//X 			}
+//X 			m_pPlotWidget->setYAxisLabel(i18n("Boiling Point [K]"));
+//X 			break;
+//X 		case AxisData::ATOMICRADIUS:
+//X 			for( ; it != itEnd ; ++it ) {
+//X 				double value = (*it)->radius( Element::ATOMIC );
+//X 				if( value > 0.0 )
+//X 				  l.append( value );
+//X 				else
+//X 				  l.append( 0.0 );
+//X 			}
+//X 			m_pPlotWidget->setYAxisLabel(i18n("Atomic Radius [pm]"));
+//X 			break;
+//X 		case AxisData::COVALENTRADIUS:
+//X 			for( ; it != itEnd ; ++it ) {
+//X 				double value = (*it)->radius( Element::COVALENT );
+//X 				if( value > 0.0 )
+//X 				  l.append( value );
+//X 				else
+//X 				  l.append( 0.0 );
+//X 			}
+//X 			m_pPlotWidget->setYAxisLabel(i18n("Covalent Radius [pm]"));
+//X 			break;
 	}
 
 	yData->setDataList( l );
