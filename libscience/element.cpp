@@ -46,6 +46,14 @@ ChemicalDataObject& Element::data(ChemicalDataObject::BlueObelisk type)
 	}
 }
 
+QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type )
+{
+	foreach( ChemicalDataObject* o, dataList ) {
+		if ( o->type() == type )
+			return o->value();
+	}
+}
+
 QString Element::dataAsString(ChemicalDataObject::BlueObelisk type)
 {
 	foreach( ChemicalDataObject*o, dataList ) {

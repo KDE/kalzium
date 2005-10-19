@@ -78,9 +78,9 @@ class Element{
 		/**
 		 * @return the number of the element
 		 */
-		int number() const {
+/*		int number() const {
 			return m_number;
-		}
+		}*/
 
 		/**
 		 * @return if the Element is radioactive
@@ -111,7 +111,7 @@ class Element{
 			return m_orbits;
 		}
 		
-		void setMass( double value ) { m_mass = value; }
+//		void setMass( double value ) { m_mass = value; }
 		void setEN( double value ) { m_EN = value; }
 		void setEA( double value ) { m_EA = value; }
 		void setMeltingpoint( double value ) { m_MP = value; }
@@ -133,7 +133,7 @@ class Element{
 		void setDate( int date ) { m_date = date; }
 		void setPeriod( int period ){ m_period = period; }
 		void setBiologicalMeaning( int value ) { m_biological = value; }
-		void setNumber( int num ){ m_number = num; }
+//		void setNumber( int num ){ m_number = num; }
 
 		/**
 		 * set the abundance in crustal rocks [pm]
@@ -355,9 +355,9 @@ class Element{
 		/**
 		 * @return the atomic mass of the element in units
 		 */
-		double mass() const {
+/*		double mass() const {
 			return m_mass;
-		}
+		}*/
 		
 		/**
 		 * @return the density of the element in gramms per mol
@@ -438,11 +438,23 @@ class Element{
 		}
 
 		/**
+		 * add a ChemicalDataObject with @p value of @p type  to this Element
+		 * @param value the QVariant to be added
+		 * @param type the BlueObelisk type to be added
+		 */
+		void addData( const QVariant& value, ChemicalDataObject::BlueObelisk type ) {
+			ChemicalDataObject* tmp = new ChemicalDataObject( value, type );
+			dataList.append( tmp );
+		}
+
+		/**
 		 * @return the ChemicalDataObject which stores the information
 		 * of the type @p type
 		 * @param type the type of the requested data
 		 */
 		ChemicalDataObject& data( ChemicalDataObject::BlueObelisk type );
+
+		QVariant dataAsVariant( ChemicalDataObject::BlueObelisk type );
 		
 		/**
 		 * @return the requested data of the type @p type as a QString
