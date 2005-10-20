@@ -74,4 +74,45 @@ bool ChemicalDataObject::operator==( const QString& v )
 
 ChemicalDataObject::~ChemicalDataObject()
 {}
+
+QString ChemicalDataObject::dictRef()
+{
+	QString botype;
+	switch ( m_type ){
+		case atomicNumber:
+			botype = "atomicNumber";
+			break;
+		case symbol:
+			botype = "symbol";
+			break;
+		case name:
+			botype = "name";
+			break;
+		case mass:
+			botype = "mass";
+			break;
+		case exactMass:
+			botype = "exactMass";
+			break;
+		case ionization:
+			botype = "ionization";
+			break;
+		case electronAffinity:
+			botype = "electronAffinity";
+			break;
+		case electronegativityPauling:
+			botype = "electronegativityPauling";
+			break;
+		case radiusCovalent:
+			botype = "radiusCovalent";
+			break;
+		case radiusVDW:
+			botype = "radiusVDW";
+			break;
+	}
+	
+	botype = botype.prepend( "bo:" );
+	
+	return botype;
+}
 	

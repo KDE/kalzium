@@ -21,13 +21,17 @@ email                : cniehaus@kde.org
 #include <kdebug.h>
 
 ElementSaxParser::ElementSaxParser()
-: QXmlDefaultHandler(), currentElement_(0), 
-	inElement_(false), 
-	inName_(false), 
-	inMass_( false ),
-	inExactMass_( false ),
-	inAtomicNumber_(false), 
-	inSymbol_( false )
+	: QXmlDefaultHandler(), currentElement_(0), 
+	inName_(false),
+	inMass_(false),
+	inExactMass_(false),
+	inAtomicNumber_(false),
+	inSymbol_(false),
+	inIonization_(false),
+	inElectronAffinity_(false),
+	inElectronegativityPauling_(false),
+	inRadiusCovalent_(false),
+	inRadiusVDW_(false)
 {
 }
 
@@ -39,16 +43,26 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 	} else if (inElement_ && localName == "scalar") {
 		for (int i = 0; i < attrs.length(); ++i) {
 
-			if (attrs.value(i) == "bo:name")
-				inName_ = true;
-			if (attrs.value(i) == "bo:exactMass")
-				inExactMass_ = true;
-			if (attrs.value(i) == "bo:mass")
-				inMass_ = true;
 			if (attrs.value(i) == "bo:atomicNumber")
 				inAtomicNumber_ = true;
-			if (attrs.value(i) == "bo:symbol")
+			else if (attrs.value(i) == "bo:symbol")
 				inSymbol_ = true;
+			else if (attrs.value(i) == "bo:name")
+				inName_ = true;
+			else if (attrs.value(i) == "bo:mass")
+				inMass_ = true;
+			else if (attrs.value(i) == "bo:exactMass")
+				inExactMass_ = true;
+			else if (attrs.value(i) == "bo:ionization")
+				inIonization_ = true;
+			else if (attrs.value(i) == "bo:electronAffinity")
+				inElectronAffinity_ = true;
+			else if (attrs.value(i) == "bo:electronegativityPauling")
+				inElectronegativityPauling_ = true;
+			else if (attrs.value(i) == "bo:radiusCovalent")
+				inRadiusCovalent_ = true;
+			else if (attrs.value(i) == "bo:radiusVDW")
+				inRadiusVDW_ = true;
 		}
 	}
 	return true;
@@ -59,8 +73,7 @@ bool ElementSaxParser::endElement (  const QString & namespaceURI, const QString
 	if ( localName == "elementType" )
 	{
 		elements_.append(currentElement_);
-//X 		if ( currentElement_ )
-//X 			kdDebug() << "Number of ChemicalDataObject: " << currentElement_->dataList.count() << endl;
+		
 		currentElement_ = 0;
 		inElement_ = false;
 	}
@@ -98,11 +111,36 @@ bool ElementSaxParser::characters(const QString &ch)
 		type = ChemicalDataObject::atomicNumber; 
 		inAtomicNumber_ = false;
 	}
+	else if (inIonization_) {
+		value = ch.toDouble();;
+		type = ChemicalDataObject::ionization; 
+		inIonization_ = false;
+	}
+	else if (inElectronAffinity_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::electronAffinity; 
+		inElectronAffinity_ = false;
+	}
+	else if (inElectronegativityPauling_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::electronegativityPauling; 
+		inElectronegativityPauling_ = false;
+	}
+	else if (inRadiusCovalent_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::radiusCovalent; 
+		inRadiusCovalent_ = false;
+	}
+	else if (inRadiusVDW_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::radiusVDW; 
+		inRadiusVDW_ = false;
+	}
+	else//it is a non known value. Do not create a wrong object but return
+		return true;
 
 	dataobject->setData( value );
 	dataobject->setType( type );
-
-//X 	kdDebug() << dataobject->valueAsString() << endl;
 
 	if ( currentElement_ )
 		currentElement_->addData( dataobject );

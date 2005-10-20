@@ -144,6 +144,12 @@ class ChemicalDataObject
 		 */
 		bool operator== ( const QString& v);
 
+		/**
+		 * @return the dictRef-attribut of the xml. This is an
+		 * identifier. For example, for the mass it is 'bo:mass'
+		 */
+		QString dictRef();
+		
 	private:
 		QVariant m_value;
 		BlueObelisk m_type;

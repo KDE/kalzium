@@ -39,6 +39,11 @@ class ElementSaxParser : public QXmlDefaultHandler
 			 inMass_,
 			 inExactMass_,
 			 inAtomicNumber_,
-			 inSymbol_;
+			 inSymbol_,
+			 inIonization_,
+			 inElectronAffinity_,
+			 inElectronegativityPauling_,
+			 inRadiusCovalent_,
+			 inRadiusVDW_;
 };
 #endif // ELEMENTPARSER_H

@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 			//Test: give me all data available
 //X 			foreach( ChemicalDataObject*o, list ){
 //X 				if ( o )
-//X 					kdDebug() << o->valueAsString() << endl;
+//X 					kdDebug() << "Name: " << o->dictRef() << " " << o->valueAsString() << endl;
 //X 			}
 		}
 
