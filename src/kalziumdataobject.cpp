@@ -25,7 +25,6 @@
 #include <isotope.h>
 #include <spectrum.h>
 
-#include <qdom.h>
 #include <qfile.h>
 
 #include <klocale.h>
@@ -43,28 +42,16 @@ KalziumDataObject* KalziumDataObject::instance()
 
 KalziumDataObject::KalziumDataObject()
 {
-	QDomDocument doc( "datadocument" );
+	ElementSaxParser * parser = new ElementSaxParser();
 
-    KURL url;
-//X     url.setPath("/home/carsten/svn/trunk/KDE/kdeedu/libkdeedu/libscience/" );
-    url.setPath("/home/carsten/svn/trunk/KDE/kdeedu/kalzium/src/data/" );
-    url.setFileName( "data.xml" );
-//X     url.setFileName( "elements.xml" );
-    QFile layoutFile( url.path() );
-
-    if (!layoutFile.open(IO_ReadOnly)){
-        kdDebug() << "layoutfile IO-error" << endl;
-    }
-
-    // Check if the document is well-formed
-    if (!doc.setContent(&layoutFile))
-    {
-        kdDebug() << "wrong xml" << endl;
-        layoutFile.close();
-    }
-    layoutFile.close();
+	QFile xmlFile( locate( "appdata", "data/data.xml" ) );
+	QXmlInputSource source(xmlFile);
+	QXmlSimpleReader reader;
 	
-	//TODO get the data
+	reader.setContentHandler(parser);
+	reader.parse(source);
+
+	ElementList = parser->getElements();
 }
 
 KalziumDataObject::~KalziumDataObject()
