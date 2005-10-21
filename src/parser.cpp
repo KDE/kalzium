@@ -165,7 +165,7 @@ Parser::getNextChar()
 int
 Parser::skipWhitespace()
 {
-    while (isblank(m_nextChar))
+    while (QChar(m_nextChar).isSpace())
 	getNextChar();
 
     return m_nextChar;
