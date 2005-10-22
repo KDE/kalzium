@@ -44,6 +44,8 @@ class ElementSaxParser : public QXmlDefaultHandler
 			 inElectronAffinity_,
 			 inElectronegativityPauling_,
 			 inRadiusCovalent_,
-			 inRadiusVDW_;
+			 inRadiusVDW_,
+			 inBoilingPoint_,
+			 inMeltingPoint_;
 };
 #endif // ELEMENTPARSER_H

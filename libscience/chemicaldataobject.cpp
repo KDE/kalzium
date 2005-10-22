@@ -109,6 +109,12 @@ QString ChemicalDataObject::dictRef()
 		case radiusVDW:
 			botype = "radiusVDW";
 			break;
+		case meltingpoint:
+			botype = "meltingpoint";
+			break;
+		case boilingpoint:
+			botype = "boilingpoint";
+			break;
 	}
 	
 	botype = botype.prepend( "bo:" );

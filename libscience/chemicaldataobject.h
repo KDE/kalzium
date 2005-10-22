@@ -51,7 +51,9 @@ class ChemicalDataObject
 			electronAffinity/**< the electron affinity of the element */,
 			electronegativityPauling/**< the electronegativity in the definition of Pauling*/,
 			radiusCovalent/**< the covalent radius */,
-			radiusVDW/**< the van der Waals radius */
+			radiusVDW/**< the van der Waals radius */,
+			meltingpoint,
+			boilingpoint
 		};
 
 		/**

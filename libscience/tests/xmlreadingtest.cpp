@@ -39,10 +39,10 @@ int main(int argc, char *argv[])
 //X 			kdDebug() << "Name: " << e->dataAsString( ChemicalDataObject::name ) << endl;
 			
 			//Test: give me all data available
-//X 			foreach( ChemicalDataObject*o, list ){
-//X 				if ( o )
-//X 					kdDebug() << "Name: " << o->dictRef() << " " << o->valueAsString() << endl;
-//X 			}
+			foreach( ChemicalDataObject*o, list ){
+				if ( o )
+					kdDebug() << "Name: " << o->dictRef() << " " << o->valueAsString() << endl;
+			}
 		}
 
 	}
