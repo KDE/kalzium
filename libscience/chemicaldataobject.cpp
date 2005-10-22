@@ -115,6 +115,9 @@ QString ChemicalDataObject::dictRef()
 		case boilingpoint:
 			botype = "boilingpoint";
 			break;
+		case periodTableBlock:
+			botype = "periodTableBlock";
+			break;
 	}
 	
 	botype = botype.prepend( "bo:" );

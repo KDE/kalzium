@@ -53,7 +53,8 @@ class ChemicalDataObject
 			radiusCovalent/**< the covalent radius */,
 			radiusVDW/**< the van der Waals radius */,
 			meltingpoint,
-			boilingpoint
+			boilingpoint,
+			periodTableBlock
 		};
 
 		/**
