@@ -81,6 +81,7 @@ bool ElementSaxParser::endElement (  const QString & namespaceURI, const QString
 {
 	if ( localName == "elementType" )
 	{
+		if ( currentElement_->dataAsString( ChemicalDataObject::symbol ) != "Xx" )
 		elements_.append(currentElement_);
 		
 		currentElement_ = 0;
