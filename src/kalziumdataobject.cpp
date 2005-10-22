@@ -52,6 +52,9 @@ KalziumDataObject::KalziumDataObject()
 	reader.parse(source);
 
 	ElementList = parser->getElements();
+
+	// cache it
+	m_numOfElements = ElementList.count();
 }
 
 KalziumDataObject::~KalziumDataObject()
