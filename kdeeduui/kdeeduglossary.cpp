@@ -162,7 +162,7 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 		QString picName = itemElement.namedItem( "picture" ).toElement().text();
 		QDomElement refNode = ( const QDomElement& ) itemElement.namedItem( "references" ).toElement();
 
-		QString desc = descNode.toElement().text().toUtf8();
+		QString desc = i18n( descNode.toElement().text().toUtf8() );
 		if ( !picName.isEmpty() )
 			desc.prepend("[img]"+picName +"[/img][brclear][br]" );
 
