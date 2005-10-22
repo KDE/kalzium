@@ -41,6 +41,8 @@ ChemicalDataObject& Element::data(ChemicalDataObject::BlueObelisk type)
 		if ( o->type() == type )
 			return *o;
 	}
+	ChemicalDataObject cdo;
+	return cdo;
 }
 
 QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type )
@@ -49,6 +51,7 @@ QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type )
 		if ( o->type() == type )
 			return o->value();
 	}
+	return QVariant();
 }
 
 QString Element::dataAsString(ChemicalDataObject::BlueObelisk type)

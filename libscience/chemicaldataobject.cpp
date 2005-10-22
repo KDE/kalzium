@@ -29,6 +29,7 @@ ChemicalDataObject::ChemicalDataObject( QVariant v, BlueObelisk type )
 
 ChemicalDataObject::ChemicalDataObject() 
 {
+	m_value = QVariant();
 }
 
 QString ChemicalDataObject::valueAsString()
