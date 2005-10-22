@@ -1697,7 +1697,7 @@
 			<spectrum intensity="1000" wavelength="2860.44" aki="0.55" energy1="18186.328" energy2="53135.750" electronconfig1="4p3" electronconfig2="4p2(3P)5s" term1="2P&deg;" term2="2P" J1="1/2" J2="1/2" />
 		</spectra>
 		<acidicbehaviour>2</acidicbehaviour>
-		<date scientist="A. Magnus">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>4</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity>-78</electronaffinity>
