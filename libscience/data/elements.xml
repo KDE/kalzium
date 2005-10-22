@@ -22,16 +22,6 @@
     <metadata name="dc:source" content="http://www.webelements.com/" />
   </metadataList>
 
-  <elementType id="Xx">
-    <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">0</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:symbol">Xx</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:name">Dummy</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:mass">0.0000</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:exactMass">0.00000</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.0</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:radiusVDW">0</scalar>
-    <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.07 0.50 0.70</array>
-  </elementType>
   <elementType id="H">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">1</scalar>
     <scalar dataType="xsd:String" dictRef="bo:symbol">H</scalar>
