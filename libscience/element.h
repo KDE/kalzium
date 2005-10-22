@@ -29,10 +29,8 @@
 class Spectrum;
 class Isotope;
 class Element;
-class ChemicalDataObject;
 
 typedef QList<Element*> EList;
-typedef QList<double> doubleList;
 
 /**
  * In this class all information about an element are stored. This means that
@@ -150,7 +148,7 @@ class Element{
 		};
 
 		/**
-		 * add the ChemicalDataObject @p o to this Element
+		 * Sdd the ChemicalDataObject @p o to this Element
 		 * @param o the ChemicalDataObject to be added
 		 */
 		void addData( ChemicalDataObject*o ){
@@ -158,7 +156,8 @@ class Element{
 		}
 
 		/**
-		 * add a ChemicalDataObject with @p value of @p type  to this Element
+		 * Sdd a ChemicalDataObject with @p value of @p type to this
+		 * Element
 		 * @param value the QVariant to be added
 		 * @param type the BlueObelisk type to be added
 		 */
@@ -174,6 +173,9 @@ class Element{
 		 */
 		ChemicalDataObject& data( ChemicalDataObject::BlueObelisk type );
 
+		/**
+		 * @return the requested data of the type @p type as a QVariant
+		 */
 		QVariant dataAsVariant( ChemicalDataObject::BlueObelisk type );
 		
 		/**

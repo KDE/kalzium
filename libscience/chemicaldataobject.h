@@ -25,42 +25,42 @@
 
 /**
  * A ChemicalDataObject is an object which contains information about 
- * a chemical element. This can for example be a boilingpoint. The information
+ * a chemical element. This can for example be a boiling point. The information
  * is stored in a QVariant.
  * This class supports the CML-format defined by the BlueObelisk-Project.
  *
- * @author Carsten Niehaus <cniehaus@kde.org
+ * @author Carsten Niehaus <cniehaus@kde.org>
  */
 class ChemicalDataObject
 {
 	public:
 		/**
-		 * The BlueObelisk-project defines in their xml-file the dataset
-		 * with the names of the enum plus 'bo:'. So for symbol
-		 * it is 'bo:symbol'. To avoid confusion I will choose the very
+		 * The BlueObelisk-project defines in their XML file the dataset
+		 * with the names of the enum plus "bo:". So for symbol
+		 * it is "bo:symbol". To avoid confusion I will choose the very
 		 * same naming
 		 */
 		enum BlueObelisk
 		{
 			atomicNumber = 0 /**< The atomic number of the element */,
 			symbol/**< the symbol of the element */,
-			name/**< The IUPAC-name of the element */,
+			name/**< The IUPAC name of the element */,
 			mass/**< # IUPAC Official Masses */,
 			exactMass/**< exact masses of the most common isotopes for each element */,
 			ionization/**< First inizationenergy */,
-			electronAffinity/**< the electronaffinity of the element */,
+			electronAffinity/**< the electron affinity of the element */,
 			electronegativityPauling/**< the electronegativity in the definition of Pauling*/,
 			radiusCovalent/**< the covalent radius */,
 			radiusVDW/**< the van der Waals radius */
 		};
 
 		/**
-		 * public constructor
+		 * Constructor.
 		 */
 		ChemicalDataObject();
 
 		/**
-		 * public constructor
+		 * Constructor.
 		 * @param v the data of the object
 		 * @param type the type of the data
 		 */
@@ -68,36 +68,36 @@ class ChemicalDataObject
 				BlueObelisk type);
 
 		/**
-		 * set the data of this object to @p v
+		 * Set the data of this object to @p v
 		 */
 		void setData( QVariant v ){
 			m_value = v;
 		}
 		
 		/**
-		 * public destructor
+		 * Destructor.
 		 */
 		~ChemicalDataObject();
 
 		/**
 		 * Every ChemicalDataObject contains one data. For example a
-		 * integer value which represents the boilingpoint. This method
-		 * returns the value as a QString
+		 * integer value which represents the boiling point. This method
+		 * returns the value as a QString.
 		 * 
 		 * For bool, the returned string will be "false" or "true"
 		 * For a QString, the QString will be returned
 		 * For a int or double, the value will be returned as a QString
 		 *
-		 * @return the value as a QString.
+		 * @return the value as a QString
 		 */
 		QString valueAsString();
 		
 		/**
 		 * Every ChemicalDataObject contains one data. For example a
-		 * integer value which represents the boilingpoint. This method
-		 * returns the value as a QVariant
+		 * integer value which represents the boiling point. This method
+		 * returns the value as a QVariant.
 		 *
-		 * @return the value as a QVariant.
+		 * @return the value as a QVariant
 		 */
 		QVariant value() const{
 			return m_value;
@@ -125,28 +125,28 @@ class ChemicalDataObject
 		}
 		
 		/**
-		 * Compare the value @v with the data of this object
+		 * Compare the value @p v with the data of this object
 		 */
-		bool operator== ( const int v);
+		bool operator== ( const int v );
 		
 		/**
-		 * Compare the value @v with the data of this object
+		 * Compare the value @p v with the data of this object
 		 */
-		bool operator== ( const double v);
+		bool operator== ( const double v );
 		
 		/**
-		 * Compare the value @v with the data of this object
+		 * Compare the value @p v with the data of this object
 		 */
-		bool operator== ( const bool v);
+		bool operator== ( const bool v );
 		
 		/**
-		 * Compare the value @v with the data of this object
+		 * Compare the value @p v with the data of this object
 		 */
-		bool operator== ( const QString& v);
+		bool operator== ( const QString& v );
 
 		/**
-		 * @return the dictRef-attribut of the xml. This is an
-		 * identifier. For example, for the mass it is 'bo:mass'
+		 * @return the dictRef attribute of the XML. This is an
+		 * identifier. For example, for the mass it is "bo:mass"
 		 */
 		QString dictRef();
 		
