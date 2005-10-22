@@ -160,10 +160,10 @@ void IsotopeTableView::selectionDone( const QRect& selectedRect )
 	QRect r = getNewCoords( selectedRect );
 	// I know it's strange, but somehow sometimes the bottom and the
 	// top are swapped...
-	m_firstElem = kMin( r.bottom(), r.top() );
-	m_lastElem = kMax( r.bottom(), r.top() );
-	m_firstElemNucleon = kMin( r.left(), r.right() );
-	m_lastElemNucleon = kMax( r.left(), r.right() );
+	m_firstElem = qMin( r.bottom(), r.top() );
+	m_lastElem = qMax( r.bottom(), r.top() );
+	m_firstElemNucleon = qMin( r.left(), r.right() );
+	m_lastElemNucleon = qMax( r.left(), r.right() );
 
 	// tell to the updateIsoptopeRectList() to recalc the size of every
 	// element rect
