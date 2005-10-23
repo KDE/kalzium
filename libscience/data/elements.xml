@@ -41,13 +41,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">13.5984</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="3">0.75420375</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.20</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">20.28</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">13.81</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'hydro' and 'gennao' for 'forms water'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.37</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 1.00 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1766</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">C. Cavendish</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">1</scalar>
   </elementType>
   <elementType id="He">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">2</scalar>
@@ -57,13 +58,14 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">4.002603254</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">24.5874</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4.216</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">0.95</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">The Greek word for the sun was 'helios'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.32</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.4</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.85 1.00 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1895</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">P. J. Janssen;J. N. Lockyer</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">1</scalar>
   </elementType>
   <elementType id="Li">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">3</scalar>
@@ -74,13 +76,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.3917</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="21">0.618049</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">0.98</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1615</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">453.7</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'lithos' means 'stone'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.34</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.80 0.50 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1817</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">A. Arfvedson</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
   </elementType>
   <elementType id="Be">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">4</scalar>
@@ -91,13 +94,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">9.3227</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.57</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3243</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1560</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'beryllos' for 'light-green stone'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.90</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.9</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.76 1.00 0.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1797</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Nicholas Louis Vauquelin</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
   </elementType>
   <elementType id="B">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">5</scalar>
@@ -108,13 +112,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">8.2980</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="25">0.279723</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.04</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4275</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2365</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot like carbon</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.82</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.8</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.71 0.71</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Louis Joseph Gay-Lussac;Louis Jacques Thenard</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
   </elementType>
   <elementType id="C">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">6</scalar>
@@ -125,13 +130,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">11.2603</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="20">1.262118</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.55</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">5100</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">3825</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'carboneum' for carbon</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.77</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.7</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.50 0.50 0.50</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
   </elementType>
   <elementType id="N">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">7</scalar>
@@ -142,13 +146,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">14.5341</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="2">-0.07</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">3.04</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">77.344</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">63.15</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'nitrogenium' ('forms saltpeter')</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.75</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.6</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.05 0.05 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1772</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">D. Rutherford</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
   </elementType>
   <elementType id="O">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">8</scalar>
@@ -159,13 +164,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">13.6181</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="27">1.4611120</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">3.44</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">90.188</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">54.8</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'oxygenium' (forms acids)</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.73</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.55</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.05 0.05</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1774</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">J. Priestley</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
   </elementType>
   <elementType id="F">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">9</scalar>
@@ -176,13 +182,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">17.4228</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="32">3.4011887</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">3.98</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">85</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">53.55</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'fluere' ('floats')</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.71</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.5</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.70 1.00 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1886</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">H. F. Moissan</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
   </elementType>
   <elementType id="Ne">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">10</scalar>
@@ -192,13 +199,14 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">19.99244018</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">21.5645</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">27.1</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">24.55</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'neo'. meaning 'new'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.69</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.54</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.70 0.89 0.96</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">W. Ramsay;M.W. Travers</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
   </elementType>
   <elementType id="Na">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">11</scalar>
@@ -209,13 +217,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.1391</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="25">0.547926</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">0.93</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1156</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">371</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Arabic 'natrun' for 'soda'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.54</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.4</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.67 0.36 0.95</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1807</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Sir Humphrey Davy</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
   </elementType>
   <elementType id="Mg">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">12</scalar>
@@ -226,13 +235,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.6462</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.31</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1380</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">922</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the city of Magnesia</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.30</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.54 1.00 0.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
   </elementType>
   <elementType id="Al">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">13</scalar>
@@ -243,13 +253,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.9858</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="5">0.43283</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.61</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2740</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">933.5</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'alumen'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.18</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.75 0.65 0.65</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1825</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">H. Ch. Oersted</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
   </elementType>
   <elementType id="Si">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">14</scalar>
@@ -260,13 +271,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">8.1517</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="20">1.389521</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.90</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2630</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1683</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'silex'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.11</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.50 0.60 0.60</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1823</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">J. J. Berzelius</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
   </elementType>
   <elementType id="P">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">15</scalar>
@@ -277,13 +289,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">10.4867</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="3">0.7465</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.19</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">553</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">317.3</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'phosphoros' for 'carries light'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.06</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.95</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.50 0.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1669</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">H. Brandt</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
   </elementType>
   <elementType id="S">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">16</scalar>
@@ -294,13 +307,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">10.3600</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="10">2.0771029</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.58</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">717.82</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">392.2</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">In sankskrit 'sweb' means 'to sleep'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.02</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.8</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 1.00 0.19</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
   </elementType>
   <elementType id="Cl">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">17</scalar>
@@ -311,13 +323,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">12.9676</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="27">3.612724</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">3.16</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">239.18</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">172.17</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'chloros' for 'yellow-green'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.99</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.8</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.12 0.94 0.12</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1774</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. Scheele</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
   </elementType>
   <elementType id="Ar">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">18</scalar>
@@ -327,13 +340,14 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">39.96238312</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">15.7596</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">87.45</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">83.95</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'aergon' for 'inactive'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">0.97</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.88</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.50 0.82 0.89</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1894</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">W. Ramsay;J. Rayleigh</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
   </elementType>
   <elementType id="K">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">19</scalar>
@@ -344,13 +358,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">4.3407</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="12">0.501459</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">0.82</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1033</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">336.8</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Arabic 'al qaliy' for potash</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.96</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.8</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.56 0.25 0.83</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1807</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Ca">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">20</scalar>
@@ -361,13 +376,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.1132</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="10">0.02455</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.00</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1757</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1112</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'calx' for 'lime'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.74</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.4</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.24 1.00 0.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Sc">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">21</scalar>
@@ -378,13 +394,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.5615</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="20">0.188</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.36</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3109</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1814</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named because it was found in Scandinavia</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.44</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.90 0.90 0.90</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1879</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">L. Nilson</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Ti">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">22</scalar>
@@ -395,13 +412,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.8281</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="9">0.084</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.54</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3560</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1935</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">The Titans were giants in Greek mythology</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.36</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.15</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.75 0.76 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1791</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">W. Gregor</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="V">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">23</scalar>
@@ -412,13 +430,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.7462</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="12">0.525</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.63</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3650</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2163</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">'Vanadis' is another name for the Nordic goddess Freyja</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.25</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.65 0.65 0.67</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1830</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">N. Sefström</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Cr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">24</scalar>
@@ -429,13 +448,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.7665</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="12">0.67584</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.66</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2945</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2130</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'chroma' means 'color'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.27</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.54 0.60 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1797</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Nicholas Louis Vauquelin</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Mn">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">25</scalar>
@@ -446,13 +466,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.4340</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.55</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2235</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1518</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">It was discovered near a town named Magnesia in a black earth. Thus. it was named 'magnesia nigra'. short: Manganese</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.39</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.61 0.48 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1774</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. W. Scheele</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Fe">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">26</scalar>
@@ -463,13 +484,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.9024</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="3">0.151</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.83</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3023</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1808</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'ferrum'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.25</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.50 0.48 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Co">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">27</scalar>
@@ -480,13 +500,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.8810</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="6">0.6633</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.88</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3143</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1768</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the German word 'Kobold' for 'goblin'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.26</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.44 0.48 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1737</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">G. Brandt</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Ni">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">28</scalar>
@@ -497,13 +518,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.6398</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="12">1.15716</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.91</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3005</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1726</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">'Nickel' was the name of a mountain goblin</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.21</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.36 0.48 0.76</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1751</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">A. F. Cronstedt</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Cu">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">29</scalar>
@@ -514,13 +536,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.7264</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="4">1.23578</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.90</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2840</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1356.6</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'cuprum' for Cypres</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.38</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.48 0.38</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Zn">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">30</scalar>
@@ -531,13 +552,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">9.3942</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.65</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1180</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">692.73</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">German 'zinking' for 'rough'. because zinc ore is very rough</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.31</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.49 0.50 0.69</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1746</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Andreas Marggraf</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Ga">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">31</scalar>
@@ -548,13 +570,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.9993</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="4">0.41</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.81</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2478</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">302.92</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">'Gallia' is an old name for France</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.26</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.76 0.56 0.56</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1875</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">P. E. Lecoq de Boisbaudran</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Ge">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">32</scalar>
@@ -565,13 +588,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.8994</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="15">1.232712</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.01</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3107</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1211.5</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'germania' is an old name for Germany</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.22</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.40 0.56 0.56</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1886</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">C. A. Winkler</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="As">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">33</scalar>
@@ -582,13 +606,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">9.7886</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="8">0.814</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.18</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">876</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1090</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'arsenikos' for 'male' or 'bold'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.19</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.74 0.50 0.89</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Se">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">34</scalar>
@@ -599,13 +622,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">9.7524</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="2">2.02067</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.55</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">958</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">494</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'selena' for 'moon'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.16</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.9</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.63 0.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1817</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">J. J. Berzelius</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Br">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">35</scalar>
@@ -616,13 +640,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">11.8138</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="20">3.3635880</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.96</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">331.85</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">265.95</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'bromos' for 'smells badly'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.14</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">1.9</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.65 0.16 0.16</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1826</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">A. J. Balard</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Kr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">36</scalar>
@@ -633,13 +658,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">13.9996</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">3.00</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">120.85</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">116</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'kryptos' for 'hidden'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.10</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.02</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.36 0.72 0.82</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">W. Ramsay;M. W. Travers</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
   </elementType>
   <elementType id="Rb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">37</scalar>
@@ -650,13 +676,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">4.1771</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="20">0.485916</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">0.82</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">961</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">312.63</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'rubidus' for 'dark red'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">2.11</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.9</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.44 0.18 0.69</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1861</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Robert W. Bunsen;Gustav R. Kirchhoff</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Sr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">38</scalar>
@@ -667,13 +694,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.6949</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="6">0.05206</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">0.95</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1655</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1042</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the mineral Strontianit</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.92</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.55</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 1.00 0.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1790</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Y">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">39</scalar>
@@ -684,13 +712,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.2173</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="12">0.307</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.22</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3611</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1795</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the small town of Ytterby near Stockholm in Sweden. Terbium. Ytterbium and Gadolinium are also named after this town.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.62</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.4</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.58 1.00 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1794</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Johann Gadolin</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Zr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">40</scalar>
@@ -701,13 +730,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.6339</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="14">0.426</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.33</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4682</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2128</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the mineral zircon</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.48</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.58 0.88 0.88</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1789</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Martin Heinrich Klaproth</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Nb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">41</scalar>
@@ -718,13 +748,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.7589</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="25">0.893</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.6</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">5015</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2742</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after Niobe. the daughter of the Greek god Tantalus</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.37</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.15</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.45 0.76 0.79</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1801</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Ch. Hatchett</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Mo">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">42</scalar>
@@ -735,13 +766,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.0924</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="2">0.7472</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.16</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4912</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2896</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">This name has Greek roots. It means 'like Platinum' - it was difficult to distinguish Molybdenum from Platinum.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.45</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.33 0.71 0.71</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1778</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. W. Scheele</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Tc">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">43</scalar>
@@ -752,13 +784,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.28</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="20">0.55</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.9</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4538</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2477</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'technetos' for artificial</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.56</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.23 0.62 0.62</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1937</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">C. Perrier;E. G. Segre</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Ru">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">44</scalar>
@@ -769,13 +802,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.3605</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="25">1.04638</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.2</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4425</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2610</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Ruthenia is the old name of Russia</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.26</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.14 0.56 0.56</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1844</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. Klaus</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Rh">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">45</scalar>
@@ -786,13 +820,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.4589</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="20">1.14289</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.28</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3970</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2236</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'rhodeos' means 'red like a rose'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.35</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.04 0.49 0.55</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1803</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">W. Wollaston</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Pd">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">46</scalar>
@@ -803,13 +838,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">8.3369</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="12">0.56214</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.20</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3240</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1825</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the asteroid Pallas</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.31</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.41 0.52</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Ag">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">47</scalar>
@@ -820,13 +854,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.5762</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="2">1.30447</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.93</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2436</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1235.1</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'argentum' for silver</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.53</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.88 0.88 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Cd">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">48</scalar>
@@ -837,13 +870,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">8.9938</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.69</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1040</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">594.26</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'kadmia' ('Galmei' = Zinc carbonate)</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.48</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.85 0.56</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1817</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">F. Stromeyer</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="In">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">49</scalar>
@@ -854,13 +888,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.7864</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="9">0.404</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.78</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2350</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">429.78</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after 'Indigo' because of its blue spectrum</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.44</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.65 0.46 0.45</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1863</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">F. Reich;H.T. Richter</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Sn">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">50</scalar>
@@ -871,13 +906,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.3439</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="15">1.112066</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.96</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2876</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">505.12</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'stannum' for tin</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.41</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.25</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.40 0.50 0.50</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Sb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">51</scalar>
@@ -888,13 +922,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">8.6084</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="20">1.047401</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.05</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1860</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">903.91</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Arabic 'anthos ammonos' for 'blossom of the god Ammon'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.38</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.62 0.39 0.71</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Te">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">52</scalar>
@@ -905,13 +938,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">9.0096</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="7">1.970875</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.1</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1261</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">722.72</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'tellus' or 'telluris' for 'Planet Earth'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.35</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.83 0.48 0.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1782</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Franz Joseph Muller von Reichstein</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="I">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">53</scalar>
@@ -922,13 +956,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">10.4513</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="10">3.059038</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.66</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">457.5</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">386.7</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'ioeides' for 'violett'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.33</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.58 0.00 0.58</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1804</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">B. Courtois</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Xe">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">54</scalar>
@@ -939,13 +974,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">12.1298</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.6</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">165.1</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">161.39</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'xenos' for 'foreigner'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.30</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.16</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.26 0.62 0.69</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">W. Ramsay;M. W. Travers</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Cs">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">55</scalar>
@@ -956,13 +992,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">3.8939</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="25">0.471626</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">0.79</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">944</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">301.54</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'caesius' for 'heavenblue'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">2.25</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.34 0.09 0.56</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1860</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Robert Wilhelm Bunsen;Gustav Robert Kirchhoff</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Ba">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">56</scalar>
@@ -973,13 +1010,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.2117</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="6">0.14462</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">0.89</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2078</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1002</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'barys' for 'heavy'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.98</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.7</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.79 0.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Humphry Bartholomew Davy</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="La">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">57</scalar>
@@ -990,13 +1028,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.5769</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="2">0.47</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.10</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3737</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1191</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare earth'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.69</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.5</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.44 0.83 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1839</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. G. Mosander</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Ce">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">58</scalar>
@@ -1007,12 +1046,13 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.5387</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.12</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3715</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1071</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the planetoid Ceres</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.48</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 1.00 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1803</scalar>
+    <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Jöns Jacob Berzelius;W. Hisinger;M. Klaproth</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Pr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">59</scalar>
@@ -1023,12 +1063,13 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.473</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.13</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3785</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1204</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'prasinos didymos' for 'green twin'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.47</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.85 1.00 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1885</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Carl F. Auer von Welsbach</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Nd">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">60</scalar>
@@ -1039,12 +1080,13 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.5250</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.14</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3347</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1294</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'neos didymos' for 'new twin'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.45</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.78 1.00 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1885</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Carl F. Auer von Welsbach</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Pm">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">61</scalar>
@@ -1054,12 +1096,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">144.912749</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.582</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3273</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1315</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the greek Prometheus. Prometheus stole the fire from the gods and gave it to mankind</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.43</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.64 1.00 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1945</scalar>
+    <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">J. A. Marinsky;C. D. Coryell;L. E. Glendenin</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Sm">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">62</scalar>
@@ -1070,12 +1113,13 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.6437</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.17</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2067</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1347</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the mineral Samarskit</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.42</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.56 1.00 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1879</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">P. Lecoq de Boisbaudran</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Eu">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">63</scalar>
@@ -1085,12 +1129,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">152.9212303</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.6704</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1800</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1095</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after Europe</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.4</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.38 1.00 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1901</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">E. A. Demarcay</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Gd">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">64</scalar>
@@ -1101,12 +1146,13 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.1498</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.20</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3545</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1585</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the Finnish chemist Johan Gadolin</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.38</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.27 1.00 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1880</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Jean de Marignac</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Tb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">65</scalar>
@@ -1116,12 +1162,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">158.9253468</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.8638</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3500</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1629</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the Swedish town of Ytterby</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.37</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.19 1.00 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1843</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. G. Mosander</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Dy">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">66</scalar>
@@ -1132,12 +1179,13 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.9389</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.22</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2840</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1685</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'dysprositor' for 'difficult to reach'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.35</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.12 1.00 0.78</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1886</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">F. E. Lecoq de Boisbaudran</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Ho">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">67</scalar>
@@ -1148,12 +1196,13 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.0215</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.23</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2968</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1747</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'holmia' for the old name of Stockholm</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.33</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 1.00 0.61</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1878</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">J. L. Soret;P.T. Cleve</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Er">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">68</scalar>
@@ -1164,12 +1213,13 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.1077</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.24</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3140</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1802</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named ofter the Swedish town of Ytterby. Terbium and Ytterbium are also named after this town.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.32</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.90 0.46</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1843</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. G. Mosander</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Tm">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">69</scalar>
@@ -1180,12 +1230,13 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.1843</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.25</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2223</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1818</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the old name of Scandinavia. 'Thule'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.83 0.32</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1879</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">P. T. Cleve</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Yb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">70</scalar>
@@ -1195,12 +1246,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">173.9388621</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.2542</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1469</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1092</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Like Terbium and Gadolinium. this is named after the Swedish town of Ytterby</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.28</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.75 0.22</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1878</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">J. Ch. Marignac</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Lu">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">71</scalar>
@@ -1211,13 +1263,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.4259</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.27</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3668</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1936</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the Roman name 'Lutetia' for Paris</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.60</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.27</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.67 0.14</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1907</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Carl F. Auer von Welsbach;G. Urbain</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Hf">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">72</scalar>
@@ -1228,13 +1281,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.8251</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.3</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4875</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2504</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">'Hafnia' is the old name of Kopenhagen (Denmark)</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.50</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.25</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.30 0.76 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1923</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">D. Coster;G. Hevesy</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Ta">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">73</scalar>
@@ -1245,13 +1299,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.5496</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="12">0.322</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.5</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">5730</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">3293</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the Greek myth of Tantalos</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.38</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.30 0.65 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1802</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">A. Ekeberg</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="W">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">74</scalar>
@@ -1262,13 +1317,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.8640</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="8">0.815</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.36</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">5825</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">3695</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">'tung sten' means 'heavy stone' in Swedish. The old name (and thus the symbol 'W') was Wolfram. named after a mineral</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.46</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.13 0.58 0.84</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1783</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. W. Scheel</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Re">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">75</scalar>
@@ -1279,13 +1335,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.8335</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="15">0.15</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.9</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">5870</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">3455</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the German river Rhine (latin 'Rhenium')</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.59</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.15 0.49 0.67</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1925</scalar>
+    <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Walter Noddack;Ida Tacke-Noddack;Otto Berg</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Os">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">76</scalar>
@@ -1296,13 +1353,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">8.4382</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="12">1.07780</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.2</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">5300</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">3300</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek for 'smell'. Its oxides smell strongly like radishes</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.28</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.15 0.40 0.59</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1804</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">S. Tennant</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Ir">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">77</scalar>
@@ -1313,13 +1371,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">8.9670</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="15">1.56436</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.20</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4700</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2720</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'iris' for 'rainbow'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.37</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.09 0.33 0.53</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1804</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">S. Tennant</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Pt">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">78</scalar>
@@ -1330,13 +1389,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">8.9588</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="5">2.12510</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.28</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4100</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2042.1</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Spanish 'platina' means 'small silver'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.28</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.96 0.93 0.82</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1735</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">A. de Ulloa</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Au">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">79</scalar>
@@ -1347,13 +1407,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">9.2255</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="3">2.30861</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.54</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3130</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1337.58</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'aurum'. named after Aurora. the goddess of sunrise</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.44</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.80 0.82 0.12</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Hg">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">80</scalar>
@@ -1364,13 +1423,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">10.4375</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.00</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">629.88</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">234.31</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Graeco-Latin 'hydrargyrum' for 'liquid silver'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.49</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.71 0.71 0.76</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Tl">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">81</scalar>
@@ -1381,13 +1439,14 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.1082</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="13">0.377</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.62</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1746</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">577</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'tallos' for 'young twig'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.48</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.65 0.33 0.30</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1861</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">W. Crookes</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Pb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">82</scalar>
@@ -1398,13 +1457,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.4167</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="8">0.364</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.33</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2023</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">600.65</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'plumbum' for Lead</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.47</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.34 0.35 0.38</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Bi">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">83</scalar>
@@ -1415,13 +1473,12 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">7.2855</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="25">0.942363</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.02</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1837</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">544.59</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">The old name of Bismuth is 'Wismut'. This stood for 'white mass'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.46</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.62 0.31 0.71</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Po">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">84</scalar>
@@ -1432,12 +1489,13 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">8.414</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="3">1.9</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.0</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">0</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">527</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after Poland to honor Marie Curie</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.67 0.36 0.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">M. Sklodowska-Curie;P. Curie</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="At">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">85</scalar>
@@ -1448,12 +1506,13 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" errorValue="2">2.8</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">2.2</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">610</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">575</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'astator' for 'changing'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.46 0.31 0.27</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1940</scalar>
+    <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">D. R. Corson;K. R. McKenzie;E. Segre</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Rn">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">86</scalar>
@@ -1463,13 +1522,14 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">222.0175777</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">10.7485</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity">0</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">211.4</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">202</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after Radium. It ends with 'on' to make it clear that it is a noble gas</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent">1.45</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.26 0.51 0.59</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">E. Dorn</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
   </elementType>
   <elementType id="Fr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">87</scalar>
@@ -1479,12 +1539,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">223.0197359</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">4.0727</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">0.7</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">950</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">300</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after France to honor Marguerite Perey</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.26 0.00 0.40</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1939</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">M. Perey</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Ra">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">88</scalar>
@@ -1494,12 +1555,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">226.0254098</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.2784</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">0.9</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">1413</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">973</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'radius' for 'beam', as it is radioactive</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.49 0.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">s</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">M. Sklodowska-Curie;P. Curie</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Ac">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">89</scalar>
@@ -1509,12 +1571,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">227.0277521</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.17</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.1</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3470</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1324</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'aktis' for 'beam' - actinium is radioactive</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.44 0.67 0.98</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1899</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">A. L. Debierne</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Th">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">90</scalar>
@@ -1524,12 +1587,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">232.0380553</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.3067</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.3</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">5060</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">2028</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the German god of thunder: Thor</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.4</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.73 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1828</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">J. J. Berzelius</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Pa">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">91</scalar>
@@ -1539,12 +1603,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">231.035884</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.89</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.5</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4300</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1845</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'protos' for 'ancester'. Protactinium is before Actinium in the periodic table.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.63 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1917</scalar>
+    <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">O. Hahn;L. Meitern;W. Wollaston</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="U">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">92</scalar>
@@ -1554,12 +1619,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">238.0507882</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.1941</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.38</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4407</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1408</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Greek 'ouranos' for 'heaven'. Named after the planet Uranus</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2.3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.56 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1789</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">M. M. Klaproth</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Np">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">93</scalar>
@@ -1569,12 +1635,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">237.0481734</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.2657</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.36</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">4175</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">912</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the planet Neptune.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.50 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1940</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">E. M. McMillan;P. Aberson</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Pu">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">94</scalar>
@@ -1584,12 +1651,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">244.064204</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.0260</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.28</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">3505</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">913</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the planet Pluto.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.42 1.00</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1940</scalar>
+    <scalar dataType="xsd:string" delim=";" size="4" dictRef="bo:discoverers">Glenn T. Seaborg;E. M. McMillan;J. W. Kennedy;A.C. Wahl</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Am">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">95</scalar>
@@ -1599,12 +1667,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">243.0613811</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.9738</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.3</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:boilingpoint" unit="bo:kelvin">2880</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1449</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after America.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.33 0.36 0.95</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1945</scalar>
+    <scalar dataType="xsd:string" delim=";" size="4" dictRef="bo:discoverers">Glenn T. Seaborg;L. O. Morgan;R. A. James;A. Ghiors</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Cm">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">96</scalar>
@@ -1614,11 +1683,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">247.070354</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">5.9914</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.3</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1620</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after Marie Curie.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.47 0.36 0.89</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1944</scalar>
+    <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Glenn T. Seaborg;R. A. James;A. Ghiors</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Bk">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">97</scalar>
@@ -1628,11 +1699,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">247.070307</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.1979</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.3</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1258</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the town Berkeley where it was discovered.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.54 0.31 0.89</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1949</scalar>
+    <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Glenn T. Seaborg;A. Ghiors;S. G. Thompson</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Cf">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">98</scalar>
@@ -1642,11 +1715,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">251.079587</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.2817</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.3</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1172</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the US-State of California.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.63 0.21 0.83</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1950</scalar>
+    <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Glenn T. Seaborg;A. Ghiors;S. G. Thompson</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Es">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">99</scalar>
@@ -1656,11 +1731,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">252.08298</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.42</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.3</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1130</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Albert Einstein.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.70 0.12 0.83</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1952</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Glenn T. Seaborg;et al.</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Fm">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">100</scalar>
@@ -1670,11 +1747,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">257.095105</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.50</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.3</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1800</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Enrico Fermi.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.70 0.12 0.73</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1953</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Glenn T. Seaborg;et al.</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Md">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">101</scalar>
@@ -1684,11 +1763,13 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">258.098431</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.58</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.3</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1100</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist D.I. Mendeleev.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.70 0.05 0.65</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1955</scalar>
+    <scalar dataType="xsd:string" delim=";" size="5" dictRef="bo:discoverers">Glenn T. Seaborg;Albert Ghiorso;Bernard Harvey;Gregory Choppin;Stanley G. Thompson</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="No">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">102</scalar>
@@ -1698,11 +1779,11 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass">259.10103</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.65</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling">1.3</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1100</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Alfred Nobel.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.74 0.05 0.53</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Lr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">103</scalar>
@@ -1711,11 +1792,13 @@
     <scalar dataType="xsd:float" dictRef="bo:mass">262</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">262.10963</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">4.9</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:meltingpoint" unit="bo:kelvin">1900</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Ernest Orlando Lawrence.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.78 0.00 0.40</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1961</scalar>
+    <scalar dataType="xsd:string" delim=";" size="4" dictRef="bo:discoverers">Albert Ghiorso;Torbjorn Sikkeland;Almon Larsh;Robert M. Latimer</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Rf">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">104</scalar>
@@ -1724,10 +1807,11 @@
     <scalar dataType="xsd:float" dictRef="bo:mass">261</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">261.10877</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization">6.0</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Ernest Rutherford</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.80 0.00 0.35</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Db">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">105</scalar>
@@ -1735,10 +1819,11 @@
     <scalar dataType="xsd:String" dictRef="bo:name">Dubnium</scalar>
     <scalar dataType="xsd:float" dictRef="bo:mass">262</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">262.11408</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the science-town Dubna in Russia</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.82 0.00 0.31</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Sg">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">106</scalar>
@@ -1746,10 +1831,13 @@
     <scalar dataType="xsd:String" dictRef="bo:name">Seaborgium</scalar>
     <scalar dataType="xsd:float" dictRef="bo:mass">266</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">263.11832</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist G. Theodore Seaborg.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.85 0.00 0.27</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1974</scalar>
+    <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Albert Ghiorso;et al.</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Bh">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">107</scalar>
@@ -1757,10 +1845,13 @@
     <scalar dataType="xsd:String" dictRef="bo:name">Bohrium</scalar>
     <scalar dataType="xsd:float" dictRef="bo:mass">264</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">264.1246</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Niels Bohr.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.88 0.00 0.22</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1981</scalar>
+    <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Hs">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">108</scalar>
@@ -1768,10 +1859,13 @@
     <scalar dataType="xsd:String" dictRef="bo:name">Hassium</scalar>
     <scalar dataType="xsd:float" dictRef="bo:mass">277</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">265.13009</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Latin 'hassia' for the German county Hessen. In Hessen a lot elements have been discovered.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.90 0.00 0.18</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1984</scalar>
+    <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Mt">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">109</scalar>
@@ -1779,10 +1873,13 @@
     <scalar dataType="xsd:String" dictRef="bo:name">Meitnerium</scalar>
     <scalar dataType="xsd:float" dictRef="bo:mass">268</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">268.13873</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the scientist Lise Meitner.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.92 0.00 0.15</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1982</scalar>
+    <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Ds">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">110</scalar>
@@ -1790,9 +1887,12 @@
     <scalar dataType="xsd:String" dictRef="bo:name">Darmstadtium</scalar>
     <scalar dataType="xsd:float" dictRef="bo:mass">281</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">271.14606</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after the German city Darmstadt where many elements have been discovered.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.93 0.00 0.14</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1994</scalar>
+    <scalar dataType="xsd:string" delim=";" size="8" dictRef="bo:discoverers">S. Hofmann;V. Ninov;F. P. Hessberger;P. Armbruster;H. Folger;G. Münzenberg;H. J. Schött;et al.</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Rg">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">111</scalar>
@@ -1800,9 +1900,12 @@
     <scalar dataType="xsd:String" dictRef="bo:name">Roentgenium</scalar>
     <scalar dataType="xsd:float" dictRef="bo:mass">272</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">272.15362</scalar>
-    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:String" dictRef="bo:nameOrigin" xml:lang="en">Named after Wilhelm Conrad Röntgen.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.94 0.00 0.13</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1994</scalar>
+    <scalar dataType="xsd:string" delim=";" size="7" dictRef="bo:discoverers">S. Hofmann;V. Ninov;F. P. Hessberger;P. Armbruster;H. Folger;G. Münzenberg;et al.</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
   </elementType>
   <elementType id="Uub">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">112</scalar>
@@ -1811,6 +1914,7 @@
     <scalar dataType="xsd:float" dictRef="bo:mass">285</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">285.17411</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.95 0.00 0.12</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
   </elementType>
   <elementType id="Uut">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">113</scalar>
@@ -1819,6 +1923,7 @@
     <scalar dataType="xsd:float" dictRef="bo:mass">284</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">284.17808</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.96 0.00 0.11</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
   </elementType>
   <elementType id="Uuq">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">114</scalar>
@@ -1827,6 +1932,7 @@
     <scalar dataType="xsd:float" dictRef="bo:mass">289</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">289.18728</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.97 0.00 0.10</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
   </elementType>
   <elementType id="Uup">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">115</scalar>
@@ -1835,6 +1941,7 @@
     <scalar dataType="xsd:float" dictRef="bo:mass">288</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">288.19249</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.98 0.00 0.09</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
   </elementType>
   <elementType id="Uuh">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">116</scalar>
@@ -1843,5 +1950,6 @@
     <scalar dataType="xsd:float" dictRef="bo:mass">292</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass">292.19979</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.99 0.00 0.08</array>
+    <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
   </elementType>
 </elementTypeList>
