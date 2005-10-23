@@ -4599,7 +4599,7 @@
 		<acidicbehaviour>0</acidicbehaviour>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="">1957</date>
+		<date scientist="">1958</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity></electronaffinity>
@@ -4657,7 +4657,7 @@
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="G.N. Florow; independently A. Ghiorso">1969</date>
+		<date scientist="">1964</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>4</group>
 		<electronaffinity></electronaffinity>
@@ -4691,7 +4691,7 @@
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="">1970</date>
+		<date scientist="">1967</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity></electronaffinity>
@@ -4750,7 +4750,7 @@
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="">1976</date>
+		<date scientist="">1981</date>
 		<radius>
 			<covalent></covalent>
 			<atomic></atomic>
