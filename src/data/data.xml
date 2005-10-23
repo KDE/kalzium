@@ -1,4 +1,9 @@
 <?xml version="1.0"?>
+<!--
+The data for the isotopes is taken from:
+Lexikon der Physik, 2000 Bertelsmann Lexikon Verlag GmbH
+D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fachbuchverlag Leipzig
+-->
 <!DOCTYPE kalzium SYSTEM "data.dtd">
 <kalzium>
 	<element>
