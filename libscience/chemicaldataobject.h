@@ -192,6 +192,12 @@ class ChemicalDataObject
 		void setUnit( BlueObeliskUnit unit ){
 			m_unit = unit;
 		}
+
+		/**
+		 * @return the BlueObeliskUnit of a ChemicalDataObject corresponding to @p text
+		 * @param text the attribute-text of the XML parsed
+		 */
+		static BlueObeliskUnit unit( const QString& unitname );
 		
 	private:
 		QVariant m_value;

@@ -168,3 +168,19 @@ QString ChemicalDataObject::unitAsString()
 	return bounit;
 }
 	
+
+ChemicalDataObject::BlueObeliskUnit ChemicalDataObject::unit( const QString& unit )
+{
+	if ( unit == "bo:kelvin" ) 
+		return ChemicalDataObject::kelvin;
+	else if ( unit == "bo:ev" )
+		return ChemicalDataObject::ev;
+	else if ( unit == "bo:nm" )
+		return ChemicalDataObject::nm;
+	else if ( unit == "bo:pm" )
+		return ChemicalDataObject::pm;
+	else if ( unit == "bo:noUnit" )
+		return ChemicalDataObject::noUnit;
+	else
+		return ChemicalDataObject::noUnit;
+}

@@ -43,12 +43,6 @@ class ElementSaxParser : public QXmlDefaultHandler
 	private:
 		ChemicalDataObject *currentDataObject_;
 		ChemicalDataObject::BlueObeliskUnit currentUnit_;
-
-		/**
-		 * @return the BlueObeliskUnit of a ChemicalDataObject corresponding to @p text
-		 * @param text the attribute-text of the XML parsed
-		 */
-		ChemicalDataObject::BlueObeliskUnit unit( const QString& text );
 		
 		Element *currentElement_;
 		QList<Element*> elements_;

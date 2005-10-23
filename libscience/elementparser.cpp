@@ -52,7 +52,7 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 		{
 			if ( attrs.localName( i ) == "unit" )
 			{
-				currentUnit_ = unit( attrs.value( i ) );
+				currentUnit_ = ChemicalDataObject::unit( attrs.value( i ) );
 				continue;
 			}
 
@@ -208,20 +208,4 @@ bool ElementSaxParser::characters(const QString &ch)
 QList<Element*> ElementSaxParser::getElements()
 {
 	return elements_;
-}
-
-ChemicalDataObject::BlueObeliskUnit ElementSaxParser::unit( const QString& unit )
-{
-	if ( unit == "bo:kelvin" ) 
-		return ChemicalDataObject::kelvin;
-	else if ( unit == "bo:ev" )
-		return ChemicalDataObject::ev;
-	else if ( unit == "bo:nm" )
-		return ChemicalDataObject::nm;
-	else if ( unit == "bo:pm" )
-		return ChemicalDataObject::pm;
-	else if ( unit == "bo:noUnit" )
-		return ChemicalDataObject::noUnit;
-	else
-		return ChemicalDataObject::noUnit;
 }
