@@ -85,14 +85,14 @@ class ChemicalDataObject
 		 * @param v the data of the object
 		 * @param type the type of the data
 		 */
-		ChemicalDataObject(QVariant v, 
+		ChemicalDataObject( const QVariant& v, 
 				BlueObelisk type);
 
 		/**
 		 * Set the data of this object to @p v
 		 * @param v the value of the object
 		 */
-		void setData( QVariant v );
+		void setData( const QVariant& v );
 		
 		/**
 		 * Destructor.

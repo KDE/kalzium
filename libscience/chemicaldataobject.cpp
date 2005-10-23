@@ -21,7 +21,7 @@
 
 #include <kdebug.h>
 
-ChemicalDataObject::ChemicalDataObject( QVariant v, BlueObelisk type )
+ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type )
 {
 	m_value = v;
 	m_type = type;
@@ -98,7 +98,7 @@ ChemicalDataObject::BlueObeliskUnit ChemicalDataObject::unit() const
 	return m_unit;
 }
 
-void ChemicalDataObject::setData( QVariant v )
+void ChemicalDataObject::setData( const QVariant& v )
 {
 	m_value = v;
 }
