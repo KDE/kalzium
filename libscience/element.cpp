@@ -35,7 +35,7 @@ Element::Element()
 {
 }
 
-ChemicalDataObject& Element::data(ChemicalDataObject::BlueObelisk type)
+ChemicalDataObject& Element::data(ChemicalDataObject::BlueObelisk type) const
 {
 	foreach( ChemicalDataObject*o, dataList ) {
 		if ( o->type() == type )
@@ -45,7 +45,7 @@ ChemicalDataObject& Element::data(ChemicalDataObject::BlueObelisk type)
 	return cdo;
 }
 
-QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type )
+QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type ) const
 {
 	foreach( ChemicalDataObject* o, dataList ) {
 		if ( o->type() == type )
@@ -54,7 +54,7 @@ QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type )
 	return QVariant();
 }
 
-QString Element::dataAsString(ChemicalDataObject::BlueObelisk type)
+QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
 {
 	foreach( ChemicalDataObject*o, dataList ) {
 		if ( o->type() == type )
@@ -63,7 +63,7 @@ QString Element::dataAsString(ChemicalDataObject::BlueObelisk type)
 	return "";
 }
 
-Isotope* Element::isotopeByNucleons( int numberOfNucleons )
+Isotope* Element::isotopeByNucleons( int numberOfNucleons ) const
 {
 	QList<Isotope*>::ConstIterator it = m_isotopeList.begin();
 	const QList<Isotope*>::ConstIterator itEnd = m_isotopeList.end();

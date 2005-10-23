@@ -49,7 +49,7 @@ class Element{
 		 * @returns a pointer to the istope with @p numberOfNucleons
 		 * nucleons
 		 */
-		Isotope* isotopeByNucleons( int numberOfNucleons );
+		Isotope* isotopeByNucleons( int numberOfNucleons ) const;
 		
 		enum RADIUSTYPE
 		{
@@ -67,7 +67,7 @@ class Element{
 			return m_spectrumList;
 		}
 
-		void setIsotopeList( QList<Isotope*> list ){
+		void setIsotopeList( const QList<Isotope*> &list ){
 			m_isotopeList = list;
 		}
 
@@ -171,17 +171,17 @@ class Element{
 		 * of the type @p type
 		 * @param type the type of the requested data
 		 */
-		ChemicalDataObject& data( ChemicalDataObject::BlueObelisk type );
+		ChemicalDataObject& data( ChemicalDataObject::BlueObelisk type ) const;
 
 		/**
 		 * @return the requested data of the type @p type as a QVariant
 		 */
-		QVariant dataAsVariant( ChemicalDataObject::BlueObelisk type );
+		QVariant dataAsVariant( ChemicalDataObject::BlueObelisk type ) const;
 		
 		/**
 		 * @return the requested data of the type @p type as a QString
 		 */
-		QString dataAsString( ChemicalDataObject::BlueObelisk type );
+		QString dataAsString( ChemicalDataObject::BlueObelisk type ) const;
 		
 		/**
 		 * @return the data of the Element
