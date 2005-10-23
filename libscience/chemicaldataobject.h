@@ -23,6 +23,8 @@
 #include <QVariant>
 #include <QString>
 
+class ChemicalDataObjectPrivate;
+
 /**
  * A ChemicalDataObject is an object which contains information about 
  * a chemical element. This can for example be a boiling point. The information
@@ -186,9 +188,7 @@ class ChemicalDataObject
 		static BlueObeliskUnit unit( const QString& unitname );
 		
 	private:
-		QVariant m_value;
-		BlueObelisk m_type;
-		BlueObeliskUnit m_unit;
+		ChemicalDataObjectPrivate *d;
 };
 
 #endif // CHEMICALDATAOBJECT_H
