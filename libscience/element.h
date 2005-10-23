@@ -59,47 +59,33 @@ class Element{
 			COVALENT
 		};
 
-		QList<Isotope*> isotopes() const{
-			return m_isotopeList;
-        }
+		QList<Isotope*> isotopes() const;
 
-		QList<double> spectrumList() const{
-			return m_spectrumList;
-		}
+		QList<double> spectrumList() const;
 
-		void setIsotopeList( const QList<Isotope*> &list ){
-			m_isotopeList = list;
-		}
+		void setIsotopeList( const QList<Isotope*> &list );
 
 		/**
 		 * sets the Spectrum of the Element
 		 * @param spec the Spectrum of the Element
 		 */
-		void setSpectrum( Spectrum *spec ){
-			m_spectrum = spec;
-		}
+		void setSpectrum( Spectrum *spec );
 
 		/**
 		 * @return if the element has information about spectra
 		 */
-		bool hasSpectrum() const{
-			return m_hasSpectrum;
-		}
+		bool hasSpectrum() const;
 
 		/**
 		 * define if the element has a known Spectrum
 		 * @param value if true, the Element has a Spectrum
 		 */
-		void setHasSepctrum(bool value){
-			m_hasSpectrum = value;
-		}
+		void setHasSepctrum(bool value);
 
 		/**
 		 * @return the Spectrum of the element
 		 */
-		Spectrum* spectrum() const{
-			return m_spectrum;
-		}
+		Spectrum* spectrum() const;
 
 		/**
 		 * adjusts the units for the data. The user can
@@ -151,9 +137,7 @@ class Element{
 		 * Sdd the ChemicalDataObject @p o to this Element
 		 * @param o the ChemicalDataObject to be added
 		 */
-		void addData( ChemicalDataObject*o ){
-			dataList.append( o );
-		}
+		void addData( ChemicalDataObject*o );
 
 		/**
 		 * Sdd a ChemicalDataObject with @p value of @p type to this
@@ -161,10 +145,7 @@ class Element{
 		 * @param value the QVariant to be added
 		 * @param type the BlueObelisk type to be added
 		 */
-		void addData( const QVariant& value, ChemicalDataObject::BlueObelisk type ) {
-			ChemicalDataObject* tmp = new ChemicalDataObject( value, type );
-			dataList.append( tmp );
-		}
+		void addData( const QVariant& value, ChemicalDataObject::BlueObelisk type );
 
 		/**
 		 * @return the ChemicalDataObject which stores the information

@@ -76,6 +76,41 @@ Isotope* Element::isotopeByNucleons( int numberOfNucleons ) const
 	return 0;
 }
 
+QList<Isotope*> Element::isotopes() const
+{
+	return m_isotopeList;
+}
+
+QList<double> Element::spectrumList() const
+{
+	return m_spectrumList;
+}
+
+void Element::setIsotopeList( const QList<Isotope*> &list )
+{
+	m_isotopeList = list;
+}
+
+void Element::setSpectrum( Spectrum *spec )
+{
+	m_spectrum = spec;
+}
+
+bool Element::hasSpectrum() const
+{
+	return m_hasSpectrum;
+}
+
+void Element::setHasSepctrum(bool value)
+{
+	m_hasSpectrum = value;
+}
+
+Spectrum* Element::spectrum() const
+{
+	return m_spectrum;
+}
+
 Element::~Element()
 {
 }
@@ -233,3 +268,13 @@ const QString Element::adjustUnits( const int type )
 	return v;
 }
 
+void Element::addData( ChemicalDataObject*o )
+{
+	dataList.append( o );
+}
+
+void Element::addData( const QVariant& value, ChemicalDataObject::BlueObelisk type )
+{
+	ChemicalDataObject* tmp = new ChemicalDataObject( value, type );
+	dataList.append( tmp );
+}
