@@ -47,6 +47,7 @@ class ElementSaxParser : public QXmlDefaultHandler
 			 inRadiusVDW_,
 			 inBoilingPoint_,
 			 inMeltingPoint_,
-			 inPeriodTableBlock_;
+			 inPeriodTableBlock_,
+			 inNameOrigin_;
 };
 #endif // ELEMENTPARSER_H

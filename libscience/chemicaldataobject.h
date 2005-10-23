@@ -54,7 +54,8 @@ class ChemicalDataObject
 			radiusVDW/**< the van der Waals radius */,
 			meltingpoint,
 			boilingpoint,
-			periodTableBlock
+			periodTableBlock,
+			nameOrigin
 		};
 
 		/**
