@@ -34,12 +34,7 @@ ChemicalDataObject::ChemicalDataObject()
 	m_unit = ChemicalDataObject::noUnit;
 }
 
-QString ChemicalDataObject::valueAsString()
-{
-	return m_value.toString();
-}
-
-bool ChemicalDataObject::operator==( const int v )
+bool ChemicalDataObject::operator==( const int v ) const
 {
 	kdDebug() << "ChemicalDataObject::operator==() with int" << endl;
 	if ( m_value.type() != QVariant::Int )	
@@ -48,7 +43,7 @@ bool ChemicalDataObject::operator==( const int v )
 	return m_value.toInt() == v;
 }
 
-bool ChemicalDataObject::operator==( const bool v )
+bool ChemicalDataObject::operator==( const bool v ) const
 {
 	kdDebug() << "ChemicalDataObject::operator==() with bool" << endl;
 	if ( m_value.type() != QVariant::Bool )	
@@ -57,7 +52,7 @@ bool ChemicalDataObject::operator==( const bool v )
 	return m_value.toBool() == v;
 }
 
-bool ChemicalDataObject::operator==( const double v )
+bool ChemicalDataObject::operator==( const double v ) const
 {
 	kdDebug() << "ChemicalDataObject::operator==() with double" << endl;
 	if ( m_value.type() != QVariant::Double )	
@@ -66,7 +61,7 @@ bool ChemicalDataObject::operator==( const double v )
 	return m_value.toDouble() == v;
 }
 
-bool ChemicalDataObject::operator==( const QString& v )
+bool ChemicalDataObject::operator==( const QString& v ) const
 {
 	kdDebug() << "ChemicalDataObject::operator==() with QString" << endl;
 	if ( m_value.type() != QVariant::String )	
@@ -77,6 +72,46 @@ bool ChemicalDataObject::operator==( const QString& v )
 
 ChemicalDataObject::~ChemicalDataObject()
 {}
+
+QString ChemicalDataObject::valueAsString() const
+{
+	return m_value.toString();
+}
+
+ChemicalDataObject::BlueObelisk ChemicalDataObject::type() const
+{
+	return m_type;
+}
+
+QVariant ChemicalDataObject::value() const
+{
+	return m_value;
+}
+
+void ChemicalDataObject::setUnit( ChemicalDataObject::BlueObeliskUnit unit )
+{
+	m_unit = unit;
+}
+
+ChemicalDataObject::BlueObeliskUnit ChemicalDataObject::unit() const
+{
+	return m_unit;
+}
+
+void ChemicalDataObject::setData( QVariant v )
+{
+	m_value = v;
+}
+
+void ChemicalDataObject::setType( BlueObelisk type )
+{
+	m_type = type;
+}
+
+void ChemicalDataObject::setType( int type )
+{
+	m_type = ( ChemicalDataObject::BlueObelisk ) type;
+}
 
 QString ChemicalDataObject::dictRef()
 {

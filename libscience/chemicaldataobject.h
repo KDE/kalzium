@@ -92,9 +92,7 @@ class ChemicalDataObject
 		 * Set the data of this object to @p v
 		 * @param v the value of the object
 		 */
-		void setData( QVariant v ){
-			m_value = v;
-		}
+		void setData( QVariant v );
 		
 		/**
 		 * Destructor.
@@ -112,7 +110,7 @@ class ChemicalDataObject
 		 *
 		 * @return the value as a QString
 		 */
-		QString valueAsString();
+		QString valueAsString() const;
 		
 		/**
 		 * Every ChemicalDataObject contains one data. For example a
@@ -121,50 +119,42 @@ class ChemicalDataObject
 		 *
 		 * @return the value as a QVariant
 		 */
-		QVariant value() const{
-			return m_value;
-		}
+		QVariant value() const;
 
 		/**
 		 * @return the type of dataset of this object
 		 */
-		BlueObelisk type() const{
-			return m_type;
-		}
+		BlueObelisk type() const;
 
 		/**
 		 * @param type the type of this object
 		 */
-		void setType( BlueObelisk type ){
-			m_type = type;
-		}
+		void setType( BlueObelisk type );
 
 		/**
 		 * @overload
 		 */
-		void setType( int type ){
-			m_type = ( BlueObelisk ) type;
-		}
+		void setType( int type );
 		
 		/**
 		 * Compare the value @p v with the data of this object
 		 */
-		bool operator== ( const int v );
+		bool operator== ( const int v ) const;
 		
 		/**
 		 * Compare the value @p v with the data of this object
 		 */
-		bool operator== ( const double v );
+		bool operator== ( const double v ) const;
 		
 		/**
 		 * Compare the value @p v with the data of this object
 		 */
-		bool operator== ( const bool v );
+		bool operator== ( const bool v ) const;
 		
 		/**
 		 * Compare the value @p v with the data of this object
 		 */
-		bool operator== ( const QString& v );
+		bool operator== ( const QString& v ) const;
 
 		/**
 		 * @return the dictRef attribute of the XML. This is an
@@ -181,17 +171,13 @@ class ChemicalDataObject
 		/**
 		 * @return the unit of the object
 		 */
-		BlueObeliskUnit unit() const{
-			return m_unit;
-		}
+		BlueObeliskUnit unit() const;
 
 		/**
 		 * set the unit of this object to @p unit
 		 * @param the BlueObeliskUnit of this object
 		 */
-		void setUnit( BlueObeliskUnit unit ){
-			m_unit = unit;
-		}
+		void setUnit( BlueObeliskUnit unit );
 
 		/**
 		 * @return the BlueObeliskUnit of a ChemicalDataObject corresponding to @p text

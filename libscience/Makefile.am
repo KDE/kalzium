@@ -17,3 +17,6 @@ libscience_la_LDFLAGS = $(all_libraries) -no-undefined -version-info 4:0:0
 libscience_la_LIBADD = $(LIB_KDEUI) 
 
 METASOURCES = AUTO
+
+include $(top_srcdir)/admin/Doxyfile.am
+
