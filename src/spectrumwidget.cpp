@@ -34,6 +34,11 @@
 #include <qpixmap.h>
 #include <qtooltip.h>
 
+#include <qglobal.h>
+#if defined(Q_OS_SOLARIS)
+#include <ieeefp.h>
+#endif
+
 SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name ) : QWidget( parent, name )
 {
 	startValue = 0;
