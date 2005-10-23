@@ -63,7 +63,7 @@ double KalziumUtils::strippedValue( double num )
 		power *= 10;
 
 	num = num / power * 10000;
-	num = round( num );
+	num = qRound( num );
 
 	return num * power / 10000;
 }
