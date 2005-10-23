@@ -141,8 +141,6 @@ class SpectrumWidget : public QWidget
 			return startValue + (  (  endValue-startValue ) *  xpos );
 		}
 
-		double strippedValue( double num );
-
 		/**
 		 * This method changes the three values @p r, @p g and @p b to the
 		 * correct values

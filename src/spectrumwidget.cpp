@@ -21,6 +21,7 @@
 #include "spectrumwidget.h"
 #include "spectrum.h"
 #include "element.h"
+#include "kalziumutils.h"
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -216,7 +217,7 @@ int SpectrumWidget::Adjust( double color, double factor )
 	if ( color == 0.0 )
 		return 0;
 	else
-		return ( int )( round( IntensityMax * pow( color*factor, Gamma ) ) );
+		return qRound( IntensityMax * pow( color*factor, Gamma ) );
 }
 
 void SpectrumWidget::drawTickmarks( QPainter* p )
@@ -243,29 +244,13 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 			{
 				pos = ( double ) ( i*d )/width();
 				p->fillRect( i*d-space, m_realHeight+12, 2*space, 15, Qt::white );
-				p->drawText( i*d-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( strippedValue( Wavelength( pos ) ) ) );
+				p->drawText( i*d-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( KalziumUtils::strippedValue( Wavelength( pos ) ) ) );
 			}
 		}
 		else {//small tickmarks
 			p->drawLine( i*d, m_realHeight, i*d, m_realHeight+5 );
 		}
 	}
-}
-
-double SpectrumWidget::strippedValue( double num )
-{
-	if ( !finite( num ) )
-		return num;
-
-	double power;
-	power = 1e-6;
-	while ( power < num )
-		power *= 10;
-
-	num = num / power * 10000;
-	num = round( num );
-
-	return num * power / 10000;
 }
 
 void SpectrumWidget::keyPressEvent( QKeyEvent *e )

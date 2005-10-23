@@ -97,7 +97,7 @@ void Spectrum::adjustIntensities()
 		double curInt = ( ( double )( *it ).intensity );
 		
 		double newInt = max*1000/curInt;
-		( *it ).intensity = ( int ) round( newInt );
+		( *it ).intensity = qRound( newInt );
 	}
 }
 
