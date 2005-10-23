@@ -3038,7 +3038,7 @@
 		<mass>144.24</mass>
 		<block>f</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientist="C. Auer von Welsbach">1925</date>
+		<date scientist="C. Auer von Welsbach">1885</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity></electronaffinity>
@@ -3916,7 +3916,7 @@
 		<mass>208.98038</mass>
 		<block>p</block>
 		<acidicbehaviour>0</acidicbehaviour>
-		<date scientist="P. Pott. T. O. Bergmann">0</date>
+		<date scientist="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<group>5</group>
 		<electronaffinity>-91</electronaffinity>
