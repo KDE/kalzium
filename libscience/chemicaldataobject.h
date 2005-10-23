@@ -160,13 +160,13 @@ class ChemicalDataObject
 		 * @return the dictRef attribute of the XML. This is an
 		 * identifier. For example, for the mass it is "bo:mass"
 		 */
-		QString dictRef();
+		QString dictRef() const;
 
 		/**
 		 * @return the unit of the object as a QString. For example kelvin 
 		 * will be returned as "bo:kelvin"
 		 */
-		QString unitAsString();
+		QString unitAsString() const;
 
 		/**
 		 * @return the unit of the object

@@ -113,7 +113,7 @@ void ChemicalDataObject::setType( int type )
 	m_type = ( ChemicalDataObject::BlueObelisk ) type;
 }
 
-QString ChemicalDataObject::dictRef()
+QString ChemicalDataObject::dictRef() const
 {
 	QString botype;
 	switch ( m_type ){
@@ -178,7 +178,7 @@ QString ChemicalDataObject::dictRef()
 	return botype;
 }
 
-QString ChemicalDataObject::unitAsString()
+QString ChemicalDataObject::unitAsString() const
 {
 	QString bounit;
 	switch ( m_unit ){
