@@ -52,12 +52,14 @@ class ChemicalDataObject
 			electronegativityPauling/**< the electronegativity in the definition of Pauling*/,
 			radiusCovalent/**< the covalent radius */,
 			radiusVDW/**< the van der Waals radius */,
-			meltingpoint,
-			boilingpoint,
-			periodTableBlock,
-			nameOrigin,
-			orbit,
-			period
+			meltingpoint/**< the meltingpoint */,
+			boilingpoint/**< the boilingpoint */,
+			periodTableBlock/**< the block of the element */,
+			nameOrigin/**< the origin of the name */,
+			orbit/**< the quantumorbit of the element */,
+			period/**< the period of the element */,
+			date/**< date of discovery of the element. When 0, the element has been known in ancient times. */,
+			discoverer/** The name of the discoverer(s) */
 		};
 
 		/**
@@ -88,6 +90,7 @@ class ChemicalDataObject
 
 		/**
 		 * Set the data of this object to @p v
+		 * @param v the value of the object
 		 */
 		void setData( QVariant v ){
 			m_value = v;
@@ -182,6 +185,10 @@ class ChemicalDataObject
 			return m_unit;
 		}
 
+		/**
+		 * set the unit of this object to @p unit
+		 * @param the BlueObeliskUnit of this object
+		 */
 		void setUnit( BlueObeliskUnit unit ){
 			m_unit = unit;
 		}

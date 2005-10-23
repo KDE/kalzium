@@ -127,6 +127,12 @@ QString ChemicalDataObject::dictRef()
 		case orbit:
 			botype = "orbit";
 			break;
+		case date:
+			botype = "date";
+			break;
+		case discoverer:
+			botype = "discoverer";
+			break;
 		case period:
 			botype = "period";
 			break;

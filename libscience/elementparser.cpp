@@ -42,11 +42,19 @@ ElementSaxParser::ElementSaxParser()
 
 bool ElementSaxParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-	if (localName == "elementType") {
+	if (localName == "elementType") 
+	{
 		currentElement_ = new Element();
 		inElement_ = true;
-	} else if (inElement_ && localName == "scalar") {
-		for (int i = 0; i < attrs.length(); ++i) {
+	} else if (inElement_ && localName == "scalar") 
+	{
+		for (int i = 0; i < attrs.length(); ++i) 
+		{
+			if ( attrs.localName( i ) == "unit" )
+			{
+				currentUnit_ = unit( attrs.value( i ) );
+				continue;
+			}
 
 			if (attrs.value(i) == "bo:atomicNumber")
 				inAtomicNumber_ = true;
@@ -91,14 +99,22 @@ bool ElementSaxParser::endElement (  const QString & namespaceURI, const QString
 		elements_.append(currentElement_);
 		
 		currentElement_ = 0;
+		currentDataObject_ = 0;
 		inElement_ = false;
+	}
+	else if ( localName == "scalar" )
+	{
+		if ( currentUnit_ != ChemicalDataObject::noUnit )
+			currentDataObject_->setUnit( currentUnit_ );
+
+		currentUnit_ = ChemicalDataObject::noUnit;
 	}
 	return true;
 }
 
 bool ElementSaxParser::characters(const QString &ch)
 {
-	ChemicalDataObject *dataobject = new ChemicalDataObject();
+	currentDataObject_ = new ChemicalDataObject();
 	ChemicalDataObject::BlueObelisk type;
 	QVariant value;
 
@@ -180,11 +196,11 @@ bool ElementSaxParser::characters(const QString &ch)
 	else//it is a non known value. Do not create a wrong object but return
 		return true;
 
-	dataobject->setData( value );
-	dataobject->setType( type );
+	currentDataObject_->setData( value );
+	currentDataObject_->setType( type );
 
 	if ( currentElement_ )
-		currentElement_->addData( dataobject );
+		currentElement_->addData( currentDataObject_ );
 
 	return true;
 }
@@ -192,4 +208,20 @@ bool ElementSaxParser::characters(const QString &ch)
 QList<Element*> ElementSaxParser::getElements()
 {
 	return elements_;
+}
+
+ChemicalDataObject::BlueObeliskUnit ElementSaxParser::unit( const QString& unit )
+{
+	if ( unit == "bo:kelvin" ) 
+		return ChemicalDataObject::kelvin;
+	else if ( unit == "bo:ev" )
+		return ChemicalDataObject::ev;
+	else if ( unit == "bo:nm" )
+		return ChemicalDataObject::nm;
+	else if ( unit == "bo:pm" )
+		return ChemicalDataObject::pm;
+	else if ( unit == "bo:noUnit" )
+		return ChemicalDataObject::noUnit;
+	else
+		return ChemicalDataObject::noUnit;
 }
