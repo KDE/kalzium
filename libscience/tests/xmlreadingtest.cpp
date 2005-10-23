@@ -41,7 +41,12 @@ int main(int argc, char *argv[])
 			//Test: give me all data available
 			foreach( ChemicalDataObject*o, list ){
 				if ( o )
-					kdDebug() << "Name: " << o->dictRef() << " " << o->valueAsString() << endl;
+				{
+					QString unit = o->unitAsString();
+					if ( unit == "bo:noUnit" )
+						unit = "";
+					kdDebug() << "Name: " << o->dictRef() << " " << o->valueAsString()  <<" "  << unit << endl;
+				}
 			}
 		}
 

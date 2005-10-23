@@ -25,11 +25,13 @@ ChemicalDataObject::ChemicalDataObject( QVariant v, BlueObelisk type )
 {
 	m_value = v;
 	m_type = type;
+	m_unit = ChemicalDataObject::noUnit;
 };
 
 ChemicalDataObject::ChemicalDataObject() 
 {
 	m_value = QVariant();
+	m_unit = ChemicalDataObject::noUnit;
 }
 
 QString ChemicalDataObject::valueAsString()
@@ -119,10 +121,44 @@ QString ChemicalDataObject::dictRef()
 		case periodTableBlock:
 			botype = "periodTableBlock";
 			break;
+		case nameOrigin:
+			botype = "nameOrigin";
+			break;
+		case orbit:
+			botype = "orbit";
+			break;
+		case period:
+			botype = "period";
+			break;
 	}
 	
 	botype = botype.prepend( "bo:" );
 	
 	return botype;
+}
+
+QString ChemicalDataObject::unitAsString()
+{
+	QString bounit;
+	switch ( m_unit ){
+		case kelvin:
+			bounit = "kelvin";
+			break;
+		case nm:
+			bounit = "nm";
+			break;
+		case pm:
+			bounit = "pm";
+			break;
+		case ev:
+			bounit = "ev";
+			break;
+		case noUnit:
+			return "noUnit";
+	}
+	
+	bounit = bounit.prepend( "bo:" );
+	
+	return bounit;
 }
 	

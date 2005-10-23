@@ -35,7 +35,8 @@ ElementSaxParser::ElementSaxParser()
 	inBoilingPoint_(false),
 	inMeltingPoint_(false),
 	inPeriodTableBlock_(false),
-	inNameOrigin_(false)
+	inNameOrigin_(false),
+	inPeriod_(false)
 {
 }
 
@@ -75,6 +76,8 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 				inPeriodTableBlock_ = true;
 			else if (attrs.value(i) == "bo:nameOrigin")
 				inNameOrigin_ = true;
+			else if (attrs.value(i) == "bo:period")
+				inPeriod_ = true;
 		}
 	}
 	return true;
@@ -168,6 +171,11 @@ bool ElementSaxParser::characters(const QString &ch)
 		value = ch;
 		type = ChemicalDataObject::nameOrigin; 
 		inNameOrigin_ = false;
+	}
+	else if (inPeriod_) {
+		value = ch.toInt();
+		type = ChemicalDataObject::period; 
+		inPeriod_ = false;
 	}
 	else//it is a non known value. Do not create a wrong object but return
 		return true;

@@ -55,7 +55,22 @@ class ChemicalDataObject
 			meltingpoint,
 			boilingpoint,
 			periodTableBlock,
-			nameOrigin
+			nameOrigin,
+			orbit,
+			period
+		};
+
+		/**
+		 * The BlueObelisk-project defines in their XML file the dataset
+		 * with the units in the namespace "bo". 
+		 */
+		enum BlueObeliskUnit
+		{
+			kelvin = 0/**< Degree Kelvin */,
+			ev/**< electron volt */,
+			nm/**< nanometer */,
+			pm/**< picometer */,
+			noUnit/**< no unit */
 		};
 
 		/**
@@ -153,10 +168,28 @@ class ChemicalDataObject
 		 * identifier. For example, for the mass it is "bo:mass"
 		 */
 		QString dictRef();
+
+		/**
+		 * @return the unit of the object as a QString. For example kelvin 
+		 * will be returned as "bo:kelvin"
+		 */
+		QString unitAsString();
+
+		/**
+		 * @return the unit of the object
+		 */
+		BlueObeliskUnit unit() const{
+			return m_unit;
+		}
+
+		void setUnit( BlueObeliskUnit unit ){
+			m_unit = unit;
+		}
 		
 	private:
 		QVariant m_value;
 		BlueObelisk m_type;
+		BlueObeliskUnit m_unit;
 };
 
 #endif // CHEMICALDATAOBJECT_H
