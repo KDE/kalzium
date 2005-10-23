@@ -36,7 +36,7 @@ class Isotope
 				double percentage, 
 				double weight, 
 				double halflife, 
-				QString format, 
+				const QString &format, 
 				double alphadecay, 
 				double betaplusdecay, 
 				double betaminusdecay, 
@@ -45,8 +45,8 @@ class Isotope
 				double betapluspercentage, 
 				double betaminuspercentage, 
 				double ecpercentage, 
-				QString spin, 
-				QString magmoment);
+				const QString &spin, 
+				const QString &magmoment);
 
 		bool seconds() const{
 			if ( m_format == "seconds" )
@@ -136,7 +136,7 @@ class Isotope
 		 * appended, for example "seconds" or "years" depending 
 		 * on the timeframe
 		 */
-		QString halflifeAsString();
+		QString halflifeAsString() const;
 
 		/**
 		 * @return the percentage of the betaminus decay
