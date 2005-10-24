@@ -38,6 +38,13 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 	{
 		for (int i = 0; i < attrs.length(); ++i) 
 		{
+
+			if ( attrs.localName( i ) == "errorValue" )
+			{
+				currentErrorValue_ = QVariant( attrs.value( i ) );
+				continue;
+			}
+			
 			if (attrs.value(i) == "bo:atomicNumber")
 				inAtomicNumber_ = true;
 			else if (attrs.value(i) == "bo:exactMass")
@@ -56,6 +63,12 @@ bool IsotopeParser::endElement (  const QString & namespaceURI, const QString & 
 		currentIsotope_ = 0;
 		currentDataObject_ = 0;
 		inIsotope_ = false;
+	}
+	else if ( localName == "scalar" )
+	{
+		if ( currentDataObject_->type() == ChemicalDataObject::exactMass ){
+			currentDataObject_->setErrorValue( currentErrorValue_ );
+		}
 	}
 
 	return true;

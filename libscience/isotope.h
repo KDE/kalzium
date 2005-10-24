@@ -40,7 +40,7 @@ class Isotope
 
 		double mass() const;
 
-		double errorMargin() const;
+		QString errorMargin() const;
 
 		int parentElementNumber() const;
 

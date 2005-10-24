@@ -58,9 +58,9 @@ double Isotope::mass() const
 	return m_mass->value().toDouble();
 }
 
-double Isotope::errorMargin() const
+QString Isotope::errorMargin() const
 {
-	return m_mass->errorValue().toDouble();
+	return m_mass->errorValue().toString();
 }
 
 int Isotope::parentElementNumber() const

@@ -42,6 +42,8 @@ class IsotopeParser : public QXmlDefaultHandler
 	private:
 		ChemicalDataObject *currentDataObject_;
 		ChemicalDataObject::BlueObeliskUnit currentUnit_;
+
+		QVariant currentErrorValue_;
 		
 		Isotope* currentIsotope_;
 		QList<Isotope*> isotopes_;
