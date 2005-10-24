@@ -82,6 +82,8 @@ different views of the PTE.
 http://en.wikipedia.org/wiki/Periodic_table_(standard) and see the notes 
 about borders.
 
+* Printing: print properties selected by the user
+
 * Spectrum-Classes
   + Create an editor. The user enters some wavelength and Kalzium will
     create a graphic from that data.
