@@ -10,6 +10,7 @@ libscience_la_SOURCES = \
 	isotope.cpp \
 	spectrumparser.cpp \
 	elementparser.cpp \
+	isotopeparser.cpp \
 	tempunit.cpp \
 	chemicaldataobject.cpp
 

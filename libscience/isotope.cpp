@@ -37,3 +37,38 @@ Isotope::Isotope( ChemicalDataObject* mass,
 
 Isotope::~Isotope(){}
 
+
+ChemicalDataObject* Isotope::data() const
+{
+	return m_mass;
+}
+
+void Isotope::addData( ChemicalDataObject* o )
+{
+	if ( o->type() == ChemicalDataObject::exactMass )
+		m_mass = o;
+	else if ( o->type() == ChemicalDataObject::atomicNumber )
+		m_identifier = o;
+
+	return;
+}
+
+double Isotope::mass() const
+{
+	return m_mass->value().toDouble();
+}
+
+double Isotope::errorMargin() const
+{
+	return m_mass->errorValue().toDouble();
+}
+
+int Isotope::parentElementNumber() const
+{
+	return m_identifier->value().toInt();
+}
+
+QString Isotope::parentElementSymbol() const
+{
+	return m_parentElementSymbol;
+}

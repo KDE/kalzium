@@ -19,8 +19,6 @@
  ***************************************************************************/
 
 #include "element.h"
-#include "spectrum.h"
-#include "isotope.h"
 #include "tempunit.h"
 #include "chemicaldataobject.h"
 

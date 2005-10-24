@@ -36,13 +36,32 @@ class Isotope
 		Isotope(ChemicalDataObject* mass, ChemicalDataObject* ID);
 		virtual ~Isotope();
 
+		ChemicalDataObject* data() const;
+
+		double mass() const;
+
+		double errorMargin() const;
+
+		int parentElementNumber() const;
+
+		QString parentElementSymbol() const;
+
+		void addData( ChemicalDataObject* o );
+
 	private:
 		/**
 		 * the symbol of the element the isotope belongs to
 		 */
 		QString m_parentElementSymbol;
 		
+		/**
+		 * stores the infomation about the mass of the Isotope
+		 */
 		ChemicalDataObject* m_mass;
+
+		/**
+		 * stores the atomicNumber of the Isotope
+		 */
 		ChemicalDataObject* m_identifier;
 };
 
