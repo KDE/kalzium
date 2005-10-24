@@ -191,13 +191,23 @@ class ChemicalDataObject
 
 		/**
 		 * set the unit of this object to @p unit
-		 * @param the BlueObeliskUnit of this object
+		 * @param unit the BlueObeliskUnit for this object
 		 */
 		void setUnit( BlueObeliskUnit unit );
 
 		/**
-		 * @return the BlueObeliskUnit of a ChemicalDataObject corresponding to @p text
-		 * @param text the attribute-text of the XML parsed
+		 * Looks up a name @p unitname. The valid names are
+		 * hard-coded in the C++ code, currently
+		 *   - bo:kelvin
+		 *   - bo:ev
+		 *   - bo:nm
+		 *   - bo:pm
+		 *   - bo:noUnit
+		 *
+		 * @return the BlueObeliskUnit of a ChemicalDataObject 
+		 *   corresponding to @p unitname, or noUnit if the name
+		 *   doesn't match any of the known values.
+		 * @param unitname the attribute-text of the XML parsed
 		 */
 		static BlueObeliskUnit unit( const QString& unitname );
 		
