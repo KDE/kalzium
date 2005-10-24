@@ -44,12 +44,6 @@ class Element{
 		Element();
 
 		virtual ~Element();
-
-		/**
-		 * @returns a pointer to the istope with @p numberOfNucleons
-		 * nucleons
-		 */
-		Isotope* isotopeByNucleons( int numberOfNucleons ) const;
 		
 		enum RADIUSTYPE
 		{
@@ -58,34 +52,6 @@ class Element{
 			VDW /**< van der Waals radius */,
 			COVALENT
 		};
-
-		QList<Isotope*> isotopes() const;
-
-		QList<double> spectrumList() const;
-
-		void setIsotopeList( const QList<Isotope*> &list );
-
-		/**
-		 * sets the Spectrum of the Element
-		 * @param spec the Spectrum of the Element
-		 */
-		void setSpectrum( Spectrum *spec );
-
-		/**
-		 * @return if the element has information about spectra
-		 */
-		bool hasSpectrum() const;
-
-		/**
-		 * define if the element has a known Spectrum
-		 * @param value if true, the Element has a Spectrum
-		 */
-		void setHasSepctrum(bool value);
-
-		/**
-		 * @return the Spectrum of the element
-		 */
-		Spectrum* spectrum() const;
 
 		/**
 		 * adjusts the units for the data. The user can
@@ -175,21 +141,6 @@ class Element{
 		 * this QList stores all information about an element
 		 */
 		QList<ChemicalDataObject*> dataList;
-
-		/**
-		 * the integer num represents the number of the element
-		 */
-		int m_ElementNumber;
-
-		Spectrum *m_spectrum;
-
-		bool m_hasSpectrum;
-
-		QList<Isotope*> m_isotopeList;
-
-		QList<double> m_spectrumList;
-		
-		QList<double> m_ionenergies;
 };
 
 #endif

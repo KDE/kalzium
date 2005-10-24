@@ -61,7 +61,8 @@ class ChemicalDataObject
 			orbit/**< the quantumorbit of the element */,
 			period/**< the period of the element */,
 			date/**< date of discovery of the element. When 0, the element has been known in ancient times. */,
-			discoverer/** The name of the discoverer(s) */
+			discoverer/** The name of the discoverer(s) */,
+			relativeAbundance/** The abundance, relative to 100 */
 		};
 
 		/**
@@ -88,13 +89,21 @@ class ChemicalDataObject
 		 * @param type the type of the data
 		 */
 		ChemicalDataObject( const QVariant& v, 
-				BlueObelisk type);
+				BlueObelisk type,
+				const QVariant& errorValue = 0);
 
 		/**
 		 * Set the data of this object to @p v
 		 * @param v the value of the object
 		 */
 		void setData( const QVariant& v );
+
+		/**
+		 * Set the error value of this object to @p v. 
+		 * The error has to have the same unit as the value.
+		 * @param v the value of the object
+		 */
+		void setErrorValue(  const QVariant& v );
 		
 		/**
 		 * Destructor.
@@ -122,6 +131,11 @@ class ChemicalDataObject
 		 * @return the value as a QVariant
 		 */
 		QVariant value() const;
+
+		/**
+		 * @return the error margin of the object
+		 */
+		QVariant errorValue() const;
 
 		/**
 		 * @return the type of dataset of this object

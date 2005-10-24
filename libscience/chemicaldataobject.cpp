@@ -25,13 +25,15 @@ class ChemicalDataObjectPrivate
 {
 	public:
 		QVariant m_value;
+		QVariant m_errorValue;
 		ChemicalDataObject::BlueObelisk m_type;
 		ChemicalDataObject::BlueObeliskUnit m_unit;
 };
 
-ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type ) : d(new ChemicalDataObjectPrivate()) 
+ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, const QVariant& errorValue ) : d(new ChemicalDataObjectPrivate()) 
 {
 	d->m_value = v;
+	d->m_errorValue = errorValue;
 	d->m_type = type;
 	d->m_unit = ChemicalDataObject::noUnit;
 };
@@ -39,6 +41,7 @@ ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type ) : 
 ChemicalDataObject::ChemicalDataObject() : d(new ChemicalDataObjectPrivate())
 {
 	d->m_value = QVariant();
+	d->m_errorValue = QVariant();
 	d->m_unit = ChemicalDataObject::noUnit;
 }
 
@@ -98,6 +101,11 @@ QVariant ChemicalDataObject::value() const
 	return d->m_value;
 }
 
+QVariant ChemicalDataObject::errorValue() const
+{
+	return d->m_errorValue;
+}
+
 void ChemicalDataObject::setUnit( ChemicalDataObject::BlueObeliskUnit unit )
 {
 	d->m_unit = unit;
@@ -111,6 +119,11 @@ ChemicalDataObject::BlueObeliskUnit ChemicalDataObject::unit() const
 void ChemicalDataObject::setData( const QVariant& v )
 {
 	d->m_value = v;
+}
+
+void ChemicalDataObject::setErrorValue( const QVariant& v )
+{
+	d->m_errorValue = v;
 }
 
 void ChemicalDataObject::setType( BlueObelisk type )
@@ -180,6 +193,9 @@ QString ChemicalDataObject::dictRef() const
 			break;
 		case period:
 			botype = "period";
+			break;
+		case relativeAbundance:
+			botype = "relativeAbundance";
 			break;
 	}
 	

@@ -18,58 +18,22 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 #include "isotope.h"
+#include "chemicaldataobject.h"
 
 #include <kdebug.h>
 #include <klocale.h>
 
-Isotope::Isotope( int neutrons, int protones,  double percentage, double weight, double halflife, const QString &format, double alphadecay, double betaplusdecay, double betaminusdecay, double ecdecay, double alphapercentage, double betapluspercentage, double betaminuspercentage, double ecpercentage, const QString &spin, const QString &magmoment)
-{
-	m_neutrons = neutrons;
-	m_protones = protones;
-	m_percentage = percentage;
-	m_halflife = halflife;
-	m_format = format;
-	m_weight = weight;
-	m_alphadecay = alphadecay;
-	m_betaplusdecay = betaplusdecay;
-	m_betaminusdecay = betaminusdecay;
-	m_ecdecay = ecdecay;
-	
-	m_spin = spin;
-	m_magmoment = magmoment;
-
-	m_alphapercentage = alphapercentage;
-	m_betapluspercentage = betapluspercentage;
-	m_betaminuspercentage = betaminuspercentage;
-	m_ecpercentage = ecpercentage;
+Isotope::Isotope()
+	: m_mass( 0 ), m_identifier( 0 )
+{ 
 }
 
-QString Isotope::halflifeAsString() const
+Isotope::Isotope( ChemicalDataObject* mass,
+		ChemicalDataObject* ID )
 {
-	QString halflife;
-
-	if ( !seconds() )//years
-	{
-		if ( m_halflife > 1000000 )
-			halflife = i18n("%1 million years").arg( m_halflife/1000000.0 );
-		if ( m_halflife > 1000000000 )
-			halflife = i18n("%1 billion years").arg( m_halflife/1000000000.0 );
-		else
-			halflife = i18n("%1 years").arg( m_halflife );
-	}
-	else
-	{
-		if ( m_halflife < 120 )
-			halflife = i18n("%1 seconds").arg( m_halflife );
-		else if ( m_halflife > 1000 )
-			halflife = i18n("%1 minutes").arg( m_halflife/60.0 );
-		else if ( m_halflife > 3600 )
-			halflife = i18n("%1 hours").arg( m_halflife/( 60*60 ) );
-		if ( m_halflife > 86400 )   //one day
-			halflife = i18n("%1 days").arg( m_halflife/( 60*60*24 ) );
-		if ( m_halflife > ( 31536000 * 2 ) ) //two year
-			halflife = i18n("%1 years").arg( m_halflife/( 3600.0*365 ));
-	}
-
-	return halflife;
+	m_mass = mass;
+	m_identifier = ID;
 }
+
+Isotope::~Isotope(){}
+

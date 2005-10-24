@@ -63,54 +63,6 @@ QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
 	return "";
 }
 
-Isotope* Element::isotopeByNucleons( int numberOfNucleons ) const
-{
-	QList<Isotope*>::ConstIterator it = m_isotopeList.begin();
-	const QList<Isotope*>::ConstIterator itEnd = m_isotopeList.end();
-
-	for ( ; it != itEnd; ++it )
-	{
-		if ( ( ( *it )->neutrons() + ( *it )->protones() ) == numberOfNucleons )
-			return *it;
-	}
-	return 0;
-}
-
-QList<Isotope*> Element::isotopes() const
-{
-	return m_isotopeList;
-}
-
-QList<double> Element::spectrumList() const
-{
-	return m_spectrumList;
-}
-
-void Element::setIsotopeList( const QList<Isotope*> &list )
-{
-	m_isotopeList = list;
-}
-
-void Element::setSpectrum( Spectrum *spec )
-{
-	m_spectrum = spec;
-}
-
-bool Element::hasSpectrum() const
-{
-	return m_hasSpectrum;
-}
-
-void Element::setHasSepctrum(bool value)
-{
-	m_hasSpectrum = value;
-}
-
-Spectrum* Element::spectrum() const
-{
-	return m_spectrum;
-}
-
 Element::~Element()
 {
 }
