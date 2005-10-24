@@ -61,6 +61,7 @@ class ElementSaxParser : public QXmlDefaultHandler
 			 inMeltingPoint_,
 			 inPeriodTableBlock_,
 			 inNameOrigin_,
+			 inDiscoveryDate_,
 			 inPeriod_;
 };
 #endif // ELEMENTPARSER_H
