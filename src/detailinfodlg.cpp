@@ -356,52 +356,52 @@ QString DetailedInfoDlg::isotopeTable()
 
 void DetailedInfoDlg::createContent( )
 {
-	addTab( getHtml(CHEMICAL), i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
-	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
-	addTab( getHtml(MISC), i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
-	
-	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
-	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
-	m_pages.append( m_pSpectrumTab );
-	
-	//now add the spectrum-widget if needed
-	if ( m_element->hasSpectrum() )
-	{
-		m_spectrumview = new SpectrumViewImpl( m_pSpectrumTab, "spectrumwidget" );
-		m_spectrumview->setSpectrum( m_element->spectrum() );
-		spectrumLayout->addWidget( m_spectrumview );
-	}
-//X 	else
-//X 		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elementName() ), m_pSpectrumTab ) );
-	
-	QString num = m_element->dataAsString( ChemicalDataObject::atomicNumber );
-//X 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elementName() ).arg( num );
-//X 	setCaption( cap );
-
-	dTab->setElement( m_element );
-
-	////////////////////////////////////
-	QString picpath = "";
-	//QString picpath = locate(  "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" );
-	if ( !picpath.isEmpty() )
-	{
-		QImage img( picpath, "JPEG" );
-		img = img.smoothScale ( 400, 400, Qt::ScaleMin );
-		QPixmap pic;
-		pic.convertFromImage( img );
-		piclabel->setPixmap( pic );
-	}
-//X 	else 
-//X 		piclabel->setText( i18n( "No picture of %1 found." ).arg( m_element->elementName() ) );
-
-	/////////////////////////////////
-	
-	wOrbits->setElementNumber( m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt() );
-	wOrbits->repaint();
-	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
-							.arg( m_element->dataAsString( ChemicalDataObject::name ) )
-							.arg( m_element->dataAsString( ChemicalDataObject::name ) )
-							.arg( "" ));//m_element->parsedOrbits() ) );
+//X 	addTab( getHtml(CHEMICAL), i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
+//X 	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
+//X 	addTab( getHtml(MISC), i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
+//X 	
+//X 	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
+//X 	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
+//X 	m_pages.append( m_pSpectrumTab );
+//X 	
+//X 	//now add the spectrum-widget if needed
+//X 	if ( m_element->hasSpectrum() )
+//X 	{
+//X 		m_spectrumview = new SpectrumViewImpl( m_pSpectrumTab, "spectrumwidget" );
+//X 		m_spectrumview->setSpectrum( m_element->spectrum() );
+//X 		spectrumLayout->addWidget( m_spectrumview );
+//X 	}
+//X //X 	else
+//X //X 		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elementName() ), m_pSpectrumTab ) );
+//X 	
+//X 	QString num = m_element->dataAsString( ChemicalDataObject::atomicNumber );
+//X //X 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elementName() ).arg( num );
+//X //X 	setCaption( cap );
+//X 
+//X 	dTab->setElement( m_element );
+//X 
+//X 	////////////////////////////////////
+//X 	QString picpath = "";
+//X 	//QString picpath = locate(  "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" );
+//X 	if ( !picpath.isEmpty() )
+//X 	{
+//X 		QImage img( picpath, "JPEG" );
+//X 		img = img.smoothScale ( 400, 400, Qt::ScaleMin );
+//X 		QPixmap pic;
+//X 		pic.convertFromImage( img );
+//X 		piclabel->setPixmap( pic );
+//X 	}
+//X //X 	else 
+//X //X 		piclabel->setText( i18n( "No picture of %1 found." ).arg( m_element->elementName() ) );
+//X 
+//X 	/////////////////////////////////
+//X 	
+//X 	wOrbits->setElementNumber( m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt() );
+//X 	wOrbits->repaint();
+//X 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
+//X 							.arg( m_element->dataAsString( ChemicalDataObject::name ) )
+//X 							.arg( m_element->dataAsString( ChemicalDataObject::name ) )
+//X 							.arg( "" ));//m_element->parsedOrbits() ) );
 }
 
 void DetailedInfoDlg::slotHelp()
