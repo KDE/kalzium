@@ -72,3 +72,8 @@ QString Isotope::parentElementSymbol() const
 {
 	return m_parentElementSymbol;
 }
+
+void Isotope::setParentSymbol( const QString& symbol )
+{
+	m_parentElementSymbol = symbol;
+}

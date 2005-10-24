@@ -48,6 +48,8 @@ class Isotope
 
 		void addData( ChemicalDataObject* o );
 
+		void setParentSymbol( const QString& symbol );
+
 	private:
 		/**
 		 * the symbol of the element the isotope belongs to

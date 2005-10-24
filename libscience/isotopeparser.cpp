@@ -26,6 +26,7 @@ IsotopeParser::IsotopeParser()
 	inAtomicNumber_(false),
 	inExactMass_(false)
 {
+	currentElementSymbol_ = "";
 }
 
 bool IsotopeParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
@@ -34,6 +35,13 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 	{
 		currentIsotope_ = new Isotope();
 		inIsotope_ = true;
+		
+		//now save the symbol of the current element
+		for (int i = 0; i < attrs.length(); ++i) 
+		{
+			if ( attrs.localName( i ) == "elementType" )
+				currentElementSymbol_ = attrs.value( i );
+		}
 	} else if (inIsotope_ && localName == "scalar") 
 	{
 		for (int i = 0; i < attrs.length(); ++i) 
@@ -58,6 +66,7 @@ bool IsotopeParser::endElement (  const QString & namespaceURI, const QString & 
 {
 	if ( localName == "isotope" )
 	{
+		currentIsotope_->setParentSymbol( currentElementSymbol_ );
 		isotopes_.append(currentIsotope_);
 		
 		currentIsotope_ = 0;
