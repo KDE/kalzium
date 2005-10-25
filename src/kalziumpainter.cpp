@@ -182,8 +182,9 @@ void KalziumPainter::drawElement( int element )
 		case GRADIENT:
 		{
 			m_painter->setPen( QBrush( Qt::black ) );
+			QBrush c = grayedOut ? QBrush( Qt::lightGray ) : QBrush( m_gradient->calculateColor( m_gradient->elementCoeff( element ) ) );
 
-			m_painter->fillRect( rect, QBrush( m_gradient->calculateColor( m_gradient->elementCoeff( element ) ) ) );
+			m_painter->fillRect( rect, c );
 			m_painter->drawRect( rect );
 
 			m_painter->drawText( rect, Qt::AlignCenter, symbol );
