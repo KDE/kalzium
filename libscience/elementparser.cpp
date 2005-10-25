@@ -192,7 +192,7 @@ bool ElementSaxParser::characters(const QString &ch)
 		inNameOrigin_ = false;
 	}
 	else if (inDiscoveryDate_) {
-		value = ch;
+		value = ch.toInt();
 		type = ChemicalDataObject::date;
 		inDiscoveryDate_ = false;
 	}
