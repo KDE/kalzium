@@ -67,7 +67,7 @@ class KalziumPainter
 		};
 
 		/**
-		 * Begins painting on the painting device @p pd.
+		 * Begin painting on the painting device @p pd.
 		 */
 		void begin( QPaintDevice *pd );
 		/**
@@ -77,13 +77,25 @@ class KalziumPainter
 
 		KalziumTableType* currentTableType();
 
+		/**
+		 * Draw all the things it can: elements, legend, numeration
+		 */
 		void drawAll();
+		/**
+		 * Draw all the elements
+		 */
 		void drawElements();
+		/**
+		 * Draw the element with atomic number @p element
+		 */
 		void drawElement( int element );
 		/**
-		 * draw the legend
+		 * Draw the legend
 		 */
 		void drawLegend();
+		/**
+		 * Draw the numeration
+		 */
 		void drawNumeration();
 
 		/**
@@ -91,7 +103,14 @@ class KalziumPainter
 		 */
 		void drawElementSelector( int element );
 
+		/**
+		 * Set whether show/hide the legend, depending on the parameter
+		 * @p active.
+		 */
 		void toggleLegend( bool active );
+		/**
+		 * Whether the legend is shown
+		 */
 		bool legendShown() const;
 
 		void setMode( MODE m );
@@ -109,6 +128,10 @@ class KalziumPainter
 		void setNumeration( int n );
 		KalziumNumerationType* numeration() const;
 
+		/**
+		 * Set the date @p year forthe timeline mode. It has no effect
+		 * until you enable the timeline mode (see setTimeline()).
+		 */
 		void setDate( int year );
 		int date() const;
 		void setTimeline( bool timeline );
