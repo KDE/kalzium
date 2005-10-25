@@ -185,6 +185,13 @@ void KalziumPainter::drawElement( int element )
 			m_painter->drawRect( rect );
 
 			m_painter->drawText( rect, Qt::AlignCenter, symbol );
+
+			QFont f = m_painter->font();
+			f.setPointSize( 8 );
+			m_painter->setFont( f );
+			double value = m_gradient->value( element );
+			QString strval = value > .5 ? QString::number( KalziumUtils::strippedValue( value ) ) : i18n( "It means: Not Available. Translators: keep it as short as you can!", "N/A" );
+			m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignBottom, strval );
 			break;
 		}
 	}

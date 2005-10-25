@@ -94,7 +94,13 @@ class KalziumGradientType
 		 * @p el according to this gradient. The calculated coefficient
 		 * will be always in the range [0, 1].
 		 */
-		virtual double elementCoeff( int el ) const = 0;
+		virtual double elementCoeff( int el ) const;
+		/**
+		 * Return the value, related to the current gradient, of the
+		 * element with atomic number @p el.
+		 * It will return -1 if the data is not available.
+		 */
+		virtual double value( int el ) const = 0;
 		/**
 		 * Returns the minimum value of the data this gradient
 		 * represents.
@@ -145,7 +151,7 @@ class KalziumMassGradientType : public KalziumGradientType
 		QByteArray name() const;
 		QString description() const;
 
-		double elementCoeff( int el ) const;
+		double value( int el ) const;
 
 		double minValue() const;
 		double maxValue() const;
@@ -167,7 +173,7 @@ class KalziumBoilingPointGradientType : public KalziumGradientType
 		QByteArray name() const;
 		QString description() const;
 
-		double elementCoeff( int el ) const;
+		double value( int el ) const;
 
 		double minValue() const;
 		double maxValue() const;
@@ -189,7 +195,7 @@ class KalziumMeltingPointGradientType : public KalziumGradientType
 		QByteArray name() const;
 		QString description() const;
 
-		double elementCoeff( int el ) const;
+		double value( int el ) const;
 
 		double minValue() const;
 		double maxValue() const;

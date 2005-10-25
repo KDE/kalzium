@@ -83,6 +83,12 @@ KalziumGradientType* KalziumGradientType::instance()
 	return 0;
 }
 
+double KalziumGradientType::elementCoeff( int el ) const
+{
+	double val = value( el );
+	return val > .0 ? val / maxValue() : -1;
+}
+
 QColor KalziumGradientType::firstColor() const
 {
 	return Qt::white;
@@ -133,12 +139,11 @@ QString KalziumMassGradientType::description() const
 	return i18n( "Atomic Mass" );
 }
 
-double KalziumMassGradientType::elementCoeff( int el ) const
+double KalziumMassGradientType::value( int el ) const
 {
 	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::mass );
 	if ( v.type() != QVariant::Double ) return -1;
-
-	return v.toDouble() / maxValue();
+	return v.toDouble();
 }
 
 double KalziumMassGradientType::minValue() const
@@ -148,7 +153,7 @@ double KalziumMassGradientType::minValue() const
 
 double KalziumMassGradientType::maxValue() const
 {
-	return 272.0;
+	return 292.0;
 }
 
 
@@ -173,12 +178,11 @@ QString KalziumBoilingPointGradientType::description() const
 	return i18n( "Boiling Point" );
 }
 
-double KalziumBoilingPointGradientType::elementCoeff( int el ) const
+double KalziumBoilingPointGradientType::value( int el ) const
 {
 	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::boilingpoint );
 	if ( v.type() != QVariant::Double ) return -1;
-
-	return v.toDouble() / maxValue();
+	return v.toDouble();
 }
 
 double KalziumBoilingPointGradientType::minValue() const
@@ -213,12 +217,11 @@ QString KalziumMeltingPointGradientType::description() const
 	return i18n( "Melting Point" );
 }
 
-double KalziumMeltingPointGradientType::elementCoeff( int el ) const
+double KalziumMeltingPointGradientType::value( int el ) const
 {
 	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::meltingpoint );
 	if ( v.type() != QVariant::Double ) return -1;
-
-	return v.toDouble() / maxValue();
+	return v.toDouble();
 }
 
 double KalziumMeltingPointGradientType::minValue() const
