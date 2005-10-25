@@ -425,12 +425,12 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 	KalziumPainter::MODE cur = m_PeriodicTableView->mode();
 	if ( ( id > 1 ) && ( cur == KalziumPainter::NORMAL ) || ( cur == KalziumPainter::GRADIENT ) )
 		m_prevNormalMode = cur;
+	m_PeriodicTableView->setMode( m_prevNormalMode );
 
 	switch ( id )
 	{
 		case 0: // nothing
 		case 1: // molcalc
-			m_PeriodicTableView->setMode( m_prevNormalMode );
 			break;
 		case 2: // timeline
 			m_PeriodicTableView->setTimeline( true );
