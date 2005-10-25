@@ -70,6 +70,8 @@ class KalziumSchemeTypeFactory
 };
 
 /**
+ * This is the base class representing a colour scheme.
+ *
  * @author Pino Toscano
  */
 class KalziumSchemeType
@@ -115,6 +117,8 @@ class KalziumSchemeType
 };
 
 /**
+ * Class representing the all-one-colour scheme.
+ *
  * @author Pino Toscano
  */
 class KalziumMonoColorSchemeType : public KalziumSchemeType
@@ -135,6 +139,8 @@ class KalziumMonoColorSchemeType : public KalziumSchemeType
 };
 
 /**
+ * The scheme by element block.
+ *
  * @author Pino Toscano
  */
 class KalziumBlocksSchemeType : public KalziumSchemeType

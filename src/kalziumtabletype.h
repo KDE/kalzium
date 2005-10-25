@@ -66,6 +66,9 @@ class KalziumTableTypeFactory
 };
 
 /**
+ * This is one of the most important classes. It represents a table type, with
+ * all its attributes and metrics.
+ *
  * @author Pino Toscano
  */
 class KalziumTableType
@@ -89,6 +92,9 @@ class KalziumTableType
 		 */
 		virtual QString description() const = 0;
 
+		/**
+		 * Returns the size of this table type.
+		 */
 		virtual QSize size() const = 0;
 
 		/**
@@ -96,8 +102,18 @@ class KalziumTableType
 		 * If there is no element it will return 0.
 		 */
 		virtual int elementAtCoords( const QPoint& coords ) const = 0;
+		/**
+		 * Returns the rect for the element with atomic number @p numelem.
+		 */
 		virtual QRect elementRect( const int numelem ) const = 0;
+		/**
+		 * Returns the rect where to put the legend.
+		 */
 		virtual QRect legendRect() const = 0;
+		/**
+		 * Returns the rect for the @p numelement 'th item of the
+		 * numeration @p nt.
+		 */
 		virtual QRect numerationRect( const int numelem, KalziumNumerationType *nt ) const = 0;
 
 	protected:
@@ -105,6 +121,8 @@ class KalziumTableType
 };
 
 /**
+ * The class representing the "classic" periodic table, and its metrics.
+ *
  * @author Pino Toscano
  */
 class KalziumClassicTableType : public KalziumTableType

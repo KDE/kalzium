@@ -28,11 +28,34 @@ class KalziumSchemeType;
 class KalziumNumerationType;
 
 /**
+ * The KalziumPainter is /the/ way to draw a table, any kind of it.
+ *
+ * One of the best features of it is that you can construct it once and do
+ * multiple drawing session without destroying it.
+ *
+ * A typical usage would be:
+ * @code
+ * // build the classic periodic table
+ * KalziumTableType *table = KalziumTableTypeFactory::instance()->build( "Classic" );
+ * // creating the painter with the table type
+ * KalziumPainter painter = new KalziumPainter( table );
+ * // setting the various options
+ * ...
+ * painter->begin( widget/pixmap/paintdevice );
+ * painter->drawAll();
+ * // draw the element selector for the element with atomic number 20 (Calcium)
+ * painter->drawElementSelector( 20 );
+ * painter->end();
+ * @endcode
+ *
  * @author Pino Toscano
  */
 class KalziumPainter
 {
 	public:
+		/**
+		 * Construct a new KalziumPainter for the table type @p ktt.
+		 */
 		KalziumPainter( KalziumTableType *ktt );
 		~KalziumPainter();
 
@@ -43,7 +66,13 @@ class KalziumPainter
 			SOM
 		};
 
-		void begin( QPaintDevice *pd = 0 );
+		/**
+		 * Begins painting on the painting device @p pd.
+		 */
+		void begin( QPaintDevice *pd );
+		/**
+		 * Finish painting.
+		 */
 		void end();
 
 		KalziumTableType* currentTableType();

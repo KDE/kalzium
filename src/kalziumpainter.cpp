@@ -73,12 +73,8 @@ KalziumPainter::KalziumPainter( KalziumTableType *ktt )
 
 void KalziumPainter::begin( QPaintDevice *pd )
 {
-	if ( m_painter )
-	{
-		if ( m_painter->isActive() )
-			m_painter->end();
-	}
-	m_painter = new QPainter( pd ? pd : m_painter->device() );
+	end();
+	m_painter = new QPainter( pd );
 }
 
 void KalziumPainter::end()
