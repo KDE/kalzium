@@ -83,7 +83,7 @@ class KalziumPainter
 		/**
 		 * draw the legend
 		 */
-		void drawLegend( bool force = false );
+		void drawLegend();
 		void drawNumeration();
 
 		/**
@@ -135,8 +135,6 @@ class KalziumPainter
 		bool m_isTimeline;
 
 		bool m_legend;
-		bool m_legendNeedRepaint;
-		bool m_elementsNeedRepaint;
 
 		int m_temperature;
 };

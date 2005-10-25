@@ -64,9 +64,6 @@ KalziumPainter::KalziumPainter( KalziumTableType *ktt )
 	m_temperature = 0;
 
 	m_legend = true;
-	m_legendNeedRepaint = true;
-
-	m_elementsNeedRepaint = true;
 
 	m_mode = NORMAL;
 }
@@ -94,7 +91,7 @@ KalziumTableType* KalziumPainter::currentTableType()
 void KalziumPainter::drawAll()
 {
 	drawElements();
-	drawLegend( true );
+	drawLegend();
 	drawNumeration();
 }
 
@@ -194,10 +191,9 @@ void KalziumPainter::drawElement( int element )
 
 }
 
-void KalziumPainter::drawLegend( bool force )
+void KalziumPainter::drawLegend()
 {
-	// repaint only if the legend changed or we what to to it explicitely
-	if ( !( m_legend && m_legendNeedRepaint || force ) ) return;
+	if ( !m_legend ) return;
 
 	switch ( m_mode )
 	{
@@ -281,7 +277,6 @@ void KalziumPainter::drawLegend( bool force )
 			break;
 		}
 	}
-	m_legendNeedRepaint = false;
 }
 
 void KalziumPainter::drawNumeration()
@@ -323,7 +318,6 @@ void KalziumPainter::toggleLegend( bool active )
 	if ( active == m_legend ) return;
 
 	m_legend = active;
-	m_legendNeedRepaint = true;
 }
 
 bool KalziumPainter::legendShown() const

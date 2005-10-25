@@ -342,6 +342,8 @@ void PeriodicTableView::setGradient( int which )
 void PeriodicTableView::showLegend( bool show )
 {
 	m_painter->toggleLegend( show );
+	setFullDraw();
+	update();
 }
 
 bool PeriodicTableView::showLegend() const
