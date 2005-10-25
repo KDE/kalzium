@@ -1,4 +1,4 @@
-SUBDIRS = .
+SUBDIRS = . data tests
 
 INCLUDES= $(all_includes)
 
