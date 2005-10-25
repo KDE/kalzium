@@ -46,8 +46,8 @@
 #include <QColor>
 #include <QRect>
 
-PeriodicTableView::PeriodicTableView(QWidget *parent, const char *name)
-  : QWidget(parent, name), m_kalziumTip(0), table(0), table2(0)
+PeriodicTableView::PeriodicTableView( QWidget *parent )
+  : QWidget( parent )
 {
 	// No selection
 	m_currentElement = 0;
@@ -230,137 +230,6 @@ void PeriodicTableView::drawLegendToolTip( QPainter* p )
 //X 	p->setBrush(Qt::NoBrush);
 //X 
 //X 	p->drawText( bRect, Qt::AlignLeft|Qt::AlignTop, text );
-}
-
-void PeriodicTableView::drawLegend( QPainter* p )
-{
-	(void)p;
-//X 	if ( !p ) return;
-//X 
-//X 	if ( !m_showLegend ) return;
-//X 
-//X 	/*
-//X 	 * The legend is drawn in the big gap of the table. The gap has
-//X 	 * this size:
-//X 	 * 
-//X 	 * width:  ELEMENTSIZE * 10
-//X 	 * height: ELEMENTSIZE * 3
-//X 	 *
-//X 	 * We need to spare a few pixels on every side so that the legend
-//X 	 * does not collide with the elements
-//X 	 */
-//X 	
-//X 	QFont legendFont = KGlobalSettings::generalFont();
-//X 	legendFont.setPointSize( legendFont.pointSize() + 1 );
-//X 	p->setFont( legendFont );
-//X 
-//X 	int  legendLeft   = ELEMENTSIZE * 5 / 2;
-//X 	int  legendTop    = ELEMENTSIZE * 3 / 4;
-//X 	int  legendWidth  = ELEMENTSIZE * 9;
-//X 	int  legendHeight = ELEMENTSIZE * 3;
-//X 
-//X 	int  x1 = legendLeft + ELEMENTSIZE / 2;
-//X 	int  x2 = legendLeft + ELEMENTSIZE * 5;
-//X 
-//X 	/*
-//X 	 * one field is allowed to be half the gap minus 10 pixel
-//X 	 */
-//X 	int fieldsize = ELEMENTSIZE*5-10;
-//X 
-//X 	/*
-//X 	 * one field is a maximum of half the size of an element
-//X 	 */
-//X 	int fieldheight = ELEMENTSIZE/2;  
-//X 
-//X 
-//X 	const  int square_w = 18;
-//X 	const  int square_h = 18;
-//X 	const  int textOffset = square_w + 10;
-//X 	
-//X 	if ( !m_currentScheme == PeriodicTableView::NOCOLOUR )
-//X 		p->fillRect(legendLeft, legendTop, legendWidth, legendHeight, 
-//X 				QColor(200, 200, 200));
-//X 
-//X 	if ( som() )
-//X 	{
-//X 		p->fillRect(x1, fieldheight*2, square_w, square_h, m_colors["c_solid"] );
-//X 		p->fillRect(x1, fieldheight*3, square_w, square_h, m_colors["c_liquid"] );
-//X 		p->fillRect(x1, fieldheight*4, square_w, square_h, m_colors["c_vapor"] );
-//X 
-//X 		p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Solid") ); 
-//X 		p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Liquid") ); 
-//X 		p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Vaporous") ); 
-//X 		return;
-//X 	}
-//X 	switch ( m_currentScheme ){
-//X 		//No Legend to be drawn as only one colour is used
-//X 		case PeriodicTableView::NOCOLOUR:
-//X 			break;
-//X 		case PeriodicTableView::GROUPS:
-//X 			p->fillRect( x1, fieldheight*2, square_w, square_h, m_colors["color_1"]); 
-//X 			p->fillRect( x1, fieldheight*3, square_w, square_h, m_colors["color_2"]); 
-//X 			p->fillRect( x1, fieldheight*4, square_w, square_h, m_colors["color_3"]); 
-//X 			p->fillRect( x1, fieldheight*5, square_w, square_h, m_colors["color_4"]); 
-//X 			p->fillRect( x2, fieldheight*2, square_w, square_h, m_colors["color_5"]); 
-//X 			p->fillRect( x2, fieldheight*3, square_w, square_h, m_colors["color_6"]); 
-//X 			p->fillRect( x2, fieldheight*4, square_w, square_h, m_colors["color_7"]); 
-//X 			p->fillRect( x2, fieldheight*5, square_w, square_h, m_colors["color_8"]); 
-//X 			
-//X 			p->drawText( x1 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 1") ); 
-//X 			p->drawText( x1 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 2")); 
-//X 			p->drawText( x1 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 3")); 
-//X 			p->drawText( x1 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 4")); 
-//X 			p->drawText( x2 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 5")); 
-//X 			p->drawText( x2 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 6")); 
-//X 			p->drawText( x2 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 7")); 
-//X 			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Group 8")); 
-//X 			break;
-//X 		case PeriodicTableView::ACIDIC:
-//X 			p->fillRect(x1, fieldheight*2, square_w, square_h, m_colors["color_ba"] ); 
-//X 			p->fillRect(x1, fieldheight*3, square_w, square_h, m_colors["color_neu"] );
-//X 			p->fillRect(x1, fieldheight*4, square_w, square_h, m_colors["color_ac"] ); 
-//X 			p->fillRect(x1, fieldheight*5, square_w, square_h, m_colors["color_amp"] );
-//X 			
-//X 			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Basic") ); 
-//X 			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Neutral") ); 
-//X 			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Acidic") ); 
-//X 			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("both acidic and basic behaviour","Amphoteric") ); 
-//X 			break;
-//X 		case PeriodicTableView::FAMILY:
-//X 			p->fillRect( x1, fieldheight*2, square_w, square_h, m_colors["c_alkaline"] ); 
-//X 			p->fillRect( x2, fieldheight*2, square_w, square_h, m_colors["c_rare"] ); 
-//X 			p->fillRect( x1, fieldheight*3, square_w, square_h, m_colors["c_nonmetal"] ); 
-//X 			p->fillRect( x2, fieldheight*3, square_w, square_h, m_colors["c_alkalie"] ); 
-//X 			p->fillRect( x1, fieldheight*4, square_w, square_h, m_colors["c_other_metal"] ); 
-//X 			p->fillRect( x2, fieldheight*4, square_w, square_h, m_colors["c_halogene"] ); 
-//X 			p->fillRect( x1, fieldheight*5, square_w, square_h, m_colors["c_transition"] );
-//X 			p->fillRect( x2, fieldheight*5, square_w, square_h, m_colors["c_noble_gas"] ); 
-//X 			p->fillRect( x1, fieldheight*6, square_w, square_h, m_colors["c_metalloid"] ); 
-//X 			
-//X 			p->drawText( x1 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkaline") ); 
-//X 			p->drawText( x2 + textOffset , fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Rare Earth")); 
-//X 			p->drawText( x1 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Non-Metals")); 
-//X 			p->drawText( x2 + textOffset , fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("Alkalie-Metals")); 
-//X 			p->drawText( x1 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Other Metal")); 
-//X 			p->drawText( x2 + textOffset , fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("Halogene")); 
-//X 			p->drawText( x1 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Transition Metal")); 
-//X 			p->drawText( x2 + textOffset , fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("Noble Gas")); 
-//X 			p->drawText( x1 + textOffset , fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Metalloid")); 
-//X 			break;
-//X 		case PeriodicTableView::CRYSTAL:
-//X 			p->fillRect(x1, fieldheight*2, square_w, square_h, Qt::cyan ); 
-//X 			p->fillRect(x1, fieldheight*3, square_w, square_h, Qt::red ); 
-//X 			p->fillRect(x1, fieldheight*4, square_w, square_h, Qt::yellow ); 
-//X 			p->fillRect(x1, fieldheight*5, square_w, square_h, Qt::green ); 
-//X 			p->fillRect(x1, fieldheight*6, square_w, square_h, Qt::white ); 
-//X 
-//X 			p->drawText(x1 + textOffset, fieldheight*2, fieldsize, fieldheight, Qt::AlignLeft, i18n("Own") ); 
-//X 			p->drawText(x1 + textOffset, fieldheight*3, fieldsize, fieldheight, Qt::AlignLeft, i18n("bcc, body centered cubic") ); 
-//X 			p->drawText(x1 + textOffset, fieldheight*4, fieldsize, fieldheight, Qt::AlignLeft, i18n("hdp, hexagonal") ); 
-//X 			p->drawText(x1 + textOffset, fieldheight*5, fieldsize, fieldheight, Qt::AlignLeft, i18n("ccp, cubic close packed") ); 
-//X 			p->drawText(x1 + textOffset, fieldheight*6, fieldsize, fieldheight, Qt::AlignLeft, i18n("Unknown") ); 
-//X 			break;
-//X 	}
 }
 
 void PeriodicTableView::slotTransientLabel()

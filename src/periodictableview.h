@@ -34,9 +34,12 @@ class KalziumGradientType;
 
 #include "kalziumpainter.h"
 
-// A PeriodicTableView is ...
 /**
- * @short basic class for the specific PeriodicTableViews
+ * A PeriodicTableView is the widget on where we paint a periodic table.
+ *
+ * It does not contain any code for painting, as all the painting routines
+ * belongs to KalziumPainter.
+ *
  * @author Carsten Niehaus
  */
 class PeriodicTableView : public QWidget
@@ -47,15 +50,12 @@ class PeriodicTableView : public QWidget
 		/**
 		 * Constructor
 		 * @param parent parent widget
-		 * @param name name of this widget
 		 */
-		PeriodicTableView( QWidget *parent = 0, const char *name = 0);
+		PeriodicTableView( QWidget *parent = 0 );
 		~PeriodicTableView();
 
 		/**
-		 * FIXME: update apidox
-		 * sets the NUMERATIONTYPE @p num of the periodic table
-		 * @see NUMERATIONTYPE
+		 * Sets the numeration type to the one with index @p which.
 		 */
 		void setNumeration( int which );
 
@@ -75,15 +75,8 @@ class PeriodicTableView : public QWidget
 		}
 
 		/**
-		 * FIXME: update apidox
-		 * This method sets the colors of the PeriodicTableView.
-		 * @param nr takes 5 different values:
-		 * @li normal view
-		 * @li groups
-		 * @li blocks
-		 * @li state of matter
-		 * @li acidic behavior
-		 * @li family view
+		 * Sets the scheme to use.
+		 * @param nr is the index of the new scheme
 		 */
 		void activateColorScheme( const int nr);
 
@@ -160,10 +153,6 @@ class PeriodicTableView : public QWidget
 		 */
 		int m_currentElement;
 
-		void mouseReleaseEvent( QMouseEvent* );
-		void mousePressEvent( QMouseEvent* );
-		void mouseMoveEvent( QMouseEvent* );
-
 		/**
 		 * this is a short, descriptive name of the PeriodicTableView
 		 */
@@ -184,16 +173,14 @@ class PeriodicTableView : public QWidget
 
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
+		virtual void mouseReleaseEvent( QMouseEvent* );
+		virtual void mousePressEvent( QMouseEvent* );
+		virtual void mouseMoveEvent( QMouseEvent* );
 
 		/**
 		 * draw the tooltip for the legend
 		 */
 		virtual void drawLegendToolTip( QPainter *p );
-
-		/**
-		 * draw the legend
-		 */
-		virtual void drawLegend( QPainter* p );
 
 		/**
 		 * JH: Draw the full table next time

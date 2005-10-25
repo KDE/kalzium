@@ -71,7 +71,8 @@ Kalzium::Kalzium()
 //	m_pCentralLayout = new QVBoxLayout( centralWidget, PeriodicTableView_MARGIN, -1, "CentralLayout" );
 
 	QScrollArea *helperSV = new QScrollArea( this );
-	m_PeriodicTableView = new PeriodicTableView( helperSV->viewport(), "PeriodicTableView" );	
+	m_PeriodicTableView = new PeriodicTableView( helperSV->viewport() );
+	m_PeriodicTableView->setObjectName( "PeriodicTableView" );
 	helperSV->setWidget( m_PeriodicTableView );
 //	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
 //	helperSV->setFrameShape(QFrame::NoFrame);

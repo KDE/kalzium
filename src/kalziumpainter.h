@@ -80,6 +80,9 @@ class KalziumPainter
 		void drawAll();
 		void drawElements();
 		void drawElement( int element );
+		/**
+		 * draw the legend
+		 */
 		void drawLegend( bool force = false );
 		void drawNumeration();
 
