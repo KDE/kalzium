@@ -18,6 +18,7 @@
 #include <qslider.h>
 #include <qtextedit.h>
 #include <qlist.h>
+#include <QVariant>
 
 #include <kdebug.h>
 #include <knuminput.h>
@@ -123,26 +124,28 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 	QStringList listMeltingPointValue;
 	for ( ; it != itEnd; ++it )
 	{
-//X 		if ( ( ( *it )->melting() > 0.0 ) && fabs( ( *it )->melting() - temp ) <= threshold )
-//X 		{
-//X 			listMeltingPoint << ( *it )->elementName();
-//X 			listMeltingPointValue << ( *it )->adjustUnits( Element::MELTINGPOINT );
-//X 		}
-//X 		if ( ( ( *it )->boiling() > 0.0 ) && fabs( ( *it )->boiling() - temp ) <= threshold )
-//X 		{
-//X 			listBoilingPoint << ( *it )->elementName();
-//X 			listBoilingPointValue << ( *it )->adjustUnits( Element::BOILINGPOINT );
-//X 		}
+		double melting = ( *it )->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
+		if ( ( melting > 0.0 ) && fabs( melting - temp ) <= threshold )
+		{
+			listMeltingPoint << ( *it )->dataAsString( ChemicalDataObject::name );
+			listMeltingPointValue << ( *it )->dataAsString( ChemicalDataObject::meltingpoint );
+		}
+		double boiling = ( *it )->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
+		if ( ( boiling > 0.0 ) && fabs( boiling - temp ) <= threshold )
+		{
+			listBoilingPoint << ( *it )->dataAsString( ChemicalDataObject::name );
+			listBoilingPointValue << ( *it )->dataAsString( ChemicalDataObject::boilingpoint );
+		}
 	}
 	QString htmlcode;
 	if ( listMeltingPoint.count() > 0 )
 	{
-//X 		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "<br>";
-//X 		for ( int i = 0; i < listMeltingPoint.count(); i++ )
-//X 		{
-//X 			htmlcode += "&nbsp;<b>&middot;</b>&nbsp;" + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listMeltingPoint[i] ).arg( listMeltingPointValue[i] ) + "<br>";
-//X 		}
-//X 		htmlcode += "<br>";
+		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "<br>";
+		for ( int i = 0; i < listMeltingPoint.count(); i++ )
+		{
+			htmlcode += "&nbsp;<b>&middot;</b>&nbsp;" + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listMeltingPoint.at( i ) ).arg( listMeltingPointValue.at( i ) ) + "<br>";
+		}
+		htmlcode += "<br>";
 	}
 	else
 	{
@@ -151,12 +154,12 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 	}
 	if ( listBoilingPoint.count() > 0 )
 	{
-//X 		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "<br>";
-//X 		for ( int i = 0; i < listBoilingPoint.count(); i++ )
-//X 		{
-//X 			htmlcode += "&nbsp;<b>&middot;</b>&nbsp;" + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listBoilingPoint[i] ).arg( listBoilingPointValue[i] ) + "<br>";
-//X 		}
-//X 		htmlcode += "<br>";
+		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "<br>";
+		for ( int i = 0; i < listBoilingPoint.count(); i++ )
+		{
+			htmlcode += "&nbsp;<b>&middot;</b>&nbsp;" + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listBoilingPoint.at( i ) ).arg( listBoilingPointValue.at( i ) ) + "<br>";
+		}
+		htmlcode += "<br>";
 	}
 	else
 	{

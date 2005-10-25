@@ -42,8 +42,8 @@
 
 //TODO add bondxx-radius (H-H-distance for example)
 
-DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *name)
-    : KDialogBase( IconList, name, Help|User1|User2|Close, Close, parent, name, 
+DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent )
+    : KDialogBase( IconList, "detailinfodlg", Help|User1|User2|Close, Close, parent, "detailinfodlg",
 			false, //non modal
 			false, 
 			KGuiItem(i18n("Next element", "Next"), "1rightarrow"), 
@@ -66,8 +66,8 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	overviewLayout = new QVBoxLayout( m_pOverviewTab );
 	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
 
-	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
-	dTab->setElement( m_element );
+	dTab = new DetailedGraphicalOverview( m_element, m_pOverviewTab );
+	dTab->setObjectName( "DetailedGraphicalOverview" );
 	overviewLayout->addWidget( dTab );
 
 	wOrbits = new OrbitsWidget( m_pModelTab );

@@ -28,6 +28,11 @@ TimeWidgetIMPL::TimeWidgetIMPL( QWidget *parent, const char* name )
 	text->setReadOnly( true );
 	text->setPaletteBackgroundColor( paletteBackgroundColor() );
 	text->setFrameStyle( QFrame::NoFrame );
+
+	connect( time_slider, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( slotChanged( int ) ) );
+	connect( Number1, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( slotChanged( int ) ) );
 }
 
 void TimeWidgetIMPL::slotChanged( int value )

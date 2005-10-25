@@ -10,23 +10,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef _KALZIUM_H_
-#define _KALZIUM_H_
-
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#ifndef KALZIUM_H
+#define KALZIUM_H
 
 #include <kmainwindow.h>
 
 class KSelectAction;
-class KToggleAction;
-class QuizsettingsDlg;
-class SliderWidget;
 class QToolBox;
 class QVBoxLayout;
 class Q3DockWindow;
-class TempSlider;
 class DetailedInfoDlg;
 class PeriodicTableView;
 class MolcalcWidget;
@@ -61,10 +53,6 @@ class Kalzium : public KMainWindow
 		virtual ~Kalzium();
 
 	private:
-		class privatedata;
-		friend class privatedata;
-		privatedata* pd;
-
 		DetailedInfoDlg   *m_infoDialog;
 
 		/**
@@ -87,12 +75,15 @@ class Kalzium : public KMainWindow
 		 */
 		KSelectAction *look_action;
 		KSelectAction *numeration_action;
-		KAction *m_pPlotAction, *m_pIsotopeTableAction,
-				*m_pGlossaryAction, *m_pCrystalViewer;
-		
-		KAction *m_pTooltipAction;
+		// settings
 		KAction *m_pLegendAction;
+		KAction *m_pTooltipAction;
 		KAction *m_SidebarAction;
+		// tools
+		KAction *m_pPlotAction;
+		KAction *m_pIsotopeTableAction;
+		KAction *m_pGlossaryAction;
+		KAction *m_pCrystalViewer;
 //		KAction *m_EQSolverAction;
 
 		/**

@@ -26,7 +26,6 @@ class KalziumTip;
 class KalziumPainter;
 class KalziumGradientType;
 
-#include <QList>
 #include <QWidget>
 #include <QTimer>
 #include <QPoint>

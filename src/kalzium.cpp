@@ -202,7 +202,8 @@ void Kalzium::setupSidebars()
 	QWidget *fake = new QWidget( m_dockWin );
 	QVBoxLayout *lay = new QVBoxLayout( fake, 5 );
 	lay->activate();
-	m_detailWidget = new DetailedGraphicalOverview( fake, "DetailedGraphicalOverview" );
+	m_detailWidget = new DetailedGraphicalOverview( fake );
+	m_detailWidget->setObjectName( "DetailedGraphicalOverview" );
 	m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
 	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotSelectedNumber( int ) ));
  	lay->addWidget( m_detailWidget );
@@ -215,10 +216,6 @@ void Kalzium::setupSidebars()
 	m_timeWidget = new TimeWidgetIMPL( this, "TimeWidget" );
 	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ),
 	         m_PeriodicTableView, SLOT( setDate( int ) ) );
-	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ),
-	         m_timeWidget, SLOT( slotChanged( int ) ) );
-	connect( m_timeWidget->Number1, SIGNAL( valueChanged( int ) ),
-	         m_timeWidget, SLOT( slotChanged( int ) ) );
 	m_toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
 
 	m_somWidget = new SOMWidgetIMPL( this, "somWidget" );
@@ -407,7 +404,7 @@ void Kalzium::openInformationDialog( int number )
 		{
 			m_infoDialog = new DetailedInfoDlg(
 			                        KalziumDataObject::instance()->element(number),
-			                        this, "detailedDlg" );
+			                        this );
 
 			// Remove the selection when this dialog finishes or hides.
 			connect(m_infoDialog, SIGNAL(hidden()),

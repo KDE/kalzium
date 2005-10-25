@@ -28,14 +28,14 @@ email                : cniehaus@kde.org
 #include <qpixmap.h>
 #include <qrect.h>
 
-DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name ) 
-: QWidget( parent, name )
+DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *parent )
+: QWidget( parent )
 {
 	init( el );
 }
 
-DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent, const char *name ) 
-: QWidget( parent, name )
+DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
+: QWidget( parent )
 {
 	init( 0L );
 }
@@ -78,7 +78,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		y2 = h;
 //FIXME
 		p.setBrush( Qt::green );//m_element->elementColor() );
-		p.drawRect( x1 , y1 , x2 , y2 );
+		p.drawRect( x1, y1, x2 - 1, y2 - 1 );
 
 		p.setBrush( Qt::black );
 		p.setBrush(Qt::NoBrush);

@@ -30,8 +30,8 @@ class DetailedGraphicalOverview : public QWidget
 	Q_OBJECT
 
 	public:
-		DetailedGraphicalOverview( Element *el, QWidget *parent, const char *name=0 );
-		DetailedGraphicalOverview( QWidget *parent, const char *name=0 );
+		DetailedGraphicalOverview( Element *el, QWidget *parent );
+		DetailedGraphicalOverview( QWidget *parent );
 
 		/**
 		 * sets the elements whose data will be used to @p el
