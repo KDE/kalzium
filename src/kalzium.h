@@ -36,6 +36,8 @@ class SOMWidgetIMPL;
 class GlossaryDialog;
 class IsotopeTable;
 
+#include "kalziumpainter.h"
+
 /**
  * @short Application Main Window
  * @author Carsten Niehaus <cniehaus@kde.org>
@@ -81,14 +83,9 @@ class Kalzium : public KMainWindow
 		void setupSidebars();
 		
 		/**
-		 * Signal the PeriodicTableView that it should do a full draw operation
-		 */
-		void setFullDraw();
-		
-		/**
 		 * all KActions Kalzium uses
 		 */
-		KSelectAction *gradient_action;
+		KSelectAction *look_action;
 		KSelectAction *numeration_action;
 		KAction *m_pPlotAction, *m_pIsotopeTableAction,
 				*m_pGlossaryAction, *m_pCrystalViewer;
@@ -98,13 +95,6 @@ class Kalzium : public KMainWindow
 		KAction *m_SidebarAction;
 //		KAction *m_EQSolverAction;
 
-		KToggleAction *m_actionNoScheme;
-		KToggleAction *m_actionGroups;
-		KToggleAction *m_actionBlocks;
-		KToggleAction *m_actionAcid;
-		KToggleAction *m_actionFamily;
-		KToggleAction *m_actionCrystal;
-		
 		/**
 		 * the layout of the central Widget ( CentralWidget )
 		 */
@@ -123,6 +113,8 @@ class Kalzium : public KMainWindow
 		int m_toolboxCurrent;
 
 		GlossaryDialog *m_glossarydlg;
+
+		KalziumPainter::MODE m_prevNormalMode;
 	
 	private slots:
 		/**
@@ -133,12 +125,6 @@ class Kalzium : public KMainWindow
 		void slotStatusbar( int num );
 		void setupStatusBar();
 		void slotCrystalViewer();
-
-
-		/**
-		 * this slot switches Kalzium to the selected color scheme
-		 */
-		void slotShowScheme(int);
 
 		void slotShowEQSolver();
 		
@@ -154,32 +140,18 @@ class Kalzium : public KMainWindow
 		 */
 		void slotGlossary();
 		
+		void slotSwitchtoLook( int );
 		void slotSwitchtoNumeration(int);
 		
 		/**
 		 *start the isotopetable
 		 */
 		 void slotIsotopeTable();
-		 		 
-		 
-		/**
-		 * this will make the periodic table display the gradient
-		 * defined by @p int gradient
-		 */
-		void slotSwitchtoGradient(int gradient);
 
 		void slotPlotData();
 
 		void slotUpdateSettings();
 
-		void slotNoLook();
-
-		void slotLookGroups();
-		void slotLookBlocks();
-		void slotLookAcidBehavior();
-		void slotLookFamily();
-		void slotLookCrystal();
-	
 		/**
 		 * These slots are for the standard actions
 		 */

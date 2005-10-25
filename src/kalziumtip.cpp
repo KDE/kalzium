@@ -52,9 +52,7 @@ KalziumTip::KalziumTip( QWidget * parent, const char * name, Qt::WFlags f ) : QW
 
 void KalziumTip::showTip( QPoint mouse, Element* element, int visibleWidth, int visibleHeight )
 {
-	QWidget *p = 0;
-        if ( dynamic_cast<QWidget*>( parent() ) )
-                p = static_cast<QWidget*>( parent() );
+	QWidget *p = parentWidget();
 
         if ( p )
         {
@@ -117,18 +115,18 @@ void KalziumTip::display()
 
 	delete m_richText;
 	
-//X 	QString elementname = m_tippedElement->dataAsString(ChemicalDataObject::name);
-	QString elementname = "";
+	QString elementname = m_tippedElement->dataAsString(ChemicalDataObject::name);
+//	QString elementname = "";
 	
-/*	QString number = i18n( "Number: %1" )
-			.arg( m_tippedElement->dataAsString( ChemicalDataObject::atomicNumber ) );*/
+	QString number = i18n( "Number: %1" )
+			.arg( m_tippedElement->dataAsString( ChemicalDataObject::atomicNumber ) );
 	
-//	QString mass = i18n( "Mass: %1" )
-//			.arg( QString::number(m_tippedElement->mass()) );
+	QString mass = i18n( "Mass: %1" )
+			.arg( m_tippedElement->dataAsString( ChemicalDataObject::mass ) );
 
-	m_richText = new Q3SimpleRichText("<qt><h1>" + elementname + "</h1><p>"+/*
+	m_richText = new Q3SimpleRichText("<qt><h1>" + elementname + "</h1><p>"/*+**/
 						    + number + "</p><p>"
-						    + mass  +*/"</p></qt>", font());
+						    + mass  +/**/"</p></qt>", font());
 
 	m_richText->setWidth(400);
 

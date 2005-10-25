@@ -6,16 +6,7 @@
   </Menu>
   <Menu name="table_menu"><text>&amp;View</text>
     <Action name="view_numerationtype" />
-    <Menu name="look_menu"><text>&amp;Look</text>
-      <Action name="view_look_noscheme" />
-      <Separator />
-      <Action name="view_look_groups" />
-      <Action name="view_look_blocks" />
-      <Action name="view_look_acid" />
-      <Action name="view_look_family" />
-      <Action name="view_look_crystal" />
-      <Action name="view_look_gradmenu" />
-    </Menu>
+    <Action name="view_look" />
     <Separator />
     <Action name="view_legend" />
     <Action name="view_tooltip" />
@@ -26,7 +17,7 @@
     <Action name="tools_isotopetable" />
     <Action name="tools_glossary" />
     <Action name="tools_eqsolver" />
-	<Action name="tools_crystalviewer" />
+    <Action name="tools_crystalviewer" />
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
   </Menu>

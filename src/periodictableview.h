@@ -21,18 +21,18 @@
 #ifndef PeriodicTableView_H
 #define PeriodicTableView_H
 
-class QLabel;
-class QPixmap;
-class QPoint;
-class QVBoxLayout;
 class Element;
-class KalziumDataObject;
 class KalziumTip;
+class KalziumPainter;
+class KalziumGradientType;
 
 #include <QList>
 #include <QWidget>
 #include <QTimer>
-#include <QMap>
+#include <QPoint>
+#include <QPixmap>
+
+#include "kalziumpainter.h"
 
 // A PeriodicTableView is ...
 /**
@@ -52,48 +52,13 @@ class PeriodicTableView : public QWidget
 		PeriodicTableView( QWidget *parent = 0, const char *name = 0);
 		~PeriodicTableView();
 
-		enum SCHEMETYPE
-		{
-			NOCOLOUR = 0,
-			GROUPS,
-			BLOCK,
-			ACIDIC,
-			FAMILY,
-			GRADIENT,
-			CRYSTAL
-		};
-		
-		enum NUMERATIONTYPE
-		{
-			NO=0,              /// no numeration
-			CAS = 1,           /// Chemical Abstract Service
-			IUPAC = 2,         /// International Union of Pure and Applied Chemistry
-			IUPACOLD = 3       /// old IUPAC numeration
-		};
-
 		/**
-		 * if this mode is activated a click on a button will not open
-		 * a information dialog
-		 */
-		virtual void activateMolcalcmode( bool mode ){
-			m_molcalcIsActive = mode;
-		}
-
-		/**
-		 * @return if the molcalc mode is active or not
-		 */
-		virtual bool molcalcMode() const{
-			return m_molcalcIsActive;
-		}
-
-		/**
+		 * FIXME: update apidox
 		 * sets the NUMERATIONTYPE @p num of the periodic table
 		 * @see NUMERATIONTYPE
 		 */
-		void setNumerationType( NUMERATIONTYPE num ){
-			m_num = num;
-			update();
-		}
+		void setNumeration( int which );
+
 		/**
 		 * @return whether the tooltips are enabled
 		 */
@@ -110,6 +75,7 @@ class PeriodicTableView : public QWidget
 		}
 
 		/**
+		 * FIXME: update apidox
 		 * This method sets the colors of the PeriodicTableView.
 		 * @param nr takes 5 different values:
 		 * @li normal view
@@ -143,40 +109,11 @@ class PeriodicTableView : public QWidget
 		}
 
 		/**
-		 * @return whether if the SOM is active or not
+		 * @return the current gradient type
 		 */
-		bool som() const{
-			return m_showSOM;
-		}
+		KalziumGradientType* gradient() const;
 		
-		void activateSOMMode( bool som ){
-			m_showSOM = som;
-			setFullDraw();
-			update();
-		}
-		
-		/**
-		 * @return if the gradient mode is active
-		 */
-		bool gradient() const{
-			return m_showGradient;
-		}
-		
-		/**
-		 * Defines if the gradient mode will be activated or
-		 * deactivated
-		 * @param gradient defines if the gradient mode should be activated or not
-		 */
-		void setGradient( bool gradient ){
-			m_showGradient = gradient;
-			setFullDraw();
-			update();
-		}
-
-		//XXX can't use Element::TYPE here... why?
-		void setGradientType( int type ){ 
-			m_gradientType = type;
-		}
+		void setGradient( int which );
 
 		/**
 		 * if false, the user disabled tooltips
@@ -188,52 +125,16 @@ class PeriodicTableView : public QWidget
 		/**
 		 * activates or deactivates the legend
 		 */
-		void showLegend( bool show ){
-			m_showLegend = show;
-		}
+		void showLegend( bool show );
+		bool showLegend() const;
 
-		bool showLegend() const{
-			return m_showLegend;
-		}
+		int date() const;
 
-		bool timeline() const{
-			return m_timeline;
-		}
+		void setTimeline( bool timeline );
+		bool timeline() const;
 
-		void setTimeline( bool timeline ){
-			if ( m_timeline != timeline )
-				m_timeline = timeline;
-		}
-		
-		int date() const{
-			return m_date;
-		}
-
-		/**
-		 * load the colours from the config file. This is done
-		 * on startup and everytime the user changed the configuration
-		 */
-		void reloadColours();
-
-		/**
-		 * JH: Draw the full table next time
-		 */
-		void setFullDraw(){
-			doFullDraw = true;
-		}
-
-		/**
-		 * @param type set the scheme
-		 * @param which set the type of gradient
-		 * @see Element::TYPE
-		 */
-		void setLook( PeriodicTableView::SCHEMETYPE type, int which = 0 );
-
-		/**
-		 * This method paints the marker around the currently selected
-		 * element
-		 */
-		virtual void paintCurrentSelection();
+		void setMode( KalziumPainter::MODE m );
+		KalziumPainter::MODE mode() const;
 
 	private:
 		/**
@@ -241,73 +142,13 @@ class PeriodicTableView : public QWidget
 		 */
 		bool m_showTooltip;
 
-		/**
-		 * the type of the gradient.
-		 * @see Element::TYPE
-		 */
-		int m_gradientType;
-
-		/**
-		 * calculates the min and max values to prepare the painting
-		 */
-		void calculateGradient( QPainter* );
-
-		/**
-		 * @return true if the mouse is over the legend area
-		 */
-		bool pointerOnLegend(int,int);
-
-		/**
-		 * @param p The painter for drawing
-		 * @param e the element which is to be drawn
-		 * @param coeff ?
-		 * @param value the value
-		 * @param minValue the smallest of all the values
-		 */
-		void drawGradientButton( QPainter* p, Element* e, double coeff, double value, double minValue );
-
-		/**
-		 * calculates the color of an element which has a value which
-		 * is @p percentage of the maximum value. This will be the
-		 * color used in the gradient view for an element.
-		 */
-		QColor calculateColor( const double percentage );
-	
-		/**
-		 * the date used in the timeline
-		 */
-		int m_date;
-
-		/**
-		 * the current colour scheme
-		 */
-		int m_currentScheme;
-	
-		KalziumTip* m_kalziumTip;	
-		bool m_timeline;
+		KalziumTip* m_kalziumTip;
 		
-		/**
-		 * the temperature of the table (for the SOM-feature)
-		 */
-		double m_temperature;
-
-		/**
-		 * if true the State Of Matter will be shown
-		 */
-		bool m_showSOM;
-		
-		/**
-		 * if true the gradients will be shown
-		 */
-		bool m_showGradient;
-
 		/**
 		 * timer used for the tooltop
 		 */
 		QTimer HoverTimer,
 			   MouseoverTimer;
-
-		KalziumDataObject *d;
 
 		/**
 		 * the number of the element the mouse-cursor is over
@@ -315,48 +156,18 @@ class PeriodicTableView : public QWidget
 		int m_tooltipElementNumber;
 
 		/**
-		 * @return the number of the element at position x/y. If there
-		 * is no element it will return 0
+		 * the currently selected element
 		 */
-		int ElementNumber( int x, int y );
-		
-		/**
-		 * @return the coordinates of the element under the mouseCursor.
-		 * For example, H will be 1/1 and Li will be 1/2
-		 */
-		QPoint ElementUnderMouse();
-
-		/**
-		 * the currently selected element (the x/y-coordinates)
-		 */
-		QPoint m_currentPoint;
+		int m_currentElement;
 
 		void mouseReleaseEvent( QMouseEvent* );
 		void mousePressEvent( QMouseEvent* );
 		void mouseMoveEvent( QMouseEvent* );
 
-		QStringList m_IUPAClist;
-		QStringList m_IUPACOLDlist;
-
-		/**
-		 * if the the legend will be displayed
-		 */
-		bool m_showLegend;
-
 		/**
 		 * this is a short, descriptive name of the PeriodicTableView
 		 */
 		QString m_ShortName;
-
-		/**
-		 * true if the molcalc-mode is active
-		 */
-		bool m_molcalcIsActive;
-
-		/**
-		 * the type of the nummeration ( NO, CAS, IUPACOLD, IUPAC )
-		 */
-		NUMERATIONTYPE m_num;
 
 		/**
 		 * implements double buffering of the widget.
@@ -368,9 +179,9 @@ class PeriodicTableView : public QWidget
 		 * used for bitBlit. If true the complete table will be drawn
 		 */
 		bool doFullDraw;
-		
-		QMap<QString, QColor> m_colors;	// color map holding the colors loaded in reloadColours()
-		
+
+		KalziumPainter *m_painter;
+
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 
@@ -379,32 +190,15 @@ class PeriodicTableView : public QWidget
 		 */
 		virtual void drawLegendToolTip( QPainter *p );
 
-		virtual void drawTimeLine( QPainter *p );
-
-		/**
-		 * the central place for the drawing of the table
-		 */
-		virtual void drawPeriodicTableView( QPainter* p, bool isCrystal );
-
-		/**
-		 * draw a gradient of the type @p type
-		 */
-		virtual void drawGradientPeriodicTableView( QPainter* p, const double min, const double max );
-
-		/**
-		 * draw the state of matter
-		 */
-		virtual void drawSOMPeriodicTableView( QPainter* p );
-
 		/**
 		 * draw the legend
 		 */
 		virtual void drawLegend( QPainter* p );
-		
+
 		/**
-		 * draw the numeration
+		 * JH: Draw the full table next time
 		 */
-		virtual void drawNumeration( QPainter* p );
+		void setFullDraw();
 
 	public slots:
 		/**
@@ -412,17 +206,9 @@ class PeriodicTableView : public QWidget
 		 * the given temperature @p temp
 		 * @param temp is the temperature to which all buttons will be set
 		 */
-		void setTemperature( int temp ){
-			m_temperature = (double)temp;
-			update();
-		}
+		void setTemperature( int temp );
 
-		void setDate( int date ){
-			//These elements have always been known:
-			//6 16 26 29 33 47 50 51 79 80 82 83
-			m_date = date;
-			update();
-		}
+		void setDate( int date );
 
 		/**
 		 * this slot removes the selection of any point
@@ -462,11 +248,6 @@ class PeriodicTableView : public QWidget
 		void slotToolTip( int number );
 		
 	signals:
-		/**
-		 * this signal is emitted when the table is clicked
-		 */
-		void tableClicked(QPoint);
-
 		/**
 		 * this signal is emitted when an element is clicked
 		 */

@@ -32,7 +32,12 @@ kalzium_SOURCES = kalzium.cpp \
 			parser.cpp \
 			moleculeparser.cpp \
 			animatedmoviewidget.cpp \
-			simplecrystalviewer.cpp 
+			simplecrystalviewer.cpp \
+			kalziumgradienttype.cpp \
+			kalziumnumerationtype.cpp \
+			kalziumpainter.cpp \
+			kalziumschemetype.cpp \
+			kalziumtabletype.cpp
 
 kalzium_LDADD   = ../../libkdeedu/libscience/libscience.la \
 				  ../../libkdeedu/kdeeduplot/libkdeeduplot.la \
@@ -67,7 +72,12 @@ EXTRA_DIST = main.cpp \
 		parser.cpp parser.h \
 		moleculeparser.cpp moleculeparser.h \
 		animatedmoviewidget.cpp animatedmoviewidget.h \
-		simplecrystalviewer.cpp simplecrystalviewer.h
+		simplecrystalviewer.cpp simplecrystalviewer.h \
+		kalziumgradienttype.cpp kalziumgradienttype.h \
+		kalziumnumerationtype.cpp kalziumnumerationtype.h \
+		kalziumpainter.cpp kalziumpainter.h \
+		kalziumschemetype.cpp kalziumschemetype.h \
+		kalziumtabletype.kalziumtabletype.h
 
 METASOURCES = AUTO 
 

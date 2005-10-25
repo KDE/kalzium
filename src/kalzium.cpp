@@ -33,6 +33,9 @@
 #include "nuclideboard.h"
 #include "config.h"
 #include "simplecrystalviewer.h"
+#include "kalziumnumerationtype.h"
+#include "kalziumschemetype.h"
+#include "kalziumgradienttype.h"
 
 #include <q3dockwindow.h>
 #include <QLayout>
@@ -85,8 +88,6 @@ Kalzium::Kalzium()
 	setupSidebars();
 	setupActions();
 
-	kdDebug() << "hier sin wir" << endl;
-
 	// creating the glossary dialog and loading the glossaries we have
 	m_glossarydlg = new GlossaryDialog( true, this );
 	m_glossarydlg->setObjectName( QLatin1String( "glossary" ) );
@@ -104,43 +105,29 @@ Kalzium::Kalzium()
 	m_glossarydlg->addGlossary( g );
 
 	setupStatusBar();
+
+	m_prevNormalMode = KalziumPainter::NORMAL;
 }
 
 void Kalzium::setupActions()
 {
-	m_actionNoScheme = new KToggleAction(i18n("&No Color Scheme"), 0, this, SLOT(slotNoLook()), actionCollection(), "view_look_noscheme");
+	// the action for swiching look: color schemes and gradients
+	QStringList looklist;
+	QStringList schemes = KalziumSchemeTypeFactory::instance()->schemes();
+	QString schemeprefix = i18n( "Scheme: %1" );
+	for ( int i = 0; i < schemes.count(); i++ )
+		looklist << schemeprefix.arg( schemes.at( i ) );
+	QStringList gradients = KalziumGradientTypeFactory::instance()->gradients();
+	QString gradprefix = i18n( "Gradient: %1" );
+	for ( int i = 0; i < gradients.count(); i++ )
+		looklist << gradprefix.arg( gradients.at( i ) );
+	look_action = new KSelectAction( i18n( "&Look" ), 0, this, 0, actionCollection(), "view_look" );
+	look_action->setItems(looklist);
+	connect( look_action, SIGNAL( activated( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
 
-	// the actions for the color schemes
-	m_actionGroups = new KToggleAction(i18n("Show &Groups"), 0, this, SLOT(slotLookGroups()), actionCollection(), "view_look_groups");
-	m_actionBlocks = new KToggleAction(i18n("Show &Blocks"), 0, this, SLOT(slotLookBlocks()), actionCollection(), "view_look_blocks");
-	m_actionAcid = new KToggleAction(i18n("Show &Acid Behavior"), 0, this, SLOT(slotLookAcidBehavior()), actionCollection(), "view_look_acid");
-	m_actionFamily = new KToggleAction(i18n("Show &Family"), 0, this, SLOT(slotLookFamily()), actionCollection(), "view_look_family");
-	m_actionCrystal = new KToggleAction(i18n("Show &Crystal Structures"), 0, this, SLOT(slotLookCrystal()), actionCollection(), "view_look_crystal");
-
-	//the actions for switching PeriodicTableView
-	QStringList gradientlist;
-	gradientlist.append(i18n("Atomic Radius"));
-	gradientlist.append(i18n("Covalent Radius"));
-	gradientlist.append(i18n("van der Waals Radius"));
-	gradientlist.append(i18n("Atomic Mass"));
-	gradientlist.append(i18n("Density"));
-	gradientlist.append(i18n("Boiling Point"));
-	gradientlist.append(i18n("Melting Point"));
-	gradientlist.append(i18n("Electronegativity"));
-	gradientlist.append(i18n("Electron Affinity"));
-	gradient_action = new KSelectAction(i18n("&Gradient"), 0, this, 0, actionCollection(), "view_look_gradmenu");
-	gradient_action->setItems(gradientlist);
-	connect (gradient_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoGradient(int)));
-
-	// the actions for switching PeriodicTableView
-	QStringList numlist;
-	numlist.append(i18n("No N&umeration"));
-	numlist.append(i18n("Show &IUPAC"));
-	numlist.append(i18n("Show &CAS"));
-	numlist.append(i18n("Show &Old IUPAC"));
+	// the actions for switching numeration
 	numeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "view_numerationtype");
-	numeration_action->setItems(numlist);
-	numeration_action->setCurrentItem(Prefs::numeration()); 
+	numeration_action->setItems( KalziumNumerationTypeFactory::instance()->numerations() );
 	connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
 
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
@@ -163,7 +150,7 @@ void Kalzium::setupActions()
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 
-	slotShowScheme( Prefs::colorschemebox() );
+//	slotShowScheme( Prefs::colorschemebox() );
 	slotSwitchtoNumeration( Prefs::numeration() );
 
 	if ( Prefs::showsidebar() ) {
@@ -323,9 +310,6 @@ void Kalzium::slotShowLegend()
 	//save the settings
 	Prefs::setShowlegend( m_PeriodicTableView->showLegend() ); 
 	Prefs::writeConfig();
- 
-	//JH: redraw the full table next time
-	setFullDraw();
 }
 
 void Kalzium::slotShowHideSidebar()
@@ -347,64 +331,32 @@ void Kalzium::slotShowHideSidebar()
 	Prefs::writeConfig();
 }
 
-void Kalzium::slotShowScheme(int i)
-{
-	switch ( i )
-	{
-		case PeriodicTableView::GROUPS:
-			m_actionGroups->setChecked( true );
-			m_PeriodicTableView->setLook( PeriodicTableView::GROUPS );
-			break;
-		case PeriodicTableView::BLOCK:
-			m_actionBlocks->setChecked( true );
-			m_PeriodicTableView->setLook( PeriodicTableView::BLOCK );
-			break;
-		case PeriodicTableView::ACIDIC:
-			m_actionAcid->setChecked( true );
-			m_PeriodicTableView->setLook( PeriodicTableView::ACIDIC );
-			break;
-		case PeriodicTableView::FAMILY:
-			m_actionFamily->setChecked( true );
-			m_PeriodicTableView->setLook( PeriodicTableView::FAMILY );
-			break;
-		case PeriodicTableView::CRYSTAL:
-			m_actionCrystal->setChecked( true );
-			m_PeriodicTableView->setLook( PeriodicTableView::CRYSTAL );
-			break;
-		case PeriodicTableView::GRADIENT:
-			gradient_action->setCurrentItem( Prefs::gradient()-1 );
-			m_PeriodicTableView->setLook( PeriodicTableView::GRADIENT, Prefs::gradient() );
-			break;
-		case PeriodicTableView::NOCOLOUR:
-		default:
-			m_actionNoScheme->setChecked( true );
-			m_PeriodicTableView->setLook( PeriodicTableView::NOCOLOUR );
-	}
-}
-
-void Kalzium::slotSwitchtoGradient( int index )
-{
-	m_PeriodicTableView->setLook( PeriodicTableView::GRADIENT, index + 1 );
-	m_actionNoScheme->setChecked( false );
-	m_actionGroups->setChecked( false );
-	m_actionBlocks->setChecked( false );
-	m_actionAcid->setChecked( false );
-	m_actionFamily->setChecked( false );
-	m_actionCrystal->setChecked( false );
-	m_pLegendAction->setEnabled( false );
-
-	Prefs::setGradient(index + 1);
-	Prefs::writeConfig();
-}
-
 void Kalzium::slotSwitchtoNumeration( int index )
 {
-	m_PeriodicTableView->setNumerationType( ( PeriodicTableView::NUMERATIONTYPE )index );
-	Prefs::setNumeration(index); 
+	m_PeriodicTableView->setNumeration( index );
+	Prefs::setNumeration(index);
 	Prefs::writeConfig();
+}
 
-	//JH: redraw the full table next time
-	setFullDraw();
+void Kalzium::slotSwitchtoLook( int which )
+{
+	int id = which - KalziumSchemeTypeFactory::instance()->schemes().count();
+	if ( id < 0 )
+	{
+		m_PeriodicTableView->activateColorScheme( which );
+		if ( m_PeriodicTableView->mode() == KalziumPainter::GRADIENT )
+			m_PeriodicTableView->setMode( KalziumPainter::NORMAL );
+	}
+	else
+	{
+		m_PeriodicTableView->setGradient( id );
+		if ( m_PeriodicTableView->mode() == KalziumPainter::NORMAL )
+			m_PeriodicTableView->setMode( KalziumPainter::GRADIENT );
+	}
+/*
+	Prefs::setNumeration(index);
+	Prefs::writeConfig();
+*/
 }
 
 void Kalzium::showSettingsDialog()
@@ -424,8 +376,6 @@ void Kalzium::showSettingsDialog()
 
 void Kalzium::slotUpdateSettings()
 {
-	m_PeriodicTableView->reloadColours();
-	m_PeriodicTableView->setFullDraw();
 }
  
 void Kalzium::setupStatusBar()
@@ -468,102 +418,26 @@ void Kalzium::openInformationDialog( int number )
 	}
 }
 
-void Kalzium::slotNoLook()
-{
-	m_PeriodicTableView->setLook( PeriodicTableView::NOCOLOUR );
-	gradient_action->setCurrentItem( -1 );
-	m_actionGroups->setChecked( false );
-	m_actionBlocks->setChecked( false );
-	m_actionAcid->setChecked( false );
-	m_actionFamily->setChecked( false );
-	m_actionCrystal->setChecked( false );
-	m_pLegendAction->setEnabled( true );
-}
-
-void Kalzium::slotLookGroups()
-{
-	m_PeriodicTableView->setLook( PeriodicTableView::GROUPS );
-	gradient_action->setCurrentItem( -1 );
-	m_actionNoScheme->setChecked( false );
-	m_actionBlocks->setChecked( false );
-	m_actionAcid->setChecked( false );
-	m_actionFamily->setChecked( false );
-	m_actionCrystal->setChecked( false );
-	m_pLegendAction->setEnabled( true );
-}
-
-void Kalzium::slotLookBlocks()
-{
-	m_PeriodicTableView->setLook( PeriodicTableView::BLOCK );
-	gradient_action->setCurrentItem( -1 );
-	m_actionNoScheme->setChecked( false );
-	m_actionGroups->setChecked( false );
-	m_actionAcid->setChecked( false );
-	m_actionFamily->setChecked( false );
-	m_actionCrystal->setChecked( false );
-	m_pLegendAction->setEnabled( true );
-}
-
-void Kalzium::slotLookAcidBehavior()
-{
-	m_PeriodicTableView->setLook( PeriodicTableView::ACIDIC );
-	gradient_action->setCurrentItem( -1 );
-	m_actionNoScheme->setChecked( false );
-	m_actionGroups->setChecked( false );
-	m_actionBlocks->setChecked( false );
-	m_actionFamily->setChecked( false );
-	m_actionCrystal->setChecked( false );
-	m_pLegendAction->setEnabled( true );
-}
-
-void Kalzium::slotLookFamily()
-{
-	m_PeriodicTableView->setLook( PeriodicTableView::FAMILY );
-	gradient_action->setCurrentItem( -1 );
-	m_actionNoScheme->setChecked( false );
-	m_actionGroups->setChecked( false );
-	m_actionBlocks->setChecked( false );
-	m_actionAcid->setChecked( false );
-	m_actionCrystal->setChecked( false );
-	m_pLegendAction->setEnabled( true );
-}
-
-void Kalzium::slotLookCrystal()
-{
-	m_PeriodicTableView->setLook( PeriodicTableView::CRYSTAL );
-	gradient_action->setCurrentItem( -1 );
-	m_actionNoScheme->setChecked( false );
-	m_actionGroups->setChecked( false );
-	m_actionBlocks->setChecked( false );
-	m_actionAcid->setChecked( false );
-	m_actionFamily->setChecked( false );
-	m_pLegendAction->setEnabled( true );
-}
-
-void Kalzium::setFullDraw()
-{
-	m_PeriodicTableView->setFullDraw();
-}
-
 void Kalzium::slotToolboxCurrentChanged( int id )
 {
-	m_PeriodicTableView->unSelect();
 	m_PeriodicTableView->setTimeline( false );
-	m_PeriodicTableView->activateSOMMode( false );
+	KalziumPainter::MODE cur = m_PeriodicTableView->mode();
+	if ( ( id > 1 ) && ( cur == KalziumPainter::NORMAL ) || ( cur == KalziumPainter::GRADIENT ) )
+		m_prevNormalMode = cur;
 
 	switch ( id )
 	{
 		case 0: // nothing
-			break;
 		case 1: // molcalc
+			m_PeriodicTableView->setMode( m_prevNormalMode );
 			break;
 		case 2: // timeline
 			m_PeriodicTableView->setTimeline( true );
 			m_PeriodicTableView->setDate( m_timeWidget->time_slider->value() );
 			break;
 		case 3: // state of matter
-			m_PeriodicTableView->activateSOMMode( true );
 			m_PeriodicTableView->setTemperature( m_somWidget->temp_slider->value() );
+			m_PeriodicTableView->setMode( KalziumPainter::SOM );
 			break;
 	}
 	if ( m_dockWin->isShown() )
@@ -585,9 +459,6 @@ void Kalzium::slotSidebarVisibilityChanged( bool visible )
 	//save the settings
 	Prefs::setShowsidebar( m_dockWin->isShown() );
 	Prefs::writeConfig();
- 
-	//JH: redraw the full table next time
-	setFullDraw();
 }
 
 Kalzium::~Kalzium()
