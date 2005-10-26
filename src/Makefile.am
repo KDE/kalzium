@@ -37,7 +37,9 @@ kalzium_SOURCES = kalzium.cpp \
 			kalziumnumerationtype.cpp \
 			kalziumpainter.cpp \
 			kalziumschemetype.cpp \
-			kalziumtabletype.cpp
+			kalziumtabletype.cpp \
+			printwidget.cpp \
+			printwidgetbase.ui
 
 kalzium_LDADD   = ../../libkdeedu/libscience/libscience.la \
 				  ../../libkdeedu/kdeeduplot/libkdeeduplot.la \
@@ -77,7 +79,9 @@ EXTRA_DIST = main.cpp \
 		kalziumnumerationtype.cpp kalziumnumerationtype.h \
 		kalziumpainter.cpp kalziumpainter.h \
 		kalziumschemetype.cpp kalziumschemetype.h \
-		kalziumtabletype.kalziumtabletype.h
+		kalziumtabletype.cpp kalziumtabletype.h \
+		printwidgetbase.ui \
+		printwidget.cpp printwidget.h
 
 METASOURCES = AUTO 
 

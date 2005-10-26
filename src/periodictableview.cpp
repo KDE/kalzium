@@ -45,6 +45,7 @@
 #include <QPainter>
 #include <QColor>
 #include <QRect>
+#include <QDrag>
 
 PeriodicTableView::PeriodicTableView( QWidget *parent )
   : QWidget( parent )
@@ -254,10 +255,36 @@ void PeriodicTableView::slotTransientLabel()
 //X 		m_showLegendTooltip = false;
 }
 
-void PeriodicTableView::mousePressEvent( QMouseEvent *)
+void PeriodicTableView::mousePressEvent( QMouseEvent * event )
 {
 	if ( m_kalziumTip->isVisible() )
 		m_kalziumTip->hide();
+
+	int elementnumber = m_painter->currentTableType()->elementAtCoords( event->pos() );
+	
+	if ( elementnumber == 0 )
+		return;
+
+	Element* pointedElement = KalziumDataObject::instance()->element( elementnumber );;
+	
+	if ( event->button() == Qt::LeftButton )
+       	{
+		QDrag *drag = new QDrag(this);
+		QMimeData *mimeData = new QMimeData;
+		
+		mimeData->setText( pointedElement->dataAsString( ChemicalDataObject::name ) );
+		drag->setMimeData( mimeData );
+
+		QPixmap pix( 50, 50 );
+		QPainter p( &pix );
+		p.setBrush( QBrush( Qt::white ) );
+		p.drawRect( 0, 0, 50, 50 );
+		p.drawText( 5, 5, 40, 40, Qt::AlignCenter, pointedElement->dataAsString( ChemicalDataObject::symbol ) );
+		
+		drag->setPixmap( pix );
+
+		drag->start( Qt::CopyAction | Qt::MoveAction );
+	}
 }
 
 void PeriodicTableView::mouseMoveEvent( QMouseEvent *mouse )

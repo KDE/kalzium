@@ -173,7 +173,7 @@ class PeriodicTableView : public QWidget
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 		virtual void mouseReleaseEvent( QMouseEvent* );
-		virtual void mousePressEvent( QMouseEvent* );
+		virtual void mousePressEvent( QMouseEvent* event );
 		virtual void mouseMoveEvent( QMouseEvent* );
 
 		/**

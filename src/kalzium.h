@@ -27,6 +27,7 @@ class TimeWidgetIMPL;
 class SOMWidgetIMPL;
 class GlossaryDialog;
 class IsotopeTable;
+class PrintWidget;
 
 #include "kalziumpainter.h"
 
@@ -98,6 +99,8 @@ class Kalzium : public KMainWindow
 		SOMWidgetIMPL *m_somWidget;
 
 		DetailedGraphicalOverview *m_detailWidget;
+
+		PrintWidget* m_printWidget;
 
 		Q3DockWindow *m_dockWin;
 		QToolBox *m_toolbox;
