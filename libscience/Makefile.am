@@ -19,5 +19,4 @@ libscience_la_LIBADD = $(LIB_KDEUI)
 
 METASOURCES = AUTO
 
-include $(top_srcdir)/admin/Doxyfile.am
 
