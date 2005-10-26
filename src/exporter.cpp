@@ -30,6 +30,7 @@
 #include <kglobalsettings.h>
 #include <kprinter.h>
 
+#include <element.h>
 
 Exporter::Exporter()
 {
@@ -39,7 +40,6 @@ Exporter::Exporter()
 		KImageIO::registerFormats();
 		kimageioRegistered = true;
 	}
-
 }
 
 Exporter::~Exporter()
@@ -66,13 +66,14 @@ QString Exporter::supportedImageFormats()
 {
 	return KImageIO::pattern( KImageIO::Writing );
 }
+
 bool Exporter::printElements( const QList<Element*>& elements, const QString& path )
 {
         if ( path.isEmpty() )
                 return false;
 
 	KPrinter printer;
-	printer.setPageSize();
+//	printer.setPageSize();
 	QPainter painter;
 	QString imgdir/* = locate(  "data" , "kalzium/elempics/" )*/;
 
@@ -97,7 +98,7 @@ bool Exporter::printElements( const QList<Element*>& elements, const QString& pa
 		part->write( html );            //write the html code into the KHTMLPart
 		part->end();
 		
-		part->paint( painter, );        // let the KHtmlPart paint to the printer-painter
+//		part->paint( painter, );        // let the KHtmlPart paint to the printer-painter
 		
 		printer.newPage();
 	}
