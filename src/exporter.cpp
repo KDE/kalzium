@@ -19,6 +19,7 @@
 
 #include "exporter.h"
 
+#include <QPainter>
 #include <qpixmap.h>
 
 #include <kdebug.h>
@@ -43,12 +44,12 @@ bool Exporter::saveAsImage( const QPixmap* pixmap, const QString& fileName, int 
 {
 	if ( x != 0 || y != 0 || width != 0 || height != 0 )
 	{
-		QPixmap* tmpPixmap = new QPixmap();
+		QPixmap* tmpPixmap = new QPixmap( width, height );
+		QPainter* paint = new QPainter();
+		paint->begin( tmpPixmap );
+		paint->drawPixmap( 0, 0, *pixmap, x, y, width, height );
+		paint->end();
 
-		copyBlt( tmpPixmap, 0, 0, pixmap, x, y, width, height );
-	
-		if ( tmpPixmap->isNull() )
-			kdDebug() << "empty pixmap" << endl;
 		return tmpPixmap->save( fileName, "PNG" );
 	}
 

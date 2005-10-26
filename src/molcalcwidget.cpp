@@ -39,7 +39,6 @@
 
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qtooltip.h>
 
 
 MolcalcWidget::MolcalcWidget( QWidget *parent, const char *name )
@@ -61,9 +60,9 @@ void MolcalcWidget::clear()
 	
 	resultComposition->setText( i18n("To start, enter\na formula in the\nwidget above and\nclick on 'Calc'.") );
 
-	QToolTip::remove( resultMass );
-	QToolTip::remove( resultComposition );
-	QToolTip::remove( resultLabel );
+	resultMass->setToolTip( QString() );
+	resultComposition->setToolTip( QString() );
+	resultLabel->setToolTip( QString() );
 }
 
 

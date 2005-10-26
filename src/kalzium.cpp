@@ -200,7 +200,8 @@ void Kalzium::setupSidebars()
 	m_dockWin->setWidget( m_toolbox );
 
 	QWidget *fake = new QWidget( m_dockWin );
-	QVBoxLayout *lay = new QVBoxLayout( fake, 5 );
+	QVBoxLayout *lay = new QVBoxLayout( fake );
+	lay->setMargin( 5 );
 	lay->activate();
 	m_detailWidget = new DetailedGraphicalOverview( fake );
 	m_detailWidget->setObjectName( "DetailedGraphicalOverview" );

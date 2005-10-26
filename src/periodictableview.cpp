@@ -52,6 +52,9 @@ PeriodicTableView::PeriodicTableView( QWidget *parent )
 	// No selection
 	m_currentElement = 0;
 
+	HoverTimer.setSingleShot( true );
+	MouseoverTimer.setSingleShot( true );
+
 	connect( this,        SIGNAL( ToolTip( int ) ), 
 	         this,        SLOT( slotToolTip( int ) ) );
 
@@ -64,7 +67,7 @@ PeriodicTableView::PeriodicTableView( QWidget *parent )
 	setMouseTracking( true );
 
 	//JH: eliminates flicker on redraw
-	setBackgroundMode( Qt::NoBackground );
+	setAttribute( Qt::WA_NoBackground, true );
 
 	m_showTooltip = true;
 	m_showLegendTooltip = Prefs::tooltip();
@@ -278,8 +281,8 @@ void PeriodicTableView::mouseMoveEvent( QMouseEvent *mouse )
 		m_kalziumTip->hide();
 	}
 
-	HoverTimer.start( 500, true ); //JH: true = run timer once, not continuously
-	MouseoverTimer.start( 200, true ); //JH: true = run timer once, not continuously
+	HoverTimer.start( 500 );
+	MouseoverTimer.start( 200 );
 }
 
 void PeriodicTableView::mouseReleaseEvent( QMouseEvent *mouse )

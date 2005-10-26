@@ -45,7 +45,7 @@ KalziumDataObject::KalziumDataObject()
 	ElementSaxParser * parser = new ElementSaxParser();
 
 	QFile xmlFile( locate( "data", "libkdeedu/data/elements.xml" ) );
-	QXmlInputSource source(xmlFile);
+	QXmlInputSource source(&xmlFile);
 	QXmlSimpleReader reader;
 	
 	reader.setContentHandler(parser);

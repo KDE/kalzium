@@ -23,8 +23,10 @@ email                : cniehaus@kde.org
 #include <kglobal.h>
 
 //QT-Includes
+#include <QBrush>
 #include <qpainter.h>
 #include <qstring.h>
+#include <QPalette>
 #include <qpixmap.h>
 #include <qrect.h>
 
@@ -42,7 +44,7 @@ DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
 
 void DetailedGraphicalOverview::init( Element *el )
 {
-	setBackgroundMode( Qt::NoBackground );
+	setAttribute( Qt::WA_NoBackground, true );
 
 	m_element = el;
 	setMinimumSize( 300, 200 );
@@ -63,8 +65,8 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
 	if ( !m_element )
 	{
-		pm.fill( paletteBackgroundColor() );
-		p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::WordBreak, i18n( "No element selected" ) );
+		pm.fill( palette().background().color() );
+		p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No element selected" ) );
 	}
 	else
 	{
@@ -153,8 +155,9 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
 	p.end();
 
-
-	bitBlt( this, 0, 0, &pm );
+	p.begin( this );
+	p.drawPixmap( 0, 0, pm );
+	p.end();
 }
 
 void DetailedGraphicalOverview::drawBiologicalSymbol( QPainter *p )

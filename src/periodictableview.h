@@ -137,10 +137,10 @@ class PeriodicTableView : public QWidget
 		KalziumTip* m_kalziumTip;
 		
 		/**
-		 * timer used for the tooltop
+		 * timer used for the tooltip
 		 */
-		QTimer HoverTimer,
-			   MouseoverTimer;
+		QTimer HoverTimer;
+		QTimer MouseoverTimer;
 
 		/**
 		 * the number of the element the mouse-cursor is over

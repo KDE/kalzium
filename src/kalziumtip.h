@@ -30,8 +30,6 @@ class QPaintEvent;
 class Q3SimpleRichText;
 class QPixmap;
 class Element;
-class QTimer;
-
 
 /**
  * @short tooltip for kalzium
@@ -44,13 +42,13 @@ class KalziumTip : public QWidget
 	public:
 		enum MaskEffect { Plain, Dissolve };
 
-		KalziumTip( QWidget * parent = 0, const char * name = 0, Qt::WFlags f = 0 );
+		KalziumTip( QWidget * parent = 0, Qt::WFlags f = 0 );
 
 		void showTip( QPoint, Element* element, int visibleWidth, int visibleHeight ); //show the tip
 		void hide(); // hide it
 
 	protected:
-		void paintEvent(QPaintEvent * e);
+		virtual void paintEvent(QPaintEvent * e);
 
      		void plainMask();
     		void dissolveMask();

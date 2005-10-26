@@ -22,7 +22,7 @@
 #include <qregexp.h>
 #include <qpixmap.h>
 
-OrbitsWidget::OrbitsWidget( QWidget *parent, const char *name) : QWidget( parent, name )
+OrbitsWidget::OrbitsWidget( QWidget *parent ) : QWidget( parent )
 {
 }
 
@@ -163,7 +163,7 @@ void OrbitsWidget::getNumberOfOrbits()
 		while ( cont )
 		{
 
-			pos = o.find( rxb );
+			pos = o.indexOf( rxb );
 			cut = o.length()-pos-1;
 			numOfElectrons.append(o.left( pos ).toInt());
 			o = o.right( cut );

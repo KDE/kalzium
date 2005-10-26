@@ -38,7 +38,7 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 
-KalziumTip::KalziumTip( QWidget * parent, const char * name, Qt::WFlags f ) : QWidget( parent, name, f ) 
+KalziumTip::KalziumTip( QWidget * parent, Qt::WFlags f ) : QWidget( parent, f )
 {
 	setFocusPolicy(Qt::NoFocus); //the widget don't get the keyboard focus
 	setBackgroundMode(Qt::NoBackground); // widget has no background
@@ -116,7 +116,6 @@ void KalziumTip::display()
 	delete m_richText;
 	
 	QString elementname = m_tippedElement->dataAsString(ChemicalDataObject::name);
-//	QString elementname = "";
 	
 	QString number = i18n( "Number: %1" )
 			.arg( m_tippedElement->dataAsString( ChemicalDataObject::atomicNumber ) );
@@ -124,9 +123,9 @@ void KalziumTip::display()
 	QString mass = i18n( "Mass: %1" )
 			.arg( m_tippedElement->dataAsString( ChemicalDataObject::mass ) );
 
-	m_richText = new Q3SimpleRichText("<qt><h1>" + elementname + "</h1><p>"/*+**/
+	m_richText = new Q3SimpleRichText("<qt><h1>" + elementname + "</h1><p>"
 						    + number + "</p><p>"
-						    + mass  +/**/"</p></qt>", font());
+						    + mass  + "</p></qt>", font());
 
 	m_richText->setWidth(400);
 
@@ -145,7 +144,6 @@ void KalziumTip::displayInternal()
 {
     	if (!m_richText)
         	return;
-    	
 
 	// determine text rectangel sizes
 	QRect textRect(0,0,0,0);
@@ -281,8 +279,7 @@ void KalziumTip::internalUpdate()
 
 void KalziumTip::loadIcon()
 {
-//X 	QString iconpath = locate(  "data" , "kalzium/elempics/" + m_tippedElement->symbol() + ".jpg" );
-	QString iconpath="";
+	QString iconpath = locate( "appdata" , "elempics/" + m_tippedElement->dataAsString( ChemicalDataObject::symbol ) + ".jpg" );
 	if ( !iconpath.isEmpty() )
 	{
 		QImage img ( iconpath, "JPEG" );
