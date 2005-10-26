@@ -87,10 +87,13 @@ class ChemicalDataObject
 		 * Constructor.
 		 * @param v the data of the object
 		 * @param type the type of the data
+		 * @param errorValue the error margin of the value @p v
+		 *
+		 * @see errorValue()
 		 */
 		ChemicalDataObject( const QVariant& v, 
 				BlueObelisk type,
-				const QVariant& errorValue = 0);
+				const QVariant& errorValue = QVariant(0) );
 
 		/**
 		 * Set the data of this object to @p v
