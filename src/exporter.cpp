@@ -21,9 +21,15 @@
 
 #include <QPainter>
 #include <QPixmap>
+#include <QFile>
+#include <QTextStream>
 
 #include <kdebug.h>
 #include <kimageio.h>
+#include <khtml_part.h>
+#include <kglobalsettings.h>
+#include <kprinter.h>
+
 
 Exporter::Exporter()
 {
