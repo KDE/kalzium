@@ -36,11 +36,16 @@ class TempUnit
 {
 	public:
 
-		enum Unit { Kelvin = 0, 
-			Celsius, 
+		/**
+		 * All the temperature units we support.
+		 */
+		enum Unit
+		{
+			Kelvin = 0,
+			Celsius,
 			Fahrenheit,
 			Rankine,
-			Reaumur 
+			Reaumur
 		};
 
 		/**
@@ -81,6 +86,10 @@ class TempUnit
 		 */
 		static QString unitListSymbol( int i );
 
+		/**
+		 * @return a QPair with the minimum and the maximum value
+		 * (resp. in .first and .second) allowed for the unit @p u.
+		 */
 		static QPair<double, double> rangeForUnit( TempUnit::Unit u );
 
 		/**
