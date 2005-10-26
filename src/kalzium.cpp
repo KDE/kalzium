@@ -212,7 +212,8 @@ void Kalzium::setupSidebars()
 	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
 	m_toolbox->addItem( fake, SmallIcon( "overview" ), i18n( "Overview" ) );
 	
-	m_calcWidget = new MolcalcWidget( m_dockWin, "molcalcwidget" );
+	m_calcWidget = new MolcalcWidget( m_dockWin );
+	m_calcWidget->setObjectName( "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
 
 	m_timeWidget = new TimeWidgetIMPL( this );
@@ -373,7 +374,12 @@ void Kalzium::showSettingsDialog()
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
 	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotUpdateSettings() ) );
 	connect( dialog, SIGNAL( settingsChanged() ), m_somWidget, SLOT( reloadUnits() ) );
-	dialog->addPage( new setColors( 0, "colors_page"), i18n("Colors"), "colorize");
+	// colors page
+	Ui_setupColors ui_colors;
+	QWidget *w_colors = new QWidget( 0 );
+	w_colors->setObjectName( "colors_page" );
+	ui_colors.setupUi( w_colors );
+	dialog->addPage( w_colors, i18n( "Colors" ), "colorize" );
 	dialog->addPage( new setupUnits( 0, "units_page"), i18n("Units"), "gear");
 	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Miscellaneous" ), "misc" );
 	dialog->show();
@@ -382,7 +388,7 @@ void Kalzium::showSettingsDialog()
 void Kalzium::slotUpdateSettings()
 {
 }
- 
+
 void Kalzium::setupStatusBar()
 {
 	statusBar()->insertItem(  "" , IDS_ELEMENTINFO, 1, false );

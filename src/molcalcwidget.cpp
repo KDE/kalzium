@@ -19,14 +19,11 @@
  *                                                                         *
  ***************************************************************************/
 
-
 #include "molcalcwidget.h"
 
 #include "kalziumdataobject.h"
-#include "molcalcwidgetbase.h"
 #include "kalziumutils.h"
 #include "parser.h"
-#include "moleculeparser.h"
 
 #include <element.h>
 
@@ -35,15 +32,14 @@
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <klineedit.h>
-#include <ktoolbar.h>
 
 #include <qlabel.h>
 #include <qlayout.h>
 
-
-MolcalcWidget::MolcalcWidget( QWidget *parent, const char *name )
-    : MolcalcWidgetBase( parent, name )
+MolcalcWidget::MolcalcWidget( QWidget *parent )
+    : QWidget( parent )
 {
+	setupUi( this );
 	clear();
 }
 

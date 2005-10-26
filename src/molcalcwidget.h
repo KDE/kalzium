@@ -20,16 +20,10 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.             *
  ***************************************************************************/
 
+#include <QWidget>
 #include "molcalcwidgetbase.h"
 
 #include "moleculeparser.h"
-
-class KToggleAction;
-class KLineEdit;
-
-class Element;
-class MolcalcDialog;
-class MoleculeParser;
 
 /**
  * This widget is a small calculator for molecules.
@@ -38,16 +32,15 @@ class MoleculeParser;
  * @author Pino Toscano
  * @author Inge Wallin
  */
-class MolcalcWidget : public MolcalcWidgetBase
+class MolcalcWidget : public QWidget, private Ui_MolcalcWidgetBase
 {
 	Q_OBJECT
 	public:
 		/**
 		 * Constructor
 		 * @param parent parent widget
-		 * @param name name of this widget
 		 */
-		MolcalcWidget( QWidget *parent = 0, const char *name = 0 );
+		MolcalcWidget( QWidget *parent = 0 );
 
 	protected slots:
 		void slotCalcButtonClicked();
@@ -55,7 +48,7 @@ class MolcalcWidget : public MolcalcWidgetBase
 	private slots:
 		void clear();
 
-    private:
+	private:
 		/**
 		 * @return the HTML code of an element symbol and its
 		 * subscripted amount. Eg: Mg<sub>2</sub>
