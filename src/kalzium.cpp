@@ -215,13 +215,15 @@ void Kalzium::setupSidebars()
 	m_calcWidget = new MolcalcWidget( m_dockWin, "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
 
-	m_timeWidget = new TimeWidgetIMPL( this, "TimeWidget" );
-	connect( m_timeWidget->time_slider, SIGNAL( valueChanged( int ) ),
+	m_timeWidget = new TimeWidgetIMPL( this );
+	m_timeWidget->setObjectName( "TimeWidget" );
+	connect( m_timeWidget, SIGNAL( dateChanged( int ) ),
 	         m_PeriodicTableView, SLOT( setDate( int ) ) );
 	m_toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
 
-	m_somWidget = new SOMWidgetIMPL( this, "somWidget" );
-	connect( m_somWidget->temp_slider, SIGNAL( valueChanged( int ) ),
+	m_somWidget = new SOMWidgetIMPL( this );
+	m_somWidget->setObjectName( "somWidget" );
+	connect( m_somWidget, SIGNAL( temperatureChanged( int ) ),
 	         m_PeriodicTableView, SLOT( setTemperature( int ) ) );
 	m_toolbox->addItem( m_somWidget, SmallIcon( "statematter" ), i18n( "State of Matter" ) );
 	
@@ -436,10 +438,10 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 			break;
 		case 2: // timeline
 			m_PeriodicTableView->setTimeline( true );
-			m_PeriodicTableView->setDate( m_timeWidget->time_slider->value() );
+			m_PeriodicTableView->setDate( m_timeWidget->date() );
 			break;
 		case 3: // state of matter
-			m_PeriodicTableView->setTemperature( m_somWidget->temp_slider->value() );
+			m_PeriodicTableView->setTemperature( m_somWidget->temperature() );
 			m_PeriodicTableView->setMode( KalziumPainter::SOM );
 			break;
 	}

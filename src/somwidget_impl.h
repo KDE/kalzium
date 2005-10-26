@@ -13,6 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <QWidget>
 #include "somwidget.h"
 
 class Element;
@@ -26,16 +27,17 @@ class Element;
  * this widget will display which elements have a boiling or melting
  * point near the temperature the user entered using the slider.
  */
-class SOMWidgetIMPL : public SOMWidget
+class SOMWidgetIMPL : public QWidget, private Ui_SOMWidget
 {
 	Q_OBJECT
 
 	public:
 		/**
 		 * @param parent The parent of this widget
-		 * @param name The name of this widget
 		 */
-		SOMWidgetIMPL( QWidget *parent = 0, const char* name = 0 );
+		SOMWidgetIMPL( QWidget *parent = 0 );
+
+		int temperature() const;
 
 	public slots:
 		/**
@@ -59,5 +61,12 @@ class SOMWidgetIMPL : public SOMWidget
 		 * will be generated
 		 */
 		void setNewTemp( double newtemp );
+
+	signals:
+		/**
+		 * Emitted when the chosen temperature is changed.
+		 * The temperature @p newtemp is expressed always in Kelvin.
+		 */
+		void temperatureChanged( int newtemp );
 };
 #endif // SOMWIDGET_IMPL_H

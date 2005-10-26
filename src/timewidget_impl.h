@@ -14,28 +14,41 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <QWidget>
 #include "timewidget.h"
 
 /**
  * @author Carsten Niehaus
+ * @author Pino Toscano
  */
-class TimeWidgetIMPL : public TimeWidget
+class TimeWidgetIMPL : public QWidget, private Ui_TimeWidget
 {
 	Q_OBJECT
 
 	public:
 		/**
 		 * @param parent The parent of this widget
-		 * @param name The name of this widget
 		 */
-		TimeWidgetIMPL( QWidget *parent = 0, const char* name = 0 );
+		TimeWidgetIMPL( QWidget *parent = 0 );
 
-	public slots:
+		/**
+		 * @return the currently selected date
+		 */
+		int date() const;
+
+	private slots:
 		/**
 		 * this slot will react to the new year
 		 * @param value the new year
 		 */
 		void slotChanged( int value );
+
+	signals:
+		/**
+		 * emitted when the date changes
+		 * @param value the new year
+		 */
+		void dateChanged( int value );
 };
 #endif // TIMEWIDGET_IMPL_H
 

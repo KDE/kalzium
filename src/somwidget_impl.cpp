@@ -32,19 +32,15 @@
 #include "kalziumdataobject.h"
 #include "prefs.h"
 
-SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
-	: SOMWidget( parent,name )
+SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent )
+	: QWidget( parent )
 {
+	setupUi( this );
+
 	m_list = KalziumDataObject::instance()->ElementList;
 
-	text->setAlignment( text->alignment() | Qt::WordBreak );
-	text->setTextFormat( Qt::RichText );
-	text->setReadOnly( true );
-	text->setPaletteBackgroundColor( paletteBackgroundColor() );
-	text->setFrameStyle( QFrame::NoFrame );
-
-	m_htmlBegin = "<qt>";
-	m_htmlEnd = "</qt>";
+	m_htmlBegin = "";
+	m_htmlEnd = "";
 	m_prevUnit = Prefs::temperature();
 
 	connect( Number1, SIGNAL( valueChanged( double ) ),
@@ -55,6 +51,11 @@ SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent, const char* name )
 	         this, SLOT( setNewTemp( double ) ) );
 
 	reloadUnits();
+}
+
+int SOMWidgetIMPL::temperature() const
+{
+	return temp_slider->value();
 }
 
 void SOMWidgetIMPL::reloadUnits()
@@ -72,41 +73,16 @@ kdDebug() << "min: " << Number1->minValue() << " - max: " << Number1->maxValue()
 
 void SOMWidgetIMPL::sliderValueChanged( int temp )
 {
-// TODO check if in Qt4 the RangeControl emits the signal again
-	disconnect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( spinValueChanged( double ) ) );
-	disconnect( temp_slider, SIGNAL( valueChanged( int ) ),
-	         this, SLOT( sliderValueChanged( int ) ) );
-	disconnect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( setNewTemp( double ) ) );
 	double newvalue = TempUnit::convert( (double)temp, (int)TempUnit::Kelvin, Prefs::temperature() );
 	Number1->setValue( newvalue );
 	setNewTemp( newvalue );
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( spinValueChanged( double ) ) );
-	connect( temp_slider, SIGNAL( valueChanged( int ) ),
-	         this, SLOT( sliderValueChanged( int ) ) );
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( setNewTemp( double ) ) );
 }
 
 void SOMWidgetIMPL::spinValueChanged( double temp )
 {
-	disconnect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( spinValueChanged( double ) ) );
-	disconnect( temp_slider, SIGNAL( valueChanged( int ) ),
-	         this, SLOT( sliderValueChanged( int ) ) );
-	disconnect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( setNewTemp( double ) ) );
 	int newvalue = (int)TempUnit::convert( temp, Prefs::temperature(), (int)TempUnit::Kelvin );
 	temp_slider->setValue( newvalue );
 	setNewTemp( temp );
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( spinValueChanged( double ) ) );
-	connect( temp_slider, SIGNAL( valueChanged( int ) ),
-	         this, SLOT( sliderValueChanged( int ) ) );
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( setNewTemp( double ) ) );
 }
 
 void SOMWidgetIMPL::setNewTemp( double newtemp )
@@ -140,37 +116,38 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 	QString htmlcode;
 	if ( listMeltingPoint.count() > 0 )
 	{
-		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "<br>";
+		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "\n";
 		for ( int i = 0; i < listMeltingPoint.count(); i++ )
 		{
-			htmlcode += "&nbsp;<b>&middot;</b>&nbsp;" + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listMeltingPoint.at( i ) ).arg( listMeltingPointValue.at( i ) ) + "<br>";
+			htmlcode += " - " + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listMeltingPoint.at( i ) ).arg( listMeltingPointValue.at( i ) ) + "\n";
 		}
-		htmlcode += "<br>";
+		htmlcode += "\n";
 	}
 	else
 	{
 		htmlcode += i18n( "No elements with a melting point around this temperature" );
-		htmlcode += "<br><br>";
+		htmlcode += "\n\n";
 	}
 	if ( listBoilingPoint.count() > 0 )
 	{
-		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "<br>";
+		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "\n";
 		for ( int i = 0; i < listBoilingPoint.count(); i++ )
 		{
-			htmlcode += "&nbsp;<b>&middot;</b>&nbsp;" + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listBoilingPoint.at( i ) ).arg( listBoilingPointValue.at( i ) ) + "<br>";
+			htmlcode += " - " + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listBoilingPoint.at( i ) ).arg( listBoilingPointValue.at( i ) ) + "\n";
 		}
-		htmlcode += "<br>";
+		htmlcode += "\n";
 	}
 	else
 	{
 		htmlcode += i18n( "No elements with a boiling point around this temperature" );
-		htmlcode += "<br>";
+		htmlcode += "\n";
 	}
 
 //	kdDebug() << m_htmlBegin + htmlcode + m_htmlEnd << endl;
 
 	text->setText( m_htmlBegin + htmlcode + m_htmlEnd );
 
+	emit temperatureChanged( temperature() );
 }
 
 #include "somwidget_impl.moc"

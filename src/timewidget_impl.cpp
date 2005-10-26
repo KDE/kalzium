@@ -11,35 +11,39 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "timewidget_impl.h"
 
 #include <qlayout.h>
 #include <qsizepolicy.h>
 #include <qslider.h>
-#include <qtextedit.h>
 
 #include <knuminput.h>
 
-TimeWidgetIMPL::TimeWidgetIMPL( QWidget *parent, const char* name )
-	: TimeWidget( parent, name )
+TimeWidgetIMPL::TimeWidgetIMPL( QWidget *parent )
+	: QWidget( parent )
 {
-	text->setAlignment( text->alignment() | Qt::WordBreak );
-	text->setTextFormat( Qt::RichText );
-	text->setReadOnly( true );
-	text->setPaletteBackgroundColor( paletteBackgroundColor() );
-	text->setFrameStyle( QFrame::NoFrame );
+	setupUi( this );
 
 	connect( time_slider, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( slotChanged( int ) ) );
+	connect( time_slider, SIGNAL( valueChanged( int ) ),
+	         Number1, SLOT( setValue( int ) ) );
+	connect( Number1, SIGNAL( valueChanged( int ) ),
+	         time_slider, SLOT( setValue( int ) ) );
 	connect( Number1, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( slotChanged( int ) ) );
 }
 
+int TimeWidgetIMPL::date() const
+{
+	return time_slider->value();
+}
+
 void TimeWidgetIMPL::slotChanged( int value )
 {
-	( void )value;
-	text->hide();
-	spacerItem2->changeSize( 21, 5, QSizePolicy::Fixed, QSizePolicy::Expanding );
+	// emit this for the world
+	emit dateChanged( value );
 }
 
 #include "timewidget_impl.moc"
