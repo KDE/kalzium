@@ -275,10 +275,11 @@ void PeriodicTableView::mousePressEvent( QMouseEvent * event )
 		mimeData->setText( pointedElement->dataAsString( ChemicalDataObject::name ) );
 		drag->setMimeData( mimeData );
 
-		QPixmap pix( 50, 50 );
-		QRect r( 0, 0, 50, 50 );
+		QRect elrect = m_painter->currentTableType()->elementRect( elementnumber );
+		elrect.translate( -elrect.topLeft() );
+		QPixmap pix( elrect.size() + QSize( 1, 1 ) );
 		m_painter->begin( &pix );
-		m_painter->drawElement( elementnumber, r );
+		m_painter->drawElement( elementnumber, elrect );
 		m_painter->end();
 		
 		drag->setPixmap( pix );

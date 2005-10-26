@@ -230,7 +230,7 @@ void Kalzium::setupSidebars()
 	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
 	m_printWidget = new PrintWidget( this );
-	m_toolbox->addItem( m_printWidget, SmallIcon( "statematter" ), i18n( "Print Elements" ) );
+	m_toolbox->addItem( m_printWidget, SmallIcon( "fileprint" ), i18n( "Print Elements" ) );
 
 	moveDockWindow( m_dockWin, Qt::DockLeft );
 	setDockEnabled( /*m_dockWin, */Qt::DockTop, false );

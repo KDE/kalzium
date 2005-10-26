@@ -67,6 +67,9 @@ class KalziumNumerationTypeFactory
 };
 
 /**
+ * Base class for a numeration type.
+ * It's quite simple, as a numeration doesn't have many data to represent.
+ *
  * @author Pino Toscano
  */
 class KalziumNumerationType
@@ -93,11 +96,11 @@ class KalziumNumerationType
 		/**
 		 * Returns the @p num 'th item of this numeration type.
 		 */
-		virtual QString item( const int num ) const = 0;
+		virtual QString item( const int num ) const;
 		/**
 		 * Returns all the items of this numeration type.
 		 */
-		virtual QStringList items() const = 0;
+		virtual QStringList items() const;
 
 	protected:
 		KalziumNumerationType();
@@ -140,9 +143,6 @@ class KalziumIUPACNumerationType : public KalziumNumerationType
 		QByteArray name() const;
 		QString description() const;
 
-		QString item( const int num ) const;
-		QStringList items() const;
-
 	private:
 		KalziumIUPACNumerationType();
 };
@@ -160,9 +160,6 @@ class KalziumCASNumerationType : public KalziumNumerationType
 		QByteArray name() const;
 		QString description() const;
 
-		QString item( const int num ) const;
-		QStringList items() const;
-
 	private:
 		KalziumCASNumerationType();
 };
@@ -179,9 +176,6 @@ class KalziumOldIUPACNumerationType : public KalziumNumerationType
 
 		QByteArray name() const;
 		QString description() const;
-
-		QString item( const int num ) const;
-		QStringList items() const;
 
 	private:
 		KalziumOldIUPACNumerationType();

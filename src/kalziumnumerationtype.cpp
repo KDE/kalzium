@@ -82,6 +82,20 @@ KalziumNumerationType::~KalziumNumerationType()
 {
 }
 
+QString KalziumNumerationType::item( const int num ) const
+{
+	if ( ( num < 0 ) || ( num >= m_items.count() ) )
+		return QString();
+	
+	return m_items.at( num );
+}
+
+QStringList KalziumNumerationType::items() const
+{
+	return m_items;
+}
+
+
 KalziumNoneNumerationType* KalziumNoneNumerationType::instance()
 {
 	static KalziumNoneNumerationType knnt;
@@ -154,19 +168,6 @@ QString KalziumIUPACNumerationType::description() const
 	return i18n( "IUPAC" );
 }
 
-QString KalziumIUPACNumerationType::item( const int num ) const
-{
-	if ( ( num < 0 ) || ( num >= m_items.count() ) )
-		return QString();
-	
-	return m_items.at( num );
-}
-
-QStringList KalziumIUPACNumerationType::items() const
-{
-	return m_items;
-}
-
 KalziumCASNumerationType* KalziumCASNumerationType::instance()
 {
 	static KalziumCASNumerationType kcnt;
@@ -207,19 +208,6 @@ QString KalziumCASNumerationType::description() const
 	return i18n( "CAS" );
 }
 
-QString KalziumCASNumerationType::item( const int num ) const
-{
-	if ( ( num < 0 ) || ( num >= m_items.count() ) )
-		return QString();
-	
-	return m_items.at( num );
-}
-
-QStringList KalziumCASNumerationType::items() const
-{
-	return m_items;
-}
-
 KalziumOldIUPACNumerationType* KalziumOldIUPACNumerationType::instance()
 {
 	static KalziumOldIUPACNumerationType koint;
@@ -258,17 +246,4 @@ QByteArray KalziumOldIUPACNumerationType::name() const
 QString KalziumOldIUPACNumerationType::description() const
 {
 	return i18n( "Old IUPAC" );
-}
-
-QString KalziumOldIUPACNumerationType::item( const int num ) const
-{
-	if ( ( num < 0 ) || ( num >= m_items.count() ) )
-		return QString();
-	
-	return m_items.at( num );
-}
-
-QStringList KalziumOldIUPACNumerationType::items() const
-{
-	return m_items;
 }
