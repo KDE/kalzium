@@ -106,12 +106,12 @@ void KalziumPainter::drawElements()
 	}
 }
 
-void KalziumPainter::drawElement( int element )
+void KalziumPainter::drawElement( int element, const QRect& r )
 {
 	if ( !m_scheme || !m_ktt ) return;
 
 	bool grayedOut = m_isTimeline ? m_year < KalziumDataObject::instance()->element( element )->dataAsVariant( ChemicalDataObject::date ).toDouble() : false;
-	QRect rect = m_ktt->elementRect( element );
+	QRect rect = r.isNull() ? m_ktt->elementRect( element ) : r;
 	Element *el = KalziumDataObject::instance()->element( element );
 	const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
 //kdDebug() << "ELEMENT: " << element << "  RECT: " << rect << endl;

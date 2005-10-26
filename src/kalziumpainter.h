@@ -20,6 +20,8 @@
 #ifndef KALZIUMPAINTER_H
 #define KALZIUMPAINTER_H
 
+#include <QRect>
+
 class QPaintDevice;
 class QPainter;
 class KalziumGradientType;
@@ -86,9 +88,11 @@ class KalziumPainter
 		 */
 		void drawElements();
 		/**
-		 * Draw the element with atomic number @p element
+		 * Draw the element with atomic number @p element.
+		 * Pass a QRect() to the @p r parameter if you want to use the
+		 * default rect for that element.
 		 */
-		void drawElement( int element );
+		void drawElement( int element, const QRect& r = QRect() );
 		/**
 		 * Draw the legend
 		 */

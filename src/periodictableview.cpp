@@ -265,7 +265,7 @@ void PeriodicTableView::mousePressEvent( QMouseEvent * event )
 	if ( elementnumber == 0 )
 		return;
 
-	Element* pointedElement = KalziumDataObject::instance()->element( elementnumber );;
+	Element* pointedElement = KalziumDataObject::instance()->element( elementnumber );
 	
 	if ( event->button() == Qt::LeftButton )
        	{
@@ -276,10 +276,10 @@ void PeriodicTableView::mousePressEvent( QMouseEvent * event )
 		drag->setMimeData( mimeData );
 
 		QPixmap pix( 50, 50 );
-		QPainter p( &pix );
-		p.setBrush( QBrush( Qt::white ) );
-		p.drawRect( 0, 0, 50, 50 );
-		p.drawText( 5, 5, 40, 40, Qt::AlignCenter, pointedElement->dataAsString( ChemicalDataObject::symbol ) );
+		QRect r( 0, 0, 50, 50 );
+		m_painter->begin( &pix );
+		m_painter->drawElement( elementnumber, r );
+		m_painter->end();
 		
 		drag->setPixmap( pix );
 
