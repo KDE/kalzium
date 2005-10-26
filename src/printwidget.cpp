@@ -63,6 +63,12 @@ void PrintListWidget::dragEnterEvent( QDragEnterEvent* event )
 		event->acceptProposedAction();
 }
 
+void PrintListWidget::dragMoveEvent( QDragMoveEvent* event )
+{
+	if ( event->mimeData()->hasFormat("text/plain") )
+		event->acceptProposedAction();
+}
+
 void PrintListWidget::dropEvent( QDropEvent* event )
 {
 	kdDebug() << "hall" << endl;
