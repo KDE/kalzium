@@ -98,7 +98,7 @@ class EQChemDialog : public KDialogBase
 		/**
 		 * invokes the help for this widget
 		 */
-		void slotHelp();
+		virtual void slotHelp();
 };
 
 #endif // _EQCHEMVIEW_H_

@@ -248,17 +248,6 @@ void Kalzium::slotShowEQSolver()
 {
 #ifdef HAVE_FACILE
 //X 	EQChemDialog *dlg = new EQChemDialog( this );
-//X 	
-//X 	QWidget *page = new QWidget( dlg );
-//X 	dlg->setMainWidget( page );
-//X 	QVBoxLayout *vbox = new QVBoxLayout( page , 0, KDialogBase:: spacingHint() );
-//X 	
-//X 	eqchemView *eqsolver = new eqchemView( page );
-//X 	eqsolver->setMinimumSize( 600,400 );
-//X 
-//X 	vbox->addWidget( eqsolver );
-//X 
-//X 	connect(dlg, SIGNAL(applyClicked()), eqsolver, SLOT(compute()));
 //X 	dlg->show();
 #endif
 }

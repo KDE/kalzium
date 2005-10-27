@@ -21,6 +21,7 @@
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qstring.h>
+#include <QWidget>
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -28,14 +29,13 @@
 #include <kpushbutton.h>
 #include <kiconloader.h>
 #include <kglobal.h>
-#include <kapplication.h>
+#include <ktoolinvocation.h>
 
 #include "config.h"
 #include "eqresult.h"
 #include "eqchemview.h"
 
 #include <stdlib.h>
-#include <ktoolinvocation.h>
 
 #ifdef HAVE_FACILE
 extern "C" {
@@ -106,16 +106,26 @@ void eqchemView::compute()
 }
 
 EQChemDialog::EQChemDialog( QWidget *parent )
-	: KDialogBase(parent, "EQChemDialog", true, i18n( "Solve Chemical Equations" ),
-			KDialogBase::Apply|KDialogBase::Close|KDialogBase::Help, KDialogBase::Apply, true )
+  : KDialogBase( parent, "EQChemDialog", true, i18n( "Solve Chemical Equations" ),
+                 Help|Apply|Close, Apply, true )
 {
+	QWidget *page = new QWidget( this );
+	setMainWidget( page );
+	QVBoxLayout *vbox = new QVBoxLayout( page );
+	vbox->setMargin( 0 );
+	vbox->setSpacing( spacingHint() );
+
+	eqchemView *eqsolver = new eqchemView( page );
+	eqsolver->setMinimumSize( 600, 400 );
+
+	vbox->addWidget( eqsolver );
+
+	connect( this, SIGNAL( applyClicked() ), eqsolver, SLOT( compute() ) );
 }
 
 void EQChemDialog::slotHelp()
 {
-	emit helpClicked();
-	if ( kapp )
-		KToolInvocation::invokeHelp ( "eq_solver", "kalzium" );
+	KToolInvocation::invokeHelp( "eq_solver", "kalzium" );
 }
 
 #include "eqchemview.moc"
