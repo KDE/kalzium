@@ -20,6 +20,7 @@
 #ifndef KALZIUMPAINTER_H
 #define KALZIUMPAINTER_H
 
+#include <QByteArray>
 #include <QRect>
 
 class QPaintDevice;
@@ -121,15 +122,18 @@ class KalziumPainter
 		MODE mode() const;
 
 		void setScheme( int s );
+		void setScheme( const QByteArray& s );
 		KalziumSchemeType* scheme() const;
 
 		void setGradient( int cs );
+		void setGradient( const QByteArray& cs );
 		KalziumGradientType* gradient() const;
 
 		/**
 		 * Set the numeration @p n for the periodic table
 		 */
 		void setNumeration( int n );
+		void setNumeration( const QByteArray& n );
 		KalziumNumerationType* numeration() const;
 
 		/**

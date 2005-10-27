@@ -158,6 +158,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 
 			m_painter->setPen( Qt::black );
 
+			QFont orig_font = m_painter->font();
 			QFont symbol_font = m_painter->font();
 			symbol_font.setPointSize( 10 );
 			QFont f = m_painter->font();
@@ -174,6 +175,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 			m_painter->setFont( symbol_font );
 			m_painter->drawText( rect, Qt::AlignCenter, symbol );
 
+			m_painter->setFont( orig_font );
 			break;
 		}
 		case GRADIENT:
@@ -186,12 +188,15 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 
 			m_painter->drawText( rect, Qt::AlignCenter, symbol );
 
+			QFont orig_font = m_painter->font();
 			QFont f = m_painter->font();
 			f.setPointSize( 8 );
 			m_painter->setFont( f );
 			double value = m_gradient->value( element );
 			QString strval = value > .5 ? QString::number( KalziumUtils::strippedValue( value ) ) : i18n( "It means: Not Available. Translators: keep it as short as you can!", "N/A" );
 			m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignBottom, strval );
+
+			m_painter->setFont( orig_font );
 			break;
 		}
 	}
@@ -351,6 +356,15 @@ void KalziumPainter::setScheme( int s )
 	}
 }
 
+void KalziumPainter::setScheme( const QByteArray& s )
+{
+	KalziumSchemeType *tmp = KalziumSchemeTypeFactory::instance()->build( s );
+	if ( tmp )
+	{
+		m_scheme = tmp;
+	}
+}
+
 KalziumSchemeType* KalziumPainter::scheme() const
 {
 	return m_scheme;
@@ -365,12 +379,30 @@ void KalziumPainter::setGradient( int g )
 	}
 }
 
+void KalziumPainter::setGradient( const QByteArray& g )
+{
+	KalziumGradientType *tmp = KalziumGradientTypeFactory::instance()->build( g );
+	if ( tmp )
+	{
+		m_gradient = tmp;
+	}
+}
+
 KalziumGradientType* KalziumPainter::gradient() const
 {
 	return m_gradient;
 }
 
 void KalziumPainter::setNumeration( int n )
+{
+	KalziumNumerationType *tmp = KalziumNumerationTypeFactory::instance()->build( n );
+	if ( tmp )
+	{
+		m_numeration = tmp;
+	}
+}
+
+void KalziumPainter::setNumeration( const QByteArray& n )
 {
 	KalziumNumerationType *tmp = KalziumNumerationTypeFactory::instance()->build( n );
 	if ( tmp )

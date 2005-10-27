@@ -41,10 +41,7 @@
 #include <q3dockwindow.h>
 #include <QLayout>
 #include <QToolBox>
-#include <QSlider>
-#include <q3scrollview.h>
 #include <QScrollArea>
-#include <QSpinBox>
 
 #include <kconfigdialog.h>
 #include <kiconloader.h>
@@ -55,7 +52,6 @@
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
 #include <kdialogbase.h>
-#include <knuminput.h>
 
 #include <kdeeduglossary.h>
 
@@ -76,7 +72,7 @@ Kalzium::Kalzium()
 	m_PeriodicTableView->setObjectName( "PeriodicTableView" );
 	helperSV->setWidget( m_PeriodicTableView );
 //	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
-//	helperSV->setFrameShape(QFrame::NoFrame);
+	helperSV->setFrameShape( QFrame::NoFrame );
 
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
@@ -111,18 +107,20 @@ Kalzium::Kalzium()
 	m_prevNormalMode = KalziumPainter::NORMAL;
 }
 
+static QStringList prependToListItems( const QStringList& list, const QString& strprefix )
+{
+	QStringList l;
+	for ( int i = 0; i < list.count(); i++ )
+		l << strprefix.arg( list.at( i ) );
+	return l;
+}
+
 void Kalzium::setupActions()
 {
 	// the action for swiching look: color schemes and gradients
 	QStringList looklist;
-	QStringList schemes = KalziumSchemeTypeFactory::instance()->schemes();
-	QString schemeprefix = i18n( "Scheme: %1" );
-	for ( int i = 0; i < schemes.count(); i++ )
-		looklist << schemeprefix.arg( schemes.at( i ) );
-	QStringList gradients = KalziumGradientTypeFactory::instance()->gradients();
-	QString gradprefix = i18n( "Gradient: %1" );
-	for ( int i = 0; i < gradients.count(); i++ )
-		looklist << gradprefix.arg( gradients.at( i ) );
+	looklist << prependToListItems( KalziumSchemeTypeFactory::instance()->schemes(), i18n( "Scheme: %1" ) );
+	looklist << prependToListItems( KalziumGradientTypeFactory::instance()->gradients(), i18n( "Gradient: %1" ) );
 	look_action = new KSelectAction( i18n( "&Look" ), 0, this, 0, actionCollection(), "view_look" );
 	look_action->setItems(looklist);
 	connect( look_action, SIGNAL( activated( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
@@ -311,7 +309,6 @@ void Kalzium::slotShowLegend()
 		m_PeriodicTableView->showLegend(true);
 		m_pLegendAction->setText( i18n( "Hide &Legend" ) );
 	}
-	m_PeriodicTableView->update();
 	
 	//save the settings
 	Prefs::setShowlegend( m_PeriodicTableView->showLegend() ); 
