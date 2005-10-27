@@ -47,7 +47,7 @@ Q3ListBoxItem ( listBox )
 
 void QuestionItem::paint( QPainter* painter )
 {
-    int tf = Qt::NoAccel | Qt::SingleLine | Qt::AlignVCenter;
+    int tf = Qt::TextHideMnemonic | Qt::TextSingleLine | Qt::AlignVCenter;
 
     QRect r ( 0, 0, listBox()->contentsWidth(), height( listBox() ) );
     painter->fillRect( r, m_bgcolor );
