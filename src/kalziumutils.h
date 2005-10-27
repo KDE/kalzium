@@ -18,6 +18,9 @@ class QString;
 class QRect;
 class QFont;
 class QPainter;
+class Element;
+
+#include <chemicaldataobject.h>
 
 class KalziumUtils
 {
@@ -54,6 +57,15 @@ class KalziumUtils
 		 * @return the height of the string @p string
 		 */
 		static int StringHeight( const QString& string, const QFont& font, QPainter* painter );
+
+		/**
+		 * An almost standard way to get an unit well converted for
+		 * displaying including (eventual) unit.
+		 * @param el the element
+		 * @param kind the unit we want to print of the element @p el
+		 * @return the formatted string
+		 */
+		static QString prettyUnit( const Element* el, ChemicalDataObject::BlueObelisk kind );
 };
 
 #endif // KALZIUMUTILS_H

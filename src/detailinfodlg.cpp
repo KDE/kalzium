@@ -39,6 +39,7 @@
 #include "detailedgraphicaloverview.h"
 #include "spectrum.h"
 #include "spectrumviewimpl.h"
+#include "kalziumutils.h"
 
 //TODO add bondxx-radius (H-H-distance for example)
 
@@ -50,7 +51,6 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent )
 			KGuiItem(i18n("Previous element", "Previous"), "1leftarrow"))
 {
 	m_data    = KalziumDataObject::instance();
-	m_element = el;
 
 	m_baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
 	m_baseHtml.append("kalzium/data/htmlview/");
@@ -60,10 +60,9 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent )
 
 	( actionButton( KDialogBase::Close ) )->setFocus();
 
-	// creating the tabs...
+	// creating the tabs but not the contents, as that will be done when
+	// setting the element
 	createContent();
-	// ... and updating their contents
-	reloadContent();
 
 	m_actionCollection = new KActionCollection(this);	
 	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);
@@ -71,14 +70,14 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent )
 	setButtonTip( User2, i18n( "Goes to the previous element" ) );
 	setButtonTip( User1, i18n( "Goes to the next element" ) );
 
-	if ( m_element->data( ChemicalDataObject::atomicNumber ) == 1 )
-		enableButton( User2, false );
-	else if ( m_element->data( ChemicalDataObject::atomicNumber ) == m_data->numberOfElements() )
-		enableButton( User1, false );
+	// setting the element and updating the whole dialog
+	setElement( el );
 }
 
 void DetailedInfoDlg::setElement(Element *element)
 {
+	if ( !element ) return;
+
 	m_element = element;
 	
 	reloadContent();
@@ -135,21 +134,20 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 //X 			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
 //X 			html.append( "<b>" + i18n( "Density: %1" ).arg( m_element->adjustUnits( Element::DENSITY ) ) + "</b>" );
 //X 			html.append( "</td></tr>" );
-//X 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-//X 			html.append( "<b>" + i18n( "Covalent Radius: %1" ).arg( m_element->adjustRadius( Element::COVALENT ) ) + "</b>" );
-//X 			html.append( "</td></tr>" );
+			// covalent radius
+			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
+			html.append( "<b>" + i18n( "Covalent Radius: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) + "</b>" );
+			html.append( "</td></tr>" );
 //X 			if ( m_element->radius(Element::IONIC) > 0.0 )
 //X 			{
 //X 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
 //X 				html.append( i18n( "<b>Ionic Radius (Charge): %1</b> (%2)" ).arg( m_element->adjustRadius(Element::IONIC) ).arg( m_element->ioncharge() ) );
 //X 				html.append( "</td></tr>" );
 //X 			}
-//X 			if ( m_element->radius(Element::VDW) > 0.0 )
-//X 			{
-//X 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-//X 				html.append( "<b>" + i18n( "van der Waals Radius: %1" ).arg( m_element->adjustRadius(Element::VDW) ) + "</b>" );
-//X 				html.append( "</td></tr>" );
-//X 			}
+			// van der Waals radius
+			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+			html.append( "<b>" + i18n( "van der Waals Radius: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) + "</b>" );
+			html.append( "</td></tr>" );
 //X 		
 //X 			if ( m_element->radius(Element::ATOMIC) > 0.0 )
 //X 			{
@@ -158,9 +156,9 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 //X 				html.append( "</td></tr>" );
 //X 			}
 //X 			
-//X 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-//X 			html.append( "<b>" + i18n( "Mass: %1" ).arg( m_element->adjustUnits( Element::MASS ) ) + "</b>" );
-//X 			html.append( "</td></tr>" );
+			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+			html.append( "<b>" + i18n( "Mass: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) + "</b>" );
+			html.append( "</td></tr>" );
 //X 			if ( !m_element->isotopes().isEmpty() )
 //X 			{
 //X 				html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
@@ -172,10 +170,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 		{
 			// discovery date and discoverers
 			html.append( "<tr><td><img src=\"discovery.png\" alt=\"icon\"/></td><td>" );
-			int date = m_element->dataAsVariant( ChemicalDataObject::date ).toInt();
-			html += date < 1000
-			        ? i18n( "This element was known to ancient cultures." )
-			        : i18n( "This element was discovered in the year %1." ).arg( date );
+			html += KalziumUtils::prettyUnit( m_element, ChemicalDataObject::date );
 			QString discoverers = m_element->dataAsString( ChemicalDataObject::discoverers );
 			if ( !discoverers.isEmpty() )
 			{
@@ -216,19 +211,22 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			break;
 		}
 		case ENERGY:
-//X 			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
-//X 			html.append( i18n( "Melting Point: %1" ).arg( m_element->adjustUnits( Element::MELTINGPOINT ) ) );
-//X 			html.append( "</td></tr>" );
-//X 			html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
-//X 			html.append( i18n( "Boiling Point: %1" ).arg( m_element->adjustUnits( Element::BOILINGPOINT ) ) );
-//X 			html.append( "</td></tr>" );
-//X 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-//X 			html.append( i18n( "Electronegativity: %1" ).arg( m_element->adjustUnits( Element::EN ) ) );
-//X 			html.append( "</td></tr>" );
-//X 			html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
-//X 			html.append( i18n( "Electron affinity: %1 " ).arg( m_element->adjustUnits(Element::EA) ) );
-//X 			html.append( "</td></tr>" );
-//X 						
+			// melting point
+			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Melting Point: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
+			html.append( "</td></tr>" );
+			// boiling point
+			html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Boiling Point: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::boilingpoint ) ) );
+ 			html.append( "</td></tr>" );
+			// electro negativity
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Electronegativity: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronegativityPauling ) ) );
+			html.append( "</td></tr>" );
+			// electro affinity
+			html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Electron affinity: %1 " ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
+			html.append( "</td></tr>" );
 //X 
 //X 			int i = 0;
 //X 			for ( ; i < ionlist.count() ; ++i )
@@ -361,7 +359,7 @@ void DetailedInfoDlg::createContent( )
 
 	// atomic model tab
 	QFrame *m_pModelTab = addPage( i18n( "Atom Model" ), i18n( "Atom Model" ), BarIcon( "orbits" ) );
-	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, spacingHint() );
+	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab );
 	modelLayout->setMargin( 0 );
 	wOrbits = new OrbitsWidget( m_pModelTab );
 /*
@@ -373,12 +371,11 @@ void DetailedInfoDlg::createContent( )
 */
 	modelLayout->addWidget( wOrbits );
 
-	// misc tab
+	// html tabs
+	m_htmlpages["chemical"] = addHTMLTab( i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
+	m_htmlpages["energies"] = addHTMLTab( i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
 	m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 
-//X 	addTab( getHtml(CHEMICAL), i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
-//X 	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
-//X 	
 //X 	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
 //X 	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
 //X 	m_pages.append( m_pSpectrumTab );
@@ -423,12 +420,11 @@ void DetailedInfoDlg::reloadContent()
 	// updating atomic model tab
 	wOrbits->setElementNumber( element_number  );
 
-	// updating misc tab
+	// updating html tabs
+	fillHTMLTab( m_htmlpages["chemical"], getHtml( CHEMICAL ) );
+	fillHTMLTab( m_htmlpages["energies"], getHtml( ENERGY ) );
 	fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
 
-//X 	addTab( getHtml(CHEMICAL), i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
-//X 	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
-//X 	
 //X 	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
 //X 	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
 //X 	m_pages.append( m_pSpectrumTab );
@@ -447,9 +443,9 @@ void DetailedInfoDlg::reloadContent()
 void DetailedInfoDlg::slotHelp()
 {
 	QString chapter = "infodialog_overview";
-/*
-	switch ( activePageIndex() ){
-		case 0: 
+	switch ( activePageIndex() )
+	{
+		case 0:
 			chapter = "infodialog_overview";
 			break;
 		case 1:
@@ -467,11 +463,12 @@ void DetailedInfoDlg::slotHelp()
 		case 5:
 			 chapter = "infodialog_misc";
 			break;
+/*
 		case 6:
 			 chapter = "infodialog_spectrum";
 			break;
-	}
 */
+	}
 
 	KToolInvocation::invokeHelp( chapter, QLatin1String( "kalzium" ) );
 }
