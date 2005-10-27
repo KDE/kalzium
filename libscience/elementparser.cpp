@@ -37,6 +37,7 @@ ElementSaxParser::ElementSaxParser()
 	inPeriodTableBlock_(false),
 	inNameOrigin_(false),
 	inDiscoveryDate_(false),
+	inDiscoverers_(false),
 	inPeriod_(false)
 {
 }
@@ -87,6 +88,8 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 				inNameOrigin_ = true;
 			else if (attrs.value(i) == "bo:discoveryDate")
 				inDiscoveryDate_ = true;
+			else if (attrs.value(i) == "bo:discoverers")
+				inDiscoverers_ = true;
 			else if (attrs.value(i) == "bo:period")
 				inPeriod_ = true;
 		}
@@ -195,6 +198,11 @@ bool ElementSaxParser::characters(const QString &ch)
 		value = ch.toInt();
 		type = ChemicalDataObject::date;
 		inDiscoveryDate_ = false;
+	}
+	else if (inDiscoverers_) {
+		value = ch;
+		type = ChemicalDataObject::discoverers;
+		inDiscoverers_ = false;
 	}
 	else if (inPeriod_) {
 		value = ch.toInt();

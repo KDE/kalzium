@@ -188,8 +188,8 @@ QString ChemicalDataObject::dictRef() const
 		case date:
 			botype = "date";
 			break;
-		case discoverer:
-			botype = "discoverer";
+		case discoverers:
+			botype = "discoverers";
 			break;
 		case period:
 			botype = "period";

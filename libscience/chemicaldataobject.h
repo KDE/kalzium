@@ -61,7 +61,7 @@ class ChemicalDataObject
 			orbit/**< the quantumorbit of the element */,
 			period/**< the period of the element */,
 			date/**< date of discovery of the element. When 0, the element has been known in ancient times. */,
-			discoverer/** The name of the discoverer(s) */,
+			discoverers/** The name of the discoverers, separated by semicolomns */,
 			relativeAbundance/** The abundance, relative to 100 */
 		};
 
