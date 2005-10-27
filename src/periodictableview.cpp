@@ -32,6 +32,7 @@
 #include <kpixmapeffect.h>
 #include <kimageeffect.h>
 
+#include <QApplication>
 #include <QEvent>
 #include <QImage>
 #include <QString>
@@ -81,6 +82,8 @@ PeriodicTableView::PeriodicTableView( QWidget *parent )
 
 	//JH: Start with a full draw
 	doFullDraw = true;
+
+	m_startDrag = QPoint();
 
 	KalziumTableType *classic = KalziumTableTypeFactory::instance()->build( "Classic" );
 	m_painter = new KalziumPainter( classic );
@@ -262,33 +265,13 @@ void PeriodicTableView::mousePressEvent( QMouseEvent * event )
 
 	int elementnumber = m_painter->currentTableType()->elementAtCoords( event->pos() );
 	
-	if ( elementnumber == 0 )
-		return;
-
-	Element* pointedElement = KalziumDataObject::instance()->element( elementnumber );
-	
-	if ( event->button() == Qt::LeftButton )
-       	{
-		QDrag *drag = new QDrag(this);
-		QMimeData *mimeData = new QMimeData;
-		
-		mimeData->setText( pointedElement->dataAsString( ChemicalDataObject::name ) );
-		drag->setMimeData( mimeData );
-
-		QRect elrect = m_painter->currentTableType()->elementRect( elementnumber );
-		elrect.translate( -elrect.topLeft() );
-		QPixmap pix( elrect.size() + QSize( 1, 1 ) );
-		m_painter->begin( &pix );
-		m_painter->drawElement( elementnumber, elrect );
-		m_painter->end();
-		
-		drag->setPixmap( pix );
-
-		drag->start( Qt::CopyAction | Qt::MoveAction );
+	if ( ( elementnumber > 0 ) && ( event->button() == Qt::LeftButton ) )
+	{
+		m_startDrag = event->pos();
 	}
 }
 
-void PeriodicTableView::mouseMoveEvent( QMouseEvent *mouse )
+void PeriodicTableView::mouseMoveEvent( QMouseEvent *event )
 {
 //X 	//JH: only update() if we were showing a tooltip
 //X 	if ( m_tooltipElementNumber || m_showLegendTooltip )
@@ -300,17 +283,48 @@ void PeriodicTableView::mouseMoveEvent( QMouseEvent *mouse )
 //X 		update();
 //X 	}
 //X 
-	const int num = m_painter->currentTableType()->elementAtCoords( mouse->pos() );
+	int num = m_painter->currentTableType()->elementAtCoords( m_startDrag );
 
-	if ( num > 0 )
-		emit ToolTip( num );
-	else if ( m_kalziumTip->isVisible() )
+	if ( ( QApplication::mouseButtons() & Qt::LeftButton ) && ( ( event->pos() - m_startDrag ).manhattanLength() > QApplication::startDragDistance() ) && ( num > 0 ) )
 	{
-		m_kalziumTip->hide();
-	}
+		if ( m_kalziumTip->isVisible() )
+		{
+			m_kalziumTip->hide();
+		}
 
-	HoverTimer.start( 500 );
-	MouseoverTimer.start( 200 );
+		Element* pointedElement = KalziumDataObject::instance()->element( num );
+
+		QDrag *drag = new QDrag( this );
+		QMimeData *mimeData = new QMimeData;
+
+		mimeData->setText( pointedElement->dataAsString( ChemicalDataObject::name ) );
+		drag->setMimeData( mimeData );
+
+		QRect elrect = m_painter->currentTableType()->elementRect( num );
+		elrect.translate( -elrect.topLeft() );
+		QPixmap pix( elrect.size() + QSize( 1, 1 ) );
+		m_painter->begin( &pix );
+		m_painter->drawElement( num, elrect );
+		m_painter->end();
+
+		drag->setPixmap( pix );
+
+		drag->start( Qt::CopyAction | Qt::MoveAction );
+
+		m_startDrag = QPoint();
+	}
+	else
+	{
+		if ( num > 0 )
+			emit ToolTip( num );
+		else if ( m_kalziumTip->isVisible() )
+		{
+			m_kalziumTip->hide();
+		}
+
+		HoverTimer.start( 500 );
+		MouseoverTimer.start( 200 );
+	}
 }
 
 void PeriodicTableView::mouseReleaseEvent( QMouseEvent *mouse )

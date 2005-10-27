@@ -170,6 +170,8 @@ class PeriodicTableView : public QWidget
 
 		KalziumPainter *m_painter;
 
+		QPoint m_startDrag;
+
 	protected:
 		virtual void paintEvent( QPaintEvent *e );
 		virtual void mouseReleaseEvent( QMouseEvent* );
