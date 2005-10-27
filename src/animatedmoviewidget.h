@@ -40,9 +40,8 @@ class AnimatedMovieWidget : public QWidget
 		 * Constructor. Set the picture path to '.'.
 		 *
 		 * @param parent parent widget
-		 * @param name name of this widget
 		 */
-		AnimatedMovieWidget( QWidget *parent = 0, const char *name = 0 );
+		AnimatedMovieWidget( QWidget *parent = 0 );
 		/**
 		 * Constructor.
 		 *
@@ -50,7 +49,7 @@ class AnimatedMovieWidget : public QWidget
 		 * @param parent parent widget
 		 * @param name name of this widget
 		 */
-		AnimatedMovieWidget( const QString& picturePath, QWidget *parent = 0, const char *name = 0 );
+		AnimatedMovieWidget( const QString& picturePath, QWidget *parent = 0 );
 
 		/**
 		 * Destructor.

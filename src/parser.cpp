@@ -48,7 +48,7 @@ Parser::start(const QString& _str)
     }
     else {
 	m_index     = 0;
-	m_nextChar  = m_str.at(0).latin1();
+	m_nextChar  = m_str.at(0).toLatin1();
 	getNextToken();
     }
 }
@@ -148,7 +148,7 @@ Parser::getNextChar()
 	m_nextChar = -1;
     }
     else 
-	m_nextChar = m_str.at(++m_index).latin1();
+	m_nextChar = m_str.at(++m_index).toLatin1();
 
     // Take care of null-terminated strings.
     if (m_nextChar == 0) {

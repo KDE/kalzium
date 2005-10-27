@@ -37,8 +37,8 @@ int KalziumUtils::maxSize( const QString& string, const QRect& rect, QFont font,
 	{
 		font.setPointSize( size );
 		p->setFont( font );
-		r = p->boundingRect( QRect(), Qt::AlignAuto, string );
-		r.moveBy( rect.left(), rect.top() );
+		r = p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string );
+		r.translate( rect.left(), rect.top() );
 		
 		if ( rect.contains( r ) )
 			goodSizeFound = true;
@@ -53,13 +53,13 @@ int KalziumUtils::maxSize( const QString& string, const QRect& rect, QFont font,
 int KalziumUtils::StringHeight( const QString& string, const QFont& font, QPainter* p )
 {
 	Q_UNUSED( font );
-	return p->boundingRect( QRect(), Qt::AlignAuto, string ).height();
+	return p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string ).height();
 }
 
 int KalziumUtils::StringWidth( const QString& string, const QFont& font, QPainter* p )
 {
 	Q_UNUSED( font );
-	return p->boundingRect( QRect(), Qt::AlignAuto, string ).width();
+	return p->boundingRect( QRect(), Qt::AlignTop | Qt::AlignLeft, string ).width();
 }
 
 double KalziumUtils::strippedValue( double num )

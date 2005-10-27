@@ -30,16 +30,16 @@
 #include <kiconloader.h>
 #include <kpushbutton.h>
 
-AnimatedMovieWidget::AnimatedMovieWidget( QWidget *parent, const char *name )
-    : QWidget( parent, name )
+AnimatedMovieWidget::AnimatedMovieWidget( QWidget *parent )
+    : QWidget( parent )
 {
 	m_picpath = ".";
 
 	init();
 }
 
-AnimatedMovieWidget::AnimatedMovieWidget( const QString& picturePath, QWidget *parent, const char *name )
-    : QWidget( parent, name )
+AnimatedMovieWidget::AnimatedMovieWidget( const QString& picturePath, QWidget *parent )
+    : QWidget( parent )
 {
 	m_picpath = picturePath.isEmpty() ? "." : picturePath;
 
@@ -63,23 +63,25 @@ void AnimatedMovieWidget::init()
 	m_pix->setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed );
 	mainlay->addWidget( m_pix );
 	
-	QHBoxLayout *hlay = new QHBoxLayout( 0L, 0, 5 );
+	QHBoxLayout *hlay = new QHBoxLayout( mainlay );
+	hlay->setMargin( 0 );
+	hlay->setSpacing( 5 );
 
 	m_prev = new KPushButton( this );
-	m_prev->setIconSet( il->loadIconSet( "player_start", KIcon::NoGroup, 16 ) );
+	m_prev->setIcon( QIcon( il->loadIconSet( "player_start", KIcon::NoGroup, 16 ) ) );
 	hlay->addWidget( m_prev );
 
 	m_start = new KPushButton( this );
-	m_start->setIconSet( il->loadIconSet( "player_play", KIcon::NoGroup, 16 ) );
+	m_start->setIcon( QIcon( il->loadIconSet( "player_play", KIcon::NoGroup, 16 ) ) );
 	hlay->addWidget( m_start );
 
 	m_pause = new KPushButton( this );
-	m_pause->setIconSet( il->loadIconSet( "player_pause", KIcon::NoGroup, 16 ) );
+	m_pause->setIcon( QIcon( il->loadIconSet( "player_pause", KIcon::NoGroup, 16 ) ) );
 	m_pause->setEnabled( false );
 	hlay->addWidget( m_pause );
 
 	m_next = new KPushButton( this );
-	m_next->setIconSet( il->loadIconSet( "player_end", KIcon::NoGroup, 16 ) );
+	m_next->setIcon( QIcon( il->loadIconSet( "player_end", KIcon::NoGroup, 16 ) ) );
 	hlay->addWidget( m_next );
 	hlay->addItem( new QSpacerItem( 5, 5, QSizePolicy::Expanding, QSizePolicy::Fixed ) );
 
@@ -120,7 +122,7 @@ void AnimatedMovieWidget::reloadImages()
 	int i;
 	for ( i = 0; i < tmplist.size(); i++ )
 	{
-		if ( imgre.search( tmplist[i] ) > -1 )
+		if ( imgre.indexIn( tmplist[i] ) > -1 )
 			m_pics << tmplist[i];
 	}
 	if ( m_pics.isEmpty() )

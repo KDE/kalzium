@@ -409,10 +409,8 @@ void DetailedInfoDlg::reloadContent()
 	if ( QFile::exists( picpath ) )
 	{
 		QImage img( picpath, "JPEG" );
-		img = img.smoothScale ( 400, 400, Qt::ScaleMin );
-		QPixmap pic;
-		pic.convertFromImage( img );
-		piclabel->setPixmap( pic );
+		img = img.scaled( 400, 400, Qt::KeepAspectRatio );
+		piclabel->setPixmap( QPixmap::fromImage( img ) );
 	}
 	else 
 		piclabel->setText( i18n( "No picture of %1 found." ).arg( element_name ) );

@@ -122,7 +122,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 		{
 			QBrush c = grayedOut ? QBrush( Qt::lightGray ) : QBrush( m_scheme->elementGradient( element, rect ) );
 			QColor textc = grayedOut ? Qt::white : m_scheme->textColor( element );
-			m_painter->setPen( QBrush( textc ) );
+			m_painter->setPen( textc );
 	
 			m_painter->fillRect( rect, c );
 			m_painter->drawRect( rect );
@@ -180,7 +180,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 		}
 		case GRADIENT:
 		{
-			m_painter->setPen( QBrush( Qt::black ) );
+			m_painter->setPen( Qt::black );
 			QBrush c = grayedOut ? QBrush( Qt::lightGray ) : QBrush( m_gradient->calculateColor( m_gradient->elementCoeff( element ) ) );
 
 			m_painter->fillRect( rect, c );
@@ -281,7 +281,7 @@ void KalziumPainter::drawLegend()
 			othertexts.moveTo( text.bottomLeft() + QPoint( 0, padding + 4 + imgsize.height() ) );
 
 			m_painter->drawText( text, Qt::AlignHCenter | Qt::AlignBottom, i18n( "Gradient: %1" ).arg( m_gradient->description() ) );
-			m_painter->drawPixmap( text.bottomLeft() + QPoint( 0, padding ), QPixmap( img ) );
+			m_painter->drawPixmap( text.bottomLeft() + QPoint( 0, padding ), QPixmap::fromImage( img ) );
 
 			m_painter->drawText( othertexts, Qt::AlignRight, QString::number( m_gradient->maxValue() ) );
 			m_painter->drawText( othertexts, Qt::AlignLeft, QString::number( m_gradient->minValue() ) );

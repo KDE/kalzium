@@ -40,7 +40,9 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 
 	QHBoxLayout *hlay = new QHBoxLayout( page );
 
-	QVBoxLayout *vlay = new QVBoxLayout( 0L, 0, 5 );
+	QVBoxLayout *vlay = new QVBoxLayout( hlay );
+	vlay->setMargin( 0 );
+	vlay->setSpacing( 5 );
 	hlay->addLayout( vlay );
 	vlay->addItem( new QSpacerItem( 5, 40, QSizePolicy::Fixed, QSizePolicy::Fixed ) );
 
