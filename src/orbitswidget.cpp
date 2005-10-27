@@ -142,7 +142,9 @@ void OrbitsWidget::setElementNumber( const int num )
 	hulllist.append( "2 8 18 32 32 16 2" );//Darmstadtium
 	hulllist.append( "2 8 18 32 32 17 2" );//Roentgenium
 	
-	getNumberOfOrbits();	
+	getNumberOfOrbits();
+
+	update();
 }
 
 void OrbitsWidget::getNumberOfOrbits()

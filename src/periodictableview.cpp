@@ -318,9 +318,7 @@ void PeriodicTableView::mouseReleaseEvent( QMouseEvent *mouse )
 	int elem = m_painter->currentTableType()->elementAtCoords( mouse->pos() );
 	if ( elem > 0 )
 	{
-#if 0
 		emit ElementClicked( elem );
-#endif
 		selectElement( elem );
 	}
 	else

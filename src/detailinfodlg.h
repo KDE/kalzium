@@ -18,6 +18,8 @@
 
 #include <kdialogbase.h>
 
+#include <QMap>
+
 class DetailedGraphicalOverview;
 class Element;
 class KalziumDataObject;
@@ -28,6 +30,7 @@ class QMouseEvent;
 class QFrame;
 class QVBoxLayout;
 class KActionCollection;
+class KHTMLPart;
 
 /**
  * @short The dialog which shows all available information of an element
@@ -59,44 +62,41 @@ class DetailedInfoDlg : public KDialogBase
 
 		QString isotopeTable();
 
-		QFrame *m_pOverviewTab,
-			*m_pPictureTab,
-			*m_pModelTab,
-			*m_pSpectrumTab;
-		
-		QLabel *piclabel;
-
-		QVBoxLayout *miscLayout,
-					*mainLayout,
-					*overviewLayout;
-
-		/**
-		 * holds the pointers to all pages of the dialog
-		 */
-		QList<QFrame*> m_pages;
-
 		DetailedGraphicalOverview *dTab;
-
+		QLabel *piclabel;
 		OrbitsWidget *wOrbits;
+		QMap<QString, KHTMLPart*> m_htmlpages;
 
 		/**
-		 * create the tabs
+		 * Create the inital set of tabs. Used it *ONLY* once in the
+		 * constructor.
 		 */
 		void createContent();
+		void reloadContent();
 
 		QString getHtml(DATATYPE);
 
 		QString m_baseHtml;
-
-		int m_currpage;
+		QString m_picsdir;
 
 		/**
-		 * @param htmlcode The code which will be displayed
+		 * Add a new HTML page to the dialog.
+		 *
 		 * @param title The title of the tab, appears above the htmlview
-		 * @param icontext The name of the tab, appears belov or instead of the icon
+		 * @param icontext The name of the tab, appears belov or instead
+		 * of the icon
 		 * @param iconname The name of the icon
+		 * @returns the pointer to the resulting KHTMLPart, needed for
+		 * writing HTML code on it
 		 */
-		void addTab( const QString& htmlcode, const QString& title, const QString& icontext, const QString& iconname );
+		KHTMLPart* addHTMLTab( const QString& title, const QString& icontext, const QString& iconname );
+		/**
+		 * Change the HTML code in an HTML page.
+		 *
+		 * @param htmlpart the KHTMLPart to edit
+		 * @param htmlcode the HTML code to display
+		 */
+		void fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode );
 	
 	protected slots:
 		virtual void slotUser1();
@@ -108,9 +108,6 @@ class DetailedInfoDlg : public KDialogBase
 
 	protected:
 		virtual void wheelEvent (  QWheelEvent * ev );
-
-	private slots:
-		void slotChangePage( QWidget * );
 
 	signals:
 		void elementChanged( int );

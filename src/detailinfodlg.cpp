@@ -28,9 +28,9 @@
 #include <kstdaction.h>
 #include <ktoolinvocation.h>
 
+#include <QFile>
 #include <QLabel>
 #include <QImage>
-#include <QWhatsThis>
 #include <QLayout>
 #include <QPushButton>
 
@@ -56,30 +56,14 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent )
 	m_baseHtml.append("kalzium/data/htmlview/");
 	m_baseHtml.append("style.css");
 
+	m_picsdir = KGlobal::dirs()->findResourceDir( "data", "kalzium/elempics/" ) + "kalzium/elempics/";
+
 	( actionButton( KDialogBase::Close ) )->setFocus();
-	
-	m_pOverviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon( "overview" ));
-	m_pPictureTab = addPage(i18n("Picture"), i18n("What does this element look like?"), BarIcon( "elempic" ));
-	m_pModelTab = addPage( i18n("Atom Model"), i18n( "Atom Model" ), BarIcon( "orbits" ));
-	
-	mainLayout = new QVBoxLayout( m_pPictureTab );
-	overviewLayout = new QVBoxLayout( m_pOverviewTab );
-	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
 
-	dTab = new DetailedGraphicalOverview( m_element, m_pOverviewTab );
-	dTab->setObjectName( "DetailedGraphicalOverview" );
-	overviewLayout->addWidget( dTab );
-
-	wOrbits = new OrbitsWidget( m_pModelTab );
-	piclabel = new QLabel( m_pPictureTab );
-	piclabel->setMinimumSize( 400, 350 );
-	
-	mainLayout->addWidget( piclabel );
-	modelLayout->addWidget( wOrbits );
-	
+	// creating the tabs...
 	createContent();
-
-	m_currpage = 0;
+	// ... and updating their contents
+	reloadContent();
 
 	m_actionCollection = new KActionCollection(this);	
 	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);
@@ -91,28 +75,13 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent )
 		enableButton( User2, false );
 	else if ( m_element->data( ChemicalDataObject::atomicNumber ) == m_data->numberOfElements() )
 		enableButton( User1, false );
-
-	connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
 }
 
-// FIXME: We should never have to delete the windows.  
-//        Make it more efficient!
-//
 void DetailedInfoDlg::setElement(Element *element)
 {
 	m_element = element;
 	
-	QList<QFrame*>::iterator it = m_pages.begin();
-	QList<QFrame*>::iterator itEnd = m_pages.end();
-	for ( ; it != itEnd ; ++it ){
-		delete *it;
-		*it = NULL;
-	}
-	if ( m_currpage > 2 )
-		m_currpage += m_pages.size();
-	m_pages.clear();
-
-	createContent();
+	reloadContent();
 
 	enableButton( User1, true );
 	enableButton( User2, true );
@@ -123,38 +92,43 @@ void DetailedInfoDlg::setElement(Element *element)
 }
 
 
-void DetailedInfoDlg::addTab( const QString& htmlcode, const QString& title, const QString& icontext, const QString& iconname )
+KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& icontext, const QString& iconname )
 {
 	QFrame *frame = addPage(title, icontext, BarIcon(iconname));
 	QVBoxLayout *layout = new QVBoxLayout( frame );
+	layout->setMargin( 0 );
 	KHTMLPart *w = new KHTMLPart( frame, "html-part", frame );
 	layout->addWidget( w->view() );
-	
-	w->begin();
-	w->write( htmlcode );
-	w->end();
 
-	//add this page to the list of pages
-	m_pages.append( frame );
+	return w;
+}
+
+void DetailedInfoDlg::fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode )
+{
+	if ( !htmlpart ) return;
+
+	htmlpart->begin();
+	htmlpart->write( htmlcode );
+	htmlpart->end();
 }
 
 QString DetailedInfoDlg::getHtml(DATATYPE type)
 {
-//X 	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title><link rel=\"stylesheet\" type=\"text/css\" href=\"";
-//X 	html += m_baseHtml + "\" /><base href=\"" + m_baseHtml + "\"/></head><body><div class=\"chemdata\">";
-//X 
+	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title><link rel=\"stylesheet\" type=\"text/css\" href=\"";
+	html += m_baseHtml + "\" /><base href=\"" + m_baseHtml + "\"/></head><body><div class=\"chemdata\">";
+
 //X 	//get the list of ionisation-energies
 //X 	QList<double> ionlist = m_element->ionisationList();
 //X 	
-//X 	html.append( "<div><table summary=\"header\"><tr><td>" );
-//X 	html.append( m_element->dataAsString( ChemicalDataObject::symbol ) );
-//X 	html.append( "<td><td>" );
-//X 	html.append( i18n( "Block: %1" ).arg( m_element->block() ) );
-//X 	html.append( "</td></tr></table></div>" );
-//X 	html.append( "<table summary=\"characteristics\" class=\"characterstics\">");
-//X 	switch ( type )
-//X 	{
-//X 		case CHEMICAL:
+	html.append( "<div><table summary=\"header\"><tr><td>" );
+	html.append( m_element->dataAsString( ChemicalDataObject::symbol ) );
+	html.append( "<td><td>" );
+	html.append( i18n( "Block: %1" ).arg( m_element->dataAsString( ChemicalDataObject::periodTableBlock ) ) );
+	html.append( "</td></tr></table></div>" );
+	html.append( "<table summary=\"characteristics\" class=\"characterstics\">");
+	switch ( type )
+	{
+		case CHEMICAL:
 //X 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 //X 			html.append( "<b>" + i18n( "Electronic configuration: %1" ).arg( m_element->parsedOrbits() ) + "</b>" );
 //X 			html.append( "</td></tr>" );
@@ -193,20 +167,32 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 //X 				html.append( isotopeTable() );
 //X 				html.append( "</td></tr>" );
 //X 			}
-//X 			break;
-//X 		case MISC:
-//X 			html.append( "<tr><td><img src=\"discovery.png\" alt=\"icon\"/></td><td>" );
-//X 			html.append( m_element->adjustUnits( Element::DATE ) );
-//X 			if ( !m_element->scientist( ).isEmpty() )
-//X 				html += "<br />" + i18n("It was discovered by %1").arg(m_element->scientist() );
-//X 			html.append( "</td></tr>" );
-//X 			
-//X 			if ( m_element->abundance() > 0 ){
-//X 			html.append( "<tr><td><img src=\"abundance.png\" alt=\"icon\"/></td><td>" );
-//X 			html.append( i18n( "Abundance in crustal rocks: %1 ppm" ).arg( m_element->abundance() ) );
-//X 			html.append( "</td></tr>" );
-//X 			}
-//X 			
+			break;
+		case MISC:
+		{
+			// discovery date and discoverers
+			html.append( "<tr><td><img src=\"discovery.png\" alt=\"icon\"/></td><td>" );
+			int date = m_element->dataAsVariant( ChemicalDataObject::date ).toInt();
+			html += date < 1000
+			        ? i18n( "This element was known to ancient cultures." )
+			        : i18n( "This element was discovered in the year %1." ).arg( date );
+			QString discoverers = m_element->dataAsString( ChemicalDataObject::discoverers );
+			if ( !discoverers.isEmpty() )
+			{
+				discoverers = discoverers.replace( ";", ", " );
+				html += "<br />" + i18n("It was discovered by %1").arg( discoverers );
+			}
+			html.append( "</td></tr>" );
+
+			// abundance
+			int abundance = m_element->dataAsVariant( ChemicalDataObject::relativeAbundance ).toInt();
+			if ( abundance > 0 )
+			{
+				html.append( "<tr><td><img src=\"abundance.png\" alt=\"icon\"/></td><td>" );
+				html.append( i18n( "Abundance in crustal rocks: %1 ppm" ).arg( abundance ) );
+				html.append( "</td></tr>" );
+			}
+			
 //X 			html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 //X 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );
 //X 			html.append( "</td></tr>" );
@@ -227,8 +213,9 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 //X 					html.append( i18n( "This element is radioactive and artificial" ));
 //X 				html.append( "</td></tr>" );
 //X 			}
-//X 			break;
-//X 		case ENERGY:
+			break;
+		}
+		case ENERGY:
 //X 			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
 //X 			html.append( i18n( "Melting Point: %1" ).arg( m_element->adjustUnits( Element::MELTINGPOINT ) ) );
 //X 			html.append( "</td></tr>" );
@@ -251,13 +238,12 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 //X 				             "%1. Ionization energy: %2" ).arg( QString::number( i+1 ), m_element->adjustUnits( Element::IE, ionlist[i] ) ) );
 //X 			html.append( "</td></tr>" );
 //X 			}
-//X 			break;
-//X 	}
-//X 			
-//X 	html += ( "</table>" );
-//X 	html += "</div></body></html>";
-//X 	
-//X 	return html;
+			break;
+	}
+
+	html += "</table></div></body></html>";
+	
+	return html;
 }
 
 QString DetailedInfoDlg::isotopeTable()
@@ -352,13 +338,46 @@ QString DetailedInfoDlg::isotopeTable()
 //X 	html += "</table>";
 //X 
 //X 	return html;
+	return QString();
 }
 
 void DetailedInfoDlg::createContent( )
 {
+	// overview tab
+	QFrame *m_pOverviewTab = addPage( i18n( "Overview" ), i18n( "Overview" ), BarIcon( "overview" ) );
+	QVBoxLayout *overviewLayout = new QVBoxLayout( m_pOverviewTab );
+	overviewLayout->setMargin( 0 );
+	dTab = new DetailedGraphicalOverview( m_pOverviewTab );
+	dTab->setObjectName( "DetailedGraphicalOverview" );
+	overviewLayout->addWidget( dTab );
+
+	// picture tab
+	QFrame *m_pPictureTab = addPage( i18n( "Picture" ), i18n( "What does this element look like?" ), BarIcon( "elempic" ) );
+	QVBoxLayout *mainLayout = new QVBoxLayout( m_pPictureTab );
+	mainLayout->setMargin( 0 );
+	piclabel = new QLabel( m_pPictureTab );
+	piclabel->setMinimumSize( 400, 350 );
+	mainLayout->addWidget( piclabel );
+
+	// atomic model tab
+	QFrame *m_pModelTab = addPage( i18n( "Atom Model" ), i18n( "Atom Model" ), BarIcon( "orbits" ) );
+	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, spacingHint() );
+	modelLayout->setMargin( 0 );
+	wOrbits = new OrbitsWidget( m_pModelTab );
+/*
+	wOrbits->setWhatsThis(
+	    i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
+	    .arg( m_element->dataAsString( ChemicalDataObject::name ) )
+	    .arg( m_element->dataAsString( ChemicalDataObject::name ) )
+	    .arg( "" ));//m_element->parsedOrbits() ) );
+*/
+	modelLayout->addWidget( wOrbits );
+
+	// misc tab
+	m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
+
 //X 	addTab( getHtml(CHEMICAL), i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
 //X 	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
-//X 	addTab( getHtml(MISC), i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 //X 	
 //X 	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
 //X 	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
@@ -373,42 +392,62 @@ void DetailedInfoDlg::createContent( )
 //X 	}
 //X //X 	else
 //X //X 		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elementName() ), m_pSpectrumTab ) );
+}
+
+void DetailedInfoDlg::reloadContent()
+{
+	// reading the most common data
+	const int element_number = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
+	const QString element_name = m_element->dataAsString( ChemicalDataObject::name );
+	const QString element_symbol = m_element->dataAsString( ChemicalDataObject::symbol );
+
+	// updating caption
+	setCaption( i18n( "For example Carbon (6)" , "%1 (%2)" ).arg( element_name ).arg( element_number ) );
+
+	// updating overview tab
+	dTab->setElement( m_element );
+
+	// updating picture tab
+	QString picpath = m_picsdir + element_symbol + ".jpg";
+	if ( QFile::exists( picpath ) )
+	{
+		QImage img( picpath, "JPEG" );
+		img = img.smoothScale ( 400, 400, Qt::ScaleMin );
+		QPixmap pic;
+		pic.convertFromImage( img );
+		piclabel->setPixmap( pic );
+	}
+	else 
+		piclabel->setText( i18n( "No picture of %1 found." ).arg( element_name ) );
+
+	// updating atomic model tab
+	wOrbits->setElementNumber( element_number  );
+
+	// updating misc tab
+	fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
+
+//X 	addTab( getHtml(CHEMICAL), i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
+//X 	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
 //X 	
-//X 	QString num = m_element->dataAsString( ChemicalDataObject::atomicNumber );
-//X //X 	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elementName() ).arg( num );
-//X //X 	setCaption( cap );
-//X 
-//X 	dTab->setElement( m_element );
-//X 
-//X 	////////////////////////////////////
-//X 	QString picpath = "";
-//X 	//QString picpath = locate(  "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" );
-//X 	if ( !picpath.isEmpty() )
+//X 	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
+//X 	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
+//X 	m_pages.append( m_pSpectrumTab );
+//X 	
+//X 	//now add the spectrum-widget if needed
+//X 	if ( m_element->hasSpectrum() )
 //X 	{
-//X 		QImage img( picpath, "JPEG" );
-//X 		img = img.smoothScale ( 400, 400, Qt::ScaleMin );
-//X 		QPixmap pic;
-//X 		pic.convertFromImage( img );
-//X 		piclabel->setPixmap( pic );
+//X 		m_spectrumview = new SpectrumViewImpl( m_pSpectrumTab, "spectrumwidget" );
+//X 		m_spectrumview->setSpectrum( m_element->spectrum() );
+//X 		spectrumLayout->addWidget( m_spectrumview );
 //X 	}
-//X //X 	else 
-//X //X 		piclabel->setText( i18n( "No picture of %1 found." ).arg( m_element->elementName() ) );
-//X 
-//X 	/////////////////////////////////
-//X 	
-//X 	wOrbits->setElementNumber( m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt() );
-//X 	wOrbits->repaint();
-//X 	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
-//X 							.arg( m_element->dataAsString( ChemicalDataObject::name ) )
-//X 							.arg( m_element->dataAsString( ChemicalDataObject::name ) )
-//X 							.arg( "" ));//m_element->parsedOrbits() ) );
+//X //X 	else
+//X //X 		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elementName() ), m_pSpectrumTab ) );
 }
 
 void DetailedInfoDlg::slotHelp()
 {
-	emit helpClicked();
-	
 	QString chapter = "infodialog_overview";
+/*
 	switch ( activePageIndex() ){
 		case 0: 
 			chapter = "infodialog_overview";
@@ -432,6 +471,7 @@ void DetailedInfoDlg::slotHelp()
 			 chapter = "infodialog_spectrum";
 			break;
 	}
+*/
 
 	KToolInvocation::invokeHelp( chapter, QLatin1String( "kalzium" ) );
 }
@@ -453,15 +493,10 @@ void DetailedInfoDlg::slotUser1()
 
 	if ( number < m_data->numberOfElements() )
 	{
-		disconnect( this, SIGNAL( aboutToShowPage(QWidget *) ), this, SLOT( slotChangePage(QWidget *) ) );
 		setElement( m_data->element( number + 1 ) );
+#if 0
 		emit elementChanged( number + 1 );
-		if ( number == ( m_data->numberOfElements() - 1 ) )
-			enableButton( User1, false );
-		if ( !actionButton( User2 )->isEnabled() )
-			enableButton( User2, true );
-		showPage( m_currpage );
-		connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
+#endif
 	}
 }
 
@@ -472,21 +507,11 @@ void DetailedInfoDlg::slotUser2()
 
 	if ( number > 1 )
 	{
-		disconnect( this, SIGNAL( aboutToShowPage(QWidget *) ), this, SLOT( slotChangePage(QWidget *) ) );
 		setElement( m_data->element( number - 1 ) );
+#if 0
 		emit elementChanged( number - 1 );
-		if ( number == 2 )
-			enableButton( User2, false );
-		if ( !actionButton( User1 )->isEnabled() )
-			enableButton( User1, true );
-		showPage( m_currpage );
-		connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
+#endif
 	}
-}
-
-void DetailedInfoDlg::slotChangePage( QWidget *newpage )
-{
-	m_currpage = pageIndex( newpage );
 }
 
 #include "detailinfodlg.moc"
