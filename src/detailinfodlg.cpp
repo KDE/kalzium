@@ -52,9 +52,7 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent )
 {
 	m_data    = KalziumDataObject::instance();
 
-	m_baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
-	m_baseHtml.append("kalzium/data/htmlview/");
-	m_baseHtml.append("style.css");
+	m_baseHtml = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" ) += "kalzium/data/htmlview/";
 
 	m_picsdir = KGlobal::dirs()->findResourceDir( "data", "kalzium/elempics/" ) + "kalzium/elempics/";
 
@@ -90,7 +88,6 @@ void DetailedInfoDlg::setElement(Element *element)
 		enableButton( User1, false );
 }
 
-
 KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& icontext, const QString& iconname )
 {
 	QFrame *frame = addPage(title, icontext, BarIcon(iconname));
@@ -113,21 +110,21 @@ void DetailedInfoDlg::fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode 
 
 QString DetailedInfoDlg::getHtml(DATATYPE type)
 {
-	QString html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head><title>Chemical data</title><link rel=\"stylesheet\" type=\"text/css\" href=\"";
-	html += m_baseHtml + "\" /><base href=\"" + m_baseHtml + "\"/></head><body><div class=\"chemdata\">";
+	QString html =
+	    "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
+	    "<html><head><title>Chemical data</title>"
+	    "<link rel=\"stylesheet\" type=\"text/css\" href=\"" + m_baseHtml + "style.css\" />"
+	    "<base href=\"" + m_baseHtml + "\"/></head><body>"
+	    "<div class=\"chemdata\"><div><table summary=\"header\">"
+	    "<tr><td>" + m_element->dataAsString( ChemicalDataObject::symbol ) + "<td><td>"
+	    + i18n( "Block: %1" ).arg( m_element->dataAsString( ChemicalDataObject::periodTableBlock ) ) +
+	    "</td></tr></table></div>"
+	    "<table summary=\"characteristics\" class=\"characterstics\">";
 
-//X 	//get the list of ionisation-energies
-//X 	QList<double> ionlist = m_element->ionisationList();
-//X 	
-	html.append( "<div><table summary=\"header\"><tr><td>" );
-	html.append( m_element->dataAsString( ChemicalDataObject::symbol ) );
-	html.append( "<td><td>" );
-	html.append( i18n( "Block: %1" ).arg( m_element->dataAsString( ChemicalDataObject::periodTableBlock ) ) );
-	html.append( "</td></tr></table></div>" );
-	html.append( "<table summary=\"characteristics\" class=\"characterstics\">");
 	switch ( type )
 	{
 		case CHEMICAL:
+		{
 //X 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
 //X 			html.append( "<b>" + i18n( "Electronic configuration: %1" ).arg( m_element->parsedOrbits() ) + "</b>" );
 //X 			html.append( "</td></tr>" );
@@ -166,6 +163,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 //X 				html.append( "</td></tr>" );
 //X 			}
 			break;
+		}
 		case MISC:
 		{
 			// discovery date and discoverers
@@ -175,10 +173,9 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			if ( !discoverers.isEmpty() )
 			{
 				discoverers = discoverers.replace( ";", ", " );
-				html += "<br />" + i18n("It was discovered by %1").arg( discoverers );
+				html += "<br />" + i18n( "It was discovered by %1." ).arg( discoverers );
 			}
 			html.append( "</td></tr>" );
-
 			// abundance
 			int abundance = m_element->dataAsVariant( ChemicalDataObject::relativeAbundance ).toInt();
 			if ( abundance > 0 )
@@ -191,12 +188,14 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 //X 			html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 //X 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );
 //X 			html.append( "</td></tr>" );
-//X 			if ( !m_element->nameOrigin().isEmpty() )
-//X 			{
-//X 				html.append( "<tr><td><img src=\"book.png\" alt=\"icon\"/></td><td>" );
-//X 				html.append( i18n( "Origin of the name: %1" ).arg( m_element->nameOrigin() ) );
-//X 				html.append( "</td></tr>" );
-//X 			}
+			// origin of the name
+			QString nameorigin = m_element->dataAsString( ChemicalDataObject::nameOrigin );
+			if ( !nameorigin.isEmpty() )
+			{
+				html.append( "<tr><td><img src=\"book.png\" alt=\"icon\"/></td><td>" );
+				html.append( i18n( "Origin of the name: %1" ).arg( nameorigin ) );
+				html.append( "</td></tr>" );
+			}
 //X 			if ( m_element->artificial() || m_element->radioactive() )
 //X 			{
 //X 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
@@ -211,6 +210,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			break;
 		}
 		case ENERGY:
+		{
 			// melting point
 			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Melting Point: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
@@ -225,11 +225,12 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "</td></tr>" );
 			// electro affinity
 			html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Electron affinity: %1 " ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
+			html.append( i18n( "Electron Affinity: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
 			html.append( "</td></tr>" );
 //X 
-//X 			int i = 0;
-//X 			for ( ; i < ionlist.count() ; ++i )
+//X 			//get the list of ionisation-energies
+//X 			QList<double> ionlist = m_element->ionisationList();
+//X 			for ( int i = 0; i < ionlist.count() ; ++i )
 //X 			{
 //X 				html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
 //X 				html.append( i18n("the first variable is a number. The result is for example '1.' or '5.', the second is the value of the ionisation energy",
@@ -237,6 +238,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 //X 			html.append( "</td></tr>" );
 //X 			}
 			break;
+		}
 	}
 
 	html += "</table></div></body></html>";
