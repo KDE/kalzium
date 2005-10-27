@@ -13,8 +13,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef _DETAILINFODLG_H_
-#define _DETAILINFODLG_H_
+#ifndef DETAILINFODLG_H
+#define DETAILINFODLG_H
 
 #include <kdialogbase.h>
 
@@ -26,9 +26,6 @@ class KalziumDataObject;
 class OrbitsWidget;
 class SpectrumViewImpl;
 
-class QMouseEvent;
-class QFrame;
-class QVBoxLayout;
 class KActionCollection;
 class KHTMLPart;
 
@@ -52,7 +49,7 @@ class DetailedInfoDlg : public KDialogBase
 			MISC,
 			ENERGY
 		};
-	
+
 		KalziumDataObject  *m_data;
 		Element            *m_element;
 
