@@ -61,8 +61,8 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 
 	QDir dir( m_basePath );
 	QStringList tmplist = dir.entryList();
-	tmplist.remove( "." );
-	tmplist.remove( ".." );
+	tmplist.removeAll( "." );
+	tmplist.removeAll( ".." );
 	for ( int i = 0; i < tmplist.size(); i++ )
 	{
 		QFileInfo fi( m_basePath + tmplist[i] );
