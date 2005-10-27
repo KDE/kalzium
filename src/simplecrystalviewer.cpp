@@ -65,9 +65,9 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 	tmplist.removeAll( ".." );
 	for ( int i = 0; i < tmplist.size(); i++ )
 	{
-		QFileInfo fi( m_basePath + tmplist[i] );
+		QFileInfo fi( m_basePath + tmplist.at( i ) );
 		if ( fi.isDir() )
-			combo->addItem( tmplist[i] );
+			combo->addItem( tmplist.at( i ) );
 	}
 
 	slotCrystalChanged( combo->itemText( 0 ) );

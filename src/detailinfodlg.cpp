@@ -418,7 +418,7 @@ void DetailedInfoDlg::reloadContent()
 		piclabel->setText( i18n( "No picture of %1 found." ).arg( element_name ) );
 
 	// updating atomic model tab
-	wOrbits->setElementNumber( element_number  );
+	wOrbits->setElementNumber( element_number );
 
 	// updating html tabs
 	fillHTMLTab( m_htmlpages["chemical"], getHtml( CHEMICAL ) );

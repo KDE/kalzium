@@ -122,8 +122,8 @@ void AnimatedMovieWidget::reloadImages()
 	int i;
 	for ( i = 0; i < tmplist.size(); i++ )
 	{
-		if ( imgre.indexIn( tmplist[i] ) > -1 )
-			m_pics << tmplist[i];
+		if ( imgre.indexIn( tmplist.at( i ) ) > -1 )
+			m_pics << tmplist.at( i );
 	}
 	if ( m_pics.isEmpty() )
 		return;
@@ -131,12 +131,12 @@ void AnimatedMovieWidget::reloadImages()
 	uint maxlength = 0;
 	for ( i = 0; i < m_pics.size(); i++ )
 	{
-		if ( m_pics[i].length() > static_cast<int>( maxlength ) )
-			maxlength = static_cast<uint>( m_pics[i].length() );
+		if ( m_pics.at( i ).length() > static_cast<int>( maxlength ) )
+			maxlength = static_cast<uint>( m_pics.at( i ).length() );
 	}
 	for ( i = 0; i < m_pics.size(); i++ )
 	{
-		m_pics[i] = m_pics[i].rightJustified( maxlength, '0' );
+		m_pics[i] = m_pics.at( i ).rightJustified( maxlength, '0' );
 	}
 	if ( m_pics.size() > 0 )
 	{
@@ -158,7 +158,7 @@ void AnimatedMovieWidget::loadImage( int id )
 	if ( ( id < 0 ) || ( id >= m_pics.size() ) )
 		return;
 
-	QPixmap tmp( m_picpath + "/" + m_pics[id] );
+	QPixmap tmp( m_picpath + "/" + m_pics.at( id ) );
 	m_pix->setPixmap( tmp );
 	m_pix->resize( tmp.size() );
 }
