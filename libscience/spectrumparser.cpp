@@ -24,6 +24,9 @@ email                : cniehaus@kde.org
 
 Spectrum* SpectrumParser::loadSpectrum( QFile*file, const QString& id )
 {
+	Q_UNUSED( file );
+	Q_UNUSED( id );
+	return 0;
 }
 
 void SpectrumParser::saveSpectrum( Spectrum *spectrum )

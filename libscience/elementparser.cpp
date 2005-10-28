@@ -96,8 +96,8 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 	}
 	return true;
 }
-		
-bool ElementSaxParser::endElement (  const QString & namespaceURI, const QString & localName, const QString & qName )
+
+bool ElementSaxParser::endElement( const QString &, const QString& localName, const QString& )
 {
 	if ( localName == "elementType" )
 	{

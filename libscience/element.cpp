@@ -19,13 +19,8 @@
  ***************************************************************************/
 
 #include "element.h"
-#include "tempunit.h"
-#include "chemicaldataobject.h"
 
-#include <kdebug.h>
-#include <klocale.h>
-#include <kurl.h>
-#include <kstandarddirs.h>
+#include "chemicaldataobject.h"
 
 #include <QVariant>
 
@@ -39,8 +34,8 @@ ChemicalDataObject& Element::data(ChemicalDataObject::BlueObelisk type) const
 		if ( o->type() == type )
 			return *o;
 	}
-	ChemicalDataObject cdo;
-	return cdo;
+	ChemicalDataObject *cdo;
+	return *cdo;
 }
 
 QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type ) const
@@ -58,15 +53,16 @@ QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
 		if ( o->type() == type )
 			return o->valueAsString();
 	}
-	return "";
+	return QString();
 }
 
 Element::~Element()
 {
 }
 
-const QString Element::adjustRadius( RADIUSTYPE rtype )
+const QString Element::adjustRadius( int rtype )
 {
+	Q_UNUSED( rtype );
 //X 	double val = 0.0;
 //X 	QString v;
 //X 
@@ -91,10 +87,13 @@ const QString Element::adjustRadius( RADIUSTYPE rtype )
 //X 	else
 //X 		v = i18n( "%1 is a length, eg: 12.3 pm", "%1 pm" ).arg( QString::number( val ) );
 //X 	return v;
+	return QString();
 }
 
 const QString Element::adjustUnits( const int type, double value )
 {
+	Q_UNUSED( type );
+	Q_UNUSED( value );
 //X 	QString v;
 //X 	if ( type == IE  ) //an ionization energy
 //X 	{
@@ -111,14 +110,18 @@ const QString Element::adjustUnits( const int type, double value )
 //X 		}
 //X 	}
 //X 	return v;
+	return QString();
 }
 
 const QString Element::adjustUnits( const int type )
 {
+	Q_UNUSED( type );
 	QString v = QString::null;
 
+/*
 	double val = 0.0; //the value to convert
 	
+*/
 //X 	if ( type == BOILINGPOINT || type == MELTINGPOINT ) // convert a temperature
 //X 	{
 //X 		if ( type == BOILINGPOINT )

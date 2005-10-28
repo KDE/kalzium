@@ -61,8 +61,8 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 	}
 	return true;
 }
-		
-bool IsotopeParser::endElement (  const QString & namespaceURI, const QString & localName, const QString & qName )
+
+bool IsotopeParser::endElement( const QString&, const QString& localName, const QString& )
 {
 	if ( localName == "isotope" )
 	{

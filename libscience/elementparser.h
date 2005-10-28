@@ -32,9 +32,9 @@ class ElementSaxParser : public QXmlDefaultHandler
 		 * Constructor
 		 */
 		ElementSaxParser();
-		bool startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs);
+		bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
 
-		bool endElement (  const QString & namespaceURI, const QString & localName, const QString & qName );
+		bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
 		
 		bool characters(const QString &ch);
 

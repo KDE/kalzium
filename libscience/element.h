@@ -17,10 +17,10 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
+
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
-#include <QColor>
 #include <QList>
 #include <QVariant>
 
@@ -28,9 +28,6 @@
 
 class Spectrum;
 class Isotope;
-class Element;
-
-typedef QList<Element*> EList;
 
 /**
  * In this class all information about an element are stored. This means that
@@ -39,20 +36,13 @@ typedef QList<Element*> EList;
  * @short This class is the represention of a chemical element
  * @author Carsten Niehaus
 */
-class Element{
+class Element
+{
 	public:
 		Element();
 
 		virtual ~Element();
 		
-		enum RADIUSTYPE
-		{
-			ATOMIC = 0,
-			IONIC,
-			VDW /**< van der Waals radius */,
-			COVALENT
-		};
-
 		/**
 		 * adjusts the units for the data. The user can
 		 * for example define if Fahrenheit, Kelvin or 
@@ -64,7 +54,7 @@ class Element{
 		 */
 		const QString adjustUnits( const int type );
 
-		const QString adjustRadius( RADIUSTYPE rtype );
+		const QString adjustRadius( int rtype );
 
 		/**
 		 * adjusts the units for the data. The user can
@@ -78,26 +68,6 @@ class Element{
 		 * @return the adjusted datastring
 		 */
 		const QString adjustUnits( const int type, double value );
-
-		/**
-		 * types of datas
-		 */
-		enum TYPE
-		{
-			NOGRADIENT = 0,
-			ATOMICRADIUS,
-			COVALENTRADIUS,
-			VDWRADIUS,
-			MASS,
-			DENSITY,
-			BOILINGPOINT,
-			MELTINGPOINT,
-			EN,
-			EA,
-			DATE,
-			IE,
-			IONICRADIUS
-		};
 
 		/**
 		 * Sdd the ChemicalDataObject @p o to this Element
