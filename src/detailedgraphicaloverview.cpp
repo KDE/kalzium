@@ -12,8 +12,9 @@ email                : cniehaus@kde.org
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "detailedgraphicaloverview.h"
-#include "element.h"
+#include "kalziumdataobject.h"
 #include "kalziumutils.h"
 
 //KDE-Includes
@@ -30,24 +31,22 @@ email                : cniehaus@kde.org
 #include <qpixmap.h>
 #include <qrect.h>
 
-DetailedGraphicalOverview::DetailedGraphicalOverview( Element *el, QWidget *parent )
-: QWidget( parent )
-{
-	init( el );
-}
+#include <element.h>
 
 DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
 : QWidget( parent )
 {
-	init( 0L );
-}
-
-void DetailedGraphicalOverview::init( Element *el )
-{
 	setAttribute( Qt::WA_NoBackground, true );
 
-	m_element = el;
+	m_element = 0;
 	setMinimumSize( 300, 200 );
+
+	update();
+}
+
+void DetailedGraphicalOverview::setElement( int el )
+{
+	m_element = KalziumDataObject::instance()->element( el );
 	update();
 }
 
@@ -162,6 +161,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
 void DetailedGraphicalOverview::drawBiologicalSymbol( QPainter *p )
 {
+	Q_UNUSED( p );
 //X 	if ( !m_element ) return;
 //X 	const int db = h_t;        //diameter of the big circle
 //X 	const int ds = db/2;      //diameter of the inner circle

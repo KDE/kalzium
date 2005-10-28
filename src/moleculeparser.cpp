@@ -278,12 +278,12 @@ MoleculeParser::getNextToken()
 Element *
 MoleculeParser::lookupElement( const QString& _name )
 {
-    EList elementList = KalziumDataObject::instance()->ElementList;
+    QList<Element*> elementList = KalziumDataObject::instance()->ElementList;
 
     //kdDebug() << "looking up " << _name << endl;
 
-    EList::ConstIterator        it  = elementList.constBegin();
-    const EList::ConstIterator  end = elementList.constEnd();
+    QList<Element*>::ConstIterator        it  = elementList.constBegin();
+    const QList<Element*>::ConstIterator  end = elementList.constEnd();
 
     for (; it != end; ++it) {
 	if ( (*it)->dataAsVariant(ChemicalDataObject::symbol) == _name ) {

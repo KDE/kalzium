@@ -43,7 +43,7 @@
 
 //TODO add bondxx-radius (H-H-distance for example)
 
-DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent )
+DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
     : KDialogBase( IconList, "detailinfodlg", Help|User1|User2|Close, Close, parent, "detailinfodlg",
 			false, //non modal
 			false, 
@@ -72,19 +72,21 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent )
 	setElement( el );
 }
 
-void DetailedInfoDlg::setElement(Element *element)
+void DetailedInfoDlg::setElement( int el )
 {
+	Element *element = KalziumDataObject::instance()->element( el );
 	if ( !element ) return;
 
 	m_element = element;
+	m_elementNumber = el;
 	
 	reloadContent();
 
 	enableButton( User1, true );
 	enableButton( User2, true );
-	if ( m_element->data( ChemicalDataObject::atomicNumber ) == 1 )
+	if ( m_elementNumber == 1 )
 		enableButton( User2, false );
-	else if ( m_element->data( ChemicalDataObject::atomicNumber ) == m_data->numberOfElements() )
+	else if ( m_elementNumber == m_data->numberOfElements() )
 		enableButton( User1, false );
 }
 
@@ -396,15 +398,14 @@ void DetailedInfoDlg::createContent( )
 void DetailedInfoDlg::reloadContent()
 {
 	// reading the most common data
-	const int element_number = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
 	const QString element_name = m_element->dataAsString( ChemicalDataObject::name );
 	const QString element_symbol = m_element->dataAsString( ChemicalDataObject::symbol );
 
 	// updating caption
-	setCaption( i18n( "For example Carbon (6)" , "%1 (%2)" ).arg( element_name ).arg( element_number ) );
+	setCaption( i18n( "For example Carbon (6)" , "%1 (%2)" ).arg( element_name ).arg( m_elementNumber ) );
 
 	// updating overview tab
-	dTab->setElement( m_element );
+	dTab->setElement( m_elementNumber );
 
 	// updating picture tab
 	QString picpath = m_picsdir + element_symbol + ".jpg";
@@ -418,7 +419,7 @@ void DetailedInfoDlg::reloadContent()
 		piclabel->setText( i18n( "No picture of %1 found." ).arg( element_name ) );
 
 	// updating atomic model tab
-	wOrbits->setElementNumber( element_number );
+	wOrbits->setElementNumber( m_elementNumber );
 
 	// updating html tabs
 	fillHTMLTab( m_htmlpages["chemical"], getHtml( CHEMICAL ) );
@@ -486,11 +487,9 @@ void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 void DetailedInfoDlg::slotUser1()
 {
 // setting the next element
-	int number = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
-
-	if ( number < m_data->numberOfElements() )
+	if ( m_elementNumber < m_data->numberOfElements() )
 	{
-		setElement( m_data->element( number + 1 ) );
+		setElement( m_elementNumber + 1 );
 #if 0
 		emit elementChanged( number + 1 );
 #endif
@@ -500,11 +499,9 @@ void DetailedInfoDlg::slotUser1()
 void DetailedInfoDlg::slotUser2()
 {
 // setting the previous element
-	int number = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
-
-	if ( number > 1 )
+	if ( m_elementNumber > 1 )
 	{
-		setElement( m_data->element( number - 1 ) );
+		setElement( m_elementNumber - 1 );
 #if 0
 		emit elementChanged( number - 1 );
 #endif

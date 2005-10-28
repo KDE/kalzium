@@ -20,15 +20,14 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-#include "element.h"
-
-#include <qdom.h>
+#include <element.h>
 
 /**
  * @short This class contains all Element objects
  *
  * This singleton class collects all the information about the elements of the
- * Periodic Table as list of Element (QList<Element*>).
+ * Periodic Table as list of Element.
+ *
  * Use:
  * @code
  * KalziumDataObject::instance()->ElementList;
@@ -50,9 +49,9 @@ class KalziumDataObject
 		static KalziumDataObject* instance();
 
 		/**
-		 * The list of elements in a QList<Element*>
+		 * The list of elements
 		 */
-		EList ElementList;
+		QList<Element*> ElementList;
 		
 		/**
 		 * @return the Element with the number @p number
@@ -61,6 +60,9 @@ class KalziumDataObject
 		Element* element( int number );
 
 		/**
+		 * Use this to get the number of elements we have. It is cached
+		 * so you are strongly suggested to use this instead of hardcode
+		 * the number of elements.
 		 * @return the number of elements we have
 		 */
 		int numberOfElements() const { return m_numOfElements; }

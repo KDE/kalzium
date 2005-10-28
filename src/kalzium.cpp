@@ -398,12 +398,10 @@ void Kalzium::openInformationDialog( int number )
 		kdDebug() << "Handling Information Dialog" << endl;
 
 		if (m_infoDialog)
-			m_infoDialog->setElement(KalziumDataObject::instance()->element(number));
+			m_infoDialog->setElement( number );
 		else
 		{
-			m_infoDialog = new DetailedInfoDlg(
-			                        KalziumDataObject::instance()->element(number),
-			                        this );
+			m_infoDialog = new DetailedInfoDlg(number, this );
 
 			// Remove the selection when this dialog finishes or hides.
 			connect(m_infoDialog, SIGNAL(hidden()),
@@ -443,7 +441,7 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 
 void Kalzium::slotSelectedNumber( int num )
 {
-	m_detailWidget->setElement( KalziumDataObject::instance()->element( num ) );
+	m_detailWidget->setElement( num );
 }
 
 void Kalzium::slotSidebarVisibilityChanged( bool visible )

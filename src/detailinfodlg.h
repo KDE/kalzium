@@ -38,9 +38,9 @@ class DetailedInfoDlg : public KDialogBase
 	Q_OBJECT
 
 	public:
-		DetailedInfoDlg( Element *el, QWidget *parent = 0 );
+		DetailedInfoDlg( int el, QWidget *parent = 0 );
  
-		void setElement(Element *el);
+		void setElement( int el );
 
 	private:
 		enum DATATYPE
@@ -52,6 +52,7 @@ class DetailedInfoDlg : public KDialogBase
 
 		KalziumDataObject  *m_data;
 		Element            *m_element;
+		int                m_elementNumber;
 
 		KActionCollection* m_actionCollection;
 

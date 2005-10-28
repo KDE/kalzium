@@ -159,8 +159,8 @@ void ElementDataViewer::setupAxisData()
 	//this should be somewhere else, eg in its own method
 	yData->m_currentDataType = selectedData;
 
-	EList::iterator it = d->ElementList.begin();
-	const EList::iterator itEnd = d->ElementList.end();
+	QList<Element*>::iterator it = d->ElementList.begin();
+	const QList<Element*>::iterator itEnd = d->ElementList.end();
 	switch(selectedData)
 	{
 //X 		case AxisData::MASS:

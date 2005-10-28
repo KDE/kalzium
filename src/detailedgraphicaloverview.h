@@ -15,14 +15,15 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <qwidget.h>
+#include <QWidget>
 
 class Element;
 
-
 /**
  * @short The widget which displays the most important information
- * in one widget like a lot people know it from school
+ *
+ * In one widget like a lot people know it from school
+ *
  * @author Carsten Niehaus
  */
 class DetailedGraphicalOverview : public QWidget
@@ -30,25 +31,17 @@ class DetailedGraphicalOverview : public QWidget
 	Q_OBJECT
 
 	public:
-		DetailedGraphicalOverview( Element *el, QWidget *parent );
+		/**
+		 * Construct a new DetailedGraphicalOverview.
+		 *
+		 * @param parent the parent of this widget
+		 */
 		DetailedGraphicalOverview( QWidget *parent );
 
 		/**
-		 * sets the elements whose data will be used to @p el
+		 * Set @p el as the element to be drawn
 		 */
-		void setElement( Element* el ){
-			m_element = el;
-			update();
-		}
-
-		/**
-		 * draw the small symbol which symbolises the
-		 * relevence for humans
-		 */
-		void drawBiologicalSymbol( QPainter *p );
-	
-		//calculation of the corners
-		int x1,x2,y1,y2,h_t;
+		void setElement( int el );
 
 	private:
 		/**
@@ -56,13 +49,17 @@ class DetailedGraphicalOverview : public QWidget
 		 */
 		Element *m_element;
 
+		/**
+		 * draw the small symbol which symbolises the
+		 * relevence for humans
+		 */
+		void drawBiologicalSymbol( QPainter *p );
+
+		//calculation of the corners
+		int x1,x2,y1,y2,h_t;
+
 	protected:
 		virtual void paintEvent( QPaintEvent* );
-
-		/**
-		 * initialization method
-		 */
-		virtual void init( Element* );
 };
 
 #endif // DETAILEDGRAPHICALOVERVIEW_H
