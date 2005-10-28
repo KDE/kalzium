@@ -85,7 +85,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
 
 	switch ( kind )
 	{
-		case ChemicalDataObject::meltingpoint: // a temperatures
+		case ChemicalDataObject::meltingpoint: // a temperature
 		case ChemicalDataObject::boilingpoint:
 		{
 			val = el->dataAsVariant( kind ).toDouble();
@@ -94,24 +94,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
 			else
 			{
 				val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperature() );
-				switch ( Prefs::temperature() )
-				{
-					case 0: //Kelvin
-						result = i18n( "%1 is the temperature in Kelvin", "%1 K" ).arg( val );
-						break;
-					case 1://Kelvin to Celsius
-						result = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( val ).arg( QChar(0xB0) );
-						break;
-					case 2: // Kelvin to Fahrenheit
-						result = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( val ).arg( QChar(0xB0) );
-						break;
-					case 3: // Kelvin to Rankine
-						result = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( val ).arg( QChar(0xB0) );
-						break;
-					case 4: // Kelvin to Reamur
-						result = i18n( "%1 is the temperature in Reamur", "%1 %2R" ).arg( val ).arg( QChar(0xB0) );
-						break;
-				}
+				result = i18n( "%1 is the temperature, %2 is the unit, like \"300 K\"", "%1 %2" ).arg( val ).arg( TempUnit::unitListSymbol( Prefs::temperature() ) );
 			}
 			break;
 		}

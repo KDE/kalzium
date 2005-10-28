@@ -60,6 +60,12 @@ int SOMWidgetIMPL::temperature() const
 
 void SOMWidgetIMPL::reloadUnits()
 {
+	disconnect( Number1, SIGNAL( valueChanged( double ) ),
+	            this, SLOT( spinValueChanged( double ) ) );
+	disconnect( temp_slider, SIGNAL( valueChanged( int ) ),
+	            this, SLOT( sliderValueChanged( int ) ) );
+	disconnect( Number1, SIGNAL( valueChanged( double ) ),
+	            this, SLOT( setNewTemp( double ) ) );
 	lblUnit->setText( TempUnit::unitListSymbol( Prefs::temperature() ) );
 	QPair<double, double> range = TempUnit::rangeForUnit( Prefs::temperature() );
 
@@ -69,20 +75,50 @@ void SOMWidgetIMPL::reloadUnits()
 	setNewTemp( newvalue );
 kdDebug() << "min: " << Number1->minValue() << " - max: " << Number1->maxValue() << endl;
 	m_prevUnit = Prefs::temperature();
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( spinValueChanged( double ) ) );
+	connect( temp_slider, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( sliderValueChanged( int ) ) );
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( setNewTemp( double ) ) );
 }
 
 void SOMWidgetIMPL::sliderValueChanged( int temp )
 {
+	disconnect( Number1, SIGNAL( valueChanged( double ) ),
+	            this, SLOT( spinValueChanged( double ) ) );
+	disconnect( temp_slider, SIGNAL( valueChanged( int ) ),
+	            this, SLOT( sliderValueChanged( int ) ) );
+	disconnect( Number1, SIGNAL( valueChanged( double ) ),
+	            this, SLOT( setNewTemp( double ) ) );
 	double newvalue = TempUnit::convert( (double)temp, (int)TempUnit::Kelvin, Prefs::temperature() );
 	Number1->setValue( newvalue );
 	setNewTemp( newvalue );
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( spinValueChanged( double ) ) );
+	connect( temp_slider, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( sliderValueChanged( int ) ) );
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( setNewTemp( double ) ) );
 }
 
 void SOMWidgetIMPL::spinValueChanged( double temp )
 {
+	disconnect( Number1, SIGNAL( valueChanged( double ) ),
+	            this, SLOT( spinValueChanged( double ) ) );
+	disconnect( temp_slider, SIGNAL( valueChanged( int ) ),
+	            this, SLOT( sliderValueChanged( int ) ) );
+	disconnect( Number1, SIGNAL( valueChanged( double ) ),
+	            this, SLOT( setNewTemp( double ) ) );
 	int newvalue = (int)TempUnit::convert( temp, Prefs::temperature(), (int)TempUnit::Kelvin );
 	temp_slider->setValue( newvalue );
 	setNewTemp( temp );
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( spinValueChanged( double ) ) );
+	connect( temp_slider, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( sliderValueChanged( int ) ) );
+	connect( Number1, SIGNAL( valueChanged( double ) ),
+	         this, SLOT( setNewTemp( double ) ) );
 }
 
 void SOMWidgetIMPL::setNewTemp( double newtemp )
