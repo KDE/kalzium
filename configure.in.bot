@@ -1,4 +1,4 @@
-if test "x$eqchem_enabled" = "xno"; then
+if test x$eqchem_enabled = xno && test x$with_ocamlsolver != xno ; then
     cat << EOF
 
 The Kalzium Chemical Equation Solver has been disabled. Possible
