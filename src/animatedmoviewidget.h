@@ -47,7 +47,6 @@ class AnimatedMovieWidget : public QWidget
 		 *
 		 * @param picturePath the path of the images
 		 * @param parent parent widget
-		 * @param name name of this widget
 		 */
 		AnimatedMovieWidget( const QString& picturePath, QWidget *parent = 0 );
 
