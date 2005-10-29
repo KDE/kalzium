@@ -24,7 +24,8 @@ IsotopeParser::IsotopeParser()
 	: QXmlDefaultHandler(), 
 	currentIsotope_(0), 
 	inAtomicNumber_(false),
-	inExactMass_(false)
+	inExactMass_(false),
+	inAbundance_(false)
 {
 	currentElementSymbol_ = "";
 }
@@ -46,7 +47,6 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 	{
 		for (int i = 0; i < attrs.length(); ++i) 
 		{
-
 			if ( attrs.localName( i ) == "errorValue" )
 			{
 				currentErrorValue_ = QVariant( attrs.value( i ) );
@@ -58,6 +58,9 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 			else if (attrs.value(i) == "bo:exactMass")
 				inExactMass_ = true;
 		}
+	} else if (inIsotope_ && localName == "bo:relativeAbundance") {
+		kdDebug() << "bo:relativeAbundance" << endl;
+		inAbundance_ = true;
 	}
 	return true;
 }
@@ -98,6 +101,11 @@ bool IsotopeParser::characters(const QString &ch)
 		value = ch.toInt();
 		type = ChemicalDataObject::atomicNumber; 
 		inAtomicNumber_ = false;
+	}
+	else if ( inAbundance_ ){
+		value = ch;
+		type = ChemicalDataObject::relativeAbundance;
+		inAbundance_ = false;
 	}
 	else//it is a non known value. Do not create a wrong object but return
 		return true;

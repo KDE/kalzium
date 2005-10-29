@@ -52,6 +52,8 @@ class IsotopeParser : public QXmlDefaultHandler
 		bool inIsotope_;
 		bool inAtomicNumber_,
 			 inExactMass_;
+
+		bool inAbundance_;
 };
 #endif // ISOTOPEPARSER_H
 
