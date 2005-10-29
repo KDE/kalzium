@@ -83,7 +83,7 @@ AxisData::AxisData() : currentDataType(-1)
 
 double AxisData::value( int element ) const
 {
-	if ( ( element < 0 ) || ( element >= dataList.count() ) )
+	if ( ( element < 1 ) || ( element > dataList.count() ) )
 		return 0.0;
 
 	return dataList[ element-1 ];
@@ -357,7 +357,7 @@ void ElementDataViewer::drawPlot()
 
 			if (showNames)
 			{
-				dataPointLabel[number] = new KPlotObject( names[i], "Red", KPlotObject::LABEL );
+				dataPointLabel[number] = new KPlotObject( names[i-1], "Red", KPlotObject::LABEL );
 				dataPointLabel[number]->addPoint( new DPoint( (double)i , yData->value( i ) ) );
 				m_pPlotWidget->addObject( dataPointLabel[number] );
 			}
