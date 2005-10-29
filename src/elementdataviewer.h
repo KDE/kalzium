@@ -16,7 +16,7 @@
 
 #include <kdialogbase.h>
 
-class PlotSetupWidget;
+class Ui_PlotSetupWidget;
 class PlotWidget;
 class KActionCollection;
 class AxisData;
@@ -60,7 +60,7 @@ class ElementDataViewer : public KDialogBase
 
 	private: 
 		PlotWidget         *m_pPlotWidget;
-		PlotSetupWidget    *m_pPlotSetupWidget;
+		Ui_PlotSetupWidget *m_pPlotSetupWidget;
 
 		QStringList         names;
 

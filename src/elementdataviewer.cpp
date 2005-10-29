@@ -104,7 +104,9 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 
 	QHBoxLayout *layout = new QHBoxLayout( plainPage(), 0, spacingHint() );
 
-	m_pPlotSetupWidget = new PlotSetupWidget( plainPage(), "plotsetup" );
+	QWidget *plotsetuprealwidget = new QWidget( plainPage() );
+	m_pPlotSetupWidget = new Ui_PlotSetupWidget();
+	m_pPlotSetupWidget->setupUi( plotsetuprealwidget );
 	m_pPlotSetupWidget->from->setMaxValue( kdo->numberOfElements() - 1 );
 	m_pPlotSetupWidget->to->setMaxValue( kdo->numberOfElements() );
 	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage() );
@@ -113,9 +115,9 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 	m_pPlotWidget->setMinimumWidth( 200 );
 	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );
 
-	layout->addWidget( m_pPlotSetupWidget );
+	layout->addWidget( plotsetuprealwidget );
 	layout->addWidget( m_pPlotWidget );
-	layout->setStretchFactor( m_pPlotSetupWidget, 0 );
+	layout->setStretchFactor( plotsetuprealwidget, 0 );
 	layout->setStretchFactor( m_pPlotWidget, 1 );
 
 	// setup the list of names
