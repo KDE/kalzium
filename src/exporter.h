@@ -55,13 +55,15 @@ public:
 	/**
 	 * Saves datas as .cvs file
 	 * @return whether the data has been saved successfully
+	 * @todo Find the implementation of this method, and figure out
+	 *       if 'CVS' is really intended, as opposed to CSV.
 	 */
 	bool saveAsCVS();
 
 	/**
 	 * Overloaded function. Prints the QList of Elements @p elements
-	 * @param a QList of Elements to be printed
-	 * @param the path for the template to use
+	 * @param elements a QList of Elements to be printed
+	 * @param path the path for the template to use
 	 * @return whether the QList has been printed successfully
 	 */
 	bool printElements( const QList<Element*>& elements, const QString& path );
