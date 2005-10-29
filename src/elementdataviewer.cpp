@@ -32,66 +32,121 @@
 #include <qlayout.h>
 #include <qcheckbox.h>
 #include <qlabel.h>
+#include <QVariant>
 
-ElementDataViewer::ElementDataViewer( QWidget *parent, const char* name )
-	: KDialogBase( KDialogBase::Plain, 
-			i18n( "Plot Data") , 
-			Help | User1 | Close,
-			User1,
-			parent, name )
+typedef QList<double> DoubleList;
+
+/**
+ * @short the values of the y-Axis
+ * @author Carsten Niehaus
+ */
+class AxisData
 {
-//X 	d = KalziumDataObject::instance();
-//X 
-//X 	yData = new AxisData();
-//X 	
-//X 	QHBoxLayout *layout = new QHBoxLayout(plainPage(), 0, KDialog::spacingHint() );
-//X 
-//X 	m_pPlotSetupWidget = new PlotSetupWidget( plainPage(), "plotsetup" );	
-//X 	m_pPlotSetupWidget->from->setMaxValue( d->numberOfElements() - 1 );
-//X 	m_pPlotSetupWidget->to->setMaxValue( d->numberOfElements() );
-//X 	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage() );
-//X 	m_pPlotWidget->setObjectName( QLatin1String( "plotwidget" ) );
-//X 	m_pPlotWidget->setYAxisLabel(" ");
-//X 	m_pPlotWidget->setMinimumWidth( 200 );
-//X 	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );
-//X 
-//X 	layout->addWidget( m_pPlotSetupWidget );
-//X 	layout->addWidget( m_pPlotWidget );
-//X 	layout->setStretchFactor( m_pPlotSetupWidget, 0 );
-//X 	layout->setStretchFactor( m_pPlotWidget, 1 );
-//X 
-//X 	// setup the list of names
-//X 	EList::iterator it = d->ElementList.begin();
-//X 	const EList::iterator itEnd = d->ElementList.end();
-//X 	for( ; it != itEnd ; ++it )
-//X 	{
-//X 		names.append( (*it)->elementName() );
-//X 	}
-//X 
-//X 	resize(500, 500);
-//X 
-//X 	setButtonText( User1, i18n("&Plot") );
-//X 
-//X 	m_actionCollection = new KActionCollection(this);
-//X 	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);	
-//X 
-//X 	connect ( m_pPlotSetupWidget->KCB_y,         SIGNAL( activated(int) ),
-//X 			  this,                              SLOT( drawPlot()) );
-//X 
-//X 	connect ( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled(bool) ),
-//X 			  this,                              SLOT( drawPlot()) );
-//X 	connect ( m_pPlotSetupWidget->showNames,     SIGNAL( toggled(bool) ),
-//X 			  this,                              SLOT( drawPlot()) );
-//X 
-//X 	// Draw the plot so that the user doesn't have to press the "Plot"
-//X 	// button to seee anything.
-//X 	drawPlot();
+	public:
+		AxisData();
+		
+		/**
+		 * @return the value of the selected dataset of element @p element
+		 */
+		double value( int element ) const;
+
+		/**
+		 * This represents the possible datasets.
+		 */
+		enum PAXISDATA
+		{
+			MASS = 0,
+			MEANWEIGHT,
+			DENSITY,
+			EN,
+			MELTINGPOINT,
+			BOILINGPOINT,
+			ATOMICRADIUS,
+			COVALENTRADIUS
+		};
+
+		int numberOfElements() const;
+
+		/**
+		 * the dataList contains the values off all elements
+		 * but only of the currently selected data type. This
+		 * means that it eg contains all boiling points
+		 */
+		DoubleList dataList;
+
+		int currentDataType;
+};
+
+AxisData::AxisData() : currentDataType(-1)
+{
+}
+
+double AxisData::value( int element ) const
+{
+	if ( ( element < 0 ) || ( element >= dataList.count() ) )
+		return 0.0;
+
+	return dataList[ element-1 ];
+}
+
+int AxisData::numberOfElements() const
+{
+	return dataList.count();
+}
+
+
+ElementDataViewer::ElementDataViewer( QWidget *parent )
+  : KDialogBase( Plain, i18n( "Plot Data" ), Help|User1|Close, User1, parent,
+                 "plotdialog", true, false, KGuiItem( i18n( "&Plot" ) ) )
+{
+	d = KalziumDataObject::instance();
+
+	yData = new AxisData();
+
+	QHBoxLayout *layout = new QHBoxLayout(plainPage(), 0, KDialog::spacingHint() );
+
+	m_pPlotSetupWidget = new PlotSetupWidget( plainPage(), "plotsetup" );
+	m_pPlotSetupWidget->from->setMaxValue( d->numberOfElements() - 1 );
+	m_pPlotSetupWidget->to->setMaxValue( d->numberOfElements() );
+	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage() );
+	m_pPlotWidget->setObjectName( "plotwidget" );
+	m_pPlotWidget->setYAxisLabel(" ");
+	m_pPlotWidget->setMinimumWidth( 200 );
+	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );
+
+	layout->addWidget( m_pPlotSetupWidget );
+	layout->addWidget( m_pPlotWidget );
+	layout->setStretchFactor( m_pPlotSetupWidget, 0 );
+	layout->setStretchFactor( m_pPlotWidget, 1 );
+
+	// setup the list of names
+	QList<Element*>::iterator it = d->ElementList.begin();
+	const QList<Element*>::iterator itEnd = d->ElementList.end();
+	for( ; it != itEnd ; ++it )
+	{
+		names << (*it)->dataAsString( ChemicalDataObject::name );
+	}
+
+	m_actionCollection = new KActionCollection (this );
+	KStdAction::quit( this, SLOT( slotClose() ), m_actionCollection );
+
+	connect( m_pPlotSetupWidget->KCB_y, SIGNAL( activated(int) ),
+	         this, SLOT( drawPlot()) );
+	connect( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled( bool ) ),
+	         this, SLOT( drawPlot()) );
+	connect( m_pPlotSetupWidget->showNames, SIGNAL( toggled( bool ) ),
+	         this, SLOT( drawPlot()) );
+
+	// Draw the plot so that the user doesn't have to press the "Plot"
+	// button to seee anything.
+	drawPlot();
+
+	resize( 500, 500 );
 }
 
 void ElementDataViewer::slotHelp()
 {
-	emit helpClicked();
-	KToolInvocation::invokeHelp( QLatin1String( "plot_data" ), QLatin1String( "kalzium" ) );
+	KToolInvocation::invokeHelp( "plot_data", "kalzium" );
 }
 
 // Reimplement slotUser1 from KDialogBase
@@ -157,95 +212,74 @@ void ElementDataViewer::setupAxisData()
 	const int selectedData = m_pPlotSetupWidget->KCB_y->currentItem();
 
 	//this should be somewhere else, eg in its own method
-	yData->m_currentDataType = selectedData;
+	yData->currentDataType = selectedData;
 
 	QList<Element*>::iterator it = d->ElementList.begin();
 	const QList<Element*>::iterator itEnd = d->ElementList.end();
+	ChemicalDataObject::BlueObelisk kind;
+	QString caption;
 	switch(selectedData)
 	{
-//X 		case AxisData::MASS:
-//X 			for( ; it != itEnd ; ++it ) {
-//X 				double value = (*it)->data( ChemicalDataObject::mass ).value().toDouble();
-//X 				if( value > 0.0 )
-//X 				  l.append( value );
-//X 				else
-//X 				  l.append( 0.0 );
-//X 			}
-//X 			m_pPlotWidget->setYAxisLabel(i18n("Atomic Mass [u]"));
-//X 			break;
+		case AxisData::MASS:
+		{
+			kind = ChemicalDataObject::mass;
+			caption = i18n( "Atomic Mass [u]" );
+			break;
+		}
 //X 		case AxisData::MEANWEIGHT:
-//X 			for( ; it != itEnd ; ++it ) {
-//X 				double value =(*it)->meanmass();
-//X 				if( value > 0.0 )
-//X 				  l.append( value );
-//X 				else
-//X 				  l.append( 0.0 );
-//X 			}
-//X 			m_pPlotWidget->setYAxisLabel(i18n("Mean Mass [u]"));
+//X 		{
+//X 			kind = ChemicalDataObject::foo;
+//X 			caption = i18n( "Mean Mass [u]" );
 //X 			break;
+//X 		}
 //X 		case AxisData::DENSITY:
-//X 			for( ; it != itEnd ; ++it ) {
-//X 				double value =(*it)->density();
-//X 				if( value > 0.0 )
-//X 				  l.append( value );
-//X 				else
-//X 				  l.append( 0.0 );
-//X 			}
-//X 			m_pPlotWidget->setYAxisLabel(i18n("Density"));
+//X 		{
+//X 			kind = ChemicalDataObject::foo;
+//X 			caption = i18n( "Density" );
 //X 			break;
-//X 		case AxisData::EN:
-//X 			for( ; it != itEnd ; ++it ) {
-//X 				double value = (*it)->electroneg();
-//X 				if( value > 0.0 )
-//X 				  l.append( value );
-//X 				else
-//X 				  l.append( 0.0 );
-//X 			}
-//X 			m_pPlotWidget->setYAxisLabel(i18n("Electronegativity"));
-//X 			break;
-//X 		case AxisData::MELTINGPOINT:
-//X 			for( ; it != itEnd ; ++it ) {
-//X 				double value = (*it)->melting();
-//X 				if( value > 0.0 )
-//X 				  l.append( value );
-//X 				else
-//X 				  l.append( 0.0 );
-//X 			}
-//X 			m_pPlotWidget->setYAxisLabel(i18n("Melting Point [K]"));
-//X 			break;
-//X 		case AxisData::BOILINGPOINT:
-//X 			for( ; it != itEnd ; ++it ) {
-//X 				double value = (*it)->boiling();
-//X 				if( value > 0.0 )
-//X 				  l.append( value );
-//X 				else
-//X 				  l.append( 0.0 );
-//X 			}
-//X 			m_pPlotWidget->setYAxisLabel(i18n("Boiling Point [K]"));
-//X 			break;
+//X 		}
+		case AxisData::EN:
+		{
+			kind = ChemicalDataObject::electronegativityPauling;
+			caption = i18n( "Electronegativity" );
+			break;
+		}
+		case AxisData::MELTINGPOINT:
+		{
+			kind = ChemicalDataObject::meltingpoint;
+			caption = i18n( "Melting Point [K]" );
+			break;
+		}
+		case AxisData::BOILINGPOINT:
+		{
+			kind = ChemicalDataObject::boilingpoint;
+			caption = i18n( "Boiling Point [K]" );
+			break;
+		}
 //X 		case AxisData::ATOMICRADIUS:
-//X 			for( ; it != itEnd ; ++it ) {
-//X 				double value = (*it)->radius( Element::ATOMIC );
-//X 				if( value > 0.0 )
-//X 				  l.append( value );
-//X 				else
-//X 				  l.append( 0.0 );
-//X 			}
-//X 			m_pPlotWidget->setYAxisLabel(i18n("Atomic Radius [pm]"));
+//X 		{
+//X 			kind = ChemicalDataObject::foo;
+//X 			caption = i18n( "Atomic Radius [pm]" );
 //X 			break;
-//X 		case AxisData::COVALENTRADIUS:
-//X 			for( ; it != itEnd ; ++it ) {
-//X 				double value = (*it)->radius( Element::COVALENT );
-//X 				if( value > 0.0 )
-//X 				  l.append( value );
-//X 				else
-//X 				  l.append( 0.0 );
-//X 			}
-//X 			m_pPlotWidget->setYAxisLabel(i18n("Covalent Radius [pm]"));
-//X 			break;
+//X 		}
+		case AxisData::COVALENTRADIUS:
+		{
+			kind = ChemicalDataObject::radiusCovalent;
+			caption = i18n( "Covalent Radius [pm]" );
+			break;
+		}
+		default:
+		{
+		}
+	}
+	for( ; it != itEnd ; ++it )
+	{
+		double value = (*it)->dataAsVariant( kind ).toDouble();
+		l << ( value > 0.0 ? value : 0.0 );
 	}
 
-	yData->setDataList( l );
+	yData->dataList.clear();
+	yData->dataList << l;
 }
 
 void ElementDataViewer::drawPlot()
@@ -260,7 +294,7 @@ void ElementDataViewer::drawPlot()
 	/*
 	 * spare the next step in case everything is already set and done
 	 */
-	if( yData->currentDataType() != m_pPlotSetupWidget->KCB_y->currentItem() )
+	if( yData->currentDataType != m_pPlotSetupWidget->KCB_y->currentItem() )
 		initData();
 
 	/*
@@ -338,10 +372,5 @@ void ElementDataViewer::initData()
 {
 	setupAxisData();
 }
-
-///////////////////////////////////////////////
-
-AxisData::AxisData()
-{}
 
 #include "elementdataviewer.moc"

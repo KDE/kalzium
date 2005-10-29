@@ -16,77 +16,12 @@
 
 #include <kdialogbase.h>
 
-typedef QList<double> DoubleList;
-
 class Element;
 class KalziumDataObject;
 class PlotSetupWidget;
 class PlotWidget;
 class KActionCollection;
-
-/**
- * @short the values of the y-Axis
- * @author Carsten Niehaus
- */
-class AxisData
-{
-	friend class ElementDataViewer;
-	
-	public:
-		AxisData();
-		
-		/**
-		 * sets the dataList to @p list
-		 */
-		void setDataList( DoubleList list ){ 
-			dataList = list; 
-		};
-		
-		/**
-		 * @return the value of the selected dataset of element @p element
-		 */
-		double value( int element ){
-			return dataList[ element-1 ];
-		}
-
-		/**
-		 * This represents the possible datasets.
-		 * @li MASS: the mass of the element
-		 * @li MELTINGPOINT: the meanmass of the element
-		 */
-		enum PAXISDATA{
-			MASS=0,
-			MEANWEIGHT,
-			DENSITY,
-			EN,
-			MELTINGPOINT,
-			BOILINGPOINT,
-			ATOMICRADIUS,
-			COVALENTRADIUS
-		};
-
-		/**
-		 * @return the currently selected data type
-		 * @see AxisData::PAXISDATA
-		 */
-		int currentDataType(){
-		       return m_currentDataType;
-		}
-
-		int numberOfElements() const{
-			return dataList.count();
-		}
-
-	private:
-		/**
-		 * the dataList contains the values off all elements
-		 * but only of the currently selected data type. This
-		 * means that it eg contains all boiling points
-		 */
-		DoubleList dataList;
-
-		int m_currentDataType;
-};
+class AxisData;
 
 /**
  * @short This widget shows the plot and the widget
@@ -98,7 +33,7 @@ class ElementDataViewer : public KDialogBase
 	Q_OBJECT
 
 	public:
-		ElementDataViewer( QWidget *parent=0 , const char *name =0 );
+		ElementDataViewer( QWidget *parent = 0 );
 
 		/**
 		 * the AxixData for the y-Axis

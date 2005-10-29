@@ -266,7 +266,7 @@ void Kalzium::slotIsotopeTable()
 
 void Kalzium::slotPlotData()
 {
-	ElementDataViewer *edw = new ElementDataViewer( this, "edw" );
+	ElementDataViewer *edw = new ElementDataViewer( this );
 	edw->show();
 }
 
