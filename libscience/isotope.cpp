@@ -28,11 +28,11 @@ Isotope::Isotope()
 { 
 }
 
-Isotope::Isotope( ChemicalDataObject* mass,
-		ChemicalDataObject* ID )
+Isotope::Isotope( ChemicalDataObject* mass, ChemicalDataObject* ID )
+	: m_mass( 0 ), m_identifier( 0 )
 {
-	m_mass = mass;
-	m_identifier = ID;
+	addData( mass );
+	addData( ID );
 }
 
 Isotope::~Isotope(){}
@@ -49,8 +49,8 @@ void Isotope::addData( ChemicalDataObject* o )
 		m_mass = o;
 	else if ( o->type() == ChemicalDataObject::atomicNumber )
 		m_identifier = o;
-
-	return;
+	else if ( o->type() == ChemicalDataObject::symbol )
+		m_parentElementSymbol = o;
 }
 
 double Isotope::mass() const
@@ -70,10 +70,5 @@ int Isotope::parentElementNumber() const
 
 QString Isotope::parentElementSymbol() const
 {
-	return m_parentElementSymbol;
-}
-
-void Isotope::setParentSymbol( const QString& symbol )
-{
-	m_parentElementSymbol = symbol;
+	return m_parentElementSymbol->value().toString();
 }

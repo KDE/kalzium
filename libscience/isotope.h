@@ -48,13 +48,11 @@ class Isotope
 
 		void addData( ChemicalDataObject* o );
 
-		void setParentSymbol( const QString& symbol );
-
 	private:
 		/**
 		 * the symbol of the element the isotope belongs to
 		 */
-		QString m_parentElementSymbol;
+		ChemicalDataObject* m_parentElementSymbol;
 		
 		/**
 		 * stores the infomation about the mass of the Isotope

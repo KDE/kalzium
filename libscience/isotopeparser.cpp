@@ -69,7 +69,7 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 {
 	if ( localName == "isotope" )
 	{
-		currentIsotope_->setParentSymbol( currentElementSymbol_ );
+		currentIsotope_->addData( new ChemicalDataObject( QVariant( currentElementSymbol_ ), ChemicalDataObject::symbol ) );
 		isotopes_.append(currentIsotope_);
 		
 		currentIsotope_ = 0;
