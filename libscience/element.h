@@ -44,32 +44,6 @@ class Element
 		virtual ~Element();
 		
 		/**
-		 * adjusts the units for the data. The user can
-		 * for example define if Fahrenheit, Kelvin or 
-		 * Degrees Celsius should be used for the temperature. 
-		 * This method takes care of that and adjust the 
-		 * values.
-		 * @param type the TYPE of the data
-		 * @return the adjusted datastring
-		 */
-		const QString adjustUnits( const int type );
-
-		const QString adjustRadius( int rtype );
-
-		/**
-		 * adjusts the units for the data. The user can
-		 * for example define if Fahrenheit, Kelvin or 
-		 * Degrees Celsius should be used for the temperature. 
-		 * This method takes care of that and adjust the 
-		 * values. Depending on @p type a unit will be
-		 * added to the adjusted value.
-		 * @param type the TYPE of the data
-		 * @param value the value of the data. 
-		 * @return the adjusted datastring
-		 */
-		const QString adjustUnits( const int type, double value );
-
-		/**
 		 * Sdd the ChemicalDataObject @p o to this Element
 		 * @param o the ChemicalDataObject to be added
 		 */
