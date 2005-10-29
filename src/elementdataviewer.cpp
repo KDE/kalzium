@@ -108,7 +108,7 @@ void ElementDataViewer::setLimits(int f, int t)
 	double minY = yData->value(f);
 	double maxY = yData->value(f);
 
-	for ( int _currentVal = f; _currentVal < t; _currentVal++ )
+	for ( int _currentVal = f; _currentVal <= t; _currentVal++ )
 	{
 		double v = yData->value( _currentVal );
 		
@@ -118,7 +118,10 @@ void ElementDataViewer::setLimits(int f, int t)
 			maxY = v;
 	}
 	
-	m_pPlotWidget->setLimits( (double)f, (double)t, minY, maxY );
+	// try to put a small padding to make the points on the axis visible
+	double dx = ( t - f + 1 ) / 25 + 1.0;
+	double dy = ( maxY - minY ) / 10.0;
+	m_pPlotWidget->setLimits( f - dx, t + dx, minY - dy, maxY + dy );
 }
 
 void ElementDataViewer::paintEvent(QPaintEvent*)
@@ -318,7 +321,7 @@ void ElementDataViewer::drawPlot()
 
 			if (showNames)
 			{
-				dataPointLabel[number] = new KPlotObject( *(names.at(i)), "Red", KPlotObject::LABEL );
+				dataPointLabel[number] = new KPlotObject( *(names.at(i-1)), "Red", KPlotObject::LABEL );
 				dataPointLabel[number]->addPoint( new DPoint( (double)i , yData->value( i ) ) );
 				m_pPlotWidget->addObject( dataPointLabel[number] );
 			}
