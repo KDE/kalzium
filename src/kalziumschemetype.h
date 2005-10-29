@@ -96,9 +96,13 @@ class KalziumSchemeType
 		virtual QString description() const = 0;
 
 		/**
-		 * Returns the gradient with the element with atomic number
+		 * Returns the gradient with which the element with number
 		 * @p el should be painted.
+		 *
+		 * @param el Element number
 		 * @param elrect is the rect designed for the element
+		 *
+		 * @return A gradient for painting in @p elrect
 		 */
 		virtual QGradient elementGradient( int el, const QRect& elrect ) const = 0;
 		/**
