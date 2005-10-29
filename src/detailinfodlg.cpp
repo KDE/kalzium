@@ -229,6 +229,10 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Electron Affinity: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
 			html.append( "</td></tr>" );
+			// 1st ionization energy
+			html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "First Ionization energy: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::ionization ) ) );
+			html.append( "</td></tr>" );
 //X 
 //X 			//get the list of ionisation-energies
 //X 			QList<double> ionlist = m_element->ionisationList();
