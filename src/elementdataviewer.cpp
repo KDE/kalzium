@@ -97,17 +97,16 @@ int AxisData::numberOfElements() const
 
 ElementDataViewer::ElementDataViewer( QWidget *parent )
   : KDialogBase( Plain, i18n( "Plot Data" ), Help|User1|Close, User1, parent,
-                 "plotdialog", true, false, KGuiItem( i18n( "&Plot" ) ) )
+                 "plotdialog", true, false, KGuiItem( i18n( "&Plot" ) ) ),
+    yData( new AxisData() )
 {
-	d = KalziumDataObject::instance();
+	KalziumDataObject *kdo  = KalziumDataObject::instance();
 
-	yData = new AxisData();
-
-	QHBoxLayout *layout = new QHBoxLayout(plainPage(), 0, KDialog::spacingHint() );
+	QHBoxLayout *layout = new QHBoxLayout( plainPage(), 0, spacingHint() );
 
 	m_pPlotSetupWidget = new PlotSetupWidget( plainPage(), "plotsetup" );
-	m_pPlotSetupWidget->from->setMaxValue( d->numberOfElements() - 1 );
-	m_pPlotSetupWidget->to->setMaxValue( d->numberOfElements() );
+	m_pPlotSetupWidget->from->setMaxValue( kdo->numberOfElements() - 1 );
+	m_pPlotSetupWidget->to->setMaxValue( kdo->numberOfElements() );
 	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage() );
 	m_pPlotWidget->setObjectName( "plotwidget" );
 	m_pPlotWidget->setYAxisLabel(" ");
@@ -120,8 +119,8 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 	layout->setStretchFactor( m_pPlotWidget, 1 );
 
 	// setup the list of names
-	QList<Element*>::iterator it = d->ElementList.begin();
-	const QList<Element*>::iterator itEnd = d->ElementList.end();
+	QList<Element*>::iterator it = kdo->ElementList.begin();
+	const QList<Element*>::iterator itEnd = kdo->ElementList.end();
 	for( ; it != itEnd ; ++it )
 	{
 		names << (*it)->dataAsString( ChemicalDataObject::name );
@@ -166,7 +165,7 @@ void ElementDataViewer::setLimits(int f, int t)
 	double minY = yData->value(f);
 	double maxY = yData->value(f);
 
-	for ( int _currentVal = f; _currentVal < t; _currentVal++ )
+	for ( int _currentVal = f; _currentVal <= t; _currentVal++ )
 	{
 		double v = yData->value( _currentVal );
 		
@@ -176,7 +175,10 @@ void ElementDataViewer::setLimits(int f, int t)
 			maxY = v;
 	}
 	
-	m_pPlotWidget->setLimits( (double)f, (double)t, minY, maxY );
+	// try to put a small padding to make the points on the axis visible
+	double dx = ( t - f + 1 ) / 25 + 1.0;
+	double dy = ( maxY - minY ) / 10.0;
+	m_pPlotWidget->setLimits( f - dx, t + dx, minY - dy, maxY + dy );
 }
 
 void ElementDataViewer::paintEvent(QPaintEvent*)
@@ -214,8 +216,9 @@ void ElementDataViewer::setupAxisData()
 	//this should be somewhere else, eg in its own method
 	yData->currentDataType = selectedData;
 
-	QList<Element*>::iterator it = d->ElementList.begin();
-	const QList<Element*>::iterator itEnd = d->ElementList.end();
+	KalziumDataObject *kdo = KalziumDataObject::instance();
+	QList<Element*>::iterator it = kdo->ElementList.begin();
+	const QList<Element*>::iterator itEnd = kdo->ElementList.end();
 	ChemicalDataObject::BlueObelisk kind;
 	QString caption;
 	switch(selectedData)

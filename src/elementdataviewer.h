@@ -16,8 +16,6 @@
 
 #include <kdialogbase.h>
 
-class Element;
-class KalziumDataObject;
 class PlotSetupWidget;
 class PlotWidget;
 class KActionCollection;
@@ -49,8 +47,6 @@ class ElementDataViewer : public KDialogBase
 		 */
 		void drawPlot();
 
-		void slotUser1();
-
 	protected:
 		virtual void paintEvent(QPaintEvent*);
 		virtual void keyPressEvent(QKeyEvent *e);
@@ -60,12 +56,11 @@ class ElementDataViewer : public KDialogBase
 		 * invoke the help of the correct chapter
 		 */
 		virtual void slotHelp();
+		virtual void slotUser1();
 
 	private: 
 		PlotWidget         *m_pPlotWidget;
 		PlotSetupWidget    *m_pPlotSetupWidget;
-
-		KalziumDataObject  *d;
 
 		QStringList         names;
 
