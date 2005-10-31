@@ -181,7 +181,8 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 		case GRADIENT:
 		{
 			m_painter->setPen( Qt::black );
-			QBrush c = grayedOut ? QBrush( Qt::lightGray ) : QBrush( m_gradient->calculateColor( m_gradient->elementCoeff( element ) ) );
+			double coeff = m_gradient->elementCoeff( element );
+			QBrush c = grayedOut ? QBrush( Qt::lightGray ) : QBrush( m_gradient->calculateColor( coeff ) );
 
 			m_painter->fillRect( rect, c );
 			m_painter->drawRect( rect );
@@ -193,7 +194,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 			f.setPointSize( 8 );
 			m_painter->setFont( f );
 			double value = m_gradient->value( element );
-			QString strval = value > .5 ? QString::number( KalziumUtils::strippedValue( value ) ) : i18n( "It means: Not Available. Translators: keep it as short as you can!", "N/A" );
+			QString strval = coeff != -1 ? QString::number( KalziumUtils::strippedValue( value ) ) : i18n( "It means: Not Available. Translators: keep it as short as you can!", "N/A" );
 			m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignBottom, strval );
 
 			m_painter->setFont( orig_font );

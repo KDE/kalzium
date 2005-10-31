@@ -28,9 +28,12 @@
 
 KalziumGradientTypeFactory::KalziumGradientTypeFactory()
 {
+	m_gradients << KalziumCovalentRadiusGradientType::instance();
+	m_gradients << KalziumVanDerWaalsRadiusGradientType::instance();
 	m_gradients << KalziumMassGradientType::instance();
 	m_gradients << KalziumBoilingPointGradientType::instance();
 	m_gradients << KalziumMeltingPointGradientType::instance();
+	m_gradients << KalziumElectronegativityGradientType::instance();
 }
 
 KalziumGradientTypeFactory* KalziumGradientTypeFactory::instance()
@@ -86,7 +89,7 @@ KalziumGradientType* KalziumGradientType::instance()
 double KalziumGradientType::elementCoeff( int el ) const
 {
 	double val = value( el );
-	return val > .0 ? val / maxValue() : -1;
+	return val > .0 ? ( val - minValue() ) / ( maxValue() - minValue() ) : -1;
 }
 
 QColor KalziumGradientType::firstColor() const
@@ -117,6 +120,84 @@ QColor KalziumGradientType::calculateColor( const double coeff ) const
 
 	return QColor( red, green, blue );
 }
+
+KalziumCovalentRadiusGradientType* KalziumCovalentRadiusGradientType::instance()
+{
+	static KalziumCovalentRadiusGradientType kcrgt;
+	return &kcrgt;
+}
+
+KalziumCovalentRadiusGradientType::KalziumCovalentRadiusGradientType()
+  : KalziumGradientType()
+{
+}
+
+QByteArray KalziumCovalentRadiusGradientType::name() const
+{
+	return "CovalentRadius";
+}
+
+QString KalziumCovalentRadiusGradientType::description() const
+{
+	return i18n( "Covalent Radius" );
+}
+
+double KalziumCovalentRadiusGradientType::value( int el ) const
+{
+	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::radiusCovalent );
+	if ( v.type() != QVariant::Double ) return -1;
+	return v.toDouble();
+}
+
+double KalziumCovalentRadiusGradientType::minValue() const
+{
+	return 0.32;
+}
+
+double KalziumCovalentRadiusGradientType::maxValue() const
+{
+	return 2.25;
+}
+
+
+KalziumVanDerWaalsRadiusGradientType* KalziumVanDerWaalsRadiusGradientType::instance()
+{
+	static KalziumVanDerWaalsRadiusGradientType kvdwrgt;
+	return &kvdwrgt;
+}
+
+KalziumVanDerWaalsRadiusGradientType::KalziumVanDerWaalsRadiusGradientType()
+  : KalziumGradientType()
+{
+}
+
+QByteArray KalziumVanDerWaalsRadiusGradientType::name() const
+{
+	return "KalziumVanDerWaalsRadiusGradientType";
+}
+
+QString KalziumVanDerWaalsRadiusGradientType::description() const
+{
+	return i18n( "van Der Waals" );
+}
+
+double KalziumVanDerWaalsRadiusGradientType::value( int el ) const
+{
+	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::radiusVDW );
+	if ( v.type() != QVariant::Double ) return -1;
+	return v.toDouble();
+}
+
+double KalziumVanDerWaalsRadiusGradientType::minValue() const
+{
+	return 1.2;
+}
+
+double KalziumVanDerWaalsRadiusGradientType::maxValue() const
+{
+	return 3.0;
+}
+
 
 KalziumMassGradientType* KalziumMassGradientType::instance()
 {
@@ -232,4 +313,43 @@ double KalziumMeltingPointGradientType::minValue() const
 double KalziumMeltingPointGradientType::maxValue() const
 {
 	return 3825.0;
+}
+
+
+KalziumElectronegativityGradientType* KalziumElectronegativityGradientType::instance()
+{
+	static KalziumElectronegativityGradientType kegt;
+	return &kegt;
+}
+
+KalziumElectronegativityGradientType::KalziumElectronegativityGradientType()
+  : KalziumGradientType()
+{
+}
+
+QByteArray KalziumElectronegativityGradientType::name() const
+{
+	return "Electronegativity";
+}
+
+QString KalziumElectronegativityGradientType::description() const
+{
+	return i18n( "Electronegativity" );
+}
+
+double KalziumElectronegativityGradientType::value( int el ) const
+{
+	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::electronegativityPauling );
+	if ( v.type() != QVariant::Double ) return -1;
+	return v.toDouble();
+}
+
+double KalziumElectronegativityGradientType::minValue() const
+{
+	return 0.7;
+}
+
+double KalziumElectronegativityGradientType::maxValue() const
+{
+	return 3.98;
 }

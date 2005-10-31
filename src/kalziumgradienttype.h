@@ -139,6 +139,50 @@ class KalziumGradientType
 };
 
 /**
+ * The gradient by covalent radius.
+ *
+ * @author Pino Toscano
+ */
+class KalziumCovalentRadiusGradientType : public KalziumGradientType
+{
+	public:
+		static KalziumCovalentRadiusGradientType* instance();
+
+		QByteArray name() const;
+		QString description() const;
+
+		double value( int el ) const;
+
+		double minValue() const;
+		double maxValue() const;
+
+	private:
+		KalziumCovalentRadiusGradientType();
+};
+
+/**
+ * The gradient by van Der Waals radius.
+ *
+ * @author Pino Toscano
+ */
+class KalziumVanDerWaalsRadiusGradientType : public KalziumGradientType
+{
+	public:
+		static KalziumVanDerWaalsRadiusGradientType* instance();
+
+		QByteArray name() const;
+		QString description() const;
+
+		double value( int el ) const;
+
+		double minValue() const;
+		double maxValue() const;
+
+	private:
+		KalziumVanDerWaalsRadiusGradientType();
+};
+
+/**
  * The gradient by atomic mass.
  *
  * @author Pino Toscano
@@ -202,6 +246,28 @@ class KalziumMeltingPointGradientType : public KalziumGradientType
 
 	private:
 		KalziumMeltingPointGradientType();
+};
+
+/**
+ * The gradient by electronegativity.
+ *
+ * @author Pino Toscano
+ */
+class KalziumElectronegativityGradientType : public KalziumGradientType
+{
+	public:
+		static KalziumElectronegativityGradientType* instance();
+
+		QByteArray name() const;
+		QString description() const;
+
+		double value( int el ) const;
+
+		double minValue() const;
+		double maxValue() const;
+
+	private:
+		KalziumElectronegativityGradientType();
 };
 
 #endif // KALZIUMGRADIENTTYPE_H
