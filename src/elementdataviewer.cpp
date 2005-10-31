@@ -18,6 +18,7 @@
 #include "kalziumdataobject.h"
 
 #include <element.h>
+#include <kplotobject.h>
 
 #include <klocale.h>
 #include <knuminput.h>

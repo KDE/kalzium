@@ -21,6 +21,8 @@
 //QT-Includes
 #include <qpainter.h>
 
+#include <kplotobject.h>
+
 PlotWidget::PlotWidget( double x1,
 		double x2,
 		double y1,
