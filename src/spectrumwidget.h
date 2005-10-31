@@ -122,7 +122,7 @@ class SpectrumWidget : public QWidget
 
 		void PrepareTooltip( double wavelength );
 
-		void showTooltip( Spectrum::band band );
+		void showTooltip( Spectrum::peak band );
 		
 		/**
 		 * @param xpos The ratio of the position relative to the width
@@ -158,7 +158,7 @@ class SpectrumWidget : public QWidget
 
 		bool m_showtooltip;
 
-		Spectrum::band m_band;
+		Spectrum::peak m_band;
 		
 		void paintBands( QPainter* p );
 		void drawZoomLine( QPainter* p );
