@@ -134,8 +134,8 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 //X 			html.append( "<b>" + i18n( "Density: %1" ).arg( m_element->adjustUnits( Element::DENSITY ) ) + "</b>" );
 //X 			html.append( "</td></tr>" );
 			// covalent radius
-			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-			html.append( "<b>" + i18n( "Covalent Radius: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) + "</b>" );
+			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Covalent Radius: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) );
 			html.append( "</td></tr>" );
 //X 			if ( m_element->radius(Element::IONIC) > 0.0 )
 //X 			{
@@ -145,7 +145,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 //X 			}
 			// van der Waals radius
 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-			html.append( "<b>" + i18n( "van der Waals Radius: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) + "</b>" );
+			html.append( i18n( "van der Waals Radius: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) );
 			html.append( "</td></tr>" );
 //X 		
 //X 			if ( m_element->radius(Element::ATOMIC) > 0.0 )
@@ -156,7 +156,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 //X 			}
 //X 			
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-			html.append( "<b>" + i18n( "Mass: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) + "</b>" );
+			html.append( i18n( "Mass: %1" ).arg( KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) );
 			html.append( "</td></tr>" );
 //X 			if ( !m_element->isotopes().isEmpty() )
 //X 			{
@@ -195,7 +195,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			if ( !nameorigin.isEmpty() )
 			{
 				html.append( "<tr><td><img src=\"book.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "Origin of the name: %1" ).arg( nameorigin ) );
+				html.append( i18n( "Origin of the name:<br/>%1" ).arg( nameorigin ) );
 				html.append( "</td></tr>" );
 			}
 //X 			if ( m_element->artificial() || m_element->radioactive() )
