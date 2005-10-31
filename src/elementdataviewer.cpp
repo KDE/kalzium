@@ -232,18 +232,18 @@ void ElementDataViewer::setupAxisData()
 			caption = i18n( "Atomic Mass [u]" );
 			break;
 		}
-//X 		case AxisData::MEANWEIGHT:
-//X 		{
+		case AxisData::MEANWEIGHT:
+		{
 //X 			kind = ChemicalDataObject::foo;
-//X 			caption = i18n( "Mean Mass [u]" );
-//X 			break;
-//X 		}
-//X 		case AxisData::DENSITY:
-//X 		{
+			caption = i18n( "Mean Mass [u]" );
+			break;
+		}
+		case AxisData::DENSITY:
+		{
 //X 			kind = ChemicalDataObject::foo;
-//X 			caption = i18n( "Density" );
-//X 			break;
-//X 		}
+			caption = i18n( "Density" );
+			break;
+		}
 		case AxisData::EN:
 		{
 			kind = ChemicalDataObject::electronegativityPauling;
@@ -262,21 +262,17 @@ void ElementDataViewer::setupAxisData()
 			caption = i18n( "Boiling Point [K]" );
 			break;
 		}
-//X 		case AxisData::ATOMICRADIUS:
-//X 		{
+		case AxisData::ATOMICRADIUS:
+		{
 //X 			kind = ChemicalDataObject::foo;
-//X 			caption = i18n( "Atomic Radius [pm]" );
-//X 			break;
-//X 		}
+			caption = i18n( "Atomic Radius [pm]" );
+			break;
+		}
 		case AxisData::COVALENTRADIUS:
 		{
 			kind = ChemicalDataObject::radiusCovalent;
 			caption = i18n( "Covalent Radius [pm]" );
 			break;
-		}
-		default:
-		{
-			caption = " ";
 		}
 	}
 	for( ; it != itEnd ; ++it )
