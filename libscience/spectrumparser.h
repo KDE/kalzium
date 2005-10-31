@@ -16,6 +16,8 @@
 #include <QFile>
 #include <qxml.h>
 
+#include "spectrum.h"
+
 #include "chemicaldataobject.h"
 
 class Spectrum;
@@ -44,15 +46,21 @@ class SpectrumParser : public QXmlDefaultHandler
 
 		QVariant currentErrorValue_;
 
-		QString currentElementSymbol_;
-		
 		Spectrum* currentSpectrum_;
+		Spectrum::peak* currentPeak_;
+		
 		QList<Spectrum*> spectra_;
-		bool inSpectrum_;
-		bool inAtomicNumber_,
-			 inExactMass_;
 
-		bool inAbundance_;
+		bool inMetadata_;
+		
+		bool inSpectrum_;
+		bool inSpectrumList_;
+
+		bool inPeakList_;
+		bool inPeak_;
+		
+		bool inXValue_;
+		bool inYValue_;
 };
 #endif // SPECTRUMPARSER_H
 

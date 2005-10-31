@@ -23,44 +23,34 @@ email                : cniehaus@kde.org
 SpectrumParser::SpectrumParser()
 	: QXmlDefaultHandler(), 
 	currentSpectrum_(0), 
-	inAtomicNumber_(false),
-	inExactMass_(false),
-	inAbundance_(false)
+	currentPeak_( 0 )
 {
-	currentElementSymbol_ = "";
 }
 
 bool SpectrumParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-	if (localName == "isotope") 
+	if (localName == "spectrum") 
 	{
 		currentSpectrum_ = new Spectrum();
 		inSpectrum_ = true;
 		
-		//now save the symbol of the current element
+//X 		//now save the element of the current spectrum
+//X 		for (int i = 0; i < attrs.length(); ++i) 
+//X 		{
+//X 			if ( attrs.localName( i ) == "elementType" )
+//X 				currentElementSymbol_ = attrs.value( i );
+//X 		}
+	} else if (inSpectrum_ && localName == "peakList") {
+		inPeakList_ = true;
+	}
+	else if (inSpectrum_ && inPeakList_ && localName == "peak") {
 		for (int i = 0; i < attrs.length(); ++i) 
 		{
-			if ( attrs.localName( i ) == "elementType" )
-				currentElementSymbol_ = attrs.value( i );
-		}
-	} else if (inSpectrum_ && localName == "scalar") 
-	{
-		for (int i = 0; i < attrs.length(); ++i) 
-		{
-			if ( attrs.localName( i ) == "errorValue" )
-			{
-				currentErrorValue_ = QVariant( attrs.value( i ) );
-				continue;
-			}
-			
-			if (attrs.value(i) == "bo:atomicNumber")
-				inAtomicNumber_ = true;
+			if (attrs.value(i) == "xValue")
+				inXValue_ = true;
 			else if (attrs.value(i) == "bo:exactMass")
-				inExactMass_ = true;
+				inYValue_ = true;
 		}
-	} else if (inSpectrum_ && localName == "bo:relativeAbundance") {
-		kdDebug() << "bo:relativeAbundance" << endl;
-		inAbundance_ = true;
 	}
 	return true;
 }
@@ -92,20 +82,15 @@ bool SpectrumParser::characters(const QString &ch)
 	ChemicalDataObject::BlueObelisk type;
 	QVariant value;
 
-	if ( inExactMass_ ){
+	if ( inXValue_ ){
 		value = ch.toDouble();
 		type = ChemicalDataObject::exactMass; 
-		inExactMass_ = false;
+		inXValue_ = false;
 	}
-	else if (inAtomicNumber_) {
+	else if (inYValue_) {
 		value = ch.toInt();
 		type = ChemicalDataObject::atomicNumber; 
-		inAtomicNumber_ = false;
-	}
-	else if ( inAbundance_ ){
-		value = ch;
-		type = ChemicalDataObject::relativeAbundance;
-		inAbundance_ = false;
+		inYValue_ = false;
 	}
 	else//it is a non known value. Do not create a wrong object but return
 		return true;
