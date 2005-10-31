@@ -52,9 +52,9 @@ void PlotWidget::drawObjects( QPainter *p )
 		p->setPen( QColor( po->color() ) );
 		p->setBrush( QColor( po->color() ) );
 //		for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() ) 
-		for ( QList<DPoint*>::ConstIterator dpit = po->points()->begin(); dpit != po->points()->constEnd(); ++dpit ) 
+		for ( QList<QPointF*>::ConstIterator dpit = po->points()->begin(); dpit != po->points()->constEnd(); ++dpit )
 		{
-			QPoint q = ( *dpit )->qpoint( PixRect, DataRect );
+			QPoint q = mapToPoint( **dpit );
 
 			if ( first ) 
 				first = false;

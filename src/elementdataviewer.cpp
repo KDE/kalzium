@@ -32,6 +32,7 @@
 #include <qlayout.h>
 #include <qcheckbox.h>
 #include <qlabel.h>
+#include <QPointF>
 #include <QVariant>
 
 typedef QList<double> DoubleList;
@@ -275,6 +276,7 @@ void ElementDataViewer::setupAxisData()
 		}
 		default:
 		{
+			caption = " ";
 		}
 	}
 	for( ; it != itEnd ; ++it )
@@ -285,6 +287,8 @@ void ElementDataViewer::setupAxisData()
 
 	yData->dataList.clear();
 	yData->dataList << l;
+
+	m_pPlotWidget->setYAxisLabel( caption );
 }
 
 void ElementDataViewer::drawPlot()
@@ -353,14 +357,14 @@ void ElementDataViewer::drawPlot()
 				max = v;
 			av += v;
 
-			dataPoint[number] = new KPlotObject( "whocares", "Blue", KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
-			dataPoint[number]->addPoint( new DPoint( (double)i , v ) );
+			dataPoint[number] = new KPlotObject( "whocares", Qt::blue, KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
+			dataPoint[number]->addPoint( new QPointF( (double)i , v ) );
 			m_pPlotWidget->addObject( dataPoint[ number ] );
 
 			if (showNames)
 			{
-				dataPointLabel[number] = new KPlotObject( names[i-1], "Red", KPlotObject::LABEL );
-				dataPointLabel[number]->addPoint( new DPoint( (double)i , yData->value( i ) ) );
+				dataPointLabel[number] = new KPlotObject( names[i-1], Qt::red, KPlotObject::LABEL );
+				dataPointLabel[number]->addPoint( new QPointF( (double)i , yData->value( i ) ) );
 				m_pPlotWidget->addObject( dataPointLabel[number] );
 			}
 		}
