@@ -45,12 +45,12 @@ class Spectrum
 		~Spectrum(){};
 
 		/**
-		 * a band is one line in the spectrum of an element
+		 * a peak is one line in the spectrum of an element
 		 */
-		class band
+		class peak
 		{
 			public:
-				band(){
+				peak(){
 					wavelength = -1.0;
 					aki = -1.0;
 					energy1 = -1.0;
@@ -83,12 +83,12 @@ class Spectrum
 		};
 
 		/**
-		 * adds the band @p b to the internal
-		 * lists of bands
+		 * adds the peak @p b to the internal
+		 * lists of peaks
 		 */
-		void addBand( Spectrum::band* b ){
+		void addPeak( Spectrum::peak* b ){
 			if ( b )
-				m_bandlist.append( b );
+				m_peaklist.append( b );
 		}
 
 		/**
@@ -131,14 +131,14 @@ class Spectrum
 		}
 
 		/**
-		 * @return the list of bands of the spectrum
+		 * @return the list of peaks of the spectrum
 		 */
-		QList<Spectrum::band*> bandlist(){
-			return m_bandlist;
+		QList<Spectrum::peak*> peaklist(){
+			return m_peaklist;
 		}
 		
-		QList<Spectrum::band*> bandList(){
-			return bandlist();
+		QList<Spectrum::peak*> peakList(){
+			return peaklist();
 		}
 	
 		/**
@@ -146,8 +146,8 @@ class Spectrum
 		 * smallest wavelenght
 		 */
 		void adjustMinMax(){
-			m_min = minBand();
-			m_max = maxBand();
+			m_min = minPeak();
+			m_max = maxPeak();
 		}
 
 		/**
@@ -161,17 +161,17 @@ class Spectrum
 		/**
 		 * @return the smallest wavelength
 		 */
-		double minBand();
+		double minPeak();
 		
 		/**
 		 * @return the bigest wavelength
 		 */
-		double maxBand();
+		double maxPeak();
 
 		/**
 		 * the internal dataset
 		 */
-		QList<band*> m_bandlist;
+		QList<peak*> m_peaklist;
 
 		/**
 		 * the cached values of the highest and lowest wavelength

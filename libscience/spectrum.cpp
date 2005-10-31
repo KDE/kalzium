@@ -25,11 +25,11 @@
 
 #include <math.h>
 
-double Spectrum::minBand()
+double Spectrum::minPeak()
 {
-	double value = ( *m_bandlist.begin() )->wavelength;
-	QList<band*>::const_iterator it = m_bandlist.begin();
-	const QList<band*>::const_iterator itEnd = m_bandlist.end();
+	double value = ( *m_peaklist.begin() )->wavelength;
+	QList<peak*>::const_iterator it = m_peaklist.begin();
+	const QList<peak*>::const_iterator itEnd = m_peaklist.end();
 	for (;it!=itEnd;++it)
 	{
 		if ( value > ( *it )->wavelength )
@@ -38,11 +38,11 @@ double Spectrum::minBand()
 	return value;
 }
 
-double Spectrum::maxBand()
+double Spectrum::maxPeak()
 {
-	double value = ( *m_bandlist.begin() )->wavelength;
-	QList<band*>::const_iterator it = m_bandlist.begin();
-	const QList<band*>::const_iterator itEnd = m_bandlist.end();
+	double value = ( *m_peaklist.begin() )->wavelength;
+	QList<peak*>::const_iterator it = m_peaklist.begin();
+	const QList<peak*>::const_iterator itEnd = m_peaklist.end();
 	for (;it!=itEnd;++it)
 	{
 		if ( value < ( *it )->wavelength )
@@ -56,15 +56,15 @@ Spectrum* Spectrum::adjustToWavelength( double min, double max )
 {
 	Spectrum *spec = new Spectrum();
 
-	QList<band*>::const_iterator it = m_bandlist.begin();
-	const QList<band*>::const_iterator itEnd = m_bandlist.end();
+	QList<peak*>::const_iterator it = m_peaklist.begin();
+	const QList<peak*>::const_iterator itEnd = m_peaklist.end();
 
 	for ( ; it != itEnd; ++it )
 	{
 		if ( ( *it )->wavelength < min || ( *it )->wavelength > max )
 			continue;
 
-		spec->addBand( *it );
+		spec->addPeak( *it );
 	}
 
 	spec->adjustMinMax();
@@ -75,8 +75,8 @@ Spectrum* Spectrum::adjustToWavelength( double min, double max )
 void Spectrum::adjustIntensities()
 {
 	int maxInt = 0;
-	QList<band*>::Iterator it = m_bandlist.begin();
-	const QList<band*>::Iterator itEnd = m_bandlist.end();
+	QList<peak*>::Iterator it = m_peaklist.begin();
+	const QList<peak*>::Iterator itEnd = m_peaklist.end();
 
 	//find the highest intensity
 	for ( ; it != itEnd; ++it )
@@ -91,7 +91,7 @@ void Spectrum::adjustIntensities()
 	double max = ( double ) maxInt;
 
 	//now adjust the intensities.
-	it = m_bandlist.begin();
+	it = m_peaklist.begin();
 	for ( ; it != itEnd; ++it )
 	{
 		double curInt = ( ( double )( *it )->intensity );
@@ -105,8 +105,8 @@ QList<double> Spectrum::wavelengths( double min, double max )
 {
 	QList<double> list;
 	
-	QList<band*>::const_iterator it = m_bandlist.begin();
-	const QList<band*>::const_iterator itEnd = m_bandlist.end();
+	QList<peak*>::const_iterator it = m_peaklist.begin();
+	const QList<peak*>::const_iterator itEnd = m_peaklist.end();
 
 	for ( ; it != itEnd; ++it )
 	{

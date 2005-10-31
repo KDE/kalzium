@@ -14,27 +14,45 @@
  ***************************************************************************/
 
 #include <QFile>
+#include <qxml.h>
+
+#include "chemicaldataobject.h"
 
 class Spectrum;
 
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
  */
-class SpectrumParser
+class SpectrumParser : public QXmlDefaultHandler
 {
 	public:
 		/**
-		 * Save the Spectrum @p spectrum
-		 * @param spectrum the Spectrum to save
+		 * Constructor
 		 */
-		static void saveSpectrum( Spectrum *spectrum );
+		SpectrumParser();
+		bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
 
-		/**
-		 * @return the Spectrum specified by the @p id
-		 * @param file the file from which the data will be loaded
-		 * @param id The id of the Spectrum
-		 */
-		static Spectrum* loadSpectrum( QFile *file, const QString& id );
+		bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
+		
+		bool characters(const QString &ch);
+
+		QList<Spectrum*> getSpectrums();
+
+	private:
+		ChemicalDataObject *currentDataObject_;
+		ChemicalDataObject::BlueObeliskUnit currentUnit_;
+
+		QVariant currentErrorValue_;
+
+		QString currentElementSymbol_;
+		
+		Spectrum* currentSpectrum_;
+		QList<Spectrum*> spectra_;
+		bool inSpectrum_;
+		bool inAtomicNumber_,
+			 inExactMass_;
+
+		bool inAbundance_;
 };
 #endif // SPECTRUMPARSER_H
 
