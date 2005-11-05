@@ -78,6 +78,12 @@ select the elements on the grid by using cursor keys (or just tab key).
 * Perhaps there must be a KComboBox in the toolbar where you can select the 
 different views of the PTE.
 
+* Create a generic slider class. This slider-widget will be able to hide or
+  show elements based on a value. For example (like today) the SOM, but also
+  the atomic weight, the density or the electron-affinity. 
+  This would help the user to get "a feeling" for the properties of the elements
+  and would complement the gradient feature very well.
+
 * There's no view of the natural occurrence of the elements. Look at 
 http://en.wikipedia.org/wiki/Periodic_table_(standard) and see the notes 
 about borders.
