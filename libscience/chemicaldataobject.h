@@ -62,7 +62,15 @@ class ChemicalDataObject
 			period/**< the period of the element */,
 			date/**< date of discovery of the element. When 0, the element has been known in ancient times. */,
 			discoverers/** The name of the discoverers, separated by semicolomns */,
-			relativeAbundance/** The abundance, relative to 100 */
+			relativeAbundance/** The abundance, relative to 100 */,
+			alphapercentage/**< The percentage of alphadecay */,
+			alphadecay/**< The decayenergy of alphadecay in MeV */,
+			betapluspercentage/**< The percentage of betaplusdecay */,
+			betaplusdecay/**< The decayenergy of betaplusdecay in MeV */,
+			betaminuspercentage/**< The percentage of betaminusdecay */,
+			betaminusdecay/**< The decayenergy of betaminusdecay in MeV */,
+			ecpercentage/**< The percentage of ecdecay */,
+			ecdecay/**< The decayenergy of ecminusdecay in MeV */,
 		};
 
 		/**
@@ -75,6 +83,8 @@ class ChemicalDataObject
 			ev/**< electron volt */,
 			nm/**< nanometer */,
 			pm/**< picometer */,
+			y/**< years */,
+			s/**< seconds */,
 			noUnit/**< no unit */
 		};
 
@@ -205,6 +215,8 @@ class ChemicalDataObject
 		 *   - bo:ev
 		 *   - bo:nm
 		 *   - bo:pm
+		 *   - bo:y
+		 *   - bo:s
 		 *   - bo:noUnit
 		 *
 		 * @return the BlueObeliskUnit of a ChemicalDataObject 

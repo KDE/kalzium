@@ -32,7 +32,8 @@
       </bibx:article>
     </bibx:entry>
   </bibx:file>
-
+  <!--<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.01861" ecpercentage="" ecdecay="" spin="1/2+" magmoment="+2.978960" halflife="12.3" halflifeformat="years" weight="3.016049" neutron="2" pecentage=""  />
+  //-->
   <isotopeList id="H">
     <isotope id="H1" number="1" elementType="H">
       <scalar dictRef="bo:exactMass" errorValue="0.0001E-6">1.007825032</scalar>
@@ -45,8 +46,19 @@
       <scalar dictRef="bo:atomicNumber">1</scalar>
     </isotope>
     <isotope id="H3" number="3" elementType="H">
-      <scalar dictRef="bo:exactMass" errorValue="0.0025E-6">3.016049278</scalar>
-      <scalar dictRef="bo:atomicNumber">1</scalar>
+	<scalar  dataType="xsd:float" dictRef="bo:alphapercentage"></scalar>
+	<scalar  dataType="xsd:float" dictRef="bo:alphadecay"></scalar>
+	<scalar  dataType="xsd:float" dictRef="bo:betapluspercentage"></scalar>
+	<scalar  dataType="xsd:float" dictRef="bo:betaplusdecay"></scalar>
+	<scalar  dataType="xsd:float" dictRef="bo:betaminuspercentage">100.0</scalar>
+	<scalar  dataType="xsd:float" dictRef="bo:betaminusdecay">0.01861</scalar>
+	<scalar  dataType="xsd:float" dictRef="bo:ecpercentage"></scalar>
+	<scalar  dataType="xsd:float" dictRef="bo:ecdecay"></scalar>
+	<scalar  dataType="xsd:String" dictRef="bo:spin">1/2+</scalar>
+	<scalar  dataType="xsd:String" dictRef="bo:magmoment">+2.978960</scalar>
+	<scalar  dataType="xsd:float" dictRef="bo:halflife" unit="bo:y">12.3</scalar>
+	<scalar dictRef="bo:exactMass" errorValue="0.0025E-6">3.016049278</scalar>
+	<scalar dictRef="bo:atomicNumber">1</scalar>
     </isotope>
     <isotope id="H4" number="4" elementType="H">
       <scalar dictRef="bo:exactMass" errorValue="110E-6">4.02781</scalar>

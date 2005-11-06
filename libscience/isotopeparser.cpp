@@ -24,6 +24,14 @@ IsotopeParser::IsotopeParser()
 	: QXmlDefaultHandler(), 
 	currentIsotope_(0), 
 	inAtomicNumber_(false),
+	inAlphaPercentage_(false),
+	inAlphaDecay_(false),
+	inBetaplusPercentage_(false),
+	inBetaplusDecay_(false),
+	inBetaminusPercentage_(false),
+	inBetaminusDecay_(false),
+	inECPercentage_(false),
+	inECDecay_(false),
 	inExactMass_(false),
 	inAbundance_(false)
 {
@@ -55,6 +63,22 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 			
 			if (attrs.value(i) == "bo:atomicNumber")
 				inAtomicNumber_ = true;
+			else if (attrs.value(i) == "bo:alphapercentage")
+				inAlphaPercentage_ = true;
+			else if (attrs.value(i) == "bo:alphadecay")
+				inAlphaDecay_ = true;
+			else if (attrs.value(i) == "bo:betapluspercentage")
+				inBetaplusPercentage_ = true;
+			else if (attrs.value(i) == "bo:betaplusdecay")
+				inBetaplusDecay_ = true;
+			else if (attrs.value(i) == "bo:betaminuspercentage")
+				inBetaminusPercentage_ = true;
+			else if (attrs.value(i) == "bo:betaminusdecay")
+				inBetaminusDecay_ = true;
+			else if (attrs.value(i) == "bo:ecpercentage")
+				inECPercentage_ = true;
+			else if (attrs.value(i) == "bo:ecdecay")
+				inECDecay_ = true;
 			else if (attrs.value(i) == "bo:exactMass")
 				inExactMass_ = true;
 		}
@@ -100,6 +124,46 @@ bool IsotopeParser::characters(const QString &ch)
 	else if (inAtomicNumber_) {
 		value = ch.toInt();
 		type = ChemicalDataObject::atomicNumber; 
+		inAtomicNumber_ = false;
+	}
+	else if (inAlphaPercentage_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::alphapercentage; 
+		inAtomicNumber_ = false;
+	}
+	else if (inAlphaDecay_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::alphadecay; 
+		inAtomicNumber_ = false;
+	}
+	else if (inBetaplusPercentage_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::betapluspercentage; 
+		inAtomicNumber_ = false;
+	}
+	else if (inBetaplusDecay_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::betaplusdecay; 
+		inAtomicNumber_ = false;
+	}
+	else if (inBetaminusPercentage_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::betaminuspercentage; 
+		inAtomicNumber_ = false;
+	}
+	else if (inBetaminusDecay_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::betaminusdecay; 
+		inAtomicNumber_ = false;
+	}
+	else if (inECPercentage_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::ecpercentage; 
+		inAtomicNumber_ = false;
+	}
+	else if (inECDecay_) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::ecdecay; 
 		inAtomicNumber_ = false;
 	}
 	else if ( inAbundance_ ){
