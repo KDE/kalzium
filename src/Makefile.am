@@ -38,6 +38,7 @@ kalzium_SOURCES = kalzium.cpp \
 			kalziumpainter.cpp \
 			kalziumschemetype.cpp \
 			kalziumtabletype.cpp \
+			propertysliderwidget.cpp \
 			printwidget.cpp \
 			printwidgetbase.ui
 
@@ -80,6 +81,7 @@ EXTRA_DIST = main.cpp \
 		kalziumpainter.cpp kalziumpainter.h \
 		kalziumschemetype.cpp kalziumschemetype.h \
 		kalziumtabletype.cpp kalziumtabletype.h \
+		propertysliderwidget.cpp propertysliderwidget.h \
 		printwidgetbase.ui \
 		printwidget.cpp printwidget.h
 
