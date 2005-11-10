@@ -197,7 +197,7 @@ void KalziumTip::displayInternal()
 	// draw text shadow
         QColorGroup cg = colorGroup();
         cg.setColor(QColorGroup::Text, cg.background().dark(115));
-        int shadowOffset = QApplication::reverseLayout() ? -1 : 1;
+        int shadowOffset = QApplication::isRightToLeft() ? -1 : 1;
         m_richText->draw(&bufferPainter, 5 + textX + shadowOffset, textY + 1, QRect(), cg);
 
         // draw text
