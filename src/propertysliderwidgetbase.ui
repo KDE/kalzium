@@ -1,0 +1,154 @@
+<ui version="4.0" >
+	<author></author>
+	<comment></comment>
+	<exportmacro></exportmacro>
+	<class>PropertySliderWidgetBase</class>
+	<widget class="QWidget" name="PropertySliderWidgetBase" >
+		<property name="geometry" >
+			<rect>
+				<x>0</x>
+				<y>0</y>
+				<width>223</width>
+				<height>204</height>
+			</rect>
+		</property>
+		<layout class="QVBoxLayout" >
+			<property name="margin" >
+				<number>8</number>
+			</property>
+			<property name="spacing" >
+				<number>6</number>
+			</property>
+			<item>
+				<spacer>
+					<property name="orientation" >
+						<enum>Qt::Vertical</enum>
+					</property>
+					<property name="sizeType" >
+						<enum>QSizePolicy::Fixed</enum>
+					</property>
+					<property name="sizeHint" >
+						<size>
+							<width>21</width>
+							<height>16</height>
+						</size>
+					</property>
+				</spacer>
+			</item>
+			<item>
+				<widget class="QLabel" name="propertyLabel" >
+					<property name="sizePolicy" >
+						<sizepolicy>
+							<hsizetype>5</hsizetype>
+							<vsizetype>0</vsizetype>
+							<horstretch>0</horstretch>
+							<verstretch>0</verstretch>
+						</sizepolicy>
+					</property>
+					<property name="text" >
+						<string>Property:</string>
+					</property>
+				</widget>
+			</item>
+			<item>
+				<layout class="QHBoxLayout" >
+					<property name="margin" >
+						<number>0</number>
+					</property>
+					<property name="spacing" >
+						<number>6</number>
+					</property>
+					<item>
+						<widget class="QSlider" name="time_slider" >
+							<property name="minimum" >
+								<number>0</number>
+							</property>
+							<property name="maximum" >
+								<number>100</number>
+							</property>
+							<property name="value" >
+								<number>0</number>
+							</property>
+							<property name="sliderPosition" >
+								<number>0</number>
+							</property>
+							<property name="orientation" >
+								<enum>Qt::Horizontal</enum>
+							</property>
+							<property name="invertedAppearance" >
+								<bool>false</bool>
+							</property>
+							<property name="tickPosition" >
+								<enum>QSlider::TicksBelow</enum>
+							</property>
+							<property name="tickInterval" >
+								<number>50</number>
+							</property>
+						</widget>
+					</item>
+					<item>
+						<spacer>
+							<property name="orientation" >
+								<enum>Qt::Horizontal</enum>
+							</property>
+							<property name="sizeType" >
+								<enum>QSizePolicy::Fixed</enum>
+							</property>
+							<property name="sizeHint" >
+								<size>
+									<width>8</width>
+									<height>23</height>
+								</size>
+							</property>
+						</spacer>
+					</item>
+					<item>
+						<widget class="QLabel" name="valueLabel" >
+							<property name="text" >
+								<string/>
+							</property>
+							<property name="textFormat" >
+								<enum>Qt::PlainText</enum>
+							</property>
+						</widget>
+					</item>
+				</layout>
+			</item>
+			<item>
+				<spacer>
+					<property name="orientation" >
+						<enum>Qt::Vertical</enum>
+					</property>
+					<property name="sizeType" >
+						<enum>QSizePolicy::Fixed</enum>
+					</property>
+					<property name="sizeHint" >
+						<size>
+							<width>71</width>
+							<height>16</height>
+						</size>
+					</property>
+				</spacer>
+			</item>
+			<item>
+				<widget class="QLabel" name="text" >
+					<property name="text" >
+						<string>Some descriptive text...</string>
+					</property>
+					<property name="textFormat" >
+						<enum>Qt::PlainText</enum>
+					</property>
+					<property name="alignment" >
+						<set>Qt::AlignTop</set>
+					</property>
+				</widget>
+			</item>
+		</layout>
+	</widget>
+	<layoutdefault spacing="6" margin="11" />
+	<pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+	<resources/>
+	<connections/>
+</ui>
+
+

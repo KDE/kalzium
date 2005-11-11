@@ -28,6 +28,7 @@
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
 #include "timewidget_impl.h"
+#include "propertysliderwidget.h"
 #include "somwidget_impl.h"
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
@@ -214,11 +215,19 @@ void Kalzium::setupSidebars()
 	m_calcWidget->setObjectName( "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
 
-	m_timeWidget = new TimeWidgetIMPL( this );
+	m_timeWidget = new TimeSliderWidget( this );
 	m_timeWidget->setObjectName( "TimeWidget" );
-	connect( m_timeWidget, SIGNAL( dateChanged( int ) ),
+	connect( m_timeWidget, SIGNAL( valueHasChanged( int ) ),
 	         m_PeriodicTableView, SLOT( setDate( int ) ) );
 	m_toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
+	
+	m_doubleWidget = new DoubleSliderWidget( this );
+	m_doubleWidget->setDigits( 4 );
+	m_doubleWidget->setCaption( "test123" );
+	m_doubleWidget->setObjectName( "DoubleWidget" );
+//X 	connect( m_doubleWidget, SIGNAL( valueHasChanged( int, int ) ),
+//X 	         m_PeriodicTableView, SLOT( setDate( int ) ) );
+	m_toolbox->addItem( m_doubleWidget, SmallIcon( "timeline" ), i18n( "DoubleWidget" ) );
 
 	m_somWidget = new SOMWidgetIMPL( this );
 	m_somWidget->setObjectName( "somWidget" );
@@ -428,7 +437,7 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 			break;
 		case 2: // timeline
 			m_PeriodicTableView->setTimeline( true );
-			m_PeriodicTableView->setDate( m_timeWidget->date() );
+			m_PeriodicTableView->setDate( m_timeWidget->value() );
 			break;
 		case 3: // state of matter
 			m_PeriodicTableView->setTemperature( m_somWidget->temperature() );

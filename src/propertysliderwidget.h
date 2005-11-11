@@ -6,6 +6,7 @@
 #include <QVariant>
 
 #include "timewidget.h"
+#include "propertysliderwidgetbase.h"
 
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
@@ -15,7 +16,7 @@
  * example, the dateslider which shows which elements where
  * known at a certain date, is based on this class.
  */
-class PropertySliderWidget : public QWidget, protected Ui_TimeWidget
+class PropertySliderWidget : public QWidget, protected PropertySliderWidgetBase
 {
 	Q_OBJECT
 
@@ -40,7 +41,9 @@ class PropertySliderWidget : public QWidget, protected Ui_TimeWidget
 		/**
 		 * @return the currently selected value
 		 */
-		virtual int value() const = 0;
+		virtual int value() const{
+			return time_slider->value();
+		}
 
 	private:
 		int m_value;
@@ -49,7 +52,7 @@ class PropertySliderWidget : public QWidget, protected Ui_TimeWidget
 		/**
 		 * this slot reacts to a new value
 		 */
-		virtual void slotValueChanged( int value ) = 0;
+		virtual void slotValueChanged( int value );
 
 	protected:
 		QList<int> m_list;
@@ -60,6 +63,8 @@ class PropertySliderWidget : public QWidget, protected Ui_TimeWidget
 		 * @param the new value
 		 */
 		virtual void valueChanged( int value );
+
+		virtual void setValueText( int value );
 
 	signals:
 		void valueHasChanged( int value );
@@ -77,16 +82,50 @@ class TimeSliderWidget : public PropertySliderWidget
 		 */
 		virtual ~TimeSliderWidget();
 		
-		/**
-		 * @return the currently selected value
-		 */
-		virtual int value() const;
-
 	private slots:
 		/**
 		 * this slot reacts to a new value
 		 */
 		virtual void slotValueChanged( int value );
+};
+
+class DoubleSliderWidget : public PropertySliderWidget
+{
+	Q_OBJECT
+
+	public:
+		DoubleSliderWidget( QWidget * parent );
+		
+		/**
+		 * Destructor
+		 */
+		virtual ~DoubleSliderWidget();
+
+		void setDigits( int digits ){
+			m_digits = digits;
+		}
+
+		void setCaption( const QString& caption ){
+			propertyLabel->setText( caption );
+		}
+
+		void setExplanation( const QString& explanation ){
+//X 			valueLabel->setText( explanationLabel );
+		}
+		
+	private slots:
+		/**
+		 * this slot reacts to a new value
+		 */
+		virtual void slotValueChanged( int value );
+		
+		virtual void setValueText( int value );
+
+	private:
+		int m_digits;
+	
+	signals:
+		void valueHasChanged( int value, int digits );
 };
 #endif // PROPERTYSLIDERWIDGET_H
 

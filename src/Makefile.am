@@ -40,7 +40,8 @@ kalzium_SOURCES = kalzium.cpp \
 			kalziumtabletype.cpp \
 			propertysliderwidget.cpp \
 			printwidget.cpp \
-			printwidgetbase.ui
+			printwidgetbase.ui \
+			propertysliderwidgetbase.ui \
 
 kalzium_LDADD   = ../../libkdeedu/libscience/libscience.la \
 				  ../../libkdeedu/kdeeduplot/libkdeeduplot.la \
@@ -64,6 +65,7 @@ EXTRA_DIST = main.cpp \
 		timewidget.ui \
 		timewidget_impl.cpp timewidget_impl.h \
 		somwidget.ui \
+		propertysliderwidgetbase.ui \
 		somwidget_impl.cpp somwidget_impl.h \
 		kalziumdataobject.cpp kalziumdataobject.h \
 		spectrumwidget.cpp spectrumwidget.h \

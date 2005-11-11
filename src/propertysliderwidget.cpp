@@ -1,10 +1,23 @@
 #include "propertysliderwidget.h"
+#include "propertysliderwidgetbase.h"
 #include <QSlider>
 
 PropertySliderWidget::PropertySliderWidget( QWidget * parent )
 	: QWidget( parent )
 {
 	setupUi( this );
+	
+	connect( time_slider, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( slotValueChanged( int ) ) );
+	connect( Number1, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( slotValueChanged( int ) ) );
+	connect( time_slider, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( setValueText( int ) ) );
+}
+
+void PropertySliderWidget::setValueText( int value )
+{
+	valueLabel->setText( QString::number( value ) );
 }
 
 PropertySliderWidget::~PropertySliderWidget()
@@ -28,22 +41,38 @@ void PropertySliderWidget::slotValueChanged( int value )
 
 /*********************************************************/
 
-void TimeSliderWidget::slotValueChanged( int value )
-{
-	emit valueHasChanged( value );
-}
-
 TimeSliderWidget::TimeSliderWidget( QWidget * parent )
 	: PropertySliderWidget( parent )
 {
 }
 
+
+void TimeSliderWidget::slotValueChanged( int value )
+{
+	emit valueHasChanged( value );
+}
+
 TimeSliderWidget::~TimeSliderWidget()
 {}
 
-int TimeSliderWidget::value() const
+/*** DOUBLE *****************************************************/
+DoubleSliderWidget::DoubleSliderWidget( QWidget* parent )
+	: PropertySliderWidget( parent )
 {
-	return time_slider->value();
+}
+
+DoubleSliderWidget::~DoubleSliderWidget(){}
+
+void DoubleSliderWidget::setValueText( int value )
+{
+	double realValue = value / m_digits;
+
+	valueLabel->setText( QString::number( realValue ) );
+}
+
+void DoubleSliderWidget::slotValueChanged( int value )
+{
+	emit valueHasChanged( value, m_digits );
 }
 
 #include "propertysliderwidget.moc"

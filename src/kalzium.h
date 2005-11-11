@@ -28,6 +28,8 @@ class SOMWidgetIMPL;
 class GlossaryDialog;
 class IsotopeTable;
 class PrintWidget;
+class TimeSliderWidget;
+class DoubleSliderWidget;
 
 #include "kalziumpainter.h"
 
@@ -94,7 +96,9 @@ class Kalzium : public KMainWindow
 
 		MolcalcWidget *m_calcWidget;
 
-		TimeWidgetIMPL *m_timeWidget;
+		TimeSliderWidget *m_timeWidget;
+
+		DoubleSliderWidget *m_doubleWidget;
 		
 		SOMWidgetIMPL *m_somWidget;
 
