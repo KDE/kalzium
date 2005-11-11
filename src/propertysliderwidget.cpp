@@ -9,8 +9,8 @@ PropertySliderWidget::PropertySliderWidget( QWidget * parent )
 	
 	connect( time_slider, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( slotValueChanged( int ) ) );
-	connect( Number1, SIGNAL( valueChanged( int ) ),
-	         this, SLOT( slotValueChanged( int ) ) );
+//X 	connect( Number1, SIGNAL( valueChanged( int ) ),
+//X 	         this, SLOT( slotValueChanged( int ) ) );
 	connect( time_slider, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( setValueText( int ) ) );
 }

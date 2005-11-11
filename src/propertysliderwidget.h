@@ -16,7 +16,7 @@
  * example, the dateslider which shows which elements where
  * known at a certain date, is based on this class.
  */
-class PropertySliderWidget : public QWidget, protected PropertySliderWidgetBase
+class PropertySliderWidget : public QWidget, protected Ui_PropertySliderWidgetBase
 {
 	Q_OBJECT
 
