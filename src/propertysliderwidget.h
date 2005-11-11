@@ -15,6 +15,10 @@
  * show or hide elements based on a certain property. For
  * example, the dateslider which shows which elements where
  * known at a certain date, is based on this class.
+ *
+ * The value of such a slider is a single integer. The set of
+ * values from which the integer is taken can be set with
+ * setValues().
  */
 class PropertySliderWidget : public QWidget, protected Ui_PropertySliderWidgetBase
 {
@@ -59,14 +63,18 @@ class PropertySliderWidget : public QWidget, protected Ui_PropertySliderWidgetBa
 
 	protected slots:
 		/**
-		 * emitted when the value changes
-		 * @param the new value
+		 * Proxy slot when the value changes
+		 * @param value the new value
 		 */
 		virtual void valueChanged( int value );
 
 		virtual void setValueText( int value );
 
 	signals:
+		/**
+		 * emitted when the value changes
+		 * @param value the new value
+		 */
 		void valueHasChanged( int value );
 };
 
