@@ -23,6 +23,8 @@
 #include <QByteArray>
 #include <QRect>
 
+#include <chemicaldataobject.h>
+
 class QPaintDevice;
 class QPainter;
 class KalziumGradientType;
@@ -66,7 +68,8 @@ class KalziumPainter
 		{
 			NORMAL = 0,
 			GRADIENT = 1,
-			SOM
+			SOM,
+			SLIDE
 		};
 
 		/**
@@ -139,7 +142,14 @@ class KalziumPainter
 		void setTemperature( int temp );
 		int temperature() const;
 
+	public slots:
+		void slotSliderValue( ChemicalDataObject::BlueObelisk type, int value );
+
 	private:
+		QBrush getSlideBrush( int element, const QRect& rect );
+		ChemicalDataObject::BlueObelisk m_sliderType;
+		double m_sliderValue;
+		
 		QPainter *m_painter;
 
 		KalziumTableType *m_ktt;

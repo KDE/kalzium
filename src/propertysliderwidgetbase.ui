@@ -20,38 +20,7 @@
     <number>6</number>
    </property>
    <item>
-    <widget class="QComboBox" name="sliderKind" >
-     <item>
-      <property name="text" >
-       <string>foo</string>
-      </property>
-     </item>
-     <item>
-      <property name="text" >
-       <string>bar</string>
-      </property>
-     </item>
-     <item>
-      <property name="text" >
-       <string>New Item</string>
-      </property>
-     </item>
-     <item>
-      <property name="text" >
-       <string>New Item</string>
-      </property>
-     </item>
-     <item>
-      <property name="text" >
-       <string>New Item</string>
-      </property>
-     </item>
-     <item>
-      <property name="text" >
-       <string>New Item</string>
-      </property>
-     </item>
-    </widget>
+    <widget class="QComboBox" name="sliderKind" />
    </item>
    <item>
     <spacer>

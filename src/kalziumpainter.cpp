@@ -112,14 +112,14 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 	const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
 //kdDebug() << "ELEMENT: " << element << "  RECT: " << rect << endl;
 
-	bool grayedOut = true;
-
+bool grayedOut = true;
+	
 	switch ( m_mode )
 	{
 		case NORMAL:
 		{
-			QBrush c = grayedOut ? QBrush( Qt::lightGray ) : QBrush( m_scheme->elementGradient( element, rect ) );
-			QColor textc = grayedOut ? Qt::white : m_scheme->textColor( element );
+			QBrush c = QBrush( m_scheme->elementGradient( element, rect ) );
+			QColor textc = m_scheme->textColor( element );
 			m_painter->setPen( textc );
 	
 			m_painter->fillRect( rect, c );
@@ -196,6 +196,18 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 			m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignBottom, strval );
 
 			m_painter->setFont( orig_font );
+			break;
+		}
+		case SLIDE:
+		{
+			QBrush c = getSlideBrush( element, rect ); 
+			QColor textc = Qt::white;
+			m_painter->setPen( textc );
+	
+			m_painter->fillRect( rect, c );
+			m_painter->drawRect( rect );
+
+			m_painter->drawText( rect, Qt::AlignCenter, symbol );
 			break;
 		}
 	}
@@ -424,3 +436,35 @@ int KalziumPainter::temperature() const
 {
 	return m_temperature;
 }
+
+QBrush KalziumPainter::getSlideBrush( int element, const QRect& rect )
+{
+	Element *el = KalziumDataObject::instance()->element( element );
+
+	if ( el->dataAsVariant( ChemicalDataObject::mass ).toDouble() == m_sliderValue )
+		return QBrush( m_scheme->elementGradient( element, rect ) );
+	else
+		return QBrush( Qt::lightGray );
+}
+
+void KalziumPainter::slotSliderValue( ChemicalDataObject::BlueObelisk type, int value )
+{
+	switch( type )
+	{
+		case ChemicalDataObject::meltingpoint:
+			m_sliderValue = value/100;
+			m_sliderType = type;
+			break;
+		case ChemicalDataObject::boilingpoint:
+			m_sliderValue = value/100;
+			m_sliderType = type;
+			break;
+		case ChemicalDataObject::mass:
+			m_sliderValue = value/100;
+			m_sliderType = type;
+			break;
+		default:
+			break;
+	}
+}
+

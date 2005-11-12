@@ -6,11 +6,16 @@ PropertySliderWidget::PropertySliderWidget( QWidget * parent )
 	: QWidget( parent )
 {
 	setupUi( this );
+
+	// add all properties
+	sliderKind->addItem( i18n( "Mass" ), "mass" );
+	sliderKind->addItem( i18n( "Boiling Point" ), "boilingpoint" );
+	sliderKind->addItem( i18n( "Melting Point" ), "meltingpoint" );
 	
 	connect( time_slider, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( slotValueChanged( int ) ) );
-//X 	connect( Number1, SIGNAL( valueChanged( int ) ),
-//X 	         this, SLOT( slotValueChanged( int ) ) );
+ 	connect( sliderKind, SIGNAL( textChanged( QString ) ),
+ 	         this, SLOT( slotSliderKindChanged( QString ) ) );
 	connect( time_slider, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( setValueText( int ) ) );
 }
@@ -37,6 +42,23 @@ void PropertySliderWidget::valueChanged( int value )
 void PropertySliderWidget::slotValueChanged( int value )
 {
 	emit valueHasChanged( value );
+}
+
+void PropertySliderWidget::slotSliderKindChanged( QString kind )
+{
+/*	switch( kind )
+	{
+		case "mass":
+			break;
+		case "boilingpoint":
+			break;
+		case "meltingpoint":
+			break;
+	}*/
+	// change the QWhatThis
+	// change the QLabel description
+	
+	// change the QLabel unit
 }
 
 /*********************************************************/
