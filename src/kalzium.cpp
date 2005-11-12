@@ -27,7 +27,6 @@
 #include "periodictableview.h"
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
-#include "timewidget_impl.h"
 #include "propertysliderwidget.h"
 #include "somwidget_impl.h"
 #include "kalziumdataobject.h"
@@ -214,12 +213,6 @@ void Kalzium::setupSidebars()
 	m_calcWidget = new MolcalcWidget( m_dockWin );
 	m_calcWidget->setObjectName( "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
-
-	m_timeWidget = new TimeSliderWidget( this );
-	m_timeWidget->setObjectName( "TimeWidget" );
-	connect( m_timeWidget, SIGNAL( valueHasChanged( int ) ),
-	         m_PeriodicTableView, SLOT( setDate( int ) ) );
-	m_toolbox->addItem( m_timeWidget, SmallIcon( "timeline" ), i18n( "Timeline" ) );
 	
 	m_doubleWidget = new DoubleSliderWidget( this );
 	m_doubleWidget->setDigits( 4 );
@@ -424,7 +417,6 @@ void Kalzium::openInformationDialog( int number )
 
 void Kalzium::slotToolboxCurrentChanged( int id )
 {
-	m_PeriodicTableView->setTimeline( false );
 	KalziumPainter::MODE cur = m_PeriodicTableView->mode();
 	if ( ( id > 1 ) && ( cur == KalziumPainter::NORMAL ) || ( cur == KalziumPainter::GRADIENT ) )
 		m_prevNormalMode = cur;
@@ -435,9 +427,7 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 		case 0: // nothing
 		case 1: // molcalc
 			break;
-		case 2: // timeline
-			m_PeriodicTableView->setTimeline( true );
-			m_PeriodicTableView->setDate( m_timeWidget->value() );
+		case 2: // sliderwidget
 			break;
 		case 3: // state of matter
 			m_PeriodicTableView->setTemperature( m_somWidget->temperature() );

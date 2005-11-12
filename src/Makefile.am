@@ -17,8 +17,6 @@ kalzium_SOURCES = kalzium.cpp \
 			detailedgraphicaloverview.cpp \
 			molcalcwidgetbase.ui \
 			molcalcwidget.cpp \
-			timewidget.ui \
-			timewidget_impl.cpp \
 			somwidget.ui \
 			somwidget_impl.cpp \
 			kalziumtip.cpp \
@@ -62,8 +60,6 @@ EXTRA_DIST = main.cpp \
 		elementdataviewer.cpp elementdataviewer.h \
 		detailedgraphicaloverview.cpp detailedgraphicaloverview.h \
 		molcalcwidget.cpp molcalcwidget.h \
-		timewidget.ui \
-		timewidget_impl.cpp timewidget_impl.h \
 		somwidget.ui \
 		propertysliderwidgetbase.ui \
 		somwidget_impl.cpp somwidget_impl.h \

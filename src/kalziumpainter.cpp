@@ -58,9 +58,6 @@ KalziumPainter::KalziumPainter( KalziumTableType *ktt )
 	setGradient( 0 );
 	setNumeration( 1 );
 
-	m_year = 0;
-	m_isTimeline = false;
-
 	m_temperature = 0;
 
 	m_legend = true;
@@ -110,11 +107,12 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 {
 	if ( !m_scheme || !m_ktt ) return;
 
-	bool grayedOut = m_isTimeline ? m_year < KalziumDataObject::instance()->element( element )->dataAsVariant( ChemicalDataObject::date ).toDouble() : false;
 	QRect rect = r.isNull() ? m_ktt->elementRect( element ) : r;
 	Element *el = KalziumDataObject::instance()->element( element );
 	const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
 //kdDebug() << "ELEMENT: " << element << "  RECT: " << rect << endl;
+
+	bool grayedOut = true;
 
 	switch ( m_mode )
 	{
@@ -235,8 +233,8 @@ void KalziumPainter::drawLegend()
 			else
 			{
 				items = m_scheme->legendItems();
-				if ( m_isTimeline )
-					items << qMakePair( i18n( "Not discovered yet" ), QColor( Qt::lightGray ) );
+//X 				if ( m_isTimeline )
+//X 					items << qMakePair( i18n( "Not discovered yet" ), QColor( Qt::lightGray ) );
 			}
 
 			// we allow max 10 items in the legend
@@ -415,26 +413,6 @@ void KalziumPainter::setNumeration( const QByteArray& n )
 KalziumNumerationType* KalziumPainter::numeration() const
 {
 	return m_numeration;
-}
-
-void KalziumPainter::setDate( int year )
-{
-	m_year = year;
-}
-
-int KalziumPainter::date() const
-{
-	return m_year;
-}
-
-void KalziumPainter::setTimeline( bool timeline )
-{
-	m_isTimeline = timeline;
-}
-
-bool KalziumPainter::timeline() const
-{
-	return m_isTimeline;
 }
 
 void KalziumPainter::setTemperature( int temp )

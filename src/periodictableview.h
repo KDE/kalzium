@@ -30,8 +30,11 @@ class KalziumGradientType;
 #include <QTimer>
 #include <QPoint>
 #include <QPixmap>
+#include <QList>
+#include <QMap>
 
 #include "kalziumpainter.h"
+#include "chemicaldataobject.h"
 
 /**
  * A PeriodicTableView is the widget on where we paint a periodic table.
@@ -64,6 +67,20 @@ class PeriodicTableView : public QWidget
 		bool tooltipsEnabled() const{
 			return m_tooltipsEnabled;
 		}
+
+		/**
+		 * put the limit for the @p type specified, but do not actually (de)activate it
+		 * @param type type of the @value
+		 * @param value the value of the the @p type
+		 */
+		void setValueLimit( int value, ChemicalDataObject::BlueObelisk type );
+
+		/**
+		 * really activate the "graying" mode ( if @p toggle is true ), for the @p type specified
+		 * or deactivate the "graying" mode  (if @p toggle is false)
+		 */
+		void toggleLimit( bool toggle, ChemicalDataObject::BlueObelisk type );
+
 
 		/**
 		 * if @p enabled is true the tooltips
@@ -120,13 +137,14 @@ class PeriodicTableView : public QWidget
 		void showLegend( bool show );
 		bool showLegend() const;
 
-		int date() const;
-
-		void setTimeline( bool timeline );
-		bool timeline() const;
-
 		void setMode( KalziumPainter::MODE m );
 		KalziumPainter::MODE mode() const;
+
+		/**
+		 * @param type the type of value which is searched for
+		 * @return the value of the @p type
+		 */
+		int sliderValue( ChemicalDataObject::BlueObelisk type );
 
 	private:
 		/**
@@ -134,6 +152,8 @@ class PeriodicTableView : public QWidget
 		 */
 		bool m_showTooltip;
 
+		QMap <ChemicalDataObject::BlueObelisk, int> m_sliderValueList;
+		
 		KalziumTip* m_kalziumTip;
 		
 		/**
@@ -195,8 +215,6 @@ class PeriodicTableView : public QWidget
 		 * @param temp is the temperature to which all buttons will be set
 		 */
 		void setTemperature( int temp );
-
-		void setDate( int date );
 
 		/**
 		 * this slot removes the selection of any point

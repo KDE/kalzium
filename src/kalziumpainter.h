@@ -136,15 +136,6 @@ class KalziumPainter
 		void setNumeration( const QByteArray& n );
 		KalziumNumerationType* numeration() const;
 
-		/**
-		 * Set the date @p year forthe timeline mode. It has no effect
-		 * until you enable the timeline mode (see setTimeline()).
-		 */
-		void setDate( int year );
-		int date() const;
-		void setTimeline( bool timeline );
-		bool timeline() const;
-
 		void setTemperature( int temp );
 		int temperature() const;
 
@@ -161,9 +152,6 @@ class KalziumPainter
 		 * the type of the numeration
 		 */
 		KalziumNumerationType *m_numeration;
-
-		int m_year;
-		bool m_isTimeline;
 
 		bool m_legend;
 

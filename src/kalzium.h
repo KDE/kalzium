@@ -23,12 +23,10 @@ class DetailedInfoDlg;
 class PeriodicTableView;
 class MolcalcWidget;
 class DetailedGraphicalOverview;
-class TimeWidgetIMPL;
 class SOMWidgetIMPL;
 class GlossaryDialog;
 class IsotopeTable;
 class PrintWidget;
-class TimeSliderWidget;
 class DoubleSliderWidget;
 
 #include "kalziumpainter.h"
@@ -95,8 +93,6 @@ class Kalzium : public KMainWindow
 		QVBoxLayout *m_pCentralLayout;
 
 		MolcalcWidget *m_calcWidget;
-
-		TimeSliderWidget *m_timeWidget;
 
 		DoubleSliderWidget *m_doubleWidget;
 		

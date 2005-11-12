@@ -356,6 +356,30 @@ void PeriodicTableView::selectElement( int num )
 	update();
 }
 
+void PeriodicTableView::setValueLimit( int value, ChemicalDataObject::BlueObelisk type )
+{
+	//remove the value of the type if possible
+	m_sliderValueList.remove( type );
+
+	//now add the new type/value
+	m_sliderValueList.insert( type, value );
+}
+
+void PeriodicTableView::toggleLimit( bool toggle, ChemicalDataObject::BlueObelisk type )
+{
+}
+
+int PeriodicTableView::sliderValue( ChemicalDataObject::BlueObelisk type )
+{
+	QMapIterator<ChemicalDataObject::BlueObelisk, int> i( m_sliderValueList );
+
+	while ( i.hasNext() ) {
+		if ( i.key() == type )
+			return i.value();
+	}
+	return 0;
+}
+
 void PeriodicTableView::slotMouseover()
 {
 	int num = m_painter->currentTableType()->elementAtCoords( mapFromGlobal( QCursor::pos() ) );
@@ -399,30 +423,6 @@ void PeriodicTableView::setTemperature( int temp )
 	m_painter->setTemperature( temp );
 	setFullDraw();
 	update();
-}
-
-void PeriodicTableView::setDate( int date )
-{
-	m_painter->setDate( date );
-	setFullDraw();
-	update();
-}
-
-int PeriodicTableView::date() const
-{
-	return m_painter->date();
-}
-
-void PeriodicTableView::setTimeline( bool timeline )
-{
-	m_painter->setTimeline( timeline );
-	setFullDraw();
-	update();
-}
-
-bool PeriodicTableView::timeline() const
-{
-	return m_painter->timeline();
 }
 
 void PeriodicTableView::setFullDraw()
