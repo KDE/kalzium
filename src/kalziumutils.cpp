@@ -16,8 +16,12 @@
 #include <qfont.h>
 #include <qrect.h>
 #include <qpainter.h>
+#include <qglobal.h>
 
 #include <math.h>
+#if defined(Q_OS_SOLARIS)
+#include <ieeefp.h>
+#endif
 
 int KalziumUtils::maxSize( const QString& string, const QRect& rect, QFont font, QPainter* p, int minFontSize, int maxFontSize )
 {
