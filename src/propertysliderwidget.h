@@ -5,7 +5,6 @@
 #include <QList>
 #include <QVariant>
 
-#include "timewidget.h"
 #include "propertysliderwidgetbase.h"
 
 /**
