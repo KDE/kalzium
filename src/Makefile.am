@@ -47,7 +47,7 @@ kalzium_LDADD   = ../../libkdeedu/libscience/libscience.la \
 				  $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)
 KDE_CXXFLAGS    = -D_ISOC99_SOURCE
 
-SUBDIRS = icons elementpics data lattice
+#SUBDIRS = solver spectrummanager
 
 EXTRA_DIST = main.cpp \
 		kalzium.cpp kalzium.h \

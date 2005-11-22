@@ -1,4 +1,4 @@
-SUBDIRS = src 
+SUBDIRS = src data
 
 AUTOMAKE_OPTIONS = foreign 
 
