@@ -360,8 +360,8 @@ void Kalzium::showSettingsDialog()
 
 	//KConfigDialog didn't find an instance of this dialog, so lets create it :
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
-	connect( dialog, SIGNAL( settingsChanged() ), this , SLOT( slotUpdateSettings() ) );
-	connect( dialog, SIGNAL( settingsChanged() ), m_somWidget, SLOT( reloadUnits() ) );
+	connect( dialog, SIGNAL( settingsChanged( const QString &) ), this , SLOT( slotUpdateSettings() ) );
+	connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_somWidget, SLOT( reloadUnits() ) );
 	// colors page
 	Ui_setupColors ui_colors;
 	QWidget *w_colors = new QWidget( 0 );
