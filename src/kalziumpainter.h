@@ -22,7 +22,7 @@
 
 #include <QByteArray>
 #include <QRect>
-
+#include <QObject>
 #include <chemicaldataobject.h>
 
 class QPaintDevice;
@@ -55,14 +55,15 @@ class KalziumNumerationType;
  *
  * @author Pino Toscano
  */
-class KalziumPainter
+class KalziumPainter : public QObject
 {
+Q_OBJECT
 	public:
 		/**
 		 * Construct a new KalziumPainter for the table type @p ktt.
 		 */
 		KalziumPainter( KalziumTableType *ktt );
-		~KalziumPainter();
+		virtual ~KalziumPainter() {}
 
 		enum MODE
 		{
