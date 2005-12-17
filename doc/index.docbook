@@ -187,7 +187,6 @@
 						 <textobject>
 							 <phrase>&kalzium; information dialog</phrase>
 						 </textobject>
-						 <caption><para></para></caption>
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
@@ -203,8 +202,6 @@
 						 <textobject>
 							 <phrase>&kalzium; information dialog</phrase>
 						 </textobject>
-						 <caption><para></para>
-						 </caption>
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
@@ -222,8 +219,6 @@
 						 <textobject>
 							 <phrase>&kalzium; information dialog</phrase>
 						 </textobject>
-						 <caption><para></para>
-						 </caption>
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
@@ -314,8 +309,6 @@
 						 <textobject>
 							 <phrase>&kalzium; information dialog</phrase>
 						 </textobject>
-						 <caption><para></para>
-						 </caption>
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
@@ -333,8 +326,6 @@
 						 <textobject>
 							 <phrase>&kalzium; information dialog</phrase>
 						 </textobject>
-						 <caption><para></para>
-						 </caption>
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
@@ -351,8 +342,6 @@
 						 <textobject>
 							 <phrase>&kalzium; information dialog</phrase>
 						 </textobject>
-						 <caption><para></para>
-						 </caption>
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
@@ -384,8 +373,6 @@
 						 <textobject>
 							 <phrase>&kalzium; information dialog</phrase>
 						 </textobject>
-						 <caption><para></para>
-						 </caption>
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
@@ -1160,7 +1147,11 @@
 					 Pino Toscano <email>toscano.pino@tiscali.it</email>
 			 </para></listitem>
 		 </itemizedlist>
-
+                    <itemizedlist>
+			 <listitem><para>
+					 Thomas Nagy <email>tnagy2^8@yahoo.fr</email>
+			 </para></listitem>
+		 </itemizedlist>
 		 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
 		 &underFDL;           <!-- FDL: do not remove -->
