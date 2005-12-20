@@ -22,17 +22,39 @@
   <bibx:file>
     <!-- the bibliography -->
     <bibx:entry id="AME2003_I">
-      <bibx:article>
-        <bibx:author>A.H. Wapstra, G. Audi, and C. Thibault.</bibx:author>
-        <bibx:title>The AME2003 atomic mass evaluation (I). Evaluation of input data, adjustment procedures.</bibx:title>
-        <bibx:journal>Nuclear Physics</bibx:journal>
-        <bibx:year>2003</bibx:year>
-        <bibx:volume>A729</bibx:volume>
-        <bibx:pages>129</bibx:pages>
-      </bibx:article>
+      	    <bibx:article>
+       		<bibx:author>A.H. Wapstra, G. Audi, and C. Thibault.</bibx:author>
+        	<bibx:title>The AME2003 atomic mass evaluation (I). Evaluation of input data, adjustment procedures.</bibx:title>
+        	<bibx:journal>Nuclear Physics</bibx:journal>
+        	<bibx:year>2003</bibx:year>
+        	<bibx:volume>A729</bibx:volume>
+        	<bibx:pages>129</bibx:pages>
+             </bibx:article>
     </bibx:entry>
+    <bibx:entry id="The_Elements">
+	    <bibx:article>
+		<bibx:author>John Emsley</bibx:author> 
+		<bibx:title>Die Elemente</bibx:title> 
+		<bibx:year>1993</bibx:year> 
+	    </bibx:article>
+    </bibx:entry>
+    <bibx:entry id="Chem-Phys_Data">
+	    <bibx:article>
+		<bibx:author>M.D. Lechner</bibx:author> 
+		<bibx:title>Taschenbuch für Chemiker und Physiker - Band I Physikalisch-Chemische Daten</bibx:title> 
+		<bibx:year>1992</bibx:year> 
+	    </bibx:article>
+    </bibx:entry>
+    <bibx:entry id="ecuation_&_tables">
+	    <bibx:article>
+		<bibx:author>D. Mende, G. Simon</bibx:author> 
+		<bibx:title>Physik - Gleichungen und Tabellen</bibx:title> 
+		<bibx:year>2001</bibx:year> 
+	    </bibx:article>
+</bibx:entry>
   </bibx:file>
-  <!--<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.01861" ecpercentage="" ecdecay="" spin="1/2+" magmoment="+2.978960" halflife="12.3" halflifeformat="years" weight="3.016049" neutron="2" pecentage=""  />
+  <!--This is a conversion help:
+      <isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.01861" ecpercentage="" ecdecay="" spin="1/2+" magmoment="+2.978960" halflife="12.3" halflifeformat="years" weight="3.016049" neutron="2" pecentage=""  />
   //-->
   <isotopeList id="H">
     <isotope id="H1" number="1" elementType="H">
