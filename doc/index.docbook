@@ -286,7 +286,7 @@
 						 <varlistentry>
 							 <term>Spin and parity</term>
 							 <listitem><para>
-									 The spin of the nucleus and it's parity.
+									 The spin of the nucleus and its parity.
 							 </para></listitem>
 						 </varlistentry>
 
@@ -434,7 +434,7 @@
 						 <guimenuitem>Show Family</guimenuitem>: represents each of the nine families with a color.
 				 </para></listitem>
 				 <listitem><para>
-						 <guimenuitem>Show Crystal Structures</guimenuitem>: colors each element depending on it's crystal structure.
+						 <guimenuitem>Show Crystal Structures</guimenuitem>: colors each element depending on its crystal structure.
 				 </para></listitem>
 				 <listitem>
 					 <para><guimenuitem>Gradient</guimenuitem></para>
