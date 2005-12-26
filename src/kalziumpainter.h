@@ -22,7 +22,7 @@
 
 #include <QByteArray>
 #include <QRect>
-#include <QObject>
+
 #include <chemicaldataobject.h>
 
 class QPaintDevice;
@@ -55,9 +55,8 @@ class KalziumNumerationType;
  *
  * @author Pino Toscano
  */
-class KalziumPainter : public QObject
+class KalziumPainter
 {
-Q_OBJECT
 	public:
 		/**
 		 * Construct a new KalziumPainter for the table type @p ktt.
@@ -143,8 +142,7 @@ Q_OBJECT
 		void setTemperature( int temp );
 		int temperature() const;
 
-	public slots:
-		void slotSliderValue( ChemicalDataObject::BlueObelisk type, int value );
+		void setSliderValue( ChemicalDataObject::BlueObelisk type, int value );
 
 	private:
 		QBrush getSlideBrush( int element, const QRect& rect );

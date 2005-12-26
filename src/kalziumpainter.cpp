@@ -447,7 +447,7 @@ QBrush KalziumPainter::getSlideBrush( int element, const QRect& rect )
 		return QBrush( Qt::lightGray );
 }
 
-void KalziumPainter::slotSliderValue( ChemicalDataObject::BlueObelisk type, int value )
+void KalziumPainter::setSliderValue( ChemicalDataObject::BlueObelisk type, int value )
 {
 	switch( type )
 	{
