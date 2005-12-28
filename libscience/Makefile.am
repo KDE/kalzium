@@ -1,4 +1,5 @@
 SUBDIRS = . data tests
+KDE_CXXFLAGS = -UQT3_SUPPORT
 
 INCLUDES= $(all_includes)
 

@@ -21,7 +21,11 @@ email                : cniehaus@kde.org
 #include <kdebug.h>
 
 ElementSaxParser::ElementSaxParser()
-	: QXmlDefaultHandler(), currentElement_(0), 
+	: QXmlDefaultHandler(),
+	currentDataObject_(0),
+	currentUnit_(ChemicalDataObject::noUnit),
+	currentElement_(0),
+	inElement_(false),
 	inName_(false),
 	inMass_(false),
 	inExactMass_(false),
