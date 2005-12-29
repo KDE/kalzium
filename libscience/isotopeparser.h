@@ -17,8 +17,6 @@
 
 #include <qxml.h>
 
-#include "chemicaldataobject.h"
-
 class Isotope;
 
 /**
@@ -31,6 +29,7 @@ class IsotopeParser : public QXmlDefaultHandler
 		 * Constructor
 		 */
 		IsotopeParser();
+		~IsotopeParser();
 		bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
 
 		bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
@@ -40,27 +39,8 @@ class IsotopeParser : public QXmlDefaultHandler
 		QList<Isotope*> getIsotopes();
 
 	private:
-		ChemicalDataObject *currentDataObject_;
-		ChemicalDataObject::BlueObeliskUnit currentUnit_;
-
-		QVariant currentErrorValue_;
-
-		QString currentElementSymbol_;
-		
-		Isotope* currentIsotope_;
-		QList<Isotope*> isotopes_;
-		bool inIsotope_;
-		bool inAtomicNumber_,
-			 inExactMass_;
-		bool inAlphaPercentage_;
-		bool inAlphaDecay_;
-		bool inBetaplusPercentage_;
-		bool inBetaplusDecay_;
-		bool inBetaminusPercentage_;
-		bool inBetaminusDecay_;
-		bool inECPercentage_;
-		bool inECDecay_;
-		bool inAbundance_;
+		class Private;
+		Private *d;
 };
 #endif // ISOTOPEPARSER_H
 

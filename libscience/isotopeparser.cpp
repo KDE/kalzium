@@ -11,80 +11,115 @@ email                : cniehaus@kde.org
  *                                                                         *
  ***************************************************************************/
 #include "isotopeparser.h"
-#include "isotope.h"
 
-#include <qdom.h>
-#include <QList>
-#include <QFile>
-#include <QStringList>
+#include "chemicaldataobject.h"
+#include "isotope.h"
 
 #include <kdebug.h>
 
-IsotopeParser::IsotopeParser()
-	: QXmlDefaultHandler(), 
-	currentIsotope_(0), 
-	inAtomicNumber_(false),
-	inAlphaPercentage_(false),
-	inAlphaDecay_(false),
-	inBetaplusPercentage_(false),
-	inBetaplusDecay_(false),
-	inBetaminusPercentage_(false),
-	inBetaminusDecay_(false),
-	inECPercentage_(false),
-	inECDecay_(false),
-	inExactMass_(false),
-	inAbundance_(false)
+class IsotopeParser::Private
 {
-	currentElementSymbol_ = "";
+public:
+	Private()
+	: currentDataObject(0),
+	currentUnit(ChemicalDataObject::noUnit),
+	currentErrorValue(QVariant()),
+	currentElementSymbol(QString()),
+	currentIsotope(0),
+	inIsotope(false),
+	inAtomicNumber(false),
+	inExactMass(false),
+	inAlphaPercentage(false),
+	inAlphaDecay(false),
+	inBetaplusPercentage(false),
+	inBetaplusDecay(false),
+	inBetaminusPercentage(false),
+	inBetaminusDecay(false),
+	inECPercentage(false),
+	inECDecay(false),
+	inAbundance(false)
+	{
+	}
+
+	ChemicalDataObject *currentDataObject;
+	ChemicalDataObject::BlueObeliskUnit currentUnit;
+	QVariant currentErrorValue;
+	QString currentElementSymbol;
+	Isotope* currentIsotope;
+	
+	QList<Isotope*> isotopes;
+	
+	bool inIsotope;
+	bool inAtomicNumber;
+	bool inExactMass;
+	bool inAlphaPercentage;
+	bool inAlphaDecay;
+	bool inBetaplusPercentage;
+	bool inBetaplusDecay;
+	bool inBetaminusPercentage;
+	bool inBetaminusDecay;
+	bool inECPercentage;
+	bool inECDecay;
+	bool inAbundance;
+};
+
+IsotopeParser::IsotopeParser()
+	: QXmlDefaultHandler(), d( new Private )
+{
+}
+
+IsotopeParser::~IsotopeParser()
+{
+	delete d;
 }
 
 bool IsotopeParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
 	if (localName == "isotope") 
 	{
-		currentIsotope_ = new Isotope();
-		inIsotope_ = true;
+		d->currentIsotope = new Isotope();
+		d->inIsotope = true;
 		
 		//now save the symbol of the current element
 		for (int i = 0; i < attrs.length(); ++i) 
 		{
 			if ( attrs.localName( i ) == "elementType" )
-				currentElementSymbol_ = attrs.value( i );
+				d->currentElementSymbol = attrs.value( i );
 		}
-	} else if (inIsotope_ && localName == "scalar") 
+	} else if (d->inIsotope && localName == "scalar")
 	{
 		for (int i = 0; i < attrs.length(); ++i) 
 		{
 			if ( attrs.localName( i ) == "errorValue" )
 			{
-				currentErrorValue_ = QVariant( attrs.value( i ) );
+				d->currentErrorValue = QVariant( attrs.value( i ) );
 				continue;
 			}
 			
 			if (attrs.value(i) == "bo:atomicNumber")
-				inAtomicNumber_ = true;
+				d->inAtomicNumber = true;
 			else if (attrs.value(i) == "bo:alphapercentage")
-				inAlphaPercentage_ = true;
+				d->inAlphaPercentage = true;
 			else if (attrs.value(i) == "bo:alphadecay")
-				inAlphaDecay_ = true;
+				d->inAlphaDecay = true;
 			else if (attrs.value(i) == "bo:betapluspercentage")
-				inBetaplusPercentage_ = true;
+				d->inBetaplusPercentage = true;
 			else if (attrs.value(i) == "bo:betaplusdecay")
-				inBetaplusDecay_ = true;
+				d->inBetaplusDecay = true;
 			else if (attrs.value(i) == "bo:betaminuspercentage")
-				inBetaminusPercentage_ = true;
+				d->inBetaminusPercentage = true;
 			else if (attrs.value(i) == "bo:betaminusdecay")
-				inBetaminusDecay_ = true;
+				d->inBetaminusDecay = true;
 			else if (attrs.value(i) == "bo:ecpercentage")
-				inECPercentage_ = true;
+				d->inECPercentage = true;
 			else if (attrs.value(i) == "bo:ecdecay")
-				inECDecay_ = true;
+				d->inECDecay = true;
 			else if (attrs.value(i) == "bo:exactMass")
-				inExactMass_ = true;
+				d->inExactMass = true;
 		}
-	} else if (inIsotope_ && localName == "bo:relativeAbundance") {
+	} else if (d->inIsotope && localName == "bo:relativeAbundance") {
 		kdDebug() << "bo:relativeAbundance" << endl;
-		inAbundance_ = true;
+		d->inAbundance = true;
 	}
 	return true;
 }
@@ -93,17 +128,17 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 {
 	if ( localName == "isotope" )
 	{
-		currentIsotope_->addData( new ChemicalDataObject( QVariant( currentElementSymbol_ ), ChemicalDataObject::symbol ) );
-		isotopes_.append(currentIsotope_);
+		d->currentIsotope->addData( new ChemicalDataObject( QVariant( d->currentElementSymbol ), ChemicalDataObject::symbol ) );
+		d->isotopes.append(d->currentIsotope);
 		
-		currentIsotope_ = 0;
-		currentDataObject_ = 0;
-		inIsotope_ = false;
+		d->currentIsotope = 0;
+		d->currentDataObject = 0;
+		d->inIsotope = false;
 	}
 	else if ( localName == "scalar" )
 	{
-		if ( currentDataObject_->type() == ChemicalDataObject::exactMass ){
-			currentDataObject_->setErrorValue( currentErrorValue_ );
+		if ( d->currentDataObject->type() == ChemicalDataObject::exactMass ){
+			d->currentDataObject->setErrorValue( d->currentErrorValue );
 		}
 	}
 
@@ -112,78 +147,78 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 
 bool IsotopeParser::characters(const QString &ch)
 {
-	currentDataObject_ = new ChemicalDataObject();
+	d->currentDataObject = new ChemicalDataObject();
 	ChemicalDataObject::BlueObelisk type;
 	QVariant value;
 
-	if ( inExactMass_ ){
+	if (d->inExactMass){
 		value = ch.toDouble();
 		type = ChemicalDataObject::exactMass; 
-		inExactMass_ = false;
+		d->inExactMass = false;
 	}
-	else if (inAtomicNumber_) {
+	else if (d->inAtomicNumber) {
 		value = ch.toInt();
 		type = ChemicalDataObject::atomicNumber; 
-		inAtomicNumber_ = false;
+		d->inAtomicNumber = false;
 	}
-	else if (inAlphaPercentage_) {
+	else if (d->inAlphaPercentage) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::alphapercentage; 
-		inAtomicNumber_ = false;
+		d->inAtomicNumber = false;
 	}
-	else if (inAlphaDecay_) {
+	else if (d->inAlphaDecay) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::alphadecay; 
-		inAtomicNumber_ = false;
+		d->inAtomicNumber = false;
 	}
-	else if (inBetaplusPercentage_) {
+	else if (d->inBetaplusPercentage) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::betapluspercentage; 
-		inAtomicNumber_ = false;
+		d->inAtomicNumber = false;
 	}
-	else if (inBetaplusDecay_) {
+	else if (d->inBetaplusDecay) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::betaplusdecay; 
-		inAtomicNumber_ = false;
+		d->inAtomicNumber = false;
 	}
-	else if (inBetaminusPercentage_) {
+	else if (d->inBetaminusPercentage) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::betaminuspercentage; 
-		inAtomicNumber_ = false;
+		d->inAtomicNumber = false;
 	}
-	else if (inBetaminusDecay_) {
+	else if (d->inBetaminusDecay) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::betaminusdecay; 
-		inAtomicNumber_ = false;
+		d->inAtomicNumber = false;
 	}
-	else if (inECPercentage_) {
+	else if (d->inECPercentage) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::ecpercentage; 
-		inAtomicNumber_ = false;
+		d->inAtomicNumber = false;
 	}
-	else if (inECDecay_) {
+	else if (d->inECDecay) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::ecdecay; 
-		inAtomicNumber_ = false;
+		d->inAtomicNumber = false;
 	}
-	else if ( inAbundance_ ){
+	else if (d->inAbundance){
 		value = ch;
 		type = ChemicalDataObject::relativeAbundance;
-		inAbundance_ = false;
+		d->inAbundance = false;
 	}
 	else//it is a non known value. Do not create a wrong object but return
 		return true;
 
-	currentDataObject_->setData( value );
-	currentDataObject_->setType( type );
+	d->currentDataObject->setData( value );
+	d->currentDataObject->setType( type );
 
-	if ( currentIsotope_ )
-		currentIsotope_->addData( currentDataObject_ );
+	if ( d->currentIsotope )
+		d->currentIsotope->addData( d->currentDataObject );
 
 	return true;
 }
 
 QList<Isotope*> IsotopeParser::getIsotopes()
 {
-	return isotopes_;
+	return d->isotopes;
 }

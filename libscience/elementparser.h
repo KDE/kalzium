@@ -17,10 +17,7 @@
 
 #include <qxml.h>
 
-#include "chemicaldataobject.h"
-
 class Element;
-
 
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
@@ -32,6 +29,7 @@ class ElementSaxParser : public QXmlDefaultHandler
 		 * Constructor
 		 */
 		ElementSaxParser();
+		~ElementSaxParser();
 		bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
 
 		bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
@@ -41,28 +39,7 @@ class ElementSaxParser : public QXmlDefaultHandler
 		QList<Element*> getElements();
 
 	private:
-		ChemicalDataObject *currentDataObject_;
-		ChemicalDataObject::BlueObeliskUnit currentUnit_;
-		
-		Element *currentElement_;
-		QList<Element*> elements_;
-		bool inElement_;
-		bool inName_,
-			 inMass_,
-			 inExactMass_,
-			 inAtomicNumber_,
-			 inSymbol_,
-			 inIonization_,
-			 inElectronAffinity_,
-			 inElectronegativityPauling_,
-			 inRadiusCovalent_,
-			 inRadiusVDW_,
-			 inBoilingPoint_,
-			 inMeltingPoint_,
-			 inPeriodTableBlock_,
-			 inNameOrigin_,
-			 inDiscoveryDate_,
-			 inDiscoverers_,
-			 inPeriod_;
+		class Private;
+		Private *d;
 };
 #endif // ELEMENTPARSER_H

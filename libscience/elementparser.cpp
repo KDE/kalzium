@@ -11,91 +11,126 @@ email                : cniehaus@kde.org
  *                                                                         *
  ***************************************************************************/
 #include "elementparser.h"
-#include "element.h"
 
-#include <qdom.h>
-#include <QList>
-#include <QFile>
-#include <QStringList>
+#include "chemicaldataobject.h"
+#include "element.h"
 
 #include <kdebug.h>
 
-ElementSaxParser::ElementSaxParser()
-	: QXmlDefaultHandler(),
-	currentDataObject_(0),
-	currentUnit_(ChemicalDataObject::noUnit),
-	currentElement_(0),
-	inElement_(false),
-	inName_(false),
-	inMass_(false),
-	inExactMass_(false),
-	inAtomicNumber_(false),
-	inSymbol_(false),
-	inIonization_(false),
-	inElectronAffinity_(false),
-	inElectronegativityPauling_(false),
-	inRadiusCovalent_(false),
-	inRadiusVDW_(false),
-	inBoilingPoint_(false),
-	inMeltingPoint_(false),
-	inPeriodTableBlock_(false),
-	inNameOrigin_(false),
-	inDiscoveryDate_(false),
-	inDiscoverers_(false),
-	inPeriod_(false)
+class ElementSaxParser::Private
 {
+public:
+	Private()
+	: currentDataObject(0),
+	currentUnit(ChemicalDataObject::noUnit),
+	currentElement(0),
+	inElement(false),
+	inName(false),
+	inMass(false),
+	inExactMass(false),
+	inAtomicNumber(false),
+	inSymbol(false),
+	inIonization(false),
+	inElectronAffinity(false),
+	inElectronegativityPauling(false),
+	inRadiusCovalent(false),
+	inRadiusVDW(false),
+	inBoilingPoint(false),
+	inMeltingPoint(false),
+	inPeriodTableBlock(false),
+	inNameOrigin(false),
+	inDiscoveryDate(false),
+	inDiscoverers(false),
+	inPeriod(false)
+	{
+	}
+
+	ChemicalDataObject *currentDataObject;
+	ChemicalDataObject::BlueObeliskUnit currentUnit;
+	Element *currentElement;
+	
+	QList<Element*> elements;
+	
+	bool inElement;
+	bool inName;
+	bool inMass;
+	bool inExactMass;
+	bool inAtomicNumber;
+	bool inSymbol;
+	bool inIonization;
+	bool inElectronAffinity;
+	bool inElectronegativityPauling;
+	bool inRadiusCovalent;
+	bool inRadiusVDW;
+	bool inBoilingPoint;
+	bool inMeltingPoint;
+	bool inPeriodTableBlock;
+	bool inNameOrigin;
+	bool inDiscoveryDate;
+	bool inDiscoverers;
+	bool inPeriod;
+};
+
+ElementSaxParser::ElementSaxParser()
+	: QXmlDefaultHandler(), d( new Private )
+{
+}
+
+ElementSaxParser::~ElementSaxParser()
+{
+	delete d;
 }
 
 bool ElementSaxParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
 	if (localName == "elementType") 
 	{
-		currentElement_ = new Element();
-		inElement_ = true;
-	} else if (inElement_ && localName == "scalar") 
+		d->currentElement = new Element();
+		d->inElement = true;
+	} else if (d->inElement && localName == "scalar")
 	{
 		for (int i = 0; i < attrs.length(); ++i) 
 		{
 			if ( attrs.localName( i ) == "unit" )
 			{
-				currentUnit_ = ChemicalDataObject::unit( attrs.value( i ) );
+				d->currentUnit = ChemicalDataObject::unit( attrs.value( i ) );
 				continue;
 			}
 
 			if (attrs.value(i) == "bo:atomicNumber")
-				inAtomicNumber_ = true;
+				d->inAtomicNumber = true;
 			else if (attrs.value(i) == "bo:symbol")
-				inSymbol_ = true;
+				d->inSymbol = true;
 			else if (attrs.value(i) == "bo:name")
-				inName_ = true;
+				d->inName = true;
 			else if (attrs.value(i) == "bo:mass")
-				inMass_ = true;
+				d->inMass = true;
 			else if (attrs.value(i) == "bo:exactMass")
-				inExactMass_ = true;
+				d->inExactMass = true;
 			else if (attrs.value(i) == "bo:ionization")
-				inIonization_ = true;
+				d->inIonization = true;
 			else if (attrs.value(i) == "bo:electronAffinity")
-				inElectronAffinity_ = true;
+				d->inElectronAffinity = true;
 			else if (attrs.value(i) == "bo:electronegativityPauling")
-				inElectronegativityPauling_ = true;
+				d->inElectronegativityPauling = true;
 			else if (attrs.value(i) == "bo:radiusCovalent")
-				inRadiusCovalent_ = true;
+				d->inRadiusCovalent = true;
 			else if (attrs.value(i) == "bo:radiusVDW")
-				inRadiusVDW_ = true;
+				d->inRadiusVDW = true;
 			else if (attrs.value(i) == "bo:meltingpoint")
-				inMeltingPoint_ = true;
+				d->inMeltingPoint = true;
 			else if (attrs.value(i) == "bo:boilingpoint")
-				inBoilingPoint_ = true;
+				d->inBoilingPoint = true;
 			else if (attrs.value(i) == "bo:periodTableBlock")
-				inPeriodTableBlock_ = true;
+				d->inPeriodTableBlock = true;
 			else if (attrs.value(i) == "bo:nameOrigin")
-				inNameOrigin_ = true;
+				d->inNameOrigin = true;
 			else if (attrs.value(i) == "bo:discoveryDate")
-				inDiscoveryDate_ = true;
+				d->inDiscoveryDate = true;
 			else if (attrs.value(i) == "bo:discoverers")
-				inDiscoverers_ = true;
+				d->inDiscoverers = true;
 			else if (attrs.value(i) == "bo:period")
-				inPeriod_ = true;
+				d->inPeriod = true;
 		}
 	}
 	return true;
@@ -105,127 +140,127 @@ bool ElementSaxParser::endElement( const QString &, const QString& localName, co
 {
 	if ( localName == "elementType" )
 	{
-		if ( currentElement_->dataAsString( ChemicalDataObject::symbol ) != "Xx" )
-		elements_.append(currentElement_);
+		if ( d->currentElement->dataAsString( ChemicalDataObject::symbol ) != "Xx" )
+		d->elements.append(d->currentElement);
 		
-		currentElement_ = 0;
-		currentDataObject_ = 0;
-		inElement_ = false;
+		d->currentElement = 0;
+		d->currentDataObject = 0;
+		d->inElement = false;
 	}
 	else if ( localName == "scalar" )
 	{
-		if ( currentUnit_ != ChemicalDataObject::noUnit )
-			currentDataObject_->setUnit( currentUnit_ );
+		if ( d->currentUnit != ChemicalDataObject::noUnit )
+			d->currentDataObject->setUnit( d->currentUnit );
 
-		currentUnit_ = ChemicalDataObject::noUnit;
+		d->currentUnit = ChemicalDataObject::noUnit;
 	}
 	return true;
 }
 
 bool ElementSaxParser::characters(const QString &ch)
 {
-	currentDataObject_ = new ChemicalDataObject();
+	d->currentDataObject = new ChemicalDataObject();
 	ChemicalDataObject::BlueObelisk type;
 	QVariant value;
 
-	if (inName_) {
+	if (d->inName) {
 		value = ch;
 		type = ChemicalDataObject::name; 
-		inName_ = false;
+		d->inName = false;
 	}
-	else if ( inMass_ ){
+	else if (d->inMass){
 		value = ch.toDouble();
 		type = ChemicalDataObject::mass; 
-		inMass_ = false;
+		d->inMass = false;
 	}
-	else if ( inExactMass_ ){
+	else if (d->inExactMass){
 		value = ch.toDouble();
 		type = ChemicalDataObject::exactMass; 
-		inExactMass_ = false;
+		d->inExactMass = false;
 	}
-	else if (inSymbol_) {
+	else if (d->inSymbol) {
 		value = ch;
 		type = ChemicalDataObject::symbol; 
-		inSymbol_ = false;
+		d->inSymbol = false;
 	}
-	else if (inAtomicNumber_) {
+	else if (d->inAtomicNumber) {
 		value = ch.toInt();
 		type = ChemicalDataObject::atomicNumber; 
-		inAtomicNumber_ = false;
+		d->inAtomicNumber = false;
 	}
-	else if (inIonization_) {
+	else if (d->inIonization) {
 		value = ch.toDouble();;
 		type = ChemicalDataObject::ionization; 
-		inIonization_ = false;
+		d->inIonization = false;
 	}
-	else if (inElectronAffinity_) {
+	else if (d->inElectronAffinity) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::electronAffinity; 
-		inElectronAffinity_ = false;
+		d->inElectronAffinity = false;
 	}
-	else if (inElectronegativityPauling_) {
+	else if (d->inElectronegativityPauling) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::electronegativityPauling; 
-		inElectronegativityPauling_ = false;
+		d->inElectronegativityPauling = false;
 	}
-	else if (inRadiusCovalent_) {
+	else if (d->inRadiusCovalent) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::radiusCovalent; 
-		inRadiusCovalent_ = false;
+		d->inRadiusCovalent = false;
 	}
-	else if (inRadiusVDW_) {
+	else if (d->inRadiusVDW) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::radiusVDW; 
-		inRadiusVDW_ = false;
+		d->inRadiusVDW = false;
 	}
-	else if (inMeltingPoint_) {
+	else if (d->inMeltingPoint) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::meltingpoint; 
-		inMeltingPoint_ = false;
+		d->inMeltingPoint = false;
 	}
-	else if (inBoilingPoint_) {
+	else if (d->inBoilingPoint) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::boilingpoint; 
-		inBoilingPoint_ = false;
+		d->inBoilingPoint = false;
 	}
-	else if (inPeriodTableBlock_) {
+	else if (d->inPeriodTableBlock) {
 		value = ch;
 		type = ChemicalDataObject::periodTableBlock; 
-		inPeriodTableBlock_ = false;
+		d->inPeriodTableBlock = false;
 	}
-	else if (inNameOrigin_) {
+	else if (d->inNameOrigin) {
 		value = ch;
 		type = ChemicalDataObject::nameOrigin; 
-		inNameOrigin_ = false;
+		d->inNameOrigin = false;
 	}
-	else if (inDiscoveryDate_) {
+	else if (d->inDiscoveryDate) {
 		value = ch.toInt();
 		type = ChemicalDataObject::date;
-		inDiscoveryDate_ = false;
+		d->inDiscoveryDate = false;
 	}
-	else if (inDiscoverers_) {
+	else if (d->inDiscoverers) {
 		value = ch;
 		type = ChemicalDataObject::discoverers;
-		inDiscoverers_ = false;
+		d->inDiscoverers = false;
 	}
-	else if (inPeriod_) {
+	else if (d->inPeriod) {
 		value = ch.toInt();
 		type = ChemicalDataObject::period; 
-		inPeriod_ = false;
+		d->inPeriod = false;
 	}
 	else//it is a non known value. Do not create a wrong object but return
 		return true;
 
-	currentDataObject_->setData( value );
-	currentDataObject_->setType( type );
+	d->currentDataObject->setData( value );
+	d->currentDataObject->setType( type );
 
-	if ( currentElement_ )
-		currentElement_->addData( currentDataObject_ );
+	if ( d->currentElement )
+		d->currentElement->addData( d->currentDataObject );
 
 	return true;
 }
 
 QList<Element*> ElementSaxParser::getElements()
 {
-	return elements_;
+	return d->elements;
 }

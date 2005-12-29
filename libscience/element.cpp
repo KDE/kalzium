@@ -58,6 +58,8 @@ Element::~Element()
 
 void Element::addData( ChemicalDataObject*o )
 {
+	// skip null pointers
+	if ( !o ) return;
 	dataList.append( o );
 }
 
