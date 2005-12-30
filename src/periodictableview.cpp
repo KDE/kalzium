@@ -141,6 +141,7 @@ void PeriodicTableView::paintEvent( QPaintEvent * /*e*/ )
 	//image stored in table...when doFullDraw==false, the rendering code is skipped.
 	if ( doFullDraw )
 	{
+		delete table;
 		table = new QPixmap( size() );
 
 		m_painter->begin( table );

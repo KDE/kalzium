@@ -77,6 +77,8 @@ void KalziumPainter::end()
 	{
 		if ( m_painter->isActive() )
 			m_painter->end();
+		delete m_painter;
+		m_painter = 0;
 	}
 }
 

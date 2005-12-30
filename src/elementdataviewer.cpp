@@ -113,7 +113,6 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 	m_pPlotSetupWidget->to->setMaxValue( kdo->numberOfElements() );
 	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage() );
 	m_pPlotWidget->setObjectName( "plotwidget" );
-	m_pPlotWidget->setYAxisLabel(" ");
 	m_pPlotWidget->setMinimumWidth( 200 );
 	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );
 
@@ -182,6 +181,10 @@ void ElementDataViewer::setLimits(int f, int t)
 	// try to put a small padding to make the points on the axis visible
 	double dx = ( t - f + 1 ) / 25 + 1.0;
 	double dy = ( maxY - minY ) / 10.0;
+	// in case that dy is quite small (for example, when plotting a single
+	// point)
+	if ( dy < 1e-7 )
+		dy = maxY / 10.0;
 	m_pPlotWidget->setLimits( f - dx, t + dx, minY - dy, maxY + dy );
 }
 
@@ -285,7 +288,7 @@ void ElementDataViewer::setupAxisData()
 	yData->dataList.clear();
 	yData->dataList << l;
 
-	m_pPlotWidget->setYAxisLabel( caption );
+	m_pPlotWidget->LeftAxis.setLabel( caption );
 }
 
 void ElementDataViewer::drawPlot()
@@ -327,16 +330,12 @@ void ElementDataViewer::drawPlot()
 	else
 		m_pPlotWidget->setConnection( false );
 		
-	/*
-	 * reserve the memory for the KPlotObjects
-	 */
-	QVector<KPlotObject*> dataPoint(num);
-	QVector<KPlotObject*> dataPointLabel(num);
+	KPlotObject* dataPoint = 0;
+	KPlotObject* dataPointLabel = 0;
 
-	int number = 0;
-
-	double max = 0.0, av = 0.0;
-	double min = yData->value( 1 );
+	double av = 0.0;
+	double max;
+	double min = max = yData->value( from );
 
 	/*
 	 * iterate for example from element 20 to 30 and contruct
@@ -354,22 +353,21 @@ void ElementDataViewer::drawPlot()
 				max = v;
 			av += v;
 
-			dataPoint[number] = new KPlotObject( "whocares", Qt::blue, KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
-			dataPoint[number]->addPoint( new QPointF( (double)i , v ) );
-			m_pPlotWidget->addObject( dataPoint[ number ] );
+			dataPoint = new KPlotObject( "whocares", Qt::blue, KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
+			dataPoint->addPoint( new QPointF( (double)i, v ) );
+			m_pPlotWidget->addObject( dataPoint );
 
 			if (showNames)
 			{
-				dataPointLabel[number] = new KPlotObject( names[i-1], Qt::red, KPlotObject::LABEL );
-				dataPointLabel[number]->addPoint( new QPointF( (double)i , yData->value( i ) ) );
-				m_pPlotWidget->addObject( dataPointLabel[number] );
+				dataPointLabel = new KPlotObject( names[i-1], Qt::red, KPlotObject::LABEL );
+				dataPointLabel->addPoint( new QPointF( (double)i, yData->value( i ) ) );
+				m_pPlotWidget->addObject( dataPointLabel );
 			}
 		}
-		number++;
 	}
 
 	//now set the values for the min, max and avarage value
-	m_pPlotSetupWidget->aValue->setText( QString::number( av/number ) );
+	m_pPlotSetupWidget->aValue->setText( QString::number( av / num ) );
 	m_pPlotSetupWidget->minValue->setText( QString::number( min ) );
 	m_pPlotSetupWidget->maxValue->setText( QString::number( max ) );
 }

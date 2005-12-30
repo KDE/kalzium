@@ -15,10 +15,6 @@
 #include "plotwidget.h"
 #include "plotwidget.moc"
 
-//KDE-Includes
-#include <kdebug.h>
-
-//QT-Includes
 #include <qpainter.h>
 
 #include <kplotobject.h>
@@ -51,9 +47,7 @@ void PlotWidget::drawObjects( QPainter *p )
 		if (po->type() != KPlotObject::POINTS) continue;
 
 		// draw the connecting lines
-		p->setPen( QColor( po->color() ) );
-		p->setBrush( QColor( po->color() ) );
-//		for ( DPoint *dp = po->points()->first(); dp; dp = po->points()->next() ) 
+		p->setPen( po->color() );
 		for ( QList<QPointF*>::ConstIterator dpit = po->points()->begin(); dpit != po->points()->constEnd(); ++dpit )
 		{
 			QPoint q = mapToPoint( **dpit );
@@ -61,12 +55,10 @@ void PlotWidget::drawObjects( QPainter *p )
 			if ( first ) 
 				first = false;
 			else
-				p->drawLine(old.x(), old.y(), q.x(), q.y());
+				p->drawLine(old, q);
 
-			old.setX( q.x() );
-			old.setY( q.y() );
+			old = q;
 		}
-		p->setBrush( Qt::NoBrush );
 	}
 }
 
