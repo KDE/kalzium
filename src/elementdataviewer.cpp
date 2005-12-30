@@ -121,6 +121,10 @@ void ElementDataViewer::setLimits(int f, int t)
 	// try to put a small padding to make the points on the axis visible
 	double dx = ( t - f + 1 ) / 25 + 1.0;
 	double dy = ( maxY - minY ) / 10.0;
+	// in case that dy is quite small (for example, when plotting a single
+	// point)
+	if ( dy < 1e-7 )
+		dy = maxY / 10.0;
 	m_pPlotWidget->setLimits( f - dx, t + dx, minY - dy, maxY + dy );
 }
 
