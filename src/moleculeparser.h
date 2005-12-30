@@ -103,8 +103,6 @@ public:
     bool  weight(QString         _moleculeString,
 				 double          *_resultMass,
 				 ElementCountMap *_resultMap);
-    //QMap<Element*, int>   elementMap();
-    //QValueList<Element*>  elementList();
 
  private:
     // Helper functions
@@ -116,6 +114,9 @@ public:
     Element  *lookupElement( const QString& _name );
 
     QMap<Element*, int> m_elementMap;
+
+	//if this booloean is "true" the parser found an error
+	bool m_error;
 
 protected:
 

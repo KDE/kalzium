@@ -124,8 +124,9 @@ MoleculeParser::weight(QString         _moleculeString,
 					   double          *_resultMass,
 					   ElementCountMap *_resultMap)
 {
-    // Clear the result variables.
+    // Clear the result variables and set m_error to false
     _resultMap->clear();
+	m_error = false;
     *_resultMass = 0.0;
 
 	// Initialize the parsing process, and parse te molecule.
@@ -133,6 +134,9 @@ MoleculeParser::weight(QString         _moleculeString,
     parseSubmolecule(_resultMass, _resultMap);
 
     if (nextToken() != -1)
+		return false;
+
+	if ( m_error )//there was an error in the input...
 		return false;
 
     return true;
@@ -286,12 +290,15 @@ MoleculeParser::lookupElement( const QString& _name )
     const EList::ConstIterator  end = elementList.constEnd();
 
     for (; it != end; ++it) {
-	if ( (*it)->symbol() == _name ) {
-	    kdDebug() << "Found element " << _name << endl;
-	    return *it;
-	}
+		if ( (*it)->symbol() == _name ) {
+			kdDebug() << "Found element " << _name << endl;
+			return *it;
+		}
     }
 
-    kdDebug() << k_funcinfo << "no such element: " << _name << endl;
+	//if there is an error make m_error true.
+	m_error = true;
+
+    kdDebug() << k_funcinfo << "no such element, parsing error!: " << _name << endl;
     return NULL;
 }

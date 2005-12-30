@@ -72,6 +72,7 @@ class MolcalcWidget : public MolcalcWidgetBase
 		MoleculeParser   m_parser;
 		
 		double           m_mass;
+		bool 			 m_validInput;
 		ElementCountMap  m_elementMap;
 };
 
