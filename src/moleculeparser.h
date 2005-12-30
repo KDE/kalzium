@@ -21,6 +21,9 @@
 #include <qlist.h>
 
 
+/**
+ * @class ElementCountMap
+ */
 class ElementCount {
  public:
     ElementCount(Element *_element, int _count)
@@ -69,6 +72,8 @@ class ElementCountMap {
 
 
 /**
+ * @class MoleculeParser
+ *
  * Parse molecule formulas.
  *
  * Usage:
@@ -116,6 +121,9 @@ public:
     Element  *lookupElement( const QString& _name );
 
     QMap<Element*, int> m_elementMap;
+		
+	//if this booloean is "true" the parser found an error
+	bool             m_error;
 
 protected:
 

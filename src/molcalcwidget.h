@@ -65,6 +65,7 @@ class MolcalcWidget : public QWidget, private Ui_MolcalcWidgetBase
 		MoleculeParser   m_parser;
 		
 		double           m_mass;
+		bool             m_validInput;
 		ElementCountMap  m_elementMap;
 };
 

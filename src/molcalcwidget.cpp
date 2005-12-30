@@ -64,44 +64,44 @@ void MolcalcWidget::clear()
 
 void MolcalcWidget::updateUI()
 {
-	QString str;
+	if ( m_validInput ){
+		QString str;
 
-	// The complexString stores the whole molecule like this:
-	// 1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
-	QString complexString;
-	
-	// Create the list of elements making up the molecule
-	ElementCountMap::Iterator  it    = m_elementMap.begin();
-	ElementCountMap::Iterator  itEnd = m_elementMap.end();
-	for ( ; it != itEnd; ++it ) {
-		// Update the resultLabel
-		str += i18n( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" )
-		  .arg( (*it)->count() )
-		  .arg( (*it)->element()->dataAsString( ChemicalDataObject::name) );
+		// The complexString stores the whole molecule like this:
+		// 1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
+		QString complexString;
 
-//X 		complexString
-//X 		  += i18n( "For example: 1 Seaborgium. Cumulative Mass: 263.119 u (39.25%)",
-//X 				   "%1 %2. Cumulative Mass: %3 u (%4%)\n" )
-//X 		  .arg( (*it)->count() )
-//X 		  .arg( (*it)->element()->dataAsString( ChemicalDataObject::name) ),
-//X 			.arg( 123.123 ),
-//X //X 		  .arg( (*it)->count() * (*it)->element()->data( ChemicalDataObject::mass ).value().toDouble() ),
-//X 		  .arg( KalziumUtils::strippedValue( (( (*it)->count() * (*it)->element()->data( ChemicalDataObject::mass ).value().toDouble() )
-//X 											  / m_mass ) * 100 ) );
+		// Create the list of elements making up the molecule
+		ElementCountMap::Iterator  it    = m_elementMap.begin();
+		ElementCountMap::Iterator  itEnd = m_elementMap.end();
+		for ( ; it != itEnd; ++it ) {
+			// Update the resultLabel
+			str += i18n( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" )
+				.arg( (*it)->count() )
+				.arg( (*it)->element()->dataAsString( ChemicalDataObject::name) );
+		}
+		resultLabel->setText( str );
+
+		// The composition
+		resultComposition->setText( compositionString(m_elementMap) );
+
+		// The mass
+		resultMass->setText( i18n( "Molecular mass: %1 u" ).arg( m_mass ) );
+
+		resultMass->setToolTip(        complexString );
+		resultComposition->setToolTip( complexString );
+		resultLabel->setToolTip(       complexString );
 	}
-	resultLabel->setText( str );
-	
-	// The composition
-	resultComposition->setText( compositionString(m_elementMap) );
-	
-	// The mass
-	resultMass->setText( i18n( "Molecular mass: %1 u" ).arg( m_mass ) );
-	
-	resultMass->setToolTip(        complexString );
-	resultComposition->setToolTip( complexString );
-	resultLabel->setToolTip(       complexString );
-}
+	else{//the input was invalid, so tell this the user
+		resultComposition->setText( i18n( "Invalid input" ) );
+		resultLabel->setText( QString() );
+		resultMass->setText( QString() );
 
+		QToolTip::add( resultMass,        i18n( "Invalid input" ) );
+		QToolTip::add( resultComposition, i18n( "Invalid input" ) );
+		QToolTip::add( resultLabel,       i18n( "Invalid input" ) );
+	}
+}
 
 QString MolcalcWidget::compositionString( ElementCountMap &_map )
 {
@@ -131,15 +131,9 @@ void MolcalcWidget::slotCalcButtonClicked()
 	// mass, and the composition of it.
 	bool parseOk = m_parser.weight(molecule, &m_mass, &m_elementMap);
 
-	if (parseOk) {
-		kdDebug() << "Mass of " << molecule << " = " << m_mass << endl;
+	m_validInput = m_parser.weight(molecule, &m_mass, &m_elementMap);
 
-		updateUI();
-	}
-	else {
-		// FIXME: Do something better here.
-		kdDebug() << "Parse error" << endl;
-	}
+	updateUI();
 }
 
 
