@@ -21,6 +21,9 @@
 #include <qvaluelist.h>
 
 
+/**
+ * @class Element
+ */
 class ElementCount {
  public:
     ElementCount(Element *_element, int _count)
@@ -46,6 +49,9 @@ class ElementCount {
 };
 
 
+/**
+ * @class ElementCountMap
+ */
 class ElementCountMap {
  public:
     ElementCountMap();
