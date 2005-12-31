@@ -42,12 +42,19 @@ ElementCountMap::~ElementCountMap()
 ElementCount *
 ElementCountMap::search(Element *_element)
 {
-	QList<ElementCount *>::ConstIterator       it    = m_map.constBegin();
-	const QList<ElementCount *>::ConstIterator itEnd = m_map.constEnd();
+	//not yet tested but the commented code should be the same as
+	//the foreach... so lets use Qt4 power
+//X 	QList<ElementCount *>::ConstIterator       it    = m_map.constBegin();
+//X 	const QList<ElementCount *>::ConstIterator itEnd = m_map.constEnd();
+//X 
+//X 	for (; it != itEnd; ++it) {
+//X 		if ((*it)->element() == _element)
+//X 			return *it;
+//X 	}
 
-	for (; it != itEnd; ++it) {
-		if ((*it)->element() == _element)
-			return *it;
+	foreach( ElementCount* c, m_map ){
+		if ( c->element() == _element )
+			return c;
 	}
 
 	return 0;
@@ -57,12 +64,18 @@ ElementCountMap::search(Element *_element)
 void
 ElementCountMap::add(ElementCountMap &_map)
 {
-	QList<ElementCount *>::ConstIterator       it    = _map.m_map.constBegin();
-	const QList<ElementCount *>::ConstIterator itEnd = _map.m_map.constEnd();
+	//not yet tested but the commented code should be the same as
+	//the foreach... so lets use Qt4 power
+//X 	QList<ElementCount *>::ConstIterator       it    = _map.m_map.constBegin();
+//X 	const QList<ElementCount *>::ConstIterator itEnd = _map.m_map.constEnd();
+//X 
+//X 	// Step throught _map and for each element, add it to the current one.
+//X 	for (; it != itEnd; ++it) {
+//X 		add((*it)->m_element, (*it)->m_count);
+//X 	}
 
-	// Step throught _map and for each element, add it to the current one.
-	for (; it != itEnd; ++it) {
-		add((*it)->m_element, (*it)->m_count);
+	foreach( ElementCount* c, _map.m_map ){
+		add( c->m_element, c->m_count );
 	}
 	
 }

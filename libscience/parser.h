@@ -14,7 +14,7 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include <qstring.h>
+#include <QString>
 
 /**
  * @class Parser
@@ -26,11 +26,6 @@
  */
 class Parser {
 public:
-    // All characters are their own token value per default.
-    static const  int  INT_TOKEN   = 257;
-    static const  int  FLOAT_TOKEN = 258;
-    // Extend this list in your subclass to make a more advanced parser.
-
 	/**
 	 * Constructor
 	 */
@@ -76,6 +71,17 @@ private:
     bool  parseSimpleFloat(double *_result);
 
 protected:
+    /**
+	 * All characters are their own token value per default.
+	 * Extend this list in your subclass to make a more advanced parser.
+	 */
+    static const  int  INT_TOKEN   = 257;
+
+	/**
+	 * All characters are their own token value per default.
+	 * Extend this list in your subclass to make a more advanced parser.
+	 */
+    static const  int  FLOAT_TOKEN = 258;
 
     /**
      * Make the next character the current one.
@@ -112,7 +118,15 @@ private:
     // union, but I don't think it is necessary to bother, since they
     // are so few and we don't instantiate a lot of copies of the
     // parser.
+	
+	/**
+	 * Valid if m_nextToken == INT_TOKEN
+	 */
     int      m_intVal;		// Valid if m_nextToken == INT_TOKEN
+
+	/**
+	 * Valid if m_nextToken == FLOAT_TOKEN
+	 */
     double   m_floatVal;	// Valid if m_nextToken == FLOAT_TOKEN
 };
 

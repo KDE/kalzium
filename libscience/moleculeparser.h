@@ -17,89 +17,132 @@
 #include "element.h"
 #include "parser.h"
 
-#include <qmap.h>
-#include <qlist.h>
+#include <QMap>
+#include <QList>
 
 
 /**
  * @class ElementCountMap
+ * @author Inge Wallin
  */
-class ElementCount {
- public:
-    ElementCount(Element *_element, int _count)
-    {
-	    m_element = _element;
-	    m_count   = _count;
-	}
-    ElementCount(Element *_element)
-        {
-	    m_element = _element;
-	    m_count   = 0;
-	}
-	
-    ~ElementCount();
+class ElementCount 
+{
+	public:
+		/**
+		 * Constructor
+		 */
+		ElementCount(Element *_element, int _count)
+		{
+			m_element = _element;
+			m_count   = _count;
+		}
+		
+		/**
+		 * Constructor
+		 */
+		ElementCount(Element *_element)
+		{
+			m_element = _element;
+			m_count   = 0;
+		}
+		/**
+		 * Destructor
+		 */
+		~ElementCount();
 
-    Element *element() const    { return m_element;   }
-    int   count()  const        { return m_count;     }
-    void  add(int _count)       { m_count += _count;  }
-	void  multiply(int _factor) { m_count *= _factor; }
+		/**
+		 * @return the Element
+		 */
+		Element *element() const    { return m_element;   }
 
-    Element  *m_element;
-    int       m_count;
+		/**
+		 * @return the number of occurences of the Element
+		 */
+		int   count()  const        { return m_count;     }
+		
+		/**
+		 * Add @p _count occurences of the Element
+		 * @param _count The number of times the Element occurs
+		 */
+		void  add(int _count)       { m_count += _count;  }
+		void  multiply(int _factor) { m_count *= _factor; }
+
+		/**
+		 * The Element of the object
+		 */
+		Element  *m_element;
+
+		/**
+		 * The number of occurences
+		 */
+		int       m_count;
 };
 
 
 /**
+ * This class is used to count the elements in the molecule
+ * which is being calculated
+ * 
  * @class ElementCount
+ * @author Inge Wallin
  */
-class ElementCountMap {
- public:
-    ElementCountMap();
-    ~ElementCountMap();
+class ElementCountMap 
+{
+	public:
+		/**
+		 * Constructor
+		 */
+		ElementCountMap();
 
-	/**
-	 *
-	 */
-    void  clear()          { m_map.clear(); }
+		/**
+		 * Destructor
+		 */
+		~ElementCountMap();
 
-	/**
-	 * @param _element
-	 */
-    ElementCount  *search(Element *_element);
-	
-	/**
-	 * @param _map
-	 */
-    void           add(ElementCountMap &_map);
-	
-	/**
-	 * @param _element
-	 * @param _count
-	 */
-    void           add(Element *_element, int _count);
-	
-	/**
-	 * @param _factor
-	 */
-	void           multiply(int _factor);
+		/**
+		 * Clear the map of ElementCount pointers
+		 */
+		void  clear()          { m_map.clear(); }
 
-	/**
-	 * typedef
-	 */
-	typedef QList<ElementCount*>::Iterator  Iterator;
-	
-	/**
-	 *
-	 */
-	Iterator   begin() { return  m_map.begin(); }
-	
-	/**
-	 *
-	 */
-	Iterator   end()   { return  m_map.end();   }
+		/**
+		 * @param _element the searched Element
+		 * @return the Element which is searched
+		 */
+		ElementCount  *search(Element *_element);
 
- private:
-    QList<ElementCount*>  m_map;
+		/**
+		 * @param _map
+		 */
+		void           add(ElementCountMap &_map);
+
+		/**
+		 * @param _element
+		 * @param _count
+		 */
+		void           add(Element *_element, int _count);
+
+		/**
+		 * @param _factor
+		 */
+		void           multiply(int _factor);
+
+		/**
+		 * typedef
+		 */
+		typedef QList<ElementCount*>::Iterator  Iterator;
+
+		/**
+		 *
+		 */
+		Iterator   begin() { return  m_map.begin(); }
+
+		/**
+		 *
+		 */
+		Iterator   end()   { return  m_map.end();   }
+
+	private:
+		QList<ElementCount*>  m_map;
 };
 
 
