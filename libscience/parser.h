@@ -31,9 +31,22 @@ public:
     static const  int  FLOAT_TOKEN = 258;
     // Extend this list in your subclass to make a more advanced parser.
 
+	/**
+	 * Constructor
+	 */
     Parser();
+
+	/**
+	 * Constructor
+	 *
+	 * @param _str @ref start the parsing with @p _str
+	 */
     Parser(const QString& _str);
-    virtual ~Parser();
+    
+	/**
+	 * Destructor
+	 */
+	virtual ~Parser();
 
     /**
      * Start a new parse.

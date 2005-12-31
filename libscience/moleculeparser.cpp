@@ -16,7 +16,10 @@
 
 #include <kdebug.h>
 
-#include "kalziumdataobject.h"
+/* PORTING
+ * #include "kalziumdataobject.h"
+ */
+
 #include "moleculeparser.h"
 
 
@@ -188,10 +191,6 @@ MoleculeParser::parseTerm(double          *_resultMass,
     *_resultMass = 0.0;
 	_resultMap->clear();
  
-#if 0
-    kdDebug() << "parseTerm(): Next token =  "
-			  << nextToken() << endl;
-#endif
     if (nextToken() == ELEMENT_TOKEN) {
 		//kdDebug() << "Parsed an element: " << m_elementVal->symbol() << endl;
 		*_resultMass = m_elementVal->dataAsVariant( ChemicalDataObject::mass ).toDouble();
@@ -282,6 +281,9 @@ MoleculeParser::getNextToken()
 Element *
 MoleculeParser::lookupElement( const QString& _name )
 {
+	/** PORTING this cannot work because of course there is no KDO known in
+	 *  this library. We need to find a workaround here...
+	
     QList<Element*> elementList = KalziumDataObject::instance()->ElementList;
 
     //kdDebug() << "looking up " << _name << endl;
@@ -300,5 +302,7 @@ MoleculeParser::lookupElement( const QString& _name )
 	m_error = true;
 
 	kdDebug() << k_funcinfo << "no such element, parsing error!: " << _name << endl;
+
+	*/
 	return NULL;
 }

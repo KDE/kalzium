@@ -13,7 +13,9 @@ libscience_la_SOURCES = \
 	elementparser.cpp \
 	isotopeparser.cpp \
 	tempunit.cpp \
-	chemicaldataobject.cpp
+	chemicaldataobject.cpp \
+	moleculeparser.cpp \
+	parser.cpp
 
 libscience_la_LDFLAGS = $(all_libraries) -no-undefined -version-info 4:0:0
 libscience_la_LIBADD = $(LIB_KDEUI) 

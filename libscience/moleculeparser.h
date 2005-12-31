@@ -57,15 +57,45 @@ class ElementCountMap {
     ElementCountMap();
     ~ElementCountMap();
 
+	/**
+	 *
+	 */
     void  clear()          { m_map.clear(); }
 
+	/**
+	 * @param _element
+	 */
     ElementCount  *search(Element *_element);
+	
+	/**
+	 * @param _map
+	 */
     void           add(ElementCountMap &_map);
+	
+	/**
+	 * @param _element
+	 * @param _count
+	 */
     void           add(Element *_element, int _count);
+	
+	/**
+	 * @param _factor
+	 */
 	void           multiply(int _factor);
 
+	/**
+	 * typedef
+	 */
 	typedef QList<ElementCount*>::Iterator  Iterator;
+	
+	/**
+	 *
+	 */
 	Iterator   begin() { return  m_map.begin(); }
+	
+	/**
+	 *
+	 */
 	Iterator   end()   { return  m_map.end();   }
 
  private:
@@ -96,15 +126,30 @@ class ElementCountMap {
 class MoleculeParser : public Parser {
 
 public:
-    static const int  ELEMENT_TOKEN = 300;
-
+	/**
+	 * Constructor
+	 */
     MoleculeParser();
+	
+	/**
+	 * Constructor
+	 * 
+	 * @param _str @ref Parser::start the parsing with @p _str
+	 */
     MoleculeParser( const QString& _str);
+	
+	/**
+	 * Destructor
+	 */
     virtual ~MoleculeParser();
 
     /**
      * Try to parse the molecule @p molecule and get the weight of it.
      * The calculated weight is stored in @p _result.
+	 *
+	 * @param _moleculeString
+	 * @param _resultMass
+	 * @param _resultMap
      *
      * @return whether the parsing was successful or not
      */
@@ -117,6 +162,8 @@ public:
 							   ElementCountMap *_resultMap);
     bool      parseTerm(double          *_resultMass, 
 						ElementCountMap *_resultMap);
+
+    static const int  ELEMENT_TOKEN = 300;
 
     Element  *lookupElement( const QString& _name );
 
