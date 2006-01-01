@@ -18,7 +18,6 @@
  ***************************************************************************/
 
 #include "kalziumpainter.h"
-#include "kalziumpainter.moc"
 #include "kalziumdataobject.h"
 #include "kalziumtabletype.h"
 //#include "kalziumtabletypefactory.h"

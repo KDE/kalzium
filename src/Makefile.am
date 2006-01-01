@@ -27,8 +27,6 @@ kalzium_SOURCES = kalzium.cpp \
 			spectrumview.ui \
 			spectrumviewimpl.cpp \
 			kalziumutils.cpp \
-			parser.cpp \
-			moleculeparser.cpp \
 			animatedmoviewidget.cpp \
 			simplecrystalviewer.cpp \
 			kalziumgradienttype.cpp \
@@ -70,8 +68,6 @@ EXTRA_DIST = main.cpp \
 		spectrumview.ui \
 		spectrumviewimpl.cpp spectrumviewimpl.h	\
 		kalziumutils.cpp kalziumutils.h \
-		parser.cpp parser.h \
-		moleculeparser.cpp moleculeparser.h \
 		animatedmoviewidget.cpp animatedmoviewidget.h \
 		simplecrystalviewer.cpp simplecrystalviewer.h \
 		kalziumgradienttype.cpp kalziumgradienttype.h \

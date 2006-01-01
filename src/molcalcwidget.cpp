@@ -33,8 +33,9 @@
 #include <kpushbutton.h>
 #include <klineedit.h>
 
-#include <qlabel.h>
-#include <qlayout.h>
+#include <QLabel>
+#include <QLayout>
+#include <QToolTip>
 
 MolcalcWidget::MolcalcWidget( QWidget *parent )
     : QWidget( parent )
