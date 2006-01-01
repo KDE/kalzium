@@ -82,19 +82,19 @@ void MolcalcWidget::updateUI()
 		// 1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
 		QString complexString;
 
-//X 		// Create the list of elements making up the molecule
-//X 		ElementCountMap::Iterator  it    = m_elementMap.begin();
-//X 		const ElementCountMap::Iterator  itEnd = m_elementMap.end();
-//X 		for ( ; it != itEnd; ++it ) {
-//X 			// Update the resultLabel
-//X 			str += i18n( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" )
-//X 				.arg( (*it)->count() )
-//X 				.arg( (*it)->element()->dataAsString( ChemicalDataObject::name) );
-//X 		}
+		// Create the list of elements making up the molecule
+		ElementCountMap::Iterator  it    = m_elementMap.begin();
+		const ElementCountMap::Iterator  itEnd = m_elementMap.end();
+		for ( ; it != itEnd; ++it ) {
+			// Update the resultLabel
+			str += i18n( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" )
+				.arg( (*it)->count() )
+				.arg( (*it)->element()->dataAsString( ChemicalDataObject::name) );
+		}
 		ui.resultLabel->setText( str );
 
 		// The composition
-//X 		resultComposition->setText( compositionString(m_elementMap) );
+		ui.resultComposition->setText( compositionString(m_elementMap) );
 
 		// The mass
 		ui.resultMass->setText( i18n( "Molecular mass: %1 u" ).arg( m_mass ) );
@@ -143,7 +143,7 @@ void MolcalcWidget::slotCalcButtonClicked()
 
 	// Parse the molecule, and at the same time calculate the total
 	// mass, and the composition of it.
-//	m_validInput = m_parser->weight("CO2", &m_mass, &m_elementMap);
+	m_validInput = m_parser->weight("CO2", &m_mass, &m_elementMap);
 
 	updateUI();
 }
