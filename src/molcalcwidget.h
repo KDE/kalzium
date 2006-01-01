@@ -32,7 +32,7 @@
  * @author Pino Toscano
  * @author Inge Wallin
  */
-class MolcalcWidget : public QWidget, private Ui_MolcalcWidgetBase
+class MolcalcWidget : public QWidget
 {
 	Q_OBJECT
 	public:
@@ -61,8 +61,10 @@ class MolcalcWidget : public QWidget, private Ui_MolcalcWidgetBase
 		 */
 		void updateUI();
 
+		Ui_MolcalcWidgetBase ui;
+
 	private:
-		MoleculeParser   m_parser;
+		MoleculeParser   *m_parser;
 		
 		double           m_mass;
 		bool             m_validInput;

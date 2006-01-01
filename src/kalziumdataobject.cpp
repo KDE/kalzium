@@ -25,7 +25,7 @@
 #include <isotope.h>
 #include <spectrum.h>
 
-#include <qfile.h>
+#include <QFile>
 
 #include <klocale.h>
 #include <kdebug.h>

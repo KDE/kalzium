@@ -8,18 +8,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>223</width>
-    <height>212</height>
+    <width>373</width>
+    <height>393</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" >
+  <layout class="QGridLayout" >
    <property name="margin" >
-    <number>8</number>
+    <number>9</number>
    </property>
    <property name="spacing" >
     <number>6</number>
    </property>
-   <item>
+   <item row="0" column="0" >
     <spacer>
      <property name="orientation" >
       <enum>Qt::Vertical</enum>
@@ -35,7 +35,7 @@
      </property>
     </spacer>
    </item>
-   <item>
+   <item row="1" column="0" >
     <layout class="QHBoxLayout" >
      <property name="margin" >
       <number>0</number>
@@ -44,35 +44,54 @@
       <number>6</number>
      </property>
      <item>
-      <widget class="KLineEdit" name="formulaEdit" >
-       <property name="text" >
-        <string/>
-       </property>
-      </widget>
+      <widget class="KLineEdit" name="formulaEdit" />
      </item>
      <item>
-      <widget class="KPushButton" name="buttonCalc" >
+      <widget class="QPushButton" name="calcButton" >
        <property name="text" >
-        <string>Calc</string>
+        <string>PushButton</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item>
-    <widget class="Line" name="line1" >
-     <property name="frameShape" >
-      <enum>QFrame::HLine</enum>
+   <item row="6" column="0" >
+    <widget class="QLabel" name="resultMass" >
+     <property name="text" >
+      <string/>
      </property>
-     <property name="frameShadow" >
-      <enum>QFrame::Sunken</enum>
-     </property>
-     <property name="orientation" >
-      <enum>Qt::Horizontal</enum>
+     <property name="wordWrap" >
+      <bool>true</bool>
      </property>
     </widget>
    </item>
-   <item>
+   <item row="5" column="0" >
+    <widget class="QLabel" name="resultLabel" >
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="wordWrap" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" >
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType" >
+      <enum>QSizePolicy::MinimumExpanding</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>16</width>
+       <height>5</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="0" >
     <widget class="QLabel" name="resultComposition" >
      <property name="font" >
       <font>
@@ -96,39 +115,16 @@
      </property>
     </widget>
    </item>
-   <item>
-    <spacer>
+   <item row="2" column="0" >
+    <widget class="Line" name="line1" >
+     <property name="frameShape" >
+      <enum>QFrame::HLine</enum>
+     </property>
+     <property name="frameShadow" >
+      <enum>QFrame::Sunken</enum>
+     </property>
      <property name="orientation" >
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeType" >
-      <enum>QSizePolicy::MinimumExpanding</enum>
-     </property>
-     <property name="sizeHint" >
-      <size>
-       <width>16</width>
-       <height>5</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item>
-    <widget class="QLabel" name="resultLabel" >
-     <property name="text" >
-      <string/>
-     </property>
-     <property name="wordWrap" >
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLabel" name="resultMass" >
-     <property name="text" >
-      <string/>
-     </property>
-     <property name="wordWrap" >
-      <bool>true</bool>
+      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
@@ -141,13 +137,6 @@
    <class>KLineEdit</class>
    <extends></extends>
    <header>klineedit.h</header>
-   <container>0</container>
-   <pixmap></pixmap>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends></extends>
-   <header>kpushbutton.h</header>
    <container>0</container>
    <pixmap></pixmap>
   </customwidget>

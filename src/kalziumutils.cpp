@@ -13,10 +13,9 @@
 
 #include "kalziumutils.h"
 
-#include <qfont.h>
-#include <qglobal.h>
-#include <qrect.h>
-#include <qpainter.h>
+#include <QFont>
+#include <QRect>
+#include <QPainter>
 
 #include <kdebug.h>
 #include <klocale.h>
