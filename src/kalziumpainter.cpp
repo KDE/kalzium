@@ -113,7 +113,8 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 	const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
 //kdDebug() << "ELEMENT: " << element << "  RECT: " << rect << endl;
 
-bool grayedOut = true;
+	bool grayedOut = true;
+	
 	
 	switch ( m_mode )
 	{
@@ -209,6 +210,17 @@ bool grayedOut = true;
 			m_painter->drawRect( rect );
 
 			m_painter->drawText( rect, Qt::AlignCenter, symbol );
+			break;
+		}
+		case PIXMAP:
+		{
+			QPixmap pixmap = KalziumDataObject::instance()->pixmap( el->dataAsString( ChemicalDataObject::atomicNumber ).toInt() );
+			QBrush c = QBrush( pixmap );
+			QColor textc = m_scheme->textColor( element );
+			m_painter->setPen( textc );
+	
+			m_painter->fillRect( rect, c );
+			m_painter->drawRect( rect );
 			break;
 		}
 	}
@@ -351,7 +363,10 @@ bool KalziumPainter::legendShown() const
 
 void KalziumPainter::setMode( MODE m )
 {
-	m_mode = m;
+	//FIXME I still haven't found out how the MODE-setting should really work...
+	m_mode = KalziumPainter::PIXMAP;
+
+//	m_mode = m;
 }
 
 KalziumPainter::MODE KalziumPainter::mode() const

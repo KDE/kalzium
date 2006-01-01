@@ -58,11 +58,9 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 
 	connect( combo, SIGNAL( activated( const QString& ) ), this, SLOT( slotCrystalChanged( const QString& ) ) );
 
-	//FIXME The path is of course wrong
-	m_basePath = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" ) + "kalzium/data/lattice";
+	//m_basePath = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" ) + "kalzium/data/lattice";
 
-	kdDebug() << m_basePath << endl;
-
+//FIXME The path is of course wrong
 	m_basePath = "/home/kde4/svn/kdeedu/kalzium/data/lattice";
 
 	QDir dir( m_basePath );

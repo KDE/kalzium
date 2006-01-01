@@ -52,9 +52,30 @@ KalziumDataObject::KalziumDataObject()
 	reader.parse(source);
 
 	ElementList = parser->getElements();
-
+	
 	// cache it
 	m_numOfElements = ElementList.count();
+	
+	for ( int i = 0 ; i < m_numOfElements ; i++ )
+	{
+		QString setname = "school";
+	
+//		QString pathname = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" ) + "kalzium/iconsets/";
+		
+//FIXME The path is of course wrong
+		QString pathname = "/home/kde4/svn/kdeedu/kalzium/data/iconsets/";
+		
+		QString filename = pathname + setname + "/" + QString::number( i+1 ) + ".jpg";
+
+		QFile file( filename );
+		if ( file.exists() ) {
+			PixmapList << QPixmap( filename );
+		}
+		else {
+			PixmapList << QPixmap();
+		}
+	}
+
 }
 
 KalziumDataObject::~KalziumDataObject()
@@ -69,3 +90,10 @@ Element* KalziumDataObject::element( int number )
 	return ElementList[ number-1 ];
 }
 
+QPixmap KalziumDataObject::pixmap( int number )
+{
+	// checking that we are requesting a valid element
+	if ( ( number <= 0 ) || ( number > m_numOfElements ) )
+		return 0;
+	return PixmapList[ number-1 ];
+}

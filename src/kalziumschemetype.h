@@ -164,4 +164,26 @@ class KalziumBlocksSchemeType : public KalziumSchemeType
 		KalziumBlocksSchemeType();
 };
 
+/**
+ * The scheme for iconic representation.
+ *
+ * @author Carsten Niehaus
+ */
+class KalziumIconicSchemeType : public KalziumSchemeType
+{
+	public:
+		static KalziumIconicSchemeType* instance();
+		
+		QByteArray name() const;
+		QString description() const;
+
+		QGradient elementGradient( int el, const QRect& elrect ) const;
+		QColor textColor( int el ) const;
+
+		legendList legendItems() const;
+
+	private:
+		KalziumIconicSchemeType();
+};
+
 #endif // KALZIUMSCHEMETYPE_H

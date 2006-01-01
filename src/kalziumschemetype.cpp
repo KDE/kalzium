@@ -31,6 +31,7 @@ KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
 {
 	m_schemes << KalziumMonoColorSchemeType::instance();
 	m_schemes << KalziumBlocksSchemeType::instance();
+	m_schemes << KalziumIconicSchemeType::instance();
 }
 
 KalziumSchemeTypeFactory* KalziumSchemeTypeFactory::instance()
@@ -183,5 +184,49 @@ legendList KalziumBlocksSchemeType::legendItems() const
 	ll << qMakePair( i18n( "p-Block" ), Prefs::block_p() );
 	ll << qMakePair( i18n( "d-Block" ), Prefs::block_d() );
 	ll << qMakePair( i18n( "f-Block" ), Prefs::block_f() );
+	return ll;
+}
+
+///ICONIC SCHEME///
+
+KalziumIconicSchemeType::KalziumIconicSchemeType()
+  : KalziumSchemeType()
+{
+}
+
+KalziumIconicSchemeType* KalziumIconicSchemeType::instance()
+{
+	static KalziumIconicSchemeType kbst;
+	return &kbst;
+}
+
+QByteArray KalziumIconicSchemeType::name() const
+{
+	return "Iconic";
+}
+
+QString KalziumIconicSchemeType::description() const
+{
+	return i18n( "Iconic" );
+}
+
+QGradient KalziumIconicSchemeType::elementGradient( int el, const QRect& elrect ) const
+{
+	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
+	
+	linearGrad.setColorAt( 0, QColor( Qt::yellow ) );
+	linearGrad.setColorAt( 1, QColor( Qt::green ) );
+	return linearGrad;
+}
+
+QColor KalziumIconicSchemeType::textColor( int el ) const
+{
+	Q_UNUSED( el );
+	return Qt::black;
+}
+
+legendList KalziumIconicSchemeType::legendItems() const
+{
+	legendList ll;
 	return ll;
 }

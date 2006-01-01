@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 #include <element.h>
+#include <QPixmap>
 
 /**
  * @short This class contains all Element objects
@@ -58,7 +59,9 @@ class KalziumDataObject
 		 * @param number the number of the Element which will be returned
 		 */
 		Element* element( int number );
-
+	
+		QPixmap pixmap( int number );
+		
 		/**
 		 * Use this to get the number of elements we have. It is cached
 		 * so you are strongly suggested to use this instead of hardcode
@@ -70,6 +73,8 @@ class KalziumDataObject
 	private:
 		KalziumDataObject();
 		~KalziumDataObject();
+	
+		QList<QPixmap> PixmapList;
 
 		/**
 		 * Caching the number of elements
