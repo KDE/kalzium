@@ -25,6 +25,7 @@
 #include <qlabel.h>
 #include <qlayout.h>
 
+#include <kdebug.h>
 #include <kcombobox.h>
 #include <kglobal.h>
 #include <klocale.h>
@@ -57,15 +58,21 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 
 	connect( combo, SIGNAL( activated( const QString& ) ), this, SLOT( slotCrystalChanged( const QString& ) ) );
 
-	m_basePath = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" ) + "kalzium/data/lattice/";
+	//FIXME The path is of course wrong
+	m_basePath = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" ) + "kalzium/data/lattice";
+
+	kdDebug() << m_basePath << endl;
+
+	m_basePath = "/home/kde4/svn/kdeedu/kalzium/data/lattice";
 
 	QDir dir( m_basePath );
 	QStringList tmplist = dir.entryList();
 	tmplist.removeAll( "." );
 	tmplist.removeAll( ".." );
+
 	for ( int i = 0; i < tmplist.size(); i++ )
 	{
-		QFileInfo fi( m_basePath + tmplist.at( i ) );
+		QFileInfo fi( m_basePath + "/" + tmplist.at( i ) );
 		if ( fi.isDir() )
 			combo->addItem( tmplist.at( i ) );
 	}
@@ -75,7 +82,7 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 
 void SimpleCrystalViewer::slotCrystalChanged( const QString& which )
 {
-	m_movie->setPicturePath( m_basePath + which );
+	m_movie->setPicturePath( m_basePath + "/" + which );
 }
 
 #include "simplecrystalviewer.moc"

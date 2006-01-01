@@ -29,6 +29,7 @@
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <kpushbutton.h>
+#include <kdebug.h>
 
 AnimatedMovieWidget::AnimatedMovieWidget( QWidget *parent )
     : QWidget( parent )
@@ -100,6 +101,7 @@ void AnimatedMovieWidget::init()
 
 void AnimatedMovieWidget::setPicturePath( const QString& path )
 {
+	//kdDebug() << "AnimatedMovieWidget::setPicturePath()" << endl;
 	if ( path.isEmpty() )
 		return;
 
@@ -113,6 +115,8 @@ void AnimatedMovieWidget::setPicturePath( const QString& path )
 
 void AnimatedMovieWidget::reloadImages()
 {
+	kdDebug() << "AnimatedMovieWidget::reloadImages() in " << m_picpath << endl;
+
 	m_currentPictureId = 0;
 
 	m_pics.clear();
@@ -122,11 +126,14 @@ void AnimatedMovieWidget::reloadImages()
 	int i;
 	for ( i = 0; i < tmplist.size(); i++ )
 	{
+		kdDebug() << tmplist[ i ] << endl;
 		if ( imgre.indexIn( tmplist.at( i ) ) > -1 )
 			m_pics << tmplist.at( i );
 	}
 	if ( m_pics.isEmpty() )
 		return;
+	
+	kdDebug() << "reloadImages:: creating the animation" << endl;
 	
 	uint maxlength = 0;
 	for ( i = 0; i < m_pics.size(); i++ )
@@ -150,15 +157,21 @@ void AnimatedMovieWidget::reloadImages()
 		m_pix->setPixmap( QPixmap() );
 		m_pix->resize( 100, 100 );
 	}
+	kdDebug() << "reloadImages:: now resize" << endl;
 	resize( minimumSizeHint() );
 }
 
 void AnimatedMovieWidget::loadImage( int id )
 {
+	kdDebug() << "AnimatedMovieWidget::loadImage(), id: " << id  << endl;
+	
 	if ( ( id < 0 ) || ( id >= m_pics.size() ) )
 		return;
 
-	QPixmap tmp( m_picpath + "/" + m_pics.at( id ) );
+	QString tmpFile = m_picpath + "/" + m_pics.at( id );
+	QPixmap tmp( tmpFile );
+	kdDebug() << "loadImage: if check false, tmp-fileName: "<< tmpFile << endl;
+
 	m_pix->setPixmap( tmp );
 	m_pix->resize( tmp.size() );
 }
