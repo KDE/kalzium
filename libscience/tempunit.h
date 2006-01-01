@@ -20,15 +20,15 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-#include <qpair.h>
-#include <qstringlist.h>
+#include <QPair>
+#include <QStringList>
 
 /**
  * This class obtains all the info needed to work with the units of measure
  * of temperature.
  *
  * It has static methods you can call to get the various infos. The most
- * important methods is convert(), that performs conversions.
+ * important method is convert(), that performs conversions.
  *
  * @author Pino Toscano
  */

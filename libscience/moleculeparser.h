@@ -170,9 +170,11 @@ class MoleculeParser : public Parser {
 
 public:
 	/**
+	 * @param list This list of chemical elements will be used internally
+	 * for searching and matching with searched strings
 	 * Constructor
 	 */
-    MoleculeParser();
+    MoleculeParser( const QList<Element*>& list );
 	
 	/**
 	 * Constructor
@@ -205,6 +207,8 @@ public:
 							   ElementCountMap *_resultMap);
     bool      parseTerm(double          *_resultMass, 
 						ElementCountMap *_resultMap);
+
+	QList<Element*> m_elementList;
 
     static const int  ELEMENT_TOKEN = 300;
 

@@ -109,9 +109,10 @@ ElementCountMap::multiply(int _factor)
 //                    class MoleculeParser
 
 
-MoleculeParser::MoleculeParser()
+MoleculeParser::MoleculeParser( const QList<Element*>& list)
     : Parser()
 {
+	m_elementList = list;
 }
 
 
@@ -294,28 +295,31 @@ MoleculeParser::getNextToken()
 Element *
 MoleculeParser::lookupElement( const QString& _name )
 {
-	/** PORTING this cannot work because of course there is no KDO known in
-	 *  this library. We need to find a workaround here...
-	
-    QList<Element*> elementList = KalziumDataObject::instance()->ElementList;
+//X     QList<Element*> elementList = KalziumDataObject::instance()->ElementList;
 
-    //kdDebug() << "looking up " << _name << endl;
+    kdDebug() << "looking up " << _name << endl;
 
-    QList<Element*>::ConstIterator        it  = elementList.constBegin();
-    const QList<Element*>::ConstIterator  end = elementList.constEnd();
+//X     QList<Element*>::ConstIterator        it  = elementList.constBegin();
+//X     const QList<Element*>::ConstIterator  end = elementList.constEnd();
 
-	for (; it != end; ++it) {
-		if ( (*it)->dataAsVariant(ChemicalDataObject::symbol) == _name ) {
+	foreach( Element* e, m_elementList ){
+		if ( e->dataAsVariant(ChemicalDataObject::symbol) == _name ) {
 			kdDebug() << "Found element " << _name << endl;
-			return *it;
+			return e;
 		}
 	}
+
+//X 	for (; it != end; ++it) {
+//X 		if ( (*it)->dataAsVariant(ChemicalDataObject::symbol) == _name ) {
+//X 			kdDebug() << "Found element " << _name << endl;
+//X 			return *it;
+//X 		}
+//X 	}
 
 	//if there is an error make m_error true.
 	m_error = true;
 
 	kdDebug() << k_funcinfo << "no such element, parsing error!: " << _name << endl;
 
-	*/
 	return NULL;
 }
