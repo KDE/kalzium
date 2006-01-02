@@ -35,7 +35,7 @@ void SpectrumViewImpl::slotExportAsImage()
 {
 	Exporter* exporter = new Exporter();
 	QString fileName = KFileDialog::getSaveFileName(
-	                        QString::null, exporter->supportedImageFormats(),
+	                        QString(), exporter->supportedImageFormats(),
 	                        this, i18n( "Save Spectrum" ) );
 	if( !fileName.isEmpty() )
 	{
