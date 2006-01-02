@@ -35,6 +35,7 @@ KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
 	m_schemes << KalziumIconicSchemeType::instance();
 	m_schemes << KalziumFamilySchemeType::instance();
 	m_schemes << KalziumAcidicSchemeType::instance();
+	m_schemes << KalziumGroupsSchemeType::instance();
 }
 
 KalziumSchemeTypeFactory* KalziumSchemeTypeFactory::instance()
@@ -384,6 +385,92 @@ legendList KalziumAcidicSchemeType::legendItems() const
 	ll << qMakePair( i18n( "Acidic" ), Prefs::beh_acidic() );
 	ll << qMakePair( i18n( "Neutral" ), Prefs::beh_neutral() );
 	ll << qMakePair( i18n( "Amphoteric" ), Prefs::beh_amphoteric() );
+
+	return ll;
+}
+
+
+///GROUPS///
+
+KalziumGroupsSchemeType::KalziumGroupsSchemeType()
+  : KalziumSchemeType()
+{
+}
+
+KalziumGroupsSchemeType* KalziumGroupsSchemeType::instance()
+{
+	static KalziumGroupsSchemeType kbst;
+	return &kbst;
+}
+
+QByteArray KalziumGroupsSchemeType::name() const
+{
+	return "Groups";
+}
+
+QString KalziumGroupsSchemeType::description() const
+{
+	return i18n( "Groups" );
+}
+
+QBrush KalziumGroupsSchemeType::elementBrush( int el, const QRect& elrect ) const
+{
+	//TODO FIXME I need to load the data somehow
+	QString group = "1";
+
+	QColor c;
+
+	//FIXME the strings need to be adjusted
+	if (  group == QLatin1String(  "1" ) ){
+		c = Prefs::group_1();
+	}
+	if (  group == QLatin1String(  "2" ) ){
+		c = Prefs::group_2();
+	}
+	if (  group == QLatin1String(  "3" ) ){
+		c = Prefs::group_3();
+	}
+	if (  group == QLatin1String(  "4" ) ){
+		c = Prefs::group_4();
+	}
+	if (  group == QLatin1String(  "5" ) ){
+		c = Prefs::group_5();
+	}
+	if (  group == QLatin1String(  "6" ) ){
+		c = Prefs::group_6();
+	}
+	if (  group == QLatin1String(  "7" ) ){
+		c = Prefs::group_7();
+	}
+	if (  group == QLatin1String(  "8" ) ){
+		c = Prefs::group_8();
+	}
+	else
+		c = Qt::lightGray;
+
+	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
+	linearGrad.setColorAt( 0, c );
+	linearGrad.setColorAt( 1, c );
+	return QBrush( linearGrad );
+}
+
+QColor KalziumGroupsSchemeType::textColor( int el ) const
+{
+	Q_UNUSED( el );
+	return Qt::black;
+}
+
+legendList KalziumGroupsSchemeType::legendItems() const
+{
+	legendList ll;
+	ll << qMakePair( i18n( "Group 1" ), Prefs::group_1() );
+	ll << qMakePair( i18n( "Group 2" ), Prefs::group_2() );
+	ll << qMakePair( i18n( "Group 3" ), Prefs::group_3() );
+	ll << qMakePair( i18n( "Group 4" ), Prefs::group_4() );
+	ll << qMakePair( i18n( "Group 5" ), Prefs::group_5() );
+	ll << qMakePair( i18n( "Group 6" ), Prefs::group_6() );
+	ll << qMakePair( i18n( "Group 7" ), Prefs::group_7() );
+	ll << qMakePair( i18n( "Group 7" ), Prefs::group_8() );
 
 	return ll;
 }
