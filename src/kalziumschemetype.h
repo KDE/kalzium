@@ -252,4 +252,26 @@ class KalziumGroupsSchemeType : public KalziumSchemeType
 		KalziumGroupsSchemeType();
 };
 
+/**
+ * The scheme for groups representation.
+ *
+ * @author Carsten Niehaus
+ */
+class KalziumCrystalSchemeType : public KalziumSchemeType
+{
+	public:
+		static KalziumCrystalSchemeType* instance();
+		
+		QByteArray name() const;
+		QString description() const;
+
+		QBrush elementBrush( int el, const QRect& elrect ) const;
+		QColor textColor( int el ) const;
+
+		legendList legendItems() const;
+
+	private:
+		KalziumCrystalSchemeType();
+};
+
 #endif // KALZIUMSCHEMETYPE_H

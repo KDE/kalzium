@@ -36,6 +36,7 @@ KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
 	m_schemes << KalziumFamilySchemeType::instance();
 	m_schemes << KalziumAcidicSchemeType::instance();
 	m_schemes << KalziumGroupsSchemeType::instance();
+	m_schemes << KalziumCrystalSchemeType::instance();
 }
 
 KalziumSchemeTypeFactory* KalziumSchemeTypeFactory::instance()
@@ -391,7 +392,6 @@ legendList KalziumAcidicSchemeType::legendItems() const
 
 
 ///GROUPS///
-
 KalziumGroupsSchemeType::KalziumGroupsSchemeType()
   : KalziumSchemeType()
 {
@@ -471,6 +471,79 @@ legendList KalziumGroupsSchemeType::legendItems() const
 	ll << qMakePair( i18n( "Group 6" ), Prefs::group_6() );
 	ll << qMakePair( i18n( "Group 7" ), Prefs::group_7() );
 	ll << qMakePair( i18n( "Group 7" ), Prefs::group_8() );
+
+	return ll;
+}
+
+///CRYSTAL///
+KalziumCrystalSchemeType::KalziumCrystalSchemeType()
+  : KalziumSchemeType()
+{
+}
+
+KalziumCrystalSchemeType* KalziumCrystalSchemeType::instance()
+{
+	static KalziumCrystalSchemeType kbst;
+	return &kbst;
+}
+
+QByteArray KalziumCrystalSchemeType::name() const
+{
+	return "Crystal";
+}
+
+QString KalziumCrystalSchemeType::description() const
+{
+	return i18n( "Crystal Structures" );
+}
+
+QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& elrect ) const
+{
+	//TODO FIXME I need to load the data somehow
+	QString crystal = "ccp";
+
+	QColor c;
+
+	//FIXME the strings need to be adjusted
+	if (  crystal == QLatin1String(  "own" ) ){
+		c = Prefs::crystal_own();
+	}
+	if (  crystal == QLatin1String(  "bcc" ) ){
+		c = Prefs::crystal_bcc();
+	}
+	if (  crystal == QLatin1String(  "hdp" ) ){
+		c = Prefs::crystal_hdp();
+	}
+	if (  crystal == QLatin1String(  "ccp" ) ){
+		c = Prefs::crystal_ccp();
+	}
+	if (  crystal == QLatin1String(  "unknown" ) ){
+		c = Prefs::crystal_unknown();
+	}
+	else
+		c = Qt::lightGray;
+	
+
+	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
+	linearGrad.setColorAt( 0, c );
+	linearGrad.setColorAt( 1, c );
+	return QBrush( linearGrad );
+}
+
+QColor KalziumCrystalSchemeType::textColor( int el ) const
+{
+	Q_UNUSED( el );
+	return Qt::black;
+}
+
+legendList KalziumCrystalSchemeType::legendItems() const
+{
+	legendList ll;
+	ll << qMakePair(  i18n( "Own" ), Prefs::crystal_own() );
+	ll << qMakePair(  i18n( "bcc, body centered cubic" ), Prefs::crystal_bcc() );
+	ll << qMakePair(  i18n( "hdp, hexagonal" ), Prefs::crystal_hdp() );
+	ll << qMakePair(  i18n( "ccp, cubic close packed" ), Prefs::crystal_ccp() );
+	ll << qMakePair(  i18n( "Unknown" ), Prefs::crystal_unknown() );
 
 	return ll;
 }
