@@ -19,12 +19,12 @@
 
 #include "animatedmoviewidget.h"
 
-#include <qdir.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qpixmap.h>
-#include <qregexp.h>
-#include <qsizepolicy.h>
+#include <QDir>
+#include <QLabel>
+#include <QLayout>
+#include <QPixmap>
+#include <QRegExp>
+#include <QSizePolicy>
 
 #include <kglobal.h>
 #include <kiconloader.h>

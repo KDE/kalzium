@@ -20,10 +20,10 @@
 
 #include "simplecrystalviewer.h"
 
-#include <qdir.h>
-#include <qfileinfo.h>
-#include <qlabel.h>
-#include <qlayout.h>
+#include <QFileInfo>
+#include <QLabel>
+#include <QDir>
+#include <QLayout>
 
 #include <kdebug.h>
 #include <kcombobox.h>

@@ -19,9 +19,9 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-#include <qstringlist.h>
-#include <qtimer.h>
-#include <qwidget.h>
+#include <QStringList>
+#include <QTimer>
+#include <QWidget>
 
 class QLabel;
 class KPushButton;
