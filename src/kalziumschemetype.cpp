@@ -33,6 +33,7 @@ KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
 	m_schemes << KalziumMonoColorSchemeType::instance();
 	m_schemes << KalziumBlocksSchemeType::instance();
 	m_schemes << KalziumIconicSchemeType::instance();
+	m_schemes << KalziumFamilySchemeType::instance();
 }
 
 KalziumSchemeTypeFactory* KalziumSchemeTypeFactory::instance()
@@ -227,5 +228,90 @@ QColor KalziumIconicSchemeType::textColor( int el ) const
 legendList KalziumIconicSchemeType::legendItems() const
 {
 	legendList ll;
+	return ll;
+}
+
+
+///Family///
+KalziumFamilySchemeType::KalziumFamilySchemeType()
+  : KalziumSchemeType()
+{
+}
+
+KalziumFamilySchemeType* KalziumFamilySchemeType::instance()
+{
+	static KalziumFamilySchemeType kbst;
+	return &kbst;
+}
+
+QByteArray KalziumFamilySchemeType::name() const
+{
+	return "Family";
+}
+
+QString KalziumFamilySchemeType::description() const
+{
+	return i18n( "Family" );
+}
+
+QBrush KalziumFamilySchemeType::elementBrush( int el, const QRect& elrect ) const
+{
+	QString family = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::family );
+
+	QColor c;
+
+	if (  family == QLatin1String(  "Noblegas" ) ){
+		c = Prefs::noble_gas();
+	}
+	if (  family == QLatin1String(  "Non-Metal" ) ){
+		c = Prefs::nonmetal();
+	}
+	if (  family == QLatin1String(  "Rare_Earth" ) ){
+		c = Prefs::rare();
+	}
+	if (  family == QLatin1String(  "Alkaline_Earth" ) ){
+		c = Prefs::alkaline();
+	}
+	if (  family == QLatin1String(  "Alkali_Earth" ) ){
+		c = Prefs::alkalie();
+	}
+	if (  family == QLatin1String(  "Transition" ) ){
+		c = Prefs::transition();
+	}
+	if (  family == QLatin1String(  "Other_Metal" ) ){
+		c = Prefs::other_metal();
+	}
+	if (  family == QLatin1String(  "Metalloids" ) ){
+		c = Prefs::metalloid();
+	}
+	if (  family == QLatin1String(  "Halogene" ) ){
+		c = Prefs::halogene();
+	}
+
+	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
+	linearGrad.setColorAt( 0, c );
+	linearGrad.setColorAt( 1, c );
+	return QBrush( linearGrad );
+}
+
+QColor KalziumFamilySchemeType::textColor( int el ) const
+{
+	Q_UNUSED( el );
+	return Qt::black;
+}
+
+legendList KalziumFamilySchemeType::legendItems() const
+{
+	legendList ll;
+	ll << qMakePair( i18n( "Alkaline" ),Prefs::alkalie() );
+	ll << qMakePair( i18n( "Rare Earth" ),Prefs::rare() );
+	ll << qMakePair( i18n( "Non-Metals" ),Prefs::nonmetal() );
+	ll << qMakePair( i18n( "Alkalie-Metal" ),Prefs::alkaline() );
+	ll << qMakePair( i18n( "Other Metal" ),Prefs::other_metal() );
+	ll << qMakePair( i18n( "Halogene" ),Prefs::halogene() );
+	ll << qMakePair( i18n( "Transition Metal" ),Prefs::transition() );
+	ll << qMakePair( i18n( "Noble Gas" ),Prefs::noble_gas() );
+	ll << qMakePair( i18n( "Metalloid" ),Prefs::metalloid() );
+
 	return ll;
 }
