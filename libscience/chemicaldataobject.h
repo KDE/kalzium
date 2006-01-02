@@ -57,6 +57,7 @@ class ChemicalDataObject
 			meltingpoint/**< the meltingpoint */,
 			boilingpoint/**< the boilingpoint */,
 			periodTableBlock/**< the block of the element */,
+			family/** "Noblegas" "Non-Metal" "Rare_Earth" "Alkaline_Earth" "Alkali_Earth" "Transition" "Other_Metal" "Metalloids" "Halogene" */,
 			nameOrigin/**< the origin of the name */,
 			orbit/**< the quantumorbit of the element */,
 			period/**< the period of the element */,
