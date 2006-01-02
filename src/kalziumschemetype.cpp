@@ -288,6 +288,8 @@ QBrush KalziumFamilySchemeType::elementBrush( int el, const QRect& elrect ) cons
 	if (  family == QLatin1String(  "Halogene" ) ){
 		c = Prefs::halogene();
 	}
+	else
+		c = Qt::lightGray;
 
 	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
 	linearGrad.setColorAt( 0, c );
@@ -360,6 +362,8 @@ QBrush KalziumAcidicSchemeType::elementBrush( int el, const QRect& elrect ) cons
 	if (  acid == QLatin1String(  "Alkaline_Earth" ) ){
 		c = Prefs::beh_amphoteric();
 	}
+	else
+		c = Qt::lightGray;
 
 	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
 	linearGrad.setColorAt( 0, c );
