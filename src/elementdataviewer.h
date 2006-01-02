@@ -63,6 +63,7 @@ class ElementDataViewer : public KDialogBase
 		Ui_PlotSetupWidget *m_pPlotSetupWidget;
 
 		QStringList         names;
+		QStringList         symbols;
 
 		KActionCollection* m_actionCollection;
 

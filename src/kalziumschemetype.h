@@ -25,7 +25,7 @@ class KalziumSchemeType;
 
 #include <QByteArray>
 #include <QColor>
-#include <QGradient>
+#include <QBrush>
 #include <QPair>
 #include <QRect>
 #include <QStringList>
@@ -96,15 +96,15 @@ class KalziumSchemeType
 		virtual QString description() const = 0;
 
 		/**
-		 * Returns the gradient with which the element with number
+		 * Returns the brush with which the element with number
 		 * @p el should be painted.
 		 *
 		 * @param el Element number
 		 * @param elrect is the rect designed for the element
 		 *
-		 * @return A gradient for painting in @p elrect
+		 * @return A brush for painting in @p elrect
 		 */
-		virtual QGradient elementGradient( int el, const QRect& elrect ) const = 0;
+		virtual QBrush elementBrush( int el, const QRect& elrect ) const = 0;
 		/**
 		 * Returns the color which will be used to draw the texts for
 		 * the element with atomic number @p el.
@@ -133,7 +133,7 @@ class KalziumMonoColorSchemeType : public KalziumSchemeType
 		QByteArray name() const;
 		QString description() const;
 
-		QGradient elementGradient( int el, const QRect& elrect ) const;
+		QBrush elementBrush( int el, const QRect& elrect ) const;
 		QColor textColor( int el ) const;
 
 		legendList legendItems() const;
@@ -155,7 +155,7 @@ class KalziumBlocksSchemeType : public KalziumSchemeType
 		QByteArray name() const;
 		QString description() const;
 
-		QGradient elementGradient( int el, const QRect& elrect ) const;
+		QBrush elementBrush( int el, const QRect& elrect ) const;
 		QColor textColor( int el ) const;
 
 		legendList legendItems() const;
@@ -177,7 +177,7 @@ class KalziumIconicSchemeType : public KalziumSchemeType
 		QByteArray name() const;
 		QString description() const;
 
-		QGradient elementGradient( int el, const QRect& elrect ) const;
+		QBrush elementBrush( int el, const QRect& elrect ) const;
 		QColor textColor( int el ) const;
 
 		legendList legendItems() const;

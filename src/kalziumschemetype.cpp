@@ -22,6 +22,7 @@
 #include "kalziumdataobject.h"
 #include "prefs.h"
 
+#include <QBrush>
 #include <QLinearGradient>
 #include <QVariant>
 
@@ -105,13 +106,13 @@ QString KalziumMonoColorSchemeType::description() const
 	return i18n( "One Colour" );
 }
 
-QGradient KalziumMonoColorSchemeType::elementGradient( int el, const QRect& elrect ) const
+QBrush KalziumMonoColorSchemeType::elementBrush( int el, const QRect& elrect ) const
 {
 	Q_UNUSED( el );
 	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
 	linearGrad.setColorAt( 0, Prefs::noscheme() );
 	linearGrad.setColorAt( 1, Prefs::noscheme() );
-	return linearGrad;
+	return QBrush( linearGrad );
 }
 
 QColor KalziumMonoColorSchemeType::textColor( int el ) const
@@ -149,7 +150,7 @@ QString KalziumBlocksSchemeType::description() const
 	return i18n( "Blocks" );
 }
 
-QGradient KalziumBlocksSchemeType::elementGradient( int el, const QRect& elrect ) const
+QBrush KalziumBlocksSchemeType::elementBrush( int el, const QRect& elrect ) const
 {
 	QString block = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::periodTableBlock );
 
@@ -168,7 +169,7 @@ QGradient KalziumBlocksSchemeType::elementGradient( int el, const QRect& elrect 
 	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
 	linearGrad.setColorAt( 0, c );
 	linearGrad.setColorAt( 1, c );
-	return linearGrad;
+	return QBrush( linearGrad );
 }
 
 QColor KalziumBlocksSchemeType::textColor( int el ) const
@@ -196,8 +197,8 @@ KalziumIconicSchemeType::KalziumIconicSchemeType()
 
 KalziumIconicSchemeType* KalziumIconicSchemeType::instance()
 {
-	static KalziumIconicSchemeType kbst;
-	return &kbst;
+	static KalziumIconicSchemeType kist;
+	return &kist;
 }
 
 QByteArray KalziumIconicSchemeType::name() const
@@ -210,13 +211,13 @@ QString KalziumIconicSchemeType::description() const
 	return i18n( "Iconic" );
 }
 
-QGradient KalziumIconicSchemeType::elementGradient( int el, const QRect& elrect ) const
+QBrush KalziumIconicSchemeType::elementBrush( int el, const QRect& elrect ) const
 {
 	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
 	
 	linearGrad.setColorAt( 0, QColor( Qt::yellow ) );
 	linearGrad.setColorAt( 1, QColor( Qt::green ) );
-	return linearGrad;
+	return QBrush( linearGrad );
 }
 
 QColor KalziumIconicSchemeType::textColor( int el ) const

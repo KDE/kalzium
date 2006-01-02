@@ -17,8 +17,13 @@
 #include <kplotwidget.h>
 
 /**
- * @short This class add the abilitiy to connect the plotted
- * data using a line.
+ * @short This class add the ability to connect the plotted data using a line
+ *
+ * PlotWidget is basically like a KPlotWidget; the unique feature it has more
+ * it's the ability to connect the drawn points with a line.
+ * Used as an handy way to connect points instead of adding ourselves the
+ * connection lines as KPlotObjects.
+ *
  * @author Carsten Niehaus
  */
 class PlotWidget : public KPlotWidget
@@ -26,7 +31,7 @@ class PlotWidget : public KPlotWidget
 	Q_OBJECT
 
 	public:
-		PlotWidget( double x1 = 0.0, double x2 = 0.0, double y1 = 0.0, double y2 = 0.0, QWidget *parent = 0 );
+		PlotWidget( double x1 = 0.0, double x2 = 0.0, double y1 = 1.0, double y2 = 1.0, QWidget *parent = 0 );
 
 		/**
 		 * toggles if the points will be connected with 

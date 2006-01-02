@@ -120,14 +120,20 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 	{
 		case NORMAL:
 		{
-			QBrush c = QBrush( m_scheme->elementGradient( element, rect ) );
-			QColor textc = m_scheme->textColor( element );
-			m_painter->setPen( textc );
-	
+			QBrush c = m_scheme->elementBrush( element, rect );
+			m_painter->setBrushOrigin( rect.topLeft() );
 			m_painter->fillRect( rect, c );
-			m_painter->drawRect( rect );
+			if ( c.texture().isNull() )
+			{
+				// the brush doesn't have any texture,
+				// so proceeding with normal colors and texts
+				QColor textc = m_scheme->textColor( element );
+				m_painter->setPen( textc );
 
-			m_painter->drawText( rect, Qt::AlignCenter, symbol );
+				m_painter->drawRect( rect );
+
+				m_painter->drawText( rect, Qt::AlignCenter, symbol );
+			}
 			break;
 		}
 		case SOM:
@@ -210,17 +216,6 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 			m_painter->drawRect( rect );
 
 			m_painter->drawText( rect, Qt::AlignCenter, symbol );
-			break;
-		}
-		case PIXMAP:
-		{
-			QPixmap pixmap = KalziumDataObject::instance()->pixmap( el->dataAsString( ChemicalDataObject::atomicNumber ).toInt() );
-			QBrush c = QBrush( pixmap );
-			QColor textc = m_scheme->textColor( element );
-			m_painter->setPen( textc );
-	
-			m_painter->fillRect( rect, c );
-			m_painter->drawRect( rect );
 			break;
 		}
 	}
@@ -363,10 +358,7 @@ bool KalziumPainter::legendShown() const
 
 void KalziumPainter::setMode( MODE m )
 {
-	//FIXME I still haven't found out how the MODE-setting should really work...
-	m_mode = KalziumPainter::PIXMAP;
-
-//	m_mode = m;
+	m_mode = m;
 }
 
 KalziumPainter::MODE KalziumPainter::mode() const
@@ -458,7 +450,7 @@ QBrush KalziumPainter::getSlideBrush( int element, const QRect& rect )
 	Element *el = KalziumDataObject::instance()->element( element );
 
 	if ( el->dataAsVariant( ChemicalDataObject::mass ).toDouble() == m_sliderValue )
-		return QBrush( m_scheme->elementGradient( element, rect ) );
+		return m_scheme->elementBrush( element, rect );
 	else
 		return QBrush( Qt::lightGray );
 }

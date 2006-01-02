@@ -22,20 +22,21 @@
 #include "molcalcwidget.h"
 
 //libscience
-#include "element.h"
+#include <element.h>
 
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 
-#include <kaction.h>
 #include <kdebug.h>
+#include <kiconloader.h>
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <klineedit.h>
 
+#include <QApplication>
 #include <QLabel>
 #include <QLayout>
-#include <QToolTip>
+#include <QToolButton>
 
 MolcalcWidget::MolcalcWidget( QWidget *parent )
     : QWidget( parent )
@@ -46,6 +47,9 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 	ui.setupUi( this );
 	
 	connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalcButtonClicked() ) );
+
+	ui.clearButton->setIcon( SmallIconSet( QApplication::reverseLayout() ? "clear_left" : "locationbar_erase" ) );
+
 	clear();
 
 }
@@ -109,9 +113,9 @@ void MolcalcWidget::updateUI()
 		ui.resultLabel->setText( QString() );
 		ui.resultMass->setText( QString() );
 
-		QToolTip::add( ui.resultMass,        i18n( "Invalid input" ) );
-		QToolTip::add( ui.resultComposition, i18n( "Invalid input" ) );
-		QToolTip::add( ui.resultLabel,       i18n( "Invalid input" ) );
+		ui.resultMass->setToolTip(        i18n( "Invalid input" ) );
+		ui.resultComposition->setToolTip( i18n( "Invalid input" ) );
+		ui.resultLabel->setToolTip(       i18n( "Invalid input" ) );
 	}
 }
 

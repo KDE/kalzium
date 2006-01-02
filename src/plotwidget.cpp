@@ -25,40 +25,43 @@ PlotWidget::PlotWidget( double x1,
 		double y2,
 		QWidget *parent )
 		: KPlotWidget( x1, x2, y1, y2, parent )
+		, m_connectPoints( false )
 {
-	m_connectPoints = false;
 }
 
 void PlotWidget::drawObjects( QPainter *p )
 {
-	// let the KPlotWidget draw the default stuff first
-	KPlotWidget::drawObjects(p);
-	// then draw the connecting lines 
-	if (!m_connectPoints) return; // bail out if connect points is not enabled
-
-	QPoint old; // used to remember last coordinates
-	bool first = true;
-	for ( QList<KPlotObject*>::ConstIterator it = ObjectList.begin(); it != ObjectList.constEnd(); ++it ) 
+	// draw the connecting lines before, so the lines won't overlay over
+	// the texts
+	if ( m_connectPoints )
 	{
-		KPlotObject* po = *it;
-		// skip empty plot objects
-		if ( po->points()->count() == 0 ) continue;
-		// skip non-point plot objects
-		if (po->type() != KPlotObject::POINTS) continue;
-
-		// draw the connecting lines
-		p->setPen( po->color() );
-		for ( QList<QPointF*>::ConstIterator dpit = po->points()->begin(); dpit != po->points()->constEnd(); ++dpit )
+		QPoint old; // used to remember last coordinates
+		bool first = true;
+		for ( QList<KPlotObject*>::ConstIterator it = ObjectList.constBegin(); it != ObjectList.constEnd(); ++it ) 
 		{
-			QPoint q = mapToPoint( **dpit );
+			KPlotObject* po = *it;
+			// skip:
+			// - empty plot objects
+			// - non-point plot objects
+			if ( ( po->count() == 0 ) || ( po->type() != KPlotObject::POINTS ) )
+				continue;
 
-			if ( first ) 
-				first = false;
-			else
-				p->drawLine(old, q);
+			// draw the connecting lines
+			p->setPen( po->color() );
+			for ( QList<QPointF*>::ConstIterator dpit = po->points()->constBegin(); dpit != po->points()->constEnd(); ++dpit )
+			{
+				QPoint q = mapToPoint( **dpit );
 
-			old = q;
+				if ( first )
+					first = false;
+				else
+					p->drawLine(old, q);
+
+				old = q;
+			}
 		}
 	}
+	// then, let the KPlotWidget draw the stuff as usual
+	KPlotWidget::drawObjects( p );
 }
 

@@ -18,6 +18,7 @@
 #include "kalziumdataobject.h"
 
 #include <element.h>
+#include <kplotaxis.h>
 #include <kplotobject.h>
 
 #include <klocale.h>
@@ -127,6 +128,7 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 	for( ; it != itEnd ; ++it )
 	{
 		names << (*it)->dataAsString( ChemicalDataObject::name );
+		symbols << (*it)->dataAsString( ChemicalDataObject::symbol );
 	}
 
 	m_actionCollection = new KActionCollection (this );
@@ -136,14 +138,14 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 	         this, SLOT( drawPlot()) );
 	connect( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled( bool ) ),
 	         this, SLOT( drawPlot()) );
-	connect( m_pPlotSetupWidget->showNames, SIGNAL( toggled( bool ) ),
+	connect( m_pPlotSetupWidget->comboElementLabels, SIGNAL( activated( int ) ),
 	         this, SLOT( drawPlot()) );
 
 	// Draw the plot so that the user doesn't have to press the "Plot"
 	// button to seee anything.
 	drawPlot();
 
-	resize( 500, 500 );
+	resize( 650, 500 );
 }
 
 void ElementDataViewer::slotHelp()
@@ -288,7 +290,7 @@ void ElementDataViewer::setupAxisData()
 	yData->dataList.clear();
 	yData->dataList << l;
 
-	m_pPlotWidget->LeftAxis.setLabel( caption );
+	m_pPlotWidget->axis(PlotWidget::LeftAxis)->setLabel( caption );
 }
 
 void ElementDataViewer::drawPlot()
@@ -322,7 +324,7 @@ void ElementDataViewer::drawPlot()
 	/*
 	 * check if the users wants to see the elementnames or not
 	 */
-	bool showNames = m_pPlotSetupWidget->showNames->isChecked();
+	int whatShow = m_pPlotSetupWidget->comboElementLabels->currentIndex();
 	bool connectPoints = m_pPlotSetupWidget->connectPoints->isChecked();
 
 	if ( connectPoints )
@@ -353,14 +355,15 @@ void ElementDataViewer::drawPlot()
 				max = v;
 			av += v;
 
-			dataPoint = new KPlotObject( "whocares", Qt::blue, KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
+			dataPoint = new KPlotObject( names[i-1], Qt::blue, KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
 			dataPoint->addPoint( new QPointF( (double)i, v ) );
 			m_pPlotWidget->addObject( dataPoint );
 
-			if (showNames)
+			if ( whatShow > 0 )
 			{
-				dataPointLabel = new KPlotObject( names[i-1], Qt::red, KPlotObject::LABEL );
-				dataPointLabel->addPoint( new QPointF( (double)i, yData->value( i ) ) );
+				QString lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
+				dataPointLabel = new KPlotObject( lbl, Qt::red, KPlotObject::LABEL );
+				dataPointLabel->addPoint( new QPointF( (double)i, v ) );
 				m_pPlotWidget->addObject( dataPointLabel );
 			}
 		}

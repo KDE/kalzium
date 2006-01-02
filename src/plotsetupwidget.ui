@@ -8,13 +8,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>215</width>
-    <height>382</height>
+    <width>164</width>
+    <height>350</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" >
    <property name="margin" >
-    <number>8</number>
+    <number>9</number>
    </property>
    <property name="spacing" >
     <number>6</number>
@@ -170,22 +170,6 @@
     </widget>
    </item>
    <item>
-    <spacer>
-     <property name="orientation" >
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeType" >
-      <enum>QSizePolicy::Fixed</enum>
-     </property>
-     <property name="sizeHint" >
-      <size>
-       <width>21</width>
-       <height>21</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item>
     <widget class="QCheckBox" name="connectPoints" >
      <property name="whatsThis" >
       <string>Define whether the plotted points should be connected or not</string>
@@ -196,13 +180,29 @@
     </widget>
    </item>
    <item>
-    <widget class="QCheckBox" name="showNames" >
-     <property name="whatsThis" >
-      <string>Define whether the names of the plotted element should be displayed</string>
-     </property>
+    <widget class="QLabel" name="label" >
      <property name="text" >
-      <string>&amp;Show element names</string>
+      <string>Element labels:</string>
      </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QComboBox" name="comboElementLabels" >
+     <item>
+      <property name="text" >
+       <string>No</string>
+      </property>
+     </item>
+     <item>
+      <property name="text" >
+       <string>Names</string>
+      </property>
+     </item>
+     <item>
+      <property name="text" >
+       <string>Symbols</string>
+      </property>
+     </item>
     </widget>
    </item>
    <item>
