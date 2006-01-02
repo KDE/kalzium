@@ -187,7 +187,7 @@ class KalziumIconicSchemeType : public KalziumSchemeType
 };
 
 /**
- * The scheme for iconic representation.
+ * The scheme for family representation.
  *
  * @author Carsten Niehaus
  */
@@ -206,6 +206,28 @@ class KalziumFamilySchemeType : public KalziumSchemeType
 
 	private:
 		KalziumFamilySchemeType();
+};
+
+/**
+ * The scheme for acidic representation.
+ *
+ * @author Carsten Niehaus
+ */
+class KalziumAcidicSchemeType : public KalziumSchemeType
+{
+	public:
+		static KalziumAcidicSchemeType* instance();
+		
+		QByteArray name() const;
+		QString description() const;
+
+		QBrush elementBrush( int el, const QRect& elrect ) const;
+		QColor textColor( int el ) const;
+
+		legendList legendItems() const;
+
+	private:
+		KalziumAcidicSchemeType();
 };
 
 #endif // KALZIUMSCHEMETYPE_H

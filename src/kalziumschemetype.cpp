@@ -34,6 +34,7 @@ KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
 	m_schemes << KalziumBlocksSchemeType::instance();
 	m_schemes << KalziumIconicSchemeType::instance();
 	m_schemes << KalziumFamilySchemeType::instance();
+	m_schemes << KalziumAcidicSchemeType::instance();
 }
 
 KalziumSchemeTypeFactory* KalziumSchemeTypeFactory::instance()
@@ -312,6 +313,73 @@ legendList KalziumFamilySchemeType::legendItems() const
 	ll << qMakePair( i18n( "Transition Metal" ),Prefs::transition() );
 	ll << qMakePair( i18n( "Noble Gas" ),Prefs::noble_gas() );
 	ll << qMakePair( i18n( "Metalloid" ),Prefs::metalloid() );
+
+	return ll;
+}
+
+
+///Acidic///
+KalziumAcidicSchemeType::KalziumAcidicSchemeType()
+  : KalziumSchemeType()
+{
+}
+
+KalziumAcidicSchemeType* KalziumAcidicSchemeType::instance()
+{
+	static KalziumAcidicSchemeType kbst;
+	return &kbst;
+}
+
+QByteArray KalziumAcidicSchemeType::name() const
+{
+	return "Acidic";
+}
+
+QString KalziumAcidicSchemeType::description() const
+{
+	return i18n( "Acidic behaviour" );
+}
+
+QBrush KalziumAcidicSchemeType::elementBrush( int el, const QRect& elrect ) const
+{
+	//TODO FIXME I need to load the data somehow
+	QString acid = "acid";
+
+	QColor c;
+
+	//FIXME the strings need to be adjusted
+	if (  acid == QLatin1String(  "Noblegas" ) ){
+		c = Prefs::beh_basic();
+	}
+	if (  acid == QLatin1String(  "Non-Metal" ) ){
+		c = Prefs::beh_acidic();
+	}
+	if (  acid == QLatin1String(  "Rare_Earth" ) ){
+		c = Prefs::beh_neutral();
+	}
+	if (  acid == QLatin1String(  "Alkaline_Earth" ) ){
+		c = Prefs::beh_amphoteric();
+	}
+
+	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
+	linearGrad.setColorAt( 0, c );
+	linearGrad.setColorAt( 1, c );
+	return QBrush( linearGrad );
+}
+
+QColor KalziumAcidicSchemeType::textColor( int el ) const
+{
+	Q_UNUSED( el );
+	return Qt::black;
+}
+
+legendList KalziumAcidicSchemeType::legendItems() const
+{
+	legendList ll;
+	ll << qMakePair( i18n( "Basic" ), Prefs::beh_basic() );
+	ll << qMakePair( i18n( "Acidic" ), Prefs::beh_acidic() );
+	ll << qMakePair( i18n( "Neutral" ), Prefs::beh_neutral() );
+	ll << qMakePair( i18n( "Amphoteric" ), Prefs::beh_amphoteric() );
 
 	return ll;
 }
