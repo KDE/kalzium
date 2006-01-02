@@ -58,12 +58,11 @@ KalziumDataObject::KalziumDataObject()
 	
 	for ( int i = 0 ; i < m_numOfElements ; i++ )
 	{
+		//FIXME in case we ever get more than one theme we need
+		//a settings-dialog where we can select the different iconsets...
 		QString setname = "school";
 	
-//		QString pathname = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" ) + "kalzium/iconsets/";
-		
-//FIXME The path is of course wrong
-		QString pathname = "/home/kde4/svn/kdeedu/kalzium/data/iconsets/";
+		QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
 		
 		QString filename = pathname + setname + "/" + QString::number( i+1 ) + ".jpg";
 

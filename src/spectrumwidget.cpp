@@ -20,19 +20,20 @@
  ***************************************************************************/
 #include "spectrumwidget.h"
 #include "spectrum.h"
-#include "element.h"
 #include "kalziumutils.h"
+
+#include <element.h>
 
 #include <kdebug.h>
 #include <klocale.h>
 #include <math.h>
 
-#include <qcursor.h>
-#include <qevent.h>
-#include <qsizepolicy.h>
-#include <qpainter.h>
-#include <qpixmap.h>
-#include <qtooltip.h>
+#include <QCursor>
+#include <QKeyEvent>
+#include <QSizePolicy>
+#include <QPainter>
+#include <QPixmap>
+#include <QToolTip>
 
 #include <qglobal.h>
 #if defined(Q_OS_SOLARIS)

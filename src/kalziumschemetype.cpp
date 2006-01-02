@@ -213,11 +213,9 @@ QString KalziumIconicSchemeType::description() const
 
 QBrush KalziumIconicSchemeType::elementBrush( int el, const QRect& elrect ) const
 {
-	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
+	QPixmap pixmap = KalziumDataObject::instance()->pixmap( el );
 	
-	linearGrad.setColorAt( 0, QColor( Qt::yellow ) );
-	linearGrad.setColorAt( 1, QColor( Qt::green ) );
-	return QBrush( linearGrad );
+	return QBrush( pixmap );
 }
 
 QColor KalziumIconicSchemeType::textColor( int el ) const

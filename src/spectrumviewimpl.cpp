@@ -12,7 +12,7 @@
  ***************************************************************************/
 #include "spectrumviewimpl.h"
 
-#include <qspinbox.h>
+#include <QSpinBox>
 
 #include <kfiledialog.h>
 #include <kguiitem.h>
