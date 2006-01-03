@@ -9,7 +9,7 @@
     <x>0</x>
     <y>0</y>
     <width>560</width>
-    <height>337</height>
+    <height>429</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -21,7 +21,7 @@
      <x>8</x>
      <y>8</y>
      <width>544</width>
-     <height>321</height>
+     <height>401</height>
     </rect>
    </property>
    <widget class="QWidget" name="tab" >
@@ -247,7 +247,7 @@
      <property name="spacing" >
       <number>6</number>
      </property>
-     <item row="4" column="0" >
+     <item row="11" column="0" >
       <layout class="QHBoxLayout" >
        <property name="margin" >
         <number>0</number>
@@ -256,16 +256,69 @@
         <number>6</number>
        </property>
        <item>
-        <widget class="QLabel" name="textLabel13_6" >
+        <widget class="QLabel" name="textLabel13_12" >
          <property name="text" >
-          <string>Unknown:</string>
+          <string>mono, monoclinic:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="KColorButton" name="kcfg_crystal_unknown" />
+        <widget class="KColorButton" name="kcfg_crystal_mono" />
        </item>
       </layout>
+     </item>
+     <item row="10" column="0" >
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="textLabel13_13" >
+         <property name="text" >
+          <string>or, orthorhombic:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="KColorButton" name="kcfg_crystal_or" />
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="0" >
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="textLabel13_2" >
+         <property name="text" >
+          <string>ccp, cubic close packed :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="KColorButton" name="kcfg_crystal_ccp" />
+       </item>
+      </layout>
+     </item>
+     <item row="12" column="0" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
      </item>
      <item row="1" column="0" >
       <layout class="QHBoxLayout" >
@@ -278,7 +331,7 @@
        <item>
         <widget class="QLabel" name="textLabel13_5" >
          <property name="text" >
-          <string>bcc:</string>
+          <string>bcc, body centered cubic:</string>
          </property>
         </widget>
        </item>
@@ -318,7 +371,7 @@
        <item>
         <widget class="QLabel" name="textLabel13_3" >
          <property name="text" >
-          <string>hdp:</string>
+          <string>hdp, hexagonal close packed:</string>
          </property>
         </widget>
        </item>
@@ -327,7 +380,7 @@
        </item>
       </layout>
      </item>
-     <item row="0" column="0" >
+     <item row="4" column="0" >
       <layout class="QHBoxLayout" >
        <property name="margin" >
         <number>0</number>
@@ -336,29 +389,116 @@
         <number>6</number>
        </property>
        <item>
-        <widget class="QLabel" name="textLabel13_2" >
+        <widget class="QLabel" name="textLabel13_6" >
          <property name="text" >
-          <string>cpp:</string>
+          <string>fcc, face centered cubic:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="KColorButton" name="kcfg_crystal_ccp" />
+        <widget class="KColorButton" name="kcfg_crystal_fcc" />
        </item>
       </layout>
      </item>
      <item row="5" column="0" >
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Vertical</enum>
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
        </property>
-       <property name="sizeHint" >
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
+       <property name="spacing" >
+        <number>6</number>
        </property>
-      </spacer>
+       <item>
+        <widget class="QLabel" name="textLabel13_11" >
+         <property name="text" >
+          <string>tet, tetragonal:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="KColorButton" name="kcfg_crystal_tet" />
+       </item>
+      </layout>
+     </item>
+     <item row="6" column="0" >
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="textLabel13_10" >
+         <property name="text" >
+          <string>sc, simple cubic:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="KColorButton" name="kcfg_crystal_sc" />
+       </item>
+      </layout>
+     </item>
+     <item row="7" column="0" >
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="textLabel13_9" >
+         <property name="text" >
+          <string>d, diamond:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="KColorButton" name="kcfg_crystal_d" />
+       </item>
+      </layout>
+     </item>
+     <item row="8" column="0" >
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="textLabel13_8" >
+         <property name="text" >
+          <string>rh, rhombohedral:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="KColorButton" name="kcfg_crystal_rh" />
+       </item>
+      </layout>
+     </item>
+     <item row="9" column="0" >
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="textLabel13_7" >
+         <property name="text" >
+          <string>hcp, hexagonal close packed:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="KColorButton" name="kcfg_crystal_hcp" />
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>

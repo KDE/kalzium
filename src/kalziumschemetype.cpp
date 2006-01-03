@@ -346,22 +346,20 @@ QString KalziumAcidicSchemeType::description() const
 
 QBrush KalziumAcidicSchemeType::elementBrush( int el, const QRect& elrect ) const
 {
-	//TODO FIXME I need to load the data somehow
-	QString acid = "acid";
+	QString acid = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::acidicbehaviour );
 
 	QColor c;
 
-	//FIXME the strings need to be adjusted
-	if (  acid == QLatin1String(  "Noblegas" ) ){
-		c = Prefs::beh_basic();
-	}
-	if (  acid == QLatin1String(  "Non-Metal" ) ){
+	if (  acid == QLatin1String(  "0" ) ){
 		c = Prefs::beh_acidic();
 	}
-	if (  acid == QLatin1String(  "Rare_Earth" ) ){
+	else if (  acid == QLatin1String(  "1" ) ){
+		c = Prefs::beh_basic();
+	}
+	else if (  acid == QLatin1String(  "2" ) ){
 		c = Prefs::beh_neutral();
 	}
-	if (  acid == QLatin1String(  "Alkaline_Earth" ) ){
+	else if (  acid == QLatin1String(  "3" ) ){
 		c = Prefs::beh_amphoteric();
 	}
 	else
@@ -415,34 +413,32 @@ QString KalziumGroupsSchemeType::description() const
 
 QBrush KalziumGroupsSchemeType::elementBrush( int el, const QRect& elrect ) const
 {
-	//TODO FIXME I need to load the data somehow
-	QString group = "1";
+	QString group = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::group );
 
 	QColor c;
 
-	//FIXME the strings need to be adjusted
 	if (  group == QLatin1String(  "1" ) ){
 		c = Prefs::group_1();
 	}
-	if (  group == QLatin1String(  "2" ) ){
+	else if (  group == QLatin1String(  "2" ) ){
 		c = Prefs::group_2();
 	}
-	if (  group == QLatin1String(  "3" ) ){
+	else if (  group == QLatin1String(  "3" ) ){
 		c = Prefs::group_3();
 	}
-	if (  group == QLatin1String(  "4" ) ){
+	else if (  group == QLatin1String(  "4" ) ){
 		c = Prefs::group_4();
 	}
-	if (  group == QLatin1String(  "5" ) ){
+	else if (  group == QLatin1String(  "5" ) ){
 		c = Prefs::group_5();
 	}
-	if (  group == QLatin1String(  "6" ) ){
+	else if (  group == QLatin1String(  "6" ) ){
 		c = Prefs::group_6();
 	}
-	if (  group == QLatin1String(  "7" ) ){
+	else if (  group == QLatin1String(  "7" ) ){
 		c = Prefs::group_7();
 	}
-	if (  group == QLatin1String(  "8" ) ){
+	else if (  group == QLatin1String(  "8" ) ){
 		c = Prefs::group_8();
 	}
 	else
@@ -499,26 +495,45 @@ QString KalziumCrystalSchemeType::description() const
 
 QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& elrect ) const
 {
-	//TODO FIXME I need to load the data somehow
-	QString crystal = "ccp";
+	QString crystal = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::crystalstructure );
 
 	QColor c;
 
-	//FIXME the strings need to be adjusted
 	if (  crystal == QLatin1String(  "own" ) ){
 		c = Prefs::crystal_own();
 	}
-	if (  crystal == QLatin1String(  "bcc" ) ){
+	else if (  crystal == QLatin1String(  "bcc" ) ){
 		c = Prefs::crystal_bcc();
 	}
-	if (  crystal == QLatin1String(  "hdp" ) ){
+	else if (  crystal == QLatin1String(  "hdp" ) ){
 		c = Prefs::crystal_hdp();
 	}
-	if (  crystal == QLatin1String(  "ccp" ) ){
+	else if (  crystal == QLatin1String(  "ccp" ) ){
 		c = Prefs::crystal_ccp();
 	}
-	if (  crystal == QLatin1String(  "unknown" ) ){
-		c = Prefs::crystal_unknown();
+	else if (  crystal == QLatin1String(  "hcp" ) ){
+		c = Prefs::crystal_hcp();
+	}
+	else if (  crystal == QLatin1String(  "fcc" ) ){
+		c = Prefs::crystal_fcc();
+	}
+	else if (  crystal == QLatin1String(  "d" ) ){
+		c = Prefs::crystal_d();
+	}
+	else if (  crystal == QLatin1String(  "sc" ) ){
+		c = Prefs::crystal_sc();
+	}
+	else if (  crystal == QLatin1String(  "tet" ) ){
+		c = Prefs::crystal_tet();
+	}
+	else if (  crystal == QLatin1String(  "rh" ) ){
+		c = Prefs::crystal_rh();
+	}
+	else if (  crystal == QLatin1String(  "or" ) ){
+		c = Prefs::crystal_or();
+	}
+	else if (  crystal == QLatin1String(  "mono" ) ){
+		c = Prefs::crystal_mono();
 	}
 	else
 		c = Qt::lightGray;
@@ -543,7 +558,14 @@ legendList KalziumCrystalSchemeType::legendItems() const
 	ll << qMakePair(  i18n( "bcc, body centered cubic" ), Prefs::crystal_bcc() );
 	ll << qMakePair(  i18n( "hdp, hexagonal" ), Prefs::crystal_hdp() );
 	ll << qMakePair(  i18n( "ccp, cubic close packed" ), Prefs::crystal_ccp() );
-	ll << qMakePair(  i18n( "Unknown" ), Prefs::crystal_unknown() );
+	ll << qMakePair(  i18n( "hcp, hexagonal close packed" ), Prefs::crystal_hcp() );
+	ll << qMakePair(  i18n( "fcc, face centered cubic" ), Prefs::crystal_fcc() );
+	ll << qMakePair(  i18n( "d, diamond" ), Prefs::crystal_d() );
+	ll << qMakePair(  i18n( "sc, simple cubic" ), Prefs::crystal_sc() );
+	ll << qMakePair(  i18n( "tet, tetragonal" ), Prefs::crystal_tet() );
+	ll << qMakePair(  i18n( "rh, rhombohedral" ), Prefs::crystal_rh() );
+	ll << qMakePair(  i18n( "or, orthorhombic" ), Prefs::crystal_or() );
+	ll << qMakePair(  i18n( "mono, monoclinic" ), Prefs::crystal_mono() );
 
 	return ll;
 }
