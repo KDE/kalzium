@@ -8,13 +8,14 @@
 		 title="properties of the elements">
 
   <metadataList>
-    <metadata name="svn:date" content="$Date: 2005-08-24 17:29:52 -0400 (Wed, 24 Aug 2005) $" />
-    <metadata name="svn:revision" content="$Revision: 17 $" />
-    <metadata name="svn:last-change-by" content="$Author: ghutchis $" />
+    <metadata name="svn:date" content="$Date: 2006-01-03 15:06:52 -0100 (Tue, 03 Jan 2006) $" />
+    <metadata name="svn:revision" content="$Revision: 20 $" />
+    <metadata name="svn:last-change-by" content="$Author: cniehaus $" />
 
     <!-- manually updated -->
 
     <metadata name="dc:contributor" content="Geoffrey R. Hutchison" />
+    <metadata name="dc:contributor" content="Carsten Niehaus" />
     <metadata name="dc:creator" content="The Blue Obelisk Movement" />
     <metadata name="dc:title" content="Blue Obelisk Element Repository" />
     <metadata name="dc:description" content="Database of elements and elemental properties (names, symbols, masses, exact masses, van der Waals radii, ionization potential, electron affinity, electronegativity, etc." />
@@ -51,6 +52,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1766</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">C. Cavendish</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">1s1</scalar>
   </elementType>
   <elementType id="He">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">2</scalar>
@@ -70,6 +75,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1895</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">P. J. Janssen;J. N. Lockyer</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hcp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">1s2</scalar>
   </elementType>
   <elementType id="Li">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">3</scalar>
@@ -90,6 +99,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1817</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">A. Arfvedson</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">He 2s1</scalar>
   </elementType>
   <elementType id="Be">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">4</scalar>
@@ -110,6 +123,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1797</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Nicholas Louis Vauquelin</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">He 2s2</scalar>
   </elementType>
   <elementType id="B">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">5</scalar>
@@ -130,6 +147,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Louis Joseph Gay-Lussac;Louis Jacques Thenard</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">rh</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">He 2s2 2p1</scalar>
   </elementType>
   <elementType id="C">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">6</scalar>
@@ -148,6 +169,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">3825</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">He 2s2 2p2</scalar>
   </elementType>
   <elementType id="N">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">7</scalar>
@@ -168,6 +193,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1772</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">D. Rutherford</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hcp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">He 2s2 2p3</scalar>
   </elementType>
   <elementType id="O">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">8</scalar>
@@ -188,6 +217,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1774</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">J. Priestley</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">sc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">He 2s2 2p4</scalar>
   </elementType>
   <elementType id="F">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">9</scalar>
@@ -208,6 +241,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1886</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">H. F. Moissan</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">He 2s2 2p5</scalar>
   </elementType>
   <elementType id="Ne">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">10</scalar>
@@ -227,6 +264,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">W. Ramsay;M.W. Travers</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">He 2s2 2p6</scalar>
   </elementType>
   <elementType id="Na">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">11</scalar>
@@ -247,6 +288,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1807</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Sir Humphrey Davy</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ne 3s1</scalar>
   </elementType>
   <elementType id="Mg">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">12</scalar>
@@ -267,6 +312,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ne 3s2</scalar>
   </elementType>
   <elementType id="Al">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">13</scalar>
@@ -287,6 +336,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1825</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">H. Ch. Oersted</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ne 3s2 3p1</scalar>
   </elementType>
   <elementType id="Si">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">14</scalar>
@@ -307,6 +360,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1823</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">J. J. Berzelius</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">d</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ne 3s2 3p2</scalar>
   </elementType>
   <elementType id="P">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">15</scalar>
@@ -327,6 +384,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1669</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">H. Brandt</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">sc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ne 3s2 3p3</scalar>
   </elementType>
   <elementType id="S">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">16</scalar>
@@ -345,6 +406,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">392.2</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">or</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ne 3s2 3p4</scalar>
   </elementType>
   <elementType id="Cl">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">17</scalar>
@@ -365,6 +430,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1774</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">K. Scheele</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">tet</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ne 3s2 3p5</scalar>
   </elementType>
   <elementType id="Ar">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">18</scalar>
@@ -384,6 +453,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1894</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">W. Ramsay;J. Rayleigh</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">tet</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ne 3s2 3p6</scalar>
   </elementType>
   <elementType id="K">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">19</scalar>
@@ -404,6 +477,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1807</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 4s1</scalar>
   </elementType>
   <elementType id="Ca">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">20</scalar>
@@ -424,6 +501,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 4s2</scalar>
   </elementType>
   <elementType id="Sc">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">21</scalar>
@@ -444,6 +525,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1879</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">L. Nilson</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d1 4s2</scalar>
   </elementType>
   <elementType id="Ti">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">22</scalar>
@@ -464,6 +549,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1791</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">W. Gregor</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d2 4s2</scalar>
   </elementType>
   <elementType id="V">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">23</scalar>
@@ -484,6 +573,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1830</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">N. Sefström</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d3 4s2</scalar>
   </elementType>
   <elementType id="Cr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">24</scalar>
@@ -504,6 +597,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1797</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Nicholas Louis Vauquelin</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d5 4s1</scalar>
   </elementType>
   <elementType id="Mn">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">25</scalar>
@@ -524,6 +621,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1774</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">K. W. Scheele</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">own</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d5 4s2</scalar>
   </elementType>
   <elementType id="Fe">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">26</scalar>
@@ -542,6 +643,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">1808</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d6 4s2</scalar>
   </elementType>
   <elementType id="Co">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">27</scalar>
@@ -562,6 +667,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1737</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">G. Brandt</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d7 4s2</scalar>
   </elementType>
   <elementType id="Ni">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">28</scalar>
@@ -582,6 +691,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1751</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">A. F. Cronstedt</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d8 4s2</scalar>
   </elementType>
   <elementType id="Cu">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">29</scalar>
@@ -600,6 +713,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">1356.6</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d10 4s1</scalar>
   </elementType>
   <elementType id="Zn">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">30</scalar>
@@ -620,6 +737,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1746</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Andreas Marggraf</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d10 4s2</scalar>
   </elementType>
   <elementType id="Ga">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">31</scalar>
@@ -640,6 +761,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1875</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">P. E. Lecoq de Boisbaudran</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">own</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p1</scalar>
   </elementType>
   <elementType id="Ge">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">32</scalar>
@@ -660,6 +785,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1886</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">C. A. Winkler</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">d</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p2</scalar>
   </elementType>
   <elementType id="As">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">33</scalar>
@@ -678,6 +807,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">1090</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">rh</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p3</scalar>
   </elementType>
   <elementType id="Se">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">34</scalar>
@@ -698,6 +831,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1817</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">J. J. Berzelius</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hcp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p4</scalar>
   </elementType>
   <elementType id="Br">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">35</scalar>
@@ -718,6 +855,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1826</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">A. J. Balard</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">or</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p5</scalar>
   </elementType>
   <elementType id="Kr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">36</scalar>
@@ -738,6 +879,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">W. Ramsay;M. W. Travers</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p6</scalar>
   </elementType>
   <elementType id="Rb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">37</scalar>
@@ -758,6 +903,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1861</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Robert W. Bunsen;Gustav R. Kirchhoff</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 5s1</scalar>
   </elementType>
   <elementType id="Sr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">38</scalar>
@@ -778,6 +927,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1790</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 5s2</scalar>
   </elementType>
   <elementType id="Y">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">39</scalar>
@@ -798,6 +951,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1794</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Johann Gadolin</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d1 5s2</scalar>
   </elementType>
   <elementType id="Zr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">40</scalar>
@@ -818,6 +975,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1789</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Martin Heinrich Klaproth</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d2 5s2</scalar>
   </elementType>
   <elementType id="Nb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">41</scalar>
@@ -838,6 +999,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1801</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Ch. Hatchett</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d4</scalar>
   </elementType>
   <elementType id="Mo">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">42</scalar>
@@ -858,6 +1023,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1778</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">K. W. Scheele</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d5 5s1</scalar>
   </elementType>
   <elementType id="Tc">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">43</scalar>
@@ -878,6 +1047,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1937</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">C. Perrier;E. G. Segre</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d6 5s1</scalar>
   </elementType>
   <elementType id="Ru">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">44</scalar>
@@ -898,6 +1071,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1844</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">K. Klaus</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d7 5s1</scalar>
   </elementType>
   <elementType id="Rh">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">45</scalar>
@@ -918,6 +1095,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1803</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">W. Wollaston</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d8 5s1</scalar>
   </elementType>
   <elementType id="Pd">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">46</scalar>
@@ -936,6 +1117,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">1825</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d10</scalar>
   </elementType>
   <elementType id="Ag">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">47</scalar>
@@ -954,6 +1139,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">1235.1</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d10 5s1</scalar>
   </elementType>
   <elementType id="Cd">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">48</scalar>
@@ -974,6 +1163,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1817</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">F. Stromeyer</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d10 5s2</scalar>
   </elementType>
   <elementType id="In">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">49</scalar>
@@ -994,6 +1187,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1863</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">F. Reich;H.T. Richter</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p1</scalar>
   </elementType>
   <elementType id="Sn">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">50</scalar>
@@ -1012,6 +1209,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">505.12</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">own</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p2</scalar>
   </elementType>
   <elementType id="Sb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">51</scalar>
@@ -1030,6 +1231,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">903.91</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">rh</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p3</scalar>
   </elementType>
   <elementType id="Te">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">52</scalar>
@@ -1050,6 +1255,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1782</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Franz Joseph Muller von Reichstein</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hcp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p4</scalar>
   </elementType>
   <elementType id="I">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">53</scalar>
@@ -1070,6 +1279,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1811</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Bernard Courtois</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">or</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p5</scalar>
   </elementType>
   <elementType id="Xe">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">54</scalar>
@@ -1090,6 +1303,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">W. Ramsay;M. W. Travers</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p6</scalar>
   </elementType>
   <elementType id="Cs">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">55</scalar>
@@ -1110,6 +1327,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1860</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Robert Wilhelm Bunsen;Gustav Robert Kirchhoff</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 6s1</scalar>
   </elementType>
   <elementType id="Ba">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">56</scalar>
@@ -1130,6 +1351,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Humphry Bartholomew Davy</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 6s2</scalar>
   </elementType>
   <elementType id="La">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">57</scalar>
@@ -1150,6 +1375,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1839</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">K. G. Mosander</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hcp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 5d1 6s2</scalar>
   </elementType>
   <elementType id="Ce">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">58</scalar>
@@ -1169,6 +1398,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1803</scalar>
     <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Jöns Jacob Berzelius;W. Hisinger;M. Klaproth</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f1 5d1 6s2</scalar>
   </elementType>
   <elementType id="Pr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">59</scalar>
@@ -1188,6 +1421,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1885</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Carl F. Auer von Welsbach</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f3 6s2</scalar>
   </elementType>
   <elementType id="Nd">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">60</scalar>
@@ -1207,6 +1444,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1885</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Carl F. Auer von Welsbach</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f4 6s2</scalar>
   </elementType>
   <elementType id="Pm">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">61</scalar>
@@ -1225,6 +1466,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1945</scalar>
     <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">J. A. Marinsky;C. D. Coryell;L. E. Glendenin</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f5 6s2</scalar>
   </elementType>
   <elementType id="Sm">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">62</scalar>
@@ -1244,6 +1489,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1879</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">P. Lecoq de Boisbaudran</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f6 6s2</scalar>
   </elementType>
   <elementType id="Eu">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">63</scalar>
@@ -1262,6 +1511,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1901</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">E. A. Demarcay</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f7 6s2</scalar>
   </elementType>
   <elementType id="Gd">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">64</scalar>
@@ -1281,6 +1534,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1880</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">Jean de Marignac</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f7 5d1 6s2</scalar>
   </elementType>
   <elementType id="Tb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">65</scalar>
@@ -1299,6 +1556,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1843</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">K. G. Mosander</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f9 6s2</scalar>
   </elementType>
   <elementType id="Dy">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">66</scalar>
@@ -1318,6 +1579,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1886</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">F. E. Lecoq de Boisbaudran</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f10 6s2</scalar>
   </elementType>
   <elementType id="Ho">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">67</scalar>
@@ -1337,6 +1602,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1878</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">J. L. Soret;P.T. Cleve</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f11 6s2</scalar>
   </elementType>
   <elementType id="Er">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">68</scalar>
@@ -1356,6 +1625,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1843</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">K. G. Mosander</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f12 6s2</scalar>
   </elementType>
   <elementType id="Tm">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">69</scalar>
@@ -1375,6 +1648,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1879</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">P. T. Cleve</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f13 6s2</scalar>
   </elementType>
   <elementType id="Yb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">70</scalar>
@@ -1393,6 +1670,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1878</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">J. Ch. Marignac</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 6s2</scalar>
   </elementType>
   <elementType id="Lu">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">71</scalar>
@@ -1413,6 +1694,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1907</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Carl F. Auer von Welsbach;G. Urbain</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d1 6s2</scalar>
   </elementType>
   <elementType id="Hf">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">72</scalar>
@@ -1433,6 +1718,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1923</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">D. Coster;G. Hevesy</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d2 6s2</scalar>
   </elementType>
   <elementType id="Ta">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">73</scalar>
@@ -1453,6 +1742,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1802</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">A. Ekeberg</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d3 6s2</scalar>
   </elementType>
   <elementType id="W">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">74</scalar>
@@ -1473,6 +1766,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1783</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">K. W. Scheel</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d4 6s2</scalar>
   </elementType>
   <elementType id="Re">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">75</scalar>
@@ -1493,6 +1790,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1925</scalar>
     <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Walter Noddack;Ida Tacke-Noddack;Otto Berg</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d5 6s2</scalar>
   </elementType>
   <elementType id="Os">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">76</scalar>
@@ -1513,6 +1814,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1804</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">S. Tennant</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d6 6s2</scalar>
   </elementType>
   <elementType id="Ir">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">77</scalar>
@@ -1533,6 +1838,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1804</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">S. Tennant</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d7 6s2</scalar>
   </elementType>
   <elementType id="Pt">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">78</scalar>
@@ -1553,6 +1862,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1735</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">A. de Ulloa</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d9 6s1</scalar>
   </elementType>
   <elementType id="Au">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">79</scalar>
@@ -1571,6 +1884,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">1337.58</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s1</scalar>
   </elementType>
   <elementType id="Hg">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">80</scalar>
@@ -1589,6 +1906,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">234.31</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2</scalar>
   </elementType>
   <elementType id="Tl">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">81</scalar>
@@ -1609,6 +1930,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1861</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">W. Crookes</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">hdp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p1</scalar>
   </elementType>
   <elementType id="Pb">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">82</scalar>
@@ -1627,6 +1952,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">600.65</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p2</scalar>
   </elementType>
   <elementType id="Bi">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">83</scalar>
@@ -1645,6 +1974,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">544.59</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">rh</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p3</scalar>
   </elementType>
   <elementType id="Po">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">84</scalar>
@@ -1663,6 +1996,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">M. Sklodowska-Curie;P. Curie</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">mono</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p4</scalar>
   </elementType>
   <elementType id="At">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">85</scalar>
@@ -1682,6 +2019,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1940</scalar>
     <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">D. R. Corson;K. R. McKenzie;E. Segre</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p5</scalar>
   </elementType>
   <elementType id="Rn">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">86</scalar>
@@ -1701,6 +2042,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">E. Dorn</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p6</scalar>
   </elementType>
   <elementType id="Fr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">87</scalar>
@@ -1719,6 +2064,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1939</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">M. Perey</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 7s1</scalar>
   </elementType>
   <elementType id="Ra">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">88</scalar>
@@ -1737,6 +2086,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">M. Sklodowska-Curie;P. Curie</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 7s2</scalar>
   </elementType>
   <elementType id="Ac">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">89</scalar>
@@ -1755,6 +2108,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1899</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">A. L. Debierne</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 6d1 7s2</scalar>
   </elementType>
   <elementType id="Th">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">90</scalar>
@@ -1773,6 +2130,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1828</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">J. J. Berzelius</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">ccp</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 6d2 7s2</scalar>
   </elementType>
   <elementType id="Pa">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">91</scalar>
@@ -1791,6 +2152,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1917</scalar>
     <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">O. Hahn;L. Meitern;W. Wollaston</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">own</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f2 6d1 7s2</scalar>
   </elementType>
   <elementType id="U">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">92</scalar>
@@ -1809,6 +2174,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1789</scalar>
     <scalar dataType="xsd:string" dictRef="bo:discoverers">M. M. Klaproth</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">own</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f3 6d1 7s2</scalar>
   </elementType>
   <elementType id="Np">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">93</scalar>
@@ -1827,6 +2196,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1940</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">E. M. McMillan;P. Aberson</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">own</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f4 6d1 7s2</scalar>
   </elementType>
   <elementType id="Pu">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">94</scalar>
@@ -1845,6 +2218,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1940</scalar>
     <scalar dataType="xsd:string" delim=";" size="4" dictRef="bo:discoverers">Glenn T. Seaborg;E. M. McMillan;J. W. Kennedy;A.C. Wahl</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure">own</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f6 7s2</scalar>
   </elementType>
   <elementType id="Am">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">95</scalar>
@@ -1863,6 +2240,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1945</scalar>
     <scalar dataType="xsd:string" delim=";" size="4" dictRef="bo:discoverers">Glenn T. Seaborg;L. O. Morgan;R. A. James;A. Ghiors</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f7 7s2</scalar>
   </elementType>
   <elementType id="Cm">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">96</scalar>
@@ -1880,6 +2261,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1944</scalar>
     <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Glenn T. Seaborg;R. A. James;A. Ghiors</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f7 6d2 7s2</scalar>
   </elementType>
   <elementType id="Bk">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">97</scalar>
@@ -1897,6 +2282,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1949</scalar>
     <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Glenn T. Seaborg;A. Ghiors;S. G. Thompson</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f9 7s2</scalar>
   </elementType>
   <elementType id="Cf">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">98</scalar>
@@ -1914,6 +2303,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1950</scalar>
     <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Glenn T. Seaborg;A. Ghiors;S. G. Thompson</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f10 7s2</scalar>
   </elementType>
   <elementType id="Es">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">99</scalar>
@@ -1931,6 +2324,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1952</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Glenn T. Seaborg;et al.</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f11 7s2</scalar>
   </elementType>
   <elementType id="Fm">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">100</scalar>
@@ -1948,6 +2345,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1953</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Glenn T. Seaborg;et al.</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f12 7s2</scalar>
   </elementType>
   <elementType id="Md">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">101</scalar>
@@ -1965,6 +2366,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1955</scalar>
     <scalar dataType="xsd:string" delim=";" size="5" dictRef="bo:discoverers">Glenn T. Seaborg;Albert Ghiorso;Bernard Harvey;Gregory Choppin;Stanley G. Thompson</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f13 7s2</scalar>
   </elementType>
   <elementType id="No">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">102</scalar>
@@ -1980,6 +2385,10 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">1100</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">f</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f14 7s2</scalar>
   </elementType>
   <elementType id="Lr">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">103</scalar>
@@ -1996,6 +2405,10 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1961</scalar>
     <scalar dataType="xsd:string" delim=";" size="4" dictRef="bo:discoverers">Albert Ghiorso;Torbjorn Sikkeland;Almon Larsh;Robert M. Latimer</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f14 7s2 7p1</scalar>
   </elementType>
   <elementType id="Rf">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">104</scalar>
@@ -2009,6 +2422,10 @@
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.80 0.00 0.35</array>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f14 6d2 7s2</scalar>
   </elementType>
   <elementType id="Db">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">105</scalar>
@@ -2021,6 +2438,10 @@
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.82 0.00 0.31</array>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:electronicConfiguration">Rn 5f14 6d3 7s2</scalar>
   </elementType>
   <elementType id="Sg">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">106</scalar>
@@ -2035,6 +2456,9 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1974</scalar>
     <scalar dataType="xsd:string" delim=";" size="2" dictRef="bo:discoverers">Albert Ghiorso;et al.</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
   </elementType>
   <elementType id="Bh">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">107</scalar>
@@ -2049,6 +2473,9 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1981</scalar>
     <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
   </elementType>
   <elementType id="Hs">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">108</scalar>
@@ -2063,6 +2490,9 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1984</scalar>
     <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
   </elementType>
   <elementType id="Mt">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">109</scalar>
@@ -2077,6 +2507,9 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1982</scalar>
     <scalar dataType="xsd:string" delim=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
   </elementType>
   <elementType id="Ds">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">110</scalar>
@@ -2090,6 +2523,9 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1994</scalar>
     <scalar dataType="xsd:string" delim=";" size="8" dictRef="bo:discoverers">S. Hofmann;V. Ninov;F. P. Hessberger;P. Armbruster;H. Folger;G. Münzenberg;H. J. Schött;et al.</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
   </elementType>
   <elementType id="Rg">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">111</scalar>
@@ -2103,6 +2539,9 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1994</scalar>
     <scalar dataType="xsd:string" delim=";" size="7" dictRef="bo:discoverers">S. Hofmann;V. Ninov;F. P. Hessberger;P. Armbruster;H. Folger;G. Münzenberg;et al.</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
+    <scalar dataType="xsd:String" dictRef="bo:crystalstructure"></scalar>
+    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
+    <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
   </elementType>
   <elementType id="Uub">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">112</scalar>
