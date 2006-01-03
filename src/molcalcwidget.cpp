@@ -121,7 +121,6 @@ void MolcalcWidget::updateUI()
 
 QString MolcalcWidget::compositionString( ElementCountMap &_map )
 {
-	kdDebug() << "MolcalcWidget::compositionString()" << endl;
 	QString  str;
 
 	ElementCountMap::Iterator  it    = _map.begin();
@@ -147,7 +146,7 @@ void MolcalcWidget::slotCalcButtonClicked()
 
 	// Parse the molecule, and at the same time calculate the total
 	// mass, and the composition of it.
-	//m_validInput = m_parser->weight("CO2", &m_mass, &m_elementMap);
+	m_validInput = m_parser->weight(molecule, &m_mass, &m_elementMap);
 
 	updateUI();
 }
