@@ -2721,7 +2721,7 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<spectrum intensity="200" wavelength="9058.33" aki="0.0" energy1="54633.46" energy2="65669.99" electronconfig1="5p4(3P2)6s" electronconfig2="5p4(3P2)6p" term1="2[2]" term2="2[3]&deg;" J1="5/2" J2="7/2" />
 		</spectra>
 		<acidicbehaviour>3</acidicbehaviour>
-		<date scientist="B. Courtois">1804</date>
+		<date scientist="B. Courtois">1811</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity>-295</electronaffinity>
