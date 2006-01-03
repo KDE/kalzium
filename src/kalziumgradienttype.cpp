@@ -25,6 +25,7 @@
 #include <QVariant>
 
 #include <klocale.h>
+#include <kdebug.h>
 
 KalziumGradientTypeFactory::KalziumGradientTypeFactory()
 {
@@ -34,6 +35,9 @@ KalziumGradientTypeFactory::KalziumGradientTypeFactory()
 	m_gradients << KalziumBoilingPointGradientType::instance();
 	m_gradients << KalziumMeltingPointGradientType::instance();
 	m_gradients << KalziumElectronegativityGradientType::instance();
+	m_gradients << KalziumElectronaffinityGradientType::instance();
+	m_gradients << KalziumDiscoverydateGradientType::instance();
+	m_gradients << KalziumIonizationGradientType::instance();
 }
 
 KalziumGradientTypeFactory* KalziumGradientTypeFactory::instance()
@@ -334,7 +338,7 @@ QByteArray KalziumElectronegativityGradientType::name() const
 
 QString KalziumElectronegativityGradientType::description() const
 {
-	return i18n( "Electronegativity" );
+	return i18n( "Electronegativity (Pauling)" );
 }
 
 double KalziumElectronegativityGradientType::value( int el ) const
@@ -352,4 +356,125 @@ double KalziumElectronegativityGradientType::minValue() const
 double KalziumElectronegativityGradientType::maxValue() const
 {
 	return 3.98;
+}
+
+///DISCOVERYDATE///
+
+KalziumDiscoverydateGradientType* KalziumDiscoverydateGradientType::instance()
+{
+	static KalziumDiscoverydateGradientType kegt;
+	return &kegt;
+}
+
+KalziumDiscoverydateGradientType::KalziumDiscoverydateGradientType()
+  : KalziumGradientType()
+{
+}
+
+QByteArray KalziumDiscoverydateGradientType::name() const
+{
+	return "Discoverydate";
+}
+
+QString KalziumDiscoverydateGradientType::description() const
+{
+	return i18n( "Discoverydate" );
+}
+
+double KalziumDiscoverydateGradientType::value( int el ) const
+{
+	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::date );
+
+	return v.toDouble();
+}
+
+double KalziumDiscoverydateGradientType::minValue() const
+{
+	return 1699.0;
+}
+
+double KalziumDiscoverydateGradientType::maxValue() const
+{
+	return 1994.0;
+}
+
+
+///ELECTRONAFFINITY///
+
+KalziumElectronaffinityGradientType* KalziumElectronaffinityGradientType::instance()
+{
+	static KalziumElectronaffinityGradientType kegt;
+	return &kegt;
+}
+
+KalziumElectronaffinityGradientType::KalziumElectronaffinityGradientType()
+  : KalziumGradientType()
+{
+}
+
+QByteArray KalziumElectronaffinityGradientType::name() const
+{
+	return "Electronaffinity";
+}
+
+QString KalziumElectronaffinityGradientType::description() const
+{
+	return i18n( "Electronaffinity" );
+}
+
+double KalziumElectronaffinityGradientType::value( int el ) const
+{
+	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::electronAffinity );
+
+	return v.toDouble();
+}
+
+double KalziumElectronaffinityGradientType::minValue() const
+{
+	return 0.0;
+}
+
+double KalziumElectronaffinityGradientType::maxValue() const
+{
+	return 3.7;
+}
+
+///FIRST IONIZATINO///
+
+KalziumIonizationGradientType* KalziumIonizationGradientType::instance()
+{
+	static KalziumIonizationGradientType kegt;
+	return &kegt;
+}
+
+KalziumIonizationGradientType::KalziumIonizationGradientType()
+  : KalziumGradientType()
+{
+}
+
+QByteArray KalziumIonizationGradientType::name() const
+{
+	return "Ionization";
+}
+
+QString KalziumIonizationGradientType::description() const
+{
+	return i18n( "First Ionization" );
+}
+
+double KalziumIonizationGradientType::value( int el ) const
+{
+	QVariant v = KalziumDataObject::instance()->element( el )->dataAsVariant( ChemicalDataObject::ionization );
+
+	return v.toDouble();
+}
+
+double KalziumIonizationGradientType::minValue() const
+{
+	return 0.0;
+}
+
+double KalziumIonizationGradientType::maxValue() const
+{
+	return 25.0;
 }

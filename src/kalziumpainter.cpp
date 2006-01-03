@@ -113,8 +113,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 	const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
 //kdDebug() << "ELEMENT: " << element << "  RECT: " << rect << endl;
 
-	bool grayedOut = true;
-	
+	bool grayedOut = false;
 	
 	switch ( m_mode )
 	{

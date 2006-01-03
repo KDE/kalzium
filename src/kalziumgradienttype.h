@@ -270,4 +270,70 @@ class KalziumElectronegativityGradientType : public KalziumGradientType
 		KalziumElectronegativityGradientType();
 };
 
+/**
+ * The gradient by discoverydate.
+ *
+ * @author Carsten Niehaus
+ */
+class KalziumDiscoverydateGradientType : public KalziumGradientType
+{
+	public:
+		static KalziumDiscoverydateGradientType* instance();
+
+		QByteArray name() const;
+		QString description() const;
+
+		double value( int el ) const;
+
+		double minValue() const;
+		double maxValue() const;
+
+	private:
+		KalziumDiscoverydateGradientType();
+};
+
+/**
+ * The gradient by electronaffinity.
+ *
+ * @author Carsten Niehaus
+ */
+class KalziumElectronaffinityGradientType : public KalziumGradientType
+{
+	public:
+		static KalziumElectronaffinityGradientType* instance();
+
+		QByteArray name() const;
+		QString description() const;
+
+		double value( int el ) const;
+
+		double minValue() const;
+		double maxValue() const;
+
+	private:
+		KalziumElectronaffinityGradientType();
+};
+
+/**
+ * The gradient by the first ionization energy.
+ *
+ * @author Carsten Niehaus
+ */
+class KalziumIonizationGradientType : public KalziumGradientType
+{
+	public:
+		static KalziumIonizationGradientType* instance();
+
+		QByteArray name() const;
+		QString description() const;
+
+		double value( int el ) const;
+
+		double minValue() const;
+		double maxValue() const;
+
+	private:
+		KalziumIonizationGradientType();
+};
+
 #endif // KALZIUMGRADIENTTYPE_H
