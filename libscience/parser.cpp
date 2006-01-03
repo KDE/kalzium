@@ -21,7 +21,7 @@
 
 Parser::Parser()
 {
-    start(QString::null);
+    start(QString());
 }
 
 
