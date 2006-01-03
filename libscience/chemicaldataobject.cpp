@@ -197,8 +197,23 @@ QString ChemicalDataObject::dictRef() const
 		case relativeAbundance:
 			botype = "relativeAbundance";
 			break;
+		case family:
+			botype ="family";
+			break;
+		case group:
+			botype ="group";
+			break;
+		case acidicbehaviour:
+			botype ="acidicbehaviour";
+			break;
+		case electronicConfiguration:
+			botype ="electronicConfiguration";
+			break;
+		case crystalstructure:
+			botype ="crystalstructure";
+			break;
 	}
-	
+
 	botype = botype.prepend( "bo:" );
 	
 	return botype;
@@ -222,6 +237,10 @@ QString ChemicalDataObject::unitAsString() const
 			break;
 		case noUnit:
 			return "noUnit";
+		case y:
+			return "y";
+		case s:
+			return "s";
 	}
 	
 	bounit = bounit.prepend( "bo:" );

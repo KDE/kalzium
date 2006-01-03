@@ -41,7 +41,12 @@ public:
 	inNameOrigin(false),
 	inDiscoveryDate(false),
 	inDiscoverers(false),
-	inPeriod(false)
+	inPeriod(false),
+	inCrystalstructure( false ),
+	inAcidicbehaviour( false ),
+	inFamily( false ),
+	inGroup( false ),
+	inElectronicconfiguration( false )
 	{
 	}
 
@@ -69,6 +74,11 @@ public:
 	bool inDiscoveryDate;
 	bool inDiscoverers;
 	bool inPeriod;
+	bool inCrystalstructure;
+	bool inAcidicbehaviour;
+	bool inFamily;
+	bool inGroup;
+	bool inElectronicconfiguration;
 };
 
 ElementSaxParser::ElementSaxParser()
@@ -131,6 +141,16 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 				d->inDiscoverers = true;
 			else if (attrs.value(i) == "bo:period")
 				d->inPeriod = true;
+			else if (attrs.value(i) == "bo:crystalstructure")
+				d->inCrystalstructure = true;
+			else if (attrs.value(i) == "bo:acidicbehaviour")
+				d->inAcidicbehaviour = true;
+			else if (attrs.value(i) == "bo:family")
+				d->inFamily = true;
+			else if (attrs.value(i) == "bo:group")
+				d->inGroup = true;
+			else if (attrs.value(i) == "bo:electronicConfiguration")
+				d->inElectronicconfiguration = true;
 		}
 	}
 	return true;
@@ -247,6 +267,31 @@ bool ElementSaxParser::characters(const QString &ch)
 		value = ch.toInt();
 		type = ChemicalDataObject::period; 
 		d->inPeriod = false;
+	}
+	else if (d->inCrystalstructure) {
+		value = ch;
+		type = ChemicalDataObject::crystalstructure; 
+		d->inCrystalstructure = false;
+	}
+	else if (d->inAcidicbehaviour) {
+		value = ch.toInt();
+		type = ChemicalDataObject::acidicbehaviour; 
+		d->inAcidicbehaviour = false;
+	}
+	else if (d->inFamily) {
+		value = ch;
+		type = ChemicalDataObject::family; 
+		d->inFamily = false;
+	}
+	else if (d->inGroup) {
+		value = ch.toInt();
+		type = ChemicalDataObject::group; 
+		d->inGroup = false;
+	}
+	else if (d->inElectronicconfiguration) {
+		value = ch;
+		type = ChemicalDataObject::electronicConfiguration; 
+		d->inElectronicconfiguration = false;
 	}
 	else//it is a non known value. Do not create a wrong object but return
 		return true;
