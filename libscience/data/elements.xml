@@ -1067,8 +1067,8 @@
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  unit="bo:kelvin">457.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="bo:kelvin">386.7</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1804</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:discoverers">B. Courtois</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1811</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">Bernard Courtois</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
   </elementType>
   <elementType id="Xe">
