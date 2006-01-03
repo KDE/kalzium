@@ -146,7 +146,8 @@ void MolcalcWidget::slotCalcButtonClicked()
 
 	// Parse the molecule, and at the same time calculate the total
 	// mass, and the composition of it.
-	m_validInput = m_parser->weight(molecule, &m_mass, &m_elementMap);
+	if ( molecule != QString() )
+		m_validInput = m_parser->weight(molecule, &m_mass, &m_elementMap);
 
 	updateUI();
 }
