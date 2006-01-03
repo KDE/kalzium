@@ -209,7 +209,7 @@ class KalziumFamilySchemeType : public KalziumSchemeType
 };
 
 /**
- * The scheme for acidic representation.
+ * The scheme for the acidic behaviour.
  *
  * @author Carsten Niehaus
  */
@@ -253,7 +253,7 @@ class KalziumGroupsSchemeType : public KalziumSchemeType
 };
 
 /**
- * The scheme for groups representation.
+ * The scheme for the crystal stuctures.
  *
  * @author Carsten Niehaus
  */

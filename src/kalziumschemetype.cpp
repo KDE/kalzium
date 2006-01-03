@@ -266,28 +266,28 @@ QBrush KalziumFamilySchemeType::elementBrush( int el, const QRect& elrect ) cons
 	if (  family == QLatin1String(  "Noblegas" ) ){
 		c = Prefs::noble_gas();
 	}
-	if (  family == QLatin1String(  "Non-Metal" ) ){
+	else if (  family == QLatin1String(  "Non-Metal" ) ){
 		c = Prefs::nonmetal();
 	}
-	if (  family == QLatin1String(  "Rare_Earth" ) ){
+	else if (  family == QLatin1String(  "Rare_Earth" ) ){
 		c = Prefs::rare();
 	}
-	if (  family == QLatin1String(  "Alkaline_Earth" ) ){
+	else if (  family == QLatin1String(  "Alkaline_Earth" ) ){
 		c = Prefs::alkaline();
 	}
-	if (  family == QLatin1String(  "Alkali_Earth" ) ){
+	else if (  family == QLatin1String(  "Alkali_Earth" ) ){
 		c = Prefs::alkalie();
 	}
-	if (  family == QLatin1String(  "Transition" ) ){
+	else if (  family == QLatin1String(  "Transition" ) ){
 		c = Prefs::transition();
 	}
-	if (  family == QLatin1String(  "Other_Metal" ) ){
+	else if (  family == QLatin1String(  "Other_Metal" ) ){
 		c = Prefs::other_metal();
 	}
-	if (  family == QLatin1String(  "Metalloids" ) ){
+	else if (  family == QLatin1String(  "Metalloids" ) ){
 		c = Prefs::metalloid();
 	}
-	if (  family == QLatin1String(  "Halogene" ) ){
+	else if (  family == QLatin1String(  "Halogene" ) ){
 		c = Prefs::halogene();
 	}
 	else
