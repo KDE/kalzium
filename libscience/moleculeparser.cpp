@@ -16,10 +16,6 @@
 
 #include <kdebug.h>
 
-/* PORTING
- * #include "kalziumdataobject.h"
- */
-
 #include "moleculeparser.h"
 
 
@@ -42,16 +38,6 @@ ElementCountMap::~ElementCountMap()
 ElementCount *
 ElementCountMap::search(Element *_element)
 {
-	//not yet tested but the commented code should be the same as
-	//the foreach... so lets use Qt4 power
-//X 	QList<ElementCount *>::ConstIterator       it    = m_map.constBegin();
-//X 	const QList<ElementCount *>::ConstIterator itEnd = m_map.constEnd();
-//X 
-//X 	for (; it != itEnd; ++it) {
-//X 		if ((*it)->element() == _element)
-//X 			return *it;
-//X 	}
-
 	foreach( ElementCount* c, m_map ){
 		if ( c->element() == _element )
 			return c;
@@ -64,16 +50,6 @@ ElementCountMap::search(Element *_element)
 void
 ElementCountMap::add(ElementCountMap &_map)
 {
-	//not yet tested but the commented code should be the same as
-	//the foreach... so lets use Qt4 power
-//X 	QList<ElementCount *>::ConstIterator       it    = _map.m_map.constBegin();
-//X 	const QList<ElementCount *>::ConstIterator itEnd = _map.m_map.constEnd();
-//X 
-//X 	// Step throught _map and for each element, add it to the current one.
-//X 	for (; it != itEnd; ++it) {
-//X 		add((*it)->m_element, (*it)->m_count);
-//X 	}
-
 	foreach( ElementCount* c, _map.m_map ){
 		add( c->m_element, c->m_count );
 	}
@@ -141,6 +117,9 @@ MoleculeParser::weight(QString         _moleculeString,
 					   double          *_resultMass,
 					   ElementCountMap *_resultMap)
 {
+	if ( _moleculeString == QString() )
+		return false;
+	
 	// Clear the result variables and set m_error to false
 	_resultMap->clear();
 	m_error = false;
@@ -295,12 +274,7 @@ MoleculeParser::getNextToken()
 Element *
 MoleculeParser::lookupElement( const QString& _name )
 {
-//X     QList<Element*> elementList = KalziumDataObject::instance()->ElementList;
-
     kdDebug() << "looking up " << _name << endl;
-
-//X     QList<Element*>::ConstIterator        it  = elementList.constBegin();
-//X     const QList<Element*>::ConstIterator  end = elementList.constEnd();
 
 	foreach( Element* e, m_elementList ){
 		if ( e->dataAsVariant(ChemicalDataObject::symbol) == _name ) {
@@ -308,13 +282,6 @@ MoleculeParser::lookupElement( const QString& _name )
 			return e;
 		}
 	}
-
-//X 	for (; it != end; ++it) {
-//X 		if ( (*it)->dataAsVariant(ChemicalDataObject::symbol) == _name ) {
-//X 			kdDebug() << "Found element " << _name << endl;
-//X 			return *it;
-//X 		}
-//X 	}
 
 	//if there is an error make m_error true.
 	m_error = true;

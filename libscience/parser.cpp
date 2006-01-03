@@ -139,26 +139,29 @@ Parser::parseSimpleFloat(double *_result)
 int
 Parser::getNextChar()
 {
-    if (m_index == -1)
-	return -1;
+//	kdDebug() << "Parser::getNextChar(): char = " << m_nextChar << endl;
+//	kdDebug() << "m_str.size() " << m_str.size()  << " with m_str: " << m_str  << " and m_index: " << m_index << endl;
+	
+	m_index++;
+	
+	if (m_index == -1)
+		return -1;
 
-    // If end of string, then reset the parser.
-    if (m_index == (int) m_str.length()) {
-	m_index    = -1;
-	m_nextChar = -1;
-    }
-    else 
-	m_nextChar = m_str.at(++m_index).toLatin1();
+	// If end of string, then reset the parser.
+	if (m_index == m_str.size()) {
+		m_index    = -1;
+		m_nextChar = -1;
+	}
+	else 
+		m_nextChar = m_str.at(m_index).toLatin1();
 
-    // Take care of null-terminated strings.
-    if (m_nextChar == 0) {
-	m_index    = -1;
-	m_nextChar = -1;
-    }
+	// Take care of null-terminated strings.
+	if (m_nextChar == 0) {
+		m_index    = -1;
+		m_nextChar = -1;
+	}
 
-    //kdDebug() << "Parser::getNextChar(): char = " << m_nextChar << endl;
-
-    return m_nextChar;
+	return m_nextChar;
 }
 
 
