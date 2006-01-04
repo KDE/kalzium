@@ -209,7 +209,7 @@ const QString Element::adjustUnits( const int type )
 			v = i18n( "Value unknown" );
 		else
 		{
-			if ( boiling() < 295.0 )//gasoline
+			if ( boiling() < 295.0 && melting() < 295.0)//gasoline
 			{
 				v = i18n( "%1 g/L" ).arg( QString::number( val ) );
 			}
