@@ -62,6 +62,7 @@ class ChemicalDataObject
 			crystalstructure/**< own, bcc, hdp, ccp, hcp, fcc, d, sc, tet, rh, or, mono*/,
 			electronicConfiguration/**< the electronic configuration, for example 1s2 for He*/,
 			group/**< This is a value between 1 and 8*/,
+			density/**< The density */,
 			nameOrigin/**< the origin of the name */,
 			orbit/**< the quantumorbit of the element */,
 			period/**< the period of the element */,

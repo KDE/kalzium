@@ -46,7 +46,8 @@ public:
 	inAcidicbehaviour( false ),
 	inFamily( false ),
 	inGroup( false ),
-	inElectronicconfiguration( false )
+	inElectronicconfiguration( false ),
+	inDensity( false )
 	{
 	}
 
@@ -79,6 +80,7 @@ public:
 	bool inFamily;
 	bool inGroup;
 	bool inElectronicconfiguration;
+	bool inDensity;
 };
 
 ElementSaxParser::ElementSaxParser()
@@ -151,6 +153,8 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 				d->inGroup = true;
 			else if (attrs.value(i) == "bo:electronicConfiguration")
 				d->inElectronicconfiguration = true;
+			else if (attrs.value(i) == "bo:density")
+				d->inDensity = true;
 		}
 	}
 	return true;
@@ -292,6 +296,11 @@ bool ElementSaxParser::characters(const QString &ch)
 		value = ch;
 		type = ChemicalDataObject::electronicConfiguration; 
 		d->inElectronicconfiguration = false;
+	}
+	else if (d->inDensity){
+		value = ch.toDouble();
+		type = ChemicalDataObject::density; 
+		d->inDensity = false;
 	}
 	else//it is a non known value. Do not create a wrong object but return
 		return true;
