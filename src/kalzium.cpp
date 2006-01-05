@@ -514,6 +514,9 @@ void Kalzium::slotSearchElements()
 {
 	if ( m_typeAheadString != QString() )//don't search if emtpy
 		KalziumDataObject::instance()->findElements( m_typeAheadString );
+
+	m_PeriodicTableView->setFullDraw();
+	m_PeriodicTableView->update();
 }
 
 #include "kalzium.moc"

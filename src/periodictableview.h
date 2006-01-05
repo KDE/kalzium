@@ -56,6 +56,11 @@ class PeriodicTableView : public QWidget
 		 */
 		PeriodicTableView( QWidget *parent = 0 );
 		~PeriodicTableView();
+		
+		/**
+		 * JH: Draw the full table next time
+		 */
+		void setFullDraw();
 
 		/**
 		 * Sets the numeration type to the one with index @p which.
@@ -204,10 +209,6 @@ class PeriodicTableView : public QWidget
 		 */
 		virtual void drawLegendToolTip( QPainter *p );
 
-		/**
-		 * JH: Draw the full table next time
-		 */
-		void setFullDraw();
 
 	public slots:
 		/**
