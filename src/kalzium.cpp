@@ -42,6 +42,8 @@
 #include <QLayout>
 #include <QToolBox>
 #include <QScrollArea>
+#include <QEvent>
+#include <QTimer>
 
 #include <kconfigdialog.h>
 #include <kiconloader.h>
@@ -63,6 +65,10 @@ Kalzium::Kalzium()
 {
 	// reading the elements from file
 	KalziumDataObject::instance();
+
+	m_activeTypeSearch = false;
+	m_searchTimer = new QTimer(this);
+	connect( m_searchTimer, SIGNAL( timeout() ), this, SLOT( slotSearchElements() ) );
 
 //	QWidget *centralWidget = new QWidget( this, "centralWidget" );
 //	m_pCentralLayout = new QVBoxLayout( centralWidget, PeriodicTableView_MARGIN, -1, "CentralLayout" );
@@ -379,6 +385,9 @@ void Kalzium::slotUpdateSettings()
 
 void Kalzium::setupStatusBar()
 {
+	statusBar()->insertItem( "", 0, 0, false );
+	statusBar()->setItemAlignment( 0, Qt::AlignRight );
+	
 	statusBar()->insertItem(  "" , IDS_ELEMENTINFO, 1, false );
 	statusBar()->setItemAlignment( IDS_ELEMENTINFO, Qt::AlignRight );
 	statusBar()->show();
@@ -457,6 +466,54 @@ void Kalzium::slotSidebarVisibilityChanged( bool visible )
 
 Kalzium::~Kalzium()
 {
+}
+
+void Kalzium::keyPressEvent( QKeyEvent *e)
+{
+	e->accept();
+	
+	if ( m_activeTypeSearch )
+	{
+		if (  e->key() == Qt::Key_Backspace )
+		{
+			if ( m_typeAheadString.length( ) > 1 )
+				m_typeAheadString = m_typeAheadString.left(  m_typeAheadString.length() - 1 );
+			else
+				findAheadStop();
+		}
+		else if (  e->key() == Qt::Key_Escape || e->key() == Qt::Key_Return )
+		{
+			findAheadStop();
+		}
+		else if (  !e->text().isEmpty() )
+		{
+			m_typeAheadString += e->text();
+		}
+		m_searchTimer->start( 500 );
+		statusBar()->changeItem(i18n( "Searching for: %1" ).arg( m_typeAheadString ),0);
+	
+		return;
+	}
+	else if (  e->key() == '/' ){
+		grabKeyboard();
+		m_activeTypeSearch = true;
+		statusBar()->changeItem( i18n( "Starting the search -- matching elements will be highlighted" ), 0 );
+	}
+}
+
+void Kalzium::findAheadStop()
+{
+	m_searchTimer->stop();
+	m_activeTypeSearch = false;
+	m_typeAheadString = QString();
+	releaseKeyboard();
+	statusBar()->changeItem( QString(),0); //don't display the search in the statusbar
+}
+
+void Kalzium::slotSearchElements()
+{
+	if ( m_typeAheadString != QString() )//don't search if emtpy
+		KalziumDataObject::instance()->findElements( m_typeAheadString );
 }
 
 #include "kalzium.moc"

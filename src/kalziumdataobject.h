@@ -53,6 +53,16 @@ class KalziumDataObject
 		 * The list of elements
 		 */
 		QList<Element*> ElementList;
+
+		/**
+		 * Store the matching elements
+		 */
+		void findElements( const QString& name );
+
+		/**
+		 * @return true if @p e matches the searched string
+		 */
+		bool elementMatchesSearch( Element* e );
 		
 		/**
 		 * @return the Element with the number @p number
@@ -75,6 +85,8 @@ class KalziumDataObject
 		~KalziumDataObject();
 	
 		QList<QPixmap> PixmapList;
+
+		QList<Element*> m_searchList;
 
 		/**
 		 * Caching the number of elements

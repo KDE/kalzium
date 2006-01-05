@@ -81,6 +81,26 @@ KalziumDataObject::~KalziumDataObject()
 {
 }
 
+void KalziumDataObject::findElements( const QString& name )
+{
+	QList<Element*> newList;
+
+	foreach( Element* e, ElementList ){
+		if ( e->dataAsString( ChemicalDataObject::name ).contains( name, Qt::CaseInsensitive ) )
+			newList << e;
+	}
+	
+	foreach( Element *e, newList ) 
+		kdDebug() << e->dataAsString(  ChemicalDataObject::name ) << endl;
+
+	m_searchList = newList;
+}
+
+bool KalziumDataObject::elementMatchesSearch( Element* e )
+{
+	return m_searchList.contains( e );
+}
+
 Element* KalziumDataObject::element( int number )
 {
 	// checking that we are requesting a valid element

@@ -68,7 +68,7 @@ class KalziumPainter
 		{
 			NORMAL = 0,
 			GRADIENT = 1,
-			SOM,
+			SOM/**< State of matter*/,
 			SLIDE
 		};
 

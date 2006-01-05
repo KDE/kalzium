@@ -43,6 +43,7 @@ class KalziumGradientType;
  * belongs to KalziumPainter.
  *
  * @author Carsten Niehaus
+ * @author Pino Toscano
  */
 class PeriodicTableView : public QWidget
 {

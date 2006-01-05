@@ -28,6 +28,8 @@ class GlossaryDialog;
 class IsotopeTable;
 class PrintWidget;
 class DoubleSliderWidget;
+class QKeyEvent;
+class QTimer;
 
 #include "kalziumpainter.h"
 
@@ -109,6 +111,9 @@ class Kalzium : public KMainWindow
 		GlossaryDialog *m_glossarydlg;
 
 		KalziumPainter::MODE m_prevNormalMode;
+
+	public slots:
+		void slotSearchElements();
 	
 	private slots:
 		/**
@@ -158,6 +163,17 @@ class Kalzium : public KMainWindow
 		void slotShowHideSidebar();
 
 		void slotSidebarVisibilityChanged(bool);
+
+	private:
+		bool m_activeTypeSearch;
+		QString m_typeAheadString;
+
+		void findAheadStop();
+
+		QTimer *m_searchTimer;
+
+	protected:
+		virtual void keyPressEvent( QKeyEvent * e);
 };
 
 #endif // _KALZIUM_H_

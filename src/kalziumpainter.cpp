@@ -113,13 +113,27 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 	const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
 //kdDebug() << "ELEMENT: " << element << "  RECT: " << rect << endl;
 
+	bool selectedElement = KalziumDataObject::instance()->elementMatchesSearch( el );  
+
 	bool grayedOut = false;
 	
 	switch ( m_mode )
 	{
 		case NORMAL:
 		{
-			QBrush c = m_scheme->elementBrush( element, rect );
+			QBrush c;
+				
+			if ( selectedElement )
+			{
+				QLinearGradient linearGrad( rect.topLeft(), rect.bottomRight() );
+				linearGrad.setColorAt( 0, Qt::red );
+				linearGrad.setColorAt( 1, Qt::green );
+
+				c = QBrush( linearGrad );
+			}
+			else
+				c = m_scheme->elementBrush( element, rect );
+
 			m_painter->setBrushOrigin( rect.topLeft() );
 			m_painter->fillRect( rect, c );
 			if ( c.texture().isNull() )
