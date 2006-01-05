@@ -22,9 +22,9 @@
  ***************************************************************************/
 
 
-#include <qwidget.h>
-#include <qbitmap.h>
-#include <qtimer.h>
+#include <QWidget>
+#include <QBitmap>
+#include <QTimer>
 
 class QPaintEvent;
 class Q3SimpleRichText;
@@ -56,7 +56,10 @@ class KalziumTip : public QWidget
 		void displayInternal();
 		void display();	
 		
-		void loadIcon(); //loads the elements icon
+		/**
+		 * loads the elements icon
+		 */
+		void loadIcon();
 	
 	protected slots:
 		void internalUpdate();

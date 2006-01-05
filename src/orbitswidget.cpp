@@ -18,9 +18,8 @@
 #include <kdebug.h>
 
 //QT-Includes
-#include <qpainter.h>
-#include <qregexp.h>
-#include <qpixmap.h>
+#include <QPainter>
+#include <QRegExp>
 
 OrbitsWidget::OrbitsWidget( QWidget *parent ) : QWidget( parent )
 {

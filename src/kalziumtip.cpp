@@ -23,13 +23,14 @@
 #include "kalziumtip.h"
 #include "element.h"
 
-#include <qapplication.h>
-#include <qevent.h>
-#include <qpixmap.h>
-#include <qimage.h>
+#include <QApplication>
+#include <QEvent>
+#include <QPixmap>
+#include <QImage>
+#include <QPainter>
+#include <QDesktopWidget>
+#include <QPaintEvent>
 #include <q3simplerichtext.h>
-#include <qpainter.h>
-#include <qdesktopwidget.h>
 
 #include <kdialog.h>
 #include <kdebug.h>

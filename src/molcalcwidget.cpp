@@ -47,6 +47,7 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 	ui.setupUi( this );
 	
 	connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalcButtonClicked() ) );
+	connect( ui.formulaEdit, SIGNAL( enterPressed() ), this, SLOT( slotCalcButtonClicked() ) );
 	connect( ui.clearButton, SIGNAL( clicked() ), this, SLOT( clear() ) );
 
 	ui.clearButton->setIcon( SmallIconSet( QApplication::reverseLayout() ? "clear_left" : "locationbar_erase" ) );
@@ -58,10 +59,12 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 
 void MolcalcWidget::clear()
 {
-	kdDebug() << "MolcalcWidget::clear()" << endl;
 	// Clear the data.
 	m_mass = 0;
 	m_elementMap.clear();
+
+	//stop the selection in the periodic table
+	KalziumDataObject::instance()->stopSearch();
 
 	// Clear the widgets.
 	ui.resultLabel->setText( "" );
@@ -107,6 +110,10 @@ void MolcalcWidget::updateUI()
 		ui.resultMass->setToolTip(        complexString );
 		ui.resultComposition->setToolTip( complexString );
 		ui.resultLabel->setToolTip(       complexString );
+		
+		//select the elements in the table
+		QList<Element*> list = m_elementMap.elements();
+		KalziumDataObject::instance()->findElements( list );
 	}
 	else{//the input was invalid, so tell this the user
 		kdDebug() << "m_validInput == FALSE" << endl;

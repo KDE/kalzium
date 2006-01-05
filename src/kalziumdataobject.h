@@ -58,7 +58,17 @@ class KalziumDataObject
 		 * Store the matching elements
 		 */
 		void findElements( const QString& name );
+		
+		/**
+		 * select the elements in the @p list
+		 */
+		void findElements( const QList<Element*>& list ){
+			m_searchList = list;
+		}
 
+		/**
+		 * stop the search by cleaning the internal list of selected elements
+		 */
 		void stopSearch(){
 			m_searchList.clear();
 		}

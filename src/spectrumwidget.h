@@ -21,9 +21,8 @@
 #ifndef SPECTRUMWIDGET_H
 #define SPECTRUMWIDGET_H
 
-#include <qwidget.h>
-
-#include <qpixmap.h>
+#include <QWidget>
+#include <QPixmap>
 
 #include "spectrum.h"
 

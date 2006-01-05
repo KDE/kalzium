@@ -93,9 +93,6 @@ void KalziumDataObject::findElements( const QString& name )
 			newList << e;
 	}
 	
-	foreach( Element *e, newList ) 
-		kdDebug() << name << " : " << e->dataAsString(  ChemicalDataObject::name ) << endl;
-
 	m_searchList = newList;
 }
 
