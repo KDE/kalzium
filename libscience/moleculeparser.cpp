@@ -56,6 +56,20 @@ ElementCountMap::add(ElementCountMap &_map)
 	
 }
 
+QList<Element*> 
+ElementCountMap::elements()
+{
+	QList<Element*> list;
+
+	foreach( ElementCount* c, m_map ){
+		Element* e = c->m_element;
+		if ( !list.contains( e ) )
+			list << e;
+	}
+
+	return list;
+}
+
 
 void
 ElementCountMap::add(Element *_element, int _count)

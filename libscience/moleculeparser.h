@@ -22,7 +22,7 @@
 
 
 /**
- * @class ElementCountMap
+ * @class ElementCount
  * @author Inge Wallin
  */
 class ElementCount 
@@ -83,7 +83,7 @@ class ElementCount
  * This class is used to count the elements in the molecule
  * which is being calculated
  * 
- * @class ElementCount
+ * @class ElementCountMap
  * @author Inge Wallin
  */
 class ElementCountMap 
@@ -114,6 +114,13 @@ class ElementCountMap
 		 * @param _map
 		 */
 		void           add(ElementCountMap &_map);
+
+		/**
+		 * Returns the elements in the molecule. For example, if the molecule 
+		 * is CO2, a list with C and O will be returned.
+		 * @return the elements in the molecule
+		 */
+		QList<Element*> elements();
 
 		/**
 		 * @param _element
