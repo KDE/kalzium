@@ -474,10 +474,15 @@ void Kalzium::keyPressEvent( QKeyEvent *e)
 	
 	if ( m_activeTypeSearch )
 	{
+		m_searchTimer->stop();
+
 		if (  e->key() == Qt::Key_Backspace )
 		{
 			if ( m_typeAheadString.length( ) > 1 )
+			{
 				m_typeAheadString = m_typeAheadString.left(  m_typeAheadString.length() - 1 );
+				statusBar()->changeItem(i18n( "Searching for: %1" ).arg( m_typeAheadString ),0);
+			}
 			else
 				findAheadStop();
 		}
@@ -488,10 +493,11 @@ void Kalzium::keyPressEvent( QKeyEvent *e)
 		else if (  !e->text().isEmpty() )
 		{
 			m_typeAheadString += e->text();
+			statusBar()->changeItem(i18n( "Searching for: %1" ).arg( m_typeAheadString ),0);
 		}
+
 		m_searchTimer->start( 500 );
-		statusBar()->changeItem(i18n( "Searching for: %1" ).arg( m_typeAheadString ),0);
-	
+
 		return;
 	}
 	else if (  e->key() == '/' ){
@@ -503,8 +509,10 @@ void Kalzium::keyPressEvent( QKeyEvent *e)
 
 void Kalzium::findAheadStop()
 {
+	kdDebug() << "Kalzium::findAheadStop()" << endl;
 	m_searchTimer->stop();
 	m_activeTypeSearch = false;
+	KalziumDataObject::instance()->stopSearch();
 	m_typeAheadString = QString();
 	releaseKeyboard();
 	statusBar()->changeItem( QString(),0); //don't display the search in the statusbar

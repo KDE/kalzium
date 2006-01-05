@@ -59,6 +59,10 @@ class KalziumDataObject
 		 */
 		void findElements( const QString& name );
 
+		void stopSearch(){
+			m_searchList.clear();
+		}
+
 		/**
 		 * @return true if @p e matches the searched string
 		 */

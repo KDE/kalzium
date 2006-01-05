@@ -111,7 +111,6 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 	QRect rect = r.isNull() ? m_ktt->elementRect( element ) : r;
 	Element *el = KalziumDataObject::instance()->element( element );
 	const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
-//kdDebug() << "ELEMENT: " << element << "  RECT: " << rect << endl;
 
 	bool selectedElement = KalziumDataObject::instance()->elementMatchesSearch( el );  
 
@@ -125,17 +124,15 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 				
 			if ( selectedElement )
 			{
-				QLinearGradient linearGrad( rect.topLeft(), rect.bottomRight() );
-				linearGrad.setColorAt( 0, Qt::red );
-				linearGrad.setColorAt( 1, Qt::green );
-
-				c = QBrush( linearGrad );
+				c = QBrush( Qt::yellow );
+				c.setStyle(Qt::CrossPattern);
 			}
 			else
 				c = m_scheme->elementBrush( element, rect );
 
 			m_painter->setBrushOrigin( rect.topLeft() );
 			m_painter->fillRect( rect, c );
+			
 			if ( c.texture().isNull() )
 			{
 				// the brush doesn't have any texture,
