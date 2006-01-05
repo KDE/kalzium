@@ -47,6 +47,7 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 	ui.setupUi( this );
 	
 	connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalcButtonClicked() ) );
+	connect( ui.clearButton, SIGNAL( clicked() ), this, SLOT( clear() ) );
 
 	ui.clearButton->setIcon( SmallIconSet( QApplication::reverseLayout() ? "clear_left" : "locationbar_erase" ) );
 
