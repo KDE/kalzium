@@ -17,6 +17,7 @@
 #endif
 
 #include <element.h>
+#include <kdeeduglossary.h>
 
 #include "prefs.h"
 #include "settings_colors.h"
@@ -55,8 +56,6 @@
 #include <kstandarddirs.h>
 #include <kdialogbase.h>
 
-#include <kdeeduglossary.h>
-
 #define PeriodicTableView_MARGIN          5
 #define IDS_ELEMENTINFO     7
 
@@ -73,14 +72,10 @@ Kalzium::Kalzium()
 	m_searchTimer = new QTimer(this);
 	connect( m_searchTimer, SIGNAL( timeout() ), this, SLOT( slotSearchElements() ) );
 
-//	QWidget *centralWidget = new QWidget( this, "centralWidget" );
-//	m_pCentralLayout = new QVBoxLayout( centralWidget, PeriodicTableView_MARGIN, -1, "CentralLayout" );
-
 	QScrollArea *helperSV = new QScrollArea( this );
 	m_PeriodicTableView = new PeriodicTableView( helperSV->viewport() );
 	m_PeriodicTableView->setObjectName( "PeriodicTableView" );
 	helperSV->setWidget( m_PeriodicTableView );
-//	helperSV->viewport()->setPaletteBackgroundColor(paletteBackgroundColor());  
 	helperSV->setFrameShape( QFrame::NoFrame );
 
 	m_infoDialog = 0;
@@ -219,8 +214,6 @@ void Kalzium::setupSidebars()
 	m_doubleWidget->setDigits( 4 );
 	m_doubleWidget->setCaption( "test123" );
 	m_doubleWidget->setObjectName( "DoubleWidget" );
-//X 	connect( m_doubleWidget, SIGNAL( valueHasChanged( int, int ) ),
-//X 	         m_PeriodicTableView, SLOT( setDate( int ) ) );
 	m_toolbox->addItem( m_doubleWidget, SmallIcon( "timeline" ), i18n( "DoubleWidget" ) );
 
 	m_somWidget = new SOMWidgetIMPL( this );
@@ -233,8 +226,6 @@ void Kalzium::setupSidebars()
 
 	m_printWidget = new PrintWidget( this );
 	m_toolbox->addItem( m_printWidget, SmallIcon( "fileprint" ), i18n( "Print Elements" ) );
-
-	//connect( m_dockWin, SIGNAL(visibilityChanged(bool)), this, SLOT(slotSidebarVisibilityChanged(bool)));
 
 }
 

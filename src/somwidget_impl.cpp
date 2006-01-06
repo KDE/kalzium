@@ -13,11 +13,11 @@
 
 #include "somwidget_impl.h"
 
-#include <qlabel.h>
-#include <qpair.h>
-#include <qslider.h>
-#include <qtextedit.h>
-#include <qlist.h>
+#include <QLabel>
+#include <QPair>
+#include <QSlider>
+#include <QTextEdit>
+#include <QList>
 #include <QVariant>
 
 #include <kdebug.h>

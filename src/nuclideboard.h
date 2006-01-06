@@ -20,13 +20,13 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <qwidget.h>
-#include <qlist.h>
-#include <qpair.h>
-#include <qpixmap.h>
-#include <qpoint.h>
-#include <qrect.h>
-#include <qscrollarea.h>
+#include <QWidget>
+#include <QList>
+#include <QPair>
+#include <QPixmap>
+#include <QPoint>
+#include <QRect>
+#include <QScrollArea>
 
 #include <kdialogbase.h>
 

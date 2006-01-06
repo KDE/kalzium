@@ -30,10 +30,10 @@
 #include <ktoolinvocation.h>
 
 //QT-Includes
-#include <qevent.h>
-#include <qlayout.h>
-#include <qcheckbox.h>
-#include <qlabel.h>
+#include <QKeyEvent>
+#include <QLayout>
+#include <QCheckBox>
+#include <QLabel>
 #include <QPointF>
 #include <QVariant>
 

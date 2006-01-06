@@ -27,13 +27,14 @@
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 
-#include <qevent.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qpainter.h>
-#include <qpixmap.h>
-#include <qpolygon.h>
-#include <qsizepolicy.h>
+#include <QEvent>
+#include <QMouseEvent>
+#include <QLabel>
+#include <QLayout>
+#include <QPainter>
+#include <QPixmap>
+#include <QPolygon>
+#include <QSizePolicy>
 
 #include <kaction.h>
 #include <kactioncollection.h>

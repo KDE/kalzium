@@ -21,7 +21,8 @@
 #ifndef _EQCHEMVIEW_H_
 #define _EQCHEMVIEW_H_
 
-#include <qwidget.h>
+#include <QWidget>
+
 #include <kdialogbase.h>
 
 class QPainter;
