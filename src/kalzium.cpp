@@ -65,7 +65,10 @@ Kalzium::Kalzium()
 	// reading the elements from file
 	KalziumDataObject::instance();
 	
+	m_toolbox = new QToolBox( this );
 	m_dockWin = new QDockWidget("test");
+	
+	m_dockWin->setWidget( m_toolbox );
 	m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea ); 
 
 	m_activeTypeSearch = false;
@@ -191,8 +194,6 @@ void Kalzium::setupActions()
 
 void Kalzium::setupSidebars()
 {
-	QToolBox *m_toolbox = new QToolBox( m_dockWin );
-	m_dockWin->setWidget( m_toolbox );
 
 	QWidget *fake = new QWidget( m_dockWin );
 	QVBoxLayout *lay = new QVBoxLayout( fake );

@@ -25,11 +25,11 @@ email                : cniehaus@kde.org
 
 //QT-Includes
 #include <QBrush>
-#include <qpainter.h>
-#include <qstring.h>
+#include <QPainter>
+#include <QString>
 #include <QPalette>
-#include <qpixmap.h>
-#include <qrect.h>
+#include <QPixmap>
+#include <QRect>
 
 #include <element.h>
 

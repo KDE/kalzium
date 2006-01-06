@@ -41,13 +41,12 @@
 MolcalcWidget::MolcalcWidget( QWidget *parent )
     : QWidget( parent )
 {
-	kdDebug() << "MolcalcWidget()::MolcalcWidget" << endl;
 	m_parser = new MoleculeParser( KalziumDataObject::instance()->ElementList );
 	
 	ui.setupUi( this );
 	
 	connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalcButtonClicked() ) );
-	connect( ui.formulaEdit, SIGNAL( enterPressed() ), this, SLOT( slotCalcButtonClicked() ) );
+	connect( ui.formulaEdit, SIGNAL( returnPressed() ), this, SLOT( slotCalcButtonClicked() ) );
 	connect( ui.clearButton, SIGNAL( clicked() ), this, SLOT( clear() ) );
 
 	ui.clearButton->setIcon( SmallIconSet( QApplication::reverseLayout() ? "clear_left" : "locationbar_erase" ) );
