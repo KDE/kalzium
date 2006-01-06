@@ -38,7 +38,7 @@
 #include "kalziumgradienttype.h"
 #include "printwidget.h"
 
-#include <q3dockwindow.h>
+#include <QDockWidget>
 #include <QLayout>
 #include <QToolBox>
 #include <QScrollArea>
@@ -65,6 +65,9 @@ Kalzium::Kalzium()
 {
 	// reading the elements from file
 	KalziumDataObject::instance();
+	
+	m_dockWin = new QDockWidget("test");
+	m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea ); 
 
 	m_activeTypeSearch = false;
 	m_searchTimer = new QTimer(this);
@@ -193,14 +196,6 @@ void Kalzium::setupActions()
 
 void Kalzium::setupSidebars()
 {
-	m_dockWin = new Q3DockWindow( this );
-	m_dockWin->setNewLine( true );
-	m_dockWin->setFixedExtentWidth( 220 );
-	m_dockWin->setResizeEnabled( true );
-	m_dockWin->setFrameShape( QFrame::ToolBarPanel );
-	m_dockWin->setCaption( i18n( "Sidebar" ) );
-	m_dockWin->setCloseMode( Q3DockWindow::Always );
-	
 	QToolBox *m_toolbox = new QToolBox( m_dockWin );
 	m_dockWin->setWidget( m_toolbox );
 
@@ -239,11 +234,7 @@ void Kalzium::setupSidebars()
 	m_printWidget = new PrintWidget( this );
 	m_toolbox->addItem( m_printWidget, SmallIcon( "fileprint" ), i18n( "Print Elements" ) );
 
-	moveDockWindow( m_dockWin, Qt::DockLeft );
-	setDockEnabled( /*m_dockWin, */Qt::DockTop, false );
-	setDockEnabled( /*m_dockWin, */Qt::DockBottom, false );
-	m_dockWin->hide();
-	connect( m_dockWin, SIGNAL(visibilityChanged(bool)), this, SLOT(slotSidebarVisibilityChanged(bool)));
+	//connect( m_dockWin, SIGNAL(visibilityChanged(bool)), this, SLOT(slotSidebarVisibilityChanged(bool)));
 
 }
 

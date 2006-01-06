@@ -18,7 +18,7 @@
 class KSelectAction;
 class QToolBox;
 class QVBoxLayout;
-class Q3DockWindow;
+class QDockWidget;
 class DetailedInfoDlg;
 class PeriodicTableView;
 class MolcalcWidget;
@@ -104,7 +104,7 @@ class Kalzium : public KMainWindow
 
 		PrintWidget* m_printWidget;
 
-		Q3DockWindow *m_dockWin;
+		QDockWidget *m_dockWin;
 		QToolBox *m_toolbox;
 		int m_toolboxCurrent;
 
