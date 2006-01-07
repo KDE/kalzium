@@ -102,9 +102,3 @@ messages-old: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kalzium.pot
 	rm -f rc.cpp # for testing
 
-messages: rc.cpp
-	$(EXTRACTATTR) --attr=name,origin data/data.xml >> rc.cpp
-	$(EXTRACTRC) --tag-group=none --tag=name data/data.xml >> rc.cpp
-	$(EXTRACTRC) --tag-group=none --tag=name --tag=desc --tag=refitem data/knowledge.xml >> rc.cpp
-	$(EXTRACTRC) --tag-group=none --tag=name --tag=desc data/tools.xml >> rc.cpp
-	$(XGETTEXT) *.cpp -o $(podir)/kalzium.pot
