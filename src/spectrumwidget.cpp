@@ -40,7 +40,8 @@
 #include <ieeefp.h>
 #endif
 
-SpectrumWidget::SpectrumWidget( QWidget *parent, const char* name ) : QWidget( parent, name )
+SpectrumWidget::SpectrumWidget( QWidget *parent )
+  : QWidget( parent )
 {
 	startValue = 0;
 	endValue = 0;

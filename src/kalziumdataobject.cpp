@@ -83,7 +83,7 @@ KalziumDataObject::~KalziumDataObject()
 
 void KalziumDataObject::findElements( const QString& name )
 {
-	if ( name == QString() )
+	if ( name.isEmpty() )
 		return;
 	
 	QList<Element*> newList;

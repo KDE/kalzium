@@ -22,7 +22,6 @@
 
 class DetailedGraphicalOverview;
 class Element;
-class KalziumDataObject;
 class OrbitsWidget;
 class SpectrumViewImpl;
 
@@ -50,7 +49,6 @@ class DetailedInfoDlg : public KDialogBase
 			ENERGY
 		};
 
-		KalziumDataObject  *m_data;
 		Element            *m_element;
 		int                m_elementNumber;
 

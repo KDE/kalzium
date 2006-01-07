@@ -16,6 +16,7 @@
 
 #include <kdialogbase.h>
 
+class QTimer;
 class Ui_PlotSetupWidget;
 class PlotWidget;
 class KActionCollection;
@@ -32,6 +33,8 @@ class ElementDataViewer : public KDialogBase
 
 	public:
 		ElementDataViewer( QWidget *parent = 0 );
+
+		~ElementDataViewer();
 
 		/**
 		 * the AxixData for the y-Axis
@@ -56,7 +59,9 @@ class ElementDataViewer : public KDialogBase
 		 * invoke the help of the correct chapter
 		 */
 		virtual void slotHelp();
-		virtual void slotUser1();
+
+	private slots:
+		void rangeChanged();
 
 	private: 
 		PlotWidget         *m_pPlotWidget;
@@ -64,6 +69,8 @@ class ElementDataViewer : public KDialogBase
 
 		QStringList         names;
 		QStringList         symbols;
+
+		QTimer *m_timer;
 
 		KActionCollection* m_actionCollection;
 

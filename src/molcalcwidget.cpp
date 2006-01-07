@@ -49,7 +49,7 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 	connect( ui.formulaEdit, SIGNAL( returnPressed() ), this, SLOT( slotCalcButtonClicked() ) );
 	connect( ui.clearButton, SIGNAL( clicked() ), this, SLOT( clear() ) );
 
-	ui.clearButton->setIcon( SmallIconSet( QApplication::reverseLayout() ? "clear_left" : "locationbar_erase" ) );
+	ui.clearButton->setIcon( SmallIconSet( QApplication::layoutDirection() == Qt::RightToLeft ? "clear_left" : "locationbar_erase" ) );
 
 	clear();
 
@@ -153,7 +153,7 @@ void MolcalcWidget::slotCalcButtonClicked()
 
 	// Parse the molecule, and at the same time calculate the total
 	// mass, and the composition of it.
-	if ( molecule != QString() )
+	if ( !molecule.isEmpty() )
 		m_validInput = m_parser->weight(molecule, &m_mass, &m_elementMap);
 
 	updateUI();

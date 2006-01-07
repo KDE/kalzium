@@ -50,11 +50,9 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
 			KGuiItem(i18n("Next element", "Next"), "1rightarrow"), 
 			KGuiItem(i18n("Previous element", "Previous"), "1leftarrow"))
 {
-	m_data    = KalziumDataObject::instance();
+	m_baseHtml = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/htmlview/";
 
-	m_baseHtml = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" ) += "kalzium/data/htmlview/";
-
-	m_picsdir = KGlobal::dirs()->findResourceDir( "data", "kalzium/elempics/" ) + "kalzium/elempics/";
+	m_picsdir = KGlobal::dirs()->findResourceDir( "appdata", "elempics/" ) + "elempics/";
 
 	( actionButton( KDialogBase::Close ) )->setFocus();
 
@@ -86,7 +84,7 @@ void DetailedInfoDlg::setElement( int el )
 	enableButton( User2, true );
 	if ( m_elementNumber == 1 )
 		enableButton( User2, false );
-	else if ( m_elementNumber == m_data->numberOfElements() )
+	else if ( m_elementNumber == KalziumDataObject::instance()->numberOfElements() )
 		enableButton( User1, false );
 }
 
@@ -491,7 +489,7 @@ void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 void DetailedInfoDlg::slotUser1()
 {
 // setting the next element
-	if ( m_elementNumber < m_data->numberOfElements() )
+	if ( m_elementNumber < KalziumDataObject::instance()->numberOfElements() )
 	{
 		setElement( m_elementNumber + 1 );
 #if 0

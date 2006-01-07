@@ -23,7 +23,6 @@
 #include "prefs.h"
 
 #include <QBrush>
-#include <QLinearGradient>
 #include <QVariant>
 
 #include <klocale.h>
@@ -113,10 +112,8 @@ QString KalziumMonoColorSchemeType::description() const
 QBrush KalziumMonoColorSchemeType::elementBrush( int el, const QRect& elrect ) const
 {
 	Q_UNUSED( el );
-	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
-	linearGrad.setColorAt( 0, Prefs::noscheme() );
-	linearGrad.setColorAt( 1, Prefs::noscheme() );
-	return QBrush( linearGrad );
+	Q_UNUSED( elrect );
+	return QBrush( Prefs::noscheme() );
 }
 
 QColor KalziumMonoColorSchemeType::textColor( int el ) const
@@ -293,10 +290,7 @@ QBrush KalziumFamilySchemeType::elementBrush( int el, const QRect& elrect ) cons
 	else
 		c = Qt::lightGray;
 
-	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
-	linearGrad.setColorAt( 0, c );
-	linearGrad.setColorAt( 1, c );
-	return QBrush( linearGrad );
+	return QBrush( c );
 }
 
 QColor KalziumFamilySchemeType::textColor( int el ) const
@@ -365,10 +359,7 @@ QBrush KalziumAcidicSchemeType::elementBrush( int el, const QRect& elrect ) cons
 	else
 		c = Qt::lightGray;
 
-	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
-	linearGrad.setColorAt( 0, c );
-	linearGrad.setColorAt( 1, c );
-	return QBrush( linearGrad );
+	return QBrush( c );
 }
 
 QColor KalziumAcidicSchemeType::textColor( int el ) const
@@ -444,10 +435,7 @@ QBrush KalziumGroupsSchemeType::elementBrush( int el, const QRect& elrect ) cons
 	else
 		c = Qt::lightGray;
 
-	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
-	linearGrad.setColorAt( 0, c );
-	linearGrad.setColorAt( 1, c );
-	return QBrush( linearGrad );
+	return QBrush( c );
 }
 
 QColor KalziumGroupsSchemeType::textColor( int el ) const
@@ -538,11 +526,7 @@ QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& elrect ) con
 	else
 		c = Qt::lightGray;
 	
-
-	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
-	linearGrad.setColorAt( 0, c );
-	linearGrad.setColorAt( 1, c );
-	return QBrush( linearGrad );
+	return QBrush( c );
 }
 
 QColor KalziumCrystalSchemeType::textColor( int el ) const

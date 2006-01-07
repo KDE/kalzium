@@ -123,10 +123,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 			QBrush c;
 				
 			if ( selectedElement )
-			{
-				c = QBrush( Qt::yellow );
-				c.setStyle(Qt::CrossPattern);
-			}
+				c = QBrush( Qt::yellow, Qt::CrossPattern );
 			else
 				c = m_scheme->elementBrush( element, rect );
 

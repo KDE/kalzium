@@ -41,10 +41,10 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 
 	QHBoxLayout *hlay = new QHBoxLayout( page );
 
-	QVBoxLayout *vlay = new QVBoxLayout( hlay );
+	QVBoxLayout *vlay = new QVBoxLayout();
+	hlay->addLayout( vlay );
 	vlay->setMargin( 0 );
 	vlay->setSpacing( 5 );
-	hlay->addLayout( vlay );
 	vlay->addItem( new QSpacerItem( 5, 40, QSizePolicy::Fixed, QSizePolicy::Fixed ) );
 
 	vlay->addWidget( new QLabel( i18n( "Crystal structure:" ), page ) );

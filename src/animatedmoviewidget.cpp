@@ -63,29 +63,28 @@ void AnimatedMovieWidget::init()
 	m_pix->setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed );
 	mainlay->addWidget( m_pix );
 	
-	QHBoxLayout *hlay = new QHBoxLayout( mainlay );
+	QHBoxLayout *hlay = new QHBoxLayout();
+	mainlay->addLayout( hlay );
 	hlay->setMargin( 0 );
 	hlay->setSpacing( 5 );
 
 	m_prev = new KPushButton( this );
-	m_prev->setIcon( QIcon( il->loadIconSet( "player_start", KIcon::NoGroup, 16 ) ) );
+	m_prev->setIcon( il->loadIconSet( "player_start", KIcon::NoGroup, 16 ) );
 	hlay->addWidget( m_prev );
 
 	m_start = new KPushButton( this );
-	m_start->setIcon( QIcon( il->loadIconSet( "player_play", KIcon::NoGroup, 16 ) ) );
+	m_start->setIcon( il->loadIconSet( "player_play", KIcon::NoGroup, 16 ) );
 	hlay->addWidget( m_start );
 
 	m_pause = new KPushButton( this );
-	m_pause->setIcon( QIcon( il->loadIconSet( "player_pause", KIcon::NoGroup, 16 ) ) );
+	m_pause->setIcon( il->loadIconSet( "player_pause", KIcon::NoGroup, 16 ) );
 	m_pause->setEnabled( false );
 	hlay->addWidget( m_pause );
 
 	m_next = new KPushButton( this );
-	m_next->setIcon( QIcon( il->loadIconSet( "player_end", KIcon::NoGroup, 16 ) ) );
+	m_next->setIcon( il->loadIconSet( "player_end", KIcon::NoGroup, 16 ) );
 	hlay->addWidget( m_next );
 	hlay->addItem( new QSpacerItem( 5, 5, QSizePolicy::Expanding, QSizePolicy::Fixed ) );
-
-	mainlay->addLayout( hlay );
 
 	setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed );
 

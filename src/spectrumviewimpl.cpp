@@ -22,8 +22,8 @@
 
 #include "exporter.h"
 
-SpectrumViewImpl::SpectrumViewImpl( QWidget *parent, const char* name )
-	: SpectrumView( parent, name )
+SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
+	: SpectrumView( parent )
 {
 	resize( minimumSizeHint() );
 	// simulating an update

@@ -16,6 +16,7 @@
 #include "plotsetupwidget.h"
 #include "plotwidget.h"
 #include "kalziumdataobject.h"
+#include "kalziumutils.h"
 
 #include <element.h>
 #include <kplotaxis.h>
@@ -35,6 +36,7 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QPointF>
+#include <QTimer>
 #include <QVariant>
 
 typedef QList<double> DoubleList;
@@ -78,6 +80,8 @@ class AxisData
 		DoubleList dataList;
 
 		int currentDataType;
+
+		ChemicalDataObject::BlueObelisk kind;
 };
 
 AxisData::AxisData() : currentDataType(-1)
@@ -99,13 +103,15 @@ int AxisData::numberOfElements() const
 
 
 ElementDataViewer::ElementDataViewer( QWidget *parent )
-  : KDialogBase( Plain, i18n( "Plot Data" ), Help|User1|Close, User1, parent,
-                 "plotdialog", true, false, KGuiItem( i18n( "&Plot" ) ) ),
+  : KDialogBase( Plain, i18n( "Plot Data" ), Help|Close, Close, parent,
+                 "plotdialog", true, false ),
     yData( new AxisData() )
 {
 	KalziumDataObject *kdo  = KalziumDataObject::instance();
 
-	QHBoxLayout *layout = new QHBoxLayout( plainPage(), 0, spacingHint() );
+	QHBoxLayout *layout = new QHBoxLayout( plainPage() );
+	layout->setMargin( 0 );
+	layout->setSpacing( spacingHint() );
 
 	QWidget *plotsetuprealwidget = new QWidget( plainPage() );
 	m_pPlotSetupWidget = new Ui_PlotSetupWidget();
@@ -116,6 +122,9 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 	m_pPlotWidget->setObjectName( "plotwidget" );
 	m_pPlotWidget->setMinimumWidth( 200 );
 	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );
+
+	m_timer = new QTimer( this );
+	m_timer->setSingleShot( true );
 
 	layout->addWidget( plotsetuprealwidget );
 	layout->addWidget( m_pPlotWidget );
@@ -134,18 +143,27 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 	m_actionCollection = new KActionCollection (this );
 	KStdAction::quit( this, SLOT( slotClose() ), m_actionCollection );
 
+	connect( m_timer, SIGNAL( timeout() ), this, SLOT( drawPlot() ) );
 	connect( m_pPlotSetupWidget->KCB_y, SIGNAL( activated(int) ),
 	         this, SLOT( drawPlot()) );
 	connect( m_pPlotSetupWidget->connectPoints, SIGNAL( toggled( bool ) ),
 	         this, SLOT( drawPlot()) );
 	connect( m_pPlotSetupWidget->comboElementLabels, SIGNAL( activated( int ) ),
 	         this, SLOT( drawPlot()) );
+	connect( m_pPlotSetupWidget->from, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( rangeChanged() ) );
+	connect( m_pPlotSetupWidget->to, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( rangeChanged() ) );
 
-	// Draw the plot so that the user doesn't have to press the "Plot"
-	// button to seee anything.
+	// simulate a change
 	drawPlot();
 
 	resize( 650, 500 );
+}
+
+ElementDataViewer::~ElementDataViewer()
+{
+	delete yData;
 }
 
 void ElementDataViewer::slotHelp()
@@ -153,13 +171,10 @@ void ElementDataViewer::slotHelp()
 	KToolInvocation::invokeHelp( "plot_data", "kalzium" );
 }
 
-// Reimplement slotUser1 from KDialogBase
-
-void ElementDataViewer::slotUser1()
+void ElementDataViewer::rangeChanged()
 {
-	kdDebug() << "slotUser1" << endl;
-
-	drawPlot();
+	m_timer->stop();
+	m_timer->start( 500 );
 }
 
 
@@ -220,7 +235,7 @@ void ElementDataViewer::setupAxisData()
 {
 	DoubleList l;
 
-	const int selectedData = m_pPlotSetupWidget->KCB_y->currentItem();
+	const int selectedData = m_pPlotSetupWidget->KCB_y->currentIndex();
 
 	//this should be somewhere else, eg in its own method
 	yData->currentDataType = selectedData;
@@ -289,6 +304,7 @@ void ElementDataViewer::setupAxisData()
 
 	yData->dataList.clear();
 	yData->dataList << l;
+	yData->kind = kind;
 
 	m_pPlotWidget->axis(PlotWidget::LeftAxis)->setLabel( caption );
 }
@@ -305,14 +321,16 @@ void ElementDataViewer::drawPlot()
 	/*
 	 * spare the next step in case everything is already set and done
 	 */
-	if( yData->currentDataType != m_pPlotSetupWidget->KCB_y->currentItem() )
+	if( yData->currentDataType != m_pPlotSetupWidget->KCB_y->currentIndex() )
 		initData();
 
 	/*
 	 * if the user selected the elements 20 to 30 the list-values are 19 to 29!!!
 	 */
-	const int from = m_pPlotSetupWidget->from->value();
-	const int to = m_pPlotSetupWidget->to->value();
+	const int tmpfrom = m_pPlotSetupWidget->from->value();
+	const int tmpto = m_pPlotSetupWidget->to->value();
+	const int from = qMin( tmpfrom, tmpto );
+	const int to = qMax( tmpfrom, tmpto );
 	
 	/*
 	 * The number of elements. #20 to 30 are 30-20+1=11 Elements
@@ -339,6 +357,8 @@ void ElementDataViewer::drawPlot()
 	double max;
 	double min = max = yData->value( from );
 
+	KalziumDataObject *kdo = KalziumDataObject::instance();
+
 	/*
 	 * iterate for example from element 20 to 30 and contruct
 	 * the KPlotObjects
@@ -355,7 +375,7 @@ void ElementDataViewer::drawPlot()
 				max = v;
 			av += v;
 
-			dataPoint = new KPlotObject( names[i-1], Qt::blue, KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
+			dataPoint = new KPlotObject( names[i-1] + QLatin1String( "\n" ) + KalziumUtils::prettyUnit( kdo->element( i ), yData->kind ), Qt::blue, KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
 			dataPoint->addPoint( new QPointF( (double)i, v ) );
 			m_pPlotWidget->addObject( dataPoint );
 
