@@ -38,6 +38,7 @@ kalzium_SOURCES = kalzium.cpp \
 			printwidget.cpp \
 			printwidgetbase.ui \
 			propertysliderwidgetbase.ui \
+			games.cpp
 
 kalzium_LDADD   = ../../libkdeedu/libscience/libscience.la \
 				  ../../libkdeedu/kdeeduplot/libkdeeduplot.la \
@@ -77,7 +78,8 @@ EXTRA_DIST = main.cpp \
 		kalziumtabletype.cpp kalziumtabletype.h \
 		propertysliderwidget.cpp propertysliderwidget.h \
 		printwidgetbase.ui \
-		printwidget.cpp printwidget.h
+		printwidget.cpp printwidget.h \
+		games.cpp games.h
 
 METASOURCES = AUTO 
 
