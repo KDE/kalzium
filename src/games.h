@@ -219,6 +219,7 @@ class RAGame : public Game
 		};
 	private:
 		int m_counter;
+		int m_number;
 
 	protected:
 		RAField* m_field;

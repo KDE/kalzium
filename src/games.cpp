@@ -56,13 +56,15 @@ void RAGame::RAField::addStone( Stone* stone )
 
 void RAGame::rollDices()
 {
+	m_number++;
+	
 	//generating two random numbers
 	//TODO make it a bit more random ;-)
-	const int x = ( int ) ( random()*5+1 );
-	const int y = ( int ) ( random()*5+1 );
+	const int x = ( int ) ( random()%6 );
+	const int y = ( int ) ( random()%6 );
 
 	QPoint point( x, y );
-	
+
 	Stone* stone = m_field->stoneAtPosition( point );
 
 	//increase if both dices have the same value. This
@@ -82,11 +84,10 @@ void RAGame::rollDices()
 RAGame::RAGame()
 	: Game()
 {
-	kdDebug() << "Game()" << endl;
-	
 	m_field = new RAField( 6,6 );
 
 	m_counter = 0;
+	m_number = 0;
 
 	//fill the field with 6x6 white stones
 	for ( int x = 0 ; x < 6 ; ++x )
@@ -94,12 +95,11 @@ RAGame::RAGame()
 		for ( int y = 0; y < 6 ; ++y )
 		{
 			m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
-			kdDebug() << "Creating " << x << ", " << y << endl;
 		}
 	}
 	
 	//now lets play 100 times!
-	while ( m_counter < 100 )
+	while ( m_counter < 80 && m_number < 80 )
 	{
 		rollDices();
 	}
@@ -115,8 +115,6 @@ RAGame::RAGame()
 				ds += "W";
 			else
 				ds += "B";
-			
-			kdDebug() << "testing " << x << ", " << y << endl;
 		}
 		kdDebug() << ds << endl;
 	}
