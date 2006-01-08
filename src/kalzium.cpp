@@ -19,6 +19,7 @@
 #include <element.h>
 #include <kdeeduglossary.h>
 
+#include "games.h"
 #include "prefs.h"
 #include "settings_colors.h"
 #include "settings_misc.h"
@@ -62,6 +63,8 @@
 Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
 {
+	RAGame *game = new RAGame();
+	
 	// reading the elements from file
 	KalziumDataObject::instance();
 	

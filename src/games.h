@@ -12,24 +12,21 @@ class Stone : public QObject
 	Q_OBJECT
 
 	public:
-		/** 
-		 * Constructor
-		 */
-		Stone();
-		
 		enum PLAYER
 		{
 			Black = 0,
 			White
 		};
+
+		/**
+		 * if the stone is black make it white and vice versa
+		 */
+		void swap();
 		
 		/**
 		 * Set the kind of player to @p player
 		 */
-		Stone( PLAYER player )
-		{
-			m_player = player;
-		}
+		Stone( PLAYER player, const QPoint& point );
 
 		/**
 		 * set the player to @p player
@@ -87,11 +84,7 @@ class Field
 		 * @param x The x-size of the field
 		 * @param y The y-size of the field
 		 */
-		Field(int x, int y)
-		{
-			m_size_x = x;
-			m_size_y = y;
-		}
+		Field(int x, int y);
 
 		/**
 		 * @return the x-size of the field
@@ -112,22 +105,31 @@ class Field
 		/**
 		 * Destructor
 		 */
-		~Field();
+		virtual ~Field();
+
+		/**
+		 * Add the Stone @p stone to position @p pos
+		 */
+		virtual void addStone( Stone* stone ) = 0;
 
 		/**
 		 * @return the Stone at the position @p pos
 		 */
-		Stone* stoneAtPosition( const QPoint& pos );
+		virtual Stone* stoneAtPosition( const QPoint& pos );
 
 		/**
 		 * moves Stone @p stone from the current position to the @p newPosition
 		 */
-		virtual void moveStoneTo( Stone* stone, const QPoint& newPosition );
+		virtual void moveStoneTo( Stone* stone, const QPoint& newPosition ) = 0;
 		
 		/**
 		 * moves the Stone in @p currentPosition to the @p newPosition
 		 */
-		virtual void moveStoneTo( const QPoint& currentPosition, const QPoint& newPosition );
+		virtual void moveStoneTo( const QPoint& currentPosition, const QPoint& newPosition )
+		{
+			Stone* s = stoneAtPosition( currentPosition );
+			moveStoneTo( s, newPosition );
+		}
 		
 		/**
 		 * @return the stones of the game
@@ -137,7 +139,7 @@ class Field
 			return m_stones;
 		}
 		
-	private:
+	protected:
 		int m_size_x;
 		
 		int m_size_y;
@@ -162,6 +164,8 @@ class Game
 		 * starts the game
 		 */
 		virtual void startGame();
+
+		virtual void rollDices() = 0;
 		
 		/**
 		 * stops the game
@@ -176,10 +180,9 @@ class Game
 			m_field = field;
 		}
 
-	private:
-		Field* m_field;
-		
 	protected:
+		Field* m_field;
+
 		/**
 		 * The constructor
 		 */
@@ -189,9 +192,35 @@ class Game
 /**
  * @author Carsten Niehaus
  */
-class CrystalGame : public Game
+class RAGame : public Game
 {
 	public:
-		CrystalGame();
+		RAGame();
+
+		void rollDices();
+		
+		class RAField : public Field
+		{
+			public:
+				/**
+				 * Constructor
+				 *
+				 * @param x The x-size of the field
+				 * @param y The y-size of the field
+				 */
+				RAField(int x, int y);
+
+				/**
+				 * moves Stone @p stone from the current position to the @p newPosition
+				 */
+				virtual void moveStoneTo( Stone* stone, const QPoint& newPosition );
+		
+				virtual void addStone( Stone* stone );
+		};
+	private:
+		int m_counter;
+
+	protected:
+		RAField* m_field;
 };
 #endif // GAMES_H
