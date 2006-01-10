@@ -152,8 +152,9 @@ class Field
  * @author Carsten Niehaus
  * @brief Baseclass for all games
  */
-class Game
+class Game : public QObject
 {
+	Q_OBJECT
  	public:
 		/**
 		 * Destructor
