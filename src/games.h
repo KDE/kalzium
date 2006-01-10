@@ -180,6 +180,18 @@ class Game
 			m_field = field;
 		}
 
+	signals:
+		/**
+		 * the game has ended
+		 */
+		void gameOver();
+
+	public slots:
+		/**
+		 * Start the next draw/roll
+		 */
+		void slotNextMove();
+
 	protected:
 		Field* m_field;
 
@@ -223,5 +235,53 @@ class RAGame : public Game
 
 	protected:
 		RAField* m_field;
+};
+
+/**
+ * @author Carsten Niehaus
+ */
+class CrystallizationGame : public Game
+{
+	public:
+		CrystallizationGame();
+
+		void rollDices();
+		
+		class CrystallizationField : public Field
+		{
+			public:
+				/**
+				 * Constructor
+				 *
+				 * @param x The x-size of the field
+				 * @param y The y-size of the field
+				 */
+				CrystallizationField(int x, int y);
+
+				/**
+				 * moves Stone @p stone from the current position to the @p newPosition
+				 */
+				virtual void moveStoneTo( Stone* stone, const QPoint& newPosition );
+		
+				virtual void addStone( Stone* stone );
+		};
+	private:
+		int m_number;
+
+		int neighboursTeam( Stone* stone );
+		
+		int neighboursNum( Stone* stone );
+
+		QList<Stone*> openentStoneNeighbours( Stone* stone );
+
+		/**
+		 * Exange the Stone at the postion @p point with one stone
+		 * of the other team. That other Stone has to be in orthogonal
+		 * contact with the Stone in @p point
+		 */
+		void exchangeStones( const QPoint& point );
+
+	protected:
+		CrystallizationField* m_field;
 };
 #endif // GAMES_H

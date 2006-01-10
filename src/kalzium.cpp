@@ -64,6 +64,7 @@ Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
 {
 	RAGame *game = new RAGame();
+	CrystallizationGame *game2 = new CrystallizationGame();
 	
 	// reading the elements from file
 	KalziumDataObject::instance();
