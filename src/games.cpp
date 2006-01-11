@@ -45,6 +45,11 @@ Field::~Field()
 Game::Game(){}
 Game::~Game(){}
 
+void Game::slotNextMove()
+{
+	rollDices();
+}
+
 void Game::startGame()
 {}
 
