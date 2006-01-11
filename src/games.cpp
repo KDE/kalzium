@@ -3,6 +3,7 @@
 #include <QPoint>
 
 #include <kdebug.h>
+#include <krandomsequence.h>
 
 #include <math.h>
 
@@ -47,7 +48,7 @@ Game::~Game(){}
 
 void Game::slotNextMove()
 {
-	rollDices();
+	rollDice();
 }
 
 void Game::startGame()
@@ -73,12 +74,11 @@ void RAGame::RAField::addStone( Stone* stone )
 	m_stones.append( stone );
 }
 
-void RAGame::rollDices()
+void RAGame::rollDice()
 {
 	m_number++;
 	
 	//generating two random numbers
-	//TODO make it a bit more random ;-)
 	const int x = ( int ) ( random()%6 );
 	const int y = ( int ) ( random()%6 );
 
@@ -120,7 +120,7 @@ RAGame::RAGame()
 	//now lets play 100 times!
 	while ( m_counter < 80 && m_number < 80 )
 	{
-		rollDices();
+		rollDice();
 	}
 	
 	QString ds = QString();
@@ -156,17 +156,19 @@ void CrystallizationGame::CrystallizationField::addStone( Stone* stone )
 	m_stones.append( stone );
 }
 
-void CrystallizationGame::rollDices()
+void CrystallizationGame::rollDice()
 {
 	m_number++;
+
+	long seed = 1234.5678;
+	KRandomSequence *random = new KRandomSequence( seed );
 	
 	//generating two random numbers
-	//TODO make it a bit more random ;-)
-	const int x = ( int ) ( random()%6 );
-	const int y = ( int ) ( random()%6 );
-
+	const int x = ( int ) random->getLong( 6 );
+	const int y = ( int ) random->getLong( 6 );
+	
 	//the propability
-	const int w = ( int )( random()%10000 );
+	const int w = ( int ) random->getLong( 2 );
 
 	QPoint point( x, y );
 
@@ -178,6 +180,8 @@ void CrystallizationGame::rollDices()
 	int numTeam = neighboursTeam( stone );
 	int totalNum = neighboursNum( stone );
 	int numOtherTeam = totalNum - numTeam;
+	
+	kdDebug() << "Doing point " << point << " numTeam: " << numTeam << " numOtherTeam: " << numOtherTeam << endl;
 
 	if ( numTeam < numOtherTeam )
 	{
@@ -189,7 +193,6 @@ void CrystallizationGame::rollDices()
 	}
 	else if ( numTeam == numOtherTeam )
 	{//with a probability of 50% do as in the if-condition above
-		const int w = ( int ) ( random()%2 );
 		if ( w%2 )
 			exchangeStones( point );
 	}
@@ -216,11 +219,25 @@ void CrystallizationGame::exchangeStones( const QPoint& point )
 		otherTeamStones << stone3;
 	if ( stone4 && stone4->player() != stone->player()  )
 		otherTeamStones << stone4;
+	
+	kdDebug() << "Run: #" << m_number << " , # of stones: " << otherTeamStones.count() << " Stones: " << stone1 << " " << stone2 << " " << stone3 << " " << stone4<< endl;
 
-	int choice = ( int ) ( random()%otherTeamStones.count() );
+	if ( otherTeamStones.count() < 1 )//well, there is nothing to exchange...
+		return;
 
-	//the stone to exange...
-	Stone *chosenStone = otherTeamStones.at( choice );
+	//the stone to exchange...
+	Stone *chosenStone = 0;
+	
+	if ( otherTeamStones.count() == 1 ) {
+		kdDebug() << "Taking the only stone there is..." << endl;
+		chosenStone = otherTeamStones[ 0 ];//take the first (and only) Stone
+	}
+	else{
+		const int choice = ( int ) ( random()%otherTeamStones.count() );
+		kdDebug() << "Choice: " << choice << " (of " << otherTeamStones.count() << ")" << endl;
+
+		chosenStone = otherTeamStones[ choice ];
+	}
 
 	chosenStone->swap();
 	stone->swap();
@@ -281,20 +298,38 @@ CrystallizationGame::CrystallizationGame()
 	{
 		for ( int y = 0; y < 6 ; ++y )
 		{
-			if ( y < 4 )
+			if ( y < 3 )
 				m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
 			else
 				m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
 		}
 	}
 	
+	QString ds = QString();
+	kdDebug() << "Before starting the game:" << endl;
+	for ( int x = 0; x < 6 ; ++x )
+	{
+		ds = QString();
+		for ( int y = 0; y < 6 ; ++y )
+		{
+			Stone* s = m_field->stoneAtPosition( QPoint( x,y ) );
+			if ( s->player() == Stone::White )
+				ds += "W";
+			else
+				ds += "B";
+		}
+		kdDebug() << ds << endl;
+	}
+	
 	//now lets play 100 times!
 	while ( m_number < 80 )
 	{
-		rollDices();
+		rollDice();
 	}
 	
-	QString ds = QString();
+	kdDebug() << "Result of the game:" << endl;
+
+	ds = QString();
 	for ( int x = 0; x < 6 ; ++x )
 	{
 		ds = QString();

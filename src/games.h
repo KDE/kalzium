@@ -166,7 +166,7 @@ class Game : public QObject
 		 */
 		virtual void startGame();
 
-		virtual void rollDices() = 0;
+		virtual void rollDice() = 0;
 		
 		/**
 		 * stops the game
@@ -204,13 +204,20 @@ class Game : public QObject
 
 /**
  * @author Carsten Niehaus
+ *
+ * Rules of the game: The game starts with an all white board. In each turn, a 
+ * Stone on the board will be selected randomly. If the stone is white, it will
+ * turn black. This represents the radioactive decay.
+ * The game becomes interesting if you alter the number of turns it runs. The 
+ * probablilty that a stone swap the colour from white to black decreases with
+ * each turn. It is proportional to the halflife period.
  */
 class RAGame : public Game
 {
 	public:
 		RAGame();
 
-		void rollDices();
+		void rollDice();
 		
 		class RAField : public Field
 		{
@@ -246,7 +253,7 @@ class CrystallizationGame : public Game
 	public:
 		CrystallizationGame();
 
-		void rollDices();
+		void rollDice();
 		
 		class CrystallizationField : public Field
 		{
