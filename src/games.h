@@ -3,6 +3,10 @@
 
 #include <QWidget>
 
+#include <krandomsequence.h>
+
+class KRandomSequence;
+
 /**
  * @author Carsten Niehaus
  * @brief A token to play a game
@@ -196,6 +200,8 @@ class Game : public QObject
 	protected:
 		Field* m_field;
 
+		KRandomSequence random;
+
 		/**
 		 * The constructor
 		 */
@@ -273,6 +279,11 @@ class CrystallizationGame : public Game
 		
 				virtual void addStone( Stone* stone );
 		};
+		
+		/**
+		 * starts the game
+		 */
+		virtual void startGame();
 	private:
 		int m_number;
 

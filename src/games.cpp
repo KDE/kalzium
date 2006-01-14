@@ -3,9 +3,9 @@
 #include <QPoint>
 
 #include <kdebug.h>
-#include <krandomsequence.h>
 
 #include <math.h>
+#include <time.h>
 
 ///Stone
 Stone::Stone( PLAYER player, const QPoint& point )
@@ -43,7 +43,10 @@ Field::~Field()
 {}
 
 //Game
-Game::Game(){}
+Game::Game()
+{
+}
+
 Game::~Game(){}
 
 void Game::slotNextMove()
@@ -52,7 +55,9 @@ void Game::slotNextMove()
 }
 
 void Game::startGame()
-{}
+{
+	random.setSeed( time(0) );
+}
 
 void Game::stopGame()
 {}
@@ -79,8 +84,8 @@ void RAGame::rollDice()
 	m_number++;
 	
 	//generating two random numbers
-	const int x = ( int ) ( random()%6 );
-	const int y = ( int ) ( random()%6 );
+	const int x = ( int ) ( random.getLong( 6 ) );
+	const int y = ( int ) ( random.getLong( 6 ) );
 
 	QPoint point( x, y );
 
@@ -160,15 +165,12 @@ void CrystallizationGame::rollDice()
 {
 	m_number++;
 
-	long seed = 1234.5678;
-	KRandomSequence *random = new KRandomSequence( seed );
-	
 	//generating two random numbers
-	const int x = ( int ) random->getLong( 6 );
-	const int y = ( int ) random->getLong( 6 );
+	const int x = ( int ) random.getLong( 6 );
+	const int y = ( int ) random.getLong( 6 );
 	
 	//the propability
-	const int w = ( int ) random->getLong( 2 );
+	const int w = ( int ) random.getLong( 2 );
 
 	QPoint point( x, y );
 
@@ -233,7 +235,7 @@ void CrystallizationGame::exchangeStones( const QPoint& point )
 		chosenStone = otherTeamStones[ 0 ];//take the first (and only) Stone
 	}
 	else{
-		const int choice = ( int ) ( random()%otherTeamStones.count() );
+		const int choice = ( int ) ( random.getLong( otherTeamStones.count() ) );
 		kdDebug() << "Choice: " << choice << " (of " << otherTeamStones.count() << ")" << endl;
 
 		chosenStone = otherTeamStones[ choice ];
@@ -321,6 +323,12 @@ CrystallizationGame::CrystallizationGame()
 		kdDebug() << ds << endl;
 	}
 	
+}
+
+void CrystallizationGame::startGame()
+{
+	Game::startGame();
+	
 	//now lets play 100 times!
 	while ( m_number < 80 )
 	{
@@ -329,7 +337,7 @@ CrystallizationGame::CrystallizationGame()
 	
 	kdDebug() << "Result of the game:" << endl;
 
-	ds = QString();
+	QString ds = QString();
 	for ( int x = 0; x < 6 ; ++x )
 	{
 		ds = QString();

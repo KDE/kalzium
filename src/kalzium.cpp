@@ -64,6 +64,7 @@ Kalzium::Kalzium()
     : KMainWindow( 0, "Kalzium" )
 {
 	CrystallizationGame *game2 = new CrystallizationGame();
+	game2->startGame();
 
 	return;
 	
