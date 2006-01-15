@@ -247,6 +247,7 @@ void Kalzium::slotGames()
 	KDialog *dlg = new KDialog( this );
 
  	GameWidget* gamewidget = new GameWidget( dlg );
+	gamewidget->setField( game2->field() );
 	gamewidget->show();
 	gamewidget->update();
 

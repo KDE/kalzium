@@ -185,6 +185,10 @@ class Game : public QObject
 			m_field = field;
 		}
 
+		Field* field() const{
+			return m_field;
+		}
+
 	signals:
 		/**
 		 * the game has ended
