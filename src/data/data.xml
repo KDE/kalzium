@@ -2835,8 +2835,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>3.894 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>265.5</covalent>
-			<atomic></atomic>
+			<covalent>235</covalent>
+			<atomic>265.4</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 6s1</orbits>
@@ -2885,8 +2885,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>10.0</energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>217.3</covalent>
-			<atomic></atomic>
+			<covalent>198</covalent>
+			<atomic>217.3</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 6s2</orbits>
@@ -2946,7 +2946,7 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 		</ionisationenergy>
 		<radius>
 			<covalent>169</covalent>
-			<atomic>195</atomic>
+			<atomic>187.0</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 5d1 6s2</orbits>
@@ -2983,8 +2983,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>65.5</energy>
 		</ionisationenergy>
 		<radius>
-			<covalent></covalent>
-			<atomic>185</atomic>
+			<covalent>165</covalent>
+			<atomic>182.5</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f1 5d1 6s2</orbits>
@@ -3023,8 +3023,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>21.6</energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>182.8</covalent>
-			<atomic></atomic>
+			<covalent>165</covalent>
+			<atomic>182.8</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f3 6s2</orbits>
@@ -3055,8 +3055,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>5.49 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>182.1</covalent>
-			<atomic></atomic>
+			<covalent>164</covalent>
+			<atomic>182.1</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f4 6s2</orbits>
@@ -3095,8 +3095,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>5.55 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>181.0</covalent>
-			<atomic></atomic>
+			<covalent>163</covalent>
+			<atomic>181.0</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f5 6s2</orbits>
@@ -3129,8 +3129,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>5.63 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>180.2</covalent>
-			<atomic></atomic>
+			<covalent>166</covalent>
+			<atomic>180.2</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f6 6s2</orbits>
@@ -3170,8 +3170,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>5.67 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>204.2</covalent>
-			<atomic></atomic>
+			<covalent>185</covalent>
+			<atomic>204.2</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f7 6s2</orbits>
@@ -3203,8 +3203,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>6.14 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>180.2</covalent>
-			<atomic></atomic>
+			<covalent>161</covalent>
+			<atomic>180.2</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f7 5d1 6s2</orbits>
@@ -3243,8 +3243,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>5.85 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>178.2</covalent>
-			<atomic></atomic>
+			<covalent>159</covalent>
+			<atomic>178.2</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f9 6s2</orbits>
@@ -3276,8 +3276,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>5.93 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>177.3</covalent>
-			<atomic></atomic>
+			<covalent>159</covalent>
+			<atomic>177.3</atomic>
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f10 6s2</orbits>
@@ -3315,8 +3315,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>6.02 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>176.6</covalent>
-			<atomic></atomic>
+			<covalent>158</covalent>
+			<atomic>176.6</atomic>
 			<vdw></vdw>
 			<bondxx></bondxx>
 		</radius>
@@ -3349,8 +3349,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>6.10 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>175.7</covalent>
-			<atomic></atomic>
+			<covalent>157</covalent>
+			<atomic>175.7</atomic>
 			<vdw></vdw>
 			<bondxx></bondxx>
 		</radius>
@@ -3388,8 +3388,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>6.18 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>174.6</covalent>
-			<atomic></atomic>
+			<covalent>156</covalent>
+			<atomic>174.6</atomic>
 			<vdw></vdw>
 			<bondxx></bondxx>
 		</radius>
@@ -3422,8 +3422,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>6.254 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>194</covalent>
-			<atomic></atomic>
+			<covalent>170</covalent>
+			<atomic>194</atomic>
 			<vdw></vdw>
 			<bondxx></bondxx>
 		</radius>
@@ -3463,8 +3463,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>5.426 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>173.4</covalent>
-			<atomic></atomic>
+			<covalent>156</covalent>
+			<atomic>173.4</atomic>
 			<vdw></vdw>
 			<bondxx></bondxx>
 		</radius>
@@ -3499,8 +3499,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>7.0 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>156.4</covalent>
-			<atomic></atomic>
+			<covalent>144</covalent>
+			<atomic>156.4</atomic>
 			<vdw></vdw>
 			<bondxx></bondxx>
 		</radius>
@@ -3539,8 +3539,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>7.89 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>143</covalent>
-			<atomic></atomic>
+			<covalent>134</covalent>
+			<atomic>143</atomic>
 			<vdw></vdw>
 			<bondxx></bondxx>
 		</radius>
@@ -3575,8 +3575,8 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<energy>7.98 </energy>
 		</ionisationenergy>
 		<radius>
-			<covalent>137.0</covalent>
-			<atomic></atomic>
+			<covalent>130</covalent>
+			<atomic>137</atomic>
 			<vdw></vdw>
 			<bondxx></bondxx>
 		</radius>
