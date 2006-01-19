@@ -2781,7 +2781,7 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 		</ionisationenergy>
 		<radius>
 			<covalent>130</covalent>
-			<atomic></atomic>
+			<atomic>108</atomic>
 			<vdw>216</vdw>
 		</radius>
 		<orbits>Kr 4d10 5s2 5p6</orbits>
