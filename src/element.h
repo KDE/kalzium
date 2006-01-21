@@ -235,7 +235,7 @@ class Element{
 		 * @return the abundance in crustal rocks in parts per million
 		 */
 		int abundance() const {
-			return 12;
+			return m_abundance;
 		}
 		
 		/**
