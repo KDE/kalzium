@@ -80,7 +80,7 @@ EXTRA_DIST = main.cpp \
 		propertysliderwidget.cpp propertysliderwidget.h \
 		printwidgetbase.ui \
 		printwidget.cpp printwidget.h \
-		games.cpp games.h
+		games.cpp games.h \
 		gameui.cpp gameui.h
 
 METASOURCES = AUTO 
