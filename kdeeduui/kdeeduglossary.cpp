@@ -32,7 +32,7 @@
 #include <qstringlist.h>
 #include <qtoolbutton.h>
 
-Glossary::Glossary( const KURL& url, const QString& path )
+Glossary::Glossary( const KUrl& url, const QString& path )
 {
 	init( url, path );
 }
@@ -46,7 +46,7 @@ Glossary::~Glossary()
 {
 }
 
-void Glossary::init( const KURL& url, const QString& path )
+void Glossary::init( const KUrl& url, const QString& path )
 {
 	// setting a generic name for a new glossary
 	m_name = i18n( "Glossary" );
@@ -67,7 +67,7 @@ void Glossary::init( const KURL& url, const QString& path )
 	}
 }
 
-bool Glossary::loadLayout( QDomDocument &Document, const KURL& url )
+bool Glossary::loadLayout( QDomDocument &Document, const KUrl& url )
 {
 	QFile layoutFile( url.path() );
 
@@ -237,7 +237,7 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
  
 	m_htmlpart = new KHTMLPart( vs, "html-part" );
 
-	connect( m_htmlpart->browserExtension(), SIGNAL( openURLRequestDelayed( const KURL &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KURL &, const KParts::URLArgs & ) ) );
+	connect( m_htmlpart->browserExtension(), SIGNAL( openURLRequestDelayed( const KUrl &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KUrl &, const KParts::URLArgs & ) ) );
 	connect( m_glosstree, SIGNAL(clicked( Q3ListViewItem * )), this, SLOT(slotClicked( Q3ListViewItem * )));
 	connect( clear, SIGNAL(clicked()), m_search, SLOT(clear()));
 
@@ -256,7 +256,7 @@ void GlossaryDialog::keyPressEvent(QKeyEvent* e)
 	KDialogBase::keyPressEvent(e);
 }
 
-void GlossaryDialog::displayItem( const KURL& url, const KParts::URLArgs& )
+void GlossaryDialog::displayItem( const KUrl& url, const KParts::URLArgs& )
 {
 	// using the "host" part of a kurl as reference
 	QString myurl = url.host().toLower();

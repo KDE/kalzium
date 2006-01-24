@@ -45,7 +45,7 @@ class Glossary
 		 * @param url the path of the file to load
 		 * @param path the path of the pictures
 		 */
-		Glossary( const KURL& url, const QString& path = 0 );
+		Glossary( const KUrl& url, const QString& path = 0 );
 
 		/**
 		 * Creates a new empty glossary
@@ -124,7 +124,7 @@ class Glossary
 		}
 
 	protected:
-		void init( const KURL& url, const QString& path );
+		void init( const KUrl& url, const QString& path );
 	
 	private:
 		/**
@@ -157,7 +157,7 @@ class Glossary
 		 * @return a bool indicating whether the loading of the XML was
 		 *         successfull or not
 		 */
-		bool loadLayout( QDomDocument& doc, const KURL& url );
+		bool loadLayout( QDomDocument& doc, const KUrl& url );
 	
 		QList<GlossaryItem*> m_itemlist;
 		
@@ -291,7 +291,7 @@ class GlossaryDialog : public KDialogBase
 		/**
 		 * The user clicked on a href. Find and display the right item
 		 */
-		void displayItem( const KURL& url, const KParts::URLArgs& args );
+		void displayItem( const KUrl& url, const KParts::URLArgs& args );
 };
 
 #endif // KDEEDUGLOSSARY_H
