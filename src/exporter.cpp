@@ -34,12 +34,6 @@
 
 Exporter::Exporter()
 {
-	static bool kimageioRegistered = false;
-	if ( ! kimageioRegistered )
-	{
-		KImageIO::registerFormats();
-		kimageioRegistered = true;
-	}
 }
 
 Exporter::~Exporter()
