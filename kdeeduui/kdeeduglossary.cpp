@@ -39,7 +39,7 @@ Glossary::Glossary( const KUrl& url, const QString& path )
 
 Glossary::Glossary()
 {
-	init( KURL(), QString() );
+	init( KUrl(), QString() );
 }
 
 Glossary::~Glossary()
