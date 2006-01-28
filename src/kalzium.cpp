@@ -100,7 +100,7 @@ Kalzium::Kalzium()
 	m_glossarydlg->setObjectName( QLatin1String( "glossary" ) );
 	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
 	QString picturepath = dir + "kalzium/data/bg.jpg";
-	KURL u = dir + "kalzium/data/knowledge.xml";
+	KUrl u = dir + "kalzium/data/knowledge.xml";
 	Glossary *g = new Glossary( u );
 	g->setName( i18n( "Knowledge" ) );
 	g->setBackgroundPicture( picturepath );

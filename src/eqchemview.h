@@ -26,7 +26,7 @@
 #include <kdialogbase.h>
 
 class QPainter;
-class KURL;
+class KUrl;
 class EqResult;
 
 class KLineEdit;
