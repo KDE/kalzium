@@ -15,13 +15,35 @@
 
 #include "orbitswidget.h"
 
-#include <kdebug.h>
-
 //QT-Includes
 #include <QPainter>
 #include <QRegExp>
 
+#include <math.h>
+
 static QStringList hulllist;
+
+/**
+ * @return the delta of the x-coordinate
+ * @param r is the radius of the circle
+ * @param angle is the n'st circle out of num
+ * @param num is the number of circles
+ */
+static double translateToDX( double r, double angle, int num )
+{
+	return r * sin( M_PI * angle / num * 2 );
+}
+
+/**
+ * @return the delta of the y-coordinate
+ * @param r is the radius of the circle
+ * @param angle is the n'st circle out of num
+ * @param num is the number of circles
+ */
+static double translateToDY( double r, double angle, int num )
+{
+	return r * cos( M_PI * angle / num * 2 );
+}
 
 OrbitsWidget::OrbitsWidget( QWidget *parent ) : QWidget( parent )
 {
@@ -153,47 +175,28 @@ void OrbitsWidget::setElementNumber( const int num )
 void OrbitsWidget::getNumberOfOrbits()
 {
 	numOfElectrons.clear();
-	QRegExp rxb( "\\s" ); //space
-	QString o = getNumber();
+	QString o;
+	if ( ( Elemno > 0 ) && ( Elemno <= hulllist.count() ) )
+		o = hulllist[ Elemno-1 ];
 
-	num = 1;
+	QRegExp digit( "\\d+" );
 	int pos = 0;
-	int cut = 0;
-	bool cont = true;
-
-	if ( !o.contains( rxb ) ) //only true for H and He
-		numOfElectrons.append( o.toInt() );
-	else //every other element
+	while ( ( pos = digit.indexIn( o, pos ) ) > -1 )
 	{
-		while ( cont )
-		{
-
-			pos = o.indexOf( rxb );
-			cut = o.length()-pos-1;
-			numOfElectrons.append(o.left( pos ).toInt());
-			o = o.right( cut );
-			num++;
-
-			if ( !o.contains( rxb ) )
-			{
-				numOfElectrons.append( o.toInt() );
-				cont = false;
-			}
-		}
+		numOfElectrons.append( digit.cap( 0 ).toInt() );
+		pos = pos + digit.matchedLength();
 	}
-}
-
-const QString& OrbitsWidget::getNumber() const
-{
-	return hulllist[ Elemno-1 ];
 }
 
 void OrbitsWidget::paintEvent(  QPaintEvent* )
 {
-	
 	QPainter DC;
 	DC.begin( this );
+	DC.setPen( Qt::black );
 
+	const int num = numOfElectrons.count();
+	if ( num == 0 ) return; // no orbits, do nothing
+	
 	int h=height();
 	int w=width();
 	int w_c=h/10;
@@ -202,24 +205,21 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	//the radius of the current orbit
 	int r;
 
-	//the radius of an 'electron'
-	int r_electron;
-
 	//make sure the biggest orbit fits in the widget
 	if ( h < w )
 		r = ( h-2*h_c )/2;
 	else r = ( w-2*w_c )/2;
 	
-	r_electron = r/20; //diameter of an electron-circle
-		
-	QBrush brush( Qt::yellow );
+	//the radius of an 'electron'
+	int r_electron = r/20;
 	
+	QBrush brush( Qt::yellow );
+
 	int d = 2*r; //Diameter
 	int	ddx = d/(2*num);//difference to the previous circle
 
-	numOfElectrons.prepend( 999 );
 	intList::Iterator it = numOfElectrons.end();
-	it--;
+	--it;
 
 	for ( int i = 0 ; i < num ; ++i )
 	{
@@ -227,7 +227,6 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 		int my = h_c+ddx*i; //the y-coordinate for the current circle
 
 		DC.setBrush( Qt::NoBrush );
-		DC.setPen( Qt::black );
 		
 		//draw the big ellipses in concentric circles
 		DC.drawEllipse( mx , my , d , d);
@@ -249,8 +248,6 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 		d = d-2*ddx;
 	}
 }
-
-
 
 
 #include "orbitswidget.moc"
