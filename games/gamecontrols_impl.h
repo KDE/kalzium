@@ -31,7 +31,6 @@ class GameControls_Impl : public QWidget
 		GameControls_Impl( QWidget * parent = 0 );
 		~GameControls_Impl(){};
 	
-	private:
 		Ui_Dialog ui;
 		
 };

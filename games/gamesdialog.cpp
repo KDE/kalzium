@@ -36,13 +36,23 @@ GamesDialog::GamesDialog()
 	vbox->addWidget( m_gamefield );
 	vbox->addWidget( m_controls );
 
-	RAGame * ragame = new RAGame();
+	m_game = new RAGame();
 
-	Field * field = static_cast<Field*>(  ragame->field() );
+	connect(m_controls->ui.next, SIGNAL( clicked() ), 
+			m_game, SLOT(slotNextMove()) );
+	connect(m_controls->ui.start, SIGNAL( clicked() ), 
+			this, SLOT(slotStartWithTimer()) );
+	connect(m_controls->ui.stop, SIGNAL( clicked() ), 
+			m_game, SLOT(stopGame()) );
+	connect(m_game, SIGNAL( turnOver(Move*) ), 
+			m_gamefield, SLOT(slotUpdate(Move*)) );
 
-	kdDebug() << "Field: " << field << endl;
+	m_gamefield->setField( m_game->field() );
+}
 
-	m_gamefield->setField( field );
+void GamesDialog::slotStartWithTimer()
+{
+	m_game->startWithTimer( 50 );
 }
 
 #include "gamesdialog.moc"

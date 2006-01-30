@@ -22,6 +22,7 @@
 
 class QPaintEvent;
 class Field;
+class Move;
 
 /**
  * @author Carsten Niehaus
@@ -36,6 +37,11 @@ class GamefieldWidget : public QWidget
 
 		void setField( Field * field ){
 			m_field = field;
+		}
+
+	public slots:
+		void slotUpdate( Move * move ){
+			update();	
 		}
 
 	private:

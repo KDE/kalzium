@@ -32,15 +32,42 @@
 #include <math.h>
 #include <time.h>
 
+//Move
+int Move::numberOfStones( Stone::PLAYER p )
+{
+	QString letter;
+	if ( p == Stone::White )
+		letter = "W";
+	else if ( p == Stone::Black )
+		letter = "B";
+	else 
+		return 0;
+
+	int num = 0;
+	QStringList::Iterator it = m_list.begin();
+	const QStringList::Iterator itEnd = m_list.end();
+	for (; it != itEnd; ++it)	
+	{
+		QString s = *it;
+		num += s.count( letter );
+	}
+
+	return num;
+}
+
+
 //Game
 Game::Game()
 {
+	connect( &m_timer, SIGNAL( timeout() ), 
+			this, SLOT( slotNextMove() ) );
 }
 
 Game::~Game(){}
 
 void Game::slotNextMove()
 {
+	finishMove();
 	rollDice();
 }
 
@@ -48,9 +75,6 @@ void Game::startGame()
 {
 	random.setSeed( time(0) );
 }
-
-void Game::stopGame()
-{}
 
 //RAField
 RAGame::RAField::RAField( int x, int y )
@@ -94,37 +118,12 @@ void RAGame::rollDice()
 		stone->swap();
 }
 
-//RAgame
-RAGame::RAGame()
-	: Game()
+void Game::finishMove()
 {
-	m_field = new RAField( 6,6 );
-
-	setField( m_field );
-	
-	kdDebug() << "Field in RAGame-ctor: " << m_field << endl;
-	
-	kdDebug() << "Field (methode) in RAGame-ctor: " << field() << endl;
-
-	m_counter = 0;
-	m_number = 0;
-
-	//fill the field with 6x6 white stones
-	for ( int x = 0 ; x < 6 ; ++x )
-	{
-		for ( int y = 0; y < 6 ; ++y )
-		{
-			m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
-		}
-	}
-	
-	//now lets play 100 times!
-	while ( m_counter < 80 && m_number < 80 )
-	{
-		rollDice();
-	}
-	
 	QString ds = QString();
+	
+	QStringList sl;
+	
 	for ( int x = 0; x < 6 ; ++x )
 	{
 		ds = QString();
@@ -136,7 +135,33 @@ RAGame::RAGame()
 			else
 				ds += "B";
 		}
-		kdDebug() << ds << endl;
+		sl.append( ds );
+	}
+
+	Move *move = new Move( sl );
+	m_moves.append( move );
+
+	emit turnOver( move );
+}
+
+//RAgame
+RAGame::RAGame()
+	: Game()
+{
+	m_field = new RAField( 6,6 );
+
+	setField( m_field );
+	
+	m_counter = 0;
+	m_number = 0;
+
+	//fill the field with 6x6 white stones
+	for ( int x = 0 ; x < 6 ; ++x )
+	{
+		for ( int y = 0; y < 6 ; ++y )
+		{
+			m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
+		}
 	}
 }
 
@@ -196,6 +221,7 @@ void CrystallizationGame::rollDice()
 	}
 	else
 		kdDebug() << "error" << endl;
+	
 }
 
 void CrystallizationGame::exchangeStones( const QPoint& point )
@@ -288,6 +314,7 @@ CrystallizationGame::CrystallizationGame()
 	: Game()
 {
 	m_field = new CrystallizationField( 6,6 );
+	setField( m_field );
 
 	m_number = 0;
 
@@ -302,51 +329,11 @@ CrystallizationGame::CrystallizationGame()
 				m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
 		}
 	}
-	
-	QString ds = QString();
-	kdDebug() << "Before starting the game:" << endl;
-	for ( int x = 0; x < 6 ; ++x )
-	{
-		ds = QString();
-		for ( int y = 0; y < 6 ; ++y )
-		{
-			Stone* s = m_field->stoneAtPosition( QPoint( x,y ) );
-			if ( s->player() == Stone::White )
-				ds += "W";
-			else
-				ds += "B";
-		}
-		kdDebug() << ds << endl;
-	}
-	
 }
 
 void CrystallizationGame::startGame()
 {
 	Game::startGame();
-	
-	//now lets play 100 times!
-	while ( m_number < 80 )
-	{
-		rollDice();
-	}
-	
-	kdDebug() << "Result of the game:" << endl;
-
-	QString ds = QString();
-	for ( int x = 0; x < 6 ; ++x )
-	{
-		ds = QString();
-		for ( int y = 0; y < 6 ; ++y )
-		{
-			Stone* s = m_field->stoneAtPosition( QPoint( x,y ) );
-			if ( s->player() == Stone::White )
-				ds += "W";
-			else
-				ds += "B";
-		}
-		kdDebug() << ds << endl;
-	}
 }
 
 #include "games.moc"

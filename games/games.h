@@ -19,7 +19,10 @@
 #ifndef GAMES_H
 #define GAMES_H
 
+class Move;
+
 #include <QWidget>
+#include <QTimer>
 
 #include <krandomsequence.h>
 #include <kmainwindow.h>
@@ -27,6 +30,7 @@
 #include <kdebug.h>
 
 #include "field.h"
+#include "stone.h"
 
 class KRandomSequence;
 
@@ -50,12 +54,10 @@ class Game : public QObject
 		 */
 		virtual void startGame();
 
-		virtual void rollDice() = 0;
-		
 		/**
-		 * stops the game
+		 * roll the dices. This means: start a new turn 
 		 */
-		virtual void stopGame();
+		virtual void rollDice() = 0;
 
 		/**
 		 * set the field to @p field
@@ -78,21 +80,64 @@ class Game : public QObject
 		 */
 		void gameOver();
 
+		/**
+		 * one turn is over
+		 */
+		void turnOver(Move*);
+
 	public slots:
 		/**
 		 * Start the next draw/roll
 		 */
 		void slotNextMove();
 
-	protected:
-		Field* m_field;
+		/**
+		 * Active the game by using a QTimer. In this case, every @p ms milliseconds
+		 * a new turn will be done
+		 * @see rollDice
+		 */
+		void startWithTimer( int ms ){
+			m_timer.start( ms );
+		}
+		
+		/**
+		 * halt the game
+		 */
+		void stopGame(){
+			m_timer.stop();
+		}
 
+	protected:
+		/**
+		 * the field of the game
+		 */
+		Field* m_field;
+		
+		/**
+		 * needed for automated games
+		 */
+		QTimer m_timer;
+
+		/**
+		 * needed for the random numbers
+		 */
 		KRandomSequence random;
 
 		/**
 		 * The constructor
 		 */
 		Game();
+
+		/**
+		 * a list of moves. With this list you can follow
+		 * the game backward and forward.
+		 */
+		QList<Move*> m_moves;
+
+		/**
+		 * finish the move, emit the signal
+		 */
+		void finishMove();
 };
 
 /**
@@ -190,4 +235,28 @@ class CrystallizationGame : public Game
 	protected:
 		CrystallizationField* m_field;
 };
+
+/**
+ * @author Carsten Niehaus
+ */
+class Move
+{
+	public:
+		/**
+		 * Constructor
+		 * @param list the list of stones
+		 */
+		Move( QStringList list ){
+			m_list = list;
+		}
+
+		/**
+		 * @return the number of stones of the PLAYER p
+		 */
+		int numberOfStones( Stone::PLAYER p );
+
+	private:
+		QStringList m_list;
+};
+
 #endif // GAMES_H

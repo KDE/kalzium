@@ -22,6 +22,7 @@
 
 class GamefieldWidget;
 class GameControls_Impl;
+class RAGame;
 
 class GamesDialog : public KDialog
 {
@@ -29,6 +30,11 @@ class GamesDialog : public KDialog
 	
 	public:
 		GamesDialog();
+
+		RAGame *m_game;
+
+	public slots:
+		void slotStartWithTimer();
 
 	private:
 		GameControls_Impl * m_controls;
