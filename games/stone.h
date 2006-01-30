@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005      by Carsten Niehaus,    cniehaus@kde.org       *
+ *   Copyright (C) 2006      by Carsten Niehaus,    cniehaus@kde.org       *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -16,25 +16,79 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
+#ifndef STONE_H
+#define STONE_H
 
-#include "games.h"
-#include "gamecontrols_impl.h"
-#include "gamesdialog.h"
-#include "gamefieldwidget.h"
+#include <QObject>
+#include <QPoint>
 
-#include <QLayout>
-
-#include <kdebug.h>
-///GamesDialog
-GamesDialog::GamesDialog()
-	: KDialog( 0, "KalziumGames" )
+/**
+ * @author Carsten Niehaus
+ * @brief A token to play a game
+ *
+ */
+class Stone : public QObject
 {
-	QVBoxLayout * vbox = new QVBoxLayout( this );
-	m_controls = new GameControls_Impl( this );
-	m_gamefield = new GamefieldWidget( this );
+	Q_OBJECT
 
-	vbox->addWidget( m_gamefield );
-	vbox->addWidget( m_controls );
-}
+	public:
+		enum PLAYER
+		{
+			Black = 0,
+			White
+		};
 
-#include "gamesdialog.moc"
+		/**
+		 * if the stone is black make it white and vice versa
+		 */
+		void swap();
+		
+		/**
+		 * Set the kind of player to @p player
+		 */
+		Stone( PLAYER player, const QPoint& point );
+
+		/**
+		 * set the player to @p player
+		 */
+		void setPlayer( PLAYER player )
+		{
+			m_player = player;
+		}
+
+		/**
+		 * @return the player of this stone
+		 */
+		PLAYER player() const
+		{
+			return m_player;
+		}
+
+		/**
+		 * @return the position of the stone
+		 */
+		QPoint position() const
+		{
+			return m_position;
+		}
+
+		/**
+		 * set the position to @p point
+		 */
+		void setPosition( const QPoint& point )
+		{
+			m_position = point;
+			emit moved( m_position );
+		}
+
+	private:
+		PLAYER m_player;
+
+		QPoint m_position;
+
+	signals:
+		void removed();
+		void moved(QPoint);
+};
+
+#endif // STONE_H

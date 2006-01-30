@@ -18,11 +18,10 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
-#include <QWidget>
-
-#include <krandomsequence.h>
-#include <kmainwindow.h>
 #include <kdialog.h>
+
+class GamefieldWidget;
+class GameControls_Impl;
 
 class GamesDialog : public KDialog
 {
@@ -30,6 +29,10 @@ class GamesDialog : public KDialog
 	
 	public:
 		GamesDialog();
+
+	private:
+		GameControls_Impl * m_controls;
+		GamefieldWidget * m_gamefield;
 };
 
 #endif // GAMESDIALOG_H

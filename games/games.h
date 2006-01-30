@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005      by Carsten Niehaus,    cniehaus@kde.org       *
+ *   Copyright (C) 2006      by Carsten Niehaus,    cniehaus@kde.org       *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -27,73 +27,7 @@
 
 class KRandomSequence;
 
-/**
- * @author Carsten Niehaus
- * @brief A token to play a game
- */
-class Stone : public QObject
-{
-	Q_OBJECT
-
-	public:
-		enum PLAYER
-		{
-			Black = 0,
-			White
-		};
-
-		/**
-		 * if the stone is black make it white and vice versa
-		 */
-		void swap();
-		
-		/**
-		 * Set the kind of player to @p player
-		 */
-		Stone( PLAYER player, const QPoint& point );
-
-		/**
-		 * set the player to @p player
-		 */
-		void setPlayer( PLAYER player )
-		{
-			m_player = player;
-		}
-
-		/**
-		 * @return the player of this stone
-		 */
-		PLAYER player() const
-		{
-			return m_player;
-		}
-
-		/**
-		 * @return the position of the stone
-		 */
-		QPoint position() const
-		{
-			return m_position;
-		}
-
-		/**
-		 * set the position to @p point
-		 */
-		void setPosition( const QPoint& point )
-		{
-			m_position = point;
-			emit moved( m_position );
-		}
-
-	private:
-		PLAYER m_player;
-
-		QPoint m_position;
-
-	signals:
-		void removed();
-		void moved(QPoint);
-};
+class Stone;
 
 /**
  * @author Carsten Niehaus

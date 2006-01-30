@@ -16,7 +16,9 @@ games_SOURCES = main.cpp \
 				games.cpp \
 				gamecontrols.ui \
 				gamecontrols_impl.cpp \
-				gamesdialog.cpp
+				gamesdialog.cpp \
+				gamefieldwidget.cpp \
+				stone.cpp
 
 EXTRA_DIST = gamecontrols.ui
 

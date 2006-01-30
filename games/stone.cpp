@@ -17,24 +17,20 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-#include "games.h"
-#include "gamecontrols_impl.h"
-#include "gamesdialog.h"
-#include "gamefieldwidget.h"
+#include "stone.h"
 
-#include <QLayout>
-
-#include <kdebug.h>
-///GamesDialog
-GamesDialog::GamesDialog()
-	: KDialog( 0, "KalziumGames" )
+Stone::Stone( PLAYER player, const QPoint& point )
 {
-	QVBoxLayout * vbox = new QVBoxLayout( this );
-	m_controls = new GameControls_Impl( this );
-	m_gamefield = new GamefieldWidget( this );
-
-	vbox->addWidget( m_gamefield );
-	vbox->addWidget( m_controls );
+	m_player = player;
+	m_position = point;
 }
 
-#include "gamesdialog.moc"
+void Stone::swap()
+{
+	if ( m_player == Stone::White )
+		m_player = Stone::Black;
+	else
+		m_player = Stone::White;
+}
+
+//#include "stone.moc"

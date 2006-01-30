@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005      by Carsten Niehaus,    cniehaus@kde.org       *
+ *   Copyright (C) 2005,2006 by Carsten Niehaus,    cniehaus@kde.org       *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,6 +18,7 @@
  ***************************************************************************/
 #include "games.h"
 #include "gamecontrols_impl.h"
+#include "stone.h"
 
 #include <kapplication.h>
 
@@ -29,21 +30,6 @@
 
 #include <math.h>
 #include <time.h>
-
-///Stone
-Stone::Stone( PLAYER player, const QPoint& point )
-{
-	m_player = player;
-	m_position = point;
-}
-
-void Stone::swap()
-{
-	if ( m_player == Stone::White )
-		m_player = Stone::Black;
-	else
-		m_player = Stone::White;
-}
 
 Stone* Field::stoneAtPosition( const QPoint& pos )
 {

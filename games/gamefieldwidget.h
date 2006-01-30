@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005      by Carsten Niehaus,    cniehaus@kde.org       *
+ *   Copyright (C) 2006      by Carsten Niehaus,    cniehaus@kde.org       *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -16,25 +16,22 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
+#ifndef GAMEFIELDWIDGET_H
+#define GAMEFIELDWIDGET_H
+#include <QWidget>
 
-#include "games.h"
-#include "gamecontrols_impl.h"
-#include "gamesdialog.h"
-#include "gamefieldwidget.h"
+class QPaintEvent;
 
-#include <QLayout>
-
-#include <kdebug.h>
-///GamesDialog
-GamesDialog::GamesDialog()
-	: KDialog( 0, "KalziumGames" )
+class GamefieldWidget : public QWidget
 {
-	QVBoxLayout * vbox = new QVBoxLayout( this );
-	m_controls = new GameControls_Impl( this );
-	m_gamefield = new GamefieldWidget( this );
+	Q_OBJECT
+	
+	public:
+		GamefieldWidget( QWidget * parent = 0 );
+		virtual ~GamefieldWidget(){};
 
-	vbox->addWidget( m_gamefield );
-	vbox->addWidget( m_controls );
-}
+	protected:
+		virtual void paintEvent( QPaintEvent * e );
+};
+#endif // GAMEFIELDWIDGET_H
 
-#include "gamesdialog.moc"
