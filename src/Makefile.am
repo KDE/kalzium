@@ -2,6 +2,7 @@
 INCLUDES= -I$(srcdir)/../../libkdeedu/kdeeduplot -I$(srcdir)/../../libkdeedu/kdeeduui -I$(srcdir)/../../libkdeedu/libscience/ $(all_includes)
 
 bin_PROGRAMS = kalzium
+
 kalzium_SOURCES = kalzium.cpp \
 			main.cpp \
 			periodictableview.cpp \
@@ -37,17 +38,13 @@ kalzium_SOURCES = kalzium.cpp \
 			propertysliderwidget.cpp \
 			printwidget.cpp \
 			printwidgetbase.ui \
-			propertysliderwidgetbase.ui \
-			games.cpp \
-			gameui.cpp
+			propertysliderwidgetbase.ui
 
 kalzium_LDADD   = ../../libkdeedu/libscience/libscience.la \
 				  ../../libkdeedu/kdeeduplot/libkdeeduplot.la \
 				  ../../libkdeedu/kdeeduui/libkdeeduui.la \
 				  $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)
 KDE_CXXFLAGS    = -D_ISOC99_SOURCE
-
-#SUBDIRS = solver spectrummanager
 
 EXTRA_DIST = main.cpp \
 		kalzium.cpp kalzium.h \
@@ -79,9 +76,7 @@ EXTRA_DIST = main.cpp \
 		kalziumtabletype.cpp kalziumtabletype.h \
 		propertysliderwidget.cpp propertysliderwidget.h \
 		printwidgetbase.ui \
-		printwidget.cpp printwidget.h \
-		games.cpp games.h \
-		gameui.cpp gameui.h
+		printwidget.cpp printwidget.h
 
 METASOURCES = AUTO 
 

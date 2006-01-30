@@ -1,11 +1,59 @@
 #include "games.h"
 
+#include <kapplication.h>
+
 #include <QPoint>
 
 #include <kdebug.h>
+#include <kaboutdata.h>
+#include <kcmdlineargs.h>
+#include <klocale.h>
 
 #include <math.h>
 #include <time.h>
+
+static KCmdLineOptions options[] =
+{
+    KCmdLineLastOption
+};
+
+int main(int argc, char **argv)
+{
+    KAboutData about("games", I18N_NOOP("Kalzium-Games"), "0.1", "Statistical Games",
+                     KAboutData::License_GPL, "(C) 2002-2005 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
+    about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );
+    
+	KCmdLineArgs::init(argc, argv, &about);
+    KCmdLineArgs::addCmdLineOptions( options );
+    
+	KApplication app;
+    GamesDialog *mainWin = 0;
+
+    if (app.isSessionRestored())
+    {
+        RESTORE(GamesDialog);
+    }
+    else
+    {
+        // no session.. just start up normally
+        KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+
+        mainWin = new GamesDialog();
+        app.setMainWidget( mainWin );
+        mainWin->show();
+
+        args->clear();
+    }
+
+    // mainWin has WDestructiveClose flag by default, so it will delete itself.
+    return app.exec();
+}
+
+///GamesDialog
+GamesDialog::GamesDialog()
+	: KMainWindow( 0, "KalziumGames" )
+{
+}
 
 ///Stone
 Stone::Stone( PLAYER player, const QPoint& point )

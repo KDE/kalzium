@@ -87,7 +87,6 @@ class Kalzium : public KMainWindow
 		KAction *m_pIsotopeTableAction;
 		KAction *m_pGlossaryAction;
 		KAction *m_pCrystalViewer;
-		KAction *m_pGamesAction;
 //		KAction *m_EQSolverAction;
 
 		/**
@@ -124,8 +123,6 @@ class Kalzium : public KMainWindow
 
 		void slotStatusbar( int num );
 		void setupStatusBar();
-
-		void slotGames();
 
 		void slotCrystalViewer();
 

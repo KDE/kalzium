@@ -19,8 +19,6 @@
 #include <element.h>
 #include <kdeeduglossary.h>
 
-#include "games.h"
-#include "gameui.h"
 #include "prefs.h"
 #include "settings_colors.h"
 #include "settings_misc.h"
@@ -147,7 +145,6 @@ void Kalzium::setupActions()
 	
 	// tools actions
 	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "tools_plotdata");
-	m_pGamesAction = new KAction(i18n("&Games..."), "plot", 0, this, SLOT(slotGames()), actionCollection(), "tools_games");
 	m_pIsotopeTableAction = new KAction(i18n("&Isotope Table..."), "isotopemap", 0, this, SLOT(slotIsotopeTable()), actionCollection(), "tools_isotopetable");
 	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "tools_glossary");
 	m_pCrystalViewer = new KAction(i18n("&Crystal Viewer..."), "crystal", 0, this, SLOT(slotCrystalViewer()), actionCollection(), "tools_crystalviewer");
@@ -236,22 +233,6 @@ void Kalzium::setupSidebars()
 void Kalzium::slotGlossary()
 {
 	m_glossarydlg->show();
-}
-
-void Kalzium::slotGames()
-{
-	kdDebug() << "Kalzium::slotGames()" << endl;
-	CrystallizationGame *game2 = new CrystallizationGame();
-	game2->startGame();
-
-	KDialog *dlg = new KDialog( this );
-
- 	GameWidget* gamewidget = new GameWidget( dlg );
-	gamewidget->setField( game2->field() );
-	gamewidget->show();
-	gamewidget->update();
-
-	dlg->show();
 }
 
 void Kalzium::slotShowEQSolver()

@@ -4,8 +4,15 @@
 #include <QWidget>
 
 #include <krandomsequence.h>
+#include <kmainwindow.h>
 
 class KRandomSequence;
+
+class GamesDialog : public KMainWindow
+{
+	public:
+		GamesDialog();
+};
 
 /**
  * @author Carsten Niehaus
