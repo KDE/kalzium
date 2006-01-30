@@ -10,12 +10,12 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "gamesdialog_impl.h"
+#include "gamecontrols_impl.h"
 
-GamesDialog_Impl::GamesDialog_Impl( QWidget * parent )
+GameControls_Impl::GameControls_Impl( QWidget * parent )
 	: QWidget( parent )
 {
-	ui.setText( this );
+	ui.setupUi( this );
 }
 
-#include "gamesdialog_impl.moc"
+//#include "gamecontrols_impl.moc"

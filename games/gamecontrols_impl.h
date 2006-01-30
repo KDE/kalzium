@@ -1,5 +1,5 @@
-#ifndef GAMESDIALOG_IMPL_H
-#define GAMESDIALOG_IMPL_H
+#ifndef GAMECONTROLS_IMPL_H
+#define GAMECONTROLS_IMPL_H
 /***************************************************************************
 *    copyright            : (C) 2006 by Carsten Niehaus
 *    email                : cniehaus@kde.org
@@ -18,17 +18,19 @@
 #include <QPainter>
 
 #include "games.h"
+#include "gamecontrols.h"
 
-class GamesDialog_Impl : public QWidget
+class GameControls_Impl : public QWidget
 {
 	Q_OBJECT
 
 	public:
-		GamesDialog_Impl( QWidget * parent = 0 );
-		~GamesDialog_Impl(){};
+		GameControls_Impl( QWidget * parent = 0 );
+		~GameControls_Impl(){};
 	
 	private:
 		Ui_Dialog ui;
 		
 };
-#endif // GAMESDIALOG_IMPL_H
+#endif // GAMECONTROLS_IMPL_H
+

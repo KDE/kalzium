@@ -1,4 +1,5 @@
 #include "games.h"
+#include "gamecontrols_impl.h"
 
 #include <kapplication.h>
 
