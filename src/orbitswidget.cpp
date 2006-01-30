@@ -192,6 +192,7 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 {
 	QPainter DC;
 	DC.begin( this );
+	DC.setRenderHint(  QPainter::Antialiasing, true );
 	DC.setPen( Qt::black );
 
 	const int num = numOfElectrons.count();
