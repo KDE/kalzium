@@ -20,6 +20,9 @@
 #include "games.h"
 #include "gamecontrols.h"
 
+/**
+ * @author Carsten Niehaus
+ */
 class GameControls_Impl : public QWidget
 {
 	Q_OBJECT

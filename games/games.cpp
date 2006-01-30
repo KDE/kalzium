@@ -19,6 +19,7 @@
 #include "games.h"
 #include "gamecontrols_impl.h"
 #include "stone.h"
+#include "field.h"
 
 #include <kapplication.h>
 
@@ -30,26 +31,6 @@
 
 #include <math.h>
 #include <time.h>
-
-Stone* Field::stoneAtPosition( const QPoint& pos )
-{
-	Stone* stone;
-
-	foreach( Stone* s, m_stones )
-	{
-		if ( s->position() == pos )
-			return s;
-	}
-
-	return 0;
-}
-
-///Field
-Field::Field( int x, int y )
-{}
-
-Field::~Field()
-{}
 
 //Game
 Game::Game()

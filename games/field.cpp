@@ -1,5 +1,6 @@
+
 /***************************************************************************
- *   Copyright (C) 2006      by Carsten Niehaus,    cniehaus@kde.org       *
+ *   Copyright (C) 2005,2006 by Carsten Niehaus,    cniehaus@kde.org       *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -16,33 +17,27 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
-#ifndef GAMEFIELDWIDGET_H
-#define GAMEFIELDWIDGET_H
-#include <QWidget>
 
-class QPaintEvent;
-class Field;
+#include "field.h"
+#include "stone.h"
 
-/**
- * @author Carsten Niehaus
- */
-class GamefieldWidget : public QWidget
+///Field
+Field::Field( int x, int y )
+{}
+
+Field::~Field()
+{}
+
+Stone* Field::stoneAtPosition( const QPoint& pos )
 {
-	Q_OBJECT
-	
-	public:
-		GamefieldWidget( QWidget * parent = 0 );
-		virtual ~GamefieldWidget(){};
+	Stone* stone;
 
-		void setField( Field * field ){
-			m_field = field;
-		}
+	foreach( Stone* s, m_stones )
+	{
+		if ( s->position() == pos )
+			return s;
+	}
 
-	private:
-		Field * m_field;
-
-	protected:
-		virtual void paintEvent( QPaintEvent * e );
-};
-#endif // GAMEFIELDWIDGET_H
+	return 0;
+}
 

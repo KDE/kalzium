@@ -25,86 +25,11 @@
 #include <kmainwindow.h>
 #include <kdialog.h>
 
+#include "field.h"
+
 class KRandomSequence;
 
 class Stone;
-
-/**
- * @author Carsten Niehaus
- * @brief The playground of a game
- */
-class Field
-{
-	public:
-		/**
-		 * Constructor
-		 *
-		 * @param x The x-size of the field
-		 * @param y The y-size of the field
-		 */
-		Field(int x, int y);
-
-		/**
-		 * @return the x-size of the field
-		 */
-		int xSize() const
-		{
-			return m_size_x;
-		}
-		
-		/**
-		 * @return the y-size of the field
-		 */
-		int ySize() const
-		{
-			return m_size_y;
-		}
-		
-		/**
-		 * Destructor
-		 */
-		virtual ~Field();
-
-		/**
-		 * Add the Stone @p stone to position @p pos
-		 */
-		virtual void addStone( Stone* stone ) = 0;
-
-		/**
-		 * @return the Stone at the position @p pos
-		 */
-		virtual Stone* stoneAtPosition( const QPoint& pos );
-
-		/**
-		 * moves Stone @p stone from the current position to the @p newPosition
-		 */
-		virtual void moveStoneTo( Stone* stone, const QPoint& newPosition ) = 0;
-		
-		/**
-		 * moves the Stone in @p currentPosition to the @p newPosition
-		 */
-		virtual void moveStoneTo( const QPoint& currentPosition, const QPoint& newPosition )
-		{
-			Stone* s = stoneAtPosition( currentPosition );
-			moveStoneTo( s, newPosition );
-		}
-		
-		/**
-		 * @return the stones of the game
-		 */
-		virtual QList<Stone*> stones() const
-		{
-			return m_stones;
-		}
-		
-	protected:
-		int m_size_x;
-		
-		int m_size_y;
-		
-		QList<Stone*> m_stones;
-};
-
 
 /**
  * @author Carsten Niehaus

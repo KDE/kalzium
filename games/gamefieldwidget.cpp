@@ -23,7 +23,7 @@
 GamefieldWidget::GamefieldWidget( QWidget * parent )
 	: QWidget ( parent )
 {
-	setMinimumSize( 100,100 );
+	setMinimumSize( 100, 200 );
 }
 
 void GamefieldWidget::paintEvent( QPaintEvent * /*e*/ )
@@ -32,6 +32,7 @@ void GamefieldWidget::paintEvent( QPaintEvent * /*e*/ )
 	p.begin( this );
 
 	p.drawLine( 0,0,height(), width() );
+	p.drawRect( 0, 0, height(), width() );
 	
 	p.end();
 }
