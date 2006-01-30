@@ -36,7 +36,6 @@ class GamefieldWidget : public QWidget
 
 		void setField( Field * field ){
 			m_field = field;
-			update();
 		}
 
 	private:

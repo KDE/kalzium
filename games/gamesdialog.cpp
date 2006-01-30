@@ -38,7 +38,11 @@ GamesDialog::GamesDialog()
 
 	RAGame * ragame = new RAGame();
 
-	m_gamefield->setField( ragame->field() );
+	Field * field = static_cast<Field*>(  ragame->field() );
+
+	kdDebug() << "Field: " << field << endl;
+
+	m_gamefield->setField( field );
 }
 
 #include "gamesdialog.moc"

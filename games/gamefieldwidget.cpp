@@ -18,41 +18,68 @@
  ***************************************************************************/
 #include "gamefieldwidget.h"
 #include "field.h"
+#include "stone.h"
 
 #include <QPainter>
+#include <QBrush>
+
+#include <kdebug.h>
 
 GamefieldWidget::GamefieldWidget( QWidget * parent )
-	: QWidget ( parent ), m_field( 0 )
+	: QWidget ( parent )
 {
+	m_field = 0;
 	setMinimumSize( 100, 200 );
 }
 
 void GamefieldWidget::paintEvent( QPaintEvent * /*e*/ )
 {
+	if ( !m_field ) return;
+
+	const int x_size = m_field->xSize();
+	const int y_size = m_field->ySize();
+
 	//set the size of one field
-	const int size_x = width() / m_field->xSize();
-	const int size_y = width() / m_field->ySize();
-	
+	const int w = width() / x_size;
+	const int h = height() / y_size;
+
+	int s;
+	w < h ? s = w : s = h;
+
 	QPainter p;
 	p.begin( this );
+	p.setRenderHint( QPainter::Antialiasing, true );
 
-	p.drawLine( 0,0,height(), width() );
-	p.drawRect( 0, 0, height(), width() );
+	QBrush b_white( Qt::white, Qt::SolidPattern );
+	QBrush b_black( Qt::black, Qt::SolidPattern );
 
-	if ( m_field )
+	for ( int x = 0; x < x_size ; ++x )
 	{
-		for ( int x = 0; x < m_field->xSize() ; ++x )
+		for ( int y = 0; y < y_size ; ++y )
 		{
-			for ( int y = 0; y < m_field->ySize() ; ++y )
+ 			Stone * stone = m_field->stoneAtPosition( QPoint( x,y ) );
+			p.setBrush( QBrush( Qt::yellow, Qt::SolidPattern ) );
+			
+			p.drawRect( x*s, 
+					y*s, 
+					s,
+					s );
+
+			if ( stone)
 			{
-				p.drawRect( x*size_x, 
-						y*size_y, 
-						size_x,
-						size_y );
+				if ( stone->player() == Stone::White )
+					p.setBrush( b_white );
+				else
+					p.setBrush( b_black );
+
+				p.drawEllipse( x*s+2,
+						y*s+2,
+						s-4,
+						s-4 );
 			}
 		}
 	}
-	
+
 	p.end();
 }
 

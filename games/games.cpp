@@ -100,6 +100,12 @@ RAGame::RAGame()
 {
 	m_field = new RAField( 6,6 );
 
+	setField( m_field );
+	
+	kdDebug() << "Field in RAGame-ctor: " << m_field << endl;
+	
+	kdDebug() << "Field (methode) in RAGame-ctor: " << field() << endl;
+
 	m_counter = 0;
 	m_number = 0;
 

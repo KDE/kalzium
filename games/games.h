@@ -24,6 +24,7 @@
 #include <krandomsequence.h>
 #include <kmainwindow.h>
 #include <kdialog.h>
+#include <kdebug.h>
 
 #include "field.h"
 
@@ -64,7 +65,10 @@ class Game : public QObject
 			m_field = field;
 		}
 
-		Field* field() const{
+		/**
+		 * @return the field of the game
+		 */
+		virtual Field* field() const{
 			return m_field;
 		}
 
