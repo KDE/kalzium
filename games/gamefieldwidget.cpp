@@ -22,7 +22,7 @@
 #include <QPainter>
 
 GamefieldWidget::GamefieldWidget( QWidget * parent )
-	: QWidget ( parent )
+	: QWidget ( parent ), m_field( 0 )
 {
 	setMinimumSize( 100, 200 );
 }
@@ -39,14 +39,17 @@ void GamefieldWidget::paintEvent( QPaintEvent * /*e*/ )
 	p.drawLine( 0,0,height(), width() );
 	p.drawRect( 0, 0, height(), width() );
 
-	for ( int x = 0; x < m_field->xSize() ; ++x )
+	if ( m_field )
 	{
-		for ( int y = 0; y < m_field->ySize() ; ++y )
+		for ( int x = 0; x < m_field->xSize() ; ++x )
 		{
-			p.drawRect( x*size_x, 
-					y*size_y, 
-					size_x,
-					size_y );
+			for ( int y = 0; y < m_field->ySize() ; ++y )
+			{
+				p.drawRect( x*size_x, 
+						y*size_y, 
+						size_x,
+						size_y );
+			}
 		}
 	}
 	

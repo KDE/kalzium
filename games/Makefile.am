@@ -23,6 +23,4 @@ games_SOURCES = main.cpp \
 
 EXTRA_DIST = gamecontrols.ui
 
-games_LDADD   = ../../libkdeedu/libscience/libscience.la \
-				  ../../libkdeedu/kdeeduui/libkdeeduui.la \
-				  $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)
+games_LDADD   = $(LIB_KDEUI)
