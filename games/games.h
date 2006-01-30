@@ -24,6 +24,7 @@
 #include <QPixmap>
 
 #include <krandomsequence.h>
+#include <kdebug.h>
 
 #include "field.h"
 #include "stone.h"
@@ -80,6 +81,25 @@ class Game : public QObject
 		 */
 		virtual QPixmap pixmapOfMove( int movenumber );
 
+		/**
+		 * @return the number of moves already performed
+		 */
+		virtual int numberOfMoves() const {
+			return m_numberOfMoves;
+		}
+
+		/**
+		 * @return the Move with the number @p number
+		 */
+		virtual Move* move( int number ){
+			if ( number < 1 )
+				return 0;
+			if ( number > m_moves.count() )
+				return 0;
+
+			return m_moves.at(number-1);
+		}
+
 	signals:
 		/**
 		 * the game has ended
@@ -90,6 +110,11 @@ class Game : public QObject
 		 * one turn is over
 		 */
 		void turnOver(Move*);
+
+		/**
+		 * one turn is over
+		 */
+		void turnOver();
 
 	public slots:
 		/**
@@ -123,6 +148,11 @@ class Game : public QObject
 		 * needed for automated games
 		 */
 		QTimer m_timer;
+ 		
+		/**
+		 * the number of performed moves
+		 */
+		int m_numberOfMoves;
 
 		/**
 		 * needed for the random numbers

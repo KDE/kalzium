@@ -56,6 +56,8 @@ int Move::numberOfStones( Stone::PLAYER p )
 //Game
 Game::Game()
 {
+	m_numberOfMoves = 0;
+	
 	connect( &m_timer, SIGNAL( timeout() ), 
 			this, SLOT( slotNextMove() ) );
 }
@@ -77,6 +79,7 @@ Game::~Game(){}
 void Game::slotNextMove()
 {
 	finishMove();
+	m_numberOfMoves++;
 	rollDice();
 }
 
@@ -109,6 +112,7 @@ void Game::finishMove()
 	m_moves.append( move );
 
 	emit turnOver( move );
+	emit turnOver();
 }
 
 #include "games.moc"

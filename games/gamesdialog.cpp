@@ -35,15 +35,15 @@ GamesDialog::GamesDialog()
 
 	m_controls = new GameControls_Impl( this );
 	m_gamefield = new GamefieldWidget( this );
-	StatisticWidget * stats = new StatisticWidget( this );
+	m_stats = new StatisticWidget( this );
 
 	vbox->addWidget( m_gamefield );
 	vbox->addWidget( m_controls );
-
-	hbox->addWidget( stats );
-
+	
 	m_game = new RAGame();
 	m_gamefield->setField( m_game->field() );
+
+	hbox->addWidget( m_stats );
 
 	createConnetions();
 }
@@ -63,6 +63,10 @@ void GamesDialog::createConnetions()
 			m_game, SLOT(stopGame()) );
 	connect(m_game, SIGNAL( turnOver(Move*) ), 
 			m_gamefield, SLOT(slotUpdate(Move*)) );
+	connect(m_game, SIGNAL( turnOver() ), 
+			m_stats, SLOT(updateData( )) );
+
+	m_stats->setGame( m_game );
 }
 
 #include "gamesdialog.moc"

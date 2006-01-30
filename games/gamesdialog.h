@@ -23,6 +23,7 @@
 class GamefieldWidget;
 class GameControls_Impl;
 class RAGame;
+class StatisticWidget;
 
 class GamesDialog : public KDialog
 {
@@ -39,6 +40,7 @@ class GamesDialog : public KDialog
 	private:
 		GameControls_Impl * m_controls;
 		GamefieldWidget * m_gamefield;
+		StatisticWidget * m_stats;
 
 		/**
 		 * create the connections (signal/slot)

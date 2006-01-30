@@ -80,14 +80,14 @@
      <item>
       <widget class="QPushButton" name="next" >
        <property name="text" >
-        <string>Nächster</string>
+        <string>Next</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="prev" >
        <property name="text" >
-        <string>Vorheriger</string>
+        <string>Previous</string>
        </property>
       </widget>
      </item>

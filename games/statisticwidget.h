@@ -21,6 +21,7 @@
 #include <QWidget>
 
 class QPaintEvent;
+class Game;
 
 class StatisticWidget : public QWidget
 {
@@ -29,7 +30,26 @@ class StatisticWidget : public QWidget
 	public:
 		StatisticWidget( QWidget * parent );
 
+		void setGame( Game * game ){
+			m_game = game;
+		}
+
+	public slots:
+		/**
+		 * update the statistics
+		 */
+		void updateData();
+
 	protected:
 		virtual void paintEvent( QPaintEvent * e );
+
+	private:
+		int num;
+
+		int black;
+
+		int white;
+
+		Game * m_game;
 };
 #endif // STATISTICWIDGET_H

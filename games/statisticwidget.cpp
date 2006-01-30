@@ -21,18 +21,45 @@
 #include <QPainter>
 #include <QBrush>
 
+#include "games.h"
+ 
+#include <klocale.h>
+#include <kdebug.h>
+
 StatisticWidget::StatisticWidget( QWidget * parent )
 	: QWidget( parent )
 {
+	setMinimumSize( 100, 200 );
+	m_game = 0;
+
+	num = white = black = 0;
 }
 
 void StatisticWidget::paintEvent( QPaintEvent * /*e*/ )
 {
 	QPainter p;
 	p.begin( this );
-	p.drawRect( 0,0,width(),height() );
+	p.drawText(10,10, i18n("Number of Moves: %1").arg( num ));
+	p.drawText( 10,30, i18n( "Number of white tokens: %1" ).arg(white) );
+	p.drawText( 10,50, i18n( "Number of black tokens: %1" ).arg(black) );
+	p.drawRect( 0,0,width()-2,height()-2 );
 	p.end();
 }
 
+void StatisticWidget::updateData()
+{
+	if ( !m_game ) return;
+	
+	num = m_game->numberOfMoves(); 
+
+	Move * move = m_game->move( num );
+
+	if ( !move ) return;
+	
+	white = move->numberOfStones( Stone::White );
+	black = move->numberOfStones( Stone::Black );
+	
+	update();
+}
 
 #include "statisticwidget.moc"
