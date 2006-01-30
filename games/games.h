@@ -21,6 +21,7 @@
 
 #include <QTimer>
 #include <QStringList>
+#include <QPixmap>
 
 #include <krandomsequence.h>
 
@@ -70,6 +71,15 @@ class Game : public QObject
 			return m_field;
 		}
 
+		/**
+		 * Creates a QPixmap of the move. Is will be like a screenshot of the 
+		 * big widget
+		 *
+		 * @return a QPixmap of the move
+		 * @param the number of the move of which the QPixmap will be created. The first move is 1.
+		 */
+		virtual QPixmap pixmapOfMove( int movenumber );
+
 	signals:
 		/**
 		 * the game has ended
@@ -85,21 +95,21 @@ class Game : public QObject
 		/**
 		 * Start the next draw/roll
 		 */
-		void slotNextMove();
+		virtual void slotNextMove();
 
 		/**
 		 * Active the game by using a QTimer. In this case, every @p ms milliseconds
 		 * a new turn will be done
 		 * @see rollDice
 		 */
-		void startWithTimer( int ms ){
+		virtual void startWithTimer( int ms ){
 			m_timer.start( ms );
 		}
 		
 		/**
 		 * halt the game
 		 */
-		void stopGame(){
+		virtual void stopGame(){
 			m_timer.stop();
 		}
 

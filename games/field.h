@@ -24,6 +24,10 @@ class Stone;
 #include <QList>
 
 /**
+ * Each Game is graphically represented by a Field. The games implement
+ * a specific Field, this is the baseclass for these classes. A field stores
+ * the information about the size of the game and what stone are on
+ * what position
  *
  * @author Carsten Niehaus
  * @brief The playground of a game
@@ -97,6 +101,9 @@ class Field
 		
 		int m_size_y;
 		
+		/**
+		 * The list of stones
+		 */
 		QList<Stone*> m_stones;
 };
 

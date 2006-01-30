@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005      by Carsten Niehaus,    cniehaus@kde.org       *
+ *   Copyright (C) 2006      by Carsten Niehaus,    cniehaus@kde.org       *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -16,53 +16,20 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
+#ifndef STATISTICWIDGET_H
+#define STATISTICWIDGET_H
+#include <QWidget>
 
-#include "gamesimplementation.h"
-#include "gamecontrols_impl.h"
-#include "gamesdialog.h"
-#include "gamefieldwidget.h"
-#include "statisticwidget.h"
+class QPaintEvent;
 
-#include <QLayout>
-
-#include <kdebug.h>
-
-GamesDialog::GamesDialog()
-	: KDialog( 0, "KalziumGames" )
+class StatisticWidget : public QWidget
 {
-	QVBoxLayout * vbox = new QVBoxLayout( this );
-	QHBoxLayout * hbox = new QHBoxLayout( vbox );
+	Q_OBJECT
 
-	m_controls = new GameControls_Impl( this );
-	m_gamefield = new GamefieldWidget( this );
-	StatisticWidget * stats = new StatisticWidget( this );
+	public:
+		StatisticWidget( QWidget * parent );
 
-	vbox->addWidget( m_gamefield );
-	vbox->addWidget( m_controls );
-
-	hbox->addWidget( stats );
-
-	m_game = new RAGame();
-	m_gamefield->setField( m_game->field() );
-
-	createConnetions();
-}
-
-void GamesDialog::slotStartWithTimer()
-{
-	m_game->startWithTimer( 50 );
-}
-
-void GamesDialog::createConnetions()
-{
-	connect(m_controls->ui.next, SIGNAL( clicked() ), 
-			m_game, SLOT(slotNextMove()) );
-	connect(m_controls->ui.start, SIGNAL( clicked() ), 
-			this, SLOT(slotStartWithTimer()) );
-	connect(m_controls->ui.stop, SIGNAL( clicked() ), 
-			m_game, SLOT(stopGame()) );
-	connect(m_game, SIGNAL( turnOver(Move*) ), 
-			m_gamefield, SLOT(slotUpdate(Move*)) );
-}
-
-#include "gamesdialog.moc"
+	protected:
+		virtual void paintEvent( QPaintEvent * e );
+};
+#endif // STATISTICWIDGET_H

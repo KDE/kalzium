@@ -82,12 +82,25 @@ class Stone : public QObject
 		}
 
 	private:
+		/**
+		 * the owner of the Stone
+		 */
 		PLAYER m_player;
 
+		/**
+		 * the position on the field
+		 */
 		QPoint m_position;
 
 	signals:
+		/**
+		 * the Stone has been removed from the field
+		 */
 		void removed();
+
+		/**
+		 * the Stone has been moved to a new position
+		 */
 		void moved(QPoint);
 };
 

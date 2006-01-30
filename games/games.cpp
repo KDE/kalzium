@@ -60,6 +60,18 @@ Game::Game()
 			this, SLOT( slotNextMove() ) );
 }
 
+QPixmap Game::pixmapOfMove( int movenumber )
+{
+	QPixmap px;
+
+	if ( !movenumber > 1 && !movenumber < m_moves.count() )
+		return QPixmap();
+
+	Move * move = m_moves.at( movenumber - 1 );
+	
+	return px;
+}
+
 Game::~Game(){}
 
 void Game::slotNextMove()
