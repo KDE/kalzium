@@ -11,8 +11,11 @@ KDE_ICON = AUTO
 
 # the library search path. 
 games_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-games_SOURCES = games.cpp
+
+games_SOURCES = games.cpp \
+				gamesdialog.ui \
+				gamesdialog_impl.h
+
 games_LDADD   = ../../libkdeedu/libscience/libscience.la \
-				  ../../libkdeedu/kdeeduplot/libkdeeduplot.la \
 				  ../../libkdeedu/kdeeduui/libkdeeduui.la \
 				  $(LIB_KIO) $(LIB_KDEUI) $(LIB_KHTML)

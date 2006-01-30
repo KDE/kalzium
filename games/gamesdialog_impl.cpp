@@ -10,33 +10,12 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "gameui.h"
+#include "gamesdialog_impl.h"
 
-GameWidget::GameWidget( QWidget * parent )
+GamesDialog_Impl::GamesDialog_Impl( QWidget * parent )
 	: QWidget( parent )
 {
-
+	ui.setText( this );
 }
 
-void GameWidget::paintEvent( QPaintEvent * /*e*/ )
-{
-	QPainter p( this );
-
-	if ( !m_field ) return;
-
-	int square = width()  /  6;
-	
-	for ( int x = 0; x < 6 ; ++x )
-	{
-		for ( int y = 0; y < 6 ; ++y )
-		{
-			Stone* s = m_field->stoneAtPosition( QPoint( x,y ) );
-			if ( s->player() == Stone::White )
-				p.drawText(  square * x, square*y, "W" );
-			else
-				p.drawText(  square * x, square*y, "B" );
-		}
-	}
-}
-
-#include "gameui.moc"
+#include "gamesdialog_impl.moc"

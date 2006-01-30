@@ -1,8 +1,9 @@
-#ifndef GAMEUI_H
-#define GAMEUI_H
+#ifndef GAMESDIALOG_IMPL_H
+#define GAMESDIALOG_IMPL_H
 /***************************************************************************
 *    copyright            : (C) 2006 by Carsten Niehaus
 *    email                : cniehaus@kde.org
+*    
 ***************************************************************************/
 /***************************************************************************
  *                                                                         *
@@ -18,21 +19,16 @@
 
 #include "games.h"
 
-class GameWidget : public QWidget
+class GamesDialog_Impl : public QWidget
 {
 	Q_OBJECT
 
 	public:
-		GameWidget( QWidget * parent );
-
-		void setField( Field * field ){
-			m_field = field;
-		}
-
+		GamesDialog_Impl( QWidget * parent = 0 );
+		~GamesDialog_Impl(){};
+	
 	private:
-		Field * m_field;
-
-	protected:
-		virtual void paintEvent( QPaintEvent * e );
+		Ui_Dialog ui;
+		
 };
-#endif // GAMEUI_H
+#endif // GAMESDIALOG_IMPL_H
