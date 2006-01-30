@@ -12,9 +12,11 @@ KDE_ICON = AUTO
 # the library search path. 
 games_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
-games_SOURCES = games.cpp \
+games_SOURCES = main.cpp \
+				games.cpp \
 				gamecontrols.ui \
-				gamecontrols_impl.cpp
+				gamecontrols_impl.cpp \
+				gamesdialog.cpp
 
 EXTRA_DIST = gamecontrols.ui
 
