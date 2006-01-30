@@ -19,22 +19,18 @@
 #ifndef GAMES_H
 #define GAMES_H
 
-class Move;
-
-#include <QWidget>
 #include <QTimer>
+#include <QStringList>
 
 #include <krandomsequence.h>
-#include <kmainwindow.h>
-#include <kdialog.h>
-#include <kdebug.h>
 
 #include "field.h"
 #include "stone.h"
 
 class KRandomSequence;
-
 class Stone;
+class Move;
+
 
 /**
  * @author Carsten Niehaus
@@ -138,102 +134,6 @@ class Game : public QObject
 		 * finish the move, emit the signal
 		 */
 		void finishMove();
-};
-
-/**
- * @author Carsten Niehaus
- *
- * Rules of the game: The game starts with an all white board. In each turn, a 
- * Stone on the board will be selected randomly. If the stone is white, it will
- * turn black. This represents the radioactive decay.
- * The game becomes interesting if you alter the number of turns it runs. The 
- * probablilty that a stone swap the colour from white to black decreases with
- * each turn. It is proportional to the halflife period.
- */
-class RAGame : public Game
-{
-	public:
-		RAGame();
-
-		void rollDice();
-		
-		class RAField : public Field
-		{
-			public:
-				/**
-				 * Constructor
-				 *
-				 * @param x The x-size of the field
-				 * @param y The y-size of the field
-				 */
-				RAField(int x, int y);
-
-				/**
-				 * moves Stone @p stone from the current position to the @p newPosition
-				 */
-				virtual void moveStoneTo( Stone* stone, const QPoint& newPosition );
-		
-				virtual void addStone( Stone* stone );
-		};
-	private:
-		int m_counter;
-		int m_number;
-
-	protected:
-		RAField* m_field;
-};
-
-/**
- * @author Carsten Niehaus
- */
-class CrystallizationGame : public Game
-{
-	public:
-		CrystallizationGame();
-
-		void rollDice();
-		
-		class CrystallizationField : public Field
-		{
-			public:
-				/**
-				 * Constructor
-				 *
-				 * @param x The x-size of the field
-				 * @param y The y-size of the field
-				 */
-				CrystallizationField(int x, int y);
-
-				/**
-				 * moves Stone @p stone from the current position to the @p newPosition
-				 */
-				virtual void moveStoneTo( Stone* stone, const QPoint& newPosition );
-		
-				virtual void addStone( Stone* stone );
-		};
-		
-		/**
-		 * starts the game
-		 */
-		virtual void startGame();
-	private:
-		int m_number;
-
-		int neighboursTeam( Stone* stone );
-		
-		int neighboursNum( Stone* stone );
-
-		QList<Stone*> openentStoneNeighbours( Stone* stone );
-
-		/**
-		 * Exange the Stone at the postion @p point with one stone
-		 * of the other team. That other Stone has to be in orthogonal
-		 * contact with the Stone in @p point
-		 */
-		void exchangeStones( const QPoint& point );
-
-	protected:
-		CrystallizationField* m_field;
 };
 
 /**

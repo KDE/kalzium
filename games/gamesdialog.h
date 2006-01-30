@@ -39,6 +39,11 @@ class GamesDialog : public KDialog
 	private:
 		GameControls_Impl * m_controls;
 		GamefieldWidget * m_gamefield;
+
+		/**
+		 * create the connections (signal/slot)
+		 */
+		void createConnetions();
 };
 
 #endif // GAMESDIALOG_H

@@ -17,7 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-#include "games.h"
+#include "gamesimplementation.h"
 #include "gamecontrols_impl.h"
 #include "gamesdialog.h"
 #include "gamefieldwidget.h"
@@ -37,7 +37,18 @@ GamesDialog::GamesDialog()
 	vbox->addWidget( m_controls );
 
 	m_game = new RAGame();
+	m_gamefield->setField( m_game->field() );
 
+	createConnetions();
+}
+
+void GamesDialog::slotStartWithTimer()
+{
+	m_game->startWithTimer( 50 );
+}
+
+void GamesDialog::createConnetions()
+{
 	connect(m_controls->ui.next, SIGNAL( clicked() ), 
 			m_game, SLOT(slotNextMove()) );
 	connect(m_controls->ui.start, SIGNAL( clicked() ), 
@@ -46,13 +57,6 @@ GamesDialog::GamesDialog()
 			m_game, SLOT(stopGame()) );
 	connect(m_game, SIGNAL( turnOver(Move*) ), 
 			m_gamefield, SLOT(slotUpdate(Move*)) );
-
-	m_gamefield->setField( m_game->field() );
-}
-
-void GamesDialog::slotStartWithTimer()
-{
-	m_game->startWithTimer( 50 );
 }
 
 #include "gamesdialog.moc"
