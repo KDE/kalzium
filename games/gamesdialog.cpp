@@ -35,6 +35,11 @@ GamesDialog::GamesDialog()
 
 	vbox->addWidget( m_gamefield );
 	vbox->addWidget( m_controls );
+
+	RAGame * ragame = new RAGame();
+	CrystallizationGame * crgame = new CrystallizationGame();
+
+	m_gamefield->setField( ragame->field() );
 }
 
 #include "gamesdialog.moc"
