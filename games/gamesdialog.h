@@ -42,6 +42,7 @@ class GamesDialog : public KDialog
 		GamefieldWidget * m_gamefield;
 		StatisticWidget * m_stats;
 
+	private slots:
 		void activateGame( int nr );
 
 		/**

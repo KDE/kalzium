@@ -63,12 +63,14 @@ void GamesDialog::activateGame( int nr )
 	
 	Game * g = GamesFactory::instance()->build( nr );
 
- 	kdDebug() << "############ Activating the game " << g << endl;
-	kdDebug() << "############ The Game has the field-ptr " << g->field() << endl;
+//X  	kdDebug() << "############ Activating the game " << g << endl;
+//X 	kdDebug() << "############ The Game has the field-ptr " << g->field() << endl;
 
 	if ( !g ) return;
 
 	m_game = g;
+	
+	kdDebug() << "############ Activating the game " << m_game->description()  << endl;
 	
 	m_gamefield->setField( m_game->field() );
 	m_stats->setGame( m_game );
@@ -85,6 +87,8 @@ void GamesDialog::createConnetions()
 {
 	connect(m_controls->ui.next, SIGNAL( clicked() ), 
 			m_game, SLOT(slotNextMove()) );
+	connect(m_controls->ui.combo, SIGNAL( activated( int ) ), 
+			this, SLOT(activateGame( int)) );
 	connect(m_controls->ui.start, SIGNAL( clicked() ), 
 			this, SLOT(slotStartWithTimer()) );
 	connect(m_controls->ui.stop, SIGNAL( clicked() ), 
