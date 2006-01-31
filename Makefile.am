@@ -1,4 +1,4 @@
-SUBDIRS = src data games
+SUBDIRS = src data
 
 AUTOMAKE_OPTIONS = foreign 
 
