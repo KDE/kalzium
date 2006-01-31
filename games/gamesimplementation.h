@@ -36,6 +36,12 @@ class RAGame : public Game
 	public:
 		RAGame();
 
+		static RAGame* instance();
+
+		QByteArray name() const;
+		
+		QString description() const;
+		
 		void rollDice();
 		
 		class RAField : public Field
@@ -71,8 +77,14 @@ class CrystallizationGame : public Game
 {
 	public:
 		CrystallizationGame();
+		
+		static CrystallizationGame* instance();
 
 		void rollDice();
+		
+		QByteArray name() const;
+		
+		QString description() const;
 		
 		class CrystallizationField : public Field
 		{

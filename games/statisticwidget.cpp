@@ -37,11 +37,15 @@ StatisticWidget::StatisticWidget( QWidget * parent )
 
 void StatisticWidget::paintEvent( QPaintEvent * /*e*/ )
 {
+	if ( !m_game ) return;
+	kdDebug() << "painting the gamestats with ptr " << m_game << endl;
+
 	QPainter p;
 	p.begin( this );
-	p.drawText(10,10, i18n("Number of Moves: %1").arg( num ));
-	p.drawText( 10,30, i18n( "Number of white tokens: %1" ).arg(white) );
-	p.drawText( 10,50, i18n( "Number of black tokens: %1" ).arg(black) );
+	p.drawText(10,10, m_game->description() );
+	p.drawText(10,30, i18n("Number of Moves: %1").arg( num ));
+	p.drawText( 10,50, i18n( "Number of white tokens: %1" ).arg(white) );
+	p.drawText( 10,70, i18n( "Number of black tokens: %1" ).arg(black) );
 	p.drawRect( 0,0,width()-2,height()-2 );
 	p.end();
 }

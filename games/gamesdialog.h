@@ -22,7 +22,7 @@
 
 class GamefieldWidget;
 class GameControls_Impl;
-class RAGame;
+class Game;
 class StatisticWidget;
 
 class GamesDialog : public KDialog
@@ -32,15 +32,17 @@ class GamesDialog : public KDialog
 	public:
 		GamesDialog();
 
-		RAGame *m_game;
-
 	public slots:
 		void slotStartWithTimer();
 
 	private:
+		Game * m_game;
+	
 		GameControls_Impl * m_controls;
 		GamefieldWidget * m_gamefield;
 		StatisticWidget * m_stats;
+
+		void activateGame( int nr );
 
 		/**
 		 * create the connections (signal/slot)

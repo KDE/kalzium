@@ -20,6 +20,7 @@
 #include "gamesimplementation.h"
 #include "gamecontrols_impl.h"
 #include "gamesdialog.h"
+#include "games.h"
 #include "gamefieldwidget.h"
 #include "statisticwidget.h"
 
@@ -36,14 +37,43 @@ GamesDialog::GamesDialog()
 	m_controls = new GameControls_Impl( this );
 	m_gamefield = new GamefieldWidget( this );
 	m_stats = new StatisticWidget( this );
+	m_gamefield->setField( 0 );
+	m_stats->setGame( 0 );
 
 	vbox->addWidget( m_gamefield );
 	vbox->addWidget( m_controls );
 	
-	m_game = new RAGame();
-	m_gamefield->setField( m_game->field() );
-
 	hbox->addWidget( m_stats );
+
+	QStringList l = GamesFactory::instance()->games();
+	foreach( QString s, l )
+	{
+		m_controls->ui.combo->insertItem(s);
+	}
+
+	//activate the first game in the list
+	activateGame( 0 );
+}
+
+void GamesDialog::activateGame( int nr )
+{
+	//better safe than sorry
+	m_gamefield->setField( 0 );
+	m_stats->setGame( 0 );
+	
+	//In the factory there is a crash. Getting a new pointer works
+	//Game * g = GamesFactory::instance()->build( nr );
+	RAGame *g = new RAGame();
+
+ 	kdDebug() << "############ Activating the game " << g << endl;
+	kdDebug() << "############ The Game has the field-ptr " << g->field() << endl;
+
+	if ( !g ) return;
+
+	m_game = g;
+	
+	m_gamefield->setField( m_game->field() );
+	m_stats->setGame( m_game );
 
 	createConnetions();
 }
@@ -66,7 +96,6 @@ void GamesDialog::createConnetions()
 	connect(m_game, SIGNAL( turnOver() ), 
 			m_stats, SLOT(updateData( )) );
 
-	m_stats->setGame( m_game );
 }
 
 #include "gamesdialog.moc"

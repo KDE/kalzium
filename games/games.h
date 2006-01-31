@@ -22,6 +22,7 @@
 #include <QTimer>
 #include <QStringList>
 #include <QPixmap>
+#include <QByteArray>
 
 #include <krandomsequence.h>
 #include <kdebug.h>
@@ -32,11 +33,48 @@
 class KRandomSequence;
 class Stone;
 class Move;
+class Game;
 
+/**
+ * @author Carsten Niehaus
+ * Gamesfactory
+ */
+class GamesFactory
+{
+	public:
+		/**
+		 * Get the instance of this factory.
+		 **/
+		static GamesFactory* instance();
+
+		/**
+		 * Returns the KalziumGradientType with the @p id specified.
+		 * It will gives 0 if none found.
+		 */
+		Game* build( int id ) const;
+
+		/**
+		 * Returns the Game whose name is the @p id specified.
+		 * It will gives 0 if none found.
+		 */
+		Game* build( const QByteArray& id ) const;
+
+		/**
+		 * Returns a list with the names of the gradients we support.
+		 */
+		QStringList games() const;
+
+	private:
+		GamesFactory();
+
+		QList<Game*> m_games;
+};
 
 /**
  * @author Carsten Niehaus
  * @brief Baseclass for all games
+ * Baseclass for all games. Inherit it and add it to the GamesFactory
+ * to make it available
  */
 class Game : public QObject
 {
@@ -52,6 +90,8 @@ class Game : public QObject
 		 */
 		virtual void startGame();
 
+		static Game* instance();
+
 		/**
 		 * roll the dices. This means: start a new turn 
 		 */
@@ -59,6 +99,7 @@ class Game : public QObject
 
 		/**
 		 * set the field to @p field
+		 * @param field the Field of the game
 		 */
 		void setField( Field* field )
 		{
@@ -69,6 +110,7 @@ class Game : public QObject
 		 * @return the field of the game
 		 */
 		virtual Field* field() const{
+			kdDebug() << "############ The m_field-ptr is " << m_field << endl;
 			return m_field;
 		}
 
@@ -90,6 +132,7 @@ class Game : public QObject
 
 		/**
 		 * @return the Move with the number @p number
+		 * @param number the number of the searched move
 		 */
 		virtual Move* move( int number ){
 			if ( number < 1 )
@@ -99,6 +142,18 @@ class Game : public QObject
 
 			return m_moves.at(number-1);
 		}
+
+		/**
+		 * Returns the ID of this gradient.
+		 * Mainly used when saving/loading.
+		 */
+		virtual QByteArray name() const = 0;
+		
+		/**
+		 * Returns the description of this gradient.
+		 * Used in all the visible places.
+		 */
+		virtual QString description() const = 0;
 
 	signals:
 		/**

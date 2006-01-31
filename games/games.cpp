@@ -20,6 +20,7 @@
 #include "gamecontrols_impl.h"
 #include "stone.h"
 #include "field.h"
+#include "gamesimplementation.h"
 
 #include <QPoint>
 #include <QLayout>
@@ -29,6 +30,44 @@
 
 #include <math.h>
 #include <time.h>
+
+//GamesFactory
+
+GamesFactory::GamesFactory()
+{
+	m_games << RAGame::instance();
+	m_games << CrystallizationGame::instance();
+}
+
+GamesFactory* GamesFactory::instance()
+{
+	static GamesFactory gf;
+	return &gf;
+}
+
+Game* GamesFactory::build( int id ) const
+{
+	Game *game;
+
+	return game;
+}
+
+Game* GamesFactory::build( const QByteArray& id ) const
+{
+	Game *game;
+
+	return game;
+}
+
+QStringList GamesFactory::games() const
+{
+	QStringList l;
+	for (  int i = 0; i < m_games.count(); i++ )
+	{
+		l << m_games.at( i )->description();
+	}
+	return l;
+}
 
 //Move
 int Move::numberOfStones( Stone::PLAYER p )
@@ -60,6 +99,11 @@ Game::Game()
 	
 	connect( &m_timer, SIGNAL( timeout() ), 
 			this, SLOT( slotNextMove() ) );
+}
+
+Game* Game::instance()
+{
+	return 0;
 }
 
 QPixmap Game::pixmapOfMove( int movenumber )

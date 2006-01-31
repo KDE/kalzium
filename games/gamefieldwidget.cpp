@@ -35,6 +35,7 @@ GamefieldWidget::GamefieldWidget( QWidget * parent )
 void GamefieldWidget::paintEvent( QPaintEvent * /*e*/ )
 {
 	if ( !m_field ) return;
+	kdDebug() << "painting the field with ptr " << m_field << endl;
 
 	const int x_size = m_field->xSize();
 	const int y_size = m_field->ySize();

@@ -20,6 +20,7 @@
 #include "gamesimplementation.h"
 
 #include <kdebug.h>
+#include <klocale.h>
 
 //RAgame and RAField
 RAGame::RAField::RAField( int x, int y )
@@ -27,6 +28,22 @@ RAGame::RAField::RAField( int x, int y )
 {
 	m_size_x = x;
 	m_size_y = y;
+}
+
+RAGame* RAGame::instance()
+{
+	static RAGame g;
+	return &g;
+}
+
+QByteArray RAGame::name() const
+{
+	return "RAGame";
+}
+
+QString RAGame::description() const
+{
+	return i18n( "Radioactive decay" );
 }
 
 void RAGame::RAField::moveStoneTo( Stone* stone, const QPoint& newPosition )
@@ -91,6 +108,22 @@ CrystallizationGame::CrystallizationField::CrystallizationField( int x, int y )
 {
 	m_size_x = x;
 	m_size_y = y;
+}
+
+CrystallizationGame* CrystallizationGame::instance()
+{
+	static CrystallizationGame g;
+	return &g;
+}
+
+QByteArray CrystallizationGame::name() const
+{
+	return "CrystallizationGame";
+}
+
+QString CrystallizationGame::description() const
+{
+	return i18n( "Crystallization" );
 }
 
 void CrystallizationGame::CrystallizationField::moveStoneTo( Stone* stone, const QPoint& newPosition )
