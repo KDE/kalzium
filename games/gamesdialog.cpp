@@ -28,7 +28,7 @@
 #include <kdebug.h>
 
 GamesDialog::GamesDialog()
-	: KDialog( 0, "KalziumGames" )
+	: QDialog( 0, "KalziumGames" )
 {
 	QVBoxLayout * vbox = new QVBoxLayout( this );
 
@@ -38,51 +38,62 @@ GamesDialog::GamesDialog()
 	vbox->addWidget( m_controls );
 
 	QStringList l = GamesFactory::instance()->games();
-	foreach( QString s, l )
-	{
+	foreach( QString s, l ){
 		m_controls->ui.combo->insertItem(s);
 	}
-
-	//activate the first game in the list
-	activateGame( 0 );
+	
+	connect(m_controls->ui.start, SIGNAL( clicked() ), 
+			this, SLOT(startTheCurrentGame()) );
 }
 
 void GamesDialog::activateGame( int nr )
 {
+	kdDebug() << "GamesDialog::activateGame()" << endl;
 	//better safe than sorry
 	m_controls->ui.gf->setField( 0 );
 	
 	Game * g = GamesFactory::instance()->build( nr );
 
-//X  	kdDebug() << "############ Activating the game " << g << endl;
-//X 	kdDebug() << "############ The Game has the field-ptr " << g->field() << endl;
-
 	if ( !g ) return;
 
 	m_game = g;
 	
-	kdDebug() << "############ Activating the game " << m_game->description()  << endl;
+	int x = m_controls->ui.xsize->value();
+	int y = m_controls->ui.ysize->value();
 	
-	m_game->start();
+	m_game->field()->setFieldXSize( x );
+	m_game->field()->setFieldYSize( y );
+	
 	m_controls->ui.gf->setField( m_game->field() );
 	m_controls->ui.label->setText(m_game->rules());
+
+	m_game->start();
+
+	m_controls->ui.gf->update();
 
 	createConnetions();
 }
 
 void GamesDialog::slotStartWithTimer()
 {
+	kdDebug() << "GamesDialog::slotStartWithTimer()" << endl;
 	m_game->startWithTimer( m_controls->ui.time->value() );
+}
+
+void GamesDialog::startTheCurrentGame()
+{
+	kdDebug() << "GamesDialog::startTheCurrentGame()" << endl;
+	int selection = m_controls->ui.combo->currentIndex();
+
+	activateGame( selection );
+
+	slotStartWithTimer();
 }
 
 void GamesDialog::createConnetions()
 {
 	connect(m_controls->ui.next, SIGNAL( clicked() ), 
 			m_game, SLOT(slotNextMove()) );
-	connect(m_controls->ui.combo, SIGNAL( activated( int ) ), 
-			this, SLOT(activateGame( int)) );
-	connect(m_controls->ui.start, SIGNAL( clicked() ), 
-			this, SLOT(slotStartWithTimer()) );
 	connect(m_controls->ui.stop, SIGNAL( clicked() ), 
 			m_game, SLOT(stopGame()) );
 	connect(m_game, SIGNAL( turnOver(Move*) ), 

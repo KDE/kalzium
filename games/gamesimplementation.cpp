@@ -25,11 +25,9 @@
 #include <klocale.h>
 
 //RAgame and RAField
-RAGame::RAField::RAField( int x, int y )
-	: Field( x, y )
+RAGame::RAField::RAField( )
+	: Field( )
 {
-	m_size_x = x;
-	m_size_y = y;
 }
 
 void RAGame::start()
@@ -106,24 +104,20 @@ void RAGame::rollDice()
 RAGame::RAGame()
 	: Game()
 {
-	m_field = new RAField( 7,7 );
+	m_field = new RAField();
 
 	setField( m_field );
 	
 	m_counter = 0;
 	m_number = 0;
-
-	start();
 }
 
 
 //////////////////////////////////////////////////////////////////////
 //CrystallizationField
-CrystallizationGame::CrystallizationField::CrystallizationField( int x, int y )
-	: Field( x, y )
+CrystallizationGame::CrystallizationField::CrystallizationField(  )
+	: Field()
 {
-	m_size_x = x;
-	m_size_y = y;
 }
 
 CrystallizationGame* CrystallizationGame::instance()
@@ -281,12 +275,10 @@ int CrystallizationGame::neighboursTeam( Stone* stone )
 CrystallizationGame::CrystallizationGame()
 	: Game()
 {
-	m_field = new CrystallizationField( 6,6 );
+	m_field = new CrystallizationField();
 	setField( m_field );
 
 	m_number = 0;
-
-	start();
 }
 
 void CrystallizationGame::start()

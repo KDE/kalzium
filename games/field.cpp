@@ -22,10 +22,8 @@
 #include "stone.h"
 
 ///Field
-Field::Field( int x, int y )
+Field::Field()
 {
-	m_size_x = x;
-	m_size_y = y;
 }
 
 Field::~Field()

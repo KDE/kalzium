@@ -18,14 +18,14 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
-#include <kdialog.h>
+#include <QDialog>
 
 class GamefieldWidget;
 class GameControls_Impl;
 class Game;
 class StatisticWidget;
 
-class GamesDialog : public KDialog
+class GamesDialog : public QDialog
 {
 	Q_OBJECT
 	
@@ -42,6 +42,8 @@ class GamesDialog : public KDialog
 
 	private slots:
 		void activateGame( int nr );
+
+		void startTheCurrentGame();
 
 		/**
 		 * create the connections (signal/slot)

@@ -51,11 +51,8 @@ class RAGame : public Game
 			public:
 				/**
 				 * Constructor
-				 *
-				 * @param x The x-size of the field
-				 * @param y The y-size of the field
 				 */
-				RAField(int x, int y);
+				RAField();
 
 				/**
 				 * moves Stone @p stone from the current position to the @p newPosition
@@ -99,11 +96,8 @@ class CrystallizationGame : public Game
 			public:
 				/**
 				 * Constructor
-				 *
-				 * @param x The x-size of the field
-				 * @param y The y-size of the field
 				 */
-				CrystallizationField(int x, int y);
+				CrystallizationField();
 
 				/**
 				 * moves Stone @p stone from the current position to the @p newPosition

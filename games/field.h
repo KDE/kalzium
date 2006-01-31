@@ -41,7 +41,15 @@ class Field
 		 * @param x The x-size of the field
 		 * @param y The y-size of the field
 		 */
-		Field(int x, int y);
+		Field();
+
+		void setFieldXSize( int x ){
+			m_size_x = x;
+		}
+		
+		void setFieldYSize( int y ){
+			m_size_y = y;
+		}
 
 		/**
 		 * @return the x-size of the field
