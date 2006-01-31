@@ -44,7 +44,7 @@ class GamesFactory
 		static GamesFactory* instance();
 
 		/**
-		 * Returns the KalziumGradientType with the @p id specified.
+		 * Returns the Gmae with the @p id specified.
 		 * It will gives 0 if none found.
 		 */
 		Game* build( int id ) const;
