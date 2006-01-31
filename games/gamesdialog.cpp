@@ -35,12 +35,10 @@ GamesDialog::GamesDialog()
 	QHBoxLayout * hbox = new QHBoxLayout( vbox );
 
 	m_controls = new GameControls_Impl( this );
-	m_gamefield = new GamefieldWidget( this );
 	m_stats = new StatisticWidget( this );
-	m_gamefield->setField( 0 );
+	m_controls->ui.gf->setField( 0 );
 	m_stats->setGame( 0 );
 
-	vbox->addWidget( m_gamefield );
 	vbox->addWidget( m_controls );
 	
 	hbox->addWidget( m_stats );
@@ -58,7 +56,7 @@ GamesDialog::GamesDialog()
 void GamesDialog::activateGame( int nr )
 {
 	//better safe than sorry
-	m_gamefield->setField( 0 );
+	m_controls->ui.gf->setField( 0 );
 	m_stats->setGame( 0 );
 	
 	Game * g = GamesFactory::instance()->build( nr );
@@ -72,7 +70,7 @@ void GamesDialog::activateGame( int nr )
 	
 	kdDebug() << "############ Activating the game " << m_game->description()  << endl;
 	
-	m_gamefield->setField( m_game->field() );
+	m_controls->ui.gf->setField( m_game->field() );
 	m_stats->setGame( m_game );
 	m_controls->ui.label->setText(m_game->rules());
 
@@ -96,10 +94,9 @@ void GamesDialog::createConnetions()
 	connect(m_controls->ui.stop, SIGNAL( clicked() ), 
 			m_game, SLOT(stopGame()) );
 	connect(m_game, SIGNAL( turnOver(Move*) ), 
-			m_gamefield, SLOT(slotUpdate(Move*)) );
+			m_controls->ui.gf, SLOT(slotUpdate(Move*)) );
 	connect(m_game, SIGNAL( turnOver() ), 
 			m_stats, SLOT(updateData( )) );
-
 }
 
 #include "gamesdialog.moc"

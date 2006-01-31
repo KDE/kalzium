@@ -279,7 +279,7 @@ int CrystallizationGame::neighboursTeam( Stone* stone )
 CrystallizationGame::CrystallizationGame()
 	: Game()
 {
-	m_field = new CrystallizationField( 10,10 );
+	m_field = new CrystallizationField( 6,6 );
 	setField( m_field );
 
 	m_number = 0;

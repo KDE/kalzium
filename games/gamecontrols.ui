@@ -34,7 +34,24 @@
    <property name="spacing" >
     <number>6</number>
    </property>
-   <item row="2" column="0" >
+   <item row="3" column="0" >
+    <widget class="GamefieldWidget" name="gf" >
+     <property name="minimumSize" >
+      <size>
+       <width>100</width>
+       <height>100</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" >
+    <widget class="Line" name="line" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" >
     <spacer>
      <property name="orientation" >
       <enum>Qt::Vertical</enum>
@@ -42,12 +59,19 @@
      <property name="sizeHint" >
       <size>
        <width>443</width>
-       <height>291</height>
+       <height>121</height>
       </size>
      </property>
     </spacer>
    </item>
-   <item row="3" column="0" >
+   <item row="2" column="0" >
+    <widget class="Line" name="line_2" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" >
     <layout class="QHBoxLayout" >
      <property name="margin" >
       <number>0</number>
@@ -163,7 +187,7 @@
      </item>
     </layout>
    </item>
-   <item row="4" column="0" >
+   <item row="7" column="0" >
     <layout class="QHBoxLayout" >
      <property name="margin" >
       <number>0</number>
@@ -238,7 +262,7 @@
      </item>
     </layout>
    </item>
-   <item row="5" column="0" >
+   <item row="8" column="0" >
     <layout class="QVBoxLayout" >
      <property name="margin" >
       <number>0</number>
@@ -283,6 +307,15 @@
   </layout>
  </widget>
  <pixmapfunction></pixmapfunction>
+ <customwidgets>
+  <customwidget>
+   <class>GamefieldWidget</class>
+   <extends>QFrame</extends>
+   <header>gamefieldwidget.h</header>
+   <container>0</container>
+   <pixmap></pixmap>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

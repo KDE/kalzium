@@ -39,7 +39,6 @@ class GamesDialog : public KDialog
 		Game * m_game;
 	
 		GameControls_Impl * m_controls;
-		GamefieldWidget * m_gamefield;
 		StatisticWidget * m_stats;
 
 	private slots:
