@@ -26,7 +26,7 @@
 #include <kdebug.h>
 
 GamefieldWidget::GamefieldWidget( QWidget * parent )
-	: QWidget ( parent )
+	: QFrame ( parent )
 {
 	m_field = 0;
 	setMinimumSize( 100, 200 );

@@ -22,7 +22,6 @@
 #include "gamesdialog.h"
 #include "games.h"
 #include "gamefieldwidget.h"
-#include "statisticwidget.h"
 
 #include <QLayout>
 
@@ -32,16 +31,11 @@ GamesDialog::GamesDialog()
 	: KDialog( 0, "KalziumGames" )
 {
 	QVBoxLayout * vbox = new QVBoxLayout( this );
-	QHBoxLayout * hbox = new QHBoxLayout( vbox );
 
 	m_controls = new GameControls_Impl( this );
-	m_stats = new StatisticWidget( this );
 	m_controls->ui.gf->setField( 0 );
-	m_stats->setGame( 0 );
 
 	vbox->addWidget( m_controls );
-	
-	hbox->addWidget( m_stats );
 
 	QStringList l = GamesFactory::instance()->games();
 	foreach( QString s, l )
@@ -57,7 +51,6 @@ void GamesDialog::activateGame( int nr )
 {
 	//better safe than sorry
 	m_controls->ui.gf->setField( 0 );
-	m_stats->setGame( 0 );
 	
 	Game * g = GamesFactory::instance()->build( nr );
 
@@ -70,8 +63,8 @@ void GamesDialog::activateGame( int nr )
 	
 	kdDebug() << "############ Activating the game " << m_game->description()  << endl;
 	
+	m_game->start();
 	m_controls->ui.gf->setField( m_game->field() );
-	m_stats->setGame( m_game );
 	m_controls->ui.label->setText(m_game->rules());
 
 	createConnetions();
@@ -79,7 +72,6 @@ void GamesDialog::activateGame( int nr )
 
 void GamesDialog::slotStartWithTimer()
 {
-	kdDebug() <<  m_controls->ui.time->value() << endl;
 	m_game->startWithTimer( m_controls->ui.time->value() );
 }
 
@@ -95,8 +87,6 @@ void GamesDialog::createConnetions()
 			m_game, SLOT(stopGame()) );
 	connect(m_game, SIGNAL( turnOver(Move*) ), 
 			m_controls->ui.gf, SLOT(slotUpdate(Move*)) );
-	connect(m_game, SIGNAL( turnOver() ), 
-			m_stats, SLOT(updateData( )) );
 }
 
 #include "gamesdialog.moc"

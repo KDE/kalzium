@@ -35,6 +35,8 @@ RAGame::RAField::RAField( int x, int y )
 void RAGame::start()
 {
 	random.setSeed( time(0) );
+	
+	m_field->stones().clear();
 
 	//fill the field with x*y white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
@@ -290,6 +292,8 @@ CrystallizationGame::CrystallizationGame()
 void CrystallizationGame::start()
 {
 	random.setSeed( time(0) );
+
+	m_field->stones().clear();
 	
 	//fill the field with x*y black and white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )

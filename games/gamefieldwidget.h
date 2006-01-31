@@ -18,7 +18,7 @@
  ***************************************************************************/
 #ifndef GAMEFIELDWIDGET_H
 #define GAMEFIELDWIDGET_H
-#include <QWidget>
+#include <QFrame>
 
 class QPaintEvent;
 class Field;
@@ -27,7 +27,7 @@ class Move;
 /**
  * @author Carsten Niehaus
  */
-class GamefieldWidget : public QWidget
+class GamefieldWidget : public QFrame
 {
 	Q_OBJECT
 	
