@@ -19,3 +19,5 @@ GameControls_Impl::GameControls_Impl( QWidget * parent )
 }
 
 //#include "gamecontrols_impl.moc"
+
+#include "gamecontrols_impl.moc"

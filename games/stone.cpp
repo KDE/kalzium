@@ -34,3 +34,5 @@ void Stone::swap()
 }
 
 //#include "stone.moc"
+
+#include "stone.moc"
