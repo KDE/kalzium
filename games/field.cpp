@@ -41,4 +41,3 @@ Stone* Field::stoneAtPosition( const QPoint& pos )
 
 	return 0;
 }
-

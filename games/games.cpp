@@ -154,4 +154,4 @@ void Game::finishMove()
 	emit turnOver();
 }
 
-#include "games.moc"
+#include "moc_games.cpp"

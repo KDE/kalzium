@@ -18,6 +18,4 @@ GameControls_Impl::GameControls_Impl( QWidget * parent )
 	ui.setupUi( this );
 }
 
-//#include "gamecontrols_impl.moc"
-
-#include "gamecontrols_impl.moc"
+#include "moc_gamecontrols_impl.cpp"

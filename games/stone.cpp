@@ -33,6 +33,4 @@ void Stone::swap()
 		m_player = Stone::White;
 }
 
-//#include "stone.moc"
-
-#include "stone.moc"
+#include "moc_stone.cpp"

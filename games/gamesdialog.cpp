@@ -24,9 +24,10 @@
 #include "gamefieldwidget.h"
 
 #include <QLayout>
+#include <QComboBox>
 
 GamesDialog::GamesDialog()
-	: QDialog( 0, "KalziumGames" )
+	: QDialog( 0 )
 {
 	QVBoxLayout * vbox = new QVBoxLayout( this );
 
@@ -37,7 +38,7 @@ GamesDialog::GamesDialog()
 
 	QStringList l = GamesFactory::instance()->games();
 	foreach( QString s, l ){
-		m_controls->ui.combo->insertItem(s);
+		m_controls->ui.combo->addItem(s);
 	}
 	
 	connect(m_controls->ui.start, SIGNAL( clicked() ), 
@@ -95,4 +96,4 @@ void GamesDialog::createConnetions()
 			m_controls->ui.gf, SLOT(slotUpdate(Move*)) );
 }
 
-#include "gamesdialog.moc"
+#include "moc_gamesdialog.cpp"

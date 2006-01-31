@@ -81,4 +81,4 @@ void GamefieldWidget::paintEvent( QPaintEvent * /*e*/ )
 	p.end();
 }
 
-#include "gamefieldwidget.moc"
+#include "moc_gamefieldwidget.cpp"
