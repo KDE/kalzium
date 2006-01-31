@@ -85,11 +85,6 @@ class Game : public QObject
 		 */
 		virtual ~Game();
 
-		/**
-		 * starts the game
-		 */
-		virtual void startGame();
-
 		static Game* instance();
 
 		/**
@@ -197,6 +192,11 @@ class Game : public QObject
 		virtual void stopGame(){
 			m_timer.stop();
 		}
+
+		/**
+		 * Start the games, everything is set to the start-conditions
+		 */
+		virtual void start() = 0;
 
 	protected:
 		/**

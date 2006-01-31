@@ -9,11 +9,23 @@
     <x>0</x>
     <y>0</y>
     <width>461</width>
-    <height>345</height>
+    <height>539</height>
    </rect>
   </property>
+  <property name="minimumSize" >
+   <size>
+    <width>300</width>
+    <height>300</height>
+   </size>
+  </property>
   <property name="windowTitle" >
-   <string>Dialog</string>
+   <string>Chemical Simulations</string>
+  </property>
+  <property name="toolTip" >
+   <string>In this dialog you can simulate chemical principles</string>
+  </property>
+  <property name="whatsThis" >
+   <string>In this dialog you can simulate chemical principles</string>
   </property>
   <layout class="QGridLayout" >
    <property name="margin" >
@@ -23,11 +35,100 @@
     <number>6</number>
    </property>
    <item row="2" column="0" >
-    <widget class="QLabel" name="label" >
-     <property name="text" >
-      <string>TextLabel</string>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
      </property>
-    </widget>
+     <property name="sizeHint" >
+      <size>
+       <width>443</width>
+       <height>291</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="0" >
+    <layout class="QHBoxLayout" >
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label_5" >
+       <property name="text" >
+        <string>Milliseconds per move:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>time</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSpinBox" name="time" >
+       <property name="minimum" >
+        <number>1</number>
+       </property>
+       <property name="value" >
+        <number>50</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0" >
+    <layout class="QHBoxLayout" >
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="start" >
+       <property name="toolTip" >
+        <string>Start the simulation</string>
+       </property>
+       <property name="text" >
+        <string>Start</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stop" >
+       <property name="toolTip" >
+        <string>Stop the simulation</string>
+       </property>
+       <property name="text" >
+        <string>Stop</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="next" >
+       <property name="toolTip" >
+        <string>Next move</string>
+       </property>
+       <property name="text" >
+        <string>Next</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="prev" >
+       <property name="enabled" >
+        <bool>false</bool>
+       </property>
+       <property name="toolTip" >
+        <string>Previous move</string>
+       </property>
+       <property name="text" >
+        <string>Previous</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item row="0" column="0" >
     <layout class="QHBoxLayout" >
@@ -38,7 +139,14 @@
       <number>6</number>
      </property>
      <item>
-      <widget class="QComboBox" name="combo" />
+      <widget class="QComboBox" name="combo" >
+       <property name="toolTip" >
+        <string>Select the simulation you want to run</string>
+       </property>
+       <property name="whatsThis" >
+        <string>Select the simulation you want to run</string>
+       </property>
+      </widget>
      </item>
      <item>
       <spacer>
@@ -55,7 +163,7 @@
      </item>
     </layout>
    </item>
-   <item row="1" column="0" >
+   <item row="4" column="0" >
     <layout class="QHBoxLayout" >
      <property name="margin" >
       <number>0</number>
@@ -64,30 +172,109 @@
       <number>6</number>
      </property>
      <item>
-      <widget class="QPushButton" name="start" >
+      <widget class="QLabel" name="label_3" >
        <property name="text" >
-        <string>Start</string>
+        <string>Number of x-Fields:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>xsize</cstring>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="stop" >
-       <property name="text" >
-        <string>Stop</string>
+      <widget class="QSpinBox" name="xsize" >
+       <property name="toolTip" >
+        <string>Defines the number of fields in the x-direction</string>
+       </property>
+       <property name="whatsThis" >
+        <string>Defines the number of fields in the x-direction</string>
+       </property>
+       <property name="minimum" >
+        <number>2</number>
+       </property>
+       <property name="value" >
+        <number>6</number>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="next" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2" >
        <property name="text" >
-        <string>Next</string>
+        <string>Number of y-Fields:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>ysize</cstring>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="prev" >
+      <widget class="QSpinBox" name="ysize" >
+       <property name="toolTip" >
+        <string>Defines the number of fields in the y-direction</string>
+       </property>
+       <property name="whatsThis" >
+        <string>Defines the number of fields in the y-direction</string>
+       </property>
+       <property name="minimum" >
+        <number>2</number>
+       </property>
+       <property name="value" >
+        <number>6</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="0" >
+    <layout class="QVBoxLayout" >
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label_4" >
        <property name="text" >
-        <string>Previous</string>
+        <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Explanation:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label" >
+       <property name="toolTip" >
+        <string>This texts describes the simulation in brief words</string>
+       </property>
+       <property name="whatsThis" >
+        <string>This texts describes the simulation in brief words</string>
+       </property>
+       <property name="frameShape" >
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="lineWidth" >
+        <number>1</number>
+       </property>
+       <property name="midLineWidth" >
+        <number>1</number>
+       </property>
+       <property name="text" >
+        <string/>
+       </property>
+       <property name="wordWrap" >
+        <bool>true</bool>
        </property>
       </widget>
      </item>

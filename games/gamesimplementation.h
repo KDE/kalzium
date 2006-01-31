@@ -64,6 +64,10 @@ class RAGame : public Game
 		
 				virtual void addStone( Stone* stone );
 		};
+
+	public slots:
+		void start();
+
 	private:
 		int m_counter;
 		int m_number;
@@ -109,10 +113,12 @@ class CrystallizationGame : public Game
 				virtual void addStone( Stone* stone );
 		};
 		
+	public slots:
 		/**
 		 * starts the game
 		 */
-		virtual void startGame();
+		void start();
+
 	private:
 		int m_number;
 

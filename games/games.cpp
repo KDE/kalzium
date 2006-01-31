@@ -86,11 +86,9 @@ int Move::numberOfStones( Stone::PLAYER p )
 		return 0;
 
 	int num = 0;
-	QStringList::Iterator it = m_list.begin();
-	const QStringList::Iterator itEnd = m_list.end();
-	for (; it != itEnd; ++it)	
+	
+	foreach( QString s, m_list )
 	{
-		QString s = *it;
 		num += s.count( letter );
 	}
 
@@ -130,11 +128,6 @@ void Game::slotNextMove()
 	finishMove();
 	m_numberOfMoves++;
 	rollDice();
-}
-
-void Game::startGame()
-{
-	random.setSeed( time(0) );
 }
 
 void Game::finishMove()

@@ -74,13 +74,15 @@ void GamesDialog::activateGame( int nr )
 	
 	m_gamefield->setField( m_game->field() );
 	m_stats->setGame( m_game );
+	m_controls->ui.label->setText(m_game->rules());
 
 	createConnetions();
 }
 
 void GamesDialog::slotStartWithTimer()
 {
-	m_game->startWithTimer( 50 );
+	kdDebug() <<  m_controls->ui.time->value() << endl;
+	m_game->startWithTimer( m_controls->ui.time->value() );
 }
 
 void GamesDialog::createConnetions()

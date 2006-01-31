@@ -19,6 +19,8 @@
 
 #include "gamesimplementation.h"
 
+#include <time.h>
+
 #include <kdebug.h>
 #include <klocale.h>
 
@@ -28,6 +30,20 @@ RAGame::RAField::RAField( int x, int y )
 {
 	m_size_x = x;
 	m_size_y = y;
+}
+
+void RAGame::start()
+{
+	random.setSeed( time(0) );
+
+	//fill the field with x*y white stones
+	for ( int x = 0 ; x < m_field->xSize() ; ++x )
+	{
+		for ( int y = 0; y < m_field->ySize() ; ++y )
+		{
+			m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
+		}
+	}
 }
 
 RAGame* RAGame::instance()
@@ -95,14 +111,7 @@ RAGame::RAGame()
 	m_counter = 0;
 	m_number = 0;
 
-	//fill the field with x*y white stones
-	for ( int x = 0 ; x < m_field->xSize() ; ++x )
-	{
-		for ( int y = 0; y < m_field->ySize() ; ++y )
-		{
-			m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
-		}
-	}
+	start();
 }
 
 
@@ -275,21 +284,23 @@ CrystallizationGame::CrystallizationGame()
 
 	m_number = 0;
 
+	start();
+}
+
+void CrystallizationGame::start()
+{
+	random.setSeed( time(0) );
+	
 	//fill the field with x*y black and white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
 	{
 		for ( int y = 0; y < m_field->ySize() ; ++y )
 		{
-			if ( y < 3 )
+			if ( y < m_field->ySize()/2 )
 				m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
 			else
 				m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
 		}
 	}
-}
-
-void CrystallizationGame::startGame()
-{
-	Game::startGame();
 }
 
