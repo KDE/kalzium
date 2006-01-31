@@ -24,13 +24,9 @@
 #include <QPixmap>
 #include <QByteArray>
 
-#include <krandomsequence.h>
-#include <kdebug.h>
-
 #include "field.h"
 #include "stone.h"
 
-class KRandomSequence;
 class Stone;
 class Move;
 class Game;
@@ -213,11 +209,6 @@ class Game : public QObject
 		 * the number of performed moves
 		 */
 		int m_numberOfMoves;
-
-		/**
-		 * needed for the random numbers
-		 */
-		KRandomSequence random;
 
 		/**
 		 * The constructor

@@ -25,8 +25,6 @@
 
 #include <QLayout>
 
-#include <kdebug.h>
-
 GamesDialog::GamesDialog()
 	: QDialog( 0, "KalziumGames" )
 {
@@ -48,7 +46,6 @@ GamesDialog::GamesDialog()
 
 void GamesDialog::activateGame( int nr )
 {
-	kdDebug() << "GamesDialog::activateGame()" << endl;
 	//better safe than sorry
 	m_controls->ui.gf->setField( 0 );
 	
@@ -76,13 +73,11 @@ void GamesDialog::activateGame( int nr )
 
 void GamesDialog::slotStartWithTimer()
 {
-	kdDebug() << "GamesDialog::slotStartWithTimer()" << endl;
 	m_game->startWithTimer( m_controls->ui.time->value() );
 }
 
 void GamesDialog::startTheCurrentGame()
 {
-	kdDebug() << "GamesDialog::startTheCurrentGame()" << endl;
 	int selection = m_controls->ui.combo->currentIndex();
 
 	activateGame( selection );

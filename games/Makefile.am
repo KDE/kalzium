@@ -1,9 +1,4 @@
-# set the include path for X, qt and KDE
-INCLUDES= -I$(srcdir)/../../libkdeedu/kdeeduplot -I$(srcdir)/../../libkdeedu/kdeeduui -I$(srcdir)/../../libkdeedu/libscience/ $(all_includes)
-
 bin_PROGRAMS = games
-
-KDE_CXXFLAGS    = -D_ISOC99_SOURCE
 
 METASOURCES = AUTO 
 

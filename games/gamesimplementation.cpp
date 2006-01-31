@@ -20,9 +20,7 @@
 #include "gamesimplementation.h"
 
 #include <time.h>
-
-#include <kdebug.h>
-#include <klocale.h>
+#include <stdlib.h>
 
 //RAgame and RAField
 RAGame::RAField::RAField( )
@@ -32,7 +30,7 @@ RAGame::RAField::RAField( )
 
 void RAGame::start()
 {
-	random.setSeed( time(0) );
+	srand (  time( NULL ) );
 	
 	m_field->stones().clear();
 
@@ -59,12 +57,12 @@ QByteArray RAGame::name() const
 
 QString RAGame::description() const
 {
-	return i18n( "Radioactive decay" );
+	return  "Radioactive decay";
 }
 
 QString RAGame::rules() const
 {
-	return i18n( "The simulation starts with an all white board. In each turn, a Stone on the board will be selected randomly. If the stone is white, it will turn black. This represents the radioactive decay.  The game becomes interesting if you alter the number of turns it runs. The probablilty that a stone swap the colour from white to black decreases with each turn. It is proportional to the halflife period.");
+	return "The simulation starts with an all white board. In each turn, a Stone on the board will be selected randomly. If the stone is white, it will turn black. This represents the radioactive decay.  The game becomes interesting if you alter the number of turns it runs. The probablilty that a stone swap the colour from white to black decreases with each turn. It is proportional to the halflife period.";
 }
 
 void RAGame::RAField::moveStoneTo( Stone* stone, const QPoint& newPosition )
@@ -81,8 +79,8 @@ void RAGame::rollDice()
 	m_number++;
 	
 	//generating two random numbers
-	const int x = ( int ) ( random.getLong( m_field->xSize() ) );
-	const int y = ( int ) ( random.getLong( m_field->ySize() ) );
+	const int x = ( int ) ( rand()%m_field->xSize() );
+	const int y = ( int ) ( rand()%m_field->ySize() );
 
 	QPoint point( x, y );
 
@@ -133,12 +131,12 @@ QByteArray CrystallizationGame::name() const
 
 QString CrystallizationGame::description() const
 {
-	return i18n( "Crystallization" );
+	return "Crystallization";
 }
 
 QString CrystallizationGame::rules() const
 {
-	return i18n( "" );
+	return "";
 }
 
 void CrystallizationGame::CrystallizationField::moveStoneTo( Stone* stone, const QPoint& newPosition )
@@ -155,11 +153,11 @@ void CrystallizationGame::rollDice()
 	m_number++;
 
 	//generating two random numbers
-	const int x = ( int ) random.getLong( m_field->xSize() );
-	const int y = ( int ) random.getLong( m_field->ySize() );
+	const int x = ( int ) ( rand()%m_field->xSize() );
+	const int y = ( int ) ( rand()%m_field->ySize() );
 	
 	//the propability
-	const int w = ( int ) random.getLong( 2 );
+	const int w = ( int ) rand()%2;
 
 	QPoint point( x, y );
 
@@ -185,9 +183,6 @@ void CrystallizationGame::rollDice()
 		if ( w%2 )
 			exchangeStones( point );
 	}
-	else
-		kdDebug() << "error" << endl;
-	
 }
 
 void CrystallizationGame::exchangeStones( const QPoint& point )
@@ -220,7 +215,7 @@ void CrystallizationGame::exchangeStones( const QPoint& point )
 		chosenStone = otherTeamStones[ 0 ];//take the first (and only) Stone
 	}
 	else{
-		const int choice = ( int ) ( random.getLong( otherTeamStones.count() ) );
+		const int choice = ( int ) ( rand()%otherTeamStones.count() );
 
 		chosenStone = otherTeamStones[ choice ];
 	}
@@ -283,7 +278,7 @@ CrystallizationGame::CrystallizationGame()
 
 void CrystallizationGame::start()
 {
-	random.setSeed( time(0) );
+	srand (  time( NULL ) );
 
 	m_field->stones().clear();
 	

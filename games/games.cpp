@@ -25,9 +25,6 @@
 #include <QPoint>
 #include <QLayout>
 
-#include <kdebug.h>
-#include <klocale.h>
-
 #include <math.h>
 #include <time.h>
 
