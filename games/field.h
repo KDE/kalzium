@@ -46,16 +46,14 @@ class Field
 		/**
 		 * @return the x-size of the field
 		 */
-		int xSize() const
-		{
+		int xSize() const {
 			return m_size_x;
 		}
 		
 		/**
 		 * @return the y-size of the field
 		 */
-		int ySize() const
-		{
+		int ySize() const {
 			return m_size_y;
 		}
 		

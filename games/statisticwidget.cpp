@@ -38,7 +38,6 @@ StatisticWidget::StatisticWidget( QWidget * parent )
 void StatisticWidget::paintEvent( QPaintEvent * /*e*/ )
 {
 	if ( !m_game ) return;
-	kdDebug() << "painting the gamestats with ptr " << m_game << endl;
 
 	QPainter p;
 	p.begin( this );

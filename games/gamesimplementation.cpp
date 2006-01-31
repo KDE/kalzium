@@ -46,6 +46,11 @@ QString RAGame::description() const
 	return i18n( "Radioactive decay" );
 }
 
+QString RAGame::rules() const
+{
+	return i18n( "The simulation starts with an all white board. In each turn, a Stone on the board will be selected randomly. If the stone is white, it will turn black. This represents the radioactive decay.  The game becomes interesting if you alter the number of turns it runs. The probablilty that a stone swap the colour from white to black decreases with each turn. It is proportional to the halflife period.");
+}
+
 void RAGame::RAField::moveStoneTo( Stone* stone, const QPoint& newPosition )
 {
 }
@@ -60,8 +65,8 @@ void RAGame::rollDice()
 	m_number++;
 	
 	//generating two random numbers
-	const int x = ( int ) ( random.getLong( 6 ) );
-	const int y = ( int ) ( random.getLong( 6 ) );
+	const int x = ( int ) ( random.getLong( m_field->xSize() ) );
+	const int y = ( int ) ( random.getLong( m_field->ySize() ) );
 
 	QPoint point( x, y );
 
@@ -83,17 +88,17 @@ void RAGame::rollDice()
 RAGame::RAGame()
 	: Game()
 {
-	m_field = new RAField( 6,6 );
+	m_field = new RAField( 7,7 );
 
 	setField( m_field );
 	
 	m_counter = 0;
 	m_number = 0;
 
-	//fill the field with 6x6 white stones
-	for ( int x = 0 ; x < 6 ; ++x )
+	//fill the field with x*y white stones
+	for ( int x = 0 ; x < m_field->xSize() ; ++x )
 	{
-		for ( int y = 0; y < 6 ; ++y )
+		for ( int y = 0; y < m_field->ySize() ; ++y )
 		{
 			m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
 		}
@@ -126,6 +131,11 @@ QString CrystallizationGame::description() const
 	return i18n( "Crystallization" );
 }
 
+QString CrystallizationGame::rules() const
+{
+	return i18n( "" );
+}
+
 void CrystallizationGame::CrystallizationField::moveStoneTo( Stone* stone, const QPoint& newPosition )
 {
 }
@@ -140,8 +150,8 @@ void CrystallizationGame::rollDice()
 	m_number++;
 
 	//generating two random numbers
-	const int x = ( int ) random.getLong( 6 );
-	const int y = ( int ) random.getLong( 6 );
+	const int x = ( int ) random.getLong( m_field->xSize() );
+	const int y = ( int ) random.getLong( m_field->ySize() );
 	
 	//the propability
 	const int w = ( int ) random.getLong( 2 );
@@ -157,8 +167,6 @@ void CrystallizationGame::rollDice()
 	int totalNum = neighboursNum( stone );
 	int numOtherTeam = totalNum - numTeam;
 	
-	kdDebug() << "Doing point " << point << " numTeam: " << numTeam << " numOtherTeam: " << numOtherTeam << endl;
-
 	if ( numTeam < numOtherTeam )
 	{
 		//do nothing
@@ -197,8 +205,6 @@ void CrystallizationGame::exchangeStones( const QPoint& point )
 	if ( stone4 && stone4->player() != stone->player()  )
 		otherTeamStones << stone4;
 	
-	kdDebug() << "Run: #" << m_number << " , # of stones: " << otherTeamStones.count() << " Stones: " << stone1 << " " << stone2 << " " << stone3 << " " << stone4<< endl;
-
 	if ( otherTeamStones.count() < 1 )//well, there is nothing to exchange...
 		return;
 
@@ -206,12 +212,10 @@ void CrystallizationGame::exchangeStones( const QPoint& point )
 	Stone *chosenStone = 0;
 	
 	if ( otherTeamStones.count() == 1 ) {
-		kdDebug() << "Taking the only stone there is..." << endl;
 		chosenStone = otherTeamStones[ 0 ];//take the first (and only) Stone
 	}
 	else{
 		const int choice = ( int ) ( random.getLong( otherTeamStones.count() ) );
-		kdDebug() << "Choice: " << choice << " (of " << otherTeamStones.count() << ")" << endl;
 
 		chosenStone = otherTeamStones[ choice ];
 	}
@@ -266,15 +270,15 @@ int CrystallizationGame::neighboursTeam( Stone* stone )
 CrystallizationGame::CrystallizationGame()
 	: Game()
 {
-	m_field = new CrystallizationField( 6,6 );
+	m_field = new CrystallizationField( 10,10 );
 	setField( m_field );
 
 	m_number = 0;
 
-	//fill the field with 6x6 white stones
-	for ( int x = 0 ; x < 6 ; ++x )
+	//fill the field with x*y black and white stones
+	for ( int x = 0 ; x < m_field->xSize() ; ++x )
 	{
-		for ( int y = 0; y < 6 ; ++y )
+		for ( int y = 0; y < m_field->ySize() ; ++y )
 		{
 			if ( y < 3 )
 				m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );

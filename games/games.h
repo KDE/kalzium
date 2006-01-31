@@ -110,7 +110,6 @@ class Game : public QObject
 		 * @return the field of the game
 		 */
 		virtual Field* field() const{
-			kdDebug() << "############ The m_field-ptr is " << m_field << endl;
 			return m_field;
 		}
 
@@ -154,6 +153,12 @@ class Game : public QObject
 		 * Used in all the visible places.
 		 */
 		virtual QString description() const = 0;
+
+		/**
+		 * Returns the rules of the game as a descriptive QString.
+		 * @return the rules
+		 */
+		virtual QString rules() const = 0;
 
 	signals:
 		/**

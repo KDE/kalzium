@@ -143,10 +143,10 @@ void Game::finishMove()
 	
 	QStringList sl;
 	
-	for ( int x = 0; x < 6 ; ++x )
+	for ( int x = 0; x < m_field->xSize() ; ++x )
 	{
 		ds = QString();
-		for ( int y = 0; y < 6 ; ++y )
+		for ( int y = 0; y < m_field->ySize()  ; ++y )
 		{
 			Stone* s = m_field->stoneAtPosition( QPoint( x,y ) );
 			if ( s->player() == Stone::White )
