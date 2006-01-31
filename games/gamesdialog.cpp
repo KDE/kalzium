@@ -61,9 +61,7 @@ void GamesDialog::activateGame( int nr )
 	m_gamefield->setField( 0 );
 	m_stats->setGame( 0 );
 	
-	//In the factory there is a crash. Getting a new pointer works
-	//Game * g = GamesFactory::instance()->build( nr );
-	RAGame *g = new RAGame();
+	Game * g = GamesFactory::instance()->build( nr );
 
  	kdDebug() << "############ Activating the game " << g << endl;
 	kdDebug() << "############ The Game has the field-ptr " << g->field() << endl;

@@ -47,18 +47,23 @@ GamesFactory* GamesFactory::instance()
 
 Game* GamesFactory::build( int id ) const
 {
-	Game *game;
+	if (  (  id < 0 ) || (  id >= m_games.count() ) )
+		return 0;
 
-	return game;
+	return m_games.at( id );
 }
 
 Game* GamesFactory::build( const QByteArray& id ) const
 {
-	Game *game;
+	for (  int i = 0; i < m_games.count(); i++ )
+	{
+		if (  m_games.at(  i )->name() == id )
+			return m_games.at( i );
+	}
 
-	return game;
+	// not found
+	return 0;
 }
-
 QStringList GamesFactory::games() const
 {
 	QStringList l;
