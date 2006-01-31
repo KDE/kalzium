@@ -1,3 +1,5 @@
+INCLUDES=  $(all_includes)
+
 bin_PROGRAMS = games
 
 METASOURCES = AUTO 
@@ -5,7 +7,7 @@ METASOURCES = AUTO
 KDE_ICON = AUTO
 
 # the library search path. 
-games_LDFLAGS = $(all_libraries) $(KDE_RPATH)
+games_LDFLAGS = $(all_libraries)
 
 games_SOURCES = main.cpp \
 				games.cpp \
