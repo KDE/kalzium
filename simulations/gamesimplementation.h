@@ -122,19 +122,19 @@ class CrystallizationGame : public Simulation
 		/**
 		 * @return the number of stones of the other player
 		 */
-		int neighboursNum( Stone* stone );
+		virtual int neighboursNum( Stone* stone );
 		
 		/**
 		 * @return the number of stones of the player
 		 */
-		int neighboursTeam( Stone* stone );
+		virtual int neighboursTeam( Stone* stone );
 
 		/**
 		 * Exange the Stone at the postion @p point with one stone
 		 * of the other team. That other Stone has to be in orthogonal
 		 * contact with the Stone in @p point
 		 */
-		void exchangeStones( const QPoint& point );
+		virtual void exchangeStones( const QPoint& point );
 };
 
 /**
@@ -166,6 +166,27 @@ class DecompositionSimulation : public CrystallizationGame
 
 	protected:
 		CrystallizationField* m_field;
+
+		//FIXME Why have the methods neighboursNum, neighboursTeam and exchangeStones
+		//		to be reimplemented? If I don't do that they don't work because
+		//		the stones are not found... Don't understand it...
+		
+		/**
+		 * @return the number of stones of the other player
+		 */
+		virtual int neighboursNum( Stone* stone );
+		
+		/**
+		 * @return the number of stones of the player
+		 */
+		virtual int neighboursTeam( Stone* stone );
+
+		/**
+		 * Exange the Stone at the postion @p point with one stone
+		 * of the other team. That other Stone has to be in orthogonal
+		 * contact with the Stone in @p point
+		 */
+		virtual void exchangeStones( const QPoint& point );
 };
 
 #endif // GAMESIMPLEMENTATION_H

@@ -32,9 +32,9 @@
 
 GamesFactory::GamesFactory()
 {
-	m_games << RAGame::instance();
-	m_games << CrystallizationGame::instance();
 	m_games << DecompositionSimulation::instance();
+	m_games << CrystallizationGame::instance();
+	m_games << RAGame::instance();
 }
 
 GamesFactory* GamesFactory::instance()

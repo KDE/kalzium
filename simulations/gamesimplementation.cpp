@@ -21,6 +21,7 @@
 
 #include <time.h>
 #include <stdlib.h>
+#include <iostream.h>
 
 //RAgame and RAField
 RAGame::RAField::RAField( )
@@ -175,7 +176,7 @@ void CrystallizationGame::rollDice()
 		//do nothing
 	}
 	else if ( numTeam > numOtherTeam )
-	{//exange two stones (one from each team)
+	{//exchange two stones (one from each team)
 			exchangeStones( point );
 	}
 	else if ( numTeam == numOtherTeam )
@@ -206,7 +207,10 @@ void CrystallizationGame::exchangeStones( const QPoint& point )
 		otherTeamStones << stone4;
 	
 	if ( otherTeamStones.count() < 1 )//well, there is nothing to exchange...
+	{
 		return;
+	}
+	
 
 	//the stone to exchange...
 	Stone *chosenStone = 0;
@@ -342,15 +346,16 @@ void DecompositionSimulation::rollDice()
 	int numOtherTeam = totalNum - numTeam;
 	
 	if ( numTeam < numOtherTeam )
+	{//exchange two stones (one from each team)
+		exchangeStones( point );
+	}
+	else if ( numTeam > numOtherTeam )
 	{
 		//do nothing
 	}
-	else if ( numTeam > numOtherTeam )
-	{//exange two stones (one from each team)
-			exchangeStones( point );
-	}
 	else if ( numTeam == numOtherTeam )
 	{//with a probability of 50% do as in the if-condition above
+		
 		if ( w%2 )
 			exchangeStones( point );
 	}
@@ -390,5 +395,89 @@ void DecompositionSimulation::start()
 			}
 		}
 	}
+}
+
+void DecompositionSimulation::exchangeStones( const QPoint& point )
+{
+	Stone* stone = m_field->stoneAtPosition( point );
+	
+	QList<Stone*> otherTeamStones;
+	
+	Stone* stone1 = m_field->stoneAtPosition( QPoint(point.x()+1, point.y() ) );
+	Stone* stone2 = m_field->stoneAtPosition( QPoint(point.x()-1, point.y() ) );
+	Stone* stone3 = m_field->stoneAtPosition( QPoint(point.x(), point.y()+1 ) );
+	Stone* stone4 = m_field->stoneAtPosition( QPoint(point.x(), point.y()-1 ) );
+
+	if ( stone1 && stone1->player() != stone->player() )
+		otherTeamStones << stone1;
+	if ( stone2 && stone2->player() != stone->player()  )
+		otherTeamStones << stone2;
+	if ( stone3 && stone3->player() != stone->player()  )
+		otherTeamStones << stone3;
+	if ( stone4 && stone4->player() != stone->player()  )
+		otherTeamStones << stone4;
+	
+	if ( otherTeamStones.count() < 1 )//well, there is nothing to exchange...
+	{
+		return;
+	}
+	
+
+	//the stone to exchange...
+	Stone *chosenStone = 0;
+	
+	if ( otherTeamStones.count() == 1 ) {
+		chosenStone = otherTeamStones[ 0 ];//take the first (and only) Stone
+	}
+	else{
+		const int choice = ( int ) ( rand()%otherTeamStones.count() );
+
+		chosenStone = otherTeamStones[ choice ];
+	}
+
+	chosenStone->swap();
+	stone->swap();
+}
+
+int DecompositionSimulation::neighboursNum( Stone* stone )
+{
+	QPoint point( stone->position() );
+	
+	QList<Stone*> Stones;
+	
+	Stone* stone1 = m_field->stoneAtPosition( QPoint(point.x()+1, point.y() ) );
+	Stone* stone2 = m_field->stoneAtPosition( QPoint(point.x()-1, point.y() ) );
+	Stone* stone3 = m_field->stoneAtPosition( QPoint(point.x(), point.y()+1 ) );
+	Stone* stone4 = m_field->stoneAtPosition( QPoint(point.x(), point.y()-1 ) );
+
+	if ( stone1 ) Stones << stone1;
+	if ( stone2 ) Stones << stone2;
+	if ( stone3 ) Stones << stone3;
+	if ( stone4 ) Stones << stone4;
+
+	return Stones.count();
+}
+
+int DecompositionSimulation::neighboursTeam( Stone* stone )
+{
+	QPoint point( stone->position() );
+	
+	QList<Stone*> TeamStones;
+	
+	Stone* stone1 = m_field->stoneAtPosition( QPoint(point.x()+1, point.y() ) );
+	Stone* stone2 = m_field->stoneAtPosition( QPoint(point.x()-1, point.y() ) );
+	Stone* stone3 = m_field->stoneAtPosition( QPoint(point.x(), point.y()+1 ) );
+	Stone* stone4 = m_field->stoneAtPosition( QPoint(point.x(), point.y()-1 ) );
+
+	if ( stone1 && stone1->player() == stone->player() )
+		TeamStones << stone1;
+	if ( stone2 && stone2->player() == stone->player()  )
+		TeamStones << stone2;
+	if ( stone3 && stone3->player() == stone->player()  )
+		TeamStones << stone3;
+	if ( stone4 && stone4->player() == stone->player()  )
+		TeamStones << stone4;
+	
+	return TeamStones.count();
 }
 
