@@ -23,12 +23,6 @@
 #include <stdlib.h>
 #include <iostream.h>
 
-//RAgame and RAField
-RAGame::RAField::RAField( )
-	: Field( )
-{
-}
-
 void RAGame::start()
 {
 	srand (  time( NULL ) );
@@ -66,15 +60,6 @@ QString RAGame::rules() const
 	return "The simulation starts with an all white board. In each turn, a Stone on the board will be selected randomly. If the stone is white, it will turn black. This represents the radioactive decay.  The game becomes interesting if you alter the number of turns it runs. The probablilty that a stone swap the colour from white to black decreases with each turn. It is proportional to the halflife period.";
 }
 
-void RAGame::RAField::moveStoneTo( Stone* stone, const QPoint& newPosition )
-{
-}
-
-void RAGame::RAField::addStone( Stone* stone )
-{
-	m_stones.append( stone );
-}
-
 void RAGame::rollDice()
 {
 	m_number++;
@@ -103,20 +88,12 @@ void RAGame::rollDice()
 RAGame::RAGame()
 	: Simulation()
 {
-	m_field = new RAField();
+	m_field = new Field();
 
 	setField( m_field );
 	
 	m_counter = 0;
 	m_number = 0;
-}
-
-
-//////////////////////////////////////////////////////////////////////
-//CrystallizationField
-CrystallizationGame::CrystallizationField::CrystallizationField(  )
-	: Field()
-{
 }
 
 CrystallizationGame* CrystallizationGame::instance()
@@ -138,15 +115,6 @@ QString CrystallizationGame::description() const
 QString CrystallizationGame::rules() const
 {
 	return "Explanation missing. It is about diffusion and forces in a crystal, you will always get a \"checkfield\" pattern";
-}
-
-void CrystallizationGame::CrystallizationField::moveStoneTo( Stone* stone, const QPoint& newPosition )
-{
-}
-
-void CrystallizationGame::CrystallizationField::addStone( Stone* stone )
-{
-	m_stones.append( stone );
 }
 
 void CrystallizationGame::rollDice()
@@ -274,7 +242,7 @@ int CrystallizationGame::neighboursTeam( Stone* stone )
 CrystallizationGame::CrystallizationGame()
 	: Simulation()
 {
-	m_field = new CrystallizationField();
+	m_field = new Field();
 	setField( m_field );
 
 	m_number = 0;
@@ -364,7 +332,7 @@ void DecompositionSimulation::rollDice()
 DecompositionSimulation::DecompositionSimulation()
 	: CrystallizationGame()
 {
-	m_field = new CrystallizationField();
+	m_field = new Field();
 	setField( m_field );
 
 	m_number = 0;

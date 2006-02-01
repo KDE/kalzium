@@ -45,22 +45,6 @@ class RAGame : public Simulation
 		void rollDice();
 
 		QString rules() const;
-		
-		class RAField : public Field
-		{
-			public:
-				/**
-				 * Constructor
-				 */
-				RAField();
-
-				/**
-				 * moves Stone @p stone from the current position to the @p newPosition
-				 */
-				virtual void moveStoneTo( Stone* stone, const QPoint& newPosition );
-		
-				virtual void addStone( Stone* stone );
-		};
 
 	public slots:
 		void start();
@@ -70,7 +54,7 @@ class RAGame : public Simulation
 		int m_number;
 
 	protected:
-		RAField* m_field;
+		Field* m_field;
 };
 
 /**
@@ -91,22 +75,6 @@ class CrystallizationGame : public Simulation
 		
 		QString description() const;
 		
-		class CrystallizationField : public Field
-		{
-			public:
-				/**
-				 * Constructor
-				 */
-				CrystallizationField();
-
-				/**
-				 * moves Stone @p stone from the current position to the @p newPosition
-				 */
-				virtual void moveStoneTo( Stone* stone, const QPoint& newPosition );
-		
-				virtual void addStone( Stone* stone );
-		};
-		
 	public slots:
 		/**
 		 * starts the game
@@ -117,7 +85,7 @@ class CrystallizationGame : public Simulation
 		int m_number;
 
 	protected:
-		CrystallizationField* m_field;
+		Field* m_field;
 
 		/**
 		 * @return the number of stones of the other player
@@ -165,7 +133,7 @@ class DecompositionSimulation : public CrystallizationGame
 		int m_number;
 
 	protected:
-		CrystallizationField* m_field;
+		Field* m_field;
 
 		//FIXME Why have the methods neighboursNum, neighboursTeam and exchangeStones
 		//		to be reimplemented? If I don't do that they don't work because

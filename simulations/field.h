@@ -70,26 +70,14 @@ class Field
 		/**
 		 * Add the Stone @p stone to position @p pos
 		 */
-		virtual void addStone( Stone* stone ) = 0;
+		virtual void addStone( Stone* stone ){
+			m_stones.append( stone );
+		}
 
 		/**
 		 * @return the Stone at the position @p pos
 		 */
 		virtual Stone* stoneAtPosition( const QPoint& pos );
-
-		/**
-		 * moves Stone @p stone from the current position to the @p newPosition
-		 */
-		virtual void moveStoneTo( Stone* stone, const QPoint& newPosition ) = 0;
-		
-		/**
-		 * moves the Stone in @p currentPosition to the @p newPosition
-		 */
-		virtual void moveStoneTo( const QPoint& currentPosition, const QPoint& newPosition )
-		{
-			Stone* s = stoneAtPosition( currentPosition );
-			moveStoneTo( s, newPosition );
-		}
 		
 		/**
 		 * @return the stones of the game
