@@ -20,7 +20,7 @@
 #include "gamesimplementation.h"
 #include "gamecontrols_impl.h"
 #include "gamesdialog.h"
-#include "games.h"
+#include "simulation.h"
 #include "gamefieldwidget.h"
 
 #include <QLayout>
@@ -29,6 +29,8 @@
 GamesDialog::GamesDialog()
 	: QDialog( 0 )
 {
+	m_numOfBlack = 	m_numOfWhite = m_numOfMoves = 0;
+
 	QVBoxLayout * vbox = new QVBoxLayout( this );
 
 	m_controls = new GameControls_Impl( this );
@@ -50,7 +52,7 @@ void GamesDialog::activateGame( int nr )
 	//better safe than sorry
 	m_controls->ui.gf->setField( 0 );
 	
-	Game * g = GamesFactory::instance()->build( nr );
+	Simulation * g = GamesFactory::instance()->build( nr );
 
 	if ( !g ) return;
 
@@ -94,6 +96,28 @@ void GamesDialog::createConnetions()
 			m_game, SLOT(stopGame()) );
 	connect(m_game, SIGNAL( turnOver(Move*) ), 
 			m_controls->ui.gf, SLOT(slotUpdate(Move*)) );
+	connect(m_game, SIGNAL( turnOver() ), 
+			this, SLOT(calculateStatistics() ) );
+}
+
+void GamesDialog::calculateStatistics()
+{
+	if ( !m_game ) return;
+	
+	m_numOfMoves = m_game->numberOfMoves();	
+
+	Move * move = m_game->currentMove();
+	m_numOfWhite = move->numberOfStones(  Stone::White );
+	m_numOfBlack = move->numberOfStones(  Stone::Black );
+	
+	displayStatistics();
+}
+
+void GamesDialog::displayStatistics()
+{
+	m_controls->ui.black->setText(QString::number( m_numOfBlack ));
+	m_controls->ui.white->setText(QString::number( m_numOfWhite ));
+	m_controls->ui.moves->setText(QString::number( m_numOfMoves ));
 }
 
 #include "moc_gamesdialog.cpp"

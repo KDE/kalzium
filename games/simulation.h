@@ -29,7 +29,7 @@
 
 class Stone;
 class Move;
-class Game;
+class Simulation;
 
 /**
  * @author Carsten Niehaus
@@ -47,13 +47,13 @@ class GamesFactory
 		 * Returns the Gmae with the @p id specified.
 		 * It will gives 0 if none found.
 		 */
-		Game* build( int id ) const;
+		Simulation* build( int id ) const;
 
 		/**
-		 * Returns the Game whose name is the @p id specified.
+		 * Returns the Simulation whose name is the @p id specified.
 		 * It will gives 0 if none found.
 		 */
-		Game* build( const QByteArray& id ) const;
+		Simulation* build( const QByteArray& id ) const;
 
 		/**
 		 * Returns a list with the names of the gradients we support.
@@ -63,7 +63,7 @@ class GamesFactory
 	private:
 		GamesFactory();
 
-		QList<Game*> m_games;
+		QList<Simulation*> m_games;
 };
 
 /**
@@ -72,16 +72,16 @@ class GamesFactory
  * Baseclass for all games. Inherit it and add it to the GamesFactory
  * to make it available
  */
-class Game : public QObject
+class Simulation : public QObject
 {
 	Q_OBJECT
  	public:
 		/**
 		 * Destructor
 		 */
-		virtual ~Game();
+		virtual ~Simulation();
 
-		static Game* instance();
+		static Simulation* instance();
 
 		/**
 		 * roll the dices. This means: start a new turn 
@@ -131,6 +131,13 @@ class Game : public QObject
 				return 0;
 
 			return m_moves.at(number-1);
+		}
+
+		/**
+		 * @return the current Move
+		 */
+		virtual Move* currentMove(){
+			return m_moves.last();
 		}
 
 		/**
@@ -213,7 +220,7 @@ class Game : public QObject
 		/**
 		 * The constructor
 		 */
-		Game();
+		Simulation();
 
 		/**
 		 * a list of moves. With this list you can follow

@@ -100,7 +100,7 @@ void RAGame::rollDice()
 }
 
 RAGame::RAGame()
-	: Game()
+	: Simulation()
 {
 	m_field = new RAField();
 
@@ -268,7 +268,7 @@ int CrystallizationGame::neighboursTeam( Stone* stone )
 
 //Crystallizationgame
 CrystallizationGame::CrystallizationGame()
-	: Game()
+	: Simulation()
 {
 	m_field = new CrystallizationField();
 	setField( m_field );

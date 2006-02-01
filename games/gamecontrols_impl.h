@@ -17,7 +17,7 @@
 #include <QWidget>
 #include <QPainter>
 
-#include "games.h"
+#include "simulation.h"
 #include "gamecontrols.h"
 
 /**

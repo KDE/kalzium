@@ -22,7 +22,7 @@
 
 class GamefieldWidget;
 class GameControls_Impl;
-class Game;
+class Simulation;
 class StatisticWidget;
 
 class GamesDialog : public QDialog
@@ -36,9 +36,13 @@ class GamesDialog : public QDialog
 		void slotStartWithTimer();
 
 	private:
-		Game * m_game;
+		Simulation * m_game;
 	
 		GameControls_Impl * m_controls;
+
+		int m_numOfMoves;
+		int m_numOfWhite;
+		int m_numOfBlack;
 
 	private slots:
 		void activateGame( int nr );
@@ -49,6 +53,11 @@ class GamesDialog : public QDialog
 		 * create the connections (signal/slot)
 		 */
 		void createConnetions();
+		
+		void calculateStatistics();
+
+		void displayStatistics();
+
 };
 
 #endif // GAMESDIALOG_H

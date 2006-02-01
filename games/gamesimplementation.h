@@ -19,7 +19,7 @@
 #ifndef GAMESIMPLEMENTATION_H
 #define GAMESIMPLEMENTATION_H
 
-#include "games.h"
+#include "simulation.h"
 
 /**
  * @author Carsten Niehaus
@@ -31,7 +31,7 @@
  * probablilty that a stone swap the colour from white to black decreases with
  * each turn. It is proportional to the halflife period.
  */
-class RAGame : public Game
+class RAGame : public Simulation
 {
 	public:
 		RAGame();
@@ -76,7 +76,7 @@ class RAGame : public Game
 /**
  * @author Carsten Niehaus
  */
-class CrystallizationGame : public Game
+class CrystallizationGame : public Simulation
 {
 	public:
 		CrystallizationGame();

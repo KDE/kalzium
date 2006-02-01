@@ -16,7 +16,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
-#include "games.h"
+#include "simulation.h"
 #include "gamecontrols_impl.h"
 #include "stone.h"
 #include "field.h"
@@ -42,7 +42,7 @@ GamesFactory* GamesFactory::instance()
 	return &gf;
 }
 
-Game* GamesFactory::build( int id ) const
+Simulation* GamesFactory::build( int id ) const
 {
 	if (  (  id < 0 ) || (  id >= m_games.count() ) )
 		return 0;
@@ -50,7 +50,7 @@ Game* GamesFactory::build( int id ) const
 	return m_games.at( id );
 }
 
-Game* GamesFactory::build( const QByteArray& id ) const
+Simulation* GamesFactory::build( const QByteArray& id ) const
 {
 	for (  int i = 0; i < m_games.count(); i++ )
 	{
@@ -93,7 +93,7 @@ int Move::numberOfStones( Stone::PLAYER p )
 }
 
 //Game
-Game::Game()
+Simulation::Simulation()
 {
 	m_numberOfMoves = 0;
 	
@@ -101,12 +101,12 @@ Game::Game()
 			this, SLOT( slotNextMove() ) );
 }
 
-Game* Game::instance()
+Simulation* Simulation::instance()
 {
 	return 0;
 }
 
-QPixmap Game::pixmapOfMove( int movenumber )
+QPixmap Simulation::pixmapOfMove( int movenumber )
 {
 	QPixmap px;
 
@@ -118,16 +118,16 @@ QPixmap Game::pixmapOfMove( int movenumber )
 	return px;
 }
 
-Game::~Game(){}
+Simulation::~Simulation(){}
 
-void Game::slotNextMove()
+void Simulation::slotNextMove()
 {
 	finishMove();
 	m_numberOfMoves++;
 	rollDice();
 }
 
-void Game::finishMove()
+void Simulation::finishMove()
 {
 	QString ds = QString();
 	
@@ -154,4 +154,4 @@ void Game::finishMove()
 	emit turnOver();
 }
 
-#include "moc_games.cpp"
+#include "moc_simulation.cpp"
