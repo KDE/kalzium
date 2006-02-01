@@ -18,7 +18,7 @@
 #include <QPainter>
 
 #include "simulation.h"
-#include "gamecontrols.h"
+#include "ui_gamecontrols.h"
 
 /**
  * @author Carsten Niehaus
