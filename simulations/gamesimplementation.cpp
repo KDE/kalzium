@@ -376,14 +376,14 @@ void DecompositionSimulation::start()
 	{
 		for ( int y = 0; y < m_field->ySize() ; ++y )
 		{
-			if ( x%2 )
+			if ( y%2 )
 			{
-				if ( !y%2 )
-					m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
-				else
+				if ( x%2 )
 					m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
+				else
+					m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
 			} else {
-				if ( y%2 )
+				if ( x%2 )
 					m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
 				else
 					m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
