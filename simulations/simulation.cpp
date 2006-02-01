@@ -34,6 +34,7 @@ GamesFactory::GamesFactory()
 {
 	m_games << RAGame::instance();
 	m_games << CrystallizationGame::instance();
+	m_games << DecompositionSimulation::instance();
 }
 
 GamesFactory* GamesFactory::instance()
@@ -139,6 +140,8 @@ void Simulation::finishMove()
 		for ( int y = 0; y < m_field->ySize()  ; ++y )
 		{
 			Stone* s = m_field->stoneAtPosition( QPoint( x,y ) );
+			if ( !s ) return; //there was no Stone!
+
 			if ( s->player() == Stone::White )
 				ds += "W";
 			else

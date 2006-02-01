@@ -136,7 +136,7 @@ QString CrystallizationGame::description() const
 
 QString CrystallizationGame::rules() const
 {
-	return "";
+	return "Explanation missing. It is about diffusion and forces in a crystal, you will always get a \"checkfield\" pattern";
 }
 
 void CrystallizationGame::CrystallizationField::moveStoneTo( Stone* stone, const QPoint& newPosition )
@@ -291,6 +291,103 @@ void CrystallizationGame::start()
 				m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
 			else
 				m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
+		}
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////
+//DecompositionSimulation
+DecompositionSimulation* DecompositionSimulation::instance()
+{
+	static DecompositionSimulation g;
+	return &g;
+}
+
+QByteArray DecompositionSimulation::name() const
+{
+	return "DecompositionSimulation";
+}
+
+QString DecompositionSimulation::description() const
+{
+	return "Decomposition";
+}
+
+QString DecompositionSimulation::rules() const
+{
+	return "Explanation missing. It is about diffusion and forces in a crystal, you will always big areas";
+}
+
+void DecompositionSimulation::rollDice()
+{
+	m_number++;
+
+	//generating two random numbers
+	const int x = ( int ) ( rand()%m_field->xSize() );
+	const int y = ( int ) ( rand()%m_field->ySize() );
+	
+	//the propability
+	const int w = ( int ) rand()%2;
+
+	QPoint point( x, y );
+
+	Stone* stone = m_field->stoneAtPosition( point );
+
+	if ( !stone )
+		return;
+
+	int numTeam = neighboursTeam( stone );
+	int totalNum = neighboursNum( stone );
+	int numOtherTeam = totalNum - numTeam;
+	
+	if ( numTeam < numOtherTeam )
+	{
+		//do nothing
+	}
+	else if ( numTeam > numOtherTeam )
+	{//exange two stones (one from each team)
+			exchangeStones( point );
+	}
+	else if ( numTeam == numOtherTeam )
+	{//with a probability of 50% do as in the if-condition above
+		if ( w%2 )
+			exchangeStones( point );
+	}
+}
+
+DecompositionSimulation::DecompositionSimulation()
+	: CrystallizationGame()
+{
+	m_field = new CrystallizationField();
+	setField( m_field );
+
+	m_number = 0;
+}
+
+void DecompositionSimulation::start()
+{
+	srand (  time( NULL ) );
+
+	m_field->stones().clear();
+	
+	//fill the field with x*y black and white stones
+	for ( int x = 0 ; x < m_field->xSize() ; ++x )
+	{
+		for ( int y = 0; y < m_field->ySize() ; ++y )
+		{
+			if ( x%2 )
+			{
+				if ( !y%2 )
+					m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
+				else
+					m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
+			} else {
+				if ( y%2 )
+					m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
+				else
+					m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
+			}
 		}
 	}
 }

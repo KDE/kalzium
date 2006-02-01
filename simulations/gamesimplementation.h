@@ -116,11 +116,18 @@ class CrystallizationGame : public Simulation
 	private:
 		int m_number;
 
-		int neighboursTeam( Stone* stone );
-		
-		int neighboursNum( Stone* stone );
+	protected:
+		CrystallizationField* m_field;
 
-		QList<Stone*> openentStoneNeighbours( Stone* stone );
+		/**
+		 * @return the number of stones of the other player
+		 */
+		int neighboursNum( Stone* stone );
+		
+		/**
+		 * @return the number of stones of the player
+		 */
+		int neighboursTeam( Stone* stone );
 
 		/**
 		 * Exange the Stone at the postion @p point with one stone
@@ -128,6 +135,34 @@ class CrystallizationGame : public Simulation
 		 * contact with the Stone in @p point
 		 */
 		void exchangeStones( const QPoint& point );
+};
+
+/**
+ * @author Carsten Niehaus
+ */
+class DecompositionSimulation : public CrystallizationGame
+{
+	public:
+		DecompositionSimulation();
+		
+		static DecompositionSimulation* instance();
+
+		void rollDice();
+		
+		QString rules() const;
+		
+		QByteArray name() const;
+		
+		QString description() const;
+		
+	public slots:
+		/**
+		 * starts the game
+		 */
+		void start();
+
+	private:
+		int m_number;
 
 	protected:
 		CrystallizationField* m_field;

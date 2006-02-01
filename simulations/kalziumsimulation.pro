@@ -6,6 +6,7 @@ TEMPLATE = app
 TARGET += 
 DEPENDPATH += .
 INCLUDEPATH += .
+CONFIG += qt debug
 
 # Input
 HEADERS += field.h \

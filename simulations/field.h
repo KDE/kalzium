@@ -37,9 +37,6 @@ class Field
 	public:
 		/**
 		 * Constructor
-		 *
-		 * @param x The x-size of the field
-		 * @param y The y-size of the field
 		 */
 		Field();
 

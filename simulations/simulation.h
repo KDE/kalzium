@@ -109,7 +109,7 @@ class Simulation : public QObject
 		 * big widget
 		 *
 		 * @return a QPixmap of the move
-		 * @param the number of the move of which the QPixmap will be created. The first move is 1.
+		 * @param movenumber the number of the move of which the QPixmap will be created. The first move is 1.
 		 */
 		virtual QPixmap pixmapOfMove( int movenumber );
 
