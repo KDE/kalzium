@@ -157,4 +157,40 @@ class DecompositionSimulation : public CrystallizationGame
 		virtual void exchangeStones( const QPoint& point );
 };
 
+/**
+ * @author Carsten Niehaus
+ */
+class BoltzmannSimulation : public Simulation
+{
+	public:
+		BoltzmannSimulation();
+		
+		static BoltzmannSimulation* instance();
+
+		bool changeToDo;
+
+		void rollDice();
+		
+		QString rules() const;
+		
+		QByteArray name() const;
+		
+		QString description() const;
+		
+	public slots:
+		/**
+		 * starts the game
+		 */
+		void start();
+
+	private:
+		int m_number;
+		
+		void changePosition( Stone * stone , bool lower );
+
+	protected:
+		Field* m_field;
+};
+
+
 #endif // GAMESIMPLEMENTATION_H

@@ -26,6 +26,8 @@
 #include <QLayout>
 #include <QComboBox>
 
+#include <iostream>
+
 GamesDialog::GamesDialog()
 	: QDialog( 0 )
 {
@@ -102,6 +104,7 @@ void GamesDialog::createConnetions()
 
 void GamesDialog::calculateStatistics()
 {
+	std::cout << "calculateStatistics()" << std::endl;
 	if ( !m_game ) return;
 	
 	m_numOfMoves = m_game->numberOfMoves();	

@@ -21,7 +21,7 @@
 
 #include <time.h>
 #include <stdlib.h>
-#include <iostream.h>
+#include <iostream>
 
 void RAGame::start()
 {
@@ -447,5 +447,106 @@ int DecompositionSimulation::neighboursTeam( Stone* stone )
 		TeamStones << stone4;
 	
 	return TeamStones.count();
+}
+
+///BoltzmannSimulation
+//
+BoltzmannSimulation::BoltzmannSimulation()
+{
+	m_field = new Field();
+	setField( m_field );
+
+	changeToDo = true;
+
+	m_number = 0;
+}
+	
+BoltzmannSimulation* BoltzmannSimulation::instance()
+{
+	static BoltzmannSimulation g;
+	return &g;
+}
+
+QString BoltzmannSimulation::rules() const
+{
+	return "to be written";
+}
+
+QString BoltzmannSimulation::description() const
+{
+	return "Sedimation Equilibrum";
+}
+
+QByteArray BoltzmannSimulation::name() const
+{
+	return "Boltzmann";
+}
+
+void BoltzmannSimulation::rollDice()
+{
+	m_number++;
+	changeToDo = true;
+
+	int numOfStones = m_field->stones().count();
+
+	while ( changeToDo )
+	{
+		const int si = ( int ) ( rand()%numOfStones );
+		Stone* stone = m_field->stones().at( si );
+
+		int yPos = stone->position().y();
+		int yMax = m_field->ySize() - 1; //if the field has a ySize of 6 it is
+										 //internally 5. I don't want to confuse this
+
+		if ( m_number%2 ) //make the y-position one higher
+		{
+			if ( yPos == 0 )
+			{//cannot make it higher, it is already at the maximum
+			}
+			else
+			{
+				changePosition( stone, false );
+			}
+		}
+		else
+		{//lower the token by 1
+			if ( yPos == yMax )
+			{ //cannot lower it
+
+			}
+			else
+			{
+				changePosition( stone, true );
+			}
+		}
+	}
+}
+
+void BoltzmannSimulation::changePosition( Stone * stone, bool lower )
+{
+	QPoint p;
+	p.setX( stone->position().x() );
+	
+	if ( lower )
+		p.setY( stone->position().y()+1 );
+	else
+		p.setY( stone->position().y()-1 );
+
+	stone->setPosition(p);
+	changeToDo = false;
+}
+
+void BoltzmannSimulation::start()
+{
+	srand (  time( NULL ) );
+	
+	m_field->stones().clear();
+
+	//start on E=1
+	int ypos = m_field->ySize() - 2;
+
+	//fill the field with x*y white stones
+	for ( int x = 0 ; x < m_field->xSize() ; ++x )
+			m_field->addStone( new Stone( Stone::White, QPoint( x, ypos ) ) );
 }
 

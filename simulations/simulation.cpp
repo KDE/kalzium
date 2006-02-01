@@ -27,11 +27,13 @@
 
 #include <math.h>
 #include <time.h>
+#include <iostream>
 
 //GamesFactory
 
 GamesFactory::GamesFactory()
 {
+	m_games << BoltzmannSimulation::instance();
 	m_games << DecompositionSimulation::instance();
 	m_games << CrystallizationGame::instance();
 	m_games << RAGame::instance();
@@ -123,6 +125,7 @@ Simulation::~Simulation(){}
 
 void Simulation::slotNextMove()
 {
+	std::cout << "Simulation::slotNextMove" << std::endl;
 	finishMove();
 	m_numberOfMoves++;
 	rollDice();
@@ -130,6 +133,7 @@ void Simulation::slotNextMove()
 
 void Simulation::finishMove()
 {
+	std::cout << "Simulation::finishMove()" << std::endl;
 	QString ds = QString();
 	
 	QStringList sl;
@@ -140,12 +144,13 @@ void Simulation::finishMove()
 		for ( int y = 0; y < m_field->ySize()  ; ++y )
 		{
 			Stone* s = m_field->stoneAtPosition( QPoint( x,y ) );
-			if ( !s ) return; //there was no Stone!
-
-			if ( s->player() == Stone::White )
-				ds += "W";
-			else
-				ds += "B";
+			if ( s ) 
+			{
+				if ( s->player() == Stone::White )
+					ds += "W";
+				else
+					ds += "B";
+			}
 		}
 		sl.append( ds );
 	}

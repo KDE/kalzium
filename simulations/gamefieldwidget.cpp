@@ -23,6 +23,8 @@
 #include <QPainter>
 #include <QBrush>
 
+#include <iostream>
+
 GamefieldWidget::GamefieldWidget( QWidget * parent )
 	: QFrame ( parent )
 {
@@ -32,7 +34,10 @@ GamefieldWidget::GamefieldWidget( QWidget * parent )
 
 void GamefieldWidget::paintEvent( QPaintEvent * /*e*/ )
 {
+	std::cout << "GamefieldWidget::paintEvent" << std::endl;
+	
 	if ( !m_field ) return;
+	std::cout << "GamefieldWidget::paintEvent, in field" << std::endl;
 
 	const int x_size = m_field->xSize();
 	const int y_size = m_field->ySize();
