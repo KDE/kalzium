@@ -125,7 +125,6 @@ Simulation::~Simulation(){}
 
 void Simulation::slotNextMove()
 {
-	std::cout << "Simulation::slotNextMove" << std::endl;
 	finishMove();
 	m_numberOfMoves++;
 	rollDice();
@@ -133,7 +132,6 @@ void Simulation::slotNextMove()
 
 void Simulation::finishMove()
 {
-	std::cout << "Simulation::finishMove()" << std::endl;
 	QString ds = QString();
 	
 	QStringList sl;

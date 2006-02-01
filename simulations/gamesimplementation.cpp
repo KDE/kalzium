@@ -547,6 +547,7 @@ void BoltzmannSimulation::start()
 
 	//fill the field with x*y white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
+		for ( int foo = 0; foo < 20 ; ++foo )
 			m_field->addStone( new Stone( Stone::White, QPoint( x, ypos ) ) );
 }
 
