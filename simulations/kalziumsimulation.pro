@@ -10,24 +10,18 @@ CONFIG += qt debug
 
 # Input
 HEADERS += field.h \
-           gamecontrols.h \
            gamecontrols_impl.h \
            gamefieldwidget.h \
-           games.h \
            gamesdialog.h \
            gamesimplementation.h \
-           stone.h \
-           gamecontrols_impl.moc \
-           gamefieldwidget.moc \
-           games.moc \
-           gamesdialog.moc \
-           stone.moc
+           simulation.h \
+           stone.h
 FORMS += gamecontrols.ui
 SOURCES += field.cpp \
            gamecontrols_impl.cpp \
            gamefieldwidget.cpp \
-           games.cpp \
            gamesdialog.cpp \
            gamesimplementation.cpp \
            main.cpp \
+           simulation.cpp \
            stone.cpp
