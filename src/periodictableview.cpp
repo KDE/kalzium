@@ -172,7 +172,7 @@ void PeriodicTableView::paintEvent( QPaintEvent * /*e*/ )
 void PeriodicTableView::drawLegendToolTip( QPainter* p )
 {
 	(void)p;
-//X 	kdDebug() << "PeriodicTableView::drawLegendToolTip()" << endl;
+//X 	kDebug() << "PeriodicTableView::drawLegendToolTip()" << endl;
 //X 	if(!m_showLegendTooltip || !m_showLegend) return;
 //X 
 //X 	QString text;

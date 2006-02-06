@@ -42,7 +42,7 @@ SpectrumEditor::SpectrumEditor( QWidget *parent )
 
 void SpectrumEditor::slotAddBand()
 {
-	kdDebug() << "SpectrumEditor::slotAddBand()" << endl;
+	kDebug() << "SpectrumEditor::slotAddBand()" << endl;
 	
 	double value = ui.wl->value();
 

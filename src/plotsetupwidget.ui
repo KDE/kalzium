@@ -220,10 +220,10 @@
      <property name="value" >
       <number>1</number>
      </property>
-     <property name="minValue" >
+     <property name="minimum" >
       <number>1</number>
      </property>
-     <property name="maxValue" >
+     <property name="maximum" >
       <number>200</number>
      </property>
     </widget>
@@ -243,10 +243,10 @@
      <property name="value" >
       <number>115</number>
      </property>
-     <property name="minValue" >
+     <property name="minimum" >
       <number>2</number>
      </property>
-     <property name="maxValue" >
+     <property name="maximum" >
       <number>200</number>
      </property>
     </widget>

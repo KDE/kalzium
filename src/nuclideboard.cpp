@@ -77,7 +77,7 @@ IsotopeTableView::IsotopeTableView( QWidget* parent, IsotopeScrollArea *scroll )
 	m_firstElemNucleon = minNucleonOf( KalziumDataObject::instance()->element( m_firstElem ) );
 	m_lastElemNucleon = maxNucleonOf( KalziumDataObject::instance()->element( m_lastElem ) );
 
-kdDebug() << k_funcinfo << m_firstElemNucleon << " ... " << m_lastElemNucleon << endl;
+kDebug() << k_funcinfo << m_firstElemNucleon << " ... " << m_lastElemNucleon << endl;
 
 	// updating the list of isotope rects...
 	updateIsoptopeRectList();
@@ -113,7 +113,7 @@ QRect IsotopeTableView::getNewCoords( const QRect& rect ) const
 //X 	int i = 0;
 //X 	int a = 0;
 //X 
-//X kdDebug() << "ORIG RECT: " << rect << endl
+//X kDebug() << "ORIG RECT: " << rect << endl
 //X           << "OUR SIZE:  " << size() << endl;
 //X 
 //X 	i = 0;
@@ -121,7 +121,7 @@ QRect IsotopeTableView::getNewCoords( const QRect& rect ) const
 //X 	if ( a > 0 )
 //X 	{
 //X 		while ( i * ( m_rectSize - 1 ) < a ) i++;
-//X kdDebug() << "TOP: " << i << endl;
+//X kDebug() << "TOP: " << i << endl;
 //X 		ret.setTop( m_firstElem + i - 1 );
 //X 	}
 //X 	else
@@ -129,7 +129,7 @@ QRect IsotopeTableView::getNewCoords( const QRect& rect ) const
 //X 
 //X 	i = 0;
 //X 	while ( i * ( m_rectSize - 1 ) < rect.right() - 30 ) i++;
-//X kdDebug() << "RIGHT: " << i << endl;
+//X kDebug() << "RIGHT: " << i << endl;
 //X 	ret.setRight( m_firstElemNucleon + i - 1 );
 //X 
 //X 	i = 0;
@@ -137,7 +137,7 @@ QRect IsotopeTableView::getNewCoords( const QRect& rect ) const
 //X 	if ( a > 0 )
 //X 	{
 //X 		while ( i * ( m_rectSize - 1 ) < a ) i++;
-//X kdDebug() << "BOTTOM: " << i << endl;
+//X kDebug() << "BOTTOM: " << i << endl;
 //X 		ret.setBottom( m_firstElem + i - 1 );
 //X 	}
 //X 	else
@@ -145,13 +145,13 @@ QRect IsotopeTableView::getNewCoords( const QRect& rect ) const
 //X 
 //X 	i = 0;
 //X 	while ( i * ( m_rectSize - 1 ) < rect.left() - 30 ) i++;
-//X kdDebug() << "LEFT: " << i << endl;
+//X kDebug() << "LEFT: " << i << endl;
 //X 	ret.setLeft( m_firstElemNucleon + i - 1 );
 //X 
 //X 	// normalize the rect - needed to get valid coordinates
 //X 	ret = ret.normalize();
 //X 
-//X kdDebug() << "RECT: " << ret << endl;
+//X kDebug() << "RECT: " << ret << endl;
 
 	return ret;
 }
@@ -181,8 +181,8 @@ void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 //X 	const int numOfElements = m_lastElem - m_firstElem + 1;
 //X 	const int numOfNucleons = m_lastElemNucleon - m_firstElemNucleon + 1;
 //X 
-//X 	kdDebug () << m_firstElem << " ... " << m_lastElem << endl;
-//X 	kdDebug () << "Nucleons: " << m_firstElemNucleon << " ... " << m_lastElemNucleon << endl;
+//X 	kDebug () << m_firstElem << " ... " << m_lastElem << endl;
+//X 	kDebug () << "Nucleons: " << m_firstElemNucleon << " ... " << m_lastElemNucleon << endl;
 //X 
 //X 	if ( m_rectSize < 1 ) // need to recalc the size
 //X 	{
@@ -199,7 +199,7 @@ void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 //X 		redoSize = true;
 //X 	}
 //X /*
-//X kdDebug() << "width(): " << width() << " - height(): " << height()
+//X kDebug() << "width(): " << width() << " - height(): " << height()
 //X           << " - noe: " << numOfElements << " - non: " << numOfNucleons
 //X //          << " - a: " << a << " - b: " << b
 //X           << " - size(): " << size()
@@ -219,7 +219,7 @@ void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 //X 		const int newsizey = numOfElements * ( m_rectSize - 1 ) + 2 + 30;
 //X 		resize( newsizex, newsizey );
 //X 		m_pix.resize( size() );
-//X //kdDebug() << "size(): " << size() << endl;
+//X //kDebug() << "size(): " << size() << endl;
 //X 	}
 //X 	
 //X 	QList<Isotope*> isotopeList;
@@ -230,15 +230,15 @@ void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 //X 
 //X 	for ( int i = m_firstElem; i <= m_lastElem; i++ )
 //X 	{
-//X //kdDebug() << k_funcinfo << "i: " << i << endl;
+//X //kDebug() << k_funcinfo << "i: " << i << endl;
 //X 		Element* el = KalziumDataObject::instance()->element( i );
 //X 		if ( !el ) continue;
 //X 
-//X //		kdDebug() << "el: " << el->elname() << " (" << el->number() <<")" << endl;
+//X //		kDebug() << "el: " << el->elname() << " (" << el->number() <<")" << endl;
 //X 		isotopeList = isotopesWithNucleonsInRange( el, m_firstElemNucleon, m_lastElemNucleon );
 //X 		isotopeEnd = isotopeList.constEnd();
 //X 		isotope = isotopeList.constBegin();
-//X //kdDebug() << k_funcinfo << "isolist: " << isotopeList.count() << endl;
+//X //kDebug() << k_funcinfo << "isolist: " << isotopeList.count() << endl;
 //X 		
 //X 		for ( ; isotope != isotopeEnd; ++isotope )
 //X 		{
@@ -251,7 +251,7 @@ void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 //X 					Xpositon*(m_rectSize-1)+1, 
 //X 					( numOfElements - id - 1 ) * ( m_rectSize - 1 ) + 1,
 //X 					m_rectSize - 1, m_rectSize - 1 );
-//X //kdDebug() << k_funcinfo << boundingRect << endl;
+//X //kDebug() << k_funcinfo << boundingRect << endl;
 //X 
 //X  			m_IsotopeAdapterRectMap.insert(iso, boundingRect);
 //X 		}
@@ -306,7 +306,7 @@ QList<Isotope*> IsotopeTableView::isotopesWithNucleonsInRange( Element* el, int 
 
 //X 	if ( !el ) return isolist;
 //X 
-//X //kdDebug() << "isotopesWithNucleonsInRange(): " << el << " - low: " << lowerbound
+//X //kDebug() << "isotopesWithNucleonsInRange(): " << el << " - low: " << lowerbound
 //X //          << " - up: " << upperbound << endl;
 //X 
 //X 	QList<Isotope*> isotopeList = el->isotopes();
@@ -542,7 +542,7 @@ void IsotopeTableView::mouseMoveEvent( QMouseEvent *e )
 	{
 		QPoint now = m_scroll->mapToParent( e->pos() );
 		QPoint diff = m_firstPoint - now;
-//kdDebug() << "m_firstPoint: " << m_firstPoint << " - now: " << now << endl;
+//kDebug() << "m_firstPoint: " << m_firstPoint << " - now: " << now << endl;
 		m_scroll->scrollBy( diff.x(), diff.y() );
 		m_firstPoint = now;
 	}

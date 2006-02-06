@@ -71,7 +71,7 @@ void PrintListWidget::dragMoveEvent( QDragMoveEvent* event )
 
 void PrintListWidget::dropEvent( QDropEvent* event )
 {
-	kdDebug() << "hall" << endl;
+	kDebug() << "hall" << endl;
 	addItem( event->mimeData()->text() );
 }
 

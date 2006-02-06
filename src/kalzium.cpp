@@ -368,10 +368,10 @@ void Kalzium::slotUpdateSettings()
 
 void Kalzium::setupStatusBar()
 {
-	statusBar()->insertItem( "", 0, 0, false );
+	statusBar()->insertItem( "", 0, 0 );
 	statusBar()->setItemAlignment( 0, Qt::AlignRight );
 	
-	statusBar()->insertItem(  "" , IDS_ELEMENTINFO, 1, false );
+	statusBar()->insertItem(  "" , IDS_ELEMENTINFO, 1 );
 	statusBar()->setItemAlignment( IDS_ELEMENTINFO, Qt::AlignRight );
 	statusBar()->show();
 }

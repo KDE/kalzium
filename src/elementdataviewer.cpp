@@ -116,8 +116,8 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 	QWidget *plotsetuprealwidget = new QWidget( plainPage() );
 	m_pPlotSetupWidget = new Ui_PlotSetupWidget();
 	m_pPlotSetupWidget->setupUi( plotsetuprealwidget );
-	m_pPlotSetupWidget->from->setMaxValue( kdo->numberOfElements() - 1 );
-	m_pPlotSetupWidget->to->setMaxValue( kdo->numberOfElements() );
+	m_pPlotSetupWidget->from->setMaximum( kdo->numberOfElements() - 1 );
+	m_pPlotSetupWidget->to->setMaximum( kdo->numberOfElements() );
 	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage() );
 	m_pPlotWidget->setObjectName( "plotwidget" );
 	m_pPlotWidget->setMinimumWidth( 200 );
@@ -180,7 +180,7 @@ void ElementDataViewer::rangeChanged()
 
 void ElementDataViewer::setLimits(int f, int t)
 {
-	kdDebug() << "setLimits()" << endl;
+	kDebug() << "setLimits()" << endl;
 	
 	double minY = yData->value(f);
 	double maxY = yData->value(f);
@@ -311,7 +311,7 @@ void ElementDataViewer::setupAxisData()
 
 void ElementDataViewer::drawPlot()
 {
-	kdDebug() << "drawPlot()" << endl;
+	kDebug() << "drawPlot()" << endl;
 
 	/*
 	 * to be 100% safe delete the old list

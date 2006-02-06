@@ -79,10 +79,10 @@ void MolcalcWidget::clear()
 
 void MolcalcWidget::updateUI()
 {
-	kdDebug() << "MolcalcWidget::updateUI()" << endl;
+	kDebug() << "MolcalcWidget::updateUI()" << endl;
 	
 	if ( m_validInput ){
-		kdDebug() << "m_validInput == TRUE" << endl;
+		kDebug() << "m_validInput == TRUE" << endl;
 		QString str;
 
 		// The complexString stores the whole molecule like this:
@@ -115,7 +115,7 @@ void MolcalcWidget::updateUI()
 		KalziumDataObject::instance()->findElements( list );
 	}
 	else{//the input was invalid, so tell this the user
-		kdDebug() << "m_validInput == FALSE" << endl;
+		kDebug() << "m_validInput == FALSE" << endl;
 		ui.resultComposition->setText( i18n( "Invalid input" ) );
 		ui.resultLabel->setText( QString() );
 		ui.resultMass->setText( QString() );
@@ -148,7 +148,7 @@ QString MolcalcWidget::compositionString( ElementCountMap &_map )
 
 void MolcalcWidget::slotCalcButtonClicked()
 {
-	kdDebug() << "MolcalcWidget::slotCalcButtonClicked()" << endl;
+	kDebug() << "MolcalcWidget::slotCalcButtonClicked()" << endl;
 	QString  molecule = ui.formulaEdit->text();
 
 	// Parse the molecule, and at the same time calculate the total

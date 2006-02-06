@@ -99,7 +99,7 @@ void AnimatedMovieWidget::init()
 
 void AnimatedMovieWidget::setPicturePath( const QString& path )
 {
-	//kdDebug() << "AnimatedMovieWidget::setPicturePath()" << endl;
+	//kDebug() << "AnimatedMovieWidget::setPicturePath()" << endl;
 	if ( path.isEmpty() )
 		return;
 

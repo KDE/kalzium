@@ -263,7 +263,7 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 
 void SpectrumWidget::keyPressEvent( QKeyEvent *e )
 {
-	 kdDebug() << "SpectrumWidget::keyPressEvent()" << endl;
+	 kDebug() << "SpectrumWidget::keyPressEvent()" << endl;
 	switch ( e->key() )
 	{
 		case Qt::Key_Plus:
@@ -277,7 +277,7 @@ void SpectrumWidget::keyPressEvent( QKeyEvent *e )
 
 void SpectrumWidget::slotZoomOut()
 {
-	kdDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue << endl;
+	kDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue << endl;
 
 	double diff = endValue - startValue;
 	
@@ -295,12 +295,12 @@ void SpectrumWidget::slotZoomOut()
 
 	setBorders( ( int ) startValue, ( int )endValue );
 			
-	kdDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue << endl;
+	kDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue << endl;
 }
 
 void SpectrumWidget::slotZoomIn()
 {
-	kdDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue << endl;
+	kDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue << endl;
 
 	double diff = endValue - startValue;
 	
@@ -311,7 +311,7 @@ void SpectrumWidget::slotZoomIn()
 
 	setBorders( ( int ) startValue, ( int )endValue );
 			
-	kdDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue << endl;
+	kDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue << endl;
 }
 
 void SpectrumWidget::mouseMoveEvent( QMouseEvent *e )
@@ -372,7 +372,7 @@ void SpectrumWidget::PrepareTooltip( double wavelength )
 //X 	else 
 //X 		m_showtooltip = false;
 //X 	
-//X 	kdDebug() << "SpectrumWidget::PrepareTooltip(): "<< m_showtooltip << endl;
+//X 	kDebug() << "SpectrumWidget::PrepareTooltip(): "<< m_showtooltip << endl;
 //X 	update();
 }
 

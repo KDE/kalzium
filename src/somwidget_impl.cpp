@@ -73,7 +73,7 @@ void SOMWidgetIMPL::reloadUnits()
 	Number1->setRange( range.first, range.second, 0.1, 1 );
 	Number1->setValue( newvalue );
 	setNewTemp( newvalue );
-kdDebug() << "min: " << Number1->minValue() << " - max: " << Number1->maxValue() << endl;
+kDebug() << "min: " << Number1->minValue() << " - max: " << Number1->maxValue() << endl;
 	m_prevUnit = Prefs::temperature();
 	connect( Number1, SIGNAL( valueChanged( double ) ),
 	         this, SLOT( spinValueChanged( double ) ) );
@@ -179,7 +179,7 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 		htmlcode += "\n";
 	}
 
-//	kdDebug() << m_htmlBegin + htmlcode + m_htmlEnd << endl;
+//	kDebug() << m_htmlBegin + htmlcode + m_htmlEnd << endl;
 
 	text->setText( m_htmlBegin + htmlcode + m_htmlEnd );
 

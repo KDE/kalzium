@@ -111,7 +111,7 @@ void SpectrumManager::slotPrint()
 
 	if ( printer.setup( this ) )
 	{
-		kdDebug() << "SpectrumManager::slotPrint() printing!" << endl;
+		kDebug() << "SpectrumManager::slotPrint() printing!" << endl;
 
 		QPainter paint;
 
@@ -123,7 +123,7 @@ void SpectrumManager::slotPrint()
 		paint.end();
 	}
 	else
-		kdDebug() << "SpectrumManager::slotPrint() Printing Failed!" << endl;
+		kDebug() << "SpectrumManager::slotPrint() Printing Failed!" << endl;
 }
 
 #include "spectrummanager.moc"

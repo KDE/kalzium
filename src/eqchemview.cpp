@@ -81,7 +81,7 @@ void eqchemView::settingsChanged()
 
 void eqchemView::clear()
 {
-    kdWarning()<<"eqchemView::clear"<<endl;
+    kWarning()<<"eqchemView::clear"<<endl;
 
     // clear the result window
     m_eqResult->clear();
