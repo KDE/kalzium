@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 //X 		if ( e )
 //X 		{
 //X 			ChemicalDataObject* o = e->data();
-//X 			kdDebug() << "Name: " << o->dictRef() << " " << o->valueAsString()  << " errorMargin: " << e->errorMargin() << " parent Element: " << e->parentElementSymbol() << endl;
+//X 			kDebug() << "Name: " << o->dictRef() << " " << o->valueAsString()  << " errorMargin: " << e->errorMargin() << " parent Element: " << e->parentElementSymbol() << endl;
 //X 		}
 //X 
 //X 	}

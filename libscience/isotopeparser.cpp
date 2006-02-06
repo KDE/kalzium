@@ -118,7 +118,7 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 				d->inExactMass = true;
 		}
 	} else if (d->inIsotope && localName == "bo:relativeAbundance") {
-		kdDebug() << "bo:relativeAbundance" << endl;
+		kDebug() << "bo:relativeAbundance" << endl;
 		d->inAbundance = true;
 	}
 	return true;

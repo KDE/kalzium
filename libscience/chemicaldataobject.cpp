@@ -47,7 +47,7 @@ ChemicalDataObject::ChemicalDataObject() : d(new ChemicalDataObjectPrivate())
 
 bool ChemicalDataObject::operator==( const int v ) const
 {
-	kdDebug() << "ChemicalDataObject::operator==() with int" << endl;
+	kDebug() << "ChemicalDataObject::operator==() with int" << endl;
 	if ( d->m_value.type() != QVariant::Int )	
 		return false;
 	
@@ -56,7 +56,7 @@ bool ChemicalDataObject::operator==( const int v ) const
 
 bool ChemicalDataObject::operator==( const bool v ) const
 {
-	kdDebug() << "ChemicalDataObject::operator==() with bool" << endl;
+	kDebug() << "ChemicalDataObject::operator==() with bool" << endl;
 	if ( d->m_value.type() != QVariant::Bool )	
 		return false;
 	
@@ -65,7 +65,7 @@ bool ChemicalDataObject::operator==( const bool v ) const
 
 bool ChemicalDataObject::operator==( const double v ) const
 {
-	kdDebug() << "ChemicalDataObject::operator==() with double" << endl;
+	kDebug() << "ChemicalDataObject::operator==() with double" << endl;
 	if ( d->m_value.type() != QVariant::Double )	
 		return false;
 	
@@ -74,7 +74,7 @@ bool ChemicalDataObject::operator==( const double v ) const
 
 bool ChemicalDataObject::operator==( const QString& v ) const
 {
-	kdDebug() << "ChemicalDataObject::operator==() with QString" << endl;
+	kDebug() << "ChemicalDataObject::operator==() with QString" << endl;
 	if ( d->m_value.type() != QVariant::String )	
 		return false;
 

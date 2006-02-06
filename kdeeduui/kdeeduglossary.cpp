@@ -73,7 +73,7 @@ bool Glossary::loadLayout( QDomDocument &Document, const KUrl& url )
 
 	if ( !layoutFile.exists() )
 	{
-		kdDebug() << "no such file: " << layoutFile.name() << endl;
+		kDebug() << "no such file: " << layoutFile.name() << endl;
 		return false;
 	}
 
@@ -83,7 +83,7 @@ bool Glossary::loadLayout( QDomDocument &Document, const KUrl& url )
 	// check if document is well-formed
 	if ( !Document.setContent( &layoutFile ) )
 	{
-		kdDebug() << "wrong xml of " << layoutFile.name() << endl;
+		kDebug() << "wrong xml of " << layoutFile.name() << endl;
 		layoutFile.close();
 		return false;
 	}
@@ -120,7 +120,7 @@ void Glossary::setBackgroundPicture( const QString& filename )
 
 void Glossary::fixImagePath()
 {
-	kdDebug() << "Glossary::fixImagePath()" << endl;
+	kDebug() << "Glossary::fixImagePath()" << endl;
 	QList<GlossaryItem*>::iterator it = m_itemlist.begin();
 	const QList<GlossaryItem*>::iterator itEnd = m_itemlist.end();
 	QString imgtag = "<img src=\"" + m_picturepath + "/" + "\\1\" />";
@@ -322,8 +322,8 @@ void GlossaryDialog::addGlossary( Glossary* newgloss )
 	if ( newgloss->isEmpty() ) return;
 	m_glossaries.append( newgloss );
 
-	kdDebug() << "Count of the new glossary: " << newgloss->itemlist().count() << endl;
-	kdDebug() << "Number of glossaries: " << m_glossaries.count() << endl;
+	kDebug() << "Count of the new glossary: " << newgloss->itemlist().count() << endl;
+	kDebug() << "Number of glossaries: " << m_glossaries.count() << endl;
 
 	updateTree();
 }

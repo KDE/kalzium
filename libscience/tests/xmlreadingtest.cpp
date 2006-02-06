@@ -29,14 +29,14 @@ int main(int argc, char *argv[])
 
 			//Test: Check if the string-comparison works
 //X 			if ( e->data( ChemicalDataObject::name ) == "Helium" )
-//X 				kdDebug() << "Mass: " << e->dataAsString( ChemicalDataObject::mass ) << endl;
+//X 				kDebug() << "Mass: " << e->dataAsString( ChemicalDataObject::mass ) << endl;
 			
 			//Test: Check if the double-comparison works
 //X 			if ( e->data( ChemicalDataObject::mass ) == 4.002602 )
-//X 				kdDebug() << "Correct mass found" << endl;
+//X 				kDebug() << "Correct mass found" << endl;
 
 			//Test: Give me the name of the element
-//X 			kdDebug() << "Name: " << e->dataAsString( ChemicalDataObject::name ) << endl;
+//X 			kDebug() << "Name: " << e->dataAsString( ChemicalDataObject::name ) << endl;
 			
 			//Test: give me all data available
 			foreach( ChemicalDataObject*o, list ){
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 					QString unit = o->unitAsString();
 					if ( unit == "bo:noUnit" )
 						unit = "";
-					kdDebug() << "Name: " << o->dictRef() << " " << o->valueAsString()  <<" "  << unit << endl;
+					kDebug() << "Name: " << o->dictRef() << " " << o->valueAsString()  <<" "  << unit << endl;
 				}
 			}
 		}

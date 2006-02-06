@@ -170,7 +170,7 @@ MoleculeParser::parseSubmolecule(double          *_resultMass,
     *_resultMass = 0.0;
 	_resultMap->clear();
     while (parseTerm(&subMass, &subMap)) {
-		//kdDebug() << "Parsed a term, weight = " << subresult << endl;
+		//kDebug() << "Parsed a term, weight = " << subresult << endl;
 
 		// Add the mass and composition of the submolecule to the total.
 		*_resultMass += subMass;
@@ -199,7 +199,7 @@ MoleculeParser::parseTerm(double          *_resultMass,
 	_resultMap->clear();
  
     if (nextToken() == ELEMENT_TOKEN) {
-		//kdDebug() << "Parsed an element: " << m_elementVal->symbol() << endl;
+		//kDebug() << "Parsed an element: " << m_elementVal->symbol() << endl;
 		*_resultMass = m_elementVal->dataAsVariant( ChemicalDataObject::mass ).toDouble();
 		_resultMap->add(m_elementVal, 1);
 
@@ -214,7 +214,7 @@ MoleculeParser::parseTerm(double          *_resultMass,
 
 		// Must end in a ")".
 		if (nextToken() == ')') {
-			//kdDebug() << "Parsed a submolecule. weight = " << *_result << endl;
+			//kDebug() << "Parsed a submolecule. weight = " << *_result << endl;
 			getNextToken();
 		}
 		else
@@ -226,7 +226,7 @@ MoleculeParser::parseTerm(double          *_resultMass,
 
     // Optional number.
     if (nextToken() == INT_TOKEN) {
-		//kdDebug() << "Parsed a number: " << intVal() << endl;
+		//kDebug() << "Parsed a number: " << intVal() << endl;
 
     	*_resultMass *= intVal();
 		_resultMap->multiply(intVal());
@@ -234,7 +234,7 @@ MoleculeParser::parseTerm(double          *_resultMass,
 		getNextToken();
     }
 
-    kdDebug() << "Weight of term = " << *_resultMass << endl;
+    kDebug() << "Weight of term = " << *_resultMass << endl;
     return true;
 }
 
@@ -251,7 +251,7 @@ MoleculeParser::getNextToken()
     QString  elementName;
 
 #if 0
-    kdDebug() << "getNextToken(): Next character = "
+    kDebug() << "getNextToken(): Next character = "
 	      << nextChar() << endl;
 #endif
 
@@ -288,11 +288,11 @@ MoleculeParser::getNextToken()
 Element *
 MoleculeParser::lookupElement( const QString& _name )
 {
-    kdDebug() << "looking up " << _name << endl;
+    kDebug() << "looking up " << _name << endl;
 
 	foreach( Element* e, m_elementList ){
 		if ( e->dataAsVariant(ChemicalDataObject::symbol) == _name ) {
-			kdDebug() << "Found element " << _name << endl;
+			kDebug() << "Found element " << _name << endl;
 			return e;
 		}
 	}
@@ -300,7 +300,7 @@ MoleculeParser::lookupElement( const QString& _name )
 	//if there is an error make m_error true.
 	m_error = true;
 
-	kdDebug() << k_funcinfo << "no such element, parsing error!: " << _name << endl;
+	kDebug() << k_funcinfo << "no such element, parsing error!: " << _name << endl;
 
 	return NULL;
 }
