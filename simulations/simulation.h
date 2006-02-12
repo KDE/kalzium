@@ -1,3 +1,5 @@
+#ifndef SIMULATION_H
+#define SIMULATION_H
 /***************************************************************************
  *   Copyright (C) 2006      by Carsten Niehaus,    cniehaus@kde.org       *
  *                                                                         *
@@ -16,9 +18,6 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
-#ifndef GAMES_H
-#define GAMES_H
-
 #include <QTimer>
 #include <QStringList>
 #include <QPixmap>
@@ -33,7 +32,7 @@ class Simulation;
 
 /**
  * @author Carsten Niehaus
- * Gamesfactory
+ * simulationsfactory
  */
 class GamesFactory
 {
@@ -68,8 +67,8 @@ class GamesFactory
 
 /**
  * @author Carsten Niehaus
- * @brief Baseclass for all games
- * Baseclass for all games. Inherit it and add it to the GamesFactory
+ * @brief Baseclass for all simulations
+ * Baseclass for all simulations. Inherit it and add it to the GamesFactory
  * to make it available
  */
 class Simulation : public QObject
@@ -202,7 +201,7 @@ class Simulation : public QObject
 		}
 
 		/**
-		 * Start the games, everything is set to the start-conditions
+		 * Start the simulations, everything is set to the start-conditions
 		 */
 		virtual void start() = 0;
 
@@ -211,9 +210,14 @@ class Simulation : public QObject
 		 * the field of the game
 		 */
 		Field* m_field;
+
+		/**
+		 * the statisticwidget of the simulation
+		 */
+		QWidget* m_statWidget;
 		
 		/**
-		 * needed for automated games
+		 * needed for automated simulations
 		 */
 		QTimer m_timer;
  		
@@ -262,4 +266,5 @@ class Move
 		QStringList m_list;
 };
 
-#endif // GAMES_H
+#endif // SIMULATION_H
+

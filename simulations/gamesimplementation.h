@@ -24,7 +24,8 @@
 class QWidget;
 namespace Ui
 {
-class RAForm;
+	class RAForm;
+	class CrystalForm;
 };
 
 /**
@@ -62,7 +63,6 @@ class RAGame : public Simulation
 		int m_number;
 
 		Ui::RAForm* m_statForm;
-		QWidget* m_statWidget;
 
 	protected:
 		Field* m_field;
@@ -96,10 +96,9 @@ class CrystallizationGame : public Simulation
 
 	private:
 		int m_number;
+		Ui::CrystalForm* m_statForm;
 
 	protected:
-		Field* m_field;
-
 		/**
 		 * @return the number of stones of the other player
 		 */

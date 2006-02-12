@@ -65,6 +65,7 @@ Simulation* GamesFactory::build( const QByteArray& id ) const
 	// not found
 	return 0;
 }
+
 QStringList GamesFactory::games() const
 {
 	QStringList l;

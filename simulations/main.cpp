@@ -19,7 +19,7 @@
 
 #include <QtGui/QApplication>
 
-#include "gamesdialog.h"
+#include "simulationsdialog.h"
 
 int main( int argc, char *argv[] )
 {

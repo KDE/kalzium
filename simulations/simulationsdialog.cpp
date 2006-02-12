@@ -19,7 +19,7 @@
 
 #include "gamesimplementation.h"
 #include "gamecontrols_impl.h"
-#include "gamesdialog.h"
+#include "simulationsdialog.h"
 #include "simulation.h"
 #include "gamefieldwidget.h"
 
@@ -60,16 +60,8 @@ void GamesDialog::activateGame( int nr )
 
 	m_game = g;
 
-	/**
-	 * FIXME
-	 * I checked the pointers, they are ok. In theory, I should be able to set
-	 * the statistics widget here. But it crashes. I cannot get a good backtrace...
-	 */
-	
 	statsWidget = m_game->statisticsWidget();
 	vbox->addWidget( statsWidget );
-	
-	std::cout << statsWidget << std::endl;
 	
 	int x = m_controls->ui.xsize->value();
 	int y = m_controls->ui.ysize->value();
@@ -122,4 +114,4 @@ void GamesDialog::displayStatistics()
 {
 }
 
-#include "moc_gamesdialog.cpp"
+#include "moc_simulationsdialog.cpp"

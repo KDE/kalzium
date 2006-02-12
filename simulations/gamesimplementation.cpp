@@ -20,6 +20,7 @@
 #include "gamesimplementation.h"
 
 #include "ui_raform.h"
+#include "ui_crystalform.h"
 
 #include <time.h>
 #include <stdlib.h>
@@ -124,8 +125,7 @@ QString CrystallizationGame::description() const
 
 QWidget* CrystallizationGame::statisticsWidget() const
 {
-	// TODO
-	return new QWidget();
+	return m_statWidget;
 }
 
 QString CrystallizationGame::rules() const
@@ -259,6 +259,9 @@ CrystallizationGame::CrystallizationGame()
 	: Simulation()
 {
 	m_field = new Field();
+	m_statForm = new Ui::CrystalForm();
+	m_statWidget = new QWidget();
+	m_statForm->setupUi( m_statWidget );
 	setField( m_field );
 
 	m_number = 0;
