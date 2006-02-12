@@ -31,9 +31,9 @@
 GamesDialog::GamesDialog()
 	: QDialog( 0 )
 {
-	m_numOfBlack = 	m_numOfWhite = m_numOfMoves = 0;
+	statsWidget = 0;
 
-	QVBoxLayout * vbox = new QVBoxLayout( this );
+	vbox = new QVBoxLayout( this );
 
 	m_controls = new GameControls_Impl( this );
 	m_controls->ui.gf->setField( 0 );
@@ -59,6 +59,21 @@ void GamesDialog::activateGame( int nr )
 	if ( !g ) return;
 
 	m_game = g;
+
+	/**
+	 * FIXME
+	 * I checked the pointers, they are ok. In theory, I should be able to set
+	 * the statistics widget here. But it crashes. I cannot get a good backtrace...
+	 */
+	
+	statsWidget = m_game->statisticsWidget();
+//	statsWidget->show(); //crashes as well
+	std::cout << statsWidget << std::endl;
+
+//	vbox->addWidget( new QWidget() ); //work
+//	vbox->addWidget( statsWidget );   //crashes...
+	
+	std::cout << statsWidget << std::endl;
 	
 	int x = m_controls->ui.xsize->value();
 	int y = m_controls->ui.ysize->value();
@@ -105,21 +120,10 @@ void GamesDialog::createConnetions()
 void GamesDialog::calculateStatistics()
 {
 	if ( !m_game ) return;
-	
-	m_numOfMoves = m_game->numberOfMoves();	
-
-	Move * move = m_game->currentMove();
-	m_numOfWhite = move->numberOfStones(  Stone::White );
-	m_numOfBlack = move->numberOfStones(  Stone::Black );
-	
-	displayStatistics();
 }
 
 void GamesDialog::displayStatistics()
 {
-	m_controls->ui.black->setText(QString::number( m_numOfBlack ));
-	m_controls->ui.white->setText(QString::number( m_numOfWhite ));
-	m_controls->ui.moves->setText(QString::number( m_numOfMoves ));
 }
 
 #include "moc_gamesdialog.cpp"

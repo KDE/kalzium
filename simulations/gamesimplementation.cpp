@@ -55,6 +55,12 @@ QString RAGame::description() const
 	return  "Radioactive decay";
 }
 
+QWidget* RAGame::statisticsWidget() const
+{
+	std::cout << m_statForm << std::endl;
+	return ( QWidget* ) m_statForm;
+}
+
 QString RAGame::rules() const
 {
 	return "The simulation starts with an all white board. In each turn, a Stone on the board will be selected randomly. If the stone is white, it will turn black. This represents the radioactive decay.  The game becomes interesting if you alter the number of turns it runs. The probablilty that a stone swap the colour from white to black decreases with each turn. It is proportional to the halflife period.";
@@ -89,6 +95,7 @@ RAGame::RAGame()
 	: Simulation()
 {
 	m_field = new Field();
+	m_statForm = new Ui::RAForm();
 
 	setField( m_field );
 	
@@ -543,7 +550,7 @@ void BoltzmannSimulation::start()
 	m_field->stones().clear();
 
 	//start on E=1
-	int ypos = m_field->ySize() - 2;
+	int ypos = m_field->ySize() - 3;
 
 	//fill the field with x*y white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
@@ -551,3 +558,92 @@ void BoltzmannSimulation::start()
 			m_field->addStone( new Stone( Stone::White, QPoint( x, ypos ) ) );
 }
 
+///LightabsorptionSimulation
+//
+LightabsorptionSimulation::LightabsorptionSimulation()
+{
+	m_field = new Field();
+	setField( m_field );
+
+	m_number = 0;
+	m_col = 0;
+}
+	
+LightabsorptionSimulation* LightabsorptionSimulation::instance()
+{
+	static LightabsorptionSimulation g;
+	return &g;
+}
+
+QString LightabsorptionSimulation::rules() const
+{
+	return "to be written";
+}
+
+QString LightabsorptionSimulation::description() const
+{
+	return "Lightabsorption Simulation";
+}
+
+QByteArray LightabsorptionSimulation::name() const
+{
+	return "Lightabsorption";
+}
+
+void LightabsorptionSimulation::rollDice()
+{
+	m_number++;
+
+	//we will remove n times
+	int n = m_field->ySize();
+
+	for (int i = 0 ; i < n ; ++i )
+	{
+		const int y = ( int ) ( rand()%n );
+		Stone * s = m_field->stoneAtPosition( QPoint(m_col, y) );
+
+		if ( !s ) continue;
+
+		int number = 0;
+		int numberToRemove = 0;
+		
+		QList<Stone*> stones = m_field->stones();
+		foreach( Stone * s , stones )
+		{
+			if ( s->position() == QPoint( m_col, y ) )
+			{
+				std::cout << "position equals, removing "<< m_col << ", " << s->position().y() << std::endl;
+				numberToRemove = number;
+			}
+			else
+				std::cout << "position different, nothing to remove "<< m_col << ", " << s->position().y() << std::endl;
+
+			number++;
+			numberToRemove++;
+		}
+
+		stones.removeAt( numberToRemove );	
+		
+		m_field->stones();
+		foreach( Stone * s , stones )
+		{
+			std::cout << "Stone has position "<< m_col << ", " << s->position().y() << std::endl;
+		}
+	}
+	
+	m_col++;
+}
+
+void LightabsorptionSimulation::start()
+{
+	srand( time( NULL ) );
+	
+	m_field->stones().clear();
+
+	//start on E=1
+	int ypos = m_field->ySize() - 3;
+
+	//fill the field with x*y white stones
+	for ( int y = 0 ; y < m_field->ySize() ; ++y )
+		m_field->addStone( new Stone( Stone::White, QPoint( 0, y ) ) );
+}

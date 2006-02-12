@@ -25,6 +25,8 @@ class GameControls_Impl;
 class Simulation;
 class StatisticWidget;
 
+class QVBoxLayout;
+
 class GamesDialog : public QDialog
 {
 	Q_OBJECT
@@ -36,13 +38,13 @@ class GamesDialog : public QDialog
 		void slotStartWithTimer();
 
 	private:
+		QVBoxLayout * vbox;
+	
 		Simulation * m_game;
 	
 		GameControls_Impl * m_controls;
 
-		int m_numOfMoves;
-		int m_numOfWhite;
-		int m_numOfBlack;
+		QWidget *statsWidget;
 
 	private slots:
 		void activateGame( int nr );

@@ -153,6 +153,11 @@ class Simulation : public QObject
 		virtual QString description() const = 0;
 
 		/**
+		 * Return the statistics widget of the game
+		 */
+		virtual QWidget * statisticsWidget() const = 0;
+
+		/**
 		 * Returns the rules of the game as a descriptive QString.
 		 * @return the rules
 		 */

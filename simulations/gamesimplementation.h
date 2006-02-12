@@ -21,6 +21,9 @@
 
 #include "simulation.h"
 
+#include "ui_raform.h"
+
+
 /**
  * @author Carsten Niehaus
  *
@@ -46,12 +49,16 @@ class RAGame : public Simulation
 
 		QString rules() const;
 
+		virtual QWidget * statisticsWidget() const;
+
 	public slots:
 		void start();
 
 	private:
 		int m_counter;
 		int m_number;
+
+		Ui::RAForm* m_statForm;
 
 	protected:
 		Field* m_field;
@@ -66,6 +73,9 @@ class CrystallizationGame : public Simulation
 		CrystallizationGame();
 		
 		static CrystallizationGame* instance();
+		
+		virtual QWidget * statisticsWidget() const
+		{return new QWidget();}
 
 		void rollDice();
 		
@@ -114,6 +124,9 @@ class DecompositionSimulation : public CrystallizationGame
 		DecompositionSimulation();
 		
 		static DecompositionSimulation* instance();
+		
+		virtual QWidget * statisticsWidget() const
+		{return new QWidget();}
 
 		void rollDice();
 		
@@ -166,6 +179,9 @@ class BoltzmannSimulation : public Simulation
 		BoltzmannSimulation();
 		
 		static BoltzmannSimulation* instance();
+		
+		virtual QWidget * statisticsWidget() const
+		{}
 
 		bool changeToDo;
 
@@ -192,5 +208,40 @@ class BoltzmannSimulation : public Simulation
 		Field* m_field;
 };
 
+/**
+ * @author Carsten Niehaus
+ */
+class LightabsorptionSimulation : public Simulation
+{
+	public:
+		LightabsorptionSimulation();
+		
+		static LightabsorptionSimulation* instance();
+		
+		virtual QWidget * statisticsWidget() const
+		{return new QWidget();}
+
+		void rollDice();
+		
+		QString rules() const;
+		
+		QByteArray name() const;
+		
+		QString description() const;
+		
+	public slots:
+		/**
+		 * starts the game
+		 */
+		void start();
+
+	private:
+		int m_number;
+
+		int m_col;
+
+	protected:
+		Field* m_field;
+};
 
 #endif // GAMESIMPLEMENTATION_H

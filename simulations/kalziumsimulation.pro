@@ -16,7 +16,8 @@ HEADERS += field.h \
            gamesimplementation.h \
            simulation.h \
            stone.h
-FORMS += gamecontrols.ui
+FORMS += gamecontrols.ui \
+			raform.ui
 SOURCES += field.cpp \
            gamecontrols_impl.cpp \
            gamefieldwidget.cpp \
