@@ -578,7 +578,7 @@ LightabsorptionSimulation* LightabsorptionSimulation::instance()
 
 QString LightabsorptionSimulation::rules() const
 {
-	return "to be written";
+	return "On the left photons arive. For n rows, the probability that a photon reaches the next column is 1/n.";
 }
 
 QString LightabsorptionSimulation::description() const

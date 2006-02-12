@@ -180,19 +180,6 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="prev" >
-       <property name="enabled" >
-        <bool>false</bool>
-       </property>
-       <property name="toolTip" >
-        <string>Previous move</string>
-       </property>
-       <property name="text" >
-        <string>Previous</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
    <item row="2" column="0" >

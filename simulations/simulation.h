@@ -190,6 +190,7 @@ class Simulation : public QObject
 		 * @see rollDice
 		 */
 		virtual void startWithTimer( int ms ){
+			start();
 			m_timer.start( ms );
 		}
 		

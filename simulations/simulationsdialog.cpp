@@ -72,8 +72,6 @@ void GamesDialog::activateGame( int nr )
 	m_controls->ui.gf->setField( m_game->field() );
 	m_controls->ui.label->setText(m_game->rules());
 
-	m_game->start();
-
 	m_controls->ui.gf->update();
 
 	createConnetions();
