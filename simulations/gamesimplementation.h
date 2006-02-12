@@ -220,6 +220,8 @@ class LightabsorptionSimulation : public Simulation
 		int m_number;
 
 		int m_col;
+
+		QList<int> m_ypositions;
 };
 
 #endif // GAMESIMPLEMENTATION_H

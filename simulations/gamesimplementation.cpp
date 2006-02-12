@@ -30,7 +30,7 @@ void RAGame::start()
 {
 	srand (  time( NULL ) );
 	
-	m_field->stones().clear();
+	m_field->clear();
 
 	//fill the field with x*y white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
@@ -261,7 +261,7 @@ void CrystallizationGame::start()
 {
 	srand (  time( NULL ) );
 
-	m_field->stones().clear();
+	m_field->clear();
 	
 	//fill the field with x*y black and white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
@@ -351,7 +351,7 @@ void DecompositionSimulation::start()
 {
 	srand (  time( NULL ) );
 
-	m_field->stones().clear();
+	m_field->clear();
 	
 	//fill the field with x*y black and white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
@@ -549,7 +549,7 @@ void BoltzmannSimulation::start()
 {
 	srand (  time( NULL ) );
 	
-	m_field->stones().clear();
+	m_field->clear();
 
 	//start on E=1
 	int ypos = m_field->ySize() - 3;
@@ -561,7 +561,6 @@ void BoltzmannSimulation::start()
 }
 
 ///LightabsorptionSimulation
-//
 LightabsorptionSimulation::LightabsorptionSimulation()
 {
 	m_field = new Field();
@@ -600,7 +599,7 @@ void LightabsorptionSimulation::rollDice()
 	int n = m_field->ySize();
 
 	for (int i = 0 ; i < n ; ++i )
-	{
+	{//go from top to bottom and roll for each token (n rows --> n rolls)
 		const int y = ( int ) ( rand()%n );
 		Stone * s = m_field->stoneAtPosition( QPoint(m_col, y) );
 
@@ -626,7 +625,6 @@ void LightabsorptionSimulation::rollDice()
 
 		stones.removeAt( numberToRemove );	
 		
-		m_field->stones();
 		foreach( Stone * s , stones )
 		{
 			std::cout << "Stone has position "<< m_col << ", " << s->position().y() << std::endl;
@@ -640,12 +638,12 @@ void LightabsorptionSimulation::start()
 {
 	srand( time( NULL ) );
 	
-	m_field->stones().clear();
+	m_field->clear();
 
-	//start on E=1
-	int ypos = m_field->ySize() - 3;
-
-	//fill the field with x*y white stones
+	//fill the first row with stones
 	for ( int y = 0 ; y < m_field->ySize() ; ++y )
+	{
 		m_field->addStone( new Stone( Stone::White, QPoint( 0, y ) ) );
+		m_ypositions.append( y );
+	}
 }

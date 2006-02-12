@@ -24,7 +24,7 @@ class Stone;
 #include <QList>
 
 /**
- * Each Game is graphically represented by a Field. The games implement
+ * Each Simulation is graphically represented by a Field. The games implement
  * a specific Field, this is the baseclass for these classes. A field stores
  * the information about the size of the game and what stone are on
  * what position
@@ -86,6 +86,11 @@ class Field
 		{
 			return m_stones;
 		}
+
+		/**
+		 * removes all stones from the field
+		 */
+		virtual void clear();
 		
 	protected:
 		int m_size_x;

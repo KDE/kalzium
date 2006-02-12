@@ -41,3 +41,8 @@ Stone* Field::stoneAtPosition( const QPoint& pos )
 
 	return 0;
 }
+
+void Field::clear()
+{
+	m_stones.clear();
+}
