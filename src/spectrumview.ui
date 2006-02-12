@@ -59,10 +59,10 @@
                     <property name="name">
                         <cstring>minimumValue</cstring>
                     </property>
-                    <property name="maxValue">
+                    <property name="maximum">
                         <number>999</number>
                     </property>
-                    <property name="minValue">
+                    <property name="minimum">
                         <number>1</number>
                     </property>
                     <property name="value">
@@ -90,10 +90,10 @@
                     <property name="name">
                         <cstring>maximumValue</cstring>
                     </property>
-                    <property name="maxValue">
+                    <property name="maximum">
                         <number>1000</number>
                     </property>
-                    <property name="minValue">
+                    <property name="minimum">
                         <number>2</number>
                     </property>
                     <property name="value">

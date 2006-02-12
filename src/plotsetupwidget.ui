@@ -35,7 +35,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="minValue" >
+      <widget class="QLabel" name="minimum" >
        <property name="text" >
         <string/>
        </property>
@@ -59,7 +59,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="maxValue" >
+      <widget class="QLabel" name="maximum" >
        <property name="text" >
         <string/>
        </property>
