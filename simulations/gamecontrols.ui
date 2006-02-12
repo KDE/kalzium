@@ -117,7 +117,7 @@
       <number>6</number>
      </property>
      <item>
-      <widget class="GamefieldWidget" name="gf" >
+      <widget class="SimulationfieldWidget" name="gf" >
        <property name="sizePolicy" >
         <sizepolicy>
          <hsizetype>4</hsizetype>
@@ -312,7 +312,7 @@
  <pixmapfunction></pixmapfunction>
  <customwidgets>
   <customwidget>
-   <class>GamefieldWidget</class>
+   <class>SimulationfieldWidget</class>
    <extends>QFrame</extends>
    <header>simulationfield.h</header>
    <container>0</container>
