@@ -67,11 +67,7 @@ void GamesDialog::activateGame( int nr )
 	 */
 	
 	statsWidget = m_game->statisticsWidget();
-//	statsWidget->show(); //crashes as well
-	std::cout << statsWidget << std::endl;
-
-//	vbox->addWidget( new QWidget() ); //work
-//	vbox->addWidget( statsWidget );   //crashes...
+	vbox->addWidget( statsWidget );
 	
 	std::cout << statsWidget << std::endl;
 	

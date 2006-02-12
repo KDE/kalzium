@@ -21,8 +21,11 @@
 
 #include "simulation.h"
 
-#include "ui_raform.h"
-
+class QWidget;
+namespace Ui
+{
+class RAForm;
+};
 
 /**
  * @author Carsten Niehaus
@@ -59,6 +62,7 @@ class RAGame : public Simulation
 		int m_number;
 
 		Ui::RAForm* m_statForm;
+		QWidget* m_statWidget;
 
 	protected:
 		Field* m_field;
@@ -74,8 +78,7 @@ class CrystallizationGame : public Simulation
 		
 		static CrystallizationGame* instance();
 		
-		virtual QWidget * statisticsWidget() const
-		{return new QWidget();}
+		virtual QWidget * statisticsWidget() const;
 
 		void rollDice();
 		
@@ -125,8 +128,7 @@ class DecompositionSimulation : public CrystallizationGame
 		
 		static DecompositionSimulation* instance();
 		
-		virtual QWidget * statisticsWidget() const
-		{return new QWidget();}
+		virtual QWidget * statisticsWidget() const;
 
 		void rollDice();
 		
@@ -180,8 +182,7 @@ class BoltzmannSimulation : public Simulation
 		
 		static BoltzmannSimulation* instance();
 		
-		virtual QWidget * statisticsWidget() const
-		{}
+		virtual QWidget * statisticsWidget() const;
 
 		bool changeToDo;
 
@@ -218,8 +219,7 @@ class LightabsorptionSimulation : public Simulation
 		
 		static LightabsorptionSimulation* instance();
 		
-		virtual QWidget * statisticsWidget() const
-		{return new QWidget();}
+		virtual QWidget * statisticsWidget() const;
 
 		void rollDice();
 		

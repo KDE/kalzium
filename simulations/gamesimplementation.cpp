@@ -19,6 +19,8 @@
 
 #include "gamesimplementation.h"
 
+#include "ui_raform.h"
+
 #include <time.h>
 #include <stdlib.h>
 #include <iostream>
@@ -57,8 +59,7 @@ QString RAGame::description() const
 
 QWidget* RAGame::statisticsWidget() const
 {
-	std::cout << m_statForm << std::endl;
-	return ( QWidget* ) m_statForm;
+	return m_statWidget;
 }
 
 QString RAGame::rules() const
@@ -96,6 +97,8 @@ RAGame::RAGame()
 {
 	m_field = new Field();
 	m_statForm = new Ui::RAForm();
+	m_statWidget = new QWidget();
+	m_statForm->setupUi( m_statWidget );
 
 	setField( m_field );
 	
@@ -117,6 +120,12 @@ QByteArray CrystallizationGame::name() const
 QString CrystallizationGame::description() const
 {
 	return "Crystallization";
+}
+
+QWidget* CrystallizationGame::statisticsWidget() const
+{
+	// TODO
+	return new QWidget();
 }
 
 QString CrystallizationGame::rules() const
@@ -291,6 +300,12 @@ QByteArray DecompositionSimulation::name() const
 QString DecompositionSimulation::description() const
 {
 	return "Decomposition";
+}
+
+QWidget* DecompositionSimulation::statisticsWidget() const
+{
+	// TODO
+	return new QWidget();
 }
 
 QString DecompositionSimulation::rules() const
@@ -479,6 +494,12 @@ QString BoltzmannSimulation::rules() const
 	return "to be written";
 }
 
+QWidget* BoltzmannSimulation::statisticsWidget() const
+{
+	// TODO
+	return new QWidget();
+}
+
 QString BoltzmannSimulation::description() const
 {
 	return "Sedimation Equilibrum";
@@ -583,6 +604,12 @@ QString LightabsorptionSimulation::rules() const
 QString LightabsorptionSimulation::description() const
 {
 	return "Lightabsorption Simulation";
+}
+
+QWidget* LightabsorptionSimulation::statisticsWidget() const
+{
+	// TODO
+	return new QWidget();
 }
 
 QByteArray LightabsorptionSimulation::name() const
