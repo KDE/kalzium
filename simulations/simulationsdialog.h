@@ -20,7 +20,6 @@
  ***************************************************************************/
 #include <QDialog>
 
-class GamefieldWidget;
 class GameControls_Impl;
 class Simulation;
 class StatisticWidget;

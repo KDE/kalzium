@@ -25,14 +25,14 @@
 
 #include <iostream>
 
-GamefieldWidget::GamefieldWidget( QWidget * parent )
+SimulationfieldWidget::SimulationfieldWidget( QWidget * parent )
 	: QFrame ( parent )
 {
 	m_field = 0;
 	setMinimumSize( 200, 200 );
 }
 
-void GamefieldWidget::paintEvent( QPaintEvent * /*e*/ )
+void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
 {
 	if ( !m_field ) return;
 

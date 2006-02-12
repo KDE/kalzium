@@ -1,3 +1,5 @@
+#ifndef SIMULATIONFIELD_H
+#define SIMULATIONFIELD_H
 /***************************************************************************
  *   Copyright (C) 2006      by Carsten Niehaus,    cniehaus@kde.org       *
  *                                                                         *
@@ -16,24 +18,23 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
-#ifndef GAMEFIELDWIDGET_H
-#define GAMEFIELDWIDGET_H
 #include <QFrame>
 
 class QPaintEvent;
+
 class Field;
 class Move;
 
 /**
  * @author Carsten Niehaus
  */
-class GamefieldWidget : public QFrame
+class SimulationfieldWidget : public QFrame
 {
 	Q_OBJECT
 	
 	public:
-		GamefieldWidget( QWidget * parent = 0 );
-		virtual ~GamefieldWidget(){};
+		SimulationfieldWidget( QWidget * parent = 0 );
+		virtual ~SimulationfieldWidget(){};
 
 		void setField( Field * field ){
 			m_field = field;
@@ -50,5 +51,4 @@ class GamefieldWidget : public QFrame
 	protected:
 		virtual void paintEvent( QPaintEvent * e );
 };
-#endif // GAMEFIELDWIDGET_H
-
+#endif // SIMULATIONFIELD_H
