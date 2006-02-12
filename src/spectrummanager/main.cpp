@@ -63,9 +63,9 @@ int main(int argc, char **argv)
         mainWin = new SpectrumManager();
 
 //X 		if ( args->count() > 0 )
-//X 			if ( QFileInfo( KURL( args->url( 0 ).url().extension() == "xml" )
+//X 			if ( QFileInfo( KUrl( args->url( 0 ).url().extension() == "xml" )
 //X 
-//X //        	if( QFileInfo( KURL(args->url(0)).url() ).extension() == "edugallery" )
+//X //        	if( QFileInfo( KUrl(args->url(0)).url() ).extension() == "edugallery" )
 		
         app.setMainWidget( mainWin );
         mainWin->show();
