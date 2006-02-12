@@ -391,8 +391,8 @@ void ElementDataViewer::drawPlot()
 
 	//now set the values for the min, max and avarage value
 	m_pPlotSetupWidget->aValue->setText( QString::number( av / num ) );
-	m_pPlotSetupWidget->minValue->setText( QString::number( min ) );
-	m_pPlotSetupWidget->maxValue->setText( QString::number( max ) );
+	m_pPlotSetupWidget->minimum->setText( QString::number( min ) );
+	m_pPlotSetupWidget->maximum->setText( QString::number( max ) );
 }
 
 void ElementDataViewer::initData()
