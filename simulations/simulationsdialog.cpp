@@ -21,7 +21,7 @@
 #include "gamecontrols_impl.h"
 #include "simulationsdialog.h"
 #include "simulation.h"
-#include "gamefieldwidget.h"
+#include "simulationfield.h"
 
 #include <QLayout>
 #include <QComboBox>
@@ -60,6 +60,9 @@ void GamesDialog::activateGame( int nr )
 
 	m_game = g;
 
+	// removing the old widget
+	vbox->removeWidget( statsWidget );
+	// getting the new one and adding it to the dialog
 	statsWidget = m_game->statisticsWidget();
 	vbox->addWidget( statsWidget );
 	
@@ -70,7 +73,7 @@ void GamesDialog::activateGame( int nr )
 	m_game->field()->setFieldYSize( y );
 	
 	m_controls->ui.gf->setField( m_game->field() );
-	m_controls->ui.label->setText(m_game->rules());
+	m_controls->ui.label->setPlainText(m_game->rules());
 
 	m_controls->ui.gf->update();
 

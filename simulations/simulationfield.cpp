@@ -29,7 +29,7 @@ GamefieldWidget::GamefieldWidget( QWidget * parent )
 	: QFrame ( parent )
 {
 	m_field = 0;
-	setMinimumSize( 100, 200 );
+	setMinimumSize( 200, 200 );
 }
 
 void GamefieldWidget::paintEvent( QPaintEvent * /*e*/ )
@@ -43,8 +43,7 @@ void GamefieldWidget::paintEvent( QPaintEvent * /*e*/ )
 	const int w = width() / x_size;
 	const int h = height() / y_size;
 
-	int s;
-	w < h ? s = w : s = h;
+	int s = qMin( h, w );
 
 	QPainter p;
 	p.begin( this );
