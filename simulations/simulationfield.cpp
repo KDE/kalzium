@@ -16,7 +16,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
-#include "gamefieldwidget.h"
+#include "simulationfield.h"
 #include "field.h"
 #include "stone.h"
 
@@ -83,4 +83,4 @@ void GamefieldWidget::paintEvent( QPaintEvent * /*e*/ )
 	p.end();
 }
 
-#include "moc_gamefieldwidget.cpp"
+#include "moc_simulationfield.cpp"
