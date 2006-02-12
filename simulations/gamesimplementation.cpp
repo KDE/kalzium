@@ -58,11 +58,6 @@ QString RAGame::description() const
 	return  "Radioactive decay";
 }
 
-QWidget* RAGame::statisticsWidget() const
-{
-	return m_statWidget;
-}
-
 QString RAGame::rules() const
 {
 	return "The simulation starts with an all white board. In each turn, a Stone on the board will be selected randomly. If the stone is white, it will turn black. This represents the radioactive decay.  The game becomes interesting if you alter the number of turns it runs. The probablilty that a stone swap the colour from white to black decreases with each turn. It is proportional to the halflife period.";
@@ -121,11 +116,6 @@ QByteArray CrystallizationGame::name() const
 QString CrystallizationGame::description() const
 {
 	return "Crystallization";
-}
-
-QWidget* CrystallizationGame::statisticsWidget() const
-{
-	return m_statWidget;
 }
 
 QString CrystallizationGame::rules() const
@@ -303,12 +293,6 @@ QByteArray DecompositionSimulation::name() const
 QString DecompositionSimulation::description() const
 {
 	return "Decomposition";
-}
-
-QWidget* DecompositionSimulation::statisticsWidget() const
-{
-	// TODO
-	return new QWidget();
 }
 
 QString DecompositionSimulation::rules() const
@@ -497,12 +481,6 @@ QString BoltzmannSimulation::rules() const
 	return "to be written";
 }
 
-QWidget* BoltzmannSimulation::statisticsWidget() const
-{
-	// TODO
-	return new QWidget();
-}
-
 QString BoltzmannSimulation::description() const
 {
 	return "Sedimation Equilibrum";
@@ -607,12 +585,6 @@ QString LightabsorptionSimulation::rules() const
 QString LightabsorptionSimulation::description() const
 {
 	return "Lightabsorption Simulation";
-}
-
-QWidget* LightabsorptionSimulation::statisticsWidget() const
-{
-	// TODO
-	return new QWidget();
 }
 
 QByteArray LightabsorptionSimulation::name() const

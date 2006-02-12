@@ -162,4 +162,9 @@ void Simulation::finishMove()
 	emit turnOver();
 }
 
+QWidget * Simulation::statisticsWidget() const
+{
+	return m_statWidget;
+}
+
 #include "moc_simulation.cpp"

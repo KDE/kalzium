@@ -53,8 +53,6 @@ class RAGame : public Simulation
 
 		QString rules() const;
 
-		virtual QWidget * statisticsWidget() const;
-
 	public slots:
 		void start();
 
@@ -63,9 +61,6 @@ class RAGame : public Simulation
 		int m_number;
 
 		Ui::RAForm* m_statForm;
-
-	protected:
-		Field* m_field;
 };
 
 /**
@@ -78,8 +73,6 @@ class CrystallizationGame : public Simulation
 		
 		static CrystallizationGame* instance();
 		
-		virtual QWidget * statisticsWidget() const;
-
 		void rollDice();
 		
 		QString rules() const;
@@ -127,8 +120,6 @@ class DecompositionSimulation : public CrystallizationGame
 		
 		static DecompositionSimulation* instance();
 		
-		virtual QWidget * statisticsWidget() const;
-
 		void rollDice();
 		
 		QString rules() const;
@@ -147,8 +138,6 @@ class DecompositionSimulation : public CrystallizationGame
 		int m_number;
 
 	protected:
-		Field* m_field;
-
 		//FIXME Why have the methods neighboursNum, neighboursTeam and exchangeStones
 		//		to be reimplemented? If I don't do that they don't work because
 		//		the stones are not found... Don't understand it...
@@ -181,8 +170,6 @@ class BoltzmannSimulation : public Simulation
 		
 		static BoltzmannSimulation* instance();
 		
-		virtual QWidget * statisticsWidget() const;
-
 		bool changeToDo;
 
 		void rollDice();
@@ -203,9 +190,6 @@ class BoltzmannSimulation : public Simulation
 		int m_number;
 		
 		void changePosition( Stone * stone , bool lower );
-
-	protected:
-		Field* m_field;
 };
 
 /**
@@ -218,8 +202,6 @@ class LightabsorptionSimulation : public Simulation
 		
 		static LightabsorptionSimulation* instance();
 		
-		virtual QWidget * statisticsWidget() const;
-
 		void rollDice();
 		
 		QString rules() const;
@@ -238,9 +220,6 @@ class LightabsorptionSimulation : public Simulation
 		int m_number;
 
 		int m_col;
-
-	protected:
-		Field* m_field;
 };
 
 #endif // GAMESIMPLEMENTATION_H
