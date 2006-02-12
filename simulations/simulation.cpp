@@ -158,6 +158,8 @@ void Simulation::finishMove()
 	Move *move = new Move( sl );
 	m_moves.append( move );
 
+	qApp->processEvents();
+
 	emit turnOver( move );
 	emit turnOver();
 }
