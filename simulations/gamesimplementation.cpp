@@ -601,37 +601,24 @@ void LightabsorptionSimulation::rollDice()
 	for (int i = 0 ; i < n ; ++i )
 	{//go from top to bottom and roll for each token (n rows --> n rolls)
 		const int y = ( int ) ( rand()%n );
-		Stone * s = m_field->stoneAtPosition( QPoint(m_col, y) );
 
-		if ( !s ) continue;
+		foreach( int row, m_ypositions )
+		{//check if we want to remove a stone
+			if (row == y)
+				m_ypositions.removeAt(row);
 
-		int number = 0;
-		int numberToRemove = 0;
-		
-		QList<Stone*> stones = m_field->stones();
-		foreach( Stone * s , stones )
-		{
-			if ( s->position() == QPoint( m_col, y ) )
-			{
-				std::cout << "position equals, removing "<< m_col << ", " << s->position().y() << std::endl;
-				numberToRemove = number;
-			}
-			else
-				std::cout << "position different, nothing to remove "<< m_col << ", " << s->position().y() << std::endl;
-
-			number++;
-			numberToRemove++;
-		}
-
-		stones.removeAt( numberToRemove );	
-		
-		foreach( Stone * s , stones )
-		{
-			std::cout << "Stone has position "<< m_col << ", " << s->position().y() << std::endl;
+			continue;
 		}
 	}
+
+	m_field->clear();
 	
 	m_col++;
+	
+	foreach( int row, m_ypositions )
+	{
+		m_field->addStone( new Stone( Stone::White, QPoint( m_col, row ) ) );
+	}
 }
 
 void LightabsorptionSimulation::start()
