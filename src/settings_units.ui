@@ -86,16 +86,16 @@
                         <cstring>radioButton22</cstring>
                     </property>
                     <property name="text">
-                        <string>Use degrees &amp;Réamur</string>
+                        <string>Use degrees &amp;Réaumur</string>
                     </property>
                     <property name="buttonGroupId">
                         <number>4</number>
                     </property>
                     <property name="toolTip" stdset="0">
-                        <string>If selected, the temperatures will be displayed in Degrees Réamur.</string>
+                        <string>If selected, the temperatures will be displayed in Degrees Réaumur.</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>If selected, the temperatures will be displayed in Degrees Réamur. This is then saved in configuration and restored next time you start Kalzium.</string>
+                        <string>If selected, the temperatures will be displayed in Degrees Réaumur. This is then saved in configuration and restored next time you start Kalzium.</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton" row="1" column="0">
