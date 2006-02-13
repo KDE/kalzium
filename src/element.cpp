@@ -161,8 +161,8 @@ const QString Element::adjustUnits( const int type )
 				case 3: // Kelvin to Rankine
 					v = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( newvalue ).arg( QChar(0xB0) );
 					break;
-				case 4: // Kelvin to Reamur
-					v = i18n( "%1 is the temperature in Reamur", "%1 %2R" ).arg( newvalue ).arg( QChar(0xB0) );
+				case 4: // Kelvin to Reaumur
+					v = i18n( "%1 is the temperature in Reaumur", "%1 %2R" ).arg( newvalue ).arg( QChar(0xB0) );
 					break;
 			}
 		}

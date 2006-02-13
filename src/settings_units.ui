@@ -86,7 +86,7 @@
                         <cstring>radioButton22</cstring>
                     </property>
                     <property name="text">
-                        <string>Use degrees &amp;Réamur</string>
+                        <string>Use degrees &amp;Réaumur</string>
                     </property>
                     <property name="buttonGroupId">
                         <number>4</number>
