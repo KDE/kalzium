@@ -33,6 +33,7 @@
 #include <QImage>
 #include <QLayout>
 #include <QPushButton>
+#include <QStackedWidget>
 
 #include "element.h"
 #include "orbitswidget.h"
@@ -382,19 +383,17 @@ void DetailedInfoDlg::createContent( )
 	m_htmlpages["energies"] = addHTMLTab( i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
 	m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 
-//X 	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
-//X 	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
-//X 	m_pages.append( m_pSpectrumTab );
-//X 	
-//X 	//now add the spectrum-widget if needed
-//X 	if ( m_element->hasSpectrum() )
-//X 	{
-//X 		m_spectrumview = new SpectrumViewImpl( m_pSpectrumTab, "spectrumwidget" );
-//X 		m_spectrumview->setSpectrum( m_element->spectrum() );
-//X 		spectrumLayout->addWidget( m_spectrumview );
-//X 	}
-//X //X 	else
-//X //X 		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elementName() ), m_pSpectrumTab ) );
+	// spectrum widget tab
+	QFrame *m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
+	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab );
+	spectrumLayout->setMargin( 0 );
+	m_spectrumStack = new QStackedWidget( m_pSpectrumTab );
+	spectrumLayout->addWidget( m_spectrumStack );
+//X 	m_spectrumview = new SpectrumViewImpl( m_spectrumStack );
+//X 	m_spectrumview->setObjectName( "spectrumwidget" );
+//X 	m_spectrumStack->addWidget( m_spectrumview );
+	m_spectrumLabel = new QLabel( m_spectrumStack );
+	m_spectrumStack->addWidget( m_spectrumLabel );
 }
 
 void DetailedInfoDlg::reloadContent()
@@ -428,19 +427,17 @@ void DetailedInfoDlg::reloadContent()
 	fillHTMLTab( m_htmlpages["energies"], getHtml( ENERGY ) );
 	fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
 
-//X 	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
-//X 	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
-//X 	m_pages.append( m_pSpectrumTab );
-//X 	
-//X 	//now add the spectrum-widget if needed
+	// updating spectrum widget
 //X 	if ( m_element->hasSpectrum() )
 //X 	{
-//X 		m_spectrumview = new SpectrumViewImpl( m_pSpectrumTab, "spectrumwidget" );
 //X 		m_spectrumview->setSpectrum( m_element->spectrum() );
-//X 		spectrumLayout->addWidget( m_spectrumview );
+//X 		m_spectrumStack->setCurrentWidget( m_spectrumview );
 //X 	}
-//X //X 	else
-//X //X 		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elementName() ), m_pSpectrumTab ) );
+//X 	else
+//X 	{
+		m_spectrumLabel->setText( i18n( "No spectrum of %1 found." ).arg( element_name ) );
+		m_spectrumStack->setCurrentWidget( m_spectrumLabel );
+//X 	}
 }
 
 void DetailedInfoDlg::slotHelp()
@@ -466,11 +463,9 @@ void DetailedInfoDlg::slotHelp()
 		case 5:
 			 chapter = "infodialog_misc";
 			break;
-/*
 		case 6:
 			 chapter = "infodialog_spectrum";
 			break;
-*/
 	}
 
 	KToolInvocation::invokeHelp( chapter, QLatin1String( "kalzium" ) );
@@ -493,7 +488,9 @@ void DetailedInfoDlg::slotUser1()
 	{
 		setElement( m_elementNumber + 1 );
 #if 0
-		emit elementChanged( number + 1 );
+		// no need to increment m_elementNumber here too,
+		// as it's already done by setElement
+		emit elementChanged( m_elementNumber );
 #endif
 	}
 }
@@ -505,7 +502,9 @@ void DetailedInfoDlg::slotUser2()
 	{
 		setElement( m_elementNumber - 1 );
 #if 0
-		emit elementChanged( number - 1 );
+		// no need to decrement m_elementNumber here too,
+		// as it's already done by setElement
+		emit elementChanged( m_elementNumber );
 #endif
 	}
 }

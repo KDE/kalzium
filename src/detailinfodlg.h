@@ -25,6 +25,7 @@ class Element;
 class OrbitsWidget;
 class SpectrumViewImpl;
 
+class QStackedWidget;
 class KActionCollection;
 class KHTMLPart;
 
@@ -55,6 +56,8 @@ class DetailedInfoDlg : public KDialogBase
 		KActionCollection* m_actionCollection;
 
 		SpectrumViewImpl *m_spectrumview;
+		QStackedWidget* m_spectrumStack;
+		QLabel* m_spectrumLabel;
 
 		QString isotopeTable();
 
