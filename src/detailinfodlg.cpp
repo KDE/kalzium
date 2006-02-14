@@ -62,10 +62,14 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
 	createContent();
 
 	m_actionCollection = new KActionCollection(this);	
-	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);
+	KStdAction::quit(this, SLOT(close()), m_actionCollection);
 
 	setButtonTip( User2, i18n( "Goes to the previous element" ) );
 	setButtonTip( User1, i18n( "Goes to the next element" ) );
+
+	connect( this, SIGNAL( user1Clicked() ), this, SLOT( slotUser1() ) );
+	connect( this, SIGNAL( user2Clicked() ), this, SLOT( slotUser2() ) );
+	connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelp() ) );
 
 	// setting the element and updating the whole dialog
 	setElement( el );

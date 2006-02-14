@@ -97,7 +97,7 @@ class DetailedInfoDlg : public KDialogBase
 		 */
 		void fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode );
 	
-	protected slots:
+	private slots:
 		virtual void slotUser1();
 		virtual void slotUser2();
 		/**
