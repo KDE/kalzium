@@ -111,10 +111,6 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 
 			if (attrs.value(i) == "bo:atomicNumber")
 				d->inAtomicNumber = true;
-			else if (attrs.value(i) == "bo:symbol")
-				d->inSymbol = true;
-			else if (attrs.value(i) == "bo:name")
-				d->inName = true;
 			else if (attrs.value(i) == "bo:mass")
 				d->inMass = true;
 			else if (attrs.value(i) == "bo:exactMass")
@@ -156,6 +152,19 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 			else if (attrs.value(i) == "bo:density")
 				d->inDensity = true;
 		}
+	} else if (d->inElement && localName == "label")
+	{
+		for (int i = 0; i < attrs.length(); ++i) 
+		{
+			// FIXME
+			if ( attrs.localName( i ) != "dictRef" )
+				continue;
+
+			if (attrs.value(i) == "bo:symbol")
+				d->inSymbol = true;
+			else if (attrs.value(i) == "bo:name")
+				d->inName = true;
+		}
 	}
 	return true;
 }
@@ -171,7 +180,7 @@ bool ElementSaxParser::endElement( const QString &, const QString& localName, co
 		d->currentDataObject = 0;
 		d->inElement = false;
 	}
-	else if ( localName == "scalar" )
+	else if ( localName == "scalar" || localName == "label" )
 	{
 		if ( d->currentUnit != ChemicalDataObject::noUnit )
 			d->currentDataObject->setUnit( d->currentUnit );
