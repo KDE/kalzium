@@ -147,6 +147,8 @@ void OrbitsWidget::setElementNumber( const int num )
 	Elemno = num;
 	
 	getNumberOfOrbits();	
+
+	update();
 }
 
 void OrbitsWidget::getNumberOfOrbits()

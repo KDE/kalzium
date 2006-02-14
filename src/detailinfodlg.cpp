@@ -27,11 +27,13 @@
 #include <kcombobox.h>
 #include <kapplication.h>
 
+#include <qfile.h>
 #include <qlabel.h>
 #include <qimage.h>
 #include <qwhatsthis.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
+#include <qwidgetstack.h>
 
 #include "element.h"
 #include "orbitswidget.h"
@@ -48,37 +50,19 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 			KGuiItem(i18n("Next element", "Next"), "1rightarrow"), 
 			KGuiItem(i18n("Previous element", "Previous"), "1leftarrow"))
 {
-	m_data    = KalziumDataObject::instance();
 	m_element = el;
 
 	m_baseHtml = KGlobal::dirs()->findResourceDir("data", "kalzium/data/" );
 	m_baseHtml.append("kalzium/data/htmlview/");
 	m_baseHtml.append("style.css");
 
+	m_picsdir = KGlobal::dirs()->findResourceDir( "appdata", "elempics/" ) + "elempics/";
+
 	( actionButton( KDialogBase::Close ) )->setFocus();
 	
-	m_pOverviewTab = addPage(i18n("Overview"), i18n("Overview"), BarIcon( "overview" ));
-	m_pPictureTab = addPage(i18n("Picture"), i18n("What does this element look like?"), BarIcon( "elempic" ));
-	m_pModelTab = addPage( i18n("Atom Model"), i18n( "Atom Model" ), BarIcon( "orbits" ));
-	
-	mainLayout = new QVBoxLayout( m_pPictureTab );
-	overviewLayout = new QVBoxLayout( m_pOverviewTab );
-	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab , 0, KDialog::spacingHint() );
-
-	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
-	dTab->setElement( m_element );
-	overviewLayout->addWidget( dTab );
-
-	wOrbits = new OrbitsWidget( m_pModelTab );
-	piclabel = new QLabel( m_pPictureTab );
-	piclabel->setMinimumSize( 400, 350 );
-	
-	mainLayout->addWidget( piclabel );
-	modelLayout->addWidget( wOrbits );
-	
+	// creating the tabs but not the contents, as that will be done when
+	// setting the element
 	createContent();
-
-	m_currpage = 0;
 
 	m_actionCollection = new KActionCollection(this);	
 	KStdAction::quit(this, SLOT(slotClose()), m_actionCollection);
@@ -86,55 +70,44 @@ DetailedInfoDlg::DetailedInfoDlg( Element *el , QWidget *parent, const char *nam
 	setButtonTip( User2, i18n( "Goes to the previous element" ) );
 	setButtonTip( User1, i18n( "Goes to the next element" ) );
 
-	if ( m_element->number() == 1 )
-		enableButton( User2, false );
-	else if ( m_element->number() == m_data->numberOfElements() )
-		enableButton( User1, false );
-
-	connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
+	setElement( el );
 }
 
-// FIXME: We should never have to delete the windows.  
-//        Make it more efficient!
-//
 void DetailedInfoDlg::setElement(Element *element)
 {
-	m_element = element;
-	
-	QValueList<QFrame*>::iterator it = m_pages.begin();
-	QValueList<QFrame*>::iterator itEnd = m_pages.end();
-	for ( ; it != itEnd ; ++it ){
-		delete *it;
-		*it = NULL;
-	}
-	if ( m_currpage > 2 )
-		m_currpage += m_pages.size();
-	m_pages.clear();
+	if ( !element ) return;
 
-	createContent();
+	m_element = element;
+	m_elementNumber = element->number();
+	
+	reloadContent();
 
 	enableButton( User1, true );
 	enableButton( User2, true );
-	if ( m_element->number() == 1 )
+	if ( m_elementNumber == 1 )
 		enableButton( User2, false );
-	else if ( m_element->number() == m_data->numberOfElements() )
+	else if ( m_elementNumber == KalziumDataObject::instance()->numberOfElements() )
 		enableButton( User1, false );
 }
 
-
-void DetailedInfoDlg::addTab( const QString& htmlcode, const QString& title, const QString& icontext, const QString& iconname )
+KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& icontext, const QString& iconname )
 {
 	QFrame *frame = addPage(title, icontext, BarIcon(iconname));
 	QVBoxLayout *layout = new QVBoxLayout( frame );
+	layout->setMargin( 0 );
 	KHTMLPart *w = new KHTMLPart( frame, "html-part", frame );
 	layout->addWidget( w->view() );
-	
-	w->begin();
-	w->write( htmlcode );
-	w->end();
 
-	//add this page to the list of pages
-	m_pages.append( frame );
+	return w;
+}
+
+void DetailedInfoDlg::fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode )
+{
+	if ( !htmlpart ) return;
+
+	htmlpart->begin();
+	htmlpart->write( htmlcode );
+	htmlpart->end();
 }
 
 QString DetailedInfoDlg::getHtml(DATATYPE type)
@@ -355,33 +328,65 @@ QString DetailedInfoDlg::isotopeTable()
 
 void DetailedInfoDlg::createContent( )
 {
-	addTab( getHtml(CHEMICAL), i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
-	addTab( getHtml(ENERGY), i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
-	addTab( getHtml(MISC), i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
-	
-	m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
-	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
-	m_pages.append( m_pSpectrumTab );
-	
-	//now add the spectrum-widget if needed
-	if ( m_element->hasSpectrum() )
-	{
-		m_spectrumview = new SpectrumViewImpl( m_pSpectrumTab, "spectrumwidget" );
-		m_spectrumview->setSpectrum( m_element->spectrum() );
-		spectrumLayout->addWidget( m_spectrumview );
-	}
-	else
-		spectrumLayout->addWidget( new QLabel( i18n( "No spectrum of %1 found." ).arg( m_element->elname() ), m_pSpectrumTab ) );
-	
-	QString num = QString::number( m_element->number() );
-	QString cap = i18n("For example Carbon (6)" , "%1 (%2)" ).arg( m_element->elname() ).arg( num );
-	setCaption( cap );
+	// overview tab
+	QFrame *m_pOverviewTab = addPage( i18n( "Overview" ), i18n( "Overview" ), BarIcon( "overview" ) );
+	QVBoxLayout *overviewLayout = new QVBoxLayout( m_pOverviewTab );
+	overviewLayout->setMargin( 0 );
+	dTab = new DetailedGraphicalOverview( m_pOverviewTab, "DetailedGraphicalOverview" );
+	overviewLayout->addWidget( dTab );
 
+	// picture tab
+	QFrame *m_pPictureTab = addPage( i18n( "Picture" ), i18n( "What does this element look like?" ), BarIcon( "elempic" ) );
+	QVBoxLayout *mainLayout = new QVBoxLayout( m_pPictureTab );
+	mainLayout->setMargin( 0 );
+	piclabel = new QLabel( m_pPictureTab );
+	piclabel->setMinimumSize( 400, 350 );
+	mainLayout->addWidget( piclabel );
+
+	// atomic model tab
+	QFrame *m_pModelTab = addPage( i18n( "Atom Model" ), i18n( "Atom Model" ), BarIcon( "orbits" ) );
+	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab );
+	modelLayout->setMargin( 0 );
+	wOrbits = new OrbitsWidget( m_pModelTab );
+	QWhatsThis::add( wOrbits,
+	    i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
+	    .arg( m_element->elname() )
+	    .arg( m_element->elname() )
+	    .arg( m_element->parsedOrbits() ) );
+	modelLayout->addWidget( wOrbits );
+
+	// html tabs
+	m_htmlpages["chemical"] = addHTMLTab( i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
+	m_htmlpages["energies"] = addHTMLTab( i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
+	m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
+
+	// spectrum widget tab
+	QFrame *m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
+	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab , 0, KDialog::spacingHint() );
+	spectrumLayout->setMargin( 0 );
+	m_spectrumStack = new QWidgetStack( m_pSpectrumTab );
+	spectrumLayout->addWidget( m_spectrumStack );
+	m_spectrumview = new SpectrumViewImpl( m_spectrumStack, "spectrumwidget" );
+	m_spectrumStack->addWidget( m_spectrumview );
+	m_spectrumLabel = new QLabel( m_spectrumStack );
+	m_spectrumStack->addWidget( m_spectrumLabel );
+}
+
+void DetailedInfoDlg::reloadContent()
+{
+	// reading the most common data
+	const QString element_name = m_element->elname();
+	const QString element_symbol = m_element->symbol();
+
+	// updating caption
+	setCaption( i18n( "For example Carbon (6)" , "%1 (%2)" ).arg( element_name ).arg( m_elementNumber ) );
+
+	// updating overview tab
 	dTab->setElement( m_element );
 
-	////////////////////////////////////
-	QString picpath = locate(  "data" , "kalzium/elempics/" + m_element->symbol() + ".jpg" );
-	if ( !picpath.isEmpty() )
+	// updating picture tab
+	QString picpath = m_picsdir + element_symbol + ".jpg";
+	if ( QFile::exists( picpath ) )
 	{
 		QImage img( picpath, "JPEG" );
 		img = img.smoothScale ( 400, 400, QImage::ScaleMin );
@@ -390,16 +395,27 @@ void DetailedInfoDlg::createContent( )
 		piclabel->setPixmap( pic );
 	}
 	else 
-		piclabel->setText( i18n( "No picture of %1 found." ).arg( m_element->elname() ) );
+		piclabel->setText( i18n( "No picture of %1 found." ).arg( element_name ) );
 
-	/////////////////////////////////
-	
-	wOrbits->setElementNumber( m_element->number() );
-	wOrbits->repaint();
-	QWhatsThis::add( wOrbits,  i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
-							.arg( m_element->elname() )
-							.arg( m_element->elname() )
-							.arg( m_element->parsedOrbits() ) );
+	// updating atomic model tab
+	wOrbits->setElementNumber( m_elementNumber );
+
+	// updating html tabs
+	fillHTMLTab( m_htmlpages["chemical"], getHtml( CHEMICAL ) );
+	fillHTMLTab( m_htmlpages["energies"], getHtml( ENERGY ) );
+	fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
+
+	// updating spectrum widget
+	if ( m_element->hasSpectrum() )
+	{
+		m_spectrumview->setSpectrum( m_element->spectrum() );
+		m_spectrumStack->raiseWidget( m_spectrumview );
+	}
+	else
+	{
+		m_spectrumLabel->setText( i18n( "No spectrum of %1 found." ).arg( element_name ) );
+		m_spectrumStack->raiseWidget( m_spectrumLabel );
+	}
 }
 
 void DetailedInfoDlg::slotHelp()
@@ -450,17 +466,10 @@ void DetailedInfoDlg::slotUser1()
 // setting the next element
 	int number = m_element->number();
 
-	if ( number < m_data->numberOfElements() )
+	if ( number < KalziumDataObject::instance()->numberOfElements() )
 	{
-		disconnect( this, SIGNAL( aboutToShowPage(QWidget *) ), this, SLOT( slotChangePage(QWidget *) ) );
-		setElement( m_data->element( number + 1 ) );
+		setElement( KalziumDataObject::instance()->element( number + 1 ) );
 		emit elementChanged( number + 1 );
-		if ( number == ( m_data->numberOfElements() - 1 ) )
-			enableButton( User1, false );
-		if ( !actionButton( User2 )->isEnabled() )
-			enableButton( User2, true );
-		showPage( m_currpage );
-		connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
 	}
 }
 
@@ -471,21 +480,9 @@ void DetailedInfoDlg::slotUser2()
 
 	if ( number > 1 )
 	{
-		disconnect( this, SIGNAL( aboutToShowPage(QWidget *) ), this, SLOT( slotChangePage(QWidget *) ) );
-		setElement( m_data->element( number - 1 ) );
+		setElement( KalziumDataObject::instance()->element( number - 1 ) );
 		emit elementChanged( number - 1 );
-		if ( number == 2 )
-			enableButton( User2, false );
-		if ( !actionButton( User1 )->isEnabled() )
-			enableButton( User1, true );
-		showPage( m_currpage );
-		connect( this, SIGNAL( aboutToShowPage(QWidget *) ), SLOT( slotChangePage(QWidget *) ) );
 	}
-}
-
-void DetailedInfoDlg::slotChangePage( QWidget *newpage )
-{
-	m_currpage = pageIndex( newpage );
 }
 
 #include "detailinfodlg.moc"

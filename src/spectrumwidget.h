@@ -42,6 +42,7 @@ class SpectrumWidget : public QWidget
 
 		void setSpectrum( Spectrum* spec ){
 			m_spectrum = spec;
+			update();
 		}
 
 		Spectrum* spectrum()const{
