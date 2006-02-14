@@ -464,24 +464,24 @@ void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 void DetailedInfoDlg::slotUser1()
 {
 // setting the next element
-	int number = m_element->number();
-
-	if ( number < KalziumDataObject::instance()->numberOfElements() )
+	if ( m_elementNumber < KalziumDataObject::instance()->numberOfElements() )
 	{
-		setElement( KalziumDataObject::instance()->element( number + 1 ) );
-		emit elementChanged( number + 1 );
+		setElement( KalziumDataObject::instance()->element( m_elementNumber + 1 ) );
+		// no need to increment m_elementNumber here too,
+		// as it's already done by setElement
+		emit elementChanged( m_elementNumber );
 	}
 }
 
 void DetailedInfoDlg::slotUser2()
 {
 // setting the previous element
-	int number = m_element->number();
-
-	if ( number > 1 )
+	if ( m_elementNumber > 1 )
 	{
-		setElement( KalziumDataObject::instance()->element( number - 1 ) );
-		emit elementChanged( number - 1 );
+		setElement( KalziumDataObject::instance()->element( m_elementNumber - 1 ) );
+		// no need to decrement m_elementNumber here too,
+		// as it's already done by setElement
+		emit elementChanged( m_elementNumber );
 	}
 }
 
