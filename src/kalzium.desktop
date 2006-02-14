@@ -6,7 +6,6 @@ Exec=kalzium -caption "%c" %i %m
 Icon=kalzium
 DocPath=kalzium/index.html
 Comment=KDE Periodic Table of Elements
-Comment[sl]=Periodna tabela elementov
 Terminal=false
 Name=Kalzium
 Name[bn]=ক্যালজিয়াম
