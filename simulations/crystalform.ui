@@ -25,7 +25,7 @@
     </rect>
    </property>
    <property name="title" >
-    <string>GroupBox</string>
+    <string>Crystal</string>
    </property>
    <widget class="QLabel" name="label" >
     <property name="geometry" >

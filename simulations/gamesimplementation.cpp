@@ -20,6 +20,7 @@
 #include "gamesimplementation.h"
 
 #include "ui_raform.h"
+#include "ui_boltzmannform.h"
 #include "ui_crystalform.h"
 
 #include <time.h>
@@ -464,6 +465,9 @@ BoltzmannSimulation::BoltzmannSimulation()
 {
 	m_field = new Field();
 	setField( m_field );
+	m_statForm = new Ui::BoltzmannForm();
+	m_statWidget = new QWidget();
+	m_statForm->setupUi( m_statWidget );
 
 	changeToDo = true;
 

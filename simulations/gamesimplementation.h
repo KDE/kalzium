@@ -26,6 +26,7 @@ namespace Ui
 {
 	class RAForm;
 	class CrystalForm;
+	class BoltzmannForm;
 };
 
 /**
@@ -190,6 +191,9 @@ class BoltzmannSimulation : public Simulation
 		int m_number;
 		
 		void changePosition( Stone * stone , bool lower );
+		
+	protected:
+		Ui::BoltzmannForm* m_statForm;
 };
 
 /**
