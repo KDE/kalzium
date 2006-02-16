@@ -9,7 +9,7 @@
     <x>0</x>
     <y>0</y>
     <width>423</width>
-    <height>599</height>
+    <height>472</height>
    </rect>
   </property>
   <property name="sizePolicy" >
@@ -55,14 +55,14 @@
      <property name="title" >
       <string>Choose the Simulation</string>
      </property>
-     <layout class="QGridLayout" >
+     <layout class="QVBoxLayout" >
       <property name="margin" >
        <number>9</number>
       </property>
       <property name="spacing" >
        <number>6</number>
       </property>
-      <item row="0" column="0" >
+      <item>
        <widget class="QComboBox" name="combo" >
         <property name="toolTip" >
          <string>Select the simulation you want to run</string>
@@ -72,15 +72,21 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="0" >
+      <item>
        <widget class="QTextBrowser" name="label" >
         <property name="sizePolicy" >
          <sizepolicy>
           <hsizetype>1</hsizetype>
-          <vsizetype>3</vsizetype>
+          <vsizetype>1</vsizetype>
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
         </property>
         <property name="toolTip" >
          <string>This texts describes the simulation in brief words</string>
@@ -120,7 +126,7 @@
       <widget class="SimulationfieldWidget" name="gf" >
        <property name="sizePolicy" >
         <sizepolicy>
-         <hsizetype>4</hsizetype>
+         <hsizetype>7</hsizetype>
          <vsizetype>7</vsizetype>
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
@@ -139,6 +145,72 @@
         <string>The simulation is visualized here</string>
        </property>
       </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>20</width>
+           <height>4</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="start" >
+         <property name="toolTip" >
+          <string>Start the simulation</string>
+         </property>
+         <property name="text" >
+          <string>Start</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="stop" >
+         <property name="toolTip" >
+          <string>Stop the simulation</string>
+         </property>
+         <property name="text" >
+          <string>Stop</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="next" >
+         <property name="toolTip" >
+          <string>Next move</string>
+         </property>
+         <property name="text" >
+          <string>Next</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>20</width>
+           <height>4</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>
@@ -266,46 +338,6 @@
       </item>
      </layout>
     </widget>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <item>
-      <widget class="QPushButton" name="start" >
-       <property name="toolTip" >
-        <string>Start the simulation</string>
-       </property>
-       <property name="text" >
-        <string>Start</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="stop" >
-       <property name="toolTip" >
-        <string>Stop the simulation</string>
-       </property>
-       <property name="text" >
-        <string>Stop</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="next" >
-       <property name="toolTip" >
-        <string>Next move</string>
-       </property>
-       <property name="text" >
-        <string>Next</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </item>
   </layout>
  </widget>

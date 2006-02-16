@@ -29,7 +29,7 @@ SimulationfieldWidget::SimulationfieldWidget( QWidget * parent )
 	: QFrame ( parent )
 {
 	m_field = 0;
-	setMinimumSize( 200, 200 );
+//	setMinimumSize( 200, 200 );
 }
 
 void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )

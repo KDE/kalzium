@@ -9,129 +9,131 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>145</height>
    </rect>
   </property>
   <property name="windowTitle" >
    <string>Form</string>
   </property>
-  <widget class="QGroupBox" name="groupBox" >
-   <property name="geometry" >
-    <rect>
-     <x>9</x>
-     <y>9</y>
-     <width>382</width>
-     <height>282</height>
-    </rect>
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>9</number>
    </property>
-   <property name="title" >
-    <string>GroupBox</string>
+   <property name="spacing" >
+    <number>6</number>
    </property>
-   <layout class="QVBoxLayout" >
-    <property name="margin" >
-     <number>9</number>
-    </property>
-    <property name="spacing" >
-     <number>6</number>
-    </property>
-    <item>
-     <layout class="QHBoxLayout" >
+   <item>
+    <widget class="QGroupBox" name="groupBox" >
+     <property name="title" >
+      <string>GroupBox</string>
+     </property>
+     <layout class="QVBoxLayout" >
       <property name="margin" >
-       <number>0</number>
+       <number>9</number>
       </property>
       <property name="spacing" >
        <number>6</number>
       </property>
       <item>
-       <widget class="QLabel" name="label" >
-        <property name="text" >
-         <string>White Tokens:</string>
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
         </property>
-       </widget>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label" >
+          <property name="text" >
+           <string>White Tokens:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5" >
+          <property name="text" >
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QLabel" name="label_5" >
-        <property name="text" >
-         <string>TextLabel</string>
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
         </property>
-       </widget>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_2" >
+          <property name="text" >
+           <string>Black Tokens:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_6" >
+          <property name="text" >
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_3" >
+          <property name="text" >
+           <string>Moves:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_7" >
+          <property name="text" >
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_4" >
+          <property name="text" >
+           <string>Percentage of radioactive tokens:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_8" >
+          <property name="text" >
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" >
-      <property name="margin" >
-       <number>0</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="label_2" >
-        <property name="text" >
-         <string>Black Tokens:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_6" >
-        <property name="text" >
-         <string>TextLabel</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" >
-      <property name="margin" >
-       <number>0</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="label_3" >
-        <property name="text" >
-         <string>Moves:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_7" >
-        <property name="text" >
-         <string>TextLabel</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" >
-      <property name="margin" >
-       <number>0</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="label_4" >
-        <property name="text" >
-         <string>Percentage of radioactive tokens:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_8" >
-        <property name="text" >
-         <string>TextLabel</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <pixmapfunction></pixmapfunction>
  <resources/>
