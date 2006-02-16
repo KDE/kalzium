@@ -8,7 +8,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>438</width>
     <height>56</height>
    </rect>
   </property>
@@ -33,7 +33,7 @@
    <item>
     <widget class="QGroupBox" name="groupBox" >
      <property name="title" >
-      <string>Crystal</string>
+      <string>Statistics</string>
      </property>
      <layout class="QVBoxLayout" >
       <property name="margin" >

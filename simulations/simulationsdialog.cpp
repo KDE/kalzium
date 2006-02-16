@@ -55,6 +55,12 @@ GamesDialog::GamesDialog()
 
 void GamesDialog::activateGame( int nr )
 {
+	//FIXME This is not the best way I guess... But I have no
+	//clue how to improve it... Why is there no ->clear() call 
+	//or something?
+	foreach( QObject * o, vbox->children() )
+		vbox->removeWidget( ( QWidget* )o );
+	
 	//better safe than sorry
 	m_controls->ui.gf->setField( 0 );
 	
@@ -64,10 +70,9 @@ void GamesDialog::activateGame( int nr )
 
 	m_game = g;
 
-	// removing the old widget
-	vbox->removeWidget( statsWidget );
-	// getting the new one and adding it to the dialog
 	statsWidget = m_game->statisticsWidget();
+	
+	vbox->addWidget( m_controls );
 	vbox->addWidget( statsWidget );
 	
 	int x = m_controls->ui.xsize->value();

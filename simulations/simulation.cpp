@@ -115,7 +115,7 @@ QPixmap Simulation::pixmapOfMove( int movenumber )
 	if ( !movenumber > 1 && !movenumber < m_moves.count() )
 		return QPixmap();
 
-	Move * move = m_moves.at( movenumber - 1 );
+	//Move * move = m_moves.at( movenumber - 1 );
 	
 	return px;
 }

@@ -44,6 +44,7 @@ class SimulationfieldWidget : public QFrame
 
 	public slots:
 		void slotUpdate( Move * move ){
+			( void ) move;
 			update();	
 		}
 
