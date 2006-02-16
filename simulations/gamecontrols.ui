@@ -35,86 +35,14 @@
   <property name="whatsThis" >
    <string>In this dialog you can simulate chemical principles</string>
   </property>
-  <layout class="QVBoxLayout" >
+  <layout class="QGridLayout" >
    <property name="margin" >
-    <number>0</number>
+    <number>9</number>
    </property>
    <property name="spacing" >
     <number>6</number>
    </property>
-   <item>
-    <widget class="QGroupBox" name="groupBox_2" >
-     <property name="sizePolicy" >
-      <sizepolicy>
-       <hsizetype>5</hsizetype>
-       <vsizetype>1</vsizetype>
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="title" >
-      <string>Choose the Simulation</string>
-     </property>
-     <layout class="QVBoxLayout" >
-      <property name="margin" >
-       <number>9</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item>
-       <widget class="QComboBox" name="combo" >
-        <property name="toolTip" >
-         <string>Select the simulation you want to run</string>
-        </property>
-        <property name="whatsThis" >
-         <string>Select the simulation you want to run</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QTextBrowser" name="label" >
-        <property name="sizePolicy" >
-         <sizepolicy>
-          <hsizetype>1</hsizetype>
-          <vsizetype>1</vsizetype>
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximumSize" >
-         <size>
-          <width>16777215</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="toolTip" >
-         <string>This texts describes the simulation in brief words</string>
-        </property>
-        <property name="whatsThis" >
-         <string>This texts describes the simulation in brief words</string>
-        </property>
-        <property name="frameShape" >
-         <enum>QFrame::Box</enum>
-        </property>
-        <property name="frameShadow" >
-         <enum>QFrame::Plain</enum>
-        </property>
-        <property name="lineWidth" >
-         <number>1</number>
-        </property>
-        <property name="midLineWidth" >
-         <number>1</number>
-        </property>
-        <property name="horizontalScrollBarPolicy" >
-         <enum>Qt::ScrollBarAlwaysOff</enum>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
+   <item row="1" column="0" >
     <layout class="QHBoxLayout" >
      <property name="margin" >
       <number>0</number>
@@ -161,8 +89,8 @@
          </property>
          <property name="sizeHint" >
           <size>
-           <width>20</width>
-           <height>4</height>
+           <width>85</width>
+           <height>21</height>
           </size>
          </property>
         </spacer>
@@ -204,17 +132,20 @@
          </property>
          <property name="sizeHint" >
           <size>
-           <width>20</width>
-           <height>4</height>
+           <width>85</width>
+           <height>61</height>
           </size>
          </property>
         </spacer>
+       </item>
+       <item>
+        <widget class="QLCDNumber" name="lcd" />
        </item>
       </layout>
      </item>
     </layout>
    </item>
-   <item>
+   <item row="2" column="0" >
     <widget class="QGroupBox" name="groupBox_3" >
      <property name="sizePolicy" >
       <sizepolicy>
@@ -335,6 +266,78 @@
          </widget>
         </item>
        </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0" >
+    <widget class="QGroupBox" name="groupBox_2" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>5</hsizetype>
+       <vsizetype>1</vsizetype>
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title" >
+      <string>Choose the Simulation</string>
+     </property>
+     <layout class="QVBoxLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QComboBox" name="combo" >
+        <property name="toolTip" >
+         <string>Select the simulation you want to run</string>
+        </property>
+        <property name="whatsThis" >
+         <string>Select the simulation you want to run</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextBrowser" name="label" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>1</hsizetype>
+          <vsizetype>1</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="toolTip" >
+         <string>This texts describes the simulation in brief words</string>
+        </property>
+        <property name="whatsThis" >
+         <string>This texts describes the simulation in brief words</string>
+        </property>
+        <property name="frameShape" >
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow" >
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="lineWidth" >
+         <number>1</number>
+        </property>
+        <property name="midLineWidth" >
+         <number>1</number>
+        </property>
+        <property name="horizontalScrollBarPolicy" >
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

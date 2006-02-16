@@ -26,6 +26,7 @@
 
 #include <QLayout>
 #include <QComboBox>
+#include <QLCDNumber>
 
 #include <iostream>
 
@@ -114,6 +115,8 @@ void GamesDialog::createConnetions()
 void GamesDialog::calculateStatistics()
 {
 	if ( !m_game ) return;
+
+	m_controls->ui.lcd->display( m_game->numberOfMoves() );	
 }
 
 void GamesDialog::displayStatistics()
