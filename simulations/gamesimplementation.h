@@ -27,6 +27,8 @@ namespace Ui
 	class RAForm;
 	class CrystalForm;
 	class BoltzmannForm;
+	class LightabsorptionForm;
+	class DecompositionForm;
 };
 
 /**
@@ -138,6 +140,8 @@ class DecompositionSimulation : public CrystallizationGame
 	private:
 		int m_number;
 
+		Ui::DecompositionForm* m_statForm;
+
 	protected:
 		//FIXME Why have the methods neighboursNum, neighboursTeam and exchangeStones
 		//		to be reimplemented? If I don't do that they don't work because
@@ -192,7 +196,6 @@ class BoltzmannSimulation : public Simulation
 		
 		void changePosition( Stone * stone , bool lower );
 		
-	protected:
 		Ui::BoltzmannForm* m_statForm;
 };
 
@@ -226,6 +229,8 @@ class LightabsorptionSimulation : public Simulation
 		int m_col;
 
 		QList<int> m_ypositions;
+
+		Ui::LightabsorptionForm * m_statForm;
 };
 
 #endif // GAMESIMPLEMENTATION_H

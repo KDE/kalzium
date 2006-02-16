@@ -22,6 +22,8 @@
 #include "ui_raform.h"
 #include "ui_boltzmannform.h"
 #include "ui_crystalform.h"
+#include "ui_lightabsorptionform.h"
+#include "ui_decompositionform.h"
 
 #include <time.h>
 #include <stdlib.h>
