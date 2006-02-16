@@ -17,16 +17,13 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 #include "simulation.h"
-#include "gamecontrols_impl.h"
 #include "stone.h"
 #include "field.h"
 #include "gamesimplementation.h"
 
+#include <QApplication>
 #include <QPoint>
-#include <QLayout>
 
-#include <math.h>
-#include <time.h>
 #include <iostream>
 
 //GamesFactory

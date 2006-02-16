@@ -22,6 +22,7 @@
 #include "simulationsdialog.h"
 #include "simulation.h"
 #include "simulationfield.h"
+#include "field.h"
 
 #include <QLayout>
 #include <QComboBox>

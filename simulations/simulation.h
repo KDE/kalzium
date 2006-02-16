@@ -23,10 +23,9 @@
 #include <QPixmap>
 #include <QByteArray>
 
-#include "field.h"
 #include "stone.h"
 
-class Stone;
+class Field;
 class Move;
 class Simulation;
 

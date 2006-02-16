@@ -19,6 +19,8 @@
 
 #include "gamesimplementation.h"
 
+#include "field.h"
+
 #include "ui_raform.h"
 #include "ui_boltzmannform.h"
 #include "ui_crystalform.h"
