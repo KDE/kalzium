@@ -31,6 +31,8 @@
 GamesDialog::GamesDialog()
 	: QDialog( 0 )
 {
+	setWindowTitle( "Kalzium Simulations" );
+
 	statsWidget = 0;
 
 	vbox = new QVBoxLayout( this );
@@ -76,6 +78,8 @@ void GamesDialog::activateGame( int nr )
 	m_controls->ui.label->setPlainText(m_game->rules());
 
 	m_controls->ui.gf->update();
+
+	resize( sizeHint() );
 
 	createConnetions();
 }
