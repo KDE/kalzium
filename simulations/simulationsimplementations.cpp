@@ -44,6 +44,7 @@ void RASimulation::start()
 			m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
 		}
 	}
+	Simulation::start();
 }
 
 RASimulation* RASimulation::instance()
@@ -69,7 +70,7 @@ QString RASimulation::rules() const
 
 void RASimulation::rollDice()
 {
-	m_number++;
+	m_numberOfMoves++;
 	
 	//generating two random numbers
 	const int x = ( int ) ( rand()%m_field->xSize() );
@@ -104,7 +105,6 @@ RASimulation::RASimulation()
 	setField( m_field );
 	
 	m_counter = 0;
-	m_number = 0;
 }
 
 CrystallizationSimulation* CrystallizationSimulation::instance()
@@ -130,7 +130,7 @@ QString CrystallizationSimulation::rules() const
 
 void CrystallizationSimulation::rollDice()
 {
-	m_number++;
+	m_numberOfMoves++;
 
 	//generating two random numbers
 	const int x = ( int ) ( rand()%m_field->xSize() );
@@ -258,8 +258,6 @@ CrystallizationSimulation::CrystallizationSimulation()
 	m_statWidget = new QWidget();
 	m_statForm->setupUi( m_statWidget );
 	setField( m_field );
-
-	m_number = 0;
 }
 
 void CrystallizationSimulation::start()
@@ -279,6 +277,7 @@ void CrystallizationSimulation::start()
 				m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
 		}
 	}
+	Simulation::start();
 }
 
 
@@ -307,7 +306,7 @@ QString DecompositionSimulation::rules() const
 
 void DecompositionSimulation::rollDice()
 {
-	m_number++;
+	m_numberOfMoves++;
 
 	//generating two random numbers
 	const int x = ( int ) ( rand()%m_field->xSize() );
@@ -348,8 +347,6 @@ DecompositionSimulation::DecompositionSimulation()
 {
 	m_field = new Field();
 	setField( m_field );
-
-	m_number = 0;
 }
 
 void DecompositionSimulation::start()
@@ -377,6 +374,7 @@ void DecompositionSimulation::start()
 			}
 		}
 	}
+	Simulation::start();
 }
 
 void DecompositionSimulation::exchangeStones( const QPoint& point )
@@ -474,8 +472,6 @@ BoltzmannSimulation::BoltzmannSimulation()
 	m_statForm->setupUi( m_statWidget );
 
 	changeToDo = true;
-
-	m_number = 0;
 }
 	
 BoltzmannSimulation* BoltzmannSimulation::instance()
@@ -501,7 +497,7 @@ QByteArray BoltzmannSimulation::name() const
 
 void BoltzmannSimulation::rollDice()
 {
-	m_number++;
+	m_numberOfMoves++;
 	changeToDo = true;
 
 	int numOfStones = m_field->stones().count();
@@ -515,7 +511,7 @@ void BoltzmannSimulation::rollDice()
 		int yMax = m_field->ySize() - 1; //if the field has a ySize of 6 it is
 										 //internally 5. I don't want to confuse this
 
-		if ( m_number%2 ) //make the y-position one higher
+		if ( m_numberOfMoves%2 ) //make the y-position one higher
 		{
 			if ( yPos == 0 )
 			{//cannot make it higher, it is already at the maximum
@@ -566,6 +562,8 @@ void BoltzmannSimulation::start()
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
 		for ( int foo = 0; foo < 20 ; ++foo )
 			m_field->addStone( new Stone( Stone::White, QPoint( x, ypos ) ) );
+	
+	Simulation::start();
 }
 
 ///LightabsorptionSimulation
@@ -574,7 +572,6 @@ LightabsorptionSimulation::LightabsorptionSimulation()
 	m_field = new Field();
 	setField( m_field );
 
-	m_number = 0;
 	m_col = 0;
 }
 	
@@ -601,7 +598,7 @@ QByteArray LightabsorptionSimulation::name() const
 
 void LightabsorptionSimulation::rollDice()
 {
-	m_number++;
+	m_numberOfMoves++;
 
 	//we will remove n times
 	int n = m_field->ySize();
@@ -643,4 +640,5 @@ void LightabsorptionSimulation::start()
 	}
 	
 	m_maxMoves = m_field->ySize();
+	Simulation::start();
 }

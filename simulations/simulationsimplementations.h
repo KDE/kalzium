@@ -61,7 +61,6 @@ class RASimulation : public Simulation
 
 	private:
 		int m_counter;
-		int m_number;
 
 		Ui::RAForm* m_statForm;
 };
@@ -91,7 +90,6 @@ class CrystallizationSimulation : public Simulation
 		void start();
 
 	private:
-		int m_number;
 		Ui::CrystalForm* m_statForm;
 
 	protected:
@@ -138,8 +136,6 @@ class DecompositionSimulation : public CrystallizationSimulation
 		void start();
 
 	private:
-		int m_number;
-
 		Ui::DecompositionForm* m_statForm;
 
 	protected:
@@ -192,8 +188,6 @@ class BoltzmannSimulation : public Simulation
 		void start();
 
 	private:
-		int m_number;
-		
 		void changePosition( Stone * stone , bool lower );
 		
 		Ui::BoltzmannForm* m_statForm;
@@ -224,8 +218,6 @@ class LightabsorptionSimulation : public Simulation
 		void start();
 
 	private:
-		int m_number;
-
 		int m_col;
 
 		QList<int> m_ypositions;

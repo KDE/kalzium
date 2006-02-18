@@ -211,7 +211,7 @@ class Simulation : public QObject
 		/**
 		 * Start the simulations, everything is set to the start-conditions
 		 */
-		virtual void start() = 0;
+		virtual void start() ;
 
 	protected:
 		/**

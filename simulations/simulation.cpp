@@ -178,4 +178,9 @@ QWidget * Simulation::statisticsWidget() const
 	return m_statWidget;
 }
 
+void Simulation::start()
+{
+	m_numberOfMoves = 0;
+}
+
 #include "moc_simulation.cpp"
