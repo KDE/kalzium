@@ -27,21 +27,49 @@ class Move;
 
 /**
  * @author Carsten Niehaus
+ * @brief the graphical representation of the field
  */
 class SimulationfieldWidget : public QFrame
 {
 	Q_OBJECT
 	
 	public:
+		/**
+		 * public Constructor
+		 */
 		SimulationfieldWidget( QWidget * parent = 0 );
+		
+		/**
+		 * Destructor
+		 */
 		virtual ~SimulationfieldWidget(){};
 
 		void setField( Field * field ){
 			m_field = field;
 			update();
 		}
+		
+		/**
+		 * defines the look of the tokens
+		 */
+		enum TokenDesign
+		{
+			CIRCLE = 0/**<Circles*/,
+			SQUARE/**<Squares*/
+		};
+
+		/**
+		 * Sets the design of the field
+		 * @param design The TokenDesign which will be used in the paintEvent
+		 */
+		void setDesign( TokenDesign design ){
+			m_design = design;
+		}
 
 	public slots:
+		/**
+		 * redraw the field
+		 */
 		void slotUpdate( Move * move ){
 			( void ) move;
 			update();	
@@ -49,6 +77,8 @@ class SimulationfieldWidget : public QFrame
 
 	private:
 		Field * m_field;
+
+		TokenDesign m_design;
 
 	protected:
 		virtual void paintEvent( QPaintEvent * e );

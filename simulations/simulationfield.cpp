@@ -27,7 +27,7 @@ SimulationfieldWidget::SimulationfieldWidget( QWidget * parent )
 	: QFrame ( parent )
 {
 	m_field = 0;
-//	setMinimumSize( 200, 200 );
+	m_design = SimulationfieldWidget::CIRCLE;
 }
 
 void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
@@ -69,10 +69,21 @@ void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
 				else
 					p.setBrush( b_black );
 
-				p.drawEllipse( x*s+2,
-						y*s+2,
-						s-4,
-						s-4 );
+				switch ( m_design )
+				{
+					case CIRCLE:
+						p.drawEllipse( x*s+2,
+								y*s+2,
+								s-4,
+								s-4 );
+						break;
+					case SQUARE:
+						p.drawRect( x*s+2,
+								y*s+2,
+								s-4,
+								s-4 );
+						break;
+				}
 			}
 		}
 	}
