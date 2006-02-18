@@ -38,7 +38,10 @@ GamesDialog::GamesDialog( Simulation * sim )
 	setWindowTitle( "Kalzium Simulations -- " + m_simulation->description() );
 
 	if ( sim )
+	{
 		setupWidgets();
+		createConnetions();
+	}
 	
 	connect(m_controls->ui.start, SIGNAL( clicked() ), 
 			this, SLOT(startSimulation()) );
@@ -83,7 +86,7 @@ void GamesDialog::createConnetions()
 	connect(m_controls->ui.next, SIGNAL( clicked() ), 
 			m_simulation, SLOT(slotNextMove()) );
 	connect(m_controls->ui.stop, SIGNAL( clicked() ), 
-			m_simulation, SLOT(stopGame()) );
+			m_simulation, SLOT(stopSimulation()) );
 	connect(m_simulation, SIGNAL( turnOver(Move*) ), 
 			m_controls->ui.gf, SLOT(slotUpdate(Move*)) );
 	connect(m_simulation, SIGNAL( turnOver() ), 

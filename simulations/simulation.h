@@ -33,13 +33,13 @@ class Simulation;
  * @author Carsten Niehaus
  * simulationsfactory
  */
-class GamesFactory
+class SimulationsFactory
 {
 	public:
 		/**
 		 * Get the instance of this factory.
 		 **/
-		static GamesFactory* instance();
+		static SimulationsFactory* instance();
 
 		/**
 		 * Returns the Gmae with the @p id specified.
@@ -59,7 +59,7 @@ class GamesFactory
 		QStringList games() const;
 
 	private:
-		GamesFactory();
+		SimulationsFactory();
 
 		QList<Simulation*> m_games;
 };
@@ -67,7 +67,7 @@ class GamesFactory
 /**
  * @author Carsten Niehaus
  * @brief Baseclass for all simulations
- * Baseclass for all simulations. Inherit it and add it to the GamesFactory
+ * Baseclass for all simulations. Inherit it and add it to the SimulationsFactory
  * to make it available
  */
 class Simulation : public QObject
@@ -88,7 +88,7 @@ class Simulation : public QObject
 
 		/**
 		 * set the field to @p field
-		 * @param field the Field of the game
+		 * @param field the Field of the Simulation
 		 */
 		void setField( Field* field )
 		{
@@ -96,7 +96,7 @@ class Simulation : public QObject
 		}
 
 		/**
-		 * @return the field of the game
+		 * @return the field of the Simulation
 		 */
 		virtual Field* field() const{
 			return m_field;
@@ -151,21 +151,21 @@ class Simulation : public QObject
 		virtual QString description() const = 0;
 
 		/**
-		 * @return the statistics widget of the game
+		 * @return the statistics widget of the Simulation
 		 */
 		virtual QWidget * statisticsWidget() const;
 
 		/**
-		 * Returns the rules of the game as a descriptive QString.
+		 * Returns the rules of the Simulation as a descriptive QString.
 		 * @return the rules
 		 */
 		virtual QString rules() const = 0;
 
 	signals:
 		/**
-		 * the game has ended
+		 * the Simulation has ended
 		 */
-		void gameOver();
+		void simulationOver();
 
 		/**
 		 * one turn is over
@@ -184,7 +184,7 @@ class Simulation : public QObject
 		virtual void slotNextMove();
 
 		/**
-		 * Active the game by using a QTimer. In this case, every @p ms milliseconds
+		 * Activate the Simulation by using a QTimer. In this case, every @p ms milliseconds
 		 * a new turn will be done
 		 * @see rollDice
 		 */
@@ -194,9 +194,9 @@ class Simulation : public QObject
 		}
 		
 		/**
-		 * halt the game
+		 * halt the Simulation
 		 */
-		virtual void stopGame(){
+		virtual void stopSimulation(){
 			m_timer.stop();
 		}
 
@@ -207,7 +207,7 @@ class Simulation : public QObject
 
 	protected:
 		/**
-		 * the field of the game
+		 * the field of the Simulation
 		 */
 		Field* m_field;
 
@@ -233,7 +233,7 @@ class Simulation : public QObject
 
 		/**
 		 * a list of moves. With this list you can follow
-		 * the game backward and forward.
+		 * the Simulation backward and forward.
 		 */
 		QList<Move*> m_moves;
 

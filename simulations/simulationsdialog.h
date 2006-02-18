@@ -49,7 +49,7 @@ class GamesDialog : public QDialog
 
 	private slots:
 		/**
-		 * the the Simulation
+		 * start the Simulation
 		 */
 		void startSimulation();
 

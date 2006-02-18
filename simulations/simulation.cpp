@@ -26,9 +26,8 @@
 
 #include <iostream>
 
-//GamesFactory
-
-GamesFactory::GamesFactory()
+//SimulationsFactory
+SimulationsFactory::SimulationsFactory()
 {
 	m_games << LightabsorptionSimulation::instance();
 	m_games << RAGame::instance();
@@ -37,13 +36,13 @@ GamesFactory::GamesFactory()
 	m_games << CrystallizationGame::instance();
 }
 
-GamesFactory* GamesFactory::instance()
+SimulationsFactory* SimulationsFactory::instance()
 {
-	static GamesFactory gf;
+	static SimulationsFactory gf;
 	return &gf;
 }
 
-Simulation* GamesFactory::build( int id ) const
+Simulation* SimulationsFactory::build( int id ) const
 {
 	if (  (  id < 0 ) || (  id >= m_games.count() ) )
 		return 0;
@@ -51,7 +50,7 @@ Simulation* GamesFactory::build( int id ) const
 	return m_games.at( id );
 }
 
-Simulation* GamesFactory::build( const QByteArray& id ) const
+Simulation* SimulationsFactory::build( const QByteArray& id ) const
 {
 	for (  int i = 0; i < m_games.count(); i++ )
 	{
@@ -63,7 +62,7 @@ Simulation* GamesFactory::build( const QByteArray& id ) const
 	return 0;
 }
 
-QStringList GamesFactory::games() const
+QStringList SimulationsFactory::games() const
 {
 	QStringList l;
 	for (  int i = 0; i < m_games.count(); i++ )
@@ -94,7 +93,7 @@ int Move::numberOfStones( Stone::PLAYER p )
 	return num;
 }
 
-//Game
+//Simulation
 Simulation::Simulation()
 {
 	m_numberOfMoves = 0;
