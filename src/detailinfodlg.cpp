@@ -59,7 +59,7 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
 
 	// creating the tabs but not the contents, as that will be done when
 	// setting the element
-//	createContent();
+	createContent();
 
 	m_actionCollection = new KActionCollection(this);	
 	KStdAction::quit(this, SLOT(close()), m_actionCollection);
@@ -256,8 +256,8 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 }
 
 QString DetailedInfoDlg::isotopeTable()
-/*
 {
+/*
  	QList<Isotope*> list = m_element->isotopes();
 
  	QString html;
@@ -348,10 +348,10 @@ QString DetailedInfoDlg::isotopeTable()
 //	html += "</table>";
  
  //	return html;
-//	return QString();
-//}
+	return QString();
+}
 
-//void DetailedInfoDlg::createContent( )
+void DetailedInfoDlg::createContent()
 {
 	// overview tab
 	QFrame *m_pOverviewTab = addPage( i18n( "Overview" ), i18n( "Overview" ), BarIcon( "overview" ) );
