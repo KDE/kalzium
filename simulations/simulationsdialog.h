@@ -31,7 +31,7 @@ class GamesDialog : public QDialog
 	Q_OBJECT
 	
 	public:
-		GamesDialog();
+		GamesDialog( Simulation * sim );
 
 	public slots:
 		void slotStartWithTimer();
@@ -39,15 +39,15 @@ class GamesDialog : public QDialog
 	private:
 		QVBoxLayout * vbox;
 	
-		Simulation * m_game;
+		Simulation * m_simulation;
 	
 		GameControls_Impl * m_controls;
 
 		QWidget *statsWidget;
 
 	private slots:
-		void activateGame( int nr );
-
+//X 		void activateGame( int nr );
+//X 
 		void startTheCurrentGame();
 
 		/**

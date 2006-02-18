@@ -25,15 +25,17 @@
 #include "field.h"
 
 #include <QLayout>
-#include <QComboBox>
+//X #include <QComboBox>
 #include <QLCDNumber>
 
 #include <iostream>
 
-GamesDialog::GamesDialog()
+GamesDialog::GamesDialog( Simulation * sim )
 	: QDialog( 0 )
 {
 	setWindowTitle( "Kalzium Simulations" );
+
+	m_simulation = sim;
 
 	statsWidget = 0;
 
@@ -45,83 +47,83 @@ GamesDialog::GamesDialog()
 	vbox->addWidget( m_controls );
 
 	QStringList l = GamesFactory::instance()->games();
-	foreach( QString s, l ){
-		m_controls->ui.combo->addItem(s);
-	}
+//X 	foreach( QString s, l ){
+//X 		m_controls->ui.combo->addItem(s);
+//X 	}
 	
 	connect(m_controls->ui.start, SIGNAL( clicked() ), 
 			this, SLOT(startTheCurrentGame()) );
 }
 
-void GamesDialog::activateGame( int nr )
-{
-	//FIXME This is not the best way I guess... But I have no
-	//clue how to improve it... Why is there no ->clear() call 
-	//or something?
-	foreach( QObject * o, vbox->children() )
-		vbox->removeWidget( ( QWidget* )o );
-	
-	//better safe than sorry
-	m_controls->ui.gf->setField( 0 );
-	
-	Simulation * g = GamesFactory::instance()->build( nr );
-
-	if ( !g ) return;
-
-	m_game = g;
-
-	statsWidget = m_game->statisticsWidget();
-	
-	vbox->addWidget( m_controls );
-	vbox->addWidget( statsWidget );
-	
-	int x = m_controls->ui.xsize->value();
-	int y = m_controls->ui.ysize->value();
-	
-	m_game->field()->setFieldXSize( x );
-	m_game->field()->setFieldYSize( y );
-	
-	m_controls->ui.gf->setField( m_game->field() );
-	m_controls->ui.label->setPlainText(m_game->rules());
-
-	m_controls->ui.gf->update();
-
-	resize( sizeHint() );
-
-	createConnetions();
-}
+//X void GamesDialog::activateGame( int nr )
+//X {
+//X 	//FIXME This is not the best way I guess... But I have no
+//X 	//clue how to improve it... Why is there no ->clear() call 
+//X 	//or something?
+//X 	foreach( QObject * o, vbox->children() )
+//X 		vbox->removeWidget( ( QWidget* )o );
+//X 	
+//X 	//better safe than sorry
+//X 	m_controls->ui.gf->setField( 0 );
+//X 	
+//X 	Simulation * g = GamesFactory::instance()->build( nr );
+//X 
+//X 	if ( !g ) return;
+//X 
+//X 	m_simulation = g;
+//X 
+//X 	statsWidget = m_simulation->statisticsWidget();
+//X 	
+//X 	vbox->addWidget( m_controls );
+//X 	vbox->addWidget( statsWidget );
+//X 	
+//X 	int x = m_controls->ui.xsize->value();
+//X 	int y = m_controls->ui.ysize->value();
+//X 	
+//X 	m_simulation->field()->setFieldXSize( x );
+//X 	m_simulation->field()->setFieldYSize( y );
+//X 	
+//X 	m_controls->ui.gf->setField( m_simulation->field() );
+//X //X 	m_controls->ui.label->setPlainText(m_simulation->rules());
+//X 
+//X 	m_controls->ui.gf->update();
+//X 
+//X 	resize( sizeHint() );
+//X 
+//X 	createConnetions();
+//X }
 
 void GamesDialog::slotStartWithTimer()
 {
-	m_game->startWithTimer( m_controls->ui.time->value() );
+	m_simulation->startWithTimer( m_controls->ui.time->value() );
 }
 
 void GamesDialog::startTheCurrentGame()
 {
-	int selection = m_controls->ui.combo->currentIndex();
-
-	activateGame( selection );
-
-	slotStartWithTimer();
+//X 	int selection = m_controls->ui.combo->currentIndex();
+//X 
+//X 	activateGame( selection );
+//X 
+//X 	slotStartWithTimer();
 }
 
 void GamesDialog::createConnetions()
 {
 	connect(m_controls->ui.next, SIGNAL( clicked() ), 
-			m_game, SLOT(slotNextMove()) );
+			m_simulation, SLOT(slotNextMove()) );
 	connect(m_controls->ui.stop, SIGNAL( clicked() ), 
-			m_game, SLOT(stopGame()) );
-	connect(m_game, SIGNAL( turnOver(Move*) ), 
+			m_simulation, SLOT(stopGame()) );
+	connect(m_simulation, SIGNAL( turnOver(Move*) ), 
 			m_controls->ui.gf, SLOT(slotUpdate(Move*)) );
-	connect(m_game, SIGNAL( turnOver() ), 
+	connect(m_simulation, SIGNAL( turnOver() ), 
 			this, SLOT(calculateStatistics() ) );
 }
 
 void GamesDialog::calculateStatistics()
 {
-	if ( !m_game ) return;
+	if ( !m_simulation ) return;
 
-	m_controls->ui.lcd->display( m_game->numberOfMoves() );	
+	m_controls->ui.lcd->display( m_simulation->numberOfMoves() );	
 }
 
 void GamesDialog::displayStatistics()
