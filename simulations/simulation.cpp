@@ -29,11 +29,11 @@
 //SimulationsFactory
 SimulationsFactory::SimulationsFactory()
 {
-	m_games << LightabsorptionSimulation::instance();
-	m_games << RAGame::instance();
-	m_games << BoltzmannSimulation::instance();
-	m_games << DecompositionSimulation::instance();
-	m_games << CrystallizationGame::instance();
+	m_simulations << LightabsorptionSimulation::instance();
+	m_simulations << RASimulation::instance();
+	m_simulations << BoltzmannSimulation::instance();
+	m_simulations << DecompositionSimulation::instance();
+	m_simulations << CrystallizationSimulation::instance();
 }
 
 SimulationsFactory* SimulationsFactory::instance()
@@ -44,30 +44,30 @@ SimulationsFactory* SimulationsFactory::instance()
 
 Simulation* SimulationsFactory::build( int id ) const
 {
-	if (  (  id < 0 ) || (  id >= m_games.count() ) )
+	if (  (  id < 0 ) || (  id >= m_simulations.count() ) )
 		return 0;
 
-	return m_games.at( id );
+	return m_simulations.at( id );
 }
 
 Simulation* SimulationsFactory::build( const QByteArray& id ) const
 {
-	for (  int i = 0; i < m_games.count(); i++ )
+	for (  int i = 0; i < m_simulations.count(); i++ )
 	{
-		if (  m_games.at(  i )->name() == id )
-			return m_games.at( i );
+		if (  m_simulations.at(  i )->name() == id )
+			return m_simulations.at( i );
 	}
 
 	// not found
 	return 0;
 }
 
-QStringList SimulationsFactory::games() const
+QStringList SimulationsFactory::simulations() const
 {
 	QStringList l;
-	for (  int i = 0; i < m_games.count(); i++ )
+	for (  int i = 0; i < m_simulations.count(); i++ )
 	{
-		l << m_games.at( i )->description();
+		l << m_simulations.at( i )->description();
 	}
 	return l;
 }

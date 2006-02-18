@@ -26,6 +26,9 @@ class StatisticWidget;
 
 class QVBoxLayout;
 
+/**
+ * @author Carsten Niehaus
+ */
 class GamesDialog : public QDialog
 {
 	Q_OBJECT

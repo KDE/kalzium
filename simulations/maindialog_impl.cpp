@@ -25,7 +25,7 @@ MainDialog_Impl::MainDialog_Impl( QWidget * parent )
 {
 	ui.setupUi( this );
 
-	QStringList l = SimulationsFactory::instance()->games();
+	QStringList l = SimulationsFactory::instance()->simulations();
 	foreach( QString s, l )
 	{
 		new QListWidgetItem( s, ui.simulationList );

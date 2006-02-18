@@ -31,7 +31,7 @@
 #include <stdlib.h>
 #include <iostream>
 
-void RAGame::start()
+void RASimulation::start()
 {
 	srand (  time( NULL ) );
 	
@@ -47,28 +47,28 @@ void RAGame::start()
 	}
 }
 
-RAGame* RAGame::instance()
+RASimulation* RASimulation::instance()
 {
-	static RAGame g;
+	static RASimulation g;
 	return &g;
 }
 
-QByteArray RAGame::name() const
+QByteArray RASimulation::name() const
 {
-	return "RAGame";
+	return "RASimulation";
 }
 
-QString RAGame::description() const
+QString RASimulation::description() const
 {
 	return  "Radioactive decay";
 }
 
-QString RAGame::rules() const
+QString RASimulation::rules() const
 {
 	return "The simulation starts with an all white board. In each turn, a Stone on the board will be selected randomly. If the stone is white, it will turn black. This represents the radioactive decay.  The game becomes interesting if you alter the number of turns it runs. The probablilty that a stone swap the colour from white to black decreases with each turn. It is proportional to the halflife period.";
 }
 
-void RAGame::rollDice()
+void RASimulation::rollDice()
 {
 	m_number++;
 	
@@ -93,7 +93,7 @@ void RAGame::rollDice()
 		stone->swap();
 }
 
-RAGame::RAGame()
+RASimulation::RASimulation()
 	: Simulation()
 {
 	m_field = new Field();
@@ -107,28 +107,28 @@ RAGame::RAGame()
 	m_number = 0;
 }
 
-CrystallizationGame* CrystallizationGame::instance()
+CrystallizationSimulation* CrystallizationSimulation::instance()
 {
-	static CrystallizationGame g;
+	static CrystallizationSimulation g;
 	return &g;
 }
 
-QByteArray CrystallizationGame::name() const
+QByteArray CrystallizationSimulation::name() const
 {
-	return "CrystallizationGame";
+	return "CrystallizationSimulation";
 }
 
-QString CrystallizationGame::description() const
+QString CrystallizationSimulation::description() const
 {
 	return "Crystallization";
 }
 
-QString CrystallizationGame::rules() const
+QString CrystallizationSimulation::rules() const
 {
 	return "Explanation missing. It is about diffusion and forces in a crystal, you will always get a \"checkfield\" pattern";
 }
 
-void CrystallizationGame::rollDice()
+void CrystallizationSimulation::rollDice()
 {
 	m_number++;
 
@@ -165,7 +165,7 @@ void CrystallizationGame::rollDice()
 	}
 }
 
-void CrystallizationGame::exchangeStones( const QPoint& point )
+void CrystallizationSimulation::exchangeStones( const QPoint& point )
 {
 	Stone* stone = m_field->stoneAtPosition( point );
 	
@@ -207,7 +207,7 @@ void CrystallizationGame::exchangeStones( const QPoint& point )
 	stone->swap();
 }
 
-int CrystallizationGame::neighboursNum( Stone* stone )
+int CrystallizationSimulation::neighboursNum( Stone* stone )
 {
 	QPoint point( stone->position() );
 	
@@ -226,7 +226,7 @@ int CrystallizationGame::neighboursNum( Stone* stone )
 	return Stones.count();
 }
 
-int CrystallizationGame::neighboursTeam( Stone* stone )
+int CrystallizationSimulation::neighboursTeam( Stone* stone )
 {
 	QPoint point( stone->position() );
 	
@@ -250,7 +250,7 @@ int CrystallizationGame::neighboursTeam( Stone* stone )
 }
 
 //Crystallizationgame
-CrystallizationGame::CrystallizationGame()
+CrystallizationSimulation::CrystallizationSimulation()
 	: Simulation()
 {
 	m_field = new Field();
@@ -262,7 +262,7 @@ CrystallizationGame::CrystallizationGame()
 	m_number = 0;
 }
 
-void CrystallizationGame::start()
+void CrystallizationSimulation::start()
 {
 	srand (  time( NULL ) );
 
@@ -344,7 +344,7 @@ void DecompositionSimulation::rollDice()
 }
 
 DecompositionSimulation::DecompositionSimulation()
-	: CrystallizationGame()
+	: CrystallizationSimulation()
 {
 	m_field = new Field();
 	setField( m_field );

@@ -56,12 +56,12 @@ class SimulationsFactory
 		/**
 		 * Returns a list with the names of the gradients we support.
 		 */
-		QStringList games() const;
+		QStringList simulations() const;
 
 	private:
 		SimulationsFactory();
 
-		QList<Simulation*> m_games;
+		QList<Simulation*> m_simulations;
 };
 
 /**

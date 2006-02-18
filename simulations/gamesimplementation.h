@@ -41,12 +41,12 @@ namespace Ui
  * probablilty that a stone swap the colour from white to black decreases with
  * each turn. It is proportional to the halflife period.
  */
-class RAGame : public Simulation
+class RASimulation : public Simulation
 {
 	public:
-		RAGame();
+		RASimulation();
 
-		static RAGame* instance();
+		static RASimulation* instance();
 
 		QByteArray name() const;
 		
@@ -69,12 +69,12 @@ class RAGame : public Simulation
 /**
  * @author Carsten Niehaus
  */
-class CrystallizationGame : public Simulation
+class CrystallizationSimulation : public Simulation
 {
 	public:
-		CrystallizationGame();
+		CrystallizationSimulation();
 		
-		static CrystallizationGame* instance();
+		static CrystallizationSimulation* instance();
 		
 		void rollDice();
 		
@@ -116,7 +116,7 @@ class CrystallizationGame : public Simulation
 /**
  * @author Carsten Niehaus
  */
-class DecompositionSimulation : public CrystallizationGame
+class DecompositionSimulation : public CrystallizationSimulation
 {
 	public:
 		DecompositionSimulation();
