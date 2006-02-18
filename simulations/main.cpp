@@ -19,13 +19,13 @@
 
 #include <QtGui/QApplication>
 
-#include "simulationsdialog.h"
+#include "maindialog_impl.h"
 
 int main( int argc, char *argv[] )
 {
 	QApplication app( argc, argv );
 
-	GamesDialog* window = new GamesDialog( );
+	MainDialog_Impl* window = new MainDialog_Impl( );
 
 	window->show();
 

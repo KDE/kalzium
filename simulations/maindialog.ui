@@ -2,8 +2,8 @@
  <author></author>
  <comment></comment>
  <exportmacro></exportmacro>
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
+ <class>MainDialog</class>
+ <widget class="QWidget" name="MainDialog" >
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -15,108 +15,109 @@
   <property name="windowTitle" >
    <string>KalziumSimulations</string>
   </property>
-  <widget class="QWidget" name="centralwidget" >
-   <layout class="QGridLayout" >
-    <property name="margin" >
-     <number>9</number>
-    </property>
-    <property name="spacing" >
-     <number>6</number>
-    </property>
-    <item row="1" column="0" colspan="2" >
-     <widget class="QTreeWidget" name="treeWidget" >
-      <property name="font" >
-       <font>
-        <family>Sans Serif</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <italic>false</italic>
-        <bold>false</bold>
-        <underline>false</underline>
-        <strikeout>false</strikeout>
-       </font>
-      </property>
-      <property name="uniformRowHeights" >
-       <bool>true</bool>
-      </property>
-      <property name="sortingEnabled" >
-       <bool>true</bool>
-      </property>
-      <column>
-       <property name="text" >
-        <string>New Column</string>
-       </property>
-      </column>
-      <column>
-       <property name="text" >
-        <string>Description</string>
-       </property>
-      </column>
-      <item>
-       <property name="text" >
-        <string>Foo</string>
-       </property>
-       <property name="text" >
-        <string>bar</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>blubb</string>
-       </property>
-       <property name="text" >
-        <string>bing</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Third Sim</string>
-       </property>
-       <property name="text" >
-        <string>The third sim...</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="2" column="1" >
-     <widget class="QPushButton" name="pushButton" >
-      <property name="text" >
-       <string>Start</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" >
-     <widget class="QLabel" name="label" >
-      <property name="text" >
-       <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Welcome to KalziumSimulations!&lt;/p>&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Pick a simulation from the list and click on &lt;span style=" font-weight:600;">Start&lt;/span> to begin.&lt;/p>&lt;/body>&lt;/html></string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0" >
-     <spacer>
-      <property name="orientation" >
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" >
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QStatusBar" name="statusbar" >
-   <property name="geometry" >
-    <rect>
-     <x>0</x>
-     <y>581</y>
-     <width>800</width>
-     <height>19</height>
-    </rect>
+  <layout class="QGridLayout" >
+   <property name="margin" >
+    <number>9</number>
    </property>
-  </widget>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item row="1" column="0" >
+    <widget class="QStatusBar" name="statusbar" />
+   </item>
+   <item row="0" column="0" >
+    <layout class="QGridLayout" >
+     <property name="margin" >
+      <number>9</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item row="1" column="0" colspan="2" >
+      <widget class="QTreeWidget" name="treeWidget" >
+       <property name="font" >
+        <font>
+         <family>Sans Serif</family>
+         <pointsize>14</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+         <underline>false</underline>
+         <strikeout>false</strikeout>
+        </font>
+       </property>
+       <property name="uniformRowHeights" >
+        <bool>true</bool>
+       </property>
+       <property name="sortingEnabled" >
+        <bool>true</bool>
+       </property>
+       <column>
+        <property name="text" >
+         <string>New Column</string>
+        </property>
+       </column>
+       <column>
+        <property name="text" >
+         <string>Description</string>
+        </property>
+       </column>
+       <item>
+        <property name="text" >
+         <string>Foo</string>
+        </property>
+        <property name="text" >
+         <string>bar</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>blubb</string>
+        </property>
+        <property name="text" >
+         <string>bing</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>Third Sim</string>
+        </property>
+        <property name="text" >
+         <string>The third sim...</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="2" column="1" >
+      <widget class="QPushButton" name="pushButton" >
+       <property name="text" >
+        <string>Start</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" >
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Welcome to KalziumSimulations!&lt;/p>&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Pick a simulation from the list and click on &lt;span style=" font-weight:600;">Start&lt;/span> to begin.&lt;/p>&lt;/body>&lt;/html></string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <pixmapfunction></pixmapfunction>
  <resources/>
