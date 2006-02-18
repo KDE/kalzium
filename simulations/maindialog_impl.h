@@ -15,14 +15,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QWidget>
-#include <QMainWindow>
+#include <QDialog>
+
 #include "ui_maindialog.h"
 
 /**
  * The main dialog of the simulations
  */
-class MainDialog_Impl : public QWidget
+class MainDialog_Impl : public QDialog
 {
 	Q_OBJECT
 
@@ -37,6 +37,8 @@ class MainDialog_Impl : public QWidget
 		 * Starts the selected Simulatino
 		 */
 		void startSelectedSimulation();
-			
+		
+		void listRowChanged( int );
 };
+
 #endif // MAINDIALOG_IMPL_H

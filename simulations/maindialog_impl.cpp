@@ -13,23 +13,44 @@
  ***************************************************************************/
 
 #include "maindialog_impl.h"
-#include "gamesimplementation.h"
+#include "simulation.h"
 #include "simulationsdialog.h"
 
+#include <QLabel>
+#include <QListWidget>
+#include <QListWidgetItem>
+
 MainDialog_Impl::MainDialog_Impl( QWidget * parent )
-	: QWidget( parent )
+	: QDialog( parent )
 {
 	ui.setupUi( this );
+
+	QStringList l = SimulationsFactory::instance()->games();
+	foreach( QString s, l )
+	{
+		new QListWidgetItem( s, ui.simulationList );
+	}
+
 	connect( ui.startButton, SIGNAL(clicked()),
-			this, SLOT( startSelectedSimulation() ) );
+	         this, SLOT( startSelectedSimulation() ) );
+	connect( ui.simulationList, SIGNAL( currentRowChanged( int ) ),
+	         this, SLOT( listRowChanged( int ) ) );
 }
 
 void MainDialog_Impl::startSelectedSimulation()
 {
-	RAGame *sim = new RAGame();
+	Simulation *sim = SimulationsFactory::instance()->build( ui.simulationList->currentRow() );
+	if ( sim )
+	{
+		GamesDialog *dlg = new GamesDialog( sim );
+		dlg->exec();
+	}
+}
 
-	GamesDialog *dlg = new GamesDialog( sim );
-	dlg->show();
+void MainDialog_Impl::listRowChanged( int newCurrent )
+{
+	Simulation *sim = SimulationsFactory::instance()->build( newCurrent );
+	ui.labelDescription->setText( sim ? sim->rules() : QString() );
 }
 
 #include "moc_maindialog_impl.cpp"
