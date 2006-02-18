@@ -95,15 +95,15 @@ void RASimulation::rollDice()
 
 void RASimulation::updateStatistics()
 {
-	int total = 24;
+	Move * m = lastMove();
 
-	int w = 12;
-	int h = 12;
-	double percentage = ( double )w/h;
+	int w = m->numberOfStones( Stone::White );
+	int h = m->numberOfStones( Stone::Black );
+	double percentage = ( double )h/w * 100;
 
 	m_statForm->white->setText(QString::number( w ));
 	m_statForm->black->setText(QString::number( h ));
-	m_statForm->percentage->setText(QString::number( percentage ));
+	m_statForm->percentage->setText( QString( "%1%" ).arg( percentage ) );
 }
 
 RASimulation::RASimulation()

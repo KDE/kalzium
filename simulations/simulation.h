@@ -145,9 +145,9 @@ class Simulation : public QObject
 		}
 
 		/**
-		 * @return the current Move
+		 * @return the last Move
 		 */
-		virtual Move* currentMove(){
+		virtual Move* lastMove(){
 			return m_moves.last();
 		}
 
