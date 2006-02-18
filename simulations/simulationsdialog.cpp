@@ -95,10 +95,12 @@ void GamesDialog::calculateStatistics()
 	if ( !m_simulation ) return;
 
 	m_controls->ui.lcd->display( m_simulation->numberOfMoves() );	
+	displayStatistics();
 }
 
 void GamesDialog::displayStatistics()
 {
+	m_simulation->updateStatistics();
 }
 
 #include "moc_simulationsdialog.cpp"

@@ -90,6 +90,11 @@ class Simulation : public QObject
 		}
 
 		/**
+		 * update the statistics
+		 */
+		virtual void updateStatistics() = 0;
+
+		/**
 		 * roll the dices. This means: start a new turn 
 		 */
 		virtual void rollDice() = 0;

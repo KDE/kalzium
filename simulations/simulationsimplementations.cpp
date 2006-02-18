@@ -93,6 +93,19 @@ void RASimulation::rollDice()
 		stone->swap();
 }
 
+void RASimulation::updateStatistics()
+{
+	int total = 24;
+
+	int w = 12;
+	int h = 12;
+	double percentage = ( double )w/h;
+
+	m_statForm->white->setText(QString::number( w ));
+	m_statForm->black->setText(QString::number( h ));
+	m_statForm->percentage->setText(QString::number( percentage ));
+}
+
 RASimulation::RASimulation()
 	: Simulation()
 {
@@ -249,6 +262,10 @@ int CrystallizationSimulation::neighboursTeam( Stone* stone )
 	return TeamStones.count();
 }
 
+void CrystallizationSimulation::updateStatistics()
+{
+}
+
 //Crystallizationgame
 CrystallizationSimulation::CrystallizationSimulation()
 	: Simulation()
@@ -341,6 +358,11 @@ void DecompositionSimulation::rollDice()
 			exchangeStones( point );
 	}
 }
+
+void DecompositionSimulation::updateStatistics()
+{
+}
+
 
 DecompositionSimulation::DecompositionSimulation()
 	: CrystallizationSimulation()
@@ -566,6 +588,10 @@ void BoltzmannSimulation::start()
 	Simulation::start();
 }
 
+void BoltzmannSimulation::updateStatistics()
+{
+}
+
 ///LightabsorptionSimulation
 LightabsorptionSimulation::LightabsorptionSimulation()
 {
@@ -641,4 +667,8 @@ void LightabsorptionSimulation::start()
 	
 	m_maxMoves = m_field->ySize();
 	Simulation::start();
+}
+
+void LightabsorptionSimulation::updateStatistics()
+{
 }

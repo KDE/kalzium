@@ -56,6 +56,8 @@ class RASimulation : public Simulation
 
 		QString rules() const;
 
+		void updateStatistics();
+
 	public slots:
 		void start();
 
@@ -82,6 +84,8 @@ class CrystallizationSimulation : public Simulation
 		QByteArray name() const;
 		
 		QString description() const;
+		
+		void updateStatistics();
 		
 	public slots:
 		/**
@@ -129,6 +133,8 @@ class DecompositionSimulation : public CrystallizationSimulation
 		
 		QString description() const;
 		
+		void updateStatistics();
+		
 	public slots:
 		/**
 		 * starts the game
@@ -139,10 +145,6 @@ class DecompositionSimulation : public CrystallizationSimulation
 		Ui::DecompositionForm* m_statForm;
 
 	protected:
-		//FIXME Why have the methods neighboursNum, neighboursTeam and exchangeStones
-		//		to be reimplemented? If I don't do that they don't work because
-		//		the stones are not found... Don't understand it...
-		
 		/**
 		 * @return the number of stones of the other player
 		 */
@@ -181,6 +183,8 @@ class BoltzmannSimulation : public Simulation
 		
 		QString description() const;
 		
+		void updateStatistics();
+		
 	public slots:
 		/**
 		 * starts the game
@@ -210,6 +214,8 @@ class LightabsorptionSimulation : public Simulation
 		QByteArray name() const;
 		
 		QString description() const;
+		
+		void updateStatistics();
 		
 	public slots:
 		/**
