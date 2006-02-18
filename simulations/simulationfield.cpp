@@ -50,40 +50,40 @@ void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
 	QBrush b_white( Qt::white, Qt::SolidPattern );
 	QBrush b_black( Qt::black, Qt::SolidPattern );
 
-	for ( int x = 0; x < x_size ; ++x )
+	foreach( Stone * stone, m_field->stones() ) 
 	{
-		for ( int y = 0; y < y_size ; ++y )
+		const int x = stone->position().x();
+		const int y = stone->position().y();
+		p.setBrush( QBrush( Qt::yellow, Qt::SolidPattern ) );
+
+		p.drawRect( x*s, 
+				y*s, 
+				s,
+				s );
+
+		if ( stone)
 		{
- 			Stone * stone = m_field->stoneAtPosition( QPoint( x,y ) );
-			p.setBrush( QBrush( Qt::yellow, Qt::SolidPattern ) );
-			
-			p.drawRect( x*s, 
-					y*s, 
-					s,
-					s );
+			if ( stone->player() == Stone::White )
+				p.setBrush( b_white );
+			else
+				p.setBrush( b_black );
 
-			if ( stone)
+			switch ( m_design )
 			{
-				if ( stone->player() == Stone::White )
-					p.setBrush( b_white );
-				else
-					p.setBrush( b_black );
-
-				switch ( m_design )
-				{
-					case CIRCLE:
-						p.drawEllipse( x*s+2,
-								y*s+2,
-								s-4,
-								s-4 );
-						break;
-					case SQUARE:
-						p.drawRect( x*s,
-								y*s,
-								s,
-								s );
-						break;
-				}
+				case CIRCLE:
+					p.drawEllipse( x*s+2,
+							y*s+2,
+							s-4,
+							s-4 );
+					break;
+				case SQUARE:
+					p.drawRect( x*s,
+							y*s,
+							s,
+							s );
+					break;
+				case DENSITY:
+					break;
 			}
 		}
 	}

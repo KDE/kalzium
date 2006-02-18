@@ -91,6 +91,11 @@ class Field
 		 * removes all stones from the field
 		 */
 		virtual void clear();
+
+		/**
+		 * @return the tokens on position @p pos
+		 */
+		QList<Stone*> tokensOnPosition( const QPoint& pos );
 		
 	protected:
 		int m_size_x;

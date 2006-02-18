@@ -484,7 +484,6 @@ int DecompositionSimulation::neighboursTeam( Stone* stone )
 }
 
 ///BoltzmannSimulation
-//
 BoltzmannSimulation::BoltzmannSimulation()
 {
 	m_field = new Field();
@@ -492,6 +491,7 @@ BoltzmannSimulation::BoltzmannSimulation()
 	m_statForm = new Ui::BoltzmannForm();
 	m_statWidget = new QWidget();
 	m_statForm->setupUi( m_statWidget );
+	m_design = SimulationfieldWidget::DENSITY;
 
 	changeToDo = true;
 }

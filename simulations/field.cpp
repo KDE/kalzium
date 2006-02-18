@@ -46,3 +46,15 @@ void Field::clear()
 {
 	m_stones.clear();
 }
+
+QList<Stone*> Field::tokensOnPosition( const QPoint& point )
+{
+	QList<Stone*> list;
+	foreach( Stone * s , m_stones )
+	{
+		if ( s->position() == point )
+			list.append( s );
+	}
+
+	return list;
+}

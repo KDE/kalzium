@@ -55,7 +55,8 @@ class SimulationfieldWidget : public QFrame
 		enum TokenDesign
 		{
 			CIRCLE = 0/**<Circles*/,
-			SQUARE/**<Squares*/
+			SQUARE/**<Squares*/,
+			DENSITY/**<indicate how many stones are in a position*/
 		};
 
 		/**
