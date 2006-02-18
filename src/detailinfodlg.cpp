@@ -59,7 +59,7 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
 
 	// creating the tabs but not the contents, as that will be done when
 	// setting the element
-	createContent();
+//	createContent();
 
 	m_actionCollection = new KActionCollection(this);	
 	KStdAction::quit(this, SLOT(close()), m_actionCollection);
@@ -256,44 +256,45 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 }
 
 QString DetailedInfoDlg::isotopeTable()
+/*
 {
-//X 	QList<Isotope*> list = m_element->isotopes();
-//X 
-//X 	QString html;
-//X 	
-//X 	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"7\">";
-//X 	html += i18n( "Isotope-Table" );
-//X 	html += "</tr></td><tr><td><b>";
-//X 	html += i18n( "Mass" );
-//X 	html += "</b></td><td><b>";
-//X 	html += i18n( "Neutrons" );
-//X 	html += "</b></td><td><b>";
-//X 	html += i18n( "Percentage" );
-//X 	html += "</b></td><td><b>";
-//X 	html += i18n( "Half-life period" );
-//X 	html += "</b></td><td><b>";
-//X 	html += i18n( "Energy and Mode of Decay" );
-//X 	html += "</b></td><td><b>";
-//X 	html += i18n( "Spin and Parity" );
-//X 	html += "</b></td><td><b>";
-//X 	html += i18n( "Magnetic Moment" );
-//X 	html += "</b></td></tr>";
-//X 
-//X 	QList<Isotope*>::const_iterator it = list.begin();
-//X 	const QList<Isotope*>::const_iterator itEnd = list.end();
-//X 
-//X 	for ( ; it != itEnd; ++it )
-//X 	{
-//X 		html.append( "<tr><td align=\"right\">" );
-//X 		if ( ( *it )->weight() > 0.0 )
-//X 			html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
-//X 		//	html.append( i18n( "%1 u" ).arg( QString::number( ( *it )->weight() ) ));
-//X 		html.append( "</td><td>" );
-//X 		html.append( QString::number( ( *it )->neutrons() ) );
-//X 		html.append( "</td><td>" );
+ 	QList<Isotope*> list = m_element->isotopes();
+
+ 	QString html;
+	
+ 	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"7\">";
+ 	html += i18n( "Isotope-Table" );
+ 	html += "</tr></td><tr><td><b>";
+ 	html += i18n( "Mass" );
+	html += "</b></td><td><b>";
+	html += i18n( "Neutrons" );
+ 	html += "</b></td><td><b>";
+	html += i18n( "Percentage" );
+ 	html += "</b></td><td><b>";
+	html += i18n( "Half-life period" );
+	html += "</b></td><td><b>";
+ 	html += i18n( "Energy and Mode of Decay" );
+	html += "</b></td><td><b>";
+ 	html += i18n( "Spin and Parity" );
+ 	html += "</b></td><td><b>";
+ 	html += i18n( "Magnetic Moment" );
+ 	html += "</b></td></tr>";
+ 
+ 	QList<Isotope*>::const_iterator it = list.begin();
+ 	const QList<Isotope*>::const_iterator itEnd = list.end();
+ 
+ 	for ( ; it != itEnd; ++it )
+	{
+ 		html.append( "<tr><td align=\"right\">" ); */
+//		if ( ( *it )->weight() > 0.0 )
+// 			html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
+//	html.append( i18n( "%1 u" ).arg( QString::number( ( *it )->weight() ) ));
+//		html.append( "</td><td>" );
+ //		html.append( QString::number( ( *it )->neutrons() ) );
+ //		html.append( "</td><td>" );
 //X 		if ( ( *it )->percentage() > 0.0 )
 //X 			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
-//X 		html.append( "</td><td>" );
+// 		html.append( "</td><td>" );
 //X 		if ( ( *it )->halflife() > 0.0 )
 //X 			html.append( ( *it )->halflifeAsString() );
 //X 		html.append( "</td><td>" );
@@ -336,21 +337,21 @@ QString DetailedInfoDlg::isotopeTable()
 //X 				html.append( i18n( "(%1%)" ).arg(( *it )->ecpercentage() ));
 //X 			}
 //X 		html.append( "</td><td>" );
-//X 		html.append( ( *it )->spin() );
-//X 		html.append( "</td><td>" );
-//X 		if ( !( *it )->magmoment().isEmpty() )
-//X 			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( ( *it )->magmoment() ).arg( QChar( 956 ) ) );
-//X 		html.append( "</td></tr>" );
-//X 	
-//X 	}
-//X 	
-//X 	html += "</table>";
-//X 
-//X 	return html;
-	return QString();
-}
+//		html.append( ( *it )->spin() );
+//		html.append( "</td><td>" );
+//		if ( !( *it )->magmoment().isEmpty() )
+//			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( ( *it )->magmoment() ).arg( QChar( 956 ) ) );
+ //		html.append( "</td></tr>" );
+//
+ //	}
+	
+//	html += "</table>";
+ 
+ //	return html;
+//	return QString();
+//}
 
-void DetailedInfoDlg::createContent( )
+//void DetailedInfoDlg::createContent( )
 {
 	// overview tab
 	QFrame *m_pOverviewTab = addPage( i18n( "Overview" ), i18n( "Overview" ), BarIcon( "overview" ) );
