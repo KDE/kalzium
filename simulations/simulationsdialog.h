@@ -45,10 +45,13 @@ class GamesDialog : public QDialog
 
 		QWidget *statsWidget;
 
+		void setupWidgets();
+
 	private slots:
-//X 		void activateGame( int nr );
-//X 
-		void startTheCurrentGame();
+		/**
+		 * the the Simulation
+		 */
+		void startSimulation();
 
 		/**
 		 * create the connections (signal/slot)

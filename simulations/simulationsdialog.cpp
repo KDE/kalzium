@@ -25,7 +25,6 @@
 #include "field.h"
 
 #include <QLayout>
-//X #include <QComboBox>
 #include <QLCDNumber>
 
 #include <iostream>
@@ -33,78 +32,50 @@
 GamesDialog::GamesDialog( Simulation * sim )
 	: QDialog( 0 )
 {
-	setWindowTitle( "Kalzium Simulations" );
-
 	m_simulation = sim;
+	m_controls = new GameControls_Impl( this );
+	
+	setWindowTitle( "Kalzium Simulations -- " + m_simulation->description() );
 
-	statsWidget = 0;
+	if ( sim )
+		setupWidgets();
+	
+	connect(m_controls->ui.start, SIGNAL( clicked() ), 
+			this, SLOT(startSimulation()) );
+}
+
+void GamesDialog::setupWidgets()
+{
+ 	statsWidget = m_simulation->statisticsWidget();
+
+	int x = m_controls->ui.xsize->value();
+	int y = m_controls->ui.ysize->value();
+	m_simulation->field()->setFieldXSize( x );
+	m_simulation->field()->setFieldYSize( y );
+	
+	m_controls->ui.gf->setField( m_simulation->field() );
+	m_controls->ui.gf->update();
+
+	resize( sizeHint() );
 
 	vbox = new QVBoxLayout( this );
 
-	m_controls = new GameControls_Impl( this );
 	m_controls->ui.gf->setField( 0 );
 
 	vbox->addWidget( m_controls );
+	vbox->addWidget( statsWidget );
 
-	QStringList l = GamesFactory::instance()->games();
-//X 	foreach( QString s, l ){
-//X 		m_controls->ui.combo->addItem(s);
-//X 	}
-	
-	connect(m_controls->ui.start, SIGNAL( clicked() ), 
-			this, SLOT(startTheCurrentGame()) );
+	m_controls->ui.captionLabel->setText( m_simulation->description() );
 }
-
-//X void GamesDialog::activateGame( int nr )
-//X {
-//X 	//FIXME This is not the best way I guess... But I have no
-//X 	//clue how to improve it... Why is there no ->clear() call 
-//X 	//or something?
-//X 	foreach( QObject * o, vbox->children() )
-//X 		vbox->removeWidget( ( QWidget* )o );
-//X 	
-//X 	//better safe than sorry
-//X 	m_controls->ui.gf->setField( 0 );
-//X 	
-//X 	Simulation * g = GamesFactory::instance()->build( nr );
-//X 
-//X 	if ( !g ) return;
-//X 
-//X 	m_simulation = g;
-//X 
-//X 	statsWidget = m_simulation->statisticsWidget();
-//X 	
-//X 	vbox->addWidget( m_controls );
-//X 	vbox->addWidget( statsWidget );
-//X 	
-//X 	int x = m_controls->ui.xsize->value();
-//X 	int y = m_controls->ui.ysize->value();
-//X 	
-//X 	m_simulation->field()->setFieldXSize( x );
-//X 	m_simulation->field()->setFieldYSize( y );
-//X 	
-//X 	m_controls->ui.gf->setField( m_simulation->field() );
-//X //X 	m_controls->ui.label->setPlainText(m_simulation->rules());
-//X 
-//X 	m_controls->ui.gf->update();
-//X 
-//X 	resize( sizeHint() );
-//X 
-//X 	createConnetions();
-//X }
 
 void GamesDialog::slotStartWithTimer()
 {
 	m_simulation->startWithTimer( m_controls->ui.time->value() );
 }
 
-void GamesDialog::startTheCurrentGame()
+void GamesDialog::startSimulation()
 {
-//X 	int selection = m_controls->ui.combo->currentIndex();
-//X 
-//X 	activateGame( selection );
-//X 
-//X 	slotStartWithTimer();
+	slotStartWithTimer();
 }
 
 void GamesDialog::createConnetions()

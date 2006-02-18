@@ -161,8 +161,22 @@
    </item>
    <item row="0" column="0" >
     <widget class="QLabel" name="captionLabel" >
+     <property name="font" >
+      <font>
+       <family>Sans Serif</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+       <underline>false</underline>
+       <strikeout>false</strikeout>
+      </font>
+     </property>
      <property name="text" >
-      <string>TextLabel</string>
+      <string/>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>
