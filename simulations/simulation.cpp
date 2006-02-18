@@ -19,7 +19,7 @@
 #include "simulation.h"
 #include "stone.h"
 #include "field.h"
-#include "gamesimplementation.h"
+#include "simulationsimplementations.h"
 
 #include <QApplication>
 #include <QPoint>
