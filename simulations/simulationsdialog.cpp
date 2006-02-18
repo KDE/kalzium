@@ -27,8 +27,6 @@
 #include <QLayout>
 #include <QLCDNumber>
 
-#include <iostream>
-
 GamesDialog::GamesDialog( Simulation * sim )
 	: QDialog( 0 )
 {

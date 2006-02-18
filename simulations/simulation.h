@@ -227,6 +227,12 @@ class Simulation : public QObject
 		int m_numberOfMoves;
 
 		/**
+		 * Some simulations only allow a certain number of moves. This value
+		 * defines that number. For other games, m_maxMoves will be -1.
+		 */
+		int m_maxMoves;
+
+		/**
 		 * The constructor
 		 */
 		Simulation();

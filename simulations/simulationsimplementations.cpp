@@ -29,7 +29,6 @@
 
 #include <time.h>
 #include <stdlib.h>
-#include <iostream>
 
 void RASimulation::start()
 {
@@ -641,4 +640,6 @@ void LightabsorptionSimulation::start()
 		m_field->addStone( new Stone( Stone::White, QPoint( 0, y ) ) );
 		m_ypositions.append( y );
 	}
+	
+	m_maxMoves = m_field->ySize();
 }

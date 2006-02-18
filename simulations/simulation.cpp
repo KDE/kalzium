@@ -24,8 +24,6 @@
 #include <QApplication>
 #include <QPoint>
 
-#include <iostream>
-
 //SimulationsFactory
 SimulationsFactory::SimulationsFactory()
 {
@@ -97,6 +95,8 @@ int Move::numberOfStones( Stone::PLAYER p )
 Simulation::Simulation()
 {
 	m_numberOfMoves = 0;
+
+	m_maxMoves = -1;	
 	
 	connect( &m_timer, SIGNAL( timeout() ), 
 			this, SLOT( slotNextMove() ) );
@@ -125,7 +125,18 @@ void Simulation::slotNextMove()
 {
 	finishMove();
 	m_numberOfMoves++;
-	rollDice();
+	if ( m_maxMoves != -1 )//check if the maximum of moves should be checked
+	{
+		qDebug( "m_maxMoves: %d", m_maxMoves );
+		if ( m_maxMoves <= m_numberOfMoves )
+		{
+			emit simulationOver();
+			stopSimulation();
+			return;
+		} else
+			rollDice();
+	} else 
+		rollDice();
 }
 
 void Simulation::finishMove()

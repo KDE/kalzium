@@ -23,8 +23,6 @@
 #include <QPainter>
 #include <QBrush>
 
-#include <iostream>
-
 SimulationfieldWidget::SimulationfieldWidget( QWidget * parent )
 	: QFrame ( parent )
 {
