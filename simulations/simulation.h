@@ -24,6 +24,7 @@
 #include <QByteArray>
 
 #include "stone.h"
+#include "simulationfield.h"
 
 class Field;
 class Move;
@@ -80,6 +81,13 @@ class Simulation : public QObject
 		virtual ~Simulation();
 
 		static Simulation* instance();
+
+		/**
+		 * @return the design of the tokens
+		 */
+		SimulationfieldWidget::TokenDesign design(){
+			return m_design;
+		}
 
 		/**
 		 * roll the dices. This means: start a new turn 
@@ -247,6 +255,12 @@ class Simulation : public QObject
 		 * finish the move, emit the signal
 		 */
 		void finishMove();
+		
+		/**
+		 * the design of the tokens
+		 */
+		SimulationfieldWidget::TokenDesign m_design;
+
 };
 
 /**

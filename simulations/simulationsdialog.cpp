@@ -55,6 +55,7 @@ void GamesDialog::setupWidgets()
 	m_simulation->field()->setFieldYSize( y );
 	
 	m_controls->ui.gf->setField( m_simulation->field() );
+	m_controls->ui.gf->setDesign( m_simulation->design() );
 
 	vbox = new QVBoxLayout( this );
 

@@ -97,6 +97,8 @@ Simulation::Simulation()
 	m_numberOfMoves = 0;
 
 	m_maxMoves = -1;	
+
+	m_design = SimulationfieldWidget::CIRCLE;
 	
 	connect( &m_timer, SIGNAL( timeout() ), 
 			this, SLOT( slotNextMove() ) );

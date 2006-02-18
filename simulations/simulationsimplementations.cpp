@@ -99,6 +99,7 @@ RASimulation::RASimulation()
 	m_statForm = new Ui::RAForm();
 	m_statWidget = new QWidget();
 	m_statForm->setupUi( m_statWidget );
+	m_design = SimulationfieldWidget::SQUARE;
 
 	setField( m_field );
 	

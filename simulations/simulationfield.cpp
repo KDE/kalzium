@@ -78,10 +78,10 @@ void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
 								s-4 );
 						break;
 					case SQUARE:
-						p.drawRect( x*s+2,
-								y*s+2,
-								s-4,
-								s-4 );
+						p.drawRect( x*s,
+								y*s,
+								s,
+								s );
 						break;
 				}
 			}
