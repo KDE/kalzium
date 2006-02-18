@@ -26,7 +26,7 @@ GameControls_Impl::GameControls_Impl( QWidget * parent )
 
 void GameControls_Impl::showSettings()
 {
-	QDialog *dlg = new QDialog();
+	QDialog *dlg = new QDialog( this );
 	Ui::SettingsDialog settingsDlg;
 	
 	settingsDlg.setupUi( dlg );
