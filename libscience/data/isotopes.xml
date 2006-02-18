@@ -19,7 +19,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.0025E-6">3.016049278</scalar>
 		<spin dictRef="bo:spin">1/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">+2.978960</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">12.3</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">12.3</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.01861</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">1</scalar>
 	</isotope>
@@ -139,7 +139,7 @@
 	<isotope id="Be7" number="7" elementType="Be">
 		<scalar dictRef="bo:exactMass" errorValue="0.11E-6">7.01692983</scalar>
 		<spin dictRef="bo:spin">3/2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">4611168</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">4611168</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.862</ecdecay>
 		<scalar dictRef="bo:atomicNumber">4</scalar>
 	</isotope>
@@ -157,7 +157,7 @@
 	<isotope id="Be10" number="10" elementType="Be">
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">10.0135338</scalar>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">1600000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">1600000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.555</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">4</scalar>
 	</isotope>
@@ -266,7 +266,7 @@
 	<isotope id="C11" number="11" elementType="C">
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">11.0114336</scalar>
 		<spin dictRef="bo:spin">3/2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">1223</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">1223</halflife>
 		<betaplusdecay dictRef="bo:betaplusDecay" percentage="100.0">0.96</betaplusdecay>
 		<scalar dictRef="bo:atomicNumber">6</scalar>
 	</isotope>
@@ -285,7 +285,7 @@
 	</isotope>
 	<isotope id="C14" number="14" elementType="C">
 		<scalar dictRef="bo:exactMass" errorValue="0.004E-6">14.00324199</scalar>
-		<halflife dictRef="bo:halfLife" format="years">5730</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">5730</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.15648</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">6</scalar>
 	</isotope>
@@ -491,7 +491,7 @@
 	<isotope id="F18" number="18" elementType="F">
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">18.000938</scalar>
 		<spin dictRef="bo:spin">1+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">6582</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">6582</halflife>
 		<betaplusdecay dictRef="bo:betaplusDecay" percentage="97.0">0.64</betaplusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="3.0"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">9</scalar>
@@ -658,7 +658,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">21.9944364</scalar>
 		<spin dictRef="bo:spin">3+</spin>
 		<magmoment dictRef="bo:magneticMoment">+1.746</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">2.6</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">2.6</halflife>
 		<betaplusdecay dictRef="bo:betaplusDecay" percentage="100.0">2.842</betaplusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">11</scalar>
@@ -674,7 +674,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.08E-6">23.99096278</scalar>
 		<spin dictRef="bo:spin">4+</spin>
 		<magmoment dictRef="bo:magneticMoment">+1.6903</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">54000</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">54000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">5.514</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">11</scalar>
 	</isotope>
@@ -852,7 +852,7 @@
 	<isotope id="Al26" number="26" elementType="Al">
 		<scalar dictRef="bo:exactMass" errorValue="0.06E-6">25.98689169</scalar>
 		<spin dictRef="bo:spin">5+</spin>
-		<halflife dictRef="bo:halfLife" format="years">740000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">740000</halflife>
 		<betaplusdecay dictRef="bo:betaplusDecay" percentage="82">4.003</betaplusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="18"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">13</scalar>
@@ -1066,7 +1066,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.2E-6">31.97390727</scalar>
 		<spin dictRef="bo:spin">1+</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.2524</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">1231372</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">1231372</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.710</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">15</scalar>
 	</isotope>
@@ -1175,7 +1175,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.11E-6">34.96903216</scalar>
 		<spin dictRef="bo:spin">3/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">+1</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">7525440</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">7525440</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.1674</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">16</scalar>
 	</isotope>
@@ -1487,7 +1487,7 @@
 		<abundance dictRef="bo:relativeAbundance">0.0117</abundance>
 		<spin dictRef="bo:spin">4-</spin>
 		<magmoment dictRef="bo:magneticMoment">-1.298099</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">1277000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">1277000000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="89.33">1.32</betaminusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="10.67"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">19</scalar>
@@ -1618,7 +1618,7 @@
 	<isotope id="Ca46" number="46" elementType="Ca">
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">45.9536926</scalar>
 		<abundance dictRef="bo:relativeAbundance">0.004</abundance>
-		<halflife dictRef="bo:halfLife" format="seconds">14152320</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">14152320</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.257</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">20</scalar>
 	</isotope>
@@ -1716,21 +1716,21 @@
 	<isotope id="Sc46" number="46" elementType="Sc">
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">45.9551719</scalar>
 		<spin dictRef="bo:spin">4+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">7241184</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">7241184</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">2.367</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">21</scalar>
 	</isotope>
 	<isotope id="Sc47" number="47" elementType="Sc">
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">46.9524075</scalar>
 		<spin dictRef="bo:spin">7/2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">289008</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">289008</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.601</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">21</scalar>
 	</isotope>
 	<isotope id="Sc48" number="48" elementType="Sc">
 		<scalar dictRef="bo:exactMass" errorValue="6E-6">47.952231</scalar>
 		<spin dictRef="bo:spin">6+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">157320</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">157320</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">4.0</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">21</scalar>
 	</isotope>
@@ -1947,7 +1947,7 @@
 		<abundance dictRef="bo:relativeAbundance">0.250</abundance>
 		<spin dictRef="bo:spin">6+</spin>
 		<magmoment dictRef="bo:magneticMoment">+3.34745</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">140000000000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">140000000000000000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="17.0"></betaminusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="83"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">23</scalar>
@@ -2176,7 +2176,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.4E-6">53.9403589</scalar>
 		<spin dictRef="bo:spin">3+</spin>
 		<magmoment dictRef="bo:magneticMoment">+3.2818</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">26967168</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">26967168</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">1.377</ecdecay>
 		<scalar dictRef="bo:atomicNumber">25</scalar>
 	</isotope>
@@ -2407,7 +2407,7 @@
 	<isotope id="Co56" number="56" elementType="Co">
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">55.9398393</scalar>
 		<spin dictRef="bo:spin">4+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">6663168</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">6663168</halflife>
 		<betaplusdecay dictRef="bo:betaplusDecay" percentage="100.0">4.566</betaplusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">27</scalar>
@@ -2415,14 +2415,14 @@
 	<isotope id="Co57" number="57" elementType="Co">
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">56.9362914</scalar>
 		<spin dictRef="bo:spin">7/2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">23483520</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">23483520</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.836</ecdecay>
 		<scalar dictRef="bo:atomicNumber">27</scalar>
 	</isotope>
 	<isotope id="Co58" number="58" elementType="Co">
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">57.9357528</scalar>
 		<spin dictRef="bo:spin">2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">6118848</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">6118848</halflife>
 		<betaplusdecay dictRef="bo:betaplusDecay" percentage="100.0">2.3</betaplusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">27</scalar>
@@ -2438,7 +2438,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">59.9338171</scalar>
 		<spin dictRef="bo:spin">5+</spin>
 		<magmoment dictRef="bo:magneticMoment">+3.799</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">5.2714</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">5.2714</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">2.824</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">27</scalar>
 	</isotope>
@@ -2553,7 +2553,7 @@
 	<isotope id="Ni59" number="59" elementType="Ni">
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">58.9343467</scalar>
 		<spin dictRef="bo:spin">3/2-</spin>
-		<halflife dictRef="bo:halfLife" format="years">75000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">75000</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">1.072</ecdecay>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
@@ -2579,7 +2579,7 @@
 	<isotope id="Ni63" number="63" elementType="Ni">
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">62.9296694</scalar>
 		<spin dictRef="bo:spin">1/2-</spin>
-		<halflife dictRef="bo:halfLife" format="years">100.1</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">100.1</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.065</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
@@ -2702,7 +2702,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">63.9297642</scalar>
 		<spin dictRef="bo:spin">1+</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.217</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">45723.6</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">45723.6</halflife>
 		<betaplusdecay dictRef="bo:betaplusDecay" percentage="19.0">1.7</betaplusdecay>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="39.0">0.578</betaminusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="41.0">1.675</ecdecay>
@@ -2827,7 +2827,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">64.929241</scalar>
 		<spin dictRef="bo:spin">5/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">+0.7690</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">21072960</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">21072960</halflife>
 		<betaplusdecay dictRef="bo:betaplusDecay" percentage="98.0">1.352</betaplusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="1.5"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">30</scalar>
@@ -3259,7 +3259,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">75.922394</scalar>
 		<spin dictRef="bo:spin">2-</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.906</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">94752</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">94752</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">2.97</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">33</scalar>
 	</isotope>
@@ -3805,7 +3805,7 @@
 	<isotope id="Rb86" number="86" elementType="Rb">
 		<scalar dictRef="bo:exactMass" errorValue="0.21E-6">85.91116742</scalar>
 		<magmoment dictRef="bo:magneticMoment">-1.6920</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">1609715.4</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">1609715.4</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="99.99">1.774</betaminusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="0.0052"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">37</scalar>
@@ -3815,7 +3815,7 @@
 		<abundance dictRef="bo:relativeAbundance">27.83</abundance>
 		<spin dictRef="bo:spin">3/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">+2.75124</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">47500000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">47500000000</halflife>
 		<scalar dictRef="bo:atomicNumber">37</scalar>
 	</isotope>
 	<isotope id="Rb88" number="88" elementType="Rb">
@@ -3933,7 +3933,7 @@
 	<isotope id="Sr85" number="85" elementType="Sr">
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">84.912933</scalar>
 		<spin dictRef="bo:spin">9/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">5598720</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">5598720</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100">1.08</ecdecay>
 		<scalar dictRef="bo:atomicNumber">38</scalar>
 	</isotope>
@@ -4089,7 +4089,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">89.9071519</scalar>
 		<spin dictRef="bo:spin">2-</spin>
 		<magmoment dictRef="bo:magneticMoment">-1.630</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">230400</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">230400</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">2.283</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">39</scalar>
 	</isotope>
@@ -4237,7 +4237,7 @@
 	<isotope id="Zr93" number="93" elementType="Zr">
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">92.906476</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
-		<halflife dictRef="bo:halfLife" format="years">1530000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">1530000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.09</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">40</scalar>
 	</isotope>
@@ -4250,7 +4250,7 @@
 	<isotope id="Zr95" number="95" elementType="Zr">
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">94.9080426</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">5531328</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">5531328</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.121</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">40</scalar>
 	</isotope>
@@ -4380,7 +4380,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">94.9068358</scalar>
 		<spin dictRef="bo:spin">9/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">+6.123</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">3036960</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">3036960</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.925</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">41</scalar>
 	</isotope>
@@ -4503,7 +4503,7 @@
 	<isotope id="Mo93" number="93" elementType="Mo">
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">92.906813</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
-		<halflife dictRef="bo:halfLife" format="years">3500</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">3500</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
@@ -4542,7 +4542,7 @@
 	<isotope id="Mo99" number="99" elementType="Mo">
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">98.9077119</scalar>
 		<spin dictRef="bo:spin">1/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">5762016</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">5762016</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.357</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
@@ -4665,7 +4665,7 @@
 	<isotope id="Tc97" number="97" elementType="Tc">
 		<scalar dictRef="bo:exactMass" errorValue="5E-6">96.906365</scalar>
 		<spin dictRef="bo:spin">9/2+</spin>
-		<halflife dictRef="bo:halfLife" format="years">2600000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">2600000</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.32</ecdecay>
 		<scalar dictRef="bo:atomicNumber">43</scalar>
 	</isotope>
@@ -4677,7 +4677,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">98.9062547</scalar>
 		<spin dictRef="bo:spin">9/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">+5.6847</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">211100</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">211100</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.293</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">43</scalar>
 	</isotope>
@@ -4805,7 +4805,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="9E-6">96.907555</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">+0.687</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">250560</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">250560</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">1.2</ecdecay>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
@@ -4845,7 +4845,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">102.9063238</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">+0.67</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">3392064</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">3392064</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.767</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
@@ -5115,7 +5115,7 @@
 	<isotope id="Pd103" number="103" elementType="Pd">
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">102.906087</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">1468022.4</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">1468022.4</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.56</ecdecay>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
@@ -5141,7 +5141,7 @@
 	<isotope id="Pd107" number="107" elementType="Pd">
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">106.905133</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
-		<halflife dictRef="bo:halfLife" format="years">6500000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">6500000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.035</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
@@ -5154,7 +5154,7 @@
 	<isotope id="Pd109" number="109" elementType="Pd">
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">108.90595</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">49320</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">49320</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.116</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
@@ -5439,7 +5439,7 @@
 	<isotope id="Cd107" number="107" elementType="Cd">
 		<scalar dictRef="bo:exactMass" errorValue="6E-6">106.906618</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">23400</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">23400</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
@@ -5453,7 +5453,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">108.904982</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.8270</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">38880000</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">38880000</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.16</ecdecay>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
@@ -5493,7 +5493,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">114.905431</scalar>
 		<spin dictRef="bo:spin">1/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.648</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">192456</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">192456</halflife>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd116" number="116" elementType="Cd">
@@ -5797,7 +5797,7 @@
 	<isotope id="Sn113" number="113" elementType="Sn">
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">112.905171</scalar>
 		<spin dictRef="bo:spin">1/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">9943776</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">9943776</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">1.02</ecdecay>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
@@ -5849,7 +5849,7 @@
 	<isotope id="Sn121" number="121" elementType="Sn">
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">120.9042355</scalar>
 		<spin dictRef="bo:spin">11/2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">97416</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">97416</halflife>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn122" number="122" elementType="Sn">
@@ -6151,7 +6151,7 @@
 	<isotope id="Te121" number="121" elementType="Te">
 		<scalar dictRef="bo:exactMass" errorValue="28E-6">120.904936</scalar>
 		<spin dictRef="bo:spin">1/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">1449792</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">1449792</halflife>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te122" number="122" elementType="Te">
@@ -6159,7 +6159,7 @@
 		<abundance dictRef="bo:relativeAbundance">2.55</abundance>
 		<spin dictRef="bo:spin">0+</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.7359</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">13000000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">13000000000000</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.052</ecdecay>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
@@ -6186,7 +6186,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">125.9033117</scalar>
 		<abundance dictRef="bo:relativeAbundance">18.84</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">33660</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">33660</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.697</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
@@ -6355,7 +6355,7 @@
 	<isotope id="I129" number="129" elementType="I">
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">128.904988</scalar>
 		<magmoment dictRef="bo:magneticMoment">+2.617</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">15700000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">15700000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.193</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">53</scalar>
 	</isotope>
@@ -6486,7 +6486,7 @@
 	<isotope id="Xe125" number="125" elementType="Xe">
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">124.9063955</scalar>
 		<spin dictRef="bo:spin">1/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">60840</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">60840</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
@@ -6499,7 +6499,7 @@
 	<isotope id="Xe127" number="127" elementType="Xe">
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">126.905184</scalar>
 		<spin dictRef="bo:spin">1/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">3144960</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">3144960</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.44</ecdecay>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
@@ -6538,7 +6538,7 @@
 	<isotope id="Xe133" number="133" elementType="Xe">
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">132.9059107</scalar>
 		<spin dictRef="bo:spin">3/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">452995.2</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">452995.2</halflife>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe134" number="134" elementType="Xe">
@@ -6704,7 +6704,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.1E-6">134.905977</scalar>
 		<spin dictRef="bo:spin">7/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">+2.729</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">2300000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">2300000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">2.05</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">55</scalar>
 	</isotope>
@@ -6847,7 +6847,7 @@
 	<isotope id="Ba131" number="131" elementType="Ba">
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">130.906941</scalar>
 		<spin dictRef="bo:spin">1/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">1019520</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">1019520</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">1.16</ecdecay>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
@@ -7045,7 +7045,7 @@
 		<abundance dictRef="bo:relativeAbundance">0.090</abundance>
 		<spin dictRef="bo:spin">5-</spin>
 		<magmoment dictRef="bo:magneticMoment">+3.707</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">105000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">105000000000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="33.6">1.04</betaminusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="66.4">1.75</ecdecay>
 		<scalar dictRef="bo:atomicNumber">57</scalar>
@@ -7061,7 +7061,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">139.9094776</scalar>
 		<spin dictRef="bo:spin">3-</spin>
 		<magmoment dictRef="bo:magneticMoment">+0.73</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">144987.84</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">144987.84</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">3.761</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">57</scalar>
 	</isotope>
@@ -7204,7 +7204,7 @@
 	<isotope id="Ce137" number="137" elementType="Ce">
 		<scalar dictRef="bo:exactMass" errorValue="14E-6">136.907806</scalar>
 		<spin dictRef="bo:spin">3/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">32400</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">32400</halflife>
 		<betaplusdecay dictRef="bo:betaplusDecay" percentage="100.0"></betaplusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">58</scalar>
@@ -7218,7 +7218,7 @@
 	<isotope id="Ce139" number="139" elementType="Ce">
 		<scalar dictRef="bo:exactMass" errorValue="8E-6">138.906653</scalar>
 		<magmoment dictRef="bo:magneticMoment">±0.9</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">11892096</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">11892096</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.27</ecdecay>
 		<scalar dictRef="bo:atomicNumber">58</scalar>
 	</isotope>
@@ -7232,7 +7232,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">140.9082763</scalar>
 		<spin dictRef="bo:spin">7/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">±0.97</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">2808086.4</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">2808086.4</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.581</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">58</scalar>
 	</isotope>
@@ -7394,7 +7394,7 @@
 	<isotope id="Pr142" number="142" elementType="Pr">
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">141.9100448</scalar>
 		<spin dictRef="bo:spin">2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">68832</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">68832</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="99.98">2.160</betaminusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="0.02"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">59</scalar>
@@ -7558,7 +7558,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">143.9100873</scalar>
 		<abundance dictRef="bo:relativeAbundance">23.8</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">2290000000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">2290000000000000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">1.83</alphadecay>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
@@ -7579,7 +7579,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">146.9161004</scalar>
 		<spin dictRef="bo:spin">5/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">0.59</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">948672</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">948672</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.91</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
@@ -7592,7 +7592,7 @@
 	<isotope id="Nd149" number="149" elementType="Nd">
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">148.920149</scalar>
 		<spin dictRef="bo:spin">5/2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">6192</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">6192</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.66</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
@@ -7735,26 +7735,26 @@
 	<isotope id="Pm147" number="147" elementType="Pm">
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">146.9151385</scalar>
 		<magmoment dictRef="bo:magneticMoment">+2.7</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">2.5</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">2.5</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.224</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">61</scalar>
 	</isotope>
 	<isotope id="Pm148" number="148" elementType="Pm">
 		<scalar dictRef="bo:exactMass" errorValue="7E-6">147.917475</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">465696</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">465696</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">2.46</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">61</scalar>
 	</isotope>
 	<isotope id="Pm149" number="149" elementType="Pm">
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">148.918334</scalar>
 		<magmoment dictRef="bo:magneticMoment">±3.3</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">191160</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">191160</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.073</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">61</scalar>
 	</isotope>
 	<isotope id="Pm150" number="150" elementType="Pm">
 		<scalar dictRef="bo:exactMass" errorValue="22E-6">149.920984</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">9720</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">9720</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">3.43</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">61</scalar>
 	</isotope>
@@ -7885,14 +7885,14 @@
 	<isotope id="Sm145" number="145" elementType="Sm">
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">144.91341</scalar>
 		<spin dictRef="bo:spin">7/2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">29376000</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">29376000</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.65</ecdecay>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm146" number="146" elementType="Sm">
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">145.913041</scalar>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">103100000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">103100000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">2.55</alphadecay>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
@@ -7901,7 +7901,7 @@
 		<abundance dictRef="bo:relativeAbundance">14.99</abundance>
 		<spin dictRef="bo:spin">7/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.813</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">106000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">106000000000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">2.31</alphadecay>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
@@ -7909,7 +7909,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">147.9148227</scalar>
 		<abundance dictRef="bo:relativeAbundance">11.24</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">12000000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">12000000000000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">2.00</alphadecay>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
@@ -7918,7 +7918,7 @@
 		<abundance dictRef="bo:relativeAbundance">13.82</abundance>
 		<spin dictRef="bo:spin">7/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.670</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">400000000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">400000000000000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">1.9</alphadecay>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
@@ -7931,7 +7931,7 @@
 	<isotope id="Sm151" number="151" elementType="Sm">
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">150.9199324</scalar>
 		<spin dictRef="bo:spin">7/2-</spin>
-		<halflife dictRef="bo:halfLife" format="years">93</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">93</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.076</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
@@ -7944,7 +7944,7 @@
 	<isotope id="Sm153" number="153" elementType="Sm">
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">152.9220974</scalar>
 		<spin dictRef="bo:spin">3/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">166572</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">166572</halflife>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm154" number="154" elementType="Sm">
@@ -8236,14 +8236,14 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">151.919791</scalar>
 		<abundance dictRef="bo:relativeAbundance">0.20</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">108000000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">108000000000000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">2.24</alphadecay>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd153" number="153" elementType="Gd">
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">152.9217495</scalar>
 		<spin dictRef="bo:spin">3/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">20874240</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">20874240</halflife>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd154" number="154" elementType="Gd">
@@ -8281,7 +8281,7 @@
 	<isotope id="Gd159" number="159" elementType="Gd">
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">158.9263887</scalar>
 		<spin dictRef="bo:spin">3/2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">66816</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">66816</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.95</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
@@ -8432,7 +8432,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">159.9271676</scalar>
 		<spin dictRef="bo:spin">3-</spin>
 		<magmoment dictRef="bo:magneticMoment">+1.702</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">6246720</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">6246720</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.72</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">65</scalar>
 	</isotope>
@@ -8607,7 +8607,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">163.9291748</scalar>
 		<abundance dictRef="bo:relativeAbundance">28.18</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">8402.4</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">8402.4</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.3</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
@@ -8759,7 +8759,7 @@
 	<isotope id="Ho166" number="166" elementType="Ho">
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">165.9322842</scalar>
 		<spin dictRef="bo:spin">0-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">96840</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">96840</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.85</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">67</scalar>
 	</isotope>
@@ -9233,7 +9233,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">174.9412765</scalar>
 		<spin dictRef="bo:spin">7/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">±0.3</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">244224</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">244224</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.467</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
@@ -9502,7 +9502,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">173.940046</scalar>
 		<abundance dictRef="bo:relativeAbundance">0.16</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">2000000000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">2000000000000000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">2.55</alphadecay>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
@@ -9510,7 +9510,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">174.941509</scalar>
 		<spin dictRef="bo:spin">5/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">0.70</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">6048000</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">6048000</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.59</ecdecay>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
@@ -9684,7 +9684,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">179.9474648</scalar>
 		<abundance dictRef="bo:relativeAbundance">0.012</abundance>
 		<spin dictRef="bo:spin">1-</spin>
-		<halflife dictRef="bo:halfLife" format="years">10000000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">10000000000000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="14.0"></betaminusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="86.0"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">73</scalar>
@@ -9700,7 +9700,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.9E-6">181.9501518</scalar>
 		<spin dictRef="bo:spin">3-</spin>
 		<magmoment dictRef="bo:magneticMoment">2.6</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">9892800</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">9892800</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.811</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">73</scalar>
 	</isotope>
@@ -9835,7 +9835,7 @@
 	<isotope id="W181" number="181" elementType="W">
 		<scalar dictRef="bo:exactMass" errorValue="5E-6">180.948197</scalar>
 		<spin dictRef="bo:spin">9/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">10471680</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">10471680</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.19</ecdecay>
 		<scalar dictRef="bo:atomicNumber">74</scalar>
 	</isotope>
@@ -9861,7 +9861,7 @@
 	</isotope>
 	<isotope id="W185" number="185" elementType="W">
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">184.9534193</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">4129920</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">4129920</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.432</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">74</scalar>
 	</isotope>
@@ -9874,7 +9874,7 @@
 	<isotope id="W187" number="187" elementType="W">
 		<scalar dictRef="bo:exactMass" errorValue="1.9E-6">186.9571605</scalar>
 		<magmoment dictRef="bo:magneticMoment">0.688</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">2064960</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">2064960</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.321</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">74</scalar>
 	</isotope>
@@ -10011,7 +10011,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">185.9549861</scalar>
 		<spin dictRef="bo:spin">1-</spin>
 		<magmoment dictRef="bo:magneticMoment">+1.739</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">324000</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">324000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="93.1">1.071</betaminusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="6.9"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">75</scalar>
@@ -10021,7 +10021,7 @@
 		<abundance dictRef="bo:relativeAbundance">62.60</abundance>
 		<spin dictRef="bo:spin">5/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">+3.2197</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">43500000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">43500000000</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.00251</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">75</scalar>
 	</isotope>
@@ -10029,7 +10029,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">187.9581144</scalar>
 		<spin dictRef="bo:spin">1-</spin>
 		<magmoment dictRef="bo:magneticMoment">+1.788</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">61128</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">61128</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">2.12</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">75</scalar>
 	</isotope>
@@ -10156,7 +10156,7 @@
 	<isotope id="Os185" number="185" elementType="Os">
 		<scalar dictRef="bo:exactMass" errorValue="1.4E-6">184.9540423</scalar>
 		<spin dictRef="bo:spin">1/2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">8087040</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">8087040</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.98</ecdecay>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
@@ -10164,7 +10164,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">185.9538382</scalar>
 		<abundance dictRef="bo:relativeAbundance">1.59</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">2000000000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">2000000000000000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0"></alphadecay>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
@@ -10197,7 +10197,7 @@
 	<isotope id="Os191" number="191" elementType="Os">
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">190.9609297</scalar>
 		<spin dictRef="bo:spin">9/2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">13.30560</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">13.30560</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.313</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
@@ -10344,7 +10344,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">191.962605</scalar>
 		<spin dictRef="bo:spin">4-</spin>
 		<magmoment dictRef="bo:magneticMoment">+1.880</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">6378998.4</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">6378998.4</halflife>
 		<betaplusdecay dictRef="bo:betaplusDecay" percentage="4.6">1.2</betaplusdecay>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="95.4">1.454</betaminusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="4.6"></ecdecay>
@@ -10484,7 +10484,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="6E-6">189.959932</scalar>
 		<abundance dictRef="bo:relativeAbundance">0.014</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">650000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">650000000000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">3.18</alphadecay>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
@@ -10497,7 +10497,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">191.961038</scalar>
 		<abundance dictRef="bo:relativeAbundance">0.782</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">1000000000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">1000000000000000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">2.6</alphadecay>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
@@ -10528,7 +10528,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">196.9673402</scalar>
 		<spin dictRef="bo:spin">1/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.51</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">65880</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">65880</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.75</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
@@ -10663,7 +10663,7 @@
 	<isotope id="Au195" number="195" elementType="Au">
 		<scalar dictRef="bo:exactMass" errorValue="1.4E-6">194.9650346</scalar>
 		<magmoment dictRef="bo:magneticMoment">±0.148</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">16078176</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">16078176</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.230</ecdecay>
 		<scalar dictRef="bo:atomicNumber">79</scalar>
 	</isotope>
@@ -10682,7 +10682,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">197.9682423</scalar>
 		<spin dictRef="bo:spin">2-</spin>
 		<magmoment dictRef="bo:magneticMoment">+0.5934</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">232718.4</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">232718.4</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.372</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">79</scalar>
 	</isotope>
@@ -10690,7 +10690,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">198.9687652</scalar>
 		<spin dictRef="bo:spin">3/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">+0.2715</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">271209.6</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">271209.6</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.453</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">79</scalar>
 	</isotope>
@@ -10830,7 +10830,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">196.967213</scalar>
 		<spin dictRef="bo:spin">1/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">+0.5274</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">230904</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">230904</halflife>
 		<ecdecay dictRef="bo:ecDecay" percentage="100.0">0.42</ecdecay>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
@@ -10870,7 +10870,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">202.9728725</scalar>
 		<spin dictRef="bo:spin">5/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">+0.8489</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">4027276.8</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">4027276.8</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.492</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
@@ -11025,7 +11025,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">203.9738635</scalar>
 		<spin dictRef="bo:spin">2-</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.06</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">3.78</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">3.78</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="97.43">0.763</betaminusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="2.57">0.345</ecdecay>
 		<scalar dictRef="bo:atomicNumber">81</scalar>
@@ -11344,7 +11344,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">209.9841204</scalar>
 		<spin dictRef="bo:spin">1-</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.044</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">432864.0</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">432864.0</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.04</alphadecay>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.16</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">83</scalar>
@@ -11471,7 +11471,7 @@
 	<isotope id="Po209" number="209" elementType="Po">
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">208.9824304</scalar>
 		<magmoment dictRef="bo:magneticMoment">+0.77</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">102</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">102</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="99.74">4.976</alphadecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="0.26"></ecdecay>
 		<scalar dictRef="bo:atomicNumber">84</scalar>
@@ -11479,21 +11479,21 @@
 	<isotope id="Po210" number="210" elementType="Po">
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">209.9828737</scalar>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">11955686.4</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">11955686.4</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.407</alphadecay>
 		<scalar dictRef="bo:atomicNumber">84</scalar>
 	</isotope>
 	<isotope id="Po211" number="211" elementType="Po">
 		<scalar dictRef="bo:exactMass" errorValue="1.4E-6">210.9866532</scalar>
 		<spin dictRef="bo:spin">9/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">0.516</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">0.516</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">7.594</alphadecay>
 		<scalar dictRef="bo:atomicNumber">84</scalar>
 	</isotope>
 	<isotope id="Po212" number="212" elementType="Po">
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">211.988868</scalar>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">0.000000299</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">0.000000299</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0"></alphadecay>
 		<scalar dictRef="bo:atomicNumber">84</scalar>
 	</isotope>
@@ -11504,20 +11504,20 @@
 	<isotope id="Po214" number="214" elementType="Po">
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">213.9952014</scalar>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">0.0001643</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">0.0001643</halflife>
 		<scalar dictRef="bo:atomicNumber">84</scalar>
 	</isotope>
 	<isotope id="Po215" number="215" elementType="Po">
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">214.99942</scalar>
 		<spin dictRef="bo:spin">9/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">0.001781</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">0.001781</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="99.9998"></alphadecay>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="0.0002"></betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">84</scalar>
 	</isotope>
 	<isotope id="Po216" number="216" elementType="Po">
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">216.001915</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">0.145</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">0.145</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">6.906</alphadecay>
 		<scalar dictRef="bo:atomicNumber">84</scalar>
 	</isotope>
@@ -11527,7 +11527,7 @@
 	</isotope>
 	<isotope id="Po218" number="218" elementType="Po">
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">218.008973</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">186</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">186</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="99.98">6.114</alphadecay>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="0.02"></betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">84</scalar>
@@ -11614,7 +11614,7 @@
 	<isotope id="At210" number="210" elementType="At">
 		<scalar dictRef="bo:exactMass" errorValue="8E-6">209.987148</scalar>
 		<spin dictRef="bo:spin">5+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">29160</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">29160</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="0.18">5.63</alphadecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="99.82">3.98</ecdecay>
 		<scalar dictRef="bo:atomicNumber">85</scalar>
@@ -11622,7 +11622,7 @@
 	<isotope id="At211" number="211" elementType="At">
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">210.9874963</scalar>
 		<spin dictRef="bo:spin">9/2-</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">25970.4</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">25970.4</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="41.7">5.981</alphadecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="58.3">0.784</ecdecay>
 		<scalar dictRef="bo:atomicNumber">85</scalar>
@@ -11641,13 +11641,13 @@
 	</isotope>
 	<isotope id="At215" number="215" elementType="At">
 		<scalar dictRef="bo:exactMass" errorValue="7E-6">214.998653</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">0.0001</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">0.0001</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0"></alphadecay>
 		<scalar dictRef="bo:atomicNumber">85</scalar>
 	</isotope>
 	<isotope id="At216" number="216" elementType="At">
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">216.002423</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">0.0003</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">0.0003</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100"></alphadecay>
 		<scalar dictRef="bo:atomicNumber">85</scalar>
 	</isotope>
@@ -11657,14 +11657,14 @@
 	</isotope>
 	<isotope id="At218" number="218" elementType="At">
 		<scalar dictRef="bo:exactMass" errorValue="12E-6">218.008694</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">1938</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">1938</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="99.99"></alphadecay>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="0.01"></betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">85</scalar>
 	</isotope>
 	<isotope id="At219" number="219" elementType="At">
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">219.011162</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">1.6</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">1.6</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="99.9"></alphadecay>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="0.1"></betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">85</scalar>
@@ -12306,35 +12306,35 @@
 	<isotope id="Th227" number="227" elementType="Th">
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">227.0277041</scalar>
 		<spin dictRef="bo:spin">3/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">1617235.2</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">1617235.2</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">6.145</alphadecay>
 		<scalar dictRef="bo:atomicNumber">90</scalar>
 	</isotope>
 	<isotope id="Th228" number="228" elementType="Th">
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">228.0287411</scalar>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">1.9131</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">1.9131</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.52</alphadecay>
 		<scalar dictRef="bo:atomicNumber">90</scalar>
 	</isotope>
 	<isotope id="Th229" number="229" elementType="Th">
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">229.031762</scalar>
 		<magmoment dictRef="bo:magneticMoment">+0.46</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">7340</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">7340</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.17</alphadecay>
 		<scalar dictRef="bo:atomicNumber">90</scalar>
 	</isotope>
 	<isotope id="Th230" number="230" elementType="Th">
 		<scalar dictRef="bo:exactMass" errorValue="1.9E-6">230.0331338</scalar>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">75380</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">75380</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">4.77</alphadecay>
 		<scalar dictRef="bo:atomicNumber">90</scalar>
 	</isotope>
 	<isotope id="Th231" number="231" elementType="Th">
 		<scalar dictRef="bo:exactMass" errorValue="1.9E-6">231.0363043</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">91872</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">91872</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.389</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">90</scalar>
 	</isotope>
@@ -12342,7 +12342,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">232.0380553</scalar>
 		<abundance dictRef="bo:relativeAbundance">100</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">14000000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">14000000000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">4.081</alphadecay>
 		<scalar dictRef="bo:atomicNumber">90</scalar>
 	</isotope>
@@ -12353,7 +12353,7 @@
 	<isotope id="Th234" number="234" elementType="Th">
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">234.043601</scalar>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="seconds">1338</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">1338</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.27</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">90</scalar>
 	</isotope>
@@ -12456,21 +12456,21 @@
 		<abundance dictRef="bo:relativeAbundance">100</abundance>
 		<spin dictRef="bo:spin">3/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">±2.01</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">32760</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">32760</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.148</alphadecay>
 		<scalar dictRef="bo:atomicNumber">91</scalar>
 	</isotope>
 	<isotope id="Pa232" number="232" elementType="Pa">
 		<scalar dictRef="bo:exactMass" errorValue="8E-6">232.038592</scalar>
 		<magmoment dictRef="bo:magneticMoment">+3.5</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">113184</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">113184</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.34</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">91</scalar>
 	</isotope>
 	<isotope id="Pa233" number="233" elementType="Pa">
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">233.0402473</scalar>
 		<magmoment dictRef="bo:magneticMoment">+3.5</magmoment>
-		<halflife dictRef="bo:halfLife" format="seconds">2329948.8</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">2329948.8</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.572</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">91</scalar>
 	</isotope>
@@ -12567,14 +12567,14 @@
 	</isotope>
 	<isotope id="U232" number="232" elementType="U">
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">232.0371562</scalar>
-		<halflife dictRef="bo:halfLife" format="years">73.6</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">73.6</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.41</alphadecay>
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
 	<isotope id="U233" number="233" elementType="U">
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">233.0396352</scalar>
 		<magmoment dictRef="bo:magneticMoment">+0.55</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">159200</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">159200</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">4.91</alphadecay>
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
@@ -12582,7 +12582,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">234.0409521</scalar>
 		<abundance dictRef="bo:relativeAbundance">0.0055</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">245000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">245000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">4.856</alphadecay>
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
@@ -12591,19 +12591,19 @@
 		<abundance dictRef="bo:relativeAbundance">0.7200</abundance>
 		<spin dictRef="bo:spin">7/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">-0.35</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">703800000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">703800000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">4.6793</alphadecay>
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
 	<isotope id="U236" number="236" elementType="U">
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">236.045568</scalar>
-		<halflife dictRef="bo:halfLife" format="years">23415000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">23415000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">4.569</alphadecay>
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
 	<isotope id="U237" number="237" elementType="U">
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">237.0487302</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">583200</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">583200</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.52</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
@@ -12611,7 +12611,7 @@
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">238.0507882</scalar>
 		<abundance dictRef="bo:relativeAbundance">99.2745</abundance>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">4468000000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">4468000000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">4.039</alphadecay>
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
@@ -12621,7 +12621,7 @@
 	</isotope>
 	<isotope id="U240" number="240" elementType="U">
 		<scalar dictRef="bo:exactMass" errorValue="6E-6">240.056592</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">50760</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">50760</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.5</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
@@ -12686,19 +12686,19 @@
 	<isotope id="Np237" number="237" elementType="Np">
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">237.0481734</scalar>
 		<spin dictRef="bo:spin">5/2+</spin>
-		<halflife dictRef="bo:halfLife" format="years">2140000</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">2140000</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">4.96</alphadecay>
 		<scalar dictRef="bo:atomicNumber">93</scalar>
 	</isotope>
 	<isotope id="Np238" number="238" elementType="Np">
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">238.0509464</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">182908.8</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">182908.8</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">1.29</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">93</scalar>
 	</isotope>
 	<isotope id="Np239" number="239" elementType="Np">
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">239.052939</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">203472</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">203472</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.72</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">93</scalar>
 	</isotope>
@@ -12758,20 +12758,20 @@
 	</isotope>
 	<isotope id="Pu236" number="236" elementType="Pu">
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">236.046058</scalar>
-		<halflife dictRef="bo:halfLife" format="years">2.87</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">2.87</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.87</alphadecay>
 		<scalar dictRef="bo:atomicNumber">94</scalar>
 	</isotope>
 	<isotope id="Pu237" number="237" elementType="Pu">
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">237.0484097</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">3905280</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">3905280</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="0.004"></alphadecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="99.996">0.22</ecdecay>
 		<scalar dictRef="bo:atomicNumber">94</scalar>
 	</isotope>
 	<isotope id="Pu238" number="238" elementType="Pu">
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">238.0495599</scalar>
-		<halflife dictRef="bo:halfLife" format="years">87.74</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">87.74</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.59</alphadecay>
 		<scalar dictRef="bo:atomicNumber">94</scalar>
 	</isotope>
@@ -12779,28 +12779,28 @@
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">239.0521634</scalar>
 		<spin dictRef="bo:spin">1/2+</spin>
 		<magmoment dictRef="bo:magneticMoment">+0.203</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">24119</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">24119</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.24</alphadecay>
 		<scalar dictRef="bo:atomicNumber">94</scalar>
 	</isotope>
 	<isotope id="Pu240" number="240" elementType="Pu">
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">240.0538135</scalar>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">6563</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">6563</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.26</alphadecay>
 		<scalar dictRef="bo:atomicNumber">94</scalar>
 	</isotope>
 	<isotope id="Pu241" number="241" elementType="Pu">
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">241.0568515</scalar>
 		<magmoment dictRef="bo:magneticMoment">-0.683</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">14.35</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">14.35</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="100.0">0.02</betaminusdecay>
 		<scalar dictRef="bo:atomicNumber">94</scalar>
 	</isotope>
 	<isotope id="Pu242" number="242" elementType="Pu">
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">242.0587426</scalar>
 		<spin dictRef="bo:spin">0+</spin>
-		<halflife dictRef="bo:halfLife" format="years">373300</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">373300</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">4.983</alphadecay>
 		<scalar dictRef="bo:atomicNumber">94</scalar>
 	</isotope>
@@ -12870,13 +12870,13 @@
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">241.0568291</scalar>
 		<spin dictRef="bo:spin">5/2-</spin>
 		<magmoment dictRef="bo:magneticMoment">+1.61</magmoment>
-		<halflife dictRef="bo:halfLife" format="years">432.7</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">432.7</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.637</alphadecay>
 		<scalar dictRef="bo:atomicNumber">95</scalar>
 	</isotope>
 	<isotope id="Am242" number="242" elementType="Am">
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">242.0595492</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">57672</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">57672</halflife>
 		<betaminusdecay dictRef="bo:betaminusDecay" percentage="82.7">0.67</betaminusdecay>
 		<ecdecay dictRef="bo:ecDecay" percentage="17.3">0.73</ecdecay>
 		<scalar dictRef="bo:atomicNumber">95</scalar>
@@ -12884,7 +12884,7 @@
 	<isotope id="Am243" number="243" elementType="Am">
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">243.0613811</scalar>
 		<spin dictRef="bo:spin">5/2-</spin>
-		<halflife dictRef="bo:halfLife" format="years">7380</halflife>
+		<halflife dictRef="bo:halfLife" unit="units:a">7380</halflife>
 		<alphadecay dictRef="bo:alphaDecay" percentage="100.0">5.439</alphadecay>
 		<scalar dictRef="bo:atomicNumber">95</scalar>
 	</isotope>
@@ -13218,7 +13218,7 @@
 	</isotope>
 	<isotope id="Es252" number="252" elementType="Es">
 		<scalar dictRef="bo:exactMass" errorValue="50E-6">252.08298</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">40780800</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">40780800</halflife>
 		<scalar dictRef="bo:atomicNumber">99</scalar>
 	</isotope>
 	<isotope id="Es253" number="253" elementType="Es">
@@ -13311,7 +13311,7 @@
 	</isotope>
 	<isotope id="Fm257" number="257" elementType="Fm">
 		<scalar dictRef="bo:exactMass" errorValue="7E-6">257.095105</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">9115200</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">9115200</halflife>
 		<scalar dictRef="bo:atomicNumber">100</scalar>
 	</isotope>
 	<isotope id="Fm258" number="258" elementType="Fm">
@@ -13382,7 +13382,7 @@
 	</isotope>
 	<isotope id="Md258" number="258" elementType="Md">
 		<scalar dictRef="bo:exactMass" errorValue="5E-6">258.098431</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">4449600</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">4449600</halflife>
 		<scalar dictRef="bo:atomicNumber">101</scalar>
 	</isotope>
 	<isotope id="Md259" number="259" elementType="Md">
@@ -13449,7 +13449,7 @@
 	</isotope>
 	<isotope id="No259" number="259" elementType="No">
 		<scalar dictRef="bo:exactMass" errorValue="110E-6">259.10103</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">3480</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">3480</halflife>
 		<scalar dictRef="bo:atomicNumber">102</scalar>
 	</isotope>
 	<isotope id="No260" number="260" elementType="No">
@@ -13520,7 +13520,7 @@
 	</isotope>
 	<isotope id="Lr262" number="262" elementType="Lr">
 		<scalar dictRef="bo:exactMass" errorValue="220E-6">262.10963</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">12960</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">12960</halflife>
 		<scalar dictRef="bo:atomicNumber">103</scalar>
 	</isotope>
 	<isotope id="Lr263" number="263" elementType="Lr">
@@ -13575,7 +13575,7 @@
 	</isotope>
 	<isotope id="Rf261" number="261" elementType="Rf">
 		<scalar dictRef="bo:exactMass" errorValue="30E-6">261.10877</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">66</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">66</halflife>
 		<scalar dictRef="bo:atomicNumber">104</scalar>
 	</isotope>
 	<isotope id="Rf262" number="262" elementType="Rf">
@@ -13638,7 +13638,7 @@
 	</isotope>
 	<isotope id="Db262" number="262" elementType="Db">
 		<scalar dictRef="bo:exactMass" errorValue="200E-6">262.11408</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">34</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">34</halflife>
 		<scalar dictRef="bo:atomicNumber">105</scalar>
 	</isotope>
 	<isotope id="Db263" number="263" elementType="Db">
@@ -13709,7 +13709,7 @@
 	</isotope>
 	<isotope id="Sg266" number="266" elementType="Sg">
 		<scalar dictRef="bo:exactMass" errorValue="310E-6">266.12207</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">20</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">20</halflife>
 		<scalar dictRef="bo:atomicNumber">106</scalar>
 	</isotope>
 	<isotope id="Sg267" number="267" elementType="Sg">
@@ -13760,7 +13760,7 @@
 	</isotope>
 	<isotope id="Bh264" number="264" elementType="Bh">
 		<scalar dictRef="bo:exactMass" errorValue="300E-6">264.1246</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">0.4</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">0.4</halflife>
 		<scalar dictRef="bo:atomicNumber">107</scalar>
 	</isotope>
 	<isotope id="Bh265" number="265" elementType="Bh">
@@ -13835,7 +13835,7 @@
 	</isotope>
 	<isotope id="Hs269" number="269" elementType="Hs">
 		<scalar dictRef="bo:exactMass" errorValue="130E-6">269.13406</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">9.3</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">9.3</halflife>
 		<scalar dictRef="bo:atomicNumber">108</scalar>
 	</isotope>
 	<isotope id="Hs270" number="270" elementType="Hs">
@@ -13886,7 +13886,7 @@
 	</isotope>
 	<isotope id="Mt268" number="268" elementType="Mt">
 		<scalar dictRef="bo:exactMass" errorValue="340E-6">268.13873</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">0.7</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">0.7</halflife>
 		<scalar dictRef="bo:atomicNumber">109</scalar>
 	</isotope>
 	<isotope id="Mt269" number="269" elementType="Mt">
@@ -13953,7 +13953,7 @@
 	</isotope>
 	<isotope id="Ds271" number="271" elementType="Ds">
 		<scalar dictRef="bo:exactMass" errorValue="110E-6">271.14606</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">0.001</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">0.001</halflife>
 		<scalar dictRef="bo:atomicNumber">110</scalar>
 	</isotope>
 	<isotope id="Ds272" number="272" elementType="Ds">
@@ -14000,7 +14000,7 @@
 <isotopeList id="Rg">
 	<isotope id="Rg272" number="272" elementType="Rg">
 		<scalar dictRef="bo:exactMass" errorValue="360E-6">272.15362</scalar>
-		<halflife dictRef="bo:halfLife" format="seconds">0.0015</halflife>
+		<halflife dictRef="bo:halfLife" unit="siUnits:s">0.0015</halflife>
 		<scalar dictRef="bo:atomicNumber">111</scalar>
 	</isotope>
 	<isotope id="Rg273" number="273" elementType="Rg">
