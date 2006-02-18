@@ -16,6 +16,7 @@
 #include "simulation.h"
 #include "simulationsdialog.h"
 
+#include <QApplication>
 #include <QLabel>
 #include <QListWidget>
 #include <QListWidgetItem>
@@ -33,6 +34,8 @@ MainDialog_Impl::MainDialog_Impl( QWidget * parent )
 
 	connect( ui.startButton, SIGNAL(clicked()),
 	         this, SLOT( startSelectedSimulation() ) );
+	connect( ui.quitButton, SIGNAL(clicked()),
+	         qApp, SLOT( quit() ) );
 	connect( ui.simulationList, SIGNAL( currentRowChanged( int ) ),
 	         this, SLOT( listRowChanged( int ) ) );
 }

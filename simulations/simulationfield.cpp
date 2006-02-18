@@ -20,14 +20,14 @@
 #include "field.h"
 #include "stone.h"
 
-#include <QPainter>
 #include <QBrush>
+#include <QPainter>
+#include <QPixmap>
 
 SimulationfieldWidget::SimulationfieldWidget( QWidget * parent )
-	: QFrame ( parent )
+	: QFrame( parent ), m_field( 0 ), m_pix( 0 ), m_dirty( true ),
+	m_design( SimulationfieldWidget::CIRCLE )
 {
-	m_field = 0;
-	m_design = SimulationfieldWidget::CIRCLE;
 }
 
 void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
@@ -44,7 +44,24 @@ void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
 	int s = qMin( h, w );
 
 	QPainter p;
-	p.begin( this );
+
+	if ( m_dirty )
+	{
+		delete m_pix;
+		m_pix = new QPixmap( x_size * s + 1, y_size * s + 1 );
+		
+		p.begin( m_pix );
+		p.fillRect( m_pix->rect(), QBrush( Qt::yellow ) );
+		for ( int i = 0; i <= x_size ; ++i )
+			p.drawLine( i * s, 0, i * s, m_pix->height() );
+		for ( int i = 0; i <= y_size ; ++i )
+			p.drawLine( 0, i * s, m_pix->width(), i * s );
+		p.end();
+
+		m_dirty = false;
+	}
+
+	p.begin( m_pix );
 	p.setRenderHint( QPainter::Antialiasing, true );
 
 	QBrush b_white( Qt::white, Qt::SolidPattern );
@@ -54,41 +71,37 @@ void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
 	{
 		const int x = stone->position().x();
 		const int y = stone->position().y();
-		p.setBrush( QBrush( Qt::yellow, Qt::SolidPattern ) );
 
-		p.drawRect( x*s, 
-				y*s, 
-				s,
-				s );
+		if ( stone->player() == Stone::White )
+			p.setBrush( b_white );
+		else
+			p.setBrush( b_black );
 
-		if ( stone)
+		switch ( m_design )
 		{
-			if ( stone->player() == Stone::White )
-				p.setBrush( b_white );
-			else
-				p.setBrush( b_black );
-
-			switch ( m_design )
-			{
-				case CIRCLE:
-					p.drawEllipse( x*s+2,
-							y*s+2,
-							s-4,
-							s-4 );
-					break;
-				case SQUARE:
-					p.drawRect( x*s,
-							y*s,
-							s,
-							s );
-					break;
-				case DENSITY:
-					break;
-			}
+			case CIRCLE:
+				p.drawEllipse( x*s+2, y*s+2, s-4, s-4 );
+				break;
+			case SQUARE:
+				p.drawRect( x*s, y*s, s, s );
+				break;
+			case DENSITY:
+				break;
 		}
 	}
 
 	p.end();
+
+	QPixmap tmp = *m_pix;
+
+	p.begin( this );
+	p.drawPixmap( 0, 0, tmp );
+	p.end();
+}
+
+void SimulationfieldWidget::resizeEvent( QResizeEvent * )
+{
+	m_dirty = true;
 }
 
 #include "moc_simulationfield.cpp"

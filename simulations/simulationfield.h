@@ -21,6 +21,7 @@
 #include <QFrame>
 
 class QPaintEvent;
+class QPixmap;
 
 class Field;
 class Move;
@@ -79,9 +80,13 @@ class SimulationfieldWidget : public QFrame
 	private:
 		Field * m_field;
 
+		QPixmap *m_pix;
+		bool m_dirty;
+
 		TokenDesign m_design;
 
 	protected:
 		virtual void paintEvent( QPaintEvent * e );
+		virtual void resizeEvent( QResizeEvent *e );
 };
 #endif // SIMULATIONFIELD_H
