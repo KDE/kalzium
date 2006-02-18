@@ -19,6 +19,9 @@
 #include <QMainWindow>
 #include "ui_maindialog.h"
 
+/**
+ * The main dialog of the simulations
+ */
 class MainDialog_Impl : public QWidget
 {
 	Q_OBJECT
@@ -28,5 +31,12 @@ class MainDialog_Impl : public QWidget
 		~MainDialog_Impl(){};
 
 		Ui_MainDialog ui;
+
+	private slots:
+		/**
+		 * Starts the selected Simulatino
+		 */
+		void startSelectedSimulation();
+			
 };
 #endif // MAINDIALOG_IMPL_H

@@ -13,11 +13,23 @@
  ***************************************************************************/
 
 #include "maindialog_impl.h"
+#include "gamesimplementation.h"
+#include "simulationsdialog.h"
 
 MainDialog_Impl::MainDialog_Impl( QWidget * parent )
 	: QWidget( parent )
 {
 	ui.setupUi( this );
+	connect( ui.startButton, SIGNAL(clicked()),
+			this, SLOT( startSelectedSimulation() ) );
+}
+
+void MainDialog_Impl::startSelectedSimulation()
+{
+	RAGame *sim = new RAGame();
+
+	GamesDialog *dlg = new GamesDialog( sim );
+	dlg->show();
 }
 
 #include "moc_maindialog_impl.cpp"
