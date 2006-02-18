@@ -32,11 +32,6 @@ SimulationfieldWidget::SimulationfieldWidget( QWidget * parent )
 //	setMinimumSize( 200, 200 );
 }
 
-QSize SimulationfieldWidget::sizeHint() const
-{
-	return size();
-}
-
 void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
 {
 	if ( !m_field ) return;

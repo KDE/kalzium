@@ -35,7 +35,7 @@ GamesDialog::GamesDialog( Simulation * sim )
 	m_simulation = sim;
 	m_controls = new GameControls_Impl( this );
 	
-	setWindowTitle( "Kalzium Simulations -- " + m_simulation->description() );
+	setWindowTitle( QString( "Kalzium Simulations - %1" ).arg( m_simulation->description() ) );
 
 	if ( sim )
 	{
@@ -57,13 +57,8 @@ void GamesDialog::setupWidgets()
 	m_simulation->field()->setFieldYSize( y );
 	
 	m_controls->ui.gf->setField( m_simulation->field() );
-	m_controls->ui.gf->update();
-
-	resize( sizeHint() );
 
 	vbox = new QVBoxLayout( this );
-
-	m_controls->ui.gf->setField( 0 );
 
 	vbox->addWidget( m_controls );
 	vbox->addWidget( statsWidget );

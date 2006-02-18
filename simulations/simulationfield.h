@@ -38,9 +38,8 @@ class SimulationfieldWidget : public QFrame
 
 		void setField( Field * field ){
 			m_field = field;
+			update();
 		}
-
-		virtual QSize sizeHint() const;
 
 	public slots:
 		void slotUpdate( Move * move ){

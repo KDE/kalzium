@@ -8,8 +8,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>394</width>
-    <height>585</height>
+    <width>379</width>
+    <height>386</height>
    </rect>
   </property>
   <property name="sizePolicy" >
@@ -54,8 +54,8 @@
       <widget class="SimulationfieldWidget" name="gf" >
        <property name="sizePolicy" >
         <sizepolicy>
-         <hsizetype>7</hsizetype>
-         <vsizetype>7</vsizetype>
+         <hsizetype>3</hsizetype>
+         <vsizetype>3</vsizetype>
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -97,10 +97,13 @@
          <property name="orientation" >
           <enum>Qt::Vertical</enum>
          </property>
+         <property name="sizeType" >
+          <enum>QSizePolicy::MinimumExpanding</enum>
+         </property>
          <property name="sizeHint" >
           <size>
            <width>85</width>
-           <height>71</height>
+           <height>4</height>
           </size>
          </property>
         </spacer>
@@ -140,10 +143,13 @@
          <property name="orientation" >
           <enum>Qt::Vertical</enum>
          </property>
+         <property name="sizeType" >
+          <enum>QSizePolicy::MinimumExpanding</enum>
+         </property>
          <property name="sizeHint" >
           <size>
            <width>85</width>
-           <height>112</height>
+           <height>4</height>
           </size>
          </property>
         </spacer>
