@@ -31,7 +31,10 @@ class GameControls_Impl : public QWidget
 		GameControls_Impl( QWidget * parent = 0 );
 		~GameControls_Impl(){};
 	
-		Ui_Dialog ui;
+		Ui_SimulationDialog ui;
+
+	public slots:
+		void showSettings();
 		
 };
 #endif // GAMECONTROLS_IMPL_H

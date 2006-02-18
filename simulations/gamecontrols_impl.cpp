@@ -11,11 +11,26 @@
  *                                                                         *
  ***************************************************************************/
 #include "gamecontrols_impl.h"
+#include "ui_settings.h"
+
+#include <QDialog>
 
 GameControls_Impl::GameControls_Impl( QWidget * parent )
 	: QWidget( parent )
 {
 	ui.setupUi( this );
+
+	connect( ui.settingsButton, SIGNAL( clicked() ),
+			this, SLOT( showSettings() ) );
+}
+
+void GameControls_Impl::showSettings()
+{
+	QDialog *dlg = new QDialog();
+	Ui::SettingsDialog settingsDlg;
+	
+	settingsDlg.setupUi( dlg );
+	dlg->show();
 }
 
 #include "moc_gamecontrols_impl.cpp"

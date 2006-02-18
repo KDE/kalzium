@@ -49,10 +49,11 @@ void GamesDialog::setupWidgets()
 {
  	statsWidget = m_simulation->statisticsWidget();
 
-	int x = m_controls->ui.xsize->value();
-	int y = m_controls->ui.ysize->value();
-	m_simulation->field()->setFieldXSize( x );
-	m_simulation->field()->setFieldYSize( y );
+//X 	int x = m_controls->ui.xsize->value();
+//X 	int y = m_controls->ui.ysize->value();
+
+	m_simulation->field()->setFieldXSize( 12 );
+	m_simulation->field()->setFieldYSize( 12 );
 	
 	m_controls->ui.gf->setField( m_simulation->field() );
 	m_controls->ui.gf->setDesign( m_simulation->design() );
@@ -67,7 +68,9 @@ void GamesDialog::setupWidgets()
 
 void GamesDialog::slotStartWithTimer()
 {
-	m_simulation->startWithTimer( m_controls->ui.time->value() );
+//X 	m_simulation->startWithTimer( m_controls->ui.time->value() );
+//FIXME
+	m_simulation->startWithTimer( 50 );
 }
 
 void GamesDialog::startSimulation()
