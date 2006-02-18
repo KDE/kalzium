@@ -155,6 +155,15 @@ QString ChemicalDataObject::dictRef() const
 		case exactMass:
 			botype = "exactMass";
 			break;
+		case spin:
+			botype = "spin";
+			break;
+		case magneticMoment:
+			botype = "magneticMoment";
+			break;
+		case halfLife:
+			botype = "halfLife";
+			break;
 		case ionization:
 			botype = "ionization";
 			break;
@@ -262,6 +271,10 @@ ChemicalDataObject::BlueObeliskUnit ChemicalDataObject::unit( const QString& uni
 		return ChemicalDataObject::nm;
 	else if ( unit == "bo:pm" )
 		return ChemicalDataObject::pm;
+	else if ( unit == "bo:y" )
+		return ChemicalDataObject::y;	
+	else if ( unit == "bo:s" )
+		return ChemicalDataObject::s;	
 	else if ( unit == "bo:noUnit" )
 		return ChemicalDataObject::noUnit;
 	else

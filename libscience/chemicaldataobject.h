@@ -69,14 +69,17 @@ class ChemicalDataObject
 			date/**< date of discovery of the element. When 0, the element has been known in ancient times. */,
 			discoverers/** The name of the discoverers, separated by semicolomns */,
 			relativeAbundance/** The abundance, relative to 100 */,
+			spin/**< The spin */,
+			magneticMoment/**< The magnetic dipole moment */,
+			halfLife/**< The halflife */,
 			alphapercentage/**< The percentage of alphadecay */,
-			alphadecay/**< The decayenergy of alphadecay in MeV */,
+			alphaDecay/**< The decayenergy of alphadecay in MeV */,
 			betapluspercentage/**< The percentage of betaplusdecay */,
-			betaplusdecay/**< The decayenergy of betaplusdecay in MeV */,
+			betaplusDecay/**< The decayenergy of betaplusdecay in MeV */,
 			betaminuspercentage/**< The percentage of betaminusdecay */,
-			betaminusdecay/**< The decayenergy of betaminusdecay in MeV */,
+			betaminusDecay/**< The decayenergy of betaminusdecay in MeV */,
 			ecpercentage/**< The percentage of ecdecay */,
-			ecdecay/**< The decayenergy of ecminusdecay in MeV */,
+			ecDecay/**< The decayenergy of ecminusdecay in MeV */,
 		};
 
 		/**

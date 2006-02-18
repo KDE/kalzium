@@ -29,13 +29,16 @@ public:
 	inIsotope(false),
 	inAtomicNumber(false),
 	inExactMass(false),
+	inSpin(false),
+	inMagMoment(false),
+	inHalfLife(false),
 	inAlphaPercentage(false),
 	inAlphaDecay(false),
 	inBetaplusPercentage(false),
 	inBetaplusDecay(false),
 	inBetaminusPercentage(false),
 	inBetaminusDecay(false),
-	inECPercentage(false),
+	inECPercentage(false),	
 	inECDecay(false),
 	inAbundance(false)
 	{
@@ -52,6 +55,9 @@ public:
 	bool inIsotope;
 	bool inAtomicNumber;
 	bool inExactMass;
+	bool inSpin;
+	bool inMagMoment;
+	bool inHalfLife;
 	bool inAlphaPercentage;
 	bool inAlphaDecay;
 	bool inBetaplusPercentage;
@@ -86,6 +92,31 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 			if ( attrs.localName( i ) == "elementType" )
 				d->currentElementSymbol = attrs.value( i );
 		}
+	} else if (d->inIsotope && localName == "bo:spin") {
+		kDebug() << "bo:spin" << endl;
+		d->inSpin = true;
+	} else if (d->inIsotope && localName == "bo:magneticMoment") {
+		kDebug() << "bo:magneticMoment" << endl;
+		d->inMagMoment = true;
+	} else if (d->inIsotope && localName == "bo:halfLife") {
+		kDebug() << "bo:halfLife" << endl;
+		d->inHalfLife = true;
+		if ( d->currentUnit != ChemicalDataObject::noUnit )
+			d->currentDataObject->setUnit( d->currentUnit );
+
+		d->currentUnit = ChemicalDataObject::noUnit;
+	} else if (d->inIsotope && localName == "bo:alphaDecay"){
+		kDebug() << "bo:alphaDecay" << endl;
+		d->inAlphaDecay = true;
+	} else if (d->inIsotope && localName == "bo:betaplusDecay"){
+		kDebug() << "bo:betaplusDecay" << endl;
+		d->inBetaplusDecay = true;
+	} else if (d->inIsotope && localName == "bo:betaminusDecay"){
+		kDebug() << "bo:betaminusDecay" << endl;
+		d->inBetaminusDecay = true;
+	} else if (d->inIsotope && localName == "bo:ecDecay"){
+		kDebug() << "bo:ecDecay" << endl;
+		d->inECDecay = true;
 	} else if (d->inIsotope && localName == "scalar")
 	{
 		for (int i = 0; i < attrs.length(); ++i) 
@@ -98,22 +129,6 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 			
 			if (attrs.value(i) == "bo:atomicNumber")
 				d->inAtomicNumber = true;
-			else if (attrs.value(i) == "bo:alphapercentage")
-				d->inAlphaPercentage = true;
-			else if (attrs.value(i) == "bo:alphadecay")
-				d->inAlphaDecay = true;
-			else if (attrs.value(i) == "bo:betapluspercentage")
-				d->inBetaplusPercentage = true;
-			else if (attrs.value(i) == "bo:betaplusdecay")
-				d->inBetaplusDecay = true;
-			else if (attrs.value(i) == "bo:betaminuspercentage")
-				d->inBetaminusPercentage = true;
-			else if (attrs.value(i) == "bo:betaminusdecay")
-				d->inBetaminusDecay = true;
-			else if (attrs.value(i) == "bo:ecpercentage")
-				d->inECPercentage = true;
-			else if (attrs.value(i) == "bo:ecdecay")
-				d->inECDecay = true;
 			else if (attrs.value(i) == "bo:exactMass")
 				d->inExactMass = true;
 		}
@@ -161,45 +176,40 @@ bool IsotopeParser::characters(const QString &ch)
 		type = ChemicalDataObject::atomicNumber; 
 		d->inAtomicNumber = false;
 	}
-	else if (d->inAlphaPercentage) {
+	else if (d->inSpin) {
+		value = ch;
+		type = ChemicalDataObject::spin; 
+		d->inSpin = false;
+	}
+	else if (d->inMagMoment) {
+		value = ch;
+		type = ChemicalDataObject::magneticMoment; 
+		d->inMagMoment = false;
+	}
+	else if (d->inHalfLife) {
 		value = ch.toDouble();
-		type = ChemicalDataObject::alphapercentage; 
-		d->inAtomicNumber = false;
+		type = ChemicalDataObject::halfLife; 
+		d->inHalfLife = false;
 	}
 	else if (d->inAlphaDecay) {
 		value = ch.toDouble();
-		type = ChemicalDataObject::alphadecay; 
-		d->inAtomicNumber = false;
-	}
-	else if (d->inBetaplusPercentage) {
-		value = ch.toDouble();
-		type = ChemicalDataObject::betapluspercentage; 
-		d->inAtomicNumber = false;
+		type = ChemicalDataObject::alphaDecay; 
+		d->inAlphaDecay = false;
 	}
 	else if (d->inBetaplusDecay) {
 		value = ch.toDouble();
-		type = ChemicalDataObject::betaplusdecay; 
-		d->inAtomicNumber = false;
-	}
-	else if (d->inBetaminusPercentage) {
-		value = ch.toDouble();
-		type = ChemicalDataObject::betaminuspercentage; 
-		d->inAtomicNumber = false;
+		type = ChemicalDataObject::betaplusDecay; 
+		d->inBetaplusDecay = false;
 	}
 	else if (d->inBetaminusDecay) {
 		value = ch.toDouble();
-		type = ChemicalDataObject::betaminusdecay; 
-		d->inAtomicNumber = false;
-	}
-	else if (d->inECPercentage) {
-		value = ch.toDouble();
-		type = ChemicalDataObject::ecpercentage; 
-		d->inAtomicNumber = false;
+		type = ChemicalDataObject::betaminusDecay; 
+		d->inBetaminusDecay = false;
 	}
 	else if (d->inECDecay) {
 		value = ch.toDouble();
-		type = ChemicalDataObject::ecdecay; 
-		d->inAtomicNumber = false;
+		type = ChemicalDataObject::ecDecay; 
+		d->inECDecay = false;
 	}
 	else if (d->inAbundance){
 		value = ch;

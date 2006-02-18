@@ -46,6 +46,12 @@ class Isotope
 
 		QString parentElementSymbol() const;
 
+		QString spin() const;
+
+		QString magmoment() const;
+
+		double halflife() const;
+		
 		void addData( ChemicalDataObject* o );
 
 	private:
@@ -63,6 +69,22 @@ class Isotope
 		 * stores the atomicNumber of the Isotope
 		 */
 		ChemicalDataObject* m_identifier;
+		
+		/**
+		 * stores the spin of the Isotope
+		 */
+		ChemicalDataObject* m_spin;
+		
+		/**
+		 * stores the magneticMoment of the Isotope
+		 */
+		ChemicalDataObject* m_magmoment;
+		
+		/**
+		 * stores the halfLife of the Isotope
+		 */
+		ChemicalDataObject* m_halflife;
+		
 };
 
 #endif // ISOTOPE_H

@@ -51,6 +51,12 @@ void Isotope::addData( ChemicalDataObject* o )
 		m_identifier = o;
 	else if ( o->type() == ChemicalDataObject::symbol )
 		m_parentElementSymbol = o;
+	else if ( o->type() == ChemicalDataObject::spin )
+		m_spin = o;
+	else if ( o->type() == ChemicalDataObject::magneticMoment )
+		m_magmoment = o;
+	else if ( o->type() == ChemicalDataObject::halfLife )
+		m_halflife = o;
 }
 
 double Isotope::mass() const
@@ -66,6 +72,21 @@ QString Isotope::errorMargin() const
 int Isotope::parentElementNumber() const
 {
 	return m_identifier->value().toInt();
+}
+
+QString Isotope::spin() const
+{
+	return m_spin->value().toString();
+}
+
+QString Isotope::magmoment() const
+{
+	return m_magmoment->value().toString();
+}
+
+double Isotope::halflife() const
+{
+	return m_halflife->value().toDouble();
 }
 
 QString Isotope::parentElementSymbol() const
