@@ -2,6 +2,7 @@
 
 #include "../isotopeparser.h"
 #include "../isotope.h"
+#include "../chemicaldataobject.h"
 #include <kdebug.h>
 #include <iostream>
 
@@ -21,6 +22,8 @@ int main(int argc, char *argv[])
 	reader.parse(source);
 
 	QList<Isotope*> v = parser->getIsotopes();
+
+	kDebug() << "# of Isotopes found: " << v.count() << endl;
 
 	foreach( Isotope* e, v ){
 		if ( e )
