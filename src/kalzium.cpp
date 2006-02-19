@@ -151,7 +151,6 @@ void Kalzium::setupActions()
 
 	// other period view options
 	m_pLegendAction = new KAction(i18n("Show &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "view_legend");
-	m_pTooltipAction = new KAction(i18n("Show &Tooltip"), "tooltip", 0, this, SLOT(slotEnableTooltips()), actionCollection(), "view_tooltip");
 	
 	// the standard actions
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
@@ -176,15 +175,6 @@ void Kalzium::setupActions()
 	{
 		m_PeriodicTableView->showLegend(false);
 		m_pLegendAction->setText( i18n( "Show &Legend" ) );
-	}
-
-	if ( Prefs::tooltip() ) {
-		m_PeriodicTableView->setTooltipsEnabled( true );
-		m_pTooltipAction->setText( i18n( "Hide &Tooltips" ) );
-	} else
-	{
-		m_PeriodicTableView->setTooltipsEnabled( false );
-		m_pTooltipAction->setText( i18n( "Show &Tooltips" ) );
 	}
 
 	// set the shell's ui resource file
@@ -259,22 +249,6 @@ void Kalzium::slotPlotData()
 {
 	ElementDataViewer *edw = new ElementDataViewer( this );
 	edw->show();
-}
-
-void Kalzium::slotEnableTooltips()
-{
-	bool enabled = m_PeriodicTableView->tooltipsEnabled();
-	enabled = !enabled;
-
-	if ( enabled )
-		m_pTooltipAction->setText( i18n( "Hide &Tooltips" ) );
-	else
-		m_pTooltipAction->setText( i18n( "Show &Tooltips" ) );
-
-	m_PeriodicTableView->setTooltipsEnabled( enabled );
-	
-	Prefs::setTooltip( enabled );
-	Prefs::writeConfig();
 }
 
 void Kalzium::slotShowLegend()
@@ -387,22 +361,19 @@ void Kalzium::slotStatusbar( int num )
 
 void Kalzium::openInformationDialog( int number )
 {
-	if ( m_PeriodicTableView->showTooltip() )
+	if (m_infoDialog)
+		m_infoDialog->setElement( number );
+	else
 	{
-		if (m_infoDialog)
-			m_infoDialog->setElement( number );
-		else
-		{
-			m_infoDialog = new DetailedInfoDlg(number, this );
+		m_infoDialog = new DetailedInfoDlg(number, this );
 
-			// Remove the selection when this dialog finishes or hides.
-			connect(m_infoDialog, SIGNAL(hidden()),
-			        m_PeriodicTableView,        SLOT(unSelect()));
-			connect(m_infoDialog, SIGNAL(elementChanged(int)),
-			        m_PeriodicTableView,        SLOT(selectElement(int)));
-		}
-		m_infoDialog->show();
+		// Remove the selection when this dialog finishes or hides.
+		connect(m_infoDialog, SIGNAL(hidden()),
+				m_PeriodicTableView,        SLOT(unSelect()));
+		connect(m_infoDialog, SIGNAL(elementChanged(int)),
+				m_PeriodicTableView,        SLOT(selectElement(int)));
 	}
+	m_infoDialog->show();
 }
 
 void Kalzium::slotToolboxCurrentChanged( int id )

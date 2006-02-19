@@ -116,3 +116,15 @@ QPixmap KalziumDataObject::pixmap( int number )
 		return 0;
 	return PixmapList[ number-1 ];
 }
+
+QList<Isotope*> KalziumDataObject::isotopes( Element * element )
+{
+	return isotopes( 12 );
+}
+
+QList<Isotope*> KalziumDataObject::isotopes( int number )
+{
+	QList<Isotope*> list;
+
+	return list;
+}

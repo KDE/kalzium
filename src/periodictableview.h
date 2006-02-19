@@ -22,7 +22,6 @@
 #define PeriodicTableView_H
 
 class Element;
-class KalziumTip;
 class KalziumPainter;
 class KalziumGradientType;
 
@@ -68,13 +67,6 @@ class PeriodicTableView : public QWidget
 		void setNumeration( int which );
 
 		/**
-		 * @return whether the tooltips are enabled
-		 */
-		bool tooltipsEnabled() const{
-			return m_tooltipsEnabled;
-		}
-
-		/**
 		 * put the limit for the @p type specified, but do not actually (de)activate it
 		 * @param type type of the @p value
 		 * @param value the value of the the limit for @p type
@@ -86,15 +78,6 @@ class PeriodicTableView : public QWidget
 		 * or deactivate the "graying" mode  (if @p toggle is false)
 		 */
 		void toggleLimit( bool toggle, ChemicalDataObject::BlueObelisk type );
-
-
-		/**
-		 * if @p enabled is true the tooltips
-		 * will be enabled
-		 */
-		void setTooltipsEnabled( bool enabled ){
-			m_tooltipsEnabled = enabled;
-		}
 
 		/**
 		 * Sets the scheme to use.
@@ -108,34 +91,13 @@ class PeriodicTableView : public QWidget
 		QString shortName() const{
 			return m_ShortName;
 		}
-
-		/**
-		 * if @p show is true the tooltip will be displayed
-		 */
-		void setShowTooltip( bool show ){
-			m_showTooltip = show;
-		}
-
-		/**
-		 * @return whether tooltips will be displayed
-		 */
-		bool showTooltip() const {
-			return m_showTooltip;
-		}
-
+		
 		/**
 		 * @return the current gradient type
 		 */
 		KalziumGradientType* gradient() const;
 		
 		void setGradient( int which );
-
-		/**
-		 * if false, the user disabled tooltips
-		 */
-		bool m_tooltipsEnabled;
-
-		bool m_showLegendTooltip;
 
 		/**
 		 * activates or deactivates the legend
@@ -153,26 +115,8 @@ class PeriodicTableView : public QWidget
 		int sliderValue( ChemicalDataObject::BlueObelisk type );
 
 	private:
-		/**
-		 * if true the tooltips will be displayed
-		 */
-		bool m_showTooltip;
-
 		QMap <ChemicalDataObject::BlueObelisk, int> m_sliderValueList;
 		
-		KalziumTip* m_kalziumTip;
-		
-		/**
-		 * timer used for the tooltip
-		 */
-		QTimer HoverTimer;
-		QTimer MouseoverTimer;
-
-		/**
-		 * the number of the element the mouse-cursor is over
-		 */
-		int m_tooltipElementNumber;
-
 		/**
 		 * the currently selected element
 		 */
@@ -204,12 +148,6 @@ class PeriodicTableView : public QWidget
 		virtual void mousePressEvent( QMouseEvent* event );
 		virtual void mouseMoveEvent( QMouseEvent* );
 
-		/**
-		 * draw the tooltip for the legend
-		 */
-		virtual void drawLegendToolTip( QPainter *p );
-
-
 	public slots:
 		/**
 		 * This method sets the color for the buttons corresponding to
@@ -233,12 +171,6 @@ class PeriodicTableView : public QWidget
 		void slotMouseover();
 		
 		/**
-		 * start the calculation of the element over which the mouse-cursor
-		 * is over. Finally the signal ToolTip( int ) is emitted
-		 */
-		void slotTransientLabel();
-		
-		/**
 		 * this slot updates the currently selected point
 		 */
 		void selectPoint( const QPoint& point );
@@ -248,24 +180,12 @@ class PeriodicTableView : public QWidget
 		 * @param num The number of the selected element
 		 */
 		void selectElement( int num );
-
-		/**
-		 * sets the current element to @p number
-		 * and updates the table
-		 */
-		void slotToolTip( int number );
 		
 	signals:
 		/**
 		 * this signal is emitted when an element is clicked
 		 */
 		void ElementClicked(int);
-
-		/**
-		 * this signal is emitted when the tooltip of an element
-		 * has to be displayed
-		 */
-		void ToolTip(int);
 
 		/**
 		 * This signal is emited when the mouse pointer is

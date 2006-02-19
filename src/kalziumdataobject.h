@@ -83,7 +83,17 @@ class KalziumDataObject
 		 * @param number the number of the Element which will be returned
 		 */
 		Element* element( int number );
-	
+
+		/**
+		 * @return the isotopes of the Element with the number @p number
+		 */
+		QList<Isotope*> isotopes( int number );
+		
+		/**
+		 * @return the isotopes of the Element @p Element
+		 */
+		QList<Isotope*> isotopes( Element * element );
+
 		QPixmap pixmap( int number );
 		
 		/**

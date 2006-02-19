@@ -20,7 +20,6 @@ kalzium_SOURCES = kalzium.cpp \
 			molcalcwidget.cpp \
 			somwidget.ui \
 			somwidget_impl.cpp \
-			kalziumtip.cpp \
 			kalziumdataobject.cpp \
 			spectrumwidget.cpp \
 			nuclideboard.cpp \

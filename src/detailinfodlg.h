@@ -47,7 +47,8 @@ class DetailedInfoDlg : public KDialogBase
 		{
 			CHEMICAL = 0,
 			MISC,
-			ENERGY
+			ENERGY,
+			ISOTOPES
 		};
 
 		Element            *m_element;

@@ -80,7 +80,6 @@ class Kalzium : public KMainWindow
 		KSelectAction *numeration_action;
 		// settings
 		KAction *m_pLegendAction;
-		KAction *m_pTooltipAction;
 		KAction *m_SidebarAction;
 		// tools
 		KAction *m_pPlotAction;
@@ -129,11 +128,6 @@ class Kalzium : public KMainWindow
 		void slotShowEQSolver();
 		
 		void slotShowLegend();
-		
-		/**
-		 * Hide or show the tooltips
-		 */
-		void slotEnableTooltips();
 		
 		/**
 		 * start the glossary
