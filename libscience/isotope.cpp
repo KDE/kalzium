@@ -29,7 +29,8 @@ Isotope::Isotope()
 }
 
 Isotope::Isotope( ChemicalDataObject* mass, ChemicalDataObject* ID )
-	: m_mass( 0 ), m_identifier( 0 )
+	: m_parentElementSymbol( 0 ), m_mass( 0 ), m_identifier( 0 ),
+	m_spin( 0 ), m_magmoment( 0 ), m_halflife( 0 )
 {
 	addData( mass );
 	addData( ID );
@@ -61,35 +62,35 @@ void Isotope::addData( ChemicalDataObject* o )
 
 double Isotope::mass() const
 {
-	return m_mass->value().toDouble();
+	return m_mass ? m_mass->value().toDouble() : -1.0;
 }
 
 QString Isotope::errorMargin() const
 {
-	return m_mass->errorValue().toString();
+	return m_mass ? m_mass->errorValue().toString() : QString();
 }
 
 int Isotope::parentElementNumber() const
 {
-	return m_identifier->value().toInt();
+	return m_identifier ? m_identifier->value().toInt() : -1;
 }
 
 QString Isotope::spin() const
 {
-	return m_spin->value().toString();
+	return m_spin ? m_spin->value().toString() : QString();
 }
 
 QString Isotope::magmoment() const
 {
-	return m_magmoment->value().toString();
+	return m_magmoment ? m_magmoment->value().toString() : QString();
 }
 
 double Isotope::halflife() const
 {
-	return m_halflife->value().toDouble();
+	return m_halflife ? m_halflife->value().toDouble() : -1.0;
 }
 
 QString Isotope::parentElementSymbol() const
 {
-	return m_parentElementSymbol->value().toString();
+	return m_parentElementSymbol ? m_parentElementSymbol->value().toString() : QString();
 }
