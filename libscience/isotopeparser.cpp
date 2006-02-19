@@ -27,6 +27,7 @@ public:
 	currentElementSymbol(QString()),
 	currentIsotope(0),
 	inIsotope(false),
+	inElement(false),
 	inAtomicNumber(false),
 	inExactMass(false),
 	inSpin(false),
@@ -53,6 +54,7 @@ public:
 	QList<Isotope*> isotopes;
 	
 	bool inIsotope;
+	bool inElement;
 	bool inAtomicNumber;
 	bool inExactMass;
 	bool inSpin;
@@ -81,41 +83,49 @@ IsotopeParser::~IsotopeParser()
 
 bool IsotopeParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-	if (localName == "isotope") 
+ 	kDebug() << "IsotopeParser::startElement(), localName " << localName << endl;
+	if (localName == "isotopeList") 
 	{
-		d->currentIsotope = new Isotope();
-		d->inIsotope = true;
+		kDebug() << "setting inElement true! ========================== NEW ELEMENT ========= " << endl;
+		d->inElement = true;
 		
 		//now save the symbol of the current element
 		for (int i = 0; i < attrs.length(); ++i) 
 		{
-			if ( attrs.localName( i ) == "elementType" )
+			if ( attrs.localName( i ) == "id" )
 				d->currentElementSymbol = attrs.value( i );
+
+			kDebug() << "Symbol of the current Element: " << attrs.value( i ) << endl;
 		}
+	} else if ( d->inElement && localName == "isotope") 
+	{
+		kDebug() << "setting inIsotope true!" << endl;
+		d->currentIsotope = new Isotope();
+		d->inIsotope = true;
 	} else if (d->inIsotope && localName == "bo:spin") {
-		kDebug() << "bo:spin" << endl;
+//X 		kDebug() << "bo:spin" << endl;
 		d->inSpin = true;
 	} else if (d->inIsotope && localName == "bo:magneticMoment") {
-		kDebug() << "bo:magneticMoment" << endl;
+//X 		kDebug() << "bo:magneticMoment" << endl;
 		d->inMagMoment = true;
 	} else if (d->inIsotope && localName == "bo:halfLife") {
-		kDebug() << "bo:halfLife" << endl;
+//X 		kDebug() << "bo:halfLife" << endl;
 		d->inHalfLife = true;
 		if ( d->currentUnit != ChemicalDataObject::noUnit )
 			d->currentDataObject->setUnit( d->currentUnit );
 
 		d->currentUnit = ChemicalDataObject::noUnit;
 	} else if (d->inIsotope && localName == "bo:alphaDecay"){
-		kDebug() << "bo:alphaDecay" << endl;
+//X 		kDebug() << "bo:alphaDecay" << endl;
 		d->inAlphaDecay = true;
 	} else if (d->inIsotope && localName == "bo:betaplusDecay"){
-		kDebug() << "bo:betaplusDecay" << endl;
+//X 		kDebug() << "bo:betaplusDecay" << endl;
 		d->inBetaplusDecay = true;
 	} else if (d->inIsotope && localName == "bo:betaminusDecay"){
-		kDebug() << "bo:betaminusDecay" << endl;
+//X 		kDebug() << "bo:betaminusDecay" << endl;
 		d->inBetaminusDecay = true;
 	} else if (d->inIsotope && localName == "bo:ecDecay"){
-		kDebug() << "bo:ecDecay" << endl;
+//X 		kDebug() << "bo:ecDecay" << endl;
 		d->inECDecay = true;
 	} else if (d->inIsotope && localName == "scalar")
 	{
@@ -133,9 +143,9 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 				d->inExactMass = true;
 		}
 	} else if (d->inIsotope && localName == "bo:relativeAbundance") {
-		kDebug() << "bo:relativeAbundance" << endl;
+//X 		kDebug() << "bo:relativeAbundance" << endl;
 		d->inAbundance = true;
-	}
+	} 	
 	return true;
 }
 
@@ -155,6 +165,11 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 		if ( d->currentDataObject->type() == ChemicalDataObject::exactMass ){
 			d->currentDataObject->setErrorValue( d->currentErrorValue );
 		}
+	}
+	else if ( localName == "isotopeList" )
+	{//a new list of isotopes start...
+		kDebug() << "setting d->inElement FALSE" << endl;
+		d->inElement = false;
 	}
 
 	return true;
