@@ -28,7 +28,7 @@
 #include <QRect>
 #include <QScrollArea>
 
-#include <kdialogbase.h>
+#include <kdialog.h>
 
 class QColor;
 class QPainter;
@@ -157,7 +157,7 @@ class IsotopeTableView : public QWidget
  * @author Martin Pfeiffer
  * @author Carsten Niehaus
  */
-class IsotopeTableDialog : public KDialogBase
+class IsotopeTableDialog : public KDialog
 {
 	Q_OBJECT
 	public:
@@ -170,7 +170,7 @@ class IsotopeTableDialog : public KDialogBase
 		IsotopeTableView* m_view;
 		KActionCollection* m_ac;
 
-	protected slots:
+	private slots:
 		/**
 		 * invokes the help for this widget
 		 */
