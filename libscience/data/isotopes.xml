@@ -1,3 +1,4 @@
+<foo>
 <isotopeList id="H">
 	<isotope id="H1" number="1" elementType="H">
 		<scalar dictRef="bo:exactMass" errorValue="0.0001E-6">1.007825032</scalar>
@@ -14150,3 +14151,4 @@
 		<scalar dictRef="bo:atomicNumber">115</scalar>
 	</isotope>
 </isotopeList>
+</foo>

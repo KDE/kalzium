@@ -83,10 +83,10 @@ IsotopeParser::~IsotopeParser()
 
 bool IsotopeParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
- 	kDebug() << "IsotopeParser::startElement(), localName " << localName << endl;
+//X  	kDebug() << "IsotopeParser::startElement(), localName " << localName << endl;
 	if (localName == "isotopeList") 
 	{
-		kDebug() << "setting inElement true! ========================== NEW ELEMENT ========= " << endl;
+//X 		kDebug() << "setting inElement true! ========================== NEW ELEMENT ========= " << endl;
 		d->inElement = true;
 		
 		//now save the symbol of the current element
@@ -95,11 +95,11 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 			if ( attrs.localName( i ) == "id" )
 				d->currentElementSymbol = attrs.value( i );
 
-			kDebug() << "Symbol of the current Element: " << attrs.value( i ) << endl;
+//X 			kDebug() << "Symbol of the current Element: " << attrs.value( i ) << endl;
 		}
 	} else if ( d->inElement && localName == "isotope") 
 	{
-		kDebug() << "setting inIsotope true!" << endl;
+//X 		kDebug() << "setting inIsotope true!" << endl;
 		d->currentIsotope = new Isotope();
 		d->inIsotope = true;
 	} else if (d->inIsotope && localName == "bo:spin") {
@@ -168,7 +168,7 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 	}
 	else if ( localName == "isotopeList" )
 	{//a new list of isotopes start...
-		kDebug() << "setting d->inElement FALSE" << endl;
+//X 		kDebug() << "setting d->inElement FALSE" << endl;
 		d->inElement = false;
 	}
 
