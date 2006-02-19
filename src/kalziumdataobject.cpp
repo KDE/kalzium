@@ -26,6 +26,7 @@
 #include <spectrum.h>
 
 #include <QFile>
+#include <QVariant>
 
 #include <klocale.h>
 #include <kdebug.h>
@@ -119,7 +120,7 @@ QPixmap KalziumDataObject::pixmap( int number )
 
 QList<Isotope*> KalziumDataObject::isotopes( Element * element )
 {
-	return isotopes( 12 );
+	return isotopes( element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt() );
 }
 
 QList<Isotope*> KalziumDataObject::isotopes( int number )

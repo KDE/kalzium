@@ -244,7 +244,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 		}
 		case ISOTOPES:
 		{
-				html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+				html.append( "<tr><td>" );
 				html.append( isotopeTable() );
 				html.append( "</td></tr>" );
 			break;
@@ -258,7 +258,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 
 QString DetailedInfoDlg::isotopeTable()
 {
-	QList<Isotope*> list = KalziumDataObject::instance()->isotopes( m_element );
+	QList<Isotope*> list = KalziumDataObject::instance()->isotopes( m_elementNumber );
 
  	QString html;
 	
@@ -285,7 +285,6 @@ QString DetailedInfoDlg::isotopeTable()
  		html.append( "<tr><td align=\"right\">" ); 
 		if ( isotope->mass() > 0.0 )
  			html.append( i18n( "%1 u" ).arg( isotope->mass() ) );
-//	html.append( i18n( "%1 u" ).arg( QString::number( ( isotope )->weight() ) ));
 //		html.append( "</td><td>" );
  //		html.append( QString::number( ( isotope )->neutrons() ) );
  //		html.append( "</td><td>" );
@@ -338,8 +337,8 @@ QString DetailedInfoDlg::isotopeTable()
 //		html.append( "</td><td>" );
 //		if ( !( isotope )->magmoment().isEmpty() )
 //			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( ( isotope )->magmoment() ).arg( QChar( 956 ) ) );
- //		html.append( "</td></tr>" );
-//
+		html.append( "</td></tr>" );
+
 	}
 	
 	html += "</table>";
