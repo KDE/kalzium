@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 #include <element.h>
+#include <QHash>
 #include <QPixmap>
 
 /**
@@ -111,6 +112,8 @@ class KalziumDataObject
 		QList<QPixmap> PixmapList;
 
 		QList<Element*> m_searchList;
+
+		QHash<int, QList<Isotope*> > m_isotopes;
 
 		/**
 		 * Caching the number of elements

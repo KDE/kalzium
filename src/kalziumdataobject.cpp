@@ -23,6 +23,7 @@
 #include <elementparser.h>
 #include <spectrumparser.h>
 #include <isotope.h>
+#include <isotopeparser.h>
 #include <spectrum.h>
 
 #include <QFile>
@@ -43,6 +44,7 @@ KalziumDataObject* KalziumDataObject::instance()
 
 KalziumDataObject::KalziumDataObject()
 {
+	// reading elements
 	ElementSaxParser * parser = new ElementSaxParser();
 
 	QFile xmlFile( locate( "data", "libkdeedu/data/elements.xml" ) );
@@ -53,6 +55,32 @@ KalziumDataObject::KalziumDataObject()
 	reader.parse(source);
 
 	ElementList = parser->getElements();
+
+	// reading isotopes
+	IsotopeParser * isoparser = new IsotopeParser();
+
+	QFile xmlIsoFile( locate( "data", "libkdeedu/data/isotopes.xml" ) );
+	QXmlInputSource isosource(&xmlIsoFile);
+	QXmlSimpleReader isoreader;
+	
+	isoreader.setContentHandler(isoparser);
+	isoreader.parse(isosource);
+
+	QList<Isotope*> isotopes = isoparser->getIsotopes();
+	foreach( Isotope *iso, isotopes )
+	{
+		int num = iso->parentElementNumber();
+		if ( m_isotopes.contains( num ) )
+		{
+			m_isotopes[num].append( iso );
+		}
+		else
+		{
+			QList<Isotope*> newlist;
+			newlist.append( iso );
+			m_isotopes.insert( num, newlist );
+		}
+	}
 	
 	// cache it
 	m_numOfElements = ElementList.count();
@@ -125,7 +153,5 @@ QList<Isotope*> KalziumDataObject::isotopes( Element * element )
 
 QList<Isotope*> KalziumDataObject::isotopes( int number )
 {
-	QList<Isotope*> list;
-
-	return list;
+	return m_isotopes.contains( number ) ? m_isotopes.value( number ) : QList<Isotope*>();
 }
