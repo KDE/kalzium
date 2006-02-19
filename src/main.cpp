@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2003-2005 Carsten Niehaus <cniehaus@kde.org>
+ *   Copyright (C) 2003-2006 Carsten Niehaus <cniehaus@kde.org>
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 #endif
 
     KAboutData about("kalzium", I18N_NOOP("Kalzium"), version, description,
-                     KAboutData::License_GPL, "(C) 2002-2005 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
+                     KAboutData::License_GPL, "(C) 2002-2006 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
     about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );
     about.addCredit( "Pino Toscano", I18N_NOOP("Code contributions" ));
     about.addCredit( "Martin Pfeiffer", I18N_NOOP("Tooltip, some other small things" ));

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Martin Pfeiffer                                 *
+ *   Copyright (C) 2005, 2006 by Martin Pfeiffer                                 *
  *   hubipete@gmx.net                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *

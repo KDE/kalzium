@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005      by Pino Toscano,    toscano.pino@tiscali.it   *
+ *   Copyright (C) 2005, 2006      by Pino Toscano,    toscano.pino@tiscali.it   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *

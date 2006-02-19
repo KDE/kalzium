@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2004, 2005 by Thomas Nagy                               *
+ *   Copyright (C) 2004, 2005, 2006 by Thomas Nagy                               *
  *   tnagy2^8@yahoo.fr                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *

@@ -6,7 +6,7 @@
                            The header for the exporter class of Kalzium
                              -------------------
     begin                : June 2005
-    copyright            : (C) 2005 by Martin Pfeiffer
+    copyright            : (C) 2005, 2006 by Martin Pfeiffer
     email                : hubipete@gmx.net
  ***************************************************************************/
 

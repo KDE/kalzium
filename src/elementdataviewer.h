@@ -1,7 +1,7 @@
 #ifndef ELEMENTDATAVIEWER_H
 #define ELEMENTDATAVIEWER_H
 /***************************************************************************
-    copyright            : (C) 2004, 2005 by Carsten Niehaus
+    copyright            : (C) 2004, 2005, 2006 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
