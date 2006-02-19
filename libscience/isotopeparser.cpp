@@ -102,6 +102,11 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 //X 		kDebug() << "setting inIsotope true!" << endl;
 		d->currentIsotope = new Isotope();
 		d->inIsotope = true;
+		for (int i = 0; i < attrs.length(); ++i) 
+		{
+			if ( attrs.localName( i ) == "number" )
+				d->currentIsotope->setNucleons( attrs.value( i ).toInt() );
+		}
 	} else if (d->inIsotope && localName == "bo:spin") {
 //X 		kDebug() << "bo:spin" << endl;
 		d->inSpin = true;

@@ -94,3 +94,13 @@ QString Isotope::parentElementSymbol() const
 {
 	return m_parentElementSymbol ? m_parentElementSymbol->value().toString() : QString();
 }
+
+void Isotope::setNucleons( int number )
+{
+	m_nucleons = number;
+}
+
+int Isotope::nucleons() const
+{
+	return m_nucleons;
+}

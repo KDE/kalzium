@@ -54,6 +54,9 @@ class Isotope
 		
 		void addData( ChemicalDataObject* o );
 
+		void setNucleons( int number );
+		int nucleons() const;
+
 	private:
 		/**
 		 * the symbol of the element the isotope belongs to
@@ -85,6 +88,7 @@ class Isotope
 		 */
 		ChemicalDataObject* m_halflife;
 		
+		int m_nucleons;
 };
 
 #endif // ISOTOPE_H
