@@ -333,9 +333,10 @@ QPair<QColor, QColor> IsotopeTableView::isotopeColor( Isotope* isotope )
 	if ( !isotope ) return def;
 
 	if ( !isotope->m_betaminus && !isotope->m_betaplus &&
-	     !isotope->m_alpha && !isotope->m_ecday )
+			!isotope->m_alpha && !isotope->m_ecday )
+	{
 		c = def;
-	else
+	} else
 	{
 		if ( isotope->m_betaminus )
 			if ( c.first.isValid() )
@@ -343,28 +344,28 @@ QPair<QColor, QColor> IsotopeTableView::isotopeColor( Isotope* isotope )
 			else
 				c.first = Qt::cyan;
 	}
-//X 		if ( isotope->betaplusdecay() )
-//X 			if ( c.first.isValid() )
-//X 				c.second = Qt::red;
-//X 			else
-//X 				c.first = Qt::red;
-//X 		if ( isotope->alphadecay() )
-//X 			if ( c.first.isValid() )
-//X 				c.second = Qt::yellow;
-//X 			else
-//X 				c.first = Qt::yellow;
-//X 		if ( isotope->ecdecay() )
-//X 			if ( c.first.isValid() )
-//X 				c.second = Qt::green;
-//X 			else
-//X 				c.first = Qt::green;
-//X 
-//X 		if ( !c.second.isValid() )
-//X 			c.second = c.first;
-//X 	}
+	if ( isotope->m_betaplus )
+		if ( c.first.isValid() )
+			c.second = Qt::red;
+		else
+			c.first = Qt::red;
+	if ( isotope->m_alpha )
+		if ( c.first.isValid() )
+			c.second = Qt::yellow;
+		else
+			c.first = Qt::yellow;
+	if ( isotope->m_ecday )
+		if ( c.first.isValid() )
+			c.second = Qt::green;
+		else
+			c.first = Qt::green;
+
+	if ( !c.second.isValid() )
+		c.second = c.first;
 
 	return c;
 }
+
 
 void IsotopeTableView::drawInternally()
 {
