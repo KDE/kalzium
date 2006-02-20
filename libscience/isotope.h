@@ -55,8 +55,20 @@ class Isotope
 		void addData( ChemicalDataObject* o );
 
 		void setNucleons( int number );
+		
+		/**
+		 * @return the sum of protons and neutrons
+		 */
 		int nucleons() const;
 
+		//FIXME
+		//need to be made private. But that comes later
+
+		ChemicalDataObject* m_ecday;
+		ChemicalDataObject* m_betaplus;
+		ChemicalDataObject* m_betaminus; 
+		ChemicalDataObject* m_alpha;
+		
 	private:
 		/**
 		 * the symbol of the element the isotope belongs to
