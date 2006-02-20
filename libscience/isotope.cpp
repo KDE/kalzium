@@ -30,8 +30,8 @@ Isotope::Isotope()
 
 Isotope::Isotope( ChemicalDataObject* mass, ChemicalDataObject* ID )
 	: m_parentElementSymbol( 0 ), m_mass( 0 ), m_identifier( 0 ),
-	m_spin( 0 ), m_magmoment( 0 ), m_halflife( 0 ), m_ecdecay( 0 ), m_betaminus( 0 ),
-	m_betaplus( 0 ), m_alpha( 0 )
+	m_spin( 0 ), m_magmoment( 0 ), m_halflife( 0 ), m_ecdecay( 0 ),
+	m_betaplus( 0 ), m_betaminus( 0 ), m_alpha( 0 )
 {
 	addData( mass );
 	addData( ID );
@@ -61,18 +61,14 @@ void Isotope::addData( ChemicalDataObject* o )
 		m_halflife = o;
 	
 	//FIXME in the future there should be real CDOs. But CDO only supports one datavalue...
-	if ( o->type() == ChemicalDataObject::betaplusDecay || o->type() == ChemicalDataObject::betaminusDecay
-			|| o->type() == ChemicalDataObject::alphaDecay || o->type() == ChemicalDataObject::ecDecay )
-	{
-		if ( o->type() == ChemicalDataObject::betaplusDecay )
-			m_betaplus = o;
-		if (  o->type() == ChemicalDataObject::betaminusDecay )
-			m_betaminus = o;
-		if ( o->type() == ChemicalDataObject::alphaDecay )
-			m_alpha = o;
-		if ( o->type() == ChemicalDataObject::ecDecay )
-			m_ecdecay = o;
-	}
+	if ( o->type() == ChemicalDataObject::betaplusDecay )
+		m_betaplus = o;
+	else if (  o->type() == ChemicalDataObject::betaminusDecay )
+		m_betaminus = o;
+	else if ( o->type() == ChemicalDataObject::alphaDecay )
+		m_alpha = o;
+	else if ( o->type() == ChemicalDataObject::ecDecay )
+		m_ecdecay = o;
 }
 
 double Isotope::mass() const

@@ -92,11 +92,6 @@ class Isotope
 			return m_alpha;
 		}
 	private:
-		ChemicalDataObject* m_ecdecay;
-		ChemicalDataObject* m_betaplus;
-		ChemicalDataObject* m_betaminus; 
-		ChemicalDataObject* m_alpha;
-		
 		/**
 		 * the symbol of the element the isotope belongs to
 		 */
@@ -128,6 +123,11 @@ class Isotope
 		ChemicalDataObject* m_halflife;
 		
 		int m_nucleons;
+
+		ChemicalDataObject* m_ecdecay;
+		ChemicalDataObject* m_betaplus;
+		ChemicalDataObject* m_betaminus; 
+		ChemicalDataObject* m_alpha;
 };
 
 #endif // ISOTOPE_H

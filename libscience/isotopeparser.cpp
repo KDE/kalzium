@@ -107,29 +107,29 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 			if ( attrs.localName( i ) == "number" )
 				d->currentIsotope->setNucleons( attrs.value( i ).toInt() );
 		}
-	} else if (d->inIsotope && localName == "bo:spin") {
+	} else if (d->inIsotope && localName == "spin") {
 //X 		kDebug() << "bo:spin" << endl;
 		d->inSpin = true;
-	} else if (d->inIsotope && localName == "bo:magneticMoment") {
+	} else if (d->inIsotope && localName == "magmoment") {
 //X 		kDebug() << "bo:magneticMoment" << endl;
 		d->inMagMoment = true;
-	} else if (d->inIsotope && localName == "bo:halfLife") {
+	} else if (d->inIsotope && localName == "halflife") {
 //X 		kDebug() << "bo:halfLife" << endl;
 		d->inHalfLife = true;
 		if ( d->currentUnit != ChemicalDataObject::noUnit )
 			d->currentDataObject->setUnit( d->currentUnit );
 
 		d->currentUnit = ChemicalDataObject::noUnit;
-	} else if (d->inIsotope && localName == "bo:alphaDecay"){
+	} else if (d->inIsotope && localName == "alphadecay"){
 //X 		kDebug() << "bo:alphaDecay" << endl;
 		d->inAlphaDecay = true;
-	} else if (d->inIsotope && localName == "bo:betaplusDecay"){
+	} else if (d->inIsotope && localName == "betaplusdecay"){
 //X 		kDebug() << "bo:betaplusDecay" << endl;
 		d->inBetaplusDecay = true;
-	} else if (d->inIsotope && localName == "bo:betaminusDecay"){
+	} else if (d->inIsotope && localName == "betaminusdecay"){
 //X 		kDebug() << "bo:betaminusDecay" << endl;
 		d->inBetaminusDecay = true;
-	} else if (d->inIsotope && localName == "bo:ecDecay"){
+	} else if (d->inIsotope && localName == "ecdecay"){
 //X 		kDebug() << "bo:ecDecay" << endl;
 		d->inECDecay = true;
 	} else if (d->inIsotope && localName == "scalar")
