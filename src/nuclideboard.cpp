@@ -32,6 +32,7 @@
 #include <QLabel>
 #include <QLayout>
 #include <QPainter>
+#include <QPalette>
 #include <QPixmap>
 #include <QPolygon>
 #include <QSizePolicy>
@@ -86,24 +87,20 @@ kDebug() << k_funcinfo << m_firstElemNucleon << " ... " << m_lastElemNucleon << 
 	repaint();
 }
 
-void IsotopeTableView::paintEvent( QPaintEvent* /* e */ )
+void IsotopeTableView::paintEvent( QPaintEvent *e )
 {
-	QPixmap pm( size() );
-	bitBlt( &pm, 0, 0, &m_pix );
+	QPainter p;
+	p.begin( this );
+	p.drawPixmap( e->rect().topLeft(), m_pix, e->rect() );
 
 	if ( m_duringSelection )
 	{
 		//draw the selection-rectangle
-		QPainter p;
-		p.begin( &pm, this );
-	
 		p.setPen( QPen( Qt::black, 1, Qt::DotLine ) );
 		p.drawRect( m_selectedRegion );
-
-		p.end();
 	}
 
-	bitBlt( this, 0, 0, &pm );
+	p.end();
 }
 
 QRect IsotopeTableView::getNewCoords( const QRect& rect ) const
@@ -218,7 +215,7 @@ void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 		const int newsizex = numOfNucleons * ( m_rectSize - 1 ) + 2 + 30;
 		const int newsizey = numOfElements * ( m_rectSize - 1 ) + 2 + 30;
 		resize( newsizex, newsizey );
-		m_pix.resize( size() );
+		m_pix = QPixmap( size() );
 //kDebug() << "size(): " << size() << endl;
 	}
 	
@@ -498,8 +495,7 @@ void IsotopeTableView::mouseReleaseEvent( QMouseEvent *e )
 
 				selectionDone( ourrect );
 			}
-			else
-				update();
+			update();
 		}
 		else
 		{
@@ -589,7 +585,9 @@ void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
 IsotopeScrollArea::IsotopeScrollArea( QWidget* parent )
 	: QScrollArea( parent )
 {
-	viewport()->setPaletteBackgroundColor( parent->paletteBackgroundColor() );
+	QPalette pal = viewport()->palette();
+	pal.setColor( viewport()->backgroundRole(), parent->palette().color( backgroundRole() ) );
+	viewport()->setPalette( pal );
 	setFrameShape( QFrame::NoFrame );
 	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
 }
