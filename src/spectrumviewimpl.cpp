@@ -23,12 +23,22 @@
 #include "exporter.h"
 
 SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
-	: SpectrumView( parent )
+	: QWidget( parent )
 {
-	resize( minimumSizeHint() );
+	setupUi( this );
+
+	connect( minimumValue, SIGNAL( valueChanged( int ) ),
+	         m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
+	connect( maximumValue, SIGNAL( valueChanged( int ) ),
+	         m_spectrumWidget, SLOT( setRightBorder( int ) ) );
+	connect( exportButton, SIGNAL( clicked() ),
+	         this, SLOT( slotExportAsImage() ) );
+
 	// simulating an update
 	m_spectrumWidget->setRightBorder( maximumValue->value() );
 	exportButton->setGuiItem( KGuiItem( i18n( "&Export Spectrum as Image" ), "fileexport" ) );
+
+	resize( minimumSizeHint() );
 }
 
 void SpectrumViewImpl::slotExportAsImage()
@@ -44,4 +54,5 @@ void SpectrumViewImpl::slotExportAsImage()
 	}	
 	delete exporter;
 }
+
 #include "spectrumviewimpl.moc"

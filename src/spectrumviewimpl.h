@@ -13,14 +13,14 @@
 #ifndef SPECTRUMVIEWIMPL_H
 #define SPECTRUMVIEWIMPL_H
 
-#include "spectrumview.h"
 #include "spectrum.h"
-#include "spectrumwidget.h"
+
+#include "spectrumview.h"
 
 /**
  * @author Carsten Niehaus
  */
-class SpectrumViewImpl : public SpectrumView
+class SpectrumViewImpl : public QWidget, Ui_SpectrumView
 {
 	Q_OBJECT
 
@@ -36,6 +36,7 @@ class SpectrumViewImpl : public SpectrumView
 		 */
 		void setSpectrum( Spectrum* spec ){
 			m_spectrumWidget->setSpectrum( spec );
+			m_spectrumWidget->update();
 		}
 
 	private slots:

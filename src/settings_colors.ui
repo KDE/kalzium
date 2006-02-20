@@ -24,7 +24,7 @@
      <height>401</height>
     </rect>
    </property>
-   <widget class="QWidget" name="tab" >
+   <widget class="QWidget" name="tabBlocks" >
     <attribute name="title" >
      <string>&amp;Blocks</string>
     </attribute>
@@ -130,7 +130,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="tab" >
+   <widget class="QWidget" name="tabAcid" >
     <attribute name="title" >
      <string>Ac&amp;id Behavior</string>
     </attribute>
@@ -236,7 +236,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="tab_2" >
+   <widget class="QWidget" name="tabCrystal" >
     <attribute name="title" >
      <string>Crystal</string>
     </attribute>
@@ -502,7 +502,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="TabPage" >
+   <widget class="QWidget" name="tabGroups" >
     <attribute name="title" >
      <string>&amp;Groups</string>
     </attribute>
@@ -688,7 +688,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="TabPage" >
+   <widget class="QWidget" name="tabStateOfMatter" >
     <attribute name="title" >
      <string>&amp;State of Matter</string>
     </attribute>
@@ -777,7 +777,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="TabPage" >
+   <widget class="QWidget" name="tabFamily" >
     <attribute name="title" >
      <string>Family</string>
     </attribute>
@@ -983,7 +983,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="TabPage" >
+   <widget class="QWidget" name="tabNoColor" >
     <attribute name="title" >
      <string>&amp;No Color Scheme</string>
     </attribute>
