@@ -326,44 +326,24 @@ QList<Isotope*> IsotopeTableView::isotopesWithNucleonsInRange( Element* el, int 
 }
 
 
-QPair<QColor, QColor> IsotopeTableView::isotopeColor( Isotope* isotope )
+QList<QColor> IsotopeTableView::isotopeColors( Isotope* isotope )
 {
-	QPair<QColor, QColor> def = qMakePair( QColor( Qt::magenta ), QColor( Qt::magenta ) );
-	QPair<QColor, QColor> c = qMakePair( QColor(), QColor() );
-	if ( !isotope ) return def;
+	QList<QColor> l;
+	if ( !isotope ) return l;
 
-	if ( !isotope->m_betaminus && !isotope->m_betaplus &&
-			!isotope->m_alpha && !isotope->m_ecday )
-	{
-		c = def;
-	} else
-	{
-		if ( isotope->m_betaminus )
-			if ( c.first.isValid() )
-				c.second = Qt::cyan;
-			else
-				c.first = Qt::cyan;
-	}
-	if ( isotope->m_betaplus )
-		if ( c.first.isValid() )
-			c.second = Qt::red;
-		else
-			c.first = Qt::red;
-	if ( isotope->m_alpha )
-		if ( c.first.isValid() )
-			c.second = Qt::yellow;
-		else
-			c.first = Qt::yellow;
-	if ( isotope->m_ecday )
-		if ( c.first.isValid() )
-			c.second = Qt::green;
-		else
-			c.first = Qt::green;
+	if ( isotope->betaminusdecay() )
+		l.append( Qt::cyan );
+	if ( isotope->betaplusdecay() )
+		l.append( Qt::red );
+	if ( isotope->alphadecay() )
+		l.append( Qt::yellow );
+	if ( isotope->ecdecay() )
+		l.append( Qt::green );
 
-	if ( !c.second.isValid() )
-		c.second = c.first;
+	if ( l.isEmpty() )
+		l.append( Qt::magenta );
 
-	return c;
+	return l;
 }
 
 
@@ -395,41 +375,40 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 	{
 		Isotope* i = it.key();
 	
-		if ( i )
+		if ( !i ) continue;
+
+		QList<QColor> colors = isotopeColors( i );
+		if ( colors.size() == 1 )
 		{
-			QPair<QColor, QColor> colors( isotopeColor( i ) ) ;
-			if ( colors.first.name() == colors.second.name() )
-			{
-				p->setBrush( colors.first );
-				p->drawRect( it.value() );
-			}
-			else
-			{
-				QPen oldpen = p->pen();
-				p->setPen( Qt::NoPen );
-				QPolygon poly( 3 );
-				poly.setPoint( 1, it.value().topRight() + QPoint( 1, 0 ) );
-				poly.setPoint( 2, it.value().bottomLeft() + QPoint( 0, 1 ) );
-
-				poly.setPoint( 0, it.value().topLeft() );
-				p->setBrush( colors.first );
-				p->drawPolygon( poly );
-
-				poly.setPoint( 0, it.value().bottomRight() + QPoint( 1, 1 ) );
-				p->setBrush( colors.second );
-				p->drawPolygon( poly );
-
-				p->setPen( oldpen );
-				QBrush oldbrush = p->brush();
-				p->setBrush( Qt::NoBrush );
-				p->drawRect( it.value() );
-				p->setBrush( oldbrush );
-			}
-			
-			//For debugging, lets add the information
-//			p->drawText( it.data() ,Qt::AlignCenter, QString::number( it.key()->neutrons() ) );
-//X 			p->drawText( it.data(), Qt::AlignCenter, KalziumDataObject::instance()->element( it.key()->protones() )->symbol() );
+			p->setBrush( colors.first() );
+			p->drawRect( it.value() );
 		}
+		else if ( colors.size() >= 2 )
+		{
+			QPen oldpen = p->pen();
+			p->setPen( Qt::NoPen );
+			QPolygon poly( 3 );
+			poly.setPoint( 1, it.value().topRight() + QPoint( 1, 0 ) );
+			poly.setPoint( 2, it.value().bottomLeft() + QPoint( 0, 1 ) );
+
+			poly.setPoint( 0, it.value().topLeft() );
+			p->setBrush( colors.at(0) );
+			p->drawPolygon( poly );
+
+			poly.setPoint( 0, it.value().bottomRight() + QPoint( 1, 1 ) );
+			p->setBrush( colors.at(1) );
+			p->drawPolygon( poly );
+
+			p->setPen( oldpen );
+			QBrush oldbrush = p->brush();
+			p->setBrush( Qt::NoBrush );
+			p->drawRect( it.value() );
+			p->setBrush( oldbrush );
+		}
+			
+		//For debugging, lets add the information
+//		p->drawText( it.data() ,Qt::AlignCenter, QString::number( it.key()->neutrons() ) );
+//X 		p->drawText( it.data(), Qt::AlignCenter, KalziumDataObject::instance()->element( it.key()->parentElementNumber() )->symbol() );
 	}
 	p->setBrush( Qt::black );
 
