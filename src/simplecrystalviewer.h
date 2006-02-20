@@ -20,11 +20,11 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.           *
  ***************************************************************************/
 
-#include <kdialogbase.h>
+#include <kdialog.h>
 
 class AnimatedMovieWidget;
 
-class SimpleCrystalViewer : public KDialogBase
+class SimpleCrystalViewer : public KDialog
 {
 	Q_OBJECT
 	public:

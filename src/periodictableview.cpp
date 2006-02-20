@@ -56,7 +56,7 @@ PeriodicTableView::PeriodicTableView( QWidget *parent )
 	setMouseTracking( true );
 
 	//JH: eliminates flicker on redraw
-	setAttribute( Qt::WA_NoBackground, true );
+	setAttribute( Qt::WA_OpaquePaintEvent, true );
 
 	table = new QPixmap();
 	table2 = new QPixmap();

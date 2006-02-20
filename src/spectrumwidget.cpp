@@ -60,7 +60,7 @@ SpectrumWidget::SpectrumWidget( QWidget *parent )
 
 	setMinimumSize( 400, 230 );
 	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
-	setBackgroundMode( Qt::NoBackground );
+	setAttribute( Qt::WA_OpaquePaintEvent, true );
 }
 
 void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
@@ -72,7 +72,7 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	m_pixmap.fill( this, width(), height() );
 
 	QPainter p;
-	p.begin( &m_pixmap, this );
+	p.begin( &m_pixmap );
 	p.fillRect( 0, 0, width(), m_realHeight, Qt::black ); 
 
 	paintBands( &p );

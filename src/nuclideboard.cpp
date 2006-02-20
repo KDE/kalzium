@@ -58,14 +58,14 @@ static const int MinElementDisplayed = 1;
 IsotopeTableView::IsotopeTableView( QWidget* parent, IsotopeScrollArea *scroll )
 	: QWidget( parent ), m_parent( parent ), m_scroll( scroll )
 {
-	setBackgroundMode( Qt::NoBackground );
+	setAttribute( Qt::WA_OpaquePaintEvent, true );
 //	setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed );
 	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
 //	setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
 	setMinimumSize( 200, 200 );
 	// resizing to a fake size
 	resize( sizeHint() );
-	m_pix.resize( size() );
+	m_pix = QPixmap( size() );
 
 	m_duringSelection = false;
 	m_isMoving = false;
@@ -149,7 +149,7 @@ QRect IsotopeTableView::getNewCoords( const QRect& rect ) const
 	ret.setLeft( m_firstElemNucleon + i - 1 );
 
 	// normalize the rect - needed to get valid coordinates
-	ret = ret.normalize();
+	ret = ret.normalized();
 
 //X kDebug() << "RECT: " << ret << endl;
 
@@ -401,28 +401,28 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 			if ( colors.first.name() == colors.second.name() )
 			{
 				p->setBrush( colors.first );
-				p->drawRect( it.data() );
+				p->drawRect( it.value() );
 			}
 			else
 			{
 				QPen oldpen = p->pen();
 				p->setPen( Qt::NoPen );
 				QPolygon poly( 3 );
-				poly.setPoint( 1, it.data().topRight() + QPoint( 1, 0 ) );
-				poly.setPoint( 2, it.data().bottomLeft() + QPoint( 0, 1 ) );
+				poly.setPoint( 1, it.value().topRight() + QPoint( 1, 0 ) );
+				poly.setPoint( 2, it.value().bottomLeft() + QPoint( 0, 1 ) );
 
-				poly.setPoint( 0, it.data().topLeft() );
+				poly.setPoint( 0, it.value().topLeft() );
 				p->setBrush( colors.first );
 				p->drawPolygon( poly );
 
-				poly.setPoint( 0, it.data().bottomRight() + QPoint( 1, 1 ) );
+				poly.setPoint( 0, it.value().bottomRight() + QPoint( 1, 1 ) );
 				p->setBrush( colors.second );
 				p->drawPolygon( poly );
 
 				p->setPen( oldpen );
 				QBrush oldbrush = p->brush();
 				p->setBrush( Qt::NoBrush );
-				p->drawRect( it.data() );
+				p->drawRect( it.value() );
 				p->setBrush( oldbrush );
 			}
 			
@@ -507,7 +507,7 @@ void IsotopeTableView::mouseReleaseEvent( QMouseEvent *e )
 			QRect endPoint( e->pos(), e->pos() );
 
 			// ensure to have a valid QRect
-			QRect ourrect = startPoint.unite( endPoint ).normalize();
+			QRect ourrect = startPoint.unite( endPoint ).normalized();
 
 			// ensure to zoom in a valid region
 			if ( ( ourrect.width() > m_rectSize ) &&
@@ -626,7 +626,9 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 	QWidget *page = new QWidget( this );
 	setMainWidget( page );
 
-	QVBoxLayout *vbox = new QVBoxLayout( page , 0, -1 );
+	QVBoxLayout *vbox = new QVBoxLayout( page );
+	vbox->setMargin( 0 );
+	vbox->setSpacing( -1 );
 
 	IsotopeScrollArea *scrollarea = new IsotopeScrollArea( page );
 	m_view = new IsotopeTableView( scrollarea, scrollarea );

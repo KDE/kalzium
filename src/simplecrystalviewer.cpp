@@ -34,7 +34,7 @@
 #include "animatedmoviewidget.h"
 
 SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
-	: KDialogBase( parent, "simple-crystal-viewer", true, i18n( "Simple Crystal Viewer" ), Close, Close, true )
+	: KDialog( parent, i18n( "Simple Crystal Viewer" ), Close )
 {
 	QWidget *page = new QWidget( this );
 	setMainWidget( page );

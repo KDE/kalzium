@@ -73,7 +73,7 @@ void SOMWidgetIMPL::reloadUnits()
 	Number1->setRange( range.first, range.second, 0.1, 1 );
 	Number1->setValue( newvalue );
 	setNewTemp( newvalue );
-kDebug() << "min: " << Number1->minValue() << " - max: " << Number1->maxValue() << endl;
+kDebug() << "min: " << Number1->minimum() << " - max: " << Number1->maximum() << endl;
 	m_prevUnit = Prefs::temperature();
 	connect( Number1, SIGNAL( valueChanged( double ) ),
 	         this, SLOT( spinValueChanged( double ) ) );
