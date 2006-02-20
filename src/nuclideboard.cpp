@@ -329,19 +329,20 @@ QList<Isotope*> IsotopeTableView::isotopesWithNucleonsInRange( Element* el, int 
 QPair<QColor, QColor> IsotopeTableView::isotopeColor( Isotope* isotope )
 {
 	QPair<QColor, QColor> def = qMakePair( QColor( Qt::magenta ), QColor( Qt::magenta ) );
-//	QPair<QColor, QColor> c = qMakePair( QColor(), QColor() );
+	QPair<QColor, QColor> c = qMakePair( QColor(), QColor() );
 	if ( !isotope ) return def;
 
-//X 	if ( !isotope->betaminusdecay() && !isotope->betaplusdecay() &&
-//X 	     !isotope->alphadecay() && !isotope->ecdecay() )
-//X 		c = def;
-//X 	else
-//X 	{
-//X 		if ( isotope->betaminusdecay() )
-//X 			if ( c.first.isValid() )
-//X 				c.second = Qt::cyan;
-//X 			else
-//X 				c.first = Qt::cyan;
+	if ( !isotope->m_betaminus && !isotope->m_betaplus &&
+	     !isotope->m_alpha && !isotope->m_ecday )
+		c = def;
+	else
+	{
+		if ( isotope->m_betaminus )
+			if ( c.first.isValid() )
+				c.second = Qt::cyan;
+			else
+				c.first = Qt::cyan;
+	}
 //X 		if ( isotope->betaplusdecay() )
 //X 			if ( c.first.isValid() )
 //X 				c.second = Qt::red;
@@ -361,10 +362,8 @@ QPair<QColor, QColor> IsotopeTableView::isotopeColor( Isotope* isotope )
 //X 		if ( !c.second.isValid() )
 //X 			c.second = c.first;
 //X 	}
-//X 
-//X 	return c;
-	// TEMP!!
-	return def;
+
+	return c;
 }
 
 void IsotopeTableView::drawInternally()
