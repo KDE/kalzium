@@ -52,6 +52,9 @@ class Isotope
 
 		double halflife() const;
 		
+		/**
+		 * add the ChemicalDataObject @p o
+		 */
 		void addData( ChemicalDataObject* o );
 
 		void setNucleons( int number );
@@ -61,15 +64,39 @@ class Isotope
 		 */
 		int nucleons() const;
 
-		//FIXME
-		//need to be made private. But that comes later
+		/**
+		 * @return decay
+		 */
+		ChemicalDataObject* ecdecay() const{
+			return m_ecdecay;
+		}
 
-		ChemicalDataObject* m_ecday;
+		/**
+		 * @return decay
+		 */
+		ChemicalDataObject* betaminusdecay() const{
+			return m_betaminus;
+		}
+		
+		/**
+		 * @return decay
+		 */
+		ChemicalDataObject* betaplusdecay() const{
+			return m_betaplus;
+		}
+		
+		/**
+		 * @return decay
+		 */
+		ChemicalDataObject* alphadecay() const{
+			return m_alpha;
+		}
+	private:
+		ChemicalDataObject* m_ecdecay;
 		ChemicalDataObject* m_betaplus;
 		ChemicalDataObject* m_betaminus; 
 		ChemicalDataObject* m_alpha;
 		
-	private:
 		/**
 		 * the symbol of the element the isotope belongs to
 		 */
