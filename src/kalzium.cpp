@@ -98,12 +98,12 @@ Kalzium::Kalzium()
 	m_glossarydlg->setObjectName( QLatin1String( "glossary" ) );
 	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
 	QString picturepath = dir + "kalzium/data/bg.jpg";
-	KUrl u = dir + "kalzium/data/knowledge.xml";
+	KUrl u = KUrl::fromPath( dir + "kalzium/data/knowledge.xml" );
 	Glossary *g = new Glossary( u );
 	g->setName( i18n( "Knowledge" ) );
 	g->setBackgroundPicture( picturepath );
 	m_glossarydlg->addGlossary( g );
-	u = dir + "kalzium/data/tools.xml";
+	u = KUrl::fromPath( dir + "kalzium/data/tools.xml" );
 	g = new Glossary( u, dir + "kalzium/data/toolpics/" );
 	g->setName( i18n( "Tools" ) );
 	g->setBackgroundPicture( picturepath );
