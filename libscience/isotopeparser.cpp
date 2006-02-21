@@ -101,6 +101,7 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 	{
 //X 		kDebug() << "setting inIsotope true!" << endl;
 		d->currentIsotope = new Isotope();
+		d->currentIsotope->addData( new ChemicalDataObject( QVariant( d->currentElementSymbol ), ChemicalDataObject::symbol ) );
 		d->inIsotope = true;
 		for (int i = 0; i < attrs.length(); ++i) 
 		{
@@ -116,10 +117,10 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 	} else if (d->inIsotope && localName == "halflife") {
 //X 		kDebug() << "bo:halfLife" << endl;
 		d->inHalfLife = true;
-		if ( d->currentUnit != ChemicalDataObject::noUnit )
-			d->currentDataObject->setUnit( d->currentUnit );
+//X 		if ( d->currentUnit != ChemicalDataObject::noUnit )
+//X 			d->currentDataObject->setUnit( d->currentUnit );
 
-		d->currentUnit = ChemicalDataObject::noUnit;
+//X 		d->currentUnit = ChemicalDataObject::noUnit;
 	} else if (d->inIsotope && localName == "alphadecay"){
 //X 		kDebug() << "bo:alphaDecay" << endl;
 		d->inAlphaDecay = true;
@@ -158,18 +159,11 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 {
 	if ( localName == "isotope" )
 	{
-		d->currentIsotope->addData( new ChemicalDataObject( QVariant( d->currentElementSymbol ), ChemicalDataObject::symbol ) );
 		d->isotopes.append(d->currentIsotope);
 		
-		d->currentIsotope = 0;
 		d->currentDataObject = 0;
+		d->currentIsotope = 0;
 		d->inIsotope = false;
-	}
-	else if ( localName == "scalar" )
-	{
-		if ( d->currentDataObject->type() == ChemicalDataObject::exactMass ){
-			d->currentDataObject->setErrorValue( d->currentErrorValue );
-		}
 	}
 	else if ( localName == "isotopeList" )
 	{//a new list of isotopes start...
@@ -239,11 +233,19 @@ bool IsotopeParser::characters(const QString &ch)
 	else//it is a non known value. Do not create a wrong object but return
 		return true;
 
+	if ( type == ChemicalDataObject::exactMass )
+	{
+		d->currentDataObject->setErrorValue( d->currentErrorValue );
+	}
+
 	d->currentDataObject->setData( value );
 	d->currentDataObject->setType( type );
 
 	if ( d->currentIsotope )
+	{
 		d->currentIsotope->addData( d->currentDataObject );
+		d->currentDataObject = 0;
+	}
 
 	return true;
 }

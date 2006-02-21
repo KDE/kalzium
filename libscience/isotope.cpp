@@ -21,24 +21,17 @@
 #include "chemicaldataobject.h"
 
 #include <kdebug.h>
-#include <klocale.h>
 
 Isotope::Isotope()
-	: m_mass( 0 ), m_identifier( 0 )
-{ 
-}
-
-Isotope::Isotope( ChemicalDataObject* mass, ChemicalDataObject* ID )
 	: m_parentElementSymbol( 0 ), m_mass( 0 ), m_identifier( 0 ),
 	m_spin( 0 ), m_magmoment( 0 ), m_halflife( 0 ), m_ecdecay( 0 ),
 	m_betaplus( 0 ), m_betaminus( 0 ), m_alpha( 0 )
-{
-	addData( mass );
-	addData( ID );
+{ 
 }
 
-Isotope::~Isotope(){}
-
+Isotope::~Isotope()
+{
+}
 
 ChemicalDataObject* Isotope::data() const
 {

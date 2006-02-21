@@ -32,8 +32,10 @@ class ChemicalDataObject;
 class Isotope
 {
 	public:
+		/**
+		 * Constructs a new empty isotope.
+		 */
 		Isotope();
-		Isotope(ChemicalDataObject* mass, ChemicalDataObject* ID);
 		virtual ~Isotope();
 
 		ChemicalDataObject* data() const;
