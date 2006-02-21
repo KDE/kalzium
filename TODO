@@ -4,13 +4,16 @@
 Bugs
 ----
 
-* Miscellaneous bugs:
-  + Make use of the biological symbol.	     				----
-    CN: I lost the "translation" though, will have to look after it.
-	CN: I have deactivated the drawingconde
-  + correct mass-rounding
-    presumably, the arg()-funktion now rounds wrong			-----
-
+NuclideBoard comments and bugs
+- Missing features:
+  * tooltip when mouse is over an isotope
+  * something should happen on left-click
+  * it should be impossible to get a grey-only area (currently 
+    when you scroll in the top-left and bottom-right corner)
+  * The axis-labels should always be visible so that you can always
+    see were you are
+  * A grid should be added (at least it be possible to add it)
+  * The colours SUCK
 
 ================================================================
                        Future versions
