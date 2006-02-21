@@ -285,15 +285,15 @@ QString DetailedInfoDlg::isotopeTable()
  		html.append( "<tr><td align=\"right\">" ); 
 		if ( isotope->mass() > 0.0 )
  			html.append( i18n( "%1 u" ).arg( isotope->mass() ) );
-//		html.append( "</td><td>" );
+		html.append( "</td><td>" );
  //		html.append( QString::number( ( isotope )->neutrons() ) );
- //		html.append( "</td><td>" );
+		html.append( "</td><td>" );
 //X 		if ( ( isotope )->percentage() > 0.0 )
 //X 			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( isotope )->percentage() ) );
-// 		html.append( "</td><td>" );
-//X 		if ( ( isotope )->halflife() > 0.0 )
-//X 			html.append( ( isotope )->halflifeAsString() );
-//X 		html.append( "</td><td>" );
+ 		html.append( "</td><td>" );
+// 		if ( ( isotope )->halflife() > 0.0 )
+// 			html.append( ( isotope )->halflifeAsString() );
+ 		html.append( "</td><td>" );
 //X 		if ( ( isotope )->alphapercentage() > 0.0 ){
 //X 			if ( ( isotope )->alphadecay() > 0.0 )
 //X 			html.append( i18n( "%1 MeV" ).arg(( isotope )->alphadecay() ) );
@@ -332,11 +332,11 @@ QString DetailedInfoDlg::isotopeTable()
 //X 			if ( ( isotope )->ecpercentage() < 100.0 )
 //X 				html.append( i18n( "(%1%)" ).arg(( isotope )->ecpercentage() ));
 //X 			}
-//X 		html.append( "</td><td>" );
-//		html.append( ( isotope )->spin() );
-//		html.append( "</td><td>" );
-//		if ( !( isotope )->magmoment().isEmpty() )
-//			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( ( isotope )->magmoment() ).arg( QChar( 956 ) ) );
+ 		html.append( "</td><td>" );
+		html.append( ( isotope )->spin() );
+		html.append( "</td><td>" );
+		if ( !( isotope )->magmoment().isEmpty() )
+			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( ( isotope )->magmoment() ).arg( QChar( 956 ) ) );
 		html.append( "</td></tr>" );
 
 	}
