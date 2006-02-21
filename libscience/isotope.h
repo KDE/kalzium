@@ -38,6 +38,12 @@ class Isotope
 		Isotope();
 		virtual ~Isotope();
 
+		struct Nucleons
+		{
+			int neutrons;
+			int protons;
+		};
+
 		ChemicalDataObject* data() const;
 
 		double mass() const;
@@ -93,6 +99,19 @@ class Isotope
 		ChemicalDataObject* alphadecay() const{
 			return m_alpha;
 		}
+
+		enum Decay
+		{
+			ALPHA,
+			BETAPLUS,
+			BETAMINUS,
+			EC
+		};
+
+		/**
+		 * @return the number of neutrons of the Isotope after the decay
+		 */
+		Isotope::Nucleons nucleonsAfterDecay( Decay kind );
 	private:
 		/**
 		 * the symbol of the element the isotope belongs to
@@ -123,13 +142,14 @@ class Isotope
 		 * stores the halfLife of the Isotope
 		 */
 		ChemicalDataObject* m_halflife;
-		
-		int m_nucleons;
 
 		ChemicalDataObject* m_ecdecay;
 		ChemicalDataObject* m_betaplus;
 		ChemicalDataObject* m_betaminus; 
 		ChemicalDataObject* m_alpha;
+	
+		Isotope::Nucleons m_nucleons;
+		
 };
 
 #endif // ISOTOPE_H

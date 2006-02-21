@@ -23,7 +23,7 @@
 #include <kdebug.h>
 
 Isotope::Isotope()
-	: m_parentElementSymbol( 0 ), m_mass( 0 ), m_identifier( 0 ),
+: m_parentElementSymbol( 0 ), m_mass( 0 ), m_identifier( 0 ),
 	m_spin( 0 ), m_magmoment( 0 ), m_halflife( 0 ), m_ecdecay( 0 ),
 	m_betaplus( 0 ), m_betaminus( 0 ), m_alpha( 0 )
 { 
@@ -52,7 +52,7 @@ void Isotope::addData( ChemicalDataObject* o )
 		m_magmoment = o;
 	else if ( o->type() == ChemicalDataObject::halfLife )
 		m_halflife = o;
-	
+
 	//FIXME in the future there should be real CDOs. But CDO only supports one datavalue...
 	if ( o->type() == ChemicalDataObject::betaplusDecay )
 		m_betaplus = o;
@@ -101,10 +101,38 @@ QString Isotope::parentElementSymbol() const
 
 void Isotope::setNucleons( int number )
 {
-	m_nucleons = number;
+	int protons = m_identifier->value().toInt();
+	int neutrons = number - protons;
+	m_nucleons.protons = protons;
+	m_nucleons.neutrons = neutrons;
 }
 
 int Isotope::nucleons() const
 {
-	return m_nucleons;
+	return m_nucleons.neutrons + m_nucleons.protons;
+}
+
+Isotope::Nucleons Isotope::nucleonsAfterDecay( Decay kind )
+{
+	Nucleons n = m_nucleons;
+
+	switch ( kind )
+	{
+		case ALPHA:
+			n.protons-=2;
+			break;
+		case BETAMINUS:
+			n.protons+=1;
+			n.neutrons-=1;
+			break;
+		case BETAPLUS:
+			n.protons-=1;
+			break;
+		case EC:
+			n.protons-=1;
+			n.neutrons+=1;
+			break;
+	}
+
+	return n;
 }
