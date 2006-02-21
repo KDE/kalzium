@@ -59,7 +59,7 @@ static const int MinElementDisplayed = 1;
 IsotopeTableView::IsotopeTableView( QWidget* parent, IsotopeScrollArea *scroll )
 	: QWidget( parent ), m_parent( parent ), m_scroll( scroll )
 {
-	setAttribute( Qt::WA_OpaquePaintEvent, true );
+//	setAttribute( Qt::WA_OpaquePaintEvent, true );
 //	setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed );
 	setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Expanding );
 //	setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
@@ -562,22 +562,27 @@ void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
 	QString text;
 
 	p.fillRect( 10, 10, 10, 10, Qt::cyan );
+	p.drawRect( 10, 10, 10, 10 );
 	text = i18n( "%1- Decay" ).arg( QChar( 946 ) );
 	p.drawText( 30, 20, text );
 
 	p.fillRect( 10, 30, 10, 10, Qt::red );
+	p.drawRect( 10, 30, 10, 10 );
 	text =  i18n( "%1+ Decay" ).arg( QChar( 946) );
 	p.drawText( 30, 40, text );
 
 	p.fillRect( 120, 10, 10, 10, Qt::yellow );
+	p.drawRect( 120, 10, 10, 10 );
 	text =  i18n( "%1 Decay" ).arg( QChar( 945 ) );
 	p.drawText( 140, 20, text );
 
 	p.fillRect( 120, 30, 10, 10, Qt::green );
+	p.drawRect( 120, 30, 10, 10 );
 	text = i18n( "Acronym of Electron Capture Decay", "EC Decay" );
 	p.drawText( 140, 40, text );
 
 	p.fillRect( 230, 10, 10, 10, Qt::magenta );
+	p.drawRect( 230, 10, 10, 10 );
 	text =  i18n( "Stable" );
 	p.drawText( 250, 20, text );
 }

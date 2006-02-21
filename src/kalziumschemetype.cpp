@@ -212,16 +212,15 @@ QString KalziumIconicSchemeType::description() const
 	return i18n( "Iconic" );
 }
 
-QBrush KalziumIconicSchemeType::elementBrush( int el, const QRect& elrect ) const
+QBrush KalziumIconicSchemeType::elementBrush( int el, const QRect& ) const
 {
 	QPixmap pixmap = KalziumDataObject::instance()->pixmap( el );
 	
 	return QBrush( pixmap );
 }
 
-QColor KalziumIconicSchemeType::textColor( int el ) const
+QColor KalziumIconicSchemeType::textColor( int ) const
 {
-	Q_UNUSED( el );
 	return Qt::black;
 }
 
@@ -254,7 +253,7 @@ QString KalziumFamilySchemeType::description() const
 	return i18n( "Family" );
 }
 
-QBrush KalziumFamilySchemeType::elementBrush( int el, const QRect& elrect ) const
+QBrush KalziumFamilySchemeType::elementBrush( int el, const QRect& ) const
 {
 	QString family = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::family );
 
@@ -293,9 +292,8 @@ QBrush KalziumFamilySchemeType::elementBrush( int el, const QRect& elrect ) cons
 	return QBrush( c );
 }
 
-QColor KalziumFamilySchemeType::textColor( int el ) const
+QColor KalziumFamilySchemeType::textColor( int ) const
 {
-	Q_UNUSED( el );
 	return Qt::black;
 }
 
@@ -338,7 +336,7 @@ QString KalziumAcidicSchemeType::description() const
 	return i18n( "Acidic behaviour" );
 }
 
-QBrush KalziumAcidicSchemeType::elementBrush( int el, const QRect& elrect ) const
+QBrush KalziumAcidicSchemeType::elementBrush( int el, const QRect& ) const
 {
 	QString acid = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::acidicbehaviour );
 
@@ -362,9 +360,8 @@ QBrush KalziumAcidicSchemeType::elementBrush( int el, const QRect& elrect ) cons
 	return QBrush( c );
 }
 
-QColor KalziumAcidicSchemeType::textColor( int el ) const
+QColor KalziumAcidicSchemeType::textColor( int ) const
 {
-	Q_UNUSED( el );
 	return Qt::black;
 }
 
@@ -402,7 +399,7 @@ QString KalziumGroupsSchemeType::description() const
 	return i18n( "Groups" );
 }
 
-QBrush KalziumGroupsSchemeType::elementBrush( int el, const QRect& elrect ) const
+QBrush KalziumGroupsSchemeType::elementBrush( int el, const QRect& ) const
 {
 	QString group = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::group );
 
@@ -438,9 +435,8 @@ QBrush KalziumGroupsSchemeType::elementBrush( int el, const QRect& elrect ) cons
 	return QBrush( c );
 }
 
-QColor KalziumGroupsSchemeType::textColor( int el ) const
+QColor KalziumGroupsSchemeType::textColor( int ) const
 {
-	Q_UNUSED( el );
 	return Qt::black;
 }
 
@@ -481,7 +477,7 @@ QString KalziumCrystalSchemeType::description() const
 	return i18n( "Crystal Structures" );
 }
 
-QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& elrect ) const
+QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& ) const
 {
 	QString crystal = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::crystalstructure );
 
@@ -529,9 +525,8 @@ QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& elrect ) con
 	return QBrush( c );
 }
 
-QColor KalziumCrystalSchemeType::textColor( int el ) const
+QColor KalziumCrystalSchemeType::textColor( int ) const
 {
-	Q_UNUSED( el );
 	return Qt::black;
 }
 
