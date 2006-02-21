@@ -148,8 +148,7 @@ class Isotope
 		ChemicalDataObject* m_betaminus; 
 		ChemicalDataObject* m_alpha;
 	
-		Isotope::Nucleons m_nucleons;
-		
+		int m_numberOfNucleons;
 };
 
 #endif // ISOTOPE_H

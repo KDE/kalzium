@@ -101,20 +101,21 @@ QString Isotope::parentElementSymbol() const
 
 void Isotope::setNucleons( int number )
 {
-	int protons = m_identifier->value().toInt();
-	int neutrons = number - protons;
-	m_nucleons.protons = protons;
-	m_nucleons.neutrons = neutrons;
+	m_numberOfNucleons = number;
 }
 
 int Isotope::nucleons() const
 {
-	return m_nucleons.neutrons + m_nucleons.protons;
+	return m_numberOfNucleons;
 }
 
 Isotope::Nucleons Isotope::nucleonsAfterDecay( Decay kind )
 {
-	Nucleons n = m_nucleons;
+	Isotope::Nucleons n;
+	int protons = m_identifier->value().toInt();
+	int neutrons = m_numberOfNucleons - protons;
+	n.protons = protons;
+	n.neutrons = neutrons;
 
 	switch ( kind )
 	{
