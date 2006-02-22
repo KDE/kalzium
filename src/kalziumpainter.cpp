@@ -215,7 +215,6 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 		}
 		case SLIDE:
 		{
-			kDebug() << "in case SLID" << endl;
 			QBrush c = getSlideBrush( element, rect ); 
 			QColor textc = Qt::white;
 			m_painter->setPen( textc );
@@ -459,7 +458,6 @@ int KalziumPainter::temperature() const
 
 QBrush KalziumPainter::getSlideBrush( int element, const QRect& rect )
 {
-	kDebug() << "KalziumPainter::getSlideBrush()" << endl;
 	Element *el = KalziumDataObject::instance()->element( element );
 
 	const int valueToCompare = el->dataAsVariant( m_sliderType ).toInt();
@@ -472,7 +470,6 @@ QBrush KalziumPainter::getSlideBrush( int element, const QRect& rect )
 
 void KalziumPainter::setSliderValue( ChemicalDataObject::BlueObelisk type, int value )
 {
-	kDebug() << "KalziumPainter::setSliderValue(), value: " << value << endl;
 	m_sliderValue = value;
 	m_sliderType = type;
 }

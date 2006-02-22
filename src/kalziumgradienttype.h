@@ -50,6 +50,8 @@ class KalziumGradientTypeFactory
 		 * It will gives 0 if none found.
 		 */
 		KalziumGradientType* build( const QByteArray& id ) const;
+		
+		KalziumGradientType* build( const QString& description ) const;
 
 		/**
 		 * Returns a list with the names of the gradients we support.

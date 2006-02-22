@@ -77,7 +77,7 @@ class PropertySliderWidget : public QWidget, protected Ui_PropertySliderWidgetBa
 
 		virtual void setValueText( int value );
 
-		void slotSliderKindChanged( QString kind );
+		void slotSliderKindChanged( int index );
 	
 	signals:
 		/**

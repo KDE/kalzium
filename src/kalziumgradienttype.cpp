@@ -66,6 +66,18 @@ KalziumGradientType* KalziumGradientTypeFactory::build( const QByteArray& id ) c
 	return 0;
 }
 
+KalziumGradientType* KalziumGradientTypeFactory::build( const QString& description ) const
+{
+	for ( int i = 0; i < m_gradients.count(); i++ )
+	{
+		if ( m_gradients.at( i )->description() == description )
+			return m_gradients.at( i );
+	}
+	
+	// not found
+	return 0;
+}
+
 QStringList KalziumGradientTypeFactory::gradients() const
 {
 	QStringList l;

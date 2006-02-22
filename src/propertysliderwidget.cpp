@@ -1,19 +1,22 @@
 #include "propertysliderwidget.h"
 #include <QSlider>
 
+#include "kalziumgradienttype.h"
+
 PropertySliderWidget::PropertySliderWidget( QWidget * parent )
 	: QWidget( parent )
 {
 	setupUi( this );
 
 	// add all properties
-	combo->addItem( i18n( "Mass" ), "mass" );
-	combo->addItem( i18n( "Density" ), "boilingpoint" );
-	
+	QStringList list = KalziumGradientTypeFactory::instance()->gradients();
+	foreach( QString s, list )
+		combo->addItem( s );
+
 	connect( slider, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( slotValueChanged( int ) ) );
- 	connect( combo, SIGNAL( textChanged( QString ) ),
- 	         this, SLOT( slotSliderKindChanged( QString ) ) );
+ 	connect( combo, SIGNAL( activated( int ) ),
+ 	         this, SLOT( slotSliderKindChanged( int ) ) );
 	connect( slider, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( setValueText( int ) ) );
 }
@@ -45,8 +48,13 @@ void PropertySliderWidget::slotValueChanged( int value )
 	emit valueHasChanged( m_type, m_value );
 }
 
-void PropertySliderWidget::slotSliderKindChanged( QString kind )
+void PropertySliderWidget::slotSliderKindChanged( int index )
 {
+	KalziumGradientType *mytype = KalziumGradientTypeFactory::instance()->build(combo->itemText( index ));
+	int min = ( int )mytype->minValue();
+	int max = ( int )mytype->maxValue();
+	slider->setMaximum(min );
+	slider->setMinimum( max );
 }
 
 #include "propertysliderwidget.moc"
