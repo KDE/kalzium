@@ -55,6 +55,8 @@ void PropertySliderWidget::slotSliderKindChanged( int index )
 	int max = ( int )mytype->maxValue();
 	slider->setMaximum(min );
 	slider->setMinimum( max );
+
+	text->setText( i18n( "min: %1, max: %2" ).arg( min ).arg( max ) );
 }
 
 #include "propertysliderwidget.moc"

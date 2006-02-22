@@ -51,8 +51,6 @@ class KalziumGradientTypeFactory
 		 */
 		KalziumGradientType* build( const QByteArray& id ) const;
 		
-		KalziumGradientType* build( const QString& description ) const;
-
 		/**
 		 * Returns a list with the names of the gradients we support.
 		 */
