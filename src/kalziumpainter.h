@@ -116,6 +116,7 @@ class KalziumPainter
 		 * @p active.
 		 */
 		void toggleLegend( bool active );
+		
 		/**
 		 * Whether the legend is shown
 		 */
@@ -142,12 +143,18 @@ class KalziumPainter
 		void setTemperature( int temp );
 		int temperature() const;
 
+		/**
+		 * set the kind of value the user is sliding. This is set in the 
+		 * PropertySliderWidget.
+		 *
+		 * @see PropertySliderWidget
+		 */
 		void setSliderValue( ChemicalDataObject::BlueObelisk type, int value );
 
 	private:
 		QBrush getSlideBrush( int element, const QRect& rect );
 		ChemicalDataObject::BlueObelisk m_sliderType;
-		double m_sliderValue;
+		int m_sliderValue;
 		
 		QPainter *m_painter;
 

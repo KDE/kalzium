@@ -215,6 +215,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 		}
 		case SLIDE:
 		{
+			kDebug() << "in case SLID" << endl;
 			QBrush c = getSlideBrush( element, rect ); 
 			QColor textc = Qt::white;
 			m_painter->setPen( textc );
@@ -237,83 +238,87 @@ void KalziumPainter::drawLegend()
 	{
 		case NORMAL:
 		case SOM:
-		{
-			// settings font
-			QFont legendFont = KGlobalSettings::generalFont();
-			legendFont.setPointSize( legendFont.pointSize() + 1 );
-			m_painter->setFont( legendFont );
-
-			int padding = 6;
-			QRect legendRect = m_ktt->legendRect();
-			m_painter->fillRect( legendRect, QBrush( Qt::lightGray ) );
-			int itemheight = ( legendRect.height() - 6 * padding ) / 5;
-			int squareside = itemheight - 2;
-
-			legendList items;
-			if ( m_mode == SOM )
 			{
-				items << qMakePair( i18n( "Solid" ), Prefs::color_solid() );
-				items << qMakePair( i18n( "Liquid" ), Prefs::color_liquid() );
-				items << qMakePair( i18n( "Vaporous" ), Prefs::color_vapor() );
-				items << qMakePair( i18n( "Unknown" ), QColor( Qt::lightGray ) );
-			}
-			else
-			{
-				items = m_scheme->legendItems();
-//X 				if ( m_isTimeline )
-//X 					items << qMakePair( i18n( "Not discovered yet" ), QColor( Qt::lightGray ) );
-			}
+				// settings font
+				QFont legendFont = KGlobalSettings::generalFont();
+				legendFont.setPointSize( legendFont.pointSize() + 1 );
+				m_painter->setFont( legendFont );
 
-			// we allow max 10 items in the legend
-			int numitems = qMin( items.count(), 10 );
-			int itemwidth = legendRect.width() - 2 * padding;
-			if ( numitems > 5 )
-				itemwidth = ( itemwidth - padding ) / 2;
+				int padding = 6;
+				QRect legendRect = m_ktt->legendRect();
+				m_painter->fillRect( legendRect, QBrush( Qt::lightGray ) );
+				int itemheight = ( legendRect.height() - 6 * padding ) / 5;
+				int squareside = itemheight - 2;
 
-			for ( int i = 0; i < numitems; i++ )
-			{
-				int x = legendRect.left() + padding + ( i > 4 ? itemwidth + padding : 0 );
-				int y = legendRect.top() + padding + ( padding + itemheight ) * ( i % 5 );
-				QRect sq( x + 1, y + 1, squareside, squareside );
-				m_painter->fillRect( sq, QBrush( items.at(i).second ) );
-				m_painter->drawRect( sq );
-				QRect text( x + squareside + 5, y, itemwidth - squareside - 5, itemheight);
-				m_painter->drawText( text, Qt::AlignLeft | Qt::AlignVCenter, items.at(i).first );
+				legendList items;
+				if ( m_mode == SOM )
+				{
+					items << qMakePair( i18n( "Solid" ), Prefs::color_solid() );
+					items << qMakePair( i18n( "Liquid" ), Prefs::color_liquid() );
+					items << qMakePair( i18n( "Vaporous" ), Prefs::color_vapor() );
+					items << qMakePair( i18n( "Unknown" ), QColor( Qt::lightGray ) );
+				}
+				else
+				{
+					items = m_scheme->legendItems();
+					//X 				if ( m_isTimeline )
+					//X 					items << qMakePair( i18n( "Not discovered yet" ), QColor( Qt::lightGray ) );
+				}
+
+				// we allow max 10 items in the legend
+				int numitems = qMin( items.count(), 10 );
+				int itemwidth = legendRect.width() - 2 * padding;
+				if ( numitems > 5 )
+					itemwidth = ( itemwidth - padding ) / 2;
+
+				for ( int i = 0; i < numitems; i++ )
+				{
+					int x = legendRect.left() + padding + ( i > 4 ? itemwidth + padding : 0 );
+					int y = legendRect.top() + padding + ( padding + itemheight ) * ( i % 5 );
+					QRect sq( x + 1, y + 1, squareside, squareside );
+					m_painter->fillRect( sq, QBrush( items.at(i).second ) );
+					m_painter->drawRect( sq );
+					QRect text( x + squareside + 5, y, itemwidth - squareside - 5, itemheight);
+					m_painter->drawText( text, Qt::AlignLeft | Qt::AlignVCenter, items.at(i).first );
+				}
+
+				break;
 			}
-
-			break;
-		}
 		case GRADIENT:
-		{
-			// settings font
-			QFont legendFont = KGlobalSettings::generalFont();
-			legendFont.setPointSize( legendFont.pointSize() + 1 );
-			m_painter->setFont( legendFont );
+			{
+				// settings font
+				QFont legendFont = KGlobalSettings::generalFont();
+				legendFont.setPointSize( legendFont.pointSize() + 1 );
+				m_painter->setFont( legendFont );
 
-			int padding = 6;
-			int sidepadding = 12;
-			QRect legendRect = m_ktt->legendRect();
-			m_painter->fillRect( legendRect, QBrush( Qt::lightGray ) );
+				int padding = 6;
+				int sidepadding = 12;
+				QRect legendRect = m_ktt->legendRect();
+				m_painter->fillRect( legendRect, QBrush( Qt::lightGray ) );
 
-			QRect text = legendRect;
-			text.setHeight( text.height() / 2 - 2 * padding );
-			text.setWidth( text.width() - 2 * sidepadding );
-			text.translate( sidepadding, padding );
+				QRect text = legendRect;
+				text.setHeight( text.height() / 2 - 2 * padding );
+				text.setWidth( text.width() - 2 * sidepadding );
+				text.translate( sidepadding, padding );
 
-			QSize imgsize( legendRect.width() - 2 * sidepadding, 20 );
-			QImage img = KImageEffect::gradient( imgsize, m_gradient->firstColor(), m_gradient->secondColor(), KImageEffect::HorizontalGradient );
+				QSize imgsize( legendRect.width() - 2 * sidepadding, 20 );
+				QImage img = KImageEffect::gradient( imgsize, m_gradient->firstColor(), m_gradient->secondColor(), KImageEffect::HorizontalGradient );
 
-			QRect othertexts = text;
-			othertexts.moveTo( text.bottomLeft() + QPoint( 0, padding + 4 + imgsize.height() ) );
+				QRect othertexts = text;
+				othertexts.moveTo( text.bottomLeft() + QPoint( 0, padding + 4 + imgsize.height() ) );
 
-			m_painter->drawText( text, Qt::AlignHCenter | Qt::AlignBottom, i18n( "Gradient: %1" ).arg( m_gradient->description() ) );
-			m_painter->drawPixmap( text.bottomLeft() + QPoint( 0, padding ), QPixmap::fromImage( img ) );
+				m_painter->drawText( text, Qt::AlignHCenter | Qt::AlignBottom, i18n( "Gradient: %1" ).arg( m_gradient->description() ) );
+				m_painter->drawPixmap( text.bottomLeft() + QPoint( 0, padding ), QPixmap::fromImage( img ) );
 
-			m_painter->drawText( othertexts, Qt::AlignRight, QString::number( m_gradient->maxValue() ) );
-			m_painter->drawText( othertexts, Qt::AlignLeft, QString::number( m_gradient->minValue() ) );
+				m_painter->drawText( othertexts, Qt::AlignRight, QString::number( m_gradient->maxValue() ) );
+				m_painter->drawText( othertexts, Qt::AlignLeft, QString::number( m_gradient->minValue() ) );
 
-			break;
-		}
+				break;
+			}
+		case SLIDE:
+			{
+				break;
+			}
 	}
 }
 
@@ -454,9 +459,12 @@ int KalziumPainter::temperature() const
 
 QBrush KalziumPainter::getSlideBrush( int element, const QRect& rect )
 {
+	kDebug() << "KalziumPainter::getSlideBrush()" << endl;
 	Element *el = KalziumDataObject::instance()->element( element );
 
-	if ( el->dataAsVariant( ChemicalDataObject::mass ).toDouble() == m_sliderValue )
+	const int valueToCompare = el->dataAsVariant( m_sliderType ).toInt();
+
+	if ( valueToCompare > m_sliderValue )
 		return m_scheme->elementBrush( element, rect );
 	else
 		return QBrush( Qt::lightGray );
@@ -464,22 +472,8 @@ QBrush KalziumPainter::getSlideBrush( int element, const QRect& rect )
 
 void KalziumPainter::setSliderValue( ChemicalDataObject::BlueObelisk type, int value )
 {
-	switch( type )
-	{
-		case ChemicalDataObject::meltingpoint:
-			m_sliderValue = value/100;
-			m_sliderType = type;
-			break;
-		case ChemicalDataObject::boilingpoint:
-			m_sliderValue = value/100;
-			m_sliderType = type;
-			break;
-		case ChemicalDataObject::mass:
-			m_sliderValue = value/100;
-			m_sliderType = type;
-			break;
-		default:
-			break;
-	}
+	kDebug() << "KalziumPainter::setSliderValue(), value: " << value << endl;
+	m_sliderValue = value;
+	m_sliderType = type;
 }
 

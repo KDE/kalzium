@@ -201,11 +201,12 @@ void Kalzium::setupSidebars()
 	m_calcWidget->setObjectName( "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIcon( "calculate" ), i18n( "Calculate" ) );
 	
-	m_doubleWidget = new DoubleSliderWidget( this );
-	m_doubleWidget->setDigits( 4 );
-	m_doubleWidget->setCaption( "test123" );
-	m_doubleWidget->setObjectName( "DoubleWidget" );
-	m_toolbox->addItem( m_doubleWidget, SmallIcon( "timeline" ), i18n( "DoubleWidget" ) );
+	m_SliderWidget = new PropertySliderWidget( this );
+	m_SliderWidget->setCaption( "Properties Slider" );
+	m_SliderWidget->setObjectName( "m_SliderWidget" );
+	m_toolbox->addItem( m_SliderWidget, SmallIcon( "timeline" ), i18n( "SliderWidget" ) );
+	connect( m_SliderWidget, SIGNAL(valueHasChanged( ChemicalDataObject::BlueObelisk, int ) ),
+			m_PeriodicTableView, SLOT(setSliderValue( ChemicalDataObject::BlueObelisk, int ) ) );
 
 	m_somWidget = new SOMWidgetIMPL( this );
 	m_somWidget->setObjectName( "somWidget" );
@@ -389,6 +390,7 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 		case 1: // molcalc
 			break;
 		case 2: // sliderwidget
+			m_PeriodicTableView->setMode( KalziumPainter::SLIDE );
 			break;
 		case 3: // state of matter
 			m_PeriodicTableView->setTemperature( m_somWidget->temperature() );

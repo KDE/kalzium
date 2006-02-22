@@ -33,7 +33,8 @@ class KalziumGradientType;
 #include <QMap>
 
 #include "kalziumpainter.h"
-#include "chemicaldataobject.h"
+
+#include <chemicaldataobject.h>
 
 /**
  * A PeriodicTableView is the widget on where we paint a periodic table.
@@ -155,6 +156,14 @@ class PeriodicTableView : public QWidget
 		 * @param temp is the temperature to which all buttons will be set
 		 */
 		void setTemperature( int temp );
+
+		/**
+		 * set the kind of value the user is sliding. This is set in the 
+		 * PropertySliderWidget.
+		 *
+		 * @see PropertySliderWidget
+		 */
+		void setSliderValue( ChemicalDataObject::BlueObelisk type, int value );
 
 		/**
 		 * this slot removes the selection of any point

@@ -3,7 +3,8 @@
 
 #include <QWidget>
 #include <QList>
-#include <QVariant>
+
+#include <chemicaldataobject.h>
 
 #include "propertysliderwidgetbase.h"
 
@@ -18,6 +19,12 @@
  * The value of such a slider is a single integer. The set of
  * values from which the integer is taken can be set with
  * setValues().
+ *
+ * Only for the boiling- and melting point this class cannot be used as
+ * for that we need a more complex user interface and compare two
+ * values instead of one.
+ *
+ * @see SOMWidgetIMPL
  */
 class PropertySliderWidget : public QWidget, protected Ui_PropertySliderWidgetBase
 {
@@ -44,12 +51,13 @@ class PropertySliderWidget : public QWidget, protected Ui_PropertySliderWidgetBa
 		/**
 		 * @return the currently selected value
 		 */
-		virtual int value() const{
-			return time_slider->value();
+		int value() const{
+			return slider->value();
 		}
 
 	private:
 		int m_value;
+		ChemicalDataObject::BlueObelisk m_type;
 
 	protected slots:
 		/**
@@ -71,71 +79,19 @@ class PropertySliderWidget : public QWidget, protected Ui_PropertySliderWidgetBa
 
 		void slotSliderKindChanged( QString kind );
 	
-
 	signals:
 		/**
 		 * emitted when the value changes
 		 * @param value the new value
 		 */
 		void valueHasChanged( int value );
-};
 
-class TimeSliderWidget : public PropertySliderWidget
-{
-	Q_OBJECT
-
-	public:
-		TimeSliderWidget( QWidget * parent );
-		
 		/**
-		 * Destructor
+		 * emitted when the value changes
+		 * @param value the new value
+		 * @param type the type of the new value
 		 */
-		virtual ~TimeSliderWidget();
-		
-	private slots:
-		/**
-		 * this slot reacts to a new value
-		 */
-		virtual void slotValueChanged( int value );
-};
-
-class DoubleSliderWidget : public PropertySliderWidget
-{
-	Q_OBJECT
-
-	public:
-		DoubleSliderWidget( QWidget * parent );
-		
-		/**
-		 * Destructor
-		 */
-		virtual ~DoubleSliderWidget();
-
-		void setDigits( int digits ){
-			m_digits = digits;
-		}
-
-		void setCaption( const QString& caption ){
-			propertyLabel->setText( caption );
-		}
-
-		void setExplanation( const QString& explanation ){
-//X 			valueLabel->setText( explanationLabel );
-		}
-		
-	private slots:
-		/**
-		 * this slot reacts to a new value
-		 */
-		virtual void slotValueChanged( int value );
-		
-		virtual void setValueText( int value );
-
-	private:
-		int m_digits;
-	
-	signals:
-		void valueHasChanged( int value, int digits );
+		void valueHasChanged( ChemicalDataObject::BlueObelisk type, int value );
 };
 #endif // PROPERTYSLIDERWIDGET_H
 
