@@ -44,13 +44,13 @@ class Element
 		virtual ~Element();
 		
 		/**
-		 * Sdd the ChemicalDataObject @p o to this Element
+		 * Add the ChemicalDataObject @p o to this Element
 		 * @param o the ChemicalDataObject to be added
 		 */
 		void addData( ChemicalDataObject*o );
 
 		/**
-		 * Sdd a ChemicalDataObject with @p value of @p type to this
+		 * Add a ChemicalDataObject with @p value of @p type to this
 		 * Element
 		 * @param value the QVariant to be added
 		 * @param type the BlueObelisk type to be added

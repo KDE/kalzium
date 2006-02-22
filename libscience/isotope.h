@@ -36,22 +36,49 @@ class Isotope
 		 * Constructs a new empty isotope.
 		 */
 		Isotope();
+
+		/**
+		 * Destructor
+		 */
 		virtual ~Isotope();
 
+		/**
+		 * This struct stores the information how the nucleons in the 
+		 * isotopes are split into neutrons and protons.
+		 */
 		struct Nucleons
 		{
+			/**
+			 * the number of neutrons of the isotope
+			 */
 			int neutrons;
+			
+			/**
+			 * the number of protons of the isotope
+			 */
 			int protons;
 		};
 
-		ChemicalDataObject* data() const;
-
+		/**
+		 * @return the mass of the isotope
+		 */
 		double mass() const;
 
+		/**
+		 * @return the errormargin ( delta mass ) of the isotope
+		 */
 		QString errorMargin() const;
 
+		/**
+		 * If the isotope belongs to Iron, this method will return "26"
+		 * @return the number of the element the isotope belongs to
+		 */
 		int parentElementNumber() const;
 
+		/**
+		 * If the isotope belongs to Iron, this method will return "Fe"
+		 * @return the symbol of the element the isotope belongs to
+		 */
 		QString parentElementSymbol() const;
 
 		QString spin() const;
@@ -100,18 +127,22 @@ class Isotope
 			return m_alpha;
 		}
 
+		/**
+		 * This enum stores the different kinds of decay
+		 */
 		enum Decay
 		{
-			ALPHA,
-			BETAPLUS,
-			BETAMINUS,
-			EC
+			ALPHA/**<alpha decay*/,
+			BETAPLUS/**<beta plus decay*/,
+			BETAMINUS/**<beta minus decay*/,
+			EC/**ec decay*/
 		};
 
 		/**
-		 * @return the number of neutrons of the Isotope after the decay
+		 * @return the nucleons of neutrons of the Isotope after the decay
 		 */
 		Isotope::Nucleons nucleonsAfterDecay( Decay kind );
+
 	private:
 		/**
 		 * the symbol of the element the isotope belongs to

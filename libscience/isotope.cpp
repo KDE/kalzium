@@ -33,11 +33,6 @@ Isotope::~Isotope()
 {
 }
 
-ChemicalDataObject* Isotope::data() const
-{
-	return m_mass;
-}
-
 void Isotope::addData( ChemicalDataObject* o )
 {
 	if ( o->type() == ChemicalDataObject::exactMass )
@@ -53,7 +48,6 @@ void Isotope::addData( ChemicalDataObject* o )
 	else if ( o->type() == ChemicalDataObject::halfLife )
 		m_halflife = o;
 
-	//FIXME in the future there should be real CDOs. But CDO only supports one datavalue...
 	if ( o->type() == ChemicalDataObject::betaplusDecay )
 		m_betaplus = o;
 	else if (  o->type() == ChemicalDataObject::betaminusDecay )
