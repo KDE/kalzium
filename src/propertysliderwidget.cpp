@@ -50,7 +50,7 @@ void PropertySliderWidget::slotValueChanged( int value )
 
 void PropertySliderWidget::slotSliderKindChanged( int index )
 {
-	KalziumGradientType *mytype = KalziumGradientTypeFactory::instance()->build(combo->itemText( index ));
+	KalziumGradientType *mytype = KalziumGradientTypeFactory::instance()->build( index );
 	int min = ( int )mytype->minValue();
 	int max = ( int )mytype->maxValue();
 	slider->setMaximum(min );
