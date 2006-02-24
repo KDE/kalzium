@@ -734,6 +734,16 @@ void VolterraSimulation::rollDice()
 		if (stone->player() == Stone::First)
 		{//no, there is already prey on that field!
 			qDebug( "VolterraSimulation::rollDice() 3333" );
+			QList<Stone*> s = m_field->stones();
+			QList<Stone*>::iterator it = s.begin();
+			for ( ; it != s.end();++it )
+			{
+				if ( *it == stone )
+				{
+					delete *it;
+					s.erase( it );
+				}
+			}
 		}else
 		{//prey is eaten by the predator already there!
 			qDebug( "VolterraSimulation::rollDice() 4444" );
