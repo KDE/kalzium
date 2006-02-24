@@ -32,6 +32,9 @@ class Stone : public QObject
 	Q_OBJECT
 
 	public:
+		/**
+		 * This enum contains the possible players of a Simulation
+		 */
 		enum PLAYER
 		{
 			First = 0,

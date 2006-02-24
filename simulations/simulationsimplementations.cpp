@@ -709,29 +709,38 @@ void VolterraSimulation::rollDice()
 	QPoint point( x, y );
 
 	Stone* stone = m_field->stoneAtPosition( point );
+	
 	if ( !stone )
-	{
-		m_player == Stone::Second ? m_player = Stone::Second : m_player = Stone::First;
+	{//the field was empty, insert a Token
+		m_field->addStone( new Stone( m_player, QPoint( x, y ) ) );
+		m_player == Stone::First ? m_player = Stone::Second : m_player = Stone::First;
 		return;
 	}
 
+	//Stone::First: Prey
+	//Stone::Second: Predator
 	if ( m_player == Stone::Second )
-	{//Seconds trun
+	{//Predators run
 		if (stone->player() == Stone::First)
-		{
+		{//predator eats prey
+			qDebug("VolterraSimulation::rollDice() 1111" );
+			stone->setPlayer( Stone::Second );
 		}else
-		{
+		{//nothing happens, Predator on Predator doesn't match
+			qDebug( "VolterraSimulation::rollDice() 2222" );
 		}
 	}else
-	{//First's turn
+	{//Prey's turn
 		if (stone->player() == Stone::First)
-		{
+		{//no, there is already prey on that field!
+			qDebug( "VolterraSimulation::rollDice() 3333" );
 		}else
-		{
+		{//prey is eaten by the predator already there!
+			qDebug( "VolterraSimulation::rollDice() 4444" );
 		}
 	}
-		
-	m_player == Stone::Second ? m_player = Stone::Second : m_player = Stone::First;
+
+	m_player == Stone::First ? m_player = Stone::Second : m_player = Stone::First;
 }
 
 void VolterraSimulation::start()
@@ -739,7 +748,7 @@ void VolterraSimulation::start()
 	srand (  time( NULL ) );
 
 	m_field->clear();
-	
+
 	//fill the field with x*y black and white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
 	{
