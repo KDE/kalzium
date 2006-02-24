@@ -72,7 +72,7 @@ void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
 		const int x = stone->position().x();
 		const int y = stone->position().y();
 
-		if ( stone->player() == Stone::White )
+		if ( stone->player() == Stone::First )
 			p.setBrush( b_white );
 		else
 			p.setBrush( b_black );

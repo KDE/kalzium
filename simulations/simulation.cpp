@@ -75,9 +75,9 @@ QStringList SimulationsFactory::simulations() const
 int Move::numberOfStones( Stone::PLAYER p )
 {
 	QString letter;
-	if ( p == Stone::White )
+	if ( p == Stone::First )
 		letter = "W";
-	else if ( p == Stone::Black )
+	else if ( p == Stone::Second )
 		letter = "B";
 	else 
 		return 0;
@@ -156,7 +156,7 @@ void Simulation::finishMove()
 			Stone* s = m_field->stoneAtPosition( QPoint( x,y ) );
 			if ( s ) 
 			{
-				if ( s->player() == Stone::White )
+				if ( s->player() == Stone::First )
 					ds += "W";
 				else
 					ds += "B";

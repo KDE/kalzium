@@ -257,6 +257,8 @@ class VolterraSimulation : public Simulation
 
 	private:
 		Ui::VolterraForm * m_statForm;
+
+		Stone::PLAYER m_player;
 };
 
 #endif // GAMESIMPLEMENTATION_H

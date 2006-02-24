@@ -34,8 +34,10 @@ class Stone : public QObject
 	public:
 		enum PLAYER
 		{
-			Black = 0,
-			White
+			First = 0,
+			Second,
+			Third,
+			Fourth
 		};
 
 		/**

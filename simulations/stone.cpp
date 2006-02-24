@@ -27,10 +27,10 @@ Stone::Stone( PLAYER player, const QPoint& point )
 
 void Stone::swap()
 {
-	if ( m_player == Stone::White )
-		m_player = Stone::Black;
+	if ( m_player == Stone::First )
+		m_player = Stone::Second;
 	else
-		m_player = Stone::White;
+		m_player = Stone::First;
 }
 
 #include "moc_stone.cpp"

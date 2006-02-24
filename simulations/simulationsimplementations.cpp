@@ -42,7 +42,7 @@ void RASimulation::start()
 	{
 		for ( int y = 0; y < m_field->ySize() ; ++y )
 		{
-			m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
+			m_field->addStone( new Stone( Stone::First, QPoint( x, y ) ) );
 		}
 	}
 	Simulation::start();
@@ -80,17 +80,12 @@ void RASimulation::rollDice()
 	QPoint point( x, y );
 
 	Stone* stone = m_field->stoneAtPosition( point );
-
-	//increase if both dices have the same value. This
-	//simulates the halflifetime
-	if ( x == y )
-		m_counter++;
-
+	
 	if ( !stone )
 		return;
 
 	//if there is a white stone make it black
-	if ( stone->player() == Stone::White )
+	if ( stone->player() == Stone::First )
 		stone->swap();
 }
 
@@ -98,8 +93,8 @@ void RASimulation::updateStatistics()
 {
 	Move * m = lastMove();
 
-	int w = m->numberOfStones( Stone::White );
-	int h = m->numberOfStones( Stone::Black );
+	int w = m->numberOfStones( Stone::First );
+	int h = m->numberOfStones( Stone::Second );
 	double percentage = ( double )h/w * 100;
 
 	m_statForm->white->setText(QString::number( w ));
@@ -290,9 +285,9 @@ void CrystallizationSimulation::start()
 		for ( int y = 0; y < m_field->ySize() ; ++y )
 		{
 			if ( y < m_field->ySize()/2 )
-				m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
+				m_field->addStone( new Stone( Stone::First, QPoint( x, y ) ) );
 			else
-				m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
+				m_field->addStone( new Stone( Stone::Second, QPoint( x, y ) ) );
 		}
 	}
 	Simulation::start();
@@ -386,14 +381,14 @@ void DecompositionSimulation::start()
 			if ( y%2 )
 			{
 				if ( x%2 )
-					m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
+					m_field->addStone( new Stone( Stone::Second, QPoint( x, y ) ) );
 				else
-					m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
+					m_field->addStone( new Stone( Stone::First, QPoint( x, y ) ) );
 			} else {
 				if ( x%2 )
-					m_field->addStone( new Stone( Stone::White, QPoint( x, y ) ) );
+					m_field->addStone( new Stone( Stone::First, QPoint( x, y ) ) );
 				else
-					m_field->addStone( new Stone( Stone::Black, QPoint( x, y ) ) );
+					m_field->addStone( new Stone( Stone::Second, QPoint( x, y ) ) );
 			}
 		}
 	}
@@ -584,7 +579,7 @@ void BoltzmannSimulation::start()
 	//fill the field with x*y white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
 		for ( int foo = 0; foo < 20 ; ++foo )
-			m_field->addStone( new Stone( Stone::White, QPoint( x, ypos ) ) );
+			m_field->addStone( new Stone( Stone::First, QPoint( x, ypos ) ) );
 	
 	Simulation::start();
 }
@@ -649,7 +644,7 @@ void LightabsorptionSimulation::rollDice()
 	
 	foreach( int row, m_ypositions )
 	{
-		m_field->addStone( new Stone( Stone::White, QPoint( m_col, row ) ) );
+		m_field->addStone( new Stone( Stone::First, QPoint( m_col, row ) ) );
 	}
 }
 
@@ -662,7 +657,7 @@ void LightabsorptionSimulation::start()
 	//fill the first row with stones
 	for ( int y = 0 ; y < m_field->ySize() ; ++y )
 	{
-		m_field->addStone( new Stone( Stone::White, QPoint( 0, y ) ) );
+		m_field->addStone( new Stone( Stone::First, QPoint( 0, y ) ) );
 		m_ypositions.append( y );
 	}
 	
@@ -678,6 +673,7 @@ void LightabsorptionSimulation::updateStatistics()
 VolterraSimulation::VolterraSimulation()
 {
 	m_field = new Field();
+	m_player = Stone::First;
 	setField( m_field );
 }
 	
@@ -689,7 +685,7 @@ VolterraSimulation* VolterraSimulation::instance()
 
 QString VolterraSimulation::rules() const
 {
-	return "Predator and prey";
+	return "Second and prey";
 }
 
 QString VolterraSimulation::description() const
@@ -705,21 +701,56 @@ QByteArray VolterraSimulation::name() const
 void VolterraSimulation::rollDice()
 {
 	m_numberOfMoves++;
+	
+	//generating two random numbers
+	const int x = ( int ) ( rand()%m_field->xSize() );
+	const int y = ( int ) ( rand()%m_field->ySize() );
 
+	QPoint point( x, y );
+
+	Stone* stone = m_field->stoneAtPosition( point );
+	if ( !stone )
+	{
+		m_player == Stone::Second ? m_player = Stone::Second : m_player = Stone::First;
+		return;
+	}
+
+	if ( m_player == Stone::Second )
+	{//Seconds trun
+		if (stone->player() == Stone::First)
+		{
+		}else
+		{
+		}
+	}else
+	{//First's turn
+		if (stone->player() == Stone::First)
+		{
+		}else
+		{
+		}
+	}
+		
+	m_player == Stone::Second ? m_player = Stone::Second : m_player = Stone::First;
 }
 
 void VolterraSimulation::start()
 {
-	srand( time( NULL ) );
-	
-	m_field->clear();
+	srand (  time( NULL ) );
 
-	//fill the first row with stones
-	for ( int y = 0 ; y < m_field->ySize() ; ++y )
-	{
-		m_field->addStone( new Stone( Stone::White, QPoint( 0, y ) ) );
-	}
+	m_field->clear();
 	
+	//fill the field with x*y black and white stones
+	for ( int x = 0 ; x < m_field->xSize() ; ++x )
+	{
+		for ( int y = 0; y < m_field->ySize() ; ++y )
+		{
+			if ( y < m_field->ySize()/2 )
+				m_field->addStone( new Stone( Stone::First, QPoint( x, y ) ) );
+			else
+				m_field->addStone( new Stone( Stone::Second, QPoint( x, y ) ) );
+		}
+	}
 	Simulation::start();
 }
 
