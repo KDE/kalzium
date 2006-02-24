@@ -26,6 +26,7 @@
 #include "ui_crystalform.h"
 #include "ui_lightabsorptionform.h"
 #include "ui_decompositionform.h"
+#include "ui_volterraform.h"
 
 #include <time.h>
 #include <stdlib.h>
@@ -670,5 +671,58 @@ void LightabsorptionSimulation::start()
 }
 
 void LightabsorptionSimulation::updateStatistics()
+{
+}
+
+///VolterraSimulation
+VolterraSimulation::VolterraSimulation()
+{
+	m_field = new Field();
+	setField( m_field );
+}
+	
+VolterraSimulation* VolterraSimulation::instance()
+{
+	static VolterraSimulation g;
+	return &g;
+}
+
+QString VolterraSimulation::rules() const
+{
+	return "Predator and prey";
+}
+
+QString VolterraSimulation::description() const
+{
+	return "Volterra Simulation";
+}
+
+QByteArray VolterraSimulation::name() const
+{
+	return "VolterraSimulation";
+}
+
+void VolterraSimulation::rollDice()
+{
+	m_numberOfMoves++;
+
+}
+
+void VolterraSimulation::start()
+{
+	srand( time( NULL ) );
+	
+	m_field->clear();
+
+	//fill the first row with stones
+	for ( int y = 0 ; y < m_field->ySize() ; ++y )
+	{
+		m_field->addStone( new Stone( Stone::White, QPoint( 0, y ) ) );
+	}
+	
+	Simulation::start();
+}
+
+void VolterraSimulation::updateStatistics()
 {
 }

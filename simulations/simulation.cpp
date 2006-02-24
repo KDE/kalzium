@@ -32,6 +32,7 @@ SimulationsFactory::SimulationsFactory()
 	m_simulations << BoltzmannSimulation::instance();
 	m_simulations << DecompositionSimulation::instance();
 	m_simulations << CrystallizationSimulation::instance();
+	m_simulations << VolterraSimulation::instance();
 }
 
 SimulationsFactory* SimulationsFactory::instance()

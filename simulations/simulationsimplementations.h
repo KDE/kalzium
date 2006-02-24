@@ -29,6 +29,7 @@ namespace Ui
 	class BoltzmannForm;
 	class LightabsorptionForm;
 	class DecompositionForm;
+	class VolterraForm;
 };
 
 /**
@@ -229,6 +230,33 @@ class LightabsorptionSimulation : public Simulation
 		QList<int> m_ypositions;
 
 		Ui::LightabsorptionForm * m_statForm;
+};
+
+class VolterraSimulation : public Simulation
+{
+	public:
+		VolterraSimulation();
+
+		static VolterraSimulation* instance();
+
+		void rollDice();
+		
+		QString rules() const;
+		
+		QByteArray name() const;
+		
+		QString description() const;
+		
+		void updateStatistics();
+		
+	public slots:
+		/**
+		 * starts the game
+		 */
+		void start();
+
+	private:
+		Ui::VolterraForm * m_statForm;
 };
 
 #endif // GAMESIMPLEMENTATION_H
