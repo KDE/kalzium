@@ -45,25 +45,6 @@ void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
 
 	QPainter p;
 
-	if ( m_dirty )
-	{
-		delete m_pix;
-		m_pix = new QPixmap( x_size * s + 1, y_size * s + 1 );
-		
-		p.begin( m_pix );
-		p.fillRect( m_pix->rect(), QBrush( Qt::yellow ) );
-		for ( int i = 0; i <= x_size ; ++i )
-			p.drawLine( i * s, 0, i * s, m_pix->height() );
-		for ( int i = 0; i <= y_size ; ++i )
-			p.drawLine( 0, i * s, m_pix->width(), i * s );
-		p.end();
-
-		m_dirty = false;
-	}
-
-	p.begin( m_pix );
-	p.setRenderHint( QPainter::Antialiasing, true );
-
 	if ( m_field->fieldtype() == Field::SQUARE )
 		paintSquares( &p, s );
 	else
@@ -85,6 +66,31 @@ void SimulationfieldWidget::resizeEvent( QResizeEvent * )
 
 void SimulationfieldWidget::paintSquares( QPainter * p, int s )
 {
+	const int x_size = m_field->xSize();
+	const int y_size = m_field->ySize();
+
+	//set the size of one field
+	const int w = width() / x_size;
+	const int h = height() / y_size;
+	if ( m_dirty )
+	{
+		delete m_pix;
+		m_pix = new QPixmap( x_size * s + 1, y_size * s + 1 );
+		
+		p->begin( m_pix );
+		p->fillRect( m_pix->rect(), QBrush( Qt::yellow ) );
+		for ( int i = 0; i <= x_size ; ++i )
+			p->drawLine( i * s, 0, i * s, m_pix->height() );
+		for ( int i = 0; i <= y_size ; ++i )
+			p->drawLine( 0, i * s, m_pix->width(), i * s );
+		p->end();
+
+		m_dirty = false;
+	}
+
+	p->begin( m_pix );
+	p->setRenderHint( QPainter::Antialiasing, true );
+
 	QBrush b_white( Qt::white, Qt::SolidPattern );
 	QBrush b_black( Qt::black, Qt::SolidPattern );
 
@@ -114,14 +120,32 @@ void SimulationfieldWidget::paintSquares( QPainter * p, int s )
 
 void SimulationfieldWidget::paintHex( QPainter * p, int s )
 {
+	const int x_size = m_field->xSize();
+	const int y_size = m_field->ySize();
+
+	//set the size of one field
+	const int w = width() / x_size;
+	const int h = height() / y_size;
+	if ( m_dirty )
+	{
+		delete m_pix;
+		m_pix = new QPixmap( x_size * s + 1, y_size * s + 1 );
+		
+		p->begin( m_pix );
+		p->fillRect( m_pix->rect(), QBrush( Qt::yellow ) );
+		p->end();
+
+		m_dirty = false;
+	}
+
+	p->begin( m_pix );
+	p->setRenderHint( QPainter::Antialiasing, true );
+
 	QBrush b_white( Qt::white, Qt::SolidPattern );
 	QBrush b_black( Qt::black, Qt::SolidPattern );
 
 	foreach( Stone * stone, m_field->stones() ) 
 	{
-		const int x = stone->position().x();
-		const int y = stone->position().y();
-
 		if ( stone->player() == Stone::First )
 			p->setBrush( b_white );
 		else
@@ -129,7 +153,53 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 
 		//FIXME here we need to check if the design is CIRCLE, SQUARE and so n
 		//but until all the drawing code is not working in general this is not needed
+		
+		//x and y are the base-coordinates of the hex (the top left corner)
+		const int x = stone->position().x() * s;
+		const int y = stone->position().y() * s;
 
+		double x1 = 0;
+		double y1 = 0;
+			
+		QPointF points[ 6 ];
+
+		for ( int i = 0; i < 6; ++i )
+		{
+			if ( i == 0 )
+			{
+				x1 = x + s * 1/3;
+				y1 = y;
+			}
+			else if ( i == 1 )
+			{
+				x1 = x + s*2/3;
+				y1 = y;
+			}
+			else if ( i == 2 )
+			{
+				x1 = x + s;
+				y1 = y + s * 1/2;
+			}
+			else if ( i == 3 )
+			{
+				x1 = x + s * 2/3;
+				y1 = y + s;
+			}
+			else if ( i == 4 )
+			{
+				x1 = x + s * 1/3;
+				y1 = y + s;
+			}
+			else if ( i == 5 )
+			{
+				x1 = x;
+				y1 = y + s * 1/2;
+			}
+			QPointF p( x1, y1 );
+			points[ i ] = p;
+		}
+
+		p->drawPolygon( points, 6 );
 	}
 }
 
