@@ -132,7 +132,72 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 		m_pix = new QPixmap( x_size * s + 1, y_size * s + 1 );
 		
 		p->begin( m_pix );
-		p->fillRect( m_pix->rect(), QBrush( Qt::yellow ) );
+		//draw the big rect
+		p->fillRect( m_pix->rect(), QBrush( Qt::white ) );
+	
+		p->setBrush( QBrush( Qt::black ) );
+		p->setPen( Qt::white );
+
+		//now draw the hex'es
+		for ( int i = 0; i <= x_size ; ++i )
+		{
+			for ( int e = 0; e <= y_size ; ++e )
+			{
+				double x1;
+				double y1;
+
+				int x = i*s;
+				int y = e*1/2*s;
+				
+				QPointF points[ 6 ];
+
+				for ( int i = 0; i < 6; ++i )
+				{
+					if ( i == 0 )
+					{
+						x1 = x + s * 1/3;
+						y1 = y;
+					}
+					else if ( i == 1 )
+					{
+						x1 = x + s*2/3;
+						y1 = y;
+					}
+					else if ( i == 2 )
+					{
+						x1 = x + s;
+						y1 = y + s * 1/2;
+					}
+					else if ( i == 3 )
+					{
+						x1 = x + s * 2/3;
+						y1 = y + s;
+					}
+					else if ( i == 4 )
+					{
+						x1 = x + s * 1/3;
+						y1 = y + s;
+					}
+					else if ( i == 5 )
+					{
+						x1 = x;
+						y1 = y + s * 1/2;
+					}
+
+					//now move by 1/2s in every second row
+					if ( e%2 )
+					{
+						x1 += s*1/2;
+						y1 += s*1/2;
+					}
+
+					QPointF p( x1, y1 );
+					points[ i ] = p;
+				}
+
+				p->drawPolygon( points, 6 );
+			}
+		}
 		p->end();
 
 		m_dirty = false;
@@ -140,67 +205,6 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 
 	p->begin( m_pix );
 	p->setRenderHint( QPainter::Antialiasing, true );
-
-	QBrush b_white( Qt::white, Qt::SolidPattern );
-	QBrush b_black( Qt::black, Qt::SolidPattern );
-
-	foreach( Stone * stone, m_field->stones() ) 
-	{
-		if ( stone->player() == Stone::First )
-			p->setBrush( b_white );
-		else
-			p->setBrush( b_black );
-
-		//FIXME here we need to check if the design is CIRCLE, SQUARE and so n
-		//but until all the drawing code is not working in general this is not needed
-		
-		//x and y are the base-coordinates of the hex (the top left corner)
-		const int x = stone->position().x() * s;
-		const int y = stone->position().y() * s;
-
-		double x1 = 0;
-		double y1 = 0;
-			
-		QPointF points[ 6 ];
-
-		for ( int i = 0; i < 6; ++i )
-		{
-			if ( i == 0 )
-			{
-				x1 = x + s * 1/3;
-				y1 = y;
-			}
-			else if ( i == 1 )
-			{
-				x1 = x + s*2/3;
-				y1 = y;
-			}
-			else if ( i == 2 )
-			{
-				x1 = x + s;
-				y1 = y + s * 1/2;
-			}
-			else if ( i == 3 )
-			{
-				x1 = x + s * 2/3;
-				y1 = y + s;
-			}
-			else if ( i == 4 )
-			{
-				x1 = x + s * 1/3;
-				y1 = y + s;
-			}
-			else if ( i == 5 )
-			{
-				x1 = x;
-				y1 = y + s * 1/2;
-			}
-			QPointF p( x1, y1 );
-			points[ i ] = p;
-		}
-
-		p->drawPolygon( points, 6 );
-	}
 }
 
 #include "moc_simulationfield.cpp"
