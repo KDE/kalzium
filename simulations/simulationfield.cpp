@@ -123,6 +123,8 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 	const int x_size = m_field->xSize();
 	const int y_size = m_field->ySize();
 
+	s *= 0.75;
+
 	//set the size of one field
 	const int w = width() / x_size;
 	const int h = height() / y_size;
@@ -148,50 +150,50 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 
 				int x = i*s;
 				int y = e*s;
-				
+
+				if ( i%2 )
+				{//for odd cols: make y half a cell lower!
+					y += s*1/2;
+					x -= s*1/4;
+				}
+
 				QPointF points[ 6 ];
 
-				for ( int i = 0; i < 6; ++i )
+				for ( int corner = 0; corner < 6; ++corner )
 				{
-					if ( i == 0 )
+					if ( corner == 0 )
 					{
 						x1 = x + s * 1/4;
 						y1 = y;
 					}
-					else if ( i == 1 )
+					else if ( corner == 1 )
 					{
 						x1 = x + s*3/4;
 						y1 = y;
 					}
-					else if ( i == 2 )
+					else if ( corner == 2 )
 					{
 						x1 = x + s;
 						y1 = y + s * 1/2;
 					}
-					else if ( i == 3 )
+					else if ( corner == 3 )
 					{
 						x1 = x + s * 3/4;
 						y1 = y + s;
 					}
-					else if ( i == 4 )
+					else if ( corner == 4 )
 					{
 						x1 = x + s * 1/4;
 						y1 = y + s;
 					}
-					else if ( i == 5 )
+					else if ( corner == 5 )
 					{
 						x1 = x;
 						y1 = y + s * 1/2;
 					}
 
-					//now move by 1/2s in every second row
-					if ( e%2 )
-					{
-						y1 += s*1/2;
-					}
-
 					QPointF p( x1, y1 );
-					points[ i ] = p;
+					points[ corner ] = p;
 				}
 
 				p->drawPolygon( points, 6 );
