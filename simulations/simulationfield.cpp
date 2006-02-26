@@ -23,6 +23,7 @@
 #include <QBrush>
 #include <QPainter>
 #include <QPixmap>
+#include <QPolygonF>
 
 SimulationfieldWidget::SimulationfieldWidget( QWidget * parent )
 	: QFrame( parent ), m_field( 0 ), m_pix( 0 ), m_dirty( true ),
@@ -148,55 +149,24 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 				double x1;
 				double y1;
 
-				int x = i*s;
+				int x = i*s - i*s*1/4;
 				int y = e*s;
 
 				if ( i%2 )
 				{//for odd cols: make y half a cell lower!
 					y += s*1/2;
-					x -= s*1/4;
 				}
 
-				QPointF points[ 6 ];
+				QPolygonF points;
 
-				for ( int corner = 0; corner < 6; ++corner )
-				{
-					if ( corner == 0 )
-					{
-						x1 = x + s * 1/4;
-						y1 = y;
-					}
-					else if ( corner == 1 )
-					{
-						x1 = x + s*3/4;
-						y1 = y;
-					}
-					else if ( corner == 2 )
-					{
-						x1 = x + s;
-						y1 = y + s * 1/2;
-					}
-					else if ( corner == 3 )
-					{
-						x1 = x + s * 3/4;
-						y1 = y + s;
-					}
-					else if ( corner == 4 )
-					{
-						x1 = x + s * 1/4;
-						y1 = y + s;
-					}
-					else if ( corner == 5 )
-					{
-						x1 = x;
-						y1 = y + s * 1/2;
-					}
+				points << QPointF( x + s * 0.25, y );
+				points << QPointF( x + s * 0.75, y );
+				points << QPointF( x + s, y + s * 0.5 );
+				points << QPointF( x + s * 0.75, y + s );
+				points << QPointF( x + s * 0.25, y + s );
+				points << QPointF( x, y + s * 0.5 );
 
-					QPointF p( x1, y1 );
-					points[ corner ] = p;
-				}
-
-				p->drawPolygon( points, 6 );
+				p->drawPolygon( points );
 			}
 		}
 		p->end();
