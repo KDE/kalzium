@@ -6,6 +6,7 @@ Exec=kalzium -caption "%c" %i %m
 Icon=kalzium
 DocPath=kalzium/index.html
 Comment=KDE Periodic Table of Elements
+Comment[ca]=Taula periòdica dels elements per a KDE
 Comment[da]=Grundstoffernes periodiske system
 Comment[de]=KDE Periodensystem der Elemente
 Comment[eu]=Elemtuen taula periodikoa
