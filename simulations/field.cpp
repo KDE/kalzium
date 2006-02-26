@@ -58,3 +58,16 @@ QList<Stone*> Field::tokensOnPosition( const QPoint& point )
 
 	return list;
 }
+
+void Field::removeStone( Stone * stone )
+{
+	QList<Stone*> newList;
+	
+	foreach( Stone * st , m_stones )
+	{
+		if (stone != st)
+			newList.append( st );
+	}
+
+	m_stones = newList;
+}

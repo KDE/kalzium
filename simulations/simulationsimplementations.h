@@ -61,6 +61,7 @@ class RASimulation : public Simulation
 
 	public slots:
 		void start();
+		void reset(){};
 
 	private:
 		int m_counter;
@@ -93,6 +94,7 @@ class CrystallizationSimulation : public Simulation
 		 * starts the game
 		 */
 		void start();
+		void reset(){};
 
 	private:
 		Ui::CrystalForm* m_statForm;
@@ -141,6 +143,7 @@ class DecompositionSimulation : public CrystallizationSimulation
 		 * starts the game
 		 */
 		void start();
+		void reset(){};
 
 	private:
 		Ui::DecompositionForm* m_statForm;
@@ -191,6 +194,7 @@ class BoltzmannSimulation : public Simulation
 		 * starts the game
 		 */
 		void start();
+		void reset(){};
 
 	private:
 		void changePosition( Stone * stone , bool lower );
@@ -223,6 +227,8 @@ class LightabsorptionSimulation : public Simulation
 		 * starts the game
 		 */
 		void start();
+		
+		void reset(){};
 
 	private:
 		int m_col;
@@ -254,6 +260,8 @@ class VolterraSimulation : public Simulation
 		 * starts the game
 		 */
 		void start();
+
+		void reset();
 
 	private:
 		Ui::VolterraForm * m_statForm;

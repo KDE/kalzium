@@ -8,8 +8,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>379</width>
-    <height>386</height>
+    <width>481</width>
+    <height>534</height>
    </rect>
   </property>
   <property name="sizePolicy" >
@@ -42,8 +42,8 @@
    <property name="spacing" >
     <number>6</number>
    </property>
-   <item row="1" column="0" >
-    <layout class="QHBoxLayout" >
+   <item row="1" column="1" >
+    <layout class="QVBoxLayout" >
      <property name="margin" >
       <number>0</number>
      </property>
@@ -51,121 +51,111 @@
       <number>6</number>
      </property>
      <item>
-      <widget class="SimulationfieldWidget" name="gf" >
-       <property name="sizePolicy" >
-        <sizepolicy>
-         <hsizetype>3</hsizetype>
-         <vsizetype>3</vsizetype>
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize" >
-        <size>
-         <width>200</width>
-         <height>200</height>
-        </size>
-       </property>
-       <property name="toolTip" >
-        <string>The simulation is visualized here</string>
-       </property>
-       <property name="whatsThis" >
-        <string>The simulation is visualized here</string>
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>Moves:</string>
        </property>
       </widget>
      </item>
      <item>
-      <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
+      <widget class="QLCDNumber" name="lcd" />
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="spacing" >
-        <number>6</number>
+       <property name="sizeType" >
+        <enum>QSizePolicy::MinimumExpanding</enum>
        </property>
-       <item>
-        <widget class="QLabel" name="label" >
-         <property name="text" >
-          <string>Moves:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLCDNumber" name="lcd" />
-       </item>
-       <item>
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType" >
-          <enum>QSizePolicy::MinimumExpanding</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>85</width>
-           <height>4</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="start" >
-         <property name="toolTip" >
-          <string>Start the simulation</string>
-         </property>
-         <property name="text" >
-          <string>Start</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="stop" >
-         <property name="toolTip" >
-          <string>Stop the simulation</string>
-         </property>
-         <property name="text" >
-          <string>Stop</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="next" >
-         <property name="toolTip" >
-          <string>Next move</string>
-         </property>
-         <property name="text" >
-          <string>Next</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType" >
-          <enum>QSizePolicy::MinimumExpanding</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>85</width>
-           <height>4</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="settingsButton" >
-         <property name="text" >
-          <string>Settings</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+       <property name="sizeHint" >
+        <size>
+         <width>85</width>
+         <height>82</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="start" >
+       <property name="toolTip" >
+        <string>Start the simulation</string>
+       </property>
+       <property name="text" >
+        <string>Start</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stop" >
+       <property name="toolTip" >
+        <string>Stop the simulation</string>
+       </property>
+       <property name="text" >
+        <string>Stop</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="next" >
+       <property name="toolTip" >
+        <string>Next move</string>
+       </property>
+       <property name="text" >
+        <string>Next</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType" >
+        <enum>QSizePolicy::MinimumExpanding</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>85</width>
+         <height>41</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="settingsButton" >
+       <property name="text" >
+        <string>Settings</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
-   <item row="0" column="0" >
+   <item row="1" column="0" >
+    <widget class="SimulationfieldWidget" name="gf" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>3</hsizetype>
+       <vsizetype>3</vsizetype>
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize" >
+      <size>
+       <width>200</width>
+       <height>200</height>
+      </size>
+     </property>
+     <property name="toolTip" >
+      <string>The simulation is visualized here</string>
+     </property>
+     <property name="whatsThis" >
+      <string>The simulation is visualized here</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2" >
     <widget class="QLabel" name="captionLabel" >
      <property name="font" >
       <font>
@@ -199,4 +189,5 @@
   </customwidget>
  </customwidgets>
  <resources/>
+ <connections/>
 </ui>

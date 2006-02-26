@@ -75,6 +75,11 @@ class Field
 		}
 
 		/**
+		 * removes the stone from the field
+		 */
+		virtual void removeStone( Stone * stone );
+
+		/**
 		 * @return the Stone at the position @p pos
 		 */
 		virtual Stone* stoneAtPosition( const QPoint& pos );

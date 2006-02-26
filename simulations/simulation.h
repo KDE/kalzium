@@ -214,9 +214,15 @@ class Simulation : public QObject
 		}
 
 		/**
-		 * Start the simulations, everything is set to the start-conditions
+		 * resets and starts the simulations
+		 * @see reset()
 		 */
 		virtual void start() ;
+
+		/**
+		 * resets everything to startconditions
+		 */
+		 virtual void reset() = 0;
 
 	protected:
 		/**
