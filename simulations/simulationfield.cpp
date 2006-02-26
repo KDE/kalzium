@@ -147,7 +147,7 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 				double y1;
 
 				int x = i*s;
-				int y = e*1/2*s;
+				int y = e*s;
 				
 				QPointF points[ 6 ];
 
@@ -155,12 +155,12 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 				{
 					if ( i == 0 )
 					{
-						x1 = x + s * 1/3;
+						x1 = x + s * 1/4;
 						y1 = y;
 					}
 					else if ( i == 1 )
 					{
-						x1 = x + s*2/3;
+						x1 = x + s*3/4;
 						y1 = y;
 					}
 					else if ( i == 2 )
@@ -170,12 +170,12 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 					}
 					else if ( i == 3 )
 					{
-						x1 = x + s * 2/3;
+						x1 = x + s * 3/4;
 						y1 = y + s;
 					}
 					else if ( i == 4 )
 					{
-						x1 = x + s * 1/3;
+						x1 = x + s * 1/4;
 						y1 = y + s;
 					}
 					else if ( i == 5 )
@@ -187,7 +187,6 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 					//now move by 1/2s in every second row
 					if ( e%2 )
 					{
-						x1 += s*1/2;
 						y1 += s*1/2;
 					}
 
