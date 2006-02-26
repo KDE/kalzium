@@ -133,11 +133,11 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 	{
 		delete m_pix;
 		m_pix = new QPixmap( x_size * s + 1, y_size * s + 1 );
-		
+
 		p->begin( m_pix );
 		//draw the big rect
 		p->fillRect( m_pix->rect(), QBrush( Qt::white ) );
-	
+
 		p->setBrush( QBrush( Qt::black ) );
 		p->setPen( Qt::white );
 
@@ -176,6 +176,35 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 
 	p->begin( m_pix );
 	p->setRenderHint( QPainter::Antialiasing, true );
+
+	QBrush b_white( Qt::yellow, Qt::SolidPattern );
+	QBrush b_black( Qt::red, Qt::SolidPattern );
+
+	foreach( Stone * stone, m_field->stones() ) 
+	{
+		int a = stone->position().x();
+		int b = stone->position().y();
+
+		int x = a*s - a*s*1/4;
+		int y = b*s;
+
+		if ( a%2 )
+		{//for odd cols: make y half a cell lower!
+			y += s*1/2;
+		}
+
+		qDebug("Position a: %d",a);
+		qDebug("Position b: %d",b);
+		qDebug("Position x: %d",x);
+		qDebug("Position y: %d",y);
+
+		if ( stone->player() == Stone::First )
+			p->setBrush( b_white );
+		else
+			p->setBrush( b_black );
+
+		p->drawEllipse( x*s+2, y*s+2, s-4, s-4 );
+	}
 }
 
 #include "moc_simulationfield.cpp"
