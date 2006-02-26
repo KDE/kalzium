@@ -87,6 +87,21 @@ class SimulationfieldWidget : public QFrame
 
 	protected:
 		virtual void paintEvent( QPaintEvent * e );
+	
+		/**
+		 * paint a field with square fields
+		 * @param s The size of one cell
+		 * @param p The painter used to paint the cells
+		 */
+		virtual void paintSquares( QPainter * p, int s );
+		
+		/**
+		 * paint a field with hexagonal fields
+		 * @param s The size of one cell
+		 * @param p The painter used to paint the cells
+		 */
+		virtual void paintHex( QPainter * p, int s );
+		
 		virtual void resizeEvent( QResizeEvent *e );
 };
 #endif // SIMULATIONFIELD_H

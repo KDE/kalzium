@@ -36,9 +36,19 @@ class Field
 {
 	public:
 		/**
-		 * Constructor
+		 * Defines if the cells will be squares or hex
 		 */
-		Field();
+		enum FIELDTYPE
+		{
+			SQUARE,
+			HEX
+		};
+
+		/**
+		 * Constructor
+		 * @param type the FIELDTYPE of the Field. Defaults to Field::SQUARE
+		 */
+		Field( FIELDTYPE type = Field::SQUARE );
 
 		void setFieldXSize( int x ){
 			m_size_x = x;
@@ -46,6 +56,13 @@ class Field
 		
 		void setFieldYSize( int y ){
 			m_size_y = y;
+		}
+
+		/**
+		 * @return the FIELDTYPE of the field
+		 */
+		FIELDTYPE fieldtype() const{
+			return m_fieldtype;
 		}
 
 		/**
@@ -106,6 +123,8 @@ class Field
 		int m_size_x;
 		
 		int m_size_y;
+
+		FIELDTYPE m_fieldtype;
 		
 		/**
 		 * The list of stones

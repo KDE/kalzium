@@ -672,7 +672,8 @@ void LightabsorptionSimulation::updateStatistics()
 ///VolterraSimulation
 VolterraSimulation::VolterraSimulation()
 {
-	m_field = new Field();
+	m_field = new Field( Field::HEX );
+	
 	m_player = Stone::First;
 	setField( m_field );
 }

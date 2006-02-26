@@ -22,8 +22,14 @@
 #include "stone.h"
 
 ///Field
-Field::Field()
+Field::Field( FIELDTYPE t )
 {
+	if ( t != Field::SQUARE )
+		m_fieldtype = t;
+	else
+		m_fieldtype = Field::SQUARE;
+
+	m_size_x = m_size_y = 6;
 }
 
 Field::~Field()
@@ -31,8 +37,6 @@ Field::~Field()
 
 Stone* Field::stoneAtPosition( const QPoint& pos )
 {
-	Stone* stone;
-
 	foreach( Stone* s, m_stones )
 	{
 		if ( s->position() == pos )

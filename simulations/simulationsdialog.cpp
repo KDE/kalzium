@@ -51,9 +51,6 @@ void GamesDialog::setupWidgets()
 
 //X 	int x = m_controls->ui.xsize->value();
 //X 	int y = m_controls->ui.ysize->value();
-
-	m_simulation->field()->setFieldXSize( 6 );
-	m_simulation->field()->setFieldYSize( 6 );
 	
 	m_controls->ui.gf->setField( m_simulation->field() );
 	m_controls->ui.gf->setDesign( m_simulation->design() );

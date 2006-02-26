@@ -64,31 +64,10 @@ void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
 	p.begin( m_pix );
 	p.setRenderHint( QPainter::Antialiasing, true );
 
-	QBrush b_white( Qt::white, Qt::SolidPattern );
-	QBrush b_black( Qt::black, Qt::SolidPattern );
-
-	foreach( Stone * stone, m_field->stones() ) 
-	{
-		const int x = stone->position().x();
-		const int y = stone->position().y();
-
-		if ( stone->player() == Stone::First )
-			p.setBrush( b_white );
-		else
-			p.setBrush( b_black );
-
-		switch ( m_design )
-		{
-			case CIRCLE:
-				p.drawEllipse( x*s+2, y*s+2, s-4, s-4 );
-				break;
-			case SQUARE:
-				p.drawRect( x*s, y*s, s, s );
-				break;
-			case DENSITY:
-				break;
-		}
-	}
+	if ( m_field->fieldtype() == Field::SQUARE )
+		paintSquares( &p, s );
+	else
+		paintHex( &p, s );
 
 	p.end();
 
@@ -102,6 +81,56 @@ void SimulationfieldWidget::paintEvent( QPaintEvent * /*e*/ )
 void SimulationfieldWidget::resizeEvent( QResizeEvent * )
 {
 	m_dirty = true;
+}
+
+void SimulationfieldWidget::paintSquares( QPainter * p, int s )
+{
+	QBrush b_white( Qt::white, Qt::SolidPattern );
+	QBrush b_black( Qt::black, Qt::SolidPattern );
+
+	foreach( Stone * stone, m_field->stones() ) 
+	{
+		const int x = stone->position().x();
+		const int y = stone->position().y();
+
+		if ( stone->player() == Stone::First )
+			p->setBrush( b_white );
+		else
+			p->setBrush( b_black );
+
+		switch ( m_design )
+		{
+			case CIRCLE:
+				p->drawEllipse( x*s+2, y*s+2, s-4, s-4 );
+				break;
+			case SQUARE:
+				p->drawRect( x*s, y*s, s, s );
+				break;
+			case DENSITY:
+				break;
+		}
+	}
+}
+
+void SimulationfieldWidget::paintHex( QPainter * p, int s )
+{
+	QBrush b_white( Qt::white, Qt::SolidPattern );
+	QBrush b_black( Qt::black, Qt::SolidPattern );
+
+	foreach( Stone * stone, m_field->stones() ) 
+	{
+		const int x = stone->position().x();
+		const int y = stone->position().y();
+
+		if ( stone->player() == Stone::First )
+			p->setBrush( b_white );
+		else
+			p->setBrush( b_black );
+
+		//FIXME here we need to check if the design is CIRCLE, SQUARE and so n
+		//but until all the drawing code is not working in general this is not needed
+
+	}
 }
 
 #include "moc_simulationfield.cpp"
