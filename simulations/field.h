@@ -43,7 +43,24 @@ class Field
 			SQUARE,
 			HEX
 		};
+		
+		/**
+		 * @return the number of stones of the other player
+		 */
+		virtual int neighboursNum( Stone* stone );
+		
+		/**
+		 * @return the number of stones of the player
+		 */
+		virtual int neighboursTeam( Stone* stone );
 
+		/**
+		 * Exange the Stone at the postion @p point with one stone
+		 * of the other team. That other Stone has to be in orthogonal
+		 * contact with the Stone in @p point
+		 */
+		virtual void exchangeStones( const QPoint& point );
+		
 		/**
 		 * Constructor
 		 * @param type the FIELDTYPE of the Field. Defaults to Field::SQUARE
