@@ -76,7 +76,7 @@ void Field::removeStone( Stone * stone )
 	m_stones = newList;
 }
 
-int Field::neighboursNum( Stone* stone )
+int Field::neighboursNum( Stone* stone, bool direct )
 {
 	QPoint point( stone->position() );
 	
@@ -95,7 +95,7 @@ int Field::neighboursNum( Stone* stone )
 	return Stones.count();
 }
 
-int Field::neighboursTeam( Stone* stone )
+int Field::neighboursTeam( Stone* stone, bool direct )
 {
 	QPoint point( stone->position() );
 	
@@ -118,7 +118,7 @@ int Field::neighboursTeam( Stone* stone )
 	return TeamStones.count();
 }
 
-void Field::exchangeStones( const QPoint& point )
+void Field::exchangeStones( const QPoint& point, bool direct )
 {
 	Stone* stone = stoneAtPosition( point );
 	
@@ -142,7 +142,6 @@ void Field::exchangeStones( const QPoint& point )
 	{
 		return;
 	}
-	
 
 	//the stone to exchange...
 	Stone *chosenStone = 0;

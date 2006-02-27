@@ -46,20 +46,25 @@ class Field
 		
 		/**
 		 * @return the number of stones of the other player
+		 * @param stone The stone of which the neighbours are counted.
+		 * @param direct if true, only the direct neighbours are counted. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
 		 */
-		virtual int neighboursNum( Stone* stone );
+		virtual int neighboursNum( Stone* stone, bool direct = true );
 		
 		/**
 		 * @return the number of stones of the player
+		 * @param stone The stone of which the neighbours are counted.
+		 * @param direct if true, only the direct neighbours are counted. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
 		 */
-		virtual int neighboursTeam( Stone* stone );
+		virtual int neighboursTeam( Stone* stone, bool direct = true );
 
 		/**
-		 * Exange the Stone at the postion @p point with one stone
+		 * Exchange the Stone at the postion @p point with one stone
 		 * of the other team. That other Stone has to be in orthogonal
 		 * contact with the Stone in @p point
+		 * @param direct if true, only the direct neighbours are taken into regard. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
 		 */
-		virtual void exchangeStones( const QPoint& point );
+		virtual void exchangeStones( const QPoint& point, bool direct = true );
 		
 		/**
 		 * Constructor
