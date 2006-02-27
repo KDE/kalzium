@@ -45,14 +45,14 @@ class Field
 		};
 		
 		/**
-		 * @return the number of stones of the other player
+		 * @return the number of stones of all other players.
 		 * @param stone The stone of which the neighbours are counted.
 		 * @param direct if true, only the direct neighbours are counted. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
 		 */
 		virtual int neighboursNum( Stone* stone, bool direct = true );
 		
 		/**
-		 * @return the number of stones of the player
+		 * @return the number of stones of the player. Stone of other teams are not counted.
 		 * @param stone The stone of which the neighbours are counted.
 		 * @param direct if true, only the direct neighbours are counted. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
 		 */
@@ -60,8 +60,14 @@ class Field
 
 		/**
 		 * Exchange the Stone at the postion @p point with one stone
-		 * of the other team. That other Stone has to be in orthogonal
-		 * contact with the Stone in @p point
+		 * of the other team. If @p direct is true all neighbours will be taken
+		 * into account if m_fieldtype is Field::SQUARE. For Field::HEX this is 
+		 * not needed as all stones around @p stone are equivalent.
+		 *
+		 * The Stone which is swapped is choosen randomly. For example, if the Stone
+		 * @p stone has 3 neighbours of the other team one of the three is taken.
+		 *
+		 * @param point The stone on this point will be exchanged
 		 * @param direct if true, only the direct neighbours are taken into regard. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
 		 */
 		virtual void exchangeStones( const QPoint& point, bool direct = true );
