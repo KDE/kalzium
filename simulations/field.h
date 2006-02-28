@@ -40,9 +40,16 @@ class Field
 		 */
 		enum FIELDTYPE
 		{
-			SQUARE,
-			HEX
+			SQUARE/**<for qubic fields (imagine chess)*/,
+			HEX/**<for hexagonal fields (imagine most strategic games)*/
 		};
+
+		/**
+		 * @return a list of points surrounding the Stone on point @p p
+		 * @param stone The stone of which the neighbours are gathered.
+		 * @param direct if true, only the direct neighbours are counted. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
+		 */
+		virtual QList<Stone*> neighbours( const QPoint& p , bool direct = true );
 		
 		/**
 		 * @return the number of stones of all other players.
@@ -71,6 +78,13 @@ class Field
 		 * @param direct if true, only the direct neighbours are taken into regard. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
 		 */
 		virtual void exchangeStones( const QPoint& point, bool direct = true );
+
+		/**
+		 * If this method returns the same point as @p p then no free cell was found
+		 * @return Returns a free cell next to the point @p p
+		 * @param p the point a which a free neighbourcell is searched for
+		 */
+		QPoint freeNeighbourCell( const QPoint& p );
 		
 		/**
 		 * Constructor
@@ -78,14 +92,16 @@ class Field
 		 */
 		Field( FIELDTYPE type = Field::SQUARE );
 
-		void setFieldXSize( int x ){
+		/**
+		 * Sets the size of the Field
+		 * @param x the vertical size of the field
+		 * @param y the horizontal size of the field
+		 */
+		void setFieldSize( int x, int y ){
 			m_size_x = x;
-		}
-		
-		void setFieldYSize( int y ){
 			m_size_y = y;
 		}
-
+		
 		/**
 		 * @return the FIELDTYPE of the field
 		 */
@@ -120,7 +136,8 @@ class Field
 		}
 
 		/**
-		 * removes the stone from the field
+		 * removes the stone @p stone from the field
+		 * @param stone The Stone to remove
 		 */
 		virtual void removeStone( Stone * stone );
 

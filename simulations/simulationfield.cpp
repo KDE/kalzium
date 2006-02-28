@@ -71,8 +71,8 @@ void SimulationfieldWidget::paintSquares( QPainter * p, int s )
 	const int y_size = m_field->ySize();
 
 	//set the size of one field
-	const int w = width() / x_size;
-	const int h = height() / y_size;
+//X 	const int w = width() / x_size;
+//X 	const int h = height() / y_size;
 	if ( m_dirty )
 	{
 		delete m_pix;

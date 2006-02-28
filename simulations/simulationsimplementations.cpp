@@ -34,7 +34,7 @@
 void RASimulation::start()
 {
 	srand (  time( NULL ) );
-	
+
 	m_field->clear();
 
 	//fill the field with x*y white stones
@@ -72,7 +72,7 @@ QString RASimulation::rules() const
 void RASimulation::rollDice()
 {
 	m_numberOfMoves++;
-	
+
 	//generating two random numbers
 	const int x = ( int ) ( rand()%m_field->xSize() );
 	const int y = ( int ) ( rand()%m_field->ySize() );
@@ -80,7 +80,7 @@ void RASimulation::rollDice()
 	QPoint point( x, y );
 
 	Stone* stone = m_field->stoneAtPosition( point );
-	
+
 	if ( !stone )
 		return;
 
@@ -102,8 +102,8 @@ void RASimulation::updateStatistics()
 	m_statForm->percentage->setText( QString( "%1%" ).arg( percentage ) );
 }
 
-RASimulation::RASimulation()
-	: Simulation()
+	RASimulation::RASimulation()
+: Simulation()
 {
 	m_field = new Field();
 	m_statForm = new Ui::RAForm();
@@ -112,7 +112,7 @@ RASimulation::RASimulation()
 	m_design = SimulationfieldWidget::SQUARE;
 
 	setField( m_field );
-	
+
 	m_counter = 0;
 }
 
@@ -144,7 +144,7 @@ void CrystallizationSimulation::rollDice()
 	//generating two random numbers
 	const int x = ( int ) ( rand()%m_field->xSize() );
 	const int y = ( int ) ( rand()%m_field->ySize() );
-	
+
 	//the propability
 	const int w = ( int ) rand()%2;
 
@@ -158,14 +158,14 @@ void CrystallizationSimulation::rollDice()
 	int numTeam = m_field->neighboursTeam( stone );
 	int totalNum = m_field->neighboursNum( stone );
 	int numOtherTeam = totalNum - numTeam;
-	
+
 	if ( numTeam < numOtherTeam )
 	{
 		//do nothing
 	}
 	else if ( numTeam > numOtherTeam )
 	{//exchange two stones (one from each team)
-			m_field->exchangeStones( point );
+		m_field->exchangeStones( point );
 	}
 	else if ( numTeam == numOtherTeam )
 	{//with a probability of 50% do as in the if-condition above
@@ -179,8 +179,8 @@ void CrystallizationSimulation::updateStatistics()
 }
 
 //Crystallizationgame
-CrystallizationSimulation::CrystallizationSimulation()
-	: Simulation()
+	CrystallizationSimulation::CrystallizationSimulation()
+: Simulation()
 {
 	m_field = new Field();
 	m_statForm = new Ui::CrystalForm();
@@ -194,7 +194,7 @@ void CrystallizationSimulation::start()
 	srand (  time( NULL ) );
 
 	m_field->clear();
-	
+
 	//fill the field with x*y black and white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
 	{
@@ -240,7 +240,7 @@ void DecompositionSimulation::rollDice()
 	//generating two random numbers
 	const int x = ( int ) ( rand()%m_field->xSize() );
 	const int y = ( int ) ( rand()%m_field->ySize() );
-	
+
 	//the propability
 	const int w = ( int ) rand()%2;
 
@@ -254,7 +254,7 @@ void DecompositionSimulation::rollDice()
 	int numTeam = m_field->neighboursTeam( stone );
 	int totalNum = m_field->neighboursNum( stone );
 	int numOtherTeam = totalNum - numTeam;
-	
+
 	if ( numTeam < numOtherTeam )
 	{//exchange two stones (one from each team)
 		m_field->exchangeStones( point );
@@ -265,7 +265,7 @@ void DecompositionSimulation::rollDice()
 	}
 	else if ( numTeam == numOtherTeam )
 	{//with a probability of 50% do as in the if-condition above
-		
+
 		if ( w%2 )
 			m_field->exchangeStones( point );
 	}
@@ -276,8 +276,8 @@ void DecompositionSimulation::updateStatistics()
 }
 
 
-DecompositionSimulation::DecompositionSimulation()
-	: CrystallizationSimulation()
+	DecompositionSimulation::DecompositionSimulation()
+: CrystallizationSimulation()
 {
 	m_field = new Field();
 	setField( m_field );
@@ -288,7 +288,7 @@ void DecompositionSimulation::start()
 	srand (  time( NULL ) );
 
 	m_field->clear();
-	
+
 	//fill the field with x*y black and white stones
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
 	{
@@ -323,7 +323,7 @@ BoltzmannSimulation::BoltzmannSimulation()
 
 	changeToDo = true;
 }
-	
+
 BoltzmannSimulation* BoltzmannSimulation::instance()
 {
 	static BoltzmannSimulation g;
@@ -359,7 +359,7 @@ void BoltzmannSimulation::rollDice()
 
 		int yPos = stone->position().y();
 		int yMax = m_field->ySize() - 1; //if the field has a ySize of 6 it is
-										 //internally 5. I don't want to confuse this
+		//internally 5. I don't want to confuse this
 
 		if ( m_numberOfMoves%2 ) //make the y-position one higher
 		{
@@ -389,7 +389,7 @@ void BoltzmannSimulation::changePosition( Stone * stone, bool lower )
 {
 	QPoint p;
 	p.setX( stone->position().x() );
-	
+
 	if ( lower )
 		p.setY( stone->position().y()+1 );
 	else
@@ -402,7 +402,7 @@ void BoltzmannSimulation::changePosition( Stone * stone, bool lower )
 void BoltzmannSimulation::start()
 {
 	srand (  time( NULL ) );
-	
+
 	m_field->clear();
 
 	//start on E=1
@@ -412,7 +412,7 @@ void BoltzmannSimulation::start()
 	for ( int x = 0 ; x < m_field->xSize() ; ++x )
 		for ( int foo = 0; foo < 20 ; ++foo )
 			m_field->addStone( new Stone( Stone::First, QPoint( x, ypos ) ) );
-	
+
 	Simulation::start();
 }
 
@@ -428,7 +428,7 @@ LightabsorptionSimulation::LightabsorptionSimulation()
 
 	m_col = 0;
 }
-	
+
 LightabsorptionSimulation* LightabsorptionSimulation::instance()
 {
 	static LightabsorptionSimulation g;
@@ -471,9 +471,9 @@ void LightabsorptionSimulation::rollDice()
 	}
 
 	m_field->clear();
-	
+
 	m_col++;
-	
+
 	foreach( int row, m_ypositions )
 	{
 		m_field->addStone( new Stone( Stone::First, QPoint( m_col, row ) ) );
@@ -483,7 +483,7 @@ void LightabsorptionSimulation::rollDice()
 void LightabsorptionSimulation::start()
 {
 	srand( time( NULL ) );
-	
+
 	m_field->clear();
 
 	//fill the first row with stones
@@ -492,7 +492,7 @@ void LightabsorptionSimulation::start()
 		m_field->addStone( new Stone( Stone::First, QPoint( 0, y ) ) );
 		m_ypositions.append( y );
 	}
-	
+
 	m_maxMoves = m_field->ySize();
 	Simulation::start();
 }
@@ -504,12 +504,12 @@ void LightabsorptionSimulation::updateStatistics()
 ///VolterraSimulation
 VolterraSimulation::VolterraSimulation()
 {
-	m_field = new Field( Field::HEX );
-	
+	m_field = new Field();
+
 	m_player = Stone::First;
 	setField( m_field );
 }
-	
+
 VolterraSimulation* VolterraSimulation::instance()
 {
 	static VolterraSimulation g;
@@ -518,12 +518,12 @@ VolterraSimulation* VolterraSimulation::instance()
 
 QString VolterraSimulation::rules() const
 {
-	return "Second and prey";
+	return "Rules: * 1. Predator on Prey --> Prey dead, Predator takes the place * 2. Predator on empty or Prey --> Field becomes void (not enough Prey for the Predator) * 3. Prey on empty field --> Prey takes the place * 4. Prey on Prey --> Prey takes neighbourfield * 5. Prey on Predator --> Prey dies, nothing happens * 6. Both Pray and Predator continue to live even when there are no entities left";
 }
 
 QString VolterraSimulation::description() const
 {
-	return "Volterra Simulation";
+	return "VolterraSimulation";
 }
 
 QByteArray VolterraSimulation::name() const
@@ -534,7 +534,7 @@ QByteArray VolterraSimulation::name() const
 void VolterraSimulation::rollDice()
 {
 	m_numberOfMoves++;
-	
+
 	//generating two random numbers
 	const int x = ( int ) ( rand()%m_field->xSize() );
 	const int y = ( int ) ( rand()%m_field->ySize() );
@@ -542,35 +542,40 @@ void VolterraSimulation::rollDice()
 	QPoint point( x, y );
 
 	Stone* stone = m_field->stoneAtPosition( point );
-	
-	if ( !stone )
-	{//the field was empty, insert a Token
-		m_field->addStone( new Stone( m_player, QPoint( x, y ) ) );
-		m_player == Stone::First ? m_player = Stone::Second : m_player = Stone::First;
-		return;
-	}
 
+	if ( !stone )
+	{//the field was empty
+		if ( m_player == Stone::First )
+			m_field->addStone( new Stone( m_player, QPoint( x, y ) ) );
+		else if ( m_player == Stone::Second )
+		{//Predator on empty field: do nothing
+		}
+	}
 	//Stone::First: Prey
 	//Stone::Second: Predator
-	if ( m_player == Stone::Second )
+	else if ( m_player == Stone::Second )
 	{//Predators run
 		if (stone->player() == Stone::First)
 		{//predator eats prey
-			qDebug("VolterraSimulation::rollDice() 1111" );
+			qDebug("VolterraSimulation::rollDice() Predator kills Prey" );
 			stone->setPlayer( Stone::Second );
-		}else
-		{//nothing happens, Predator on Predator doesn't match
-			qDebug( "VolterraSimulation::rollDice() 2222" );
 		}
-	}else
+		else if ( stone->player() == Stone::Second )
+		{//Predator on Predator, both die
+			m_field->removeStone( stone );
+			qDebug( "VolterraSimulation::rollDice() Predator on Predator" );
+		}
+	}
+	else
 	{//Prey's turn
 		if (stone->player() == Stone::First)
-		{//no, there is already prey on that field!
-			qDebug( "VolterraSimulation::rollDice() 3333" );
-			m_field->removeStone( stone );
+		{//There is alredy a bug, so place a bug next to the field
+			qDebug( "VolterraSimulation::rollDice() Prey on Prey" );
+			QPoint newP = m_field->freeNeighbourCell( point );
+			if ( point != newP )
+				m_field->addStone( new Stone( Stone::First, newP ));
 		}else
-		{//prey is eaten by the predator already there!
-			qDebug( "VolterraSimulation::rollDice() 4444" );
+		{//prey is eaten by the predator already there, so do nothing
 		}
 	}
 

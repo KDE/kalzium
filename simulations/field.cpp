@@ -24,9 +24,10 @@
 ///Field
 Field::Field( FIELDTYPE t )
 {
-	if ( t != Field::SQUARE )
-		m_fieldtype = t;
-	else
+	//FIXME Is this if-check needed? t has a default-value in the constructor...
+	if ( t != Field::SQUARE )            
+		m_fieldtype = t;				 
+	else 								
 		m_fieldtype = Field::SQUARE;
 
 	m_size_x = m_size_y = 6;
@@ -65,6 +66,8 @@ QList<Stone*> Field::tokensOnPosition( const QPoint& point )
 
 void Field::removeStone( Stone * stone )
 {
+	//FIXME Is this really the preferred way to handle this? Shouldn't it
+	//be easier to remove a stone from the list?
 	QList<Stone*> newList;
 	
 	foreach( Stone * st , m_stones )
@@ -81,16 +84,13 @@ int Field::neighboursNum( Stone* stone, bool direct )
 	QPoint point( stone->position() );
 	
 	QList<Stone*> Stones;
-	
-	Stone* stone1 = stoneAtPosition( QPoint(point.x()+1, point.y() ) );
-	Stone* stone2 = stoneAtPosition( QPoint(point.x()-1, point.y() ) );
-	Stone* stone3 = stoneAtPosition( QPoint(point.x(), point.y()+1 ) );
-	Stone* stone4 = stoneAtPosition( QPoint(point.x(), point.y()-1 ) );
+	QList<Stone*> n = neighbours( point, direct );
 
-	if ( stone1 ) Stones << stone1;
-	if ( stone2 ) Stones << stone2;
-	if ( stone3 ) Stones << stone3;
-	if ( stone4 ) Stones << stone4;
+	qDebug("Neighbours: %d", n.count() );
+	
+	foreach( Stone * s , n )
+		if ( stone->player() == s->player() )
+			Stones << s;
 
 	return Stones.count();
 }
@@ -101,19 +101,11 @@ int Field::neighboursTeam( Stone* stone, bool direct )
 	
 	QList<Stone*> TeamStones;
 	
-	Stone* stone1 = stoneAtPosition( QPoint(point.x()+1, point.y() ) );
-	Stone* stone2 = stoneAtPosition( QPoint(point.x()-1, point.y() ) );
-	Stone* stone3 = stoneAtPosition( QPoint(point.x(), point.y()+1 ) );
-	Stone* stone4 = stoneAtPosition( QPoint(point.x(), point.y()-1 ) );
-
-	if ( stone1 && stone1->player() == stone->player() )
-		TeamStones << stone1;
-	if ( stone2 && stone2->player() == stone->player()  )
-		TeamStones << stone2;
-	if ( stone3 && stone3->player() == stone->player()  )
-		TeamStones << stone3;
-	if ( stone4 && stone4->player() == stone->player()  )
-		TeamStones << stone4;
+	QList<Stone*> n = neighbours( point, direct );
+	
+	foreach( Stone * s , n )
+		if ( stone->player() == s->player() )
+			TeamStones << s;
 	
 	return TeamStones.count();
 }
@@ -122,21 +114,12 @@ void Field::exchangeStones( const QPoint& point, bool direct )
 {
 	Stone* stone = stoneAtPosition( point );
 	
+	QList<Stone*> n = neighbours( point, direct );
 	QList<Stone*> otherTeamStones;
 	
-	Stone* stone1 = stoneAtPosition( QPoint(point.x()+1, point.y() ) );
-	Stone* stone2 = stoneAtPosition( QPoint(point.x()-1, point.y() ) );
-	Stone* stone3 = stoneAtPosition( QPoint(point.x(), point.y()+1 ) );
-	Stone* stone4 = stoneAtPosition( QPoint(point.x(), point.y()-1 ) );
-
-	if ( stone1 && stone1->player() != stone->player() )
-		otherTeamStones << stone1;
-	if ( stone2 && stone2->player() != stone->player()  )
-		otherTeamStones << stone2;
-	if ( stone3 && stone3->player() != stone->player()  )
-		otherTeamStones << stone3;
-	if ( stone4 && stone4->player() != stone->player()  )
-		otherTeamStones << stone4;
+	foreach( Stone * s , n )
+		if ( stone->player() != s->player() )
+			otherTeamStones << s;
 	
 	if ( otherTeamStones.count() < 1 )//well, there is nothing to exchange...
 	{
@@ -157,4 +140,62 @@ void Field::exchangeStones( const QPoint& point, bool direct )
 
 	chosenStone->swap();
 	stone->swap();
+}
+
+QPoint Field::freeNeighbourCell( const QPoint& point )
+{
+	return point;
+}
+
+QList<Stone*> Field::neighbours( const QPoint& point, bool direct )
+{
+	//FIXME I am not sure this is the best way... of course it works! But
+	//isn't there a better way to filter out null-pointers? append(Ptr) 
+	//doesn't check for null-pointers it seems...
+	//I would love to have something like QList<>::strip() which removes
+	//all null-pointers.
+	QList<Stone*> stones;
+
+	//save the x and y value
+	const int x = point.x();
+	const int y = point.y();
+
+	if ( m_fieldtype == Field::HEX )
+	{
+		//have to think about it
+	}
+	else if ( m_fieldtype == Field::SQUARE )
+	{
+		Stone* stone1 = stoneAtPosition( QPoint(x+1, y ) );
+		Stone* stone2 = stoneAtPosition( QPoint(x-1, y ) );
+		Stone* stone3 = stoneAtPosition( QPoint(x,   y+1 ) );
+		Stone* stone4 = stoneAtPosition( QPoint(x,   y-1 ) );
+
+		if ( stone1 )
+			stones << stone1;
+		if ( stone2 )
+			stones << stone2;
+		if ( stone3 )
+			stones << stone3;
+		if ( stone4 )
+			stones << stone4;
+		if ( !direct )
+		{//count the diagonal stones as well!
+			Stone* d1 = stoneAtPosition( QPoint(x+1, y+1 ) );
+			Stone* d2 = stoneAtPosition( QPoint(x+1, y-1 ) );
+			Stone* d3 = stoneAtPosition( QPoint(x-1, y+1 ) );
+			Stone* d4 = stoneAtPosition( QPoint(x-1, y-1 ) );
+		
+			if ( d1 )
+				stones << d1;
+			if ( d2 )
+				stones << d2;
+			if ( d3 )
+				stones << d3;
+			if ( d4 )
+				stones << d4;
+		}
+	}
+
+	return stones;
 }

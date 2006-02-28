@@ -202,6 +202,17 @@ class LightabsorptionSimulation : public Simulation
 		Ui::LightabsorptionForm * m_statForm;
 };
 
+/**
+ * @author Carsten Niehaus
+ *
+ * Rules:
+ * 1. Predator on Prey --> Prey dead, Predator takes the place
+ * 2. Predator on empty or Prey --> Field becomes void (not enough Prey for the Predator)
+ * 3. Prey on empty field --> Prey takes the place
+ * 4. Prey on Prey --> Prey takes neighbourfield
+ * 5. Prey on Predator --> Prey dies, nothing happens
+ * 6. Both Pray and Predator continue to live even when there are no entities left
+ */
 class VolterraSimulation : public Simulation
 {
 	public:
