@@ -316,6 +316,7 @@ BoltzmannSimulation::BoltzmannSimulation()
 {
 	m_field = new Field();
 	setField( m_field );
+	m_field->setFieldSize( 15,9 );
 	m_statForm = new Ui::BoltzmannForm();
 	m_statWidget = new QWidget();
 	m_statForm->setupUi( m_statWidget );
@@ -424,6 +425,7 @@ void BoltzmannSimulation::updateStatistics()
 LightabsorptionSimulation::LightabsorptionSimulation()
 {
 	m_field = new Field();
+	m_field->setFieldSize( 9,20 );
 	setField( m_field );
 
 	m_col = 0;
@@ -504,7 +506,8 @@ void LightabsorptionSimulation::updateStatistics()
 ///VolterraSimulation
 VolterraSimulation::VolterraSimulation()
 {
-	m_field = new Field();
+	m_field = new Field( );
+	m_field->setFieldSize( 9,9 );
 
 	m_player = Stone::First;
 	setField( m_field );

@@ -94,6 +94,9 @@ void SimulationfieldWidget::paintSquares( QPainter * p, int s )
 
 	QBrush b_white( Qt::white, Qt::SolidPattern );
 	QBrush b_black( Qt::black, Qt::SolidPattern );
+	
+	QPixmap icon;
+	QRectF target;
 
 	foreach( Stone * stone, m_field->stones() ) 
 	{
@@ -101,19 +104,31 @@ void SimulationfieldWidget::paintSquares( QPainter * p, int s )
 		const int y = stone->position().y();
 
 		if ( stone->player() == Stone::First )
+		{
+			icon = QPixmap( ":/images/one.png" );
 			p->setBrush( b_white );
+		}
 		else
+		{
+			icon = QPixmap( ":/images/two.png" );
 			p->setBrush( b_black );
+		}
 
 		switch ( m_design )
 		{
 			case CIRCLE:
-				p->drawEllipse( x*s+2, y*s+2, s-4, s-4 );
+//X 				p->drawEllipse( x*s+2, y*s+2, s-4, s-4 );
+				target = QRectF( x*s+2, y*s+2, s-4, s-4 );
+				p->drawPixmap(  target.topLeft(), icon );
 				break;
 			case SQUARE:
-				p->drawRect( x*s, y*s, s, s );
+//X 				p->drawRect( x*s, y*s, s, s );
+				target = QRectF( x*s+2, y*s+2, s-4, s-4 );
+				p->drawPixmap(  target.topLeft(), icon );
 				break;
 			case DENSITY:
+				//FIXME implement
+				p->drawRect( x*s, y*s, s, s );
 				break;
 		}
 	}
