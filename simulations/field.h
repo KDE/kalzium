@@ -20,6 +20,8 @@
  ***************************************************************************/
 class Stone;
 
+#include "stone.h"
+
 #include <QPoint>
 #include <QList>
 
@@ -145,6 +147,12 @@ class Field
 		 * @return the Stone at the position @p pos
 		 */
 		virtual Stone* stoneAtPosition( const QPoint& pos );
+
+		/**
+		 * @return a random stone of the player @p player
+		 */
+		virtual Stone* randomStone( Stone::PLAYER player );
+
 		
 		/**
 		 * @return the stones of the game
@@ -160,10 +168,10 @@ class Field
 		virtual void clear();
 
 		/**
-		 * @return the tokens on position @p pos
+		 * this method will print the current field in ASCII-code on STDOUT
 		 */
-		QList<Stone*> tokensOnPosition( const QPoint& pos );
-		
+		void debugOutput();
+
 	protected:
 		int m_size_x;
 		
@@ -175,6 +183,7 @@ class Field
 		 * The list of stones
 		 */
 		QList<Stone*> m_stones;
+		
 };
 
 

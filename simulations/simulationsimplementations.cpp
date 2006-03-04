@@ -95,7 +95,7 @@ void RASimulation::updateStatistics()
 
 	int w = m->numberOfStones( Stone::First );
 	int h = m->numberOfStones( Stone::Second );
-	double percentage = ( double )h/w * 100;
+	double percentage = ( double )w/h * 100;
 
 	m_statForm->white->setText(QString::number( w ));
 	m_statForm->black->setText(QString::number( h ));
@@ -508,9 +508,18 @@ VolterraSimulation::VolterraSimulation()
 {
 	m_field = new Field( );
 	m_field->setFieldSize( 9,9 );
+	
+	m_statForm = new Ui::VolterraForm();
+	m_statWidget = new QWidget();
+	m_statForm->setupUi( m_statWidget );
 
 	m_player = Stone::First;
 	setField( m_field );
+
+	m_rain = false;
+	m_food = false;
+	m_temperature = true;
+	m_toggle = false;
 }
 
 VolterraSimulation* VolterraSimulation::instance()
@@ -538,6 +547,15 @@ void VolterraSimulation::rollDice()
 {
 	m_numberOfMoves++;
 
+	if ( 0 == m_numberOfMoves%5 )//toggle the condition with 50% likelyhood every 5 moves
+	{
+		const int to = ( int ) ( rand()%2 );
+		if ( to  == 0 )
+		{
+			m_toggle ? m_toggle = false : m_toggle = true;
+		}
+	}
+
 	//generating two random numbers
 	const int x = ( int ) ( rand()%m_field->xSize() );
 	const int y = ( int ) ( rand()%m_field->ySize() );
@@ -561,6 +579,7 @@ void VolterraSimulation::rollDice()
 		if (stone->player() == Stone::First)
 		{//predator eats prey
 			stone->setPlayer( Stone::Second );
+			emit( removedStone() );//the stone changed the player, this needs an update of the field!
 		}
 		else if ( stone->player() == Stone::Second )
 		{//Predator on Predator, both die
@@ -571,16 +590,52 @@ void VolterraSimulation::rollDice()
 	else
 	{//Prey's turn
 		if (stone->player() == Stone::First)
-		{//There is alredy a bug, so place a bug next to the field
-			QPoint newP = m_field->freeNeighbourCell( point );
-			if ( point != newP )
-				m_field->addStone( new Stone( Stone::First, newP ));
+		{//There is already a bug, so place a bug next to the field (prey on prey)
+
+			if ( !m_rain && !m_temperature && !m_food )
+			{//simple ruleset
+				QPoint newP = m_field->freeNeighbourCell( point );
+				if ( point != newP )
+					m_field->addStone( new Stone( Stone::First, newP ));
+			}
+			else
+			{
+				if ( m_rain )
+				{
+					
+				}
+				if ( m_temperature )
+				{
+					if ( m_toggle )
+					{//good temperatures, not one but two (!) bugs will be added
+						QPoint newP = m_field->freeNeighbourCell( point );
+						if ( point != newP )
+							m_field->addStone( new Stone( Stone::First, newP ));
+						newP = m_field->freeNeighbourCell( point );
+						if ( point != newP )
+							m_field->addStone( new Stone( Stone::First, newP ));
+					}
+					else
+					{//bad conditions, one bug is gone because of the bad temperature!
+						Stone * s = m_field->randomStone( Stone::First );
+						if ( s )
+						{
+ 							m_field->removeStone( s );
+						}
+					}
+				}
+				if ( m_food )
+				{
+				}
+			}
 		}else
 		{//prey is eaten by the predator already there, so do nothing
 		}
 	}
 
 	m_player == Stone::First ? m_player = Stone::Second : m_player = Stone::First;
+
+	m_field->debugOutput();
 }
 
 void VolterraSimulation::start()
@@ -594,6 +649,17 @@ void VolterraSimulation::start()
 
 void VolterraSimulation::updateStatistics()
 {
+	Move * m = lastMove();
+
+	int w = m->numberOfStones( Stone::First );
+	int h = m->numberOfStones( Stone::Second );
+	double percentage = ( double )h/w * 100;
+
+	int numfields=m_field->xSize()*m_field->ySize();
+
+	m_statForm->ladybird->setText(QString::number( w ));
+	m_statForm->mantis->setText(QString::number( h ));
+//	m_statForm->freefields->setText(QString::number( numfields-w-h ));
 }
 
 void VolterraSimulation::reset()

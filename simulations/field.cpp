@@ -52,18 +52,6 @@ void Field::clear()
 	m_stones.clear();
 }
 
-QList<Stone*> Field::tokensOnPosition( const QPoint& point )
-{
-	QList<Stone*> list;
-	foreach( Stone * s , m_stones )
-	{
-		if ( s->position() == point )
-			list.append( s );
-	}
-
-	return list;
-}
-
 void Field::removeStone( Stone * stone )
 {
 	//FIXME Is this really the preferred way to handle this? Shouldn't it
@@ -198,4 +186,50 @@ QList<Stone*> Field::neighbours( const QPoint& point, bool direct )
 	}
 
 	return stones;
+}
+
+Stone* Field::randomStone( Stone::PLAYER player )
+{
+	Stone *stone = 0;
+	QList<Stone*> stones;
+	srand (  time( NULL ) );
+
+	foreach( Stone*s, m_stones )
+	{
+		if ( s->player() == player )
+			stones << s;
+	}
+	const int x = ( int ) ( rand()%stones.count() );
+	qDebug("returning stone %d", x );
+	return stones.at( x );
+}
+
+void Field::debugOutput()
+{
+	QString debug = QString();
+
+	for ( int y = 0; y < ySize() ; ++y )
+	{
+		debug += "\n";
+		for ( int x = 0 ; x < xSize() ; ++x )
+		{
+			QPoint p( x,y );
+ 			Stone *s = stoneAtPosition( p );
+			if ( !s )
+			{
+				debug += " ";	
+				continue;
+			}
+			
+			if ( s->player() == Stone::First )
+				debug += "1";
+			else if ( s->player() == Stone::Second )
+				debug += "2";
+			else if ( s->player() == Stone::Third )
+				debug += "3";
+			else if ( s->player() == Stone::Fourth )
+				debug += "4";
+		}
+	}
+	qDebug( debug.toLatin1() );
 }

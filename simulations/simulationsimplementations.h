@@ -242,6 +242,15 @@ class VolterraSimulation : public Simulation
 		Ui::VolterraForm * m_statForm;
 
 		Stone::PLAYER m_player;
+
+		///rain will be regarded
+		bool m_rain;
+		///the temperature has an influance
+		bool m_temperature;
+		///the food of the louses is not always the same...
+		bool m_food;
+		///this variable is toggled with a 50% chance every 5 moves. It toggles if one of the rain/temp/food conditions is good or bad. For example: Perfect temp or to cold.
+		bool m_toggle;
 };
 
 #endif // GAMESIMPLEMENTATION_H

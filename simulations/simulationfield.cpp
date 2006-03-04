@@ -74,6 +74,7 @@ void SimulationfieldWidget::paintSquares( QPainter * p, int s )
 //X 	const int w = width() / x_size;
 //X 	const int h = height() / y_size;
 
+	m_dirty = true;
 	if ( m_dirty )
 	{
 		delete m_pix;
@@ -106,7 +107,7 @@ void SimulationfieldWidget::paintSquares( QPainter * p, int s )
 	{
 		const int x = stone->position().x();
 		const int y = stone->position().y();
-
+		
 		if ( stone->player() == Stone::First )
 		{
 			icon = one;
