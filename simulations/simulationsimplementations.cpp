@@ -560,20 +560,18 @@ void VolterraSimulation::rollDice()
 	{//Predators run
 		if (stone->player() == Stone::First)
 		{//predator eats prey
-			qDebug("VolterraSimulation::rollDice() Predator kills Prey" );
 			stone->setPlayer( Stone::Second );
 		}
 		else if ( stone->player() == Stone::Second )
 		{//Predator on Predator, both die
 			m_field->removeStone( stone );
-			qDebug( "VolterraSimulation::rollDice() Predator on Predator" );
+			emit( removedStone() );
 		}
 	}
 	else
 	{//Prey's turn
 		if (stone->player() == Stone::First)
 		{//There is alredy a bug, so place a bug next to the field
-			qDebug( "VolterraSimulation::rollDice() Prey on Prey" );
 			QPoint newP = m_field->freeNeighbourCell( point );
 			if ( point != newP )
 				m_field->addStone( new Stone( Stone::First, newP ));

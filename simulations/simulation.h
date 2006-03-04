@@ -190,6 +190,11 @@ class Simulation : public QObject
 		 */
 		void turnOver();
 
+		/**
+		 * the field probably needs an update
+		 */
+		void removedStone();
+
 	public slots:
 		/**
 		 * Start the next draw/roll

@@ -83,6 +83,8 @@ void GamesDialog::createConnetions()
 			m_simulation, SLOT(stopSimulation()) );
 	connect(m_simulation, SIGNAL( turnOver(Move*) ), 
 			m_controls->ui.gf, SLOT(slotUpdate(Move*)) );
+	connect(m_simulation, SIGNAL( removedStone() ), 
+			m_controls->ui.gf, SLOT( setDirty() ) );
 	connect(m_simulation, SIGNAL( turnOver() ), 
 			this, SLOT(calculateStatistics() ) );
 }

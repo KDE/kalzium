@@ -76,6 +76,13 @@ class SimulationfieldWidget : public QFrame
 			( void ) move;
 			update();	
 		}
+		
+		/**
+		 * the field will need a complete update
+		 */
+		virtual void setDirty(){
+			m_dirty = true;
+		}
 
 	private:
 		Field * m_field;
@@ -87,7 +94,7 @@ class SimulationfieldWidget : public QFrame
 
 	protected:
 		virtual void paintEvent( QPaintEvent * e );
-	
+
 		/**
 		 * paint a field with square fields
 		 * @param s The size of one cell
