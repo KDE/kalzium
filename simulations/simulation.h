@@ -287,11 +287,8 @@ class Move
 	public:
 		/**
 		 * Constructor
-		 * @param list the list of stones
 		 */
-		Move( QStringList list ){
-			m_list = list;
-		}
+		Move( QByteArray array );
 
 		/**
 		 * @return the number of stones of the PLAYER p
@@ -299,7 +296,7 @@ class Move
 		int numberOfStones( Stone::PLAYER p );
 
 	private:
-		QStringList m_list;
+		QByteArray m_array;
 };
 
 #endif // SIMULATION_H

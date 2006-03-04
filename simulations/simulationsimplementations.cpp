@@ -694,9 +694,9 @@ void VolterraSimulation::updateStatistics()
 
 	int numfields=m_field->xSize()*m_field->ySize();
 
-	m_statForm->ladybird->setText(QString::number( w ));
-	m_statForm->mantis->setText(QString::number( h ));
-//	m_statForm->freefields->setText(QString::number( numfields-w-h ));
+	m_statForm->freefields->setText(QString::number( numfields-w-h ));
+	m_statForm->ladybird->setText( QString::number(  w ) );
+	m_statForm->mantis->setText( QString::number(  h ) );
 }
 
 void VolterraSimulation::reset()

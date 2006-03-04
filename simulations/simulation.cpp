@@ -72,24 +72,28 @@ QStringList SimulationsFactory::simulations() const
 }
 
 //Move
+Move::Move( QByteArray array )
+{
+	m_array = array;
+}
+
 int Move::numberOfStones( Stone::PLAYER p )
 {
-	QString letter;
+	char letter;
 	if ( p == Stone::First )
-		letter = "W";
+		letter = '1';
 	else if ( p == Stone::Second )
-		letter = "B";
+		letter = '2';
+	else if ( p == Stone::Third )
+		letter = '3';
+	else if ( p == Stone::Fourth )
+		letter = '4';
 	else 
 		return 0;
 
 	int num = 0;
-	
-	foreach( QString s, m_list )
-	{
-		num += s.count( letter );
-	}
 
-	return num;
+	return m_array.count( letter );
 }
 
 //Simulation
@@ -144,28 +148,37 @@ void Simulation::slotNextMove()
 
 void Simulation::finishMove()
 {
-	QString ds = QString();
+	QByteArray ds;
+	QChar c;
 	
-	QStringList sl;
-	
-	for ( int x = 0; x < m_field->xSize() ; ++x )
+	for ( int y = 0; y < m_field->ySize()  ; ++y )
 	{
-		ds = QString();
-		for ( int y = 0; y < m_field->ySize()  ; ++y )
+		for ( int x = 0; x < m_field->xSize() ; ++x )
 		{
 			Stone* s = m_field->stoneAtPosition( QPoint( x,y ) );
 			if ( s ) 
 			{
-				if ( s->player() == Stone::First )
-					ds += "W";
-				else
-					ds += "B";
+				Stone::PLAYER p = s->player();
+			
+				if ( p == Stone::First )
+					c = '1';
+				else if ( p == Stone::Second )
+					c = '2';
+				else if ( p == Stone::Third )
+					c = '3';
+				else if ( p == Stone::Fourth )
+					c = '4';
+				ds.append( c );
 			}
+			else//emtpy field, append a space
+				ds.append( ' ' );
 		}
-		sl.append( ds );
+		ds.append( '\n' );
 	}
 
-	Move *move = new Move( sl );
+	Move *move = new Move( ds );
+	qDebug( "Move %d", m_numberOfMoves );
+	qDebug( ds );
 	m_moves.append( move );
 
 	qApp->processEvents();
