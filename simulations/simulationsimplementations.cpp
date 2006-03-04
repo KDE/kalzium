@@ -516,9 +516,9 @@ VolterraSimulation::VolterraSimulation()
 	m_player = Stone::First;
 	setField( m_field );
 
-	m_rain = false;
+	m_rain = true;
 	m_food = false;
-	m_temperature = true;
+	m_temperature = false;
 	m_toggle = false;
 }
 
@@ -602,6 +602,25 @@ void VolterraSimulation::rollDice()
 			{
 				if ( m_rain )
 				{
+					if ( m_toggle )
+					{//good temperatures, not one but two (!) bugs will be added
+						QPoint newP = m_field->freeNeighbourCell( point );
+						if ( point != newP )
+							m_field->addStone( new Stone( Stone::First, newP ));
+						newP = m_field->freeNeighbourCell( point );
+						if ( point != newP )
+							m_field->addStone( new Stone( Stone::First, newP ));
+					}
+					else
+					{//extreme rain! Two bugs are lost, no matter what!
+						Stone * s = m_field->randomStone( Stone::First );
+						if ( s )
+ 							m_field->removeStone( s );
+						
+						s = m_field->randomStone( Stone::First );
+						if ( s )
+ 							m_field->removeStone( s );
+					}
 					
 				}
 				if ( m_temperature )
