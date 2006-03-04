@@ -97,6 +97,9 @@ void SimulationfieldWidget::paintSquares( QPainter * p, int s )
 	
 	QPixmap icon;
 	QRectF target;
+			
+	QPixmap one ( ":/images/one.png" );
+	QPixmap two ( ":/images/two.png" );
 
 	foreach( Stone * stone, m_field->stones() ) 
 	{
@@ -105,12 +108,12 @@ void SimulationfieldWidget::paintSquares( QPainter * p, int s )
 
 		if ( stone->player() == Stone::First )
 		{
-			icon = QPixmap( ":/images/one.png" );
+			icon = one;
 			p->setBrush( b_white );
 		}
 		else
 		{
-			icon = QPixmap( ":/images/two.png" );
+			icon = two;
 			p->setBrush( b_black );
 		}
 
