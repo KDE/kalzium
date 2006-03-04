@@ -112,9 +112,70 @@ void Field::exchangeStones( const QPoint& point, bool direct )
 	stone->swap();
 }
 
-QPoint Field::freeNeighbourCell( const QPoint& point )
+QPoint Field::randomFreeNeighbourCell( const QPoint& point, bool direct )
 {
-	return point;
+	srand (  time( NULL ) );
+	QList<QPoint> points = freeNeighbourCell( point, direct );
+	
+	if ( points.count() == 0 )
+		return point;//no free cells found!
+
+	const int x = ( int ) ( rand()%points.count() );
+
+	return points.at( x );
+}
+
+QList<QPoint> Field::freeNeighbourCell( const QPoint& point, bool direct )
+{
+	QList<QPoint> points;
+	
+	const int x = point.x();
+	const int y = point.y();
+
+	if ( m_fieldtype == Field::HEX )
+	{
+		//FIXME
+		//have to think about it
+	}
+	else if ( m_fieldtype == Field::SQUARE )
+	{
+		Stone* stone1 = stoneAtPosition( QPoint(x+1, y ) );
+		Stone* stone2 = stoneAtPosition( QPoint(x-1, y ) );
+		Stone* stone3 = stoneAtPosition( QPoint(x,   y+1 ) );
+		Stone* stone4 = stoneAtPosition( QPoint(x,   y-1 ) );
+
+		if ( !stone1 )
+			points << QPoint( x+1,y );
+		if ( !stone2 )
+			points << QPoint( x-1,y );
+		if ( !stone3 )
+			points << QPoint( x,y+1 );
+		if ( !stone4 )
+			points << QPoint( x,y-1 );
+		
+		if ( !direct )
+		{//count the diagonal points as well!
+			Stone* d1 = stoneAtPosition( QPoint(x+1, y+1 ) );
+			Stone* d2 = stoneAtPosition( QPoint(x+1, y-1 ) );
+			Stone* d3 = stoneAtPosition( QPoint(x-1, y+1 ) );
+			Stone* d4 = stoneAtPosition( QPoint(x-1, y-1 ) );
+		
+			if ( !d1 )
+				points << QPoint(x+1, y+1 ) ;
+			if ( !d2 )
+				points << QPoint(x+1, y-1 );
+			if ( !d3 )
+				points << QPoint(x-1, y+1 );
+			if ( !d4 )
+				points << QPoint(x-1, y-1 );
+		}
+	}
+
+//X 	qDebug( "Position x: %d", point.x() );
+//X 	qDebug( "Position y: %d", point.y() );
+//X 	qDebug( "number of free cells: %d", points.count() );
+//X 	
+	return points;
 }
 
 QList<Stone*> Field::neighbours( Stone* stone, bool direct )
@@ -190,6 +251,9 @@ void Field::debugOutput()
 {
 	QString debug = QString();
 
+	qDebug( "# %d", allStones( Stone::First ).count() );
+	return;
+
 	for ( int y = 0; y < ySize() ; ++y )
 	{
 		debug += "\n";
@@ -214,4 +278,15 @@ void Field::debugOutput()
 		}
 	}
 	qDebug( debug.toLatin1() );
+}
+
+QList<Stone*> Field::allStones( Stone::PLAYER player )
+{
+	QList<Stone*> stones;
+
+	foreach( Stone * s, m_stones )
+		if ( s->player() == player )
+			stones << s;
+
+	return stones;
 }

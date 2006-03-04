@@ -75,11 +75,19 @@ class Field
 		virtual void exchangeStones( const QPoint& point, bool direct = true );
 
 		/**
+		 * @return Returns all free cells next to the point @p p
+		 * @param p the point a which a free neighbourcell is searched for
+		 * @param direct if true, only the direct neighbours are taken into regard. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
+		 */
+		QList<QPoint> freeNeighbourCell( const QPoint& p, bool direct = true );
+		
+		/**
 		 * If this method returns the same point as @p p then no free cell was found
 		 * @return Returns a free cell next to the point @p p
 		 * @param p the point a which a free neighbourcell is searched for
+		 * @param direct if true, only the direct neighbours are taken into regard. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
 		 */
-		QPoint freeNeighbourCell( const QPoint& p );
+		QPoint randomFreeNeighbourCell( const QPoint& p, bool direct = true );
 		
 		/**
 		 * Constructor
@@ -146,6 +154,10 @@ class Field
 		 */
 		virtual Stone* randomStone( Stone::PLAYER player );
 
+		/**
+		 * @return all stones of player @p player
+		 */
+		virtual QList<Stone*> allStones( Stone::PLAYER player ); 
 		
 		/**
 		 * @return the stones of the game

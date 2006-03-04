@@ -517,8 +517,8 @@ VolterraSimulation::VolterraSimulation()
 	setField( m_field );
 
 	m_rain = false;
-	m_food = true;
-	m_temperature = false;
+	m_food = false;
+	m_temperature = true;
 	m_toggle = false;
 }
 
@@ -591,10 +591,10 @@ void VolterraSimulation::rollDice()
 	{//Prey's turn
 		if (stone->player() == Stone::First)
 		{//There is already a bug, so place a bug next to the field (prey on prey)
-
 			if ( !m_rain && !m_temperature && !m_food )
 			{//simple ruleset
-				QPoint newP = m_field->freeNeighbourCell( point );
+				QPoint newP = m_field->randomFreeNeighbourCell( point );
+				qDebug("Adding one new ladybird!");
 				if ( point != newP )
 					m_field->addStone( new Stone( Stone::First, newP ));
 			}
@@ -603,11 +603,13 @@ void VolterraSimulation::rollDice()
 				if ( m_rain )
 				{
 					if ( m_toggle )
-					{//good temperatures, not one but two (!) bugs will be added
-						QPoint newP = m_field->freeNeighbourCell( point );
+					{//good rainconditions, not one but two (!) bugs will be added
+						qDebug("Adding two new ladybirds!");
+
+						QPoint newP = m_field->randomFreeNeighbourCell( point );
 						if ( point != newP )
 							m_field->addStone( new Stone( Stone::First, newP ));
-						newP = m_field->freeNeighbourCell( point );
+						newP = m_field->randomFreeNeighbourCell( point );
 						if ( point != newP )
 							m_field->addStone( new Stone( Stone::First, newP ));
 					}
@@ -627,10 +629,12 @@ void VolterraSimulation::rollDice()
 				{
 					if ( m_toggle )
 					{//good temperatures, not one but two (!) bugs will be added
-						QPoint newP = m_field->freeNeighbourCell( point );
+						qDebug("Adding two new ladybirds!");
+						
+						QPoint newP = m_field->randomFreeNeighbourCell( point );
 						if ( point != newP )
 							m_field->addStone( new Stone( Stone::First, newP ));
-						newP = m_field->freeNeighbourCell( point );
+						newP = m_field->randomFreeNeighbourCell( point );
 						if ( point != newP )
 							m_field->addStone( new Stone( Stone::First, newP ));
 					}
@@ -639,6 +643,7 @@ void VolterraSimulation::rollDice()
 						Stone * s = m_field->randomStone( Stone::First );
 						if ( s )
 						{
+							qDebug("Removing one ladybird!");
  							m_field->removeStone( s );
 						}
 					}
@@ -654,6 +659,9 @@ void VolterraSimulation::rollDice()
 						qDebug("removing %d stones!", nei.count());
 						foreach( Stone*st,nei )
 							m_field->removeStone( st );
+
+						//and finaly remove the stone which has been drawn itself
+						m_field->removeStone( stone );
 					}
 				}
 			}
