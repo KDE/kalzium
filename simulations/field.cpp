@@ -67,42 +67,24 @@ void Field::removeStone( Stone * stone )
 	m_stones = newList;
 }
 
-int Field::neighboursNum( Stone* stone, bool direct )
+QList<Stone*> Field::neighboursTeam( Stone* stone, bool direct )
 {
-	QPoint point( stone->position() );
-	
-	QList<Stone*> Stones;
-	QList<Stone*> n = neighbours( point, direct );
-
-	qDebug("Neighbours: %d", n.count() );
-	
-	foreach( Stone * s , n )
-		if ( stone->player() == s->player() )
-			Stones << s;
-
-	return Stones.count();
-}
-
-int Field::neighboursTeam( Stone* stone, bool direct )
-{
-	QPoint point( stone->position() );
-	
 	QList<Stone*> TeamStones;
 	
-	QList<Stone*> n = neighbours( point, direct );
+	QList<Stone*> n = neighbours( stone, direct );
 	
 	foreach( Stone * s , n )
 		if ( stone->player() == s->player() )
 			TeamStones << s;
 	
-	return TeamStones.count();
+	return TeamStones;
 }
 
 void Field::exchangeStones( const QPoint& point, bool direct )
 {
 	Stone* stone = stoneAtPosition( point );
 	
-	QList<Stone*> n = neighbours( point, direct );
+	QList<Stone*> n = neighbours( stone, direct );
 	QList<Stone*> otherTeamStones;
 	
 	foreach( Stone * s , n )
@@ -135,7 +117,7 @@ QPoint Field::freeNeighbourCell( const QPoint& point )
 	return point;
 }
 
-QList<Stone*> Field::neighbours( const QPoint& point, bool direct )
+QList<Stone*> Field::neighbours( Stone* stone, bool direct )
 {
 	//FIXME I am not sure this is the best way... of course it works! But
 	//isn't there a better way to filter out null-pointers? append(Ptr) 
@@ -145,11 +127,12 @@ QList<Stone*> Field::neighbours( const QPoint& point, bool direct )
 	QList<Stone*> stones;
 
 	//save the x and y value
-	const int x = point.x();
-	const int y = point.y();
+	const int x = stone->position().x();
+	const int y = stone->position().y();
 
 	if ( m_fieldtype == Field::HEX )
 	{
+		//FIXME
 		//have to think about it
 	}
 	else if ( m_fieldtype == Field::SQUARE )
@@ -200,7 +183,6 @@ Stone* Field::randomStone( Stone::PLAYER player )
 			stones << s;
 	}
 	const int x = ( int ) ( rand()%stones.count() );
-	qDebug("returning stone %d", x );
 	return stones.at( x );
 }
 

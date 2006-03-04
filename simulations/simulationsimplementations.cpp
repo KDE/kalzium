@@ -155,8 +155,8 @@ void CrystallizationSimulation::rollDice()
 	if ( !stone )
 		return;
 
-	int numTeam = m_field->neighboursTeam( stone );
-	int totalNum = m_field->neighboursNum( stone );
+	int numTeam = m_field->neighboursTeam( stone ).count();
+	int totalNum = m_field->neighbours( stone ).count();
 	int numOtherTeam = totalNum - numTeam;
 
 	if ( numTeam < numOtherTeam )
@@ -251,8 +251,8 @@ void DecompositionSimulation::rollDice()
 	if ( !stone )
 		return;
 
-	int numTeam = m_field->neighboursTeam( stone );
-	int totalNum = m_field->neighboursNum( stone );
+	int numTeam = m_field->neighboursTeam( stone ).count();
+	int totalNum = m_field->neighbours( stone ).count();
 	int numOtherTeam = totalNum - numTeam;
 
 	if ( numTeam < numOtherTeam )
@@ -516,8 +516,8 @@ VolterraSimulation::VolterraSimulation()
 	m_player = Stone::First;
 	setField( m_field );
 
-	m_rain = true;
-	m_food = false;
+	m_rain = false;
+	m_food = true;
 	m_temperature = false;
 	m_toggle = false;
 }
@@ -645,6 +645,16 @@ void VolterraSimulation::rollDice()
 				}
 				if ( m_food )
 				{
+					if ( m_toggle )
+					{//good conditions, the drawn and all surrounding free fields will becomes bugs!
+					}
+					else
+					{//bad conditions, the drawn and all surrounding bugs will die!
+						QList<Stone*> nei = m_field->neighboursTeam( stone );
+						qDebug("removing %d stones!", nei.count());
+						foreach( Stone*st,nei )
+							m_field->removeStone( st );
+					}
 				}
 			}
 		}else

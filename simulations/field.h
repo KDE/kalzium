@@ -51,21 +51,14 @@ class Field
 		 * @param stone The stone of which the neighbours are gathered.
 		 * @param direct if true, only the direct neighbours are counted. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
 		 */
-		virtual QList<Stone*> neighbours( const QPoint& p , bool direct = true );
-		
-		/**
-		 * @return the number of stones of all other players.
-		 * @param stone The stone of which the neighbours are counted.
-		 * @param direct if true, only the direct neighbours are counted. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
-		 */
-		virtual int neighboursNum( Stone* stone, bool direct = true );
+		virtual QList<Stone*> neighbours( Stone* stone , bool direct = true );
 		
 		/**
 		 * @return the number of stones of the player. Stone of other teams are not counted.
 		 * @param stone The stone of which the neighbours are counted.
 		 * @param direct if true, only the direct neighbours are counted. Otherwise, also the orthogonal stones will be looked at. Only needed if m_fieldtype is Field::SQUARE.
 		 */
-		virtual int neighboursTeam( Stone* stone, bool direct = true );
+		virtual QList<Stone*> neighboursTeam( Stone* stone, bool direct = true );
 
 		/**
 		 * Exchange the Stone at the postion @p point with one stone
