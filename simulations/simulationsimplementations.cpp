@@ -71,8 +71,6 @@ QString RASimulation::rules() const
 
 void RASimulation::rollDice()
 {
-	m_numberOfMoves++;
-
 	//generating two random numbers
 	const int x = ( int ) ( rand()%m_field->xSize() );
 	const int y = ( int ) ( rand()%m_field->ySize() );
@@ -139,8 +137,6 @@ QString CrystallizationSimulation::rules() const
 
 void CrystallizationSimulation::rollDice()
 {
-	m_numberOfMoves++;
-
 	//generating two random numbers
 	const int x = ( int ) ( rand()%m_field->xSize() );
 	const int y = ( int ) ( rand()%m_field->ySize() );
@@ -235,8 +231,6 @@ QString DecompositionSimulation::rules() const
 
 void DecompositionSimulation::rollDice()
 {
-	m_numberOfMoves++;
-
 	//generating two random numbers
 	const int x = ( int ) ( rand()%m_field->xSize() );
 	const int y = ( int ) ( rand()%m_field->ySize() );
@@ -348,7 +342,6 @@ QByteArray BoltzmannSimulation::name() const
 
 void BoltzmannSimulation::rollDice()
 {
-	m_numberOfMoves++;
 	changeToDo = true;
 
 	int numOfStones = m_field->stones().count();
@@ -454,8 +447,6 @@ QByteArray LightabsorptionSimulation::name() const
 
 void LightabsorptionSimulation::rollDice()
 {
-	m_numberOfMoves++;
-
 	//we will remove n times
 	int n = m_field->ySize();
 
@@ -545,8 +536,6 @@ QByteArray VolterraSimulation::name() const
 
 void VolterraSimulation::rollDice()
 {
-	m_numberOfMoves++;
-
 	if ( 0 == m_numberOfMoves%5 )//toggle the condition with 50% likelyhood every 5 moves
 	{
 		const int to = ( int ) ( rand()%2 );
