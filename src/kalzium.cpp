@@ -83,6 +83,9 @@ Kalzium::Kalzium()
 	setupSidebars();
 	setupActions();
 
+	// adding the libkdeedu catalog
+	KGlobal::locale()->insertCatalogue( "libkdeedu" );
+
 	// creating the glossary dialog and loading the glossaries we have
 	m_glossarydlg = new GlossaryDialog( true, this, "glossary" );
 	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
