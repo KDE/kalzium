@@ -1,0 +1,57 @@
+kde4_header()
+
+include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+
+
+########### install files ###############
+
+install_files( ${DATA_INSTALL_DIR}/kalzium/data/toolpics FILES abzug.jpg  	becherglas.jpg  	brechungsmesser.jpg  	brenner.jpg  	destillierbruecke.jpg  	dsc.jpg  	erlenmeyerkolben.jpg  	exikator.jpg  	halter.jpg  	heizplatte.jpg  	hplc.jpg  	kolbenprober.png  	korkring.jpg  	messzylinder.jpg  	moerser.jpg  	phpapier.jpg  	pileusball.jpg  	pipette.jpg  	rg-halter.jpg  	rg.jpg  	rg-staender.jpg  	rotationsverdampfer.jpg  	rueckflusskuehler.jpg  	ruehrfisch.jpg  	rundkolben.jpg  	scheidetrichter.jpg  	schutzbrille.jpg  	spatel.jpg  	spritzflasche.jpg  	thermometer2.jpg  	thermometer.jpg  	tonschale.jpg  	trichter.jpg  	trockenrohr.jpg  	tropftrichter.jpg  	uhrglas.jpg  	verteiler.jpg  	vollpipette.jpg  	waage.jpg  	wasserstrahlpumpe.jpg )
+
+kde4_footer()
+
+
+
+#original Makefile.am contents follow:
+
+#xml_DATA = abzug.jpg \
+#	becherglas.jpg \
+#	brechungsmesser.jpg \
+#	brenner.jpg \
+#	destillierbruecke.jpg \
+#	dsc.jpg \
+#	erlenmeyerkolben.jpg \
+#	exikator.jpg \
+#	halter.jpg \
+#	heizplatte.jpg \
+#	hplc.jpg \
+#	kolbenprober.png \
+#	korkring.jpg \
+#	messzylinder.jpg \
+#	moerser.jpg \
+#	phpapier.jpg \
+#	pileusball.jpg \
+#	pipette.jpg \
+#	rg-halter.jpg \
+#	rg.jpg \
+#	rg-staender.jpg \
+#	rotationsverdampfer.jpg \
+#	rueckflusskuehler.jpg \
+#	ruehrfisch.jpg \
+#	rundkolben.jpg \
+#	scheidetrichter.jpg \
+#	schutzbrille.jpg \
+#	spatel.jpg \
+#	spritzflasche.jpg \
+#	thermometer2.jpg \
+#	thermometer.jpg \
+#	tonschale.jpg \
+#	trichter.jpg \
+#	trockenrohr.jpg \
+#	tropftrichter.jpg \
+#	uhrglas.jpg \
+#	verteiler.jpg \
+#	vollpipette.jpg \
+#	waage.jpg \
+#	wasserstrahlpumpe.jpg
+#
+#xmldir = $(kde_datadir)/kalzium/data/toolpics
