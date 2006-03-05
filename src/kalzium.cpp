@@ -93,6 +93,9 @@ Kalzium::Kalzium()
 	setupSidebars();
 	setupActions();
 
+	// adding the libkdeedu catalog
+	KGlobal::locale()->insertCatalog( "libkdeedu" );
+
 	// creating the glossary dialog and loading the glossaries we have
 	m_glossarydlg = new GlossaryDialog( true, this );
 	m_glossarydlg->setObjectName( QLatin1String( "glossary" ) );
