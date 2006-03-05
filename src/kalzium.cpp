@@ -332,8 +332,19 @@ void Kalzium::showSettingsDialog()
 	w_colors->setObjectName( "colors_page" );
 	ui_colors.setupUi( w_colors );
 	dialog->addPage( w_colors, i18n( "Colors" ), "colorize" );
-	dialog->addPage( new setupUnits( 0, "units_page"), i18n("Units"), "gear");
-	dialog->addPage( new setupMisc( 0, "miscpage" ), i18n( "Miscellaneous" ), "misc" );
+ 	// units page
+	Ui_setupUnits ui_units;
+	QWidget *w_units = new QWidget( 0 );
+	w_units->setObjectName( "units_page" );
+	ui_units.setupUi( w_units );
+	dialog->addPage( w_units, i18n( "Units" ), "gear" );
+	// misc page
+	Ui_setupMisc ui_misc;
+	QWidget *w_misc = new QWidget( 0 );
+	w_misc->setObjectName( "miscpage" );
+	ui_misc.setupUi( w_misc );
+	dialog->addPage( w_misc, i18n( "Miscellaneous" ), "misc" );
+	// showing the dialog
 	dialog->show();
 }
 
