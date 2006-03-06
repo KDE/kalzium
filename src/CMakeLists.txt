@@ -1,6 +1,6 @@
 kde4_header()
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/ ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/ ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduplot/ ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/ ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/ ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
 
 
 ########### next target ###############
@@ -34,10 +34,10 @@ set(kalzium_SRCS
 
 kde4_automoc(${kalzium_SRCS})
 
+kde4_add_ui3_files(kalzium_SRCS settings_misc.ui settings_units.ui )
+
 kde4_add_ui_files(kalzium_SRCS 
    settings_colors.ui 
-   settings_misc.ui 
-   settings_units.ui 
    plotsetupwidget.ui 
    molcalcwidgetbase.ui 
    somwidget.ui 
@@ -49,7 +49,7 @@ kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
 kde4_add_executable(kalzium ${kalzium_SRCS})
 
-target_link_libraries(kalzium  ${QT_AND_KDECORE_LIBS} science kdeeduplot kdeeduui kio kdeui khtml )
+target_link_libraries(kalzium  ${LIB_KIO} kutils science kdeeduplot kdeeduui  khtml )
 
 install_targets(/bin kalzium )
 
