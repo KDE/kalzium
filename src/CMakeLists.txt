@@ -34,7 +34,6 @@ set(kalzium_SRCS
 
 kde4_automoc(${kalzium_SRCS})
 
-kde4_add_ui3_files(kalzium_SRCS settings_misc.ui settings_units.ui )
 
 kde4_add_ui_files(kalzium_SRCS 
    settings_colors.ui 
@@ -43,7 +42,7 @@ kde4_add_ui_files(kalzium_SRCS
    somwidget.ui 
    spectrumview.ui 
    printwidgetbase.ui 
-   propertysliderwidgetbase.ui )
+   propertysliderwidgetbase.ui settings_misc.ui settings_units.ui )
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
