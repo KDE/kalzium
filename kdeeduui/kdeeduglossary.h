@@ -22,8 +22,8 @@
 class QChar;
 class QDomDocument;
 class Q3ListViewItem;
-class KListView;
-class KListViewSearchLine;
+class K3ListView;
+class K3ListViewSearchLine;
 class KActionCollection;
 class GlossaryItem;
 
@@ -277,14 +277,14 @@ class GlossaryDialog : public KDialogBase
 		void updateTree();
 
 		KHTMLPart *m_htmlpart;
-		KListView *m_glosstree;
+		K3ListView *m_glosstree;
 		QString m_htmlbasestring;
 
 		KActionCollection* m_actionCollection;
 
 		Q3ListViewItem* findTreeWithLetter( const QChar&, Q3ListViewItem* );
 
-		KListViewSearchLine *m_search;
+		K3ListViewSearchLine *m_search;
 
 	private slots:
 		void slotClicked( Q3ListViewItem * );

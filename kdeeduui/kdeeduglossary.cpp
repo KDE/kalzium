@@ -15,8 +15,8 @@
 #include <khtml_part.h>
 #include <khtmlview.h>
 #include <kglobal.h>
-#include <klistview.h>
-#include <klistviewsearchline.h>
+#include <k3listview.h>
+#include <k3listviewsearchline.h>
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
 
@@ -217,7 +217,7 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 	lbl->setText( i18n( "Search:" ) );
 	hbox->addWidget( lbl );
 
-	m_search = new KListViewSearchLine( plainPage(), 0L );
+	m_search = new K3ListViewSearchLine( plainPage(), 0L );
 	m_search->setObjectName( "search-line" );
 	hbox->addWidget( m_search );
 	vbox->addLayout( hbox );
@@ -226,7 +226,7 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 	QSplitter *vs = new QSplitter( plainPage() );
 	vbox->addWidget( vs );
 
-	m_glosstree = new KListView( vs );
+	m_glosstree = new K3ListView( vs );
 	m_glosstree->setObjectName( "treeview" );
 	m_glosstree->addColumn( "entries" );
 	m_glosstree->header()->hide();
