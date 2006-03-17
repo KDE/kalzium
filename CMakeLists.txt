@@ -1,5 +1,7 @@
 kde4_header()
 
+project(kalzium)
+
 add_subdirectory( src ) 
 add_subdirectory( data ) 
 
