@@ -2194,6 +2194,7 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
 		<artificial>1</artificial>
+		<radioactive>1</radioactive>
 		<date scientist="C. Perrier. E. G. Segre">1937</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<spectra>
