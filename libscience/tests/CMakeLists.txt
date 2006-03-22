@@ -13,7 +13,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(xmlreadingtest ${xmlreadingtest_SRCS})
 
-target_link_libraries(xmlreadingtest  ${QT_AND_KDECORE_LIBS} science )
+target_link_libraries(xmlreadingtest  ${KDE4_KDECORE_LIBS} science )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -27,7 +27,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(isotopereadingtest ${isotopereadingtest_SRCS})
 
-target_link_libraries(isotopereadingtest  ${QT_AND_KDECORE_LIBS} science )
+target_link_libraries(isotopereadingtest  ${KDE4_KDECORE_LIBS} science )
 
 endif(KDE4_BUILD_TESTS)
 

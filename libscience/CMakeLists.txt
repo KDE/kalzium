@@ -24,7 +24,7 @@ kde4_automoc(${science_LIB_SRCS})
 
 kde4_add_library(science SHARED ${science_LIB_SRCS})
 
-target_link_libraries(science  ${LIB_KDEUI} ${QT_QTXML_LIBRARY} )
+target_link_libraries(science  ${KDE4_KDEUI_LIBS} ${QT_QTXML_LIBRARY} )
 
 set_target_properties(science PROPERTIES VERSION 4.0.0 SOVERSION 4 )
 install_targets(${LIB_INSTALL_DIR} science )
