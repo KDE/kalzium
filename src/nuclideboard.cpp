@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005, 2006 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
- *   
+ *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -174,7 +174,7 @@ void IsotopeTableView::selectionDone( const QRect& selectedRect )
 void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 {
 	m_IsotopeAdapterRectMap.clear();
-	
+
 	const int numOfElements = m_lastElem - m_firstElem + 1;
 	const int numOfNucleons = m_lastElemNucleon - m_firstElemNucleon + 1;
 
@@ -218,7 +218,7 @@ void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 		m_pix = QPixmap( size() );
 //kDebug() << "size(): " << size() << endl;
 	}
-	
+
 	QList<Isotope*> isotopeList;
 	QList<Isotope*>::ConstIterator isotope;
 	QList<Isotope*>::ConstIterator isotopeEnd;
@@ -236,7 +236,7 @@ void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 		isotopeEnd = isotopeList.constEnd();
 		isotope = isotopeList.constBegin();
 //kDebug() << k_funcinfo << "isolist: " << isotopeList.count() << endl;
-		
+
 		for ( ; isotope != isotopeEnd; ++isotope )
 		{
 			Isotope* iso = *isotope;
@@ -244,8 +244,8 @@ void IsotopeTableView::updateIsoptopeRectList( bool redoSize )
 
 			int Xpositon = iso->nucleons() - m_firstElemNucleon;
 
-			QRect boundingRect = QRect( 
-					Xpositon*(m_rectSize-1)+1, 
+			QRect boundingRect = QRect(
+					Xpositon*(m_rectSize-1)+1,
 					( numOfElements - id - 1 ) * ( m_rectSize - 1 ) + 1,
 					m_rectSize - 1, m_rectSize - 1 );
 //kDebug() << k_funcinfo << boundingRect << endl;
@@ -371,7 +371,7 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 	for ( ; it != itEnd ; ++it )
 	{
 		Isotope* i = it.key();
-	
+
 		if ( !i ) continue;
 
 		QList<QColor> colors = isotopeColors( i );
@@ -402,7 +402,7 @@ void IsotopeTableView::drawIsotopeWidgets( QPainter *p )
 			p->drawRect( it.value() );
 			p->setBrush( oldbrush );
 		}
-			
+
 		//For debugging, lets add the information
 //		p->drawText( it.data() ,Qt::AlignCenter, QString::number( it.key()->neutrons() ) );
 //X 		p->drawText( it.data(), Qt::AlignCenter, KalziumDataObject::instance()->element( it.key()->parentElementNumber() )->symbol() );
@@ -448,8 +448,8 @@ void IsotopeTableView::drawLegends( QPainter *p )
 /*
 	int Xpositon = iso->nucleons() - m_firstElemNucleon;
 
-	QRect boundingRect = QRect( 
-		Xpositon*(m_rectSize-1)+1, 
+	QRect boundingRect = QRect(
+		Xpositon*(m_rectSize-1)+1,
 		( numOfElements - id - 1 ) * ( m_rectSize - 1 ) + 1,
 		m_rectSize - 1, m_rectSize - 1 );
 */
@@ -619,8 +619,9 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 	NuclideLegend *legend = new NuclideLegend( page );
 
 	m_ac = new KActionCollection( this );
-	KToolBar *toolbar = new KToolBar( page, "toolbar", true, false );
-	toolbar->setIconSize( 22 );
+	KToolBar *toolbar = new KToolBar( page, true, false );
+        toolbar->setObjectName( "toolbar" );
+	toolbar->setIconSize( QSize( 22,22 ) );
 	KAction *a = KStdAction::zoomIn( m_view, SLOT( slotZoomIn() ), m_ac, "zoomin" );
 	a->plug( toolbar );
 	a = KStdAction::zoomOut( m_view, SLOT( slotZoomOut() ), m_ac, "zoomout" );
