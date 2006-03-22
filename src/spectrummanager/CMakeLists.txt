@@ -17,7 +17,7 @@ kde4_add_ui_files(spectrummanager_SRCS bandeditor.ui )
 
 kde4_add_executable(spectrummanager ${spectrummanager_SRCS})
 
-target_link_libraries(spectrummanager  ${QT_AND_KDECORE_LIBS} kio kdeui kdeprint science )
+target_link_libraries(spectrummanager  ${KDE4_KDECORE_LIBS} kio kdeui kdeprint science )
 
 install_targets(/bin spectrummanager )
 

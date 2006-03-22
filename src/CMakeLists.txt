@@ -48,7 +48,7 @@ kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
 kde4_add_executable(kalzium ${kalzium_SRCS})
 
-target_link_libraries(kalzium  ${LIB_KIO} kutils science kdeeduplot kdeeduui  khtml )
+target_link_libraries(kalzium  ${KDE4_KIO_LIBS} kutils science kdeeduplot kdeeduui  khtml )
 
 install_targets(/bin kalzium )
 
