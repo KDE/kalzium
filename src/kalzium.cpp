@@ -65,12 +65,6 @@ Kalzium::Kalzium()
 	// reading the elements from file
 	KalziumDataObject::instance();
 	
-	m_toolbox = new QToolBox( this );
-	m_dockWin = new QDockWidget("test");
-	
-	m_dockWin->setWidget( m_toolbox );
-	m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea ); 
-
 	m_activeTypeSearch = false;
 	m_searchTimer = new QTimer(this);
 	connect( m_searchTimer, SIGNAL( timeout() ), this, SLOT( slotSearchElements() ) );
@@ -187,6 +181,12 @@ void Kalzium::setupActions()
 
 void Kalzium::setupSidebars()
 {
+	m_dockWin = new QDockWidget( i18n( "Sidebar" ), this );
+	m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
+	m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea ); 
+
+	m_toolbox = new QToolBox( m_dockWin );
+	m_dockWin->setWidget( m_toolbox );
 
 	QWidget *fake = new QWidget( m_dockWin );
 	QVBoxLayout *lay = new QVBoxLayout( fake );
@@ -222,6 +222,7 @@ void Kalzium::setupSidebars()
 	m_printWidget = new PrintWidget( this );
 	m_toolbox->addItem( m_printWidget, SmallIcon( "fileprint" ), i18n( "Print Elements" ) );
 
+	addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
 }
 
 void Kalzium::slotGlossary()
@@ -275,7 +276,7 @@ void Kalzium::slotShowLegend()
 
 void Kalzium::slotShowHideSidebar()
 {
-	if( m_dockWin->isShown() )
+	if( m_dockWin->isVisible() )
 	{
 		m_dockWin->hide();
 		Prefs::setShowsidebar( false );
@@ -411,7 +412,7 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 			m_PeriodicTableView->setMode( KalziumPainter::SOM );
 			break;
 	}
-	if ( m_dockWin->isShown() )
+	if ( m_dockWin->isVisible() )
 		m_toolboxCurrent = id;
 }
 
@@ -428,7 +429,7 @@ void Kalzium::slotSidebarVisibilityChanged( bool visible )
 		slotToolboxCurrentChanged( 0 );
 
 	//save the settings
-	Prefs::setShowsidebar( m_dockWin->isShown() );
+	Prefs::setShowsidebar( m_dockWin->isVisible() );
 	Prefs::writeConfig();
 }
 
