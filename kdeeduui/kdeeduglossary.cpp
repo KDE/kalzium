@@ -73,7 +73,7 @@ bool Glossary::loadLayout( QDomDocument &Document, const KUrl& url )
 
 	if ( !layoutFile.exists() )
 	{
-		kDebug() << "no such file: " << layoutFile.name() << endl;
+		kDebug() << "no such file: " << layoutFile.fileName() << endl;
 		return false;
 	}
 
@@ -83,7 +83,7 @@ bool Glossary::loadLayout( QDomDocument &Document, const KUrl& url )
 	// check if document is well-formed
 	if ( !Document.setContent( &layoutFile ) )
 	{
-		kDebug() << "wrong xml of " << layoutFile.name() << endl;
+		kDebug() << "wrong xml of " << layoutFile.fileName() << endl;
 		layoutFile.close();
 		return false;
 	}
@@ -129,7 +129,7 @@ void Glossary::fixImagePath()
 	for ( ; it != itEnd ; ++it )
 	{
 		QString tmp = ( *it )->desc();
-		while ( exp.search( tmp ) > -1 )
+		while ( exp.indexIn( tmp ) > -1 )
 		{
 			tmp = tmp.replace( exp, imgtag );
 		}
@@ -202,14 +202,18 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 
 	m_folded = folded;
 	
-	QVBoxLayout *vbox = new QVBoxLayout( plainPage(), 0, KDialog::spacingHint() );
+	QVBoxLayout *vbox = new QVBoxLayout( plainPage() );
+	vbox->setMargin( 0 );
+	vbox->setSpacing( KDialog::spacingHint() );
 	vbox->activate();
 
-	QHBoxLayout *hbox = new QHBoxLayout( 0L, 0, KDialog::spacingHint() );
+	QHBoxLayout *hbox = new QHBoxLayout();
+	hbox->setMargin( 0 );
+	hbox->setSpacing( KDialog::spacingHint() );
 	hbox->activate();
 
 	QToolButton *clear = new QToolButton( plainPage() );
-	clear->setIconSet( SmallIconSet( "locationbar_erase" ) );
+	clear->setIcon( SmallIcon( "locationbar_erase" ) );
 	clear->setToolTip( i18n( "Clear filter" ) );
 	hbox->addWidget( clear );
 
