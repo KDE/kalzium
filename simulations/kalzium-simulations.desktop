@@ -1,0 +1,13 @@
+# KDE Config File
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Exec=kalzium-simulations -caption "%c" %i %m
+Icon=kalzium-simulations
+DocPath=kalzium/index.html
+Comment=Chemical Simulations
+Terminal=false
+Name=Kalzium-Simulations
+Name[x-test]=xxKalziumxx
+GenericName=Periodic Table of Elements
+Categories=Qt;KDE;Education;Science;

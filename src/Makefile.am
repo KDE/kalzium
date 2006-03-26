@@ -37,7 +37,7 @@ kalzium_SOURCES = kalzium.cpp \
 			propertysliderwidget.cpp \
 			printwidget.cpp \
 			printwidgetbase.ui \
-			propertysliderwidgetbase.ui
+			propertysliderwidgetbase.ui 
 
 kalzium_LDADD   = ../../libkdeedu/libscience/libscience.la \
 				  ../../libkdeedu/kdeeduplot/libkdeeduplot.la \
