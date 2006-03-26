@@ -7,17 +7,17 @@ include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_D
 
 set(simulations_SRCS 
 			main.cpp
-			field.h
-			gamecontrols_impl.h
-			maindialog_impl.h
-			simulation.h
-			simulationfield.h
-			simulationsdialog.h
-			simulationsimplementations.h
-			stone.h
-)
+			field.cpp
+			gamecontrols_impl.cpp
+			maindialog_impl.cpp
+			simulation.cpp
+			simulationfield.cpp
+			simulationsdialog.cpp
+			simulationsimplementations.cpp
+			stone.cpp
+			)
 
-kde4_automoc(${simulations_SRCS})
+
 
 
 kde4_add_ui_files(simulations_SRCS 
@@ -31,6 +31,8 @@ kde4_add_ui_files(simulations_SRCS
 		settings.ui
 		volterraform.ui
    )
+
+kde4_automoc(${simulations_SRCS})
 
 kde4_add_executable(kalzium-simulations ${simulations_SRCS})
 
