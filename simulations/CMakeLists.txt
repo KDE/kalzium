@@ -1,6 +1,6 @@
 kde4_header()
 
-include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduplot/ ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/ ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/ ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
 
 
 ########### next target ###############
@@ -14,11 +14,9 @@ set(simulations_SRCS
 			simulationfield.cpp
 			simulationsdialog.cpp
 			simulationsimplementations.cpp
-			stone.cpp
-			)
+			stone.cpp )
 
-
-
+kde4_automoc(${simulations_SRCS})
 
 kde4_add_ui_files(simulations_SRCS 
 		boltzmannform.ui
@@ -29,8 +27,7 @@ kde4_add_ui_files(simulations_SRCS
 		maindialog.ui
 		raform.ui
 		settings.ui
-		volterraform.ui
-   )
+		volterraform.ui )
 
 kde4_automoc(${simulations_SRCS})
 
