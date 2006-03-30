@@ -21,8 +21,6 @@ set(simulations_SRCS
 			simulationsimplementations.cpp
 			stone.cpp )
 
-kde4_automoc(${simulations_SRCS})
-
 kde4_add_ui_files(simulations_SRCS 
 		boltzmannform.ui
 		crystalform.ui
