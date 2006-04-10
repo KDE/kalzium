@@ -1,24 +1,30 @@
 kde4_header()
 
-add_subdirectory( data ) 
-add_subdirectory( tests ) 
+add_subdirectory(data)
+add_subdirectory(tests)
 
-include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+include_directories(
+   ${KDE4_INCLUDE_DIR}
+   ${QT_INCLUDES}
+   ${CMAKE_CURRENT_SOURCE_DIR}
+   ${CMAKE_CURRENT_BINARY_DIR}
+)
 
 
 ########### next target ###############
 
-set(science_LIB_SRCS 
-   element.cpp 
-   spectrum.cpp 
-   isotope.cpp 
-   spectrumparser.cpp 
-   elementparser.cpp 
-   isotopeparser.cpp 
-   tempunit.cpp 
-   chemicaldataobject.cpp 
-   moleculeparser.cpp 
-   parser.cpp )
+set(science_LIB_SRCS
+   element.cpp
+   spectrum.cpp
+   isotope.cpp
+   spectrumparser.cpp
+   elementparser.cpp
+   isotopeparser.cpp
+   tempunit.cpp
+   chemicaldataobject.cpp
+   moleculeparser.cpp
+   parser.cpp
+)
 
 kde4_automoc(${science_LIB_SRCS})
 
@@ -34,8 +40,6 @@ install_targets(${LIB_INSTALL_DIR} science )
 
 
 kde4_footer()
-
-
 
 #original Makefile.am contents follow:
 
