@@ -20,9 +20,9 @@
 #include <kdeeduglossary.h>
 
 #include "prefs.h"
-#include "settings_colors.h"
-#include "settings_misc.h"
-#include "settings_units.h"
+#include "ui_settings_colors.h"
+#include "ui_settings_misc.h"
+#include "ui_settings_units.h"
 #include "elementdataviewer.h"
 #include "detailinfodlg.h"
 #include "periodictableview.h"

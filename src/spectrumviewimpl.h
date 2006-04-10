@@ -15,7 +15,7 @@
 
 #include "spectrum.h"
 
-#include "spectrumview.h"
+#include "ui_spectrumview.h"
 
 /**
  * @author Carsten Niehaus

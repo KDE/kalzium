@@ -13,7 +13,7 @@
  ***************************************************************************/
 
 #include "elementdataviewer.h"
-#include "plotsetupwidget.h"
+#include "ui_plotsetupwidget.h"
 #include "plotwidget.h"
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"

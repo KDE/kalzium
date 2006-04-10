@@ -14,7 +14,7 @@
  ***************************************************************************/
 
 #include <QWidget>
-#include "somwidget.h"
+#include "ui_somwidget.h"
 
 class Element;
 

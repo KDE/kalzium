@@ -21,7 +21,7 @@
  ***************************************************************************/
 
 #include <QWidget>
-#include "molcalcwidgetbase.h"
+#include "ui_molcalcwidgetbase.h"
 
 #include "moleculeparser.h"
 

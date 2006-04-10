@@ -6,7 +6,7 @@
 
 #include <chemicaldataobject.h>
 
-#include "propertysliderwidgetbase.h"
+#include "ui_propertysliderwidgetbase.h"
 
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>

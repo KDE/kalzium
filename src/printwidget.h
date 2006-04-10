@@ -16,7 +16,7 @@
 
 #include <QWidget>
 #include <QListWidget>
-#include "printwidgetbase.h"
+#include "ui_printwidgetbase.h"
 
 class PrintListWidget;
 
