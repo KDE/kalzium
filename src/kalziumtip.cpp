@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Zack Rusin <zrusin@kde.org>			   *
- *   Sami Kyostil <skyostil@kempele.fi>			 		   *
+ *  Sami Kyostil <skyostil@kempele.fi>			 		   *
  *   Aaron J. Seigo <aseigo@kde.org>		 			   *
  *		     Martin Pfeiffer <hubipete@gmx.net>                    *
  *                                                                         *
@@ -45,7 +45,8 @@ KalziumTip::KalziumTip( QWidget * parent, const char * name, WFlags f ) : QWidge
 	hide(); //initailly hide it
 	m_richText = 0;
 	m_noElemIcon = KGlobal::iconLoader()->loadIcon( "orbits", KIcon::NoGroup, 64 );
-
+	setMouseTracking(true); // receice mouse move events
+	
 	connect(&m_frameTimer, SIGNAL(timeout()), SLOT(internalUpdate()));
 }
 
@@ -107,6 +108,13 @@ void KalziumTip::paintEvent(QPaintEvent* e)
 
 	QPainter p(this);
    	p.drawPixmap(e->rect().topLeft(), m_pixmap, e->rect());
+}
+
+void KalziumTip::mouseMoveEvent(QMouseEvent * e)
+{
+	// delegate the mouse move event to the parent (actually the elements table)
+	// so that this tooltip doesn't stop to be updated
+	e->ignore();
 }
 
 void KalziumTip::display()

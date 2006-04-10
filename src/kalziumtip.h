@@ -54,7 +54,9 @@ class KalziumTip : public QWidget
 
      		void plainMask();
     		void dissolveMask();
-    	
+    	// if the mouse pointer hovers us, send the event to the parent
+    	// so we are some-what 'mouse transparent'
+    	void mouseMoveEvent(QMouseEvent * e);
 		void displayInternal();
 		void display();	
 		
