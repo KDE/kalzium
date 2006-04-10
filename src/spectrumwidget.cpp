@@ -380,15 +380,15 @@ void SpectrumWidget::drawTooltip( QPainter *p )
 {
 	p->setPen( Qt::white );
 	QPoint pt = mapFromGlobal( QCursor::pos() );
-	p->drawText( pt, i18n("Wavelength: %1").arg(m_band.wavelength) ); 
+	p->drawText( pt, i18n("Wavelength: %1", m_band.wavelength) ); 
 	pt.setY( pt.y() + 15 );
-	p->drawText( pt, i18n("Intensity: %1").arg(m_band.intensity) ); 
+	p->drawText( pt, i18n("Intensity: %1", m_band.intensity) ); 
 	pt.setY( pt.y() + 15 );
-	p->drawText( pt, i18n("Energy 1, Energy 2: %1, %2").arg(m_band.energy1).arg( m_band.energy2 ));
+	p->drawText( pt, i18n("Energy 1, Energy 2: %1, %2", m_band.energy1, m_band.energy2 ));
 	pt.setY( pt.y() + 15 );
-	p->drawText( pt, i18n("Term 1, Term 2: %1, %2").arg(m_band.term1).arg( m_band.term2 ));
+	p->drawText( pt, i18n("Term 1, Term 2: %1, %2", m_band.term1, m_band.term2 ));
 	pt.setY( pt.y() + 15 );
-	p->drawText( pt, i18n("J 1, J 2: %1, %2").arg(m_band.J1).arg( m_band.J2 ));
+	p->drawText( pt, i18n("J 1, J 2: %1, %2", m_band.J1, m_band.J2 ));
 }
 
 void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )

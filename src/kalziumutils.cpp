@@ -97,7 +97,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
 			else
 			{
 				val = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperature() );
-				result = i18n( "%1 is the temperature, %2 is the unit, like \"300 K\"", "%1 %2" ).arg( val ).arg( TempUnit::unitListSymbol( Prefs::temperature() ) );
+				result = i18nc( "%1 is the temperature, %2 is the unit, like \"300 K\"", "%1 %2", val, TempUnit::unitListSymbol( Prefs::temperature() ) );
 			}
 			break;
 		}
@@ -122,13 +122,13 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
 				{
 					case 0:
 					{
-						result = i18n( "%1 kJ/mol" ).arg( val );
+						result = i18n( "%1 kJ/mol", val );
 						break;
 					}
 					case 1: // use electronvolt
 					{
 						val /= 96.6;
-						result = i18n( "%1 eV" ).arg( val );
+						result = i18n( "%1 eV", val );
 						break;
 					}
 				}
@@ -141,7 +141,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
 			if ( val <= 0.0 )
 				result = i18n( "Unknown Value" );
 			else
-				result = i18n( "%1 u" ).arg( val );
+				result = i18n( "%1 u", val );
 			break;
 		}
 		case ChemicalDataObject::date: // a date
@@ -149,7 +149,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
 			val = el->dataAsVariant( kind ).toInt();
 			result = val < 1600
 			         ? i18n( "This element was known to ancient cultures." )
-			         : i18n( "This element was discovered in the year %1." ).arg( val );
+			         : i18n( "This element was discovered in the year %1.", val );
 			break;
 		}
 		case ChemicalDataObject::radiusCovalent: // a length
@@ -159,7 +159,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
 			if ( val <= 0.0 )
 				result = i18n( "Unknown Value" );
 			else
-				result = i18n( "%1 is a length, eg: 12.3 pm", "%1 pm" ).arg( val );
+				result = i18nc( "%1 is a length, eg: 12.3 pm", "%1 pm", val );
 			break;
 		}
 		default:

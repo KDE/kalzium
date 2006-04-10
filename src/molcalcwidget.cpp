@@ -94,9 +94,9 @@ void MolcalcWidget::updateUI()
 		const ElementCountMap::Iterator  itEnd = m_elementMap.end();
 		for ( ; it != itEnd; ++it ) {
 			// Update the resultLabel
-			str += i18n( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" )
-				.arg( (*it)->count() )
-				.arg( (*it)->element()->dataAsString( ChemicalDataObject::name) );
+			str += i18nc( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" ,
+				  (*it)->count() ,
+				  (*it)->element()->dataAsString( ChemicalDataObject::name) );
 		}
 		ui.resultLabel->setText( str );
 
@@ -104,7 +104,7 @@ void MolcalcWidget::updateUI()
 		ui.resultComposition->setText( compositionString(m_elementMap) );
 
 		// The mass
-		ui.resultMass->setText( i18n( "Molecular mass: %1 u" ).arg( m_mass ) );
+		ui.resultMass->setText( i18n( "Molecular mass: %1 u", m_mass ) );
 
 		ui.resultMass->setToolTip(        complexString );
 		ui.resultComposition->setToolTip( complexString );
@@ -133,9 +133,9 @@ QString MolcalcWidget::compositionString( ElementCountMap &_map )
 	ElementCountMap::Iterator  it    = _map.begin();
 	ElementCountMap::Iterator  itEnd = _map.end();
 	for (; it != itEnd; ++it) {
-		str += i18n( "%1<sub>%2</sub> " )
-			.arg( (*it)->element()->dataAsString( ChemicalDataObject::symbol ) )
-			.arg( (*it)->count() );
+		str += i18n( "%1<sub>%2</sub> " ,
+			  (*it)->element()->dataAsString( ChemicalDataObject::symbol ) ,
+			  (*it)->count() );
 	}
 
 	return str;

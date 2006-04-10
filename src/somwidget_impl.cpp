@@ -155,7 +155,7 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "\n";
 		for ( int i = 0; i < listMeltingPoint.count(); i++ )
 		{
-			htmlcode += " - " + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listMeltingPoint.at( i ) ).arg( listMeltingPointValue.at( i ) ) + "\n";
+			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2)", listMeltingPoint.at( i ), listMeltingPointValue.at( i ) ) + "\n";
 		}
 		htmlcode += "\n";
 	}
@@ -169,7 +169,7 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "\n";
 		for ( int i = 0; i < listBoilingPoint.count(); i++ )
 		{
-			htmlcode += " - " + i18n( "For example: Carbon (300K)", "%1 (%2)" ).arg( listBoilingPoint.at( i ) ).arg( listBoilingPointValue.at( i ) ) + "\n";
+			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2)", listBoilingPoint.at( i ), listBoilingPointValue.at( i ) ) + "\n";
 		}
 		htmlcode += "\n";
 	}

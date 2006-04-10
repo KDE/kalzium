@@ -563,22 +563,22 @@ void NuclideLegend::paintEvent( QPaintEvent* /*e*/ )
 
 	p.fillRect( 10, 10, 10, 10, Qt::cyan );
 	p.drawRect( 10, 10, 10, 10 );
-	text = i18n( "%1- Decay" ).arg( QChar( 946 ) );
+	text = i18n( "%1- Decay", QChar( 946 ) );
 	p.drawText( 30, 20, text );
 
 	p.fillRect( 10, 30, 10, 10, Qt::red );
 	p.drawRect( 10, 30, 10, 10 );
-	text =  i18n( "%1+ Decay" ).arg( QChar( 946) );
+	text =  i18n( "%1+ Decay", QChar( 946) );
 	p.drawText( 30, 40, text );
 
 	p.fillRect( 120, 10, 10, 10, Qt::yellow );
 	p.drawRect( 120, 10, 10, 10 );
-	text =  i18n( "%1 Decay" ).arg( QChar( 945 ) );
+	text =  i18n( "%1 Decay", QChar( 945 ) );
 	p.drawText( 140, 20, text );
 
 	p.fillRect( 120, 30, 10, 10, Qt::green );
 	p.drawRect( 120, 30, 10, 10 );
-	text = i18n( "Acronym of Electron Capture Decay", "EC Decay" );
+	text = i18nc( "Acronym of Electron Capture Decay", "EC Decay" );
 	p.drawText( 140, 40, text );
 
 	p.fillRect( 230, 10, 10, 10, Qt::magenta );

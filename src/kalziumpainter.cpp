@@ -207,7 +207,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 			f.setPointSize( 8 );
 			m_painter->setFont( f );
 			double value = m_gradient->value( element );
-			QString strval = coeff != -1 ? QString::number( KalziumUtils::strippedValue( value ) ) : i18n( "It means: Not Available. Translators: keep it as short as you can!", "N/A" );
+			QString strval = coeff != -1 ? QString::number( KalziumUtils::strippedValue( value ) ) : i18nc( "It means: Not Available. Translators: keep it as short as you can!", "N/A" );
 			m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignBottom, strval );
 
 			m_painter->setFont( orig_font );
@@ -306,7 +306,7 @@ void KalziumPainter::drawLegend()
 				QRect othertexts = text;
 				othertexts.moveTo( text.bottomLeft() + QPoint( 0, padding + 4 + imgsize.height() ) );
 
-				m_painter->drawText( text, Qt::AlignHCenter | Qt::AlignBottom, i18n( "Gradient: %1" ).arg( m_gradient->description() ) );
+				m_painter->drawText( text, Qt::AlignHCenter | Qt::AlignBottom, i18n( "Gradient: %1", m_gradient->description() ) );
 				m_painter->drawPixmap( text.bottomLeft() + QPoint( 0, padding ), QPixmap::fromImage( img ) );
 
 				m_painter->drawText( othertexts, Qt::AlignRight, QString::number( m_gradient->maxValue() ) );

@@ -111,11 +111,11 @@ Kalzium::Kalzium()
 	m_prevNormalMode = KalziumPainter::NORMAL;
 }
 
-static QStringList prependToListItems( const QStringList& list, const QString& strprefix )
+static QStringList prependToListItems( const QStringList& list, const KLocalizedString& strprefix )
 {
 	QStringList l;
 	for ( int i = 0; i < list.count(); i++ )
-		l << strprefix.arg( list.at( i ) );
+		l << strprefix.subs( list.at( i ) ).toString();
 	return l;
 }
 
@@ -123,8 +123,8 @@ void Kalzium::setupActions()
 {
 	// the action for swiching look: color schemes and gradients
 	QStringList looklist;
-	looklist << prependToListItems( KalziumSchemeTypeFactory::instance()->schemes(), i18n( "Scheme: %1" ) );
-	looklist << prependToListItems( KalziumGradientTypeFactory::instance()->gradients(), i18n( "Gradient: %1" ) );
+	looklist << prependToListItems( KalziumSchemeTypeFactory::instance()->schemes(), ki18n( "Scheme: %1" ) );
+	looklist << prependToListItems( KalziumGradientTypeFactory::instance()->gradients(), ki18n( "Gradient: %1" ) );
 	look_action = new KSelectAction( i18n( "&Look" ), 0, this, 0, actionCollection(), "view_look" );
 	look_action->setItems(looklist);
 	connect( look_action, SIGNAL( activated( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
@@ -369,10 +369,10 @@ void Kalzium::setupStatusBar()
 void Kalzium::slotStatusbar( int num )
 {
 	Element *e = KalziumDataObject::instance()->element( num );
-	statusBar()->changeItem( i18n( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" )
-			.arg( e->dataAsString( ChemicalDataObject::name ) )
-			.arg( e->dataAsString( ChemicalDataObject::atomicNumber ) )
-			.arg( e->dataAsString( ChemicalDataObject::mass ) ) , IDS_ELEMENTINFO );
+	statusBar()->changeItem( i18nc( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ,
+			  e->dataAsString( ChemicalDataObject::name ) ,
+			  e->dataAsString( ChemicalDataObject::atomicNumber ) ,
+			  e->dataAsString( ChemicalDataObject::mass ) ) , IDS_ELEMENTINFO );
 }
 
 void Kalzium::openInformationDialog( int number )
@@ -450,7 +450,7 @@ void Kalzium::keyPressEvent( QKeyEvent *e)
 			if ( m_typeAheadString.length( ) > 1 )
 			{
 				m_typeAheadString = m_typeAheadString.left(  m_typeAheadString.length() - 1 );
-				statusBar()->changeItem(i18n( "Searching for: %1" ).arg( m_typeAheadString ),0);
+				statusBar()->changeItem(i18n( "Searching for: %1", m_typeAheadString ),0);
 			}
 			else
 				findAheadStop();
@@ -462,7 +462,7 @@ void Kalzium::keyPressEvent( QKeyEvent *e)
 		else if (  !e->text().isEmpty() )
 		{
 			m_typeAheadString += e->text();
-			statusBar()->changeItem(i18n( "Searching for: %1" ).arg( m_typeAheadString ),0);
+			statusBar()->changeItem(i18n( "Searching for: %1", m_typeAheadString ),0);
 		}
 
 		m_searchTimer->start( 500 );
