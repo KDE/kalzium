@@ -60,12 +60,14 @@ int main(int argc, char **argv)
     KApplication app;
     MainDialog_Impl *mainWin = 0;
 
+#warning MainDialog_Impl has to be a KMainWindow if you want to call RESTORE on it
+/*    
     if (app.isSessionRestored())
     {
         RESTORE(MainDialog_Impl);
     }
     else
-    {
+    {*/
         // no session.. just start up normally
         KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
@@ -76,7 +78,7 @@ int main(int argc, char **argv)
         mainWin->show();
 
         args->clear();
-    }
+//    }
 
     // mainWin has WDestructiveClose flag by default, so it will delete itself.
     return app.exec();

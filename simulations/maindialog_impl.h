@@ -17,7 +17,7 @@
 
 #include <QDialog>
 
-#include "maindialog.h"
+#include "ui_maindialog.h"
 
 /**
  * The main dialog of the simulations
