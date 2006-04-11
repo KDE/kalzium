@@ -37,7 +37,7 @@ kde4_automoc(${simulations_SRCS})
 kde4_add_executable(kalzium-simulations ${simulations_SRCS})
 
 install_targets(/bin kalzium-simulations )
-target_link_libraries(kalzium-simulations )
+target_link_libraries(kalzium-simulations ${KDE4_KIO_LIBS})
 
 
 ########### install files ###############

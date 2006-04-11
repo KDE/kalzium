@@ -58,4 +58,4 @@ void MainDialog_Impl::listRowChanged( int newCurrent )
 	ui.labelDescription->setText( sim ? sim->rules() : QString() );
 }
 
-#include "moc_maindialog_impl.cpp"
+#include "maindialog_impl.moc"

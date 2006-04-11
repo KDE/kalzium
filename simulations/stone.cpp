@@ -33,4 +33,4 @@ void Stone::swap()
 		m_player = Stone::First;
 }
 
-#include "moc_stone.cpp"
+#include "stone.moc"

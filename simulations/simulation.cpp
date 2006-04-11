@@ -149,7 +149,7 @@ void Simulation::slotNextMove()
 void Simulation::finishMove()
 {
 	QByteArray ds;
-	QChar c;
+	char c;
 	
 	for ( int y = 0; y < m_field->ySize()  ; ++y )
 	{
@@ -197,4 +197,4 @@ void Simulation::start()
 	m_numberOfMoves = 0;
 }
 
-#include "moc_simulation.cpp"
+#include "simulation.moc"

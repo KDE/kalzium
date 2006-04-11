@@ -227,4 +227,4 @@ void SimulationfieldWidget::paintHex( QPainter * p, int s )
 	}
 }
 
-#include "moc_simulationfield.cpp"
+#include "simulationfield.moc"

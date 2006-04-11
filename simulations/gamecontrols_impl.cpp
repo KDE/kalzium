@@ -33,4 +33,4 @@ void GameControls_Impl::showSettings()
 	dlg->show();
 }
 
-#include "moc_gamecontrols_impl.cpp"
+#include "gamecontrols_impl.moc"

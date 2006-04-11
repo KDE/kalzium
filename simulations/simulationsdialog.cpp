@@ -102,4 +102,4 @@ void GamesDialog::displayStatistics()
 	m_simulation->updateStatistics();
 }
 
-#include "moc_simulationsdialog.cpp"
+#include "simulationsdialog.moc"
