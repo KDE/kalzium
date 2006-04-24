@@ -12,7 +12,7 @@ add_subdirectory(toolpics)
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/kalzium/data FILES bg.jpg data.xml knowledge.xml tools.xml )
+install_files( ${DATA_INSTALL_DIR}/kalzium/data FILES bg.jpg knowledge.xml tools.xml )
 
 kde4_footer()
 
