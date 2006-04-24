@@ -120,7 +120,7 @@ class Kalzium : public KMainWindow
 		 */
 		void openInformationDialog( int number );
 
-		void slotStatusbar( int num );
+		void elementHover( int num );
 		void setupStatusBar();
 
 		void slotCrystalViewer();

@@ -41,12 +41,19 @@ DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
 	m_element = 0;
 	setMinimumSize( 300, 200 );
 
-	update();
+	// last operation: setting the background color and scheduling an update()
+	setBackgroundColor( QColor() );
 }
 
 void DetailedGraphicalOverview::setElement( int el )
 {
 	m_element = KalziumDataObject::instance()->element( el );
+	update();
+}
+
+void DetailedGraphicalOverview::setBackgroundColor( const QColor& bgColor )
+{
+	m_backgroundColor = bgColor.isValid() ? bgColor : Qt::green;
 	update();
 }
 
@@ -77,8 +84,8 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
 		x2 = w;
 		y2 = h;
-//FIXME
-		p.setBrush( Qt::green );//m_element->elementColor() );
+
+		p.setBrush( m_backgroundColor );
 		p.drawRect( x1, y1, x2 - 1, y2 - 1 );
 
 		p.setBrush( Qt::black );

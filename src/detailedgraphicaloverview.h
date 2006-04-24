@@ -43,6 +43,11 @@ class DetailedGraphicalOverview : public QWidget
 		 */
 		void setElement( int el );
 
+		/**
+		 * Set the background color to @p bgColor.
+		 */
+		void setBackgroundColor( const QColor& bgColor );
+
 	private:
 		/**
 		 * the element whose data will be used
@@ -57,6 +62,11 @@ class DetailedGraphicalOverview : public QWidget
 
 		//calculation of the corners
 		int x1,x2,y1,y2,h_t;
+
+		/**
+		 * The background color.
+		 */
+		QColor m_backgroundColor;
 
 	protected:
 		virtual void paintEvent( QPaintEvent* );

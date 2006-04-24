@@ -86,6 +86,8 @@ class PeriodicTableView : public QWidget
 		 */
 		void activateColorScheme( const int nr);
 
+		KalziumSchemeType* scheme() const;
+
 		/**
 		 * @return the short and descriptive name of this PeriodicTableView
 		 */
@@ -142,6 +144,12 @@ class PeriodicTableView : public QWidget
 		KalziumPainter *m_painter;
 
 		QPoint m_startDrag;
+
+		/**
+		 * Used to delay the emit of MouseOver().
+		 */
+		QTimer m_hoverTimer;
+		int m_prevHoverElement;
 
 	protected:
 		virtual void paintEvent( QPaintEvent *e );

@@ -79,7 +79,7 @@ Kalzium::Kalzium()
 	m_toolboxCurrent = 0;
 
 	connect( m_PeriodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
-	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotStatusbar( int ) ));
+	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( elementHover( int ) ));
 	
 	// layouting
 	setCentralWidget( helperSV );
@@ -365,13 +365,16 @@ void Kalzium::setupStatusBar()
 	statusBar()->show();
 }
 
-void Kalzium::slotStatusbar( int num )
+void Kalzium::elementHover( int num )
 {
 	Element *e = KalziumDataObject::instance()->element( num );
 	statusBar()->changeItem( i18nc( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ,
 			  e->dataAsString( ChemicalDataObject::name ) ,
 			  e->dataAsString( ChemicalDataObject::atomicNumber ) ,
 			  e->dataAsString( ChemicalDataObject::mass ) ) , IDS_ELEMENTINFO );
+
+	QColor schemeColor = m_PeriodicTableView->scheme()->elementBrush( num, QRect() ).color();
+	m_detailWidget->setBackgroundColor( schemeColor );
 }
 
 void Kalzium::openInformationDialog( int number )
@@ -389,6 +392,8 @@ void Kalzium::openInformationDialog( int number )
 				m_PeriodicTableView,        SLOT(selectElement(int)));
 	}
 	m_infoDialog->show();
+	QColor schemeColor = m_PeriodicTableView->scheme()->elementBrush( number, QRect() ).color();
+	m_infoDialog->setOverviewBackgroundColor( schemeColor );
 }
 
 void Kalzium::slotToolboxCurrentChanged( int id )

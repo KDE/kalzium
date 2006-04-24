@@ -167,10 +167,7 @@ QBrush KalziumBlocksSchemeType::elementBrush( int el, const QRect& elrect ) cons
 	else
 		c = Qt::lightGray;
 
-	QLinearGradient linearGrad( elrect.topLeft(), elrect.bottomRight() );
-	linearGrad.setColorAt( 0, c );
-	linearGrad.setColorAt( 1, c );
-	return QBrush( linearGrad );
+	return QBrush( c );
 }
 
 QColor KalziumBlocksSchemeType::textColor( int el ) const

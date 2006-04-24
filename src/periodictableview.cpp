@@ -66,6 +66,10 @@ PeriodicTableView::PeriodicTableView( QWidget *parent )
 
 	m_startDrag = QPoint();
 
+	m_hoverTimer.setSingleShot( true );
+	connect( &m_hoverTimer, SIGNAL( timeout() ), this, SLOT( slotMouseover() ) );
+	m_prevHoverElement = 0;
+
 	KalziumTableType *classic = KalziumTableTypeFactory::instance()->build( "Classic" );
 	m_painter = new KalziumPainter( classic );
 	m_painter->toggleLegend( Prefs::showlegend() );
@@ -85,6 +89,11 @@ void PeriodicTableView::activateColorScheme( const int nr )
 	m_painter->setScheme( nr );
 	setFullDraw();
 	update();
+}
+
+KalziumSchemeType* PeriodicTableView::scheme() const
+{
+	return m_painter->scheme();
 }
 
 void PeriodicTableView::setMode( KalziumPainter::MODE m )
@@ -175,6 +184,9 @@ void PeriodicTableView::mouseMoveEvent( QMouseEvent *event )
 	}
 	else
 	{
+		if ( m_hoverTimer.isActive() )
+			m_hoverTimer.stop();
+		m_hoverTimer.start( 200 );
 	}
 }
 
@@ -222,20 +234,15 @@ void PeriodicTableView::toggleLimit( bool toggle, ChemicalDataObject::BlueObelis
 
 int PeriodicTableView::sliderValue( ChemicalDataObject::BlueObelisk type )
 {
-	QMapIterator<ChemicalDataObject::BlueObelisk, int> i( m_sliderValueList );
-
-	while ( i.hasNext() ) {
-		if ( i.key() == type )
-			return i.value();
-	}
-	return 0;
+	return m_sliderValueList.contains( type ) ? m_sliderValueList.value( type ) : 0;
 }
 
 void PeriodicTableView::slotMouseover()
 {
 	int num = m_painter->currentTableType()->elementAtCoords( mapFromGlobal( QCursor::pos() ) );
-	if ( num > 0 )
+	if ( ( num > 0 ) && ( num != m_prevHoverElement ) )
 		emit MouseOver( num );
+	m_prevHoverElement = num;
 }
 
 void PeriodicTableView::setNumeration( int which )

@@ -42,6 +42,8 @@ class DetailedInfoDlg : public KDialogBase
  
 		void setElement( int el );
 
+		void setOverviewBackgroundColor( const QColor &bgColor );
+
 	private:
 		enum DATATYPE
 		{

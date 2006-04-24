@@ -93,6 +93,11 @@ void DetailedInfoDlg::setElement( int el )
 		enableButton( User1, false );
 }
 
+void DetailedInfoDlg::setOverviewBackgroundColor( const QColor &bgColor )
+{
+	dTab->setBackgroundColor( bgColor );
+}
+
 KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& icontext, const QString& iconname )
 {
 	QFrame *frame = addPage(title, icontext, BarIcon(iconname));
