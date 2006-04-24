@@ -237,6 +237,11 @@ int PeriodicTableView::sliderValue( ChemicalDataObject::BlueObelisk type )
 	return m_sliderValueList.contains( type ) ? m_sliderValueList.value( type ) : 0;
 }
 
+QBrush PeriodicTableView::brushForElement( int element ) const
+{
+	return m_painter->brushForElement( element );
+}
+
 void PeriodicTableView::slotMouseover()
 {
 	int num = m_painter->currentTableType()->elementAtCoords( mapFromGlobal( QCursor::pos() ) );

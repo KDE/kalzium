@@ -456,7 +456,7 @@ int KalziumPainter::temperature() const
 	return m_temperature;
 }
 
-QBrush KalziumPainter::getSlideBrush( int element, const QRect& rect )
+QBrush KalziumPainter::getSlideBrush( int element, const QRect& rect ) const
 {
 	Element *el = KalziumDataObject::instance()->element( element );
 
@@ -472,5 +472,63 @@ void KalziumPainter::setSliderValue( ChemicalDataObject::BlueObelisk type, int v
 {
 	m_sliderValue = value;
 	m_sliderType = type;
+}
+
+QBrush KalziumPainter::brushForElement( int element ) const
+{
+	if ( !m_scheme || !m_ktt ) return QBrush();
+
+	QRect rect = m_ktt->elementRect( element );
+	Element *el = KalziumDataObject::instance()->element( element );
+
+	switch ( m_mode )
+	{
+		case NORMAL:
+		{
+			return m_scheme->elementBrush( element, rect );
+			break;
+		}
+		case SOM:
+		{
+			QColor color;
+
+			const double melting = el->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
+			const double boiling = el->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
+
+			if ( m_temperature < melting )
+			{
+				//the element is solid
+				color = Prefs::color_solid();
+			}
+			else if ( ( m_temperature > melting ) && ( m_temperature < boiling ) )
+			{
+				//the element is liquid
+				color = Prefs::color_liquid();
+			}
+			else if ( ( m_temperature > boiling ) && ( boiling > 0.0 ) )
+			{
+				//the element is vaporous
+				color = Prefs::color_vapor();
+			}
+			else
+				color = Qt::lightGray;
+
+			return QBrush( color );
+			break;
+		}
+		case GRADIENT:
+		{
+			double coeff = m_gradient->elementCoeff( element );
+			return QBrush( m_gradient->calculateColor( coeff ) );
+			break;
+		}
+		case SLIDE:
+		{
+			return getSlideBrush( element, rect );
+			break;
+		}
+	}
+	// fallback
+	return QBrush();
 }
 

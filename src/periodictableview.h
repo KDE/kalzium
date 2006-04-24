@@ -117,6 +117,8 @@ class PeriodicTableView : public QWidget
 		 */
 		int sliderValue( ChemicalDataObject::BlueObelisk type );
 
+		QBrush brushForElement( int element ) const;
+
 	private:
 		QMap <ChemicalDataObject::BlueObelisk, int> m_sliderValueList;
 		

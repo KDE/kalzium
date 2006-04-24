@@ -127,12 +127,12 @@ void Kalzium::setupActions()
 	looklist << prependToListItems( KalziumGradientTypeFactory::instance()->gradients(), ki18n( "Gradient: %1" ) );
 	look_action = new KSelectAction( i18n( "&Look" ), 0, this, 0, actionCollection(), "view_look" );
 	look_action->setItems(looklist);
-	connect( look_action, SIGNAL( activated( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
+	connect( look_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
 
 	// the actions for switching numeration
 	numeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "view_numerationtype");
 	numeration_action->setItems( KalziumNumerationTypeFactory::instance()->numerations() );
-	connect (numeration_action, SIGNAL(activated(int)), this, SLOT(slotSwitchtoNumeration(int)));
+	connect( numeration_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoNumeration( int ) ) );
 
 	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
 	
@@ -373,8 +373,7 @@ void Kalzium::elementHover( int num )
 			  e->dataAsString( ChemicalDataObject::atomicNumber ) ,
 			  e->dataAsString( ChemicalDataObject::mass ) ) , IDS_ELEMENTINFO );
 
-	QColor schemeColor = m_PeriodicTableView->scheme()->elementBrush( num, QRect() ).color();
-	m_detailWidget->setBackgroundColor( schemeColor );
+	m_detailWidget->setBackgroundColor( m_PeriodicTableView->brushForElement( num ).color() );
 }
 
 void Kalzium::openInformationDialog( int number )
@@ -391,9 +390,8 @@ void Kalzium::openInformationDialog( int number )
 		connect(m_infoDialog, SIGNAL(elementChanged(int)),
 				m_PeriodicTableView,        SLOT(selectElement(int)));
 	}
+	m_infoDialog->setOverviewBackgroundColor( m_PeriodicTableView->brushForElement( number ).color() );
 	m_infoDialog->show();
-	QColor schemeColor = m_PeriodicTableView->scheme()->elementBrush( number, QRect() ).color();
-	m_infoDialog->setOverviewBackgroundColor( schemeColor );
 }
 
 void Kalzium::slotToolboxCurrentChanged( int id )

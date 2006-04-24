@@ -151,8 +151,10 @@ class KalziumPainter
 		 */
 		void setSliderValue( ChemicalDataObject::BlueObelisk type, int value );
 
+		QBrush brushForElement( int element ) const;
+
 	private:
-		QBrush getSlideBrush( int element, const QRect& rect );
+		QBrush getSlideBrush( int element, const QRect& rect ) const;
 		ChemicalDataObject::BlueObelisk m_sliderType;
 		int m_sliderValue;
 		
