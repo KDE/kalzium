@@ -29,7 +29,6 @@ class KalziumGradientType;
 #include <QTimer>
 #include <QPoint>
 #include <QPixmap>
-#include <QList>
 #include <QMap>
 
 #include "kalziumpainter.h"

@@ -118,7 +118,7 @@ void DetailedInfoDlg::fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode 
 	htmlpart->end();
 }
 
-QString DetailedInfoDlg::getHtml(DATATYPE type)
+QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 {
 	QString html =
 	    "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
@@ -261,7 +261,7 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 	return html;
 }
 
-QString DetailedInfoDlg::isotopeTable()
+QString DetailedInfoDlg::isotopeTable() const
 {
 	QList<Isotope*> list = KalziumDataObject::instance()->isotopes( m_elementNumber );
 

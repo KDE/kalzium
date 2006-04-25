@@ -34,7 +34,6 @@
 #include <klocale.h>
 #include <kurl.h>
 #include <kstandarddirs.h>
-#include <kapplication.h>
 
 KalziumDataObject* KalziumDataObject::instance()
 {

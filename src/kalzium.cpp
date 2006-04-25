@@ -12,10 +12,6 @@
  ***************************************************************************/
 #include "kalzium.h"
 
-#ifdef HAVE_FACILE
-//#include "eqchemview.h"
-#endif
-
 #include <element.h>
 #include <kdeeduglossary.h>
 
@@ -38,6 +34,9 @@
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
 #include "printwidget.h"
+#ifdef HAVE_FACILE
+//#include "eqchemview.h"
+#endif
 
 #include <QDockWidget>
 #include <QLayout>
@@ -54,7 +53,6 @@
 #include <kapplication.h>
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
-#include <kdialogbase.h>
 
 #define PeriodicTableView_MARGIN          5
 #define IDS_ELEMENTINFO     7
@@ -197,29 +195,29 @@ void Kalzium::setupSidebars()
 	m_toolbox = new QToolBox( m_dockWin );
 	m_dockWin->setWidget( m_toolbox );
 
-	QWidget *fake = new QWidget( m_dockWin );
+	QWidget *fake = new QWidget( m_toolbox );
 	QVBoxLayout *lay = new QVBoxLayout( fake );
 	lay->setMargin( 5 );
 	lay->activate();
 	m_detailWidget = new DetailedGraphicalOverview( fake );
 	m_detailWidget->setObjectName( "DetailedGraphicalOverview" );
 	m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
-	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( slotSelectedNumber( int ) ));
+	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), m_detailWidget, SLOT( setElement( int ) ) );
  	lay->addWidget( m_detailWidget );
 	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
 	m_toolbox->addItem( fake, SmallIconSet( "overview" ), i18n( "Overview" ) );
 	
-	m_calcWidget = new MolcalcWidget( m_dockWin );
+	m_calcWidget = new MolcalcWidget( m_toolbox );
 	m_calcWidget->setObjectName( "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIconSet( "calculate" ), i18n( "Calculate" ) );
 	
-	m_SliderWidget = new PropertySliderWidget( this );
+	m_SliderWidget = new PropertySliderWidget( m_toolbox );
 	m_SliderWidget->setObjectName( "m_SliderWidget" );
 	m_toolbox->addItem( m_SliderWidget, SmallIconSet( "timeline" ), i18n( "Properties Slider" ) );
 	connect( m_SliderWidget, SIGNAL(valueHasChanged( ChemicalDataObject::BlueObelisk, int ) ),
 			m_PeriodicTableView, SLOT(setSliderValue( ChemicalDataObject::BlueObelisk, int ) ) );
 
-	m_somWidget = new SOMWidgetIMPL( this );
+	m_somWidget = new SOMWidgetIMPL( m_toolbox );
 	m_somWidget->setObjectName( "somWidget" );
 	connect( m_somWidget, SIGNAL( temperatureChanged( int ) ),
 	         m_PeriodicTableView, SLOT( setTemperature( int ) ) );
@@ -227,8 +225,8 @@ void Kalzium::setupSidebars()
 	
 	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
-	m_printWidget = new PrintWidget( this );
-	m_toolbox->addItem( m_printWidget, SmallIcon( "fileprint" ), i18n( "Print Elements" ) );
+	m_printWidget = new PrintWidget( m_toolbox );
+	m_toolbox->addItem( m_printWidget, SmallIconSet( "fileprint" ), i18n( "Print Elements" ) );
 
 	addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
 }
@@ -425,11 +423,6 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 	}
 	if ( m_dockWin->isVisible() )
 		m_toolboxCurrent = id;
-}
-
-void Kalzium::slotSelectedNumber( int num )
-{
-	m_detailWidget->setElement( num );
 }
 
 void Kalzium::slotSidebarVisibilityChanged( bool visible )

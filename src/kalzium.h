@@ -153,8 +153,6 @@ class Kalzium : public KMainWindow
 
 		void slotToolboxCurrentChanged(int);
 
-		void slotSelectedNumber(int);
-
 		void slotShowHideSidebar();
 
 		void slotSidebarVisibilityChanged(bool);

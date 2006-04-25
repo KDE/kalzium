@@ -28,15 +28,11 @@
 
 #include <klocale.h>
 #include <kdebug.h>
-#include <kpixmapeffect.h>
-#include <kimageeffect.h>
 
 #include <QApplication>
 #include <QEvent>
 #include <QImage>
 #include <QString>
-#include <QToolTip>
-#include <QWhatsThis>
 #include <QLabel>
 #include <QPixmap>
 #include <QPoint>

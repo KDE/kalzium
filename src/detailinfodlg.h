@@ -62,7 +62,7 @@ class DetailedInfoDlg : public KDialogBase
 		QStackedWidget* m_spectrumStack;
 		QLabel* m_spectrumLabel;
 
-		QString isotopeTable();
+		QString isotopeTable() const;
 
 		DetailedGraphicalOverview *dTab;
 		QLabel *piclabel;
@@ -76,7 +76,7 @@ class DetailedInfoDlg : public KDialogBase
 		void createContent();
 		void reloadContent();
 
-		QString getHtml(DATATYPE);
+		QString getHtml( DATATYPE ) const;
 
 		QString m_baseHtml;
 		QString m_picsdir;
