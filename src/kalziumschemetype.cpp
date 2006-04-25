@@ -151,7 +151,7 @@ QString KalziumBlocksSchemeType::description() const
 	return i18n( "Blocks" );
 }
 
-QBrush KalziumBlocksSchemeType::elementBrush( int el, const QRect& elrect ) const
+QBrush KalziumBlocksSchemeType::elementBrush( int el, const QRect& ) const
 {
 	QString block = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::periodTableBlock );
 

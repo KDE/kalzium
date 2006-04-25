@@ -36,6 +36,7 @@
 #include <QPixmap>
 #include <QPolygon>
 #include <QSizePolicy>
+#include <QToolBar>
 
 #include <kaction.h>
 #include <kactioncollection.h>
@@ -44,7 +45,6 @@
 #include <kglobal.h>
 #include <klocale.h>
 #include <kstdaction.h>
-#include <ktoolbar.h>
 #include <ktoolinvocation.h>
 
 #include <math.h>
@@ -619,17 +619,17 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 	NuclideLegend *legend = new NuclideLegend( page );
 
 	m_ac = new KActionCollection( this );
-	KToolBar *toolbar = new KToolBar( page, true, false );
+	QToolBar *toolbar = new QToolBar( page );
         toolbar->setObjectName( "toolbar" );
 	toolbar->setIconSize( QSize( 22,22 ) );
 	KAction *a = KStdAction::zoomIn( m_view, SLOT( slotZoomIn() ), m_ac, "zoomin" );
-	a->plug( toolbar );
+	toolbar->addAction( a );
 	a = KStdAction::zoomOut( m_view, SLOT( slotZoomOut() ), m_ac, "zoomout" );
-	a->plug( toolbar );
-	KToggleAction *ta = new KToggleAction( i18n( "Select Zoom Area" ), "viewmagfit", 0, 0, 0, m_ac, "zoomselect" );
+	toolbar->addAction( a );
+	KToggleAction *ta = new KToggleAction( KIcon( "viewmagfit" ), i18n( "Select Zoom Area" ), m_ac, "zoomselect" );
 	connect( ta, SIGNAL( toggled( bool ) ), m_view, SLOT( slotToogleZoomMode( bool ) ) );
 	connect( m_view, SIGNAL( toggleZoomAction( bool ) ), ta, SLOT( setChecked( bool ) ) );
-	ta->plug( toolbar );
+	toolbar->addAction( ta );
 
 	vbox->addWidget( toolbar );
 	vbox->addWidget( scrollarea );

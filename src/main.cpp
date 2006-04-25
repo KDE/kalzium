@@ -83,7 +83,6 @@ int main(int argc, char **argv)
         /// @todo do something with the command line args here
 
         mainWin = new Kalzium();
-        app.setMainWidget( mainWin );
         mainWin->show();
 
         args->clear();

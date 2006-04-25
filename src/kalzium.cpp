@@ -125,29 +125,38 @@ void Kalzium::setupActions()
 	QStringList looklist;
 	looklist << prependToListItems( KalziumSchemeTypeFactory::instance()->schemes(), ki18n( "Scheme: %1" ) );
 	looklist << prependToListItems( KalziumGradientTypeFactory::instance()->gradients(), ki18n( "Gradient: %1" ) );
-	look_action = new KSelectAction( i18n( "&Look" ), 0, this, 0, actionCollection(), "view_look" );
+	look_action = new KSelectAction( i18n( "&Look" ), actionCollection(), "view_look" );
 	look_action->setItems(looklist);
 	connect( look_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
 
 	// the actions for switching numeration
-	numeration_action = new KSelectAction (i18n("&Numeration"), 0, this, 0, actionCollection(), "view_numerationtype");
+	numeration_action = new KSelectAction( i18n( "&Numeration" ), actionCollection(), "view_numerationtype" );
 	numeration_action->setItems( KalziumNumerationTypeFactory::instance()->numerations() );
 	connect( numeration_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoNumeration( int ) ) );
 
-	m_SidebarAction = new KAction(i18n("Show &Sidebar"), "sidebar", 0, this, SLOT(slotShowHideSidebar()), actionCollection(), "view_sidebar");
+	m_SidebarAction = new KAction( KIcon( "sidebar" ), i18n( "Show &Sidebar "), actionCollection(), "view_sidebar" );
+	connect( m_SidebarAction, SIGNAL( triggered() ), this, SLOT( slotShowHideSidebar() ) );
 	
 #ifdef HAVE_FACILE
-//	m_EQSolverAction = new KAction(i18n("&Equation Solver..."), "eqchem", 0, this, SLOT(slotShowEQSolver()), actionCollection(), "tools_eqsolver");
+/*
+	m_EQSolverAction = new KAction( KIcon( "eqchem" ), i18n( "&Equation Solver..." ), actionCollection(), "tools_eqsolver" );
+	connect( m_EQSolverAction, SIGNAL( triggered() ), this, SLOT( slotShowEQSolver() ) );
+*/
 #endif
 	
 	// tools actions
-	m_pPlotAction = new KAction(i18n("&Plot Data..."), "plot", 0, this, SLOT(slotPlotData()), actionCollection(), "tools_plotdata");
-	m_pIsotopeTableAction = new KAction(i18n("&Isotope Table..."), "isotopemap", 0, this, SLOT(slotIsotopeTable()), actionCollection(), "tools_isotopetable");
-	m_pGlossaryAction = new KAction(i18n("&Glossary..."), "glossary", 0, this, SLOT(slotGlossary()), actionCollection(), "tools_glossary");
-	m_pCrystalViewer = new KAction(i18n("&Crystal Viewer..."), "crystal", 0, this, SLOT(slotCrystalViewer()), actionCollection(), "tools_crystalviewer");
+	m_pPlotAction = new KAction( KIcon( "plot" ), i18n( "&Plot Data..." ), actionCollection(), "tools_plotdata" );
+	connect( m_pPlotAction, SIGNAL( triggered() ), this, SLOT( slotPlotData() ) );
+	m_pIsotopeTableAction = new KAction( KIcon( "isotopemap" ), i18n( "&Isotope Table..." ), actionCollection(), "tools_isotopetable" );
+	connect( m_pIsotopeTableAction, SIGNAL( triggered() ), this, SLOT( slotIsotopeTable() ) );
+	m_pGlossaryAction = new KAction( KIcon( "glossary" ), i18n( "&Glossary..." ), actionCollection(), "tools_glossary" );
+	connect( m_pGlossaryAction, SIGNAL( triggered() ), this, SLOT( slotGlossary() ) );
+	m_pCrystalViewer = new KAction( KIcon( "crystal" ), i18n( "&Crystal Viewer..." ), actionCollection(), "tools_crystalviewer" );
+	connect( m_pCrystalViewer, SIGNAL( triggered() ), this, SLOT( slotCrystalViewer() ) );
 
 	// other period view options
-	m_pLegendAction = new KAction(i18n("Show &Legend"), "legend", 0, this, SLOT(slotShowLegend()), actionCollection(), "view_legend");
+	m_pLegendAction = new KAction( KIcon( "legend" ), i18n( "Show &Legend" ), actionCollection(), "view_legend" );
+	connect( m_pLegendAction, SIGNAL( triggered() ), this, SLOT( slotShowLegend() ) );
 	
 	// the standard actions
 	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
