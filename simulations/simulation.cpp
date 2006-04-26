@@ -178,7 +178,7 @@ void Simulation::finishMove()
 
 	Move *move = new Move( ds );
 	qDebug( "Move %d", m_numberOfMoves );
-	qDebug( "%s", qPrintable(ds) );
+	qDebug( "%s", ds.constData() );
 	m_moves.append( move );
 
 	qApp->processEvents();
