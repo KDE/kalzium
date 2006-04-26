@@ -163,29 +163,19 @@ OrbitsWidget::OrbitsWidget( QWidget *parent ) : QWidget( parent )
 	}
 }
 
-void OrbitsWidget::setElementNumber( const int num )
+void OrbitsWidget::setElementNumber( int num )
 {
 	Elemno = num;
 	
-	getNumberOfOrbits();
-
-	update();
-}
-
-void OrbitsWidget::getNumberOfOrbits()
-{
 	numOfElectrons.clear();
 	QString o;
 	if ( ( Elemno > 0 ) && ( Elemno <= hulllist.count() ) )
 		o = hulllist[ Elemno-1 ];
 
-	QRegExp digit( "\\d+" );
-	int pos = 0;
-	while ( ( pos = digit.indexIn( o, pos ) ) > -1 )
-	{
-		numOfElectrons.append( digit.cap( 0 ).toInt() );
-		pos = pos + digit.matchedLength();
-	}
+	foreach( const QString& str, o.split( ' ', QString::SkipEmptyParts ) )
+		numOfElectrons.append( str.toInt() );
+
+	update();
 }
 
 void OrbitsWidget::paintEvent(  QPaintEvent* )
@@ -197,56 +187,51 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 
 	const int num = numOfElectrons.count();
 	if ( num == 0 ) return; // no orbits, do nothing
-	
-	int h=height();
-	int w=width();
-	int w_c=h/10;
-	int h_c=h/10;
-	
-	//the radius of the current orbit
-	int r;
+
+	int min_size = qMin( width(), height() );
+	int min_delta = min_size / 10;
 
 	//make sure the biggest orbit fits in the widget
-	if ( h < w )
-		r = ( h-2*h_c )/2;
-	else r = ( w-2*w_c )/2;
-	
+	//diameter
+	int d = min_size - 2 * min_delta;
+
+	//the radius of the current orbit
+	int r = d / 2;
+
 	//the radius of an 'electron'
 	int r_electron = r/20;
-	
-	QBrush brush( Qt::yellow );
 
-	int d = 2*r; //Diameter
-	int	ddx = d/(2*num);//difference to the previous circle
+	//difference to the previous circle
+	int ddx = r / num;
 
 	intList::Iterator it = numOfElectrons.end();
 	--it;
 
 	for ( int i = 0 ; i < num ; ++i )
 	{
-		int mx = w_c+ddx*i; //the x-coordinate for the current circle
-		int my = h_c+ddx*i; //the y-coordinate for the current circle
+		int mx = min_delta + ddx * i; //the x-coordinate for the current circle
+		int my = min_delta + ddx * i; //the y-coordinate for the current circle
 
 		DC.setBrush( Qt::NoBrush );
 		
 		//draw the big ellipses in concentric circles
 		DC.drawEllipse( mx , my , d , d);
 
-		DC.setBrush( brush );
+		DC.setBrush( Qt::yellow );
 		
 		for ( int e = 0 ; e < *it ; ++e )
 		{
-			int x = (int)translateToDX(  ( double )d/2 , ( double )e , *it);
-			int y = (int)translateToDY(  ( double )d/2 , ( double )e , *it);
+			int x = (int)translateToDX( d/2.0, (double)e, *it );
+			int y = (int)translateToDY( d/2.0, (double)e, *it );
 
 			DC.drawEllipse( x + mx + d/2 - r_electron, 
-					y + mx + d/2 - r_electron,
+					y + my + d/2 - r_electron,
 					2*r_electron ,
 					2*r_electron );
 			
 		}
 		--it;
-		d = d-2*ddx;
+		d -= 2 * ddx;
 	}
 }
 

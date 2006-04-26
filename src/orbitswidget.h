@@ -31,7 +31,7 @@ class OrbitsWidget : public QWidget
 	public:
 		OrbitsWidget( QWidget *parent = 0 );
 
-		void setElementNumber( const int num );
+		void setElementNumber( int num );
 
 	private:
 		/**
@@ -41,11 +41,6 @@ class OrbitsWidget : public QWidget
 	
 		typedef QList<int> intList;
 		intList numOfElectrons;
-
-		/**
-		 * sets everything up
-		 */
-		void getNumberOfOrbits();
 
 	protected slots:
 		virtual void paintEvent(  QPaintEvent* );
