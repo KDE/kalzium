@@ -30,7 +30,7 @@ namespace Ui
 	class LightabsorptionForm;
 	class DecompositionForm;
 	class VolterraForm;
-};
+}
 
 /**
  * @author Carsten Niehaus
