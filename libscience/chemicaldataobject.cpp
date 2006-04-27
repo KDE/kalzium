@@ -36,7 +36,7 @@ ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, con
 	d->m_errorValue = errorValue;
 	d->m_type = type;
 	d->m_unit = ChemicalDataObject::noUnit;
-};
+}
 
 ChemicalDataObject::ChemicalDataObject() : d(new ChemicalDataObjectPrivate())
 {
