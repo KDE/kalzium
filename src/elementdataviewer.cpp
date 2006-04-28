@@ -141,7 +141,7 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 	}
 
 	m_actionCollection = new KActionCollection (this );
-	KStdAction::quit( this, SLOT( slotClose() ), m_actionCollection );
+	KStdAction::quit( this, SLOT( close() ), m_actionCollection );
 
 	connect( m_timer, SIGNAL( timeout() ), this, SLOT( drawPlot() ) );
 	connect( m_pPlotSetupWidget->KCB_y, SIGNAL( activated(int) ),
@@ -203,11 +203,6 @@ void ElementDataViewer::setLimits(int f, int t)
 	if ( dy < 1e-7 )
 		dy = maxY / 10.0;
 	m_pPlotWidget->setLimits( f - dx, t + dx, minY - dy, maxY + dy );
-}
-
-void ElementDataViewer::paintEvent(QPaintEvent*)
-{
-	m_pPlotWidget->update();
 }
 
 void ElementDataViewer::keyPressEvent(QKeyEvent *e)

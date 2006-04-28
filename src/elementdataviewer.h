@@ -51,7 +51,6 @@ class ElementDataViewer : public KDialogBase
 		void drawPlot();
 
 	protected:
-		virtual void paintEvent(QPaintEvent*);
 		virtual void keyPressEvent(QKeyEvent *e);
 		
 	protected slots:
