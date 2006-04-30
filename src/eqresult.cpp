@@ -62,7 +62,7 @@ void AnswerItem::paint( QPainter* painter )
     painter->fillRect( r, m_bgcolor );
 
     QColorGroup cg = listBox()->colorGroup();
-    cg.setColor( QColorGroup::Background, m_bgcolor );
+    cg.setColor( QPalette::Background, m_bgcolor );
 
     m_richtext->draw(painter, 0, 0, r, cg );
 }
