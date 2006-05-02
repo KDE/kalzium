@@ -4,14 +4,6 @@
 	<element>
 		<number>1</number>
 		<biologicalmeaning></biologicalmeaning>
-		<electronaffinity>-73</electronaffinity>
-		<electronegativity>2.1</electronegativity>
-		<meltingpoint>13.81</meltingpoint>
-		<boilingpoint>20.28</boilingpoint>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="+2.792846" halflife="" halflifeformat="seconds" weight="1.007825" neutron="0" percentage="99.985" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1+" magmoment="+0.857438" halflife="" halflifeformat="seconds" weight="2.0141" neutron="1" percentage="0.015" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.01861" ecpercentage="" ecdecay="" spin="1/2+" magmoment="+2.978960" halflife="12.3" halflifeformat="years" weight="3.016049" neutron="2" pecentage=""  />
 		</isotopes>
 		<density>0.084</density>
 		<ionisationenergy>
@@ -26,16 +18,11 @@
 		</radius>
 		<orbits>1s1</orbits>
 		<oxydation>+1.(-1)</oxydation>
-		<family>Non-Metal</family>
 		<abundance>1520</abundance>
 	</element>
 	<element>
 		<number>2</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>21</electronaffinity>
-		<electronegativity></electronegativity>
-		<meltingpoint>0.95</meltingpoint>
-		<boilingpoint>4.216</boilingpoint>
 		<density>0.1785</density>
 		<ionisationenergy>
 			<energy>24.587 </energy>
@@ -49,20 +36,12 @@
 		</radius>
 		<orbits>1s2</orbits>
 		<oxydation>0</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" halflife="" spin="1/2+" magmoment="-2.127624" halflifeformat="seconds" weight="3.01603" neutron="1" percentage="0.000138" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="4.0026" neutron="2" percentage="99.999862" />
 		</isotopes>
-		<family>Noblegas</family>
 		<crystalstructure>hcp</crystalstructure>
 	</element>
 	<element>
 		<number>3</number>
 		<biologicalmeaning>5</biologicalmeaning>
-		<electronaffinity>-60</electronaffinity>
-		<electronegativity>0.98</electronegativity>
-		<meltingpoint>453.7</meltingpoint>
-		<boilingpoint>1615</boilingpoint>
 		<density>0.53</density>
 		<ionisationenergy>
 			<energy>5.392 </energy>
@@ -77,11 +56,7 @@
 		</radius>
 		<orbits>1s2 2s1</orbits>
 		<oxydation>+1</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1+" magmoment="+0.822056" halflife="" halflifeformat="seconds" weight="6.015121" neutron="3" percentage="7.5" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+3.25644" halflife="" halflifeformat="seconds" weight="7.016003" neutron="4" percentage="92.5" />
 		</isotopes>
-		<family>Alkali_Earth</family>
 		<crystalstructure>bcc</crystalstructure>
 		<abundance>18</abundance>
 	</element>
@@ -89,10 +64,6 @@
 		<number>4</number>
 		<aggregation>0 </aggregation>
 		<biologicalmeaning>3</biologicalmeaning>
-		<electronaffinity>19</electronaffinity>
-		<electronegativity>1.57</electronegativity>
-		<meltingpoint>1560</meltingpoint>
-		<boilingpoint>3243</boilingpoint>
 		<density>1.85</density>
 		<ionisationenergy>
 			<energy>9.322 </energy>
@@ -107,22 +78,13 @@
 		</radius>
 		<orbits>1s2 2s2</orbits>
 		<oxydation>+2</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.862" spin="3/2-" magmoment="" halflife="4611168" halflifeformat="seconds" weight="7.0169" neutron="3" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="-1.1776" halflife="" halflifeformat="seconds" weight="9.012182" neutron="5" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.555" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="1600000" halflifeformat="years" weight="10.01354" neutron="6" percentage="" />
 		</isotopes>
-		<family>Alkaline_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 		<abundance>2</abundance>
 	</element>
 	<element>
 		<number>5</number>
 		<biologicalmeaning>3</biologicalmeaning>
-		<electronaffinity>-27</electronaffinity>
-		<electronegativity>2.04</electronegativity>
-		<meltingpoint>2365</meltingpoint>
-		<boilingpoint>4275</boilingpoint>
 		<density>2.46</density>
 		<ionisationenergy>
 			<energy>8.298 </energy>
@@ -139,20 +101,12 @@
 		<abundance>9</abundance>
 		<orbits>1s2 2s2 2p1</orbits>
 		<oxydation>+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3+" magmoment="+1.80065" halflife="" halflifeformat="seconds" weight="10.0129" neutron="5" percentage="19.9" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+2.688637" halflife="" halflifeformat="seconds" weight="11.009305" neutron="6" percentage="80.1" />
 		</isotopes>
-		<family>Metalloids</family>
 		<crystalstructure>rh</crystalstructure>
 	</element>
 	<element>
 		<number>6</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>-122</electronaffinity>
-		<electronegativity>2.55</electronegativity>
-		<meltingpoint>3825</meltingpoint>
-		<boilingpoint>5100</boilingpoint>
 		<density>3.51</density>
 		<ionisationenergy>
 			<energy>11.260 </energy>
@@ -168,21 +122,11 @@
 		<abundance>180</abundance>
 		<orbits>1s2 2s2 2p2</orbits>
 		<oxydation>-4.+2.+4</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="100.0" betaplusdecay="0.96" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="" halflife="1223" halflifeformat="seconds" weight="11.01143" neutron="5" pecentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="12" neutron="6" percentage="98.89" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" halflife="" spin="1/2-" magmoment="+0.702411" halflifeformat="seconds" weight="13.003355" neutron="7" percentage="1.11" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.15648" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="5730" halflifeformat="years" weight="14.00324" neutron="8" percentage="" />
 		</isotopes>
-		<family>Non-Metal</family>
 	</element>
 	<element>
 		<number>7</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>7</electronaffinity>
-		<electronegativity>3.04</electronegativity>
-		<meltingpoint>63.15</meltingpoint>
-		<boilingpoint>77.344</boilingpoint>
 		<density>1.17</density>
 		<ionisationenergy>
 			<energy>14.534 </energy>
@@ -200,20 +144,12 @@
 		<abundance>19</abundance>
 		<orbits>1s2 2s2 2p3</orbits>
 		<oxydation>-3.(+1.+2.+3.+4.+5)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1+" magmoment="+0.403761" halflife="" halflifeformat="seconds" weight="14.0031" neutron="7" percentage="99.64" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="-0.283189" halflife="" halflifeformat="seconds" weight="15.0001" neutron="8" percentage="0.36" />
 		</isotopes>
-		<family>Non-Metal</family>
 		<crystalstructure>hcp</crystalstructure>
 	</element>
 	<element>
 		<number>8</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>-141</electronaffinity>
-		<electronegativity>3.44</electronegativity>
-		<meltingpoint>54.8</meltingpoint>
-		<boilingpoint>90.188</boilingpoint>
 		<density>1.33</density>
 		<ionisationenergy>
 			<energy>13.618 </energy>
@@ -229,21 +165,12 @@
 		<abundance>455000</abundance>
 		<orbits>1s2 2s2 2p4</orbits>
 		<oxydation>-2.(-1.+2)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="15.9949" neutron="8" percentage="99.756" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="-1.89379" halflife="" halflifeformat="seconds" weight="16.9991" neutron="9" percentage="0.039" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="17.9992" neutron="10" percentage="0.205" />
 		</isotopes>
-		<family>Non-Metal</family>
 		<crystalstructure>sc</crystalstructure>
 	</element>
 	<element>
 		<number>9</number>
 		<biologicalmeaning>4</biologicalmeaning>
-		<electronaffinity>-328</electronaffinity>
-		<electronegativity>3.98</electronegativity>
-		<meltingpoint>53.55</meltingpoint>
-		<boilingpoint>85.0</boilingpoint>
 		<density>1.58</density>
 		<ionisationenergy>
 			<energy>17.422 </energy>
@@ -259,19 +186,11 @@
 		<abundance>544</abundance>
 		<orbits>1s2 2s2 2p5</orbits>
 		<oxydation>-1</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="97.0" betaplusdecay="0.64" betaminuspercentage="" betaminusdecay="" ecpercentage="3.0" ecdecay="" spin="1+" magmoment="" halflife="6582" halflifeformat="seconds" weight="18.000937" neutron="9" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="+2.628866" halflife="" halflifeformat="seconds" weight="18.998404" neutron="10" percentage="100" />
 		</isotopes>
-		<family>Halogene</family>
 	</element>
 	<element>
 		<number>10</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>29</electronaffinity>
-		<electronegativity></electronegativity>
-		<meltingpoint>24.55</meltingpoint>
-		<boilingpoint>27.10</boilingpoint>
 		<density>0.8999</density>
 		<ionisationenergy>
 			<energy>21.564 </energy>
@@ -285,21 +204,12 @@
 		</radius>
 		<orbits>1s2 2s2 2p6</orbits>
 		<oxydation>0</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="19.9924" neutron="10" percentage="90.48" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2" magmoment="-0.661796" halflife="" halflifeformat="seconds" weight="20.9938" neutron="11" percentage="0.27" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="21.9914" neutron="12" percentage="9.215" />
 		</isotopes>
-		<family>Noblegas</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>11</number>
 		<biologicalmeaning>2</biologicalmeaning>
-		<electronaffinity>-53</electronaffinity>
-		<electronegativity>0.93</electronegativity>
-		<meltingpoint>371.0</meltingpoint>
-		<boilingpoint>1156</boilingpoint>
 		<density>0.97</density>
 		<ionisationenergy>
 			<energy>5.139 </energy>
@@ -314,21 +224,12 @@
 		<abundance>22700</abundance>
 		<orbits>1s2 2s2 2p6 3s1</orbits>
 		<oxydation>+1</oxydation>
-		<family>Alkali_Earth</family>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="100.0" betaplusdecay="2.842" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="" spin="3+" magmoment="+1.746" halflife="2.6" halflifeformat="years" weight="21.99440" neutron="11" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="-2.217520" halflife="" halflifeformat="seconds" weight="22.98977" neutron="12" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="5.514" ecpercentage="" ecdecay="" spin="4+" magmoment="+1.6903" halflife="54000" halflifeformat="seconds" weight="23.99097" neutron="13" percentage="" />
 		</isotopes>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>12</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>19</electronaffinity>
-		<electronegativity>1.31</electronegativity>
-		<meltingpoint>922</meltingpoint>
-		<boilingpoint>1380</boilingpoint>
 		<density>1.74</density>
 		<ionisationenergy>
 			<energy>7.646</energy>
@@ -345,21 +246,12 @@
 		<abundance>27640</abundance>
 		<orbits>1s2 2s2 2p6 3s2</orbits>
 		<oxydation>+2</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="23.985" neutron="12" percentage="78.99" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="-0.85545" halflife="" halflifeformat="seconds" weight="24.986" neutron="13" percentage="10" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="25.983" neutron="14" percentage="11.01" />
 		</isotopes>
-		<family>Alkaline_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>13</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-43</electronaffinity>
-		<electronegativity>1.61</electronegativity>
-		<meltingpoint>933.5</meltingpoint>
-		<boilingpoint>2740</boilingpoint>
 		<density>2.70</density>
 		<ionisationenergy>
 			<energy>5.986</energy>
@@ -376,20 +268,12 @@
 		<abundance>83000</abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p1</orbits>
 		<oxydation>+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="82" betaplusdecay="4.003" betaminuspercentage="" betaminusdecay="" ecpercentage="18" ecdecay="" spin="5+" magmoment="" halflife="740000" halflifeformat="years" weight="25.986892" neutron="13" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="+3.641504" halflife="" halflifeformat="seconds" weight="26.981538" neutron="14" percentage="100" />
 		</isotopes>
-		<family>Other_Metal</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>14</number>
 		<biologicalmeaning>4</biologicalmeaning>
-		<electronaffinity>-134</electronaffinity>
-		<electronegativity>1.91</electronegativity>
-		<meltingpoint>1683</meltingpoint>
-		<boilingpoint>2630</boilingpoint>
 		<density>2.33</density>
 		<ionisationenergy>
 			<energy>8.151</energy>
@@ -406,21 +290,12 @@
 		<abundance>272200</abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p2</orbits>
 		<oxydation>+4.(-4.+2)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="27.977" neutron="14" percentage="92.28" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="-0.55529" halflife="" halflifeformat="seconds" weight="28.976" neutron="15" percentage="4.67" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="29.974" neutron="16" percentage="3.05" />
 		</isotopes>
-		<family>Metalloids</family>
 		<crystalstructure>d</crystalstructure>
 	</element>
 	<element>
 		<number>15</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>-72</electronaffinity>
-		<electronegativity>2.19</electronegativity>
-		<meltingpoint>317.3</meltingpoint>
-		<boilingpoint>553</boilingpoint>
 		<density>1.82</density>
 		<ionisationenergy>
 			<energy>10.486</energy>
@@ -438,20 +313,12 @@
 		<abundance>1120</abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p3</orbits>
 		<oxydation>-3.(+1.+3).+5</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="+1.13160" halflife="" halflifeformat="seconds" weight="30.97376" neutron="16" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.710" ecpercentage="" ecdecay="" spin="1+" magmoment="-0.2524" halflife="1231372" halflifeformat="seconds" weight="31.97391" neutron="17" percentage="" />
 		</isotopes>
-		<family>Non-Metal</family>
 		<crystalstructure>sc</crystalstructure>
 	</element>
 	<element>
 		<number>16</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>-200</electronaffinity>
-		<electronegativity>2.58</electronegativity>
-		<meltingpoint>392.2</meltingpoint>
-		<boilingpoint>717.82</boilingpoint>
 		<density>2.06</density>
 		<ionisationenergy>
 			<energy>10.360</energy>
@@ -468,23 +335,12 @@
 		<abundance>340</abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p4</orbits>
 		<oxydation>-2.+2.+4.+6</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="31.972" neutron="16" percentage="95.1" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.643821" halflife="" halflifeformat="seconds" weight="32.971:" neutron="17" percentage="0.74" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="33.968" neutron="18" percentage="4.2" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.1674" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+1" halflife="7525440" halflifeformat="seconds" weight="34.96903" neutron="19" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="35.967" neutron="20" percentage="0.016" />
 		</isotopes>
-		<family>Non-Metal</family>
 		<crystalstructure>or</crystalstructure>
 	</element>
 	<element>
 		<number>17</number>
 		<biologicalmeaning>2</biologicalmeaning>
-		<electronaffinity>-349</electronaffinity>
-		<electronegativity>3.16</electronegativity>
-		<meltingpoint>172.17</meltingpoint>
-		<boilingpoint>239.18</boilingpoint>
 		<density>2.95</density>
 		<ionisationenergy>
 			<energy>12.967</energy>
@@ -501,20 +357,12 @@
 		<abundance>126</abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p5</orbits>
 		<oxydation>-1.(+1.+3.+5.+7)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.82187" halflife="" halflifeformat="seconds" weight="34.968853" neutron="18" percentage="75.77" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.68412" halflife="" halflifeformat="seconds" weight="36.966" neutron="20" percentage="24.23" />
 		</isotopes>
-		<family>Halogene</family>
 		<crystalstructure>tet</crystalstructure>
 	</element>
 	<element>
 		<number>18</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>29</electronaffinity>
-		<electronegativity></electronegativity>
-		<meltingpoint>83.95</meltingpoint>
-		<boilingpoint>87.45</boilingpoint>
 		<density>1.66</density>
 		<ionisationenergy>
 			<energy>15.759</energy>
@@ -530,21 +378,12 @@
 		<abundance></abundance>
 		<orbits>1s2 2s2 2p6 3s2 3p6</orbits>
 		<oxydation>0</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="35.968" neutron="18" percentage="0.337" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="37.963" neutron="20" percentage="0.063" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="39.962" neutron="22" percentage="99.600" />
 		</isotopes>
-		<family>Noblegas</family>
 		<crystalstructure>tet</crystalstructure>
 	</element>
 	<element>
 		<number>19</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>-48</electronaffinity>
-		<electronegativity>0.82</electronegativity>
-		<meltingpoint>336.8</meltingpoint>
-		<boilingpoint>1033</boilingpoint>
 		<density>0.86</density>
 		<ionisationenergy>
 			<energy>4.341 </energy>
@@ -556,21 +395,12 @@
 		</radius>
 		<orbits>Ar 4s1</orbits>
 		<oxydation>+1</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.391466" halflife="" halflifeformat="seconds" weight="38.964" neutron="20" percentage="93.2581" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="89.33" betaminusdecay="1.32" ecpercentage="10.67" ecdecay="" spin="4-" magmoment="-1.298099" halflife="1277000000" halflifeformat="years" weight="39.964" neutron="21" percentage="0.0117" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.2148699" halflife="" halflifeformat="seconds" weight="40.962" neutron="22" percentage="6.73" />
 		</isotopes>
-		<family>Alkali_Earth</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>20</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>10</electronaffinity>
-		<electronegativity>1.00</electronegativity>
-		<meltingpoint>1112</meltingpoint>
-		<boilingpoint>1757</boilingpoint>
 		<density>1.54</density>
 		<ionisationenergy>
 			<energy>6.113</energy>
@@ -583,24 +413,12 @@
 		</radius>
 		<orbits>Ar 4s2</orbits>
 		<oxydation>+2</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="39.963" neutron="20" percentage="96.92" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="41.959" neutron="22" percentage="0.64" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="+1.31725" halflife="" halflifeformat="seconds" weight="42.959" neutron="23" percentage="0.13" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0" magmoment="0" halflife="" halflifeformat="seconds" weight="43.955" neutron="24" percentage="2.13" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.257" ecpercentage="" ecdecay="" spin="7/2-" magmoment="" halflife="14152320" halflifeformat="seconds" weight="44.956185" neutron="26" percentage="0.003" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="47.952" neutron="28" percentage="0.18" />
 		</isotopes>
-		<family>Alkaline_Earth</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>21</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-18</electronaffinity>
-		<electronegativity>1.36</electronegativity>
-		<meltingpoint>1814</meltingpoint>
-		<boilingpoint>3109</boilingpoint>
 		<density>2.99</density>
 		<ionisationenergy>
 			<energy>6.54 </energy>
@@ -612,22 +430,12 @@
 		</radius>
 		<orbits>Ar 3d1 4s2</orbits>
 		<oxydation>+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="+4.756483" halflife="" halflifeformat="seconds" weight="44.95591" neutron="24" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="2.367" ecpercentage="" ecdecay="" spin="4+" magmoment="" halflife="7241184" halflifeformat="seconds" weight="45.95517" neutron="25" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.601" ecpercentage="" ecdecay="" spin="7/2-" magmoment="" halflife="289008" halflifeformat="seconds" weight="46.95241" neutron="26" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="4.0" ecpercentage="" ecdecay="" spin="6+" magmoment="" halflife="157320" halflifeformat="seconds" weight="48.04776" neutron="27" percentage="" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>22</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-8</electronaffinity>
-		<electronegativity>1.54</electronegativity>
-		<meltingpoint>1935</meltingpoint>
-		<boilingpoint>3560</boilingpoint>
 		<density>4.51</density>
 		<ionisationenergy>
 			<energy>6.82 </energy>
@@ -639,23 +447,12 @@
 		</radius>
 		<orbits>Ar 3d2 4s2</orbits>
 		<oxydation>+4.+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="45.953" neutron="24" percentage="7.95" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2-" magmoment="-0.78848" halflife="" halflifeformat="seconds" weight="46.952" neutron="25" percentage="7.75" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="47.948" neutron="26" percentage="73.45" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="-1.10417" halflife="" halflifeformat="seconds" weight="48.948" neutron="27" percentage="5.51" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="49.945" neutron="28" percentage="5.34" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>23</number>
 		<biologicalmeaning>4</biologicalmeaning>
-		<electronaffinity>-51</electronaffinity>
-		<electronegativity>1.63</electronegativity>
-		<meltingpoint>2163</meltingpoint>
-		<boilingpoint>3650</boilingpoint>
 		<density>6.09</density>
 		<ionisationenergy>
 			<energy>6.74 </energy>
@@ -667,20 +464,12 @@
 		</radius>
 		<orbits>Ar 3d3 4s2</orbits>
 		<oxydation>+5.(+2.+3.+4)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="17.0" betaminusdecay="" ecpercentage="83" ecdecay="" spin="6+" magmoment="+3.34745" halflife="140000000000000000" halflifeformat="years" weight="49.93643" neutron="27" percentage="0.25" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="+5.1574" halflife="" halflifeformat="seconds" weight="50.94396" neutron="28" percentage="99.750" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>24</number>
 		<biologicalmeaning>4</biologicalmeaning>
-		<electronaffinity>-64</electronaffinity>
-		<electronegativity>1.66</electronegativity>
-		<meltingpoint>2130</meltingpoint>
-		<boilingpoint>2945</boilingpoint>
 		<density>7.14</density>
 		<ionisationenergy>
 			<energy>6.766</energy>
@@ -692,22 +481,12 @@
 		</radius>
 		<orbits>Ar 3d5 4s1</orbits>
 		<oxydation>+2.+3.(+1.+4.+5).+6</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="49.946" neutron="26" percentage="4.35" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="51.94" neutron="28" percentage="83.79" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="-0.47454" halflife="" halflifeformat="seconds" weight="52.941" neutron="29" percentage="9.50" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="53.939" neutron="30" percentage="2.36" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>25</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.55</electronegativity>
-		<meltingpoint>1518</meltingpoint>
-		<boilingpoint>2235</boilingpoint>
 		<density>7.44</density>
 		<ionisationenergy>
 			<energy>7.435</energy>
@@ -719,20 +498,12 @@
 		</radius>
 		<orbits>Ar 3d5 4s2</orbits>
 		<oxydation>+2.+4.(+5).+6.+7</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="1.377" spin="3+" magmoment="+3.2818" halflife="26967168" halflifeformat="seconds" weight="53.94036" neutron="29" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2-" magmoment="+3.4687" halflife="" halflifeformat="seconds" weight="54.93805" neutron="30" percentage="100" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>own</crystalstructure>
 	</element>
 	<element>
 		<number>26</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>-16</electronaffinity>
-		<electronegativity>1.83</electronegativity>
-		<meltingpoint>1808</meltingpoint>
-		<boilingpoint>3023</boilingpoint>
 		<density>7.874</density>
 		<ionisationenergy>
 			<energy>7.870 </energy>
@@ -744,22 +515,12 @@
 		</radius>
 		<orbits>Ar 3d6 4s2</orbits>
 		<oxydation>+2.+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="53.94" neutron="28" percentage="5.81" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="55.935" neutron="30" percentage="91.64" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="+0.09044" halflife="" halflifeformat="seconds" weight="56.935" neutron="31" percentage="2.21" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="57.933" neutron="32" percentage="0.34" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>27</number>
 		<biologicalmeaning>2</biologicalmeaning>
-		<electronaffinity>-64</electronaffinity>
-		<electronegativity>1.88</electronegativity>
-		<meltingpoint>1768</meltingpoint>
-		<boilingpoint>3143</boilingpoint>
 		<density>8.89</density>
 		<ionisationenergy>
 			<energy>7.86 </energy>
@@ -771,23 +532,12 @@
 		</radius>
 		<orbits>Ar 3d7 4s2</orbits>
 		<oxydation>+2.+3.(+4)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="100.0" betaplusdecay="4.566" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="" spin="4+" magmoment="" halflife="6663168" halflifeformat="seconds" weight="55.93984" neutron="29" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.836" spin="7/2-" magmoment="" halflife="23483520" halflifeformat="seconds" weight="56.93629" neutron="30" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="100.0" betaplusdecay="2.3" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="" spin="2+" magmoment="" halflife="6118848" halflifeformat="seconds" weight="57.93576" neutron="31" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="+4.627" halflife="" halflifeformat="seconds" weight="58.93320" neutron="32" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="2.824" ecpercentage="" ecdecay="" spin="5+" magmoment="+3.799" halflife="5.2714" halflifeformat="years" weight="59.93382" neutron="33" percentage="" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>28</number>
 		<biologicalmeaning>4</biologicalmeaning>
-		<electronaffinity>-112</electronaffinity>
-		<electronegativity>1.91</electronegativity>
-		<meltingpoint>1726</meltingpoint>
-		<boilingpoint>3005</boilingpoint>
 		<density>8.91</density>
 		<ionisationenergy>
 			<energy>7.635 </energy>
@@ -799,25 +549,12 @@
 		</radius>
 		<orbits>Ar 3d8 4s2</orbits>
 		<oxydation>0.(+2).+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="57.935" neutron="30" percentage="67.8" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="1.072" spin="3/2-" magmoment="" halflife="75000" halflifeformat="years" weight="58.93435" neutron="31" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="59.931" neutron="32" percentage="26.2" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="-0.75002" halflife="" halflifeformat="seconds" weight="60.931" neutron="33" percentage="1.2" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="61.928" neutron="34" percentage="3.7" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.065" ecpercentage="" ecdecay="" spin="1/2-" magmoment="" halflife="100.1" halflifeformat="years" weight="62.92967" neutron="35" percentage="1.2" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="63.928" neutron="36" percentage="1.1" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>29</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>-118</electronaffinity>
-		<electronegativity>1.90</electronegativity>
-		<meltingpoint>1356.6</meltingpoint>
-		<boilingpoint>2840</boilingpoint>
 		<density>8.92</density>
 		<ionisationenergy>
 			<energy>7.726</energy>
@@ -831,21 +568,12 @@
 		</radius>
 		<orbits>Ar 3d10 4s1</orbits>
 		<oxydation>+1.+2</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+2.2233" halflife="" halflifeformat="seconds" weight="62.93" neutron="34" percentage="68.9" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="19.0" betaplusdecay="1.7" betaminuspercentage="39.0" betaminusdecay="0.578" ecpercentage="41.0" ecdecay="1.675" spin="1+" magmoment="-0.217" halflife="45723.6" halflifeformat="seconds" weight="63.92977" neutron="35" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+2.3817" halflife="" halflifeformat="seconds" weight="64.928" neutron="36" percentage="31.1" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>30</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>47</electronaffinity>
-		<electronegativity>1.65</electronegativity>
-		<meltingpoint>692.73</meltingpoint>
-		<boilingpoint>1180</boilingpoint>
 		<density>7.14</density>
 		<ionisationenergy>
 			<energy>9.394 </energy>
@@ -857,24 +585,12 @@
 		</radius>
 		<orbits>Ar 3d10 4s2</orbits>
 		<oxydation>+2</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="63.929" neutron="34" percentage="48.9" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="98.0" betaplusdecay="1.352" betaminuspercentage="" betaminusdecay="" ecpercentage="1.5" ecdecay="" spin="5/2-" magmoment="+0.7690" halflife="21072960" halflifeformat="seconds" weight="64.92924" neutron="35" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="65.926" neutron="36" percentage="27.82" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2-" magmoment="+0.87515" halflife="" halflifeformat="seconds" weight="66.927" neutron="37" percentage="4.16" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="67.925" neutron="38" percentage="18.5" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="69.925" neutron="40" percentage="0.62" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>31</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-29</electronaffinity>
-		<electronegativity>1.81</electronegativity>
-		<meltingpoint>302.92</meltingpoint>
-		<boilingpoint>2478</boilingpoint>
 		<density>5.91</density>
 		<ionisationenergy>
 			<energy>5.999</energy>
@@ -888,20 +604,12 @@
 		</radius>
 		<orbits>Ar 3d10 4s2 4p1</orbits>
 		<oxydation>(+1).(+2).+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+2.01659" halflife="" halflifeformat="seconds" weight="68.926" neutron="38" percentage="60.1" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="2.56227" halflife="" halflifeformat="seconds" weight="70.925" neutron="40" percentage="39.9" />
 		</isotopes>
-		<family>Other_Metal</family>
 		<crystalstructure>own</crystalstructure>
 	</element>
 	<element>
 		<number>32</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-116</electronaffinity>
-		<electronegativity>2.01</electronegativity>
-		<meltingpoint>1211.5</meltingpoint>
-		<boilingpoint>3107</boilingpoint>
 		<density>5.32</density>
 		<ionisationenergy>
 			<energy>7.899 </energy>
@@ -913,23 +621,12 @@
 		</radius>
 		<orbits>Ar 3d10 4s2 4p2</orbits>
 		<oxydation>+4.(+2)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="69.924" neutron="38" percentage="20.6" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="71.922" neutron="40" percentage="27.4" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2+" magmoment="-0.879467" halflife="" halflifeformat="seconds" weight="72.923" neutron="41" percentage="7.8" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="73.921" neutron="42" percentage="36.4" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="75.921" neutron="44" percentage="7.8" />
 		</isotopes>
-		<family>Metalloids</family>
 		<crystalstructure>d</crystalstructure>
 	</element>
 	<element>
 		<number>33</number>
 		<biologicalmeaning>4</biologicalmeaning>
-		<electronaffinity>-78</electronaffinity>
-		<electronegativity>2.18</electronegativity>
-		<meltingpoint>1090</meltingpoint>
-		<boilingpoint>876</boilingpoint>
 		<density>5.72</density>
 		<ionisationenergy>
 			<energy>9.81 </energy>
@@ -942,20 +639,12 @@
 		</radius>
 		<orbits>Ar 3d10 4s2 4p3</orbits>
 		<oxydation>(-3).+3.(+5)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+1.43947" halflife="" halflifeformat="seconds" weight="74.92159" neutron="42" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="2.97" ecpercentage="" ecdecay="" spin="2-" magmoment="-0.906" halflife="94752" halflifeformat="seconds" weight="75.92239" neutron="43" percentage="" />
 		</isotopes>
-		<family>Metalloids</family>
 		<crystalstructure>rh</crystalstructure>
 	</element>
 	<element>
 		<number>34</number>
 		<biologicalmeaning>2</biologicalmeaning>
-		<electronaffinity>-195</electronaffinity>
-		<electronegativity>2.55</electronegativity>
-		<meltingpoint>494</meltingpoint>
-		<boilingpoint>958</boilingpoint>
 		<density>4.82</density>
 		<ionisationenergy>
 			<energy>9.752 </energy>
@@ -968,24 +657,12 @@
 		</radius>
 		<orbits>Ar 3d10 4s2 4p4</orbits>
 		<oxydation>(-2).+4.(+6)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="73.922" neutron="40" percentage="0.9" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="75.919" neutron="42" percentage="9.5" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="+0.535506" halflife="" halflifeformat="seconds" weight="76.92" neutron="43" percentage="8.3" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="77.917" neutron="44" percentage="24" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="79.917" neutron="46" percentage="48" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="81.917" neutron="48" percentage="9.3" />
 		</isotopes>
-		<family>Non-Metal</family>
 		<crystalstructure>hcp</crystalstructure>
 	</element>
 	<element>
 		<number>35</number>
 		<biologicalmeaning>5</biologicalmeaning>
-		<electronaffinity>-325</electronaffinity>
-		<electronegativity>2.96</electronegativity>
-		<meltingpoint>265.95</meltingpoint>
-		<boilingpoint>331.85</boilingpoint>
 		<density>3.14</density>
 		<ionisationenergy>
 			<energy>11.814 </energy>
@@ -997,20 +674,12 @@
 		</radius>
 		<orbits>Ar 3d10 4s2 4p5</orbits>
 		<oxydation>-1.(+1.+5.+7)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+2.1064" halflife="" halflifeformat="seconds" weight="78.918" neutron="44" percentage="50.69" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+2.2706" halflife="" halflifeformat="seconds" weight="80.916" neutron="46" percentage="49.31" />
 		</isotopes>
-		<family>Halogene</family>
 		<crystalstructure>or</crystalstructure>
 	</element>
 	<element>
 		<number>36</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>39</electronaffinity>
-		<electronegativity></electronegativity>
-		<meltingpoint>116</meltingpoint>
-		<boilingpoint>120.85</boilingpoint>
 		<density>4.48</density>
 		<ionisationenergy>
 			<energy>13.999 </energy>
@@ -1022,24 +691,12 @@
 		</radius>
 		<orbits>Ar 3d10 4s2 4p6</orbits>
 		<oxydation>+2.(+4)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="77.92" neutron="42" percentage="0.35" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="79.916" neutron="44" percentage="2.01" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="81.913" neutron="46" percentage="11.5" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2+" magmoment="-0.970669" halflife="" halflifeformat="seconds" weight="82.914" neutron="47" percentage="11.5" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="83.912" neutron="48" percentage="57.18" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="85.911" neutron="50" percentage="17.5" />
 		</isotopes>
-		<family>Noblegas</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>37</number>
 		<biologicalmeaning>5</biologicalmeaning>
-		<electronaffinity>-47</electronaffinity>
-		<electronegativity>0.82</electronegativity>
-		<meltingpoint>312.63</meltingpoint>
-		<boilingpoint>961</boilingpoint>
 		<density>1.53</density>
 		<ionisationenergy>
 			<energy>4.177 </energy>
@@ -1051,21 +708,12 @@
 		</radius>
 		<orbits>Kr 5s1</orbits>
 		<oxydation>+1</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2-" magmoment="+1.3530" halflife="" halflifeformat="seconds" weight="84.91179" neutron="48" percentage="72.17" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="99.99" betaminusdecay="1.774" ecpercentage="0.0052" ecdecay="" spin="2-" magmoment="-1.6920" halflife="1609715.4" halflifeformat="seconds" weight="85.91117" neutron="49" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="0.273" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+2.75124" halflife="47500000000" halflifeformat="years" weight="86.900919" neutron="50" percentage="27.83" />
 		</isotopes>
-		<family>Alkali_Earth</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>38</number>
 		<biologicalmeaning>3</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>0.95</electronegativity>
-		<meltingpoint>1042</meltingpoint>
-		<boilingpoint>1655</boilingpoint>
 		<density>2.63</density>
 		<ionisationenergy>
 			<energy>5.695</energy>
@@ -1078,23 +726,12 @@
 		</radius>
 		<orbits>Kr 5s2</orbits>
 		<oxydation>+2</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="83.913" neutron="46" percentage="0.56" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100" ecdecay="1.08" spin="9/2+" magmoment="" halflife="5598720" halflifeformat="seconds" weight="84.91294" neutron="47" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="" halflifeformat="seconds" weight="85.909" neutron="48" percentage="9.86" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2+" magmoment="-1.093" halflife="" halflifeformat="seconds" weight="86.909" neutron="49" percentage="7.0" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="" halflifeformat="seconds" weight="87.906" neutron="50" percentage="82.58" />
 		</isotopes>
-		<family>Alkaline_Earth</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>39</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-30</electronaffinity>
-		<electronegativity>1.22</electronegativity>
-		<meltingpoint>1795</meltingpoint>
-		<boilingpoint>3611</boilingpoint>
 		<density>4.47</density>
 		<ionisationenergy>
 			<energy>6.38 </energy>
@@ -1106,20 +743,12 @@
 		</radius>
 		<orbits>Kr 4d1 5s2</orbits>
 		<oxydation>+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="-0.1374153" halflife="" halflifeformat="seconds" weight="88.90585" neutron="50" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="2.283" ecpercentage="" ecdecay="" spin="2-" magmoment="-1.630" halflife="230400" halflifeformat="seconds" weight="89.90715" neutron="51" percentage="" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>40</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-41</electronaffinity>
-		<electronegativity>1.33</electronegativity>
-		<meltingpoint>2128</meltingpoint>
-		<boilingpoint>4682</boilingpoint>
 		<density>6.51</density>
 		<ionisationenergy>
 			<energy>6.84 </energy>
@@ -1131,25 +760,12 @@
 		</radius>
 		<orbits>Kr 4d2 5s2</orbits>
 		<oxydation>+4</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="89.904" neutron="50" percentage="51.5" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="-1.30362" halflife="" halflifeformat="seconds" weight="90.905" neutron="51" percentage="11.2" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="91.905" neutron="52" percentage="17.1" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.09" ecpercentage="" ecdecay="" spin="5/2+" magmoment="" halflife="1530000" halflifeformat="years" weight="92.90647" neutron="53" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="93.906" neutron="54" percentage="17.4" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.121" ecpercentage="" ecdecay="" spin="5/2+" magmoment="" halflife="5531328" halflifeformat="seconds" weight="94.90804" neutron="55" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="95.908" neutron="56" percentage="2.8" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>41</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-86</electronaffinity>
-		<electronegativity>1.6</electronegativity>
-		<meltingpoint>2742</meltingpoint>
-		<boilingpoint>5015</boilingpoint>
 		<density>8.58</density>
 		<ionisationenergy>
 			<energy>6.88 </energy>
@@ -1161,20 +777,12 @@
 		</radius>
 		<orbits>Kr 4d4 5s1</orbits>
 		<oxydation>+3.+5</oxydation>
-		<family>Transition</family>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2+" magmoment="+6.1705" halflife="" halflifeformat="seconds" weight="92.90638" neutron="52" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.925" ecpercentage="" ecdecay="" spin="9/2+" magmoment="+6.123" halflife="3036960" halflifeformat="seconds" weight="94.90683" neutron="54" percentage="" />
 		</isotopes>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>42</number>
 		<biologicalmeaning>1</biologicalmeaning>
-		<electronaffinity>-72</electronaffinity>
-		<electronegativity>2.16</electronegativity>
-		<meltingpoint>2896</meltingpoint>
-		<boilingpoint>4912</boilingpoint>
 		<density>10.28</density>
 		<ionisationenergy>
 			<energy>7.099</energy>
@@ -1186,28 +794,13 @@
 		</radius>
 		<orbits>Kr 4d5 5s1</orbits>
 		<oxydation>(+2.+3.+4.+5).+6</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="91.90681" neutron="50" percentage="15.9" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="" spin="5/2+" magmoment="" halflife="3500" halflifeformat="years" weight="92.90681" neutron="51" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="93.905" neutron="52" percentage="9.2" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="-0.9133" halflife="" halflifeformat="seconds" weight="94.906" neutron="53" percentage="16.5" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="95.905" neutron="54" percentage="15.7" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="-0.9133" halflife="" halflifeformat="seconds" weight="96.905" neutron="55" percentage="9.4" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="97.906" neutron="56" percentage="23.7" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.357" ecpercentage="" ecdecay="" spin="1/2+" magmoment="" halflife="5762016" halflifeformat="seconds" weight="98.90771" neutron="57" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="99.908" neutron="58" percentage="9.6" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>43</number>
 		<artificial>1</artificial>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-53</electronaffinity>
-		<electronegativity>1.9</electronegativity>
-		<meltingpoint>2477</meltingpoint>
-		<boilingpoint>4538</boilingpoint>
 		<density>11.49</density>
 		<ionisationenergy>
 			<energy>7.28 </energy>
@@ -1219,20 +812,12 @@
 		</radius>
 		<orbits>Kr 4d6 5s1</orbits>
 		<oxydation>+7</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.32" spin="9/2+" magmoment="" halflife="2600000" halflifeformat="years" weight="96.90636" neutron="54" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.293" ecpercentage="" ecdecay="" spin="9/2+" magmoment="+5.6847" halflife="211100" halflifeformat="years" weight="98.90625" neutron="56" percentage="" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>44</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-101</electronaffinity>
-		<electronegativity>2.2</electronegativity>
-		<meltingpoint>2610</meltingpoint>
-		<boilingpoint>4425</boilingpoint>
 		<density>12.45</density>
 		<ionisationenergy>
 			<energy>7.37 </energy>
@@ -1244,27 +829,12 @@
 		</radius>
 		<orbits>Kr 4d7 5s1</orbits>
 		<oxydation>+3.+4.(+8)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="95.908" neutron="52" percentage="5.68" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="1.2" spin="5/2" magmoment="+0.687" halflife="250560" halflifeformat="seconds" weight="96.90755" neutron="53" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="97.906" neutron="54" percentage="2.22" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="+0.6413" halflife="" halflifeformat="seconds" weight="98.906" neutron="55" percentage="12.91" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="99.903" neutron="56" percentage="12.7" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="-0.7188" halflife="" halflifeformat="seconds" weight="100.904" neutron="57" percentage="16.98" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="101.904" neutron="58" percentage="31.34" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.767" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.67" halflife="3392064" halflifeformat="seconds" weight="102.90632" neutron="59" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="103.906" neutron="60" percentage="18.27" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>45</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-110</electronaffinity>
-		<electronegativity>2.28</electronegativity>
-		<meltingpoint>2236</meltingpoint>
-		<boilingpoint>3970</boilingpoint>
 		<density>12.41</density>
 		<ionisationenergy>
 			<energy>7.46 </energy>
@@ -1276,19 +846,12 @@
 		</radius>
 		<orbits>Kr 4d8 5s1</orbits>
 		<oxydation>+1.(+2).+3.(+4)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="-0.08840" halflife="" halflifeformat="seconds" weight="102.9055" neutron="58" percentage="100" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>46</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-54</electronaffinity>
-		<electronegativity>2.20</electronegativity>
-		<meltingpoint>1825</meltingpoint>
-		<boilingpoint>3240</boilingpoint>
 		<density>12.02</density>
 		<ionisationenergy>
 			<energy>8.34 </energy>
@@ -1300,27 +863,12 @@
 		</radius>
 		<orbits>Kr 4d10</orbits>
 		<oxydation>+2.+4</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="101.905" neutron="56" percentage="0.8" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.56" spin="5/2+" magmoment="" halflife="1468022.4" halflifeformat="seconds" weight="102.90610" neutron="57" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="103.904" neutron="58" percentage="9.3" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="-0.642" halflife="" halflifeformat="seconds" weight="104.905" neutron="59" percentage="22.6" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="105.903" neutron="60" percentage="27.2" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.035" ecpercentage="" ecdecay="" spin="5/2+" magmoment="" halflife="6500000" halflifeformat="years" weight="106.90513" neutron="61" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="107.904" neutron="62" percentage="26.08" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.116" ecpercentage="" ecdecay="" spin="5/2+" magmoment="" halflife="49320" halflifeformat="seconds" weight="108.90595" neutron="63" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="109.904" neutron="64" percentage="13.5" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>47</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-126</electronaffinity>
-		<electronegativity>1.93</electronegativity>
-		<meltingpoint>1235.1</meltingpoint>
-		<boilingpoint>2436</boilingpoint>
 		<density>10.49</density>
 		<ionisationenergy>
 			<energy>7.576 </energy>
@@ -1332,20 +880,12 @@
 		</radius>
 		<orbits>Kr 4d10 5s1</orbits>
 		<oxydation>+1.(+2.+3)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="-0.113570" halflife="" halflifeformat="seconds" weight="106.905" neutron="60" percentage="51.9" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="-0.1306905" halflife="" halflifeformat="seconds" weight="108.90476" neutron="62" percentage="48.1" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>48</number>
 		<biologicalmeaning>5</biologicalmeaning>
-		<electronaffinity>32</electronaffinity>
-		<electronegativity>1.69</electronegativity>
-		<meltingpoint>594.26</meltingpoint>
-		<boilingpoint>1040</boilingpoint>
 		<density>8.64</density>
 		<ionisationenergy>
 			<energy>8.993 </energy>
@@ -1357,29 +897,12 @@
 		</radius>
 		<orbits>Kr 4d10 5s2</orbits>
 		<oxydation>+2</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="105.906" neutron="58" percentage="1.215" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="1.417" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="" spin="5/2+" magmoment="" halflife="23400" halflifeformat="seconds" weight="106.90661" neutron="59" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="107.904" neutron="60" percentage="0.875" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.16" spin="5/2+" magmoment="-0.8270" halflife="38880000" halflifeformat="seconds" weight="108.90498" neutron="61" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="109.90301" neutron="62" percentage="12.49" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="-0.5943" halflife="" halflifeformat="seconds" weight="110.90418" neutron="63" percentage="12.8" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="111.90276" neutron="64" percentage="24.13" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="-0.6217" halflife="" halflifeformat="seconds" weight="112.90440" neutron="65" percentage="12.22" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="113.90336" neutron="66" percentage="28.73" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.45" ecpercentage="" ecdecay="" spin="1/2+" magmoment="-0.648" halflife="192456" halflifeformat="seconds" weight="114.90543" neutron="67" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="115.905" neutron="68" percentage="7.58" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>49</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-29</electronaffinity>
-		<electronegativity>1.78</electronegativity>
-		<meltingpoint>429.78</meltingpoint>
-		<boilingpoint>2350</boilingpoint>
 		<density>7.31</density>
 		<ionisationenergy>
 			<energy>5.786</energy>
@@ -1393,20 +916,12 @@
 		</radius>
 		<orbits>Kr 4d10 5s2 5p1</orbits>
 		<oxydation>+3.(+1.+2)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2+" magmoment="+5.5229" halflife="" halflifeformat="seconds" weight="112.90406" neutron="64" percentage="4.28" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2+" magmoment="+5.534" halflife="" halflifeformat="seconds" weight="114.90388" neutron="66" percentage="95.72" />
 		</isotopes>
-		<family>Other_Metal</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>50</number>
 		<biologicalmeaning>6</biologicalmeaning>
-		<electronaffinity>-116</electronaffinity>
-		<electronegativity>1.96</electronegativity>
-		<meltingpoint>505.12</meltingpoint>
-		<boilingpoint>2876</boilingpoint>
 		<density>7.29</density>
 		<ionisationenergy>
 			<energy>7.344 </energy>
@@ -1418,30 +933,12 @@
 		</radius>
 		<orbits>Kr 4d10 5s2 5p2</orbits>
 		<oxydation>+2.+4</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="111.90482" neutron="62" percentage="0.97" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="1.02" spin="1/2+" magmoment="" halflife="9943776" halflifeformat="seconds" weight="112.90517" neutron="63" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="113.903" neutron="64" percentage="0.65" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="-0.91883" halflife="" halflifeformat="seconds" weight="114.904" neutron="65" percentage="0.36" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="115.902" neutron="66" percentage="14.53" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="1.00104" halflife="" halflifeformat="seconds" weight="116.903" neutron="67" percentage="7.68" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="117.902" neutron="68" percentage="24.22" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="-1.04728" halflife="" halflifeformat="seconds" weight="118.903" neutron="69" percentage="8.58" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="119.902" neutron="70" percentage="32.59" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.388" ecpercentage="" ecdecay="" spin="3/2+" magmoment="" halflife="97416" halflifeformat="seconds" weight="120.90424" neutron="71" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="121.903" neutron="72" percentage="4.63" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="123.905" neutron="74" percentage="5.79" />
 		</isotopes>
-		<family>Other_Metal</family>
 		<crystalstructure>own</crystalstructure>
 	</element>
 	<element>
 		<number>51</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-103</electronaffinity>
-		<electronegativity>2.05</electronegativity>
-		<meltingpoint>903.91</meltingpoint>
-		<boilingpoint>1860</boilingpoint>
 		<density>6.69</density>
 		<ionisationenergy>
 			<energy>8.641 </energy>
@@ -1454,20 +951,12 @@
 		</radius>
 		<orbits>Kr 4d10 5s2 5p3</orbits>
 		<oxydation>(-3).+3.(+5)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="+3.3592" halflife="" halflifeformat="seconds" weight="120.904" neutron="70" percentage="57.25" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2+" magmoment="+2.5466" halflife="" halflifeformat="seconds" weight="122.904" neutron="72" percentage="42.75" />
 		</isotopes>
-		<family>Metalloids</family>
 		<crystalstructure>rh</crystalstructure>
 	</element>
 	<element>
 		<number>52</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-190</electronaffinity>
-		<electronegativity>2.1</electronegativity>
-		<meltingpoint>722.72</meltingpoint>
-		<boilingpoint>1261</boilingpoint>
 		<density>6.25</density>
 		<ionisationenergy>
 			<energy>9.009 </energy>
@@ -1480,28 +969,12 @@
 		</radius>
 		<orbits>Kr 4d10 5s2 5p4</orbits>
 		<oxydation>(-2).+4.(+6)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="119.904048" neutron="68" percentage="0.09" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="1.29" spin="1/2+" magmoment="" halflife="1449792" halflifeformat="seconds" weight="120.90494" neutron="69" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="" halflifeformat="seconds" weight="121.904048" neutron="69" percentage="2.59" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.052" spin="1/2+" magmoment="-0.7359" halflife="13000000000000" halflifeformat="years" weight="122.90427" neutron="70" percentage="0.905" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="123.90282" neutron="71" percentage="4.79" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="-0.8871" halflife="" halflifeformat="seconds" weight="124.90443" neutron="72" percentage="7.12" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="125.90331" neutron="73" percentage="18.93" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.697" ecpercentage="" ecdecay="" spin="3/2+" magmoment="" halflife="33660" halflifeformat="seconds" weight="126.90522" neutron="74" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="127.90446" neutron="75" percentage="31.7" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="129.906229" neutron="78" percentage="34.08" />
 		</isotopes>
-		<family>Metalloids</family>
 		<crystalstructure>hcp</crystalstructure>
 	</element>
 	<element>
 		<number>53</number>
 		<biologicalmeaning>2</biologicalmeaning>
-		<electronaffinity>-295</electronaffinity>
-		<electronegativity>2.66</electronegativity>
-		<meltingpoint>386.7</meltingpoint>
-		<boilingpoint>457.5</boilingpoint>
 		<density>4.94</density>
 		<ionisationenergy>
 			<energy>10.451 </energy>
@@ -1512,21 +985,13 @@
 			<vdw>198</vdw>
 		</radius>
 		<orbits>Kr 4d10 5s2 5p5</orbits>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="+2.808" halflife="" halflifeformat="seconds" weight="126.90448" neutron="74" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.193" ecpercentage="" ecdecay="" spin="7/2+" magmoment="+2.617" halflife="15700000" halflifeformat="years" weight="128.90499" neutron="76" percentage="" />
 		</isotopes>
 		<oxydation>-1.(+1.+3.+5.+7)</oxydation>
-		<family>Halogene</family>
 		<crystalstructure>or</crystalstructure>
 	</element>
 	<element>
 		<number>54</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>41</electronaffinity>
-		<electronegativity></electronegativity>
-		<meltingpoint>161.39</meltingpoint>
-		<boilingpoint>165.1</boilingpoint>
 		<density>4.49</density>
 		<ionisationenergy>
 			<energy>12.130 </energy>
@@ -1538,30 +1003,11 @@
 		</radius>
 		<orbits>Kr 4d10 5s2 5p6</orbits>
 		<oxydation>+4.(+2.+6)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="123.90590" neutron="70" percentage="0.094" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="" spin="1/2+" magmoment="" halflife="60840" halflifeformat="seconds" weight="124.90640" neutron="71" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="125.904" neutron="72" percentage="0.088" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.44" spin="1/2+" magmoment="" halflife="3144960" halflifeformat="seconds" weight="126.90519" neutron="73" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="127.904" neutron="74" percentage="1.9" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="-0.7768" halflife="" halflifeformat="seconds" weight="128.905" neutron="75" percentage="26.23" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="129.904" neutron="76" percentage="4.07" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.691861" halflife="" halflifeformat="seconds" weight="130.905" neutron="77" percentage="21.17" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="131.904" neutron="78" percentage="26.96" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.427" ecpercentage="" ecdecay="" spin="3/2+" magmoment="" halflife="452995.2" halflifeformat="seconds" weight="132.90590" neutron="79" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="133.905" neutron="80" percentage="10.54" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.16" ecpercentage="" ecdecay="" spin="3/2+" magmoment="" halflife="32904" halflifeformat="seconds" weight="134.90713" neutron="81" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="135.907" neutron="82" percentage="8.95" />
 		</isotopes>
-		<family>Noblegas</family>
 	</element>
 	<element>
 		<number>55</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-45</electronaffinity>
-		<electronegativity>0.79</electronegativity>
-		<meltingpoint>301.54</meltingpoint>
-		<boilingpoint>944</boilingpoint>
 		<density>1.90</density>
 		<ionisationenergy>
 			<energy>3.894 </energy>
@@ -1573,20 +1019,12 @@
 		</radius>
 		<orbits>Xe 6s1</orbits>
 		<oxydation>+1</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2+" magmoment="+2.579" halflife="" halflifeformat="seconds" weight="132.90544" neutron="78" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="2.05" ecpercentage="" ecdecay="" spin="7/2+" magmoment="+2.729" halflife="2300000" halflifeformat="years" weight="134.90589" neutron="80" percentage="" />
 		</isotopes>
-		<family>Alkali_Earth</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>56</number>
 		<biologicalmeaning>3</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>0.89</electronegativity>
-		<meltingpoint>1002</meltingpoint>
-		<boilingpoint>2078</boilingpoint>
 		<density>3.65</density>
 		<ionisationenergy>
 			<energy>5.212</energy>
@@ -1599,26 +1037,12 @@
 		</radius>
 		<orbits>Xe 6s2</orbits>
 		<oxydation>+2</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="129.906" neutron="74" percentage="0.101" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="1.16" spin="1/2+" magmoment="" halflife="1019520" halflifeformat="seconds" weight="130.90691" neutron="75" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="" halflifeformat="seconds" weight="131.905" neutron="76" percentage="0.097" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="133.90449" neutron="78" percentage="2.42" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.8365" halflife="" halflifeformat="seconds" weight="134.90567" neutron="79" percentage="6.59" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="135.90456" neutron="80" percentage="7.81" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.9357" halflife="" halflifeformat="seconds" weight="136.90582" neutron="81" percentage="11.32" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="" halflifeformat="seconds" weight="137.90524" neutron="82" percentage="71.66" />
 		</isotopes>
-		<family>Alkaline_Earth</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>57</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.10</electronegativity>
-		<meltingpoint>1191</meltingpoint>
-		<boilingpoint>3737</boilingpoint>
 		<density>6.16</density>
 		<ionisationenergy>
 			<energy>5.577</energy>
@@ -1634,21 +1058,12 @@
 		</radius>
 		<orbits>Xe 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="33.6" betaminusdecay="1.04" ecpercentage="66.4" ecdecay="1.75" spin="5+" magmoment="+3.707" halflife="105000000000" halflifeformat="years" weight="137.907105" neutron="81" percentage="0.0902" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2+" magmoment="+2.778" halflife="" halflifeformat="seconds" weight="138.91" neutron="82" percentage="99.9098" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="3.761" ecpercentage="" ecdecay="" spin="3-" magmoment="+0.73" halflife="144987.84" halflifeformat="seconds" weight="139.90947" neutron="83" percentage="" />
 		</isotopes>
-		<family>Rare_Earth</family>
 		<crystalstructure>hcp</crystalstructure>
 	</element>
 	<element>
 		<number>58</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.12</electronegativity>
-		<meltingpoint>1071</meltingpoint>
-		<boilingpoint>3715</boilingpoint>
 		<density>6.77</density>
 		<ionisationenergy>
 			<energy>5.47</energy>
@@ -1664,25 +1079,12 @@
 		</radius>
 		<orbits>Xe 4f1 5d1 6s2</orbits>
 		<oxydation>+3.+4</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="135.907" neutron="78" percentage="0.193" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="100.0" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="" spin="3/2+" magmoment="" halflife="32400" halflifeformat="seconds" weight="136.90777" neutron="79" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="137.90663" neutron="80" percentage="0.25" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.27" spin="3/2+" magmoment="&#177;0.9" halflife="11892096" halflifeformat="seconds" weight="138.905" neutron="81" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="139.905" neutron="82" percentage="88.46" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.581" ecpercentage="" ecdecay="" spin="7/2-" magmoment="&#177;0.97" halflife="2808086.4" halflifeformat="seconds" weight="140.90827" neutron="83" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="141.909" neutron="84" percentage="11.07" />
 		</isotopes>
-		<family>Rare_Earth</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>59</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.13</electronegativity>
-		<meltingpoint>1204</meltingpoint>
-		<boilingpoint>3785</boilingpoint>
 		<density>6.48</density>
 		<ionisationenergy>
 			<energy>5.42</energy>
@@ -1696,19 +1098,11 @@
 		</radius>
 		<orbits>Xe 4f3 6s2</orbits>
 		<oxydation>+3.+4</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="+4.3" halflife="" halflifeformat="seconds" weight="140.90765" neutron="82" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="99.98" betaminusdecay="2.160" ecpercentage="0.02" ecdecay="" spin="2-" magmoment="" halflife="68832" halflifeformat="seconds" weight="141.91004" neutron="83" percentage="" />
 		</isotopes>
-		<family>Rare_Earth</family>
 	</element>
 	<element>
 		<number>60</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.14</electronegativity>
-		<meltingpoint>1294</meltingpoint>
-		<boilingpoint>3347</boilingpoint>
 		<density>7.00</density>
 		<ionisationenergy>
 			<energy>5.49 </energy>
@@ -1720,27 +1114,12 @@
 		</radius>
 		<orbits>Xe 4f4 6s2</orbits>
 		<oxydation>+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="141.907" neutron="82" percentage="27.1" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="-1.08" halflife="" halflifeformat="seconds" weight="142.90981" neutron="83" percentage="12.2" />
-			<isotope alphapercentage="100.0" alphadecay="1.83" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="2290000000000000" halflifeformat="years" weight="143.91008" neutron="84" percentage="23.8" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="-0.66" halflife="" halflifeformat="seconds" weight="144.912" neutron="85" percentage="8.3" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="145.913" neutron="86" percentage="17.2" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.91" ecpercentage="" ecdecay="" spin="5/2-" magmoment="0.59" halflife="948672" halflifeformat="seconds" weight="146.91610" neutron="87" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="147.916" neutron="88" percentage="5.72" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.66" ecpercentage="" ecdecay="" spin="5/2-" magmoment="" halflife="6192" halflifeformat="seconds" weight="148.92015" neutron="89" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="149.921" neutron="90" percentage="5.6" />
 		</isotopes>
-		<family>Rare_Earth</family>
 	</element>
 	<element>
 		<number>61</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.13</electronegativity>
-		<meltingpoint>1315</meltingpoint>
-		<boilingpoint>3273</boilingpoint>
 		<density>7.22</density>
 		<ionisationenergy>
 			<energy>5.55 </energy>
@@ -1751,22 +1130,12 @@
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f5 6s2</orbits>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.224" ecpercentage="" ecdecay="" spin="7/2+" magmoment="+2.7" halflife="2.5" halflifeformat="years" weight="146.91513" neutron="86" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="2.46" ecpercentage="" ecdecay="" spin="1-" magmoment="" halflife="465696" halflifeformat="seconds" weight="147.91747" neutron="87" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.073" ecpercentage="" ecdecay="" spin="7/2+" magmoment="&#177;3.3" halflife="191160" halflifeformat="seconds" weight="148.91833" neutron="88" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="3.43" ecpercentage="" ecdecay="" spin="1-" magmoment="" halflife="9720" halflifeformat="seconds" weight="149.92098" neutron="89" percentage="" />
 		</isotopes>
 		<oxydation>+3</oxydation>
-		<family>Rare_Earth</family>
 	</element>
 	<element>
 		<number>62</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.17</electronegativity>
-		<meltingpoint>1347</meltingpoint>
-		<boilingpoint>2067</boilingpoint>
 		<density>7.54</density>
 		<ionisationenergy>
 			<energy>5.63 </energy>
@@ -1778,28 +1147,11 @@
 		</radius>
 		<orbits>Xe 4f6 6s2</orbits>
 		<oxydation>+2.+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="143.912" neutron="82" percentage="3" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.65" spin="7/2-" magmoment="" halflife="29376000" halflifeformat="seconds" weight="144.91341" neutron="83" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="2.55" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="103100000" halflifeformat="years" weight="145.91340" neutron="84" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="2.31" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="-0.813" halflife="106000000000" halflifeformat="years" weight="146.91489" neutron="85" percentage="14.97" />
-			<isotope alphapercentage="100.0" alphadecay="2.00" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="12000000000000" halflifeformat="years" weight="147.91482" neutron="86" percentage="11.3" />
-			<isotope alphapercentage="100.0" alphadecay="1.9" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="-0.670" halflife="400000000000000" halflifeformat="years" weight="148.91718" neutron="87" percentage="13.83" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="149.91727" neutron="88" percentage="7.44" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.076" ecpercentage="" ecdecay="" spin="5/2-" magmoment="" halflife="93" halflifeformat="years" weight="150.91933" neutron="89" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="151.919" neutron="90" percentage="26" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.8" ecpercentage="" ecdecay="" spin="3/2+" magmoment="-0.0217" halflife="166572" halflifeformat="seconds" weight="152.92209" neutron="91" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="153.922" neutron="92" percentage="20" />
 		</isotopes>
-		<family>Rare_Earth</family>
 	</element>
 	<element>
 		<number>63</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.2</electronegativity>
-		<meltingpoint>1095</meltingpoint>
-		<boilingpoint>1800</boilingpoint>
 		<density>5.25</density>
 		<ionisationenergy>
 			<energy>5.67 </energy>
@@ -1811,20 +1163,12 @@
 		</radius>
 		<orbits>Xe 4f7 6s2</orbits>
 		<oxydation>+2.+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="+3.464" halflife="" halflifeformat="seconds" weight="150.919847" neutron="88" percentage="47.7" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="+1.530" halflife="" halflifeformat="seconds" weight="152.921225" neutron="90" percentage="52.23" />
 		</isotopes>
-		<family>Rare_Earth</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>64</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.20</electronegativity>
-		<meltingpoint>1585</meltingpoint>
-		<boilingpoint>3545</boilingpoint>
 		<density>7.89</density>
 		<ionisationenergy>
 			<energy>6.14 </energy>
@@ -1836,27 +1180,12 @@
 		</radius>
 		<orbits>Xe 4f7 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="100.0" alphadecay="2.24" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="108000000000000" halflifeformat="years" weight="151.91979" neutron="88" percentage="0.2" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="0.24" spin="3/2-" magmoment="" halflife="20874240" halflifeformat="seconds" weight="152.92175" neutron="89" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="153.921" neutron="90" percentage="2.15" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="-0.27" halflife="" halflifeformat="seconds" weight="154.923" neutron="91" percentage="14.78" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="155.922" neutron="92" percentage="20.59" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="-0.36" halflife="" halflifeformat="seconds" weight="156.924" neutron="93" percentage="15.71" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="157.924" neutron="94" percentage="24.79" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.95" ecpercentage="" ecdecay="" spin="3/2-" magmoment="" halflife="66816" halflifeformat="seconds" weight="158.926386" neutron="95" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="159.927" neutron="96" percentage="21.79" />
 		</isotopes>
-		<family>Rare_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>65</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.1</electronegativity>
-		<meltingpoint>1629</meltingpoint>
-		<boilingpoint>3500</boilingpoint>
 		<density>8.25</density>
 		<ionisationenergy>
 			<energy>5.85 </energy>
@@ -1867,21 +1196,13 @@
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f9 6s2</orbits>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+1.95" halflife="" halflifeformat="seconds" weight="158.925344" neutron="94" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.72" ecpercentage="" ecdecay="" spin="3-" magmoment="+1.702" halflife="6246720" halflifeformat="seconds" weight="159.927165" neutron="95" percentage="" />
 		</isotopes>
 		<oxydation>+3.+4</oxydation>
-		<family>Rare_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>66</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.22</electronegativity>
-		<meltingpoint>1685</meltingpoint>
-		<boilingpoint>2840</boilingpoint>
 		<density>8.56</density>
 		<ionisationenergy>
 			<energy>5.93 </energy>
@@ -1892,27 +1213,13 @@
 			<vdw></vdw>
 		</radius>
 		<orbits>Xe 4f10 6s2</orbits>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="155.92428" neutron="90" percentage="0.052" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="157.92440" neutron="92" percentage="0.090" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="159.92519" neutron="94" percentage="2.29" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="-0.4805" halflife="" halflifeformat="seconds" weight="160.92693" neutron="95" percentage="18.88" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="161.92680" neutron="96" percentage="25.53" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2-" magmoment="+0.6726" halflife="" halflifeformat="seconds" weight="162.92873" neutron="97" percentage="24.97" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="163.92917" neutron="98" percentage="28.18" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.3" ecpercentage="" ecdecay="" spin="7/2+" magmoment="" halflife="8402.4" halflifeformat="seconds" weight="164.93170" neutron="98" percentage="" />
 		</isotopes>
 		<oxydation>+3</oxydation>
-		<family>Rare_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>67</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.23</electronegativity>
-		<meltingpoint>1747</meltingpoint>
-		<boilingpoint>2968</boilingpoint>
 		<density>8.78</density>
 		<ionisationenergy>
 			<energy>6.02 </energy>
@@ -1924,21 +1231,13 @@
 			<bondxx></bondxx>
 		</radius>
 		<orbits>Xe 4f11 6s2</orbits>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="+4.173" halflife="" halflifeformat="seconds" weight="164.93032" neutron="98" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.85" ecpercentage="" ecdecay="" spin="0-" magmoment="0" halflife="96840" halflifeformat="seconds" weight="165.93228" neutron="99" percentage="" />
 		</isotopes>
 		<oxydation>+3</oxydation>
-		<family>Rare_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>68</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.24</electronegativity>
-		<meltingpoint>1802</meltingpoint>
-		<boilingpoint>3140</boilingpoint>
 		<density>9.05</density>
 		<ionisationenergy>
 			<energy>6.10 </energy>
@@ -1952,24 +1251,12 @@
 		<abundance></abundance>
 		<orbits>Xe 4f12 6s2</orbits>
 		<oxydation>+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="161.929" neutron="94" percentage="0.136" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="163.929" neutron="96" percentage="1.56" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="165.93029" neutron="98" percentage="33.41" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2+" magmoment="-0.5665" halflife="" halflifeformat="seconds" weight="166.93205" neutron="99" percentage="22.94" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="167.93237" neutron="100" percentage="27.07" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="169.935" neutron="102" percentage="14.88" />
 		</isotopes>
-		<family>Rare_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>69</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.25</electronegativity>
-		<meltingpoint>1818</meltingpoint>
-		<boilingpoint>2223</boilingpoint>
 		<density>9.32</density>
 		<ionisationenergy>
 			<energy>6.18 </energy>
@@ -1982,20 +1269,13 @@
 		</radius>
 		<abundance></abundance>
 		<orbits>Xe 4f13 6s2</orbits>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="-0.2316" halflife="" halflifeformat="seconds" weight="168.93421" neutron="100" percentage="100" />
 		</isotopes>
 		<oxydation>+2.+3</oxydation>
-		<family>Rare_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>70</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.1</electronegativity>
-		<meltingpoint>1092</meltingpoint>
-		<boilingpoint>1469</boilingpoint>
 		<density>9.32</density>
 		<ionisationenergy>
 			<energy>6.254 </energy>
@@ -2009,26 +1289,12 @@
 		<abundance></abundance>
 		<orbits>Xe 4f14 6s2</orbits>
 		<oxydation>+2.+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="" halflifeformat="seconds" weight="167.934" neutron="98" percentage="0.135" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="169.93476" neutron="100" percentage="3.03" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="+0.4919" halflife="" halflifeformat="seconds" weight="170.93632" neutron="101" percentage="14.31" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="171.93638" neutron="102" percentage="21.82" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2-" magmoment="-0.6776" halflife="" halflifeformat="seconds" weight="172.93821" neutron="103" percentage="16.13" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="173.93886" neutron="104" percentage="31.84" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.467" ecpercentage="" ecdecay="" spin="7/2-" magmoment="&#177;0.3" halflife="244224" halflifeformat="seconds" weight="174.94127" neutron="105" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="175.94256" neutron="106" percentage="12.73" />
 		</isotopes>
-		<family>Rare_Earth</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>71</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.27</electronegativity>
-		<meltingpoint>1936</meltingpoint>
-		<boilingpoint>3668</boilingpoint>
 		<density>9.84</density>
 		<ionisationenergy>
 			<energy>5.426 </energy>
@@ -2042,21 +1308,12 @@
 		<abundance></abundance>
 		<orbits>Xe 4f14 5d1 6s2</orbits>
 		<oxydation>+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2+" magmoment="+2.2327" halflife="" halflifeformat="seconds" weight="174.941" neutron="104" percentage="97.41" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7-" magmoment="3.19" halflife="" halflifeformat="seconds" weight="175.943" neutron="105" percentage="2.59" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2+" magmoment="+2.239" halflife="" halflifeformat="seconds" weight="176.943752" neutron="106" percentage="" />   
 		</isotopes>
-		<family>Rare_Earth</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>72</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.3</electronegativity>
-		<meltingpoint>2504</meltingpoint>
-		<boilingpoint>4875</boilingpoint>
 		<density>13.31</density>
 		<ionisationenergy>
 			<energy>7.0 </energy>
@@ -2070,25 +1327,12 @@
 		<abundance></abundance>
 		<orbits>Xe 4f14 5d2 6s2</orbits>
 		<oxydation>+5</oxydation>
-		<isotopes>
-			<isotope alphapercentage="100.0" alphadecay="2.55" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="2000000000000000" halflifeformat="years" weight="173.94004" neutron="102" percentage="0.18" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.59" spin="5/2-" magmoment="0.70" halflife="6048000" halflifeformat="seconds" weight="174.94151" neutron="103" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="175.94140" neutron="104" percentage="5.21" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="+0.7935" halflife="" halflifeformat="seconds" weight="176.94322" neutron="105" percentage="18.6" />   
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="177.94370" neutron="106" percentage="27.3" /> 
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2+" magmoment="-0.6409" halflife="" halflifeformat="seconds" weight="178.94581" neutron="107" percentage="13.63" />  
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="179.94655" neutron="108" percentage="35.1" />  
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>73</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-31</electronaffinity>
-		<electronegativity>1.5</electronegativity>
-		<meltingpoint>3293</meltingpoint>
-		<boilingpoint>5730</boilingpoint>
 		<density>16.68</density>
 		<ionisationenergy>
 			<energy>7.89 </energy>
@@ -2102,21 +1346,12 @@
 		<abundance></abundance>
 		<orbits>Xe 4f14 5d3 6s2</orbits>
 		<oxydation>+3.+5</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="14.0" betaminusdecay="" ecpercentage="86.0" ecdecay="" spin="9-" magmoment="" halflife="10000000000000" halflifeformat="years" weight="179.947462" neutron="107" percentage="0.012" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2+" magmoment="+2.370" halflife="" halflifeformat="seconds" weight="180.947992" neutron="108" percentage="99.998" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.811" ecpercentage="" ecdecay="" spin="3-" magmoment="2.6" halflife="9892800" halflifeformat="seconds" weight="181.950149" neutron="109" percentage="" />   
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>74</number>
 		<biologicalmeaning>5</biologicalmeaning>
-		<electronaffinity>-79</electronaffinity>
-		<electronegativity>2.36</electronegativity>
-		<meltingpoint>3695</meltingpoint>
-		<boilingpoint>5825</boilingpoint>
 		<density>19.26</density>
 		<ionisationenergy>
 			<energy>7.98 </energy>
@@ -2130,26 +1365,12 @@
 		<abundance></abundance>
 		<orbits>Xe 4f14 5d4 6s2</orbits>
 		<oxydation>(+4). +6</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="179.947" neutron="106" percentage="0.122" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.19" spin="9/2+" magmoment="" halflife="10471680" halflifeformat="seconds" weight="180.94820" neutron="107" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0+" halflife="" halflifeformat="seconds" weight="181.94820" neutron="108" percentage="26.3" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="+0.1177847" halflife="" halflifeformat="seconds" weight="182.950220" neutron="109" percentage="14.28" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="183.950928" neutron="110" percentage="30.7" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.432" ecpercentage="" ecdecay="" spin="3/2-" magmoment="" halflife="4129920" halflifeformat="seconds" weight="184.953416" neutron="111" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="185.954357" neutron="112" percentage="29.17" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.321" ecpercentage="" ecdecay="" spin="3/2-" magmoment="0.688" halflife="2064960" halflifeformat="seconds" weight="186.957153" neutron="113" percentage="" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>75</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-14</electronaffinity>
-		<electronegativity>1.9</electronegativity>
-		<meltingpoint>3455</meltingpoint>
-		<boilingpoint>5870</boilingpoint>
 		<density>21.03</density>
 		<ionisationenergy>
 			<energy>7.88</energy>
@@ -2164,22 +1385,12 @@
 		<abundance>0.0007</abundance>
 		<orbits>Xe 4f14 5d5 6s2</orbits>
 		<oxydation>+7.+2.+4</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="+3.172" halflife="" halflifeformat="seconds" weight="184.952951" neutron="110" percentage="37.4" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="93.1" betaminusdecay="1.071" ecpercentage="6.9" ecdecay="" spin="1-" magmoment="+1.739" halflife="324000" halflifeformat="seconds" weight="185.954984" neutron="111" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.00251" ecpercentage="" ecdecay="" spin="5/2+" magmoment="+3.2197" halflife="43500000000" halflifeformat="years" weight="186.955744" neutron="112" percentage="62.6" />   
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="2.12" ecpercentage="" ecdecay="" spin="1-" magmoment="+1.788" halflife="61128" halflifeformat="seconds" weight="187.958106" neutron="113" percentage="" />   
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>76</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-106</electronaffinity>
-		<electronegativity>2.2</electronegativity>
-		<meltingpoint>3300</meltingpoint>
-		<boilingpoint>5300</boilingpoint>
 		<density>22.61</density>
 		<ionisationenergy>
 			<energy>8.7 </energy>
@@ -2194,27 +1405,12 @@
 		<abundance>0.005</abundance>
 		<orbits>Xe 4f14 5d6 6s2</orbits>
 		<oxydation>+4.(+2.+3.+6.+8)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="183.953" neutron="108" percentage="0.018" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.98" spin="1/2-" magmoment="" halflife="8087040" halflifeformat="seconds" weight="184.954041" neutron="109" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="2000000000000000" halflifeformat="years" weight="185.953830" neutron="110" percentage="1.58" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="+0.06465" halflife="" halflifeformat="seconds" weight="186.955741" neutron="111" percentage="1.59" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="187.955860" neutron="112" percentage="13.3" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.659933" halflife="" halflifeformat="seconds" weight="188.958137" neutron="113" percentage="16.1" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="189.958436" neutron="114" percentage="26.4" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.313" ecpercentage="" ecdecay="" spin="9/2-" magmoment="" halflife="13.30560" halflifeformat="seconds" weight="190.960920" neutron="115" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="191.961476" neutron="116" percentage="41" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>77</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-151</electronaffinity>
-		<electronegativity>2.20</electronegativity>
-		<meltingpoint>2720</meltingpoint>
-		<boilingpoint>4700</boilingpoint>
 		<density>22.65</density>
 		<ionisationenergy>
 			<energy>9.1 </energy>
@@ -2229,21 +1425,12 @@
 		<abundance>0.001</abundance>
 		<orbits>Xe 4f14 5d7 6s2</orbits>
 		<oxydation>+1.+4.(+2.+3.+6)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.1461" halflife="" halflifeformat="seconds" weight="190.960584" neutron="114" percentage="38.5" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="4.6" betaplusdecay="1.2" betaminuspercentage="95.4" betaminusdecay="1.454" ecpercentage="4.6" ecdecay="" spin="4-" magmoment="+1.880" halflife="6378998.4" halflifeformat="seconds" weight="191.962580" neutron="115" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.1591" halflife="" halflifeformat="seconds" weight="192.962917" neutron="116" percentage="61.5" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>78</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-205</electronaffinity>
-		<electronegativity>2.28</electronegativity>
-		<meltingpoint>2042.1</meltingpoint>
-		<boilingpoint>4100</boilingpoint>
 		<density>21.450</density>
 		<ionisationenergy>
 			<energy>9.0 </energy>
@@ -2258,25 +1445,12 @@
 		<abundance>0.01</abundance>
 		<orbits>Xe 4f14 5d9 6s1</orbits>
 		<oxydation>+2.+4</oxydation>
-		<isotopes>
-			<isotope alphapercentage="100.0" alphadecay="3.18" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="650000000000" halflifeformat="years" weight="189.959917" neutron="112" percentage="0.0127" />
-			<isotope alphapercentage="100.0" alphadecay="2.6" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="1000000000000000" halflifeformat="years" weight="191.961019" neutron="114" percentage="0.78" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="193.962655" neutron="116" percentage="32.9" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="+0.60949" halflife="" halflifeformat="seconds" weight="194.964766" neutron="117" percentage="33.8" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="195.9650" neutron="118" percentage="25.3" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.75" ecpercentage="" ecdecay="" spin="1/2-" magmoment="-0.51" halflife="65880" halflifeformat="seconds" weight="196.967315" neutron="119" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="197.967869" neutron="120" percentage="7.2" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>79</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-223</electronaffinity>
-		<electronegativity>2.54</electronegativity>
-		<meltingpoint>1337.58</meltingpoint>
-		<boilingpoint>3130</boilingpoint>
 		<density>19.32</density>
 		<ionisationenergy>
 			<energy>9.225 </energy>
@@ -2291,22 +1465,12 @@
 		<abundance>0.004</abundance>
 		<orbits>Xe 4f14 5d10 6s1</orbits>
 		<oxydation>(+1).+3</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.230" spin="3/2+" magmoment="&#177;0.148" halflife="16078176" halflifeformat="seconds" weight="194.965013" neutron="116" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.1457" halflife="" halflifeformat="seconds" weight="196.966543" neutron="118" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.372" ecpercentage="" ecdecay="" spin="2-" magmoment="+0.5934" halflife="232718.4" halflifeformat="seconds" weight="197.968217" neutron="119" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.453" ecpercentage="" ecdecay="" spin="3/2+" magmoment="+0.2715" halflife="271209.6" halflifeformat="seconds" weight="198.968740" neutron="120" percentage="" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>80</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>61</electronaffinity>
-		<electronegativity>2.00</electronegativity>
-		<meltingpoint>234.31</meltingpoint>
-		<boilingpoint>629.88</boilingpoint>
 		<density>13.55</density>
 		<ionisationenergy>
 			<energy>10.437 </energy>
@@ -2321,27 +1485,12 @@
 		<abundance>0.08</abundance>
 		<orbits>Xe 4f14 5d10 6s2</orbits>
 		<oxydation>(+1).+2</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="195.965807" neutron="116" percentage="0.146" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="100.0" ecdecay="0.42" spin="1/2-" magmoment="+0.5274" halflife="230904" halflifeformat="seconds" weight="196.967187" neutron="117" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="197.966743" neutron="118" percentage="10.02" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2-" magmoment="+0.5058851" halflife="" halflifeformat="seconds" weight="198.968254" neutron="119" percentage="16.84" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="199.968300" neutron="120" percentage="23.13" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="-0.560225" halflife="" halflifeformat="seconds" weight="200.970277" neutron="121" percentage="13.22" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="201.970617" neutron="122" percentage="29.80" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.492" ecpercentage="" ecdecay="" spin="5/2-" magmoment="+0.8489" halflife="4027276.8" halflifeformat="seconds" weight="202.972848" neutron="123" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="" halflifeformat="seconds" weight="203.973467" neutron="124" percentage="6.85" />
 		</isotopes>
-		<family>Transition</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>81</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-20</electronaffinity>
-		<electronegativity>2.04</electronegativity>
-		<meltingpoint>577</meltingpoint>
-		<boilingpoint>1746</boilingpoint>
 		<density>11.85</density>
 		<ionisationenergy>
 			<energy>6.108</energy>
@@ -2358,21 +1507,12 @@
 		<abundance>0.7</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p1</orbits>
 		<oxydation>+1.(+3)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="+1.622257" halflife="" halflifeformat="seconds" weight="202.972320" neutron="122" percentage="29.52" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="97.43" betaminusdecay="0.763" ecpercentage="2.57" ecdecay="0.345" spin="2-" magmoment="-0.06" halflife="3.78" halflifeformat="years" weight="203.97384" neutron="123" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="+1.6382134" halflife="" halflifeformat="seconds" weight="204.974401" neutron="124" percentage="70.48" />
 		</isotopes>
-		<family>Other_Metal</family>
 		<crystalstructure>hdp</crystalstructure>
 	</element>
 	<element>
 		<number>82</number>
 		<biologicalmeaning>3</biologicalmeaning>
-		<electronaffinity>-35</electronaffinity>
-		<electronegativity>2.33</electronegativity>
-		<meltingpoint>600.65</meltingpoint>
-		<boilingpoint>2023</boilingpoint>
 		<density>11.34</density>
 		<ionisationenergy>
 			<energy>7.416 </energy>
@@ -2387,29 +1527,16 @@
 		<abundance>13</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p2</orbits>
 		<oxydation>+2.(+4)</oxydation>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0" magmoment="" halflife="" halflifeformat="seconds" weight="203.97302" neutron="122" percentage="1.4" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0" magmoment="" halflife="" halflifeformat="seconds" weight="205.974440" neutron="124" percentage="24.1" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2" magmoment="+0.5926" halflife="" halflifeformat="seconds" weight="206.975872" neutron="125" percentage="22.1" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0" magmoment="" halflife="" halflifeformat="seconds" weight="207.976627" neutron="126" percentage="52.4" />
 		</isotopes>
-		<family>Other_Metal</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>83</number>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-91</electronaffinity>
-		<electronegativity>2.02</electronegativity>
-		<meltingpoint>544.59</meltingpoint>
-		<boilingpoint>1837</boilingpoint>
 		<density>9.80</density>
 		<ionisationenergy>
 			<energy>7.289 </energy>
 		</ionisationenergy>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2" magmoment="+4.11" halflife="" halflifeformat="seconds" weight="208.980347" neutron="126" percentage="100.0" />
-			<isotope alphapercentage="100.0" alphadecay="5.04" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.16" ecpercentage="" ecdecay="" spin="1" magmoment="-0.044" halflife="432864.0" halflifeformat="seconds" weight="209.984095" neutron="127" percentage="" />
 		</isotopes>
 		<radius>
 			<covalent>155</covalent>
@@ -2422,30 +1549,16 @@
 		<abundance>13</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p3</orbits>
 		<oxydation>+3.(+5)</oxydation>
-		<family>Other_Metal</family>
 		<crystalstructure>rh</crystalstructure>
 	</element>
 	<element>
 		<number>84</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-183</electronaffinity>
-		<electronegativity>2.0</electronegativity>
-		<meltingpoint>527</meltingpoint>
-		<boilingpoint></boilingpoint>
 		<density>9.20</density>
 		<ionisationenergy>
 			<energy>8.42 </energy>
 		</ionisationenergy>
-		<isotopes>
-			<isotope alphapercentage="99.74" alphadecay="4.976" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="0.26" ecdecay="" spin="1/2-" magmoment="+0.77" halflife="102" halflifeformat="years" weight="208.9824" neutron="125" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="5.407" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="11955686.4" halflifeformat="seconds" weight="209.982848" neutron="126" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="7.594" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2+" magmoment="" halflife="0.516" halflifeformat="seconds" weight="210.986627" neutron="127" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="0.000000299" halflifeformat="seconds" weight="211.9888" neutron="128" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="0.0001643" halflifeformat="seconds" weight="213.9952" neutron="130" percentage="" />
-			<isotope alphapercentage="99.9998" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="0.0002" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2+" magmoment="" halflife="0.001781" halflifeformat="seconds" weight="214.9994" neutron="131" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="6.906" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="0.145" halflifeformat="seconds" weight="216.001889" neutron="132" percentage="" />
-			<isotope alphapercentage="99.98" alphadecay="6.114" betapluspercentage="" betaplusdecay="" betaminuspercentage="0.02" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="186" halflifeformat="seconds" weight="218.0089" neutron="134" percentage="" />
 		</isotopes>
 		<radius>
 			<covalent>167.5</covalent>
@@ -2457,28 +1570,16 @@
 		<abundance>0</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p4</orbits>
 		<oxydation>(+2).+4.(+6)</oxydation>
-		<family>Metalloids</family>
 		<crystalstructure>mono</crystalstructure>
 	</element>
 	<element>
 		<number>85</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-270</electronaffinity>
-		<electronegativity>2.2</electronegativity>
-		<meltingpoint>575</meltingpoint>
-		<boilingpoint>610</boilingpoint>
 		<density></density>
 		<ionisationenergy>
 			<energy>9.5 </energy>
 		</ionisationenergy>
-		<isotopes>
-			<isotope alphapercentage="0.18" alphadecay="5.63" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="99.82" ecdecay="3.98" spin="5+" magmoment="" halflife="29160" halflifeformat="seconds" weight="209.987126" neutron="125" percentage="" />
-			<isotope alphapercentage="41.7" alphadecay="5.981" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="58.3" ecdecay="0.784" spin="9/2-" magmoment="" halflife="25970.4" halflifeformat="seconds" weight="210.987469" neutron="126" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2-" magmoment="" halflife="0.0001" halflifeformat="seconds" weight="214.99864" neutron="130" percentage="" />
-			<isotope alphapercentage="100" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1-" magmoment="" halflife="0.0003" halflifeformat="seconds" weight="216.0024" neutron="131" percentage="" />
-			<isotope alphapercentage="99.99" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="0.01" betaminusdecay="" ecpercentage="" ecdecay="" spin="9/2-" magmoment="" halflife="1938" halflifeformat="seconds" weight="217.00471" neutron="133" percentage="" />
-			<isotope alphapercentage="99.9" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="0.1" betaminusdecay="" ecpercentage="" ecdecay="" spin="2-" magmoment="" halflife="1.6" halflifeformat="seconds" weight="118.00868" neutron="134" percentage="" />
 		</isotopes>
 		<radius>
 			<covalent></covalent>
@@ -2489,16 +1590,11 @@
 		<abundance>0</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p5</orbits>
 		<oxydation>-1.(1.3.5.7)</oxydation>
-		<family>Halogene</family>
 	</element>
 	<element>
 		<number>86</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>41</electronaffinity>
-		<electronegativity></electronegativity>
-		<meltingpoint>202</meltingpoint>
-		<boilingpoint>211.4</boilingpoint>
 		<density>9.23</density>
 		<ionisationenergy>
 			<energy>10.748 </energy>
@@ -2512,17 +1608,12 @@
 		<abundance>0</abundance>
 		<orbits>Xe 4f14 5d10 6s2 6p6</orbits>
 		<oxydation>2</oxydation>
-		<family>Noblegas</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>87</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity>-44</electronaffinity>
-		<electronegativity>0.7</electronegativity>
-		<meltingpoint>300</meltingpoint>
-		<boilingpoint>950</boilingpoint>
 		<density></density>
 		<ionisationenergy>
 			<energy>4.0 </energy>
@@ -2537,16 +1628,11 @@
 		<abundance></abundance>
 		<orbits>Rn 7s1</orbits>
 		<oxydation>+1</oxydation>
-		<family>Alkali_Earth</family>
 	</element>
 	<element>
 		<number>88</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>0.89</electronegativity>
-		<meltingpoint>973</meltingpoint>
-		<boilingpoint>1413</boilingpoint>
 		<density>5.50</density>
 		<ionisationenergy>
 			<energy>5.279</energy>
@@ -2561,17 +1647,12 @@
 		<abundance>0</abundance>
 		<orbits>Rn 7s2</orbits>
 		<oxydation>+2</oxydation>
-		<family>Alkaline_Earth</family>
 		<crystalstructure>bcc</crystalstructure>
 	</element>
 	<element>
 		<number>89</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.1</electronegativity>
-		<meltingpoint>1324</meltingpoint>
-		<boilingpoint>3470</boilingpoint>
 		<density>10.07</density>
 		<ionisationenergy>
 			<energy>6.9 </energy>
@@ -2586,29 +1667,16 @@
 		<abundance>0</abundance>
 		<orbits>Rn 6d1 7s2</orbits>
 		<oxydation>(+2).+3</oxydation>
-		<family>Rare_Earth</family>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
 	<element>
 		<number>90</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.3</electronegativity>
-		<meltingpoint>2028</meltingpoint>
-		<boilingpoint>5060</boilingpoint>
 		<density>11.72</density>
 		<ionisationenergy>
 			<energy>6.95 </energy>
 		</ionisationenergy>
-		<isotopes>
-			<isotope alphapercentage="100.0" alphadecay="6.145" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2+" magmoment="" halflife="1617235.2" halflifeformat="seconds" weight="227.02770" neutron="137" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="5.52" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="1.9131" halflifeformat="years" weight="228.02872" neutron="138" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="5.17" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="+0.46" halflife="7340" halflifeformat="years" weight="229.03176" neutron="139" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="4.77" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="75380" halflifeformat="years" weight="230.03313" neutron="140" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.389" ecpercentage="" ecdecay="" spin="5/2+" magmoment="" halflife="91872" halflifeformat="seconds" weight="231.03630" neutron="141" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="4.081" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="14000000000" halflifeformat="years" weight="232.03805" neutron="142" percentage="100" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.27" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="1338" halflifeformat="seconds" weight="234.036593" neutron="144" percentage="" />
 		</isotopes>
 		<radius>
 			<covalent></covalent>
@@ -2619,7 +1687,6 @@
 		</radius>
 		<abundance>12</abundance>
 		<oxydation>+3.+4</oxydation>
-		<family>Rare_Earth</family>
 		<orbits>Rn 6d2 7s2</orbits>
 		<crystalstructure>ccp</crystalstructure>
 	</element>
@@ -2627,10 +1694,6 @@
 		<number>91</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.5</electronegativity>
-		<meltingpoint>1845</meltingpoint>
-		<boilingpoint>4300</boilingpoint>
 		<density>15.37</density>
 		<radius>
 			<covalent></covalent>
@@ -2643,12 +1706,7 @@
 		</radius>
 		<abundance>12</abundance>
 		<oxydation>+4.+5</oxydation>
-		<isotopes>
-			<isotope alphapercentage="100.0" alphadecay="5.148" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="3/2-" magmoment="&#177;2.01" halflife="32760" halflifeformat="years" weight="231.03588" neutron="140" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.34" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+3.5" halflife="113184" halflifeformat="seconds" weight="232.03857" neutron="141" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.572" ecpercentage="" ecdecay="" spin="3/2-" magmoment="+3.5" halflife="2329948.8" halflifeformat="seconds" weight="233.04024" neutron="142" percentage="" />
 		</isotopes>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f2 6d1 7s2</orbits>
 		<crystalstructure>own</crystalstructure>
 	</element>
@@ -2656,23 +1714,10 @@
 		<number>92</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.38</electronegativity>
-		<meltingpoint>1408</meltingpoint>
-		<boilingpoint>4407</boilingpoint>
 		<density>18.97</density>
 		<ionisationenergy>
 			<energy>6.08 </energy>
 		</ionisationenergy>
-		<isotopes>
-			<isotope alphapercentage="100.0" alphadecay="5.41" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="73.6" halflifeformat="years" weight="232.03713" neutron="140" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="4.91" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="+0.55" halflife="159200" halflifeformat="years" weight="233.03963" neutron="141" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="4.856" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="245000" halflifeformat="years" weight="234.04095" neutron="142" percentage="0.005" />
-			<isotope alphapercentage="100.0" alphadecay="4.6793" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="7/2-" magmoment="-0.35" halflife="703800000" halflifeformat="years" weight="235.04392" neutron="143" percentage="0.7200" />
-			<isotope alphapercentage="100.0" alphadecay="4.569" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="23415000" halflifeformat="years" weight="236.04556" neutron="144" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.52" ecpercentage="" ecdecay="" spin="1/2+" magmoment="" halflife="583200" halflifeformat="seconds" weight="237.04872" neutron="145" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="4.039" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="4468000000" halflifeformat="years" weight="238.05078" neutron="146" percentage="99.2748" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.5" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="50760" halflifeformat="seconds" weight="240.05659" neutron="148" percentage="" />
 		</isotopes>
 		<radius>
 			<covalent>138.5</covalent>
@@ -2685,7 +1730,6 @@
 		</radius>
 		<abundance>2.3</abundance>
 		<oxydation>+3.+4.+5.+6.+7</oxydation>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f3 6d1 7s2</orbits>
 		<crystalstructure>own</crystalstructure>
 	</element>
@@ -2693,10 +1737,6 @@
 		<number>93</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.36</electronegativity>
-		<meltingpoint>912</meltingpoint>
-		<boilingpoint>4175</boilingpoint>
 		<density>20.48</density>
 		<ionisationenergy>
 		</ionisationenergy>
@@ -2709,12 +1749,7 @@
 		</radius>
 		<abundance>0</abundance>
 		<oxydation>+4.+3.+5.+7</oxydation>
-		<isotopes>
-			<isotope alphapercentage="100.0" alphadecay="4.96" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2+" magmoment="" halflife="2140000" halflifeformat="years" weight="237.04817" neutron="144" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="1.29" ecpercentage="" ecdecay="" spin="2+" magmoment="" halflife="182908.8" halflifeformat="seconds" weight="238.05094" neutron="145" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.72" ecpercentage="" ecdecay="" spin="5/2+" magmoment="" halflife="203472" halflifeformat="seconds" weight="239.05293" neutron="146" percentage="" />
 		</isotopes>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f4 6d1 7s2</orbits>
 		<crystalstructure>own</crystalstructure>
 	</element>
@@ -2722,10 +1757,6 @@
 		<number>94</number>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.28</electronegativity>
-		<meltingpoint>913</meltingpoint>
-		<boilingpoint>3505</boilingpoint>
 		<density>19.74</density>
 		<ionisationenergy>
 			<energy>5.8 </energy>
@@ -2739,16 +1770,7 @@
 		</radius>
 		<abundance>0</abundance>
 		<oxydation>+3.+4.+5.+6.+7</oxydation>
-		<isotopes>
-			<isotope alphapercentage="100.0" alphadecay="5.87" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="2.87" halflifeformat="years" weight="236.04603" neutron="142" percentage="" />
-			<isotope alphapercentage="0.004" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="99.996" ecdecay="0.22" spin="7/2-" magmoment="" halflife="3905280" halflifeformat="seconds" weight="237.04841" neutron="143" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="5.59" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="0" halflife="87.74" halflifeformat="years" weight="238.04955" neutron="144" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="5.24" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="1/2+" magmoment="+0.203" halflife="24119" halflifeformat="years" weight="239.05216" neutron="145" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="5.26" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="6563" halflifeformat="years" weight="240.05381" neutron="146" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="100.0" betaminusdecay="0.02" ecpercentage="" ecdecay="" spin="5/2+" magmoment="-0.683" halflife="14.35" halflifeformat="years" weight="241.05685" neutron="147" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="4.983" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="0+" magmoment="" halflife="373300" halflifeformat="years" weight="242.05874" neutron="148" percentage="" />
 		</isotopes>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f6 7s2</orbits>
 		<crystalstructure>own</crystalstructure>
 	</element>
@@ -2757,10 +1779,6 @@
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.3</electronegativity>
-		<meltingpoint>1449</meltingpoint>
-		<boilingpoint>2880</boilingpoint>
 		<density>13.67</density>
 		<ionisationenergy>
 			<energy>6.0</energy>
@@ -2774,12 +1792,7 @@
 		</radius>
 		<abundance>0</abundance>
 		<oxydation>+2.+3.+4.+5.+6</oxydation>
-		<isotopes>
-			<isotope alphapercentage="100.0" alphadecay="5.637" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2-" magmoment="+1.61" halflife="432.7" halflifeformat="years" weight="241.05682" neutron="146" percentage="" />
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="82.7" betaminusdecay="0.67" ecpercentage="17.3" ecdecay="0.73" spin="1-" magmoment="" halflife="57672" halflifeformat="seconds" weight="242.05954" neutron="147" percentage="" />
-			<isotope alphapercentage="100.0" alphadecay="5.439" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="5/2-" magmoment="" halflife="7380" halflifeformat="years" weight="243.06137" neutron="148" percentage="" />
 		</isotopes>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f7 7s2</orbits>
 	</element>
 	<element>
@@ -2787,8 +1800,6 @@
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.3</electronegativity>
 		<radius>
 			<covalent></covalent>
 			<atomic></atomic>
@@ -2797,11 +1808,8 @@
 			<bondxx>347.7</bondxx>
 		</radius>
 		<abundance>0</abundance>
-		<meltingpoint>1620</meltingpoint>
-		<boilingpoint></boilingpoint>
 		<density>13.51</density>
 		<oxydation>+3.+4</oxydation>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f7 6d1 7s2</orbits>
 	</element>
 	<element>
@@ -2817,13 +1825,8 @@
 		</radius>
 		<abundance>0</abundance>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.3</electronegativity>
-		<meltingpoint>1258</meltingpoint>
-		<boilingpoint></boilingpoint>
 		<density>13.25</density>
 		<oxydation>+3.+4</oxydation>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f9 7s2</orbits>
 	</element>
 	<element>
@@ -2831,7 +1834,6 @@
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
 		<radius>
 			<covalent></covalent>
 			<atomic></atomic>
@@ -2840,12 +1842,8 @@
 			<bondxx>337.7</bondxx>
 		</radius>
 		<abundance>0</abundance>
-		<electronegativity>1.3</electronegativity>
-		<meltingpoint>1172</meltingpoint>
-		<boilingpoint></boilingpoint>
 		<density>15.1</density>
 		<oxydation>+3.+4</oxydation>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f10 7s2</orbits>
 	</element>
 	<element>
@@ -2861,14 +1859,8 @@
 			<bondxx></bondxx>
 		</radius>
 		<abundance>0</abundance>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="40780800" halflifeformat="seconds" weight="" neutron="153" percentage="" />
 		</isotopes>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.3</electronegativity>
-		<meltingpoint>1130</meltingpoint>
 		<oxydation>+2.+3.+4</oxydation>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f11 7s2</orbits>
 	</element>
 	<element>
@@ -2876,7 +1868,6 @@
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
 		<radius>
 			<covalent></covalent>
 			<atomic>190</atomic>
@@ -2885,13 +1876,8 @@
 			<bondxx></bondxx>
 		</radius>
 		<abundance>0</abundance>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="9115200" halflifeformat="seconds" weight="" neutron="157" percentage="" />
 		</isotopes>
-		<electronegativity>1.3</electronegativity>
-		<meltingpoint>1800</meltingpoint>
 		<oxydation>+2.+3</oxydation>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f12 7s2</orbits>
 	</element>
 	<element>
@@ -2907,14 +1893,8 @@
 			<bondxx></bondxx>
 		</radius>
 		<abundance>0</abundance>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.3</electronegativity>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="4449600" halflifeformat="seconds" weight="" neutron="157" percentage="" />
 		</isotopes>
-		<meltingpoint>1100</meltingpoint>
 		<oxydation>+2.+3</oxydation>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f13 7s2</orbits>
 	</element>
 	<element>
@@ -2930,14 +1910,8 @@
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.3</electronegativity>
-		<meltingpoint>1100</meltingpoint>
 		<oxydation>+2.+3.+4</oxydation>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f14 7s2</orbits>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="3480" halflifeformat="seconds" weight="259.1009" neutron="157" percentage="100" />
 		</isotopes>
 	</element>
 	<element>
@@ -2945,15 +1919,9 @@
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity>1.3</electronegativity>
-		<meltingpoint>1900</meltingpoint>
-		<boilingpoint></boilingpoint>
 		<density></density>
 		<ionisationenergy>
 		</ionisationenergy>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="12960" halflifeformat="seconds" weight="262.110" neutron="159" percentage="100" />
 		</isotopes>
 		<radius>
 			<covalent></covalent>
@@ -2964,7 +1932,6 @@
 		</radius>
 		<abundance>0</abundance>
 		<oxydation>+3</oxydation>
-		<family>Rare_Earth</family>
 		<orbits>Rn 5f14 7s2 7p1</orbits>
 	</element>
 	<element>
@@ -2972,13 +1939,7 @@
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity></electronegativity>
-		<meltingpoint></meltingpoint>
-		<boilingpoint></boilingpoint>
 		<density></density>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="66" halflifeformat="seconds" weight="" neutron="157" percentage="" />
 		</isotopes>
 		<ionisationenergy>
 		</ionisationenergy>
@@ -2990,7 +1951,6 @@
 		</radius>
 		<abundance>0</abundance>
 		<oxydation>+3</oxydation>
-		<family>Transition</family>
 		<orbits>Rn 5f14 6d2 7s2</orbits>
 	</element>
 	<element>
@@ -2998,15 +1958,9 @@
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<electronegativity></electronegativity>
-		<meltingpoint></meltingpoint>
-		<boilingpoint></boilingpoint>
 		<density></density>
 		<ionisationenergy>
 		</ionisationenergy>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="34" halflifeformat="seconds" weight="" neutron="157" percentage="" />
 		</isotopes>
 		<radius>
 			<covalent></covalent>
@@ -3016,7 +1970,6 @@
 		</radius>
 		<abundance>0</abundance>
 		<orbits>Rn 5f14 6d3 7s2</orbits>
-		<family>Transition</family>
 	</element>
 	<element>
 		<number>106</number>
@@ -3029,12 +1982,8 @@
 			<bondxx></bondxx>
 		</radius>
 		<abundance>0</abundance>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="20" halflifeformat="seconds" weight="" neutron="160" percentage="" />
 		</isotopes>
 		<biologicalmeaning>0</biologicalmeaning>
-		<electronaffinity></electronaffinity>
-		<family>Transition</family>
 	</element>
 	<element>
 		<number>107</number>
@@ -3048,11 +1997,7 @@
 		</radius>
 		<abundance>0</abundance>
 		<biologicalmeaning>0</biologicalmeaning>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.4" halflifeformat="seconds" weight="" neutron="157" percentage="" />
 		</isotopes>
-		<electronaffinity></electronaffinity>
-		<family>Transition</family>
 	</element>
 	<element>
 		<number>108</number>
@@ -3066,11 +2011,7 @@
 			<bondxx></bondxx>
 		</radius>
 		<abundance>0</abundance>
-		<electronaffinity></electronaffinity>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="9.3" halflifeformat="seconds" weight="" neutron="161" percentage="" />
 		</isotopes>
-		<family>Transition</family>
 	</element>
 	<element>
 		<number>109</number>
@@ -3084,11 +2025,7 @@
 		</radius>
 		<abundance>0</abundance>
 		<biologicalmeaning>0</biologicalmeaning>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.7" halflifeformat="seconds" weight="" neutron="159" percentage="" />
 		</isotopes>
-		<electronaffinity></electronaffinity>
-		<family>Transition</family>
 	</element>
 	<element>
 		<number>110</number>
@@ -3102,11 +2039,7 @@
 			<bondxx></bondxx>
 		</radius>
 		<abundance>0</abundance>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.001" halflifeformat="seconds" weight="" neutron="161" percentage="" />
 		</isotopes>
-		<electronaffinity></electronaffinity>
-		<family>Transition</family>
 	</element>
 	<element>
 		<number>111</number>
@@ -3120,10 +2053,6 @@
 			<bondxx></bondxx>
 		</radius>
 		<abundance>0</abundance>
-		<isotopes>
-			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.0015" halflifeformat="seconds" weight="" neutron="161" percentage="" />
 		</isotopes>
-		<electronaffinity></electronaffinity>
-		<family>Transition</family>
 	</element>
 </kalzium>
