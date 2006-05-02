@@ -280,7 +280,7 @@ void Field::debugOutput()
 				debug += "4";
 		}
 	}
-	qDebug( debug.toLatin1() );
+	qDebug( "%s", debug.toLatin1() );
 }
 
 QList<Stone*> Field::allStones( Stone::PLAYER player )
