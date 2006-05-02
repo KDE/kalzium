@@ -238,7 +238,8 @@ void ElementDataViewer::setupAxisData()
 	KalziumDataObject *kdo = KalziumDataObject::instance();
 	QList<Element*>::iterator it = kdo->ElementList.begin();
 	const QList<Element*>::iterator itEnd = kdo->ElementList.end();
-	ChemicalDataObject::BlueObelisk kind;
+	// init to _something_
+	ChemicalDataObject::BlueObelisk kind = ChemicalDataObject::mass;
 	QString caption;
 	switch(selectedData)
 	{
