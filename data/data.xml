@@ -3,12 +3,7 @@
 <kalzium>
 	<element>
 		<number>1</number>
-		<name origin="Greek 'hydro' and 'gennao' for 'forms water'">Hydrogen</name>
-		<period>1</period>
-		<block>s</block>
-		<date scientist="C. Cavendish">1766</date>
 		<biologicalmeaning></biologicalmeaning>
-		<group>1</group>
 		<electronaffinity>-73</electronaffinity>
 		<electronegativity>2.1</electronegativity>
 		<meltingpoint>13.81</meltingpoint>
@@ -36,12 +31,7 @@
 	</element>
 	<element>
 		<number>2</number>
-		<name origin="The Greek word for the sun was 'helios'">Helium</name>
-		<period>1</period>
-		<block>p</block>
-		<date scientist="P. J. Janssen. J. N. Lockyer">1895</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>21</electronaffinity>
 		<electronegativity></electronegativity>
 		<meltingpoint>0.95</meltingpoint>
@@ -68,12 +58,7 @@
 	</element>
 	<element>
 		<number>3</number>
-		<name origin="Greek 'lithos' means 'stone'">Lithium</name>
-		<period>2</period>
-		<block>s</block>
-		<date scientist="A. Arfvedson">1817</date>
 		<biologicalmeaning>5</biologicalmeaning>
-		<group>1</group>
 		<electronaffinity>-60</electronaffinity>
 		<electronegativity>0.98</electronegativity>
 		<meltingpoint>453.7</meltingpoint>
@@ -102,13 +87,8 @@
 	</element>
 	<element>
 		<number>4</number>
-		<name origin="Greek 'beryllos' for 'light-green stone'">Beryllium</name>
-		<period>2</period>
-		<block>s</block>
 		<aggregation>0 </aggregation>
-		<date scientist="">1798</date>
 		<biologicalmeaning>3</biologicalmeaning>
-		<group>2</group>
 		<electronaffinity>19</electronaffinity>
 		<electronegativity>1.57</electronegativity>
 		<meltingpoint>1560</meltingpoint>
@@ -138,12 +118,7 @@
 	</element>
 	<element>
 		<number>5</number>
-		<name origin="Boron means 'Bor(ax) + (carb)on'. It is found in borax and behaves a lot like carbon">Boron</name>
-		<period>2</period>
-		<block>p</block>
-		<date scientist="Louis Joseph Gay-Lussac. Louis Jacques Thenard">1808 </date>
 		<biologicalmeaning>3</biologicalmeaning>
-		<group>3</group>
 		<electronaffinity>-27</electronaffinity>
 		<electronegativity>2.04</electronegativity>
 		<meltingpoint>2365</meltingpoint>
@@ -173,12 +148,7 @@
 	</element>
 	<element>
 		<number>6</number>
-		<name origin="Latin 'carboneum' for carbon">Carbon</name>
-		<period>2</period>
-		<block>p</block>
-		<date scientist="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity>-122</electronaffinity>
 		<electronegativity>2.55</electronegativity>
 		<meltingpoint>3825</meltingpoint>
@@ -208,12 +178,7 @@
 	</element>
 	<element>
 		<number>7</number>
-		<name origin="Latin 'nitrogenium' ('forms saltpeter')">Nitrogen</name>
-		<period>2</period>
-		<block>p</block>
-		<date scientist="D. Rutherford">1772</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity>7</electronaffinity>
 		<electronegativity>3.04</electronegativity>
 		<meltingpoint>63.15</meltingpoint>
@@ -244,12 +209,7 @@
 	</element>
 	<element>
 		<number>8</number>
-		<name origin="Latin 'oxygenium' (forms acids)">Oxygen</name>
-		<period>2</period>
-		<block>p</block>
-		<date scientist="J. Priestley">1774</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity>-141</electronaffinity>
 		<electronegativity>3.44</electronegativity>
 		<meltingpoint>54.8</meltingpoint>
@@ -279,12 +239,7 @@
 	</element>
 	<element>
 		<number>9</number>
-		<name origin="Latin 'fluere' ('floats')">Fluorine</name>
-		<period>2</period>
-		<block>p</block>
-		<date scientist="H. F. Moissan">1886</date>
 		<biologicalmeaning>4</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity>-328</electronaffinity>
 		<electronegativity>3.98</electronegativity>
 		<meltingpoint>53.55</meltingpoint>
@@ -312,12 +267,7 @@
 	</element>
 	<element>
 		<number>10</number>
-		<name origin="Greek 'neo'. meaning 'new'">Neon</name>
-		<period>2</period>
-		<block>p</block>
-		<date scientist="W. Ramsay. M.W. Travers">1898 </date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>29</electronaffinity>
 		<electronegativity></electronegativity>
 		<meltingpoint>24.55</meltingpoint>
@@ -345,12 +295,7 @@
 	</element>
 	<element>
 		<number>11</number>
-		<name origin="Arabic 'natrun' for 'soda'">Sodium</name>
-		<period>3</period>
-		<block>s</block>
-		<date scientist="">1807</date>
 		<biologicalmeaning>2</biologicalmeaning>
-		<group>1</group>
 		<electronaffinity>-53</electronaffinity>
 		<electronegativity>0.93</electronegativity>
 		<meltingpoint>371.0</meltingpoint>
@@ -379,12 +324,7 @@
 	</element>
 	<element>
 		<number>12</number>
-		<name origin="Named after the city of Magnesia">Magnesium</name>
-		<period>3</period>
-		<block>s</block>
-		<date scientist="H. B. Davy">1808</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>2</group>
 		<electronaffinity>19</electronaffinity>
 		<electronegativity>1.31</electronegativity>
 		<meltingpoint>922</meltingpoint>
@@ -415,12 +355,7 @@
 	</element>
 	<element>
 		<number>13</number>
-		<name origin="Latin 'alumen'">Aluminum</name>
-		<period>3</period>
-		<block>p</block>
-		<date scientist="H. Ch. Oersted">1825</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>3</group>
 		<electronaffinity>-43</electronaffinity>
 		<electronegativity>1.61</electronegativity>
 		<meltingpoint>933.5</meltingpoint>
@@ -450,12 +385,7 @@
 	</element>
 	<element>
 		<number>14</number>
-		<name origin="Latin 'silex'">Silicon</name>
-		<period>3</period>
-		<block>p</block>
-		<date scientist="J. J. Berzelius">1823</date>
 		<biologicalmeaning>4</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity>-134</electronaffinity>
 		<electronegativity>1.91</electronegativity>
 		<meltingpoint>1683</meltingpoint>
@@ -486,12 +416,7 @@
 	</element>
 	<element>
 		<number>15</number>
-		<name origin="Greek 'phosphoros' for 'carries light'">Phosphorus</name>
-		<period>3</period>
-		<block>p</block>
-		<date scientist="H. Brandt">1669</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity>-72</electronaffinity>
 		<electronegativity>2.19</electronegativity>
 		<meltingpoint>317.3</meltingpoint>
@@ -522,12 +447,7 @@
 	</element>
 	<element>
 		<number>16</number>
-		<name origin="In sankskrit 'sweb' means 'to sleep'">Sulfur</name>
-		<period>3</period>
-		<block>p</block>
-		<date scientist="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity>-200</electronaffinity>
 		<electronegativity>2.58</electronegativity>
 		<meltingpoint>392.2</meltingpoint>
@@ -560,12 +480,7 @@
 	</element>
 	<element>
 		<number>17</number>
-		<name origin="Greek 'chloros' for 'yellow-green'">Chlorine</name>
-		<period>3</period>
-		<block>p</block>
-		<date scientist="K. Scheele">1774</date>
 		<biologicalmeaning>2</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity>-349</electronaffinity>
 		<electronegativity>3.16</electronegativity>
 		<meltingpoint>172.17</meltingpoint>
@@ -595,12 +510,7 @@
 	</element>
 	<element>
 		<number>18</number>
-		<name origin="Greek 'aergon' for 'inactive'">Argon</name>
-		<period>3</period>
-		<block>p</block>
-		<date scientist="W. Ramsay. J. Rayleigh">1894</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>29</electronaffinity>
 		<electronegativity></electronegativity>
 		<meltingpoint>83.95</meltingpoint>
@@ -630,12 +540,7 @@
 	</element>
 	<element>
 		<number>19</number>
-		<name origin="Arabic 'al qaliy' for potash">Potassium</name>
-		<period>4</period>
-		<block>s</block>
-		<date scientist="H. B. Davy">1807</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>1</group>
 		<electronaffinity>-48</electronaffinity>
 		<electronegativity>0.82</electronegativity>
 		<meltingpoint>336.8</meltingpoint>
@@ -661,12 +566,7 @@
 	</element>
 	<element>
 		<number>20</number>
-		<name origin="Latin 'calx' for 'lime'">Calcium</name>
-		<period>4</period>
-		<block>s</block>
-		<date scientist="H. B. Davy">1808</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>2</group>
 		<electronaffinity>10</electronaffinity>
 		<electronegativity>1.00</electronegativity>
 		<meltingpoint>1112</meltingpoint>
@@ -696,12 +596,7 @@
 	</element>
 	<element>
 		<number>21</number>
-		<name origin="Named because it was found in Scandinavia">Scandium</name>
-		<period>4</period>
-		<block>d</block>
-		<date scientist="L. Nilson">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>3</group>
 		<electronaffinity>-18</electronaffinity>
 		<electronegativity>1.36</electronegativity>
 		<meltingpoint>1814</meltingpoint>
@@ -728,12 +623,7 @@
 	</element>
 	<element>
 		<number>22</number>
-		<name origin="The Titans were giants in Greek mythology">Titanium</name>
-		<period>4</period>
-		<block>d</block>
-		<date scientist="W. Gregor">1791</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity>-8</electronaffinity>
 		<electronegativity>1.54</electronegativity>
 		<meltingpoint>1935</meltingpoint>
@@ -761,12 +651,7 @@
 	</element>
 	<element>
 		<number>23</number>
-		<name origin="'Vanadis' is another name for the Nordic goddess Freyja">Vanadium</name>
-		<period>4</period>
-		<block>d</block>
-		<date scientist="N. Sefstr&#246;m">1830</date>
 		<biologicalmeaning>4</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity>-51</electronaffinity>
 		<electronegativity>1.63</electronegativity>
 		<meltingpoint>2163</meltingpoint>
@@ -791,12 +676,7 @@
 	</element>
 	<element>
 		<number>24</number>
-		<name origin="Greek 'chroma' means 'color'">Chromium</name>
-		<period>4</period>
-		<block>d</block>
-		<date scientist="L. N. Vauquelin">1797</date>
 		<biologicalmeaning>4</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity>-64</electronaffinity>
 		<electronegativity>1.66</electronegativity>
 		<meltingpoint>2130</meltingpoint>
@@ -823,12 +703,7 @@
 	</element>
 	<element>
 		<number>25</number>
-		<name origin="It was discovered near a town named Magnesia in a black earth. Thus. it was named 'magnesia nigra'. short: Manganese">Manganese</name>
-		<period>4</period>
-		<block>d</block>
-		<date scientist="K. W. Scheele">1774</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.55</electronegativity>
 		<meltingpoint>1518</meltingpoint>
@@ -853,12 +728,7 @@
 	</element>
 	<element>
 		<number>26</number>
-		<name origin="Latin 'ferrum'">Iron</name>
-		<period>4</period>
-		<block>d</block>
-		<date scientist="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>-16</electronaffinity>
 		<electronegativity>1.83</electronegativity>
 		<meltingpoint>1808</meltingpoint>
@@ -885,12 +755,7 @@
 	</element>
 	<element>
 		<number>27</number>
-		<name origin="Named after the German word 'Kobold' for 'goblin'">Cobalt</name>
-		<period>4</period>
-		<block>d</block>
-		<date scientist="G. Brandt">1737</date>
 		<biologicalmeaning>2</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>-64</electronaffinity>
 		<electronegativity>1.88</electronegativity>
 		<meltingpoint>1768</meltingpoint>
@@ -918,12 +783,7 @@
 	</element>
 	<element>
 		<number>28</number>
-		<name origin="'Nickel' was the name of a mountain goblin">Nickel</name>
-		<period>4</period>
-		<block>d</block>
-		<date scientist="A. F. Cronstedt">1751</date>
 		<biologicalmeaning>4</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>-112</electronaffinity>
 		<electronegativity>1.91</electronegativity>
 		<meltingpoint>1726</meltingpoint>
@@ -953,12 +813,7 @@
 	</element>
 	<element>
 		<number>29</number>
-		<name origin="Greek 'cuprum' for Cypres">Copper</name>
-		<period>4</period>
-		<block>d</block>
-		<date scientist="">0</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>1</group>
 		<electronaffinity>-118</electronaffinity>
 		<electronegativity>1.90</electronegativity>
 		<meltingpoint>1356.6</meltingpoint>
@@ -986,12 +841,7 @@
 	</element>
 	<element>
 		<number>30</number>
-		<name origin="German 'zinking' for 'rough'. because zinc ore is very rough">Zinc</name>
-		<period>4</period>
-		<block>d</block>
-		<date scientist="">1746</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>2</group>
 		<electronaffinity>47</electronaffinity>
 		<electronegativity>1.65</electronegativity>
 		<meltingpoint>692.73</meltingpoint>
@@ -1020,12 +870,7 @@
 	</element>
 	<element>
 		<number>31</number>
-		<name origin="'Gallia' is an old name for France">Gallium</name>
-		<period>4</period>
-		<block>p</block>
-		<date scientist="P. E. Lecoq de Boisbaudran">1875</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>3</group>
 		<electronaffinity>-29</electronaffinity>
 		<electronegativity>1.81</electronegativity>
 		<meltingpoint>302.92</meltingpoint>
@@ -1052,12 +897,7 @@
 	</element>
 	<element>
 		<number>32</number>
-		<name origin="Latin 'germania' is an old name for Germany">Germanium</name>
-		<period>4</period>
-		<block>p</block>
-		<date scientist="C. A. Winkler">1886</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity>-116</electronaffinity>
 		<electronegativity>2.01</electronegativity>
 		<meltingpoint>1211.5</meltingpoint>
@@ -1085,12 +925,7 @@
 	</element>
 	<element>
 		<number>33</number>
-		<name origin="Greek 'arsenikos' for 'male' or 'bold'">Arsenic</name>
-		<period>4</period>
-		<block>p</block>
-		<date scientist="A. Magnus">0</date>
 		<biologicalmeaning>4</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity>-78</electronaffinity>
 		<electronegativity>2.18</electronegativity>
 		<meltingpoint>1090</meltingpoint>
@@ -1116,12 +951,7 @@
 	</element>
 	<element>
 		<number>34</number>
-		<name origin="Greek 'selena' for 'moon'">Selenium</name>
-		<period>4</period>
-		<block>p</block>
-		<date scientist="J. J. Berzelius">1817</date>
 		<biologicalmeaning>2</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity>-195</electronaffinity>
 		<electronegativity>2.55</electronegativity>
 		<meltingpoint>494</meltingpoint>
@@ -1151,12 +981,7 @@
 	</element>
 	<element>
 		<number>35</number>
-		<name origin="Greek 'bromos' for 'smells badly'">Bromine</name>
-		<period>4</period>
-		<block>p</block>
-		<date scientist="A. J. Balard">1826</date>
 		<biologicalmeaning>5</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity>-325</electronaffinity>
 		<electronegativity>2.96</electronegativity>
 		<meltingpoint>265.95</meltingpoint>
@@ -1181,12 +1006,7 @@
 	</element>
 	<element>
 		<number>36</number>
-		<name origin="Greek 'kryptos' for 'hidden'">Krypton</name>
-		<period>4</period>
-		<block>p</block>
-		<date scientist="W. Ramsay. M. W. Travers">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>39</electronaffinity>
 		<electronegativity></electronegativity>
 		<meltingpoint>116</meltingpoint>
@@ -1215,12 +1035,7 @@
 	</element>
 	<element>
 		<number>37</number>
-		<name origin="Latin 'rubidus' for 'dark red'">Rubidium</name>
-		<period>5</period>
-		<block>s</block>
-		<date scientist="Robert W. Bunsen. Gustav R. Kirchhoff">1861</date>
 		<biologicalmeaning>5</biologicalmeaning>
-		<group>1</group>
 		<electronaffinity>-47</electronaffinity>
 		<electronegativity>0.82</electronegativity>
 		<meltingpoint>312.63</meltingpoint>
@@ -1246,12 +1061,7 @@
 	</element>
 	<element>
 		<number>38</number>
-		<name origin="Named after the mineral Strontianit">Strontium</name>
-		<period>5</period>
-		<block>s</block>
-		<date scientist="H. B. Davy">1790</date>
 		<biologicalmeaning>3</biologicalmeaning>
-		<group>2</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>0.95</electronegativity>
 		<meltingpoint>1042</meltingpoint>
@@ -1280,12 +1090,7 @@
 	</element>
 	<element>
 		<number>39</number>
-		<name origin="Named after the small town of Ytterby near Stockholm in Sweden. Terbium. Ytterbium and Gadolinium are also named after this town.">Yttrium</name>
-		<period>5</period>
-		<block>d</block>
-		<date scientist="">1794</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>3</group>
 		<electronaffinity>-30</electronaffinity>
 		<electronegativity>1.22</electronegativity>
 		<meltingpoint>1795</meltingpoint>
@@ -1310,12 +1115,7 @@
 	</element>
 	<element>
 		<number>40</number>
-		<name origin="Named after the mineral zircon">Zirconium</name>
-		<period>5</period>
-		<block>d</block>
-		<date scientist="">1789</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity>-41</electronaffinity>
 		<electronegativity>1.33</electronegativity>
 		<meltingpoint>2128</meltingpoint>
@@ -1345,12 +1145,7 @@
 	</element>
 	<element>
 		<number>41</number>
-		<name origin="Named after Niobe. the daughter of the Greek god Tantalus">Niobium</name>
-		<period>5</period>
-		<block>d</block>
-		<date scientist="Ch. Hatchett">1801</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity>-86</electronaffinity>
 		<electronegativity>1.6</electronegativity>
 		<meltingpoint>2742</meltingpoint>
@@ -1375,12 +1170,7 @@
 	</element>
 	<element>
 		<number>42</number>
-		<name origin="This name has Greek roots. It means 'like Platinum' - it was difficult to distinguish Molybdenum from Platinum.">Molybdenum</name>
-		<period>5</period>
-		<block>d</block>
-		<date scientist="K. W. Scheele">1778</date>
 		<biologicalmeaning>1</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity>-72</electronaffinity>
 		<electronegativity>2.16</electronegativity>
 		<meltingpoint>2896</meltingpoint>
@@ -1412,13 +1202,8 @@
 	</element>
 	<element>
 		<number>43</number>
-		<name origin="Greek 'technetos' for artificial">Technetium</name>
-		<period>5</period>
-		<block>d</block>
 		<artificial>1</artificial>
-		<date scientist="C. Perrier. E. G. Segre">1937</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity>-53</electronaffinity>
 		<electronegativity>1.9</electronegativity>
 		<meltingpoint>2477</meltingpoint>
@@ -1443,12 +1228,7 @@
 	</element>
 	<element>
 		<number>44</number>
-		<name origin="Ruthenia is the old name of Russia">Ruthenium</name>
-		<period>5</period>
-		<block>d</block>
-		<date scientist="K. Klaus">1844</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>-101</electronaffinity>
 		<electronegativity>2.2</electronegativity>
 		<meltingpoint>2610</meltingpoint>
@@ -1480,12 +1260,7 @@
 	</element>
 	<element>
 		<number>45</number>
-		<name origin="Greek 'rhodeos' means 'red like a rose'">Rhodium</name>
-		<period>5</period>
-		<block>d</block>
-		<date scientist="W. Wollaston">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>-110</electronaffinity>
 		<electronegativity>2.28</electronegativity>
 		<meltingpoint>2236</meltingpoint>
@@ -1509,12 +1284,7 @@
 	</element>
 	<element>
 		<number>46</number>
-		<name origin="Named after the planetoid Pallas">Palladium</name>
-		<period>5</period>
-		<block>d</block>
-		<date scientist="">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>-54</electronaffinity>
 		<electronegativity>2.20</electronegativity>
 		<meltingpoint>1825</meltingpoint>
@@ -1546,12 +1316,7 @@
 	</element>
 	<element>
 		<number>47</number>
-		<name origin="Latin 'agrentum' for silver">Silver</name>
-		<period>5</period>
-		<block>d</block>
-		<date scientist="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>1</group>
 		<electronaffinity>-126</electronaffinity>
 		<electronegativity>1.93</electronegativity>
 		<meltingpoint>1235.1</meltingpoint>
@@ -1576,12 +1341,7 @@
 	</element>
 	<element>
 		<number>48</number>
-		<name origin="Greek 'kadmia' ('Galmei' = Zinc carbonate)">Cadmium</name>
-		<period>5</period>
-		<block>d</block>
-		<date scientist="F. Stromeyer">1817</date>
 		<biologicalmeaning>5</biologicalmeaning>
-		<group>2</group>
 		<electronaffinity>32</electronaffinity>
 		<electronegativity>1.69</electronegativity>
 		<meltingpoint>594.26</meltingpoint>
@@ -1615,11 +1375,7 @@
 	</element>
 	<element>
 		<number>49</number>
-		<period>5</period>
-		<block>p</block>
-		<date scientist="F. Reich. H.T. Richter">1863</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>3</group>
 		<electronaffinity>-29</electronaffinity>
 		<electronegativity>1.78</electronegativity>
 		<meltingpoint>429.78</meltingpoint>
@@ -1646,12 +1402,7 @@
 	</element>
 	<element>
 		<number>50</number>
-		<name origin="Latin 'stannum' for tin">Tin</name>
-		<period>5</period>
-		<block>p</block>
-		<date scientist="">0</date>
 		<biologicalmeaning>6</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity>-116</electronaffinity>
 		<electronegativity>1.96</electronegativity>
 		<meltingpoint>505.12</meltingpoint>
@@ -1686,12 +1437,7 @@
 	</element>
 	<element>
 		<number>51</number>
-		<name origin="Arabic 'anthos ammonos' for 'blossom of the god Ammon'">Antimony</name>
-		<period>5</period>
-		<block>p</block>
-		<date scientist="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity>-103</electronaffinity>
 		<electronegativity>2.05</electronegativity>
 		<meltingpoint>903.91</meltingpoint>
@@ -1717,12 +1463,7 @@
 	</element>
 	<element>
 		<number>52</number>
-		<name origin="Latin 'tellus' or 'telluris' for 'Planet Earth'">Tellurium</name>
-		<period>5</period>
-		<block>p</block>
-		<date scientist="F. Mller von Reichenstein">1782</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity>-190</electronaffinity>
 		<electronegativity>2.1</electronegativity>
 		<meltingpoint>722.72</meltingpoint>
@@ -1756,12 +1497,7 @@
 	</element>
 	<element>
 		<number>53</number>
-		<name origin="Greek 'ioeides' for 'violett'">Iodine</name>
-		<period>5</period>
-		<block>p</block>
-		<date scientist="B. Courtois">1804</date>
 		<biologicalmeaning>2</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity>-295</electronaffinity>
 		<electronegativity>2.66</electronegativity>
 		<meltingpoint>386.7</meltingpoint>
@@ -1786,12 +1522,7 @@
 	</element>
 	<element>
 		<number>54</number>
-		<name origin="Greek 'xenos' for 'foreigner'">Xenon</name>
-		<period>5</period>
-		<block>p</block>
-		<date scientist="W. Ramsay. M. W. Travers">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>41</electronaffinity>
 		<electronegativity></electronegativity>
 		<meltingpoint>161.39</meltingpoint>
@@ -1826,12 +1557,7 @@
 	</element>
 	<element>
 		<number>55</number>
-		<name origin="Latin 'caesius' for 'heavenblue'">Caesium</name>
-		<period>6</period>
-		<block>s</block>
-		<date scientist="Robert Wilhelm Bunsen. Gustav Robert Kirchhoff">1860</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>1</group>
 		<electronaffinity>-45</electronaffinity>
 		<electronegativity>0.79</electronegativity>
 		<meltingpoint>301.54</meltingpoint>
@@ -1856,12 +1582,7 @@
 	</element>
 	<element>
 		<number>56</number>
-		<name origin="Greek 'barys' for 'heavy'">Barium</name>
-		<period>6</period>
-		<block>s</block>
-		<date scientist="Humphry Bartholomew Davy">1808</date>
 		<biologicalmeaning>3</biologicalmeaning>
-		<group>2</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>0.89</electronegativity>
 		<meltingpoint>1002</meltingpoint>
@@ -1893,12 +1614,7 @@
 	</element>
 	<element>
 		<number>57</number>
-		<name origin="Greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare earth'">Lanthanum</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="K. G. Mosander">1839</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>3</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.10</electronegativity>
 		<meltingpoint>1191</meltingpoint>
@@ -1928,12 +1644,7 @@
 	</element>
 	<element>
 		<number>58</number>
-		<name origin="Named after the planetoid Ceres">Cerium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="J&#246;ns Jacob Berzelius. W. Hisinger. M. Klaproth">1803</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.12</electronegativity>
 		<meltingpoint>1071</meltingpoint>
@@ -1967,12 +1678,7 @@
 	</element>
 	<element>
 		<number>59</number>
-		<name origin="Greek 'prasinos didymos' for 'green twin'">Praseodymium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="K. C. Auer von Welsbach">1885</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.13</electronegativity>
 		<meltingpoint>1204</meltingpoint>
@@ -1998,12 +1704,7 @@
 	</element>
 	<element>
 		<number>60</number>
-		<name origin="Greek 'neos didymos' for 'new twin'">Neodymium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="C. Auer von Welsbach">1925</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.14</electronegativity>
 		<meltingpoint>1294</meltingpoint>
@@ -2034,13 +1735,8 @@
 	</element>
 	<element>
 		<number>61</number>
-		<name origin="Named after the greek Prometheus. Prometheus stole the fire from the gods and gave it to mankind.">Promethium</name>
-		<period>6</period>
-		<block>f</block>
 		<radioactive>1</radioactive>
-		<date scientist="J. A. Marinsky. C. D. Coryell. L. E. Glendenin">1945</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.13</electronegativity>
 		<meltingpoint>1315</meltingpoint>
@@ -2066,12 +1762,7 @@
 	</element>
 	<element>
 		<number>62</number>
-		<name origin="Named after the mineral Samarskit">Samarium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="P. Lecoq de Boisbaudran">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.17</electronegativity>
 		<meltingpoint>1347</meltingpoint>
@@ -2104,12 +1795,7 @@
 	</element>
 	<element>
 		<number>63</number>
-		<name origin="Named after Europe">Europium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="E. A. Demarcay">1901</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.2</electronegativity>
 		<meltingpoint>1095</meltingpoint>
@@ -2134,12 +1820,7 @@
 	</element>
 	<element>
 		<number>64</number>
-		<name origin="Named after the Finnish chemist Johan Gadolin">Gadolinium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="">1880</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.20</electronegativity>
 		<meltingpoint>1585</meltingpoint>
@@ -2171,12 +1852,7 @@
 	</element>
 	<element>
 		<number>65</number>
-		<name origin="Named after the Swedish town of Ytterby">Terbium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="K. G. Mosander">1843</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>1</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.1</electronegativity>
 		<meltingpoint>1629</meltingpoint>
@@ -2201,12 +1877,7 @@
 	</element>
 	<element>
 		<number>66</number>
-		<name origin="Greek 'dysprositor' for 'difficult to reach'">Dysprosium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="F. E. Lecoq de Boisbaudran">1886</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>2</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.22</electronegativity>
 		<meltingpoint>1685</meltingpoint>
@@ -2237,12 +1908,7 @@
 	</element>
 	<element>
 		<number>67</number>
-		<name origin="Latin 'holmia' for the old name of Stockholm">Holmium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="J. L. Soret. P.T. Cleve">1878</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>3</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.23</electronegativity>
 		<meltingpoint>1747</meltingpoint>
@@ -2268,12 +1934,7 @@
 	</element>
 	<element>
 		<number>68</number>
-		<name origin="Named ofter the Swedish town of Ytterby. Terbium and Ytterbium are also named after this town.">Erbium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="K. G. Mosander">1843</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.24</electronegativity>
 		<meltingpoint>1802</meltingpoint>
@@ -2304,12 +1965,7 @@
 	</element>
 	<element>
 		<number>69</number>
-		<name origin="Named after the old name of Scandinavia. 'Thule'">Thulium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="P. T. Cleve">1879</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.25</electronegativity>
 		<meltingpoint>1818</meltingpoint>
@@ -2335,12 +1991,7 @@
 	</element>
 	<element>
 		<number>70</number>
-		<name origin="Like Terbium and Gadolinium. this is named after the Swedish town of Ytterby">Ytterbium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="J. Ch. Marignac">1878</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.1</electronegativity>
 		<meltingpoint>1092</meltingpoint>
@@ -2373,12 +2024,7 @@
 	</element>
 	<element>
 		<number>71</number>
-		<name origin="Named after the Roman name 'Lutetia' for Paris">Lutetium</name>
-		<period>6</period>
-		<block>f</block>
-		<date scientist="C. Auer von Welsbach. G. Urbain">1907</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.27</electronegativity>
 		<meltingpoint>1936</meltingpoint>
@@ -2406,12 +2052,7 @@
 	</element>
 	<element>
 		<number>72</number>
-		<name origin="'Hafnia' is the old name of Kopenhagen (Denmark)">Hafnium</name>
-		<period>6</period>
-		<block>d</block>
-		<date scientist="D. Coster. G. Hevesy">1923</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
 		<meltingpoint>2504</meltingpoint>
@@ -2443,12 +2084,7 @@
 	</element>
 	<element>
 		<number>73</number>
-		<name origin="Named after the Greek myth of Tantalos">Tantalum</name>
-		<period>6</period>
-		<block>d</block>
-		<date scientist="A. Ekeberg">1802</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity>-31</electronaffinity>
 		<electronegativity>1.5</electronegativity>
 		<meltingpoint>3293</meltingpoint>
@@ -2476,12 +2112,7 @@
 	</element>
 	<element>
 		<number>74</number>
-		<name origin="'tung sten' means 'heavy stone' in Swedish. The old name (and thus the symbol 'W') was Wolfram. named after a mineral">Tungsten</name>
-		<period>6</period>
-		<block>d</block>
-		<date scientist="K. W. Scheel">1783</date>
 		<biologicalmeaning>5</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity>-79</electronaffinity>
 		<electronegativity>2.36</electronegativity>
 		<meltingpoint>3695</meltingpoint>
@@ -2514,12 +2145,7 @@
 	</element>
 	<element>
 		<number>75</number>
-		<name origin="Named after the German river Rhine (latin 'Rhenium')">Rhenium</name>
-		<period>6</period>
-		<block>d</block>
-		<date scientist="W. Noddack. I. Tacke-Noddack. O. Berg">1925</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity>-14</electronaffinity>
 		<electronegativity>1.9</electronegativity>
 		<meltingpoint>3455</meltingpoint>
@@ -2549,12 +2175,7 @@
 	</element>
 	<element>
 		<number>76</number>
-		<name origin="Greek for 'smell'. Its oxides smell strongly like radishes">Osmium</name>
-		<period>6</period>
-		<block>d</block>
-		<date scientist="S. Tennant">1804</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>-106</electronaffinity>
 		<electronegativity>2.2</electronegativity>
 		<meltingpoint>3300</meltingpoint>
@@ -2589,12 +2210,7 @@
 	</element>
 	<element>
 		<number>77</number>
-		<name origin="Greek 'iris' for 'rainbow'">Iridium</name>
-		<period>6</period>
-		<block>d</block>
-		<date scientist="S. Tennant">1804</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>-151</electronaffinity>
 		<electronegativity>2.20</electronegativity>
 		<meltingpoint>2720</meltingpoint>
@@ -2623,12 +2239,7 @@
 	</element>
 	<element>
 		<number>78</number>
-		<name origin="Spanish 'platina' means 'small silver'">Platinum</name>
-		<period>6</period>
-		<block>d</block>
-		<date scientist="A. de Ulloa">1735</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>-205</electronaffinity>
 		<electronegativity>2.28</electronegativity>
 		<meltingpoint>2042.1</meltingpoint>
@@ -2661,12 +2272,7 @@
 	</element>
 	<element>
 		<number>79</number>
-		<name origin="Latin 'aurum'. named after Aurora. the goddess of sunrise">Gold</name>
-		<period>6</period>
-		<block>d</block>
-		<date scientist="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>1</group>
 		<electronaffinity>-223</electronaffinity>
 		<electronegativity>2.54</electronegativity>
 		<meltingpoint>1337.58</meltingpoint>
@@ -2696,12 +2302,7 @@
 	</element>
 	<element>
 		<number>80</number>
-		<name origin="Graeco-Latin 'hydrargyrum' for 'liquid silver'">Mercury</name>
-		<period>6</period>
-		<block>d</block>
-		<date scientist="">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>2</group>
 		<electronaffinity>61</electronaffinity>
 		<electronegativity>2.00</electronegativity>
 		<meltingpoint>234.31</meltingpoint>
@@ -2736,12 +2337,7 @@
 	</element>
 	<element>
 		<number>81</number>
-		<name origin="Greek 'tallos' for 'young twig'">Thallium</name>
-		<period>6</period>
-		<block>p</block>
-		<date scientist="W. Crookes">1861</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>3</group>
 		<electronaffinity>-20</electronaffinity>
 		<electronegativity>2.04</electronegativity>
 		<meltingpoint>577</meltingpoint>
@@ -2772,12 +2368,7 @@
 	</element>
 	<element>
 		<number>82</number>
-		<name origin="Latin 'plumbum' for Lead">Lead</name>
-		<period>6</period>
-		<block>p</block>
-		<date scientist="">0</date>
 		<biologicalmeaning>3</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity>-35</electronaffinity>
 		<electronegativity>2.33</electronegativity>
 		<meltingpoint>600.65</meltingpoint>
@@ -2807,12 +2398,7 @@
 	</element>
 	<element>
 		<number>83</number>
-		<name origin="The old name of Bismuth is 'Wismut'. This stood for 'white mass'">Bismuth</name>
-		<period>6</period>
-		<block>p</block>
-		<date scientist="P. Pott. T. O. Bergmann">0</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity>-91</electronaffinity>
 		<electronegativity>2.02</electronegativity>
 		<meltingpoint>544.59</meltingpoint>
@@ -2841,13 +2427,8 @@
 	</element>
 	<element>
 		<number>84</number>
-		<name origin="Named after Poland to honor Marie Curie">Polonium</name>
-		<period>6</period>
-		<block>p</block>
 		<radioactive>1</radioactive>
-		<date scientist="M. Sklodowska-Curie. P. Curie">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity>-183</electronaffinity>
 		<electronegativity>2.0</electronegativity>
 		<meltingpoint>527</meltingpoint>
@@ -2881,13 +2462,8 @@
 	</element>
 	<element>
 		<number>85</number>
-		<name origin="Greek 'astator' for 'changing'">Astatine</name>
-		<period>6</period>
-		<block>p</block>
 		<radioactive>1</radioactive>
-		<date scientist="D.R. Corson. K.R. McKenzie. E. Segre">1940</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity>-270</electronaffinity>
 		<electronegativity>2.2</electronegativity>
 		<meltingpoint>575</meltingpoint>
@@ -2917,13 +2493,8 @@
 	</element>
 	<element>
 		<number>86</number>
-		<name origin="Named after Radium. It ends with 'on' to make it clear that it is a noble gas">Radon</name>
-		<period>6</period>
-		<block>p</block>
 		<radioactive>1</radioactive>
-		<date scientist="E. Dorn">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity>41</electronaffinity>
 		<electronegativity></electronegativity>
 		<meltingpoint>202</meltingpoint>
@@ -2946,13 +2517,8 @@
 	</element>
 	<element>
 		<number>87</number>
-		<name origin="Named after France to honor Marguerite Perey">Francium</name>
-		<period>7</period>
-		<block>s</block>
 		<radioactive>1</radioactive>
-		<date scientist="M. Perey">1939</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>1</group>
 		<electronaffinity>-44</electronaffinity>
 		<electronegativity>0.7</electronegativity>
 		<meltingpoint>300</meltingpoint>
@@ -2975,13 +2541,8 @@
 	</element>
 	<element>
 		<number>88</number>
-		<name origin="Latin 'radius' for 'beam', as it is radioactive">Radium</name>
-		<period>7</period>
-		<block>s</block>
 		<radioactive>1</radioactive>
-		<date scientist="M. Sklodowska-Curie. P. Curie">1898</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>2</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>0.89</electronegativity>
 		<meltingpoint>973</meltingpoint>
@@ -3005,13 +2566,8 @@
 	</element>
 	<element>
 		<number>89</number>
-		<name origin="Greek 'aktis' for 'beam' - actinium is radioactive">Actinium</name>
-		<period>7</period>
-		<block>f</block>
 		<radioactive>1</radioactive>
-		<date scientist="A.L. Debierne">1899</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>3</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.1</electronegativity>
 		<meltingpoint>1324</meltingpoint>
@@ -3035,13 +2591,8 @@
 	</element>
 	<element>
 		<number>90</number>
-		<name origin="Named after the German god of thunder: Thor">Thorium</name>
-		<period>7</period>
-		<block>f</block>
 		<radioactive>1</radioactive>
-		<date scientist="J. J. Berzelius">1828</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
 		<meltingpoint>2028</meltingpoint>
@@ -3074,13 +2625,8 @@
 	</element>
 	<element>
 		<number>91</number>
-		<name origin="Greek 'protos' for 'ancester'. Protactinium is before Actinium in the periodic table.">Protactinium</name>
-		<period>7</period>
-		<block>f</block>
 		<radioactive>1</radioactive>
-		<date scientist="O. Hahn. L. Meitern. W. Wollaston">1917</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.5</electronegativity>
 		<meltingpoint>1845</meltingpoint>
@@ -3108,13 +2654,8 @@
 	</element>
 	<element>
 		<number>92</number>
-		<name origin="Greek 'ouranos' for 'heaven'. Named after the planet Uranus">Uranium</name>
-		<period>7</period>
-		<block>f</block>
 		<radioactive>1</radioactive>
-		<date scientist="M. M. Klaproth">1789</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.38</electronegativity>
 		<meltingpoint>1408</meltingpoint>
@@ -3150,13 +2691,8 @@
 	</element>
 	<element>
 		<number>93</number>
-		<name origin="Named after the planet Neptune.">Neptunium</name>
-		<period>7</period>
-		<block>f</block>
 		<radioactive>1</radioactive>
-		<date scientist="E. M. McMillan. P. Aberson">1940</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.36</electronegativity>
 		<meltingpoint>912</meltingpoint>
@@ -3184,13 +2720,8 @@
 	</element>
 	<element>
 		<number>94</number>
-		<name origin="Named after the planet Pluto.">Plutonium</name>
-		<period>7</period>
-		<block>f</block>
 		<radioactive>1</radioactive>
-		<date scientist="G.T. Seaborg. E.M. McMillan. J.W. Kennedy. A.C. Wahl">1940</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.28</electronegativity>
 		<meltingpoint>913</meltingpoint>
@@ -3223,14 +2754,9 @@
 	</element>
 	<element>
 		<number>95</number>
-		<name origin="Named after America.">Americium</name>
-		<period>7</period>
-		<block>f</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="G.T. Seaborg. L.O. Morgan. R.A. James. A. Ghiors">1945</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
 		<meltingpoint>1449</meltingpoint>
@@ -3258,14 +2784,9 @@
 	</element>
 	<element>
 		<number>96</number>
-		<name origin="Named after Marie Curie.">Curium</name>
-		<period>7</period>
-		<block>f</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="G. T. Seaborg. R. A. James. A. Ghiors">1944</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
 		<radius>
@@ -3285,9 +2806,6 @@
 	</element>
 	<element>
 		<number>97</number>
-		<name origin="Named after the town Berkeley where it was discovered.">Berkelium</name>
-		<period>7</period>
-		<block>f</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
 		<radius>
@@ -3298,9 +2816,7 @@
 			<bondxx>339.8</bondxx>
 		</radius>
 		<abundance>0</abundance>
-		<date scientist="G. T. Seaborg. A. Ghiors. S.G. Thompson">1949</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>1</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
 		<meltingpoint>1258</meltingpoint>
@@ -3312,14 +2828,9 @@
 	</element>
 	<element>
 		<number>98</number>
-		<name origin="Named after the US-State of California.">Californium</name>
-		<period>7</period>
-		<block>f</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="G. T. Seaborg. A Ghiors. S. G. Thompson">1950</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>2</group>
 		<electronaffinity></electronaffinity>
 		<radius>
 			<covalent></covalent>
@@ -3339,14 +2850,9 @@
 	</element>
 	<element>
 		<number>99</number>
-		<name origin="Named after the scientist Albert Einstein.">Einsteinium</name>
-		<period>7</period>
-		<block>f</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="G. T. Seaborg et al.">1952</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>3</group>
 		<radius>
 			<covalent></covalent>
 			<atomic>186</atomic>
@@ -3367,14 +2873,9 @@
 	</element>
 	<element>
 		<number>100</number>
-		<name origin="Named after the scientist Enrico Fermi.">Fermium</name>
-		<period>7</period>
-		<block>f</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="G. T. Seaborg et al.">1953</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity></electronaffinity>
 		<radius>
 			<covalent></covalent>
@@ -3395,14 +2896,9 @@
 	</element>
 	<element>
 		<number>101</number>
-		<name origin="Named after the scientist D.I. Mendeleev.">Mendelevium</name>
-		<period>7</period>
-		<block>f</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="G. T. Seaborg et al.">1955</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>5</group>
 		<radius>
 			<covalent></covalent>
 			<atomic></atomic>
@@ -3423,9 +2919,6 @@
 	</element>
 	<element>
 		<number>102</number>
-		<name origin="Named after the scientist Alfred Nobel.">Nobelium</name>
-		<period>7</period>
-		<block>f</block>
 		<radius>
 			<covalent></covalent>
 			<atomic></atomic>
@@ -3436,9 +2929,7 @@
 		<abundance>0</abundance>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="">1957</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
 		<meltingpoint>1100</meltingpoint>
@@ -3451,14 +2942,9 @@
 	</element>
 	<element>
 		<number>103</number>
-		<name origin="Named after the scientist Ernest Orlando Lawrence.">Lawrencium</name>
-		<period>7</period>
-		<block>f</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="">1961</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>7</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity>1.3</electronegativity>
 		<meltingpoint>1900</meltingpoint>
@@ -3483,14 +2969,9 @@
 	</element>
 	<element>
 		<number>104</number>
-		<name origin="Named after the scientist Ernest Rutherford">Rutherfordium</name>
-		<period>7</period>
-		<block>d</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="G.N. Florow; independently A. Ghiorso">1969</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>4</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity></electronegativity>
 		<meltingpoint></meltingpoint>
@@ -3514,14 +2995,9 @@
 	</element>
 	<element>
 		<number>105</number>
-		<name origin="Named after the science-town Dubna in Russia">Dubnium</name>
-		<period>7</period>
-		<block>d</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="">1970</date>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>5</group>
 		<electronaffinity></electronaffinity>
 		<electronegativity></electronegativity>
 		<meltingpoint></meltingpoint>
@@ -3544,12 +3020,8 @@
 	</element>
 	<element>
 		<number>106</number>
-		<name origin="Named after the scientist G. Theodore Seaborg.">Seaborgium</name>
-		<period>7</period>
-		<block>d</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="">1974</date>
 		<radius>
 			<covalent></covalent>
 			<atomic></atomic>
@@ -3561,18 +3033,13 @@
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="20" halflifeformat="seconds" weight="" neutron="160" percentage="" />
 		</isotopes>
 		<biologicalmeaning>0</biologicalmeaning>
-		<group>6</group>
 		<electronaffinity></electronaffinity>
 		<family>Transition</family>
 	</element>
 	<element>
 		<number>107</number>
-		<name origin="Named after the scientist Niels Bohr.">Bohrium</name>
-		<period>7</period>
-		<block>d</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="">1976</date>
 		<radius>
 			<covalent></covalent>
 			<atomic></atomic>
@@ -3584,18 +3051,13 @@
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.4" halflifeformat="seconds" weight="" neutron="157" percentage="" />
 		</isotopes>
-		<group>7</group>
 		<electronaffinity></electronaffinity>
 		<family>Transition</family>
 	</element>
 	<element>
 		<number>108</number>
-		<name origin="Latin 'hassia' for the German county Hessen. In Hessen. a lot elements have been discovered.">Hassium</name>
-		<period>7</period>
-		<block>d</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="">1984</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<radius>
 			<covalent></covalent>
@@ -3604,7 +3066,6 @@
 			<bondxx></bondxx>
 		</radius>
 		<abundance>0</abundance>
-		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="9.3" halflifeformat="seconds" weight="" neutron="161" percentage="" />
@@ -3613,12 +3074,8 @@
 	</element>
 	<element>
 		<number>109</number>
-		<name origin="Named after the scientist Lise Meitner.">Meitnerium</name>
-		<period>7</period>
-		<block>d</block>
 		<radioactive>1</radioactive>
 		<artificial>1</artificial>
-		<date scientist="">1982</date>
 		<radius>
 			<covalent></covalent>
 			<atomic></atomic>
@@ -3630,18 +3087,13 @@
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.7" halflifeformat="seconds" weight="" neutron="159" percentage="" />
 		</isotopes>
-		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<family>Transition</family>
 	</element>
 	<element>
 		<number>110</number>
-		<name origin="Named after the German city Darmstadt where many elements have been discovered.">Darmstadtium</name>
-		<period>7</period>
-		<block>d</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="">1994</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<radius>
 			<covalent></covalent>
@@ -3653,18 +3105,13 @@
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.001" halflifeformat="seconds" weight="" neutron="161" percentage="" />
 		</isotopes>
-		<group>8</group>
 		<electronaffinity></electronaffinity>
 		<family>Transition</family>
 	</element>
 	<element>
 		<number>111</number>
-		<name origin="Named after Wilhelm Conrad Röntgen.">Roentgenium</name>
-		<period>7</period>
-		<block>d</block>
 		<artificial>1</artificial>
 		<radioactive>1</radioactive>
-		<date scientist="">1994</date>
 		<biologicalmeaning>0</biologicalmeaning>
 		<radius>
 			<covalent></covalent>
@@ -3676,7 +3123,6 @@
 		<isotopes>
 			<isotope alphapercentage="" alphadecay="" betapluspercentage="" betaplusdecay="" betaminuspercentage="" betaminusdecay="" ecpercentage="" ecdecay="" spin="" magmoment="" halflife="0.0015" halflifeformat="seconds" weight="" neutron="161" percentage="" />
 		</isotopes>
-		<group>1</group>
 		<electronaffinity></electronaffinity>
 		<family>Transition</family>
 	</element>
