@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include "element.h"
+#include <kdebug.h>
 
 Element::Element()
 {
@@ -30,8 +31,9 @@ ChemicalDataObject& Element::data(ChemicalDataObject::BlueObelisk type) const
 		if ( o->type() == type )
 			return *o;
 	}
-	ChemicalDataObject *cdo;
-	return *cdo;
+        kFatal() << "No such object\n";
+        ChemicalDataObject *crashme = 0;
+	return *crashme;
 }
 
 QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type ) const
