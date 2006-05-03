@@ -51,7 +51,10 @@ eqchemView::eqchemView(QWidget *parent) : QWidget(parent)
 {
     settingsChanged();
 
-    QGridLayout *l = new QGridLayout(this, 2, 2, 11, 6, "eqchemView::eqchemView layout");
+    QGridLayout *l = new QGridLayout(this);
+    l->setObjectName("eqchemView::eqchemView layout");
+    l->setSpacing(6);
+    l->setMargin(11);
 
     m_eqResult = new EqResult(this);
     m_eqedit = new KLineEdit(this);
