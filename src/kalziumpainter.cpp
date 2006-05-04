@@ -114,8 +114,6 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 
 	bool selectedElement = KalziumDataObject::instance()->elementMatchesSearch( el );  
 
-	bool grayedOut = false;
-	
 	switch ( m_mode )
 	{
 		case NORMAL:
@@ -195,7 +193,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 		{
 			m_painter->setPen( Qt::black );
 			double coeff = m_gradient->elementCoeff( element );
-			QBrush c = grayedOut ? QBrush( Qt::lightGray ) : QBrush( m_gradient->calculateColor( coeff ) );
+			QBrush c = QBrush( m_gradient->calculateColor( coeff ) );
 
 			m_painter->fillRect( rect, c );
 			m_painter->drawRect( rect );
