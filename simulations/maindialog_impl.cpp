@@ -43,13 +43,13 @@ MainDialog_Impl::MainDialog_Impl( QWidget * parent )
 void MainDialog_Impl::startSelectedSimulation()
 {
 	Simulation *sim = SimulationsFactory::instance()->build( ui.simulationList->currentRow() );
-	sim->reset();
 	if ( sim )
 	{
+		sim->reset();
 		GamesDialog *dlg = new GamesDialog( sim );
 		dlg->exec();
+		sim->stopSimulation();
 	}
-	sim->stopSimulation();
 }
 
 void MainDialog_Impl::listRowChanged( int newCurrent )
