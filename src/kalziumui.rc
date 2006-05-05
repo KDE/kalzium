@@ -25,7 +25,7 @@
 
 <ToolBar name="mainToolBar">
   <text>Main Toolbar</text>
-  <Action name="view_look" />
+  <Action name="view_look_onlyschemes" />
   <Action name="view_legend" />
   <Action name="view_tooltip" />
   <Action name="view_sidebar"/>

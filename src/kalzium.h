@@ -77,6 +77,7 @@ class Kalzium : public KMainWindow
 		 * all KActions Kalzium uses
 		 */
 		KSelectAction *look_action;
+		KSelectAction *look_action_schemes;
 		KSelectAction *numeration_action;
 		// settings
 		KAction *m_pLegendAction;

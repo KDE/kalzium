@@ -122,13 +122,18 @@ void Kalzium::setupActions()
 {
 	// the action for swiching look: color schemes and gradients
 	QStringList looklist;
-	looklist << prependToListItems( KalziumSchemeTypeFactory::instance()->schemes(), ki18n( "Scheme: %1" ) );
+	QStringList schemes = KalziumSchemeTypeFactory::instance()->schemes();
+	looklist << prependToListItems( schemes, ki18n( "Scheme: %1" ) );
 	looklist << prependToListItems( KalziumGradientTypeFactory::instance()->gradients(), ki18n( "Gradient: %1" ) );
 	look_action = new KSelectAction( i18n( "&Look" ), actionCollection(), "view_look" );
 	look_action->setItems(looklist);
-	look_action->setToolBarMode( KSelectAction::MenuMode );
-	look_action->setToolButtonPopupMode( QToolButton::InstantPopup );
 	connect( look_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
+	// "reduced" version of view_look
+	look_action_schemes = new KSelectAction( i18n( "&Scheme" ), actionCollection(), "view_look_onlyschemes" );
+	look_action_schemes->setItems( schemes );
+	look_action_schemes->setToolBarMode( KSelectAction::MenuMode );
+	look_action_schemes->setToolButtonPopupMode( QToolButton::InstantPopup );
+	connect( look_action_schemes, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
 
 	// the actions for switching numeration
 	numeration_action = new KSelectAction( i18n( "&Numeration" ), actionCollection(), "view_numerationtype" );
@@ -324,6 +329,12 @@ void Kalzium::slotSwitchtoLook( int which )
 		if ( m_PeriodicTableView->mode() == KalziumPainter::NORMAL )
 			m_PeriodicTableView->setMode( KalziumPainter::GRADIENT );
 	}
+	look_action->blockSignals( true );
+	look_action_schemes->blockSignals( true );
+	look_action->setCurrentItem( which );
+	look_action_schemes->setCurrentItem( which );
+	look_action->blockSignals( false );
+	look_action_schemes->blockSignals( false );
 /*
 	Prefs::setNumeration(index);
 	Prefs::writeConfig();
