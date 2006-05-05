@@ -46,6 +46,7 @@ kde4_automoc(${kalzium_SRCS})
 
 kde4_add_ui_files(kalzium_SRCS
    settings_colors.ui
+   settings_elementsymbol.ui
    plotsetupwidget.ui
    molcalcwidgetbase.ui
    somwidget.ui

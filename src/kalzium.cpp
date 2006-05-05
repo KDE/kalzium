@@ -19,6 +19,7 @@
 #include "ui_settings_colors.h"
 #include "ui_settings_misc.h"
 #include "ui_settings_units.h"
+#include "ui_settings_elementsymbol.h"
 #include "elementdataviewer.h"
 #include "detailinfodlg.h"
 #include "periodictableview.h"
@@ -354,6 +355,13 @@ void Kalzium::showSettingsDialog()
 	w_misc->setObjectName( "miscpage" );
 	ui_misc.setupUi( w_misc );
 	dialog->addPage( w_misc, i18n( "Miscellaneous" ), "misc" );
+	// Design page
+	Ui_setupDesign ui_design;
+	QWidget *w_design = new QWidget( 0 );
+	w_design->setObjectName( "designpage" );
+	//these lines make kalzium crash...
+//X 	ui_design.setupUi( w_design );
+//X 	dialog->addPage( w_design, i18n( "Design" ), "design" );
 	// showing the dialog
 	dialog->show();
 }
