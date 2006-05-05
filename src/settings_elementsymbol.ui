@@ -35,7 +35,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="_kcfg_elementdesign1" >
+      <widget class="QComboBox" name="kcfg_elementdesign1" >
        <item>
         <property name="text" >
          <string>First Ionizationenergy</string>
@@ -91,7 +91,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="_kcfg_elementdesign2" >
+      <widget class="QComboBox" name="kcfg_elementdesign2" >
        <item>
         <property name="text" >
          <string>First Ionizationenergy</string>
@@ -160,7 +160,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="_kcfg_elementdesign3" >
+      <widget class="QComboBox" name="kcfg_elementdesign3" >
        <item>
         <property name="text" >
          <string>First Ionizationenergy</string>
@@ -216,7 +216,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="_kcfg_elementdesign4" >
+      <widget class="QComboBox" name="kcfg_elementdesign4" >
        <item>
         <property name="text" >
          <string>First Ionizationenergy</string>
