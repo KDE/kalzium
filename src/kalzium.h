@@ -86,7 +86,7 @@ class Kalzium : public KMainWindow
 		KAction *m_pIsotopeTableAction;
 		KAction *m_pGlossaryAction;
 		KAction *m_pCrystalViewer;
-//		KAction *m_EQSolverAction;
+		KAction *m_EQSolverAction;
 
 		/**
 		 * the layout of the central Widget ( CentralWidget )

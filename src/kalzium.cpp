@@ -138,11 +138,11 @@ void Kalzium::setupActions()
 	m_SidebarAction = new KAction( KIcon( "sidebar" ), i18n( "Show &Sidebar "), actionCollection(), "view_sidebar" );
 	connect( m_SidebarAction, SIGNAL( triggered() ), this, SLOT( slotShowHideSidebar() ) );
 	
-#ifdef HAVE_FACILE
-/*
 	m_EQSolverAction = new KAction( KIcon( "eqchem" ), i18n( "&Equation Solver..." ), actionCollection(), "tools_eqsolver" );
+#ifdef HAVE_FACILE
 	connect( m_EQSolverAction, SIGNAL( triggered() ), this, SLOT( slotShowEQSolver() ) );
-*/
+#else
+	m_EQSolverAction->setEnabled( false );
 #endif
 	
 	// tools actions
@@ -361,9 +361,8 @@ void Kalzium::showSettingsDialog()
 	Ui_setupDesign ui_design;
 	QWidget *w_design = new QWidget( 0 );
 	w_design->setObjectName( "designpage" );
-	//these lines make kalzium crash...
-//X 	ui_design.setupUi( w_design );
-//X 	dialog->addPage( w_design, i18n( "Design" ), "design" );
+	ui_design.setupUi( w_design );
+ 	dialog->addPage( w_design, i18n( "Design" ), "design" );
 	// showing the dialog
 	dialog->show();
 }
