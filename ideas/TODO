@@ -1,23 +1,6 @@
 			 TODO for Kalzium 1.5
 			 ===================
 
-Bugs
-----
-
-NuclideBoard comments and bugs
-- Missing features:
-  * tooltip when mouse is over an isotope
-  * something should happen on left-click
-  * it should be impossible to get a grey-only area (currently 
-    when you scroll in the top-left and bottom-right corner)
-  * The axis-labels should always be visible so that you can always
-    see were you are
-  * A grid should be added (at least it be possible to add it)
-  * The colours SUCK
-
-================================================================
-                       Future versions
-
 * Export to html and csv comes into my mind. Pretty easy I
   guess. Something like that was in Kalzium of KDE 3.1 I
   think.  But my implementation sucked so much I removed it.
@@ -111,24 +94,3 @@ http://en.wikipedia.org/wiki/Nobel_Prize_in_chemistry
 http://chemipedia.org/mediawiki/index.php/Hauptseite
 http://physics.nist.gov/PhysRefData/Handbook/periodictable.htm
 
-Properties listed on my periodic table:
-Page 1:
-- electronconfig 						[DONE]
-- Atomic radius (covalent, ionic, vdw   [Semi-DONE]
-- reduction potential
-- EN 									[DONE, there are more values, other scales]
-- abundance 							[Semi-Done]
-- biological symbol 					[DONE]
-- IUPAC-Name 							[DONE]
-- number 								[DONE]
-- oxidation-numer(s)					[DONE, need to be checked]
-- orbitals 								[DONE]
-
-Page 2:
-- number of natural isotopes
-- massenzahlen (# of neutrons) of the most important isotopes
-- natural abundance of the isotopes
-- first IE 								[DONE]
-- density 								[DONE]
-- SP and BP 							[DONE]
-- Infos about the most important isotope [DONE but needs to be improved]

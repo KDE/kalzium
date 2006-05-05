@@ -57,7 +57,7 @@ class PeriodicTableView : public QWidget
 		~PeriodicTableView();
 		
 		/**
-		 * JH: Draw the full table next time
+		 * Draw the full table next time
 		 */
 		void setFullDraw();
 
@@ -85,6 +85,9 @@ class PeriodicTableView : public QWidget
 		 */
 		void activateColorScheme( const int nr);
 
+		/**
+		 * @return the KalziumSchemeType of the current view
+		 */
 		KalziumSchemeType* scheme() const;
 
 		/**
@@ -99,15 +102,26 @@ class PeriodicTableView : public QWidget
 		 */
 		KalziumGradientType* gradient() const;
 		
+		/**
+		 * sets te KalziumGradientType
+		 */
 		void setGradient( int which );
 
 		/**
 		 * activates or deactivates the legend
 		 */
 		void showLegend( bool show );
+
+		/**
+		 * @return if the legend is displayed this method will return true
+		 */
 		bool showLegend() const;
 
 		void setMode( KalziumPainter::MODE m );
+
+		/**
+		 * @return the current KalziumPainter::MODE
+		 */
 		KalziumPainter::MODE mode() const;
 
 		/**
@@ -116,6 +130,9 @@ class PeriodicTableView : public QWidget
 		 */
 		int sliderValue( ChemicalDataObject::BlueObelisk type );
 
+		/**
+		 * @return the QBrush for the Element @p element
+		 */
 		QBrush brushForElement( int element ) const;
 
 	private:

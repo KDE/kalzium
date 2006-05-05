@@ -51,13 +51,13 @@ PeriodicTableView::PeriodicTableView( QWidget *parent )
 
 	setMouseTracking( true );
 
-	//JH: eliminates flicker on redraw
+	//eliminates flicker on redraw
 	setAttribute( Qt::WA_OpaquePaintEvent, true );
 
 	table = new QPixmap();
 	table2 = new QPixmap();
 
-	//JH: Start with a full draw
+	//Start with a full draw
 	doFullDraw = true;
 
 	m_startDrag = QPoint();
@@ -106,11 +106,6 @@ KalziumPainter::MODE PeriodicTableView::mode() const
 
 void PeriodicTableView::paintEvent( QPaintEvent * /*e*/ )
 {
-	//JH: I have split the drawing into two pixmaps: table and table2.
-	//table contains the "static" PeriodicTableView table, and does not change very often.
-	//table2 contains the tooltips and any other dynamic overlays.
-	//Usually, we can skip the code which renders the table, and just use the
-	//image stored in table...when doFullDraw==false, the rendering code is skipped.
 	if ( doFullDraw )
 	{
 		delete table;
@@ -123,9 +118,6 @@ void PeriodicTableView::paintEvent( QPaintEvent * /*e*/ )
 		doFullDraw = false;
 	}
 
-	//JH: Ok, now table contains the static PeriodicTableView table, and we may need to draw
-	//a tooltip on it.  However, we don't want to ruin the stored table pixmap,
-	//so let's copy it to table2 and add the tooltip there.
 	*table2 = *table;
 
 	if ( m_currentElement > 0 )
@@ -135,7 +127,6 @@ void PeriodicTableView::paintEvent( QPaintEvent * /*e*/ )
 		m_painter->end();
 	}
 
-	//JH: Finally, copy the table2 pixmap to the widget
 	QPainter p( this );
 	p.drawPixmap( 0, 0, *table2 );
 	p.end();
