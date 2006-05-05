@@ -126,6 +126,8 @@ void Kalzium::setupActions()
 	looklist << prependToListItems( KalziumGradientTypeFactory::instance()->gradients(), ki18n( "Gradient: %1" ) );
 	look_action = new KSelectAction( i18n( "&Look" ), actionCollection(), "view_look" );
 	look_action->setItems(looklist);
+	look_action->setToolBarMode( KSelectAction::MenuMode );
+	look_action->setToolButtonPopupMode( QToolButton::InstantPopup );
 	connect( look_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
 
 	// the actions for switching numeration
