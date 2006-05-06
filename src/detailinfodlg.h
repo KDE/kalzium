@@ -70,7 +70,7 @@ class DetailedInfoDlg : public KDialogBase
 		QMap<QString, KHTMLPart*> m_htmlpages;
 
 		/**
-		 * Create the inital set of tabs. Used it *ONLY* once in the
+		 * Create the initial set of tabs. Used it *ONLY* once in the
 		 * constructor.
 		 */
 		void createContent();

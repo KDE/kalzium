@@ -53,7 +53,7 @@ public:
 	QString supportedImageFormats();
 
 	/**
-	 * Saves datas as .cvs file
+	 * Saves data as .cvs file
 	 * @return whether the data has been saved successfully
 	 * @todo Find the implementation of this method, and figure out
 	 *       if 'CVS' is really intended, as opposed to CSV.

@@ -66,7 +66,7 @@ class Field
 		 * into account if m_fieldtype is Field::SQUARE. For Field::HEX this is 
 		 * not needed as all stones around @p stone are equivalent.
 		 *
-		 * The Stone which is swapped is choosen randomly. For example, if the Stone
+		 * The Stone which is swapped is chosen randomly. For example, if the Stone
 		 * @p stone has 3 neighbours of the other team one of the three is taken.
 		 *
 		 * @param point The stone on this point will be exchanged
