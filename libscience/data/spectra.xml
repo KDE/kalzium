@@ -1,5 +1,10 @@
-<spectrumdata>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="1">
+<bo:spectrumdata
+	xmlns:bo="http://www.blueobelisk.org/schema"
+	xmlns="http://www.xml-cml.org/schema"
+	xmlns:units="http://www.xml-cml.org/units/units"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	id="s13">
+	<spectrum id="e1">
 		<peakList>
 			<peak xValue="50" yValue="949.7430" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="100" yValue="972.5367" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -13,7 +18,7 @@
 			<peak xValue="30" yValue="6562.7248" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="2">
+	<spectrum id="e2">
 		<peakList>
 			<peak xValue="100" yValue="522.21309" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="400" yValue="537.02992" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -35,7 +40,7 @@
 			<peak xValue="500" yValue="20581.287" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="3">
+	<spectrum id="e3">
 		<peakList>
 			<peak xValue="15" yValue="4602.831" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="30" yValue="4602.898" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -49,7 +54,7 @@
 			<peak xValue="5" yValue="26878.36" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="4">
+	<spectrum id="e4">
 		<peakList>
 			<peak xValue="100" yValue="1661.478" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="1000" yValue="2348.610" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -63,7 +68,7 @@
 			<peak xValue="12" yValue="4572.664" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="5">
+	<spectrum id="e5">
 		<peakList>
 			<peak xValue="800" yValue="1825.894" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="1000" yValue="1826.400" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -73,7 +78,7 @@
 			<peak xValue="800" yValue="2497.722" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="6">
+	<spectrum id="e6">
 		<peakList>
 			<peak xValue="400" yValue="1277.2452" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="800" yValue="1277.2824" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -98,7 +103,7 @@
 			<peak xValue="101" yValue="11754.76" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="7">
+	<spectrum id="e7">
 		<peakList>
 			<peak xValue="1000" yValue="1199.550" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="700" yValue="1200.223" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -114,7 +119,7 @@
 			<peak xValue="200" yValue="13581.33" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="8">
+	<spectrum id="e8">
 		<peakList>
 			<peak xValue="1000" yValue="1302.168" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="700" yValue="1304.858" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -130,7 +135,7 @@
 			<peak xValue="250" yValue="13164.85" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="9">
+	<spectrum id="e9">
 		<peakList>
 			<peak xValue="500" yValue="951.870" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="1000" yValue="954.826" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -149,7 +154,7 @@
 			<peak xValue="150" yValue="7800.212" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="10">
+	<spectrum id="e10">
 		<peakList>
 			<peak xValue="170" yValue="615.6283" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="170" yValue="618.6716" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -180,7 +185,7 @@
 			<peak xValue="400" yValue="8783.7533" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="11">
+	<spectrum id="e11">
 		<peakList>
 			<peak xValue="5" yValue="2852.81" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="2" yValue="2853.01" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -196,7 +201,7 @@
 			<peak xValue="5" yValue="18465.25" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="12">
+	<spectrum id="e12">
 		<peakList>
 			<peak xValue="2" yValue="2025.824" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="15" yValue="2779.820" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -212,7 +217,7 @@
 			<peak xValue="6" yValue="15025.00" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="13">
+	<spectrum id="e13">
 		<peakList>
 			<peak xValue="40" yValue="2269.096" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="50" yValue="2367.052" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -225,7 +230,7 @@
 			<peak xValue="1000" yValue="3961.520" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="14">
+	<spectrum id="e14">
 		<peakList>
 			<peak xValue="400" yValue="1850.6719" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="400" yValue="1977.5978" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -250,7 +255,7 @@
 			<peak xValue="80" yValue="7405.7740" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="15">
+	<spectrum id="e15">
 		<peakList>
 			<peak xValue="800" yValue="1674.591" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="1000" yValue="1679.695" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -270,7 +275,7 @@
 			<peak xValue="90" yValue="9796.85" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="16">
+	<spectrum id="e16">
 		<peakList>
 			<peak xValue="1000" yValue="1425.030" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="600" yValue="1433.280" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -289,7 +294,7 @@
 			<peak xValue="130" yValue="10459.406" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="17">
+	<spectrum id="e17">
 		<peakList>
 			<peak xValue="300" yValue="1335.726" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="1000" yValue="1347.240" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -303,7 +308,7 @@
 			<peak xValue="50" yValue="7744.970" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="18">
+	<spectrum id="e18">
 		<peakList>
 			<peak xValue="180" yValue="866.79997" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="150" yValue="869.75411" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -325,7 +330,7 @@
 			<peak xValue="700" yValue="9657.786" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="19">
+	<spectrum id="e19">
 		<peakList>
 			<peak xValue="700" yValue="4044.14" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="700" yValue="4047.21" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -336,7 +341,7 @@
 			<peak xValue="700" yValue="11772.83" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="20">
+	<spectrum id="e20">
 		<peakList>
 			<peak xValue="140" yValue="2721.645" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="1000" yValue="4226.727" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -354,7 +359,7 @@
 			<peak xValue="600" yValue="6493.780" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="21">
+	<spectrum id="e21">
 		<peakList>
 			<peak xValue="200" yValue="3269.897" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="250" yValue="3273.628" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -368,7 +373,7 @@
 			<peak xValue="250" yValue="4082.387" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="22">
+	<spectrum id="e22">
 		<peakList>
 			<peak xValue="600" yValue="3635.462" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="800" yValue="3642.674" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -389,7 +394,7 @@
 			<peak xValue="200" yValue="5210.384" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="23">
+	<spectrum id="e23">
 		<peakList>
 			<peak xValue="250" yValue="3183.412" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="400" yValue="3183.992" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -410,7 +415,7 @@
 			<peak xValue="110" yValue="6090.208" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="24">
+	<spectrum id="e24">
 		<peakList>
 			<peak xValue="1000" yValue="3578.682" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="800" yValue="3593.481" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -423,7 +428,7 @@
 			<peak xValue="600" yValue="5208.415" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="25">
+	<spectrum id="e25">
 		<peakList>
 			<peak xValue="400" yValue="1996.056" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="500" yValue="1999.511" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -438,7 +443,7 @@
 			<peak xValue="200" yValue="4041.357" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="26">
+	<spectrum id="e26">
 		<peakList>
 			<peak xValue="1000" yValue="2483.2708" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="600" yValue="2488.1426" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -462,7 +467,7 @@
 			<peak xValue="200" yValue="4383.5449" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="27">
+	<spectrum id="e27">
 		<peakList>
 			<peak xValue="250" yValue="2407.256" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="250" yValue="2411.624" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -479,7 +484,7 @@
 			<peak xValue="400" yValue="3569.376" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="28">
+	<spectrum id="e28">
 		<peakList>
 			<peak xValue="300" yValue="2320.034" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="150" yValue="2345.543" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -499,7 +504,7 @@
 			<peak xValue="800" yValue="3619.391" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="29">
+	<spectrum id="e29">
 		<peakList>
 			<peak xValue="130" yValue="2165.09" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="150" yValue="2178.94" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -516,7 +521,7 @@
 			<peak xValue="250" yValue="5218.20" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="30">
+	<spectrum id="e30">
 		<peakList>
 			<peak xValue="130" yValue="2165.09" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="150" yValue="2178.94" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -533,7 +538,7 @@
 			<peak xValue="250" yValue="5218.20" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="31">
+	<spectrum id="e31">
 		<peakList>
 			<peak xValue="400" yValue="2874.235" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="600" yValue="2943.636" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -542,7 +547,7 @@
 			<peak xValue="1000" yValue="4172.042" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="32">
+	<spectrum id="e32">
 		<peakList>
 			<peak xValue="120" yValue="1988.267" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="200" yValue="1998.887" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -562,7 +567,7 @@
 			<peak xValue="40" yValue="3269.489" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="33">
+	<spectrum id="e33">
 		<peakList>
 			<peak xValue="700" yValue="1890.43" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="400" yValue="1937.59" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -575,7 +580,7 @@
 			<peak xValue="1000" yValue="2860.44" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="34">
+	<spectrum id="e34">
 		<peakList>
 			<peak xValue="600" yValue="1960.894" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="150" yValue="1995.111" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -590,7 +595,7 @@
 			<peak xValue="800" yValue="21442.56" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="35">
+	<spectrum id="e35">
 		<peakList>
 			<peak xValue="700" yValue="1488.45" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="300" yValue="1540.65" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -605,7 +610,7 @@
 			<peak xValue="500" yValue="8446.55" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="36">
+	<spectrum id="e36">
 		<peakList>
 			<peak xValue="300" yValue="1164.8671" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="1000" yValue="1235.8378" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -624,7 +629,7 @@
 			<peak xValue="400" yValue="18167.315" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="37">
+	<spectrum id="e37">
 		<peakList>
 			<peak xValue="11" yValue="4201.80" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="6" yValue="4215.53" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -634,7 +639,7 @@
 			<peak xValue="9" yValue="15288.43" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="38">
+	<spectrum id="e38">
 		<peakList>
 			<peak xValue="1000" yValue="4607.33" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="70" yValue="4811.88" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -651,7 +656,7 @@
 			<peak xValue="80" yValue="7070.10" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="39">
+	<spectrum id="e39">
 		<peakList>
 			<peak xValue="900" yValue="4077.359" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="1000" yValue="4102.364" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -665,7 +670,7 @@
 			<peak xValue="500" yValue="23990.450" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="40">
+	<spectrum id="e40">
 		<peakList>
 			<peak xValue="600" yValue="3519.604" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="500" yValue="3547.683" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -688,7 +693,7 @@
 			<peak xValue="250" yValue="8070.099" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="41">
+	<spectrum id="e41">
 		<peakList>
 			<peak xValue="80" yValue="3341.97" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="80" yValue="3343.71" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -708,7 +713,7 @@
 			<peak xValue="200" yValue="4168.13" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="42">
+	<spectrum id="e42">
 		<peakList>
 			<peak xValue="500" yValue="3132.594" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="200" yValue="3158.167" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -727,7 +732,7 @@
 			<peak xValue="90" yValue="5570.444" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="43">
+	<spectrum id="e43">
 		<peakList>
 			<peak xValue="300" yValue="3173.30" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="200" yValue="3182.37" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -744,7 +749,7 @@
 			<peak xValue="800" yValue="4853.59" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="44">
+	<spectrum id="e44">
 		<peakList>
 			<peak xValue="600" yValue="3436.737" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="800" yValue="3498.944" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -759,7 +764,7 @@
 			<peak xValue="700" yValue="4199.892" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="45">
+	<spectrum id="e45">
 		<peakList>
 			<peak xValue="400" yValue="3323.09" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="600" yValue="3396.82" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -773,7 +778,7 @@
 			<peak xValue="400" yValue="4374.80" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="46">
+	<spectrum id="e46">
 		<peakList>
 			<peak xValue="300" yValue="2447.9058" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="250" yValue="2476.4127" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -789,7 +794,7 @@
 			<peak xValue="800" yValue="3634.6884" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="47">
+	<spectrum id="e47">
 		<peakList>
 			<peak xValue="1000" yValue="3280.680" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="500" yValue="3382.887" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -799,7 +804,7 @@
 			<peak xValue="50" yValue="8273.509" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="48">
+	<spectrum id="e48">
 		<peakList>
 			<peak xValue="800" yValue="2288.022" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="400" yValue="3403.652" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -813,7 +818,7 @@
 			<peak xValue="1000" yValue="6438.470" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="49">
+	<spectrum id="e49">
 		<name origin="Named after 'Indigo' because of its blue spectrum">Indium</name>
 		<peakList>
 			<peak xValue="14" yValue="1711.1" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -831,7 +836,7 @@
 			<peak xValue="1" yValue="13429.96" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="50">
+	<spectrum id="e50">
 		<peakList>
 			<peak xValue="200" yValue="2091.590" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="200" yValue="2199.346" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -853,7 +858,7 @@
 			<peak xValue="110" yValue="4524.734" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="51">
+	<spectrum id="e51">
 		<peakList>
 			<peak xValue="400" yValue="1871.154" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="60" yValue="2049.577" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -871,7 +876,7 @@
 			<peak xValue="300" yValue="3267.491" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="52">
+	<spectrum id="e52">
 		<peakList>
 			<peak xValue="500" yValue="1822.155" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="500" yValue="1857.296" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -889,7 +894,7 @@
 			<peak xValue="250" yValue="11487.23" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="53">
+	<spectrum id="e53">
 		<peakList>
 			<peak xValue="130" yValue="1457.98" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="200" yValue="1518.05" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -903,7 +908,7 @@
 			<peak xValue="200" yValue="9058.33" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="54">
+	<spectrum id="e54">
 		<peakList>
 			<peak xValue="25" yValue="1192.0376" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="25" yValue="1250.2091" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -919,7 +924,7 @@
 			<peak xValue="500" yValue="35070.26" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="55">
+	<spectrum id="e55">
 		<peakList>
 			<peak xValue="15" yValue="4555.28" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="8" yValue="4593.17" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -933,7 +938,7 @@
 			<peak xValue="20" yValue="34900.13" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="56">
+	<spectrum id="e56">
 		<peakList>
 			<peak xValue="30" yValue="3071.584" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="80" yValue="3501.108" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -951,7 +956,7 @@
 			<peak xValue="60" yValue="25514.88" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-	<spectrum xmlns:units="http://www.xml-cml.org/units/units" id="57">
+	<spectrum id="e57">
 		<peakList>
 			<peak xValue="300" yValue="3574.43" xUnits="units:dimensionless" yUnits="units:ang" />
 			<peak xValue="300" yValue="4060.33" xUnits="units:dimensionless" yUnits="units:ang" />
@@ -969,4 +974,4 @@
 			<peak xValue="600" yValue="6394.23" xUnits="units:dimensionless" yUnits="units:ang" />
 		</peakList>
 	</spectrum>
-</spectrumdata>
+</bo:spectrumdata>
