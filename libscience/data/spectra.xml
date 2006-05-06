@@ -1,1029 +1,1135 @@
 <spectrumdata>
-	<element>
-		<number>1</number>
-		<spectra>
-			<spectrum intensity="50" wavelength="949.7430"  />
-			<spectrum intensity="100" wavelength="972.5367"  />
-			<spectrum intensity="300" wavelength="1025.7222"  />
-			<spectrum intensity="1000" wavelength="1215.66824"  />
-			<spectrum intensity="500" wavelength="1215.67364"  />
-			<spectrum intensity="30" wavelength="4861.2786"  />
-			<spectrum intensity="10" wavelength="4861.2870"  />
-			<spectrum intensity="60" wavelength="4861.3615"  />
-			<spectrum intensity="90" wavelength="6562.7110"  />
-			<spectrum intensity="30" wavelength="6562.7248"  />
-		</spectra>
-	</element>
-	<element>
-		<number>2</number>
-		<spectra>
-			<spectrum intensity="100" wavelength="522.21309"  />
-			<spectrum intensity="400" wavelength="537.02992"  />
-			<spectrum intensity="1000" wavelength="584.33436"  />
-			<spectrum intensity="60" wavelength="3888.6046"  />
-			<spectrum intensity="200" wavelength="3888.6456"  />
-			<spectrum intensity="300" wavelength="3888.6489"  />
-			<spectrum intensity="500" wavelength="5875.6148"  />
-			<spectrum intensity="250" wavelength="5875.6404"  />
-			<spectrum intensity="120" wavelength="5875.9663"  />
-			<spectrum intensity="200" wavelength="6678.1517"  />
-			<spectrum intensity="100" wavelength="7065.1771"  />
-			<spectrum intensity="60" wavelength="7065.2153"  />
-			<spectrum intensity="20" wavelength="7065.7086"  />
-			<spectrum intensity="50" wavelength="7281.3507"  />
-			<spectrum intensity="150" wavelength="10829.0911"  />
-			<spectrum intensity="500" wavelength="10830.2501"  />
-			<spectrum intensity="1000" wavelength="10830.3398"  />
-			<spectrum intensity="500" wavelength="20581.287"  />
-		</spectra>
-	</element>
-	<element>
-		<number>3</number>
-		<spectra>
-			<spectrum intensity="15" wavelength="4602.831"  />
-			<spectrum intensity="30" wavelength="4602.898"  />
-			<spectrum intensity="300" wavelength="6103.542"  />
-			<spectrum intensity="400" wavelength="6103.654"  />
-			<spectrum intensity="500" wavelength="6707.775"  />
-			<spectrum intensity="1000" wavelength="6707.926"  />
-			<spectrum intensity="150" wavelength="8126.232"  />
-			<spectrum intensity="300" wavelength="8126.453"  />
-			<spectrum intensity="10" wavelength="26877.67"  />
-			<spectrum intensity="5" wavelength="26878.36"  />
-		</spectra>
-	</element>
-	<element>
-		<number>4</number>
-		<spectra>
-			<spectrum intensity="100" wavelength="1661.478"  />
-			<spectrum intensity="1000" wavelength="2348.610"  />
-			<spectrum intensity="100" wavelength="2494.728"  />
-			<spectrum intensity="100" wavelength="2650.454"  />
-			<spectrum intensity="60" wavelength="2650.550"  />
-			<spectrum intensity="200*" wavelength="2650.613"  />
-			<spectrum intensity="200*" wavelength="2650.619"  />
-			<spectrum intensity="60" wavelength="2650.694"  />
-			<spectrum intensity="100" wavelength="2650.760"  />
-			<spectrum intensity="12" wavelength="4572.664"  />
-		</spectra>
-	</element>
-	<element>
-		<number>5</number>
-		<spectra>
-			<spectrum intensity="800" wavelength="1825.894"  />
-			<spectrum intensity="1000" wavelength="1826.400"  />
-			<spectrum intensity="400" wavelength="2088.889"  />
-			<spectrum intensity="500" wavelength="2089.570"  />
-			<spectrum intensity="500" wavelength="2496.769"  />
-			<spectrum intensity="800" wavelength="2497.722"  />
-		</spectra>
-	</element>
-	<element>
-		<number>6</number>
-		<spectra>
-			<spectrum intensity="400" wavelength="1277.2452"  />
-			<spectrum intensity="800" wavelength="1277.2824"  />
-			<spectrum intensity="200" wavelength="1277.5131"  />
-			<spectrum intensity="1000" wavelength="1277.5497"  />
-			<spectrum intensity="800" wavelength="1280.3330"  />
-			<spectrum intensity="500" wavelength="1560.682"  />
-			<spectrum intensity="200" wavelength="1560.709"  />
-			<spectrum intensity="600" wavelength="1561.438"  />
-			<spectrum intensity="500" wavelength="1656.267"  />
-			<spectrum intensity="400" wavelength="1656.928"  />
-			<spectrum intensity="1000" wavelength="1657.008"  />
-			<spectrum intensity="400" wavelength="1657.379"  />
-			<spectrum intensity="400" wavelength="1657.907"  />
-			<spectrum intensity="500" wavelength="1658.121"  />
-			<spectrum intensity="500" wavelength="1751.827"  />
-			<spectrum intensity="1000" wavelength="1930.906"  />
-			<spectrum intensity="400" wavelength="2478.561"  />
-			<spectrum intensity="250" wavelength="8335.15"  />
-			<spectrum intensity="400" wavelength="9405.73"  />
-			<spectrum intensity="140" wavelength="11753.32"  />
-			<spectrum intensity="101" wavelength="11754.76"  />
-		</spectra>
-	</element>
-	<element>
-		<number>7</number>
-		<spectra>
-			<spectrum intensity="1000" wavelength="1199.550"  />
-			<spectrum intensity="700" wavelength="1200.223"  />
-			<spectrum intensity="300" wavelength="1200.710"  />
-			<spectrum intensity="250" wavelength="1243.179"  />
-			<spectrum intensity="250" wavelength="1492.625"  />
-			<spectrum intensity="200" wavelength="1742.729"  />
-			<spectrum intensity="200" wavelength="7442.29"  />
-			<spectrum intensity="200" wavelength="7468.31"  />
-			<spectrum intensity="150" wavelength="8680.28"  />
-			<spectrum intensity="150" wavelength="8683.40"  />
-			<spectrum intensity="200" wavelength="12469.62"  />
-			<spectrum intensity="200" wavelength="13581.33"  />
-		</spectra>
-	</element>
-	<element>
-		<number>8</number>
-		<spectra>
-			<spectrum intensity="1000" wavelength="1302.168"  />
-			<spectrum intensity="700" wavelength="1304.858"  />
-			<spectrum intensity="300" wavelength="1306.029"  />
-			<spectrum intensity="300" wavelength="7771.94"  />
-			<spectrum intensity="250" wavelength="7774.17"  />
-			<spectrum intensity="250" wavelength="7775.39"  />
-			<spectrum intensity="250" wavelength="8446.25"  />
-			<spectrum intensity="300" wavelength="8446.36"  />
-			<spectrum intensity="300" wavelength="8446.76"  />
-			<spectrum intensity="200" wavelength="9266.01"  />
-			<spectrum intensity="250" wavelength="13163.89"  />
-			<spectrum intensity="250" wavelength="13164.85"  />
-		</spectra>
-	</element>
-	<element>
-		<number>9</number>
-		<spectra>
-			<spectrum intensity="500" wavelength="951.870"  />
-			<spectrum intensity="1000" wavelength="954.826"  />
-			<spectrum intensity="800" wavelength="955.546"  />
-			<spectrum intensity="500" wavelength="958.525"  />
-			<spectrum intensity="130" wavelength="6239.651"  />
-			<spectrum intensity="100" wavelength="6348.508"  />
-			<spectrum intensity="500" wavelength="6856.030"  />
-			<spectrum intensity="150" wavelength="6902.475"  />
-			<spectrum intensity="500" wavelength="7037.469"  />
-			<spectrum intensity="300" wavelength="7127.890"  />
-			<spectrum intensity="150" wavelength="7202.360"  />
-			<spectrum intensity="150" wavelength="7311.019"  />
-			<spectrum intensity="100" wavelength="7398.688"  />
-			<spectrum intensity="200" wavelength="7754.696"  />
-			<spectrum intensity="150" wavelength="7800.212"  />
-		</spectra>
-	</element>
-	<element>
-		<number>10</number>
-		<spectra>
-			<spectrum intensity="170" wavelength="615.6283"  />
-			<spectrum intensity="170" wavelength="618.6716"  />
-			<spectrum intensity="130" wavelength="619.1023"  />
-			<spectrum intensity="200" wavelength="626.8232"  />
-			<spectrum intensity="200" wavelength="629.7388"  />
-			<spectrum intensity="1000" wavelength="735.8962"  />
-			<spectrum intensity="400" wavelength="743.7195"  />
-			<spectrum intensity="100" wavelength="3520.4711"  />
-			<spectrum intensity="200" wavelength="5400.5618"  />
-			<spectrum intensity="200" wavelength="5852.4879"  />
-			<spectrum intensity="100" wavelength="6029.9969"  />
-			<spectrum intensity="100" wavelength="6074.3377"  />
-			<spectrum intensity="100" wavelength="6143.0626"  />
-			<spectrum intensity="100" wavelength="6163.5939"  />
-			<spectrum intensity="100" wavelength="6217.2812"  />
-			<spectrum intensity="100" wavelength="6266.4950"  />
-			<spectrum intensity="100" wavelength="6382.9917"  />
-			<spectrum intensity="200" wavelength="6402.248"  />
-			<spectrum intensity="150" wavelength="6506.5281"  />
-			<spectrum intensity="100" wavelength="6598.9529"  />
-			<spectrum intensity="1000" wavelength="6929.4673"  />
-			<spectrum intensity="800" wavelength="7032.4131"  />
-			<spectrum intensity="800" wavelength="7173.9381"  />
-			<spectrum intensity="800" wavelength="7245.1666"  />
-			<spectrum intensity="800" wavelength="8377.6080"  />
-			<spectrum intensity="600" wavelength="8654.3831"  />
-			<spectrum intensity="400" wavelength="8783.7533"  />
-		</spectra>
-	</element>
-	<element>
-		<number>11</number>
-		<spectra>
-			<spectrum intensity="5" wavelength="2852.81"  />
-			<spectrum intensity="2" wavelength="2853.01"  />
-			<spectrum intensity="15" wavelength="3302.37"  />
-			<spectrum intensity="8" wavelength="3302.98"  />
-			<spectrum intensity="1000" wavelength="5889.950"  />
-			<spectrum intensity="500" wavelength="5895.924"  />
-			<spectrum intensity="60" wavelength="8183.256"  />
-			<spectrum intensity="10" wavelength="8194.790"  />
-			<spectrum intensity="110" wavelength="8194.824"  />
-			<spectrum intensity="5" wavelength="11381.45"  />
-			<spectrum intensity="12" wavelength="11403.78"  />
-			<spectrum intensity="5" wavelength="18465.25"  />
-		</spectra>
-	</element>
-	<element>
-		<number>12</number>
-		<spectra>
-			<spectrum intensity="2" wavelength="2025.824"  />
-			<spectrum intensity="15" wavelength="2779.820"  />
-			<spectrum intensity="15" wavelength="2779.834"  />
-			<spectrum intensity="1000" wavelength="2852.1251"  />
-			<spectrum intensity="25" wavelength="3829.355"  />
-			<spectrum intensity="50" wavelength="3832.300"  />
-			<spectrum intensity="80" wavelength="3838.292"  />
-			<spectrum intensity="12" wavelength="5167.322"  />
-			<spectrum intensity="40" wavelength="5172.684"  />
-			<spectrum intensity="70" wavelength="5183.604"  />
-			<spectrum intensity="8" wavelength="11828.17"  />
-			<spectrum intensity="6" wavelength="15025.00"  />
-		</spectra>
-	</element>
-	<element>
-		<number>13</number>
-		<spectra>
-			<spectrum intensity="40" wavelength="2269.096"  />
-			<spectrum intensity="50" wavelength="2367.052"  />
-			<spectrum intensity="90" wavelength="2373.124"  />
-			<spectrum intensity="50" wavelength="2575.094"  />
-			<spectrum intensity="500" wavelength="3082.153"  />
-			<spectrum intensity="800" wavelength="3092.710"  />
-			<spectrum intensity="200" wavelength="3092.839"  />
-			<spectrum intensity="500" wavelength="3944.006"  />
-			<spectrum intensity="1000" wavelength="3961.520"  />
-		</spectra>
-	</element>
-	<element>
-		<number>14</number>
-		<spectra>
-			<spectrum intensity="400" wavelength="1850.6719"  />
-			<spectrum intensity="400" wavelength="1977.5978"  />
-			<spectrum intensity="400" wavelength="1979.2056"  />
-			<spectrum intensity="300" wavelength="1980.6185"  />
-			<spectrum intensity="300" wavelength="1983.2330"  />
-			<spectrum intensity="500" wavelength="1986.3640"  />
-			<spectrum intensity="1000" wavelength="1988.9937"  />
-			<spectrum intensity="400" wavelength="2207.978"  />
-			<spectrum intensity="500" wavelength="2210.894"  />
-			<spectrum intensity="300" wavelength="2211.744"  />
-			<spectrum intensity="500" wavelength="2216.669"  />
-			<spectrum intensity="400" wavelength="2218.057"  />
-			<spectrum intensity="400" wavelength="2506.897"  />
-			<spectrum intensity="400" wavelength="2514.316"  />
-			<spectrum intensity="500" wavelength="2516.112"  />
-			<spectrum intensity="400" wavelength="2519.202"  />
-			<spectrum intensity="400" wavelength="2524.108"  />
-			<spectrum intensity="400" wavelength="2528.509"  />
-			<spectrum intensity="1000" wavelength="2881.5771"  />
-			<spectrum intensity="50" wavelength="5948.545"  />
-			<spectrum intensity="80" wavelength="7405.7740"  />
-		</spectra>
-	</element>
-	<element>
-		<number>15</number>
-		<spectra>
-			<spectrum intensity="800" wavelength="1674.591"  />
-			<spectrum intensity="1000" wavelength="1679.695"  />
-			<spectrum intensity="1000" wavelength="1774.951"  />
-			<spectrum intensity="800" wavelength="1782.838"  />
-			<spectrum intensity="700" wavelength="1787.656"  />
-			<spectrum intensity="200" wavelength="2135.465"  />
-			<spectrum intensity="400" wavelength="2136.182"  />
-			<spectrum intensity="400" wavelength="2149.145"  />
-			<spectrum intensity="150" wavelength="2152.940"  />
-			<spectrum intensity="300" wavelength="2154.080"  />
-			<spectrum intensity="400" wavelength="2533.987"  />
-			<spectrum intensity="500" wavelength="2535.606"  />
-			<spectrum intensity="400" wavelength="2553.253"  />
-			<spectrum intensity="90" wavelength="9525.73"  />
-			<spectrum intensity="80" wavelength="9750.77"  />
-			<spectrum intensity="90" wavelength="9796.85"  />
-		</spectra>
-	</element>
-	<element>
-		<number>16</number>
-		<spectra>
-			<spectrum intensity="1000" wavelength="1425.030"  />
-			<spectrum intensity="600" wavelength="1433.280"  />
-			<spectrum intensity="200" wavelength="1433.310"  />
-			<spectrum intensity="1000" wavelength="1473.995"  />
-			<spectrum intensity="900" wavelength="1666.688"  />
-			<spectrum intensity="800" wavelength="1687.530"  />
-			<spectrum intensity="1000" wavelength="1807.311"  />
-			<spectrum intensity="900" wavelength="1820.343"  />
-			<spectrum intensity="800" wavelength="1826.245"  />
-			<spectrum intensity="150" wavelength="9212.865"  />
-			<spectrum intensity="100" wavelength="9228.092"  />
-			<spectrum intensity="80" wavelength="9237.538"  />
-			<spectrum intensity="200" wavelength="10455.451"  />
-			<spectrum intensity="30" wavelength="10456.757"  />
-			<spectrum intensity="130" wavelength="10459.406"  />
-		</spectra>
-	</element>
-	<element>
-		<number>17</number>
-		<spectra>
-			<spectrum intensity="300" wavelength="1335.726"  />
-			<spectrum intensity="1000" wavelength="1347.240"  />
-			<spectrum intensity="500" wavelength="1351.657"  />
-			<spectrum intensity="500" wavelength="1363.447"  />
-			<spectrum intensity="500" wavelength="1379.528"  />
-			<spectrum intensity="500" wavelength="1389.693"  />
-			<spectrum intensity="500" wavelength="1389.957"  />
-			<spectrum intensity="500" wavelength="1396.527"  />
-			<spectrum intensity="60" wavelength="7547.072"  />
-			<spectrum intensity="50" wavelength="7744.970"  />
-		</spectra>
-	</element>
-	<element>
-		<number>18</number>
-		<spectra>
-			<spectrum intensity="180" wavelength="866.79997"  />
-			<spectrum intensity="150" wavelength="869.75411"  />
-			<spectrum intensity="180" wavelength="876.05767"  />
-			<spectrum intensity="180" wavelength="879.94656"  />
-			<spectrum intensity="150" wavelength="894.31013"  />
-			<spectrum intensity="1000" wavelength="1048.21987"  />
-			<spectrum intensity="500" wavelength="1066.65980"  />
-			<spectrum intensity="300" wavelength="6965.431"  />
-			<spectrum intensity="300" wavelength="7067.218"  />
-			<spectrum intensity="600" wavelength="7503.869"  />
-			<spectrum intensity="700" wavelength="7635.106"  />
-			<spectrum intensity="600" wavelength="7948.176"  />
-			<spectrum intensity="600" wavelength="8006.157"  />
-			<spectrum intensity="700" wavelength="8014.786"  />
-			<spectrum intensity="600" wavelength="8103.693"  />
-			<spectrum intensity="1000" wavelength="8115.311"  />
-			<spectrum intensity="1000" wavelength="9122.967"  />
-			<spectrum intensity="700" wavelength="9657.786"  />
-		</spectra>
-	</element>
-	<element>
-		<number>19</number>
-		<spectra>
-			<spectrum intensity="700" wavelength="4044.14"  />
-			<spectrum intensity="700" wavelength="4047.21"  />
-			<spectrum intensity="1000" wavelength="7664.8991"  />
-			<spectrum intensity="1000" wavelength="7698.9645"  />
-			<spectrum intensity="700" wavelength="11690.21"  />
-			<spectrum intensity="600" wavelength="11769.62"  />
-			<spectrum intensity="700" wavelength="11772.83"  />
-		</spectra>
-	</element>
-	<element>
-		<number>20</number>
-		<spectra>
-			<spectrum intensity="140" wavelength="2721.645"  />
-			<spectrum intensity="1000" wavelength="4226.727"  />
-			<spectrum intensity="500" wavelength="4425.441"  />
-			<spectrum intensity="500" wavelength="4434.960"  />
-			<spectrum intensity="500" wavelength="4435.688"  />
-			<spectrum intensity="600" wavelength="4454.781"  />
-			<spectrum intensity="600" wavelength="4455.887"  />
-			<spectrum intensity="500" wavelength="5588.757"  />
-			<spectrum intensity="500" wavelength="6102.722"  />
-			<spectrum intensity="600" wavelength="6122.219"  />
-			<spectrum intensity="600" wavelength="6162.172"  />
-			<spectrum intensity="700" wavelength="6439.073"  />
-			<spectrum intensity="700" wavelength="6462.566"  />
-			<spectrum intensity="600" wavelength="6493.780"  />
-		</spectra>
-	</element>
-	<element>
-		<number>21</number>
-		<spectra>
-			<spectrum intensity="200" wavelength="3269.897"  />
-			<spectrum intensity="250" wavelength="3273.628"  />
-			<spectrum intensity="900" wavelength="3907.484"  />
-			<spectrum intensity="1000" wavelength="3911.812"  />
-			<spectrum intensity="200" wavelength="3933.375"  />
-			<spectrum intensity="250" wavelength="3996.601"  />
-			<spectrum intensity="900" wavelength="4020.387"  />
-			<spectrum intensity="900" wavelength="4023.678"  />
-			<spectrum intensity="250" wavelength="4054.544"  />
-			<spectrum intensity="250" wavelength="4082.387"  />
-		</spectra>
-	</element>
-	<element>
-		<number>22</number>
-		<spectra>
-			<spectrum intensity="600" wavelength="3635.462"  />
-			<spectrum intensity="800" wavelength="3642.674"  />
-			<spectrum intensity="900" wavelength="3653.495"  />
-			<spectrum intensity="700" wavelength="3752.858"  />
-			<spectrum intensity="600" wavelength="3948.670"  />
-			<spectrum intensity="600" wavelength="3956.334"  />
-			<spectrum intensity="700" wavelength="3958.201"  />
-			<spectrum intensity="600" wavelength="3981.761"  />
-			<spectrum intensity="700" wavelength="3989.758"  />
-			<spectrum intensity="1000" wavelength="3998.636"  />
-			<spectrum intensity="800" wavelength="4305.907"  />
-			<spectrum intensity="700" wavelength="4981.730"  />
-			<spectrum intensity="600" wavelength="4991.066"  />
-			<spectrum intensity="400" wavelength="5007.206"  />
-			<spectrum intensity="400" wavelength="5014.186"  />
-			<spectrum intensity="200" wavelength="5064.651"  />
-			<spectrum intensity="200" wavelength="5210.384"  />
-		</spectra>
-	</element>
-	<element>
-		<number>23</number>
-		<spectra>
-			<spectrum intensity="250" wavelength="3183.412"  />
-			<spectrum intensity="400" wavelength="3183.992"  />
-			<spectrum intensity="300" wavelength="3185.385"  />
-			<spectrum intensity="300" wavelength="3703.574"  />
-			<spectrum intensity="250" wavelength="3855.845"  />
-			<spectrum intensity="200" wavelength="3902.256"  />
-			<spectrum intensity="700" wavelength="4111.780"  />
-			<spectrum intensity="400" wavelength="4115.180"  />
-			<spectrum intensity="250" wavelength="4128.064"  />
-			<spectrum intensity="250" wavelength="4131.989"  />
-			<spectrum intensity="1000" wavelength="4379.230"  />
-			<spectrum intensity="600" wavelength="4384.710"  />
-			<spectrum intensity="400" wavelength="4389.980"  />
-			<spectrum intensity="300" wavelength="4395.223"  />
-			<spectrum intensity="300" wavelength="4408.195"  />
-			<spectrum intensity="400" wavelength="4408.501"  />
-			<spectrum intensity="110" wavelength="6090.208"  />
-		</spectra>
-	</element>
-	<element>
-		<number>24</number>
-		<spectra>
-			<spectrum intensity="1000" wavelength="3578.682"  />
-			<spectrum intensity="800" wavelength="3593.481"  />
-			<spectrum intensity="600" wavelength="3605.320"  />
-			<spectrum intensity="1000" wavelength="4254.331"  />
-			<spectrum intensity="800" wavelength="4274.806"  />
-			<spectrum intensity="500" wavelength="4289.733"  />
-			<spectrum intensity="250" wavelength="5204.505"  />
-			<spectrum intensity="400" wavelength="5206.021"  />
-			<spectrum intensity="600" wavelength="5208.415"  />
-		</spectra>
-	</element>
-	<element>
-		<number>25</number>
-		<spectra>
-			<spectrum intensity="400" wavelength="1996.056"  />
-			<spectrum intensity="500" wavelength="1999.511"  />
-			<spectrum intensity="700" wavelength="2003.849"  />
-			<spectrum intensity="250" wavelength="2794.817"  />
-			<spectrum intensity="200" wavelength="2798.270"  />
-			<spectrum intensity="140" wavelength="2801.084"  />
-			<spectrum intensity="120" wavelength="3806.715"  />
-			<spectrum intensity="1000" wavelength="4030.755"  />
-			<spectrum intensity="700" wavelength="4033.068"  />
-			<spectrum intensity="400" wavelength="4034.485"  />
-			<spectrum intensity="200" wavelength="4041.357"  />
-		</spectra>
-	</element>
-	<element>
-		<number>26</number>
-		<spectra>
-			<spectrum intensity="1000" wavelength="2483.2708"  />
-			<spectrum intensity="600" wavelength="2488.1426"  />
-			<spectrum intensity="500" wavelength="2490.6443"  />
-			<spectrum intensity="400" wavelength="2522.8494"  />
-			<spectrum intensity="400" wavelength="2719.0273"  />
-			<spectrum intensity="300" wavelength="2788.1047"  />
-			<spectrum intensity="400" wavelength="3440.6060"  />
-			<spectrum intensity="600" wavelength="3581.1931"  />
-			<spectrum intensity="600" wavelength="3719.9348"  />
-			<spectrum intensity="700" wavelength="3734.8638"  />
-			<spectrum intensity="600" wavelength="3737.1316"  />
-			<spectrum intensity="600" wavelength="3745.5613"  />
-			<spectrum intensity="300" wavelength="3748.2622"  />
-			<spectrum intensity="400" wavelength="3749.4854"  />
-			<spectrum intensity="300" wavelength="3758.2329"  />
-			<spectrum intensity="500" wavelength="3820.4253"  />
-			<spectrum intensity="500" wavelength="3859.9114"  />
-			<spectrum intensity="300" wavelength="3886.2822"  />
-			<spectrum intensity="300" wavelength="4045.8125"  />
-			<spectrum intensity="200" wavelength="4383.5449"  />
-		</spectra>
-	</element>
-	<element>
-		<number>27</number>
-		<spectra>
-			<spectrum intensity="250" wavelength="2407.256"  />
-			<spectrum intensity="250" wavelength="2411.624"  />
-			<spectrum intensity="200" wavelength="2424.935"  />
-			<spectrum intensity="200" wavelength="2521.365"  />
-			<spectrum intensity="500" wavelength="3405.118"  />
-			<spectrum intensity="400" wavelength="3443.645"  />
-			<spectrum intensity="1000" wavelength="3453.510"  />
-			<spectrum intensity="400" wavelength="3473.974"  />
-			<spectrum intensity="400" wavelength="3474.042"  />
-			<spectrum intensity="500" wavelength="3502.280"  />
-			<spectrum intensity="300" wavelength="3526.850"  />
-			<spectrum intensity="300" wavelength="3529.808"  />
-			<spectrum intensity="400" wavelength="3569.376"  />
-		</spectra>
-	</element>
-	<element>
-		<number>28</number>
-		<spectra>
-			<spectrum intensity="300" wavelength="2320.034"  />
-			<spectrum intensity="150" wavelength="2345.543"  />
-			<spectrum intensity="500" wavelength="3002.485"  />
-			<spectrum intensity="500" wavelength="3012.001"  />
-			<spectrum intensity="400" wavelength="3050.816"  />
-			<spectrum intensity="300" wavelength="3101.557"  />
-			<spectrum intensity="400" wavelength="3134.104"  />
-			<spectrum intensity="1000" wavelength="3414.764"  />
-			<spectrum intensity="600" wavelength="3446.259"  />
-			<spectrum intensity="600" wavelength="3458.460"  />
-			<spectrum intensity="600" wavelength="3461.652"  />
-			<spectrum intensity="700" wavelength="3492.956"  />
-			<spectrum intensity="800" wavelength="3515.052"  />
-			<spectrum intensity="1000" wavelength="3524.536"  />
-			<spectrum intensity="600" wavelength="3566.372"  />
-			<spectrum intensity="800" wavelength="3619.391"  />
-		</spectra>
-	</element>
-	<element>
-		<number>29</number>
-		<spectra>
-			<spectrum intensity="130" wavelength="2165.09"  />
-			<spectrum intensity="150" wavelength="2178.94"  />
-			<spectrum intensity="150" wavelength="2181.72"  />
-			<spectrum intensity="200" wavelength="2225.70"  />
-			<spectrum intensity="250" wavelength="2230.08"  />
-			<spectrum intensity="250" wavelength="2244.26"  />
-			<spectrum intensity="100" wavelength="2441.64"  />
-			<spectrum intensity="200" wavelength="2492.15"  />
-			<spectrum intensity="1000" wavelength="3247.54"  />
-			<spectrum intensity="1000" wavelength="3273.96"  />
-			<spectrum intensity="150" wavelength="5105.54"  />
-			<spectrum intensity="200" wavelength="5153.24"  />
-			<spectrum intensity="250" wavelength="5218.20"  />
-		</spectra>
-	</element>
-	<element>
-		<number>30</number>
-		<spectra>
-			<spectrum intensity="130" wavelength="2165.09"  />
-			<spectrum intensity="150" wavelength="2178.94"  />
-			<spectrum intensity="150" wavelength="2181.72"  />
-			<spectrum intensity="200" wavelength="2225.70"  />
-			<spectrum intensity="250" wavelength="2230.08"  />
-			<spectrum intensity="250" wavelength="2244.26"  />
-			<spectrum intensity="100" wavelength="2441.64"  />
-			<spectrum intensity="200" wavelength="2492.15"  />
-			<spectrum intensity="1000" wavelength="3247.54"  />
-			<spectrum intensity="1000" wavelength="3273.96"  />
-			<spectrum intensity="150" wavelength="5105.54"  />
-			<spectrum intensity="200" wavelength="5153.24"  />
-			<spectrum intensity="250" wavelength="5218.20"  />
-		</spectra>
-	</element>
-	<element>
-		<number>31</number>
-		<spectra>
-			<spectrum intensity="400" wavelength="2874.235"  />
-			<spectrum intensity="600" wavelength="2943.636"  />
-			<spectrum intensity="200" wavelength="2944.173"  />
-			<spectrum intensity="500" wavelength="4032.984"  />
-			<spectrum intensity="1000" wavelength="4172.042"  />
-		</spectra>
-	</element>
-	<element>
-		<number>32</number>
-		<spectra>
-			<spectrum intensity="120" wavelength="1988.267"  />
-			<spectrum intensity="200" wavelength="1998.887"  />
-			<spectrum intensity="700" wavelength="2019.068"  />
-			<spectrum intensity="900" wavelength="2041.712"  />
-			<spectrum intensity="600" wavelength="2043.770"  />
-			<spectrum intensity="1000" wavelength="2068.656"  />
-			<spectrum intensity="800" wavelength="2094.258"  />
-			<spectrum intensity="130" wavelength="2198.714"  />
-			<spectrum intensity="200" wavelength="2592.534"  />
-			<spectrum intensity="500" wavelength="2651.172"  />
-			<spectrum intensity="200" wavelength="2651.568"  />
-			<spectrum intensity="200" wavelength="2691.341"  />
-			<spectrum intensity="300" wavelength="2709.624"  />
-			<spectrum intensity="250" wavelength="2754.588"  />
-			<spectrum intensity="300" wavelength="3039.067"  />
-			<spectrum intensity="40" wavelength="3269.489"  />
-		</spectra>
-	</element>
-	<element>
-		<number>33</number>
-		<spectra>
-			<spectrum intensity="700" wavelength="1890.43"  />
-			<spectrum intensity="400" wavelength="1937.59"  />
-			<spectrum intensity="200" wavelength="1972.62"  />
-			<spectrum intensity="50" wavelength="2288.12"  />
-			<spectrum intensity="100" wavelength="2349.84"  />
-			<spectrum intensity="70" wavelength="2370.77"  />
-			<spectrum intensity="400" wavelength="2456.53"  />
-			<spectrum intensity="900" wavelength="2780.22"  />
-			<spectrum intensity="1000" wavelength="2860.44"  />
-		</spectra>
-	</element>
-	<element>
-		<number>34</number>
-		<spectra>
-			<spectrum intensity="600" wavelength="1960.894"  />
-			<spectrum intensity="150" wavelength="1995.111"  />
-			<spectrum intensity="600" wavelength="2039.842"  />
-			<spectrum intensity="400" wavelength="2062.779"  />
-			<spectrum intensity="600" wavelength="2074.784"  />
-			<spectrum intensity="600" wavelength="2164.188"  />
-			<spectrum intensity="700" wavelength="2413.535"  />
-			<spectrum intensity="600" wavelength="4730.78"  />
-			<spectrum intensity="1000" wavelength="10327.26"  />
-			<spectrum intensity="700" wavelength="10386.36"  />
-			<spectrum intensity="800" wavelength="21442.56"  />
-		</spectra>
-	</element>
-	<element>
-		<number>35</number>
-		<spectra>
-			<spectrum intensity="700" wavelength="1488.45"  />
-			<spectrum intensity="300" wavelength="1540.65"  />
-			<spectrum intensity="400" wavelength="1574.84"  />
-			<spectrum intensity="1000" wavelength="1633.40"  />
-			<spectrum intensity="130" wavelength="7348.51"  />
-			<spectrum intensity="500" wavelength="7512.96"  />
-			<spectrum intensity="400" wavelength="7803.02"  />
-			<spectrum intensity="400" wavelength="7938.68"  />
-			<spectrum intensity="1000" wavelength="8272.44"  />
-			<spectrum intensity="130" wavelength="8343.70"  />
-			<spectrum intensity="500" wavelength="8446.55"  />
-		</spectra>
-	</element>
-	<element>
-		<number>36</number>
-		<spectra>
-			<spectrum intensity="300" wavelength="1164.8671"  />
-			<spectrum intensity="1000" wavelength="1235.8378"  />
-			<spectrum intensity="300" wavelength="5570.2894"  />
-			<spectrum intensity="500" wavelength="5870.9160"  />
-			<spectrum intensity="700" wavelength="8104.3655"  />
-			<spectrum intensity="1000" wavelength="8112.9012"  />
-			<spectrum intensity="500" wavelength="8190.0566"  />
-			<spectrum intensity="500" wavelength="8263.2426"  />
-			<spectrum intensity="800" wavelength="8298.1099"  />
-			<spectrum intensity="500" wavelength="8508.8728"  />
-			<spectrum intensity="1000" wavelength="8776.7505"  />
-			<spectrum intensity="400" wavelength="13634.220"  />
-			<spectrum intensity="300" wavelength="14426.793"  />
-			<spectrum intensity="400" wavelength="16890.441"  />
-			<spectrum intensity="400" wavelength="18167.315"  />
-		</spectra>
-	</element>
-	<element>
-		<number>37</number>
-		<spectra>
-			<spectrum intensity="11" wavelength="4201.80"  />
-			<spectrum intensity="6" wavelength="4215.53"  />
-			<spectrum intensity="1000" wavelength="7800.27"  />
-			<spectrum intensity="500" wavelength="7947.60"  />
-			<spectrum intensity="11" wavelength="14752.41"  />
-			<spectrum intensity="9" wavelength="15288.43"  />
-		</spectra>
-	</element>
-	<element>
-		<number>38</number>
-		<spectra>
-			<spectrum intensity="1000" wavelength="4607.33"  />
-			<spectrum intensity="70" wavelength="4811.88"  />
-			<spectrum intensity="50" wavelength="4872.49"  />
-			<spectrum intensity="120" wavelength="4962.26"  />
-			<spectrum intensity="20" wavelength="4967.94"  />
-			<spectrum intensity="70" wavelength="5256.90"  />
-			<spectrum intensity="110" wavelength="5480.84"  />
-			<spectrum intensity="140" wavelength="6408.47"  />
-			<spectrum intensity="80" wavelength="6504.00"  />
-			<spectrum intensity="30" wavelength="6791.05"  />
-			<spectrum intensity="70" wavelength="6878.38"  />
-			<spectrum intensity="20" wavelength="6892.59"  />
-			<spectrum intensity="80" wavelength="7070.10"  />
-		</spectra>
-	</element>
-	<element>
-		<number>39</number>
-		<spectra>
-			<spectrum intensity="900" wavelength="4077.359"  />
-			<spectrum intensity="1000" wavelength="4102.364"  />
-			<spectrum intensity="900" wavelength="4128.299"  />
-			<spectrum intensity="800" wavelength="4142.841"  />
-			<spectrum intensity="600" wavelength="17422.838"  />
-			<spectrum intensity="1000" wavelength="17903.209"  />
-			<spectrum intensity="1000" wavelength="18049.810"  />
-			<spectrum intensity="800" wavelength="21260.444"  />
-			<spectrum intensity="700" wavelength="22543.828"  />
-			<spectrum intensity="500" wavelength="23990.450"  />
-		</spectra>
-	</element>
-	<element>
-		<number>40</number>
-		<spectra>
-			<spectrum intensity="600" wavelength="3519.604"  />
-			<spectrum intensity="500" wavelength="3547.683"  />
-			<spectrum intensity="300" wavelength="3575.790"  />
-			<spectrum intensity="1000" wavelength="3601.191"  />
-			<spectrum intensity="300" wavelength="3663.648"  />
-			<spectrum intensity="600" wavelength="3835.962"  />
-			<spectrum intensity="800" wavelength="3863.872"  />
-			<spectrum intensity="800" wavelength="3890.316"  />
-			<spectrum intensity="600" wavelength="3891.380"  />
-			<spectrum intensity="600" wavelength="4072.698"  />
-			<spectrum intensity="600" wavelength="4081.209"  />
-			<spectrum intensity="600" wavelength="4227.750"  />
-			<spectrum intensity="600" wavelength="4239.309"  />
-			<spectrum intensity="700" wavelength="4687.799"  />
-			<spectrum intensity="500" wavelength="4710.074"  />
-			<spectrum intensity="200" wavelength="6127.457"  />
-			<spectrum intensity="150" wavelength="7097.727"  />
-			<spectrum intensity="150" wavelength="7169.092"  />
-			<spectrum intensity="250" wavelength="8070.099"  />
-		</spectra>
-	</element>
-	<element>
-		<number>41</number>
-		<spectra>
-			<spectrum intensity="80" wavelength="3341.97"  />
-			<spectrum intensity="80" wavelength="3343.71"  />
-			<spectrum intensity="110" wavelength="3349.06"  />
-			<spectrum intensity="110" wavelength="3358.42"  />
-			<spectrum intensity="120" wavelength="3535.30"  />
-			<spectrum intensity="90" wavelength="3575.85"  />
-			<spectrum intensity="300" wavelength="3580.27"  />
-			<spectrum intensity="150" wavelength="3739.80"  />
-			<spectrum intensity="1000" wavelength="4058.94"  />
-			<spectrum intensity="800" wavelength="4079.73"  />
-			<spectrum intensity="400" wavelength="4100.92"  />
-			<spectrum intensity="300" wavelength="4123.81"  />
-			<spectrum intensity="300" wavelength="4152.58"  />
-			<spectrum intensity="300" wavelength="4163.66"  />
-			<spectrum intensity="250" wavelength="4164.66"  />
-			<spectrum intensity="200" wavelength="4168.13"  />
-		</spectra>
-	</element>
-	<element>
-		<number>42</number>
-		<spectra>
-			<spectrum intensity="500" wavelength="3132.594"  />
-			<spectrum intensity="200" wavelength="3158.167"  />
-			<spectrum intensity="300" wavelength="3170.344"  />
-			<spectrum intensity="250" wavelength="3193.979"  />
-			<spectrum intensity="100" wavelength="3208.838"  />
-			<spectrum intensity="110" wavelength="3447.124"  />
-			<spectrum intensity="1000" wavelength="3798.252"  />
-			<spectrum intensity="1000" wavelength="3864.104"  />
-			<spectrum intensity="700" wavelength="3902.953"  />
-			<spectrum intensity="80" wavelength="4069.882"  />
-			<spectrum intensity="90" wavelength="4188.324"  />
-			<spectrum intensity="90" wavelength="4411.695"  />
-			<spectrum intensity="250" wavelength="5506.494"  />
-			<spectrum intensity="200" wavelength="5533.031"  />
-			<spectrum intensity="90" wavelength="5570.444"  />
-		</spectra>
-	</element>
-	<element>
-		<number>43</number>
-		<spectra>
-			<spectrum intensity="300" wavelength="3173.30"  />
-			<spectrum intensity="200" wavelength="3182.37"  />
-			<spectrum intensity="200" wavelength="3183.11"  />
-			<spectrum intensity="500" wavelength="3466.28"  />
-			<spectrum intensity="1000" wavelength="3636.07"  />
-			<spectrum intensity="800" wavelength="3718.86"  />
-			<spectrum intensity="500" wavelength="3984.97"  />
-			<spectrum intensity="1000" wavelength="4031.63"  />
-			<spectrum intensity="700" wavelength="4095.67"  />
-			<spectrum intensity="500" wavelength="4238.19"  />
-			<spectrum intensity="800" wavelength="4262.27"  />
-			<spectrum intensity="1000" wavelength="4297.06"  />
-			<spectrum intensity="800" wavelength="4853.59"  />
-		</spectra>
-	</element>
-	<element>
-		<number>44</number>
-		<spectra>
-			<spectrum intensity="600" wavelength="3436.737"  />
-			<spectrum intensity="800" wavelength="3498.944"  />
-			<spectrum intensity="600" wavelength="3589.220"  />
-			<spectrum intensity="600" wavelength="3593.029"  />
-			<spectrum intensity="600" wavelength="3596.185"  />
-			<spectrum intensity="800" wavelength="3726.926"  />
-			<spectrum intensity="1000" wavelength="3728.026"  />
-			<spectrum intensity="600" wavelength="3730.432"  />
-			<spectrum intensity="700" wavelength="3798.899"  />
-			<spectrum intensity="700" wavelength="3799.353"  />
-			<spectrum intensity="700" wavelength="4199.892"  />
-		</spectra>
-	</element>
-	<element>
-		<number>45</number>
-		<spectra>
-			<spectrum intensity="400" wavelength="3323.09"  />
-			<spectrum intensity="600" wavelength="3396.82"  />
-			<spectrum intensity="900" wavelength="3434.89"  />
-			<spectrum intensity="600" wavelength="3502.52"  />
-			<spectrum intensity="300" wavelength="3507.32"  />
-			<spectrum intensity="900" wavelength="3528.02"  />
-			<spectrum intensity="900" wavelength="3657.99"  />
-			<spectrum intensity="1000" wavelength="3692.36"  />
-			<spectrum intensity="800" wavelength="3700.91"  />
-			<spectrum intensity="400" wavelength="4374.80"  />
-		</spectra>
-	</element>
-	<element>
-		<number>46</number>
-		<spectra>
-			<spectrum intensity="300" wavelength="2447.9058"  />
-			<spectrum intensity="250" wavelength="2476.4127"  />
-			<spectrum intensity="400" wavelength="2763.0899"  />
-			<spectrum intensity="500" wavelength="3242.6983"  />
-			<spectrum intensity="1000" wavelength="3404.5764"  />
-			<spectrum intensity="500" wavelength="3421.2214"  />
-			<spectrum intensity="300" wavelength="3460.7381"  />
-			<spectrum intensity="400" wavelength="3481.1516"  />
-			<spectrum intensity="500" wavelength="3516.9438"  />
-			<spectrum intensity="500" wavelength="3553.0803"  />
-			<spectrum intensity="800" wavelength="3609.5547"  />
-			<spectrum intensity="800" wavelength="3634.6884"  />
-		</spectra>
-	</element>
-	<element>
-		<number>47</number>
-		<spectra>
-			<spectrum intensity="1000" wavelength="3280.680"  />
-			<spectrum intensity="500" wavelength="3382.887"  />
-			<spectrum intensity="90" wavelength="5209.078"  />
-			<spectrum intensity="90" wavelength="5465.497"  />
-			<spectrum intensity="30" wavelength="7687.772"  />
-			<spectrum intensity="50" wavelength="8273.509"  />
-		</spectra>
-	</element>
-	<element>
-		<number>48</number>
-		<spectra>
-			<spectrum intensity="800" wavelength="2288.022"  />
-			<spectrum intensity="400" wavelength="3403.652"  />
-			<spectrum intensity="500" wavelength="3466.200"  />
-			<spectrum intensity="400" wavelength="3467.655"  />
-			<spectrum intensity="500" wavelength="3610.508"  />
-			<spectrum intensity="400" wavelength="3612.873"  />
-			<spectrum intensity="100" wavelength="4678.149"  />
-			<spectrum intensity="150" wavelength="4799.912"  />
-			<spectrum intensity="500" wavelength="5085.822"  />
-			<spectrum intensity="1000" wavelength="6438.470"  />
-		</spectra>
-	</element>
-	<element>
-		<number>49</number>
+	<spectrum id="1">
+		<peakList>
+			<peak xValue="50" yValue="949.7430" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="972.5367" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="1025.7222" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1215.66824" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1215.67364" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="30" yValue="4861.2786" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="10" yValue="4861.2870" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="4861.3615" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="90" yValue="6562.7110" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="30" yValue="6562.7248" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+	<spectrum id="2">
+		<peakList>
+			<peak xValue="100" yValue="522.21309" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="537.02992" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="584.33436" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="3888.6046" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="3888.6456" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3888.6489" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="5875.6148" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="5875.6404" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="120" yValue="5875.9663" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="6678.1517" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="7065.1771" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="7065.2153" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="20" yValue="7065.7086" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="7281.3507" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="10829.0911" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="10830.2501" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="10830.3398" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="20581.287" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+	<spectrum id="3">
+		<peakList>
+			<peak xValue="15" yValue="4602.831" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="30" yValue="4602.898" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="6103.542" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="6103.654" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="6707.775" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="6707.926" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="8126.232" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="8126.453" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="10" yValue="26877.67" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="5" yValue="26878.36" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="4">
+
+		<peakList>
+			<peak xValue="100" yValue="1661.478" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="2348.610" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="2494.728" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="2650.454" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="2650.550" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200*" yValue="2650.613" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200*" yValue="2650.619" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="2650.694" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="2650.760" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="12" yValue="4572.664" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="5">
+
+		<peakList>
+			<peak xValue="800" yValue="1825.894" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1826.400" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2088.889" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="2089.570" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="2496.769" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="2497.722" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="6">
+
+		<peakList>
+			<peak xValue="400" yValue="1277.2452" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="1277.2824" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="1277.5131" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1277.5497" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="1280.3330" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1560.682" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="1560.709" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="1561.438" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1656.267" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="1656.928" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1657.008" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="1657.379" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="1657.907" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1658.121" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1751.827" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1930.906" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2478.561" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="8335.15" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="9405.73" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="140" yValue="11753.32" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="101" yValue="11754.76" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="7">
+
+		<peakList>
+			<peak xValue="1000" yValue="1199.550" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="1200.223" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="1200.710" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="1243.179" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="1492.625" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="1742.729" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="7442.29" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="7468.31" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="8680.28" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="8683.40" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="12469.62" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="13581.33" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="8">
+
+		<peakList>
+			<peak xValue="1000" yValue="1302.168" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="1304.858" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="1306.029" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="7771.94" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="7774.17" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="7775.39" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="8446.25" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="8446.36" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="8446.76" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="9266.01" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="13163.89" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="13164.85" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="9">
+
+		<peakList>
+			<peak xValue="500" yValue="951.870" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="954.826" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="955.546" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="958.525" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="130" yValue="6239.651" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="6348.508" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="6856.030" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="6902.475" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="7037.469" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="7127.890" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="7202.360" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="7311.019" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="7398.688" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="7754.696" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="7800.212" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="10">
+
+		<peakList>
+			<peak xValue="170" yValue="615.6283" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="170" yValue="618.6716" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="130" yValue="619.1023" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="626.8232" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="629.7388" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="735.8962" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="743.7195" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="3520.4711" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="5400.5618" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="5852.4879" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="6029.9969" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="6074.3377" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="6143.0626" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="6163.5939" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="6217.2812" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="6266.4950" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="6382.9917" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="6402.248" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="6506.5281" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="6598.9529" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="6929.4673" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="7032.4131" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="7173.9381" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="7245.1666" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="8377.6080" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="8654.3831" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="8783.7533" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="11">
+
+		<peakList>
+			<peak xValue="5" yValue="2852.81" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="2" yValue="2853.01" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="15" yValue="3302.37" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="8" yValue="3302.98" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="5889.950" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="5895.924" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="8183.256" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="10" yValue="8194.790" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="110" yValue="8194.824" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="5" yValue="11381.45" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="12" yValue="11403.78" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="5" yValue="18465.25" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="12">
+
+		<peakList>
+			<peak xValue="2" yValue="2025.824" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="15" yValue="2779.820" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="15" yValue="2779.834" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="2852.1251" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="25" yValue="3829.355" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="3832.300" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="80" yValue="3838.292" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="12" yValue="5167.322" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="40" yValue="5172.684" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="70" yValue="5183.604" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="8" yValue="11828.17" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="6" yValue="15025.00" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="13">
+
+		<peakList>
+			<peak xValue="40" yValue="2269.096" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="2367.052" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="90" yValue="2373.124" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="2575.094" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3082.153" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3092.710" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="3092.839" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3944.006" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3961.520" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="14">
+
+		<peakList>
+			<peak xValue="400" yValue="1850.6719" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="1977.5978" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="1979.2056" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="1980.6185" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="1983.2330" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1986.3640" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1988.9937" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2207.978" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="2210.894" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="2211.744" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="2216.669" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2218.057" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2506.897" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2514.316" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="2516.112" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2519.202" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2524.108" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2528.509" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="2881.5771" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="5948.545" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="80" yValue="7405.7740" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="15">
+
+		<peakList>
+			<peak xValue="800" yValue="1674.591" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1679.695" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1774.951" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="1782.838" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="1787.656" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2135.465" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2136.182" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2149.145" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="2152.940" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="2154.080" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2533.987" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="2535.606" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2553.253" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="90" yValue="9525.73" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="80" yValue="9750.77" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="90" yValue="9796.85" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="16">
+
+		<peakList>
+			<peak xValue="1000" yValue="1425.030" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="1433.280" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="1433.310" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1473.995" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="1666.688" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="1687.530" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1807.311" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="1820.343" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="1826.245" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="9212.865" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="9228.092" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="80" yValue="9237.538" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="10455.451" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="30" yValue="10456.757" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="130" yValue="10459.406" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="17">
+
+		<peakList>
+			<peak xValue="300" yValue="1335.726" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1347.240" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1351.657" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1363.447" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1379.528" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1389.693" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1389.957" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1396.527" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="7547.072" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="7744.970" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="18">
+
+		<peakList>
+			<peak xValue="180" yValue="866.79997" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="869.75411" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="180" yValue="876.05767" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="180" yValue="879.94656" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="894.31013" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1048.21987" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1066.65980" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="6965.431" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="7067.218" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="7503.869" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="7635.106" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="7948.176" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="8006.157" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="8014.786" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="8103.693" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="8115.311" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="9122.967" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="9657.786" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="19">
+
+		<peakList>
+			<peak xValue="700" yValue="4044.14" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="4047.21" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="7664.8991" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="7698.9645" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="11690.21" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="11769.62" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="11772.83" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="20">
+
+		<peakList>
+			<peak xValue="140" yValue="2721.645" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="4226.727" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="4425.441" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="4434.960" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="4435.688" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="4454.781" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="4455.887" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="5588.757" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="6102.722" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="6122.219" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="6162.172" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="6439.073" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="6462.566" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="6493.780" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="21">
+
+		<peakList>
+			<peak xValue="200" yValue="3269.897" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="3273.628" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="3907.484" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3911.812" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="3933.375" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="3996.601" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="4020.387" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="4023.678" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="4054.544" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="4082.387" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="22">
+
+		<peakList>
+			<peak xValue="600" yValue="3635.462" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3642.674" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="3653.495" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="3752.858" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3948.670" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3956.334" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="3958.201" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3981.761" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="3989.758" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3998.636" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="4305.907" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="4981.730" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="4991.066" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="5007.206" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="5014.186" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="5064.651" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="5210.384" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="23">
+
+		<peakList>
+			<peak xValue="250" yValue="3183.412" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3183.992" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3185.385" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3703.574" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="3855.845" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="3902.256" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="4111.780" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="4115.180" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="4128.064" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="4131.989" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="4379.230" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="4384.710" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="4389.980" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="4395.223" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="4408.195" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="4408.501" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="110" yValue="6090.208" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="24">
+
+		<peakList>
+			<peak xValue="1000" yValue="3578.682" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3593.481" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3605.320" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="4254.331" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="4274.806" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="4289.733" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="5204.505" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="5206.021" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="5208.415" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="25">
+
+		<peakList>
+			<peak xValue="400" yValue="1996.056" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1999.511" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="2003.849" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="2794.817" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2798.270" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="140" yValue="2801.084" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="120" yValue="3806.715" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="4030.755" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="4033.068" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="4034.485" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="4041.357" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="26">
+
+		<peakList>
+			<peak xValue="1000" yValue="2483.2708" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="2488.1426" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="2490.6443" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2522.8494" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2719.0273" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="2788.1047" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3440.6060" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3581.1931" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3719.9348" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="3734.8638" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3737.1316" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3745.5613" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3748.2622" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3749.4854" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3758.2329" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3820.4253" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3859.9114" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3886.2822" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="4045.8125" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="4383.5449" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="27">
+
+		<peakList>
+			<peak xValue="250" yValue="2407.256" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="2411.624" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2424.935" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2521.365" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3405.118" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3443.645" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3453.510" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3473.974" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3474.042" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3502.280" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3526.850" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3529.808" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3569.376" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="28">
+
+		<peakList>
+			<peak xValue="300" yValue="2320.034" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="2345.543" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3002.485" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3012.001" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3050.816" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3101.557" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3134.104" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3414.764" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3446.259" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3458.460" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3461.652" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="3492.956" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3515.052" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3524.536" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3566.372" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3619.391" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="29">
+
+		<peakList>
+			<peak xValue="130" yValue="2165.09" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="2178.94" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="2181.72" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2225.70" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="2230.08" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="2244.26" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="2441.64" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2492.15" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3247.54" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3273.96" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="5105.54" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="5153.24" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="5218.20" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="30">
+
+		<peakList>
+			<peak xValue="130" yValue="2165.09" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="2178.94" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="2181.72" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2225.70" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="2230.08" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="2244.26" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="2441.64" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2492.15" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3247.54" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3273.96" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="5105.54" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="5153.24" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="5218.20" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="31">
+
+		<peakList>
+			<peak xValue="400" yValue="2874.235" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="2943.636" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2944.173" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="4032.984" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="4172.042" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="32">
+
+		<peakList>
+			<peak xValue="120" yValue="1988.267" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="1998.887" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="2019.068" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="2041.712" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="2043.770" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="2068.656" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="2094.258" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="130" yValue="2198.714" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2592.534" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="2651.172" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2651.568" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2691.341" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="2709.624" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="2754.588" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3039.067" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="40" yValue="3269.489" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="33">
+
+		<peakList>
+			<peak xValue="700" yValue="1890.43" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="1937.59" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="1972.62" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="2288.12" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="2349.84" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="70" yValue="2370.77" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2456.53" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="2780.22" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="2860.44" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="34">
+
+		<peakList>
+			<peak xValue="600" yValue="1960.894" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="1995.111" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="2039.842" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2062.779" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="2074.784" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="2164.188" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="2413.535" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="4730.78" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="10327.26" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="10386.36" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="21442.56" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="35">
+
+		<peakList>
+			<peak xValue="700" yValue="1488.45" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="1540.65" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="1574.84" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1633.40" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="130" yValue="7348.51" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="7512.96" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="7803.02" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="7938.68" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="8272.44" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="130" yValue="8343.70" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="8446.55" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="36">
+
+		<peakList>
+			<peak xValue="300" yValue="1164.8671" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1235.8378" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="5570.2894" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="5870.9160" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="8104.3655" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="8112.9012" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="8190.0566" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="8263.2426" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="8298.1099" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="8508.8728" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="8776.7505" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="13634.220" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="14426.793" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="16890.441" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="18167.315" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="37">
+
+		<peakList>
+			<peak xValue="11" yValue="4201.80" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="6" yValue="4215.53" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="7800.27" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="7947.60" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="11" yValue="14752.41" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="9" yValue="15288.43" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="38">
+
+		<peakList>
+			<peak xValue="1000" yValue="4607.33" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="70" yValue="4811.88" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="4872.49" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="120" yValue="4962.26" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="20" yValue="4967.94" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="70" yValue="5256.90" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="110" yValue="5480.84" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="140" yValue="6408.47" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="80" yValue="6504.00" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="30" yValue="6791.05" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="70" yValue="6878.38" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="20" yValue="6892.59" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="80" yValue="7070.10" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="39">
+
+		<peakList>
+			<peak xValue="900" yValue="4077.359" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="4102.364" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="4128.299" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="4142.841" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="17422.838" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="17903.209" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="18049.810" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="21260.444" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="22543.828" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="23990.450" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="40">
+
+		<peakList>
+			<peak xValue="600" yValue="3519.604" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3547.683" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3575.790" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3601.191" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3663.648" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3835.962" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3863.872" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3890.316" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3891.380" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="4072.698" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="4081.209" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="4227.750" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="4239.309" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="4687.799" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="4710.074" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="6127.457" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="7097.727" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="7169.092" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="8070.099" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="41">
+
+		<peakList>
+			<peak xValue="80" yValue="3341.97" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="80" yValue="3343.71" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="110" yValue="3349.06" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="110" yValue="3358.42" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="120" yValue="3535.30" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="90" yValue="3575.85" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3580.27" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="3739.80" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="4058.94" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="4079.73" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="4100.92" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="4123.81" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="4152.58" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="4163.66" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="4164.66" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="4168.13" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="42">
+
+		<peakList>
+			<peak xValue="500" yValue="3132.594" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="3158.167" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3170.344" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="3193.979" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="3208.838" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="110" yValue="3447.124" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3798.252" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3864.104" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="3902.953" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="80" yValue="4069.882" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="90" yValue="4188.324" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="90" yValue="4411.695" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="5506.494" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="5533.031" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="90" yValue="5570.444" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="43">
+
+		<peakList>
+			<peak xValue="300" yValue="3173.30" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="3182.37" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="3183.11" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3466.28" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3636.07" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3718.86" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3984.97" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="4031.63" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="4095.67" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="4238.19" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="4262.27" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="4297.06" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="4853.59" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="44">
+
+		<peakList>
+			<peak xValue="600" yValue="3436.737" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3498.944" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3589.220" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3593.029" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3596.185" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3726.926" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3728.026" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3730.432" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="3798.899" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="3799.353" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="4199.892" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="45">
+
+		<peakList>
+			<peak xValue="400" yValue="3323.09" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3396.82" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="3434.89" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3502.52" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3507.32" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="3528.02" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="3657.99" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3692.36" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3700.91" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="4374.80" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="46">
+
+		<peakList>
+			<peak xValue="300" yValue="2447.9058" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="2476.4127" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2763.0899" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3242.6983" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="3404.5764" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3421.2214" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3460.7381" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3481.1516" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3516.9438" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3553.0803" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3609.5547" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="3634.6884" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="47">
+
+		<peakList>
+			<peak xValue="1000" yValue="3280.680" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3382.887" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="90" yValue="5209.078" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="90" yValue="5465.497" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="30" yValue="7687.772" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="8273.509" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="48">
+
+		<peakList>
+			<peak xValue="800" yValue="2288.022" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3403.652" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3466.200" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3467.655" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3610.508" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3612.873" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="4678.149" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="4799.912" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="5085.822" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="6438.470" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="49">
 		<name origin="Named after 'Indigo' because of its blue spectrum">Indium</name>
-		<spectra>
-			<spectrum intensity="14" wavelength="1711.1"  />
-			<spectrum intensity="14" wavelength="1757.3"  />
-			<spectrum intensity="60" wavelength="2560.150"  />
-			<spectrum intensity="90" wavelength="2710.265"  />
-			<spectrum intensity="40" wavelength="2753.878"  />
-			<spectrum intensity="60" wavelength="2932.630"  />
-			<spectrum intensity="400" wavelength="3039.356"  />
-			<spectrum intensity="700" wavelength="3256.089"  />
-			<spectrum intensity="150" wavelength="3258.565"  />
-			<spectrum intensity="900" wavelength="4101.7504"  />
-			<spectrum intensity="1000" wavelength="4511.2972"  />
-			<spectrum intensity="1" wavelength="12912.59"  />
-			<spectrum intensity="1" wavelength="13429.96"  />
-		</spectra>
-	</element>
-	<element>
-		<number>50</number>
-		<spectra>
-			<spectrum intensity="200" wavelength="2091.590"  />
-			<spectrum intensity="200" wavelength="2199.346"  />
-			<spectrum intensity="300" wavelength="2209.660"  />
-			<spectrum intensity="300" wavelength="2246.057"  />
-			<spectrum intensity="300" wavelength="2268.930"  />
-			<spectrum intensity="700" wavelength="2354.850"  />
-			<spectrum intensity="600" wavelength="2421.694"  />
-			<spectrum intensity="700" wavelength="2429.495"  />
-			<spectrum intensity="140" wavelength="2661.244"  />
-			<spectrum intensity="500" wavelength="2706.505"  />
-			<spectrum intensity="1000" wavelength="2839.976"  />
-			<spectrum intensity="700" wavelength="2863.315"  />
-			<spectrum intensity="500" wavelength="3009.133"  />
-			<spectrum intensity="600" wavelength="3034.115"  />
-			<spectrum intensity="400" wavelength="3175.035"  />
-			<spectrum intensity="400" wavelength="3262.331"  />
-			<spectrum intensity="200" wavelength="3801.011"  />
-			<spectrum intensity="110" wavelength="4524.734"  />
-		</spectra>
-	</element>
-	<element>
-		<number>51</number>
-		<spectra>
-			<spectrum intensity="400" wavelength="1871.154"  />
-			<spectrum intensity="60" wavelength="2049.577"  />
-			<spectrum intensity="400" wavelength="2068.344"  />
-			<spectrum intensity="40" wavelength="2139.698"  />
-			<spectrum intensity="40" wavelength="2144.841"  />
-			<spectrum intensity="600" wavelength="2175.818"  />
-			<spectrum intensity="100" wavelength="2179.190"  />
-			<spectrum intensity="120" wavelength="2208.430"  />
-			<spectrum intensity="1000" wavelength="2311.463"  />
-			<spectrum intensity="800" wavelength="2528.509"  />
-			<spectrum intensity="600" wavelength="2598.048"  />
-			<spectrum intensity="400" wavelength="2877.913"  />
-			<spectrum intensity="250" wavelength="3232.495"  />
-			<spectrum intensity="300" wavelength="3267.491"  />
-		</spectra>
-	</element>
-	<element>
-		<number>52</number>
-		<spectra>
-			<spectrum intensity="500" wavelength="1822.155"  />
-			<spectrum intensity="500" wavelength="1857.296"  />
-			<spectrum intensity="500" wavelength="1994.839"  />
-			<spectrum intensity="1000" wavelength="2002.028"  />
-			<spectrum intensity="250" wavelength="2081.172"  />
-			<spectrum intensity="700" wavelength="2142.822"  />
-			<spectrum intensity="120" wavelength="2147.260"  />
-			<spectrum intensity="20" wavelength="2259.034"  />
-			<spectrum intensity="50" wavelength="2383.277"  />
-			<spectrum intensity="60" wavelength="2385.792"  />
-			<spectrum intensity="200" wavelength="9722.742"  />
-			<spectrum intensity="250" wavelength="10051.41"  />
-			<spectrum intensity="400" wavelength="11089.56"  />
-			<spectrum intensity="250" wavelength="11487.23"  />
-		</spectra>
-	</element>
-	<element>
-		<number>53</number>
-		<spectra>
-			<spectrum intensity="130" wavelength="1457.98"  />
-			<spectrum intensity="200" wavelength="1518.05"  />
-			<spectrum intensity="200" wavelength="1702.07"  />
-			<spectrum intensity="150" wavelength="1782.76"  />
-			<spectrum intensity="1000" wavelength="1830.38"  />
-			<spectrum intensity="200" wavelength="1844.45"  />
-			<spectrum intensity="25" wavelength="2061.63"  />
-			<spectrum intensity="130" wavelength="5119.29"  />
-			<spectrum intensity="130" wavelength="8043.74"  />
-			<spectrum intensity="200" wavelength="9058.33"  />
-		</spectra>
-	</element>
-	<element>
-		<number>54</number>
-		<spectra>
-			<spectrum intensity="25" wavelength="1192.0376"  />
-			<spectrum intensity="25" wavelength="1250.2091"  />
-			<spectrum intensity="100" wavelength="1295.5878"  />
-			<spectrum intensity="60" wavelength="1469.6123"  />
-			<spectrum intensity="1000" wavelength="8231.635"  />
-			<spectrum intensity="700" wavelength="8280.117"  />
-			<spectrum intensity="500" wavelength="8819.411"  />
-			<spectrum intensity="300" wavelength="9923.190"  />
-			<spectrum intensity="250" wavelength="12623.399"  />
-			<spectrum intensity="300" wavelength="14732.816"  />
-			<spectrum intensity="600" wavelength="31069.23"  />
-			<spectrum intensity="500" wavelength="35070.26"  />
-		</spectra>
-	</element>
-	<element>
-		<number>55</number>
-		<spectra>
-			<spectrum intensity="15" wavelength="4555.28"  />
-			<spectrum intensity="8" wavelength="4593.17"  />
-			<spectrum intensity="1000" wavelength="8521.13"  />
-			<spectrum intensity="250" wavelength="8761.41"  />
-			<spectrum intensity="1000" wavelength="8943.47"  />
-			<spectrum intensity="300" wavelength="9172.32"  />
-			<spectrum intensity="600" wavelength="13588.29"  />
-			<spectrum intensity="900" wavelength="14694.91"  />
-			<spectrum intensity="50" wavelength="30103.27"  />
-			<spectrum intensity="20" wavelength="34900.13"  />
-		</spectra>
-	</element>
-	<element>
-		<number>56</number>
-		<spectra>
-			<spectrum intensity="30" wavelength="3071.584"  />
-			<spectrum intensity="80" wavelength="3501.108"  />
-			<spectrum intensity="1000" wavelength="5535.481"  />
-			<spectrum intensity="250" wavelength="6498.760"  />
-			<spectrum intensity="110" wavelength="6527.312"  />
-			<spectrum intensity="100" wavelength="6595.325"  />
-			<spectrum intensity="50" wavelength="6693.842"  />
-			<spectrum intensity="200" wavelength="7059.943"  />
-			<spectrum intensity="150" wavelength="7280.296"  />
-			<spectrum intensity="80" wavelength="7672.085"  />
-			<spectrum intensity="60" wavelength="8559.998"  />
-			<spectrum intensity="60" wavelength="14999.852"  />
-			<spectrum intensity="50" wavelength="23253.56"  />
-			<spectrum intensity="60" wavelength="25514.88"  />
-		</spectra>
-	</element>
-	<element>
-		<number>57</number>
-		<spectra>
-			<spectrum intensity="300" wavelength="3574.43"  />
-			<spectrum intensity="300" wavelength="4060.33"  />
-			<spectrum intensity="400" wavelength="4187.32"  />
-			<spectrum intensity="400" wavelength="4280.27"  />
-			<spectrum intensity="500" wavelength="4949.77"  />
-			<spectrum intensity="600" wavelength="5145.42"  />
-			<spectrum intensity="800" wavelength="5177.31"  />
-			<spectrum intensity="1000" wavelength="5211.86"  />
-			<spectrum intensity="700" wavelength="5234.27"  />
-			<spectrum intensity="700" wavelength="5455.15"  />
-			<spectrum intensity="700" wavelength="5501.34"  />
-			<spectrum intensity="600" wavelength="5791.34"  />
-			<spectrum intensity="1000" wavelength="6249.93"  />
-			<spectrum intensity="600" wavelength="6394.23"  />
-		</spectra>
-	</element>
+
+		<peakList>
+			<peak xValue="14" yValue="1711.1" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="14" yValue="1757.3" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="2560.150" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="90" yValue="2710.265" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="40" yValue="2753.878" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="2932.630" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3039.356" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="3256.089" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="3258.565" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="4101.7504" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="4511.2972" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1" yValue="12912.59" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1" yValue="13429.96" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="50">
+
+		<peakList>
+			<peak xValue="200" yValue="2091.590" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="2199.346" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="2209.660" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="2246.057" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="2268.930" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="2354.850" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="2421.694" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="2429.495" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="140" yValue="2661.244" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="2706.505" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="2839.976" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="2863.315" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="3009.133" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="3034.115" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3175.035" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="3262.331" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="3801.011" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="110" yValue="4524.734" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="51">
+
+		<peakList>
+			<peak xValue="400" yValue="1871.154" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="2049.577" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2068.344" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="40" yValue="2139.698" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="40" yValue="2144.841" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="2175.818" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="2179.190" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="120" yValue="2208.430" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="2311.463" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="2528.509" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="2598.048" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="2877.913" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="3232.495" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="3267.491" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="52">
+
+		<peakList>
+			<peak xValue="500" yValue="1822.155" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1857.296" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="1994.839" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="2002.028" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="2081.172" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="2142.822" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="120" yValue="2147.260" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="20" yValue="2259.034" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="2383.277" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="2385.792" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="9722.742" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="10051.41" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="11089.56" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="11487.23" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="53">
+
+		<peakList>
+			<peak xValue="130" yValue="1457.98" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="1518.05" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="1702.07" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="1782.76" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="1830.38" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="1844.45" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="25" yValue="2061.63" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="130" yValue="5119.29" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="130" yValue="8043.74" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="9058.33" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="54">
+
+		<peakList>
+			<peak xValue="25" yValue="1192.0376" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="25" yValue="1250.2091" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="1295.5878" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="1469.6123" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="8231.635" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="8280.117" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="8819.411" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="9923.190" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="12623.399" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="14732.816" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="31069.23" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="35070.26" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="55">
+
+		<peakList>
+			<peak xValue="15" yValue="4555.28" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="8" yValue="4593.17" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="8521.13" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="8761.41" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="8943.47" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="9172.32" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="13588.29" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="900" yValue="14694.91" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="30103.27" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="20" yValue="34900.13" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="56">
+
+		<peakList>
+			<peak xValue="30" yValue="3071.584" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="80" yValue="3501.108" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="5535.481" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="250" yValue="6498.760" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="110" yValue="6527.312" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="100" yValue="6595.325" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="6693.842" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="200" yValue="7059.943" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="150" yValue="7280.296" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="80" yValue="7672.085" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="8559.998" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="14999.852" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="50" yValue="23253.56" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="60" yValue="25514.88" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
+
+	<spectrum id="57">
+
+		<peakList>
+			<peak xValue="300" yValue="3574.43" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="300" yValue="4060.33" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="4187.32" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="400" yValue="4280.27" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="500" yValue="4949.77" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="5145.42" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="800" yValue="5177.31" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="5211.86" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="5234.27" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="5455.15" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="700" yValue="5501.34" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="5791.34" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="1000" yValue="6249.93" xUnit="foo" yUnit="units:angstrom" />
+			<peak xValue="600" yValue="6394.23" xUnit="foo" yUnit="units:angstrom" />
+		</peakList>
+	</spectrum>
+
 </spectrumdata>
