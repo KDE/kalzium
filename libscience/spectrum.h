@@ -52,34 +52,14 @@ class Spectrum
 			public:
 				peak(){
 					wavelength = -1.0;
-					aki = -1.0;
-					energy1 = -1.0;
-					energy2 = -1.0;
 					intensity = -1;
 				}
 
 			///in nm
 			double wavelength;
 
-			///Transition Probabilities
-			///10^8s-1  (1000000000 per second)
-			double aki;
-
-			///number of energylevels per centimeter
-			double energy1;
-
-			///number of energylevels per centimeter
-			double energy2;
-
 			///relative. The highest is per definition 1000
 			int intensity;
-
-			QString electronconfig1;
-			QString electronconfig2;
-			QString term1;
-			QString term2;
-			QString J1;
-			QString J2;
 		};
 
 		/**
@@ -92,8 +72,8 @@ class Spectrum
 		}
 
 		/**
-		 * @param min the lowest allowed wavalength in nanometer
-		 * @param max the highest allowed wavalength in nanometer
+		 * @param min the lowest allowed wavelength in nanometer
+		 * @param max the highest allowed wavelength in nanometer
 		 * 
 		 * @returns a spectrum with the wavelength in the range
 		 * of @p min to @p max. The intensities are readjusted

@@ -27,27 +27,26 @@
 
 double Spectrum::minPeak()
 {
-	double value = ( *m_peaklist.begin() )->wavelength;
-	QList<peak*>::const_iterator it = m_peaklist.begin();
-	const QList<peak*>::const_iterator itEnd = m_peaklist.end();
-	for (;it!=itEnd;++it)
+	double value = m_peaklist.first()->wavelength;
+	
+	foreach( peak * p, m_peaklist )
 	{
-		if ( value > ( *it )->wavelength )
-			value = ( *it )->wavelength;
+		if ( value > p->wavelength )
+			value = p->wavelength;
 	}
 	return value;
 }
 
 double Spectrum::maxPeak()
 {
-	double value = ( *m_peaklist.begin() )->wavelength;
-	QList<peak*>::const_iterator it = m_peaklist.begin();
-	const QList<peak*>::const_iterator itEnd = m_peaklist.end();
-	for (;it!=itEnd;++it)
+	double value = m_peaklist.first()->wavelength;
+	
+	foreach( peak * p, m_peaklist )
 	{
-		if ( value < ( *it )->wavelength )
-			value = ( *it )->wavelength;
+		if ( value < p->wavelength )
+			value = p->wavelength;
 	}
+	
 	return value;
 }
 
@@ -56,15 +55,10 @@ Spectrum* Spectrum::adjustToWavelength( double min, double max )
 {
 	Spectrum *spec = new Spectrum();
 
-	QList<peak*>::const_iterator it = m_peaklist.begin();
-	const QList<peak*>::const_iterator itEnd = m_peaklist.end();
-
-	for ( ; it != itEnd; ++it )
+	foreach( peak * p , m_peaklist )
 	{
-		if ( ( *it )->wavelength < min || ( *it )->wavelength > max )
-			continue;
-
-		spec->addPeak( *it );
+		if ( p->wavelength >= min || p->wavelength <= max )
+			spec->addPeak( p );
 	}
 
 	spec->adjustMinMax();
@@ -105,15 +99,10 @@ QList<double> Spectrum::wavelengths( double min, double max )
 {
 	QList<double> list;
 	
-	QList<peak*>::const_iterator it = m_peaklist.begin();
-	const QList<peak*>::const_iterator itEnd = m_peaklist.end();
-
-	for ( ; it != itEnd; ++it )
+	foreach( peak * p , m_peaklist )
 	{
-		if ( ( *it )->wavelength < min || ( *it )->wavelength > max )
-			continue;
-
-		list.append( ( *it )->wavelength );
+		if ( p->wavelength >= min || p->wavelength <= max )
+			list.append( p->wavelength );
 	}
 
 	return list;
