@@ -3,6 +3,7 @@ kde4_header()
 install_files(${DATA_INSTALL_DIR}/libkdeedu/data/ FILES
    elements.xml
    isotopes.xml
+   spectra.xml
 )
 
 kde4_footer()
