@@ -49,10 +49,7 @@
 			<peak xValue="5" yValue="26878.36" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="4">
-
 		<peakList>
 			<peak xValue="100" yValue="1661.478" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="1000" yValue="2348.610" xUnit="foo" yUnit="units:angstrom" />
@@ -66,10 +63,7 @@
 			<peak xValue="12" yValue="4572.664" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="5">
-
 		<peakList>
 			<peak xValue="800" yValue="1825.894" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="1000" yValue="1826.400" xUnit="foo" yUnit="units:angstrom" />
@@ -79,10 +73,7 @@
 			<peak xValue="800" yValue="2497.722" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="6">
-
 		<peakList>
 			<peak xValue="400" yValue="1277.2452" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="800" yValue="1277.2824" xUnit="foo" yUnit="units:angstrom" />
@@ -107,10 +98,7 @@
 			<peak xValue="101" yValue="11754.76" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="7">
-
 		<peakList>
 			<peak xValue="1000" yValue="1199.550" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="700" yValue="1200.223" xUnit="foo" yUnit="units:angstrom" />
@@ -126,10 +114,7 @@
 			<peak xValue="200" yValue="13581.33" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="8">
-
 		<peakList>
 			<peak xValue="1000" yValue="1302.168" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="700" yValue="1304.858" xUnit="foo" yUnit="units:angstrom" />
@@ -145,10 +130,7 @@
 			<peak xValue="250" yValue="13164.85" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="9">
-
 		<peakList>
 			<peak xValue="500" yValue="951.870" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="1000" yValue="954.826" xUnit="foo" yUnit="units:angstrom" />
@@ -167,10 +149,7 @@
 			<peak xValue="150" yValue="7800.212" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="10">
-
 		<peakList>
 			<peak xValue="170" yValue="615.6283" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="170" yValue="618.6716" xUnit="foo" yUnit="units:angstrom" />
@@ -201,10 +180,7 @@
 			<peak xValue="400" yValue="8783.7533" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="11">
-
 		<peakList>
 			<peak xValue="5" yValue="2852.81" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="2" yValue="2853.01" xUnit="foo" yUnit="units:angstrom" />
@@ -220,10 +196,7 @@
 			<peak xValue="5" yValue="18465.25" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="12">
-
 		<peakList>
 			<peak xValue="2" yValue="2025.824" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="15" yValue="2779.820" xUnit="foo" yUnit="units:angstrom" />
@@ -239,10 +212,7 @@
 			<peak xValue="6" yValue="15025.00" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="13">
-
 		<peakList>
 			<peak xValue="40" yValue="2269.096" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="50" yValue="2367.052" xUnit="foo" yUnit="units:angstrom" />
@@ -255,10 +225,7 @@
 			<peak xValue="1000" yValue="3961.520" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="14">
-
 		<peakList>
 			<peak xValue="400" yValue="1850.6719" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="400" yValue="1977.5978" xUnit="foo" yUnit="units:angstrom" />
@@ -283,10 +250,7 @@
 			<peak xValue="80" yValue="7405.7740" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="15">
-
 		<peakList>
 			<peak xValue="800" yValue="1674.591" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="1000" yValue="1679.695" xUnit="foo" yUnit="units:angstrom" />
@@ -306,10 +270,7 @@
 			<peak xValue="90" yValue="9796.85" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="16">
-
 		<peakList>
 			<peak xValue="1000" yValue="1425.030" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="600" yValue="1433.280" xUnit="foo" yUnit="units:angstrom" />
@@ -328,10 +289,7 @@
 			<peak xValue="130" yValue="10459.406" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="17">
-
 		<peakList>
 			<peak xValue="300" yValue="1335.726" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="1000" yValue="1347.240" xUnit="foo" yUnit="units:angstrom" />
@@ -345,10 +303,7 @@
 			<peak xValue="50" yValue="7744.970" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="18">
-
 		<peakList>
 			<peak xValue="180" yValue="866.79997" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="150" yValue="869.75411" xUnit="foo" yUnit="units:angstrom" />
@@ -370,10 +325,7 @@
 			<peak xValue="700" yValue="9657.786" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="19">
-
 		<peakList>
 			<peak xValue="700" yValue="4044.14" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="700" yValue="4047.21" xUnit="foo" yUnit="units:angstrom" />
@@ -384,10 +336,7 @@
 			<peak xValue="700" yValue="11772.83" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="20">
-
 		<peakList>
 			<peak xValue="140" yValue="2721.645" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="1000" yValue="4226.727" xUnit="foo" yUnit="units:angstrom" />
@@ -405,10 +354,7 @@
 			<peak xValue="600" yValue="6493.780" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="21">
-
 		<peakList>
 			<peak xValue="200" yValue="3269.897" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="250" yValue="3273.628" xUnit="foo" yUnit="units:angstrom" />
@@ -422,10 +368,7 @@
 			<peak xValue="250" yValue="4082.387" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="22">
-
 		<peakList>
 			<peak xValue="600" yValue="3635.462" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="800" yValue="3642.674" xUnit="foo" yUnit="units:angstrom" />
@@ -446,10 +389,7 @@
 			<peak xValue="200" yValue="5210.384" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="23">
-
 		<peakList>
 			<peak xValue="250" yValue="3183.412" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="400" yValue="3183.992" xUnit="foo" yUnit="units:angstrom" />
@@ -470,10 +410,7 @@
 			<peak xValue="110" yValue="6090.208" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="24">
-
 		<peakList>
 			<peak xValue="1000" yValue="3578.682" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="800" yValue="3593.481" xUnit="foo" yUnit="units:angstrom" />
@@ -486,10 +423,7 @@
 			<peak xValue="600" yValue="5208.415" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="25">
-
 		<peakList>
 			<peak xValue="400" yValue="1996.056" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="500" yValue="1999.511" xUnit="foo" yUnit="units:angstrom" />
@@ -504,10 +438,7 @@
 			<peak xValue="200" yValue="4041.357" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="26">
-
 		<peakList>
 			<peak xValue="1000" yValue="2483.2708" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="600" yValue="2488.1426" xUnit="foo" yUnit="units:angstrom" />
@@ -531,10 +462,7 @@
 			<peak xValue="200" yValue="4383.5449" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="27">
-
 		<peakList>
 			<peak xValue="250" yValue="2407.256" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="250" yValue="2411.624" xUnit="foo" yUnit="units:angstrom" />
@@ -551,10 +479,7 @@
 			<peak xValue="400" yValue="3569.376" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="28">
-
 		<peakList>
 			<peak xValue="300" yValue="2320.034" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="150" yValue="2345.543" xUnit="foo" yUnit="units:angstrom" />
@@ -574,10 +499,7 @@
 			<peak xValue="800" yValue="3619.391" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="29">
-
 		<peakList>
 			<peak xValue="130" yValue="2165.09" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="150" yValue="2178.94" xUnit="foo" yUnit="units:angstrom" />
@@ -594,10 +516,7 @@
 			<peak xValue="250" yValue="5218.20" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="30">
-
 		<peakList>
 			<peak xValue="130" yValue="2165.09" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="150" yValue="2178.94" xUnit="foo" yUnit="units:angstrom" />
@@ -614,10 +533,7 @@
 			<peak xValue="250" yValue="5218.20" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="31">
-
 		<peakList>
 			<peak xValue="400" yValue="2874.235" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="600" yValue="2943.636" xUnit="foo" yUnit="units:angstrom" />
@@ -626,10 +542,7 @@
 			<peak xValue="1000" yValue="4172.042" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="32">
-
 		<peakList>
 			<peak xValue="120" yValue="1988.267" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="200" yValue="1998.887" xUnit="foo" yUnit="units:angstrom" />
@@ -649,10 +562,7 @@
 			<peak xValue="40" yValue="3269.489" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="33">
-
 		<peakList>
 			<peak xValue="700" yValue="1890.43" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="400" yValue="1937.59" xUnit="foo" yUnit="units:angstrom" />
@@ -665,10 +575,7 @@
 			<peak xValue="1000" yValue="2860.44" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="34">
-
 		<peakList>
 			<peak xValue="600" yValue="1960.894" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="150" yValue="1995.111" xUnit="foo" yUnit="units:angstrom" />
@@ -683,10 +590,7 @@
 			<peak xValue="800" yValue="21442.56" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="35">
-
 		<peakList>
 			<peak xValue="700" yValue="1488.45" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="300" yValue="1540.65" xUnit="foo" yUnit="units:angstrom" />
@@ -701,10 +605,7 @@
 			<peak xValue="500" yValue="8446.55" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="36">
-
 		<peakList>
 			<peak xValue="300" yValue="1164.8671" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="1000" yValue="1235.8378" xUnit="foo" yUnit="units:angstrom" />
@@ -723,10 +624,7 @@
 			<peak xValue="400" yValue="18167.315" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="37">
-
 		<peakList>
 			<peak xValue="11" yValue="4201.80" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="6" yValue="4215.53" xUnit="foo" yUnit="units:angstrom" />
@@ -736,10 +634,7 @@
 			<peak xValue="9" yValue="15288.43" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="38">
-
 		<peakList>
 			<peak xValue="1000" yValue="4607.33" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="70" yValue="4811.88" xUnit="foo" yUnit="units:angstrom" />
@@ -756,10 +651,7 @@
 			<peak xValue="80" yValue="7070.10" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="39">
-
 		<peakList>
 			<peak xValue="900" yValue="4077.359" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="1000" yValue="4102.364" xUnit="foo" yUnit="units:angstrom" />
@@ -773,10 +665,7 @@
 			<peak xValue="500" yValue="23990.450" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="40">
-
 		<peakList>
 			<peak xValue="600" yValue="3519.604" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="500" yValue="3547.683" xUnit="foo" yUnit="units:angstrom" />
@@ -799,10 +688,7 @@
 			<peak xValue="250" yValue="8070.099" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="41">
-
 		<peakList>
 			<peak xValue="80" yValue="3341.97" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="80" yValue="3343.71" xUnit="foo" yUnit="units:angstrom" />
@@ -822,10 +708,7 @@
 			<peak xValue="200" yValue="4168.13" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="42">
-
 		<peakList>
 			<peak xValue="500" yValue="3132.594" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="200" yValue="3158.167" xUnit="foo" yUnit="units:angstrom" />
@@ -844,10 +727,7 @@
 			<peak xValue="90" yValue="5570.444" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="43">
-
 		<peakList>
 			<peak xValue="300" yValue="3173.30" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="200" yValue="3182.37" xUnit="foo" yUnit="units:angstrom" />
@@ -864,10 +744,7 @@
 			<peak xValue="800" yValue="4853.59" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="44">
-
 		<peakList>
 			<peak xValue="600" yValue="3436.737" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="800" yValue="3498.944" xUnit="foo" yUnit="units:angstrom" />
@@ -882,10 +759,7 @@
 			<peak xValue="700" yValue="4199.892" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="45">
-
 		<peakList>
 			<peak xValue="400" yValue="3323.09" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="600" yValue="3396.82" xUnit="foo" yUnit="units:angstrom" />
@@ -899,10 +773,7 @@
 			<peak xValue="400" yValue="4374.80" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="46">
-
 		<peakList>
 			<peak xValue="300" yValue="2447.9058" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="250" yValue="2476.4127" xUnit="foo" yUnit="units:angstrom" />
@@ -918,10 +789,7 @@
 			<peak xValue="800" yValue="3634.6884" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="47">
-
 		<peakList>
 			<peak xValue="1000" yValue="3280.680" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="500" yValue="3382.887" xUnit="foo" yUnit="units:angstrom" />
@@ -931,10 +799,7 @@
 			<peak xValue="50" yValue="8273.509" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="48">
-
 		<peakList>
 			<peak xValue="800" yValue="2288.022" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="400" yValue="3403.652" xUnit="foo" yUnit="units:angstrom" />
@@ -948,11 +813,8 @@
 			<peak xValue="1000" yValue="6438.470" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="49">
 		<name origin="Named after 'Indigo' because of its blue spectrum">Indium</name>
-
 		<peakList>
 			<peak xValue="14" yValue="1711.1" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="14" yValue="1757.3" xUnit="foo" yUnit="units:angstrom" />
@@ -969,10 +831,7 @@
 			<peak xValue="1" yValue="13429.96" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="50">
-
 		<peakList>
 			<peak xValue="200" yValue="2091.590" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="200" yValue="2199.346" xUnit="foo" yUnit="units:angstrom" />
@@ -994,10 +853,7 @@
 			<peak xValue="110" yValue="4524.734" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="51">
-
 		<peakList>
 			<peak xValue="400" yValue="1871.154" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="60" yValue="2049.577" xUnit="foo" yUnit="units:angstrom" />
@@ -1015,10 +871,7 @@
 			<peak xValue="300" yValue="3267.491" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="52">
-
 		<peakList>
 			<peak xValue="500" yValue="1822.155" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="500" yValue="1857.296" xUnit="foo" yUnit="units:angstrom" />
@@ -1036,10 +889,7 @@
 			<peak xValue="250" yValue="11487.23" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="53">
-
 		<peakList>
 			<peak xValue="130" yValue="1457.98" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="200" yValue="1518.05" xUnit="foo" yUnit="units:angstrom" />
@@ -1053,10 +903,7 @@
 			<peak xValue="200" yValue="9058.33" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="54">
-
 		<peakList>
 			<peak xValue="25" yValue="1192.0376" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="25" yValue="1250.2091" xUnit="foo" yUnit="units:angstrom" />
@@ -1072,10 +919,7 @@
 			<peak xValue="500" yValue="35070.26" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="55">
-
 		<peakList>
 			<peak xValue="15" yValue="4555.28" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="8" yValue="4593.17" xUnit="foo" yUnit="units:angstrom" />
@@ -1089,10 +933,7 @@
 			<peak xValue="20" yValue="34900.13" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="56">
-
 		<peakList>
 			<peak xValue="30" yValue="3071.584" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="80" yValue="3501.108" xUnit="foo" yUnit="units:angstrom" />
@@ -1110,10 +951,7 @@
 			<peak xValue="60" yValue="25514.88" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
-
 	<spectrum id="57">
-
 		<peakList>
 			<peak xValue="300" yValue="3574.43" xUnit="foo" yUnit="units:angstrom" />
 			<peak xValue="300" yValue="4060.33" xUnit="foo" yUnit="units:angstrom" />
@@ -1131,5 +969,4 @@
 			<peak xValue="600" yValue="6394.23" xUnit="foo" yUnit="units:angstrom" />
 		</peakList>
 	</spectrum>
-
 </spectrumdata>
