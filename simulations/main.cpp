@@ -24,6 +24,8 @@
 #include "maindialog_impl.h"
 
 #include "config.h"
+#include "config-kalzium.h"
+
 #include "kalzium.h"
 
 #define APP_VERSION "0.1"

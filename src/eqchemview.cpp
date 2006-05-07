@@ -32,6 +32,7 @@
 #include <ktoolinvocation.h>
 
 #include "config.h"
+#include "config-kalzium.h"
 #include "eqresult.h"
 #include "eqchemview.h"
 

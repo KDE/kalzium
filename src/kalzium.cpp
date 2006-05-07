@@ -35,6 +35,7 @@
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
 #include "printwidget.h"
+#include "config-kalzium.h"
 #ifdef HAVE_FACILE
 //#include "eqchemview.h"
 #endif

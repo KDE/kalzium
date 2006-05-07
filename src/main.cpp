@@ -23,6 +23,7 @@
 #include <klocale.h>
 
 #include "config.h"
+#include "config-kalzium.h"
 #include "kalzium.h"
 
 #define APP_VERSION "1.9.90"
