@@ -103,7 +103,7 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& ico
 	QFrame *frame = addPage(title, icontext, BarIcon(iconname));
 	QVBoxLayout *layout = new QVBoxLayout( frame );
 	layout->setMargin( 0 );
-	KHTMLPart *w = new KHTMLPart( frame, "html-part", frame );
+	KHTMLPart *w = new KHTMLPart( frame, frame );
 	layout->addWidget( w->view() );
 
 	return w;

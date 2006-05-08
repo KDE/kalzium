@@ -53,8 +53,10 @@
 #include <kdebug.h>
 #include <kaction.h>
 #include <kapplication.h>
+#include <kselectaction.h>
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
+#include <kstdaction.h>
 
 #define PeriodicTableView_MARGIN          5
 #define IDS_ELEMENTINFO     7

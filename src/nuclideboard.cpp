@@ -45,6 +45,7 @@
 #include <kglobal.h>
 #include <klocale.h>
 #include <kstdaction.h>
+#include <ktoggleaction.h>
 #include <ktoolinvocation.h>
 
 #include <math.h>
