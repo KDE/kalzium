@@ -15,6 +15,8 @@
 
 #include <QList>
 
+#include <kdeedu_science_export.h>
+
 #include <qxml.h>
 
 class Element;
@@ -22,7 +24,7 @@ class Element;
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
  */
-class ElementSaxParser : public QXmlDefaultHandler
+class EDUSCIENCE_EXPORT ElementSaxParser : public QXmlDefaultHandler
 {
 	public:
 		/**

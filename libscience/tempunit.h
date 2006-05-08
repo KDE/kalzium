@@ -20,6 +20,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
+#include <kdeedu_science_export.h>
+
 #include <QPair>
 #include <QStringList>
 
@@ -32,7 +34,7 @@
  *
  * @author Pino Toscano
  */
-class TempUnit
+class EDUSCIENCE_EXPORT TempUnit
 {
 	public:
 

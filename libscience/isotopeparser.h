@@ -15,6 +15,8 @@
 
 #include <QList>
 
+#include <kdeedu_science_export.h>
+
 #include <qxml.h>
 
 class Isotope;
@@ -22,7 +24,7 @@ class Isotope;
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
  */
-class IsotopeParser : public QXmlDefaultHandler
+class EDUSCIENCE_EXPORT IsotopeParser : public QXmlDefaultHandler
 {
 	public:
 		/**

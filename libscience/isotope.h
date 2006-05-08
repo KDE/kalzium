@@ -22,6 +22,8 @@
 
 class ChemicalDataObject;
 
+#include <kdeedu_science_export.h>
+
 #include <QString>
 
 /**
@@ -29,7 +31,7 @@ class ChemicalDataObject;
  *
  * This class represents an Isotope with all its properties
  */
-class Isotope
+class EDUSCIENCE_EXPORT Isotope
 {
 	public:
 		/**

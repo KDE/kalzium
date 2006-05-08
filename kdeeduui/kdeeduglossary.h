@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <kdeedu_ui_export.h>
 
 #include <khtml_part.h>
 #include <kdialogbase.h>
@@ -35,7 +36,7 @@ class GlossaryItem;
  * This class stores all items to be displayed. It also
  * has access-methods to the items
  */
-class Glossary
+class EDUUI_EXPORT Glossary
 {
 	public:
 		/**
@@ -176,7 +177,7 @@ class Glossary
  * a number of pictures or references associated to it.
  * These are stored as QStringLists.
  */
-class GlossaryItem
+class EDUUI_EXPORT GlossaryItem
 {
 	public:
 		GlossaryItem(){};
@@ -241,7 +242,7 @@ class GlossaryItem
  * @author Pino Toscano
  * @author Carsten Niehaus
  */
-class GlossaryDialog : public KDialogBase
+class EDUUI_EXPORT GlossaryDialog : public KDialogBase
 {
 	Q_OBJECT
 

@@ -21,6 +21,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
+#include <kdeedu_science_export.h>
+
 #include <QList>
 #include <QString>
 
@@ -31,7 +33,7 @@ class Element;
  *
  * This class represents an spectrum with all its properties
  */
-class Spectrum
+class EDUSCIENCE_EXPORT Spectrum
 {
 	public:
 		/**

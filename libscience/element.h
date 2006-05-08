@@ -21,6 +21,8 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
+#include <kdeedu_science_export.h>
+
 #include <QList>
 #include <QVariant>
 
@@ -36,7 +38,7 @@ class Isotope;
  * @short This class is the represention of a chemical element
  * @author Carsten Niehaus
 */
-class Element
+class EDUSCIENCE_EXPORT Element
 {
 	public:
 		Element();

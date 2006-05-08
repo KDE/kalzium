@@ -14,6 +14,8 @@
 #ifndef PARSER_H
 #define PARSER_H
 
+#include <kdeedu_science_export.h>
+
 #include <QString>
 
 /**
@@ -24,7 +26,7 @@
  *
  * @author Inge Wallin
  */
-class Parser {
+class EDUSCIENCE_EXPORT Parser {
 public:
 	/**
 	 * Constructor

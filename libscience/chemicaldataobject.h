@@ -23,6 +23,8 @@
 #include <QVariant>
 #include <QString>
 
+#include <kdeedu_science_export.h>
+
 class ChemicalDataObjectPrivate;
 
 /**
@@ -33,7 +35,7 @@ class ChemicalDataObjectPrivate;
  *
  * @author Carsten Niehaus <cniehaus@kde.org>
  */
-class ChemicalDataObject
+class EDUSCIENCE_EXPORT ChemicalDataObject
 {
 	public:
 		/**

@@ -13,6 +13,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <kdeedu_science_export.h>
+
 #include <QFile>
 #include <qxml.h>
 
@@ -25,7 +27,7 @@ class Spectrum;
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
  */
-class SpectrumParser : public QXmlDefaultHandler
+class EDUSCIENCE_EXPORT SpectrumParser : public QXmlDefaultHandler
 {
 	public:
 		/**
