@@ -56,12 +56,12 @@ class ElementCount
 		Element *element() const    { return m_element;   }
 
 		/**
-		 * @return the number of occurences of the Element
+		 * @return the number of occurrences of the Element
 		 */
 		int   count()  const        { return m_count;     }
 		
 		/**
-		 * Add @p _count occurences of the Element
+		 * Add @p _count occurrences of the Element
 		 * @param _count The number of times the Element occurs
 		 */
 		void  add(int _count)       { m_count += _count;  }
@@ -73,7 +73,7 @@ class ElementCount
 		Element  *m_element;
 
 		/**
-		 * The number of occurences
+		 * The number of occurrences
 		 */
 		int       m_count;
 };

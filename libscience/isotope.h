@@ -152,7 +152,7 @@ class EDUSCIENCE_EXPORT Isotope
 		ChemicalDataObject* m_parentElementSymbol;
 		
 		/**
-		 * stores the infomation about the mass of the Isotope
+		 * stores the information about the mass of the Isotope
 		 */
 		ChemicalDataObject* m_mass;
 
