@@ -123,7 +123,7 @@ void Glossary::fixImagePath()
 	kDebug() << "Glossary::fixImagePath()" << endl;
 	QList<GlossaryItem*>::iterator it = m_itemlist.begin();
 	const QList<GlossaryItem*>::iterator itEnd = m_itemlist.end();
-	QString imgtag = "<img src=\"" + m_picturepath + "/" + "\\1\" />";
+	QString imgtag = "<img src=\"" + m_picturepath + '/' + "\\1\" />";
 	QRegExp exp( "\\[img\\]([^[]+)\\[/img\\]" );
 
 	for ( ; it != itEnd ; ++it )
