@@ -156,7 +156,7 @@ class EDUUI_EXPORT Glossary
 		 * @param url The path of the file to load
 		 *
 		 * @return a bool indicating whether the loading of the XML was
-		 *         successfull or not
+		 *         successful or not
 		 */
 		bool loadLayout( QDomDocument& doc, const KUrl& url );
 	
