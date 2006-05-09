@@ -253,7 +253,7 @@ class KalziumGroupsSchemeType : public KalziumSchemeType
 };
 
 /**
- * The scheme for the crystal stuctures.
+ * The scheme for the crystal structures.
  *
  * @author Carsten Niehaus
  */
