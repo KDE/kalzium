@@ -21,7 +21,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <kdeedu_science_export.h>
+#include <libkdeedu_science_export.h>
 
 #include <QList>
 #include <QString>

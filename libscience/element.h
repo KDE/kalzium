@@ -21,7 +21,7 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
-#include <kdeedu_science_export.h>
+#include <libkdeedu_science_export.h>
 
 #include <QList>
 #include <QVariant>

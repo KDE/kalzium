@@ -22,7 +22,7 @@
 
 class ChemicalDataObject;
 
-#include <kdeedu_science_export.h>
+#include <libkdeedu_science_export.h>
 
 #include <QString>
 

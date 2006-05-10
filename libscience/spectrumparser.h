@@ -13,7 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <kdeedu_science_export.h>
+#include <libkdeedu_science_export.h>
 
 #include <QFile>
 #include <qxml.h>

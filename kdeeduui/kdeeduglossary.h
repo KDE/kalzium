@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <kdeedu_ui_export.h>
+#include <libkdeedu_ui_export.h>
 
 #include <khtml_part.h>
 #include <kdialogbase.h>

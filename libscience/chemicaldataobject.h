@@ -23,7 +23,7 @@
 #include <QVariant>
 #include <QString>
 
-#include <kdeedu_science_export.h>
+#include <libkdeedu_science_export.h>
 
 class ChemicalDataObjectPrivate;
 
