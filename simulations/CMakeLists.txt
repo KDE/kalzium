@@ -4,8 +4,7 @@ include_directories(
 	${CMAKE_SOURCE_DIR}/kalzium/src/
 	${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduplot/ 
 	${CMAKE_SOURCE_DIR}/libkdeedu/libscience/ 
-	${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/ 
-	${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+	${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/ )
 
 
 ########### next target ###############
