@@ -14,6 +14,8 @@
 #ifndef MOLECULEPARSER_H
 #define MOLECULEPARSER_H
 
+#include <libkdeedu_science_export.h>
+
 #include "element.h"
 #include "parser.h"
 
@@ -25,7 +27,7 @@
  * @class ElementCount
  * @author Inge Wallin
  */
-class ElementCount 
+class EDUSCIENCE_EXPORT ElementCount 
 {
 	public:
 		/**
@@ -86,7 +88,7 @@ class ElementCount
  * @class ElementCountMap
  * @author Inge Wallin
  */
-class ElementCountMap 
+class EDUSCIENCE_EXPORT ElementCountMap 
 {
 	public:
 		/**
@@ -173,7 +175,7 @@ class ElementCountMap
  *
  * @author Inge Wallin
  */
-class MoleculeParser : public Parser {
+class EDUSCIENCE_EXPORT MoleculeParser : public Parser {
 
 public:
 	/**
