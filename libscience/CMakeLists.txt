@@ -1,4 +1,3 @@
-kde4_header()
 
 add_subdirectory(data)
 add_subdirectory(tests)
@@ -32,7 +31,6 @@ install_targets(${LIB_INSTALL_DIR} science )
 ########### install files ###############
 
 
-kde4_footer()
 
 #original Makefile.am contents follow:
 

@@ -1,4 +1,3 @@
-kde4_header()
 
 install_files(${DATA_INSTALL_DIR}/libkdeedu/data/ FILES
    elements.xml
@@ -6,7 +5,6 @@ install_files(${DATA_INSTALL_DIR}/libkdeedu/data/ FILES
    spectra.xml
 )
 
-kde4_footer()
 
 #original Makefile.am contents follow:
 
