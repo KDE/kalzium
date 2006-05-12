@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduplot/
@@ -71,7 +70,6 @@ install_files( ${DATA_INSTALL_DIR}/kalzium FILES kalziumui.rc )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
-kde4_footer()
 
 
 

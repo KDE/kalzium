@@ -1,4 +1,3 @@
-kde4_header()
 
 
 
@@ -7,7 +6,6 @@ kde4_header()
 
 install_files( ${DATA_INSTALL_DIR}/kalzium/data/htmlview FILES characteristics.png density.png header.png icons.svg radius.png structure.png style.css mass.png book.png boilingpoint.png meltingpoint.png ionisation.png electronaffinity.png discovery.png abundance.png )
 
-kde4_footer()
 
 
 

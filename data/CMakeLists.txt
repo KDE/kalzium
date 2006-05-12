@@ -1,4 +1,3 @@
-kde4_header()
 
 
 add_subdirectory(elementpics)
@@ -14,7 +13,6 @@ add_subdirectory(toolpics)
 
 install_files( ${DATA_INSTALL_DIR}/kalzium/data FILES bg.jpg knowledge.xml tools.xml )
 
-kde4_footer()
 
 
 

@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( 
 	${CMAKE_SOURCE_DIR}/kalzium/src/
@@ -43,5 +42,4 @@ target_link_libraries(kalzium-simulations ${KDE4_KIO_LIBS})
 
 install_files( ${XDG_APPS_DIR} FILES kalzium-simulations.desktop )
 
-kde4_footer()
 
