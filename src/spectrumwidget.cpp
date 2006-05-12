@@ -415,7 +415,7 @@ void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 
 QPixmap SpectrumWidget::pixmap()
 {
-//X 	QPixmap tmp( m_pixmap );
+ 	QPixmap tmp( m_pixmap );
 //X 	QString text;
 //X 
 //X 	if( m_type == EmissionSpectrum )
@@ -427,7 +427,7 @@ QPixmap SpectrumWidget::pixmap()
 //X 	p.setPen( Qt::black );
 //X 	p.drawText( 30, m_realHeight + 70, text );
 //X 
-//X 	return tmp;
+ 	return tmp;
 }
 
 #include "spectrumwidget.moc"
