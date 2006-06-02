@@ -81,7 +81,10 @@ class EDUSCIENCE_EXPORT ChemicalDataObject
 			betaminuspercentage/**< The percentage of betaminusdecay */,
 			betaminusDecay/**< The decayenergy of betaminusdecay in MeV */,
 			ecpercentage/**< The percentage of ecdecay */,
-			ecDecay/**< The decayenergy of ecminusdecay in MeV */
+			ecDecay/**< The decayenergy of ecminusdecay in MeV */,
+			dangerSymbol/**< the danger symbols are the dangers associated with an element, for example Xn,T+ */,
+			RPhrase/**< */,
+			SPhrase/**< */
 		};
 
 		/**

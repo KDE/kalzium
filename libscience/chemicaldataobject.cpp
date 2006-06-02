@@ -224,6 +224,15 @@ QString ChemicalDataObject::dictRef() const
 		case density:
 			botype ="density";
 			break;
+		case dangerSymbol:
+			botype ="dangerSymbol";
+			break;
+		case RPhrase:
+			botype ="RPhrase";
+			break;
+		case SPhrase:
+			botype ="SPhrase";
+			break;
 	}
 
 	botype = botype.prepend( "bo:" );

@@ -47,7 +47,10 @@ public:
 	inFamily( false ),
 	inGroup( false ),
 	inElectronicconfiguration( false ),
-	inDensity( false )
+	inDensity( false ),
+	inDangerSymbol( false ),
+	inRPhrase( false ),
+	inSPhrase( false )
 	{
 	}
 
@@ -81,6 +84,9 @@ public:
 	bool inGroup;
 	bool inElectronicconfiguration;
 	bool inDensity;
+	bool inDangerSymbol;
+	bool inRPhrase;
+	bool inSPhrase;
 };
 
 ElementSaxParser::ElementSaxParser()
@@ -151,6 +157,12 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 				d->inElectronicconfiguration = true;
 			else if (attrs.value(i) == "bo:density")
 				d->inDensity = true;
+			else if (attrs.value(i) == "bo:dangerSymbol")
+				d->inDangerSymbol = true;
+			else if (attrs.value(i) == "bo:RPhrase")
+				d->inRPhrase = true;
+			else if (attrs.value(i) == "bo:SPhrase")
+				d->inSPhrase = true;
 		}
 	} else if (d->inElement && localName == "label")
 	{
@@ -310,6 +322,21 @@ bool ElementSaxParser::characters(const QString &ch)
 		value = ch.toDouble();
 		type = ChemicalDataObject::density; 
 		d->inDensity = false;
+	}
+	else if (d->inDangerSymbol){
+		value = ch;
+		type = ChemicalDataObject::dangerSymbol; 
+		d->inDangerSymbol = false;
+	}
+	else if (d->inRPhrase){
+		value = ch;
+		type = ChemicalDataObject::RPhrase; 
+		d->inRPhrase = false;
+	}
+	else if (d->inSPhrase){
+		value = ch;
+		type = ChemicalDataObject::SPhrase; 
+		d->inSPhrase = false;
 	}
 	else//it is a non known value. Do not create a wrong object but return
 		return true;
