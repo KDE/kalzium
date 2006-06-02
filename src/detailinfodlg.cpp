@@ -215,6 +215,11 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 		}
 		case ENERGY:
 		{
+			//TODO move the symbol to another place
+			// Danger symbols
+			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "<b>Danger Symbol</b>: %1", m_element->dataAsString( ChemicalDataObject::dangerSymbol ) ) );
+			html.append( "</td></tr>" );
 			// melting point
 			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Melting Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
