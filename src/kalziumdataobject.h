@@ -24,6 +24,8 @@
 #include <QHash>
 #include <QPixmap>
 
+class Search;
+
 /**
  * @short This class contains all Element objects
  *
@@ -56,29 +58,15 @@ class KalziumDataObject
 		QList<Element*> ElementList;
 
 		/**
-		 * Store the matching elements
+		 * Set the main Search to @p srch
 		 */
-		void findElements( const QString& name );
+		void setSearch( Search *srch );
 		
 		/**
-		 * select the elements in the @p list
+		 * @return the main Search
 		 */
-		void findElements( const QList<Element*>& list ){
-			m_searchList = list;
-		}
+		Search* search() const;
 
-		/**
-		 * stop the search by cleaning the internal list of selected elements
-		 */
-		void stopSearch(){
-			m_searchList.clear();
-		}
-
-		/**
-		 * @return true if @p e matches the searched string
-		 */
-		bool elementMatchesSearch( Element* e );
-		
 		/**
 		 * @return the Element with the number @p number
 		 * @param number the number of the Element which will be returned
@@ -111,13 +99,13 @@ class KalziumDataObject
 	
 		QList<QPixmap> PixmapList;
 
-		QList<Element*> m_searchList;
-
 		QHash<int, QList<Isotope*> > m_isotopes;
 
 		/**
 		 * Caching the number of elements
 		 */
 		int m_numOfElements;
+
+		Search *m_search;
 };
 #endif // KALZIUMDATAOBJECT_H

@@ -42,6 +42,7 @@ KalziumDataObject* KalziumDataObject::instance()
 }
 
 KalziumDataObject::KalziumDataObject()
+	: m_search( 0 )
 {
 	// reading elements
 	ElementSaxParser * parser = new ElementSaxParser();
@@ -109,26 +110,6 @@ KalziumDataObject::~KalziumDataObject()
 {
 }
 
-void KalziumDataObject::findElements( const QString& name )
-{
-	if ( name.isEmpty() )
-		return;
-	
-	QList<Element*> newList;
-
-	foreach( Element* e, ElementList ){
-		if ( e->dataAsString( ChemicalDataObject::name ).contains( name, Qt::CaseInsensitive ) )
-			newList << e;
-	}
-	
-	m_searchList = newList;
-}
-
-bool KalziumDataObject::elementMatchesSearch( Element* e )
-{
-	return m_searchList.contains( e );
-}
-
 Element* KalziumDataObject::element( int number )
 {
 	// checking that we are requesting a valid element
@@ -153,4 +134,14 @@ QList<Isotope*> KalziumDataObject::isotopes( Element * element )
 QList<Isotope*> KalziumDataObject::isotopes( int number )
 {
 	return m_isotopes.contains( number ) ? m_isotopes.value( number ) : QList<Isotope*>();
+}
+
+void KalziumDataObject::setSearch( Search *srch )
+{
+	m_search = srch;
+}
+
+Search* KalziumDataObject::search() const
+{
+	return m_search;
 }

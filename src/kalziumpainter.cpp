@@ -30,6 +30,7 @@
 #include "kalziumutils.h"
 #include "element.h"
 #include "prefs.h"
+#include "search.h"
 
 #include <QApplication>
 #include <QBrush>
@@ -112,7 +113,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 	Element *el = KalziumDataObject::instance()->element( element );
 	const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
 
-	bool selectedElement = KalziumDataObject::instance()->elementMatchesSearch( el );  
+	bool selectedElement = KalziumDataObject::instance()->search()->matches( el );
 
 	switch ( m_mode )
 	{

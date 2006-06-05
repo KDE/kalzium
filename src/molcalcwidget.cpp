@@ -26,6 +26,7 @@
 
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
+#include "search.h"
 
 #include <kdebug.h>
 #include <kiconloader.h>
@@ -63,7 +64,7 @@ void MolcalcWidget::clear()
 	m_elementMap.clear();
 
 	//stop the selection in the periodic table
-	KalziumDataObject::instance()->stopSearch();
+	KalziumDataObject::instance()->search()->resetSearch();
 
 	// Clear the widgets.
 	ui.resultLabel->setText( "" );
@@ -110,9 +111,12 @@ void MolcalcWidget::updateUI()
 		ui.resultComposition->setToolTip( complexString );
 		ui.resultLabel->setToolTip(       complexString );
 		
+#if 0
+		// FIXME
 		//select the elements in the table
 		QList<Element*> list = m_elementMap.elements();
 		KalziumDataObject::instance()->findElements( list );
+#endif
 	}
 	else{//the input was invalid, so tell this the user
 		kDebug() << "m_validInput == false" << endl;

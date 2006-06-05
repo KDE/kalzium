@@ -36,6 +36,8 @@ set(kalzium_SRCS
    kalziumtabletype.cpp
    propertysliderwidget.cpp
    printwidget.cpp
+   search.cpp
+   searchwidget.cpp
 )
 
 kde4_automoc(${kalzium_SRCS})

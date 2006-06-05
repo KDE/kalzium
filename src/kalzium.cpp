@@ -35,6 +35,8 @@
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
 #include "printwidget.h"
+#include "search.h"
+#include "searchwidget.h"
 #include "config-kalzium.h"
 #ifdef HAVE_FACILE
 //#include "eqchemview.h"
@@ -67,15 +69,25 @@ Kalzium::Kalzium()
 	// reading the elements from file
 	KalziumDataObject::instance();
 	
-	m_activeTypeSearch = false;
-	m_searchTimer = new QTimer(this);
-	connect( m_searchTimer, SIGNAL( timeout() ), this, SLOT( slotSearchElements() ) );
+	Search *newsearch = new Search();
+	KalziumDataObject::instance()->setSearch( newsearch );
+	connect( newsearch, SIGNAL( searchChanged() ), this, SLOT( slotSearchElements() ) );
+	connect( newsearch, SIGNAL( searchReset() ), this, SLOT( slotSearchElements() ) );
 
-	QScrollArea *helperSV = new QScrollArea( this );
+	QWidget *fakemain = new QWidget( this );
+	QVBoxLayout *fakelay = new QVBoxLayout( fakemain );
+	fakelay->setMargin( 0 );
+	fakelay->setSpacing( 2 );
+
+	m_searchWidget = new SearchWidget( fakemain );
+	fakelay->addWidget( m_searchWidget );
+
+	QScrollArea *helperSV = new QScrollArea( fakemain );
 	m_PeriodicTableView = new PeriodicTableView( helperSV->viewport() );
 	m_PeriodicTableView->setObjectName( "PeriodicTableView" );
 	helperSV->setWidget( m_PeriodicTableView );
 	helperSV->setFrameShape( QFrame::NoFrame );
+	fakelay->addWidget( helperSV );
 
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
@@ -84,7 +96,7 @@ Kalzium::Kalzium()
 	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( elementHover( int ) ));
 	
 	// layouting
-	setCentralWidget( helperSV );
+	setCentralWidget( fakemain );
 
 	setupSidebars();
 	setupActions();
@@ -466,58 +478,13 @@ Kalzium::~Kalzium()
 
 void Kalzium::keyPressEvent( QKeyEvent *e)
 {
+	m_searchWidget->appendSearchText( e->text() );
+	m_searchWidget->giveFocus();
 	e->accept();
-	
-	if ( m_activeTypeSearch )
-	{
-		m_searchTimer->stop();
-
-		if (  e->key() == Qt::Key_Backspace )
-		{
-			if ( m_typeAheadString.length( ) > 1 )
-			{
-				m_typeAheadString = m_typeAheadString.left(  m_typeAheadString.length() - 1 );
-				statusBar()->changeItem(i18n( "Searching for: %1", m_typeAheadString ),0);
-			}
-			else
-				findAheadStop();
-		}
-		else if (  e->key() == Qt::Key_Escape || e->key() == Qt::Key_Return )
-		{
-			findAheadStop();
-		}
-		else if (  !e->text().isEmpty() )
-		{
-			m_typeAheadString += e->text();
-			statusBar()->changeItem(i18n( "Searching for: %1", m_typeAheadString ),0);
-		}
-
-		m_searchTimer->start( 500 );
-
-		return;
-	}
-	else if (  e->key() == '/' ){
-		grabKeyboard();
-		m_activeTypeSearch = true;
-		statusBar()->changeItem( i18n( "Starting the search -- matching elements will be highlighted" ), 0 );
-	}
-}
-
-void Kalzium::findAheadStop()
-{
-	m_searchTimer->stop();
-	m_activeTypeSearch = false;
-	KalziumDataObject::instance()->stopSearch();
-	m_typeAheadString = QString();
-	releaseKeyboard();
-	statusBar()->changeItem( QString(),0); //don't display the search in the statusbar
 }
 
 void Kalzium::slotSearchElements()
 {
-	if ( m_typeAheadString != QString() )//don't search if emtpy
-		KalziumDataObject::instance()->findElements( m_typeAheadString );
-
 	m_PeriodicTableView->setFullDraw();
 	m_PeriodicTableView->update();
 }
