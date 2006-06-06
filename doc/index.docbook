@@ -350,6 +350,10 @@
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
+			 <sect2 id="infodialog_warnings">
+				 <title>Spectrum</title>
+				 <!-- content missing -->
+			 </sect2>
 			 <sect2 id="infodialog_spectrum">
 				 <title>Spectrum</title>
 				 <screenshot>
