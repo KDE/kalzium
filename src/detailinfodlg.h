@@ -50,7 +50,8 @@ class DetailedInfoDlg : public KDialogBase
 			CHEMICAL = 0,
 			MISC,
 			ENERGY,
-			ISOTOPES
+			ISOTOPES,
+			WARNINGS
 		};
 
 		Element            *m_element;
@@ -79,6 +80,7 @@ class DetailedInfoDlg : public KDialogBase
 		QString getHtml( DATATYPE ) const;
 
 		QString m_baseHtml;
+		QString m_baseHtml2;
 		QString m_picsdir;
 
 		/**

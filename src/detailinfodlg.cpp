@@ -33,6 +33,7 @@
 #include <QImage>
 #include <QLayout>
 #include <QPushButton>
+#include <QStringList>
 #include <QStackedWidget>
 
 #include "element.h"
@@ -52,6 +53,7 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
 			KGuiItem(i18nc("Previous element", "Previous"), "1leftarrow"))
 {
 	m_baseHtml = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/htmlview/";
+	m_baseHtml2 = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/hazardsymbols/";
 
 	m_picsdir = KGlobal::dirs()->findResourceDir( "appdata", "elempics/" ) + "elempics/";
 
@@ -215,11 +217,6 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 		}
 		case ENERGY:
 		{
-			//TODO move the symbol to another place
-			// Danger symbols
-			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "<b>Danger Symbol</b>: %1", m_element->dataAsString( ChemicalDataObject::dangerSymbol ) ) );
-			html.append( "</td></tr>" );
 			// melting point
 			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Melting Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
@@ -258,6 +255,30 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 				html.append( isotopeTable() );
 				html.append( "</td></tr>" );
 			break;
+		}
+		case WARNINGS:
+		{
+				//warning signs
+				QStringList wlist = m_element->dataAsString( ChemicalDataObject::dangerSymbol ).split( ',' );
+				QString curstr;
+				html.append( "<tr>" );
+				for( int i = 0; i < wlist.count(); i++ )
+				{
+					curstr = wlist.at( i );
+					html.append( "<td><img src=\""+ m_baseHtml2 + "hazard_" + curstr.simplified().at( 0 ) + ".png\" alt=\"icon\"/ width=\"70\" height=\"70\"></td>" );
+				}
+				html.append( "</tr>" );
+				html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
+				html.append( i18n( "<b>Danger Symbol</b>: %1", m_element->dataAsString( ChemicalDataObject::dangerSymbol ) ) );
+				html.append( "</td></tr>" );
+				//R-phrases
+				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+				html.append( i18n( "<b>R-phrase</b>: %1", m_element->dataAsString( ChemicalDataObject::RPhrase) ) );
+				html.append( "</td></tr>" );
+				//S-phrases
+				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+				html.append( i18n( "<b>S-phrase</b>: %1", m_element->dataAsString( ChemicalDataObject::SPhrase) ) );
+				html.append( "</td></tr>" );
 		}
 	}
 
@@ -393,6 +414,7 @@ void DetailedInfoDlg::createContent()
 	m_htmlpages["energies"] = addHTMLTab( i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
 	m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 	m_htmlpages["isotopes"] = addHTMLTab( i18n( "Isotopes" ), i18n( "Isotopes" ), "isotopes" );
+	m_htmlpages["warnings"] = addHTMLTab( i18n( "Warnings" ), i18n( "Warnings" ), "warnings" );
 
 	// spectrum widget tab
 	QFrame *m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
@@ -438,6 +460,7 @@ void DetailedInfoDlg::reloadContent()
 	fillHTMLTab( m_htmlpages["energies"], getHtml( ENERGY ) );
 	fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
 	fillHTMLTab( m_htmlpages["isotopes"], getHtml( ISOTOPES ) );
+	fillHTMLTab( m_htmlpages["warnings"], getHtml( WARNINGS ) );
 
 	// updating spectrum widget
 //X 	if ( m_element->hasSpectrum() )
@@ -477,6 +500,9 @@ void DetailedInfoDlg::slotHelp()
 			break;
 		case 6:
 			 chapter = "infodialog_spectrum";
+			break;
+		case 7:
+			 chapter = "infodialog_warnings";
 			break;
 	}
 
