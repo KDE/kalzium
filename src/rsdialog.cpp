@@ -52,7 +52,7 @@ void RSDialog::showRSPhrases()
 		s.append(sp);
 		s.append("<br>");
 	}
-	ui.text->setText( "<qt>" + s + "</qt>" );
+	ui.text->setHtml( "<qt>" + s + "</qt>" );
 }
 
 void RSDialog::createSPhrases()
