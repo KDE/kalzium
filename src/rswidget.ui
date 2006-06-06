@@ -8,8 +8,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>597</width>
+    <height>429</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -52,17 +52,20 @@
             <string>R-Phrases:</string>
            </property>
            <property name="buddy" >
-            <cstring>lineEdit_2</cstring>
+            <cstring>r_le</cstring>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit_2" >
+          <widget class="QLineEdit" name="r_le" >
            <property name="toolTip" >
             <string>Enter the R-Phrases you want to read</string>
            </property>
            <property name="whatsThis" >
             <string>Enter the R-Phrases you want to read</string>
+           </property>
+           <property name="text" >
+            <string>1,2,3,4,5,6,7,8,9</string>
            </property>
           </widget>
          </item>
@@ -82,17 +85,20 @@
             <string>S-Phrases: </string>
            </property>
            <property name="buddy" >
-            <cstring>lineEdit</cstring>
+            <cstring>s_le</cstring>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit" >
+          <widget class="QLineEdit" name="s_le" >
            <property name="toolTip" >
             <string>Enter the S-Phrases you want to read</string>
            </property>
            <property name="whatsThis" >
             <string>Enter the S-Phrases you want to read</string>
+           </property>
+           <property name="text" >
+            <string>1,2,3,4,5,6,7,8,9</string>
            </property>
           </widget>
          </item>
@@ -116,7 +122,17 @@
     </layout>
    </item>
    <item row="1" column="0" >
-    <widget class="QTextBrowser" name="text" />
+    <widget class="QTextBrowser" name="text" >
+     <property name="frameShape" >
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow" >
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="lineWidth" >
+      <number>1</number>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

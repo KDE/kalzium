@@ -41,10 +41,25 @@ RSDialog::RSDialog( QWidget* parent )
 	ui.setupUi( dummy );
 	showRSPhrases();
 
-	kDebug() << "Test, s-phrase 1: " << sphrase( 1 ) << endl;
-	kDebug() << "Test, s-phrase 3: " << sphrase( 3 ) << endl;
-	kDebug() << "Test, r-phrase 1: " << rphrase( 1 ) << endl;
-	kDebug() << "Test, r-phrase 3: " << rphrase( 3 ) << endl;
+	QObject::connect( ui.filterButton, SIGNAL( clicked() ), this, SLOT( filter() ) );
+}
+
+void RSDialog::filter()
+{
+	QList<int> r;
+	QList<int> s;
+
+	//for now only seperation by a comma , is allowed
+	QStringList rSplit = ui.r_le->text().split( "," );
+	foreach( QString st, rSplit )
+		r << st.toInt();
+	
+	//for now only seperation by a comma , is allowed
+	QStringList sSplit = ui.s_le->text().split( "," );
+	foreach( QString st, sSplit )
+		s << st.toInt();
+
+	filterRS( r, s );
 }
 
 void RSDialog::showRSPhrases()
@@ -53,7 +68,25 @@ void RSDialog::showRSPhrases()
 		
 void RSDialog::filterRS( const QList<int>& r, const QList<int>& s )
 {
+	QString string( "<qt>" );
+	string.append( "<h2>" + i18n( "R-Phrases:" ) + "</h2>" );
+	foreach( int i, r )
+	{
+		QString phrase( "<b>" + QString::number( i ) + " - " );
+		phrase.append( rphrase( i ) + "</b>" );
+		string.append( phrase + "<br>" );
+	}
+	string.append( "<h2>" + i18n( "S-Phrases:" ) + "</h2>" );
+	foreach( int i, s )
+	{
+		QString phrase( "<b>" + QString::number( i ) + " -  " );
+		phrase.append( sphrase( i ) + "</b>" );
+		string.append( phrase + "<br>" );
+	}
 
+	string.append( "</qt>" );
+
+	ui.text->setHtml( string );
 }
 
 QString RSDialog::rphrase( int number )

@@ -49,6 +49,10 @@ class RSDialog : public KDialog
 		
 		QString sphrase( int number );
 
+
+	public slots:
+		void filter();
+
 	private:
 		QMap<int, QString> rphrases_map;
 		QMap<int, QString> sphrases_map;
