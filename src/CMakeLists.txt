@@ -38,6 +38,7 @@ set(kalzium_SRCS
    printwidget.cpp
    search.cpp
    searchwidget.cpp
+   rsdialog.cpp
 )
 
 kde4_automoc(${kalzium_SRCS})

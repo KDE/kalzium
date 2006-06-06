@@ -15,14 +15,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QDialog>
+#include <kdialog.h>
 
 #include "ui_maindialog.h"
 
 /**
  * The main dialog of the simulations
  */
-class MainDialog_Impl : public QDialog
+class MainDialog_Impl : public KDialog
 {
 	Q_OBJECT
 

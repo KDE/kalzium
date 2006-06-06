@@ -18,6 +18,7 @@
     <Action name="tools_glossary" />
     <Action name="tools_eqsolver" />
     <Action name="tools_crystalviewer" />
+    <Action name="tools_rs" />
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
   </Menu>

@@ -35,6 +35,7 @@
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
 #include "printwidget.h"
+#include "rsdialog.h"
 #include "search.h"
 #include "searchwidget.h"
 #include "config-kalzium.h"
@@ -174,6 +175,9 @@ void Kalzium::setupActions()
 	connect( m_pGlossaryAction, SIGNAL( triggered() ), this, SLOT( slotGlossary() ) );
 	m_pCrystalViewer = new KAction( KIcon( "crystal" ), i18n( "&Crystal Viewer..." ), actionCollection(), "tools_crystalviewer" );
 	connect( m_pCrystalViewer, SIGNAL( triggered() ), this, SLOT( slotCrystalViewer() ) );
+	
+	m_pRSAction = new KAction( KIcon( "rs" ), i18n( "&R/S-Phrases..." ), actionCollection(), "tools_rs" );
+	connect( m_pRSAction, SIGNAL( triggered() ), this, SLOT( slotRS() ) );
 
 	// other period view options
 	m_pLegendAction = new KAction( KIcon( "legend" ), i18n( "Show &Legend" ), actionCollection(), "view_legend" );
@@ -257,6 +261,12 @@ void Kalzium::setupSidebars()
 void Kalzium::slotGlossary()
 {
 	m_glossarydlg->show();
+}
+
+void Kalzium::slotRS()
+{
+	RSDialog *rs = new RSDialog( this );
+	rs->show();
 }
 
 void Kalzium::slotShowEQSolver()

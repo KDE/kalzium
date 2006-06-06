@@ -22,7 +22,7 @@
 #include <QListWidgetItem>
 
 MainDialog_Impl::MainDialog_Impl( QWidget * parent )
-	: QDialog( parent )
+	: KDialog( parent )
 {
 	ui.setupUi( this );
 

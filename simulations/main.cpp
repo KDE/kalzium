@@ -40,18 +40,8 @@ static KCmdLineOptions options[] =
     KCmdLineLastOption
 };
 
-#ifdef HAVE_FACILE
-//X extern "C" {
-//X         void caml_startup(char**);
-//X };
-#endif
-
 int main(int argc, char **argv)
 {
-#ifdef HAVE_FACILE
-//X     caml_startup(argv);
-#endif
-
     KAboutData about("kalzium", I18N_NOOP("Simulations"), version, description,
                      KAboutData::License_GPL, "(C) 2005-2006 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
     about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );
