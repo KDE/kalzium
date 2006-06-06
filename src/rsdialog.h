@@ -22,7 +22,7 @@
 
 #include <kdialog.h>
 #include <QWidget>
-#include <QStringList>
+#include <QMap>
 
 #include "ui_rswidget.h"
 
@@ -40,9 +40,18 @@ class RSDialog : public KDialog
 
 		Ui::RSWidget ui;
 
+		/**
+		 * Filter the R- and S-Phrases.
+		 */
+		void filterRS( const QList<int>& r, const QList<int>& s );
+
+		QString rphrase( int number );
+		
+		QString sphrase( int number );
+
 	private:
-		QStringList rphrases;
-		QStringList sphrases;
+		QMap<int, QString> rphrases_map;
+		QMap<int, QString> sphrases_map;
 		
 		void createSPhrases();
 		void createRPhrases();

@@ -19,6 +19,9 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
+#include <QStringList>
+#include <QRegExp>
+
 #include "rsdialog.h"
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
@@ -37,26 +40,58 @@ RSDialog::RSDialog( QWidget* parent )
 
 	ui.setupUi( dummy );
 	showRSPhrases();
+
+	kDebug() << "Test, s-phrase 1: " << sphrase( 1 ) << endl;
+	kDebug() << "Test, s-phrase 3: " << sphrase( 3 ) << endl;
+	kDebug() << "Test, r-phrase 1: " << rphrase( 1 ) << endl;
+	kDebug() << "Test, r-phrase 3: " << rphrase( 3 ) << endl;
 }
 
 void RSDialog::showRSPhrases()
 {
-	QString s;
-	foreach( QString rp , rphrases )
-	{
-		s.append(rp);
-		s.append("<br>");
-	}
-	foreach( QString sp , sphrases )
-	{
-		s.append(sp);
-		s.append("<br>");
-	}
-	ui.text->setHtml( "<qt>" + s + "</qt>" );
 }
+		
+void RSDialog::filterRS( const QList<int>& r, const QList<int>& s )
+{
+
+}
+
+QString RSDialog::rphrase( int number )
+{
+	QString p;
+	
+	QMap<int, QString>::const_iterator i = rphrases_map.begin();
+	while ( i != rphrases_map.end() )
+	{
+		if ( i.key() == number )
+			return i.value();
+
+		++i;
+	}
+
+	return p;
+}
+
+QString RSDialog::sphrase( int number )
+{
+	QString p;
+	
+	QMap<int, QString>::const_iterator i = sphrases_map.begin();
+	while ( i != sphrases_map.end() )
+	{
+		if ( i.key() == number )
+			return i.value();
+
+		++i;
+	}
+
+	return p;
+}
+
 
 void RSDialog::createSPhrases()
 {
+	QStringList sphrases;
 	sphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "S1: Keep locked up");
 	sphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "S2: Keep out of the reach of children");
 	sphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "S3: Keep in a cool place");
@@ -111,10 +146,30 @@ void RSDialog::createSPhrases()
 	sphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "S62: If swallowed, do not induce vomiting: seek medical advice immediately and show this container or label");
 	sphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "S63: In case of accident by inhalation: remove casualty to fresh air and keep at rest");
 	sphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "S64: If swallowed, rinse mouth with water ( only if the person is conscious )");
+
+	QRegExp reg( "(R|S)(\\d+): (.*)" );
+
+	foreach( QString p , sphrases )
+	{
+		int number = 0;
+		QString phrase( "" );
+
+		if ( reg.indexIn( p ) > -1 )
+		{
+			QString part1 = reg.cap( 2 );
+			QString part2 = reg.cap( 3 );
+
+			phrase = part2;
+			number = part1.toInt();
+		}
+		
+		sphrases_map.insert(number, phrase);
+	}
 }
 
 void RSDialog::createRPhrases()
 {
+	QStringList rphrases;
 	rphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "R1: Explosive when dry");
 	rphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "R2: Risk of explosion by shock, friction, fire or other sources of ignition");
 	rphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "R3: Extreme risk of explosion by shock, friction, fire or other sources of ignition");
@@ -181,6 +236,25 @@ void RSDialog::createRPhrases()
 	rphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "R66: Repeated exposure may cause skin dryness or cracking");
 	rphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "R67: Vapours may cause drowsiness and dizziness");
 	rphrases << i18nc("Please take the official translations! You find them here: http://europa.eu.int/eur-lex/lex/LexUriServ/LexUriServ.do?uri=CELEX:32001L0059:EN:HTML" , "R68: Possible risk of irreversible effects");
+	
+	QRegExp reg( "(R|S)(\\d+): (.*)" );
+
+	foreach( QString p , rphrases )
+	{
+		int number = 0;
+		QString phrase( "" );
+
+		if ( reg.indexIn( p ) > -1 )
+		{
+			QString part1 = reg.cap( 2 );
+			QString part2 = reg.cap( 3 );
+
+			phrase = part2;
+			number = part1.toInt();
+		}
+		
+		rphrases_map.insert(number, phrase);
+	}
 }
 
 #include "rsdialog.moc"
