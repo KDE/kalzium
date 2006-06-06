@@ -54,6 +54,7 @@ kde4_add_ui_files(kalzium_SRCS
    propertysliderwidgetbase.ui
    settings_misc.ui
    settings_units.ui
+   rswidget.ui
 )
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )

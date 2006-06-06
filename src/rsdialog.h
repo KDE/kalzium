@@ -24,6 +24,8 @@
 #include <QWidget>
 #include <QStringList>
 
+#include "ui_rswidget.h"
+
 /**
  * This class 
  *
@@ -36,12 +38,16 @@ class RSDialog : public KDialog
 	public:
 		RSDialog( QWidget * parent );
 
+		Ui::RSWidget ui;
+
 	private:
 		QStringList rphrases;
 		QStringList sphrases;
 		
 		void createSPhrases();
 		void createRPhrases();
+
+		void showRSPhrases();
 };
 
 #endif // RSDIALOG_H
