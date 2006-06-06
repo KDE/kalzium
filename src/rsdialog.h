@@ -22,6 +22,7 @@
 
 #include <kdialog.h>
 #include <QWidget>
+#include <QStringList>
 
 /**
  * This class 
@@ -34,6 +35,13 @@ class RSDialog : public KDialog
 
 	public:
 		RSDialog( QWidget * parent );
+
+	private:
+		QStringList rphrases;
+		QStringList sphrases;
+		
+		void createSPhrases();
+		void createRPhrases();
 };
 
 #endif // RSDIALOG_H
