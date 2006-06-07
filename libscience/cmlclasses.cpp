@@ -36,8 +36,8 @@ QString Molecule::debug()
 
 Atom::Atom()
 {
-	QString m_elementType = QString( "" );
-	QString m_id = QString( "" );
+	m_elementType = QString( "" );
+	m_id = QString( "" );
 	coord_x2 = 0.0;
 	coord_x3 = 0.0;
 	coord_y2 = 0.0;
