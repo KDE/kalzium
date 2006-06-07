@@ -34,7 +34,11 @@ class QString;
 class CMLParser : public QXmlDefaultHandler
 {
 	public:
-		CMLParser( )
+		CMLParser()
+		{
+		};
+
+		~CMLParser()
 		{
 		};
 	

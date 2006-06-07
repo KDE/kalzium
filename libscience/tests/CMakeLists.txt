@@ -18,17 +18,17 @@ endif(KDE4_BUILD_TESTS)
 
 ########### next target ###############
 
-set(isotopereadingtest_SRCS isotopereadingtest.cpp )
+#set(isotopereadingtest_SRCS isotopereadingtest.cpp )
 
-kde4_automoc(${isotopereadingtest_SRCS})
+#kde4_automoc(${isotopereadingtest_SRCS})
 
-if(KDE4_BUILD_TESTS)
+#if(KDE4_BUILD_TESTS)
 
-kde4_add_executable(isotopereadingtest ${isotopereadingtest_SRCS})
+#kde4_add_executable(isotopereadingtest ${isotopereadingtest_SRCS})
 
-target_link_libraries(isotopereadingtest  ${KDE4_KDECORE_LIBS} science )
+#target_link_libraries(isotopereadingtest  ${KDE4_KDECORE_LIBS} science )
 
-endif(KDE4_BUILD_TESTS)
+#endif(KDE4_BUILD_TESTS)
 
 ########### next target ###############
 
