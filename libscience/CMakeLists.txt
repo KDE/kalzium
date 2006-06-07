@@ -1,6 +1,7 @@
 
 add_subdirectory(data)
 add_subdirectory(tests)
+add_subdirectory(cml)
 
 
 ########### next target ###############
