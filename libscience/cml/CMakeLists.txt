@@ -2,7 +2,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/libscience  )
 
 set(cml_LIB_SRCS 
 	cmlclasses.cpp 
-#	xml_cml.cpp
+	xml_cml.cpp
 )
 
 kde4_automoc(${cml_LIB_SRCS})

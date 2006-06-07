@@ -46,23 +46,23 @@ class Atom
 			m_elementType = et;
 		}
 
-		void setiX2( int i ){
+		void setX2( double i ){
 			coord_x2 = i;
 		}
 
-		void setiX3( int i ){
+		void setX3( double i ){
 			coord_x3 = i;
 		}
 
-		void setiY2( int i ){
+		void setY2( double i ){
 			coord_y2 = i;
 		}
 
-		void setiY3( int i ){
+		void setY3( double i ){
 			coord_y3 = i;
 		}
 
-		void setiZ3( int i ){
+		void setZ3( double i ){
 			coord_z3 = i;
 		}
 
