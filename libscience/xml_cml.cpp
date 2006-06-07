@@ -15,12 +15,13 @@
 #include <QtDebug>
 
 CMLParser::CMLParser()
+  : QXmlDefaultHandler()
 {
-};
+}
 
 CMLParser::~CMLParser()
 {
-};
+}
 
 bool CMLParser::startDocument()
 {

@@ -20,20 +20,22 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         * 
  ***************************************************************************/
 
+#include <libkdeedu_science_export.h>
+
 #include <QString>
 #include <QList>
 
 namespace CML
 {
 	
-class Molecule
+class EDUSCIENCE_EXPORT Molecule
 {
 	public:
 		Molecule();
 
 };
 
-class Atom
+class EDUSCIENCE_EXPORT Atom
 {
 	public:
 		Atom( );
@@ -76,7 +78,7 @@ class Atom
 			   coord_z3;
 };
 
-class Bond
+class EDUSCIENCE_EXPORT Bond
 {
 	public:
 		Bond();

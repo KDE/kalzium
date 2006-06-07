@@ -11,6 +11,8 @@
 #ifndef XML_CML_H
 #define XML_CML_H
 
+#include <libkdeedu_science_export.h>
+
 #include <qxml.h>
 #include <QList>
 
@@ -31,11 +33,11 @@ class QString;
 #define CML_BONDARRAY 5
 
 
-class CMLParser : public QXmlDefaultHandler
+class EDUSCIENCE_EXPORT CMLParser : public QXmlDefaultHandler
 {
 	public:
 		CMLParser();
-		~CMLParser();
+		virtual ~CMLParser();
 
 		bool startDocument();
 		
@@ -60,7 +62,7 @@ class CMLParser : public QXmlDefaultHandler
 		CML::Atom * atom1;
 		CML::Atom * atom2;
 
-		CML::Atom * tmp_atom;
+		CML::Atom * tmp_atom;		
 		
 		QString indent, last_builtin;
 		

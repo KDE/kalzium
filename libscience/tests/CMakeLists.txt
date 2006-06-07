@@ -1,6 +1,9 @@
 
 include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/libscience  )
 
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR})
+
+if (KDE4_BUILD_TESTS)
 
 ########### next target ###############
 
@@ -8,13 +11,9 @@ set(xmlreadingtest_SRCS xmlreadingtest.cpp )
 
 kde4_automoc(${xmlreadingtest_SRCS})
 
-if(KDE4_BUILD_TESTS)
-
 kde4_add_executable(xmlreadingtest ${xmlreadingtest_SRCS})
 
 target_link_libraries(xmlreadingtest  ${KDE4_KDECORE_LIBS} science )
-
-endif(KDE4_BUILD_TESTS)
 
 ########### next target ###############
 
@@ -22,13 +21,9 @@ endif(KDE4_BUILD_TESTS)
 
 #kde4_automoc(${isotopereadingtest_SRCS})
 
-#if(KDE4_BUILD_TESTS)
-
 #kde4_add_executable(isotopereadingtest ${isotopereadingtest_SRCS})
 
 #target_link_libraries(isotopereadingtest  ${KDE4_KDECORE_LIBS} science )
-
-#endif(KDE4_BUILD_TESTS)
 
 ########### next target ###############
 
@@ -36,15 +31,13 @@ set(cml2test_SRCS cml2test.cpp )
 
 kde4_automoc(${cml2test_SRCS})
 
-if(KDE4_BUILD_TESTS)
-
 kde4_add_executable(cml2test ${cml2test_SRCS})
 
 target_link_libraries(cml2test  ${KDE4_KDECORE_LIBS} science )
 
+
 endif(KDE4_BUILD_TESTS)
 
-########### install files ###############
 
 
 
