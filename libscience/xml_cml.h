@@ -34,14 +34,9 @@ class QString;
 class CMLParser : public QXmlDefaultHandler
 {
 	public:
-		CMLParser()
-		{
-		};
+		CMLParser();
+		~CMLParser();
 
-		~CMLParser()
-		{
-		};
-	
 		bool startDocument();
 		
 		bool startElement( const QString&, const QString&, const QString& ,

@@ -14,6 +14,14 @@
 
 #include <QtDebug>
 
+CMLParser::CMLParser()
+{
+};
+
+CMLParser::~CMLParser()
+{
+};
+
 bool CMLParser::startDocument()
 {
 	qDebug() << "New CML parser started.";
