@@ -27,6 +27,13 @@ Molecule::Molecule()
 
 Atom::Atom()
 {
+	QString m_elementType = QString( "" );
+	QString m_id = QString( "" );
+	coord_x2 = 0.0;
+	coord_x3 = 0.0;
+	coord_y2 = 0.0;
+	coord_y3 = 0.0;
+	coord_z3 = 0.0;
 }
 
 Bond::Bond()

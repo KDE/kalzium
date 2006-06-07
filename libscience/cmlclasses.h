@@ -40,6 +40,11 @@ class EDUSCIENCE_EXPORT Atom
 	public:
 		Atom( );
 
+		QString debug(){
+			QString db = "ID: " + m_id + " Type: " + m_elementType + " Coordinates: " + "x3: " + QString::number( coord_x3 ) + " y3: " + QString::number( coord_y3 )+ " z3:" + QString::number( coord_z3 ) + "\n";
+			return db;
+		}
+
 		void setID( const QString& id ){
 			m_id = id;
 		}
@@ -68,6 +73,10 @@ class EDUSCIENCE_EXPORT Atom
 			coord_z3 = i;
 		}
 
+		QString id() const{
+			return m_id;
+		}
+
 	private:
 		QString m_elementType;
 		QString m_id;
@@ -82,13 +91,19 @@ class EDUSCIENCE_EXPORT Bond
 {
 	public:
 		Bond();
+		
+		QString debug(){
+			QString db = "Atom 1: " + m_startatom_id + " ... Atom 2: " + m_endatom_id;
+			return db;
+		}
+
 
 		/**
 		 * defines the two Atoms which start and stop the bond
 		 */
-		void setAtoms( CML::Atom* a1, CML::Atom* a2 ){
-			m_start = a1;
-			m_end = a2;
+		void setAtoms( const QString& id1, const QString& id2 ){
+			m_startatom_id = id1;
+			m_endatom_id = id2;
 		}
 
 		void setOrder( int o ){
@@ -96,8 +111,8 @@ class EDUSCIENCE_EXPORT Bond
 		}
 	
 	private:
-		Atom* m_start;
-		Atom* m_end;
+		QString m_startatom_id;
+		QString m_endatom_id;
 
 		int m_order;
 };

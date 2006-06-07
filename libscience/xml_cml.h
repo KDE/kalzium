@@ -21,16 +21,16 @@
 class QString;
 
 // possible states (CMLParser::states)
-// // set in defs.h
-// //#define CML_NONE 0
-// //#define CML_ATOM 1
-// //#define CML_BOND 2
-#define CML_MOLECULE 10
-#define CML_NONE   1
-#define CML_ATOM   2
-#define CML_BOND   3
-#define CML_ATOMARRAY 4
-#define CML_BONDARRAY 5
+// set in defs.h
+//X #define CML_NONE 0
+//X #define CML_ATOM 1
+//X #define CML_BOND 2
+//X #define CML_MOLECULE 10
+//X #define CML_NONE   1
+//X #define CML_ATOM   2
+//X #define CML_BOND   3
+//X #define CML_ATOMARRAY 4
+//X #define CML_BONDARRAY 5
 
 
 class EDUSCIENCE_EXPORT CMLParser : public QXmlDefaultHandler
@@ -41,7 +41,9 @@ class EDUSCIENCE_EXPORT CMLParser : public QXmlDefaultHandler
 
 		bool startDocument();
 		
-		bool startElement( const QString&, const QString&, const QString& ,
+		bool startElement( const QString&, 
+				const QString&, 
+				const QString& ,
 				const QXmlAttributes& );
 		
 		bool endElement( const QString&, const QString&, const QString& );
@@ -51,6 +53,7 @@ class EDUSCIENCE_EXPORT CMLParser : public QXmlDefaultHandler
 		bool ignorableWhitespace( const QString& );
 		
 		QList<CML::Atom*> getAtoms();
+		QList<CML::Bond*> getBonds();
 
 	private:
 		QList<CML::Atom*> localAtoms;
@@ -58,15 +61,7 @@ class EDUSCIENCE_EXPORT CMLParser : public QXmlDefaultHandler
 		
 		CML::Bond *tmp_bond;
 
-		//temporary atoms for the creation of a Bond
-		CML::Atom * atom1;
-		CML::Atom * atom2;
-
 		CML::Atom * tmp_atom;		
-		
-		QString indent, last_builtin;
-		
-		int states;
 };
 
 #endif

@@ -23,20 +23,22 @@ int main(int argc, char *argv[])
 	if ( !xmlFile.open( IO_ReadOnly ) ) 
 		return false;
 	
-	QTextStream t1( &xmlFile );
-	
-	QXmlInputSource source;
-//	source.setData( t1 );
-	
+	QXmlInputSource source( xmlFile );
 	QXmlSimpleReader xmlReader;
 	xmlReader.setContentHandler( handler );
-	
 	xmlReader.parse( source );
+	
+	QList<CML::Atom*> parsedAtoms;
+	parsedAtoms = handler->getAtoms();
+	QList<CML::Bond*> parsedBonds;
+	parsedBonds = handler->getBonds();
+	
+	kDebug() << "Found " << parsedAtoms.count() << " Atoms and " << parsedBonds.count() << " Bonds!" << endl;
 
-//X 	QList<Bond*> parsedBonds;
-//X 	Bond *tbond;
-//X 	parsedBonds = handler.getBonds();
-//X 
+	foreach( CML::Atom* a, parsedAtoms )
+		kDebug() << a->debug() << endl;
+	foreach( CML::Bond* b, parsedBonds )
+		kDebug() << b->debug() << endl;
 	
 	return 0;
 }
