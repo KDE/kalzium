@@ -1,13 +1,13 @@
 #include <kdebug.h>
 #include <iostream>
 
-#include <qtextstream.h>
-#include <qfile.h>
-#include <qdatetime.h>
+#include <QTextStream>
+#include <QFile>
+#include <QDateTime>
 #include <qxml.h>
 
-#include "../cml/xml_cml.h"
-#include "../cml/cmlclasses.h"
+#include "../xml_cml.h"
+#include "../cmlclasses.h"
 
 int main(int argc, char *argv[])
 {
@@ -33,5 +33,10 @@ int main(int argc, char *argv[])
 	
 	xmlReader.parse( source );
 
+//X 	QList<Bond*> parsedBonds;
+//X 	Bond *tbond;
+//X 	parsedBonds = handler.getBonds();
+//X 
+	
 	return 0;
 }
