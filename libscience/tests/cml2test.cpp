@@ -28,17 +28,8 @@ int main(int argc, char *argv[])
 	xmlReader.setContentHandler( handler );
 	xmlReader.parse( source );
 	
-	QList<CML::Atom*> parsedAtoms;
-	parsedAtoms = handler->getAtoms();
-	QList<CML::Bond*> parsedBonds;
-	parsedBonds = handler->getBonds();
-	
-	kDebug() << "Found " << parsedAtoms.count() << " Atoms and " << parsedBonds.count() << " Bonds!" << endl;
-
-	foreach( CML::Atom* a, parsedAtoms )
-		kDebug() << a->debug() << endl;
-	foreach( CML::Bond* b, parsedBonds )
-		kDebug() << b->debug() << endl;
+	CML::Molecule * mol = handler->getMolecule();
+		kDebug() << mol->debug() << endl;
 	
 	return 0;
 }

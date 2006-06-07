@@ -32,7 +32,12 @@ bool CMLParser::startElement(  const QString&, const QString&,
 		const QString& qName, 
 		const QXmlAttributes& attr )
 {
-	if ( qName.toUpper() == "ATOM" ) {
+	if ( qName.toUpper() == "MOLECULE" ) {
+		tmp_molecule = new CML::Molecule();
+		
+		tmp_molecule->setID( attr.value( "id" ) );
+	}
+	else if ( qName.toUpper() == "ATOM" ) {
 		tmp_atom = new CML::Atom();
 	
 		QString x2 = attr.value( "x2");
@@ -77,11 +82,15 @@ bool CMLParser::startElement(  const QString&, const QString&,
 bool CMLParser::endElement(  const QString&, const QString&, 
 		const QString& qName )
 {
-	if ( qName.toUpper() == "ATOM" ) {
+	if ( qName.toUpper() == "MOLECULE" ) {
+		tmp_molecule->setAtoms( getAtoms() );
+		tmp_molecule->setBonds( getBonds() );
+	}
+	else if ( qName.toUpper() == "ATOM" ) {
 		localAtoms.append( tmp_atom );
 		tmp_atom = 0;
 	}
-	if ( qName.toUpper() == "BOND" ) {
+	else if ( qName.toUpper() == "BOND" ) {
 		localBonds.append( tmp_bond );
 		tmp_bond = 0;
 	}

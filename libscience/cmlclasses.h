@@ -27,12 +27,34 @@
 
 namespace CML
 {
+
+class Atom;
+class Bond;
 	
 class EDUSCIENCE_EXPORT Molecule
 {
 	public:
 		Molecule();
 
+		void setAtoms( QList<CML::Atom*> list ){
+			m_atoms = list;
+		}
+
+		void setBonds( QList<CML::Bond*> list ){
+			m_bonds = list;
+		}
+
+		void setID( const QString& id ){
+			m_id = id;
+		}
+
+		QString debug();
+
+	private:
+		QList<CML::Atom*> m_atoms;
+		QList<CML::Bond*> m_bonds;
+
+		QString m_id;
 };
 
 class EDUSCIENCE_EXPORT Atom

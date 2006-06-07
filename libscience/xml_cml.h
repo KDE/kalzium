@@ -54,12 +54,18 @@ class EDUSCIENCE_EXPORT CMLParser : public QXmlDefaultHandler
 		
 		QList<CML::Atom*> getAtoms();
 		QList<CML::Bond*> getBonds();
+		
+		CML::Molecule* getMolecule(){
+			return tmp_molecule;
+		}
 
 	private:
 		QList<CML::Atom*> localAtoms;
 		QList<CML::Bond*> localBonds;
 		
 		CML::Bond *tmp_bond;
+		
+		CML::Molecule *tmp_molecule;
 
 		CML::Atom * tmp_atom;		
 };

@@ -18,11 +18,20 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         * 
  ***************************************************************************/
 #include "cmlclasses.h"
-#include <kdebug.h>
+
 using namespace CML;
 
-Molecule::Molecule()
+#include <QDebug>
+
+Molecule::Molecule(){}
+
+QString Molecule::debug()
 {
+	qDebug() << "Molecule " << m_id;
+	foreach( CML::Atom* a, m_atoms )
+		qDebug() << a->debug();
+	foreach( CML::Bond* b, m_bonds )
+		qDebug() << b->debug();
 }
 
 Atom::Atom()
