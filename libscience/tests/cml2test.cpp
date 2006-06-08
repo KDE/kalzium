@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	if ( !xmlFile.open( IO_ReadOnly ) ) 
 		return false;
 	
-	QXmlInputSource source( xmlFile );
+	QXmlInputSource source( &xmlFile );
 	QXmlSimpleReader xmlReader;
 	xmlReader.setContentHandler( handler );
 	xmlReader.parse( source );

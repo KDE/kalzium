@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
 	ElementSaxParser * parser = new ElementSaxParser();
 	QFile xmlFile(argv[1]);
-	QXmlInputSource source(xmlFile);
+	QXmlInputSource source(&xmlFile);
 	QXmlSimpleReader reader;
 
 	reader.setContentHandler(parser);
