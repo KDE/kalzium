@@ -36,6 +36,7 @@
 #include "kalziumgradienttype.h"
 #include "printwidget.h"
 #include "rsdialog.h"
+#include "tablesdialog.h"
 #include "search.h"
 #include "searchwidget.h"
 #include "config-kalzium.h"
@@ -178,6 +179,9 @@ void Kalzium::setupActions()
 	
 	m_pRSAction = new KAction( KIcon( "rs" ), i18n( "&R/S-Phrases..." ), actionCollection(), "tools_rs" );
 	connect( m_pRSAction, SIGNAL( triggered() ), this, SLOT( slotRS() ) );
+	
+	m_pTables = new KAction( KIcon( "tables" ), i18n( "&Tables..." ), actionCollection(), "tools_tables" );
+	connect( m_pTables, SIGNAL( triggered() ), this, SLOT( slotTables() ) );
 
 	// other period view options
 	m_pLegendAction = new KAction( KIcon( "legend" ), i18n( "Show &Legend" ), actionCollection(), "view_legend" );
@@ -267,6 +271,12 @@ void Kalzium::slotRS()
 {
 	RSDialog *rs = new RSDialog( this );
 	rs->show();
+}
+
+void Kalzium::slotTables()
+{
+	TablesDialog *t = new TablesDialog( this );
+	t->show();
 }
 
 void Kalzium::slotShowEQSolver()

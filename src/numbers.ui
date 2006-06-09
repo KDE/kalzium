@@ -1,0 +1,526 @@
+<ui version="4.0" >
+ <author></author>
+ <comment></comment>
+ <exportmacro></exportmacro>
+ <class>Numbers</class>
+ <widget class="QWidget" name="Numbers" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>601</width>
+    <height>506</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" >
+   <property name="margin" >
+    <number>9</number>
+   </property>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item row="0" column="0" >
+    <widget class="QTableWidget" name="tableWidget" >
+     <property name="editTriggers" >
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode" >
+      <enum>QAbstractItemView::NoSelection</enum>
+     </property>
+     <property name="showGrid" >
+      <bool>true</bool>
+     </property>
+     <property name="gridStyle" >
+      <enum>Qt::CustomDashLine</enum>
+     </property>
+     <row>
+      <property name="text" >
+       <string>0.5</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>1</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>1.5</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>2</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>2.5</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>3</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <row>
+      <property name="text" >
+       <string>New Row</string>
+      </property>
+     </row>
+     <column>
+      <property name="text" >
+       <string>Number</string>
+      </property>
+     </column>
+     <column>
+      <property name="text" >
+       <string>Greek</string>
+      </property>
+     </column>
+     <column>
+      <property name="text" >
+       <string>Roman</string>
+      </property>
+     </column>
+     <item row="0" column="0" >
+      <property name="text" >
+       <string>1/2</string>
+      </property>
+     </item>
+     <item row="0" column="1" >
+      <property name="text" >
+       <string>hemi</string>
+      </property>
+     </item>
+     <item row="1" column="0" >
+      <property name="text" >
+       <string>1</string>
+      </property>
+     </item>
+     <item row="1" column="1" >
+      <property name="text" >
+       <string>mono</string>
+      </property>
+     </item>
+     <item row="1" column="2" >
+      <property name="text" >
+       <string>I</string>
+      </property>
+     </item>
+     <item row="2" column="0" >
+      <property name="text" >
+       <string>1.5</string>
+      </property>
+     </item>
+     <item row="2" column="1" >
+      <property name="text" >
+       <string>sesqui</string>
+      </property>
+     </item>
+     <item row="3" column="0" >
+      <property name="text" >
+       <string>2</string>
+      </property>
+     </item>
+     <item row="3" column="1" >
+      <property name="text" >
+       <string>di, bi</string>
+      </property>
+     </item>
+     <item row="3" column="2" >
+      <property name="text" >
+       <string>II</string>
+      </property>
+     </item>
+     <item row="4" column="0" >
+      <property name="text" >
+       <string>2.5</string>
+      </property>
+     </item>
+     <item row="4" column="1" >
+      <property name="text" >
+       <string>hemipenta</string>
+      </property>
+     </item>
+     <item row="5" column="0" >
+      <property name="text" >
+       <string>3</string>
+      </property>
+     </item>
+     <item row="5" column="1" >
+      <property name="text" >
+       <string>tri</string>
+      </property>
+     </item>
+     <item row="5" column="2" >
+      <property name="text" >
+       <string>III</string>
+      </property>
+     </item>
+     <item row="6" column="0" >
+      <property name="text" >
+       <string>4</string>
+      </property>
+     </item>
+     <item row="6" column="1" >
+      <property name="text" >
+       <string>tetra</string>
+      </property>
+     </item>
+     <item row="6" column="2" >
+      <property name="text" >
+       <string>IV</string>
+      </property>
+     </item>
+     <item row="7" column="0" >
+      <property name="text" >
+       <string>5</string>
+      </property>
+     </item>
+     <item row="7" column="1" >
+      <property name="text" >
+       <string>penta</string>
+      </property>
+     </item>
+     <item row="7" column="2" >
+      <property name="text" >
+       <string>V</string>
+      </property>
+     </item>
+     <item row="8" column="0" >
+      <property name="text" >
+       <string>6</string>
+      </property>
+     </item>
+     <item row="8" column="1" >
+      <property name="text" >
+       <string>hexa</string>
+      </property>
+     </item>
+     <item row="8" column="2" >
+      <property name="text" >
+       <string>VI</string>
+      </property>
+     </item>
+     <item row="9" column="0" >
+      <property name="text" >
+       <string>7</string>
+      </property>
+     </item>
+     <item row="9" column="1" >
+      <property name="text" >
+       <string>hepta</string>
+      </property>
+     </item>
+     <item row="9" column="2" >
+      <property name="text" >
+       <string>VII</string>
+      </property>
+     </item>
+     <item row="10" column="0" >
+      <property name="text" >
+       <string>8</string>
+      </property>
+     </item>
+     <item row="10" column="1" >
+      <property name="text" >
+       <string>octa</string>
+      </property>
+     </item>
+     <item row="10" column="2" >
+      <property name="text" >
+       <string>VIII</string>
+      </property>
+     </item>
+     <item row="11" column="0" >
+      <property name="text" >
+       <string>9</string>
+      </property>
+     </item>
+     <item row="11" column="1" >
+      <property name="text" >
+       <string>nona, ennea</string>
+      </property>
+     </item>
+     <item row="11" column="2" >
+      <property name="text" >
+       <string>IX</string>
+      </property>
+     </item>
+     <item row="12" column="0" >
+      <property name="text" >
+       <string>10</string>
+      </property>
+     </item>
+     <item row="12" column="1" >
+      <property name="text" >
+       <string>deca</string>
+      </property>
+     </item>
+     <item row="12" column="2" >
+      <property name="text" >
+       <string>X</string>
+      </property>
+     </item>
+     <item row="13" column="0" >
+      <property name="text" >
+       <string>11</string>
+      </property>
+     </item>
+     <item row="13" column="1" >
+      <property name="text" >
+       <string>hendeca, undeca</string>
+      </property>
+     </item>
+     <item row="13" column="2" >
+      <property name="text" >
+       <string>XI</string>
+      </property>
+     </item>
+     <item row="14" column="0" >
+      <property name="text" >
+       <string>12</string>
+      </property>
+     </item>
+     <item row="14" column="1" >
+      <property name="text" >
+       <string>dodeca</string>
+      </property>
+     </item>
+     <item row="14" column="2" >
+      <property name="text" >
+       <string>XII</string>
+      </property>
+     </item>
+     <item row="15" column="0" >
+      <property name="text" >
+       <string>13</string>
+      </property>
+     </item>
+     <item row="15" column="1" >
+      <property name="text" >
+       <string>trideca</string>
+      </property>
+     </item>
+     <item row="15" column="2" >
+      <property name="text" >
+       <string>XIII</string>
+      </property>
+     </item>
+     <item row="16" column="0" >
+      <property name="text" >
+       <string>14</string>
+      </property>
+     </item>
+     <item row="16" column="1" >
+      <property name="text" >
+       <string>tetradeca</string>
+      </property>
+     </item>
+     <item row="16" column="2" >
+      <property name="text" >
+       <string>XIV</string>
+      </property>
+     </item>
+     <item row="17" column="0" >
+      <property name="text" >
+       <string>15</string>
+      </property>
+     </item>
+     <item row="17" column="1" >
+      <property name="text" >
+       <string>pentadeca</string>
+      </property>
+     </item>
+     <item row="17" column="2" >
+      <property name="text" >
+       <string>XV</string>
+      </property>
+     </item>
+     <item row="18" column="0" >
+      <property name="text" >
+       <string>16</string>
+      </property>
+     </item>
+     <item row="18" column="1" >
+      <property name="text" >
+       <string>hexadeca</string>
+      </property>
+     </item>
+     <item row="18" column="2" >
+      <property name="text" >
+       <string>XVI</string>
+      </property>
+     </item>
+     <item row="19" column="0" >
+      <property name="text" >
+       <string>17</string>
+      </property>
+     </item>
+     <item row="19" column="1" >
+      <property name="text" >
+       <string>heptadeca</string>
+      </property>
+     </item>
+     <item row="19" column="2" >
+      <property name="text" >
+       <string>XVII</string>
+      </property>
+     </item>
+     <item row="20" column="0" >
+      <property name="text" >
+       <string>18</string>
+      </property>
+     </item>
+     <item row="20" column="1" >
+      <property name="text" >
+       <string>octadeca</string>
+      </property>
+     </item>
+     <item row="20" column="2" >
+      <property name="text" >
+       <string>XVII</string>
+      </property>
+     </item>
+     <item row="21" column="0" >
+      <property name="text" >
+       <string>19</string>
+      </property>
+     </item>
+     <item row="21" column="1" >
+      <property name="text" >
+       <string>nonadeca</string>
+      </property>
+     </item>
+     <item row="21" column="2" >
+      <property name="text" >
+       <string>XIV</string>
+      </property>
+     </item>
+     <item row="22" column="0" >
+      <property name="text" >
+       <string>20</string>
+      </property>
+     </item>
+     <item row="22" column="1" >
+      <property name="text" >
+       <string>eicosa</string>
+      </property>
+     </item>
+     <item row="22" column="2" >
+      <property name="text" >
+       <string>XX</string>
+      </property>
+     </item>
+     <item row="23" column="0" >
+      <property name="text" >
+       <string>40</string>
+      </property>
+     </item>
+     <item row="23" column="1" >
+      <property name="text" >
+       <string>tetraconta</string>
+      </property>
+     </item>
+     <item row="23" column="2" >
+      <property name="text" >
+       <string>XL</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <pixmapfunction></pixmapfunction>
+ <resources/>
+ <connections/>
+</ui>

@@ -88,6 +88,7 @@ class Kalzium : public KMainWindow
 		KAction *m_pIsotopeTableAction;
 		KAction *m_pGlossaryAction;
 		KAction *m_pRSAction;
+		KAction *m_pTables;
 		KAction *m_pCrystalViewer;
 		KAction *m_EQSolverAction;
 
@@ -143,6 +144,8 @@ class Kalzium : public KMainWindow
 		 * show the R/S-phrases
 		 */
 		void slotRS();
+		
+		void slotTables();
 		
 		void slotSwitchtoLook( int );
 		void slotSwitchtoNumeration(int);
