@@ -13,6 +13,9 @@
  ***************************************************************************/
 #include "moleculeview.h"
 
+#include <kdebug.h>
+#include <klocale.h>
+
 #include <QVBoxLayout>
 
 MoleculeWidget::MoleculeWidget( QWidget * parent )
@@ -52,10 +55,15 @@ void MoleculeWidget::resizeGL( int width, int height )
 }
 
 MoleculeDialog::MoleculeDialog( QWidget * parent )
-	: KDialog( parent )
+	: KDialog( parent ,
+	i18n( "Molecular Viewer" ),
+	Help|Close )
 {
-	MoleculeWidget * w = new MoleculeWidget( this );
-	QVBoxLayout * vbox = new QVBoxLayout( this );
+	QWidget * dummy = new QWidget();
+	setMainWidget( dummy );
+
+	MoleculeWidget * w = new MoleculeWidget( dummy );
+	QVBoxLayout * vbox = new QVBoxLayout( dummy );
 	vbox->addWidget( w );
 }
 
