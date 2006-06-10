@@ -56,7 +56,6 @@ kde4_add_ui_files(kalzium_SRCS
    settings_misc.ui
    settings_units.ui
    rswidget.ui
-   numbers.ui
 )
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )

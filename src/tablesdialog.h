@@ -15,7 +15,6 @@
  ***************************************************************************/
 
 #include <kdialogbase.h>
-#include "ui_numbers.h"
 
 /**
  * @author Carsten Niehaus
@@ -27,6 +26,9 @@ class TablesDialog : public KDialogBase
 	public:
 		TablesDialog( QWidget *parent = 0 );
 		virtual ~TablesDialog();
+
+		void createNumbersTable();
+		void createGreekSymbolTable();
  
 };
 
