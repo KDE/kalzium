@@ -39,6 +39,7 @@
 #include "tablesdialog.h"
 #include "search.h"
 #include "searchwidget.h"
+#include "moleculeview.h"
 #include "config-kalzium.h"
 #ifdef HAVE_FACILE
 //#include "eqchemview.h"
@@ -180,6 +181,9 @@ void Kalzium::setupActions()
 	m_pRSAction = new KAction( KIcon( "rs" ), i18n( "&R/S-Phrases..." ), actionCollection(), "tools_rs" );
 	connect( m_pRSAction, SIGNAL( triggered() ), this, SLOT( slotRS() ) );
 	
+	m_pMoleculesviewer = new KAction( KIcon( "rs" ), i18n( "Moleculesviewer..." ), actionCollection(), "tools_rs" );
+	connect( m_pMoleculesviewer, SIGNAL( triggered() ), this, SLOT( slotMoleculeviewer() ) );
+	
 	m_pTables = new KAction( KIcon( "tables" ), i18n( "&Tables..." ), actionCollection(), "tools_tables" );
 	connect( m_pTables, SIGNAL( triggered() ), this, SLOT( slotTables() ) );
 
@@ -271,6 +275,11 @@ void Kalzium::slotRS()
 {
 	RSDialog *rs = new RSDialog( this );
 	rs->show();
+}
+
+void Kalzium::slotMoleculeviewer()
+{
+	MoleculeDialog * d = new MoleculeDialog( this ); d->show();
 }
 
 void Kalzium::slotTables()

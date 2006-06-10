@@ -20,6 +20,7 @@
     <Action name="tools_crystalviewer" />
     <Action name="tools_rs" />
     <Action name="tools_tables" />
+    <Action name="tools_moleculeviewer" />
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
   </Menu>
