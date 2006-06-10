@@ -27,8 +27,6 @@
 #include <QHeaderView>
 #include <QTableWidget>
 
-#include "ui_numbers.h"
-
 TablesDialog::TablesDialog( QWidget *parent )
     : KDialogBase( IconList, 
 			"tablesdialog", 
