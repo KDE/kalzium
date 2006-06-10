@@ -40,6 +40,7 @@ set(kalzium_SRCS
    search.cpp
    searchwidget.cpp
    rsdialog.cpp
+   moleculeview.cpp
 )
 
 kde4_automoc(${kalzium_SRCS})
@@ -62,7 +63,7 @@ kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
 kde4_add_executable(kalzium ${kalzium_SRCS})
 
-target_link_libraries(kalzium ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} science kdeeduplot kdeeduui)
+target_link_libraries(kalzium ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} ${QT_QTOPENGL_LIBRARY} science kdeeduplot kdeeduui)
 
 install_targets(/bin kalzium )
 
