@@ -52,7 +52,6 @@ if(OPENBABEL2_FOUND)
 		${kalzium_SRCS}
    		moleculeview.cpp
 	)
-	target_link_libraries( kalzium ${OPENBABEL2} )
 endif(OPENBABEL2_FOUND)
 
 kde4_automoc(${kalzium_SRCS})
@@ -76,6 +75,9 @@ kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 kde4_add_executable(kalzium ${kalzium_SRCS})
 
 target_link_libraries(kalzium ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} ${QT_QTOPENGL_LIBRARY} science kdeeduplot kdeeduui)
+if (OPENBABEL2_FOUND)
+   target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
+endif (OPENBABEL2_FOUND)
 
 install_targets(/bin kalzium )
 
