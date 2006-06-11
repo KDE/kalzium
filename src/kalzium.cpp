@@ -181,8 +181,11 @@ void Kalzium::setupActions()
 	m_pRSAction = new KAction( KIcon( "rs" ), i18n( "&R/S-Phrases..." ), actionCollection(), "tools_rs" );
 	connect( m_pRSAction, SIGNAL( triggered() ), this, SLOT( slotRS() ) );
 	
-	m_pMoleculesviewer = new KAction( KIcon( "rs" ), i18n( "Moleculesviewer..." ), actionCollection(), "tools_rs" );
+	m_pMoleculesviewer = new KAction( KIcon( "moleculeviewer" ), i18n( "Moleculeviewer..." ), actionCollection(), "tools_moleculeviewer" );
 	connect( m_pMoleculesviewer, SIGNAL( triggered() ), this, SLOT( slotMoleculeviewer() ) );
+#ifndef HAVE_OPENBABEL2
+	m_pMoleculesviewer->setEnabled( false );
+#endif
 	
 	m_pTables = new KAction( KIcon( "tables" ), i18n( "&Tables..." ), actionCollection(), "tools_tables" );
 	connect( m_pTables, SIGNAL( triggered() ), this, SLOT( slotTables() ) );
@@ -279,7 +282,9 @@ void Kalzium::slotRS()
 
 void Kalzium::slotMoleculeviewer()
 {
+#ifdef HAVE_OPENBABEL2
 	MoleculeDialog * d = new MoleculeDialog( this ); d->show();
+#endif
 }
 
 void Kalzium::slotTables()
