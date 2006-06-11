@@ -26,26 +26,26 @@ MoleculeWidget::MoleculeWidget( QWidget * parent )
 	: KalziumGLWidget( parent )
 {
 	setMinimumSize( 100,100 );
-//this is how to use OpenBabel
-	OpenBabel::OBAtom *atom;
-	FOR_NBORS_OF_ATOM( nbr, atom )
-	{
-		double x,y,z;
-		x = atom->GetX();
-		y = atom->GetY();
-		z = atom->GetZ();
-	}
-
-	FOR_BONDS_OF_ATOM( bonds, bond )
-	{
-		atom = bond->GetBeginAtom();
-		if ( bond->isTripple() )//draw three lines
-		{}
-		if ( bond->isDouble() )//draw two lines
-		{}
-		if ( bond->isSingle() )//one line
-		{}
-	}
+//X //this is how to use OpenBabel
+//X 	OpenBabel::OBAtom *atom;
+//X 	FOR_NBORS_OF_ATOM( nbr, atom )
+//X 	{
+//X 		double x,y,z;
+//X 		x = atom->GetX();
+//X 		y = atom->GetY();
+//X 		z = atom->GetZ();
+//X 	}
+//X 
+//X 	FOR_BONDS_OF_ATOM( bonds, bond )
+//X 	{
+//X 		atom = bond->GetBeginAtom();
+//X 		if ( bond->isTripple() )//draw three lines
+//X 		{}
+//X 		if ( bond->isDouble() )//draw two lines
+//X 		{}
+//X 		if ( bond->isSingle() )//one line
+//X 		{}
+//X 	}
 }
 
 MoleculeWidget::~MoleculeWidget()
