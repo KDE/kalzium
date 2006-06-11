@@ -17,6 +17,8 @@
 #include <kdialog.h>
 #include <QGLWidget>
 
+class QListWidget;
+
 class MoleculeWidget : public QGLWidget
 {
 	Q_OBJECT
@@ -34,10 +36,19 @@ class MoleculeWidget : public QGLWidget
 		  GLuint object;
 };
 
+/**
+ * @author Carsten Niehaus
+ */
 class MoleculeDialog : public KDialog
 {
 	public:
 		MoleculeDialog( QWidget  * parent );
 		~MoleculeDialog();
+
+	private:
+		QListWidget * m_listView;
+		MoleculeWidget *m_moleculeWidget;
+
+		void fillList();
 };
 #endif // MOLECULEVIEW_H

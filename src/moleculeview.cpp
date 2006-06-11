@@ -14,13 +14,19 @@
 #include "moleculeview.h"
 
 #include <kdebug.h>
+#include <kurl.h>
 #include <klocale.h>
+#include <kfiledialog.h>
 
 #include <QVBoxLayout>
+#include <QListWidget>
+#include <QPushButton>
 
 MoleculeWidget::MoleculeWidget( QWidget * parent )
 	: QGLWidget( parent )
 {
+	initializeGL();
+	setMinimumSize( 100,100 );
 }
 
 MoleculeWidget::~MoleculeWidget()
@@ -29,7 +35,7 @@ MoleculeWidget::~MoleculeWidget()
 		
 void MoleculeWidget::initializeGL()
 {
-	qglClearColor( Qt::white );
+	qglClearColor( Qt::red );
 	glShadeModel( GL_FLAT );
 	glEnable( GL_DEPTH_TEST );
 	glEnable( GL_CULL_FACE );
@@ -62,9 +68,40 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	QWidget * dummy = new QWidget();
 	setMainWidget( dummy );
 
-	MoleculeWidget * w = new MoleculeWidget( dummy );
-	QVBoxLayout * vbox = new QVBoxLayout( dummy );
-	vbox->addWidget( w );
+	QHBoxLayout * hbox = new QHBoxLayout;
+	QVBoxLayout * vbox = new QVBoxLayout;
+	m_moleculeWidget = new MoleculeWidget( dummy );
+	m_listView = new QListWidget( );
+
+	hbox->addLayout( vbox );
+	hbox->addWidget( m_moleculeWidget );
+	vbox->addWidget( m_listView );
+	dummy->setLayout( hbox );
+
+	fillList();
+}
+
+void MoleculeDialog::fillList()
+{
+//X 	KUrl url = KFileDialog::getOpenURL( "/home/", "*.cml", 0, "Select a folder" );
+//X 	QString path = url.path();
+//X 
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
+//X 	m_listView->addItem( path );
 }
 
 MoleculeDialog::~MoleculeDialog( )
