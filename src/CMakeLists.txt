@@ -6,6 +6,11 @@ include_directories(
    ${CMAKE_CURRENT_BINARY_DIR}/..
 )
 
+if(OPENBABEL2_FOUND)
+	include_directories( ${OPENBABEL2_INCLUDE_DIR} )
+end(OPENBABEL2_FOUND)
+
+#why???
 add_definitions(-D_ISOC99_SOURCE)
 
 ########### next target ###############
@@ -39,9 +44,16 @@ set(kalzium_SRCS
    search.cpp
    searchwidget.cpp
    rsdialog.cpp
-   moleculeview.cpp
    kalziumglwidget.cpp
 )
+
+if(OPENBABEL2_FOUND)
+	set( kalzium_SRCS
+		${kalzium_SRCS}
+   		moleculeview.cpp
+	)
+	target_link_libraries( kalzium ${OPENBABEL2} )
+endif(OPENBABEL2_FOUND)
 
 kde4_automoc(${kalzium_SRCS})
 

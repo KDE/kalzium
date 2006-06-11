@@ -17,10 +17,35 @@
 #include <QMouseEvent>
 #include <QLayout>
 #include <QListWidget>
+
+//includes for OpenBabel2
+#include <openbabel/obiter.h>
+#include <openbabel/mol.h>
+
 MoleculeWidget::MoleculeWidget( QWidget * parent )
 	: KalziumGLWidget( parent )
 {
 	setMinimumSize( 100,100 );
+//this is how to use OpenBabel
+	OBAtom *atom;
+	FOR_NBORS_OF_ATOM( nbr, atom )
+	{
+		double x,y,z;
+		x = atom->GetX();
+		y = atom->GetY();
+		z = atom->GetZ();
+	}
+
+	FOR_BONDS_OF_ATOM( bonds, bond )
+	{
+		atom = bond->GetBeginAtom();
+		if ( bond->isTripple() )//draw three lines
+		{}
+		if ( bond->isDouble() )//draw two lines
+		{}
+		if ( bond->isSingle() )//one line
+		{}
+	}
 }
 
 MoleculeWidget::~MoleculeWidget()
