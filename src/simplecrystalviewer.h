@@ -21,8 +21,7 @@
  ***************************************************************************/
 
 #include <kdialog.h>
-
-class AnimatedMovieWidget;
+class KalziumGLWidget;
 
 class SimpleCrystalViewer : public KDialog
 {
@@ -35,9 +34,7 @@ class SimpleCrystalViewer : public KDialog
 		void slotCrystalChanged( const QString& );
 
 	private:
-		QString m_basePath;
-		AnimatedMovieWidget *m_movie;
-
+		KalziumGLWidget *m_glWidget;
 };
 
 

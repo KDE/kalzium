@@ -28,7 +28,6 @@ set(kalzium_SRCS
    exporter.cpp
    spectrumviewimpl.cpp
    kalziumutils.cpp
-   animatedmoviewidget.cpp
    simplecrystalviewer.cpp
    kalziumgradienttype.cpp
    kalziumnumerationtype.cpp

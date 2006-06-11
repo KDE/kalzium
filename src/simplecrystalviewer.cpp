@@ -31,7 +31,7 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 
-#include "animatedmoviewidget.h"
+#include "kalziumglwidget.h"
 
 SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 	: KDialog( parent, i18n( "Simple Crystal Viewer" ), Close )
@@ -53,30 +53,14 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 	vlay->addWidget( combo );
 	vlay->addItem( new QSpacerItem( 5, 5, QSizePolicy::Fixed, QSizePolicy::Expanding ) );
 
-	m_movie = new AnimatedMovieWidget( page );
-	hlay->addWidget( m_movie );
+	m_glWidget = new KalziumGLWidget( page );
+	hlay->addWidget( m_glWidget );
 
 	connect( combo, SIGNAL( activated( const QString& ) ), this, SLOT( slotCrystalChanged( const QString& ) ) );
-
-	m_basePath = KGlobal::dirs()->findResourceDir( "appdata", "data/lattice/" ) + "data/lattice/";
-
-	QDir dir( m_basePath );
-	dir.setFilter( QDir::Dirs | QDir::NoDotAndDotDot );
-	QStringList tmplist = dir.entryList();
-
-	for ( int i = 0; i < tmplist.size(); i++ )
-	{
-		QFileInfo fi( m_basePath + tmplist.at( i ) );
-		if ( fi.isDir() )
-			combo->addItem( tmplist.at( i ) );
-	}
-
-	slotCrystalChanged( combo->itemText( 0 ) );
 }
 
 void SimpleCrystalViewer::slotCrystalChanged( const QString& which )
 {
-	m_movie->setPicturePath( m_basePath + which );
 }
 
 #include "simplecrystalviewer.moc"
