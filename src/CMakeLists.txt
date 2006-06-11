@@ -8,7 +8,7 @@ include_directories(
 
 if(OPENBABEL2_FOUND)
 	include_directories( ${OPENBABEL2_INCLUDE_DIR} )
-end(OPENBABEL2_FOUND)
+endif(OPENBABEL2_FOUND)
 
 #why???
 add_definitions(-D_ISOC99_SOURCE)
