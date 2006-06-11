@@ -19,15 +19,15 @@
 #include <QListWidget>
 
 //includes for OpenBabel2
-#include <openbabel/obiter.h>
 #include <openbabel/mol.h>
+#include <openbabel/obiter.h>
 
 MoleculeWidget::MoleculeWidget( QWidget * parent )
 	: KalziumGLWidget( parent )
 {
 	setMinimumSize( 100,100 );
 //this is how to use OpenBabel
-	OBAtom *atom;
+	OpenBabel::OBAtom *atom;
 	FOR_NBORS_OF_ATOM( nbr, atom )
 	{
 		double x,y,z;
