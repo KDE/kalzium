@@ -15,7 +15,10 @@
 #define MOLECULEVIEW_H
 
 #include <kdialog.h>
-#include <QGLWidget>
+#include <kdebug.h>
+#include <klocale.h>
+
+#include "kalziumglwidget.h"
 
 #define SPHERE_TESSELATE_SLICES	30
 #define SPHERE_TESSELATE_STACKS	30
@@ -26,17 +29,12 @@ class QListWidget;
  * This class displays the 3D-view of a molecule
  * @autor Benoit Jacobs
  */
-class MoleculeWidget : public QGLWidget
+class MoleculeWidget : public KalziumGLWidget
 {
 	Q_OBJECT
 
 	protected:
 		GLuint sphereDisplayList;
-	
-/*		struct VertexArrayEntry {
-			float nx, ny, nz, vx, vy, vz;
-		};
-*/
 
 		bool isDragging;
 		QPoint lastDraggingPosition;
@@ -54,40 +52,40 @@ class MoleculeWidget : public QGLWidget
 		 */
 		virtual ~MoleculeWidget();
 
-	protected:
-		/**
-		 * This method initilized OpenGL
-		 */
-		void initializeGL();
-		void paintGL();
-		void resizeGL( int width, int height );
-		void mousePressEvent( QMouseEvent * event );
-		void mouseReleaseEvent( QMouseEvent * event );
-		void mouseMoveEvent( QMouseEvent * event );
-
-		/**
-		 * This method...
-		 */
-		void drawGenericSphere();
-		
-		/**
-		 * This method...
-		 * @param x
-		 * @param y
-		 * @param z
-		 * @param radius
-		 * @param red
-		 * @param green
-		 * @param blue
-		 */
-		void drawSphere( 
-				GLdouble x, 
-				GLdouble y, 
-				GLdouble z, 
-				GLdouble radius,
-				GLfloat red, 
-				GLfloat green, 
-				GLfloat blue );
+//X 	protected:
+//X 		/**
+//X 		 * This method initilized OpenGL
+//X 		 */
+//X 		void initializeGL();
+//X 		void paintGL();
+//X 		void resizeGL( int width, int height );
+//X 		void mousePressEvent( QMouseEvent * event );
+//X 		void mouseReleaseEvent( QMouseEvent * event );
+//X 		void mouseMoveEvent( QMouseEvent * event );
+//X 
+//X 		/**
+//X 		 * This method...
+//X 		 */
+//X 		void drawGenericSphere();
+//X 		
+//X 		/**
+//X 		 * This method...
+//X 		 * @param x
+//X 		 * @param y
+//X 		 * @param z
+//X 		 * @param radius
+//X 		 * @param red
+//X 		 * @param green
+//X 		 * @param blue
+//X 		 */
+//X 		void drawSphere( 
+//X 				GLdouble x, 
+//X 				GLdouble y, 
+//X 				GLdouble z, 
+//X 				GLdouble radius,
+//X 				GLfloat red, 
+//X 				GLfloat green, 
+//X 				GLfloat blue );
 };
 
 /**
