@@ -5,7 +5,6 @@ add_subdirectory(hazardsymbols)
 add_subdirectory(htmlview)
 add_subdirectory(icons)
 add_subdirectory(iconsets)
-add_subdirectory(lattice)
 add_subdirectory(toolpics)
 
 
