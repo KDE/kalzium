@@ -113,12 +113,24 @@ void KalziumGLWidget::paintGL()
 			r = 1.0;
 			g = 1.0;
 			b = 0.0;
-		}//almost black
+		}
 		else if ( a->IsCarbon() )
+		{//almost black
+			r = 0.19;
+			g = 0.19;
+			b = 0.19;
+		}
+		else if ( a->IsNitrogen() )
 		{
-			r = 0.95;
-			g = 0.95;
-			b = 0.95;
+			r = 1.0;
+			g = 0.9;
+			b = 0.5;
+		}
+		else if ( a->IsHydrogen() )
+		{//white
+			r = 1.0;
+			g = 1.0;
+			b = 1.0;
 		}
 		
 		double radius = 1.0;

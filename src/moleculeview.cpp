@@ -29,7 +29,7 @@
 MoleculeWidget::MoleculeWidget( QWidget * parent )
 	: KalziumGLWidget( parent )
 {
-	setMinimumSize( 100,100 );
+	setMinimumSize( 300,100 );
 }
 
 MoleculeWidget::~MoleculeWidget()
