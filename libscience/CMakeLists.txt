@@ -15,8 +15,6 @@ set(science_LIB_SRCS
    chemicaldataobject.cpp
    moleculeparser.cpp
    parser.cpp
-   xml_cml.cpp
-   cmlclasses.cpp
 )
 
 kde4_automoc(${science_LIB_SRCS})

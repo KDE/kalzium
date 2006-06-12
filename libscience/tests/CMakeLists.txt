@@ -25,17 +25,6 @@ target_link_libraries(xmlreadingtest  ${KDE4_KDECORE_LIBS} science )
 
 #target_link_libraries(isotopereadingtest  ${KDE4_KDECORE_LIBS} science )
 
-########### next target ###############
-
-set(cml2test_SRCS cml2test.cpp )
-
-kde4_automoc(${cml2test_SRCS})
-
-kde4_add_executable(cml2test ${cml2test_SRCS})
-
-target_link_libraries(cml2test  ${KDE4_KDECORE_LIBS} science )
-
-
 endif(KDE4_BUILD_TESTS)
 
 
