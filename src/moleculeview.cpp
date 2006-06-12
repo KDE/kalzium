@@ -51,6 +51,11 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	QHBoxLayout * hbox = new QHBoxLayout;
 	QVBoxLayout * vbox = new QVBoxLayout;
 	m_moleculeWidget = new MoleculeWidget( dummy );
+	
+	//TODO make the filename not fixed. But for that I need much more
+	//stuff done. This way Benoit and I can at least test real files.
+	m_moleculeWidget->slotSetMolecule( OpenBabel2Wrapper::readMolecule( "/home/carsten/test.cml" ) );
+
 	m_listView = new QListWidget( );
 
 	//The load-button

@@ -15,8 +15,15 @@
 
 #include <kdebug.h>
 
+
 #include <QMouseEvent>
 #include <QListWidget>
+
+#include "openbabel2wrapper.h"
+#include <openbabel/mol.h>
+#include <openbabel/obiter.h>
+
+using namespace OpenBabel;
 
 KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	: QGLWidget( parent )
@@ -77,13 +84,21 @@ void KalziumGLWidget::initializeGL()
 
 void KalziumGLWidget::paintGL()
 {
+	if ( !m_molecule )
+		return;
+	
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	glLoadIdentity();
 	glTranslated( 0.0, 0.0, -12.0);
 	glMultMatrixd( RotationMatrix );
-	drawSphere(1.0, -1.0, -2.0, 1.5, 1.0, 0.0, 0.0);
-	drawSphere(-2.0, 1.0, 1.0, 2.5, 0.0, 1.0, 0.0);
-	drawSphere(2.0, 0.5, 0.0, 1.0, 0.0, 0.0, 1.0);
+
+	FOR_ATOMS_OF_MOL( a, m_molecule )
+	{
+		GLdouble x = ( GLdouble )a->GetX();
+		GLdouble y = ( GLdouble )a->GetY();
+		GLdouble z = ( GLdouble )a->GetZ();
+		drawSphere(x,y,z,1.0, 1.0, 0.0, 0.0);
+	}
 }
 
 void KalziumGLWidget::resizeGL( int width, int height )
