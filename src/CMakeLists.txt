@@ -33,7 +33,6 @@ set(kalzium_SRCS
    exporter.cpp
    spectrumviewimpl.cpp
    kalziumutils.cpp
-   simplecrystalviewer.cpp
    kalziumgradienttype.cpp
    kalziumnumerationtype.cpp
    kalziumpainter.cpp
@@ -44,16 +43,17 @@ set(kalzium_SRCS
    search.cpp
    searchwidget.cpp
    rsdialog.cpp
-   kalziumglwidget.cpp
 )
 
-if(OPENBABEL2_FOUND)
+if(OPENBABEL2_FOUND AND OPENGL_FOUND)
 	set( kalzium_SRCS
 		${kalzium_SRCS}
    		moleculeview.cpp
+		simplecrystalviewer.cpp
+		kalziumglwidget.cpp
 		openbabel2wrapper.cpp
 	)
-endif(OPENBABEL2_FOUND)
+endif(OPENBABEL2_FOUND AND OPENGL_FOUND)
 
 kde4_automoc(${kalzium_SRCS})
 
@@ -75,10 +75,11 @@ kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
 kde4_add_executable(kalzium ${kalzium_SRCS})
 
-target_link_libraries(kalzium ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} ${QT_QTOPENGL_LIBRARY} science kdeeduplot kdeeduui)
-if (OPENBABEL2_FOUND)
-   target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
-endif (OPENBABEL2_FOUND)
+target_link_libraries(kalzium ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} science kdeeduplot kdeeduui)
+
+if (OPENBABEL2_FOUND AND OPENGL_FOUND)
+   target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY})
+endif (OPENBABEL2_FOUND AND OPENGL_FOUND)
 
 install_targets(/bin kalzium )
 

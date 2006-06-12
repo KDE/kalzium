@@ -177,6 +177,12 @@ void Kalzium::setupActions()
 	connect( m_pGlossaryAction, SIGNAL( triggered() ), this, SLOT( slotGlossary() ) );
 	m_pCrystalViewer = new KAction( KIcon( "crystal" ), i18n( "&Crystal Viewer..." ), actionCollection(), "tools_crystalviewer" );
 	connect( m_pCrystalViewer, SIGNAL( triggered() ), this, SLOT( slotCrystalViewer() ) );
+#ifndef HAVE_OPENBABEL2
+	m_pCrystalViewer->setEnabled( false );
+#endif
+#ifndef HAVE_OPENGL
+	m_pCrystalViewer->setEnabled( false );
+#endif
 	
 	m_pRSAction = new KAction( KIcon( "rs" ), i18n( "&R/S-Phrases..." ), actionCollection(), "tools_rs" );
 	connect( m_pRSAction, SIGNAL( triggered() ), this, SLOT( slotRS() ) );
@@ -184,6 +190,9 @@ void Kalzium::setupActions()
 	m_pMoleculesviewer = new KAction( KIcon( "moleculeviewer" ), i18n( "Moleculeviewer..." ), actionCollection(), "tools_moleculeviewer" );
 	connect( m_pMoleculesviewer, SIGNAL( triggered() ), this, SLOT( slotMoleculeviewer() ) );
 #ifndef HAVE_OPENBABEL2
+	m_pMoleculesviewer->setEnabled( false );
+#endif
+#ifndef HAVE_OPENGL
 	m_pMoleculesviewer->setEnabled( false );
 #endif
 	
@@ -282,8 +291,10 @@ void Kalzium::slotRS()
 
 void Kalzium::slotMoleculeviewer()
 {
-#ifdef HAVE_OPENBABEL2
+#ifdef HAVE_OPENBABEL2 
+#ifdef HAVE_OPENGL
 	MoleculeDialog * d = new MoleculeDialog( this ); d->show();
+#endif
 #endif
 }
 
@@ -303,8 +314,12 @@ void Kalzium::slotShowEQSolver()
 
 void Kalzium::slotCrystalViewer()
 {
+#ifdef HAVE_OPENBABEL2 
+#ifdef HAVE_OPENGL
 	SimpleCrystalViewer *dlg = new SimpleCrystalViewer( this );
 	dlg->show();
+#endif
+#endif
 }
 
 void Kalzium::slotIsotopeTable()
