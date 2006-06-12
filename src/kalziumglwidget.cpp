@@ -22,6 +22,8 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	: QGLWidget( parent )
 {
 	sphereDisplayList = 0;
+	m_molecule = 0;
+	m_detail = 2;
 	isDragging = false;
 	
 	setMinimumSize( 100,100 );
@@ -163,6 +165,16 @@ void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z, GLdouble r
 	glScaled( radius, radius, radius);
 	drawGenericSphere();
 	glPopMatrix();
+}
+
+void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
+{
+	m_molecule = molecule;
+}
+
+void KalziumGLWidget::slotSetDetail( int detail )
+{
+	m_detail = detail;
 }
 
 #include "kalziumglwidget.moc"

@@ -12,6 +12,11 @@
  *                                                                         *
  ***************************************************************************/
 #include <kdebug.h>
+#include <kcombobox.h>
+#include <klocale.h>
+#include <kpushbutton.h>
+#include <kfiledialog.h>
+
 #include "moleculeview.h"
 #include "openbabel2wrapper.h"
 
@@ -19,7 +24,7 @@
 #include <QMouseEvent>
 #include <QLayout>
 #include <QListWidget>
-#include <QMessageBox>
+#include <QFileDialog>
 
 MoleculeWidget::MoleculeWidget( QWidget * parent )
 	: KalziumGLWidget( parent )
@@ -30,35 +35,6 @@ MoleculeWidget::MoleculeWidget( QWidget * parent )
 MoleculeWidget::~MoleculeWidget()
 {
 }
-//X 
-//X void MoleculeWidget::initializeGL()
-//X {
-//X }
-//X 
-//X void MoleculeWidget::paintGL()
-//X {
-//X }
-//X 
-//X void MoleculeWidget::resizeGL( int width, int height )
-//X {
-//X }
-//X 
-//X void MoleculeWidget::mousePressEvent( QMouseEvent * event )
-//X {
-//X }
-//X 
-//X void MoleculeWidget::mouseReleaseEvent( QMouseEvent * event )
-//X {
-//X }
-//X 
-//X void MoleculeWidget::mouseMoveEvent( QMouseEvent * event )
-//X {
-//X }
-//X 
-//X void MoleculeWidget::drawGenericSphere()
-//X {
-//X }
-
 /////////MoleculeDialog/////////
 
 MoleculeDialog::MoleculeDialog( QWidget * parent )
@@ -70,23 +46,52 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	QWidget * dummy = new QWidget();
 	setMainWidget( dummy );
 
+	m_path = QString( "" );
+
 	QHBoxLayout * hbox = new QHBoxLayout;
 	QVBoxLayout * vbox = new QVBoxLayout;
 	m_moleculeWidget = new MoleculeWidget( dummy );
 	m_listView = new QListWidget( );
 
+	//The load-button
+	m_loadButton = new KPushButton( i18n("&Load molecule"), this );
+	connect( m_loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
+	
+	//The detail comboxbox
+	m_detailCombobox = new KComboBox();
+	m_detailCombobox->addItem( i18n( "Low Detail" ) );
+	m_detailCombobox->addItem( i18n( "Medium Detail" ) );
+	m_detailCombobox->addItem( i18n( "High Detail" ) );
+	connect( m_detailCombobox, SIGNAL(activated( int )), m_moleculeWidget, SLOT( slotSetDetail( int ) ) );
+
 	hbox->addLayout( vbox );
 	hbox->addWidget( m_moleculeWidget );
 	vbox->addWidget( m_listView );
+	vbox->addWidget( m_detailCombobox );
+	vbox->addWidget( m_loadButton );
 	dummy->setLayout( hbox );
-
-	OpenBabel2Wrapper::readMolecule( "/home/carsten/test.cml" );
 
 	fillList();
 }
 
+void MoleculeDialog::slotLoadMolecule()
+{
+	QString filename = m_listView->currentItem()->text();
+	filename.prepend( m_path );
+	
+	kDebug() << "Filename to load: " << filename << endl;
+//X 	
+//X 	m_moleculeWidget->slotSetMolecule( OpenBabel2Wrapper::readMolecule( filename ) );
+}
+
 void MoleculeDialog::fillList()
 {
+//X 	QString s = KFileDialog::getExistingDirectory( 
+//X 			"/home",
+//X 			this,
+//X 			"Choose a directory" );
+//X 
+//X 	m_path = s;
 }
 
 MoleculeDialog::~MoleculeDialog( )

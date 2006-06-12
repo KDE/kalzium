@@ -19,6 +19,8 @@
 #define SPHERE_TESSELATE_SLICES	30
 #define SPHERE_TESSELATE_STACKS	30
 
+#include <openbabel/mol.h>
+
 /**
  * This class displays the 3D-view of a molecule
  * 
@@ -51,6 +53,19 @@ class KalziumGLWidget : public QGLWidget
 		 * Destructor
 		 */
 		virtual ~KalziumGLWidget();
+
+	public slots:
+		/**
+		 * sets the molecule which will be displayed
+		 * @param molecule the molecule to render
+		 */
+		void slotSetMolecule( OpenBabel::OBMol* molecule );
+		
+		/**
+		 * Sets the detail-grade in a range from 0 to 2
+		 *  @param detail the detail-grade of the rendering. 0 is low, 2 is high
+		 */
+		void slotSetDetail( int detail );
 
 	protected:
 		/**
@@ -86,5 +101,15 @@ class KalziumGLWidget : public QGLWidget
 				GLfloat red, 
 				GLfloat green, 
 				GLfloat blue );
+
+		/**
+		 * The molecule which is displayed
+		 */
+		OpenBabel::OBMol* m_molecule;
+
+		/**
+		 * The detail-grade from 0 to 2
+		 */
+		int m_detail;
 };
 #endif // KALZIUMGLWIDGET_H

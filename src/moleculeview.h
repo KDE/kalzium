@@ -15,10 +15,11 @@
 #define MOLECULEVIEW_H
 
 #include <kdialog.h>
-#include <kdebug.h>
-#include <klocale.h>
 
 #include "kalziumglwidget.h"
+
+class KComboBox;
+class KPushButton;
 
 #define SPHERE_TESSELATE_SLICES	30
 #define SPHERE_TESSELATE_STACKS	30
@@ -51,41 +52,6 @@ class MoleculeWidget : public KalziumGLWidget
 		 * Destructor
 		 */
 		virtual ~MoleculeWidget();
-
-//X 	protected:
-//X 		/**
-//X 		 * This method initilized OpenGL
-//X 		 */
-//X 		void initializeGL();
-//X 		void paintGL();
-//X 		void resizeGL( int width, int height );
-//X 		void mousePressEvent( QMouseEvent * event );
-//X 		void mouseReleaseEvent( QMouseEvent * event );
-//X 		void mouseMoveEvent( QMouseEvent * event );
-//X 
-//X 		/**
-//X 		 * This method...
-//X 		 */
-//X 		void drawGenericSphere();
-//X 		
-//X 		/**
-//X 		 * This method...
-//X 		 * @param x
-//X 		 * @param y
-//X 		 * @param z
-//X 		 * @param radius
-//X 		 * @param red
-//X 		 * @param green
-//X 		 * @param blue
-//X 		 */
-//X 		void drawSphere( 
-//X 				GLdouble x, 
-//X 				GLdouble y, 
-//X 				GLdouble z, 
-//X 				GLdouble radius,
-//X 				GLfloat red, 
-//X 				GLfloat green, 
-//X 				GLfloat blue );
 };
 
 /**
@@ -93,15 +59,24 @@ class MoleculeWidget : public KalziumGLWidget
  */
 class MoleculeDialog : public KDialog
 {
+	Q_OBJECT
+
 	public:
 		MoleculeDialog( QWidget  * parent );
 		~MoleculeDialog();
 
 	private:
+		QString m_path;///to store the path were the molecules are located
+		
 		QListWidget * m_listView;
 		MoleculeWidget *m_moleculeWidget;
+		KComboBox *m_detailCombobox;
+		KPushButton* m_loadButton;
 
 		void fillList();
+
+	public slots:
+		void slotLoadMolecule();
 };
 
 #endif // MOLECULEVIEW_H
