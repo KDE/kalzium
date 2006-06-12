@@ -97,7 +97,35 @@ void KalziumGLWidget::paintGL()
 		GLdouble x = ( GLdouble )a->GetX();
 		GLdouble y = ( GLdouble )a->GetY();
 		GLdouble z = ( GLdouble )a->GetZ();
-		drawSphere(x,y,z,1.0, 1.0, 0.0, 0.0);
+
+		double r = 0.5;
+		double g = 0.5;
+		double b = 0.5;
+
+		if ( a->IsOxygen() )
+		{//red
+			r = 1.0;
+			g = 0.0;
+			b = 0.0;
+		}
+		else if ( a->IsSulfur() )
+		{//yellow
+			r = 1.0;
+			g = 1.0;
+			b = 0.0;
+		}//almost black
+		else if ( a->IsCarbon() )
+		{
+			r = 0.95;
+			g = 0.95;
+			b = 0.95;
+		}
+		
+		double radius = 1.0;
+		drawSphere(
+				x, y, z,
+				radius, 
+				r, g, b);
 	}
 }
 
