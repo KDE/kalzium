@@ -51,6 +51,7 @@ if(OPENBABEL2_FOUND)
 	set( kalzium_SRCS
 		${kalzium_SRCS}
    		moleculeview.cpp
+		openbabel2wrapper.cpp
 	)
 endif(OPENBABEL2_FOUND)
 
