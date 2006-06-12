@@ -1,10 +1,7 @@
 project(kalzium)
 
-if(OPENBABEL2_FOUND)
-   set(HAVE_OPENBABEL2 1)
-else(OPENBABEL2_FOUND)
-   set(HAVE_OPENBABEL2 0)
-endif(OPENBABEL2_FOUND)
+include(MacroBoolTo01)
+macro_bool_to_01(OPENBABEL2_FOUND HAVE_OPENBABEL2)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-kalzium.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kalzium.h )
 
