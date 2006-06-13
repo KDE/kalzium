@@ -262,7 +262,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 		case WARNINGS:
 		{
 				//warning signs
-				QStringList wlist = m_element->dataAsString( ChemicalDataObject::dangerSymbol ).split( ',' );
+				QStringList wlist = m_element->dataAsString( ChemicalDataObject::dangerSymbol ).split( ',', QString::SkipEmptyParts );
 				QString curstr;
 				html.append( "<tr>" );
 				for( int i = 0; i < wlist.count(); i++ )
