@@ -194,40 +194,45 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 }
 
 GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
-    : KDialogBase( Plain, i18n( "Glossary" ), Close, NoDefault, parent, "glossary-dialog", false )
+    : KDialog( parent )
 {
+	setCaption( i18n( "Glossary" ) );
+	setButtons( Close );
+
 	//this string will be used for all items. If a backgroundpicture should
 	//be used call Glossary::setBackgroundPicture().
 	m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body%1>" ;
 
 	m_folded = folded;
 	
-	QVBoxLayout *vbox = new QVBoxLayout( plainPage() );
+	QWidget *main = new QWidget( this );
+	setMainWidget( main );
+	QVBoxLayout *vbox = new QVBoxLayout( main );
 	vbox->setMargin( 0 );
-	vbox->setSpacing( KDialog::spacingHint() );
+	vbox->setSpacing( spacingHint() );
 	vbox->activate();
 
 	QHBoxLayout *hbox = new QHBoxLayout();
 	hbox->setMargin( 0 );
-	hbox->setSpacing( KDialog::spacingHint() );
+	hbox->setSpacing( spacingHint() );
 	hbox->activate();
 
-	QToolButton *clear = new QToolButton( plainPage() );
+	QToolButton *clear = new QToolButton( main );
 	clear->setIcon( SmallIcon( "locationbar_erase" ) );
 	clear->setToolTip( i18n( "Clear filter" ) );
 	hbox->addWidget( clear );
 
-	QLabel *lbl = new QLabel( plainPage() );
+	QLabel *lbl = new QLabel( main );
 	lbl->setText( i18n( "Search:" ) );
 	hbox->addWidget( lbl );
 
-	m_search = new K3ListViewSearchLine( plainPage(), 0L );
+	m_search = new K3ListViewSearchLine( main, 0L );
 	m_search->setObjectName( "search-line" );
 	hbox->addWidget( m_search );
 	vbox->addLayout( hbox );
 	setFocusProxy(m_search);
  
-	QSplitter *vs = new QSplitter( plainPage() );
+	QSplitter *vs = new QSplitter( main );
 	vbox->addWidget( vs );
 
 	m_glosstree = new K3ListView( vs );
@@ -257,7 +262,7 @@ void GlossaryDialog::keyPressEvent(QKeyEvent* e)
 	if (e->key() == Qt::Key_Return) {
 		e->ignore();
 	}
-	KDialogBase::keyPressEvent(e);
+	KDialog::keyPressEvent(e);
 }
 
 void GlossaryDialog::displayItem( const KUrl& url, const KParts::URLArgs& )

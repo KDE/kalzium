@@ -18,7 +18,7 @@
 #include <libkdeedu_ui_export.h>
 
 #include <khtml_part.h>
-#include <kdialogbase.h>
+#include <kdialog.h>
 
 class QChar;
 class QDomDocument;
@@ -242,7 +242,7 @@ class EDUUI_EXPORT GlossaryItem
  * @author Pino Toscano
  * @author Carsten Niehaus
  */
-class EDUUI_EXPORT GlossaryDialog : public KDialogBase
+class EDUUI_EXPORT GlossaryDialog : public KDialog
 {
 	Q_OBJECT
 
