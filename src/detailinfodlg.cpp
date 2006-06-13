@@ -19,13 +19,14 @@
 
 #include <kdebug.h>
 #include <klocale.h>
-#include <kiconloader.h>
+#include <kicon.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
 #include <kcombobox.h>
 #include <kstdaction.h>
+#include <kpagewidgetmodel.h>
 #include <ktoolinvocation.h>
 
 #include <QFile>
@@ -46,18 +47,20 @@
 //TODO add bondxx-radius (H-H-distance for example)
 
 DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
-    : KDialogBase( IconList, "detailinfodlg", Help|User1|User2|Close, Close, parent, "detailinfodlg",
-			false, //non modal
-			false, 
-			KGuiItem(i18nc("Next element", "Next"), "1rightarrow"), 
-			KGuiItem(i18nc("Previous element", "Previous"), "1leftarrow"))
+    : KPageDialog( parent )
 {
+	setFaceType( List );
+	setButtons( Help | User1 | User2 | Close );
+	setDefaultButton( Close );
+	setButtonGuiItem( User1, KGuiItem( i18nc( "Next element", "Next" ), "1rightarrow", i18n( "Goes to the next element" ) ) );
+	setButtonGuiItem( User2, KGuiItem( i18nc( "Previous element", "Previous" ), "1leftarrow", i18n( "Goes to the previous element" ) ) );
+
 	m_baseHtml = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/htmlview/";
 	m_baseHtml2 = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/hazardsymbols/";
 
 	m_picsdir = KGlobal::dirs()->findResourceDir( "appdata", "elempics/" ) + "elempics/";
 
-	( actionButton( KDialogBase::Close ) )->setFocus();
+	//actionButton( Close )->setFocus();
 
 	// creating the tabs but not the contents, as that will be done when
 	// setting the element
@@ -65,9 +68,6 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
 
 	m_actionCollection = new KActionCollection(this);	
 	KStdAction::quit(this, SLOT(close()), m_actionCollection);
-
-	setButtonTip( User2, i18n( "Goes to the previous element" ) );
-	setButtonTip( User1, i18n( "Goes to the next element" ) );
 
 	connect( this, SIGNAL( user1Clicked() ), this, SLOT( slotUser1() ) );
 	connect( this, SIGNAL( user2Clicked() ), this, SLOT( slotUser2() ) );
@@ -102,7 +102,10 @@ void DetailedInfoDlg::setOverviewBackgroundColor( const QColor &bgColor )
 
 KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& icontext, const QString& iconname )
 {
-	QFrame *frame = addPage(title, icontext, BarIcon(iconname));
+	QWidget* frame = new QWidget();
+	KPageWidgetItem *item = addPage( frame, title );
+	item->setHeader( icontext );
+	item->setIcon( KIcon( iconname ) );
 	QVBoxLayout *layout = new QVBoxLayout( frame );
 	layout->setMargin( 0 );
 	KHTMLPart *w = new KHTMLPart( frame, frame );
@@ -379,8 +382,13 @@ QString DetailedInfoDlg::isotopeTable() const
 
 void DetailedInfoDlg::createContent()
 {
+	KPageWidgetItem *item = 0;
+
 	// overview tab
-	QFrame *m_pOverviewTab = addPage( i18n( "Overview" ), i18n( "Overview" ), BarIcon( "overview" ) );
+	QWidget *m_pOverviewTab = new QWidget();
+	item = addPage( m_pOverviewTab, i18n( "Overview" ) );
+	item->setHeader( i18n( "Overview" ) );
+	item->setIcon( KIcon( "overview" ) );
 	QVBoxLayout *overviewLayout = new QVBoxLayout( m_pOverviewTab );
 	overviewLayout->setMargin( 0 );
 	dTab = new DetailedGraphicalOverview( m_pOverviewTab );
@@ -388,7 +396,10 @@ void DetailedInfoDlg::createContent()
 	overviewLayout->addWidget( dTab );
 
 	// picture tab
-	QFrame *m_pPictureTab = addPage( i18n( "Picture" ), i18n( "What does this element look like?" ), BarIcon( "elempic" ) );
+	QWidget *m_pPictureTab = new QWidget();
+	item = addPage( m_pPictureTab, i18n( "Picture" ) );
+	item->setHeader( i18n( "What does this element look like?" ) );
+	item->setIcon( KIcon( "elempic" ) );
 	QVBoxLayout *mainLayout = new QVBoxLayout( m_pPictureTab );
 	mainLayout->setMargin( 0 );
 	piclabel = new QLabel( m_pPictureTab );
@@ -396,7 +407,10 @@ void DetailedInfoDlg::createContent()
 	mainLayout->addWidget( piclabel );
 
 	// atomic model tab
-	QFrame *m_pModelTab = addPage( i18n( "Atom Model" ), i18n( "Atom Model" ), BarIcon( "orbits" ) );
+	QWidget *m_pModelTab = new QWidget();
+	item = addPage( m_pModelTab, i18n( "Atom Model" ) );
+	item->setHeader( i18n( "Atom Model" ) );
+	item->setIcon( KIcon( "orbits" ) );
 	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab );
 	modelLayout->setMargin( 0 );
 	wOrbits = new OrbitsWidget( m_pModelTab );
@@ -417,7 +431,10 @@ void DetailedInfoDlg::createContent()
 	m_htmlpages["warnings"] = addHTMLTab( i18n( "Warnings" ), i18n( "Warnings" ), "warnings" );
 
 	// spectrum widget tab
-	QFrame *m_pSpectrumTab = addPage( i18n("Spectrum"), i18n( "Spectrum" ), BarIcon( "spectrum" ));
+	QWidget *m_pSpectrumTab = new QWidget();
+	item = addPage( m_pSpectrumTab, i18n( "Spectrum" ) );
+	item->setHeader( i18n( "Spectrum" ) );
+	item->setIcon( KIcon( "spectrum" ) );
 	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab );
 	spectrumLayout->setMargin( 0 );
 	m_spectrumStack = new QStackedWidget( m_pSpectrumTab );
@@ -477,6 +494,7 @@ void DetailedInfoDlg::reloadContent()
 
 void DetailedInfoDlg::slotHelp()
 {
+#if 0
 	QString chapter = "infodialog_overview";
 	switch ( activePageIndex() )
 	{
@@ -507,6 +525,7 @@ void DetailedInfoDlg::slotHelp()
 	}
 
 	KToolInvocation::invokeHelp( chapter, QLatin1String( "kalzium" ) );
+#endif
 }
 
 void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )

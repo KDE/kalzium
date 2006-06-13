@@ -34,8 +34,11 @@
 #include "kalziumglwidget.h"
 
 SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
-	: KDialog( parent, i18n( "Simple Crystal Viewer" ), Close )
+	: KDialog( parent )
 {
+	setCaption( i18n( "Simple Crystal Viewer" ) );
+	setButtons( Close );
+
 	QWidget *page = new QWidget( this );
 	setMainWidget( page );
 

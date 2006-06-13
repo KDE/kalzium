@@ -38,10 +38,10 @@ MoleculeWidget::~MoleculeWidget()
 /////////MoleculeDialog/////////
 
 MoleculeDialog::MoleculeDialog( QWidget * parent )
-	: KDialog( parent ,
-	i18n( "Molecular Viewer" ),
-	Help|Close )
+	: KDialog( parent )
 {
+	setCaption( i18n( "Molecular Viewer" ) );
+	setButtons( Help | Close );
 	
 	QWidget * dummy = new QWidget();
 	setMainWidget( dummy );

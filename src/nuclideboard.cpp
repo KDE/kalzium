@@ -604,8 +604,11 @@ void IsotopeScrollArea::scrollBy( int x, int y )
 }
 
 IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
-	: KDialog( parent, i18n( "Isotope Table" ), Help|Close )
+	: KDialog( parent )
 {
+	setCaption( i18n( "Isotope Table" ) );
+	setButtons( Help | Close );
+
 	QWidget *page = new QWidget( this );
 	setMainWidget( page );
 

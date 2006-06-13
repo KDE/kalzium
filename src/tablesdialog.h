@@ -14,12 +14,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <kdialogbase.h>
+#include <kpagedialog.h>
 
 /**
  * @author Carsten Niehaus
  */
-class TablesDialog : public KDialogBase
+class TablesDialog : public KPageDialog
 {
 	Q_OBJECT
 

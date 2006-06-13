@@ -16,10 +16,11 @@
 
 #include <kdebug.h>
 #include <klocale.h>
-#include <kiconloader.h>
+#include <kicon.h>
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
 #include <kcombobox.h>
+#include <kpagewidgetmodel.h>
 #include <kstdaction.h>
 #include <ktoolinvocation.h>
 
@@ -28,22 +29,22 @@
 #include <QTableWidget>
 
 TablesDialog::TablesDialog( QWidget *parent )
-    : KDialogBase( IconList, 
-			"tablesdialog", 
-			Help|Close, 
-			Close,
-			parent, 
-			"tablesdialog",
-			false, //non modal
-			false )
+    : KPageDialog( parent )
 {
+	setFaceType( List );
+	setButtons( Help | Close );
+	setDefaultButton( Close );
+
 	createGreekSymbolTable();
 	createNumbersTable();
 }
 
 void TablesDialog::createGreekSymbolTable()
 {
-	QFrame *frame = addPage("Greek symbols", i18n( "Greek numbers" ), BarIcon("numbers"));
+	QWidget *frame = new QWidget();
+	KPageWidgetItem *item = addPage( frame, i18n( "Greek symbols" ) );
+	item->setHeader( i18n( "Greek numbers" ) );
+	item->setIcon( KIcon( "numbers" ) );
 	QVBoxLayout *layout = new QVBoxLayout( frame );
 	layout->setMargin( 0 );
 	
@@ -138,7 +139,10 @@ void TablesDialog::createGreekSymbolTable()
 
 void TablesDialog::createNumbersTable()
 {
-	QFrame *frame = addPage(i18n( "Numbers" ), i18n( "Greek and Roman Numbers" ), BarIcon("numbers"));
+	QWidget *frame = new QWidget();
+	KPageWidgetItem *item = addPage( frame, i18n( "Numbers" ) );
+	item->setHeader( i18n( "Greek and Roman Numbers" ) );
+	item->setIcon( KIcon( "numbers" ) );
 	QVBoxLayout *layout = new QVBoxLayout( frame );
 	layout->setMargin( 0 );
 	

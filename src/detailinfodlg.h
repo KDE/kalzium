@@ -16,7 +16,7 @@
 #ifndef DETAILINFODLG_H
 #define DETAILINFODLG_H
 
-#include <kdialogbase.h>
+#include <kpagedialog.h>
 
 #include <QMap>
 
@@ -25,6 +25,7 @@ class Element;
 class OrbitsWidget;
 class SpectrumViewImpl;
 
+class QLabel;
 class QStackedWidget;
 class KActionCollection;
 class KHTMLPart;
@@ -33,7 +34,7 @@ class KHTMLPart;
  * @short The dialog which shows all available information of an element
  * @author Carsten Niehaus
  */
-class DetailedInfoDlg : public KDialogBase
+class DetailedInfoDlg : public KPageDialog
 {
 	Q_OBJECT
 

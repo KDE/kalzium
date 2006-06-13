@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <kdialogbase.h>
+#include <kdialog.h>
 
 class QTimer;
 class Ui_PlotSetupWidget;
@@ -27,7 +27,7 @@ class AxisData;
  * where you can setup the plot
  * @author Carsten Niehaus
  */
-class ElementDataViewer : public KDialogBase
+class ElementDataViewer : public KDialog
 {
 	Q_OBJECT
 

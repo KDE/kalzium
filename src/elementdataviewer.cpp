@@ -103,22 +103,26 @@ int AxisData::numberOfElements() const
 
 
 ElementDataViewer::ElementDataViewer( QWidget *parent )
-  : KDialogBase( Plain, i18n( "Plot Data" ), Help|Close, Close, parent,
-                 "plotdialog", true, false ),
+  : KDialog( parent ),
     yData( new AxisData() )
 {
+	setCaption( i18n( "Plot Data" ) );
+	setButtons( Help | Close );
+
 	KalziumDataObject *kdo  = KalziumDataObject::instance();
 
-	QHBoxLayout *layout = new QHBoxLayout( plainPage() );
+	QWidget *main = new QWidget( this );
+	setMainWidget( main );
+	QHBoxLayout *layout = new QHBoxLayout( main );
 	layout->setMargin( 0 );
 	layout->setSpacing( spacingHint() );
 
-	QWidget *plotsetuprealwidget = new QWidget( plainPage() );
+	QWidget *plotsetuprealwidget = new QWidget( main );
 	m_pPlotSetupWidget = new Ui_PlotSetupWidget();
 	m_pPlotSetupWidget->setupUi( plotsetuprealwidget );
 	m_pPlotSetupWidget->from->setMaximum( kdo->numberOfElements() - 1 );
 	m_pPlotSetupWidget->to->setMaximum( kdo->numberOfElements() );
-	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, plainPage() );
+	m_pPlotWidget = new PlotWidget( 0.0, 12.0 ,0.0 ,22.0, main );
 	m_pPlotWidget->setObjectName( "plotwidget" );
 	m_pPlotWidget->setMinimumWidth( 200 );
 	m_pPlotWidget->resize( 400, m_pPlotWidget->height() );

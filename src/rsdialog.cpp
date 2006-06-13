@@ -30,8 +30,11 @@
 #include <kdebug.h>
 
 RSDialog::RSDialog( QWidget* parent )
-	: KDialog( parent , i18n( "Risks and Security Dialog" ), Help|Close )
+	: KDialog( parent )
 {
+	setCaption( i18n( "Risks and Security Dialog" ) );
+	setButtons( Help | Close );
+
 	createRPhrases();
 	createSPhrases();
 
