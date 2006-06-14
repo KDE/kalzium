@@ -17,9 +17,10 @@
 #include <QGLWidget>
 #include <openbabel/mol.h>
 
-#define FLOAT	double
+#define USE_DOUBLE_PRECISION
 
-#if(FLOAT==double)
+#ifdef USE_DOUBLE_PRECISION
+#define FLOAT		double
 #define GLFLOAT		GLdouble
 #define GLTRANSLATE	glTranslated
 #define GLMULTMATRIX	glMultMatrixd
@@ -27,17 +28,22 @@
 #define COS		cos
 #define SIN		sin
 #define FABS		fabs
-#elif(FLOAT==float)
+#else
+#define FLOAT		float
 #define GLFLOAT		GLfloat
 #define GLTRANSLATE	glTranslatef
 #define GLMULTMATRIX	glMultMatrixf
-#define GLSUFFIX	f
 #define SQRT		sqrtf
 #define COS		cosf
 #define SIN		sinf
 #define FABS		fabsf
 #endif
 
+/**
+ * This is an abstract base class for a GL vertex array
+ *
+ * @author Benoit Jacob
+ */
 class GLVertexArray
 {
 	protected:
@@ -58,6 +64,11 @@ class GLVertexArray
 		void draw();
 };
 
+/**
+ * This class generates and stores a GL vertex array representing a sphere
+ *
+ * @author Benoit Jacob
+ */
 class SphereVertexArray : public GLVertexArray
 {
 	protected:
@@ -74,7 +85,7 @@ class SphereVertexArray : public GLVertexArray
 /**
  * This class displays the 3D-view of a molecule
  * 
- * @autor Benoit Jacob
+ * @author Benoit Jacob
  */
 class KalziumGLWidget : public QGLWidget
 {
@@ -83,8 +94,15 @@ class KalziumGLWidget : public QGLWidget
 	protected:
 		GLuint m_sphereDisplayList;
 		GLuint m_bondDisplayList;
+		
+		/**
+		 * equals true if the user is currently dragging (rotating)
+		 * the view
+		 */
 		bool m_isDragging;
+		
 		QPoint m_lastDraggingPosition;
+
 		GLFLOAT m_RotationMatrix[16];
 
 	public:
@@ -171,14 +189,15 @@ class KalziumGLWidget : public QGLWidget
 		 * The coefficient set by the user, determining the
 		 * radius of atoms.
 		 * 0.0 -> minimum radius -> "sticks-style" rendering
-		 * 1.0 -> maximum radius for which bonds are visible
+		 * 1.0 -> maximum radius for which all bonds are visible
 		 * values larger than 1.0 result in atoms so large
-		 * that they completely hide the bonds.
+		 * that they completely hide some bonds.
 		 */
 		float m_atomsRadiusCoeff;
 };
 
-// tests whether two FLOATs are equal
+// tests whether two FLOATs are approximately equal
+// this is a very vague approximation, it is enough for our needs here
 bool approx_equal( FLOAT a, FLOAT b );
 
 // compute the norm of a vector (dimension 3)

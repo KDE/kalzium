@@ -17,6 +17,7 @@
 #include <kdialog.h>
 
 #include "kalziumglwidget.h"
+#include "ui_moleculeviewerwidget.h"
 
 class KComboBox;
 class KPushButton;
@@ -59,7 +60,8 @@ class MoleculeDialog : public KDialog
 
 	private:
 		QString m_path;///to store the path were the molecules are located
-		
+
+		Ui::moleculeViewerForm ui;	
 		void fillList();
 
 	public slots:

@@ -67,6 +67,7 @@ int main(int argc, char **argv)
     about.addCredit( "Brian Beck", I18N_NOOP( "The orbits-icon" ));
     about.addCredit( "Lee Olson", I18N_NOOP( "Several icons in the information dialog" ));
     about.addCredit( "Inge Wallin", I18N_NOOP( "Code cleaning, the molecule parser and a lot of smaller improvements" ));
+    about.addCredit( "Benoit Jacob", I18N_NOOP( "The OpenGL-support" ));
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;

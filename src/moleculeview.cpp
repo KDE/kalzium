@@ -43,14 +43,16 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	setCaption( i18n( "Molecular Viewer" ) );
 	setButtons( Help | Close );
 	
-//X 	QWidget * dummy = new QWidget();
-//X 	setMainWidget( dummy );
-//X 
-//X 	m_path = QString( "" );
-//X 
-//X 	connect( ui::loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
-//X 	connect( ui::detailCombobox, SIGNAL(activated( int )), ui::moleculeWidget, SLOT( slotSetDetail( int ) ) );
-//X 	fillList();
+	QWidget * dummy = new QWidget();
+	setMainWidget( dummy );
+
+	ui.setupUi( dummy );
+
+	m_path = QString( "" );
+
+ 	connect( ui.loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
+//X 	connect( ui::qualityCombo, SIGNAL(activated( int )), ui::moleculeWidget, SLOT( slotSetDetail( int ) ) );
+	fillList();
 }
 
 void MoleculeDialog::slotLoadMolecule()
@@ -60,7 +62,7 @@ void MoleculeDialog::slotLoadMolecule()
 //X 	
 //X 	kDebug() << "Filename to load: " << filename << endl;
 //X 	
-//X 	m_moleculeWidget->slotSetMolecule( OpenBabel2Wrapper::readMolecule( filename ) );
+//X 	ui.moleculeWidget->slotSetMolecule( OpenBabel2Wrapper::readMolecule( filename ) );
 }
 
 void MoleculeDialog::fillList()
