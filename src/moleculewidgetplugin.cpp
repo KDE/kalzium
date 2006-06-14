@@ -76,4 +76,6 @@ QString MoleculeWidgetPlugin::includeFile() const
 	return "moleculeview.h";
 }
 
-Q_EXPORT_PLUGIN2( moleculewidgetplugin, MoleculeWidgetPlugin )
+Q_EXPORT_PLUGIN2( MoleculeWidgetPlugin, MoleculeWidgetPlugin )
+
+#include "moleculewidgetplugin.moc"

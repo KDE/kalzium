@@ -43,6 +43,7 @@ set(kalzium_SRCS
    search.cpp
    searchwidget.cpp
    rsdialog.cpp
+   moleculewidgetplugin.cpp
 )
 
 if(OPENBABEL2_FOUND AND OPENGL_FOUND)
