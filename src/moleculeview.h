@@ -60,11 +60,6 @@ class MoleculeDialog : public KDialog
 	private:
 		QString m_path;///to store the path were the molecules are located
 		
-		QListWidget * m_listView;
-		MoleculeWidget *m_moleculeWidget;
-		KComboBox *m_detailCombobox;
-		KPushButton* m_loadButton;
-
 		void fillList();
 
 	public slots:

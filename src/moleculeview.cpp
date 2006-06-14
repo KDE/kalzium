@@ -29,7 +29,7 @@
 MoleculeWidget::MoleculeWidget( QWidget * parent )
 	: KalziumGLWidget( parent )
 {
-	setMinimumSize( 300,100 );
+//X 	setMinimumSize( 300,100 );
 }
 
 MoleculeWidget::~MoleculeWidget()
@@ -43,48 +43,22 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	setCaption( i18n( "Molecular Viewer" ) );
 	setButtons( Help | Close );
 	
-	QWidget * dummy = new QWidget();
-	setMainWidget( dummy );
-
-	m_path = QString( "" );
-
-	QHBoxLayout * hbox = new QHBoxLayout;
-	QVBoxLayout * vbox = new QVBoxLayout;
-	m_moleculeWidget = new MoleculeWidget( dummy );
-	
-	//TODO make the filename not fixed. But for that I need much more
-	//stuff done. This way Benoit and I can at least test real files.
-	m_moleculeWidget->slotSetMolecule( OpenBabel2Wrapper::readMolecule( "/home/carsten/test.cml" ) );
-
-	m_listView = new QListWidget( );
-
-	//The load-button
-	m_loadButton = new KPushButton( i18n("&Load molecule"), this );
-	connect( m_loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
-	
-	//The detail comboxbox
-	m_detailCombobox = new KComboBox();
-	m_detailCombobox->addItem( i18n( "Low Detail" ) );
-	m_detailCombobox->addItem( i18n( "Medium Detail" ) );
-	m_detailCombobox->addItem( i18n( "High Detail" ) );
-	connect( m_detailCombobox, SIGNAL(activated( int )), m_moleculeWidget, SLOT( slotSetDetail( int ) ) );
-
-	hbox->addLayout( vbox );
-	hbox->addWidget( m_moleculeWidget );
-	vbox->addWidget( m_listView );
-	vbox->addWidget( m_detailCombobox );
-	vbox->addWidget( m_loadButton );
-	dummy->setLayout( hbox );
-
-	fillList();
+//X 	QWidget * dummy = new QWidget();
+//X 	setMainWidget( dummy );
+//X 
+//X 	m_path = QString( "" );
+//X 
+//X 	connect( ui::loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
+//X 	connect( ui::detailCombobox, SIGNAL(activated( int )), ui::moleculeWidget, SLOT( slotSetDetail( int ) ) );
+//X 	fillList();
 }
 
 void MoleculeDialog::slotLoadMolecule()
 {
-	QString filename = m_listView->currentItem()->text();
-	filename.prepend( m_path );
-	
-	kDebug() << "Filename to load: " << filename << endl;
+//X 	QString filename = m_listView->currentItem()->text();
+//X 	filename.prepend( m_path );
+//X 	
+//X 	kDebug() << "Filename to load: " << filename << endl;
 //X 	
 //X 	m_moleculeWidget->slotSetMolecule( OpenBabel2Wrapper::readMolecule( filename ) );
 }

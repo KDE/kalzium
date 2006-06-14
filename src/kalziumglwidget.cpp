@@ -130,44 +130,44 @@ void KalziumGLWidget::initializeGL()
 		GL_SEPARATE_SPECULAR_COLOR_EXT );
 }
 
-void KalziumGLWidget::getColor( const OBAtom &a, GLfloat &r, GLfloat &g, GLfloat &b )
+void KalziumGLWidget::getColor( OBAtom &a, GLfloat &r, GLfloat &g, GLfloat &b )
 {
-//X 	if ( a.IsOxygen() )
-//X 	{//red
-//X 		r = 1.0;
-//X 		g = 0.0;
-//X 		b = 0.0;
-//X 	}
-//X 	else if ( a.IsSulfur() )
-//X 	{//yellow
-//X 		r = 1.0;
-//X 		g = 1.0;
-//X 		b = 0.0;
-//X 	}
-//X 	else if ( a.IsCarbon() )
-//X 	{//almost black
-//X 		r = 0.25;
-//X 		g = 0.25;
-//X 		b = 0.25;
-//X 	}
-//X 	else if ( a.IsNitrogen() )
-//X 	{
-//X 		r = 1.0;
-//X 		g = 0.9;
-//X 		b = 0.5;
-//X 	}
-//X 	else if ( a.IsHydrogen() )
-//X 	{//white
-//X 		r = 1.0;
-//X 		g = 1.0;
-//X 		b = 1.0;
-//X 	}
-//X 	else
-//X 	{
-//X 		r = 0.5;
-//X 		g = 0.5;
-//X 		b = 0.5;
-//X 	}
+	if ( a.IsOxygen() )
+	{//red
+		r = 1.0;
+		g = 0.0;
+		b = 0.0;
+	}
+	else if ( a.IsSulfur() )
+	{//yellow
+		r = 1.0;
+		g = 1.0;
+		b = 0.0;
+	}
+	else if ( a.IsCarbon() )
+	{//almost black
+		r = 0.25;
+		g = 0.25;
+		b = 0.25;
+	}
+	else if ( a.IsNitrogen() )
+	{
+		r = 1.0;
+		g = 0.9;
+		b = 0.5;
+	}
+	else if ( a.IsHydrogen() )
+	{//white
+		r = 1.0;
+		g = 1.0;
+		b = 1.0;
+	}
+	else
+	{
+		r = 0.5;
+		g = 0.5;
+		b = 0.5;
+	}
 }
 
 void KalziumGLWidget::paintGL()
@@ -181,8 +181,8 @@ void KalziumGLWidget::paintGL()
 	
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	glLoadIdentity();
-//X 	glTranslate##GLSUFFIX( 0.0, 0.0, -3.0 * m_molRadius);
-//X 	glMultMatrix##GLSUFFIX( m_RotationMatrix );
+	GLTRANSLATE ( 0.0, 0.0, -3.0 * m_molRadius);
+	GLMULTMATRIX ( m_RotationMatrix );
 
 	glEnable( GL_NORMALIZE );
 	FOR_ATOMS_OF_MOL( a, m_molecule )
@@ -216,9 +216,9 @@ void KalziumGLWidget::paintGL()
 		FLOAT z3 = (z1 + z2) / 2;
 		
 		GLfloat r, g, b;
-	//	getColor( *static_cast<OBAtom*>(bond->GetBgn()), r, g, b );
+		getColor( *static_cast<OBAtom*>(bond->GetBgn()), r, g, b );
 		drawBond( x1, y1, z1, x3, y3, z3, r, g, b );
-	//	getColor( *static_cast<OBAtom*>(bond->GetEnd()), r, g, b );
+		getColor( *static_cast<OBAtom*>(bond->GetEnd()), r, g, b );
 		drawBond( x2, y2, z2, x3, y3, z3, r, g, b );
 	}
 }
@@ -362,8 +362,8 @@ void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z,
 	glPopMatrix();
 }
 
-void KalziumGLWidget::drawBond( GLdouble x1, GLdouble y1, GLdouble z1,
-	GLdouble x2, GLdouble y2, GLdouble z2,
+void KalziumGLWidget::drawBond( FLOAT x1, FLOAT y1, FLOAT z1,
+	FLOAT x2, FLOAT y2, FLOAT z2,
 	GLfloat red, GLfloat green, GLfloat blue )
 {
 	GLfloat ambientColor [] = { red / 2, green / 2, blue / 2, 1.0 };
@@ -376,10 +376,10 @@ void KalziumGLWidget::drawBond( GLdouble x1, GLdouble y1, GLdouble z1,
 	glMaterialf(GL_FRONT, GL_SHININESS, 50.0);
 
 	// the "axis vector" of the cylinder
-	GLdouble axis[3] = { x2 - x1, y2 - y1, z2 - z1 };
+	FLOAT axis[3] = { x2 - x1, y2 - y1, z2 - z1 };
 	
 	// find two vectors v, w such that (axis,v,w) is an orthogonal basis.
-	GLdouble v[3], w[3];
+	FLOAT v[3], w[3];
 	construct_ortho_3D_basis_given_first_vector3( axis, v, w );
 
 	// normalize v and w. We DON'T want to normalize axis
@@ -387,7 +387,7 @@ void KalziumGLWidget::drawBond( GLdouble x1, GLdouble y1, GLdouble z1,
 	normalize3( w );
 
 	// construct the 4D transformation matrix
-	GLdouble matrix[16];
+	FLOAT matrix[16];
 
 	// column 1
 	matrix[0] = v[0];
@@ -415,7 +415,7 @@ void KalziumGLWidget::drawBond( GLdouble x1, GLdouble y1, GLdouble z1,
 
 	//now we can do the actual drawing !
 	glPushMatrix();
-	glMultMatrixd( matrix );
+	GLMULTMATRIX( matrix );
 	drawGenericBond();
 	glPopMatrix();
 }

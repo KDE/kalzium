@@ -21,13 +21,16 @@
 
 #if(FLOAT==double)
 #define GLFLOAT		GLdouble
-#define GLSUFFIX	d
+#define GLTRANSLATE	glTranslated
+#define GLMULTMATRIX	glMultMatrixd
 #define SQRT		sqrt
 #define COS		cos
 #define SIN		sin
 #define FABS		fabs
 #elif(FLOAT==float)
 #define GLFLOAT		GLfloat
+#define GLTRANSLATE	glTranslatef
+#define GLMULTMATRIX	glMultMatrixf
 #define GLSUFFIX	f
 #define SQRT		sqrtf
 #define COS		cosf
@@ -35,9 +38,6 @@
 #define FABS		fabsf
 #endif
 
-/**
- * @autor Benoit Jacob
- */
 class GLVertexArray
 {
 	protected:
@@ -58,9 +58,6 @@ class GLVertexArray
 		void draw();
 };
 
-/**
- * @autor Benoit Jacob
- */
 class SphereVertexArray : public GLVertexArray
 {
 	protected:
@@ -101,7 +98,7 @@ class KalziumGLWidget : public QGLWidget
 		 */
 		virtual ~KalziumGLWidget();
 
-		void getColor( const OpenBabel::OBAtom &a, GLfloat &r, GLfloat &g, GLfloat &b );
+		virtual void getColor( OpenBabel::OBAtom &a, GLfloat &r, GLfloat &g, GLfloat &b );
 
 	public slots:
 		/**
