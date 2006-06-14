@@ -34,14 +34,6 @@ class MoleculeWidget : public KalziumGLWidget
 {
 	Q_OBJECT
 
-	protected:
-		GLuint sphereDisplayList;
-
-		bool isDragging;
-		QPoint lastDraggingPosition;
-		QPoint deltaDragging;
-		GLdouble RotationMatrix[16];
-
 	public:
 		/**
 		 * Constructor
