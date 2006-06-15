@@ -1,0 +1,10 @@
+[Global]
+PluginName=KalziumWidgets
+Includes=kinstance.h
+#Init=new KInstance("kdeeduwidgets");
+
+[MoleculeWidget]
+ToolTip=A OpenGL based molecule viewer
+WhatsThis=A OpenGL based molecule viewer
+Group=Plot (KDE-Edu)
+ConstructorArgs=(parent)

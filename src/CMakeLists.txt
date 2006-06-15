@@ -1,3 +1,4 @@
+add_subdirectory(widgets)
 
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduplot/
@@ -43,7 +44,6 @@ set(kalzium_SRCS
    search.cpp
    searchwidget.cpp
    rsdialog.cpp
-   moleculewidgetplugin.cpp
 )
 
 if(OPENBABEL2_FOUND AND OPENGL_FOUND)
@@ -93,19 +93,3 @@ install_files( ${KCFG_INSTALL_DIR} FILES kalzium.kcfg )
 install_files( ${DATA_INSTALL_DIR}/kalzium FILES kalziumui.rc )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
-
-#
-#set(kalziumui_PART_SRCS
-#		moleculewidgetplugin.cpp
-#		kalziumglwidget.cpp
-#   )
-#
-#KDE4_ADD_WIDGET_FILES(${kalziumui_PART_SRCS} kalzium.widgets)
-#
-#kde4_add_plugin(kalziumuiwidgets ${kalziumui_PART_SRCS})
-#
-#kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kalziumuiwidgets )
-#
-#target_link_libraries(kalziumuiwidgets ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} ${QT_QTDESIGNER_LIBRARY})
-#
-#install_targets(${PLUGIN_INSTALL_DIR}/plugins/designer kalziumuiwidgets)
