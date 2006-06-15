@@ -32,12 +32,14 @@
 #include <kstandarddirs.h>
 
 #include "kalziumglwidget.h"
+#include "openbabel2wrapper.h"
 
 SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 	: KDialog( parent )
 {
 	setCaption( i18n( "Simple Crystal Viewer" ) );
 	setButtons( Close );
+	setDefaultButton( Close );
 
 	QWidget *page = new QWidget( this );
 	setMainWidget( page );
@@ -50,16 +52,21 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 	vlay->setSpacing( 5 );
 	vlay->addItem( new QSpacerItem( 5, 40, QSizePolicy::Fixed, QSizePolicy::Fixed ) );
 
-	vlay->addWidget( new QLabel( i18n( "Crystal structure:" ), page ) );
+	vlay->addWidget( new QLabel( i18n( "Quality:" ), page ) );
 
 	KComboBox *combo = new KComboBox( false, page );
+	combo->addItem( "Low" );
+	combo->addItem( "Medium" );
+	combo->addItem( "High" );
 	vlay->addWidget( combo );
 	vlay->addItem( new QSpacerItem( 5, 5, QSizePolicy::Fixed, QSizePolicy::Expanding ) );
 
 	m_glWidget = new KalziumGLWidget( page );
+	OpenBabel::OBMol * mol = OpenBabel2Wrapper::readMolecule( "/home/carsten/test.cml" );
+	m_glWidget->slotSetMolecule(mol);
 	hlay->addWidget( m_glWidget );
 
-	connect( combo, SIGNAL( activated( const QString& ) ), this, SLOT( slotCrystalChanged( const QString& ) ) );
+	connect( combo, SIGNAL( activated( int ) ), m_glWidget, SLOT( slotSetDetail( int ) ) );
 }
 
 void SimpleCrystalViewer::slotCrystalChanged( const QString& which )

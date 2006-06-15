@@ -26,17 +26,6 @@
 #include <QListWidget>
 #include <QFileDialog>
 
-MoleculeWidget::MoleculeWidget( QWidget * parent )
-	: KalziumGLWidget( parent )
-{
-//X 	setMinimumSize( 300,100 );
-}
-
-MoleculeWidget::~MoleculeWidget()
-{
-}
-/////////MoleculeDialog/////////
-
 MoleculeDialog::MoleculeDialog( QWidget * parent )
 	: KDialog( parent )
 {

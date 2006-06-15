@@ -1,4 +1,4 @@
-#include "moleculeview.h"
+#include "kalziumglwidget.h"
 #include "moleculewidgetplugin.h"
 
 #include <QtPlugin>
@@ -24,12 +24,12 @@ bool MoleculeWidgetPlugin::isInitialized() const
 
 QWidget *MoleculeWidgetPlugin::createWidget( QWidget *parent )
 {
-	return new MoleculeWidget( parent );
+	return new KalziumGLWidget( parent );
 }
 
 QString MoleculeWidgetPlugin::name() const
 {
-	return "MoleculeWidget";
+	return "KalziumGLWidget";
 }
 
 QString MoleculeWidgetPlugin::group() const
@@ -59,7 +59,7 @@ bool MoleculeWidgetPlugin::isContainer() const
 
 QString MoleculeWidgetPlugin::domXml() const
 {
-	return "<widget class=\"MoleculeWidget\" name=\"moleculeWidget\">\n"
+	return "<widget class=\"KalziumGLWidget\" name=\"KalziumGLWidget\">\n"
 		" <property name=\"geometry\">\n"
 		"  <rect>\n"
 		"   <x>0</x>\n"
@@ -73,7 +73,7 @@ QString MoleculeWidgetPlugin::domXml() const
 
 QString MoleculeWidgetPlugin::includeFile() const
 {
-	return "moleculeview.h";
+	return "kalziumglwidget.h";
 }
 
 Q_EXPORT_PLUGIN2( MoleculeWidgetPlugin, MoleculeWidgetPlugin )

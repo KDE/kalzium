@@ -22,30 +22,7 @@
 class KComboBox;
 class KPushButton;
 
-#define SPHERE_TESSELATE_SLICES	30
-#define SPHERE_TESSELATE_STACKS	30
-
 class QListWidget;
-
-/**
- * This class displays the 3D-view of a molecule
- * @autor Benoit Jacobs
- */
-class MoleculeWidget : public KalziumGLWidget
-{
-	Q_OBJECT
-
-	public:
-		/**
-		 * Constructor
-		 */
-		MoleculeWidget( QWidget *parent = 0 );
-
-		/**
-		 * Destructor
-		 */
-		virtual ~MoleculeWidget();
-};
 
 /**
  * @author Carsten Niehaus
