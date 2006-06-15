@@ -108,6 +108,7 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 {
 	setCaption( i18n( "Plot Data" ) );
 	setButtons( Help | Close );
+	setDefaultButton( Close );
 
 	KalziumDataObject *kdo  = KalziumDataObject::instance();
 

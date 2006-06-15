@@ -42,6 +42,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 {
 	setCaption( i18n( "Molecular Viewer" ) );
 	setButtons( Help | Close );
+	setDefaultButton( Close );
 	
 	QWidget * dummy = new QWidget();
 	setMainWidget( dummy );

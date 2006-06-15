@@ -34,6 +34,7 @@ RSDialog::RSDialog( QWidget* parent )
 {
 	setCaption( i18n( "Risks and Security Dialog" ) );
 	setButtons( Help | Close );
+	setDefaultButton( Close );
 
 	createRPhrases();
 	createSPhrases();
