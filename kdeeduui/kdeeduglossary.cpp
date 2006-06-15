@@ -198,6 +198,7 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 {
 	setCaption( i18n( "Glossary" ) );
 	setButtons( Close );
+	setDefaultButton( Close );
 
 	//this string will be used for all items. If a backgroundpicture should
 	//be used call Glossary::setBackgroundPicture().
