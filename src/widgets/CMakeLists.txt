@@ -8,7 +8,6 @@ set(kalziumui_PART_SRCS
 
 KDE4_ADD_WIDGET_FILES(kalziumui_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kalziumui.widgets)
 
-kde4_automoc(${kalziumui_PART_SRCS})
 
 kde4_add_plugin(kalziumuiwidgets ${kalziumui_PART_SRCS})
 
