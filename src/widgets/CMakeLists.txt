@@ -1,10 +1,13 @@
-include_directories( ${CMAKE_CURRENT_BINARY_DIR}/.. )
+include_directories(
+   ${CMAKE_SOURCE_DIR}/kalzium/src
+   ${CMAKE_BINARY_DIR}/kalzium/src
+)
 if(OPENBABEL2_FOUND)
 	include_directories( ${OPENBABEL2_INCLUDE_DIR} )
 endif(OPENBABEL2_FOUND)
 
 set(kalziumui_PART_SRCS 
-		kalziumglwidget.cpp
+   ${CMAKE_SOURCE_DIR}/kalzium/src/kalziumglwidget.cpp
    )
 
 KDE4_ADD_WIDGET_FILES(kalziumui_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kalziumui.widgets)
