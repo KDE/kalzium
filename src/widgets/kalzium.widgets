@@ -3,7 +3,7 @@ PluginName=KalziumWidgets
 Includes=kinstance.h
 #Init=new KInstance("kdeeduwidgets");
 
-[MoleculeWidget]
+[KalziumGLWidget]
 ToolTip=A OpenGL based molecule viewer
 WhatsThis=A OpenGL based molecule viewer
 Group=Plot (KDE-Edu)
