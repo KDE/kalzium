@@ -301,7 +301,6 @@ void KalziumGLWidget::drawGenericSphere()
 
 void KalziumGLWidget::drawGenericBond()
 {
-	const double pi = 3.1415927;
 	int slices;
 	static int lastDetail = -1;
 	if( 0 == m_bondDisplayList  || lastDetail != m_detail)
@@ -324,14 +323,14 @@ void KalziumGLWidget::drawGenericBond()
 		glBegin( GL_QUADS );
 		for (double i = 0.0; i < slices; i++)
 		{	
-			glNormal3f( cos(2*pi * i/slices), sin(2*pi * i/slices), 0.0 );
-			glVertex3f( cos(2*pi * i/slices) * m_bondsRadius, sin(2*pi * i/slices) * m_bondsRadius, 1.0 );
-			glNormal3f( cos(2*pi * i/slices), sin(2*pi * i/slices), 0.0 );
-			glVertex3f( cos(2*pi * i/slices) * m_bondsRadius, sin(2*pi * i/slices) * m_bondsRadius, 0.0 );
-			glNormal3f( cos(2*pi * (i+1)/slices), sin(2*pi * (i+1)/slices), 0.0 );
-			glVertex3f( cos(2*pi * (i+1)/slices) * m_bondsRadius, sin(2*pi * (i+1)/slices) * m_bondsRadius, 0.0 );
-			glNormal3f( cos(2*pi * (i+1)/slices), sin(2*pi * (i+1)/slices), 0.0 );
-			glVertex3f( cos(2*pi * (i+1)/slices) * m_bondsRadius, sin(2*pi * (i+1)/slices) * m_bondsRadius, 1.0 );
+			glNormal3f( cos(2*M_PI * i/slices), sin(2*M_PI * i/slices), 0.0 );
+			glVertex3f( cos(2*M_PI * i/slices) * m_bondsRadius, sin(2*M_PI * i/slices) * m_bondsRadius, 1.0 );
+			glNormal3f( cos(2*M_PI * i/slices), sin(2*M_PI * i/slices), 0.0 );
+			glVertex3f( cos(2*M_PI * i/slices) * m_bondsRadius, sin(2*M_PI * i/slices) * m_bondsRadius, 0.0 );
+			glNormal3f( cos(2*M_PI * (i+1)/slices), sin(2*M_PI * (i+1)/slices), 0.0 );
+			glVertex3f( cos(2*M_PI * (i+1)/slices) * m_bondsRadius, sin(2*M_PI * (i+1)/slices) * m_bondsRadius, 0.0 );
+			glNormal3f( cos(2*M_PI * (i+1)/slices), sin(2*M_PI * (i+1)/slices), 0.0 );
+			glVertex3f( cos(2*M_PI * (i+1)/slices) * m_bondsRadius, sin(2*M_PI * (i+1)/slices) * m_bondsRadius, 1.0 );
 		}
 		glEnd();
 		glEndList();
@@ -421,6 +420,8 @@ void KalziumGLWidget::drawBond( FLOAT x1, FLOAT y1, FLOAT z1,
 
 void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 {
+	if ( !molecule ) return;
+
 	m_molecule = molecule;
 	
 	// translate the molecule so that center has coords 0,0,0
@@ -461,6 +462,8 @@ void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 	}
 
 	m_bondsRadius = m_molMinBondLength / 8;
+	
+	updateGL();
 }
 
 void KalziumGLWidget::slotSetDetail( int detail )
