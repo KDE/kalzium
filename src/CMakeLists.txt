@@ -1,4 +1,6 @@
-add_subdirectory(widgets)
+if(OPENGL_FOUND)
+	add_subdirectory(widgets)
+endif(OPENGL_FOUND)
 
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduplot/
