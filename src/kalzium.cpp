@@ -39,10 +39,12 @@
 #include "tablesdialog.h"
 #include "search.h"
 #include "searchwidget.h"
-#include "moleculeview.h"
 #include "config-kalzium.h"
 #ifdef HAVE_FACILE
 //#include "eqchemview.h"
+#endif
+#ifdef HAVE_OPENBABEL2
+#include "moleculeview.h"
 #endif
 
 #include <QDockWidget>

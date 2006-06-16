@@ -1,6 +1,6 @@
-if(OPENGL_FOUND)
+if(OPENGL_FOUND AND OPENBABEL2_FOUND)
 	add_subdirectory(widgets)
-endif(OPENGL_FOUND)
+endif(OPENGL_FOUND AND OPENBABEL2_FOUND)
 
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduplot/
