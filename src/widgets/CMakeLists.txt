@@ -1,3 +1,4 @@
+include_directories( ${CMAKE_CURRENT_BINARY_DIR}/.. )
 if(OPENBABEL2_FOUND)
 	include_directories( ${OPENBABEL2_INCLUDE_DIR} )
 endif(OPENBABEL2_FOUND)
