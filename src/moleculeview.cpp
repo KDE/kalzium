@@ -41,14 +41,8 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
 	m_path = QString( "" );
 
-	KDialog *dlg = new KDialog( this );
-	QWidget *dummy2 = new QWidget( dlg );
-	m_moleculeWidget = new KalziumGLWidget();
-	dlg->setMainWidget( m_moleculeWidget );
-	dlg->show();
-
  	connect( ui.loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
-	connect( ui.qualityCombo, SIGNAL(activated( int )), m_moleculeWidget , SLOT( slotSetDetail( int ) ) );
+	connect( ui.qualityCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotSetDetail( int ) ) );
 	connect( ui.moleculeList, SIGNAL( itemDoubleClicked (  QListWidgetItem* ) ), this, SLOT( slotLoadMolecule( QListWidgetItem* ) ) );
 	fillList();
 }
@@ -59,7 +53,7 @@ void MoleculeDialog::slotLoadMolecule( QListWidgetItem * item )
 	filename.prepend( m_path  + "/");
 	
 	kDebug() << "Filename to load: " << filename << endl;
-	m_moleculeWidget->slotSetMolecule( OpenBabel2Wrapper::readMolecule( filename ) );
+	ui.glWidget->slotSetMolecule( OpenBabel2Wrapper::readMolecule( filename ) );
 }
 	
 void MoleculeDialog::slotLoadMolecule()

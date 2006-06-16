@@ -8,8 +8,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>597</width>
-    <height>433</height>
+    <width>699</width>
+    <height>482</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -47,6 +47,93 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox" >
+       <property name="title" >
+        <string>Statistics</string>
+       </property>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="0" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_3" >
+            <property name="text" >
+             <string>Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="nameLabel" >
+            <property name="text" >
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_7" >
+            <property name="text" >
+             <string>Formula:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="formulaLabel" >
+            <property name="text" >
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_4" >
+            <property name="text" >
+             <string>Weight:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="weightLabel" >
+            <property name="text" >
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
     </layout>
    </item>
    <item row="0" column="1" >
@@ -65,18 +152,12 @@
       <number>6</number>
      </property>
      <item>
-      <widget class="QFrame" name="frame" >
+      <widget class="KalziumGLWidget" name="glWidget" >
        <property name="minimumSize" >
         <size>
-         <width>200</width>
-         <height>200</height>
+         <width>300</width>
+         <height>300</height>
         </size>
-       </property>
-       <property name="frameShape" >
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow" >
-        <enum>QFrame::Raised</enum>
        </property>
       </widget>
      </item>
@@ -148,6 +229,15 @@
   </layout>
  </widget>
  <pixmapfunction></pixmapfunction>
+ <customwidgets>
+  <customwidget>
+   <class>KalziumGLWidget</class>
+   <extends>QWidget</extends>
+   <header>kalziumglwidget.h</header>
+   <container>1</container>
+   <pixmap></pixmap>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
