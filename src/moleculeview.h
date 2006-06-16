@@ -38,11 +38,15 @@ class MoleculeDialog : public KDialog
 	private:
 		QString m_path;///to store the path were the molecules are located
 
+		KalziumGLWidget *m_moleculeWidget;
+
 		Ui::moleculeViewerForm ui;	
 		void fillList();
 
 	public slots:
 		void slotLoadMolecule();
+
+		void slotLoadMolecule( QListWidgetItem * item );
 };
 
 #endif // MOLECULEVIEW_H

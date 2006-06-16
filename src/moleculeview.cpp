@@ -25,6 +25,7 @@
 #include <QLayout>
 #include <QListWidget>
 #include <QFileDialog>
+#include <QDir>
 
 MoleculeDialog::MoleculeDialog( QWidget * parent )
 	: KDialog( parent )
@@ -40,29 +41,52 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
 	m_path = QString( "" );
 
+	KDialog *dlg = new KDialog( this );
+	QWidget *dummy2 = new QWidget( dlg );
+	m_moleculeWidget = new KalziumGLWidget();
+	dlg->setMainWidget( m_moleculeWidget );
+	dlg->show();
+
  	connect( ui.loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
-//X 	connect( ui::qualityCombo, SIGNAL(activated( int )), ui::moleculeWidget, SLOT( slotSetDetail( int ) ) );
+	connect( ui.qualityCombo, SIGNAL(activated( int )), m_moleculeWidget , SLOT( slotSetDetail( int ) ) );
+	connect( ui.moleculeList, SIGNAL( itemDoubleClicked (  QListWidgetItem* ) ), this, SLOT( slotLoadMolecule( QListWidgetItem* ) ) );
 	fillList();
 }
 
+void MoleculeDialog::slotLoadMolecule( QListWidgetItem * item )
+{
+	QString filename = item->text();
+	filename.prepend( m_path  + "/");
+	
+	kDebug() << "Filename to load: " << filename << endl;
+	m_moleculeWidget->slotSetMolecule( OpenBabel2Wrapper::readMolecule( filename ) );
+}
+	
 void MoleculeDialog::slotLoadMolecule()
 {
-//X 	QString filename = m_listView->currentItem()->text();
-//X 	filename.prepend( m_path );
-//X 	
-//X 	kDebug() << "Filename to load: " << filename << endl;
-//X 	
-//X 	ui.moleculeWidget->slotSetMolecule( OpenBabel2Wrapper::readMolecule( filename ) );
+	slotLoadMolecule( ui.moleculeList->currentItem() );
 }
 
 void MoleculeDialog::fillList()
 {
-//X 	QString s = KFileDialog::getExistingDirectory( 
-//X 			"/home",
+//X 	QString s = QFileDialog::getExistingDirectory( 
 //X 			this,
-//X 			"Choose a directory" );
+//X 			"Choose a directory",
+//X 			"/home/kde4/chemical-structures/amino_acids",
+//X 			QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
 //X 
-//X 	m_path = s;
+//X 	kDebug() << "Path: " << s <<  endl;
+	
+	m_path = "/home/kde4/chemical-structures/amino_acids";
+	QDir dir( m_path );
+	
+	QStringList ff;
+	ff << "*.cml";
+	
+	QStringList list = dir.entryList( ff, QDir::Readable | QDir::Files );
+
+	foreach( QString filename, list )
+		ui.moleculeList->addItem( filename );
 }
 
 MoleculeDialog::~MoleculeDialog( )
