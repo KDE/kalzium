@@ -42,6 +42,11 @@ class LatticeDialog : public KDialog
 		 */
 		~LatticeDialog(){};
 
+		/**
+		 * @return the volume of the current unitcell
+		 */
+		double volume();
+
 	private slots:
 		void slotLatticeChanged( const QString& );
 

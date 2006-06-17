@@ -34,6 +34,8 @@
 #include "kalziumglwidget.h"
 #include "openbabel2wrapper.h"
 
+#include <math.h>
+
 LatticeDialog::LatticeDialog( QWidget* parent )
 	: KDialog( parent )
 {
@@ -54,6 +56,55 @@ LatticeDialog::LatticeDialog( QWidget* parent )
 
 void LatticeDialog::slotLatticeChanged( const QString& which )
 {
+}
+
+double LatticeDialog::volume()
+{
+	const double a = ui.va->text().toDouble();
+	const double b = ui.vb->text().toDouble();
+	const double c = ui.vc->text().toDouble();
+	const double aa = ui.aa->value();
+	const double ab = ui.ab->value();
+	const double ac = ui.ac->value();
+
+	double result = 0.0;
+	
+	switch ( ui.lattice->currentIndex() )
+	{
+		case 0://triclinic
+			result = a * b * c * sqrt(1
+						- pow(cos( aa ), 2)
+						- pow(cos( ab ), 2)
+						- pow(cos( ac ), 2)
+						+ 2 * cos( aa ) * cos( ab ) * cos( ac )
+					);
+			break;
+		case 1://monooclinic
+			result = a*b*c*sin( ab );
+			break;
+		case 2://Orthorhombic
+			result = a * b * c;
+			break;
+		case 3://Tetragonal
+			result = a * a * c;
+			break;
+		case 4://Rhombohedral
+			result = pow( a, 3 ) * sqrt(1
+						- pow(cos( aa ), 2)
+						- pow(cos( ab ), 2)
+						- pow(cos( ac ), 2)
+						+ 2 * cos( aa ) * cos( ab ) * cos( ac )
+					);
+			break;
+		case 5://Hexagonal
+			result = pow( 3, 1/3 ) * a * a * c / 2;
+			break;
+		case 6://Cubic
+			result = pow( a, 3 );
+			break;
+	}
+
+	return result;
 }
 
 #include "latticedialog.moc"
