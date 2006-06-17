@@ -49,6 +49,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
  	connect( ui.loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
 	connect( ui.qualityCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotSetDetail( int ) ) );
+	connect( ui.styleCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotChooseStylePreset( int ) ) );
 }
 
 void MoleculeDialog::slotLoadMolecule()
@@ -93,7 +94,7 @@ void MoleculeDialog::updateStatistics()
 //X 		carbon->addChild( i );
 	}
 	
-	ui.treeWidget->insertTopLevelItems( 0, items );
+//X 	ui.treeWidget->insertTopLevelItems( 0, items );
 }
 
 

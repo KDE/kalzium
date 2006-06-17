@@ -198,12 +198,27 @@
         <widget class="QComboBox" name="styleCombo" >
          <item>
           <property name="text" >
+           <string>Lines</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
            <string>Sticks</string>
           </property>
          </item>
          <item>
           <property name="text" >
-           <string>Balls</string>
+           <string>Spheres</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>Spheres, coloured bonds</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>Spheres, big</string>
           </property>
          </item>
         </widget>
@@ -222,7 +237,7 @@
         <widget class="QComboBox" name="qualityCombo" >
          <item>
           <property name="text" >
-           <string>High</string>
+           <string>Low</string>
           </property>
          </item>
          <item>
@@ -232,7 +247,7 @@
          </item>
          <item>
           <property name="text" >
-           <string>Low</string>
+           <string>High</string>
           </property>
          </item>
         </widget>

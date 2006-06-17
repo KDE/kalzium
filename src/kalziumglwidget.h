@@ -198,8 +198,11 @@ class KalziumGLWidget : public QGLWidget
 		 * Chooses the style of rendering among some presets
 		 * @param stylePreset the wanted style preset
 		 */
-
 		void slotChooseStylePreset( StylePreset stylePreset );
+		
+		void slotChooseStylePreset( int stylePreset ){
+			slotChooseStylePreset( (StylePreset) stylePreset );
+		}
 
 	protected:
 		/**
