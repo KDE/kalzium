@@ -22,26 +22,13 @@
    <property name="spacing" >
     <number>6</number>
    </property>
-   <item row="1" column="0" >
-    <widget class="QPushButton" name="updateButton" >
-     <property name="text" >
-      <string>Update Unitcell</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="0" >
-    <widget class="QGroupBox" name="groupBox" >
-     <property name="maximumSize" >
-      <size>
-       <width>300</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="title" >
-      <string>Lattice settings</string>
+    <widget class="QSplitter" name="" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
      </property>
      <widget class="QWidget" name="" >
-      <layout class="QHBoxLayout" >
+      <layout class="QVBoxLayout" >
        <property name="margin" >
         <number>0</number>
        </property>
@@ -49,311 +36,357 @@
         <number>6</number>
        </property>
        <item>
-        <widget class="QLabel" name="label_8" >
-         <property name="text" >
-          <string>γ</string>
+        <widget class="QGroupBox" name="groupBox" >
+         <property name="maximumSize" >
+          <size>
+           <width>300</width>
+           <height>16777215</height>
+          </size>
          </property>
-         <property name="buddy" >
-          <cstring>ac</cstring>
+         <property name="title" >
+          <string>Lattice settings</string>
          </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="1" column="0" >
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_9" >
+              <property name="text" >
+               <string>Angles</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_6" >
+                <property name="text" >
+                 <string>α</string>
+                </property>
+                <property name="buddy" >
+                 <cstring>aa</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDoubleSpinBox" name="aa" >
+                <property name="suffix" >
+                 <string>°</string>
+                </property>
+                <property name="maximum" >
+                 <double>180</double>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_7" >
+                <property name="text" >
+                 <string>β</string>
+                </property>
+                <property name="buddy" >
+                 <cstring>lineEdit_4</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDoubleSpinBox" name="ab" >
+                <property name="suffix" >
+                 <string>°</string>
+                </property>
+                <property name="maximum" >
+                 <double>180</double>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_8" >
+                <property name="text" >
+                 <string>γ</string>
+                </property>
+                <property name="buddy" >
+                 <cstring>ac</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDoubleSpinBox" name="ac" >
+                <property name="suffix" >
+                 <string>°</string>
+                </property>
+                <property name="maximum" >
+                 <double>180</double>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="0" >
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_10" >
+              <property name="text" >
+               <string>Vector length</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_3" >
+                <property name="text" >
+                 <string>a</string>
+                </property>
+                <property name="buddy" >
+                 <cstring>vc</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDoubleSpinBox" name="va" />
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_4" >
+                <property name="text" >
+                 <string>b</string>
+                </property>
+                <property name="buddy" >
+                 <cstring>vb</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDoubleSpinBox" name="vb" />
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_5" >
+                <property name="text" >
+                 <string>c</string>
+                </property>
+                <property name="buddy" >
+                 <cstring>vc</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDoubleSpinBox" name="vc" />
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </widget>
        </item>
        <item>
-        <widget class="QDoubleSpinBox" name="ac" >
-         <property name="suffix" >
-          <string>°</string>
-         </property>
-         <property name="maximum" >
-          <double>180</double>
+        <widget class="QPushButton" name="updateButton" >
+         <property name="text" >
+          <string>Update Unitcell</string>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
      <widget class="QWidget" name="" >
-      <layout class="QHBoxLayout" >
+      <layout class="QGridLayout" >
        <property name="margin" >
         <number>0</number>
        </property>
        <property name="spacing" >
         <number>6</number>
        </property>
-       <item>
-        <widget class="QLabel" name="label_6" >
-         <property name="text" >
-          <string>α</string>
-         </property>
-         <property name="buddy" >
-          <cstring>aa</cstring>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="aa" >
-         <property name="suffix" >
-          <string>°</string>
-         </property>
-         <property name="maximum" >
-          <double>180</double>
+       <item row="0" column="0" >
+        <widget class="KalziumGLWidget" name="glWidget" >
+         <property name="minimumSize" >
+          <size>
+           <width>400</width>
+           <height>400</height>
+          </size>
          </property>
         </widget>
        </item>
-      </layout>
-     </widget>
-     <widget class="QLabel" name="label_9" >
-      <property name="geometry" >
-       <rect>
-        <x>11</x>
-        <y>400</y>
-        <width>278</width>
-        <height>17</height>
-       </rect>
-      </property>
-      <property name="text" >
-       <string>Angles</string>
-      </property>
-     </widget>
-     <widget class="QWidget" name="" >
-      <layout class="QHBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="label_5" >
-         <property name="text" >
-          <string>c</string>
+       <item row="1" column="0" >
+        <layout class="QHBoxLayout" >
+         <property name="margin" >
+          <number>0</number>
          </property>
-         <property name="buddy" >
-          <cstring>vc</cstring>
+         <property name="spacing" >
+          <number>6</number>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="vc" />
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="" >
-      <layout class="QHBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="label_4" >
-         <property name="text" >
-          <string>b</string>
-         </property>
-         <property name="buddy" >
-          <cstring>vb</cstring>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="vb" />
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="" >
-      <layout class="QHBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="label_3" >
-         <property name="text" >
-          <string>a</string>
-         </property>
-         <property name="buddy" >
-          <cstring>vc</cstring>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="va" />
-       </item>
-      </layout>
-     </widget>
-     <widget class="QLabel" name="label_10" >
-      <property name="geometry" >
-       <rect>
-        <x>11</x>
-        <y>28</y>
-        <width>278</width>
-        <height>17</height>
-       </rect>
-      </property>
-      <property name="text" >
-       <string>Vector length</string>
-      </property>
-     </widget>
-     <widget class="QWidget" name="" >
-      <layout class="QHBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="label_7" >
-         <property name="text" >
-          <string>β</string>
-         </property>
-         <property name="buddy" >
-          <cstring>lineEdit_4</cstring>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="ab" >
-         <property name="suffix" >
-          <string>°</string>
-         </property>
-         <property name="maximum" >
-          <double>180</double>
-         </property>
-        </widget>
+         <item>
+          <layout class="QHBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_2" >
+             <property name="text" >
+              <string>Quality:</string>
+             </property>
+             <property name="buddy" >
+              <cstring>latticeView</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="quality" >
+             <item>
+              <property name="text" >
+               <string>High</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Medium</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Low</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label" >
+             <property name="text" >
+              <string>Crystal system:</string>
+             </property>
+             <property name="buddy" >
+              <cstring>latticeView</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="lattice" >
+             <item>
+              <property name="text" >
+               <string>Triclinic</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Monoclinic</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Orthorhombic</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Tetragonal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Rhombohedral</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Hexagonal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Cubic</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
     </widget>
-   </item>
-   <item rowspan="2" row="0" column="1" >
-    <layout class="QGridLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <item row="0" column="0" >
-      <widget class="KalziumGLWidget" name="glWidget" >
-       <property name="minimumSize" >
-        <size>
-         <width>400</width>
-         <height>400</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0" >
-      <layout class="QHBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item>
-        <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label_2" >
-           <property name="text" >
-            <string>Quality:</string>
-           </property>
-           <property name="buddy" >
-            <cstring>latticeView</cstring>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="quality" >
-           <item>
-            <property name="text" >
-             <string>High</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Medium</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Low</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label" >
-           <property name="text" >
-            <string>Crystal system:</string>
-           </property>
-           <property name="buddy" >
-            <cstring>latticeView</cstring>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="lattice" >
-           <item>
-            <property name="text" >
-             <string>Triclinic</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Monoclinic</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Orthorhombic</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Tetragonal</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Rhombohedral</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Hexagonal</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Cubic</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-    </layout>
    </item>
   </layout>
  </widget>
