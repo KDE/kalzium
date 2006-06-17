@@ -17,15 +17,20 @@
 #include <kpushbutton.h>
 #include <kfiledialog.h>
 
+#include <openbabel/mol.h>
+#include <openbabel/obiter.h>
+
 #include "moleculeview.h"
 #include "openbabel2wrapper.h"
+#include "kalziumglwidget.h"
 
 #include <QString>
 #include <QMouseEvent>
 #include <QLayout>
-#include <QListWidget>
 #include <QFileDialog>
 #include <QDir>
+
+using namespace OpenBabel;
 
 MoleculeDialog::MoleculeDialog( QWidget * parent )
 	: KDialog( parent )
@@ -43,48 +48,45 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
  	connect( ui.loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
 	connect( ui.qualityCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotSetDetail( int ) ) );
-	connect( ui.moleculeList, SIGNAL( itemDoubleClicked (  QListWidgetItem* ) ), this, SLOT( slotLoadMolecule( QListWidgetItem* ) ) );
-	fillList();
 }
 
-void MoleculeDialog::slotLoadMolecule( QListWidgetItem * item )
-{
-	QString filename = item->text();
-	filename.prepend( m_path  + "/");
-	
-	kDebug() << "Filename to load: " << filename << endl;
-	ui.glWidget->slotSetMolecule( OpenBabel2Wrapper::readMolecule( filename ) );
-}
-	
 void MoleculeDialog::slotLoadMolecule()
 {
-	slotLoadMolecule( ui.moleculeList->currentItem() );
-}
-
-void MoleculeDialog::fillList()
-{
-//X 	QString s = QFileDialog::getExistingDirectory( 
-//X 			this,
-//X 			"Choose a directory",
-//X 			"/home/kde4/chemical-structures/amino_acids",
-//X 			QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
-//X 
-//X 	kDebug() << "Path: " << s <<  endl;
-	
 	m_path = "/home/kde4/chemical-structures/amino_acids";
-	QDir dir( m_path );
-	
-	QStringList ff;
-	ff << "*.cml";
-	
-	QStringList list = dir.entryList( ff, QDir::Readable | QDir::Files );
 
-	foreach( QString filename, list )
-		ui.moleculeList->addItem( filename );
+	QString filename = QFileDialog::getOpenFileName( 
+			this,
+			"Choose a file to open",
+			m_path,
+			"Molecules (*.cml)" );
+
+	kDebug() << "Filename to load: " << filename << endl;
+	
+	OpenBabel::OBMol* mol = OpenBabel2Wrapper::readMolecule( filename );
+	ui.glWidget->slotSetMolecule( mol );
+	updateStatistics();
 }
 
 MoleculeDialog::~MoleculeDialog( )
 {
 }
+
+void MoleculeDialog::updateStatistics()
+{
+	OpenBabel::OBMol* mol = ui.glWidget->molecule();
+	if ( !mol ) return;
+	
+	ui.nameLabel->setText( mol->GetTitle() );
+	ui.weightLabel->setText( QString::number( mol->GetMolWt() ));
+	ui.formulaLabel->setText( OpenBabel2Wrapper::getPrettyFormula( mol ) );
+	ui.glWidget->update();
+	
+//X 	FOR_ATOMS_OF_MOL( a, mol )
+//X 	{
+//X 		QTreeWidgetItem* carbon = new QTreeWidgetItem( ui.treeWidget );
+//X 		carbon->setText( 0, i18n( "Carbon" ) );
+//X 	}
+}
+
 
 #include "moleculeview.moc"

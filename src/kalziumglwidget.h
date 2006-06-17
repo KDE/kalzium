@@ -118,6 +118,13 @@ class KalziumGLWidget : public QGLWidget
 
 		virtual void getColor( OpenBabel::OBAtom &a, GLfloat &r, GLfloat &g, GLfloat &b );
 
+		/**
+		 * @return the current molecule
+		 */
+		OpenBabel::OBMol* molecule(){
+			return m_molecule;
+		}
+
 	public slots:
 		/**
 		 * sets the molecule which will be displayed

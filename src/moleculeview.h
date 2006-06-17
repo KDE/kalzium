@@ -41,12 +41,17 @@ class MoleculeDialog : public KDialog
 		KalziumGLWidget *m_moleculeWidget;
 
 		Ui::moleculeViewerForm ui;	
-		void fillList();
+	
+		/**
+		 * Update the statistical information about the current molecule
+		 */
+		void updateStatistics();
 
-	public slots:
+	private slots:
+		/**
+		 * Load a molecule
+		 */
 		void slotLoadMolecule();
-
-		void slotLoadMolecule( QListWidgetItem * item );
 };
 
 #endif // MOLECULEVIEW_H

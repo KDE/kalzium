@@ -31,6 +31,10 @@ class OpenBabel2Wrapper
 		 * the file couldn't be read.
 		 */
 		static OpenBabel::OBMol* readMolecule( const QString& filename );
+		
+		static QString getFormula( OpenBabel::OBMol* molecule );
+		
+		static QString getPrettyFormula( OpenBabel::OBMol* molecule );
 };
 
 #endif // OPENBABEL2WRAPPER_H

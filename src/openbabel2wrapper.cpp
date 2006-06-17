@@ -55,3 +55,15 @@ OpenBabel::OBMol* OpenBabel2Wrapper::readMolecule( const QString& filename )
 
 	return mol;
 }
+
+QString OpenBabel2Wrapper::getFormula( OpenBabel::OBMol* molecule )
+{
+	QString formula( molecule->GetFormula().c_str() );
+	return formula;
+}
+		
+QString OpenBabel2Wrapper::getPrettyFormula( OpenBabel::OBMol* molecule )
+{
+	QString formula( molecule->GetFormula().c_str() );
+	return formula;
+}
