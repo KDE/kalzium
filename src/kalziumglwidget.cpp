@@ -34,8 +34,9 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	m_molecule = 0;
 	m_detail = 0;
 	m_useFog = false;
+	m_selectedAtom = 0;
 
-	slotChooseStylePreset( PRESET_SPHERES_AND_BICOLOR_BONDS );
+	ChooseStylePreset( PRESET_SPHERES_AND_BICOLOR_BONDS );
 	
 	setMinimumSize( 100,100 );
 }
@@ -86,46 +87,6 @@ void KalziumGLWidget::initializeGL()
 		GL_SEPARATE_SPECULAR_COLOR_EXT );
 }
 
-void KalziumGLWidget::getColor( OBAtom &a, GLfloat &r, GLfloat &g, GLfloat &b )
-{
-	if ( a.IsOxygen() )
-	{//red
-		r = 1.0;
-		g = 0.0;
-		b = 0.0;
-	}
-	else if ( a.IsSulfur() )
-	{//yellow
-		r = 1.0;
-		g = 1.0;
-		b = 0.0;
-	}
-	else if ( a.IsCarbon() )
-	{//almost black
-		r = 0.25;
-		g = 0.25;
-		b = 0.25;
-	}
-	else if ( a.IsNitrogen() )
-	{
-		r = 1.0;
-		g = 0.9;
-		b = 0.5;
-	}
-	else if ( a.IsHydrogen() )
-	{//white
-		r = 1.0;
-		g = 1.0;
-		b = 1.0;
-	}
-	else
-	{
-		r = 0.5;
-		g = 0.5;
-		b = 0.5;
-	}
-}
-
 void KalziumGLWidget::paintGL()
 {
 	glMatrixMode( GL_PROJECTION );
@@ -167,15 +128,13 @@ void KalziumGLWidget::paintGL()
 			FLOAT x = (FLOAT) a->GetX();
 			FLOAT y = (FLOAT) a->GetY();
 			FLOAT z = (FLOAT) a->GetZ();
-	
-			GLfloat r, g, b;
-	
-			getColor( *a, r, g, b );
+		
+			GLColor c = getAtomColor( &*a );
 		
 			drawSphere(
 				x, y, z,
 				atomRadius (),
-				r, g, b);
+				c);
 		}
 
 		glDisable( GL_NORMALIZE );
@@ -209,30 +168,31 @@ void KalziumGLWidget::paintGL()
 		FLOAT y3 = (y1 + y2) / 2;
 		FLOAT z3 = (z1 + z2) / 2;
 		
-		GLfloat r1, g1, b1, r2, g2, b2;
-		getColor( *static_cast<OBAtom*>(bond->GetBgn()), r1, g1, b1 );
-		getColor( *static_cast<OBAtom*>(bond->GetEnd()), r2, g2, b2 );
+		GLColor c1, c2;
+		c1 = getAtomColor( static_cast<OBAtom*>(bond->GetBgn()) );
+		c2 = getAtomColor( static_cast<OBAtom*>(bond->GetEnd()) );
+		GLColor gray( 0.5, 0.5, 0.5 );
 		
 		switch( m_bondStyle )
 		{
 			case BOND_LINE:
 				glBegin( GL_LINES );
-				glColor3f( r1, g1, b1 );
+				c1.apply();
 				glVertex3f( x1, y1, z1 );
 				glVertex3f( x3, y3, z3 );
-				glColor3f( r2, g2, b2 );
+				c2.apply();
 				glVertex3f( x3, y3, z3 );
 				glVertex3f( x2, y2, z2 );
 				glEnd();
 				break;
 			
 			case BOND_CYLINDER_GRAY:
-				drawBond( x1, y1, z1, x2, y2, z2, 0.5, 0.5, 0.5 );
+				drawBond( x1, y1, z1, x2, y2, z2, gray );
 				break;
 
 			case BOND_CYLINDER_BICOLOR:
-				drawBond( x1, y1, z1, x3, y3, z3, r1, g1, b1 );
-				drawBond( x2, y2, z2, x3, y3, z3, r2, g2, b2 );
+				drawBond( x1, y1, z1, x3, y3, z3, c1 );
+				drawBond( x2, y2, z2, x3, y3, z3, c2 );
 				break;
 
 			case BOND_DISABLED: break;
@@ -359,16 +319,9 @@ void KalziumGLWidget::drawGenericBond()
 }
 
 void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z,
-	GLdouble radius, GLfloat red, GLfloat green, GLfloat blue )
+	GLdouble radius, GLColor &color )
 {
-	GLfloat ambientColor [] = { red / 2, green / 2, blue / 2, 1.0 };
-	GLfloat diffuseColor [] = { red, green, blue, 1.0 };
-	GLfloat specularColor [] = { (2.0 + red) / 3, (2.0 + green) / 3,
-		(2.0 + blue) / 3, 1.0 };
-	glMaterialfv(GL_FRONT, GL_AMBIENT, ambientColor);
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuseColor);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, specularColor);
-	glMaterialf(GL_FRONT, GL_SHININESS, 50.0);
+	color.applyAsMaterials();
 	
 	glPushMatrix();
 	glTranslated( x, y, z );
@@ -378,17 +331,9 @@ void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z,
 }
 
 void KalziumGLWidget::drawBond( FLOAT x1, FLOAT y1, FLOAT z1,
-	FLOAT x2, FLOAT y2, FLOAT z2,
-	GLfloat red, GLfloat green, GLfloat blue )
+	FLOAT x2, FLOAT y2, FLOAT z2, GLColor &color )
 {
-	GLfloat ambientColor [] = { red / 2, green / 2, blue / 2, 1.0 };
-	GLfloat diffuseColor [] = { red, green, blue, 1.0 };
-	GLfloat specularColor [] = { (2.0 + red) / 3, (2.0 + green) / 3,
-		(2.0 + blue) / 3, 1.0 };
-	glMaterialfv(GL_FRONT, GL_AMBIENT, ambientColor);
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuseColor);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, specularColor);
-	glMaterialf(GL_FRONT, GL_SHININESS, 50.0);
+	color.applyAsMaterials();
 
 	// the "axis vector" of the cylinder
 	FLOAT axis[3] = { x2 - x1, y2 - y1, z2 - z1 };
@@ -450,11 +395,12 @@ void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 {
 	if ( !molecule ) return;
 	m_molecule = molecule;
+	m_selectedAtom = 0;
 	prepareMoleculeData();
 	updateGL();
 }
 
-void KalziumGLWidget::slotChooseStylePreset( StylePreset stylePreset )
+void KalziumGLWidget::ChooseStylePreset( StylePreset stylePreset )
 {
 	switch( stylePreset )
 	{
@@ -485,7 +431,7 @@ void KalziumGLWidget::slotChooseStylePreset( StylePreset stylePreset )
 		case PRESET_BIG_SPHERES:
 			m_atomStyle = ATOM_SPHERE;
 			m_bondStyle = BOND_DISABLED;
-			m_atomRadiusCoeff = 2.4;
+			m_atomRadiusCoeff = 1.0;
 			m_bondRadiusCoeff = 0.0;
 			break;
 	}
@@ -613,12 +559,94 @@ void KalziumGLWidget::construct_ortho_3D_basis_given_first_vector3(
 	w[2] = u[0] * v[1] - u[1] * v[0];
 }
 
+GLColor::GLColor()
+{
+}
+
+GLColor::GLColor(GLfloat red, GLfloat green, GLfloat blue)
+{
+	m_red = red;
+	m_green = green;
+	m_blue = blue;
+}
+
+GLColor& GLColor::operator=( const GLColor& other )
+{
+	m_red = other.m_red;
+	m_green = other.m_green;
+	m_blue = other.m_blue;
+
+	return *this;
+}
+
+GLColor& KalziumGLWidget::getAtomColor( OpenBabel::OBAtom* atom )
+{
+	static GLColor c;
+
+	if ( atom->IsHydrogen() )
+	{//white
+		c.m_red = 1.0;
+		c.m_green = 1.0;
+		c.m_blue = 1.0;
+	}
+	else if ( atom->IsCarbon() )
+	{//almost black
+		c.m_red = 0.25;
+		c.m_green = 0.25;
+		c.m_blue = 0.25;
+	}
+	else if ( atom->IsOxygen() )
+	{//red
+		c.m_red = 1.0;
+		c.m_green = 0.0;
+		c.m_blue = 0.0;
+	}
+	else if ( atom->IsNitrogen() )
+	{
+		c.m_red = 1.0;
+		c.m_green = 0.9;
+		c.m_blue = 0.5;
+	}
+	else if ( atom->IsSulfur() )
+	{//yellow
+		c.m_red = 1.0;
+		c.m_green = 1.0;
+		c.m_blue = 0.0;
+	}
+	else
+	{
+		c.m_red = 0.5;
+		c.m_green = 0.5;
+		c.m_blue = 0.5;
+	}
+
+	if ( atom == m_selectedAtom )
+	{
+		const GLfloat coeff = 1.5;
+		c.m_blue = (c.m_blue + coeff) / (coeff + 1);
+		c.m_red /= (coeff + 1);
+		c.m_green /= (coeff + 1);
+		c.clamp();
+	}
+
+	return c;
+}
+
 void KalziumGLWidget::slotAtomSelected( OpenBabel::OBAtom* atom )
 {
-	kDebug() << "KalziumGLWidget::slotAtomSelected()" << endl;
-	//Benoit: At this place you need to do some OpenGL-stuff to select
-	//the emitted atom. No clue how to do that, though :-)
 	if ( !atom ) return;
+	m_selectedAtom = atom;
+	updateGL();
+}
+
+void GLColor::clamp()
+{
+	if(m_red <= 0.0) m_red = 0.0;
+	if(m_red >= 1.0) m_red = 1.0;
+	if(m_green <= 0.0) m_green = 0.0;
+	if(m_green >= 1.0) m_green = 1.0;
+	if(m_blue <= 0.0) m_blue = 0.0;
+	if(m_blue >= 1.0) m_blue = 1.0;
 }
 
 inline void GLColor::apply()
@@ -628,10 +656,10 @@ inline void GLColor::apply()
 
 void GLColor::applyAsMaterials()
 {
-	GLfloat ambientColor [] = { red / 2, green / 2, blue / 2, 1.0 };
-	GLfloat diffuseColor [] = { red, green, blue, 1.0 };
-	GLfloat specularColor [] = { (2.0 + red) / 3, (2.0 + green) / 3,
-		(2.0 + blue) / 3, 1.0 };
+	GLfloat ambientColor [] = { m_red / 2, m_green / 2, m_blue / 2, 1.0 };
+	GLfloat diffuseColor [] = { m_red, m_green, m_blue, 1.0 };
+	GLfloat specularColor [] = { (2.0 + m_red) / 3, (2.0 + m_green) / 3,
+		(2.0 + m_blue) / 3, 1.0 };
 	glMaterialfv(GL_FRONT, GL_AMBIENT, ambientColor);
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuseColor);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, specularColor);

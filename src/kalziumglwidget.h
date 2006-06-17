@@ -39,6 +39,8 @@
 #define FABS		fabsf
 #endif
 
+struct GLColor;
+
 /**
  * This class displays the 3D-view of a molecule
  * 
@@ -94,6 +96,12 @@ class KalziumGLWidget : public QGLWidget
 		 * Set this to true to enable the fog effect
 		 */
 		bool m_useFog;
+
+
+		/**
+		 * The selected atom
+		 */
+		OpenBabel::OBAtom* m_selectedAtom;
 
 		/**
 		 * The style in which the atoms are rendered.
@@ -168,18 +176,8 @@ class KalziumGLWidget : public QGLWidget
 		 */
 		virtual ~KalziumGLWidget();
 
-		/**
-		 * This methods returns the color in which a given atom
-		 * should be painted.
-		 */
-		virtual void getColor( OpenBabel::OBAtom &a, GLfloat &r, GLfloat &g, GLfloat &b );
-
-		/**
-		 * @return the molecule
-		 */
-		OpenBabel::OBMol* molecule(){
-			return m_molecule;
-		}
+		inline OpenBabel::OBMol* molecule () const
+			{ return m_molecule; }
 
 	public slots:
 		/**
@@ -198,14 +196,12 @@ class KalziumGLWidget : public QGLWidget
 		 * Chooses the style of rendering among some presets
 		 * @param stylePreset the wanted style preset
 		 */
-		void slotChooseStylePreset( StylePreset stylePreset );
-		
 		/**
 		 * Chooses the style of rendering among some presets
 		 * @param stylePreset the wanted style preset
 		 */
 		void slotChooseStylePreset( int stylePreset ){
-			slotChooseStylePreset( (StylePreset) stylePreset );
+			ChooseStylePreset( (StylePreset) stylePreset );
 		}
 
 		/**
@@ -266,9 +262,7 @@ class KalziumGLWidget : public QGLWidget
 				GLFLOAT y, 
 				GLFLOAT z, 
 				GLFLOAT radius,
-				GLfloat red, 
-				GLfloat green, 
-				GLfloat blue );
+				GLColor &color );
 
 		/**
 		 * This method draws a bond
@@ -283,10 +277,23 @@ class KalziumGLWidget : public QGLWidget
 
 		virtual void drawBond( GLFLOAT x1, GLFLOAT y1, GLFLOAT z1,
 			GLFLOAT x2, GLFLOAT y2, GLFLOAT z2,
-			GLfloat red, GLfloat green, GLfloat blue );
+			GLColor &color );
 
 		inline float bondRadius();
 		inline float atomRadius();
+
+		/**
+		 * Chooses the style of rendering among some presets
+		 * @param stylePreset the wanted style preset
+		 */
+		void ChooseStylePreset( StylePreset stylePreset );
+
+		/**
+		 * returns the color which an atom should be painted
+		 */
+
+		GLColor& getAtomColor( OpenBabel::OBAtom* atom );
+
 };
 
 /**
@@ -296,7 +303,14 @@ class KalziumGLWidget : public QGLWidget
  */
 struct GLColor
 {
-	GLfloat red, green, blue;
+	GLfloat m_red, m_green, m_blue;
+
+	GLColor();
+	GLColor(GLfloat red, GLfloat green, GLfloat blue);
+
+	GLColor& operator=( const GLColor& other );
+
+	void clamp();
 
 	/**
 	 * Sets this color to be the one used by OpenGL for rendering
