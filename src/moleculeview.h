@@ -16,13 +16,12 @@
 
 #include <kdialog.h>
 
-#include "kalziumglwidget.h"
 #include "ui_moleculeviewerwidget.h"
 
-class KComboBox;
-class KPushButton;
+class QTreeWidgetItem;
 
-class QListWidget;
+#include <openbabel/mol.h>
+#include <openbabel/obiter.h>
 
 /**
  * @author Carsten Niehaus
@@ -38,20 +37,30 @@ class MoleculeDialog : public KDialog
 	private:
 		QString m_path;///to store the path were the molecules are located
 
-		KalziumGLWidget *m_moleculeWidget;
-
 		Ui::moleculeViewerForm ui;	
 	
 		/**
 		 * Update the statistical information about the current molecule
 		 */
 		void updateStatistics();
+	
+	signals:
+		/**
+		 * the atom @p a has been selected by the user
+		 */
+		void atomSelected( OpenBabel::OBAtom* a );
 
 	private slots:
 		/**
 		 * Load a molecule
 		 */
 		void slotLoadMolecule();
+
+		/**
+		 * The user selected a atom represented by @p item in the
+		 * QTreeWidget and with the internal ID @p idx
+		 */
+		void slotAtomSelected( QTreeWidgetItem * item, int idx );
 };
 
 #endif // MOLECULEVIEW_H

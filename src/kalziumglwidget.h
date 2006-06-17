@@ -200,9 +200,18 @@ class KalziumGLWidget : public QGLWidget
 		 */
 		void slotChooseStylePreset( StylePreset stylePreset );
 		
+		/**
+		 * Chooses the style of rendering among some presets
+		 * @param stylePreset the wanted style preset
+		 */
 		void slotChooseStylePreset( int stylePreset ){
 			slotChooseStylePreset( (StylePreset) stylePreset );
 		}
+
+		/**
+		 * The atom @p atom was selected by the user
+		 */
+		void slotAtomSelected( OpenBabel::OBAtom* atom );
 
 	protected:
 		/**

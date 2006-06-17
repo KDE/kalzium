@@ -17,9 +17,6 @@
 #include <kpushbutton.h>
 #include <kfiledialog.h>
 
-#include <openbabel/mol.h>
-#include <openbabel/obiter.h>
-
 #include "moleculeview.h"
 #include "openbabel2wrapper.h"
 #include "kalziumglwidget.h"
@@ -50,6 +47,9 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
  	connect( ui.loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
 	connect( ui.qualityCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotSetDetail( int ) ) );
 	connect( ui.styleCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotChooseStylePreset( int ) ) );
+	connect( this, SIGNAL( atomSelected( OpenBabel::OBAtom* ) ), 
+				ui.glWidget, SLOT( slotAtomSelected( OpenBabel::OBAtom* ) ) );
+	connect( ui.treeWidget, SIGNAL( itemDoubleClicked(QTreeWidgetItem *,int ) ), this, SLOT(slotAtomSelected( QTreeWidgetItem *,int ) ) );
 
 	slotLoadMolecule();
 }
@@ -81,6 +81,8 @@ void MoleculeDialog::updateStatistics()
 	OpenBabel::OBMol* mol = ui.glWidget->molecule();
 	if ( !mol ) return;
 
+	ui.treeWidget->clear();
+
 	ui.nameLabel->setText( mol->GetTitle() );
 	ui.weightLabel->setText( QString::number( mol->GetMolWt() ));
 	ui.formulaLabel->setText( OpenBabel2Wrapper::getPrettyFormula( mol ) );
@@ -95,8 +97,8 @@ void MoleculeDialog::updateStatistics()
 	FOR_ATOMS_OF_MOL( a, mol )
 	{
  		QStringList content;
-		content.append( QString::number( a->GetExactMass() ) );
 		content.append( QString::number( a->GetIdx() ) );
+		content.append( QString::number( a->GetExactMass() ) );
  		QTreeWidgetItem* i = new QTreeWidgetItem( content );
 		if ( a->IsCarbon() )
 	 		carbon->addChild( i );
@@ -111,5 +113,18 @@ void MoleculeDialog::updateStatistics()
 	}
 }
 
+void MoleculeDialog::slotAtomSelected( QTreeWidgetItem * item, int /* i */ )
+{
+	int id = item->text( 0 ).toInt();
+
+	if ( id < 1 ) return;
+
+	OpenBabel::OBAtom* atom = NULL;
+	OpenBabel::OBMol* molecule = ui.glWidget->molecule();
+
+	atom = molecule->GetAtom( id );
+
+	emit( atomSelected( atom ) );
+}
 
 #include "moleculeview.moc"

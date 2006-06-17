@@ -613,6 +613,14 @@ void KalziumGLWidget::construct_ortho_3D_basis_given_first_vector3(
 	w[2] = u[0] * v[1] - u[1] * v[0];
 }
 
+void KalziumGLWidget::slotAtomSelected( OpenBabel::OBAtom* atom )
+{
+	kDebug() << "KalziumGLWidget::slotAtomSelected()" << endl;
+	//Benoit: At this place you need to do some OpenGL-stuff to select
+	//the emitted atom. No clue how to do that, though :-)
+	if ( !atom ) return;
+}
+
 inline void GLColor::apply()
 {
 	glColor3fv( reinterpret_cast<GLfloat *>( this ) );
