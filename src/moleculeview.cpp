@@ -50,6 +50,8 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
  	connect( ui.loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
 	connect( ui.qualityCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotSetDetail( int ) ) );
 	connect( ui.styleCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotChooseStylePreset( int ) ) );
+
+	slotLoadMolecule();
 }
 
 void MoleculeDialog::slotLoadMolecule()
@@ -84,17 +86,29 @@ void MoleculeDialog::updateStatistics()
 	ui.formulaLabel->setText( OpenBabel2Wrapper::getPrettyFormula( mol ) );
 	ui.glWidget->update();
 		
-	QList<QTreeWidgetItem*> items;
-	
+	QTreeWidgetItem* carbon = new QTreeWidgetItem( ui.treeWidget, QStringList( i18n( "Carbon" ) ) );
+	QTreeWidgetItem* oxygen = new QTreeWidgetItem( ui.treeWidget, QStringList( i18n( "Oxygen" ) ) );
+	QTreeWidgetItem* hydrogen = new QTreeWidgetItem( ui.treeWidget, QStringList( i18n( "Hydrogen" ) ) );
+	QTreeWidgetItem* nitrogen = new QTreeWidgetItem( ui.treeWidget, QStringList( i18n( "Nitrogen" ) ) );
+	QTreeWidgetItem* rest = new QTreeWidgetItem( ui.treeWidget, QStringList( i18n( "Rest" ) ) ) ;
+
 	FOR_ATOMS_OF_MOL( a, mol )
 	{
-//X 		QStringList content;
-//X  		QTreeWidgetItem* i = new QTreeWidgetItem( ui.treeWidget, content );
-//X 		i->setText( 1, QString::number( a->GetExactMass() ) );
-//X 		carbon->addChild( i );
+ 		QStringList content;
+		content.append( QString::number( a->GetExactMass() ) );
+		content.append( QString::number( a->GetIdx() ) );
+ 		QTreeWidgetItem* i = new QTreeWidgetItem( content );
+		if ( a->IsCarbon() )
+	 		carbon->addChild( i );
+		else if ( a->IsHydrogen() )
+			hydrogen->addChild( i );
+		else if ( a->IsOxygen() )
+			oxygen->addChild( i );
+		else if ( a->IsNitrogen() )
+			nitrogen->addChild( i );
+		else
+			rest->addChild( i );
 	}
-	
-//X 	ui.treeWidget->insertTopLevelItems( 0, items );
 }
 
 
