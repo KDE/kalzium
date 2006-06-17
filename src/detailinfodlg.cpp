@@ -44,8 +44,6 @@
 #include "spectrumviewimpl.h"
 #include "kalziumutils.h"
 
-//TODO add bondxx-radius (H-H-distance for example)
-
 DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
     : KPageDialog( parent )
 {

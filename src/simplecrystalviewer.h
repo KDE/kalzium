@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 #include <kdialog.h>
+
+#include "ui_latticeviewer.h"
+
 class KalziumGLWidget;
 
 class SimpleCrystalViewer : public KDialog
@@ -34,7 +37,7 @@ class SimpleCrystalViewer : public KDialog
 		void slotCrystalChanged( const QString& );
 
 	private:
-		KalziumGLWidget *m_glWidget;
+		Ui_latticeView ui;
 };
 
 

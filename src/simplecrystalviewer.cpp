@@ -44,29 +44,13 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 	QWidget *page = new QWidget( this );
 	setMainWidget( page );
 
-	QHBoxLayout *hlay = new QHBoxLayout( page );
+	ui.setupUi( page );
 
-	QVBoxLayout *vlay = new QVBoxLayout();
-	hlay->addLayout( vlay );
-	vlay->setMargin( 0 );
-	vlay->setSpacing( 5 );
-	vlay->addItem( new QSpacerItem( 5, 40, QSizePolicy::Fixed, QSizePolicy::Fixed ) );
 
-	vlay->addWidget( new QLabel( i18n( "Quality:" ), page ) );
-
-	KComboBox *combo = new KComboBox( false, page );
-	combo->addItem( "Low" );
-	combo->addItem( "Medium" );
-	combo->addItem( "High" );
-	vlay->addWidget( combo );
-	vlay->addItem( new QSpacerItem( 5, 5, QSizePolicy::Fixed, QSizePolicy::Expanding ) );
-
-	m_glWidget = new KalziumGLWidget( page );
 	OpenBabel::OBMol * mol = OpenBabel2Wrapper::readMolecule( "/home/kde4/test.cml" );
-	m_glWidget->slotSetMolecule(mol);
-	hlay->addWidget( m_glWidget );
+	ui.glWidget->slotSetMolecule(mol);
 
-	connect( combo, SIGNAL( activated( int ) ), m_glWidget, SLOT( slotSetDetail( int ) ) );
+	connect( ui.quality, SIGNAL( activated( int ) ), ui.glWidget, SLOT( slotSetDetail( int ) ) );
 }
 
 void SimpleCrystalViewer::slotCrystalChanged( const QString& which )
