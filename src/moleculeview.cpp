@@ -29,6 +29,7 @@
 #include <QLayout>
 #include <QFileDialog>
 #include <QDir>
+#include <QStringList>
 
 using namespace OpenBabel;
 
@@ -64,6 +65,7 @@ void MoleculeDialog::slotLoadMolecule()
 	
 	OpenBabel::OBMol* mol = OpenBabel2Wrapper::readMolecule( filename );
 	ui.glWidget->slotSetMolecule( mol );
+	ui.glWidget->update();
 	updateStatistics();
 }
 
@@ -75,17 +77,23 @@ void MoleculeDialog::updateStatistics()
 {
 	OpenBabel::OBMol* mol = ui.glWidget->molecule();
 	if ( !mol ) return;
-	
+
 	ui.nameLabel->setText( mol->GetTitle() );
 	ui.weightLabel->setText( QString::number( mol->GetMolWt() ));
 	ui.formulaLabel->setText( OpenBabel2Wrapper::getPrettyFormula( mol ) );
 	ui.glWidget->update();
+		
+	QList<QTreeWidgetItem*> items;
 	
-//X 	FOR_ATOMS_OF_MOL( a, mol )
-//X 	{
-//X 		QTreeWidgetItem* carbon = new QTreeWidgetItem( ui.treeWidget );
-//X 		carbon->setText( 0, i18n( "Carbon" ) );
-//X 	}
+	FOR_ATOMS_OF_MOL( a, mol )
+	{
+//X 		QStringList content;
+//X  		QTreeWidgetItem* i = new QTreeWidgetItem( ui.treeWidget, content );
+//X 		i->setText( 1, QString::number( a->GetExactMass() ) );
+//X 		carbon->addChild( i );
+	}
+	
+	ui.treeWidget->insertTopLevelItems( 0, items );
 }
 
 

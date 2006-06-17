@@ -62,7 +62,7 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 	vlay->addItem( new QSpacerItem( 5, 5, QSizePolicy::Fixed, QSizePolicy::Expanding ) );
 
 	m_glWidget = new KalziumGLWidget( page );
-	OpenBabel::OBMol * mol = OpenBabel2Wrapper::readMolecule( "/home/carsten/test.cml" );
+	OpenBabel::OBMol * mol = OpenBabel2Wrapper::readMolecule( "/home/kde4/test.cml" );
 	m_glWidget->slotSetMolecule(mol);
 	hlay->addWidget( m_glWidget );
 

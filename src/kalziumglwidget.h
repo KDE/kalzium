@@ -40,6 +40,267 @@
 #endif
 
 /**
+ * This class displays the 3D-view of a molecule
+ * 
+ * @author Benoit Jacob
+ */
+class KalziumGLWidget : public QGLWidget
+{
+	Q_OBJECT
+
+	protected:
+		GLuint m_sphereDisplayList;
+		GLuint m_bondDisplayList;
+		
+		/**
+		 * equals true if the user is currently dragging (rotating)
+		 * the view
+		 */
+		bool m_isDragging;
+
+		QPoint m_lastDraggingPosition;
+
+		GLFLOAT m_RotationMatrix[16];
+
+		/**
+		 * The molecule which is displayed
+		 */
+		OpenBabel::OBMol* m_molecule;
+		FLOAT m_molRadius;
+		FLOAT m_molMinBondLength;
+		FLOAT m_molMaxBondLength;
+
+		/**
+		 * The coefficient set by the user, determining the
+		 * radius of atoms.
+		 * WARNING: its meaning has just changed! (june 17)
+		 * Now the actual radius is proportional to
+		 * m_atomRadiusCoeff.
+		 */
+		float m_atomRadiusCoeff;
+
+		/**
+		 * The coefficient set by the user, determining the
+		 * radius (that is, half the thickness) of bonds.
+		 */
+		float m_bondRadiusCoeff;
+
+		/**
+		 * The detail-grade from 0 to 2.
+		 */
+		int m_detail;
+
+		/**
+		 * Set this to true to enable the fog effect
+		 */
+		bool m_useFog;
+
+		/**
+		 * The style in which the atoms are rendered.
+		 */
+		enum AtomStyle
+		{
+			ATOM_DISABLED,
+			ATOM_SPHERE
+		} m_atomStyle;
+
+		/**
+		 * The style in which the bonds are rendered.
+		 */
+		enum BondStyle
+		{
+			BOND_DISABLED,
+			BOND_LINE,
+			BOND_CYLINDER_GRAY,
+			BOND_CYLINDER_BICOLOR
+		} m_bondStyle;
+
+		/**
+		 * Some style presets
+		 */
+		enum StylePreset
+		{
+			PRESET_LINES,
+			PRESET_STICKS,
+			PRESET_SPHERES_AND_GRAY_BONDS,
+			PRESET_SPHERES_AND_BICOLOR_BONDS,
+			PRESET_BIG_SPHERES
+		};
+
+	private: // some standard 3D math stuff here
+
+		/**
+		 * Tests whether two FLOATs are approximately equal.
+		 * Recall that operator == between floating-point types
+		 * is broken.
+		 * returns true if abs( a - b ) <= c * precision
+		 * where c = max( abs( a ), abs( b ) )
+		 */
+		bool approx_equal( FLOAT a, FLOAT b, FLOAT precision );
+
+		/**
+		 * Returns the norm of a 3D vector
+		 */
+		FLOAT norm3( FLOAT *u );
+
+		/**
+		 * Normalizes a 3D vector
+		 */
+		void normalize3( FLOAT *u );
+
+		/**
+		 * Given a 3D vector U, constructs two vectors v and w
+		 * such that (U, v, w) is a direct orthogonal basis.
+		 * U is not supposed to be normalized, and v and w
+		 * are not getting normalized.
+		 */
+		void construct_ortho_3D_basis_given_first_vector3(
+			const FLOAT *U, FLOAT *v, FLOAT *w);
+
+	public:
+		/**
+		 * Constructor
+		 */
+		KalziumGLWidget( QWidget *parent = 0 );
+
+		/**
+		 * Destructor
+		 */
+		virtual ~KalziumGLWidget();
+
+		/**
+		 * This methods returns the color in which a given atom
+		 * should be painted.
+		 */
+		virtual void getColor( OpenBabel::OBAtom &a, GLfloat &r, GLfloat &g, GLfloat &b );
+
+		/**
+		 * @return the molecule
+		 */
+		OpenBabel::OBMol* molecule(){
+			return m_molecule;
+		}
+
+	public slots:
+		/**
+		 * sets the molecule which will be displayed
+		 * @param molecule the molecule to render
+		 */
+		void slotSetMolecule( OpenBabel::OBMol* molecule );
+		
+		/**
+		 * Sets the detail-grade in a range from 0 to 2
+		 *  @param detail the detail-grade of the rendering. 0 is low, 2 is high
+		 */
+		void slotSetDetail( int detail );
+
+		/**
+		 * Chooses the style of rendering among some presets
+		 * @param stylePreset the wanted style preset
+		 */
+
+		void slotChooseStylePreset( StylePreset stylePreset );
+
+	protected:
+		/**
+		 * This method initializes OpenGL. Automatically called by Qt
+		 */
+		virtual void initializeGL();
+
+		/**
+		 * This method does the painting. Automatically called by Qt
+		 */
+		virtual void paintGL();
+
+		/**
+		 * This method is called by Qt whenever the widget is resized.
+		 */
+		virtual void resizeGL( int width, int height );
+
+		virtual void mousePressEvent( QMouseEvent * event );
+		virtual void mouseReleaseEvent( QMouseEvent * event );
+		virtual void mouseMoveEvent( QMouseEvent * event );
+
+		/**
+		 * This method is called by slotSetMolecule. It prepares the
+		 * molecule for rendering, and computes some useful data about
+		 * it.
+		 */
+		void KalziumGLWidget::prepareMoleculeData();
+
+		/**
+		 * This method will shortly be removed, hence no doc.
+		 */
+		virtual void drawGenericSphere();
+
+		/**
+		 * This method will shortly be removed, hence no doc.
+		 */
+		virtual void drawGenericBond();
+		
+		/**
+		 * This method draws a sphere
+		 * @param x
+		 * @param y
+		 * @param z
+		 * @param radius
+		 * @param red
+		 * @param green
+		 * @param blue
+		 */
+
+		virtual void drawSphere( 
+				GLFLOAT x, 
+				GLFLOAT y, 
+				GLFLOAT z, 
+				GLFLOAT radius,
+				GLfloat red, 
+				GLfloat green, 
+				GLfloat blue );
+
+		/**
+		 * This method draws a bond
+		 * @param x
+		 * @param y
+		 * @param z
+		 * @param radius
+		 * @param red
+		 * @param green
+		 * @param blue
+		 */
+
+		virtual void drawBond( GLFLOAT x1, GLFLOAT y1, GLFLOAT z1,
+			GLFLOAT x2, GLFLOAT y2, GLFLOAT z2,
+			GLfloat red, GLfloat green, GLfloat blue );
+
+		inline float bondRadius();
+		inline float atomRadius();
+};
+
+/**
+ * This class represents a color in OpenGL float red-green-blue format.
+ *
+ * @author Benoit Jacob
+ */
+struct GLColor
+{
+	GLfloat red, green, blue;
+
+	/**
+	 * Sets this color to be the one used by OpenGL for rendering
+	 * when lighting is disabled. It just calls glColor3fv.
+	 */
+	inline void apply();
+
+	/**
+	 * Applies nice OpenGL materials using this color as the
+	 * diffuse color while using different shades for the ambient and
+         * specular colors. This is only useful if GL lighting is enabled.
+	 */
+	void applyAsMaterials();
+};
+
+/**
  * This is an abstract base class for a GL vertex array
  *
  * @author Benoit Jacob
@@ -81,142 +342,5 @@ class SphereVertexArray : public GLVertexArray
 
 		virtual void regenerate(unsigned int strips, unsigned int lozangesPerStrip);
 };
-
-/**
- * This class displays the 3D-view of a molecule
- * 
- * @author Benoit Jacob
- */
-class KalziumGLWidget : public QGLWidget
-{
-	Q_OBJECT
-
-	protected:
-		GLuint m_sphereDisplayList;
-		GLuint m_bondDisplayList;
-		
-		/**
-		 * equals true if the user is currently dragging (rotating)
-		 * the view
-		 */
-		bool m_isDragging;
-		
-		QPoint m_lastDraggingPosition;
-
-		GLFLOAT m_RotationMatrix[16];
-
-	public:
-		/**
-		 * Constructor
-		 */
-		KalziumGLWidget( QWidget *parent = 0 );
-
-		/**
-		 * Destructor
-		 */
-		virtual ~KalziumGLWidget();
-
-		virtual void getColor( OpenBabel::OBAtom &a, GLfloat &r, GLfloat &g, GLfloat &b );
-
-		/**
-		 * @return the current molecule
-		 */
-		OpenBabel::OBMol* molecule(){
-			return m_molecule;
-		}
-
-	public slots:
-		/**
-		 * sets the molecule which will be displayed
-		 * @param molecule the molecule to render
-		 */
-		void slotSetMolecule( OpenBabel::OBMol* molecule );
-		
-		/**
-		 * Sets the detail-grade in a range from 0 to 2
-		 *  @param detail the detail-grade of the rendering. 0 is low, 2 is high
-		 */
-		void slotSetDetail( int detail );
-
-	protected:
-		/**
-		 * This method initilized OpenGL
-		 */
-		virtual void initializeGL();
-		virtual void paintGL();
-		virtual void resizeGL( int width, int height );
-		virtual void mousePressEvent( QMouseEvent * event );
-		virtual void mouseReleaseEvent( QMouseEvent * event );
-		virtual void mouseMoveEvent( QMouseEvent * event );
-
-		/**
-		 * This method...
-		 */
-		virtual void drawGenericSphere();
-		virtual void drawGenericBond();
-		
-		/**
-		 * This method...
-		 * @param x
-		 * @param y
-		 * @param z
-		 * @param radius
-		 * @param red
-		 * @param green
-		 * @param blue
-		 */
-		virtual void drawSphere( 
-				GLFLOAT x, 
-				GLFLOAT y, 
-				GLFLOAT z, 
-				GLFLOAT radius,
-				GLfloat red, 
-				GLfloat green, 
-				GLfloat blue );
-
-		virtual void drawBond( GLFLOAT x1, GLFLOAT y1, GLFLOAT z1,
-			GLFLOAT x2, GLFLOAT y2, GLFLOAT z2,
-			GLfloat red, GLfloat green, GLfloat blue );
-
-		/**
-		 * The molecule which is displayed
-		 */
-		OpenBabel::OBMol* m_molecule;
-		FLOAT m_molRadius;
-		FLOAT m_molMinBondLength;
-		FLOAT m_molMaxBondLength;
-		FLOAT m_bondsRadius;
-
-		/**
-		 * The detail-grade from 0 to 2
-		 */
-		int m_detail;
-
-		/**
-		 * The coefficient set by the user, determining the
-		 * radius of atoms.
-		 * 0.0 -> minimum radius -> "sticks-style" rendering
-		 * 1.0 -> maximum radius for which all bonds are visible
-		 * values larger than 1.0 result in atoms so large
-		 * that they completely hide some bonds.
-		 */
-		float m_atomsRadiusCoeff;
-};
-
-// tests whether two FLOATs are approximately equal
-// this is a very vague approximation, it is enough for our needs here
-bool approx_equal( FLOAT a, FLOAT b );
-
-// compute the norm of a vector (dimension 3)
-FLOAT norm3 ( const FLOAT *u );
-
-// normalize a vector (dimension 3)
-void normalize3( FLOAT *u );
-
-// given a first vector U, construct two new vectors v and w such that
-// (U, v, w) is a direct orthogonal basis (dimension 3).
-// U is not supposed to be normalized, and v and w aren't normalized.
-void construct_ortho_3D_basis_given_first_vector3(
-	const FLOAT *U, FLOAT *v, FLOAT *w);
 
 #endif // KALZIUMGLWIDGET_H

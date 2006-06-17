@@ -51,7 +51,23 @@
       </spacer>
      </item>
      <item>
-      <widget class="QTreeWidget" name="treeWidget" />
+      <widget class="QTreeWidget" name="treeWidget" >
+       <column>
+        <property name="text" >
+         <string>Atom</string>
+        </property>
+       </column>
+       <column>
+        <property name="text" >
+         <string>ID</string>
+        </property>
+       </column>
+       <column>
+        <property name="text" >
+         <string>Weight</string>
+        </property>
+       </column>
+      </widget>
      </item>
      <item>
       <widget class="QGroupBox" name="groupBox" >

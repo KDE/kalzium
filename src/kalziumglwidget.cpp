@@ -25,51 +25,6 @@
 
 using namespace OpenBabel;
 
-GLVertexArray::GLVertexArray()
-{
-	m_vertices = 0;
-	m_indices = 0;
-}
-
-GLVertexArray::~GLVertexArray()
-{
-	if( m_vertices ) delete []m_vertices;
-	if( m_indices ) delete []m_indices;
-}
-
-void GLVertexArray::draw()
-{
-	if( ! m_vertices ) return;
-	if( ! m_indices ) return;
-	glInterleavedArrays( GL_N3F_V3F, 0,  m_vertices );
-	glDrawElements( GL_TRIANGLE_STRIP, m_nbIndices, GL_UNSIGNED_SHORT, m_indices );
-}
-
-SphereVertexArray::SphereVertexArray( unsigned int strips,
-	unsigned int lozangesPerStrip ) : GLVertexArray()
-{
-	regenerate( strips, lozangesPerStrip );
-}
-
-SphereVertexArray::~SphereVertexArray()
-{
-}
-
-void SphereVertexArray::regenerate( unsigned int strips,
-	unsigned int lozangesPerStrip )
-{
-	m_strips = strips;
-	m_lozangesPerStrip = lozangesPerStrip;
-	if( m_vertices ) delete []m_vertices;
-	if( m_indices ) delete []m_indices;
-	generate();
-}
-
-void SphereVertexArray::generate()
-{
-
-}
-
 KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	: QGLWidget( parent )
 {
@@ -78,7 +33,9 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	m_isDragging = false;
 	m_molecule = 0;
 	m_detail = 0;
-	m_atomsRadiusCoeff = 0.0;
+	m_useFog = false;
+
+	slotChooseStylePreset( PRESET_SPHERES_AND_BICOLOR_BONDS );
 	
 	setMinimumSize( 100,100 );
 }
@@ -94,7 +51,7 @@ void KalziumGLWidget::initializeGL()
 	glClearColor( 0.0, 0.0, 0.0, 1.0 );
 	glShadeModel( GL_SMOOTH );
 	glEnable( GL_DEPTH_TEST );
-	glDisable( GL_CULL_FACE );
+	glEnable( GL_CULL_FACE );
 	glDisable( GL_BLEND );
 
 	glMatrixMode( GL_MODELVIEW );
@@ -116,7 +73,7 @@ void KalziumGLWidget::initializeGL()
 	glLightfv(GL_LIGHT0, GL_SPECULAR, specularLight);
 	glLightfv(GL_LIGHT0, GL_POSITION, position);
 
-//	glEnable(GL_FOG);
+	glEnable(GL_FOG);
 	GLfloat fogColor[] = { 0.0, 0.0, 0.0, 1.0 };
 	glFogfv( GL_FOG_COLOR, fogColor );
 	glFogi( GL_FOG_MODE, GL_LINEAR );
@@ -171,37 +128,75 @@ void KalziumGLWidget::getColor( OBAtom &a, GLfloat &r, GLfloat &g, GLfloat &b )
 
 void KalziumGLWidget::paintGL()
 {
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+	gluPerspective( 40.0, float( width() ) / height(), m_molRadius, 5.0 * (m_molRadius + atomRadius ()));
+	glMatrixMode( GL_MODELVIEW );
+
 	if( !m_molecule )
 		return;
 
-	float bondsRadius = m_molMinBondLength / 8;
-	float atomsRadius = (1 - m_atomsRadiusCoeff) * bondsRadius
-	                  + m_atomsRadiusCoeff * m_molMinBondLength / 2;
-	
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+	
+	// set up the camera
 	glLoadIdentity();
-	GLTRANSLATE ( 0.0, 0.0, -3.0 * m_molRadius);
+	GLTRANSLATE ( 0.0, 0.0, -3.0 * (m_molRadius + atomRadius () ) );
 	GLMULTMATRIX ( m_RotationMatrix );
 
-	glEnable( GL_NORMALIZE );
-	FOR_ATOMS_OF_MOL( a, m_molecule )
+	// set up fog
+	if( m_useFog == true )
 	{
-		FLOAT x = ( FLOAT )a->GetX();
-		FLOAT y = ( FLOAT )a->GetY();
-		FLOAT z = ( FLOAT )a->GetZ();
+		glEnable( GL_FOG );
+		GLfloat fogColor[] = { 0.0, 0.0, 0.0, 1.0 };
+		glFogfv( GL_FOG_COLOR, fogColor );
+		glFogi( GL_FOG_MODE, GL_LINEAR );
+		glFogf( GL_FOG_DENSITY, 0.45 );
+		glFogf( GL_FOG_START, 2.7 * ( m_molRadius + atomRadius() ) );
+		glFogf( GL_FOG_END, 5.0 * ( m_molRadius + atomRadius() ) );
+	}
+	else glDisable( GL_FOG );
 
-		GLfloat r, g, b;
+	// render the atoms
+	if( m_atomStyle == ATOM_SPHERE )
+	{
+		glEnable( GL_NORMALIZE );
+		glEnable( GL_LIGHTING );
 
-		getColor( *a, r, g, b );
+		FOR_ATOMS_OF_MOL( a, m_molecule )
+		{
+			FLOAT x = (FLOAT) a->GetX();
+			FLOAT y = (FLOAT) a->GetY();
+			FLOAT z = (FLOAT) a->GetZ();
+	
+			GLfloat r, g, b;
+	
+			getColor( *a, r, g, b );
 		
-		drawSphere(
+			drawSphere(
 				x, y, z,
-				atomsRadius,
+				atomRadius (),
 				r, g, b);
+		}
+
+		glDisable( GL_NORMALIZE );
 	}
 
-	glDisable( GL_NORMALIZE );
-	FOR_BONDS_OF_MOL( bond, m_molecule )
+	// prepare for rendering the bonds
+	switch( m_bondStyle )
+	{
+		case BOND_LINE:
+			glDisable( GL_LIGHTING );
+			break;
+		
+		case BOND_CYLINDER_GRAY:
+		case BOND_CYLINDER_BICOLOR:
+			glEnable( GL_LIGHTING );
+			break;
+		case BOND_DISABLED: break;
+	}
+
+	// render the bonds
+	if( BOND_DISABLED != m_bondStyle) FOR_BONDS_OF_MOL( bond, m_molecule )
 	{
 		FLOAT x1 = (FLOAT) static_cast<OBAtom*>(bond->GetBgn())->GetX();
 		FLOAT y1 = (FLOAT) static_cast<OBAtom*>(bond->GetBgn())->GetY();
@@ -214,21 +209,40 @@ void KalziumGLWidget::paintGL()
 		FLOAT y3 = (y1 + y2) / 2;
 		FLOAT z3 = (z1 + z2) / 2;
 		
-		GLfloat r, g, b;
-		getColor( *static_cast<OBAtom*>(bond->GetBgn()), r, g, b );
-		drawBond( x1, y1, z1, x3, y3, z3, r, g, b );
-		getColor( *static_cast<OBAtom*>(bond->GetEnd()), r, g, b );
-		drawBond( x2, y2, z2, x3, y3, z3, r, g, b );
+		GLfloat r1, g1, b1, r2, g2, b2;
+		getColor( *static_cast<OBAtom*>(bond->GetBgn()), r1, g1, b1 );
+		getColor( *static_cast<OBAtom*>(bond->GetEnd()), r2, g2, b2 );
+		
+		switch( m_bondStyle )
+		{
+			case BOND_LINE:
+				glBegin( GL_LINES );
+				glColor3f( r1, g1, b1 );
+				glVertex3f( x1, y1, z1 );
+				glVertex3f( x3, y3, z3 );
+				glColor3f( r2, g2, b2 );
+				glVertex3f( x3, y3, z3 );
+				glVertex3f( x2, y2, z2 );
+				glEnd();
+				break;
+			
+			case BOND_CYLINDER_GRAY:
+				drawBond( x1, y1, z1, x2, y2, z2, 0.5, 0.5, 0.5 );
+				break;
+
+			case BOND_CYLINDER_BICOLOR:
+				drawBond( x1, y1, z1, x3, y3, z3, r1, g1, b1 );
+				drawBond( x2, y2, z2, x3, y3, z3, r2, g2, b2 );
+				break;
+
+			case BOND_DISABLED: break;
+		}
 	}
 }
 
 void KalziumGLWidget::resizeGL( int width, int height )
 {
-	glViewport( 0, 0, width, height );
-	glMatrixMode( GL_PROJECTION );
-	glLoadIdentity();
-	gluPerspective( 40.0, float(width) / height, m_molRadius, 5.0 * m_molRadius );
-	glMatrixMode( GL_MODELVIEW );
+	glViewport( 0, 0, width , height );
 }
 
 void KalziumGLWidget::mousePressEvent( QMouseEvent * event )
@@ -303,7 +317,9 @@ void KalziumGLWidget::drawGenericBond()
 {
 	int slices;
 	static int lastDetail = -1;
-	if( 0 == m_bondDisplayList  || lastDetail != m_detail)
+	static float lastBondRadiusCoeff = -1.0;
+	if( 0 == m_bondDisplayList  || lastDetail != m_detail
+	 || lastBondRadiusCoeff != m_bondRadiusCoeff)
 	{
 		m_bondDisplayList = glGenLists( 1 );
 		if( 0 == m_bondDisplayList ) return;
@@ -324,17 +340,18 @@ void KalziumGLWidget::drawGenericBond()
 		for (double i = 0.0; i < slices; i++)
 		{	
 			glNormal3f( cos(2*M_PI * i/slices), sin(2*M_PI * i/slices), 0.0 );
-			glVertex3f( cos(2*M_PI * i/slices) * m_bondsRadius, sin(2*M_PI * i/slices) * m_bondsRadius, 1.0 );
+			glVertex3f( cos(2*M_PI * i/slices) * bondRadius(), sin(2*M_PI * i/slices) * bondRadius(), 1.0 );
 			glNormal3f( cos(2*M_PI * i/slices), sin(2*M_PI * i/slices), 0.0 );
-			glVertex3f( cos(2*M_PI * i/slices) * m_bondsRadius, sin(2*M_PI * i/slices) * m_bondsRadius, 0.0 );
+			glVertex3f( cos(2*M_PI * i/slices) * bondRadius(), sin(2*M_PI * i/slices) * bondRadius(), 0.0 );
 			glNormal3f( cos(2*M_PI * (i+1)/slices), sin(2*M_PI * (i+1)/slices), 0.0 );
-			glVertex3f( cos(2*M_PI * (i+1)/slices) * m_bondsRadius, sin(2*M_PI * (i+1)/slices) * m_bondsRadius, 0.0 );
+			glVertex3f( cos(2*M_PI * (i+1)/slices) * bondRadius(), sin(2*M_PI * (i+1)/slices) * bondRadius(), 0.0 );
 			glNormal3f( cos(2*M_PI * (i+1)/slices), sin(2*M_PI * (i+1)/slices), 0.0 );
-			glVertex3f( cos(2*M_PI * (i+1)/slices) * m_bondsRadius, sin(2*M_PI * (i+1)/slices) * m_bondsRadius, 1.0 );
+			glVertex3f( cos(2*M_PI * (i+1)/slices) * bondRadius(), sin(2*M_PI * (i+1)/slices) * bondRadius(), 1.0 );
 		}
 		glEnd();
 		glEndList();
 		lastDetail = m_detail;
+		lastBondRadiusCoeff = m_bondRadiusCoeff;
 	}
 	
 	glCallList( m_bondDisplayList );
@@ -418,12 +435,66 @@ void KalziumGLWidget::drawBond( FLOAT x1, FLOAT y1, FLOAT z1,
 	glPopMatrix();
 }
 
+
+inline float KalziumGLWidget::bondRadius()
+{
+	return m_bondRadiusCoeff * m_molMinBondLength;
+	
+}
+inline float KalziumGLWidget::atomRadius()
+{
+	return m_atomRadiusCoeff * m_molMinBondLength;
+}
+
 void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 {
 	if ( !molecule ) return;
-
 	m_molecule = molecule;
-	
+	prepareMoleculeData();
+	updateGL();
+}
+
+void KalziumGLWidget::slotChooseStylePreset( StylePreset stylePreset )
+{
+	switch( stylePreset )
+	{
+		case PRESET_LINES:
+			m_atomStyle = ATOM_DISABLED;
+			m_bondStyle = BOND_LINE;
+			m_atomRadiusCoeff = 0.0;
+			m_bondRadiusCoeff = 0.0;
+			break;
+		case PRESET_STICKS:
+			m_atomStyle = ATOM_SPHERE;
+			m_bondStyle = BOND_CYLINDER_BICOLOR;
+			m_atomRadiusCoeff = 0.13;
+			m_bondRadiusCoeff = 0.13;
+			break;
+		case PRESET_SPHERES_AND_GRAY_BONDS:
+			m_atomStyle = ATOM_SPHERE;
+			m_bondStyle = BOND_CYLINDER_GRAY;
+			m_atomRadiusCoeff = 0.20;
+			m_bondRadiusCoeff = 0.05;
+			break;
+		case PRESET_SPHERES_AND_BICOLOR_BONDS:
+			m_atomStyle = ATOM_SPHERE;
+			m_bondStyle = BOND_CYLINDER_BICOLOR;
+			m_atomRadiusCoeff = 0.20;
+			m_bondRadiusCoeff = 0.05;
+			break;
+		case PRESET_BIG_SPHERES:
+			m_atomStyle = ATOM_SPHERE;
+			m_bondStyle = BOND_DISABLED;
+			m_atomRadiusCoeff = 2.4;
+			m_bondRadiusCoeff = 0.0;
+			break;
+	}
+
+	updateGL();
+}
+
+void KalziumGLWidget::prepareMoleculeData()
+{
 	// translate the molecule so that center has coords 0,0,0
 	m_molecule->Center();
 
@@ -460,23 +531,18 @@ void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 		if( len < m_molMinBondLength )
 			m_molMinBondLength = len;
 	}
-
-	m_bondsRadius = m_molMinBondLength / 8;
-	
-	updateGL();
 }
 
 void KalziumGLWidget::slotSetDetail( int detail )
 {
 	m_detail = detail;
-	if( 2 <= m_detail ) glEnable( GL_FOG );
-	else glDisable( GL_FOG );
+	if( m_detail >= 2 ) m_useFog = true;
+	else m_useFog = false;
 	updateGL();
 }
 
-bool approx_equal( FLOAT a, FLOAT b )
+bool KalziumGLWidget::approx_equal( FLOAT a, FLOAT b, FLOAT precision )
 {
-	const FLOAT precision = 0.01;
 	FLOAT abs_a = FABS( a );
 	FLOAT abs_b = FABS( b );
 
@@ -485,16 +551,15 @@ bool approx_equal( FLOAT a, FLOAT b )
 		max_abs = abs_b;
 	else
 		max_abs = abs_a;
-	if( 0.0 == max_abs ) return true;
-	else return( FABS( a - b ) < precision * max_abs );
+	return( FABS( a - b ) <= precision * max_abs );
 }
 
-FLOAT norm3( FLOAT *u )
+FLOAT KalziumGLWidget::norm3( FLOAT *u )
 {
 	return SQRT( u[0] * u[0] + u[1] * u[1] + u[2] * u[2] );
 }
 
-void normalize3( FLOAT *u )
+void KalziumGLWidget::normalize3( FLOAT *u )
 {
 	FLOAT n = norm3( u );
 	if( 0 == n ) return;
@@ -503,7 +568,7 @@ void normalize3( FLOAT *u )
 	u[2] /= n;
 }
 
-void construct_ortho_3D_basis_given_first_vector3(
+void KalziumGLWidget::construct_ortho_3D_basis_given_first_vector3(
 	const FLOAT *U, FLOAT *v, FLOAT *w)
 {
 	// let us first make a normalized copy of U
@@ -515,16 +580,16 @@ void construct_ortho_3D_basis_given_first_vector3(
 	// initially we set v = u
 	v[0] = u[0]; v[1] = u[1]; v[2] = u[2];
 
-	// next we want to change v so that it becomes not colinear to u
-	if( ! approx_equal( v[0], v[1] ) )
+	// next we want to change v so that it becomes non-colinear to u
+	if( ! approx_equal( v[0], v[1], 0.01 ) )
 	{
-		GLFLOAT tmp = v[0];
+		FLOAT tmp = v[0];
 		v[0] = v[1];
 		v[1] = tmp;
 	}
-	else if( ! approx_equal( v[1], v[2] ) )
+	else if( ! approx_equal( v[1], v[2], 0.01 ) )
 	{
-		GLFLOAT tmp = v[2];
+		FLOAT tmp = v[2];
 		v[2] = v[1];
 		v[1] = tmp;
 	}
@@ -546,6 +611,68 @@ void construct_ortho_3D_basis_given_first_vector3(
 	w[0] = u[1] * v[2] - u[2] * v[1];
 	w[1] = u[2] * v[0] - u[0] * v[2];
 	w[2] = u[0] * v[1] - u[1] * v[0];
+}
+
+inline void GLColor::apply()
+{
+	glColor3fv( reinterpret_cast<GLfloat *>( this ) );
+}
+
+void GLColor::applyAsMaterials()
+{
+	GLfloat ambientColor [] = { red / 2, green / 2, blue / 2, 1.0 };
+	GLfloat diffuseColor [] = { red, green, blue, 1.0 };
+	GLfloat specularColor [] = { (2.0 + red) / 3, (2.0 + green) / 3,
+		(2.0 + blue) / 3, 1.0 };
+	glMaterialfv(GL_FRONT, GL_AMBIENT, ambientColor);
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuseColor);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, specularColor);
+	glMaterialf(GL_FRONT, GL_SHININESS, 50.0);
+}
+
+GLVertexArray::GLVertexArray()
+{
+	m_vertices = 0;
+	m_indices = 0;
+}
+
+GLVertexArray::~GLVertexArray()
+{
+	if( m_vertices ) delete []m_vertices;
+	if( m_indices ) delete []m_indices;
+}
+
+void GLVertexArray::draw()
+{
+	if( ! m_vertices ) return;
+	if( ! m_indices ) return;
+	glInterleavedArrays( GL_N3F_V3F, 0,  m_vertices );
+	glDrawElements( GL_TRIANGLE_STRIP, m_nbIndices, GL_UNSIGNED_SHORT, m_indices );
+}
+
+SphereVertexArray::SphereVertexArray( unsigned int strips,
+	unsigned int lozangesPerStrip ) : GLVertexArray()
+{
+	regenerate( strips, lozangesPerStrip );
+}
+
+SphereVertexArray::~SphereVertexArray()
+{
+}
+
+void SphereVertexArray::regenerate( unsigned int strips,
+	unsigned int lozangesPerStrip )
+{
+	m_strips = strips;
+	m_lozangesPerStrip = lozangesPerStrip;
+	if( m_vertices ) delete []m_vertices;
+	if( m_indices ) delete []m_indices;
+	generate();
+}
+
+void SphereVertexArray::generate()
+{
+
 }
 
 #include "kalziumglwidget.moc"
