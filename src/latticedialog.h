@@ -47,11 +47,26 @@ class LatticeDialog : public KDialog
 		 */
 		double volume();
 
+		enum LATTICE
+		{	
+			TRICLINIC,
+			MONOCLINIC,
+			ORTHORHOMBIC,
+			TETRAGONAL,
+			RHOMBOHEDRAL,
+			HEXAGONAL,
+			CUBIC
+		};
+
 	private slots:
-		void slotLatticeChanged( const QString& );
+		void slotSetLattice( int lattice );
+
+		void slotUpdateView();
 
 	private:
 		Ui_latticeView ui;
+
+		LATTICE m_lattice;
 };
 
 
