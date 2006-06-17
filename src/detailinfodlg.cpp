@@ -264,23 +264,22 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 				//warning signs
 				QStringList wlist = m_element->dataAsString( ChemicalDataObject::dangerSymbol ).split( ',', QString::SkipEmptyParts );
 				QString curstr;
-				html.append( "<tr>" );
-				for( int i = 0; i < wlist.count(); i++ )
+				html.append( "<tr><td>" );
+				html.append( i18n( "<b>Danger Symbols</b>:") );
+				html.append( "</td>" );
+				for( int i = 0; i < wlist.size(); i++ )
 				{
-					curstr = wlist.at( i );
-					html.append( "<td><img src=\""+ m_baseHtml2 + "hazard_" + curstr.simplified().at( 0 ) + ".png\" alt=\"icon\"/ width=\"70\" height=\"70\"></td>" );
+					curstr = wlist.at( i ).simplified();
+					html.append( "<td><img src=\""+ m_baseHtml2 + "hazard_" + curstr.at( 0 ) + ".png\" alt=\"symbol\"/ width=\"70\" height=\"70\"><center>" + curstr + "</center></td>" );
 				}
 				html.append( "</tr>" );
-				html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "<b>Danger Symbol</b>: %1", m_element->dataAsString( ChemicalDataObject::dangerSymbol ) ) );
-				html.append( "</td></tr>" );
 				//R-phrases
 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "<b>R-phrase</b>: %1", m_element->dataAsString( ChemicalDataObject::RPhrase) ) );
+				html.append( i18n( "<b>R-phrases</b>: %1", m_element->dataAsString( ChemicalDataObject::RPhrase) ) );
 				html.append( "</td></tr>" );
 				//S-phrases
 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "<b>S-phrase</b>: %1", m_element->dataAsString( ChemicalDataObject::SPhrase) ) );
+				html.append( i18n( "<b>S-phrases</b>: %1", m_element->dataAsString( ChemicalDataObject::SPhrase) ) );
 				html.append( "</td></tr>" );
 		}
 	}
