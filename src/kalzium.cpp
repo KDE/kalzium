@@ -30,7 +30,7 @@
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
 #include "config.h"
-#include "simplecrystalviewer.h"
+#include "latticedialog.h"
 #include "kalziumnumerationtype.h"
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
@@ -179,13 +179,13 @@ void Kalzium::setupActions()
 	connect( m_pIsotopeTableAction, SIGNAL( triggered() ), this, SLOT( slotIsotopeTable() ) );
 	m_pGlossaryAction = new KAction( KIcon( "glossary" ), i18n( "&Glossary..." ), actionCollection(), "tools_glossary" );
 	connect( m_pGlossaryAction, SIGNAL( triggered() ), this, SLOT( slotGlossary() ) );
-	m_pCrystalViewer = new KAction( KIcon( "crystal" ), i18n( "&Crystal Viewer..." ), actionCollection(), "tools_crystalviewer" );
-	connect( m_pCrystalViewer, SIGNAL( triggered() ), this, SLOT( slotCrystalViewer() ) );
+	m_pLatticeViewer = new KAction( KIcon( "crystal" ), i18n( "&Lattice Viewer..." ), actionCollection(), "tools_latticeviewer" );
+	connect( m_pLatticeViewer, SIGNAL( triggered() ), this, SLOT( slotLatticeViewer() ) );
 #ifndef HAVE_OPENBABEL2
-	m_pCrystalViewer->setEnabled( false );
+	m_pLatticeViewer->setEnabled( false );
 #endif
 #ifndef HAVE_OPENGL
-	m_pCrystalViewer->setEnabled( false );
+	m_pLatticeViewer->setEnabled( false );
 #endif
 	
 	m_pRSAction = new KAction( KIcon( "rs" ), i18n( "&R/S-Phrases..." ), actionCollection(), "tools_rs" );
@@ -316,11 +316,11 @@ void Kalzium::slotShowEQSolver()
 #endif
 }
 
-void Kalzium::slotCrystalViewer()
+void Kalzium::slotLatticeViewer()
 {
 #ifdef HAVE_OPENBABEL2 
 #ifdef HAVE_OPENGL
-	SimpleCrystalViewer *dlg = new SimpleCrystalViewer( this );
+	LatticeDialog *dlg = new LatticeDialog( this );
 	dlg->show();
 #endif
 #endif

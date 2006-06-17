@@ -52,7 +52,7 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND)
 	set( kalzium_SRCS
 		${kalzium_SRCS}
    		moleculeview.cpp
-		simplecrystalviewer.cpp
+		latticedialog.cpp
 		kalziumglwidget.cpp
 		openbabel2wrapper.cpp
 	)

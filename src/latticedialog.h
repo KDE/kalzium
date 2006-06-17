@@ -1,7 +1,7 @@
-#ifndef SIMPLECRYSTALVIEWER_H
-#define SIMPLECRYSTALVIEWER_H
+#ifndef LATTICEDIALOG_H
+#define LATTICEDIALOG_H
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Pino Toscano                                    *
+ *   Copyright (C) 2006 by Carsten Niehaus
  *   toscano.pino@tiscali.it                                               *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -26,19 +26,28 @@
 
 class KalziumGLWidget;
 
-class SimpleCrystalViewer : public KDialog
+/**
+ * @author Carsten Niehaus
+ */
+class LatticeDialog : public KDialog
 {
 	Q_OBJECT
 	public:
-		SimpleCrystalViewer( QWidget* parent );
-		~SimpleCrystalViewer(){};
+		/**
+		 * Constructor
+		 */
+		LatticeDialog( QWidget* parent );
+		/**
+		 * dtor
+		 */
+		~LatticeDialog(){};
 
 	private slots:
-		void slotCrystalChanged( const QString& );
+		void slotLatticeChanged( const QString& );
 
 	private:
 		Ui_latticeView ui;
 };
 
 
-#endif // SIMPLECRYSTALVIEWER_H
+#endif // LATTICEDIALOG_H

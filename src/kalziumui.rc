@@ -17,7 +17,7 @@
     <Action name="tools_isotopetable" />
     <Action name="tools_glossary" />
     <Action name="tools_eqsolver" />
-    <Action name="tools_crystalviewer" />
+    <Action name="tools_latticeviewer" />
     <Action name="tools_rs" />
     <Action name="tools_tables" />
     <Action name="tools_moleculeviewer" />
@@ -33,7 +33,7 @@
   <Action name="view_tooltip" />
   <Action name="view_sidebar"/>
   <Separator />
-  <Action name="tools_crystalviewer" />
+  <Action name="tools_latticeviewer" />
   <Action name="tools_rs" />
   <Action name="tools_tables" />
   <Action name="tools_moleculeviewer" />

@@ -18,7 +18,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include "simplecrystalviewer.h"
+#include "latticedialog.h"
 
 #include <QFileInfo>
 #include <QLabel>
@@ -34,7 +34,7 @@
 #include "kalziumglwidget.h"
 #include "openbabel2wrapper.h"
 
-SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
+LatticeDialog::LatticeDialog( QWidget* parent )
 	: KDialog( parent )
 {
 	setCaption( i18n( "Simple Crystal Viewer" ) );
@@ -46,16 +46,15 @@ SimpleCrystalViewer::SimpleCrystalViewer( QWidget* parent )
 
 	ui.setupUi( page );
 
-
 	OpenBabel::OBMol * mol = OpenBabel2Wrapper::readMolecule( "/home/kde4/test.cml" );
 	ui.glWidget->slotSetMolecule(mol);
 
 	connect( ui.quality, SIGNAL( activated( int ) ), ui.glWidget, SLOT( slotSetDetail( int ) ) );
 }
 
-void SimpleCrystalViewer::slotCrystalChanged( const QString& which )
+void LatticeDialog::slotLatticeChanged( const QString& which )
 {
 }
 
-#include "simplecrystalviewer.moc"
+#include "latticedialog.moc"
 
