@@ -1,5 +1,22 @@
-			 TODO for Kalzium 1.5
-			 ===================
+			 TODO for Kalzium KDE4
+			 =====================
+
+* 3D-Viewer
+  - Crystal Viewer
+   -- For lattice
+   -- All Brevies cells
+   -- User defined distances (length of the vectors)
+   -- User defined angles (alpha, beta, gamma)
+  - Molecule Viewer
+   -- Export as graphic (PNG, JPEG...)
+   -- Autorotation
+    --- The user should be able to define which axes are 
+	    rotated and in which speed
+   -- Highlighting of atom in the GL-view
+   -- If the user selects an atom in the GL-view hightlight
+      that atom and also in the QTreeWidget
+   -- Calculate the distance between two atoms
+   -- Calculate the angle and/or the torsion between three atoms
 
 * Export to html and csv comes into my mind. Pretty easy I
   guess. Something like that was in Kalzium of KDE 3.1 I
@@ -16,13 +33,7 @@
   in the molecule so that it is easier to spot the elements which
   can be removed.
 
-* Add KHotNewStuff support (xml) so that a user can define which
-  dates are displayed in the timeline (see SOM)
-  
 * Log-scale of the gradient						
-
-* Make the glossary also into a dictionary
-  CN: I don't understand this point...
 
 * Plotting
   + Add groups of elements, for example "Metals", 4th Period		
@@ -62,14 +73,8 @@
   fotos and texts are used to represent a experiment/task. Perhaps
   combined with openoffice-files (charts and so on). Like in CheExp.
 
-* Add two comboboxes to the infodialog: That way the user can search
-  for an element by name and number. Like in CheExp
-
 * Thinking on people with some disabilities, it would be great if they can 
-select the elements on the grid by using cursor keys (or just tab key).
-
-* Perhaps there must be a KComboBox in the toolbar where you can select the 
-different views of the PTE.
+  select the elements on the grid by using cursor keys (or just tab key).
 
 * Create a generic slider class. This slider-widget will be able to hide or
   show elements based on a value. For example (like today) the SOM, but also
@@ -78,8 +83,8 @@ different views of the PTE.
   and would complement the gradient feature very well.
 
 * There's no view of the natural occurrence of the elements. Look at 
-http://en.wikipedia.org/wiki/Periodic_table_(standard) and see the notes 
-about borders.
+  http://en.wikipedia.org/wiki/Periodic_table_(standard) and see the notes 
+  about borders.
 
 * Printing: print properties selected by the user
 
