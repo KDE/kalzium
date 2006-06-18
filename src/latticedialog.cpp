@@ -43,6 +43,8 @@ LatticeDialog::LatticeDialog( QWidget* parent )
 	setButtons( Close );
 	setDefaultButton( Close );
 
+	m_unitCell = 0;
+
 	QWidget *page = new QWidget( this );
 	setMainWidget( page );
 

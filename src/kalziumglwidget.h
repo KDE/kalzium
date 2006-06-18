@@ -68,9 +68,9 @@ class KalziumGLWidget : public QGLWidget
 		 * The molecule which is displayed
 		 */
 		OpenBabel::OBMol* m_molecule;
-		FLOAT m_molRadius;
-		FLOAT m_molMinBondLength;
-		FLOAT m_molMaxBondLength;
+		GLFLOAT m_molRadius;
+		GLFLOAT m_molMinBondLength;
+		GLFLOAT m_molMaxBondLength;
 
 		/**
 		 * The coefficient set by the user, determining the
@@ -279,8 +279,8 @@ class KalziumGLWidget : public QGLWidget
 			GLFLOAT x2, GLFLOAT y2, GLFLOAT z2,
 			GLColor &color );
 
-		inline float bondRadius();
-		inline float atomRadius();
+		inline GLFLOAT bondRadius();
+		inline GLFLOAT atomRadius();
 
 		/**
 		 * Chooses the style of rendering among some presets
@@ -303,18 +303,17 @@ class KalziumGLWidget : public QGLWidget
  */
 struct GLColor
 {
-	GLfloat m_red, m_green, m_blue;
+	GLfloat m_red, m_green, m_blue, m_alpha;
 
 	GLColor();
-	GLColor(GLfloat red, GLfloat green, GLfloat blue);
+	GLColor( GLfloat red, GLfloat green, GLfloat blue,
+	         GLfloat alpha = 1.0 );
 
 	GLColor& operator=( const GLColor& other );
 
-	void clamp();
-
 	/**
 	 * Sets this color to be the one used by OpenGL for rendering
-	 * when lighting is disabled. It just calls glColor3fv.
+	 * when lighting is disabled. It just calls glColor4fv.
 	 */
 	inline void apply();
 

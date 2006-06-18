@@ -24,6 +24,8 @@
 
 #include "ui_latticeviewer.h"
 
+#include <openbabel/generic.h>
+
 class KalziumGLWidget;
 
 /**
@@ -67,6 +69,8 @@ class LatticeDialog : public KDialog
 		Ui_latticeView ui;
 
 		LATTICE m_lattice;
+
+		OpenBabel::OBUnitCell * m_unitCell;
 };
 
 

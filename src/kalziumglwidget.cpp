@@ -82,6 +82,8 @@ void KalziumGLWidget::initializeGL()
 	glFogf( GL_FOG_START, 2.7 * m_molRadius );
 	glFogf( GL_FOG_END, 5.0 * m_molRadius );
 
+	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+
 	glEnable( GL_COLOR_SUM_EXT );
 	glLightModeli( GL_LIGHT_MODEL_COLOR_CONTROL_EXT,
 		GL_SEPARATE_SPECULAR_COLOR_EXT );
@@ -125,9 +127,9 @@ void KalziumGLWidget::paintGL()
 
 		FOR_ATOMS_OF_MOL( a, m_molecule )
 		{
-			FLOAT x = (FLOAT) a->GetX();
-			FLOAT y = (FLOAT) a->GetY();
-			FLOAT z = (FLOAT) a->GetZ();
+			GLFLOAT x = (GLFLOAT) a->GetX();
+			GLFLOAT y = (GLFLOAT) a->GetY();
+			GLFLOAT z = (GLFLOAT) a->GetZ();
 		
 			GLColor c = getAtomColor( &*a );
 		
@@ -157,16 +159,22 @@ void KalziumGLWidget::paintGL()
 	// render the bonds
 	if( BOND_DISABLED != m_bondStyle) FOR_BONDS_OF_MOL( bond, m_molecule )
 	{
-		FLOAT x1 = (FLOAT) static_cast<OBAtom*>(bond->GetBgn())->GetX();
-		FLOAT y1 = (FLOAT) static_cast<OBAtom*>(bond->GetBgn())->GetY();
-		FLOAT z1 = (FLOAT) static_cast<OBAtom*>(bond->GetBgn())->GetZ();
-		FLOAT x2 = (FLOAT) static_cast<OBAtom*>(bond->GetEnd())->GetX();
-		FLOAT y2 = (FLOAT) static_cast<OBAtom*>(bond->GetEnd())->GetY();
-		FLOAT z2 = (FLOAT) static_cast<OBAtom*>(bond->GetEnd())->GetZ();
+		GLFLOAT x1 = (GLFLOAT)
+			static_cast<OBAtom*>(bond->GetBgn())->GetX();
+		GLFLOAT y1 = (GLFLOAT)
+			static_cast<OBAtom*>(bond->GetBgn())->GetY();
+		GLFLOAT z1 = (GLFLOAT)
+			static_cast<OBAtom*>(bond->GetBgn())->GetZ();
+		GLFLOAT x2 = (GLFLOAT)
+			static_cast<OBAtom*>(bond->GetEnd())->GetX();
+		GLFLOAT y2 = (GLFLOAT)
+			static_cast<OBAtom*>(bond->GetEnd())->GetY();
+		GLFLOAT z2 = (GLFLOAT)
+			static_cast<OBAtom*>(bond->GetEnd())->GetZ();
 		
-		FLOAT x3 = (x1 + x2) / 2;
-		FLOAT y3 = (y1 + y2) / 2;
-		FLOAT z3 = (z1 + z2) / 2;
+		GLFLOAT x3 = (x1 + x2) / 2;
+		GLFLOAT y3 = (y1 + y2) / 2;
+		GLFLOAT z3 = (z1 + z2) / 2;
 		
 		GLColor c1, c2;
 		c1 = getAtomColor( static_cast<OBAtom*>(bond->GetBgn()) );
@@ -197,6 +205,34 @@ void KalziumGLWidget::paintGL()
 
 			case BOND_DISABLED: break;
 		}
+	}
+
+	// now, paint a semitransparent sphere around the selected atom
+
+	if( m_selectedAtom )
+	{
+		GLFLOAT x = (GLFLOAT) m_selectedAtom->GetX();
+		GLFLOAT y = (GLFLOAT) m_selectedAtom->GetY();
+		GLFLOAT z = (GLFLOAT) m_selectedAtom->GetZ();
+
+		GLColor c( 0.4, 0.4, 1.0, 0.7 );
+
+		GLFLOAT radius = m_molMinBondLength * 0.5;
+		GLFLOAT min_radius = (GLFLOAT) atomRadius () * 1.2;
+		if( radius < min_radius ) radius = min_radius;
+
+		glEnable( GL_BLEND );
+		glEnable( GL_NORMALIZE );
+		glEnable( GL_LIGHTING );
+
+		drawSphere(
+			x, y, z,
+			radius,
+			c);
+
+		glDisable( GL_NORMALIZE );
+		glDisable( GL_BLEND );
+
 	}
 }
 
@@ -381,12 +417,12 @@ void KalziumGLWidget::drawBond( FLOAT x1, FLOAT y1, FLOAT z1,
 }
 
 
-inline float KalziumGLWidget::bondRadius()
+inline GLFLOAT KalziumGLWidget::bondRadius()
 {
 	return m_bondRadiusCoeff * m_molMinBondLength;
 	
 }
-inline float KalziumGLWidget::atomRadius()
+inline GLFLOAT KalziumGLWidget::atomRadius()
 {
 	return m_atomRadiusCoeff * m_molMinBondLength;
 }
@@ -563,11 +599,13 @@ GLColor::GLColor()
 {
 }
 
-GLColor::GLColor(GLfloat red, GLfloat green, GLfloat blue)
+GLColor::GLColor( GLfloat red, GLfloat green, GLfloat blue,
+                  GLfloat alpha )
 {
 	m_red = red;
 	m_green = green;
 	m_blue = blue;
+	m_alpha = alpha;
 }
 
 GLColor& GLColor::operator=( const GLColor& other )
@@ -575,6 +613,7 @@ GLColor& GLColor::operator=( const GLColor& other )
 	m_red = other.m_red;
 	m_green = other.m_green;
 	m_blue = other.m_blue;
+	m_alpha = other.m_alpha;
 
 	return *this;
 }
@@ -620,17 +659,9 @@ GLColor& KalziumGLWidget::getAtomColor( OpenBabel::OBAtom* atom )
 		c.m_blue = 0.5;
 	}
 
-	if ( atom == m_selectedAtom )
-	{
-		const GLfloat coeff = 1.5;
-		c.m_blue = (c.m_blue + coeff) / (coeff + 1);
-		c.m_red /= (coeff + 1);
-		c.m_green /= (coeff + 1);
-		c.clamp();
-	}
-
 	return c;
 }
+
 
 void KalziumGLWidget::slotAtomSelected( OpenBabel::OBAtom* atom )
 {
@@ -639,27 +670,19 @@ void KalziumGLWidget::slotAtomSelected( OpenBabel::OBAtom* atom )
 	updateGL();
 }
 
-void GLColor::clamp()
-{
-	if(m_red <= 0.0) m_red = 0.0;
-	if(m_red >= 1.0) m_red = 1.0;
-	if(m_green <= 0.0) m_green = 0.0;
-	if(m_green >= 1.0) m_green = 1.0;
-	if(m_blue <= 0.0) m_blue = 0.0;
-	if(m_blue >= 1.0) m_blue = 1.0;
-}
-
 inline void GLColor::apply()
 {
-	glColor3fv( reinterpret_cast<GLfloat *>( this ) );
+	glColor4fv( reinterpret_cast<GLfloat *>( this ) );
 }
 
 void GLColor::applyAsMaterials()
 {
-	GLfloat ambientColor [] = { m_red / 2, m_green / 2, m_blue / 2, 1.0 };
-	GLfloat diffuseColor [] = { m_red, m_green, m_blue, 1.0 };
+	GLfloat ambientColor [] = { m_red / 2, m_green / 2, m_blue / 2,
+	                            m_alpha };
+	GLfloat diffuseColor [] = { m_red, m_green, m_blue, m_alpha };
 	GLfloat specularColor [] = { (2.0 + m_red) / 3, (2.0 + m_green) / 3,
-		(2.0 + m_blue) / 3, 1.0 };
+		(2.0 + m_blue) / 3, m_alpha };
+
 	glMaterialfv(GL_FRONT, GL_AMBIENT, ambientColor);
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuseColor);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, specularColor);
