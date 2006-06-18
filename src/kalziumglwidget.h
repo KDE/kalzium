@@ -234,7 +234,7 @@ class KalziumGLWidget : public QGLWidget
 		 * molecule for rendering, and computes some useful data about
 		 * it.
 		 */
-		void KalziumGLWidget::prepareMoleculeData();
+		void prepareMoleculeData();
 
 		/**
 		 * This method will shortly be removed, hence no doc.
