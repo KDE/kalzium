@@ -12,11 +12,26 @@
    -- Autorotation
     --- The user should be able to define which axes are 
 	    rotated and in which speed
-   -- Highlighting of atom in the GL-view
+	--- This could even be exported into a .gif-file or something
+	    as an animation
+   -- Highlighting of atoms in the GL-view
+    --- [done] with a blue semitransparent thingy for single atoms
+	--- [todo] highlighting of several atoms, for example to 
+	           highlight a functional group like -OH or -COOH
    -- If the user selects an atom in the GL-view hightlight
       that atom and also in the QTreeWidget
-   -- Calculate the distance between two atoms
-   -- Calculate the angle and/or the torsion between three atoms
+   -- Calculations
+    --- the distance between two atoms
+    --- the angle and/or the torsion between three atoms
+   -- Drawing symbols into the position of an atom. 
+      For reference: http://smid.blueprint.org/images/107/pc442107.png
+   -- Drawing a plane through 3 atoms. Look
+      http://www.crystal.unito.it/tutojan2004/tutorials/I_surface/image006.gif
+	  http://en.wikipedia.org/wiki/Bragg_diffraction
+   -- Making the 3D-Viewer a standalone app or a KPart
+    --- If the user clicks on a cml-file for example then the app opens and
+	    renders the content in 3D.
+    --- Kalzium would just use this app/KPart
 
 * Export to html and csv comes into my mind. Pretty easy I
   guess. Something like that was in Kalzium of KDE 3.1 I
