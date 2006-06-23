@@ -30,7 +30,6 @@
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
 #include "config.h"
-#include "latticedialog.h"
 #include "kalziumnumerationtype.h"
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
@@ -45,6 +44,7 @@
 #endif
 #ifdef HAVE_OPENBABEL2
 #include "moleculeview.h"
+#include "latticedialog.h"
 #endif
 
 #include <QDockWidget>

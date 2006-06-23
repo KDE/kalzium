@@ -73,8 +73,12 @@ kde4_add_ui_files(kalzium_SRCS
    settings_units.ui
    rswidget.ui
    moleculeviewerwidget.ui
-   latticeviewer.ui
 )
+if(OPENBABEL2_FOUND AND OPENGL_FOUND)
+  kde4_add_ui_files(kalzium_SRCS
+      latticeviewer.ui
+  )
+endif(OPENBABEL2_FOUND AND OPENGL_FOUND)
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
