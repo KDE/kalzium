@@ -7,6 +7,8 @@
    -- All Brevies cells
    -- User defined distances (length of the vectors)
    -- User defined angles (alpha, beta, gamma)
+   -- Show oktaedral and tetragonal void. For an oktaedral void:
+      http://upload.wikimedia.org/wikipedia/de/6/61/Kfz_oktaederluecke.png
   - Molecule Viewer
    -- Export as graphic (PNG, JPEG...)
    -- Autorotation
