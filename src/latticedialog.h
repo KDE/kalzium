@@ -44,22 +44,6 @@ class LatticeDialog : public KDialog
 		 */
 		~LatticeDialog(){};
 
-		/**
-		 * @return the volume of the current unitcell
-		 */
-		double volume();
-
-		enum LATTICE
-		{	
-			TRICLINIC,
-			MONOCLINIC,
-			ORTHORHOMBIC,
-			TETRAGONAL,
-			RHOMBOHEDRAL,
-			HEXAGONAL,
-			CUBIC
-		};
-
 	private slots:
 		void slotSetLattice( int lattice );
 
@@ -67,8 +51,6 @@ class LatticeDialog : public KDialog
 
 	private:
 		Ui_latticeView ui;
-
-		LATTICE m_lattice;
 
 		OpenBabel::OBUnitCell * m_unitCell;
 };

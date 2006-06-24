@@ -39,7 +39,7 @@ OpenBabel::OBMol* OpenBabel2Wrapper::readMolecule( const QString& filename )
 
 	//the OB2 Molecule
 	OpenBabel::OBMol *mol = new OpenBabel::OBMol;
-	ifstream inFileStream(  filename.toLatin1() );
+	std::ifstream inFileStream(  filename.toLatin1() );
 	if ( !inFileStream ) {
 		QMessageBox::warning(  0, i18n( "Problem while opening the file" ),
 				i18n( "Cannot open the specified file." ) );
