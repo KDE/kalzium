@@ -1,17 +1,9 @@
-if(OPENGL_FOUND AND OPENBABEL2_FOUND)
-	add_subdirectory(widgets)
-endif(OPENGL_FOUND AND OPENBABEL2_FOUND)
-
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduplot/
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
    ${CMAKE_CURRENT_BINARY_DIR}/..
 )
-
-if(OPENBABEL2_FOUND)
-	include_directories( ${OPENBABEL2_INCLUDE_DIR} )
-endif(OPENBABEL2_FOUND)
 
 #why???
 add_definitions(-D_ISOC99_SOURCE)
@@ -56,6 +48,8 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND)
 		kalziumglwidget.cpp
 		openbabel2wrapper.cpp
 	)
+	include_directories( ${OPENBABEL2_INCLUDE_DIR} )
+	add_subdirectory(widgets)
 endif(OPENBABEL2_FOUND AND OPENGL_FOUND)
 
 kde4_automoc(${kalzium_SRCS})
