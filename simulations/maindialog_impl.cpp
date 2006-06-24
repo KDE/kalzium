@@ -24,7 +24,9 @@
 MainDialog_Impl::MainDialog_Impl( QWidget * parent )
 	: KDialog( parent )
 {
-	ui.setupUi( this );
+	QFrame *frame = new QFrame(this);
+	setMainWidget(frame);
+	ui.setupUi( frame );
 
 	QStringList l = SimulationsFactory::instance()->simulations();
 	foreach( QString s, l )
@@ -48,6 +50,7 @@ void MainDialog_Impl::startSelectedSimulation()
 		sim->reset();
 		GamesDialog *dlg = new GamesDialog( sim );
 		dlg->exec();
+		//laurent: We didn't delete dialogbox ?
 		sim->stopSimulation();
 	}
 }
