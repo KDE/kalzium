@@ -52,8 +52,10 @@ void KalziumGLWidget::initializeGL()
 	glClearColor( 0.0, 0.0, 0.0, 1.0 );
 	glShadeModel( GL_SMOOTH );
 	glEnable( GL_DEPTH_TEST );
+	glDepthFunc( GL_LEQUAL );
 	glEnable( GL_CULL_FACE );
 	glDisable( GL_BLEND );
+	//glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
 
 	glMatrixMode( GL_MODELVIEW );
 	glPushMatrix();
@@ -87,6 +89,8 @@ void KalziumGLWidget::initializeGL()
 	glEnable( GL_COLOR_SUM_EXT );
 	glLightModeli( GL_LIGHT_MODEL_COLOR_CONTROL_EXT,
 		GL_SEPARATE_SPECULAR_COLOR_EXT );
+
+	setupObjects();
 }
 
 void KalziumGLWidget::paintGL()
@@ -100,7 +104,7 @@ void KalziumGLWidget::paintGL()
 		return;
 
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-	
+
 	// set up the camera
 	glLoadIdentity();
 	GLTRANSLATE ( 0.0, 0.0, -3.0 * (m_molRadius + atomRadius () ) );
@@ -122,7 +126,8 @@ void KalziumGLWidget::paintGL()
 	// render the atoms
 	if( m_atomStyle == ATOM_SPHERE )
 	{
-		glEnable( GL_NORMALIZE );
+		m_sphere.select();
+
 		glEnable( GL_LIGHTING );
 
 		FOR_ATOMS_OF_MOL( a, m_molecule )
@@ -135,11 +140,8 @@ void KalziumGLWidget::paintGL()
 		
 			drawSphere(
 				x, y, z,
-				atomRadius (),
 				c);
 		}
-
-		glDisable( GL_NORMALIZE );
 	}
 
 	// prepare for rendering the bonds
@@ -152,6 +154,7 @@ void KalziumGLWidget::paintGL()
 		case BOND_CYLINDER_GRAY:
 		case BOND_CYLINDER_BICOLOR:
 			glEnable( GL_LIGHTING );
+			m_cylinder.select();
 			break;
 		case BOND_DISABLED: break;
 	}
@@ -222,15 +225,15 @@ void KalziumGLWidget::paintGL()
 		if( radius < min_radius ) radius = min_radius;
 
 		glEnable( GL_BLEND );
-		glEnable( GL_NORMALIZE );
+
 		glEnable( GL_LIGHTING );
+
+		m_sphere.select();
 
 		drawSphere(
 			x, y, z,
-			radius,
 			c);
 
-		glDisable( GL_NORMALIZE );
 		glDisable( GL_BLEND );
 
 	}
@@ -277,92 +280,19 @@ void KalziumGLWidget::mouseMoveEvent( QMouseEvent * event )
 	}
 }
 
-void KalziumGLWidget::drawGenericSphere()
+void KalziumGLWidget::setupObjects()
 {
-	static int lastDetail = -1;
-	if( 0 == m_sphereDisplayList || lastDetail != m_detail)
-	{
-		if( m_sphereDisplayList )
-			glDeleteLists( m_sphereDisplayList, 1 );
-		m_sphereDisplayList = glGenLists( 1 );
-		if( 0 == m_sphereDisplayList ) return;
-		GLUquadricObj *q = gluNewQuadric();
-		if( 0 == q) return;
-		glNewList( m_sphereDisplayList, GL_COMPILE );
-		switch( m_detail)
-		{
-			case 0:
-				gluSphere( q, 1.0, 10, 10 );
-				break;
-			case 1:
-				gluSphere( q, 1.0, 20, 20 );
-				break;
-			case 2:
-				gluSphere( q, 1.0, 40, 40 );
-				break;
-		}	
-		glEndList();
-		gluDeleteQuadric( q );
-		lastDetail = m_detail;
-	}
-	
-	glCallList( m_sphereDisplayList );
+	m_sphere.setup( 3 * ( m_detail + 1 ), atomRadius() );
+	m_cylinder.setup( 8 * ( m_detail + 1 ), bondRadius() );
 }
 
-void KalziumGLWidget::drawGenericBond()
-{
-	int slices;
-	static int lastDetail = -1;
-	static float lastBondRadiusCoeff = -1.0;
-	if( 0 == m_bondDisplayList  || lastDetail != m_detail
-	 || lastBondRadiusCoeff != m_bondRadiusCoeff)
-	{
-		m_bondDisplayList = glGenLists( 1 );
-		if( 0 == m_bondDisplayList ) return;
-		switch( m_detail)
-		{
-			case 0:
-				slices = 10;
-				break;
-			case 1:
-				slices = 10;
-				break;
-			case 2:
-				slices = 20;
-				break;
-		}	
-		glNewList( m_bondDisplayList, GL_COMPILE );
-		glBegin( GL_QUADS );
-		for (double i = 0.0; i < slices; i++)
-		{	
-			glNormal3f( cos(2*M_PI * i/slices), sin(2*M_PI * i/slices), 0.0 );
-			glVertex3f( cos(2*M_PI * i/slices) * bondRadius(), sin(2*M_PI * i/slices) * bondRadius(), 1.0 );
-			glNormal3f( cos(2*M_PI * i/slices), sin(2*M_PI * i/slices), 0.0 );
-			glVertex3f( cos(2*M_PI * i/slices) * bondRadius(), sin(2*M_PI * i/slices) * bondRadius(), 0.0 );
-			glNormal3f( cos(2*M_PI * (i+1)/slices), sin(2*M_PI * (i+1)/slices), 0.0 );
-			glVertex3f( cos(2*M_PI * (i+1)/slices) * bondRadius(), sin(2*M_PI * (i+1)/slices) * bondRadius(), 0.0 );
-			glNormal3f( cos(2*M_PI * (i+1)/slices), sin(2*M_PI * (i+1)/slices), 0.0 );
-			glVertex3f( cos(2*M_PI * (i+1)/slices) * bondRadius(), sin(2*M_PI * (i+1)/slices) * bondRadius(), 1.0 );
-		}
-		glEnd();
-		glEndList();
-		lastDetail = m_detail;
-		lastBondRadiusCoeff = m_bondRadiusCoeff;
-	}
-	
-	glCallList( m_bondDisplayList );
-
-}
-
-void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z,
-	GLdouble radius, GLColor &color )
+void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z, GLColor &color )
 {
 	color.applyAsMaterials();
 	
 	glPushMatrix();
 	glTranslated( x, y, z );
-	glScaled( radius, radius, radius);
-	drawGenericSphere();
+	m_sphere.draw();
 	glPopMatrix();
 }
 
@@ -412,7 +342,7 @@ void KalziumGLWidget::drawBond( FLOAT x1, FLOAT y1, FLOAT z1,
 	//now we can do the actual drawing !
 	glPushMatrix();
 	GLMULTMATRIX( matrix );
-	drawGenericBond();
+	m_cylinder.draw();
 	glPopMatrix();
 }
 
@@ -433,6 +363,7 @@ void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 	m_molecule = molecule;
 	m_selectedAtom = 0;
 	prepareMoleculeData();
+	setupObjects();
 	updateGL();
 }
 
@@ -471,7 +402,7 @@ void KalziumGLWidget::ChooseStylePreset( StylePreset stylePreset )
 			m_bondRadiusCoeff = 0.0;
 			break;
 	}
-
+	setupObjects();
 	updateGL();
 }
 
@@ -489,7 +420,7 @@ void KalziumGLWidget::prepareMoleculeData()
 		FLOAT x = (FLOAT) a->GetX();
 		FLOAT y = (FLOAT) a->GetY();
 		FLOAT z = (FLOAT) a->GetZ();
-		FLOAT rad = SQRT(x*x + y*y + z*z);
+		FLOAT rad = GLSQRT(x*x + y*y + z*z);
 		if( rad > m_molRadius )
 			m_molRadius = rad;
 	}
@@ -505,9 +436,9 @@ void KalziumGLWidget::prepareMoleculeData()
 		FLOAT x2 = (FLOAT) static_cast<OBAtom*>(b->GetEnd())->GetX();
 		FLOAT y2 = (FLOAT) static_cast<OBAtom*>(b->GetEnd())->GetY();
 		FLOAT z2 = (FLOAT) static_cast<OBAtom*>(b->GetEnd())->GetZ();
-		FLOAT len = SQRT ( (x1 - x2) * (x1 - x2)
-		                 + (y1 - y2) * (y1 - y2)
-		                 + (z1 - z2) * (z1 - z2) );
+		FLOAT len = GLSQRT ( (x1 - x2) * (x1 - x2)
+		                   + (y1 - y2) * (y1 - y2)
+		                   + (z1 - z2) * (z1 - z2) );
 		if( len > m_molMaxBondLength )
 			m_molMaxBondLength = len;
 		if( len < m_molMinBondLength )
@@ -520,25 +451,26 @@ void KalziumGLWidget::slotSetDetail( int detail )
 	m_detail = detail;
 	if( m_detail >= 2 ) m_useFog = true;
 	else m_useFog = false;
+	setupObjects();
 	updateGL();
 }
 
 bool KalziumGLWidget::approx_equal( FLOAT a, FLOAT b, FLOAT precision )
 {
-	FLOAT abs_a = FABS( a );
-	FLOAT abs_b = FABS( b );
+	FLOAT abs_a = GLFABS( a );
+	FLOAT abs_b = GLFABS( b );
 
 	FLOAT max_abs;
 	if( abs_a < abs_b )
 		max_abs = abs_b;
 	else
 		max_abs = abs_a;
-	return( FABS( a - b ) <= precision * max_abs );
+	return( GLFABS( a - b ) <= precision * max_abs );
 }
 
 FLOAT KalziumGLWidget::norm3( FLOAT *u )
 {
-	return SQRT( u[0] * u[0] + u[1] * u[1] + u[2] * u[2] );
+	return GLSQRT( u[0] * u[0] + u[1] * u[1] + u[2] * u[2] );
 }
 
 void KalziumGLWidget::normalize3( FLOAT *u )
@@ -703,47 +635,276 @@ void GLColor::applyAsMaterials()
 
 GLVertexArray::GLVertexArray()
 {
-	m_vertices = 0;
-	m_indices = 0;
+	m_vertexBuffer = 0;
+	m_normalBuffer = 0;
+	m_indexBuffer = 0;
+	m_isInitialized = false;
 }
 
 GLVertexArray::~GLVertexArray()
 {
-	if( m_vertices ) delete []m_vertices;
-	if( m_indices ) delete []m_indices;
+	if( m_indexBuffer ) delete [] m_indexBuffer;
+	if( m_vertexBuffer ) delete [] m_vertexBuffer;
+	if( m_normalBuffer ) delete [] m_normalBuffer;
+}
+
+void GLVertexArray::select()
+{
+	if( ! m_isInitialized ) return;
+	glEnableClientState( GL_VERTEX_ARRAY );
+	glEnableClientState( GL_NORMAL_ARRAY );
+	glVertexPointer( 3, GL_FLOAT, 0, m_vertexBuffer );
+	glNormalPointer( GL_FLOAT, 0, m_normalBuffer );
 }
 
 void GLVertexArray::draw()
 {
-	if( ! m_vertices ) return;
-	if( ! m_indices ) return;
-	glInterleavedArrays( GL_N3F_V3F, 0,  m_vertices );
-	glDrawElements( GL_TRIANGLE_STRIP, m_nbIndices, GL_UNSIGNED_SHORT, m_indices );
+	if( m_isInitialized )
+		glDrawElements( m_mode, m_indexCount,
+			GL_UNSIGNED_SHORT, m_indexBuffer );
 }
 
-SphereVertexArray::SphereVertexArray( unsigned int strips,
-	unsigned int lozangesPerStrip ) : GLVertexArray()
+bool GLVertexArray::reallocateBuffers()
 {
-	regenerate( strips, lozangesPerStrip );
+	if( m_vertexCount > 65536 ) return false;
+
+	m_isInitialized = false;
+
+	if( m_indexBuffer )
+	{
+		delete [] m_indexBuffer;
+		m_indexBuffer = 0;
+	}
+	if( m_vertexBuffer )
+	{
+		delete [] m_vertexBuffer;
+		m_vertexBuffer = 0;
+	}
+	if( m_normalBuffer ) 
+	{
+		delete [] m_normalBuffer;
+		m_normalBuffer = 0;
+	}
+
+	m_vertexBuffer = new GLVector3<GLfloat>[m_vertexCount];
+	if( ! m_vertexBuffer ) return false;
+	m_normalBuffer = new GLVector3<GLfloat>[m_vertexCount];
+	if( ! m_normalBuffer ) return false;
+	m_indexBuffer = new unsigned short[m_indexCount];
+	if( ! m_indexBuffer ) return false;
+
+	return true;
 }
 
-SphereVertexArray::~SphereVertexArray()
+GLSphere::GLSphere()
+	: GLVertexArray()
 {
+	m_mode = GL_TRIANGLE_STRIP;
+	m_detail = 0;
+	m_radius = -1.0;
 }
 
-void SphereVertexArray::regenerate( unsigned int strips,
-	unsigned int lozangesPerStrip )
+unsigned short GLSphere::indexOfVertex( int strip, int column, int row)
 {
-	m_strips = strips;
-	m_lozangesPerStrip = lozangesPerStrip;
-	if( m_vertices ) delete []m_vertices;
-	if( m_indices ) delete []m_indices;
-	generate();
+	return ( row + ( 3 * m_detail + 1 ) * ( column + m_detail * strip ) );
 }
 
-void SphereVertexArray::generate()
+void GLSphere::computeVertex( int strip, int column, int row)
 {
+	strip %= 5;
+	int next_strip = (strip + 1) % 5;
 
+	GLVector3<GLfloat> *vertex =
+		&m_vertexBuffer[ indexOfVertex( strip, column, row ) ];
+
+	GLVector3<GLfloat> *normal =
+		&m_normalBuffer[ indexOfVertex( strip, column, row ) ];
+
+	const GLfloat phi = ( 1 + sqrt(5) ) / 2;
+
+	const GLVector3<GLfloat> northPole( 0, 1, phi );
+	const GLVector3<GLfloat> northVertex[5] = {
+		GLVector3<GLfloat>( 0, -1, phi ),
+		GLVector3<GLfloat>( phi, 0, 1 ),
+		GLVector3<GLfloat>( 1, phi, 0 ),
+		GLVector3<GLfloat>( -1, phi, 0 ),
+		GLVector3<GLfloat>( -phi, 0, 1 ) };
+	const GLVector3<GLfloat> southVertex[5] = {
+		GLVector3<GLfloat>( -1, -phi, 0 ),
+		GLVector3<GLfloat>( 1, -phi, 0 ),
+		GLVector3<GLfloat>( phi, 0, -1 ),
+		GLVector3<GLfloat>( 0, 1, -phi ),
+		GLVector3<GLfloat>( -phi, 0, -1 )
+		 };
+	const GLVector3<GLfloat> southPole( 0, -1, -phi );
+
+	const GLVector3<GLfloat> *v0, *v1, *v2;
+	int  c1, c2;
+
+	if( row >= 2 * m_detail && column == 0 )
+	{
+		strip--;
+		if( strip < 0 ) strip += 5;
+		next_strip--;
+		if( next_strip < 0 ) next_strip += 5;
+		column = m_detail;
+	}
+
+	if( row  <= m_detail )
+	{
+		v0 = &northVertex[strip];
+		v1 = &northPole;
+		v2 = &northVertex[next_strip];
+		c1 = m_detail - row;
+		c2 = column;
+	}
+	else if( row >= 2 * m_detail )
+	{
+		v0 = &southVertex[next_strip];
+		v1 = &southPole;
+		v2 = &southVertex[strip];
+		c1 = row - 2 * m_detail;
+		c2 = m_detail - column;
+	}
+	else if( row <= m_detail + column )
+	{
+		v0 = &northVertex[next_strip];
+		v1 = &southVertex[next_strip];
+		v2 = &northVertex[strip];
+		c1 = row - m_detail;
+		c2 = m_detail - column;
+	}
+	else
+	{
+		v0 = &southVertex[strip];
+		v1 = &southVertex[next_strip];
+		v2 = &northVertex[strip];
+		c1 = column;
+		c2 = 2 * m_detail - row;
+	}
+
+	GLfloat u1 = GLfloat(c1) / m_detail;
+	GLfloat u2 = GLfloat(c2) / m_detail;
+
+	vertex->x = v0->x + u1 * (v1->x - v0->x) + u2 * (v2->x - v0->x);
+	vertex->y = v0->y + u1 * (v1->y - v0->y) + u2 * (v2->y - v0->y);
+	vertex->z = v0->z + u1 * (v1->z - v0->z) + u2 * (v2->z - v0->z);
+
+	vertex->normalize();
+
+	*normal = *vertex;
+
+	vertex->x *= m_radius;
+	vertex->y *= m_radius;
+	vertex->z *= m_radius;
+}
+
+
+void GLSphere::initialize()
+{
+	if( m_detail < 1 ) return;
+	m_vertexCount = ( 3 * m_detail + 1 ) * ( 5 * m_detail + 1 );
+	m_indexCount = (2 * ( 2 * m_detail + 1 ) + 2 ) * 5 * m_detail;
+
+	if( ! reallocateBuffers() ) return;
+
+	for( int strip = 0; strip < 5; strip++ )
+	for( int column = 1; column < m_detail; column++ )
+	for( int row = column; row <= 2 * m_detail + column; row++ )
+		computeVertex( strip, column, row );
+
+	for( int strip = 1; strip < 5; strip++ )
+	for( int row = 0; row <= 3 * m_detail; row++ )
+		computeVertex( strip, 0, row );
+
+	for( int row = 0; row <= 2 * m_detail; row++ )
+		computeVertex( 0, 0, row );
+
+	for( int row = m_detail; row <= 3 * m_detail; row++ )
+		computeVertex( 4, m_detail, row );
+
+	unsigned int i = 0;
+	for( int strip = 0; strip < 5; strip++ )
+	for( int column = 0; column < m_detail; column++ )
+	{
+		int row = column;
+		m_indexBuffer[i++] = indexOfVertex( strip, column, row );
+		for( ; row <= 2 * m_detail + column; row++ )
+		{
+			m_indexBuffer[i++] =
+				indexOfVertex( strip, column, row );
+			m_indexBuffer[i++] =
+				indexOfVertex( strip, column + 1, row + 1 );
+		}
+		m_indexBuffer[i++] = indexOfVertex( strip, column + 1,
+			2 * m_detail + column + 1);
+	}
+
+	m_isInitialized = true;
+}
+
+void GLSphere::setup( int detail, GLfloat radius )
+{
+	if( detail == m_detail && radius == m_radius ) return;
+	m_detail = detail;
+	m_radius = radius;
+	initialize();
+}
+
+GLCylinder::GLCylinder()
+	: GLVertexArray()
+{
+	m_mode = GL_QUAD_STRIP;
+	m_faces = 0;
+	m_radius = -1.0;
+}
+
+void GLCylinder::setup( int faces, GLfloat radius )
+{
+	if( faces == m_faces && radius == m_radius ) return;
+	m_faces = faces;
+	m_radius = radius;
+	initialize();
+}
+
+void GLCylinder::initialize()
+{
+	if( m_faces < 3 ) return;
+
+	m_vertexCount = 2 * m_faces + 2; // we will use a redundant vertex array
+	m_indexCount = 1; // we won't use it.
+
+	if( ! reallocateBuffers() ) return;
+
+	for( int i = 0; i <= m_faces; i++)
+	{
+		float angle = 2 * M_PI * i / m_faces;
+		float x = cosf( angle );
+		float y = sinf( angle );
+
+		m_normalBuffer[ 2 * i ].x = x;
+		m_normalBuffer[ 2 * i ].y = y;
+		m_normalBuffer[ 2 * i ].z = 0.0;
+
+		m_vertexBuffer[ 2 * i ].x = x * m_radius ;
+		m_vertexBuffer[ 2 * i ].y = y * m_radius;
+		m_vertexBuffer[ 2 * i ].z = 1.0;
+
+		m_normalBuffer[ 2 * i + 1].x = x;
+		m_normalBuffer[ 2 * i + 1].y = y;
+		m_normalBuffer[ 2 * i + 1].z = 0.0;
+
+		m_vertexBuffer[ 2 * i + 1].x = x * m_radius;
+		m_vertexBuffer[ 2 * i + 1].y = y * m_radius ;
+		m_vertexBuffer[ 2 * i + 1].z = 0.0;
+	}
+
+	m_isInitialized = true;
+}
+
+void GLCylinder::draw()
+{
+	if ( m_isInitialized ) glDrawArrays( m_mode, 0, m_vertexCount );
 }
 
 #include "kalziumglwidget.moc"

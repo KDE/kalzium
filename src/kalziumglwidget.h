@@ -22,24 +22,151 @@
 #ifdef USE_DOUBLE_PRECISION
 #define FLOAT		double
 #define GLFLOAT		GLdouble
-#define GLTRANSLATE	glTranslated
-#define GLMULTMATRIX	glMultMatrixd
-#define SQRT		sqrt
-#define COS		cos
-#define SIN		sin
-#define FABS		fabs
 #else
 #define FLOAT		float
 #define GLFLOAT		GLfloat
-#define GLTRANSLATE	glTranslatef
-#define GLMULTMATRIX	glMultMatrixf
-#define SQRT		sqrtf
-#define COS		cosf
-#define SIN		sinf
-#define FABS		fabsf
 #endif
 
-struct GLColor;
+inline float GLSQRT( float x ) { return sqrtf( x ); }
+inline double GLSQRT( double x ) { return sqrt( x ); }
+inline float GLSIN( float x ) { return sinf( x ); }
+inline double GLSIN( double x ) { return sin( x ); }
+inline float GLCOS( float x ) { return cosf( x ); }
+inline double GLCOS( double x ) { return cos( x ); }
+inline float GLFABS( float x ) { return fabsf( x ); }
+inline double GLFABS( double x ) { return fabs( x ); }
+inline void GLMULTMATRIX( const GLfloat *m ) { glMultMatrixf(m); }
+inline void GLMULTMATRIX( const GLdouble *m ) { glMultMatrixd(m); }
+inline void GLTRANSLATE( GLfloat x, GLfloat y, GLfloat z ) \
+	{ glTranslatef( x, y, z ); }
+inline void GLTRANSLATE( GLdouble x, GLdouble y, GLdouble z ) \
+	{ glTranslated( x, y, z ); }
+
+/**
+ * This class represents a color in OpenGL float red-green-blue format.
+ *
+ * @author Benoit Jacob
+ */
+struct GLColor
+{
+	GLfloat m_red, m_green, m_blue, m_alpha;
+
+	GLColor();
+	GLColor( GLfloat red, GLfloat green, GLfloat blue,
+	         GLfloat alpha = 1.0 );
+
+	GLColor& operator=( const GLColor& other );
+
+	/**
+	 * Sets this color to be the one used by OpenGL for rendering
+	 * when lighting is disabled. It just calls glColor4fv.
+	 */
+	inline void apply();
+
+	/**
+	 * Applies nice OpenGL materials using this color as the
+	 * diffuse color while using different shades for the ambient and
+         * specular colors. This is only useful if GL lighting is enabled.
+	 */
+	void applyAsMaterials();
+};
+
+
+
+template<class T> struct GLVector3
+{
+	T x, y, z;
+	GLVector3() {}
+	GLVector3( T _x, T _y, T _z)
+	{ x = _x; y = _y; z = _z; }
+	inline T norm() { return GLSQRT( x * x + y * y + z * z ); }
+	void normalize()
+	{
+		T n = norm();
+		if( n == 0.0 ) return;
+		x /= n;
+		y /= n;
+		z /= n;
+	}
+	GLVector3<T>& operator= ( const GLVector3<T>& other )
+	{
+		x = other.x;
+		y = other.y;
+		z = other.z;
+		return *this;
+	}
+};
+
+/**
+ * This is an abstract base class for an OpenGL vertex array.
+ *
+ * @author Benoit Jacob
+ */
+class GLVertexArray
+{
+	protected:
+		GLenum m_mode;
+		GLVector3<GLfloat> *m_vertexBuffer;
+		GLVector3<GLfloat> *m_normalBuffer;
+		unsigned int m_vertexCount;
+		unsigned short *m_indexBuffer;
+		unsigned int m_indexCount;
+		
+		bool m_isInitialized;
+		
+		virtual void initialize() = 0;
+		virtual bool reallocateBuffers();
+
+	public:
+		GLVertexArray();
+		virtual ~GLVertexArray();
+		virtual void select();
+		virtual inline void draw();
+};
+
+/**
+ * This class represents and draws a sphere
+ *
+ * @author Benoit Jacob
+ */
+class GLSphere : public GLVertexArray
+{
+	private:
+		inline unsigned short indexOfVertex(
+			int strip, int column, int row);
+		void computeVertex( int strip, int column, int row );
+
+	protected:
+		int m_detail;
+		GLfloat m_radius;
+
+		virtual void initialize();
+
+	public:
+		GLSphere();
+		virtual ~GLSphere() {}
+		virtual void setup( int detail, GLfloat radius );
+};
+
+/**
+ * This class represents and draws a cylinder
+ *
+ * @author Benoit Jacob
+ */
+class GLCylinder : public GLVertexArray
+{
+	protected:
+		int m_faces;
+		GLfloat m_radius;
+
+		virtual void initialize();
+
+	public:
+		GLCylinder();
+		virtual ~GLCylinder() {}
+		virtual void setup( int detail, GLfloat radius );
+		virtual inline void draw();
+};
 
 /**
  * This class displays the 3D-view of a molecule
@@ -53,6 +180,8 @@ class KalziumGLWidget : public QGLWidget
 	protected:
 		GLuint m_sphereDisplayList;
 		GLuint m_bondDisplayList;
+		GLSphere m_sphere;
+		GLCylinder m_cylinder;
 		
 		/**
 		 * equals true if the user is currently dragging (rotating)
@@ -183,7 +312,7 @@ class KalziumGLWidget : public QGLWidget
 		 * Chooses the style of rendering among some presets
 		 * @param stylePreset the wanted style preset
 		 */
-		void ChooseStylePreset( StylePreset stylePreset );
+		virtual void ChooseStylePreset( StylePreset stylePreset );
 
 	public slots:
 		/**
@@ -237,23 +366,12 @@ class KalziumGLWidget : public QGLWidget
 		 * it.
 		 */
 		void prepareMoleculeData();
-
-		/**
-		 * This method will shortly be removed, hence no doc.
-		 */
-		virtual void drawGenericSphere();
-
-		/**
-		 * This method will shortly be removed, hence no doc.
-		 */
-		virtual void drawGenericBond();
 		
 		/**
 		 * This method draws a sphere
 		 * @param x
 		 * @param y
 		 * @param z
-		 * @param radius
 		 * @param red
 		 * @param green
 		 * @param blue
@@ -263,7 +381,6 @@ class KalziumGLWidget : public QGLWidget
 				GLFLOAT x, 
 				GLFLOAT y, 
 				GLFLOAT z, 
-				GLFLOAT radius,
 				GLColor &color );
 
 		/**
@@ -290,78 +407,8 @@ class KalziumGLWidget : public QGLWidget
 
 		GLColor& getAtomColor( OpenBabel::OBAtom* atom );
 
+		virtual void setupObjects();
 };
 
-/**
- * This class represents a color in OpenGL float red-green-blue format.
- *
- * @author Benoit Jacob
- */
-struct GLColor
-{
-	GLfloat m_red, m_green, m_blue, m_alpha;
-
-	GLColor();
-	GLColor( GLfloat red, GLfloat green, GLfloat blue,
-	         GLfloat alpha = 1.0 );
-
-	GLColor& operator=( const GLColor& other );
-
-	/**
-	 * Sets this color to be the one used by OpenGL for rendering
-	 * when lighting is disabled. It just calls glColor4fv.
-	 */
-	inline void apply();
-
-	/**
-	 * Applies nice OpenGL materials using this color as the
-	 * diffuse color while using different shades for the ambient and
-         * specular colors. This is only useful if GL lighting is enabled.
-	 */
-	void applyAsMaterials();
-};
-
-/**
- * This is an abstract base class for a GL vertex array
- *
- * @author Benoit Jacob
- */
-class GLVertexArray
-{
-	protected:
-		struct Vertex {
-			float nx, ny, nz;
-			float vx, vy, vz;
-		};
-
-		Vertex *m_vertices;
-		unsigned short *m_indices;
-		unsigned int m_nbVertices;
-		unsigned int  m_nbIndices;
-		
-		virtual void generate() = 0;
-	public:
-		GLVertexArray();
-		virtual ~GLVertexArray();
-		void draw();
-};
-
-/**
- * This class generates and stores a GL vertex array representing a sphere
- *
- * @author Benoit Jacob
- */
-class SphereVertexArray : public GLVertexArray
-{
-	protected:
-		unsigned int m_strips, m_lozangesPerStrip;
-		virtual void generate();
-
-	public:
-		SphereVertexArray(unsigned int strips, unsigned int lozangesPerStrip);
-		virtual ~SphereVertexArray();
-
-		virtual void regenerate(unsigned int strips, unsigned int lozangesPerStrip);
-};
 
 #endif // KALZIUMGLWIDGET_H
