@@ -43,7 +43,8 @@ LatticeDialog::LatticeDialog( QWidget* parent )
 	setButtons( Close );
 	setDefaultButton( Close );
 
-	m_unitCell = 0;
+	m_unitCell = new OpenBabel::OBUnitCell();
+	m_molecule = OpenBabel2Wrapper::readMolecule( "/home/kde4/test.cml" );
 
 	QWidget *page = new QWidget( this );
 	setMainWidget( page );
@@ -62,10 +63,25 @@ LatticeDialog::LatticeDialog( QWidget* parent )
 
 void LatticeDialog::slotUpdateView()
 {
+	//this line crashes 
+	double volume = m_unitCell->GetCellVolume();
+	ui.volumeLabel->setText( QString::number( volume ) );
+	ui.glWidget->slotSetMolecule( m_molecule );
+	ui.glWidget->update();
 }
 
 void LatticeDialog::slotSetLattice( int lattice )
 {
+	OpenBabel::OBUnitCell::LatticeType lt = OpenBabel::OBUnitCell::Undefined;
+
+	//OpenBabel defines as member 0 of the enum LatticeType "Undefined", that
+	//is why we need to add +1
+	lt = ( OpenBabel::OBUnitCell::LatticeType ) ( lattice+1 );
+	m_unitCell->SetLatticeType( lt );
+
+	//as the crystal system changed we now also need 
+	//an update of the GUI
+	slotUpdateView();
 }
 
 #include "latticedialog.moc"

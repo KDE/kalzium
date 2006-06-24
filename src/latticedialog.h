@@ -47,12 +47,19 @@ class LatticeDialog : public KDialog
 	private slots:
 		void slotSetLattice( int lattice );
 
+		/**
+		 * update all strings and items in the dialog
+		 */
 		void slotUpdateView();
 
 	private:
 		Ui_latticeView ui;
 
+		///the unitcell displayed
 		OpenBabel::OBUnitCell * m_unitCell;
+
+		//this object stores the position of the atoms in the unitcell
+		OpenBabel::OBMol * m_molecule;
 };
 
 
