@@ -652,6 +652,18 @@ GLColor& KalziumGLWidget::getAtomColor( OpenBabel::OBAtom* atom )
 		c.m_green = 1.0;
 		c.m_blue = 0.0;
 	}
+	else if ( atom->GetAtomicNum() == 11 )
+	{//Natrium
+		c.m_red = 0.2;
+		c.m_green = 1.0;
+		c.m_blue = 0.0;
+	}
+	else if ( atom->GetAtomicNum() == 17 )
+	{//Chlorine
+		c.m_red = 0.1;
+		c.m_green = 0.1;
+		c.m_blue = 0.9;
+	}
 	else
 	{
 		c.m_red = 0.5;

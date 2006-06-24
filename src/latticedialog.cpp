@@ -59,6 +59,8 @@ LatticeDialog::LatticeDialog( QWidget* parent )
 
 	connect( ui.updateButton, SIGNAL( clicked() ), 
 			this, SLOT( slotUpdateView() ) );
+	
+	slotUpdateView();
 }
 
 void LatticeDialog::slotUpdateView()
@@ -67,6 +69,7 @@ void LatticeDialog::slotUpdateView()
 	double volume = m_unitCell->GetCellVolume();
 	ui.volumeLabel->setText( QString::number( volume ) );
 	ui.glWidget->slotSetMolecule( m_molecule );
+//	ui.glWidget->ChooseStylePreset( KalziumGLWidget::PRESET_LINES  );
 	ui.glWidget->update();
 }
 

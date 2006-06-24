@@ -123,18 +123,6 @@ class KalziumGLWidget : public QGLWidget
 			BOND_CYLINDER_BICOLOR
 		} m_bondStyle;
 
-		/**
-		 * Some style presets
-		 */
-		enum StylePreset
-		{
-			PRESET_LINES,
-			PRESET_STICKS,
-			PRESET_SPHERES_AND_GRAY_BONDS,
-			PRESET_SPHERES_AND_BICOLOR_BONDS,
-			PRESET_BIG_SPHERES
-		};
-
 	private: // some standard 3D math stuff here
 
 		/**
@@ -179,6 +167,24 @@ class KalziumGLWidget : public QGLWidget
 		inline OpenBabel::OBMol* molecule () const
 			{ return m_molecule; }
 
+		/**
+		 * Some style presets
+		 */
+		enum StylePreset
+		{
+			PRESET_LINES,
+			PRESET_STICKS,
+			PRESET_SPHERES_AND_GRAY_BONDS,
+			PRESET_SPHERES_AND_BICOLOR_BONDS,
+			PRESET_BIG_SPHERES
+		};
+		
+		/**
+		 * Chooses the style of rendering among some presets
+		 * @param stylePreset the wanted style preset
+		 */
+		void ChooseStylePreset( StylePreset stylePreset );
+
 	public slots:
 		/**
 		 * sets the molecule which will be displayed
@@ -192,10 +198,6 @@ class KalziumGLWidget : public QGLWidget
 		 */
 		void slotSetDetail( int detail );
 
-		/**
-		 * Chooses the style of rendering among some presets
-		 * @param stylePreset the wanted style preset
-		 */
 		/**
 		 * Chooses the style of rendering among some presets
 		 * @param stylePreset the wanted style preset
@@ -281,12 +283,6 @@ class KalziumGLWidget : public QGLWidget
 
 		inline GLFLOAT bondRadius();
 		inline GLFLOAT atomRadius();
-
-		/**
-		 * Chooses the style of rendering among some presets
-		 * @param stylePreset the wanted style preset
-		 */
-		void ChooseStylePreset( StylePreset stylePreset );
 
 		/**
 		 * returns the color which an atom should be painted
