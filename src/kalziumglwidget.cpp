@@ -275,8 +275,22 @@ void KalziumGLWidget::mouseMoveEvent( QMouseEvent * event )
 
 void KalziumGLWidget::setupObjects()
 {
-	m_sphere.setup( 3 * ( m_detail + 1 ), atomRadius() );
-	m_cylinder.setup( 8 * ( m_detail + 1 ), bondRadius() );
+	int sphere_detail, cylinder_faces;
+
+	if( m_atomRadiusCoeff < 0.05) sphere_detail = 1;
+	else if( m_atomRadiusCoeff < 0.30) sphere_detail = 2;
+	else sphere_detail = 3;
+
+	sphere_detail *= ( m_detail + 1 );
+
+	if( m_bondRadiusCoeff < 0.02) cylinder_faces = 4;
+	else if( m_bondRadiusCoeff < 0.10) cylinder_faces = 6;
+	else cylinder_faces = 8;
+
+	cylinder_faces *= ( m_detail + 1 );
+
+	m_sphere.setup( sphere_detail, atomRadius() );
+	m_cylinder.setup( cylinder_faces, bondRadius() );
 }
 
 void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z,
