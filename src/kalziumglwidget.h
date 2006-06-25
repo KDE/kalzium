@@ -71,30 +71,63 @@ struct GLColor
 	void applyAsMaterials();
 };
 
+/**
+ * This template class represents a vector in 3-space. It is meant to be
+ * used with T = a floating-point type.
+ *
+ * @author Benoit Jacob
+ */
 
-
-template<class T> struct GLVector3
+template<class T> class GLVector3
 {
-	T x, y, z;
-	GLVector3() {}
-	GLVector3( T _x, T _y, T _z)
-	{ x = _x; y = _y; z = _z; }
-	inline T norm() { return GLSQRT( x * x + y * y + z * z ); }
-	void normalize()
-	{
-		T n = norm();
-		if( n == 0.0 ) return;
-		x /= n;
-		y /= n;
-		z /= n;
-	}
-	GLVector3<T>& operator= ( const GLVector3<T>& other )
-	{
-		x = other.x;
-		y = other.y;
-		z = other.z;
-		return *this;
-	}
+	public:
+		T x, y, z;
+		GLVector3() {}
+		GLVector3( T _x, T _y, T _z)
+		{ x = _x; y = _y; z = _z; }
+
+		/**
+		 * Tests whether two FLOATs are approximately equal.
+		 * Recall that operator == between floating-point types
+		 * is broken.
+		 * returns true if abs( a - b ) <= c * precision
+		 * where c = max( abs( a ), abs( b ) )
+		 */
+		static bool approx_equal( FLOAT a, FLOAT b, FLOAT precision );
+
+		GLVector3<T>& operator= ( const GLVector3<T>& other )
+		{
+			x = other.x;
+			y = other.y;
+			z = other.z;
+			return *this;
+		}
+
+		/**
+		 * returns the norm of the vector, that is, its length
+		 */
+		inline T norm() { return GLSQRT( x * x + y * y + z * z ); }
+
+		/**
+		 * normalizes the vector, that is, scales it so that its norm
+		 * becomes 1.
+		 */
+		void normalize()
+		{
+			T n = norm();
+			if( n == 0.0 ) return;
+			x /= n;
+			y /= n;
+			z /= n;
+		}
+		
+		/**
+		 * Constructs two vectors v and w
+		 * such that (*this, v, w) is a direct orthogonal basis.
+		 * v and w are not getting normalized.
+		 */
+		void construct_ortho_basis_given_first_vector(
+			GLVector3<T> & v, GLVector3<T> & w );
 };
 
 /**
@@ -104,6 +137,9 @@ template<class T> struct GLVector3
  */
 class GLVertexArray
 {
+	private:
+		int m_id;
+
 	protected:
 		GLenum m_mode;
 		GLVector3<GLfloat> *m_vertexBuffer;
@@ -115,12 +151,13 @@ class GLVertexArray
 		bool m_isInitialized;
 		
 		virtual void initialize() = 0;
-		virtual bool reallocateBuffers();
+		virtual bool allocateBuffers();
+		virtual void allocateId();
+		virtual void select();
 
 	public:
 		GLVertexArray();
 		virtual ~GLVertexArray();
-		virtual void select();
 		virtual inline void draw();
 };
 
@@ -146,6 +183,7 @@ class GLSphere : public GLVertexArray
 		GLSphere();
 		virtual ~GLSphere() {}
 		virtual void setup( int detail, GLfloat radius );
+		virtual void drawScaled( GLfloat radius );
 };
 
 /**
@@ -178,9 +216,14 @@ class KalziumGLWidget : public QGLWidget
 	Q_OBJECT
 
 	protected:
-		GLuint m_sphereDisplayList;
-		GLuint m_bondDisplayList;
+		/**
+		 * The geometric model of the sphere (used for atoms).
+		 */
 		GLSphere m_sphere;
+
+		/**
+		 * The geometric model of the cylinder (used for bonds).
+		 */
 		GLCylinder m_cylinder;
 		
 		/**
@@ -191,14 +234,30 @@ class KalziumGLWidget : public QGLWidget
 
 		QPoint m_lastDraggingPosition;
 
+
+		/**
+		 * Stores the rotation that is applied to the model.
+		 */
 		GLFLOAT m_RotationMatrix[16];
 
 		/**
 		 * The molecule which is displayed
 		 */
 		OpenBabel::OBMol* m_molecule;
+
+		/**
+		 * approximate radius of the molecule
+		 */
 		GLFLOAT m_molRadius;
+
+		/**
+		 * length of the shortest bond in the molecule
+		 */
 		GLFLOAT m_molMinBondLength;
+
+		/**
+		 * length of the longest bond in the molecule
+		 */
 		GLFLOAT m_molMaxBondLength;
 
 		/**
@@ -226,7 +285,6 @@ class KalziumGLWidget : public QGLWidget
 		 */
 		bool m_useFog;
 
-
 		/**
 		 * The selected atom
 		 */
@@ -252,35 +310,17 @@ class KalziumGLWidget : public QGLWidget
 			BOND_CYLINDER_BICOLOR
 		} m_bondStyle;
 
-	private: // some standard 3D math stuff here
-
 		/**
-		 * Tests whether two FLOATs are approximately equal.
-		 * Recall that operator == between floating-point types
-		 * is broken.
-		 * returns true if abs( a - b ) <= c * precision
-		 * where c = max( abs( a ), abs( b ) )
+		 * Some style presets
 		 */
-		bool approx_equal( FLOAT a, FLOAT b, FLOAT precision );
-
-		/**
-		 * Returns the norm of a 3D vector
-		 */
-		FLOAT norm3( FLOAT *u );
-
-		/**
-		 * Normalizes a 3D vector
-		 */
-		void normalize3( FLOAT *u );
-
-		/**
-		 * Given a 3D vector U, constructs two vectors v and w
-		 * such that (U, v, w) is a direct orthogonal basis.
-		 * U is not supposed to be normalized, and v and w
-		 * are not getting normalized.
-		 */
-		void construct_ortho_3D_basis_given_first_vector3(
-			const FLOAT *U, FLOAT *v, FLOAT *w);
+		enum StylePreset
+		{
+			PRESET_LINES,
+			PRESET_STICKS,
+			PRESET_SPHERES_AND_GRAY_BONDS,
+			PRESET_SPHERES_AND_BICOLOR_BONDS,
+			PRESET_BIG_SPHERES
+		};
 
 	public:
 		/**
@@ -293,26 +333,11 @@ class KalziumGLWidget : public QGLWidget
 		 */
 		virtual ~KalziumGLWidget();
 
+		/**
+		 * returns a pointer to the molecule being worked on
+		 */
 		inline OpenBabel::OBMol* molecule () const
 			{ return m_molecule; }
-
-		/**
-		 * Some style presets
-		 */
-		enum StylePreset
-		{
-			PRESET_LINES,
-			PRESET_STICKS,
-			PRESET_SPHERES_AND_GRAY_BONDS,
-			PRESET_SPHERES_AND_BICOLOR_BONDS,
-			PRESET_BIG_SPHERES
-		};
-		
-		/**
-		 * Chooses the style of rendering among some presets
-		 * @param stylePreset the wanted style preset
-		 */
-		virtual void ChooseStylePreset( StylePreset stylePreset );
 
 	public slots:
 		/**
@@ -327,6 +352,10 @@ class KalziumGLWidget : public QGLWidget
 		 */
 		void slotSetDetail( int detail );
 
+		/**
+		 * Chooses the style of rendering among some presets
+		 * @param stylePreset the wanted style preset
+		 */
 		/**
 		 * Chooses the style of rendering among some presets
 		 * @param stylePreset the wanted style preset
@@ -381,6 +410,7 @@ class KalziumGLWidget : public QGLWidget
 				GLFLOAT x, 
 				GLFLOAT y, 
 				GLFLOAT z, 
+				GLfloat radius,
 				GLColor &color );
 
 		/**
@@ -398,15 +428,35 @@ class KalziumGLWidget : public QGLWidget
 			GLFLOAT x2, GLFLOAT y2, GLFLOAT z2,
 			GLColor &color );
 
+		/**
+		 * returns the radius ( = half-thickness ) with which the
+		 * bonds are drawn
+		 */
 		inline GLFLOAT bondRadius();
+
+		/**
+		 * returns the radius with which the atoms are drawn
+		 * (currently all atoms are drawn with the same radius.
+		 * when we'll have a better model taking van der Waals radii
+		 * into account, we'll remove this member).
+		 */
 		inline GLFLOAT atomRadius();
 
 		/**
-		 * returns the color which an atom should be painted
+		 * Chooses the style of rendering among some presets
+		 * @param stylePreset the wanted style preset
 		 */
+		virtual void ChooseStylePreset( StylePreset stylePreset );
 
+		/**
+		 * returns the color which a given atom should be painted
+		 */
 		GLColor& getAtomColor( OpenBabel::OBAtom* atom );
 
+		/**
+		 * recomputes the geometry of the geometric objects ( sphere,
+		 * cylinder ).
+		 */
 		virtual void setupObjects();
 };
 

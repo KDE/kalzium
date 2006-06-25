@@ -28,8 +28,6 @@ using namespace OpenBabel;
 KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	: QGLWidget( parent )
 {
-	m_sphereDisplayList = 0;
-	m_bondDisplayList = 0;
 	m_isDragging = false;
 	m_molecule = 0;
 	m_detail = 0;
@@ -43,8 +41,6 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 
 KalziumGLWidget::~KalziumGLWidget()
 {
-	if( m_sphereDisplayList )
-		glDeleteLists( m_sphereDisplayList, 1 );
 }
 
 void KalziumGLWidget::initializeGL()
@@ -126,8 +122,6 @@ void KalziumGLWidget::paintGL()
 	// render the atoms
 	if( m_atomStyle == ATOM_SPHERE )
 	{
-		m_sphere.select();
-
 		glEnable( GL_LIGHTING );
 
 		FOR_ATOMS_OF_MOL( a, m_molecule )
@@ -140,6 +134,7 @@ void KalziumGLWidget::paintGL()
 		
 			drawSphere(
 				x, y, z,
+				atomRadius(),
 				c);
 		}
 	}
@@ -154,7 +149,6 @@ void KalziumGLWidget::paintGL()
 		case BOND_CYLINDER_GRAY:
 		case BOND_CYLINDER_BICOLOR:
 			glEnable( GL_LIGHTING );
-			m_cylinder.select();
 			break;
 		case BOND_DISABLED: break;
 	}
@@ -220,18 +214,17 @@ void KalziumGLWidget::paintGL()
 
 		GLColor c( 0.4, 0.4, 1.0, 0.7 );
 
-		GLFLOAT radius = m_molMinBondLength * 0.5;
-		GLFLOAT min_radius = (GLFLOAT) atomRadius () * 1.2;
+		GLFLOAT radius = m_molMinBondLength * 0.35;
+		GLFLOAT min_radius = (GLFLOAT) atomRadius () * 1.25;
 		if( radius < min_radius ) radius = min_radius;
 
 		glEnable( GL_BLEND );
 
 		glEnable( GL_LIGHTING );
 
-		m_sphere.select();
-
 		drawSphere(
 			x, y, z,
+			radius,
 			c);
 
 		glDisable( GL_BLEND );
@@ -286,13 +279,14 @@ void KalziumGLWidget::setupObjects()
 	m_cylinder.setup( 8 * ( m_detail + 1 ), bondRadius() );
 }
 
-void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z, GLColor &color )
+void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z,
+	GLfloat radius, GLColor &color )
 {
 	color.applyAsMaterials();
 	
 	glPushMatrix();
 	glTranslated( x, y, z );
-	m_sphere.draw();
+	m_sphere.drawScaled( radius );
 	glPopMatrix();
 }
 
@@ -302,35 +296,35 @@ void KalziumGLWidget::drawBond( FLOAT x1, FLOAT y1, FLOAT z1,
 	color.applyAsMaterials();
 
 	// the "axis vector" of the cylinder
-	FLOAT axis[3] = { x2 - x1, y2 - y1, z2 - z1 };
+	GLVector3<FLOAT> axis( x2 - x1, y2 - y1, z2 - z1 );
 	
 	// find two vectors v, w such that (axis,v,w) is an orthogonal basis.
-	FLOAT v[3], w[3];
-	construct_ortho_3D_basis_given_first_vector3( axis, v, w );
+	GLVector3<FLOAT> v, w;
+	axis.construct_ortho_basis_given_first_vector( v, w );
 
 	// normalize v and w. We DON'T want to normalize axis
-	normalize3( v );
-	normalize3( w );
+	v.normalize();
+	w.normalize();
 
 	// construct the 4D transformation matrix
 	FLOAT matrix[16];
 
 	// column 1
-	matrix[0] = v[0];
-	matrix[1] = v[1];
-	matrix[2] = v[2];
+	matrix[0] = v.x;
+	matrix[1] = v.y;
+	matrix[2] = v.z;
 	matrix[3] = 0.0;
 
 	// column 2
-	matrix[4] = w[0];
-	matrix[5] = w[1];
-	matrix[6] = w[2];
+	matrix[4] = w.x;
+	matrix[5] = w.y;
+	matrix[6] = w.z;
 	matrix[7] = 0.0;
 
 	// column 3
-	matrix[8] = axis[0];
-	matrix[9] = axis[1];
-	matrix[10] = axis[2];
+	matrix[8] = axis.x;
+	matrix[9] = axis.y;
+	matrix[10] = axis.z;
 	matrix[11] = 0.0;
 
 	// column 4
@@ -455,7 +449,8 @@ void KalziumGLWidget::slotSetDetail( int detail )
 	updateGL();
 }
 
-bool KalziumGLWidget::approx_equal( FLOAT a, FLOAT b, FLOAT precision )
+template<class T> bool GLVector3<T>::approx_equal(
+	FLOAT a, FLOAT b, FLOAT precision )
 {
 	FLOAT abs_a = GLFABS( a );
 	FLOAT abs_b = GLFABS( b );
@@ -468,63 +463,49 @@ bool KalziumGLWidget::approx_equal( FLOAT a, FLOAT b, FLOAT precision )
 	return( GLFABS( a - b ) <= precision * max_abs );
 }
 
-FLOAT KalziumGLWidget::norm3( FLOAT *u )
+template<class T> void GLVector3<T>::construct_ortho_basis_given_first_vector(
+	GLVector3<T> &v, GLVector3<T> &w )
 {
-	return GLSQRT( u[0] * u[0] + u[1] * u[1] + u[2] * u[2] );
-}
+	if( norm() == 0 ) return;
+	
+	// let us first make a normalized copy of *this
+	GLVector3<T> u = *this;
+	u.normalize();
 
-void KalziumGLWidget::normalize3( FLOAT *u )
-{
-	FLOAT n = norm3( u );
-	if( 0 == n ) return;
-	u[0] /= n;
-	u[1] /= n;
-	u[2] /= n;
-}
+	// first we want to set v to be non-colinear to u
 
-void KalziumGLWidget::construct_ortho_3D_basis_given_first_vector3(
-	const FLOAT *U, FLOAT *v, FLOAT *w)
-{
-	// let us first make a normalized copy of U
-	FLOAT u[3];
-	u[0] = U[0]; u[1] = U[1]; u[2] = U[2];
-	if( 0 == norm3( u ) ) return;
-	normalize3( u );
+	v = u;
 
-	// initially we set v = u
-	v[0] = u[0]; v[1] = u[1]; v[2] = u[2];
-
-	// next we want to change v so that it becomes non-colinear to u
-	if( ! approx_equal( v[0], v[1], 0.01 ) )
+	if( ! approx_equal( v.x, v.y, 0.1 ) )
 	{
-		FLOAT tmp = v[0];
-		v[0] = v[1];
-		v[1] = tmp;
+		FLOAT tmp = v.x;
+		v.x = v.y;
+		v.y = tmp;
 	}
-	else if( ! approx_equal( v[1], v[2], 0.01 ) )
+	else if( ! approx_equal( v.y, v.z, 0.1 ) )
 	{
-		FLOAT tmp = v[2];
-		v[2] = v[1];
-		v[1] = tmp;
+		FLOAT tmp = v.z;
+		v.z = v.y;
+		v.y = tmp;
 	}
 	else // the 3 coords of v are approximately equal
 	{    // which implies that v is not colinear to (0,0,1)
-		v[0] = 0.0; v[1] = 0.0; v[2] = 1.0;
+		v = GLVector3<T>( 0, 0, 1 );
 	}
 
 	// now, v is not colinear to u. We compute its dot product with u
-	FLOAT u_dot_v = u[0] * v[0] + u[1] * v[1] + u[2] * v[2];
+	FLOAT u_dot_v = u.x * v.x + u.y * v.y + u.z * v.z;
 
 	// now we change v so that it becomes orthogonal to u
-	v[0] -= u[0] * u_dot_v;
-	v[1] -= u[1] * u_dot_v;
-	v[2] -= u[2] * u_dot_v;
+	v.x -= u.x * u_dot_v;
+	v.y -= u.y * u_dot_v;
+	v.z -= u.z * u_dot_v;
 
 	// now that u and v are orthogonal, w can be constructed as
 	// their crossed product
-	w[0] = u[1] * v[2] - u[2] * v[1];
-	w[1] = u[2] * v[0] - u[0] * v[2];
-	w[2] = u[0] * v[1] - u[1] * v[0];
+	w.x = u.y * v.z - u.z * v.y;
+	w.y = u.z * v.x - u.x * v.z;
+	w.z = u.x * v.y - u.y * v.x;
 }
 
 GLColor::GLColor()
@@ -584,18 +565,6 @@ GLColor& KalziumGLWidget::getAtomColor( OpenBabel::OBAtom* atom )
 		c.m_green = 1.0;
 		c.m_blue = 0.0;
 	}
-	else if ( atom->GetAtomicNum() == 11 )
-	{//Natrium
-		c.m_red = 0.2;
-		c.m_green = 1.0;
-		c.m_blue = 0.0;
-	}
-	else if ( atom->GetAtomicNum() == 17 )
-	{//Chlorine
-		c.m_red = 0.1;
-		c.m_green = 0.1;
-		c.m_blue = 0.9;
-	}
 	else
 	{
 		c.m_red = 0.5;
@@ -635,6 +604,8 @@ void GLColor::applyAsMaterials()
 
 GLVertexArray::GLVertexArray()
 {
+	allocateId();
+	m_mode = GL_TRIANGLE_STRIP;
 	m_vertexBuffer = 0;
 	m_normalBuffer = 0;
 	m_indexBuffer = 0;
@@ -648,23 +619,35 @@ GLVertexArray::~GLVertexArray()
 	if( m_normalBuffer ) delete [] m_normalBuffer;
 }
 
+void GLVertexArray::allocateId()
+{
+	static int counter = 0;
+	m_id = counter++;
+}
+
+
 void GLVertexArray::select()
 {
-	if( ! m_isInitialized ) return;
+	static int selected_id = -1;
+
+	if( selected_id == m_id ) return;
+
 	glEnableClientState( GL_VERTEX_ARRAY );
 	glEnableClientState( GL_NORMAL_ARRAY );
 	glVertexPointer( 3, GL_FLOAT, 0, m_vertexBuffer );
 	glNormalPointer( GL_FLOAT, 0, m_normalBuffer );
+	selected_id = m_id;
 }
 
 void GLVertexArray::draw()
 {
-	if( m_isInitialized )
-		glDrawElements( m_mode, m_indexCount,
-			GL_UNSIGNED_SHORT, m_indexBuffer );
+	if( ! m_isInitialized ) return;
+	select();
+	glDrawElements( m_mode, m_indexCount,
+		GL_UNSIGNED_SHORT, m_indexBuffer );
 }
 
-bool GLVertexArray::reallocateBuffers()
+bool GLVertexArray::allocateBuffers()
 {
 	if( m_vertexCount > 65536 ) return false;
 
@@ -699,7 +682,6 @@ bool GLVertexArray::reallocateBuffers()
 GLSphere::GLSphere()
 	: GLVertexArray()
 {
-	m_mode = GL_TRIANGLE_STRIP;
 	m_detail = 0;
 	m_radius = -1.0;
 }
@@ -806,7 +788,7 @@ void GLSphere::initialize()
 	m_vertexCount = ( 3 * m_detail + 1 ) * ( 5 * m_detail + 1 );
 	m_indexCount = (2 * ( 2 * m_detail + 1 ) + 2 ) * 5 * m_detail;
 
-	if( ! reallocateBuffers() ) return;
+	if( ! allocateBuffers() ) return;
 
 	for( int strip = 0; strip < 5; strip++ )
 	for( int column = 1; column < m_detail; column++ )
@@ -848,7 +830,27 @@ void GLSphere::setup( int detail, GLfloat radius )
 	if( detail == m_detail && radius == m_radius ) return;
 	m_detail = detail;
 	m_radius = radius;
+	allocateId();
 	initialize();
+}
+
+void GLSphere::drawScaled( GLfloat radius )
+{
+	const GLfloat precision	= 0.001;
+
+	if( GLVector3<GLfloat>::approx_equal( radius, m_radius, precision ) )
+	{
+		draw();
+		return;
+	}
+
+	GLfloat factor = radius / m_radius;
+	glEnable( GL_NORMALIZE );
+	glPushMatrix();
+	glScalef( factor, factor, factor );
+	draw();
+	glPopMatrix();
+	glDisable( GL_NORMALIZE );
 }
 
 GLCylinder::GLCylinder()
@@ -864,6 +866,7 @@ void GLCylinder::setup( int faces, GLfloat radius )
 	if( faces == m_faces && radius == m_radius ) return;
 	m_faces = faces;
 	m_radius = radius;
+	allocateId();
 	initialize();
 }
 
@@ -872,9 +875,9 @@ void GLCylinder::initialize()
 	if( m_faces < 3 ) return;
 
 	m_vertexCount = 2 * m_faces + 2; // we will use a redundant vertex array
-	m_indexCount = 1; // we won't use it.
+	m_indexCount = 0; // we won't use it.
 
-	if( ! reallocateBuffers() ) return;
+	if( ! allocateBuffers() ) return;
 
 	for( int i = 0; i <= m_faces; i++)
 	{
@@ -904,7 +907,9 @@ void GLCylinder::initialize()
 
 void GLCylinder::draw()
 {
-	if ( m_isInitialized ) glDrawArrays( m_mode, 0, m_vertexCount );
+	if ( ! m_isInitialized ) return;
+	select();
+	glDrawArrays( m_mode, 0, m_vertexCount );
 }
 
 #include "kalziumglwidget.moc"
