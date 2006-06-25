@@ -48,6 +48,11 @@ class LatticeDialog : public KDialog
 		void slotSetLattice( int lattice );
 
 		/**
+		 * update the data of the unitcell
+		 */
+		void slotUpdateUnitcell();
+
+		/**
 		 * update all strings and items in the dialog
 		 */
 		void slotUpdateView();

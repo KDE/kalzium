@@ -65,8 +65,12 @@ LatticeDialog::LatticeDialog( QWidget* parent )
 
 void LatticeDialog::slotUpdateView()
 {
-	//this line crashes 
+	kDebug() << "LatticeDialog::slotUpdateView()" << endl;
+	slotUpdateUnitcell();
+
 	double volume = m_unitCell->GetCellVolume();
+	kDebug() << "V: " << volume  << " Values: " << m_unitCell->GetA() << " B: " << m_unitCell->GetB() << " C: " << m_unitCell->GetC() << endl;
+	kDebug() << "Angles: " << m_unitCell->GetAlpha() << endl;
 	ui.volumeLabel->setText( QString::number( volume ) );
 	ui.glWidget->slotSetMolecule( m_molecule );
 //	ui.glWidget->ChooseStylePreset( KalziumGLWidget::PRESET_LINES  );
@@ -85,6 +89,19 @@ void LatticeDialog::slotSetLattice( int lattice )
 	//as the crystal system changed we now also need 
 	//an update of the GUI
 	slotUpdateView();
+}
+
+void LatticeDialog::slotUpdateUnitcell()
+{
+	const double aa = ui.aa->value();
+	const double ab = ui.ab->value();
+	const double ac = ui.ac->value();
+	const double va = ui.va->value();
+	const double vb = ui.vb->value();
+	const double vc = ui.vc->value();
+
+	m_unitCell->SetData( aa, ab, ac,
+						va, vb, vc );
 }
 
 #include "latticedialog.moc"

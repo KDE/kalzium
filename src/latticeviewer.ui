@@ -98,7 +98,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QDoubleSpinBox" name="va" />
+           <widget class="QDoubleSpinBox" name="va" >
+            <property name="value" >
+             <double>10</double>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -121,7 +125,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QDoubleSpinBox" name="vb" />
+           <widget class="QDoubleSpinBox" name="vb" >
+            <property name="value" >
+             <double>10</double>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -144,7 +152,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QDoubleSpinBox" name="vc" />
+           <widget class="QDoubleSpinBox" name="vc" >
+            <property name="value" >
+             <double>10</double>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -191,6 +203,9 @@
             <property name="maximum" >
              <double>180</double>
             </property>
+            <property name="value" >
+             <double>90</double>
+            </property>
            </widget>
           </item>
          </layout>
@@ -221,6 +236,9 @@
             <property name="maximum" >
              <double>180</double>
             </property>
+            <property name="value" >
+             <double>90</double>
+            </property>
            </widget>
           </item>
          </layout>
@@ -250,6 +268,9 @@
             </property>
             <property name="maximum" >
              <double>180</double>
+            </property>
+            <property name="value" >
+             <double>90</double>
             </property>
            </widget>
           </item>
