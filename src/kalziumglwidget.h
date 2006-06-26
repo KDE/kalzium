@@ -17,7 +17,10 @@
 
 #include <QGLWidget>
 #include <QList>
+#include <QFont>
 #include <openbabel/mol.h>
+
+using namespace KalziumGLHelpers;
 
 /**
  * This class displays the 3D-view of a molecule
@@ -29,19 +32,15 @@ class KalziumGLWidget : public QGLWidget
 	Q_OBJECT
 
 	protected:
-
-		GLuint m_displayList;
-		void deleteDisplayList();
-
 		/**
 		 * The geometric model of the sphere (used for atoms).
 		 */
-		GLSphere m_sphere;
+		Sphere m_sphere;
 
 		/**
 		 * The geometric model of the cylinder (used for bonds).
 		 */
-		GLCylinder m_cylinder;
+		Cylinder m_cylinder;
 		
 		/**
 		 * equals true if the user is currently dragging (rotating)
@@ -220,7 +219,7 @@ class KalziumGLWidget : public QGLWidget
 				GLFLOAT y, 
 				GLFLOAT z, 
 				GLfloat radius,
-				GLColor &color );
+				Color &color );
 
 		/**
 		 * This method draws a bond
@@ -234,7 +233,7 @@ class KalziumGLWidget : public QGLWidget
 		 */
 		virtual void drawBond( GLFLOAT x1, GLFLOAT y1, GLFLOAT z1,
 			GLFLOAT x2, GLFLOAT y2, GLFLOAT z2,
-			GLColor &color );
+			Color &color );
 
 		/**
 		 * returns the radius ( = half-thickness ) with which the
@@ -259,7 +258,7 @@ class KalziumGLWidget : public QGLWidget
 		/**
 		 * returns the color which a given atom should be painted
 		 */
-		GLColor& getAtomColor( OpenBabel::OBAtom* atom );
+		Color& getAtomColor( OpenBabel::OBAtom* atom );
 
 		/**
 		 * recomputes the geometry of the geometric objects ( sphere,

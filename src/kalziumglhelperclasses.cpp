@@ -17,70 +17,13 @@
 #include <QTime>
 #endif
 
-template<class T> bool GLVector3<T>::approx_equal(
-	FLOAT a, FLOAT b, FLOAT precision )
-{
-	FLOAT abs_a = GLFABS( a );
-	FLOAT abs_b = GLFABS( b );
+using namespace KalziumGLHelpers;
 
-	FLOAT max_abs;
-	if( abs_a < abs_b )
-		max_abs = abs_b;
-	else
-		max_abs = abs_a;
-	return( GLFABS( a - b ) <= precision * max_abs );
-}
-
-template<class T> void GLVector3<T>::construct_ortho_basis_given_first_vector(
-	GLVector3<T> &v, GLVector3<T> &w )
-{
-	if( norm() == 0 ) return;
-	
-	// let us first make a normalized copy of *this
-	GLVector3<T> u = *this;
-	u.normalize();
-
-	// first we want to set v to be non-colinear to u
-
-	v = u;
-
-	if( ! approx_equal( v.x, v.y, 0.1 ) )
-	{
-		FLOAT tmp = v.x;
-		v.x = v.y;
-		v.y = tmp;
-	}
-	else if( ! approx_equal( v.y, v.z, 0.1 ) )
-	{
-		FLOAT tmp = v.z;
-		v.z = v.y;
-		v.y = tmp;
-	}
-	else // the 3 coords of v are approximately equal
-	{    // which implies that v is not colinear to (0,0,1)
-		v = GLVector3<T>( 0, 0, 1 );
-	}
-
-	// now, v is not colinear to u. We compute its dot product with u
-	FLOAT u_dot_v = u.x * v.x + u.y * v.y + u.z * v.z;
-
-	// now we change v so that it becomes orthogonal to u
-	v.x -= u.x * u_dot_v;
-	v.y -= u.y * u_dot_v;
-	v.z -= u.z * u_dot_v;
-
-	// now that u and v are orthogonal, w can be constructed as
-	// their crossed product
-	w.x = u.y * v.z - u.z * v.y;
-	w.y = u.z * v.x - u.x * v.z;
-	w.z = u.x * v.y - u.y * v.x;
-}
-
-GLColor::GLColor()
+Color::Color()
 {
 }
 
-GLColor::GLColor( GLfloat red, GLfloat green, GLfloat blue,
+Color::Color( GLfloat red, GLfloat green, GLfloat blue,
                   GLfloat alpha )
 {
 	m_red = red;
@@ -89,7 +32,7 @@ GLColor::GLColor( GLfloat red, GLfloat green, GLfloat blue,
 	m_alpha = alpha;
 }
 
-GLColor& GLColor::operator=( const GLColor& other )
+Color& Color::operator=( const Color& other )
 {
 	m_red = other.m_red;
 	m_green = other.m_green;
@@ -99,12 +42,7 @@ GLColor& GLColor::operator=( const GLColor& other )
 	return *this;
 }
 
-void GLColor::apply()
-{
-	glColor4fv( reinterpret_cast<GLfloat *>( this ) );
-}
-
-void GLColor::applyAsMaterials()
+void Color::applyAsMaterials()
 {
 	GLfloat ambientColor [] = { m_red / 2, m_green / 2, m_blue / 2,
 	                            m_alpha };
@@ -118,9 +56,8 @@ void GLColor::applyAsMaterials()
 	glMaterialf(GL_FRONT, GL_SHININESS, 50.0);
 }
 
-GLVertexArray::GLVertexArray()
+VertexArray::VertexArray()
 {
-	allocateId();
 	m_mode = GL_TRIANGLE_STRIP;
 	m_vertexBuffer = 0;
 	m_normalBuffer = 0;
@@ -128,42 +65,22 @@ GLVertexArray::GLVertexArray()
 	m_isInitialized = false;
 }
 
-GLVertexArray::~GLVertexArray()
+VertexArray::~VertexArray()
 {
 	if( m_indexBuffer ) delete [] m_indexBuffer;
 	if( m_vertexBuffer ) delete [] m_vertexBuffer;
 	if( m_normalBuffer ) delete [] m_normalBuffer;
 }
 
-void GLVertexArray::allocateId()
+void VertexArray::select()
 {
-	static int counter = 0;
-	m_id = counter++;
-}
-
-
-void GLVertexArray::select()
-{
-	static int selected_id = -1;
-
-	if( selected_id == m_id ) return;
-
 	glEnableClientState( GL_VERTEX_ARRAY );
 	glEnableClientState( GL_NORMAL_ARRAY );
 	glVertexPointer( 3, GL_FLOAT, 0, m_vertexBuffer );
 	glNormalPointer( GL_FLOAT, 0, m_normalBuffer );
-	selected_id = m_id;
 }
 
-void GLVertexArray::draw()
-{
-	if( ! m_isInitialized ) return;
-	select();
-	glDrawElements( m_mode, m_indexCount,
-		GL_UNSIGNED_SHORT, m_indexBuffer );
-}
-
-bool GLVertexArray::allocateBuffers()
+bool VertexArray::allocateBuffers()
 {
 	if( m_vertexCount > 65536 ) return false;
 
@@ -185,9 +102,9 @@ bool GLVertexArray::allocateBuffers()
 		m_normalBuffer = 0;
 	}
 
-	m_vertexBuffer = new GLVector3<GLfloat>[m_vertexCount];
+	m_vertexBuffer = new Vector3<GLfloat>[m_vertexCount];
 	if( ! m_vertexBuffer ) return false;
-	m_normalBuffer = new GLVector3<GLfloat>[m_vertexCount];
+	m_normalBuffer = new Vector3<GLfloat>[m_vertexCount];
 	if( ! m_normalBuffer ) return false;
 	m_indexBuffer = new unsigned short[m_indexCount];
 	if( ! m_indexBuffer ) return false;
@@ -195,48 +112,48 @@ bool GLVertexArray::allocateBuffers()
 	return true;
 }
 
-GLSphere::GLSphere()
-	: GLVertexArray()
+Sphere::Sphere()
+	: VertexArray()
 {
 	m_detail = 0;
 	m_radius = -1.0;
 }
 
-unsigned short GLSphere::indexOfVertex( int strip, int column, int row)
+unsigned short Sphere::indexOfVertex( int strip, int column, int row)
 {
 	return ( row + ( 3 * m_detail + 1 ) * ( column + m_detail * strip ) );
 }
 
-void GLSphere::computeVertex( int strip, int column, int row)
+void Sphere::computeVertex( int strip, int column, int row)
 {
 	strip %= 5;
 	int next_strip = (strip + 1) % 5;
 
-	GLVector3<GLfloat> *vertex =
+	Vector3<GLfloat> *vertex =
 		&m_vertexBuffer[ indexOfVertex( strip, column, row ) ];
 
-	GLVector3<GLfloat> *normal =
+	Vector3<GLfloat> *normal =
 		&m_normalBuffer[ indexOfVertex( strip, column, row ) ];
 
 	const GLfloat phi = ( 1 + sqrt(5) ) / 2;
 
-	const GLVector3<GLfloat> northPole( 0, 1, phi );
-	const GLVector3<GLfloat> northVertex[5] = {
-		GLVector3<GLfloat>( 0, -1, phi ),
-		GLVector3<GLfloat>( phi, 0, 1 ),
-		GLVector3<GLfloat>( 1, phi, 0 ),
-		GLVector3<GLfloat>( -1, phi, 0 ),
-		GLVector3<GLfloat>( -phi, 0, 1 ) };
-	const GLVector3<GLfloat> southVertex[5] = {
-		GLVector3<GLfloat>( -1, -phi, 0 ),
-		GLVector3<GLfloat>( 1, -phi, 0 ),
-		GLVector3<GLfloat>( phi, 0, -1 ),
-		GLVector3<GLfloat>( 0, 1, -phi ),
-		GLVector3<GLfloat>( -phi, 0, -1 )
+	const Vector3<GLfloat> northPole( 0, 1, phi );
+	const Vector3<GLfloat> northVertex[5] = {
+		Vector3<GLfloat>( 0, -1, phi ),
+		Vector3<GLfloat>( phi, 0, 1 ),
+		Vector3<GLfloat>( 1, phi, 0 ),
+		Vector3<GLfloat>( -1, phi, 0 ),
+		Vector3<GLfloat>( -phi, 0, 1 ) };
+	const Vector3<GLfloat> southVertex[5] = {
+		Vector3<GLfloat>( -1, -phi, 0 ),
+		Vector3<GLfloat>( 1, -phi, 0 ),
+		Vector3<GLfloat>( phi, 0, -1 ),
+		Vector3<GLfloat>( 0, 1, -phi ),
+		Vector3<GLfloat>( -phi, 0, -1 )
 		 };
-	const GLVector3<GLfloat> southPole( 0, -1, -phi );
+	const Vector3<GLfloat> southPole( 0, -1, -phi );
 
-	const GLVector3<GLfloat> *v0, *v1, *v2;
+	const Vector3<GLfloat> *v0, *v1, *v2;
 	int  c1, c2;
 
 	if( row >= 2 * m_detail && column == 0 )
@@ -298,7 +215,7 @@ void GLSphere::computeVertex( int strip, int column, int row)
 }
 
 
-void GLSphere::initialize()
+void Sphere::initialize()
 {
 	if( m_detail < 1 ) return;
 	m_vertexCount = ( 3 * m_detail + 1 ) * ( 5 * m_detail + 1 );
@@ -341,20 +258,19 @@ void GLSphere::initialize()
 	m_isInitialized = true;
 }
 
-void GLSphere::setup( int detail, GLfloat radius )
+void Sphere::setup( int detail, GLfloat radius )
 {
 	if( detail == m_detail && radius == m_radius ) return;
 	m_detail = detail;
 	m_radius = radius;
-	allocateId();
 	initialize();
 }
 
-void GLSphere::drawScaled( GLfloat radius )
+void Sphere::drawScaled( GLfloat radius )
 {
 	const GLfloat precision	= 0.001;
 
-	if( GLVector3<GLfloat>::approx_equal( radius, m_radius, precision ) )
+	if( approx_equal( radius, m_radius, precision ) )
 	{
 		draw();
 		return;
@@ -369,24 +285,23 @@ void GLSphere::drawScaled( GLfloat radius )
 	glDisable( GL_NORMALIZE );
 }
 
-GLCylinder::GLCylinder()
-	: GLVertexArray()
+Cylinder::Cylinder()
+	: VertexArray()
 {
 	m_mode = GL_QUAD_STRIP;
 	m_faces = 0;
 	m_radius = -1.0;
 }
 
-void GLCylinder::setup( int faces, GLfloat radius )
+void Cylinder::setup( int faces, GLfloat radius )
 {
 	if( faces == m_faces && radius == m_radius ) return;
 	m_faces = faces;
 	m_radius = radius;
-	allocateId();
 	initialize();
 }
 
-void GLCylinder::initialize()
+void Cylinder::initialize()
 {
 	if( m_faces < 3 ) return;
 
@@ -419,11 +334,4 @@ void GLCylinder::initialize()
 	}
 
 	m_isInitialized = true;
-}
-
-void GLCylinder::draw()
-{
-	if ( ! m_isInitialized ) return;
-	select();
-	glDrawArrays( m_mode, 0, m_vertexCount );
 }

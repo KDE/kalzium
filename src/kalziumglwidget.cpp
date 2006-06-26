@@ -17,6 +17,7 @@
 #include <math.h>
 
 #include <kdebug.h>
+#include <klocale.h>
 
 #include <QMouseEvent>
 #include <QListWidget>
@@ -33,7 +34,6 @@ using namespace OpenBabel;
 KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	: QGLWidget( parent )
 {
-	m_displayList = 0;
 	m_isDragging = false;
 	m_molecule = 0;
 	m_detail = 0;
@@ -47,14 +47,6 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 
 KalziumGLWidget::~KalziumGLWidget()
 {
-}
-
-void KalziumGLWidget::deleteDisplayList()
-{
-#ifdef USE_DISPLAY_LIST
-	if( m_displayList) glDeleteLists( m_displayList, 1 );
-	m_displayList = 0;
-#endif
 }
 
 void KalziumGLWidget::initializeGL()
@@ -105,13 +97,15 @@ void KalziumGLWidget::initializeGL()
 
 void KalziumGLWidget::paintGL()
 {
+	if( ! m_molecule )
+	{
+		return;
+	}
+
 	glMatrixMode( GL_PROJECTION );
 	glLoadIdentity();
 	gluPerspective( 40.0, float( width() ) / height(), m_molRadius, 5.0 * (m_molRadius + atomRadius ()));
 	glMatrixMode( GL_MODELVIEW );
-
-	if( !m_molecule )
-		return;
 
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
@@ -133,30 +127,32 @@ void KalziumGLWidget::paintGL()
 	}
 	else glDisable( GL_FOG );
 
-#ifdef USE_DISPLAY_LIST
-	if ( ! m_displayList )
-	{
-	m_displayList = glGenLists( 1 );
-	glNewList( m_displayList, GL_COMPILE );
-#endif
-
-	// render the atoms
+	// prepare for rendering the spheres
 	if( m_atomStyle == ATOM_SPHERE )
 	{
+		m_sphere.select();
 		glEnable( GL_LIGHTING );
+	}
+	else glDisable( GL_LIGHTING );
 
-		FOR_ATOMS_OF_MOL( a, m_molecule )
+	if( m_atomStyle != ATOM_DISABLED )
+	{
+		// render the atoms
+		if( m_atomStyle == ATOM_SPHERE )
 		{
-			GLFLOAT x = (GLFLOAT) a->GetX();
-			GLFLOAT y = (GLFLOAT) a->GetY();
-			GLFLOAT z = (GLFLOAT) a->GetZ();
-		
-			GLColor c = getAtomColor( &*a );
-		
-			drawSphere(
-				x, y, z,
-				atomRadius(),
-				c);
+			FOR_ATOMS_OF_MOL( a, m_molecule )
+			{
+				GLFLOAT x = (GLFLOAT) a->GetX();
+				GLFLOAT y = (GLFLOAT) a->GetY();
+				GLFLOAT z = (GLFLOAT) a->GetZ();
+			
+				Color c = getAtomColor( &*a );
+			
+				drawSphere(
+					x, y, z,
+					atomRadius(),
+					c);
+			}
 		}
 	}
 
@@ -169,68 +165,65 @@ void KalziumGLWidget::paintGL()
 		
 		case BOND_CYLINDER_GRAY:
 		case BOND_CYLINDER_BICOLOR:
+			m_cylinder.select();
 			glEnable( GL_LIGHTING );
 			break;
 		case BOND_DISABLED: break;
 	}
 
-	// render the bonds
-	if( BOND_DISABLED != m_bondStyle) FOR_BONDS_OF_MOL( bond, m_molecule )
+	if( m_bondStyle != BOND_DISABLED )
 	{
-		GLFLOAT x1 = (GLFLOAT)
-			static_cast<OBAtom*>(bond->GetBgn())->GetX();
-		GLFLOAT y1 = (GLFLOAT)
-			static_cast<OBAtom*>(bond->GetBgn())->GetY();
-		GLFLOAT z1 = (GLFLOAT)
-			static_cast<OBAtom*>(bond->GetBgn())->GetZ();
-		GLFLOAT x2 = (GLFLOAT)
-			static_cast<OBAtom*>(bond->GetEnd())->GetX();
-		GLFLOAT y2 = (GLFLOAT)
-			static_cast<OBAtom*>(bond->GetEnd())->GetY();
-		GLFLOAT z2 = (GLFLOAT)
-			static_cast<OBAtom*>(bond->GetEnd())->GetZ();
-		
-		GLFLOAT x3 = (x1 + x2) / 2;
-		GLFLOAT y3 = (y1 + y2) / 2;
-		GLFLOAT z3 = (z1 + z2) / 2;
-		
-		GLColor c1, c2;
-		c1 = getAtomColor( static_cast<OBAtom*>(bond->GetBgn()) );
-		c2 = getAtomColor( static_cast<OBAtom*>(bond->GetEnd()) );
-		GLColor gray( 0.5, 0.5, 0.5 );
-		
-		switch( m_bondStyle )
+		// render the bonds
+		FOR_BONDS_OF_MOL( bond, m_molecule )
 		{
-			case BOND_LINE:
-				glBegin( GL_LINES );
-				c1.apply();
-				glVertex3f( x1, y1, z1 );
-				glVertex3f( x3, y3, z3 );
-				c2.apply();
-				glVertex3f( x3, y3, z3 );
-				glVertex3f( x2, y2, z2 );
-				glEnd();
-				break;
+			GLFLOAT x1 = (GLFLOAT)
+				static_cast<OBAtom*>(bond->GetBgn())->GetX();
+			GLFLOAT y1 = (GLFLOAT)
+				static_cast<OBAtom*>(bond->GetBgn())->GetY();
+			GLFLOAT z1 = (GLFLOAT)
+				static_cast<OBAtom*>(bond->GetBgn())->GetZ();
+			GLFLOAT x2 = (GLFLOAT)
+				static_cast<OBAtom*>(bond->GetEnd())->GetX();
+			GLFLOAT y2 = (GLFLOAT)
+				static_cast<OBAtom*>(bond->GetEnd())->GetY();
+			GLFLOAT z2 = (GLFLOAT)
+				static_cast<OBAtom*>(bond->GetEnd())->GetZ();
 			
-			case BOND_CYLINDER_GRAY:
-				drawBond( x1, y1, z1, x2, y2, z2, gray );
-				break;
-
-			case BOND_CYLINDER_BICOLOR:
-				drawBond( x1, y1, z1, x3, y3, z3, c1 );
-				drawBond( x2, y2, z2, x3, y3, z3, c2 );
-				break;
-
-			case BOND_DISABLED: break;
+			GLFLOAT x3 = (x1 + x2) / 2;
+			GLFLOAT y3 = (y1 + y2) / 2;
+			GLFLOAT z3 = (z1 + z2) / 2;
+			
+			Color c1, c2;
+			c1 = getAtomColor( static_cast<OBAtom*>(bond->GetBgn()) );
+			c2 = getAtomColor( static_cast<OBAtom*>(bond->GetEnd()) );
+			Color gray( 0.5, 0.5, 0.5 );
+			
+			switch( m_bondStyle )
+			{
+				case BOND_LINE:
+					glBegin( GL_LINES );
+					c1.apply();
+					glVertex3f( x1, y1, z1 );
+					glVertex3f( x3, y3, z3 );
+					c2.apply();
+					glVertex3f( x3, y3, z3 );
+					glVertex3f( x2, y2, z2 );
+					glEnd();
+					break;
+				
+				case BOND_CYLINDER_GRAY:
+					drawBond( x1, y1, z1, x2, y2, z2, gray );
+					break;
+	
+				case BOND_CYLINDER_BICOLOR:
+					drawBond( x1, y1, z1, x3, y3, z3, c1 );
+					drawBond( x2, y2, z2, x3, y3, z3, c2 );
+					break;
+	
+				case BOND_DISABLED: break;
+			}
 		}
 	}
-
-#ifdef USE_DISPLAY_LIST
-	glEndList();
-	}
-
-	glCallList( m_displayList );
-#endif
 
 	// now, paint a semitransparent sphere around the selected atom
 
@@ -240,7 +233,7 @@ void KalziumGLWidget::paintGL()
 		GLFLOAT y = (GLFLOAT) m_selectedAtom->GetY();
 		GLFLOAT z = (GLFLOAT) m_selectedAtom->GetZ();
 
-		GLColor c( 0.4, 0.4, 1.0, 0.7 );
+		Color c( 0.4, 0.4, 1.0, 0.7 );
 
 		GLFLOAT radius = m_molMinBondLength * 0.35;
 		GLFLOAT min_radius = (GLFLOAT) atomRadius () * 1.25;
@@ -287,7 +280,9 @@ void KalziumGLWidget::paintGL()
 		old_time = new_time;
 	}
 
-	renderText ( 20, 20, s );
+	glDisable( GL_LIGHTING );
+	glColor3f( 1.0, 1.0, 0.0 );
+	renderText ( 20, height() - 20, s );
 
 	update();
 #endif
@@ -352,12 +347,10 @@ void KalziumGLWidget::setupObjects()
 
 	m_sphere.setup( sphere_detail, atomRadius() );
 	m_cylinder.setup( cylinder_faces, bondRadius() );
-
-	deleteDisplayList();
 }
 
 void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z,
-	GLfloat radius, GLColor &color )
+	GLfloat radius, Color &color )
 {
 	color.applyAsMaterials();
 	
@@ -368,16 +361,16 @@ void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z,
 }
 
 void KalziumGLWidget::drawBond( FLOAT x1, FLOAT y1, FLOAT z1,
-	FLOAT x2, FLOAT y2, FLOAT z2, GLColor &color )
+	FLOAT x2, FLOAT y2, FLOAT z2, Color &color )
 {
 	color.applyAsMaterials();
 
 	// the "axis vector" of the cylinder
-	GLVector3<FLOAT> axis( x2 - x1, y2 - y1, z2 - z1 );
+	Vector3<FLOAT> axis( x2 - x1, y2 - y1, z2 - z1 );
 	
 	// find two vectors v, w such that (axis,v,w) is an orthogonal basis.
-	GLVector3<FLOAT> v, w;
-//	axis.construct_ortho_basis_given_first_vector( v, w );
+	Vector3<FLOAT> v, w;
+	construct_ortho_basis_given_first_vector( axis, v, w );
 
 	// normalize v and w. We DON'T want to normalize axis
 	v.normalize();
@@ -495,7 +488,7 @@ void KalziumGLWidget::prepareMoleculeData()
 		FLOAT x = (FLOAT) a->GetX();
 		FLOAT y = (FLOAT) a->GetY();
 		FLOAT z = (FLOAT) a->GetZ();
-		FLOAT rad = GLSQRT(x*x + y*y + z*z);
+		FLOAT rad = SQRT(x*x + y*y + z*z);
 		if( rad > m_molRadius )
 			m_molRadius = rad;
 	}
@@ -511,7 +504,7 @@ void KalziumGLWidget::prepareMoleculeData()
 		FLOAT x2 = (FLOAT) static_cast<OBAtom*>(b->GetEnd())->GetX();
 		FLOAT y2 = (FLOAT) static_cast<OBAtom*>(b->GetEnd())->GetY();
 		FLOAT z2 = (FLOAT) static_cast<OBAtom*>(b->GetEnd())->GetZ();
-		FLOAT len = GLSQRT ( (x1 - x2) * (x1 - x2)
+		FLOAT len = SQRT ( (x1 - x2) * (x1 - x2)
 		                   + (y1 - y2) * (y1 - y2)
 		                   + (z1 - z2) * (z1 - z2) );
 		if( len > m_molMaxBondLength )
@@ -530,9 +523,9 @@ void KalziumGLWidget::slotSetDetail( int detail )
 	updateGL();
 }
 
-GLColor& KalziumGLWidget::getAtomColor( OpenBabel::OBAtom* atom )
+Color& KalziumGLWidget::getAtomColor( OpenBabel::OBAtom* atom )
 {
-	static GLColor c;
+	static Color c;
 
 	if ( atom->IsHydrogen() )
 	{//white
