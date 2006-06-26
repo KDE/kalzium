@@ -20,6 +20,10 @@
 #include <QMouseEvent>
 #include <QListWidget>
 
+#ifdef USE_FPS_COUNTER
+#include <QTime>
+#endif
+
 #include <openbabel/mol.h>
 #include <openbabel/obiter.h>
 
@@ -28,6 +32,7 @@ using namespace OpenBabel;
 KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	: QGLWidget( parent )
 {
+	m_displayList = 0;
 	m_isDragging = false;
 	m_molecule = 0;
 	m_detail = 0;
@@ -41,6 +46,14 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 
 KalziumGLWidget::~KalziumGLWidget()
 {
+}
+
+void KalziumGLWidget::deleteDisplayList()
+{
+#ifdef USE_DISPLAY_LIST
+	if( m_displayList) glDeleteLists( m_displayList, 1 );
+	m_displayList = 0;
+#endif
 }
 
 void KalziumGLWidget::initializeGL()
@@ -118,6 +131,13 @@ void KalziumGLWidget::paintGL()
 		glFogf( GL_FOG_END, 5.0 * ( m_molRadius + atomRadius() ) );
 	}
 	else glDisable( GL_FOG );
+
+#ifdef USE_DISPLAY_LIST
+	if ( ! m_displayList )
+	{
+	m_displayList = glGenLists( 1 );
+	glNewList( m_displayList, GL_COMPILE );
+#endif
 
 	// render the atoms
 	if( m_atomStyle == ATOM_SPHERE )
@@ -204,6 +224,13 @@ void KalziumGLWidget::paintGL()
 		}
 	}
 
+#ifdef USE_DISPLAY_LIST
+	glEndList();
+	}
+
+	glCallList( m_displayList );
+#endif
+
 	// now, paint a semitransparent sphere around the selected atom
 
 	if( m_selectedAtom )
@@ -228,8 +255,41 @@ void KalziumGLWidget::paintGL()
 			c);
 
 		glDisable( GL_BLEND );
-
 	}
+#ifdef USE_FPS_COUNTER
+	QTime t;
+
+	static bool firstTime = true;
+	static int old_time, new_time;
+	static int frames;
+	static QString s;
+
+	if( firstTime )
+	{
+		t.start();
+		firstTime = false;
+		old_time = t.elapsed();
+		frames = 0;
+	}
+
+	new_time = t.elapsed();
+	
+	frames++;
+
+	if( new_time - old_time > 200 )
+	{
+		s = QString::number( 1000 * frames /
+			double( new_time - old_time ),
+			'f', 1 );
+		s += " frames per second";
+		frames = 0;
+		old_time = new_time;
+	}
+
+	renderText ( 20, 20, s );
+
+	update();
+#endif
 }
 
 void KalziumGLWidget::resizeGL( int width, int height )
@@ -291,6 +351,8 @@ void KalziumGLWidget::setupObjects()
 
 	m_sphere.setup( sphere_detail, atomRadius() );
 	m_cylinder.setup( cylinder_faces, bondRadius() );
+
+	deleteDisplayList();
 }
 
 void KalziumGLWidget::drawSphere( GLdouble x, GLdouble y, GLdouble z,
@@ -417,7 +479,11 @@ void KalziumGLWidget::ChooseStylePreset( StylePreset stylePreset )
 void KalziumGLWidget::prepareMoleculeData()
 {
 	// translate the molecule so that center has coords 0,0,0
-	m_molecule->Center();
+	//m_molecule->Center();
+	std::map<std::string, std::string> m;
+	m["c"] = "c";
+	m_molecule->DoTransformations(&m);
+
 
 	// calculate the radius of the molecule
 	// that is, the maximal distance between an atom of the molecule

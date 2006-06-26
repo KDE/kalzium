@@ -18,6 +18,8 @@
 #include <openbabel/mol.h>
 
 #define USE_DOUBLE_PRECISION
+#define USE_DISPLAY_LIST
+#define USE_FPS_COUNTER
 
 #ifdef USE_DOUBLE_PRECISION
 #define FLOAT		double
@@ -216,6 +218,10 @@ class KalziumGLWidget : public QGLWidget
 	Q_OBJECT
 
 	protected:
+
+		GLuint m_displayList;
+		void deleteDisplayList();
+
 		/**
 		 * The geometric model of the sphere (used for atoms).
 		 */

@@ -74,7 +74,7 @@ void LatticeDialog::slotUpdateView()
 	ui.volumeLabel->setText( QString::number( volume ) );
 	ui.glWidget->slotSetMolecule( m_molecule );
 //	ui.glWidget->ChooseStylePreset( KalziumGLWidget::PRESET_LINES  );
-	ui.glWidget->update();
+//	ui.glWidget->update();
 }
 
 void LatticeDialog::slotSetLattice( int lattice )
