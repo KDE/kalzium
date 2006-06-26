@@ -7,6 +7,7 @@ if(OPENBABEL2_FOUND)
 endif(OPENBABEL2_FOUND)
 
 set(kalziumui_PART_SRCS 
+   ${CMAKE_SOURCE_DIR}/kalzium/src/kalziumglhelperclasses.cpp
    ${CMAKE_SOURCE_DIR}/kalzium/src/kalziumglwidget.cpp
    )
 

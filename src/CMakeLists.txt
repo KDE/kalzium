@@ -45,6 +45,7 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND)
 		${kalzium_SRCS}
    		moleculeview.cpp
 		latticedialog.cpp
+		kalziumglhelperclasses.cpp
 		kalziumglwidget.cpp
 		openbabel2wrapper.cpp
 	)
