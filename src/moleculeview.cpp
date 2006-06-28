@@ -46,13 +46,27 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
 	m_path = QString( "" );
 
- 	connect( ui.loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
-	connect( ui.qualityCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotSetDetail( int ) ) );
-	connect( ui.styleCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotChooseStylePreset( int ) ) );
+	connect( ui.qualityCombo, SIGNAL(activated( int )), 
+			ui.glWidget , SLOT( slotSetDetail( int ) ) );
+	connect( ui.styleCombo, SIGNAL(activated( int )), 
+			ui.glWidget , SLOT( slotChooseStylePreset( int ) ) );
 	connect( this, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
 				ui.glWidget, SLOT( slotAtomsSelected( QList<OpenBabel::OBAtom*> ) ) );
+	
 	connect( ui.selectButton, SIGNAL( clicked() ), 
 			this, SLOT(slotAtomsSelected( ) ) );
+	connect( ui.loadButton, SIGNAL( clicked() ), 
+			this, SLOT(slotLoadMolecule() ) );
+	connect( ui.xButton, SIGNAL( clicked() ), 
+			this, SLOT(slotUpdateGUI() ) );
+	connect( ui.yButton, SIGNAL( clicked() ), 
+			this, SLOT(slotUpdateGUI() ) );
+	connect( ui.zButton, SIGNAL( clicked() ), 
+			this, SLOT(slotUpdateGUI() ) );
+	connect( ui.zoomButton, SIGNAL( clicked() ), 
+			this, SLOT(slotUpdateGUI() ) );
+	connect( ui.measureButton, SIGNAL( clicked() ), 
+			this, SLOT(slotUpdateGUI() ) );
 
 	slotLoadMolecule();
 }
@@ -129,6 +143,31 @@ void MoleculeDialog::slotAtomsSelected()
 	}
 
 	emit atomsSelected( atoms );
+}
+
+void MoleculeDialog::slotUpdateGUI()
+{
+	ui.xButton->setEnabled( true );
+	ui.yButton->setEnabled( true );
+	ui.zButton->setEnabled( true );
+	ui.measureButton->setEnabled( true );
+	ui.zoomButton->setEnabled( true );
+	
+	if ( ui.measureButton->isChecked() )
+	{
+		ui.xButton->setEnabled( false );
+		ui.yButton->setEnabled( false );
+		ui.zButton->setEnabled( false );
+		ui.zoomButton->setEnabled( false );
+	}
+	else if ( ui.zoomButton->isChecked() )
+	{
+		ui.xButton->setEnabled( false );
+		ui.yButton->setEnabled( false );
+		ui.zButton->setEnabled( false );
+		ui.measureButton->setEnabled( false );
+	}
+
 }
 
 #include "moleculeview.moc"

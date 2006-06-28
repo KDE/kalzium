@@ -36,26 +36,6 @@
         <number>6</number>
        </property>
        <item>
-        <widget class="QPushButton" name="loadButton" >
-         <property name="text" >
-          <string>&amp;Load Molecule</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>429</width>
-           <height>21</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
         <widget class="QTreeWidget" name="treeWidget" >
          <column>
           <property name="text" >
@@ -75,11 +55,41 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="selectButton" >
-         <property name="text" >
-          <string>Higlight selected atoms</string>
+        <layout class="QHBoxLayout" >
+         <property name="margin" >
+          <number>0</number>
          </property>
-        </widget>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="loadButton" >
+           <property name="text" >
+            <string>&amp;Load Molecule</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="selectButton" >
+           <property name="text" >
+            <string>Highlight selected atoms</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QGroupBox" name="groupBox" >
@@ -170,8 +180,8 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="layoutWidget" >
-      <layout class="QVBoxLayout" >
+     <widget class="QWidget" name="" >
+      <layout class="QHBoxLayout" >
        <property name="margin" >
         <number>0</number>
        </property>
@@ -179,17 +189,7 @@
         <number>6</number>
        </property>
        <item>
-        <widget class="KalziumGLWidget" name="glWidget" >
-         <property name="minimumSize" >
-          <size>
-           <width>300</width>
-           <height>300</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" >
+        <layout class="QVBoxLayout" >
          <property name="margin" >
           <number>0</number>
          </property>
@@ -197,72 +197,201 @@
           <number>6</number>
          </property>
          <item>
-          <widget class="QLabel" name="label_2" >
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="zoomButton" >
            <property name="text" >
-            <string>Style:</string>
+            <string>Zoom</string>
            </property>
-           <property name="buddy" >
-            <cstring>styleCombo</cstring>
+           <property name="checkable" >
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive" >
+            <bool>false</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="styleCombo" >
-           <item>
-            <property name="text" >
-             <string>Lines</string>
+          <widget class="QGroupBox" name="groupBox_2" >
+           <property name="title" >
+            <string>Movement</string>
+           </property>
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>9</number>
             </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Sticks</string>
+            <property name="spacing" >
+             <number>6</number>
             </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Spheres</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Spheres, coloured bonds</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Spheres, big</string>
-            </property>
-           </item>
+            <item row="2" column="0" >
+             <widget class="QPushButton" name="zButton" >
+              <property name="text" >
+               <string>Z</string>
+              </property>
+              <property name="icon" >
+               <iconset>../data/icons/cr16-action-plot.png</iconset>
+              </property>
+              <property name="checkable" >
+               <bool>true</bool>
+              </property>
+              <property name="checked" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QPushButton" name="xButton" >
+              <property name="text" >
+               <string>X</string>
+              </property>
+              <property name="icon" >
+               <iconset>../data/icons/cr16-action-plot.png</iconset>
+              </property>
+              <property name="checkable" >
+               <bool>true</bool>
+              </property>
+              <property name="checked" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QPushButton" name="yButton" >
+              <property name="text" >
+               <string>Y</string>
+              </property>
+              <property name="icon" >
+               <iconset>../data/icons/cr16-action-plot.png</iconset>
+              </property>
+              <property name="checkable" >
+               <bool>true</bool>
+              </property>
+              <property name="checked" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label" >
+          <widget class="QPushButton" name="measureButton" >
            <property name="text" >
-            <string>Quality:</string>
+            <string>Measure</string>
            </property>
-           <property name="buddy" >
-            <cstring>qualityCombo</cstring>
+           <property name="checkable" >
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" >
+         <property name="margin" >
+          <number>0</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="KalziumGLWidget" name="glWidget" >
+           <property name="minimumSize" >
+            <size>
+             <width>300</width>
+             <height>300</height>
+            </size>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="qualityCombo" >
+          <layout class="QHBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
            <item>
-            <property name="text" >
-             <string>Low</string>
-            </property>
+            <widget class="QLabel" name="label_2" >
+             <property name="text" >
+              <string>Style:</string>
+             </property>
+             <property name="buddy" >
+              <cstring>styleCombo</cstring>
+             </property>
+            </widget>
            </item>
            <item>
-            <property name="text" >
-             <string>Medium</string>
-            </property>
+            <widget class="QComboBox" name="styleCombo" >
+             <item>
+              <property name="text" >
+               <string>Lines</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Sticks</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Spheres</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Spheres, coloured bonds</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Spheres, big</string>
+              </property>
+             </item>
+            </widget>
            </item>
            <item>
-            <property name="text" >
-             <string>High</string>
-            </property>
+            <widget class="QLabel" name="label" >
+             <property name="text" >
+              <string>Quality:</string>
+             </property>
+             <property name="buddy" >
+              <cstring>qualityCombo</cstring>
+             </property>
+            </widget>
            </item>
-          </widget>
+           <item>
+            <widget class="QComboBox" name="qualityCombo" >
+             <item>
+              <property name="text" >
+               <string>Low</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Medium</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>High</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </item>

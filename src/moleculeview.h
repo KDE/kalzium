@@ -60,6 +60,8 @@ class MoleculeDialog : public KDialog
 		/**
 		 */
 		void slotAtomsSelected();
+
+		void slotUpdateGUI();
 };
 
 #endif // MOLECULEVIEW_H
