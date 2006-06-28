@@ -42,7 +42,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
 	ui.setupUi( dummy );
 
-	ui.treeWidget->setSelectionMode (  QAbstractItemView::MultiSelection );
+	ui.treeWidget->setSelectionMode( QAbstractItemView::MultiSelection );
 
 	m_path = QString( "" );
 
@@ -119,11 +119,14 @@ void MoleculeDialog::updateStatistics()
 void MoleculeDialog::slotAtomsSelected()
 {
 	QList<OpenBabel::OBAtom*> atoms;
-//X 	OpenBabel::OBAtom* atom = NULL;
 	OpenBabel::OBMol* molecule = ui.glWidget->molecule();
 
-	atoms.append( molecule->GetAtom( 2 ) );
-	atoms.append( molecule->GetAtom( 6 ) );
+	QList<QTreeWidgetItem *> itemList = ui.treeWidget->selectedItems();
+	foreach( QTreeWidgetItem* item , itemList )
+	{
+		int id = item->text(0).toInt();
+		atoms.append( molecule->GetAtom( id ) );
+	}
 
 	emit atomsSelected( atoms );
 }
