@@ -183,7 +183,32 @@ class KalziumGLWidget : public QGLWidget
 		 */
 		void slotAtomsSelected( QList<OpenBabel::OBAtom*> atoms );
 
+		/**
+		 * Activates the zoommode if @p zoom is true
+		 */
+		void slotZoom( bool zoom ){
+			m_inZoom = zoom;
+			if ( m_inZoom )
+				m_inMeasure = false;
+		}
+		
+		/**
+		 * Activates the measuremode if @p measure is true
+		 */
+		void slotMeasure( bool measure ){
+			m_inMeasure = measure;
+
+			if ( m_inMeasure )
+				m_inZoom = false;
+		}
+
 	protected:
+		///if true the widget is in zoommode
+		bool m_inZoom;
+		
+		///if true the widget is in zoommode
+		bool m_inMeasure;
+		
 		/**
 		 * This method initializes OpenGL. Automatically called by Qt
 		 */

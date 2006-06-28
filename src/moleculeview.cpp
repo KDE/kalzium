@@ -159,6 +159,8 @@ void MoleculeDialog::slotUpdateGUI()
 		ui.yButton->setEnabled( false );
 		ui.zButton->setEnabled( false );
 		ui.zoomButton->setEnabled( false );
+
+		ui.glWidget->slotMeasure( true );
 	}
 	else if ( ui.zoomButton->isChecked() )
 	{
@@ -166,8 +168,9 @@ void MoleculeDialog::slotUpdateGUI()
 		ui.yButton->setEnabled( false );
 		ui.zButton->setEnabled( false );
 		ui.measureButton->setEnabled( false );
+		
+		ui.glWidget->slotZoom( true );
 	}
-
 }
 
 #include "moleculeview.moc"
