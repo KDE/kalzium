@@ -40,6 +40,8 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	m_detail = 0;
 	m_useFog = false;
 	m_textPainter = 0;
+	m_inZoom = false;
+	m_inMeasure = false;
 
 	ChooseStylePreset( PRESET_SPHERES_AND_BICOLOR_BONDS );
 	
@@ -94,6 +96,9 @@ void KalziumGLWidget::initializeGL()
 	glLightModeli( GL_LIGHT_MODEL_COLOR_CONTROL_EXT,
 		GL_SEPARATE_SPECULAR_COLOR_EXT );
 
+	glEnableClientState( GL_VERTEX_ARRAY );
+	glEnableClientState( GL_NORMAL_ARRAY );
+
 	setupObjects();
 
 	m_textPainter = new TextPainter;
@@ -134,7 +139,6 @@ void KalziumGLWidget::paintGL()
 	// prepare for rendering the spheres
 	if( m_atomStyle == ATOM_SPHERE )
 	{
-		m_sphere.select();
 		glEnable( GL_LIGHTING );
 	}
 	else glDisable( GL_LIGHTING );
@@ -169,7 +173,6 @@ void KalziumGLWidget::paintGL()
 		
 		case BOND_CYLINDER_GRAY:
 		case BOND_CYLINDER_BICOLOR:
-			m_cylinder.select();
 			glEnable( GL_LIGHTING );
 			break;
 		case BOND_DISABLED: break;
@@ -232,8 +235,6 @@ void KalziumGLWidget::paintGL()
 	// now, paint a semitransparent sphere around the selected atoms
 	if( m_selectedAtoms.count() > 0 )//there are items selected
 	{
-		m_sphere.select();
-
 		Color c( 0.4, 0.4, 1.0, 0.7 );
 
 		GLFLOAT radius = m_molMinBondLength * 0.35;
@@ -283,13 +284,13 @@ void KalziumGLWidget::paintGL()
 		s = QString::number( 1000 * frames /
 			double( new_time - old_time ),
 			'f', 1 );
-		s += " frames per second";
+		s += " frames per second" + QString( QChar( 962 ) );
 		frames = 0;
 		old_time = new_time;
 	}
 
 	glColor3f( 1.0, 1.0, 0.0 );
-	//m_textPainter->print( this, 20, 20, s );
+	m_textPainter->print( this, 20, 20, s );
 
 	update();
 #endif

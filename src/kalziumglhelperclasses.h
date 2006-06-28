@@ -224,9 +224,14 @@ class VertexArray
 	public:
 		VertexArray();
 		virtual ~VertexArray();
-		virtual void select();
+		virtual inline void select()
+		{
+			glVertexPointer( 3, GL_FLOAT, 0, m_vertexBuffer );
+			glNormalPointer( GL_FLOAT, 0, m_normalBuffer );
+		}
 		virtual inline void draw()
 		{
+			select();
 			glDrawElements( m_mode, m_indexCount,
 				GL_UNSIGNED_SHORT, m_indexBuffer );
 		}
@@ -276,6 +281,7 @@ class Cylinder : public VertexArray
 		virtual void setup( int detail, GLfloat radius );
 		virtual inline void draw()
 		{
+			select();
 			glDrawArrays( m_mode, 0, m_vertexCount );
 		}
 };
@@ -289,99 +295,9 @@ class TextPainter
 		QFontMetrics *m_fontMetrics;
 
 	public:
-		TextPainter()
-		{
-			m_width = 0;
-			m_height = 0;
-			m_image = 0;
-			m_painter = 0;
-			m_fontMetrics = 0;
-		}
-		~TextPainter()
-		{
-			if( m_image ) delete m_image;
-			if( m_painter ) delete m_painter;
-			if( m_fontMetrics ) delete m_fontMetrics;
-		}
-		bool print( QGLWidget *glwidget, int x, int y, const QString &string)
-		{
-			glDisable( GL_LIGHTING );
-			glEnable(GL_TEXTURE_2D);
-			
-			/*if( ! m_font )
-			{
-				m_font = new QFont();
-				if( ! m_font ) return false;
-			}*/
-
-			const QFont &m_font = (glwidget->font());
-
-			if( ! m_painter )
-			{
-				m_painter = new QPainter();
-				if( ! m_painter ) return false;
-			}
-
-			m_painter->setFont(m_font);
-
-			if( ! m_fontMetrics )
-			{
-				
-				m_fontMetrics = new QFontMetrics(m_font);
-				if( ! m_fontMetrics ) return false;
-			}
-		
-			int new_width = m_fontMetrics->width( string );
-			int new_height = m_fontMetrics->height();
-			
-			if(new_width == 0 || new_height == 0)
-			{
-				return false;
-			}
-
-			if( new_width > m_width || new_height > m_height )
-			{
-				if( m_image ) delete m_image;
-				m_width = ( new_width > m_width ) ? new_width : m_width;
-				m_height = ( new_height > m_height ) ? new_height : m_height;
-				m_image = new QImage( m_width, m_height, QImage::Format_ARGB32 );
-			}
-		
-			m_painter->begin( m_image );
-			m_painter->setRenderHint(QPainter::TextAntialiasing);
-			//painter.setBackground(Qt::black);
-			m_painter->setBrush(Qt::white);
-			m_painter->eraseRect( 0, 0, m_width, m_height );
-		
-			//painter.drawText ( 0, 0, s );
-			m_painter->drawText ( 0, m_height, string );
-			m_painter->end();
-		
-			glwidget->bindTexture( *m_image );
-			glMatrixMode( GL_PROJECTION );
-			glPushMatrix();
-			glLoadIdentity();
-			glOrtho( 0, glwidget->width(), 0, glwidget->height(), -1, 1 );
-			glMatrixMode( GL_MODELVIEW );
-			glPushMatrix();
-			glLoadIdentity();
-			glBegin(GL_QUADS);
-			glTexCoord2f( 0, 0);
-			glVertex2f( x , y );
-			glTexCoord2f( 1, 0);
-			glVertex2f( x+m_width , y );
-			glTexCoord2f( 1, 1);
-			glVertex2f( x+m_width , y+m_height );
-			glTexCoord2f( 0, 1);
-			glVertex2f( x , y+m_height );
-			glEnd();
-			glDisable( GL_TEXTURE_2D);
-			glPopMatrix();
-			glMatrixMode( GL_PROJECTION );
-			glPopMatrix();
-			glMatrixMode( GL_MODELVIEW );
-			return true;
-		}
+		TextPainter::TextPainter();
+		TextPainter::~TextPainter();
+		bool TextPainter::print( QGLWidget *glwidget, int x, int y, const QString &string);
 };
 
 } // namespace KalziumGL

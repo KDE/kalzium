@@ -72,14 +72,6 @@ VertexArray::~VertexArray()
 	if( m_normalBuffer ) delete [] m_normalBuffer;
 }
 
-void VertexArray::select()
-{
-	glEnableClientState( GL_VERTEX_ARRAY );
-	glEnableClientState( GL_NORMAL_ARRAY );
-	glVertexPointer( 3, GL_FLOAT, 0, m_vertexBuffer );
-	glNormalPointer( GL_FLOAT, 0, m_normalBuffer );
-}
-
 bool VertexArray::allocateBuffers()
 {
 	if( m_vertexCount > 65536 ) return false;
@@ -334,4 +326,95 @@ void Cylinder::initialize()
 	}
 
 	m_isInitialized = true;
+}
+
+TextPainter::TextPainter()
+{
+	m_width = 0;
+	m_height = 0;
+	m_image = 0;
+	m_painter = 0;
+	m_fontMetrics = 0;
+}
+
+TextPainter::~TextPainter()
+{
+	if( m_image ) delete m_image;
+	if( m_painter ) delete m_painter;
+	if( m_fontMetrics ) delete m_fontMetrics;
+}
+
+bool TextPainter::print( QGLWidget *glwidget, int x, int y, const QString &string)
+{
+	glDisable( GL_LIGHTING );
+	glEnable(GL_TEXTURE_2D);
+	glEnable( GL_BLEND );
+
+	if( ! m_painter )
+	{
+		m_painter = new QPainter();
+		if( ! m_painter ) return false;
+	}
+
+	if( ! m_fontMetrics )
+	{
+		
+		m_fontMetrics = new QFontMetrics(glwidget->font());
+		if( ! m_fontMetrics ) return false;
+	}
+
+	int new_width = m_fontMetrics->width( string );
+	int new_height = m_fontMetrics->height();
+	
+	if(new_width == 0 || new_height == 0)
+	{
+		return false;
+	}
+
+	if( new_width > m_width || new_height > m_height )
+	{
+		if( m_image ) delete m_image;
+		m_width = ( new_width > m_width ) ? new_width : m_width;
+		m_height = ( new_height > m_height ) ? new_height : m_height;
+		m_image = new QImage( m_width, m_height, QImage::Format_ARGB32 );
+	}
+
+	m_painter->begin( m_image );
+	m_painter->setFont(glwidget->font());
+	m_painter->setRenderHint(QPainter::TextAntialiasing);
+	//painter.setBackground(Qt::black);
+	m_painter->setBrush(Qt::white);
+	m_painter->eraseRect( 0, 0, m_width, m_height );
+
+	//painter.drawText ( 0, 0, s );
+	m_painter->drawText ( 0, m_height, string );
+	m_painter->end();
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glwidget->bindTexture( *m_image );
+	glMatrixMode( GL_PROJECTION );
+	glPushMatrix();
+	glLoadIdentity();
+	glOrtho( 0, glwidget->width(), 0, glwidget->height(), -1, 1 );
+	glMatrixMode( GL_MODELVIEW );
+	glPushMatrix();
+	glLoadIdentity();
+	glBegin(GL_QUADS);
+	glTexCoord2f( 0, 0);
+	glVertex2f( x , y );
+	glTexCoord2f( 1, 0);
+	glVertex2f( x+m_width , y );
+	glTexCoord2f( 1, 1);
+	glVertex2f( x+m_width , y+m_height );
+	glTexCoord2f( 0, 1);
+	glVertex2f( x , y+m_height );
+	glEnd();
+	glDisable( GL_TEXTURE_2D);
+	glDisable( GL_BLEND );
+	glPopMatrix();
+	glMatrixMode( GL_PROJECTION );
+	glPopMatrix();
+	glMatrixMode( GL_MODELVIEW );
+	return true;
 }
