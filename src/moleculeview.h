@@ -19,6 +19,7 @@
 #include "ui_moleculeviewerwidget.h"
 
 class QTreeWidgetItem;
+class QItemSelection;
 
 #include <openbabel/mol.h>
 #include <openbabel/obiter.h>
@@ -46,9 +47,9 @@ class MoleculeDialog : public KDialog
 	
 	signals:
 		/**
-		 * the atom @p a has been selected by the user
+		 * the atoms in  @p atoms have been selected by the user
 		 */
-		void atomSelected( OpenBabel::OBAtom* a );
+		void atomsSelected( QList<OpenBabel::OBAtom*> atoms );
 
 	private slots:
 		/**
@@ -57,10 +58,8 @@ class MoleculeDialog : public KDialog
 		void slotLoadMolecule();
 
 		/**
-		 * The user selected a atom represented by @p item in the
-		 * QTreeWidget and with the internal ID @p idx
 		 */
-		void slotAtomSelected( QTreeWidgetItem * item, int idx );
+		void slotAtomsSelected();
 };
 
 #endif // MOLECULEVIEW_H

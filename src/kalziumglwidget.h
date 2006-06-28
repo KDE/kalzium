@@ -102,9 +102,9 @@ class KalziumGLWidget : public QGLWidget
 		bool m_useFog;
 
 		/**
-		 * The selected atom
+		 * The selected atoms
 		 */
-		OpenBabel::OBAtom* m_selectedAtom;
+		QList<OpenBabel::OBAtom*> m_selectedAtoms;
 
 		/**
 		 * The style in which the atoms are rendered.
@@ -172,19 +172,13 @@ class KalziumGLWidget : public QGLWidget
 		 * Chooses the style of rendering among some presets
 		 * @param stylePreset the wanted style preset
 		 */
-		/**
-		 * Chooses the style of rendering among some presets
-		 * @param stylePreset the wanted style preset
-		 */
 		void slotChooseStylePreset( int stylePreset ){
 			ChooseStylePreset( (StylePreset) stylePreset );
 		}
 
 		/**
-		 * The atom @p atom was selected by the user
+		 * The atoms @p atoms was selected by the user
 		 */
-		void slotAtomSelected( OpenBabel::OBAtom* atom );
-		
 		void slotAtomsSelected( QList<OpenBabel::OBAtom*> atoms );
 
 	protected:

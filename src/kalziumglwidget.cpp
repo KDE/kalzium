@@ -38,7 +38,6 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	m_molecule = 0;
 	m_detail = 0;
 	m_useFog = false;
-	m_selectedAtom = 0;
 
 	ChooseStylePreset( PRESET_SPHERES_AND_BICOLOR_BONDS );
 	
@@ -225,30 +224,32 @@ void KalziumGLWidget::paintGL()
 		}
 	}
 
-	// now, paint a semitransparent sphere around the selected atom
-
-	if( m_selectedAtom )
+	// now, paint a semitransparent sphere around the selected atoms
+	if( m_selectedAtoms.count() > 0 )//there are items selected
 	{
-		GLFLOAT x = (GLFLOAT) m_selectedAtom->GetX();
-		GLFLOAT y = (GLFLOAT) m_selectedAtom->GetY();
-		GLFLOAT z = (GLFLOAT) m_selectedAtom->GetZ();
-
 		Color c( 0.4, 0.4, 1.0, 0.7 );
 
 		GLFLOAT radius = m_molMinBondLength * 0.35;
-		GLFLOAT min_radius = (GLFLOAT) atomRadius () * 1.25;
+		const GLFLOAT min_radius = (GLFLOAT) atomRadius () * 1.25;
 		if( radius < min_radius ) radius = min_radius;
 
-		glEnable( GL_BLEND );
+		foreach(OpenBabel::OBAtom* atom, m_selectedAtoms)
+		{//iterate through all OBAtoms and highlight one after eachother
+			GLFLOAT x = (GLFLOAT) atom->GetX();
+			GLFLOAT y = (GLFLOAT) atom->GetY();
+			GLFLOAT z = (GLFLOAT) atom->GetZ();
 
-		glEnable( GL_LIGHTING );
+			glEnable( GL_BLEND );
 
-		drawSphere(
-			x, y, z,
-			radius,
-			c);
+			glEnable( GL_LIGHTING );
 
-		glDisable( GL_BLEND );
+			drawSphere(
+					x, y, z,
+					radius,
+					c);
+
+			glDisable( GL_BLEND );
+		}
 	}
 #ifdef USE_FPS_COUNTER
 	QTime t;
@@ -425,7 +426,6 @@ void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 {
 	if ( !molecule ) return;
 	m_molecule = molecule;
-	m_selectedAtom = 0;
 	prepareMoleculeData();
 	setupObjects();
 	updateGL();
@@ -569,13 +569,8 @@ Color& KalziumGLWidget::getAtomColor( OpenBabel::OBAtom* atom )
 
 void KalziumGLWidget::slotAtomsSelected( QList<OpenBabel::OBAtom*> atoms )
 {
-
-}
-
-void KalziumGLWidget::slotAtomSelected( OpenBabel::OBAtom* atom )
-{
-	if ( !atom ) return;
-	m_selectedAtom = atom;
+	kDebug() << "KalziumGLWidget::slotAtomsSelected() with " << atoms.count() << " atoms" << endl;
+	m_selectedAtoms = atoms;
 	updateGL();
 }
 

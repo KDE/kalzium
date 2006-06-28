@@ -49,8 +49,8 @@
          </property>
          <property name="sizeHint" >
           <size>
-           <width>423</width>
-           <height>16</height>
+           <width>429</width>
+           <height>21</height>
           </size>
          </property>
         </spacer>
@@ -72,6 +72,13 @@
            <string>Weight</string>
           </property>
          </column>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="selectButton" >
+         <property name="text" >
+          <string>Higlight selected atoms</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -163,7 +170,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="" >
+     <widget class="QWidget" name="layoutWidget" >
       <layout class="QVBoxLayout" >
        <property name="margin" >
         <number>0</number>

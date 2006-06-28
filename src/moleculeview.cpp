@@ -42,14 +42,17 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
 	ui.setupUi( dummy );
 
+	ui.treeWidget->setSelectionMode (  QAbstractItemView::MultiSelection );
+
 	m_path = QString( "" );
 
  	connect( ui.loadButton, SIGNAL( clicked() ), this, SLOT( slotLoadMolecule() ) );
 	connect( ui.qualityCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotSetDetail( int ) ) );
 	connect( ui.styleCombo, SIGNAL(activated( int )), ui.glWidget , SLOT( slotChooseStylePreset( int ) ) );
-	connect( this, SIGNAL( atomSelected( OpenBabel::OBAtom* ) ), 
-				ui.glWidget, SLOT( slotAtomSelected( OpenBabel::OBAtom* ) ) );
-	connect( ui.treeWidget, SIGNAL( itemDoubleClicked(QTreeWidgetItem *,int ) ), this, SLOT(slotAtomSelected( QTreeWidgetItem *,int ) ) );
+	connect( this, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
+				ui.glWidget, SLOT( slotAtomsSelected( QList<OpenBabel::OBAtom*> ) ) );
+	connect( ui.selectButton, SIGNAL( clicked() ), 
+			this, SLOT(slotAtomsSelected( ) ) );
 
 	slotLoadMolecule();
 }
@@ -113,18 +116,16 @@ void MoleculeDialog::updateStatistics()
 	}
 }
 
-void MoleculeDialog::slotAtomSelected( QTreeWidgetItem * item, int /* i */ )
+void MoleculeDialog::slotAtomsSelected()
 {
-	int id = item->text( 0 ).toInt();
-
-	if ( id < 1 ) return;
-
-	OpenBabel::OBAtom* atom = NULL;
+	QList<OpenBabel::OBAtom*> atoms;
+//X 	OpenBabel::OBAtom* atom = NULL;
 	OpenBabel::OBMol* molecule = ui.glWidget->molecule();
 
-	atom = molecule->GetAtom( id );
+	atoms.append( molecule->GetAtom( 2 ) );
+	atoms.append( molecule->GetAtom( 6 ) );
 
-	emit( atomSelected( atom ) );
+	emit atomsSelected( atoms );
 }
 
 #include "moleculeview.moc"
