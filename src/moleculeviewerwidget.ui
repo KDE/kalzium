@@ -23,11 +23,11 @@
     <number>6</number>
    </property>
    <item row="0" column="0" >
-    <widget class="QSplitter" name="" >
+    <widget class="QSplitter" name="splitter" >
      <property name="orientation" >
       <enum>Qt::Horizontal</enum>
      </property>
-     <widget class="QWidget" name="" >
+     <widget class="QWidget" name="layoutWidget" >
       <layout class="QVBoxLayout" >
        <property name="margin" >
         <number>0</number>
@@ -180,7 +180,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="" >
+     <widget class="QWidget" name="layoutWidget" >
       <layout class="QHBoxLayout" >
        <property name="margin" >
         <number>0</number>
@@ -211,6 +211,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="zoomButton" >
+           <property name="toolTip" >
+            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">If this button is active the widget zooms in when the user is moving the mouse up (when left mouse button is pressed) and zoomes out when the mouse is moved down.&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">very much like in Ghemical.&lt;/p>&lt;/body>&lt;/html></string>
+           </property>
            <property name="text" >
             <string>Zoom</string>
            </property>
@@ -236,6 +239,9 @@
             </property>
             <item row="2" column="0" >
              <widget class="QPushButton" name="zButton" >
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">When pressen, Z-Movement is allowed&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
               <property name="text" >
                <string>Z</string>
               </property>
@@ -252,6 +258,9 @@
             </item>
             <item row="0" column="0" >
              <widget class="QPushButton" name="xButton" >
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">When pressen, X-Movement is allowed&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
               <property name="text" >
                <string>X</string>
               </property>
@@ -268,6 +277,9 @@
             </item>
             <item row="1" column="0" >
              <widget class="QPushButton" name="yButton" >
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">When pressen, Y-Movement is allowed&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
               <property name="text" >
                <string>Y</string>
               </property>
@@ -287,6 +299,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="measureButton" >
+           <property name="whatsThis" >
+            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">When this button is pressed, the use cannot move the molecule or zoom in/out.&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">But he can measuer things. For example, &lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">* when four atoms are selected he can measure the torsion.&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">* when three atoms are selected the angle between them will be calculated&lt;/p>&lt;/body>&lt;/html></string>
+           </property>
            <property name="text" >
             <string>Measure</string>
            </property>
