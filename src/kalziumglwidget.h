@@ -156,6 +156,12 @@ class KalziumGLWidget : public QGLWidget
 		 */
 		inline OpenBabel::OBMol* molecule () const
 			{ return m_molecule; }
+	
+	signals:
+		/**
+		 * the atoms in  @p atoms have been selected by the user
+		 */
+		void atomsSelected( QList<OpenBabel::OBAtom*> atoms );
 
 	public slots:
 		/**

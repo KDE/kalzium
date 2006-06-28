@@ -53,6 +53,11 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	connect( this, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
 				ui.glWidget, SLOT( slotAtomsSelected( QList<OpenBabel::OBAtom*> ) ) );
 	
+	connect( this, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
+				this, SLOT( slotCalculate( QList<OpenBabel::OBAtom*> ) ) );
+	connect( ui.glWidget, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
+				this, SLOT( slotCalculate( QList<OpenBabel::OBAtom*> ) ) );
+	
 	connect( ui.selectButton, SIGNAL( clicked() ), 
 			this, SLOT(slotAtomsSelected( ) ) );
 	connect( ui.loadButton, SIGNAL( clicked() ), 
@@ -189,12 +194,22 @@ void MoleculeDialog::slotCalculate( QList<OpenBabel::OBAtom*> atoms )
 	OpenBabel::OBAtom* a4 = NULL;
 		
 	OpenBabel::OBMol* mol = ui.glWidget->molecule();
+	double d = 0.0;
+	double a = 0.0;
+	double t = 0.0;
 
 	if ( atoms.count() == 2 )
 	{//calculate the distance
+		a1 = atoms.at( 0 );
+		a1 = atoms.at( 2 );
+		if ( a1 && a2 )
+			d = a1->GetDistance( a2 );
 	}
 	else if ( atoms.count() == 3 )
 	{//calculate the angle
+		//the next line needs a patch for OpenBabel, I will wait until
+		//that patch is in svn-trunk
+		//a = mol->GetAngle( a1, a2, a3 );
 	}
 	else if ( atoms.count() == 4 )
 	{//calculate the torsion
@@ -202,8 +217,12 @@ void MoleculeDialog::slotCalculate( QList<OpenBabel::OBAtom*> atoms )
 		a2 = atoms.at( 1 );
 		a3 = atoms.at( 2 );
 		a4 = atoms.at( 3 );
-		double torsion = mol->GetTorsion( a1, a2, a3, a4 );
+		t = mol->GetTorsion( a1, a2, a3, a4 );
 	}
+
+	kDebug() << "Distance: " << d << " Angstrom" << endl;
+	kDebug() << "Angle: " << a << " Degree" << endl;
+	kDebug() << "Torsion: " << t << " Degree" << endl;
 }
 
 #include "moleculeview.moc"
