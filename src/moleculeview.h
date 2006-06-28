@@ -57,6 +57,8 @@ class MoleculeDialog : public KDialog
 		 */
 		void slotLoadMolecule();
 
+		void slotCalculate( QList<OpenBabel::OBAtom*> atoms );
+
 		/**
 		 */
 		void slotAtomsSelected();

@@ -57,16 +57,16 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 			this, SLOT(slotAtomsSelected( ) ) );
 	connect( ui.loadButton, SIGNAL( clicked() ), 
 			this, SLOT(slotLoadMolecule() ) );
-	connect( ui.xButton, SIGNAL( clicked() ), 
-			this, SLOT(slotUpdateGUI() ) );
-	connect( ui.yButton, SIGNAL( clicked() ), 
-			this, SLOT(slotUpdateGUI() ) );
-	connect( ui.zButton, SIGNAL( clicked() ), 
-			this, SLOT(slotUpdateGUI() ) );
-	connect( ui.zoomButton, SIGNAL( clicked() ), 
-			this, SLOT(slotUpdateGUI() ) );
-	connect( ui.measureButton, SIGNAL( clicked() ), 
-			this, SLOT(slotUpdateGUI() ) );
+//X 	connect( ui.xButton, SIGNAL( clicked() ), 
+//X 			this, SLOT(slotUpdateGUI() ) );
+//X 	connect( ui.yButton, SIGNAL( clicked() ), 
+//X 			this, SLOT(slotUpdateGUI() ) );
+//X 	connect( ui.zButton, SIGNAL( clicked() ), 
+//X 			this, SLOT(slotUpdateGUI() ) );
+//X 	connect( ui.zoomButton, SIGNAL( clicked() ), 
+//X 			this, SLOT(slotUpdateGUI() ) );
+//X 	connect( ui.measureButton, SIGNAL( clicked() ), 
+//X 			this, SLOT(slotUpdateGUI() ) );
 
 	slotLoadMolecule();
 }
@@ -147,29 +147,62 @@ void MoleculeDialog::slotAtomsSelected()
 
 void MoleculeDialog::slotUpdateGUI()
 {
-	ui.xButton->setEnabled( true );
-	ui.yButton->setEnabled( true );
-	ui.zButton->setEnabled( true );
-	ui.measureButton->setEnabled( true );
-	ui.zoomButton->setEnabled( true );
-	
-	if ( ui.measureButton->isChecked() )
-	{
-		ui.xButton->setEnabled( false );
-		ui.yButton->setEnabled( false );
-		ui.zButton->setEnabled( false );
-		ui.zoomButton->setEnabled( false );
+//X 	ui.xButton->setEnabled( true );
+//X 	ui.yButton->setEnabled( true );
+//X 	ui.zButton->setEnabled( true );
+//X 	ui.measureButton->setEnabled( true );
+//X 	ui.zoomButton->setEnabled( true );
+//X 	
+//X 	if ( ui.measureButton->isChecked() )
+//X 	{
+//X 		ui.xButton->setEnabled( false );
+//X 		ui.yButton->setEnabled( false );
+//X 		ui.zButton->setEnabled( false );
+//X 		ui.zoomButton->setEnabled( false );
+//X 
+//X 		ui.glWidget->slotMeasure( true );
+//X 	}
+//X 	else if ( ui.zoomButton->isChecked() )
+//X 	{
+//X 		ui.xButton->setEnabled( false );
+//X 		ui.yButton->setEnabled( false );
+//X 		ui.zButton->setEnabled( false );
+//X 		ui.measureButton->setEnabled( false );
+//X 		
+//X 		ui.glWidget->slotZoom( true );
+//X 	}
+}
 
-		ui.glWidget->slotMeasure( true );
-	}
-	else if ( ui.zoomButton->isChecked() )
-	{
-		ui.xButton->setEnabled( false );
-		ui.yButton->setEnabled( false );
-		ui.zButton->setEnabled( false );
-		ui.measureButton->setEnabled( false );
+void MoleculeDialog::slotCalculate( QList<OpenBabel::OBAtom*> atoms )
+{
+	//if 2 atoms are selected: calculate the distance	
+	//if 3 atoms are selected: calculate the angle	
+	//if 4 atoms are selected: calculate the torsion	
+	//if more than 4 atoms are selected: do nothing
+
+	if ( atoms.count() < 2 || atoms.count() > 4 )
+		return;
+	
+	OpenBabel::OBAtom* a1 = NULL;
+	OpenBabel::OBAtom* a2 = NULL;
+	OpenBabel::OBAtom* a3 = NULL;
+	OpenBabel::OBAtom* a4 = NULL;
 		
-		ui.glWidget->slotZoom( true );
+	OpenBabel::OBMol* mol = ui.glWidget->molecule();
+
+	if ( atoms.count() == 2 )
+	{//calculate the distance
+	}
+	else if ( atoms.count() == 3 )
+	{//calculate the angle
+	}
+	else if ( atoms.count() == 4 )
+	{//calculate the torsion
+		a1 = atoms.at( 0 );
+		a2 = atoms.at( 1 );
+		a3 = atoms.at( 2 );
+		a4 = atoms.at( 3 );
+		double torsion = mol->GetTorsion( a1, a2, a3, a4 );
 	}
 }
 
