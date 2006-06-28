@@ -32,6 +32,8 @@ class KalziumGLWidget : public QGLWidget
 	Q_OBJECT
 
 	protected:
+		TextPainter *m_textPainter;
+
 		/**
 		 * The geometric model of the sphere (used for atoms).
 		 */

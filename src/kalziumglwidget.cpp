@@ -22,6 +22,7 @@
 #include <QMouseEvent>
 #include <QListWidget>
 
+
 #ifdef USE_FPS_COUNTER
 #include <QTime>
 #endif
@@ -38,6 +39,7 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	m_molecule = 0;
 	m_detail = 0;
 	m_useFog = false;
+	m_textPainter = 0;
 
 	ChooseStylePreset( PRESET_SPHERES_AND_BICOLOR_BONDS );
 	
@@ -46,6 +48,7 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 
 KalziumGLWidget::~KalziumGLWidget()
 {
+	if ( m_textPainter) delete m_textPainter;
 }
 
 void KalziumGLWidget::initializeGL()
@@ -92,6 +95,8 @@ void KalziumGLWidget::initializeGL()
 		GL_SEPARATE_SPECULAR_COLOR_EXT );
 
 	setupObjects();
+
+	m_textPainter = new TextPainter;
 }
 
 void KalziumGLWidget::paintGL()
@@ -227,6 +232,8 @@ void KalziumGLWidget::paintGL()
 	// now, paint a semitransparent sphere around the selected atoms
 	if( m_selectedAtoms.count() > 0 )//there are items selected
 	{
+		m_sphere.select();
+
 		Color c( 0.4, 0.4, 1.0, 0.7 );
 
 		GLFLOAT radius = m_molMinBondLength * 0.35;
@@ -281,9 +288,8 @@ void KalziumGLWidget::paintGL()
 		old_time = new_time;
 	}
 
-	glDisable( GL_LIGHTING );
 	glColor3f( 1.0, 1.0, 0.0 );
-	renderText ( 20, height() - 20, s );
+	//m_textPainter->print( this, 20, 20, s );
 
 	update();
 #endif
