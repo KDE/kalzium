@@ -152,10 +152,11 @@ class KalziumGLWidget : public QGLWidget
 		virtual ~KalziumGLWidget();
 
 		/**
-		 * returns a pointer to the molecule being worked on
+		 * @return Returns a pointer to the molecule being worked on
 		 */
-		inline OpenBabel::OBMol* molecule () const
-			{ return m_molecule; }
+		OpenBabel::OBMol* molecule () const { 
+			return m_molecule; 
+		}
 	
 	signals:
 		/**
@@ -165,10 +166,27 @@ class KalziumGLWidget : public QGLWidget
 
 	public slots:
 		/**
+		 * The autorotation timer ended so we have to move the molecule a bit more
+		 * not needed I guess
+		 */
+		void rotate();
+		
+		/**
 		 * sets the molecule which will be displayed
 		 * @param molecule the molecule to render
 		 */
 		void slotSetMolecule( OpenBabel::OBMol* molecule );
+
+		/**
+		 * zoom in by 10%
+		 */
+		void slotZoomIn();
+		
+		/**
+		 * zoom out by 10%
+		 */
+		void slotZoomOut();
+
 		
 		/**
 		 * Sets the detail-grade in a range from 0 to 2

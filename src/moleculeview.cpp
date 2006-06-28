@@ -62,9 +62,9 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 			this, SLOT(slotAtomsSelected( ) ) );
 	connect( ui.loadButton, SIGNAL( clicked() ), 
 			this, SLOT(slotLoadMolecule() ) );
-//X 	connect( ui.xButton, SIGNAL( clicked() ), 
+//X 	connect( ui.xyButton, SIGNAL( clicked() ), 
 //X 			this, SLOT(slotUpdateGUI() ) );
-//X 	connect( ui.yButton, SIGNAL( clicked() ), 
+//X 	connect( ui.rotationButton, SIGNAL( clicked() ), 
 //X 			this, SLOT(slotUpdateGUI() ) );
 //X 	connect( ui.zButton, SIGNAL( clicked() ), 
 //X 			this, SLOT(slotUpdateGUI() ) );
@@ -201,7 +201,7 @@ void MoleculeDialog::slotCalculate( QList<OpenBabel::OBAtom*> atoms )
 	if ( atoms.count() == 2 )
 	{//calculate the distance
 		a1 = atoms.at( 0 );
-		a1 = atoms.at( 2 );
+		a1 = atoms.at( 1 );
 		if ( a1 && a2 )
 			d = a1->GetDistance( a2 );
 	}
@@ -213,6 +213,7 @@ void MoleculeDialog::slotCalculate( QList<OpenBabel::OBAtom*> atoms )
 	}
 	else if ( atoms.count() == 4 )
 	{//calculate the torsion
+		if ( a1 && a2 && a3 && a4 )
 		a1 = atoms.at( 0 );
 		a2 = atoms.at( 1 );
 		a3 = atoms.at( 2 );

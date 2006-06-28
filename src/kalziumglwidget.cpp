@@ -21,6 +21,7 @@
 
 #include <QMouseEvent>
 #include <QListWidget>
+#include <QTimer>
 
 
 #ifdef USE_FPS_COUNTER
@@ -46,6 +47,10 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	ChooseStylePreset( PRESET_SPHERES_AND_BICOLOR_BONDS );
 	
 	setMinimumSize( 100,100 );
+
+	QTimer *timer = new QTimer( this );
+	connect( timer, SIGNAL( timeout() ), this, SLOT( rotate() ) );
+	timer->start( 50 );
 }
 
 KalziumGLWidget::~KalziumGLWidget()
@@ -337,6 +342,29 @@ void KalziumGLWidget::mouseMoveEvent( QMouseEvent * event )
 	}
 }
 
+void KalziumGLWidget::rotate( )
+{
+	kDebug() << "KalziumGLWidget::rotate()" << endl;
+	//TODO at this place we need a nice way to rotate
+	//based on certain values. For example, we could use two
+	//bool variables for x and y rotation. If x is true the 
+	//molecule will rotate in the x-axis, if false not. Same
+	//for y. 
+	//As I have no idea what this code is doing I just copy&pasted
+	//everything from the mousewheel method...
+	glPushMatrix();
+	glLoadIdentity();
+
+	//Benoit, I took those values pretty much at random,
+	//no idea what value is for what... :)
+	glRotated( 10.0, 0.0, 1.0, 0.0 );
+	glRotated( 10.0, 1.0, 0.0, 0.0 );
+	glMultMatrixd( m_RotationMatrix );
+	glGetDoublev( GL_MODELVIEW_MATRIX, m_RotationMatrix );
+	glPopMatrix();
+	updateGL();
+}
+
 void KalziumGLWidget::setupObjects()
 {
 	int sphere_detail, cylinder_faces;
@@ -427,6 +455,24 @@ inline GLFLOAT KalziumGLWidget::bondRadius()
 inline GLFLOAT KalziumGLWidget::atomRadius()
 {
 	return m_atomRadiusCoeff * m_molMinBondLength;
+}
+
+void KalziumGLWidget::slotZoomIn()
+{
+	//TODO
+	//This slot can be very easily accessed by simply calling it from
+	//the GUI. I guess we need a second pair of zoomin/out slots for 
+	//a more finegrained zooming. For example, if we use the mousewheel
+	//for zooming, we might want to use the delta()-value of the mouse-
+	//wheel as a factor.
+	//But as I have no idea how zooming works in OpenGL I cannot do the
+	//coding...
+}
+
+void KalziumGLWidget::slotZoomOut()
+{
+	//TODO
+	//Comment so slotZoomIn()
 }
 
 void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
