@@ -16,6 +16,7 @@
 #include <kdebug.h>
 #include <klocale.h>
 #include <QMessageBox>
+#include <QRegExp>
 
 #include <sstream>
 #include <stdio.h>
@@ -65,5 +66,6 @@ QString OpenBabel2Wrapper::getFormula( OpenBabel::OBMol* molecule )
 QString OpenBabel2Wrapper::getPrettyFormula( OpenBabel::OBMol* molecule )
 {
 	QString formula( molecule->GetFormula().c_str() );
+	formula.replace( QRegExp( "(\\d+)" ), "<sub>\\1</sub>" );
 	return formula;
 }
