@@ -280,11 +280,11 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 				}
 				html.append( "</tr>" );
 				//R-phrases
-				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+				html.append( "<tr><td>" );
 				html.append( i18n( "<b>R-phrases</b>: %1", m_element->dataAsString( ChemicalDataObject::RPhrase ) ) );
 				html.append( "</td></tr>" );
 				//S-phrases
-				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+				html.append( "<tr><td>" );
 				html.append( i18n( "<b>S-phrases</b>: %1", m_element->dataAsString( ChemicalDataObject::SPhrase ) ) );
 				html.append( "</td></tr>" );
 		}
