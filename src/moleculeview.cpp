@@ -207,9 +207,12 @@ void MoleculeDialog::slotCalculate( QList<OpenBabel::OBAtom*> atoms )
 	}
 	else if ( atoms.count() == 3 )
 	{//calculate the angle
-		//the next line needs a patch for OpenBabel, I will wait until
-		//that patch is in svn-trunk
-		//a = mol->GetAngle( a1, a2, a3 );
+		//the next line needs OpenBabel-trunk from June 29
+		//or later to compile.
+		a1 = atoms.at( 0 );
+		a1 = atoms.at( 1 );
+		a2 = atoms.at( 2 );
+		a = mol->GetAngle( a1, a2, a3 );
 	}
 	else if ( atoms.count() == 4 )
 	{//calculate the torsion
