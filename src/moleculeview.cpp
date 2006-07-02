@@ -73,7 +73,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 //X 	connect( ui.measureButton, SIGNAL( clicked() ), 
 //X 			this, SLOT(slotUpdateGUI() ) );
 
-	slotLoadMolecule();
+//	slotLoadMolecule();
 }
 
 void MoleculeDialog::slotLoadMolecule()

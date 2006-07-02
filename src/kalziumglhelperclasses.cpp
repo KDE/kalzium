@@ -269,12 +269,12 @@ void Sphere::drawScaled( GLfloat radius )
 	}
 
 	GLfloat factor = radius / m_radius;
-	glEnable( GL_NORMALIZE );
+//	glEnable( GL_NORMALIZE );
 	glPushMatrix();
 	glScalef( factor, factor, factor );
 	draw();
 	glPopMatrix();
-	glDisable( GL_NORMALIZE );
+//	glDisable( GL_NORMALIZE );
 }
 
 Cylinder::Cylinder()
@@ -328,93 +328,182 @@ void Cylinder::initialize()
 	m_isInitialized = true;
 }
 
-TextPainter::TextPainter()
+CharRenderer::CharRenderer()
 {
-	m_width = 0;
-	m_height = 0;
-	m_image = 0;
-	m_painter = 0;
-	m_fontMetrics = 0;
+	m_texture = 0;
+	m_displayList = 0;
 }
 
-TextPainter::~TextPainter()
+CharRenderer::~CharRenderer()
 {
-	if( m_image ) delete m_image;
-	if( m_painter ) delete m_painter;
-	if( m_fontMetrics ) delete m_fontMetrics;
+	if( m_texture ) glDeleteTextures( 1, &m_texture );
+	if( m_displayList ) glDeleteLists( m_displayList, 1 );
 }
-
-bool TextPainter::print( QGLWidget *glwidget, int x, int y, const QString &string)
+bool CharRenderer::initialize( QChar c, const QFont &font )
 {
-	glDisable( GL_LIGHTING );
-	glEnable(GL_TEXTURE_2D);
-	glEnable( GL_BLEND );
-
-	if( ! m_painter )
-	{
-		m_painter = new QPainter();
-		if( ! m_painter ) return false;
-	}
-
-	if( ! m_fontMetrics )
-	{
-		
-		m_fontMetrics = new QFontMetrics(glwidget->font());
-		if( ! m_fontMetrics ) return false;
-	}
-
-	int new_width = m_fontMetrics->width( string );
-	int new_height = m_fontMetrics->height();
+	if( m_displayList ) return true;
 	
-	if(new_width == 0 || new_height == 0)
+	QFontMetrics fontMetrics ( font );
+	m_width = fontMetrics.width( c );
+	m_height = fontMetrics.height();
+	if( m_width == 0 || m_height == 0 ) return false;
+	QImage image( m_width, m_height, QImage::Format_RGB32 );
+	
+	QPainter painter;
+	painter.begin( &image );
+	painter.setFont( font );
+	painter.setRenderHint( QPainter::TextAntialiasing );
+	painter.setBackground(Qt::black);
+	painter.eraseRect( image.rect() );
+	painter.setPen(Qt::white);
+	painter.drawText ( 0, 0, m_width, m_height, Qt::AlignBottom, c);
+	painter.end();
+
+	GLubyte *bitmap = new GLubyte [m_width * m_height];
+	if( bitmap == 0 ) return false;
+
+	for( int i = 0; i < m_width; i++)
+	for( int j = 0; j < m_height; j++)
 	{
-		return false;
+		bitmap[ i + m_width * j ] =
+			image.pixel( i, m_height - j - 1 ) & 0x000000ff;
 	}
 
-	if( new_width > m_width || new_height > m_height )
-	{
-		if( m_image ) delete m_image;
-		m_width = ( new_width > m_width ) ? new_width : m_width;
-		m_height = ( new_height > m_height ) ? new_height : m_height;
-		m_image = new QImage( m_width, m_height, QImage::Format_ARGB32 );
-	}
+	glGenTextures( 1, &m_texture );
+	if( m_texture == 0 ) return false;
 
-	m_painter->begin( m_image );
-	m_painter->setFont(glwidget->font());
-	m_painter->setRenderHint(QPainter::TextAntialiasing);
-	//painter.setBackground(Qt::black);
-	m_painter->setBrush(Qt::white);
-	m_painter->eraseRect( 0, 0, m_width, m_height );
-
-	//painter.drawText ( 0, 0, s );
-	m_painter->drawText ( 0, m_height, string );
-	m_painter->end();
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+	glBindTexture(GL_TEXTURE_2D,m_texture) ;
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	glTexImage2D (
+		GL_TEXTURE_2D,
+		0,
+		GL_ALPHA,
+		m_width,
+		m_height,
+		0,
+		GL_ALPHA,
+		GL_UNSIGNED_BYTE,
+		bitmap );
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glwidget->bindTexture( *m_image );
-	glMatrixMode( GL_PROJECTION );
-	glPushMatrix();
-	glLoadIdentity();
-	glOrtho( 0, glwidget->width(), 0, glwidget->height(), -1, 1 );
-	glMatrixMode( GL_MODELVIEW );
-	glPushMatrix();
-	glLoadIdentity();
+
+	delete [] bitmap;
+
+	m_displayList = glGenLists(1);
+	if( m_displayList == 0 ) return false;
+
+	glNewList( m_displayList, GL_COMPILE );
+	glBindTexture( GL_TEXTURE_2D, m_texture );
 	glBegin(GL_QUADS);
 	glTexCoord2f( 0, 0);
-	glVertex2f( x , y );
+	glVertex2f( 0 , 0 );
 	glTexCoord2f( 1, 0);
-	glVertex2f( x+m_width , y );
+	glVertex2f( m_width , 0 );
 	glTexCoord2f( 1, 1);
-	glVertex2f( x+m_width , y+m_height );
+	glVertex2f( m_width, m_height );
 	glTexCoord2f( 0, 1);
-	glVertex2f( x , y+m_height );
+	glVertex2f( 0 , m_height );
 	glEnd();
-	glDisable( GL_TEXTURE_2D);
-	glDisable( GL_BLEND );
-	glPopMatrix();
+	glTranslatef( m_width, 0, 0 );
+	glEndList();
+
+	return true;
+}
+
+TextRenderer::TextRenderer()
+{
+	m_glwidget = 0;
+	m_isBetweenBeginAndEnd = false;
+}
+
+TextRenderer::~TextRenderer()
+{
+	QHash<QChar, CharRenderer *>::iterator i = m_charTable.begin();
+	while( i != m_charTable.end() )
+	{
+		delete i.value();
+		i = m_charTable.erase(i);
+        }
+}
+
+void TextRenderer::setup( const QGLWidget *glwidget, const QFont &font )
+{
+	if( m_glwidget ) return;
+	m_glwidget = glwidget;
+	m_font = font;
+}
+
+void TextRenderer::do_begin()
+{
+	m_wasEnabled_LIGHTING = glIsEnabled( GL_LIGHTING );
+	m_wasEnabled_FOG = glIsEnabled( GL_FOG );
+	m_wasEnabled_TEXTURE_2D = glIsEnabled( GL_TEXTURE_2D );
+	m_wasEnabled_BLEND = glIsEnabled( GL_BLEND );
+	m_wasEnabled_DEPTH_TEST = glIsEnabled( GL_DEPTH_TEST );
+	glDisable( GL_LIGHTING );
+	glDisable( GL_FOG );
+	glEnable( GL_TEXTURE_2D );
+	glEnable( GL_BLEND );
+	glDisable( GL_DEPTH_TEST );
+	glMatrixMode( GL_PROJECTION );
+	glPushMatrix();
+	glLoadIdentity();
+	glOrtho( 0, m_glwidget->width(), 0, m_glwidget->height(), -1, 1 );
+	glMatrixMode( GL_MODELVIEW );
+}
+
+void TextRenderer::begin()
+{
+	if( ! m_glwidget ) return;
+	if( m_isBetweenBeginAndEnd ) return;
+	m_isBetweenBeginAndEnd = true;
+	do_begin();
+}
+
+void TextRenderer::do_end()
+{
+	if( ! m_wasEnabled_TEXTURE_2D ) glDisable( GL_TEXTURE_2D);
+	if( ! m_wasEnabled_BLEND ) glDisable( GL_BLEND );
+	if( m_wasEnabled_DEPTH_TEST ) glEnable( GL_DEPTH_TEST );
+	if( m_wasEnabled_LIGHTING ) glEnable( GL_LIGHTING );
+	if( m_wasEnabled_FOG ) glEnable( GL_FOG );
 	glMatrixMode( GL_PROJECTION );
 	glPopMatrix();
 	glMatrixMode( GL_MODELVIEW );
-	return true;
+}
+
+void TextRenderer::end()
+{
+	if( m_isBetweenBeginAndEnd ) do_end();
+	m_isBetweenBeginAndEnd = false;
+}
+
+void TextRenderer::print( int x, int y, const QString &string)
+{
+	if( ! m_glwidget ) return;
+	if( string.isEmpty() ) return;
+
+	if( ! m_isBetweenBeginAndEnd ) do_begin();
+	
+	glPushMatrix();
+	glLoadIdentity();
+	glTranslatef( x, y, 0 );
+	for(int i = 0; i < string.size(); i++)
+	{
+		if( m_charTable.contains( string[i] ) )
+			m_charTable.value(string[i])->draw();
+		else
+		{
+			CharRenderer *c = new CharRenderer;
+			if( c->initialize( string[i], m_font ) )
+			{
+				m_charTable.insert( string[i], c);
+				c->draw();
+			}
+			else delete c;
+		}
+	}
+	glPopMatrix();
+
+	if( ! m_isBetweenBeginAndEnd ) do_end();
 }

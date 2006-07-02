@@ -40,9 +40,13 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	m_molecule = 0;
 	m_detail = 0;
 	m_useFog = false;
-	m_textPainter = 0;
 	m_inZoom = false;
 	m_inMeasure = false;
+
+	QFont f;
+	f.setStyleHint( QFont::SansSerif, QFont::PreferAntialias );
+	m_textRenderer.setup( this, f );
+
 
 	ChooseStylePreset( PRESET_SPHERES_AND_BICOLOR_BONDS );
 	
@@ -55,7 +59,6 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 
 KalziumGLWidget::~KalziumGLWidget()
 {
-	if ( m_textPainter) delete m_textPainter;
 }
 
 void KalziumGLWidget::initializeGL()
@@ -65,8 +68,6 @@ void KalziumGLWidget::initializeGL()
 	glEnable( GL_DEPTH_TEST );
 	glDepthFunc( GL_LEQUAL );
 	glEnable( GL_CULL_FACE );
-	glDisable( GL_BLEND );
-	//glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
 
 	glMatrixMode( GL_MODELVIEW );
 	glPushMatrix();
@@ -74,7 +75,8 @@ void KalziumGLWidget::initializeGL()
 	glGetDoublev( GL_MODELVIEW_MATRIX, m_RotationMatrix );
 	glPopMatrix();
 
-	glEnable(GL_LIGHTING);
+	glEnable( GL_RESCALE_NORMAL_EXT );
+
 	glEnable(GL_LIGHT0);
 
 	GLfloat ambientLight[] = { 0.4, 0.4, 0.4, 1.0 };
@@ -87,7 +89,6 @@ void KalziumGLWidget::initializeGL()
 	glLightfv(GL_LIGHT0, GL_SPECULAR, specularLight);
 	glLightfv(GL_LIGHT0, GL_POSITION, position);
 
-	glEnable(GL_FOG);
 	GLfloat fogColor[] = { 0.0, 0.0, 0.0, 1.0 };
 	glFogfv( GL_FOG_COLOR, fogColor );
 	glFogi( GL_FOG_MODE, GL_LINEAR );
@@ -105,14 +106,15 @@ void KalziumGLWidget::initializeGL()
 	glEnableClientState( GL_NORMAL_ARRAY );
 
 	setupObjects();
-
-	m_textPainter = new TextPainter;
 }
 
 void KalziumGLWidget::paintGL()
 {
 	if( ! m_molecule )
 	{
+		glColor3f( 0.0, 1.0, 0.6 );
+		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+		m_textRenderer.print( 20, height() - 40, i18n("Please load a molecule") );
 		return;
 	}
 
@@ -289,13 +291,13 @@ void KalziumGLWidget::paintGL()
 		s = QString::number( 1000 * frames /
 			double( new_time - old_time ),
 			'f', 1 );
-		s += " frames per second" + QString( QChar( 962 ) );
+		s += " frames per second" ;
 		frames = 0;
 		old_time = new_time;
 	}
 
 	glColor3f( 1.0, 1.0, 0.0 );
-	m_textPainter->print( this, 20, 20, s );
+	m_textRenderer.print( 20, 20, s );
 
 	update();
 #endif
@@ -526,11 +528,7 @@ void KalziumGLWidget::ChooseStylePreset( StylePreset stylePreset )
 void KalziumGLWidget::prepareMoleculeData()
 {
 	// translate the molecule so that center has coords 0,0,0
-	//m_molecule->Center();
-	std::map<std::string, std::string> m;
-	m["c"] = "c";
-	m_molecule->DoTransformations(&m);
-
+	m_molecule->Center();
 
 	// calculate the radius of the molecule
 	// that is, the maximal distance between an atom of the molecule
