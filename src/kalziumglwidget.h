@@ -32,6 +32,9 @@ class KalziumGLWidget : public QGLWidget
 	Q_OBJECT
 
 	protected:
+		GLuint m_displayList;
+		bool m_haveToRecompileDisplayList;
+
 		TextRenderer m_textRenderer;
 
 		/**
@@ -198,9 +201,7 @@ class KalziumGLWidget : public QGLWidget
 		 * Chooses the style of rendering among some presets
 		 * @param stylePreset the wanted style preset
 		 */
-		void slotChooseStylePreset( int stylePreset ){
-			ChooseStylePreset( (StylePreset) stylePreset );
-		}
+		void slotChooseStylePreset( int stylePreset );
 
 		/**
 		 * The atoms @p atoms was selected by the user

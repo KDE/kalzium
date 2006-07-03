@@ -62,7 +62,7 @@ VertexArray::VertexArray()
 	m_vertexBuffer = 0;
 	m_normalBuffer = 0;
 	m_indexBuffer = 0;
-	m_isInitialized = false;
+	m_displayList = 0;
 }
 
 VertexArray::~VertexArray()
@@ -70,13 +70,13 @@ VertexArray::~VertexArray()
 	if( m_indexBuffer ) delete [] m_indexBuffer;
 	if( m_vertexBuffer ) delete [] m_vertexBuffer;
 	if( m_normalBuffer ) delete [] m_normalBuffer;
+	if( m_displayList )
+		glDeleteLists( m_displayList, 1 );
 }
 
 bool VertexArray::allocateBuffers()
 {
 	if( m_vertexCount > 65536 ) return false;
-
-	m_isInitialized = false;
 
 	if( m_indexBuffer )
 	{
@@ -100,8 +100,54 @@ bool VertexArray::allocateBuffers()
 	if( ! m_normalBuffer ) return false;
 	m_indexBuffer = new unsigned short[m_indexCount];
 	if( ! m_indexBuffer ) return false;
+}
 
-	return true;
+void VertexArray::do_draw()
+{
+	glPushClientAttrib( GL_CLIENT_VERTEX_ARRAY_BIT );
+	glEnableClientState( GL_VERTEX_ARRAY );
+	glEnableClientState( GL_NORMAL_ARRAY );
+	glDisableClientState( GL_COLOR_ARRAY );
+	glDisableClientState( GL_EDGE_FLAG_ARRAY );
+	glDisableClientState( GL_INDEX_ARRAY );
+	glDisableClientState( GL_TEXTURE_COORD_ARRAY );
+	glVertexPointer( 3, GL_FLOAT, 0, m_vertexBuffer );
+	glNormalPointer( GL_FLOAT, 0, m_normalBuffer );
+	if( m_indexCount )
+		glDrawElements( m_mode, m_indexCount,
+			GL_UNSIGNED_SHORT, m_indexBuffer );
+	else
+		glDrawArrays( m_mode, 0, m_vertexCount );
+	glPopClientAttrib();
+}
+
+void VertexArray::compileDisplayListIfNeeded()
+{
+#ifdef USE_DISPLAY_LISTS
+	if( ! m_displayList )
+		m_displayList = glGenLists( 1 );
+	if( ! m_displayList ) return;
+	glNewList( m_displayList, GL_COMPILE );
+	do_draw();
+	glEndList();
+
+	delete [] m_vertexBuffer;
+	m_vertexBuffer = 0;
+	delete [] m_normalBuffer;
+	m_normalBuffer = 0;
+	if( m_indexBuffer ) delete [] m_indexBuffer;
+	m_indexBuffer = 0;
+#endif
+}
+
+void VertexArray::initialize()
+{
+	m_vertexCount = computeVertexCount();
+	m_indexCount = computeIndexCount();
+	if( m_indexCount < 0 || m_vertexCount < 0 ) return;
+	allocateBuffers();
+	buildBuffers();
+	compileDisplayListIfNeeded();
 }
 
 Sphere::Sphere()
@@ -206,15 +252,20 @@ void Sphere::computeVertex( int strip, int column, int row)
 	vertex->z *= m_radius;
 }
 
-
-void Sphere::initialize()
+int Sphere::computeVertexCount()
 {
-	if( m_detail < 1 ) return;
-	m_vertexCount = ( 3 * m_detail + 1 ) * ( 5 * m_detail + 1 );
-	m_indexCount = (2 * ( 2 * m_detail + 1 ) + 2 ) * 5 * m_detail;
+	if( m_detail < 1 ) return -1;
+	return ( 3 * m_detail + 1 ) * ( 5 * m_detail + 1 );
+}
 
-	if( ! allocateBuffers() ) return;
+int Sphere::computeIndexCount()
+{
+	if( m_detail < 1 ) return -1;
+	return (2 * ( 2 * m_detail + 1 ) + 2 ) * 5 * m_detail;
+}
 
+void Sphere::buildBuffers()
+{
 	for( int strip = 0; strip < 5; strip++ )
 	for( int column = 1; column < m_detail; column++ )
 	for( int row = column; row <= 2 * m_detail + column; row++ )
@@ -246,8 +297,6 @@ void Sphere::initialize()
 		m_indexBuffer[i++] = indexOfVertex( strip, column + 1,
 			2 * m_detail + column + 1);
 	}
-
-	m_isInitialized = true;
 }
 
 void Sphere::setup( int detail, GLfloat radius )
@@ -293,16 +342,22 @@ void Cylinder::setup( int faces, GLfloat radius )
 	initialize();
 }
 
-void Cylinder::initialize()
+int Cylinder::computeVertexCount()
 {
-	if( m_faces < 3 ) return;
+	if( m_faces < 3 ) return -1;
+	return 2 * m_faces + 2;
+}
 
-	m_vertexCount = 2 * m_faces + 2; // we will use a redundant vertex array
-	m_indexCount = 0; // we won't use it.
+int Cylinder::computeIndexCount()
+{
+	if( m_faces < 3 ) return -1;
+	return 0;
+}
 
-	if( ! allocateBuffers() ) return;
 
-	for( int i = 0; i <= m_faces; i++)
+void Cylinder::buildBuffers()
+{
+	for( int i = 0; i <= m_faces; i++ )
 	{
 		float angle = 2 * M_PI * i / m_faces;
 		float x = cosf( angle );
@@ -312,20 +367,18 @@ void Cylinder::initialize()
 		m_normalBuffer[ 2 * i ].y = y;
 		m_normalBuffer[ 2 * i ].z = 0.0;
 
-		m_vertexBuffer[ 2 * i ].x = x * m_radius ;
+		m_vertexBuffer[ 2 * i ].x = x * m_radius;
 		m_vertexBuffer[ 2 * i ].y = y * m_radius;
 		m_vertexBuffer[ 2 * i ].z = 1.0;
 
-		m_normalBuffer[ 2 * i + 1].x = x;
-		m_normalBuffer[ 2 * i + 1].y = y;
-		m_normalBuffer[ 2 * i + 1].z = 0.0;
+		m_normalBuffer[ 2 * i + 1 ].x = x;
+		m_normalBuffer[ 2 * i + 1 ].y = y;
+		m_normalBuffer[ 2 * i + 1 ].z = 0.0;
 
-		m_vertexBuffer[ 2 * i + 1].x = x * m_radius;
-		m_vertexBuffer[ 2 * i + 1].y = y * m_radius ;
-		m_vertexBuffer[ 2 * i + 1].z = 0.0;
+		m_vertexBuffer[ 2 * i + 1 ].x = x * m_radius;
+		m_vertexBuffer[ 2 * i + 1 ].y = y * m_radius;
+		m_vertexBuffer[ 2 * i + 1 ].z = 0.0;
 	}
-
-	m_isInitialized = true;
 }
 
 CharRenderer::CharRenderer()
@@ -353,28 +406,27 @@ bool CharRenderer::initialize( QChar c, const QFont &font )
 	painter.begin( &image );
 	painter.setFont( font );
 	painter.setRenderHint( QPainter::TextAntialiasing );
-	painter.setBackground(Qt::black);
+	painter.setBackground( Qt::black );
 	painter.eraseRect( image.rect() );
-	painter.setPen(Qt::white);
-	painter.drawText ( 0, 0, m_width, m_height, Qt::AlignBottom, c);
+	painter.setPen( Qt::blue );
+	painter.drawText ( 0, 0, m_width, m_height, Qt::AlignBottom, c );
 	painter.end();
 
-	GLubyte *bitmap = new GLubyte [m_width * m_height];
+	GLubyte *bitmap = new GLubyte[ m_width * m_height ];
 	if( bitmap == 0 ) return false;
 
-	for( int i = 0; i < m_width; i++)
-	for( int j = 0; j < m_height; j++)
+	for( int j = m_height - 1, n = 0; j >= 0; j-- )
+	for( int i = 0; i < m_width; i++, n++ )
 	{
-		bitmap[ i + m_width * j ] =
-			image.pixel( i, m_height - j - 1 ) & 0x000000ff;
+		bitmap[n] = qBlue( image.pixel( i, j ) );
 	}
 
 	glGenTextures( 1, &m_texture );
 	if( m_texture == 0 ) return false;
 
-	glBindTexture(GL_TEXTURE_2D,m_texture) ;
-	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	glTexImage2D (
+	glBindTexture( GL_TEXTURE_2D, m_texture );
+	glPixelStorei( GL_UNPACK_ALIGNMENT, 1 );
+	glTexImage2D(
 		GL_TEXTURE_2D,
 		0,
 		GL_ALPHA,
@@ -394,7 +446,7 @@ bool CharRenderer::initialize( QChar c, const QFont &font )
 
 	glNewList( m_displayList, GL_COMPILE );
 	glBindTexture( GL_TEXTURE_2D, m_texture );
-	glBegin(GL_QUADS);
+	glBegin( GL_QUADS );
 	glTexCoord2f( 0, 0);
 	glVertex2f( 0 , 0 );
 	glTexCoord2f( 1, 0);
@@ -406,7 +458,6 @@ bool CharRenderer::initialize( QChar c, const QFont &font )
 	glEnd();
 	glTranslatef( m_width, 0, 0 );
 	glEndList();
-
 	return true;
 }
 
@@ -478,7 +529,7 @@ void TextRenderer::end()
 	m_isBetweenBeginAndEnd = false;
 }
 
-void TextRenderer::print( int x, int y, const QString &string)
+void TextRenderer::print( int x, int y, const QString &string )
 {
 	if( ! m_glwidget ) return;
 	if( string.isEmpty() ) return;
@@ -488,10 +539,10 @@ void TextRenderer::print( int x, int y, const QString &string)
 	glPushMatrix();
 	glLoadIdentity();
 	glTranslatef( x, y, 0 );
-	for(int i = 0; i < string.size(); i++)
+	for( int i = 0; i < string.size(); i++ )
 	{
 		if( m_charTable.contains( string[i] ) )
-			m_charTable.value(string[i])->draw();
+			m_charTable.value( string[i] )->draw();
 		else
 		{
 			CharRenderer *c = new CharRenderer;

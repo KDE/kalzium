@@ -27,11 +27,18 @@
  */
 #define USE_DOUBLE_PRECISION
 
-/** USE_FPS_COUNTER: if defined, the GL Widgets will show a frames-per-second
- * counter. *Use only for testing*: this makes the GL Widget constantly
- * redraw, which under normal circumstances is a waste of CPU power.
+/** USE_FPS_COUNTER: if defined, the GL Widget will show a frames-per-second
+ * counter. Use only for testing: this makes the GL Widget constantly
+ * redraw, which under normal circumstances is a waste of CPU time.
  */
 #define USE_FPS_COUNTER 
+
+/** USE_DISPLAY_LISTS: if defined, the whole scene will be stored in
+ * an OpenGL display list. The vertex arrays will then also be converted to
+ * display lists, in order to avoid problems. This option improves performance,
+ * especially when rendering complex models, but increases memory usage.
+ */
+#define USE_DISPLAY_LISTS
 
 namespace KalziumGLHelpers
 {
@@ -98,7 +105,7 @@ struct Color
 * returns true if abs( a - b ) <= c * precision
 * where c = max( abs( a ), abs( b ) )
 */
-template<class T> static bool approx_equal( T a, T b, T precision )
+template<class T> bool approx_equal( T a, T b, T precision )
 {
 	T abs_a = FABS( a );
 	T abs_b = FABS( b );
@@ -210,33 +217,35 @@ template<class T> void construct_ortho_basis_given_first_vector(
 */
 class VertexArray
 {
-
 	protected:
 		GLenum m_mode;
 		Vector3<GLfloat> *m_vertexBuffer;
 		Vector3<GLfloat> *m_normalBuffer;
-		unsigned int m_vertexCount;
+		int m_vertexCount;
 		unsigned short *m_indexBuffer;
-		unsigned int m_indexCount;
-		
-		bool m_isInitialized;
-		
-		virtual void initialize() = 0;
+		int m_indexCount;
+		GLuint m_displayList;
+				
+		virtual int computeVertexCount() = 0;
+		virtual int computeIndexCount() = 0;
+		virtual void buildBuffers() = 0;
 		virtual bool allocateBuffers();
+		virtual void compileDisplayListIfNeeded();
+
+		virtual void initialize();
 
 	public:
 		VertexArray();
 		virtual ~VertexArray();
-		virtual inline void select()
-		{
-			glVertexPointer( 3, GL_FLOAT, 0, m_vertexBuffer );
-			glNormalPointer( GL_FLOAT, 0, m_normalBuffer );
-		}
+
+		virtual void do_draw();
 		virtual inline void draw()
 		{
-			select();
-			glDrawElements( m_mode, m_indexCount,
-				GL_UNSIGNED_SHORT, m_indexBuffer );
+#ifdef USE_DISPLAY_LISTS
+			glCallList( m_displayList );
+#else
+			do_draw();
+#endif
 		}
 };
 
@@ -255,8 +264,9 @@ class Sphere : public VertexArray
 	protected:
 		int m_detail;
 		GLfloat m_radius;
-
-		virtual void initialize();
+		virtual int computeVertexCount();
+		virtual int computeIndexCount();
+		virtual void buildBuffers();
 
 	public:
 		Sphere();
@@ -276,17 +286,14 @@ class Cylinder : public VertexArray
 		int m_faces;
 		GLfloat m_radius;
 
-		virtual void initialize();
+		virtual int computeVertexCount();
+		virtual int computeIndexCount();
+		virtual void buildBuffers();
 
 	public:
 		Cylinder();
 		virtual ~Cylinder() {}
 		virtual void setup( int detail, GLfloat radius );
-		virtual inline void draw()
-		{
-			select();
-			glDrawArrays( m_mode, 0, m_vertexCount );
-		}
 };
 
 /** This is a helper class for TextRenderer, and should probably never be
@@ -359,8 +366,7 @@ class MyGLWidget : public QGLWidget
 };
 * @endcode
 * 
-* Now, in the constructor of MyGLWidget, you please call setup()
-* along these lines:
+* Now, in the constructor of MyGLWidget, please call setup() along these lines:
 *
 * @code
 	QFont f;
@@ -393,10 +399,11 @@ class MyGLWidget : public QGLWidget
 	m_textRenderer.end();
 * @endcode
 * 
-* Please make sure, though, that no OpenGL state change occurs between begin()
-* and end(), except the state changes performed by the TextRenderer itself.
-* In other words, please avoid calling glSomething() between begin() and end(),
-* except if you are sure that this call won't perform a relevant state change.
+* Please make sure, though, that no relevant OpenGL state change occurs between
+* begin() and end(), except the state changes performed by the TextRenderer
+* itself. In other words, please avoid calling glSomething() between begin() and
+* end(), except if you are sure that this call won't perform a relevant state
+* change.
 *
 * The print() method when called alone, or the begin()-print()-end() group,
 * do restore the OpenGL state as they found it, including the matrices.
@@ -426,9 +433,9 @@ class TextRenderer
 		 * This hash gives the correspondence table between QChars
 		 * (the keys) and the corresponding CharRenderers (the values).
 		 * Every time a QChar is being met, either it is found in this
-		 * table, in which case it can be directly rendered, or it is not
-		 * found, in which case a new CharRenderer is created for it,
-		 * and added to this table.
+		 * table, in which case it can be directly rendered, or it is
+		 * not found, in which case a new CharRenderer is created for
+		 * it and added to this table.
 		 */
 		QHash<QChar, CharRenderer*> m_charTable;
 

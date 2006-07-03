@@ -39,6 +39,8 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	m_isDragging = false;
 	m_molecule = 0;
 	m_detail = 0;
+	m_displayList = 0;
+	m_haveToRecompileDisplayList = true;
 	m_useFog = false;
 	m_inZoom = false;
 	m_inMeasure = false;
@@ -75,7 +77,7 @@ void KalziumGLWidget::initializeGL()
 	glGetDoublev( GL_MODELVIEW_MATRIX, m_RotationMatrix );
 	glPopMatrix();
 
-	glEnable( GL_RESCALE_NORMAL_EXT );
+	//glEnable( GL_RESCALE_NORMAL_EXT );
 
 	glEnable(GL_LIGHT0);
 
@@ -84,10 +86,10 @@ void KalziumGLWidget::initializeGL()
 	GLfloat specularLight[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat position[] = { 0.8, 0.7, 1.0, 0.0 };
 
-	glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
-	glLightfv(GL_LIGHT0, GL_SPECULAR, specularLight);
-	glLightfv(GL_LIGHT0, GL_POSITION, position);
+	glLightfv( GL_LIGHT0, GL_AMBIENT, ambientLight );
+	glLightfv( GL_LIGHT0, GL_DIFFUSE, diffuseLight );
+	glLightfv( GL_LIGHT0, GL_SPECULAR, specularLight );
+	glLightfv( GL_LIGHT0, GL_POSITION, position );
 
 	GLfloat fogColor[] = { 0.0, 0.0, 0.0, 1.0 };
 	glFogfv( GL_FOG_COLOR, fogColor );
@@ -101,11 +103,6 @@ void KalziumGLWidget::initializeGL()
 	glEnable( GL_COLOR_SUM_EXT );
 	glLightModeli( GL_LIGHT_MODEL_COLOR_CONTROL_EXT,
 		GL_SEPARATE_SPECULAR_COLOR_EXT );
-
-	glEnableClientState( GL_VERTEX_ARRAY );
-	glEnableClientState( GL_NORMAL_ARRAY );
-
-	setupObjects();
 }
 
 void KalziumGLWidget::paintGL()
@@ -113,7 +110,7 @@ void KalziumGLWidget::paintGL()
 	if( ! m_molecule )
 	{
 		glColor3f( 0.0, 1.0, 0.6 );
-		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+		glClear( GL_COLOR_BUFFER_BIT );
 		m_textRenderer.print( 20, height() - 40, i18n("Please load a molecule") );
 		return;
 	}
@@ -142,6 +139,14 @@ void KalziumGLWidget::paintGL()
 		glFogf( GL_FOG_END, 5.0 * ( m_molRadius + atomRadius() ) );
 	}
 	else glDisable( GL_FOG );
+
+#ifdef USE_DISPLAY_LISTS
+	if( m_haveToRecompileDisplayList )
+	{
+	if( ! m_displayList ) m_displayList = glGenLists( 1 );
+	if( ! m_displayList ) return;
+	glNewList( m_displayList, GL_COMPILE );
+#endif
 
 	// prepare for rendering the spheres
 	if( m_atomStyle == ATOM_SPHERE )
@@ -238,6 +243,12 @@ void KalziumGLWidget::paintGL()
 			}
 		}
 	}
+#ifdef USE_DISPLAY_LISTS
+	glEndList();
+	m_haveToRecompileDisplayList = false;
+	}
+	glCallList( m_displayList );
+#endif
 
 	// now, paint a semitransparent sphere around the selected atoms
 	if( m_selectedAtoms.count() > 0 )//there are items selected
@@ -266,6 +277,7 @@ void KalziumGLWidget::paintGL()
 			glDisable( GL_BLEND );
 		}
 	}
+
 #ifdef USE_FPS_COUNTER
 	QTime t;
 
@@ -291,7 +303,7 @@ void KalziumGLWidget::paintGL()
 		s = QString::number( 1000 * frames /
 			double( new_time - old_time ),
 			'f', 1 );
-		s += " frames per second" ;
+		s += " FPS";
 		frames = 0;
 		old_time = new_time;
 	}
@@ -346,6 +358,9 @@ void KalziumGLWidget::mouseMoveEvent( QMouseEvent * event )
 
 void KalziumGLWidget::rotate( )
 {
+// OK, let's momentarily disable that until I get it working (Benoit)
+
+/*
 	kDebug() << "KalziumGLWidget::rotate()" << endl;
 	//TODO at this place we need a nice way to rotate
 	//based on certain values. For example, we could use two
@@ -365,6 +380,7 @@ void KalziumGLWidget::rotate( )
 	glGetDoublev( GL_MODELVIEW_MATRIX, m_RotationMatrix );
 	glPopMatrix();
 	updateGL();
+*/
 }
 
 void KalziumGLWidget::setupObjects()
@@ -481,6 +497,7 @@ void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 {
 	if ( !molecule ) return;
 	m_molecule = molecule;
+	m_haveToRecompileDisplayList = true;
 	prepareMoleculeData();
 	setupObjects();
 	updateGL();
@@ -521,14 +538,42 @@ void KalziumGLWidget::ChooseStylePreset( StylePreset stylePreset )
 			m_bondRadiusCoeff = 0.0;
 			break;
 	}
+}
+
+
+void KalziumGLWidget::slotChooseStylePreset( int stylePreset )
+{
+	ChooseStylePreset( (StylePreset) stylePreset );
+	m_haveToRecompileDisplayList = true;
 	setupObjects();
 	updateGL();
 }
 
 void KalziumGLWidget::prepareMoleculeData()
 {
-	// translate the molecule so that center has coords 0,0,0
-	m_molecule->Center();
+	//Center the molecule
+	//normally this is done by OBMol::Center()
+	//but it doesn't seem to work for me
+	//perhaps I'm stupid (Benoit 03/07/06)
+
+	//first, calculate the coords of the center of the molecule
+	vector3 center( 0.0, 0.0, 0.0);
+	int number_of_atoms = 0;
+	FOR_ATOMS_OF_MOL( a, m_molecule )
+	{
+		center += a->GetVector();
+		number_of_atoms++;
+	}
+	center /= number_of_atoms;
+
+	//now, translate the molecule so that it gets centered.
+	//unfortunately OBMol::Translate doesn't seem to work for me
+	//(Benoit 03/07/06)
+	FOR_ATOMS_OF_MOL( a, m_molecule )
+	{
+		vector3 new_vector = a->GetVector() - center;
+		a->SetVector( new_vector );
+	}
 
 	// calculate the radius of the molecule
 	// that is, the maximal distance between an atom of the molecule
@@ -576,45 +621,12 @@ void KalziumGLWidget::slotSetDetail( int detail )
 
 Color& KalziumGLWidget::getAtomColor( OpenBabel::OBAtom* atom )
 {
+	// thanks to Geoffrey Hutchison from OpenBabel for
+	// this simplified getAtomColor method
 	static Color c;
-
-	if ( atom->IsHydrogen() )
-	{//white
-		c.m_red = 1.0;
-		c.m_green = 1.0;
-		c.m_blue = 1.0;
-	}
-	else if ( atom->IsCarbon() )
-	{//almost black
-		c.m_red = 0.25;
-		c.m_green = 0.25;
-		c.m_blue = 0.25;
-	}
-	else if ( atom->IsOxygen() )
-	{//red
-		c.m_red = 1.0;
-		c.m_green = 0.0;
-		c.m_blue = 0.0;
-	}
-	else if ( atom->IsNitrogen() )
-	{
-		c.m_red = 1.0;
-		c.m_green = 0.9;
-		c.m_blue = 0.5;
-	}
-	else if ( atom->IsSulfur() )
-	{//yellow
-		c.m_red = 1.0;
-		c.m_green = 1.0;
-		c.m_blue = 0.0;
-	}
-	else
-	{
-		c.m_red = 0.5;
-		c.m_green = 0.5;
-		c.m_blue = 0.5;
-	}
-
+	c.m_red = etab.GetRGB(atom->GetAtomicNum())[0];
+	c.m_green = etab.GetRGB(atom->GetAtomicNum())[1];
+	c.m_blue = etab.GetRGB(atom->GetAtomicNum())[2];
 	return c;
 }
 
