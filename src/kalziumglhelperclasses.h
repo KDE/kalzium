@@ -349,27 +349,33 @@ class CharRenderer
 * QGLWidget, say MyGLWidget.
 *
 * In the declaration of MyGLWidget, please declare a TextRenderer member:
-
+* 
+* @code
 class MyGLWidget : public QGLWidget
 {
 	...
 	TextRenderer m_textRenderer;
 	...
 };
-
+* @endcode
+* 
 * Now, in the constructor of MyGLWidget, you please call setup()
 * along these lines:
-
+*
+* @code
 	QFont f;
 	f.setStyleHint( QFont::SansSerif, QFont::PreferAntialias );
 	m_textRenderer.setup( this, f );
-
+* @endcode 
+*
 * The setup() method should be called only once, which means you have to choose
 * a font once and for all, in the lifetime of your TextRenderer. Any QFont can
 * be used, the above is just an example. Now, to actually render text, in
 * the MyGLWidget::paintGL() method, you can call
 
+* @code
 	m_textRenderer.print( x, y, string );
+* @endcode
 
 * where x,y are ints and string is any QString. If you want to choose a color,
 * please call glColor3f or glColor4f before calling print(). Of course you can
@@ -378,13 +384,15 @@ class MyGLWidget : public QGLWidget
 *
 * If you wish to do several calls to print(), it will improve performance
 * to enclose them between a call to begin() and a call to end(), like that:
-
+* 
+* @code
 	m_textRenderer.begin();
 	m_textRenderer.print( x1, y1, string1 );
 	m_textRenderer.print( x2, y2, string2 );
 	m_textRenderer.print( x3, y2, string3 );
 	m_textRenderer.end();
-
+* @endcode
+* 
 * Please make sure, though, that no OpenGL state change occurs between begin()
 * and end(), except the state changes performed by the TextRenderer itself.
 * In other words, please avoid calling glSomething() between begin() and end(),
@@ -404,7 +412,6 @@ class MyGLWidget : public QGLWidget
 *
 * @author Benoit Jacob
 */
-
 class TextRenderer
 {
 	protected:
