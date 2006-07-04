@@ -20,5 +20,5 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kalziumuiwidgets )
 
 target_link_libraries(kalziumuiwidgets ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} ${QT_QTDESIGNER_LIBRARY} ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${KDE4_KDEUI_LIBS} ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY})
 
-install_targets(${PLUGIN_INSTALL_DIR}/plugins/designer kalziumuiwidgets)
+install(TARGETS kalziumuiwidgets DESTINATION ${PLUGIN_INSTALL_DIR}/plugins/designer )
 

@@ -11,7 +11,7 @@ add_subdirectory(toolpics)
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/kalzium/data FILES bg.jpg knowledge.xml tools.xml )
+install( FILES bg.jpg knowledge.xml tools.xml  DESTINATION  ${DATA_INSTALL_DIR}/kalzium/data )
 
 
 

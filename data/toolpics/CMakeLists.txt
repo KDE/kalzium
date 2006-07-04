@@ -4,7 +4,7 @@
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/kalzium/data/toolpics FILES abzug.jpg  	becherglas.jpg  	brechungsmesser.jpg  	brenner.jpg  	destillierbruecke.jpg  	dsc.jpg  	erlenmeyerkolben.jpg  	exikator.jpg  	halter.jpg  	heizplatte.jpg  	hplc.jpg  	kolbenprober.png  	korkring.jpg  	messzylinder.jpg  	moerser.jpg  	phpapier.jpg  	pileusball.jpg  	pipette.jpg  	rg-halter.jpg  	rg.jpg  	rg-staender.jpg  	rotationsverdampfer.jpg  	rueckflusskuehler.jpg  	ruehrfisch.jpg  	rundkolben.jpg  	scheidetrichter.jpg  	schutzbrille.jpg  	spatel.jpg  	spritzflasche.jpg  	thermometer2.jpg  	thermometer.jpg  	tonschale.jpg  	trichter.jpg  	trockenrohr.jpg  	tropftrichter.jpg  	uhrglas.jpg  	verteiler.jpg  	vollpipette.jpg  	waage.jpg  	wasserstrahlpumpe.jpg )
+install( FILES abzug.jpg  	becherglas.jpg  	brechungsmesser.jpg  	brenner.jpg  	destillierbruecke.jpg  	dsc.jpg  	erlenmeyerkolben.jpg  	exikator.jpg  	halter.jpg  	heizplatte.jpg  	hplc.jpg  	kolbenprober.png  	korkring.jpg  	messzylinder.jpg  	moerser.jpg  	phpapier.jpg  	pileusball.jpg  	pipette.jpg  	rg-halter.jpg  	rg.jpg  	rg-staender.jpg  	rotationsverdampfer.jpg  	rueckflusskuehler.jpg  	ruehrfisch.jpg  	rundkolben.jpg  	scheidetrichter.jpg  	schutzbrille.jpg  	spatel.jpg  	spritzflasche.jpg  	thermometer2.jpg  	thermometer.jpg  	tonschale.jpg  	trichter.jpg  	trockenrohr.jpg  	tropftrichter.jpg  	uhrglas.jpg  	verteiler.jpg  	vollpipette.jpg  	waage.jpg  	wasserstrahlpumpe.jpg  DESTINATION  ${DATA_INSTALL_DIR}/kalzium/data/toolpics )
 
 
 

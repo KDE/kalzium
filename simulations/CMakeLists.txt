@@ -40,6 +40,6 @@ target_link_libraries(kalzium-simulations ${KDE4_KIO_LIBS})
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES kalzium-simulations.desktop )
+install( FILES kalzium-simulations.desktop  DESTINATION  ${XDG_APPS_DIR} )
 
 
