@@ -59,7 +59,7 @@ KalziumDataObject::KalziumDataObject()
 	// reading isotopes
 	IsotopeParser * isoparser = new IsotopeParser();
 
-	QFile xmlIsoFile( locate( "data", "libkdeedu/data/isotopes.xml" ) );
+	QFile xmlIsoFile( KStandardDirs::locate( "data", "libkdeedu/data/isotopes.xml" ) );
 	QXmlInputSource isosource(&xmlIsoFile);
 	QXmlSimpleReader isoreader;
 	
