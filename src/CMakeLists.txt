@@ -85,7 +85,7 @@ if (OPENBABEL2_FOUND AND OPENGL_FOUND)
    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY})
 endif (OPENBABEL2_FOUND AND OPENGL_FOUND)
 
-install_targets(/bin kalzium )
+install(TARGETS kalzium  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### install files ###############
