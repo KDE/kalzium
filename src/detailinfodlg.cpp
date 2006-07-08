@@ -138,34 +138,25 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 	{
 		case CHEMICAL:
 		{
-//X 			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-//X 			html.append( "<b>" + i18n( "Electronic configuration: %1" ).arg( m_element->parsedOrbits() ) + "</b>" );
-//X 			html.append( "</td></tr>" );
-//X 			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
-//X 			html.append( "<b>" + i18n( "Density: %1" ).arg( m_element->adjustUnits( Element::DENSITY ) ) + "</b>" );
-//X 			html.append( "</td></tr>" );
+			//Electronic configuration
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+			//Probably beautify here...
+			QString config = m_element->dataAsString( ChemicalDataObject::electronicConfiguration );
+			html.append( i18n( "Electronic configuration: %1", config ) );
+			html.append( "</td></tr>" );
+
+			//Density
+			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Density: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::density ) ) );
+			html.append( "</td></tr>" );
 			// covalent radius
 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Covalent Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) );
 			html.append( "</td></tr>" );
-//X 			if ( m_element->radius(Element::IONIC) > 0.0 )
-//X 			{
-//X 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-//X 				html.append( i18n( "<b>Ionic Radius (Charge): %1</b> (%2)" ).arg( m_element->adjustRadius(Element::IONIC) ).arg( m_element->ioncharge() ) );
-//X 				html.append( "</td></tr>" );
-//X 			}
 			// van der Waals radius
 			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "van der Waals Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) );
 			html.append( "</td></tr>" );
-//X 		
-//X 			if ( m_element->radius(Element::ATOMIC) > 0.0 )
-//X 			{
-//X 				html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td><b>" );
-//X 				html.append( "<b>" + i18n( "Atomic Radius: %1" ).arg( m_element->adjustRadius(Element::ATOMIC) ) + "</b>" );
-//X 				html.append( "</td></tr>" );
-//X 			}
-//X 			
 			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Mass: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) );
 			html.append( "</td></tr>" );
@@ -183,15 +174,6 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 				html += "<br />" + i18n( "It was discovered by %1.", discoverers );
 			}
 			html.append( "</td></tr>" );
-			// abundance
-			int abundance = m_element->dataAsVariant( ChemicalDataObject::relativeAbundance ).toInt();
-			if ( abundance > 0 )
-			{
-				html.append( "<tr><td><img src=\"abundance.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "Abundance in crustal rocks: %1 ppm", abundance ) );
-				html.append( "</td></tr>" );
-			}
-			
 //X 			html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
 //X 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );
 //X 			html.append( "</td></tr>" );

@@ -55,12 +55,6 @@ class DetailedGraphicalOverview : public QWidget
 		 */
 		Element *m_element;
 
-		/**
-		 * draw the small symbol which symbolises the
-		 * relevence for humans
-		 */
-		void drawBiologicalSymbol( QPainter *p );
-
 		//calculation of the corners
 		int x1,x2,y1,y2,h_t;
 

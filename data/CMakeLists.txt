@@ -13,14 +13,3 @@ add_subdirectory(toolpics)
 
 install( FILES bg.jpg knowledge.xml tools.xml  DESTINATION  ${DATA_INSTALL_DIR}/kalzium/data )
 
-
-
-
-#original Makefile.am contents follow:
-
-#SUBDIRS = $(AUTODIRS)
-#
-#xml_DATA = bg.jpg data.xml knowledge.xml tools.xml
-#
-#xmldir = $(kde_datadir)/kalzium/data
-#

@@ -124,7 +124,6 @@ template<class T> bool approx_equal( T a, T b, T precision )
 *
 * @author Benoit Jacob
 */
-
 template<class T> class Vector3
 {
 	public:
@@ -451,15 +450,13 @@ class TextRenderer
 		 */
 		GLboolean m_isBetweenBeginAndEnd;
 
-		/**
-		 * These members are used to remember the OpenGL state in order
-		 * to be able to restore it after rendering. See do_end().
-		 */
+		///{ Members used to remember the OpenGL state in order to be able to restore it after rendering. See do_end().
 		GLboolean m_wasEnabled_LIGHTING;
 		GLboolean m_wasEnabled_TEXTURE_2D;
 		GLboolean m_wasEnabled_FOG;
 		GLboolean m_wasEnabled_BLEND;
 		GLboolean m_wasEnabled_DEPTH_TEST;
+		///}
 
 		/**
 		 * Stores the relevant part of the OpenGL state, and prepares
