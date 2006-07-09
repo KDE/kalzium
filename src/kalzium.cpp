@@ -179,14 +179,14 @@ void Kalzium::setupActions()
 	connect( m_pIsotopeTableAction, SIGNAL( triggered() ), this, SLOT( slotIsotopeTable() ) );
 	m_pGlossaryAction = new KAction( KIcon( "glossary" ), i18n( "&Glossary..." ), actionCollection(), "tools_glossary" );
 	connect( m_pGlossaryAction, SIGNAL( triggered() ), this, SLOT( slotGlossary() ) );
-	m_pLatticeViewer = new KAction( KIcon( "crystal" ), i18n( "&Lattice Viewer..." ), actionCollection(), "tools_latticeviewer" );
-	connect( m_pLatticeViewer, SIGNAL( triggered() ), this, SLOT( slotLatticeViewer() ) );
-#ifndef HAVE_OPENBABEL2
-	m_pLatticeViewer->setEnabled( false );
-#endif
-#ifndef HAVE_OPENGL
-	m_pLatticeViewer->setEnabled( false );
-#endif
+//X 	m_pLatticeViewer = new KAction( KIcon( "crystal" ), i18n( "&Lattice Viewer..." ), actionCollection(), "tools_latticeviewer" );
+//X 	connect( m_pLatticeViewer, SIGNAL( triggered() ), this, SLOT( slotLatticeViewer() ) );
+//X #ifndef HAVE_OPENBABEL2
+//X 	m_pLatticeViewer->setEnabled( false );
+//X #endif
+//X #ifndef HAVE_OPENGL
+//X 	m_pLatticeViewer->setEnabled( false );
+//X #endif
 	
 	m_pRSAction = new KAction( KIcon( "rs" ), i18n( "&R/S-Phrases..." ), actionCollection(), "tools_rs" );
 	connect( m_pRSAction, SIGNAL( triggered() ), this, SLOT( slotRS() ) );
