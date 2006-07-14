@@ -348,11 +348,6 @@ void DetailedInfoDlg::createContent( )
 	QVBoxLayout *modelLayout = new QVBoxLayout( m_pModelTab );
 	modelLayout->setMargin( 0 );
 	wOrbits = new OrbitsWidget( m_pModelTab );
-	QWhatsThis::add( wOrbits,
-	    i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
-	    .arg( m_element->elname() )
-	    .arg( m_element->elname() )
-	    .arg( m_element->parsedOrbits() ) );
 	modelLayout->addWidget( wOrbits );
 
 	// html tabs
@@ -399,6 +394,11 @@ void DetailedInfoDlg::reloadContent()
 
 	// updating atomic model tab
 	wOrbits->setElementNumber( m_elementNumber );
+	QWhatsThis::add( wOrbits,
+	    i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
+	    .arg( m_element->elname() )
+	    .arg( m_element->elname() )
+	    .arg( m_element->parsedOrbits() ) );
 
 	// updating html tabs
 	fillHTMLTab( m_htmlpages["chemical"], getHtml( CHEMICAL ) );
