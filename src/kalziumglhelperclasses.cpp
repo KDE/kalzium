@@ -77,8 +77,8 @@ void Color::applyAsMaterials()
 	                            m_alpha };
 	GLfloat diffuseColor [] = { m_red, m_green, m_blue, m_alpha };
 
-	float s = ( 1.0 + fabsf( m_red - m_green )
-		+ fabsf( m_blue - m_green ) + fabsf( m_blue - m_red ) ) / 3;
+	float s = ( 0.5 + fabsf( m_red - m_green )
+		+ fabsf( m_blue - m_green ) + fabsf( m_blue - m_red ) ) / 4.0;
 
 	float t = 1.0 - s;
 
