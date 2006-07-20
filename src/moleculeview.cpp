@@ -49,7 +49,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	connect( ui.qualityCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( slotSetDetail( int ) ) );
 	connect( ui.styleCombo, SIGNAL(activated( int )), 
-			ui.glWidget , SLOT( slotChooseStylePreset( int ) ) );
+			ui.glWidget , SLOT( slotSetMolStyle( int ) ) );
 	connect( this, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
 				ui.glWidget, SLOT( slotAtomsSelected( QList<OpenBabel::OBAtom*> ) ) );
 	
@@ -86,9 +86,12 @@ void MoleculeDialog::slotLoadMolecule()
 			m_path,
 			"Molecules (*.cml)" );
 
+	if( filename.isEmpty() ) return;
+
 	kDebug() << "Filename to load: " << filename << endl;
-	
+
 	OpenBabel::OBMol* mol = OpenBabel2Wrapper::readMolecule( filename );
+	mol->Center();
 	ui.glWidget->slotSetMolecule( mol );
 	ui.glWidget->update();
 	updateStatistics();
@@ -212,7 +215,7 @@ void MoleculeDialog::slotCalculate( QList<OpenBabel::OBAtom*> atoms )
 		a1 = atoms.at( 0 );
 		a1 = atoms.at( 1 );
 		a2 = atoms.at( 2 );
-		a = mol->GetAngle( a1, a2, a3 );
+		a = 0;//mol->GetAngle( a1, a2, a3 );
 	}
 	else if ( atoms.count() == 4 )
 	{//calculate the torsion

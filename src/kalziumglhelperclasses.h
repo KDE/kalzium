@@ -5,12 +5,12 @@
  ***************************************************************************/
 
 /***************************************************************************
- *                                                                         *
+ *         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
  *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
+ *   (at your option) any later version.   *
+ *         *
  ***************************************************************************/
 #include <math.h>
 #include <QGLWidget>
@@ -20,12 +20,8 @@
 #include <QHash>
 #include <kdebug.h>
 
-/** USE_DOUBLE_PRECISION: if defined, use doubles instead of floats for
- * handling the model's geometric data. This does not seem to impact
- * significantly the performance. The vertex arrays are unaffected: they
- * always use floats.
- */
-#define USE_DOUBLE_PRECISION
+#include <openbabel/mol.h>
+#include <openbabel/obiter.h>
 
 /** USE_FPS_COUNTER: if defined, the GL Widget will show a frames-per-second
  * counter. Use only for testing: this makes the GL Widget constantly
@@ -34,40 +30,55 @@
 #define USE_FPS_COUNTER 
 
 /** USE_DISPLAY_LISTS: if defined, the whole scene will be stored in
- * an OpenGL display list. The vertex arrays will then also be converted to
- * display lists, in order to avoid problems. This option improves performance,
- * especially when rendering complex models, but increases memory usage.
+ * an OpenGL display list. The vertex arrays will then be converted into
+ * (nested) display lists, in order to avoid replication of geometric data.
+ * This option improves performance, especially when rendering complex models,
+ * but increases memory usage.
  */
-#define USE_DISPLAY_LISTS
+//#define USE_DISPLAY_LISTS
 
 namespace KalziumGLHelpers
 {
 
-#ifdef USE_DOUBLE_PRECISION
-typedef double FLOAT;
-typedef GLdouble GLFLOAT;
-#else
-typedef float FLOAT;
-typedef GLfloat GLFLOAT;
-#endif
+/**
+ * This struct represents a style in which to render a molecule
+ *
+ * @author Benoit Jacob
+ */
+struct MolStyle
+{
+	enum BondStyle
+	{
+		BONDS_DISABLED,
+		BONDS_GRAY,
+		BONDS_USE_ATOMS_COLORS
+	} m_bondStyle;
 
-inline float SQRT( float x ) { return sqrtf( x ); }
-inline double SQRT( double x ) { return sqrt( x ); }
-inline float SIN( float x ) { return sinf( x ); }
-inline double SIN( double x ) { return sin( x ); }
-inline float COS( float x ) { return cosf( x ); }
-inline double COS( double x ) { return cos( x ); }
-inline float FABS( float x ) { return fabsf( x ); }
-inline double FABS( double x ) { return fabs( x ); }
-inline void GLMULTMATRIX( const GLfloat *m ) { glMultMatrixf(m); }
-inline void GLMULTMATRIX( const GLdouble *m ) { glMultMatrixd(m); }
-inline void GLTRANSLATE( GLfloat x, GLfloat y, GLfloat z ) \
-	{ glTranslatef( x, y, z ); }
-inline void GLTRANSLATE( GLdouble x, GLdouble y, GLdouble z ) \
-	{ glTranslated( x, y, z ); }
+	enum AtomStyle
+	{
+		ATOMS_DISABLED,
+		ATOMS_USE_FIXED_RADIUS,
+		ATOMS_USE_VAN_DER_WAALS_RADIUS,
+	} m_atomStyle;
+
+	double m_singleBondRadius;
+	double m_multipleBondRadius;
+	double m_multipleBondShift;
+	double m_atomRadiusFactor;
+
+	void setup( BondStyle bondStyle, AtomStyle atomStyle,
+		double singleBondRadius,
+		double multipleBondRadius,
+		double multipleBondShift,
+		double atomRadiusFactor );
+
+	double getAtomRadius( int atomicNumber );
+	inline double getAtomRadius( const OpenBabel::OBAtom *atom )
+	{ return getAtomRadius( atom->GetAtomicNum() ); }
+};
 
 /**
-* This class represents a color in OpenGL float red-green-blue format.
+* This class represents a color in OpenGL float red-green-blue-alpha format.
 *
 * @author Benoit Jacob
 */
@@ -75,9 +86,22 @@ struct Color
 {
 	GLfloat m_red, m_green, m_blue, m_alpha;
 
-	Color();
+	Color() {}
+
+	/**
+	 * This constructor sets the four components of the color
+	 * individually. Each one ranges from 0.0 (lowest intensity) to
+	 * 1.0 (highest intensity). For the alpha component, 0.0 means fully
+	 * transparent and 1.0 (the default) means fully opaque.
+	 */
 	Color( GLfloat red, GLfloat green, GLfloat blue,
 		GLfloat alpha = 1.0 );
+
+	/**
+	 * This constructor uses OpenBabel to retrieve the color in which
+	 * the atom should be rendered.
+	 */
+	Color( const OpenBabel::OBAtom *atom );
 
 	Color& operator=( const Color& other );
 
@@ -99,115 +123,13 @@ struct Color
 };
 
 /**
-* Tests whether two Ts are approximately equal. Here T is assumed to be
-* a floating-point type. Recall that operator== between floating-point
-* types is broken.
-* returns true if abs( a - b ) <= c * precision
-* where c = max( abs( a ), abs( b ) )
-*/
-template<class T> bool approx_equal( T a, T b, T precision )
-{
-	T abs_a = FABS( a );
-	T abs_b = FABS( b );
-
-	T max_abs;
-	if( abs_a <= abs_b )
-		max_abs = abs_b;
-	else
-		max_abs = abs_a;
-	return( FABS( a - b ) <= precision * max_abs );
-}
-
-/**
-* This template class represents a vector in 3-space. It is meant to be
-* used with T = a floating-point type.
-*
-* @author Benoit Jacob
-*/
-template<class T> class Vector3
-{
-	public:
-		T x, y, z;
-		Vector3() {}
-		Vector3( T _x, T _y, T _z)
-		{ x = _x; y = _y; z = _z; }
-
-		Vector3<T>& operator= ( const Vector3<T>& other )
-		{
-			x = other.x;
-			y = other.y;
-			z = other.z;
-			return *this;
-		}
-
-		/**
-		* returns the norm of the vector, that is, its length
-		*/
-		inline T norm() const { return SQRT( x * x + y * y + z * z ); }
-
-		/**
-		* normalizes the vector, that is, scales it so that its norm
-		* becomes 1.
-		*/
-		void normalize()
-		{
-			T n = norm();
-			if( n == 0.0 ) return;
-			x /= n;
-			y /= n;
-			z /= n;
-		}
-};
-
-/**
-* Given a vector U, constructs two vectors v and w
-* such that (U, v, w) is a direct orthogonal basis.
+* Given a vector U, constructs two unit vectors v and w
+* such that (U, v, w) is an orthogonal basis.
 * U is not supposed to be normalized.
-* v and w are not getting normalized.
+*
+* Returns false if something went wrong.
 */
-template<class T> void construct_ortho_basis_given_first_vector(
-	const Vector3<T> &U, Vector3<T> & v, Vector3<T> & w )
-{
-	if( U.norm() == 0 ) return;
-
-	// let us first make a normalized copy of U
-	Vector3<T> u = U;
-	u.normalize();
-
-	// first we want to set v to be non-colinear to u
-	v = u;
-
-	if( ! approx_equal( v.x, v.y, 0.1 ) )
-	{
-		T tmp = v.x;
-		v.x = v.y;
-		v.y = tmp;
-	}
-	else if( ! approx_equal( v.y, v.z, 0.1 ) )
-	{
-		T tmp = v.z;
-		v.z = v.y;
-		v.y = tmp;
-	}
-	else // the 3 coords of v are approximately equal
-	{    // which implies that v is not colinear to (0,0,1)
-		v = Vector3<T>( 0, 0, 1 );
-	}
-
-	// now, v is not colinear to u. We compute its dot product with u
-	T u_dot_v = u.x * v.x + u.y * v.y + u.z * v.z;
-
-	// now we change v so that it becomes orthogonal to u
-	v.x -= u.x * u_dot_v;
-	v.y -= u.y * u_dot_v;
-	v.z -= u.z * u_dot_v;
-
-	// now that u and v are orthogonal, w can be constructed as
-	// their crossed product
-	w.x = u.y * v.z - u.z * v.y;
-	w.y = u.z * v.x - u.x * v.z;
-	w.z = u.x * v.y - u.y * v.x;
-}
+bool createOrthoBasisGivenFirstVector( const OpenBabel::vector3 &U, OpenBabel::vector3 & v, OpenBabel::vector3 & w );
 
 /**
 * This is an abstract base class for an OpenGL vertex array.
@@ -217,33 +139,45 @@ template<class T> void construct_ortho_basis_given_first_vector(
 class VertexArray
 {
 	protected:
-		GLenum m_mode;
-		Vector3<GLfloat> *m_vertexBuffer;
-		Vector3<GLfloat> *m_normalBuffer;
-		int m_vertexCount;
+
+		struct Vector
+		{
+			GLfloat x, y, z;
+		};
+
+		Vector *m_vertexBuffer;
+		Vector *m_normalBuffer;
 		unsigned short *m_indexBuffer;
+		GLenum m_mode;
+		int m_vertexCount;
 		int m_indexCount;
 		GLuint m_displayList;
-				
+		bool m_hasIndexBuffer;
+		bool m_hasSeparateNormalBuffer;
+		bool m_isValid;
+		
 		virtual int computeVertexCount() = 0;
-		virtual int computeIndexCount() = 0;
+		virtual int computeIndexCount() { return 0; }
 		virtual void buildBuffers() = 0;
-		virtual bool allocateBuffers();
-		virtual void compileDisplayListIfNeeded();
+		bool allocateBuffers();
+		void freeBuffers();
+		void compileDisplayList();
 
-		virtual void initialize();
+		void initialize();
 
 	public:
-		VertexArray();
+		VertexArray( GLenum mode,
+			bool hasIndexBuffer,
+			bool hasSeparateNormalBuffer );
 		virtual ~VertexArray();
 
-		virtual void do_draw();
-		virtual inline void draw()
+		void do_draw();
+		inline void draw()
 		{
 #ifdef USE_DISPLAY_LISTS
-			glCallList( m_displayList );
+			if( m_isValid ) glCallList( m_displayList );
 #else
-			do_draw();
+			if( m_isValid ) do_draw();
 #endif
 		}
 };
@@ -262,7 +196,6 @@ class Sphere : public VertexArray
 
 	protected:
 		int m_detail;
-		GLfloat m_radius;
 		virtual int computeVertexCount();
 		virtual int computeIndexCount();
 		virtual void buildBuffers();
@@ -270,8 +203,8 @@ class Sphere : public VertexArray
 	public:
 		Sphere();
 		virtual ~Sphere() {}
-		virtual void setup( int detail, GLfloat radius );
-		virtual void drawScaled( GLfloat radius );
+		virtual void setup( int detail );
+		virtual void draw( const OpenBabel::vector3 &center, double radius );
 };
 
 /**
@@ -283,16 +216,16 @@ class Cylinder : public VertexArray
 {
 	protected:
 		int m_faces;
-		GLfloat m_radius;
 
 		virtual int computeVertexCount();
-		virtual int computeIndexCount();
 		virtual void buildBuffers();
 
 	public:
 		Cylinder();
 		virtual ~Cylinder() {}
-		virtual void setup( int detail, GLfloat radius );
+		virtual void setup( int detail );
+		virtual void draw( const OpenBabel::vector3 &end1, const OpenBabel::vector3 &end2,
+			double radius, int order = 1, double shift = 0.0 );
 };
 
 /** This is a helper class for TextRenderer, and should probably never be
@@ -326,7 +259,8 @@ class CharRenderer
 	public:
 		CharRenderer();
 		~CharRenderer();
-		bool initialize( QChar c, const QFont &font );
+		bool initialize( QChar c, const QFont &font,
+			GLenum textureTarget );
 		inline void draw()
 		{
 			glCallList( m_displayList );
@@ -452,11 +386,13 @@ class TextRenderer
 
 		///{ Members used to remember the OpenGL state in order to be able to restore it after rendering. See do_end().
 		GLboolean m_wasEnabled_LIGHTING;
-		GLboolean m_wasEnabled_TEXTURE_2D;
+		GLboolean m_wasEnabled_textureTarget;
 		GLboolean m_wasEnabled_FOG;
 		GLboolean m_wasEnabled_BLEND;
 		GLboolean m_wasEnabled_DEPTH_TEST;
 		///}
+
+		GLenum m_textureTarget;
 
 		/**
 		 * Stores the relevant part of the OpenGL state, and prepares

@@ -18,7 +18,6 @@
 #include <QGLWidget>
 #include <QList>
 #include <QFont>
-#include <openbabel/mol.h>
 
 using namespace KalziumGLHelpers;
 
@@ -55,11 +54,10 @@ class KalziumGLWidget : public QGLWidget
 
 		QPoint m_lastDraggingPosition;
 
-
 		/**
 		 * Stores the rotation that is applied to the model.
 		 */
-		GLFLOAT m_RotationMatrix[16];
+		GLdouble m_RotationMatrix[16];
 
 		/**
 		 * The molecule which is displayed
@@ -67,34 +65,10 @@ class KalziumGLWidget : public QGLWidget
 		OpenBabel::OBMol* m_molecule;
 
 		/**
-		 * approximate radius of the molecule
+		 * approximate radius of the molecule,
+		 * without the electrons.
 		 */
-		GLFLOAT m_molRadius;
-
-		/**
-		 * length of the shortest bond in the molecule
-		 */
-		GLFLOAT m_molMinBondLength;
-
-		/**
-		 * length of the longest bond in the molecule
-		 */
-		GLFLOAT m_molMaxBondLength;
-
-		/**
-		 * The coefficient set by the user, determining the
-		 * radius of atoms.
-		 * WARNING: its meaning has just changed! (june 17)
-		 * Now the actual radius is proportional to
-		 * m_atomRadiusCoeff.
-		 */
-		float m_atomRadiusCoeff;
-
-		/**
-		 * The coefficient set by the user, determining the
-		 * radius (that is, half the thickness) of bonds.
-		 */
-		float m_bondRadiusCoeff;
+		GLdouble m_molRadiusWithoutElectrons;
 
 		/**
 		 * The detail-grade from 0 to 2.
@@ -112,36 +86,9 @@ class KalziumGLWidget : public QGLWidget
 		QList<OpenBabel::OBAtom*> m_selectedAtoms;
 
 		/**
-		 * The style in which the atoms are rendered.
+		 * The style in which the molecule is rendered
 		 */
-		enum AtomStyle
-		{
-			ATOM_DISABLED,
-			ATOM_SPHERE
-		} m_atomStyle;
-
-		/**
-		 * The style in which the bonds are rendered.
-		 */
-		enum BondStyle
-		{
-			BOND_DISABLED,
-			BOND_LINE,
-			BOND_CYLINDER_GRAY,
-			BOND_CYLINDER_BICOLOR
-		} m_bondStyle;
-
-		/**
-		 * Some style presets
-		 */
-		enum StylePreset
-		{
-			PRESET_LINES,
-			PRESET_STICKS,
-			PRESET_SPHERES_AND_GRAY_BONDS,
-			PRESET_SPHERES_AND_BICOLOR_BONDS,
-			PRESET_BIG_SPHERES
-		};
+		MolStyle m_molStyle;
 
 	public:
 		/**
@@ -198,10 +145,10 @@ class KalziumGLWidget : public QGLWidget
 		void slotSetDetail( int detail );
 
 		/**
-		 * Chooses the style of rendering among some presets
-		 * @param stylePreset the wanted style preset
+		 * Sets the molecule style
+		 * @param style the wanted molecule style
 		 */
-		void slotChooseStylePreset( int stylePreset );
+		void slotSetMolStyle( int style );
 
 		/**
 		 * The atoms @p atoms was selected by the user
@@ -243,6 +190,10 @@ class KalziumGLWidget : public QGLWidget
 		 * This method does the painting. Automatically called by Qt
 		 */
 		virtual void paintGL();
+		virtual void renderAtoms();
+		virtual void renderBonds();
+		virtual void renderSelection();
+		virtual void FPSCounter();
 
 		/**
 		 * This method is called by Qt whenever the widget is resized.
@@ -259,52 +210,12 @@ class KalziumGLWidget : public QGLWidget
 		 * it.
 		 */
 		void prepareMoleculeData();
-		
-		virtual void drawSphere( 
-				GLFLOAT x, 
-				GLFLOAT y, 
-				GLFLOAT z, 
-				GLfloat radius,
-				Color &color );
 
-		/**
-		 * This method draws a bond
-		 * @param x1
-		 * @param y1
-		 * @param z1
-		 * @param x2
-		 * @param y2
-		 * @param z2
-		 * @param color
-		 */
-		virtual void drawBond( GLFLOAT x1, GLFLOAT y1, GLFLOAT z1,
-			GLFLOAT x2, GLFLOAT y2, GLFLOAT z2,
-			Color &color );
+		double getMolRadius();
 
-		/**
-		 * returns the radius ( = half-thickness ) with which the
-		 * bonds are drawn
-		 */
-		inline GLFLOAT bondRadius();
+		void drawAtom( OpenBabel::OBAtom *atom );
 
-		/**
-		 * returns the radius with which the atoms are drawn
-		 * (currently all atoms are drawn with the same radius.
-		 * when we'll have a better model taking van der Waals radii
-		 * into account, we'll remove this member).
-		 */
-		inline GLFLOAT atomRadius();
-
-		/**
-		 * Chooses the style of rendering among some presets
-		 * @param stylePreset the wanted style preset
-		 */
-		virtual void ChooseStylePreset( StylePreset stylePreset );
-
-		/**
-		 * returns the color which a given atom should be painted
-		 */
-		Color& getAtomColor( OpenBabel::OBAtom* atom );
+		void drawBond( OpenBabel::OBBond *bond );
 
 		/**
 		 * recomputes the geometry of the geometric objects ( sphere,

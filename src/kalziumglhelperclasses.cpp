@@ -13,14 +13,34 @@
 #include "kalziumglhelperclasses.h"
 #include <math.h>
 
-#ifdef USE_FPS_COUNTER
-#include <QTime>
-#endif
-
 using namespace KalziumGLHelpers;
+using namespace OpenBabel;
 
-Color::Color()
+void MolStyle::setup( BondStyle bondStyle, AtomStyle atomStyle,
+	double singleBondRadius,
+	double multipleBondRadius,
+	double multipleBondShift,
+	double atomRadiusFactor )
 {
+	m_bondStyle = bondStyle;
+	m_atomStyle = atomStyle;
+	m_singleBondRadius = singleBondRadius;
+	m_multipleBondRadius = multipleBondRadius;
+	m_multipleBondShift = multipleBondShift;
+	m_atomRadiusFactor = atomRadiusFactor;
+}
+
+double MolStyle::getAtomRadius( int atomicNumber )
+{
+	switch( m_atomStyle )
+	{
+		case ATOMS_USE_FIXED_RADIUS:
+			return m_atomRadiusFactor;
+		case ATOMS_USE_VAN_DER_WAALS_RADIUS:
+			return m_atomRadiusFactor
+				* etab.GetVdwRad( atomicNumber );
+		default: return 0;
+	}
 }
 
 Color::Color( GLfloat red, GLfloat green, GLfloat blue,
@@ -30,6 +50,15 @@ Color::Color( GLfloat red, GLfloat green, GLfloat blue,
 	m_green = green;
 	m_blue = blue;
 	m_alpha = alpha;
+}
+
+Color::Color( const OBAtom* atom )
+{
+	std::vector<double> rgb = etab.GetRGB( atom->GetAtomicNum() );
+	m_red = rgb[0];
+	m_green = rgb[1];
+	m_blue = rgb[2];
+	m_alpha = 1.0;
 }
 
 Color& Color::operator=( const Color& other )
@@ -47,8 +76,16 @@ void Color::applyAsMaterials()
 	GLfloat ambientColor [] = { m_red / 2, m_green / 2, m_blue / 2,
 	                            m_alpha };
 	GLfloat diffuseColor [] = { m_red, m_green, m_blue, m_alpha };
-	GLfloat specularColor [] = { (2.0 + m_red) / 3, (2.0 + m_green) / 3,
-		(2.0 + m_blue) / 3, m_alpha };
+
+	float s = ( 1.0 + fabsf( m_red - m_green )
+		+ fabsf( m_blue - m_green ) + fabsf( m_blue - m_red ) ) / 3;
+
+	float t = 1.0 - s;
+
+	GLfloat specularColor [] = { s + t * m_red,
+		s + t * m_green,
+		s + t * m_blue,
+		m_alpha };
 
 	glMaterialfv(GL_FRONT, GL_AMBIENT, ambientColor);
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuseColor);
@@ -56,28 +93,29 @@ void Color::applyAsMaterials()
 	glMaterialf(GL_FRONT, GL_SHININESS, 50.0);
 }
 
-VertexArray::VertexArray()
+VertexArray::VertexArray( GLenum mode,
+	bool hasIndexBuffer,
+	bool hasSeparateNormalBuffer )
 {
-	m_mode = GL_TRIANGLE_STRIP;
+	m_mode = mode;
 	m_vertexBuffer = 0;
 	m_normalBuffer = 0;
 	m_indexBuffer = 0;
 	m_displayList = 0;
+	m_hasIndexBuffer = hasIndexBuffer;
+	m_hasSeparateNormalBuffer = hasSeparateNormalBuffer;
+	m_isValid = false;
 }
 
 VertexArray::~VertexArray()
 {
-	if( m_indexBuffer ) delete [] m_indexBuffer;
-	if( m_vertexBuffer ) delete [] m_vertexBuffer;
-	if( m_normalBuffer ) delete [] m_normalBuffer;
+	freeBuffers();
 	if( m_displayList )
 		glDeleteLists( m_displayList, 1 );
 }
 
-bool VertexArray::allocateBuffers()
+void VertexArray::freeBuffers()
 {
-	if( m_vertexCount > 65536 ) return false;
-
 	if( m_indexBuffer )
 	{
 		delete [] m_indexBuffer;
@@ -88,73 +126,80 @@ bool VertexArray::allocateBuffers()
 		delete [] m_vertexBuffer;
 		m_vertexBuffer = 0;
 	}
-	if( m_normalBuffer ) 
+	if( m_normalBuffer && m_hasSeparateNormalBuffer ) 
 	{
 		delete [] m_normalBuffer;
 		m_normalBuffer = 0;
 	}
+}
 
-	m_vertexBuffer = new Vector3<GLfloat>[m_vertexCount];
+bool VertexArray::allocateBuffers()
+{
+	if( m_vertexCount > 65536 ) return false;
+
+	freeBuffers();
+
+	m_vertexBuffer = new Vector[m_vertexCount];
 	if( ! m_vertexBuffer ) return false;
-	m_normalBuffer = new Vector3<GLfloat>[m_vertexCount];
-	if( ! m_normalBuffer ) return false;
-	m_indexBuffer = new unsigned short[m_indexCount];
-	if( ! m_indexBuffer ) return false;
+	
+	if( m_hasSeparateNormalBuffer )
+	{
+		m_normalBuffer = new Vector[m_vertexCount];
+		if( ! m_normalBuffer ) return false;
+	}
+	else m_normalBuffer = m_vertexBuffer;
+
+	if( m_hasIndexBuffer )
+	{
+		m_indexBuffer = new unsigned short[m_indexCount];
+		if( ! m_indexBuffer ) return false;
+	}
+
+	return true;
 }
 
 void VertexArray::do_draw()
 {
-	glPushClientAttrib( GL_CLIENT_VERTEX_ARRAY_BIT );
-	glEnableClientState( GL_VERTEX_ARRAY );
-	glEnableClientState( GL_NORMAL_ARRAY );
-	glDisableClientState( GL_COLOR_ARRAY );
-	glDisableClientState( GL_EDGE_FLAG_ARRAY );
-	glDisableClientState( GL_INDEX_ARRAY );
-	glDisableClientState( GL_TEXTURE_COORD_ARRAY );
 	glVertexPointer( 3, GL_FLOAT, 0, m_vertexBuffer );
 	glNormalPointer( GL_FLOAT, 0, m_normalBuffer );
-	if( m_indexCount )
+	if( m_hasIndexBuffer )
 		glDrawElements( m_mode, m_indexCount,
 			GL_UNSIGNED_SHORT, m_indexBuffer );
 	else
 		glDrawArrays( m_mode, 0, m_vertexCount );
-	glPopClientAttrib();
 }
 
-void VertexArray::compileDisplayListIfNeeded()
+void VertexArray::compileDisplayList()
 {
 #ifdef USE_DISPLAY_LISTS
 	if( ! m_displayList )
 		m_displayList = glGenLists( 1 );
 	if( ! m_displayList ) return;
+	
 	glNewList( m_displayList, GL_COMPILE );
 	do_draw();
 	glEndList();
 
-	delete [] m_vertexBuffer;
-	m_vertexBuffer = 0;
-	delete [] m_normalBuffer;
-	m_normalBuffer = 0;
-	if( m_indexBuffer ) delete [] m_indexBuffer;
-	m_indexBuffer = 0;
+	freeBuffers();
 #endif
 }
 
 void VertexArray::initialize()
 {
+	m_isValid = false;
 	m_vertexCount = computeVertexCount();
 	m_indexCount = computeIndexCount();
 	if( m_indexCount < 0 || m_vertexCount < 0 ) return;
-	allocateBuffers();
+	if( ! allocateBuffers() ) return;
 	buildBuffers();
-	compileDisplayListIfNeeded();
+	compileDisplayList();
+	m_isValid = true;
 }
 
 Sphere::Sphere()
-	: VertexArray()
+	: VertexArray( GL_TRIANGLE_STRIP, true, false )
 {
 	m_detail = 0;
-	m_radius = -1.0;
 }
 
 unsigned short Sphere::indexOfVertex( int strip, int column, int row)
@@ -167,31 +212,27 @@ void Sphere::computeVertex( int strip, int column, int row)
 	strip %= 5;
 	int next_strip = (strip + 1) % 5;
 
-	Vector3<GLfloat> *vertex =
-		&m_vertexBuffer[ indexOfVertex( strip, column, row ) ];
+	unsigned short index = indexOfVertex( strip, column, row );
 
-	Vector3<GLfloat> *normal =
-		&m_normalBuffer[ indexOfVertex( strip, column, row ) ];
+	const double phi = ( 1 + sqrt(5) ) / 2;
 
-	const GLfloat phi = ( 1 + sqrt(5) ) / 2;
-
-	const Vector3<GLfloat> northPole( 0, 1, phi );
-	const Vector3<GLfloat> northVertex[5] = {
-		Vector3<GLfloat>( 0, -1, phi ),
-		Vector3<GLfloat>( phi, 0, 1 ),
-		Vector3<GLfloat>( 1, phi, 0 ),
-		Vector3<GLfloat>( -1, phi, 0 ),
-		Vector3<GLfloat>( -phi, 0, 1 ) };
-	const Vector3<GLfloat> southVertex[5] = {
-		Vector3<GLfloat>( -1, -phi, 0 ),
-		Vector3<GLfloat>( 1, -phi, 0 ),
-		Vector3<GLfloat>( phi, 0, -1 ),
-		Vector3<GLfloat>( 0, 1, -phi ),
-		Vector3<GLfloat>( -phi, 0, -1 )
+	const vector3 northPole( 0, 1, phi );
+	const vector3 northVertices[5] = {
+		vector3( 0, -1, phi ),
+		vector3( phi, 0, 1 ),
+		vector3( 1, phi, 0 ),
+		vector3( -1, phi, 0 ),
+		vector3( -phi, 0, 1 ) };
+	const vector3 southVertices[5] = {
+		vector3( -1, -phi, 0 ),
+		vector3( 1, -phi, 0 ),
+		vector3( phi, 0, -1 ),
+		vector3( 0, 1, -phi ),
+		vector3( -phi, 0, -1 )
 		 };
-	const Vector3<GLfloat> southPole( 0, -1, -phi );
+	const vector3 southPole( 0, -1, -phi );
 
-	const Vector3<GLfloat> *v0, *v1, *v2;
+	const vector3 *v0, *v1, *v2;
 	int  c1, c2;
 
 	if( row >= 2 * m_detail && column == 0 )
@@ -205,51 +246,51 @@ void Sphere::computeVertex( int strip, int column, int row)
 
 	if( row  <= m_detail )
 	{
-		v0 = &northVertex[strip];
+		v0 = &northVertices[strip];
 		v1 = &northPole;
-		v2 = &northVertex[next_strip];
+		v2 = &northVertices[next_strip];
 		c1 = m_detail - row;
 		c2 = column;
 	}
 	else if( row >= 2 * m_detail )
 	{
-		v0 = &southVertex[next_strip];
+		v0 = &southVertices[next_strip];
 		v1 = &southPole;
-		v2 = &southVertex[strip];
+		v2 = &southVertices[strip];
 		c1 = row - 2 * m_detail;
 		c2 = m_detail - column;
 	}
 	else if( row <= m_detail + column )
 	{
-		v0 = &northVertex[next_strip];
-		v1 = &southVertex[next_strip];
-		v2 = &northVertex[strip];
+		v0 = &northVertices[next_strip];
+		v1 = &southVertices[next_strip];
+		v2 = &northVertices[strip];
 		c1 = row - m_detail;
 		c2 = m_detail - column;
 	}
 	else
 	{
-		v0 = &southVertex[strip];
-		v1 = &southVertex[next_strip];
-		v2 = &northVertex[strip];
+		v0 = &southVertices[strip];
+		v1 = &southVertices[next_strip];
+		v2 = &northVertices[strip];
 		c1 = column;
 		c2 = 2 * m_detail - row;
 	}
 
-	GLfloat u1 = GLfloat(c1) / m_detail;
-	GLfloat u2 = GLfloat(c2) / m_detail;
+	double u1 = double(c1) / m_detail;
+	double u2 = double(c2) / m_detail;
 
-	vertex->x = v0->x + u1 * (v1->x - v0->x) + u2 * (v2->x - v0->x);
-	vertex->y = v0->y + u1 * (v1->y - v0->y) + u2 * (v2->y - v0->y);
-	vertex->z = v0->z + u1 * (v1->z - v0->z) + u2 * (v2->z - v0->z);
+	vector3 v;
+	v.SetX( v0->x() + u1 * (v1->x() - v0->x()) + u2 * (v2->x() - v0->x()) );
+	v.SetY( v0->y() + u1 * (v1->y() - v0->y()) + u2 * (v2->y() - v0->y()) );
+	v.SetZ( v0->z() + u1 * (v1->z() - v0->z()) + u2 * (v2->z() - v0->z()) );
+	v.normalize();
 
-	vertex->normalize();
-
-	*normal = *vertex;
-
-	vertex->x *= m_radius;
-	vertex->y *= m_radius;
-	vertex->z *= m_radius;
+	Vector *vertex =
+		&m_vertexBuffer[ index ];
+	vertex->x = v.x();
+	vertex->y = v.y();
+	vertex->z = v.z();
 }
 
 int Sphere::computeVertexCount()
@@ -299,46 +340,32 @@ void Sphere::buildBuffers()
 	}
 }
 
-void Sphere::setup( int detail, GLfloat radius )
+void Sphere::setup( int detail )
 {
-	if( detail == m_detail && radius == m_radius ) return;
+	if( detail == m_detail ) return;
 	m_detail = detail;
-	m_radius = radius;
 	initialize();
 }
 
-void Sphere::drawScaled( GLfloat radius )
+void Sphere::draw( const vector3 &center, double radius )
 {
-	const GLfloat precision	= 0.001;
-
-	if( approx_equal( radius, m_radius, precision ) )
-	{
-		draw();
-		return;
-	}
-
-	GLfloat factor = radius / m_radius;
-//	glEnable( GL_NORMALIZE );
 	glPushMatrix();
-	glScalef( factor, factor, factor );
-	draw();
+	glTranslated( center.x(), center.y(), center.z() );
+	glScaled( radius, radius, radius );
+	VertexArray::draw();
 	glPopMatrix();
-//	glDisable( GL_NORMALIZE );
 }
 
 Cylinder::Cylinder()
-	: VertexArray()
+	: VertexArray( GL_QUAD_STRIP, false, true )
 {
-	m_mode = GL_QUAD_STRIP;
 	m_faces = 0;
-	m_radius = -1.0;
 }
 
-void Cylinder::setup( int faces, GLfloat radius )
+void Cylinder::setup( int faces )
 {
-	if( faces == m_faces && radius == m_radius ) return;
+	if( faces == m_faces ) return;
 	m_faces = faces;
-	m_radius = radius;
 	initialize();
 }
 
@@ -347,13 +374,6 @@ int Cylinder::computeVertexCount()
 	if( m_faces < 3 ) return -1;
 	return 2 * m_faces + 2;
 }
-
-int Cylinder::computeIndexCount()
-{
-	if( m_faces < 3 ) return -1;
-	return 0;
-}
-
 
 void Cylinder::buildBuffers()
 {
@@ -367,18 +387,72 @@ void Cylinder::buildBuffers()
 		m_normalBuffer[ 2 * i ].y = y;
 		m_normalBuffer[ 2 * i ].z = 0.0;
 
-		m_vertexBuffer[ 2 * i ].x = x * m_radius;
-		m_vertexBuffer[ 2 * i ].y = y * m_radius;
+		m_vertexBuffer[ 2 * i ].x = x;
+		m_vertexBuffer[ 2 * i ].y = y;
 		m_vertexBuffer[ 2 * i ].z = 1.0;
 
 		m_normalBuffer[ 2 * i + 1 ].x = x;
 		m_normalBuffer[ 2 * i + 1 ].y = y;
 		m_normalBuffer[ 2 * i + 1 ].z = 0.0;
 
-		m_vertexBuffer[ 2 * i + 1 ].x = x * m_radius;
-		m_vertexBuffer[ 2 * i + 1 ].y = y * m_radius;
+		m_vertexBuffer[ 2 * i + 1 ].x = x;
+		m_vertexBuffer[ 2 * i + 1 ].y = y;
 		m_vertexBuffer[ 2 * i + 1 ].z = 0.0;
 	}
+}
+
+void Cylinder::draw( const vector3 &end1, const vector3 &end2,
+	double radius, int order, double shift )
+{
+	// the "axis vector" of the cylinder
+	vector3 axis = end2 - end1;
+	
+	// find two unit vectors v, w such that
+	// (axis,v,w) is an orthogonal basis
+	vector3 v, w;
+	createOrthoBasisGivenFirstVector( axis, v, w );
+
+	// construct the 4D transformation matrix
+	GLdouble matrix[16];
+
+	// column 1
+	matrix[0] = v.x() * radius;
+	matrix[1] = v.y() * radius;
+	matrix[2] = v.z() * radius;
+	matrix[3] = 0.0;
+
+	// column 2
+	matrix[4] = w.x() * radius;
+	matrix[5] = w.y() * radius;
+	matrix[6] = w.z() * radius;
+	matrix[7] = 0.0;
+
+	// column 3
+	matrix[8] = axis.x();
+	matrix[9] = axis.y();
+	matrix[10] = axis.z();
+	matrix[11] = 0.0;
+
+	// column 4
+	matrix[12] = end1.x();
+	matrix[13] = end1.y();
+	matrix[14] = end1.z();
+	matrix[15] = 1.0;
+
+	//now we can do the actual drawing !
+	glPushMatrix();
+	glMultMatrixd( matrix );
+
+	if( order == 1 ) VertexArray::draw();
+	else for( int i = 0; i < order; i++)
+	{
+		glPushMatrix();
+		glRotated( 360.0 * i / order, 0.0, 0.0, 1.0 );
+		glTranslated( shift / radius, 0.0, 0.0 );
+		VertexArray::draw();
+		glPopMatrix();
+	}
+	glPopMatrix();
 }
 
 CharRenderer::CharRenderer()
@@ -392,14 +466,15 @@ CharRenderer::~CharRenderer()
 	if( m_texture ) glDeleteTextures( 1, &m_texture );
 	if( m_displayList ) glDeleteLists( m_displayList, 1 );
 }
-bool CharRenderer::initialize( QChar c, const QFont &font )
+
+bool CharRenderer::initialize( QChar c, const QFont &font, GLenum textureTarget )
 {
 	if( m_displayList ) return true;
 	
 	QFontMetrics fontMetrics ( font );
 	m_width = fontMetrics.width( c );
 	m_height = fontMetrics.height();
-	if( m_width == 0 || m_height == 0 ) return false;
+	if( m_width <= 0 || m_height <= 0 ) return false;
 	QImage image( m_width, m_height, QImage::Format_RGB32 );
 	
 	QPainter painter;
@@ -413,7 +488,7 @@ bool CharRenderer::initialize( QChar c, const QFont &font )
 	painter.end();
 
 	GLubyte *bitmap = new GLubyte[ m_width * m_height ];
-	if( bitmap == 0 ) return false;
+	if( ! bitmap ) return false;
 
 	for( int j = m_height - 1, n = 0; j >= 0; j-- )
 	for( int i = 0; i < m_width; i++, n++ )
@@ -422,12 +497,12 @@ bool CharRenderer::initialize( QChar c, const QFont &font )
 	}
 
 	glGenTextures( 1, &m_texture );
-	if( m_texture == 0 ) return false;
+	if( ! m_texture ) return false;
 
-	glBindTexture( GL_TEXTURE_2D, m_texture );
+	glBindTexture( textureTarget, m_texture );
 	glPixelStorei( GL_UNPACK_ALIGNMENT, 1 );
 	glTexImage2D(
-		GL_TEXTURE_2D,
+		textureTarget,
 		0,
 		GL_ALPHA,
 		m_width,
@@ -436,16 +511,16 @@ bool CharRenderer::initialize( QChar c, const QFont &font )
 		GL_ALPHA,
 		GL_UNSIGNED_BYTE,
 		bitmap );
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri( textureTarget, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
+	glTexParameteri( textureTarget, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
 
 	delete [] bitmap;
 
 	m_displayList = glGenLists(1);
-	if( m_displayList == 0 ) return false;
+	if( ! m_displayList ) return false;
 
 	glNewList( m_displayList, GL_COMPILE );
-	glBindTexture( GL_TEXTURE_2D, m_texture );
+	glBindTexture( textureTarget, m_texture );
 	glBegin( GL_QUADS );
 	glTexCoord2f( 0, 0);
 	glVertex2f( 0 , 0 );
@@ -465,6 +540,7 @@ TextRenderer::TextRenderer()
 {
 	m_glwidget = 0;
 	m_isBetweenBeginAndEnd = false;
+	m_textureTarget = GL_TEXTURE_2D;
 }
 
 TextRenderer::~TextRenderer()
@@ -488,12 +564,13 @@ void TextRenderer::do_begin()
 {
 	m_wasEnabled_LIGHTING = glIsEnabled( GL_LIGHTING );
 	m_wasEnabled_FOG = glIsEnabled( GL_FOG );
-	m_wasEnabled_TEXTURE_2D = glIsEnabled( GL_TEXTURE_2D );
+	m_wasEnabled_textureTarget
+		= glIsEnabled( m_textureTarget );
 	m_wasEnabled_BLEND = glIsEnabled( GL_BLEND );
 	m_wasEnabled_DEPTH_TEST = glIsEnabled( GL_DEPTH_TEST );
 	glDisable( GL_LIGHTING );
 	glDisable( GL_FOG );
-	glEnable( GL_TEXTURE_2D );
+	glEnable( m_textureTarget );
 	glEnable( GL_BLEND );
 	glDisable( GL_DEPTH_TEST );
 	glMatrixMode( GL_PROJECTION );
@@ -513,7 +590,8 @@ void TextRenderer::begin()
 
 void TextRenderer::do_end()
 {
-	if( ! m_wasEnabled_TEXTURE_2D ) glDisable( GL_TEXTURE_2D);
+	if( ! m_wasEnabled_textureTarget )
+		glDisable( m_textureTarget );
 	if( ! m_wasEnabled_BLEND ) glDisable( GL_BLEND );
 	if( m_wasEnabled_DEPTH_TEST ) glEnable( GL_DEPTH_TEST );
 	if( m_wasEnabled_LIGHTING ) glEnable( GL_LIGHTING );
@@ -546,7 +624,7 @@ void TextRenderer::print( int x, int y, const QString &string )
 		else
 		{
 			CharRenderer *c = new CharRenderer;
-			if( c->initialize( string[i], m_font ) )
+			if( c->initialize( string[i], m_font, m_textureTarget ) )
 			{
 				m_charTable.insert( string[i], c);
 				c->draw();
@@ -558,3 +636,13 @@ void TextRenderer::print( int x, int y, const QString &string )
 
 	if( ! m_isBetweenBeginAndEnd ) do_end();
 }
+
+bool KalziumGLHelpers::createOrthoBasisGivenFirstVector
+	( const vector3 &U, vector3 & v, vector3 & w )
+{
+	if( ! U.createOrthoVector( v ) ) return false;
+	w = cross( U, v );
+	w.normalize();
+	return true;
+}
+
