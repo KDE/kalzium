@@ -265,7 +265,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 		}
 		case DATA:
 		{
-			html.append( i18n( "<tr><td>Compound properties</td></tr>" ) );
+			html.append( i18n( "<tr><th colspan=\"2\" align=\"left\">Compound properties</th></tr>" ) );
 			//Compound Data
 			// melting point
 			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
@@ -281,7 +281,7 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 			html.append( "<table summary=\"characteristics\" class=\"characterstics\">" );
 
 			//Atomic Data
-			html.append( i18n( "<tr><td>Atomic properties</td></tr>" ) );
+			html.append( i18n( "<tr><th colspan=\"2\" align=\"left\">Atomic properties</th></tr>" ) );
 			// electro affinity
 			html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "Electron Affinity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
