@@ -6,3 +6,16 @@
 6.png Tetragonal
 7.png Monoclinic
 8.png Rhombohedral
+
+"Own" 
+"bcc, body centered cubic" 
+"hdp, hexagonal"
+"ccp, cubic close packed"
+"hcp, hexagonal close packed"
+"fcc, face centered cubic"
+"d, diamond"
+"sc, simple cubic"
+"tet, tetragonal"
+"rh, rhombohedral"
+"or, orthorhombic"
+"mono, monoclinic"

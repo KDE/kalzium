@@ -488,37 +488,40 @@ QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& elrect ) con
 
 	QString filename;
 	if (  crystal == "own" ){
-		filename = "1.png";
+		filename = "2.png";//for debugging only until Danny did the real icons
 	}
 	else if (  crystal == "bcc" ){
-		filename = "2.png";
-	}
-	else if (  crystal == "hdp" ){
-		filename = "3.png";
-	}
-	else if (  crystal == "ccp" ){
-		filename = "4.png";
-	}
-	else if (  crystal ==  "hcp" ){
-		filename = "5.png";
-	}
-	else if (  crystal ==  "fcc" ){
-		filename = "6.png";
-	}
-	else if (  crystal ==  "d" ){
-		filename = "7.png";
-	}
-	else if (  crystal ==  "sc" ){
-		filename = "8.png";
-	}
-	else if (  crystal ==  "tet" ){
 		filename = "1.png";
 	}
+	else if (  crystal == "hdp" ){
+		filename = "5.png";
+	}
+	else if (  crystal == "ccp" ){
+		filename = "2.png";//for debugging only until Danny did the real icons
+	}
+	else if (  crystal ==  "hcp" ){
+		filename = "2.png";//for debugging only until Danny did the real icons
+	}
+	else if (  crystal ==  "fcc" ){
+		filename = "2.png";
+	}
+	else if (  crystal ==  "d" ){
+		filename = "2.png";//for debugging only until Danny did the real icons
+	}
+	else if (  crystal ==  "sc" ){
+		filename = "3.png";
+	}
+	else if (  crystal ==  "tet" ){
+		filename = "6.png";
+	}
 	else if (  crystal ==  "rh" ){
+		filename = "8.png";
 	}
 	else if (  crystal ==  "or" ){
+		filename = "4.png";
 	}
 	else if (  crystal ==  "mono" ){
+		filename = "7.png";
 	}
 
 	QBrush ret;
