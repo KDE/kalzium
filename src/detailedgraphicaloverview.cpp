@@ -54,6 +54,12 @@ void DetailedGraphicalOverview::setElement( int el )
 void DetailedGraphicalOverview::setBackgroundColor( const QColor& bgColor )
 {
 	m_backgroundColor = bgColor.isValid() ? bgColor : Qt::green;
+	
+	//this check is needed because a QBrush( QPixmap() ) constructs 
+	//with a black brush. But black is a really bad color here ...
+	if ( bgColor == QColor( 0, 0, 0 ) )
+		m_backgroundColor = Qt::white;
+	
 	update();
 }
 
