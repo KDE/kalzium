@@ -6,6 +6,7 @@ add_subdirectory(htmlview)
 add_subdirectory(icons)
 add_subdirectory(iconsets)
 add_subdirectory(toolpics)
+add_subdirectory(latticeicons)
 
 
 
