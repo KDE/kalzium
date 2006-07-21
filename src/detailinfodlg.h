@@ -18,6 +18,8 @@
 
 #include <kpagedialog.h>
 
+#include "ui_informationwidget.h"
+
 #include <QMap>
 
 class DetailedGraphicalOverview;
@@ -45,6 +47,8 @@ class DetailedInfoDlg : public KPageDialog
 
 		void setOverviewBackgroundColor( const QColor &bgColor );
 
+		Ui::InformationWidget ui;
+
 	private:
 		enum DATATYPE
 		{
@@ -52,7 +56,8 @@ class DetailedInfoDlg : public KPageDialog
 			MISC,
 			ENERGY,
 			ISOTOPES,
-			WARNINGS
+			WARNINGS,
+			DATA /** <the overview about atomic and compound data */
 		};
 
 		Element            *m_element;

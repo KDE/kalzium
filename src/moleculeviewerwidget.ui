@@ -302,7 +302,7 @@
           <item>
            <widget class="QLabel" name="nameLabel" >
             <property name="text" >
-             <string>TextLabel</string>
+             <string/>
             </property>
            </widget>
           </item>
@@ -326,7 +326,7 @@
           <item>
            <widget class="QLabel" name="formulaLabel" >
             <property name="text" >
-             <string>TextLabel</string>
+             <string/>
             </property>
            </widget>
           </item>
@@ -350,7 +350,7 @@
           <item>
            <widget class="QLabel" name="weightLabel" >
             <property name="text" >
-             <string>TextLabel</string>
+             <string/>
             </property>
            </widget>
           </item>

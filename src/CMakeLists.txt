@@ -49,6 +49,9 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND)
 		kalziumglwidget.cpp
 		openbabel2wrapper.cpp
 	)
+	kde4_add_ui_files(kalzium_SRCS
+		latticeviewer.ui
+	)
 	include_directories( ${OPENBABEL2_INCLUDE_DIR} )
 	add_subdirectory(widgets)
 endif(OPENBABEL2_FOUND AND OPENGL_FOUND)
@@ -69,11 +72,6 @@ kde4_add_ui_files(kalzium_SRCS
    rswidget.ui
    moleculeviewerwidget.ui
 )
-if(OPENBABEL2_FOUND AND OPENGL_FOUND)
-  kde4_add_ui_files(kalzium_SRCS
-      latticeviewer.ui
-  )
-endif(OPENBABEL2_FOUND AND OPENGL_FOUND)
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 

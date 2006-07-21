@@ -174,9 +174,11 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 				html += "<br />" + i18n( "It was discovered by %1.", discoverers );
 			}
 			html.append( "</td></tr>" );
-//X 			html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-//X 			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );
-//X 			html.append( "</td></tr>" );
+			html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+			double mass = m_element->dataAsVariant( ChemicalDataObject::mass ).toDouble();
+			double neutrons = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
+			html.append( i18n( "Mean mass: %1 u", mass/neutrons) );
+			html.append( "</td></tr>" );
 			// origin of the name
 			QString nameorigin = m_element->dataAsString( ChemicalDataObject::nameOrigin );
 			if ( !nameorigin.isEmpty() )
@@ -220,16 +222,6 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 			html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
 			html.append( i18n( "First Ionization energy: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::ionization ) ) );
 			html.append( "</td></tr>" );
-//X 
-//X 			//get the list of ionisation-energies
-//X 			QList<double> ionlist = m_element->ionisationList();
-//X 			for ( int i = 0; i < ionlist.count() ; ++i )
-//X 			{
-//X 				html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
-//X 				html.append( i18n("the first variable is a number. The result is for example '1.' or '5.', the second is the value of the ionisation energy",
-//X 				             "%1. Ionization energy: %2" ).arg( QString::number( i+1 ), m_element->adjustUnits( Element::IE, ionlist[i] ) ) );
-//X 			html.append( "</td></tr>" );
-//X 			}
 			break;
 		}
 		case ISOTOPES:
@@ -269,6 +261,56 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 				html.append( "<tr><td>" );
 				html.append( i18n( "<b>S-phrases</b>: %1", m_element->dataAsString( ChemicalDataObject::SPhrase ) ) );
 				html.append( "</td></tr>" );
+				break;
+		}
+		case DATA:
+		{
+			html.append( i18n( "<tr><td>Compound properties</td></tr>" ) );
+			//Compound Data
+			// melting point
+			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Melting Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
+			html.append( "</td></tr>" );
+
+			// boiling point
+			html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Boiling Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::boilingpoint ) ) );
+ 			html.append( "</td></tr>" );
+			
+			html.append( "</table>" );
+			html.append( "<table summary=\"characteristics\" class=\"characterstics\">" );
+
+			//Atomic Data
+			html.append( i18n( "<tr><td>Atomic properties</td></tr>" ) );
+			// electro affinity
+			html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Electron Affinity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
+			html.append( "</td></tr>" );
+			
+			//Density
+			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Density: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::density ) ) );
+			html.append( "</td></tr>" );
+			
+			//Electronic configuration
+			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+			   //Probably beautify here...
+			QString config = m_element->dataAsString( ChemicalDataObject::electronicConfiguration );
+			html.append( i18n( "Electronic configuration: %1", config ) );
+			html.append( "</td></tr>" );
+			
+			// covalent radius
+			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Covalent Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) );
+			html.append( "</td></tr>" );
+			
+			// van der Waals radius
+			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "van der Waals Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) );
+			html.append( "</td></tr>" );
+			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+			html.append( i18n( "Mass: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) );
+			html.append( "</td></tr>" );
 		}
 	}
 
@@ -404,11 +446,12 @@ void DetailedInfoDlg::createContent()
 	modelLayout->addWidget( wOrbits );
 
 	// html tabs
-	m_htmlpages["chemical"] = addHTMLTab( i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
-	m_htmlpages["energies"] = addHTMLTab( i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
+//X	m_htmlpages["chemical"] = addHTMLTab( i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
+//X	m_htmlpages["energies"] = addHTMLTab( i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
 	m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 	m_htmlpages["isotopes"] = addHTMLTab( i18n( "Isotopes" ), i18n( "Isotopes" ), "isotopes" );
-	m_htmlpages["warnings"] = addHTMLTab( i18n( "Warnings" ), i18n( "Warnings" ), "warnings" );
+//X	m_htmlpages["warnings"] = addHTMLTab( i18n( "Warnings" ), i18n( "Warnings" ), "warnings" );
+	m_htmlpages["new"] = addHTMLTab( i18n( "Data Overview" ), i18n( "Data Overview" ), "data" );
 
 	// spectrum widget tab
 	QWidget *m_pSpectrumTab = new QWidget();
@@ -460,8 +503,9 @@ void DetailedInfoDlg::reloadContent()
 */
 
 	// updating html tabs
-	fillHTMLTab( m_htmlpages["chemical"], getHtml( CHEMICAL ) );
-	fillHTMLTab( m_htmlpages["energies"], getHtml( ENERGY ) );
+//	fillHTMLTab( m_htmlpages["chemical"], getHtml( CHEMICAL ) );
+//	fillHTMLTab( m_htmlpages["energies"], getHtml( ENERGY ) );
+	fillHTMLTab( m_htmlpages["new"], getHtml( DATA ) );
 	fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
 	fillHTMLTab( m_htmlpages["isotopes"], getHtml( ISOTOPES ) );
 	fillHTMLTab( m_htmlpages["warnings"], getHtml( WARNINGS ) );
