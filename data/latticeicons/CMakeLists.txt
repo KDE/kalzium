@@ -7,5 +7,5 @@ install( FILES
 	6.png  
 	7.png  
 	8.png  
-	DESTINATION  ${DATA_INSTALL_DIR}/kalzium/data/iconsets/school 
+	DESTINATION  ${DATA_INSTALL_DIR}/kalzium/data/latticeicons
 )
