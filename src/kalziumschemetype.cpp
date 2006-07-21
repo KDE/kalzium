@@ -26,6 +26,8 @@
 #include <QVariant>
 
 #include <klocale.h>
+#include <kdebug.h>
+#include <kstandarddirs.h>
 
 KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
 {
@@ -478,48 +480,47 @@ QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& ) const
 {
 	QString crystal = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::crystalstructure );
 
-	QColor c;
+	QString filename = KGlobal::dirs()->findResourceDir(  "appdata", "data/latticeicons/" ) + "data/latticeicons/";
 
-	if (  crystal == QLatin1String(  "own" ) ){
-		c = Prefs::crystal_own();
+	if (  crystal == "own" ){
+		filename += "1.png";
 	}
-	else if (  crystal == QLatin1String(  "bcc" ) ){
-		c = Prefs::crystal_bcc();
+	else if (  crystal == "bcc" ){
+		filename += "2.png";
 	}
-	else if (  crystal == QLatin1String(  "hdp" ) ){
-		c = Prefs::crystal_hdp();
+	else if (  crystal == "hdp" ){
+		filename += "3.png";
 	}
-	else if (  crystal == QLatin1String(  "ccp" ) ){
-		c = Prefs::crystal_ccp();
+	else if (  crystal == "ccp" ){
+		filename += "4.png";
 	}
-	else if (  crystal == QLatin1String(  "hcp" ) ){
-		c = Prefs::crystal_hcp();
+	else if (  crystal ==  "hcp" ){
+		filename += "5.png";
 	}
-	else if (  crystal == QLatin1String(  "fcc" ) ){
-		c = Prefs::crystal_fcc();
+	else if (  crystal ==  "fcc" ){
+		filename += "6.png";
 	}
-	else if (  crystal == QLatin1String(  "d" ) ){
-		c = Prefs::crystal_d();
+	else if (  crystal ==  "d" ){
+		filename += "7.png";
 	}
-	else if (  crystal == QLatin1String(  "sc" ) ){
-		c = Prefs::crystal_sc();
+	else if (  crystal ==  "sc" ){
+		filename += "8.png";
 	}
-	else if (  crystal == QLatin1String(  "tet" ) ){
-		c = Prefs::crystal_tet();
+	else if (  crystal ==  "tet" ){
+		filename += "1.png";
 	}
-	else if (  crystal == QLatin1String(  "rh" ) ){
-		c = Prefs::crystal_rh();
+	else if (  crystal ==  "rh" ){
 	}
-	else if (  crystal == QLatin1String(  "or" ) ){
-		c = Prefs::crystal_or();
+	else if (  crystal ==  "or" ){
 	}
-	else if (  crystal == QLatin1String(  "mono" ) ){
-		c = Prefs::crystal_mono();
+	else if (  crystal ==  "mono" ){
 	}
-	else
-		c = Qt::lightGray;
+
+	kDebug() << "Filename of the crystal icon: " << filename << endl;
+
+	QPixmap pixmap( filename );
 	
-	return QBrush( c );
+	return QBrush( pixmap );
 }
 
 QColor KalziumCrystalSchemeType::textColor( int ) const
@@ -530,18 +531,6 @@ QColor KalziumCrystalSchemeType::textColor( int ) const
 legendList KalziumCrystalSchemeType::legendItems() const
 {
 	legendList ll;
-	ll << qMakePair(  i18n( "Own" ), Prefs::crystal_own() );
-	ll << qMakePair(  i18n( "bcc, body centered cubic" ), Prefs::crystal_bcc() );
-	ll << qMakePair(  i18n( "hdp, hexagonal" ), Prefs::crystal_hdp() );
-	ll << qMakePair(  i18n( "ccp, cubic close packed" ), Prefs::crystal_ccp() );
-	ll << qMakePair(  i18n( "hcp, hexagonal close packed" ), Prefs::crystal_hcp() );
-	ll << qMakePair(  i18n( "fcc, face centered cubic" ), Prefs::crystal_fcc() );
-	ll << qMakePair(  i18n( "d, diamond" ), Prefs::crystal_d() );
-	ll << qMakePair(  i18n( "sc, simple cubic" ), Prefs::crystal_sc() );
-	ll << qMakePair(  i18n( "tet, tetragonal" ), Prefs::crystal_tet() );
-	ll << qMakePair(  i18n( "rh, rhombohedral" ), Prefs::crystal_rh() );
-	ll << qMakePair(  i18n( "or, orthorhombic" ), Prefs::crystal_or() );
-	ll << qMakePair(  i18n( "mono, monoclinic" ), Prefs::crystal_mono() );
 
 	return ll;
 }

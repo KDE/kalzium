@@ -127,66 +127,6 @@
 			<whatsthis>Selects the color of the elements in group 8</whatsthis>
 			<default>#b4adff</default>
 		</entry>
-		<entry name="crystal_own" type="Color">
-			<label>Selects the color of individual crystal structures</label>
-			<whatsthis>Selects the color of individual crystal structures</whatsthis>
-			<default>#b4adff</default>
-		</entry>
-		<entry name="crystal_bcc" type="Color">
-			<label>Selects the color of the bcc crystal structure</label>
-			<whatsthis>Selects the color of the bcc crystal structure</whatsthis>
-			<default>#b4adff</default>
-		</entry>
-		<entry name="crystal_hdp" type="Color">
-			<label>Selects the color of the hdp crystal structure</label>
-			<whatsthis>Selects the color of the hdp crystal structure</whatsthis>
-			<default>#b4adff</default>
-		</entry>
-		<entry name="crystal_ccp" type="Color">
-			<label>Selects the color of the ccp crystal structure</label>
-			<whatsthis>Selects the color of the ccp crystal structure</whatsthis>
-			<default>#b4adff</default>
-		</entry>
-		<entry name="crystal_hcp" type="Color">
-			<label>Selects the color of the hcp crystal structures</label>
-			<whatsthis>Selects the color of the hcp crystal structures</whatsthis>
-			<default>#b4adff</default>
-		</entry>
-		<entry name="crystal_fcc" type="Color">
-			<label>Selects the color of the fcc crystal structures</label>
-			<whatsthis>Selects the color of the fcc crystal structures</whatsthis>
-			<default>#b4adff</default>
-		</entry>
-		<entry name="crystal_d" type="Color">
-			<label>Selects the color of the diamond crystal structures</label>
-			<whatsthis>Selects the color of the diamond crystal structures</whatsthis>
-			<default>#b4adff</default>
-		</entry>
-		<entry name="crystal_sc" type="Color">
-			<label>Selects the color of the sc crystal structures</label>
-			<whatsthis>Selects the color of the sc crystal structures</whatsthis>
-			<default>#b4adff</default>
-		</entry>
-		<entry name="crystal_tet" type="Color">
-			<label>Selects the color of the tetragonal crystal structures</label>
-			<whatsthis>Selects the color of the tetragonal crystal structures</whatsthis>
-			<default>#b4adff</default>
-		</entry>
-		<entry name="crystal_rh" type="Color">
-			<label>Selects the color of the rh crystal structures</label>
-			<whatsthis>Selects the color of rh hcp crystal structures</whatsthis>
-			<default>#b4adff</default>
-		</entry>
-		<entry name="crystal_or" type="Color">
-			<label>Selects the color of the orthorhombic crystal structures</label>
-			<whatsthis>Selects the color of the orthorhombic crystal structures</whatsthis>
-			<default>#b4adff</default>
-		</entry>
-		<entry name="crystal_mono" type="Color">
-			<label>Selects the color of the monoclinic crystal structures</label>
-			<whatsthis>Selects the color of the monoclinic crystal structures</whatsthis>
-			<default>#b4adff</default>
-		</entry>
 		<entry name="beh_acidic" type="Color">
 			<label>Selects the color of the elements with acidic behaviour</label>
 			<whatsthis>Selects the color of the elements with acidic behaviour</whatsthis>
