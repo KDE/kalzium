@@ -18,6 +18,7 @@ using namespace OpenBabel;
 
 void MolStyle::setup( BondStyle bondStyle, AtomStyle atomStyle,
 	double singleBondRadius,
+	bool renderMultipleBonds,
 	double multipleBondRadius,
 	double multipleBondShift,
 	double atomRadiusFactor )
@@ -25,6 +26,7 @@ void MolStyle::setup( BondStyle bondStyle, AtomStyle atomStyle,
 	m_bondStyle = bondStyle;
 	m_atomStyle = atomStyle;
 	m_singleBondRadius = singleBondRadius;
+	m_renderMultipleBonds = renderMultipleBonds;
 	m_multipleBondRadius = multipleBondRadius;
 	m_multipleBondShift = multipleBondShift;
 	m_atomRadiusFactor = atomRadiusFactor;
@@ -87,10 +89,10 @@ void Color::applyAsMaterials()
 		s + t * m_blue,
 		m_alpha };
 
-	glMaterialfv(GL_FRONT, GL_AMBIENT, ambientColor);
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuseColor);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, specularColor);
-	glMaterialf(GL_FRONT, GL_SHININESS, 50.0);
+	glMaterialfv( GL_FRONT, GL_AMBIENT, ambientColor );
+	glMaterialfv( GL_FRONT, GL_DIFFUSE, diffuseColor );
+	glMaterialfv( GL_FRONT, GL_SPECULAR, specularColor );
+	glMaterialf( GL_FRONT, GL_SHININESS, 50.0 );
 }
 
 VertexArray::VertexArray( GLenum mode,
@@ -280,10 +282,7 @@ void Sphere::computeVertex( int strip, int column, int row)
 	double u1 = double(c1) / m_detail;
 	double u2 = double(c2) / m_detail;
 
-	vector3 v;
-	v.SetX( v0->x() + u1 * (v1->x() - v0->x()) + u2 * (v2->x() - v0->x()) );
-	v.SetY( v0->y() + u1 * (v1->y() - v0->y()) + u2 * (v2->y() - v0->y()) );
-	v.SetZ( v0->z() + u1 * (v1->z() - v0->z()) + u2 * (v2->z() - v0->z()) );
+	vector3 v = *v0 + u1 * ( *v1 - *v0 ) + u2 * ( *v2 - *v0 );
 	v.normalize();
 
 	Vector *vertex =

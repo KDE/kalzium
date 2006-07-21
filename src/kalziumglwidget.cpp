@@ -360,7 +360,8 @@ void KalziumGLWidget::drawBond( OBBond *bond )
 	vector3 v3 = ( v1 + v2 ) / 2;
 
 	int order;
-	if( bond->IsSingle() ) order = 1;
+	if( m_molStyle.m_renderMultipleBonds == false
+	 || bond->IsSingle() ) order = 1;
 	else if( bond->IsDouble() ) order = 2;
 	else if( bond->IsTriple() ) order = 3;
 	else
@@ -439,22 +440,22 @@ void KalziumGLWidget::slotSetMolStyle( int style )
 		case 0: // sticks-style
 			m_molStyle.setup( MolStyle::BONDS_USE_ATOMS_COLORS,
 				MolStyle::ATOMS_USE_FIXED_RADIUS,
-				0.20, 0.06, 0.14, 0.20 );
+				0.20, false, 0.06, 0.14, 0.20 );
 			break;
 		case 1: // atoms: smaller van der Waals, bonds: gray
 			m_molStyle.setup( MolStyle::BONDS_GRAY,
 				MolStyle::ATOMS_USE_VAN_DER_WAALS_RADIUS,
-				0.08, 0.08, 0.14, 0.20 );
+				0.08, true, 0.08, 0.14, 0.20 );
 			break;
 		case 2: // atoms: smaller van der Waals, bonds: use atom colors
 			m_molStyle.setup( MolStyle::BONDS_USE_ATOMS_COLORS,
 				MolStyle::ATOMS_USE_VAN_DER_WAALS_RADIUS,
-				0.08, 0.08, 0.14, 0.20 );
+				0.08, true, 0.08, 0.14, 0.20 );
 			break;
 		case 3: // atoms: real van der Waals, bonds: disabled
 			m_molStyle.setup( MolStyle::BONDS_DISABLED,
 				MolStyle::ATOMS_USE_VAN_DER_WAALS_RADIUS,
-				0.00, 0.00, 0.00, 1.00 );
+				0.00, false, 0.00, 0.00, 1.00 );
 			break;
 
 		default: break;

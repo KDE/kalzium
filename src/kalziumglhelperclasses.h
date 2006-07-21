@@ -72,6 +72,9 @@ struct MolStyle
 
 	/** The radius ( = half-thickness ) of single bonds */
 	double m_singleBondRadius;
+	/** If true, multiple bonds will be rendered as such. If false,
+	 * they will be rendered as single bonds */
+	double m_renderMultipleBonds;
 	/** The radius ( = half-thickness ) of each bond inside a
 	 * multiple bond */
 	double m_multipleBondRadius;
@@ -88,6 +91,7 @@ struct MolStyle
 	 * the members. */
 	void setup( BondStyle bondStyle, AtomStyle atomStyle,
 		double singleBondRadius,
+		bool renderMultipleBonds,
 		double multipleBondRadius,
 		double multipleBondShift,
 		double atomRadiusFactor );
