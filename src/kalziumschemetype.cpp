@@ -476,38 +476,43 @@ QString KalziumCrystalSchemeType::description() const
 	return i18n( "Crystal Structures" );
 }
 
-QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& ) const
+QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& elrect ) const
 {
 	QString crystal = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::crystalstructure );
 
-	QString filename = KGlobal::dirs()->findResourceDir(  "appdata", "data/latticeicons/" ) + "data/latticeicons/";
+	static QString resourcepath;
+	if ( resourcepath.isEmpty() )
+	{
+		resourcepath = KGlobal::dirs()->findResourceDir( "appdata", "data/latticeicons/" ) + "data/latticeicons/";
+	}
 
+	QString filename;
 	if (  crystal == "own" ){
-		filename += "1.png";
+		filename = "1.png";
 	}
 	else if (  crystal == "bcc" ){
-		filename += "2.png";
+		filename = "2.png";
 	}
 	else if (  crystal == "hdp" ){
-		filename += "3.png";
+		filename = "3.png";
 	}
 	else if (  crystal == "ccp" ){
-		filename += "4.png";
+		filename = "4.png";
 	}
 	else if (  crystal ==  "hcp" ){
-		filename += "5.png";
+		filename = "5.png";
 	}
 	else if (  crystal ==  "fcc" ){
-		filename += "6.png";
+		filename = "6.png";
 	}
 	else if (  crystal ==  "d" ){
-		filename += "7.png";
+		filename = "7.png";
 	}
 	else if (  crystal ==  "sc" ){
-		filename += "8.png";
+		filename = "8.png";
 	}
 	else if (  crystal ==  "tet" ){
-		filename += "1.png";
+		filename = "1.png";
 	}
 	else if (  crystal ==  "rh" ){
 	}
@@ -516,11 +521,18 @@ QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& ) const
 	else if (  crystal ==  "mono" ){
 	}
 
-	kDebug() << "Filename of the crystal icon: " << filename << endl;
+	QBrush ret;
+	if ( !filename.isEmpty() )
+	{
+		QPixmap pixmap( resourcepath + filename );
+		ret = QBrush( pixmap.scaled( elrect.size(), Qt::KeepAspectRatio ) );
+	}
+	else
+	{
+		ret.setColor( Qt::gray );
+	}
 
-	QPixmap pixmap( filename );
-	
-	return QBrush( pixmap.scaled( 40, 40, Qt::KeepAspectRatio ) );
+	return ret;
 }
 
 QColor KalziumCrystalSchemeType::textColor( int ) const

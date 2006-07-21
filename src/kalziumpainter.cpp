@@ -126,16 +126,29 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 			else
 				c = m_scheme->elementBrush( element, rect );
 
-			m_painter->setBrushOrigin( rect.topLeft() );
-			m_painter->fillRect( rect, c );
-			
-			if ( c.texture().isNull() )
+			if ( !c.texture().isNull() )
+			{
+				QRect symbolrect;
+				QFont orig_font = m_painter->font();
+				QFont font = m_painter->font();
+				font.setPointSize( QFontInfo( font ).pointSize() - 2 );
+				m_painter->setFont( font );
+				m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignTop, symbol, &symbolrect );
+				m_painter->setFont( orig_font );
+				int symbolheight = symbolrect.height();
+				QRect rect2 = rect.translated( 0, symbolheight );
+				rect2.setHeight( rect2.height() - symbolheight );
+				QPixmap pix = c.texture().scaled( rect2.size(), Qt::KeepAspectRatio, Qt::SmoothTransformation );
+				m_painter->drawPixmap( rect2.left() + ( rect2.width() - pix.width() ) / 2, rect2.top() + ( rect2.height() - pix.height() ) / 2, pix );
+			}
+			else
 			{
 				// the brush doesn't have any texture,
 				// so proceeding with normal colors and texts
 				QColor textc = m_scheme->textColor( element );
 				m_painter->setPen( textc );
 
+				m_painter->fillRect( rect, c );
 				m_painter->drawRect( rect );
 
 				m_painter->drawText( rect, Qt::AlignCenter, symbol );
