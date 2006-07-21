@@ -520,7 +520,7 @@ QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& ) const
 
 	QPixmap pixmap( filename );
 	
-	return QBrush( pixmap );
+	return QBrush( pixmap.scaled( 40, 40, Qt::KeepAspectRatio ) );
 }
 
 QColor KalziumCrystalSchemeType::textColor( int ) const
