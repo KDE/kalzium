@@ -137,9 +137,10 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 				m_painter->setFont( orig_font );
 				int symbolheight = symbolrect.height();
 				QRect rect2 = rect.translated( 0, symbolheight );
-				rect2.setHeight( rect2.height() - symbolheight );
+				rect2.setHeight( rect2.height() - symbolheight - 1 );
 				QPixmap pix = c.texture().scaled( rect2.size(), Qt::KeepAspectRatio, Qt::SmoothTransformation );
 				m_painter->drawPixmap( rect2.left() + ( rect2.width() - pix.width() ) / 2, rect2.top() + ( rect2.height() - pix.height() ) / 2, pix );
+				m_painter->drawRect( rect );
 			}
 			else
 			{
