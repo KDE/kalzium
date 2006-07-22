@@ -193,11 +193,10 @@ void KalziumGLWidget::renderSelection()
 {
 	if( ! m_selectedAtoms.count() ) return;
 
-	Color c( 1.0, 1.0, 1.0, 0.5 );
+	Color( 0.2, 0.7, 1.0, 0.7 ).applyAsMaterials();
 	glEnable( GL_BLEND );
 	foreach(OpenBabel::OBAtom* atom, m_selectedAtoms)
 	{
-		c.applyAsMaterials();
 		m_sphere.draw( atom->GetVector(),
 			0.18 + m_molStyle.getAtomRadius( atom ) );
 	}
