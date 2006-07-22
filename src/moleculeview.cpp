@@ -220,11 +220,13 @@ void MoleculeDialog::slotCalculate( QList<OpenBabel::OBAtom*> atoms )
 	else if ( atoms.count() == 4 )
 	{//calculate the torsion
 		if ( a1 && a2 && a3 && a4 )
-		a1 = atoms.at( 0 );
-		a2 = atoms.at( 1 );
-		a3 = atoms.at( 2 );
-		a4 = atoms.at( 3 );
-		t = mol->GetTorsion( a1, a2, a3, a4 );
+		{
+			a1 = atoms.at( 0 );
+			a2 = atoms.at( 1 );
+			a3 = atoms.at( 2 );
+			a4 = atoms.at( 3 );
+			t = mol->GetTorsion( a1, a2, a3, a4 );
+		}
 	}
 
 	kDebug() << "Distance: " << d << " Angstrom" << endl;
