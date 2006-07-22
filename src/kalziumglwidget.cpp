@@ -165,10 +165,16 @@ void KalziumGLWidget::renderAtoms()
 {
 	if( m_molStyle.m_atomStyle != MolStyle::ATOMS_DISABLED )
 	{
+		glDisable( GL_NORMALIZE );
+		glEnable( GL_RESCALE_NORMAL );
+
 		FOR_ATOMS_OF_MOL( atom, m_molecule )
 		{
 			drawAtom( &*atom );
 		}
+
+		glEnable( GL_NORMALIZE );
+		glDisable( GL_RESCALE_NORMAL );
 	}
 }
 
