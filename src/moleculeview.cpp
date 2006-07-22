@@ -53,13 +53,13 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	connect( this, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
 				ui.glWidget, SLOT( slotAtomsSelected( QList<OpenBabel::OBAtom*> ) ) );
 	
+	connect( ui.treeWidget, SIGNAL( itemSelectionChanged () ),
+				this, SLOT( slotAtomsSelected() ) );
 	connect( this, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
 				this, SLOT( slotCalculate( QList<OpenBabel::OBAtom*> ) ) );
 	connect( ui.glWidget, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
 				this, SLOT( slotCalculate( QList<OpenBabel::OBAtom*> ) ) );
 	
-	connect( ui.selectButton, SIGNAL( clicked() ), 
-			this, SLOT(slotAtomsSelected( ) ) );
 	connect( ui.loadButton, SIGNAL( clicked() ), 
 			this, SLOT(slotLoadMolecule() ) );
 //X 	connect( ui.xyButton, SIGNAL( clicked() ), 
