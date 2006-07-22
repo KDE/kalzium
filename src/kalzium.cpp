@@ -25,7 +25,6 @@
 #include "periodictableview.h"
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
-#include "propertysliderwidget.h"
 #include "somwidget_impl.h"
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
@@ -262,12 +261,6 @@ void Kalzium::setupSidebars()
 	m_calcWidget->setObjectName( "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, SmallIconSet( "calculate" ), i18n( "Calculate" ) );
 	
-	m_SliderWidget = new PropertySliderWidget( m_toolbox );
-	m_SliderWidget->setObjectName( "m_SliderWidget" );
-	m_toolbox->addItem( m_SliderWidget, SmallIconSet( "timeline" ), i18n( "Properties Slider" ) );
-	connect( m_SliderWidget, SIGNAL(valueHasChanged( ChemicalDataObject::BlueObelisk, int ) ),
-			m_PeriodicTableView, SLOT(setSliderValue( ChemicalDataObject::BlueObelisk, int ) ) );
-
 	m_somWidget = new SOMWidgetIMPL( m_toolbox );
 	m_somWidget->setObjectName( "somWidget" );
 	connect( m_somWidget, SIGNAL( temperatureChanged( int ) ),
@@ -501,10 +494,7 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 		case 0: // nothing
 		case 1: // molcalc
 			break;
-		case 2: // sliderwidget
-			m_PeriodicTableView->setMode( KalziumPainter::SLIDE );
-			break;
-		case 3: // state of matter
+		case 2: // state of matter
 			m_PeriodicTableView->setTemperature( m_somWidget->temperature() );
 			m_PeriodicTableView->setMode( KalziumPainter::SOM );
 			break;

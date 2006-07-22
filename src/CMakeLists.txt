@@ -33,7 +33,6 @@ set(kalzium_SRCS
    kalziumpainter.cpp
    kalziumschemetype.cpp
    kalziumtabletype.cpp
-   propertysliderwidget.cpp
    printwidget.cpp
    search.cpp
    searchwidget.cpp
@@ -66,7 +65,6 @@ kde4_add_ui_files(kalzium_SRCS
    somwidget.ui
    spectrumview.ui
    printwidgetbase.ui
-   propertysliderwidgetbase.ui
    settings_misc.ui
    settings_units.ui
    rswidget.ui

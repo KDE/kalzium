@@ -143,14 +143,6 @@ class KalziumPainter
 		void setTemperature( int temp );
 		int temperature() const;
 
-		/**
-		 * set the kind of value the user is sliding. This is set in the 
-		 * PropertySliderWidget.
-		 *
-		 * @see PropertySliderWidget
-		 */
-		void setSliderValue( ChemicalDataObject::BlueObelisk type, int value );
-
 		QBrush brushForElement( int element ) const;
 
 	private:

@@ -275,13 +275,6 @@ void PeriodicTableView::setTemperature( int temp )
 	update();
 }
 
-void PeriodicTableView::setSliderValue( ChemicalDataObject::BlueObelisk type, int value )
-{
-	m_painter->setSliderValue( type, value );
-	setFullDraw();
-	update();
-}
-
 void PeriodicTableView::setFullDraw()
 {
 	doFullDraw = true;

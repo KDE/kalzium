@@ -184,14 +184,6 @@ class PeriodicTableView : public QWidget
 		void setTemperature( int temp );
 
 		/**
-		 * set the kind of value the user is sliding. This is set in the 
-		 * PropertySliderWidget.
-		 *
-		 * @see PropertySliderWidget
-		 */
-		void setSliderValue( ChemicalDataObject::BlueObelisk type, int value );
-
-		/**
 		 * this slot removes the selection of any point
 		 */
 		void unSelect();

@@ -27,7 +27,6 @@ class SOMWidgetIMPL;
 class GlossaryDialog;
 class IsotopeTable;
 class PrintWidget;
-class PropertySliderWidget;
 class SearchWidget;
 class QKeyEvent;
 class QTimer;
@@ -100,8 +99,6 @@ class Kalzium : public KMainWindow
 
 		MolcalcWidget *m_calcWidget;
 
-		PropertySliderWidget *m_SliderWidget;
-		
 		SOMWidgetIMPL *m_somWidget;
 
 		DetailedGraphicalOverview *m_detailWidget;
