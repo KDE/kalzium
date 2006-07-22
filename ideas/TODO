@@ -2,8 +2,7 @@
 			 =====================
 
 * 3D-Viewer
-  - finish all the low-level rendering stuff (currently  
-    doing text rendering), polish, and add a lot of comments.  
+  - implement ghemical-like zoom/navigation
   - Crystal Viewer
 	   -- For lattice
 	   -- All Brevies cells
@@ -18,10 +17,6 @@
 			rotated and in which speed
 		--- This could even be exported into a .gif-file or something
 			as an animation
-	   -- Highlighting of atoms in the GL-view
-		--- [done] with a blue semitransparent thingy for single atoms
-		--- [todo] highlighting of several atoms, for example to 
-				   highlight a functional group like -OH or -COOH
 	   -- If the user selects an atom in the GL-view highlight
 		  that atom and also in the QTreeWidget
 	   -- Calculations

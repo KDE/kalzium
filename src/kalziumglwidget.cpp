@@ -42,13 +42,12 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	m_inZoom = false;
 	m_inMeasure = false;
 
-	slotSetMolStyle( 0 );
-
 	QFont f;
 	f.setStyleHint( QFont::SansSerif, QFont::PreferAntialias );
 	m_textRenderer.setup( this, f );
 	
 	setMinimumSize( 100,100 );
+	setMolStyle( 0 );
 }
 
 KalziumGLWidget::~KalziumGLWidget()
@@ -87,8 +86,6 @@ void KalziumGLWidget::initializeGL()
 	glFogfv( GL_FOG_COLOR, fogColor );
 	glFogi( GL_FOG_MODE, GL_LINEAR );
 	glFogf( GL_FOG_DENSITY, 0.45 );
-	glFogf( GL_FOG_START, 2.7 * getMolRadius() );
-	glFogf( GL_FOG_END, 5.0 * getMolRadius() );
 
 	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 
@@ -98,6 +95,8 @@ void KalziumGLWidget::initializeGL()
 
 	glEnableClientState( GL_VERTEX_ARRAY );
 	glEnableClientState( GL_NORMAL_ARRAY );
+
+	setupObjects();
 }
 
 void KalziumGLWidget::paintGL()
@@ -154,7 +153,6 @@ void KalziumGLWidget::paintGL()
 	}
 	glCallList( m_displayList );
 #endif
-
 	renderSelection();
 
 #ifdef USE_FPS_COUNTER
@@ -165,48 +163,38 @@ void KalziumGLWidget::paintGL()
 
 void KalziumGLWidget::renderAtoms()
 {
-	if( m_molStyle.m_atomStyle == MolStyle::ATOMS_DISABLED ) return;
-
-	FOR_ATOMS_OF_MOL( atom, m_molecule )
+	if( m_molStyle.m_atomStyle != MolStyle::ATOMS_DISABLED )
 	{
+		FOR_ATOMS_OF_MOL( atom, m_molecule )
+		{
 			drawAtom( &*atom );
+		}
 	}
 }
 
 void KalziumGLWidget::renderBonds()
 {
-	if( m_molStyle.m_bondStyle == MolStyle::BONDS_DISABLED ) return;
-
-	// render the bonds
-	FOR_BONDS_OF_MOL( bond, m_molecule )
+	if( m_molStyle.m_bondStyle != MolStyle::BONDS_DISABLED )
 	{
-		drawBond( &*bond );
+		FOR_BONDS_OF_MOL( bond, m_molecule )
+		{
+			drawBond( &*bond );
+		}
 	}
 }
 
 void KalziumGLWidget::renderSelection()
 {
-/*	if( ! m_selectedAtoms.count() ) return;
-	
-	Color c( 0.4, 0.4, 1.0, 0.7 );
+	if( ! m_selectedAtoms.count() ) return;
 
-	GLdouble radius = m_molMinBondLength * 0.35;
-	const GLdouble min_radius = (GLdouble) atomRadius () * 1.25;
-	if( radius < min_radius ) radius = min_radius;
-
+	Color c( 1.0, 1.0, 1.0, 0.5 );
 	glEnable( GL_BLEND );
-	glEnable( GL_LIGHTING );
-*/
-/*	foreach(OpenBabel::OBAtom* atom, m_selectedAtoms)
-	{//iterate through all OBAtoms and highlight one after eachother
-
-		drawSphere(
-				x, y, z,
-				radius,
-				c);
+	foreach(OpenBabel::OBAtom* atom, m_selectedAtoms)
+	{
+		c.applyAsMaterials();
+		m_sphere.draw( atom->GetVector(),
+			0.18 + m_molStyle.getAtomRadius( atom ) );
 	}
-*/
-
 	glDisable( GL_BLEND );
 }
 
@@ -360,25 +348,11 @@ void KalziumGLWidget::drawBond( OBBond *bond )
 	vector3 v3 = ( v1 + v2 ) / 2;
 
 	int order;
-	if( m_molStyle.m_renderMultipleBonds == false
-	 || bond->IsSingle() ) order = 1;
+	if( m_molStyle.m_renderMultipleBonds == false || bond->IsSingle() )
+		order = 1;
 	else if( bond->IsDouble() ) order = 2;
 	else if( bond->IsTriple() ) order = 3;
-	else
-	{
-		order = bond->GetBondOrder();
-		if( order > 12 ) // probably a bogus molecule file!
-			// according to the element.txt file in OB,
-			// no element can have more than 12 bonds
-		{
-			order = 1;
-			kDebug()<<"Umm, some bond pretends to have "
-				"order "<<bond->GetBondOrder()<<endl;
-			kDebug()<<"I'd better close now, 'cause I feel "
-				"like I might segfault any time!"<<endl;
-			parentWidget()->parentWidget()->close();
-		}
-	}
+	else order = bond->GetBondOrder();
 
 	double radius;
 	if( order == 1 ) radius = m_molStyle.m_singleBondRadius;
@@ -387,7 +361,7 @@ void KalziumGLWidget::drawBond( OBBond *bond )
 	switch( m_molStyle.m_bondStyle )
 	{
 		case MolStyle::BONDS_GRAY:
-			Color( 0.5, 0.5, 0.5 ).applyAsMaterials();
+			Color( 0.55, 0.55, 0.55 ).applyAsMaterials();
 			m_cylinder.draw( v1, v2, radius, order,
 				m_molStyle.m_multipleBondShift );
 			break;
@@ -428,32 +402,33 @@ void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 	if ( !molecule ) return;
 	m_molecule = molecule;
 	m_haveToRecompileDisplayList = true;
+	m_selectedAtoms.clear();
 	prepareMoleculeData();
 	setupObjects();
 	updateGL();
 }
 
-void KalziumGLWidget::slotSetMolStyle( int style )
+void KalziumGLWidget::setMolStyle( int style )
 {
 	switch( style )
 	{
 		case 0: // sticks-style
-			m_molStyle.setup( MolStyle::BONDS_USE_ATOMS_COLORS,
+			m_molStyle = MolStyle( MolStyle::BONDS_USE_ATOMS_COLORS,
 				MolStyle::ATOMS_USE_FIXED_RADIUS,
 				0.20, false, 0.06, 0.14, 0.20 );
 			break;
 		case 1: // atoms: smaller van der Waals, bonds: gray
-			m_molStyle.setup( MolStyle::BONDS_GRAY,
+			m_molStyle = MolStyle( MolStyle::BONDS_GRAY,
 				MolStyle::ATOMS_USE_VAN_DER_WAALS_RADIUS,
 				0.08, true, 0.08, 0.14, 0.20 );
 			break;
 		case 2: // atoms: smaller van der Waals, bonds: use atom colors
-			m_molStyle.setup( MolStyle::BONDS_USE_ATOMS_COLORS,
+			m_molStyle = MolStyle( MolStyle::BONDS_USE_ATOMS_COLORS,
 				MolStyle::ATOMS_USE_VAN_DER_WAALS_RADIUS,
 				0.08, true, 0.08, 0.14, 0.20 );
 			break;
 		case 3: // atoms: real van der Waals, bonds: disabled
-			m_molStyle.setup( MolStyle::BONDS_DISABLED,
+			m_molStyle = MolStyle( MolStyle::BONDS_DISABLED,
 				MolStyle::ATOMS_USE_VAN_DER_WAALS_RADIUS,
 				0.00, false, 0.00, 0.00, 1.00 );
 			break;
@@ -461,6 +436,11 @@ void KalziumGLWidget::slotSetMolStyle( int style )
 		default: break;
 	}
 	m_haveToRecompileDisplayList = true;
+}
+
+void KalziumGLWidget::slotSetMolStyle( int style )
+{
+	setMolStyle( style );
 	setupObjects();
 	updateGL();
 }
@@ -468,32 +448,11 @@ void KalziumGLWidget::slotSetMolStyle( int style )
 void KalziumGLWidget::prepareMoleculeData()
 {
 	//Center the molecule
-	//normally this is done by OBMol::Center()
-	//but it doesn't seem to work for me
-	//perhaps I'm stupid (Benoit 03/07/06)
+	m_molecule->Center();
 
-	//first, calculate the coords of the center of the molecule
-	vector3 center( 0.0, 0.0, 0.0 );
-	int number_of_atoms = 0;
-	FOR_ATOMS_OF_MOL( a, m_molecule )
-	{
-		center += a->GetVector();
-		number_of_atoms++;
-	}
-	center /= number_of_atoms;
-
-	//now, translate the molecule so that it gets centered.
-	//unfortunately OBMol::Translate doesn't seem to work for me
-	//(Benoit 03/07/06)
-	FOR_ATOMS_OF_MOL( a, m_molecule )
-	{
-		vector3 new_vector = a->GetVector() - center;
-		a->SetVector( new_vector );
-	}
-
-	// calculate the radius of the molecule
-	// that is, the maximal distance between an atom of the molecule
-	// and the center of the molecule
+	// calculate the radius of the molecule without the electrons
+	// that is, the maximal distance between the center of an atom
+	// of the molecule and the center of the molecule
 	m_molRadiusWithoutElectrons = 0.0;
 	FOR_ATOMS_OF_MOL( a, m_molecule )
 	{

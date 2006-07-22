@@ -27,7 +27,7 @@
  * counter. Use only for testing: this makes the GL Widget constantly
  * redraw, which under normal circumstances is a waste of CPU time.
  */
-#define USE_FPS_COUNTER 
+#define USE_FPS_COUNTER
 
 /** USE_DISPLAY_LISTS: if defined, the whole scene will be stored in
  * an OpenGL display list. The vertex arrays will then be converted into
@@ -35,7 +35,7 @@
  * This option improves performance, especially when rendering complex models,
  * but increases memory usage.
  */
-//#define USE_DISPLAY_LISTS
+#define USE_DISPLAY_LISTS
 
 namespace KalziumGLHelpers
 {
@@ -87,14 +87,16 @@ struct MolStyle
 	 * ATOMS_USE_FIXED_RADIUS, this s interpreted as the radius itself. */
 	double m_atomRadiusFactor;
 
-	/** This method is just a convenient way to set the values of
-	 * the members. */
-	void setup( BondStyle bondStyle, AtomStyle atomStyle,
+	MolStyle() {}
+
+	MolStyle( BondStyle bondStyle, AtomStyle atomStyle,
 		double singleBondRadius,
 		bool renderMultipleBonds,
 		double multipleBondRadius,
 		double multipleBondShift,
 		double atomRadiusFactor );
+
+	MolStyle& operator=( const MolStyle& other );
 
 	/** This function returns the radius in which an atom with given atomic
 	 * number should be rendered, when using this style */
@@ -158,7 +160,9 @@ struct Color
 bool createOrthoBasisGivenFirstVector( const OpenBabel::vector3 &U, OpenBabel::vector3 & v, OpenBabel::vector3 & w );
 
 /**
-* This is an abstract base class for an OpenGL vertex array.
+* This is an abstract base class for an OpenGL vertex array, with an option
+* (controlled by USE_DISPLAY_LISTS) to compile a display list from it, in which
+* case the vertex array is freed and only the display list is kept.
 *
 * @author Benoit Jacob
 */
@@ -178,14 +182,14 @@ class VertexArray
 
 		/** Pointer to the buffer storing the vertex array */
 		Vector *m_vertexBuffer;
-		/** Pointer to the buffer storing the normal array
+		/** Pointer to the buffer storing the normal array.
 		 * If m_hasSeparateNormalBuffer is false, then this is equal
 		 * to m_vertexBuffer. */
 		Vector *m_normalBuffer;
 		/** Pointer to the buffer storing the indices */
 		unsigned short *m_indexBuffer;
 		/** The mode in which OpenGL should interpred the vertex arrays
-		 * (for example, that could be GL_TRIANGLE_STRIP) */
+		 * (for example, this could be GL_TRIANGLE_STRIP) */
 		GLenum m_mode;
 		/** The number of vertices, i.e. the size of m_vertexBuffer
 		 * or equivalently m_normalBuffer */
@@ -208,14 +212,14 @@ class VertexArray
 		bool m_isValid;
 		
 		/** This pure virtual method should return the number of
-		 * vertices, as computed from certain properties of a child
-		 * class */
-		virtual int computeVertexCount() = 0;
+		 * vertices, as computed from certain properties determining
+		 * the level of detail */
+		virtual int getVertexCount() = 0;
 		/** This virtual method returns 0, and should be reimplemented
 		 * in child classes to return the number of indices
-		 * vertices as computed from certain properties of a child
-		 * class */
-		virtual int computeIndexCount() { return 0; }
+		 * as computed from certain properties determining
+		 * the level of detail */
+		virtual int getIndexCount() { return 0; }
 		/** This method allocates enough memory for the buffers. It
 		 * should only be called once m_vertexCount and m_indexCount
 		 * have been set. */
@@ -233,8 +237,8 @@ class VertexArray
 		 * compiles the display list and then calls freeBuffers().
 		 * It should only be called after buildBuffers(). */
 		void compileDisplayList();
-		/** This is a convenient method calling computeVertexCount(),
-		 * computeIndexCount(), allocateBuffers(), buildBuffers() and
+		/** This is a convenient method calling getVertexCount(),
+		 * getIndexCount(), allocateBuffers(), buildBuffers() and
 		 * compileDisplayList() in that order, thus doing all the
 		 * initialization, whether or not display list compilation is
 		 * enabled. */
@@ -299,8 +303,8 @@ class Sphere : public VertexArray
 		 * icosahedron */
 		int m_detail;
 
-		virtual int computeVertexCount();
-		virtual int computeIndexCount();
+		virtual int getVertexCount();
+		virtual int getIndexCount();
 		virtual void buildBuffers();
 
 	public:
@@ -331,7 +335,7 @@ class Cylinder : public VertexArray
 		 * two discs) are not rendered. */
 		int m_faces;
 
-		virtual int computeVertexCount();
+		virtual int getVertexCount();
 		virtual void buildBuffers();
 
 	public:

@@ -222,6 +222,15 @@ class KalziumGLWidget : public QGLWidget
 		 * cylinder ).
 		 */
 		virtual void setupObjects();
+
+		/**
+		 * Sets the molecule style, but contrary to slotSetMolStyle,
+		 * doesn't call setupObjects and updateGL. Useful for
+		 * setting the initial style when the GL widget is created.
+		 * Called by slotSetMolStyle.
+		 * @param style the wanted molecule style
+		 */
+		void setMolStyle( int style );
 };
 #endif // KALZIUMGLWIDGET_H
 

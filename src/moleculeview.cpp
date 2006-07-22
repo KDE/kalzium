@@ -147,7 +147,7 @@ void MoleculeDialog::slotAtomsSelected()
 	foreach( QTreeWidgetItem* item , itemList )
 	{
 		int id = item->text(0).toInt();
-		atoms.append( molecule->GetAtom( id ) );
+		if( id ) atoms.append( molecule->GetAtom( id ) );
 	}
 
 	emit atomsSelected( atoms );

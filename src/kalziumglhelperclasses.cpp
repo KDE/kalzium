@@ -16,7 +16,7 @@
 using namespace KalziumGLHelpers;
 using namespace OpenBabel;
 
-void MolStyle::setup( BondStyle bondStyle, AtomStyle atomStyle,
+MolStyle::MolStyle( BondStyle bondStyle, AtomStyle atomStyle,
 	double singleBondRadius,
 	bool renderMultipleBonds,
 	double multipleBondRadius,
@@ -30,6 +30,19 @@ void MolStyle::setup( BondStyle bondStyle, AtomStyle atomStyle,
 	m_multipleBondRadius = multipleBondRadius;
 	m_multipleBondShift = multipleBondShift;
 	m_atomRadiusFactor = atomRadiusFactor;
+}
+
+MolStyle& MolStyle::operator=( const MolStyle& other )
+{
+	m_bondStyle = other.m_bondStyle;
+	m_atomStyle = other.m_atomStyle;
+	m_singleBondRadius = other.m_singleBondRadius;
+	m_renderMultipleBonds = other.m_renderMultipleBonds;
+	m_multipleBondRadius = other.m_multipleBondRadius;
+	m_multipleBondShift = other.m_multipleBondShift;
+	m_atomRadiusFactor = other.m_atomRadiusFactor;
+
+	return *this;
 }
 
 double MolStyle::getAtomRadius( int atomicNumber )
@@ -189,8 +202,8 @@ void VertexArray::compileDisplayList()
 void VertexArray::initialize()
 {
 	m_isValid = false;
-	m_vertexCount = computeVertexCount();
-	m_indexCount = computeIndexCount();
+	m_vertexCount = getVertexCount();
+	m_indexCount = getIndexCount();
 	if( m_indexCount < 0 || m_vertexCount < 0 ) return;
 	if( ! allocateBuffers() ) return;
 	buildBuffers();
@@ -292,13 +305,13 @@ void Sphere::computeVertex( int strip, int column, int row)
 	vertex->z = v.z();
 }
 
-int Sphere::computeVertexCount()
+int Sphere::getVertexCount()
 {
 	if( m_detail < 1 ) return -1;
 	return ( 3 * m_detail + 1 ) * ( 5 * m_detail + 1 );
 }
 
-int Sphere::computeIndexCount()
+int Sphere::getIndexCount()
 {
 	if( m_detail < 1 ) return -1;
 	return (2 * ( 2 * m_detail + 1 ) + 2 ) * 5 * m_detail;
@@ -368,7 +381,7 @@ void Cylinder::setup( int faces )
 	initialize();
 }
 
-int Cylinder::computeVertexCount()
+int Cylinder::getVertexCount()
 {
 	if( m_faces < 3 ) return -1;
 	return 2 * m_faces + 2;
