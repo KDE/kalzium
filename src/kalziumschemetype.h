@@ -30,7 +30,7 @@ class KalziumSchemeType;
 #include <QRect>
 #include <QStringList>
 
-typedef QPair<QString, QColor> legendItem;
+typedef QPair<QString, QBrush> legendItem;
 typedef QList<legendItem> legendList;
 
 /**

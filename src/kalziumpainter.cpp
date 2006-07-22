@@ -265,10 +265,10 @@ void KalziumPainter::drawLegend()
 				legendList items;
 				if ( m_mode == SOM )
 				{
-					items << qMakePair( i18n( "Solid" ), Prefs::color_solid() );
-					items << qMakePair( i18n( "Liquid" ), Prefs::color_liquid() );
-					items << qMakePair( i18n( "Vaporous" ), Prefs::color_vapor() );
-					items << qMakePair( i18n( "Unknown" ), QColor( Qt::lightGray ) );
+					items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
+					items << qMakePair( i18n( "Liquid" ), QBrush( Prefs::color_liquid() ) );
+					items << qMakePair( i18n( "Vaporous" ), QBrush( Prefs::color_vapor() ) );
+					items << qMakePair( i18n( "Unknown" ), QBrush( Qt::lightGray ) );
 				}
 				else
 				{

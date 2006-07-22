@@ -127,7 +127,7 @@ QColor KalziumMonoColorSchemeType::textColor( int el ) const
 legendList KalziumMonoColorSchemeType::legendItems() const
 {
 	legendList ll;
-	ll << qMakePair( i18n( "All the Elements" ), Prefs::noscheme() );
+	ll << qMakePair( i18n( "All the Elements" ), QBrush( Prefs::noscheme() ) );
 	return ll;
 }
 
@@ -181,10 +181,10 @@ QColor KalziumBlocksSchemeType::textColor( int el ) const
 legendList KalziumBlocksSchemeType::legendItems() const
 {
 	legendList ll;
-	ll << qMakePair( i18n( "s-Block" ), Prefs::block_s() );
-	ll << qMakePair( i18n( "p-Block" ), Prefs::block_p() );
-	ll << qMakePair( i18n( "d-Block" ), Prefs::block_d() );
-	ll << qMakePair( i18n( "f-Block" ), Prefs::block_f() );
+	ll << qMakePair( i18n( "s-Block" ), QBrush( Prefs::block_s() ) );
+	ll << qMakePair( i18n( "p-Block" ), QBrush( Prefs::block_p() ) );
+	ll << qMakePair( i18n( "d-Block" ), QBrush( Prefs::block_d() ) );
+	ll << qMakePair( i18n( "f-Block" ), QBrush( Prefs::block_f() ) );
 	return ll;
 }
 
@@ -299,15 +299,15 @@ QColor KalziumFamilySchemeType::textColor( int ) const
 legendList KalziumFamilySchemeType::legendItems() const
 {
 	legendList ll;
-	ll << qMakePair( i18n( "Alkaline" ),Prefs::alkalie() );
-	ll << qMakePair( i18n( "Rare Earth" ),Prefs::rare() );
-	ll << qMakePair( i18n( "Non-Metals" ),Prefs::nonmetal() );
-	ll << qMakePair( i18n( "Alkalie-Metal" ),Prefs::alkaline() );
-	ll << qMakePair( i18n( "Other Metal" ),Prefs::other_metal() );
-	ll << qMakePair( i18n( "Halogene" ),Prefs::halogene() );
-	ll << qMakePair( i18n( "Transition Metal" ),Prefs::transition() );
-	ll << qMakePair( i18n( "Noble Gas" ),Prefs::noble_gas() );
-	ll << qMakePair( i18n( "Metalloid" ),Prefs::metalloid() );
+	ll << qMakePair( i18n( "Alkaline" ),QBrush( Prefs::alkalie() ) );
+	ll << qMakePair( i18n( "Rare Earth" ),QBrush( Prefs::rare() ) );
+	ll << qMakePair( i18n( "Non-Metals" ),QBrush( Prefs::nonmetal() ) );
+	ll << qMakePair( i18n( "Alkalie-Metal" ),QBrush( Prefs::alkaline() ) );
+	ll << qMakePair( i18n( "Other Metal" ),QBrush( Prefs::other_metal() ) );
+	ll << qMakePair( i18n( "Halogene" ),QBrush( Prefs::halogene() ) );
+	ll << qMakePair( i18n( "Transition Metal" ),QBrush( Prefs::transition() ) );
+	ll << qMakePair( i18n( "Noble Gas" ),QBrush( Prefs::noble_gas() ) );
+	ll << qMakePair( i18n( "Metalloid" ),QBrush( Prefs::metalloid() ) );
 
 	return ll;
 }
@@ -367,10 +367,10 @@ QColor KalziumAcidicSchemeType::textColor( int ) const
 legendList KalziumAcidicSchemeType::legendItems() const
 {
 	legendList ll;
-	ll << qMakePair( i18n( "Basic" ), Prefs::beh_basic() );
-	ll << qMakePair( i18n( "Acidic" ), Prefs::beh_acidic() );
-	ll << qMakePair( i18n( "Neutral" ), Prefs::beh_neutral() );
-	ll << qMakePair( i18n( "Amphoteric" ), Prefs::beh_amphoteric() );
+	ll << qMakePair( i18n( "Basic" ), QBrush( Prefs::beh_basic() ) );
+	ll << qMakePair( i18n( "Acidic" ), QBrush( Prefs::beh_acidic() ) );
+	ll << qMakePair( i18n( "Neutral" ), QBrush( Prefs::beh_neutral() ) );
+	ll << qMakePair( i18n( "Amphoteric" ), QBrush( Prefs::beh_amphoteric() ) );
 
 	return ll;
 }
@@ -442,14 +442,14 @@ QColor KalziumGroupsSchemeType::textColor( int ) const
 legendList KalziumGroupsSchemeType::legendItems() const
 {
 	legendList ll;
-	ll << qMakePair( i18n( "Group 1" ), Prefs::group_1() );
-	ll << qMakePair( i18n( "Group 2" ), Prefs::group_2() );
-	ll << qMakePair( i18n( "Group 3" ), Prefs::group_3() );
-	ll << qMakePair( i18n( "Group 4" ), Prefs::group_4() );
-	ll << qMakePair( i18n( "Group 5" ), Prefs::group_5() );
-	ll << qMakePair( i18n( "Group 6" ), Prefs::group_6() );
-	ll << qMakePair( i18n( "Group 7" ), Prefs::group_7() );
-	ll << qMakePair( i18n( "Group 7" ), Prefs::group_8() );
+	ll << qMakePair( i18n( "Group 1" ), QBrush( Prefs::group_1() ) );
+	ll << qMakePair( i18n( "Group 2" ), QBrush( Prefs::group_2() ) );
+	ll << qMakePair( i18n( "Group 3" ), QBrush( Prefs::group_3() ) );
+	ll << qMakePair( i18n( "Group 4" ), QBrush( Prefs::group_4() ) );
+	ll << qMakePair( i18n( "Group 5" ), QBrush( Prefs::group_5() ) );
+	ll << qMakePair( i18n( "Group 6" ), QBrush( Prefs::group_6() ) );
+	ll << qMakePair( i18n( "Group 7" ), QBrush( Prefs::group_7() ) );
+	ll << qMakePair( i18n( "Group 7" ), QBrush( Prefs::group_8() ) );
 
 	return ll;
 }
@@ -545,7 +545,29 @@ QColor KalziumCrystalSchemeType::textColor( int ) const
 
 legendList KalziumCrystalSchemeType::legendItems() const
 {
+	static QString resourcepath;
+	if ( resourcepath.isEmpty() )
+	{
+		resourcepath = KGlobal::dirs()->findResourceDir( "appdata", "data/latticeicons/" ) + "data/latticeicons/";
+	}
+
 	legendList ll;
+	ll << qMakePair( i18n( "Own"  ), 
+			QBrush( 
+				QPixmap( resourcepath + "9.png" ) 
+				) 
+			);
+	ll << qMakePair( i18n( "bcc, body centered cubic"  ), QBrush( QPixmap( resourcepath + "1.png" ) ) );
+	ll << qMakePair( i18n( "hdp, hexagonal" ), QBrush( QPixmap( resourcepath + "5.png" ) ) );
+	ll << qMakePair( i18n( "ccp, cubic close packed" ), QBrush( QPixmap( resourcepath + "10.png" ) ) );
+	ll << qMakePair( i18n( "hcp, hexagonal close packed" ), QBrush( QPixmap( resourcepath + "11.png" ) ) );
+	ll << qMakePair( i18n( "fcc, face centered cubic" ), QBrush( QPixmap( resourcepath + "2.png" ) ) );
+	ll << qMakePair( i18n( "d, diamond" ), QBrush( QPixmap( resourcepath + "12.png" ) ) );
+	ll << qMakePair( i18n( "sc, simple cubic" ), QBrush( QPixmap( resourcepath + "3.png" ) ) );
+	ll << qMakePair( i18n( "tet, tetragonal" ), QBrush( QPixmap( resourcepath + "6.png" ) ) );
+	ll << qMakePair( i18n( "rh, rhombohedral" ), QBrush( QPixmap( resourcepath + "8.png" ) ) );
+	ll << qMakePair( i18n( "or, orthorhombic" ), QBrush( QPixmap( resourcepath + "4.png" ) ) );
+	ll << qMakePair( i18n( "mono, monoclinic" ), QBrush( QPixmap( resourcepath + "7.png" ) ) );
 
 	return ll;
 }
