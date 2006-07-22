@@ -34,8 +34,9 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	: KDialog( parent )
 {
 	setCaption( i18n( "Molecular Viewer" ) );
-	setButtons( Help | Close );
-	setDefaultButton( Close );
+	setButtons( Help | User1 | Close );
+	setDefaultButton( User1 );
+	setButtonGuiItem( User1, KGuiItem( i18n( "Load molecule" ), "open", i18n( "Loading a molecule" ) ) );
 	
 	QWidget * dummy = new QWidget();
 	setMainWidget( dummy );
@@ -60,20 +61,8 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	connect( ui.glWidget, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
 				this, SLOT( slotCalculate( QList<OpenBabel::OBAtom*> ) ) );
 	
-	connect( ui.loadButton, SIGNAL( clicked() ), 
-			this, SLOT(slotLoadMolecule() ) );
-//X 	connect( ui.xyButton, SIGNAL( clicked() ), 
-//X 			this, SLOT(slotUpdateGUI() ) );
-//X 	connect( ui.rotationButton, SIGNAL( clicked() ), 
-//X 			this, SLOT(slotUpdateGUI() ) );
-//X 	connect( ui.zButton, SIGNAL( clicked() ), 
-//X 			this, SLOT(slotUpdateGUI() ) );
-//X 	connect( ui.zoomButton, SIGNAL( clicked() ), 
-//X 			this, SLOT(slotUpdateGUI() ) );
-//X 	connect( ui.measureButton, SIGNAL( clicked() ), 
-//X 			this, SLOT(slotUpdateGUI() ) );
-
-//	slotLoadMolecule();
+	connect( this, SIGNAL( user1Clicked() ), 
+			this, SLOT( slotLoadMolecule() ) );
 }
 
 void MoleculeDialog::slotLoadMolecule()
@@ -123,8 +112,8 @@ void MoleculeDialog::updateStatistics()
 	{
  		QStringList content;
 		content.append( QString::number( a->GetIdx() ) );
-		content.append( QString::number( a->GetExactMass() ) );
- 		QTreeWidgetItem* i = new QTreeWidgetItem( content );
+ 		
+		QTreeWidgetItem* i = new QTreeWidgetItem( content );
 		if ( a->IsCarbon() )
 	 		carbon->addChild( i );
 		else if ( a->IsHydrogen() )
@@ -151,34 +140,6 @@ void MoleculeDialog::slotAtomsSelected()
 	}
 
 	emit atomsSelected( atoms );
-}
-
-void MoleculeDialog::slotUpdateGUI()
-{
-//X 	ui.xButton->setEnabled( true );
-//X 	ui.yButton->setEnabled( true );
-//X 	ui.zButton->setEnabled( true );
-//X 	ui.measureButton->setEnabled( true );
-//X 	ui.zoomButton->setEnabled( true );
-//X 	
-//X 	if ( ui.measureButton->isChecked() )
-//X 	{
-//X 		ui.xButton->setEnabled( false );
-//X 		ui.yButton->setEnabled( false );
-//X 		ui.zButton->setEnabled( false );
-//X 		ui.zoomButton->setEnabled( false );
-//X 
-//X 		ui.glWidget->slotMeasure( true );
-//X 	}
-//X 	else if ( ui.zoomButton->isChecked() )
-//X 	{
-//X 		ui.xButton->setEnabled( false );
-//X 		ui.yButton->setEnabled( false );
-//X 		ui.zButton->setEnabled( false );
-//X 		ui.measureButton->setEnabled( false );
-//X 		
-//X 		ui.glWidget->slotZoom( true );
-//X 	}
 }
 
 void MoleculeDialog::slotCalculate( QList<OpenBabel::OBAtom*> atoms )
