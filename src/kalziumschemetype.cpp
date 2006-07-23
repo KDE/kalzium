@@ -487,41 +487,32 @@ QBrush KalziumCrystalSchemeType::elementBrush( int el, const QRect& elrect ) con
 	}
 
 	QString filename;
-	if (  crystal == "own" ){
-		filename = "2.png";//for debugging only until Danny did the real icons
-	}
-	else if (  crystal == "bcc" ){
-		filename = "1.png";
-	}
-	else if (  crystal == "hdp" ){
-		filename = "5.png";
+	if (  crystal == "bcc" ){
+		filename = "ci.png";
 	}
 	else if (  crystal == "ccp" ){
-		filename = "2.png";//for debugging only until Danny did the real icons
-	}
-	else if (  crystal ==  "hcp" ){
-		filename = "2.png";//for debugging only until Danny did the real icons
+		filename = "cp.png";
 	}
 	else if (  crystal ==  "fcc" ){
-		filename = "2.png";
+		filename = "cf.png";
 	}
-	else if (  crystal ==  "d" ){
-		filename = "2.png";//for debugging only until Danny did the real icons
-	}
-	else if (  crystal ==  "sc" ){
-		filename = "3.png";
-	}
-	else if (  crystal ==  "tet" ){
-		filename = "6.png";
+	else if (  crystal ==  "hcp" ){
+		filename = "hp.png";
 	}
 	else if (  crystal ==  "rh" ){
-		filename = "8.png";
+		filename = "hr.png";//Rhombohedral primitive
 	}
 	else if (  crystal ==  "or" ){
-		filename = "4.png";
+		filename = "op.png";//Orthorhombic primitive
 	}
 	else if (  crystal ==  "mono" ){
-		filename = "7.png";
+		filename = "ms.png";//Monoclinic primitive
+	}
+	else if (  crystal ==  "tri" ){
+		filename = "ap.png";//Triclinic
+	}
+	else if (  crystal ==  "tp" ){
+		filename = "tp.png";//Tetragonal primitive
 	}
 
 	QBrush ret;
@@ -552,22 +543,15 @@ legendList KalziumCrystalSchemeType::legendItems() const
 	}
 
 	legendList ll;
-	ll << qMakePair( i18n( "Own"  ), 
-			QBrush( 
-				QPixmap( resourcepath + "9.png" ) 
-				) 
-			);
-	ll << qMakePair( i18n( "bcc, body centered cubic"  ), QBrush( QPixmap( resourcepath + "1.png" ) ) );
-	ll << qMakePair( i18n( "hdp, hexagonal" ), QBrush( QPixmap( resourcepath + "5.png" ) ) );
-	ll << qMakePair( i18n( "ccp, cubic close packed" ), QBrush( QPixmap( resourcepath + "10.png" ) ) );
-	ll << qMakePair( i18n( "hcp, hexagonal close packed" ), QBrush( QPixmap( resourcepath + "11.png" ) ) );
-	ll << qMakePair( i18n( "fcc, face centered cubic" ), QBrush( QPixmap( resourcepath + "2.png" ) ) );
-	ll << qMakePair( i18n( "d, diamond" ), QBrush( QPixmap( resourcepath + "12.png" ) ) );
-	ll << qMakePair( i18n( "sc, simple cubic" ), QBrush( QPixmap( resourcepath + "3.png" ) ) );
-	ll << qMakePair( i18n( "tet, tetragonal" ), QBrush( QPixmap( resourcepath + "6.png" ) ) );
-	ll << qMakePair( i18n( "rh, rhombohedral" ), QBrush( QPixmap( resourcepath + "8.png" ) ) );
-	ll << qMakePair( i18n( "or, orthorhombic" ), QBrush( QPixmap( resourcepath + "4.png" ) ) );
-	ll << qMakePair( i18n( "mono, monoclinic" ), QBrush( QPixmap( resourcepath + "7.png" ) ) );
+	ll << qMakePair( i18n( "bcc, body centered cubic"  ), QBrush( QPixmap( resourcepath + "ci.png" ) ) );
+	ll << qMakePair( i18n( "ccp, cubic close packed" ), QBrush( QPixmap( resourcepath + "cp.png" ) ) );
+	ll << qMakePair( i18n( "fcc, face centered cubic" ), QBrush( QPixmap( resourcepath + "cf.png" ) ) );
+	ll << qMakePair( i18n( "hcp, hexagonal close packed" ), QBrush( QPixmap( resourcepath + "hp.png" ) ) );
+	ll << qMakePair( i18n( "rh, rhombohedral" ), QBrush( QPixmap( resourcepath + "hr.png" ) ) );
+	ll << qMakePair( i18n( "or, orthorhombic primitive" ), QBrush( QPixmap( resourcepath + "op.png" ) ) );
+	ll << qMakePair( i18n( "ms, monoclinic" ), QBrush( QPixmap( resourcepath + "ms.png" ) ) );
+	ll << qMakePair( i18n( "ap, triclinic" ), QBrush( QPixmap( resourcepath + "ap.png" ) ) );
+	ll << qMakePair( i18n( "tp, tetragonal primitive" ), QBrush( QPixmap( resourcepath + "tp.png" ) ) );
 
 	return ll;
 }
