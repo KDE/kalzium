@@ -1,21 +1,16 @@
-1.png Cubic body centered
-2.png Cubic face centered
-3.png Cubic
-4.png Orthorhombic
-5.png Hexagonal
-6.png Tetragonal
-7.png Monoclinic
-8.png Rhombohedral
+mP  Monoclinic primitive
+oP  Orthorhombic primitve
+tP  Tetragonal primitive
+hP  Hexagonal primitive
+hR  Rhombohedral primitive
+cP  Cubic primitive
+cI  Cubic body centred
+cF  Cubic face centred
 
-"Own" 
-"bcc, body centered cubic" 
-"hdp, hexagonal"
-"ccp, cubic close packed"
-"hcp, hexagonal close packed"
-"fcc, face centered cubic"
-"d, diamond"
-"sc, simple cubic"
-"tet, tetragonal"
-"rh, rhombohedral"
-"or, orthorhombic"
-"mono, monoclinic"
+Missing icons
+tI  Tetragonal body centred
+oS  Orthorhombic single face centred
+oI  Orthorhombic body centred
+oF  Orthorhombic all faces centred
+mS  Monoclinic centred
+aP  Triclinic

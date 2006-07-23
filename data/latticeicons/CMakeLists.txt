@@ -1,11 +1,11 @@
 install( FILES 
-	1.png 
-	2.png 
-	3.png  
-	4.png 
-	5.png 
-	6.png  
-	7.png  
-	8.png  
+	mp.png 
+	op.png 
+	tp.png  
+	hp.png 
+	hr.png 
+	cp.png  
+	ci.png  
+	cf.png  
 	DESTINATION  ${DATA_INSTALL_DIR}/kalzium/data/latticeicons
 )
