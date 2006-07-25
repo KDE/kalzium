@@ -32,7 +32,7 @@
 RSDialog::RSDialog( QWidget* parent )
 	: KDialog( parent )
 {
-	setCaption( i18n( "Risks and Security Dialog" ) );
+	setCaption( i18n( "Risks/Security Phrases" ) );
 	setButtons( Help | Close );
 	setDefaultButton( Close );
 
