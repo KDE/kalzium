@@ -35,6 +35,7 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 {
 	m_isLeftButtonPressed = false;
 	m_movedSinceLeftButtonPressed = false;
+	m_clickedAtom = 0;
 	m_molecule = 0;
 	m_detail = 0;
 	m_displayList = 0;
@@ -206,7 +207,7 @@ void KalziumGLWidget::renderScene( GLenum renderMode,
 	glCallList( m_displayList );
 #endif
 
-	renderSelection();
+	renderHighlighting();
 
 	if( renderMode == GL_SELECT )
 	{
@@ -243,18 +244,34 @@ void KalziumGLWidget::renderBonds()
 	}
 }
 
-void KalziumGLWidget::renderSelection()
+void KalziumGLWidget::renderHighlighting()
 {
-	if( ! m_selectedAtoms.count() ) return;
-
-	Color( 0.2, 0.7, 1.0, 0.7 ).applyAsMaterials();
 	glEnable( GL_BLEND );
-	foreach(OpenBabel::OBAtom* atom, m_selectedAtoms)
+
+	if( m_clickedAtom )
 	{
-		glLoadName( atom->GetIdx() );
-		m_sphere.draw( atom->GetVector(),
-			0.18 + m_molStyle.getAtomRadius( atom ) );
+		Color( 0.6, 0.0, 1.0, 0.7 ).applyAsMaterials();
+		glLoadName( m_clickedAtom->GetIdx() );
+		m_sphere.draw( m_clickedAtom->GetVector(),
+			0.18 + m_molStyle.getAtomRadius( m_clickedAtom ) );
 	}
+
+	if( m_selectedAtoms.count() )
+	{
+		Color( 0.0, 0.7, 1.0, 0.7 ).applyAsMaterials();
+		glEnable( GL_BLEND );
+		foreach(OpenBabel::OBAtom* atom, m_selectedAtoms)
+		{
+			if( atom != m_clickedAtom )
+			{
+				glLoadName( atom->GetIdx() );
+				m_sphere.draw( atom->GetVector(),
+					0.18 + m_molStyle.getAtomRadius(
+						atom ) );
+			}
+		}
+	}
+
 	glDisable( GL_BLEND );
 }
 
@@ -308,7 +325,10 @@ void KalziumGLWidget::mousePressEvent( QMouseEvent * event )
 		m_movedSinceLeftButtonPressed = false;
 		m_lastDraggingPosition = event->pos ();
 		m_initialDraggingPosition = event->pos ();
-
+		computeClickedAtom( event->pos () );
+		if( m_clickedAtom )
+			kDebug()<<m_clickedAtom->GetIdx()<<endl;
+		updateGL();
 	}
 }
 
@@ -318,21 +338,17 @@ void KalziumGLWidget::mouseReleaseEvent( QMouseEvent * event )
 	{
 		m_isLeftButtonPressed = false;
 
-		if( ! m_movedSinceLeftButtonPressed )
+		if( m_clickedAtom && ! m_movedSinceLeftButtonPressed )
 		{
-			OBAtom *atomUnderMouse =
-				getAtomUnderMouse( event->pos() );
-			if( atomUnderMouse )
+			if( m_selectedAtoms.contains( m_clickedAtom ) )
 			{
-				if( m_selectedAtoms.contains( atomUnderMouse ) )
-				{
-					m_selectedAtoms.removeAll(
-						atomUnderMouse );
-				}
-				else m_selectedAtoms.append( atomUnderMouse );
+				m_selectedAtoms.removeAll(
+					m_clickedAtom );
 			}
+			else m_selectedAtoms.append( m_clickedAtom );
 			updateGL();
 		}
+		m_clickedAtom = 0;
 	}
 }
 
@@ -488,6 +504,7 @@ void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 	m_molecule = molecule;
 	m_haveToRecompileDisplayList = true;
 	m_selectedAtoms.clear();
+	m_clickedAtom = 0;
 	prepareMoleculeData();
 	setupObjects();
 	updateGL();
@@ -569,10 +586,11 @@ void KalziumGLWidget::slotAtomsSelected( QList<OpenBabel::OBAtom*> atoms )
 	updateGL();
 }
 
-OpenBabel::OBAtom * KalziumGLWidget::getAtomUnderMouse(
+void KalziumGLWidget::computeClickedAtom(
 	const QPoint & mousePosition )
 {
-	if( ! m_molecule ) return 0;
+	m_clickedAtom = 0;
+	if( ! m_molecule ) return;
 
 	const GLsizei selectionBufferSize = 1024;
 	GLuint selectionBuffer[selectionBufferSize];
@@ -589,7 +607,6 @@ OpenBabel::OBAtom * KalziumGLWidget::getAtomUnderMouse(
 		minZ = 0xffffffff,
 		*ptrNames,
 		numberOfNames = 0;
-	printf ("hits = %d\n", numberOfHits);
 	for( i = 0; i < numberOfHits; i++ )
 	{
 		names = *ptr;
@@ -604,9 +621,11 @@ OpenBabel::OBAtom * KalziumGLWidget::getAtomUnderMouse(
 	}
 
 	for( j = 0, ptr = ptrNames; j < numberOfNames; j++, ptr++ )
-		if( *ptr ) return m_molecule->GetAtom( *ptr );
-
-	return 0;
+		if( *ptr )
+		{
+			m_clickedAtom = m_molecule->GetAtom( *ptr );
+			return;
+		}
 }
 
 #include "kalziumglwidget.moc"

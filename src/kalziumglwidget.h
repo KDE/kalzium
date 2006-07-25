@@ -57,6 +57,8 @@ class KalziumGLWidget : public QGLWidget
 		QPoint m_lastDraggingPosition;
 		QPoint m_initialDraggingPosition;
 
+		OpenBabel::OBAtom *m_clickedAtom;
+
 		/**
 		 * Stores the rotation that is applied to the model.
 		 */
@@ -65,7 +67,7 @@ class KalziumGLWidget : public QGLWidget
 		/**
 		 * The molecule which is displayed
 		 */
-		OpenBabel::OBMol* m_molecule;
+		OpenBabel::OBMol *m_molecule;
 
 		/**
 		 * approximate radius of the molecule,
@@ -195,7 +197,7 @@ class KalziumGLWidget : public QGLWidget
 		virtual void paintGL();
 		virtual void renderAtoms();
 		virtual void renderBonds();
-		virtual void renderSelection();
+		virtual void renderHighlighting();
 		virtual void FPSCounter();
 
 		/**
@@ -241,8 +243,7 @@ class KalziumGLWidget : public QGLWidget
 		 */
 		void setMolStyle( int style );
 
-		OpenBabel::OBAtom * getAtomUnderMouse(
-			const QPoint & mousePosition );
+		void computeClickedAtom( const QPoint & mousePosition );
 };
 #endif // KALZIUMGLWIDGET_H
 
