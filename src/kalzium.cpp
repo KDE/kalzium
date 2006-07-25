@@ -187,10 +187,10 @@ void Kalzium::setupActions()
 //X 	m_pLatticeViewer->setEnabled( false );
 //X #endif
 	
-	m_pRSAction = new KAction( KIcon( "rs" ), i18n( "&R/S-Phrases..." ), actionCollection(), "tools_rs" );
+	m_pRSAction = new KAction( KIcon( "kalzium_rs" ), i18n( "&R/S-Phrases..." ), actionCollection(), "tools_rs" );
 	connect( m_pRSAction, SIGNAL( triggered() ), this, SLOT( slotRS() ) );
 	
-	m_pMoleculesviewer = new KAction( KIcon( "molviewer" ), i18n( "Moleculeviewer..." ), actionCollection(), "tools_moleculeviewer" );
+	m_pMoleculesviewer = new KAction( KIcon( "kalzium_molviewer" ), i18n( "Moleculeviewer..." ), actionCollection(), "tools_moleculeviewer" );
 	connect( m_pMoleculesviewer, SIGNAL( triggered() ), this, SLOT( slotMoleculeviewer() ) );
 #ifndef HAVE_OPENBABEL2
 	m_pMoleculesviewer->setEnabled( false );
@@ -199,7 +199,7 @@ void Kalzium::setupActions()
 	m_pMoleculesviewer->setEnabled( false );
 #endif
 	
-	m_pTables = new KAction( KIcon( "tables" ), i18n( "&Tables..." ), actionCollection(), "tools_tables" );
+	m_pTables = new KAction( KIcon( "kalzium_tables" ), i18n( "&Tables..." ), actionCollection(), "tools_tables" );
 	connect( m_pTables, SIGNAL( triggered() ), this, SLOT( slotTables() ) );
 
 	// other period view options
