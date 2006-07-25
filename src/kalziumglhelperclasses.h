@@ -159,6 +159,10 @@ struct Color
 */
 bool createOrthoBasisGivenFirstVector( const OpenBabel::vector3 &U, OpenBabel::vector3 & v, OpenBabel::vector3 & w );
 
+/*void LinearRegression( const std::list<vector3 *> & points,
+	vector3 & ret_plane_base_point, vector3 & ret_plane_normal_vector );
+*/
+
 /**
 * This is an abstract base class for an OpenGL vertex array, with an option
 * (controlled by USE_DISPLAY_LISTS) to compile a display list from it, in which

@@ -657,4 +657,36 @@ bool KalziumGLHelpers::createOrthoBasisGivenFirstVector
 	w.normalize();
 	return true;
 }
+/*
+void LinearRegression( const std::list<vector3 *> & points,
+	vector3 & ret_plane_base_point, vector3 & ret_plane_normal_vector )
+{
+	double sum_x = 0.0;
+	double sum_y = 0.0;
+	double sum_z = 0.0;
+	double sum_xx = 0.0;
+	double sum_xy = 0.0;
+	double sum_xz = 0.0;
+	double sum_yy = 0.0;
+	double sum_yz = 0.0;
+	double sum_zz = 0.0;
 
+	for( std::list<vector3 *>::const_iterator iter = points.begin();
+		iter != points.end(); iter++ )
+	{
+		double x = iter->x();
+		double y = iter->y();
+		double z = iter->z();
+		sum_x += x;
+		sum_y += y;
+		sum_z += z;
+		sum_xx += x * x;
+		sum_xy += x * y;
+		sum_xz += x * z;
+		sum_yy += y * y;
+		sum_yz += y * z;
+		sum_zz += z * z;
+	}
+
+	
+}*/

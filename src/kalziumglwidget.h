@@ -50,9 +50,12 @@ class KalziumGLWidget : public QGLWidget
 		 * equals true if the user is currently dragging (rotating)
 		 * the view
 		 */
-		bool m_isDragging;
+		bool m_isLeftButtonPressed;
+
+		bool m_movedSinceLeftButtonPressed;
 
 		QPoint m_lastDraggingPosition;
+		QPoint m_initialDraggingPosition;
 
 		/**
 		 * Stores the rotation that is applied to the model.
@@ -217,6 +220,12 @@ class KalziumGLWidget : public QGLWidget
 
 		void drawBond( OpenBabel::OBBond *bond );
 
+		void renderScene( GLenum renderMode = GL_RENDER,
+			const QPoint * mousePosition = 0,
+			GLsizei selectionBufferSize = 0,
+			GLuint * selectionBuffer = 0,
+			GLint * numberOfHits = 0 );
+
 		/**
 		 * recomputes the geometry of the geometric objects ( sphere,
 		 * cylinder ).
@@ -231,6 +240,9 @@ class KalziumGLWidget : public QGLWidget
 		 * @param style the wanted molecule style
 		 */
 		void setMolStyle( int style );
+
+		OpenBabel::OBAtom * getAtomUnderMouse(
+			const QPoint & mousePosition );
 };
 #endif // KALZIUMGLWIDGET_H
 

@@ -33,7 +33,8 @@ using namespace OpenBabel;
 KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	: QGLWidget( parent )
 {
-	m_isDragging = false;
+	m_isLeftButtonPressed = false;
+	m_movedSinceLeftButtonPressed = false;
 	m_molecule = 0;
 	m_detail = 0;
 	m_displayList = 0;
@@ -110,13 +111,57 @@ void KalziumGLWidget::paintGL()
 		return;
 	}
 
+	renderScene();
+
+#ifdef USE_FPS_COUNTER
+	FPSCounter();
+	update();
+#endif
+}
+
+void KalziumGLWidget::renderScene( GLenum renderMode,
+			const QPoint *mousePosition,
+			GLsizei selectionBufferSize,
+			GLuint *selectionBuffer,
+			GLint *numberOfHits )
+{
+	// if renderMode is not GL_RENDER, check that it is GL_SELECT and that
+	// the required arguments have been passed
+	if( renderMode != GL_RENDER )
+	{
+		if( renderMode != GL_SELECT
+		 || ! mousePosition
+		 || ! selectionBufferSize
+		 || ! selectionBuffer
+		 || ! numberOfHits ) return;
+	}
+
+	if( renderMode == GL_SELECT )
+	{
+		glSelectBuffer( selectionBufferSize, selectionBuffer );
+		glRenderMode( GL_SELECT );
+	}
+
+	// set up the projection matrix
 	glMatrixMode( GL_PROJECTION );
 	glLoadIdentity();
+	if( renderMode == GL_SELECT )
+	{
+		// in GL_SELECT mode, we only want to render a tiny area around
+		// the mouse pointer
+		GLint viewport[4];
+		glGetIntegerv( GL_VIEWPORT, viewport );
+		gluPickMatrix( mousePosition->x(),
+			viewport[3] - mousePosition->y(),
+			3, 3, viewport);
+	}
 	gluPerspective( 40.0, float( width() ) / height(),
 		getMolRadius(), 5.0 * getMolRadius() );
 	glMatrixMode( GL_MODELVIEW );
 
-	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+	// clear the buffers when in GL_RENDER mode
+	if( renderMode == GL_RENDER )
+		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
 	// set up the camera
 	glLoadIdentity();
@@ -124,7 +169,7 @@ void KalziumGLWidget::paintGL()
 	glMultMatrixd ( m_RotationMatrix );
 
 	// set up fog
-	if( m_useFog )
+	if( m_useFog && renderMode == GL_RENDER )
 	{
 		glEnable( GL_FOG );
 		GLfloat fogColor[] = { 0.0, 0.0, 0.0, 1.0 };
@@ -135,6 +180,13 @@ void KalziumGLWidget::paintGL()
 		glFogf( GL_FOG_END, 5.0 * getMolRadius()  );
 	}
 	else glDisable( GL_FOG );
+
+	// initialize the name stack when in GL_SELECT mode
+	if( renderMode == GL_SELECT )
+	{
+		glInitNames();
+		glPushName( 0 );
+	}
 
 #ifdef USE_DISPLAY_LISTS
 	if( m_haveToRecompileDisplayList )
@@ -153,12 +205,14 @@ void KalziumGLWidget::paintGL()
 	}
 	glCallList( m_displayList );
 #endif
+
 	renderSelection();
 
-#ifdef USE_FPS_COUNTER
-	FPSCounter();
-	update();
-#endif
+	if( renderMode == GL_SELECT )
+	{
+		glFlush();
+		*numberOfHits = glRenderMode( GL_RENDER );
+	}
 }
 
 void KalziumGLWidget::renderAtoms()
@@ -197,6 +251,7 @@ void KalziumGLWidget::renderSelection()
 	glEnable( GL_BLEND );
 	foreach(OpenBabel::OBAtom* atom, m_selectedAtoms)
 	{
+		glLoadName( atom->GetIdx() );
 		m_sphere.draw( atom->GetVector(),
 			0.18 + m_molStyle.getAtomRadius( atom ) );
 	}
@@ -249,8 +304,11 @@ void KalziumGLWidget::mousePressEvent( QMouseEvent * event )
 {
 	if( event->buttons() & Qt::LeftButton )
 	{	
-		m_isDragging = true;
+		m_isLeftButtonPressed = true;
+		m_movedSinceLeftButtonPressed = false;
 		m_lastDraggingPosition = event->pos ();
+		m_initialDraggingPosition = event->pos ();
+
 	}
 }
 
@@ -258,17 +316,35 @@ void KalziumGLWidget::mouseReleaseEvent( QMouseEvent * event )
 {
 	if( !( event->buttons() & Qt::LeftButton ) )
 	{
-		m_isDragging = false;
-		updateGL();
+		m_isLeftButtonPressed = false;
+
+		if( ! m_movedSinceLeftButtonPressed )
+		{
+			OBAtom *atomUnderMouse =
+				getAtomUnderMouse( event->pos() );
+			if( atomUnderMouse )
+			{
+				if( m_selectedAtoms.contains( atomUnderMouse ) )
+				{
+					m_selectedAtoms.removeAll(
+						atomUnderMouse );
+				}
+				else m_selectedAtoms.append( atomUnderMouse );
+			}
+			updateGL();
+		}
 	}
 }
 
 void KalziumGLWidget::mouseMoveEvent( QMouseEvent * event )
 {
-	if( m_isDragging )
+	if( m_isLeftButtonPressed )
 	{
 		QPoint deltaDragging = event->pos() - m_lastDraggingPosition;
 		m_lastDraggingPosition = event->pos();
+		if( ( event->pos()
+			- m_initialDraggingPosition ).manhattanLength() > 2 )
+			m_movedSinceLeftButtonPressed = true;
 
 		glPushMatrix();
 		glLoadIdentity();
@@ -339,6 +415,7 @@ void KalziumGLWidget::setupObjects()
 
 void KalziumGLWidget::drawAtom( OBAtom *atom )
 {
+	glLoadName( atom->GetIdx() );
 	Color( atom ).applyAsMaterials();
 	m_sphere.draw( atom->GetVector(), m_molStyle.getAtomRadius( atom ) );
 }
@@ -366,15 +443,18 @@ void KalziumGLWidget::drawBond( OBBond *bond )
 	switch( m_molStyle.m_bondStyle )
 	{
 		case MolStyle::BONDS_GRAY:
+			glLoadName( 0 );
 			Color( 0.55, 0.55, 0.55 ).applyAsMaterials();
 			m_cylinder.draw( v1, v2, radius, order,
 				m_molStyle.m_multipleBondShift );
 			break;
 
 		case MolStyle::BONDS_USE_ATOMS_COLORS:
+			glLoadName( atom1->GetIdx() );
 			Color( atom1 ).applyAsMaterials();
 			m_cylinder.draw( v1, v3, radius, order,
 				m_molStyle.m_multipleBondShift );
+			glLoadName( atom2->GetIdx() );
 			Color( atom2 ).applyAsMaterials();
 			m_cylinder.draw( v2, v3, radius, order,
 				m_molStyle.m_multipleBondShift );
@@ -487,6 +567,46 @@ void KalziumGLWidget::slotAtomsSelected( QList<OpenBabel::OBAtom*> atoms )
 	kDebug() << "KalziumGLWidget::slotAtomsSelected() with " << atoms.count() << " atoms" << endl;
 	m_selectedAtoms = atoms;
 	updateGL();
+}
+
+OpenBabel::OBAtom * KalziumGLWidget::getAtomUnderMouse(
+	const QPoint & mousePosition )
+{
+	if( ! m_molecule ) return 0;
+
+	const GLsizei selectionBufferSize = 1024;
+	GLuint selectionBuffer[selectionBufferSize];
+	GLint numberOfHits;
+
+	renderScene( GL_SELECT,
+		&mousePosition,
+		selectionBufferSize,
+		selectionBuffer,
+		&numberOfHits );
+
+	unsigned int i, j;
+	GLuint names, *ptr = selectionBuffer,
+		minZ = 0xffffffff,
+		*ptrNames,
+		numberOfNames = 0;
+	printf ("hits = %d\n", numberOfHits);
+	for( i = 0; i < numberOfHits; i++ )
+	{
+		names = *ptr;
+		ptr++;
+		if( *ptr < minZ )
+		{
+			numberOfNames = names;
+			minZ = *ptr;
+			ptrNames = ptr+2;
+		}
+		ptr += names+2;
+	}
+
+	for( j = 0, ptr = ptrNames; j < numberOfNames; j++, ptr++ )
+		if( *ptr ) return m_molecule->GetAtom( *ptr );
+
+	return 0;
 }
 
 #include "kalziumglwidget.moc"
