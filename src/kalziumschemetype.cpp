@@ -302,9 +302,9 @@ legendList KalziumFamilySchemeType::legendItems() const
 	ll << qMakePair( i18n( "Alkaline" ),QBrush( Prefs::alkalie() ) );
 	ll << qMakePair( i18n( "Rare Earth" ),QBrush( Prefs::rare() ) );
 	ll << qMakePair( i18n( "Non-Metals" ),QBrush( Prefs::nonmetal() ) );
-	ll << qMakePair( i18n( "Alkalie-Metal" ),QBrush( Prefs::alkaline() ) );
+	ll << qMakePair( i18n( "Alkalie Metal" ),QBrush( Prefs::alkaline() ) );
 	ll << qMakePair( i18n( "Other Metal" ),QBrush( Prefs::other_metal() ) );
-	ll << qMakePair( i18n( "Halogene" ),QBrush( Prefs::halogene() ) );
+	ll << qMakePair( i18n( "Halogen" ),QBrush( Prefs::halogene() ) );
 	ll << qMakePair( i18n( "Transition Metal" ),QBrush( Prefs::transition() ) );
 	ll << qMakePair( i18n( "Noble Gas" ),QBrush( Prefs::noble_gas() ) );
 	ll << qMakePair( i18n( "Metalloid" ),QBrush( Prefs::metalloid() ) );
@@ -332,7 +332,7 @@ QByteArray KalziumAcidicSchemeType::name() const
 
 QString KalziumAcidicSchemeType::description() const
 {
-	return i18n( "Acidic behaviour" );
+	return i18n( "Acidic Behaviour" );
 }
 
 QBrush KalziumAcidicSchemeType::elementBrush( int el, const QRect& ) const

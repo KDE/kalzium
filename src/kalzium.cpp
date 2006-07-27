@@ -434,7 +434,7 @@ void Kalzium::showSettingsDialog()
 	QWidget *w_design = new QWidget( 0 );
 	w_design->setObjectName( "designpage" );
 	ui_design.setupUi( w_design );
- 	dialog->addPage( w_design, i18n( "Design" ), "design" );
+ 	dialog->addPage( w_design, i18n( "Layout" ), "design" );
 	// showing the dialog
 	dialog->show();
 }

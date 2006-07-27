@@ -43,12 +43,12 @@
        </item>
        <item>
         <property name="text" >
-         <string>Meltingpoint</string>
+         <string>Melting point</string>
         </property>
        </item>
        <item>
         <property name="text" >
-         <string>Boilingpoint</string>
+         <string>Boiling point</string>
         </property>
        </item>
        <item>
@@ -99,12 +99,12 @@
        </item>
        <item>
         <property name="text" >
-         <string>Meltingpoint</string>
+         <string>Melting point</string>
         </property>
        </item>
        <item>
         <property name="text" >
-         <string>Boilingpoint</string>
+         <string>Boiling point</string>
         </property>
        </item>
        <item>
@@ -168,12 +168,12 @@
        </item>
        <item>
         <property name="text" >
-         <string>Meltingpoint</string>
+         <string>Melting point</string>
         </property>
        </item>
        <item>
         <property name="text" >
-         <string>Boilingpoint</string>
+         <string>Boiling point</string>
         </property>
        </item>
        <item>
@@ -224,12 +224,12 @@
        </item>
        <item>
         <property name="text" >
-         <string>Meltingpoint</string>
+         <string>Melting point</string>
         </property>
        </item>
        <item>
         <property name="text" >
-         <string>Boilingpoint</string>
+         <string>Boiling point</string>
         </property>
        </item>
        <item>
