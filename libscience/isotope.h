@@ -177,7 +177,7 @@ class EDUSCIENCE_EXPORT Isotope
 		/**
 		 * stores the relative abundance of the Isotope
 		 */
-		ChemicalDataObject* m_abundance; //added to test
+		ChemicalDataObject* m_abundance; 
 
 		/**
 		 * stores the halfLife of the Isotope
