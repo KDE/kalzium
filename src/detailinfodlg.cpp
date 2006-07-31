@@ -351,8 +351,9 @@ QString DetailedInfoDlg::isotopeTable() const
 		html.append( "</td><td>" );
  		html.append( QString::number( (( isotope )->nucleons()-( isotope )->parentElementNumber()) ) );
 		html.append( "</td><td>" );
-//X 		if ( ( isotope )->percentage() > 0.0 )
-//X 			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( isotope )->percentage() ) );
+ //		if ( ( isotope )->abundance() > 0.0 )
+		if ( !( isotope )->abundance().isEmpty() )
+ 		html.append( i18nc( "this can for example be '24%'", "%1%", ( isotope )->abundance() ) );
  		html.append( "</td><td>" );
 // 		if ( ( isotope )->halflife() > 0.0 )
 // 			html.append( ( isotope )->halflifeAsString() );
