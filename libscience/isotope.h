@@ -87,6 +87,8 @@ class EDUSCIENCE_EXPORT Isotope
 
 		QString magmoment() const;
 
+		QString abundance() const;		
+
 		double halflife() const;
 		
 		/**
@@ -145,6 +147,7 @@ class EDUSCIENCE_EXPORT Isotope
 		 */
 		Isotope::Nucleons nucleonsAfterDecay( Decay kind );
 
+
 	private:
 		/**
 		 * the symbol of the element the isotope belongs to
@@ -171,6 +174,11 @@ class EDUSCIENCE_EXPORT Isotope
 		 */
 		ChemicalDataObject* m_magmoment;
 		
+		/**
+		 * stores the relative abundance of the Isotope
+		 */
+		ChemicalDataObject* m_abundance; //added to test
+
 		/**
 		 * stores the halfLife of the Isotope
 		 */

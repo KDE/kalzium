@@ -24,7 +24,7 @@
 
 Isotope::Isotope()
 : m_parentElementSymbol( 0 ), m_mass( 0 ), m_identifier( 0 ),
-	m_spin( 0 ), m_magmoment( 0 ), m_halflife( 0 ), m_ecdecay( 0 ),
+	m_spin( 0 ), m_magmoment( 0 ), m_abundance( 0 ), m_halflife( 0 ), m_ecdecay( 0 ),
 	m_betaplus( 0 ), m_betaminus( 0 ), m_alpha( 0 )
 { 
 }
@@ -45,6 +45,8 @@ void Isotope::addData( ChemicalDataObject* o )
 		m_spin = o;
 	else if ( o->type() == ChemicalDataObject::magneticMoment )
 		m_magmoment = o;
+	else if ( o->type() == ChemicalDataObject::relativeAbundance )
+		m_abundance = o;
 	else if ( o->type() == ChemicalDataObject::halfLife )
 		m_halflife = o;
 
@@ -81,6 +83,11 @@ QString Isotope::spin() const
 QString Isotope::magmoment() const
 {
 	return m_magmoment ? m_magmoment->value().toString() : QString();
+}
+
+QString Isotope::abundance() const
+{
+	return m_abundance ? m_abundance->value().toString() : QString();
 }
 
 double Isotope::halflife() const
