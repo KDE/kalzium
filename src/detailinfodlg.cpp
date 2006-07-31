@@ -349,7 +349,7 @@ QString DetailedInfoDlg::isotopeTable() const
 		if ( isotope->mass() > 0.0 )
  			html.append( i18n( "%1 u", isotope->mass() ) );
 		html.append( "</td><td>" );
- //		html.append( QString::number( ( isotope )->neutrons() ) );
+ 		html.append( QString::number( (( isotope )->nucleons()-( isotope )->parentElementNumber()) ) );
 		html.append( "</td><td>" );
 //X 		if ( ( isotope )->percentage() > 0.0 )
 //X 			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( isotope )->percentage() ) );
