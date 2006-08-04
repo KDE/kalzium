@@ -47,6 +47,7 @@
 #include <kstdaction.h>
 #include <ktoggleaction.h>
 #include <ktoolinvocation.h>
+#include <kicon.h>
 
 #include <math.h>
 #include <stdlib.h>

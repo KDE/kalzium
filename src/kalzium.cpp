@@ -63,6 +63,7 @@
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
 #include <kstdaction.h>
+#include <kicon.h>
 
 #define PeriodicTableView_MARGIN          5
 #define IDS_ELEMENTINFO     7
