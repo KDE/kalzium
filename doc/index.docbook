@@ -82,7 +82,7 @@
 	 <chapter id="quick-start">
 		 <title>&kalzium; quick start guide</title>
 
-		 <para>Here is &kalzium; the first time you run it, either from the K menu->Edutainment->Science->Kalzium or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
+		 <para>Here is &kalzium; the first time you run it, either from the K menu->Edutainment->Science->&kalzium; or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
 		 <screenshot>
 			 <screeninfo>&kalzium; main window</screeninfo>
 			 <mediaobject>
@@ -92,7 +92,7 @@
 		 </screenshot>
 
 		 <para>
-			 &kalzium; is divided in a sidebar on the left (in red, 1) and the table view (in blue, 2) which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the statusbar reports facts. You can hide the sidebar using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide Sidebar</guimenuitem> </menuchoice> menu.
+			 &kalzium; is divided in a sidebar on the left (in red, 1) and the table view (in blue, 2) which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the status bar reports facts. You can hide the sidebar using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide Sidebar</guimenuitem> </menuchoice> menu.
 		 </para>
 
 		 <para>
@@ -229,11 +229,11 @@
 					 data. The first entry is the <guilabel>Orbital structure</guilabel>. The next is the
 					 <guilabel>density</guilabel>.
 				 </para>
-				 <para> Depending on the data available in Kalzium you will see
+				 <para> Depending on the data available in &kalzium; you will see
 					 different radii of the element. The covalent radius is the radius
 					 of a non charged atom of the element in a molecule. The could for
 					 example be the O-H-distance in Water. The atomic radius is the
-					 radius of an elemental atom, eg. not bound to anything. The van der
+					 radius of an elemental atom, &eg; not bound to anything. The van der
 					 Waals-radius is defined as the distance of two atoms of the same
 					 sort in two equal molecules, for example two carbon-atoms in
 					 propane. The last possible radius is the ionic radius including its
@@ -347,7 +347,7 @@
 			 </sect2>
 			 <sect2 id="infodialog_spectrum">
 				 <title>Spectrum</title>
-				 <para>If Kalzium has information about the emission-spectrum of
+				 <para>If &kalzium; has information about the emission-spectrum of
 					 the current element, this page will display it at the top. The displayed wavelength increases from left to
 				 right. The wavelength between 380
 				 nanometer (nm) and 780 nm have the colors of the visual light
@@ -356,7 +356,7 @@
 					 spinboxes displayed right below the spectrum, the first and the last
 					 wavelength of the spectrum are defined. Furthermore, you can hold
 					 the left mouse button pressed whilst moving the mouse cursor over the spectrum. You will see
-					 the area in which Kalzium would zoom into marked with a white line.
+					 the area in which &kalzium; would zoom into marked with a white line.
 					 Once you release the left mouse button, Kalzium will zoom into
 					 the selected area.</para>
 				 <para>At the bottom of the page is the <guilabel>Export Spectrum as 
