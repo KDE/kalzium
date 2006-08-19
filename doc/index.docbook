@@ -16,7 +16,7 @@
 				 <firstname>Carsten</firstname>
 				 <surname>Niehaus</surname>
 				 <affiliation>
-					 <address><email>cniehaus@kde.org</email></address>
+					 <address><email>&Carsten.Niehaus.mail;</email></address>
 				 </affiliation>
 			 </author>
 
@@ -29,12 +29,12 @@
 			 <year>2002</year>
 			 <year>2004</year>
 			 <year>2005</year>
-			 <holder>Carsten Niehaus</holder>
+			 <holder>&Carsten.Niehaus;</holder>
 		 </copyright>
 
 		 <copyright>
 			 <year>2005</year>
-			 <holder>Anne-Marie Mahfouf</holder>
+			 <holder>&Anne-Marie.Mahfouf;</holder>
 		 </copyright>
 
 		 <legalnotice>&FDLNotice;</legalnotice>
@@ -357,7 +357,7 @@
 					 wavelength of the spectrum are defined. Furthermore, you can hold
 					 the left mouse button pressed whilst moving the mouse cursor over the spectrum. You will see
 					 the area in which &kalzium; would zoom into marked with a white line.
-					 Once you release the left mouse button, Kalzium will zoom into
+					 Once you release the left mouse button, &kalzium; will zoom into
 					 the selected area.</para>
 				 <para>At the bottom of the page is the <guilabel>Export Spectrum as 
 						 Image</guilabel>-button. With it you can save the current spectrum
@@ -1089,7 +1089,7 @@
 				 </question>
 				 <answer>
 					 <para>No, at the moment not, but you can download the source and make
-						 your own Windows version. It should not be a big problem, because it is
+						 your own &Windows; version. It should not be a big problem, because it is
 						 written with Trolltech &Qt; libs. But what do you need &Windows; for?
 						 Get the latest &Linux;, and live on the edge.</para>
 
@@ -1123,7 +1123,7 @@
 				 <answer>
 					 <para>
 						 If you find any bugs in the program, or have a few suggestions for
-						 improvements, please let me know at <email>cniehaus@kde.org</email>. 
+						 improvements, please let me know at <email>&Carsten.Niehaus.mail;</email>.
 					 </para>
 				 </answer>
 
@@ -1136,8 +1136,8 @@
 		 <title>Credits and License</title>
 		 <para>&kalzium;</para>
 		 <para>
-			 Program Copyright, 2001-2005 Carsten Niehaus
-			 <email>cniehaus@kde.org</email>
+			 Program Copyright, 2001-2005 &Carsten.Niehaus;
+			 <email>&Carsten.Niehaus.mail;</email>
 		 </para>
 
 		 <para> Contributors:</para>
@@ -1175,7 +1175,7 @@
 			 <para>
 				 &kalzium; itself can be found on <ulink
 					 url="http://edu.kde.org/kalzium">The &kalzium; home page</ulink> and
-				 is part of the KDE-Edu project</para>
+				 is part of the &kde;-Edu project</para>
 
 			 <para>You can find a list of changes in the file
 				 <filename>ChangeLog</filename> in the distribution of
