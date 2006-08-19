@@ -192,17 +192,17 @@ void KalziumGLWidget::renderScene( GLenum renderMode,
 #ifdef USE_DISPLAY_LISTS
 	if( m_haveToRecompileDisplayList )
 	{
-	if( ! m_displayList ) m_displayList = glGenLists( 1 );
-	if( ! m_displayList ) return;
-	glNewList( m_displayList, GL_COMPILE );
+		if( ! m_displayList ) m_displayList = glGenLists( 1 );
+		if( ! m_displayList ) return;
+		glNewList( m_displayList, GL_COMPILE );
 #endif
 
-	renderAtoms();
-	renderBonds();
+		renderAtoms();
+		renderBonds();
 
 #ifdef USE_DISPLAY_LISTS
-	glEndList();
-	m_haveToRecompileDisplayList = false;
+		glEndList();
+		m_haveToRecompileDisplayList = false;
 	}
 	glCallList( m_displayList );
 #endif
@@ -250,7 +250,7 @@ void KalziumGLWidget::renderHighlighting()
 
 	if( m_clickedAtom )
 	{
-		Color( 0.6, 0.0, 1.0, 0.7 ).applyAsMaterials();
+		Color( 0.8, 0.4, 1.0, 0.7 ).applyAsMaterials();
 		glLoadName( m_clickedAtom->GetIdx() );
 		m_sphere.draw( m_clickedAtom->GetVector(),
 			0.18 + m_molStyle.getAtomRadius( m_clickedAtom ) );
@@ -258,7 +258,7 @@ void KalziumGLWidget::renderHighlighting()
 
 	if( m_selectedAtoms.count() )
 	{
-		Color( 0.0, 0.7, 1.0, 0.7 ).applyAsMaterials();
+		Color( 0.3, 0.6, 1.0, 0.7 ).applyAsMaterials();
 		glEnable( GL_BLEND );
 		foreach(OpenBabel::OBAtom* atom, m_selectedAtoms)
 		{
@@ -294,7 +294,7 @@ void KalziumGLWidget::FPSCounter()
 	}
 
 	new_time = t.elapsed();
-	
+
 	frames++;
 
 	if( new_time - old_time > 200 )

@@ -48,7 +48,7 @@ namespace KalziumGLHelpers
 struct MolStyle
 {
 
-	/** This style in which the bonds are rendered (or not) */
+	/** The style in which the bonds are rendered (or not) */
 	enum BondStyle
 	{
 		BONDS_DISABLED, /**< don't render the bonds */
@@ -58,7 +58,7 @@ struct MolStyle
 			with the color of the atom it touches */
 	} m_bondStyle;
 
-	/** This style in which the atoms are rendered (or not) */
+	/** The style in which the atoms are rendered (or not) */
 	enum AtomStyle
 	{
 		ATOMS_DISABLED,/**< don't render the atoms */
@@ -302,7 +302,7 @@ class Sphere : public VertexArray
 		/** the detail-level of the sphere. Must be at least 1.
 		 * This is interpreted as the number of sub-edges into which
 		 * each edge of the icosahedron must be split. So the
-		 * number of edges of the sphere is simply:
+		 * number of faces of the sphere is simply:
 		 * 20 * detail^2. When detail==1, the sphere is just the
 		 * icosahedron */
 		int m_detail;
