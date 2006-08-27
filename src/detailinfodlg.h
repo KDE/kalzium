@@ -31,7 +31,7 @@ class KActionCollection;
 class KHTMLPart;
 
 /**
- * @short The dialog which shows all available information of an element
+ * @brief The dialog which shows all available information of an element
  * @author Carsten Niehaus
  */
 class DetailedInfoDlg : public KPageDialog

@@ -34,7 +34,7 @@ class QTimer;
 #include "kalziumpainter.h"
 
 /**
- * @short Application Main Window
+ * @brief Application Main Window
  * @author Carsten Niehaus <cniehaus@kde.org>
  * @version 1.2
  *

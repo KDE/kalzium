@@ -17,7 +17,7 @@
 #include <kplotwidget.h>
 
 /**
- * @short This class add the ability to connect the plotted data using a line
+ * @brief This class add the ability to connect the plotted data using a line
  *
  * PlotWidget is basically like a KPlotWidget; the unique feature it has more
  * it's the ability to connect the drawn points with a line.

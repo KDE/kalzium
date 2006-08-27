@@ -37,7 +37,7 @@ class KPushButton;
  * non-toolbar, and non-statusbar (e.g., non frame) GUI code should go
  * here.
  *
- * @short Main view
+ * @brief Main view
  * @author Thomas Nagy <tnagy2^8\@yahoo.fr>
  * @version 0.1
  */

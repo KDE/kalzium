@@ -27,7 +27,7 @@
 class Search;
 
 /**
- * @short This class contains all Element objects
+ * @brief This class contains all Element objects
  *
  * This singleton class collects all the information about the elements of the
  * Periodic Table as list of Element.

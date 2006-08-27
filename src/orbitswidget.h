@@ -21,7 +21,7 @@
 #include <QWidget>
 
 /**
- * @short the widget which displays the Bohr-orbit of the element
+ * @brief the widget which displays the Bohr-orbit of the element
  * @author Carsten Niehaus
  */
 class OrbitsWidget : public QWidget

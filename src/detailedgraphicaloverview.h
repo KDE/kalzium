@@ -20,7 +20,7 @@
 class Element;
 
 /**
- * @short The widget which displays the most important information
+ * @brief The widget which displays the most important information
  *
  * In one widget like a lot people know it from school
  *
