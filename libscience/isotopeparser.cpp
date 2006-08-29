@@ -121,7 +121,6 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 			if ( attrs.localName( i ) == "unit" )
 			{
 			d->currentDataObject->setUnit( d->currentUnit );
-			continue;
 			}
 			else
 			{
