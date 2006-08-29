@@ -116,6 +116,18 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 		d->inMagMoment = true;
 	} else if (d->inIsotope && localName == "halflife") {
 //X 		kDebug() << "bo:halfLife" << endl;
+		for (int i = 0; i < attrs.length(); ++i) 
+		{
+			if ( attrs.localName( i ) == "unit" )
+			{
+			d->currentDataObject->setUnit( d->currentUnit );
+			continue;
+			}
+			else
+			{
+			d->currentUnit = ChemicalDataObject::noUnit;
+			}
+		}
 		d->inHalfLife = true;
 //X 		if ( d->currentUnit != ChemicalDataObject::noUnit )
 //X 			d->currentDataObject->setUnit( d->currentUnit );
