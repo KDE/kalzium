@@ -449,7 +449,7 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="siUnits:kelvin">172.17</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">p</scalar>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1774</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. Scheele</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. W. Scheele</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
     <scalar dataType="xsd:String" dictRef="bo:crystalstructure">tet</scalar>
     <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
@@ -1837,7 +1837,7 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  unit="siUnits:kelvin">3695</scalar>
     <scalar dataType="xsd:String" dictRef="bo:periodTableBlock">d</scalar>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1783</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. W. Scheel</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:discoverers">K. W. Scheele</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
     <scalar dataType="xsd:String" dictRef="bo:crystalstructure">bcc</scalar>
     <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
