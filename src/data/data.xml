@@ -889,7 +889,7 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 		<mass>35.453</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<date scientist="K. Scheele">1774</date>
+		<date scientist="K. W. Scheele">1774</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity>-349</electronaffinity>
@@ -3564,7 +3564,7 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 		<mass>183.84</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<date scientist="K. W. Scheel">1783</date>
+		<date scientist="K. W. Scheele">1783</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-79</electronaffinity>
