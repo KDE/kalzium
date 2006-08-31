@@ -247,7 +247,7 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
  
 	m_htmlpart = new KHTMLPart( vs );
 
-	connect( m_htmlpart->browserExtension(), SIGNAL( openURLRequestDelayed( const KUrl &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KUrl &, const KParts::URLArgs & ) ) );
+	connect( m_htmlpart->browserExtension(), SIGNAL( openUrlRequestDelayed( const KUrl &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KUrl &, const KParts::URLArgs & ) ) );
 	connect( m_glosstree, SIGNAL(clicked( Q3ListViewItem * )), this, SLOT(slotClicked( Q3ListViewItem * )));
 	connect( clear, SIGNAL(clicked()), m_search, SLOT(clear()));
 
