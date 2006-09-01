@@ -116,20 +116,20 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 	} else if (d->inIsotope && localName == "magmoment") {
 //X 		kDebug() << "bo:magneticMoment" << endl;
 		d->inMagMoment = true;
-	} else if (d->inIsotope && localName == "halflife") {
+//	}else if (d->inIsotope && localName == "halflife") {
 //X 		kDebug() << "bo:halfLife" << endl;
-		for (int i = 0; i < attrs.length(); ++i) 
-		{
-			if ( attrs.localName( i ) == "unit" )
-			{
-			d->currentDataObject->setUnit( d->currentUnit );
-			}
-			else
-			{
-			d->currentUnit = ChemicalDataObject::noUnit;
-			}
-		}
-		d->inHalfLife = true;
+//		for (int i = 0; i < attrs.length(); ++i) 
+//		{
+//			if ( attrs.localName( i ) == "unit" )
+//			{
+//			d->currentDataObject->setUnit( d->currentUnit );
+//			}
+//			else
+//			{
+//			d->currentUnit = ChemicalDataObject::noUnit;
+//			}
+//		}
+//		d->inHalfLife = true;
 //X 		if ( d->currentUnit != ChemicalDataObject::noUnit )
 //X 			d->currentDataObject->setUnit( d->currentUnit );
 
@@ -160,8 +160,23 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 				d->inAtomicNumber = true;
 			else if (attrs.value(i) == "bo:exactMass")
 				d->inExactMass = true;
+			else if (attrs.value(i) == "bo:halfLife"){
+				for (int i = 0; i < attrs.length(); ++i) 
+				{
+					if ( attrs.localName( i ) == "unit" )
+					{
+					d->currentDataObject->setUnit( d->currentUnit );
+					}
+					else
+					{
+					d->currentUnit = ChemicalDataObject::noUnit;
+					}
+				}
+				d->inHalfLife = true;
+			}
 		}
-	} else if (d->inIsotope && localName == "bo:relativeAbundance") {
+	} 
+	else if (d->inIsotope && localName == "bo:relativeAbundance") {
 //X 		kDebug() << "bo:relativeAbundance" << endl;
 		d->inAbundance = true;
 	} 	
