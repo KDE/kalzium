@@ -355,8 +355,9 @@ QString DetailedInfoDlg::isotopeTable() const
 		if ( !( isotope )->abundance().isEmpty() )
  		html.append( i18nc( "this can for example be '24%'", "%1%", ( isotope )->abundance() ) );
  		html.append( "</td><td>" );
-// 		if ( ( isotope )->halflife() > 0.0 )
-// 			html.append( ( isotope )->halflifeAsString() );
+ 		if ( ( isotope )->halflife() > 0.0 )
+//FIXME: There's something (an object) missing...
+ 			html.append( i18n( "%1 %2", ( isotope )->halflife(), ChemicalDataObject::unitAsString( )) );
  		html.append( "</td><td>" );
 //X 		if ( ( isotope )->alphapercentage() > 0.0 ){
 //X 			if ( ( isotope )->alphadecay() > 0.0 )
