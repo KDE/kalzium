@@ -889,7 +889,7 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 		<mass>35.453</mass>
 		<block>p</block>
 		<acidicbehaviour>3</acidicbehaviour>
-		<date scientist="K. W. Scheele">1774</date>
+		<date scientist="C. W. Scheele">1774</date>
 		<biologicalmeaning>2</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity>-349</electronaffinity>
@@ -1295,7 +1295,7 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<spectrum intensity="200" wavelength="4041.357" aki="0.787" energy1="17052.29" energy2="41789.48" electronconfig1="3d6(5D)4s" electronconfig2="3d6(5D)4p" term1="a6D" term2="z6D&deg;" J1="9/2" J2="9/2" />
 		</spectra>
 		<acidicbehaviour>2</acidicbehaviour>
-		<date scientist="K. W. Scheele">1774</date>
+		<date scientist="C. W. Scheele">1774</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>7</group>
 		<electronaffinity></electronaffinity>
@@ -2153,7 +2153,7 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 			<spectrum intensity="90" wavelength="5570.444" aki="0.330" energy1="10768.332" energy2="28715.242" electronconfig1="4d5(6S)5s" electronconfig2="4d5(6S)5p" term1="a5S" term2="z5P&deg;" J1="2" J2="1" />
 		</spectra>
 		<acidicbehaviour>2</acidicbehaviour>
-		<date scientist="K. W. Scheele">1778</date>
+		<date scientist="C. W. Scheele">1778</date>
 		<biologicalmeaning>1</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-72</electronaffinity>
@@ -3564,7 +3564,7 @@ D. Mende und G. Simon, Physik - Gleichungen und Tabellen, 13. Auflage, 2001 Fach
 		<mass>183.84</mass>
 		<block>d</block>
 		<acidicbehaviour>2</acidicbehaviour>
-		<date scientist="K. W. Scheele">1783</date>
+		<date scientist="C. W. Scheele">1783</date>
 		<biologicalmeaning>5</biologicalmeaning>
 		<group>6</group>
 		<electronaffinity>-79</electronaffinity>
