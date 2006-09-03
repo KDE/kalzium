@@ -39,10 +39,7 @@ RSDialog::RSDialog( QWidget* parent )
 	createRPhrases();
 	createSPhrases();
 
-	QWidget *dummy = new QWidget();
-	setMainWidget( dummy );
-
-	ui.setupUi( dummy );
+	ui.setupUi( mainWidget() );
 	showRSPhrases();
 
 	QObject::connect( ui.filterButton, SIGNAL( clicked() ), this, SLOT( filter() ) );

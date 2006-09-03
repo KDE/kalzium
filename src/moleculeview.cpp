@@ -38,10 +38,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	setDefaultButton( User1 );
 	setButtonGuiItem( User1, KGuiItem( i18n( "Load molecule" ), "open", i18n( "Loading a molecule" ) ) );
 	
-	QWidget * dummy = new QWidget();
-	setMainWidget( dummy );
-
-	ui.setupUi( dummy );
+  ui.setupUi(mainWidget());
 
 	ui.treeWidget->setSelectionMode( QAbstractItemView::MultiSelection );
 
