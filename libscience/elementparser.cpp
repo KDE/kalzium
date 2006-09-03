@@ -174,8 +174,15 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 
 			if (attrs.value(i) == "bo:symbol")
 				d->inSymbol = true;
-			else if (attrs.value(i) == "bo:name")
-				d->inName = true;
+			else if (attrs.value(i) == "bo:name") {
+                for (int i = 0; i < attrs.length(); ++i) 
+                {
+                    if (attrs.localName(i) == "value") {
+                        d->currentDataObject->setData( attrs.value(i) );
+                        d->currentDataObject->setType( ChemicalDataObject::name );
+                    }
+                }
+            }
 		}
 	}
 	return true;
@@ -208,11 +215,6 @@ bool ElementSaxParser::characters(const QString &ch)
 	ChemicalDataObject::BlueObelisk type;
 	QVariant value;
 
-	if (d->inName) {
-		value = ch;
-		type = ChemicalDataObject::name; 
-		d->inName = false;
-	}
 	else if (d->inMass){
 		value = ch.toDouble();
 		type = ChemicalDataObject::mass; 
