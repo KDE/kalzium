@@ -274,4 +274,24 @@ class KalziumCrystalSchemeType : public KalziumSchemeType
 		KalziumCrystalSchemeType();
 };
 
+/**
+ * @author Carsten Niehaus
+ */
+class KalziumDiscoverymapSchemeType : public KalziumSchemeType
+{
+	public:
+		static KalziumDiscoverymapSchemeType* instance();
+		
+		QByteArray name() const;
+		QString description() const;
+
+		QBrush elementBrush( int el, const QRect& elrect ) const;
+		QColor textColor( int el ) const;
+
+		legendList legendItems() const;
+
+	private:
+		KalziumDiscoverymapSchemeType();
+};
+
 #endif // KALZIUMSCHEMETYPE_H

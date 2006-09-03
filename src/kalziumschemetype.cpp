@@ -38,6 +38,7 @@ KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
 	m_schemes << KalziumAcidicSchemeType::instance();
 	m_schemes << KalziumGroupsSchemeType::instance();
 	m_schemes << KalziumCrystalSchemeType::instance();
+	m_schemes << KalziumDiscoverymapSchemeType::instance();
 }
 
 KalziumSchemeTypeFactory* KalziumSchemeTypeFactory::instance()
@@ -552,6 +553,96 @@ legendList KalziumCrystalSchemeType::legendItems() const
 	ll << qMakePair( i18n( "ms, monoclinic" ), QBrush( QPixmap( resourcepath + "ms.png" ) ) );
 	ll << qMakePair( i18n( "ap, triclinic" ), QBrush( QPixmap( resourcepath + "ap.png" ) ) );
 	ll << qMakePair( i18n( "tp, tetragonal primitive" ), QBrush( QPixmap( resourcepath + "tp.png" ) ) );
+
+	return ll;
+}
+
+////
+KalziumDiscoverymapSchemeType::KalziumDiscoverymapSchemeType()
+  : KalziumSchemeType()
+{
+}
+
+KalziumDiscoverymapSchemeType* KalziumDiscoverymapSchemeType::instance()
+{
+	static KalziumDiscoverymapSchemeType kbst;
+	return &kbst;
+}
+
+QByteArray KalziumDiscoverymapSchemeType::name() const
+{
+	return "Crystal";
+}
+
+QString KalziumDiscoverymapSchemeType::description() const
+{
+	return i18n( "Discovery Country");
+}
+
+QBrush KalziumDiscoverymapSchemeType::elementBrush( int el, const QRect& elrect ) const
+{
+	QString map = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::discoveryCountry );
+
+	static QString resourcepath;
+	if ( resourcepath.isEmpty() )
+	{
+		resourcepath = KGlobal::dirs()->findResourceDir( "appdata", "data/maps/" ) + "data/maps/";
+	}
+
+	QString filename;
+	if (  map == "se" ){
+		filename = "se.png";
+	}
+	else if (  map == "uk" ){
+		filename = "uk.png";
+	}
+	else if (  map == "us" ){
+		filename = "us.png";
+	}
+	else if (  map == "ru" ){
+		filename = "ru.png";
+	}
+	else if (  map == "it" ){
+		filename = "it.png";
+	}
+	else if (  map == "de" ){
+		filename = "de.png";
+	}
+
+	QBrush ret;
+	if ( !filename.isEmpty() )
+	{
+		QPixmap pixmap( resourcepath + filename );
+		ret = QBrush( pixmap.scaled( elrect.size(), Qt::KeepAspectRatio ) );
+	}
+	else
+	{
+		ret.setColor( Qt::gray );
+	}
+
+	return ret;
+}
+
+QColor KalziumDiscoverymapSchemeType::textColor( int ) const
+{
+	return Qt::black;
+}
+
+legendList KalziumDiscoverymapSchemeType::legendItems() const
+{
+	static QString resourcepath;
+	if ( resourcepath.isEmpty() )
+	{
+		resourcepath = KGlobal::dirs()->findResourceDir( "appdata", "data/maps/" ) + "data/maps/";
+	}
+
+	legendList ll;
+	ll << qMakePair( i18n( "Germany"  ), QBrush( QPixmap( resourcepath + "de.png" ) ) );
+	ll << qMakePair( i18n( "United Kindom"  ), QBrush( QPixmap( resourcepath + "uk.png" ) ) );
+	ll << qMakePair( i18n( "Schweden"  ), QBrush( QPixmap( resourcepath + "se.png" ) ) );
+	ll << qMakePair( i18n( "USA"  ), QBrush( QPixmap( resourcepath + "us.png" ) ) );
+	ll << qMakePair( i18n( "Russia"  ), QBrush( QPixmap( resourcepath + "ru.png" ) ) );
+	ll << qMakePair( i18n( "Italy"  ), QBrush( QPixmap( resourcepath + "it.png" ) ) );
 
 	return ll;
 }
