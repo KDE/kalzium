@@ -14,6 +14,7 @@
  ***************************************************************************/
 #include <math.h>
 #include <QGLWidget>
+#include <GL/glu.h>
 #include <QPainter>
 #include <QImage>
 #include <QChar>
