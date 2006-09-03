@@ -1,8 +1,11 @@
 add_subdirectory(data)
 add_subdirectory(tests)
 
-
-########### next target ###############
+#comment these lines out if you don't want to build the test
+set(parsertest_SRCS xmlreadingtest.cpp)
+kde4_add_executable(parsertest ${parsertest_SRCS})
+target_link_libraries(parsertest science)
+#end tests
 
 set(science_LIB_SRCS
    element.cpp
