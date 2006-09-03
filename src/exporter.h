@@ -59,14 +59,6 @@ public:
 	 *       if 'CVS' is really intended, as opposed to CSV.
 	 */
 	bool saveAsCVS();
-
-	/**
-	 * Overloaded function. Prints the QList of Elements @p elements
-	 * @param elements a QList of Elements to be printed
-	 * @param path the path for the template to use
-	 * @return whether the QList has been printed successfully
-	 */
-	bool printElements( const QList<Element*>& elements, const QString& path );
 };
 
 #endif

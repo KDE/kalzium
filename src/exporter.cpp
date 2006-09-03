@@ -28,7 +28,6 @@
 #include <kimageio.h>
 #include <khtml_part.h>
 #include <kglobalsettings.h>
-#include <kprinter.h>
 
 #include <element.h>
 
@@ -60,45 +59,3 @@ QString Exporter::supportedImageFormats()
 {
 	return KImageIO::pattern( KImageIO::Writing );
 }
-
-bool Exporter::printElements( const QList<Element*>& elements, const QString& path )
-{
-        if ( path.isEmpty() )
-                return false;
-
-	KPrinter printer;
-//	printer.setPageSize();
-	QPainter painter;
-	QString imgdir/* = locate(  "data" , "kalzium/elempics/" )*/;
-
-
-	QFile file( path );                     // load the html template
-	if ( !file.open( QIODevice::ReadOnly | QIODevice::Text ) )
-		return false;
-
-	QTextStream html_stream( &file  );
-	QString html;
-	KHTMLPart* part = new KHTMLPart();      // create a new KHTMLPart
-	painter.begin( &printer );
-
-	foreach( Element* element, elements )   // iterate through all elements and print each one on a page
-	{
-		html = html_stream.readAll();   // replace the tags with values
-		html.replace( "$NAME", element->dataAsString( ChemicalDataObject::name ) );
-		html.replace( "$BOILINGPOINT", element->dataAsString( ChemicalDataObject::boilingpoint ) );
-		html.replace( "$IMGPATH", imgdir + element->dataAsString( ChemicalDataObject::symbol ) + ".jpg" );
-
-		part->begin();
-		part->write( html );            //write the html code into the KHTMLPart
-		part->end();
-		
-//		part->paint( painter, );        // let the KHtmlPart paint to the printer-painter
-		
-		printer.newPage();
-	}
-	
-	painter.end();
-	
-	return true;
-}
-

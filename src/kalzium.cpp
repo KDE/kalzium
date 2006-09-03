@@ -32,7 +32,6 @@
 #include "kalziumnumerationtype.h"
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
-#include "printwidget.h"
 #include "rsdialog.h"
 #include "tablesdialog.h"
 #include "search.h"
@@ -269,9 +268,6 @@ void Kalzium::setupSidebars()
 	m_toolbox->addItem( m_somWidget, SmallIconSet( "statematter" ), i18n( "State of Matter" ) );
 	
 	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
-
-	m_printWidget = new PrintWidget( m_toolbox );
-	m_toolbox->addItem( m_printWidget, SmallIconSet( "fileprint" ), i18n( "Print Elements" ) );
 
 	addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
 }
