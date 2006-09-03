@@ -9,5 +9,8 @@ install( FILES
   fi.png
   fr.png
   es.png
+  ukfr.png
+  ukse.png
+  ruus.png
 	DESTINATION  ${DATA_INSTALL_DIR}/kalzium/data/maps
 )

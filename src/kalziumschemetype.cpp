@@ -624,13 +624,13 @@ QBrush KalziumDiscoverymapSchemeType::elementBrush( int el, const QRect& elrect 
     return QBrush( Qt::lightGray );
 	}
 	else if (  map == "uk,fr" ){
-    return QBrush( Qt::red );
+		filename = "ukfr.png";
 	}
 	else if (  map == "se,uk" ){
-    return QBrush( Qt::red );
+		filename = "ukse.png";
 	}
 	else if (  map == "ru,us" ){
-    return QBrush( Qt::red );
+		filename = "ruus.png";
 	} else {
       return QBrush( Qt::blue);
   }
@@ -665,7 +665,7 @@ legendList KalziumDiscoverymapSchemeType::legendItems() const
 	legendList ll;
 	ll << qMakePair( i18n( "Germany"  ), QBrush( QPixmap( resourcepath + "de.png" ) ) );
 	ll << qMakePair( i18n( "United Kindom"  ), QBrush( QPixmap( resourcepath + "uk.png" ) ) );
-	ll << qMakePair( i18n( "Schweden"  ), QBrush( QPixmap( resourcepath + "se.png" ) ) );
+	ll << qMakePair( i18n( "Sweden"  ), QBrush( QPixmap( resourcepath + "se.png" ) ) );
 	ll << qMakePair( i18n( "USA"  ), QBrush( QPixmap( resourcepath + "us.png" ) ) );
 	ll << qMakePair( i18n( "Russia"  ), QBrush( QPixmap( resourcepath + "ru.png" ) ) );
 	ll << qMakePair( i18n( "Italy"  ), QBrush( QPixmap( resourcepath + "it.png" ) ) );
