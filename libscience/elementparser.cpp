@@ -215,7 +215,7 @@ bool ElementSaxParser::characters(const QString &ch)
 	ChemicalDataObject::BlueObelisk type;
 	QVariant value;
 
-	else if (d->inMass){
+	if (d->inMass){
 		value = ch.toDouble();
 		type = ChemicalDataObject::mass; 
 		d->inMass = false;
