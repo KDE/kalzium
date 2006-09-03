@@ -109,8 +109,6 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
     {
         for (int i = 0; i < attrs.length(); ++i) 
         {
-            //kDebug() << "attrs.value(i) is: " << attrs.value(i) << " (localname: " << localName << ")" << endl;
-            
             if ( attrs.localName( i ) == "unit" )
             {
                 d->currentUnit = ChemicalDataObject::unit( attrs.value( i ) );
@@ -170,11 +168,10 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
     {
         for (int i = 0; i < attrs.length(); ++i) 
         {
-            // FIXME
             if ( attrs.localName( i ) != "dictRef" )
                 continue;
 
-            if (attrs.value(i) == "bo:symbol")
+            if (attrs.value(i) == "bo:symbol"){
                 for (int i = 0; i < attrs.length(); ++i) 
                 {
                     if (attrs.localName(i) == "value") {
@@ -182,7 +179,8 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
                         d->currentDataObject->setType( ChemicalDataObject::symbol );
                     }
                 }
-            else if ( attrs.value(i) == "bo:name" || attrs.value(i) == "bo::symbol" ) {
+            }
+            else if ( attrs.value(i) == "bo:name" ){
                 for (int i = 0; i < attrs.length(); ++i) 
                 {
                     if (attrs.localName(i) == "value") {
@@ -201,13 +199,23 @@ bool ElementSaxParser::endElement( const QString &, const QString& localName, co
     if ( localName == "atom" )
     {
         if ( d->currentElement->dataAsString( ChemicalDataObject::symbol ) != "Xx" )
+        {
             d->elements.append(d->currentElement);
+            
+            QList<ChemicalDataObject*> list = d->currentElement->data();
+            foreach( ChemicalDataObject*o, list )
+            {
+                if ( o ) { 
+                    kDebug() << "Name: " << o->dictRef() << " " << o->valueAsString() << endl;
+                }
+            }
+        }
 
         d->currentElement = 0;
         d->currentDataObject = 0;
         d->inElement = false;
     }
-    else if ( localName == "scalar" || localName == "label" )
+    else if ( localName == "scalar" || localName == "label" || localName == "array" )
     {
         if ( d->currentUnit != ChemicalDataObject::noUnit )
             d->currentDataObject->setUnit( d->currentUnit );
@@ -357,10 +365,5 @@ bool ElementSaxParser::characters(const QString &ch)
 
 QList<Element*> ElementSaxParser::getElements()
 {
-    kDebug() << "ElementSaxParser::getElements()" << endl;
-
-    foreach (Element* e, d->elements) {
-        kDebug() << e->dataAsString( ChemicalDataObject::name) << " symbol: " <<  e->dataAsString( ChemicalDataObject::symbol) << endl;
-    }
     return d->elements;
 }

@@ -27,26 +27,25 @@ int main(int argc, char *argv[])
     reader.parse(source);
 
     QList<Element*> v = parser->getElements();
-    kDebug() << "Count: " << v.count() << endl;
 
-    foreach( Element* e, v ){
-        if ( e )
-        {
-            QList<ChemicalDataObject*> list = e->data();
-
-            //Test: give me all data available
-            foreach( ChemicalDataObject*o, list ){
-                if ( o )
-                {
-                    QString unit = o->unitAsString();
-                    if ( unit == "bo:noUnit" )
-                        unit = "";
-                    kDebug() << "Name: " << o->dictRef() << " " << o->valueAsString()  <<" "  << unit << endl;
-                }
-            }
-        }
-
-    }
+//X     foreach( Element* e, v ){
+//X         if ( e )
+//X         {
+//X             QList<ChemicalDataObject*> list = e->data();
+//X 
+//X             //Test: give me all data available
+//X             foreach( ChemicalDataObject*o, list ){
+//X                 if ( o )
+//X                 {
+//X                     QString unit = o->unitAsString();
+//X                     if ( unit == "bo:noUnit" )
+//X                         unit = "";
+//X                     kDebug() << "Name: " << o->dictRef() << " " << o->valueAsString()  <<" "  << unit << endl;
+//X                 }
+//X             }
+//X         }
+//X 
+//X     }
 
     return 0;
 }
