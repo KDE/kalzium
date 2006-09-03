@@ -173,7 +173,13 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
 				continue;
 
 			if (attrs.value(i) == "bo:symbol")
-				d->inSymbol = true;
+                for (int i = 0; i < attrs.length(); ++i) 
+                {
+                    if (attrs.localName(i) == "value") {
+                        d->currentDataObject->setData( attrs.value(i) );
+                        d->currentDataObject->setType( ChemicalDataObject::symbol );
+                    }
+                }
 			else if (attrs.value(i) == "bo:name") {
                 for (int i = 0; i < attrs.length(); ++i) 
                 {
