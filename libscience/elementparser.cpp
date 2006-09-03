@@ -177,6 +177,9 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
                     if (attrs.localName(i) == "value") {
                         d->currentDataObject->setData( attrs.value(i) );
                         d->currentDataObject->setType( ChemicalDataObject::symbol );
+                        
+                        if ( d->currentElement )
+                            d->currentElement->addData( d->currentDataObject );
                     }
                 }
             }
@@ -186,6 +189,9 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
                     if (attrs.localName(i) == "value") {
                         d->currentDataObject->setData( attrs.value(i) );
                         d->currentDataObject->setType( ChemicalDataObject::name );
+    
+                        if ( d->currentElement )
+                            d->currentElement->addData( d->currentDataObject );
                     }
                 }
             }
@@ -199,17 +205,7 @@ bool ElementSaxParser::endElement( const QString &, const QString& localName, co
     if ( localName == "atom" )
     {
         if ( d->currentElement->dataAsString( ChemicalDataObject::symbol ) != "Xx" )
-        {
             d->elements.append(d->currentElement);
-            
-            QList<ChemicalDataObject*> list = d->currentElement->data();
-            foreach( ChemicalDataObject*o, list )
-            {
-                if ( o ) { 
-                    kDebug() << "Name: " << o->dictRef() << " " << o->valueAsString() << endl;
-                }
-            }
-        }
 
         d->currentElement = 0;
         d->currentDataObject = 0;

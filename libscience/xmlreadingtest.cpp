@@ -14,11 +14,6 @@ int main(int argc, char *argv[])
 
     ElementSaxParser * parser = new ElementSaxParser();
     QFile xmlFile(argv[1]);
-    
-    if (xmlFile.exists())
-        kDebug() << "file exists" << endl;
-    else
-        kDebug() << "file DOES NOT exist" << endl;
 
     QXmlInputSource source(&xmlFile);
     QXmlSimpleReader reader;
@@ -28,24 +23,24 @@ int main(int argc, char *argv[])
 
     QList<Element*> v = parser->getElements();
 
-//X     foreach( Element* e, v ){
-//X         if ( e )
-//X         {
-//X             QList<ChemicalDataObject*> list = e->data();
-//X 
-//X             //Test: give me all data available
-//X             foreach( ChemicalDataObject*o, list ){
-//X                 if ( o )
-//X                 {
-//X                     QString unit = o->unitAsString();
-//X                     if ( unit == "bo:noUnit" )
-//X                         unit = "";
-//X                     kDebug() << "Name: " << o->dictRef() << " " << o->valueAsString()  <<" "  << unit << endl;
-//X                 }
-//X             }
-//X         }
-//X 
-//X     }
+    foreach( Element* e, v ){
+        if ( e )
+        {
+            QList<ChemicalDataObject*> list = e->data();
+
+            //Test: give me all data available
+            foreach( ChemicalDataObject*o, list ){
+                if ( o )
+                {
+                    QString unit = o->unitAsString();
+                    if ( unit == "bo:noUnit" )
+                        unit = "";
+                    kDebug() << "Name: " << o->dictRef() << " " << o->valueAsString()  <<" "  << unit << endl;
+                }
+            }
+        }
+
+    }
 
     return 0;
 }
