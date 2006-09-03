@@ -225,11 +225,6 @@ bool ElementSaxParser::characters(const QString &ch)
 		type = ChemicalDataObject::exactMass; 
 		d->inExactMass = false;
 	}
-	else if (d->inSymbol) {
-		value = ch;
-		type = ChemicalDataObject::symbol; 
-		d->inSymbol = false;
-	}
 	else if (d->inAtomicNumber) {
 		value = ch.toInt();
 		type = ChemicalDataObject::atomicNumber; 
