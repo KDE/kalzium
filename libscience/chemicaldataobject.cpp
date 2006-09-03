@@ -233,6 +233,9 @@ QString ChemicalDataObject::dictRef() const
 		case SPhrase:
 			botype ="SPhrase";
 			break;
+		case discoveryCountry:
+			botype ="discoveryCountry";
+			break;
 	}
 
 	botype = botype.prepend( "bo:" );

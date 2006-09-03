@@ -84,7 +84,8 @@ class EDUSCIENCE_EXPORT ChemicalDataObject
 			ecDecay/**< The decayenergy of ecminusdecay in MeV */,
 			dangerSymbol/**< the danger symbols are the dangers associated with an element, for example Xn,T+ */,
 			RPhrase/**< */,
-			SPhrase/**< */
+			SPhrase/**< */,
+      discoveryCountry
 		};
 
 		/**

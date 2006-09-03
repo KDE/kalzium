@@ -50,7 +50,8 @@ class ElementSaxParser::Private
             inDensity( false ),
             inDangerSymbol( false ),
             inRPhrase( false ),
-            inSPhrase( false )
+            inSPhrase( false ),
+            inCountry( false )
     {
     }
 
@@ -87,6 +88,7 @@ class ElementSaxParser::Private
         bool inDangerSymbol;
         bool inRPhrase;
         bool inSPhrase;
+        bool inCountry;
 };
 
     ElementSaxParser::ElementSaxParser()
@@ -105,7 +107,7 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
     {
         d->currentElement = new Element();
         d->inElement = true;
-    } else if (d->inElement && localName == "scalar")
+    } else if (d->inElement && localName == "scalar" || localName == "array" )
     {
         for (int i = 0; i < attrs.length(); ++i) 
         {
@@ -143,6 +145,8 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
                 d->inDiscoveryDate = true;
             else if (attrs.value(i) == "bo:discoverers")
                 d->inDiscoverers = true;
+            else if (attrs.value(i) == "bo:discoveryCountry")
+                d->inCountry = true;
             else if (attrs.value(i) == "bo:period")
                 d->inPeriod = true;
             else if (attrs.value(i) == "bo:crystalstructure")
@@ -346,6 +350,11 @@ bool ElementSaxParser::characters(const QString &ch)
         value = ch;
         type = ChemicalDataObject::SPhrase; 
         d->inSPhrase = false;
+    }
+    else if (d->inCountry){
+        value = ch;
+        type = ChemicalDataObject::discoveryCountry; 
+        d->inCountry = false;
     }
     else//it is a non known value. Do not create a wrong object but return
         return true;
