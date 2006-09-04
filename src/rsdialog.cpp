@@ -39,13 +39,7 @@ RSDialog::RSDialog( QWidget* parent )
 	createRPhrases();
 	createSPhrases();
 
-	//ui.setupUi( mainWidget() );
-
-  QWidget *dummy = new QWidget();
-  setMainWidget( dummy );
-
-  ui.setupUi( dummy );
-
+	ui.setupUi( mainWidget() );
 
 	showRSPhrases();
 
