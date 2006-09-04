@@ -325,9 +325,11 @@ void KalziumGLWidget::mousePressEvent( QMouseEvent * event )
 		m_movedSinceLeftButtonPressed = false;
 		m_lastDraggingPosition = event->pos ();
 		m_initialDraggingPosition = event->pos ();
+#if 0
 		computeClickedAtom( event->pos () );
 		if( m_clickedAtom )
 			kDebug()<<m_clickedAtom->GetIdx()<<endl;
+#endif
 		updateGL();
 	}
 }
