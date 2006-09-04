@@ -338,6 +338,7 @@ void KalziumGLWidget::mouseReleaseEvent( QMouseEvent * event )
 	{
 		m_isLeftButtonPressed = false;
 
+#if 0
 		if( m_clickedAtom && ! m_movedSinceLeftButtonPressed )
 		{
 			if( m_selectedAtoms.contains( m_clickedAtom ) )
@@ -348,6 +349,7 @@ void KalziumGLWidget::mouseReleaseEvent( QMouseEvent * event )
 			else m_selectedAtoms.append( m_clickedAtom );
 			updateGL();
 		}
+#endif
 		m_clickedAtom = 0;
 	}
 }
