@@ -16,7 +16,7 @@
 				 <firstname>Carsten</firstname>
 				 <surname>Niehaus</surname>
 				 <affiliation>
-					 <address><email>cniehaus@kde.org</email></address>
+					 <address>&Carsten.Niehaus.mail;</address>
 				 </affiliation>
 			 </author>
 
@@ -29,12 +29,12 @@
 			 <year>2002</year>
 			 <year>2004</year>
 			 <year>2005</year>
-			 <holder>Carsten Niehaus</holder>
+			 <holder>&Carsten.Niehaus;</holder>
 		 </copyright>
 
 		 <copyright>
 			 <year>2005</year>
-			 <holder>Anne-Marie Mahfouf</holder>
+			 <holder>&Anne-Marie.Mahfouf;</holder>
 		 </copyright>
 
 		 <legalnotice>&FDLNotice;</legalnotice>
@@ -92,7 +92,7 @@
 		 </screenshot>
 
 		 <para>
-			 &kalzium; is divided in a sidebar on the left (in red, 1) and the table view (in blue, 2) which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the statusbar reports facts. You can hide the sidebar using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide Sidebar</guimenuitem> </menuchoice> menu.
+			 &kalzium; is divided in a sidebar on the left (in red, 1) and the table view (in blue, 2) which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the status bar reports facts. You can hide the sidebar using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide Sidebar</guimenuitem> </menuchoice> menu.
 		 </para>
 
 		 <para>
@@ -230,11 +230,11 @@
 					 data. The first entry is the <guilabel>Orbital structure</guilabel>. The next is the
 					 <guilabel>density</guilabel>.
 				 </para>
-				 <para> Depending on the data available in Kalzium you will see
+				 <para> Depending on the data available in &kalzium; you will see
 					 different radii of the element. The covalent radius is the radius
 					 of a non charged atom of the element in a molecule. The could for
 					 example be the O-H-distance in Water. The atomic radius is the
-					 radius of an elemental atom, eg. not bound to anything. The van der
+					 radius of an elemental atom, &eg; not bound to anything. The van der
 					 Waals-radius is defined as the distance of two atoms of the same
 					 sort in two equal molecules, for example two carbon-atoms in
 					 propane. The last possible radius is the ionic radius including its
@@ -1097,7 +1097,7 @@
 				 <answer>
 					 <para>
 						 If you find any bugs in the program, or have a few suggestions for
-						 improvements, please let me know at <email>cniehaus@kde.org</email>. 
+						 improvements, please let me know at &Carsten.Niehaus.mail;. 
 					 </para>
 				 </answer>
 
@@ -1111,7 +1111,7 @@
 		 <para>&kalzium;</para>
 		 <para>
 			 Program Copyright, 2001-2005 Carsten Niehaus
-			 <email>cniehaus@kde.org</email>
+			 &Carsten.Niehaus.mail;
 		 </para>
 
 		 <para> Contributors:</para>
