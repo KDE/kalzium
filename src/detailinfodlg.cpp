@@ -355,7 +355,7 @@ QString DetailedInfoDlg::isotopeTable() const
 		if ( !( isotope )->abundance().isEmpty() )
  		html.append( i18nc( "this can for example be '24%'", "%1%", ( isotope )->abundance() ) );
  		html.append( "</td><td>" );
- 		if ( ( isotope )->halflife() > 0.0 )
+// 		if ( ( isotope )->halflife() > 0.0 )
 //FIXME: There's something (an object) missing...
  //			html.append( i18n( "%1 %2", ( isotope )->halflife(), ChemicalDataObject::unitAsString( )) );
  		html.append( "</td><td>" );
@@ -397,7 +397,8 @@ QString DetailedInfoDlg::isotopeTable() const
 //X 			if ( ( isotope )->ecpercentage() < 100.0 )
 //X 				html.append( i18n( "(%1%)" ).arg(( isotope )->ecpercentage() ));
 //X 			}
- 		html.append( "</td><td>" );
+
+		html.append( "</td><td>" );
 		html.append( ( isotope )->spin() );
 		html.append( "</td><td>" );
 		if ( !( isotope )->magmoment().isEmpty() )
