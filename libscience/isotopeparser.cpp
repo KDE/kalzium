@@ -17,7 +17,6 @@ email                : cniehaus@kde.org
 
 #include <kdebug.h>
 
-//FIXME: major changes in isotopes.xml but status of isotopes.xml still isn't clear, see discussion in the bo-mailing list
 
 class IsotopeParser::Private
 {

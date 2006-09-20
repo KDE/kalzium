@@ -38,7 +38,7 @@
 		<scalar dictRef="bo:atomicNumber">1</scalar>
 	</isotope>
 	<isotope id="H2" number="2" elementType="H">
-		<abundance dictRef="bo:relativeAbundance">0.0115</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.0115</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.0004E-6">2.014101778</scalar>
 		<scalar dictRef="bo:spin">1+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.857438</scalar>
@@ -72,14 +72,14 @@
 </isotopeList>
 <isotopeList id="He">
 	<isotope id="He3" number="3" elementType="He">
-		<abundance dictRef="bo:relativeAbundance">0.000137</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.000137</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.0026E-6">3.016029319</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-2.127624</scalar>
 		<scalar dictRef="bo:atomicNumber">2</scalar>
 	</isotope>
 	<isotope id="He4" number="4" elementType="He">
-		<abundance dictRef="bo:relativeAbundance">99.999863</abundance>
+		<scalar dictRef="bo:relativeAbundance">99.999863</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.00006E-6">4.002603254</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">2</scalar>
@@ -123,14 +123,14 @@
 		<scalar dictRef="bo:atomicNumber">3</scalar>
 	</isotope>
 	<isotope id="Li6" number="6" elementType="Li">
-		<abundance dictRef="bo:relativeAbundance">7.59</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.59</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.016E-6">6.015122795</scalar>
 		<scalar dictRef="bo:spin">1+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.822056</scalar>
 		<scalar dictRef="bo:atomicNumber">3</scalar>
 	</isotope>
 	<isotope id="Li7" number="7" elementType="Li">
-		<abundance dictRef="bo:relativeAbundance">92.41</abundance>
+		<scalar dictRef="bo:relativeAbundance">92.41</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.08E-6">7.01600455</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.25644</scalar>
@@ -179,7 +179,7 @@
 		<scalar dictRef="bo:atomicNumber">4</scalar>
 	</isotope>
 	<isotope id="Be9" number="9" elementType="Be">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">9.0121822</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.1776</scalar>
@@ -236,14 +236,14 @@
 		<scalar dictRef="bo:atomicNumber">5</scalar>
 	</isotope>
 	<isotope id="B10" number="10" elementType="B">
-		<abundance dictRef="bo:relativeAbundance">19.9</abundance>
+		<scalar dictRef="bo:relativeAbundance">19.9</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">10.012937</scalar>
 		<scalar dictRef="bo:spin">3+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.80065</scalar>
 		<scalar dictRef="bo:atomicNumber">5</scalar>
 	</isotope>
 	<isotope id="B11" number="11" elementType="B">
-		<abundance dictRef="bo:relativeAbundance">80.1</abundance>
+		<scalar dictRef="bo:relativeAbundance">80.1</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">11.0093054</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.688637</scalar>
@@ -304,13 +304,13 @@
 		<scalar dictRef="bo:atomicNumber">6</scalar>
 	</isotope>
 	<isotope id="C12" number="12" elementType="C">
-		<abundance dictRef="bo:relativeAbundance">98.93</abundance>
+		<scalar dictRef="bo:relativeAbundance">98.93</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0E-6">12</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">6</scalar>
 	</isotope>
 	<isotope id="C13" number="13" elementType="C">
-		<abundance dictRef="bo:relativeAbundance">1.07</abundance>
+		<scalar dictRef="bo:relativeAbundance">1.07</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.001E-6">13.00335484</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.702411</scalar>
@@ -374,14 +374,14 @@
 		<scalar dictRef="bo:atomicNumber">7</scalar>
 	</isotope>
 	<isotope id="N14" number="14" elementType="N">
-		<abundance dictRef="bo:relativeAbundance">99.632</abundance>
+		<scalar dictRef="bo:relativeAbundance">99.632</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.0006E-6">14.003074</scalar>
 		<scalar dictRef="bo:spin">1+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.403761</scalar>
 		<scalar dictRef="bo:atomicNumber">7</scalar>
 	</isotope>
 	<isotope id="N15" number="15" elementType="N">
-		<abundance dictRef="bo:relativeAbundance">0.368</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.368</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.0007E-6">15.0001089</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.283189</scalar>
@@ -446,20 +446,20 @@
 		<scalar dictRef="bo:atomicNumber">8</scalar>
 	</isotope>
 	<isotope id="O16" number="16" elementType="O">
-		<abundance dictRef="bo:relativeAbundance">99.757</abundance>
+		<scalar dictRef="bo:relativeAbundance">99.757</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.00016E-6">15.99491462</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">8</scalar>
 	</isotope>
 	<isotope id="O17" number="17" elementType="O">
-		<abundance dictRef="bo:relativeAbundance">0.038</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.038</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.12E-6">16.9991317</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.89379</scalar>
 		<scalar dictRef="bo:atomicNumber">8</scalar>
 	</isotope>
 	<isotope id="O18" number="18" elementType="O">
-		<abundance dictRef="bo:relativeAbundance">0.205</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.205</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">17.999161</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">8</scalar>
@@ -533,7 +533,7 @@
 		<scalar dictRef="bo:atomicNumber">9</scalar>
 	</isotope>
 	<isotope id="F19" number="19" elementType="F">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.07E-6">18.99840322</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.628866</scalar>
@@ -606,20 +606,20 @@
 		<scalar dictRef="bo:atomicNumber">10</scalar>
 	</isotope>
 	<isotope id="Ne20" number="20" elementType="Ne">
-		<abundance dictRef="bo:relativeAbundance">90.48</abundance>
+		<scalar dictRef="bo:relativeAbundance">90.48</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.0019E-6">19.99244018</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">10</scalar>
 	</isotope>
 	<isotope id="Ne21" number="21" elementType="Ne">
-		<abundance dictRef="bo:relativeAbundance">0.27</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.27</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.04E-6">20.99384668</scalar>
 		<scalar dictRef="bo:spin">3/2</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.661796</scalar>
 		<scalar dictRef="bo:atomicNumber">10</scalar>
 	</isotope>
 	<isotope id="Ne22" number="22" elementType="Ne">
-		<abundance dictRef="bo:relativeAbundance">9.25</abundance>
+		<scalar dictRef="bo:relativeAbundance">9.25</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.019E-6">21.99138511</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">10</scalar>
@@ -702,7 +702,7 @@
 		<scalar dictRef="bo:atomicNumber">11</scalar>
 	</isotope>
 	<isotope id="Na23" number="23" elementType="Na">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.0029E-6">22.98976928</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-2.217520</scalar>
@@ -792,20 +792,20 @@
 		<scalar dictRef="bo:atomicNumber">12</scalar>
 	</isotope>
 	<isotope id="Mg24" number="24" elementType="Mg">
-		<abundance dictRef="bo:relativeAbundance">78.99</abundance>
+		<scalar dictRef="bo:relativeAbundance">78.99</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.014E-6">23.9850417</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">12</scalar>
 	</isotope>
 	<isotope id="Mg25" number="25" elementType="Mg">
-		<abundance dictRef="bo:relativeAbundance">10.00</abundance>
+		<scalar dictRef="bo:relativeAbundance">10.00</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.03E-6">24.98583692</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.85545</scalar>
 		<scalar dictRef="bo:atomicNumber">12</scalar>
 	</isotope>
 	<isotope id="Mg26" number="26" elementType="Mg">
-		<abundance dictRef="bo:relativeAbundance">11.01</abundance>
+		<scalar dictRef="bo:relativeAbundance">11.01</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.03E-6">25.98259293</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">12</scalar>
@@ -899,7 +899,7 @@
 		<scalar dictRef="bo:atomicNumber">13</scalar>
 	</isotope>
 	<isotope id="Al27" number="27" elementType="Al">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.12E-6">26.98153863</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.641504</scalar>
@@ -992,20 +992,20 @@
 		<scalar dictRef="bo:atomicNumber">14</scalar>
 	</isotope>
 	<isotope id="Si28" number="28" elementType="Si">
-		<abundance dictRef="bo:relativeAbundance">92.2297</abundance>
+		<scalar dictRef="bo:relativeAbundance">92.2297</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.0019E-6">27.97692653</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">14</scalar>
 	</isotope>
 	<isotope id="Si29" number="29" elementType="Si">
-		<abundance dictRef="bo:relativeAbundance">4.6832</abundance>
+		<scalar dictRef="bo:relativeAbundance">4.6832</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.022E-6">28.9764947</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.55529</scalar>
 		<scalar dictRef="bo:atomicNumber">14</scalar>
 	</isotope>
 	<isotope id="Si30" number="30" elementType="Si">
-		<abundance dictRef="bo:relativeAbundance">3.0872</abundance>
+		<scalar dictRef="bo:relativeAbundance">3.0872</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.03E-6">29.97377017</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">14</scalar>
@@ -1097,7 +1097,7 @@
 		<scalar dictRef="bo:atomicNumber">15</scalar>
 	</isotope>
 	<isotope id="P31" number="31" elementType="P">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.2E-6">30.97376163</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.13160</scalar>
@@ -1195,20 +1195,20 @@
 		<scalar dictRef="bo:atomicNumber">16</scalar>
 	</isotope>
 	<isotope id="S32" number="32" elementType="S">
-		<abundance dictRef="bo:relativeAbundance">94.93</abundance>
+		<scalar dictRef="bo:relativeAbundance">94.93</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.15E-6">31.972071</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">16</scalar>
 	</isotope>
 	<isotope id="S33" number="33" elementType="S">
-		<abundance dictRef="bo:relativeAbundance">0.76</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.76</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.15E-6">32.97145876</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.643821</scalar>
 		<scalar dictRef="bo:atomicNumber">16</scalar>
 	</isotope>
 	<isotope id="S34" number="34" elementType="S">
-		<abundance dictRef="bo:relativeAbundance">4.29</abundance>
+		<scalar dictRef="bo:relativeAbundance">4.29</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.12E-6">33.9678669</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">16</scalar>
@@ -1223,7 +1223,7 @@
 		<scalar dictRef="bo:atomicNumber">16</scalar>
 	</isotope>
 	<isotope id="S36" number="36" elementType="S">
-		<abundance dictRef="bo:relativeAbundance">0.02</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.02</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.2E-6">35.96708076</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">16</scalar>
@@ -1311,7 +1311,7 @@
 		<scalar dictRef="bo:atomicNumber">17</scalar>
 	</isotope>
 	<isotope id="Cl35" number="35" elementType="Cl">
-		<abundance dictRef="bo:relativeAbundance">75.78</abundance>
+		<scalar dictRef="bo:relativeAbundance">75.78</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.04E-6">34.96885268</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.82187</scalar>
@@ -1322,7 +1322,7 @@
 		<scalar dictRef="bo:atomicNumber">17</scalar>
 	</isotope>
 	<isotope id="Cl37" number="37" elementType="Cl">
-		<abundance dictRef="bo:relativeAbundance">24.22</abundance>
+		<scalar dictRef="bo:relativeAbundance">24.22</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.05E-6">36.96590259</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.68412</scalar>
@@ -1411,7 +1411,7 @@
 		<scalar dictRef="bo:atomicNumber">18</scalar>
 	</isotope>
 	<isotope id="Ar36" number="36" elementType="Ar">
-		<abundance dictRef="bo:relativeAbundance">0.3365</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.3365</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.029E-6">35.96754511</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">18</scalar>
@@ -1421,7 +1421,7 @@
 		<scalar dictRef="bo:atomicNumber">18</scalar>
 	</isotope>
 	<isotope id="Ar38" number="38" elementType="Ar">
-		<abundance dictRef="bo:relativeAbundance">0.0632</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.0632</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">37.9627324</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">18</scalar>
@@ -1431,7 +1431,7 @@
 		<scalar dictRef="bo:atomicNumber">18</scalar>
 	</isotope>
 	<isotope id="Ar40" number="40" elementType="Ar">
-		<abundance dictRef="bo:relativeAbundance">99.6003</abundance>
+		<scalar dictRef="bo:relativeAbundance">99.6003</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.0029E-6">39.96238312</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">18</scalar>
@@ -1519,14 +1519,14 @@
 		<scalar dictRef="bo:atomicNumber">19</scalar>
 	</isotope>
 	<isotope id="K39" number="39" elementType="K">
-		<abundance dictRef="bo:relativeAbundance">93.2581</abundance>
+		<scalar dictRef="bo:relativeAbundance">93.2581</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.2E-6">38.96370668</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.391466</scalar>
 		<scalar dictRef="bo:atomicNumber">19</scalar>
 	</isotope>
 	<isotope id="K40" number="40" elementType="K">
-		<abundance dictRef="bo:relativeAbundance">0.0117</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.0117</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.21E-6">39.96399848</scalar>
 		<scalar dictRef="bo:spin">4-</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.298099</scalar>
@@ -1538,7 +1538,7 @@
 		<scalar dictRef="bo:atomicNumber">19</scalar>
 	</isotope>
 	<isotope id="K41" number="41" elementType="K">
-		<abundance dictRef="bo:relativeAbundance">6.7302</abundance>
+		<scalar dictRef="bo:relativeAbundance">6.7302</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.21E-6">40.96182576</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.2148699</scalar>
@@ -1627,7 +1627,7 @@
 		<scalar dictRef="bo:atomicNumber">20</scalar>
 	</isotope>
 	<isotope id="Ca40" number="40" elementType="Ca">
-		<abundance dictRef="bo:relativeAbundance">96.941</abundance>
+		<scalar dictRef="bo:relativeAbundance">96.941</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.22E-6">39.96259098</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">20</scalar>
@@ -1637,20 +1637,20 @@
 		<scalar dictRef="bo:atomicNumber">20</scalar>
 	</isotope>
 	<isotope id="Ca42" number="42" elementType="Ca">
-		<abundance dictRef="bo:relativeAbundance">0.647</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.647</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.27E-6">41.95861801</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">20</scalar>
 	</isotope>
 	<isotope id="Ca43" number="43" elementType="Ca">
-		<abundance dictRef="bo:relativeAbundance">0.135</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.135</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.3E-6">42.9587666</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.31725</scalar>
 		<scalar dictRef="bo:atomicNumber">20</scalar>
 	</isotope>
 	<isotope id="Ca44" number="44" elementType="Ca">
-		<abundance dictRef="bo:relativeAbundance">2.086</abundance>
+		<scalar dictRef="bo:relativeAbundance">2.086</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">43.9554818</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">20</scalar>
@@ -1661,7 +1661,7 @@
 		<scalar dictRef="bo:atomicNumber">20</scalar>
 	</isotope>
 	<isotope id="Ca46" number="46" elementType="Ca">
-		<abundance dictRef="bo:relativeAbundance">0.004</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.004</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">45.9536926</scalar>
 		<scalar dictRef="bo:halfLife" units="siUnits:s">14152320</scalar>
 		<scalar dictRef="bo:betaminusDecay">0.257</scalar>
@@ -1673,7 +1673,7 @@
 		<scalar dictRef="bo:atomicNumber">20</scalar>
 	</isotope>
 	<isotope id="Ca48" number="48" elementType="Ca">
-		<abundance dictRef="bo:relativeAbundance">0.187</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.187</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">47.952534</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">20</scalar>
@@ -1753,7 +1753,7 @@
 		<scalar dictRef="bo:atomicNumber">21</scalar>
 	</isotope>
 	<isotope id="Sc45" number="45" elementType="Sc">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">44.9559119</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+4.756483</scalar>
@@ -1866,33 +1866,33 @@
 		<scalar dictRef="bo:atomicNumber">22</scalar>
 	</isotope>
 	<isotope id="Ti46" number="46" elementType="Ti">
-		<abundance dictRef="bo:relativeAbundance">8.25</abundance>
+		<scalar dictRef="bo:relativeAbundance">8.25</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">45.9526316</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">22</scalar>
 	</isotope>
 	<isotope id="Ti47" number="47" elementType="Ti">
-		<abundance dictRef="bo:relativeAbundance">7.44</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.44</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">46.9517631</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.78848</scalar>
 		<scalar dictRef="bo:atomicNumber">22</scalar>
 	</isotope>
 	<isotope id="Ti48" number="48" elementType="Ti">
-		<abundance dictRef="bo:relativeAbundance">73.72</abundance>
+		<scalar dictRef="bo:relativeAbundance">73.72</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">47.9479463</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">22</scalar>
 	</isotope>
 	<isotope id="Ti49" number="49" elementType="Ti">
-		<abundance dictRef="bo:relativeAbundance">5.41</abundance>
+		<scalar dictRef="bo:relativeAbundance">5.41</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">48.94787</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.10417</scalar>
 		<scalar dictRef="bo:atomicNumber">22</scalar>
 	</isotope>
 	<isotope id="Ti50" number="50" elementType="Ti">
-		<abundance dictRef="bo:relativeAbundance">5.18</abundance>
+		<scalar dictRef="bo:relativeAbundance">5.18</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">49.9447912</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">22</scalar>
@@ -1992,7 +1992,7 @@
 		<scalar dictRef="bo:atomicNumber">23</scalar>
 	</isotope>
 	<isotope id="V50" number="50" elementType="V">
-		<abundance dictRef="bo:relativeAbundance">0.250</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.250</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.1E-6">49.9471585</scalar>
 		<scalar dictRef="bo:spin">6+</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.34745</scalar>
@@ -2004,7 +2004,7 @@
 		<scalar dictRef="bo:atomicNumber">23</scalar>
 	</isotope>
 	<isotope id="V51" number="51" elementType="V">
-		<abundance dictRef="bo:relativeAbundance">99.750</abundance>
+		<scalar dictRef="bo:relativeAbundance">99.750</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.1E-6">50.9439595</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+5.1574</scalar>
@@ -2101,7 +2101,7 @@
 		<scalar dictRef="bo:atomicNumber">24</scalar>
 	</isotope>
 	<isotope id="Cr50" number="50" elementType="Cr">
-		<abundance dictRef="bo:relativeAbundance">4.345</abundance>
+		<scalar dictRef="bo:relativeAbundance">4.345</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.1E-6">49.9460442</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">24</scalar>
@@ -2111,20 +2111,20 @@
 		<scalar dictRef="bo:atomicNumber">24</scalar>
 	</isotope>
 	<isotope id="Cr52" number="52" elementType="Cr">
-		<abundance dictRef="bo:relativeAbundance">83.789</abundance>
+		<scalar dictRef="bo:relativeAbundance">83.789</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">51.9405075</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">24</scalar>
 	</isotope>
 	<isotope id="Cr53" number="53" elementType="Cr">
-		<abundance dictRef="bo:relativeAbundance">9.501</abundance>
+		<scalar dictRef="bo:relativeAbundance">9.501</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">52.9406494</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.47454</scalar>
 		<scalar dictRef="bo:atomicNumber">24</scalar>
 	</isotope>
 	<isotope id="Cr54" number="54" elementType="Cr">
-		<abundance dictRef="bo:relativeAbundance">2.365</abundance>
+		<scalar dictRef="bo:relativeAbundance">2.365</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">53.9388804</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">24</scalar>
@@ -2233,7 +2233,7 @@
 		<scalar dictRef="bo:atomicNumber">25</scalar>
 	</isotope>
 	<isotope id="Mn55" number="55" elementType="Mn">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">54.9380451</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.4687</scalar>
@@ -2334,7 +2334,7 @@
 		<scalar dictRef="bo:atomicNumber">26</scalar>
 	</isotope>
 	<isotope id="Fe54" number="54" elementType="Fe">
-		<abundance dictRef="bo:relativeAbundance">5.845</abundance>
+		<scalar dictRef="bo:relativeAbundance">5.845</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">53.9396105</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">26</scalar>
@@ -2344,20 +2344,20 @@
 		<scalar dictRef="bo:atomicNumber">26</scalar>
 	</isotope>
 	<isotope id="Fe56" number="56" elementType="Fe">
-		<abundance dictRef="bo:relativeAbundance">91.754</abundance>
+		<scalar dictRef="bo:relativeAbundance">91.754</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">55.9349375</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">26</scalar>
 	</isotope>
 	<isotope id="Fe57" number="57" elementType="Fe">
-		<abundance dictRef="bo:relativeAbundance">2.119</abundance>
+		<scalar dictRef="bo:relativeAbundance">2.119</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">56.935394</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.09044</scalar>
 		<scalar dictRef="bo:atomicNumber">26</scalar>
 	</isotope>
 	<isotope id="Fe58" number="58" elementType="Fe">
-		<abundance dictRef="bo:relativeAbundance">0.282</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.282</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">57.9332756</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">26</scalar>
@@ -2485,7 +2485,7 @@
 		<scalar dictRef="bo:atomicNumber">27</scalar>
 	</isotope>
 	<isotope id="Co59" number="59" elementType="Co">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">58.933195</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+4.627</scalar>
@@ -2603,7 +2603,7 @@
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
 	<isotope id="Ni58" number="58" elementType="Ni">
-		<abundance dictRef="bo:relativeAbundance">68.0769</abundance>
+		<scalar dictRef="bo:relativeAbundance">68.0769</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">57.9353429</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
@@ -2617,20 +2617,20 @@
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
 	<isotope id="Ni60" number="60" elementType="Ni">
-		<abundance dictRef="bo:relativeAbundance">26.2231</abundance>
+		<scalar dictRef="bo:relativeAbundance">26.2231</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">59.9307864</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
 	<isotope id="Ni61" number="61" elementType="Ni">
-		<abundance dictRef="bo:relativeAbundance">1.1399</abundance>
+		<scalar dictRef="bo:relativeAbundance">1.1399</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">60.931056</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.75002</scalar>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
 	<isotope id="Ni62" number="62" elementType="Ni">
-		<abundance dictRef="bo:relativeAbundance">3.6345</abundance>
+		<scalar dictRef="bo:relativeAbundance">3.6345</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">61.9283451</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
@@ -2644,7 +2644,7 @@
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
 	<isotope id="Ni64" number="64" elementType="Ni">
-		<abundance dictRef="bo:relativeAbundance">0.9256</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.9256</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">63.927966</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
@@ -2752,7 +2752,7 @@
 		<scalar dictRef="bo:atomicNumber">29</scalar>
 	</isotope>
 	<isotope id="Cu63" number="63" elementType="Cu">
-		<abundance dictRef="bo:relativeAbundance">69.17</abundance>
+		<scalar dictRef="bo:relativeAbundance">69.17</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">62.9295975</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.2233</scalar>
@@ -2772,7 +2772,7 @@
 		<scalar dictRef="bo:atomicNumber">29</scalar>
 	</isotope>
 	<isotope id="Cu65" number="65" elementType="Cu">
-		<abundance dictRef="bo:relativeAbundance">30.83</abundance>
+		<scalar dictRef="bo:relativeAbundance">30.83</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">64.9277895</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.3817</scalar>
@@ -2881,7 +2881,7 @@
 		<scalar dictRef="bo:atomicNumber">30</scalar>
 	</isotope>
 	<isotope id="Zn64" number="64" elementType="Zn">
-		<abundance dictRef="bo:relativeAbundance">48.63</abundance>
+		<scalar dictRef="bo:relativeAbundance">48.63</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">63.9291422</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">30</scalar>
@@ -2898,20 +2898,20 @@
 		<scalar dictRef="bo:atomicNumber">30</scalar>
 	</isotope>
 	<isotope id="Zn66" number="66" elementType="Zn">
-		<abundance dictRef="bo:relativeAbundance">27.90</abundance>
+		<scalar dictRef="bo:relativeAbundance">27.90</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">65.9260334</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">30</scalar>
 	</isotope>
 	<isotope id="Zn67" number="67" elementType="Zn">
-		<abundance dictRef="bo:relativeAbundance">4.10</abundance>
+		<scalar dictRef="bo:relativeAbundance">4.10</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">66.9271273</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.87515</scalar>
 		<scalar dictRef="bo:atomicNumber">30</scalar>
 	</isotope>
 	<isotope id="Zn68" number="68" elementType="Zn">
-		<abundance dictRef="bo:relativeAbundance">18.75</abundance>
+		<scalar dictRef="bo:relativeAbundance">18.75</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">67.9248442</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">30</scalar>
@@ -2921,7 +2921,7 @@
 		<scalar dictRef="bo:atomicNumber">30</scalar>
 	</isotope>
 	<isotope id="Zn70" number="70" elementType="Zn">
-		<abundance dictRef="bo:relativeAbundance">0.62</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.62</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">69.9253193</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">30</scalar>
@@ -3033,7 +3033,7 @@
 		<scalar dictRef="bo:atomicNumber">31</scalar>
 	</isotope>
 	<isotope id="Ga69" number="69" elementType="Ga">
-		<abundance dictRef="bo:relativeAbundance">60.108</abundance>
+		<scalar dictRef="bo:relativeAbundance">60.108</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">68.9255736</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.01659</scalar>
@@ -3044,7 +3044,7 @@
 		<scalar dictRef="bo:atomicNumber">31</scalar>
 	</isotope>
 	<isotope id="Ga71" number="71" elementType="Ga">
-		<abundance dictRef="bo:relativeAbundance">39.892</abundance>
+		<scalar dictRef="bo:relativeAbundance">39.892</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.1E-6">70.9247013</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">2.56227</scalar>
@@ -3161,7 +3161,7 @@
 		<scalar dictRef="bo:atomicNumber">32</scalar>
 	</isotope>
 	<isotope id="Ge70" number="70" elementType="Ge">
-		<abundance dictRef="bo:relativeAbundance">20.84</abundance>
+		<scalar dictRef="bo:relativeAbundance">20.84</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.1E-6">69.9242474</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">32</scalar>
@@ -3171,20 +3171,20 @@
 		<scalar dictRef="bo:atomicNumber">32</scalar>
 	</isotope>
 	<isotope id="Ge72" number="72" elementType="Ge">
-		<abundance dictRef="bo:relativeAbundance">27.54</abundance>
+		<scalar dictRef="bo:relativeAbundance">27.54</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">71.9220758</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">32</scalar>
 	</isotope>
 	<isotope id="Ge73" number="73" elementType="Ge">
-		<abundance dictRef="bo:relativeAbundance">7.73</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.73</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">72.9234589</scalar>
 		<scalar dictRef="bo:spin">9/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.879467</scalar>
 		<scalar dictRef="bo:atomicNumber">32</scalar>
 	</isotope>
 	<isotope id="Ge74" number="74" elementType="Ge">
-		<abundance dictRef="bo:relativeAbundance">36.28</abundance>
+		<scalar dictRef="bo:relativeAbundance">36.28</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">73.9211778</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">32</scalar>
@@ -3194,7 +3194,7 @@
 		<scalar dictRef="bo:atomicNumber">32</scalar>
 	</isotope>
 	<isotope id="Ge76" number="76" elementType="Ge">
-		<abundance dictRef="bo:relativeAbundance">7.61</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.61</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">75.9214026</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">32</scalar>
@@ -3314,7 +3314,7 @@
 		<scalar dictRef="bo:atomicNumber">33</scalar>
 	</isotope>
 	<isotope id="As75" number="75" elementType="As">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">74.9215965</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.43947</scalar>
@@ -3432,7 +3432,7 @@
 		<scalar dictRef="bo:atomicNumber">34</scalar>
 	</isotope>
 	<isotope id="Se74" number="74" elementType="Se">
-		<abundance dictRef="bo:relativeAbundance">0.89</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.89</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">73.9224764</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">34</scalar>
@@ -3442,20 +3442,20 @@
 		<scalar dictRef="bo:atomicNumber">34</scalar>
 	</isotope>
 	<isotope id="Se76" number="76" elementType="Se">
-		<abundance dictRef="bo:relativeAbundance">9.37</abundance>
+		<scalar dictRef="bo:relativeAbundance">9.37</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">75.9192136</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">34</scalar>
 	</isotope>
 	<isotope id="Se77" number="77" elementType="Se">
-		<abundance dictRef="bo:relativeAbundance">7.63</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.63</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">76.919914</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.535506</scalar>
 		<scalar dictRef="bo:atomicNumber">34</scalar>
 	</isotope>
 	<isotope id="Se78" number="78" elementType="Se">
-		<abundance dictRef="bo:relativeAbundance">23.77</abundance>
+		<scalar dictRef="bo:relativeAbundance">23.77</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">77.9173091</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">34</scalar>
@@ -3465,7 +3465,7 @@
 		<scalar dictRef="bo:atomicNumber">34</scalar>
 	</isotope>
 	<isotope id="Se80" number="80" elementType="Se">
-		<abundance dictRef="bo:relativeAbundance">49.61</abundance>
+		<scalar dictRef="bo:relativeAbundance">49.61</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">79.9165213</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">34</scalar>
@@ -3475,7 +3475,7 @@
 		<scalar dictRef="bo:atomicNumber">34</scalar>
 	</isotope>
 	<isotope id="Se82" number="82" elementType="Se">
-		<abundance dictRef="bo:relativeAbundance">8.73</abundance>
+		<scalar dictRef="bo:relativeAbundance">8.73</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">81.9166994</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">34</scalar>
@@ -3579,7 +3579,7 @@
 		<scalar dictRef="bo:atomicNumber">35</scalar>
 	</isotope>
 	<isotope id="Br79" number="79" elementType="Br">
-		<abundance dictRef="bo:relativeAbundance">50.69</abundance>
+		<scalar dictRef="bo:relativeAbundance">50.69</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">78.9183371</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.1064</scalar>
@@ -3590,7 +3590,7 @@
 		<scalar dictRef="bo:atomicNumber">35</scalar>
 	</isotope>
 	<isotope id="Br81" number="81" elementType="Br">
-		<abundance dictRef="bo:relativeAbundance">49.31</abundance>
+		<scalar dictRef="bo:relativeAbundance">49.31</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">80.9162906</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.2706</scalar>
@@ -3699,7 +3699,7 @@
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr78" number="78" elementType="Kr">
-		<abundance dictRef="bo:relativeAbundance">0.35</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.35</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.2E-6">77.9203648</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
@@ -3709,7 +3709,7 @@
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr80" number="80" elementType="Kr">
-		<abundance dictRef="bo:relativeAbundance">2.28</abundance>
+		<scalar dictRef="bo:relativeAbundance">2.28</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">79.916379</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
@@ -3719,20 +3719,20 @@
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr82" number="82" elementType="Kr">
-		<abundance dictRef="bo:relativeAbundance">11.58</abundance>
+		<scalar dictRef="bo:relativeAbundance">11.58</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.9E-6">81.9134836</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr83" number="83" elementType="Kr">
-		<abundance dictRef="bo:relativeAbundance">11.49</abundance>
+		<scalar dictRef="bo:relativeAbundance">11.49</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">82.914136</scalar>
 		<scalar dictRef="bo:spin">9/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.970669</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr84" number="84" elementType="Kr">
-		<abundance dictRef="bo:relativeAbundance">57.00</abundance>
+		<scalar dictRef="bo:relativeAbundance">57.00</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">83.911507</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
@@ -3742,7 +3742,7 @@
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr86" number="86" elementType="Kr">
-		<abundance dictRef="bo:relativeAbundance">17.30</abundance>
+		<scalar dictRef="bo:relativeAbundance">17.30</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.11E-6">85.91061073</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
@@ -3862,7 +3862,7 @@
 		<scalar dictRef="bo:atomicNumber">37</scalar>
 	</isotope>
 	<isotope id="Rb85" number="85" elementType="Rb">
-		<abundance dictRef="bo:relativeAbundance">72.17</abundance>
+		<scalar dictRef="bo:relativeAbundance">72.17</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.012E-6">84.91178974</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.3530</scalar>
@@ -3879,7 +3879,7 @@
 		<scalar dictRef="bo:atomicNumber">37</scalar>
 	</isotope>
 	<isotope id="Rb87" number="87" elementType="Rb">
-		<abundance dictRef="bo:relativeAbundance">27.83</abundance>
+		<scalar dictRef="bo:relativeAbundance">27.83</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.013E-6">86.90918053</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.75124</scalar>
@@ -3993,7 +3993,7 @@
 		<scalar dictRef="bo:atomicNumber">38</scalar>
 	</isotope>
 	<isotope id="Sr84" number="84" elementType="Sr">
-		<abundance dictRef="bo:relativeAbundance">0.56</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.56</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">83.913425</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">38</scalar>
@@ -4007,20 +4007,20 @@
 		<scalar dictRef="bo:atomicNumber">38</scalar>
 	</isotope>
 	<isotope id="Sr86" number="86" elementType="Sr">
-		<abundance dictRef="bo:relativeAbundance">9.86</abundance>
+		<scalar dictRef="bo:relativeAbundance">9.86</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.2E-6">85.9092602</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">38</scalar>
 	</isotope>
 	<isotope id="Sr87" number="87" elementType="Sr">
-		<abundance dictRef="bo:relativeAbundance">7.00</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.00</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.2E-6">86.9088771</scalar>
 		<scalar dictRef="bo:spin">9/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.093</scalar>
 		<scalar dictRef="bo:atomicNumber">38</scalar>
 	</isotope>
 	<isotope id="Sr88" number="88" elementType="Sr">
-		<abundance dictRef="bo:relativeAbundance">82.58</abundance>
+		<scalar dictRef="bo:relativeAbundance">82.58</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.2E-6">87.9056121</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">38</scalar>
@@ -4148,7 +4148,7 @@
 		<scalar dictRef="bo:atomicNumber">39</scalar>
 	</isotope>
 	<isotope id="Y89" number="89" elementType="Y">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">88.9058483</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.1374153</scalar>
@@ -4286,20 +4286,20 @@
 		<scalar dictRef="bo:atomicNumber">40</scalar>
 	</isotope>
 	<isotope id="Zr90" number="90" elementType="Zr">
-		<abundance dictRef="bo:relativeAbundance">51.45</abundance>
+		<scalar dictRef="bo:relativeAbundance">51.45</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">89.9047044</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">40</scalar>
 	</isotope>
 	<isotope id="Zr91" number="91" elementType="Zr">
-		<abundance dictRef="bo:relativeAbundance">11.22</abundance>
+		<scalar dictRef="bo:relativeAbundance">11.22</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">90.9056458</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.30362</scalar>
 		<scalar dictRef="bo:atomicNumber">40</scalar>
 	</isotope>
 	<isotope id="Zr92" number="92" elementType="Zr">
-		<abundance dictRef="bo:relativeAbundance">17.15</abundance>
+		<scalar dictRef="bo:relativeAbundance">17.15</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">91.9050408</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">40</scalar>
@@ -4313,7 +4313,7 @@
 		<scalar dictRef="bo:atomicNumber">40</scalar>
 	</isotope>
 	<isotope id="Zr94" number="94" elementType="Zr">
-		<abundance dictRef="bo:relativeAbundance">17.38</abundance>
+		<scalar dictRef="bo:relativeAbundance">17.38</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">93.9063152</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">40</scalar>
@@ -4327,7 +4327,7 @@
 		<scalar dictRef="bo:atomicNumber">40</scalar>
 	</isotope>
 	<isotope id="Zr96" number="96" elementType="Zr">
-		<abundance dictRef="bo:relativeAbundance">2.80</abundance>
+		<scalar dictRef="bo:relativeAbundance">2.80</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">95.9082734</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">40</scalar>
@@ -4439,7 +4439,7 @@
 		<scalar dictRef="bo:atomicNumber">41</scalar>
 	</isotope>
 	<isotope id="Nb93" number="93" elementType="Nb">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">92.9063781</scalar>
 		<scalar dictRef="bo:spin">9/2+</scalar>
 		<scalar dictRef="bo:atomicNumber">41</scalar>
@@ -4568,7 +4568,7 @@
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo92" number="92" elementType="Mo">
-		<abundance dictRef="bo:relativeAbundance">14.84</abundance>
+		<scalar dictRef="bo:relativeAbundance">14.84</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">91.906811</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
@@ -4582,33 +4582,33 @@
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo94" number="94" elementType="Mo">
-		<abundance dictRef="bo:relativeAbundance">9.25</abundance>
+		<scalar dictRef="bo:relativeAbundance">9.25</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">93.9050883</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo95" number="95" elementType="Mo">
-		<abundance dictRef="bo:relativeAbundance">15.92</abundance>
+		<scalar dictRef="bo:relativeAbundance">15.92</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">94.9058421</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.9133</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo96" number="96" elementType="Mo">
-		<abundance dictRef="bo:relativeAbundance">16.68</abundance>
+		<scalar dictRef="bo:relativeAbundance">16.68</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">95.9046795</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo97" number="97" elementType="Mo">
-		<abundance dictRef="bo:relativeAbundance">9.55</abundance>
+		<scalar dictRef="bo:relativeAbundance">9.55</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">96.9060215</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.9133</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo98" number="98" elementType="Mo">
-		<abundance dictRef="bo:relativeAbundance">24.13</abundance>
+		<scalar dictRef="bo:relativeAbundance">24.13</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">97.9054082</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
@@ -4622,7 +4622,7 @@
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo100" number="100" elementType="Mo">
-		<abundance dictRef="bo:relativeAbundance">9.63</abundance>
+		<scalar dictRef="bo:relativeAbundance">9.63</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="6E-6">99.907477</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
@@ -4873,7 +4873,7 @@
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru96" number="96" elementType="Ru">
-		<abundance dictRef="bo:relativeAbundance">5.54</abundance>
+		<scalar dictRef="bo:relativeAbundance">5.54</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="8E-6">95.907598</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
@@ -4888,33 +4888,33 @@
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru98" number="98" elementType="Ru">
-		<abundance dictRef="bo:relativeAbundance">1.87</abundance>
+		<scalar dictRef="bo:relativeAbundance">1.87</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="7E-6">97.905287</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru99" number="99" elementType="Ru">
-		<abundance dictRef="bo:relativeAbundance">12.76</abundance>
+		<scalar dictRef="bo:relativeAbundance">12.76</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">98.9059393</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.6413</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru100" number="100" elementType="Ru">
-		<abundance dictRef="bo:relativeAbundance">12.60</abundance>
+		<scalar dictRef="bo:relativeAbundance">12.60</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">99.9042195</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru101" number="101" elementType="Ru">
-		<abundance dictRef="bo:relativeAbundance">17.06</abundance>
+		<scalar dictRef="bo:relativeAbundance">17.06</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">100.9055821</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.7188</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru102" number="102" elementType="Ru">
-		<abundance dictRef="bo:relativeAbundance">31.55</abundance>
+		<scalar dictRef="bo:relativeAbundance">31.55</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">101.9043493</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
@@ -4929,7 +4929,7 @@
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru104" number="104" elementType="Ru">
-		<abundance dictRef="bo:relativeAbundance">18.62</abundance>
+		<scalar dictRef="bo:relativeAbundance">18.62</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">103.905433</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
@@ -5057,7 +5057,7 @@
 		<scalar dictRef="bo:atomicNumber">45</scalar>
 	</isotope>
 	<isotope id="Rh103" number="103" elementType="Rh">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">102.905504</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.08840</scalar>
@@ -5186,7 +5186,7 @@
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd102" number="102" elementType="Pd">
-		<abundance dictRef="bo:relativeAbundance">1.02</abundance>
+		<scalar dictRef="bo:relativeAbundance">1.02</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">101.905609</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
@@ -5200,20 +5200,20 @@
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd104" number="104" elementType="Pd">
-		<abundance dictRef="bo:relativeAbundance">11.14</abundance>
+		<scalar dictRef="bo:relativeAbundance">11.14</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">103.904036</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd105" number="105" elementType="Pd">
-		<abundance dictRef="bo:relativeAbundance">22.33</abundance>
+		<scalar dictRef="bo:relativeAbundance">22.33</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">104.905085</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.642</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd106" number="106" elementType="Pd">
-		<abundance dictRef="bo:relativeAbundance">27.33</abundance>
+		<scalar dictRef="bo:relativeAbundance">27.33</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">105.903486</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
@@ -5227,7 +5227,7 @@
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd108" number="108" elementType="Pd">
-		<abundance dictRef="bo:relativeAbundance">26.46</abundance>
+		<scalar dictRef="bo:relativeAbundance">26.46</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">107.903892</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
@@ -5241,7 +5241,7 @@
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd110" number="110" elementType="Pd">
-		<abundance dictRef="bo:relativeAbundance">11.72</abundance>
+		<scalar dictRef="bo:relativeAbundance">11.72</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="12E-6">109.905153</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
@@ -5363,7 +5363,7 @@
 		<scalar dictRef="bo:atomicNumber">47</scalar>
 	</isotope>
 	<isotope id="Ag107" number="107" elementType="Ag">
-		<abundance dictRef="bo:relativeAbundance">51.839</abundance>
+		<scalar dictRef="bo:relativeAbundance">51.839</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="5E-6">106.905097</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.113570</scalar>
@@ -5375,7 +5375,7 @@
 		<scalar dictRef="bo:atomicNumber">47</scalar>
 	</isotope>
 	<isotope id="Ag109" number="109" elementType="Ag">
-		<abundance dictRef="bo:relativeAbundance">48.161</abundance>
+		<scalar dictRef="bo:relativeAbundance">48.161</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">108.904752</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.1306905</scalar>
@@ -5513,7 +5513,7 @@
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd106" number="106" elementType="Cd">
-		<abundance dictRef="bo:relativeAbundance">1.25</abundance>
+		<scalar dictRef="bo:relativeAbundance">1.25</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="6E-6">105.906459</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
@@ -5527,7 +5527,7 @@
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd108" number="108" elementType="Cd">
-		<abundance dictRef="bo:relativeAbundance">0.89</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.89</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="6E-6">107.904184</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
@@ -5542,33 +5542,33 @@
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd110" number="110" elementType="Cd">
-		<abundance dictRef="bo:relativeAbundance">12.49</abundance>
+		<scalar dictRef="bo:relativeAbundance">12.49</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">109.9030021</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd111" number="111" elementType="Cd">
-		<abundance dictRef="bo:relativeAbundance">12.80</abundance>
+		<scalar dictRef="bo:relativeAbundance">12.80</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">110.9041781</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.5943</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd112" number="112" elementType="Cd">
-		<abundance dictRef="bo:relativeAbundance">24.13</abundance>
+		<scalar dictRef="bo:relativeAbundance">24.13</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">111.9027578</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd113" number="113" elementType="Cd">
-		<abundance dictRef="bo:relativeAbundance">12.22</abundance>
+		<scalar dictRef="bo:relativeAbundance">12.22</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">112.9044017</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.6217</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd114" number="114" elementType="Cd">
-		<abundance dictRef="bo:relativeAbundance">28.73</abundance>
+		<scalar dictRef="bo:relativeAbundance">28.73</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">113.9033585</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
@@ -5581,7 +5581,7 @@
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd116" number="116" elementType="Cd">
-		<abundance dictRef="bo:relativeAbundance">7.49</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.49</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">115.904756</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
@@ -5719,7 +5719,7 @@
 		<scalar dictRef="bo:atomicNumber">49</scalar>
 	</isotope>
 	<isotope id="In113" number="113" elementType="In">
-		<abundance dictRef="bo:relativeAbundance">4.29</abundance>
+		<scalar dictRef="bo:relativeAbundance">4.29</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">112.904058</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+5.5229</scalar>
@@ -5731,7 +5731,7 @@
 		<scalar dictRef="bo:atomicNumber">49</scalar>
 	</isotope>
 	<isotope id="In115" number="115" elementType="In">
-		<abundance dictRef="bo:relativeAbundance">95.71</abundance>
+		<scalar dictRef="bo:relativeAbundance">95.71</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="5E-6">114.903878</scalar>
 		<scalar dictRef="bo:spin">9/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+5.534</scalar>
@@ -5873,7 +5873,7 @@
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn112" number="112" elementType="Sn">
-		<abundance dictRef="bo:relativeAbundance">0.97</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.97</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="5E-6">111.904818</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
@@ -5887,46 +5887,46 @@
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn114" number="114" elementType="Sn">
-		<abundance dictRef="bo:relativeAbundance">0.66</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.66</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">113.902779</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn115" number="115" elementType="Sn">
-		<abundance dictRef="bo:relativeAbundance">0.34</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.34</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">114.903342</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.91883</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn116" number="116" elementType="Sn">
-		<abundance dictRef="bo:relativeAbundance">14.54</abundance>
+		<scalar dictRef="bo:relativeAbundance">14.54</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">115.901741</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn117" number="117" elementType="Sn">
-		<abundance dictRef="bo:relativeAbundance">7.68</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.68</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">116.902952</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">1.00104</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn118" number="118" elementType="Sn">
-		<abundance dictRef="bo:relativeAbundance">24.22</abundance>
+		<scalar dictRef="bo:relativeAbundance">24.22</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">117.901603</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn119" number="119" elementType="Sn">
-		<abundance dictRef="bo:relativeAbundance">8.59</abundance>
+		<scalar dictRef="bo:relativeAbundance">8.59</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">118.903308</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.04728</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn120" number="120" elementType="Sn">
-		<abundance dictRef="bo:relativeAbundance">32.58</abundance>
+		<scalar dictRef="bo:relativeAbundance">32.58</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">119.9021947</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
@@ -5938,7 +5938,7 @@
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn122" number="122" elementType="Sn">
-		<abundance dictRef="bo:relativeAbundance">4.63</abundance>
+		<scalar dictRef="bo:relativeAbundance">4.63</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">121.903439</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
@@ -5949,7 +5949,7 @@
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn124" number="124" elementType="Sn">
-		<abundance dictRef="bo:relativeAbundance">5.79</abundance>
+		<scalar dictRef="bo:relativeAbundance">5.79</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">123.9052739</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
@@ -6082,7 +6082,7 @@
 		<scalar dictRef="bo:atomicNumber">51</scalar>
 	</isotope>
 	<isotope id="Sb121" number="121" elementType="Sb">
-		<abundance dictRef="bo:relativeAbundance">57.21</abundance>
+		<scalar dictRef="bo:relativeAbundance">57.21</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">120.9038157</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.3592</scalar>
@@ -6094,7 +6094,7 @@
 		<scalar dictRef="bo:atomicNumber">51</scalar>
 	</isotope>
 	<isotope id="Sb123" number="123" elementType="Sb">
-		<abundance dictRef="bo:relativeAbundance">42.79</abundance>
+		<scalar dictRef="bo:relativeAbundance">42.79</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">122.904214</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.5466</scalar>
@@ -6228,7 +6228,7 @@
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te120" number="120" elementType="Te">
-		<abundance dictRef="bo:relativeAbundance">0.09</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.09</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="10E-6">119.90402</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
@@ -6240,7 +6240,7 @@
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te122" number="122" elementType="Te">
-		<abundance dictRef="bo:relativeAbundance">2.55</abundance>
+		<scalar dictRef="bo:relativeAbundance">2.55</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">121.9030439</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.7359</scalar>
@@ -6250,26 +6250,26 @@
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te123" number="123" elementType="Te">
-		<abundance dictRef="bo:relativeAbundance">0.89</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.89</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">122.90427</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te124" number="124" elementType="Te">
-		<abundance dictRef="bo:relativeAbundance">4.74</abundance>
+		<scalar dictRef="bo:relativeAbundance">4.74</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">123.9028179</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.8871</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te125" number="125" elementType="Te">
-		<abundance dictRef="bo:relativeAbundance">7.07</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.07</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">124.9044307</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te126" number="126" elementType="Te">
-		<abundance dictRef="bo:relativeAbundance">18.84</abundance>
+		<scalar dictRef="bo:relativeAbundance">18.84</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">125.9033117</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="siUnits:s">33660</scalar>
@@ -6283,7 +6283,7 @@
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te128" number="128" elementType="Te">
-		<abundance dictRef="bo:relativeAbundance">31.74</abundance>
+		<scalar dictRef="bo:relativeAbundance">31.74</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.9E-6">127.9044631</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
@@ -6294,7 +6294,7 @@
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te130" number="130" elementType="Te">
-		<abundance dictRef="bo:relativeAbundance">34.08</abundance>
+		<scalar dictRef="bo:relativeAbundance">34.08</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">129.9062244</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
@@ -6428,7 +6428,7 @@
 		<scalar dictRef="bo:atomicNumber">53</scalar>
 	</isotope>
 	<isotope id="I127" number="127" elementType="I">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">126.904473</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.808</scalar>
@@ -6566,7 +6566,7 @@
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe124" number="124" elementType="Xe">
-		<abundance dictRef="bo:relativeAbundance">0.09</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.09</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">123.905893</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
@@ -6580,7 +6580,7 @@
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe126" number="126" elementType="Xe">
-		<abundance dictRef="bo:relativeAbundance">0.09</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.09</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="7E-6">125.904274</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
@@ -6594,33 +6594,33 @@
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe128" number="128" elementType="Xe">
-		<abundance dictRef="bo:relativeAbundance">1.92</abundance>
+		<scalar dictRef="bo:relativeAbundance">1.92</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">127.9035313</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe129" number="129" elementType="Xe">
-		<abundance dictRef="bo:relativeAbundance">26.44</abundance>
+		<scalar dictRef="bo:relativeAbundance">26.44</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">128.9047794</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.7768</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe130" number="130" elementType="Xe">
-		<abundance dictRef="bo:relativeAbundance">4.08</abundance>
+		<scalar dictRef="bo:relativeAbundance">4.08</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">129.903508</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe131" number="131" elementType="Xe">
-		<abundance dictRef="bo:relativeAbundance">21.18</abundance>
+		<scalar dictRef="bo:relativeAbundance">21.18</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">130.9050824</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.691861</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe132" number="132" elementType="Xe">
-		<abundance dictRef="bo:relativeAbundance">26.89</abundance>
+		<scalar dictRef="bo:relativeAbundance">26.89</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">131.9041535</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
@@ -6632,7 +6632,7 @@
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe134" number="134" elementType="Xe">
-		<abundance dictRef="bo:relativeAbundance">10.44</abundance>
+		<scalar dictRef="bo:relativeAbundance">10.44</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">133.9053945</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
@@ -6643,7 +6643,7 @@
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe136" number="136" elementType="Xe">
-		<abundance dictRef="bo:relativeAbundance">8.87</abundance>
+		<scalar dictRef="bo:relativeAbundance">8.87</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="8E-6">135.907219</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
@@ -6779,7 +6779,7 @@
 		<scalar dictRef="bo:atomicNumber">55</scalar>
 	</isotope>
 	<isotope id="Cs133" number="133" elementType="Cs">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.024E-6">132.9054519</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.579</scalar>
@@ -6930,7 +6930,7 @@
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba130" number="130" elementType="Ba">
-		<abundance dictRef="bo:relativeAbundance">0.106</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.106</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">129.9063208</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
@@ -6944,7 +6944,7 @@
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba132" number="132" elementType="Ba">
-		<abundance dictRef="bo:relativeAbundance">0.101</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.101</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.1E-6">131.9050613</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
@@ -6955,33 +6955,33 @@
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba134" number="134" elementType="Ba">
-		<abundance dictRef="bo:relativeAbundance">2.417</abundance>
+		<scalar dictRef="bo:relativeAbundance">2.417</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">133.9045084</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba135" number="135" elementType="Ba">
-		<abundance dictRef="bo:relativeAbundance">6.592</abundance>
+		<scalar dictRef="bo:relativeAbundance">6.592</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">134.9056886</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.8365</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba136" number="136" elementType="Ba">
-		<abundance dictRef="bo:relativeAbundance">7.854</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.854</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">135.9045759</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba137" number="137" elementType="Ba">
-		<abundance dictRef="bo:relativeAbundance">11.232</abundance>
+		<scalar dictRef="bo:relativeAbundance">11.232</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.5E-6">136.9058274</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.9357</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba138" number="138" elementType="Ba">
-		<abundance dictRef="bo:relativeAbundance">71.698</abundance>
+		<scalar dictRef="bo:relativeAbundance">71.698</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.5E-6">137.9052472</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
@@ -7133,7 +7133,7 @@
 		<scalar dictRef="bo:atomicNumber">57</scalar>
 	</isotope>
 	<isotope id="La138" number="138" elementType="La">
-		<abundance dictRef="bo:relativeAbundance">0.090</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.090</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">137.907112</scalar>
 		<scalar dictRef="bo:spin">5-</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.707</scalar>
@@ -7145,7 +7145,7 @@
 		<scalar dictRef="bo:atomicNumber">57</scalar>
 	</isotope>
 	<isotope id="La139" number="139" elementType="La">
-		<abundance dictRef="bo:relativeAbundance">99.910</abundance>
+		<scalar dictRef="bo:relativeAbundance">99.910</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">138.9063533</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.778</scalar>
@@ -7291,7 +7291,7 @@
 		<scalar dictRef="bo:atomicNumber">58</scalar>
 	</isotope>
 	<isotope id="Ce136" number="136" elementType="Ce">
-		<abundance dictRef="bo:relativeAbundance">0.185</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.185</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="14E-6">135.907172</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">58</scalar>
@@ -7307,7 +7307,7 @@
 		<scalar dictRef="bo:atomicNumber">58</scalar>
 	</isotope>
 	<isotope id="Ce138" number="138" elementType="Ce">
-		<abundance dictRef="bo:relativeAbundance">0.251</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.251</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="11E-6">137.905991</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">58</scalar>
@@ -7321,7 +7321,7 @@
 		<scalar dictRef="bo:atomicNumber">58</scalar>
 	</isotope>
 	<isotope id="Ce140" number="140" elementType="Ce">
-		<abundance dictRef="bo:relativeAbundance">88.450</abundance>
+		<scalar dictRef="bo:relativeAbundance">88.450</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">139.9054387</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">58</scalar>
@@ -7336,7 +7336,7 @@
 		<scalar dictRef="bo:atomicNumber">58</scalar>
 	</isotope>
 	<isotope id="Ce142" number="142" elementType="Ce">
-		<abundance dictRef="bo:relativeAbundance">11.114</abundance>
+		<scalar dictRef="bo:relativeAbundance">11.114</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">141.909244</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">58</scalar>
@@ -7484,7 +7484,7 @@
 		<scalar dictRef="bo:atomicNumber">59</scalar>
 	</isotope>
 	<isotope id="Pr141" number="141" elementType="Pr">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">140.9076528</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+4.3</scalar>
@@ -7643,20 +7643,20 @@
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd142" number="142" elementType="Nd">
-		<abundance dictRef="bo:relativeAbundance">27.2</abundance>
+		<scalar dictRef="bo:relativeAbundance">27.2</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">141.9077233</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd143" number="143" elementType="Nd">
-		<abundance dictRef="bo:relativeAbundance">12.2</abundance>
+		<scalar dictRef="bo:relativeAbundance">12.2</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">142.9098143</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.08</scalar>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd144" number="144" elementType="Nd">
-		<abundance dictRef="bo:relativeAbundance">23.8</abundance>
+		<scalar dictRef="bo:relativeAbundance">23.8</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">143.9100873</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="units:y">2290000000000000</scalar>
@@ -7665,14 +7665,14 @@
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd145" number="145" elementType="Nd">
-		<abundance dictRef="bo:relativeAbundance">8.3</abundance>
+		<scalar dictRef="bo:relativeAbundance">8.3</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">144.9125736</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.66</scalar>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd146" number="146" elementType="Nd">
-		<abundance dictRef="bo:relativeAbundance">17.2</abundance>
+		<scalar dictRef="bo:relativeAbundance">17.2</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">145.9131169</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
@@ -7687,7 +7687,7 @@
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd148" number="148" elementType="Nd">
-		<abundance dictRef="bo:relativeAbundance">5.7</abundance>
+		<scalar dictRef="bo:relativeAbundance">5.7</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">147.916893</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
@@ -7701,7 +7701,7 @@
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd150" number="150" elementType="Nd">
-		<abundance dictRef="bo:relativeAbundance">5.6</abundance>
+		<scalar dictRef="bo:relativeAbundance">5.6</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">149.920891</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
@@ -7985,7 +7985,7 @@
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm144" number="144" elementType="Sm">
-		<abundance dictRef="bo:relativeAbundance">3.07</abundance>
+		<scalar dictRef="bo:relativeAbundance">3.07</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">143.911999</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
@@ -8007,7 +8007,7 @@
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm147" number="147" elementType="Sm">
-		<abundance dictRef="bo:relativeAbundance">14.99</abundance>
+		<scalar dictRef="bo:relativeAbundance">14.99</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">146.9148979</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.813</scalar>
@@ -8017,7 +8017,7 @@
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm148" number="148" elementType="Sm">
-		<abundance dictRef="bo:relativeAbundance">11.24</abundance>
+		<scalar dictRef="bo:relativeAbundance">11.24</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">147.9148227</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="units:y">12000000000000</scalar>
@@ -8026,7 +8026,7 @@
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm149" number="149" elementType="Sm">
-		<abundance dictRef="bo:relativeAbundance">13.82</abundance>
+		<scalar dictRef="bo:relativeAbundance">13.82</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">148.9171847</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.670</scalar>
@@ -8036,7 +8036,7 @@
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm150" number="150" elementType="Sm">
-		<abundance dictRef="bo:relativeAbundance">7.38</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.38</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">149.9172755</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
@@ -8050,7 +8050,7 @@
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm152" number="152" elementType="Sm">
-		<abundance dictRef="bo:relativeAbundance">26.75</abundance>
+		<scalar dictRef="bo:relativeAbundance">26.75</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">151.9197324</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
@@ -8062,7 +8062,7 @@
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm154" number="154" elementType="Sm">
-		<abundance dictRef="bo:relativeAbundance">22.75</abundance>
+		<scalar dictRef="bo:relativeAbundance">22.75</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">153.9222093</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
@@ -8198,7 +8198,7 @@
 		<scalar dictRef="bo:atomicNumber">63</scalar>
 	</isotope>
 	<isotope id="Eu151" number="151" elementType="Eu">
-		<abundance dictRef="bo:relativeAbundance">47.81</abundance>
+		<scalar dictRef="bo:relativeAbundance">47.81</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">150.9198502</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.464</scalar>
@@ -8210,7 +8210,7 @@
 		<scalar dictRef="bo:atomicNumber">63</scalar>
 	</isotope>
 	<isotope id="Eu153" number="153" elementType="Eu">
-		<abundance dictRef="bo:relativeAbundance">52.19</abundance>
+		<scalar dictRef="bo:relativeAbundance">52.19</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">152.9212303</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.530</scalar>
@@ -8347,7 +8347,7 @@
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd152" number="152" elementType="Gd">
-		<abundance dictRef="bo:relativeAbundance">0.20</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.20</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">151.919791</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="units:y">108000000000000</scalar>
@@ -8362,33 +8362,33 @@
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd154" number="154" elementType="Gd">
-		<abundance dictRef="bo:relativeAbundance">2.18</abundance>
+		<scalar dictRef="bo:relativeAbundance">2.18</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">153.9208656</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd155" number="155" elementType="Gd">
-		<abundance dictRef="bo:relativeAbundance">14.80</abundance>
+		<scalar dictRef="bo:relativeAbundance">14.80</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">154.922622</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.27</scalar>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd156" number="156" elementType="Gd">
-		<abundance dictRef="bo:relativeAbundance">20.47</abundance>
+		<scalar dictRef="bo:relativeAbundance">20.47</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">155.9221227</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd157" number="157" elementType="Gd">
-		<abundance dictRef="bo:relativeAbundance">15.65</abundance>
+		<scalar dictRef="bo:relativeAbundance">15.65</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">156.9239601</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.36</scalar>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd158" number="158" elementType="Gd">
-		<abundance dictRef="bo:relativeAbundance">24.84</abundance>
+		<scalar dictRef="bo:relativeAbundance">24.84</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">157.9241039</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
@@ -8402,7 +8402,7 @@
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd160" number="160" elementType="Gd">
-		<abundance dictRef="bo:relativeAbundance">21.86</abundance>
+		<scalar dictRef="bo:relativeAbundance">21.86</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">159.9270541</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
@@ -8538,7 +8538,7 @@
 		<scalar dictRef="bo:atomicNumber">65</scalar>
 	</isotope>
 	<isotope id="Tb159" number="159" elementType="Tb">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">158.9253468</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.95</scalar>
@@ -8673,7 +8673,7 @@
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy156" number="156" elementType="Dy">
-		<abundance dictRef="bo:relativeAbundance">0.06</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.06</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="7E-6">155.924283</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
@@ -8684,7 +8684,7 @@
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy158" number="158" elementType="Dy">
-		<abundance dictRef="bo:relativeAbundance">0.10</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.10</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">157.924409</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
@@ -8695,33 +8695,33 @@
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy160" number="160" elementType="Dy">
-		<abundance dictRef="bo:relativeAbundance">2.34</abundance>
+		<scalar dictRef="bo:relativeAbundance">2.34</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">159.9251975</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy161" number="161" elementType="Dy">
-		<abundance dictRef="bo:relativeAbundance">18.91</abundance>
+		<scalar dictRef="bo:relativeAbundance">18.91</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">160.9269334</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.4805</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy162" number="162" elementType="Dy">
-		<abundance dictRef="bo:relativeAbundance">25.51</abundance>
+		<scalar dictRef="bo:relativeAbundance">25.51</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">161.9267984</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy163" number="163" elementType="Dy">
-		<abundance dictRef="bo:relativeAbundance">24.90</abundance>
+		<scalar dictRef="bo:relativeAbundance">24.90</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">162.9287312</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.6726</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy164" number="164" elementType="Dy">
-		<abundance dictRef="bo:relativeAbundance">28.18</abundance>
+		<scalar dictRef="bo:relativeAbundance">28.18</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">163.9291748</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="siUnits:s">8402.4</scalar>
@@ -8868,7 +8868,7 @@
 		<scalar dictRef="bo:atomicNumber">67</scalar>
 	</isotope>
 	<isotope id="Ho165" number="165" elementType="Ho">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">164.9303221</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+4.173</scalar>
@@ -8997,7 +8997,7 @@
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er162" number="162" elementType="Er">
-		<abundance dictRef="bo:relativeAbundance">0.14</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.14</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">161.928778</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
@@ -9008,7 +9008,7 @@
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er164" number="164" elementType="Er">
-		<abundance dictRef="bo:relativeAbundance">1.61</abundance>
+		<scalar dictRef="bo:relativeAbundance">1.61</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">163.9292</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
@@ -9019,20 +9019,20 @@
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er166" number="166" elementType="Er">
-		<abundance dictRef="bo:relativeAbundance">33.61</abundance>
+		<scalar dictRef="bo:relativeAbundance">33.61</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">165.9302931</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er167" number="167" elementType="Er">
-		<abundance dictRef="bo:relativeAbundance">22.93</abundance>
+		<scalar dictRef="bo:relativeAbundance">22.93</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">166.9320482</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.5665</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er168" number="168" elementType="Er">
-		<abundance dictRef="bo:relativeAbundance">26.78</abundance>
+		<scalar dictRef="bo:relativeAbundance">26.78</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">167.9323702</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
@@ -9043,7 +9043,7 @@
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er170" number="170" elementType="Er">
-		<abundance dictRef="bo:relativeAbundance">14.93</abundance>
+		<scalar dictRef="bo:relativeAbundance">14.93</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">169.9354643</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
@@ -9175,7 +9175,7 @@
 		<scalar dictRef="bo:atomicNumber">69</scalar>
 	</isotope>
 	<isotope id="Tm169" number="169" elementType="Tm">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">168.9342133</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.2316</scalar>
@@ -9306,7 +9306,7 @@
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb168" number="168" elementType="Yb">
-		<abundance dictRef="bo:relativeAbundance">0.13</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.13</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="5E-6">167.933897</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
@@ -9317,33 +9317,33 @@
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb170" number="170" elementType="Yb">
-		<abundance dictRef="bo:relativeAbundance">3.04</abundance>
+		<scalar dictRef="bo:relativeAbundance">3.04</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">169.9347618</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb171" number="171" elementType="Yb">
-		<abundance dictRef="bo:relativeAbundance">14.28</abundance>
+		<scalar dictRef="bo:relativeAbundance">14.28</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">170.9363258</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.4919</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb172" number="172" elementType="Yb">
-		<abundance dictRef="bo:relativeAbundance">21.83</abundance>
+		<scalar dictRef="bo:relativeAbundance">21.83</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">171.9363815</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb173" number="173" elementType="Yb">
-		<abundance dictRef="bo:relativeAbundance">16.13</abundance>
+		<scalar dictRef="bo:relativeAbundance">16.13</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">172.9382108</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.6776</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb174" number="174" elementType="Yb">
-		<abundance dictRef="bo:relativeAbundance">31.83</abundance>
+		<scalar dictRef="bo:relativeAbundance">31.83</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">173.9388621</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
@@ -9358,7 +9358,7 @@
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb176" number="176" elementType="Yb">
-		<abundance dictRef="bo:relativeAbundance">12.76</abundance>
+		<scalar dictRef="bo:relativeAbundance">12.76</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.8E-6">175.9425717</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
@@ -9486,14 +9486,14 @@
 		<scalar dictRef="bo:atomicNumber">71</scalar>
 	</isotope>
 	<isotope id="Lu175" number="175" elementType="Lu">
-		<abundance dictRef="bo:relativeAbundance">97.41</abundance>
+		<scalar dictRef="bo:relativeAbundance">97.41</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">174.9407718</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.2327</scalar>
 		<scalar dictRef="bo:atomicNumber">71</scalar>
 	</isotope>
 	<isotope id="Lu176" number="176" elementType="Lu">
-		<abundance dictRef="bo:relativeAbundance">2.59</abundance>
+		<scalar dictRef="bo:relativeAbundance">2.59</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">175.9426863</scalar>
 		<scalar dictRef="bo:spin">1-</scalar>
 		<scalar dictRef="bo:magneticMoment">3.19</scalar>
@@ -9619,7 +9619,7 @@
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
 	<isotope id="Hf174" number="174" elementType="Hf">
-		<abundance dictRef="bo:relativeAbundance">0.16</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.16</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">173.940046</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="units:y">2000000000000000</scalar>
@@ -9637,33 +9637,33 @@
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
 	<isotope id="Hf176" number="176" elementType="Hf">
-		<abundance dictRef="bo:relativeAbundance">5.26</abundance>
+		<scalar dictRef="bo:relativeAbundance">5.26</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">175.9414086</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
 	<isotope id="Hf177" number="177" elementType="Hf">
-		<abundance dictRef="bo:relativeAbundance">18.60</abundance>
+		<scalar dictRef="bo:relativeAbundance">18.60</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">176.9432207</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.7935</scalar>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
 	<isotope id="Hf178" number="178" elementType="Hf">
-		<abundance dictRef="bo:relativeAbundance">27.28</abundance>
+		<scalar dictRef="bo:relativeAbundance">27.28</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">177.9436988</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
 	<isotope id="Hf179" number="179" elementType="Hf">
-		<abundance dictRef="bo:relativeAbundance">13.62</abundance>
+		<scalar dictRef="bo:relativeAbundance">13.62</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">178.9458161</scalar>
 		<scalar dictRef="bo:spin">9/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.6409</scalar>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
 	<isotope id="Hf180" number="180" elementType="Hf">
-		<abundance dictRef="bo:relativeAbundance">35.08</abundance>
+		<scalar dictRef="bo:relativeAbundance">35.08</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">179.94655</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
@@ -9803,7 +9803,7 @@
 		<scalar dictRef="bo:atomicNumber">73</scalar>
 	</isotope>
 	<isotope id="Ta180" number="180" elementType="Ta">
-		<abundance dictRef="bo:relativeAbundance">0.012</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.012</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">179.9474648</scalar>
 		<scalar dictRef="bo:spin">1-</scalar>
 		<scalar dictRef="bo:halfLife" units="units:y">10000000000000</scalar>
@@ -9814,7 +9814,7 @@
 		<scalar dictRef="bo:atomicNumber">73</scalar>
 	</isotope>
 	<isotope id="Ta181" number="181" elementType="Ta">
-		<abundance dictRef="bo:relativeAbundance">99.988</abundance>
+		<scalar dictRef="bo:relativeAbundance">99.988</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.9E-6">180.9479958</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.370</scalar>
@@ -9952,7 +9952,7 @@
 		<scalar dictRef="bo:atomicNumber">74</scalar>
 	</isotope>
 	<isotope id="W180" number="180" elementType="W">
-		<abundance dictRef="bo:relativeAbundance">0.12</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.12</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">179.946704</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">74</scalar>
@@ -9966,21 +9966,21 @@
 		<scalar dictRef="bo:atomicNumber">74</scalar>
 	</isotope>
 	<isotope id="W182" number="182" elementType="W">
-		<abundance dictRef="bo:relativeAbundance">26.50</abundance>
+		<scalar dictRef="bo:relativeAbundance">26.50</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">181.9482042</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:magneticMoment">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">74</scalar>
 	</isotope>
 	<isotope id="W183" number="183" elementType="W">
-		<abundance dictRef="bo:relativeAbundance">14.31</abundance>
+		<scalar dictRef="bo:relativeAbundance">14.31</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">182.950223</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.1177847</scalar>
 		<scalar dictRef="bo:atomicNumber">74</scalar>
 	</isotope>
 	<isotope id="W184" number="184" elementType="W">
-		<abundance dictRef="bo:relativeAbundance">30.64</abundance>
+		<scalar dictRef="bo:relativeAbundance">30.64</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">183.9509312</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">74</scalar>
@@ -9993,7 +9993,7 @@
 		<scalar dictRef="bo:atomicNumber">74</scalar>
 	</isotope>
 	<isotope id="W186" number="186" elementType="W">
-		<abundance dictRef="bo:relativeAbundance">28.43</abundance>
+		<scalar dictRef="bo:relativeAbundance">28.43</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.9E-6">185.9543641</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:atomicNumber">74</scalar>
@@ -10129,7 +10129,7 @@
 		<scalar dictRef="bo:atomicNumber">75</scalar>
 	</isotope>
 	<isotope id="Re185" number="185" elementType="Re">
-		<abundance dictRef="bo:relativeAbundance">37.40</abundance>
+		<scalar dictRef="bo:relativeAbundance">37.40</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">184.952955</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.172</scalar>
@@ -10147,7 +10147,7 @@
 		<scalar dictRef="bo:atomicNumber">75</scalar>
 	</isotope>
 	<isotope id="Re187" number="187" elementType="Re">
-		<abundance dictRef="bo:relativeAbundance">62.60</abundance>
+		<scalar dictRef="bo:relativeAbundance">62.60</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">186.9557531</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.2197</scalar>
@@ -10280,7 +10280,7 @@
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os184" number="184" elementType="Os">
-		<abundance dictRef="bo:relativeAbundance">0.02</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.02</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.4E-6">183.9524891</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
@@ -10294,7 +10294,7 @@
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os186" number="186" elementType="Os">
-		<abundance dictRef="bo:relativeAbundance">1.59</abundance>
+		<scalar dictRef="bo:relativeAbundance">1.59</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">185.9538382</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="units:y">2000000000000000</scalar>
@@ -10303,27 +10303,27 @@
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os187" number="187" elementType="Os">
-		<abundance dictRef="bo:relativeAbundance">1.96</abundance>
+		<scalar dictRef="bo:relativeAbundance">1.96</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">186.9557505</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.06465</scalar>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os188" number="188" elementType="Os">
-		<abundance dictRef="bo:relativeAbundance">13.24</abundance>
+		<scalar dictRef="bo:relativeAbundance">13.24</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">187.9558382</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os189" number="189" elementType="Os">
-		<abundance dictRef="bo:relativeAbundance">16.15</abundance>
+		<scalar dictRef="bo:relativeAbundance">16.15</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">188.9581475</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.659933</scalar>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os190" number="190" elementType="Os">
-		<abundance dictRef="bo:relativeAbundance">26.26</abundance>
+		<scalar dictRef="bo:relativeAbundance">26.26</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">189.958447</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
@@ -10337,7 +10337,7 @@
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os192" number="192" elementType="Os">
-		<abundance dictRef="bo:relativeAbundance">40.78</abundance>
+		<scalar dictRef="bo:relativeAbundance">40.78</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">191.9614807</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
@@ -10469,7 +10469,7 @@
 		<scalar dictRef="bo:atomicNumber">77</scalar>
 	</isotope>
 	<isotope id="Ir191" number="191" elementType="Ir">
-		<abundance dictRef="bo:relativeAbundance">37.3</abundance>
+		<scalar dictRef="bo:relativeAbundance">37.3</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">190.960594</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.1461</scalar>
@@ -10489,7 +10489,7 @@
 		<scalar dictRef="bo:atomicNumber">77</scalar>
 	</isotope>
 	<isotope id="Ir193" number="193" elementType="Ir">
-		<abundance dictRef="bo:relativeAbundance">62.7</abundance>
+		<scalar dictRef="bo:relativeAbundance">62.7</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">192.9629264</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.1591</scalar>
@@ -10619,7 +10619,7 @@
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
 	<isotope id="Pt190" number="190" elementType="Pt">
-		<abundance dictRef="bo:relativeAbundance">0.014</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.014</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="6E-6">189.959932</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="units:y">650000000000</scalar>
@@ -10633,7 +10633,7 @@
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
 	<isotope id="Pt192" number="192" elementType="Pt">
-		<abundance dictRef="bo:relativeAbundance">0.782</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.782</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">191.961038</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="units:y">1000000000000000</scalar>
@@ -10646,20 +10646,20 @@
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
 	<isotope id="Pt194" number="194" elementType="Pt">
-		<abundance dictRef="bo:relativeAbundance">32.967</abundance>
+		<scalar dictRef="bo:relativeAbundance">32.967</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">193.9626803</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
 	<isotope id="Pt195" number="195" elementType="Pt">
-		<abundance dictRef="bo:relativeAbundance">33.832</abundance>
+		<scalar dictRef="bo:relativeAbundance">33.832</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">194.9647911</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.60949</scalar>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
 	<isotope id="Pt196" number="196" elementType="Pt">
-		<abundance dictRef="bo:relativeAbundance">25.242</abundance>
+		<scalar dictRef="bo:relativeAbundance">25.242</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">195.9649515</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
@@ -10674,7 +10674,7 @@
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
 	<isotope id="Pt198" number="198" elementType="Pt">
-		<abundance dictRef="bo:relativeAbundance">7.163</abundance>
+		<scalar dictRef="bo:relativeAbundance">7.163</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">197.967893</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
@@ -10814,7 +10814,7 @@
 		<scalar dictRef="bo:atomicNumber">79</scalar>
 	</isotope>
 	<isotope id="Au197" number="197" elementType="Au">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">196.9665687</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.1457</scalar>
@@ -10965,7 +10965,7 @@
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg196" number="196" elementType="Hg">
-		<abundance dictRef="bo:relativeAbundance">0.15</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.15</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">195.965833</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
@@ -10980,33 +10980,33 @@
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg198" number="198" elementType="Hg">
-		<abundance dictRef="bo:relativeAbundance">9.97</abundance>
+		<scalar dictRef="bo:relativeAbundance">9.97</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">197.966769</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg199" number="199" elementType="Hg">
-		<abundance dictRef="bo:relativeAbundance">16.87</abundance>
+		<scalar dictRef="bo:relativeAbundance">16.87</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">198.9682799</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.5058851</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg200" number="200" elementType="Hg">
-		<abundance dictRef="bo:relativeAbundance">23.10</abundance>
+		<scalar dictRef="bo:relativeAbundance">23.10</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">199.968326</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg201" number="201" elementType="Hg">
-		<abundance dictRef="bo:relativeAbundance">13.18</abundance>
+		<scalar dictRef="bo:relativeAbundance">13.18</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">200.9703023</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.560225</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg202" number="202" elementType="Hg">
-		<abundance dictRef="bo:relativeAbundance">29.86</abundance>
+		<scalar dictRef="bo:relativeAbundance">29.86</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">201.970643</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
@@ -11021,7 +11021,7 @@
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg204" number="204" elementType="Hg">
-		<abundance dictRef="bo:relativeAbundance">6.87</abundance>
+		<scalar dictRef="bo:relativeAbundance">6.87</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">203.9734939</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
@@ -11161,7 +11161,7 @@
 		<scalar dictRef="bo:atomicNumber">81</scalar>
 	</isotope>
 	<isotope id="Tl203" number="203" elementType="Tl">
-		<abundance dictRef="bo:relativeAbundance">29.524</abundance>
+		<scalar dictRef="bo:relativeAbundance">29.524</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.4E-6">202.9723442</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.622257</scalar>
@@ -11179,7 +11179,7 @@
 		<scalar dictRef="bo:atomicNumber">81</scalar>
 	</isotope>
 	<isotope id="Tl205" number="205" elementType="Tl">
-		<abundance dictRef="bo:relativeAbundance">70.476</abundance>
+		<scalar dictRef="bo:relativeAbundance">70.476</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.4E-6">204.9744275</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.6382134</scalar>
@@ -11321,7 +11321,7 @@
 		<scalar dictRef="bo:atomicNumber">82</scalar>
 	</isotope>
 	<isotope id="Pb204" number="204" elementType="Pb">
-		<abundance dictRef="bo:relativeAbundance">1.4</abundance>
+		<scalar dictRef="bo:relativeAbundance">1.4</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">203.9730436</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">82</scalar>
@@ -11332,20 +11332,20 @@
 		<scalar dictRef="bo:atomicNumber">82</scalar>
 	</isotope>
 	<isotope id="Pb206" number="206" elementType="Pb">
-		<abundance dictRef="bo:relativeAbundance">24.1</abundance>
+		<scalar dictRef="bo:relativeAbundance">24.1</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">205.9744653</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">82</scalar>
 	</isotope>
 	<isotope id="Pb207" number="207" elementType="Pb">
-		<abundance dictRef="bo:relativeAbundance">22.1</abundance>
+		<scalar dictRef="bo:relativeAbundance">22.1</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">206.9758969</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.5926</scalar>
 		<scalar dictRef="bo:atomicNumber">82</scalar>
 	</isotope>
 	<isotope id="Pb208" number="208" elementType="Pb">
-		<abundance dictRef="bo:relativeAbundance">52.4</abundance>
+		<scalar dictRef="bo:relativeAbundance">52.4</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">207.9766521</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:atomicNumber">82</scalar>
@@ -11482,7 +11482,7 @@
 		<scalar dictRef="bo:atomicNumber">83</scalar>
 	</isotope>
 	<isotope id="Bi209" number="209" elementType="Bi">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">208.9803987</scalar>
 		<scalar dictRef="bo:spin">9/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+4.11</scalar>
@@ -12514,7 +12514,7 @@
 		<scalar dictRef="bo:atomicNumber">90</scalar>
 	</isotope>
 	<isotope id="Th232" number="232" elementType="Th">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">232.0380553</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="units:y">14000000000</scalar>
@@ -12629,7 +12629,7 @@
 		<scalar dictRef="bo:atomicNumber">91</scalar>
 	</isotope>
 	<isotope id="Pa231" number="231" elementType="Pa">
-		<abundance dictRef="bo:relativeAbundance">100</abundance>
+		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">231.035884</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">2.01</scalar>
@@ -12761,7 +12761,7 @@
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
 	<isotope id="U234" number="234" elementType="U">
-		<abundance dictRef="bo:relativeAbundance">0.0055</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.0055</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">234.0409521</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="units:y">245000</scalar>
@@ -12770,7 +12770,7 @@
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
 	<isotope id="U235" number="235" elementType="U">
-		<abundance dictRef="bo:relativeAbundance">0.7200</abundance>
+		<scalar dictRef="bo:relativeAbundance">0.7200</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">235.0439299</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.35</scalar>
@@ -12794,7 +12794,7 @@
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
 	<isotope id="U238" number="238" elementType="U">
-		<abundance dictRef="bo:relativeAbundance">99.2745</abundance>
+		<scalar dictRef="bo:relativeAbundance">99.2745</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">238.0507882</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:halfLife" units="units:y">4468000000</scalar>
