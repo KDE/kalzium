@@ -51,12 +51,12 @@ void RSDialog::filter()
 	QList<int> r;
 	QList<int> s;
 
-	//for now only seperation by a comma , is allowed
+	//for now only separation by a comma , is allowed
 	QStringList rSplit = ui.r_le->text().split( "-" );
 	foreach( QString st, rSplit )
 		r << st.toInt();
 	
-	//for now only seperation by a comma , is allowed
+	//for now only separation by a comma , is allowed
 	QStringList sSplit = ui.s_le->text().split( "-" );
 	foreach( QString st, sSplit )
 		s << st.toInt();
