@@ -266,18 +266,18 @@ void Field::debugOutput()
  			Stone *s = stoneAtPosition( p );
 			if ( !s )
 			{
-				debug += " ";	
+				debug += ' ';
 				continue;
 			}
 			
 			if ( s->player() == Stone::First )
-				debug += "1";
+				debug += '1';
 			else if ( s->player() == Stone::Second )
-				debug += "2";
+				debug += '2';
 			else if ( s->player() == Stone::Third )
-				debug += "3";
+				debug += '3';
 			else if ( s->player() == Stone::Fourth )
-				debug += "4";
+				debug += '4';
 		}
 	}
 	qDebug( "%s", qPrintable( debug ) );
