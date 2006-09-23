@@ -28,7 +28,6 @@ class GlossaryDialog;
 class IsotopeTable;
 class SearchWidget;
 class QKeyEvent;
-class QTimer;
 
 #include "kalziumpainter.h"
 
