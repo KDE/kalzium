@@ -275,20 +275,14 @@ QString ChemicalDataObject::unitAsString() const
 
 ChemicalDataObject::BlueObeliskUnit ChemicalDataObject::unit( const QString& unit )
 {
-	if ( unit == "bo:kelvin" ) 
-		return ChemicalDataObject::kelvin;
-	else if ( unit == "bo:ev" )
-		return ChemicalDataObject::ev;
-	else if ( unit == "bo:nm" )
-		return ChemicalDataObject::nm;
-	else if ( unit == "bo:pm" )
-		return ChemicalDataObject::pm;
-	else if ( unit == "bo:y" )
-		return ChemicalDataObject::y;	
-	else if ( unit == "bo:s" )
-		return ChemicalDataObject::s;	
-	else if ( unit == "bo:noUnit" )
-		return ChemicalDataObject::noUnit;
-	else
-		return ChemicalDataObject::noUnit;
+    if ( unit == "siUnits:kelvin" ) 
+        return ChemicalDataObject::kelvin;
+    else if ( unit == "units:ev" )
+        return ChemicalDataObject::ev;
+    else if ( unit == "units:ang" )
+        return ChemicalDataObject::ang;
+    else if ( unit == "bo:noUnit" )
+        return ChemicalDataObject::noUnit;
+    else
+        return ChemicalDataObject::noUnit;
 }

@@ -88,10 +88,6 @@ class EDUSCIENCE_EXPORT ChemicalDataObject
       discoveryCountry
 		};
 
-		/**
-		 * The BlueObelisk-project defines in their XML file the dataset
-		 * with the units in the namespace "bo". 
-		 */
 		enum BlueObeliskUnit
 		{
 			kelvin = 0/**< Degree Kelvin */,
@@ -100,6 +96,7 @@ class EDUSCIENCE_EXPORT ChemicalDataObject
 			pm/**< picometer */,
 			y/**< years */,
 			s/**< seconds */,
+      ang/**< angstrom */,
 			noUnit/**< no unit */
 		};
 

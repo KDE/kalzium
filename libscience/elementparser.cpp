@@ -111,9 +111,11 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
     {
         for (int i = 0; i < attrs.length(); ++i) 
         {
-            if ( attrs.localName( i ) == "unit" )
+            if ( attrs.localName( i ) == "units" )
             {
+                //kDebug() << "value of the unit: " << attrs.value(i) << endl;
                 d->currentUnit = ChemicalDataObject::unit( attrs.value( i ) );
+                //kDebug() << "Took " << d->currentUnit << endl;
                 continue;
             }
 
@@ -217,10 +219,8 @@ bool ElementSaxParser::endElement( const QString &, const QString& localName, co
     }
     else if ( localName == "scalar" || localName == "label" || localName == "array" )
     {
-        if ( d->currentUnit != ChemicalDataObject::noUnit )
-            d->currentDataObject->setUnit( d->currentUnit );
-
-        d->currentUnit = ChemicalDataObject::noUnit;
+        //kDebug() << "Check unit " << d->currentUnit << endl;
+        d->currentDataObject->setUnit( d->currentUnit );
     }
     return true;
 }
