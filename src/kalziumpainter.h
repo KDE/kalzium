@@ -69,7 +69,7 @@ class KalziumPainter
 			NORMAL = 0,
 			GRADIENT = 1,
 			SOM/**< State of matter*/,
-			SLIDE
+			TIME/** Timeline*/
 		};
 
 		/**
@@ -138,10 +138,26 @@ class KalziumPainter
 		 */
 		void setNumeration( int n );
 		void setNumeration( const QByteArray& n );
-		KalziumNumerationType* numeration() const;
 
-		void setTemperature( int temp );
-		int temperature() const;
+		KalziumNumerationType* numeration() const{
+        return m_numeration;
+    }
+
+		void setTemperature( int temp ){
+        m_temperature = temp;
+    }
+
+		int temperature() const{
+        return m_temperature;
+    }
+
+		void setTime( int time ){
+        m_time = time;
+    }
+
+		int time() const{
+        return m_time;
+    }
 
 		QBrush brushForElement( int element ) const;
 
@@ -166,6 +182,7 @@ class KalziumPainter
 		bool m_legend;
 
 		int m_temperature;
+		int m_time;
 };
 
 #endif // KALZIUMPAINTER_H

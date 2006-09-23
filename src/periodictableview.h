@@ -182,6 +182,8 @@ class PeriodicTableView : public QWidget
 		 * @param temp is the temperature to which all buttons will be set
 		 */
 		void setTemperature( int temp );
+		
+    void setTime( int time );
 
 		/**
 		 * this slot removes the selection of any point

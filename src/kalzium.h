@@ -24,6 +24,7 @@ class PeriodicTableView;
 class MolcalcWidget;
 class DetailedGraphicalOverview;
 class SOMWidgetIMPL;
+class TimeWidgetImpl;
 class GlossaryDialog;
 class IsotopeTable;
 class SearchWidget;
@@ -98,6 +99,7 @@ class Kalzium : public KMainWindow
 		MolcalcWidget *m_calcWidget;
 
 		SOMWidgetIMPL *m_somWidget;
+		TimeWidgetImpl *m_timeWidget;
 
 		DetailedGraphicalOverview *m_detailWidget;
 

@@ -22,6 +22,7 @@ set(kalzium_SRCS
    detailedgraphicaloverview.cpp
    molcalcwidget.cpp
    somwidget_impl.cpp
+   timewidget_impl.cpp
    kalziumdataobject.cpp
    spectrumwidget.cpp
    nuclideboard.cpp
@@ -67,6 +68,7 @@ kde4_add_ui_files(kalzium_SRCS
    settings_units.ui
    rswidget.ui
    moleculeviewerwidget.ui
+   timewidget.ui
 )
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )

@@ -26,6 +26,7 @@
 #include "molcalcwidget.h"
 #include "detailedgraphicaloverview.h"
 #include "somwidget_impl.h"
+#include "timewidget_impl.h"
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
 #include "config.h"
@@ -267,6 +268,12 @@ void Kalzium::setupSidebars()
 	         m_PeriodicTableView, SLOT( setTemperature( int ) ) );
 	m_toolbox->addItem( m_somWidget, SmallIconSet( "statematter" ), i18n( "State of Matter" ) );
 	
+  m_timeWidget = new TimeWidgetImpl( m_toolbox );
+	m_timeWidget->setObjectName( "timeWidget" );
+	connect( m_timeWidget->time_box, SIGNAL( valueChanged( int ) ),
+	         m_PeriodicTableView, SLOT( setTime( int ) ) );
+	m_toolbox->addItem( m_timeWidget, SmallIconSet( "statematter" ), i18n( "Timeline" ) );
+	
 	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
 	addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
@@ -375,6 +382,7 @@ void Kalzium::slotSwitchtoNumeration( int index )
 void Kalzium::slotSwitchtoLook( int which )
 {
 	int id = which - KalziumSchemeTypeFactory::instance()->schemes().count();
+  kDebug() << "Kalzium::slotSwitchtoLook() with ID: " << id << endl;
 	if ( id < 0 )
 	{
 		m_PeriodicTableView->activateColorScheme( which );
@@ -494,6 +502,10 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 		case 2: // state of matter
 			m_PeriodicTableView->setTemperature( m_somWidget->temperature() );
 			m_PeriodicTableView->setMode( KalziumPainter::SOM );
+			break;
+		case 3: // timeline
+			m_PeriodicTableView->setTime( m_timeWidget->time_box->value() );
+			m_PeriodicTableView->setMode( KalziumPainter::TIME );
 			break;
 	}
 	if ( m_dockWin->isVisible() )

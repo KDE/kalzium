@@ -275,6 +275,13 @@ void PeriodicTableView::setTemperature( int temp )
 	update();
 }
 
+void PeriodicTableView::setTime( int time )
+{
+	m_painter->setTime( time );
+	setFullDraw();
+	update();
+}
+
 void PeriodicTableView::setFullDraw()
 {
 	doFullDraw = true;

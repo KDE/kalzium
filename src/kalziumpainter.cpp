@@ -226,7 +226,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 			m_painter->setFont( orig_font );
 			break;
 		}
-		case SLIDE:
+		case TIME:
 		{
 			QBrush c = getSlideBrush( element, rect ); 
 			QColor textc = Qt::white;
@@ -327,7 +327,7 @@ void KalziumPainter::drawLegend()
 
 				break;
 			}
-		case SLIDE:
+		case TIME:
 			{
 				break;
 			}
@@ -454,21 +454,6 @@ void KalziumPainter::setNumeration( const QByteArray& n )
 	}
 }
 
-KalziumNumerationType* KalziumPainter::numeration() const
-{
-	return m_numeration;
-}
-
-void KalziumPainter::setTemperature( int temp )
-{
-	m_temperature = temp;
-}
-
-int KalziumPainter::temperature() const
-{
-	return m_temperature;
-}
-
 QBrush KalziumPainter::getSlideBrush( int element, const QRect& rect ) const
 {
 	Element *el = KalziumDataObject::instance()->element( element );
@@ -529,11 +514,22 @@ QBrush KalziumPainter::brushForElement( int element ) const
 			return QBrush( m_gradient->calculateColor( coeff ) );
 			break;
 		}
-		case SLIDE:
-		{
-			return getSlideBrush( element, rect );
-			break;
-		}
+		case TIME:
+    {
+        QColor color;
+
+        const double date = el->dataAsVariant( ChemicalDataObject::date ).toInt();
+
+        if ( m_time < date )
+        {
+            color = Qt::red;
+        }
+        else
+            color = Qt::lightGray;
+
+        return QBrush( color );
+        break;
+    }
 	}
 	// fallback
 	return QBrush();
