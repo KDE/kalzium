@@ -338,9 +338,14 @@ QList<QColor> IsotopeTableView::isotopeColors( Isotope* isotope )
 		l.append( Qt::yellow );
 	if ( isotope->ecdecay() )
 		l.append( Qt::green );
+	if( isotope->halflife()==-2){
+		l.append( Qt::black );
 
+
+	}
+//	kDebug() << isotope->halflife() << endl;
 	if ( l.isEmpty() )
-		l.append( Qt::magenta );
+		l.append( Qt::white );
 
 	return l;
 }
