@@ -203,6 +203,7 @@ bool IsotopeParser::characters(const QString &ch)
 	}
 	else if (d->inHalfLife) {
 		value = ch.toDouble();
+		if(ch=="-1"){value=-2;}
 		type = ChemicalDataObject::halfLife; 
 		d->inHalfLife = false;
 	}
