@@ -259,7 +259,7 @@ void Field::debugOutput()
 
 	for ( int y = 0; y < ySize() ; ++y )
 	{
-		debug += "\n";
+		debug += '\n';
 		for ( int x = 0 ; x < xSize() ; ++x )
 		{
 			QPoint p( x,y );

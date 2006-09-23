@@ -128,12 +128,12 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 	QString htmlcode;
 	if ( listMeltingPoint.count() > 0 )
 	{
-		htmlcode += i18n( "Elements with melting point around this temperature:" ) + "\n";
+		htmlcode += i18n( "Elements with melting point around this temperature:" ) + '\n';
 		for ( int i = 0; i < listMeltingPoint.count(); i++ )
 		{
-			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2)", listMeltingPoint.at( i ), listMeltingPointValue.at( i ) ) + "\n";
+			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2)", listMeltingPoint.at( i ), listMeltingPointValue.at( i ) ) + '\n';
 		}
-		htmlcode += "\n";
+		htmlcode += '\n';
 	}
 	else
 	{
@@ -142,17 +142,17 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 	}
 	if ( listBoilingPoint.count() > 0 )
 	{
-		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + "\n";
+		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + '\n';
 		for ( int i = 0; i < listBoilingPoint.count(); i++ )
 		{
-			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2)", listBoilingPoint.at( i ), listBoilingPointValue.at( i ) ) + "\n";
+			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2)", listBoilingPoint.at( i ), listBoilingPointValue.at( i ) ) + '\n';
 		}
-		htmlcode += "\n";
+		htmlcode += '\n';
 	}
 	else
 	{
 		htmlcode += i18n( "No elements with a boiling point around this temperature" );
-		htmlcode += "\n";
+		htmlcode += '\n';
 	}
 
 //	kDebug() << m_htmlBegin + htmlcode + m_htmlEnd << endl;
