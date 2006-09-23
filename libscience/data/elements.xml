@@ -76,7 +76,7 @@
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">4.216</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">0.95</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
-    <array dataType="xsd:string" dictRef="bo:discoveryCountry">se</array>
+    <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">se,uk</array>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1895</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">P. J. Janssen;J. N. Lockyer</array>
     <scalar dataType="xsd:int" dictRef="bo:period">1</scalar>
@@ -889,7 +889,7 @@
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">331.85</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">265.95</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
-    <array dataType="xsd:string" dictRef="bo:discoveryCountry">br</array>
+    <array dataType="xsd:string" dictRef="bo:discoveryCountry">fr</array>
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1826</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">A. J. Balard</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
@@ -2516,7 +2516,7 @@
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.82 0.00 0.31</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
-    <array dataType="xsd:string" dictRef="bo:discoveryCountry">us</array>
+    <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
@@ -2637,6 +2637,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">285.17411</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.95 0.00 0.12</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
+    <array dataType="xsd:string" dictRef="bo:discoveryCountry">de</array>
   </atom>
   <atom id="Uut">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">113</scalar>
@@ -2646,6 +2647,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">284.17808</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.96 0.00 0.11</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
+    <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
   </atom>
   <atom id="Uuq">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">114</scalar>
@@ -2655,6 +2657,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">289.18728</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.97 0.00 0.10</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
+    <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
   </atom>
   <atom id="Uup">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">115</scalar>
@@ -2664,6 +2667,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">288.19249</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.98 0.00 0.09</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
+    <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
   </atom>
   <atom id="Uuh">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">116</scalar>
