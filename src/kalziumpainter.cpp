@@ -493,18 +493,13 @@ QBrush KalziumPainter::brushForElement( int element ) const
 		}
 		case TIME:
     {
-        QColor color;
-
         const double date = el->dataAsVariant( ChemicalDataObject::date ).toInt();
 
-        if ( m_time < date )
-        {
-            color = Qt::red;
-        }
+        if ( m_time >= date )
+            return m_scheme->elementBrush( element, rect );
         else
-            color = Qt::lightGray;
+            return QBrush( Qt::lightGray );
 
-        return QBrush( color );
         break;
     }
 	}
