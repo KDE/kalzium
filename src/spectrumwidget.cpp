@@ -100,51 +100,49 @@ void SpectrumWidget::drawZoomLine( QPainter* p )
 
 void SpectrumWidget::paintBands( QPainter* p )
 {
-//X 	if ( m_type == AbsorptionSpectrum )
-//X 	{
-//X 		for ( double va = startValue; va <= endValue ; va += 0.1 )
-//X 		{
-//X 			int x = xPos( va );
-//X 			p->setPen( linecolor( va ) );
-//X 			p->drawLine( x,0,x, m_realHeight );
-//X 		}
-//X 
-//X 		p->setPen( Qt::black );
-//X 	}
-//X 
-//X  	int i = 0;
-//X 	int x = 0;
-//X 	int temp = 0;	
-//X 
-//X  	for ( QList<Spectrum::band>::Iterator it = m_spectrum->bandlist()->begin();
-//X  			it != m_spectrum->bandlist()->end();
-//X  			++it )
-//X  	{
-//X  		if ( ( *it ).wavelength < startValue || ( *it ).wavelength > endValue )
-//X 			continue;
-//X  
-//X  		x = xPos( ( *it ).wavelength );
-//X  	
-//X  		temp = 0;  
-//X 
-//X  		switch ( m_type )
-//X  		{
-//X 			case EmissionSpectrum:
-//X 				p->setPen( linecolor( ( *it ).wavelength ) );
-//X 				p->drawLine( x,0,x, m_realHeight-1 );
-//X 
-//X 				p->setPen( Qt::black );
-//X //				p->drawLine( x,m_realHeight,x, m_realHeight );
-//X 				break;
-//X  		
-//X 			case AbsorptionSpectrum:
-//X 				p->setPen( Qt::black );
-//X 				p->drawLine( x,0,x, m_realHeight-1 );
-//X 				break;
-//X  		}
-//X  		
-//X  		i++;
-//X  	}
+    if ( m_type == AbsorptionSpectrum )
+    {
+        for ( double va = startValue; va <= endValue ; va += 0.1 )
+        {
+            int x = xPos( va );
+            p->setPen( linecolor( va ) );
+            p->drawLine( x,0,x, m_realHeight );
+        }
+
+        p->setPen( Qt::black );
+    }
+
+    int i = 0;
+    int x = 0;
+    int temp = 0;	
+
+    foreach ( Spectrum::peak * peak , m_spectrum->peaklist() )
+    {
+        if ( peak->wavelength < startValue || peak->wavelength > endValue )
+            continue;
+
+        x = xPos( peak->wavelength );
+
+        temp = 0;  
+
+        switch ( m_type )
+        {
+            case EmissionSpectrum:
+                p->setPen( linecolor( peak->wavelength ) );
+                p->drawLine( x,0,x, m_realHeight-1 );
+
+                p->setPen( Qt::black );
+                p->drawLine( x,m_realHeight,x, m_realHeight );
+                break;
+
+            case AbsorptionSpectrum:
+                p->setPen( Qt::black );
+                p->drawLine( x,0,x, m_realHeight-1 );
+                break;
+        }
+
+        i++;
+    }
 }
 
 QColor SpectrumWidget::linecolor( double spectrum )
