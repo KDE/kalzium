@@ -164,6 +164,30 @@ QString ChemicalDataObject::dictRef() const
 		case halfLife:
 			botype = "halfLife";
 			break;
+		case alphaDecay:
+			botype = "alphaDecay";
+			break;
+		case alphaDecayLikeliness:
+			botype = "alphaDecayLikeliness";
+			break;
+		case betaminusDecayLikeliness:
+			botype = "betaminusDecayLikeliness";
+			break;
+		case betaminusDecay:
+			botype = "betaminusDecay";
+			break;
+		case betaplusDecayLikeliness:
+			botype = "betaplusDecayLikeliness";
+			break;
+		case betaplusDecay:
+			botype = "betaplusDecay";
+			break;
+		case ecDecayLikeliness:
+			botype = "ecDecayLikeliness";
+			break;
+		case ecDecay:
+			botype = "ecDecay";
+			break;
 		case ionization:
 			botype = "ionization";
 			break;

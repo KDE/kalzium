@@ -106,30 +106,42 @@ class EDUSCIENCE_EXPORT Isotope
 		/**
 		 * @return decay
 		 */
-		ChemicalDataObject* ecdecay() const{
-			return m_ecdecay;
-		}
+		double ecdecay() const;
+
+		/**
+		 * @return decay likeliness
+		 */
+		double eclikeliness() const;
 
 		/**
 		 * @return decay
 		 */
-		ChemicalDataObject* betaminusdecay() const{
-			return m_betaminus;
-		}
+		double betaminusdecay() const;
+		/**
+		 * @return decay likeliness
+		 */
+		double betaminuslikeliness() const;
+
+		/**
+		 * @return decay
+		 */
+		double betaplusdecay() const;
+		
+		/**
+		 * @return decay likeliness
+		 */
+		double betapluslikeliness() const;
+
+		/**
+		 * @return decay
+		 */
+		double alphadecay() const;
+
 		
 		/**
 		 * @return decay
 		 */
-		ChemicalDataObject* betaplusdecay() const{
-			return m_betaplus;
-		}
-		
-		/**
-		 * @return decay
-		 */
-		ChemicalDataObject* alphadecay() const{
-			return m_alpha;
-		}
+		double alphalikeliness() const;
 
 		/**
 		 * This enum stores the different kinds of decay
@@ -183,11 +195,22 @@ class EDUSCIENCE_EXPORT Isotope
 		 * stores the halfLife of the Isotope
 		 */
 		ChemicalDataObject* m_halflife;
-
+		
+		/**
+		 * stores decay energy of the isotope
+		 */
 		ChemicalDataObject* m_ecdecay;
-		ChemicalDataObject* m_betaplus;
-		ChemicalDataObject* m_betaminus; 
-		ChemicalDataObject* m_alpha;
+		ChemicalDataObject* m_betaplusdecay;
+		ChemicalDataObject* m_betaminusdecay; 
+		ChemicalDataObject* m_alphadecay;
+
+		/**
+		 * stores the likeliness of a decay of the isotope
+		 */
+		ChemicalDataObject* m_eclikeliness;
+		ChemicalDataObject* m_betapluslikeliness;
+		ChemicalDataObject* m_betaminuslikeliness; 
+		ChemicalDataObject* m_alphalikeliness;
 	
 		int m_numberOfNucleons;
 };

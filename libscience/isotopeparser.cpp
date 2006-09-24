@@ -34,13 +34,13 @@ public:
 	inSpin(false),
 	inMagMoment(false),
 	inHalfLife(false),
-	inAlphaPercentage(false),
+	inAlphaDecayLikeliness(false),
 	inAlphaDecay(false),
-	inBetaplusPercentage(false),
+	inBetaplusDecayLikeliness(false),
 	inBetaplusDecay(false),
-	inBetaminusPercentage(false),
+	inBetaminusDecayLikeliness(false),
 	inBetaminusDecay(false),
-	inECPercentage(false),	
+	inECDecayLikeliness(false),	
 	inECDecay(false),
 	inAbundance(false)
 	{
@@ -61,13 +61,13 @@ public:
 	bool inSpin;
 	bool inMagMoment;
 	bool inHalfLife;
-	bool inAlphaPercentage;
+	bool inAlphaDecayLikeliness;
 	bool inAlphaDecay;
-	bool inBetaplusPercentage;
+	bool inBetaplusDecayLikeliness;
 	bool inBetaplusDecay;
-	bool inBetaminusPercentage;
+	bool inBetaminusDecayLikeliness;
 	bool inBetaminusDecay;
-	bool inECPercentage;
+	bool inECDecayLikeliness;
 	bool inECDecay;
 	bool inAbundance;
 };
@@ -139,12 +139,20 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 			}
 			else if (attrs.value(i) == "bo:alphaDecay")
 				d->inAlphaDecay = true;
+			else if (attrs.value(i) == "bo:alphaDecayLikeliness")
+				d->inAlphaDecayLikeliness = true;
 			else if (attrs.value(i) == "bo:ecDecay")
 				d->inECDecay = true;
+			else if (attrs.value(i) == "bo:ecDecayLikeliness")
+				d->inECDecayLikeliness = true;
 			else if (attrs.value(i) == "bo:betaminusDecay")
 				d->inBetaminusDecay = true;
+			else if (attrs.value(i) == "bo:betaminusDecayLikeliness")
+				d->inBetaminusDecayLikeliness = true;
 			else if (attrs.value(i) == "bo:betaplusDecay")
 				d->inBetaplusDecay = true;
+			else if (attrs.value(i) == "bo:betaplusDecayLikeliness")
+				d->inBetaplusDecayLikeliness = true;
 			else if (attrs.value(i) == "bo:spin")
 				d->inSpin = true;
 			else if (attrs.value(i) == "bo:magneticMoment")
@@ -212,15 +220,35 @@ bool IsotopeParser::characters(const QString &ch)
 		type = ChemicalDataObject::alphaDecay; 
 		d->inAlphaDecay = false;
 	}
+	else if (d->inAlphaDecayLikeliness) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::alphaDecayLikeliness; 
+		d->inAlphaDecayLikeliness = false;
+	}
 	else if (d->inBetaplusDecay) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::betaplusDecay; 
 		d->inBetaplusDecay = false;
 	}
+	else if (d->inBetaplusDecayLikeliness) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::betaplusDecayLikeliness; 
+		d->inBetaplusDecayLikeliness = false;
+	}
 	else if (d->inBetaminusDecay) {
 		value = ch.toDouble();
 		type = ChemicalDataObject::betaminusDecay; 
 		d->inBetaminusDecay = false;
+	}
+	else if (d->inBetaminusDecayLikeliness) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::betaminusDecayLikeliness; 
+		d->inBetaminusDecayLikeliness = false;
+	}
+	else if (d->inECDecayLikeliness) {
+		value = ch.toDouble();
+		type = ChemicalDataObject::ecDecayLikeliness; 
+		d->inECDecayLikeliness = false;
 	}
 	else if (d->inECDecay) {
 		value = ch.toDouble();
