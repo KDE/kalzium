@@ -38,7 +38,7 @@ public:
 	 *
 	 * @param _str @ref start the parsing with @p _str
 	 */
-    Parser(const QString& _str);
+    explicit Parser(const QString& _str);
     
 	/**
 	 * Destructor
