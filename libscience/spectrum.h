@@ -104,33 +104,10 @@ class EDUSCIENCE_EXPORT Spectrum
 		QList<double> wavelengths( double min, double max );
 
 		/**
-		 * @return the smallest wavelength
-		 */
-		double min() const{
-			return m_min;
-		}
-		
-		/**
-		 * @return the highest wavelength
-		 */
-		double max() const{
-			return m_max;
-		}
-
-		/**
 		 * @return the list of peaks of the spectrum
 		 */
 		QList<Spectrum::peak*> peaklist(){
 			return m_peaklist;
-		}
-	
-		/**
-		 * cache the values of the biggest and
-		 * smallest wavelenght
-		 */
-		void adjustMinMax(){
-			m_min = minPeak();
-			m_max = maxPeak();
 		}
 
 		/**
@@ -140,7 +117,6 @@ class EDUSCIENCE_EXPORT Spectrum
 			return m_parentElement; 
 		}
 
-	private:
 		/**
 		 * @return the smallest wavelength
 		 */
@@ -151,15 +127,11 @@ class EDUSCIENCE_EXPORT Spectrum
 		 */
 		double maxPeak();
 
+	private:
 		/**
 		 * the internal dataset
 		 */
 		QList<peak*> m_peaklist;
-
-		/**
-		 * the cached values of the highest and lowest wavelength
-		 */
-		double m_max, m_min;
 
 		Element* m_parentElement;
 };

@@ -61,37 +61,30 @@ Spectrum* Spectrum::adjustToWavelength( double min, double max )
 			spec->addPeak( p );
 	}
 
-	spec->adjustMinMax();
-
 	return spec;
 }
 
 void Spectrum::adjustIntensities()
 {
 	int maxInt = 0;
-	QList<peak*>::Iterator it = m_peaklist.begin();
-	const QList<peak*>::Iterator itEnd = m_peaklist.end();
-
 	//find the highest intensity
-	for ( ; it != itEnd; ++it )
+	foreach ( Spectrum::peak * p, m_peaklist)
 	{
-		if ( ( *it )->intensity > maxInt )
-			maxInt = ( *it )->intensity;
+		if ( p->intensity > maxInt )
+			maxInt = p->intensity;
 	}
 
 	//check if an adjustment is needed or not
 	if ( maxInt == 1000 ) return;
 
-	double max = ( double ) maxInt;
+	const double max = ( double ) maxInt;
 
 	//now adjust the intensities.
-	it = m_peaklist.begin();
-	for ( ; it != itEnd; ++it )
+	foreach ( Spectrum::peak * p, m_peaklist)
 	{
-		double curInt = ( ( double )( *it )->intensity );
-		
-		double newInt = max*1000/curInt;
-		( *it )->intensity = ( int ) round( newInt );
+		double newInt = max*1000/p->intensity;
+
+		p->intensity = ( int ) round( newInt );
 	}
 }
 
