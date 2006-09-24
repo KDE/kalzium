@@ -60,13 +60,6 @@ class EDUSCIENCE_EXPORT Element
 		void addData( const QVariant& value, ChemicalDataObject::BlueObelisk type );
 
 		/**
-		 * @return the ChemicalDataObject which stores the information
-		 * of the type @p type
-		 * @param type the type of the requested data
-		 */
-		ChemicalDataObject& data( ChemicalDataObject::BlueObelisk type ) const;
-
-		/**
 		 * @return the requested data of the type @p type as a QVariant
 		 */
 		QVariant dataAsVariant( ChemicalDataObject::BlueObelisk type ) const;
@@ -82,11 +75,18 @@ class EDUSCIENCE_EXPORT Element
 		QList<ChemicalDataObject*> data()const{
 			return dataList;
 		}
+
+    Spectrum * spectrum() const{
+        return m_spectrum;
+    }
+
 	private:
 		/**
 		 * this QList stores all information about an element
 		 */
 		QList<ChemicalDataObject*> dataList;
+
+    Spectrum *m_spectrum;
 };
 
 #endif

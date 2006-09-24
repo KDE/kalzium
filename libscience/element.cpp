@@ -18,22 +18,13 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.             *
  ***************************************************************************/
 
+#include "spectrum.h"
 #include "element.h"
 #include <kdebug.h>
 
 Element::Element()
 {
-}
-
-ChemicalDataObject& Element::data(ChemicalDataObject::BlueObelisk type) const
-{
-	foreach( ChemicalDataObject*o, dataList ) {
-		if ( o->type() == type )
-			return *o;
-	}
-        kFatal() << "No such object\n";
-        ChemicalDataObject *crashme = 0;
-	return *crashme;
+    m_spectrum = 0;
 }
 
 QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type ) const
