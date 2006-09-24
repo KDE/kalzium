@@ -157,65 +157,64 @@ QColor SpectrumWidget::linecolor( double spectrum )
 
 void SpectrumWidget::wavelengthToRGB( double wavelength, int& r, int& g, int& b )
 {
-	double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
+    double blue = 0.0, green = 0.0, red = 0.0, factor = 0.0;
 
-	int wavelength_ = ( int ) floor( wavelength );
-	if ( wavelength_ < 380 || wavelength_ > 780 )
-	{
-		//make everything white
-		r = g = b = 255;
-		return;
-	}
-	else if ( wavelength_ > 380 && wavelength_ < 439 )
-	{
-		red = -( wavelength-440 ) / ( 440-380 );
-		green = 0.0;
-		blue = 1.0;
-	
-	}
-	else if ( wavelength_ > 440 && wavelength_ < 489 )
-	{
-		red = 0.0;
-		green = ( wavelength-440 ) / ( 490-440 );
-		blue = 1.0;
-	}
-	else if ( wavelength_ > 490 && wavelength_ < 509 )
-	{
-		red = 0.0;
-		green = 1.0;
-		blue = -( wavelength-510 ) / ( 510-490 );
-	}
-	else if ( wavelength_ > 510 && wavelength_ < 579 )
-	{
-		red = ( wavelength-510 ) / ( 580-510 );
-		green = 1.0;
-		blue = 0.0;
-	}
-	else if ( wavelength_ > 580 && wavelength_ < 644 )
-	{
-		red = 1.0;
-		green = -( wavelength-645 ) / ( 645-580 );
-		blue = 0.0;
-	}
-	else if ( wavelength_ > 645 && wavelength_ < 780 )
-	{
-		red = 1.0;
-		green = 0.0;
-		blue = 0.0;
-	}
+    int wavelength_ = ( int ) floor( wavelength );
+    if ( wavelength_ < 380 || wavelength_ > 780 )
+    {
+        //make everything white
+        r = g = b = 255;
+        return;
+    }
+    else if ( wavelength_ > 380 && wavelength_ < 439 )
+    {
+        red = -( wavelength-440 ) / ( 440-380 );
+        green = 0.0;
+        blue = 1.0;
+    }
+    else if ( wavelength_ > 440 && wavelength_ < 489 )
+    {
+        red = 0.0;
+        green = ( wavelength-440 ) / ( 490-440 );
+        blue = 1.0;
+    }
+    else if ( wavelength_ > 490 && wavelength_ < 509 )
+    {
+        red = 0.0;
+        green = 1.0;
+        blue = -( wavelength-510 ) / ( 510-490 );
+    }
+    else if ( wavelength_ > 510 && wavelength_ < 579 )
+    {
+        red = ( wavelength-510 ) / ( 580-510 );
+        green = 1.0;
+        blue = 0.0;
+    }
+    else if ( wavelength_ > 580 && wavelength_ < 644 )
+    {
+        red = 1.0;
+        green = -( wavelength-645 ) / ( 645-580 );
+        blue = 0.0;
+    }
+    else if ( wavelength_ > 645 && wavelength_ < 780 )
+    {
+        red = 1.0;
+        green = 0.0;
+        blue = 0.0;
+    }
 
-	if ( wavelength_ > 380 && wavelength_ < 419 )
-		factor = 0.3 + 0.7*( wavelength - 380 ) / ( 420 - 380 );
-	else if ( wavelength_ > 420 && wavelength_ < 700 )
-		factor = 1.0;
-	else if ( wavelength_ > 701 && wavelength_ < 780 )
-		factor = 0.3 + 0.7*( 780 - wavelength ) / ( 780 - 700 );
-	else
-		factor = 0.0;
+    if ( wavelength_ > 380 && wavelength_ < 419 )
+        factor = 0.3 + 0.7*( wavelength - 380 ) / ( 420 - 380 );
+    else if ( wavelength_ > 420 && wavelength_ < 700 )
+        factor = 1.0;
+    else if ( wavelength_ > 701 && wavelength_ < 780 )
+        factor = 0.3 + 0.7*( 780 - wavelength ) / ( 780 - 700 );
+    else
+        factor = 0.0;
 
-	r = Adjust( red, factor );
-	g = Adjust( green, factor );
-	b = Adjust( blue, factor );
+    r = Adjust( red, factor );
+    g = Adjust( green, factor );
+    b = Adjust( blue, factor );
 }
 
 int SpectrumWidget::Adjust( double color, double factor )
