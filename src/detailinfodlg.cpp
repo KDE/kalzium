@@ -408,7 +408,11 @@ void DetailedInfoDlg::reloadContent()
 	// updating spectrum widget
 	if ( m_element->hasSpectrum() )
 	{
+		delete m_spectrumview;
+		
+		m_spectrumview = new SpectrumViewImpl( m_spectrumStack, "spectrumwidget" );
 		m_spectrumview->setSpectrum( m_element->spectrum() );
+		m_spectrumStack->addWidget( m_spectrumview );
 		m_spectrumStack->raiseWidget( m_spectrumview );
 	}
 	else
