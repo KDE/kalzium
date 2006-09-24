@@ -76,6 +76,10 @@ class EDUSCIENCE_EXPORT Element
 			return dataList;
 		}
 
+    void setSpectrum( Spectrum * spec ){
+        m_spectrum = spec;
+    }
+
     Spectrum * spectrum() const{
         return m_spectrum;
     }

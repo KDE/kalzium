@@ -57,6 +57,11 @@ class EDUSCIENCE_EXPORT Spectrum
 					intensity = -1;
 				}
 
+				peak(double wl, int in ){
+					wavelength = wl;
+					intensity = in;
+				}
+
 			///in nm
 			double wavelength;
 
@@ -117,10 +122,6 @@ class EDUSCIENCE_EXPORT Spectrum
 		 */
 		QList<Spectrum::peak*> peaklist(){
 			return m_peaklist;
-		}
-		
-		QList<Spectrum::peak*> peakList(){
-			return peaklist();
 		}
 	
 		/**
