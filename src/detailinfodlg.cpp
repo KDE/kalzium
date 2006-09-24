@@ -359,45 +359,45 @@ QString DetailedInfoDlg::isotopeTable() const
 //FIXME: There's something (an object) missing...
  //			html.append( i18n( "%1 %2", ( isotope )->halflife(), ChemicalDataObject::unitAsString( )) );
  		html.append( "</td><td>" );
-//X 		if ( ( isotope )->alphapercentage() > 0.0 ){
-//X 			if ( ( isotope )->alphadecay() > 0.0 )
-//X 			html.append( i18n( "%1 MeV" ).arg(( isotope )->alphadecay() ) );
-//X 			html.append( i18n( " %1" ).arg( QChar( 945 ) ) );
-//X 			if ( ( isotope )->alphapercentage() < 100.0)
-//X 				html.append( i18n( "(%1%)" ).arg(( isotope )->alphapercentage() ));
-//X 			if ( ( isotope )->betaminuspercentage() > 0.0 || ( isotope )->betapluspercentage() > 0.0 || ( isotope )->ecpercentage() > 0.0)
-//X 			html.append( i18n( ", " ) );
-//X 			}
-//X 		if ( ( isotope )->betaminuspercentage() > 0.0 ){
-//X 			if ( ( isotope )->betaminusdecay() > 0.0 )
-//X 				html.append( i18n( "%1 MeV" ).arg(( isotope )->betaminusdecay() ) );
-//X 			html.append( i18n( " %1<sup>-</sup>" ).arg( QChar( 946 ) ) );
-//X 			if ( ( isotope )->betaminuspercentage() < 100.0)
-//X 				html.append( i18n( "(%1%)" ).arg(( isotope )->betaminuspercentage() ));
-//X 			if ( ( isotope )->betapluspercentage() > 0.0 || ( isotope )->ecpercentage() > 0.0 )
-//X 			html.append( i18n( ", " ) );
-//X 			}
-//X 		if ( ( isotope )->betapluspercentage() > 0.0 ){
-//X 			if ( ( isotope )->betaplusdecay() > 0.0 )
-//X 				html.append( i18n( "%1 MeV" ).arg(( isotope )->betaplusdecay() ) );
-//X 			html.append( i18n( " %1<sup>+</sup>" ).arg(QChar( 946 ) ) );
-//X 			if ( ( isotope )->betapluspercentage() == ( isotope )->ecpercentage() ) {
-//X 				if ( ( isotope )->ecdecay() > 0.0 ) {
-//X 				html.append( i18n( "%1 MeV" ).arg(( isotope )->ecdecay() ) ); }
-//X 				html.append( i18n( "Acronym of Electron Capture"," EC" ) ); 
-//X 			}
-//X 			if ( ( isotope )->betapluspercentage() < 100.0)	
-//X 				html.append( i18n( "(%1%)" ).arg(( isotope )->betapluspercentage() )); 
-//X 			html += " ";
-//X 			}	
-//X 		if ( ( isotope )->ecpercentage() > 0.0 && ( isotope )->ecpercentage()!=( isotope )->betapluspercentage()){
-//X 			if ( ( isotope )->ecdecay() > 0.0 )
-//X 				html.append( i18n( "%1 MeV" ).arg(( isotope )->ecdecay() ) );
-//X 			html.append( i18n( "Acronym of Electron Capture"," EC" ) );
-//X 			if ( ( isotope )->ecpercentage() < 100.0 )
-//X 				html.append( i18n( "(%1%)" ).arg(( isotope )->ecpercentage() ));
-//X 			}
-
+		if ( ( isotope )->alphalikeliness() > 0.0){
+		if ( ( isotope )->alphadecay() > 0.0 )
+		html.append( i18n( "%1 MeV", ( isotope )->alphadecay() ));
+		html.append( i18n( " %1",  QChar( 945 ) ));
+		if ( ( isotope )->alphalikeliness() < 100.0)
+		html.append( i18n( "(%1%)", ( isotope )->alphalikeliness()));
+		if ( ( isotope )->betaminuslikeliness() > 0.0 || ( isotope )->betapluslikeliness() > 0.0 || ( isotope )->eclikeliness() > 0.0)
+		html.append( i18n( ", " ) );
+		}
+		if ( ( isotope )->betaminuslikeliness() > 0.0){
+		if ( ( isotope )->betaminusdecay() > 0.0 )
+		html.append( i18n( "%1 MeV", ( isotope )->betaminusdecay() ));
+		html.append( i18n( " %1<sup>-</sup>", QChar( 946 )  ));
+		if ( ( isotope )->betaminuslikeliness() < 100.0)
+		html.append( i18n( "(%1%)", ( isotope )->betaminuslikeliness() ));
+		
+		if ( ( isotope )->betapluslikeliness() > 0.0 || ( isotope )->eclikeliness() > 0.0 )
+		html.append( i18n( ", " ) );
+		}
+		if ( ( isotope )->betapluslikeliness() > 0.0)	{
+		if ( ( isotope )->betaplusdecay() > 0.0 )
+		html.append( i18n( "%1 MeV", ( isotope )->betaplusdecay() ));
+		html.append( i18n( " %1<sup>+</sup>", QChar( 946 ) ));
+		if ( ( isotope )->betapluslikeliness() == ( isotope )->eclikeliness() ) {
+		if ( ( isotope )->ecdecay() > 0.0 ) {
+		html.append( i18n( "%1 MeV", ( isotope )->ecdecay() )); }
+		html.append( i18nc( "Acronym of Electron Capture"," EC" ) ); 
+		}
+		if ( ( isotope )->betapluslikeliness() < 100.0)	
+		html.append( i18n( "(%1%)", ( isotope )->betapluslikeliness() )); 
+		html += " ";
+		}
+		if ( ( isotope )->eclikeliness() > 0.0 ){
+		if ( ( isotope )->ecdecay() > 0.0 )
+			html.append( i18n( "%1 MeV", ( isotope )->ecdecay()  ));
+		html.append( i18nc( "Acronym of Electron Capture"," EC" ) );
+		if ( ( isotope )->eclikeliness() < 100.0 )
+			html.append( i18n( "(%1%)", ( isotope )->eclikeliness() ));
+		}
 		html.append( "</td><td>" );
 		html.append( ( isotope )->spin() );
 		html.append( "</td><td>" );
