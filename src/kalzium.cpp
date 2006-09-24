@@ -272,7 +272,7 @@ void Kalzium::setupSidebars()
 	m_timeWidget->setObjectName( "timeWidget" );
 	connect( m_timeWidget->time_box, SIGNAL( valueChanged( int ) ),
 	         m_PeriodicTableView, SLOT( setTime( int ) ) );
-	m_toolbox->addItem( m_timeWidget, SmallIconSet( "statematter" ), i18n( "Timeline" ) );
+	m_toolbox->addItem( m_timeWidget, SmallIconSet( "timeline" ), i18n( "Timeline" ) );
 	
 	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
 

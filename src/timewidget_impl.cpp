@@ -30,22 +30,26 @@
 : QWidget( parent )
 {
     setupUi( this );
-
-    m_list = KalziumDataObject::instance()->ElementList;
-
-    m_htmlBegin = "";
-    m_htmlEnd = "";
-
-    connect( time_box, SIGNAL( valueChanged( int ) ),
-            this, SLOT( setNewTime( int ) ) );
+//X 
+//X     m_list = KalziumDataObject::instance()->ElementList;
+//X 
+//X     m_htmlBegin = "";
+//X     m_htmlEnd = "";
+//X 
+//X     connect( time_box, SIGNAL( valueChanged( int ) ),
+//X             this, SLOT( setNewTime( int ) ) );
 }
 
-void TimeWidgetImpl::setNewTime( int newtime )
-{
-    m_htmlBegin = "In the year ";
-    m_htmlEnd = "!";
-
-    text->setText( m_htmlBegin + QString::number(newtime) + m_htmlEnd );
-}
+//X void TimeWidgetImpl::setNewTime( int newtime )
+//X {
+    //this method is currently unused. That is because I have not
+    //yet entered the data for a contect-widget.
+    //I would like to have something like: Slidervalue on 1934, the
+    //html says "in 1994 ... happened"
+//X     m_htmlBegin = "In the year ";
+//X     m_htmlEnd = "!";
+//X 
+//X     text->setText( m_htmlBegin + QString::number(newtime) + m_htmlEnd );
+//X }
 
 #include "timewidget_impl.moc"

@@ -31,12 +31,12 @@ class TimeWidgetImpl : public QWidget, public Ui_TimeWidget
          */
         TimeWidgetImpl( QWidget *parent = 0 );
 
-    private:
-        QList<Element*> m_list;
-        QString m_htmlBegin;
-        QString m_htmlEnd;
+//X     private:
+//X         QList<Element*> m_list;
+//X         QString m_htmlBegin;
+//X         QString m_htmlEnd;
 
-    private slots:
-        void setNewTime( int newtime );
+//X     private slots:
+//X         void setNewTime( int newtime );
 };
 #endif // TIMEWIDGET_IMPL_H
