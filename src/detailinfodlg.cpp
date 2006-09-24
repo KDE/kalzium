@@ -523,15 +523,19 @@ void DetailedInfoDlg::reloadContent()
 
 	// updating spectrum widget
 	if ( m_element->spectrum() )
-	{
-		m_spectrumview->setSpectrum( m_element->spectrum() );
-		m_spectrumStack->setCurrentWidget( m_spectrumview );
-	}
-	else
-	{
-		m_spectrumLabel->setText( i18n( "No spectrum of %1 found.", element_name ) );
-		m_spectrumStack->setCurrentWidget( m_spectrumLabel );
-	}
+  {
+      delete m_spectrumview;
+      
+      m_spectrumview = new SpectrumViewImpl( m_spectrumStack );
+      m_spectrumview->setSpectrum( m_element->spectrum() );
+	m_spectrumStack->addWidget( m_spectrumview );
+      m_spectrumStack->setCurrentWidget( m_spectrumview );
+  }
+  else
+  {
+      m_spectrumLabel->setText( i18n( "No spectrum of %1 found.", element_name ) );
+      m_spectrumStack->setCurrentWidget( m_spectrumLabel );
+  }
 }
 
 void DetailedInfoDlg::slotHelp()
