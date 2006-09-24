@@ -1,7 +1,4 @@
 <ui version="4.0" >
- <author></author>
- <comment></comment>
- <exportmacro></exportmacro>
  <class>SpectrumView</class>
  <widget class="QWidget" name="SpectrumView" >
   <property name="geometry" >
@@ -26,7 +23,7 @@
     <number>6</number>
    </property>
    <item>
-    <widget class="SpectrumWidget" name="m_spectrumWidget" >
+    <widget class="SpectrumWidget" native="1" name="m_spectrumWidget" >
      <property name="sizePolicy" >
       <sizepolicy>
        <hsizetype>3</hsizetype>
@@ -118,45 +115,6 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <item>
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType" >
-        <enum>QSizePolicy::Expanding</enum>
-       </property>
-       <property name="sizeHint" >
-        <size>
-         <width>211</width>
-         <height>21</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="KPushButton" name="exportButton" >
-       <property name="toolTip" >
-        <string>Using this button you can export the spectrum as a graphic</string>
-       </property>
-       <property name="whatsThis" >
-        <string>Using this button you can export the spectrum as a graphic</string>
-       </property>
-       <property name="text" >
-        <string/>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
     <spacer>
      <property name="orientation" >
       <enum>Qt::Vertical</enum>
@@ -175,21 +133,11 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
  <customwidgets>
   <customwidget>
    <class>SpectrumWidget</class>
-   <extends></extends>
+   <extends>QWidget</extends>
    <header>spectrumwidget.h</header>
-   <container>0</container>
-   <pixmap></pixmap>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends></extends>
-   <header>kpushbutton.h</header>
-   <container>0</container>
-   <pixmap></pixmap>
   </customwidget>
  </customwidgets>
  <resources/>

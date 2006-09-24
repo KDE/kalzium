@@ -22,13 +22,11 @@
 #define SPECTRUMWIDGET_H
 
 #include <QWidget>
-#include <QPixmap>
 
 #include "spectrum.h"
 
 /**
  * @author Carsten Niehaus
- * 
  */
 class SpectrumWidget : public QWidget
 {
@@ -144,8 +142,6 @@ class SpectrumWidget : public QWidget
 		 */
 		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
 
-		QPixmap pixmap();
-	
 	private:
 		QList<double> m_spectra;
 

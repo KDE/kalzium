@@ -38,6 +38,7 @@
 #include <QStackedWidget>
 
 #include "element.h"
+#include "spectrum.h"
 #include "orbitswidget.h"
 #include "detailedgraphicaloverview.h"
 #include "spectrum.h"
@@ -321,95 +322,95 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 
 QString DetailedInfoDlg::isotopeTable() const
 {
-	QList<Isotope*> list = KalziumDataObject::instance()->isotopes( m_elementNumber );
+    QList<Isotope*> list = KalziumDataObject::instance()->isotopes( m_elementNumber );
 
- 	QString html;
-	
- 	html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"7\">";
- 	html += i18n( "Isotope-Table" );
- 	html += "</tr></td><tr><td><b>";
- 	html += i18n( "Mass" );
-	html += "</b></td><td><b>";
-	html += i18n( "Neutrons" );
- 	html += "</b></td><td><b>";
-	html += i18n( "Percentage" );
- 	html += "</b></td><td><b>";
-	html += i18n( "Half-life period" );
-	html += "</b></td><td><b>";
- 	html += i18n( "Energy and Mode of Decay" );
-	html += "</b></td><td><b>";
- 	html += i18n( "Spin and Parity" );
- 	html += "</b></td><td><b>";
- 	html += i18n( "Magnetic Moment" );
- 	html += "</b></td></tr>";
- 
-	foreach( Isotope * isotope , list )
-	{
- 		html.append( "<tr><td align=\"right\">" ); 
-		if ( isotope->mass() > 0.0 )
- 			html.append( i18n( "%1 u", isotope->mass() ) );
-		html.append( "</td><td>" );
- 		html.append( QString::number( (( isotope )->nucleons()-( isotope )->parentElementNumber()) ) );
-		html.append( "</td><td>" );
- //		if ( ( isotope )->abundance() > 0.0 )
-		if ( !( isotope )->abundance().isEmpty() )
- 		html.append( i18nc( "this can for example be '24%'", "%1%", ( isotope )->abundance() ) );
- 		html.append( "</td><td>" );
-// 		if ( ( isotope )->halflife() > 0.0 )
-//FIXME: There's something (an object) missing...
- //			html.append( i18n( "%1 %2", ( isotope )->halflife(), ChemicalDataObject::unitAsString( )) );
- 		html.append( "</td><td>" );
-		if ( ( isotope )->alphalikeliness() > 0.0){
-		if ( ( isotope )->alphadecay() > 0.0 )
-		html.append( i18n( "%1 MeV", ( isotope )->alphadecay() ));
-		html.append( i18n( " %1",  QChar( 945 ) ));
-		if ( ( isotope )->alphalikeliness() < 100.0)
-		html.append( i18n( "(%1%)", ( isotope )->alphalikeliness()));
-		if ( ( isotope )->betaminuslikeliness() > 0.0 || ( isotope )->betapluslikeliness() > 0.0 || ( isotope )->eclikeliness() > 0.0)
-		html.append( i18n( ", " ) );
-		}
-		if ( ( isotope )->betaminuslikeliness() > 0.0){
-		if ( ( isotope )->betaminusdecay() > 0.0 )
-		html.append( i18n( "%1 MeV", ( isotope )->betaminusdecay() ));
-		html.append( i18n( " %1<sup>-</sup>", QChar( 946 )  ));
-		if ( ( isotope )->betaminuslikeliness() < 100.0)
-		html.append( i18n( "(%1%)", ( isotope )->betaminuslikeliness() ));
-		
-		if ( ( isotope )->betapluslikeliness() > 0.0 || ( isotope )->eclikeliness() > 0.0 )
-		html.append( i18n( ", " ) );
-		}
-		if ( ( isotope )->betapluslikeliness() > 0.0)	{
-		if ( ( isotope )->betaplusdecay() > 0.0 )
-		html.append( i18n( "%1 MeV", ( isotope )->betaplusdecay() ));
-		html.append( i18n( " %1<sup>+</sup>", QChar( 946 ) ));
-		if ( ( isotope )->betapluslikeliness() == ( isotope )->eclikeliness() ) {
-		if ( ( isotope )->ecdecay() > 0.0 ) {
-		html.append( i18n( "%1 MeV", ( isotope )->ecdecay() )); }
-		html.append( i18nc( "Acronym of Electron Capture"," EC" ) ); 
-		}
-		if ( ( isotope )->betapluslikeliness() < 100.0)	
-		html.append( i18n( "(%1%)", ( isotope )->betapluslikeliness() )); 
-		html += " ";
-		}
-		if ( ( isotope )->eclikeliness() > 0.0 ){
-		if ( ( isotope )->ecdecay() > 0.0 )
-			html.append( i18n( "%1 MeV", ( isotope )->ecdecay()  ));
-		html.append( i18nc( "Acronym of Electron Capture"," EC" ) );
-		if ( ( isotope )->eclikeliness() < 100.0 )
-			html.append( i18n( "(%1%)", ( isotope )->eclikeliness() ));
-		}
-		html.append( "</td><td>" );
-		html.append( ( isotope )->spin() );
-		html.append( "</td><td>" );
-		if ( !( isotope )->magmoment().isEmpty() )
-			html.append( i18n( "%1 %2<sub>n</sub>", ( isotope )->magmoment(), QChar( 956 ) ) );
-		html.append( "</td></tr>" );
+    QString html;
 
-	}
-	
-	html += "</table>";
- 
-	return html;
+    html = "<table class=\"isotopes\" cellspacing=\"0\"><tr><td colspan=\"7\">";
+    html += i18n( "Isotope-Table" );
+    html += "</tr></td><tr><td><b>";
+    html += i18n( "Mass" );
+    html += "</b></td><td><b>";
+    html += i18n( "Neutrons" );
+    html += "</b></td><td><b>";
+    html += i18n( "Percentage" );
+    html += "</b></td><td><b>";
+    html += i18n( "Half-life period" );
+    html += "</b></td><td><b>";
+    html += i18n( "Energy and Mode of Decay" );
+    html += "</b></td><td><b>";
+    html += i18n( "Spin and Parity" );
+    html += "</b></td><td><b>";
+    html += i18n( "Magnetic Moment" );
+    html += "</b></td></tr>";
+
+    foreach( Isotope * isotope , list )
+    {
+        html.append( "<tr><td align=\"right\">" ); 
+        if ( isotope->mass() > 0.0 )
+            html.append( i18n( "%1 u", isotope->mass() ) );
+        html.append( "</td><td>" );
+        html.append( QString::number( (( isotope )->nucleons()-( isotope )->parentElementNumber()) ) );
+        html.append( "</td><td>" );
+        //		if ( ( isotope )->abundance() > 0.0 )
+        if ( !( isotope )->abundance().isEmpty() )
+            html.append( i18nc( "this can for example be '24%'", "%1%", ( isotope )->abundance() ) );
+        html.append( "</td><td>" );
+        // 		if ( ( isotope )->halflife() > 0.0 )
+        //FIXME: There's something (an object) missing...
+        //			html.append( i18n( "%1 %2", ( isotope )->halflife(), ChemicalDataObject::unitAsString( )) );
+        html.append( "</td><td>" );
+        if ( ( isotope )->alphalikeliness() > 0.0){
+            if ( ( isotope )->alphadecay() > 0.0 )
+                html.append( i18n( "%1 MeV", ( isotope )->alphadecay() ));
+            html.append( i18n( " %1",  QChar( 945 ) ));
+            if ( ( isotope )->alphalikeliness() < 100.0)
+                html.append( i18n( "(%1%)", ( isotope )->alphalikeliness()));
+            if ( ( isotope )->betaminuslikeliness() > 0.0 || ( isotope )->betapluslikeliness() > 0.0 || ( isotope )->eclikeliness() > 0.0)
+                html.append( i18n( ", " ) );
+        }
+        if ( ( isotope )->betaminuslikeliness() > 0.0){
+            if ( ( isotope )->betaminusdecay() > 0.0 )
+                html.append( i18n( "%1 MeV", ( isotope )->betaminusdecay() ));
+            html.append( i18n( " %1<sup>-</sup>", QChar( 946 )  ));
+            if ( ( isotope )->betaminuslikeliness() < 100.0)
+                html.append( i18n( "(%1%)", ( isotope )->betaminuslikeliness() ));
+
+            if ( ( isotope )->betapluslikeliness() > 0.0 || ( isotope )->eclikeliness() > 0.0 )
+                html.append( i18n( ", " ) );
+        }
+        if ( ( isotope )->betapluslikeliness() > 0.0)	{
+            if ( ( isotope )->betaplusdecay() > 0.0 )
+                html.append( i18n( "%1 MeV", ( isotope )->betaplusdecay() ));
+            html.append( i18n( " %1<sup>+</sup>", QChar( 946 ) ));
+            if ( ( isotope )->betapluslikeliness() == ( isotope )->eclikeliness() ) {
+                if ( ( isotope )->ecdecay() > 0.0 ) {
+                    html.append( i18n( "%1 MeV", ( isotope )->ecdecay() )); }
+                html.append( i18nc( "Acronym of Electron Capture"," EC" ) ); 
+            }
+            if ( ( isotope )->betapluslikeliness() < 100.0)	
+                html.append( i18n( "(%1%)", ( isotope )->betapluslikeliness() )); 
+            html += " ";
+        }
+        if ( ( isotope )->eclikeliness() > 0.0 ){
+            if ( ( isotope )->ecdecay() > 0.0 )
+                html.append( i18n( "%1 MeV", ( isotope )->ecdecay()  ));
+            html.append( i18nc( "Acronym of Electron Capture"," EC" ) );
+            if ( ( isotope )->eclikeliness() < 100.0 )
+                html.append( i18n( "(%1%)", ( isotope )->eclikeliness() ));
+        }
+        html.append( "</td><td>" );
+        html.append( ( isotope )->spin() );
+        html.append( "</td><td>" );
+        if ( !( isotope )->magmoment().isEmpty() )
+            html.append( i18n( "%1 %2<sub>n</sub>", ( isotope )->magmoment(), QChar( 956 ) ) );
+        html.append( "</td></tr>" );
+
+    }
+
+    html += "</table>";
+
+    return html;
 }
 
 void DetailedInfoDlg::createContent()
@@ -465,9 +466,9 @@ void DetailedInfoDlg::createContent()
 	spectrumLayout->setMargin( 0 );
 	m_spectrumStack = new QStackedWidget( m_pSpectrumTab );
 	spectrumLayout->addWidget( m_spectrumStack );
-//X 	m_spectrumview = new SpectrumViewImpl( m_spectrumStack );
-//X 	m_spectrumview->setObjectName( "spectrumwidget" );
-//X 	m_spectrumStack->addWidget( m_spectrumview );
+	m_spectrumview = new SpectrumViewImpl( m_spectrumStack );
+	m_spectrumview->setObjectName( "spectrumwidget" );
+	m_spectrumStack->addWidget( m_spectrumview );
 	m_spectrumLabel = new QLabel( m_spectrumStack );
 	m_spectrumStack->addWidget( m_spectrumLabel );
 }
@@ -513,17 +514,24 @@ void DetailedInfoDlg::reloadContent()
 	fillHTMLTab( m_htmlpages["isotopes"], getHtml( ISOTOPES ) );
 	fillHTMLTab( m_htmlpages["warnings"], getHtml( WARNINGS ) );
 
+  Spectrum*s = new Spectrum();
+  s->addPeak( new Spectrum::peak(400,300) );
+  s->addPeak( new Spectrum::peak(450,500) );
+  s->addPeak( new Spectrum::peak(500,600) );
+  s->addPeak( new Spectrum::peak(550,700) );
+  m_element->setSpectrum( s );
+
 	// updating spectrum widget
-//X 	if ( m_element->hasSpectrum() )
-//X 	{
-//X 		m_spectrumview->setSpectrum( m_element->spectrum() );
-//X 		m_spectrumStack->setCurrentWidget( m_spectrumview );
-//X 	}
-//X 	else
-//X 	{
+	if ( m_element->spectrum() )
+	{
+		m_spectrumview->setSpectrum( m_element->spectrum() );
+		m_spectrumStack->setCurrentWidget( m_spectrumview );
+	}
+	else
+	{
 		m_spectrumLabel->setText( i18n( "No spectrum of %1 found.", element_name ) );
 		m_spectrumStack->setCurrentWidget( m_spectrumLabel );
-//X 	}
+	}
 }
 
 void DetailedInfoDlg::slotHelp()

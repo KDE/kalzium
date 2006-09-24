@@ -34,16 +34,10 @@ class SpectrumViewImpl : public QWidget, Ui_SpectrumView
 		 * sets the spectrum to @p spec
 		 * @param spec the spectrum to display
 		 */
-		void setSpectrum( Spectrum* spec ){
+    void setSpectrum( Spectrum* spec ){
 			m_spectrumWidget->setSpectrum( spec );
 			m_spectrumWidget->update();
 		}
-
-	private slots:
-		/**
-		 * export the spectrum as an image
-		 */
-		void slotExportAsImage();
 };
 
 #endif // SPECTRUMVIEWIMPL_H

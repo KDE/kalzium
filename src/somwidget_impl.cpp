@@ -155,8 +155,6 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 		htmlcode += '\n';
 	}
 
-//	kDebug() << m_htmlBegin + htmlcode + m_htmlEnd << endl;
-
 	text->setText( m_htmlBegin + htmlcode + m_htmlEnd );
 
 	emit temperatureChanged( temperature() );
