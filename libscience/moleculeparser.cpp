@@ -127,7 +127,7 @@ MoleculeParser::~MoleculeParser()
 // This method also acts as the main loop.
 
 bool
-MoleculeParser::weight(QString         _moleculeString, 
+MoleculeParser::weight(const QString&         _moleculeString, 
 					   double          *_resultMass,
 					   ElementCountMap *_resultMap)
 {

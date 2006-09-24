@@ -207,7 +207,7 @@ public:
      *
      * @return whether the parsing was successful or not
      */
-    bool  weight(QString         _moleculeString,
+    bool  weight(const QString&         _moleculeString,
 				 double          *_resultMass,
 				 ElementCountMap *_resultMap);
  private:
