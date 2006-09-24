@@ -107,139 +107,138 @@ void KalziumPainter::drawElements()
 
 void KalziumPainter::drawElement( int element, const QRect& r )
 {
-	if ( !m_scheme || !m_ktt ) return;
+    if ( !m_scheme || !m_ktt ) return;
 
-	QRect rect = r.isNull() ? m_ktt->elementRect( element ) : r;
-	Element *el = KalziumDataObject::instance()->element( element );
-	const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
+    QRect rect = r.isNull() ? m_ktt->elementRect( element ) : r;
+    Element *el = KalziumDataObject::instance()->element( element );
+    const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
 
-	bool selectedElement = KalziumDataObject::instance()->search()->matches( el );
+    bool selectedElement = KalziumDataObject::instance()->search()->matches( el );
 
-	switch ( m_mode )
-	{
-		case NORMAL:
-		{
-			QBrush c;
-				
-			if ( selectedElement )
-				c = QBrush( Qt::yellow, Qt::CrossPattern );
-			else
-				c = m_scheme->elementBrush( element, rect );
+    switch ( m_mode )
+    {
+        case NORMAL:
+            {
+                QBrush c;
 
-			if ( !c.texture().isNull() )
-			{
-				QRect symbolrect;
-				QFont orig_font = m_painter->font();
-				QFont font = m_painter->font();
-				font.setPointSize( QFontInfo( font ).pointSize() - 2 );
-				m_painter->setFont( font );
-				m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignTop, symbol, &symbolrect );
-				m_painter->setFont( orig_font );
-				int symbolheight = symbolrect.height();
-				QRect rect2 = rect.translated( 0, symbolheight );
-				rect2.setHeight( rect2.height() - symbolheight - 1 );
-				QPixmap pix = c.texture().scaled( rect2.size(), Qt::KeepAspectRatio, Qt::SmoothTransformation );
-				m_painter->drawPixmap( rect2.left() + ( rect2.width() - pix.width() ) / 2, rect2.top() + ( rect2.height() - pix.height() ) / 2, pix );
-				m_painter->drawRect( rect );
-			}
-			else
-			{
-				// the brush doesn't have any texture,
-				// so proceeding with normal colors and texts
-				QColor textc = m_scheme->textColor( element );
-				m_painter->setPen( textc );
+                if ( selectedElement )
+                    c = QBrush( Qt::yellow, Qt::CrossPattern );
+                else
+                    c = m_scheme->elementBrush( element, rect );
 
-				m_painter->fillRect( rect, c );
-				m_painter->drawRect( rect );
+                if ( !c.texture().isNull() )
+                {
+                    QRect symbolrect;
+                    QFont orig_font = m_painter->font();
+                    QFont font = m_painter->font();
+                    font.setPointSize( QFontInfo( font ).pointSize() - 2 );
+                    m_painter->setFont( font );
+                    m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignTop, symbol, &symbolrect );
+                    m_painter->setFont( orig_font );
+                    int symbolheight = symbolrect.height();
+                    QRect rect2 = rect.translated( 0, symbolheight );
+                    rect2.setHeight( rect2.height() - symbolheight - 1 );
+                    QPixmap pix = c.texture().scaled( rect2.size(), Qt::KeepAspectRatio, Qt::SmoothTransformation );
+                    m_painter->drawPixmap( rect2.left() + ( rect2.width() - pix.width() ) / 2, rect2.top() + ( rect2.height() - pix.height() ) / 2, pix );
+                    m_painter->drawRect( rect );
+                }
+                else
+                {
+                    // the brush doesn't have any texture,
+                    // so proceeding with normal colors and texts
+                    QColor textc = m_scheme->textColor( element );
+                    m_painter->setPen( textc );
 
-				m_painter->drawText( rect, Qt::AlignCenter, symbol );
-			}
-			break;
-		}
-		case SOM:
-		{
-			QColor color;
+                    m_painter->fillRect( rect, c );
+                    m_painter->drawRect( rect );
 
-			const double melting = el->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
-			const double boiling = el->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
-			const double mass = el->dataAsVariant( ChemicalDataObject::mass ).toDouble();
+                    m_painter->drawText( rect, Qt::AlignCenter, symbol );
+                }
+                break;
+            }
+        case SOM:
+            {
+                QColor color;
 
-			if ( m_temperature < melting )
-			{
-				//the element is solid
-				color= Prefs::color_solid();
-			}
-			else if ( ( m_temperature > melting ) && ( m_temperature < boiling ) )
-			{
-				//the element is liquid
-				color= Prefs::color_liquid();
-			}
-			else if ( ( m_temperature > boiling ) && ( boiling > 0.0 ) )
-			{
-				//the element is vaporous
-				color= Prefs::color_vapor();
-			}
-			else
-				color = Qt::lightGray;
+                const double melting = el->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
+                const double boiling = el->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
+                const double mass = el->dataAsVariant( ChemicalDataObject::mass ).toDouble();
 
-			m_painter->setPen( Qt::black );
+                if ( m_temperature < melting )
+                {
+                    //the element is solid
+                    color= Prefs::color_solid();
+                }
+                else if ( ( m_temperature > melting ) && ( m_temperature < boiling ) )
+                {
+                    //the element is liquid
+                    color= Prefs::color_liquid();
+                }
+                else if ( ( m_temperature > boiling ) && ( boiling > 0.0 ) )
+                {
+                    //the element is vaporous
+                    color= Prefs::color_vapor();
+                }
+                else
+                    color = Qt::lightGray;
 
-			QFont orig_font = m_painter->font();
-			QFont symbol_font = m_painter->font();
-			symbol_font.setPointSize( 10 );
-			QFont f = m_painter->font();
-			f.setPointSize( 9 );
-			m_painter->setFont( f );
+                m_painter->setPen( Qt::black );
 
-			m_painter->fillRect( rect, QBrush( color ) );
-			m_painter->drawRect( rect );
+                QFont orig_font = m_painter->font();
+                QFont symbol_font = m_painter->font();
+                symbol_font.setPointSize( 10 );
+                QFont f = m_painter->font();
+                f.setPointSize( 9 );
+                m_painter->setFont( f );
 
-			m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignTop, QString::number( KalziumUtils::strippedValue( mass ) ) );
+                m_painter->fillRect( rect, QBrush( color ) );
+                m_painter->drawRect( rect );
 
-			m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignBottom, QString::number( element ) );
+                m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignTop, QString::number( KalziumUtils::strippedValue( mass ) ) );
 
-			m_painter->setFont( symbol_font );
-			m_painter->drawText( rect, Qt::AlignCenter, symbol );
+                m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignBottom, QString::number( element ) );
 
-			m_painter->setFont( orig_font );
-			break;
-		}
-		case GRADIENT:
-		{
-			m_painter->setPen( Qt::black );
-			double coeff = m_gradient->elementCoeff( element );
-			QBrush c = QBrush( m_gradient->calculateColor( coeff ) );
+                m_painter->setFont( symbol_font );
+                m_painter->drawText( rect, Qt::AlignCenter, symbol );
 
-			m_painter->fillRect( rect, c );
-			m_painter->drawRect( rect );
+                m_painter->setFont( orig_font );
+                break;
+            }
+        case GRADIENT:
+            {
+                m_painter->setPen( Qt::black );
+                double coeff = m_gradient->elementCoeff( element );
+                QBrush c = QBrush( m_gradient->calculateColor( coeff ) );
 
-			m_painter->drawText( rect, Qt::AlignCenter, symbol );
+                m_painter->fillRect( rect, c );
+                m_painter->drawRect( rect );
 
-			QFont orig_font = m_painter->font();
-			QFont f = m_painter->font();
-			f.setPointSize( 8 );
-			m_painter->setFont( f );
-			double value = m_gradient->value( element );
-			QString strval = coeff != -1 ? QString::number( KalziumUtils::strippedValue( value ) ) : i18nc( "It means: Not Available. Translators: keep it as short as you can!", "N/A" );
-			m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignBottom, strval );
+                m_painter->drawText( rect, Qt::AlignCenter, symbol );
 
-			m_painter->setFont( orig_font );
-			break;
-		}
-		case TIME:
-		{
-			QBrush c = getSlideBrush( element, rect ); 
-			QColor textc = Qt::white;
-			m_painter->setPen( textc );
-	
-			m_painter->fillRect( rect, c );
-			m_painter->drawRect( rect );
+                QFont orig_font = m_painter->font();
+                QFont f = m_painter->font();
+                f.setPointSize( 8 );
+                m_painter->setFont( f );
+                double value = m_gradient->value( element );
+                QString strval = coeff != -1 ? QString::number( KalziumUtils::strippedValue( value ) ) : i18nc( "It means: Not Available. Translators: keep it as short as you can!", "N/A" );
+                m_painter->drawText( rect, Qt::AlignHCenter | Qt::AlignBottom, strval );
 
-			m_painter->drawText( rect, Qt::AlignCenter, symbol );
-			break;
-		}
-	}
+                m_painter->setFont( orig_font );
+                break;
+            }
+        case TIME:
+            {
+                QBrush c = brushForElement( element ); 
+                QColor textc = Qt::white;
+                m_painter->setPen( textc );
 
+                m_painter->fillRect( rect, c );
+                m_painter->drawRect( rect );
+
+                m_painter->drawText( rect, Qt::AlignCenter, symbol );
+                break;
+            }
+    }
 }
 
 void KalziumPainter::drawLegend()
@@ -375,19 +374,9 @@ void KalziumPainter::toggleLegend( bool active )
 	m_legend = active;
 }
 
-bool KalziumPainter::legendShown() const
-{
-	return m_legend;
-}
-
 void KalziumPainter::setMode( MODE m )
 {
 	m_mode = m;
-}
-
-KalziumPainter::MODE KalziumPainter::mode() const
-{
-	return m_mode;
 }
 
 void KalziumPainter::setScheme( int s )
@@ -452,18 +441,6 @@ void KalziumPainter::setNumeration( const QByteArray& n )
 	{
 		m_numeration = tmp;
 	}
-}
-
-QBrush KalziumPainter::getSlideBrush( int element, const QRect& rect ) const
-{
-	Element *el = KalziumDataObject::instance()->element( element );
-
-	const int valueToCompare = el->dataAsVariant( m_sliderType ).toInt();
-
-	if ( valueToCompare > m_sliderValue )
-		return m_scheme->elementBrush( element, rect );
-	else
-		return QBrush( Qt::lightGray );
 }
 
 QBrush KalziumPainter::brushForElement( int element ) const

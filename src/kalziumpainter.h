@@ -118,12 +118,20 @@ class KalziumPainter
 		void toggleLegend( bool active );
 		
 		/**
-		 * Whether the legend is shown
+		 * @return Returns true if the legend is shown
 		 */
-		bool legendShown() const;
+		bool legendShown() const{
+        return m_legend;
+    }
 
 		void setMode( MODE m );
-		MODE mode() const;
+
+    /**
+     * @return Return the current MODE
+     */
+		MODE mode() const{
+        return m_mode;
+    };
 
 		void setScheme( int s );
 		void setScheme( const QByteArray& s );
@@ -162,10 +170,6 @@ class KalziumPainter
 		QBrush brushForElement( int element ) const;
 
 	private:
-		QBrush getSlideBrush( int element, const QRect& rect ) const;
-		ChemicalDataObject::BlueObelisk m_sliderType;
-		int m_sliderValue;
-		
 		QPainter *m_painter;
 
 		KalziumTableType *m_ktt;
@@ -181,7 +185,10 @@ class KalziumPainter
 
 		bool m_legend;
 
+    ///for the state-of-matter
 		int m_temperature;
+
+    ///for the timeline
 		int m_time;
 };
 

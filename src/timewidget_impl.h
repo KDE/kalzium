@@ -36,7 +36,7 @@ class TimeWidgetImpl : public QWidget, public Ui_TimeWidget
         QString m_htmlBegin;
         QString m_htmlEnd;
 
-        private slots:
-            void setNewTime( int newtime );
+    private slots:
+        void setNewTime( int newtime );
 };
 #endif // TIMEWIDGET_IMPL_H

@@ -14,20 +14,14 @@
 #include "timewidget_impl.h"
 
 #include <QLabel>
-#include <QPair>
 #include <QSlider>
 #include <QTextEdit>
 #include <QList>
-#include <QVariant>
 
 #include <kdebug.h>
-#include <knuminput.h>
 #include <klocale.h>
 
-#include <math.h>
-
 #include <element.h>
-#include <tempunit.h>
 
 #include "kalziumdataobject.h"
 #include "prefs.h"
@@ -49,7 +43,7 @@
 void TimeWidgetImpl::setNewTime( int newtime )
 {
     m_htmlBegin = "In the year ";
-    m_htmlBegin = "!";
+    m_htmlEnd = "!";
 
     text->setText( m_htmlBegin + QString::number(newtime) + m_htmlEnd );
 }
