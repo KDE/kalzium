@@ -39,6 +39,7 @@ class SpectrumWidget : public QWidget
 
 		void setSpectrum( Spectrum* spec ){
 			m_spectrum = spec;
+      restart();
 		}
 
 		Spectrum* spectrum()const{
@@ -59,12 +60,6 @@ class SpectrumWidget : public QWidget
 			
 			update();
 		}
-		
-		/**
-		 * find the nearest band. The returned value is the number
-		 * of pixel the next band is away
-		 */
-		int findNearestBand( QList<double>::iterator it );
 
 		/**
 		 * there are several possible types.
@@ -130,8 +125,6 @@ class SpectrumWidget : public QWidget
 			return startValue + (  (  endValue-startValue ) *  xpos );
 		}
 
-		double strippedValue( double num );
-
 		/**
 		 * This method changes the three values @p r, @p g and @p b to the
 		 * correct values
@@ -143,6 +136,9 @@ class SpectrumWidget : public QWidget
 		void wavelengthToRGB( double wavelength, int& r, int& g, int& b );
 
 	private:
+    ///(re)create startconditions
+    void restart();
+
 		QList<double> m_spectra;
 
 		SpectrumType m_type;

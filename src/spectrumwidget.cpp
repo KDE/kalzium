@@ -410,5 +410,12 @@ void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
 	m_LMBPointCurrent.setX( -1 );
 }
 
+void SpectrumWidget::restart()
+{
+    //set the minimum and maximum peak to the min/max wavelenght
+    //plus/minus ten. This makes then always visible
+    setBorders(m_spectrum->minPeak()-10.0, m_spectrum->maxPeak()+10.0);
+}
+
 #include "spectrumwidget.moc"
 
