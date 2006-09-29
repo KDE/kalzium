@@ -390,7 +390,7 @@ QString DetailedInfoDlg::isotopeTable() const
             }
             if ( ( isotope )->betapluslikeliness() < 100.0)	
                 html.append( i18n( "(%1%)", ( isotope )->betapluslikeliness() )); 
-            html += " ";
+            html += ' ';
         }
         if ( ( isotope )->eclikeliness() > 0.0 ){
             if ( ( isotope )->ecdecay() > 0.0 )
