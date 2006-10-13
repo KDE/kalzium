@@ -55,7 +55,7 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND)
 	add_subdirectory(widgets)
 endif(OPENBABEL2_FOUND AND OPENGL_FOUND)
 
-kde4_automoc(${kalzium_SRCS})
+kde4_automoc(kalzium ${kalzium_SRCS})
 
 kde4_add_ui_files(kalzium_SRCS
    settings_colors.ui
