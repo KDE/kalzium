@@ -55,14 +55,10 @@ int main(int argc, char **argv)
                      KAboutData::License_GPL, "(C) 2002-2006 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
     about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );
     about.addCredit( "Pino Toscano", I18N_NOOP("Code contributions" ));
-    about.addCredit( "Martin Pfeiffer", I18N_NOOP("Tooltip, some other small things" ));
     about.addCredit( "Thomas Nagy", I18N_NOOP("Contributed EqChem, the equation solver" ));
     about.addCredit( "Jörg Buchwald", I18N_NOOP("Contributed most isotope information" ));
     about.addCredit( "Marco Martin", I18N_NOOP("Thank you for some icons and inspiration for others" ));
-    about.addCredit( "Chris Luetchford", I18N_NOOP("SVG icon"), "chris@os11.com");
     about.addCredit( "Anne-Marie Mahfouf", I18N_NOOP( "A lot of small things and the documentation" ));
-    about.addCredit( "Paweł Budzyński", I18N_NOOP( "The pictures of the elements iodine and bromine" ));
-    about.addCredit( "M. Stegemann", I18N_NOOP( "Almost all pictures of the elements" ));
     about.addCredit( "Daniel Haas", I18N_NOOP( "The design of the information dialog" ));
     about.addCredit( "Brian Beck", I18N_NOOP( "The orbits-icon" ));
     about.addCredit( "Lee Olson", I18N_NOOP( "Several icons in the information dialog" ));
