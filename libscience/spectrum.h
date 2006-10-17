@@ -24,7 +24,6 @@
 #include <libkdeedu_science_export.h>
 
 #include <QList>
-#include <QString>
 
 class Element;
 

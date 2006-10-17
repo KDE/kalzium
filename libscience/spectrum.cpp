@@ -18,7 +18,6 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 #include "spectrum.h"
-
 #include "element.h"
 
 #include <klocale.h>
@@ -77,12 +76,10 @@ void Spectrum::adjustIntensities()
 	//check if an adjustment is needed or not
 	if ( maxInt == 1000 ) return;
 
-	const double max = ( double ) maxInt;
-
 	//now adjust the intensities.
 	foreach ( Spectrum::peak * p, m_peaklist)
 	{
-		double newInt = max*1000/p->intensity;
+		double newInt = p->intensity*1000/maxInt;
 
 		p->intensity = ( int ) round( newInt );
 	}
