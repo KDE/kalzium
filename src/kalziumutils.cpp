@@ -83,6 +83,8 @@ double KalziumUtils::strippedValue( double num )
 
 QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObelisk kind )
 {
+    if (!el) return "error";
+    
     QString result;
     double val = 0.0; //the value to convert
 

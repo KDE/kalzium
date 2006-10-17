@@ -17,7 +17,6 @@ set(kalzium_SRCS
    detailinfodlg.cpp
    tablesdialog.cpp
    orbitswidget.cpp
-   plotwidget.cpp
    elementdataviewer.cpp
    detailedgraphicaloverview.cpp
    molcalcwidget.cpp

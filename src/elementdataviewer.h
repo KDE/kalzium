@@ -15,10 +15,9 @@
  ***************************************************************************/
 
 #include <kdialog.h>
+#include "ui_plotsetupwidget.h"
 
 class QTimer;
-class Ui_PlotSetupWidget;
-class PlotWidget;
 class KActionCollection;
 class AxisData;
 
@@ -29,55 +28,54 @@ class AxisData;
  */
 class ElementDataViewer : public KDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		ElementDataViewer( QWidget *parent = 0 );
+    public:
+        ElementDataViewer( QWidget *parent = 0 );
 
-		~ElementDataViewer();
+        ~ElementDataViewer();
 
-		/**
-		 * the AxixData for the y-Axis
-		 */
-		AxisData *yData;
+        /**
+         * the AxixData for the y-Axis
+         */
+        AxisData *yData;
 
-	public slots:
-		void slotZoomIn();
-		void slotZoomOut();
 
-		/**
-		 * draws the plot
-		 */
-		void drawPlot();
+    protected:
+        virtual void keyPressEvent(QKeyEvent *e);
 
-	protected:
-		virtual void keyPressEvent(QKeyEvent *e);
-		
-	protected slots:
-		/**
-		 * invoke the help of the correct chapter
-		 */
-		virtual void slotHelp();
+    private: 
+        Ui::PlotSetupWidget ui;
 
-	private slots:
-		void rangeChanged();
+        QStringList         names;
+        QStringList         symbols;
 
-	private: 
-		PlotWidget         *m_pPlotWidget;
-		Ui_PlotSetupWidget *m_pPlotSetupWidget;
+        QTimer *m_timer;
 
-		QStringList         names;
-		QStringList         symbols;
+        KActionCollection* m_actionCollection;
 
-		QTimer *m_timer;
+        void initData();
+        void setupAxisData();
 
-		KActionCollection* m_actionCollection;
+        void setLimits(int, int);
 
-		void initData();
-		void setupAxisData();
-		
-		void setLimits(int, int);
+    protected slots:
+        /**
+         * invoke the help of the correct chapter
+         */
+        virtual void slotHelp();
 
+    private slots:
+        void rangeChanged();
+
+    public slots:
+        void slotZoomIn();
+        void slotZoomOut();
+
+        /**
+         * draws the plot
+         */
+        void drawPlot();
 };
 
 #endif // ELEMENTDATAVIEWER_H
