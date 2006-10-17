@@ -260,7 +260,6 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 
 void SpectrumWidget::keyPressEvent( QKeyEvent *e )
 {
-	 kDebug() << "SpectrumWidget::keyPressEvent()" << endl;
 	switch ( e->key() )
 	{
 		case Qt::Key_Plus:
@@ -290,9 +289,20 @@ void SpectrumWidget::slotZoomOut()
 	if ( endValue > 800.0 )
 		endValue = 800.0;
 
-	setBorders( ( int ) startValue, ( int )endValue );
-			
-	kDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue << endl;
+	setBorders( startValue, endValue );
+}
+
+void SpectrumWidget::setBorders( double left, double right )
+{
+    kDebug() << "setBorders    " << left << ".."<< right << endl;
+
+    startValue = left;
+    endValue = right;
+
+    //round the startValue down and the endValue up
+    emit bordersChanged( int(startValue+0.5), int(endValue+0.5) );
+
+    update();
 }
 
 void SpectrumWidget::slotZoomIn()
@@ -306,9 +316,7 @@ void SpectrumWidget::slotZoomIn()
 	endValue = endValue - offset;
 	startValue = startValue + offset;
 
-	setBorders( ( int ) startValue, ( int )endValue );
-			
-	kDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue << endl;
+	setBorders( startValue, endValue );
 }
 
 void SpectrumWidget::mouseMoveEvent( QMouseEvent *e )

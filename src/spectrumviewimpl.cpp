@@ -14,11 +14,7 @@
 
 #include <QSpinBox>
 
-#include <kfiledialog.h>
-#include <kguiitem.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kpushbutton.h>
+#include <kdebug.h>
 
 SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
 	: QWidget( parent )
@@ -29,11 +25,18 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
 	         m_spectrumWidget, SLOT( setLeftBorder( int ) ) );
 	connect( maximumValue, SIGNAL( valueChanged( int ) ),
 	         m_spectrumWidget, SLOT( setRightBorder( int ) ) );
+  connect( m_spectrumWidget, SIGNAL( bordersChanged(int,int) ),
+          this, SLOT( updateUI(int,int) ) );
 	
-  // simulating an update
-	m_spectrumWidget->setRightBorder( maximumValue->value() );
-
 	resize( minimumSizeHint() );
+}
+
+void SpectrumViewImpl::updateUI(int l, int r)
+{
+    minimumValue->setValue(l);
+    maximumValue->setValue(r);
+    minimumValue->setRange(l,r-1);
+    maximumValue->setRange(l+1,r);
 }
 
 #include "spectrumviewimpl.moc"

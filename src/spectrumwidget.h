@@ -54,12 +54,7 @@ class SpectrumWidget : public QWidget
 		 * @param left the left border
 		 * @param right the right border
 		 */
-		void setBorders( double left, double right ){
-			startValue = left;
-			endValue = right;
-			
-			update();
-		}
+		void setBorders( double left, double right );
 
 		/**
 		 * there are several possible types.
@@ -204,6 +199,10 @@ class SpectrumWidget : public QWidget
 		}
 
 	signals:
+    /**
+     * the minimum and maximum displayed wavelength have
+     * changed so emit the new minimum and maximum
+     */
 		void bordersChanged( int, int );
 
 	private slots:
