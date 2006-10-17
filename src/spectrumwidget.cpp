@@ -339,62 +339,59 @@ void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
 
 void SpectrumWidget::PrepareTooltip( double wavelength )
 {
-//X 	Spectrum::band band;
-//X 	
-//X  	QList<Spectrum::band>::const_iterator it = m_spectrum->bandlist()->begin();
-//X 	const QList<Spectrum::band>::const_iterator itEnd = m_spectrum->bandlist()->end();
-//X 
-//X 	//find the difference in percent (1.0 is 100%, 0.1 is 10%)
-//X 	double dif = 0.0;
-//X 
-//X 	bool foundWavelentgh = false;
-//X 	
-//X 	//find the highest intensity
-//X 	for ( ; it != itEnd; ++it )
-//X 	{
-//X 		double thisdif = ( *it ).wavelength / wavelength;
-//X 	
-//X 		if ( thisdif < 0.9 || thisdif > 1.1 )
-//X 			continue;
-//X 		
-//X 		if ( thisdif > 1.0 ){//convert for example 1.3 to 0.7
-//X 			thisdif = thisdif-1;
-//X 			thisdif = 1-thisdif;
-//X 		}
-//X 
-//X 		if ( thisdif > dif )
-//X 		{
-//X 			dif = thisdif;
-//X 			band = *it;
-//X 			foundWavelentgh = true;
-//X 		}
-//X 	}
-//X 	if ( foundWavelentgh )
-//X 	{
-//X 		m_band = band;
-//X 		m_showtooltip = true;
-//X 	}
-//X 	else 
-//X 		m_showtooltip = false;
-//X 	
-//X 	kDebug() << "SpectrumWidget::PrepareTooltip(): "<< m_showtooltip << endl;
-//X 	update();
+	Spectrum::peak *peak = NULL;
+	
+	//find the difference in percent (1.0 is 100%, 0.1 is 10%)
+	double dif = 0.0;
+
+	bool foundWavelength = false;
+	
+	//find the highest intensity
+	foreach( Spectrum::peak *currentPeak, m_spectrum->peaklist() )
+  {
+      double thisdif = currentPeak->wavelength / wavelength;
+
+      if ( thisdif < 0.9 || thisdif > 1.1 )
+          continue;
+
+      if ( thisdif > 1.0 ){//convert for example 1.3 to 0.7
+          thisdif = thisdif-1;
+          thisdif = 1-thisdif;
+      }
+
+      if ( thisdif > dif )
+      {
+          dif = thisdif;
+          peak = currentPeak;
+          foundWavelength = true;
+      }
+  }
+
+  if ( foundWavelength )
+  {
+      m_band = peak;
+      m_showtooltip = true;
+  } else 
+      m_showtooltip = false;
+	
+	kDebug() << "SpectrumWidget::PrepareTooltip(): "<< m_showtooltip << endl;
+	update();
 }
 
 void SpectrumWidget::drawTooltip( QPainter *p )
 {
 	p->setPen( Qt::white );
 	QPoint pt = mapFromGlobal( QCursor::pos() );
-	p->drawText( pt, i18n("Wavelength: %1", m_band.wavelength) ); 
+	p->drawText( pt, i18n("Wavelength: %1", m_band->wavelength) ); 
 	pt.setY( pt.y() + 15 );
-	p->drawText( pt, i18n("Intensity: %1", m_band.intensity) ); 
+	p->drawText( pt, i18n("Intensity: %1", m_band->intensity) ); 
 	pt.setY( pt.y() + 15 );
 #if 0
-	p->drawText( pt, i18n("Energy 1, Energy 2: %1, %2", m_band.energy1, m_band.energy2 ));
+	p->drawText( pt, i18n("Energy 1, Energy 2: %1, %2", m_band->energy1, m_band->energy2 ));
 	pt.setY( pt.y() + 15 );
-	p->drawText( pt, i18n("Term 1, Term 2: %1, %2", m_band.term1, m_band.term2 ));
+	p->drawText( pt, i18n("Term 1, Term 2: %1, %2", m_band->term1, m_band->term2 ));
 	pt.setY( pt.y() + 15 );
-	p->drawText( pt, i18n("J 1, J 2: %1, %2", m_band.J1, m_band.J2 ));
+	p->drawText( pt, i18n("J 1, J 2: %1, %2", m_band->J1, m_band->J2 ));
 #endif
 }
 

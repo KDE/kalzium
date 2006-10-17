@@ -144,7 +144,7 @@ class SpectrumWidget : public QWidget
 
 		bool m_showtooltip;
 
-		Spectrum::peak m_band;
+		Spectrum::peak * m_band;
 		
 		void paintBands( QPainter* p );
 		void drawZoomLine( QPainter* p );
