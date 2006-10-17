@@ -215,10 +215,6 @@ void PeriodicTableView::setValueLimit( int value, ChemicalDataObject::BlueObelis
 	m_sliderValueList.insert( type, value );
 }
 
-void PeriodicTableView::toggleLimit( bool toggle, ChemicalDataObject::BlueObelisk type )
-{
-}
-
 int PeriodicTableView::sliderValue( ChemicalDataObject::BlueObelisk type )
 {
 	return m_sliderValueList.contains( type ) ? m_sliderValueList.value( type ) : 0;

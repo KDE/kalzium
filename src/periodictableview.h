@@ -74,12 +74,6 @@ class PeriodicTableView : public QWidget
 		void setValueLimit( int value, ChemicalDataObject::BlueObelisk type );
 
 		/**
-		 * really activate the "graying" mode ( if @p toggle is true ), for the @p type specified
-		 * or deactivate the "graying" mode  (if @p toggle is false)
-		 */
-		void toggleLimit( bool toggle, ChemicalDataObject::BlueObelisk type );
-
-		/**
 		 * Sets the scheme to use.
 		 * @param nr is the index of the new scheme
 		 */
