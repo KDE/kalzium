@@ -107,10 +107,14 @@ class SpectrumWidget : public QWidget
 			return ( int ) ( ( wavelength-startValue ) * width() / ( endValue - startValue ) );
 		}
 
-		void PrepareTooltip( double wavelength );
+    /**
+     * based on the current position of the mouse-cursor the nearest
+     * peak is searched. If found, it will be emited.
+     * 
+     * @see peakSelected
+     */
+		void findPeakFromMouseposition( double wavelength );
 
-		void showTooltip( Spectrum::peak band );
-		
 		/**
 		 * @param xpos The ratio of the position relative to the width
 		 * of the widget.
@@ -143,12 +147,9 @@ class SpectrumWidget : public QWidget
 		QPixmap m_pixmap;
 
 		bool m_showtooltip;
-
-		Spectrum::peak * m_band;
 		
 		void paintBands( QPainter* p );
 		void drawZoomLine( QPainter* p );
-		void drawTooltip( QPainter *p );
 		
 		/**
 		 * Draw the scale
@@ -204,6 +205,11 @@ class SpectrumWidget : public QWidget
      * changed so emit the new minimum and maximum
      */
 		void bordersChanged( int, int );
+
+    /**
+     * the user selected a peak
+     */
+    void peakSelected( Spectrum::peak * peak );
 
 	private slots:
 		void slotZoomIn();

@@ -49,8 +49,6 @@ SpectrumWidget::SpectrumWidget( QWidget *parent )
 	m_LMBPointCurrent.setX( -1 );
 	m_LMBPointPress.setX( -1 );
 
-	m_showtooltip = false;
-
 	m_realHeight = 200;
 
 	Gamma = 0.8;
@@ -79,14 +77,13 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 	
 	drawTickmarks( &p );
 
-	if ( m_showtooltip )
-		drawTooltip( &p );
-
 	if ( m_LMBPointPress.x() != -1 && m_LMBPointCurrent.x() != -1 )
 		drawZoomLine( &p );
 
 	p.end();
 	bitBlt( this, 0, 0, &m_pixmap );
+
+//  p.drawPixmap(0,0,m_pixmap);
 }
 
 void SpectrumWidget::drawZoomLine( QPainter* p )
@@ -95,7 +92,6 @@ void SpectrumWidget::drawZoomLine( QPainter* p )
 	p->drawLine( m_LMBPointPress.x(), m_LMBPointPress.y(), m_LMBPointCurrent.x(), m_LMBPointPress.y() );
 	p->drawLine( m_LMBPointCurrent.x(), m_LMBPointPress.y()+10, m_LMBPointCurrent.x(), m_LMBPointPress.y()-10 );
 	p->drawLine( m_LMBPointPress.x(), m_LMBPointPress.y()+10, m_LMBPointPress.x(), m_LMBPointPress.y()-10 );
-
 }
 
 void SpectrumWidget::paintBands( QPainter* p )
@@ -227,69 +223,69 @@ int SpectrumWidget::Adjust( double color, double factor )
 
 void SpectrumWidget::drawTickmarks( QPainter* p )
 {
-	//the size of the text on the tickmarks
-	const int space = 20;
+    //the size of the text on the tickmarks
+    const int space = 20;
 
-	//the distance between the tickmarks in pixel
-	const int d = 10;
+    //the distance between the tickmarks in pixel
+    const int d = 10;
 
-	//the total number of tickmarks to draw (small and long)
-	const int numberOfTickmarks = ( int )floor( width()/d );
+    //the total number of tickmarks to draw (small and long)
+    const int numberOfTickmarks = ( int )floor( width()/d );
 
-	double pos = 0.0;
-		
-	for ( int i = 0; i < numberOfTickmarks; i++  )
-	{
-		if( i%5 == 0 )
-		{//long tickmarks plus text
-			p->drawLine( i*d, m_realHeight, i*d, m_realHeight+10 );	
-			if ( i%10 == 0 && 
-					i*d > space && 
-					i*d < width()-space )
-			{
-				pos = ( double ) ( i*d )/width();
-				p->fillRect( i*d-space, m_realHeight+12, 2*space, 15, Qt::white );
-				p->drawText( i*d-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( KalziumUtils::strippedValue( Wavelength( pos ) ) ) );
-			}
-		}
-		else {//small tickmarks
-			p->drawLine( i*d, m_realHeight, i*d, m_realHeight+5 );
-		}
-	}
+    double pos = 0.0;
+
+    for ( int i = 0; i < numberOfTickmarks; i++  )
+    {
+        if( i%5 == 0 )
+        {//long tickmarks plus text
+            p->drawLine( i*d, m_realHeight, i*d, m_realHeight+10 );	
+            if ( i%10 == 0 && 
+                    i*d > space && 
+                    i*d < width()-space )
+            {
+                pos = ( double ) ( i*d )/width();
+                p->fillRect( i*d-space, m_realHeight+12, 2*space, 15, Qt::white );
+                p->drawText( i*d-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( KalziumUtils::strippedValue( Wavelength( pos ) ) ) );
+            }
+        }
+        else {//small tickmarks
+            p->drawLine( i*d, m_realHeight, i*d, m_realHeight+5 );
+        }
+    }
 }
 
 void SpectrumWidget::keyPressEvent( QKeyEvent *e )
 {
-	switch ( e->key() )
-	{
-		case Qt::Key_Plus:
-			slotZoomIn();
-			break;
-		case Qt::Key_Minus:
-			slotZoomOut();
-			break;
-	}
+    switch ( e->key() )
+    {
+        case Qt::Key_Plus:
+            slotZoomIn();
+            break;
+        case Qt::Key_Minus:
+            slotZoomOut();
+            break;
+    }
 }
 
 void SpectrumWidget::slotZoomOut()
 {
-	kDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue << endl;
+    kDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue << endl;
 
-	double diff = endValue - startValue;
-	
-	double offset = diff * 0.05;
+    double diff = endValue - startValue;
 
-	endValue = endValue + offset;
-	startValue = startValue - offset;
+    double offset = diff * 0.05;
 
-	//check for invalid values
-	if ( startValue < 0.0 )
-		startValue = 0.0;
+    endValue = endValue + offset;
+    startValue = startValue - offset;
 
-	if ( endValue > 800.0 )
-		endValue = 800.0;
+    //check for invalid values
+    if ( startValue < 0.0 )
+        startValue = 0.0;
 
-	setBorders( startValue, endValue );
+    if ( endValue > 800.0 )
+        endValue = 800.0;
+
+    setBorders( startValue, endValue );
 }
 
 void SpectrumWidget::setBorders( double left, double right )
@@ -307,92 +303,66 @@ void SpectrumWidget::setBorders( double left, double right )
 
 void SpectrumWidget::slotZoomIn()
 {
-	kDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue << endl;
+    kDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue << endl;
 
-	double diff = endValue - startValue;
-	
-	double offset = diff * 0.05;
+    double diff = endValue - startValue;
 
-	endValue = endValue - offset;
-	startValue = startValue + offset;
+    double offset = diff * 0.05;
 
-	setBorders( startValue, endValue );
+    endValue = endValue - offset;
+    startValue = startValue + offset;
+
+    setBorders( startValue, endValue );
 }
 
 void SpectrumWidget::mouseMoveEvent( QMouseEvent *e )
 {
-	m_LMBPointCurrent = e->pos();
-	update();
+    m_LMBPointCurrent = e->pos();
+    update();
 }
 
 void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
 {
-	if (  e->button() == Qt::LeftButton )
-		m_LMBPointPress = e->pos();
-	if (  e->button() == Qt::RightButton )
-		slotZoomOut();
-//FIXME
-//the tooltip is not really working. Better to not have it
-//in KDE 3.4 and think of a better solution.
-//PrepareTooltip( Wavelength( ( double )e->pos().x()/width() ) );
+    if (  e->button() == Qt::LeftButton )
+        m_LMBPointPress = e->pos();
+    if (  e->button() == Qt::RightButton )
+        slotZoomOut();
+    
+    findPeakFromMouseposition( Wavelength( ( double )e->pos().x()/width() ) );
 }
 
-void SpectrumWidget::PrepareTooltip( double wavelength )
+void SpectrumWidget::findPeakFromMouseposition( double wavelength )
 {
-	Spectrum::peak *peak = NULL;
-	
-	//find the difference in percent (1.0 is 100%, 0.1 is 10%)
-	double dif = 0.0;
+    Spectrum::peak *peak = NULL;
 
-	bool foundWavelength = false;
-	
-	//find the highest intensity
-	foreach( Spectrum::peak *currentPeak, m_spectrum->peaklist() )
-  {
-      double thisdif = currentPeak->wavelength / wavelength;
+    //find the difference in percent (1.0 is 100%, 0.1 is 10%)
+    double dif = 0.0;
 
-      if ( thisdif < 0.9 || thisdif > 1.1 )
-          continue;
+    bool foundWavelength = false;
 
-      if ( thisdif > 1.0 ){//convert for example 1.3 to 0.7
-          thisdif = thisdif-1;
-          thisdif = 1-thisdif;
-      }
+    //find the highest intensity
+    foreach( Spectrum::peak *currentPeak, m_spectrum->peaklist() )
+    {
+        double thisdif = currentPeak->wavelength / wavelength;
 
-      if ( thisdif > dif )
-      {
-          dif = thisdif;
-          peak = currentPeak;
-          foundWavelength = true;
-      }
-  }
+        if ( thisdif < 0.9 || thisdif > 1.1 )
+            continue;
 
-  if ( foundWavelength )
-  {
-      m_band = peak;
-      m_showtooltip = true;
-  } else 
-      m_showtooltip = false;
-	
-	kDebug() << "SpectrumWidget::PrepareTooltip(): "<< m_showtooltip << endl;
-	update();
-}
+        if ( thisdif > 1.0 ){//convert for example 1.3 to 0.7
+            thisdif = thisdif-1;
+            thisdif = 1-thisdif;
+        }
 
-void SpectrumWidget::drawTooltip( QPainter *p )
-{
-	p->setPen( Qt::white );
-	QPoint pt = mapFromGlobal( QCursor::pos() );
-	p->drawText( pt, i18n("Wavelength: %1", m_band->wavelength) ); 
-	pt.setY( pt.y() + 15 );
-	p->drawText( pt, i18n("Intensity: %1", m_band->intensity) ); 
-	pt.setY( pt.y() + 15 );
-#if 0
-	p->drawText( pt, i18n("Energy 1, Energy 2: %1, %2", m_band->energy1, m_band->energy2 ));
-	pt.setY( pt.y() + 15 );
-	p->drawText( pt, i18n("Term 1, Term 2: %1, %2", m_band->term1, m_band->term2 ));
-	pt.setY( pt.y() + 15 );
-	p->drawText( pt, i18n("J 1, J 2: %1, %2", m_band->J1, m_band->J2 ));
-#endif
+        if ( thisdif > dif )
+        {
+            dif = thisdif;
+            peak = currentPeak;
+            foundWavelength = true;
+        }
+    }
+
+    if ( foundWavelength )
+        emit peakSelected(peak);
 }
 
 void SpectrumWidget::mouseReleaseEvent(  QMouseEvent *e )
