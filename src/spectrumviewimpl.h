@@ -36,6 +36,9 @@ class SpectrumViewImpl : public QWidget, Ui_SpectrumView
          */
         void setSpectrum( Spectrum* spec ){
             m_spectrumWidget->setSpectrum( spec );
+            
+            fillPeakList();
+
             m_spectrumWidget->update();
         }
 
@@ -47,6 +50,14 @@ class SpectrumViewImpl : public QWidget, Ui_SpectrumView
          * @param right The right border of the spectrum
          */
         void updateUI(int left, int right);
+
+        void updatePeakInformation( Spectrum::peak * peak );
+
+    private:
+        /**
+         * filling the list of peaks
+         */
+        void fillPeakList();
 };
 
 #endif // SPECTRUMVIEWIMPL_H

@@ -38,10 +38,8 @@
 #include <QStackedWidget>
 
 #include "element.h"
-#include "spectrum.h"
 #include "orbitswidget.h"
 #include "detailedgraphicaloverview.h"
-#include "spectrum.h"
 #include "spectrumviewimpl.h"
 #include "kalziumutils.h"
 
@@ -517,8 +515,13 @@ void DetailedInfoDlg::reloadContent()
   Spectrum*s = new Spectrum();
   s->addPeak( new Spectrum::peak(400,300) );
   s->addPeak( new Spectrum::peak(450,500) );
+  s->addPeak( new Spectrum::peak(455,500) );
+  s->addPeak( new Spectrum::peak(470,100) );
+  s->addPeak( new Spectrum::peak(490,50) );
   s->addPeak( new Spectrum::peak(500,600) );
   s->addPeak( new Spectrum::peak(550,700) );
+  s->adjustIntensities();
+  
   m_element->setSpectrum( s );
 
 	// updating spectrum widget

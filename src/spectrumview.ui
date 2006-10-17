@@ -25,7 +25,7 @@
    <item row="1" column="0" >
     <widget class="QTabWidget" name="tabWidget" >
      <property name="currentIndex" >
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab" >
       <attribute name="title" >
@@ -208,6 +208,38 @@
           </widget>
          </item>
         </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_3" >
+      <attribute name="title" >
+       <string>List of all Peaks</string>
+      </attribute>
+      <layout class="QGridLayout" >
+       <property name="margin" >
+        <number>9</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item row="0" column="0" >
+        <widget class="QTreeWidget" name="peakList" >
+         <column>
+          <property name="text" >
+           <string>Number</string>
+          </property>
+         </column>
+         <column>
+          <property name="text" >
+           <string>Wavelength</string>
+          </property>
+         </column>
+         <column>
+          <property name="text" >
+           <string>Intensity</string>
+          </property>
+         </column>
+        </widget>
        </item>
       </layout>
      </widget>

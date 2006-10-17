@@ -13,6 +13,7 @@
 #include "spectrumviewimpl.h"
 
 #include <QSpinBox>
+#include <QTreeWidget>
 
 #include <kdebug.h>
 
@@ -27,9 +28,31 @@ SpectrumViewImpl::SpectrumViewImpl( QWidget *parent )
 	         m_spectrumWidget, SLOT( setRightBorder( int ) ) );
   connect( m_spectrumWidget, SIGNAL( bordersChanged(int,int) ),
           this, SLOT( updateUI(int,int) ) );
-	
+  connect(m_spectrumWidget, SIGNAL(peakSelected(Spectrum::peak*)),
+          this, SLOT(updatePeakInformation(Spectrum::peak*)));
+
 	resize( minimumSizeHint() );
 }
+
+void SpectrumViewImpl::fillPeakList()
+{
+    QList<QTreeWidgetItem *> items;
+
+    int num = 1;
+    foreach (Spectrum::peak * peak , m_spectrumWidget->spectrum()->peaklist())
+    {
+        QStringList l;
+        l << QString::number(num);
+        l << QString::number(peak->wavelength);
+        l << QString::number(peak->intensity);
+        items.append(new QTreeWidgetItem((QTreeWidget*)0, l));
+
+        num++;
+    }
+
+    peakList->insertTopLevelItems(0, items);
+}
+
 
 void SpectrumViewImpl::updateUI(int l, int r)
 {
@@ -38,5 +61,12 @@ void SpectrumViewImpl::updateUI(int l, int r)
     minimumValue->setRange(l,r-1);
     maximumValue->setRange(l+1,r);
 }
+
+void SpectrumViewImpl::updatePeakInformation(Spectrum::peak * peak )
+{
+    intensity_label->setText(i18n("%1 of 1000", peak->intensity));
+    wavelength_label->setText(i18n("%1 nm", peak->wavelength));
+}
+
 
 #include "spectrumviewimpl.moc"
