@@ -12,10 +12,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "elementdataviewer.h"
-#include "kalziumdataobject.h"
-#include "kalziumutils.h"
-
 #include <element.h>
 #include <kplotaxis.h>
 #include <kplotobject.h>
@@ -33,50 +29,7 @@
 #include <QPointF>
 #include <QTimer>
 
-typedef QList<double> DoubleList;
-
-/**
- * @short the values of the y-Axis
- * @author Carsten Niehaus
- */
-class AxisData
-{
-	public:
-		AxisData();
-		
-		/**
-		 * @return the value of the selected dataset of element @p element
-		 */
-		double value( int element ) const;
-
-		/**
-		 * This represents the possible datasets.
-		 */
-		enum PAXISDATA
-		{
-			MASS = 0,
-			MEANWEIGHT,
-			DENSITY,
-			EN,
-			MELTINGPOINT,
-			BOILINGPOINT,
-			ATOMICRADIUS,
-			COVALENTRADIUS
-		};
-
-		int numberOfElements() const;
-
-		/**
-		 * the dataList contains the values off all elements
-		 * but only of the currently selected data type. This
-		 * means that it eg contains all boiling points
-		 */
-		DoubleList dataList;
-
-		int currentDataType;
-
-		ChemicalDataObject::BlueObelisk kind;
-};
+#include "elementdataviewer.h"
 
 AxisData::AxisData() : currentDataType(-1)
 {
@@ -84,15 +37,10 @@ AxisData::AxisData() : currentDataType(-1)
 
 double AxisData::value( int element ) const
 {
-	if ( ( element < 1 ) || ( element > dataList.count() ) )
-		return 0.0;
+    if ( ( element < 1 ) || ( element > dataList.count() ) )
+        return 0.0;
 
-	return dataList[ element-1 ];
-}
-
-int AxisData::numberOfElements() const
-{
-	return dataList.count();
+    return dataList[ element-1 ];
 }
 
 

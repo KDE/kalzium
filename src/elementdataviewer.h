@@ -16,10 +16,56 @@
 
 #include <kdialog.h>
 #include "ui_plotsetupwidget.h"
+#include "kalziumdataobject.h"
+#include "kalziumutils.h"
+
 
 class QTimer;
 class KActionCollection;
-class AxisData;
+
+typedef QList<double> DoubleList;
+
+/**
+ * @short the values of the y-Axis
+ * @author Carsten Niehaus
+ */
+class AxisData
+{
+	public:
+		AxisData();
+
+    /**
+     * This represents the possible datasets.
+     */
+    enum PAXISDATA {
+        MASS = 0,
+        MEANWEIGHT,
+        DENSITY,
+        EN,
+        MELTINGPOINT,
+        BOILINGPOINT,
+        ATOMICRADIUS,
+        COVALENTRADIUS
+    };
+
+		
+		/**
+		 * @return the value of the selected dataset of element @p element
+		 */
+		double value( int element ) const;
+
+		/**
+		 * the dataList contains the values off all elements
+		 * but only of the currently selected data type. This
+		 * means that it eg contains all boiling points
+		 */
+		DoubleList dataList;
+
+		int currentDataType;
+
+		ChemicalDataObject::BlueObelisk kind;
+};
+
 
 /**
  * @short This widget shows the plot and the widget
