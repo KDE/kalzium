@@ -20,7 +20,6 @@
 
 #include <QTimer>
 #include <QPainter>
-#include <QColor>
 
 #include <kdebug.h>
 

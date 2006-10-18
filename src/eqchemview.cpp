@@ -42,7 +42,6 @@ char* solve_equation(const char *) { return NULL; }
 
 void EQChemDialog::compute()
 {
-    kDebug() << "EQChemDialog::compute()" << endl;
     QString equation( ui.lineEdit->text() );
     equation.replace("+", "+");
     equation.replace("->", " -> ");
@@ -58,8 +57,8 @@ void EQChemDialog::compute()
     // mem leak ?
     free(result);
 
-    new QuestionItem( ui.listWidget, equation );
-    new AnswerItem( ui.listWidget, equation, answer );
+    new QListWidgetItem( equation , ui.listWidget );
+    new QListWidgetItem( answer , ui.listWidget);
 }
 
 EQChemDialog::EQChemDialog( QWidget *parent )
