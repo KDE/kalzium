@@ -90,3 +90,5 @@ install( FILES kalzium.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES kalziumui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kalzium )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
+
+add_subdirectory(solver)

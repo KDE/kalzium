@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2004, 2005, 2006 by Thomas Nagy                               *
- *   tnagy2^8@yahoo.fr                                                     *
+ *   Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -44,7 +43,7 @@ class EQChemDialog : public KDialog
         Ui::EquationView ui;
 
     public slots:
-        void slotUser1();
+        void compute();
 };
 
 #endif // _EQCHEMVIEW_H_

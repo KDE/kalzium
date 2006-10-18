@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004, 2005, 2006 by Thomas Nagy                         *
- *   tnagy2^8@yahoo.fr                                                     *
+ *   Copyright (C) 2004, 2005, 2006 by Thomas Nagy <tnagy2^8@yahoo.fr>
+ *   Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -31,17 +31,20 @@
 #include <stdlib.h>
 
 #ifdef HAVE_FACILE
+kDebug() "solving the equation " << endl;
 extern "C" {
     char* solve_equation(const char *);
 }
 #endif
 
 #ifndef HAVE_FACILE
+kDebug() "returning nothing " << endl;
 char* solve_equation(const char *) { return NULL; }
 #endif
 
-void EQChemDialog::slotUser1()
+void EQChemDialog::compute()
 {
+    kDebug() << "EQChemDialog::compute()" << endl;
     QString equation( ui.lineEdit->text() );
     equation.replace("+", "+");
     equation.replace("->", " -> ");
@@ -51,6 +54,8 @@ void EQChemDialog::slotUser1()
     char * result = solve_equation( equation.toLatin1() );
 
     QString answer = QString(result);
+
+    kDebug() << "Answer: " << answer << endl;
 
     // mem leak ?
     free(result);
@@ -66,8 +71,8 @@ EQChemDialog::EQChemDialog( QWidget *parent )
     setButtons( Help | Apply | Close );
     setDefaultButton( Apply );
 
-    connect( this, SIGNAL( user1Clicked() ), 
-            this, SLOT( slotUser1() ) );
+    connect( this, SIGNAL( applyClicked() ), 
+            this, SLOT( compute() ) );
 	
     ui.setupUi( mainWidget() );
 }
