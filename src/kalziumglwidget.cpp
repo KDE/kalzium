@@ -250,7 +250,7 @@ void KalziumGLWidget::renderHighlighting()
 
 	if( m_clickedAtom )
 	{
-		Color( 0.8, 0.4, 1.0, 0.7 ).applyAsMaterials();
+		Color( 1.0, 1.0, 1.0, 0.4 ).applyAsMaterials();
 		glLoadName( m_clickedAtom->GetIdx() );
 		m_sphere.draw( m_clickedAtom->GetVector(),
 			0.18 + m_molStyle.getAtomRadius( m_clickedAtom ) );
@@ -325,11 +325,7 @@ void KalziumGLWidget::mousePressEvent( QMouseEvent * event )
 		m_movedSinceLeftButtonPressed = false;
 		m_lastDraggingPosition = event->pos ();
 		m_initialDraggingPosition = event->pos ();
-#if 0
 		computeClickedAtom( event->pos () );
-		if( m_clickedAtom )
-			kDebug()<<m_clickedAtom->GetIdx()<<endl;
-#endif
 		updateGL();
 	}
 }
@@ -340,7 +336,6 @@ void KalziumGLWidget::mouseReleaseEvent( QMouseEvent * event )
 	{
 		m_isLeftButtonPressed = false;
 
-#if 0
 		if( m_clickedAtom && ! m_movedSinceLeftButtonPressed )
 		{
 			if( m_selectedAtoms.contains( m_clickedAtom ) )
@@ -349,10 +344,9 @@ void KalziumGLWidget::mouseReleaseEvent( QMouseEvent * event )
 					m_clickedAtom );
 			}
 			else m_selectedAtoms.append( m_clickedAtom );
-			updateGL();
 		}
-#endif
 		m_clickedAtom = 0;
+		updateGL();
 	}
 }
 
