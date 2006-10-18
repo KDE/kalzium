@@ -2,7 +2,7 @@ project(solver)
 
 #create depend file need to generate .o file
 add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/.depend
-                   COMMAND ${OCAMLDEP_EXECUTABLE}  ARGS -I +facile *.mli *.ml
+                   COMMAND ${OCAMLDEP_EXECUTABLE}  ARGS -I +facile ${CMAKE_CURRENT_SOURCE_DIR}/*.mli ${CMAKE_CURRENT_SOURCE_DIR}/*.ml > ${CMAKE_CURRENT_BINARY_DIR}/.depend
                    DEPENDS calc.mli
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
