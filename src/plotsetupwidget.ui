@@ -33,12 +33,12 @@
         <string>X:</string>
        </property>
        <property name="buddy" >
-        <cstring>KCB_y</cstring>
+        <cstring>KCB_x</cstring>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="KCB_y_2" >
+      <widget class="QComboBox" name="KCB_x" >
        <property name="whatsThis" >
         <string>Here you can define what you want to plot</string>
        </property>
@@ -105,7 +105,7 @@
         <string>Y:</string>
        </property>
        <property name="buddy" >
-        <cstring>KCB_y</cstring>
+        <cstring>KCB_x</cstring>
        </property>
       </widget>
      </item>
@@ -262,6 +262,9 @@
          </property>
          <property name="minimum" >
           <number>2</number>
+         </property>
+         <property name="value" >
+          <number>36</number>
          </property>
         </widget>
        </item>

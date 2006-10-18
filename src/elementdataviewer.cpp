@@ -31,8 +31,9 @@
 
 #include "elementdataviewer.h"
 
-AxisData::AxisData() : currentDataType(-1)
+AxisData::AxisData( AXISTYPE type) : currentDataType(-1)
 {
+    m_type = type;
 }
 
 double AxisData::value( int element ) const
@@ -46,8 +47,8 @@ double AxisData::value( int element ) const
 
 ElementDataViewer::ElementDataViewer( QWidget *parent )
   : KDialog( parent ),
-    m_yData( new AxisData() ) ,
-    m_xData( new AxisData() )
+    m_yData( new AxisData( AxisData::Y ) ) ,
+    m_xData( new AxisData( AxisData::X ) )
 {
 	setCaption( i18n( "Plot Data" ) );
 	setButtons( Help | Close );
@@ -173,20 +174,29 @@ void ElementDataViewer::keyPressEvent(QKeyEvent *e)
 void ElementDataViewer::slotZoomIn(){}
 void ElementDataViewer::slotZoomOut(){}
 
-void ElementDataViewer::setupAxisData()
+void ElementDataViewer::setupAxisData( AxisData * data )
 {
     DoubleList l;
 
-    const int selectedData = ui.KCB_y->currentIndex();
+    int selectedData = 0;
+    if ( data->type() == AxisData::X )
+        selectedData = ui.KCB_x->currentIndex();
+    else
+        selectedData = ui.KCB_y->currentIndex();
 
-    //this should be somewhere else, eg in its own method
-    m_yData->currentDataType = selectedData;
+    data->currentDataType = selectedData;
 
     // init to _something_
     ChemicalDataObject::BlueObelisk kind = ChemicalDataObject::mass;
-    QString caption;
+    QString caption = QString();
     switch(selectedData)
     {
+        case AxisData::NUMBER:
+            {
+                kind = ChemicalDataObject::atomicNumber;
+                caption = i18n( "Atomic Mass [u]" );
+                break;
+            }
         case AxisData::MASS:
             {
                 kind = ChemicalDataObject::mass;
@@ -243,11 +253,19 @@ void ElementDataViewer::setupAxisData()
         l << ( value > 0.0 ? value : 0.0 );
     }
 
-    m_yData->dataList.clear();
-    m_yData->dataList << l;
-    m_yData->kind = kind;
+    data->dataList.clear();
+    data->dataList << l;
+    data->kind = kind;
 
-    ui.plotwidget->axis(KPlotWidget::LeftAxis)->setLabel( caption );
+    if ( data->type() == AxisData::X )
+    {
+        ui.plotwidget->axis(KPlotWidget::BottomAxis)->setLabel( caption );
+    }
+    else
+    {
+        ui.plotwidget->axis(KPlotWidget::LeftAxis)->setLabel( caption );
+        ui.plotwidget->axis(KPlotWidget::RightAxis)->setLabel( caption );
+    }
 }
 
 void ElementDataViewer::drawPlot()
@@ -331,7 +349,8 @@ void ElementDataViewer::drawPlot()
 
 void ElementDataViewer::initData()
 {
-	setupAxisData();
+	setupAxisData(m_xData);
+	setupAxisData(m_yData);
 }
 
 #include "elementdataviewer.moc"

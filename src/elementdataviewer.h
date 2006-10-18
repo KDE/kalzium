@@ -26,44 +26,56 @@ class KActionCollection;
 typedef QList<double> DoubleList;
 
 /**
- * @short the values of the y-Axis
+ * @short the values of an axis
  * @author Carsten Niehaus
  */
 class AxisData
 {
-	public:
-		AxisData();
+    public:
+        /**
+         * This represents the possible datasets.
+         */
+        enum PAXISDATA {
+            NUMBER = 0,
+            MASS,
+            MEANWEIGHT,
+            DENSITY,
+            EN,
+            MELTINGPOINT,
+            BOILINGPOINT,
+            ATOMICRADIUS,
+            COVALENTRADIUS
+        };
 
-    /**
-     * This represents the possible datasets.
-     */
-    enum PAXISDATA {
-        MASS = 0,
-        MEANWEIGHT,
-        DENSITY,
-        EN,
-        MELTINGPOINT,
-        BOILINGPOINT,
-        ATOMICRADIUS,
-        COVALENTRADIUS
-    };
+        enum AXISTYPE {
+            X = 0,
+            Y
+        };
+        
+        AxisData( AxisData::AXISTYPE );
 
-		
-		/**
-		 * @return the value of the selected dataset of element @p element
-		 */
-		double value( int element ) const;
+        /**
+         * @return the value of the selected dataset of element @p element
+         */
+        double value( int element ) const;
 
-		/**
-		 * the dataList contains the values off all elements
-		 * but only of the currently selected data type. This
-		 * means that it eg contains all boiling points
-		 */
-		DoubleList dataList;
+        /**
+         * the dataList contains the values off all elements
+         * but only of the currently selected data type. This
+         * means that it eg contains all boiling points
+         */
+        DoubleList dataList;
 
-		int currentDataType;
+        int currentDataType;
 
-		ChemicalDataObject::BlueObelisk kind;
+        ChemicalDataObject::BlueObelisk kind;
+
+        AXISTYPE type() const{
+            return m_type;
+        }
+
+    private:
+        AXISTYPE m_type;
 };
 
 
@@ -108,7 +120,7 @@ class ElementDataViewer : public KDialog
         KActionCollection* m_actionCollection;
 
         void initData();
-        void setupAxisData();
+        void setupAxisData( AxisData * data );
 
         void setLimits();
 
