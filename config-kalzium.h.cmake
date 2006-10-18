@@ -1,5 +1,5 @@
 /* facile solver available? */
-/* #undef HAVE_FACILE */
+#cmakedefine HAVE_FACILE 1
 
 /* Define to 1 if we have OpenBabel2 */
 #cmakedefine HAVE_OPENBABEL2 1
