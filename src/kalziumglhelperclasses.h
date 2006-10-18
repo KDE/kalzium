@@ -310,23 +310,23 @@ class Sphere : public VertexArray
 		 * icosahedron */
 		int m_detail;
 
-		virtual int getVertexCount();
-		virtual int getIndexCount();
-		virtual void buildBuffers();
+		int getVertexCount();
+		int getIndexCount();
+		void buildBuffers();
 
 	public:
 		Sphere();
-		virtual ~Sphere() {}
+		~Sphere() {}
 
 		/** initializes the sphere with given level of detail. If the
 		 * sphere was already initialized, any pre-allocated buffers
 		 * are freed and then re-allocated.
 		@param detail the wanted level of detail. See m_detail member */
-		virtual void setup( int detail );
+		void setup( int detail );
 
 		/** draws the sphere at specifiec position and with
 		 * specified radius */
-		virtual void draw( const OpenBabel::vector3 &center, double radius );
+		void draw( const OpenBabel::vector3 &center, double radius );
 };
 
 /**
@@ -342,16 +342,16 @@ class Cylinder : public VertexArray
 		 * two discs) are not rendered. */
 		int m_faces;
 
-		virtual int getVertexCount();
-		virtual void buildBuffers();
+		int getVertexCount();
+		void buildBuffers();
 
 	public:
 		Cylinder();
-		virtual ~Cylinder() {}
+		~Cylinder() {}
 		/** initializes the cylinder with given number of faces. If the
 		 * cylinder was already initialized, any pre-allocated buffers
 		 * are freed and then re-allocated */
-		virtual void setup( int faces );
+		void setup( int faces );
 		/**
 		 * draws the cylinder at specified position, with specified
 		 * radius. the order and shift arguments allow to render
@@ -371,7 +371,7 @@ class Cylinder : public VertexArray
 			this is interpreted as the displacement of the axis
 			of the drawn cylinders from the axis (end1 - end2).
 		 */
-		virtual void draw( const OpenBabel::vector3 &end1, const OpenBabel::vector3 &end2,
+		void draw( const OpenBabel::vector3 &end1, const OpenBabel::vector3 &end2,
 			double radius, int order = 1, double shift = 0.0 );
 };
 

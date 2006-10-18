@@ -105,7 +105,7 @@ class KalziumGLWidget : public QGLWidget
 		/**
 		 * Destructor
 		 */
-		virtual ~KalziumGLWidget();
+		~KalziumGLWidget();
 
 		/**
 		 * @return Returns a pointer to the molecule being worked on
@@ -190,25 +190,25 @@ class KalziumGLWidget : public QGLWidget
 		/**
 		 * This method initializes OpenGL. Automatically called by Qt
 		 */
-		virtual void initializeGL();
+		void initializeGL();
 
 		/**
 		 * This method does the painting. Automatically called by Qt
 		 */
-		virtual void paintGL();
-		virtual void renderAtoms();
-		virtual void renderBonds();
-		virtual void renderHighlighting();
-		virtual void FPSCounter();
+		void paintGL();
+		void renderAtoms();
+		void renderBonds();
+		void renderHighlighting();
+		void FPSCounter();
 
 		/**
 		 * This method is called by Qt whenever the widget is resized.
 		 */
-		virtual void resizeGL( int width, int height );
+		void resizeGL( int width, int height );
 
-		virtual void mousePressEvent( QMouseEvent * event );
-		virtual void mouseReleaseEvent( QMouseEvent * event );
-		virtual void mouseMoveEvent( QMouseEvent * event );
+		void mousePressEvent( QMouseEvent * event );
+		void mouseReleaseEvent( QMouseEvent * event );
+		void mouseMoveEvent( QMouseEvent * event );
 
 		/**
 		 * This method is called by slotSetMolecule. It prepares the
@@ -233,7 +233,7 @@ class KalziumGLWidget : public QGLWidget
 		 * recomputes the geometry of the geometric objects ( sphere,
 		 * cylinder ).
 		 */
-		virtual void setupObjects();
+		void setupObjects();
 
 		/**
 		 * Sets the molecule style, but contrary to slotSetMolStyle,
