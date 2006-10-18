@@ -99,11 +99,10 @@ struct MolStyle
 		double multipleBondShift,
 		double atomRadiusFactor );
 
-	MolStyle& operator=( const MolStyle& other );
-
 	/** This function returns the radius in which an atom with given atomic
 	 * number should be rendered, when using this style */
 	double getAtomRadius( int atomicNumber );
+
 	/** This function returns the radius in which the passed OBAtom
 	 * should be rendered, when using this style */
 	inline double getAtomRadius( const OpenBabel::OBAtom *atom )

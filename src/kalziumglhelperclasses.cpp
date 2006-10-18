@@ -32,19 +32,6 @@ MolStyle::MolStyle( BondStyle bondStyle, AtomStyle atomStyle,
 	m_atomRadiusFactor = atomRadiusFactor;
 }
 
-MolStyle& MolStyle::operator=( const MolStyle& other )
-{
-	m_bondStyle = other.m_bondStyle;
-	m_atomStyle = other.m_atomStyle;
-	m_singleBondRadius = other.m_singleBondRadius;
-	m_renderMultipleBonds = other.m_renderMultipleBonds;
-	m_multipleBondRadius = other.m_multipleBondRadius;
-	m_multipleBondShift = other.m_multipleBondShift;
-	m_atomRadiusFactor = other.m_atomRadiusFactor;
-
-	return *this;
-}
-
 double MolStyle::getAtomRadius( int atomicNumber )
 {
 	switch( m_atomStyle )
