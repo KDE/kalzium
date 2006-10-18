@@ -1,17 +1,19 @@
-#ifndef KALZIUMGLHELPERCLASSES_H
-#define KALZIUMGLHELPERCLASSES_H
 /***************************************************************************
-    copyright            : (C) 2006 by Benoit Jacob
+    copyright            : (C) 2006 by Benoit Jacob <jacob@math.jussieu.fr>
  ***************************************************************************/
 
 /***************************************************************************
- *         *
+ *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
  *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.   *
- *         *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
  ***************************************************************************/
+
+#ifndef KALZIUMGLHELPERCLASSES_H
+#define KALZIUMGLHELPERCLASSES_H
+
 #include <math.h>
 #include <QGLWidget>
 #include <GL/glu.h>
@@ -28,7 +30,7 @@
  * counter. Use only for testing: this makes the GL Widget constantly
  * redraw, which under normal circumstances is a waste of CPU time.
  */
-#define USE_FPS_COUNTER
+//#define USE_FPS_COUNTER
 
 /** USE_DISPLAY_LISTS: if defined, the whole scene will be stored in
  * an OpenGL display list. The vertex arrays will then be converted into

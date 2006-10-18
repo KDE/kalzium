@@ -1,7 +1,5 @@
-#ifndef KALZIUMGLWIDGET_H
-#define KALZIUMGLWIDGET_H
 /***************************************************************************
-    copyright            : (C) 2006 by Benoit Jacob
+    copyright            : (C) 2006 by Benoit Jacob <jacob@math.jussieu.fr>
  ***************************************************************************/
 
 /***************************************************************************
@@ -12,6 +10,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#ifndef KALZIUMGLWIDGET_H
+#define KALZIUMGLWIDGET_H
 
 #include "kalziumglhelperclasses.h"
 
