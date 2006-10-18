@@ -334,11 +334,11 @@ void ElementDataViewer::drawPlot()
         dataPoint->addPoint( position );
         ui.plotwidget->addObject( dataPoint );
 
-        if ( whatShow > 0 )//FIXME What the _heck_ is this for?!
+        if ( whatShow > 0 )//The users wants to see the labels
         {
             QString lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
             dataPointLabel = new KPlotObject( lbl, Qt::red, KPlotObject::LABEL );
-            dataPointLabel->addPoint( new QPointF( (double)i, value_y ) );
+            dataPointLabel->addPoint( new QPointF( value_x, value_y ) );
             ui.plotwidget->addObject( dataPointLabel );
         }
     }
