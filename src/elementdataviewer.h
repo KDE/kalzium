@@ -84,7 +84,12 @@ class ElementDataViewer : public KDialog
         /**
          * the AxixData for the y-Axis
          */
-        AxisData *yData;
+        AxisData *m_yData;
+        
+        /**
+         * the AxixData for the x-Axis
+         */
+        AxisData *m_xData;
 
 
     protected:
@@ -92,6 +97,8 @@ class ElementDataViewer : public KDialog
 
     private: 
         Ui::PlotSetupWidget ui;
+
+        void getMinMax(double& min, double& max, AxisData * data);
 
         QStringList         names;
         QStringList         symbols;
@@ -103,7 +110,7 @@ class ElementDataViewer : public KDialog
         void initData();
         void setupAxisData();
 
-        void setLimits(int, int);
+        void setLimits();
 
     protected slots:
         /**

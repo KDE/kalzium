@@ -46,7 +46,8 @@ double AxisData::value( int element ) const
 
 ElementDataViewer::ElementDataViewer( QWidget *parent )
   : KDialog( parent ),
-    yData( new AxisData() )
+    m_yData( new AxisData() ) ,
+    m_xData( new AxisData() )
 {
 	setCaption( i18n( "Plot Data" ) );
 	setButtons( Help | Close );
@@ -86,7 +87,8 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 
 ElementDataViewer::~ElementDataViewer()
 {
-	delete yData;
+	delete m_yData;
+	delete m_xData;
 }
 
 void ElementDataViewer::slotHelp()
@@ -101,29 +103,53 @@ void ElementDataViewer::rangeChanged()
 }
 
 
-void ElementDataViewer::setLimits(int f, int t)
+void ElementDataViewer::setLimits()
 {
-    double minY = yData->value(f);
-    double maxY = yData->value(f);
+    kDebug() << "ElementDataViewer::setLimits()" << endl;
 
-    for ( int _currentVal = f; _currentVal <= t; _currentVal++ )
-    {
-        double v = yData->value( _currentVal );
+    double x1 = 0.0, x2 = 0.0, y1 = 0.0, y2 = 0.0;
 
-        if( minY > v )
-            minY = v;
-        if( maxY < v)
-            maxY = v;
+    getMinMax(x1, x2, m_xData);
+    getMinMax(y1, y2, m_yData);
+
+    kDebug() << x1 << " :: " << x2 << " ----- "  << y1 << " :: " << y2 << endl;
+
+//X     // try to put a small padding to make the points on the axis visible
+//X     double dx = ( to - from + 1 ) / 25 + 1.0;
+//X     double dy = ( maxY - minY ) / 10.0;
+//X     // in case that dy is quite small (for example, when plotting a single
+//X     // point)
+//X     if ( dy < 1e-7 )
+//X         dy = maxY / 10.0;
+//X     ui.plotwidget->setLimits( from - dx, to + dx, minY - dy, maxY + dy );
+    
+    ui.plotwidget->setLimits( x1, x2, y1, y2 );
+}
+
+void ElementDataViewer::getMinMax(double& min, double& max, AxisData * data)
+{
+    int firstElement = ui.from->value();
+    int lastElement  = ui.to->value();
+    
+    double minValue = data->value(firstElement);
+    double maxValue = data->value(firstElement);
+
+    kDebug() << "Taking elements from " << firstElement << " to " << lastElement << endl;
+
+    for ( int _currentVal = firstElement; _currentVal <= lastElement; _currentVal++ )
+    {//go over all selected elements
+        double v = data->value( _currentVal );
+
+        if( minValue > v )
+            minValue = v;
+        if( maxValue < v)
+            maxValue = v;
     }
+    
+    kDebug() << "The value are ]"<< minValue << " , " << maxValue << "[." << endl;
 
-    // try to put a small padding to make the points on the axis visible
-    double dx = ( t - f + 1 ) / 25 + 1.0;
-    double dy = ( maxY - minY ) / 10.0;
-    // in case that dy is quite small (for example, when plotting a single
-    // point)
-    if ( dy < 1e-7 )
-        dy = maxY / 10.0;
-    ui.plotwidget->setLimits( f - dx, t + dx, minY - dy, maxY + dy );
+    min = minValue;
+    max = maxValue;
 }
 
 void ElementDataViewer::keyPressEvent(QKeyEvent *e)
@@ -154,9 +180,7 @@ void ElementDataViewer::setupAxisData()
     const int selectedData = ui.KCB_y->currentIndex();
 
     //this should be somewhere else, eg in its own method
-    yData->currentDataType = selectedData;
-
-    KalziumDataObject *kdo = KalziumDataObject::instance();
+    m_yData->currentDataType = selectedData;
 
     // init to _something_
     ChemicalDataObject::BlueObelisk kind = ChemicalDataObject::mass;
@@ -212,15 +236,16 @@ void ElementDataViewer::setupAxisData()
                 break;
             }
     }
+    KalziumDataObject *kdo = KalziumDataObject::instance();
 
     foreach (Element * element, kdo->ElementList) {
         double value = element->dataAsVariant( kind ).toDouble();
         l << ( value > 0.0 ? value : 0.0 );
     }
 
-    yData->dataList.clear();
-    yData->dataList << l;
-    yData->kind = kind;
+    m_yData->dataList.clear();
+    m_yData->dataList << l;
+    m_yData->kind = kind;
 
     ui.plotwidget->axis(KPlotWidget::LeftAxis)->setLabel( caption );
 }
@@ -235,7 +260,7 @@ void ElementDataViewer::drawPlot()
     /*
      * spare the next step in case everything is already set and done
      */
-    if( yData->currentDataType != ui.KCB_y->currentIndex() )
+    if( m_yData->currentDataType != ui.KCB_y->currentIndex() )
         initData();
 
     /*
@@ -251,7 +276,7 @@ void ElementDataViewer::drawPlot()
      */
     const int num = to-from+1;
 
-    setLimits(from,to);
+    setLimits();
 
     /*
      * check if the users wants to see the elementnames or not
@@ -263,9 +288,7 @@ void ElementDataViewer::drawPlot()
 
     double av = 0.0;
     double max;
-    double min = max = yData->value( from );
-
-    KalziumDataObject *kdo = KalziumDataObject::instance();
+    double min = max = m_yData->value( from );
 
     /*
      * iterate for example from element 20 to 30 and contruct
@@ -273,7 +296,7 @@ void ElementDataViewer::drawPlot()
      */
     for( int i = from; i < to+1 ; i++ )
     {
-        double v = yData->value( i );
+        double v = m_yData->value( i );
 
         if ( v >= 0.0 )
         {
@@ -282,8 +305,6 @@ void ElementDataViewer::drawPlot()
             if ( v > max )
                 max = v;
             av += v;
-//X 
-            //dataPoint = new KPlotObject( names[i-1] + QLatin1String( "\n" ) + KalziumUtils::prettyUnit( kdo->element( i ), yData->kind ), Qt::blue, KPlotObject::POINTS, 4, KPlotObject::CIRCLE );
             dataPoint = new KPlotObject( "Test", 
                     Qt::blue, 
                     KPlotObject::POINTS, 
