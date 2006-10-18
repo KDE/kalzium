@@ -31,14 +31,12 @@
 #include <stdlib.h>
 
 #ifdef HAVE_FACILE
-kDebug() "solving the equation " << endl;
 extern "C" {
     char* solve_equation(const char *);
 }
 #endif
 
 #ifndef HAVE_FACILE
-kDebug() "returning nothing " << endl;
 char* solve_equation(const char *) { return NULL; }
 #endif
 

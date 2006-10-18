@@ -33,24 +33,34 @@ set(kalzium_SRCS
    search.cpp
    searchwidget.cpp
    rsdialog.cpp
-   eqresult.cpp
-   eqchemview.cpp
 )
 
+if(LIBFACILE_FOUND)
+  set( kalzium_SRCS
+    ${kalzium_SRCS}
+    eqresult.cpp
+    eqchemview.cpp
+    )
+  kde4_add_ui_files(kalzium_SRCS
+    equationview.ui
+    )
+  add_subdirectory(solver)
+endif(LIBFACILE_FOUND)
+
 if(OPENBABEL2_FOUND AND OPENGL_FOUND)
-	set( kalzium_SRCS
-		${kalzium_SRCS}
-   		moleculeview.cpp
-		latticedialog.cpp
-		kalziumglhelperclasses.cpp
-		kalziumglwidget.cpp
-		openbabel2wrapper.cpp
-	)
-	kde4_add_ui_files(kalzium_SRCS
-		latticeviewer.ui
-	)
-	include_directories( ${OPENBABEL2_INCLUDE_DIR} )
-	add_subdirectory(widgets)
+  set( kalzium_SRCS
+    ${kalzium_SRCS}
+    moleculeview.cpp
+    latticedialog.cpp
+    kalziumglhelperclasses.cpp
+    kalziumglwidget.cpp
+    openbabel2wrapper.cpp
+    )
+  kde4_add_ui_files(kalzium_SRCS
+    latticeviewer.ui
+    )
+  include_directories( ${OPENBABEL2_INCLUDE_DIR} )
+  add_subdirectory(widgets)
 endif(OPENBABEL2_FOUND AND OPENGL_FOUND)
 
 kde4_automoc(kalzium ${kalzium_SRCS})
@@ -67,7 +77,6 @@ kde4_add_ui_files(kalzium_SRCS
    rswidget.ui
    moleculeviewerwidget.ui
    timewidget.ui
-   equationview.ui
 )
 
 kde4_add_kcfg_files(kalzium kalzium_SRCS prefs.kcfgc )
@@ -90,5 +99,3 @@ install( FILES kalzium.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES kalziumui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kalzium )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
-
-add_subdirectory(solver)
