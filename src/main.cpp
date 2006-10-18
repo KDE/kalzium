@@ -55,6 +55,7 @@ int main(int argc, char **argv)
                      KAboutData::License_GPL, "(C) 2002-2006 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
     about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );
     about.addCredit( "Pino Toscano", I18N_NOOP("Code contributions" ));
+    about.addCredit( "Benoit Jacob", I18N_NOOP( "The OpenGL-support" ));
     about.addCredit( "Thomas Nagy", I18N_NOOP("Contributed EqChem, the equation solver" ));
     about.addCredit( "Jörg Buchwald", I18N_NOOP("Contributed most isotope information" ));
     about.addCredit( "Marco Martin", I18N_NOOP("Thank you for some icons and inspiration for others" ));
@@ -63,7 +64,6 @@ int main(int argc, char **argv)
     about.addCredit( "Brian Beck", I18N_NOOP( "The orbits-icon" ));
     about.addCredit( "Lee Olson", I18N_NOOP( "Several icons in the information dialog" ));
     about.addCredit( "Inge Wallin", I18N_NOOP( "Code cleaning, the molecule parser and a lot of smaller improvements" ));
-    about.addCredit( "Benoit Jacob", I18N_NOOP( "The OpenGL-support" ));
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;

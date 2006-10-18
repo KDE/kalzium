@@ -227,8 +227,6 @@ void ElementDataViewer::setupAxisData()
 
 void ElementDataViewer::drawPlot()
 {
-    kDebug() << "ElementDataViewer::drawPlot()" << endl;
-
     /*
      * to be 100% safe delete the old list
      */
