@@ -135,14 +135,12 @@ struct Color
 	 * the atom should be rendered. */
 	Color( const OpenBabel::OBAtom *atom );
 
-	Color& operator=( const Color& other );
-
 	/**
 	 * Sets this color to be the one used by OpenGL for rendering
 	 * when lighting is disabled. */
 	inline void apply()
 	{
-		glColor4fv( reinterpret_cast<GLfloat *>( this ) );
+		glColor4fv( &m_red );
 	}
 
 	/**

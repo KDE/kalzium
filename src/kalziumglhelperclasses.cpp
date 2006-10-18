@@ -63,16 +63,6 @@ Color::Color( const OBAtom* atom )
 	m_alpha = 1.0;
 }
 
-Color& Color::operator=( const Color& other )
-{
-	m_red = other.m_red;
-	m_green = other.m_green;
-	m_blue = other.m_blue;
-	m_alpha = other.m_alpha;
-
-	return *this;
-}
-
 void Color::applyAsMaterials()
 {
 	GLfloat ambientColor [] = { m_red / 2, m_green / 2, m_blue / 2,
