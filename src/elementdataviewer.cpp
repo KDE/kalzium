@@ -73,9 +73,11 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 	connect( m_timer, SIGNAL( timeout() ), 
           this, SLOT( drawPlot() ) );
 	connect( ui.KCB_y, SIGNAL( activated(int) ),
-	         this, SLOT( drawPlot()) );
+	         this, SLOT( rangeChanged()) );
+	connect( ui.KCB_x, SIGNAL( activated(int) ),
+	         this, SLOT( rangeChanged()) );
 	connect( ui.comboElementLabels, SIGNAL( activated( int ) ),
-	         this, SLOT( drawPlot()) );
+	         this, SLOT( rangeChanged()) );
 	connect( ui.from, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( rangeChanged() ) );
 	connect( ui.to, SIGNAL( valueChanged( int ) ),
@@ -280,6 +282,9 @@ void ElementDataViewer::drawPlot()
      */
     if( m_yData->currentDataType != ui.KCB_y->currentIndex() )
         initData();
+    
+    if( m_xData->currentDataType != ui.KCB_x->currentIndex() )
+        initData();
 
     /*
      * if the user selected the elements 20 to 30 the list-values are 19 to 29!!!
@@ -304,9 +309,9 @@ void ElementDataViewer::drawPlot()
     KPlotObject* dataPoint = 0;
     KPlotObject* dataPointLabel = 0;
 
-    double av = 0.0;
-    double max;
-    double min = max = m_yData->value( from );
+    double av_y = 0.0;
+    double max_y = 0.0;
+    double min_y = 0.0;
 
     /*
      * iterate for example from element 20 to 30 and contruct
@@ -314,37 +319,34 @@ void ElementDataViewer::drawPlot()
      */
     for( int i = from; i < to+1 ; i++ )
     {
-        double v = m_yData->value( i );
+        double value_y = m_yData->value( i );
+        double value_x = m_xData->value( i );
 
-        if ( v >= 0.0 )
+        dataPoint = new KPlotObject( "Test", 
+                Qt::blue, 
+                KPlotObject::POINTS, 
+                4, 
+                KPlotObject::CIRCLE );
+
+        //create the datepoint's x/y
+        QPointF *position = new QPointF( value_x, value_y );
+
+        dataPoint->addPoint( position );
+        ui.plotwidget->addObject( dataPoint );
+
+        if ( whatShow > 0 )//FIXME What the _heck_ is this for?!
         {
-            if ( v < min )
-                min = v;
-            if ( v > max )
-                max = v;
-            av += v;
-            dataPoint = new KPlotObject( "Test", 
-                    Qt::blue, 
-                    KPlotObject::POINTS, 
-                    4, 
-                    KPlotObject::CIRCLE );
-            dataPoint->addPoint( new QPointF( (double)i, v ) );
-            ui.plotwidget->addObject( dataPoint );
-
-            if ( whatShow > 0 )
-            {
-                QString lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
-                dataPointLabel = new KPlotObject( lbl, Qt::red, KPlotObject::LABEL );
-                dataPointLabel->addPoint( new QPointF( (double)i, v ) );
-                ui.plotwidget->addObject( dataPointLabel );
-            }
+            QString lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
+            dataPointLabel = new KPlotObject( lbl, Qt::red, KPlotObject::LABEL );
+            dataPointLabel->addPoint( new QPointF( (double)i, value_y ) );
+            ui.plotwidget->addObject( dataPointLabel );
         }
     }
 
     //now set the values for the min, max and avarage value
-    ui.aValue->setText( QString::number( av / num ) );
-    ui.minimum->setText( QString::number( min ) );
-    ui.maximum->setText( QString::number( max ) );
+//X     ui.aValue->setText( QString::number( av / num ) );
+//X     ui.minimum->setText( QString::number( min ) );
+//X     ui.maximum->setText( QString::number( max ) );
 }
 
 void ElementDataViewer::initData()

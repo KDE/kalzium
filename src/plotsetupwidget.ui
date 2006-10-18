@@ -49,12 +49,12 @@
        </item>
        <item>
         <property name="text" >
-         <string>Mean Mass</string>
+         <string>Mass</string>
         </property>
        </item>
        <item>
         <property name="text" >
-         <string>Mass</string>
+         <string>Mean Mass</string>
         </property>
        </item>
        <item>
