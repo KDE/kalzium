@@ -309,9 +309,12 @@ void ElementDataViewer::drawPlot()
     KPlotObject* dataPoint = 0;
     KPlotObject* dataPointLabel = 0;
 
+    double av_x = 0.0;
+    double max_x = m_xData->value(from);
+    double min_x = m_xData->value(from);
     double av_y = 0.0;
-    double max_y = 0.0;
-    double min_y = 0.0;
+    double max_y = m_yData->value(from);
+    double min_y = m_yData->value(from);
 
     /*
      * iterate for example from element 20 to 30 and contruct
@@ -321,6 +324,22 @@ void ElementDataViewer::drawPlot()
     {
         double value_y = m_yData->value( i );
         double value_x = m_xData->value( i );
+
+        av_x += value_x;
+        av_y += value_y;
+
+        if (value_x > max_x) {
+            max_x = value_x;
+        }
+        if (value_y > max_y) {
+            max_y = value_y;
+        }
+        if (value_x < min_x) {
+            min_x = value_x;
+        }
+        if (value_y < min_y) {
+            min_y = value_y;
+        }
 
         dataPoint = new KPlotObject( "Test", 
                 Qt::blue, 
@@ -344,9 +363,12 @@ void ElementDataViewer::drawPlot()
     }
 
     //now set the values for the min, max and avarage value
-//X     ui.aValue->setText( QString::number( av / num ) );
-//X     ui.minimum->setText( QString::number( min ) );
-//X     ui.maximum->setText( QString::number( max ) );
+    ui.av_x->setText( QString::number( av_x / num ) );
+    ui.minimum_x->setText( QString::number( min_x ) );
+    ui.maximum_x->setText( QString::number( max_x ) );
+    ui.av_y->setText( QString::number( av_y / num ) );
+    ui.minimum_y->setText( QString::number( min_y ) );
+    ui.maximum_y->setText( QString::number( max_y ) );
 }
 
 void ElementDataViewer::initData()
