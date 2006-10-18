@@ -39,7 +39,7 @@
 #include "searchwidget.h"
 #include "config-kalzium.h"
 #ifdef HAVE_FACILE
-//#include "eqchemview.h"
+#include "eqchemview.h"
 #endif
 #ifdef HAVE_OPENBABEL2
 #include "moleculeview.h"
@@ -168,6 +168,7 @@ void Kalzium::setupActions()
 	m_EQSolverAction = new KAction( KIcon( "eqchem" ), i18n( "&Equation Solver..." ), actionCollection(), "tools_eqsolver" );
 #ifdef HAVE_FACILE
 	connect( m_EQSolverAction, SIGNAL( triggered() ), this, SLOT( slotShowEQSolver() ) );
+	m_EQSolverAction->setEnabled( true );
 #else
 	m_EQSolverAction->setEnabled( false );
 #endif
@@ -308,8 +309,8 @@ void Kalzium::slotTables()
 void Kalzium::slotShowEQSolver()
 {
 #ifdef HAVE_FACILE
-//X 	EQChemDialog *dlg = new EQChemDialog( this );
-//X 	dlg->show();
+	EQChemDialog *dlg = new EQChemDialog( this );
+	dlg->show();
 #endif
 }
 
