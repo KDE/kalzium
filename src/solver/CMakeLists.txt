@@ -41,12 +41,13 @@ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/solver.o
                    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/solver.o ${LIBFACILE_INCLUDE_DIR}/facile.cmxa  ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx ${CMAKE_CURRENT_BINARY_DIR}/parser.cmx ${CMAKE_CURRENT_BINARY_DIR}/lexer.cmx ${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmx ${CMAKE_CURRENT_BINARY_DIR}/chem.cmx ${CMAKE_CURRENT_BINARY_DIR}/calc.cmx
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
+
+if(KDE4_BUILD_TESTS)
 add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/main.cmx
                    COMMAND ${OCAMLOPT_EXECUTABLE}  ARGS -I +facile -c main.ml
                    DEPENDS main.ml
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
-if(KDE4_BUILD_TESTS)
 set(atestprog.opt_SRCS main.cmx ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx ${CMAKE_CURRENT_BINARY_DIR}/parser.cmx ${CMAKE_CURRENT_BINARY_DIR}/lexer.cmx ${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmx ${CMAKE_CURRENT_BINARY_DIR}/chem.cmx ${CMAKE_CURRENT_BINARY_DIR}/calc.cmx  )
 
 add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/atestprog.opt
