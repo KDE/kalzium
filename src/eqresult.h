@@ -21,69 +21,49 @@
 #ifndef _EQRESULT_H_
 #define _EQRESULT_H_
 
-#include <q3listbox.h>
+#include <QListWidget>
 #include <q3simplerichtext.h>
 
 /**
  * @author Thomas Nagy
  */
-class QuestionItem : public Q3ListBoxItem
+class QuestionItem : public QListWidgetItem
 {
     public:
-	QuestionItem( Q3ListBox*, const QString&, QColor bg );
+        QuestionItem( QListWidget*, const QString& );
     protected:
-	void paint( QPainter* p );
-	int width( const Q3ListBox* ) const;
-	int height( const Q3ListBox* ) const;
+        void paint( QPainter* p );
+        int width( const QListWidget* ) const;
+        int height( const QListWidget* ) const;
     private:
-	QString m_msg;
-	QColor m_bgcolor;
+        QString m_msg;
 };
 
 /**
  * @author Thomas Nagy
  */
-class AnswerItem : public Q3ListBoxItem
+class AnswerItem : public QListWidgetItem
 {
     public:
-	AnswerItem(  Q3ListBox*, const QString&, const QString&, QColor bg );
-	~AnswerItem() { delete m_richtext; }
-	void checkSize();
+        AnswerItem(  QListWidget*, const QString&, const QString& );
+        ~AnswerItem() { 
+            delete m_richtext; 
+        }
+        void checkSize();
     protected:
-	void paint( QPainter* p );
-	int width( const Q3ListBox* ) const{
-		return m_richtext->height();
-	}
-	
-	int height( const Q3ListBox* ) const{
-		return m_richtext->height();
-	}
-	
+        void paint( QPainter* p );
+        int width( const QListWidget* ) const{
+            return m_richtext->height();
+        }
+
+        int height( const QListWidget* ) const{
+            return m_richtext->height();
+        }
+
     private:
-	QString m_msg;
-	QString m_origmsg;
-	QColor m_bgcolor;
-	Q3SimpleRichText * m_richtext;
-};
-
-/**
- * @author Thomas Nagy
- */
-class EqResult : public Q3ListBox
-{
-    Q_OBJECT
-public:
-    
-    EqResult(QWidget *parent);
-    ~EqResult();
-
-public slots:
-    void add(const QString &, const QString &);
-    void scrollToEnd();
-    void resizeEvent( QResizeEvent* );
-
-private:
-    bool m_alternate_color;
+        QString m_msg;
+        QString m_origmsg;
+        Q3SimpleRichText * m_richtext;
 };
 
 #endif // _EQRESULT_H_

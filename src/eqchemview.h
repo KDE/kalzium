@@ -21,85 +21,30 @@
 #ifndef _EQCHEMVIEW_H_
 #define _EQCHEMVIEW_H_
 
-#include <QWidget>
+#include <kdialog.h>
 
-#include <kdialogbase.h>
-
-class QPainter;
-class KUrl;
-class EqResult;
-
-class KLineEdit;
-class KPushButton;
-
-/**
- * This is the main view class for eqchem.  Most of the non-menu,
- * non-toolbar, and non-statusbar (e.g., non frame) GUI code should go
- * here.
- *
- * @brief Main view
- * @author Thomas Nagy <tnagy2^8\@yahoo.fr>
- * @version 0.1
- */
-class eqchemView : public QWidget
-{
-    Q_OBJECT
-public:
-	/**
-	 * Default constructor
-	 */
-    eqchemView(QWidget *parent);
-
-	/**
-	 * Destructor
-	 */
-    virtual ~eqchemView();
-
-signals:
-    /**
-     * Use this signal to change the content of the statusbar
-     */
-    void signalChangeStatusbar(const QString& text);
-
-    /**
-     * Use this signal to change the content of the caption
-     */
-    void signalChangeCaption(const QString& text);
-
-public slots:
-    void clear();
-    void compute();
-
-    
-private slots:
-    void settingsChanged();
-
-private:
-    KLineEdit * m_eqedit;
-    KPushButton * m_eqclear;
-    EqResult * m_eqResult;
-};
+#include "ui_equationview.h"
 
 /**
  * @author Carsten Niehaus
  */
-class EQChemDialog : public KDialogBase
+class EQChemDialog : public KDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public: 
-		/**
-		 * public constructor
-		 *
-		 * @param parent the parent widget
-		 */
-		EQChemDialog( QWidget *parent );
+    public: 
+        /**
+         * public constructor
+         *
+         * @param parent the parent widget
+         */
+        EQChemDialog( QWidget *parent );
 
-	private slots:
-		/**
-		 * invokes the help for this widget
-		 */
-		virtual void slotHelp();
+    private:
+        Ui::EquationView ui;
+
+    public slots:
+        void slotUser1();
 };
 
 #endif // _EQCHEMVIEW_H_

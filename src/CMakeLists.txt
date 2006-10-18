@@ -33,6 +33,8 @@ set(kalzium_SRCS
    search.cpp
    searchwidget.cpp
    rsdialog.cpp
+   eqresult.cpp
+   eqchemview.cpp
 )
 
 if(OPENBABEL2_FOUND AND OPENGL_FOUND)
@@ -65,6 +67,7 @@ kde4_add_ui_files(kalzium_SRCS
    rswidget.ui
    moleculeviewerwidget.ui
    timewidget.ui
+   equationview.ui
 )
 
 kde4_add_kcfg_files(kalzium kalzium_SRCS prefs.kcfgc )

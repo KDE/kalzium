@@ -28,19 +28,17 @@
 
 // inspired by speedcrunch
 
-QuestionItem::QuestionItem( Q3ListBox* listBox, const QString& e, QColor bg ):
-Q3ListBoxItem ( listBox )
+QuestionItem::QuestionItem( QListWidget* listBox, const QString& e ):
+    QListWidgetItem ( listBox )
 {
     m_msg = e;
-    m_bgcolor = bg;
 }
 
-AnswerItem::AnswerItem( Q3ListBox* listBox, const QString& e, const QString &r, QColor bg ):
-Q3ListBoxItem ( listBox )
+AnswerItem::AnswerItem( QListWidget* listBox, const QString& e, const QString &r ):
+    QListWidgetItem ( listBox )
 {
     m_msg = "<p align=\"right\">"+r+"</p>";
     m_origmsg = e;
-    m_bgcolor = bg;
     m_richtext = new Q3SimpleRichText(m_msg, listBox->font());
     m_richtext->setWidth( listBox->width() );
 }
@@ -49,8 +47,8 @@ void QuestionItem::paint( QPainter* painter )
 {
     int tf = Qt::TextHideMnemonic | Qt::TextSingleLine | Qt::AlignVCenter;
 
-    QRect r ( 0, 0, listBox()->contentsWidth(), height( listBox() ) );
-    painter->fillRect( r, m_bgcolor );
+    QRect r ( 0, 0, listWidget()->width(), height( listWidget() ) );
+    painter->fillRect( r, background() );
     painter->drawText( r, tf, m_msg );
 }
 
@@ -58,22 +56,19 @@ void AnswerItem::paint( QPainter* painter )
 {
     checkSize();
 
-    QRect r ( 0, 0, listBox()->contentsWidth(), height( listBox() ) );
-    painter->fillRect( r, m_bgcolor );
+    QRect r ( 0, 0, listWidget()->width(), height( listWidget() ) );
+    painter->fillRect( r, background() );
 
-    QColorGroup cg = listBox()->colorGroup();
-    cg.setColor( QPalette::Background, m_bgcolor );
-
-    m_richtext->draw(painter, 0, 0, r, cg );
+//X     m_richtext->draw(painter, 0, 0, r, cg );
 }
 
-int QuestionItem::width( const Q3ListBox*lb ) const
+int QuestionItem::width( const QListWidget*lb ) const
 {
     QFont font = lb->font();
     return QFontMetrics( font ).width( m_msg );
 }
 
-int QuestionItem::height( const Q3ListBox*lb ) const
+int QuestionItem::height( const QListWidget*lb ) const
 {
     QFont font = lb->font();
     return QFontMetrics( font ).height() + 4;
@@ -81,47 +76,12 @@ int QuestionItem::height( const Q3ListBox*lb ) const
 
 void AnswerItem::checkSize()
 {
-    QFont font = listBox()->font();
+    QFont font = listWidget()->font();
     int t1 = QFontMetrics( font ).width( m_origmsg+"padding" );
-    int t2 = listBox()->width() - 20;
+    int t2 = listWidget()->width() - 20;
 
     // take the maximum
     m_richtext->setWidth(   (t1>t2)?t1:t2   );
-}
-
-EqResult::EqResult(QWidget *parent) : Q3ListBox(parent)
-{
-    m_alternate_color = false;
-    setMinimumWidth(140);
-}
-
-EqResult::~EqResult()
-{
-}
-
-void EqResult::add(const QString & question, const QString & answer)
-{
-    QColor bgcolor = colorGroup().base();
-
-    if ( m_alternate_color )
-	bgcolor = bgcolor.dark( 120 );
-
-    m_alternate_color = !m_alternate_color;
-
-    new QuestionItem( this, question, bgcolor );
-    new AnswerItem( this, question, answer, bgcolor );
-
-    QTimer::singleShot( 100, this, SLOT( scrollToEnd() ) );
-}
-
-void EqResult::scrollToEnd()
-{
-    ensureVisible( 0, contentsHeight()-1 );
-}
-
-void EqResult::resizeEvent( QResizeEvent* )
-{
-    triggerUpdate( true );
 }
 
 #include "eqresult.moc"
