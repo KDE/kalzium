@@ -5,9 +5,6 @@ include_directories(
    ${CMAKE_CURRENT_BINARY_DIR}/..
 )
 
-#why???
-add_definitions(-D_ISOC99_SOURCE)
-
 ########### next target ###############
 
 set(kalzium_SRCS
