@@ -44,6 +44,10 @@ Glossary::Glossary()
 
 Glossary::~Glossary()
 {
+    foreach ( GlossaryItem * item, m_itemlist ) {
+        delete item;
+        item = 0;
+    }
 }
 
 void Glossary::init( const KUrl& url, const QString& path )
@@ -120,21 +124,17 @@ void Glossary::setBackgroundPicture( const QString& filename )
 
 void Glossary::fixImagePath()
 {
-	kDebug() << "Glossary::fixImagePath()" << endl;
-	QList<GlossaryItem*>::iterator it = m_itemlist.begin();
-	const QList<GlossaryItem*>::iterator itEnd = m_itemlist.end();
 	QString imgtag = "<img src=\"" + m_picturepath + '/' + "\\1\" />";
 	QRegExp exp( "\\[img\\]([^[]+)\\[/img\\]" );
 
-	for ( ; it != itEnd ; ++it )
-	{
-		QString tmp = ( *it )->desc();
-		while ( exp.indexIn( tmp ) > -1 )
-		{
-			tmp = tmp.replace( exp, imgtag );
-		}
-		( *it )->setDesc( tmp );
-	}
+  foreach (GlossaryItem * item, m_itemlist) {
+      QString tmp = item->desc();
+      while ( exp.indexIn( tmp ) > -1 )
+      {
+          tmp = tmp.replace( exp, imgtag );
+      }
+      item->setDesc( tmp );
+  }
 }
 
 QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
@@ -256,6 +256,10 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 
 GlossaryDialog::~GlossaryDialog()
 {
+    foreach ( Glossary * glossar, m_glossaries ) {
+        delete glossar;
+        glossar = 0;
+    }
 }
 
 void GlossaryDialog::keyPressEvent(QKeyEvent* e)
@@ -290,40 +294,31 @@ void GlossaryDialog::displayItem( const KUrl& url, const KParts::URLArgs& )
 
 void GlossaryDialog::updateTree()
 {
-	m_glosstree->clear();
+    m_glosstree->clear();
 
-	QList<Glossary*>::const_iterator itGl = m_glossaries.begin();
-	const QList<Glossary*>::const_iterator itGlEnd = m_glossaries.end();
-	
-	for ( ; itGl != itGlEnd ; ++itGl )
-	{
-		QList<GlossaryItem*> items = ( *itGl )->itemlist();
-		QList<GlossaryItem*>::iterator it = items.begin();
-		const QList<GlossaryItem*>::iterator itEnd = items.end();
+    foreach (Glossary * glossar, m_glossaries) {
+        Q3ListViewItem *main = new Q3ListViewItem( m_glosstree, glossar->name() );
+        main->setExpandable( true );
+        main->setSelectable( false );
+        foreach (GlossaryItem * item, glossar->itemlist()) {
+            if ( m_folded )
+            {
+                QChar thisletter = item->name().toUpper()[0];
+                Q3ListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
+                if ( !thisletteritem )
+                {
+                    thisletteritem = new Q3ListViewItem( main, QString(thisletter) );
+                    thisletteritem->setExpandable( true );
+                    thisletteritem->setSelectable( false );
+                }
+                new Q3ListViewItem( thisletteritem, item->name() );
+            }
+            else
+                new Q3ListViewItem( main, item->name() );
 
-		Q3ListViewItem *main = new Q3ListViewItem( m_glosstree, ( *itGl )->name() );
-		main->setExpandable( true );
-		main->setSelectable( false );
-
-		for ( ; it != itEnd ; ++it )
-		{
-			if ( m_folded )
-			{
-				QChar thisletter = ( *it )->name().toUpper()[0];
-				Q3ListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
-				if ( !thisletteritem )
-				{
-					thisletteritem = new Q3ListViewItem( main, QString(thisletter) );
-					thisletteritem->setExpandable( true );
-					thisletteritem->setSelectable( false );
-				}
-				new Q3ListViewItem( thisletteritem, ( *it )->name() );
-			}
-			else
-				new Q3ListViewItem( main, ( *it )->name() );
-		}
-		main->sort();
-	}
+        }
+        main->sort();
+    }
 }
 
 void GlossaryDialog::addGlossary( Glossary* newgloss )
@@ -331,9 +326,6 @@ void GlossaryDialog::addGlossary( Glossary* newgloss )
 	if ( !newgloss ) return;
 	if ( newgloss->isEmpty() ) return;
 	m_glossaries.append( newgloss );
-
-	kDebug() << "Count of the new glossary: " << newgloss->itemlist().count() << endl;
-	kDebug() << "Number of glossaries: " << m_glossaries.count() << endl;
 
 	updateTree();
 }
