@@ -22,6 +22,7 @@
 #include <QString>
 
 #include <kdebug.h>
+#include "config-kalzium.h"
 
 #include "eqchemview.h"
 
@@ -31,12 +32,10 @@
 
 #ifdef HAVE_FACILE
 extern "C" {
-    kDebug() << "Solving" << endl;
     char* solve_equation(const char *);
 }
 #else
 char* solve_equation(const char *) {
-    kDebug() << "Cannot solve, error" << endl;
     return NULL; 
 }
 #endif

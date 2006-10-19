@@ -29,7 +29,6 @@
 #include "timewidget_impl.h"
 #include "kalziumdataobject.h"
 #include "nuclideboard.h"
-#include "config.h"
 #include "kalziumnumerationtype.h"
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
@@ -38,9 +37,12 @@
 #include "search.h"
 #include "searchwidget.h"
 #include "config-kalzium.h"
+#include "config.h"
+
 #ifdef HAVE_FACILE
 #include "eqchemview.h"
 #endif
+
 #ifdef HAVE_OPENBABEL2
 #include "moleculeview.h"
 #include "latticedialog.h"
