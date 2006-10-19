@@ -31,12 +31,14 @@
 
 #ifdef HAVE_FACILE
 extern "C" {
+    kDebug() << "Solving" << endl;
     char* solve_equation(const char *);
 }
-#endif
-
-#ifndef HAVE_FACILE
-char* solve_equation(const char *) { return NULL; }
+#else
+char* solve_equation(const char *) {
+    kDebug() << "Cannot solve, error" << endl;
+    return NULL; 
+}
 #endif
 
 void EQChemDialog::compute()
