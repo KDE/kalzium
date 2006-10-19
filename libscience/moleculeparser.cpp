@@ -87,11 +87,9 @@ ElementCountMap::add(Element *_element, int _count)
 void
 ElementCountMap::multiply(int _factor)
 {
-	Iterator  it    = begin();
-	Iterator  itEnd = end();
-
-	for (; it != itEnd; ++it)
-		(*it)->multiply(_factor);
+  foreach (ElementCount * count, m_map) {
+      count->multiply(_factor);
+  }
 }
 
 
@@ -114,7 +112,7 @@ MoleculeParser::MoleculeParser(const QString& _str)
 
 MoleculeParser::~MoleculeParser()
 {
-    //Parser::~Parser();
+    qDeleteAll(m_elementList);
 }
 
 

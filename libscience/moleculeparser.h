@@ -104,7 +104,9 @@ class EDUSCIENCE_EXPORT ElementCountMap
 		/**
 		 * Clear the map of ElementCount pointers
 		 */
-		void  clear()          { m_map.clear(); }
+		void  clear(){ 
+        m_map.clear(); 
+    }
 
 		/**
 		 * @param _element the searched Element
@@ -135,20 +137,9 @@ class EDUSCIENCE_EXPORT ElementCountMap
 		 */
 		void           multiply(int _factor);
 
-		/**
-		 * typedef
-		 */
-		typedef QList<ElementCount*>::Iterator  Iterator;
-
-		/**
-		 *
-		 */
-		Iterator   begin() { return  m_map.begin(); }
-
-		/**
-		 *
-		 */
-		Iterator   end()   { return  m_map.end();   }
+		QList<ElementCount*>  map(){
+        return m_map;
+    }
 
 	private:
 		QList<ElementCount*>  m_map;

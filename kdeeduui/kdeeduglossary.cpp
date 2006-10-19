@@ -44,10 +44,7 @@ Glossary::Glossary()
 
 Glossary::~Glossary()
 {
-    foreach ( GlossaryItem * item, m_itemlist ) {
-        delete item;
-        item = 0;
-    }
+    qDeleteAll(m_itemlist);
 }
 
 void Glossary::init( const KUrl& url, const QString& path )
