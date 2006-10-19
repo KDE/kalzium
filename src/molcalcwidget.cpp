@@ -91,14 +91,12 @@ void MolcalcWidget::updateUI()
 		QString complexString;
 
 		// Create the list of elements making up the molecule
-		ElementCountMap::Iterator  it    = m_elementMap.begin();
-		const ElementCountMap::Iterator  itEnd = m_elementMap.end();
-		for ( ; it != itEnd; ++it ) {
-			// Update the resultLabel
-			str += i18nc( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" ,
-				  (*it)->count() ,
-				  (*it)->element()->dataAsString( ChemicalDataObject::name) );
-		}
+    foreach (ElementCount * count , m_elementMap.map()) {
+        // Update the resultLabel
+        str += i18nc( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" ,
+                count->count() ,
+                count->element()->dataAsString( ChemicalDataObject::name) );
+    }
 		ui.resultLabel->setText( str );
 
 		// The composition
@@ -134,13 +132,11 @@ QString MolcalcWidget::compositionString( ElementCountMap &_map )
 {
 	QString  str;
 
-	ElementCountMap::Iterator  it    = _map.begin();
-	ElementCountMap::Iterator  itEnd = _map.end();
-	for (; it != itEnd; ++it) {
-		str += i18n( "%1<sub>%2</sub> " ,
-			  (*it)->element()->dataAsString( ChemicalDataObject::symbol ) ,
-			  (*it)->count() );
-	}
+  foreach (ElementCount * count, _map.map()) {
+      str += i18n( "%1<sub>%2</sub> " ,
+              count->element()->dataAsString( ChemicalDataObject::symbol ) ,
+              count->count() );
+  }
 
 	return str;
 }
