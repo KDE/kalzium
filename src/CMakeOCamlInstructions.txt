@@ -66,19 +66,20 @@ add_custom_command(OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.cmx
 
 
 add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/solver/lexer.cmx
-                   COMMAND ${OCAMLOPT_EXECUTABLE}  ARGS -I +facile -c lexer.ml
-                   DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/solver/parser.ml solver/lexer.ml
-                   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+                   COMMAND ${OCAMLOPT_EXECUTABLE}  ARGS -I +facile -c ${CMAKE_CURRENT_SOURCE_DIR}/solver/lexer.ml
+                   DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.ml ${CMAKE_CURRENT_SOURCE_DIR}/solver/lexer.ml
+                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/solver)
 
-add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/solver/modwrap.o
-                   COMMAND ${OCAMLOPT_EXECUTABLE}  ARGS -I +facile -c modwrap.c
-                   DEPENDS solver/modwrap.c
-                   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+add_custom_command(OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.o
+                   COMMAND ${OCAMLOPT_EXECUTABLE}  ARGS -I +facile -c ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c
+                   DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c ${CMAKE_CURRENT_SOURCE_DIR}/solver/solver.o
+                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/solver)
 
 add_custom_command(OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/solver/solver.o
                    COMMAND ${OCAMLOPT_EXECUTABLE}  ARGS -output-obj -o ${CMAKE_CURRENT_SOURCE_DIR}/solver/solver.o ${LIBFACILE_INCLUDE_DIR}/facile.cmxa  ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/lexer.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.cmx
                    DEPENDS ${LIBFACILE_INCLUDE_DIR}/facile.cmxa  ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/lexer.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.cmx
-                   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
 
 
 if(KDE4_BUILD_TESTS)
