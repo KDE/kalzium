@@ -227,7 +227,7 @@ class KalziumGLWidget : public QGLWidget
 			const QPoint * mousePosition = 0,
 			GLsizei selectionBufferSize = 0,
 			GLuint * selectionBuffer = 0,
-			GLint * numberOfHits = 0 );
+			GLuint * numberOfHits = 0 );
 
 		/**
 		 * recomputes the geometry of the geometric objects ( sphere,

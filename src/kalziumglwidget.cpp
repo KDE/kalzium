@@ -124,7 +124,7 @@ void KalziumGLWidget::renderScene( GLenum renderMode,
 			const QPoint *mousePosition,
 			GLsizei selectionBufferSize,
 			GLuint *selectionBuffer,
-			GLint *numberOfHits )
+			GLuint *numberOfHits )
 {
 	// if renderMode is not GL_RENDER, check that it is GL_SELECT and that
 	// the required arguments have been passed
@@ -591,8 +591,14 @@ void KalziumGLWidget::computeClickedAtom(
 	if( ! m_molecule ) return;
 
 	const GLsizei selectionBufferSize = 1024;
-	GLuint selectionBuffer[selectionBufferSize];
-	GLint numberOfHits;
+
+	GLuint i, names,
+	       minZ = 0xffffffff,
+	       *ptrNames = 0,
+	       numberOfNames = 0,
+	       numberOfHits,
+	       selectionBuffer[selectionBufferSize],
+	       *ptr = selectionBuffer;
 
 	renderScene( GL_SELECT,
 		&mousePosition,
@@ -600,11 +606,7 @@ void KalziumGLWidget::computeClickedAtom(
 		selectionBuffer,
 		&numberOfHits );
 
-	unsigned int i, j;
-	GLuint names, *ptr = selectionBuffer,
-		minZ = 0xffffffff,
-		*ptrNames,
-		numberOfNames = 0;
+
 	for( i = 0; i < numberOfHits; i++ )
 	{
 		names = *ptr;
@@ -618,7 +620,7 @@ void KalziumGLWidget::computeClickedAtom(
 		ptr += names+2;
 	}
 
-	for( j = 0, ptr = ptrNames; j < numberOfNames; j++, ptr++ )
+	for( i = 0, ptr = ptrNames; i < numberOfNames; i++, ptr++ )
 		if( *ptr )
 		{
 			m_clickedAtom = m_molecule->GetAtom( *ptr );
