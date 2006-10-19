@@ -81,9 +81,9 @@ void SpectrumWidget::paintEvent( QPaintEvent * /*e*/ )
 		drawZoomLine( &p );
 
 	p.end();
-	bitBlt( this, 0, 0, &m_pixmap );
 
-//  p.drawPixmap(0,0,m_pixmap);
+	QPainter p2(this);
+	p2.drawPixmap(0, 0, m_pixmap);
 }
 
 void SpectrumWidget::drawZoomLine( QPainter* p )
