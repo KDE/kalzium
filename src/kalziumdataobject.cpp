@@ -107,6 +107,10 @@ KalziumDataObject::KalziumDataObject()
 
 KalziumDataObject::~KalziumDataObject()
 {
+    foreach (Element * e, ElementList) {
+        delete e;
+        e = 0;
+    }
 }
 
 Element* KalziumDataObject::element( int number )
