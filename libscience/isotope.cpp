@@ -30,6 +30,21 @@ Isotope::Isotope()
 
 Isotope::~Isotope()
 {
+		delete m_parentElementSymbol;
+		delete m_mass;
+		delete m_identifier;
+		delete m_spin;
+		delete m_magmoment;
+		delete m_abundance; 
+		delete m_halflife;
+		delete m_ecdecay;
+		delete m_betaplusdecay;
+		delete m_betaminusdecay; 
+		delete m_alphadecay;
+		delete m_eclikeliness;
+		delete m_betapluslikeliness;
+		delete m_betaminuslikeliness; 
+		delete m_alphalikeliness;
 }
 
 void Isotope::addData( ChemicalDataObject* o )

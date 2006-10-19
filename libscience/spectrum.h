@@ -43,7 +43,7 @@ class EDUSCIENCE_EXPORT Spectrum
 		/**
 		 * public destructor
 		 */
-		~Spectrum(){};
+		~Spectrum();
 
 		/**
 		 * a peak is one line in the spectrum of an element

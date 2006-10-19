@@ -42,7 +42,7 @@ class EDUSCIENCE_EXPORT Isotope
 		/**
 		 * Destructor
 		 */
-		virtual ~Isotope();
+		~Isotope();
 
 		/**
 		 * This struct stores the information how the nucleons in the 

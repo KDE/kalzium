@@ -28,9 +28,16 @@ class ChemicalDataObjectPrivate
 		QVariant m_errorValue;
 		ChemicalDataObject::BlueObelisk m_type;
 		ChemicalDataObject::BlueObeliskUnit m_unit;
+
+    ~ChemicalDataObjectPrivate();
 };
 
-ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, const QVariant& errorValue ) : d(new ChemicalDataObjectPrivate()) 
+ChemicalDataObjectPrivate::~ChemicalDataObjectPrivate()
+{
+}
+
+ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, const QVariant& errorValue ) 
+: d(new ChemicalDataObjectPrivate()) 
 {
 	d->m_value = v;
 	d->m_errorValue = errorValue;
@@ -47,7 +54,6 @@ ChemicalDataObject::ChemicalDataObject() : d(new ChemicalDataObjectPrivate())
 
 bool ChemicalDataObject::operator==( const int v ) const
 {
-	kDebug() << "ChemicalDataObject::operator==() with int" << endl;
 	if ( d->m_value.type() != QVariant::Int )	
 		return false;
 	
@@ -56,7 +62,6 @@ bool ChemicalDataObject::operator==( const int v ) const
 
 bool ChemicalDataObject::operator==( const bool v ) const
 {
-	kDebug() << "ChemicalDataObject::operator==() with bool" << endl;
 	if ( d->m_value.type() != QVariant::Bool )	
 		return false;
 	
@@ -65,7 +70,6 @@ bool ChemicalDataObject::operator==( const bool v ) const
 
 bool ChemicalDataObject::operator==( const double v ) const
 {
-	kDebug() << "ChemicalDataObject::operator==() with double" << endl;
 	if ( d->m_value.type() != QVariant::Double )	
 		return false;
 	
@@ -74,7 +78,6 @@ bool ChemicalDataObject::operator==( const double v ) const
 
 bool ChemicalDataObject::operator==( const QString& v ) const
 {
-	kDebug() << "ChemicalDataObject::operator==() with QString" << endl;
 	if ( d->m_value.type() != QVariant::String )	
 		return false;
 

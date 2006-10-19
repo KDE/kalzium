@@ -47,6 +47,10 @@ QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
 
 Element::~Element()
 {
+    qDeleteAll(dataList);
+
+    delete m_spectrum;
+    m_spectrum = 0;
 }
 
 void Element::addData( ChemicalDataObject*o )

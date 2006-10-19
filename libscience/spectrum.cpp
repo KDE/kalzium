@@ -98,4 +98,7 @@ QList<double> Spectrum::wavelengths( double min, double max )
 	return list;
 }
 
-
+Spectrum::~Spectrum()
+{
+    qDeleteAll( m_peaklist );
+}
