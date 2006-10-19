@@ -23,7 +23,6 @@
 
 #include <kdebug.h>
 
-#include "eqresult.h"
 #include "eqchemview.h"
 
 #include "ui_equationview.h"

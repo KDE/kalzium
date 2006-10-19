@@ -137,7 +137,6 @@ set(kalzium_SRCS
 if(LIBFACILE_FOUND)
   set( kalzium_SRCS
     ${kalzium_SRCS}
-    eqresult.cpp
     eqchemview.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/solver/solver.o
     )
