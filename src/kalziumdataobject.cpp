@@ -107,9 +107,14 @@ KalziumDataObject::KalziumDataObject()
 
 KalziumDataObject::~KalziumDataObject()
 {
-    foreach (Element * e, ElementList) {
-        delete e;
-        e = 0;
+    //Delete all elements
+    qDeleteAll(ElementList);
+
+    //Delete all isotopes
+    QHashIterator<int, QList<Isotope*> > i(m_isotopes);
+    while (i.hasNext()) {
+        i.next();
+        qDeleteAll( i.value());
     }
 }
 
