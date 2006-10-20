@@ -52,8 +52,12 @@ class ElementSaxParser::Private
             inRPhrase( false ),
             inSPhrase( false ),
             inCountry( false )
-    {
-    }
+	{}
+
+	~Private()
+	{
+		delete currentDataObject;
+	}
 
         ChemicalDataObject *currentDataObject;
         ChemicalDataObject::BlueObeliskUnit currentUnit;
