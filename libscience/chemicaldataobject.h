@@ -240,6 +240,7 @@ class EDUSCIENCE_EXPORT ChemicalDataObject
 		
 	private:
 		ChemicalDataObjectPrivate *d;
+		static int mycount;
 };
 
 #endif // CHEMICALDATAOBJECT_H

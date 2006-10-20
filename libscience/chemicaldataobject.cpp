@@ -19,6 +19,8 @@
  ***************************************************************************/
 #include "chemicaldataobject.h"
 
+int ChemicalDataObject::mycount = 0;
+
 #include <kdebug.h>
 
 class ChemicalDataObjectPrivate
@@ -39,6 +41,10 @@ ChemicalDataObjectPrivate::~ChemicalDataObjectPrivate()
 ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, const QVariant& errorValue ) 
 : d(new ChemicalDataObjectPrivate()) 
 {
+	mycount++;
+	kDebug() << "CDO non-default contructor. There are now " << mycount
+	         << " allocated CDOs" << endl;
+
 	d->m_value = v;
 	d->m_errorValue = errorValue;
 	d->m_type = type;
@@ -47,7 +53,9 @@ ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, con
 
 ChemicalDataObject::ChemicalDataObject() : d(new ChemicalDataObjectPrivate())
 {
-	d->m_value = QVariant();
+	mycount++;
+	kDebug() << "CDO default contructor. There are now " << mycount
+	         << " allocated CDOs" << endl;	d->m_value = QVariant();
 	d->m_errorValue = QVariant();
 	d->m_unit = ChemicalDataObject::noUnit;
 }
@@ -86,7 +94,9 @@ bool ChemicalDataObject::operator==( const QString& v ) const
 
 ChemicalDataObject::~ChemicalDataObject()
 {
-	delete d;
+	mycount--;
+	kDebug() << "CDO destructor. There are now " << mycount
+	         << " allocated CDOs" << endl;	delete d;
 }
 
 QString ChemicalDataObject::valueAsString() const
