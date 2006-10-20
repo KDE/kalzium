@@ -55,6 +55,9 @@ KalziumDataObject::KalziumDataObject()
 
 	ElementList = parser->getElements();
 
+	//we don't need parser anymore, let's free its memory
+	delete parser;
+
 	// reading isotopes
 	IsotopeParser * isoparser = new IsotopeParser();
 
@@ -66,6 +69,10 @@ KalziumDataObject::KalziumDataObject()
 	isoreader.parse(isosource);
 
 	QList<Isotope*> isotopes = isoparser->getIsotopes();
+
+	//we don't need isoparser anymore, let's free its memory
+	delete isoparser;
+
 	foreach( Isotope *iso, isotopes )
 	{
 		int num = iso->parentElementNumber();
