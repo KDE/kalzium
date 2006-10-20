@@ -36,7 +36,7 @@ set(kalzium_SRCS
 )
 
 if(LIBFACILE_FOUND)
-  include(CMakeOCamlInstructions.txt)
+  include(CMakeOCamlInstructions.cmake)
 
   set( kalzium_SRCS
     ${kalzium_SRCS}
