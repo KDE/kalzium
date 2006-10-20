@@ -40,15 +40,15 @@ static KCmdLineOptions options[] =
 };
 
 #ifdef HAVE_FACILE
-//X extern "C" {
-//X         void caml_startup(char**);
-//X };
+extern "C" {
+         void caml_startup(char**);
+};
 #endif
 
 int main(int argc, char **argv)
 {
 #ifdef HAVE_FACILE
-//X     caml_startup(argv);
+   caml_startup(argv);
 #endif
 
     KAboutData about("kalzium", I18N_NOOP("Kalzium"), version, description,
