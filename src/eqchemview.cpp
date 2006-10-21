@@ -54,11 +54,12 @@ void EQChemDialog::compute()
 
     kDebug() << "Answer: " << answer << endl;
 
+
+    ui.question_label->setText(equation);
+    ui.answer_label->setText(answer);
+
     // mem leak ?
     free(result);
-
-    new QListWidgetItem( equation , ui.listWidget );
-    new QListWidgetItem( answer , ui.listWidget);
 }
 
 EQChemDialog::EQChemDialog( QWidget *parent )

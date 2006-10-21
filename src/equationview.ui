@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>581</width>
-    <height>330</height>
+    <height>463</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -19,24 +19,44 @@
    <property name="spacing" >
     <number>6</number>
    </property>
-   <item row="0" column="0" colspan="2" >
-    <widget class="QListWidget" name="listWidget" >
-     <property name="alternatingRowColors" >
-      <bool>true</bool>
+   <item row="1" column="0" colspan="2" >
+    <widget class="Line" name="line" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="1" column="1" >
+   <item row="3" column="1" >
     <widget class="QLineEdit" name="lineEdit" >
      <property name="text" >
       <string>aCH3(CH2)3COOH + bO2 -> cH2O + dCO2</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="0" >
+   <item row="3" column="0" >
     <widget class="QPushButton" name="pushButton" >
      <property name="text" >
       <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2" >
+    <widget class="QLabel" name="question_label" >
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="textFormat" >
+      <enum>Qt::RichText</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2" >
+    <widget class="QLabel" name="answer_label" >
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="textFormat" >
+      <enum>Qt::RichText</enum>
      </property>
     </widget>
    </item>
