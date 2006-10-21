@@ -46,6 +46,12 @@ public:
 	{
 	}
 
+  ~Private(){
+    delete currentIsotope;
+    delete currentDataObject;
+    //qDeleteAll(isotopes);
+  }
+
 	ChemicalDataObject *currentDataObject;
 	ChemicalDataObject::BlueObeliskUnit currentUnit;
 	QVariant currentErrorValue;
@@ -84,84 +90,82 @@ IsotopeParser::~IsotopeParser()
 
 bool IsotopeParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-//X  	kDebug() << "IsotopeParser::startElement(), localName " << localName << endl;
-	if (localName == "isotopeList") 
-	{
-//X 		kDebug() << "setting inElement true! ========================== NEW ELEMENT ========= " << endl;
-		d->inElement = true;
-		
-		//now save the symbol of the current element
-		for (int i = 0; i < attrs.length(); ++i) 
-		{
-			if ( attrs.localName( i ) == "id" )
-				d->currentElementSymbol = attrs.value( i );
+    if (localName == "isotopeList") 
+    {
+        d->inElement = true;
 
-//X 			kDebug() << "Symbol of the current Element: " << attrs.value( i ) << endl;
-		}
-	} else if ( d->inElement && localName == "isotope") 
-	{
-//X 		kDebug() << "setting inIsotope true!" << endl;
-		d->currentIsotope = new Isotope();
-		d->currentIsotope->addData( new ChemicalDataObject( QVariant( d->currentElementSymbol ), ChemicalDataObject::symbol ) );
-		d->inIsotope = true;
-		for (int i = 0; i < attrs.length(); ++i) 
-		{
-			if ( attrs.localName( i ) == "number" )
-				d->currentIsotope->setNucleons( attrs.value( i ).toInt() );
-		}
-	} else if (d->inIsotope && localName == "scalar")
-	{
-		for (int i = 0; i < attrs.length(); ++i) 
-		{
-			if ( attrs.localName( i ) == "errorValue" )
-			{
-				d->currentErrorValue = QVariant( attrs.value( i ) );
-				continue;
-			}
-			
-			if (attrs.value(i) == "bo:atomicNumber")
-				d->inAtomicNumber = true;
-			else if (attrs.value(i) == "bo:exactMass")
-				d->inExactMass = true;
-			else if (attrs.value(i) == "bo:halfLife"){
-				for (int i = 0; i < attrs.length(); ++i) 
-				{
-					if ( attrs.localName( i ) == "unit" )
-					{
-					d->currentDataObject->setUnit( d->currentUnit );
-					}
-					else
-					{
-					d->currentUnit = ChemicalDataObject::noUnit;
-					}
-				}
-				d->inHalfLife = true;
-			}
-			else if (attrs.value(i) == "bo:alphaDecay")
-				d->inAlphaDecay = true;
-			else if (attrs.value(i) == "bo:alphaDecayLikeliness")
-				d->inAlphaDecayLikeliness = true;
-			else if (attrs.value(i) == "bo:ecDecay")
-				d->inECDecay = true;
-			else if (attrs.value(i) == "bo:ecDecayLikeliness")
-				d->inECDecayLikeliness = true;
-			else if (attrs.value(i) == "bo:betaminusDecay")
-				d->inBetaminusDecay = true;
-			else if (attrs.value(i) == "bo:betaminusDecayLikeliness")
-				d->inBetaminusDecayLikeliness = true;
-			else if (attrs.value(i) == "bo:betaplusDecay")
-				d->inBetaplusDecay = true;
-			else if (attrs.value(i) == "bo:betaplusDecayLikeliness")
-				d->inBetaplusDecayLikeliness = true;
-			else if (attrs.value(i) == "bo:spin")
-				d->inSpin = true;
-			else if (attrs.value(i) == "bo:magneticMoment")
-				d->inMagMoment = true;
-			else if (attrs.value(i) == "bo:relativeAbundance")
-				d->inAbundance = true;
-		} 
-	}
-	return true;
+        //now save the symbol of the current element
+        for (int i = 0; i < attrs.length(); ++i) 
+        {
+            if ( attrs.localName( i ) == "id" )
+                d->currentElementSymbol = attrs.value( i );
+
+            //X 			kDebug() << "Symbol of the current Element: " << attrs.value( i ) << endl;
+        }
+    } else if ( d->inElement && localName == "isotope") 
+    {
+        //X 		kDebug() << "setting inIsotope true!" << endl;
+        d->currentIsotope = new Isotope();
+        d->currentIsotope->addData( new ChemicalDataObject( QVariant( d->currentElementSymbol ), ChemicalDataObject::symbol ) );
+        d->inIsotope = true;
+        for (int i = 0; i < attrs.length(); ++i) 
+        {
+            if ( attrs.localName( i ) == "number" )
+                d->currentIsotope->setNucleons( attrs.value( i ).toInt() );
+        }
+    } else if (d->inIsotope && localName == "scalar")
+    {
+        for (int i = 0; i < attrs.length(); ++i) 
+        {
+            if ( attrs.localName( i ) == "errorValue" )
+            {
+                d->currentErrorValue = QVariant( attrs.value( i ) );
+                continue;
+            }
+
+            if (attrs.value(i) == "bo:atomicNumber")
+                d->inAtomicNumber = true;
+            else if (attrs.value(i) == "bo:exactMass")
+                d->inExactMass = true;
+            else if (attrs.value(i) == "bo:halfLife"){
+                for (int i = 0; i < attrs.length(); ++i) 
+                {
+                    if ( attrs.localName( i ) == "unit" )
+                    {
+                        d->currentDataObject->setUnit( d->currentUnit );
+                    }
+                    else
+                    {
+                        d->currentUnit = ChemicalDataObject::noUnit;
+                    }
+                }
+                d->inHalfLife = true;
+            }
+            else if (attrs.value(i) == "bo:alphaDecay")
+                d->inAlphaDecay = true;
+            else if (attrs.value(i) == "bo:alphaDecayLikeliness")
+                d->inAlphaDecayLikeliness = true;
+            else if (attrs.value(i) == "bo:ecDecay")
+                d->inECDecay = true;
+            else if (attrs.value(i) == "bo:ecDecayLikeliness")
+                d->inECDecayLikeliness = true;
+            else if (attrs.value(i) == "bo:betaminusDecay")
+                d->inBetaminusDecay = true;
+            else if (attrs.value(i) == "bo:betaminusDecayLikeliness")
+                d->inBetaminusDecayLikeliness = true;
+            else if (attrs.value(i) == "bo:betaplusDecay")
+                d->inBetaplusDecay = true;
+            else if (attrs.value(i) == "bo:betaplusDecayLikeliness")
+                d->inBetaplusDecayLikeliness = true;
+            else if (attrs.value(i) == "bo:spin")
+                d->inSpin = true;
+            else if (attrs.value(i) == "bo:magneticMoment")
+                d->inMagMoment = true;
+            else if (attrs.value(i) == "bo:relativeAbundance")
+                d->inAbundance = true;
+        } 
+    }
+    return true;
 }
 
 bool IsotopeParser::endElement( const QString&, const QString& localName, const QString& )

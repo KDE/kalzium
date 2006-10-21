@@ -52,12 +52,14 @@ class ElementSaxParser::Private
             inRPhrase( false ),
             inSPhrase( false ),
             inCountry( false )
-	{}
+    {}
 
-	~Private()
-	{
-		delete currentDataObject;
-	}
+        ~Private()
+        {
+            delete currentDataObject;
+            delete currentElement;
+            //qDeleteAll(elements);
+        }
 
         ChemicalDataObject *currentDataObject;
         ChemicalDataObject::BlueObeliskUnit currentUnit;
@@ -223,7 +225,6 @@ bool ElementSaxParser::endElement( const QString &, const QString& localName, co
     }
     else if ( localName == "scalar" || localName == "label" || localName == "array" )
     {
-        //kDebug() << "Check unit " << d->currentUnit << endl;
         d->currentDataObject->setUnit( d->currentUnit );
     }
     return true;
