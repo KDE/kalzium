@@ -22,6 +22,8 @@ int main(int argc, char *argv[])
     reader.parse(source);
 
     QList<Element*> v = parser->getElements();
+    delete parser;
+
     std::cout << "Found " << v.count() << " elements." << std::endl;
 
     foreach( Element* e, v ){
@@ -40,8 +42,9 @@ int main(int argc, char *argv[])
                 }
             }
         }
-
     }
+
+    qDeleteAll(v);
 
     return 0;
 }

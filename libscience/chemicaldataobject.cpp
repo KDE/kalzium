@@ -51,7 +51,8 @@ ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, con
 	d->m_unit = ChemicalDataObject::noUnit;
 }
 
-ChemicalDataObject::ChemicalDataObject() : d(new ChemicalDataObjectPrivate())
+ChemicalDataObject::ChemicalDataObject() 
+: d(new ChemicalDataObjectPrivate())
 {
 	mycount++;
 	kDebug() << "CDO default contructor. There are now " << mycount
@@ -96,7 +97,8 @@ ChemicalDataObject::~ChemicalDataObject()
 {
 	mycount--;
 	kDebug() << "CDO destructor. There are now " << mycount
-	         << " allocated CDOs" << endl;	delete d;
+	         << " allocated CDOs" << endl;	
+  delete d;
 }
 
 QString ChemicalDataObject::valueAsString() const
