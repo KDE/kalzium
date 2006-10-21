@@ -63,7 +63,7 @@ class KalziumGLWidget : public QGLWidget
 		/**
 		 * Stores the rotation that is applied to the model.
 		 */
-		GLdouble m_RotationMatrix[16];
+		Eigen::Matrix4d m_rotationMatrix;
 
 		/**
 		 * The molecule which is displayed

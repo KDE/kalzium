@@ -65,11 +65,7 @@ void KalziumGLWidget::initializeGL()
 	glDepthFunc( GL_LEQUAL );
 	glEnable( GL_CULL_FACE );
 
-	glMatrixMode( GL_MODELVIEW );
-	glPushMatrix();
-	glLoadIdentity();
-	glGetDoublev( GL_MODELVIEW_MATRIX, m_RotationMatrix );
-	glPopMatrix();
+	m_rotationMatrix.loadIdentity();
 
 	glEnable( GL_NORMALIZE );
 	glEnable( GL_LIGHTING );
@@ -168,7 +164,7 @@ void KalziumGLWidget::renderScene( GLenum renderMode,
 	// set up the camera
 	glLoadIdentity();
 	glTranslated ( 0.0, 0.0, -3.0 * getMolRadius() );
-	glMultMatrixd ( m_RotationMatrix );
+	glMultMatrixd ( m_rotationMatrix.array() );
 
 	// set up fog
 	if( m_useFog && renderMode == GL_RENDER )
@@ -365,8 +361,8 @@ void KalziumGLWidget::mouseMoveEvent( QMouseEvent * event )
 		glLoadIdentity();
 		glRotated( deltaDragging.x(), 0.0, 1.0, 0.0 );
 		glRotated( deltaDragging.y(), 1.0, 0.0, 0.0 );
-		glMultMatrixd( m_RotationMatrix );
-		glGetDoublev( GL_MODELVIEW_MATRIX, m_RotationMatrix );
+		glMultMatrixd( m_rotationMatrix.array() );
+		glGetDoublev( GL_MODELVIEW_MATRIX, m_rotationMatrix.array() );
 		glPopMatrix();
 		updateGL();
 	}
@@ -392,8 +388,8 @@ void KalziumGLWidget::rotate( )
 	//no idea what value is for what... :)
 	glRotated( 10.0, 0.0, 1.0, 0.0 );
 	glRotated( 10.0, 1.0, 0.0, 0.0 );
-	glMultMatrixd( m_RotationMatrix );
-	glGetDoublev( GL_MODELVIEW_MATRIX, m_RotationMatrix );
+	glMultMatrixd( m_rotationMatrix );
+	glGetDoublev( GL_MODELVIEW_MATRIX, m_rotationMatrix );
 	glPopMatrix();
 	updateGL();
 */
