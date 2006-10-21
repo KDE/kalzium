@@ -15,6 +15,7 @@
 
 using namespace KalziumGLHelpers;
 using namespace OpenBabel;
+using namespace Eigen;
 
 MolStyle::MolStyle( BondStyle bondStyle, AtomStyle atomStyle,
 	double singleBondRadius,
@@ -131,12 +132,12 @@ bool VertexArray::allocateBuffers()
 
 	freeBuffers();
 
-	m_vertexBuffer = new Vector[m_vertexCount];
+	m_vertexBuffer = new Vector3f[m_vertexCount];
 	if( ! m_vertexBuffer ) return false;
 	
 	if( m_hasSeparateNormalBuffer )
 	{
-		m_normalBuffer = new Vector[m_vertexCount];
+		m_normalBuffer = new Vector3f[m_vertexCount];
 		if( ! m_normalBuffer ) return false;
 	}
 	else m_normalBuffer = m_vertexBuffer;
@@ -204,29 +205,41 @@ void Sphere::computeVertex( int strip, int column, int row)
 	strip %= 5;
 	int next_strip = (strip + 1) % 5;
 
+	// the index of the vertex we want to store the result in
 	unsigned short index = indexOfVertex( strip, column, row );
 
-	const double phi = ( 1 + sqrt(5) ) / 2;
+	// reference to the vertex we want to store the result in
+	Vector3f & vertex = m_vertexBuffer[ index ];
 
-	const vector3 northPole( 0, 1, phi );
-	const vector3 northVertices[5] = {
-		vector3( 0, -1, phi ),
-		vector3( phi, 0, 1 ),
-		vector3( 1, phi, 0 ),
-		vector3( -1, phi, 0 ),
-		vector3( -phi, 0, 1 ) };
-	const vector3 southVertices[5] = {
-		vector3( -1, -phi, 0 ),
-		vector3( 1, -phi, 0 ),
-		vector3( phi, 0, -1 ),
-		vector3( 0, 1, -phi ),
-		vector3( -phi, 0, -1 )
+	// the "golden ratio", useful to construct an icosahedron
+	const float phi = ( 1 + sqrt(5) ) / 2;
+
+	// the 12 vertices of the icosahedron
+	const Vector3f northPole( 0, 1, phi );
+	const Vector3f northVertices[5] = {
+		Vector3f( 0, -1, phi ),
+		Vector3f( phi, 0, 1 ),
+		Vector3f( 1, phi, 0 ),
+		Vector3f( -1, phi, 0 ),
+		Vector3f( -phi, 0, 1 ) };
+	const Vector3f southVertices[5] = {
+		Vector3f( -1, -phi, 0 ),
+		Vector3f( 1, -phi, 0 ),
+		Vector3f( phi, 0, -1 ),
+		Vector3f( 0, 1, -phi ),
+		Vector3f( -phi, 0, -1 )
 		 };
-	const vector3 southPole( 0, -1, -phi );
+	const Vector3f southPole( 0, -1, -phi );
 
-	const vector3 *v0, *v1, *v2;
+	// pointers to the 3 vertices of the face of the icosahedron
+	// in which we are
+	const Vector3f *v0, *v1, *v2;
+
+	// coordinates of our position inside this face.
+	// range from 0 to m_detail.
 	int  c1, c2;
 
+	// first, normalize the global coords row, column
 	if( row >= 2 * m_detail && column == 0 )
 	{
 		strip--;
@@ -236,6 +249,8 @@ void Sphere::computeVertex( int strip, int column, int row)
 		column = m_detail;
 	}
 
+	// next, determine in which face we are, and determine the coords
+	// of our position inside this face
 	if( row  <= m_detail )
 	{
 		v0 = &northVertices[strip];
@@ -269,17 +284,13 @@ void Sphere::computeVertex( int strip, int column, int row)
 		c2 = 2 * m_detail - row;
 	}
 
-	double u1 = double(c1) / m_detail;
-	double u2 = double(c2) / m_detail;
+	// now, compute the actual coords of the vertex
+	float u1 = static_cast<float>(c1) / m_detail;
+	float u2 = static_cast<float>(c2) / m_detail;
+	vertex = *v0 + u1 * ( *v1 - *v0 ) + u2 * ( *v2 - *v0 );
 
-	vector3 v = *v0 + u1 * ( *v1 - *v0 ) + u2 * ( *v2 - *v0 );
-	v.normalize();
-
-	Vector *vertex =
-		&m_vertexBuffer[ index ];
-	vertex->x = v.x();
-	vertex->y = v.y();
-	vertex->z = v.z();
+	// project the vertex onto the sphere
+	vertex.normalize();
 }
 
 int Sphere::getVertexCount()
@@ -336,7 +347,7 @@ void Sphere::setup( int detail )
 	initialize();
 }
 
-void Sphere::draw( const vector3 &center, double radius )
+void Sphere::draw( const Vector3d &center, double radius )
 {
 	glPushMatrix();
 	glTranslated( center.x(), center.y(), center.z() );
@@ -372,66 +383,63 @@ void Cylinder::buildBuffers()
 		float x = cosf( angle );
 		float y = sinf( angle );
 
-		m_normalBuffer[ 2 * i ].x = x;
-		m_normalBuffer[ 2 * i ].y = y;
-		m_normalBuffer[ 2 * i ].z = 0.0;
+		m_normalBuffer[ 2 * i ].x() = x;
+		m_normalBuffer[ 2 * i ].y() = y;
+		m_normalBuffer[ 2 * i ].z() = 0.0;
 
-		m_vertexBuffer[ 2 * i ].x = x;
-		m_vertexBuffer[ 2 * i ].y = y;
-		m_vertexBuffer[ 2 * i ].z = 1.0;
+		m_vertexBuffer[ 2 * i ].x() = x;
+		m_vertexBuffer[ 2 * i ].y() = y;
+		m_vertexBuffer[ 2 * i ].z() = 1.0;
 
-		m_normalBuffer[ 2 * i + 1 ].x = x;
-		m_normalBuffer[ 2 * i + 1 ].y = y;
-		m_normalBuffer[ 2 * i + 1 ].z = 0.0;
+		m_normalBuffer[ 2 * i + 1 ].x() = x;
+		m_normalBuffer[ 2 * i + 1 ].y() = y;
+		m_normalBuffer[ 2 * i + 1 ].z() = 0.0;
 
-		m_vertexBuffer[ 2 * i + 1 ].x = x;
-		m_vertexBuffer[ 2 * i + 1 ].y = y;
-		m_vertexBuffer[ 2 * i + 1 ].z = 0.0;
+		m_vertexBuffer[ 2 * i + 1 ].x() = x;
+		m_vertexBuffer[ 2 * i + 1 ].y() = y;
+		m_vertexBuffer[ 2 * i + 1 ].z() = 0.0;
 	}
 }
 
-void Cylinder::draw( const vector3 &end1, const vector3 &end2,
+void Cylinder::draw( const Vector3d &end1, const Vector3d &end2,
 	double radius, int order, double shift )
 {
 	// the "axis vector" of the cylinder
-	vector3 axis = end2 - end1;
+	Vector3d axis = end2 - end1;
 	
 	// find two unit vectors v, w such that
 	// (axis,v,w) is an orthogonal basis
-	vector3 v, w;
-	createOrthoBasisGivenFirstVector( axis, v, w );
+	Vector3d v, w;
+	createOrthoBasisGivenFirstVector( axis, &v, &w );
+	v *= radius;
+	w *= radius;
 
 	// construct the 4D transformation matrix
-	GLdouble matrix[16];
+	Matrix4d matrix;
 
-	// column 1
-	matrix[0] = v.x() * radius;
-	matrix[1] = v.y() * radius;
-	matrix[2] = v.z() * radius;
-	matrix[3] = 0.0;
+	matrix(0, 0) = v(0);
+	matrix(1, 0) = v(1);
+	matrix(2, 0) = v(2);
+	matrix(3, 0) = 0.0;
 
-	// column 2
-	matrix[4] = w.x() * radius;
-	matrix[5] = w.y() * radius;
-	matrix[6] = w.z() * radius;
-	matrix[7] = 0.0;
+	matrix(0, 1) = w(0);
+	matrix(1, 1) = w(1);
+	matrix(2, 1) = w(2);
+	matrix(3, 1) = 0.0;
 
-	// column 3
-	matrix[8] = axis.x();
-	matrix[9] = axis.y();
-	matrix[10] = axis.z();
-	matrix[11] = 0.0;
+	matrix(0, 2) = axis(0);
+	matrix(1, 2) = axis(1);
+	matrix(2, 2) = axis(2);
+	matrix(3, 2) = 0.0;
 
-	// column 4
-	matrix[12] = end1.x();
-	matrix[13] = end1.y();
-	matrix[14] = end1.z();
-	matrix[15] = 1.0;
+	matrix(0, 3) = end1(0);
+	matrix(1, 3) = end1(1);
+	matrix(2, 3) = end1(2);
+	matrix(3, 3) = 1.0;
 
 	//now we can do the actual drawing !
 	glPushMatrix();
-	glMultMatrixd( matrix );
-
+	glMultMatrixd( matrix.array() );
 	if( order == 1 ) VertexArray::draw();
 	else for( int i = 0; i < order; i++)
 	{
@@ -626,17 +634,17 @@ void TextRenderer::print( int x, int y, const QString &string )
 	if( ! m_isBetweenBeginAndEnd ) do_end();
 }
 
-bool KalziumGLHelpers::createOrthoBasisGivenFirstVector
-	( const vector3 &U, vector3 & v, vector3 & w )
+void KalziumGLHelpers::createOrthoBasisGivenFirstVector
+	( const Vector3d &U, Vector3d * v, Vector3d * w )
 {
-	if( ! U.createOrthoVector( v ) ) return false;
-	w = cross( U, v );
-	w.normalize();
-	return true;
+	U.makeOrthoVector(v);
+	*w = cross( U, *v );
+	w->normalize();
 }
+
 /*
-void LinearRegression( const std::list<vector3 *> & points,
-	vector3 & ret_plane_base_point, vector3 & ret_plane_normal_vector )
+void LinearRegression( const std::list<Vector3d *> & points,
+	Vector3d & ret_plane_base_point, Vector3d & ret_plane_normal_vector )
 {
 	double sum_x = 0.0;
 	double sum_y = 0.0;
@@ -648,7 +656,7 @@ void LinearRegression( const std::list<vector3 *> & points,
 	double sum_yz = 0.0;
 	double sum_zz = 0.0;
 
-	for( std::list<vector3 *>::const_iterator iter = points.begin();
+	for( std::list<Vector3d *>::const_iterator iter = points.begin();
 		iter != points.end(); iter++ )
 	{
 		double x = iter->x();

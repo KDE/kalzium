@@ -29,6 +29,7 @@
 
 using namespace KalziumGLHelpers;
 using namespace OpenBabel;
+using namespace Eigen;
 
 KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	: QGLWidget( parent )
@@ -252,7 +253,7 @@ void KalziumGLWidget::renderHighlighting()
 	{
 		Color( 1.0, 1.0, 1.0, 0.4 ).applyAsMaterials();
 		glLoadName( m_clickedAtom->GetIdx() );
-		m_sphere.draw( m_clickedAtom->GetVector(),
+		m_sphere.draw( m_clickedAtom->GetVector().AsArray(),
 			0.18 + m_molStyle.getAtomRadius( m_clickedAtom ) );
 	}
 
@@ -265,7 +266,7 @@ void KalziumGLWidget::renderHighlighting()
 			if( atom != m_clickedAtom )
 			{
 				glLoadName( atom->GetIdx() );
-				m_sphere.draw( atom->GetVector(),
+				m_sphere.draw( atom->GetVector().AsArray(),
 					0.18 + m_molStyle.getAtomRadius(
 						atom ) );
 			}
@@ -431,7 +432,8 @@ void KalziumGLWidget::drawAtom( OBAtom *atom )
 {
 	glLoadName( atom->GetIdx() );
 	Color( atom ).applyAsMaterials();
-	m_sphere.draw( atom->GetVector(), m_molStyle.getAtomRadius( atom ) );
+	m_sphere.draw( atom->GetVector().AsArray(),
+	               m_molStyle.getAtomRadius( atom ) );
 }
 
 void KalziumGLWidget::drawBond( OBBond *bond )
@@ -439,9 +441,9 @@ void KalziumGLWidget::drawBond( OBBond *bond )
 	OBAtom *atom1 = static_cast<OBAtom *>( bond->GetBgn() );
 	OBAtom *atom2 = static_cast<OBAtom *>( bond->GetEnd() );
 
-	vector3 v1 = atom1->GetVector();
-	vector3 v2 = atom2->GetVector();
-	vector3 v3 = ( v1 + v2 ) / 2;
+	Vector3d v1 ( atom1->GetVector().AsArray() );
+	Vector3d v2 ( atom2->GetVector().AsArray() );
+	Vector3d v3 = ( v1 + v2 ) / 2;
 
 	int order;
 	if( m_molStyle.m_renderMultipleBonds == false || bond->IsSingle() )
@@ -556,8 +558,8 @@ void KalziumGLWidget::prepareMoleculeData()
 	m_molRadiusWithoutElectrons = 0.0;
 	FOR_ATOMS_OF_MOL( a, m_molecule )
 	{
-		vector3 v = a->GetVector();
-		double rad = v.length();
+		Vector3d v( a->GetVector().AsArray() );
+		double rad = v.norm();
 		if( rad > m_molRadiusWithoutElectrons )
 			m_molRadiusWithoutElectrons = rad;
 	}

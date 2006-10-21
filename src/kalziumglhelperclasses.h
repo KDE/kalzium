@@ -14,7 +14,7 @@
 #ifndef KALZIUMGLHELPERCLASSES_H
 #define KALZIUMGLHELPERCLASSES_H
 
-#include <math.h>
+#include <eigen/matrix.h>
 #include <QGLWidget>
 #include <GL/glu.h>
 #include <QPainter>
@@ -157,7 +157,9 @@ struct Color
 *
 * Returns false if something went wrong.
 */
-bool createOrthoBasisGivenFirstVector( const OpenBabel::vector3 &U, OpenBabel::vector3 & v, OpenBabel::vector3 & w );
+void createOrthoBasisGivenFirstVector( const Eigen::Vector3d & U,
+                                             Eigen::Vector3d * v,
+                                             Eigen::Vector3d * w );
 
 /*void LinearRegression( const std::list<vector3 *> & points,
 	vector3 & ret_plane_base_point, vector3 & ret_plane_normal_vector );
@@ -173,23 +175,12 @@ bool createOrthoBasisGivenFirstVector( const OpenBabel::vector3 &U, OpenBabel::v
 class VertexArray
 {
 	protected:
-
-		/**
-		 * This struct represents a vector to be passed to OpenGL as
-		 * part of a Vertex Array. Here we don't want to use OpenBabel's
-		 * vector3 class, because it uses double-precision coordinates,
-		 * which would be a waste of memory here. **/
-		struct Vector
-		{
-			GLfloat x, y, z;
-		};
-
 		/** Pointer to the buffer storing the vertex array */
-		Vector *m_vertexBuffer;
+		Eigen::Vector3f *m_vertexBuffer;
 		/** Pointer to the buffer storing the normal array.
 		 * If m_hasSeparateNormalBuffer is false, then this is equal
 		 * to m_vertexBuffer. */
-		Vector *m_normalBuffer;
+		Eigen::Vector3f *m_normalBuffer;
 		/** Pointer to the buffer storing the indices */
 		unsigned short *m_indexBuffer;
 		/** The mode in which OpenGL should interpred the vertex arrays
@@ -323,7 +314,7 @@ class Sphere : public VertexArray
 
 		/** draws the sphere at specifiec position and with
 		 * specified radius */
-		void draw( const OpenBabel::vector3 &center, double radius );
+		void draw( const Eigen::Vector3d &center, double radius );
 };
 
 /**
@@ -368,7 +359,7 @@ class Cylinder : public VertexArray
 			this is interpreted as the displacement of the axis
 			of the drawn cylinders from the axis (end1 - end2).
 		 */
-		void draw( const OpenBabel::vector3 &end1, const OpenBabel::vector3 &end2,
+		void draw( const Eigen::Vector3d &end1, const Eigen::Vector3d &end2,
 			double radius, int order = 1, double shift = 0.0 );
 };
 
