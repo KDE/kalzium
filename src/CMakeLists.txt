@@ -41,8 +41,8 @@ if(LIBFACILE_FOUND)
   set( kalzium_SRCS
     ${kalzium_SRCS}
     eqchemview.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/solver/solver.o
-    ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.o
+    ${CMAKE_CURRENT_BINARY_DIR}/solver.o
+    ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
     )
   kde4_add_ui_files(kalzium_SRCS
     equationview.ui
