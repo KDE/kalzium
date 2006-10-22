@@ -1,8 +1,4 @@
 link_directories (${OCAMLC_DIR})
-#create depend file need to generate .o file
-add_custom_command(OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/solver/.depend
-                   COMMAND ${OCAMLDEP_EXECUTABLE} -I +facile ${CMAKE_CURRENT_SOURCE_DIR}/solver/*.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/*.ml > ${CMAKE_CURRENT_SOURCE_DIR}/solver/.depend
-                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/solver)
 
 macro(OCAML_MLI_TO_CMI _cmi _mli)
    add_custom_command(OUTPUT ${_cmi}
@@ -19,37 +15,37 @@ macro(OCAML_ML_TO_CMX _cmx _ml)
 endmacro(OCAML_ML_TO_CMX)
 
 ocaml_mli_to_cmi(${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.mli
-                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/.depend )
+                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.mli  )
 
 ocaml_ml_to_cmx(${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.ml
-                ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/.depend )
+                ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmi  )
 
 ocaml_mli_to_cmi(${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.mli
-                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/.depend )
+                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.mli )
 
 ocaml_ml_to_cmx(${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.ml
-                ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/.depend )
+                ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx  )
 
 
 ocaml_mli_to_cmi(${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.mli
-                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/.depend )
+                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.mli  )
 
 ocaml_ml_to_cmx(${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.ml
-                ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/.depend )
+                ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx  )
 
 
 ocaml_mli_to_cmi(${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.mli
-                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/.depend )
+                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.mli  )
 
 ocaml_ml_to_cmx(${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.ml
                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx )
 
 ocaml_ml_to_cmx(${CMAKE_CURRENT_SOURCE_DIR}/solver/lexer.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/lexer.ml
-                ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/.depend )
+                ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.cmx  )
 
 
 ocaml_mli_to_cmi(${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.mli
-                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/.depend ${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/lexer.cmx)
+                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmi ${CMAKE_CURRENT_SOURCE_DIR}/solver/chemset.cmx  ${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/datastruct.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/chem.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/parser.mli ${CMAKE_CURRENT_SOURCE_DIR}/solver/lexer.cmx)
 
 ocaml_ml_to_cmx(${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.cmx ${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.ml
                 ${CMAKE_CURRENT_SOURCE_DIR}/solver/calc.cmi )
