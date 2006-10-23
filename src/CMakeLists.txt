@@ -65,7 +65,7 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND)
   add_subdirectory(widgets)
 endif(OPENBABEL2_FOUND AND OPENGL_FOUND)
 
-kde4_automoc(kalzium ${kalzium_SRCS})
+kde4_automoc(${kalzium_SRCS})
 
 kde4_add_ui_files(kalzium_SRCS
    settings_colors.ui
@@ -81,7 +81,7 @@ kde4_add_ui_files(kalzium_SRCS
    timewidget.ui
 )
 
-kde4_add_kcfg_files(kalzium kalzium_SRCS prefs.kcfgc )
+kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
 kde4_add_executable(kalzium ${kalzium_SRCS} )
 

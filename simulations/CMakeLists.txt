@@ -30,7 +30,7 @@ kde4_add_ui_files(simulations_SRCS
 		settings.ui
 		volterraform.ui )
 
-kde4_automoc(simulations ${simulations_SRCS})
+kde4_automoc(${simulations_SRCS})
 
 kde4_add_executable(kalzium-simulations ${simulations_SRCS})
 
