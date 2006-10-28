@@ -320,6 +320,13 @@ void ElementDataViewer::drawPlot()
      * iterate for example from element 20 to 30 and contruct
      * the KPlotObjects
      */
+		dataPoint = new KPlotObject( 
+                Qt::blue, 
+                KPlotObject::POINTS, 
+                4, 
+                KPlotObject::CIRCLE );
+		dataPoint->setLabelPen( QPen( Qt::red ) );
+
     for( int i = from; i < to+1 ; i++ )
     {
         double value_y = m_yData->value( i );
@@ -340,27 +347,18 @@ void ElementDataViewer::drawPlot()
         if (value_y < min_y) {
             min_y = value_y;
         }
-
-        dataPoint = new KPlotObject( "Test", 
-                Qt::blue, 
-                KPlotObject::POINTS, 
-                4, 
-                KPlotObject::CIRCLE );
-
-        //create the datepoint's x/y
-        QPointF *position = new QPointF( value_x, value_y );
-
-        dataPoint->addPoint( position );
-        ui.plotwidget->addObject( dataPoint );
-
+				
+				QString lbl = QString();
         if ( whatShow > 0 )//The users wants to see the labels
         {
-            QString lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
-            dataPointLabel = new KPlotObject( lbl, Qt::red, KPlotObject::LABEL );
-            dataPointLabel->addPoint( new QPointF( value_x, value_y ) );
-            ui.plotwidget->addObject( dataPointLabel );
+					lbl = whatShow == 1 ? names[i-1] : symbols[i-1];
         }
+
+        dataPoint->addPoint( value_x, value_y, lbl );
+
     }
+
+		ui.plotwidget->addObject( dataPoint );
 
     //now set the values for the min, max and avarage value
     ui.av_x->setText( QString::number( av_x / num ) );
