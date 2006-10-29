@@ -117,6 +117,14 @@ void ElementDataViewer::setLimits()
 
     kDebug() << x1 << " :: " << x2 << " ----- "  << y1 << " :: " << y2 << endl;
 
+		//JH: add some padding to show all points
+		double dx = 0.05*(x2-x1);
+		double dy = 0.05*(y2-y1);
+		x1 -= dx;
+		x2 += dx;
+		y1 -= dy;
+		y2 += dy;
+
 //X     // try to put a small padding to make the points on the axis visible
 //X     double dx = ( to - from + 1 ) / 25 + 1.0;
 //X     double dy = ( maxY - minY ) / 10.0;
