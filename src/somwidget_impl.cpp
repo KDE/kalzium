@@ -103,26 +103,24 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 
 	double temp = TempUnit::convert( newtemp, Prefs::temperature(), (int)TempUnit::Kelvin );
 
-	QList<Element*>::ConstIterator it = m_list.begin();
-	const QList<Element*>::ConstIterator itEnd = m_list.end();
-
 	QStringList listMeltingPoint;
 	QStringList listBoilingPoint;
 	QStringList listBoilingPointValue;
 	QStringList listMeltingPointValue;
-	for ( ; it != itEnd; ++it )
-	{
-		double melting = ( *it )->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
+  
+  foreach (Element * element, m_list)
+  {
+		double melting = element->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
 		if ( ( melting > 0.0 ) && fabs( melting - temp ) <= threshold )
 		{
-			listMeltingPoint << ( *it )->dataAsString( ChemicalDataObject::name );
-			listMeltingPointValue << ( *it )->dataAsString( ChemicalDataObject::meltingpoint );
+			listMeltingPoint << element->dataAsString( ChemicalDataObject::name );
+			listMeltingPointValue << element->dataAsString( ChemicalDataObject::meltingpoint );
 		}
-		double boiling = ( *it )->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
+		double boiling = element->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
 		if ( ( boiling > 0.0 ) && fabs( boiling - temp ) <= threshold )
 		{
-			listBoilingPoint << ( *it )->dataAsString( ChemicalDataObject::name );
-			listBoilingPointValue << ( *it )->dataAsString( ChemicalDataObject::boilingpoint );
+			listBoilingPoint << element->dataAsString( ChemicalDataObject::name );
+			listBoilingPointValue << element->dataAsString( ChemicalDataObject::boilingpoint );
 		}
 	}
 	QString htmlcode;

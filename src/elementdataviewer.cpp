@@ -307,7 +307,6 @@ void ElementDataViewer::drawPlot()
     int whatShow = ui.comboElementLabels->currentIndex();
 
     KPlotObject* dataPoint = 0;
-    KPlotObject* dataPointLabel = 0;
 
     double av_x = 0.0;
     double max_x = m_xData->value(from);
@@ -324,7 +323,7 @@ void ElementDataViewer::drawPlot()
                 Qt::blue, 
                 KPlotObject::POINTS, 
                 4, 
-                KPlotObject::CIRCLE );
+                KPlotObject::STAR );
 		dataPoint->setLabelPen( QPen( Qt::red ) );
 
     for( int i = from; i < to+1 ; i++ )
