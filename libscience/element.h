@@ -49,7 +49,7 @@ class EDUSCIENCE_EXPORT Element
 		 * Add the ChemicalDataObject @p o to this Element
 		 * @param o the ChemicalDataObject to be added
 		 */
-		void addData( ChemicalDataObject*o );
+		void addData( const ChemicalDataObject& o );
 
 		/**
 		 * Add a ChemicalDataObject with @p value of @p type to this
@@ -72,7 +72,7 @@ class EDUSCIENCE_EXPORT Element
 		/**
 		 * @return the data of the Element
 		 */
-		QList<ChemicalDataObject*> data()const{
+		QList<ChemicalDataObject> data()const{
 			return dataList;
 		}
 
@@ -88,7 +88,7 @@ class EDUSCIENCE_EXPORT Element
 		/**
 		 * this QList stores all information about an element
 		 */
-		QList<ChemicalDataObject*> dataList;
+		QList<ChemicalDataObject> dataList;
 
     Spectrum *m_spectrum;
 };

@@ -29,39 +29,35 @@ Element::Element()
 
 QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type ) const
 {
-	foreach( ChemicalDataObject* o, dataList ) {
-		if ( o->type() == type )
-			return o->value();
+	foreach( ChemicalDataObject o, dataList ) {
+		if ( o.type() == type )
+			return o.value();
 	}
 	return QVariant();
 }
 
 QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
 {
-	foreach( ChemicalDataObject*o, dataList ) {
-		if ( o->type() == type )
-			return o->valueAsString();
+	foreach( ChemicalDataObject o, dataList ) {
+		if ( o.type() == type )
+			return o.valueAsString();
 	}
 	return QString();
 }
 
 Element::~Element()
 {
-    qDeleteAll(dataList);
-
     delete m_spectrum;
     m_spectrum = 0;
 }
 
-void Element::addData( ChemicalDataObject*o )
+void Element::addData( const ChemicalDataObject& o )
 {
-	// skip null pointers
-	if ( !o ) return;
 	dataList.append( o );
 }
 
 void Element::addData( const QVariant& value, ChemicalDataObject::BlueObelisk type )
 {
-	ChemicalDataObject* tmp = new ChemicalDataObject( value, type );
+	ChemicalDataObject tmp( value, type );
 	dataList.append( tmp );
 }

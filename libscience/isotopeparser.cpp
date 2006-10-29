@@ -22,8 +22,7 @@ class IsotopeParser::Private
 {
 public:
 	Private()
-	: currentDataObject(0),
-	currentUnit(ChemicalDataObject::noUnit),
+	:	currentUnit(ChemicalDataObject::noUnit),
 	currentErrorValue(QVariant()),
 	currentElementSymbol(QString()),
 	currentIsotope(0),
@@ -48,11 +47,10 @@ public:
 
   ~Private(){
     delete currentIsotope;
-    delete currentDataObject;
     //qDeleteAll(isotopes);
   }
 
-	ChemicalDataObject *currentDataObject;
+	ChemicalDataObject currentDataObject;
 	ChemicalDataObject::BlueObeliskUnit currentUnit;
 	QVariant currentErrorValue;
 	QString currentElementSymbol;
@@ -106,7 +104,7 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
     {
         //X 		kDebug() << "setting inIsotope true!" << endl;
         d->currentIsotope = new Isotope();
-        d->currentIsotope->addData( new ChemicalDataObject( QVariant( d->currentElementSymbol ), ChemicalDataObject::symbol ) );
+        d->currentIsotope->addData( ChemicalDataObject( QVariant( d->currentElementSymbol ), ChemicalDataObject::symbol ) );
         d->inIsotope = true;
         for (int i = 0; i < attrs.length(); ++i) 
         {
@@ -132,7 +130,7 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
                 {
                     if ( attrs.localName( i ) == "unit" )
                     {
-                        d->currentDataObject->setUnit( d->currentUnit );
+                        d->currentDataObject.setUnit( d->currentUnit );
                     }
                     else
                     {
@@ -174,7 +172,6 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 	{
 		d->isotopes.append(d->currentIsotope);
 		
-		d->currentDataObject = 0;
 		d->currentIsotope = 0;
 		d->inIsotope = false;
 	}
@@ -189,7 +186,7 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 
 bool IsotopeParser::characters(const QString &ch)
 {
-	d->currentDataObject = new ChemicalDataObject();
+	d->currentDataObject = ChemicalDataObject();
 	ChemicalDataObject::BlueObelisk type;
 	QVariant value;
 
@@ -269,16 +266,15 @@ bool IsotopeParser::characters(const QString &ch)
 
 	if ( type == ChemicalDataObject::exactMass )
 	{
-		d->currentDataObject->setErrorValue( d->currentErrorValue );
+		d->currentDataObject.setErrorValue( d->currentErrorValue );
 	}
 
-	d->currentDataObject->setData( value );
-	d->currentDataObject->setType( type );
+	d->currentDataObject.setData( value );
+	d->currentDataObject.setType( type );
 
 	if ( d->currentIsotope )
 	{
 		d->currentIsotope->addData( d->currentDataObject );
-		d->currentDataObject = 0;
 	}
 
 	return true;

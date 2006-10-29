@@ -17,48 +17,38 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
+#include <kdebug.h>
 #include "chemicaldataobject.h"
 
-int ChemicalDataObject::mycount = 0;
-
-#include <kdebug.h>
-
-class ChemicalDataObjectPrivate
+//########################
+ChemicalDataObjectPrivate::ChemicalDataObjectPrivate()
 {
-	public:
-		QVariant m_value;
-		QVariant m_errorValue;
-		ChemicalDataObject::BlueObelisk m_type;
-		ChemicalDataObject::BlueObeliskUnit m_unit;
+}
 
-    ~ChemicalDataObjectPrivate();
-};
+ChemicalDataObjectPrivate::ChemicalDataObjectPrivate(const ChemicalDataObjectPrivate &other)
+: QSharedData(other)
+{
+}
 
 ChemicalDataObjectPrivate::~ChemicalDataObjectPrivate()
 {
 }
+//##############
 
 ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, const QVariant& errorValue ) 
-: d(new ChemicalDataObjectPrivate()) 
 {
-	mycount++;
-	kDebug() << "CDO non-default contructor. There are now " << mycount
-	         << " allocated CDOs" << endl;
-
-	d->m_value = v;
-	d->m_errorValue = errorValue;
-	d->m_type = type;
-	d->m_unit = ChemicalDataObject::noUnit;
+    d = new ChemicalDataObjectPrivate;
+    d->m_value = v;
+    d->m_errorValue = errorValue;
+    d->m_type = type;
+    d->m_unit = ChemicalDataObject::noUnit;
 }
 
 ChemicalDataObject::ChemicalDataObject() 
-: d(new ChemicalDataObjectPrivate())
 {
-	mycount++;
-	kDebug() << "CDO default contructor. There are now " << mycount
-	         << " allocated CDOs" << endl;	d->m_value = QVariant();
-	d->m_errorValue = QVariant();
-	d->m_unit = ChemicalDataObject::noUnit;
+    d = new ChemicalDataObjectPrivate;
+    d->m_errorValue = QVariant();
+    d->m_unit = ChemicalDataObject::noUnit;
 }
 
 bool ChemicalDataObject::operator==( const int v ) const
@@ -91,14 +81,6 @@ bool ChemicalDataObject::operator==( const QString& v ) const
 		return false;
 
 	return d->m_value.toString() == v;
-}
-
-ChemicalDataObject::~ChemicalDataObject()
-{
-	mycount--;
-	kDebug() << "CDO destructor. There are now " << mycount
-	         << " allocated CDOs" << endl;	
-  delete d;
 }
 
 QString ChemicalDataObject::valueAsString() const

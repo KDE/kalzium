@@ -20,8 +20,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-class ChemicalDataObject;
-
+#include "chemicaldataobject.h"
 #include <libkdeedu_science_export.h>
 
 #include <QString>
@@ -94,7 +93,7 @@ class EDUSCIENCE_EXPORT Isotope
 		/**
 		 * add the ChemicalDataObject @p o
 		 */
-		void addData( ChemicalDataObject* o );
+		void addData( ChemicalDataObject o );
 
 		void setNucleons( int number );
 		
@@ -164,53 +163,53 @@ class EDUSCIENCE_EXPORT Isotope
 		/**
 		 * the symbol of the element the isotope belongs to
 		 */
-		ChemicalDataObject* m_parentElementSymbol;
+		ChemicalDataObject m_parentElementSymbol;
 		
 		/**
 		 * stores the information about the mass of the Isotope
 		 */
-		ChemicalDataObject* m_mass;
+		ChemicalDataObject m_mass;
 
 		/**
 		 * stores the atomicNumber of the Isotope
 		 */
-		ChemicalDataObject* m_identifier;
+		ChemicalDataObject m_identifier;
 		
 		/**
 		 * stores the spin of the Isotope
 		 */
-		ChemicalDataObject* m_spin;
+		ChemicalDataObject m_spin;
 		
 		/**
 		 * stores the magneticMoment of the Isotope
 		 */
-		ChemicalDataObject* m_magmoment;
+		ChemicalDataObject m_magmoment;
 		
 		/**
 		 * stores the relative abundance of the Isotope
 		 */
-		ChemicalDataObject* m_abundance; 
+		ChemicalDataObject m_abundance; 
 
 		/**
 		 * stores the halfLife of the Isotope
 		 */
-		ChemicalDataObject* m_halflife;
+		ChemicalDataObject m_halflife;
 		
 		/**
 		 * stores decay energy of the isotope
 		 */
-		ChemicalDataObject* m_ecdecay;
-		ChemicalDataObject* m_betaplusdecay;
-		ChemicalDataObject* m_betaminusdecay; 
-		ChemicalDataObject* m_alphadecay;
+		ChemicalDataObject m_ecdecay;
+		ChemicalDataObject m_betaplusdecay;
+		ChemicalDataObject m_betaminusdecay; 
+		ChemicalDataObject m_alphadecay;
 
 		/**
 		 * stores the likeliness of a decay of the isotope
 		 */
-		ChemicalDataObject* m_eclikeliness;
-		ChemicalDataObject* m_betapluslikeliness;
-		ChemicalDataObject* m_betaminuslikeliness; 
-		ChemicalDataObject* m_alphalikeliness;
+		ChemicalDataObject m_eclikeliness;
+		ChemicalDataObject m_betapluslikeliness;
+		ChemicalDataObject m_betaminuslikeliness; 
+		ChemicalDataObject m_alphalikeliness;
 	
 		int m_numberOfNucleons;
 };

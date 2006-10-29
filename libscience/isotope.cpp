@@ -23,150 +23,133 @@
 #include <kdebug.h>
 
 Isotope::Isotope()
-: m_parentElementSymbol( 0 ), m_mass( 0 ), m_identifier( 0 ),
-	m_spin( 0 ), m_magmoment( 0 ), m_abundance( 0 ), m_halflife( 0 ), m_ecdecay( 0 ), m_eclikeliness( 0 ),	m_betaplusdecay( 0 ), m_betapluslikeliness( 0 ), m_betaminusdecay( 0 ), m_betaminuslikeliness( 0 ), m_alphadecay( 0 ), m_alphalikeliness( 0 )
 { 
 }
 
 Isotope::~Isotope()
 {
-		delete m_parentElementSymbol;
-		delete m_mass;
-		delete m_identifier;
-		delete m_spin;
-		delete m_magmoment;
-		delete m_abundance; 
-		delete m_halflife;
-		delete m_ecdecay;
-		delete m_betaplusdecay;
-		delete m_betaminusdecay; 
-		delete m_alphadecay;
-		delete m_eclikeliness;
-		delete m_betapluslikeliness;
-		delete m_betaminuslikeliness; 
-		delete m_alphalikeliness;
 }
 
-void Isotope::addData( ChemicalDataObject* o )
+void Isotope::addData( ChemicalDataObject o )
 {
-	if ( o->type() == ChemicalDataObject::exactMass )
+	if ( o.type() == ChemicalDataObject::exactMass )
 		m_mass = o;
-	else if ( o->type() == ChemicalDataObject::atomicNumber )
+	else if ( o.type() == ChemicalDataObject::atomicNumber )
 		m_identifier = o;
-	else if ( o->type() == ChemicalDataObject::symbol )
+	else if ( o.type() == ChemicalDataObject::symbol )
 		m_parentElementSymbol = o;
-	else if ( o->type() == ChemicalDataObject::spin )
+	else if ( o.type() == ChemicalDataObject::spin )
 		m_spin = o;
-	else if ( o->type() == ChemicalDataObject::magneticMoment )
+	else if ( o.type() == ChemicalDataObject::magneticMoment )
 		m_magmoment = o;
-	else if ( o->type() == ChemicalDataObject::relativeAbundance )
+	else if ( o.type() == ChemicalDataObject::relativeAbundance )
 		m_abundance = o;
-	else if ( o->type() == ChemicalDataObject::halfLife )
+	else if ( o.type() == ChemicalDataObject::halfLife )
 		m_halflife = o;
-	else if ( o->type() == ChemicalDataObject::ecDecay )
+	else if ( o.type() == ChemicalDataObject::ecDecay )
 		m_ecdecay = o;
-	else if ( o->type() == ChemicalDataObject::ecDecayLikeliness )
+	else if ( o.type() == ChemicalDataObject::ecDecayLikeliness )
 		m_eclikeliness = o;
-	else if ( o->type() == ChemicalDataObject::betaplusDecay )
+	else if ( o.type() == ChemicalDataObject::betaplusDecay )
 		m_betaplusdecay = o;
-	else if ( o->type() == ChemicalDataObject::betaplusDecayLikeliness )
+	else if ( o.type() == ChemicalDataObject::betaplusDecayLikeliness )
 		m_betapluslikeliness = o;
-	else if (  o->type() == ChemicalDataObject::betaminusDecay )
+	else if (  o.type() == ChemicalDataObject::betaminusDecay )
 		m_betaminusdecay = o;
-	else if (  o->type() == ChemicalDataObject::betaminusDecayLikeliness )
+	else if (  o.type() == ChemicalDataObject::betaminusDecayLikeliness )
 		m_betaminuslikeliness = o;
-	else if ( o->type() == ChemicalDataObject::alphaDecay )
+	else if ( o.type() == ChemicalDataObject::alphaDecay )
 		m_alphadecay = o;
-	else if ( o->type() == ChemicalDataObject::alphaDecayLikeliness )
+	else if ( o.type() == ChemicalDataObject::alphaDecayLikeliness )
 		m_alphalikeliness = o;
 	
 }
 
 double Isotope::mass() const
 {
-	return m_mass ? m_mass->value().toDouble() : -1.0;
+	//return m_mass ? m_mass.value().toDouble() : -1.0;
 }
 
 QString Isotope::errorMargin() const
 {
-	return m_mass ? m_mass->errorValue().toString() : QString();
+	//return m_mass ? m_mass.errorValue().toString() : QString();
 }
 
 int Isotope::parentElementNumber() const
 {
-	return m_identifier ? m_identifier->value().toInt() : -1;
+//	return m_identifier ? m_identifier.value().toInt() : -1;
 }
 
 QString Isotope::spin() const
 {
-	return m_spin ? m_spin->value().toString() : QString();
+	//return m_spin ? m_spin.value().toString() : QString();
 }
 
 QString Isotope::magmoment() const
 {
-	return m_magmoment ? m_magmoment->value().toString() : QString();
+	//return m_magmoment ? m_magmoment.value().toString() : QString();
 }
 
 QString Isotope::abundance() const
 {
-	return m_abundance ? m_abundance->value().toString() : QString();
+	//return m_abundance ? m_abundance.value().toString() : QString();
 }
 
 double Isotope::halflife() const
 {
-	return m_halflife ? m_halflife->value().toDouble() : -1.0;
+	//return m_halflife ? m_halflife.value().toDouble() : -1.0;
 }
 double Isotope::ecdecay() const
 {
-	return m_ecdecay ? m_ecdecay->value().toDouble() : -1.0;
+	//return m_ecdecay ? m_ecdecay.value().toDouble() : -1.0;
 }
 double Isotope::eclikeliness() const
 {
-	return m_eclikeliness ? m_eclikeliness->value().toDouble() : -1.0;
+	//return m_eclikeliness ? m_eclikeliness.value().toDouble() : -1.0;
 }
 double Isotope::betaplusdecay() const
 {
-	return m_betaplusdecay ? m_betaplusdecay->value().toDouble() : -1.0;
+	//return m_betaplusdecay ? m_betaplusdecay.value().toDouble() : -1.0;
 }
 double Isotope::betapluslikeliness() const
 {
-	return m_betapluslikeliness ? m_betapluslikeliness->value().toDouble() : -1.0;
+	//return m_betapluslikeliness ? m_betapluslikeliness.value().toDouble() : -1.0;
 }
 double Isotope::betaminusdecay() const
 {
-	return m_betaminusdecay ? m_betaminusdecay->value().toDouble() : -1.0;
+	//return m_betaminusdecay ? m_betaminusdecay.value().toDouble() : -1.0;
 }
 double Isotope::betaminuslikeliness() const
 {
-	return m_betaminuslikeliness ? m_betaminuslikeliness->value().toDouble() : -1.0;
+	//return m_betaminuslikeliness ? m_betaminuslikeliness.value().toDouble() : -1.0;
 }
 double Isotope::alphadecay() const
 {
-	return m_alphadecay ? m_alphadecay->value().toDouble() : -1.0;
+	//return m_alphadecay ? m_alphadecay.value().toDouble() : -1.0;
 }
 double Isotope::alphalikeliness() const
 {
-	return m_alphalikeliness ? m_alphalikeliness->value().toDouble() : -1.0;
+	//return m_alphalikeliness ? m_alphalikeliness.value().toDouble() : -1.0;
 }
 QString Isotope::parentElementSymbol() const
 {
-	return m_parentElementSymbol ? m_parentElementSymbol->value().toString() : QString();
+	//return m_parentElementSymbol ? m_parentElementSymbol.value().toString() : QString();
 }
 
 void Isotope::setNucleons( int number )
 {
-	m_numberOfNucleons = number;
+	//m_numberOfNucleons = number;
 }
 
 int Isotope::nucleons() const
 {
-	return m_numberOfNucleons;
+	//return m_numberOfNucleons;
 }
 
 Isotope::Nucleons Isotope::nucleonsAfterDecay( Decay kind )
 {
 	Isotope::Nucleons n;
-	int protons = m_identifier->value().toInt();
+	int protons = m_identifier.value().toInt();
 	int neutrons = m_numberOfNucleons - protons;
 	n.protons = protons;
 	n.neutrons = neutrons;

@@ -28,17 +28,14 @@ int main(int argc, char *argv[])
     foreach( Element* e, v ){
         if ( e )
         {
-            QList<ChemicalDataObject*> list = e->data();
+            QList<ChemicalDataObject> list = e->data();
 
             //Test: give me all data available
-            foreach( ChemicalDataObject*o, list ){
-                if ( o )
-                {
-                    QString unit = o->unitAsString();
+            foreach( ChemicalDataObject o, list ){
+                    QString unit = o.unitAsString();
                     if ( unit == "bo:noUnit" )
                         unit = "";
-                    kDebug() << "Name: " << o->dictRef() << " " << o->valueAsString()  <<" "  << unit << endl;
-                }
+                    kDebug() << "Name: " << o.dictRef() << " " << o.valueAsString()  <<" "  << unit << endl;
             }
         }
     }

@@ -20,13 +20,14 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
+#include <QSharedData>
+#include <QSharedDataPointer>
 #include <QVariant>
 #include <QString>
 
 #include <libkdeedu_science_export.h>
 
 class ChemicalDataObjectPrivate;
-
 /**
  * A ChemicalDataObject is an object which contains information about 
  * a chemical element. This can for example be a boiling point. The information
@@ -129,11 +130,6 @@ class EDUSCIENCE_EXPORT ChemicalDataObject
 		 * @param v the value of the object
 		 */
 		void setErrorValue(  const QVariant& v );
-		
-		/**
-		 * Destructor.
-		 */
-		~ChemicalDataObject();
 
 		/**
 		 * Every ChemicalDataObject contains one data. For example a
@@ -239,8 +235,19 @@ class EDUSCIENCE_EXPORT ChemicalDataObject
 		static BlueObeliskUnit unit( const QString& unitname );
 		
 	private:
-		ChemicalDataObjectPrivate *d;
-		static int mycount;
+    QSharedDataPointer<ChemicalDataObjectPrivate> d;
 };
 
+class ChemicalDataObjectPrivate : public QSharedData
+{
+    public:
+        ChemicalDataObjectPrivate();
+        ChemicalDataObjectPrivate(const ChemicalDataObjectPrivate &other);
+        ~ChemicalDataObjectPrivate();
+
+        QVariant m_value;
+        QVariant m_errorValue;
+        ChemicalDataObject::BlueObelisk m_type;
+        ChemicalDataObject::BlueObeliskUnit m_unit;
+};
 #endif // CHEMICALDATAOBJECT_H

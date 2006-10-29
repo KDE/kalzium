@@ -21,8 +21,7 @@ class ElementSaxParser::Private
 {
     public:
         Private()
-            : currentDataObject(0),
-            currentUnit(ChemicalDataObject::noUnit),
+            : currentUnit(ChemicalDataObject::noUnit),
             currentElement(0),
             inElement(false),
             inName(false),
@@ -56,12 +55,11 @@ class ElementSaxParser::Private
 
         ~Private()
         {
-            delete currentDataObject;
             delete currentElement;
             //qDeleteAll(elements);
         }
 
-        ChemicalDataObject *currentDataObject;
+        ChemicalDataObject currentDataObject;
         ChemicalDataObject::BlueObeliskUnit currentUnit;
         Element *currentElement;
 
@@ -187,8 +185,8 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
                 for (int i = 0; i < attrs.length(); ++i) 
                 {
                     if (attrs.localName(i) == "value") {
-                        d->currentDataObject->setData( attrs.value(i) );
-                        d->currentDataObject->setType( ChemicalDataObject::symbol );
+                        d->currentDataObject.setData( attrs.value(i) );
+                        d->currentDataObject.setType( ChemicalDataObject::symbol );
                         
                         if ( d->currentElement )
                             d->currentElement->addData( d->currentDataObject );
@@ -199,8 +197,8 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
                 for (int i = 0; i < attrs.length(); ++i) 
                 {
                     if (attrs.localName(i) == "value") {
-                        d->currentDataObject->setData( attrs.value(i) );
-                        d->currentDataObject->setType( ChemicalDataObject::name );
+                        d->currentDataObject.setData( attrs.value(i) );
+                        d->currentDataObject.setType( ChemicalDataObject::name );
     
                         if ( d->currentElement )
                             d->currentElement->addData( d->currentDataObject );
@@ -220,19 +218,18 @@ bool ElementSaxParser::endElement( const QString &, const QString& localName, co
             d->elements.append(d->currentElement);
 
         d->currentElement = 0;
-        d->currentDataObject = 0;
         d->inElement = false;
     }
     else if ( localName == "scalar" || localName == "label" || localName == "array" )
     {
-        d->currentDataObject->setUnit( d->currentUnit );
+        d->currentDataObject.setUnit( d->currentUnit );
     }
     return true;
 }
 
 bool ElementSaxParser::characters(const QString &ch)
 {
-    d->currentDataObject = new ChemicalDataObject();
+    d->currentDataObject = ChemicalDataObject();
     ChemicalDataObject::BlueObelisk type;
     QVariant value;
 
@@ -364,8 +361,8 @@ bool ElementSaxParser::characters(const QString &ch)
     else//it is a non known value. Do not create a wrong object but return
         return true;
 
-    d->currentDataObject->setData( value );
-    d->currentDataObject->setType( type );
+    d->currentDataObject.setData( value );
+    d->currentDataObject.setType( type );
 
     if ( d->currentElement )
         d->currentElement->addData( d->currentDataObject );

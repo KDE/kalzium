@@ -63,13 +63,12 @@ bool SpectrumParser::endElement( const QString&, const QString& localName, const
 //X 		isotopes_.append(currentSpectrum_);
 //X 		
 //X 		currentSpectrum_ = 0;
-//X 		currentDataObject_ = 0;
 //X 		inSpectrum_ = false;
 	}
 	else if ( localName == "scalar" )
 	{
-//X 		if ( currentDataObject_->type() == ChemicalDataObject::exactMass ){
-//X 			currentDataObject_->setErrorValue( currentErrorValue_ );
+//X 		if ( currentDataObject_.type() == ChemicalDataObject::exactMass ){
+//X 			currentDataObject_.setErrorValue( currentErrorValue_ );
 //X 		}
 	}
 
@@ -78,7 +77,7 @@ bool SpectrumParser::endElement( const QString&, const QString& localName, const
 
 bool SpectrumParser::characters(const QString &ch)
 {
-	currentDataObject_ = new ChemicalDataObject();
+	ChemicalDataObject currentDataObject_;
 	ChemicalDataObject::BlueObelisk type;
 	QVariant value;
 
@@ -95,8 +94,8 @@ bool SpectrumParser::characters(const QString &ch)
 	else//it is a non known value. Do not create a wrong object but return
 		return true;
 
-	currentDataObject_->setData( value );
-	currentDataObject_->setType( type );
+	currentDataObject_.setData( value );
+	currentDataObject_.setType( type );
 
 //X 	if ( currentSpectrum_ )
 //X 		currentSpectrum_->addData( currentDataObject_ );

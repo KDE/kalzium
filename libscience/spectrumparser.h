@@ -43,7 +43,7 @@ class EDUSCIENCE_EXPORT SpectrumParser : public QXmlDefaultHandler
 		QList<Spectrum*> getSpectrums();
 
 	private:
-		ChemicalDataObject *currentDataObject_;
+		ChemicalDataObject currentDataObject_;
 		ChemicalDataObject::BlueObeliskUnit currentUnit_;
 
 		QVariant currentErrorValue_;
