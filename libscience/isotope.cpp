@@ -68,72 +68,88 @@ void Isotope::addData( ChemicalDataObject o )
 double Isotope::mass() const
 {
 	//return m_mass ? m_mass.value().toDouble() : -1.0;
+	return -1.0;
 }
 
 QString Isotope::errorMargin() const
 {
 	//return m_mass ? m_mass.errorValue().toString() : QString();
+	return QString();
 }
 
 int Isotope::parentElementNumber() const
 {
 //	return m_identifier ? m_identifier.value().toInt() : -1;
+	return -1;
 }
 
 QString Isotope::spin() const
 {
 	//return m_spin ? m_spin.value().toString() : QString();
+	return QString();
 }
 
 QString Isotope::magmoment() const
 {
 	//return m_magmoment ? m_magmoment.value().toString() : QString();
+	return QString();
 }
 
 QString Isotope::abundance() const
 {
 	//return m_abundance ? m_abundance.value().toString() : QString();
+	return QString();
 }
 
 double Isotope::halflife() const
 {
 	//return m_halflife ? m_halflife.value().toDouble() : -1.0;
+	return -1.0;
 }
 double Isotope::ecdecay() const
 {
 	//return m_ecdecay ? m_ecdecay.value().toDouble() : -1.0;
+	return -1.0;
 }
 double Isotope::eclikeliness() const
 {
 	//return m_eclikeliness ? m_eclikeliness.value().toDouble() : -1.0;
+	return -1.0;
 }
 double Isotope::betaplusdecay() const
 {
 	//return m_betaplusdecay ? m_betaplusdecay.value().toDouble() : -1.0;
+	return -1.0;
 }
 double Isotope::betapluslikeliness() const
 {
 	//return m_betapluslikeliness ? m_betapluslikeliness.value().toDouble() : -1.0;
+	return -1.0;
 }
 double Isotope::betaminusdecay() const
 {
 	//return m_betaminusdecay ? m_betaminusdecay.value().toDouble() : -1.0;
+	return -1.0;
 }
 double Isotope::betaminuslikeliness() const
 {
 	//return m_betaminuslikeliness ? m_betaminuslikeliness.value().toDouble() : -1.0;
+	return -1.0;
 }
 double Isotope::alphadecay() const
 {
 	//return m_alphadecay ? m_alphadecay.value().toDouble() : -1.0;
+	return -1.0;
 }
 double Isotope::alphalikeliness() const
 {
 	//return m_alphalikeliness ? m_alphalikeliness.value().toDouble() : -1.0;
+	return -1.0;
 }
 QString Isotope::parentElementSymbol() const
 {
 	//return m_parentElementSymbol ? m_parentElementSymbol.value().toString() : QString();
+	return QString();
 }
 
 void Isotope::setNucleons( int number )
@@ -144,6 +160,7 @@ void Isotope::setNucleons( int number )
 int Isotope::nucleons() const
 {
 	//return m_numberOfNucleons;
+	return 0;
 }
 
 Isotope::Nucleons Isotope::nucleonsAfterDecay( Decay kind )
