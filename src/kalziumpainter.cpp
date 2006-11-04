@@ -159,7 +159,8 @@ void KalziumPainter::drawElement( int element, const QRect& r )
         m_painter->fillPath(path, c);
         m_painter->drawPolygon( poly );
 
-        m_painter->drawText( correctedRect, Qt::AlignCenter, symbol );
+        m_painter->drawText( correctedRect.x(), correctedRect.y(),
+                ELEMENTSIZE, ELEMENTSIZE, Qt::AlignCenter, symbol );
     } else{
     switch ( m_mode )
     {
