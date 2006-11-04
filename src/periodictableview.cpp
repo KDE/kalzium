@@ -226,9 +226,11 @@ QBrush PeriodicTableView::brushForElement( int element ) const
 
 void PeriodicTableView::slotChangeStyle(int style)
 {
-    KalziumTableType *tt = KalziumTableTypeFactory::instance()->build( "Classic" );
+    KalziumTableType *tt = KalziumTableTypeFactory::instance()->build( style );
+    kDebug() << "Currently selected style: " << tt->name() << endl;
     m_painter->setTableType(tt);
 
+    setMinimumSize( tt->size() );
     update();
 }
 

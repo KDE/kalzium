@@ -385,6 +385,7 @@ void Kalzium::slotShowHideSidebar()
 
 void Kalzium::slotSwitchtoStyle( int index )
 {
+    kDebug() << "Kalzium::slotSwitchtoStyle()" << endl;
     m_PeriodicTableView->slotChangeStyle(index);
 }
 
