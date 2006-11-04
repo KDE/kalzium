@@ -46,34 +46,33 @@
 PeriodicTableView::PeriodicTableView( QWidget *parent )
   : QWidget( parent )
 {
-	// No selection
-	m_currentElement = 0;
+    // No selection
+    m_currentElement = 0;
 
-	setMouseTracking( true );
+    setMouseTracking( true );
 
-	//eliminates flicker on redraw
-	setAttribute( Qt::WA_OpaquePaintEvent, true );
+    //eliminates flicker on redraw
+    setAttribute( Qt::WA_OpaquePaintEvent, true );
 
-	table = new QPixmap();
-	table2 = new QPixmap();
+    table = new QPixmap();
+    table2 = new QPixmap();
 
-	//Start with a full draw
-	doFullDraw = true;
+    //Start with a full draw
+    doFullDraw = true;
 
-	m_startDrag = QPoint();
+    m_startDrag = QPoint();
 
-	m_hoverTimer.setSingleShot( true );
-	connect( &m_hoverTimer, SIGNAL( timeout() ), this, SLOT( slotMouseover() ) );
-	m_prevHoverElement = 0;
+    m_hoverTimer.setSingleShot( true );
+    connect( &m_hoverTimer, SIGNAL( timeout() ), this, SLOT( slotMouseover() ) );
+    m_prevHoverElement = 0;
 
-	KalziumTableType *classic = KalziumTableTypeFactory::instance()->build( "Classic" );
-	m_painter = new KalziumPainter( classic );
-	m_painter->toggleLegend( Prefs::showlegend() );
-	
-	// according to carsten :)
-	setMinimumSize( classic->size() );
+    KalziumTableType *tt = KalziumTableTypeFactory::instance()->build( "Classic" );
+    m_painter = new KalziumPainter( tt );
+    m_painter->toggleLegend( Prefs::showlegend() );
 
-	update();
+    setMinimumSize( tt->size() );
+
+    update();
 }
 
 PeriodicTableView::~PeriodicTableView()
