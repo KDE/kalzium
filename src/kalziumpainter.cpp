@@ -127,6 +127,10 @@ void KalziumPainter::drawElement( int element, const QRect& r )
         newX.setY( newX.y() /2 ); 
         newY.setX( newY.x() ); 
         newY.setY( newY.y() /2 ); 
+        
+        kDebug() << "X: " << rect.x() / ELEMENTSIZE << endl;
+        if ( (rect.x() / ELEMENTSIZE)%2 )
+            newX.setX( newX.x()-ELEMENTSIZE/4 ); 
 
         correctedRect = QRect( newX, newY);
         kDebug() << "Top left: [" << rect.topLeft().x() << ", " << rect.topLeft().y() <<  "] Bottom right: ["<< rect.bottomRight().x() << ", " << rect.bottomRight().y() << "]" << endl;
