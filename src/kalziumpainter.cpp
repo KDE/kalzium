@@ -1,5 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006      by Pino Toscano, toscano.pino@tiscali.it      *
+ *   Copyright (C) 2005, 2006      by Pino Toscano, toscano.pino@tiscali.it*
+ *   Copyright (C) 2006            by Carsten Niehaus, cniehaus@kde.org    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,16 +18,13 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
+#define ELEMENTSIZE 40
 #include "kalziumpainter.h"
 #include "kalziumdataobject.h"
 #include "kalziumtabletype.h"
-//#include "kalziumtabletypefactory.h"
 #include "kalziumschemetype.h"
-//#include "kalziumschemetypefactory.h"
 #include "kalziumgradienttype.h"
-//#include "kalziumgradienttypefactory.h"
 #include "kalziumnumerationtype.h"
-//#include "kalziumnumerationtypefactory.h"
 #include "kalziumutils.h"
 #include "element.h"
 #include "prefs.h"
@@ -43,6 +41,8 @@
 #include <QRect>
 #include <QSize>
 #include <QStringList>
+#include <QPolygon>
+#include <QPainterPath>
 
 #include <kdebug.h>
 #include <kglobalsettings.h>
@@ -114,7 +114,51 @@ void KalziumPainter::drawElement( int element, const QRect& r )
     const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
 
     bool selectedElement = KalziumDataObject::instance()->search()->matches( el );
+    
+    if (m_ktt->name() == "Hex")
+    {//this if is just a hack until I integrated
+    //the hex mode 100%
 
+        QRect correctedRect;
+        QPoint newX = rect.topLeft();
+        QPoint newY = rect.bottomRight();
+
+        newX.setX( newX.x() ); 
+        newX.setY( newX.y() /2 ); 
+        newY.setX( newY.x() ); 
+        newY.setY( newY.y() /2 ); 
+
+        correctedRect = QRect( newX, newY);
+        kDebug() << "Top left: [" << rect.topLeft().x() << ", " << rect.topLeft().y() <<  "] Bottom right: ["<< rect.bottomRight().x() << ", " << rect.bottomRight().y() << "]" << endl;
+        kDebug() << "Painting the Hexfield at " << rect << " or ... " << correctedRect << endl;
+        QBrush c = m_scheme->elementBrush( element, rect );
+
+        QColor textc = m_scheme->textColor( element );
+        m_painter->setPen( textc );
+
+        QPolygon poly;
+        poly << QPoint(correctedRect.x(), 
+                correctedRect.y() + ELEMENTSIZE/2);
+        poly << QPoint(correctedRect.x()+ELEMENTSIZE/4,
+                correctedRect.y());
+        poly << QPoint(correctedRect.x()+ELEMENTSIZE/4*3,
+                correctedRect.y());
+        poly << QPoint(correctedRect.x()+ELEMENTSIZE, 
+                correctedRect.y() + ELEMENTSIZE/2);
+        poly << QPoint(correctedRect.x()+ELEMENTSIZE/4*3,
+                correctedRect.y() + ELEMENTSIZE);
+        poly << QPoint(correctedRect.x()+ELEMENTSIZE/4,
+                correctedRect.y() + ELEMENTSIZE);
+
+
+        QPainterPath path;
+        path.addPolygon(poly);
+
+        m_painter->fillPath(path, c);
+        m_painter->drawPolygon( poly );
+
+        m_painter->drawText( correctedRect, Qt::AlignCenter, symbol );
+    } else{
     switch ( m_mode )
     {
         case NORMAL:
@@ -236,6 +280,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
                 m_painter->drawText( rect, Qt::AlignCenter, symbol );
                 break;
             }
+    }
     }
 }
 
