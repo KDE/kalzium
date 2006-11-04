@@ -179,6 +179,8 @@ class PeriodicTableView : public QWidget
 		
     void setTime( int time );
 
+    void slotChangeStyle( int style );
+
 		/**
 		 * this slot removes the selection of any point
 		 */

@@ -6,6 +6,7 @@
   </Menu>
   <Menu name="table_menu"><text>&amp;View</text>
     <Action name="view_numerationtype" />
+    <Action name="view_styletype" />
     <Action name="view_look" />
     <Separator />
     <Action name="view_legend" />

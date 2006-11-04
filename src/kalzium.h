@@ -78,6 +78,7 @@ class Kalzium : public KMainWindow
 		KSelectAction *look_action;
 		KSelectAction *look_action_schemes;
 		KSelectAction *numeration_action;
+		KSelectAction *psestyle_action;
 		// settings
 		KAction *m_pLegendAction;
 		KAction *m_SidebarAction;
@@ -128,6 +129,8 @@ class Kalzium : public KMainWindow
 		void slotLatticeViewer();
 
 		void slotShowEQSolver();
+		
+    void slotSwitchtoStyle( int index );
 		
 		void slotShowLegend();
 		

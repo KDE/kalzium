@@ -78,7 +78,11 @@ static const int posXHex[117] = {
     7, //Rn
     13, 13, 13, //Fr, Ra, Ac
     14, 15, 16, 17, 18, 19, //Tb to Am
-    19, 19, 18, 17, 16, 15, 14, 13
+    19, 19, 18, 17, 16, 15, 14, 13, //Cm to Lr
+    13, 13, 13, 13,
+    9, 8, 7, 6,
+    2, 
+    1, 1, 1, 1
 };
 
 static const int posYHex[117] = 
@@ -107,7 +111,11 @@ static const int posYHex[117] =
     3,
     9, 11, 13,
     14, 15, 16, 17, 18, 19, //Tb to Am
-    21, 23, 24, 23, 22, 21, 20, 19 //Cm to Lr
+    21, 23, 24, 23, 22, 21, 20, 19, //Cm to Lr
+    21, 23, 25, 27,
+    31, 32, 33, 32,
+    28,
+    17, 15, 13, 11
 };
 
 KalziumTableTypeFactory::KalziumTableTypeFactory()
@@ -189,7 +197,7 @@ QString KalziumClassicTableType::description() const
 
 QSize KalziumClassicTableType::size() const
 {
-	return QSize( ELEMENTSIZE * 19 + 1, ELEMENTSIZE * 34 + 1 );
+	return QSize( ELEMENTSIZE * 18 + 1, ELEMENTSIZE * 10 + 30 );
 }
 
 int KalziumClassicTableType::elementAtCoords( const QPoint& coords ) const
@@ -291,7 +299,7 @@ QString KalziumHexTableType::description() const
 
 QSize KalziumHexTableType::size() const
 {
-	return QSize( ELEMENTSIZE * 18 + 1, ELEMENTSIZE * 10 + 30 );
+	return QSize( ELEMENTSIZE * 19 + 1, ELEMENTSIZE * 34 + 1 );
 }
 
 int KalziumHexTableType::elementAtCoords( const QPoint& coords ) const

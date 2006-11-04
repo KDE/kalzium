@@ -64,6 +64,10 @@ class KalziumPainter
 		KalziumPainter( KalziumTableType *ktt );
 		virtual ~KalziumPainter() {}
 
+    void setTableType( KalziumTableType* ktt ){
+       m_ktt = ktt; 
+    }
+
 		enum MODE
 		{
 			NORMAL = 0,

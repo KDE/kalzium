@@ -163,6 +163,14 @@ void Kalzium::setupActions()
 	numeration_action = new KSelectAction( i18n( "&Numeration" ), actionCollection(), "view_numerationtype" );
 	numeration_action->setItems( KalziumNumerationTypeFactory::instance()->numerations() );
 	connect( numeration_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoNumeration( int ) ) );
+	
+  //Style of the Periodic Table
+  QStringList styletype;
+  styletype << i18n("Regular Table");
+  styletype << i18n("Hexagonal Table");
+  psestyle_action = new KSelectAction( i18n( "&Style" ), actionCollection(), "view_styletype" );
+	psestyle_action->setItems( styletype );
+	connect( psestyle_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoStyle( int ) ) );
 
 	m_SidebarAction = new KAction( KIcon( "sidebar" ), i18n( "Show &Sidebar "), actionCollection(), "view_sidebar" );
 	connect( m_SidebarAction, SIGNAL( triggered() ), this, SLOT( slotShowHideSidebar() ) );
@@ -373,6 +381,11 @@ void Kalzium::slotShowHideSidebar()
 	
 	//save the settings
 	Prefs::writeConfig();
+}
+
+void Kalzium::slotSwitchtoStyle( int index )
+{
+    m_PeriodicTableView->slotChangeStyle(index);
 }
 
 void Kalzium::slotSwitchtoNumeration( int index )

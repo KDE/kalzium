@@ -224,6 +224,14 @@ QBrush PeriodicTableView::brushForElement( int element ) const
 	return m_painter->brushForElement( element );
 }
 
+void PeriodicTableView::slotChangeStyle(int style)
+{
+    KalziumTableType *tt = KalziumTableTypeFactory::instance()->build( "Classic" );
+    m_painter->setTableType(tt);
+
+    update();
+}
+
 void PeriodicTableView::slotMouseover()
 {
 	int num = m_painter->currentTableType()->elementAtCoords( mapFromGlobal( QCursor::pos() ) );
