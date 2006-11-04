@@ -128,13 +128,12 @@ void KalziumPainter::drawElement( int element, const QRect& r )
         newY.setX( newY.x() ); 
         newY.setY( newY.y() /2 ); 
         
-        kDebug() << "X: " << rect.x() / ELEMENTSIZE << endl;
-        if ( (rect.x() / ELEMENTSIZE)%2 )
-            newX.setX( newX.x()-ELEMENTSIZE/4 ); 
+        const int column = rect.x() / ELEMENTSIZE;
+
+        newX.setX( newX.x() - ( column*(ELEMENTSIZE/4) ) );
+        newY.setX( newX.y() - ( column*(ELEMENTSIZE/4) ) );
 
         correctedRect = QRect( newX, newY);
-        kDebug() << "Top left: [" << rect.topLeft().x() << ", " << rect.topLeft().y() <<  "] Bottom right: ["<< rect.bottomRight().x() << ", " << rect.bottomRight().y() << "]" << endl;
-        kDebug() << "Painting the Hexfield at " << rect << " or ... " << correctedRect << endl;
         QBrush c = m_scheme->elementBrush( element, rect );
 
         QColor textc = m_scheme->textColor( element );
@@ -153,7 +152,6 @@ void KalziumPainter::drawElement( int element, const QRect& r )
                 correctedRect.y() + ELEMENTSIZE);
         poly << QPoint(correctedRect.x()+ELEMENTSIZE/4,
                 correctedRect.y() + ELEMENTSIZE);
-
 
         QPainterPath path;
         path.addPolygon(poly);

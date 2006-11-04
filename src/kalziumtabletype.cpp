@@ -56,7 +56,7 @@ static const int posYRegular[117] = {
 static const int posXHex[117] = {
     7, 7,   //H, He
     8, 8,   //Li, Be
-    5, 5, 5, 5, 5, //B to F
+    6, 6, 6, 6, 6, //B to F
     7, //Ne
     9, 9, //Na, Mg
     5, 5, 5, 5, 5, //Al to Cl
@@ -69,7 +69,16 @@ static const int posXHex[117] = {
     9, 8, 7, 6, 4, // Ru to Cd
     3, 3, 3, 3, 3, //In to I
     7, //Xe
-    12, 12, 12, 12, 12, 12, 12, 12, 12 //Cs to Re
+    12, 12, 12, 13, 14, 15, 16, 17, 18,//Cs, Ba, La, ... Eu
+    18, 17, 16, 15, 14, 13, //Gd .. Tm
+    12, 12, 12, 12, 12, 12, //Yb to Re (75)
+    9, 8, 7, 6, //Os to Au
+    3, //Hg
+    2, 2, 2, 2, 2, //Ti to At
+    7, //Rn
+    13, 13, 13, //Fr, Ra, Ac
+    14, 15, 16, 17, 18, 19, //Tb to Am
+    19, 19, 18, 17, 16, 15, 14, 13
 };
 
 static const int posYHex[117] = 
@@ -89,7 +98,16 @@ static const int posYHex[117] =
     27, 28, 29, 28, 26, // Ru to Cd
     19, 17, 15, 13, 11, //In to I
     5, //Xe
-    10, 12, 14, 16, 18, 20, 22, 24, 26//Cs to Re
+    10, 12, 14, 15, 16, 17, 18, 19, 20, //Cs ..Eu
+    22, 21, 20, 19, 18, 17, //Gd .. Tm
+    16, 18, 20, 22, 24, 26, //Yb to Re (75)
+    29, 30, 31, 30,
+    27,
+    18, 16, 14, 12, 10, //Ti to At
+    3,
+    9, 11, 13,
+    14, 15, 16, 17, 18, 19, //Tb to Am
+    21, 23, 24, 23, 22, 21, 20, 19 //Cm to Lr
 };
 
 KalziumTableTypeFactory::KalziumTableTypeFactory()
