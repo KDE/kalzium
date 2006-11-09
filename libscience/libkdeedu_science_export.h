@@ -24,7 +24,19 @@
 /* needed for KDE_EXPORT macros */
 #include <kdemacros.h>
 
+#if defined Q_OS_WIN
+
+#ifndef EDUSCIENCE_EXPORT
+# ifdef MAKE_EDUSCIENCE_LIB
+#  define EDUSCIENCE_EXPORT KDE_EXPORT
+# else
+#  define EDUSCIENCE_EXPORT KDE_IMPORT
+# endif
+#endif
+
+#else
 /* export statements for unix */
 #define EDUSCIENCE_EXPORT KDE_EXPORT
+#endif
 
 #endif

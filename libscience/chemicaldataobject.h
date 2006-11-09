@@ -238,7 +238,7 @@ class EDUSCIENCE_EXPORT ChemicalDataObject
     QSharedDataPointer<ChemicalDataObjectPrivate> d;
 };
 
-class ChemicalDataObjectPrivate : public QSharedData
+class EDUSCIENCE_EXPORT ChemicalDataObjectPrivate : public QSharedData
 {
     public:
         ChemicalDataObjectPrivate();
