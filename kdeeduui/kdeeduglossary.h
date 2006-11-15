@@ -36,7 +36,7 @@ class GlossaryItem;
  * This class stores all items to be displayed. It also
  * has access-methods to the items
  */
-class EDUUI_EXPORT Glossary
+class KDEEDUUI_EXPORT Glossary
 {
 	public:
 		/**
@@ -177,7 +177,7 @@ class EDUUI_EXPORT Glossary
  * a number of pictures or references associated to it.
  * These are stored as QStringLists.
  */
-class EDUUI_EXPORT GlossaryItem
+class KDEEDUUI_EXPORT GlossaryItem
 {
 	public:
 		GlossaryItem(){};
@@ -242,7 +242,7 @@ class EDUUI_EXPORT GlossaryItem
  * @author Pino Toscano
  * @author Carsten Niehaus
  */
-class EDUUI_EXPORT GlossaryDialog : public KDialog
+class KDEEDUUI_EXPORT GlossaryDialog : public KDialog
 {
 	Q_OBJECT
 

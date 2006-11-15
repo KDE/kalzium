@@ -36,7 +36,7 @@ class ChemicalDataObjectPrivate;
  *
  * @author Carsten Niehaus <cniehaus@kde.org>
  */
-class EDUSCIENCE_EXPORT ChemicalDataObject
+class SCIENCE_EXPORT ChemicalDataObject
 {
 	public:
 		/**
@@ -238,7 +238,7 @@ class EDUSCIENCE_EXPORT ChemicalDataObject
     QSharedDataPointer<ChemicalDataObjectPrivate> d;
 };
 
-class EDUSCIENCE_EXPORT ChemicalDataObjectPrivate : public QSharedData
+class SCIENCE_EXPORT ChemicalDataObjectPrivate : public QSharedData
 {
     public:
         ChemicalDataObjectPrivate();

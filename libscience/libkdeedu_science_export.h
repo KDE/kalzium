@@ -26,17 +26,17 @@
 
 #if defined Q_OS_WIN
 
-#ifndef EDUSCIENCE_EXPORT
-# ifdef MAKE_EDUSCIENCE_LIB
-#  define EDUSCIENCE_EXPORT KDE_EXPORT
+#ifndef SCIENCE_EXPORT
+# ifdef MAKE_SCIENCE_LIB
+#  define SCIENCE_EXPORT KDE_EXPORT
 # else
-#  define EDUSCIENCE_EXPORT KDE_IMPORT
+#  define SCIENCE_EXPORT KDE_IMPORT
 # endif
 #endif
 
 #else
 /* export statements for unix */
-#define EDUSCIENCE_EXPORT KDE_EXPORT
+#define SCIENCE_EXPORT KDE_EXPORT
 #endif
 
 #endif

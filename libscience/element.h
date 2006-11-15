@@ -38,7 +38,7 @@ class Isotope;
  * @short This class is the represention of a chemical element
  * @author Carsten Niehaus
 */
-class EDUSCIENCE_EXPORT Element
+class SCIENCE_EXPORT Element
 {
 	public:
 		Element();

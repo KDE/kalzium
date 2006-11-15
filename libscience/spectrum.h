@@ -32,7 +32,7 @@ class Element;
  *
  * This class represents an spectrum with all its properties
  */
-class EDUSCIENCE_EXPORT Spectrum
+class SCIENCE_EXPORT Spectrum
 {
 	public:
 		/**

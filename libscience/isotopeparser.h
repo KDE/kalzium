@@ -24,7 +24,7 @@ class Isotope;
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
  */
-class EDUSCIENCE_EXPORT IsotopeParser : public QXmlDefaultHandler
+class SCIENCE_EXPORT IsotopeParser : public QXmlDefaultHandler
 {
 	public:
 		/**

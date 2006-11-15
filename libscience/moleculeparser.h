@@ -27,7 +27,7 @@
  * @class ElementCount
  * @author Inge Wallin
  */
-class EDUSCIENCE_EXPORT ElementCount 
+class SCIENCE_EXPORT ElementCount 
 {
 	public:
 		/**
@@ -88,7 +88,7 @@ class EDUSCIENCE_EXPORT ElementCount
  * @class ElementCountMap
  * @author Inge Wallin
  */
-class EDUSCIENCE_EXPORT ElementCountMap 
+class SCIENCE_EXPORT ElementCountMap 
 {
 	public:
 		/**
@@ -166,7 +166,7 @@ class EDUSCIENCE_EXPORT ElementCountMap
  *
  * @author Inge Wallin
  */
-class EDUSCIENCE_EXPORT MoleculeParser : public Parser {
+class SCIENCE_EXPORT MoleculeParser : public Parser {
 
 public:
 	/**

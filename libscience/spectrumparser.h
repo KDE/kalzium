@@ -27,7 +27,7 @@ class Spectrum;
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
  */
-class EDUSCIENCE_EXPORT SpectrumParser : public QXmlDefaultHandler
+class SCIENCE_EXPORT SpectrumParser : public QXmlDefaultHandler
 {
 	public:
 		/**

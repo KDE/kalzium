@@ -26,7 +26,7 @@
  *
  * @author Inge Wallin
  */
-class EDUSCIENCE_EXPORT Parser {
+class SCIENCE_EXPORT Parser {
 public:
 	/**
 	 * Constructor

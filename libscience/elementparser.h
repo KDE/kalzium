@@ -24,7 +24,7 @@ class Element;
 /**
  * @author Carsten Niehaus <cniehaus@kde.org>
  */
-class EDUSCIENCE_EXPORT ElementSaxParser : public QXmlDefaultHandler
+class SCIENCE_EXPORT ElementSaxParser : public QXmlDefaultHandler
 {
 	public:
 		/**

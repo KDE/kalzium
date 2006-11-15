@@ -34,7 +34,7 @@
  *
  * @author Pino Toscano
  */
-class EDUSCIENCE_EXPORT TempUnit
+class SCIENCE_EXPORT TempUnit
 {
 	public:
 

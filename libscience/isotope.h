@@ -30,7 +30,7 @@
  *
  * This class represents an Isotope with all its properties
  */
-class EDUSCIENCE_EXPORT Isotope
+class SCIENCE_EXPORT Isotope
 {
 	public:
 		/**
