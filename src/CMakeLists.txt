@@ -49,7 +49,7 @@ if(LIBFACILE_FOUND)
     )
 endif(LIBFACILE_FOUND)
 
-if(OPENBABEL2_FOUND AND OPENGL_FOUND)
+if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
   set( kalzium_SRCS
     ${kalzium_SRCS}
     moleculeview.cpp
@@ -63,7 +63,7 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND)
     )
   include_directories( ${OPENBABEL2_INCLUDE_DIR} )
   add_subdirectory(widgets)
-endif(OPENBABEL2_FOUND AND OPENGL_FOUND)
+endif(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
 
 kde4_automoc(${kalzium_SRCS})
 
