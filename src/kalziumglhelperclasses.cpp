@@ -11,11 +11,15 @@
  *                                                                         *
  ***************************************************************************/
 #include "kalziumglhelperclasses.h"
-#include <math.h>
 
-using namespace KalziumGLHelpers;
 using namespace OpenBabel;
 using namespace Eigen;
+
+#include<iostream>
+using namespace std;
+
+namespace KalziumGLHelpers
+{
 
 MolStyle::MolStyle( BondStyle bondStyle, AtomStyle atomStyle,
 	double singleBondRadius,
@@ -387,13 +391,11 @@ void Cylinder::buildBuffers()
 		m_normalBuffer[ 2 * i ].y() = y;
 		m_normalBuffer[ 2 * i ].z() = 0.0;
 
+		m_normalBuffer[ 2 * i + 1 ] = m_normalBuffer[ 2 * i ];
+
 		m_vertexBuffer[ 2 * i ].x() = x;
 		m_vertexBuffer[ 2 * i ].y() = y;
 		m_vertexBuffer[ 2 * i ].z() = 1.0;
-
-		m_normalBuffer[ 2 * i + 1 ].x() = x;
-		m_normalBuffer[ 2 * i + 1 ].y() = y;
-		m_normalBuffer[ 2 * i + 1 ].z() = 0.0;
 
 		m_vertexBuffer[ 2 * i + 1 ].x() = x;
 		m_vertexBuffer[ 2 * i + 1 ].y() = y;
@@ -406,25 +408,34 @@ void Cylinder::draw( const Vector3d &end1, const Vector3d &end2,
 {
 	// the "axis vector" of the cylinder
 	Vector3d axis = end2 - end1;
+	double axisNorm = axis.norm();
+	if( axisNorm == 0.0 ) return;
+	Vector3d axisNormalized = axis / axisNorm;
 	
-	// find two unit vectors v, w such that
-	// (axis,v,w) is an orthogonal basis
-	Vector3d v, w;
-	createOrthoBasisGivenFirstVector( axis, &v, &w );
-	v *= radius;
-	w *= radius;
+	Vector3d ortho1( axisNormalized.y(), -axisNormalized.x(), 0.0 );
+	double ortho1Norm = ortho1.norm();
+	if( ortho1Norm > 0.001 ) ortho1 /= ortho1Norm;
+	else {
+		ortho1 = Vector3d( 0.0,
+		                   axisNormalized.z(),
+		                   -axisNormalized.y() );
+		ortho1.normalize();
+	}
+	ortho1 *= radius;
+
+	Vector3d ortho2 = cross( axisNormalized, ortho1 );
 
 	// construct the 4D transformation matrix
 	Matrix4d matrix;
 
-	matrix(0, 0) = v(0);
-	matrix(1, 0) = v(1);
-	matrix(2, 0) = v(2);
+	matrix(0, 0) = ortho1(0);
+	matrix(1, 0) = ortho1(1);
+	matrix(2, 0) = ortho1(2);
 	matrix(3, 0) = 0.0;
 
-	matrix(0, 1) = w(0);
-	matrix(1, 1) = w(1);
-	matrix(2, 1) = w(2);
+	matrix(0, 1) = ortho2(0);
+	matrix(1, 1) = ortho2(1);
+	matrix(2, 1) = ortho2(2);
 	matrix(3, 1) = 0.0;
 
 	matrix(0, 2) = axis(0);
@@ -441,13 +452,25 @@ void Cylinder::draw( const Vector3d &end1, const Vector3d &end2,
 	glPushMatrix();
 	glMultMatrixd( matrix.array() );
 	if( order == 1 ) VertexArray::draw();
-	else for( int i = 0; i < order; i++)
+	else
 	{
-		glPushMatrix();
-		glRotated( 360.0 * i / order, 0.0, 0.0, 1.0 );
-		glTranslated( shift / radius, 0.0, 0.0 );
-		VertexArray::draw();
-		glPopMatrix();
+		double angleOffset = 0.0;
+		if( order >= 3 )
+		{
+			if( order == 3 ) angleOffset = 90.0;
+			else angleOffset = 22.5;
+		}
+		
+		double displacementFactor = shift / radius;
+		for( int i = 0; i < order; i++)
+		{
+			glPushMatrix();
+			glRotated( angleOffset + 360.0 * i / order,
+			           0.0, 0.0, 1.0 );
+			glTranslated( displacementFactor, 0.0, 0.0 );
+			VertexArray::draw();
+			glPopMatrix();
+		}
 	}
 	glPopMatrix();
 }
@@ -634,7 +657,7 @@ void TextRenderer::print( int x, int y, const QString &string )
 	if( ! m_isBetweenBeginAndEnd ) do_end();
 }
 
-void KalziumGLHelpers::createOrthoBasisGivenFirstVector
+void createOrthoBasisGivenFirstVector
 	( const Vector3d &U, Vector3d * v, Vector3d * w )
 {
 	U.makeOrthoVector(v);
@@ -642,36 +665,4 @@ void KalziumGLHelpers::createOrthoBasisGivenFirstVector
 	w->normalize();
 }
 
-/*
-void LinearRegression( const std::list<Vector3d *> & points,
-	Vector3d & ret_plane_base_point, Vector3d & ret_plane_normal_vector )
-{
-	double sum_x = 0.0;
-	double sum_y = 0.0;
-	double sum_z = 0.0;
-	double sum_xx = 0.0;
-	double sum_xy = 0.0;
-	double sum_xz = 0.0;
-	double sum_yy = 0.0;
-	double sum_yz = 0.0;
-	double sum_zz = 0.0;
-
-	for( std::list<Vector3d *>::const_iterator iter = points.begin();
-		iter != points.end(); iter++ )
-	{
-		double x = iter->x();
-		double y = iter->y();
-		double z = iter->z();
-		sum_x += x;
-		sum_y += y;
-		sum_z += z;
-		sum_xx += x * x;
-		sum_xy += x * y;
-		sum_xz += x * z;
-		sum_yy += y * y;
-		sum_yz += y * z;
-		sum_zz += z * z;
-	}
-
-	
-}*/
+} // namespace KalziumGLHelpers

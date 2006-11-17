@@ -13,8 +13,6 @@
  ***************************************************************************/
 #include "kalziumglwidget.h"
 
-#include <math.h>
-
 #include <kdebug.h>
 #include <klocale.h>
 
@@ -26,6 +24,7 @@
 #endif
 
 #include <openbabel/mol.h>
+#include <eigen/regression.h>
 
 using namespace KalziumGLHelpers;
 using namespace OpenBabel;
@@ -468,7 +467,7 @@ void KalziumGLWidget::drawBond( OBBond *bond )
 				m_molStyle.m_multipleBondShift );
 			glLoadName( atom2->GetIdx() );
 			Color( atom2 ).applyAsMaterials();
-			m_cylinder.draw( v2, v3, radius, order,
+			m_cylinder.draw( v3, v2, radius, order,
 				m_molStyle.m_multipleBondShift );
 			break;
 
@@ -499,6 +498,7 @@ void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 	if ( !molecule ) return;
 	m_molecule = molecule;
 	m_haveToRecompileDisplayList = true;
+	m_rotationMatrix.loadIdentity();
 	m_selectedAtoms.clear();
 	m_clickedAtom = 0;
 	prepareMoleculeData();
@@ -548,7 +548,7 @@ void KalziumGLWidget::prepareMoleculeData()
 	//Center the molecule
 	m_molecule->Center();
 
-	// calculate the radius of the molecule without the electrons
+	// compute the radius of the molecule without the electrons
 	// that is, the maximal distance between the center of an atom
 	// of the molecule and the center of the molecule
 	m_molRadiusWithoutElectrons = 0.0;
@@ -558,6 +558,39 @@ void KalziumGLWidget::prepareMoleculeData()
 		double rad = v.norm();
 		if( rad > m_molRadiusWithoutElectrons )
 			m_molRadiusWithoutElectrons = rad;
+	}
+
+	// compute the molecule's fitting plane
+	unsigned int numAtoms = 0, i = 0;
+	FOR_ATOMS_OF_MOL( a, m_molecule ) numAtoms++;
+	Vector3d * atomCenters = new Vector3d[numAtoms];
+	FOR_ATOMS_OF_MOL( a, m_molecule )
+	{
+		atomCenters[i] = Vector3d( a->GetVector().AsArray() );
+		i++;
+	}
+	Vector4d planeCoeffs;
+	computeFittingHyperplane( numAtoms, atomCenters, &planeCoeffs );
+	delete[] atomCenters;
+
+	// compute rotation matrix to orient the molecule in the (x,y)-plane
+	Vector3d planeNormalVector( & planeCoeffs(0) ), v, w;
+	planeNormalVector.normalize();
+	createOrthoBasisGivenFirstVector( planeNormalVector, &v, &w );
+	Matrix3d rotation;
+	rotation.setRow( 0, v );
+	rotation.setRow( 1, w );
+	rotation.setRow( 2, planeNormalVector );
+
+	// apply rotation to each atom in the molecule
+	FOR_ATOMS_OF_MOL( a, m_molecule )
+	{
+		Vector3d atomCenter;
+		atomCenter = Vector3d( a->GetVector().AsArray() );
+		atomCenter = rotation * atomCenter;
+		a->SetVector( atomCenter.x(),
+		              atomCenter.y(),
+		              atomCenter.z() );
 	}
 }
 

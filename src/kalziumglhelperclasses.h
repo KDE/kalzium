@@ -77,7 +77,7 @@ struct MolStyle
 	double m_singleBondRadius;
 	/** If true, multiple bonds will be rendered as such. If false,
 	 * they will be rendered as single bonds */
-	double m_renderMultipleBonds;
+	bool m_renderMultipleBonds;
 	/** The radius ( = half-thickness ) of each bond inside a
 	 * multiple bond */
 	double m_multipleBondRadius;
@@ -160,10 +160,6 @@ struct Color
 void createOrthoBasisGivenFirstVector( const Eigen::Vector3d & U,
                                              Eigen::Vector3d * v,
                                              Eigen::Vector3d * w );
-
-/*void LinearRegression( const std::list<vector3 *> & points,
-	vector3 & ret_plane_base_point, vector3 & ret_plane_normal_vector );
-*/
 
 /**
 * This is an abstract base class for an OpenGL vertex array, with an option
