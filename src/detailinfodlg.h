@@ -52,7 +52,6 @@ class DetailedInfoDlg : public KPageDialog
 			MISC,
 			ENERGY,
 			ISOTOPES,
-			WARNINGS,
 			DATA /** <the overview about atomic and compound data */
 		};
 

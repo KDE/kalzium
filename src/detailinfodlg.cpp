@@ -230,38 +230,6 @@ QString DetailedInfoDlg::getHtml( DATATYPE type ) const
 				html.append( "</td></tr>" );
 			break;
 		}
-		case WARNINGS:
-		{
-				//warning signs
-				QStringList wlist = m_element->dataAsString( ChemicalDataObject::dangerSymbol ).split( ',', QString::SkipEmptyParts );
-				QString curstr;
-				html.append( "<tr><td>" );
-				html.append( i18n( "<b>Danger Symbols</b>:") );
-				html.append( "</td></tr><tr>" );
-				//prints warning pictures
-				for( int i = 0; i < wlist.size(); i++ )
-				{
-					curstr = wlist.at( i ).simplified();
-					html.append( "<td><img src=\"" + m_baseHtml2 + "hazard_" + curstr.at( 0 ) + ".png\" alt=\"symbol\"/ width=\"70\" height=\"70\"></td>" );
-				}
-				html.append( "</tr><tr>" );
-				//prints warning texts
-				for( int i = 0; i < wlist.size(); i++ )
-				{
-					curstr = wlist.at( i ).simplified();
-					html.append( "<td>" + curstr + "</td>" );
-				}
-				html.append( "</tr>" );
-				//R-phrases
-				html.append( "<tr><td>" );
-				html.append( i18n( "<b>R-phrases</b>: %1", m_element->dataAsString( ChemicalDataObject::RPhrase ) ) );
-				html.append( "</td></tr>" );
-				//S-phrases
-				html.append( "<tr><td>" );
-				html.append( i18n( "<b>S-phrases</b>: %1", m_element->dataAsString( ChemicalDataObject::SPhrase ) ) );
-				html.append( "</td></tr>" );
-				break;
-		}
 		case DATA:
 		{
 			html.append( i18n( "<tr><th colspan=\"2\" align=\"left\">Compound properties</th></tr>" ) );
@@ -510,7 +478,6 @@ void DetailedInfoDlg::reloadContent()
 	fillHTMLTab( m_htmlpages["new"], getHtml( DATA ) );
 	fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
 	fillHTMLTab( m_htmlpages["isotopes"], getHtml( ISOTOPES ) );
-	fillHTMLTab( m_htmlpages["warnings"], getHtml( WARNINGS ) );
 
   Spectrum*s = new Spectrum();
   s->addPeak( new Spectrum::peak(400,300) );
