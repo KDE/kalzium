@@ -8,13 +8,16 @@ class KalziumGLPart : public KParts::ReadOnlyPart
 {
     Q_OBJECT
     public:
-        KalziumGLPart(QWidget*, const char*, QObject*, const QStringList&);
+        KalziumGLPart(QWidget*, QObject*, const QStringList&);
         virtual ~KalziumGLPart();
 
         static KAboutData* createAboutData();
 
     public slots:
-        bool openURL(const KUrl& url);
+        bool openUrl(const KUrl& url);
+
+    protected:
+        bool openFile();
 };
 
 #endif // KALZIUMGLPART_H

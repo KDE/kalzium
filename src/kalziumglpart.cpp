@@ -1,13 +1,4 @@
-#include <kapplication.h>
-#include <kinstance.h>
-#include <kiconloader.h>
-#include <kaction.h>
-#include <kstdaction.h>
-#include <kxmlguifactory.h>
 #include <kparts/genericfactory.h>
-#include <kprogress.h>
-#include <kio/netaccess.h>
-#include <kstandarddirs.h>
 
 #include <QStringList>
 
@@ -17,7 +8,7 @@ typedef KParts::GenericFactory<KalziumGLPart> KalziumGLPartFactory;
 
 K_EXPORT_COMPONENT_FACTORY (libkalziumglpart, KalziumGLPartFactory)
 
-KalziumGLPart::KalziumGLPart(QWidget* parentWidget, const char* widgetName, QObject* parent, const QStringList& args)
+KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QStringList& args)
 {
     kDebug() << "KalziumGLPart::KalziumGLPart()" << endl;
 }
@@ -39,7 +30,11 @@ KAboutData *KalziumGLPart::createAboutData()
     return aboutData;
 }
 
-bool KalziumGLPart::openURL(const KUrl& url)
+bool KalziumGLPart::openUrl(const KUrl& url)
 {
     kDebug() << "KalziumGLPart::openURL()" << endl;
+}
+
+bool KalziumGLPart::openFile()
+{
 }
