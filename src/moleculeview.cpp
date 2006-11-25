@@ -15,7 +15,6 @@
 #include <kcombobox.h>
 #include <klocale.h>
 #include <kpushbutton.h>
-#include <kfiledialog.h>
 
 #include "moleculeview.h"
 #include "openbabel2wrapper.h"
@@ -27,6 +26,8 @@
 #include <QFileDialog>
 #include <QDir>
 #include <QStringList>
+
+
 
 using namespace OpenBabel;
 

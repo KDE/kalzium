@@ -57,6 +57,7 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
     kalziumglhelperclasses.cpp
     kalziumglwidget.cpp
     openbabel2wrapper.cpp
+    kalziumglpart.cpp
     )
   kde4_add_ui_files(kalzium_SRCS
     latticeviewer.ui

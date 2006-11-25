@@ -38,3 +38,5 @@ bool KalziumGLPart::openUrl(const KUrl& url)
 bool KalziumGLPart::openFile()
 {
 }
+
+#include "kalziumglpart.moc" 
