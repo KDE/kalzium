@@ -2,9 +2,8 @@
 Encoding=UTF-8
 Icon=kalzium
 MimeType=application/x-ogg;audio/basic;
-Name=KalziumGL
+Name=KalziumGLPart
 Comment=An OpenGL-based 3D-renderer for molecules
 ServiceTypes=KParts/ReadOnlyPart
 Type=Service
 X-KDE-Library=libkalziumglpart
-InitialPreference=9

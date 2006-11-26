@@ -89,7 +89,6 @@ class Kalzium : public KMainWindow
 		KAction *m_pRSAction;
 		KAction *m_pTables;
 		KAction *m_pMoleculesviewer;
-		KAction *m_pLatticeViewer;
 		KAction *m_EQSolverAction;
 
 		/**
@@ -125,8 +124,6 @@ class Kalzium : public KMainWindow
 
 		void elementHover( int num );
 		void setupStatusBar();
-
-		void slotLatticeViewer();
 
 		void slotShowEQSolver();
 		

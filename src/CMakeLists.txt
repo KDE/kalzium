@@ -53,14 +53,10 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
   set( kalzium_SRCS
     ${kalzium_SRCS}
     moleculeview.cpp
-    latticedialog.cpp
     kalziumglhelperclasses.cpp
     kalziumglwidget.cpp
     openbabel2wrapper.cpp
     kalziumglpart.cpp
-    )
-  kde4_add_ui_files(kalzium_SRCS
-    latticeviewer.ui
     )
   include_directories( ${OPENBABEL2_INCLUDE_DIR} )
   add_subdirectory(widgets)
@@ -105,5 +101,6 @@ install(TARGETS kalzium  DESTINATION ${BIN_INSTALL_DIR} )
 install( FILES kalzium.desktop  DESTINATION  ${XDG_APPS_DIR} )
 install( FILES kalzium.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES kalziumui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kalzium )
+install( FILES kalziumgl_part.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )

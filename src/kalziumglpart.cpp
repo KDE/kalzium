@@ -1,8 +1,23 @@
+/***************************************************************************
+    copyright            : (C) 2006 by Carsten Niehaus
+    email                : cniehaus@kde.org
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
 #include <kparts/genericfactory.h>
 
 #include <QStringList>
 
 #include "kalziumglpart.h"
+#include "openbabel2wrapper.h"
+#include "kalziumglwidget.h"
 
 typedef KParts::GenericFactory<KalziumGLPart> KalziumGLPartFactory;
 
@@ -11,6 +26,9 @@ K_EXPORT_COMPONENT_FACTORY (libkalziumglpart, KalziumGLPartFactory)
 KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QStringList& args)
 {
     kDebug() << "KalziumGLPart::KalziumGLPart()" << endl;
+
+    m_widget = new KalziumGLWidget();
+    m_widget->setObjectName("KalziumGLWidget-KPart");
 }
 
 KalziumGLPart::~KalziumGLPart()
@@ -30,13 +48,13 @@ KAboutData *KalziumGLPart::createAboutData()
     return aboutData;
 }
 
-bool KalziumGLPart::openUrl(const KUrl& url)
-{
-    kDebug() << "KalziumGLPart::openURL()" << endl;
-}
-
 bool KalziumGLPart::openFile()
 {
+	OpenBabel::OBMol* mol = OpenBabel2Wrapper::readMolecule( m_url.path() );
+	mol->Center();
+
+  m_widget->slotSetMolecule( mol );
+  m_widget->update();
 }
 
 #include "kalziumglpart.moc" 

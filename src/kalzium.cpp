@@ -45,7 +45,6 @@
 
 #ifdef HAVE_OPENBABEL2
 #include "moleculeview.h"
-#include "latticedialog.h"
 #endif
 
 #include <QDockWidget>
@@ -66,6 +65,7 @@
 #include <kstandarddirs.h>
 #include <kstdaction.h>
 #include <kicon.h>
+#include <kservicetypetrader.h>
 
 #define PeriodicTableView_MARGIN          5
 #define IDS_ELEMENTINFO     7
@@ -190,14 +190,6 @@ void Kalzium::setupActions()
 	connect( m_pIsotopeTableAction, SIGNAL( triggered() ), this, SLOT( slotIsotopeTable() ) );
 	m_pGlossaryAction = new KAction( KIcon( "glossary" ), i18n( "&Glossary..." ), actionCollection(), "tools_glossary" );
 	connect( m_pGlossaryAction, SIGNAL( triggered() ), this, SLOT( slotGlossary() ) );
-//X 	m_pLatticeViewer = new KAction( KIcon( "crystal" ), i18n( "&Lattice Viewer..." ), actionCollection(), "tools_latticeviewer" );
-//X 	connect( m_pLatticeViewer, SIGNAL( triggered() ), this, SLOT( slotLatticeViewer() ) );
-//X #ifndef HAVE_OPENBABEL2
-//X 	m_pLatticeViewer->setEnabled( false );
-//X #endif
-//X #ifndef HAVE_OPENGL
-//X 	m_pLatticeViewer->setEnabled( false );
-//X #endif
 	
 	m_pRSAction = new KAction( KIcon( "kalzium_rs" ), i18n( "&R/S Phrases..." ), actionCollection(), "tools_rs" );
 	connect( m_pRSAction, SIGNAL( triggered() ), this, SLOT( slotRS() ) );
@@ -306,6 +298,20 @@ void Kalzium::slotMoleculeviewer()
 #ifdef HAVE_OPENBABEL2 
 #ifdef HAVE_OPENGL
 	MoleculeDialog * d = new MoleculeDialog( this ); d->show();
+
+  KLibrary* library = KLibLoader::self()->globalLibrary("libkalziumglpart");
+  KLibFactory* factory = 0;
+
+  if ( library ) 
+      factory = library->factory();
+
+  if (factory) {
+      kDebug() << "if factory" << endl;
+      KParts::ReadOnlyPart *part = 0;
+      part = static_cast<KParts::ReadOnlyPart*> ( factory->create( this, "KalziumGLPart" ) );
+
+      part->widget()->show();
+  }
 #endif
 #endif
 }
@@ -321,16 +327,6 @@ void Kalzium::slotShowEQSolver()
 #ifdef HAVE_FACILE
 	EQChemDialog *dlg = new EQChemDialog( this );
 	dlg->show();
-#endif
-}
-
-void Kalzium::slotLatticeViewer()
-{
-#ifdef HAVE_OPENBABEL2 
-#ifdef HAVE_OPENGL
-	LatticeDialog *dlg = new LatticeDialog( this );
-	dlg->show();
-#endif
 #endif
 }
 
