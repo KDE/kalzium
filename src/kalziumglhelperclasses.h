@@ -30,7 +30,7 @@
  * counter. Use only for testing: this makes the GL Widget constantly
  * redraw, which under normal circumstances is a waste of CPU time.
  */
-//#define USE_FPS_COUNTER
+#define USE_FPS_COUNTER
 
 /** USE_DISPLAY_LISTS: if defined, the whole scene will be stored in
  * an OpenGL display list. The vertex arrays will then be converted into
@@ -151,117 +151,6 @@ struct Color
 };
 
 /**
-* Given a vector U, constructs two unit vectors v and w
-* such that (U, v, w) is an orthogonal basis.
-* U is not supposed to be normalized.
-*
-* Returns false if something went wrong.
-*/
-void createOrthoBasisGivenFirstVector( const Eigen::Vector3d & U,
-                                             Eigen::Vector3d * v,
-                                             Eigen::Vector3d * w );
-
-/**
-* This is an abstract base class for an OpenGL vertex array, with an option
-* (controlled by USE_DISPLAY_LISTS) to compile a display list from it, in which
-* case the vertex array is freed and only the display list is kept.
-*
-* @author Benoit Jacob
-*/
-class VertexArray
-{
-	protected:
-		/** Pointer to the buffer storing the vertex array */
-		Eigen::Vector3f *m_vertexBuffer;
-		/** Pointer to the buffer storing the normal array.
-		 * If m_hasSeparateNormalBuffer is false, then this is equal
-		 * to m_vertexBuffer. */
-		Eigen::Vector3f *m_normalBuffer;
-		/** Pointer to the buffer storing the indices */
-		unsigned short *m_indexBuffer;
-		/** The mode in which OpenGL should interpred the vertex arrays
-		 * (for example, this could be GL_TRIANGLE_STRIP) */
-		GLenum m_mode;
-		/** The number of vertices, i.e. the size of m_vertexBuffer
-		 * or equivalently m_normalBuffer */
-		int m_vertexCount;
-		/** The number of indices, i.e. the size of m_indexBuffer */
-		int m_indexCount;
-		/** The id of the OpenGL display list (used only if this option
-		 * is turned on) */
-		GLuint m_displayList;
-		/** Equals true if there is an index buffer, i.e. if this is an
-		 * indexed vertex array */
-		bool m_hasIndexBuffer;
-		/** If this equals false, then the vertex buffer will also be
-		 * used as normal buffer. This allows to divide by 2 the space
-		 * taken by a sphere vertex array. For most objects other than
-		 * spheres, this should equal true. */
-		bool m_hasSeparateNormalBuffer;
-		/** Equals true if this is a valid, well-initialized vertex
-		 * array */
-		bool m_isValid;
-		
-		/** This pure virtual method should return the number of
-		 * vertices, as computed from certain properties determining
-		 * the level of detail */
-		virtual int getVertexCount() = 0;
-		/** This virtual method returns 0, and should be reimplemented
-		 * in child classes to return the number of indices
-		 * as computed from certain properties determining
-		 * the level of detail */
-		virtual int getIndexCount() { return 0; }
-		/** This method allocates enough memory for the buffers. It
-		 * should only be called once m_vertexCount and m_indexCount
-		 * have been set. */
-		bool allocateBuffers();
-		/** This method frees the buffers. If display list compilation
-		 * is enabled, then it is safe to call it once the display list
-		 * has been compiled.
-		 */
-		void freeBuffers();
-		/** This pure virtual method should fill the buffers with the
-		 * geometric data. It should be called only after
-		 * allocateBuffers() */
-		virtual void buildBuffers() = 0;
-		/** If display list compilation is enabled, then this method
-		 * compiles the display list and then calls freeBuffers().
-		 * It should only be called after buildBuffers(). */
-		void compileDisplayList();
-		/** This is a convenient method calling getVertexCount(),
-		 * getIndexCount(), allocateBuffers(), buildBuffers() and
-		 * compileDisplayList() in that order, thus doing all the
-		 * initialization, whether or not display list compilation is
-		 * enabled. */
-		void initialize();
-		/** This function draws the vertex array using OpenGL. */
-		void do_draw();
-
-	public:
-		/** This constructors only sets the values of the member data to
-		 * some pre-initialization state. See the initialize() method
-		 * for actual initialization. */
-		VertexArray( GLenum mode,
-			bool hasIndexBuffer,
-			bool hasSeparateNormalBuffer );
-		/** This destructor frees the buffers if necessary, and also
-		 * deletes the display list if it has been compiled. */
-		virtual ~VertexArray();
-
-		/** If display list compilation is enabled, then this function
-		 * just calls the display list. Otherwise, it calls do_draw().
-		 */
-		inline void draw()
-		{
-#ifdef USE_DISPLAY_LISTS
-			if( m_isValid ) glCallList( m_displayList );
-#else
-			if( m_isValid ) do_draw();
-#endif
-		}
-};
-
-/**
 * This class represents and draws a sphere. The sphere is computed as a
 * "geosphere", that is, one starts with an icosahedron, which is the regular
 * solid with 20 triangular faces, and one then sub-tesselates each face into
@@ -270,47 +159,57 @@ class VertexArray
 *
 * @author Benoit Jacob
 */
-class Sphere : public VertexArray
+class Sphere
 {
-	private:
-		/** computes the index (position inside the index buffer)
-		 * of a vertex given by its position (strip, column, row)
-		 * inside a certain flat model of the sub-tesselated
-		 * icosahedron */
-		inline unsigned short indexOfVertex(
-			int strip, int column, int row);
-		/** computes the coordinates
-		 * of a vertex given by its position (strip, column, row)
-		 * inside a certain flat model of the sub-tesselated
-		 * icosahedron */
-		void computeVertex( int strip, int column, int row );
+protected:
+	/** Pointer to the buffer storing the vertex array */
+	Eigen::Vector3f *m_vertexBuffer;
+	/** Pointer to the buffer storing the indices */
+	unsigned short *m_indexBuffer;
+	/** The number of vertices, i.e. the size of m_vertexBuffer */
+	int m_vertexCount;
+	/** The number of indices, i.e. the size of m_indexBuffer */
+	int m_indexCount;
+	/** The id of the OpenGL display list (used only if this option
+	  * is turned on) */
+	GLuint m_displayList;
 
-	protected:
-		/** the detail-level of the sphere. Must be at least 1.
-		 * This is interpreted as the number of sub-edges into which
-		 * each edge of the icosahedron must be split. So the
-		 * number of faces of the sphere is simply:
-		 * 20 * detail^2. When detail==1, the sphere is just the
-		 * icosahedron */
-		int m_detail;
+	/** computes the index (position inside the index buffer)
+	  * of a vertex given by its position (strip, column, row)
+	  * inside a certain flat model of the sub-tesselated
+	  * icosahedron */
+	inline unsigned short indexOfVertex(
+		int strip, int column, int row);
+	/** computes the coordinates
+	  * of a vertex given by its position (strip, column, row)
+	  * inside a certain flat model of the sub-tesselated
+	  * icosahedron */
+	void computeVertex( int strip, int column, int row );
+	/** the detail-level of the sphere. Must be at least 1.
+	  * This is interpreted as the number of sub-edges into which
+	  * each edge of the icosahedron must be split. So the
+	  * number of faces of the sphere is simply:
+	  * 20 * detail^2. When detail==1, the sphere is just the
+	  * icosahedron */
+	int m_detail;
 
-		int getVertexCount();
-		int getIndexCount();
-		void buildBuffers();
+	void freeBuffers();
+	void initialize();
+	void do_draw() const;
 
-	public:
-		Sphere();
-		~Sphere() {}
+public:
+	Sphere();
+	~Sphere();
 
-		/** initializes the sphere with given level of detail. If the
-		 * sphere was already initialized, any pre-allocated buffers
-		 * are freed and then re-allocated.
-		@param detail the wanted level of detail. See m_detail member */
-		void setup( int detail );
+	/** initializes the sphere with given level of detail. If the
+	  * sphere was already initialized, any pre-allocated buffers
+	  * are freed and then re-allocated.
+	@param detail the wanted level of detail. See m_detail member */
+	void setup( int detail );
 
-		/** draws the sphere at specifiec position and with
-		 * specified radius */
-		void draw( const Eigen::Vector3d &center, double radius );
+	/** draws the sphere at specified position and with
+	  * specified radius */
+	void draw( const Eigen::Vector3d &center, double radius ) const;
 };
 
 /**
@@ -318,45 +217,59 @@ class Sphere : public VertexArray
 *
 * @author Benoit Jacob
 */
-class Cylinder : public VertexArray
+class Cylinder
 {
-	protected:
-		/** the number of faces of the cylinder. This only
-		 * includes the lateral faces, as the base and top faces (the
-		 * two discs) are not rendered. */
-		int m_faces;
+protected:
+	/** Pointer to the buffer storing the vertex array */
+	Eigen::Vector3f *m_vertexBuffer;
+	/** Pointer to the buffer storing the normal array */
+	Eigen::Vector3f *m_normalBuffer;
+	/** The number of vertices, i.e. the size of m_vertexBuffer
+	  * or equivalently m_normalBuffer */
+	int m_vertexCount;
+	/** The id of the OpenGL display list (used only if this option
+	  * is turned on) */
+	GLuint m_displayList;
+	/** Equals true if the vertex array has been correctly initialized */
+	bool m_isValid;
 
-		int getVertexCount();
-		void buildBuffers();
+	/** the number of faces of the cylinder. This only
+	  * includes the lateral faces, as the base and top faces (the
+	  * two discs) are not rendered. */
+	int m_faces;
 
-	public:
-		Cylinder();
-		~Cylinder() {}
-		/** initializes the cylinder with given number of faces. If the
-		 * cylinder was already initialized, any pre-allocated buffers
-		 * are freed and then re-allocated */
-		void setup( int faces );
-		/**
-		 * draws the cylinder at specified position, with specified
-		 * radius. the order and shift arguments allow to render
-		 * multiple cylinders at once. If you only want to render one
-		 * cylinder, leave order and shift at their default values.
-		 @param end1 the position of the first end of the cylinder.
-			that is, the center of the first disc-shaped face.
-		 @param end2 the position of the second end of the cylinder.
-			that is, the center of the second disc-shaped face.
-		 @param radius the radius of the cylinder
-		 @param order to render only one cylinder, leave this set to
-			the default value, which is 1. If order>1, then order
-			parallel cylinders are drawn around the axis
-			(end1 - end2).
-		@param order this is only meaningful of order>1, otherwise
-			just let this set to the default value. When order>1,
-			this is interpreted as the displacement of the axis
-			of the drawn cylinders from the axis (end1 - end2).
-		 */
-		void draw( const Eigen::Vector3d &end1, const Eigen::Vector3d &end2,
-			double radius, int order = 1, double shift = 0.0 );
+	void initialize();
+	void freeBuffers();
+	void do_draw() const;
+
+public:
+	Cylinder();
+	~Cylinder();
+	/** initializes the cylinder with given number of faces. If the
+	  * cylinder was already initialized, any pre-allocated buffers
+	  * are freed and then re-allocated */
+	void setup( int faces );
+	/**
+	  * draws the cylinder at specified position, with specified
+	  * radius. the order and shift arguments allow to render
+	  * multiple cylinders at once. If you only want to render one
+	  * cylinder, leave order and shift at their default values.
+	    @param end1 the position of the first end of the cylinder.
+	           that is, the center of the first disc-shaped face.
+	    @param end2 the position of the second end of the cylinder.
+	           that is, the center of the second disc-shaped face.
+	    @param radius the radius of the cylinder
+	    @param order to render only one cylinder, leave this set to
+	           the default value, which is 1. If order>1, then order
+	           parallel cylinders are drawn around the axis
+	           (end1 - end2).
+	    @param order this is only meaningful of order>1, otherwise
+	           just let this set to the default value. When order>1,
+	           this is interpreted as the displacement of the axis
+	           of the drawn cylinders from the axis (end1 - end2).
+	  */
+	void draw( const Eigen::Vector3d &end1, const Eigen::Vector3d &end2,
+		double radius, int order = 1, double shift = 0.0 ) const;
 };
 
 /** BEEP BEEP BEEP this will likely be removed as Qt 4.2 has something better

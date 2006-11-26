@@ -433,8 +433,8 @@ void KalziumGLWidget::drawAtom( OBAtom *atom )
 
 void KalziumGLWidget::drawBond( OBBond *bond )
 {
-	OBAtom *atom1 = static_cast<OBAtom *>( bond->GetBgn() );
-	OBAtom *atom2 = static_cast<OBAtom *>( bond->GetEnd() );
+	OBAtom *atom1 = static_cast<OBAtom *>( bond->GetBeginAtom() );
+	OBAtom *atom2 = static_cast<OBAtom *>( bond->GetEndAtom() );
 
 	Vector3d v1 ( atom1->GetVector().AsArray() );
 	Vector3d v2 ( atom2->GetVector().AsArray() );
@@ -576,7 +576,8 @@ void KalziumGLWidget::prepareMoleculeData()
 	// compute rotation matrix to orient the molecule in the (x,y)-plane
 	Vector3d planeNormalVector( & planeCoeffs(0) ), v, w;
 	planeNormalVector.normalize();
-	createOrthoBasisGivenFirstVector( planeNormalVector, &v, &w );
+	planeNormalVector.makeOrthoVector( &v );
+	w = cross( planeNormalVector, v );
 	Matrix3d rotation;
 	rotation.setRow( 0, v );
 	rotation.setRow( 1, w );

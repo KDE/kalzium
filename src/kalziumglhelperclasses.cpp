@@ -90,28 +90,22 @@ void Color::applyAsMaterials()
 	glMaterialf( GL_FRONT, GL_SHININESS, 50.0 );
 }
 
-VertexArray::VertexArray( GLenum mode,
-	bool hasIndexBuffer,
-	bool hasSeparateNormalBuffer )
+Sphere::Sphere()
 {
-	m_mode = mode;
 	m_vertexBuffer = 0;
-	m_normalBuffer = 0;
 	m_indexBuffer = 0;
 	m_displayList = 0;
-	m_hasIndexBuffer = hasIndexBuffer;
-	m_hasSeparateNormalBuffer = hasSeparateNormalBuffer;
-	m_isValid = false;
+	m_detail = 0;
 }
 
-VertexArray::~VertexArray()
+Sphere::~Sphere()
 {
 	freeBuffers();
 	if( m_displayList )
 		glDeleteLists( m_displayList, 1 );
 }
 
-void VertexArray::freeBuffers()
+void Sphere::freeBuffers()
 {
 	if( m_indexBuffer )
 	{
@@ -123,80 +117,89 @@ void VertexArray::freeBuffers()
 		delete [] m_vertexBuffer;
 		m_vertexBuffer = 0;
 	}
-	if( m_normalBuffer && m_hasSeparateNormalBuffer ) 
-	{
-		delete [] m_normalBuffer;
-		m_normalBuffer = 0;
-	}
 }
 
-bool VertexArray::allocateBuffers()
-{
-	if( m_vertexCount > 65536 ) return false;
-
-	freeBuffers();
-
-	m_vertexBuffer = new Vector3f[m_vertexCount];
-	if( ! m_vertexBuffer ) return false;
-	
-	if( m_hasSeparateNormalBuffer )
-	{
-		m_normalBuffer = new Vector3f[m_vertexCount];
-		if( ! m_normalBuffer ) return false;
-	}
-	else m_normalBuffer = m_vertexBuffer;
-
-	if( m_hasIndexBuffer )
-	{
-		m_indexBuffer = new unsigned short[m_indexCount];
-		if( ! m_indexBuffer ) return false;
-	}
-
-	return true;
-}
-
-void VertexArray::do_draw()
+void Sphere::do_draw() const
 {
 	glVertexPointer( 3, GL_FLOAT, 0, m_vertexBuffer );
-	glNormalPointer( GL_FLOAT, 0, m_normalBuffer );
-	if( m_hasIndexBuffer )
-		glDrawElements( m_mode, m_indexCount,
+	glNormalPointer( GL_FLOAT, 0, m_vertexBuffer );
+	glDrawElements( GL_TRIANGLE_STRIP, m_indexCount,
 			GL_UNSIGNED_SHORT, m_indexBuffer );
-	else
-		glDrawArrays( m_mode, 0, m_vertexCount );
 }
 
-void VertexArray::compileDisplayList()
+void Sphere::draw( const Eigen::Vector3d &center, double radius ) const
 {
+	glPushMatrix();
+	glTranslated( center.x(), center.y(), center.z() );
+	glScaled( radius, radius, radius );
 #ifdef USE_DISPLAY_LISTS
-	if( ! m_displayList )
-		m_displayList = glGenLists( 1 );
+	glCallList( m_displayList );
+#else
+	do_draw();
+#endif
+	glPopMatrix();
+}
+
+void Sphere::initialize()
+{
+	if( m_detail < 1 ) return;
+
+	// compute number of vertices and indices
+	m_vertexCount = ( 3 * m_detail + 1 ) * ( 5 * m_detail + 1 );
+	m_indexCount = (2 * ( 2 * m_detail + 1 ) + 2 ) * 5 * m_detail;
+
+	// deallocate any previously allocated buffer
+	freeBuffers();
+
+	// allocate memory for buffers
+	m_vertexBuffer = new Vector3f[m_vertexCount];
+	if( ! m_vertexBuffer ) return;
+	m_indexBuffer = new unsigned short[m_indexCount];
+	if( ! m_indexBuffer ) return;
+
+	// build vertex buffer
+	for( int strip = 0; strip < 5; strip++ )
+	for( int column = 1; column < m_detail; column++ )
+	for( int row = column; row <= 2 * m_detail + column; row++ )
+		computeVertex( strip, column, row );
+
+	for( int strip = 1; strip < 5; strip++ )
+	for( int row = 0; row <= 3 * m_detail; row++ )
+		computeVertex( strip, 0, row );
+
+	for( int row = 0; row <= 2 * m_detail; row++ )
+		computeVertex( 0, 0, row );
+
+	for( int row = m_detail; row <= 3 * m_detail; row++ )
+		computeVertex( 4, m_detail, row );
+
+	// build index buffer
+	unsigned int i = 0;
+	for( int strip = 0; strip < 5; strip++ )
+	for( int column = 0; column < m_detail; column++ )
+	{
+		int row = column;
+		m_indexBuffer[i++] = indexOfVertex( strip, column, row );
+		for( ; row <= 2 * m_detail + column; row++ )
+		{
+			m_indexBuffer[i++] =
+				indexOfVertex( strip, column, row );
+			m_indexBuffer[i++] =
+				indexOfVertex( strip, column + 1, row + 1 );
+		}
+		m_indexBuffer[i++] = indexOfVertex( strip, column + 1,
+			2 * m_detail + column + 1);
+	}
+
+#ifdef USE_DISPLAY_LISTS
+	// compile display list and free buffers
+	if( ! m_displayList ) m_displayList = glGenLists( 1 );
 	if( ! m_displayList ) return;
-	
 	glNewList( m_displayList, GL_COMPILE );
 	do_draw();
 	glEndList();
-
 	freeBuffers();
 #endif
-}
-
-void VertexArray::initialize()
-{
-	m_isValid = false;
-	m_vertexCount = getVertexCount();
-	m_indexCount = getIndexCount();
-	if( m_indexCount < 0 || m_vertexCount < 0 ) return;
-	if( ! allocateBuffers() ) return;
-	buildBuffers();
-	compileDisplayList();
-	m_isValid = true;
-}
-
-Sphere::Sphere()
-	: VertexArray( GL_TRIANGLE_STRIP, true, false )
-{
-	m_detail = 0;
 }
 
 unsigned short Sphere::indexOfVertex( int strip, int column, int row)
@@ -297,53 +300,6 @@ void Sphere::computeVertex( int strip, int column, int row)
 	vertex.normalize();
 }
 
-int Sphere::getVertexCount()
-{
-	if( m_detail < 1 ) return -1;
-	return ( 3 * m_detail + 1 ) * ( 5 * m_detail + 1 );
-}
-
-int Sphere::getIndexCount()
-{
-	if( m_detail < 1 ) return -1;
-	return (2 * ( 2 * m_detail + 1 ) + 2 ) * 5 * m_detail;
-}
-
-void Sphere::buildBuffers()
-{
-	for( int strip = 0; strip < 5; strip++ )
-	for( int column = 1; column < m_detail; column++ )
-	for( int row = column; row <= 2 * m_detail + column; row++ )
-		computeVertex( strip, column, row );
-
-	for( int strip = 1; strip < 5; strip++ )
-	for( int row = 0; row <= 3 * m_detail; row++ )
-		computeVertex( strip, 0, row );
-
-	for( int row = 0; row <= 2 * m_detail; row++ )
-		computeVertex( 0, 0, row );
-
-	for( int row = m_detail; row <= 3 * m_detail; row++ )
-		computeVertex( 4, m_detail, row );
-
-	unsigned int i = 0;
-	for( int strip = 0; strip < 5; strip++ )
-	for( int column = 0; column < m_detail; column++ )
-	{
-		int row = column;
-		m_indexBuffer[i++] = indexOfVertex( strip, column, row );
-		for( ; row <= 2 * m_detail + column; row++ )
-		{
-			m_indexBuffer[i++] =
-				indexOfVertex( strip, column, row );
-			m_indexBuffer[i++] =
-				indexOfVertex( strip, column + 1, row + 1 );
-		}
-		m_indexBuffer[i++] = indexOfVertex( strip, column + 1,
-			2 * m_detail + column + 1);
-	}
-}
-
 void Sphere::setup( int detail )
 {
 	if( detail == m_detail ) return;
@@ -351,19 +307,33 @@ void Sphere::setup( int detail )
 	initialize();
 }
 
-void Sphere::draw( const Vector3d &center, double radius )
+Cylinder::Cylinder()
 {
-	glPushMatrix();
-	glTranslated( center.x(), center.y(), center.z() );
-	glScaled( radius, radius, radius );
-	VertexArray::draw();
-	glPopMatrix();
+	m_vertexBuffer = 0;
+	m_normalBuffer = 0;
+	m_displayList = 0;
+	m_faces = 0;
 }
 
-Cylinder::Cylinder()
-	: VertexArray( GL_QUAD_STRIP, false, true )
+Cylinder::~Cylinder()
 {
-	m_faces = 0;
+	freeBuffers();
+	if( m_displayList )
+		glDeleteLists( m_displayList, 1 );
+}
+
+void Cylinder::freeBuffers()
+{
+	if( m_normalBuffer )
+	{
+		delete [] m_normalBuffer;
+		m_normalBuffer = 0;
+	}
+	if( m_vertexBuffer )
+	{
+		delete [] m_vertexBuffer;
+		m_vertexBuffer = 0;
+	}
 }
 
 void Cylinder::setup( int faces )
@@ -373,38 +343,54 @@ void Cylinder::setup( int faces )
 	initialize();
 }
 
-int Cylinder::getVertexCount()
+void Cylinder::initialize()
 {
-	if( m_faces < 3 ) return -1;
-	return 2 * m_faces + 2;
-}
+	if( m_faces < 3 ) return;
 
-void Cylinder::buildBuffers()
-{
+	// compute number of vertices
+	m_vertexCount = 2 * m_faces + 2;
+
+	// deallocate any previously allocated buffer
+	freeBuffers();
+
+	// allocate memory for buffers
+	m_vertexBuffer = new Vector3f[m_vertexCount];
+	if( ! m_vertexBuffer ) return;
+	m_normalBuffer = new Vector3f[m_vertexCount];
+	if( ! m_normalBuffer ) return;
+
+	// build vertex and normal buffers
 	for( int i = 0; i <= m_faces; i++ )
 	{
 		float angle = 2 * M_PI * i / m_faces;
-		float x = cosf( angle );
-		float y = sinf( angle );
-
-		m_normalBuffer[ 2 * i ].x() = x;
-		m_normalBuffer[ 2 * i ].y() = y;
-		m_normalBuffer[ 2 * i ].z() = 0.0;
-
-		m_normalBuffer[ 2 * i + 1 ] = m_normalBuffer[ 2 * i ];
-
-		m_vertexBuffer[ 2 * i ].x() = x;
-		m_vertexBuffer[ 2 * i ].y() = y;
-		m_vertexBuffer[ 2 * i ].z() = 1.0;
-
-		m_vertexBuffer[ 2 * i + 1 ].x() = x;
-		m_vertexBuffer[ 2 * i + 1 ].y() = y;
-		m_vertexBuffer[ 2 * i + 1 ].z() = 0.0;
+		Vector3f v( cosf(angle), sinf(angle), 0.0f );
+		m_normalBuffer[ 2 * i ] = v;
+		m_normalBuffer[ 2 * i + 1 ] = v;
+		m_vertexBuffer[ 2 * i ] = v;
+		m_vertexBuffer[ 2 * i + 1 ] = v;
+		m_vertexBuffer[ 2 * i ].z() = 1.0f;
 	}
+
+#ifdef USE_DISPLAY_LISTS
+	// compile display list and free buffers
+	if( ! m_displayList ) m_displayList = glGenLists( 1 );
+	if( ! m_displayList ) return;
+	glNewList( m_displayList, GL_COMPILE );
+	do_draw();
+	glEndList();
+	freeBuffers();
+#endif
+}
+
+void Cylinder::do_draw() const
+{
+	glVertexPointer( 3, GL_FLOAT, 0, m_vertexBuffer );
+	glNormalPointer( GL_FLOAT, 0, m_normalBuffer );
+	glDrawArrays( GL_QUAD_STRIP, 0, m_vertexCount );
 }
 
 void Cylinder::draw( const Vector3d &end1, const Vector3d &end2,
-	double radius, int order, double shift )
+	double radius, int order, double shift ) const
 {
 	// the "axis vector" of the cylinder
 	Vector3d axis = end2 - end1;
@@ -451,7 +437,12 @@ void Cylinder::draw( const Vector3d &end1, const Vector3d &end2,
 	//now we can do the actual drawing !
 	glPushMatrix();
 	glMultMatrixd( matrix.array() );
-	if( order == 1 ) VertexArray::draw();
+	if( order == 1 )
+#		ifdef USE_DISPLAY_LISTS
+			glCallList( m_displayList );
+#		else
+			do_draw();
+#		endif
 	else
 	{
 		double angleOffset = 0.0;
@@ -468,7 +459,11 @@ void Cylinder::draw( const Vector3d &end1, const Vector3d &end2,
 			glRotated( angleOffset + 360.0 * i / order,
 			           0.0, 0.0, 1.0 );
 			glTranslated( displacementFactor, 0.0, 0.0 );
-			VertexArray::draw();
+#			ifdef USE_DISPLAY_LISTS
+				glCallList( m_displayList );
+#			else
+				do_draw();
+#			endif
 			glPopMatrix();
 		}
 	}
@@ -655,14 +650,6 @@ void TextRenderer::print( int x, int y, const QString &string )
 	glPopMatrix();
 
 	if( ! m_isBetweenBeginAndEnd ) do_end();
-}
-
-void createOrthoBasisGivenFirstVector
-	( const Vector3d &U, Vector3d * v, Vector3d * w )
-{
-	U.makeOrthoVector(v);
-	*w = cross( U, *v );
-	w->normalize();
 }
 
 } // namespace KalziumGLHelpers
