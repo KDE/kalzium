@@ -1,4 +1,5 @@
 add_subdirectory(data)
+add_subdirectory(compoundviewer)
 
 #comment these lines out if you don't want to build the test
 set(parsertest_SRCS xmlreadingtest.cpp)
