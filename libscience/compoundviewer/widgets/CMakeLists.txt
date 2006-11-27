@@ -3,9 +3,8 @@ include_directories(
    ${CMAKE_CURRENT_BINARY_DIR}/..
    ${CMAKE_CURRENT_SOURCE_DIR}/..
 )
-if(OPENBABEL2_FOUND)
-	include_directories( ${OPENBABEL2_INCLUDE_DIR} ..)
-endif(OPENBABEL2_FOUND)
+
+include_directories( ${OPENBABEL2_INCLUDE_DIR} ..)
 
 set(kalziumui_PART_SRCS 
    ${CMAKE_CURRENT_SOURCE_DIR}/../kalziumglwidget.cpp

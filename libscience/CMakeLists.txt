@@ -1,5 +1,8 @@
 add_subdirectory(data)
+
+if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
 add_subdirectory(compoundviewer)
+endif(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
 
 #comment these lines out if you don't want to build the test
 set(parsertest_SRCS xmlreadingtest.cpp)
