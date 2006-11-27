@@ -17,8 +17,9 @@
 #include <kpushbutton.h>
 
 #include "moleculeview.h"
-#include "openbabel2wrapper.h"
-#include "kalziumglwidget.h"
+
+#include <openbabel2wrapper.h>
+#include <kalziumglwidget.h>
 
 #include <QString>
 #include <QMouseEvent>

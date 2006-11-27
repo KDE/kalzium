@@ -1,6 +1,7 @@
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduplot/
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
+   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/compoundviewer/
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
    ${CMAKE_CURRENT_BINARY_DIR}/..
 )
@@ -53,13 +54,8 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
   set( kalzium_SRCS
     ${kalzium_SRCS}
     moleculeview.cpp
-    kalziumglhelperclasses.cpp
-    kalziumglwidget.cpp
-    openbabel2wrapper.cpp
-    kalziumglpart.cpp
     )
   include_directories( ${OPENBABEL2_INCLUDE_DIR} )
-  add_subdirectory(widgets)
 endif(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
 
 kde4_automoc(${kalzium_SRCS})
@@ -86,7 +82,7 @@ target_link_libraries(kalzium ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY} ${KDE4_KU
 
 
 if (OPENBABEL2_FOUND AND OPENGL_FOUND)
-   target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY})
+   target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} compoundviewer)
 endif (OPENBABEL2_FOUND AND OPENGL_FOUND)
 
 if(LIBFACILE_FOUND)
@@ -101,6 +97,5 @@ install(TARGETS kalzium  DESTINATION ${BIN_INSTALL_DIR} )
 install( FILES kalzium.desktop  DESTINATION  ${XDG_APPS_DIR} )
 install( FILES kalzium.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES kalziumui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kalzium )
-install( FILES kalziumgl_part.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
