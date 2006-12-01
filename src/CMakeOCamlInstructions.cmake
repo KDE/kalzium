@@ -56,12 +56,12 @@ ocaml_ml_to_cmx(${CMAKE_CURRENT_BINARY_DIR}/lexer.cmx ${CMAKE_CURRENT_SOURCE_DIR
 # object files
 
 add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
-                   COMMAND ${OCAMLOPT_EXECUTABLE} -I +facile -c ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c -o ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
+                   COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} -I +facile -c ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c -o ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
                    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/solver/modwrap.c ${CMAKE_CURRENT_BINARY_DIR}/solver.o
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
 add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/solver.o
-                   COMMAND ${OCAMLOPT_EXECUTABLE} -output-obj -o ${CMAKE_CURRENT_BINARY_DIR}/solver.o ${LIBFACILE_INCLUDE_DIR}/facile.cmxa  ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx ${CMAKE_CURRENT_BINARY_DIR}/parser.cmx ${CMAKE_CURRENT_BINARY_DIR}/lexer.cmx ${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmx ${CMAKE_CURRENT_BINARY_DIR}/chem.cmx ${CMAKE_CURRENT_BINARY_DIR}/calc.cmx
+                   COMMAND ${OCAML_OCAMLOPT_EXECUTABLE} -output-obj -o ${CMAKE_CURRENT_BINARY_DIR}/solver.o ${LIBFACILE_INCLUDE_DIR}/facile.cmxa  ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx ${CMAKE_CURRENT_BINARY_DIR}/parser.cmx ${CMAKE_CURRENT_BINARY_DIR}/lexer.cmx ${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmx ${CMAKE_CURRENT_BINARY_DIR}/chem.cmx ${CMAKE_CURRENT_BINARY_DIR}/calc.cmx
                    DEPENDS ${LIBFACILE_INCLUDE_DIR}/facile.cmxa  ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx ${CMAKE_CURRENT_BINARY_DIR}/parser.cmx ${CMAKE_CURRENT_BINARY_DIR}/lexer.cmx ${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmx ${CMAKE_CURRENT_BINARY_DIR}/chem.cmx ${CMAKE_CURRENT_BINARY_DIR}/calc.cmx
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
@@ -74,7 +74,7 @@ if(KDE4_BUILD_TESTS)
    set(atestprog.opt_SRCS ${CMAKE_CURRENT_BINARY_DIR}/main.cmx ${CMAKE_CURRENT_BINARY_DIR}/chemset.cmx ${CMAKE_CURRENT_BINARY_DIR}/parser.cmx ${CMAKE_CURRENT_BINARY_DIR}/lexer.cmx ${CMAKE_CURRENT_BINARY_DIR}/datastruct.cmx ${CMAKE_CURRENT_BINARY_DIR}/chem.cmx ${CMAKE_CURRENT_BINARY_DIR}/calc.cmx  )
 
    add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/solver/atestprog.opt
-                   COMMAND ${OCAMLOPT_EXECUTABLE}  ARGS -o ${atestprog.opt_SRCS}
+                   COMMAND ${OCAML_OCAMLOPT_EXECUTABLE}  ARGS -o ${atestprog.opt_SRCS}
                    DEPENDS ${atestprog.opt_SRCS}
                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
