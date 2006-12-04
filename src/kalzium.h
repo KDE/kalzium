@@ -15,6 +15,7 @@
 
 #include <kmainwindow.h>
 
+class KAction;
 class KSelectAction;
 class QToolBox;
 class QVBoxLayout;
