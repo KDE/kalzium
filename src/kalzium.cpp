@@ -63,7 +63,7 @@
 #include <kselectaction.h>
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kicon.h>
 #include <kservicetypetrader.h>
 
@@ -211,8 +211,8 @@ void Kalzium::setupActions()
 	connect( m_pLegendAction, SIGNAL( triggered() ), this, SLOT( slotShowLegend() ) );
 	
 	// the standard actions
-	KStdAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
-	KStdAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
+	KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
+	KStandardAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 
 //	slotShowScheme( Prefs::colorschemebox() );
 	slotSwitchtoNumeration( Prefs::numeration() );

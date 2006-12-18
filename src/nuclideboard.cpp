@@ -44,7 +44,7 @@
 #include <kdebug.h>
 #include <kglobal.h>
 #include <klocale.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <ktoggleaction.h>
 #include <ktoolinvocation.h>
 #include <kicon.h>
@@ -633,9 +633,9 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 	QToolBar *toolbar = new QToolBar( page );
         toolbar->setObjectName( "toolbar" );
 	toolbar->setIconSize( QSize( 22,22 ) );
-	KAction *a = KStdAction::zoomIn( m_view, SLOT( slotZoomIn() ), m_ac, "zoomin" );
+	KAction *a = KStandardAction::zoomIn( m_view, SLOT( slotZoomIn() ), m_ac, "zoomin" );
 	toolbar->addAction( a );
-	a = KStdAction::zoomOut( m_view, SLOT( slotZoomOut() ), m_ac, "zoomout" );
+	a = KStandardAction::zoomOut( m_view, SLOT( slotZoomOut() ), m_ac, "zoomout" );
 	toolbar->addAction( a );
 	KToggleAction *ta = new KToggleAction( KIcon( "viewmagfit" ), i18n( "Select Zoom Area" ), m_ac, "zoomselect" );
 	connect( ta, SIGNAL( toggled( bool ) ), m_view, SLOT( slotToogleZoomMode( bool ) ) );

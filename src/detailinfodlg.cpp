@@ -25,7 +25,7 @@
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
 #include <kcombobox.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kpagewidgetmodel.h>
 #include <ktoolinvocation.h>
 
@@ -64,7 +64,7 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
 	createContent();
 
 	m_actionCollection = new KActionCollection(this);	
-	KStdAction::quit(this, SLOT(close()), m_actionCollection);
+	KStandardAction::quit(this, SLOT(close()), m_actionCollection);
 
 	connect( this, SIGNAL( user1Clicked() ), this, SLOT( slotUser1() ) );
 	connect( this, SIGNAL( user2Clicked() ), this, SLOT( slotUser2() ) );
