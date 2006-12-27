@@ -21,7 +21,7 @@
 #include <kactioncollection.h>
 #include <kcombobox.h>
 #include <kpagewidgetmodel.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <ktoolinvocation.h>
 
 #include <QLayout>

@@ -19,7 +19,7 @@
 #include <klocale.h>
 #include <kdebug.h>
 #include <kactioncollection.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <ktoolinvocation.h>
 
 //QT-Includes
@@ -68,7 +68,7 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
   }
 
 	m_actionCollection = new KActionCollection (this );
-	KStdAction::quit( this, SLOT( close() ), m_actionCollection );
+	KStandardAction::quit( this, SLOT( close() ), m_actionCollection );
 
 	connect( m_timer, SIGNAL( timeout() ), 
           this, SLOT( drawPlot() ) );
