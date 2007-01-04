@@ -9,7 +9,7 @@ set( compoundviewer_SRCS
   openbabel2wrapper.cpp
   kalziumglpart.cpp
   )
-include_directories( ${OPENBABEL2_INCLUDE_DIR} )
+include_directories( ${OPENBABEL2_INCLUDE_DIR} ${EIGEN_INCLUDE_DIR} )
 
 kde4_automoc(${compoundviewer_SRCS})
 add_subdirectory(widgets)
