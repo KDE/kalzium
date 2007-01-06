@@ -14,6 +14,8 @@
 #ifndef KALZIUMGLWIDGET_H
 #define KALZIUMGLWIDGET_H
 
+#include <libkdeedu_compoundviewer_export.h>
+
 #include "kalziumglhelperclasses.h"
 
 #include <QGLWidget>
@@ -27,7 +29,7 @@ using namespace KalziumGLHelpers;
  * 
  * @author Benoit Jacob
  */
-class KalziumGLWidget : public QGLWidget
+class COMPOUNDVIEWER_EXPORT KalziumGLWidget : public QGLWidget
 {
 	Q_OBJECT
 
