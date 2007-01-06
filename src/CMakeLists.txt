@@ -55,7 +55,7 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
     ${kalzium_SRCS}
     moleculeview.cpp
     )
-  include_directories( ${OPENBABEL2_INCLUDE_DIR} )
+  include_directories( ${OPENBABEL2_INCLUDE_DIR} ${EIGEN_INCLUDE_DIR} )
 endif(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
 
 kde4_automoc(${kalzium_SRCS})
