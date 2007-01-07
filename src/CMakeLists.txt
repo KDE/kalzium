@@ -81,9 +81,9 @@ kde4_add_executable(kalzium ${kalzium_SRCS} )
 target_link_libraries(kalzium ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} science kdeeduplot kdeeduui )
 
 
-if (OPENBABEL2_FOUND AND OPENGL_FOUND)
+if (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} compoundviewer)
-endif (OPENBABEL2_FOUND AND OPENGL_FOUND)
+endif (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
 
 if(LIBFACILE_FOUND)
    target_link_libraries(kalzium asmrun str nums m dl)
