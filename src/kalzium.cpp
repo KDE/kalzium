@@ -14,7 +14,7 @@
 
 #include <element.h>
 #include <kdeeduglossary.h>
-
+#include <kactioncollection.h>
 #include "prefs.h"
 #include "ui_settings_colors.h"
 #include "ui_settings_misc.h"
@@ -74,10 +74,10 @@ Kalzium::Kalzium()
     : KMainWindow( 0 )
 {
 	setObjectName( "KalziumMainWindow" );
-	
+
 	// reading the elements from file
 	KalziumDataObject::instance();
-	
+
 	Search *newsearch = new Search();
 	KalziumDataObject::instance()->setSearch( newsearch );
 	connect( newsearch, SIGNAL( searchChanged() ), this, SLOT( slotSearchElements() ) );
@@ -103,7 +103,7 @@ Kalzium::Kalzium()
 
 	connect( m_PeriodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
 	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( elementHover( int ) ));
-	
+
 	// layouting
 	setCentralWidget( fakemain );
 
@@ -149,52 +149,70 @@ void Kalzium::setupActions()
 	QStringList schemes = KalziumSchemeTypeFactory::instance()->schemes();
 	looklist << prependToListItems( schemes, ki18n( "Scheme: %1" ) );
 	looklist << prependToListItems( KalziumGradientTypeFactory::instance()->gradients(), ki18n( "Gradient: %1" ) );
-	look_action = new KSelectAction( i18n( "&Look" ), actionCollection(), "view_look" );
+        look_action =  actionCollection()->add<KSelectAction>( "view_look" );
+        look_action->setText( i18n( "&Look" ) );
 	look_action->setItems(looklist);
 	connect( look_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
 	// "reduced" version of view_look
-	look_action_schemes = new KSelectAction( i18n( "&Scheme" ), actionCollection(), "view_look_onlyschemes" );
+        look_action_schemes = actionCollection()->add<KSelectAction>("view_look_onlyschemes" );
+        look_action_schemes->setText( i18n( "&Scheme" ) );
 	look_action_schemes->setItems( schemes );
 	look_action_schemes->setToolBarMode( KSelectAction::MenuMode );
 	look_action_schemes->setToolButtonPopupMode( QToolButton::InstantPopup );
 	connect( look_action_schemes, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
 
 	// the actions for switching numeration
-	numeration_action = new KSelectAction( i18n( "&Numeration" ), actionCollection(), "view_numerationtype" );
+        numeration_action = actionCollection()->add<KSelectAction>( "view_numerationtype" );
+        numeration_action->setText( i18n( "&Numeration" ) );
 	numeration_action->setItems( KalziumNumerationTypeFactory::instance()->numerations() );
 	connect( numeration_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoNumeration( int ) ) );
-	
+
   //Style of the Periodic Table
   QStringList styletype;
   styletype << i18n("Regular Table");
   styletype << i18n("Hexagonal Table");
-  psestyle_action = new KSelectAction( i18n( "&Style" ), actionCollection(), "view_styletype" );
+  psestyle_action = actionCollection()->add<KSelectAction>( "view_styletype" );
+  psestyle_action->setText( i18n( "&Style" ) );
 	psestyle_action->setItems( styletype );
 	connect( psestyle_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoStyle( int ) ) );
 
-	m_SidebarAction = new KAction( KIcon( "sidebar" ), i18n( "Show &Sidebar "), actionCollection(), "view_sidebar" );
+        m_SidebarAction = actionCollection()->addAction( "view_sidebar" );
+        m_SidebarAction->setText( i18n( "Show &Sidebar ") );
+        m_SidebarAction->setIcon( KIcon( "sidebar" ) );
 	connect( m_SidebarAction, SIGNAL( triggered() ), this, SLOT( slotShowHideSidebar() ) );
-	
-	m_EQSolverAction = new KAction( KIcon( "eqchem" ), i18n( "&Equation Solver..." ), actionCollection(), "tools_eqsolver" );
+
+        m_EQSolverAction =  actionCollection()->addAction( "tools_eqsolver" );
+        m_EQSolverAction->setText( i18n( "&Equation Solver..." ) );
+        m_EQSolverAction->setIcon(  KIcon( "eqchem" ) );
 #ifdef HAVE_FACILE
 	connect( m_EQSolverAction, SIGNAL( triggered() ), this, SLOT( slotShowEQSolver() ) );
 	m_EQSolverAction->setEnabled( true );
 #else
 	m_EQSolverAction->setEnabled( false );
 #endif
-	
+
 	// tools actions
-	m_pPlotAction = new KAction( KIcon( "plot" ), i18n( "&Plot Data..." ), actionCollection(), "tools_plotdata" );
+        m_pPlotAction = actionCollection()->addAction( "tools_plotdata" );
+        m_pPlotAction->setText( i18n( "&Plot Data..." ) );
+        m_pPlotAction->setIcon( KIcon( "plot" ) );
 	connect( m_pPlotAction, SIGNAL( triggered() ), this, SLOT( slotPlotData() ) );
-	m_pIsotopeTableAction = new KAction( KIcon( "isotopemap" ), i18n( "&Isotope Table..." ), actionCollection(), "tools_isotopetable" );
+        m_pIsotopeTableAction= actionCollection()->addAction( "tools_isotopetable" );
+        m_pIsotopeTableAction->setText( i18n( "&Isotope Table..." ) );
+        m_pIsotopeTableAction->setIcon(  KIcon( "isotopemap" ) );
 	connect( m_pIsotopeTableAction, SIGNAL( triggered() ), this, SLOT( slotIsotopeTable() ) );
-	m_pGlossaryAction = new KAction( KIcon( "glossary" ), i18n( "&Glossary..." ), actionCollection(), "tools_glossary" );
+        m_pGlossaryAction = actionCollection()->addAction( "tools_glossary" );
+        m_pGlossaryAction->setText(i18n( "&Glossary..." ) );
+        m_pGlossaryAction->setIcon( KIcon( "glossary" ) );
 	connect( m_pGlossaryAction, SIGNAL( triggered() ), this, SLOT( slotGlossary() ) );
-	
-	m_pRSAction = new KAction( KIcon( "kalzium_rs" ), i18n( "&R/S Phrases..." ), actionCollection(), "tools_rs" );
+
+        m_pRSAction = actionCollection()->addAction( "tools_rs" );
+        m_pRSAction->setText( i18n( "&R/S Phrases..." ) );
+        m_pRSAction->setIcon( KIcon( "kalzium_rs" ) );
 	connect( m_pRSAction, SIGNAL( triggered() ), this, SLOT( slotRS() ) );
-	
-	m_pMoleculesviewer = new KAction( KIcon( "kalzium_molviewer" ), i18n( "Molecular Viewer..." ), actionCollection(), "tools_moleculeviewer" );
+
+        m_pMoleculesviewer = actionCollection()->addAction( "tools_moleculeviewer" );
+        m_pMoleculesviewer->setText( i18n( "Molecular Viewer..." ) );
+        m_pMoleculesviewer->setIcon( KIcon( "kalzium_molviewer" ) );
 	connect( m_pMoleculesviewer, SIGNAL( triggered() ), this, SLOT( slotMoleculeviewer() ) );
 #ifndef HAVE_OPENBABEL2
 	m_pMoleculesviewer->setEnabled( false );
@@ -202,14 +220,22 @@ void Kalzium::setupActions()
 #ifndef HAVE_OPENGL
 	m_pMoleculesviewer->setEnabled( false );
 #endif
-	
-	m_pTables = new KAction( KIcon( "kalzium_tables" ), i18n( "&Tables..." ), actionCollection(), "tools_tables" );
+
+        m_pTables = actionCollection()->addAction( "tools_tables" );
+        m_pTables->setText( i18n( "&Tables..." ) );
+        m_pTables->setIcon( KIcon( "kalzium_tables" ) );
+
 	connect( m_pTables, SIGNAL( triggered() ), this, SLOT( slotTables() ) );
 
 	// other period view options
-	m_pLegendAction = new KAction( KIcon( "legend" ), i18n( "Show &Legend" ), actionCollection(), "view_legend" );
+        m_pLegendAction = actionCollection()->addAction( "view_legend" );
+        m_pLegendAction->setText( i18n( "Show &Legend" ) );
+        m_pLegendAction->setIcon( KIcon( "legend" ) );
+        m_pLegendAction = actionCollection()->addAction( "view_legend" );
+        m_pLegendAction->setText( i18n( "Show &Legend" ) );
+        m_pLegendAction->setIcon( KIcon( "legend" ) );
 	connect( m_pLegendAction, SIGNAL( triggered() ), this, SLOT( slotShowLegend() ) );
-	
+
 	// the standard actions
 	KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 	KStandardAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
@@ -244,7 +270,7 @@ void Kalzium::setupSidebars()
 {
 	m_dockWin = new QDockWidget( i18n( "Sidebar" ), this );
 	m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
-	m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea ); 
+	m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
 	m_toolbox = new QToolBox( m_dockWin );
 	m_dockWin->setWidget( m_toolbox );
@@ -260,23 +286,23 @@ void Kalzium::setupSidebars()
  	lay->addWidget( m_detailWidget );
 	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
 	m_toolbox->addItem( fake, KIcon( "overview" ), i18n( "Overview" ) );
-	
+
 	m_calcWidget = new MolcalcWidget( m_toolbox );
 	m_calcWidget->setObjectName( "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, KIcon( "calculate" ), i18n( "Calculate" ) );
-	
+
 	m_somWidget = new SOMWidgetIMPL( m_toolbox );
 	m_somWidget->setObjectName( "somWidget" );
 	connect( m_somWidget, SIGNAL( temperatureChanged( int ) ),
 	         m_PeriodicTableView, SLOT( setTemperature( int ) ) );
 	m_toolbox->addItem( m_somWidget, KIcon( "statematter" ), i18n( "State of Matter" ) );
-	
+
   m_timeWidget = new TimeWidgetImpl( m_toolbox );
 	m_timeWidget->setObjectName( "timeWidget" );
 	connect( m_timeWidget->time_box, SIGNAL( valueChanged( int ) ),
 	         m_PeriodicTableView, SLOT( setTime( int ) ) );
 	m_toolbox->addItem( m_timeWidget, KIcon( "timeline" ), i18n( "Timeline" ) );
-	
+
 	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
 	addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
@@ -295,14 +321,14 @@ void Kalzium::slotRS()
 
 void Kalzium::slotMoleculeviewer()
 {
-#ifdef HAVE_OPENBABEL2 
+#ifdef HAVE_OPENBABEL2
 #ifdef HAVE_OPENGL
 	MoleculeDialog * d = new MoleculeDialog( this ); d->show();
 
   KLibrary* library = KLibLoader::self()->globalLibrary("libkalziumglpart");
   KLibFactory* factory = 0;
 
-  if ( library ) 
+  if ( library )
       factory = library->factory();
 
   if (factory) {
@@ -354,9 +380,9 @@ void Kalzium::slotShowLegend()
 		m_PeriodicTableView->showLegend(true);
 		m_pLegendAction->setText( i18n( "Hide &Legend" ) );
 	}
-	
+
 	//save the settings
-	Prefs::setShowlegend( m_PeriodicTableView->showLegend() ); 
+	Prefs::setShowlegend( m_PeriodicTableView->showLegend() );
 	Prefs::writeConfig();
 }
 
@@ -374,7 +400,7 @@ void Kalzium::slotShowHideSidebar()
 		Prefs::setShowsidebar( true );
 		m_SidebarAction->setText( i18n( "Hide &Sidebar" ) );
 	}
-	
+
 	//save the settings
 	Prefs::writeConfig();
 }
@@ -465,7 +491,7 @@ void Kalzium::setupStatusBar()
 {
 	statusBar()->insertItem( "", 0, 0 );
 	statusBar()->setItemAlignment( 0, Qt::AlignRight );
-	
+
 	statusBar()->insertItem(  "" , IDS_ELEMENTINFO, 1 );
 	statusBar()->setItemAlignment( IDS_ELEMENTINFO, Qt::AlignRight );
 	statusBar()->show();

@@ -81,16 +81,16 @@ class Kalzium : public KMainWindow
 		KSelectAction *numeration_action;
 		KSelectAction *psestyle_action;
 		// settings
-		KAction *m_pLegendAction;
-		KAction *m_SidebarAction;
+		QAction *m_pLegendAction;
+		QAction *m_SidebarAction;
 		// tools
-		KAction *m_pPlotAction;
-		KAction *m_pIsotopeTableAction;
-		KAction *m_pGlossaryAction;
-		KAction *m_pRSAction;
-		KAction *m_pTables;
-		KAction *m_pMoleculesviewer;
-		KAction *m_EQSolverAction;
+		QAction *m_pPlotAction;
+		QAction *m_pIsotopeTableAction;
+		QAction *m_pGlossaryAction;
+		QAction *m_pRSAction;
+		QAction *m_pTables;
+		QAction *m_pMoleculesviewer;
+		QAction *m_EQSolverAction;
 
 		/**
 		 * the layout of the central Widget ( CentralWidget )
