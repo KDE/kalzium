@@ -633,11 +633,15 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 	QToolBar *toolbar = new QToolBar( page );
         toolbar->setObjectName( "toolbar" );
 	toolbar->setIconSize( QSize( 22,22 ) );
-	KAction *a = KStandardAction::zoomIn( m_view, SLOT( slotZoomIn() ), m_ac, "zoomin" );
+	KAction *a = KStandardAction::zoomIn( m_view, SLOT( slotZoomIn() ), m_ac );
+        m_ac->addAction( "zoomin", a );
 	toolbar->addAction( a );
-	a = KStandardAction::zoomOut( m_view, SLOT( slotZoomOut() ), m_ac, "zoomout" );
+	a = KStandardAction::zoomOut( m_view, SLOT( slotZoomOut() ), m_ac);
+        m_ac->addAction( "zoomout", a );
 	toolbar->addAction( a );
-	KToggleAction *ta = new KToggleAction( KIcon( "viewmagfit" ), i18n( "Select Zoom Area" ), m_ac, "zoomselect" );
+        KToggleAction *ta = m_ac->add<KToggleAction>( "zoomselect" );
+        ta->setText( i18n( "Select Zoom Area" ) );
+        ta->setIcon( KIcon( "viewmagfit" ) );
 	connect( ta, SIGNAL( toggled( bool ) ), m_view, SLOT( slotToogleZoomMode( bool ) ) );
 	connect( m_view, SIGNAL( toggleZoomAction( bool ) ), ta, SLOT( setChecked( bool ) ) );
 	toolbar->addAction( ta );
