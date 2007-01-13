@@ -82,7 +82,7 @@ ElementDataViewer::ElementDataViewer( QWidget *parent )
 	         this, SLOT( rangeChanged() ) );
 	connect( ui.to, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( rangeChanged() ) );
-
+	connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelp() ) );
 	drawPlot();
 
 	resize( 650, 500 );
