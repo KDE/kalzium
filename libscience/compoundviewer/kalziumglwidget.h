@@ -19,6 +19,7 @@
 #include "kalziumglhelperclasses.h"
 
 #include <QGLWidget>
+#include <QtGui/QWheelEvent>
 #include <QList>
 #include <QFont>
 
@@ -48,14 +49,8 @@ class COMPOUNDVIEWER_EXPORT KalziumGLWidget : public QGLWidget
 		 * The geometric model of the cylinder (used for bonds).
 		 */
 		Cylinder m_cylinder;
-		
-		/**
-		 * equals true if the user is currently dragging (rotating)
-		 * the view
-		 */
-		bool m_isLeftButtonPressed;
 
-		bool m_movedSinceLeftButtonPressed;
+		bool m_movedSinceButtonPressed;
 
 		QPoint m_lastDraggingPosition;
 		QPoint m_initialDraggingPosition;
@@ -63,9 +58,9 @@ class COMPOUNDVIEWER_EXPORT KalziumGLWidget : public QGLWidget
 		OpenBabel::OBAtom *m_clickedAtom;
 
 		/**
-		 * Stores the rotation that is applied to the model.
+		 * Stores the camera position and orientation.
 		 */
-		Eigen::Matrix4d m_rotationMatrix;
+		Eigen::MatrixP3d m_cameraMatrix;
 
 		/**
 		 * The molecule which is displayed
@@ -211,6 +206,7 @@ class COMPOUNDVIEWER_EXPORT KalziumGLWidget : public QGLWidget
 		void mousePressEvent( QMouseEvent * event );
 		void mouseReleaseEvent( QMouseEvent * event );
 		void mouseMoveEvent( QMouseEvent * event );
+		void wheelEvent( QWheelEvent * event );
 
 		/**
 		 * This method is called by slotSetMolecule. It prepares the

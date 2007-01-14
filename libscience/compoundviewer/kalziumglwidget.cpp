@@ -33,8 +33,7 @@ using namespace Eigen;
 KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	: QGLWidget( parent )
 {
-	m_isLeftButtonPressed = false;
-	m_movedSinceLeftButtonPressed = false;
+	m_movedSinceButtonPressed = false;
 	m_clickedAtom = 0;
 	m_molecule = 0;
 	m_detail = 0;
@@ -49,6 +48,7 @@ KalziumGLWidget::KalziumGLWidget( QWidget * parent )
 	m_textRenderer.setup( this, f );
 	
 	setMinimumSize( 100,100 );
+	setContextMenuPolicy( Qt::PreventContextMenu );
 	setMolStyle( 0 );
 }
 
@@ -64,7 +64,7 @@ void KalziumGLWidget::initializeGL()
 	glDepthFunc( GL_LEQUAL );
 	glEnable( GL_CULL_FACE );
 
-	m_rotationMatrix.loadIdentity();
+	m_cameraMatrix.loadIdentity();
 
 	glEnable( GL_NORMALIZE );
 	glEnable( GL_LIGHTING );
@@ -153,7 +153,7 @@ void KalziumGLWidget::renderScene( GLenum renderMode,
 			3, 3, viewport);
 	}
 	gluPerspective( 40.0, float( width() ) / height(),
-		getMolRadius(), 5.0 * getMolRadius() );
+		getMolRadius() / 12.0, getMolRadius() * 6.0 );
 	glMatrixMode( GL_MODELVIEW );
 
 	// clear the buffers when in GL_RENDER mode
@@ -161,9 +161,7 @@ void KalziumGLWidget::renderScene( GLenum renderMode,
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
 	// set up the camera
-	glLoadIdentity();
-	glTranslated ( 0.0, 0.0, -3.0 * getMolRadius() );
-	glMultMatrixd ( m_rotationMatrix.array() );
+	glLoadMatrixd ( m_cameraMatrix.array() );
 
 	// set up fog
 	if( m_useFog && renderMode == GL_RENDER )
@@ -315,56 +313,111 @@ void KalziumGLWidget::resizeGL( int width, int height )
 
 void KalziumGLWidget::mousePressEvent( QMouseEvent * event )
 {
-	if( event->buttons() & Qt::LeftButton )
-	{	
-		m_isLeftButtonPressed = true;
-		m_movedSinceLeftButtonPressed = false;
-		m_lastDraggingPosition = event->pos ();
-		m_initialDraggingPosition = event->pos ();
-		computeClickedAtom( event->pos () );
-		updateGL();
-	}
+	m_movedSinceButtonPressed = false;
+	m_lastDraggingPosition = event->pos ();
+	m_initialDraggingPosition = event->pos ();
+	computeClickedAtom( event->pos () );
+	updateGL();
 }
 
 void KalziumGLWidget::mouseReleaseEvent( QMouseEvent * event )
 {
-	if( !( event->buttons() & Qt::LeftButton ) )
+	(void) event;
+	if( m_clickedAtom && ! m_movedSinceButtonPressed )
 	{
-		m_isLeftButtonPressed = false;
-
-		if( m_clickedAtom && ! m_movedSinceLeftButtonPressed )
+		if( m_selectedAtoms.contains( m_clickedAtom ) )
 		{
-			if( m_selectedAtoms.contains( m_clickedAtom ) )
-			{
-				m_selectedAtoms.removeAll(
-					m_clickedAtom );
-			}
-			else m_selectedAtoms.append( m_clickedAtom );
+			m_selectedAtoms.removeAll(
+				m_clickedAtom );
 		}
-		m_clickedAtom = 0;
-		updateGL();
+		else m_selectedAtoms.append( m_clickedAtom );
 	}
+	m_clickedAtom = 0;
+	updateGL();
+}
+#include<iostream>
+void KalziumGLWidget::mouseMoveEvent( QMouseEvent *event )
+{
+	QPoint delta = event->pos() - m_lastDraggingPosition;
+	m_lastDraggingPosition = event->pos();
+	Vector3d clickedAtomCenter;
+	Matrix3d cameraRotation;
+
+	if( event->buttons() & ( Qt::LeftButton | Qt::RightButton ) )
+	{
+		if( m_clickedAtom )
+			clickedAtomCenter = Vector3d(
+				m_clickedAtom->GetVector().AsArray() );
+		if( ( event->pos()
+		    - m_initialDraggingPosition ).manhattanLength() > 2 )
+			m_movedSinceButtonPressed = true;
+		m_cameraMatrix.getLinearComponent( & cameraRotation );
+	}
+
+	if( event->buttons() & Qt::LeftButton )
+	{
+		// we're dragging with the left mouse button pressed.
+		// that means we want to rotate. If an atom is being clicked,
+		// then we want to rotate the molecule around that atom.
+		// Otherwise, we want rotate the molecule around
+		// its own center, which is at the origin since we have
+		// already centered it.
+
+		// note that here we're multiplying by rotations on the right,
+		// because we want to rotate the camera around the molecule,
+		// not around the camera itself.
+
+		if( m_clickedAtom )
+			m_cameraMatrix.translate( clickedAtomCenter );
+		m_cameraMatrix.rotate3( delta.x() * ROTATION_SPEED,
+		                        cameraRotation.row(1) );
+		m_cameraMatrix.rotate3( delta.y() * ROTATION_SPEED,
+		                        cameraRotation.row(0) );
+		if( m_clickedAtom )
+			m_cameraMatrix.translate( - clickedAtomCenter );
+	}
+	if( event->buttons() & Qt::RightButton )
+	{
+		if( m_clickedAtom )
+		{
+			m_cameraMatrix.translate( clickedAtomCenter );
+			m_cameraMatrix.rotate3( delta.x() * ROTATION_SPEED,
+			                        cameraRotation.row(2) );
+			m_cameraMatrix.translate( - clickedAtomCenter );
+
+			Vector3d transformedClickedAtomCenter = m_cameraMatrix * clickedAtomCenter;
+			double t = exp( - TRANSLATION_SPEED * delta.y() );
+			if( t > 1.25 ) t = 1.25;
+			if( t < 0.8 ) t = 0.8;
+			double n = t * transformedClickedAtomCenter.norm();
+			double a = 10.0 * m_molStyle.getAtomRadius( m_clickedAtom );
+			if( n < a && t > 1.0) t = 1.0;
+			Vector3d diff = transformedClickedAtomCenter * (1.0 - t );
+			m_cameraMatrix.pretranslate( diff );
+		}
+		else
+		{
+			m_cameraMatrix.rotate3( delta.x() * ROTATION_SPEED,
+			                        cameraRotation.row(2) );
+
+			Vector3d transformedCenter = m_cameraMatrix.translationVector();
+			double t = exp( - TRANSLATION_SPEED * delta.y() );
+			if( t > 1.25 ) t = 1.25;
+			if( t < 0.8 ) t = 0.8;
+			Vector3d diff = transformedCenter * (1.0 - t );
+			m_cameraMatrix.pretranslate( diff );
+		}
+	}
+	if( event->buttons() & ( Qt::LeftButton | Qt::RightButton ) )
+		update();
 }
 
-void KalziumGLWidget::mouseMoveEvent( QMouseEvent * event )
+void KalziumGLWidget::wheelEvent( QWheelEvent *event )
 {
-	if( m_isLeftButtonPressed )
-	{
-		QPoint deltaDragging = event->pos() - m_lastDraggingPosition;
-		m_lastDraggingPosition = event->pos();
-		if( ( event->pos()
-			- m_initialDraggingPosition ).manhattanLength() > 2 )
-			m_movedSinceLeftButtonPressed = true;
 
-		glPushMatrix();
-		glLoadIdentity();
-		glRotated( deltaDragging.x(), 0.0, 1.0, 0.0 );
-		glRotated( deltaDragging.y(), 1.0, 0.0, 0.0 );
-		glMultMatrixd( m_rotationMatrix.array() );
-		glGetDoublev( GL_MODELVIEW_MATRIX, m_rotationMatrix.array() );
-		glPopMatrix();
-		updateGL();
-	}
+	m_cameraMatrix.pretranslate( event->delta()
+	                             * TRANSLATION_SPEED * Vector3d(0,0,1) );
+	update();
 }
 
 void KalziumGLWidget::rotate( )
@@ -498,7 +551,6 @@ void KalziumGLWidget::slotSetMolecule( OpenBabel::OBMol* molecule )
 	if ( !molecule ) return;
 	m_molecule = molecule;
 	m_haveToRecompileDisplayList = true;
-	m_rotationMatrix.loadIdentity();
 	m_selectedAtoms.clear();
 	m_clickedAtom = 0;
 	prepareMoleculeData();
@@ -593,6 +645,13 @@ void KalziumGLWidget::prepareMoleculeData()
 		              atomCenter.y(),
 		              atomCenter.z() );
 	}
+
+	// set up the camera matrix so that the initial point of view
+	// is convenient. This is easy because we have already rotated
+	// the molecule to orient it approximately in the xy-plane.
+
+	m_cameraMatrix.loadTranslation(
+	                   Vector3d( 0, 0, -3.0 * getMolRadius() ) );
 }
 
 double KalziumGLWidget::getMolRadius()

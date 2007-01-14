@@ -14,7 +14,6 @@
 #ifndef KALZIUMGLHELPERCLASSES_H
 #define KALZIUMGLHELPERCLASSES_H
 
-#include <eigen/matrix.h>
 #include <QGLWidget>
 #include <GL/glu.h>
 #include <QPainter>
@@ -26,11 +25,13 @@
 #include <openbabel/mol.h>
 #include <openbabel/obiter.h>
 
+#include <eigen/projective.h>
+
 /** USE_FPS_COUNTER: if defined, the GL Widget will show a frames-per-second
  * counter. Use only for testing: this makes the GL Widget constantly
  * redraw, which under normal circumstances is a waste of CPU time.
  */
-#define USE_FPS_COUNTER
+//#define USE_FPS_COUNTER
 
 /** USE_DISPLAY_LISTS: if defined, the whole scene will be stored in
  * an OpenGL display list. The vertex arrays will then be converted into
@@ -39,6 +40,9 @@
  * but increases memory usage.
  */
 #define USE_DISPLAY_LISTS
+
+#define ROTATION_SPEED     0.01
+#define TRANSLATION_SPEED  0.01
 
 namespace KalziumGLHelpers
 {
