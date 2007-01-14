@@ -29,7 +29,7 @@ MainDialog_Impl::MainDialog_Impl( QWidget * parent )
 	ui.setupUi( frame );
 
 	QStringList l = SimulationsFactory::instance()->simulations();
-	foreach( QString s, l )
+	foreach( const QString &s, l )
 	{
 		new QListWidgetItem( s, ui.simulationList );
 	}

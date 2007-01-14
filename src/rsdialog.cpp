@@ -53,12 +53,12 @@ void RSDialog::filter()
 
 	//for now only separation by a comma , is allowed
 	QStringList rSplit = ui.r_le->text().split( "-" );
-	foreach( QString st, rSplit )
+	foreach( const QString &st, rSplit )
 		r << st.toInt();
 	
 	//for now only separation by a comma , is allowed
 	QStringList sSplit = ui.s_le->text().split( "-" );
-	foreach( QString st, sSplit )
+	foreach( const QString &st, sSplit )
 		s << st.toInt();
 
 	filterRS( r, s );
@@ -184,7 +184,7 @@ void RSDialog::createSPhrases()
 
 	QRegExp reg( "(R|S)(\\d+): (.*)" );
 
-	foreach( QString p , sphrases )
+	foreach( const QString &p , sphrases )
 	{
 		int number = 0;
 		QString phrase( "" );
@@ -274,7 +274,7 @@ void RSDialog::createRPhrases()
 	
 	QRegExp reg( "(R|S)(\\d+): (.*)" );
 
-	foreach( QString p , rphrases )
+	foreach( const QString &p , rphrases )
 	{
 		int number = 0;
 		QString phrase( "" );
