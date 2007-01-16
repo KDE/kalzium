@@ -11,6 +11,7 @@ Terminal=false
 Name=Kalzium-Simulations
 Name[x-test]=xxKalzium-Simulationsxx
 GenericName=Periodic Table of Elements
+GenericName[el]=Περιοδικός πίνακας των στοιχείων
 GenericName[fr]=Classification périodique des éléments
 GenericName[x-test]=xxPeriodic Table of Elementsxx
 Categories=Qt;KDE;Education;Science;
