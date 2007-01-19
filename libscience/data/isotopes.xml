@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<cml xmlns="http://www.xml-cml.org/schema" 
+<cml xmlns="http://www.xml-cml.org/schema" convention="bodr:isotopes"
      xmlns:xml="http://www.w3.org/XML/1998/namespace" 
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
      xmlns:bo="http://www.blueobelisk.org/dict/terminology" 
@@ -27,8 +27,6 @@
     <metadata name="dc:description" content="Database of isotopes and isotopic properties (names, symbols, exact masses, spin, abundances, magnetic dipole moment, decay energy, etc)" />
   </metadataList>
 
-<isotopeList id="Xx">
-</isotopeList>
 <isotopeList id="H">
 	<isotope id="H1" number="1" elementType="H">
 		<scalar dictRef="bo:relativeAbundance">99.9885</scalar>

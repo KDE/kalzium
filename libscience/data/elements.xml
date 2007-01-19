@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<list id="chemicalElement" 
+<list id="chemicalElement" convention="bodr:elements"
       title="properties of the elements"
 
       xmlns="http://www.xml-cml.org/schema" 
@@ -42,7 +42,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Hydrogen" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="7">1.00794</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">1.007825032</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/L">0.084</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">13.5984</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="3">0.75420375</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.20</scalar>
@@ -57,7 +56,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1766</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">C. Cavendish</array>
     <scalar dataType="xsd:int" dictRef="bo:period">1</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">1s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
@@ -68,7 +66,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Helium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">4.002602</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">4.002603254</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/L">0.1785</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">24.5874</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">The Greek word for the sun was 'helios'</scalar>
@@ -82,7 +79,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1895</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">P. J. Janssen;J. N. Lockyer</array>
     <scalar dataType="xsd:int" dictRef="bo:period">1</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">1s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Noblegas</scalar>
@@ -93,7 +89,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Lithium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">6.941</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">7.01600455</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">0.53</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.3917</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="21">0.618049</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.98</scalar>
@@ -108,7 +103,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1817</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">A. Arfvedson</array>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">He 2s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkali_Earth</scalar>
@@ -119,7 +113,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Beryllium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">9.012182</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">9.0121822</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">1.85</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.3227</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.57</scalar>
@@ -134,7 +127,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1797</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Nicholas Louis Vauquelin</array>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">He 2s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkaline_Earth</scalar>
@@ -145,7 +137,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Boron" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="7">10.811</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">11.0093054</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">2.46</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.2980</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">0.279723</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.04</scalar>
@@ -160,7 +151,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Louis Joseph Gay-Lussac;Louis Jacques Thenard</array>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">He 2s2 2p1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Metalloids</scalar>
@@ -171,7 +161,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Carbon" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="8">12.0107</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">12</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">3.51</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">11.2603</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">1.262118</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.55</scalar>
@@ -184,7 +173,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">He 2s2 2p2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
@@ -195,7 +183,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Nitrogen" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">14.0067</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">14.003074</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/L">1.17</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">14.5341</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">-0.07</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">3.04</scalar>
@@ -210,7 +197,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1772</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">D. Rutherford</array>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">He 2s2 2p3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
@@ -221,7 +207,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Oxygen" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">15.9994</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">15.99491462</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/L">1.33</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">13.6181</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="27">1.4611120</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">3.44</scalar>
@@ -236,7 +221,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1774</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">J. Priestley</array>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">He 2s2 2p4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
@@ -247,7 +231,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Fluorine" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="5">18.9984032</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">18.99840322</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/L">1.58</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">17.4228</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="32">3.4011887</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">3.98</scalar>
@@ -262,7 +245,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1886</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">H. F. Moissan</array>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">He 2s2 2p5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
@@ -273,7 +255,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Neon" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="6">20.1797</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">19.99244018</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/L">0.8999</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">21.5645</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'neo'. meaning 'new'</scalar>
@@ -287,7 +268,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">W. Ramsay;M.W. Travers</array>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">He 2s2 2p6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Noblegas</scalar>
@@ -298,7 +278,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Sodium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">22.989770</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">22.98976928</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">0.97</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.1391</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">0.547926</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.93</scalar>
@@ -313,7 +292,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1807</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Sir Humphrey Davy</array>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ne 3s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkali_Earth</scalar>
@@ -324,7 +302,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Magnesium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="6">24.3050</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">23.9850417</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">1.74</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.6462</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.31</scalar>
@@ -339,7 +316,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</array>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ne 3s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkaline_Earth</scalar>
@@ -350,7 +326,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Aluminium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">26.981538</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">26.98153863</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">2.7</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.9858</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="5">0.43283</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.61</scalar>
@@ -365,7 +340,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1825</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">H. Ch. Oersted</array>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ne 3s2 3p1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
@@ -376,7 +350,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Silicon" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">28.0855</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">27.97692653</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">2.33</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.1517</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">1.389521</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.90</scalar>
@@ -391,7 +364,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1823</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">J. J. Berzelius</array>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ne 3s2 3p2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Metalloids</scalar>
@@ -402,7 +374,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Phosphorus" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">30.973761</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">30.97376163</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">1.82</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">10.4867</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="3">0.7465</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.19</scalar>
@@ -417,7 +388,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1669</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">H. Brandt</array>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ne 3s2 3p3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
@@ -428,7 +398,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Sulfur" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="5">32.065</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">31.972071</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">2.06</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">10.3600</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="10">2.0771029</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.58</scalar>
@@ -441,7 +410,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ne 3s2 3p4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
@@ -452,7 +420,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Chlorine" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">35.453</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">34.96885268</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/L">2.95</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">12.9676</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="27">3.612724</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">3.16</scalar>
@@ -467,7 +434,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1774</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">C. W. Scheele</array>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ne 3s2 3p5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
@@ -478,7 +444,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Argon" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">39.948</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">39.96238312</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/L">1.66</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">15.7596</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'aergon' for 'inactive'</scalar>
@@ -492,7 +457,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1894</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">W. Ramsay;J. Rayleigh</array>
     <scalar dataType="xsd:int" dictRef="bo:period">3</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ne 3s2 3p6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Noblegas</scalar>
@@ -503,7 +467,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Potassium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">39.0983</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">38.96370668</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">0.86</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">4.3407</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.501459</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.82</scalar>
@@ -518,7 +481,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1807</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 4s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkali_Earth</scalar>
@@ -529,7 +491,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Calcium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="4">40.078</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">39.96259098</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">1.54</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.1132</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="10">0.02455</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.00</scalar>
@@ -544,7 +505,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 4s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkaline_Earth</scalar>
@@ -555,7 +515,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Scandium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="8">44.955910</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">44.9559119</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">2.99</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.5615</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">0.188</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.36</scalar>
@@ -570,7 +529,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1879</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">L. Nilson</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d1 4s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -581,7 +539,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Titanium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">47.867</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">47.9479463</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">4.51</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.8281</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="9">0.084</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.54</scalar>
@@ -596,7 +553,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1791</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">W. Gregor</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d2 4s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -607,7 +563,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Vanadium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">50.9415</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">50.9439595</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">6.09</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.7462</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.525</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.63</scalar>
@@ -622,7 +577,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1830</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">N. Sefström</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d3 4s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -633,7 +587,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Chromium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="6">51.9961</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">51.9405075</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">7.14</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.7665</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.67584</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.66</scalar>
@@ -648,7 +601,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1797</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Nicholas Louis Vauquelin</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d5 4s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -659,7 +611,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Manganese" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="9">54.938049</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">54.9380451</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">7.44</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.4340</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.55</scalar>
@@ -674,7 +625,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1774</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">C. W. Scheele</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d5 4s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -685,7 +635,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Iron" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">55.845</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">55.9349375</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">7.874</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.9024</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="3">0.151</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.83</scalar>
@@ -698,7 +647,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d6 4s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -709,7 +657,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Cobalt" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="9">58.933200</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">58.933195</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">8.89</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.8810</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="6">0.6633</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.88</scalar>
@@ -724,7 +671,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1737</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">G. Brandt</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d7 4s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -735,7 +681,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Nickel" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">58.6934</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">57.9353429</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">8.91</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.6398</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">1.15716</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.91</scalar>
@@ -750,7 +695,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1751</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">A. F. Cronstedt</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d8 4s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -761,7 +705,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Copper" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">63.546</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">62.9295975</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">8.92</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.7264</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="4">1.23578</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.90</scalar>
@@ -774,7 +717,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d10 4s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -785,7 +727,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Zinc" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="4">65.409</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">63.9291422</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">7.14</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.3942</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.65</scalar>
@@ -800,7 +741,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1746</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Andreas Marggraf</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d10 4s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -811,7 +751,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Gallium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">69.723</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">68.9255736</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">5.91</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.9993</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="4">0.41</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.81</scalar>
@@ -826,7 +765,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1875</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">P. E. Lecoq de Boisbaudran</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
@@ -837,7 +775,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Germanium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">72.64</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">73.9211778</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">5.32</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.8994</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="15">1.232712</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.01</scalar>
@@ -852,7 +789,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1886</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">C. A. Winkler</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Metalloids</scalar>
@@ -863,7 +799,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Arsenic" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">74.92160</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">74.9215965</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">5.72</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.7886</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="8">0.814</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.18</scalar>
@@ -876,7 +811,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Metalloids</scalar>
@@ -887,7 +821,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Selenium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">78.96</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">79.9165213</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">4.82</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.7524</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">2.02067</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.55</scalar>
@@ -902,7 +835,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1817</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">J. J. Berzelius</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
@@ -913,7 +845,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Bromine" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">79.904</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">78.9183371</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">3.14</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">11.8138</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">3.3635880</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.96</scalar>
@@ -928,7 +859,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1826</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">A. J. Balard</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
@@ -939,7 +869,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Krypton" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">83.798</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">83.911507</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/L">4.48</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">13.9996</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">3.00</scalar>
@@ -954,7 +883,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">W. Ramsay;M. W. Travers</array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d10 4s2 4p6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Noblegas</scalar>
@@ -965,7 +893,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Rubidium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">85.4678</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">84.91178974</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">1.53</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">4.1771</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">0.485916</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.82</scalar>
@@ -980,7 +907,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1861</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Robert W. Bunsen;Gustav R. Kirchhoff</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 5s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkali_Earth</scalar>
@@ -991,7 +917,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Strontium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">87.62</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">87.9056121</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">2.63</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.6949</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="6">0.05206</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.95</scalar>
@@ -1006,7 +931,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1790</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">H. B. Davy</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 5s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkaline_Earth</scalar>
@@ -1017,7 +941,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Yttrium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">88.90585</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">88.9058483</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">4.47</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.2173</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.307</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.22</scalar>
@@ -1032,7 +955,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1794</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Johann Gadolin</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d1 5s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1043,7 +965,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Zirconium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">91.224</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">89.9047044</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">6.51</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.6339</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="14">0.426</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.33</scalar>
@@ -1058,7 +979,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1789</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Martin Heinrich Klaproth</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d2 5s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1069,7 +989,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Niobium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">92.90638</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">92.9063781</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">8.58</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.7589</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">0.893</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.6</scalar>
@@ -1084,7 +1003,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1801</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Ch. Hatchett</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1095,7 +1013,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Molybdenum" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">95.94</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">97.9054082</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">10.28</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.0924</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">0.7472</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.16</scalar>
@@ -1110,7 +1027,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1778</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">C. W. Scheele</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d5 5s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1121,7 +1037,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Technetium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">98</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">97.907216</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">11.49</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.28</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">0.55</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.9</scalar>
@@ -1136,7 +1051,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1937</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">C. Perrier;E. G. Segre</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d6 5s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1147,7 +1061,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Ruthenium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">101.07</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">101.9043493</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">12.45</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.3605</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">1.04638</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.2</scalar>
@@ -1162,7 +1075,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1844</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">K. Klaus</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d7 5s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1173,7 +1085,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Rhodium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">102.90550</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">102.905504</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">12.41</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.4589</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">1.14289</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.28</scalar>
@@ -1188,7 +1099,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1803</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">W. Wollaston</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d8 5s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1199,7 +1109,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Palladium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">106.42</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">105.903486</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">12.02</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.3369</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.56214</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.20</scalar>
@@ -1212,7 +1121,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">uk</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d10</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1223,7 +1131,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Silver" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">107.8682</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">106.905097</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">10.49</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.5762</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">1.30447</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.93</scalar>
@@ -1236,7 +1143,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d10 5s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1247,7 +1153,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Cadmium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="8">112.411</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">113.9033585</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">8.64</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.9938</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.69</scalar>
@@ -1262,7 +1167,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1817</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">F. Stromeyer</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d10 5s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1273,7 +1177,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Indium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">114.818</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">114.903878</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">7.31</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.7864</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="9">0.404</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.78</scalar>
@@ -1288,7 +1191,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1863</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">F. Reich;H.T. Richter</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
@@ -1299,7 +1201,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Tin" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="7">118.710</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">119.9021947</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">7.29</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.3439</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="15">1.112066</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.96</scalar>
@@ -1312,7 +1213,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
@@ -1323,7 +1223,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Antimony" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">121.760</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">120.9038157</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">6.69</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.6084</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">1.047401</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.05</scalar>
@@ -1336,7 +1235,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Metalloids</scalar>
@@ -1347,7 +1245,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Tellurium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">127.60</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">129.9062244</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">6.25</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.0096</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="7">1.970875</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.1</scalar>
@@ -1362,7 +1259,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1782</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Franz Joseph Muller von Reichstein</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Metalloids</scalar>
@@ -1373,7 +1269,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Iodine" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">126.90447</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">126.904473</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">4.94</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">10.4513</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="10">3.059038</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.66</scalar>
@@ -1388,7 +1283,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1811</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Bernard Courtois</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
@@ -1399,7 +1293,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Xenon" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="6">131.293</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">131.9041535</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/L">4.49</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">12.1298</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.6</scalar>
@@ -1414,7 +1307,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">W. Ramsay;M. W. Travers</array>
     <scalar dataType="xsd:int" dictRef="bo:period">5</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Kr 4d10 5s2 5p6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Noblegas</scalar>
@@ -1425,7 +1317,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Caesium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">132.90545</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">132.9054519</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">1.9</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">3.8939</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">0.471626</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.79</scalar>
@@ -1440,7 +1331,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1860</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Robert Wilhelm Bunsen;Gustav Robert Kirchhoff</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 6s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkali_Earth</scalar>
@@ -1451,7 +1341,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Barium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="7">137.327</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">137.9052472</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">3.65</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.2117</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="6">0.14462</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.89</scalar>
@@ -1466,7 +1355,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1808</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Humphry Bartholomew Davy</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkaline_Earth</scalar>
@@ -1477,7 +1365,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Lanthanum" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">138.9055</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">138.9063533</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">6.16</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.5769</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">0.47</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.10</scalar>
@@ -1492,7 +1379,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1839</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">K. G. Mosander</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 5d1 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1503,7 +1389,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Cerium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">140.116</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">139.9054387</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">6.77</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.5387</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.12</scalar>
@@ -1516,7 +1401,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1803</scalar>
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Jöns Jacob Berzelius;W. Hisinger;M. Klaproth</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f1 5d1 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1527,7 +1411,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Praseodymium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">140.90765</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">140.9076528</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">6.48</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.473</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.13</scalar>
@@ -1540,7 +1423,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1885</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Carl F. Auer von Welsbach</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f3 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1551,7 +1433,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Neodymium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">144.24</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">141.9077233</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">7</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.5250</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.14</scalar>
@@ -1564,7 +1445,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1885</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Carl F. Auer von Welsbach</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f4 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1575,7 +1455,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Promethium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">145</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">144.912749</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">7.22</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.582</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the greek Prometheus. Prometheus stole the fire from the gods and gave it to mankind</scalar>
@@ -1587,7 +1466,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1945</scalar>
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">J. A. Marinsky;C. D. Coryell;L. E. Glendenin</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f5 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1598,7 +1476,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Samarium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">150.36</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">151.9197324</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">7.54</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.6437</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.17</scalar>
@@ -1611,7 +1488,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1879</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">P. Lecoq de Boisbaudran</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f6 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1622,7 +1498,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Europium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">151.964</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">152.9212303</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">5.25</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.6704</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after Europe</scalar>
@@ -1634,7 +1509,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1901</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">E. A. Demarcay</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f7 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1645,7 +1519,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Gadolinium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">157.25</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">157.9241039</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">7.89</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.1498</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.20</scalar>
@@ -1658,7 +1531,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1880</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Jean de Marignac</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f7 5d1 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1669,7 +1541,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Terbium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">158.92534</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">158.9253468</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">8.25</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.8638</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the Swedish town of Ytterby</scalar>
@@ -1681,7 +1552,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1843</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">K. G. Mosander</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f9 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1692,7 +1562,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Dysprosium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">162.500</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">163.9291748</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">8.56</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.9389</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.22</scalar>
@@ -1705,7 +1574,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1886</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">F. E. Lecoq de Boisbaudran</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f10 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1716,7 +1584,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Holmium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">164.93032</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">164.9303221</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">8.78</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.0215</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.23</scalar>
@@ -1729,7 +1596,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1878</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">J. L. Soret;P.T. Cleve</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f11 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1740,7 +1606,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Erbium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">167.259</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">165.9302931</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">9.05</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.1077</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.24</scalar>
@@ -1753,7 +1618,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1843</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">K. G. Mosander</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f12 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1764,7 +1628,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Thulium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">168.93421</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">168.9342133</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">9.32</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.1843</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.25</scalar>
@@ -1777,7 +1640,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1879</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">P. T. Cleve</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f13 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1788,7 +1650,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Ytterbium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">173.04</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">173.9388621</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">9.32</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.2542</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Like Terbium and Gadolinium. this is named after the Swedish town of Ytterby</scalar>
@@ -1800,7 +1661,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1878</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">J. Ch. Marignac</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1811,7 +1671,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Lutetium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">174.967</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">174.9407718</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">9.84</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.4259</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.27</scalar>
@@ -1825,7 +1684,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1907</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Carl F. Auer von Welsbach;G. Urbain</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d1 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -1836,7 +1694,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Hafnium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">178.49</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">179.94655</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">13.31</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.8251</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.3</scalar>
@@ -1851,7 +1708,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1923</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">D. Coster;G. Hevesy</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d2 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1862,7 +1718,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Tantalum" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">180.9479</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">180.9479958</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">16.68</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.5496</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.322</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.5</scalar>
@@ -1877,7 +1732,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1802</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">A. Ekeberg</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d3 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1888,7 +1742,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Tungsten" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">183.84</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">183.9509312</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">19.26</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.8640</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="8">0.815</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.36</scalar>
@@ -1903,7 +1756,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1783</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">C. W. Scheele</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d4 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1914,7 +1766,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Rhenium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">186.207</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">186.9557531</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">21.03</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.8335</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="15">0.15</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.9</scalar>
@@ -1929,7 +1780,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1925</scalar>
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Walter Noddack;Ida Tacke-Noddack;Otto Berg</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d5 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1940,7 +1790,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Osmium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">190.23</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">191.9614807</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">22.61</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.4382</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">1.07780</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.2</scalar>
@@ -1955,7 +1804,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1804</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">S. Tennant</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d6 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1966,7 +1814,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Iridium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">192.217</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">192.9629264</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">22.65</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.9670</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="15">1.56436</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.20</scalar>
@@ -1981,7 +1828,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1804</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">S. Tennant</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d7 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -1992,7 +1838,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Platinum" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">195.078</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">194.9647911</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">21.45</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.9588</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="5">2.12510</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.28</scalar>
@@ -2007,7 +1852,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1735</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">A. de Ulloa</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d9 6s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -2018,7 +1862,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Gold" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">196.96655</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">196.9665687</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">19.32</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.2255</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="3">2.30861</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.54</scalar>
@@ -2031,7 +1874,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -2042,7 +1884,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Mercury" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">200.59</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">201.970643</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">13.55</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">10.4375</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.00</scalar>
@@ -2055,7 +1896,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -2066,7 +1906,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Thallium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">204.3833</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">204.9744275</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">11.85</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.1082</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="13">0.377</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.62</scalar>
@@ -2081,7 +1920,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1861</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">W. Crookes</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
@@ -2092,7 +1930,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Lead" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">207.2</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">207.9766521</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">11.34</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.4167</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="8">0.364</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.33</scalar>
@@ -2105,7 +1942,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
@@ -2116,7 +1952,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Bismuth" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">208.98038</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">208.9803987</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">9.8</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.2855</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">0.942363</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.02</scalar>
@@ -2129,7 +1964,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">ancient</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Other_Metal</scalar>
@@ -2140,7 +1974,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Polonium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">209</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">208.9824304</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">9.2</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.414</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="3">1.9</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.0</scalar>
@@ -2153,7 +1986,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">M. Sklodowska-Curie;P. Curie</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Metalloids</scalar>
@@ -2177,7 +2009,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1940</scalar>
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">D. R. Corson;K. R. McKenzie;E. Segre</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">3</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Halogene</scalar>
@@ -2188,7 +2019,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Radon" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">222</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">222.0175777</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/L">9.23</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">10.7485</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after Radium. It ends with 'on' to make it clear that it is a noble gas</scalar>
@@ -2202,7 +2032,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">E. Dorn</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">1</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Noblegas</scalar>
@@ -2225,7 +2054,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1939</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">M. Perey</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 7s1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkali_Earth</scalar>
@@ -2236,7 +2064,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Radium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">226</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">226.0254098</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">5.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.2784</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.9</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'radius' for 'beam', as it is radioactive</scalar>
@@ -2249,7 +2076,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">M. Sklodowska-Curie;P. Curie</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Alkaline_Earth</scalar>
@@ -2260,7 +2086,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Actinium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">227</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">227.0277521</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">10.07</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.17</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'aktis' for 'beam' - actinium is radioactive</scalar>
@@ -2273,7 +2098,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1899</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">A. L. Debierne</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 6d1 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2284,7 +2108,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Thorium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">232.0381</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">232.0380553</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">11.72</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.3067</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the German god of thunder: Thor</scalar>
@@ -2296,7 +2119,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1828</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">J. J. Berzelius</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 6d2 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2307,7 +2129,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Protactinium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">231.03588</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">231.035884</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">15.37</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.89</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'protos' for 'ancester'. Protactinium is before Actinium in the periodic table.</scalar>
@@ -2319,7 +2140,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1917</scalar>
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">O. Hahn;L. Meitern;W. Wollaston</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f2 6d1 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2330,7 +2150,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Uranium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">238.02891</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">238.0507882</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">18.97</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.1941</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.38</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'ouranos' for 'heaven'. Named after the planet Uranus</scalar>
@@ -2342,7 +2161,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1789</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">M. M. Klaproth</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f3 6d1 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2353,7 +2171,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Neptunium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">237</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">237.0481734</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">20.48</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.2657</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.36</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the planet Neptune.</scalar>
@@ -2365,7 +2182,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1940</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">E. M. McMillan;P. Aberson</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f4 6d1 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2376,7 +2192,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Plutonium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">244</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">244.064204</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">19.74</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.0260</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.28</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the planet Pluto.</scalar>
@@ -2388,7 +2203,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1940</scalar>
     <array dataType="xsd:string" delimiter=";" size="4" dictRef="bo:discoverers">Glenn T. Seaborg;E. M. McMillan;J. W. Kennedy;A.C. Wahl</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f6 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2399,7 +2213,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Americium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">243</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">243.0613811</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">13.67</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.9738</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after America.</scalar>
@@ -2411,7 +2224,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1945</scalar>
     <array dataType="xsd:string" delimiter=";" size="4" dictRef="bo:discoverers">Glenn T. Seaborg;L. O. Morgan;R. A. James;A. Ghiors</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f7 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2422,7 +2234,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Curium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">247</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">247.070354</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">13.51</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.9914</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after Marie Curie.</scalar>
@@ -2433,7 +2244,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1944</scalar>
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Glenn T. Seaborg;R. A. James;A. Ghiors</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f7 6d2 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2444,7 +2254,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Berkelium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">247</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">247.070307</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">13.25</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.1979</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the town Berkeley where it was discovered.</scalar>
@@ -2455,7 +2264,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1949</scalar>
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Glenn T. Seaborg;A. Ghiors;S. G. Thompson</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f9 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2466,7 +2274,6 @@
     <label dictRef="bo:name" xml:lang="en" value="Californium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">251</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">251.079587</scalar>
-    <scalar dataType="xsd:float" dictRef="bo:density" units="g/cm^3">15.1</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.2817</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the US-State of California.</scalar>
@@ -2477,7 +2284,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1950</scalar>
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Glenn T. Seaborg;A. Ghiors;S. G. Thompson</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f10 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2498,7 +2304,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1952</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Glenn T. Seaborg;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f11 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2519,7 +2324,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1953</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Glenn T. Seaborg;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f12 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2540,7 +2344,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1955</scalar>
     <array dataType="xsd:string" delimiter=";" size="5" dictRef="bo:discoverers">Glenn T. Seaborg;Albert Ghiorso;Bernard Harvey;Gregory Choppin;Stanley G. Thompson</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f13 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2559,7 +2362,6 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">1100</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">f</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f14 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2579,7 +2381,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1961</scalar>
     <array dataType="xsd:string" delimiter=";" size="4" dictRef="bo:discoverers">Albert Ghiorso;Torbjorn Sikkeland;Almon Larsh;Robert M. Latimer</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f14 7s2 7p1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Rare_Earth</scalar>
@@ -2597,7 +2398,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f14 6d2 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -2614,7 +2414,6 @@
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f14 6d3 7s2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
@@ -2633,7 +2432,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1974</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Albert Ghiorso;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">6</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
@@ -2651,7 +2449,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1981</scalar>
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
@@ -2669,7 +2466,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1984</scalar>
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
@@ -2687,7 +2483,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1982</scalar>
     <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">Peter Armbruster;Gottfried Münzenber;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
@@ -2704,7 +2499,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1994</scalar>
     <array dataType="xsd:string" delimiter=";" size="8" dictRef="bo:discoverers">S. Hofmann;V. Ninov;F. P. Hessberger;P. Armbruster;H. Folger;G. Münzenberg;H. J. Schött;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
@@ -2721,7 +2515,6 @@
     <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1994</scalar>
     <array dataType="xsd:string" delimiter=";" size="7" dictRef="bo:discoverers">S. Hofmann;V. Ninov;F. P. Hessberger;P. Armbruster;H. Folger;G. Münzenberg;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
-    <scalar dataType="xsd:int" dictRef="bo:acidicbehaviour">0</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Transition</scalar>
   </atom>
