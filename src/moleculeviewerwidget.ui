@@ -149,71 +149,7 @@
         <number>6</number>
        </property>
        <item>
-        <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="xyButton" >
-           <property name="toolTip" >
-            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">When pressed, only movement in y and x direction is possible. This means: like the mousecursor for example move, on "2d". The molecule it self is only move but not rotated at all. This is "t" in Ghemical&lt;/p>&lt;/body>&lt;/html></string>
-           </property>
-           <property name="text" >
-            <string>XY</string>
-           </property>
-           <property name="icon" >
-            <iconset/>
-           </property>
-           <property name="checkable" >
-            <bool>true</bool>
-           </property>
-           <property name="checked" >
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="rotationButton" >
-           <property name="toolTip" >
-            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">The molecule will not move in 3D, only rotate in the display pane. It is like the molecule is nailed on one position (one atom fixed) and the rest is rotating around it. This is "oz" in Ghemical&lt;/p>&lt;/body>&lt;/html></string>
-           </property>
-           <property name="text" >
-            <string>Orbit XY</string>
-           </property>
-           <property name="icon" >
-            <iconset/>
-           </property>
-           <property name="checkable" >
-            <bool>true</bool>
-           </property>
-           <property name="checked" >
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="measureButton" >
-           <property name="toolTip" >
-            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Like "m" in Ghemical&lt;/p>&lt;/body>&lt;/html></string>
-           </property>
-           <property name="whatsThis" >
-            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Sans Serif; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">When this button is pressed, the use cannot move the molecule or zoom in/out.&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">But he can measuer things. For example, &lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">* when four atoms are selected he can measure the torsion.&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">* when three atoms are selected the angle between them will be calculated&lt;/p>&lt;/body>&lt;/html></string>
-           </property>
-           <property name="text" >
-            <string>Measure</string>
-           </property>
-           <property name="checkable" >
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="KalziumGLWidget" name="glWidget" >
+        <widget class="KalziumGLWidget" native="1" name="glWidget" >
          <property name="minimumSize" >
           <size>
            <width>300</width>
