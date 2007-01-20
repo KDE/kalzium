@@ -66,13 +66,13 @@ EQChemDialog::EQChemDialog( QWidget *parent )
   : KDialog( parent )
 {
     setCaption( i18n( "Solve Chemical Equations Viewer" ) );
-    setButtons( Help | Apply | Close );
-    setDefaultButton( Apply );
+    setButtons( Help | Close );
+    setDefaultButton( None );
 
-    connect( this, SIGNAL( applyClicked() ), 
-            this, SLOT( compute() ) );
-	
     ui.setupUi( mainWidget() );
+    
+    connect( ui.calculateButton , SIGNAL( clicked() ), 
+            this, SLOT( compute() ) );
 }
 
 #include "eqchemview.moc"

@@ -19,28 +19,77 @@
    <property name="spacing" >
     <number>6</number>
    </property>
-   <item row="1" column="0" colspan="2" >
+   <item row="0" column="0" >
+    <layout class="QHBoxLayout" >
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>Equation:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="KLineEdit" name="lineEdit" >
+       <property name="sizePolicy" >
+        <sizepolicy>
+         <hsizetype>7</hsizetype>
+         <vsizetype>0</vsizetype>
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize" >
+        <size>
+         <width>200</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="toolTip" >
+        <string>Enter the equation you want to balance in this field.</string>
+       </property>
+       <property name="whatsThis" >
+        <string>Enter the equation you want to balance in this field.</string>
+       </property>
+       <property name="text" >
+        <string>aCH3(CH2)3COOH + bO2 -> cH2O + dCO2</string>
+       </property>
+       <property name="urlDropsEnabled" >
+        <bool>false</bool>
+       </property>
+       <property name="showClearButton" stdset="0" >
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="KPushButton" name="calculateButton" >
+       <property name="toolTip" >
+        <string>If you press this button the equation on the left will be balanced.</string>
+       </property>
+       <property name="whatsThis" >
+        <string>If you press this button the equation on the left will be balanced.</string>
+       </property>
+       <property name="text" >
+        <string>&amp;Calculate</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0" >
     <widget class="Line" name="line" >
      <property name="orientation" >
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="3" column="1" >
-    <widget class="QLineEdit" name="lineEdit" >
-     <property name="text" >
-      <string>aCH3(CH2)3COOH + bO2 -> cH2O + dCO2</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0" >
-    <widget class="QPushButton" name="pushButton" >
-     <property name="text" >
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0" colspan="2" >
+   <item row="1" column="0" >
     <widget class="QLabel" name="question_label" >
      <property name="text" >
       <string/>
@@ -50,7 +99,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2" >
+   <item row="3" column="0" >
     <widget class="QLabel" name="answer_label" >
      <property name="text" >
       <string/>
@@ -62,23 +111,18 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KPushButton</class>
+   <extends>QPushButton</extends>
+   <header>kpushbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>lineEdit</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>68</x>
-     <y>309</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>123</x>
-     <y>311</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
