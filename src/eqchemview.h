@@ -42,8 +42,15 @@ class EQChemDialog : public KDialog
     private:
         Ui::EquationView ui;
 
+        void copyAnswer();
+
     public slots:
+        /**
+          start the computation (balancing) of the equation
+          */
         void compute();
+
+        void slotUser1();
 };
 
 #endif // _EQCHEMVIEW_H_

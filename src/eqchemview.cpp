@@ -20,6 +20,7 @@
 
 #include <QLabel>
 #include <QString>
+#include <QClipboard>
 
 #include <kdebug.h>
 #include "config-kalzium.h"
@@ -55,7 +56,7 @@ void EQChemDialog::compute()
     kDebug() << "Answer: " << answer << endl;
 
 
-    ui.question_label->setText(equation);
+//    ui.question_label->setText(equation);
     ui.answer_label->setText(answer);
 
     // mem leak ?
@@ -66,14 +67,29 @@ EQChemDialog::EQChemDialog( QWidget *parent )
   : KDialog( parent )
 {
     setCaption( i18n( "Solve Chemical Equations Viewer" ) );
-    setButtons( Help | Close );
+    setButtons( Help | User1 | Close );
     setDefaultButton( None );
 
     ui.setupUi( mainWidget() );
+	setButtonGuiItem( User1, KGuiItem( i18n( "Copy" ), "editcopy", i18n( "Copy answer to clipboard" ) ) );
     
     connect( ui.calculateButton , SIGNAL( clicked() ), 
             this, SLOT( compute() ) );
+    connect( this , SIGNAL( user1Clicked() ), 
+            this, SLOT( slotUser1() ) );
 }
+
+void EQChemDialog::copyAnswer()
+{
+    kDebug() << "EQChemDialog::copyAnswer()" << endl;
+    QClipboard *clipboard = QApplication::clipboard(); clipboard->setText( ui.answer_label->text(), QClipboard::Clipboard);
+}
+
+void EQChemDialog::slotUser1()
+{
+   copyAnswer(); 
+}
+
 
 #include "eqchemview.moc"
 
