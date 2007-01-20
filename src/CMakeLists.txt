@@ -82,11 +82,22 @@ target_link_libraries(kalzium ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY} ${KDE4_KU
 
 
 if (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
-   target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} compoundviewer)
+    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} compoundviewer)
 endif (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
 
 if(LIBFACILE_FOUND)
-   target_link_libraries(kalzium asmrun str nums m dl)
+    find_library(ASMRUN_LIBRARY NAMES asmrun PATH_SUFFIXES ocaml)
+    find_library(STR_LIBRARY NAMES str PATH_SUFFIXES ocaml)
+    find_library(NUMS_LIBRARY NAMES nums PATH_SUFFIXES ocaml)
+    find_library(M_LIBRARY NAMES m PATH_SUFFIXES ocaml)
+    find_library(DL_LIBRARY NAMES dl PATH_SUFFIXES ocaml)
+    target_link_libraries(kalzium 
+        ${ASMRUN_LIBRARY} 
+        ${STR_LIBRARY} 
+        ${NUMS_LIBRARY} 
+        ${M_LIBRARY} 
+        ${DL_LIBRARY}
+        )
 endif(LIBFACILE_FOUND)	
 
 install(TARGETS kalzium  DESTINATION ${BIN_INSTALL_DIR} )
