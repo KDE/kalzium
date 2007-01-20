@@ -1,5 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2007 by Carsten Niehaus <cniehaus@kde.org>
+ *   Copyright (C) 2006 by Jerome Pansanel                                 *
+ *   j.pansanel@pansanel.net
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
