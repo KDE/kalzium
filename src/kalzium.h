@@ -90,6 +90,7 @@ class Kalzium : public KMainWindow
 		QAction *m_pRSAction;
 		QAction *m_pTables;
 		QAction *m_pMoleculesviewer;
+		QAction *m_pOBConverterAction;
 		QAction *m_EQSolverAction;
 
 		/**
@@ -143,6 +144,8 @@ class Kalzium : public KMainWindow
 		void slotRS();
 		
 		void slotMoleculeviewer();
+		
+        void slotOBConverter();
 		
 		void slotTables();
 		

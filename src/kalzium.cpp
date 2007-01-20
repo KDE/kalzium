@@ -36,6 +36,7 @@
 #include "tablesdialog.h"
 #include "search.h"
 #include "searchwidget.h"
+#include "obconverter.h"
 #include "config-kalzium.h"
 #include "config.h"
 
@@ -210,6 +211,14 @@ void Kalzium::setupActions()
     m_pRSAction->setIcon( KIcon( "kalzium_rs" ) );
     connect( m_pRSAction, SIGNAL( triggered() ), this, SLOT( slotRS() ) );
 
+    m_pOBConverterAction = actionCollection()->addAction( "tools_obconverter" );
+    m_pOBConverterAction->setText( i18n( "Convert chemical files..." ) );
+    m_pOBConverterAction->setIcon( KIcon( "kalzium_obconverter" ) );
+    connect( m_pOBConverterAction, SIGNAL( triggered() ), this, SLOT( slotOBConverter() ) );
+#ifndef HAVE_OPENBABEL2
+    m_pOBConverterAction->setEnabled( false );
+#endif
+
     m_pMoleculesviewer = actionCollection()->addAction( "tools_moleculeviewer" );
     m_pMoleculesviewer->setText( i18n( "Molecular Viewer..." ) );
     m_pMoleculesviewer->setIcon( KIcon( "kalzium_molviewer" ) );
@@ -317,6 +326,13 @@ void Kalzium::slotRS()
 {
 	RSDialog *rs = new RSDialog( this );
 	rs->show();
+}
+
+void Kalzium::slotOBConverter()
+{
+#ifdef HAVE_OPENBABEL2
+    OBConverter * d = new OBConverter(this); d->show();
+#endif
 }
 
 void Kalzium::slotMoleculeviewer()
