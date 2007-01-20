@@ -54,6 +54,7 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
   set( kalzium_SRCS
     ${kalzium_SRCS}
     moleculeview.cpp
+    obconverter.cpp
     )
   include_directories( ${OPENBABEL2_INCLUDE_DIR} ${EIGEN_INCLUDE_DIR} )
 endif(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
