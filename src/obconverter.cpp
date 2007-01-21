@@ -171,8 +171,7 @@ void OBConverter::slotConvert()
         bool proceed=true;
         
         //ported from: if (stat(ofname.toLatin1(), &results) == 0) {
-        QFile f( ofname );
-        if ( f.exists() ) {
+        if ( QFile::exists(ofname) ) {
             //something named ofname already exists
             switch ( KMessageBox::questionYesNo(0, 
                         i18n( "The file %1 already exist. Do you want to overwrite if possible ?").arg(ofname), 
@@ -204,8 +203,7 @@ void OBConverter::slotConvert()
         case KMessageBox::Yes:
             //for (QStringList::Iterator it = cmdList.begin(); it != cmdList.end(); ++it) {
             foreach (const QString s, cmdList) {
-                if (QProcess::startDetached ( "babel", cmdList )) {
-                    QProcess::execute("babel", cmdList);
+                QProcess::startDetached ( "babel", cmdList ) {
                 } 
             }
             break;
