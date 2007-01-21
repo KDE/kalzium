@@ -84,7 +84,17 @@ void OBConverter::setupWindow()
 
 void OBConverter::slotAddFile()
 {
-    KUrl::List fl = KFileDialog::getOpenUrls( );
+    kDebug() << "OBConverter::slotAddFile()" << endl;
+    OBSupportedFormat *supportedFormat = new OBSupportedFormat();
+    supportedFormat->setFormatExtensions();
+    
+    QStringList tmpList = supportedFormat->getInputFormatExtensions();
+    tmpList.replaceInStrings( QRegExp("^"), "*." );
+
+    KUrl::List fl = KFileDialog::getOpenUrls( 
+            KUrl(), 
+            tmpList.join(" ") //add all possible extensions like "*.cml *.mol"
+        );
 
     foreach ( const KUrl& u , fl ) {
         new QListWidgetItem( u.fileName(), ui.FileListView);
@@ -250,6 +260,19 @@ QStringList OBSupportedFormat::getInputFormat() const
 QStringList OBSupportedFormat::getOutputFormat() const
 {
     return m_OutputFormat;
+}
+
+void OBSupportedFormat::setFormatExtensions()
+{
+    kDebug() << "OBSupportedFormat::setFormatExtensions()" << endl;
+    
+    foreach (QString s, m_InputFormat) {
+        QString tmp = s.remove(QRegExp(" --.*"));
+
+        m_InputFormatExtensions << tmp;
+    }
+
+    kDebug() << "m_InputFormatExtensions: " << m_InputFormatExtensions << endl;
 }
 
 #include "obconverter.moc"

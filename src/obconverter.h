@@ -107,10 +107,18 @@ class OBSupportedFormat
          * @return a list containing the supported output format
          */
         QStringList getOutputFormat() const;
+        
+        QStringList getInputFormatExtensions() const{
+            return m_InputFormatExtensions;
+        };
+
+        void setFormatExtensions();
 
     private:
         QStringList m_InputFormat;
         QStringList m_OutputFormat;
+
+        QStringList m_InputFormatExtensions;
 };
 
 #endif // OBCONVERTER_H
