@@ -89,6 +89,8 @@ void OBConverter::slotAddFile()
     foreach ( const KUrl& u , fl ) {
         new QListWidgetItem( u.fileName(), ui.FileListView);
     }
+
+    slotGuessInput();
 }
 
 
@@ -108,6 +110,7 @@ void OBConverter::slotDeleteFile()
 
 void OBConverter::slotGuessInput()
 {
+    kDebug() << "OBConverter::slotGuessInput()" << endl;
     QList <QListWidgetItem*> p = ui.FileListView->selectedItems ();
     bool first=true;
     QString suffix;
@@ -159,18 +162,18 @@ void OBConverter::slotConvert()
         return;
     }
 
-    QRegExp isuffix( "*."+iformat );
-
     QListIterator<QListWidgetItem*> it( p );
     QStringList cmdList;
 
     foreach (QListWidgetItem * item, p){
         QString ifname = KUrl( item->text() ).toLocalFile();
         QString ofname = ifname;
-        ofname = ofname.remove(isuffix)+"."+oformat;
+
+        //convert foo.blubb to foo.blibb
+        ofname = ofname.replace( "."+iformat, "."+oformat);
+        
         bool proceed=true;
         
-        //ported from: if (stat(ofname.toLatin1(), &results) == 0) {
         if ( QFile::exists(ofname) ) {
             //something named ofname already exists
             switch ( KMessageBox::questionYesNo(0, 
@@ -187,7 +190,6 @@ void OBConverter::slotConvert()
         }
         if (proceed) {
             QString command = QString( "babel -i%1 %2 -o%3 %4" ).arg(iformat,ifname,oformat,ofname);
-            kDebug() << "Would run: " << command << endl;
             cmdList.append( command );
         }
     }
@@ -201,7 +203,6 @@ void OBConverter::slotConvert()
            ) 
     {
         case KMessageBox::Yes:
-            //for (QStringList::Iterator it = cmdList.begin(); it != cmdList.end(); ++it) {
             foreach (const QString s, cmdList) {
                 QProcess::startDetached ( "babel", cmdList );
             }

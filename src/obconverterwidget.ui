@@ -35,15 +35,15 @@
       <string>Input Format:</string>
      </property>
      <property name="buddy" >
-      <cstring>OutputTypeComboBox</cstring>
+      <cstring>InputTypeComboBox</cstring>
      </property>
     </widget>
    </item>
    <item row="2" column="1" colspan="5" >
-    <widget class="QComboBox" name="InputTypeComboBox" />
+    <widget class="QComboBox" name="OutputTypeComboBox" />
    </item>
    <item row="1" column="1" colspan="5" >
-    <widget class="QComboBox" name="OutputTypeComboBox" />
+    <widget class="QComboBox" name="InputTypeComboBox" />
    </item>
    <item row="3" column="5" >
     <widget class="KPushButton" name="convertFileButton" >
