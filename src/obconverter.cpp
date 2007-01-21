@@ -150,6 +150,72 @@ void OBConverter::slotGuessInput()
 
 void OBConverter::slotConvert()
 {
+    //iformat might become "c3d1 -- Chem3D CartChem3D Cartesian 1 format"
+    QString iformat = ui.InputTypeComboBox->currentText();
+    QString oformat = ui.OutputTypeComboBox->currentText();
+
+    //iformat is now "c3d1"
+    iformat=iformat.remove(QRegExp(" --.*"));
+    oformat=oformat.remove(QRegExp(" --.*"));
+
+    QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
+
+    if (p.count()==0) {
+        KMessageBox::sorry(0,i18n("You must select some files first."));
+        return;
+    }
+
+    QRegExp isuffix( "*."+iformat );
+
+    QListIterator<QListWidgetItem*> it( p );
+    QStringList cmdList;
+
+    foreach (QListWidgetItem * item, p){
+//    while (QListWidgetItem * item = it.current()) {
+        QString ifname = KUrl( item->text() ).toLocalFile();
+        QString ofname = ifname;
+        ofname = ofname.remove(isuffix)+"."+oformat;
+        bool proceed=true;
+        
+        //ported from: if (stat(ofname.toLatin1(), &results) == 0) {
+        QFile f( ofname );
+        if ( f.exists() ) {
+            //something named ofname already exists
+            switch ( KMessageBox::questionYesNo(0, 
+                        i18n( "The file %1 already exist. Do you want to overwrite if possible ?").arg(ofname), 
+                        i18n("Authorization")) 
+                   )
+            {
+                case KMessageBox::No:
+                    proceed=false;
+                    break;
+                default:
+                    break;
+            }
+        }
+        if (proceed) {
+            QString command = QString( "babel -i%1 %2 -o%3 %4" ).arg(iformat,ifname,oformat,ofname);
+            kDebug() << "Would run: " << command << endl;
+            cmdList.append( command );
+        }
+    }
+    switch (KMessageBox::questionYesNoList
+            (0,i18n("OK to run these commands?"),
+             cmdList,i18n("List of commands"))) {
+        case KMessageBox::Yes:
+            for (QStringList::Iterator it = cmdList.begin(); it != cmdList.end(); ++it) {
+                QString cmd = *it;
+                if (fork() == 0) 
+                {
+                    execlp("/bin/sh", "/bin/sh", "-c", cmd.toLatin1(), (char *) 0);
+                    fprintf(stderr,"exec failed\n");
+                } 
+                else { /* parent */ }
+            }
+            break;
+        default:
+            break;
+    }
 }
 
 OBSupportedFormat::OBSupportedFormat()
