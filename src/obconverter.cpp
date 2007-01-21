@@ -222,16 +222,16 @@ void OBConverter::slotConvert()
                         it != cmdList.end(); 
                         ++it) {
                     QString cmd = *it;
-                    if (fork() == 0)
-                    {
-                        execlp("/bin/sh",
-                                "/bin/sh",
-                                "-c",
-                                cmd.latin1(), 
-                                (char *) 0);
-                        fprintf(stderr,"exec failed\n");
-                    }
-                    else { /* parent */ }
+//X                     if (fork() == 0)
+//X                     {
+//X                         execlp("/bin/sh",
+//X                                 "/bin/sh",
+//X                                 "-c",
+//X                                 cmd.latin1(), 
+//X                                 (char *) 0);
+//X                         fprintf(stderr,"exec failed\n");
+//X                     }
+//X                     else { /* parent */ }
                 }
                 break;
             default:
@@ -253,19 +253,19 @@ OBSupportedFormat::OBSupportedFormat()
         {
             continue;
         }
-        QString Description = pFormat->Description();
-        Description.truncate(Description.find("\n"));
-        char buf[20];
-        snprintf(buf,sizeof(buf),"%s -- ",str);
-        Description.prepend(buf);
-        if ( !(pFormat->Flags() & NOTREADABLE) )
-        {
-            InputFormat.append(Description);
-        }
-        if ( !(pFormat->Flags() & NOTWRITABLE) )
-        {
-            OutputFormat.append(Description);
-        }
+//X         QString Description = pFormat->Description();
+//X         Description.truncate(Description.find("\n"));
+//X         char buf[20];
+//X         snprintf(buf,sizeof(buf),"%s -- ",str);
+//X         Description.prepend(buf);
+//X         if ( !(pFormat->Flags() & NOTREADABLE) )
+//X         {
+//X             InputFormat.append(Description);
+//X         }
+//X         if ( !(pFormat->Flags() & NOTWRITABLE) )
+//X         {
+//X             OutputFormat.append(Description);
+//X         }
     }
 }
 
