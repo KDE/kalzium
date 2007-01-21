@@ -41,9 +41,6 @@
 #include <kurl.h>
 #include <kmessagebox.h>
 
-#include <unistd.h>
-#include <sys/stat.h>
-
 using namespace std;
 using namespace OpenBabel;
 
@@ -83,9 +80,6 @@ void OBConverter::setupWindow()
  
     connect(ui.convertFileButton, 
             SIGNAL( clicked() ), SLOT( slotConvert() ));
- 
-    connect(ui.FileListView, 
-            SIGNAL( executed() ), SLOT(slotGuessInput()));
 }
 
 void OBConverter::slotAddFile()
@@ -171,7 +165,6 @@ void OBConverter::slotConvert()
     QStringList cmdList;
 
     foreach (QListWidgetItem * item, p){
-//    while (QListWidgetItem * item = it.current()) {
         QString ifname = KUrl( item->text() ).toLocalFile();
         QString ofname = ifname;
         ofname = ofname.remove(isuffix)+"."+oformat;
@@ -199,18 +192,21 @@ void OBConverter::slotConvert()
             cmdList.append( command );
         }
     }
+    kDebug() << "cmdList is: " << cmdList << endl;
     switch (KMessageBox::questionYesNoList
-            (0,i18n("OK to run these commands?"),
-             cmdList,i18n("List of commands"))) {
+            (0,
+             i18n("OK to run these commands?"),
+             cmdList,
+             i18n("List of commands")
+            )
+           ) 
+    {
         case KMessageBox::Yes:
-            for (QStringList::Iterator it = cmdList.begin(); it != cmdList.end(); ++it) {
-                QString cmd = *it;
-                if (fork() == 0) 
-                {
-                    execlp("/bin/sh", "/bin/sh", "-c", cmd.toLatin1(), (char *) 0);
-                    fprintf(stderr,"exec failed\n");
+            //for (QStringList::Iterator it = cmdList.begin(); it != cmdList.end(); ++it) {
+            foreach (const QString s, cmdList) {
+                if (QProcess::startDetached ( "babel", cmdList )) {
+                    QProcess::execute("babel", cmdList);
                 } 
-                else { /* parent */ }
             }
             break;
         default:
