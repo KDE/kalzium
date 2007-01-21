@@ -88,18 +88,24 @@ if (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
 endif (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
 
 if(LIBFACILE_FOUND)
-    find_library(ASMRUN_LIBRARY NAMES asmrun PATH_SUFFIXES ocaml)
-    find_library(STR_LIBRARY NAMES str PATH_SUFFIXES ocaml)
-    find_library(NUMS_LIBRARY NAMES nums PATH_SUFFIXES ocaml)
-    find_library(M_LIBRARY NAMES m PATH_SUFFIXES ocaml)
-    find_library(DL_LIBRARY NAMES dl PATH_SUFFIXES ocaml)
-    target_link_libraries(kalzium 
-        ${ASMRUN_LIBRARY} 
-        ${STR_LIBRARY} 
-        ${NUMS_LIBRARY} 
-        ${M_LIBRARY} 
-        ${DL_LIBRARY}
-        )
+   set(kalzium_EXTRA_LIBS)
+
+   find_library(OCAML_ASMRUN_LIBRARY NAMES asmrun PATH_SUFFIXES ocaml)
+   if (OCAML_ASMRUN_LIBRARY)
+      set(kalzium_EXTRA_LIBS ${kalzium_EXTRA_LIBS} ${OCAML_ASMRUN_LIBRARY})
+   endif (OCAML_ASMRUN_LIBRARY)
+
+   find_library(OCAML_STR_LIBRARY NAMES str PATH_SUFFIXES ocaml)
+   if (OCAML_STR_LIBRARY)
+      set(kalzium_EXTRA_LIBS ${kalzium_EXTRA_LIBS} ${OCAML_STR_LIBRARY})
+   endif (OCAML_STR_LIBRARY)
+
+   find_library(OCAML_NUMS_LIBRARY NAMES nums PATH_SUFFIXES ocaml)
+   if (OCAML_NUMS_LIBRARY)
+      set(kalzium_EXTRA_LIBS ${kalzium_EXTRA_LIBS} ${OCAML_NUMS_LIBRARY})
+   endif (OCAML_NUMS_LIBRARY)
+
+   target_link_libraries(kalzium ${kalzium_EXTRA_LIBS} m dl)
 endif(LIBFACILE_FOUND)	
 
 install(TARGETS kalzium  DESTINATION ${BIN_INSTALL_DIR} )
