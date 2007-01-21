@@ -245,27 +245,25 @@ OBSupportedFormat::OBSupportedFormat()
 {
     OBConversion conv;
     Formatpos pos;
-    OBFormat* pFormat;
-    const char* str=NULL;
+    OBFormat* pFormat = NULL;
+    const char* str = NULL;
+
     while( OBConversion::GetNextFormat(pos, str, pFormat) )
     {
-        if(( pFormat->Flags() & NOTWRITABLE) && (pFormat->Flags() & NOTREADABLE) )
-        {
+        if(( pFormat->Flags() & NOTWRITABLE) && (pFormat->Flags() & NOTREADABLE) ){
             continue;
         }
-//X         QString Description = pFormat->Description();
-//X         Description.truncate(Description.find("\n"));
-//X         char buf[20];
-//X         snprintf(buf,sizeof(buf),"%s -- ",str);
-//X         Description.prepend(buf);
-//X         if ( !(pFormat->Flags() & NOTREADABLE) )
-//X         {
-//X             InputFormat.append(Description);
-//X         }
-//X         if ( !(pFormat->Flags() & NOTWRITABLE) )
-//X         {
-//X             OutputFormat.append(Description);
-//X         }
+        QString Description = pFormat->Description();
+        Description.truncate(Description.indexOf("\n"));
+        char buf[20];
+        snprintf(buf,sizeof(buf),"%s -- ",str);
+        Description.prepend(buf);
+        if ( !(pFormat->Flags() & NOTREADABLE) ){
+            m_InputFormat.append(Description);
+        }
+        if ( !(pFormat->Flags() & NOTWRITABLE) ){
+            m_OutputFormat.append(Description);
+        }
     }
 }
 
@@ -273,14 +271,14 @@ OBSupportedFormat::~OBSupportedFormat()
 {
 }
 
-QStringList OBSupportedFormat::getInputFormat()
+QStringList OBSupportedFormat::getInputFormat() const
 {
-    return( InputFormat );
+    return m_InputFormat;
 }
 
-QStringList OBSupportedFormat::getOutputFormat()
+QStringList OBSupportedFormat::getOutputFormat() const
 {
-    return( OutputFormat );
+    return m_OutputFormat;
 }
 
 #include "obconverter.moc"

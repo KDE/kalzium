@@ -120,16 +120,16 @@ class OBSupportedFormat
         /**
          * @return a list containing the supported input format
          */
-        QStringList getInputFormat();
+        QStringList getInputFormat() const;
 
         /**
          * @return a list containing the supported output format
          */
-        QStringList getOutputFormat();
+        QStringList getOutputFormat() const;
 
     private:
-        QStringList InputFormat;
-        QStringList OutputFormat;
+        QStringList m_InputFormat;
+        QStringList m_OutputFormat;
 };
 
 #endif // OBCONVERTER_H
