@@ -52,13 +52,6 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="4" >
-    <widget class="KPushButton" name="selectToggleFileButton" >
-     <property name="text" >
-      <string>select toggle</string>
-     </property>
-    </widget>
-   </item>
    <item row="3" column="3" >
     <widget class="KPushButton" name="selectAllFileButton" >
      <property name="text" >

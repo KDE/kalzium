@@ -22,22 +22,13 @@
  ***************************************************************************/
 
 
-#include <kdialog.h>
-
 #include "ui_obconverterwidget.h"
 
-// Foward Declarations
-class QWidget;
-class QLabel;
-class QPushButton;
-class QHBoxLayout;
-class QVBoxLayout;
-class KListBox;
-class QComboBox;
-class QListView;
+class KDialog;
 
 /**
  * @author Carsten Niehaus
+ * @author Jerome Pansanel
  */
 class OBConverter : public KDialog
 {
@@ -51,11 +42,6 @@ class OBConverter : public KDialog
          */
         OBConverter( QWidget *parent );
         
-        /**
-         * Add file to the list
-         */
-        void addFile( const QString &filename );
-
     private:
         Ui::OBConverterWidget ui;
         
@@ -67,11 +53,6 @@ class OBConverter : public KDialog
         void setupWindow();
 
     private slots:
-        /**
-         * Clear the window
-         */
-        void slotNew();
-
         /**
          * Add file to the list
          */
@@ -90,7 +71,7 @@ class OBConverter : public KDialog
         /**
          * Try to guess the input file type from the selection
          */
-	void slotGuessInput();
+        void slotGuessInput();
 
         /**
          * Convert the file in the selected type

@@ -19,28 +19,22 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <QLabel>
-#include <QString>
-
-#include <kdebug.h>
-#include "config-kalzium.h"
 
 #include "obconverter.h"
-
-#include "ui_obconverterwidget.h"
 
 // OpenBabel includes
 #include <openbabel/obconversion.h>
 
 // Qt includes
-#include <QLayout>
 #include <QRegExp>
-#include <QGroupBox>
 #include <QListWidget>
+#include <QProcess>
+#include <QString>
+
 
 // KDE includes
+#include <kdebug.h>
 #include <klocale.h>
-#include <kaction.h>
 #include <kdialog.h>
 #include <kpushbutton.h>
 #include <kfiledialog.h>
@@ -52,7 +46,6 @@
 
 using namespace std;
 using namespace OpenBabel;
-
 
 OBConverter::OBConverter( QWidget *parent )
     : KDialog( parent )
@@ -88,24 +81,11 @@ void OBConverter::setupWindow()
     connect(ui.selectAllFileButton, 
             SIGNAL( clicked() ), SLOT( slotSelectAll() ));
  
-    connect(ui.selectToggleFileButton, 
-            SIGNAL( clicked() ), SLOT( slotSelectToggle() ));
- 
     connect(ui.convertFileButton, 
             SIGNAL( clicked() ), SLOT( slotConvert() ));
  
     connect(ui.FileListView, 
             SIGNAL( executed() ), SLOT(slotGuessInput()));
-}
-
-void OBConverter::addFile( const QString &filename )
-{
-//X     new KListViewItem(FileListView, filename);
-}
-
-void OBConverter::slotNew()
-{
-    ui.FileListView->clear();
 }
 
 void OBConverter::slotAddFile()
@@ -170,76 +150,7 @@ void OBConverter::slotGuessInput()
 
 void OBConverter::slotConvert()
 {
-    QString iformat=ui.InputTypeComboBox->currentText();
-    QString oformat=ui.OutputTypeComboBox->currentText();
-    iformat=iformat.remove(QRegExp(" --.*"));
-    oformat=oformat.remove(QRegExp(" --.*"));
-//    QRegExp isuffix="."+iformat+"$";
-    QRegExp isuffix;
-    QList <QListWidgetItem*> p = ui.FileListView->selectedItems ();
- 
-    if (p.count()==0){
-        KMessageBox::sorry(0,i18n("You must select some files first."));
-        return;
-    }
-
-    QStringList cmdList;
-    {
-        QString ifname;
-        QString ofname = ifname;
-        ofname = ofname.remove(isuffix)+"."+oformat;
-        struct stat results;
-        bool proceed=true;
-        if (true){//stat(ofname, &results) == 0){//toLatin?
-            //something named ofname already exists
-            switch( KMessageBox::questionYesNo(
-                        0, 
-                        i18n( "The file %1 already exist. Do you want to overwrite if possible?").arg(ofname), 
-                        i18n("Authorization")
-                        )
-                  )
-            {
-                case KMessageBox::No:
-                    proceed=false;
-                    break;
-                default:
-                    break;
-            }
-        }
-        if (proceed){
-            cmdList.append(QString("babel -i%1 %2 -o%3 %4").arg(iformat,ifname,oformat,ofname));
-        }
-        }
-        switch(KMessageBox::questionYesNoList
-                (
-                 0,
-                 i18n("OK to run these commands?"),
-                 cmdList,
-                 i18n("List of commands")))
-        {
-            case KMessageBox::Yes:
-                for(QStringList::Iterator it = cmdList.begin(); 
-                        it != cmdList.end(); 
-                        ++it) {
-                    QString cmd = *it;
-//X                     if (fork() == 0)
-//X                     {
-//X                         execlp("/bin/sh",
-//X                                 "/bin/sh",
-//X                                 "-c",
-//X                                 cmd.latin1(), 
-//X                                 (char *) 0);
-//X                         fprintf(stderr,"exec failed\n");
-//X                     }
-//X                     else { /* parent */ }
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
-/////////////////////////////////
+}
 
 OBSupportedFormat::OBSupportedFormat()
 {
