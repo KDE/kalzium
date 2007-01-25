@@ -1,13 +1,13 @@
 <!ELEMENT kalzium (element+)>
 <!ELEMENT element (number, name, period, symbol, spectra?, mass, acidicbehaviour, block, date, biologicalmeaning?, group, electronaffinity?, electronegativity?, meltingpoint?, boilingpoint?, isotopes?, density?, ionisationenergy?, radius?, orbits?, oxydation?, family?, abundance?, crystalstructure?)>
-<!ELEMENT radius (covalent?, atomic?, vdw?, bondxx?, ionic?)>)
-<!ELEMENT ionisationenergy(energy+)>
-<!ELEMENT isotopes(isotope+)>
-<!ELEMENT spectra(spectrum+)>
-<!ELEMENT name #PCDATA>
+<!ELEMENT radius (covalent?, atomic?, vdw?, bondxx?, ionic?)>
+<!ELEMENT ionisationenergy (energy+)>
+<!ELEMENT isotopes (isotope+)>
+<!ELEMENT spectra (spectrum+)>
+<!ELEMENT name ANY>
 <!ATTLIST name 
 	origin CDATA #IMPLIED>
-<!ELEMENT spectrum>
+<!ELEMENT spectrum ANY>
 <!ATTLIST spectrum
 	intensity CDATA #IMPLIED
 	wavelength CDATA #IMPLIED 
