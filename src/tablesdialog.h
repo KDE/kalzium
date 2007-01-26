@@ -1,9 +1,9 @@
 #ifndef TABLESDIALOG_H
 #define TABLESDIALOG_H
 /***************************************************************************
-    copyright            : (C) 2006 by Carsten Niehaus
-    email                : cniehaus@kde.org
- ***************************************************************************/
+    copyright            : (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
+                           (C) 2007 by Ian Monroe <ian@monroe.nu>
+ **************************************************************************/
 
 /***************************************************************************
  *                                                                         *
@@ -15,6 +15,10 @@
  ***************************************************************************/
 
 #include <kpagedialog.h>
+
+#include <Qt>
+#include <QTableWidgetItem>
+#include <QTableWidget>
 
 /**
  * @author Carsten Niehaus
@@ -29,7 +33,34 @@ class TablesDialog : public KPageDialog
 
 		void createNumbersTable();
 		void createGreekSymbolTable();
- 
 };
 
+/**
+ * Disallows the table widget item from being edited.
+ * @author Ian Monroe
+ */
+class MyWidgetItem : public QTableWidgetItem
+{
+	public:
+		MyWidgetItem( const QString& s) 
+		  : QTableWidgetItem( s )
+		{ setFlags( Qt::ItemIsEnabled ); }
+
+};
+
+/**
+ * Adds a context menu which copies to the clipboard the current cell.
+ * @author Ian Monroe
+ */
+class MyTableWidget : public QTableWidget
+{
+	Q_OBJECT
+
+	public:
+		MyTableWidget( QWidget* parent );
+	protected:
+		void contextMenuEvent( QContextMenuEvent* event );
+	private slots:
+		void copyToClipboard();
+};
 #endif // TABLESDIALOG_H
