@@ -48,10 +48,12 @@ OBConverter::OBConverter( QWidget *parent )
     : KDialog( parent )
 {
     setCaption( i18n( "OpenBabel Frontend" ) );
-    setButtons( Help | Close );
-    setDefaultButton( None );
-
+    setButtons( Help | User1| Close );
+    setDefaultButton( User1 );
+	
     ui.setupUi( mainWidget() );
+    
+    setButtonGuiItem( User1, KGuiItem( i18n( "Convert" ), "editcopy", i18n( "Convert selected files" ) ) );
     
     setupWindow();
 }
@@ -78,8 +80,8 @@ void OBConverter::setupWindow()
     connect(ui.selectAllFileButton, 
             SIGNAL( clicked() ), SLOT( slotSelectAll() ));
  
-    connect(ui.convertFileButton, 
-            SIGNAL( clicked() ), SLOT( slotConvert() ));
+    connect(this,
+            SIGNAL( slotUser1() ), SLOT( slotConvert() ));
 }
 
 void OBConverter::slotAddFile()
@@ -97,7 +99,7 @@ void OBConverter::slotAddFile()
         );
 
     foreach ( const KUrl& u , fl ) {
-        new QListWidgetItem( u.fileName(), ui.FileListView);
+        new QListWidgetItem( u.prettyUrl(), ui.FileListView);
     }
 
     slotGuessInput();
@@ -144,6 +146,10 @@ void OBConverter::slotGuessInput()
                 else return;
             }
 
+//X If all the files to convert have the same type, then the input type is 
+//X automatically selected. Input type are like "type -- description of this
+//X type". 
+
 //X //assertion: 'suffix' is the only suffix among the selected files.
 //X for(int i=0; i<InputTypeComboBox->count();i++){
 //X     if (InputTypeComboBox->text(i).find(QRegExp("^"+suffix+" -- "))>=0){
@@ -151,6 +157,7 @@ void OBConverter::slotGuessInput()
 //X         break;
 //X     }
 //X }
+
         }
     }
 }
