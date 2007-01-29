@@ -1,7 +1,7 @@
 [Global]
 PluginName=KalziumWidgets
 Includes=kinstance.h
-#Init=new KInstance("kdeeduwidgets");
+#Init("kdeeduwidgets");
 
 [KalziumGLWidget]
 ToolTip=A OpenGL based molecule viewer
