@@ -165,10 +165,6 @@ void KalziumGLWidget::renderScene( GLenum renderMode,
 		nearEnd = center - molRad * 1.5;
 		farEnd = center + molRad * 1.5;
 	}
-	kDebug() << "t = " << center << endl;
-	kDebug() << "m = " << molRad << endl;
-	kDebug() << "nearEnd = " << nearEnd << endl;
-	kDebug() << "farEnd = " << farEnd << endl;
 	gluPerspective( 40.0, float( width() ) / height(), nearEnd, farEnd );
 
 	glMatrixMode( GL_MODELVIEW );
