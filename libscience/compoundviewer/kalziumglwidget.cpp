@@ -152,8 +152,25 @@ void KalziumGLWidget::renderScene( GLenum renderMode,
 			viewport[3] - mousePosition->y(),
 			3, 3, viewport);
 	}
-	gluPerspective( 40.0, float( width() ) / height(),
-		getMolRadius() / 12.0, getMolRadius() * 6.0 );
+	double center = m_cameraMatrix.translationVector().norm();
+	double molRad = getMolRadius();
+	double nearEnd, farEnd;
+	if( center < 2.0 * molRad )
+	{
+		nearEnd = molRad / 12.0;
+		farEnd = molRad * 4.0;
+	}
+	else
+	{
+		nearEnd = center - molRad * 1.5;
+		farEnd = center + molRad * 1.5;
+	}
+	kDebug() << "t = " << center << endl;
+	kDebug() << "m = " << molRad << endl;
+	kDebug() << "nearEnd = " << nearEnd << endl;
+	kDebug() << "farEnd = " << farEnd << endl;
+	gluPerspective( 40.0, float( width() ) / height(), nearEnd, farEnd );
+
 	glMatrixMode( GL_MODELVIEW );
 
 	// clear the buffers when in GL_RENDER mode
@@ -171,8 +188,8 @@ void KalziumGLWidget::renderScene( GLenum renderMode,
 		glFogfv( GL_FOG_COLOR, fogColor );
 		glFogi( GL_FOG_MODE, GL_LINEAR );
 		glFogf( GL_FOG_DENSITY, 0.45 );
-		glFogf( GL_FOG_START, 2.7 * getMolRadius() );
-		glFogf( GL_FOG_END, 5.0 * getMolRadius()  );
+		glFogf( GL_FOG_START, 0.5 * center + 0.5 * nearEnd );
+		glFogf( GL_FOG_END, farEnd );
 	}
 	else glDisable( GL_FOG );
 
@@ -335,7 +352,7 @@ void KalziumGLWidget::mouseReleaseEvent( QMouseEvent * event )
 	m_clickedAtom = 0;
 	updateGL();
 }
-#include<iostream>
+
 void KalziumGLWidget::mouseMoveEvent( QMouseEvent *event )
 {
 	QPoint delta = event->pos() - m_lastDraggingPosition;
@@ -386,26 +403,18 @@ void KalziumGLWidget::mouseMoveEvent( QMouseEvent *event )
 			m_cameraMatrix.translate( - clickedAtomCenter );
 
 			Vector3d transformedClickedAtomCenter = m_cameraMatrix * clickedAtomCenter;
-			double t = exp( - TRANSLATION_SPEED * delta.y() );
-			if( t > 1.25 ) t = 1.25;
-			if( t < 0.8 ) t = 0.8;
-			double n = t * transformedClickedAtomCenter.norm();
-			double a = 10.0 * m_molStyle.getAtomRadius( m_clickedAtom );
-			if( n < a && t > 1.0) t = 1.0;
-			Vector3d diff = transformedClickedAtomCenter * (1.0 - t );
-			m_cameraMatrix.pretranslate( diff );
+			Vector3d goal = transformedClickedAtomCenter + Vector3d(0,0,1) * 8.0 * m_molStyle.getAtomRadius( m_clickedAtom );
+			double t = TRANSLATION_SPEED * delta.y();
+			bool isTooClose = transformedClickedAtomCenter.norm() < 10.0 * m_molStyle.getAtomRadius( m_clickedAtom );
+			if( isTooClose && t < 0 ) t = 0;
+			if( t > 0.5 ) t = 0.5;
+			if( t < -0.5 ) t = -0.5;
+			m_cameraMatrix.pretranslate( goal * t );
 		}
 		else
 		{
 			m_cameraMatrix.rotate3( delta.x() * ROTATION_SPEED,
 			                        cameraRotation.row(2) );
-
-			Vector3d transformedCenter = m_cameraMatrix.translationVector();
-			double t = exp( - TRANSLATION_SPEED * delta.y() );
-			if( t > 1.25 ) t = 1.25;
-			if( t < 0.8 ) t = 0.8;
-			Vector3d diff = transformedCenter * (1.0 - t );
-			m_cameraMatrix.pretranslate( diff );
 		}
 	}
 	if( event->buttons() & ( Qt::LeftButton | Qt::RightButton ) )
@@ -585,6 +594,22 @@ void KalziumGLWidget::setMolStyle( int style )
 
 		default: break;
 	}
+
+	// now, changing the mol style can change the atoms radii, which can
+	// cause the camera to suddenly get inside the molecule. In that case,
+	// we want to move it to ensure that it is always outside (and at a
+	// respectful distance) of the molecule.
+
+	if( m_molecule )	
+		FOR_ATOMS_OF_MOL( atom, m_molecule )
+		{
+			Vector3d center( (*atom).GetVector().AsArray() );
+			Vector3d transformedCenter = m_cameraMatrix * center;
+			bool isTooClose = transformedCenter.norm() < 10.0 * m_molStyle.getAtomRadius( &*atom );
+			if( isTooClose ) m_cameraMatrix.pretranslate( Vector3d( 0, 0, - 10.0 * m_molStyle.getAtomRadius( &*atom ) ) );
+		}
+
+
 	m_haveToRecompileDisplayList = true;
 }
 
