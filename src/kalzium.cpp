@@ -101,6 +101,7 @@ Kalzium::Kalzium()
 
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
+	m_prevNormalMode = KalziumPainter::NORMAL;
 
 	connect( m_PeriodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
 	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), this, SLOT( elementHover( int ) ));
@@ -131,8 +132,6 @@ Kalzium::Kalzium()
 	m_glossarydlg->addGlossary( g );
 
 	setupStatusBar();
-
-	m_prevNormalMode = KalziumPainter::NORMAL;
 }
 
 static QStringList prependToListItems( const QStringList& list, const KLocalizedString& strprefix )
@@ -177,10 +176,10 @@ void Kalzium::setupActions()
     psestyle_action->setItems( styletype );
     connect( psestyle_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoStyle( int ) ) );
 
-    m_SidebarAction = actionCollection()->addAction( "view_sidebar" );
-    m_SidebarAction->setText( i18n( "Show &Sidebar ") );
+    m_SidebarAction = m_dockWin->toggleViewAction();
+    actionCollection()->addAction( "view_sidebar", m_SidebarAction );
     m_SidebarAction->setIcon( KIcon( "sidebar" ) );
-    connect( m_SidebarAction, SIGNAL( triggered() ), this, SLOT( slotShowHideSidebar() ) );
+    connect( m_SidebarAction, SIGNAL( triggered( bool ) ), this, SLOT( slotShowHideSidebar( bool ) ) );
 
     m_EQSolverAction =  actionCollection()->addAction( "tools_eqsolver" );
     m_EQSolverAction->setText( i18n( "&Equation Solver..." ) );
@@ -252,14 +251,7 @@ void Kalzium::setupActions()
     //	slotShowScheme( Prefs::colorschemebox() );
     slotSwitchtoNumeration( Prefs::numeration() );
 
-    if ( Prefs::showsidebar() ) {
-        m_dockWin->show();
-        m_SidebarAction->setText( i18n( "Hide &Sidebar" ) );
-    }
-    else {
-        m_dockWin->hide();
-        m_SidebarAction->setText( i18n( "Show &Sidebar" ) );
-    }
+    slotShowHideSidebar( m_SidebarAction->isChecked(), false );
 
     if ( Prefs::showlegend() ) {
         m_PeriodicTableView->showLegend(true);
@@ -402,23 +394,25 @@ void Kalzium::slotShowLegend()
 	Prefs::writeConfig();
 }
 
-void Kalzium::slotShowHideSidebar()
+void Kalzium::slotShowHideSidebar( bool checked, bool changeconfig )
 {
-	if( m_dockWin->isVisible() )
+	if ( !checked )
 	{
-		m_dockWin->hide();
-		Prefs::setShowsidebar( false );
 		m_SidebarAction->setText( i18n( "Show &Sidebar" ) );
+		slotToolboxCurrentChanged( 0 );
 	}
 	else
 	{
-		m_dockWin->show();
-		Prefs::setShowsidebar( true );
 		m_SidebarAction->setText( i18n( "Hide &Sidebar" ) );
+		slotToolboxCurrentChanged( m_toolboxCurrent );
 	}
 
-	//save the settings
-	Prefs::writeConfig();
+	if ( changeconfig )
+	{
+		Prefs::setShowsidebar( checked );
+		//save the settings
+		Prefs::writeConfig();
+	}
 }
 
 void Kalzium::slotSwitchtoStyle( int index )
@@ -565,18 +559,6 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 	}
 	if ( m_dockWin->isVisible() )
 		m_toolboxCurrent = id;
-}
-
-void Kalzium::slotSidebarVisibilityChanged( bool visible )
-{
-	if( visible )
-		slotToolboxCurrentChanged( m_toolboxCurrent );
-	else
-		slotToolboxCurrentChanged( 0 );
-
-	//save the settings
-	Prefs::setShowsidebar( m_dockWin->isVisible() );
-	Prefs::writeConfig();
 }
 
 Kalzium::~Kalzium()

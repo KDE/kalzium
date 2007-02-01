@@ -168,9 +168,7 @@ class Kalzium : public KMainWindow
 
 		void slotToolboxCurrentChanged(int);
 
-		void slotShowHideSidebar();
-
-		void slotSidebarVisibilityChanged(bool);
+		void slotShowHideSidebar( bool checked, bool changeconfig = true );
 
 	protected:
 		virtual void keyPressEvent( QKeyEvent * e);
