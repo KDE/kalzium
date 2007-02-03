@@ -1,47 +1,7 @@
 			 TODO for Kalzium KDE4
 			 =====================
-
-* 3D-Viewer
-  - Molecule Viewer
-	   -- Export as graphic (PNG, JPEG...)
-           -- Autorotation
-		--- Autorotation by mouse drag&drop, very intuitive. Would only take place in a "autoration mode" different from the default "manipulation mode". Selectable through buttons above GL widget.
-		--- The user should be able to define which axes are 
-			rotated and in which speed
-		--- This could even be exported into a .gif-file or something
-			as an animation
-	   -- If the user selects an atom in the GL-view highlight
-		  that atom and also in the QTreeWidget
-	   -- Calculations
-		--- the distance between two atoms
-		--- the angle and/or the torsion between three atoms
-	   -- Drawing symbols into the position of an atom. 
-		  For reference: http://smid.blueprint.org/images/107/pc442107.png
-	   -- Drawing a plane through 3 atoms. Look
-		  http://www.crystal.unito.it/tutojan2004/tutorials/I_surface/image006.gif
-		  http://en.wikipedia.org/wiki/Bragg_diffraction
-	   -- Making the 3D-Viewer a standalone app or a KPart <---- done (KPart) by carsten
-		--- If the user clicks on a cml-file for example then the app opens and
-			renders the content in 3D.
-		--- Kalzium would just use this app/KPart
-	
-	-- add convenient molecule loader in a tab at the same place as the current atoms-treeview which would become a second tab. There would be a Browse... button allowing to choose a directory, and once that directory would be open, all the molecule files in it would be shown as a treeview respecting the directory hierarchy (so molecules could be grouped in families as they currently are in BO's molecule database).
-
-	-- polish 3d navigation system, add cool visual feedback. <-- That must be ready for demoing at Solutions Linux 2007; i'm handling this (bjacob)
-	
-	-- port to libavogadro. make sure libavogadro makes use of the good things that were done in kalzium3d (Sphere, Cylinder, perhaps 3d nav system...).
-	
-	-- make sure kalzium can run without OB/libavogadro and that the user can install these libs at the last minute and then run the 3d viewer without needing to recompile kalzium.
-				
-	-- ditch TextRenderer in favor of a native Qt solution (simon Hausmann said Qt 4.2 brought such a solution)
-	
-  - Crystal Viewer
-	   -- For lattice
-	   -- All Brevies cells
-	   -- User defined distances (length of the vectors)
-	   -- User defined angles (alpha, beta, gamma)
-	   -- Show oktaedral and tetragonal void. For an oktaedral void:
-		  http://upload.wikimedia.org/wikipedia/de/6/61/Kfz_oktaederluecke.png
+* 3D-code: Please read the TODO on the Avogadro side. All ideas and 
+  any progress is handeled there: http://avogadro.sourceforge.net/wiki/To_Do
 
 * Export to html and csv comes into my mind. Pretty easy I
   guess. Something like that was in Kalzium of KDE 3.1 I
