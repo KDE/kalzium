@@ -22,7 +22,6 @@
 #include <kcmdlineargs.h>
 #include <klocale.h>
 
-#include "config.h"
 #include "config-kalzium.h"
 #include "kalzium.h"
 

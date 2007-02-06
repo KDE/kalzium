@@ -23,8 +23,6 @@
 #include <klocale.h>
 #include "maindialog_impl.h"
 
-#include "config.h"
-
 #include "kalzium.h"
 
 #define APP_VERSION "0.1"

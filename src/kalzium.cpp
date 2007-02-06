@@ -38,7 +38,6 @@
 #include "searchwidget.h"
 #include "obconverter.h"
 #include "config-kalzium.h"
-#include "config.h"
 
 #ifdef HAVE_FACILE
 #include "eqchemview.h"
