@@ -72,7 +72,7 @@ struct MolStyle
 		ATOMS_USE_FIXED_RADIUS, /**< render all atoms with the same,
 			fixed radius (given by the m_atomRadiusFactor member,
 			which is then interpreted as the radius itself) */
-		ATOMS_USE_VAN_DER_WAALS_RADIUS, /**< render each atom with
+		ATOMS_USE_VAN_DER_WAALS_RADIUS /**< render each atom with
 			its own van der Waals radius, multiplied by
 			m_atomRadiusFactor */
 	} m_atomStyle;
