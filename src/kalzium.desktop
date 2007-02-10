@@ -7,6 +7,7 @@ Icon=kalzium
 DocPath=kalzium/index.html
 Comment=KDE Periodic Table of Elements
 Comment[el]=Περιοδικός πίνακας των στοιχείων του KDE
+Comment[fr]=Classification périodique des éléments de KDE
 Comment[x-test]=xxKDE Periodic Table of Elementsxx
 Terminal=false
 Name=Kalzium
