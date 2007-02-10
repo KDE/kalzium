@@ -194,7 +194,7 @@ void OBConverter::slotConvert()
         if ( QFile::exists(ofname) ) {
             //something named ofname already exists
             switch ( KMessageBox::questionYesNo(0, 
-                        i18n( "The file %1 already exist. Do you want to overwrite if possible ?").arg(ofname), 
+                        i18n( "The file %1 already exist. Do you want to overwrite if possible ?", ofname), 
                         i18n("Authorization")) 
                    )
             {
