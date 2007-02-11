@@ -112,7 +112,6 @@ MoleculeParser::MoleculeParser(const QString& _str)
 
 MoleculeParser::~MoleculeParser()
 {
-    qDeleteAll(m_elementList);
 }
 
 
