@@ -103,7 +103,7 @@ KalziumPainter::MODE PeriodicTableView::mode() const
 	return m_painter->mode();
 }
 
-void PeriodicTableView::paintEvent( QPaintEvent * /*e*/ )
+void PeriodicTableView::paintEvent( QPaintEvent * e )
 {
 	if ( doFullDraw )
 	{
@@ -127,7 +127,7 @@ void PeriodicTableView::paintEvent( QPaintEvent * /*e*/ )
 	}
 
 	QPainter p( this );
-	p.drawPixmap( 0, 0, *table2 );
+	p.drawPixmap( e->rect().topLeft(), *table2, e->rect() );
 	p.end();
 }
 
