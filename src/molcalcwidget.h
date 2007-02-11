@@ -41,6 +41,7 @@ class MolcalcWidget : public QWidget
 		 * @param parent parent widget
 		 */
 		MolcalcWidget( QWidget *parent = 0 );
+		virtual ~MolcalcWidget();
 
 	protected slots:
 		void slotCalcButtonClicked();

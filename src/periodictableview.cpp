@@ -54,7 +54,7 @@ PeriodicTableView::PeriodicTableView( QWidget *parent )
     //eliminates flicker on redraw
     setAttribute( Qt::WA_OpaquePaintEvent, true );
 
-    table = new QPixmap();
+    table = 0;
     table2 = new QPixmap();
 
     //Start with a full draw
@@ -77,6 +77,10 @@ PeriodicTableView::PeriodicTableView( QWidget *parent )
 
 PeriodicTableView::~PeriodicTableView()
 {
+	delete table;
+	delete table2;
+
+	delete m_painter;
 }
 
 void PeriodicTableView::activateColorScheme( const int nr )

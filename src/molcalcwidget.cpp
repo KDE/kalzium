@@ -56,6 +56,11 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 
 }
 
+MolcalcWidget::~MolcalcWidget()
+{
+	delete m_parser;
+}
+
 
 void MolcalcWidget::clear()
 {
