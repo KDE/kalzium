@@ -17,12 +17,10 @@
 
 #include <libkdeedu_ui_export.h>
 
-#include <khtml_part.h>
 #include <kdialog.h>
 
 class QChar;
 class QDomDocument;
-class Q3ListViewItem;
 class GlossaryItem;
 
 /**
@@ -264,16 +262,12 @@ class KDEEDUUI_EXPORT GlossaryDialog : public KDialog
 	protected:
 		void keyPressEvent(QKeyEvent*);
 
-	private slots:
-		void slotClicked( Q3ListViewItem * );
-		/**
-		 * The user clicked on a href. Find and display the right item
-		 */
-		void displayItem( const KUrl& url, const KParts::URLArgs& args );
-
 	private:
 		class Private;
 		Private * const d;
+
+		Q_PRIVATE_SLOT( d, void itemActivated( QTreeWidgetItem *, int ) )
+		Q_PRIVATE_SLOT( d, void displayItem( const KUrl&, const KParts::URLArgs& ) )
 };
 
 #endif // KDEEDUGLOSSARY_H

@@ -24,15 +24,14 @@
 #include <khtml_part.h>
 #include <khtmlview.h>
 #include <kglobal.h>
-#include <k3listview.h>
-#include <k3listviewsearchline.h>
 #include <kstandarddirs.h>
+#include <ktreewidgetsearchline.h>
 #include <kactioncollection.h>
 
 #include <qevent.h>
 #include <qfile.h>
+#include <qheaderview.h>
 #include <qlabel.h>
-#include <q3header.h>
 #include <qlayout.h>
 #include <qlist.h>
 #include <qpushbutton.h>
@@ -40,6 +39,35 @@
 #include <qsplitter.h>
 #include <qstringlist.h>
 #include <qtoolbutton.h>
+#include <qtreewidget.h>
+
+static const int FirstLetterRole = 0x00b00a00;
+
+static const int GlossaryTreeItemType = QTreeWidgetItem::UserType + 1;
+
+class GlossaryTreeItem : public QTreeWidgetItem
+{
+    public:
+        GlossaryTreeItem( Glossary * g, GlossaryItem * gi )
+            : QTreeWidgetItem( GlossaryTreeItemType ), m_g( g ), m_gi( gi )
+        {
+            setText( 0, m_gi->name() );
+        }
+
+        Glossary *glossary() const
+        {
+            return m_g;
+        }
+
+        GlossaryItem *glossaryItem() const
+        {
+            return m_gi;
+        }
+
+    private:
+        Glossary *m_g;
+        GlossaryItem *m_gi;
+};
 
 
 class GlossaryDialog::Private
@@ -55,8 +83,14 @@ class GlossaryDialog::Private
             qDeleteAll( m_glossaries );
         }
 
-        void updateTree();
-        Q3ListViewItem* findTreeWithLetter( const QChar&, Q3ListViewItem* );
+        void rebuildTree();
+        QTreeWidgetItem* createItem( Glossary* glossary ) const;
+        QTreeWidgetItem* findTreeWithLetter( const QChar& l, QTreeWidgetItem* item ) const;
+
+        // slots
+        void itemActivated( QTreeWidgetItem * item, int column );
+        // The user clicked on a href. Find and display the right item
+        void displayItem( const KUrl& url, const KParts::URLArgs& args );
 
         GlossaryDialog *q;
 
@@ -66,8 +100,8 @@ class GlossaryDialog::Private
         bool m_folded;
 
         KHTMLPart *m_htmlpart;
-        K3ListView *m_glosstree;
-        K3ListViewSearchLine *m_search;
+        QTreeWidget *m_glosstree;
+        KTreeWidgetSearchLine *m_search;
         QString m_htmlbasestring;
 
         KActionCollection* m_actionCollection;
@@ -266,7 +300,7 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 	lbl->setText( i18n( "Search:" ) );
 	hbox->addWidget( lbl );
 
-	d->m_search = new K3ListViewSearchLine( main, 0L );
+	d->m_search = new KTreeWidgetSearchLine( main );
 	d->m_search->setObjectName( "search-line" );
 	hbox->addWidget( d->m_search );
 	vbox->addLayout( hbox );
@@ -275,19 +309,18 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 	QSplitter *vs = new QSplitter( main );
 	vbox->addWidget( vs );
 
-	d->m_glosstree = new K3ListView( vs );
+	d->m_glosstree = new QTreeWidget( vs );
 	d->m_glosstree->setObjectName( "treeview" );
-	d->m_glosstree->addColumn( "entries" );
+	d->m_glosstree->setHeaderLabel( "entries" );
 	d->m_glosstree->header()->hide();
-	d->m_glosstree->setFullWidth( true );
 	d->m_glosstree->setRootIsDecorated( true );
  
-	d->m_search->setListView( d->m_glosstree );
+	d->m_search->addTreeWidget( d->m_glosstree );
  
 	d->m_htmlpart = new KHTMLPart( vs );
 
 	connect( d->m_htmlpart->browserExtension(), SIGNAL( openUrlRequestDelayed( const KUrl &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KUrl &, const KParts::URLArgs & ) ) );
-	connect( d->m_glosstree, SIGNAL(clicked( Q3ListViewItem * )), this, SLOT(slotClicked( Q3ListViewItem * )));
+	connect( d->m_glosstree, SIGNAL( itemActivated( QTreeWidgetItem * , int ) ), this, SLOT( itemActivated( QTreeWidgetItem * , int ) ) );
 	connect( clear, SIGNAL(clicked()), d->m_search, SLOT(clear()));
 
 	resize( 600, 400 );
@@ -306,55 +339,64 @@ void GlossaryDialog::keyPressEvent(QKeyEvent* e)
 	KDialog::keyPressEvent(e);
 }
 
-void GlossaryDialog::displayItem( const KUrl& url, const KParts::URLArgs& )
+void GlossaryDialog::Private::displayItem( const KUrl& url, const KParts::URLArgs& )
 {
 	// using the "host" part of a kurl as reference
 	QString myurl = url.host().toLower();
-	d->m_search->setText( "" );
-	d->m_search->updateSearch( "" );
-	Q3ListViewItem *found = 0;
-	Q3ListViewItemIterator it( d->m_glosstree );
-	Q3ListViewItem *item;
-	while ( it.current() )
-	{
-		item = it.current();
-		if ( item->text(0).toLower() == myurl )
-		{
-			found = item;
-			break;
-		}
-		++it;
-	}
-	slotClicked( found );
+    QTreeWidgetItemIterator it( m_glosstree );
+    while ( *it )
+    {
+        if ( (*it)->type() == GlossaryTreeItemType && (*it)->text( 0 ).toLower() == myurl )
+        {
+             // force the item to be selected
+             m_glosstree->setCurrentItem( *it );
+             // display its content
+             itemActivated( (*it), 0 );
+             break;
+        }
+        else
+            ++it;
+     }
 }
 
-void GlossaryDialog::Private::updateTree()
+void GlossaryDialog::Private::rebuildTree()
 {
     m_glosstree->clear();
 
-    foreach (Glossary * glossar, m_glossaries) {
-        Q3ListViewItem *main = new Q3ListViewItem( m_glosstree, glossar->name() );
-        main->setExpandable( true );
-        main->setSelectable( false );
-        foreach (GlossaryItem * item, glossar->itemlist()) {
-            if ( m_folded )
-            {
-                QChar thisletter = item->name().toUpper()[0];
-                Q3ListViewItem *thisletteritem = findTreeWithLetter( thisletter, main );
-                if ( !thisletteritem )
-                {
-                    thisletteritem = new Q3ListViewItem( main, QString(thisletter) );
-                    thisletteritem->setExpandable( true );
-                    thisletteritem->setSelectable( false );
-                }
-                new Q3ListViewItem( thisletteritem, item->name() );
-            }
-            else
-                new Q3ListViewItem( main, item->name() );
-
-        }
-        main->sort();
+    foreach ( Glossary * glossary, m_glossaries )
+    {
+        m_glosstree->addTopLevelItem( createItem( glossary ) );
     }
+}
+
+QTreeWidgetItem* GlossaryDialog::Private::createItem( Glossary* glossary ) const
+{
+    QTreeWidgetItem *main = new QTreeWidgetItem();
+    main->setText( 0, glossary->name() );
+    main->setFlags( Qt::ItemIsEnabled );
+    foreach ( GlossaryItem * item, glossary->itemlist() )
+    {
+        if ( m_folded )
+        {
+            QChar thisletter = item->name().toUpper().at(0);
+            QTreeWidgetItem *thisletteritem = findTreeWithLetter( thisletter, main );
+            if ( !thisletteritem )
+            {
+                thisletteritem = new QTreeWidgetItem( main );
+                thisletteritem->setText( 0, QString( thisletter ) );
+                thisletteritem->setFlags( Qt::ItemIsEnabled );
+                thisletteritem->setData( 0, FirstLetterRole, thisletter );
+            }
+            thisletteritem->addChild( new GlossaryTreeItem( glossary, item ) );
+        }
+        else
+        {
+            main->addChild( new GlossaryTreeItem( glossary, item ) );
+        }
+
+    }
+    main->sortChildren( 0, Qt::AscendingOrder );
+    return main;
 }
 
 void GlossaryDialog::addGlossary( Glossary* newgloss )
@@ -363,69 +405,42 @@ void GlossaryDialog::addGlossary( Glossary* newgloss )
 	if ( newgloss->isEmpty() ) return;
 	d->m_glossaries.append( newgloss );
 
-	d->updateTree();
+    d->m_glosstree->addTopLevelItem( d->createItem( newgloss ) );
 }
 
-Q3ListViewItem* GlossaryDialog::Private::findTreeWithLetter( const QChar& l, Q3ListViewItem* i )
+QTreeWidgetItem* GlossaryDialog::Private::findTreeWithLetter( const QChar& l, QTreeWidgetItem* item ) const
 {
-	Q3ListViewItem *it = i->firstChild();
-	while ( it )
-	{
-		if ( it->text(0)[0] == l )
-			return it;
-		it = it->nextSibling();
-	}
-	return 0;
+    int count = item->childCount();
+    for ( int i = 0; i < count; ++i )
+    {
+        QTreeWidgetItem *itemchild = item->child( i );
+        if ( itemchild->data( 0, FirstLetterRole ).toChar() == l )
+            return itemchild;
+    }
+    return 0;
 }
 
-void GlossaryDialog::slotClicked( Q3ListViewItem *item )
+void GlossaryDialog::Private::itemActivated( QTreeWidgetItem * item, int column )
 {
-	if ( !item )
-		return;
-	
-	// The next lines are searching for the correct KnowledgeItem
-	// in the m_itemList. When it is found the HTML will be
-	// generated
-	QList<Glossary*>::iterator itGl = d->m_glossaries.begin();
-	const QList<Glossary*>::iterator itGlEnd = d->m_glossaries.end();
-	bool found = false;
-	GlossaryItem *i = 0;
+    Q_UNUSED(column)
+    if ( !item || item->type() != GlossaryTreeItemType )
+        return;
 
-	QString bg_picture;
-	
-	while ( !found && itGl != itGlEnd )
-	{
-		QList<GlossaryItem*> items = ( *itGl )->itemlist();
-		QList<GlossaryItem*>::const_iterator it = items.begin();
-		const QList<GlossaryItem*>::const_iterator itEnd = items.end();
-		while ( !found && it != itEnd )
-		{
-			if ( ( *it )->name() == item->text( 0 ) )
-			{
-				i = *it;
-				bg_picture = ( *itGl )->backgroundPicture();
-				found = true;
-			}
-			++it;
-		}
-		++itGl;
-	}
-	if ( found && i )
-	{
-		QString html;
-		if ( !bg_picture.isEmpty() )
-		{
-			html = " background=\"" + bg_picture + "\"";
-		}
+    GlossaryTreeItem *glosstreeitem = static_cast< GlossaryTreeItem * >( item );
+    GlossaryItem * glossitem = glosstreeitem->glossaryItem();
+    QString html;
+    QString bg_picture = glosstreeitem->glossary()->backgroundPicture();
+    if ( !bg_picture.isEmpty() )
+    {
+            html = " background=\"" + bg_picture + "\"";
+    }
 
-		html = d->m_htmlbasestring.arg( html );
-		html += i->toHtml() + "</body></html>";
+    html = m_htmlbasestring.arg( html );
+    html += glossitem->toHtml() + "</body></html>";
 
-		d->m_htmlpart->begin();
-		d->m_htmlpart->write( html );
-		d->m_htmlpart->end();
-		return;
-	}
+    m_htmlpart->begin();
+    m_htmlpart->write( html );
+    m_htmlpart->end();
 }
 
 void GlossaryItem::setRef( const QStringList& s )
