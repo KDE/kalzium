@@ -23,9 +23,6 @@
 class QChar;
 class QDomDocument;
 class Q3ListViewItem;
-class K3ListView;
-class K3ListViewSearchLine;
-class KActionCollection;
 class GlossaryItem;
 
 /**
@@ -267,32 +264,16 @@ class KDEEDUUI_EXPORT GlossaryDialog : public KDialog
 	protected:
 		void keyPressEvent(QKeyEvent*);
 
-	private:
-		QList<Glossary*> m_glossaries;
-
-		/**
-		 * if true the items will be displayed folded
-		 */
-		bool m_folded;
-
-		void updateTree();
-
-		KHTMLPart *m_htmlpart;
-		K3ListView *m_glosstree;
-		QString m_htmlbasestring;
-
-		KActionCollection* m_actionCollection;
-
-		Q3ListViewItem* findTreeWithLetter( const QChar&, Q3ListViewItem* );
-
-		K3ListViewSearchLine *m_search;
-
 	private slots:
 		void slotClicked( Q3ListViewItem * );
 		/**
 		 * The user clicked on a href. Find and display the right item
 		 */
 		void displayItem( const KUrl& url, const KParts::URLArgs& args );
+
+	private:
+		class Private;
+		Private * const d;
 };
 
 #endif // KDEEDUGLOSSARY_H

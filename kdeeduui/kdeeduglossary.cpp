@@ -41,6 +41,39 @@
 #include <qstringlist.h>
 #include <qtoolbutton.h>
 
+
+class GlossaryDialog::Private
+{
+    public:
+        Private( GlossaryDialog *qq )
+            : q( qq )
+        {
+        }
+
+        ~Private()
+        {
+            qDeleteAll( m_glossaries );
+        }
+
+        void updateTree();
+        Q3ListViewItem* findTreeWithLetter( const QChar&, Q3ListViewItem* );
+
+        GlossaryDialog *q;
+
+        QList<Glossary*> m_glossaries;
+
+        // if true the items will be displayed folded
+        bool m_folded;
+
+        KHTMLPart *m_htmlpart;
+        K3ListView *m_glosstree;
+        K3ListViewSearchLine *m_search;
+        QString m_htmlbasestring;
+
+        KActionCollection* m_actionCollection;
+};
+
+
 Glossary::Glossary( const KUrl& url, const QString& path )
 {
 	init( url, path );
@@ -200,7 +233,7 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 }
 
 GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
-    : KDialog( parent )
+    : KDialog( parent ), d( new Private( this ) )
 {
 	setCaption( i18n( "Glossary" ) );
 	setButtons( Close );
@@ -208,9 +241,9 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 
 	//this string will be used for all items. If a backgroundpicture should
 	//be used call Glossary::setBackgroundPicture().
-	m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body%1>" ;
+	d->m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body%1>" ;
 
-	m_folded = folded;
+	d->m_folded = folded;
 	
 	QWidget *main = new QWidget( this );
 	setMainWidget( main );
@@ -233,39 +266,36 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 	lbl->setText( i18n( "Search:" ) );
 	hbox->addWidget( lbl );
 
-	m_search = new K3ListViewSearchLine( main, 0L );
-	m_search->setObjectName( "search-line" );
-	hbox->addWidget( m_search );
+	d->m_search = new K3ListViewSearchLine( main, 0L );
+	d->m_search->setObjectName( "search-line" );
+	hbox->addWidget( d->m_search );
 	vbox->addLayout( hbox );
-	setFocusProxy(m_search);
+	setFocusProxy(d->m_search);
  
 	QSplitter *vs = new QSplitter( main );
 	vbox->addWidget( vs );
 
-	m_glosstree = new K3ListView( vs );
-	m_glosstree->setObjectName( "treeview" );
-	m_glosstree->addColumn( "entries" );
-	m_glosstree->header()->hide();
-	m_glosstree->setFullWidth( true );
-	m_glosstree->setRootIsDecorated( true );
+	d->m_glosstree = new K3ListView( vs );
+	d->m_glosstree->setObjectName( "treeview" );
+	d->m_glosstree->addColumn( "entries" );
+	d->m_glosstree->header()->hide();
+	d->m_glosstree->setFullWidth( true );
+	d->m_glosstree->setRootIsDecorated( true );
  
-	m_search->setListView( m_glosstree );
+	d->m_search->setListView( d->m_glosstree );
  
-	m_htmlpart = new KHTMLPart( vs );
+	d->m_htmlpart = new KHTMLPart( vs );
 
-	connect( m_htmlpart->browserExtension(), SIGNAL( openUrlRequestDelayed( const KUrl &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KUrl &, const KParts::URLArgs & ) ) );
-	connect( m_glosstree, SIGNAL(clicked( Q3ListViewItem * )), this, SLOT(slotClicked( Q3ListViewItem * )));
-	connect( clear, SIGNAL(clicked()), m_search, SLOT(clear()));
+	connect( d->m_htmlpart->browserExtension(), SIGNAL( openUrlRequestDelayed( const KUrl &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KUrl &, const KParts::URLArgs & ) ) );
+	connect( d->m_glosstree, SIGNAL(clicked( Q3ListViewItem * )), this, SLOT(slotClicked( Q3ListViewItem * )));
+	connect( clear, SIGNAL(clicked()), d->m_search, SLOT(clear()));
 
 	resize( 600, 400 );
 }
 
 GlossaryDialog::~GlossaryDialog()
 {
-    foreach ( Glossary * glossar, m_glossaries ) {
-        delete glossar;
-        glossar = 0;
-    }
+    delete d;
 }
 
 void GlossaryDialog::keyPressEvent(QKeyEvent* e)
@@ -280,10 +310,10 @@ void GlossaryDialog::displayItem( const KUrl& url, const KParts::URLArgs& )
 {
 	// using the "host" part of a kurl as reference
 	QString myurl = url.host().toLower();
-	m_search->setText( "" );
-	m_search->updateSearch( "" );
+	d->m_search->setText( "" );
+	d->m_search->updateSearch( "" );
 	Q3ListViewItem *found = 0;
-	Q3ListViewItemIterator it( m_glosstree );
+	Q3ListViewItemIterator it( d->m_glosstree );
 	Q3ListViewItem *item;
 	while ( it.current() )
 	{
@@ -298,7 +328,7 @@ void GlossaryDialog::displayItem( const KUrl& url, const KParts::URLArgs& )
 	slotClicked( found );
 }
 
-void GlossaryDialog::updateTree()
+void GlossaryDialog::Private::updateTree()
 {
     m_glosstree->clear();
 
@@ -331,12 +361,12 @@ void GlossaryDialog::addGlossary( Glossary* newgloss )
 {
 	if ( !newgloss ) return;
 	if ( newgloss->isEmpty() ) return;
-	m_glossaries.append( newgloss );
+	d->m_glossaries.append( newgloss );
 
-	updateTree();
+	d->updateTree();
 }
 
-Q3ListViewItem* GlossaryDialog::findTreeWithLetter( const QChar& l, Q3ListViewItem* i )
+Q3ListViewItem* GlossaryDialog::Private::findTreeWithLetter( const QChar& l, Q3ListViewItem* i )
 {
 	Q3ListViewItem *it = i->firstChild();
 	while ( it )
@@ -356,8 +386,8 @@ void GlossaryDialog::slotClicked( Q3ListViewItem *item )
 	// The next lines are searching for the correct KnowledgeItem
 	// in the m_itemList. When it is found the HTML will be
 	// generated
-	QList<Glossary*>::iterator itGl = m_glossaries.begin();
-	const QList<Glossary*>::iterator itGlEnd = m_glossaries.end();
+	QList<Glossary*>::iterator itGl = d->m_glossaries.begin();
+	const QList<Glossary*>::iterator itGlEnd = d->m_glossaries.end();
 	bool found = false;
 	GlossaryItem *i = 0;
 
@@ -388,12 +418,12 @@ void GlossaryDialog::slotClicked( Q3ListViewItem *item )
 			html = " background=\"" + bg_picture + "\"";
 		}
 
-		html = m_htmlbasestring.arg( html );
+		html = d->m_htmlbasestring.arg( html );
 		html += i->toHtml() + "</body></html>";
 
-		m_htmlpart->begin();
-		m_htmlpart->write( html );
-		m_htmlpart->end();
+		d->m_htmlpart->begin();
+		d->m_htmlpart->write( html );
+		d->m_htmlpart->end();
 		return;
 	}
 }
