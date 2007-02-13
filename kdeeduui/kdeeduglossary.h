@@ -245,12 +245,13 @@ class KDEEDUUI_EXPORT GlossaryDialog : public KDialog
 		/**
 		 * Creates a new dialog for a glossary.
 		 *
+		 * @param parent the parent of the new dialog
 		 * @param folded whether to fold the various items in subtrees depending on the
 		 * first letter of every item
-		 * @param parent the parent of the new dialog
 		 */
-		GlossaryDialog( bool folded = true, QWidget *parent = 0 );
-		~GlossaryDialog();
+		explicit GlossaryDialog( QWidget *parent = 0, bool folded = true );
+
+		virtual ~GlossaryDialog();
 
 		/**
 		 * Add a new glossary.

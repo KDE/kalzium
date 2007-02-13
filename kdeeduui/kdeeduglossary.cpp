@@ -261,7 +261,7 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 	return list;
 }
 
-GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
+GlossaryDialog::GlossaryDialog( QWidget *parent, bool folded )
     : KDialog( parent ), d( new Private( this ) )
 {
 	setCaption( i18n( "Glossary" ) );
