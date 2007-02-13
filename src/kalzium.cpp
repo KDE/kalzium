@@ -51,7 +51,7 @@
 #include <QLayout>
 #include <QToolBox>
 #include <QScrollArea>
-#include <QEvent>
+#include <QKeyEvent>
 #include <QTimer>
 
 #include <kconfigdialog.h>
@@ -66,6 +66,7 @@
 #include <kstandardaction.h>
 #include <kicon.h>
 #include <kservicetypetrader.h>
+#include <kurl.h>
 
 #define PeriodicTableView_MARGIN          5
 #define IDS_ELEMENTINFO     7
