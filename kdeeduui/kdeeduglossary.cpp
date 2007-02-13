@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005, 2006 by Carsten Niehaus <cniehaus@kde.org>        *
+ *   Copyright (C) 2005 - 2007 by Pino Toscano <pino@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -390,9 +391,10 @@ QTreeWidgetItem* GlossaryDialog::Private::createItem( Glossary* glossary ) const
 
 void GlossaryDialog::addGlossary( Glossary* newgloss )
 {
-	if ( !newgloss ) return;
-	if ( newgloss->isEmpty() ) return;
-	d->m_glossaries.append( newgloss );
+    if ( !newgloss || newgloss->isEmpty() )
+        return;
+
+    d->m_glossaries.append( newgloss );
 
     d->m_glosstree->addTopLevelItem( d->createItem( newgloss ) );
 }
