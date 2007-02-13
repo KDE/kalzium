@@ -451,10 +451,11 @@ QString GlossaryItem::parseReferences() const
 		return QString();
 
 	QString htmlcode = "<h3>" + i18n( "References" ) + "</h3><ul type=\"disc\">";
+	static QString basehref = QString( "<li><a href=\"item://%1\" title=\"%2\">%3</a></li>" );
 	
-	for ( int i = 0; i < m_ref.size(); i++ )
+	foreach ( const QString& ref, m_ref )
 	{
-		htmlcode += QString( "<li><a href=\"item://%1\">%2</a></li>" ).arg( m_ref[i], m_ref[i] );
+		htmlcode += basehref.arg( ref, i18n( "Go to '%1'", ref ), ref );
 	}
 	htmlcode += "</ul>";
 
