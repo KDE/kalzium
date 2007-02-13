@@ -20,11 +20,8 @@
 
 #include <kdebug.h>
 #include <klocale.h>
-#include <kiconloader.h>
 #include <khtml_part.h>
 #include <khtmlview.h>
-#include <kglobal.h>
-#include <kstandarddirs.h>
 #include <ktreewidgetsearchline.h>
 #include <kactioncollection.h>
 
@@ -34,11 +31,9 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qlist.h>
-#include <qpushbutton.h>
 #include <qregexp.h>
 #include <qsplitter.h>
 #include <qstringlist.h>
-#include <qtoolbutton.h>
 #include <qtreewidget.h>
 
 static const int FirstLetterRole = 0x00b00a00;
@@ -291,11 +286,6 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 	hbox->setSpacing( spacingHint() );
 	hbox->activate();
 
-	QToolButton *clear = new QToolButton( main );
-	clear->setIcon( SmallIcon( "locationbar_erase" ) );
-	clear->setToolTip( i18n( "Clear filter" ) );
-	hbox->addWidget( clear );
-
 	QLabel *lbl = new QLabel( main );
 	lbl->setText( i18n( "Search:" ) );
 	hbox->addWidget( lbl );
@@ -321,7 +311,6 @@ GlossaryDialog::GlossaryDialog( bool folded, QWidget *parent )
 
 	connect( d->m_htmlpart->browserExtension(), SIGNAL( openUrlRequestDelayed( const KUrl &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KUrl &, const KParts::URLArgs & ) ) );
 	connect( d->m_glosstree, SIGNAL( itemActivated( QTreeWidgetItem * , int ) ), this, SLOT( itemActivated( QTreeWidgetItem * , int ) ) );
-	connect( clear, SIGNAL(clicked()), d->m_search, SLOT(clear()));
 
 	resize( 600, 400 );
 }
