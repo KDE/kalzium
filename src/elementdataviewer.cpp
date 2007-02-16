@@ -283,7 +283,7 @@ void ElementDataViewer::drawPlot()
     /*
      * to be 100% safe delete the old list
      */
-    ui.plotwidget->clearObjectList();
+    ui.plotwidget->removeAllPlotObjects();
 
     /*
      * spare the next step in case everything is already set and done
@@ -365,7 +365,7 @@ void ElementDataViewer::drawPlot()
 
     }
 
-		ui.plotwidget->addObject( dataPoint );
+		ui.plotwidget->addPlotObject( dataPoint );
 
     //now set the values for the min, max and avarage value
     ui.av_x->setText( QString::number( av_x / num ) );
