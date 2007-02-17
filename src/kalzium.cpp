@@ -118,7 +118,7 @@ Kalzium::Kalzium()
 	KGlobal::locale()->insertCatalog( "libkdeedu" );
 
 	// creating the glossary dialog and loading the glossaries we have
-	m_glossarydlg = new GlossaryDialog( this, true );
+	m_glossarydlg = new GlossaryDialog( this );
 	m_glossarydlg->setObjectName( QLatin1String( "glossary" ) );
 	QString dir = KGlobal::dirs()->findResourceDir( "data", "kalzium/data/" );
 	QString picturepath = dir + "kalzium/data/bg.jpg";
@@ -126,12 +126,12 @@ Kalzium::Kalzium()
 	Glossary *g = new Glossary( u );
 	g->setName( i18n( "Knowledge" ) );
 	g->setBackgroundPicture( picturepath );
-	m_glossarydlg->addGlossary( g );
+	m_glossarydlg->addGlossary( g, true );
 	u = KUrl::fromPath( dir + "kalzium/data/tools.xml" );
 	g = new Glossary( u, dir + "kalzium/data/toolpics/" );
 	g->setName( i18n( "Tools" ) );
 	g->setBackgroundPicture( picturepath );
-	m_glossarydlg->addGlossary( g );
+	m_glossarydlg->addGlossary( g, true );
 
 	setupStatusBar();
 }
