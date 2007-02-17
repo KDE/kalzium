@@ -290,21 +290,21 @@ void Kalzium::setupSidebars()
 	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
 	m_toolbox->addItem( fake, KIcon( "overview" ), i18n( "Overview" ) );
 
-	m_calcWidget = new MolcalcWidget( m_toolbox );
-	m_calcWidget->setObjectName( "molcalcwidget" );
-	m_toolbox->addItem( m_calcWidget, KIcon( "calculate" ), i18n( "Calculate" ) );
-
 	m_somWidget = new SOMWidgetIMPL( m_toolbox );
 	m_somWidget->setObjectName( "somWidget" );
 	connect( m_somWidget, SIGNAL( temperatureChanged( int ) ),
 	         m_PeriodicTableView, SLOT( setTemperature( int ) ) );
 	m_toolbox->addItem( m_somWidget, KIcon( "statematter" ), i18n( "State of Matter" ) );
 
-  m_timeWidget = new TimeWidgetImpl( m_toolbox );
+    m_timeWidget = new TimeWidgetImpl( m_toolbox );
 	m_timeWidget->setObjectName( "timeWidget" );
 	connect( m_timeWidget->time_box, SIGNAL( valueChanged( int ) ),
 	         m_PeriodicTableView, SLOT( setTime( int ) ) );
 	m_toolbox->addItem( m_timeWidget, KIcon( "timeline" ), i18n( "Timeline" ) );
+
+	m_calcWidget = new MolcalcWidget( m_toolbox );
+	m_calcWidget->setObjectName( "molcalcwidget" );
+	m_toolbox->addItem( m_calcWidget, KIcon( "calculate" ), i18n( "Calculate" ) );
 
 	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
