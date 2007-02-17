@@ -329,9 +329,9 @@ void ElementDataViewer::drawPlot()
      */
 		dataPoint = new KPlotObject( 
                 Qt::blue, 
-                KPlotObject::POINTS, 
+                KPlotObject::Points, 
                 4, 
-                KPlotObject::STAR );
+                KPlotObject::Star );
 		dataPoint->setLabelPen( QPen( Qt::red ) );
 
     for( int i = from; i < to+1 ; i++ )
