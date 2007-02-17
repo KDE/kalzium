@@ -17,6 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
+
 #include "kdeeduglossary.h"
 
 #include <kdebug.h>
@@ -66,6 +67,18 @@ class GlossaryTreeItem : public QTreeWidgetItem
 };
 
 
+struct GlossaryInfo
+{
+    GlossaryInfo( Glossary* g )
+        : glossary( g ), folded( true )
+    {
+    }
+
+    Glossary *glossary;
+    bool folded;
+};
+
+
 class GlossaryDialog::Private
 {
     public:
@@ -76,11 +89,15 @@ class GlossaryDialog::Private
 
         ~Private()
         {
-            qDeleteAll( m_glossaries );
+            QList< GlossaryInfo >::ConstIterator it = m_glossaries.begin(), itEnd = m_glossaries.end();
+            for ( ; it != itEnd; ++it )
+            {
+                delete (*it).glossary;
+            }
         }
 
         void rebuildTree();
-        QTreeWidgetItem* createItem( Glossary* glossary ) const;
+        QTreeWidgetItem* createItem( const GlossaryInfo& gi ) const;
         QTreeWidgetItem* findTreeWithLetter( const QChar& l, QTreeWidgetItem* item ) const;
 
         // slots
@@ -90,10 +107,7 @@ class GlossaryDialog::Private
 
         GlossaryDialog *q;
 
-        QList<Glossary*> m_glossaries;
-
-        // if true the items will be displayed folded
-        bool m_folded;
+        QList< GlossaryInfo > m_glossaries;
 
         KHTMLPart *m_htmlpart;
         QTreeWidget *m_glosstree;
@@ -262,7 +276,7 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 	return list;
 }
 
-GlossaryDialog::GlossaryDialog( QWidget *parent, bool folded )
+GlossaryDialog::GlossaryDialog( QWidget *parent )
     : KDialog( parent ), d( new Private( this ) )
 {
 	setCaption( i18n( "Glossary" ) );
@@ -273,8 +287,6 @@ GlossaryDialog::GlossaryDialog( QWidget *parent, bool folded )
 	//be used call Glossary::setBackgroundPicture().
 	d->m_htmlbasestring = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><body%1>" ;
 
-	d->m_folded = folded;
-	
 	QWidget *main = new QWidget( this );
 	setMainWidget( main );
 	QVBoxLayout *vbox = new QVBoxLayout( main );
@@ -349,20 +361,23 @@ void GlossaryDialog::Private::rebuildTree()
 {
     m_glosstree->clear();
 
-    foreach ( Glossary * glossary, m_glossaries )
+    QList< GlossaryInfo >::ConstIterator it = m_glossaries.begin(), itEnd = m_glossaries.end();
+    for ( ; it != itEnd; ++it )
     {
-        m_glosstree->addTopLevelItem( createItem( glossary ) );
+        m_glosstree->addTopLevelItem( createItem( *it ) );
     }
 }
 
-QTreeWidgetItem* GlossaryDialog::Private::createItem( Glossary* glossary ) const
+QTreeWidgetItem* GlossaryDialog::Private::createItem( const GlossaryInfo& gi ) const
 {
+    Glossary *glossary = gi.glossary;
+    bool folded = gi.folded;
     QTreeWidgetItem *main = new QTreeWidgetItem();
     main->setText( 0, glossary->name() );
     main->setFlags( Qt::ItemIsEnabled );
     foreach ( GlossaryItem * item, glossary->itemlist() )
     {
-        if ( m_folded )
+        if ( folded )
         {
             QChar thisletter = item->name().toUpper().at(0);
             QTreeWidgetItem *thisletteritem = findTreeWithLetter( thisletter, main );
@@ -385,14 +400,16 @@ QTreeWidgetItem* GlossaryDialog::Private::createItem( Glossary* glossary ) const
     return main;
 }
 
-void GlossaryDialog::addGlossary( Glossary* newgloss )
+void GlossaryDialog::addGlossary( Glossary* newgloss, bool folded )
 {
     if ( !newgloss || newgloss->isEmpty() )
         return;
 
-    d->m_glossaries.append( newgloss );
+    GlossaryInfo gi( newgloss );
+    gi.folded = folded;
+    d->m_glossaries.append( gi );
 
-    d->m_glosstree->addTopLevelItem( d->createItem( newgloss ) );
+    d->m_glosstree->addTopLevelItem( d->createItem( gi ) );
 }
 
 QTreeWidgetItem* GlossaryDialog::Private::findTreeWithLetter( const QChar& l, QTreeWidgetItem* item ) const
