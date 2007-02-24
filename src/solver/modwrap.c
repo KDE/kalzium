@@ -23,6 +23,7 @@
 
 #include <caml/mlvalues.h>
 #include <caml/callback.h>
+#include <caml/alloc.h>
 
 char* solve_equation(const char * eq)
 {
@@ -32,6 +33,7 @@ char* solve_equation(const char * eq)
 		solve_equation_closure = caml_named_value("solve_equation");
 	}
 
-	return strdup(String_val(callback(*solve_equation_closure, copy_string(eq)) ));
+    value v = copy_string(eq);
+    return strdup(String_val(callback(*solve_equation_closure, v)));
 }
 
