@@ -33,7 +33,6 @@
 #include <QSizePolicy>
 #include <QPainter>
 #include <QPixmap>
-#include <QToolTip>
 
 #include <qglobal.h>
 #if defined(Q_OS_SOLARIS)
