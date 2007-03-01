@@ -14,7 +14,6 @@
 
 #include "tablesdialog.h"
 
-#include <kapplication.h>
 #include <klocale.h>
 #include <kicon.h>
 #include <kstandarddirs.h>
@@ -24,6 +23,7 @@
 #include <kstandardaction.h>
 #include <ktoolinvocation.h>
 
+#include <QApplication>
 #include <QClipboard>
 #include <QContextMenuEvent>
 #include <QLayout>
@@ -269,7 +269,7 @@ void MyTableWidget::contextMenuEvent( QContextMenuEvent* event )
 
 void MyTableWidget::copyToClipboard()
 {
-	KApplication::kApplication()->clipboard()->setText( currentItem()->data( QTableWidgetItem::Type ).toString() );
+	QApplication::clipboard()->setText( currentItem()->data( QTableWidgetItem::Type ).toString() );
 }
 
 #include "tablesdialog.moc"
