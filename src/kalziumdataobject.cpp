@@ -99,7 +99,7 @@ KalziumDataObject::KalziumDataObject()
 	
 		QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
 		
-		QString filename = pathname + setname + '/' + QString::number( i+1 ) + ".jpg";
+		QString filename = pathname + setname + '/' + QString::number( i+1 ) + ".png";
 
 		QFile file( filename );
 		if ( file.exists() ) {
