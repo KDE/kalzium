@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Carsten Niehaus                                 *
+ *   Copyright (C) 2005, 2006, 2007 by Carsten Niehaus                     *
  *   cniehaus@kde.org                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -28,6 +28,8 @@
 
 #include <QFile>
 #include <QVariant>
+#include <QSvgRenderer>
+#include <QPainter>
 
 #include <klocale.h>
 #include <kdebug.h>
@@ -99,13 +101,23 @@ KalziumDataObject::KalziumDataObject()
 	
 		QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
 		
-		QString filename = pathname + setname + '/' + QString::number( i+1 ) + ".png";
+		QString filename = pathname + setname + '/' + QString::number( i+1 ) + ".svg";
+
+        QSvgRenderer* svgrenderer = new QSvgRenderer();
 
 		QFile file( filename );
 		if ( file.exists() ) {
-			PixmapList << QPixmap( filename );
+            kDebug() << "File " << filename << " is being processed" << endl;
+            QPixmap pix( 40, 40 );
+            QPainter p( &pix );
+            svgrenderer->load(filename);
+            svgrenderer->render( &p );
+            p.end();
+
+			PixmapList << pix;
 		}
 		else {
+            kDebug() << "File " << filename << " NOT FOUND" << endl;
 			PixmapList << QPixmap();
 		}
 	}
