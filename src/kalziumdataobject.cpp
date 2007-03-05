@@ -92,12 +92,16 @@ KalziumDataObject::KalziumDataObject()
 	
 	// cache it
 	m_numOfElements = ElementList.count();
+            
 	
 	for ( int i = 0 ; i < m_numOfElements ; i++ )
 	{
 		//FIXME in case we ever get more than one theme we need
 		//a settings-dialog where we can select the different iconsets...
 		QString setname = "school";
+            
+        QPixmap pix( 40, 40 );
+        pix.fill(Qt::transparent);
 	
 		QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
 		
@@ -108,7 +112,6 @@ KalziumDataObject::KalziumDataObject()
 		QFile file( filename );
 		if ( file.exists() ) {
             kDebug() << "File " << filename << " is being processed" << endl;
-            QPixmap pix( 40, 40 );
             QPainter p( &pix );
             svgrenderer->load(filename);
             svgrenderer->render( &p );

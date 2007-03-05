@@ -109,7 +109,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 {
     if ( !m_scheme || !m_ktt ) return;
 
-    QRect rect = r.isNull() ? m_ktt->elementRect( element ) : r;
+    const QRect rect = r.isNull() ? m_ktt->elementRect( element ) : r;
     Element *el = KalziumDataObject::instance()->element( element );
     const QString symbol = el->dataAsString( ChemicalDataObject::symbol );
 
@@ -173,7 +173,15 @@ void KalziumPainter::drawElement( int element, const QRect& r )
                 else
                     c = m_scheme->elementBrush( element, rect );
 
-                if ( !c.texture().isNull() )
+                if (m_scheme->name() == "Iconic") {
+                    kDebug() << "drawing the iconic scheme" << endl;
+                    // the brush doesn't have any texture,
+                    // so proceeding with normal colors and texts
+                    QColor textc = m_scheme->textColor( element );
+
+                    m_painter->fillRect( rect, c );
+                    m_painter->drawRect( rect );
+                }else if ( !c.texture().isNull() )
                 {
                     QRect symbolrect;
                     QFont orig_font = m_painter->font();
@@ -497,58 +505,58 @@ QBrush KalziumPainter::brushForElement( int element ) const
 	Element *el = KalziumDataObject::instance()->element( element );
 
 	switch ( m_mode )
-	{
-		case NORMAL:
-		{
-			return m_scheme->elementBrush( element, rect );
-			break;
-		}
-		case SOM:
-		{
-			QColor color;
-
-			const double melting = el->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
-			const double boiling = el->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
-
-			if ( m_temperature < melting )
-			{
-				//the element is solid
-				color = Prefs::color_solid();
-			}
-			else if ( ( m_temperature > melting ) && ( m_temperature < boiling ) )
-			{
-				//the element is liquid
-				color = Prefs::color_liquid();
-			}
-			else if ( ( m_temperature > boiling ) && ( boiling > 0.0 ) )
-			{
-				//the element is vaporous
-				color = Prefs::color_vapor();
-			}
-			else
-				color = Qt::lightGray;
-
-			return QBrush( color );
-			break;
-		}
-		case GRADIENT:
-		{
-			double coeff = m_gradient->elementCoeff( element );
-			return QBrush( m_gradient->calculateColor( coeff ) );
-			break;
-		}
-		case TIME:
     {
-        const double date = el->dataAsVariant( ChemicalDataObject::date ).toInt();
+        case NORMAL:
+            {
+                return m_scheme->elementBrush( element, rect );
+                break;
+            }
+        case SOM:
+            {
+                QColor color;
 
-        if ( m_time >= date )
-            return m_scheme->elementBrush( element, rect );
-        else
-            return QBrush( Qt::lightGray );
+                const double melting = el->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
+                const double boiling = el->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
 
-        break;
+                if ( m_temperature < melting )
+                {
+                    //the element is solid
+                    color = Prefs::color_solid();
+                }
+                else if ( ( m_temperature > melting ) && ( m_temperature < boiling ) )
+                {
+                    //the element is liquid
+                    color = Prefs::color_liquid();
+                }
+                else if ( ( m_temperature > boiling ) && ( boiling > 0.0 ) )
+                {
+                    //the element is vaporous
+                    color = Prefs::color_vapor();
+                }
+                else
+                    color = Qt::lightGray;
+
+                return QBrush( color );
+                break;
+            }
+        case GRADIENT:
+            {
+                double coeff = m_gradient->elementCoeff( element );
+                return QBrush( m_gradient->calculateColor( coeff ) );
+                break;
+            }
+        case TIME:
+            {
+                const double date = el->dataAsVariant( ChemicalDataObject::date ).toInt();
+
+                if ( m_time >= date )
+                    return m_scheme->elementBrush( element, rect );
+                else
+                    return QBrush( Qt::lightGray );
+
+                break;
+            }
     }
-	}
 	// fallback
 	return QBrush();
 }
