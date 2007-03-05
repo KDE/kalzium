@@ -111,7 +111,6 @@ KalziumDataObject::KalziumDataObject()
 
 		QFile file( filename );
 		if ( file.exists() ) {
-            kDebug() << "File " << filename << " is being processed" << endl;
             QPainter p( &pix );
             svgrenderer->load(filename);
             svgrenderer->render( &p );
@@ -120,7 +119,6 @@ KalziumDataObject::KalziumDataObject()
 			PixmapList << pix;
 		}
 		else {
-            kDebug() << "File " << filename << " NOT FOUND" << endl;
 			PixmapList << QPixmap();
 		}
 	}

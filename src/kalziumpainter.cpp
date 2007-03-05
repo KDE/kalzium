@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005, 2006      by Pino Toscano, toscano.pino@tiscali.it*
- *   Copyright (C) 2006            by Carsten Niehaus, cniehaus@kde.org    *
+ *   Copyright (C) 2006, 2007      by Carsten Niehaus, cniehaus@kde.org    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -173,8 +173,9 @@ void KalziumPainter::drawElement( int element, const QRect& r )
                 else
                     c = m_scheme->elementBrush( element, rect );
 
+                //when drawing the iconic style we don't draw the text. That is
+                //why I introduced this if-condition. (C Niehaus)
                 if (m_scheme->name() == "Iconic") {
-                    kDebug() << "drawing the iconic scheme" << endl;
                     // the brush doesn't have any texture,
                     // so proceeding with normal colors and texts
                     QColor textc = m_scheme->textColor( element );
