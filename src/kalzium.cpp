@@ -1,5 +1,5 @@
 /***************************************************************************
-    copyright            : (C) 2003, 2004, 2005, 2006 by Carsten Niehaus
+    copyright            : (C) 2003, 2004, 2005, 2006, 2007 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 /***************************************************************************
@@ -36,7 +36,7 @@
 #include "tablesdialog.h"
 #include "search.h"
 #include "searchwidget.h"
-#include "obconverter.h"
+#include "tools/obconverter.h"
 #include "config-kalzium.h"
 
 #ifdef HAVE_FACILE

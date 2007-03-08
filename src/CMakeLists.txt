@@ -1,14 +1,25 @@
+add_subdirectory(tools)
+
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduplot/
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/compoundviewer/
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
+   ${CMAKE_SOURCE_DIR}/kalzium/src/tools/
    ${CMAKE_CURRENT_BINARY_DIR}/..
 )
 
 ########### next target ###############
 
+set(kalziumtools_SRCS
+	tools/obconverter.cpp
+)
+kde4_add_ui_files(kalziumtools_SRCS
+	tools/obconverterwidget.ui
+)
+
 set(kalzium_SRCS
+	${kalziumtools_SRCS}
    kalzium.cpp
    main.cpp
    periodictableview.cpp
@@ -54,7 +65,6 @@ if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
   set( kalzium_SRCS
     ${kalzium_SRCS}
     moleculeview.cpp
-    obconverter.cpp
     )
   include_directories( ${OPENBABEL2_INCLUDE_DIR} ${EIGEN_INCLUDE_DIR} )
 endif(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
@@ -73,7 +83,6 @@ kde4_add_ui_files(kalzium_SRCS
    rswidget.ui
    moleculeviewerwidget.ui
    timewidget.ui
-   obconverterwidget.ui
 )
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
