@@ -36,7 +36,6 @@
 #include "tablesdialog.h"
 #include "search.h"
 #include "searchwidget.h"
-#include "tools/obconverter.h"
 #include "config-kalzium.h"
 
 #ifdef HAVE_FACILE
@@ -45,6 +44,7 @@
 
 #ifdef HAVE_OPENBABEL2
 #include "tools/moleculeview.h"
+#include "tools/obconverter.h"
 #endif
 
 #include <QDockWidget>
