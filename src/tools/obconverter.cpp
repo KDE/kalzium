@@ -18,9 +18,8 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
-
-
 #include "obconverter.h"
+#include "obsupportedformat.h"
 
 // OpenBabel includes
 #include <openbabel/obconversion.h>
@@ -227,59 +226,6 @@ void OBConverter::slotConvert()
         default:
             break;
     }
-}
-
-OBSupportedFormat::OBSupportedFormat()
-{
-    OBConversion conv;
-    Formatpos pos;
-    OBFormat* pFormat = NULL;
-    const char* str = NULL;
-
-    while( OBConversion::GetNextFormat(pos, str, pFormat) )
-    {
-        if(( pFormat->Flags() & NOTWRITABLE) && (pFormat->Flags() & NOTREADABLE) ){
-            continue;
-        }
-        QString Description = pFormat->Description();
-        Description.truncate(Description.indexOf("\n"));
-        char buf[20];
-        snprintf(buf,sizeof(buf),"%s -- ",str);
-        Description.prepend(buf);
-        if ( !(pFormat->Flags() & NOTREADABLE) ){
-            m_InputFormat.append(Description);
-        }
-        if ( !(pFormat->Flags() & NOTWRITABLE) ){
-            m_OutputFormat.append(Description);
-        }
-    }
-}
-
-OBSupportedFormat::~OBSupportedFormat()
-{
-}
-
-QStringList OBSupportedFormat::getInputFormat() const
-{
-    return m_InputFormat;
-}
-
-QStringList OBSupportedFormat::getOutputFormat() const
-{
-    return m_OutputFormat;
-}
-
-void OBSupportedFormat::setFormatExtensions()
-{
-    kDebug() << "OBSupportedFormat::setFormatExtensions()" << endl;
-    
-    foreach (QString s, m_InputFormat) {
-        QString tmp = s.remove(QRegExp(" --.*"));
-
-        m_InputFormatExtensions << tmp;
-    }
-
-    kDebug() << "m_InputFormatExtensions: " << m_InputFormatExtensions << endl;
 }
 
 #include "obconverter.moc"

@@ -13,6 +13,7 @@ include_directories(
 
 set(kalziumtools_SRCS
 	tools/obconverter.cpp
+	tools/obsupportedformat.cpp
 )
 kde4_add_ui_files(kalziumtools_SRCS
 	tools/obconverterwidget.ui

@@ -80,45 +80,4 @@ class OBConverter : public KDialog
 
 };
 
-/**
- * Full description
- * @short Get supported format (input and output) from openbabel
- * @author Jerome Pansanel
- */
-class OBSupportedFormat
-{
-    public:
-        /**
-         * Constructor
-         */
-        OBSupportedFormat();
-
-        /**
-         * Destructor
-         */
-        ~OBSupportedFormat();
-
-        /**
-         * @return a list containing the supported input format
-         */
-        QStringList getInputFormat() const;
-
-        /**
-         * @return a list containing the supported output format
-         */
-        QStringList getOutputFormat() const;
-        
-        QStringList getInputFormatExtensions() const{
-            return m_InputFormatExtensions;
-        };
-
-        void setFormatExtensions();
-
-    private:
-        QStringList m_InputFormat;
-        QStringList m_OutputFormat;
-
-        QStringList m_InputFormatExtensions;
-};
-
 #endif // OBCONVERTER_H
