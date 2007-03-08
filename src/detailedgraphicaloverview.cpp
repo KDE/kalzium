@@ -27,8 +27,6 @@ email                : cniehaus@kde.org
 #include <QBrush>
 #include <QPainter>
 #include <QString>
-#include <QPalette>
-#include <QPixmap>
 #include <QRect>
 
 #include <element.h>
