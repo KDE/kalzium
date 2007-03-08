@@ -11,22 +11,31 @@ include_directories(
 
 ########### next target ###############
 
-set(kalziumtools_SRCS
-	tools/obconverter.cpp
-	tools/obsupportedformat.cpp
-)
-
-if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
+#the tools can only be build (right now) when OpenBabel2 is
+#found. The moleculeviewer needs not only OpenBabel2 but
+#also Eigen and OpenGL, so there is a nested if-check
+if(OPENBABEL2_FOUND)
 	set(kalziumtools_SRCS
-    ${kalziumtools_SRCS}
-    tools/moleculeview.cpp
-    )
-  include_directories( ${OPENBABEL2_INCLUDE_DIR} ${EIGEN_INCLUDE_DIR} )
-endif(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
-
-kde4_add_ui_files(kalziumtools_SRCS
-	tools/obconverterwidget.ui
-)
+		tools/obconverter.cpp
+		tools/obsupportedformat.cpp
+	)
+	
+	kde4_add_ui_files(kalziumtools_SRCS
+		tools/obconverterwidget.ui
+	)
+	include_directories( ${OPENBABEL2_INCLUDE_DIR} )
+	
+	if(OPENGL_FOUND AND EIGEN_FOUND)
+		set(kalziumtools_SRCS
+			${kalziumtools_SRCS}
+			tools/moleculeview.cpp
+			)
+		kde4_add_ui_files(kalziumtools_SRCS
+			tools/moleculeviewerwidget.ui
+			)
+		include_directories( ${EIGEN_INCLUDE_DIR} )
+	endif(OPENGL_FOUND AND EIGEN_FOUND)
+endif(OPENBABEL2_FOUND)
 
 set(kalzium_SRCS
 	${kalziumtools_SRCS}
