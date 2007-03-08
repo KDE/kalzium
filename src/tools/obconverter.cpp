@@ -52,7 +52,7 @@ OBConverter::OBConverter( QWidget *parent )
 	
     ui.setupUi( mainWidget() );
     
-    setButtonGuiItem( User1, KGuiItem( i18n( "Convert" ), "editcopy", i18n( "Convert selected files" ) ) );
+    setButtonGuiItem( User1, KGuiItem( i18n( "Convert" ), "edit-copy", i18n( "Convert selected files" ) ) );
     
     setupWindow();
 }

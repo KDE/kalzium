@@ -641,7 +641,7 @@ IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 	toolbar->addAction( a );
         KToggleAction *ta = m_ac->add<KToggleAction>( "zoomselect" );
         ta->setText( i18n( "Select Zoom Area" ) );
-        ta->setIcon( KIcon( "viewmagfit" ) );
+        ta->setIcon( KIcon( "zoom-best-fit" ) );
 	connect( ta, SIGNAL( toggled( bool ) ), m_view, SLOT( slotToogleZoomMode( bool ) ) );
 	connect( m_view, SIGNAL( toggleZoomAction( bool ) ), ta, SLOT( setChecked( bool ) ) );
 	toolbar->addAction( ta );

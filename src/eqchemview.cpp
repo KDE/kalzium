@@ -71,7 +71,7 @@ EQChemDialog::EQChemDialog( QWidget *parent )
     setDefaultButton( None );
 
     ui.setupUi( mainWidget() );
-	setButtonGuiItem( User1, KGuiItem( i18n( "Copy" ), "editcopy", i18n( "Copy answer to clipboard" ) ) );
+	setButtonGuiItem( User1, KGuiItem( i18n( "Copy" ), "edit-copy", i18n( "Copy answer to clipboard" ) ) );
     
     connect( ui.calculateButton , SIGNAL( clicked() ), 
             this, SLOT( compute() ) );

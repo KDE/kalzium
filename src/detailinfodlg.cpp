@@ -49,8 +49,8 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
 	setFaceType( List );
 	setButtons( Help | User1 | User2 | Close );
 	setDefaultButton( Close );
-	setButtonGuiItem( User1, KGuiItem( i18nc( "Next element", "Next" ), "1rightarrow", i18n( "Goes to the next element" ) ) );
-	setButtonGuiItem( User2, KGuiItem( i18nc( "Previous element", "Previous" ), "1leftarrow", i18n( "Goes to the previous element" ) ) );
+	setButtonGuiItem( User1, KGuiItem( i18nc( "Next element", "Next" ), "arrow-right", i18n( "Goes to the next element" ) ) );
+	setButtonGuiItem( User2, KGuiItem( i18nc( "Previous element", "Previous" ), "arrow-left", i18n( "Goes to the previous element" ) ) );
 
 	m_baseHtml = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/htmlview/";
 	m_baseHtml2 = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/hazardsymbols/";
