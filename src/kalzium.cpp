@@ -44,7 +44,7 @@
 #endif
 
 #ifdef HAVE_OPENBABEL2
-#include "moleculeview.h"
+#include "tools/moleculeview.h"
 #endif
 
 #include <QDockWidget>

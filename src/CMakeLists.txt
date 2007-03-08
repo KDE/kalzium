@@ -15,6 +15,15 @@ set(kalziumtools_SRCS
 	tools/obconverter.cpp
 	tools/obsupportedformat.cpp
 )
+
+if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
+	set(kalziumtools_SRCS
+    ${kalziumtools_SRCS}
+    tools/moleculeview.cpp
+    )
+  include_directories( ${OPENBABEL2_INCLUDE_DIR} ${EIGEN_INCLUDE_DIR} )
+endif(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
+
 kde4_add_ui_files(kalziumtools_SRCS
 	tools/obconverterwidget.ui
 )
@@ -62,14 +71,6 @@ if(LIBFACILE_FOUND)
     )
 endif(LIBFACILE_FOUND)
 
-if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
-  set( kalzium_SRCS
-    ${kalzium_SRCS}
-    moleculeview.cpp
-    )
-  include_directories( ${OPENBABEL2_INCLUDE_DIR} ${EIGEN_INCLUDE_DIR} )
-endif(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
-
 kde4_automoc(${kalzium_SRCS})
 
 kde4_add_ui_files(kalzium_SRCS
@@ -82,7 +83,6 @@ kde4_add_ui_files(kalzium_SRCS
    settings_misc.ui
    settings_units.ui
    rswidget.ui
-   moleculeviewerwidget.ui
    timewidget.ui
 )
 
