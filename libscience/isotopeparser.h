@@ -42,7 +42,7 @@ class SCIENCE_EXPORT IsotopeParser : public QXmlDefaultHandler
 
 	private:
 		class Private;
-		Private *d;
+		Private *const d;
 };
 #endif // ISOTOPEPARSER_H
 
