@@ -43,7 +43,9 @@
 #endif
 
 #ifdef HAVE_OPENBABEL2
+#ifdef HAVE_EIGEN
 #include "tools/moleculeview.h"
+#endif
 #include "tools/obconverter.h"
 #endif
 
@@ -227,7 +229,7 @@ void Kalzium::setupActions()
 #ifndef HAVE_OPENBABEL2
     m_pMoleculesviewer->setEnabled( false );
 #endif
-#ifndef HAVE_OPENGL
+#if !defined(HAVE_OPENGL) || !defined(HAVE_EIGEN)
     m_pMoleculesviewer->setEnabled( false );
 #endif
 

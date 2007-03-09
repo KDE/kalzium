@@ -7,3 +7,6 @@
 /* Define 1 if we have OpenGL */
 #cmakedefine HAVE_OPENGL 1
 
+/* Define 1 if we have Eigen */
+#cmakedefine HAVE_EIGEN 1
+
