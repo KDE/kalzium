@@ -7,6 +7,7 @@ macro_optional_find_package(Libfacile)
 macro_bool_to_01(LIBFACILE_FOUND HAVE_FACILE)
 macro_bool_to_01(OPENBABEL2_FOUND HAVE_OPENBABEL2)
 macro_bool_to_01(OPENGL_FOUND HAVE_OPENGL)
+macro_bool_to_01(EIGEN_FOUND HAVE_EIGEN)
 
 # at the end, output the configuration
 configure_file(
