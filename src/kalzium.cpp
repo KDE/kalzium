@@ -226,10 +226,7 @@ void Kalzium::setupActions()
     m_pMoleculesviewer->setText( i18n( "Molecular Viewer..." ) );
     m_pMoleculesviewer->setIcon( KIcon( "kalzium_molviewer" ) );
     connect( m_pMoleculesviewer, SIGNAL( triggered() ), this, SLOT( slotMoleculeviewer() ) );
-#ifndef HAVE_OPENBABEL2
-    m_pMoleculesviewer->setEnabled( false );
-#endif
-#if !defined(HAVE_OPENGL) || !defined(HAVE_EIGEN)
+#if !defined(HAVE_OPENBABEL2) || !defined(HAVE_OPENGL) || !defined(HAVE_EIGEN)
     m_pMoleculesviewer->setEnabled( false );
 #endif
 
@@ -333,8 +330,7 @@ void Kalzium::slotOBConverter()
 
 void Kalzium::slotMoleculeviewer()
 {
-#ifdef HAVE_OPENBABEL2
-#ifdef HAVE_OPENGL
+#if defined(HAVE_OPENBABEL2) && defined(HAVE_OPENGL) && defined(HAVE_EIGEN)
 	MoleculeDialog * d = new MoleculeDialog( this ); d->show();
 
   KLibrary* library = KLibLoader::self()->globalLibrary("libkalziumglpart");
@@ -350,7 +346,6 @@ void Kalzium::slotMoleculeviewer()
 
       part->widget()->show();
   }
-#endif
 #endif
 }
 
