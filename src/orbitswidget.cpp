@@ -29,9 +29,10 @@ static QStringList hulllist;
  * @param angle is the n'st circle out of num
  * @param num is the number of circles
  */
-static double translateToDX( double r, double angle, int num )
+inline static double translateToDX( double r, double angle, int num )
 {
-	return r * sin( M_PI * angle / num * 2 );
+    const double t = 2 * M_PI * angle / num;
+    return r * sin( t );
 }
 
 /**
@@ -40,9 +41,10 @@ static double translateToDX( double r, double angle, int num )
  * @param angle is the n'st circle out of num
  * @param num is the number of circles
  */
-static double translateToDY( double r, double angle, int num )
+inline static double translateToDY( double r, double angle, int num )
 {
-	return r * cos( M_PI * angle / num * 2 );
+    const double t = 2 * M_PI * angle / num;
+    return r * cos( t );
 }
 
 OrbitsWidget::OrbitsWidget( QWidget *parent ) : QWidget( parent )
