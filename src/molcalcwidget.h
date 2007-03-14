@@ -1,7 +1,7 @@
 #ifndef MOLCALCWIDGET_H
 #define MOLCALCWIDGET_H
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Carsten Niehaus                                 *
+ *   Copyright (C) 2005, 2006, 2007 by Carsten Niehaus                     *
  *   cniehaus@kde.org                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -25,6 +25,9 @@
 
 #include "moleculeparser.h"
 
+class QTimer;
+class QKeyEvent;
+
 /**
  * This widget is a small calculator for molecules.
  *
@@ -44,7 +47,10 @@ class MolcalcWidget : public QWidget
 		virtual ~MolcalcWidget();
 
 	protected slots:
-		void slotCalcButtonClicked();
+		void slotCalculate();
+        
+	protected:
+        void keyPressEvent(QKeyEvent *e);
 
 	private slots:
 		void clear();
@@ -63,6 +69,8 @@ class MolcalcWidget : public QWidget
 		void updateUI();
 
 		Ui_MolcalcWidgetBase ui;
+
+        QTimer * m_timer;
 
 	private:
 		MoleculeParser   *m_parser;

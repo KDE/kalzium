@@ -38,17 +38,24 @@
 #include <QLabel>
 #include <QLayout>
 #include <QToolButton>
+#include <QTimer>
+#include <QKeyEvent>
 
 MolcalcWidget::MolcalcWidget( QWidget *parent )
     : QWidget( parent )
 {
 	m_parser = new MoleculeParser( KalziumDataObject::instance()->ElementList );
+
+    m_timer = new QTimer(this);
+    m_timer->setSingleShot( true );
 	
 	ui.setupUi( this );
 	
-	connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalcButtonClicked() ) );
-	connect( ui.formulaEdit, SIGNAL( returnPressed() ), this, SLOT( slotCalcButtonClicked() ) );
+	connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalculate() ) );
+	connect( ui.formulaEdit, SIGNAL( returnPressed() ), this, SLOT( slotCalculate() ) );
 	connect( ui.clearButton, SIGNAL( clicked() ), this, SLOT( clear() ) );
+    connect( m_timer, SIGNAL( timeout() ),
+            this, SLOT( slotCalculate() ) );
 
 	ui.clearButton->setIcon( KIcon( QApplication::layoutDirection() == Qt::RightToLeft ? "clear_left" : "locationbar_erase" ) );
 
@@ -85,52 +92,52 @@ void MolcalcWidget::clear()
 
 void MolcalcWidget::updateUI()
 {
-	kDebug() << "MolcalcWidget::updateUI()" << endl;
-	
-	if ( m_validInput ){
-		kDebug() << "m_validInput == true" << endl;
-		QString str;
+    kDebug() << "MolcalcWidget::updateUI()" << endl;
 
-		// The complexString stores the whole molecule like this:
-		// 1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
-		QString complexString;
+    if ( m_validInput ){
+        kDebug() << "m_validInput == true" << endl;
+        QString str;
 
-		// Create the list of elements making up the molecule
-    foreach (ElementCount * count , m_elementMap.map()) {
-        // Update the resultLabel
-        str += i18nc( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" ,
-                count->count() ,
-                count->element()->dataAsString( ChemicalDataObject::name) );
-    }
-		ui.resultLabel->setText( str );
+        // The complexString stores the whole molecule like this:
+        // 1 Seaborgium. Cumulative Mass: 263.119 u (39.2564 %)
+        QString complexString;
 
-		// The composition
-		ui.resultComposition->setText( compositionString(m_elementMap) );
+        // Create the list of elements making up the molecule
+        foreach (ElementCount * count , m_elementMap.map()) {
+            // Update the resultLabel
+            str += i18nc( "For example: \"1 Carbon\" or \"3 Oxygen\"", "%1 %2\n" ,
+                    count->count() ,
+                    count->element()->dataAsString( ChemicalDataObject::name) );
+        }
+        ui.resultLabel->setText( str );
 
-		// The mass
-		ui.resultMass->setText( i18n( "Molecular mass: %1 u", m_mass ) );
+        // The composition
+        ui.resultComposition->setText( compositionString(m_elementMap) );
 
-		ui.resultMass->setToolTip(        complexString );
-		ui.resultComposition->setToolTip( complexString );
-		ui.resultLabel->setToolTip(       complexString );
-		
+        // The mass
+        ui.resultMass->setText( i18n( "Molecular mass: %1 u", m_mass ) );
+
+        ui.resultMass->setToolTip(        complexString );
+        ui.resultComposition->setToolTip( complexString );
+        ui.resultLabel->setToolTip(       complexString );
+
 #if 0
-		// FIXME
-		//select the elements in the table
-		QList<Element*> list = m_elementMap.elements();
-		KalziumDataObject::instance()->findElements( list );
+        // FIXME
+        //select the elements in the table
+        QList<Element*> list = m_elementMap.elements();
+        KalziumDataObject::instance()->findElements( list );
 #endif
-	}
-	else{//the input was invalid, so tell this the user
-		kDebug() << "m_validInput == false" << endl;
-		ui.resultComposition->setText( i18n( "Invalid input" ) );
-		ui.resultLabel->setText( QString() );
-		ui.resultMass->setText( QString() );
+    }
+    else{//the input was invalid, so tell this the user
+        kDebug() << "m_validInput == false" << endl;
+        ui.resultComposition->setText( i18n( "Invalid input" ) );
+        ui.resultLabel->setText( QString() );
+        ui.resultMass->setText( QString() );
 
-		ui.resultMass->setToolTip(        i18n( "Invalid input" ) );
-		ui.resultComposition->setToolTip( i18n( "Invalid input" ) );
-		ui.resultLabel->setToolTip(       i18n( "Invalid input" ) );
-	}
+        ui.resultMass->setToolTip(        i18n( "Invalid input" ) );
+        ui.resultComposition->setToolTip( i18n( "Invalid input" ) );
+        ui.resultLabel->setToolTip(       i18n( "Invalid input" ) );
+    }
 }
 
 QString MolcalcWidget::compositionString( ElementCountMap &_map )
@@ -151,9 +158,9 @@ QString MolcalcWidget::compositionString( ElementCountMap &_map )
 //                            slots
 
 
-void MolcalcWidget::slotCalcButtonClicked()
+void MolcalcWidget::slotCalculate()
 {
-	kDebug() << "MolcalcWidget::slotCalcButtonClicked()" << endl;
+    kDebug() << "MolcalcWidget::slotCalcButtonClicked()" << endl;
 	QString  molecule = ui.formulaEdit->text();
 
 	// Parse the molecule, and at the same time calculate the total
@@ -163,6 +170,12 @@ void MolcalcWidget::slotCalcButtonClicked()
 
 	updateUI();
 }
+
+void MolcalcWidget::keyPressEvent(QKeyEvent * /* e */)
+{
+    m_timer->start(1000);
+}
+
 
 
 #include "molcalcwidget.moc"
