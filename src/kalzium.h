@@ -79,7 +79,6 @@ class Kalzium : public KMainWindow
 		KSelectAction *look_action;
 		KSelectAction *look_action_schemes;
 		KSelectAction *numeration_action;
-		KSelectAction *psestyle_action;
 		// settings
 		QAction *m_pLegendAction;
 		QAction *m_SidebarAction;

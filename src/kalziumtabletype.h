@@ -151,34 +151,4 @@ class KalziumClassicTableType : public KalziumTableType
 		QPoint elementUnderMouse( const QPoint& coords ) const;
 };
 
-/**
- * The class representing the hexagonal periodic table, and its metrics.
- *
- * @author Carsten Niehaus
- */
-class KalziumHexTableType : public KalziumTableType
-{
-	public:
-		static KalziumHexTableType* instance();
-
-		QByteArray name() const;
-		QString description() const;
-
-		QSize size() const;
-
-		int elementAtCoords( const QPoint& coords ) const;
-		QRect elementRect( const int numelem ) const;
-		QRect legendRect() const;
-		QRect numerationRect( const int numelem, KalziumNumerationType *nt ) const;
-
-	private:
-		KalziumHexTableType();
-
-		/**
-		 * @return the coordinates of the element under the point
-		 * @p coords.
-		 */
-		QPoint elementUnderMouse( const QPoint& coords ) const;
-};
-
 #endif // KALZIUMTABLETYPE_H

@@ -115,53 +115,6 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 
     bool selectedElement = KalziumDataObject::instance()->search()->matches( el );
     
-    if (m_ktt->name() == "Hex")
-    {//this if is just a hack until I integrated
-    //the hex mode 100%
-
-        QRect correctedRect;
-        QPoint newX = rect.topLeft();
-        QPoint newY = rect.bottomRight();
-
-        newX.setX( newX.x() ); 
-        newX.setY( newX.y() /2 ); 
-        newY.setX( newY.x() ); 
-        newY.setY( newY.y() /2 ); 
-        
-        const int column = rect.x() / ELEMENTSIZE;
-
-        newX.setX( newX.x() - ( column*(ELEMENTSIZE/4) ) );
-        newY.setX( newX.y() - ( column*(ELEMENTSIZE/4) ) );
-
-        correctedRect = QRect( newX, newY);
-        QBrush c = m_scheme->elementBrush( element, rect );
-
-        QColor textc = m_scheme->textColor( element );
-        m_painter->setPen( textc );
-
-        QPolygon poly;
-        poly << QPoint(correctedRect.x(), 
-                correctedRect.y() + ELEMENTSIZE/2);
-        poly << QPoint(correctedRect.x()+ELEMENTSIZE/4,
-                correctedRect.y());
-        poly << QPoint(correctedRect.x()+ELEMENTSIZE/4*3,
-                correctedRect.y());
-        poly << QPoint(correctedRect.x()+ELEMENTSIZE, 
-                correctedRect.y() + ELEMENTSIZE/2);
-        poly << QPoint(correctedRect.x()+ELEMENTSIZE/4*3,
-                correctedRect.y() + ELEMENTSIZE);
-        poly << QPoint(correctedRect.x()+ELEMENTSIZE/4,
-                correctedRect.y() + ELEMENTSIZE);
-
-        QPainterPath path;
-        path.addPolygon(poly);
-
-        m_painter->fillPath(path, c);
-        m_painter->drawPolygon( poly );
-
-        m_painter->drawText( correctedRect.x(), correctedRect.y(),
-                ELEMENTSIZE, ELEMENTSIZE, Qt::AlignCenter, symbol );
-    } else{
     switch ( m_mode )
     {
         case NORMAL:
@@ -292,7 +245,6 @@ void KalziumPainter::drawElement( int element, const QRect& r )
                 m_painter->drawText( rect, Qt::AlignCenter, symbol );
                 break;
             }
-    }
     }
 }
 

@@ -171,15 +171,6 @@ void Kalzium::setupActions()
     numeration_action->setItems( KalziumNumerationTypeFactory::instance()->numerations() );
     connect( numeration_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoNumeration( int ) ) );
 
-    //Style of the Periodic Table
-    QStringList styletype;
-    styletype << i18n("Regular Table");
-    styletype << i18n("Hexagonal Table");
-    psestyle_action = actionCollection()->add<KSelectAction>( "view_styletype" );
-    psestyle_action->setText( i18n( "&Style" ) );
-    psestyle_action->setItems( styletype );
-    connect( psestyle_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoStyle( int ) ) );
-
     m_SidebarAction = m_dockWin->toggleViewAction();
     actionCollection()->addAction( "view_sidebar", m_SidebarAction );
     m_SidebarAction->setIcon( KIcon( "sidebar" ) );
