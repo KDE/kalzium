@@ -129,10 +129,6 @@ void KalziumPainter::drawElement( int element, const QRect& r )
                 //when drawing the iconic style we don't draw the text. That is
                 //why I introduced this if-condition. (C Niehaus)
                 if (m_scheme->name() == "Iconic") {
-                    // the brush doesn't have any texture,
-                    // so proceeding with normal colors and texts
-                    QColor textc = m_scheme->textColor( element );
-
                     m_painter->fillRect( rect, c );
                     m_painter->drawRect( rect );
                 }else if ( !c.texture().isNull() )
