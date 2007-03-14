@@ -204,7 +204,7 @@ void OrbitsWidget::paintEvent(  QPaintEvent* )
 	//difference to the previous circle
 	int ddx = r / num;
 
-	intList::Iterator it = numOfElectrons.end();
+	QList<int>::Iterator it = numOfElectrons.end();
 	--it;
 
 	for ( int i = 0 ; i < num ; ++i )

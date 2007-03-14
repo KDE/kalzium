@@ -39,8 +39,7 @@ class OrbitsWidget : public QWidget
 		 */
 		int Elemno; 
 	
-		typedef QList<int> intList;
-		intList numOfElectrons;
+		QList<int> numOfElectrons;
 
 	protected slots:
 		virtual void paintEvent(  QPaintEvent* );
