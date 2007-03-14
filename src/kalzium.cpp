@@ -407,7 +407,6 @@ void Kalzium::slotShowHideSidebar( bool checked, bool changeconfig )
 
 void Kalzium::slotSwitchtoStyle( int index )
 {
-    kDebug() << "Kalzium::slotSwitchtoStyle()" << endl;
     m_PeriodicTableView->slotChangeStyle(index);
 }
 
@@ -533,18 +532,24 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 		m_prevNormalMode = cur;
 	m_PeriodicTableView->setMode( m_prevNormalMode );
 
+    //In the timeline and the calculator-mode we have to disable the searchwidget
+    //because of focus-stealing and a conflict with the "hiding" of the elements
 	switch ( id )
 	{
 		case 0: // nothing
-		case 1: // molcalc
+            m_searchWidget->setEnabled( true );
+		case 1: //state of matter
+            m_searchWidget->setEnabled( true );
 			break;
-		case 2: // state of matter
+		case 2: // timeline
 			m_PeriodicTableView->setTemperature( m_somWidget->temperature() );
 			m_PeriodicTableView->setMode( KalziumPainter::SOM );
+            m_searchWidget->setEnabled( false );
 			break;
-		case 3: // timeline
+		case 3: // molecular calculator
 			m_PeriodicTableView->setTime( m_timeWidget->time_box->value() );
 			m_PeriodicTableView->setMode( KalziumPainter::TIME );
+            m_searchWidget->setEnabled( false );
 			break;
 	}
 	if ( m_dockWin->isVisible() )
@@ -558,7 +563,7 @@ Kalzium::~Kalzium()
 void Kalzium::keyPressEvent( QKeyEvent *e)
 {
 	m_searchWidget->appendSearchText( e->text() );
-	m_searchWidget->giveFocus();
+    m_searchWidget->giveFocus();
 	e->accept();
 }
 
