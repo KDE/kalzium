@@ -50,7 +50,7 @@ KAboutData *KalziumGLPart::createAboutData()
 
 bool KalziumGLPart::openFile()
 {
-	OpenBabel::OBMol* mol = OpenBabel2Wrapper::readMolecule( m_url.path() );
+	OpenBabel::OBMol* mol = OpenBabel2Wrapper::readMolecule( url().path() );
 	mol->Center();
 
   m_widget->slotSetMolecule( mol );
