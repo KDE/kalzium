@@ -5,7 +5,7 @@
                            orbitswidget.h  -  description
                              -------------------
     begin                : June 2003
-    copyright            : (C) 2003, 2004, 2005, 2006 by Carsten Niehaus
+    copyright            : (C) 2003, 2004, 2005, 2006, 2007 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 
