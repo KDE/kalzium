@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Icon=kalzium
-MimeType=application/x-ogg;audio/basic;
+MimeType=application/ogg;audio/basic;
 Name=KalziumGLPart
 Name[x-test]=xxKalziumGLPartxx
 Comment=An OpenGL-based 3D-renderer for molecules
