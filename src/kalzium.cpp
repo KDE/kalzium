@@ -179,6 +179,7 @@ void Kalzium::setupActions()
     numeration_action = actionCollection()->add<KSelectAction>( "view_numerationtype" );
     numeration_action->setText( i18n( "&Numeration" ) );
     numeration_action->setItems( KalziumNumerationTypeFactory::instance()->numerations() );
+    numeration_action->setCurrentItem(Prefs::numeration());
     connect( numeration_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoNumeration( int ) ) );
 
     m_SidebarAction = m_dockWin->toggleViewAction();
