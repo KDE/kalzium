@@ -173,6 +173,7 @@ void Kalzium::setupActions()
     table_action =  actionCollection()->add<KSelectAction>( "view_table" );
     table_action->setText( i18n( "&Tables" ) );
     table_action->setItems(tablelist);
+    table_action->setCurrentItem(Prefs::table());
     connect( table_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoTable( int ) ) );
 
     // the actions for switching numeration
@@ -253,7 +254,7 @@ void Kalzium::setupActions()
 
     //	slotShowScheme( Prefs::colorschemebox() );
     slotSwitchtoNumeration( Prefs::numeration() );
-
+    slotSwitchtoTable( Prefs::table() );
     slotShowHideSidebar( m_SidebarAction->isChecked(), false );
 
     if ( Prefs::showlegend() ) {
@@ -419,6 +420,8 @@ void Kalzium::slotShowHideSidebar( bool checked, bool changeconfig )
 void Kalzium::slotSwitchtoTable( int index )
 {
     m_PeriodicTableView->slotChangeTable(index);
+    Prefs::setTable(index);
+    Prefs::writeConfig();
 }
 
 void Kalzium::slotSwitchtoNumeration( int index )

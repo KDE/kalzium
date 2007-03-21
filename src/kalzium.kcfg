@@ -35,6 +35,11 @@
 			<whatsthis>Display the atomic mass in the PSE</whatsthis>
 			<default>0</default>
 		</entry>
+		<entry name="table" type="Int">
+			<label>Selects the table view (default is short)</label>
+			<whatsthis>Display the table view</whatsthis>
+			<default>1</default>
+		</entry>
 	</group>
 	<group name="Colors">
 		<entry name="noscheme" type="Color">
