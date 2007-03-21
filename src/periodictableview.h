@@ -177,9 +177,9 @@ class PeriodicTableView : public QWidget
 		 */
 		void setTemperature( int temp );
 		
-    void setTime( int time );
+        void setTime( int time );
 
-    void slotChangeStyle( int style );
+        void slotChangeTable( int table );
 
 		/**
 		 * this slot removes the selection of any point

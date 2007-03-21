@@ -78,6 +78,9 @@ class Kalzium : public KMainWindow
 		 */
 		KSelectAction *look_action;
 		KSelectAction *look_action_schemes;
+		
+        KSelectAction *table_action;
+		KSelectAction *table_action_schemes;
 		KSelectAction *numeration_action;
 		// settings
 		QAction *m_pLegendAction;
@@ -128,7 +131,10 @@ class Kalzium : public KMainWindow
 
 		void slotShowEQSolver();
 		
-    void slotSwitchtoStyle( int index );
+        /**
+        * switched to the table with the index @p index
+        */
+        void slotSwitchtoTable( int index );
 		
 		void slotShowLegend();
 		

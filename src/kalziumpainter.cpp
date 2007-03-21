@@ -99,10 +99,11 @@ void KalziumPainter::drawElements()
 	QPaintDevice *dev = m_painter->device();
 	QRect r( 0, 0, dev->width(), dev->height() );
 	m_painter->fillRect( r, QApplication::palette().background() );
-	for ( int i = 1; i <= KalziumDataObject::instance()->numberOfElements(); i++ )
-	{
+
+    //Now iterate over all elements the table contains
+    QList<int> listOfELements = m_ktt->elementList();
+    foreach (int i, listOfELements)
 		drawElement( i );
-	}
 }
 
 void KalziumPainter::drawElement( int element, const QRect& r )

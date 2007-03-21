@@ -66,7 +66,7 @@ PeriodicTableView::PeriodicTableView( QWidget *parent )
     connect( &m_hoverTimer, SIGNAL( timeout() ), this, SLOT( slotMouseover() ) );
     m_prevHoverElement = 0;
 
-    KalziumTableType *tt = KalziumTableTypeFactory::instance()->build( "Classic" );
+    KalziumTableType *tt = KalziumTableTypeFactory::instance()->build( "Short" );
     m_painter = new KalziumPainter( tt );
     m_painter->toggleLegend( Prefs::showlegend() );
 
@@ -228,13 +228,13 @@ QBrush PeriodicTableView::brushForElement( int element ) const
 	return m_painter->brushForElement( element );
 }
 
-void PeriodicTableView::slotChangeStyle(int style)
+void PeriodicTableView::slotChangeTable(int table)
 {
-    KalziumTableType *tt = KalziumTableTypeFactory::instance()->build( style );
-    kDebug() << "Currently selected style: " << tt->name() << endl;
+    KalziumTableType *tt = KalziumTableTypeFactory::instance()->build( table );
     m_painter->setTableType(tt);
 
     setMinimumSize( tt->size() );
+    setFullDraw();
     update();
 }
 

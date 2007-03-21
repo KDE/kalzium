@@ -32,6 +32,7 @@
 #include "kalziumnumerationtype.h"
 #include "kalziumschemetype.h"
 #include "kalziumgradienttype.h"
+#include "kalziumtabletype.h"
 #include "rsdialog.h"
 #include "tablesdialog.h"
 #include "search.h"
@@ -164,6 +165,15 @@ void Kalzium::setupActions()
     look_action_schemes->setToolBarMode( KSelectAction::MenuMode );
     look_action_schemes->setToolButtonPopupMode( QToolButton::InstantPopup );
     connect( look_action_schemes, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
+    
+    // the action for swiching tables
+    QStringList tablelist;
+    QStringList table_schemes = KalziumTableTypeFactory::instance()->tables();
+    tablelist << prependToListItems( table_schemes, ki18n( "Table: %1" ) );
+    table_action =  actionCollection()->add<KSelectAction>( "view_table" );
+    table_action->setText( i18n( "&Tables" ) );
+    table_action->setItems(tablelist);
+    connect( table_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoTable( int ) ) );
 
     // the actions for switching numeration
     numeration_action = actionCollection()->add<KSelectAction>( "view_numerationtype" );
@@ -405,9 +415,9 @@ void Kalzium::slotShowHideSidebar( bool checked, bool changeconfig )
 	}
 }
 
-void Kalzium::slotSwitchtoStyle( int index )
+void Kalzium::slotSwitchtoTable( int index )
 {
-    m_PeriodicTableView->slotChangeStyle(index);
+    m_PeriodicTableView->slotChangeTable(index);
 }
 
 void Kalzium::slotSwitchtoNumeration( int index )

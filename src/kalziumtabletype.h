@@ -47,6 +47,7 @@ class KalziumTableTypeFactory
 		 * It will gives 0 if none found.
 		 */
 		KalziumTableType* build( int id ) const;
+
 		/**
 		 * Returns the KalziumTableType whose name is the @p id
 		 * specified.
@@ -58,7 +59,6 @@ class KalziumTableTypeFactory
 		 * Returns a list with the names of the table types we support.
 		 */
 		QStringList tables() const;
-
 	private:
 		KalziumTableTypeFactory();
 
@@ -100,6 +100,7 @@ class KalziumTableType
 		/**
 		 * @return the number of the element at the coordinates @p coords.
 		 * If there is no element it will return 0.
+         * For example, for Carbon "6" will be returned
 		 */
 		virtual int elementAtCoords( const QPoint& coords ) const = 0;
 		/**
@@ -115,6 +116,11 @@ class KalziumTableType
 		 * numeration @p nt.
 		 */
 		virtual QRect numerationRect( const int numelem, KalziumNumerationType *nt ) const = 0;
+
+        /**
+          * @return The list of elements this table contains
+          */
+        virtual QList<int> elementList() const = 0;
 
 	protected:
 		KalziumTableType();
@@ -139,6 +145,8 @@ class KalziumClassicTableType : public KalziumTableType
 		QRect elementRect( const int numelem ) const;
 		QRect legendRect() const;
 		QRect numerationRect( const int numelem, KalziumNumerationType *nt ) const;
+        
+        QList<int> elementList() const;
 
 	private:
 		KalziumClassicTableType();
@@ -149,6 +157,45 @@ class KalziumClassicTableType : public KalziumTableType
 		 * For example, H will be 1/1 and Li will be 1/2
 		 */
 		QPoint elementUnderMouse( const QPoint& coords ) const;
+
+        QList<int> m_elementList;
+};
+
+/**
+ * The class representing the "short" periodic table, and its metrics.
+ *
+ * @author Carsten Niehaus
+ */
+class KalziumShortTableType : public KalziumTableType
+{
+	public:
+		static KalziumShortTableType* instance();
+
+		QByteArray name() const;
+		QString description() const;
+
+		QSize size() const;
+
+		int elementAtCoords( const QPoint& coords ) const;
+		QRect elementRect( const int numelem ) const;
+		QRect legendRect() const;
+		QRect numerationRect( const int numelem, KalziumNumerationType *nt ) const;
+        
+        QList<int> elementList() const;
+
+	private:
+		KalziumShortTableType();
+
+		/**
+		 * @return the coordinates of the element under the point
+		 * @p coords.
+		 * For example, H will be 1/1 and Li will be 1/2
+		 */
+		QPoint elementUnderMouse( const QPoint& coords ) const;
+        
+        QList<int> m_elementList;
+
+        static int translateToShort(int num);
 };
 
 #endif // KALZIUMTABLETYPE_H

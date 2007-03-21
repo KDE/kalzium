@@ -7,6 +7,7 @@
   <Menu name="table_menu"><text>&amp;View</text>
     <Action name="view_numerationtype" />
     <Action name="view_look" />
+    <Action name="view_table" />
     <Separator />
     <Action name="view_legend" />
     <Action name="view_tooltip" />
