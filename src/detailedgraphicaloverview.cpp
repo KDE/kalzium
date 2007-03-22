@@ -87,6 +87,8 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		QFont fB = KGlobalSettings::generalFont();
 		QFont fC = KGlobalSettings::generalFont();
 
+		QString strLocalizedMass = KalziumUtils::localizedValue( m_element->mass(), 6 );
+
 		fA.setPointSize( fA.pointSize() + 20 ); //Huge font
 		fA.setBold( true );
 		fB.setPointSize( fB.pointSize() + 6 ); //Big font
@@ -117,7 +119,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 				
 		int size = KalziumUtils::maxSize(m_element->elname(), rect , fC, &p);
 		int size2 = KalziumUtils::maxSize(m_element->oxstage(), rect, fC, &p);
-		int size3 = KalziumUtils::maxSize(QString::number( m_element->mass() ), rect , fC, &p);
+		int size3 = KalziumUtils::maxSize( strLocalizedMass , rect , fC, &p);
 
 		//Name and other data
 		fC.setPointSize( size );
@@ -129,14 +131,15 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 		//Oxidationstates
 		fC.setPointSize( size2 );
 		p.setFont( fC );
-		int offsetOx = KalziumUtils::StringHeight( QString::number( m_element->mass() ), fC, &p );
+		int offsetOx = KalziumUtils::StringHeight( strLocalizedMass , fC, &p );
 		p.drawText( 1, h-offsetOx, w/2, offsetOx, Qt::AlignLeft, m_element->oxstage() );
 
 		//Mass
 		fC.setPointSize( size3 );
 		p.setFont( fC );
-		int offset = KalziumUtils::StringHeight( QString::number( m_element->mass() ), fC, &p );
-		p.drawText( w/2, h-offset, w/2, offset, Qt::AlignRight, QString::number( m_element->mass() ) );
+		
+		int offset = KalziumUtils::StringHeight( strLocalizedMass, fC, &p );
+		p.drawText( w/2, h-offset, w/2, offset, Qt::AlignRight, strLocalizedMass );
 
 		drawBiologicalSymbol( &p );
 	}

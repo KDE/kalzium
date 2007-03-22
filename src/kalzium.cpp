@@ -29,6 +29,7 @@
 #include "timewidget_impl.h"
 #include "somwidget_impl.h"
 #include "kalziumdataobject.h"
+#include "kalziumutils.h"
 #include "config.h"
 
 #include <qdockwindow.h>
@@ -421,7 +422,7 @@ void Kalzium::setupStatusBar()
 void Kalzium::slotStatusbar( int num )
 {
 	Element *e = KalziumDataObject::instance()->element( num );
-	statusBar()->changeItem( i18n( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ).arg( e->elname() ).arg(e->number() ).arg( e->mass() ) , IDS_ELEMENTINFO );
+	statusBar()->changeItem( i18n( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ).arg( e->elname() ).arg(e->number() ).arg( KalziumUtils::localizedValue( e->mass(), 6 ) ) , IDS_ELEMENTINFO );
 }
 
 void Kalzium::openInformationDialog( int number )

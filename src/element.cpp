@@ -106,7 +106,7 @@ const QString Element::adjustRadius( RADIUSTYPE rtype )
 	if ( val <= 0 )
 		v = i18n( "Value unknown" );
 	else
-		v = i18n( "%1 is a length, eg: 12.3 pm", "%1 pm" ).arg( QString::number( val ) );
+		v = i18n( "%1 is a length, eg: 12.3 pm", "%1 pm" ).arg( KalziumUtils::localizedValue( val, 6 ) );
 	return v;
 }
 
@@ -118,12 +118,12 @@ const QString Element::adjustUnits( const int type, double value )
 		if ( Prefs::energies() == 0 )
 		{
 			value*=96.6;
-			v = QString::number( value );
+			v = KalziumUtils::localizedValue( value, 6 );
 			v.append( " kJ/mol" );
 		}
 		else // use electronvolt
 		{
-			v = QString::number( value );
+			v = KalziumUtils::localizedValue( value, 6 );
 			v.append( " eV" );
 		}
 	}
@@ -148,21 +148,22 @@ const QString Element::adjustUnits( const int type )
 		else
 		{
 			double newvalue = TempUnit::convert( val, (int)TempUnit::Kelvin, Prefs::temperature() );
+			QString strVal = KalziumUtils::localizedValue( newvalue, 6 );
 			switch (Prefs::temperature()) {
 				case 0: //Kelvin
-					v = i18n( "%1 is the temperature in Kelvin", "%1 K" ).arg( newvalue );
+					v = i18n( "%1 is the temperature in Kelvin", "%1 K" ).arg( strVal );
 					break;
 				case 1://Kelvin to Celsius
-					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( newvalue ).arg( QChar(0xB0) );
+					v = i18n( "%1 is the temperature in Celsius", "%1 %2C" ).arg( strVal ).arg( QChar(0xB0) );
 					break;
 				case 2: // Kelvin to Fahrenheit
-					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( newvalue ).arg( QChar(0xB0) );
+					v = i18n( "%1 is the temperature in Fahrenheit", "%1 %2F" ).arg( strVal ).arg( QChar(0xB0) );
 					break;
 				case 3: // Kelvin to Rankine
-					v = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( newvalue ).arg( QChar(0xB0) );
+					v = i18n( "%1 is the temperature in Rankine", "%1 %2Ra" ).arg( strVal ).arg( QChar(0xB0) );
 					break;
 				case 4: // Kelvin to Reaumur
-					v = i18n( "%1 is the temperature in Reaumur", "%1 %2R" ).arg( newvalue ).arg( QChar(0xB0) );
+					v = i18n( "%1 is the temperature in Reaumur", "%1 %2R" ).arg( strVal ).arg( QChar(0xB0) );
 					break;
 			}
 		}
@@ -171,9 +172,10 @@ const QString Element::adjustUnits( const int type )
 	{
 		val = electroneg();
 		if ( val <= 0 )
-		v = i18n( "Value not defined" );
-		else
-			v = QString::number( val );
+			v = i18n( "Value not defined" );
+		else {
+			v = KalziumUtils::localizedValue( val, 6 );
+		}
 	}
 	else if ( type == EA ) //Electron affinity
 	{
@@ -184,12 +186,12 @@ const QString Element::adjustUnits( const int type )
 		{
 			if ( Prefs::energies() == 0 )
 			{
-				v = i18n( "%1 kJ/mol" ).arg( QString::number( val ) );
+				v = i18n( "%1 kJ/mol" ).arg( KalziumUtils::localizedValue( val, 6 ) );
 			}
 			else // use electronvolt
 			{
 				val/=96.6;
-				v = i18n( "%1 eV" ).arg( QString::number( val ) );
+				v = i18n( "%1 eV" ).arg( KalziumUtils::localizedValue( val, 6 ) );
 			}
 		}
 	}
@@ -199,7 +201,7 @@ const QString Element::adjustUnits( const int type )
 		if ( val <= 0 )
 			v = i18n( "Value unknown" );
 		else
-			v = i18n( "%1 u" ).arg( QString::number( val ) );
+			v = i18n( "%1 u" ).arg( KalziumUtils::localizedValue( val, 6 ) );
 	}
 	else if ( type == DENSITY ) // its a density
 	{
@@ -211,11 +213,11 @@ const QString Element::adjustUnits( const int type )
 		{
 			if ( boiling() < 295.0 && melting() < 295.0)//gasoline
 			{
-				v = i18n( "%1 g/L" ).arg( QString::number( val ) );
+				v = i18n( "%1 g/L" ).arg( KalziumUtils::localizedValue( val, 6 ) );
 			}
 			else//liquid or solid
 			{
-				v = i18n( "%1 g/cm<sup>3</sup>" ).arg( QString::number( val ) );
+				v = i18n( "%1 g/cm<sup>3</sup>" ).arg( KalziumUtils::localizedValue( val, 6 ));
 			}
 		}
 	}
@@ -262,7 +264,7 @@ void Element::drawStateOfMatter( QPainter* p, double temp )
 
 	//top left
 	p->setPen( Qt::black );
-	text = QString::number( KalziumUtils::strippedValue( mass( ) ) );
+	text = KalziumUtils::localizedValue( KalziumUtils::strippedValue( mass( ) ), 6 );
 	p->drawText( X,Y ,ELEMENTSIZE,h_small,Qt::AlignCenter, text );
 
 	text = QString::number( number() );
@@ -438,7 +440,7 @@ void Element::drawSelf( QPainter* p, bool simple, bool isCrystal )
 				text = i18n( "Crystalsystem cubic close packed", "ccp" );
 		}
 		else
-			text = QString::number( KalziumUtils::strippedValue( mass( ) ) );
+			text = KalziumUtils::localizedValue( KalziumUtils::strippedValue( mass( ) ), 6 );
 		p->drawText( X+2,Y ,ELEMENTSIZE-4 ,h_small,Qt::AlignCenter, text );
 	}
 	

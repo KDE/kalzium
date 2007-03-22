@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 #include "kalziumtip.h"
+#include "kalziumutils.h"
 #include "element.h"
 
 #include <qapplication.h>
@@ -130,7 +131,7 @@ void KalziumTip::display()
 			.arg( QString::number(m_tippedElement->number()) );
 	
 	QString mass = i18n( "Mass: %1" )
-			.arg( QString::number(m_tippedElement->mass()) );
+			.arg( KalziumUtils::localizedValue(m_tippedElement->mass(), 6) );
 
 	m_richText = new QSimpleRichText("<qt><h1>" + elementname + "</h1><p>"
 						    + number + "</p><p>"

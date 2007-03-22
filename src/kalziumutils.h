@@ -22,6 +22,10 @@ class QPainter;
 class KalziumUtils
 {
 	public:
+
+		enum FormatOptions { NoOptions,
+				     Round = 1
+				   };	
 		/**
 		 * @param string the string which is measured
 		 * @param rect the rect needed for measurement
@@ -39,6 +43,15 @@ class KalziumUtils
 		 * @return the 4-digit value
 		 */
 		static double strippedValue( double value );
+
+		/**
+		 * format the given double with localized separators
+		 * @param val the number value as double
+		 * @param precision number of decimals
+		 * @param options the options used for formatting of @p val
+		 * @return
+		 */
+		static QString localizedValue( double val, int precision, unsigned long options = 0   );
 
 		/**
 		 * @param string the string which is measured

@@ -24,6 +24,7 @@
 #include "kalziumutils.h"
 
 #include <kdebug.h>
+#include <kglobal.h>
 #include <klocale.h>
 #include <math.h>
 
@@ -249,7 +250,7 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
 			{
 				pos = ( double ) ( i*d )/width();
 				p->fillRect( i*d-space, m_realHeight+12, 2*space, 15, Qt::white );
-				p->drawText( i*d-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, QString::number( KalziumUtils::strippedValue( Wavelength( pos ) ) ) );
+				p->drawText( i*d-space, m_realHeight+12, 2*space, 15, Qt::AlignCenter, KalziumUtils::localizedValue(  KalziumUtils::strippedValue( Wavelength( pos ) ), 6 ) );
 			}
 		}
 		else {//small tickmarks

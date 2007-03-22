@@ -18,6 +18,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 #include "isotope.h"
+#include "kalziumutils.h"
 
 #include <kdebug.h>
 #include <klocale.h>
@@ -51,24 +52,24 @@ QString Isotope::halflifeAsString()
 	if ( !seconds() )//years
 	{
 		if ( m_halflife > 1000000 )
-			halflife = i18n("%1 million years").arg( m_halflife/1000000.0 );
+			halflife = i18n("%1 million years").arg( KalziumUtils::localizedValue( m_halflife/1000000.0, 2 ) );
 		if ( m_halflife > 1000000000 )
-			halflife = i18n("%1 billion years").arg( m_halflife/1000000000.0 );
+			halflife = i18n("%1 billion years").arg( KalziumUtils::localizedValue( m_halflife/1000000000.0, 2 ) );
 		else
-			halflife = i18n("%1 years").arg( m_halflife );
+			halflife = i18n("%1 years").arg( KalziumUtils::localizedValue( m_halflife, 2 ) );
 	}
 	else
 	{
 		if ( m_halflife < 120 )
-			halflife = i18n("%1 seconds").arg( m_halflife );
+			halflife = i18n("%1 seconds").arg( KalziumUtils::localizedValue( m_halflife, 2 ) );
 		else if ( m_halflife > 1000 )
-			halflife = i18n("%1 minutes").arg( m_halflife/60.0 );
+			halflife = i18n("%1 minutes").arg( KalziumUtils::localizedValue( m_halflife/60.0, 2 ) );
 		else if ( m_halflife > 3600 )
-			halflife = i18n("%1 hours").arg( m_halflife/( 60*60 ) );
+			halflife = i18n("%1 hours").arg( KalziumUtils::localizedValue( m_halflife/( 60*60 ), 2 ) );
 		if ( m_halflife > 86400 )   //one day
-			halflife = i18n("%1 days").arg( m_halflife/( 60*60*24 ) );
+			halflife = i18n("%1 days").arg( KalziumUtils::localizedValue( m_halflife/( 60*60*24 ), 2 ) );
 		if ( m_halflife > ( 31536000 * 2 ) ) //two year
-			halflife = i18n("%1 years").arg( m_halflife/( 3600.0*365 ));
+			halflife = i18n("%1 years").arg( KalziumUtils::localizedValue( m_halflife/( 3600.0*365 ), 2 ) );
 	}
 
 	return halflife;

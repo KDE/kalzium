@@ -13,6 +13,8 @@
 #include "kalziumutils.h"
 
 #include <kdebug.h>
+#include <kglobal.h>
+#include <klocale.h>
 #include <qfont.h>
 #include <qrect.h>
 #include <qpainter.h>
@@ -72,3 +74,15 @@ double KalziumUtils::strippedValue( double num )
 	return num * power / 10000;
 }
 	
+QString KalziumUtils::localizedValue( double val, int precision, unsigned long options  )
+{
+	QString str = KGlobal::locale()->formatNumber( val, precision ); 
+	while( str.endsWith("0") )
+		str.truncate( str.length()-1);
+	if ( str.endsWith( KGlobal::locale()->decimalSymbol()  ) )
+	{
+		// we do not want trailing ',' values so readd trailing 0 
+		str.append( '0' ); // 
+	}
+	return str;
+}

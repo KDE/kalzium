@@ -1174,7 +1174,8 @@ void PerodicTableView::drawGradientButton( QPainter *p, Element* e, double coeff
 	if ( value >= minValue && coeff != -1.0)
 	{
 		QColor c = calculateColor( coeff );
-		e->drawGradient( p, QString::number( KalziumUtils::strippedValue( value ) ), c );
+		QString v = KalziumUtils::localizedValue( KalziumUtils::strippedValue( value ), 6 );
+		e->drawGradient( p, v, c );
 	}
 	else
 		e->drawGradient( p, i18n("It means: Not Available. Translators: keep it as short as you can!", "N/A"), Qt::lightGray );

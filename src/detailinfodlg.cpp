@@ -15,6 +15,7 @@
 
 #include "detailinfodlg.h"
 #include "isotope.h"
+#include "kalziumutils.h"
 #include "kalziumdataobject.h"
 
 #include <kdebug.h>
@@ -175,12 +176,12 @@ QString DetailedInfoDlg::getHtml(DATATYPE type)
 			
 			if ( m_element->abundance() > 0 ){
 			html.append( "<tr><td><img src=\"abundance.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Abundance in crustal rocks: %1 ppm" ).arg( m_element->abundance() ) );
+			html.append( i18n( "Abundance in crustal rocks: %1 ppm" ).arg( KGlobal::locale()->formatLong( m_element->abundance() ) ) );
 			html.append( "</td></tr>" );
 			}
 			
 			html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Mean mass: %1 u" ).arg( QString::number( m_element->meanmass() ) ) );
+			html.append( i18n( "Mean mass: %1 u" ).arg( KalziumUtils::localizedValue( m_element->meanmass(), 6 ) ) );
 			html.append( "</td></tr>" );
 			if ( !m_element->nameOrigin().isEmpty() )
 			{
@@ -263,60 +264,64 @@ QString DetailedInfoDlg::isotopeTable()
 	{
 		html.append( "<tr><td align=\"right\">" );
 		if ( ( *it )->weight() > 0.0 )
-			html.append( i18n( "%1 u" ).arg( ( *it )->weight() ) );
+			html.append( i18n( "%1 u" ).arg( KalziumUtils::localizedValue( ( *it )->weight(), 6 ) ) );
 		//	html.append( i18n( "%1 u" ).arg( QString::number( ( *it )->weight() ) ));
 		html.append( "</td><td>" );
 		html.append( QString::number( ( *it )->neutrons() ) );
 		html.append( "</td><td>" );
 		if ( ( *it )->percentage() > 0.0 )
-			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( ( *it )->percentage() ) );
+			html.append( i18n( "this can for example be '24%'", "%1%" ).arg( KalziumUtils::localizedValue( ( *it )->percentage(), 6 ) ) );
 		html.append( "</td><td>" );
-		if ( ( *it )->halflife() > 0.0 )
-			html.append( ( *it )->halflifeAsString() );
+		if ( ( *it )->halflife() > 0.0 ) {
+			html.append( ( *it )->halflifeAsString()  );
+		}
 		html.append( "</td><td>" );
 		if ( ( *it )->alphapercentage() > 0.0 ){
 			if ( ( *it )->alphadecay() > 0.0 )
-			html.append( i18n( "%1 MeV" ).arg(( *it )->alphadecay() ) );
+			html.append( i18n( "%1 MeV" ).arg( KalziumUtils::localizedValue( ( *it )->alphadecay(), 6 ) ) );
 			html.append( i18n( " %1" ).arg( QChar( 945 ) ) );
 			if ( ( *it )->alphapercentage() < 100.0)
-				html.append( i18n( "(%1%)" ).arg(( *it )->alphapercentage() ));
+				html.append( i18n( "(%1%)" ).arg( KalziumUtils::localizedValue( (*it )->alphapercentage(), 6 ) ) );
 			if ( ( *it )->betaminuspercentage() > 0.0 || ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0)
 			html.append( i18n( ", " ) );
 			}
 		if ( ( *it )->betaminuspercentage() > 0.0 ){
 			if ( ( *it )->betaminusdecay() > 0.0 )
-				html.append( i18n( "%1 MeV" ).arg(( *it )->betaminusdecay() ) );
+				html.append( i18n( "%1 MeV" ).arg( KalziumUtils::localizedValue( ( *it )->betaminusdecay(), 6 ) ) );
 			html.append( i18n( " %1<sup>-</sup>" ).arg( QChar( 946 ) ) );
 			if ( ( *it )->betaminuspercentage() < 100.0)
-				html.append( i18n( "(%1%)" ).arg(( *it )->betaminuspercentage() ));
+				html.append( i18n( "(%1%)" ).arg( KalziumUtils::localizedValue( ( *it )->betaminuspercentage(), 6 ) ));
 			if ( ( *it )->betapluspercentage() > 0.0 || ( *it )->ecpercentage() > 0.0 )
 			html.append( i18n( ", " ) );
 			}
 		if ( ( *it )->betapluspercentage() > 0.0 ){
 			if ( ( *it )->betaplusdecay() > 0.0 )
-				html.append( i18n( "%1 MeV" ).arg(( *it )->betaplusdecay() ) );
+				html.append( i18n( "%1 MeV" ).arg( KalziumUtils::localizedValue( ( *it )->betaplusdecay(), 6 ) ) );
 			html.append( i18n( " %1<sup>+</sup>" ).arg(QChar( 946 ) ) );
 			if ( ( *it )->betapluspercentage() == ( *it )->ecpercentage() ) {
 				if ( ( *it )->ecdecay() > 0.0 ) {
-				html.append( i18n( "%1 MeV" ).arg(( *it )->ecdecay() ) ); }
+					html.append( i18n( "%1 MeV" ).arg( KalziumUtils::localizedValue( ( *it )->ecdecay(), 6 ) ) ); 
+				}
 				html.append( i18n( "Acronym of Electron Capture"," EC" ) ); 
 			}
 			if ( ( *it )->betapluspercentage() < 100.0)	
-				html.append( i18n( "(%1%)" ).arg(( *it )->betapluspercentage() )); 
+				html.append( i18n( "(%1%)" ).arg( KalziumUtils::localizedValue( ( *it )->betapluspercentage(), 6 ) ) ); 
 			html += " ";
 			}	
 		if ( ( *it )->ecpercentage() > 0.0 && ( *it )->ecpercentage()!=( *it )->betapluspercentage()){
 			if ( ( *it )->ecdecay() > 0.0 )
-				html.append( i18n( "%1 MeV" ).arg(( *it )->ecdecay() ) );
+				html.append( i18n( "%1 MeV" ).arg( KalziumUtils::localizedValue( ( *it )->ecdecay(), 6 ) ) );
 			html.append( i18n( "Acronym of Electron Capture"," EC" ) );
 			if ( ( *it )->ecpercentage() < 100.0 )
-				html.append( i18n( "(%1%)" ).arg(( *it )->ecpercentage() ));
+				html.append( i18n( "(%1%)" ).arg( KalziumUtils::localizedValue( ( *it )->ecpercentage(), 6 ) ) );
 			}
 		html.append( "</td><td>" );
 		html.append( ( *it )->spin() );
 		html.append( "</td><td>" );
-		if ( !( *it )->magmoment().isEmpty() )
-			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( ( *it )->magmoment() ).arg( QChar( 956 ) ) );
+		if ( !( *it )->magmoment().isEmpty() ) {
+			QString v = KGlobal::locale()->formatNumber( ( *it )->magmoment(), false, 6 );
+			html.append( i18n( "%1 %2<sub>n</sub>" ).arg( v ).arg( QChar( 956 ) ) );
+		}	
 		html.append( "</td></tr>" );
 	
 	}
