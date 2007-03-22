@@ -252,7 +252,7 @@ void Kalzium::setupActions()
     KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
     KStandardAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 
-    //	slotShowScheme( Prefs::colorschemebox() );
+    slotSwitchtoLook( Prefs::colorschemebox() );
     slotSwitchtoNumeration( Prefs::numeration() );
     slotSwitchtoTable( Prefs::table() );
     slotShowHideSidebar( m_SidebarAction->isChecked(), false );
@@ -453,10 +453,10 @@ void Kalzium::slotSwitchtoLook( int which )
 	look_action_schemes->setCurrentItem( which );
 	look_action->blockSignals( false );
 	look_action_schemes->blockSignals( false );
-/*
-	Prefs::setNumeration(index);
+
+	Prefs::setColorschemebox(which);
 	Prefs::writeConfig();
-*/
+
 }
 
 void Kalzium::showSettingsDialog()

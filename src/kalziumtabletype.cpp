@@ -332,7 +332,7 @@ QRect KalziumShortTableType::elementRect( const int numelem ) const
 	// y coord
 	int y = ( posYShort[realElementNumber-1] ) * ELEMENTSIZE;
 
-kDebug() << "KalziumShortTableType::elementRect(). Nummber: " << numelem << " on " << x/40 << "::"
+kDebug() << "KalziumShortTableType::elementRect(). Number: " << numelem << " on " << x/40 << "::"
     << y/40 << endl;
 	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
