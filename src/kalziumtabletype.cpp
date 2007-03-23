@@ -172,8 +172,9 @@ int KalziumClassicTableType::elementAtCoords( const QPoint& coords ) const
 	{
 		x = posXRegular[counter-1];
 		y = posYRegular[counter-1];
-		if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) )
+		if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) ) {
 			return counter;
+        }
 	}
 
 	// not found
@@ -282,7 +283,6 @@ QSize KalziumShortTableType::size() const
 
 int KalziumShortTableType::elementAtCoords( const QPoint& coords ) const
 {
-    kDebug() << "KalziumShortTableType::elementAtCoords()" << endl;
 	const QPoint ourcoord = elementUnderMouse( coords );
 
 	int x = 0;
@@ -293,9 +293,7 @@ int KalziumShortTableType::elementAtCoords( const QPoint& coords ) const
         int realElementNumber = translateToShort(counter);
 		x = posXShort[realElementNumber-1];
 		y = posYShort[realElementNumber-1];
-		if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) )
-        {
-            kDebug() << "KalziumShortTableType::elementAtCoords(). Element: " << counter << endl;
+		if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) ){
 			return counter;
         }
 	}
@@ -362,6 +360,9 @@ QPoint KalziumShortTableType::elementUnderMouse( const QPoint& coords ) const
 {
 	int X = coords.x() / ELEMENTSIZE;
 	int Y = coords.y() - ELEMENTSIZE;
+	
+    X += 1;
+	Y = Y / ELEMENTSIZE + 1;
     
 	return QPoint( X, Y );
 }

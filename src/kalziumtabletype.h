@@ -195,6 +195,11 @@ class KalziumShortTableType : public KalziumTableType
         
         QList<int> m_elementList;
 
+        /**
+          * @return The number of the element in this scheme. As we skip
+          *         the d- and f-block, for example element 31 is infact the 21st
+                    element in this scheme (because elements 21 to 30 are skipped)
+         */
         static int translateToShort(int num);
 };
 
