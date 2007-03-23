@@ -127,6 +127,21 @@ KalziumTableType::~KalziumTableType()
 {
 }
 
+int KalziumTableType::previousOf( int element ) const
+{
+	return element > 1 ? element - 1 : -1;
+}
+
+int KalziumTableType::nextOf( int element ) const
+{
+	return element < KalziumDataObject::instance()->numberOfElements() ? element + 1 : -1;
+}
+
+int KalziumTableType::firstElement() const
+{
+	return 1;
+}
+
 KalziumClassicTableType* KalziumClassicTableType::instance()
 {
 	static KalziumClassicTableType kctt;
@@ -136,9 +151,6 @@ KalziumClassicTableType* KalziumClassicTableType::instance()
 KalziumClassicTableType::KalziumClassicTableType()
   : KalziumTableType()
 {
-    for (int i = 1 ; i < 117 ; i++) {
-        m_elementList.append(i);
-    }
 }
 
 QByteArray KalziumClassicTableType::name() const
@@ -247,7 +259,6 @@ KalziumShortTableType* KalziumShortTableType::instance()
 KalziumShortTableType::KalziumShortTableType()
   : KalziumTableType()
 {
-
     //I now need to append all the elements which are in the short table
     //The short table only shows elements in the s and p-block, that means
     //I am skipping all elements in the f and d-block.
@@ -264,11 +275,6 @@ KalziumShortTableType::KalziumShortTableType()
 QByteArray KalziumShortTableType::name() const
 {
 	return "Short";
-}
-
-QList<int> KalziumShortTableType::elementList() const
-{
-	return m_elementList;
 }
 
 QString KalziumShortTableType::description() const
@@ -366,3 +372,17 @@ QPoint KalziumShortTableType::elementUnderMouse( const QPoint& coords ) const
     
 	return QPoint( X, Y );
 }
+
+int KalziumShortTableType::previousOf( int element ) const
+{
+	int index = m_elementList.indexOf( element );
+	return index > 1 ? m_elementList.at( index - 1 ) : -1;
+}
+
+int KalziumShortTableType::nextOf( int element ) const
+{
+	int index = m_elementList.indexOf( element );
+	return index != -1 && ( index < m_elementList.count() - 1 ) ? m_elementList.at( index + 1 ) : -1;
+}
+
+

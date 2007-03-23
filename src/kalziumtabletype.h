@@ -117,10 +117,29 @@ class KalziumTableType
 		 */
 		virtual QRect numerationRect( const int numelem, KalziumNumerationType *nt ) const = 0;
 
-        /**
-          * @return The list of elements this table contains
-          */
-        virtual QList<int> elementList() const = 0;
+		/**
+		 * Returns the element that comes right before the specified @p element.
+		 * -1 means that @p element is the first in this table type.
+		 *
+		 * The default implementation returns <tt>element - 1</tt> if @p element
+		 * is not 1, else -1.
+		 */
+		virtual int previousOf( int element ) const;
+		/**
+		 * Returns the element that comes right after the specified @p element.
+		 * -1 means that @p element is the last in this table type.
+		 *
+		 * The default implementation returns <tt>element + 1</tt> if @p element
+		 * is not the latest element, else -1.
+		 */
+		virtual int nextOf( int element ) const;
+
+		/**
+		 * Returns the first element of the table.
+		 *
+		 * The default implementation returns 1.
+		 */
+		virtual int firstElement() const;
 
 	protected:
 		KalziumTableType();
@@ -180,8 +199,9 @@ class KalziumShortTableType : public KalziumTableType
 		QRect elementRect( const int numelem ) const;
 		QRect legendRect() const;
 		QRect numerationRect( const int numelem, KalziumNumerationType *nt ) const;
-        
-        QList<int> elementList() const;
+
+		int previousOf( int element ) const;
+		int nextOf( int element ) const;
 
 	private:
 		KalziumShortTableType();
@@ -192,8 +212,6 @@ class KalziumShortTableType : public KalziumTableType
 		 * For example, H will be 1/1 and Li will be 1/2
 		 */
 		QPoint elementUnderMouse( const QPoint& coords ) const;
-        
-        QList<int> m_elementList;
 
         /**
           * @return The number of the element in this scheme. As we skip
@@ -201,6 +219,8 @@ class KalziumShortTableType : public KalziumTableType
                     element in this scheme (because elements 21 to 30 are skipped)
          */
         static int translateToShort(int num);
+
+        QList<int> m_elementList;
 };
 
 #endif // KALZIUMTABLETYPE_H

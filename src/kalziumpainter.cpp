@@ -100,10 +100,13 @@ void KalziumPainter::drawElements()
 	QRect r( 0, 0, dev->width(), dev->height() );
 	m_painter->fillRect( r, QApplication::palette().background() );
 
-    //Now iterate over all elements the table contains
-    QList<int> listOfELements = m_ktt->elementList();
-    foreach (int i, listOfELements)
-		drawElement( i );
+	// now iterate over all elements the table contains
+	int num = m_ktt->firstElement();
+	while ( num != -1 )
+	{
+		drawElement( num );
+		num = m_ktt->nextOf( num );
+	}
 }
 
 void KalziumPainter::drawElement( int element, const QRect& r )
