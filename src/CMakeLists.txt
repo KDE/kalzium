@@ -1,7 +1,6 @@
 add_subdirectory(tools)
 
 include_directories(
-   ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduplot/
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/compoundviewer/
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
