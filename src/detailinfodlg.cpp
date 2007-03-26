@@ -42,6 +42,7 @@
 #include "detailedgraphicaloverview.h"
 #include "spectrumviewimpl.h"
 #include "kalziumutils.h"
+#include "kalziumtabletype.h"
 
 DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
     : KPageDialog( parent ), m_ktt( 0 )
@@ -556,30 +557,12 @@ void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
 
 void DetailedInfoDlg::slotUser1()
 {
-// setting the next element
-	if ( m_elementNumber < KalziumDataObject::instance()->numberOfElements() )
-	{
-		setElement( m_elementNumber + 1 );
-#if 0
-		// no need to increment m_elementNumber here too,
-		// as it's already done by setElement
-		emit elementChanged( m_elementNumber );
-#endif
-	}
+    setElement( m_ktt->nextOf( m_elementNumber ) );
 }
 
 void DetailedInfoDlg::slotUser2()
 {
-// setting the previous element
-	if ( m_elementNumber > 1 )
-	{
-		setElement( m_elementNumber - 1 );
-#if 0
-		// no need to decrement m_elementNumber here too,
-		// as it's already done by setElement
-		emit elementChanged( m_elementNumber );
-#endif
-	}
+    setElement( m_ktt->previousOf( m_elementNumber ) );
 }
 
 #include "detailinfodlg.moc"
