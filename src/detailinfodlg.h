@@ -22,6 +22,7 @@
 
 class DetailedGraphicalOverview;
 class Element;
+class KalziumTableType;
 class OrbitsWidget;
 class SpectrumViewImpl;
 
@@ -44,6 +45,8 @@ class DetailedInfoDlg : public KPageDialog
 		void setElement( int el );
 
 		void setOverviewBackgroundColor( const QColor &bgColor );
+
+		void setTableType( KalziumTableType* ktt );
 
 	private:
 		enum DATATYPE
@@ -70,6 +73,8 @@ class DetailedInfoDlg : public KPageDialog
 		QLabel *piclabel;
 		OrbitsWidget *wOrbits;
 		QMap<QString, KHTMLPart*> m_htmlpages;
+
+		KalziumTableType *m_ktt;
 
 		/**
 		 * Create the initial set of tabs. Used it *ONLY* once in the

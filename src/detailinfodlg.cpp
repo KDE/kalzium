@@ -44,7 +44,7 @@
 #include "kalziumutils.h"
 
 DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
-    : KPageDialog( parent )
+    : KPageDialog( parent ), m_ktt( 0 )
 {
 	setFaceType( List );
 	setButtons( Help | User1 | User2 | Close );
@@ -95,6 +95,11 @@ void DetailedInfoDlg::setElement( int el )
 void DetailedInfoDlg::setOverviewBackgroundColor( const QColor &bgColor )
 {
 	dTab->setBackgroundColor( bgColor );
+}
+
+void DetailedInfoDlg::setTableType( KalziumTableType* ktt )
+{
+	m_ktt = ktt;
 }
 
 KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& icontext, const QString& iconname )

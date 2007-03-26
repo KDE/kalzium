@@ -129,6 +129,8 @@ class PeriodicTableView : public QWidget
 		 */
 		QBrush brushForElement( int element ) const;
 
+		KalziumTableType* tableType() const;
+
 	private:
 		QMap <ChemicalDataObject::BlueObelisk, int> m_sliderValueList;
 		

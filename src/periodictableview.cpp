@@ -228,6 +228,11 @@ QBrush PeriodicTableView::brushForElement( int element ) const
 	return m_painter->brushForElement( element );
 }
 
+KalziumTableType* PeriodicTableView::tableType() const
+{
+	return m_painter->currentTableType();
+}
+
 void PeriodicTableView::slotChangeTable(int table)
 {
     KalziumTableType *tt = KalziumTableTypeFactory::instance()->build( table );

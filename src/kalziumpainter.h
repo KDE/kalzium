@@ -85,7 +85,7 @@ class KalziumPainter
 		 */
 		void end();
 
-		KalziumTableType* currentTableType();
+		KalziumTableType* currentTableType() const;
 
 		/**
 		 * Draw all the things it can: elements, legend, numeration

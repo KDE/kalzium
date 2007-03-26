@@ -82,7 +82,7 @@ void KalziumPainter::end()
 	}
 }
 
-KalziumTableType* KalziumPainter::currentTableType()
+KalziumTableType* KalziumPainter::currentTableType() const
 {
 	return m_ktt;
 }

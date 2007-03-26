@@ -420,6 +420,8 @@ void Kalzium::slotShowHideSidebar( bool checked, bool changeconfig )
 void Kalzium::slotSwitchtoTable( int index )
 {
     m_PeriodicTableView->slotChangeTable(index);
+    if ( m_infoDialog )
+        m_infoDialog->setTableType( m_PeriodicTableView->tableType() );
     Prefs::setTable(index);
     Prefs::writeConfig();
 }
@@ -536,6 +538,7 @@ void Kalzium::openInformationDialog( int number )
 				m_PeriodicTableView,        SLOT(selectElement(int)));
 	}
 	m_infoDialog->setOverviewBackgroundColor( m_PeriodicTableView->brushForElement( number ).color() );
+	m_infoDialog->setTableType( m_PeriodicTableView->tableType() );
 	m_infoDialog->show();
 }
 
