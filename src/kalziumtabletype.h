@@ -1,5 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006      by Pino Toscano, toscano.pino@tiscali.it      *
+ *   Copyright (C) 2005, 2006     by Pino Toscano, toscano.pino@tiscali.it *
+ *   Copyright (C) 2007           by Carste Niehaus, cniehaus@kde.org      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -111,11 +112,12 @@ class KalziumTableType
 		 * Returns the rect where to put the legend.
 		 */
 		virtual QRect legendRect() const = 0;
+
 		/**
 		 * Returns the rect for the @p numelement 'th item of the
 		 * numeration @p nt.
 		 */
-		virtual QRect numerationRect( const int numelem, KalziumNumerationType *nt ) const = 0;
+		virtual QRect numerationRect( const int numelem, KalziumNumerationType *nt ) const;
 
 		/**
 		 * Returns the element that comes right before the specified @p element.
@@ -125,6 +127,7 @@ class KalziumTableType
 		 * is not 1, else -1.
 		 */
 		virtual int previousOf( int element ) const;
+
 		/**
 		 * Returns the element that comes right after the specified @p element.
 		 * -1 means that @p element is the last in this table type.
@@ -140,9 +143,19 @@ class KalziumTableType
 		 * The default implementation returns 1.
 		 */
 		virtual int firstElement() const;
+        
+        /**
+        * @return the list of elements the specific KalziumTableType displays
+        */
+        virtual QList<int> elementList() const;
 
 	protected:
 		KalziumTableType();
+
+        /**
+        * This QList stores the numbers of the elements the table will display
+        */
+        QList<int> m_elementList;
 };
 
 /**
@@ -163,9 +176,6 @@ class KalziumClassicTableType : public KalziumTableType
 		int elementAtCoords( const QPoint& coords ) const;
 		QRect elementRect( const int numelem ) const;
 		QRect legendRect() const;
-		QRect numerationRect( const int numelem, KalziumNumerationType *nt ) const;
-        
-        QList<int> elementList() const;
 
 	private:
 		KalziumClassicTableType();
@@ -176,8 +186,6 @@ class KalziumClassicTableType : public KalziumTableType
 		 * For example, H will be 1/1 and Li will be 1/2
 		 */
 		QPoint elementUnderMouse( const QPoint& coords ) const;
-
-        QList<int> m_elementList;
 };
 
 /**
@@ -198,7 +206,6 @@ class KalziumShortTableType : public KalziumTableType
 		int elementAtCoords( const QPoint& coords ) const;
 		QRect elementRect( const int numelem ) const;
 		QRect legendRect() const;
-		QRect numerationRect( const int numelem, KalziumNumerationType *nt ) const;
 
 		int previousOf( int element ) const;
 		int nextOf( int element ) const;
@@ -219,8 +226,47 @@ class KalziumShortTableType : public KalziumTableType
                     element in this scheme (because elements 21 to 30 are skipped)
          */
         static int translateToShort(int num);
+};
 
-        QList<int> m_elementList;
+/**
+ * The class representing the d-Block of the periodic table, and its metrics.
+ *
+ * @author Carsten Niehaus
+ */
+class KalziumDTableType : public KalziumTableType
+{
+	public:
+		static KalziumDTableType* instance();
+
+		QByteArray name() const;
+		QString description() const;
+
+		QSize size() const;
+
+		int elementAtCoords( const QPoint& coords ) const;
+		QRect elementRect( const int numelem ) const;
+		QRect legendRect() const;
+
+		int previousOf( int element ) const;
+		int nextOf( int element ) const;
+		
+        int firstElement() const;
+
+	private:
+		KalziumDTableType();
+
+		/**
+		 * @return the coordinates of the element under the point
+		 * @p coords.
+		 */
+		QPoint elementUnderMouse( const QPoint& coords ) const;
+
+        /**
+          * @return The number of the element in this scheme. As we skip
+          *         the s-, p and f-block, for example element 1st is infact the 21st
+                    element in this scheme
+         */
+        static int translateToD(int num);
 };
 
 #endif // KALZIUMTABLETYPE_H
