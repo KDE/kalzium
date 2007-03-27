@@ -35,7 +35,7 @@ class SpectrumWidget : public QWidget
 	public:
 		SpectrumWidget( QWidget *parent );
 		
-		~SpectrumWidget(){};
+		~SpectrumWidget(){}
 
 		void setSpectrum( Spectrum* spec ){
 			m_spectrum = spec;

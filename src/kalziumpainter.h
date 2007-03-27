@@ -135,7 +135,7 @@ class KalziumPainter
      */
 		MODE mode() const{
         return m_mode;
-    };
+    }
 
 		void setScheme( int s );
 		void setScheme( const QByteArray& s );

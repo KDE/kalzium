@@ -161,7 +161,7 @@ class IsotopeTableDialog : public KDialog
 	Q_OBJECT
 	public:
 		IsotopeTableDialog( QWidget* parent );
-		~IsotopeTableDialog(){};
+		~IsotopeTableDialog(){}
 
 		KActionCollection* actionCollection();
 
@@ -186,7 +186,7 @@ class NuclideLegend : public QWidget
 {
 	public:
 		NuclideLegend( QWidget* parent );
-		~NuclideLegend() {};
+		~NuclideLegend() {}
 		
 	protected:
 		virtual void paintEvent( QPaintEvent* );
@@ -204,7 +204,7 @@ class IsotopeScrollArea : public QScrollArea
 	Q_OBJECT
 	public:
 		IsotopeScrollArea( QWidget* parent );
-		~IsotopeScrollArea() {};
+		~IsotopeScrollArea() {}
 
 		void scrollBy( int x, int y );
 };
