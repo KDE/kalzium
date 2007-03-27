@@ -71,14 +71,14 @@ static const int posYShort[44] = {
 	7, 7                   //Fr and Ra
 };
 
-static const int posXD[40] = {
+static const int posYD[40] = {
 	1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 	2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
 	3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
 	4, 4, 4, 4, 4, 4, 4, 4, 4, 4
 };
 
-static const int posYD[40] = {
+static const int posXD[40] = {
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -501,12 +501,22 @@ QRect KalziumDTableType::elementRect( const int numelem ) const
 
     kDebug() << numelem << " becomes " << realElementNumber << endl;
 
-	// x coord
-	int x = ( posXD[realElementNumber-1] - 1 ) * ELEMENTSIZE;
-	// y coord
-	int y = ( posYD[realElementNumber-1] ) * ELEMENTSIZE;
+    if ( realElementNumber == 0 ) {
+        kDebug() << "This element doesn't exist in this table..." << endl;
+        return QRect( 0,0,0,0 );
+    }
 
-    kDebug() << "Element " << realElementNumber << " sits on " << x/40 << " :: " << y/40 << endl;
+	// x coord
+	int x = ( posXD[numelem-1] - 1 ) * ELEMENTSIZE;
+	// y coord
+	int y = ( posYD[numelem-1] ) * ELEMENTSIZE;
+	
+//X     // x coord
+//X 	int x = ( posXD[realElementNumber-1] - 1 ) * ELEMENTSIZE;
+//X 	// y coord
+//X 	int y = ( posYD[realElementNumber-1] ) * ELEMENTSIZE;
+
+    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1] << endl;
 
 	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
