@@ -170,8 +170,8 @@ class KDEEDUUI_EXPORT Glossary
 class KDEEDUUI_EXPORT GlossaryItem
 {
 	public:
-		GlossaryItem(){};
-		~GlossaryItem(){};
+		GlossaryItem(){}
+		~GlossaryItem(){}
 
 		void setName( const QString& s ){
 			m_name = s;

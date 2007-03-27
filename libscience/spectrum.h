@@ -38,7 +38,7 @@ class SCIENCE_EXPORT Spectrum
 		/**
 		 * This spectrum doesn't belong to any element
 		 */
-		Spectrum(){};
+		Spectrum(){}
 		
 		/**
 		 * public destructor
