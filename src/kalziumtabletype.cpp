@@ -348,12 +348,22 @@ int KalziumShortTableType::translateToShort(int num)
 QRect KalziumShortTableType::elementRect( const int numelem ) const
 {
     int realElementNumber = translateToShort(numelem);
+
+    if ( realElementNumber == 0 ) {
+        kDebug() << "This element doesn't exist in this table..." << endl;
+        return QRect( 0,0,0,0 );
+    } else {
+        kDebug() << "Short: " << numelem << " becomes " << realElementNumber << endl;
+    }
+
 	// x coord
 	int x = ( posXShort[realElementNumber-1] - 1 ) * ELEMENTSIZE;
 	// y coord
 	int y = ( posYShort[realElementNumber-1] ) * ELEMENTSIZE;
+    
+    
+//    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1] << endl;
 
-//kDebug() << "KalziumShortTableType::elementRect(). Number: " << numelem << " on " << x/40 << "::" << y/40 << endl;
 	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
 
@@ -402,11 +412,9 @@ KalziumDTableType* KalziumDTableType::instance()
 KalziumDTableType::KalziumDTableType()
   : KalziumTableType()
 {
-    //I now need to append all the elements which are in the short table
-    //The short table only shows elements in the s and p-block, that means
-    //I am skipping all elements in the f and d-block.
     for (int i = 21 ; i < 31 ; i++) 
         m_elementList.append(i);
+    
     for (int i = 39 ; i < 49 ; i++) 
         m_elementList.append(i);
     
@@ -466,31 +474,31 @@ int KalziumDTableType::elementAtCoords( const QPoint& coords ) const
 
 int KalziumDTableType::translateToD(int num)
 {
-    kDebug() << "KalziumDTableType::translateToD() with " << num << endl;
+    if (num < 21 ) return 0;
 
     //1 becomes 21, 10 becomes 30
-    if ( num < 11 ) 
-        return num+20;
+    if ( num < 31 ) 
+        return num-20;
 
     //11 becomes 39, 20 becomes 48
-    if ( num < 21 ) 
-        return num+28;
+    if ( num > 38 && num < 49 ) 
+        return num-28;
 
     //21 becomes 57 (Lanthan)
-    if ( num == 21 ) 
-        return 57;
+    if ( num == 57 ) 
+        return 21;
     
     //22 becomes 72, 30 becomes 80
-    if ( num < 31 ) 
-        return num+50;
+    if ( num > 71 && num < 81 ) 
+        return num-50;
     
     //31 becomes 89 (Ac)
-    if ( num == 31 ) 
-        return 89;
+    if ( num == 89 ) 
+        return 31;
 
     //32 becomes 104, 40 becomes 112
-    if ( num < 41 ) 
-        return num+72;
+    if ( num > 103 && num < 113 ) 
+        return num-72;
 
     return 0;
 }
@@ -499,24 +507,19 @@ QRect KalziumDTableType::elementRect( const int numelem ) const
 {
     int realElementNumber = translateToD(numelem);
 
-    kDebug() << numelem << " becomes " << realElementNumber << endl;
-
     if ( realElementNumber == 0 ) {
         kDebug() << "This element doesn't exist in this table..." << endl;
         return QRect( 0,0,0,0 );
+    } else {
+        kDebug() << "D: " << numelem << " becomes " << realElementNumber << endl;
     }
 
 	// x coord
-	int x = ( posXD[numelem-1] - 1 ) * ELEMENTSIZE;
+	int x = ( posXD[realElementNumber-1] - 1 ) * ELEMENTSIZE;
 	// y coord
-	int y = ( posYD[numelem-1] ) * ELEMENTSIZE;
-	
-//X     // x coord
-//X 	int x = ( posXD[realElementNumber-1] - 1 ) * ELEMENTSIZE;
-//X 	// y coord
-//X 	int y = ( posYD[realElementNumber-1] ) * ELEMENTSIZE;
-
-    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1] << endl;
+	int y = ( posYD[realElementNumber-1] ) * ELEMENTSIZE;
+    
+//    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1] << endl;
 
 	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
