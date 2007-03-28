@@ -88,23 +88,22 @@ class KalziumPainter
 		KalziumTableType* currentTableType() const;
 
 		/**
-		 * Draw all the things it can: elements, legend, numeration
+		 * Draw all the things it can: elements and numeration
 		 */
 		void drawAll();
+
 		/**
 		 * Draw all the elements
 		 */
 		void drawElements();
+
 		/**
 		 * Draw the element with atomic number @p element.
 		 * Pass a QRect() to the @p r parameter if you want to use the
 		 * default rect for that element.
 		 */
 		void drawElement( int element, const QRect& r = QRect() );
-		/**
-		 * Draw the legend
-		 */
-		void drawLegend();
+
 		/**
 		 * Draw the numeration
 		 */
@@ -115,27 +114,14 @@ class KalziumPainter
 		 */
 		void drawElementSelector( int element );
 
-		/**
-		 * Set whether show/hide the legend, depending on the parameter
-		 * @p active.
-		 */
-		void toggleLegend( bool active );
-		
-		/**
-		 * @return Returns true if the legend is shown
-		 */
-		bool legendShown() const{
-        return m_legend;
-    }
-
 		void setMode( MODE m );
 
-    /**
-     * @return Return the current MODE
-     */
-		MODE mode() const{
-        return m_mode;
-    }
+        /**
+         * @return Return the current MODE
+         */
+            MODE mode() const{
+            return m_mode;
+        }
 
 		void setScheme( int s );
 		void setScheme( const QByteArray& s );
@@ -187,12 +173,10 @@ class KalziumPainter
 		 */
 		KalziumNumerationType *m_numeration;
 
-		bool m_legend;
-
-    ///for the state-of-matter
+        ///for the state-of-matter
 		int m_temperature;
 
-    ///for the timeline
+        ///for the timeline
 		int m_time;
 };
 

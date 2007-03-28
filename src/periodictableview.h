@@ -101,16 +101,6 @@ class PeriodicTableView : public QWidget
 		 */
 		void setGradient( int which );
 
-		/**
-		 * activates or deactivates the legend
-		 */
-		void showLegend( bool show );
-
-		/**
-		 * @return if the legend is displayed this method will return true
-		 */
-		bool showLegend() const;
-
 		void setMode( KalziumPainter::MODE m );
 
 		/**

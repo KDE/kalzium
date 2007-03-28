@@ -68,7 +68,6 @@ PeriodicTableView::PeriodicTableView( QWidget *parent )
 
     KalziumTableType *tt = KalziumTableTypeFactory::instance()->build( "Short" );
     m_painter = new KalziumPainter( tt );
-    m_painter->toggleLegend( Prefs::showlegend() );
 
     setMinimumSize( tt->size() );
 
@@ -268,18 +267,6 @@ void PeriodicTableView::setGradient( int which )
 	m_painter->setGradient( which );
 	setFullDraw();
 	update();
-}
-
-void PeriodicTableView::showLegend( bool show )
-{
-	m_painter->toggleLegend( show );
-	setFullDraw();
-	update();
-}
-
-bool PeriodicTableView::showLegend() const
-{
-	return m_painter->legendShown();
 }
 
 void PeriodicTableView::setTemperature( int temp )

@@ -30,6 +30,7 @@ class GlossaryDialog;
 class IsotopeTable;
 class SearchWidget;
 class QKeyEvent;
+class LegendWidget;
 
 #include "kalziumpainter.h"
 
@@ -57,6 +58,8 @@ class Kalzium : public KMainWindow
 
 	private:
 		DetailedInfoDlg   *m_infoDialog;
+
+        LegendWidget *m_legendWidget;
 
 		/**
 		 * this pointer points to the PeriodicTableView.
@@ -95,6 +98,8 @@ class Kalzium : public KMainWindow
 		QAction *m_pOBConverterAction;
 		QAction *m_EQSolverAction;
 
+        QAction *m_legendAction;
+
 		/**
 		 * the layout of the central Widget ( CentralWidget )
 		 */
@@ -108,6 +113,7 @@ class Kalzium : public KMainWindow
 		DetailedGraphicalOverview *m_detailWidget;
 
 		QDockWidget *m_dockWin;
+		QDockWidget *m_InfoDock;
 		QToolBox *m_toolbox;
 		int m_toolboxCurrent;
 
@@ -135,8 +141,6 @@ class Kalzium : public KMainWindow
         * switched to the table with the index @p index
         */
         void slotSwitchtoTable( int index );
-		
-		void slotShowLegend();
 		
 		/**
 		 * start the glossary
@@ -174,6 +178,8 @@ class Kalzium : public KMainWindow
 		void slotToolboxCurrentChanged(int);
 
 		void slotShowHideSidebar( bool checked, bool changeconfig = true );
+		void slotShowLegend( bool checked, bool changeconfig = true );
+		
 
 	protected:
 		virtual void keyPressEvent( QKeyEvent * e);

@@ -369,7 +369,7 @@ QRect KalziumShortTableType::elementRect( const int numelem ) const
 
 QRect KalziumShortTableType::legendRect() const
 {
-	int legendLeft   = ELEMENTSIZE * 5 / 2;
+	int legendLeft   = ELEMENTSIZE * 14 / 2;
 	int legendTop    = ELEMENTSIZE * 4 / 5;
 	int legendWidth  = ELEMENTSIZE * 9;
 	int legendHeight = ELEMENTSIZE * 3;
@@ -526,8 +526,8 @@ QRect KalziumDTableType::elementRect( const int numelem ) const
 
 QRect KalziumDTableType::legendRect() const
 {
-	int legendLeft   = ELEMENTSIZE * 5 / 2;
-	int legendTop    = ELEMENTSIZE * 4 / 5;
+	int legendLeft   = ELEMENTSIZE * 10 / 2;
+	int legendTop    = ELEMENTSIZE * 10 / 5;
 	int legendWidth  = ELEMENTSIZE * 9;
 	int legendHeight = ELEMENTSIZE * 3;
 

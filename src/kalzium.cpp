@@ -35,6 +35,7 @@
 #include "kalziumtabletype.h"
 #include "rsdialog.h"
 #include "tablesdialog.h"
+#include "legendwidget.h"
 #include "search.h"
 #include "searchwidget.h"
 #include "config-kalzium.h"
@@ -83,6 +84,8 @@ Kalzium::Kalzium()
 
 	// reading the elements from file
 	KalziumDataObject::instance();
+
+    m_legendWidget = new LegendWidget( this );
 
 	Search *newsearch = new Search();
 	KalziumDataObject::instance()->setSearch( newsearch );
@@ -183,11 +186,6 @@ void Kalzium::setupActions()
     numeration_action->setCurrentItem(Prefs::numeration());
     connect( numeration_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoNumeration( int ) ) );
 
-    m_SidebarAction = m_dockWin->toggleViewAction();
-    actionCollection()->addAction( "view_sidebar", m_SidebarAction );
-    m_SidebarAction->setIcon( KIcon( "sidebar" ) );
-    connect( m_SidebarAction, SIGNAL( triggered( bool ) ), this, SLOT( slotShowHideSidebar( bool ) ) );
-
     m_EQSolverAction =  actionCollection()->addAction( "tools_eqsolver" );
     m_EQSolverAction->setText( i18n( "&Equation Solver..." ) );
     m_EQSolverAction->setIcon(  KIcon( "eqchem" ) );
@@ -240,13 +238,18 @@ void Kalzium::setupActions()
     connect( m_pTables, SIGNAL( triggered() ), this, SLOT( slotTables() ) );
 
     // other period view options
-    m_pLegendAction = actionCollection()->addAction( "view_legend" );
-    m_pLegendAction->setText( i18n( "Show &Legend" ) );
+    m_pLegendAction = m_InfoDock->toggleViewAction();
+    actionCollection()->addAction( "view_legend", m_pLegendAction );
     m_pLegendAction->setIcon( KIcon( "legend" ) );
-    m_pLegendAction = actionCollection()->addAction( "view_legend" );
-    m_pLegendAction->setText( i18n( "Show &Legend" ) );
-    m_pLegendAction->setIcon( KIcon( "legend" ) );
-    connect( m_pLegendAction, SIGNAL( triggered() ), this, SLOT( slotShowLegend() ) );
+    connect( m_pLegendAction, SIGNAL( triggered(bool) ), 
+            this, SLOT( slotShowLegend(bool) ) );
+    
+    m_SidebarAction = m_dockWin->toggleViewAction();
+    actionCollection()->addAction( "view_sidebar", m_SidebarAction );
+    m_SidebarAction->setIcon( KIcon( "sidebar" ) );
+    connect( m_SidebarAction, SIGNAL( triggered( bool ) ), 
+            this, SLOT( slotShowHideSidebar( bool ) ) );
+
 
     // the standard actions
     KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
@@ -256,15 +259,7 @@ void Kalzium::setupActions()
     slotSwitchtoNumeration( Prefs::numeration() );
     slotSwitchtoTable( Prefs::table() );
     slotShowHideSidebar( m_SidebarAction->isChecked(), false );
-
-    if ( Prefs::showlegend() ) {
-        m_PeriodicTableView->showLegend(true);
-        m_pLegendAction->setText( i18n( "Hide &Legend" ) );
-    } else
-    {
-        m_PeriodicTableView->showLegend(false);
-        m_pLegendAction->setText( i18n( "Show &Legend" ) );
-    }
+    slotShowLegend( m_pLegendAction->isChecked(), false );
 
     // set the shell's ui resource file
     setXMLFile("kalziumui.rc");
@@ -273,7 +268,13 @@ void Kalzium::setupActions()
 
 void Kalzium::setupSidebars()
 {
-	m_dockWin = new QDockWidget( i18n( "Sidebar" ), this );
+	m_InfoDock = new QDockWidget( this );
+	m_InfoDock->setObjectName( QLatin1String( "kalzium-infobar" ) );
+	m_InfoDock->setAllowedAreas( Qt::BottomDockWidgetArea );
+	m_InfoDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
+    m_InfoDock->setWidget(m_legendWidget);
+	
+    m_dockWin = new QDockWidget( i18n( "Sidebar" ), this );
 	m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
 	m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
@@ -308,9 +309,11 @@ void Kalzium::setupSidebars()
 	m_calcWidget->setObjectName( "molcalcwidget" );
 	m_toolbox->addItem( m_calcWidget, KIcon( "calculate" ), i18n( "Calculate" ) );
 
-	connect( m_toolbox, SIGNAL( currentChanged( int ) ), this, SLOT( slotToolboxCurrentChanged( int ) ) );
+	connect( m_toolbox, SIGNAL( currentChanged( int ) ), 
+            this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
 	addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
+	addDockWidget( Qt::BottomDockWidgetArea, m_InfoDock );
 }
 
 void Kalzium::slotGlossary()
@@ -378,22 +381,23 @@ void Kalzium::slotPlotData()
 	edw->show();
 }
 
-void Kalzium::slotShowLegend()
+void Kalzium::slotShowLegend( bool checked, bool changeconfig)
 {
-	if(m_PeriodicTableView->showLegend())
+	if ( !checked )
 	{
-		m_PeriodicTableView->showLegend(false);
-		m_pLegendAction->setText( i18n( "Show &Legend" ) );
+		m_pLegendAction->setText( i18n( "Show &Legend") );
 	}
 	else
 	{
-		m_PeriodicTableView->showLegend(true);
 		m_pLegendAction->setText( i18n( "Hide &Legend" ) );
 	}
 
-	//save the settings
-	Prefs::setShowlegend( m_PeriodicTableView->showLegend() );
-	Prefs::writeConfig();
+	if ( changeconfig )
+	{
+        Prefs::setShowlegend( checked );
+		//save the settings
+		Prefs::writeConfig();
+	}
 }
 
 void Kalzium::slotShowHideSidebar( bool checked, bool changeconfig )
@@ -441,13 +445,19 @@ void Kalzium::slotSwitchtoLook( int which )
 	{
 		m_PeriodicTableView->activateColorScheme( which );
 		if ( m_PeriodicTableView->mode() == KalziumPainter::GRADIENT )
+        {
 			m_PeriodicTableView->setMode( KalziumPainter::NORMAL );
+            m_legendWidget->setMode( KalziumPainter::NORMAL );
+        }
 	}
 	else
 	{
 		m_PeriodicTableView->setGradient( id );
 		if ( m_PeriodicTableView->mode() == KalziumPainter::NORMAL )
+        {
 			m_PeriodicTableView->setMode( KalziumPainter::GRADIENT );
+            m_legendWidget->setMode( KalziumPainter::GRADIENT );
+        }
 	}
 	look_action->blockSignals( true );
 	look_action_schemes->blockSignals( true );
@@ -548,6 +558,7 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 	if ( ( id > 1 ) && ( cur == KalziumPainter::NORMAL ) || ( cur == KalziumPainter::GRADIENT ) )
 		m_prevNormalMode = cur;
 	m_PeriodicTableView->setMode( m_prevNormalMode );
+    m_legendWidget->setMode( m_prevNormalMode );
 
     //In the timeline and the calculator-mode we have to disable the searchwidget
     //because of focus-stealing and a conflict with the "hiding" of the elements
@@ -561,11 +572,13 @@ void Kalzium::slotToolboxCurrentChanged( int id )
 		case 2: // timeline
 			m_PeriodicTableView->setTemperature( m_somWidget->temperature() );
 			m_PeriodicTableView->setMode( KalziumPainter::SOM );
+			m_legendWidget->setMode( KalziumPainter::SOM );
             m_searchWidget->setEnabled( false );
 			break;
 		case 3: // molecular calculator
 			m_PeriodicTableView->setTime( m_timeWidget->time_box->value() );
 			m_PeriodicTableView->setMode( KalziumPainter::TIME );
+			m_legendWidget->setMode( KalziumPainter::TIME );
             m_searchWidget->setEnabled( false );
 			break;
 	}
