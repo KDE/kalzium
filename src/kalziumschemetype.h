@@ -30,8 +30,8 @@ class KalziumSchemeType;
 #include <QRect>
 #include <QStringList>
 
-typedef QPair<QString, QBrush> legendItem;
-typedef QList<legendItem> legendList;
+typedef QPair<QString, QBrush> legendPair;
+typedef QList<legendPair> legendList;
 
 /**
  * Factory for KalziumSchemeType classes.

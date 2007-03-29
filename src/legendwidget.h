@@ -46,4 +46,19 @@ class LegendWidget : public QWidget
         void updateContent();
 };
 
+class LegendItem : public QWidget
+{
+    Q_OBJECT
+
+    public:
+        LegendItem( const QPair<QString, QBrush>& pair );
+        ~LegendItem(){}
+
+    private:
+        QPair<QString, QBrush> m_pair;
+
+    protected:
+        virtual void paintEvent( QPaintEvent * e );
+};
+
 #endif // LEGENDWIDGET_H

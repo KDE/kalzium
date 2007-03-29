@@ -37,7 +37,8 @@
 #include <QFont>
 #include <QLabel>
 #include <QGridLayout>
-
+#include <QHBoxLayout>
+#include <QFrame>
 
 LegendWidget::LegendWidget( QWidget *parent )
   : QWidget( parent )
@@ -61,7 +62,6 @@ void LegendWidget::updateContent()
     {
         case KalziumPainter::NORMAL:
             {//Taking care of the schemes
-
                 break;
             }
         case KalziumPainter::SOM:
@@ -83,10 +83,10 @@ void LegendWidget::updateContent()
                 int x = 0;
                 int y = 0;
 
-                foreach ( legendItem item, items )
+                foreach ( legendPair pair, items )
                 {
-                    QLabel * label = new QLabel( item.first, this );
-                    layout->addWidget(label , x, y );
+                    LegendItem *item = new LegendItem( pair );
+                    layout->addWidget(item , x, y );
 
                     x++;
 
@@ -100,21 +100,6 @@ void LegendWidget::updateContent()
             }
         case KalziumPainter::GRADIENT:
             {
-//X                 // settings font
-//X                 QFont legendFont = KGlobalSettings::generalFont();
-//X                 legendFont.setPointSize( legendFont.pointSize() + 1 );
-//X                 p.setFont( legendFont );
-//X 
-//X                 int padding = 6;
-//X                 int sidepadding = 12;
-//X                 QRect legendRect = QRect(0,0,width(), height() );
-//X                 p.fillRect( legendRect, QBrush( Qt::lightGray ) );
-//X 
-//X                 QRect text = legendRect;
-//X                 text.setHeight( text.height() / 2 - 2 * padding );
-//X                 text.setWidth( text.width() - 2 * sidepadding );
-//X                 text.translate( sidepadding, padding );
-//X 
 //X                 QSize imgsize( legendRect.width() - 2 * sidepadding, 20 );
 //X //X                 QImage img = KImageEffect::gradient( imgsize, m_gradient->firstColor(), m_gradient->secondColor(), KImageEffect::HorizontalGradient );
 //X //X 
@@ -134,6 +119,26 @@ void LegendWidget::updateContent()
                 break;
             }
     }
+    
+}
+
+LegendItem::LegendItem(const QPair<QString, QBrush>& pair)
+{
+    m_pair = pair;
+}
+
+void LegendItem::paintEvent( QPaintEvent * /* e */ )
+{
+
+    QPainter p;
+    p.begin(this);
+    QRect rect(0, 0, height(), height() );
+    p.fillRect( rect , QBrush( m_pair.second ) );
+
+    QRect textRect( height() + 10 , 0 , width() - 10 , height() );
+
+    p.drawText( textRect, Qt::AlignLeft | Qt::AlignVCenter , m_pair.first );
+    p.end();
 }
 
 #include "legendwidget.moc"
