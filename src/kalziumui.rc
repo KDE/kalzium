@@ -1,9 +1,6 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <kpartgui name="kalzium" version="4">
 <MenuBar>
-  <Menu name="file" noMerge="0"><text>&amp;File</text>
-    <Action name="export_data"/>
-  </Menu>
   <Menu name="table_menu"><text>&amp;View</text>
     <Action name="view_numerationtype" />
     <Action name="view_look" />
@@ -22,8 +19,6 @@
     <Action name="tools_rs" />
     <Action name="tools_tables" />
     <Action name="tools_moleculeviewer" />
-  </Menu>
-  <Menu name="settings"><text>&amp;Settings</text>
   </Menu>
 </MenuBar>
 
