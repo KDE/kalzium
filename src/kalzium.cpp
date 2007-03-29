@@ -72,6 +72,9 @@
 #include <kicon.h>
 #include <kservicetypetrader.h>
 #include <kurl.h>
+#include <kfiledialog.h>
+
+#include <QFileDialog>
 
 
 #define PeriodicTableView_MARGIN          5
@@ -195,16 +198,18 @@ void Kalzium::setupActions()
 #else
     m_EQSolverAction->setEnabled( false );
 #endif
-
+    
     // tools actions
     m_pPlotAction = actionCollection()->addAction( "tools_plotdata" );
     m_pPlotAction->setText( i18n( "&Plot Data..." ) );
     m_pPlotAction->setIcon( KIcon( "plot" ) );
     connect( m_pPlotAction, SIGNAL( triggered() ), this, SLOT( slotPlotData() ) );
+
     m_pIsotopeTableAction= actionCollection()->addAction( "tools_isotopetable" );
     m_pIsotopeTableAction->setText( i18n( "&Isotope Table..." ) );
     m_pIsotopeTableAction->setIcon(  KIcon( "isotopemap" ) );
     connect( m_pIsotopeTableAction, SIGNAL( triggered() ), this, SLOT( slotIsotopeTable() ) );
+
     m_pGlossaryAction = actionCollection()->addAction( "tools_glossary" );
     m_pGlossaryAction->setText(i18n( "&Glossary..." ) );
     m_pGlossaryAction->setIcon( KIcon( "glossary" ) );
@@ -252,6 +257,7 @@ void Kalzium::setupActions()
 
 
     // the standard actions
+    KStandardAction::saveAs(this, SLOT(slotExportTable()), actionCollection());
     KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
     KStandardAction::quit( kapp, SLOT (closeAllWindows()),actionCollection() );
 
@@ -314,6 +320,20 @@ void Kalzium::setupSidebars()
 
 	addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
 	addDockWidget( Qt::BottomDockWidgetArea, m_InfoDock );
+}
+
+void Kalzium::slotExportTable()
+{
+    QPixmap pix = QPixmap::grabWidget( m_PeriodicTableView );
+
+    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save Kalziums Tables in..."),
+            QString(), 
+            i18n("Images (*.png *.xpm *.jpg)"));
+
+//    QString fn = KFileDialog::getSaveFileName( ); //this methods causes an assert right now...
+
+    pix.save( fileName );
+
 }
 
 void Kalzium::slotGlossary()

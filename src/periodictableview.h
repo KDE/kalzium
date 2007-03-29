@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2003-2005, 2006 by Carsten Niehaus                            *
+ *   Copyright (C) 2003-2007 by Carsten Niehaus                            *
  *   cniehaus@kde.org                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -36,7 +36,7 @@ class KalziumGradientType;
 #include <chemicaldataobject.h>
 
 /**
- * A PeriodicTableView is the widget on where we paint a periodic table.
+ * A PeriodicTableView is the widget on which we paint a periodic table.
  *
  * It does not contain any code for painting, as all the painting routines
  * belongs to KalziumPainter.

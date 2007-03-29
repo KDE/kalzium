@@ -168,6 +168,8 @@ class Kalzium : public KMainWindow
 
 		void slotPlotData();
 
+        void slotExportTable();
+
 		void slotUpdateSettings();
 
 		/**
