@@ -43,8 +43,7 @@ class LegendWidget : public QWidget
 
         KalziumPainter::MODE m_mode;
 
-	protected:
-		virtual void paintEvent( QPaintEvent *e );
+        void updateContent();
 };
 
 #endif // LEGENDWIDGET_H

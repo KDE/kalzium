@@ -462,7 +462,6 @@ void Kalzium::slotSwitchtoNumeration( int index )
 void Kalzium::slotSwitchtoLook( int which )
 {
 	int id = which - KalziumSchemeTypeFactory::instance()->schemes().count();
-  kDebug() << "Kalzium::slotSwitchtoLook() with ID: " << id << endl;
 	if ( id < 0 )
 	{
 		m_PeriodicTableView->activateColorScheme( which );
@@ -490,7 +489,6 @@ void Kalzium::slotSwitchtoLook( int which )
 
 	Prefs::setColorschemebox(which);
 	Prefs::writeConfig();
-
 }
 
 void Kalzium::showSettingsDialog()

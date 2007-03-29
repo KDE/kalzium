@@ -35,11 +35,14 @@
 #include <QBrush>
 #include <QColor>
 #include <QFont>
+#include <QLabel>
+#include <QGridLayout>
 
 
 LegendWidget::LegendWidget( QWidget *parent )
   : QWidget( parent )
 {
+    updateContent();
 }
 
 void LegendWidget::setMode( KalziumPainter::MODE m )
@@ -47,84 +50,82 @@ void LegendWidget::setMode( KalziumPainter::MODE m )
 	m_mode = m;
 }
 
-void LegendWidget::paintEvent( QPaintEvent * /*e*/ )
+void LegendWidget::updateContent()
 {
-	m_pixmap = QPixmap( width(), height() );
-	m_pixmap.fill( this, width(), height() );
+    QList< QPair<QString, QBrush> > items;
+    QGridLayout * layout = new QGridLayout( this );
 
-	QPainter p;
-	p.begin( &m_pixmap );
+    m_mode = KalziumPainter::SOM;
 
     switch ( m_mode )
     {
         case KalziumPainter::NORMAL:
+            {//Taking care of the schemes
+
+                break;
+            }
         case KalziumPainter::SOM:
             {
-                kDebug() << "SOM SOM SOM" << endl;
-                // settings font
-                QFont legendFont = KGlobalSettings::generalFont();
-                legendFont.setPointSize( legendFont.pointSize() + 1 );
-                p.setFont( legendFont );
-
-                int padding = 6;
-                QRect legendRect = QRect(0,0,width(), height() );
-                p.fillRect( legendRect, QBrush( Qt::lightGray ) );
-                int itemheight = ( legendRect.height() - 6 * padding ) / 5;
-                int squareside = itemheight - 2;
-
                 legendList items;
                 items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
                 items << qMakePair( i18n( "Liquid" ), QBrush( Prefs::color_liquid() ) );
                 items << qMakePair( i18n( "Vaporous" ), QBrush( Prefs::color_vapor() ) );
                 items << qMakePair( i18n( "Unknown" ), QBrush( Qt::lightGray ) );
+                items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
+                items << qMakePair( i18n( "Liquid" ), QBrush( Prefs::color_liquid() ) );
+                items << qMakePair( i18n( "Vaporous" ), QBrush( Prefs::color_vapor() ) );
+                items << qMakePair( i18n( "Unknown" ), QBrush( Qt::lightGray ) );
+                items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
+                items << qMakePair( i18n( "Liquid" ), QBrush( Prefs::color_liquid() ) );
+                items << qMakePair( i18n( "Vaporous" ), QBrush( Prefs::color_vapor() ) );
+                items << qMakePair( i18n( "Unknown" ), QBrush( Qt::lightGray ) );
 
-                // we allow max 10 items in the legend
-                int numitems = qMin( items.count(), 10 );
-                int itemwidth = legendRect.width() - 2 * padding;
-                if ( numitems > 5 )
-                    itemwidth = ( itemwidth - padding ) / 2;
+                int x = 0;
+                int y = 0;
 
-                for ( int i = 0; i < numitems; i++ )
+                foreach ( legendItem item, items )
                 {
-                    int x = legendRect.left() + padding + ( i > 4 ? itemwidth + padding : 0 );
-                    int y = legendRect.top() + padding + ( padding + itemheight ) * ( i % 5 );
-                    QRect sq( x + 1, y + 1, squareside, squareside );
-                    p.fillRect( sq, QBrush( items.at(i).second ) );
-                    p.drawRect( sq );
-                    QRect text( x + squareside + 5, y, itemwidth - squareside - 5, itemheight);
-                    p.drawText( text, Qt::AlignLeft | Qt::AlignVCenter, items.at(i).first );
+                    QLabel * label = new QLabel( item.first, this );
+                    layout->addWidget(label , x, y );
+
+                    x++;
+
+                    if ( x >= 4 ) {
+                        x = 0;
+                        y++;
+                    }
                 }
 
                 break;
             }
         case KalziumPainter::GRADIENT:
             {
-                // settings font
-                QFont legendFont = KGlobalSettings::generalFont();
-                legendFont.setPointSize( legendFont.pointSize() + 1 );
-                p.setFont( legendFont );
-
-                int padding = 6;
-                int sidepadding = 12;
-                QRect legendRect = QRect(0,0,width(), height() );
-                p.fillRect( legendRect, QBrush( Qt::lightGray ) );
-
-                QRect text = legendRect;
-                text.setHeight( text.height() / 2 - 2 * padding );
-                text.setWidth( text.width() - 2 * sidepadding );
-                text.translate( sidepadding, padding );
-
-                QSize imgsize( legendRect.width() - 2 * sidepadding, 20 );
-//X                 QImage img = KImageEffect::gradient( imgsize, m_gradient->firstColor(), m_gradient->secondColor(), KImageEffect::HorizontalGradient );
+//X                 // settings font
+//X                 QFont legendFont = KGlobalSettings::generalFont();
+//X                 legendFont.setPointSize( legendFont.pointSize() + 1 );
+//X                 p.setFont( legendFont );
 //X 
-//X                 QRect othertexts = text;
-//X                 othertexts.moveTo( text.bottomLeft() + QPoint( 0, padding + 4 + imgsize.height() ) );
+//X                 int padding = 6;
+//X                 int sidepadding = 12;
+//X                 QRect legendRect = QRect(0,0,width(), height() );
+//X                 p.fillRect( legendRect, QBrush( Qt::lightGray ) );
 //X 
-//X                 p.drawText( text, Qt::AlignHCenter | Qt::AlignBottom, i18n( "Gradient: %1", m_gradient->description() ) );
-//X                 p.drawPixmap( text.bottomLeft() + QPoint( 0, padding ), QPixmap::fromImage( img ) );
+//X                 QRect text = legendRect;
+//X                 text.setHeight( text.height() / 2 - 2 * padding );
+//X                 text.setWidth( text.width() - 2 * sidepadding );
+//X                 text.translate( sidepadding, padding );
 //X 
-//X                 p.drawText( othertexts, Qt::AlignRight, QString::number( m_gradient->maxValue() ) );
-//X                 p.drawText( othertexts, Qt::AlignLeft, QString::number( m_gradient->minValue() ) );
+//X                 QSize imgsize( legendRect.width() - 2 * sidepadding, 20 );
+//X //X                 QImage img = KImageEffect::gradient( imgsize, m_gradient->firstColor(), m_gradient->secondColor(), KImageEffect::HorizontalGradient );
+//X //X 
+//X //X                 QRect othertexts = text;
+//X //X                 othertexts.moveTo( text.bottomLeft() + QPoint( 0, padding + 4 + imgsize.height() ) );
+//X //X 
+//X //X                 p.drawText( text, Qt::AlignHCenter | Qt::AlignBottom, i18n( "Gradient: %1", m_gradient->description() ) );
+//X //X                 p.drawPixmap( text.bottomLeft() + QPoint( 0, padding ), QPixmap::fromImage( img ) );
+//X //X 
+//X //X                 p.drawText( othertexts, Qt::AlignRight, QString::number( m_gradient->maxValue() ) );
+//X //X                 p.drawText( othertexts, Qt::AlignLeft, QString::number( m_gradient->minValue() ) );
 
                 break;
             }
@@ -133,11 +134,6 @@ void LegendWidget::paintEvent( QPaintEvent * /*e*/ )
                 break;
             }
     }
-
-	p.end();
-
-	QPainter p2(this);
-	p2.drawPixmap(0, 0, m_pixmap);
 }
 
 #include "legendwidget.moc"
