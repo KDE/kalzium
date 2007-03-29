@@ -111,8 +111,6 @@ void PeriodicTableView::generateSvg(const QString& filename)
 {
         QSvgGenerator *svgGen = new QSvgGenerator();
 
-        QFile* file = new QFile();
-
         svgGen->setFileName( filename );
 
         m_painter->begin( svgGen );
