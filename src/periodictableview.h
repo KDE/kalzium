@@ -73,6 +73,11 @@ class PeriodicTableView : public QWidget
 		 */
 		void setValueLimit( int value, ChemicalDataObject::BlueObelisk type );
 
+        /**
+        * Generate a SVG from the current table and save it in the file @p filename
+        */
+        void generateSvg(const QString& filename);
+
 		/**
 		 * Sets the scheme to use.
 		 * @param nr is the index of the new scheme

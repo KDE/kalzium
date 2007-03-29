@@ -74,7 +74,7 @@
 #include <kurl.h>
 #include <kfiledialog.h>
 
-#include <QFileDialog>
+#include <QSvgGenerator>
 
 
 #define PeriodicTableView_MARGIN          5
@@ -326,13 +326,16 @@ void Kalzium::slotExportTable()
 {
     QPixmap pix = QPixmap::grabWidget( m_PeriodicTableView );
 
-    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save Kalziums Tables in..."),
-            QString(), 
-            i18n("Images (*.png *.xpm *.jpg)"));
+    m_PeriodicTableView->generateSvg( "/home/kde4/test2.svg" );
+    
+
+//X     QString fileName = QFileDialog::getSaveFileName(this, i18n("Save Kalziums Tables in..."),
+//X             QString(), 
+//X             i18n("Images (*.png *.xpm *.jpg)"));
 
 //    QString fn = KFileDialog::getSaveFileName( ); //this methods causes an assert right now...
 
-    pix.save( fileName );
+//X     pix.save( fileName );
 
 }
 

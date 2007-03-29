@@ -42,6 +42,7 @@
 #include <QColor>
 #include <QRect>
 #include <QDrag>
+#include <QSvgGenerator>
 
 PeriodicTableView::PeriodicTableView( QWidget *parent )
   : QWidget( parent )
@@ -104,6 +105,19 @@ void PeriodicTableView::setMode( KalziumPainter::MODE m )
 KalziumPainter::MODE PeriodicTableView::mode() const
 {
 	return m_painter->mode();
+}
+
+void PeriodicTableView::generateSvg(const QString& filename)
+{
+        QSvgGenerator *svgGen = new QSvgGenerator();
+
+        QFile* file = new QFile();
+
+        svgGen->setFileName( filename );
+
+        m_painter->begin( svgGen );
+        m_painter->drawAll();
+        m_painter->end();
 }
 
 void PeriodicTableView::paintEvent( QPaintEvent * e )
