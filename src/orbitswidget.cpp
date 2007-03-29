@@ -17,7 +17,6 @@
 
 //QT-Includes
 #include <QPainter>
-#include <QRegExp>
 
 #include <math.h>
 
