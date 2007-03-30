@@ -214,6 +214,12 @@ class PeriodicTableView : public QWidget
 		 * over an element
 		 */
 		void MouseOver( int );
+
+        void ModeChanged( KalziumPainter::MODE );
+
+        void TableTypeChanged( KalziumTableType * );
+
+        void SchemeChanged( KalziumSchemeType * );
 };
 
 

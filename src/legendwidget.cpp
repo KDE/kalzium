@@ -46,8 +46,21 @@ LegendWidget::LegendWidget( QWidget *parent )
     updateContent();
 }
 
+void LegendWidget::setTableType( KalziumTableType * type )
+{
+    kDebug() << "LegendWidget::setTableType()" << endl;
+    m_tableType = type;
+}
+
+void LegendWidget::setScheme( KalziumSchemeType * type )
+{
+    kDebug() << "LegendWidget::setScheme()" << endl;
+    m_scheme = type;
+}
+
 void LegendWidget::setMode( KalziumPainter::MODE m )
 {
+    kDebug() << "LegendWidget::setMode()" << endl;
 	m_mode = m;
 }
 
@@ -66,19 +79,18 @@ void LegendWidget::updateContent()
             }
         case KalziumPainter::SOM:
             {
+                if ( !m_scheme ) return;
+
                 legendList items;
-                items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
-                items << qMakePair( i18n( "Liquid" ), QBrush( Prefs::color_liquid() ) );
-                items << qMakePair( i18n( "Vaporous" ), QBrush( Prefs::color_vapor() ) );
-                items << qMakePair( i18n( "Unknown" ), QBrush( Qt::lightGray ) );
-                items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
-                items << qMakePair( i18n( "Liquid" ), QBrush( Prefs::color_liquid() ) );
-                items << qMakePair( i18n( "Vaporous" ), QBrush( Prefs::color_vapor() ) );
-                items << qMakePair( i18n( "Unknown" ), QBrush( Qt::lightGray ) );
-                items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
-                items << qMakePair( i18n( "Liquid" ), QBrush( Prefs::color_liquid() ) );
-                items << qMakePair( i18n( "Vaporous" ), QBrush( Prefs::color_vapor() ) );
-                items << qMakePair( i18n( "Unknown" ), QBrush( Qt::lightGray ) );
+                if ( m_mode == KalziumPainter::SOM )
+                {
+                    items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
+                    items << qMakePair( i18n( "Liquid" ), QBrush( Prefs::color_liquid() ) );
+                    items << qMakePair( i18n( "Vaporous" ), QBrush( Prefs::color_vapor() ) );
+                    items << qMakePair( i18n( "Unknown" ), QBrush( Qt::lightGray ) );
+                } else {
+                    items = m_scheme->legendItems();
+                }
 
                 int x = 0;
                 int y = 0;

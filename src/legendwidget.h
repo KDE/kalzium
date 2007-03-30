@@ -23,6 +23,7 @@
 #include <kdialog.h>
 
 #include "kalziumpainter.h"
+#include "kalziumschemetype.h"
 
 /**
  * @author Carsten Niehaus
@@ -36,14 +37,23 @@ class LegendWidget : public QWidget
 		
 		~LegendWidget(){}
 		
-        void setMode( KalziumPainter::MODE m );
-
     private:
         QPixmap m_pixmap;
 
+        KalziumSchemeType * m_scheme;
+
         KalziumPainter::MODE m_mode;
 
+        KalziumTableType * m_tableType;
+
         void updateContent();
+
+    public slots:
+        void setMode( KalziumPainter::MODE m );
+        
+        void setScheme( KalziumSchemeType * type );
+        
+        void setTableType( KalziumTableType * type );
 };
 
 class LegendItem : public QWidget

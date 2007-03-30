@@ -86,6 +86,9 @@ PeriodicTableView::~PeriodicTableView()
 void PeriodicTableView::activateColorScheme( const int nr )
 {
 	m_painter->setScheme( nr );
+
+    emit SchemeChanged( m_painter->scheme() ); 
+
 	setFullDraw();
 	update();
 }
@@ -98,6 +101,9 @@ KalziumSchemeType* PeriodicTableView::scheme() const
 void PeriodicTableView::setMode( KalziumPainter::MODE m )
 {
 	m_painter->setMode( m );
+
+    emit ModeChanged( m );
+
 	setFullDraw();
 	update();
 }
@@ -248,6 +254,8 @@ void PeriodicTableView::slotChangeTable(int table)
 {
     KalziumTableType *tt = KalziumTableTypeFactory::instance()->build( table );
     m_painter->setTableType(tt);
+
+    emit TableTypeChanged( tt );
 
     setMinimumSize( tt->size() );
     setFullDraw();

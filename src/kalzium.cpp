@@ -90,7 +90,6 @@ Kalzium::Kalzium()
 	// reading the elements from file
 	KalziumDataObject::instance();
 
-    m_legendWidget = new LegendWidget( this );
 
 	Search *newsearch = new Search();
 	KalziumDataObject::instance()->setSearch( newsearch );
@@ -111,6 +110,14 @@ Kalzium::Kalzium()
 	helperSV->setWidget( m_PeriodicTableView );
 	helperSV->setFrameShape( QFrame::NoFrame );
 	fakelay->addWidget( helperSV );
+    
+    m_legendWidget = new LegendWidget( this );
+    connect( m_PeriodicTableView, SIGNAL(ModeChanged( KalziumPainter::MODE) ),
+            m_legendWidget, SLOT(setMode(KalziumPainter::MODE) ) );
+    connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
+            m_legendWidget, SLOT( setTableType( KalziumTableType * ) ) );
+    connect( m_PeriodicTableView, SIGNAL( SchemeChanged( KalziumSchemeType * ) ),
+            m_legendWidget, SLOT( setScheme( KalziumSchemeType * ) ) );
 
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;

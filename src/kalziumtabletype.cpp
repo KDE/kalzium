@@ -353,7 +353,6 @@ QRect KalziumShortTableType::elementRect( const int numelem ) const
         kDebug() << "This element doesn't exist in this table..." << endl;
         return QRect( 0,0,0,0 );
     } else {
-        kDebug() << "Short: " << numelem << " becomes " << realElementNumber << endl;
     }
 
 	// x coord
@@ -511,7 +510,6 @@ QRect KalziumDTableType::elementRect( const int numelem ) const
         kDebug() << "This element doesn't exist in this table..." << endl;
         return QRect( 0,0,0,0 );
     } else {
-        kDebug() << "D: " << numelem << " becomes " << realElementNumber << endl;
     }
 
 	// x coord
