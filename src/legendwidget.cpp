@@ -43,25 +43,24 @@
 LegendWidget::LegendWidget( QWidget *parent )
   : QWidget( parent )
 {
-    updateContent();
 }
 
 void LegendWidget::setTableType( KalziumTableType * type )
 {
-    kDebug() << "LegendWidget::setTableType()" << endl;
     m_tableType = type;
+    updateContent();
 }
 
 void LegendWidget::setScheme( KalziumSchemeType * type )
 {
-    kDebug() << "LegendWidget::setScheme()" << endl;
     m_scheme = type;
+    updateContent();
 }
 
 void LegendWidget::setMode( KalziumPainter::MODE m )
 {
-    kDebug() << "LegendWidget::setMode()" << endl;
 	m_mode = m;
+    updateContent();
 }
 
 void LegendWidget::updateContent()
@@ -69,8 +68,6 @@ void LegendWidget::updateContent()
     QList< QPair<QString, QBrush> > items;
 
     QGridLayout * layout = new QGridLayout( this );
-
-    m_mode = KalziumPainter::SOM;
 
     switch ( m_mode )
     {
@@ -95,6 +92,8 @@ void LegendWidget::updateContent()
 
                 foreach ( legendPair pair, items )
                 {
+                    kDebug() << "Creating an element with the string: \"" << pair.first << "\"
+                        ------------------------------------------" << endl;
                     LegendItem *item = new LegendItem( pair );
 
                     layout->addWidget(item , x, y );
