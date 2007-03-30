@@ -67,7 +67,6 @@ void LegendWidget::updateContent()
 {
     QList< QPair<QString, QBrush> > items;
 
-
     switch ( m_mode )
     {
         case KalziumPainter::NORMAL://nothing to do here, all logic done in SOM
@@ -115,11 +114,11 @@ void LegendWidget::updateContent()
 
 void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
 {
+    if (layout()) { 
+        delete layout(); 
+    }
     foreach ( LegendItem * i, m_legendItemList ) {
-        kDebug() << "removing one item -------------------------------------------------- " << endl;
-        layout()->removeWidget(i);
-
-//X         delete i;
+        delete i;
     }
 
     m_legendItemList.clear();
@@ -131,7 +130,6 @@ void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
 
     foreach ( legendPair pair, list )
     {
-        kDebug() << "Creating an element with the string: \"" << pair.first << "\"                       ------------------------------------------" << endl;
         LegendItem *item = new LegendItem( pair );
 
         m_legendItemList.append(item);
@@ -149,9 +147,11 @@ void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
     setLayout( layout );
 }
 
-LegendItem::LegendItem(const QPair<QString, QBrush>& pair)
+LegendItem::LegendItem(const QPair<QString, QBrush>& pair, QWidget * parent)
 {
     m_pair = pair;
+
+    update();
 }
 
 void LegendItem::paintEvent( QPaintEvent * /* e */ )

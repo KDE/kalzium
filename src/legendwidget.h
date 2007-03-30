@@ -67,7 +67,7 @@ class LegendItem : public QWidget
     Q_OBJECT
 
     public:
-        LegendItem( const QPair<QString, QBrush>& pair );
+        LegendItem( const QPair<QString, QBrush>& pair, QWidget * parent = 0 );
         ~LegendItem(){}
 
     private:
