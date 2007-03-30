@@ -43,57 +43,61 @@
 LegendWidget::LegendWidget( QWidget *parent )
   : QWidget( parent )
 {
+    updateContent();
 }
 
 void LegendWidget::setTableType( KalziumTableType * type )
 {
+    kDebug() << "LegendWidget::setTableType()" << endl;
     m_tableType = type;
-    updateContent();
 }
 
 void LegendWidget::setScheme( KalziumSchemeType * type )
 {
+    kDebug() << "LegendWidget::setScheme()" << endl;
     m_scheme = type;
-    updateContent();
 }
 
 void LegendWidget::setMode( KalziumPainter::MODE m )
 {
+    kDebug() << "LegendWidget::setMode()" << endl;
 	m_mode = m;
-    updateContent();
 }
 
 void LegendWidget::updateContent()
 {
-    m_items.clear();
+    QList< QPair<QString, QBrush> > items;
+
     QGridLayout * layout = new QGridLayout( this );
+
+    m_mode = KalziumPainter::SOM;
 
     switch ( m_mode )
     {
-        case KalziumPainter::NORMAL:
-            kDebug() << "--------------------- NORMAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< " << endl;
+        case KalziumPainter::NORMAL://nothing to do here, all logic done in SOM
         case KalziumPainter::SOM:
             {
-                kDebug() << "--------------------- State Of Matter <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< " << endl;
                 if ( !m_scheme ) return;
 
+                legendList items;
                 if ( m_mode == KalziumPainter::SOM )
                 {
-                    m_items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
-                    m_items << qMakePair( i18n( "Liquid" ), QBrush( Prefs::color_liquid() ) );
-                    m_items << qMakePair( i18n( "Vaporous" ), QBrush( Prefs::color_vapor() ) );
-                    m_items << qMakePair( i18n( "Unknown" ), QBrush( Qt::lightGray ) );
+                    items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
+                    items << qMakePair( i18n( "Liquid" ), QBrush( Prefs::color_liquid() ) );
+                    items << qMakePair( i18n( "Vaporous" ), QBrush( Prefs::color_vapor() ) );
+                    items << qMakePair( i18n( "Unknown" ), QBrush( Qt::lightGray ) );
                 } else {
-                    m_items = m_scheme->legendItems();
+                    items = m_scheme->legendItems();
                 }
 
                 int x = 0;
                 int y = 0;
 
-                foreach ( legendPair pair, m_items )
+                foreach ( legendPair pair, items )
                 {
-                    kDebug() << "Creating an item" << endl;
                     LegendItem *item = new LegendItem( pair );
+
+                    m_legendItems.append( item );
                     layout->addWidget(item , x, y );
 
                     x++;
@@ -108,26 +112,22 @@ void LegendWidget::updateContent()
             }
         case KalziumPainter::GRADIENT:
             {
-
-                kDebug() << "=================== GRADIENT ================== " << endl;
-
-                //X                 QSize imgsize( legendRect.width() - 2 * sidepadding, 20 );
-                //X //X                 QImage img = KImageEffect::gradient( imgsize, m_gradient->firstColor(), m_gradient->secondColor(), KImageEffect::HorizontalGradient );
-                //X //X 
-                //X //X                 QRect othertexts = text;
-                //X //X                 othertexts.moveTo( text.bottomLeft() + QPoint( 0, padding + 4 + imgsize.height() ) );
-                //X //X 
-                //X //X                 p.drawText( text, Qt::AlignHCenter | Qt::AlignBottom, i18n( "Gradient: %1", m_gradient->description() ) );
-                //X //X                 p.drawPixmap( text.bottomLeft() + QPoint( 0, padding ), QPixmap::fromImage( img ) );
-                //X //X 
-                //X //X                 p.drawText( othertexts, Qt::AlignRight, QString::number( m_gradient->maxValue() ) );
-                //X //X                 p.drawText( othertexts, Qt::AlignLeft, QString::number( m_gradient->minValue() ) );
+//X                 QSize imgsize( legendRect.width() - 2 * sidepadding, 20 );
+//X //X                 QImage img = KImageEffect::gradient( imgsize, m_gradient->firstColor(), m_gradient->secondColor(), KImageEffect::HorizontalGradient );
+//X //X 
+//X //X                 QRect othertexts = text;
+//X //X                 othertexts.moveTo( text.bottomLeft() + QPoint( 0, padding + 4 + imgsize.height() ) );
+//X //X 
+//X //X                 p.drawText( text, Qt::AlignHCenter | Qt::AlignBottom, i18n( "Gradient: %1", m_gradient->description() ) );
+//X //X                 p.drawPixmap( text.bottomLeft() + QPoint( 0, padding ), QPixmap::fromImage( img ) );
+//X //X 
+//X //X                 p.drawText( othertexts, Qt::AlignRight, QString::number( m_gradient->maxValue() ) );
+//X //X                 p.drawText( othertexts, Qt::AlignLeft, QString::number( m_gradient->minValue() ) );
 
                 break;
             }
         case KalziumPainter::TIME:
             {
-                kDebug() << "--------------------- TIME TIME ------------------- TIME " << endl;
                 break;
             }
     }
