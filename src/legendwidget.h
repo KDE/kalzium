@@ -50,6 +50,8 @@ class LegendWidget : public QWidget
 
         void updateContent();
 
+        QList<LegendItem*> m_legendItemList;
+
         void updateLegendItemLayout( const QList<legendPair>& list );
 
     public slots:

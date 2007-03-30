@@ -115,6 +115,15 @@ void LegendWidget::updateContent()
 
 void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
 {
+    foreach ( LegendItem * i, m_legendItemList ) {
+        kDebug() << "removing one item -------------------------------------------------- " << endl;
+        layout()->removeWidget(i);
+
+//X         delete i;
+    }
+
+    m_legendItemList.clear();
+
     QGridLayout * layout = new QGridLayout( this );
 
     int x = 0;
@@ -125,6 +134,8 @@ void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
         kDebug() << "Creating an element with the string: \"" << pair.first << "\"                       ------------------------------------------" << endl;
         LegendItem *item = new LegendItem( pair );
 
+        m_legendItemList.append(item);
+
         layout->addWidget(item , x, y );
 
         x++;
@@ -134,6 +145,8 @@ void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
             y++;
         }
     }
+
+    setLayout( layout );
 }
 
 LegendItem::LegendItem(const QPair<QString, QBrush>& pair)
