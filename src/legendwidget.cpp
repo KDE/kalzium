@@ -67,7 +67,6 @@ void LegendWidget::updateContent()
 {
     QList< QPair<QString, QBrush> > items;
 
-    QGridLayout * layout = new QGridLayout( this );
 
     switch ( m_mode )
     {
@@ -87,23 +86,7 @@ void LegendWidget::updateContent()
                     items = m_scheme->legendItems();
                 }
 
-                int x = 0;
-                int y = 0;
-
-                foreach ( legendPair pair, items )
-                {
-                    kDebug() << "Creating an element with the string: \"" << pair.first << "\"                       ------------------------------------------" << endl;
-                    LegendItem *item = new LegendItem( pair );
-
-                    layout->addWidget(item , x, y );
-
-                    x++;
-
-                    if ( x >= 4 ) {
-                        x = 0;
-                        y++;
-                    }
-                }
+                updateLegendItemLayout( items );
 
                 break;
             }
@@ -128,7 +111,29 @@ void LegendWidget::updateContent()
                 break;
             }
     }
-    
+}
+
+void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
+{
+    QGridLayout * layout = new QGridLayout( this );
+
+    int x = 0;
+    int y = 0;
+
+    foreach ( legendPair pair, list )
+    {
+        kDebug() << "Creating an element with the string: \"" << pair.first << "\"                       ------------------------------------------" << endl;
+        LegendItem *item = new LegendItem( pair );
+
+        layout->addWidget(item , x, y );
+
+        x++;
+
+        if ( x >= 4 ) {
+            x = 0;
+            y++;
+        }
+    }
 }
 
 LegendItem::LegendItem(const QPair<QString, QBrush>& pair)

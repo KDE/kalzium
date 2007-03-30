@@ -50,6 +50,8 @@ class LegendWidget : public QWidget
 
         void updateContent();
 
+        void updateLegendItemLayout( const QList<legendPair>& list );
+
     public slots:
         void setMode( KalziumPainter::MODE m );
         
