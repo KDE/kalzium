@@ -92,8 +92,7 @@ void LegendWidget::updateContent()
 
                 foreach ( legendPair pair, items )
                 {
-                    kDebug() << "Creating an element with the string: \"" << pair.first << "\"
-                        ------------------------------------------" << endl;
+                    kDebug() << "Creating an element with the string: \"" << pair.first << "\"                       ------------------------------------------" << endl;
                     LegendItem *item = new LegendItem( pair );
 
                     layout->addWidget(item , x, y );
