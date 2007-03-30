@@ -47,6 +47,8 @@ class LegendWidget : public QWidget
         KalziumTableType * m_tableType;
 
         void updateContent();
+                
+        QList< QPair<QString, QBrush> > m_items;
 
     public slots:
         void setMode( KalziumPainter::MODE m );
