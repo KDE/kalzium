@@ -18,6 +18,7 @@
 class KAction;
 class KSelectAction;
 class QToolBox;
+class QTabWidget;
 class QVBoxLayout;
 class QDockWidget;
 class DetailedInfoDlg;
@@ -31,6 +32,7 @@ class IsotopeTable;
 class SearchWidget;
 class QKeyEvent;
 class LegendWidget;
+class TableInfoWidget;
 
 #include "kalziumpainter.h"
 
@@ -60,6 +62,7 @@ class Kalzium : public KMainWindow
 		DetailedInfoDlg   *m_infoDialog;
 
         LegendWidget *m_legendWidget;
+        TableInfoWidget *m_TableInfoWidget;
 
 		/**
 		 * this pointer points to the PeriodicTableView.
@@ -115,6 +118,7 @@ class Kalzium : public KMainWindow
 		QDockWidget *m_dockWin;
 		QDockWidget *m_InfoDock;
 		QToolBox *m_toolbox;
+        QTabWidget *m_infoTabWidget;
 		int m_toolboxCurrent;
 
 		GlossaryDialog *m_glossarydlg;

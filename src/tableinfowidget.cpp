@@ -1,5 +1,3 @@
-#ifndef LEGENDWIDGET_H
-#define LEGENDWIDGET_H
 /***************************************************************************
  *   Copyright (C) 2007 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
@@ -19,71 +17,52 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
-
-#include <kdialog.h>
-
-#include "kalziumpainter.h"
+#include "tableinfowidget.h"
+#include "prefs.h"
 #include "kalziumschemetype.h"
+#include "kalziumpainter.h"
+#include "kalziumtabletype.h"
 
-class LegendItem;
+#include <kdebug.h>
+#include <klocale.h>
+#include <kimageeffect.h>
+#include <kglobalsettings.h>
 
-/**
- * @author Carsten Niehaus
- *
- * The LegendWidget displays the explanations of what the user is currently 
- * seeing in the table
- */
-class LegendWidget : public QWidget
+#include <QCursor>
+#include <QKeyEvent>
+#include <QSizePolicy>
+#include <QPainter>
+#include <QPixmap>
+#include <QBrush>
+#include <QColor>
+#include <QFont>
+#include <QLabel>
+#include <QGridLayout>
+#include <QHBoxLayout>
+#include <QFrame>
+
+TableInfoWidget::TableInfoWidget( QWidget *parent )
+  : QWidget( parent )
 {
-	Q_OBJECT
+}
 
-	public:
-		LegendWidget( QWidget *parent );
-		
-		~LegendWidget(){}
-		
-    private:
-        QPixmap m_pixmap;
-
-        KalziumSchemeType * m_scheme;
-
-        KalziumPainter::MODE m_mode;
-
-        KalziumTableType * m_tableType;
-
-        void updateContent();
-
-        QList<LegendItem*> m_legendItemList;
-
-        void updateLegendItemLayout( const QList<legendPair>& list );
-
-    public slots:
-        void setMode( KalziumPainter::MODE m );
-        
-        void setScheme( KalziumSchemeType * type );
-        
-        void setTableType( KalziumTableType * type );
-};
-
-/**
- * A LegendItem is displayed as one small rectangle which represents the
- * color or QBrush in the table with a short explanation for it.
- *
- * @author Carsten Niehaus
- */
-class LegendItem : public QWidget
+void TableInfoWidget::setTableType( KalziumTableType * type )
 {
-    Q_OBJECT
+    m_tableType = type;
+    updateContent();
+}
 
-    public:
-        LegendItem( const QPair<QString, QBrush>& pair, QWidget * parent = 0 );
-        ~LegendItem(){}
+void TableInfoWidget::updateContent()
+{
+    QLabel * l = new QLabel( "test" , this );
+    if (m_tableType) {
+        l->setText(m_tableType->description() );
+    }
 
-    private:
-        QPair<QString, QBrush> m_pair;
+    QHBoxLayout * la = new QHBoxLayout(this);
+    la->addWidget( l );
+    setLayout( la );
+}
 
-    protected:
-        virtual void paintEvent( QPaintEvent * e );
-};
+#include "tableinfowidget.moc"
 
-#endif // LEGENDWIDGET_H

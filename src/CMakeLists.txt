@@ -64,6 +64,7 @@ set(kalzium_SRCS
    searchwidget.cpp
    rsdialog.cpp
    legendwidget.cpp
+   tableinfowidget.cpp
 )
 
 if(LIBFACILE_FOUND)

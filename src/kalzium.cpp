@@ -36,6 +36,7 @@
 #include "rsdialog.h"
 #include "tablesdialog.h"
 #include "legendwidget.h"
+#include "tableinfowidget.h"
 #include "search.h"
 #include "searchwidget.h"
 #include "config-kalzium.h"
@@ -57,6 +58,7 @@
 #include <QScrollArea>
 #include <QKeyEvent>
 #include <QTimer>
+#include <QTabWidget>
 
 #include <kconfigdialog.h>
 #include <kiconloader.h>
@@ -118,6 +120,10 @@ Kalzium::Kalzium()
             m_legendWidget, SLOT( setTableType( KalziumTableType * ) ) );
     connect( m_PeriodicTableView, SIGNAL( SchemeChanged( KalziumSchemeType * ) ),
             m_legendWidget, SLOT( setScheme( KalziumSchemeType * ) ) );
+
+    m_TableInfoWidget = new TableInfoWidget( this );
+    connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
+            m_TableInfoWidget, SLOT( setTableType( KalziumTableType * ) ) );
 
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
@@ -287,7 +293,12 @@ void Kalzium::setupSidebars()
 	m_InfoDock->setObjectName( QLatin1String( "kalzium-infobar" ) );
 	m_InfoDock->setAllowedAreas( Qt::BottomDockWidgetArea );
 	m_InfoDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
-    m_InfoDock->setWidget(m_legendWidget);
+
+    m_infoTabWidget = new QTabWidget(this);
+	m_infoTabWidget->setObjectName( "kalzium-infobar" );
+    m_InfoDock->setWidget(m_infoTabWidget);
+    m_infoTabWidget->addTab(m_legendWidget, i18n("&Legend"));
+    m_infoTabWidget->addTab(m_TableInfoWidget, i18n("&Table Information"));
 	
     m_dockWin = new QDockWidget( i18n( "Sidebar" ), this );
 	m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
@@ -414,11 +425,11 @@ void Kalzium::slotShowLegend( bool checked, bool changeconfig)
 {
 	if ( !checked )
 	{
-		m_pLegendAction->setText( i18n( "Show &Legend") );
+		m_pLegendAction->setText( i18n( "Show &Information") );
 	}
 	else
 	{
-		m_pLegendAction->setText( i18n( "Hide &Legend" ) );
+		m_pLegendAction->setText( i18n( "Hide &Informationwidget" ) );
 	}
 
 	if ( changeconfig )

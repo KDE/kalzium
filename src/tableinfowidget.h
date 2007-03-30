@@ -1,5 +1,5 @@
-#ifndef LEGENDWIDGET_H
-#define LEGENDWIDGET_H
+#ifndef TABLEINFOWIDGET_H
+#define TABLEINFOWIDGET_H
 /***************************************************************************
  *   Copyright (C) 2007 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
@@ -25,65 +25,25 @@
 #include "kalziumpainter.h"
 #include "kalziumschemetype.h"
 
-class LegendItem;
-
 /**
  * @author Carsten Niehaus
- *
- * The LegendWidget displays the explanations of what the user is currently 
- * seeing in the table
  */
-class LegendWidget : public QWidget
+class TableInfoWidget : public QWidget
 {
 	Q_OBJECT
 
 	public:
-		LegendWidget( QWidget *parent );
+		TableInfoWidget( QWidget *parent );
 		
-		~LegendWidget(){}
-		
+		~TableInfoWidget(){}
+    
     private:
-        QPixmap m_pixmap;
-
-        KalziumSchemeType * m_scheme;
-
-        KalziumPainter::MODE m_mode;
-
         KalziumTableType * m_tableType;
 
         void updateContent();
 
-        QList<LegendItem*> m_legendItemList;
-
-        void updateLegendItemLayout( const QList<legendPair>& list );
-
     public slots:
-        void setMode( KalziumPainter::MODE m );
-        
-        void setScheme( KalziumSchemeType * type );
-        
         void setTableType( KalziumTableType * type );
 };
 
-/**
- * A LegendItem is displayed as one small rectangle which represents the
- * color or QBrush in the table with a short explanation for it.
- *
- * @author Carsten Niehaus
- */
-class LegendItem : public QWidget
-{
-    Q_OBJECT
-
-    public:
-        LegendItem( const QPair<QString, QBrush>& pair, QWidget * parent = 0 );
-        ~LegendItem(){}
-
-    private:
-        QPair<QString, QBrush> m_pair;
-
-    protected:
-        virtual void paintEvent( QPaintEvent * e );
-};
-
-#endif // LEGENDWIDGET_H
+#endif // TABLEINFOWIDGET_H
