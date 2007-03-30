@@ -31,7 +31,6 @@ class KalziumSchemeType;
 #include <QStringList>
 
 typedef QPair<QString, QBrush> legendPair;
-typedef QList<legendPair> legendList;
 
 /**
  * Factory for KalziumSchemeType classes.
@@ -114,7 +113,7 @@ class KalziumSchemeType
 		/**
 		 * Returns a list with the legend of the current scheme.
 		 */
-		virtual legendList legendItems() const = 0;
+		virtual QList<legendPair> legendItems() const = 0;
 
 	protected:
 		KalziumSchemeType();
@@ -136,7 +135,7 @@ class KalziumMonoColorSchemeType : public KalziumSchemeType
 		QBrush elementBrush( int el, const QRect& elrect ) const;
 		QColor textColor( int el ) const;
 
-		legendList legendItems() const;
+		QList<legendPair> legendItems() const;
 
 	private:
 		KalziumMonoColorSchemeType();
@@ -158,7 +157,7 @@ class KalziumBlocksSchemeType : public KalziumSchemeType
 		QBrush elementBrush( int el, const QRect& elrect ) const;
 		QColor textColor( int el ) const;
 
-		legendList legendItems() const;
+		QList<legendPair> legendItems() const;
 
 	private:
 		KalziumBlocksSchemeType();
@@ -180,7 +179,7 @@ class KalziumIconicSchemeType : public KalziumSchemeType
 		QBrush elementBrush( int el, const QRect& elrect ) const;
 		QColor textColor( int el ) const;
 
-		legendList legendItems() const;
+		QList<legendPair> legendItems() const;
 
 	private:
 		KalziumIconicSchemeType();
@@ -202,7 +201,7 @@ class KalziumFamilySchemeType : public KalziumSchemeType
 		QBrush elementBrush( int el, const QRect& elrect ) const;
 		QColor textColor( int el ) const;
 
-		legendList legendItems() const;
+		QList<legendPair> legendItems() const;
 
 	private:
 		KalziumFamilySchemeType();
@@ -224,7 +223,7 @@ class KalziumAcidicSchemeType : public KalziumSchemeType
 		QBrush elementBrush( int el, const QRect& elrect ) const;
 		QColor textColor( int el ) const;
 
-		legendList legendItems() const;
+		QList<legendPair> legendItems() const;
 
 	private:
 		KalziumAcidicSchemeType();
@@ -246,7 +245,7 @@ class KalziumGroupsSchemeType : public KalziumSchemeType
 		QBrush elementBrush( int el, const QRect& elrect ) const;
 		QColor textColor( int el ) const;
 
-		legendList legendItems() const;
+		QList<legendPair> legendItems() const;
 
 	private:
 		KalziumGroupsSchemeType();
@@ -268,7 +267,7 @@ class KalziumCrystalSchemeType : public KalziumSchemeType
 		QBrush elementBrush( int el, const QRect& elrect ) const;
 		QColor textColor( int el ) const;
 
-		legendList legendItems() const;
+		QList<legendPair> legendItems() const;
 
 	private:
 		KalziumCrystalSchemeType();
@@ -288,7 +287,7 @@ class KalziumDiscoverymapSchemeType : public KalziumSchemeType
 		QBrush elementBrush( int el, const QRect& elrect ) const;
 		QColor textColor( int el ) const;
 
-		legendList legendItems() const;
+		QList<legendPair> legendItems() const;
 
 	private:
 		KalziumDiscoverymapSchemeType();

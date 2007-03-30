@@ -125,9 +125,9 @@ QColor KalziumMonoColorSchemeType::textColor( int el ) const
 	return Qt::black;
 }
 
-legendList KalziumMonoColorSchemeType::legendItems() const
+QList<legendPair> KalziumMonoColorSchemeType::legendItems() const
 {
-	legendList ll;
+	QList<legendPair> ll;
 	ll << qMakePair( i18n( "All the Elements" ), QBrush( Prefs::noscheme() ) );
 	return ll;
 }
@@ -179,9 +179,9 @@ QColor KalziumBlocksSchemeType::textColor( int el ) const
 	return Qt::black;
 }
 
-legendList KalziumBlocksSchemeType::legendItems() const
+QList<legendPair> KalziumBlocksSchemeType::legendItems() const
 {
-	legendList ll;
+	QList<legendPair> ll;
 	ll << qMakePair( i18n( "s-Block" ), QBrush( Prefs::block_s() ) );
 	ll << qMakePair( i18n( "p-Block" ), QBrush( Prefs::block_p() ) );
 	ll << qMakePair( i18n( "d-Block" ), QBrush( Prefs::block_d() ) );
@@ -224,9 +224,9 @@ QColor KalziumIconicSchemeType::textColor( int ) const
 	return Qt::black;
 }
 
-legendList KalziumIconicSchemeType::legendItems() const
+QList<legendPair> KalziumIconicSchemeType::legendItems() const
 {
-	legendList ll;
+	QList<legendPair> ll;
 	return ll;
 }
 
@@ -297,9 +297,9 @@ QColor KalziumFamilySchemeType::textColor( int ) const
 	return Qt::black;
 }
 
-legendList KalziumFamilySchemeType::legendItems() const
+QList<legendPair> KalziumFamilySchemeType::legendItems() const
 {
-	legendList ll;
+	QList<legendPair> ll;
 	ll << qMakePair( i18n( "Alkaline" ),QBrush( Prefs::alkalie() ) );
 	ll << qMakePair( i18n( "Rare Earth" ),QBrush( Prefs::rare() ) );
 	ll << qMakePair( i18n( "Non-Metals" ),QBrush( Prefs::nonmetal() ) );
@@ -365,9 +365,9 @@ QColor KalziumAcidicSchemeType::textColor( int ) const
 	return Qt::black;
 }
 
-legendList KalziumAcidicSchemeType::legendItems() const
+QList<legendPair> KalziumAcidicSchemeType::legendItems() const
 {
-	legendList ll;
+	QList<legendPair> ll;
 	ll << qMakePair( i18n( "Basic" ), QBrush( Prefs::beh_basic() ) );
 	ll << qMakePair( i18n( "Acidic" ), QBrush( Prefs::beh_acidic() ) );
 	ll << qMakePair( i18n( "Neutral" ), QBrush( Prefs::beh_neutral() ) );
@@ -440,9 +440,9 @@ QColor KalziumGroupsSchemeType::textColor( int ) const
 	return Qt::black;
 }
 
-legendList KalziumGroupsSchemeType::legendItems() const
+QList<legendPair> KalziumGroupsSchemeType::legendItems() const
 {
-	legendList ll;
+	QList<legendPair> ll;
 	ll << qMakePair( i18n( "Group 1" ), QBrush( Prefs::group_1() ) );
 	ll << qMakePair( i18n( "Group 2" ), QBrush( Prefs::group_2() ) );
 	ll << qMakePair( i18n( "Group 3" ), QBrush( Prefs::group_3() ) );
@@ -535,7 +535,7 @@ QColor KalziumCrystalSchemeType::textColor( int ) const
 	return Qt::black;
 }
 
-legendList KalziumCrystalSchemeType::legendItems() const
+QList<legendPair> KalziumCrystalSchemeType::legendItems() const
 {
 	static QString resourcepath;
 	if ( resourcepath.isEmpty() )
@@ -543,7 +543,7 @@ legendList KalziumCrystalSchemeType::legendItems() const
 		resourcepath = KGlobal::dirs()->findResourceDir( "appdata", "data/latticeicons/" ) + "data/latticeicons/";
 	}
 
-	legendList ll;
+	QList<legendPair> ll;
 	ll << qMakePair( i18n( "bcc, body centered cubic"  ), QBrush( QPixmap( resourcepath + "ci.png" ) ) );
 	ll << qMakePair( i18n( "ccp, cubic close packed" ), QBrush( QPixmap( resourcepath + "cp.png" ) ) );
 	ll << qMakePair( i18n( "fcc, face centered cubic" ), QBrush( QPixmap( resourcepath + "cf.png" ) ) );
@@ -654,7 +654,7 @@ QColor KalziumDiscoverymapSchemeType::textColor( int ) const
 	return Qt::black;
 }
 
-legendList KalziumDiscoverymapSchemeType::legendItems() const
+QList<legendPair> KalziumDiscoverymapSchemeType::legendItems() const
 {
 	static QString resourcepath;
 	if ( resourcepath.isEmpty() )
@@ -662,7 +662,7 @@ legendList KalziumDiscoverymapSchemeType::legendItems() const
 		resourcepath = KGlobal::dirs()->findResourceDir( "appdata", "data/maps/" ) + "data/maps/";
 	}
 
-	legendList ll;
+	QList<legendPair> ll;
 	ll << qMakePair( i18n( "Germany"  ), QBrush( QPixmap( resourcepath + "de.png" ) ) );
 	ll << qMakePair( i18n( "United Kindom"  ), QBrush( QPixmap( resourcepath + "uk.png" ) ) );
 	ll << qMakePair( i18n( "Sweden"  ), QBrush( QPixmap( resourcepath + "se.png" ) ) );

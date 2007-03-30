@@ -79,7 +79,7 @@ void LegendWidget::updateContent()
             {
                 if ( !m_scheme ) return;
 
-                legendList items;
+                QList<legendPair> items;
                 if ( m_mode == KalziumPainter::SOM )
                 {
                     items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
