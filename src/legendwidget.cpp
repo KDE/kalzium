@@ -97,7 +97,6 @@ void LegendWidget::updateContent()
                 {
                     LegendItem *item = new LegendItem( pair );
 
-                    m_legendItems.append( item );
                     layout->addWidget(item , x, y );
 
                     x++;
