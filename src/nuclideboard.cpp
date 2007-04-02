@@ -476,7 +476,7 @@ void IsotopeTableView::mousePressEvent( QMouseEvent *e )
 		{
 			m_isMoving = true;
 			m_firstPoint = m_scroll->mapToParent( e->pos() );
-			setCursor( KCursor::handCursor() );
+			setCursor( Qt::PointingHandCursor );
 		}
 	}
 }
@@ -508,7 +508,7 @@ void IsotopeTableView::mouseReleaseEvent( QMouseEvent *e )
 		else
 		{
 			m_isMoving = false;
-			setCursor( KCursor::arrowCursor() );
+			setCursor( Qt::ArrowCursor );
 		}
 	}
 }
