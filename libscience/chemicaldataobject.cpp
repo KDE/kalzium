@@ -17,16 +17,25 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
+
 #include <kdebug.h>
 #include "chemicaldataobject.h"
 
+class ChemicalDataObjectPrivate : public QSharedData
+{
+    public:
+        ChemicalDataObjectPrivate();
+        ~ChemicalDataObjectPrivate();
+
+        QVariant m_value;
+        QVariant m_errorValue;
+        ChemicalDataObject::BlueObelisk m_type;
+        ChemicalDataObject::BlueObeliskUnit m_unit;
+};
+
 //########################
 ChemicalDataObjectPrivate::ChemicalDataObjectPrivate()
-{
-}
-
-ChemicalDataObjectPrivate::ChemicalDataObjectPrivate(const ChemicalDataObjectPrivate &other)
-: QSharedData(other)
+: QSharedData()
 {
 }
 
@@ -36,8 +45,8 @@ ChemicalDataObjectPrivate::~ChemicalDataObjectPrivate()
 //##############
 
 ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, const QVariant& errorValue ) 
+  : d(new ChemicalDataObjectPrivate)
 {
-    d = new ChemicalDataObjectPrivate;
     d->m_value = v;
     d->m_errorValue = errorValue;
     d->m_type = type;
@@ -45,10 +54,25 @@ ChemicalDataObject::ChemicalDataObject( const QVariant& v, BlueObelisk type, con
 }
 
 ChemicalDataObject::ChemicalDataObject() 
+  : d(new ChemicalDataObjectPrivate)
 {
-    d = new ChemicalDataObjectPrivate;
     d->m_errorValue = QVariant();
     d->m_unit = ChemicalDataObject::noUnit;
+}
+
+ChemicalDataObject::ChemicalDataObject(const ChemicalDataObject &other)
+  : d(other.d)
+{
+}
+
+ChemicalDataObject::~ChemicalDataObject()
+{
+}
+
+ChemicalDataObject& ChemicalDataObject::operator=(const ChemicalDataObject &other)
+{
+	d = other.d;
+	return *this;
 }
 
 bool ChemicalDataObject::operator==( const int v ) const
@@ -81,6 +105,16 @@ bool ChemicalDataObject::operator==( const QString& v ) const
 		return false;
 
 	return d->m_value.toString() == v;
+}
+
+bool ChemicalDataObject::operator==(const ChemicalDataObject &other) const
+{
+	return d == other.d;
+}
+
+bool ChemicalDataObject::operator!=(const ChemicalDataObject &other) const
+{
+	return d != other.d;
 }
 
 QString ChemicalDataObject::valueAsString() const

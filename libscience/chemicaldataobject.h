@@ -119,6 +119,16 @@ class SCIENCE_EXPORT ChemicalDataObject
 				const QVariant& errorValue = QVariant(0) );
 
 		/**
+		 * Copy constructor.
+		 */
+		ChemicalDataObject(const ChemicalDataObject &other);
+
+		/**
+		 * Destructor.
+		 */
+		~ChemicalDataObject();
+
+		/**
 		 * Set the data of this object to @p v
 		 * @param v the value of the object
 		 */
@@ -234,20 +244,14 @@ class SCIENCE_EXPORT ChemicalDataObject
 		 */
 		static BlueObeliskUnit unit( const QString& unitname );
 		
+		ChemicalDataObject& operator=(const ChemicalDataObject &other);
+
+		bool operator==(const ChemicalDataObject &other) const;
+
+		bool operator!=(const ChemicalDataObject &other) const;
+
 	private:
     QSharedDataPointer<ChemicalDataObjectPrivate> d;
 };
 
-class SCIENCE_EXPORT ChemicalDataObjectPrivate : public QSharedData
-{
-    public:
-        ChemicalDataObjectPrivate();
-        ChemicalDataObjectPrivate(const ChemicalDataObjectPrivate &other);
-        ~ChemicalDataObjectPrivate();
-
-        QVariant m_value;
-        QVariant m_errorValue;
-        ChemicalDataObject::BlueObelisk m_type;
-        ChemicalDataObject::BlueObeliskUnit m_unit;
-};
 #endif // CHEMICALDATAOBJECT_H
