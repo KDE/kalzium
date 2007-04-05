@@ -38,12 +38,12 @@ class Spectrum
 		/**
 		 * This spectrum doesn't belong to any element
 		 */
-		Spectrum(){};
+		Spectrum(){}
 		
 		/**
 		 * public destructor
 		 */
-		~Spectrum(){};
+		~Spectrum(){}
 
 		/**
 		 * a band is one line in the spectrum of an element

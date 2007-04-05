@@ -40,7 +40,7 @@ class AxisData
 		 */
 		void setDataList( DoubleList list ){ 
 			dataList = list; 
-		};
+		}
 		
 		/**
 		 * @return the value of the selected dataset of element @p element
