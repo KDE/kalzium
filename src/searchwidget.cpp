@@ -21,7 +21,7 @@
 
 #include <QLabel>
 #include <QLayout>
-#include <QLineEdit>
+#include <KLineEdit>
 #include <QTimer>
 #include <QToolButton>
 
@@ -39,16 +39,10 @@ SearchWidget::SearchWidget( QWidget *parent )
 	mainlay->setMargin( 2 );
 	mainlay->setSpacing( 1 );
 
-	QToolButton *clearBtn =  new QToolButton( this );
-	clearBtn->setIcon( KIcon( layoutDirection() == Qt::RightToLeft ? "clear_left" : "locationbar_erase" ) );
-	clearBtn->setToolTip( i18n( "Clear filter" ) );
-	clearBtn->setAutoRaise( true );
-	mainlay->addWidget( clearBtn );
-
 	mainlay->addWidget( new QLabel( i18n( "Search:" ), this ) );
 
-	m_searchLine = new QLineEdit( this );
-	connect( clearBtn, SIGNAL( clicked() ), m_searchLine, SLOT( clear() ) );
+	m_searchLine = new KLineEdit( this );
+	m_searchLine->setClearButtonShown(true);
 	connect( m_searchLine, SIGNAL( textChanged( const QString& ) ),
 	         this, SLOT( searchTextChanged( const QString& ) ) );
 	mainlay->addWidget( m_searchLine );

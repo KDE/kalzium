@@ -57,7 +57,7 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
     connect( m_timer, SIGNAL( timeout() ),
             this, SLOT( slotCalculate() ) );
 
-	ui.clearButton->setIcon( KIcon( QApplication::layoutDirection() == Qt::RightToLeft ? "clear_left" : "locationbar_erase" ) );
+	ui.clearButton->setIcon( KIcon( QApplication::layoutDirection() == Qt::RightToLeft ? "clear-left" : "locationbar-erase" ) );
 
 	clear();
 

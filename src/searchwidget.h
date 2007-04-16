@@ -22,7 +22,7 @@
 
 #include <QWidget>
 
-class QLineEdit;
+class KLineEdit;
 class QTimer;
 
 /**
@@ -51,7 +51,7 @@ class SearchWidget : public QWidget
 		void doSearch();
 
 	private:
-		QLineEdit *m_searchLine;
+		KLineEdit *m_searchLine;
 		QTimer *m_timer;
 };
 
