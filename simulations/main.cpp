@@ -48,7 +48,7 @@ int main(int argc, char **argv)
     KApplication app;
     MainDialog_Impl *mainWin = 0;
 #ifdef __GNUC__
-#warning MainDialog_Impl has to be a KMainWindow if you want to call RESTORE on it
+#warning MainDialog_Impl has to be a KXmlGuiWindow if you want to call RESTORE on it
 #endif	
 /*    
     if (app.isSessionRestored())

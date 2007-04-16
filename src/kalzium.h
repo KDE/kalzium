@@ -13,7 +13,7 @@
 #ifndef KALZIUM_H
 #define KALZIUM_H
 
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 
 class KAction;
 class KSelectAction;
@@ -44,7 +44,7 @@ class TableInfoWidget;
  * This class connects the parts of kalzium. All actions will
  * be set, the menu generated and so on.
  */
-class Kalzium : public KMainWindow
+class Kalzium : public KXmlGuiWindow
 {
 	Q_OBJECT
 	public:

@@ -85,7 +85,7 @@
 #define IDS_ELEMENTINFO     7
 
 Kalzium::Kalzium()
-    : KMainWindow( 0 )
+    : KXmlGuiWindow( 0 )
 {
 	setObjectName( "KalziumMainWindow" );
 
