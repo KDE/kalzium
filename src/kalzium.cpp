@@ -12,6 +12,7 @@
  ***************************************************************************/
 #include "kalzium.h"
 
+#include <kapplication.h>
 #include <element.h>
 #include <kdeeduglossary.h>
 #include <kactioncollection.h>
@@ -65,7 +66,6 @@
 #include <klocale.h>
 #include <kdebug.h>
 #include <kaction.h>
-#include <kapplication.h>
 #include <kparts/part.h>
 #include <kselectaction.h>
 #include <kstatusbar.h>
