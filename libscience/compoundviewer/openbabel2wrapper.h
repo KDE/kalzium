@@ -20,7 +20,7 @@
 
 #include <libkdeedu_compoundviewer_export.h>
 
-#include <QString>
+
 
 /**
  * @author Carsten Niehaus

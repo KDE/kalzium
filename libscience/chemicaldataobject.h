@@ -23,7 +23,7 @@
 #include <QSharedData>
 #include <QSharedDataPointer>
 #include <QVariant>
-#include <QString>
+
 
 #include <libkdeedu_science_export.h>
 

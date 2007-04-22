@@ -26,7 +26,7 @@
 #include <malloc.h>
 
 
-#include <QString>
+
 #include <QMouseEvent>
 #include <QLayout>
 #include <QListWidget>

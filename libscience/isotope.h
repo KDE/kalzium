@@ -23,7 +23,7 @@
 #include "chemicaldataobject.h"
 #include <libkdeedu_science_export.h>
 
-#include <QString>
+
 
 /**
  * @author Carsten Niehaus
