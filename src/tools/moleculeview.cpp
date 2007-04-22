@@ -21,7 +21,7 @@
 #include <openbabel2wrapper.h>
 #include <kalziumglwidget.h>
 
-#include <QString>
+
 #include <QMouseEvent>
 #include <QLayout>
 #include <QFileDialog>

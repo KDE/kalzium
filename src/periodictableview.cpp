@@ -32,7 +32,7 @@
 #include <QApplication>
 #include <QEvent>
 #include <QImage>
-#include <QString>
+
 #include <QLabel>
 #include <QPixmap>
 #include <QPoint>

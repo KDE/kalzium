@@ -19,7 +19,7 @@
  ***************************************************************************/
 
 #include <QLabel>
-#include <QString>
+
 #include <QClipboard>
 
 #include <kdebug.h>

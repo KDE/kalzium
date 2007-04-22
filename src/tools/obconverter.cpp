@@ -28,7 +28,7 @@
 #include <QRegExp>
 #include <QListWidget>
 #include <QProcess>
-#include <QString>
+
 
 
 // KDE includes
