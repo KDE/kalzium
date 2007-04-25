@@ -1,10 +1,6 @@
 add_subdirectory(data)
 add_subdirectory(tests)
 
-if(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
-add_subdirectory(compoundviewer)
-endif(OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
-
 set(science_LIB_SRCS
    element.cpp
    spectrum.cpp
