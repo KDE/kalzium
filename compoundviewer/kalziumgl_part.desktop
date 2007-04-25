@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=kalzium
+MimeType=application/ogg;audio/basic;
+Name=KalziumGLPart
+Name[pa]=ਕੈਲਜੀਅਮGLPart
+Name[sv]=Kalzium GL-programdel
+Name[x-test]=xxKalziumGLPartxx
+Comment=An OpenGL-based 3D-renderer for molecules
+Comment[pa]=ਅਣੂ ਲਈ ਓਪਨ-GL ਅਧਾਰਿਤ 3D-ਰੈਂਡਰਿੰਗ
+Comment[sv]=OpenGL-baserad tredimensionell molekyluppritning
+Comment[x-test]=xxAn OpenGL-based 3D-renderer for moleculesxx
+ServiceTypes=KParts/ReadOnlyPart
+Type=Service
+X-KDE-Library=libkalziumglpart

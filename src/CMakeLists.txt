@@ -2,7 +2,7 @@ add_subdirectory(tools)
 
 include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
-   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/compoundviewer/
+   ${CMAKE_SOURCE_DIR}/kalzium/compoundviewer/
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
    ${CMAKE_SOURCE_DIR}/kalzium/src/tools/
    ${CMAKE_CURRENT_BINARY_DIR}/..
