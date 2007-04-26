@@ -44,6 +44,7 @@ OpenBabel::OBMol* OpenBabel2Wrapper::readMolecule( const QString& filename )
 	if ( !inFileStream ) {
 		QMessageBox::warning(  0, i18n( "Problem while opening the file" ),
 				i18n( "Cannot open the specified file." ) );
+		delete mol;
 		return 0;
 	}
 
