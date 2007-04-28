@@ -15,6 +15,7 @@
 #include <kcombobox.h>
 #include <klocale.h>
 #include <kpushbutton.h>
+#include <kstandarddirs.h>
 
 #include "moleculeview.h"
 
@@ -66,7 +67,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
 void MoleculeDialog::slotLoadMolecule()
 {
-	m_path = "/home/kde4/chemical-structures/amino_acids";
+        m_path = KGlobal::dirs()->findResourceDir( "appdata", "data/molecules/" ) + "data/molecules/";
 
 	QString filename = QFileDialog::getOpenFileName( 
 			this,
