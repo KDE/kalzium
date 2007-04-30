@@ -61,8 +61,8 @@ class Kalzium : public KXmlGuiWindow
 	private:
 		DetailedInfoDlg   *m_infoDialog;
 
-        LegendWidget *m_legendWidget;
-        TableInfoWidget *m_TableInfoWidget;
+                LegendWidget *m_legendWidget;
+                TableInfoWidget *m_TableInfoWidget;
 
 		/**
 		 * this pointer points to the PeriodicTableView.
@@ -78,6 +78,8 @@ class Kalzium : public KXmlGuiWindow
 		 *initialize the sidebars
 		 */
 		void setupSidebars();
+
+                void extractIconicInformationAboutElement( int elementNumber );
 		
 		/**
 		 * all KActions Kalzium uses

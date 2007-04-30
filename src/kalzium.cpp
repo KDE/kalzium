@@ -113,17 +113,17 @@ Kalzium::Kalzium()
 	helperSV->setFrameShape( QFrame::NoFrame );
 	fakelay->addWidget( helperSV );
     
-    m_legendWidget = new LegendWidget( this );
-    connect( m_PeriodicTableView, SIGNAL(ModeChanged( KalziumPainter::MODE) ),
-            m_legendWidget, SLOT(setMode(KalziumPainter::MODE) ) );
-    connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
-            m_legendWidget, SLOT( setTableType( KalziumTableType * ) ) );
-    connect( m_PeriodicTableView, SIGNAL( SchemeChanged( KalziumSchemeType * ) ),
-            m_legendWidget, SLOT( setScheme( KalziumSchemeType * ) ) );
+        m_legendWidget = new LegendWidget( this );
+        connect( m_PeriodicTableView, SIGNAL(ModeChanged( KalziumPainter::MODE) ),
+                        m_legendWidget, SLOT(setMode(KalziumPainter::MODE) ) );
+        connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
+                        m_legendWidget, SLOT( setTableType( KalziumTableType * ) ) );
+        connect( m_PeriodicTableView, SIGNAL( SchemeChanged( KalziumSchemeType * ) ),
+                        m_legendWidget, SLOT( setScheme( KalziumSchemeType * ) ) );
 
-    m_TableInfoWidget = new TableInfoWidget( this );
-    connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
-            m_TableInfoWidget, SLOT( setTableType( KalziumTableType * ) ) );
+        m_TableInfoWidget = new TableInfoWidget( this );
+        connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
+                        m_TableInfoWidget, SLOT( setTableType( KalziumTableType * ) ) );
 
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
@@ -562,6 +562,8 @@ void Kalzium::setupStatusBar()
 
 void Kalzium::elementHover( int num )
 {
+        extractIconicInformationAboutElement( num );
+
 	Element *e = KalziumDataObject::instance()->element( num );
 	statusBar()->changeItem( i18nc( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ,
 			  e->dataAsString( ChemicalDataObject::name ) ,
@@ -569,6 +571,29 @@ void Kalzium::elementHover( int num )
 			  e->dataAsString( ChemicalDataObject::mass ) ) , IDS_ELEMENTINFO );
 
 	m_detailWidget->setBackgroundColor( m_PeriodicTableView->brushForElement( num ).color() );
+}
+                
+void Kalzium::extractIconicInformationAboutElement( int elementNumber )
+{
+        QString setname = "school";
+        QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
+        QString filename = pathname + setname + '/' + "iconinformation.txt";
+
+        QFile file(filename);
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+                return;
+
+        QString infoline;
+
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+                QString tmp = in.readLine();
+                if( tmp.startsWith( QString::number( elementNumber ) ) )
+                        infoline = tmp;
+        }
+
+        QString realText = infoline.remove( QRegExp("\\d+ ") );
+        kDebug() << "the final text: " << realText << endl;
 }
 
 void Kalzium::openInformationDialog( int number )
