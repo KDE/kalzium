@@ -18,10 +18,11 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
+#include "field.h"
+
 #include <stdlib.h>
 #include <time.h>
 
-#include "field.h"
 #include "stone.h"
 
 ///Field

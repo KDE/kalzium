@@ -109,7 +109,7 @@ class SpectrumWidget : public QWidget
 
     /**
      * based on the current position of the mouse-cursor the nearest
-     * peak is searched. If found, it will be emited.
+     * peak is searched. If found, it will be emitted.
      * 
      * @see peakSelected
      */

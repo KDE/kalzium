@@ -11,25 +11,22 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#include "moleculeview.h"
+
 #include <kdebug.h>
 #include <kcombobox.h>
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
 
-#include "moleculeview.h"
-
 #include <openbabel2wrapper.h>
 #include <kalziumglwidget.h>
-
 
 #include <QMouseEvent>
 #include <QLayout>
 #include <QFileDialog>
 #include <QDir>
 #include <QStringList>
-
-
 
 using namespace OpenBabel;
 

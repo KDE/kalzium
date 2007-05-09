@@ -40,7 +40,8 @@
 #include "tableinfowidget.h"
 #include "search.h"
 #include "searchwidget.h"
-#include "config-kalzium.h"
+
+#include <config-kalzium.h>
 
 #ifdef HAVE_FACILE
 #include "eqchemview.h"

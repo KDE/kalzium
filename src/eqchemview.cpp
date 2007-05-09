@@ -18,18 +18,18 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <QLabel>
+#include "eqchemview.h"
 
 #include <QClipboard>
+#include <QLabel>
 
 #include <kdebug.h>
-#include "config-kalzium.h"
-
-#include "eqchemview.h"
 
 #include "ui_equationview.h"
 
 #include <stdlib.h>
+
+#include <config-kalzium.h>
 
 #ifdef HAVE_FACILE
 extern "C" {

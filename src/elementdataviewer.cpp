@@ -12,6 +12,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "elementdataviewer.h"
+
 #include <element.h>
 #include <kplotaxis.h>
 #include <kplotobject.h>
@@ -28,8 +30,6 @@
 #include <QLabel>
 #include <QPointF>
 #include <QTimer>
-
-#include "elementdataviewer.h"
 
 AxisData::AxisData( AXISTYPE type) : currentDataType(-1)
 {

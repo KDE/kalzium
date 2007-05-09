@@ -17,9 +17,9 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
+#include "simulationsdialog.h"
 #include "simulationsimplementations.h"
 #include "gamecontrols_impl.h"
-#include "simulationsdialog.h"
 #include "simulation.h"
 #include "simulationfield.h"
 #include "field.h"

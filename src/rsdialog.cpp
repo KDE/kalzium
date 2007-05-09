@@ -19,10 +19,11 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
+#include "rsdialog.h"
+
 #include <QStringList>
 #include <QRegExp>
 
-#include "rsdialog.h"
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 

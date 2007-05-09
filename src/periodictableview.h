@@ -187,7 +187,7 @@ class PeriodicTableView : public QWidget
 		/**
 		 * If called this slot will emit the signal MouseOver( num )
 		 * where num is the number of the element the mouse if over.
-		 * If the mouse is not over an element nothing will be emited
+		 * If the mouse is not over an element nothing will be emitted
 		 * @see MouseOver()
 		 */
 		void slotMouseover();
@@ -210,7 +210,7 @@ class PeriodicTableView : public QWidget
 		void ElementClicked(int);
 
 		/**
-		 * This signal is emited when the mouse pointer is
+		 * This signal is emitted when the mouse pointer is
 		 * over an element
 		 */
 		void MouseOver( int );
