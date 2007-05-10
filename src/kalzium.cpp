@@ -345,7 +345,7 @@ void Kalzium::setupSidebars()
 
 void Kalzium::slotExportTable()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save Kalziums Table In..."),
+    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save Kalziums Table In"),
             QString(), 
             i18n("Images (*.png *.xpm *.jpg *.svg)"));
 
