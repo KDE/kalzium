@@ -80,7 +80,7 @@ void OBConverter::setupWindow()
             SIGNAL( clicked() ), SLOT( slotSelectAll() ));
  
     connect(this,
-            SIGNAL( slotUser1() ), SLOT( slotConvert() ));
+            SIGNAL( user1Clicked() ), SLOT( slotConvert() ));
 }
 
 void OBConverter::slotAddFile()
