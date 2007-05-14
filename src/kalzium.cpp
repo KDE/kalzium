@@ -380,7 +380,8 @@ void Kalzium::slotMoleculeviewer()
 #if defined(HAVE_OPENBABEL2) && defined(HAVE_OPENGL) && defined(HAVE_EIGEN)
 	MoleculeDialog * d = new MoleculeDialog( this ); d->show();
 
-  KLibrary* library = KLibLoader::self()->globalLibrary("libkalziumglpart");
+  KLibrary* library = KLibLoader::self()->library(QLatin1String("libkalziumglpart"),
+                                                  QLibrary::ExportExternalSymbolsHint);
   KLibFactory* factory = 0;
 
   if ( library )
