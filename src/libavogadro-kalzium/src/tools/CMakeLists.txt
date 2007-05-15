@@ -24,7 +24,7 @@ TARGET_LINK_LIBRARIES(drawtool
     ${OPENBABEL2_LIBRARIES} 
     ${QT_LIBRARIES}
     ${OPENGL_LIBRARIES} 
-    avogadro-lib)
+    avogadro)
 INSTALL(TARGETS drawtool DESTINATION ${DESTINATION_DIR})
 
 ### clickmeasuretool
@@ -36,7 +36,7 @@ TARGET_LINK_LIBRARIES(clickmeasuretool
     ${OPENBABEL2_LIBRARIES} 
     ${QT_LIBRARIES}
     ${OPENGL_LIBRARIES} 
-    avogadro-lib)
+    avogadro)
 INSTALL(TARGETS clickmeasuretool DESTINATION ${DESTINATION_DIR})
 
 ### selectrotatetool
@@ -48,7 +48,7 @@ TARGET_LINK_LIBRARIES(selectrotatetool
 	${OPENBABEL2_LIBRARIES} 
 	${QT_LIBRARIES} 
     ${OPENGL_LIBRARIES}
-	avogadro-lib
+	avogadro
 )
 INSTALL(TARGETS selectrotatetool DESTINATION ${DESTINATION_DIR})
 
@@ -61,7 +61,7 @@ TARGET_LINK_LIBRARIES(navigatetool
 	${OPENBABEL2_LIBRARIES} 
 	${QT_LIBRARIES} 
     ${OPENGL_LIBRARIES}
-	avogadro-lib
+	avogadro
 )
 INSTALL(TARGETS navigatetool DESTINATION ${DESTINATION_DIR})
 
@@ -74,6 +74,6 @@ TARGET_LINK_LIBRARIES(manipulatetool
 	${OPENBABEL2_LIBRARIES} 
 	${QT_LIBRARIES} 
     ${OPENGL_LIBRARIES}
-	avogadro-lib
+	avogadro
 )
 INSTALL(TARGETS manipulatetool DESTINATION ${DESTINATION_DIR})
