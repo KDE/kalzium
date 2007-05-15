@@ -25,6 +25,8 @@
 #ifndef __GLOBAL_H
 #define __GLOBAL_H
 
+#include <kdemacros.h>
+
 #ifdef WIN32
 # ifndef NOMINMAX
 #  define NOMINMAX 1
@@ -35,8 +37,8 @@
 # define A_DECL_IMPORT __declspec(dllimport)
 # define A_DECL_EXPORT __declspec(dllexport)
 #else
-# define A_DECL_IMPORT
-# define A_DECL_EXPORT
+# define A_DECL_IMPORT KDE_EXPORT
+# define A_DECL_EXPORT KDE_EXPORT
 #endif
 
 #ifndef A_EXPORT
@@ -46,7 +48,7 @@
 #  define A_EXPORT A_DECL_IMPORT
 # endif
 #else
-# define A_EXPORT
+# define A_EXPORT KDE_EXPORT
 #endif
 
 #ifndef GL_RESCALE_NORMAL

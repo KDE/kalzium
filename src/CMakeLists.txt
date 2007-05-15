@@ -27,7 +27,7 @@ if(OPENBABEL2_FOUND)
 	if(OPENGL_FOUND AND EIGEN_FOUND)
 	
 # to enable libavogadro building, uncomment the following line:
-#	        add_subdirectory(libavogadro-kalzium)
+	        add_subdirectory(libavogadro-kalzium)
 	
 		set(kalziumtools_SRCS
 			${kalziumtools_SRCS}
