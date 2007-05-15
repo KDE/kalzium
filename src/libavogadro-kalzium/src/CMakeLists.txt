@@ -32,18 +32,19 @@ set(libavogadro_SRCS
   cylinder.cpp
 )
 
-set(libavogadro_HDRS
-  color.h
-  primitive.h
-  engine.h
-  glwidget.h
-  toolgroup.h
-  moleculetreeview.h
-  global.h
-  camera.h
-  undosequence.h
-  painter.h
-)
+#Don't install headers since Kalzium is the only app using this snapshot
+#set(libavogadro_HDRS
+#  color.h
+#  primitive.h
+#  engine.h
+#  glwidget.h
+#  toolgroup.h
+#  moleculetreeview.h
+#  global.h
+#  camera.h
+#  undosequence.h
+#  painter.h
+#)
 
 qt4_automoc(${libavogadro_SRCS})
 
@@ -62,7 +63,9 @@ TARGET_LINK_LIBRARIES(avogadro-lib ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                    ${OPENGL_LIBRARIES}                                   )
 
 INSTALL(TARGETS avogadro-lib DESTINATION lib)
-INSTALL(FILES ${libavogadro_HDRS} DESTINATION include/avogadro)
+
+#Don't install headers since Kalzium is the only app using this snapshot
+#INSTALL(FILES ${libavogadro_HDRS} DESTINATION include/avogadro)
 
 add_subdirectory(engines)
 add_subdirectory(tools)

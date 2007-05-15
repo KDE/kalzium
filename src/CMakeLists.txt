@@ -4,7 +4,7 @@ include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/
    ${CMAKE_SOURCE_DIR}/kalzium/compoundviewer/
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
-   ${CMAKE_SOURCE_DIR}/kalzium/src/tools/
+   ${CMAKE_SOURCE_DIR}/kalzium/src/tools/z
    ${CMAKE_CURRENT_BINARY_DIR}/..
 )
 
@@ -25,6 +25,10 @@ if(OPENBABEL2_FOUND)
 	include_directories( ${OPENBABEL2_INCLUDE_DIR} )
 	
 	if(OPENGL_FOUND AND EIGEN_FOUND)
+	
+# to enable libavogadro building, uncomment the following line:
+#	        add_subdirectory(libavogadro-kalzium)
+	
 		set(kalziumtools_SRCS
 			${kalziumtools_SRCS}
 			tools/moleculeview.cpp
