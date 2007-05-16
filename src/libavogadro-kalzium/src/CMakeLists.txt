@@ -8,7 +8,7 @@ configure_file(
 include(${QT_USE_FILE})
 
 include_directories(
-  ${libavogadro_SOURCE_DIR}/include
+  ${libavogadro-kalzium_SOURCE_DIR}/include
   ${CMAKE_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}/..
