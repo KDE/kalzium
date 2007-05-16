@@ -1,4 +1,4 @@
-project(libavogadro)
+project(libavogadro-kalzium)
 
 if (WIN32)
   add_definitions( -DWIN32 )

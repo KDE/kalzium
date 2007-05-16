@@ -6,7 +6,8 @@ include_directories(${OPENBABEL_INCLUDE_DIR}
 	${CMAKE_CURRENT_BINARY_DIR}
 )
 
-set(DESTINATION_DIR lib/avogadro/engines)
+# Install to avogadro-kalzium so as not to collide with avogadro.
+set(DESTINATION_DIR ${LIB_INSTALL_DIR}/avogadro-kalzium/engines)
 
 ADD_DEFINITIONS(${QT_DEFINITIONS})
 ADD_DEFINITIONS(-DQT_PLUGIN)

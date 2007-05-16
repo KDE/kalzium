@@ -55,14 +55,15 @@ qt4_automoc(${libavogadro_SRCS})
 #)
 #qt4_wrap_cpp(libavogadro_MOC_SRCS ${libavogadro_MOC_HDRS})
 
+# Install the library to avogadro-kalzium so that it does not collide with avo
 ADD_LIBRARY(avogadro-lib SHARED ${libavogadro_SRCS})
-SET_TARGET_PROPERTIES(avogadro-lib PROPERTIES OUTPUT_NAME avogadro)
+SET_TARGET_PROPERTIES(avogadro-lib PROPERTIES OUTPUT_NAME avogadro-kalzium)
 set_target_properties(avogadro-lib PROPERTIES VERSION 0.0.1 SOVERSION 0 )
 
 TARGET_LINK_LIBRARIES(avogadro-lib ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                    ${OPENGL_LIBRARIES}                                   )
 
-INSTALL(TARGETS avogadro-lib DESTINATION lib)
+INSTALL(TARGETS avogadro-lib DESTINATION ${LIB_INSTALL_DIR})
 
 #Don't install headers since Kalzium is the only app using this snapshot
 #INSTALL(FILES ${libavogadro_HDRS} DESTINATION include/avogadro)

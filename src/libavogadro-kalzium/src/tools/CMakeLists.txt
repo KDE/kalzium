@@ -7,7 +7,8 @@ ADD_DEFINITIONS(-DQT_PLUGIN)
 ADD_DEFINITIONS(-DQT_NO_DEBUG)
 ADD_DEFINITIONS(-DQT_SHARED)
 
-set(DESTINATION_DIR lib/avogadro/tools)
+# Install to avogadro-kalzium so as not to collide with avogadro.
+set(DESTINATION_DIR ${LIB_INSTALL_DIR}/avogadro-kalzium/tools)
 
 include_directories(
 	${CMAKE_CURRENT_BINARY_DIR}
