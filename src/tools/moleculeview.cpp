@@ -20,7 +20,6 @@
 #include <kstandarddirs.h>
 
 #include <openbabel2wrapper.h>
-#include <kalziumglwidget.h>
 
 #include <QMouseEvent>
 #include <QLayout>
@@ -38,7 +37,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	setDefaultButton( User1 );
 	setButtonGuiItem( User1, KGuiItem( i18n( "Load molecule" ), "open", i18n( "Loading a molecule" ) ) );
 	
-  ui.setupUi(mainWidget());
+	ui.setupUi(mainWidget());
 
 	ui.treeWidget->setSelectionMode( QAbstractItemView::MultiSelection );
 
@@ -76,11 +75,15 @@ void MoleculeDialog::slotLoadMolecule()
 
 	kDebug() << "Filename to load: " << filename << endl;
 
-	OpenBabel::OBMol* mol = OpenBabel2Wrapper::readMolecule( filename );
-	mol->Center();
-	ui.glWidget->slotSetMolecule( mol );
-	ui.glWidget->update();
-	updateStatistics();
+	Avogadro::Molecule* molecule = OpenBabel2Wrapper::readMolecule( filename );
+
+	if (molecule->NumAtoms() != 0)
+	{
+		molecule->Center();
+		ui.glWidget->setMolecule( molecule );
+		ui.glWidget->update();
+		updateStatistics();
+	}
 }
 
 MoleculeDialog::~MoleculeDialog( )
@@ -89,7 +92,7 @@ MoleculeDialog::~MoleculeDialog( )
 
 void MoleculeDialog::updateStatistics()
 {
-	OpenBabel::OBMol* mol = ui.glWidget->molecule();
+	Avogadro::Molecule* mol = ui.glWidget->molecule();
 	if ( !mol ) return;
 
 	ui.treeWidget->clear();
@@ -127,7 +130,7 @@ void MoleculeDialog::updateStatistics()
 void MoleculeDialog::slotAtomsSelected()
 {
 	QList<OpenBabel::OBAtom*> atoms;
-	OpenBabel::OBMol* molecule = ui.glWidget->molecule();
+	Avogadro::Molecule* molecule = ui.glWidget->molecule();
 
 	QList<QTreeWidgetItem *> itemList = ui.treeWidget->selectedItems();
 	foreach( QTreeWidgetItem* item , itemList )
@@ -154,7 +157,7 @@ void MoleculeDialog::slotCalculate( QList<OpenBabel::OBAtom*> atoms )
 	OpenBabel::OBAtom* a3 = NULL;
 	OpenBabel::OBAtom* a4 = NULL;
 		
-	OpenBabel::OBMol* mol = ui.glWidget->molecule();
+	Avogadro::Molecule* mol = ui.glWidget->molecule();
 	double d = 0.0;
 	double a = 0.0;
 	double t = 0.0;

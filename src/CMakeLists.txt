@@ -5,6 +5,7 @@ include_directories(
    ${CMAKE_SOURCE_DIR}/kalzium/compoundviewer/
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
    ${CMAKE_SOURCE_DIR}/kalzium/src/tools/
+   ${CMAKE_SOURCE_DIR}/kalzium/src/libavogadro-kalzium/include/
    ${CMAKE_CURRENT_BINARY_DIR}/..
 )
 
@@ -108,7 +109,7 @@ target_link_libraries(kalzium ${KDE4_KDEUI_LIBS} ${KDE4_KHTML_LIBRARY} ${KDE4_KU
 
 
 if (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
-    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} compoundviewer)
+    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} compoundviewer avogadro-kalzium)
 endif (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
 
 if(LIBFACILE_FOUND)

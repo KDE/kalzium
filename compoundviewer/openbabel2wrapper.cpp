@@ -25,21 +25,19 @@
 #include <string.h>
 #include <malloc.h>
 
-
-
 #include <QMouseEvent>
 #include <QLayout>
 #include <QListWidget>
 #include <QMessageBox>
 
 
-OpenBabel::OBMol* OpenBabel2Wrapper::readMolecule( const QString& filename )
+Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
 {
 	OpenBabel::OBConversion Conv;
 	OpenBabel::OBFormat *inFormat = NULL;
 
 	//the OB2 Molecule
-	OpenBabel::OBMol *mol = new OpenBabel::OBMol;
+	Avogadro::Molecule *mol = new Avogadro::Molecule;
 	std::ifstream inFileStream(  filename.toLatin1() );
 	if ( !inFileStream ) {
 		QMessageBox::warning(  0, i18n( "Problem while opening the file" ),
@@ -58,13 +56,13 @@ OpenBabel::OBMol* OpenBabel2Wrapper::readMolecule( const QString& filename )
 	return mol;
 }
 
-QString OpenBabel2Wrapper::getFormula( OpenBabel::OBMol* molecule )
+QString OpenBabel2Wrapper::getFormula( Avogadro::Molecule* molecule )
 {
 	QString formula( molecule->GetFormula().c_str() );
 	return formula;
 }
 		
-QString OpenBabel2Wrapper::getPrettyFormula( OpenBabel::OBMol* molecule )
+QString OpenBabel2Wrapper::getPrettyFormula( Avogadro::Molecule* molecule )
 {
 	QString formula( molecule->GetFormula().c_str() );
 	formula.replace( QRegExp( "(\\d+)" ), "<sub>\\1</sub>" );

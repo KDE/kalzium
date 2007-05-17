@@ -17,6 +17,7 @@
 //includes for OpenBabel2
 #include <openbabel/obconversion.h>
 #include <openbabel/mol.h>
+#include <avogadro/primitive.h>
 
 #include <libkdeedu_compoundviewer_export.h>
 
@@ -32,11 +33,11 @@ class COMPOUNDVIEWER_EXPORT OpenBabel2Wrapper
 		 * This class reads the molecule in the file @p filename. It returns 0 if
 		 * the file couldn't be read.
 		 */
-		static OpenBabel::OBMol* readMolecule( const QString& filename );
+		static Avogadro::Molecule* readMolecule( const QString& filename );
 		
-		static QString getFormula( OpenBabel::OBMol* molecule );
+		static QString getFormula( Avogadro::Molecule* molecule );
 		
-		static QString getPrettyFormula( OpenBabel::OBMol* molecule );
+		static QString getPrettyFormula( Avogadro::Molecule* molecule );
 };
 
 #endif // OPENBABEL2WRAPPER_H

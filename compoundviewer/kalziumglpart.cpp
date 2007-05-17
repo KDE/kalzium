@@ -15,9 +15,11 @@
 
 #include <QStringList>
 
+#include <avogadro/primitive.h>
+
 #include "kalziumglpart.h"
 #include "openbabel2wrapper.h"
-#include "kalziumglwidget.h"
+
 
 typedef KParts::GenericFactory<KalziumGLPart> KalziumGLPartFactory;
 
@@ -27,7 +29,7 @@ KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QStri
 {
     kDebug() << "KalziumGLPart::KalziumGLPart()" << endl;
 
-    m_widget = new KalziumGLWidget();
+    m_widget = new Avogadro::GLWidget();
     m_widget->setObjectName("KalziumGLWidget-KPart");
 }
 
@@ -50,11 +52,11 @@ KAboutData *KalziumGLPart::createAboutData()
 
 bool KalziumGLPart::openFile()
 {
-	OpenBabel::OBMol* mol = OpenBabel2Wrapper::readMolecule( url().path() );
+	Avogadro::Molecule* mol = OpenBabel2Wrapper::readMolecule( url().path() );
 	mol->Center();
 
-  m_widget->slotSetMolecule( mol );
-  m_widget->update();
+	m_widget->setMolecule( mol );
+	m_widget->update();
 }
 
 #include "kalziumglpart.moc" 

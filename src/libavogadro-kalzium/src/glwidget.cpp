@@ -531,7 +531,7 @@ namespace Avogadro {
 
   void GLWidget::loadEngines()
   {
-    QString prefixPath = QString(INSTALL_PREFIX) + "/lib/avogadro/engines";
+    QString prefixPath = QString(INSTALL_PREFIX) + "/lib/avogadro-kalzium/engines";
     QStringList pluginPaths;
     pluginPaths << prefixPath;
 

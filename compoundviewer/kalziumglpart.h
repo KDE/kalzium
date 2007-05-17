@@ -17,7 +17,7 @@
 #include <kparts/factory.h>
 #include <kparts/genericfactory.h>
 
-#include "kalziumglwidget.h"
+#include <avogadro/glwidget.h>
 
 class KalziumGLPart : public KParts::ReadOnlyPart
 {
@@ -30,8 +30,8 @@ class KalziumGLPart : public KParts::ReadOnlyPart
 
     protected:
         bool openFile();
-        
-        KalziumGLWidget * m_widget;
+
+        Avogadro::GLWidget* m_widget;
 };
 
 #endif // KALZIUMGLPART_H
