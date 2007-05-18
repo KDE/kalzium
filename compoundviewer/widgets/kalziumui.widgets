@@ -3,15 +3,3 @@ PluginName=KalziumWidgets
 Includes=kcomponentdata.h
 #Init=new KComponentData("kdeeduwidgets");
 
-[KalziumGLWidget]
-ToolTip=A OpenGL based molecule viewer
-WhatsThis=A OpenGL based molecule viewer
-Group=Plot (KDE-Edu)
-ConstructorArgs=(parent)
-
-[KalziumGLWidget]
-ToolTip=A OpenGL based molecule viewer
-WhatsThis=A OpenGL based molecule viewer
-Group=Plot (KDE-Edu)
-ConstructorArgs=(parent)
-

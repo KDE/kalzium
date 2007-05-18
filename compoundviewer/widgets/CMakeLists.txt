@@ -7,8 +7,7 @@ include_directories(
 include_directories( ${OPENBABEL2_INCLUDE_DIR} ..)
 
 set(kalziumui_PART_SRCS 
-   ${CMAKE_CURRENT_SOURCE_DIR}/../kalziumglwidget.cpp
-   ${CMAKE_CURRENT_SOURCE_DIR}/../kalziumglhelperclasses.cpp
+# nothing left here!
    )
 
 KDE4_ADD_WIDGET_FILES(kalziumui_PART_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kalziumui.widgets)

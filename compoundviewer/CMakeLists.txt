@@ -5,8 +5,6 @@ include_directories(
   )
 
 set( compoundviewer_SRCS
-  kalziumglhelperclasses.cpp
-  kalziumglwidget.cpp
   openbabel2wrapper.cpp
   kalziumglpart.cpp
   )
