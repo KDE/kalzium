@@ -58,7 +58,7 @@ namespace Avogadro {
        * @param molecule the molecule to view
        * @param parent the widget parent
        */
-      MoleculeTreeView(Molecule *molecule, QWidget *parent=0);
+      explicit MoleculeTreeView(Molecule *molecule, QWidget *parent=0);
 
       /**
        * Set the molecule which is the model for the treeview.
@@ -171,7 +171,7 @@ namespace Avogadro {
        * @param type group type
        * @return the item which is the parent item for the group
        */
-      QTreeWidgetItem* addGroup(QString name, enum Primitive::Type type);
+      QTreeWidgetItem* addGroup(const QString& name, enum Primitive::Type type);
       
     private:
       /**
