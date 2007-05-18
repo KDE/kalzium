@@ -42,7 +42,7 @@ static KCmdLineOptions options[] =
 #ifdef HAVE_FACILE
 extern "C" {
          void caml_startup(char**);
-};
+}
 #endif
 
 int main(int argc, char **argv)
