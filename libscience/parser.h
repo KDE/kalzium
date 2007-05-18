@@ -16,6 +16,7 @@
 
 #include <libkdeedu_science_export.h>
 
+#include <QString>
 
 
 /**

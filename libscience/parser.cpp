@@ -11,12 +11,11 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "parser.h"
 
 #include <ctype.h>
 
 #include <kdebug.h>
-
-#include "parser.h"
 
 
 Parser::Parser()

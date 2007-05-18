@@ -11,13 +11,11 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "moleculeparser.h"
 
 #include <ctype.h>
 
 #include <kdebug.h>
-
-#include "moleculeparser.h"
-
 
 // ================================================================
 //                    class ElementCountMap
