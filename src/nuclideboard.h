@@ -47,7 +47,7 @@ class IsotopeTableView : public QWidget
 	Q_OBJECT
 
 	public:
-		IsotopeTableView( QWidget* parent = 0, IsotopeScrollArea* scroll = 0 );
+		explicit IsotopeTableView( QWidget* parent = 0, IsotopeScrollArea* scroll = 0 );
 	
 	public slots:
 		/**
