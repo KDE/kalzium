@@ -539,11 +539,6 @@ namespace Avogadro {
 	pluginPaths << "./engines";
 #endif
 
-    if(getenv("AVOGADRO_ENGINES") != NULL)
-    {
-      pluginPaths = QString(getenv("AVOGADRO_ENGINES")).split(':');
-    }
-
     // load static plugins first
 
     // now load plugins from paths
