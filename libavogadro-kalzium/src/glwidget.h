@@ -319,6 +319,8 @@ namespace Avogadro {
       Painter *painter() const;
 
     public Q_SLOTS:
+    
+      void setGlobalQualitySetting(int globalQualitySetting);
 
       void setTool(Tool *tool);
 

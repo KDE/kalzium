@@ -579,6 +579,12 @@ namespace Avogadro {
       d->tool = tool;
     }
   }
+  
+  void GLWidget::setGlobalQualitySetting(int globalQualitySetting)
+  {
+    painter()->setGlobalQualitySetting(globalQualitySetting);
+    update();
+  }
 
   void GLWidget::setToolGroup(ToolGroup *toolGroup)
   {
