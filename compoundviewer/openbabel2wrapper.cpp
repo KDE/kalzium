@@ -15,8 +15,6 @@
 
 #include <kdebug.h>
 #include <klocale.h>
-#include <QMessageBox>
-#include <QRegExp>
 
 #include <sstream>
 #include <stdio.h>
@@ -29,6 +27,7 @@
 #include <QLayout>
 #include <QListWidget>
 #include <QMessageBox>
+#include <QRegExp>
 
 
 Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )

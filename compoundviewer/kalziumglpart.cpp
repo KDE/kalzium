@@ -11,13 +11,14 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#include "kalziumglpart.h"
+
 #include <kparts/genericfactory.h>
 
 #include <QStringList>
 
 #include <avogadro/primitive.h>
 
-#include "kalziumglpart.h"
 #include "openbabel2wrapper.h"
 
 
