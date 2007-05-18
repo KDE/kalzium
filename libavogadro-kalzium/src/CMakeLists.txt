@@ -56,7 +56,7 @@ kde4_automoc(${libavogadro_SRCS})
 #qt4_wrap_cpp(libavogadro_MOC_SRCS ${libavogadro_MOC_HDRS})
 
 # Install the library to avogadro-kalzium so that it does not collide with avo
-ADD_LIBRARY(avogadro-kalzium SHARED ${libavogadro_SRCS})
+KDE4_ADD_LIBRARY(avogadro-kalzium SHARED ${libavogadro_SRCS})
 SET_TARGET_PROPERTIES(avogadro-kalzium PROPERTIES OUTPUT_NAME avogadro-kalzium)
 set_target_properties(avogadro-kalzium PROPERTIES VERSION 0.0.1 SOVERSION 0 )
 

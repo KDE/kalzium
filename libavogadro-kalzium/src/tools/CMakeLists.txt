@@ -20,7 +20,7 @@ link_directories(${CMAKE_CURRENT_BINARY_DIR}/.. ${CMAKE_BINARY_DIR}/lib)
 set(drawtool_SRCS drawtool.cpp)
 qt4_add_resources(drawtool_RC_SRCS draw.qrc)
 kde4_automoc(${drawtool_SRCS})
-ADD_LIBRARY(drawtool SHARED drawcommand.cpp drawtool.cpp ${drawtool_RC_SRCS} )
+KDE4_ADD_LIBRARY(drawtool SHARED drawcommand.cpp drawtool.cpp ${drawtool_RC_SRCS} )
 TARGET_LINK_LIBRARIES(drawtool 
     ${OPENBABEL2_LIBRARIES} 
     ${QT_LIBRARIES}
@@ -32,7 +32,7 @@ INSTALL(TARGETS drawtool DESTINATION ${DESTINATION_DIR})
 set(clickmeasuretool_SRCS clickmeasuretool.cpp)
 qt4_add_resources(clickmeasuretool_RC_SRCS measure.qrc)
 kde4_automoc(${clickmeasuretool_SRCS})
-ADD_LIBRARY(clickmeasuretool SHARED ${clickmeasuretool_SRCS} ${clickmeasuretool_RC_SRCS} )
+KDE4_ADD_LIBRARY(clickmeasuretool SHARED ${clickmeasuretool_SRCS} ${clickmeasuretool_RC_SRCS} )
 TARGET_LINK_LIBRARIES(clickmeasuretool 
     ${OPENBABEL2_LIBRARIES} 
     ${QT_LIBRARIES}
@@ -44,7 +44,7 @@ INSTALL(TARGETS clickmeasuretool DESTINATION ${DESTINATION_DIR})
 set(selectrotatetool_SRCS selectrotatetool.cpp)
 qt4_add_resources(selectrotatetool_RC_SRCS select.qrc)
 kde4_automoc(${selectrotatetool_SRCS})
-ADD_LIBRARY(selectrotatetool SHARED ${selectrotatetool_SRCS} ${selectrotatetool_RC_SRCS})
+KDE4_ADD_LIBRARY(selectrotatetool SHARED ${selectrotatetool_SRCS} ${selectrotatetool_RC_SRCS})
 TARGET_LINK_LIBRARIES(selectrotatetool 
 	${OPENBABEL2_LIBRARIES} 
 	${QT_LIBRARIES} 
@@ -57,7 +57,7 @@ INSTALL(TARGETS selectrotatetool DESTINATION ${DESTINATION_DIR})
 set(navigatetool_SRCS navigatetool.cpp)
 qt4_add_resources(navigatetool_RC_SRCS navigate.qrc)
 kde4_automoc(${navigatetool_SRCS})
-ADD_LIBRARY(navigatetool SHARED ${navigatetool_SRCS} ${navigatetool_RC_SRCS})
+KDE4_ADD_LIBRARY(navigatetool SHARED ${navigatetool_SRCS} ${navigatetool_RC_SRCS})
 TARGET_LINK_LIBRARIES(navigatetool 
 	${OPENBABEL2_LIBRARIES} 
 	${QT_LIBRARIES} 
@@ -70,7 +70,7 @@ INSTALL(TARGETS navigatetool DESTINATION ${DESTINATION_DIR})
 set(manipulatetool_SRCS manipulatetool.cpp)
 qt4_add_resources(manipulatetool_RC_SRCS manipulate.qrc)
 kde4_automoc(${manipulatetool_SRCS})
-ADD_LIBRARY(manipulatetool SHARED ${manipulatetool_SRCS} ${manipulatetool_RC_SRCS})
+KDE4_ADD_LIBRARY(manipulatetool SHARED ${manipulatetool_SRCS} ${manipulatetool_RC_SRCS})
 TARGET_LINK_LIBRARIES(manipulatetool 
 	${OPENBABEL2_LIBRARIES} 
 	${QT_LIBRARIES} 
