@@ -61,7 +61,7 @@ SET_TARGET_PROPERTIES(avogadro-kalzium PROPERTIES OUTPUT_NAME avogadro-kalzium)
 set_target_properties(avogadro-kalzium PROPERTIES VERSION 0.0.1 SOVERSION 0 )
 
 TARGET_LINK_LIBRARIES(avogadro-kalzium ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
-                                   ${OPENGL_LIBRARIES}                                   )
+                                   ${OPENGL_LIBRARIES} ${KDE4_KDECORE_LIBS} )
 
 INSTALL(TARGETS avogadro-kalzium DESTINATION ${LIB_INSTALL_DIR})
 

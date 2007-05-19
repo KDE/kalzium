@@ -40,6 +40,8 @@
 #include <stdio.h>
 #include <vector>
 
+#include <klocalizedstring.h>
+
 using namespace OpenBabel;
 namespace Avogadro {
   class GLHitPrivate
@@ -324,6 +326,13 @@ namespace Avogadro {
     d->camera->applyModelview();
 
     render();
+    
+    if(!molecule()) {
+    	glColor3f(0.0, 1.0, 0.7);
+    	painter()->beginText();
+    	painter()->drawText(5,5,i18n("Please load a molecule."));
+    	painter()->endText();
+    }
   }
 
   void GLWidget::mousePressEvent( QMouseEvent * event )
