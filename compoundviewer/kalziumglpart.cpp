@@ -18,10 +18,25 @@
 #include <QStringList>
 
 #include <avogadro/primitive.h>
+#include <avogadro/toolgroup.h>
 
 #include "openbabel2wrapper.h"
 
-KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent) {}
+KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent)
+{
+    // Prevent What's this from intercepting right mouse clicks
+    setContextMenuPolicy( Qt::PreventContextMenu );
+    // Load the tools and set navigate as the default
+    Avogadro::ToolGroup* tools = new Avogadro::ToolGroup(this);
+    tools->load();
+    const QList<Avogadro::Tool *> toolList = tools->tools();
+    foreach( Avogadro::Tool *tool, toolList )
+    {
+        if (tool->name() == "Navigate")
+            tools->setActiveTool(tool);
+    }
+    setToolGroup(tools);
+}
 
 void KalziumGLWidget::setStyle( int style )
 {
@@ -30,7 +45,7 @@ void KalziumGLWidget::setStyle( int style )
         if( engine->name() != "Label" ) {
             engine->setEnabled(false);
         }
-        
+
         if( ( style == 0 && engine->name() == "Dynamic Ball and Stick" )
          || ( style == 1 && engine->name() == "Stick" )
          || ( style == 2 && engine->name() == "Sphere" )
