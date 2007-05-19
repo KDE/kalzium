@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>680</width>
-    <height>298</height>
+    <width>506</width>
+    <height>258</height>
    </rect>
   </property>
   <property name="sizePolicy" >
@@ -18,244 +18,246 @@
   <property name="windowTitle" >
    <string>Form</string>
   </property>
-  <widget class="QSplitter" name="splitter" >
-   <property name="geometry" >
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>661</width>
-     <height>261</height>
-    </rect>
-   </property>
-   <property name="sizePolicy" >
-    <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="orientation" >
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <widget class="QWidget" name="layoutWidget" >
-    <layout class="QVBoxLayout" >
-     <item>
-      <widget class="QGroupBox" name="groupBox_2" >
-       <property name="sizePolicy" >
-        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize" >
-        <size>
-         <width>240</width>
-         <height>110</height>
-        </size>
-       </property>
-       <property name="title" >
-        <string>Display</string>
-       </property>
-       <widget class="QWidget" name="layoutWidget" >
-        <property name="geometry" >
-         <rect>
-          <x>10</x>
-          <y>20</y>
-          <width>221</width>
-          <height>82</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" >
-         <item row="0" column="0" >
-          <widget class="QLabel" name="label" >
-           <property name="text" >
-            <string>Quality:</string>
-           </property>
-           <property name="buddy" >
-            <cstring>qualityCombo</cstring>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1" >
-          <widget class="QComboBox" name="qualityCombo" >
-           <item>
-            <property name="text" >
-             <string>Low</string>
-            </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <widget class="QSplitter" name="splitter" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="lineWidth" >
+      <number>1</number>
+     </property>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="childrenCollapsible" >
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="layoutWidget" >
+      <layout class="QVBoxLayout" >
+       <item>
+        <widget class="QGroupBox" name="groupBox_2" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize" >
+          <size>
+           <width>240</width>
+           <height>110</height>
+          </size>
+         </property>
+         <property name="title" >
+          <string>Display</string>
+         </property>
+         <widget class="QWidget" name="layoutWidget" >
+          <property name="geometry" >
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>221</width>
+            <height>82</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" >
+           <item row="0" column="0" >
+            <widget class="QLabel" name="label" >
+             <property name="text" >
+              <string>Quality:</string>
+             </property>
+             <property name="buddy" >
+              <cstring>qualityCombo</cstring>
+             </property>
+            </widget>
            </item>
-           <item>
-            <property name="text" >
-             <string>Medium</string>
-            </property>
+           <item row="0" column="1" >
+            <widget class="QComboBox" name="qualityCombo" >
+             <item>
+              <property name="text" >
+               <string>Low</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Medium</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>High</string>
+              </property>
+             </item>
+            </widget>
            </item>
-           <item>
-            <property name="text" >
-             <string>High</string>
-            </property>
+           <item row="1" column="0" >
+            <widget class="QLabel" name="label_2" >
+             <property name="text" >
+              <string>Style:</string>
+             </property>
+             <property name="buddy" >
+              <cstring>styleCombo</cstring>
+             </property>
+            </widget>
            </item>
-          </widget>
-         </item>
-         <item row="1" column="0" >
-          <widget class="QLabel" name="label_2" >
-           <property name="text" >
-            <string>Style:</string>
-           </property>
-           <property name="buddy" >
-            <cstring>styleCombo</cstring>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1" >
-          <widget class="QComboBox" name="styleCombo" >
-           <item>
-            <property name="text" >
-             <string>Balls and sticks</string>
-            </property>
+           <item row="1" column="1" >
+            <widget class="QComboBox" name="styleCombo" >
+             <item>
+              <property name="text" >
+               <string>Balls and sticks</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Sticks</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Van der Waals</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Wireframe</string>
+              </property>
+             </item>
+            </widget>
            </item>
-           <item>
-            <property name="text" >
-             <string>Sticks</string>
-            </property>
+           <item row="2" column="0" >
+            <widget class="QLabel" name="label_5" >
+             <property name="text" >
+              <string>Labels:</string>
+             </property>
+             <property name="buddy" >
+              <cstring>styleCombo</cstring>
+             </property>
+            </widget>
            </item>
-           <item>
-            <property name="text" >
-             <string>Van der Waals</string>
-            </property>
+           <item row="2" column="1" >
+            <widget class="QComboBox" name="labelsCombo" >
+             <item>
+              <property name="text" >
+               <string>None</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Atoms numbers</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Element symbols</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Element names</string>
+              </property>
+             </item>
+            </widget>
            </item>
-           <item>
-            <property name="text" >
-             <string>Wireframe</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item row="2" column="0" >
-          <widget class="QLabel" name="label_5" >
-           <property name="text" >
-            <string>Labels:</string>
-           </property>
-           <property name="buddy" >
-            <cstring>styleCombo</cstring>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1" >
-          <widget class="QComboBox" name="labelsCombo" >
-           <item>
-            <property name="text" >
-             <string>None</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Atoms numbers</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Element symbols</string>
-            </property>
-           </item>
-           <item>
-            <property name="text" >
-             <string>Element names</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </widget>
-     </item>
-     <item>
-      <widget class="QGroupBox" name="groupBox" >
-       <property name="sizePolicy" >
-        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize" >
-        <size>
-         <width>240</width>
-         <height>110</height>
-        </size>
-       </property>
-       <property name="title" >
-        <string>Statistics</string>
-       </property>
-       <layout class="QGridLayout" >
-        <item row="0" column="0" >
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize" >
+          <size>
+           <width>240</width>
+           <height>110</height>
+          </size>
+         </property>
+         <property name="title" >
+          <string>Statistics</string>
+         </property>
          <layout class="QGridLayout" >
           <item row="0" column="0" >
-           <widget class="QLabel" name="label_3" >
-            <property name="text" >
-             <string>Name:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1" >
-           <widget class="QLabel" name="nameLabel" >
-            <property name="text" >
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0" >
-           <widget class="QLabel" name="label_7" >
-            <property name="text" >
-             <string>Formula:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1" >
-           <widget class="QLabel" name="formulaLabel" >
-            <property name="text" >
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0" >
-           <widget class="QLabel" name="label_4" >
-            <property name="text" >
-             <string>Weight:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1" >
-           <widget class="QLabel" name="weightLabel" >
-            <property name="text" >
-             <string/>
-            </property>
-           </widget>
+           <layout class="QGridLayout" >
+            <item row="0" column="0" >
+             <widget class="QLabel" name="label_3" >
+              <property name="text" >
+               <string>Name:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" >
+             <widget class="QLabel" name="nameLabel" >
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QLabel" name="label_7" >
+              <property name="text" >
+               <string>Formula:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" >
+             <widget class="QLabel" name="formulaLabel" >
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" >
+             <widget class="QLabel" name="label_4" >
+              <property name="text" >
+               <string>Weight:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" >
+             <widget class="QLabel" name="weightLabel" >
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
-        </item>
-       </layout>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="KalziumGLWidget" native="1" name="glWidget" >
-    <property name="sizePolicy" >
-     <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize" >
-     <size>
-      <width>240</width>
-      <height>240</height>
-     </size>
-    </property>
-    <property name="sizeIncrement" >
-     <size>
-      <width>10</width>
-      <height>10</height>
-     </size>
-    </property>
-   </widget>
-  </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="KalziumGLWidget" native="1" name="glWidget" >
+      <property name="sizePolicy" >
+       <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+        <horstretch>10</horstretch>
+        <verstretch>10</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize" >
+       <size>
+        <width>240</width>
+        <height>240</height>
+       </size>
+      </property>
+      <property name="sizeIncrement" >
+       <size>
+        <width>10</width>
+        <height>10</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <customwidgets>
   <customwidget>
