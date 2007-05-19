@@ -64,7 +64,6 @@
 
 #include <kconfigdialog.h>
 #include <kiconloader.h>
-#include <klocale.h>
 #include <kdebug.h>
 #include <kaction.h>
 #include <kparts/part.h>
@@ -76,9 +75,9 @@
 #include <kservicetypetrader.h>
 #include <kurl.h>
 #include <kfiledialog.h>
+#include <KLocale>
 
 #include <QSvgGenerator>
-#include <QFileDialog>
 #include <QRegExp>
 
 
@@ -345,9 +344,9 @@ void Kalzium::setupSidebars()
 
 void Kalzium::slotExportTable()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save Kalziums Table In"),
-            QString(), 
-            i18n("Images (*.png *.xpm *.jpg *.svg)"));
+    QString fileName = KFileDialog::getSaveFileName(QString(), i18n("*.png *.xpm *.jpg *.svg"),
+            this, 
+            i18n("Save Kalziums Table In"));
 
     if (fileName.contains( QRegExp(".svg$") ) ) {
         m_PeriodicTableView->generateSvg( fileName );
