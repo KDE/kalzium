@@ -39,7 +39,6 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	
 	ui.setupUi(mainWidget());
 
-	ui.treeWidget->setSelectionMode( QAbstractItemView::MultiSelection );
 	ui.qualityCombo->setCurrentIndex(2); //default to high quality
 
 	m_path = QString( "" );
@@ -48,16 +47,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 			ui.glWidget , SLOT( setGlobalQualitySetting( int ) ) );
 	connect( ui.styleCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setStyle( int ) ) );
-	connect( this, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
-				ui.glWidget, SLOT( slotAtomsSelected( QList<OpenBabel::OBAtom*> ) ) );
-	
-	connect( ui.treeWidget, SIGNAL( itemSelectionChanged () ),
-				this, SLOT( slotAtomsSelected() ) );
-	connect( this, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
-				this, SLOT( slotCalculate( QList<OpenBabel::OBAtom*> ) ) );
-	connect( ui.glWidget, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
-				this, SLOT( slotCalculate( QList<OpenBabel::OBAtom*> ) ) );
-	
+
 	connect( this, SIGNAL( user1Clicked() ), 
 			this, SLOT( slotLoadMolecule() ) );
 }
@@ -96,104 +86,10 @@ void MoleculeDialog::updateStatistics()
 	Avogadro::Molecule* mol = ui.glWidget->molecule();
 	if ( !mol ) return;
 
-	ui.treeWidget->clear();
-
 	ui.nameLabel->setText( mol->GetTitle() );
 	ui.weightLabel->setText( QString::number( mol->GetMolWt() ));
 	ui.formulaLabel->setText( OpenBabel2Wrapper::getPrettyFormula( mol ) );
 	ui.glWidget->update();
-		
-	QTreeWidgetItem* carbon = new QTreeWidgetItem( ui.treeWidget, QStringList( i18n( "Carbon" ) ) );
-	QTreeWidgetItem* oxygen = new QTreeWidgetItem( ui.treeWidget, QStringList( i18n( "Oxygen" ) ) );
-	QTreeWidgetItem* hydrogen = new QTreeWidgetItem( ui.treeWidget, QStringList( i18n( "Hydrogen" ) ) );
-	QTreeWidgetItem* nitrogen = new QTreeWidgetItem( ui.treeWidget, QStringList( i18n( "Nitrogen" ) ) );
-	QTreeWidgetItem* rest = new QTreeWidgetItem( ui.treeWidget, QStringList( i18n( "Rest" ) ) ) ;
-
-	FOR_ATOMS_OF_MOL( a, mol )
-	{
- 		QStringList content;
-		content.append( QString::number( a->GetIdx() ) );
- 		
-		QTreeWidgetItem* i = new QTreeWidgetItem( content );
-		if ( a->IsCarbon() )
-	 		carbon->addChild( i );
-		else if ( a->IsHydrogen() )
-			hydrogen->addChild( i );
-		else if ( a->IsOxygen() )
-			oxygen->addChild( i );
-		else if ( a->IsNitrogen() )
-			nitrogen->addChild( i );
-		else
-			rest->addChild( i );
-	}
-}
-
-void MoleculeDialog::slotAtomsSelected()
-{
-	QList<OpenBabel::OBAtom*> atoms;
-	Avogadro::Molecule* molecule = ui.glWidget->molecule();
-
-	QList<QTreeWidgetItem *> itemList = ui.treeWidget->selectedItems();
-	foreach( QTreeWidgetItem* item , itemList )
-	{
-		int id = item->text(0).toInt();
-		if( id ) atoms.append( molecule->GetAtom( id ) );
-	}
-
-	emit atomsSelected( atoms );
-}
-
-void MoleculeDialog::slotCalculate( QList<OpenBabel::OBAtom*> atoms )
-{
-	//if 2 atoms are selected: calculate the distance	
-	//if 3 atoms are selected: calculate the angle	
-	//if 4 atoms are selected: calculate the torsion	
-	//if more than 4 atoms are selected: do nothing
-
-	if ( atoms.count() < 2 || atoms.count() > 4 )
-		return;
-	
-	OpenBabel::OBAtom* a1 = NULL;
-	OpenBabel::OBAtom* a2 = NULL;
-	OpenBabel::OBAtom* a3 = NULL;
-	OpenBabel::OBAtom* a4 = NULL;
-		
-	Avogadro::Molecule* mol = ui.glWidget->molecule();
-	double d = 0.0;
-	double a = 0.0;
-	double t = 0.0;
-
-	if ( atoms.count() == 2 )
-	{//calculate the distance
-		a1 = atoms.at( 0 );
-		a1 = atoms.at( 1 );
-		if ( a1 && a2 )
-			d = a1->GetDistance( a2 );
-	}
-	else if ( atoms.count() == 3 )
-	{//calculate the angle
-		//the next line needs OpenBabel-trunk from June 29
-		//or later to compile.
-		a1 = atoms.at( 0 );
-		a1 = atoms.at( 1 );
-		a2 = atoms.at( 2 );
-		a = 0;//mol->GetAngle( a1, a2, a3 );
-	}
-	else if ( atoms.count() == 4 )
-	{//calculate the torsion
-		if ( a1 && a2 && a3 && a4 )
-		{
-			a1 = atoms.at( 0 );
-			a2 = atoms.at( 1 );
-			a3 = atoms.at( 2 );
-			a4 = atoms.at( 3 );
-			t = mol->GetTorsion( a1, a2, a3, a4 );
-		}
-	}
-
-	kDebug() << "Distance: " << d << " Angstrom" << endl;
-	kDebug() << "Angle: " << a << " Degree" << endl;
-	kDebug() << "Torsion: " << t << " Degree" << endl;
 }
 
 #include "moleculeview.moc"

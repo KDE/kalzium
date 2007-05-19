@@ -5,255 +5,96 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>699</width>
-    <height>545</height>
+    <width>680</width>
+    <height>298</height>
    </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy vsizetype="Preferred" hsizetype="MinimumExpanding" >
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle" >
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" >
-   <property name="leftMargin" >
-    <number>9</number>
+  <widget class="QSplitter" name="splitter" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>661</width>
+     <height>261</height>
+    </rect>
    </property>
-   <property name="topMargin" >
-    <number>9</number>
+   <property name="sizePolicy" >
+    <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
-   <property name="rightMargin" >
-    <number>9</number>
+   <property name="orientation" >
+    <enum>Qt::Horizontal</enum>
    </property>
-   <property name="bottomMargin" >
-    <number>9</number>
-   </property>
-   <property name="horizontalSpacing" >
-    <number>6</number>
-   </property>
-   <property name="verticalSpacing" >
-    <number>6</number>
-   </property>
-   <item row="0" column="0" >
-    <widget class="QSplitter" name="splitter" >
-     <property name="orientation" >
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <widget class="QWidget" name="layoutWidget" >
-      <layout class="QVBoxLayout" >
-       <property name="spacing" >
-        <number>6</number>
+   <widget class="QWidget" name="layoutWidget" >
+    <layout class="QVBoxLayout" >
+     <item>
+      <widget class="QGroupBox" name="groupBox_2" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="leftMargin" >
-        <number>0</number>
+       <property name="minimumSize" >
+        <size>
+         <width>240</width>
+         <height>110</height>
+        </size>
        </property>
-       <property name="topMargin" >
-        <number>0</number>
+       <property name="title" >
+        <string>Display</string>
        </property>
-       <property name="rightMargin" >
-        <number>0</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QTreeWidget" name="treeWidget" >
-         <column>
-          <property name="text" >
-           <string>Atom</string>
-          </property>
-         </column>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
-          <number>0</number>
-         </property>
-        </layout>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox" >
-         <property name="title" >
-          <string>Statistics</string>
-         </property>
-         <layout class="QGridLayout" >
-          <property name="leftMargin" >
-           <number>9</number>
-          </property>
-          <property name="topMargin" >
-           <number>9</number>
-          </property>
-          <property name="rightMargin" >
-           <number>9</number>
-          </property>
-          <property name="bottomMargin" >
-           <number>9</number>
-          </property>
-          <property name="horizontalSpacing" >
-           <number>6</number>
-          </property>
-          <property name="verticalSpacing" >
-           <number>6</number>
-          </property>
-          <item row="0" column="0" >
-           <layout class="QHBoxLayout" >
-            <property name="spacing" >
-             <number>6</number>
+       <widget class="QWidget" name="layoutWidget" >
+        <property name="geometry" >
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>221</width>
+          <height>82</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" >
+         <item row="0" column="0" >
+          <widget class="QLabel" name="label" >
+           <property name="text" >
+            <string>Quality:</string>
+           </property>
+           <property name="buddy" >
+            <cstring>qualityCombo</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" >
+          <widget class="QComboBox" name="qualityCombo" >
+           <item>
+            <property name="text" >
+             <string>Low</string>
             </property>
-            <property name="leftMargin" >
-             <number>0</number>
+           </item>
+           <item>
+            <property name="text" >
+             <string>Medium</string>
             </property>
-            <property name="topMargin" >
-             <number>0</number>
+           </item>
+           <item>
+            <property name="text" >
+             <string>High</string>
             </property>
-            <property name="rightMargin" >
-             <number>0</number>
-            </property>
-            <property name="bottomMargin" >
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_3" >
-              <property name="text" >
-               <string>Name:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="nameLabel" >
-              <property name="text" >
-               <string/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="1" column="0" >
-           <layout class="QHBoxLayout" >
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <property name="leftMargin" >
-             <number>0</number>
-            </property>
-            <property name="topMargin" >
-             <number>0</number>
-            </property>
-            <property name="rightMargin" >
-             <number>0</number>
-            </property>
-            <property name="bottomMargin" >
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_7" >
-              <property name="text" >
-               <string>Formula:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="formulaLabel" >
-              <property name="text" >
-               <string/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="2" column="0" >
-           <layout class="QHBoxLayout" >
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <property name="leftMargin" >
-             <number>0</number>
-            </property>
-            <property name="topMargin" >
-             <number>0</number>
-            </property>
-            <property name="rightMargin" >
-             <number>0</number>
-            </property>
-            <property name="bottomMargin" >
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_4" >
-              <property name="text" >
-               <string>Weight:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="weightLabel" >
-              <property name="text" >
-               <string/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget" >
-      <layout class="QVBoxLayout" >
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <property name="leftMargin" >
-        <number>0</number>
-       </property>
-       <property name="topMargin" >
-        <number>0</number>
-       </property>
-       <property name="rightMargin" >
-        <number>0</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="KalziumGLWidget" native="1" name="glWidget" >
-         <property name="minimumSize" >
-          <size>
-           <width>300</width>
-           <height>300</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" >
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <property name="leftMargin" >
-          <number>0</number>
-         </property>
-         <property name="topMargin" >
-          <number>0</number>
-         </property>
-         <property name="rightMargin" >
-          <number>0</number>
-         </property>
-         <property name="bottomMargin" >
-          <number>0</number>
-         </property>
-         <item>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="0" >
           <widget class="QLabel" name="label_2" >
            <property name="text" >
             <string>Style:</string>
@@ -263,7 +104,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item row="1" column="1" >
           <widget class="QComboBox" name="styleCombo" >
            <item>
             <property name="text" >
@@ -287,42 +128,134 @@
            </item>
           </widget>
          </item>
-         <item>
-          <widget class="QLabel" name="label" >
+         <item row="2" column="0" >
+          <widget class="QLabel" name="label_5" >
            <property name="text" >
-            <string>Quality:</string>
+            <string>Labels:</string>
            </property>
            <property name="buddy" >
-            <cstring>qualityCombo</cstring>
+            <cstring>styleCombo</cstring>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QComboBox" name="qualityCombo" >
+         <item row="2" column="1" >
+          <widget class="QComboBox" name="labelsCombo" >
            <item>
             <property name="text" >
-             <string>Low</string>
+             <string>None</string>
             </property>
            </item>
            <item>
             <property name="text" >
-             <string>Medium</string>
+             <string>Atoms numbers</string>
             </property>
            </item>
            <item>
             <property name="text" >
-             <string>High</string>
+             <string>Element symbols</string>
+            </property>
+           </item>
+           <item>
+            <property name="text" >
+             <string>Element names</string>
             </property>
            </item>
           </widget>
          </item>
         </layout>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-   </item>
-  </layout>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize" >
+        <size>
+         <width>240</width>
+         <height>110</height>
+        </size>
+       </property>
+       <property name="title" >
+        <string>Statistics</string>
+       </property>
+       <layout class="QGridLayout" >
+        <item row="0" column="0" >
+         <layout class="QGridLayout" >
+          <item row="0" column="0" >
+           <widget class="QLabel" name="label_3" >
+            <property name="text" >
+             <string>Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" >
+           <widget class="QLabel" name="nameLabel" >
+            <property name="text" >
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QLabel" name="label_7" >
+            <property name="text" >
+             <string>Formula:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" >
+           <widget class="QLabel" name="formulaLabel" >
+            <property name="text" >
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" >
+           <widget class="QLabel" name="label_4" >
+            <property name="text" >
+             <string>Weight:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" >
+           <widget class="QLabel" name="weightLabel" >
+            <property name="text" >
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="KalziumGLWidget" native="1" name="glWidget" >
+    <property name="sizePolicy" >
+     <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize" >
+     <size>
+      <width>240</width>
+      <height>240</height>
+     </size>
+    </property>
+    <property name="sizeIncrement" >
+     <size>
+      <width>10</width>
+      <height>10</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
