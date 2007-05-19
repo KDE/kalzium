@@ -15,15 +15,15 @@
 
 #include <kdebug.h>
 #include <kcombobox.h>
-#include <klocale.h>
+#include <kfiledialog.h>
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
+#include <KLocale>
 
 #include <openbabel2wrapper.h>
 
 #include <QMouseEvent>
 #include <QLayout>
-#include <QFileDialog>
 #include <QDir>
 #include <QStringList>
 
@@ -56,11 +56,11 @@ void MoleculeDialog::slotLoadMolecule()
 {
         m_path = KGlobal::dirs()->findResourceDir( "appdata", "data/molecules/" ) + "data/molecules/";
 
-	QString filename = QFileDialog::getOpenFileName( 
-			this,
-			"Choose a file to open",
+	QString filename = KFileDialog::getOpenFileName( 
 			m_path,
-			"Molecules (*.cml)" );
+			"*.cml",
+			this,
+			"Choose a file to open");
 
 	if( filename.isEmpty() ) return;
 
