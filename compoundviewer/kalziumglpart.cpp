@@ -21,6 +21,25 @@
 
 #include "openbabel2wrapper.h"
 
+KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent) {}
+
+void KalziumGLWidget::setStyle( int style )
+{
+    foreach( Avogadro::Engine *engine, engines() )
+    {
+        if( engine->name() != "Label" ) {
+            engine->setEnabled(false);
+        }
+        
+        if( ( style == 0 && engine->name() == "Dynamic Ball and Stick" )
+         || ( style == 1 && engine->name() == "Stick" )
+         || ( style == 2 && engine->name() == "Sphere" )
+         || ( style == 3 && engine->name() == "Wireframe" ) ) {
+            engine->setEnabled(true);
+        }
+    }
+    update();
+}
 
 typedef KParts::GenericFactory<KalziumGLPart> KalziumGLPartFactory;
 
@@ -30,7 +49,7 @@ KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QStri
 {
     kDebug() << "KalziumGLPart::KalziumGLPart()" << endl;
 
-    m_widget = new Avogadro::GLWidget();
+    m_widget = new KalziumGLWidget();
     m_widget->setObjectName("KalziumGLWidget-KPart");
 }
 
@@ -54,10 +73,9 @@ KAboutData *KalziumGLPart::createAboutData()
 bool KalziumGLPart::openFile()
 {
 	Avogadro::Molecule* mol = OpenBabel2Wrapper::readMolecule( url().path() );
-	mol->Center();
 
 	m_widget->setMolecule( mol );
 	m_widget->update();
 }
 
-#include "kalziumglpart.moc" 
+#include "kalziumglpart.moc"

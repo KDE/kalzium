@@ -46,7 +46,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	connect( ui.qualityCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setGlobalQualitySetting( int ) ) );
 	connect( ui.styleCombo, SIGNAL(activated( int )), 
-			ui.glWidget , SLOT( slotSetMolStyle( int ) ) );
+			ui.glWidget , SLOT( setStyle( int ) ) );
 	connect( this, SIGNAL( atomsSelected( QList<OpenBabel::OBAtom*> ) ), 
 				ui.glWidget, SLOT( slotAtomsSelected( QList<OpenBabel::OBAtom*> ) ) );
 	

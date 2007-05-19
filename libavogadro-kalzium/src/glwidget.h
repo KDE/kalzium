@@ -195,7 +195,7 @@ namespace Avogadro {
       /**
        * Deconstructor
        */
-      ~GLWidget();
+      virtual ~GLWidget();
 
       /**
        * Add an arbitrary display list to the %GLWidget rendering 

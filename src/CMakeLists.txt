@@ -30,6 +30,7 @@ if(OPENBABEL2_FOUND)
 		set(kalziumtools_SRCS
 			${kalziumtools_SRCS}
 			tools/moleculeview.cpp
+			../compoundviewer/kalziumglpart.cpp
 			)
 		kde4_add_ui_files(kalziumtools_SRCS
 			tools/moleculeviewerwidget.ui

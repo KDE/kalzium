@@ -19,6 +19,17 @@
 
 #include <avogadro/glwidget.h>
 
+class KalziumGLWidget : public Avogadro::GLWidget
+{
+    Q_OBJECT
+    public:
+        KalziumGLWidget(QWidget *parent = 0);
+        virtual ~KalziumGLWidget() {}
+        
+    public slots:
+        void setStyle( int style );
+};
+
 class KalziumGLPart : public KParts::ReadOnlyPart
 {
     Q_OBJECT
@@ -31,7 +42,7 @@ class KalziumGLPart : public KParts::ReadOnlyPart
     protected:
         bool openFile();
 
-        Avogadro::GLWidget* m_widget;
+        KalziumGLWidget* m_widget;
 };
 
 #endif // KALZIUMGLPART_H
