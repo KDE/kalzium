@@ -24,7 +24,7 @@
   02110-1301, USA.
  **********************************************************************/
 
-#include "config.h"
+#include <config.h>
 
 #include <avogadro/glwidget.h>
 #include <avogadro/camera.h>
@@ -201,7 +201,7 @@ namespace Avogadro {
     glEnable( GL_CULL_FACE );
     glEnable( GL_COLOR_SUM_EXT );
 
-    // Used to display semi-transparent relection rectangle
+    // Used to display semi-transparent selection rectangle
     //  glBlendFunc(GL_ONE, GL_ONE);
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 
@@ -650,7 +650,7 @@ namespace Avogadro {
     {
       //resize selection buffer
       if(d->selectBuf) delete[] d->selectBuf;
-      // add some margin so that resizing doesn't occur everytime an atom is added
+      // add some margin so that resizing doesn't occur every time an atom is added
       d->selectBufSize = requiredSelectBufSize + SEL_BUF_MARGIN;
       if( d->selectBufSize > SEL_BUF_MAX_SIZE ) {
         d->selectBufSize = SEL_BUF_MAX_SIZE;
@@ -686,7 +686,7 @@ namespace Avogadro {
     // returning to normal rendering mode
     hit_count = glRenderMode(GL_RENDER);
 
-    // if no error occured and there are hits, process them
+    // if no error occurred and there are hits, process them
     if (hit_count > 0)
     {
       unsigned int i, j;
