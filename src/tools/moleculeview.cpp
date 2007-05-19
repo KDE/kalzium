@@ -40,6 +40,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	ui.setupUi(mainWidget());
 
 	ui.treeWidget->setSelectionMode( QAbstractItemView::MultiSelection );
+	ui.qualityCombo->setCurrentIndex(2); //default to high quality
 
 	m_path = QString( "" );
 
