@@ -28,6 +28,7 @@
 #include <QListWidget>
 #include <QMessageBox>
 #include <QRegExp>
+#include <QFile>
 
 
 Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
@@ -35,9 +36,9 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
 	OpenBabel::OBConversion Conv;
 	OpenBabel::OBFormat *inFormat = NULL;
 
-	//the OB2 Molecule
+	// the Avogadro Molecule
 	Avogadro::Molecule *mol = new Avogadro::Molecule;
-	std::ifstream inFileStream(  filename.toLatin1() );
+	std::ifstream inFileStream( QFile::encodeName(filename) );
 	if ( !inFileStream ) {
 		QMessageBox::warning(  0, i18n( "Problem while opening the file" ),
 				i18n( "Cannot open the specified file." ) );
@@ -46,7 +47,7 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
 	}
 
 	//find out which format the file has...
-	inFormat = Conv.FormatFromExt( filename.toLatin1() );
+	inFormat = Conv.FormatFromExt( QFile::encodeName(filename) );
 	Conv.SetInAndOutFormats( inFormat,inFormat );
 	Conv.Read( mol, &inFileStream );
 
