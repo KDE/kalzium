@@ -15,7 +15,10 @@
 
 #include <kdebug.h>
 #include <kcombobox.h>
-#include <kfiledialog.h>
+
+//#include <kfiledialog.h>
+#include <QFileDialog>
+
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
 #include <KLocale>
@@ -56,11 +59,24 @@ void MoleculeDialog::slotLoadMolecule()
 {
         m_path = KGlobal::dirs()->findResourceDir( "appdata", "data/molecules/" ) + "data/molecules/";
 
-	QString filename = KFileDialog::getOpenFileName( 
-			m_path,
-			"*.cml",
+// patch by annma to use KFileDialog instead.
+// we keep QFileDialog for now because KFileDialog currently causes a crash
+// at least for carsten and bjacob.
+// -       QString filename = QFileDialog::getOpenFileName( 
+// +       QString filename = KFileDialog::getOpenFileName( 
+// +                       m_path,
+// +                       "*.cml",
+//                         this,
+// -                       "Choose a file to open",
+// -                       m_path,
+// -                       "Molecules (*.cml)" );
+// +                       "Choose a file to open");
+
+	QString filename = QFileDialog::getOpenFileName( 
 			this,
-			"Choose a file to open");
+			"Choose a file to open",
+			m_path,
+			"Molecules (*.cml)" );
 
 	if( filename.isEmpty() ) return;
 
