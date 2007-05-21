@@ -1,4 +1,12 @@
-For full functionality (equation solver integration) Kalzium depends on Ocaml and the FaCiLe library. The FaciLe library is only used for compilation and for packagers.
+For full functionality (equation solver integration, OpenBabel-Frontend and the 3D-viewer) Kalzium depends on 
+
+-- Equation solver
+	* Ocaml and the FaCiLe library. The FaciLe library is only used for compilation and for packagers.
+
+-- OpenBabel-frontend and 3D-viewer
+	* Eigen
+	* LibAvogadro
+	* OpenBabel
 
 Ocaml
 webpage: http://caml.inria.fr/about/index.en.html
