@@ -145,7 +145,6 @@ namespace Avogadro
     private:
 
       TextRendererPrivate * const d;
-      int do_draw(const QString &string);
 
   };
 
