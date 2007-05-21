@@ -40,13 +40,24 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	ui.setupUi(mainWidget());
 
 	ui.qualityCombo->setCurrentIndex(2); //default to high quality
-
+	
+	//default to atom symbols
+	ui.labelsCombo->setCurrentIndex(2);
+	ui.glWidget->setLabels(2);
+	
+	//default to balls-and-sticks
+	ui.styleCombo->setCurrentIndex(0); 
+	ui.glWidget->setStyle(0);
+	
 	m_path = QString( "" );
 
 	connect( ui.qualityCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setGlobalQualitySetting( int ) ) );
 	connect( ui.styleCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setStyle( int ) ) );
+	connect( ui.labelsCombo, SIGNAL(activated( int )), 
+			ui.glWidget , SLOT( setLabels( int ) ) );
+
 
 	connect( this, SIGNAL( user1Clicked() ), 
 			this, SLOT( slotLoadMolecule() ) );

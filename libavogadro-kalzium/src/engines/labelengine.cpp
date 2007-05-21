@@ -44,6 +44,7 @@ using namespace Eigen;
 
 bool LabelEngine::render(GLWidget *gl)
 {
+  if(gl->labelsStyle() == 0) return true;
   gl->painter()->beginText();
   QList<Primitive *> list;
 
@@ -53,23 +54,19 @@ bool LabelEngine::render(GLWidget *gl)
     Atom *atom = static_cast<const Atom *>(p);
     const Vector3d pos = atom->pos();
 
-    double renderRadius = 0.;
-    foreach(Engine *engine, gl->engines())
-    {
-      if(engine->isEnabled())
-      {
-        double engineRadius = engine->radius(atom);
-        if(engineRadius > renderRadius) {
-          renderRadius = engineRadius;
-        }
-      }
-    }
-    renderRadius += 0.05;
+    double renderRadius = gl->renderingEngine()->radius(atom) + 0.05;
 
     double zDistance = gl->camera()->distance(pos);
 
     if(zDistance < 50.0) {
-      QString str = QString::number(atom->GetIdx());
+      QString str;
+      if(gl->labelsStyle() == 1) {
+        str = QString::number(atom->GetIdx());
+      } else if(gl->labelsStyle() == 2) {
+        str = QString::fromAscii(etab.GetSymbol(atom->GetAtomicNum()));
+      } else {
+        str = QString::fromAscii(etab.GetName(atom->GetAtomicNum()).data());
+      }
       const MatrixP3d & m = gl->camera()->modelview();
 
       Vector3d zAxis = gl->camera()->backtransformedZAxis();

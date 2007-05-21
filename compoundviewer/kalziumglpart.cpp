@@ -51,6 +51,7 @@ void KalziumGLWidget::setStyle( int style )
          || ( style == 2 && engine->name() == "Sphere" )
          || ( style == 3 && engine->name() == "Wireframe" ) ) {
             engine->setEnabled(true);
+            setRenderingEngine(engine);
         }
     }
     update();

@@ -317,12 +317,18 @@ namespace Avogadro {
         * @sa class Painter
         */
       Painter *painter() const;
+      
+      void setRenderingEngine( Avogadro::Engine *engine );
+      
+      int labelsStyle() const;
+      Avogadro::Engine *renderingEngine();
 
     public Q_SLOTS:
     
       void setGlobalQualitySetting(int globalQualitySetting);
 
       void setTool(Tool *tool);
+      void setLabels( int style );
 
       /**
        * Add the primitive to the widget.  This slot is called whenever
