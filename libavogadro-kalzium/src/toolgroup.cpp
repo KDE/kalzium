@@ -70,27 +70,24 @@ namespace Avogadro {
 #ifdef WIN32
 	pluginPaths << "./tools";
 #endif
-
-    if(getenv("AVOGADRO_TOOLS") != NULL)
-    {
-      pluginPaths = QString(getenv("AVOGADRO_TOOLS")).split(':');
-    }
   
     foreach (QString path, pluginPaths)
     {
       QDir dir(path); 
       foreach (QString fileName, dir.entryList(QDir::Files)) {
         qDebug() << fileName;
-        QPluginLoader loader(dir.absoluteFilePath(fileName));
-        QObject *instance = loader.instance();
-        ToolFactory *factory = qobject_cast<ToolFactory *>(instance);
-        if (factory) {
-          Tool *tool = factory->createInstance(this);
-          qDebug() << "Found Tool: " << tool->name() << " - " << tool->description(); 
-          d->tools.append(tool);
-          d->activateActions->addAction(tool->activateAction());
-          connect(tool->activateAction(), SIGNAL(triggered(bool)),
-              this, SLOT(activateTool()));
+        if(fileName.contains("kalzium")) {
+          QPluginLoader loader(dir.absoluteFilePath(fileName));
+          QObject *instance = loader.instance();
+          ToolFactory *factory = qobject_cast<ToolFactory *>(instance);
+          if (factory) {
+            Tool *tool = factory->createInstance(this);
+            qDebug() << "Found Tool: " << tool->name() << " - " << tool->description(); 
+            d->tools.append(tool);
+            d->activateActions->addAction(tool->activateAction());
+            connect(tool->activateAction(), SIGNAL(triggered(bool)),
+                this, SLOT(activateTool()));
+          }
         }
       }
     }
