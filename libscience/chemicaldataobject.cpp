@@ -314,6 +314,9 @@ QString ChemicalDataObject::unitAsString() const
 		case ev:
 			bounit = "ev";
 			break;
+		case ang:
+			bounit = "degree";
+			break;
 		case noUnit:
 			return "noUnit";
 		case y:

@@ -153,6 +153,7 @@ QString Isotope::parentElementSymbol() const
 
 void Isotope::setNucleons( int number )
 {
+	Q_UNUSED(number);
 	//m_numberOfNucleons = number;
 }
 
