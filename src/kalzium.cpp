@@ -437,7 +437,7 @@ void Kalzium::slotShowLegend( bool checked, bool changeconfig)
 	{
         Prefs::setShowlegend( checked );
 		//save the settings
-		Prefs::writeConfig();
+		Prefs::self()->writeConfig();
 	}
 }
 
@@ -458,7 +458,7 @@ void Kalzium::slotShowHideSidebar( bool checked, bool changeconfig )
 	{
 		Prefs::setShowsidebar( checked );
 		//save the settings
-		Prefs::writeConfig();
+		Prefs::self()->writeConfig();
 	}
 }
 
@@ -468,14 +468,14 @@ void Kalzium::slotSwitchtoTable( int index )
     if ( m_infoDialog )
         m_infoDialog->setTableType( m_PeriodicTableView->tableType() );
     Prefs::setTable(index);
-    Prefs::writeConfig();
+    Prefs::self()->writeConfig();
 }
 
 void Kalzium::slotSwitchtoNumeration( int index )
 {
 	m_PeriodicTableView->setNumeration( index );
 	Prefs::setNumeration(index);
-	Prefs::writeConfig();
+	Prefs::self()->writeConfig();
 }
 
 void Kalzium::slotSwitchtoLook( int which )
@@ -507,7 +507,7 @@ void Kalzium::slotSwitchtoLook( int which )
 	look_action_schemes->blockSignals( false );
 
 	Prefs::setColorschemebox(which);
-	Prefs::writeConfig();
+	Prefs::self()->writeConfig();
 }
 
 void Kalzium::showSettingsDialog()
