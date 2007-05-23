@@ -149,6 +149,7 @@ void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
 
 LegendItem::LegendItem(const QPair<QString, QBrush>& pair, QWidget * parent)
 {
+    Q_UNUSED(parent);
     m_pair = pair;
 
     update();
