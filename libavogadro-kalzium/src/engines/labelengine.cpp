@@ -67,7 +67,6 @@ bool LabelEngine::render(GLWidget *gl)
       } else {
         str = QString::fromAscii(etab.GetName(atom->GetAtomicNum()).data());
       }
-      const MatrixP3d & m = gl->camera()->modelview();
 
       Vector3d zAxis = gl->camera()->backtransformedZAxis();
 
@@ -78,6 +77,7 @@ bool LabelEngine::render(GLWidget *gl)
     }
   }
   gl->painter()->endText();
+  return true;
 }
 
 #include "labelengine.moc"

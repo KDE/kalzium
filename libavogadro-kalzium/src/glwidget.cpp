@@ -108,11 +108,11 @@ namespace Avogadro {
 
   class GLWidgetPrivate {
     public:
-      GLWidgetPrivate() : background(Qt::black), molecule(0),
+      GLWidgetPrivate() : molecule(0),
                           aCells(0), bCells(0), cCells(0),
-                          tool(0), toolGroup(0), selectBuf(0),
-                          selectBufSize(-1), painter(new Painter), labelsStyle(0),
-                          camera(new Camera) {}
+                          tool(0), toolGroup(0), 
+                          camera(new Camera), background(Qt::black), selectBuf(0),
+                          selectBufSize(-1), painter(new Painter), labelsStyle(0) {}
       ~GLWidgetPrivate()
       {
         if(selectBuf) delete[] selectBuf;
@@ -142,8 +142,8 @@ namespace Avogadro {
       Camera                 *camera;
       QColor                 background;
 
-      int                    selectBufSize;
       GLuint                 *selectBuf;
+      int                    selectBufSize;
 
       QList<Primitive *>     selectionList;
 
@@ -240,7 +240,6 @@ namespace Avogadro {
 
   void GLWidget::render()
   {
-    int size = d->engines.size();
     OBUnitCell *uc = NULL;
     std::vector<vector3> cellVectors;
     vector3 offset;
@@ -704,7 +703,7 @@ namespace Avogadro {
 
       //X   printf ("hits = %d\n", hits);
       ptr = (GLuint *) d->selectBuf;
-      for (i = 0; i < hit_count; i++) {
+      for (i = 0; i < (unsigned) hit_count; i++) {
         names = *ptr++;
         minZ = *ptr++;
         maxZ = *ptr++;

@@ -89,7 +89,8 @@ namespace Avogadro {
   }
 
   bool Tool::paint(GLWidget *widget)
-  {
+  { Q_UNUSED(widget);
+    return true;
   }
 
 } // end namespace Avogadro

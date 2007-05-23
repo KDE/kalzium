@@ -42,6 +42,7 @@ namespace Avogadro {
   {
   public:
     Color() {}
+    virtual ~Color() {}
 
     /**
      * This constructor sets the four components of the color

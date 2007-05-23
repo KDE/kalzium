@@ -44,7 +44,7 @@ namespace Avogadro {
 
     public:
       //! Constructor
-      StickEngine(QObject *parent=0) : Engine(parent), m_update(true), m_glwidget(0) {}
+      StickEngine(QObject *parent=0) : Engine(parent), m_glwidget(0), m_update(true) {}
       //! Deconstructor
       ~StickEngine();
 

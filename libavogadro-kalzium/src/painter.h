@@ -55,7 +55,7 @@ namespace Avogadro {
     * The text is drawn with a black outlining so that it remains readable regardless of the
     * background color.
     */
-  class A_EXPORT GLWidget;
+  class GLWidget;
   class PainterPrivate;
   class A_EXPORT Painter
   {

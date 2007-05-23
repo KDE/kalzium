@@ -52,6 +52,7 @@ namespace Avogadro {
 
   double Engine::radius(const Primitive *primitive)
   {
+    Q_UNUSED(primitive);
     return 0.0;
   }
 
@@ -77,6 +78,7 @@ namespace Avogadro {
 
   void Engine::updatePrimitive(Primitive *primitive)
   {
+    Q_UNUSED(primitive);
   }
 
   void Engine::removePrimitive(Primitive *primitive)

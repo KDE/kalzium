@@ -96,7 +96,7 @@ namespace Avogadro
 {
 
   class CharRenderer;
-  class A_EXPORT GLWidget;
+  class GLWidget;
 
   class TextRendererPrivate;
   class TextRenderer

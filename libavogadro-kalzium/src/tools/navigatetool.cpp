@@ -39,7 +39,7 @@ using namespace OpenBabel;
 using namespace Avogadro;
 using namespace Eigen;
 
-NavigateTool::NavigateTool(QObject *parent) : Tool(parent), m_clickedAtom(0), m_leftButtonPressed(false), m_midButtonPressed(false), m_rightButtonPressed(false)
+NavigateTool::NavigateTool(QObject *parent) : Tool(parent), m_leftButtonPressed(false), m_rightButtonPressed(false), m_midButtonPressed(false), m_clickedAtom(0)
 {
   QAction *action = activateAction();
   action->setIcon(QIcon(QString::fromUtf8(":/navigate/navigate.png")));
@@ -105,7 +105,6 @@ void NavigateTool::translate( const Eigen::Vector3d &what, const QPoint &from, c
 
 void NavigateTool::rotate( const Eigen::Vector3d &center, double deltaX, double deltaY ) const
 {
-  const MatrixP3d & m = m_glwidget->camera()->modelview();
   Vector3d xAxis = m_glwidget->camera()->backtransformedXAxis();
   Vector3d yAxis = m_glwidget->camera()->backtransformedYAxis();
   m_glwidget->camera()->translate( center );
@@ -116,7 +115,6 @@ void NavigateTool::rotate( const Eigen::Vector3d &center, double deltaX, double 
 
 void NavigateTool::tilt( const Eigen::Vector3d &center, double delta ) const
 {
-  const MatrixP3d & m = m_glwidget->camera()->modelview();
   Vector3d zAxis = m_glwidget->camera()->backtransformedZAxis();
   m_glwidget->camera()->translate( center );
   m_glwidget->camera()->rotate( delta * ROTATION_SPEED, zAxis );
@@ -138,6 +136,7 @@ QUndoCommand* NavigateTool::mousePress(GLWidget *widget, const QMouseEvent *even
 
 QUndoCommand* NavigateTool::mouseRelease(GLWidget *widget, const QMouseEvent *event)
 {
+  Q_UNUSED(event);
   m_glwidget = widget;
   m_leftButtonPressed = false;
   m_midButtonPressed = false;

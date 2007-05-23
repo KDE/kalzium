@@ -41,17 +41,17 @@ namespace Avogadro {
       bool selected;
   };
 
-  Primitive::Primitive(QObject *parent) : d_ptr(new PrimitivePrivate), QObject(parent) {}
+  Primitive::Primitive(QObject *parent) : QObject(parent), d_ptr(new PrimitivePrivate) {}
 
-  Primitive::Primitive(enum Type type, QObject *parent) : d_ptr(new PrimitivePrivate), QObject(parent)
+  Primitive::Primitive(enum Type type, QObject *parent) :  QObject(parent), d_ptr(new PrimitivePrivate)
   {
     Q_D(Primitive);
     d->type = type;
   }
 
-  Primitive::Primitive(PrimitivePrivate &dd, QObject *parent) : d_ptr(&dd), QObject(parent) {}
+  Primitive::Primitive(PrimitivePrivate &dd, QObject *parent) : QObject(parent), d_ptr(&dd) {}
 
-  Primitive::Primitive(PrimitivePrivate &dd, enum Type type, QObject *parent) : d_ptr(&dd), QObject(parent)
+  Primitive::Primitive(PrimitivePrivate &dd, enum Type type, QObject *parent) : QObject(parent), d_ptr(&dd)
   {
     Q_D(Primitive);
     d->type = type;
@@ -101,12 +101,12 @@ namespace Avogadro {
       mutable bool                  invalidGeomInfo;
   };
 
-  Molecule::Molecule(QObject *parent) : OpenBabel::OBMol(), Primitive(*new MoleculePrivate, MoleculeType, parent) 
+  Molecule::Molecule(QObject *parent) : Primitive(*new MoleculePrivate, MoleculeType, parent), OpenBabel::OBMol()
   {
     connect(this, SIGNAL(updated()), this, SLOT(updatePrimitive()));
   }
 
-  Molecule::Molecule(const Molecule &other) : OpenBabel::OBMol(other), Primitive(*new MoleculePrivate, MoleculeType, other.parent())
+  Molecule::Molecule(const Molecule &other) : Primitive(*new MoleculePrivate, MoleculeType, other.parent()), OpenBabel::OBMol(other)
   {
     connect(this, SIGNAL(updated()), this, SLOT(updatePrimitive()));
   }
@@ -212,6 +212,7 @@ namespace Avogadro {
   Molecule &Molecule::operator=(const Molecule& other)
   {
     OpenBabel::OBMol::operator=(other);
+    return *this;
   }
 
   Molecule &Molecule::operator+=(const Molecule& other)
@@ -225,6 +226,8 @@ namespace Avogadro {
         continue;
       dynamic_cast<Atom *>(&*a)->setSelected(true);
     }
+    
+    return *this;
   }
 
   void Molecule::computeGeomInfo() const

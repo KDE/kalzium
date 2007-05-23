@@ -105,7 +105,9 @@ namespace Avogadro {
       Q_INTERFACES(Avogadro::ToolFactory)
 
       public:
-        Tool *createInstance(QObject *parent = 0) { return new NavigateTool(); }
+        Tool *createInstance(QObject *parent = 0)
+        {   Q_UNUSED(parent);
+	    return new NavigateTool(); }
     };
 
 } // end namespace Avogadro

@@ -43,8 +43,8 @@ using namespace OpenBabel;
 using namespace Eigen;
 using namespace Avogadro;
 
-BSDYEngine::BSDYEngine(QObject *parent) : Engine(parent), m_update(true),
-  m_settingsWidget(0), m_atomRadiusPercentage(0.3), m_bondRadius(0.1), m_glwidget(0)
+BSDYEngine::BSDYEngine(QObject *parent) : Engine(parent), m_glwidget(0), m_update(true),
+  m_settingsWidget(0), m_atomRadiusPercentage(0.3), m_bondRadius(0.1)
 {
 }
 
@@ -170,17 +170,20 @@ double BSDYEngine::radius(const Primitive *p)
 
 bool BSDYEngine::render(const Atom *a)
 {
+  Q_UNUSED(a);
   return true;
 }
 
 bool BSDYEngine::render(const Bond *b)
 {
+  Q_UNUSED(b);
   return true;
 }
 
 bool BSDYEngine::render(const Molecule *m)
 {
   // Disabled
+  Q_UNUSED(m);
   return false;
 }
 

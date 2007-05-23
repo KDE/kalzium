@@ -143,10 +143,9 @@ namespace Avogadro
     if(spheres == 0)
     {
       spheres = new Sphere*[PAINTER_DETAIL_LEVELS];
-      int level, lastLevel;
       lastLevel = PAINTER_SPHERES_LEVELS_ARRAY[globalQualitySetting][0];
       spheres[0] = new Sphere( lastLevel );
-      for(int n = 1; n < PAINTER_DETAIL_LEVELS; n++ )
+      for(n = 1; n < PAINTER_DETAIL_LEVELS; n++ )
       {
         level = PAINTER_SPHERES_LEVELS_ARRAY[globalQualitySetting][n];
         if( level == lastLevel ) {

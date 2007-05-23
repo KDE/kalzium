@@ -63,6 +63,9 @@ K_EXPORT_COMPONENT_FACTORY (libkalziumglpart, KalziumGLPartFactory)
 
 KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QStringList& args)
 {
+    Q_UNUSED(parent);
+    Q_UNUSED(parentWidget);
+    Q_UNUSED(args);
     kDebug() << "KalziumGLPart::KalziumGLPart()" << endl;
 
     m_widget = new KalziumGLWidget();
@@ -92,6 +95,7 @@ bool KalziumGLPart::openFile()
 
 	m_widget->setMolecule( mol );
 	m_widget->update();
+	return true;
 }
 
 #include "kalziumglpart.moc"

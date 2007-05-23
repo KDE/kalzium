@@ -46,7 +46,7 @@ namespace Avogadro {
 
     public:
       //! Constructor
-      SphereEngine(QObject *parent=0) : Engine(parent), m_setup(false), m_glwidget(0) {}
+      SphereEngine(QObject *parent=0) : Engine(parent), m_glwidget(0), m_setup(false) {}
       //! Deconstructor
       ~SphereEngine() {}
 

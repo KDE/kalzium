@@ -96,8 +96,6 @@ bool StickEngine::render(GLWidget *gl)
     Vector3d v2 (atom2->pos());
     Vector3d v3 (( v1 + v2 ) / 2);
 
-    int order = b->GetBO();
-
     map.set(atom1);
     map.applyAsMaterials();
     m_glwidget->painter()->drawCylinder( v1, v3, radius(atom1) );
@@ -131,16 +129,19 @@ double StickEngine::radius(const Primitive *p)
 
 inline double StickEngine::radius(const Atom *a)
 {
+  Q_UNUSED(a);
   return 0.25;
 }
 
 bool StickEngine::render(const Atom *a)
 {
+  Q_UNUSED(a);
   return true;
 }
 
 bool StickEngine::render(const Bond *b)
 {
+  Q_UNUSED(b);
   return true;
 }
 
@@ -165,6 +166,7 @@ void StickEngine::removePrimitive(Primitive *primitive)
 bool StickEngine::render(const Molecule *m)
 {
   // Disabled
+  Q_UNUSED(m);
   return false;
 }
 

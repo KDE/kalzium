@@ -74,6 +74,9 @@ void Color::set(const OpenBabel::OBAtom *atom)
 
 void Color::set(double value, double low, double high)
 {
+  Q_UNUSED(value);
+  Q_UNUSED(low);
+  Q_UNUSED(high);
   m_red = m_green = m_blue = m_alpha = 1.0;
 }
 

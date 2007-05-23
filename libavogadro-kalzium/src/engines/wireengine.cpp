@@ -124,6 +124,7 @@ bool WireEngine::render(const Bond *b)
 bool WireEngine::render(const Molecule *m)
 {
   // Disabled
+  Q_UNUSED(m);
   return false;
 }
 
