@@ -79,7 +79,7 @@ void Color::set(double value, double low, double high)
 
 void Color::applyAsMaterials()
 {
-	GLfloat ambientColor [] = { m_red / 2, m_green / 2, m_blue / 2,
+	GLfloat ambientColor [] = { m_red / 3, m_green / 3, m_blue / 3,
 	                            m_alpha };
 	GLfloat diffuseColor [] = { m_red, m_green, m_blue, m_alpha };
 

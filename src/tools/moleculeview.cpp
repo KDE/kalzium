@@ -33,9 +33,10 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	: KDialog( parent )
 {
 	setCaption( i18n( "Molecular Viewer" ) );
-	setButtons( Help | User1 | Close );
+	setButtons( Help | User1 | User2 | Close );
 	setDefaultButton( User1 );
 	setButtonGuiItem( User1, KGuiItem( i18n( "Load molecule" ), "open", i18n( "Loading a molecule" ) ) );
+	setButtonGuiItem( User2, KGuiItem( i18n( "Get more molecules" ), "getmore", i18n( "Download a collection of molecule files" ) ) );
 	
 	ui.setupUi(mainWidget());
 
@@ -67,11 +68,18 @@ void MoleculeDialog::slotLoadMolecule()
 {
         m_path = KGlobal::dirs()->findResourceDir( "appdata", "data/molecules/" ) + "data/molecules/";
 
+	QString commonMoleculeFormats = i18n("Common molecule formats");
+	QString allFiles = i18n("All files");
+
 	QString filename = KFileDialog::getOpenFileName( 
 			m_path,
-			"*.cml",
+			"*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
+			" *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
+			" *.gam *.inp *.gamin *.gamout *.tmol *.fract"
+			" *.mpd *.mol2|"+commonMoleculeFormats+"\n"
+			"* *.*|"+allFiles,
 			this,
-			"Choose a file to open");
+			i18n("Choose a file to open"));
 
 	if( filename.isEmpty() ) return;
 

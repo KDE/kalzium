@@ -211,8 +211,8 @@ namespace Avogadro {
     glEnable( GL_NORMALIZE );
     glEnable( GL_LIGHTING );
 
-    GLfloat ambientLight[] = { 0.4, 0.4, 0.4, 1.0 };
-    GLfloat diffuseLight[] = { 0.8, 0.8, 0.8, 1.0 };
+    GLfloat ambientLight[] = { 0.2, 0.2, 0.2, 1.0 };
+    GLfloat diffuseLight[] = { 1.0, 1.0, 1.0, 1.0 };
     GLfloat specularLight[] = { 1.0, 1.0, 1.0, 1.0 };
     GLfloat position[] = { 0.8, 0.7, 1.0, 0.0 };
 
@@ -331,9 +331,13 @@ namespace Avogadro {
     render();
     
     if(!molecule()) {
-    	glColor3f(0.0, 1.0, 0.7);
     	painter()->beginText();
+    	glColor3f(0.0, 1.0, 0.7);
     	painter()->drawText(5,5,i18n("Please load a molecule."));
+    	glColor3f(0.0, 0.7, 1.0);
+    	int y = 50;
+    	y += painter()->drawText(5,y,i18n("Click the \"Help\" button"));
+    	y += painter()->drawText(5,y,i18n("for usage instructions"));
     	painter()->endText();
     }
   }
