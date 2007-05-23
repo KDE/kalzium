@@ -233,7 +233,7 @@ namespace Avogadro
     
     // perform a rough form of frustum culling
     double dot = transformedCenter.z() / distance;
-    if(dot > -0.6) return;
+    if(dot > -0.8) return;
     
     double apparentRadius = radius / distance;
     int detailLevel = 1 + static_cast<int>( floor(
@@ -266,7 +266,7 @@ namespace Avogadro
     
     // perform a rough form of frustum culling
     double dot = transformedEnd1.z() / distance;
-    if(dot > -0.6) return;
+    if(dot > -0.8) return;
     
     double apparentRadius = radius / distance;
     int detailLevel = 1 + static_cast<int>( floor(
@@ -300,7 +300,7 @@ namespace Avogadro
     
     // perform a rough form of frustum culling
     double dot = transformedEnd1.z() / distance;
-    if(dot > -0.6) return;
+    if(dot > -0.8) return;
     
     double apparentRadius = radius / distance;
     int detailLevel = 1 + static_cast<int>( floor(
@@ -333,7 +333,7 @@ namespace Avogadro
     
     // perform a rough form of frustum culling
     double dot = transformedPos.z() / transformedPos.norm();
-    if(dot > -0.6) return 0;
+    if(dot > -0.8) return 0;
     
     return d->textRenderer->draw(pos, string);
   }
