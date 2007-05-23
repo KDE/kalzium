@@ -1,7 +1,7 @@
 /**********************************************************************
   Camera - Class for representing the view.
 
-  Copyright (C) 2007 Benoit Jacob
+  Copyright (C) 2007 Benoit Jacob <jacob@math.jussieu.fr>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>

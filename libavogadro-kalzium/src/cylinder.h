@@ -1,7 +1,7 @@
 /**********************************************************************
   Cylinder - Class for drawing cylinders in OpenGL
 
-  Copyright (C) 2006,2007 Benoit Jacob
+  Copyright (C) 2006,2007 Benoit Jacob <jacob@math.jussieu.fr>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -37,7 +37,7 @@ namespace Avogadro {
    * @class Cylinder
    * @internal
    * @brief This class represents and draws a cylinder
-   * @author Benoit Jacob
+   * @author Benoit Jacob <jacob@math.jussieu.fr>
    */
   class CylinderPrivate;
   class Cylinder

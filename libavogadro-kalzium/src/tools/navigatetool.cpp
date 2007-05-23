@@ -1,8 +1,8 @@
 /**********************************************************************
   NavigateTool - Navigation Tool for Avogadro
 
-  Copyright (C) 2007 by Marcus D. Hanwell
-  Copyright (C) 2006,2007 by Benoit Jacob
+  Copyright (C) 2007 by Marcus D. Hanwell <marcus@cryos.org>
+  Copyright (C) 2006,2007 by Benoit Jacob <jacob@math.jussieu.fr>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>

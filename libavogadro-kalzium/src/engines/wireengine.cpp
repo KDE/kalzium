@@ -1,8 +1,8 @@
 /**********************************************************************
   WireEngine - Engine for wireframe display
 
-  Copyright (C) 2006-2007 Geoffrey R. Hutchison
-  Copyright (C) 2006-2007 Benoit Jacob
+  Copyright (C) 2006-2007 Geoffrey R. Hutchison <geoff@geoffhutchison.net>
+  Copyright (C) 2006-2007 Benoit Jacob <jacob@math.jussieu.fr>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>

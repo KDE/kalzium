@@ -1,7 +1,7 @@
 /**********************************************************************
   Primitive - Wrapper class around the OpenBabel classes
 
-  Copyright (C) 2007 Donald Ephraim Curtis
+  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -162,7 +162,7 @@ namespace Avogadro {
   /**
    * @class Atom
    * @brief Atom Class
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * The Atom class is a Primitive subclass that provides a wrapper around
    * OpenBabel::OBAtom.  This class is provided to give more control of
@@ -213,7 +213,7 @@ namespace Avogadro {
   /**
    * @class Bond
    * @brief Bond Class
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * The Bond class is a Primitive subclass that provides a wrapper around
    * OpenBabel::OBBond.  This class is provided to give more control of
@@ -236,7 +236,7 @@ namespace Avogadro {
   /**
    * @class Residue
    * @brief Residue Class
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * The Residue class is a Primitive subclass that provides a wrapper around
    * OpenBabel::OBResidue.  This class is provided to give more control of
@@ -259,7 +259,7 @@ namespace Avogadro {
   /**
    * @class Molecule
    * @brief Molecule Class
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * The Molecule class implements the OpenBabel::OBMol virtual functions
    * in order to not only use our primitive objects but also to provide signals
@@ -382,7 +382,7 @@ namespace Avogadro {
   /**
    * @class PrimitiveQueue
    * @brief Class which set of Primitives
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * The PrimitiveQueue class is designed to hold a set of Primitive objects
    * and keep them organized by type allowing groups of them to be 

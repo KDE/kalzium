@@ -1,7 +1,7 @@
 /**********************************************************************
   ToolGroup - GLWidget manager for Tools.
 
-  Copyright (C) 2007 Donald Ephraim Curtis
+  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -34,7 +34,7 @@ namespace Avogadro {
   /**
    * @class ToolGroup
    * @brief Manager for GLWidget Tools
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * This class is a collection of Tools which allow manipulation of the 
    * GLWidget area.

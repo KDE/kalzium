@@ -1,7 +1,7 @@
 /**********************************************************************
   UndoSequence - Provides an sequence of Undo/Redo in a single command
 
-  Copyright (C) 2007 Donald Ephraim Curtis
+  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -34,7 +34,7 @@ namespace Avogadro {
   /**
    * @class UndoSequence
    * @brief Provides a sequence of Undo/Redo commands in a single command
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * This class simply acts as grouping of Undo/Redo commands.  As commands
    * are added, that is how they will be executed in the Redo stage.  In the

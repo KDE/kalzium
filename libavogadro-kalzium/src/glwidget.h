@@ -1,8 +1,8 @@
 /**********************************************************************
   GLWidget - general OpenGL display
 
-  Copyright (C) 2006,2007 Geoffrey R. Hutchison
-  Copyright (C) 2006,2007 Donald Ephraim Curtis
+  Copyright (C) 2006,2007 Geoffrey R. Hutchison <geoff@geoffhutchison.net>
+  Copyright (C) 2006,2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -48,7 +48,7 @@ namespace Avogadro {
   /**
    * @class GLHit
    * @brief Class for wrapping hits from GL picking.
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * Provides an easy to use class to contain OpenGL hits returned from the 
    * process of picking.  This class relies on the %Engine subclasses properly 
@@ -149,7 +149,7 @@ namespace Avogadro {
   /**
    * @class GLWidget
    * GL widget class for rendering molecules.
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * This widget provides a 3d graphical view of a molecule.   In terms 
    * of a Model-View architecture we consider

@@ -1,9 +1,9 @@
 /**********************************************************************
   GLWidget - general OpenGL display
 
-  Copyright (C) 2006,2007 Geoffrey R. Hutchison
-  Copyright (C) 2006,2007 Donald Ephraim Curtis
-  Copyright (C) 2007      Benoit Jacob
+  Copyright (C) 2006,2007 Geoffrey R. Hutchison <geoff@geoffhutchison.net>
+  Copyright (C) 2006,2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+  Copyright (C) 2007      Benoit Jacob <jacob@math.jussieu.fr>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>

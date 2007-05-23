@@ -1,9 +1,9 @@
 /**********************************************************************
   SphereEngine - Engine for "spheres" display
 
-  Copyright (C) 2006-2007 Geoffrey R. Hutchison
-  Copyright (C) 2007      Benoit Jacob
-  Copyright (C) 2007      Marcus D. Hanwell
+  Copyright (C) 2006-2007 Geoffrey R. Hutchison <geoff@geoffhutchison.net>
+  Copyright (C) 2007      Benoit Jacob <jacob@math.jussieu.fr>
+  Copyright (C) 2007      Marcus D. Hanwell <marcus@cryos.org>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>

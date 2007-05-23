@@ -2,7 +2,7 @@
   TextRenderer - a temporary replacement for QGLWidget::renderText until it
   matures a bit more ;)
 
-  Copyright (C) 2007 Benoit Jacob
+  Copyright (C) 2007 Benoit Jacob <jacob@math.jussieu.fr>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -35,7 +35,7 @@
 /** 
  * @class TextRenderer
  * @internal
- * @author Benoit Jacob
+ * @author Benoit Jacob <jacob@math.jussieu.fr>
  *
  * NOTE: This class is only there as a temporary replacement for
  * QGLWidget::renderText(). As of Qt 4.2.3 and Qt 4.3-beta1, this function is

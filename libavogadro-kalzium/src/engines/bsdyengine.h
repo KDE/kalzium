@@ -1,7 +1,7 @@
 /**********************************************************************
   BSDYEngine - Dynamic detail engine for "balls and sticks" display
 
-  Copyright (C) 2007 Donald Ephraim Curtis
+  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>

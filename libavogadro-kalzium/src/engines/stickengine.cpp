@@ -1,7 +1,7 @@
 /**********************************************************************
   StickEngine - Engine for "stick" display
 
-  Copyright (C) 2006-2007 Geoffrey R. Hutchison
+  Copyright (C) 2006-2007 Geoffrey R. Hutchison <geoff@geoffhutchison.net>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>

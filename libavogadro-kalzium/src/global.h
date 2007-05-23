@@ -1,7 +1,7 @@
 /**********************************************************************
   global.h - Setup some default defines.
 
-  Copyright (C) 2007 by Donald Ephraim Curtis
+  Copyright (C) 2007 by Donald Ephraim Curtis <donald-curtis@uiowa.edu>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>

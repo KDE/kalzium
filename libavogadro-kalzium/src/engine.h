@@ -1,7 +1,7 @@
 /**********************************************************************
   Engine - Engine interface and plugin factory.
 
-  Copyright (C) 2007 Donald Ephraim Curtis
+  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -39,7 +39,7 @@ namespace Avogadro {
   /** 
    * @class Engine
    * @brief Engine plugin interface.
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * This class provides a an interface for our engines.  
    * Subclasses of this class are loaded by the GLWidget and used to render

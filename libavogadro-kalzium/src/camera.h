@@ -1,7 +1,7 @@
 /**********************************************************************
   Camera - Class for representing the view.
 
-  Copyright (C) 2007 Benoit Jacob
+  Copyright (C) 2007 Benoit Jacob <jacob@math.jussieu.fr>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -37,7 +37,7 @@ namespace Avogadro {
 
   /**
    * @class Camera
-   * @author Benoit Jacob
+   * @author Benoit Jacob <jacob@math.jussieu.fr>
    *
    * This class represents a camera looking at the molecule loaded
    * in a GLWidget. It stores the parameters describing the camera and

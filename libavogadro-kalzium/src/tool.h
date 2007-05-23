@@ -1,7 +1,7 @@
 /**********************************************************************
   Tool - Avogadro Tool Interface
 
-  Copyright (C) 2007 Donald Ephraim Curtis
+  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -43,7 +43,7 @@ namespace Avogadro {
   /**
    * @class Tool
    * @brief Interface for tool plugins
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * This is a template class for tools which manipulate the GLWidget
    * area.  The functions they implement are in response to actions

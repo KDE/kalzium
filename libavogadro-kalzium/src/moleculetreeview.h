@@ -1,7 +1,7 @@
 /**********************************************************************
   MoleculeTreeView - Tree View of a Molecule
 
-  Copyright (C) 2007 Donald Ephraim Curtis
+  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
@@ -36,7 +36,7 @@ namespace Avogadro {
   /**
    * @class MoleculeTreeView
    * @brief Tree based view of a Molecule.
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    *
    * This widget provides a list of the molecule's primitives (Atoms, Bonds, Residues)
    * grouped by their type.  In terms of a Model-View architecture we consider
@@ -183,7 +183,7 @@ namespace Avogadro {
   /**
    * @internal Used by the MoleculeTreeView to draw items in the list.
    * @class MoleculeItemDelegate
-   * @author Donald Ephraim Curtis
+   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
    */
   class MoleculeItemDelegate : public QItemDelegate
   {
