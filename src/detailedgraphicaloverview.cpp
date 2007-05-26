@@ -85,25 +85,20 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
         QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
 
-//        int enumii = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
+        int enumii = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
+        kDebug() << "Number: " << enumii << endl;
 
-        QString filename = pathname + "school" + '/' + "50"  + ".svg";
-        kDebug() << "Filename:           " << filename << endl;
+        QString filename = pathname + "school" + '/' + QString::number( enumii )  + ".svg";
 
         QSvgRenderer* svgrenderer = new QSvgRenderer();
 
         QFile file( filename );
         if ( file.exists() ) {
-            QPixmap pix;
-            pix.fill(Qt::transparent);
-            QPainter p2( &pix );
             svgrenderer->load(filename);
-            svgrenderer->render( &p2 );
-            p2.end();
-            
-            p.drawPixmap(0,0,w,h,pix);
+            svgrenderer->render( &p, QRectF(0,0,w,h) );
         } else {
-            kDebug() << "no SVG found..." << endl;
+            pm.fill( palette().background().color() );
+            p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No graphic found" ) );
         }
 
 
