@@ -218,6 +218,8 @@ class PeriodicTableView : public QWidget
         void ModeChanged( KalziumPainter::MODE );
 
         void TableTypeChanged( KalziumTableType * );
+        
+        void GradientTypeChanged( KalziumGradientType * );
 
         void SchemeChanged( KalziumSchemeType * );
 };

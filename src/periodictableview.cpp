@@ -85,12 +85,12 @@ PeriodicTableView::~PeriodicTableView()
 
 void PeriodicTableView::activateColorScheme( const int nr )
 {
-	m_painter->setScheme( nr );
+    m_painter->setScheme( nr );
 
     emit SchemeChanged( m_painter->scheme() ); 
 
-	setFullDraw();
-	update();
+    setFullDraw();
+    update();
 }
 
 KalziumSchemeType* PeriodicTableView::scheme() const
@@ -284,9 +284,11 @@ KalziumGradientType* PeriodicTableView::gradient() const
 
 void PeriodicTableView::setGradient( int which )
 {
-	m_painter->setGradient( which );
-	setFullDraw();
-	update();
+    m_painter->setGradient( which );
+
+    emit GradientTypeChanged( m_painter->gradient() );
+    setFullDraw();
+    update();
 }
 
 void PeriodicTableView::setTemperature( int temp )

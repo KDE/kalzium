@@ -1,6 +1,6 @@
 /***************************************************************************
-    copyright            : (C) 2003, 2004, 2005, 2006, 2007 by Carsten Niehaus
-    email                : cniehaus@kde.org
+copyright            : (C) 2003, 2004, 2005, 2006, 2007 by Carsten Niehaus
+email                : cniehaus@kde.org
  ***************************************************************************/
 /***************************************************************************
  *                                                                         *
@@ -46,152 +46,152 @@ class TableInfoWidget;
  */
 class Kalzium : public KXmlGuiWindow
 {
-	Q_OBJECT
-	public:
-		/**
-		 * Default Constructor
-		 */
-		Kalzium();
+    Q_OBJECT
+    public:
+        /**
+         * Default Constructor
+         */
+        Kalzium();
 
-		/**
-		 * Default Destructor
-		 */
-		virtual ~Kalzium();
+        /**
+         * Default Destructor
+         */
+        virtual ~Kalzium();
 
-	private:
-		DetailedInfoDlg   *m_infoDialog;
+    private:
+        DetailedInfoDlg   *m_infoDialog;
 
-                LegendWidget *m_legendWidget;
-                TableInfoWidget *m_TableInfoWidget;
+        LegendWidget *m_legendWidget;
+        TableInfoWidget *m_TableInfoWidget;
 
-		/**
-		 * this pointer points to the PeriodicTableView.
-		 */
-		PeriodicTableView *m_PeriodicTableView;
-		
-		/**
-		 *initialize actions
-		 */
-		void setupActions();
-		
-		/**
-		 *initialize the sidebars
-		 */
-		void setupSidebars();
+        /**
+         * this pointer points to the PeriodicTableView.
+         */
+        PeriodicTableView *m_PeriodicTableView;
 
-                void extractIconicInformationAboutElement( int elementNumber );
-		
-		/**
-		 * all KActions Kalzium uses
-		 */
-		KSelectAction *look_action;
-		KSelectAction *look_action_schemes;
-		
+        /**
+         *initialize actions
+         */
+        void setupActions();
+
+        /**
+         *initialize the sidebars
+         */
+        void setupSidebars();
+
+        void extractIconicInformationAboutElement( int elementNumber );
+
+        /**
+         * all KActions Kalzium uses
+         */
+        KSelectAction *look_action;
+        KSelectAction *look_action_schemes;
+
         KSelectAction *table_action;
-		KSelectAction *table_action_schemes;
-		KSelectAction *numeration_action;
-		// settings
-		QAction *m_pLegendAction;
-		QAction *m_SidebarAction;
-		// tools
-		QAction *m_pPlotAction;
-		QAction *m_pIsotopeTableAction;
-		QAction *m_pGlossaryAction;
-		QAction *m_pRSAction;
-		QAction *m_pTables;
-		QAction *m_pMoleculesviewer;
-		QAction *m_pOBConverterAction;
-		QAction *m_EQSolverAction;
+        KSelectAction *table_action_schemes;
+        KSelectAction *numeration_action;
+        // settings
+        QAction *m_pLegendAction;
+        QAction *m_SidebarAction;
+        // tools
+        QAction *m_pPlotAction;
+        QAction *m_pIsotopeTableAction;
+        QAction *m_pGlossaryAction;
+        QAction *m_pRSAction;
+        QAction *m_pTables;
+        QAction *m_pMoleculesviewer;
+        QAction *m_pOBConverterAction;
+        QAction *m_EQSolverAction;
 
         QAction *m_legendAction;
 
-		/**
-		 * the layout of the central Widget ( CentralWidget )
-		 */
-		QVBoxLayout *m_pCentralLayout;
-
-		MolcalcWidget *m_calcWidget;
-
-		SOMWidgetIMPL *m_somWidget;
-		TimeWidgetImpl *m_timeWidget;
-
-		DetailedGraphicalOverview *m_detailWidget;
-
-		QDockWidget *m_dockWin;
-		QDockWidget *m_InfoDock;
-		QToolBox *m_toolbox;
-
-                QTabWidget *m_infoTabWidget;
-		int m_toolboxCurrent;
-
-		GlossaryDialog *m_glossarydlg;
-
-		SearchWidget *m_searchWidget;
-
-		KalziumPainter::MODE m_prevNormalMode;
-
-	public slots:
-		void slotSearchElements();
-	
-	private slots:
-		/**
-		 * opens the information dialog for the element @p number
-		 */
-		void openInformationDialog( int number );
-
-		void elementHover( int num );
-		void setupStatusBar();
-
-		void slotShowEQSolver();
-		
         /**
-        * switched to the table with the index @p index
-        */
-        void slotSwitchtoTable( int index );
-		
-		/**
-		 * start the glossary
-		 */
-		void slotGlossary();
-		
-		/**
-		 * show the R/S-phrases
-		 */
-		void slotRS();
-		
-		void slotMoleculeviewer();
-		
-        void slotOBConverter();
-		
-		void slotTables();
-		
-		void slotSwitchtoLook( int );
-		void slotSwitchtoNumeration(int);
-		
-		/**
-		 *start the isotopetable
-		 */
-		 void slotIsotopeTable();
+         * the layout of the central Widget ( CentralWidget )
+         */
+        QVBoxLayout *m_pCentralLayout;
 
-		void slotPlotData();
+        MolcalcWidget *m_calcWidget;
+
+        SOMWidgetIMPL *m_somWidget;
+        TimeWidgetImpl *m_timeWidget;
+
+        DetailedGraphicalOverview *m_detailWidget;
+
+        QDockWidget *m_dockWin;
+        QDockWidget *m_InfoDock;
+        QToolBox *m_toolbox;
+
+        QTabWidget *m_infoTabWidget;
+        int m_toolboxCurrent;
+
+        GlossaryDialog *m_glossarydlg;
+
+        SearchWidget *m_searchWidget;
+
+        KalziumPainter::MODE m_prevNormalMode;
+
+        public slots:
+            void slotSearchElements();
+
+        private slots:
+            /**
+             * opens the information dialog for the element @p number
+             */
+            void openInformationDialog( int number );
+
+        void elementHover( int num );
+        void setupStatusBar();
+
+        void slotShowEQSolver();
+
+        /**
+         * switched to the table with the index @p index
+         */
+        void slotSwitchtoTable( int index );
+
+        /**
+         * start the glossary
+         */
+        void slotGlossary();
+
+        /**
+         * show the R/S-phrases
+         */
+        void slotRS();
+
+        void slotMoleculeviewer();
+
+        void slotOBConverter();
+
+        void slotTables();
+
+        void slotSwitchtoLook( int );
+        void slotSwitchtoNumeration(int);
+
+        /**
+         *start the isotopetable
+         */
+        void slotIsotopeTable();
+
+        void slotPlotData();
 
         void slotExportTable();
 
-		void slotUpdateSettings();
+        void slotUpdateSettings();
 
-		/**
-		 * These slots are for the standard actions
-		 */
-		void showSettingsDialog();
+        /**
+         * These slots are for the standard actions
+         */
+        void showSettingsDialog();
 
-		void slotToolboxCurrentChanged(int);
+        void slotToolboxCurrentChanged(int);
 
-		void slotShowHideSidebar( bool checked, bool changeconfig = true );
-		void slotShowLegend( bool checked, bool changeconfig = true );
-		
+        void slotShowHideSidebar( bool checked, bool changeconfig = true );
+        void slotShowLegend( bool checked, bool changeconfig = true );
 
-	protected:
-		virtual void keyPressEvent( QKeyEvent * e);
+
+    protected:
+        virtual void keyPressEvent( QKeyEvent * e);
 };
 
 #endif // _KALZIUM_H_

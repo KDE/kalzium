@@ -120,6 +120,8 @@ Kalzium::Kalzium()
                         m_legendWidget, SLOT(setMode(KalziumPainter::MODE) ) );
         connect( m_PeriodicTableView, SIGNAL(TableTypeChanged( KalziumTableType* ) ),
                         m_legendWidget, SLOT( setTableType( KalziumTableType * ) ) );
+        connect( m_PeriodicTableView, SIGNAL(GradientTypeChanged( KalziumGradientType* ) ),
+                        m_legendWidget, SLOT( setGradientType( KalziumGradientType * ) ) );
         connect( m_PeriodicTableView, SIGNAL( SchemeChanged( KalziumSchemeType * ) ),
                         m_legendWidget, SLOT( setScheme( KalziumSchemeType * ) ) );
 
@@ -485,34 +487,34 @@ void Kalzium::slotSwitchtoNumeration( int index )
 
 void Kalzium::slotSwitchtoLook( int which )
 {
-	int id = which - KalziumSchemeTypeFactory::instance()->schemes().count();
-	if ( id < 0 )
-	{
-		m_PeriodicTableView->activateColorScheme( which );
-		if ( m_PeriodicTableView->mode() == KalziumPainter::GRADIENT )
+    int id = which - KalziumSchemeTypeFactory::instance()->schemes().count();
+    if ( id < 0 )
+    {
+        m_PeriodicTableView->activateColorScheme( which );
+        if ( m_PeriodicTableView->mode() == KalziumPainter::GRADIENT )
         {
-			m_PeriodicTableView->setMode( KalziumPainter::NORMAL );
+            m_PeriodicTableView->setMode( KalziumPainter::NORMAL );
             m_legendWidget->setMode( KalziumPainter::NORMAL );
         }
-	}
-	else
-	{
-		m_PeriodicTableView->setGradient( id );
-		if ( m_PeriodicTableView->mode() == KalziumPainter::NORMAL )
+    }
+    else
+    {
+        m_PeriodicTableView->setGradient( id );
+        if ( m_PeriodicTableView->mode() == KalziumPainter::NORMAL )
         {
-			m_PeriodicTableView->setMode( KalziumPainter::GRADIENT );
+            m_PeriodicTableView->setMode( KalziumPainter::GRADIENT );
             m_legendWidget->setMode( KalziumPainter::GRADIENT );
         }
-	}
-	look_action->blockSignals( true );
-	look_action_schemes->blockSignals( true );
-	look_action->setCurrentItem( which );
-	look_action_schemes->setCurrentItem( which );
-	look_action->blockSignals( false );
-	look_action_schemes->blockSignals( false );
+    }
+    look_action->blockSignals( true );
+    look_action_schemes->blockSignals( true );
+    look_action->setCurrentItem( which );
+    look_action_schemes->setCurrentItem( which );
+    look_action->blockSignals( false );
+    look_action_schemes->blockSignals( false );
 
-	Prefs::setColorschemebox(which);
-	Prefs::self()->writeConfig();
+    Prefs::setColorschemebox(which);
+    Prefs::self()->writeConfig();
 }
 
 void Kalzium::showSettingsDialog()
