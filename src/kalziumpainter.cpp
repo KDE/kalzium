@@ -361,7 +361,6 @@ void KalziumPainter::setTemperature( int temp )
 
 QBrush KalziumPainter::brushForElement( int element ) const
 {
-    kDebug() << "KalziumPainter::brushForElement() with m_mode = " << m_mode << " <<<<<<<<<<<<<<--------------- " << endl;
     if ( !m_scheme || !m_ktt ) return QBrush();
 
     QRect rect = m_ktt->elementRect( element );
@@ -376,8 +375,6 @@ QBrush KalziumPainter::brushForElement( int element ) const
             }
         case SOM:
             {
-
-                kDebug() << "KalziumPainter::brushForElement() :: in SOM !!!!!!!!!!!!!!!!!!!!!!1" << endl;
                 QColor color;
 
                 const double melting = el->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
@@ -402,7 +399,6 @@ QBrush KalziumPainter::brushForElement( int element ) const
                     color = Qt::lightGray;
 
                 return QBrush( color );
-                kDebug() << "m_mode == SOM"  << endl;
                 break;
             }
         case GRADIENT:
