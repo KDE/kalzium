@@ -321,7 +321,8 @@ void Kalzium::setupSidebars()
 	m_detailWidget = new DetailedGraphicalOverview( fake );
 	m_detailWidget->setObjectName( "DetailedGraphicalOverview" );
 	m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
-	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), m_detailWidget, SLOT( setElement( int ) ) );
+	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), 
+                m_detailWidget, SLOT( setElement( int ) ) );
  	lay->addWidget( m_detailWidget );
 	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
 	m_toolbox->addItem( fake, KIcon( "overview" ), i18n( "Overview" ) );
@@ -570,7 +571,9 @@ void Kalzium::setupStatusBar()
 
 void Kalzium::elementHover( int num )
 {
-        extractIconicInformationAboutElement( num );
+    //TODO KDE 4.1
+    //In KDE 4.1 I want to display additional information about the icons. Then I need the next line
+//        extractIconicInformationAboutElement( num );
 
 	Element *e = KalziumDataObject::instance()->element( num );
 	statusBar()->changeItem( i18nc( "For example: \"Carbon (6), Mass: 12.0107 u\"", "%1 (%2), Mass: %3 u" ,
@@ -581,28 +584,28 @@ void Kalzium::elementHover( int num )
 	m_detailWidget->setBackgroundColor( m_PeriodicTableView->brushForElement( num ).color() );
 }
                 
-void Kalzium::extractIconicInformationAboutElement( int elementNumber )
-{
-        QString setname = "school";
-        QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
-        QString filename = pathname + setname + '/' + "iconinformation.txt";
-
-        QFile file(filename);
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-                return;
-
-        QString infoline;
-
-        QTextStream in(&file);
-        while (!in.atEnd()) {
-                QString tmp = in.readLine();
-                if( tmp.startsWith( QString::number( elementNumber ) ) )
-                        infoline = tmp;
-        }
-
-        QString realText = infoline.remove( QRegExp("\\d+ ") );
-        kDebug() << "the final text: " << realText << endl;
-}
+//X void Kalzium::extractIconicInformationAboutElement( int elementNumber )
+//X {
+//X         QString setname = "school";
+//X         QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
+//X         QString filename = pathname + setname + '/' + "iconinformation.txt";
+//X 
+//X         QFile file(filename);
+//X         if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+//X                 return;
+//X 
+//X         QString infoline;
+//X 
+//X         QTextStream in(&file);
+//X         while (!in.atEnd()) {
+//X                 QString tmp = in.readLine();
+//X                 if( tmp.startsWith( QString::number( elementNumber ) ) )
+//X                         infoline = tmp;
+//X         }
+//X 
+//X         QString realText = infoline.remove( QRegExp("\\d+ ") );
+//X         kDebug() << "the final text: " << realText << endl;
+//X }
 
 void Kalzium::openInformationDialog( int number )
 {
