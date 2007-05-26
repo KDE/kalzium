@@ -227,6 +227,7 @@ QColor KalziumIconicSchemeType::textColor( int ) const
 QList<legendPair> KalziumIconicSchemeType::legendItems() const
 {
 	QList<legendPair> ll;
+	ll << qMakePair( i18n( "Each element is represented by an icon which represents its use." ), QBrush( ) );
 	return ll;
 }
 
