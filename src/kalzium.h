@@ -79,7 +79,8 @@ class Kalzium : public KXmlGuiWindow
          */
         void setupSidebars();
 
-        void extractIconicInformationAboutElement( int elementNumber );
+        //TODO KDE 4.1
+//        void extractIconicInformationAboutElement( int elementNumber );
 
         /**
          * all KActions Kalzium uses
