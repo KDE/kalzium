@@ -120,7 +120,8 @@ class Kalzium : public KXmlGuiWindow
 		QDockWidget *m_dockWin;
 		QDockWidget *m_InfoDock;
 		QToolBox *m_toolbox;
-        QTabWidget *m_infoTabWidget;
+
+                QTabWidget *m_infoTabWidget;
 		int m_toolboxCurrent;
 
 		GlossaryDialog *m_glossarydlg;
