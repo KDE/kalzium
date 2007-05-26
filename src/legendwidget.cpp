@@ -20,6 +20,7 @@
 #include "legendwidget.h"
 #include "prefs.h"
 #include "kalziumschemetype.h"
+#include "kalziumgradienttype.h"
 #include "kalziumpainter.h"
 
 #include <kdebug.h>
@@ -41,6 +42,12 @@ LegendWidget::LegendWidget( QWidget *parent )
 {
 }
 
+void LegendWidget::setGradientType( KalziumGradientType * type )
+{
+    kDebug() << "setGradientType" << endl;
+    m_gradientType = type;
+    updateContent();
+}
 void LegendWidget::setTableType( KalziumTableType * type )
 {
     m_tableType = type;
@@ -55,7 +62,7 @@ void LegendWidget::setScheme( KalziumSchemeType * type )
 
 void LegendWidget::setMode( KalziumPainter::MODE m )
 {
-	m_mode = m;
+    m_mode = m;
     updateContent();
 }
 
@@ -87,18 +94,12 @@ void LegendWidget::updateContent()
             }
         case KalziumPainter::GRADIENT:
             {
-//X                 QSize imgsize( legendRect.width() - 2 * sidepadding, 20 );
-//X //X                 QImage img = KImageEffect::gradient( imgsize, m_gradient->firstColor(), m_gradient->secondColor(), KImageEffect::HorizontalGradient );
-//X //X 
-//X //X                 QRect othertexts = text;
-//X //X                 othertexts.moveTo( text.bottomLeft() + QPoint( 0, padding + 4 + imgsize.height() ) );
-//X //X 
-//X //X                 p.drawText( text, Qt::AlignHCenter | Qt::AlignBottom, i18n( "Gradient: %1", m_gradient->description() ) );
-//X //X                 p.drawPixmap( text.bottomLeft() + QPoint( 0, padding ), QPixmap::fromImage( img ) );
-//X //X 
-//X //X                 p.drawText( othertexts, Qt::AlignRight, QString::number( m_gradient->maxValue() ) );
-//X //X                 p.drawText( othertexts, Qt::AlignLeft, QString::number( m_gradient->minValue() ) );
+                QList<legendPair> items;
+                items << qMakePair( i18n( "Gradient: %1" ,m_gradientType->description() ), QBrush() );
+                items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , m_gradientType->minValue() ), QBrush( Prefs::color_solid() ) );
+                items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , m_gradientType->maxValue() ), QBrush( Qt::lightGray ) );
 
+                updateLegendItemLayout( items );
                 break;
             }
         case KalziumPainter::TIME:

@@ -26,6 +26,7 @@
 #include "kalziumschemetype.h"
 
 class LegendItem;
+class KalziumGradientType;
 
 /**
  * @author Carsten Niehaus
@@ -35,13 +36,13 @@ class LegendItem;
  */
 class LegendWidget : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-		LegendWidget( QWidget *parent );
-		
-		~LegendWidget(){}
-		
+    public:
+        LegendWidget( QWidget *parent );
+
+        ~LegendWidget(){}
+
     private:
         QPixmap m_pixmap;
 
@@ -51,6 +52,8 @@ class LegendWidget : public QWidget
 
         KalziumTableType * m_tableType;
 
+        KalziumGradientType * m_gradientType;
+
         void updateContent();
 
         QList<LegendItem*> m_legendItemList;
@@ -59,10 +62,12 @@ class LegendWidget : public QWidget
 
     public slots:
         void setMode( KalziumPainter::MODE m );
-        
+
         void setScheme( KalziumSchemeType * type );
-        
+
         void setTableType( KalziumTableType * type );
+        
+        void setGradientType( KalziumGradientType * type );
 };
 
 /**
