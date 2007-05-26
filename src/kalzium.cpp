@@ -64,6 +64,7 @@
 #include <QTimer>
 #include <QTabWidget>
 
+#include <kmessagebox.h>
 #include <kconfigdialog.h>
 #include <kiconloader.h>
 #include <kdebug.h>
@@ -384,6 +385,11 @@ void Kalzium::slotOBConverter()
 
 void Kalzium::slotMoleculeviewer()
 {
+    if (!QGLFormat::hasOpenGL()) {
+        KMessageBox::error(0, i18n("This system does not support OpenGL."), i18n("Kalzium Error"));
+        return;
+    }
+    
 #if defined(HAVE_OPENBABEL2) && defined(HAVE_OPENGL) && defined(HAVE_EIGEN)
 	MoleculeDialog * d = new MoleculeDialog( this ); d->show();
 

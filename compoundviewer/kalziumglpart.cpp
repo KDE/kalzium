@@ -22,8 +22,6 @@
 
 #include "openbabel2wrapper.h"
 
-#include <QMessageBox>
-
 KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent)
 {
     // Prevent What's this from intercepting right mouse clicks
@@ -70,13 +68,6 @@ KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QStri
     Q_UNUSED(args);
     kDebug() << "KalziumGLPart::KalziumGLPart()" << endl;
     
-    if (!QGLFormat::hasOpenGL()) {
-        QMessageBox::information(0, "Avogadro",
-                                    "This system does not support OpenGL.");
-        m_widget = 0;
-        return;
-    }
-    
     // use multi-sample (anti-aliased) OpenGL if available
     QGLFormat defFormat = QGLFormat::defaultFormat();
     defFormat.setSampleBuffers(true);
@@ -88,7 +79,7 @@ KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QStri
 
 KalziumGLPart::~KalziumGLPart()
 {
-    if(m_widget) delete m_widget;
+    delete m_widget;
     kDebug() << "KalziumGLPart::~KalziumGLPart()" << endl;
 }
 
