@@ -22,10 +22,13 @@ email                : cniehaus@kde.org
 #include <klocale.h>
 #include <kglobalsettings.h>
 #include <kglobal.h>
+#include <kstandarddirs.h>
 
 //QT-Includes
 #include <QBrush>
+#include <QFile>
 #include <QPainter>
+#include <QSvgRenderer>
 
 #include <QRect>
 
@@ -37,6 +40,7 @@ DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
 	setAttribute( Qt::WA_NoBackground, true );
 
 	m_element = 0;
+        m_showSVG = true;
 	setMinimumSize( 300, 200 );
 
 	// last operation: setting the background color and scheduling an update()
@@ -63,101 +67,126 @@ void DetailedGraphicalOverview::setBackgroundColor( const QColor& bgColor )
 
 void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 {
-	int h = height();
-	int w = width();
+    int h = height();
+    int w = width();
 
-	QPixmap pm( w, h );
+    QPixmap pm( w, h );
 
-	QPainter p;
-	p.begin( &pm );
+    QPainter p;
+    p.begin( &pm );
 
-	p.setBrush(Qt::SolidPattern);
+    p.setBrush(Qt::SolidPattern);
 
-	if ( !m_element )
-	{
-		pm.fill( palette().background().color() );
-		p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No element selected" ) );
-	}
-	else
-  {
-      h_t = 20; //height of the texts
+    if ( !m_element )
+    {
+        pm.fill( palette().background().color() );
+        p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No element selected" ) );
+    } else if ( m_showSVG ) {
 
-      x1 =  0;
-      y1 =  0;
+        QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
 
-      x2 = w;
-      y2 = h;
+//        int enumii = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
 
-      p.setBrush( m_backgroundColor );
-      p.drawRect( x1, y1, x2 - 1, y2 - 1 );
+        QString filename = pathname + "school" + '/' + "50"  + ".svg";
+        kDebug() << "Filename:           " << filename << endl;
 
-      p.setBrush( Qt::black );
-      p.setBrush(Qt::NoBrush);
+        QSvgRenderer* svgrenderer = new QSvgRenderer();
 
-      QFont fA = KGlobalSettings::generalFont();
-      QFont fB = KGlobalSettings::generalFont();
-      QFont fC = KGlobalSettings::generalFont();
+        QFile file( filename );
+        if ( file.exists() ) {
+            QPixmap pix;
+            pix.fill(Qt::transparent);
+            QPainter p2( &pix );
+            svgrenderer->load(filename);
+            svgrenderer->render( &p2 );
+            p2.end();
+            
+            p.drawPixmap(0,0,w,h,pix);
+        } else {
+            kDebug() << "no SVG found..." << endl;
+        }
 
-      fA.setPointSize( fA.pointSize() + 20 ); //Huge font
-      fA.setBold( true );
-      fB.setPointSize( fB.pointSize() + 6 ); //Big font
-      fC.setPointSize( fC.pointSize() + 4 ); //Big font
-      fC.setBold( true );
-      QFontMetrics fmA = QFontMetrics( fA );
-      QFontMetrics fmB = QFontMetrics( fB );
 
-      //coordinates for element symbol: near the center
-      int xA = 4 * w / 10;
-      int yA = h / 2;
+    } else
+    {
+        h_t = 20; //height of the texts
 
-      //coordinates for the atomic number: offset from element symbol to the upper left
-      int xB = xA - fmB.width( m_element->dataAsString( ChemicalDataObject::atomicNumber ) );
-      int yB = yA - fmA.height() + fmB.height();
+        x1 =  0;
+        y1 =  0;
 
-      //Element Symbol
-      p.setFont( fA );
-      p.drawText( xA, yA , m_element->dataAsString( ChemicalDataObject::symbol) ); 
+        x2 = w;
+        y2 = h;
 
-      //Atomic number
-      p.setFont( fB );
-      p.drawText( xB, yB, m_element->dataAsString( ChemicalDataObject::atomicNumber ) );
+        p.setBrush( m_backgroundColor );
+        p.drawRect( x1, y1, x2 - 1, y2 - 1 );
 
-      QRect rect( 0, 20, w/2, h );
+        p.setBrush( Qt::black );
+        p.setBrush(Qt::NoBrush);
 
-      p.setFont( fC );
+        QFont fA = KGlobalSettings::generalFont();
+        QFont fB = KGlobalSettings::generalFont();
+        QFont fC = KGlobalSettings::generalFont();
 
-      int size = KalziumUtils::maxSize(m_element->dataAsString( ChemicalDataObject::name), rect , fC, &p);
+        fA.setPointSize( fA.pointSize() + 20 ); //Huge font
+        fA.setBold( true );
+        fB.setPointSize( fB.pointSize() + 6 ); //Big font
+        fC.setPointSize( fC.pointSize() + 4 ); //Big font
+        fC.setBold( true );
+        QFontMetrics fmA = QFontMetrics( fA );
+        QFontMetrics fmB = QFontMetrics( fB );
 
-      int size3 = KalziumUtils::maxSize( m_element->dataAsString( ChemicalDataObject::mass ), rect , fC, &p);
+        //coordinates for element symbol: near the center
+        int xA = 4 * w / 10;
+        int yA = h / 2;
 
-      //Name and other data
-      fC.setPointSize( size );
-      p.setFont( fC );
+        //coordinates for the atomic number: offset from element symbol to the upper left
+        int xB = xA - fmB.width( m_element->dataAsString( ChemicalDataObject::atomicNumber ) );
+        int yB = yA - fmA.height() + fmB.height();
 
-      //Name
-      p.drawText( 1, 0, w/2, h, Qt::AlignLeft, m_element->dataAsString( ChemicalDataObject::name) );
+        //Element Symbol
+        p.setFont( fA );
+        p.drawText( xA, yA , m_element->dataAsString( ChemicalDataObject::symbol) ); 
 
-      //Oxidationstates
-      p.setFont( fC );
+        //Atomic number
+        p.setFont( fB );
+        p.drawText( xB, yB, m_element->dataAsString( ChemicalDataObject::atomicNumber ) );
 
-      //Mass
-      fC.setPointSize( size3 );
-      p.setFont( fC );
-      int offset = KalziumUtils::StringHeight( m_element->dataAsString( ChemicalDataObject::mass ), fC, &p );
-      p.drawText( w/2, 
-              h-offset, 
-              w/2, 
-              offset, 
-              Qt::AlignRight, 
-              m_element->dataAsString( ChemicalDataObject::mass ) 
-              );
-  }
+        QRect rect( 0, 20, w/2, h );
 
-	p.end();
+        p.setFont( fC );
 
-	p.begin( this );
-	p.drawPixmap( 0, 0, pm );
-	p.end();
+        int size = KalziumUtils::maxSize(m_element->dataAsString( ChemicalDataObject::name), rect , fC, &p);
+
+        int size3 = KalziumUtils::maxSize( m_element->dataAsString( ChemicalDataObject::mass ), rect , fC, &p);
+
+        //Name and other data
+        fC.setPointSize( size );
+        p.setFont( fC );
+
+        //Name
+        p.drawText( 1, 0, w/2, h, Qt::AlignLeft, m_element->dataAsString( ChemicalDataObject::name) );
+
+        //Oxidationstates
+        p.setFont( fC );
+
+        //Mass
+        fC.setPointSize( size3 );
+        p.setFont( fC );
+        int offset = KalziumUtils::StringHeight( m_element->dataAsString( ChemicalDataObject::mass ), fC, &p );
+        p.drawText( w/2, 
+                h-offset, 
+                w/2, 
+                offset, 
+                Qt::AlignRight, 
+                m_element->dataAsString( ChemicalDataObject::mass ) 
+                );
+    }
+
+    p.end();
+
+    p.begin( this );
+    p.drawPixmap( 0, 0, pm );
+    p.end();
 }
 
 #include "detailedgraphicaloverview.moc"
