@@ -71,9 +71,9 @@ class KalziumPainter
         enum MODE
         {
             NORMAL = 0,
-            GRADIENT = 1,
-            SOM/**< State of matter*/,
-            TIME/** Timeline*/
+            SOM /**< State of matter*/,
+            TIME/** Timeline*/,
+            GRADIENT
         };
 
         /**
@@ -141,9 +141,7 @@ class KalziumPainter
             return m_numeration;
         }
 
-        void setTemperature( int temp ){
-            m_temperature = temp;
-        }
+        void setTemperature( int temp );
 
         int temperature() const{
             return m_temperature;
