@@ -19,6 +19,7 @@
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
 #include <KLocale>
+#include <knewstuff2/engine.h>
 
 #include <openbabel2wrapper.h>
 
@@ -62,6 +63,8 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
 	connect( this, SIGNAL( user1Clicked() ), 
 			this, SLOT( slotLoadMolecule() ) );
+	connect( this, SIGNAL( user2Clicked() ), 
+			this, SLOT( slotUser2() ) );
 }
 
 void MoleculeDialog::slotLoadMolecule()
@@ -98,6 +101,11 @@ void MoleculeDialog::slotLoadMolecule()
 
 MoleculeDialog::~MoleculeDialog( )
 {
+}
+
+void MoleculeDialog::slotUser2()
+{
+	KNS::Entry::List foo = KNS::Engine::download();
 }
 
 void MoleculeDialog::updateStatistics()

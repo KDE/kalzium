@@ -370,8 +370,8 @@ void Kalzium::slotGlossary()
 
 void Kalzium::slotRS()
 {
-	RSDialog *rs = new RSDialog( this );
-	rs->show();
+    RSDialog *rs = new RSDialog( this );
+    rs->show();
 }
 
 void Kalzium::slotOBConverter()

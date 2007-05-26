@@ -47,6 +47,8 @@ class MoleculeDialog : public KDialog
 		 * Load a molecule
 		 */
 		void slotLoadMolecule();
+
+                void slotUser2();
 };
 
 #endif // MOLECULEVIEW_H
