@@ -27,9 +27,6 @@
 #include <kimageeffect.h>
 #include <kglobalsettings.h>
 
-#include <QCursor>
-#include <QKeyEvent>
-#include <QSizePolicy>
 #include <QPainter>
 #include <QPixmap>
 #include <QBrush>
@@ -37,7 +34,6 @@
 #include <QFont>
 #include <QLabel>
 #include <QGridLayout>
-#include <QHBoxLayout>
 #include <QFrame>
 
 LegendWidget::LegendWidget( QWidget *parent )
