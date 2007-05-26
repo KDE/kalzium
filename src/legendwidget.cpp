@@ -96,8 +96,8 @@ void LegendWidget::updateContent()
             {
                 QList<legendPair> items;
                 items << qMakePair( i18n( "Gradient: %1" ,m_gradientType->description() ), QBrush() );
-                items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , m_gradientType->minValue() ), QBrush( Prefs::color_solid() ) );
-                items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , m_gradientType->maxValue() ), QBrush( Qt::lightGray ) );
+                items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , m_gradientType->minValue() ), QBrush( m_gradientType->firstColor() ) );
+                items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , m_gradientType->maxValue() ), QBrush( m_gradientType->secondColor() ) );
 
                 updateLegendItemLayout( items );
                 break;
