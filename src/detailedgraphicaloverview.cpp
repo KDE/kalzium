@@ -82,26 +82,22 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
         pm.fill( palette().background().color() );
         p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No element selected" ) );
     } else if ( m_showSVG ) {
+        pm.fill( palette().background().color() );
 
         QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
 
         int enumii = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
-        kDebug() << "Number: " << enumii << endl;
 
         QString filename = pathname + "school" + '/' + QString::number( enumii )  + ".svg";
 
-        QSvgRenderer* svgrenderer = new QSvgRenderer();
-
         QFile file( filename );
         if ( file.exists() ) {
+            QSvgRenderer* svgrenderer = new QSvgRenderer();
             svgrenderer->load(filename);
             svgrenderer->render( &p, QRectF(0,0,w,h) );
         } else {
-            pm.fill( palette().background().color() );
             p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No graphic found" ) );
         }
-
-
     } else
     {
         h_t = 20; //height of the texts
