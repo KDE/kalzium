@@ -41,7 +41,6 @@ DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
 	setAttribute( Qt::WA_NoBackground, true );
 
 	m_element = 0;
-        m_showSVG = true;
 	setMinimumSize( 300, 200 );
 
 	// last operation: setting the background color and scheduling an update()
