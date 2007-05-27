@@ -43,8 +43,6 @@ RSDialog::RSDialog( QWidget* parent )
 
 	ui.setupUi( mainWidget() );
 
-	showRSPhrases();
-
 	connect( ui.filterButton, SIGNAL( clicked() ), 
                 this, SLOT( filter() ) );
 	connect( this, SIGNAL( helpClicked() ), 
@@ -55,47 +53,56 @@ RSDialog::RSDialog( QWidget* parent )
 
 void RSDialog::filter()
 {
-	QList<int> r;
-	QList<int> s;
+    QList<int> r;
+    QList<int> s;
 
-	//for now only separation by a comma , is allowed
-	QStringList rSplit = ui.r_le->text().split( "-" );
-	foreach( const QString &st, rSplit )
-		r << st.toInt();
-	
-	//for now only separation by a comma , is allowed
-	QStringList sSplit = ui.s_le->text().split( "-" );
-	foreach( const QString &st, sSplit )
-		s << st.toInt();
+    //for now only separation by a - is allowed
+    if (!ui.r_le->text().isEmpty() )
+    {
+        QStringList rSplit = ui.r_le->text().split( "-" );
+        foreach( const QString &st, rSplit )
+            r << st.toInt();
+    }
 
-	filterRS( r, s );
+    //for now only separation by a - is allowed
+    if (!ui.s_le->text().isEmpty() )
+    {
+        QStringList sSplit = ui.s_le->text().split( "-" );
+        foreach( const QString &st, sSplit )
+            s << st.toInt();
+    }
+
+    filterRS( r, s );
 }
 
-void RSDialog::showRSPhrases()
-{
-}
-		
 void RSDialog::filterRS( const QList<int>& r, const QList<int>& s )
 {
-	QString string( "<qt>" );
-	string.append( "<h2>" + i18n( "R-Phrases:" ) + "</h2>" );
-	foreach( int i, r )
-	{
-		QString phrase( "<b>" + QString::number( i ) + " - " );
-		phrase.append( rphrase( i ) + "</b>" );
-		string.append( phrase + "<br>" );
-	}
-	string.append( "<h2>" + i18n( "S-Phrases:" ) + "</h2>" );
-	foreach( int i, s )
-	{
-		QString phrase( "<b>" + QString::number( i ) + " -  " );
-		phrase.append( sphrase( i ) + "</b>" );
-		string.append( phrase + "<br>" );
-	}
+    QString string( "<qt>" );
 
-	string.append( "</qt>" );
+    if (r.count() > 0 ) {
+        string.append( "<h2>" + i18n( "R-Phrases:" ) + "</h2>" );
+        foreach( int i, r )
+        {
+            QString phrase( "<b>" + QString::number( i ) + " - " );
+            phrase.append( rphrase( i ) + "</b>" );
+            string.append( phrase + "<br>" );
+        }
+    }
+    if (s.count() > 0 ) {
+        string.append( "<h2>" + i18n( "S-Phrases:" ) + "</h2>" );
+        foreach( int i, s )
+        {
+            QString phrase( "<b>" + QString::number( i ) + " -  " );
+            phrase.append( sphrase( i ) + "</b>" );
+            string.append( phrase + "<br>" );
+        }
+    }
+    if (s.count() == 0 && r.count() == 0 )
+        string.append( "<h2>" + i18n( "You asked for no R/S-Phrases." ) + "</h2>" );
 
-	ui.text->setHtml( string );
+    string.append( "</qt>" );
+
+    ui.text->setHtml( string );
 }
 
 QString RSDialog::rphrase( int number )

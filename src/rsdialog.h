@@ -62,8 +62,6 @@ class RSDialog : public KDialog
 		
 		void createSPhrases();
 		void createRPhrases();
-
-		void showRSPhrases();
 };
 
 #endif // RSDIALOG_H
