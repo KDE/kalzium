@@ -1,6 +1,6 @@
 /***************************************************************************
 
-copyright            : (C) 2004, 2005, 2006 by Carsten Niehaus
+copyright            : (C) 2004, 2005, 2006, 2007 by Carsten Niehaus
 email                : cniehaus@kde.org
  ***************************************************************************/
 
@@ -33,6 +33,7 @@ email                : cniehaus@kde.org
 #include <QRect>
 
 #include <element.h>
+#include "prefs.h"
 
 DetailedGraphicalOverview::DetailedGraphicalOverview( QWidget *parent )
 : QWidget( parent )
@@ -81,7 +82,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
     {
         pm.fill( palette().background().color() );
         p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No element selected" ) );
-    } else if ( m_showSVG ) {
+    } else if ( Prefs::colorschemebox() == 2) { //The iconic view is the 3rd view (0,1,2,...)
         pm.fill( palette().background().color() );
 
         QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";

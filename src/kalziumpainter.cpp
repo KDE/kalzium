@@ -110,7 +110,6 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 {
     if ( !m_scheme || !m_ktt ) return;
 
-//    kDebug() << "Getting the rectangle of element " << element << endl;
     const QRect rect = r.isNull() ? m_ktt->elementRect( element ) : r;
 
     if (rect.isNull() ) {
@@ -136,6 +135,18 @@ void KalziumPainter::drawElement( int element, const QRect& r )
                 //when drawing the iconic style we don't draw the text. That is
                 //why I introduced this if-condition. (C Niehaus)
                 if (m_scheme->name() == "Iconic") {
+
+                    //TODO this is an attemt to fix the offset of the icons... I have yet
+                    //to find a working solution...
+//X                     QRect trect = rect;
+//X                     if ( ( element > 57 && element < 72 ) || ( element > 89 && element < 104 ) )
+//X                     {
+//X //                        trect.setY( rect.y()+ELEMENTSIZE/3 );
+//X                         trect.moveBottom( rect.y()+ELEMENTSIZE/3 );
+//X                         kDebug() << rect << " und " << trect << endl;
+//X                     }
+
+
                     m_painter->fillRect( rect, c );
                     m_painter->drawRect( rect );
                 }else if ( !c.texture().isNull() )

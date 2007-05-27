@@ -63,9 +63,6 @@ class DetailedGraphicalOverview : public QWidget
 		 */
 		QColor m_backgroundColor;
 
-                ///if true this widget won't show information about the element but its SVG icon
-                bool m_showSVG;
-
 	protected:
 		virtual void paintEvent( QPaintEvent* );
 };
