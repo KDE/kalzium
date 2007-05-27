@@ -53,6 +53,9 @@ class RSDialog : public KDialog
 	public slots:
 		void filter();
 
+        private slots:
+                void slotHelp();
+
 	private:
 		QMap<int, QString> rphrases_map;
 		QMap<int, QString> sphrases_map;

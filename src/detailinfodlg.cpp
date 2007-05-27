@@ -511,6 +511,7 @@ void DetailedInfoDlg::reloadContent()
 
 void DetailedInfoDlg::slotHelp()
 {
+    //TODO fix this stuff...
 #if 0
 	QString chapter = "infodialog_overview";
 	switch ( activePageIndex() )
@@ -540,9 +541,8 @@ void DetailedInfoDlg::slotHelp()
 			 chapter = "infodialog_warnings";
 			break;
 	}
-
-	KToolInvocation::invokeHelp( chapter, QLatin1String( "kalzium" ) );
 #endif
+	KToolInvocation::invokeHelp( "infodialog_spectrum", QLatin1String( "kalzium" ) );
 }
 
 void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
