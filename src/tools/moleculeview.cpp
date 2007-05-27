@@ -105,7 +105,9 @@ MoleculeDialog::~MoleculeDialog( )
 
 void MoleculeDialog::slotUser2()
 {
-	KNS::Entry::List foo = KNS::Engine::download();
+    KNS::Engine engine;
+    engine.init("kalzium.knsrc");
+    KNS::Entry::List entries = engine.downloadDialogModal();
 }
 
 void MoleculeDialog::updateStatistics()
