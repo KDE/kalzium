@@ -495,6 +495,14 @@
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
+			 
+			 <title>Tools</title>
+			 <sect2 id="rs_phrases">
+				 <title>Nuclidboard</title>
+				 <para>
+					 The <guimenuitem>R/S Phrases</guimenuitem> blah blah
+				 </para>
+			 </sect2>
 
 			 <sect2 id="glossary">
 				 <title>Glossary</title>
@@ -973,6 +981,13 @@
 								 <guimenuitem>Glossary</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Open</action> the Glossary</para></listitem>
+					 </varlistentry>
+					 <varlistentry>
+						 <term><menuchoice>
+								 <guimenu>Tools</guimenu>
+								 <guimenuitem>R/S Phrases</guimenuitem>
+						 </menuchoice></term>
+						 <listitem><para><action>Open</action> the R/S Phrases dialog</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
