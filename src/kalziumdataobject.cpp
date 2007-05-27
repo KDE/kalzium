@@ -108,10 +108,11 @@ KalziumDataObject::KalziumDataObject()
             QString filename = pathname + setname + '/' + QString::number( i+1 ) + ".svg";
 
             QSvgRenderer* svgrenderer = new QSvgRenderer();
+            Element *e =  ElementList.at(i);
 
             QFile file( filename );
+            QPainter p( &pix );
             if ( file.exists() ) {
-                QPainter p( &pix );
                 svgrenderer->load(filename);
                 svgrenderer->render( &p );
                 p.end();
@@ -119,7 +120,11 @@ KalziumDataObject::KalziumDataObject()
                 PixmapList << pix;
             }
             else {
-                PixmapList << QPixmap();
+                QString esymbol = e->dataAsString( ChemicalDataObject::symbol );
+                p.drawText(0,0,40,40, Qt::AlignCenter | Qt::TextWordWrap, esymbol );
+                p.end();
+
+                PixmapList << pix;
             }
         }
 
