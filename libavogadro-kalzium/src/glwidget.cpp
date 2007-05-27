@@ -209,7 +209,6 @@ namespace Avogadro {
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 
     glEnable( GL_NORMALIZE );
-    glEnable( GL_LIGHTING );
 
     GLfloat ambientLight[] = { 0.2, 0.2, 0.2, 1.0 };
     GLfloat diffuseLight[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -218,6 +217,12 @@ namespace Avogadro {
 
     glLightModeli( GL_LIGHT_MODEL_COLOR_CONTROL_EXT,
         GL_SEPARATE_SPECULAR_COLOR_EXT );
+
+    // Due to the bug found in Mesa 6.5.3 in radeon_state.c in radeonUpdateSpecular()
+    //  it is important to set GL_SEPARATE_SPECULAR_COLOR_EXT
+    //  _before_ switching on the lights
+    glEnable( GL_LIGHTING );
+
     glLightfv( GL_LIGHT0, GL_AMBIENT, ambientLight );
     glLightfv( GL_LIGHT0, GL_DIFFUSE, diffuseLight );
     glLightfv( GL_LIGHT0, GL_SPECULAR, specularLight );
