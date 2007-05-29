@@ -269,4 +269,35 @@ class KalziumDTableType : public KalziumTableType
         static int translateToD(int num);
 };
 
+/**
+ * This class represents the table the DZ (Deutscher Zentralausschuss, "German Central Comitee")
+ * suggests.
+ *
+ * @author Carsten Niehaus
+ */
+class KalziumDZTableType : public KalziumTableType
+{
+	public:
+		static KalziumDZTableType* instance();
+
+		QByteArray name() const;
+		QString description() const;
+
+		QSize size() const;
+
+		int elementAtCoords( const QPoint& coords ) const;
+		QRect elementRect( const int numelem ) const;
+		QRect legendRect() const;
+
+	private:
+		KalziumDZTableType();
+
+		/**
+		 * @return the coordinates of the element under the point
+		 * @p coords.
+		 * For example, H will be 1/1 and Li will be 1/2
+		 */
+		QPoint elementUnderMouse( const QPoint& coords ) const;
+};
+
 #endif // KALZIUMTABLETYPE_H

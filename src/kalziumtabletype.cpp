@@ -85,12 +85,60 @@ static const int posXD[40] = {
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 };
 
+///DZ is short for "Deutscher Zentralausschuss"
+static const int posXDZ[117] = {
+    1, 2,
+    2, 2,
+         3, 4, 5, 6, 7, 8,
+    1, 2,
+         3, 4, 5, 6, 7, 8,
+    1, 2,
+                           9,10,11,12,13,14,15,16,17,18,      
+         3, 4, 5, 6, 7, 8, 
+    1, 2,
+                           9,10,11,12,13,14,15,16,17,18,      
+         3 ,4 ,5 ,6 ,7 ,8 ,
+    1, 2,
+                                                              19,20,21,22,23,24,25,26,27,28,29,30,31,32,
+                           9,10,11,12,13,14,15,16,17,18,      
+         3 ,4 ,5 ,6 ,7 ,8 ,
+    1, 2,
+                                                              19,20,21,22,23,24,25,26,27,28,29,30,31,32,
+                           9,10,11,12,13,14,15,16,17,18,      
+         3 ,4 ,5 ,6  
+
+};
+
+///DZ is short for "Deutscher Zentralausschuss"
+static const int posYDZ[117] = {
+    1, 1,
+    2, 2,
+         3, 3, 3, 3, 3, 3,
+    4, 4,
+         5, 5, 5, 5, 5, 5,
+    6, 6,
+                          7, 7, 7, 7, 7, 7, 7, 7, 7, 7,      
+         8, 8, 8, 8, 8, 8, 
+    9, 9,
+                          10,10,10,10,10,10,10,10,10,10,
+         11,11,11,11,11,11,
+    12,12,
+                                                              13,13,13,13,13,13,13,13,13,13,13,13,13,13,    
+                          14,14,14,14,14,14,14,14,14,14,
+         15,15,15,15,15,15,
+    16,16,
+                                                              17,17,17,17,17,17,17,17,17,17,17,17,17,17,    
+                          18,18,18,18,18,18,18,18,18,18,
+         19,19,19,19 
+};
+
 
 KalziumTableTypeFactory::KalziumTableTypeFactory()
 {
 	m_tables << KalziumClassicTableType::instance();
 	m_tables << KalziumShortTableType::instance();
 	m_tables << KalziumDTableType::instance();
+	m_tables << KalziumDZTableType::instance();
 }
 
 KalziumTableTypeFactory* KalziumTableTypeFactory::instance()
@@ -555,3 +603,87 @@ int KalziumDTableType::nextOf( int element ) const
 	int index = m_elementList.indexOf( element );
 	return index != -1 && ( index < m_elementList.count() - 1 ) ? m_elementList.at( index + 1 ) : -1;
 }
+
+//////////// DZ ////////////////////////////////////////////////////////////////////////////
+
+KalziumDZTableType* KalziumDZTableType::instance()
+{
+    static KalziumDZTableType kctt;
+    return &kctt;
+}
+
+    KalziumDZTableType::KalziumDZTableType()
+: KalziumTableType()
+{
+    const int numElements = KalziumDataObject::instance()->numberOfElements();
+    for (int i = 1 ; i < numElements ; i++) 
+        m_elementList.append(i);
+}
+
+QByteArray KalziumDZTableType::name() const
+{
+    return "DZ";
+}
+
+QString KalziumDZTableType::description() const
+{
+    return i18n( "DZ Periodic Table" );
+}
+
+QSize KalziumDZTableType::size() const
+{
+    return QSize( ELEMENTSIZE * 32 + 1, ELEMENTSIZE * 20 + 1 );
+}
+
+int KalziumDZTableType::elementAtCoords( const QPoint& coords ) const
+{
+    const QPoint ourcoord = elementUnderMouse( coords );
+
+    int x = 0;
+    int y = 0;
+    foreach (int counter, m_elementList )
+    {
+        x = posXDZ[counter-1];
+        y = posYDZ[counter-1];
+        if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) ) {
+            return counter;
+        }
+    }
+
+    // not found
+    return 0;
+}
+
+QRect KalziumDZTableType::elementRect( const int numelem ) const
+{
+    kDebug() << "KalziumDZTableType::elementRect(), num: " << numelem << endl;
+
+    // x coord
+    int x = ( posXDZ[numelem-1] - 1 ) * ELEMENTSIZE;
+    // y coord
+    int y = ( posYDZ[numelem-1] ) * ELEMENTSIZE;
+
+    return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
+}
+
+QRect KalziumDZTableType::legendRect() const
+{
+    int legendLeft   = ELEMENTSIZE * 5 / 2;
+    int legendTop    = ELEMENTSIZE * 4 / 5;
+    int legendWidth  = ELEMENTSIZE * 9;
+    int legendHeight = ELEMENTSIZE * 3;
+
+    return QRect( legendLeft, legendTop, legendWidth, legendHeight );
+}
+
+QPoint KalziumDZTableType::elementUnderMouse( const QPoint& coords ) const
+{
+    int X = coords.x() / ELEMENTSIZE;
+    int Y = coords.y() - ELEMENTSIZE;
+
+    X += 1;
+    Y = Y / ELEMENTSIZE + 1;
+
+    return QPoint( X, Y );
+}
+
