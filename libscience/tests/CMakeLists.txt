@@ -7,11 +7,19 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/..)
 
 ########### next target ###############
 
-set(parsertest_SRCS xmlreadingtest.cpp)
+set(elementparsertest_SRCS xmlreadingtest.cpp)
 
-kde4_add_executable(parsertest ${parsertest_SRCS})
+kde4_add_executable(elementparsertest ${elementparsertest_SRCS})
 
-target_link_libraries(parsertest science)
+target_link_libraries(elementparsertest science)
+
+########### next target ###############
+
+set(isotopeparsertest_SRCS isotopereadingtest.cpp)
+
+kde4_add_executable(isotopeparsertest ${isotopeparsertest_SRCS})
+
+target_link_libraries(isotopeparsertest science)
 
 
 endif(KDE4_BUILD_TESTS)
