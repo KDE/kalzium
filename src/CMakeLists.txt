@@ -97,6 +97,7 @@ kde4_add_ui_files(kalzium_SRCS
    settings_units.ui
    rswidget.ui
    timewidget.ui
+   isotopedialog.ui
 )
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )

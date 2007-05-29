@@ -427,8 +427,8 @@ void Kalzium::slotShowEQSolver()
 
 void Kalzium::slotIsotopeTable()
 {
-	IsotopeTableDialog *ndialog = new IsotopeTableDialog( this );
-	ndialog->show();
+    IsotopeTableDialog *ndialog = new IsotopeTableDialog( this );
+    ndialog->show();
 }
 
 void Kalzium::slotPlotData()

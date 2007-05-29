@@ -1,7 +1,7 @@
 #ifndef NUCLIDEBOARD_H
 #define NUCLIDEBOARD_H
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Carsten Niehaus                                 *
+ *   Copyright (C) 2007 by Carsten Niehaus                                 *
  *   cniehaus@kde.org                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -26,6 +26,11 @@
 #include <QPoint>
 #include <QRect>
 #include <QScrollArea>
+#include <QGraphicsScene>
+#include <QGraphicsSceneMouseEvent>
+ #include <QGraphicsPixmapItem>
+
+#include "ui_isotopedialog.h"
 
 #include <kdialog.h>
 
@@ -35,6 +40,13 @@ class IsotopeScrollArea;
 class KActionCollection;
 class Element;
 class Isotope;
+class QGraphicsSceneMouseEvent;
+class QMenu;
+class QPointF;
+class QGraphicsLineItem;
+class QFont;
+class QGraphicsTextItem;
+class QColor;
 
 /**
  * This class is the drawing widget for the whole table
@@ -42,171 +54,43 @@ class Isotope;
  * @author Pino Toscano
  * @author Carsten Niehaus
  */
-class IsotopeTableView : public QWidget
-{
-	Q_OBJECT
-
-	public:
-		explicit IsotopeTableView( QWidget* parent = 0, IsotopeScrollArea* scroll = 0 );
-	
-	public slots:
-		/**
-		 * Update the QMap of IsotopeAdapter. Only visible isotopes
-		 * will be in the list. Therefore, in the paintEvent the class
-		 * can simply iterate through all keys and paint them
-		 */
-		void updateIsoptopeRectList( bool redoSize = false );
-
-		/**
-		 * Calculate the new area to show, using @p selectedRect ,
-		 * and update the list of isotopes to be drawn
-		 */
-		void selectionDone( const QRect& selectedRect );
-
-		void slotZoomIn();
-		void slotZoomOut();
-		void slotToogleZoomMode( bool );
-
-	signals:
-		void toggleZoomAction( bool );
-
-	private:
-		QWidget *m_parent;
-		IsotopeScrollArea *m_scroll;
-
-		QPixmap m_pix;
-
-		/**
-		 * Finds the isotope of the element @p el with the lower number
-		 * of nucleons and returns that number of nucleons.
-		 * The @p lowerbound parameter indicates which is the minimum
-		 * index allowed.
-		 */
-		int minNucleonOf( Element* el, int lowerbound = 0 ) const;
-
-		/**
-		 * Finds the isotope of the element @p el with the higher number
-		 * of nucleons and returns that number of nucleons.
-		 * The @p upperbound parameter indicates which is the maximum
-		 * index allowed.
-		 */
-		int maxNucleonOf( Element* el, int upperbound = 500 ) const;
-
-		/**
-		 * @returns a list of the isotopes of the element @p el whose
-		 * nucleons are in the range [ @p lowerbound , @p upperbound ]
-		 */
-		QList<Isotope*> isotopesWithNucleonsInRange( Element* el, int lowerbound, int upperbound ) const;
-
-		/**
-		 * @returns a rect containing the new "coordinates" of the
-		 * area to show
-		 */
-		QRect getNewCoords( const QRect& rect ) const;
-
-		/**
-		 * The current size of a drawn isotope
-		 */
-		int m_rectSize;
-
-		/**
-		 * @return the color(s) of the isotope @p isotope
-		 */
-		QList<QColor> isotopeColors( Isotope* isotope );
-
-		QMap<Isotope*, QRect> m_IsotopeAdapterRectMap;
-
-		QPoint m_firstPoint;
-
-		int m_firstElem;
-		int m_lastElem;
-		int m_firstElemNucleon;
-		int m_lastElemNucleon;
-		
-		QRect m_selectedRegion;
-		
-		/**
-		 * true if user is currently mouse the pressed mouse
-		 */
-		bool m_duringSelection;
-
-		bool m_isMoving;
-
-	protected:
-		virtual void paintEvent( QPaintEvent *e );
-		
-		virtual void mousePressEvent( QMouseEvent *e );
-		virtual void mouseReleaseEvent( QMouseEvent *e );
-		virtual void mouseMoveEvent( QMouseEvent *e );
-		
-		void drawInternally();
-		/**
-		 * draw the isotope widgets
-		 */
-		void drawIsotopeWidgets( QPainter *p );
-		/**
-		 * draw the two legends
-		 */
-		void drawLegends( QPainter *p );
-};
-
-/**
- * The dialog representing the isotope table.
- *
- * @author Martin Pfeiffer
- * @author Carsten Niehaus
- */
 class IsotopeTableDialog : public KDialog
 {
-	Q_OBJECT
-	public:
-		IsotopeTableDialog( QWidget* parent );
-		~IsotopeTableDialog(){}
+    Q_OBJECT
 
-		KActionCollection* actionCollection();
+    public:
+        explicit IsotopeTableDialog( QWidget* parent = 0 );
 
-	private:
-		IsotopeTableView* m_view;
-		KActionCollection* m_ac;
-
-	private slots:
-		/**
-		 * invokes the help for this widget
-		 */
-		virtual void slotHelp();
+    private:
+        Ui::isotopeWidget ui;
 };
 
-
-/**
- * Simply widget that represents the legend of the isotope table.
- *
- * @author Martin Pfeiffer
- */
-class NuclideLegend : public QWidget
+class IsotopeScene : public QGraphicsScene
 {
-	public:
-		NuclideLegend( QWidget* parent );
-		~NuclideLegend() {}
-		
-	protected:
-		virtual void paintEvent( QPaintEvent* );
+    Q_OBJECT
+
+    public:
+        IsotopeScene( QObject * parent = 0);
+
+    signals:
+        void itemSelected(QGraphicsItem *item);
+
+    private:
+        void drawIsotopes();
+
+    protected:
+        void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent);
+        void mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent);
+        void mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent);
 };
 
-
-/**
- * Small QScollArea derived class to allow the scrolling even outside
- * the class' methods.
- *
- * @author Pino Toscano
- */
-class IsotopeScrollArea : public QScrollArea
+	
+class IsotopeItem : public QGraphicsRectItem
 {
-	Q_OBJECT
 	public:
-		IsotopeScrollArea( QWidget* parent );
-		~IsotopeScrollArea() {}
-
-		void scrollBy( int x, int y );
+            IsotopeItem( qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
+	
+	
 };
 
 #endif // NUCLIDEBOARD_H
