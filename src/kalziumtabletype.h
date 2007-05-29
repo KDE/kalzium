@@ -108,10 +108,6 @@ class KalziumTableType
 		 * Returns the rect for the element with atomic number @p numelem.
 		 */
 		virtual QRect elementRect( const int numelem ) const = 0;
-		/**
-		 * Returns the rect where to put the legend.
-		 */
-		virtual QRect legendRect() const = 0;
 
 		/**
 		 * Returns the rect for the @p numelement 'th item of the
@@ -175,7 +171,6 @@ class KalziumClassicTableType : public KalziumTableType
 
 		int elementAtCoords( const QPoint& coords ) const;
 		QRect elementRect( const int numelem ) const;
-		QRect legendRect() const;
 
 	private:
 		KalziumClassicTableType();
@@ -205,7 +200,6 @@ class KalziumShortTableType : public KalziumTableType
 
 		int elementAtCoords( const QPoint& coords ) const;
 		QRect elementRect( const int numelem ) const;
-		QRect legendRect() const;
 
 		int previousOf( int element ) const;
 		int nextOf( int element ) const;
@@ -245,7 +239,6 @@ class KalziumDTableType : public KalziumTableType
 
 		int elementAtCoords( const QPoint& coords ) const;
 		QRect elementRect( const int numelem ) const;
-		QRect legendRect() const;
 
 		int previousOf( int element ) const;
 		int nextOf( int element ) const;
@@ -287,7 +280,6 @@ class KalziumDZTableType : public KalziumTableType
 
 		int elementAtCoords( const QPoint& coords ) const;
 		QRect elementRect( const int numelem ) const;
-		QRect legendRect() const;
 
 	private:
 		KalziumDZTableType();

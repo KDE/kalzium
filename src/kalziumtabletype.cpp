@@ -286,16 +286,6 @@ QRect KalziumClassicTableType::elementRect( const int numelem ) const
 	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
 
-QRect KalziumClassicTableType::legendRect() const
-{
-	int legendLeft   = ELEMENTSIZE * 5 / 2;
-	int legendTop    = ELEMENTSIZE * 4 / 5;
-	int legendWidth  = ELEMENTSIZE * 9;
-	int legendHeight = ELEMENTSIZE * 3;
-
-	return QRect( legendLeft, legendTop, legendWidth, legendHeight );
-}
-
 QPoint KalziumClassicTableType::elementUnderMouse( const QPoint& coords ) const
 {
 	int X = coords.x() / ELEMENTSIZE;
@@ -412,16 +402,6 @@ QRect KalziumShortTableType::elementRect( const int numelem ) const
 //    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1] << endl;
 
 	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
-}
-
-QRect KalziumShortTableType::legendRect() const
-{
-	int legendLeft   = ELEMENTSIZE * 14 / 2;
-	int legendTop    = ELEMENTSIZE * 4 / 5;
-	int legendWidth  = ELEMENTSIZE * 9;
-	int legendHeight = ELEMENTSIZE * 3;
-
-	return QRect( legendLeft, legendTop, legendWidth, legendHeight );
 }
 
 QPoint KalziumShortTableType::elementUnderMouse( const QPoint& coords ) const
@@ -570,17 +550,6 @@ QRect KalziumDTableType::elementRect( const int numelem ) const
 	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
 
-QRect KalziumDTableType::legendRect() const
-{
-	int legendLeft   = ELEMENTSIZE * 10 / 2;
-	int legendTop    = ELEMENTSIZE * 10 / 5;
-	int legendWidth  = ELEMENTSIZE * 9;
-	int legendHeight = ELEMENTSIZE * 3;
-
-	return QRect( legendLeft, legendTop, legendWidth, legendHeight );
-}
-
-
 QPoint KalziumDTableType::elementUnderMouse( const QPoint& coords ) const
 {
 	int X = coords.x() / ELEMENTSIZE;
@@ -664,16 +633,6 @@ QRect KalziumDZTableType::elementRect( const int numelem ) const
     int y = ( posYDZ[numelem-1] ) * ELEMENTSIZE;
 
     return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
-}
-
-QRect KalziumDZTableType::legendRect() const
-{
-    int legendLeft   = ELEMENTSIZE * 5 / 2;
-    int legendTop    = ELEMENTSIZE * 4 / 5;
-    int legendWidth  = ELEMENTSIZE * 9;
-    int legendHeight = ELEMENTSIZE * 3;
-
-    return QRect( legendLeft, legendTop, legendWidth, legendHeight );
 }
 
 QPoint KalziumDZTableType::elementUnderMouse( const QPoint& coords ) const
