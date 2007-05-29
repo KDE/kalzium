@@ -20,17 +20,12 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <QWidget>
-#include <QList>
-#include <QPixmap>
-#include <QPoint>
-#include <QRect>
-#include <QScrollArea>
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsRectItem>
 
 class IsotopeItem;
+class Isotope;
 
 #include "ui_isotopedialog.h"
 
@@ -67,12 +62,31 @@ class IsotopeTableDialog : public KDialog
         Ui::isotopeWidget ui;
 };
 
+/**
+ * The class represtens the items which is drawn on the QGraphicsScene. Each such item represents on
+ * Isotope.
+ * @author Carsten Niehaus
+ */
 class IsotopeItem : public QGraphicsRectItem
 {
 	public:
-            enum IsotopeType { alpha, spontanious, mulitple, bplus, bminus, stable };
+            /**
+             * there are several types of decay for an isotope.
+             */
+            enum IsotopeType { alpha, ec, multiple, bplus, bminus, stable };
 
-            IsotopeItem(IsotopeType type,  qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
+            /**
+             * @param type the IsotopeType of the represtented Isotope
+             * @param isotope The Isotope represented
+             */
+            IsotopeItem(IsotopeType type, Isotope * isotope,  qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
+
+        private:
+            IsotopeType m_type;
+            Isotope* m_isotope;
+
+        protected:
+            void mousePressEvent ( QGraphicsSceneMouseEvent * event );
 };
 
 
