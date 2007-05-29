@@ -28,7 +28,9 @@
 #include <QScrollArea>
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
- #include <QGraphicsPixmapItem>
+#include <QGraphicsRectItem>
+
+class IsotopeItem;
 
 #include "ui_isotopedialog.h"
 
@@ -65,6 +67,15 @@ class IsotopeTableDialog : public KDialog
         Ui::isotopeWidget ui;
 };
 
+class IsotopeItem : public QGraphicsRectItem
+{
+	public:
+            enum IsotopeType { alpha, spontanious, mulitple, bplus, bminus, stable };
+
+            IsotopeItem(IsotopeType type,  qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
+};
+
+
 class IsotopeScene : public QGraphicsScene
 {
     Q_OBJECT
@@ -77,6 +88,7 @@ class IsotopeScene : public QGraphicsScene
 
     private:
         void drawIsotopes();
+        IsotopeItem::IsotopeType getType( Isotope * );
 
     protected:
         void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent);
@@ -85,12 +97,4 @@ class IsotopeScene : public QGraphicsScene
 };
 
 	
-class IsotopeItem : public QGraphicsRectItem
-{
-	public:
-            IsotopeItem( qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
-	
-	
-};
-
 #endif // NUCLIDEBOARD_H

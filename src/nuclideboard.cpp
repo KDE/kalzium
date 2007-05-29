@@ -88,7 +88,8 @@ void IsotopeScene::drawIsotopes()
         foreach (Isotope *i , ilist )
         {
             kDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass() << " and " << i->nucleons() << " nucleons." << endl;
-            IsotopeItem *item = new IsotopeItem(elementNumber*10 ,i->nucleons()*10, 10,10);
+            IsotopeItem::IsotopeType type = getType( i );
+            IsotopeItem *item = new IsotopeItem(type, elementNumber*10 ,i->nucleons()*10, 10,10);
             addItem(item);
         }
     }
@@ -112,11 +113,17 @@ void IsotopeScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent)
     QGraphicsScene::mouseReleaseEvent(mouseEvent);
 }
 
+IsotopeItem::IsotopeType IsotopeScene::getType( Isotope * isotope )
+{
+    return IsotopeItem::bminus;
+}
+
+
 
 
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    IsotopeItem::IsotopeItem( qreal x, qreal y, qreal width, qreal height,   QGraphicsItem *parent)
+    IsotopeItem::IsotopeItem( IsotopeType type, qreal x, qreal y, qreal width, qreal height,   QGraphicsItem *parent)
 :  QGraphicsRectItem(x,y,width,height,parent)
 {
     setFlag(QGraphicsItem::ItemIsMovable, false);
