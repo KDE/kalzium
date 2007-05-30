@@ -31,16 +31,15 @@ class Isotope;
 
 #include <kdialog.h>
 
-class KActionCollection;
 class Element;
 class Isotope;
+class InformationItem;
+
 class QPainter;
 class QGraphicsSceneMouseEvent;
-class QMenu;
 class QPointF;
 class QGraphicsLineItem;
 class QGraphicsTextItem;
-class QColor;
 
 /**
  * This class is the drawing widget for the whole table
@@ -107,6 +106,29 @@ class IsotopeItem : public QGraphicsRectItem
             void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 
+class InformationItem : public QGraphicsRectItem
+{
+    public:
+        enum { Type = UserType + 2 };
+
+        /**
+         * @param isotope The Isotope represented
+         */
+        InformationItem( qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
+
+        /**
+         * @return the Type of the item
+         */
+        int type() const{
+            return Type;
+        }
+
+        void setIsotope( Isotope * i );
+
+    private:
+        QGraphicsTextItem *m_textitem;
+};
+
 
 class IsotopeScene : public QGraphicsScene
 {
@@ -115,7 +137,7 @@ class IsotopeScene : public QGraphicsScene
     public:
         IsotopeScene( QObject * parent = 0);
 
-        void displayContextHelp( IsotopeItem * item );
+        void updateContextHelp( IsotopeItem * item );
 
     private:
         void drawIsotopes();
@@ -123,14 +145,16 @@ class IsotopeScene : public QGraphicsScene
         //the size of each item
         int m_itemSize;
 
-        QGraphicsTextItem *m_infotext;
-        QGraphicsRectItem *m_infoitem;
-
+        ///this group stores all IsotopeItems
         QGraphicsItemGroup *m_isotopeGroup;
 
+        ///this is the item needed to display helpful information
+        InformationItem *m_infoItem;
 
     public slots:
         void slotSetItemSize(int);
+        void slotToggleInfowidget(int);
+        void slotToggleVisualGuides(int);
 
     signals:
         void itemSelected(QGraphicsItem *item);

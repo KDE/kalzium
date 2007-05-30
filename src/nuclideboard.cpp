@@ -56,7 +56,12 @@
 
     connect( ui.pixelSpin, SIGNAL(valueChanged(int)),
             scene, SLOT( slotSetItemSize(int)));
-    //ui.gv->scale( 1, -1 );
+
+    connect( ui.guides, SIGNAL(stateChanged(int)),
+            scene, SLOT(slotToggleVisualGuides(int)) );
+    
+    connect( ui.infowidget, SIGNAL(stateChanged(int)),
+            scene, SLOT(slotToggleInfowidget(int)) );
 
     scene->slotSetItemSize( ui.pixelSpin->value() );
     
@@ -71,32 +76,38 @@
     m_isotopeGroup->setHandlesChildEvents(false);
     addItem( m_isotopeGroup );
 
+    m_infoItem = new InformationItem( 40 , 40, 100, 100 );
+    addItem( m_infoItem );
+
     m_itemSize = 10;
     drawIsotopes();
     m_isotopeGroup->scale(1, -1);
 }
 
-void IsotopeScene::displayContextHelp( IsotopeItem * item )
+void IsotopeScene::slotToggleInfowidget(int state)
 {
+    kDebug() << "IsotopeScene::slotToggleInfowidget()" << endl;
+    if ( state == Qt::Checked ) {
+        m_infoItem->setVisible( true );
+    } else {
+        m_infoItem->setVisible( false );
+    }
+}
 
-    QString html = i18n("<h1>%1</h1> Number: %2", item->isotope()->parentElementSymbol(), item->isotope()->parentElementNumber());
-    m_infotext->setHtml( html );
-    
-    QPointF itemPos = item->mapToScene(item->rect().topLeft());
-    
-    kDebug() << "Position: " << itemPos << endl;
+void IsotopeScene::slotToggleVisualGuides(int state)
+{
+    if ( state == Qt::Checked ) {
+    } else {
+    }
+}
 
-    itemPos.setY( itemPos.y() - 100 );
-    itemPos.setX( itemPos.x() + 20 );
-
-    m_infotext->setPos( itemPos );
-    m_infoitem->setPos( itemPos );
+void IsotopeScene::updateContextHelp( IsotopeItem * item )
+{
+    m_infoItem->setIsotope( item->isotope() );
 }
 
 void IsotopeScene::drawIsotopes()
 {
-    kDebug() << "IsotopeScene::drawIsotopes()" << endl;
-
     QList<Element*> elist = KalziumDataObject::instance()->ElementList;
 
     foreach ( Element * e, elist ) {
@@ -110,24 +121,10 @@ void IsotopeScene::drawIsotopes()
             m_isotopeGroup->addToGroup( item );
         }
     }
-
-    //Now adding the contect Widget
-    m_infoitem = new QGraphicsRectItem( 0,0, 100, 100 );
-    m_infotext = new QGraphicsTextItem( m_infoitem );
-    m_infoitem->setBrush( QBrush( Qt::yellow ) );
-
-    QGraphicsItemGroup *group = new QGraphicsItemGroup();
-    group->setZValue(100);
-
-    addItem( group );
-
-    group->addToGroup( m_infoitem );
-    group->addToGroup( m_infotext );
 }
 
 void IsotopeScene::slotSetItemSize(int itemsize)
 {
-    kDebug() << "IsotopeScene::slotSetItemSize()" << endl;
     m_itemSize = itemsize;
 
     foreach (QGraphicsItem *i, items() )
@@ -202,9 +199,27 @@ void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
         return;
     
     IsotopeScene *scene2 = static_cast<IsotopeScene*>(scene());
-    scene2->displayContextHelp( this );
+    scene2->updateContextHelp( this );
 }
 
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    InformationItem::InformationItem( qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent)
+:  QGraphicsRectItem(x,y,width,height,parent)
+{
+    setFlag(QGraphicsItem::ItemIsMovable, true);
+
+    setBrush( QBrush( Qt::yellow ) );
+    
+    m_textitem = new QGraphicsTextItem( this );
+    m_textitem->setPos( 0, 0 );
+}
+
+void InformationItem::setIsotope( Isotope * i )
+{
+    QString html = i18n("<h1>%1</h1> Number: %2", i->parentElementSymbol(), i->parentElementNumber());
+
+    m_textitem->setHtml( html );
+}
 
 
 #include "nuclideboard.moc"

@@ -13,7 +13,7 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" >
-   <item row="0" column="0" >
+   <item row="0" column="0" colspan="5" >
     <widget class="QGraphicsView" name="gv" >
      <property name="dragMode" >
       <enum>QGraphicsView::ScrollHandDrag</enum>
@@ -21,15 +21,58 @@
     </widget>
    </item>
    <item row="1" column="0" >
+    <widget class="QLabel" name="label" >
+     <property name="text" >
+      <string>Isotopesize:</string>
+     </property>
+     <property name="buddy" >
+      <cstring>pixelSpin</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" >
     <widget class="QSpinBox" name="pixelSpin" >
      <property name="suffix" >
       <string>pixel</string>
      </property>
      <property name="minimum" >
-      <number>5</number>
+      <number>10</number>
      </property>
      <property name="maximum" >
-      <number>40</number>
+      <number>50</number>
+     </property>
+     <property name="singleStep" >
+      <number>5</number>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2" >
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="3" >
+    <widget class="QCheckBox" name="guides" >
+     <property name="text" >
+      <string>Show &amp;Visual Guides</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4" >
+    <widget class="QCheckBox" name="infowidget" >
+     <property name="text" >
+      <string>Show &amp;Informationwidget</string>
+     </property>
+     <property name="checked" >
+      <bool>true</bool>
      </property>
     </widget>
    </item>
