@@ -51,6 +51,12 @@
 {
     ui.setupUi( mainWidget() );
     IsotopeScene *scene = new IsotopeScene();
+
+    connect( ui.pixelSpin, SIGNAL(valueChanged(int)),
+            scene, SLOT( slotSetItemSize(int)));
+    
+    scene->slotSetItemSize( ui.pixelSpin->value() );
+    
     ui.gv->setScene(scene);
 }
 
@@ -58,11 +64,14 @@
     IsotopeScene::IsotopeScene(QObject *parent)
 : QGraphicsScene(parent)
 {
+    m_itemSize = 10;
     drawIsotopes();
 }
 
 void IsotopeScene::drawIsotopes()
 {
+    kDebug() << "IsotopeScene::drawIsotopes()" << endl;
+
     QList<Element*> elist = KalziumDataObject::instance()->ElementList;
 
     foreach ( Element * e, elist ) {
@@ -71,36 +80,34 @@ void IsotopeScene::drawIsotopes()
         QList<Isotope*> ilist = KalziumDataObject::instance()->isotopes( elementNumber );
         foreach (Isotope *i , ilist )
         {
-            IsotopeItem *item = new IsotopeItem( i, elementNumber*10 ,i->nucleons()*10, 10,10);
+            IsotopeItem *item = new IsotopeItem( i, elementNumber*m_itemSize ,i->nucleons()*m_itemSize, m_itemSize,m_itemSize);
             addItem(item);
         }
     }
 }
 
-
-void IsotopeScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
+void IsotopeScene::slotSetItemSize(int itemsize)
 {
-    if (mouseEvent->button() != Qt::LeftButton)
-        return;
+    kDebug() << "IsotopeScene::slotSetItemSize()" << endl;
+    m_itemSize = itemsize;
 
-    QGraphicsScene::mousePressEvent(mouseEvent);
+    foreach (QGraphicsItem *i, items() )
+    {
+        IsotopeItem *ii = static_cast<IsotopeItem*>(i);
+
+        QRect newRect( ii->isotope()->parentElementNumber() * m_itemSize, ii->isotope()->nucleons() * m_itemSize , m_itemSize, m_itemSize );
+        ii->setRect( newRect );
+    }
 }
 
-void IsotopeScene::mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent)
-{
-}
 
-void IsotopeScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent)
-{
-    kDebug() << "IsotopeScene::mouseReleaseEvent()" << endl;
-
-    QGraphicsScene::mouseReleaseEvent(mouseEvent);
-}
 
 void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
 {
     kDebug() << "I belong to " << m_isotope->parentElementSymbol() << endl;
 
+    if (event->button() != Qt::RightButton)
+        return;
 }
 
 

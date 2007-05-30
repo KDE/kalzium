@@ -80,13 +80,21 @@ class IsotopeItem : public QGraphicsRectItem
              */
             IsotopeItem(Isotope * isotope,  qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
 
+            Isotope* isotope() const{
+                return m_isotope;
+            }
+
         private:
             IsotopeType m_type;
             Isotope* m_isotope;
+
+            /**
+             * @return the IsotopeType of the Isotope
+             */
             IsotopeType getType( Isotope * );
 
         protected:
-            void mousePressEvent ( QGraphicsSceneMouseEvent * event );
+            void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 
 
@@ -103,10 +111,11 @@ class IsotopeScene : public QGraphicsScene
     private:
         void drawIsotopes();
 
-    protected:
-        void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent);
-        void mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent);
-        void mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent);
+        //the size of each item
+        int m_itemSize;
+
+    public slots:
+        void slotSetItemSize(int);
 };
 
 	

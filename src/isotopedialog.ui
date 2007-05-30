@@ -5,28 +5,31 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>466</width>
-    <height>407</height>
+    <width>551</width>
+    <height>487</height>
    </rect>
   </property>
   <property name="windowTitle" >
    <string>Form</string>
   </property>
   <layout class="QGridLayout" >
-   <item row="0" column="0" colspan="2" >
-    <widget class="QGraphicsView" name="gv" />
-   </item>
-   <item row="1" column="0" >
-    <widget class="QPushButton" name="pushButton" >
-     <property name="text" >
-      <string>PushButton</string>
+   <item row="0" column="0" >
+    <widget class="QGraphicsView" name="gv" >
+     <property name="dragMode" >
+      <enum>QGraphicsView::ScrollHandDrag</enum>
      </property>
     </widget>
    </item>
-   <item row="1" column="1" >
-    <widget class="QPushButton" name="pushButton_2" >
-     <property name="text" >
-      <string>PushButton</string>
+   <item row="1" column="0" >
+    <widget class="QSpinBox" name="pixelSpin" >
+     <property name="suffix" >
+      <string>pixel</string>
+     </property>
+     <property name="minimum" >
+      <number>5</number>
+     </property>
+     <property name="maximum" >
+      <number>40</number>
      </property>
     </widget>
    </item>
