@@ -29,37 +29,22 @@
 #include "ui_isotopedialog.h"
 
 #include <QEvent>
-#include <QMenu>
 #include <QMouseEvent>
 #include <QLabel>
-#include <QLayout>
-#include <QPainter>
-#include <QPalette>
-#include <QPixmap>
-#include <QPolygon>
-#include <QSizePolicy>
-#include <QToolBar>
 #include <QGraphicsView>
 #include <QGraphicsRectItem>
 #include <QPainter>
-#include <QSvgRenderer>
 #include <QFile>
 
 #include <kaction.h>
 #include <kactioncollection.h>
-#include <kcursor.h>
 #include <kdebug.h>
 #include <kglobal.h>
 #include <klocale.h>
-#include <kstandardaction.h>
 #include <ktoggleaction.h>
 #include <ktoolinvocation.h>
 #include <kicon.h>
 #include <kstandarddirs.h>
-
-#include <math.h>
-#include <stdlib.h>
-
 
     IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 : KDialog( parent )

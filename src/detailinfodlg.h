@@ -40,7 +40,7 @@ class DetailedInfoDlg : public KPageDialog
 	Q_OBJECT
 
 	public:
-		DetailedInfoDlg( int el, QWidget *parent = 0 );
+		explicit DetailedInfoDlg( int el, QWidget *parent = 0 );
  
 		void setElement( int el );
 
