@@ -79,10 +79,16 @@ class IsotopeItem : public QGraphicsRectItem
              */
             IsotopeItem(Isotope * isotope,  qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
 
+            /**
+             * @return the Isotope the item represents
+             */
             Isotope* isotope() const{
                 return m_isotope;
             }
 
+            /**
+             * @return the Type of the item
+             */
             int type() const{
                 return Type;
             }
@@ -109,8 +115,7 @@ class IsotopeScene : public QGraphicsScene
     public:
         IsotopeScene( QObject * parent = 0);
 
-    signals:
-        void itemSelected(QGraphicsItem *item);
+        void displayContextHelp( IsotopeItem * item );
 
     private:
         void drawIsotopes();
@@ -118,8 +123,15 @@ class IsotopeScene : public QGraphicsScene
         //the size of each item
         int m_itemSize;
 
+        QGraphicsTextItem *m_infotext;
+        QGraphicsRectItem *m_infoitem;
+
+
     public slots:
         void slotSetItemSize(int);
+
+    signals:
+        void itemSelected(QGraphicsItem *item);
 };
 
 	

@@ -56,7 +56,8 @@
 
     connect( ui.pixelSpin, SIGNAL(valueChanged(int)),
             scene, SLOT( slotSetItemSize(int)));
-    
+    //ui.gv->scale( 1, -1 );
+
     scene->slotSetItemSize( ui.pixelSpin->value() );
     
     ui.gv->setScene(scene);
@@ -68,6 +69,23 @@
 {
     m_itemSize = 10;
     drawIsotopes();
+}
+
+void IsotopeScene::displayContextHelp( IsotopeItem * item )
+{
+
+    QString html = i18n("<h1>%1</h1> Number: %2", item->isotope()->parentElementSymbol(), item->isotope()->parentElementNumber());
+    m_infotext->setHtml( html );
+    
+    QPointF itemPos = item->rect().topLeft();
+    
+    kDebug() << "Position: " << itemPos << endl;
+
+    itemPos.setY( itemPos.y() - 100 );
+    itemPos.setX( itemPos.x() + 20 );
+
+    m_infotext->setPos( itemPos );
+    m_infoitem->setPos( itemPos );
 }
 
 void IsotopeScene::drawIsotopes()
@@ -83,22 +101,22 @@ void IsotopeScene::drawIsotopes()
         foreach (Isotope *i , ilist )
         {
             IsotopeItem *item = new IsotopeItem( i, elementNumber*m_itemSize ,i->nucleons()*m_itemSize, m_itemSize,m_itemSize);
+            item->setToolTip( i18n("Isotope of Element %1 (%2)", i->parentElementNumber() ,i->parentElementSymbol() ) );
             addItem(item);
         }
     }
 
     //Now adding the contect Widget
-    QGraphicsRectItem *infoitem = new QGraphicsRectItem(0,0, 100,100 );
-    QGraphicsTextItem *infotext = new QGraphicsTextItem( infoitem );
-    infoitem->setBrush( QBrush( Qt::lightGray ) );
-    infotext->setPlainText( "test 123\n55566moin moin" );
+    m_infoitem = new QGraphicsRectItem( 0,0, 100, 100 );
+    m_infotext = new QGraphicsTextItem( m_infoitem );
+    m_infoitem->setBrush( QBrush( Qt::yellow ) );
 
     QGraphicsItemGroup *group = new QGraphicsItemGroup();
 
     addItem( group );
 
-    group->addToGroup( infoitem );
-    group->addToGroup( infotext );
+    group->addToGroup( m_infoitem );
+    group->addToGroup( m_infotext );
 }
 
 void IsotopeScene::slotSetItemSize(int itemsize)
@@ -118,20 +136,6 @@ void IsotopeScene::slotSetItemSize(int itemsize)
         }
     }
 }
-
-
-
-void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
-{
-    kDebug() << "I belong to " << m_isotope->parentElementSymbol() << endl;
-
-    if (event->button() != Qt::RightButton)
-        return;
-}
-
-
-
-
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     IsotopeItem::IsotopeItem( Isotope * i, qreal x, qreal y, qreal width, qreal height,   QGraphicsItem *parent)
@@ -186,6 +190,14 @@ IsotopeItem::IsotopeType IsotopeItem::getType( Isotope * isotope )
         return IsotopeItem::stable;
 }
 
+void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
+{
+    if (event->button() != Qt::RightButton)
+        return;
+    
+    IsotopeScene *scene2 = static_cast<IsotopeScene*>(scene());
+    scene2->displayContextHelp( this );
+}
 
 
 
