@@ -76,14 +76,14 @@ class IsotopeItem : public QGraphicsRectItem
             enum IsotopeType { alpha, ec, multiple, bplus, bminus, stable };
 
             /**
-             * @param type the IsotopeType of the represtented Isotope
              * @param isotope The Isotope represented
              */
-            IsotopeItem(IsotopeType type, Isotope * isotope,  qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
+            IsotopeItem(Isotope * isotope,  qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = 0);
 
         private:
             IsotopeType m_type;
             Isotope* m_isotope;
+            IsotopeType getType( Isotope * );
 
         protected:
             void mousePressEvent ( QGraphicsSceneMouseEvent * event );
@@ -102,7 +102,6 @@ class IsotopeScene : public QGraphicsScene
 
     private:
         void drawIsotopes();
-        IsotopeItem::IsotopeType getType( Isotope * );
 
     protected:
         void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent);

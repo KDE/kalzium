@@ -71,9 +71,7 @@ void IsotopeScene::drawIsotopes()
         QList<Isotope*> ilist = KalziumDataObject::instance()->isotopes( elementNumber );
         foreach (Isotope *i , ilist )
         {
-//            kDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass() << " and " << i->nucleons() << " nucleons." << endl;
-            IsotopeItem::IsotopeType type = getType( i );
-            IsotopeItem *item = new IsotopeItem(type, i, elementNumber*10 ,i->nucleons()*10, 10,10);
+            IsotopeItem *item = new IsotopeItem( i, elementNumber*10 ,i->nucleons()*10, 10,10);
             addItem(item);
         }
     }
@@ -99,21 +97,6 @@ void IsotopeScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent)
     QGraphicsScene::mouseReleaseEvent(mouseEvent);
 }
 
-IsotopeItem::IsotopeType IsotopeScene::getType( Isotope * isotope )
-{
-    //TODO Here I need a clever way to find out *what* to return. 
-    if (isotope->alphalikeliness() > 60.0 )
-        return IsotopeItem::alpha;
-    if (isotope->betaminuslikeliness() > 60.0 )
-        return IsotopeItem::bminus;
-    if (isotope->betapluslikeliness() > 60.0 )
-        return IsotopeItem::bminus;
-    if (isotope->eclikeliness() > 60.0 )
-        return IsotopeItem::ec;
-    else
-        return IsotopeItem::stable;
-}
-
 void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
 {
     kDebug() << "I belong to " << m_isotope->parentElementSymbol() << endl;
@@ -125,11 +108,12 @@ void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
 
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    IsotopeItem::IsotopeItem( IsotopeType type, Isotope * i, qreal x, qreal y, qreal width, qreal height,   QGraphicsItem *parent)
+    IsotopeItem::IsotopeItem( Isotope * i, qreal x, qreal y, qreal width, qreal height,   QGraphicsItem *parent)
 :  QGraphicsRectItem(x,y,width,height,parent)
 {
-    m_type = type;
     m_isotope = i;
+    
+    m_type = getType( m_isotope );
 
     QBrush b;
     switch (m_type) {
@@ -159,6 +143,21 @@ void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
 
     setFlag(QGraphicsItem::ItemIsMovable, false);
     setFlag(QGraphicsItem::ItemIsSelectable, false);
+}
+
+IsotopeItem::IsotopeType IsotopeItem::getType( Isotope * isotope )
+{
+    //TODO Here I need a clever way to find out *what* to return. 
+    if (isotope->alphalikeliness() > 60.0 )
+        return IsotopeItem::alpha;
+    if (isotope->betaminuslikeliness() > 60.0 )
+        return IsotopeItem::bminus;
+    if (isotope->betapluslikeliness() > 60.0 )
+        return IsotopeItem::bminus;
+    if (isotope->eclikeliness() > 60.0 )
+        return IsotopeItem::ec;
+    else
+        return IsotopeItem::stable;
 }
 
 
