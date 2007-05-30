@@ -31,17 +31,14 @@ class Isotope;
 
 #include <kdialog.h>
 
-class QColor;
-class QPainter;
-class IsotopeScrollArea;
 class KActionCollection;
 class Element;
 class Isotope;
+class QPainter;
 class QGraphicsSceneMouseEvent;
 class QMenu;
 class QPointF;
 class QGraphicsLineItem;
-class QFont;
 class QGraphicsTextItem;
 class QColor;
 
@@ -75,6 +72,8 @@ class IsotopeItem : public QGraphicsRectItem
              */
             enum IsotopeType { alpha, ec, multiple, bplus, bminus, stable };
 
+            enum { Type = UserType + 1 };
+
             /**
              * @param isotope The Isotope represented
              */
@@ -83,6 +82,11 @@ class IsotopeItem : public QGraphicsRectItem
             Isotope* isotope() const{
                 return m_isotope;
             }
+
+            int type() const{
+                return Type;
+            }
+
 
         private:
             IsotopeType m_type;

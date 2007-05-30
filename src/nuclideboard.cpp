@@ -19,14 +19,14 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
+
 #include "nuclideboard.h"
-
-#include <element.h>
-#include <isotope.h>
-
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 #include "ui_isotopedialog.h"
+
+#include <element.h>
+#include <isotope.h>
 
 #include <QEvent>
 #include <QMouseEvent>
@@ -35,6 +35,8 @@
 #include <QGraphicsRectItem>
 #include <QPainter>
 #include <QFile>
+#include <QGraphicsTextItem>
+#include <QGraphicsItemGroup>
 
 #include <kaction.h>
 #include <kactioncollection.h>
@@ -84,6 +86,19 @@ void IsotopeScene::drawIsotopes()
             addItem(item);
         }
     }
+
+    //Now adding the contect Widget
+    QGraphicsRectItem *infoitem = new QGraphicsRectItem(0,0, 100,100 );
+    QGraphicsTextItem *infotext = new QGraphicsTextItem( infoitem );
+    infoitem->setBrush( QBrush( Qt::lightGray ) );
+    infotext->setPlainText( "test 123\n55566moin moin" );
+
+    QGraphicsItemGroup *group = new QGraphicsItemGroup();
+
+    addItem( group );
+
+    group->addToGroup( infoitem );
+    group->addToGroup( infotext );
 }
 
 void IsotopeScene::slotSetItemSize(int itemsize)
@@ -93,10 +108,14 @@ void IsotopeScene::slotSetItemSize(int itemsize)
 
     foreach (QGraphicsItem *i, items() )
     {
-        IsotopeItem *ii = static_cast<IsotopeItem*>(i);
+        //check if the item is an IsotopeItem. If not: do nothing
+        if (qgraphicsitem_cast<IsotopeItem *>(i)) 
+        {
+            IsotopeItem *ii = static_cast<IsotopeItem*>(i);
 
-        QRect newRect( ii->isotope()->parentElementNumber() * m_itemSize, ii->isotope()->nucleons() * m_itemSize , m_itemSize, m_itemSize );
-        ii->setRect( newRect );
+            QRect newRect( ii->isotope()->parentElementNumber() * m_itemSize, ii->isotope()->nucleons() * m_itemSize , m_itemSize, m_itemSize );
+            ii->setRect( newRect );
+        }
     }
 }
 
