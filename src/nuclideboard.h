@@ -126,6 +126,8 @@ class IsotopeScene : public QGraphicsScene
         QGraphicsTextItem *m_infotext;
         QGraphicsRectItem *m_infoitem;
 
+        QGraphicsItemGroup *m_isotopeGroup;
+
 
     public slots:
         void slotSetItemSize(int);

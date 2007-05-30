@@ -67,6 +67,9 @@
     IsotopeScene::IsotopeScene(QObject *parent)
 : QGraphicsScene(parent)
 {
+    m_isotopeGroup = new QGraphicsItemGroup();
+    addItem( m_isotopeGroup );
+
     m_itemSize = 10;
     drawIsotopes();
 }
@@ -102,7 +105,7 @@ void IsotopeScene::drawIsotopes()
         {
             IsotopeItem *item = new IsotopeItem( i, elementNumber*m_itemSize ,i->nucleons()*m_itemSize, m_itemSize,m_itemSize);
             item->setToolTip( i18n("Isotope of Element %1 (%2)", i->parentElementNumber() ,i->parentElementSymbol() ) );
-            addItem(item);
+            m_isotopeGroup->addToGroup( item );
         }
     }
 
