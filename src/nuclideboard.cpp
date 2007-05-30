@@ -68,10 +68,12 @@
 : QGraphicsScene(parent)
 {
     m_isotopeGroup = new QGraphicsItemGroup();
+    m_isotopeGroup->setHandlesChildEvents(false);
     addItem( m_isotopeGroup );
 
     m_itemSize = 10;
     drawIsotopes();
+    m_isotopeGroup->scale(1, -1);
 }
 
 void IsotopeScene::displayContextHelp( IsotopeItem * item )
@@ -80,7 +82,7 @@ void IsotopeScene::displayContextHelp( IsotopeItem * item )
     QString html = i18n("<h1>%1</h1> Number: %2", item->isotope()->parentElementSymbol(), item->isotope()->parentElementNumber());
     m_infotext->setHtml( html );
     
-    QPointF itemPos = item->rect().topLeft();
+    QPointF itemPos = item->mapToScene(item->rect().topLeft());
     
     kDebug() << "Position: " << itemPos << endl;
 
@@ -115,6 +117,7 @@ void IsotopeScene::drawIsotopes()
     m_infoitem->setBrush( QBrush( Qt::yellow ) );
 
     QGraphicsItemGroup *group = new QGraphicsItemGroup();
+    group->setZValue(100);
 
     addItem( group );
 
