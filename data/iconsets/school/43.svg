@@ -16,7 +16,7 @@
    inkscape:version="0.45.1"
    version="1.0"
    sodipodi:docbase="/home/jra/Desktop/radioactive"
-   sodipodi:docname="85.svg"
+   sodipodi:docname="43.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs2195">
@@ -209,6 +209,23 @@
        id="path2276"
        d="M 10.956528,1.0198748 L 10.956528,-1.7748336 L 10.956528,1.0198748 z "
        style="fill:#ffffff;fill-opacity:0.75688076;fill-rule:nonzero;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:4;stroke-opacity:1" />
+    <rect
+       style="opacity:0.61162792;fill:#555753;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.69999999;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1951"
+       width="40.001965"
+       height="10.004759"
+       x="-0.0019644466"
+       y="30" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="14.529162"
+       y="39.168156"
+       id="text2840"><tspan
+         sodipodi:role="line"
+         id="tspan2842"
+         x="14.529162"
+         y="39.168156">Tc</tspan></text>
     <path
        sodipodi:nodetypes="ccssscc"
        id="path2277"
@@ -240,22 +257,5 @@
        d="M 19.654354,3.09375 C 12.570189,3.093749 6.810602,8.853336 6.810602,15.9375 C 6.810603,23.021664 12.57019,28.75 19.654354,28.75 C 26.738514,28.75 32.498104,23.021664 32.498104,15.9375 C 32.498104,8.853335 26.738514,3.09375 19.654354,3.09375 z M 19.654354,4.46875 C 25.989514,4.468752 31.123104,9.602337 31.123104,15.9375 C 31.123104,22.272664 25.989514,27.40625 19.654354,27.40625 C 13.319193,27.406249 8.185602,22.272663 8.185602,15.9375 C 8.185601,9.602338 13.319191,4.46875 19.654354,4.46875 z "
        id="path2354"
        sodipodi:nodetypes="csssccsssc" />
-    <rect
-       style="opacity:0.61162792;fill:#555753;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.69999999;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect2197"
-       width="40.001965"
-       height="10.004759"
-       x="-0.0019645691"
-       y="30" />
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       x="13.909853"
-       y="39.168152"
-       id="text2199"><tspan
-         sodipodi:role="line"
-         id="tspan2201"
-         x="13.909853"
-         y="39.168152">At</tspan></text>
   </g>
 </svg>

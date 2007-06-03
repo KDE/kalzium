@@ -16,7 +16,7 @@
    inkscape:version="0.45.1"
    version="1.0"
    sodipodi:docbase="/home/jra/Desktop/radioactive"
-   sodipodi:docname="85.svg"
+   sodipodi:docname="105.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs2195">
@@ -241,21 +241,21 @@
        id="path2354"
        sodipodi:nodetypes="csssccsssc" />
     <rect
-       style="opacity:0.61162792;fill:#555753;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.69999999;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect2197"
-       width="40.001965"
-       height="10.004759"
+       y="30"
        x="-0.0019645691"
-       y="30" />
+       height="10.004759"
+       width="40.001965"
+       id="rect2227"
+       style="opacity:0.61162792;fill:#555753;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.69999999;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       x="13.909853"
+       id="text2229"
        y="39.168152"
-       id="text2199"><tspan
-         sodipodi:role="line"
-         id="tspan2201"
-         x="13.909853"
-         y="39.168152">At</tspan></text>
+       x="11.277794"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#eeeeec;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         y="39.168152"
+         x="11.277794"
+         id="tspan2231"
+         sodipodi:role="line">Db</tspan></text>
   </g>
 </svg>
