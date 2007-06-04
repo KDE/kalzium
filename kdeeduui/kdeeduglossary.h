@@ -14,7 +14,6 @@
 
 #include <kdialog.h>
 
-class QChar;
 class QDomDocument;
 class GlossaryItem;
 
