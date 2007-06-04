@@ -21,7 +21,6 @@
 
 class QPixmap;
 class QString;
-class Element;
 
 #include <QList>
 

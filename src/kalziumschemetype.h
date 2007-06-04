@@ -20,7 +20,6 @@
 #ifndef KALZIUMSCHEMETYPE_H
 #define KALZIUMSCHEMETYPE_H
 
-class QPainter;
 class KalziumSchemeType;
 
 #include <QByteArray>

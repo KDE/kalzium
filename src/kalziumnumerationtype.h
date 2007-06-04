@@ -20,7 +20,6 @@
 #ifndef KALZIUMNUMERATIONTYPE_H
 #define KALZIUMNUMERATIONTYPE_H
 
-class KalziumTableType;
 class KalziumNumerationType;
 
 #include <QByteArray>

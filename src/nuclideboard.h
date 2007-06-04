@@ -31,14 +31,10 @@ class Isotope;
 
 #include <kdialog.h>
 
-class Element;
 class Isotope;
 class InformationItem;
 
-class QPainter;
 class QGraphicsSceneMouseEvent;
-class QPointF;
-class QGraphicsLineItem;
 class QGraphicsTextItem;
 
 /**
