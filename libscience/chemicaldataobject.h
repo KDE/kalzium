@@ -20,12 +20,11 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-#include <QSharedData>
-#include <QSharedDataPointer>
-#include <QVariant>
+#include <QtCore/QSharedData>
+#include <QtCore/QSharedDataPointer>
+#include <QtCore/QVariant>
 
-
-#include <libkdeedu_science_export.h>
+#include "libkdeedu_science_export.h"
 
 class ChemicalDataObjectPrivate;
 /**

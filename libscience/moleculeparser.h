@@ -14,13 +14,13 @@
 #ifndef MOLECULEPARSER_H
 #define MOLECULEPARSER_H
 
-#include <libkdeedu_science_export.h>
+#include "libkdeedu_science_export.h"
 
 #include "element.h"
 #include "parser.h"
 
-#include <QMap>
-#include <QList>
+#include <QtCore/QMap>
+#include <QtCore/QList>
 
 
 /**

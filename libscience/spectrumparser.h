@@ -13,10 +13,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <libkdeedu_science_export.h>
+#include "libkdeedu_science_export.h"
 
-#include <QFile>
-#include <qxml.h>
+#include <QtCore/QFile>
+#include <QtXml/qxml.h>
 
 #include "spectrum.h"
 

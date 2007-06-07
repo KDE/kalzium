@@ -14,9 +14,9 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include <libkdeedu_science_export.h>
+#include "libkdeedu_science_export.h"
 
-#include <QString>
+#include <QtCore/QString>
 
 
 /**

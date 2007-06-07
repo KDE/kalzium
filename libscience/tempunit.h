@@ -20,10 +20,10 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-#include <libkdeedu_science_export.h>
+#include "libkdeedu_science_export.h"
 
-#include <QPair>
-#include <QStringList>
+#include <QtCore/QPair>
+#include <QtCore/QStringList>
 
 /**
  * This class obtains all the info needed to work with the units of measure

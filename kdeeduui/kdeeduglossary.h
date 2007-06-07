@@ -10,7 +10,7 @@
  *   (at your option) any later version.                                   *
  ***************************************************************************/
 
-#include <libkdeedu_ui_export.h>
+#include "libkdeedu_ui_export.h"
 
 #include <kdialog.h>
 

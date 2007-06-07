@@ -21,9 +21,8 @@
  ***************************************************************************/
 
 #include "chemicaldataobject.h"
-#include <libkdeedu_science_export.h>
 
-
+#include "libkdeedu_science_export.h"
 
 /**
  * @author Carsten Niehaus

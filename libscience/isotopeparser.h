@@ -13,11 +13,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QList>
+#include <QtCore/QList>
 
-#include <libkdeedu_science_export.h>
+#include "libkdeedu_science_export.h"
 
-#include <qxml.h>
+#include <QtXml/qxml.h>
 
 class Isotope;
 
