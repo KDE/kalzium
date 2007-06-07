@@ -116,7 +116,7 @@ void MoleculeDialog::updateStatistics()
 	if ( !mol ) return;
 
 	ui.nameLabel->setText( mol->GetTitle() );
-	ui.weightLabel->setText( i18nc( "This 'u' stands for the chemical unit (u for 'units'). Most likely this doesn't need to be translated at all!", "%1 u", QString::number( mol->GetMolWt() ) ) );
+	ui.weightLabel->setText( i18nc( "This 'u' stands for the chemical unit (u for 'units'). Most likely this does not need to be translated at all!", "%1 u", QString::number( mol->GetMolWt() ) ) );
 	ui.formulaLabel->setText( OpenBabel2Wrapper::getPrettyFormula( mol ) );
 	ui.glWidget->update();
 }
