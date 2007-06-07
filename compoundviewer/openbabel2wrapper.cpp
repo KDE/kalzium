@@ -40,8 +40,8 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
 	Avogadro::Molecule *mol = new Avogadro::Molecule;
 	std::ifstream inFileStream( QFile::encodeName(filename) );
 	if ( !inFileStream ) {
-		KMessageBox::warning(  0, i18n( "Problem while opening the file" ),
-				i18n( "Cannot open the specified file." ) );
+		KMessageBox::warning(  0, i18n( "Cannot open the specified file." ),
+                i18n( "Problem while opening the file" ) );
 		delete mol;
 		return 0;
 	}
