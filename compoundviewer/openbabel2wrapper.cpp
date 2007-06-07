@@ -15,6 +15,7 @@
 
 #include <kdebug.h>
 #include <klocale.h>
+#include <kmessagebox.h>
 
 #include <sstream>
 #include <stdio.h>
@@ -26,7 +27,6 @@
 #include <QMouseEvent>
 #include <QLayout>
 #include <QListWidget>
-#include <QMessageBox>
 #include <QRegExp>
 #include <QFile>
 
@@ -40,7 +40,7 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
 	Avogadro::Molecule *mol = new Avogadro::Molecule;
 	std::ifstream inFileStream( QFile::encodeName(filename) );
 	if ( !inFileStream ) {
-		QMessageBox::warning(  0, i18n( "Problem while opening the file" ),
+		KMessageBox::warning(  0, i18n( "Problem while opening the file" ),
 				i18n( "Cannot open the specified file." ) );
 		delete mol;
 		return 0;

@@ -186,7 +186,7 @@ void OBConverter::slotConvert()
         QString ofname = ifname;
 
         //convert foo.blubb to foo.blibb
-        ofname = ofname.replace( "."+iformat, "."+oformat);
+        ofname = ofname.replace( '.'+iformat, '.'+oformat);
         
         bool proceed=true;
         

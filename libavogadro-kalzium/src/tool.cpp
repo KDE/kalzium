@@ -65,10 +65,10 @@ namespace Avogadro {
 
   QAction* Tool::activateAction() const {
 
-    if(d->activateAction->toolTip() == "")
+    if(d->activateAction->toolTip().isEmpty())
       d->activateAction->setToolTip(description());
 
-    if(d->activateAction->text() == "")
+    if(d->activateAction->text().isEmpty())
       d->activateAction->setText(name());
 
     return d->activateAction; 
