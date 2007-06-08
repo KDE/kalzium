@@ -79,7 +79,7 @@ void MoleculeDialog::slotLoadMolecule()
 			"*.cml *.xyz *.ent *.pdb *.alc *.chm *.cdx *.cdxml *.c3d1 *.c3d2"
 			" *.gpr *.mdl *.mol *.sdf *.sd *.crk3d *.cht *.dmol *.bgf"
 			" *.gam *.inp *.gamin *.gamout *.tmol *.fract"
-			" *.mpd *.mol2|"+commonMoleculeFormats+'\n'
+			" *.mpd *.mol2|"+commonMoleculeFormats+"\n"
 			"* *.*|"+allFiles,
 			this,
 			i18n("Choose a file to open"));
