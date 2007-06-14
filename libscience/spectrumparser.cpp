@@ -16,7 +16,6 @@ email                : cniehaus@kde.org
 #include <qdom.h>
 #include <QList>
 #include <QFile>
-#include <QStringList>
 
 #include <kdebug.h>
 
