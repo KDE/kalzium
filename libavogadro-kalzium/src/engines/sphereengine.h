@@ -34,7 +34,6 @@
 
 #include <QGLWidget>
 #include <QObject>
-#include <QStringList>
 #include <QImage>
 
 namespace Avogadro {

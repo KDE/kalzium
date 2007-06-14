@@ -34,7 +34,6 @@
 #include <QImage>
 #include <QLayout>
 #include <QPushButton>
-#include <QStringList>
 #include <QStackedWidget>
 
 #include "element.h"

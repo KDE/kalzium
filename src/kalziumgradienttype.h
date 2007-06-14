@@ -24,7 +24,6 @@ class KalziumGradientType;
 
 #include <QByteArray>
 #include <QColor>
-#include <QStringList>
 
 /**
  * Factory for KalziumGradientType classes.

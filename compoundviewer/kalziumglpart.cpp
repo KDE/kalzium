@@ -15,7 +15,6 @@
 
 #include <kparts/genericfactory.h>
 
-#include <QStringList>
 
 #include <avogadro/primitive.h>
 #include <avogadro/toolgroup.h>

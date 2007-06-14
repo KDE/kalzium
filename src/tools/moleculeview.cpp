@@ -26,7 +26,6 @@
 #include <QMouseEvent>
 #include <QLayout>
 #include <QDir>
-#include <QStringList>
 
 using namespace OpenBabel;
 

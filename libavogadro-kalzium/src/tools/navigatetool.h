@@ -33,7 +33,6 @@
 
 #include <QGLWidget>
 #include <QObject>
-#include <QStringList>
 #include <QAction>
 
 namespace Avogadro {

@@ -21,7 +21,6 @@
 
 #include "rsdialog.h"
 
-#include <QStringList>
 #include <QRegExp>
 
 #include "kalziumdataobject.h"

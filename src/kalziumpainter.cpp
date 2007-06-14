@@ -40,7 +40,6 @@
 #include <QPoint>
 #include <QRect>
 #include <QSize>
-#include <QStringList>
 #include <QPolygon>
 #include <QPainterPath>
 
