@@ -354,8 +354,13 @@ bool ElementSaxParser::characters(const QString &ch)
         d->inSPhrase = false;
     }
     else if (d->inCountry){
-        value = ch;
-        type = ChemicalDataObject::discoveryCountry; 
+        if ( ch == "ancient" ) {
+            value = -1;
+            type = ChemicalDataObject::date; 
+        } else {
+            value = ch;
+            type = ChemicalDataObject::discoveryCountry; 
+        }
         d->inCountry = false;
     }
     else//it is a non known value. Do not create a wrong object but return
