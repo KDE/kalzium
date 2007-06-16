@@ -84,7 +84,7 @@ double KalziumUtils::strippedValue( double num )
 QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObelisk kind )
 {
     if (!el) return "error";
-    
+
     QString result;
     double val = 0.0; //the value to convert
 
@@ -177,9 +177,13 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
         case ChemicalDataObject::date: // a date
             {
                 val = el->dataAsVariant( kind ).toInt();
-                result = val < 1600
-                    ? i18n( "This element was known to ancient cultures." )
-                    : i18n( "This element was discovered in the year %1.", val );
+                if ( val > 1600 ) {
+                    result = i18n( "This element was discovered in the year %1.", val );
+                }else if( val == 0 ){
+                    result = i18n( "Unknown." );
+                } else {
+                    result = i18n( "This element was known to ancient cultures." );
+                }
                 break;
             }
             //FIXME nothing done here...
