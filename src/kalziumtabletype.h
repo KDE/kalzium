@@ -148,10 +148,17 @@ class KalziumTableType
 	protected:
 		KalziumTableType();
 
-        /**
-        * This QList stores the numbers of the elements the table will display
-        */
-        QList<int> m_elementList;
+                /**
+                 * This QList stores the numbers of the elements the table will display
+                 */
+                QList<int> m_elementList;
+
+		/**
+		 * @return the coordinates of the element under the point
+		 * @p coords.
+		 * For example, H will be 1/1 and Li will be 1/2
+		 */
+		QPoint elementUnderMouse( const QPoint& coords ) const;
 };
 
 /**
@@ -174,13 +181,6 @@ class KalziumClassicTableType : public KalziumTableType
 
 	private:
 		KalziumClassicTableType();
-
-		/**
-		 * @return the coordinates of the element under the point
-		 * @p coords.
-		 * For example, H will be 1/1 and Li will be 1/2
-		 */
-		QPoint elementUnderMouse( const QPoint& coords ) const;
 };
 
 /**
@@ -206,13 +206,6 @@ class KalziumShortTableType : public KalziumTableType
 
 	private:
 		KalziumShortTableType();
-
-		/**
-		 * @return the coordinates of the element under the point
-		 * @p coords.
-		 * For example, H will be 1/1 and Li will be 1/2
-		 */
-		QPoint elementUnderMouse( const QPoint& coords ) const;
 
         /**
           * @return The number of the element in this scheme. As we skip
@@ -248,12 +241,6 @@ class KalziumDTableType : public KalziumTableType
 	private:
 		KalziumDTableType();
 
-		/**
-		 * @return the coordinates of the element under the point
-		 * @p coords.
-		 */
-		QPoint elementUnderMouse( const QPoint& coords ) const;
-
         /**
           * @return The number of the element in this scheme. As we skip
           *         the s-, p and f-block, for example element 1st is infact the 21st
@@ -283,13 +270,6 @@ class KalziumDZTableType : public KalziumTableType
 
 	private:
 		KalziumDZTableType();
-
-		/**
-		 * @return the coordinates of the element under the point
-		 * @p coords.
-		 * For example, H will be 1/1 and Li will be 1/2
-		 */
-		QPoint elementUnderMouse( const QPoint& coords ) const;
 };
 
 #endif // KALZIUMTABLETYPE_H

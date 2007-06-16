@@ -135,52 +135,52 @@ static const int posYDZ[117] = {
 
 KalziumTableTypeFactory::KalziumTableTypeFactory()
 {
-	m_tables << KalziumClassicTableType::instance();
-	m_tables << KalziumShortTableType::instance();
-	m_tables << KalziumDTableType::instance();
-	m_tables << KalziumDZTableType::instance();
+    m_tables << KalziumClassicTableType::instance();
+    m_tables << KalziumShortTableType::instance();
+    m_tables << KalziumDTableType::instance();
+    m_tables << KalziumDZTableType::instance();
 }
 
 KalziumTableTypeFactory* KalziumTableTypeFactory::instance()
 {
-	static KalziumTableTypeFactory kttf;
-	return &kttf;
+    static KalziumTableTypeFactory kttf;
+    return &kttf;
 }
 
 KalziumTableType* KalziumTableTypeFactory::build( int id ) const
 {
-	if ( ( id < 0 ) || ( id >= m_tables.count() ) )
-		return 0;
+    if ( ( id < 0 ) || ( id >= m_tables.count() ) )
+        return 0;
 
-	return m_tables.at( id );
+    return m_tables.at( id );
 }
 
 KalziumTableType* KalziumTableTypeFactory::build( const QByteArray& id ) const
 {
-	for ( int i = 0; i < m_tables.count(); i++ )
-	{
-		if ( m_tables.at( i )->name() == id )
-			return m_tables.at( i );
-	}
-	
-	// not found
-	return 0;
+    for ( int i = 0; i < m_tables.count(); i++ )
+    {
+        if ( m_tables.at( i )->name() == id )
+            return m_tables.at( i );
+    }
+
+    // not found
+    return 0;
 }
 
 QStringList KalziumTableTypeFactory::tables() const
 {
-	QStringList l;
-	for ( int i = 0; i < m_tables.count(); i++ )
-	{
-		l << m_tables.at( i )->description();
-	}
-	return l;
+    QStringList l;
+    for ( int i = 0; i < m_tables.count(); i++ )
+    {
+        l << m_tables.at( i )->description();
+    }
+    return l;
 }
 
 
 KalziumTableType* KalziumTableType::instance()
 {
-	return 0;
+    return 0;
 }
 
 KalziumTableType::KalziumTableType()
@@ -193,117 +193,115 @@ KalziumTableType::~KalziumTableType()
 
 int KalziumTableType::previousOf( int element ) const
 {
-	return element > 1 ? element - 1 : -1;
+    return element > 1 ? element - 1 : -1;
 }
 
 int KalziumTableType::nextOf( int element ) const
 {
-	return element < KalziumDataObject::instance()->numberOfElements() ? element + 1 : -1;
+    return element < KalziumDataObject::instance()->numberOfElements() ? element + 1 : -1;
 }
 
 int KalziumTableType::firstElement() const
 {
-	return 1;
+    return 1;
 }
 
 QList<int> KalziumTableType::elementList() const
 {
-	return m_elementList;
+    return m_elementList;
 }
 
 QRect KalziumTableType::numerationRect( const int num, KalziumNumerationType *nt ) const
 {
-	if ( !nt ) return QRect();
+    if ( !nt ) return QRect();
 
-	int c = nt->items().count();
-	if ( ( num < 0 ) || ( num >= c ) )
-		return QRect();
+    int c = nt->items().count();
+    if ( ( num < 0 ) || ( num >= c ) )
+        return QRect();
 
-	return QRect( num * ELEMENTSIZE, 0, ELEMENTSIZE, ELEMENTSIZE );
+    return QRect( num * ELEMENTSIZE, 0, ELEMENTSIZE, ELEMENTSIZE );
 }
+
+QPoint KalziumTableType::elementUnderMouse( const QPoint& coords ) const
+{
+    int X = coords.x() / ELEMENTSIZE;
+    int Y = coords.y() - ELEMENTSIZE;
+
+    X += 1;
+    Y = Y / ELEMENTSIZE + 1;
+
+    return QPoint( X, Y );
+}
+
 
 KalziumClassicTableType* KalziumClassicTableType::instance()
 {
-	static KalziumClassicTableType kctt;
-	return &kctt;
+    static KalziumClassicTableType kctt;
+    return &kctt;
 }
 
-KalziumClassicTableType::KalziumClassicTableType()
-  : KalziumTableType()
+    KalziumClassicTableType::KalziumClassicTableType()
+: KalziumTableType()
 {
-	const int numElements = KalziumDataObject::instance()->numberOfElements();
+    const int numElements = KalziumDataObject::instance()->numberOfElements();
     for (int i = 1 ; i < numElements ; i++) 
         m_elementList.append(i);
 }
 
 QByteArray KalziumClassicTableType::name() const
 {
-	return "Classic";
+    return "Classic";
 }
 
 QString KalziumClassicTableType::description() const
 {
-	return i18n( "Classic Periodic Table" );
+    return i18n( "Classic Periodic Table" );
 }
 
 QSize KalziumClassicTableType::size() const
 {
-	return QSize( ELEMENTSIZE * 18 + 1, ELEMENTSIZE * 11 );
+    return QSize( ELEMENTSIZE * 18 + 1, ELEMENTSIZE * 11 );
 }
 
 int KalziumClassicTableType::elementAtCoords( const QPoint& coords ) const
 {
-	const QPoint ourcoord = elementUnderMouse( coords );
+    const QPoint ourcoord = elementUnderMouse( coords );
 
-	int x = 0;
-	int y = 0;
+    int x = 0;
+    int y = 0;
     foreach (int counter, m_elementList )
-	{
-		x = posXRegular[counter-1];
-		y = posYRegular[counter-1];
-		if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) ) {
-			return counter;
+    {
+        x = posXRegular[counter-1];
+        y = posYRegular[counter-1];
+        if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) ) {
+            return counter;
         }
-	}
+    }
 
-	// not found
-	return 0;
+    // not found
+    return 0;
 }
 
 QRect KalziumClassicTableType::elementRect( const int numelem ) const
 {
-	// x coord
-	int x = ( posXRegular[numelem-1] - 1 ) * ELEMENTSIZE;
-	// y coord
-	int y = ( posYRegular[numelem-1] ) * ELEMENTSIZE;
+    // x coord
+    int x = ( posXRegular[numelem-1] - 1 ) * ELEMENTSIZE;
+    // y coord
+    int y = ( posYRegular[numelem-1] ) * ELEMENTSIZE;
 
-	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
-}
-
-QPoint KalziumClassicTableType::elementUnderMouse( const QPoint& coords ) const
-{
-	int X = coords.x() / ELEMENTSIZE;
-	int Y = coords.y() - ELEMENTSIZE;
-
-	if ( Y > ( ELEMENTSIZE * 7 ) )
-		Y -= ELEMENTSIZE / 3;
-
-	X += 1;
-	Y = Y / ELEMENTSIZE + 1;
-
-	return QPoint( X, Y );
+    return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
 
 //////////////////////////// SHORT /////////////////////////////////////////
 
 KalziumShortTableType* KalziumShortTableType::instance()
 {
-	static KalziumShortTableType kctt;
-	return &kctt;
+    static KalziumShortTableType kctt;
+    return &kctt;
 }
 
-KalziumShortTableType::KalziumShortTableType()
-  : KalziumTableType()
+    KalziumShortTableType::KalziumShortTableType()
+: KalziumTableType()
 {
     //I now need to append all the elements which are in the short table
     //The short table only shows elements in the s and p-block, that means
@@ -320,37 +318,38 @@ KalziumShortTableType::KalziumShortTableType()
 
 QByteArray KalziumShortTableType::name() const
 {
-	return "Short";
+    return "Short";
 }
 
 QString KalziumShortTableType::description() const
 {
-	return i18n( "Short Periodic Table" );
+    return i18n( "Short Periodic Table" );
 }
 
 QSize KalziumShortTableType::size() const
 {
-	return QSize( ELEMENTSIZE * 8 + 1, ELEMENTSIZE * 8 );
+    return QSize( ELEMENTSIZE * 8 + 1, ELEMENTSIZE * 8 );
 }
 
 int KalziumShortTableType::elementAtCoords( const QPoint& coords ) const
 {
-	const QPoint ourcoord = elementUnderMouse( coords );
+    const QPoint ourcoord = elementUnderMouse( coords );
 
-	int x = 0;
-	int y = 0;
+    int x = 0;
+    int y = 0;
 
     foreach (int counter, m_elementList )
-	{
-		x = posXShort[counter-1];
-		y = posYShort[counter-1];
-		if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) ){
-			return counter;
-        }
-	}
+    {
+        x = posXShort[counter-1];
+        y = posYShort[counter-1];
 
-	// not found
-	return 0;
+        if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) ){
+            return counter;
+        }
+    }
+
+    // not found
+    return 0;
 }
 
 int KalziumShortTableType::translateToShort(int num)
@@ -365,7 +364,7 @@ int KalziumShortTableType::translateToShort(int num)
     //now 49 to 56
     if ( num < 57 && num > 48 )
         return num-20;
-    
+
     //now 81 to 88
     if ( num < 89 && num > 80 )
         return num-44;
@@ -383,38 +382,27 @@ QRect KalziumShortTableType::elementRect( const int numelem ) const
     } else {
     }
 
-	// x coord
-	int x = ( posXShort[realElementNumber-1] - 1 ) * ELEMENTSIZE;
-	// y coord
-	int y = ( posYShort[realElementNumber-1] ) * ELEMENTSIZE;
-    
-    
-//    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1] << endl;
+    // x coord
+    int x = ( posXShort[realElementNumber-1] - 1 ) * ELEMENTSIZE;
+    // y coord
+    int y = ( posYShort[realElementNumber-1] ) * ELEMENTSIZE;
 
-	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
-}
 
-QPoint KalziumShortTableType::elementUnderMouse( const QPoint& coords ) const
-{
-	int X = coords.x() / ELEMENTSIZE;
-	int Y = coords.y() - ELEMENTSIZE;
-	
-    X += 1;
-	Y = Y / ELEMENTSIZE + 1;
-    
-	return QPoint( X, Y );
+    //    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1] << endl;
+
+    return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
 
 int KalziumShortTableType::previousOf( int element ) const
 {
-	int index = m_elementList.indexOf( element );
-	return index > 1 ? m_elementList.at( index - 1 ) : -1;
+    int index = m_elementList.indexOf( element );
+    return index > 1 ? m_elementList.at( index - 1 ) : -1;
 }
 
 int KalziumShortTableType::nextOf( int element ) const
 {
-	int index = m_elementList.indexOf( element );
-	return index != -1 && ( index < m_elementList.count() - 1 ) ? m_elementList.at( index + 1 ) : -1;
+    int index = m_elementList.indexOf( element );
+    return index != -1 && ( index < m_elementList.count() - 1 ) ? m_elementList.at( index + 1 ) : -1;
 }
 
 
@@ -422,71 +410,70 @@ int KalziumShortTableType::nextOf( int element ) const
 
 KalziumDTableType* KalziumDTableType::instance()
 {
-	static KalziumDTableType kctt;
-	return &kctt;
+    static KalziumDTableType kctt;
+    return &kctt;
 }
 
-KalziumDTableType::KalziumDTableType()
-  : KalziumTableType()
+    KalziumDTableType::KalziumDTableType()
+: KalziumTableType()
 {
     for (int i = 21 ; i < 31 ; i++) 
         m_elementList.append(i);
-    
+
     for (int i = 39 ; i < 49 ; i++) 
         m_elementList.append(i);
-    
+
     m_elementList.append(57);//Adding La
-    
+
     for (int i = 72 ; i < 81 ; i++) 
         m_elementList.append(i);
-    
+
     m_elementList.append(89);//Adding Ac
-    
+
     for (int i = 104 ; i < 113 ; i++) 
         m_elementList.append(i);
 }
 
 QByteArray KalziumDTableType::name() const
 {
-	return "D";
+    return "D";
 }
 
 QString KalziumDTableType::description() const
 {
-	return i18n( "Transition Elements" );
+    return i18n( "Transition Elements" );
 }
 
 int KalziumDTableType::firstElement() const
 {
     //The d-tables starts with Scandium, element 21
-	return 21;
+    return 21;
 }
 
 
 QSize KalziumDTableType::size() const
 {
-	return QSize( ELEMENTSIZE * 10 + 1, ELEMENTSIZE * 4 );
+    return QSize( ELEMENTSIZE * 10 + 1, ELEMENTSIZE * 4 );
 }
 
 int KalziumDTableType::elementAtCoords( const QPoint& coords ) const
 {
-//    kDebug() << "KalziumDTableType::elementAtCoords()" << endl;
-	const QPoint ourcoord = elementUnderMouse( coords );
+    const QPoint ourcoord = elementUnderMouse( coords );
 
-	int x = 0;
-	int y = 0;
+    int x = 0;
+    int y = 0;
 
     foreach (int counter, m_elementList )
-	{
-		x = posXD[counter-1];
-		y = posYD[counter-1];
-		if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) ){
-			return counter;
+    {
+        x = posXD[counter-1];
+        y = posYD[counter-1];
+        if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) ){
+            return counter;
         }
-	}
+    }
 
-	// not found
-	return 0;
+    // not found
+    return 0;
 }
 
 int KalziumDTableType::translateToD(int num)
@@ -504,11 +491,11 @@ int KalziumDTableType::translateToD(int num)
     //21 becomes 57 (Lanthan)
     if ( num == 57 ) 
         return 21;
-    
+
     //22 becomes 72, 30 becomes 80
     if ( num > 71 && num < 81 ) 
         return num-50;
-    
+
     //31 becomes 89 (Ac)
     if ( num == 89 ) 
         return 31;
@@ -530,37 +517,26 @@ QRect KalziumDTableType::elementRect( const int numelem ) const
     } else {
     }
 
-	// x coord
-	int x = ( posXD[realElementNumber-1] - 1 ) * ELEMENTSIZE;
-	// y coord
-	int y = ( posYD[realElementNumber-1] ) * ELEMENTSIZE;
-    
-//    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1] << endl;
+    // x coord
+    int x = ( posXD[realElementNumber-1] - 1 ) * ELEMENTSIZE;
+    // y coord
+    int y = ( posYD[realElementNumber-1] ) * ELEMENTSIZE;
 
-	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
-}
+    //    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1] << endl;
 
-QPoint KalziumDTableType::elementUnderMouse( const QPoint& coords ) const
-{
-	int X = coords.x() / ELEMENTSIZE;
-	int Y = coords.y() - ELEMENTSIZE;
-	
-    X += 1;
-	Y = Y / ELEMENTSIZE + 1;
-    
-	return QPoint( X, Y );
+    return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
 
 int KalziumDTableType::previousOf( int element ) const
 {
-	int index = m_elementList.indexOf( element );
-	return index > 1 ? m_elementList.at( index - 1 ) : -1;
+    int index = m_elementList.indexOf( element );
+    return index > 1 ? m_elementList.at( index - 1 ) : -1;
 }
 
 int KalziumDTableType::nextOf( int element ) const
 {
-	int index = m_elementList.indexOf( element );
-	return index != -1 && ( index < m_elementList.count() - 1 ) ? m_elementList.at( index + 1 ) : -1;
+    int index = m_elementList.indexOf( element );
+    return index != -1 && ( index < m_elementList.count() - 1 ) ? m_elementList.at( index + 1 ) : -1;
 }
 
 //////////// DZ ////////////////////////////////////////////////////////////////////////////
@@ -623,16 +599,5 @@ QRect KalziumDZTableType::elementRect( const int numelem ) const
     int y = ( posYDZ[numelem-1] ) * ELEMENTSIZE;
 
     return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
-}
-
-QPoint KalziumDZTableType::elementUnderMouse( const QPoint& coords ) const
-{
-    int X = coords.x() / ELEMENTSIZE;
-    int Y = coords.y() - ELEMENTSIZE;
-
-    X += 1;
-    Y = Y / ELEMENTSIZE + 1;
-
-    return QPoint( X, Y );
 }
 
