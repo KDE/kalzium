@@ -116,9 +116,6 @@ class DetailedInfoDlg : public KPageDialog
 		 */
 		virtual void slotHelp();
 
-	protected:
-		virtual void wheelEvent (  QWheelEvent * ev );
-
 	signals:
 		void elementChanged( int );
 };

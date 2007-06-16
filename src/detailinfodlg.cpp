@@ -544,16 +544,6 @@ void DetailedInfoDlg::slotHelp()
 	KToolInvocation::invokeHelp( "infodialog_spectrum", QLatin1String( "kalzium" ) );
 }
 
-void DetailedInfoDlg::wheelEvent( QWheelEvent *ev )
-{
-	if ( ev->delta() < 0 )
-		// setting the previous element
-		slotUser2();
-	else
-		// setting the next element
-		slotUser1();
-}
-
 void DetailedInfoDlg::slotUser1()
 {
     setElement( m_ktt->nextOf( m_elementNumber ) );
