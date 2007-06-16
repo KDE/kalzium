@@ -280,8 +280,8 @@ QRect KalziumClassicTableType::elementRect( const int numelem ) const
 	// mind the small gap over rare earth!
 	// 57=Lanthanum, 72=Hafnium, 89=Actinium & 104=Rutherfordium (i.e., if
 	// n_number is in rare earth's block)
-	if ( ( numelem > 57 && numelem < 72 ) || ( numelem > 89 && numelem < 104 ) )
-		y += ELEMENTSIZE / 3;
+//X 	if ( ( numelem > 57 && numelem < 72 ) || ( numelem > 89 && numelem < 104 ) )
+//X 		y += ELEMENTSIZE / 3;
 
 	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
@@ -292,8 +292,8 @@ QPoint KalziumClassicTableType::elementUnderMouse( const QPoint& coords ) const
 	int Y = coords.y() - ELEMENTSIZE;
 
 	// mind the gap over rare earth!
-	if ( Y >= ( ELEMENTSIZE * 7 ) && Y < ( ELEMENTSIZE * 7 + ELEMENTSIZE / 3 + 1 ) )
-		return QPoint();
+//X 	if ( Y >= ( ELEMENTSIZE * 7 ) && Y < ( ELEMENTSIZE * 7 + ELEMENTSIZE / 3 + 1 ) )
+//X 		return QPoint();
 
 	if ( Y > ( ELEMENTSIZE * 7 ) )
 		Y -= ELEMENTSIZE / 3;
