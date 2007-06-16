@@ -233,6 +233,7 @@ QPoint KalziumTableType::elementUnderMouse( const QPoint& coords ) const
     return QPoint( X, Y );
 }
 
+//////////// Classis //////////////////////////////////////////////////////////////////////
 
 KalziumClassicTableType* KalziumClassicTableType::instance()
 {
@@ -340,8 +341,9 @@ int KalziumShortTableType::elementAtCoords( const QPoint& coords ) const
 
     foreach (int counter, m_elementList )
     {
-        x = posXShort[counter-1];
-        y = posYShort[counter-1];
+        int realNum = translateToShort( counter );
+        x = posXShort[realNum-1];
+        y = posYShort[realNum-1];
 
         if ( ( ourcoord.x() == x ) && ( ourcoord.y() == y ) ){
             return counter;
