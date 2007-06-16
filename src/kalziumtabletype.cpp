@@ -45,9 +45,9 @@ static const int posYRegular[117] = {
 	3, 3,                                  3,  3,  3,  3,  3,  3,
 	4, 4, 4, 4, 4, 4, 4, 4, 4, 4,  4,  4,  4,  4,  4,  4,  4,  4,
 	5, 5, 5, 5, 5, 5, 5, 5, 5, 5,  5,  5,  5,  5,  5,  5,  5,  5, //Element 54 (Xe)
-	6, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,    //Element 71 (Lr)
+	6, 6, 6, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,    //Element 71 (Lr)
 	6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
-	7, 7, 7, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
+	7, 7, 7, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
 	7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7
 };
 
@@ -248,7 +248,7 @@ QString KalziumClassicTableType::description() const
 
 QSize KalziumClassicTableType::size() const
 {
-	return QSize( ELEMENTSIZE * 18 + 1, ELEMENTSIZE * 10 + 30 );
+	return QSize( ELEMENTSIZE * 18 + 1, ELEMENTSIZE * 11 );
 }
 
 int KalziumClassicTableType::elementAtCoords( const QPoint& coords ) const
@@ -277,12 +277,6 @@ QRect KalziumClassicTableType::elementRect( const int numelem ) const
 	// y coord
 	int y = ( posYRegular[numelem-1] ) * ELEMENTSIZE;
 
-	// mind the small gap over rare earth!
-	// 57=Lanthanum, 72=Hafnium, 89=Actinium & 104=Rutherfordium (i.e., if
-	// n_number is in rare earth's block)
-//X 	if ( ( numelem > 57 && numelem < 72 ) || ( numelem > 89 && numelem < 104 ) )
-//X 		y += ELEMENTSIZE / 3;
-
 	return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
 
@@ -290,10 +284,6 @@ QPoint KalziumClassicTableType::elementUnderMouse( const QPoint& coords ) const
 {
 	int X = coords.x() / ELEMENTSIZE;
 	int Y = coords.y() - ELEMENTSIZE;
-
-	// mind the gap over rare earth!
-//X 	if ( Y >= ( ELEMENTSIZE * 7 ) && Y < ( ELEMENTSIZE * 7 + ELEMENTSIZE / 3 + 1 ) )
-//X 		return QPoint();
 
 	if ( Y > ( ELEMENTSIZE * 7 ) )
 		Y -= ELEMENTSIZE / 3;
