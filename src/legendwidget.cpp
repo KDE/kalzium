@@ -40,6 +40,7 @@
 LegendWidget::LegendWidget( QWidget *parent )
   : QWidget( parent )
 {
+    setMinimumHeight(80);
 }
 
 void LegendWidget::setGradientType( KalziumGradientType * type )
