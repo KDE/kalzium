@@ -12,6 +12,7 @@ Comment[ja]=分子ビューアのための OpenGL ベースの 3D レンダラ�
 Comment[pa]=ਅਣੂ ਲਈ ਓਪਨ-GL ਅਧਾਰਿਤ 3D-ਰੈਂਡਰਿੰਗ
 Comment[sv]=OpenGL-baserad tredimensionell molekyluppritning
 Comment[x-test]=xxAn OpenGL-based 3D-renderer for moleculesxx
+Comment[zh_TW]=OpenGL 與 3D 成像的分子圖形
 ServiceTypes=KParts/ReadOnlyPart
 Type=Service
 X-KDE-Library=libkalziumglpart
