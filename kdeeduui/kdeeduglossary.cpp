@@ -276,6 +276,41 @@ QList<GlossaryItem*> Glossary::readItems( QDomDocument &itemDocument )
 	return list;
 }
 
+void Glossary::addItem( GlossaryItem* item )
+{
+    m_itemlist.append( item );
+}
+
+QList<GlossaryItem*> Glossary::itemlist()const
+{
+    return m_itemlist;
+}
+
+void Glossary::clear()
+{
+    m_itemlist.clear();
+}
+
+QString Glossary::name()const
+{
+    return m_name;
+}
+
+void Glossary::setItemlist( QList<GlossaryItem*> list )
+{
+    m_itemlist = list;
+}
+
+QString Glossary::picturePath()const
+{
+    return m_picturepath;
+}
+
+QString Glossary::backgroundPicture()const
+{
+    return m_backgroundpicture;
+}
+
 GlossaryDialog::GlossaryDialog( QWidget *parent )
     : KDialog( parent ), d( new Private( this ) )
 {
@@ -477,5 +512,38 @@ QString GlossaryItem::parseReferences() const
 	return htmlcode;
 }
 
+void GlossaryItem::setName( const QString& s )
+{
+    m_name = s;
+}
+
+void GlossaryItem::setDesc( const QString& s)
+{
+    m_desc = s;
+}
+
+void GlossaryItem::setPictures( const QString& s ){
+    m_pic = QStringList(s);
+}
+
+QString GlossaryItem::name() const 
+{
+    return m_name;
+}
+
+QString GlossaryItem::desc() const 
+{
+    return m_desc;
+}
+
+QStringList GlossaryItem::ref() const 
+{
+    return m_ref;
+}
+
+QStringList GlossaryItem::pictures() const 
+{
+    return m_pic;
+}
 
 #include "kdeeduglossary.moc"

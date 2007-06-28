@@ -47,20 +47,14 @@ class KDEEDUUI_EXPORT Glossary
 		/**
 		 * add the item @p item to the glossary
 		 */
-		void addItem( GlossaryItem* item ){
-			m_itemlist.append( item );
-		}
+		void addItem( GlossaryItem* item );
 
-		QList<GlossaryItem*> itemlist()const{
-			return m_itemlist;
-		}
+		QList<GlossaryItem*> itemlist()const;
 
 		/**
 		 * clear the Glossary
 		 */
-		void clear(){
-			m_itemlist.clear();
-		}
+		void clear();
 
 		/**
 		 * does this glossary have items?
@@ -76,16 +70,12 @@ class KDEEDUUI_EXPORT Glossary
 		/**
 		 * @returns the name of the glossary
 		 */
-		QString name()const{
-			return m_name;
-		}
+		QString name()const;
 
 		/**
 		 * sets the internal list of items to @p list
 		 */
-		void setItemlist( QList<GlossaryItem*> list ){
-			m_itemlist = list;
-		}
+		void setItemlist( QList<GlossaryItem*> list );
 
 		/**
 		 * Every glossaryitem can show pictures. [img src="foo.png]
@@ -94,9 +84,7 @@ class KDEEDUUI_EXPORT Glossary
 		 */
 		void setPicturePath( const QString& path );
 
-		QString picturePath()const{
-			return m_picturepath;
-		}
+		QString picturePath()const;
 
 		/**
 		 * defines which picture to use as the background
@@ -109,9 +97,7 @@ class KDEEDUUI_EXPORT Glossary
 		 * @return the picuture used as the background in 
 		 * this background
 		 */
-		QString backgroundPicture()const{
-			return m_backgroundpicture;
-		}
+		QString backgroundPicture()const;
 
 	protected:
 		void init( const KUrl& url, const QString& path );
@@ -172,13 +158,9 @@ class KDEEDUUI_EXPORT GlossaryItem
 		GlossaryItem(){}
 		~GlossaryItem(){}
 
-		void setName( const QString& s ){
-			m_name = s;
-		}
+		void setName( const QString& s );
 
-		void setDesc( const QString& s){
-			m_desc = s;
-		}
+		void setDesc( const QString& s);
 
 		/**
 		 * Set the references for the current GlossaryItem to
@@ -188,25 +170,15 @@ class KDEEDUUI_EXPORT GlossaryItem
 		 */
 		void setRef( const QStringList& s);
 	
-		void setPictures( const QString& s ){
-			m_pic = QStringList(s);
-		}
+		void setPictures( const QString& s );
 
-		QString name() const {
-			return m_name;
-		}
+		QString name() const;
 		
-		QString desc() const {
-			return m_desc;
-		}
+		QString desc() const;
 		
-		QStringList ref() const {
-			return m_ref;
-		}
+		QStringList ref() const;
 		
-		QStringList pictures() const {
-			return m_pic;
-		}
+		QStringList pictures() const;
 		
 		/**
 		 * @return the formated HTML code for current item.
