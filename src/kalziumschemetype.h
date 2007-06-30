@@ -227,46 +227,46 @@ class KalziumGroupsSchemeType : public KalziumSchemeType
 		KalziumGroupsSchemeType();
 };
 
-/**
- * The scheme for the crystal structures.
- *
- * @author Carsten Niehaus
- */
-class KalziumCrystalSchemeType : public KalziumSchemeType
-{
-	public:
-		static KalziumCrystalSchemeType* instance();
-		
-		QByteArray name() const;
-		QString description() const;
+//X /**
+//X  * The scheme for the crystal structures.
+//X  *
+//X  * @author Carsten Niehaus
+//X  */
+//X class KalziumCrystalSchemeType : public KalziumSchemeType
+//X {
+//X 	public:
+//X 		static KalziumCrystalSchemeType* instance();
+//X 		
+//X 		QByteArray name() const;
+//X 		QString description() const;
+//X 
+//X 		QBrush elementBrush( int el, const QRect& elrect ) const;
+//X 		QColor textColor( int el ) const;
+//X 
+//X 		QList<legendPair> legendItems() const;
+//X 
+//X 	private:
+//X 		KalziumCrystalSchemeType();
+//X };
 
-		QBrush elementBrush( int el, const QRect& elrect ) const;
-		QColor textColor( int el ) const;
-
-		QList<legendPair> legendItems() const;
-
-	private:
-		KalziumCrystalSchemeType();
-};
-
-/**
- * @author Carsten Niehaus
- */
-class KalziumDiscoverymapSchemeType : public KalziumSchemeType
-{
-	public:
-		static KalziumDiscoverymapSchemeType* instance();
-		
-		QByteArray name() const;
-		QString description() const;
-
-		QBrush elementBrush( int el, const QRect& elrect ) const;
-		QColor textColor( int el ) const;
-
-		QList<legendPair> legendItems() const;
-
-	private:
-		KalziumDiscoverymapSchemeType();
-};
+//X /**
+//X  * @author Carsten Niehaus
+//X  */
+//X class KalziumDiscoverymapSchemeType : public KalziumSchemeType
+//X {
+//X 	public:
+//X 		static KalziumDiscoverymapSchemeType* instance();
+//X 		
+//X 		QByteArray name() const;
+//X 		QString description() const;
+//X 
+//X 		QBrush elementBrush( int el, const QRect& elrect ) const;
+//X 		QColor textColor( int el ) const;
+//X 
+//X 		QList<legendPair> legendItems() const;
+//X 
+//X 	private:
+//X 		KalziumDiscoverymapSchemeType();
+//X };
 
 #endif // KALZIUMSCHEMETYPE_H
