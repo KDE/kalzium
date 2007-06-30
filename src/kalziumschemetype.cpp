@@ -35,7 +35,6 @@ KalziumSchemeTypeFactory::KalziumSchemeTypeFactory()
 	m_schemes << KalziumBlocksSchemeType::instance();
 	m_schemes << KalziumIconicSchemeType::instance();
 	m_schemes << KalziumFamilySchemeType::instance();
-	m_schemes << KalziumAcidicSchemeType::instance();
 	m_schemes << KalziumGroupsSchemeType::instance();
 	m_schemes << KalziumCrystalSchemeType::instance();
 	m_schemes << KalziumDiscoverymapSchemeType::instance();
@@ -313,70 +312,6 @@ QList<legendPair> KalziumFamilySchemeType::legendItems() const
 
 	return ll;
 }
-
-
-///Acidic///
-KalziumAcidicSchemeType::KalziumAcidicSchemeType()
-  : KalziumSchemeType()
-{
-}
-
-KalziumAcidicSchemeType* KalziumAcidicSchemeType::instance()
-{
-	static KalziumAcidicSchemeType kbst;
-	return &kbst;
-}
-
-QByteArray KalziumAcidicSchemeType::name() const
-{
-	return "Acidic";
-}
-
-QString KalziumAcidicSchemeType::description() const
-{
-	return i18n( "Acidic Behaviour" );
-}
-
-QBrush KalziumAcidicSchemeType::elementBrush( int el, const QRect& ) const
-{
-	QString acid = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::acidicbehaviour );
-
-	QColor c;
-
-	if (  acid == QLatin1String(  "0" ) ){
-		c = Prefs::beh_acidic();
-	}
-	else if (  acid == QLatin1String(  "1" ) ){
-		c = Prefs::beh_basic();
-	}
-	else if (  acid == QLatin1String(  "2" ) ){
-		c = Prefs::beh_neutral();
-	}
-	else if (  acid == QLatin1String(  "3" ) ){
-		c = Prefs::beh_amphoteric();
-	}
-	else
-		c = Qt::lightGray;
-
-	return QBrush( c );
-}
-
-QColor KalziumAcidicSchemeType::textColor( int ) const
-{
-	return Qt::black;
-}
-
-QList<legendPair> KalziumAcidicSchemeType::legendItems() const
-{
-	QList<legendPair> ll;
-	ll << qMakePair( i18n( "Basic" ), QBrush( Prefs::beh_basic() ) );
-	ll << qMakePair( i18n( "Acidic" ), QBrush( Prefs::beh_acidic() ) );
-	ll << qMakePair( i18n( "Neutral" ), QBrush( Prefs::beh_neutral() ) );
-	ll << qMakePair( i18n( "Amphoteric" ), QBrush( Prefs::beh_amphoteric() ) );
-
-	return ll;
-}
-
 
 ///GROUPS///
 KalziumGroupsSchemeType::KalziumGroupsSchemeType()

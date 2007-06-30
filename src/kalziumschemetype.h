@@ -206,28 +206,6 @@ class KalziumFamilySchemeType : public KalziumSchemeType
 };
 
 /**
- * The scheme for the acidic behaviour.
- *
- * @author Carsten Niehaus
- */
-class KalziumAcidicSchemeType : public KalziumSchemeType
-{
-	public:
-		static KalziumAcidicSchemeType* instance();
-		
-		QByteArray name() const;
-		QString description() const;
-
-		QBrush elementBrush( int el, const QRect& elrect ) const;
-		QColor textColor( int el ) const;
-
-		QList<legendPair> legendItems() const;
-
-	private:
-		KalziumAcidicSchemeType();
-};
-
-/**
  * The scheme for groups representation.
  *
  * @author Carsten Niehaus

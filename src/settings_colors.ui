@@ -13,35 +13,62 @@
    <string>Set Colors</string>
   </property>
   <layout class="QVBoxLayout" >
-   <property name="margin" >
-    <number>9</number>
-   </property>
    <property name="spacing" >
     <number>6</number>
+   </property>
+   <property name="leftMargin" >
+    <number>9</number>
+   </property>
+   <property name="topMargin" >
+    <number>9</number>
+   </property>
+   <property name="rightMargin" >
+    <number>9</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>9</number>
    </property>
    <item>
     <widget class="QTabWidget" name="dfgdfg" >
      <property name="currentIndex" >
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabBlocks" >
       <attribute name="title" >
        <string>&amp;Blocks</string>
       </attribute>
       <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>8</number>
-       </property>
        <property name="spacing" >
         <number>6</number>
        </property>
+       <property name="leftMargin" >
+        <number>8</number>
+       </property>
+       <property name="topMargin" >
+        <number>8</number>
+       </property>
+       <property name="rightMargin" >
+        <number>8</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>8</number>
+       </property>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel13" >
@@ -51,17 +78,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_block_s" />
+          <widget class="KColorButton" native="1" name="kcfg_block_s" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel14" >
@@ -71,17 +107,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_block_p" />
+          <widget class="KColorButton" native="1" name="kcfg_block_p" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel15" >
@@ -91,17 +136,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_block_d" />
+          <widget class="KColorButton" native="1" name="kcfg_block_d" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel16" >
@@ -111,113 +165,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_block_f" />
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tabAcid" >
-      <attribute name="title" >
-       <string>Ac&amp;id Behavior</string>
-      </attribute>
-      <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>8</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item>
-        <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="textLabel9" >
-           <property name="text" >
-            <string>Acidic:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="KColorButton" name="kcfg_beh_acidic" />
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="textLabel10" >
-           <property name="text" >
-            <string>Amphoteric:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="KColorButton" name="kcfg_beh_amphoteric" />
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="textLabel11" >
-           <property name="text" >
-            <string>Neutral:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="KColorButton" name="kcfg_beh_neutral" />
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="textLabel12" >
-           <property name="text" >
-            <string>Basic:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="KColorButton" name="kcfg_beh_basic" />
+          <widget class="KColorButton" native="1" name="kcfg_block_f" />
          </item>
         </layout>
        </item>
@@ -241,19 +189,37 @@
        <string>&amp;Groups</string>
       </attribute>
       <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>8</number>
-       </property>
        <property name="spacing" >
         <number>6</number>
        </property>
+       <property name="leftMargin" >
+        <number>8</number>
+       </property>
+       <property name="topMargin" >
+        <number>8</number>
+       </property>
+       <property name="rightMargin" >
+        <number>8</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>8</number>
+       </property>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel2_2_2" >
@@ -263,17 +229,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_1" />
+          <widget class="KColorButton" native="1" name="kcfg_group_1" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel8" >
@@ -283,17 +258,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_2" />
+          <widget class="KColorButton" native="1" name="kcfg_group_2" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel7" >
@@ -303,17 +287,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_3" />
+          <widget class="KColorButton" native="1" name="kcfg_group_3" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel6" >
@@ -323,17 +316,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_4" />
+          <widget class="KColorButton" native="1" name="kcfg_group_4" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel5_2" >
@@ -343,17 +345,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_5" />
+          <widget class="KColorButton" native="1" name="kcfg_group_5" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel4_2" >
@@ -363,17 +374,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_6" />
+          <widget class="KColorButton" native="1" name="kcfg_group_6" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel3_2" >
@@ -383,17 +403,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_7" />
+          <widget class="KColorButton" native="1" name="kcfg_group_7" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel2_2" >
@@ -403,7 +432,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_group_8" />
+          <widget class="KColorButton" native="1" name="kcfg_group_8" />
          </item>
         </layout>
        </item>
@@ -427,42 +456,66 @@
        <string>&amp;State of Matter</string>
       </attribute>
       <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>8</number>
-       </property>
        <property name="spacing" >
         <number>6</number>
        </property>
+       <property name="leftMargin" >
+        <number>8</number>
+       </property>
+       <property name="topMargin" >
+        <number>8</number>
+       </property>
+       <property name="rightMargin" >
+        <number>8</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>8</number>
+       </property>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel1" >
            <property name="text" >
             <string>Solid:</string>
            </property>
-           <property name="buddy" >
-            <cstring>kcfg_color_solid</cstring>
-           </property>
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_color_solid" />
+          <widget class="KColorButton" native="1" name="kcfg_color_solid" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel2" >
@@ -472,17 +525,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_color_liquid" />
+          <widget class="KColorButton" native="1" name="kcfg_color_liquid" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel3" >
@@ -492,7 +554,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_color_vapor" />
+          <widget class="KColorButton" native="1" name="kcfg_color_vapor" />
          </item>
         </layout>
        </item>
@@ -516,19 +578,37 @@
        <string>Family</string>
       </attribute>
       <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>8</number>
-       </property>
        <property name="spacing" >
         <number>6</number>
        </property>
+       <property name="leftMargin" >
+        <number>8</number>
+       </property>
+       <property name="topMargin" >
+        <number>8</number>
+       </property>
+       <property name="rightMargin" >
+        <number>8</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>8</number>
+       </property>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel2_2_2_2" >
@@ -538,17 +618,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_alkalie" />
+          <widget class="KColorButton" native="1" name="kcfg_alkalie" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel8_2" >
@@ -558,17 +647,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_rare" />
+          <widget class="KColorButton" native="1" name="kcfg_rare" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel7_2" >
@@ -578,17 +676,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_nonmetal" />
+          <widget class="KColorButton" native="1" name="kcfg_nonmetal" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel6_2" >
@@ -598,17 +705,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_alkaline" />
+          <widget class="KColorButton" native="1" name="kcfg_alkaline" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel5_2_2" >
@@ -618,17 +734,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_other_metal" />
+          <widget class="KColorButton" native="1" name="kcfg_other_metal" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel4_2_2" >
@@ -638,17 +763,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_halogene" />
+          <widget class="KColorButton" native="1" name="kcfg_halogene" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel3_2_2" >
@@ -658,17 +792,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_transition" />
+          <widget class="KColorButton" native="1" name="kcfg_transition" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel2_2_3" >
@@ -678,17 +821,26 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_noble_gas" />
+          <widget class="KColorButton" native="1" name="kcfg_noble_gas" />
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel2_2_3_2" >
@@ -698,7 +850,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_metalloid" />
+          <widget class="KColorButton" native="1" name="kcfg_metalloid" />
          </item>
         </layout>
        </item>
@@ -722,19 +874,37 @@
        <string>&amp;No Color Scheme</string>
       </attribute>
       <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>8</number>
-       </property>
        <property name="spacing" >
         <number>6</number>
        </property>
+       <property name="leftMargin" >
+        <number>8</number>
+       </property>
+       <property name="topMargin" >
+        <number>8</number>
+       </property>
+       <property name="rightMargin" >
+        <number>8</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>8</number>
+       </property>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="textLabel8_2_2" >
@@ -744,7 +914,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" name="kcfg_noscheme" >
+          <widget class="KColorButton" native="1" name="kcfg_noscheme" >
            <property name="toolTip" >
             <string>This color will be used if no other scheme is selected</string>
            </property>
