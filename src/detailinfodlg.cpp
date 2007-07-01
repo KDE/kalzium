@@ -55,7 +55,7 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
 	m_baseHtml = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/htmlview/";
 	m_baseHtml2 = KGlobal::dirs()->findResourceDir( "appdata", "data/" ) + "data/hazardsymbols/";
 
-	m_picsdir = KGlobal::dirs()->findResourceDir( "appdata", "elempics/" ) + "elempics/";
+//X 	m_picsdir = KGlobal::dirs()->findResourceDir( "appdata", "elempics/" ) + "elempics/";
 
 	//actionButton( Close )->setFocus();
 
@@ -399,16 +399,16 @@ void DetailedInfoDlg::createContent()
 	dTab->setObjectName( "DetailedGraphicalOverview" );
 	overviewLayout->addWidget( dTab );
 
-	// picture tab
-	QWidget *m_pPictureTab = new QWidget();
-	item = addPage( m_pPictureTab, i18n( "Picture" ) );
-	item->setHeader( i18n( "What does this element look like?" ) );
-	item->setIcon( KIcon( "elempic" ) );
-	QVBoxLayout *mainLayout = new QVBoxLayout( m_pPictureTab );
-	mainLayout->setMargin( 0 );
-	piclabel = new QLabel( m_pPictureTab );
-	piclabel->setMinimumSize( 400, 350 );
-	mainLayout->addWidget( piclabel );
+//X 	// picture tab
+//X 	QWidget *m_pPictureTab = new QWidget();
+//X 	item = addPage( m_pPictureTab, i18n( "Picture" ) );
+//X 	item->setHeader( i18n( "What does this element look like?" ) );
+//X 	item->setIcon( KIcon( "elempic" ) );
+//X 	QVBoxLayout *mainLayout = new QVBoxLayout( m_pPictureTab );
+//X 	mainLayout->setMargin( 0 );
+//X 	piclabel = new QLabel( m_pPictureTab );
+//X 	piclabel->setMinimumSize( 400, 350 );
+//X 	mainLayout->addWidget( piclabel );
 
 	// atomic model tab
 	QWidget *m_pModelTab = new QWidget();
@@ -456,16 +456,16 @@ void DetailedInfoDlg::reloadContent()
 	// updating overview tab
 	dTab->setElement( m_elementNumber );
 
-	// updating picture tab
-	QString picpath = m_picsdir + element_symbol + ".jpg";
-	if ( QFile::exists( picpath ) )
-	{
-		QImage img( picpath, "JPEG" );
-		img = img.scaled( 400, 400, Qt::KeepAspectRatio );
-		piclabel->setPixmap( QPixmap::fromImage( img ) );
-	}
-	else 
-		piclabel->setText( i18n( "No picture of %1 found.", element_name ) );
+//X 	// updating picture tab
+//X 	QString picpath = m_picsdir + element_symbol + ".jpg";
+//X 	if ( QFile::exists( picpath ) )
+//X 	{
+//X 		QImage img( picpath, "JPEG" );
+//X 		img = img.scaled( 400, 400, Qt::KeepAspectRatio );
+//X 		piclabel->setPixmap( QPixmap::fromImage( img ) );
+//X 	}
+//X 	else 
+//X 		piclabel->setText( i18n( "No picture of %1 found.", element_name ) );
 
 	// updating atomic model tab
 	wOrbits->setElementNumber( m_elementNumber );
@@ -519,24 +519,21 @@ void DetailedInfoDlg::slotHelp()
 			chapter = "infodialog_overview";
 			break;
 		case 1:
-			 chapter = "infodialog_picture";
-			break;
-		case 2:
 			 chapter = "infodialog_orbits";
 			break;
-		case 3:
+		case 2:
 			 chapter = "infodialog_chemical";
 			break;
-		case 4:
+		case 3:
 			 chapter = "infodialog_energies";
 			break;
-		case 5:
+		case 4:
 			 chapter = "infodialog_misc";
 			break;
-		case 6:
+		case 5:
 			 chapter = "infodialog_spectrum";
 			break;
-		case 7:
+		case 6:
 			 chapter = "infodialog_warnings";
 			break;
 	}

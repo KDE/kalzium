@@ -70,7 +70,7 @@ class DetailedInfoDlg : public KPageDialog
 		QString isotopeTable() const;
 
 		DetailedGraphicalOverview *dTab;
-		QLabel *piclabel;
+//X 		QLabel *piclabel;
 		OrbitsWidget *wOrbits;
 		QMap<QString, KHTMLPart*> m_htmlpages;
 
@@ -87,7 +87,7 @@ class DetailedInfoDlg : public KPageDialog
 
 		QString m_baseHtml;
 		QString m_baseHtml2;
-		QString m_picsdir;
+//X 		QString m_picsdir;
 
 		/**
 		 * Add a new HTML page to the dialog.
