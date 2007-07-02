@@ -462,7 +462,8 @@ void TextRendererPrivate::do_draw( const QString &string )
       // for now, we don't tolerate errors in glyph rendering.
       // having an assert here means we'll get crash reports from
       // angry users if such an error ever occurs.
-      assert( c->initialize( string[i], font, textureTarget ) );
+      bool charWellInitialized = c->initialize( string[i], font, textureTarget );
+      assert(charWellInitialized);
       charTable.insert( string[i], c);
     }
   }
