@@ -84,12 +84,12 @@ KalziumGLPart::~KalziumGLPart()
 
 KAboutData *KalziumGLPart::createAboutData()
 {
-    KAboutData* aboutData = new KAboutData( "kalzium", I18N_NOOP("KalziumGLPart"),
-            "1.1.1", I18N_NOOP("A cool thing"),
+    KAboutData* aboutData = new KAboutData( "kalzium", 0, ki18n("KalziumGLPart"),
+            "1.1.1", ki18n("A cool thing"),
             KAboutData::License_GPL,
-            "(c) 2006, Carsten Niehaus", 0, "http://edu.kde.org/kalzium/index.php",
+            ki18n("(c) 2006, Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium/index.php",
             "kalzium@kde.org");
-    aboutData->addAuthor("Carsten Niehaus.",0, "cniehaus@kde.org");
+    aboutData->addAuthor(ki18n("Carsten Niehaus."),KLocalizedString(), "cniehaus@kde.org");
 
     return aboutData;
 }

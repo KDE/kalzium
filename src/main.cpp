@@ -33,12 +33,6 @@ static const char description[] =
 
 static const char version[] = APP_VERSION;
 
-static KCmdLineOptions options[] =
-{
-//    { "+[URL]", I18N_NOOP( "Document to open" ), 0 },
-    KCmdLineLastOption
-};
-
 #ifdef HAVE_FACILE
 extern "C" {
          void caml_startup(char**);
@@ -51,20 +45,22 @@ int main(int argc, char **argv)
    caml_startup(argv);
 #endif
 
-    KAboutData about("kalzium", I18N_NOOP("Kalzium"), version, description,
-                     KAboutData::License_GPL, "(C) 2002-2006 Carsten Niehaus", 0, "http://edu.kde.org/kalzium");
-    about.addAuthor( "Carsten Niehaus", 0, "cniehaus@kde.org" );
-    about.addCredit( "Pino Toscano", I18N_NOOP("Code contributions" ));
-    about.addCredit( "Benoit Jacob", I18N_NOOP( "The OpenGL-support" ));
-    about.addCredit( "Thomas Nagy", I18N_NOOP("Contributed EqChem, the equation solver" ));
-    about.addCredit( "Jörg Buchwald", I18N_NOOP("Contributed most isotope information" ));
-    about.addCredit( "Marco Martin", I18N_NOOP("Thank you for some icons and inspiration for others" ));
-    about.addCredit( "Anne-Marie Mahfouf", I18N_NOOP( "A lot of small things and the documentation" ));
-    about.addCredit( "Daniel Haas", I18N_NOOP( "The design of the information dialog" ));
-    about.addCredit( "Brian Beck", I18N_NOOP( "The orbits-icon" ));
-    about.addCredit( "Lee Olson", I18N_NOOP( "Several icons in the information dialog" ));
-    about.addCredit( "Inge Wallin", I18N_NOOP( "Code cleaning, the molecule parser and a lot of smaller improvements" ));
+    KAboutData about("kalzium", 0, ki18n("Kalzium"), version, ki18n(description),
+                     KAboutData::License_GPL, ki18n("(C) 2002-2006 Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium");
+    about.addAuthor( ki18n("Carsten Niehaus"), KLocalizedString(), "cniehaus@kde.org" );
+    about.addCredit( ki18n("Pino Toscano"), ki18n("Code contributions" ));
+    about.addCredit( ki18n("Benoit Jacob"), ki18n( "The OpenGL-support" ));
+    about.addCredit( ki18n("Thomas Nagy"), ki18n("Contributed EqChem, the equation solver" ));
+    about.addCredit( ki18n("Jörg Buchwald"), ki18n("Contributed most isotope information" ));
+    about.addCredit( ki18n("Marco Martin"), ki18n("Thank you for some icons and inspiration for others" ));
+    about.addCredit( ki18n("Anne-Marie Mahfouf"), ki18n( "A lot of small things and the documentation" ));
+    about.addCredit( ki18n("Daniel Haas"), ki18n( "The design of the information dialog" ));
+    about.addCredit( ki18n("Brian Beck"), ki18n( "The orbits-icon" ));
+    about.addCredit( ki18n("Lee Olson"), ki18n( "Several icons in the information dialog" ));
+    about.addCredit( ki18n("Inge Wallin"), ki18n( "Code cleaning, the molecule parser and a lot of smaller improvements" ));
     KCmdLineArgs::init(argc, argv, &about);
+
+    KCmdLineOptions options;
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
     Kalzium *mainWin = 0;
