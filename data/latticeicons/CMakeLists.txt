@@ -1,11 +1,6 @@
+FILE(GLOB SVG_CRYSTAL "*.svgz")
+
 install( FILES 
-	mp.png 
-	op.png 
-	tp.png  
-	hp.png 
-	hr.png 
-	cp.png  
-	ci.png  
-	cf.png  
+	${SVG_CRYSTAL}
 	DESTINATION  ${DATA_INSTALL_DIR}/kalzium/data/latticeicons
 )
