@@ -14,7 +14,6 @@ set(science_LIB_SRCS
    parser.cpp
 )
 
-kde4_automoc(${science_LIB_SRCS})
 
 kde4_add_library(science SHARED ${science_LIB_SRCS})
 
