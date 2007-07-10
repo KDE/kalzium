@@ -46,7 +46,6 @@ set(libavogadro_SRCS
 #  painter.h
 #)
 
-kde4_automoc(${libavogadro_SRCS})
 
 #set(libavogadro_MOC_HDRS
   #primitive.h

@@ -19,7 +19,6 @@ link_directories(${CMAKE_CURRENT_BINARY_DIR}/..)
 # ball and stick dynamic engine
 set(bsdyengine_SRCS bsdyengine.cpp)
 qt4_wrap_ui(bsdyengine_UIS bsdysettingswidget.ui)
-kde4_automoc(${bsdyengine_SRCS})
 KDE4_ADD_LIBRARY(bsdyengine-kalzium SHARED ${bsdyengine_SRCS} ${bsdyengine_UIS})
 TARGET_LINK_LIBRARIES(bsdyengine-kalzium avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
@@ -30,7 +29,6 @@ INSTALL(TARGETS bsdyengine-kalzium DESTINATION ${DESTINATION_DIR})
 
 # label engine
 set(labelengine_SRCS labelengine.cpp)
-kde4_automoc(${labelengine_SRCS})
 KDE4_ADD_LIBRARY(labelengine-kalzium SHARED ${labelengine_SRCS} )
 TARGET_LINK_LIBRARIES(labelengine-kalzium avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
@@ -40,7 +38,6 @@ INSTALL(TARGETS labelengine-kalzium DESTINATION ${DESTINATION_DIR})
 
 # wireframe
 set(wireengine_SRCS wireengine.cpp)
-kde4_automoc(${wireengine_SRCS})
 KDE4_ADD_LIBRARY(wireengine-kalzium SHARED ${wireengine_SRCS} )
 TARGET_LINK_LIBRARIES(wireengine-kalzium avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
@@ -50,7 +47,6 @@ INSTALL(TARGETS wireengine-kalzium DESTINATION ${DESTINATION_DIR})
 
 # sphere
 set(sphereengine_SRCS sphereengine.cpp)
-kde4_automoc(${sphereengine_SRCS})
 KDE4_ADD_LIBRARY(sphereengine-kalzium SHARED ${sphereengine_SRCS} )
 TARGET_LINK_LIBRARIES(sphereengine-kalzium avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
@@ -61,7 +57,6 @@ INSTALL(TARGETS sphereengine-kalzium DESTINATION ${DESTINATION_DIR})
 
 # stick (cylinder) engine
 set(stickengine_SRCS stickengine.cpp)
-kde4_automoc(${stickengine_SRCS})
 KDE4_ADD_LIBRARY(stickengine-kalzium SHARED ${stickengine_SRCS} )
 TARGET_LINK_LIBRARIES(stickengine-kalzium avogadro-kalzium
                                 ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}

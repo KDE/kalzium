@@ -18,7 +18,6 @@ link_directories(${CMAKE_CURRENT_BINARY_DIR}/.. ${CMAKE_BINARY_DIR}/lib)
 
 ### navigatetool
 set(navigatetool_SRCS navigatetool.cpp)
-kde4_automoc(${navigatetool_SRCS})
 KDE4_ADD_LIBRARY(navigatetool-kalzium SHARED ${navigatetool_SRCS} ${navigatetool_RC_SRCS})
 TARGET_LINK_LIBRARIES(navigatetool-kalzium 
 	${OPENBABEL2_LIBRARIES} 

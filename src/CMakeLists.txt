@@ -84,7 +84,6 @@ if(LIBFACILE_FOUND)
     )
 endif(LIBFACILE_FOUND)
 
-kde4_automoc(${kalzium_SRCS})
 
 kde4_add_ui_files(kalzium_SRCS
    settings_colors.ui
