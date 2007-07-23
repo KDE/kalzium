@@ -138,7 +138,7 @@ install(TARGETS kalzium  DESTINATION ${BIN_INSTALL_DIR} )
 
 ########### install files ###############
 
-install( FILES kalzium.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES kalzium.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kalzium.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES kalziumui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kalzium )
 install( FILES kalzium.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
