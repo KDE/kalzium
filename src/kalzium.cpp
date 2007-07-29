@@ -445,7 +445,7 @@ void Kalzium::slotShowLegend( bool checked, bool changeconfig)
 	}
 	else
 	{
-		m_pLegendAction->setText( i18n( "Hide &Informationwidget" ) );
+		m_pLegendAction->setText( i18n( "Hide &Information" ) );
 	}
 
 	if ( changeconfig )

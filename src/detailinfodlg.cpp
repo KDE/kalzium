@@ -21,6 +21,7 @@
 #include <klocale.h>
 #include <kicon.h>
 #include <khtml_part.h>
+#include <dom/html_base.h>
 #include <khtmlview.h>
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
@@ -111,7 +112,7 @@ KHTMLPart* DetailedInfoDlg::addHTMLTab( const QString& title, const QString& ico
 	QVBoxLayout *layout = new QVBoxLayout( frame );
 	layout->setMargin( 0 );
 	KHTMLPart *w = new KHTMLPart( frame, frame );
-	layout->addWidget( w->view() );
+    layout->addWidget( w->view() );
 
 	return w;
 }
@@ -122,7 +123,16 @@ void DetailedInfoDlg::fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode 
 
 	htmlpart->begin();
 	htmlpart->write( htmlcode );
-	htmlpart->end();
+
+    // set the background color of the document to match that of the dialog
+    DOM::HTMLElement element = htmlpart->htmlDocument().body();
+    if ( element.tagName() == "body" )
+    {
+        const QColor backgroundColor = palette().background().color();
+	    ((DOM::HTMLBodyElement)element).setBgColor( backgroundColor.name() );
+    }
+
+    htmlpart->end();
 }
 
 QString DetailedInfoDlg::getHtml( DATATYPE type ) const
