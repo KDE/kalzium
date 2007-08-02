@@ -53,7 +53,7 @@ void EQChemDialog::compute()
 
     QString answer = QString(result);
 
-    kDebug() << "Answer: " << answer << endl;
+    kDebug() << "Answer: " << answer;
 
 
 //    ui.question_label->setText(equation);
@@ -81,7 +81,7 @@ EQChemDialog::EQChemDialog( QWidget *parent )
 
 void EQChemDialog::copyAnswer()
 {
-    kDebug() << "EQChemDialog::copyAnswer()" << endl;
+    kDebug() << "EQChemDialog::copyAnswer()";
     QClipboard *clipboard = QApplication::clipboard(); clipboard->setText( ui.answer_label->text(), QClipboard::Clipboard);
 }
 

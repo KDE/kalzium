@@ -379,7 +379,7 @@ QRect KalziumShortTableType::elementRect( const int numelem ) const
     int realElementNumber = translateToShort(numelem);
 
     if ( realElementNumber == 0 ) {
-        kDebug() << "This element doesn't exist in this table..." << endl;
+        kDebug() << "This element doesn't exist in this table...";
         return QRect( 0,0,0,0 );
     } else {
     }
@@ -390,7 +390,7 @@ QRect KalziumShortTableType::elementRect( const int numelem ) const
     int y = ( posYShort[realElementNumber-1] ) * ELEMENTSIZE;
 
 
-    //    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1] << endl;
+    //    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1];
 
     return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
@@ -514,7 +514,7 @@ QRect KalziumDTableType::elementRect( const int numelem ) const
     int realElementNumber = translateToD(numelem);
 
     if ( realElementNumber == 0 ) {
-        kDebug() << "This element doesn't exist in this table..." << endl;
+        kDebug() << "This element doesn't exist in this table...";
         return QRect( 0,0,0,0 );
     } else {
     }
@@ -524,7 +524,7 @@ QRect KalziumDTableType::elementRect( const int numelem ) const
     // y coord
     int y = ( posYD[realElementNumber-1] ) * ELEMENTSIZE;
 
-    //    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1] << endl;
+    //    kDebug() << "Element " << realElementNumber << " (" << numelem << ") sits on " << posXD[numelem-1] << " :: " << posYD[numelem-1];
 
     return QRect( x, y, ELEMENTSIZE, ELEMENTSIZE );
 }
@@ -593,7 +593,7 @@ int KalziumDZTableType::elementAtCoords( const QPoint& coords ) const
 
 QRect KalziumDZTableType::elementRect( const int numelem ) const
 {
-    kDebug() << "KalziumDZTableType::elementRect(), num: " << numelem << endl;
+    kDebug() << "KalziumDZTableType::elementRect(), num: " << numelem;
 
     // x coord
     int x = ( posXDZ[numelem-1] - 1 ) * ELEMENTSIZE;

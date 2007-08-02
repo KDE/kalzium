@@ -45,7 +45,7 @@ LegendWidget::LegendWidget( QWidget *parent )
 
 void LegendWidget::setGradientType( KalziumGradientType * type )
 {
-    kDebug() << "setGradientType" << endl;
+    kDebug() << "setGradientType";
     m_gradientType = type;
     updateContent();
 }

@@ -69,7 +69,7 @@ void SOMWidgetIMPL::reloadUnits()
 	Number1->setRange( range.first, range.second, 0.1, 1 );
 	Number1->setValue( newvalue );
 	setNewTemp( newvalue );
-kDebug() << "min: " << Number1->minimum() << " - max: " << Number1->maximum() << endl;
+kDebug() << "min: " << Number1->minimum() << " - max: " << Number1->maximum();
 	m_prevUnit = Prefs::temperature();
 	Number1->blockSignals( false );
 	temp_slider->blockSignals( false );

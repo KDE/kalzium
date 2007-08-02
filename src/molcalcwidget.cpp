@@ -92,10 +92,10 @@ void MolcalcWidget::clear()
 
 void MolcalcWidget::updateUI()
 {
-    kDebug() << "MolcalcWidget::updateUI()" << endl;
+    kDebug() << "MolcalcWidget::updateUI()";
 
     if ( m_validInput ){
-        kDebug() << "m_validInput == true" << endl;
+        kDebug() << "m_validInput == true";
         QString str;
 
         // The complexString stores the whole molecule like this:
@@ -129,7 +129,7 @@ void MolcalcWidget::updateUI()
 #endif
     }
     else{//the input was invalid, so tell this the user
-        kDebug() << "m_validInput == false" << endl;
+        kDebug() << "m_validInput == false";
         ui.resultComposition->setText( i18n( "Invalid input" ) );
         ui.resultLabel->setText( QString() );
         ui.resultMass->setText( QString() );
@@ -160,7 +160,7 @@ QString MolcalcWidget::compositionString( ElementCountMap &_map )
 
 void MolcalcWidget::slotCalculate()
 {
-    kDebug() << "MolcalcWidget::slotCalcButtonClicked()" << endl;
+    kDebug() << "MolcalcWidget::slotCalcButtonClicked()";
 	QString  molecule = ui.formulaEdit->text();
 
 	// Parse the molecule, and at the same time calculate the total

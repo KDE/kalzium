@@ -268,7 +268,7 @@ void SpectrumWidget::keyPressEvent( QKeyEvent *e )
 
 void SpectrumWidget::slotZoomOut()
 {
-    kDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue << endl;
+    kDebug() << "SpectrumWidget::slotZoomOut() "<< startValue << ":: "<< endValue;
 
     double diff = endValue - startValue;
 
@@ -289,7 +289,7 @@ void SpectrumWidget::slotZoomOut()
 
 void SpectrumWidget::setBorders( double left, double right )
 {
-    kDebug() << "setBorders    " << left << ".."<< right << endl;
+    kDebug() << "setBorders    " << left << ".."<< right;
 
     startValue = left;
     endValue = right;
@@ -302,7 +302,7 @@ void SpectrumWidget::setBorders( double left, double right )
 
 void SpectrumWidget::slotZoomIn()
 {
-    kDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue << endl;
+    kDebug() << "SpectrumWidget::slotZoomIn() "<< startValue << ":: "<< endValue;
 
     double diff = endValue - startValue;
 
@@ -332,7 +332,7 @@ void SpectrumWidget::mousePressEvent(  QMouseEvent *e )
 
 void SpectrumWidget::findPeakFromMouseposition( double wavelength )
 {
-    kDebug() << "SpectrumWidget::findPeakFromMouseposition()" << endl;
+    kDebug() << "SpectrumWidget::findPeakFromMouseposition()";
     Spectrum::peak *peak = NULL;
 
     //find the difference in percent (1.0 is 100%, 0.1 is 10%)

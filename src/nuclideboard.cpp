@@ -86,7 +86,7 @@
 
 void IsotopeScene::slotToggleInfowidget(int state)
 {
-    kDebug() << "IsotopeScene::slotToggleInfowidget()" << endl;
+    kDebug() << "IsotopeScene::slotToggleInfowidget()";
     if ( state == Qt::Checked ) {
         m_infoItem->setVisible( true );
     } else {

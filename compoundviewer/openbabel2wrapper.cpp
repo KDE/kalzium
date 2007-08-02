@@ -51,7 +51,7 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
 	Conv.SetInAndOutFormats( inFormat,inFormat );
 	Conv.Read( mol, &inFileStream );
 
-	kDebug() << QString::fromLatin1( mol->GetFormula().c_str() )  << " (Weight: " << mol->GetMolWt() << ", Title: "<< mol->GetTitle() << ")" << endl;
+	kDebug() << QString::fromLatin1( mol->GetFormula().c_str() )  << " (Weight: " << mol->GetMolWt() << ", Title: "<< mol->GetTitle() << ")";
 
 	return mol;
 }

@@ -108,14 +108,14 @@ void ElementDataViewer::rangeChanged()
 
 void ElementDataViewer::setLimits()
 {
-    kDebug() << "ElementDataViewer::setLimits()" << endl;
+    kDebug() << "ElementDataViewer::setLimits()";
 
     double x1 = 0.0, x2 = 0.0, y1 = 0.0, y2 = 0.0;
 
     getMinMax(x1, x2, m_xData);
     getMinMax(y1, y2, m_yData);
 
-    kDebug() << x1 << " :: " << x2 << " ----- "  << y1 << " :: " << y2 << endl;
+    kDebug() << x1 << " :: " << x2 << " ----- "  << y1 << " :: " << y2;
 
 		//JH: add some padding to show all points
 		double dx = 0.05*(x2-x1);
@@ -145,7 +145,7 @@ void ElementDataViewer::getMinMax(double& min, double& max, AxisData * data)
     double minValue = data->value(firstElement);
     double maxValue = data->value(firstElement);
 
-    kDebug() << "Taking elements from " << firstElement << " to " << lastElement << endl;
+    kDebug() << "Taking elements from " << firstElement << " to " << lastElement;
 
     for ( int _currentVal = firstElement; _currentVal <= lastElement; _currentVal++ )
     {//go over all selected elements
@@ -157,7 +157,7 @@ void ElementDataViewer::getMinMax(double& min, double& max, AxisData * data)
             maxValue = v;
     }
     
-    kDebug() << "The value are ]"<< minValue << " , " << maxValue << "[." << endl;
+    kDebug() << "The value are ]"<< minValue << " , " << maxValue << "[.";
 
     min = minValue;
     max = maxValue;

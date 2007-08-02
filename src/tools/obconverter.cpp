@@ -85,7 +85,7 @@ void OBConverter::setupWindow()
 
 void OBConverter::slotAddFile()
 {
-    kDebug() << "OBConverter::slotAddFile()" << endl;
+    kDebug() << "OBConverter::slotAddFile()";
     OBSupportedFormat *supportedFormat = new OBSupportedFormat();
     supportedFormat->setFormatExtensions();
     
@@ -121,7 +121,7 @@ void OBConverter::slotDeleteFile()
 
 void OBConverter::slotGuessInput()
 {
-    kDebug() << "OBConverter::slotGuessInput()" << endl;
+    kDebug() << "OBConverter::slotGuessInput()";
     QList <QListWidgetItem*> p = ui.FileListView->selectedItems ();
     bool first=true;
     QString suffix;
@@ -209,7 +209,7 @@ void OBConverter::slotConvert()
             cmdList.append( command );
         }
     }
-    kDebug() << "cmdList is: " << cmdList << endl;
+    kDebug() << "cmdList is: " << cmdList;
     switch (KMessageBox::questionYesNoList
             (0,
              i18n("OK to run these commands?"),

@@ -85,7 +85,7 @@ void MoleculeDialog::slotLoadMolecule()
 
 	if( filename.isEmpty() ) return;
 
-	kDebug() << "Filename to load: " << filename << endl;
+	kDebug() << "Filename to load: " << filename;
 
 	Avogadro::Molecule* molecule = OpenBabel2Wrapper::readMolecule( filename );
 

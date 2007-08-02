@@ -415,7 +415,7 @@ QList<legendPair> KalziumGroupsSchemeType::legendItems() const
 //X {
 //X 	QString crystal = KalziumDataObject::instance()->element( el )->dataAsString( ChemicalDataObject::crystalstructure );
 //X 
-//X         kDebug() << "crystal is " << crystal << endl;
+//X         kDebug() << "crystal is " << crystal;
 //X 
 //X 	static QString resourcepath;
 //X 	if ( resourcepath.isEmpty() )
@@ -457,13 +457,13 @@ QList<legendPair> KalziumGroupsSchemeType::legendItems() const
 //X 	QBrush ret;
 //X 	if ( !filename.isEmpty() )
 //X 	{
-//X             kDebug() << el << ": FILENAME is not EMPTY... " << filename << endl;
+//X             kDebug() << el << ": FILENAME is not EMPTY... " << filename;
 //X 		QPixmap pixmap( resourcepath + filename );
 //X 		ret = QBrush( pixmap.scaled( elrect.size(), Qt::KeepAspectRatio ) );
 //X 	}
 //X 	else
 //X 	{
-//X             kDebug() << el << ": FILENAME EMPTY... " << filename << endl;
+//X             kDebug() << el << ": FILENAME EMPTY... " << filename;
 //X 		ret.setColor( Qt::gray );
 //X 	}
 //X 

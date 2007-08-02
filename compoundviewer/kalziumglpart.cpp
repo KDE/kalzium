@@ -65,7 +65,7 @@ KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QStri
     Q_UNUSED(parent);
     Q_UNUSED(parentWidget);
     Q_UNUSED(args);
-    kDebug() << "KalziumGLPart::KalziumGLPart()" << endl;
+    kDebug() << "KalziumGLPart::KalziumGLPart()";
     
     // use multi-sample (anti-aliased) OpenGL if available
     QGLFormat defFormat = QGLFormat::defaultFormat();
@@ -79,7 +79,7 @@ KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QStri
 KalziumGLPart::~KalziumGLPart()
 {
     delete m_widget;
-    kDebug() << "KalziumGLPart::~KalziumGLPart()" << endl;
+    kDebug() << "KalziumGLPart::~KalziumGLPart()";
 }
 
 KAboutData *KalziumGLPart::createAboutData()

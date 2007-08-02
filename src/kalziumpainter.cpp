@@ -142,7 +142,7 @@ void KalziumPainter::drawElement( int element, const QRect& r )
 //X                     {
 //X //                        trect.setY( rect.y()+ELEMENTSIZE/3 );
 //X                         trect.moveBottom( rect.y()+ELEMENTSIZE/3 );
-//X                         kDebug() << rect << " und " << trect << endl;
+//X                         kDebug() << rect << " und " << trect;
 //X                     }
 
 

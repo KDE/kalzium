@@ -402,7 +402,7 @@ void Kalzium::slotMoleculeviewer()
       factory = library->factory();
 
   if (factory) {
-      kDebug() << "if factory" << endl;
+      kDebug() << "if factory";
       KParts::ReadOnlyPart *part = 0;
       part = static_cast<KParts::ReadOnlyPart*> ( factory->create( this, "KalziumGLPart" ) );
 
@@ -611,7 +611,7 @@ void Kalzium::elementHover( int num )
 //X         }
 //X 
 //X         QString realText = infoline.remove( QRegExp("\\d+ ") );
-//X         kDebug() << "the final text: " << realText << endl;
+//X         kDebug() << "the final text: " << realText;
 //X }
 
 void Kalzium::openInformationDialog( int number )
