@@ -138,8 +138,8 @@ Parser::parseSimpleFloat(double *_result)
 int
 Parser::getNextChar()
 {
-//	kDebug() << "Parser::getNextChar(): char = " << m_nextChar << endl;
-//	kDebug() << "m_str.size() " << m_str.size()  << " with m_str: " << m_str  << " and m_index: " << m_index << endl;
+//	kDebug() << "Parser::getNextChar(): char = " << m_nextChar;
+//	kDebug() << "m_str.size() " << m_str.size()  << " with m_str: " << m_str  << " and m_index: " << m_index;
 	
 	m_index++;
 	

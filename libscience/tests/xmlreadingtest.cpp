@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
                     QString unit = o.unitAsString();
                     if ( unit == "bo:noUnit" )
                         unit = "";
-                    kDebug() << "Name: " << o.dictRef() << " " << o.valueAsString()  <<" "  << unit << endl;
+                    kDebug() << "Name: " << o.dictRef() << " " << o.valueAsString()  <<" "  << unit;
             }
         }
     }

@@ -160,7 +160,7 @@ bool Glossary::loadLayout( QDomDocument &Document, const KUrl& url )
 
 	if ( !layoutFile.exists() )
 	{
-		kDebug() << "no such file: " << layoutFile.fileName() << endl;
+		kDebug() << "no such file: " << layoutFile.fileName();
 		return false;
 	}
 
@@ -170,7 +170,7 @@ bool Glossary::loadLayout( QDomDocument &Document, const KUrl& url )
 	// check if document is well-formed
 	if ( !Document.setContent( &layoutFile ) )
 	{
-		kDebug() << "wrong xml of " << layoutFile.fileName() << endl;
+		kDebug() << "wrong xml of " << layoutFile.fileName();
 		layoutFile.close();
 		return false;
 	}

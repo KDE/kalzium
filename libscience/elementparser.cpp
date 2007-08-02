@@ -117,9 +117,9 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
         {
             if ( attrs.localName( i ) == "units" )
             {
-                //kDebug() << "value of the unit: " << attrs.value(i) << endl;
+                //kDebug() << "value of the unit: " << attrs.value(i);
                 d->currentUnit = ChemicalDataObject::unit( attrs.value( i ) );
-                //kDebug() << "Took " << d->currentUnit << endl;
+                //kDebug() << "Took " << d->currentUnit;
                 continue;
             }
 

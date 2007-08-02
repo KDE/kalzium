@@ -40,15 +40,15 @@ int main(int argc, char *argv[])
 
     QList<Isotope*> v = parser->getIsotopes();
 
-    kDebug() << "Found " << v.count() << " isotopes." << endl;;
+    kDebug() << "Found " << v.count() << " isotopes.";;
 
-    kDebug() << "As a test I am now issuing all isotopes with 50 nuclueons: " << endl;
+    kDebug() << "As a test I am now issuing all isotopes with 50 nuclueons: ";
 
     foreach( Isotope* i, v ){
         if ( i )
         {
             if (i->nucleons() == 50 )
-                kDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass() << endl;
+                kDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass();
         }
     }
 

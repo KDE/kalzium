@@ -88,7 +88,7 @@ IsotopeParser::~IsotopeParser()
 
 bool IsotopeParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-//X     kDebug() << "IsotopeParser::startElement()" << endl;
+//X     kDebug() << "IsotopeParser::startElement()";
     if (localName == "isotopeList") 
     {
         d->inElement = true;
@@ -99,11 +99,11 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
             if ( attrs.localName( i ) == "id" )
                 d->currentElementSymbol = attrs.value( i );
 
-//X             kDebug() << "Symbol of the current Element: " << attrs.value( i ) << endl;
+//X             kDebug() << "Symbol of the current Element: " << attrs.value( i );
         }
     } else if ( d->inElement && localName == "isotope") 
     {
-//X         kDebug() << "setting inIsotope true!" << endl;
+//X         kDebug() << "setting inIsotope true!";
         d->currentIsotope = new Isotope();
         d->currentIsotope->addData( ChemicalDataObject( QVariant( d->currentElementSymbol ), ChemicalDataObject::symbol ) );
         d->inIsotope = true;
@@ -112,7 +112,7 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
             if ( attrs.localName( i ) == "number" )
             {
                 d->currentIsotope->setNucleons( attrs.value( i ).toInt() );
-//X                 kDebug() << attrs.value( i ).toInt() << endl;
+//X                 kDebug() << attrs.value( i ).toInt();
             }
         }
     } else if (d->inIsotope && localName == "scalar")
@@ -172,7 +172,7 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 
 bool IsotopeParser::endElement( const QString&, const QString& localName, const QString& )
 {
-//X     kDebug() << "IsotopeParser::endElement()" << endl;
+//X     kDebug() << "IsotopeParser::endElement()";
 	if ( localName == "isotope" )
 	{
 		d->isotopes.append(d->currentIsotope);
@@ -182,7 +182,7 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 	}
 	else if ( localName == "isotopeList" )
 	{//a new list of isotopes start...
-//X             kDebug() << "setting d->inElement FALSE" << endl;
+//X             kDebug() << "setting d->inElement FALSE";
             d->inElement = false;
 	}
 
@@ -191,7 +191,7 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 
 bool IsotopeParser::characters(const QString &ch)
 {
-//X     kDebug() << "IsotopeParser::characters() with ch: " << ch << endl;
+//X     kDebug() << "IsotopeParser::characters() with ch: " << ch;
 	d->currentDataObject = ChemicalDataObject();
 	ChemicalDataObject::BlueObelisk type;
 	QVariant value;
