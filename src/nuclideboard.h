@@ -119,7 +119,7 @@ class InformationItem : public QGraphicsRectItem
             return Type;
         }
 
-        void setIsotope( Isotope * i );
+        void setIsotope( IsotopeItem * item );
 
     private:
         QGraphicsTextItem *m_textitem;
@@ -150,7 +150,6 @@ class IsotopeScene : public QGraphicsScene
     public slots:
         void slotSetItemSize(int);
         void slotToggleInfowidget(int);
-        void slotToggleVisualGuides(int);
 
     signals:
         void itemSelected(QGraphicsItem *item);

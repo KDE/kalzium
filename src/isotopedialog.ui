@@ -10,7 +10,7 @@
    </rect>
   </property>
   <layout class="QGridLayout" >
-   <item row="0" column="0" colspan="5" >
+   <item row="0" column="0" colspan="4" >
     <widget class="QGraphicsView" name="gv" >
      <property name="dragMode" >
       <enum>QGraphicsView::ScrollHandDrag</enum>
@@ -57,13 +57,6 @@
     </spacer>
    </item>
    <item row="1" column="3" >
-    <widget class="QCheckBox" name="guides" >
-     <property name="text" >
-      <string>Show &amp;Visual Guides</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="4" >
     <widget class="QCheckBox" name="infowidget" >
      <property name="text" >
       <string>Show &amp;Informationwidget</string>

@@ -31,6 +31,7 @@
   <Separator />
   <Action name="tools_rs" />
   <Action name="tools_tables" />
+  <Action name="tools_isotopetable" />
   <Action name="tools_moleculeviewer" />
   <Action name="tools_eqsolver" />
   <Action name="tools_obconverter" />

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Carsten Niehaus                                 *
+ *   Copyright (C) 2005, 2006, 2007 by Carsten Niehaus                     *
  *   cniehaus@kde.org                                                      *
  *
  *                                                                         *
@@ -37,6 +37,7 @@
 #include <QFile>
 #include <QGraphicsTextItem>
 #include <QGraphicsItemGroup>
+#include <QRectF>
 
 #include <kaction.h>
 #include <kactioncollection.h>
@@ -57,9 +58,6 @@
     connect( ui.pixelSpin, SIGNAL(valueChanged(int)),
             scene, SLOT( slotSetItemSize(int)));
 
-    connect( ui.guides, SIGNAL(stateChanged(int)),
-            scene, SLOT(slotToggleVisualGuides(int)) );
-    
     connect( ui.infowidget, SIGNAL(stateChanged(int)),
             scene, SLOT(slotToggleInfowidget(int)) );
 
@@ -82,11 +80,11 @@
     m_itemSize = 10;
     drawIsotopes();
     m_isotopeGroup->scale(1, -1);
+    m_infoItem->scale(1,-1);
 }
 
 void IsotopeScene::slotToggleInfowidget(int state)
 {
-    kDebug() << "IsotopeScene::slotToggleInfowidget()";
     if ( state == Qt::Checked ) {
         m_infoItem->setVisible( true );
     } else {
@@ -94,16 +92,9 @@ void IsotopeScene::slotToggleInfowidget(int state)
     }
 }
 
-void IsotopeScene::slotToggleVisualGuides(int state)
-{
-    if ( state == Qt::Checked ) {
-    } else {
-    }
-}
-
 void IsotopeScene::updateContextHelp( IsotopeItem * item )
 {
-    m_infoItem->setIsotope( item->isotope() );
+    m_infoItem->setIsotope( item );
 }
 
 void IsotopeScene::drawIsotopes()
@@ -211,14 +202,20 @@ void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
     setBrush( QBrush( Qt::yellow ) );
     
     m_textitem = new QGraphicsTextItem( this );
-    m_textitem->setPos( 0, 0 );
+    m_textitem->scale(1,-1);
 }
 
-void InformationItem::setIsotope( Isotope * i )
+void InformationItem::setIsotope( IsotopeItem * item )
 {
-    QString html = i18n("<h1>%1</h1> Number: %2", i->parentElementSymbol(), i->parentElementNumber());
+    QString html = i18n("<h1>%1</h1> Number: %2", item->isotope()->parentElementSymbol(), item->isotope()->parentElementNumber());
 
     m_textitem->setHtml( html );
+
+    //now reposition the infoItem
+    double x = item->rect().x();
+    double y = item->rect().y();
+    setRect( x+80,y,100,100 );
+    m_textitem->setPos( x+80, y+100 );
 }
 
 
