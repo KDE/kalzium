@@ -295,60 +295,62 @@ void Kalzium::setupActions()
 
 void Kalzium::setupSidebars()
 {
-	m_InfoDock = new QDockWidget( this );
-	m_InfoDock->setObjectName( QLatin1String( "kalzium-infobar" ) );
-	m_InfoDock->setAllowedAreas( Qt::BottomDockWidgetArea );
-	m_InfoDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
-
-    m_infoTabWidget = new QTabWidget(this);
-	m_infoTabWidget->setObjectName( "kalzium-infobar" );
-    m_InfoDock->setWidget(m_infoTabWidget);
-    m_infoTabWidget->addTab(m_legendWidget, i18n("&Legend"));
+    m_InfoDock = new QDockWidget( this );
+    m_InfoDock->setObjectName( QLatin1String( "kalzium-infobar" ) );
+    m_InfoDock->setAllowedAreas( Qt::BottomDockWidgetArea );
+    m_InfoDock->setFeatures( QDockWidget::AllDockWidgetFeatures );
+    
+    m_InfoDock->setWidget(m_legendWidget);
 
     //TODO KDE 4.1
-    //    m_infoTabWidget->addTab(m_TableInfoWidget, i18n("&Table Information"));
-	
+//X     m_infoTabWidget = new QTabWidget(this);
+//X     m_infoTabWidget->setObjectName( "kalzium-infobar" );
+//X     m_InfoDock->setWidget(m_infoTabWidget);
+//X     m_infoTabWidget->addTab(m_legendWidget, i18n("&Legend"));
+
+//X     m_infoTabWidget->addTab(m_TableInfoWidget, i18n("&Table Information"));
+
     m_dockWin = new QDockWidget( i18n( "Sidebar" ), this );
-	m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
-	m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
+    m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
+    m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
-	m_toolbox = new QToolBox( m_dockWin );
-	m_dockWin->setWidget( m_toolbox );
+    m_toolbox = new QToolBox( m_dockWin );
+    m_dockWin->setWidget( m_toolbox );
 
-	QWidget *fake = new QWidget( m_toolbox );
-	QVBoxLayout *lay = new QVBoxLayout( fake );
-	lay->setMargin( 5 );
-	lay->activate();
-	m_detailWidget = new DetailedGraphicalOverview( fake );
-	m_detailWidget->setObjectName( "DetailedGraphicalOverview" );
-	m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
-	connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), 
-                m_detailWidget, SLOT( setElement( int ) ) );
- 	lay->addWidget( m_detailWidget );
-	lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
-	m_toolbox->addItem( fake, KIcon( "overview" ), i18n( "Overview" ) );
+    QWidget *fake = new QWidget( m_toolbox );
+    QVBoxLayout *lay = new QVBoxLayout( fake );
+    lay->setMargin( 5 );
+    lay->activate();
+    m_detailWidget = new DetailedGraphicalOverview( fake );
+    m_detailWidget->setObjectName( "DetailedGraphicalOverview" );
+    m_detailWidget->setMinimumSize( 200, m_detailWidget->minimumSize().height() );
+    connect( m_PeriodicTableView, SIGNAL( MouseOver( int ) ), 
+            m_detailWidget, SLOT( setElement( int ) ) );
+    lay->addWidget( m_detailWidget );
+    lay->addItem( new QSpacerItem( 10, 10, QSizePolicy::Fixed, QSizePolicy::MinimumExpanding ) );
+    m_toolbox->addItem( fake, KIcon( "overview" ), i18n( "Overview" ) );
 
-	m_somWidget = new SOMWidgetIMPL( m_toolbox );
-	m_somWidget->setObjectName( "somWidget" );
-	connect( m_somWidget, SIGNAL( temperatureChanged( int ) ),
-	         m_PeriodicTableView, SLOT( setTemperature( int ) ) );
-	m_toolbox->addItem( m_somWidget, KIcon( "statematter" ), i18n( "State of Matter" ) );
+    m_somWidget = new SOMWidgetIMPL( m_toolbox );
+    m_somWidget->setObjectName( "somWidget" );
+    connect( m_somWidget, SIGNAL( temperatureChanged( int ) ),
+            m_PeriodicTableView, SLOT( setTemperature( int ) ) );
+    m_toolbox->addItem( m_somWidget, KIcon( "statematter" ), i18n( "State of Matter" ) );
 
     m_timeWidget = new TimeWidgetImpl( m_toolbox );
-	m_timeWidget->setObjectName( "timeWidget" );
-	connect( m_timeWidget->time_box, SIGNAL( valueChanged( int ) ),
-	         m_PeriodicTableView, SLOT( setTime( int ) ) );
-	m_toolbox->addItem( m_timeWidget, KIcon( "timeline" ), i18n( "Timeline" ) );
+    m_timeWidget->setObjectName( "timeWidget" );
+    connect( m_timeWidget->time_box, SIGNAL( valueChanged( int ) ),
+            m_PeriodicTableView, SLOT( setTime( int ) ) );
+    m_toolbox->addItem( m_timeWidget, KIcon( "timeline" ), i18n( "Timeline" ) );
 
-	m_calcWidget = new MolcalcWidget( m_toolbox );
-	m_calcWidget->setObjectName( "molcalcwidget" );
-	m_toolbox->addItem( m_calcWidget, KIcon( "calculate" ), i18n( "Calculate" ) );
+    m_calcWidget = new MolcalcWidget( m_toolbox );
+    m_calcWidget->setObjectName( "molcalcwidget" );
+    m_toolbox->addItem( m_calcWidget, KIcon( "calculate" ), i18n( "Calculate" ) );
 
-	connect( m_toolbox, SIGNAL( currentChanged( int ) ), 
+    connect( m_toolbox, SIGNAL( currentChanged( int ) ), 
             this, SLOT( slotToolboxCurrentChanged( int ) ) );
 
-	addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
-	addDockWidget( Qt::BottomDockWidgetArea, m_InfoDock );
+    addDockWidget( Qt::LeftDockWidgetArea, m_dockWin );
+    addDockWidget( Qt::BottomDockWidgetArea, m_InfoDock );
 }
 
 void Kalzium::slotExportTable()
