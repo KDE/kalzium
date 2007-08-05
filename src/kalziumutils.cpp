@@ -1,5 +1,5 @@
 /***************************************************************************
-    copyright            : (C) 2005, 2006 by Carsten Niehaus
+    copyright            : (C) 2005, 2006, 2007 by Carsten Niehaus
     email                : cniehaus@kde.org
  ***************************************************************************/
 /***************************************************************************
@@ -137,7 +137,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                     result = i18n( "Unknown Value" );
                 else
                 {
-                    result = i18nc( "...", "%1 g/cm3", val ); 
+                    result = i18nc( "x gramm per cubic centimeter. This is the density.", "%1 g/cm3", val ); 
                 }
                 break;
             }
@@ -152,13 +152,13 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                     {
                         case 0:
                             {
-                                result = i18n( "%1 kJ/mol", val );
+                                result = i18nc( "kilo joule per mol", "%1 kJ/mol", val );
                                 break;
                             }
                         case 1: // use electronvolt
                             {
                                 val /= 96.6;
-                                result = i18n( "%1 eV", val );
+                                result = i18nc( "electron volt", "%1 eV", val );
                                 break;
                             }
                     }
@@ -171,7 +171,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                 if ( val <= 0.0 )
                     result = i18n( "Unknown Value" );
                 else
-                    result = i18n( "%1 u", val );
+                    result = i18nc( "x u (units). The atomic mass.", "%1 u", val );
                 break;
             }
         case ChemicalDataObject::date: // a date

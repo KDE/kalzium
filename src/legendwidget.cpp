@@ -81,10 +81,10 @@ void LegendWidget::updateContent()
                 QList<legendPair> items;
                 if ( m_mode == KalziumPainter::SOM )
                 {
-                    items << qMakePair( i18n( "Solid" ), QBrush( Prefs::color_solid() ) );
-                    items << qMakePair( i18n( "Liquid" ), QBrush( Prefs::color_liquid() ) );
-                    items << qMakePair( i18n( "Vaporous" ), QBrush( Prefs::color_vapor() ) );
-                    items << qMakePair( i18n( "Unknown" ), QBrush( Qt::lightGray ) );
+                    items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Solid" ), QBrush( Prefs::color_solid() ) );
+                    items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Liquid" ), QBrush( Prefs::color_liquid() ) );
+                    items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Vaporous" ), QBrush( Prefs::color_vapor() ) );
+                    items << qMakePair( i18nc("one of the three states of matter (solid, liquid, vaporous or unknown)", "Unknown" ), QBrush( Qt::lightGray ) );
                 } else {
                     items = m_scheme->legendItems();
                 }
