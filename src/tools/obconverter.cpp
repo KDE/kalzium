@@ -110,20 +110,16 @@ void OBConverter::slotAddFile()
     QStringList tmpList = InputType;
     tmpList.replaceInStrings( QRegExp("^"), "*." );
     tmpList.replaceInStrings( QRegExp(" -- "), "|" );
+    tmpList.replaceInStrings( QRegExp("/"), "\\/" ); //escape all '/' (because of MimeTypes)
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // tmpList is now something like this:                                                                                      //
     // ""*.acr -- ACR format [Read-only]", "*.alc -- Alchemy format", "*.arc -- Accelrys/MSI Biosym/Insight II CAR format-only]"//
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    kDebug() << "tmpList.join gives me: " << tmpList.join("\n");
 
     KUrl::List fl = KFileDialog::getOpenUrls(
             KUrl(),
             
-            //FIXME Why the heck is the next line working while the 'tmpList.join("\n")' is NOT?????
-            //"*.qcout|Q-Chem output format [Read-only]\n*.res|ShelX format [Read-only]\n*.rxn|MDL RXN format\n*.sd|MDL MOL format *.sdf|MDL MOL format *.smi|SMILES format *.smiles|SMILES format *.sy2|Sybyl Mol2 format"
-
-            tmpList.join("\n") //add all possible extensions like "*.cml *.mol"
+            "*.*|All Files\n"+tmpList.join("\n") //add all possible extensions like "*.cml *.mol"
             );
 
     foreach ( const KUrl& u , fl ) {
