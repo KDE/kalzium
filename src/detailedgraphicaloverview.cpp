@@ -25,7 +25,6 @@ email                : cniehaus@kde.org
 #include <kstandarddirs.h>
 
 //QT-Includes
-#include <QBrush>
 #include <QFile>
 #include <QPainter>
 #include <QSvgRenderer>

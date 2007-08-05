@@ -20,23 +20,17 @@
  ***************************************************************************/
 #include "obconverter.h"
 
-// OpenBabel includes
-#include <openbabel/obconversion.h>
-
 // Qt includes
 #include <QRegExp>
-#include <QListWidget>
 #include <QProcess>
-#include <QDebug>
 
 // KDE includes
 #include <kdebug.h>
 #include <klocale.h>
 #include <kdialog.h>
-#include <kpushbutton.h>
+#include <kmessagebox.h>
 #include <kfiledialog.h>
 #include <kurl.h>
-#include <kmessagebox.h>
 
 using namespace std;
 using namespace OpenBabel;
@@ -183,7 +177,7 @@ void OBConverter::slotConvert()
 
     QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
     if( p.count() == 0 ) {
-        QMessageBox::information(this,tr("KOpenBabel"),tr("You must select some files first."));
+        QMessageBox::information(this,i18n("KOpenBabel"),i18n("You must select some files first."));
         return;
     }
     QListIterator<QListWidgetItem*> it( p );
@@ -199,11 +193,10 @@ void OBConverter::slotConvert()
         
         if( QFile::exists(ofname) ) {
             //something named ofname already exists
-            switch( QMessageBox::question(
+            switch( KMessageBox::questionYesNo(
 	                this,
-  	                tr( "Overwrite File? -- KOpenBabel" ),
-                        tr( "The file %1 already exists. Do you want to overwrite if possible?").arg(ofname), 
-                        QMessageBox::Yes, QMessageBox::No)
+  	                i18n( "Overwrite File? -- KOpenBabel" ),
+                        i18n( "The file %1 already exists. Do you want to overwrite if possible?", ofname) )
                   ) {
                 case QMessageBox::No:
                     proceed = false;
@@ -221,7 +214,7 @@ void OBConverter::slotConvert()
     }
     if( cmdArgList.count() > 0 ) {
         switch( QMessageBox::question(
-                    this, tr("OK to run these commands? -- KOpenBabel"),
+                    this, i18n("OK to run these commands? -- KOpenBabel"),
                     cmdList.join("\n"),
 	   	    QMessageBox::Yes, QMessageBox::No)
   	      ) {

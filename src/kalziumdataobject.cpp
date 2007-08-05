@@ -21,10 +21,8 @@
 #include "kalziumdataobject.h"
 
 #include <elementparser.h>
-#include <spectrumparser.h>
 #include <isotope.h>
 #include <isotopeparser.h>
-#include <spectrum.h>
 
 #include <QFile>
 #include <QVariant>

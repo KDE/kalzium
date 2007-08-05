@@ -25,21 +25,10 @@
 
 #include <kdebug.h>
 #include <klocale.h>
-#include <kimageeffect.h>
 #include <kglobalsettings.h>
 
-#include <QCursor>
-#include <QKeyEvent>
-#include <QSizePolicy>
-#include <QPainter>
-#include <QPixmap>
-#include <QBrush>
-#include <QColor>
-#include <QFont>
 #include <QLabel>
-#include <QGridLayout>
 #include <QHBoxLayout>
-#include <QFrame>
 
 TableInfoWidget::TableInfoWidget( QWidget *parent )
   : QWidget( parent )

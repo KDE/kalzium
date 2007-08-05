@@ -25,17 +25,10 @@
 
 #include <kdebug.h>
 #include <klocale.h>
-#include <kimageeffect.h>
-#include <kglobalsettings.h>
 
 #include <QPainter>
-#include <QPixmap>
 #include <QBrush>
-#include <QColor>
-#include <QFont>
-#include <QLabel>
 #include <QGridLayout>
-#include <QFrame>
 
 LegendWidget::LegendWidget( QWidget *parent )
   : QWidget( parent )

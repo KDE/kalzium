@@ -25,8 +25,8 @@ class Element;
 class KalziumPainter;
 class KalziumGradientType;
 
-#include <QWidget>
 #include <QTimer>
+#include <QWidget>
 #include <QPoint>
 #include <QPixmap>
 #include <QMap>

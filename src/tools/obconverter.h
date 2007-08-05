@@ -23,6 +23,8 @@
 
 
 #include "ui_obconverterwidget.h"
+
+// OpenBabel includes
 #include <openbabel/obconversion.h>
 
 class KDialog;

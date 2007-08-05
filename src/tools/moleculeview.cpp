@@ -14,9 +14,7 @@
 #include "moleculeview.h"
 
 #include <kdebug.h>
-#include <kcombobox.h>
 #include <kfiledialog.h>
-#include <kpushbutton.h>
 #include <kstandarddirs.h>
 #include <KLocale>
 

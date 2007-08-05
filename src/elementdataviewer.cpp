@@ -26,9 +26,6 @@
 
 //QT-Includes
 #include <QKeyEvent>
-#include <QCheckBox>
-#include <QLabel>
-#include <QPointF>
 #include <QTimer>
 
 AxisData::AxisData( AXISTYPE type) : currentDataType(-1)

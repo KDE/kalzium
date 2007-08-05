@@ -28,8 +28,6 @@
 #include <element.h>
 #include <isotope.h>
 
-#include <QEvent>
-#include <QMouseEvent>
 #include <QLabel>
 #include <QGraphicsView>
 #include <QGraphicsRectItem>
@@ -44,8 +42,6 @@
 #include <kdebug.h>
 #include <kglobal.h>
 #include <klocale.h>
-#include <ktoggleaction.h>
-#include <ktoolinvocation.h>
 #include <kicon.h>
 #include <kstandarddirs.h>
 

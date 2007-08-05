@@ -30,16 +30,11 @@
 #include <kdebug.h>
 
 #include <QApplication>
-#include <QEvent>
-#include <QImage>
-
-#include <QLabel>
 #include <QPixmap>
 #include <QPoint>
 #include <QCursor>
 #include <QMouseEvent>
 #include <QPainter>
-#include <QColor>
 #include <QRect>
 #include <QDrag>
 #include <QSvgGenerator>
