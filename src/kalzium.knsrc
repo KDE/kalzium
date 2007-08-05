@@ -1,3 +1,0 @@
-[KNewStuff2]
-ProvidersUrl=http://edu.kde.org/kalzium/molecules.xml
-TargetDir=kalzium/data/molecules # becomes $KDEHOME/share/apps/kalzium/data/molecules

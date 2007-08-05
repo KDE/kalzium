@@ -19,13 +19,8 @@
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
 #include <KLocale>
-#include <knewstuff2/engine.h>
 
 #include <openbabel2wrapper.h>
-
-#include <QMouseEvent>
-#include <QLayout>
-#include <QDir>
 
 using namespace OpenBabel;
 
@@ -33,10 +28,9 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	: KDialog( parent )
 {
 	setCaption( i18n( "Molecular Viewer" ) );
-	setButtons( Help | User1 | User2 | Close );
+	setButtons( Help | User1 | Close );
 	setDefaultButton( User1 );
 	setButtonGuiItem( User1, KGuiItem( i18n( "Load molecule" ), "open", i18n( "Loading a molecule" ) ) );
-	setButtonGuiItem( User2, KGuiItem( i18n( "Get more molecules" ), "getmore", i18n( "Download a collection of molecule files" ) ) );
 	
 	ui.setupUi(mainWidget());
 
@@ -62,8 +56,6 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
 	connect( this, SIGNAL( user1Clicked() ), 
 			this, SLOT( slotLoadMolecule() ) );
-	connect( this, SIGNAL( user2Clicked() ), 
-			this, SLOT( slotUser2() ) );
 }
 
 void MoleculeDialog::slotLoadMolecule()
@@ -100,13 +92,6 @@ void MoleculeDialog::slotLoadMolecule()
 
 MoleculeDialog::~MoleculeDialog( )
 {
-}
-
-void MoleculeDialog::slotUser2()
-{
-    KNS::Engine engine;
-    engine.init("kalzium.knsrc");
-    KNS::Entry::List entries = engine.downloadDialogModal();
 }
 
 void MoleculeDialog::updateStatistics()
