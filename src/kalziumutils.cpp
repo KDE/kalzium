@@ -122,7 +122,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                 if ( val <= 0.0 )
                     result = i18n( "Value not defined" );
                 else
-                    result = QString::number( val );
+                    result = i18nc("Just a number", "%1", val );
                 break;
             }
             //FIXME nothing is done here
@@ -178,8 +178,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
             {
                 val = el->dataAsVariant( kind ).toInt();
                 if ( val > 1600 ) {
-                    result = i18n( "This element was discovered in the year %1.", 
-                            QString::number(val) );
+                    result = i18n( "This element was discovered in the year %1.", val );
                 }else if( val == 0 ){
                     result = i18n( "Unknown." );
                 } else {
