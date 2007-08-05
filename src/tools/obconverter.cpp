@@ -99,23 +99,35 @@ void OBConverter::slotAddFile()
     QStringList InputType;
     vector<string> InputFormat = OBConvObject->GetSupportedInputFormat();
     for( vector<string>::iterator it = InputFormat.begin(); it!=InputFormat.end(); ++it) {
-      InputType << QString((*it).c_str());
-    }
-    QString description;
-    QString supportedFilters = "";
-    foreach(QString type, InputType) {
-      description = QString( type );
-      type.remove( QRegExp(" --.*$") );
-      description.remove( QRegExp( "^.*-- *" ) );
-      supportedFilters = supportedFilters + QString("\n") + description + QString(" (*.") + type + QString(")");
+        InputType << QString((*it).c_str());
 
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // InputType is now something like this:                                                                                    //
+    // "acr -- ACR format [Read-only]", "alc -- Alchemy format", "arc -- Accelrys/MSI Biosym/Insight II CAR format [Read-only]" //
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //FIXME Somehow this supportedFilters is not display but just "All supported files"...
-    QStringList fl =   KFileDialog::getOpenFileNames( QString(), supportedFilters, this, i18n("Select one or more files to convert") );
+    QStringList tmpList = InputType;
+    tmpList.replaceInStrings( QRegExp("^"), "*." );
+    tmpList.replaceInStrings( QRegExp(" -- "), "|" );
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // tmpList is now something like this:                                                                                      //
+    // ""*.acr -- ACR format [Read-only]", "*.alc -- Alchemy format", "*.arc -- Accelrys/MSI Biosym/Insight II CAR format-only]"//
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    kDebug() << "tmpList.join gives me: " << tmpList.join("\n");
 
-    foreach ( const QString& u , fl ) {
-        ui.FileListView->addItem( u );
+    KUrl::List fl = KFileDialog::getOpenUrls(
+            KUrl(),
+            
+            //FIXME Why the heck is the next line working while the 'tmpList.join("\n")' is NOT?????
+            //"*.qcout|Q-Chem output format [Read-only]\n*.res|ShelX format [Read-only]\n*.rxn|MDL RXN format\n*.sd|MDL MOL format *.sdf|MDL MOL format *.smi|SMILES format *.smiles|SMILES format *.sy2|Sybyl Mol2 format"
+
+            tmpList.join("\n") //add all possible extensions like "*.cml *.mol"
+            );
+
+    foreach ( const KUrl& u , fl ) {
+        new QListWidgetItem( u.prettyUrl(), ui.FileListView);
     }
 }
 
