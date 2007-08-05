@@ -7,8 +7,6 @@ body
 div.chemdata
 {
 	border: 1px solid rgb(50,80,150);
-	/*border: 1px solid rgb(0,0,0);	*/
-/*	width:400px;*/
 	overflow:visible;;
 }
 
