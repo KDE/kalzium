@@ -59,7 +59,7 @@ void TablesDialog::createGreekSymbolTable()
 	table->setRowCount( 24 );
 	table->setHorizontalHeaderLabels( QStringList() << i18n( "Uppercase" )
 		<< i18n( "Lowercase" )
-		<< i18n( "Name" ) );
+		<< i18nc( "The name of the greek letter in your language. For example 'Alpha' for the first letter. ", "Name" ) );
 
 	layout->addWidget( table );
 	table->setItem( 0, 0, new MyWidgetItem( QString( QChar( 913 ) ) ) ); //capital Alpha
@@ -157,7 +157,7 @@ void TablesDialog::createNumbersTable()
 
 	table->setColumnCount( 3 );
 	table->setRowCount( 28 );
-	table->setHorizontalHeaderLabels( QStringList() << i18n( "Number" ) << i18n( "Prefix" )  << i18n( "Roman Numerals") );
+	table->setHorizontalHeaderLabels( QStringList() << i18n( "Number" ) << i18nc("For example 'Mono' for 1 and 'Tri' for 3", "Prefix" )  << i18n( "Roman Numerals") );
 	
 	layout->addWidget( table );
 
