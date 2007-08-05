@@ -42,6 +42,7 @@ div.chemdata div table td+td
 /* The table containing the characterstics */
 table.characterstics
 {
+	background-color: white;
 	background-image:url('characteristics.png');
 	background-repeat:repeat-y;
 	width:100%;
