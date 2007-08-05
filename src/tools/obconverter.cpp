@@ -19,7 +19,6 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 #include "obconverter.h"
-#include "obsupportedformat.h"
 
 // OpenBabel includes
 #include <openbabel/obconversion.h>
@@ -28,8 +27,7 @@
 #include <QRegExp>
 #include <QListWidget>
 #include <QProcess>
-
-
+#include <QDebug>
 
 // KDE includes
 #include <kdebug.h>
@@ -49,6 +47,8 @@ OBConverter::OBConverter( QWidget *parent )
     setCaption( i18n( "OpenBabel Frontend" ) );
     setButtons( Help | User1| Close );
     setDefaultButton( User1 );
+    
+    OBConvObject = new OBConversion();
 	
     ui.setupUi( mainWidget() );
     
@@ -59,14 +59,22 @@ OBConverter::OBConverter( QWidget *parent )
 
 void OBConverter::setupWindow()
 {
-    // Supported format object 
-    OBSupportedFormat *supportedFormat = new OBSupportedFormat();
+    // Set multiple selection possible
+    ui.FileListView->setSelectionMode( QAbstractItemView::SelectionMode(3) );
 
-    // Add the supported fileformats to the GUI
-    QStringList InputType = supportedFormat->getInputFormat();
+    // Creating the main layout
+    QStringList InputType;
+    vector<string> InputFormat = OBConvObject->GetSupportedInputFormat();
+    for( vector<string>::iterator it = InputFormat.begin(); it!=InputFormat.end(); ++it) {
+      InputType << QString((*it).c_str());
+    }
     ui.InputTypeComboBox->addItems( InputType );
 
-    QStringList OutputType = supportedFormat->getOutputFormat();
+    QStringList OutputType;
+    vector<string> OutputFormat = OBConvObject->GetSupportedOutputFormat();
+    for( vector<string>::iterator it = OutputFormat.begin(); it!=OutputFormat.end(); ++it) {
+      OutputType << QString((*it).c_str());
+    }
     ui.OutputTypeComboBox->addItems( OutputType );
 
     // Create connection
@@ -81,27 +89,34 @@ void OBConverter::setupWindow()
  
     connect(this,
             SIGNAL( user1Clicked() ), SLOT( slotConvert() ));
+    
+    connect(ui.FileListView,
+            SIGNAL( itemSelectionChanged() ), SLOT( slotGuessInput() ));
 }
 
 void OBConverter::slotAddFile()
 {
-    kDebug() << "OBConverter::slotAddFile()";
-    OBSupportedFormat *supportedFormat = new OBSupportedFormat();
-    supportedFormat->setFormatExtensions();
-    
-    QStringList tmpList = supportedFormat->getInputFormatExtensions();
-    tmpList.replaceInStrings( QRegExp("^"), "*." );
+    QStringList InputType;
+    vector<string> InputFormat = OBConvObject->GetSupportedInputFormat();
+    for( vector<string>::iterator it = InputFormat.begin(); it!=InputFormat.end(); ++it) {
+      InputType << QString((*it).c_str());
+    }
+    QString description;
+    QString supportedFilters = "";
+    foreach(QString type, InputType) {
+      description = QString( type );
+      type.remove( QRegExp(" --.*$") );
+      description.remove( QRegExp( "^.*-- *" ) );
+      supportedFilters = supportedFilters + QString("\n") + description + QString(" (*.") + type + QString(")");
 
-    KUrl::List fl = KFileDialog::getOpenUrls( 
-            KUrl(), 
-            tmpList.join(" ") //add all possible extensions like "*.cml *.mol"
-        );
-
-    foreach ( const KUrl& u , fl ) {
-        new QListWidgetItem( u.prettyUrl(), ui.FileListView);
     }
 
-    slotGuessInput();
+    //FIXME Somehow this supportedFilters is not display but just "All supported files"...
+    QStringList fl =   KFileDialog::getOpenFileNames( QString(), supportedFilters, this, i18n("Select one or more files to convert") );
+
+    foreach ( const QString& u , fl ) {
+        ui.FileListView->addItem( u );
+    }
 }
 
 
@@ -121,111 +136,102 @@ void OBConverter::slotDeleteFile()
 
 void OBConverter::slotGuessInput()
 {
-    kDebug() << "OBConverter::slotGuessInput()";
-    QList <QListWidgetItem*> p = ui.FileListView->selectedItems ();
-    bool first=true;
+    QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
+    bool first = true;
     QString suffix;
-    if( p.count() )
-    {
-        foreach (QListWidgetItem * item , p ) {
-            if (first){
-                first=false;
-                suffix=item->text().remove(QRegExp("^.*\\."));
-            } else {
-                if (item->text().remove(QRegExp("^.*\\.")) == suffix) continue;
-                else return;
+    if( p.count() ) {
+        foreach( QListWidgetItem * item, p) {
+            if( first ) {
+                first = false;
+                suffix = item->text().remove(QRegExp("^.*\\."));
             }
-        }
-        foreach (QListWidgetItem * item , p ) {
-            if (first){
-                first=false;
-                suffix=item->text().remove(QRegExp("^.*\\."));
-            } else {
-                if (item->text().remove(QRegExp("^.*\\.")) == suffix) continue;
-                else return;
+            else {
+                if( item->text().remove(QRegExp("^.*\\.")) == suffix ) {
+                    continue;
+                }
+                else {
+		    // All the file types are not same, set type to default
+		    ui.InputTypeComboBox->setCurrentIndex(0);
+                    return;
+                }
             }
-
-//X If all the files to convert have the same type, then the input type is 
-//X automatically selected. Input type are like "type -- description of this
-//X type". 
-
-//X //assertion: 'suffix' is the only suffix among the selected files.
-//X for(int i=0; i<InputTypeComboBox->count();i++){
-//X     if (InputTypeComboBox->text(i).find(QRegExp("^"+suffix+" -- "))>=0){
-//X         InputTypeComboBox->setCurrentItem(i);
-//X         break;
-//X     }
-//X }
-
         }
     }
+    for( int i = 0; i < ui.InputTypeComboBox->count(); i++) {
+        if( ui.InputTypeComboBox->itemText(i).indexOf(QRegExp("^" + suffix + " --")) >=0 ) {
+	    ui.InputTypeComboBox->setCurrentIndex(i);
+	    return;
+	}
+    }
+    // The suffix has not been found, set type to default
+    ui.InputTypeComboBox->setCurrentIndex(0);
 }
 
 void OBConverter::slotConvert()
 {
-    //iformat might become "c3d1 -- Chem3D CartChem3D Cartesian 1 format"
     QString iformat = ui.InputTypeComboBox->currentText();
     QString oformat = ui.OutputTypeComboBox->currentText();
-
-    //iformat is now "c3d1"
-    iformat=iformat.remove(QRegExp(" --.*"));
-    oformat=oformat.remove(QRegExp(" --.*"));
+    iformat = iformat.remove(QRegExp(" --.*"));
+    oformat = oformat.remove(QRegExp(" --.*"));
 
     QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
-
-    if (p.count()==0) {
-        KMessageBox::sorry(0,i18n("You must select some files first."));
+    if( p.count() == 0 ) {
+        QMessageBox::information(this,tr("KOpenBabel"),tr("You must select some files first."));
         return;
     }
-
     QListIterator<QListWidgetItem*> it( p );
-    QStringList cmdList;
-
-    foreach (QListWidgetItem * item, p){
-        QString ifname = KUrl( item->text() ).toLocalFile();
+    QStringList cmdList; // Full command
+    QLinkedList<QStringList> cmdArgList; // Arguments only
+    foreach( QListWidgetItem * item, p) {
+        QString ifname = QUrl( item->text() ).toLocalFile();
         QString ofname = ifname;
+        ofname = ofname.remove(QRegExp("\\.([^\\.]*$)"));
+	ofname = ofname + QString(".") + oformat;
 
-        //convert foo.blubb to foo.blibb
-        ofname = ofname.replace( '.'+iformat, '.'+oformat);
+        bool proceed = true;
         
-        bool proceed=true;
-        
-        if ( QFile::exists(ofname) ) {
+        if( QFile::exists(ofname) ) {
             //something named ofname already exists
-            switch ( KMessageBox::questionYesNo(0, 
-                        i18n( "The file %1 already exist. Do you want to overwrite if possible ?", ofname), 
-                        i18n("Authorization")) 
-                   )
-            {
-                case KMessageBox::No:
-                    proceed=false;
+            switch( QMessageBox::question(
+	                this,
+  	                tr( "Overwrite File? -- KOpenBabel" ),
+                        tr( "The file %1 already exists. Do you want to overwrite if possible?").arg(ofname), 
+                        QMessageBox::Yes, QMessageBox::No)
+                  ) {
+                case QMessageBox::No:
+                    proceed = false;
                     break;
                 default:
                     break;
             }
         }
-        if (proceed) {
-            QString command = QString( "babel -i%1 %2 -o%3 %4" ).arg(iformat,ifname,oformat,ofname);
-            cmdList.append( command );
+        if( proceed ) {
+            QStringList arguments;
+	    arguments << QString( "-i") + iformat << ifname << QString("-o") + oformat << ofname;
+            cmdArgList.append( arguments );
+	    cmdList.append( QString("babel ") + arguments.join(" ") );
         }
     }
-    kDebug() << "cmdList is: " << cmdList;
-    switch (KMessageBox::questionYesNoList
-            (0,
-             i18n("OK to run these commands?"),
-             cmdList,
-             i18n("List of commands")
-            )
-           ) 
-    {
-        case KMessageBox::Yes:
-            foreach (const QString s, cmdList) {
-                QProcess::startDetached ( "babel", cmdList );
-            }
-            break;
-        default:
-            break;
+    if( cmdArgList.count() > 0 ) {
+        switch( QMessageBox::question(
+                    this, tr("OK to run these commands? -- KOpenBabel"),
+                    cmdList.join("\n"),
+	   	    QMessageBox::Yes, QMessageBox::No)
+  	      ) {
+            case QMessageBox::Yes:
+                foreach(const QStringList s, cmdArgList) {
+                    QProcess::startDetached( "babel", s);
+                }
+                break;
+            default:
+                break;
+        }
     }
+}
+
+void OBConverter::addFile(const QString &filename)
+{
+    ui.FileListView->addItem(filename);
 }
 
 #include "obconverter.moc"

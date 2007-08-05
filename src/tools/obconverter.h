@@ -23,6 +23,7 @@
 
 
 #include "ui_obconverterwidget.h"
+#include <openbabel/obconversion.h>
 
 class KDialog;
 
@@ -41,9 +42,16 @@ class OBConverter : public KDialog
          * @param parent the parent widget
          */
         OBConverter( QWidget *parent );
+
+        /**
+         * Add file to the list
+         */
+        void addFile( const QString &filename );
         
     private:
         Ui::OBConverterWidget ui;
+
+        OpenBabel::OBConversion *OBConvObject;
         
         QString File;
 

@@ -17,7 +17,6 @@ include_directories(
 if(OPENBABEL2_FOUND)
 	set(kalziumtools_SRCS
 		tools/obconverter.cpp
-		tools/obsupportedformat.cpp
 	)
 	
 	kde4_add_ui_files(kalziumtools_SRCS
