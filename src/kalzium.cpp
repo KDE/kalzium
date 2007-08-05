@@ -310,7 +310,7 @@ void Kalzium::setupSidebars()
 
 //X     m_infoTabWidget->addTab(m_TableInfoWidget, i18n("&Table Information"));
 
-    m_dockWin = new QDockWidget( i18n( "Sidebar" ), this );
+    m_dockWin = new QDockWidget( this );
     m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );
     m_dockWin->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 
@@ -443,11 +443,11 @@ void Kalzium::slotShowLegend( bool checked, bool changeconfig)
 {
 	if ( !checked )
 	{
-		m_pLegendAction->setText( i18n( "Show &Information") );
+		m_pLegendAction->setText( i18n( "Show &Legend") );
 	}
 	else
 	{
-		m_pLegendAction->setText( i18n( "Hide &Information" ) );
+		m_pLegendAction->setText( i18n( "Hide &Legend" ) );
 	}
 
 	if ( changeconfig )
@@ -461,7 +461,7 @@ void Kalzium::slotShowLegend( bool checked, bool changeconfig)
 void Kalzium::slotShowHideSidebar( bool checked, bool changeconfig )
 {
 	if ( !checked )
-	{
+        {
 		m_SidebarAction->setText( i18n( "Show &Sidebar" ) );
 		slotToolboxCurrentChanged( 0 );
 	}
