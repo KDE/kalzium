@@ -113,12 +113,11 @@ void OBConverter::slotAddFile()
     tmpList.replaceInStrings( QRegExp("/"), "\\/" ); //escape all '/' (because of MimeTypes)
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // tmpList is now something like this:                                                                                      //
-    // ""*.acr -- ACR format [Read-only]", "*.alc -- Alchemy format", "*.arc -- Accelrys/MSI Biosym/Insight II CAR format-only]"//
+    // "*.acr|ACR format [Read-only]", "*.alc|Alchemy format"                                                                   //
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     KUrl::List fl = KFileDialog::getOpenUrls(
             KUrl(),
-            
             "*.*|All Files\n"+tmpList.join("\n") //add all possible extensions like "*.cml *.mol"
             );
 
