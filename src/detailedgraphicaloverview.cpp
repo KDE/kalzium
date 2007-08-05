@@ -148,7 +148,6 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
         int size = KalziumUtils::maxSize(m_element->dataAsString( ChemicalDataObject::name), rect , fC, &p);
 
-        int size3 = KalziumUtils::maxSize( m_element->dataAsString( ChemicalDataObject::mass ), rect , fC, &p);
 
         //Name and other data
         fC.setPointSize( size );
@@ -161,15 +160,17 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
         p.setFont( fC );
 
         //Mass
+        QString massString = i18nc( "For example '1.0079u', the mass of an element in units", "%1 u", m_element->dataAsString( ChemicalDataObject::mass ) );
+        int size3 = KalziumUtils::maxSize( massString, rect , fC, &p);
         fC.setPointSize( size3 );
         p.setFont( fC );
-        int offset = KalziumUtils::StringHeight( m_element->dataAsString( ChemicalDataObject::mass ), fC, &p );
+        int offset = KalziumUtils::StringHeight( massString, fC, &p );
         p.drawText( w/2, 
                 h-offset, 
                 w/2, 
                 offset, 
                 Qt::AlignRight, 
-                m_element->dataAsString( ChemicalDataObject::mass ) 
+                massString
                 );
     }
 
