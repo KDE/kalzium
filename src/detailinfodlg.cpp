@@ -40,7 +40,8 @@
 #include "element.h"
 #include "orbitswidget.h"
 #include "detailedgraphicaloverview.h"
-#include "spectrumviewimpl.h"
+//FIXME Readd for KDE 4.1
+//X #include "spectrumviewimpl.h"
 #include "kalziumutils.h"
 #include "kalziumtabletype.h"
 
@@ -439,83 +440,83 @@ void DetailedInfoDlg::createContent()
 	m_htmlpages["new"] = addHTMLTab( i18n( "Data Overview" ), i18n( "Data Overview" ), "data" );
 
 	// spectrum widget tab
-	QWidget *m_pSpectrumTab = new QWidget();
-	item = addPage( m_pSpectrumTab, i18n( "Spectrum" ) );
-	item->setHeader( i18n( "Spectrum" ) );
-	item->setIcon( KIcon( "spectrum" ) );
-	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab );
-	spectrumLayout->setMargin( 0 );
-	m_spectrumStack = new QStackedWidget( m_pSpectrumTab );
-	spectrumLayout->addWidget( m_spectrumStack );
-	m_spectrumview = new SpectrumViewImpl( m_spectrumStack );
-	m_spectrumview->setObjectName( "spectrumwidget" );
-	m_spectrumStack->addWidget( m_spectrumview );
-	m_spectrumLabel = new QLabel( m_spectrumStack );
-	m_spectrumStack->addWidget( m_spectrumLabel );
+//X 	QWidget *m_pSpectrumTab = new QWidget();
+//X 	item = addPage( m_pSpectrumTab, i18n( "Spectrum" ) );
+//X 	item->setHeader( i18n( "Spectrum" ) );
+//X 	item->setIcon( KIcon( "spectrum" ) );
+//X 	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab );
+//X 	spectrumLayout->setMargin( 0 );
+//X 	m_spectrumStack = new QStackedWidget( m_pSpectrumTab );
+//X 	spectrumLayout->addWidget( m_spectrumStack );
+//X 	m_spectrumview = new SpectrumViewImpl( m_spectrumStack );
+//X 	m_spectrumview->setObjectName( "spectrumwidget" );
+//X 	m_spectrumStack->addWidget( m_spectrumview );
+//X 	m_spectrumLabel = new QLabel( m_spectrumStack );
+//X 	m_spectrumStack->addWidget( m_spectrumLabel );
 }
 
 void DetailedInfoDlg::reloadContent()
 {
-	// reading the most common data
-	const QString element_name = m_element->dataAsString( ChemicalDataObject::name );
-	const QString element_symbol = m_element->dataAsString( ChemicalDataObject::symbol );
+    // reading the most common data
+    const QString element_name = m_element->dataAsString( ChemicalDataObject::name );
+    const QString element_symbol = m_element->dataAsString( ChemicalDataObject::symbol );
 
-	// updating caption
-	setCaption( i18nc( "For example Carbon (6)" , "%1 (%2)", element_name, m_elementNumber ) );
+    // updating caption
+    setCaption( i18nc( "For example Carbon (6)" , "%1 (%2)", element_name, m_elementNumber ) );
 
-	// updating overview tab
-	dTab->setElement( m_elementNumber );
+    // updating overview tab
+    dTab->setElement( m_elementNumber );
 
-//X 	// updating picture tab
-//X 	QString picpath = m_picsdir + element_symbol + ".jpg";
-//X 	if ( QFile::exists( picpath ) )
-//X 	{
-//X 		QImage img( picpath, "JPEG" );
-//X 		img = img.scaled( 400, 400, Qt::KeepAspectRatio );
-//X 		piclabel->setPixmap( QPixmap::fromImage( img ) );
-//X 	}
-//X 	else 
-//X 		piclabel->setText( i18n( "No picture of %1 found.", element_name ) );
+    //X 	// updating picture tab
+    //X 	QString picpath = m_picsdir + element_symbol + ".jpg";
+    //X 	if ( QFile::exists( picpath ) )
+    //X 	{
+    //X 		QImage img( picpath, "JPEG" );
+    //X 		img = img.scaled( 400, 400, Qt::KeepAspectRatio );
+    //X 		piclabel->setPixmap( QPixmap::fromImage( img ) );
+    //X 	}
+    //X 	else 
+    //X 		piclabel->setText( i18n( "No picture of %1 found.", element_name ) );
 
-	// updating atomic model tab
-	wOrbits->setElementNumber( m_elementNumber );
-/*
-	wOrbits->setWhatsThis(
-	    i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
-	    .arg( m_element->dataAsString( ChemicalDataObject::name ) )
-	    .arg( m_element->dataAsString( ChemicalDataObject::name ) )
-	    .arg( "" ));//m_element->parsedOrbits() ) );
-*/
+    // updating atomic model tab
+    wOrbits->setElementNumber( m_elementNumber );
+    /*
+       wOrbits->setWhatsThis(
+       i18n( "Here you can see the atomic hull of %1. %2 has the configuration %3." )
+       .arg( m_element->dataAsString( ChemicalDataObject::name ) )
+       .arg( m_element->dataAsString( ChemicalDataObject::name ) )
+       .arg( "" ));//m_element->parsedOrbits() ) );
+       */
 
-	// updating html tabs
-//	fillHTMLTab( m_htmlpages["chemical"], getHtml( CHEMICAL ) );
-//	fillHTMLTab( m_htmlpages["energies"], getHtml( ENERGY ) );
-	fillHTMLTab( m_htmlpages["new"], getHtml( DATA ) );
-	fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
-	fillHTMLTab( m_htmlpages["isotopes"], getHtml( ISOTOPES ) );
+    // updating html tabs
+    //	fillHTMLTab( m_htmlpages["chemical"], getHtml( CHEMICAL ) );
+    //	fillHTMLTab( m_htmlpages["energies"], getHtml( ENERGY ) );
+    fillHTMLTab( m_htmlpages["new"], getHtml( DATA ) );
+    fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
+    fillHTMLTab( m_htmlpages["isotopes"], getHtml( ISOTOPES ) );
 
-  Spectrum*s = new Spectrum();
-  s->addPeak( new Spectrum::peak(400,300) );
-  s->addPeak( new Spectrum::peak(450,500) );
-  s->addPeak( new Spectrum::peak(455,500) );
-  s->addPeak( new Spectrum::peak(470,100) );
-  s->addPeak( new Spectrum::peak(490,50) );
-  s->addPeak( new Spectrum::peak(500,600) );
-  s->addPeak( new Spectrum::peak(550,700) );
-  s->adjustIntensities();
-  
-  m_element->setSpectrum( s );
-
-	// updating spectrum widget
-	if ( m_element->spectrum() )
-  {
-      m_spectrumview->setSpectrum( m_element->spectrum() );
-  }
-  else
-  {
-      m_spectrumLabel->setText( i18n( "No spectrum of %1 found.", element_name ) );
-      m_spectrumStack->setCurrentWidget( m_spectrumLabel );
-  }
+//X     Spectrum*s = new Spectrum();
+//X     s->addPeak( new Spectrum::peak(400,300) );
+//X     s->addPeak( new Spectrum::peak(450,500) );
+//X     s->addPeak( new Spectrum::peak(455,500) );
+//X     s->addPeak( new Spectrum::peak(470,100) );
+//X     s->addPeak( new Spectrum::peak(490,50) );
+//X     s->addPeak( new Spectrum::peak(500,600) );
+//X     s->addPeak( new Spectrum::peak(550,700) );
+//X     s->adjustIntensities();
+//X 
+//X     m_element->setSpectrum( s );
+//X 
+//X     // updating spectrum widget
+//X     if ( m_element->spectrum() )
+//X     {
+//X         m_spectrumview->setSpectrum( m_element->spectrum() );
+//X     }
+//X     else
+//X     {
+//X         m_spectrumLabel->setText( i18n( "No spectrum of %1 found.", element_name ) );
+//X         m_spectrumStack->setCurrentWidget( m_spectrumLabel );
+//X     }
 }
 
 void DetailedInfoDlg::slotHelp()

@@ -52,10 +52,8 @@ set(kalzium_SRCS
    somwidget_impl.cpp
    timewidget_impl.cpp
    kalziumdataobject.cpp
-   spectrumwidget.cpp
    nuclideboard.cpp
    exporter.cpp
-   spectrumviewimpl.cpp
    kalziumutils.cpp
    kalziumgradienttype.cpp
    kalziumnumerationtype.cpp
@@ -67,6 +65,8 @@ set(kalzium_SRCS
    rsdialog.cpp
    legendwidget.cpp
    tableinfowidget.cpp
+   #spectrumviewimpl.cpp #will readd in KDE4.1
+   #spectrumwidget.cpp #will readd in KDE4.1
 )
 
 if(LIBFACILE_FOUND)
@@ -90,7 +90,7 @@ kde4_add_ui_files(kalzium_SRCS
    plotsetupwidget.ui
    molcalcwidgetbase.ui
    somwidget.ui
-   spectrumview.ui
+   #spectrumview.ui #will readd in KDE 4.1
    settings_misc.ui
    settings_units.ui
    rswidget.ui
