@@ -1,6 +1,5 @@
-/*
-    This file is part of libkdeedu.
-    Copyright (c) 2007 Pino Toscano <toscano.pino@tiscali.it>
+/*  This file is part of the KDE project
+    Copyright (C) 2007 David Faure <faure@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
@@ -18,25 +17,24 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef KDEEDU_COMPOUNDVIEWER_EXPORT_H
-#define KDEEDU_COMPOUNDVIEWER_EXPORT_H
+#ifndef LIBKDEEDU_COMPOUNDVIEWER_EXPORT_H
+#define LIBKDEEDU_COMPOUNDVIEWER_EXPORT_H
 
-/* needed for KDE_EXPORT macros */
+/* needed for KDE_EXPORT and KDE_IMPORT macros */
 #include <kdemacros.h>
 
-#if defined Q_OS_WIN
-
 #ifndef COMPOUNDVIEWER_EXPORT
-# ifdef MAKE_COMPOUNDVIEWER_LIB
+# if defined(MAKE_COMPOUNDVIEWER_LIB)
+   /* We are building this library */ 
 #  define COMPOUNDVIEWER_EXPORT KDE_EXPORT
 # else
+   /* We are using this library */ 
 #  define COMPOUNDVIEWER_EXPORT KDE_IMPORT
 # endif
 #endif
 
-#else
-/* export statements for unix */
-#define COMPOUNDVIEWER_EXPORT KDE_EXPORT
-#endif
+# ifndef COMPOUNDVIEWER_EXPORT_DEPRECATED
+#  define COMPOUNDVIEWER_EXPORT_DEPRECATED KDE_DEPRECATED COMPOUNDVIEWER_EXPORT
+# endif
 
 #endif
