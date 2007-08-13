@@ -234,7 +234,7 @@ class KDEEDUUI_EXPORT GlossaryDialog : public KDialog
 		Private * const d;
 
 		Q_PRIVATE_SLOT( d, void itemActivated( QTreeWidgetItem *, int ) )
-		Q_PRIVATE_SLOT( d, void displayItem( const KUrl&, const KParts::URLArgs& ) )
+		Q_PRIVATE_SLOT( d, void displayItem( const KUrl &, const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) )
 };
 
 #endif // KDEEDUGLOSSARY_H

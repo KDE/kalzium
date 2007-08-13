@@ -103,7 +103,7 @@ class GlossaryDialog::Private
         // slots
         void itemActivated( QTreeWidgetItem * item, int column );
         // The user clicked on a href. Find and display the right item
-        void displayItem( const KUrl& url, const KParts::URLArgs& args );
+        void displayItem( const KUrl &url, const KParts::OpenUrlArguments& arguments, const KParts::BrowserArguments &browserArguments );
 
         GlossaryDialog *q;
 
@@ -353,7 +353,8 @@ GlossaryDialog::GlossaryDialog( QWidget *parent )
  
 	d->m_htmlpart = new KHTMLPart( vs );
 
-	connect( d->m_htmlpart->browserExtension(), SIGNAL( openUrlRequestDelayed( const KUrl &, const KParts::URLArgs & ) ), this, SLOT( displayItem( const KUrl &, const KParts::URLArgs & ) ) );
+    connect( d->m_htmlpart->browserExtension(), SIGNAL( openUrlRequestDelayed( const KUrl &, const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ),
+             this, SLOT( displayItem( const KUrl &, const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ) );
 	connect( d->m_glosstree, SIGNAL( itemActivated( QTreeWidgetItem * , int ) ), this, SLOT( itemActivated( QTreeWidgetItem * , int ) ) );
 
 	resize( 600, 400 );
@@ -372,7 +373,7 @@ void GlossaryDialog::keyPressEvent(QKeyEvent* e)
 	KDialog::keyPressEvent(e);
 }
 
-void GlossaryDialog::Private::displayItem( const KUrl& url, const KParts::URLArgs& )
+void GlossaryDialog::Private::displayItem( const KUrl &url, const KParts::OpenUrlArguments &, const KParts::BrowserArguments & )
 {
 	// using the "host" part of a kurl as reference
 	QString myurl = url.host().toLower();
