@@ -1081,7 +1081,7 @@
 				 </question>
 				 <answer>
 					 <para>No, at the moment not, but you can download the source and make
-						 your own Windows version. It should not be a big problem, because it is
+						 your own &Windows; version. It should not be a big problem, because it is
 						 written with Trolltech &Qt; libs. But what do you need &Windows; for?
 						 Get the latest &Linux;, and live on the edge.</para>
 
@@ -1163,7 +1163,7 @@
 			 <para>
 				 &kalzium; itself can be found on <ulink
 					 url="http://edu.kde.org/kalzium">The &kalzium; home page</ulink> and
-				 is part of the KDE-Edu project</para>
+				 is part of the &kde;-Edu project</para>
 
 			 <para>You can find a list of changes in the file
 				 <filename>ChangeLog</filename> in the distribution of
