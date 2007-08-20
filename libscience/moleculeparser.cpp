@@ -295,7 +295,7 @@ MoleculeParser::lookupElement( const QString& _name )
 	//if there is an error make m_error true.
 	m_error = true;
 
-	kDebug() << k_funcinfo << "no such element, parsing error!: " << _name;
+	kDebug() << "no such element, parsing error!: " << _name;
 
 	return NULL;
 }
