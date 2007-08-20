@@ -22,6 +22,7 @@
 #include <kicon.h>
 #include <khtml_part.h>
 #include <dom/html_base.h>
+#include <dom/html_document.h>
 #include <khtmlview.h>
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
