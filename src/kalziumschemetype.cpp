@@ -384,7 +384,7 @@ QList<legendPair> KalziumGroupsSchemeType::legendItems() const
 	ll << qMakePair( i18n( "Group 5" ), QBrush( Prefs::group_5() ) );
 	ll << qMakePair( i18n( "Group 6" ), QBrush( Prefs::group_6() ) );
 	ll << qMakePair( i18n( "Group 7" ), QBrush( Prefs::group_7() ) );
-	ll << qMakePair( i18n( "Group 7" ), QBrush( Prefs::group_8() ) );
+	ll << qMakePair( i18n( "Group 8" ), QBrush( Prefs::group_8() ) );
 
 	return ll;
 }
