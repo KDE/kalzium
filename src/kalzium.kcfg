@@ -19,7 +19,7 @@
 			<label>Selects the default gradient</label>
 			<whatsthis>Select the gradient you want by clicking on the menu entry</whatsthis>
 			<default>1</default>
-		</entry>	
+		</entry>
 		<entry name="numeration" type="Int">
 			<label>Selects the default numeration (IUPAC)</label>
 			<whatsthis>Select the numeration you want</whatsthis>
@@ -39,6 +39,53 @@
 			<label>Selects the table view (default is classical)</label>
 			<whatsthis>Display the table view</whatsthis>
 			<default>0</default>
+		</entry>
+	</group>
+	<group name="Logarithmic Gradients">
+		<entry name="LogarithmicCovalentRadiusGradient" type="Bool">
+			<label>whether to use a logarithmic gradient for the KalziumCovalentRadiusGradientType class</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumCovalentRadiousGradientType class</whatsthis>
+			<default>false</default>
+		</entry>
+		<entry name="LogarithmicVanDerWaalsRadiusGradient" type="Bool">
+			<label>whether to use a logarithmic gradient for the KalziumVanDerWaalsRadiusGradientType class</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumVanDerWaalsRadiusGradientType class</whatsthis>
+			<default>false</default>
+		</entry>
+		<entry name="LogarithmicMassGradient" type="Bool">
+			<label>whether to use a logarithmic gradient for the KalziumMassGradientType class</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumMassGradientType class</whatsthis>
+			<default>true</default>
+		</entry>
+		<entry name="LogarithmicBoilingPointGradient" type="Bool">
+			<label>whether to use a logarithmic gradient for the KalziumBoilingPointGradientType class</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumBoilingPointGradientType class</whatsthis>
+			<default>true</default>
+		</entry>
+		<entry name="LogarithmicMeltingPointGradient" type="Bool">
+			<label>whether to use a logarithmic gradient for the KalziumMeltingPointGradientType class</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumMeltingPointGradientType class</whatsthis>
+			<default>true</default>
+		</entry>
+		<entry name="LogarithmicElectronegativityGradient" type="Bool">
+			<label>whether to use a logarithmic gradient for the KalziumElectronegativityGradientType class</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumElectronegativityGradientType class</whatsthis>
+			<default>false</default>
+		</entry>
+		<entry name="LogarithmicDiscoverydateGradient" type="Bool">
+			<label>whether to use a logarithmic gradient for the KalziumDiscoverydateGradientType class</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumDiscoverydateGradientType class</whatsthis>
+			<default>false</default>
+		</entry>
+		<entry name="LogarithmicElectronaffinityGradient" type="Bool">
+			<label>whether to use a logarithmic gradient for the KalziumElectronaffinityGradientType class</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumElectronaffinityGradientType class</whatsthis>
+			<default>true</default>
+		</entry>
+		<entry name="LogarithmicIonizationGradient" type="Bool">
+			<label>whether to use a logarithmic gradient for the KalziumIonizationGradientType class</label>
+			<whatsthis>Specifies whether to use a logarithmic instead of a linear gradient for the KalziumIonizationGradientType class</whatsthis>
+			<default>true</default>
 		</entry>
 	</group>
 	<group name="Colors">

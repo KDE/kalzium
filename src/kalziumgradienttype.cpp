@@ -20,12 +20,15 @@
 #include "kalziumgradienttype.h"
 
 #include "element.h"
+#include "prefs.h"
 #include "kalziumdataobject.h"
 
 #include <QVariant>
 
 #include <klocale.h>
 #include <kdebug.h>
+
+#include <math.h>
 
 KalziumGradientTypeFactory::KalziumGradientTypeFactory()
 {
@@ -115,13 +118,20 @@ QColor KalziumGradientType::calculateColor( const double coeff ) const
 {
 	if ( ( coeff < 0.0 ) || ( coeff > 1.0 ) ) return notAvailableColor();
 
+	double _coeff;
+	// the higher a, the steeper the logarithmic curve ( a > 1 )
+	const double a = 256;
+	if(logarithmicGradient())
+		_coeff = log(1 + coeff * (a - 1))/log(a);
+	else
+		_coeff = coeff;
 	QColor color2 = secondColor();
 	QColor color1 = firstColor();
 
-	int red = static_cast<int>( (color2.red() - color1.red()) * coeff + color1.red() );
-	int green = static_cast<int>( (color2.green() - color1.green()) * coeff + color1.green() );
-	int blue = static_cast<int>( (color2.blue() - color1.blue()) * coeff + color1.blue() );
-
+	int red = static_cast<int>( (color2.red() - color1.red()) * _coeff + color1.red() );
+	int green = static_cast<int>( (color2.green() - color1.green()) * _coeff + color1.green() );
+	int blue = static_cast<int>( (color2.blue() - color1.blue()) * _coeff + color1.blue() );
+	
 	return QColor( red, green, blue );
 }
 
@@ -163,6 +173,11 @@ double KalziumCovalentRadiusGradientType::maxValue() const
 	return 2.25;
 }
 
+bool KalziumCovalentRadiusGradientType::logarithmicGradient() const
+{
+	return Prefs::logarithmicCovalentRadiusGradient();
+}
+
 
 KalziumVanDerWaalsRadiusGradientType* KalziumVanDerWaalsRadiusGradientType::instance()
 {
@@ -200,6 +215,11 @@ double KalziumVanDerWaalsRadiusGradientType::minValue() const
 double KalziumVanDerWaalsRadiusGradientType::maxValue() const
 {
 	return 3.0;
+}
+
+bool KalziumVanDerWaalsRadiusGradientType::logarithmicGradient() const
+{
+	return Prefs::logarithmicVanDerWaalsRadiusGradient();
 }
 
 
@@ -241,6 +261,10 @@ double KalziumMassGradientType::maxValue() const
 	return 292.0;
 }
 
+bool KalziumMassGradientType::logarithmicGradient() const
+{
+	return Prefs::logarithmicMassGradient();
+}
 
 KalziumBoilingPointGradientType* KalziumBoilingPointGradientType::instance()
 {
@@ -280,6 +304,10 @@ double KalziumBoilingPointGradientType::maxValue() const
 	return 5870.0;
 }
 
+bool KalziumBoilingPointGradientType::logarithmicGradient() const
+{
+	return Prefs::logarithmicBoilingPointGradient();
+}
 
 KalziumMeltingPointGradientType* KalziumMeltingPointGradientType::instance()
 {
@@ -317,6 +345,11 @@ double KalziumMeltingPointGradientType::minValue() const
 double KalziumMeltingPointGradientType::maxValue() const
 {
 	return 3825.0;
+}
+
+bool KalziumMeltingPointGradientType::logarithmicGradient() const
+{
+	return Prefs::logarithmicMeltingPointGradient();
 }
 
 
@@ -358,6 +391,11 @@ double KalziumElectronegativityGradientType::maxValue() const
 	return 3.98;
 }
 
+bool KalziumElectronegativityGradientType::logarithmicGradient() const
+{
+	return Prefs::logarithmicElectronegativityGradient();
+}
+
 ///DISCOVERYDATE///
 
 KalziumDiscoverydateGradientType* KalziumDiscoverydateGradientType::instance()
@@ -396,6 +434,11 @@ double KalziumDiscoverydateGradientType::minValue() const
 double KalziumDiscoverydateGradientType::maxValue() const
 {
 	return 1994.0;
+}
+
+bool KalziumDiscoverydateGradientType::logarithmicGradient() const
+{
+	return Prefs::logarithmicDiscoverydateGradient();
 }
 
 
@@ -439,6 +482,11 @@ double KalziumElectronaffinityGradientType::maxValue() const
 	return 3.7;
 }
 
+bool KalziumElectronaffinityGradientType::logarithmicGradient() const
+{
+	return Prefs::logarithmicElectronaffinityGradient();
+}
+
 ///FIRST IONIZATINO///
 
 KalziumIonizationGradientType* KalziumIonizationGradientType::instance()
@@ -471,10 +519,15 @@ double KalziumIonizationGradientType::value( int el ) const
 
 double KalziumIonizationGradientType::minValue() const
 {
-	return 0.0;
+	return 0.0;//3.89;
 }
 
 double KalziumIonizationGradientType::maxValue() const
 {
 	return 25.0;
+}
+
+bool KalziumIonizationGradientType::logarithmicGradient() const
+{
+	return Prefs::logarithmicIonizationGradient();
 }

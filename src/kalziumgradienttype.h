@@ -110,7 +110,11 @@ class KalziumGradientType
 		 * represents.
 		 */
 		virtual double maxValue() const = 0;
-
+                /**
+                 * Returns whether to use a logarithmic gradient
+                 * instead of a linear one.
+                 */
+                virtual bool logarithmicGradient() const = 0;
 		/**
 		 * Returns the first color of the gradient.
 		 */
@@ -154,6 +158,8 @@ class KalziumCovalentRadiusGradientType : public KalziumGradientType
 
 		double minValue() const;
 		double maxValue() const;
+                
+                bool logarithmicGradient() const;
 
 	private:
 		KalziumCovalentRadiusGradientType();
@@ -176,6 +182,8 @@ class KalziumVanDerWaalsRadiusGradientType : public KalziumGradientType
 
 		double minValue() const;
 		double maxValue() const;
+                
+                bool logarithmicGradient() const;
 
 	private:
 		KalziumVanDerWaalsRadiusGradientType();
@@ -198,6 +206,8 @@ class KalziumMassGradientType : public KalziumGradientType
 
 		double minValue() const;
 		double maxValue() const;
+                
+                bool logarithmicGradient() const;
 
 	private:
 		KalziumMassGradientType();
@@ -220,6 +230,8 @@ class KalziumBoilingPointGradientType : public KalziumGradientType
 
 		double minValue() const;
 		double maxValue() const;
+                
+                bool logarithmicGradient() const;
 
 	private:
 		KalziumBoilingPointGradientType();
@@ -242,6 +254,8 @@ class KalziumMeltingPointGradientType : public KalziumGradientType
 
 		double minValue() const;
 		double maxValue() const;
+                
+                bool logarithmicGradient() const;
 
 	private:
 		KalziumMeltingPointGradientType();
@@ -264,6 +278,8 @@ class KalziumElectronegativityGradientType : public KalziumGradientType
 
 		double minValue() const;
 		double maxValue() const;
+                
+                bool logarithmicGradient() const;
 
 	private:
 		KalziumElectronegativityGradientType();
@@ -286,6 +302,8 @@ class KalziumDiscoverydateGradientType : public KalziumGradientType
 
 		double minValue() const;
 		double maxValue() const;
+                
+                bool logarithmicGradient() const;
 
 	private:
 		KalziumDiscoverydateGradientType();
@@ -308,6 +326,8 @@ class KalziumElectronaffinityGradientType : public KalziumGradientType
 
 		double minValue() const;
 		double maxValue() const;
+                
+                bool logarithmicGradient() const;
 
 	private:
 		KalziumElectronaffinityGradientType();
@@ -330,6 +350,8 @@ class KalziumIonizationGradientType : public KalziumGradientType
 
 		double minValue() const;
 		double maxValue() const;
+                
+                bool logarithmicGradient() const;
 
 	private:
 		KalziumIonizationGradientType();

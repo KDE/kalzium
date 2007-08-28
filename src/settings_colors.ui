@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>473</width>
-    <height>485</height>
+    <width>536</width>
+    <height>381</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -31,7 +31,7 @@
    <item>
     <widget class="QTabWidget" name="dfgdfg" >
      <property name="currentIndex" >
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabBlocks" >
       <attribute name="title" >
@@ -78,7 +78,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_block_s" />
+          <widget class="KColorButton" name="kcfg_block_s" />
          </item>
         </layout>
        </item>
@@ -107,7 +107,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_block_p" />
+          <widget class="KColorButton" name="kcfg_block_p" />
          </item>
         </layout>
        </item>
@@ -136,7 +136,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_block_d" />
+          <widget class="KColorButton" name="kcfg_block_d" />
          </item>
         </layout>
        </item>
@@ -165,7 +165,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_block_f" />
+          <widget class="KColorButton" name="kcfg_block_f" />
          </item>
         </layout>
        </item>
@@ -229,7 +229,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_group_1" />
+          <widget class="KColorButton" name="kcfg_group_1" />
          </item>
         </layout>
        </item>
@@ -258,7 +258,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_group_2" />
+          <widget class="KColorButton" name="kcfg_group_2" />
          </item>
         </layout>
        </item>
@@ -287,7 +287,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_group_3" />
+          <widget class="KColorButton" name="kcfg_group_3" />
          </item>
         </layout>
        </item>
@@ -316,7 +316,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_group_4" />
+          <widget class="KColorButton" name="kcfg_group_4" />
          </item>
         </layout>
        </item>
@@ -345,7 +345,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_group_5" />
+          <widget class="KColorButton" name="kcfg_group_5" />
          </item>
         </layout>
        </item>
@@ -374,7 +374,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_group_6" />
+          <widget class="KColorButton" name="kcfg_group_6" />
          </item>
         </layout>
        </item>
@@ -403,7 +403,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_group_7" />
+          <widget class="KColorButton" name="kcfg_group_7" />
          </item>
         </layout>
        </item>
@@ -432,7 +432,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_group_8" />
+          <widget class="KColorButton" name="kcfg_group_8" />
          </item>
         </layout>
        </item>
@@ -496,7 +496,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_color_solid" />
+          <widget class="KColorButton" name="kcfg_color_solid" />
          </item>
         </layout>
        </item>
@@ -525,7 +525,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_color_liquid" />
+          <widget class="KColorButton" name="kcfg_color_liquid" />
          </item>
         </layout>
        </item>
@@ -554,7 +554,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_color_vapor" />
+          <widget class="KColorButton" name="kcfg_color_vapor" />
          </item>
         </layout>
        </item>
@@ -618,7 +618,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_alkalie" />
+          <widget class="KColorButton" name="kcfg_alkalie" />
          </item>
         </layout>
        </item>
@@ -647,7 +647,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_rare" />
+          <widget class="KColorButton" name="kcfg_rare" />
          </item>
         </layout>
        </item>
@@ -676,7 +676,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_nonmetal" />
+          <widget class="KColorButton" name="kcfg_nonmetal" />
          </item>
         </layout>
        </item>
@@ -705,7 +705,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_alkaline" />
+          <widget class="KColorButton" name="kcfg_alkaline" />
          </item>
         </layout>
        </item>
@@ -734,7 +734,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_other_metal" />
+          <widget class="KColorButton" name="kcfg_other_metal" />
          </item>
         </layout>
        </item>
@@ -763,7 +763,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_halogene" />
+          <widget class="KColorButton" name="kcfg_halogene" />
          </item>
         </layout>
        </item>
@@ -792,7 +792,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_transition" />
+          <widget class="KColorButton" name="kcfg_transition" />
          </item>
         </layout>
        </item>
@@ -821,7 +821,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_noble_gas" />
+          <widget class="KColorButton" name="kcfg_noble_gas" />
          </item>
         </layout>
        </item>
@@ -850,7 +850,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_metalloid" />
+          <widget class="KColorButton" name="kcfg_metalloid" />
          </item>
         </layout>
        </item>
@@ -914,7 +914,7 @@
           </widget>
          </item>
          <item>
-          <widget class="KColorButton" native="1" name="kcfg_noscheme" >
+          <widget class="KColorButton" name="kcfg_noscheme" >
            <property name="toolTip" >
             <string>This color will be used if no other scheme is selected</string>
            </property>
@@ -940,6 +940,160 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="tabGradientTypes" >
+      <attribute name="title" >
+       <string>Gradient Types</string>
+      </attribute>
+      <layout class="QGridLayout" >
+       <item row="0" column="0" >
+        <layout class="QHBoxLayout" >
+         <item>
+          <layout class="QVBoxLayout" >
+           <item>
+            <widget class="QLabel" name="label" >
+             <property name="sizePolicy" >
+              <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize" >
+              <size>
+               <width>318</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet" >
+              <string/>
+             </property>
+             <property name="text" >
+              <string>Instead of using a linear gradient to display the given property of an element in the periodic table, Kalzium can also use a logarithmic gradient.
+
+Check the properties you want to have displayed with a logarithmic gradient.</string>
+             </property>
+             <property name="textFormat" >
+              <enum>Qt::AutoText</enum>
+             </property>
+             <property name="alignment" >
+              <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+             </property>
+             <property name="wordWrap" >
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer>
+             <property name="orientation" >
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" >
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" >
+           <item>
+            <widget class="QCheckBox" name="kcfg_LogarithmicCovalentRadiusGradient" >
+             <property name="text" >
+              <string>Covalent Radius</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="kcfg_LogarithmicVanDerWaalsRadiusGradient" >
+             <property name="text" >
+              <string>Van der Waals Radius</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="kcfg_LogarithmicMassGradient" >
+             <property name="text" >
+              <string>Mass</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="kcfg_LogarithmicBoilingPointGradient" >
+             <property name="text" >
+              <string>Boiling Point</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="kcfg_LogarithmicMeltingPointGradient" >
+             <property name="text" >
+              <string>Melting Point</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="kcfg_LogarithmicElectronegativityGradient" >
+             <property name="text" >
+              <string>Electronegativity</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="kcfg_LogarithmicDiscoverydateGradient" >
+             <property name="text" >
+              <string>Discovery Date</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="kcfg_LogarithmicElectronaffinityGradient" >
+             <property name="text" >
+              <string>Electronaffinity</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="kcfg_LogarithmicIonizationGradient" >
+             <property name="text" >
+              <string>Ionization</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0" >
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
@@ -949,7 +1103,7 @@
  <customwidgets>
   <customwidget>
    <class>KColorButton</class>
-   <extends>QWidget</extends>
+   <extends>QPushButton</extends>
    <header>kcolorbutton.h</header>
   </customwidget>
  </customwidgets>
