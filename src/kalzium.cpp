@@ -536,6 +536,7 @@ void Kalzium::showSettingsDialog()
 	KConfigDialog *dialog = new KConfigDialog(this,"settings", Prefs::self());
 	connect( dialog, SIGNAL( settingsChanged( const QString &) ), this , SLOT( slotUpdateSettings() ) );
 	connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_somWidget, SLOT( reloadUnits() ) );
+	connect( dialog, SIGNAL( settingsChanged( const QString &) ), m_legendWidget, SLOT( updateContent() ) );
 	// colors page
 	Ui_setupColors ui_colors;
 	QWidget *w_colors = new QWidget( 0 );
@@ -677,7 +678,7 @@ Kalzium::~Kalzium()
 void Kalzium::keyPressEvent( QKeyEvent *e)
 {
 	m_searchWidget->appendSearchText( e->text() );
-    m_searchWidget->giveFocus();
+	m_searchWidget->giveFocus();
 	e->accept();
 }
 

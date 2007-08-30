@@ -54,13 +54,13 @@ class LegendWidget : public QWidget
 
         KalziumGradientType * m_gradientType;
 
-        void updateContent();
-
         QList<LegendItem*> m_legendItemList;
 
         void updateLegendItemLayout( const QList<legendPair>& list );
 
     public slots:
+        void updateContent();
+
         void setMode( KalziumPainter::MODE m );
 
         void setScheme( KalziumSchemeType * type );

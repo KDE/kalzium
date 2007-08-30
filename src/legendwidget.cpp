@@ -63,7 +63,6 @@ void LegendWidget::setMode( KalziumPainter::MODE m )
 void LegendWidget::updateContent()
 {
     QList< QPair<QString, QBrush> > items;
-
     switch ( m_mode )
     {
         case KalziumPainter::NORMAL://nothing to do here, all logic done in SOM
@@ -89,7 +88,12 @@ void LegendWidget::updateContent()
         case KalziumPainter::GRADIENT:
             {
                 QList<legendPair> items;
-                items << qMakePair( i18n( "Gradient: %1" ,m_gradientType->description() ), QBrush() );
+		QString gradientDesc;
+		if(m_gradientType->logarithmicGradient())
+		    gradientDesc = i18nc("one of the two types of gradients available", "logarithmic");
+		else
+		    gradientDesc = i18nc("one of the two types of gradients available", "linear");
+                items << qMakePair( i18n( "Gradient: %1 (%2)" ,m_gradientType->description(), gradientDesc ), QBrush() );
                 items << qMakePair( i18nc( "Minimum value of the gradient" , "Minimum: %1" , m_gradientType->minValue() ), QBrush( m_gradientType->firstColor() ) );
                 items << qMakePair( i18nc( "Maximum value of the gradient" , "Maximum: %1" , m_gradientType->maxValue() ), QBrush( m_gradientType->secondColor() ) );
 
