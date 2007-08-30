@@ -46,7 +46,7 @@ KalziumGLWidget::~KalziumGLWidget()
 {
     //restore the LC_NUMERIC locale.
     setlocale(LC_NUMERIC, lc_numeric);
-};
+}
 
 void KalziumGLWidget::setStyle( int style )
 {
