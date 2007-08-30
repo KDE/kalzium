@@ -24,10 +24,13 @@ class KalziumGLWidget : public Avogadro::GLWidget
     Q_OBJECT
     public:
         KalziumGLWidget(QWidget *parent = 0);
-        virtual ~KalziumGLWidget() {}
+        virtual ~KalziumGLWidget();
         
     public slots:
         void setStyle( int style );
+        
+    protected:
+        char *lc_numeric;
 };
 
 class KalziumGLPart : public KParts::ReadOnlyPart

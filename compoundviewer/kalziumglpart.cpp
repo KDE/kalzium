@@ -23,6 +23,11 @@
 
 KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent)
 {
+    // work around a bug in OpenBabel: the chemical data files parsing
+    // is dependent on the LC_NUMERIC locale.
+    lc_numeric = setlocale(LC_NUMERIC, 0);
+    setlocale(LC_NUMERIC, "C");
+
     // Prevent What's this from intercepting right mouse clicks
     setContextMenuPolicy( Qt::PreventContextMenu );
     // Load the tools and set navigate as the default
@@ -36,6 +41,12 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent)
     }
     setToolGroup(tools);
 }
+
+KalziumGLWidget::~KalziumGLWidget()
+{
+    //restore the LC_NUMERIC locale.
+    setlocale(LC_NUMERIC, lc_numeric);
+};
 
 void KalziumGLWidget::setStyle( int style )
 {
