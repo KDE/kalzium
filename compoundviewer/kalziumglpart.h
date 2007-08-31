@@ -14,6 +14,8 @@
 #ifndef KALZIUMGLPART_H
 #define KALZIUMGLPART_H
 
+#include <QString>
+
 #include <kparts/factory.h>
 #include <kparts/genericfactory.h>
 
@@ -30,7 +32,7 @@ class KalziumGLWidget : public Avogadro::GLWidget
         void setStyle( int style );
         
     protected:
-        char *lc_numeric;
+        QString lc_numeric;
 };
 
 class KalziumGLPart : public KParts::ReadOnlyPart
