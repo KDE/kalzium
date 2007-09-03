@@ -81,7 +81,7 @@ void Spectrum::adjustIntensities()
 	{
 		double newInt = p->intensity*1000/maxInt;
 
-		p->intensity = ( int ) round( newInt );
+		p->intensity = ( int ) qRound( newInt );
 	}
 }
 
