@@ -1,5 +1,5 @@
 #! /bin/sh
-$EXTRACTRC src/*.ui src/*.rc src/*.kcfg >> rc.cpp || exit 11
+$EXTRACTRC src/*.ui compoundviewer/*.cpp libavogadro-kalzium/src/*.cpp libavogadro-kalzium/src/engines/*.cpp libavogadro-kalzium/src/tools/*.cpp src/*.rc src/*.kcfg >> rc.cpp || exit 11
 #$EXTRACTATTR --attr=name,origin data/data.xml >> rc.cpp || exit 12
 #$EXTRACTRC --tag-group=none --tag=name data/data.xml >> rc.cpp || exit 13
 $EXTRACTRC --tag-group=none --tag=name --tag=desc --tag=refitem data/knowledge.xml >> rc.cpp || exit 14
