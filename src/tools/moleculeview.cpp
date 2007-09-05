@@ -17,6 +17,7 @@
 #include <kfiledialog.h>
 #include <kstandarddirs.h>
 #include <KLocale>
+#include <KTextBrowser>
 
 #include <openbabel2wrapper.h>
 
@@ -43,6 +44,8 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	ui.glWidget->setStyle(0);
 	
 	m_path = QString( "" );
+	
+	m_helpWindow = NULL;
 
 	connect( ui.qualityCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setGlobalQualitySetting( int ) ) );
@@ -50,18 +53,72 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 			ui.glWidget , SLOT( setStyle( int ) ) );
 	connect( ui.labelsCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setLabels( int ) ) );
-
+	connect( this, SIGNAL( helpClicked() ), 
+			this, SLOT( slotHelp() ) );
 
 	connect( this, SIGNAL( user1Clicked() ), 
 			this, SLOT( slotLoadMolecule() ) );
 }
 
+void MoleculeDialog::slotHelp()
+{
+	if( m_helpWindow == NULL )
+	{
+	    m_helpWindow = new KDialog( this );
+	    m_helpWindow->setMinimumSize( 500, 300 );
+	    m_helpWindow->showButton( KDialog::Cancel, false );
+	    KTextBrowser *helpText = new KTextBrowser;
+	    helpText->setHtml( i18nc(
+		"Help text for the molecular viewer",
+		"<b>Rotate View</b><br>"
+		"Click and hold the right mouse button, and drag the mouse to view the molecule from a different perspective. "
+		"You can also rotate the view around an atom. To do so, position your "
+		"mouse pointer over the atom before you click the right mouse button.<br>"
+		"<br>"
+		"<b>Zoom View</b><br>"
+		"To get a closer look, either simply use your scrool wheel, or click and "
+		"hold the middle mouse button to be able to control the zoom more precisely. "
+		"Then drag your mouse to zoom. If you want to zoom in to or out from a specific "
+		"point in the molecule, point at it first, and then zoom. "
+		"If you are using a touchpad, the middle mouse button can be simulated by pressing the "
+		"left <i>and</i> the right mouse button at the same time.<br>"
+		"<br>"
+		"<b>Display Options</b><br>"
+		"The options are mostly self-explaining. Changing the quality will either use less "
+		"or more polygons to render the molecule. If you wonder what the \"Wan der Waals\" "
+		"style does, take a look at this article: <a href=\"http://en.wikipedia.org/wiki/Van_der_Waals_radius\">Van der Waals radius</a>.<br>"
+		"<br>"
+		"<b>Getting more molecules</b><br>"
+		"It's easy to obtain more molecules for this viewer, as it supports various common file "
+		"formats. Here's a list of good public databanks:"
+		"<ul>"
+		"<li><a href=\"http://www.rcsb.org/pdb\">The Protein Data Bank (PDB)</a> "
+		"<i>(For starters, we suggest viewing <a href=\"http://www.rcsb.org/pdbstatic/tutorials/tutorial.html\">this</a> tutorial</i>)</li>"
+		"<li><a href=\"http://www.ncbi.nlm.nih.gov/Structure\">The National Center for Biotechnology Information</a></li>"
+		"<li><a href=\"http://www.dspace.cam.ac.uk/handle/1810/724\">The World Wide Molecular Matrix (WWMM)</a></li>"
+		"</ul>"
+	    ) );
+	    helpText->setOpenExternalLinks( true );
+	    m_helpWindow->setMainWidget( helpText );
+	    m_helpWindow->setCaption( i18nc( "Window title for the molecular 3D viewer's help", "Molecular Viewer Help" ) );
+	    m_helpWindow->show();
+	}
+	else
+	{
+		if( !m_helpWindow->isVisible() )
+		{
+		    m_helpWindow->show();
+		}
+		m_helpWindow->activateWindow();
+	}
+}
+	
 void MoleculeDialog::slotLoadMolecule()
 {
         m_path = KGlobal::dirs()->findResourceDir( "appdata", "data/molecules/" ) + "data/molecules/";
 
-	QString commonMoleculeFormats = i18n("Common molecule formats");
-	QString allFiles = i18n("All files");
+	QString commonMoleculeFormats = i18n( "Common molecule formats" );
+	QString allFiles = i18n( "All files" );
 
 	QString filename = KFileDialog::getOpenFileName( 
 			m_path,
@@ -71,7 +128,7 @@ void MoleculeDialog::slotLoadMolecule()
 			" *.mpd *.mol2|"+commonMoleculeFormats+"\n"
 			"* *.*|"+allFiles,
 			this,
-			i18n("Choose a file to open"));
+			i18n( "Choose a file to open" ) );
 
 	if( filename.isEmpty() ) return;
 

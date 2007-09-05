@@ -186,7 +186,7 @@ void Kalzium::setupActions()
     look_action->setItems(looklist);
     connect( look_action, SIGNAL( triggered( int ) ), this, SLOT( slotSwitchtoLook( int ) ) );
     // "reduced" version of view_look
-    look_action_schemes = actionCollection()->add<KSelectAction>("view_look_onlyschemes" );
+    look_action_schemes = actionCollection()->add<KSelectAction>( "view_look_onlyschemes" );
     look_action_schemes->setText( i18n( "&Scheme" ) );
     look_action_schemes->setItems( schemes );
     look_action_schemes->setToolBarMode( KSelectAction::MenuMode );
@@ -213,6 +213,7 @@ void Kalzium::setupActions()
     m_EQSolverAction =  actionCollection()->addAction( "tools_eqsolver" );
     m_EQSolverAction->setText( i18n( "&Equation Solver..." ) );
     m_EQSolverAction->setIcon(  KIcon( "eqchem" ) );
+    m_EQSolverAction->setWhatsThis( i18nc( "WhatsThis Help", "This tool allows you to solve chemical equations." ) );
 #ifdef HAVE_FACILE
     connect( m_EQSolverAction, SIGNAL( triggered() ), this, SLOT( slotShowEQSolver() ) );
     m_EQSolverAction->setEnabled( true );
@@ -229,6 +230,7 @@ void Kalzium::setupActions()
     m_pIsotopeTableAction= actionCollection()->addAction( "tools_isotopetable" );
     m_pIsotopeTableAction->setText( i18n( "&Isotope Table..." ) );
     m_pIsotopeTableAction->setIcon(  KIcon( "isotopemap" ) );
+    m_pIsotopeTableAction->setWhatsThis( i18nc( "WhatsThis Help", "This table shows all of the known isotopes of the chemical elements." ) );
     connect( m_pIsotopeTableAction, SIGNAL( triggered() ), this, SLOT( slotIsotopeTable() ) );
 
     m_pGlossaryAction = actionCollection()->addAction( "tools_glossary" );
@@ -244,6 +246,7 @@ void Kalzium::setupActions()
     m_pOBConverterAction = actionCollection()->addAction( "tools_obconverter" );
     m_pOBConverterAction->setText( i18n( "Convert chemical files..." ) );
     m_pOBConverterAction->setIcon( KIcon( "kalzium_obconverter" ) );
+    m_pOBConverterAction->setWhatsThis( i18nc( "WhatsThis Help", "With this tool, you can convert files containing chemical data between various file formats." ) );
     connect( m_pOBConverterAction, SIGNAL( triggered() ), this, SLOT( slotOBConverter() ) );
 #ifndef HAVE_OPENBABEL2
     m_pOBConverterAction->setEnabled( false );
@@ -252,6 +255,7 @@ void Kalzium::setupActions()
     m_pMoleculesviewer = actionCollection()->addAction( "tools_moleculeviewer" );
     m_pMoleculesviewer->setText( i18n( "Molecular Viewer..." ) );
     m_pMoleculesviewer->setIcon( KIcon( "kalzium_molviewer" ) );
+    m_pMoleculesviewer->setWhatsThis( i18nc( "WhatsThis Help", "This tool allows you to view 3D molecular structures." ) );
     connect( m_pMoleculesviewer, SIGNAL( triggered() ), this, SLOT( slotMoleculeviewer() ) );
 #if !defined(HAVE_OPENBABEL2) || !defined(HAVE_OPENGL) || !defined(HAVE_EIGEN)
     m_pMoleculesviewer->setEnabled( false );
@@ -260,6 +264,7 @@ void Kalzium::setupActions()
     m_pTables = actionCollection()->addAction( "tools_tables" );
     m_pTables->setText( i18n( "&Tables..." ) );
     m_pTables->setIcon( KIcon( "kalzium_tables" ) );
+    m_pTables->setWhatsThis(i18nc("WhatsThis Help", "This will open a dialog with listings of symbols and numbers related to chemistry."));
 
     connect( m_pTables, SIGNAL( triggered() ), this, SLOT( slotTables() ) );
 
@@ -267,12 +272,14 @@ void Kalzium::setupActions()
     m_pLegendAction = m_InfoDock->toggleViewAction();
     actionCollection()->addAction( "view_legend", m_pLegendAction );
     m_pLegendAction->setIcon( KIcon( "legend" ) );
+    m_pLegendAction->setWhatsThis( i18nc( "WhatsThis Help", "This will show or hide the legend for the periodic table." ) );
     connect( m_pLegendAction, SIGNAL( triggered(bool) ), 
             this, SLOT( slotShowLegend(bool) ) );
     
     m_SidebarAction = m_dockWin->toggleViewAction();
     actionCollection()->addAction( "view_sidebar", m_SidebarAction );
     m_SidebarAction->setIcon( KIcon( "sidebar" ) );
+    m_SidebarAction->setWhatsThis( i18nc( "WhatsThis Help", "This will show or hide a sidebar with additional information and a set of tools." ) );
     connect( m_SidebarAction, SIGNAL( triggered( bool ) ), 
             this, SLOT( slotShowHideSidebar( bool ) ) );
 

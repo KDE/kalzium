@@ -33,7 +33,8 @@ class MoleculeDialog : public KDialog
 		~MoleculeDialog();
 
 	private:
-		QString m_path;///to store the path were the molecules are located
+		QString  m_path;///to store the path were the molecules are located
+		KDialog *m_helpWindow;
 
 		Ui::moleculeViewerForm ui;	
 	
@@ -47,6 +48,7 @@ class MoleculeDialog : public KDialog
 		 * Load a molecule
 		 */
 		void slotLoadMolecule();
+		void slotHelp();
 };
 
 #endif // MOLECULEVIEW_H
