@@ -45,7 +45,6 @@
 
 #include <kdebug.h>
 #include <kglobalsettings.h>
-#include <kimageeffect.h>
 #include <klocale.h>
 
 KalziumPainter::KalziumPainter( KalziumTableType *ktt )
