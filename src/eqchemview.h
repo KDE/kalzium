@@ -41,6 +41,7 @@ class EQChemDialog : public KDialog
 
     private:
         Ui::EquationView ui;
+        KDialog * m_helpWindow;
 
         void copyAnswer();
 
@@ -51,6 +52,8 @@ class EQChemDialog : public KDialog
         void compute();
 
         void slotUser1();
+
+        void slotHelp();
 };
 
 #endif // _EQCHEMVIEW_H_

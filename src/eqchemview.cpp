@@ -22,6 +22,7 @@
 
 #include <QClipboard>
 #include <QLabel>
+#include <KTextBrowser>
 
 #include <kdebug.h>
 
@@ -70,6 +71,8 @@ EQChemDialog::EQChemDialog( QWidget *parent )
     setButtons( Help | User1 | Close );
     setDefaultButton( None );
 
+    m_helpWindow = NULL;
+
     ui.setupUi( mainWidget() );
 	setButtonGuiItem( User1, KGuiItem( i18n( "Copy" ), "edit-copy", i18n( "Copy answer to clipboard" ) ) );
     
@@ -77,6 +80,8 @@ EQChemDialog::EQChemDialog( QWidget *parent )
             this, SLOT( compute() ) );
     connect( this , SIGNAL( user1Clicked() ), 
             this, SLOT( slotUser1() ) );
+    connect( this , SIGNAL( helpClicked() ),
+            this, SLOT( slotHelp() ) );
 }
 
 void EQChemDialog::copyAnswer()
@@ -88,6 +93,43 @@ void EQChemDialog::copyAnswer()
 void EQChemDialog::slotUser1()
 {
    copyAnswer(); 
+}
+
+void EQChemDialog::slotHelp()
+{
+    if( m_helpWindow == NULL )
+    {
+        m_helpWindow = new KDialog( this );
+        m_helpWindow->setMinimumSize( 500, 300 );
+        m_helpWindow->showButton( KDialog::Cancel, false );
+        KTextBrowser *helpText = new KTextBrowser;
+        helpText->setHtml( i18nc(
+        "Help text for the chemical equation solver",
+        "The equation solver allows you to balance a chemical equation.<br> "
+        "<br>"
+        "<b>Using Variables</b><br>"
+        "To express variable quantities of an element, put a single character in front "
+        "of the element's symbol, as shown in this example:<br>"
+        "<i>aH + bO -> 5H2O</i> (Result: <b>10</b> H + <b>5</b> O -&gt; <b>5</b> H<sub>2</sub>O)<br>"
+        "Solving this expression will give you the needed amount of Hydrogen and Oxygen.<br>"
+        "<br>"
+        "<b>Defining electric charges</b><br>"
+        "Use box brackets to specify the electric charge of an element, as shown in this example:<br>"
+        "<i>4H[+] + 2O -> cH2O[2+]</i> (Result: <b>4</b> H<b><sup>+</sup></b> + <b>2</b> O -&gt; <b>2</b> H<b><sub>2</sub></b>O<b><sup>2+</sub></b>)"
+        ) );
+        helpText->setOpenExternalLinks( true );
+        m_helpWindow->setMainWidget( helpText );
+        m_helpWindow->setCaption( i18nc( "Window title for the chemical solver's help", "Chemical Solver Help" ) );
+        m_helpWindow->show();
+    }
+    else
+    {
+        if( !m_helpWindow->isVisible() )
+        {
+            m_helpWindow->show();
+        }
+        m_helpWindow->activateWindow();
+    }
 }
 
 
