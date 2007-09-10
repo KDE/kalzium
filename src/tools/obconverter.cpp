@@ -21,6 +21,7 @@
 #include "obconverter.h"
 
 // Qt includes
+#include <QLinkedList>
 #include <QRegExp>
 #include <QProcess>
 
