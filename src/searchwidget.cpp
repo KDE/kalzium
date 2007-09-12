@@ -43,8 +43,11 @@ SearchWidget::SearchWidget( QWidget *parent )
 
 	m_searchLine = new KLineEdit( this );
 	m_searchLine->setClearButtonShown(true);
+    m_searchLine->setTrapReturnKey(true);
 	connect( m_searchLine, SIGNAL( textChanged( const QString& ) ),
 	         this, SLOT( searchTextChanged( const QString& ) ) );
+    connect( m_searchLine, SIGNAL( returnPressed() ),
+             this, SLOT( slotReturnPressed() ) );
 	mainlay->addWidget( m_searchLine );
 }
 
@@ -77,6 +80,15 @@ void SearchWidget::searchTextChanged( const QString& )
 	}
 	// 1/3 of second should be ok
 	m_timer->start( 333 );
+}
+
+void SearchWidget::slotReturnPressed()
+{
+    if ( m_timer )
+    {
+        m_timer->stop();
+    }
+    doSearch();
 }
 
 void SearchWidget::doSearch()

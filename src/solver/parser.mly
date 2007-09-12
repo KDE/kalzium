@@ -57,6 +57,7 @@ expr:
 item:
     MINOR symbols { {ikey=$1; itbl=$2; sign=1} }
     | INT symbols { {ikey=string_of_int($1); itbl=$2; sign=1} }
+    | symbols { {ikey="1"; itbl=$1; sign=1}}
 ;
 
 symbols:

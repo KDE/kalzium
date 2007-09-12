@@ -36,48 +36,49 @@ let yytransl_block = [|
     0|]
 
 let yylhs = "\255\255\
-\001\000\002\000\003\000\003\000\004\000\004\000\005\000\005\000\
-\006\000\006\000\006\000\006\000\006\000\006\000\006\000\007\000\
-\007\000\000\000"
+\001\000\002\000\003\000\003\000\004\000\004\000\004\000\005\000\
+\005\000\006\000\006\000\006\000\006\000\006\000\006\000\006\000\
+\007\000\007\000\000\000"
 
 let yylen = "\002\000\
-\002\000\003\000\001\000\003\000\002\000\002\000\001\000\002\000\
-\002\000\001\000\004\000\004\000\004\000\003\000\003\000\002\000\
-\001\000\002\000"
+\002\000\003\000\001\000\003\000\002\000\002\000\001\000\001\000\
+\002\000\002\000\001\000\004\000\004\000\004\000\003\000\003\000\
+\002\000\001\000\002\000"
 
 let yydefred = "\000\000\
-\000\000\000\000\000\000\000\000\018\000\000\000\000\000\000\000\
-\000\000\000\000\000\000\006\000\000\000\000\000\005\000\001\000\
-\000\000\000\000\000\000\000\000\000\000\000\000\016\000\008\000\
-\009\000\002\000\004\000\000\000\000\000\000\000\014\000\015\000\
-\011\000\012\000\013\000"
+\000\000\000\000\000\000\000\000\000\000\000\000\000\000\019\000\
+\000\000\000\000\000\000\007\000\000\000\000\000\006\000\000\000\
+\000\000\000\000\000\000\017\000\005\000\001\000\000\000\000\000\
+\009\000\010\000\000\000\000\000\000\000\015\000\016\000\002\000\
+\004\000\012\000\013\000\014\000"
 
 let yydgoto = "\002\000\
-\005\000\006\000\007\000\008\000\012\000\013\000\014\000"
+\008\000\009\000\010\000\011\000\012\000\013\000\014\000"
 
-let yysindex = "\255\255\
-\003\255\000\000\010\255\010\255\000\000\003\000\252\254\011\255\
-\010\255\018\255\008\255\000\000\010\255\021\255\000\000\000\000\
-\003\255\003\255\020\255\007\255\019\255\022\255\000\000\000\000\
-\000\000\000\000\000\000\026\255\023\255\024\255\000\000\000\000\
-\000\000\000\000\000\000"
+let yysindex = "\003\000\
+\010\255\000\000\016\255\016\255\024\255\247\254\016\255\000\000\
+\007\000\003\255\015\255\000\000\016\255\020\255\000\000\018\255\
+\007\255\021\255\025\255\000\000\000\000\000\000\010\255\010\255\
+\000\000\000\000\030\255\026\255\027\255\000\000\000\000\000\000\
+\000\000\000\000\000\000\000\000"
 
 let yyrindex = "\000\000\
-\000\000\000\000\000\000\000\000\000\000\000\000\000\000\005\000\
-\000\000\000\000\001\000\000\000\015\000\008\000\000\000\000\000\
+\000\000\000\000\000\000\000\000\000\000\001\000\000\000\000\000\
+\000\000\000\000\005\000\000\000\015\000\008\000\000\000\000\000\
 \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\000\000\000\000\000\000"
+\000\000\000\000\000\000\000\000"
 
 let yygindex = "\000\000\
-\000\000\000\000\006\000\000\000\254\255\000\000\000\000"
+\000\000\000\000\006\000\000\000\255\255\000\000\000\000"
 
 let yytablesize = 281
-let yytable = "\001\000\
-\017\000\015\000\016\000\003\000\003\000\017\000\019\000\010\000\
-\029\000\030\000\024\000\004\000\018\000\009\000\007\000\010\000\
-\023\000\011\000\020\000\021\000\022\000\025\000\026\000\027\000\
-\028\000\031\000\033\000\000\000\032\000\034\000\035\000\000\000\
+let yytable = "\020\000\
+\018\000\015\000\016\000\001\000\003\000\021\000\022\000\011\000\
+\028\000\029\000\003\000\025\000\023\000\004\000\008\000\005\000\
+\024\000\006\000\007\000\004\000\026\000\005\000\027\000\006\000\
+\017\000\018\000\019\000\030\000\032\000\033\000\034\000\031\000\
+\035\000\036\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
@@ -105,18 +106,17 @@ let yytable = "\001\000\
 \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\000\000\017\000\017\000\000\000\017\000\017\000\017\000\000\000\
-\017\000\010\000\017\000\010\000\010\000\010\000\003\000\010\000\
-\007\000\010\000\000\000\007\000\000\000\000\000\000\000\000\000\
-\007\000"
+\000\000\018\000\018\000\000\000\018\000\018\000\018\000\000\000\
+\018\000\011\000\018\000\011\000\011\000\011\000\003\000\011\000\
+\008\000\011\000\000\000\008\000\000\000\000\000\000\000\000\000\
+\008\000"
 
-let yycheck = "\001\000\
-\000\000\004\000\000\000\001\001\000\000\010\001\009\000\000\000\
-\002\001\003\001\013\000\009\001\002\001\004\001\000\000\006\001\
-\009\001\008\001\001\001\002\001\003\001\001\001\017\000\018\000\
-\005\001\007\001\001\001\255\255\007\001\007\001\007\001\255\255\
-\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
+let yycheck = "\009\001\
+\000\000\003\000\004\000\001\000\000\000\007\000\000\000\000\000\
+\002\001\003\001\001\001\013\000\010\001\004\001\000\000\006\001\
+\002\001\008\001\009\001\004\001\001\001\006\001\005\001\008\001\
+\001\001\002\001\003\001\007\001\023\000\024\000\001\001\007\001\
+\007\001\007\001\255\255\255\255\255\255\255\255\255\255\255\255\
 \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
 \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
 \255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\255\
@@ -168,150 +168,157 @@ let yynames_block = "\
 
 let yyact = [|
   (fun _ -> failwith "parser")
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 1 : 'equation) in
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 1 : 'equation) in
     Obj.repr(
 # 44 "parser.mly"
                  ( _1 )
 # 177 "parser.ml"
                : Chemset.listitems))
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 2 : 'expr) in
-    let _3 = (peek_val parser_env 0 : 'expr) in
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 2 : 'expr) in
+    let _3 = (Parsing.peek_val __caml_parser_env 0 : 'expr) in
     Obj.repr(
 # 49 "parser.mly"
                     ( chem_negate _3; List.append _1 _3 )
 # 185 "parser.ml"
                : 'equation))
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 0 : 'item) in
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 0 : 'item) in
     Obj.repr(
 # 53 "parser.mly"
          ( _1::[] )
 # 192 "parser.ml"
                : 'expr))
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 2 : 'item) in
-    let _3 = (peek_val parser_env 0 : 'expr) in
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 2 : 'item) in
+    let _3 = (Parsing.peek_val __caml_parser_env 0 : 'expr) in
     Obj.repr(
 # 54 "parser.mly"
                      ( _1::_3 )
 # 200 "parser.ml"
                : 'expr))
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 1 : string) in
-    let _2 = (peek_val parser_env 0 : 'symbols) in
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 1 : string) in
+    let _2 = (Parsing.peek_val __caml_parser_env 0 : 'symbols) in
     Obj.repr(
 # 58 "parser.mly"
                   ( {ikey=_1; itbl=_2; sign=1} )
 # 208 "parser.ml"
                : 'item))
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 1 : int) in
-    let _2 = (peek_val parser_env 0 : 'symbols) in
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 1 : int) in
+    let _2 = (Parsing.peek_val __caml_parser_env 0 : 'symbols) in
     Obj.repr(
 # 59 "parser.mly"
                   ( {ikey=string_of_int(_1); itbl=_2; sign=1} )
 # 216 "parser.ml"
                : 'item))
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 0 : 'qte) in
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 0 : 'symbols) in
     Obj.repr(
-# 63 "parser.mly"
-        ( _1 )
+# 60 "parser.mly"
+              ( {ikey="1"; itbl=_1; sign=1})
 # 223 "parser.ml"
-               : 'symbols))
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 1 : 'qte) in
-    let _2 = (peek_val parser_env 0 : 'symbols) in
+               : 'item))
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 0 : 'qte) in
     Obj.repr(
 # 64 "parser.mly"
-                  ( chem_add _1 _2 )
-# 231 "parser.ml"
+        ( _1 )
+# 230 "parser.ml"
                : 'symbols))
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 1 : 'element) in
-    let _2 = (peek_val parser_env 0 : int) in
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 1 : 'qte) in
+    let _2 = (Parsing.peek_val __caml_parser_env 0 : 'symbols) in
     Obj.repr(
-# 68 "parser.mly"
-                ( createchem _1 _2 )
-# 239 "parser.ml"
-               : 'qte))
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 0 : 'element) in
+# 65 "parser.mly"
+                  ( chem_add _1 _2 )
+# 238 "parser.ml"
+               : 'symbols))
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 1 : 'element) in
+    let _2 = (Parsing.peek_val __caml_parser_env 0 : int) in
     Obj.repr(
 # 69 "parser.mly"
-              ( createchem _1 1 )
+                ( createchem _1 _2 )
 # 246 "parser.ml"
                : 'qte))
-; (fun parser_env ->
-    let _2 = (peek_val parser_env 2 : 'symbols) in
-    let _4 = (peek_val parser_env 0 : int) in
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 0 : 'element) in
     Obj.repr(
 # 70 "parser.mly"
-                                ( chem_mult _2 _4 )
-# 254 "parser.ml"
+              ( createchem _1 1 )
+# 253 "parser.ml"
                : 'qte))
-; (fun parser_env ->
-    let _2 = (peek_val parser_env 2 : int) in
+; (fun __caml_parser_env ->
+    let _2 = (Parsing.peek_val __caml_parser_env 2 : 'symbols) in
+    let _4 = (Parsing.peek_val __caml_parser_env 0 : int) in
     Obj.repr(
 # 71 "parser.mly"
-                                   ( createchem "+" _2 )
+                                ( chem_mult _2 _4 )
 # 261 "parser.ml"
                : 'qte))
-; (fun parser_env ->
-    let _2 = (peek_val parser_env 2 : int) in
+; (fun __caml_parser_env ->
+    let _2 = (Parsing.peek_val __caml_parser_env 2 : int) in
     Obj.repr(
 # 72 "parser.mly"
-                                   ( createchem "-" _2 )
+                                   ( createchem "+" _2 )
 # 268 "parser.ml"
                : 'qte))
-; (fun parser_env ->
+; (fun __caml_parser_env ->
+    let _2 = (Parsing.peek_val __caml_parser_env 2 : int) in
     Obj.repr(
 # 73 "parser.mly"
-                               ( createchem "+" 1 )
-# 274 "parser.ml"
+                                   ( createchem "-" _2 )
+# 275 "parser.ml"
                : 'qte))
-; (fun parser_env ->
+; (fun __caml_parser_env ->
     Obj.repr(
 # 74 "parser.mly"
-                               ( createchem "-" 1 )
-# 280 "parser.ml"
+                               ( createchem "+" 1 )
+# 281 "parser.ml"
                : 'qte))
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 1 : string) in
-    let _2 = (peek_val parser_env 0 : string) in
+; (fun __caml_parser_env ->
     Obj.repr(
-# 78 "parser.mly"
-                  ( _1 ^ _2 )
-# 288 "parser.ml"
-               : 'element))
-; (fun parser_env ->
-    let _1 = (peek_val parser_env 0 : string) in
+# 75 "parser.mly"
+                               ( createchem "-" 1 )
+# 287 "parser.ml"
+               : 'qte))
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 1 : string) in
+    let _2 = (Parsing.peek_val __caml_parser_env 0 : string) in
     Obj.repr(
 # 79 "parser.mly"
-              ( _1 )
+                  ( _1 ^ _2 )
 # 295 "parser.ml"
                : 'element))
+; (fun __caml_parser_env ->
+    let _1 = (Parsing.peek_val __caml_parser_env 0 : string) in
+    Obj.repr(
+# 80 "parser.mly"
+              ( _1 )
+# 302 "parser.ml"
+               : 'element))
 (* Entry main *)
-; (fun parser_env -> raise (YYexit (peek_val parser_env 0)))
+; (fun __caml_parser_env -> raise (Parsing.YYexit (Parsing.peek_val __caml_parser_env 0)))
 |]
 let yytables =
-  { actions=yyact;
-    transl_const=yytransl_const;
-    transl_block=yytransl_block;
-    lhs=yylhs;
-    len=yylen;
-    defred=yydefred;
-    dgoto=yydgoto;
-    sindex=yysindex;
-    rindex=yyrindex;
-    gindex=yygindex;
-    tablesize=yytablesize;
-    table=yytable;
-    check=yycheck;
-    error_function=parse_error;
-    names_const=yynames_const;
-    names_block=yynames_block }
+  { Parsing.actions=yyact;
+    Parsing.transl_const=yytransl_const;
+    Parsing.transl_block=yytransl_block;
+    Parsing.lhs=yylhs;
+    Parsing.len=yylen;
+    Parsing.defred=yydefred;
+    Parsing.dgoto=yydgoto;
+    Parsing.sindex=yysindex;
+    Parsing.rindex=yyrindex;
+    Parsing.gindex=yygindex;
+    Parsing.tablesize=yytablesize;
+    Parsing.table=yytable;
+    Parsing.check=yycheck;
+    Parsing.error_function=parse_error;
+    Parsing.names_const=yynames_const;
+    Parsing.names_block=yynames_block }
 let main (lexfun : Lexing.lexbuf -> token) (lexbuf : Lexing.lexbuf) =
-   (yyparse yytables 1 lexfun lexbuf : Chemset.listitems)
+   (Parsing.yyparse yytables 1 lexfun lexbuf : Chemset.listitems)

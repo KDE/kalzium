@@ -48,6 +48,7 @@ class SearchWidget : public QWidget
 
 	private slots:
 		void searchTextChanged( const QString& text );
+        void slotReturnPressed();
 		void doSearch();
 
 	private:
