@@ -37,7 +37,7 @@ SearchWidget::SearchWidget( QWidget *parent )
 {
 	QHBoxLayout *mainlay = new QHBoxLayout( this );
 	mainlay->setMargin( 2 );
-	mainlay->setSpacing( 1 );
+	mainlay->setSpacing( 5 );
 
 	mainlay->addWidget( new QLabel( i18n( "Search:" ), this ) );
 
