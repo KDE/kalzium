@@ -107,6 +107,8 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 	QStringList listBoilingPoint;
 	QStringList listBoilingPointValue;
 	QStringList listMeltingPointValue;
+
+    const QString unitSymbol = TempUnit::unitListSymbol( Prefs::temperature() );
   
   foreach (Element * element, m_list)
   {
@@ -114,13 +116,13 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 		if ( ( melting > 0.0 ) && fabs( melting - temp ) <= threshold )
 		{
 			listMeltingPoint << element->dataAsString( ChemicalDataObject::name );
-			listMeltingPointValue << element->dataAsString( ChemicalDataObject::meltingpoint );
+			listMeltingPointValue << QString::number(TempUnit::convert(melting,(int)TempUnit::Kelvin,Prefs::temperature())); 
 		}
 		double boiling = element->dataAsVariant( ChemicalDataObject::boilingpoint ).toDouble();
 		if ( ( boiling > 0.0 ) && fabs( boiling - temp ) <= threshold )
 		{
 			listBoilingPoint << element->dataAsString( ChemicalDataObject::name );
-			listBoilingPointValue << element->dataAsString( ChemicalDataObject::boilingpoint );
+			listBoilingPointValue << QString::number(TempUnit::convert(boiling,(int)TempUnit::Kelvin,Prefs::temperature()));
 		}
 	}
 	QString htmlcode;
@@ -129,7 +131,8 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 		htmlcode += i18n( "Elements with melting point around this temperature:" ) + '\n';
 		for ( int i = 0; i < listMeltingPoint.count(); i++ )
 		{
-			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2)", listMeltingPoint.at( i ), listMeltingPointValue.at( i ) ) + '\n';
+			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2%3)", 
+                                        listMeltingPoint.at( i ), listMeltingPointValue.at( i ), unitSymbol ) + '\n';
 		}
 		htmlcode += '\n';
 	}
@@ -143,7 +146,8 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 		htmlcode += i18n( "Elements with boiling point around this temperature:" ) + '\n';
 		for ( int i = 0; i < listBoilingPoint.count(); i++ )
 		{
-			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2)", listBoilingPoint.at( i ), listBoilingPointValue.at( i ) ) + '\n';
+			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2%3)", 
+                                       listBoilingPoint.at( i ), listBoilingPointValue.at( i ), unitSymbol )  + '\n';
 		}
 		htmlcode += '\n';
 	}
