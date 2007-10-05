@@ -26,6 +26,7 @@
 
 //QT-Includes
 #include <QKeyEvent>
+#include <QPen>
 #include <QTimer>
 
 AxisData::AxisData( AXISTYPE type) : currentDataType(-1)
