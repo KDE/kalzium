@@ -24,6 +24,7 @@
 #include "kalziumnumerationtype.h"
 
 #include <klocale.h>
+#include <kdebug.h>
 
 #define ELEMENTSIZE 40
 
