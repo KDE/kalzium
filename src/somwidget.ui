@@ -112,7 +112,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="KDoubleSpinBox" name="Number1" >
+      <widget class="QDoubleSpinBox" name="Number1" >
        <property name="value" >
         <number>99</number>
        </property>
@@ -173,15 +173,6 @@ the state of matter</string>
  </widget>
  <layoutdefault spacing="6" margin="11" />
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
- <customwidgets>
-  <customwidget>
-   <class>KDoubleSpinBox</class>
-   <extends></extends>
-   <header>knuminput.h</header>
-   <container>0</container>
-   <pixmap></pixmap>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

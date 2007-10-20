@@ -66,7 +66,9 @@ void SOMWidgetIMPL::reloadUnits()
 	QPair<double, double> range = TempUnit::rangeForUnit( Prefs::temperature() );
 
 	double newvalue = TempUnit::convert( Number1->value(), m_prevUnit, Prefs::temperature() );
-	Number1->setRange( range.first, range.second, 0.1, 1 );
+	Number1->setRange( range.first, range.second );
+        Number1->setSingleStep(0.1);
+        Number1->setDecimals(1);
 	Number1->setValue( newvalue );
 	setNewTemp( newvalue );
 kDebug() << "min: " << Number1->minimum() << " - max: " << Number1->maximum();
