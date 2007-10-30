@@ -33,22 +33,14 @@
 # endif
 #endif
 
-#ifdef WIN32
-# define A_DECL_IMPORT __declspec(dllimport)
-# define A_DECL_EXPORT __declspec(dllexport)
-#else
-# define A_DECL_IMPORT KDE_EXPORT
-# define A_DECL_EXPORT KDE_EXPORT
-#endif
-
-#ifndef A_EXPORT
-# ifdef avogadro_lib_EXPORTS
-#  define A_EXPORT A_DECL_EXPORT
+#ifndef MAKE_AVOGADROKALZIUM_LIB
+# if defined(MAKE_KDEEDUUI_LIB)
+   /* We are building this library */
+#  define A_EXPORT KDE_EXPORT
 # else
-#  define A_EXPORT A_DECL_IMPORT
+   /* We are using this library */
+#  define A_EXPORT KDE_IMPORT
 # endif
-#else
-# define A_EXPORT KDE_EXPORT
 #endif
 
 #ifndef GL_RESCALE_NORMAL
