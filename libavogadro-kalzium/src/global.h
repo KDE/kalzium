@@ -33,8 +33,8 @@
 # endif
 #endif
 
-#ifndef MAKE_AVOGADRO_KALZIUM_LIB
-# if defined(MAKE_KDEEDUUI_LIB)
+#ifndef A_EXPORT
+# if defined(MAKE_AVOGADRO_KALZIUM_LIB)
    /* We are building this library */
 #  define A_EXPORT KDE_EXPORT
 # else
