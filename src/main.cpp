@@ -48,16 +48,21 @@ int main(int argc, char **argv)
     KAboutData about("kalzium", 0, ki18n("Kalzium"), version, ki18n(description),
                      KAboutData::License_GPL, ki18n("(C) 2002-2006 Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium");
     about.addAuthor( ki18n("Carsten Niehaus"), KLocalizedString(), "cniehaus@kde.org" );
-    about.addCredit( ki18n("Pino Toscano"), ki18n("Code contributions" ));
-    about.addCredit( ki18n("Benoit Jacob"), ki18n( "The OpenGL-support" ));
-    about.addCredit( ki18n("Thomas Nagy"), ki18n("Contributed EqChem, the equation solver" ));
-    about.addCredit( ki18n("Jörg Buchwald"), ki18n("Contributed most isotope information" ));
-    about.addCredit( ki18n("Marco Martin"), ki18n("Thank you for some icons and inspiration for others" ));
-    about.addCredit( ki18n("Anne-Marie Mahfouf"), ki18n( "A lot of small things and the documentation" ));
-    about.addCredit( ki18n("Daniel Haas"), ki18n( "The design of the information dialog" ));
-    about.addCredit( ki18n("Brian Beck"), ki18n( "The orbits-icon" ));
+    about.addCredit( ki18n("Pino Toscano"), ki18n("Large code contributions; resident guru helping the other developers"));
+    about.addCredit( ki18n("Benoit Jacob"), ki18n( "Base work on the molecular viewer, mentored Marcus during his SoC" ));
+    about.addCredit( ki18n("Marcus Hanwell"), ki18n( "SoC on the molecular viewer and libavogadro porting/integration" ));
+    about.addCredit( ki18n("Thomas Nagy"), ki18n("EqChem, the equation solver" ));
+    about.addCredit( ki18n("Johannes Simon"), ki18n( "Improvements to the equation solver and Help button of the molecular viewer" ));
+    about.addCredit( ki18n("Jarle Akselsen"), ki18n("Many beautiful element icons" ));
+    about.addCredit( ki18n("Noémie Scherer"), ki18n("Many beautiful element icons, too!" ));
+    about.addCredit( ki18n("Danny Allen"), ki18n("Several icons" ));
     about.addCredit( ki18n("Lee Olson"), ki18n( "Several icons in the information dialog" ));
-    about.addCredit( ki18n("Inge Wallin"), ki18n( "Code cleaning, the molecule parser and a lot of smaller improvements" ));
+    about.addCredit( ki18n("Anne-Marie Mahfouf"), ki18n( "A lot of small things and the documentation" ));
+    about.addCredit( ki18n("Inge Wallin"), ki18n( "Code cleaning, and a lot of smaller improvements" ));
+    about.addCredit( ki18n("Jörg Buchwald"), ki18n("Contributed most isotope information" ));
+    about.addCredit( ki18n("Marco Martin"), ki18n("Some icons and inspiration for others" ));
+    about.addCredit( ki18n("Daniel Haas"), ki18n( "The design of the information dialog" ));
+    about.addCredit( ki18n("Brian Beck"), ki18n( "The orbits icon" ));
     KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;
