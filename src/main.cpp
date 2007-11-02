@@ -52,7 +52,7 @@ int main(int argc, char **argv)
     about.addCredit( ki18n("Benoit Jacob"), ki18n( "Base work on the molecular viewer, mentored Marcus during his SoC" ));
     about.addCredit( ki18n("Marcus Hanwell"), ki18n( "SoC on the molecular viewer and libavogadro porting/integration" ));
     about.addCredit( ki18n("Thomas Nagy"), ki18n("EqChem, the equation solver" ));
-    about.addCredit( ki18n("Johannes Simon"), ki18n( "Improvements to the equation solver and Help button of the molecular viewer" ));
+    about.addCredit( ki18n("Johannes Simon"), ki18n( "Code and documentation contributions to the equation solver and molecular viewer" ));
     about.addCredit( ki18n("Jarle Akselsen"), ki18n("Many beautiful element icons" ));
     about.addCredit( ki18n("Noémie Scherer"), ki18n("Many beautiful element icons, too!" ));
     about.addCredit( ki18n("Danny Allen"), ki18n("Several icons" ));
