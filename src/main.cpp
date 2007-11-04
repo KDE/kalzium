@@ -52,13 +52,14 @@ int main(int argc, char **argv)
     about.addCredit( ki18n("Benoit Jacob"), ki18n( "Base work on the molecular viewer, mentored Marcus during his SoC" ));
     about.addCredit( ki18n("Marcus Hanwell"), ki18n( "SoC on the molecular viewer and libavogadro porting/integration" ));
     about.addCredit( ki18n("Thomas Nagy"), ki18n("EqChem, the equation solver" ));
+    about.addCredit( ki18n("Inge Wallin"), ki18n( "Code cleaning, parser for the molecule weight calculator, and a lot of smaller improvements" ));
+    about.addCredit( ki18n("Anne-Marie Mahfouf"), ki18n( "A lot of small things and the documentation" ));
     about.addCredit( ki18n("Johannes Simon"), ki18n( "Code and documentation contributions to the equation solver and molecular viewer" ));
     about.addCredit( ki18n("Jarle Akselsen"), ki18n("Many beautiful element icons" ));
     about.addCredit( ki18n("Noémie Scherer"), ki18n("Many beautiful element icons, too!" ));
     about.addCredit( ki18n("Danny Allen"), ki18n("Several icons" ));
     about.addCredit( ki18n("Lee Olson"), ki18n( "Several icons in the information dialog" ));
-    about.addCredit( ki18n("Anne-Marie Mahfouf"), ki18n( "A lot of small things and the documentation" ));
-    about.addCredit( ki18n("Inge Wallin"), ki18n( "Code cleaning, and a lot of smaller improvements" ));
+    
     about.addCredit( ki18n("Jörg Buchwald"), ki18n("Contributed most isotope information" ));
     about.addCredit( ki18n("Marco Martin"), ki18n("Some icons and inspiration for others" ));
     about.addCredit( ki18n("Daniel Haas"), ki18n( "The design of the information dialog" ));
