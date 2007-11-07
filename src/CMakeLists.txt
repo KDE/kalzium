@@ -100,6 +100,15 @@ kde4_add_ui_files(kalzium_SRCS
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
+if(MSVC)
+  set(kalzium_SRCS ${kalzium_SRCS} kalzium.rc)
+endif(MSVC)
+
+if(MINGW)
+   KDE_ADD_RESOURCES2(kalzium_SRCS kalzium.rc)
+endif(MINGW)
+
+
 kde4_add_executable(kalzium ${kalzium_SRCS} )
 
 target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} science kdeeduui )
