@@ -20,9 +20,5 @@ ${OPENGL_glu_LIBRARY} avogadro-kalzium)
 
 set_target_properties(compoundviewer PROPERTIES VERSION 4.0.0 SOVERSION 4 )
 
-install(TARGETS compoundviewer 
-        RUNTIME DESTINATION ${BIN_INSTALL_DIR}
-        LIBRARY DESTINATION ${LIB_INSTALL_DIR}
-        ARCHIVE DESTINATION ${LIB_INSTALL_DIR}
-)
+install(TARGETS compoundviewer  DESTINATION ${LIB_INSTALL_DIR})
 
