@@ -100,14 +100,22 @@ kde4_add_ui_files(kalzium_SRCS
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
-if(MSVC)
-  set(kalzium_SRCS ${kalzium_SRCS} kalzium.rc)
-endif(MSVC)
-
-if(MINGW)
-   KDE_ADD_RESOURCES2(kalzium_SRCS kalzium.rc)
-endif(MINGW)
-
+#uncomment this if oxygen icons for kalzium are available
+#set(kalzium_icons
+#    ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/16x16/apps/kalzium.png
+#    ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/32x32/apps/kalzium.png
+#    ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/48x48/apps/kalzium.png
+#    ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/64x64/apps/kalzium.png
+#    ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/128x128/apps/kalzium.png
+#)
+set(kalzium_icons
+    ${CMAKE_CURRENT_SOURCE_DIR}/kalzium/icons/hi16-app-kalzium.png
+    ${CMAKE_CURRENT_SOURCE_DIR}/kalzium/icons/hi32-app-kalzium.png
+    ${CMAKE_CURRENT_SOURCE_DIR}/kalzium/icons/hi48-app-kalzium.png
+    ${CMAKE_CURRENT_SOURCE_DIR}/kalzium/icons/hi64-app-kalzium.png
+    ${CMAKE_CURRENT_SOURCE_DIR}/kalzium/icons/hi128-app-kalzium.png
+)
+kde4_add_win32_app_icon(kalzium kalzium_SRCS ${kalzium_icons})
 
 kde4_add_executable(kalzium ${kalzium_SRCS} )
 
