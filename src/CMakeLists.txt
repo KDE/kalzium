@@ -115,7 +115,7 @@ set(kalzium_icons
     ${CMAKE_CURRENT_SOURCE_DIR}/kalzium/src/hi64-app-kalzium.png
     ${CMAKE_CURRENT_SOURCE_DIR}/kalzium/src/hi128-app-kalzium.png
 )
-kde4_add_win32_app_icon(kalzium kalzium_SRCS ${kalzium_icons})
+kde4_add_win32_app_icon(kalzium_SRCS ${kalzium_icons})
 
 kde4_add_executable(kalzium ${kalzium_SRCS} )
 
