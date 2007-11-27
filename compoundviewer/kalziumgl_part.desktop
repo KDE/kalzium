@@ -2,6 +2,7 @@
 Icon=kalzium
 MimeType=application/ogg;audio/basic;
 Name=KalziumGLPart
+Name[et]=Kalziumi GL-komponent
 Name[ne]=काल्जियम जीएल भाग
 Name[pa]=ਕੈਲਜੀਅਮGLPart
 Name[sv]=Kalzium GL-programdel
@@ -13,6 +14,7 @@ Comment[ca]=Un representador de molècules en 3D basat en OpenGL
 Comment[de]=Ein OpenGL-basierter 3D-Zeichner für Moleküle
 Comment[el]=Ένας 3Δ αποτυπωτής μορίων βασισμένος στο OpenGL
 Comment[es]=Un programa para representar moléculas en 3D basado en OpenGL
+Comment[et]=Molekulide OpenGL-põhine ruumiline renderdaja
 Comment[fa]=پرداخت‌کننده ۳بعدی بر مبنای OpenGL برای پیمانه‌ها
 Comment[ga]=Rindreálaí Móilíní 3T bunaithe ar OpenGL
 Comment[it]=Visualizzatore 3D basato su OpenGL per molecole
