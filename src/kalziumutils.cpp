@@ -178,7 +178,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
             {
                 val = el->dataAsVariant( kind ).toInt();
                 if ( val > 1600 ) {
-                    result = i18n( "This element was discovered in the year %1.", val );
+                    result = i18n( "This element was discovered in the year <numid>%1</numid>.", val );
                 }else if( val == 0 ){
                     result = i18n( "Unknown." );
                 } else {
