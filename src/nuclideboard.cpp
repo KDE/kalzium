@@ -37,21 +37,17 @@
 #include <QGraphicsItemGroup>
 #include <QRectF>
 
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kdebug.h>
-#include <kglobal.h>
 #include <klocale.h>
-#include <kicon.h>
-#include <kstandarddirs.h>
+
+#include "nuclideboardview.h"
 
     IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 : KDialog( parent )
 {
     ui.setupUi( mainWidget() );
-    IsotopeScene *scene = new IsotopeScene();
     
-    ui.gv->setScene(scene);
+    //ui.gv->setScene(scene);
+    //ui.gv->fitInView(scene->sceneRect());
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

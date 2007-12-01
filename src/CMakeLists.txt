@@ -64,6 +64,7 @@ set(kalzium_SRCS
    searchwidget.cpp
    rsdialog.cpp
    legendwidget.cpp
+   nuclideboardview.cpp
    #tableinfowidget.cpp #will readd in KDE4.1
    #spectrumviewimpl.cpp #will readd in KDE4.1
    #spectrumwidget.cpp #will readd in KDE4.1
