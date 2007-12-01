@@ -125,12 +125,14 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                     result = i18nc("Just a number", "%1", val );
                 break;
             }
-            //FIXME nothing is done here
         case ChemicalDataObject::electronAffinity: // an energy
             {
+		    val = el->dataAsVariant( kind ).toDouble();
+		    result = i18nc( "electron volt", "%1 eV", val );
+		    break;
             }
-            //FIXME I don't check for the real unit here, that needs to be fixed
-        case ChemicalDataObject::density: // an energy
+	    //FIXME I don't check for the real unit here, that needs to be fixed
+        case ChemicalDataObject::density: // g per cm3 
             {
                 val = el->dataAsVariant( kind ).toDouble();
                 if ( val <= 0.0 )
@@ -138,6 +140,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                 else
                 {
                     result = i18nc( "x gramm per cubic centimeter. This is the density.", "%1 g/cm3", val ); 
+                    //result = i18nc( "x gramm per cubic centimeter. This is the density.", "%1 g/cm<sup>3</sup>", val ); 
                 }
                 break;
             }
