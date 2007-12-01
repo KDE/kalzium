@@ -16,6 +16,7 @@ email                : cniehaus@kde.org
 #include "element.h"
 
 #include <kdebug.h>
+#include <klocale.h>
 
 class ElementSaxParser::Private
 {
@@ -197,7 +198,7 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
                 for (int i = 0; i < attrs.length(); ++i) 
                 {
                     if (attrs.localName(i) == "value") {
-                        d->currentDataObject.setData( attrs.value(i) );
+                        d->currentDataObject.setData( i18n( attrs.value(i).toUtf8() ) );
                         d->currentDataObject.setType( ChemicalDataObject::name );
     
                         if ( d->currentElement )
@@ -289,7 +290,7 @@ bool ElementSaxParser::characters(const QString &ch)
         d->inPeriodTableBlock = false;
     }
     else if (d->inNameOrigin) {
-        value = ch;
+        value = i18n( ch.toUtf8() );
         type = ChemicalDataObject::nameOrigin; 
         d->inNameOrigin = false;
     }
