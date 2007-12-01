@@ -147,10 +147,6 @@ class IsotopeScene : public QGraphicsScene
         ///this is the item needed to display helpful information
         InformationItem *m_infoItem;
 
-    public slots:
-        void slotSetItemSize(int);
-        void slotToggleInfowidget(int);
-
     signals:
         void itemSelected(QGraphicsItem *item);
 };

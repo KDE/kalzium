@@ -50,14 +50,6 @@
 {
     ui.setupUi( mainWidget() );
     IsotopeScene *scene = new IsotopeScene();
-
-    connect( ui.pixelSpin, SIGNAL(valueChanged(int)),
-            scene, SLOT( slotSetItemSize(int)));
-
-    connect( ui.infowidget, SIGNAL(stateChanged(int)),
-            scene, SLOT(slotToggleInfowidget(int)) );
-
-    scene->slotSetItemSize( ui.pixelSpin->value() );
     
     ui.gv->setScene(scene);
 }
@@ -79,15 +71,6 @@
     m_infoItem->scale(1,-1);
 }
 
-void IsotopeScene::slotToggleInfowidget(int state)
-{
-    if ( state == Qt::Checked ) {
-        m_infoItem->setVisible( true );
-    } else {
-        m_infoItem->setVisible( false );
-    }
-}
-
 void IsotopeScene::updateContextHelp( IsotopeItem * item )
 {
     m_infoItem->setIsotope( item );
@@ -106,23 +89,6 @@ void IsotopeScene::drawIsotopes()
             IsotopeItem *item = new IsotopeItem( i, elementNumber*m_itemSize ,i->nucleons()*m_itemSize, m_itemSize,m_itemSize);
             item->setToolTip( i18n("Isotope of Element %1 (%2)", i->parentElementNumber() ,i->parentElementSymbol() ) );
             m_isotopeGroup->addToGroup( item );
-        }
-    }
-}
-
-void IsotopeScene::slotSetItemSize(int itemsize)
-{
-    m_itemSize = itemsize;
-
-    foreach (QGraphicsItem *i, items() )
-    {
-        //check if the item is an IsotopeItem. If not: do nothing
-        if (qgraphicsitem_cast<IsotopeItem *>(i)) 
-        {
-            IsotopeItem *ii = static_cast<IsotopeItem*>(i);
-
-            QRect newRect( ii->isotope()->parentElementNumber() * m_itemSize, ii->isotope()->nucleons() * m_itemSize , m_itemSize, m_itemSize );
-            ii->setRect( newRect );
         }
     }
 }
