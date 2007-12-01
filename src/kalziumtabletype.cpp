@@ -262,7 +262,7 @@ QString KalziumClassicTableType::description() const
 
 QSize KalziumClassicTableType::size() const
 {
-    return QSize( ELEMENTSIZE * 18 + 1, ELEMENTSIZE * 11 );
+    return QSize( ELEMENTSIZE * 18 + 1, ELEMENTSIZE * 11 + 1 );
 }
 
 int KalziumClassicTableType::elementAtCoords( const QPoint& coords ) const
