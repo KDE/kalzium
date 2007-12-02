@@ -96,7 +96,22 @@ KalziumGradientType* KalziumGradientType::instance()
 double KalziumGradientType::elementCoeff( int el ) const
 {
 	double val = value( el );
-	return val > .0 ? ( val - minValue() ) / ( maxValue() - minValue() ) : -1;
+	if( val <= 0.0 ) return -1;
+	
+	if(logarithmicGradient()) {
+		double result = ( log(val) - log(minValue()) ) / ( log(maxValue()) - log(minValue()) );
+		
+		// now we perform a "gamma-correction" on the result. Indeed, logarithmic gradients
+		// often have the problem that all high values have roughly the same color. Note that
+		// as firstColor() is not necessarily black and secondColor() is not necessarily white,
+		// this is not exactly a "gamma-correction" in the usual sense.
+		const double gamma = 1.4;
+		result = exp(gamma * log(result));
+		return result;
+	}
+	else {
+		return ( val - minValue() ) / ( maxValue() - minValue() );
+	}
 }
 
 QColor KalziumGradientType::firstColor() const
@@ -118,19 +133,12 @@ QColor KalziumGradientType::calculateColor( const double coeff ) const
 {
 	if ( ( coeff < 0.0 ) || ( coeff > 1.0 ) ) return notAvailableColor();
 
-	double _coeff;
-	// the higher a, the steeper the logarithmic curve ( a > 1 )
-	const double a = 256;
-	if(logarithmicGradient())
-		_coeff = log(1 + coeff * (a - 1))/log(a);
-	else
-		_coeff = coeff;
 	QColor color2 = secondColor();
 	QColor color1 = firstColor();
 
-	int red = static_cast<int>( (color2.red() - color1.red()) * _coeff + color1.red() );
-	int green = static_cast<int>( (color2.green() - color1.green()) * _coeff + color1.green() );
-	int blue = static_cast<int>( (color2.blue() - color1.blue()) * _coeff + color1.blue() );
+	int red = static_cast<int>( (color2.red() - color1.red()) * coeff + color1.red() );
+	int green = static_cast<int>( (color2.green() - color1.green()) * coeff + color1.green() );
+	int blue = static_cast<int>( (color2.blue() - color1.blue()) * coeff + color1.blue() );
 	
 	return QColor( red, green, blue );
 }
