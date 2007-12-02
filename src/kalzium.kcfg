@@ -225,28 +225,6 @@
 			<default>#E8D888</default>
 		</entry>
 	</group>
-	<group name="Design">
-		<entry name="elementsymbol1" type="Int">
-			<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
-			<whatsthis>Use eV or kJ/mol</whatsthis>
-			<default>0</default>
-		</entry>
-		<entry name="elementsymbol2" type="Int">
-			<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
-			<whatsthis>Use eV or kJ/mol</whatsthis>
-			<default>1</default>
-		</entry>
-		<entry name="elementsymbol3" type="Int">
-			<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
-			<whatsthis>Use eV or kJ/mol</whatsthis>
-			<default>2</default>
-		</entry>
-		<entry name="elementsymbol4" type="Int">
-			<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
-			<whatsthis>Use eV or kJ/mol</whatsthis>
-			<default>3</default>
-		</entry>
-	</group>
 	<group name="Units">
 		<entry name="energies" type="Int">
 			<label>This value defines whether eV or kJ/mol should be used within Kalzium</label>
