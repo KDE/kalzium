@@ -63,6 +63,8 @@
 #include <QKeyEvent>
 #include <QTimer>
 #include <QTabWidget>
+#include <QSvgGenerator>
+#include <QRegExp>
 
 #include <kmessagebox.h>
 #include <kconfigdialog.h>
@@ -79,9 +81,8 @@
 #include <kurl.h>
 #include <kfiledialog.h>
 #include <KLocale>
+#include <KPluginLoader>
 
-#include <QSvgGenerator>
-#include <QRegExp>
 
 
 #define PeriodicTableView_MARGIN          5
@@ -403,15 +404,10 @@ void Kalzium::slotMoleculeviewer()
 
   MoleculeDialog * d = new MoleculeDialog( this ); d->show();
 
-  KLibrary* library = KLibLoader::self()->library(QLatin1String("libkalziumglpart"),
-                                                  QLibrary::ExportExternalSymbolsHint);
-  KLibFactory* factory = 0;
-
-  if ( library )
-      factory = library->factory();
+  KPluginLoader loader("libkalziumglpart" );
+  KPluginFactory* factory = loader.factory();
 
   if (factory) {
-      kDebug() << "if factory";
       KParts::ReadOnlyPart *part = 0;
       part = static_cast<KParts::ReadOnlyPart*> ( factory->create( this, "KalziumGLPart" ) );
 
