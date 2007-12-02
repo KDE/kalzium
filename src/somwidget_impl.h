@@ -53,14 +53,13 @@ class SOMWidgetIMPL : public QWidget, private Ui_SOMWidget
 
 	private slots:
 		void sliderValueChanged( int temp );
-		void spinValueChanged( double temp );
 
 		/**
 		 * in this slot the elements will be compared with
 		 * the temperature @p newtemp. The content of the HTML
 		 * will be generated
 		 */
-		void setNewTemp( double newtemp );
+		void setNewTemp( int newtemp );
 
 	signals:
 		/**

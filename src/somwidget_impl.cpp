@@ -43,12 +43,10 @@ SOMWidgetIMPL::SOMWidgetIMPL( QWidget *parent )
 	m_htmlEnd = "";
 	m_prevUnit = Prefs::temperature();
 
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( spinValueChanged( double ) ) );
+	connect( Number1, SIGNAL( valueChanged( int ) ),
+	         this, SLOT( sliderValueChanged( int ) ) );
 	connect( temp_slider, SIGNAL( valueChanged( int ) ),
 	         this, SLOT( sliderValueChanged( int ) ) );
-	connect( Number1, SIGNAL( valueChanged( double ) ),
-	         this, SLOT( setNewTemp( double ) ) );
 
 	reloadUnits();
 }
@@ -65,13 +63,11 @@ void SOMWidgetIMPL::reloadUnits()
 	lblUnit->setText( TempUnit::unitListSymbol( Prefs::temperature() ) );
 	QPair<double, double> range = TempUnit::rangeForUnit( Prefs::temperature() );
 
-	double newvalue = TempUnit::convert( Number1->value(), m_prevUnit, Prefs::temperature() );
+	int newvalue = TempUnit::convert( Number1->value(), m_prevUnit, Prefs::temperature() );
 	Number1->setRange( range.first, range.second );
-        Number1->setSingleStep(0.1);
-        Number1->setDecimals(1);
+        Number1->setSingleStep(1);
 	Number1->setValue( newvalue );
 	setNewTemp( newvalue );
-kDebug() << "min: " << Number1->minimum() << " - max: " << Number1->maximum();
 	m_prevUnit = Prefs::temperature();
 	Number1->blockSignals( false );
 	temp_slider->blockSignals( false );
@@ -81,25 +77,15 @@ void SOMWidgetIMPL::sliderValueChanged( int temp )
 {
 	Number1->blockSignals( true );
 	temp_slider->blockSignals( true );
-	double newvalue = TempUnit::convert( (double)temp, (int)TempUnit::Kelvin, Prefs::temperature() );
+	int newvalue = TempUnit::convert( (double)temp, (int)TempUnit::Kelvin, Prefs::temperature() );
 	Number1->setValue( newvalue );
+	temp_slider->setValue( newvalue );
 	setNewTemp( newvalue );
 	Number1->blockSignals( false );
 	temp_slider->blockSignals( false );
 }
 
-void SOMWidgetIMPL::spinValueChanged( double temp )
-{
-	Number1->blockSignals( true );
-	temp_slider->blockSignals( true );
-	int newvalue = (int)TempUnit::convert( temp, Prefs::temperature(), (int)TempUnit::Kelvin );
-	temp_slider->setValue( newvalue );
-	setNewTemp( temp );
-	Number1->blockSignals( false );
-	temp_slider->blockSignals( false );
-}
-
-void SOMWidgetIMPL::setNewTemp( double newtemp )
+void SOMWidgetIMPL::setNewTemp( int newtemp )
 {
 	static const int threshold = 25;
 
@@ -110,10 +96,10 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 	QStringList listBoilingPointValue;
 	QStringList listMeltingPointValue;
 
-    const QString unitSymbol = TempUnit::unitListSymbol( Prefs::temperature() );
-  
-  foreach (Element * element, m_list)
-  {
+	const QString unitSymbol = TempUnit::unitListSymbol( Prefs::temperature() );
+
+	foreach (Element * element, m_list)
+	{
 		double melting = element->dataAsVariant( ChemicalDataObject::meltingpoint ).toDouble();
 		if ( ( melting > 0.0 ) && fabs( melting - temp ) <= threshold )
 		{
@@ -134,7 +120,7 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 		for ( int i = 0; i < listMeltingPoint.count(); i++ )
 		{
 			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2%3)", 
-                                        listMeltingPoint.at( i ), listMeltingPointValue.at( i ), unitSymbol ) + '\n';
+					listMeltingPoint.at( i ), listMeltingPointValue.at( i ), unitSymbol ) + '\n';
 		}
 		htmlcode += '\n';
 	}
@@ -149,7 +135,7 @@ void SOMWidgetIMPL::setNewTemp( double newtemp )
 		for ( int i = 0; i < listBoilingPoint.count(); i++ )
 		{
 			htmlcode += " - " + i18nc( "For example: Carbon (300K)", "%1 (%2%3)", 
-                                       listBoilingPoint.at( i ), listBoilingPointValue.at( i ), unitSymbol )  + '\n';
+					listBoilingPoint.at( i ), listBoilingPointValue.at( i ), unitSymbol )  + '\n';
 		}
 		htmlcode += '\n';
 	}
