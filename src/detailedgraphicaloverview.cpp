@@ -28,7 +28,6 @@ email                : cniehaus@kde.org
 #include <QFile>
 #include <QPainter>
 #include <QSvgRenderer>
-
 #include <QRect>
 
 #include <element.h>
@@ -131,7 +130,7 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
         //coordinates for the atomic number: offset from element symbol to the upper left
         int xB = xA - fmB.width( m_element->dataAsString( ChemicalDataObject::atomicNumber ) );
-        int yB = yA - fmA.height() + fmB.height();
+        int yB = yA + fmB.height()/2;
 
         //Element Symbol
         p.setFont( fA );
