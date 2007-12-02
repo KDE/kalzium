@@ -44,7 +44,8 @@
     IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 : KDialog( parent )
 {
-    ui.setupUi( mainWidget() );
+	setCaption(i18n("Isotope Table"));
+	ui.setupUi( mainWidget() );
     
     //ui.gv->setScene(scene);
     //ui.gv->fitInView(scene->sceneRect());
