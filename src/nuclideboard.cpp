@@ -21,25 +21,15 @@
 
 
 #include "nuclideboard.h"
+#include "nuclideboardview.h"
 #include "kalziumdataobject.h"
-#include "kalziumutils.h"
 #include "ui_isotopedialog.h"
 
 #include <element.h>
 #include <isotope.h>
 
-#include <QLabel>
-#include <QGraphicsView>
-#include <QGraphicsRectItem>
-#include <QPainter>
-#include <QFile>
-#include <QGraphicsTextItem>
-#include <QGraphicsItemGroup>
-#include <QRectF>
-
 #include <klocale.h>
 
-#include "nuclideboardview.h"
 
     IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 : KDialog( parent )
