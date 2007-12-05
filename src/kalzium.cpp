@@ -544,7 +544,7 @@ void Kalzium::showSettingsDialog()
 	QWidget *w_colors = new QWidget( 0 );
 	w_colors->setObjectName( "colors_page" );
 	ui_colors.setupUi( w_colors );
-	dialog->addPage( w_colors, i18n( "Colors" ), "colorize" );
+	dialog->addPage( w_colors, i18n( "Colors" ), "preferences-desktop-color" );
  	// units page
 	Ui_setupUnits ui_units;
 	QWidget *w_units = new QWidget( 0 );
