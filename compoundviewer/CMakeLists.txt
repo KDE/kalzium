@@ -18,7 +18,7 @@ target_link_libraries(compoundviewer ${OPENBABEL2_LIBRARIES}
 ${QT_QTOPENGL_LIBRARY} ${KDE4_KPARTS_LIBS} ${OPENGL_gl_LIBRARY}
 ${OPENGL_glu_LIBRARY} avogadro-kalzium)
 
-set_target_properties(compoundviewer PROPERTIES VERSION 4.0.0 SOVERSION 4 )
+set_target_properties(compoundviewer PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 
 install(TARGETS compoundviewer  DESTINATION ${LIB_INSTALL_DIR})
 
