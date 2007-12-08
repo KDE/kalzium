@@ -139,8 +139,7 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                     result = i18n( "Unknown Value" );
                 else
                 {
-                    result = i18nc( "x gramm per cubic centimeter. This is the density.", "%1 g/cm3", val ); 
-                    //result = i18nc( "x gramm per cubic centimeter. This is the density.", "%1 g/cm<sup>3</sup>", val ); 
+                    result = i18nc( "x gramm per cubic centimeter. This is the density.", "%1 g/cm³", val ); 
                 }
                 break;
             }
