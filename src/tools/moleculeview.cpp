@@ -29,7 +29,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	setCaption( i18n( "Molecular Viewer" ) );
 	setButtons( Help | User1 | Close );
 	setDefaultButton( User1 );
-	setButtonGuiItem( User1, KGuiItem( i18n( "Load molecule" ), "open", i18n( "Loading a molecule" ) ) );
+	setButtonGuiItem( User1, KGuiItem( i18n( "Load molecule" ), "document-open", i18n( "Loading a molecule" ) ) );
 	
 	ui.setupUi(mainWidget());
 
