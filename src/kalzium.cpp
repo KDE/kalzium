@@ -92,9 +92,11 @@ Kalzium::Kalzium()
 {
 	setObjectName( "KalziumMainWindow" );
 
+    // adding the libkdeedu catalog
+    KGlobal::locale()->insertCatalog( "libkdeedu" );
+
 	// reading the elements from file
 	KalziumDataObject::instance();
-
 
 	Search *newsearch = new Search();
 	KalziumDataObject::instance()->setSearch( newsearch );
@@ -144,8 +146,6 @@ Kalzium::Kalzium()
 	setupSidebars();
 	setupActions();
 
-	// adding the libkdeedu catalog
-	KGlobal::locale()->insertCatalog( "libkdeedu" );
 
 	// creating the glossary dialog and loading the glossaries we have
 	m_glossarydlg = new GlossaryDialog( this );
