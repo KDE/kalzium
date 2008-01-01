@@ -550,13 +550,13 @@ void Kalzium::showSettingsDialog()
 	QWidget *w_units = new QWidget( 0 );
 	w_units->setObjectName( "units_page" );
 	ui_units.setupUi( w_units );
-	dialog->addPage( w_units, i18n( "Units" ), "gear" );
+	dialog->addPage( w_units, i18n( "Units" ), "system-run" );
 	// misc page
 	Ui_setupMisc ui_misc;
 	QWidget *w_misc = new QWidget( 0 );
 	w_misc->setObjectName( "miscpage" );
 	ui_misc.setupUi( w_misc );
-	dialog->addPage( w_misc, i18n( "Miscellaneous" ), "misc" );
+	dialog->addPage( w_misc, i18n( "Miscellaneous" ), "preferences-other" );
 	// showing the dialog
 	dialog->show();
 }
