@@ -48,6 +48,12 @@ class MoleculeDialog : public KDialog
 		 * Load a molecule
 		 */
 		void slotLoadMolecule();
+
+		/**
+		 * Get a new molecule using hot new stuff
+		 */
+		void slotDownloadNewStuff();
+
 		void slotHelp();
 };
 

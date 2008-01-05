@@ -18,6 +18,7 @@
 #include <kstandarddirs.h>
 #include <KLocale>
 #include <KTextBrowser>
+#include <knewstuff2/engine.h>
 
 #include <openbabel2wrapper.h>
 
@@ -27,9 +28,13 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	: KDialog( parent )
 {
 	setCaption( i18n( "Molecular Viewer" ) );
-	setButtons( Help | User1 | Close );
+	setButtons( Help | User2 | User1 | Close );
+
 	setDefaultButton( User1 );
+
 	setButtonGuiItem( User1, KGuiItem( i18n( "Load molecule" ), "document-open", i18n( "Loading a molecule" ) ) );
+
+	setButtonGuiItem( User2, KGuiItem( i18n( "Download New Molecules" ), "get-hot-new-stuff", i18n( "Download new molecule files" ) ) );
 	
 	ui.setupUi(mainWidget());
 
@@ -58,6 +63,9 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
 	connect( this, SIGNAL( user1Clicked() ), 
 			this, SLOT( slotLoadMolecule() ) );
+
+	connect( this, SIGNAL( user2Clicked() ), 
+			this, SLOT( slotDownloadNewStuff() ) );
 }
 
 void MoleculeDialog::slotHelp()
@@ -158,6 +166,20 @@ void MoleculeDialog::updateStatistics()
 	ui.weightLabel->setText( i18nc( "This 'u' stands for the chemical unit (u for 'units'). Most likely this does not need to be translated at all!", "%1 u", mol->GetMolWt() ) );
 	ui.formulaLabel->setText( OpenBabel2Wrapper::getPrettyFormula( mol ) );
 	ui.glWidget->update();
+}
+
+void MoleculeDialog::slotDownloadNewStuff()
+{
+    kDebug() << "Kalzium new stuff";
+    KNS::Entry::List entries = KNS::Engine::download();
+    // list of changed entries
+    foreach(KNS::Entry::Entry* entry, entries) {
+        // care only about installed ones
+        if (entry->status() == KNS::Entry::Installed) {
+            kDebug() << "Files downloaded: " << entry->installedFiles();
+        }
+    }
+    qDeleteAll(entries);
 }
 
 #include "moleculeview.moc"
