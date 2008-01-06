@@ -70,7 +70,7 @@ void NavigateTool::computeClickedAtom(const QPoint& p)
       SEL_BOX_SIZE, SEL_BOX_SIZE);
 
   // Find the first atom (if any) in hits - this will be the closest
-  foreach( GLHit hit, hits )
+  foreach( const GLHit &hit, hits )
   {
     if(hit.type() == Primitive::AtomType)
     {

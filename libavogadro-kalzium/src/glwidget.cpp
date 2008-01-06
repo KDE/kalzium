@@ -562,10 +562,10 @@ namespace Avogadro {
     // load static plugins first
 
     // now load plugins from paths
-    foreach (QString path, pluginPaths)
+    foreach (const QString &path, pluginPaths)
     {
       QDir dir(path);
-      foreach (QString fileName, dir.entryList(QDir::Files)) {
+      foreach (const QString &fileName, dir.entryList(QDir::Files)) {
         if(fileName.contains("kalzium")) {
           QPluginLoader loader(dir.absoluteFilePath(fileName));
           QObject *instance = loader.instance();

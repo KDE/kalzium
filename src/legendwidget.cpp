@@ -123,7 +123,7 @@ void LegendWidget::updateLegendItemLayout( const QList<legendPair>& list )
     int x = 0;
     int y = 0;
 
-    foreach ( legendPair pair, list )
+    foreach ( const legendPair &pair, list )
     {
         LegendItem *item = new LegendItem( pair );
 

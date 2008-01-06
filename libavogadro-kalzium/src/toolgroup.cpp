@@ -71,10 +71,10 @@ namespace Avogadro {
 	pluginPaths << "./tools";
 #endif
   
-    foreach (QString path, pluginPaths)
+    foreach (const QString &path, pluginPaths)
     {
       QDir dir(path); 
-      foreach (QString fileName, dir.entryList(QDir::Files)) {
+      foreach (const QString &fileName, dir.entryList(QDir::Files)) {
         qDebug() << fileName;
         if(fileName.contains("kalzium")) {
           QPluginLoader loader(dir.absoluteFilePath(fileName));

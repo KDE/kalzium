@@ -220,7 +220,7 @@ void OBConverter::slotConvert()
 	   	    QMessageBox::Yes, QMessageBox::No)
   	      ) {
             case QMessageBox::Yes:
-                foreach(const QStringList s, cmdArgList) {
+                foreach(const QStringList &s, cmdArgList) {
                     QProcess::startDetached( "babel", s);
                 }
                 break;
