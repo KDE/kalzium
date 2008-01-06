@@ -1,7 +1,7 @@
 #ifndef RSDIALOG_H
 #define RSDIALOG_H
 /***************************************************************************
- *   Copyright (C) 2006 by Carsten Niehaus                                 *
+ *   Copyright (C) 2006-2008 by Carsten Niehaus                            *
  *   cniehaus@kde.org                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -49,7 +49,6 @@ class RSDialog : public KDialog
 		
 		QString sphrase( int number );
 
-
 	public slots:
 		void filter();
 
@@ -62,6 +61,8 @@ class RSDialog : public KDialog
 		
 		void createSPhrases();
 		void createRPhrases();
+
+		void invalidPhaseString();
 };
 
 #endif // RSDIALOG_H

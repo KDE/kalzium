@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2006, 2007 by Carsten Niehaus                           *
+ *   Copyright (C) 2006, 2008 by Carsten Niehaus                           *
  *   cniehaus@kde.org                                                      *
  *
  *                                                                         *
@@ -29,6 +29,7 @@
 #include <klocale.h>
 #include <kdebug.h>
 #include <ktoolinvocation.h>
+#include <KMessageBox>
 
 RSDialog::RSDialog( QWidget* parent )
 	: KDialog( parent )
@@ -309,5 +310,11 @@ void RSDialog::slotHelp()
 {
     KToolInvocation::invokeHelp( "rs_phrases", QLatin1String( "kalzium" ) );
 }
+
+void RSDialog::invalidPhaseString()
+{
+		KMessageBox::error(0, i18n("At least one of the specified phrases is invalid."));
+}
+
 
 #include "rsdialog.moc"
