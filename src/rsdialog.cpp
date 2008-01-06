@@ -53,6 +53,11 @@ RSDialog::RSDialog( QWidget* parent )
 
 void RSDialog::filter()
 {
+	if(ui.r_le->text().startsWith("-")){
+		invalidPhaseString();
+		return;
+	}
+
     QList<int> r;
     QList<int> s;
 
@@ -71,8 +76,8 @@ void RSDialog::filter()
         foreach( const QString &st, sSplit )
             s << st.toInt();
     }
-
-    filterRS( r, s );
+	
+			filterRS( r, s );
 }
 
 void RSDialog::filterRS( const QList<int>& r, const QList<int>& s )
