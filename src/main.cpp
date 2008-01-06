@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2003-2006 Carsten Niehaus <cniehaus@kde.org>
+ *   Copyright (C) 2003-2008 Carsten Niehaus <cniehaus@kde.org>
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -14,7 +14,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.         *
  ***************************************************************************/
 
 #include <kaboutdata.h>
@@ -26,7 +26,7 @@
 
 #include <config-kalzium.h>
 
-#define APP_VERSION "1.9.91"
+#define APP_VERSION "2.0.80"
 
 static const char description[] =
     I18N_NOOP("A periodic table of the elements");
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 #endif
 
     KAboutData about("kalzium", 0, ki18n("Kalzium"), version, ki18n(description),
-                     KAboutData::License_GPL, ki18n("(C) 2002-2006 Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium");
+                     KAboutData::License_GPL, ki18n("(C) 2002-2008 Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium");
     about.addAuthor( ki18n("Carsten Niehaus"), KLocalizedString(), "cniehaus@kde.org" );
     about.addCredit( ki18n("Pino Toscano"), ki18n("Large code contributions; resident guru helping the other developers"));
     about.addCredit( ki18n("Benoit Jacob"), ki18n( "Base work on the molecular viewer, mentored Marcus during his SoC" ));
