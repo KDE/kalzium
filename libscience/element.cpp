@@ -29,7 +29,7 @@ Element::Element()
 
 QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type ) const
 {
-	foreach( ChemicalDataObject o, dataList ) {
+	foreach( const ChemicalDataObject &o, dataList ) {
 		if ( o.type() == type )
 			return o.value();
 	}
@@ -38,7 +38,7 @@ QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type ) const
 
 QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
 {
-	foreach( ChemicalDataObject o, dataList ) {
+	foreach( const ChemicalDataObject &o, dataList ) {
 		if ( o.type() == type )
 			return o.valueAsString();
 	}

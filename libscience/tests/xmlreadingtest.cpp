@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
             QList<ChemicalDataObject> list = e->data();
 
             //Test: give me all data available
-            foreach( ChemicalDataObject o, list ){
+            foreach( const ChemicalDataObject &o, list ){
                     QString unit = o.unitAsString();
                     if ( unit == "bo:noUnit" )
                         unit = "";
