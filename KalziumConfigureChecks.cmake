@@ -21,6 +21,6 @@ configure_file(
 macro_log_feature(OCAML_FOUND "OCaml" "OCaml is needed by Kalzium" "http://caml.inria.fr/" FALSE "" "")
 macro_log_feature(LIBFACILE_FOUND "LibFacile" "libfacile is needed by Kalzium" "http://www.recherche.enac.fr/log/facile/" FALSE "" "")
 macro_log_feature(OPENGL_FOUND "OpenGL" "OpenGL is needed by Kalzium" "http://www.opengl.org" FALSE "" "")
-macro_log_feature(OPENBABEL2_FOUND "OpenBabel2" "OpenBabel is needed by Kalzium" "http://openbabel.sourceforge.net/" FALSE "2.1" "")
+macro_log_feature(OPENBABEL2_FOUND "OpenBabel2" "OpenBabel is needed by Kalzium" "http://openbabel.sourceforge.net/" FALSE "2.2" "")
 macro_log_feature(EIGEN_FOUND "Eigen" "Eigen is needed by Kalzium" "http://eigen.tuxfamily.org" FALSE "1.0.5")
 
