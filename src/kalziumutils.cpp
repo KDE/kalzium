@@ -188,11 +188,18 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                 }
                 break;
             }
-            //FIXME nothing done here...
         case ChemicalDataObject::radiusCovalent: // a length
+            {
+                val = el->dataAsVariant( kind ).toDouble() * 100;
+                if ( val <= 0.0 )
+                    result = i18n( "Unknown Value" );
+                else
+                    result = i18nc( "%1 is a length, eg: 12.3 pm", "%1 pm", val );
+                break;
+            }
         case ChemicalDataObject::radiusVDW:
             {
-                val = el->dataAsVariant( kind ).toDouble();
+                val = el->dataAsVariant( kind ).toDouble() * 100;
                 if ( val <= 0.0 )
                     result = i18n( "Unknown Value" );
                 else
