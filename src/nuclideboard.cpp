@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006, 2007 by Carsten Niehaus                     *
+ *   Copyright (C) 2005, 2006, 2007, 2008 by Carsten Niehaus               *
  *   cniehaus@kde.org                                                      *
  *
  *                                                                         *

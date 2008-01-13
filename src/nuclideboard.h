@@ -1,7 +1,7 @@
 #ifndef NUCLIDEBOARD_H
 #define NUCLIDEBOARD_H
 /***************************************************************************
- *   Copyright (C) 2007 by Carsten Niehaus                                 *
+ *   Copyright (C) 2007, 2008 by Carsten Niehaus                           *
  *   cniehaus@kde.org                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
