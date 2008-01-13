@@ -84,6 +84,8 @@ void DetailedInfoDlg::setElement( int el )
 
 	m_element = element;
 	m_elementNumber = el;
+
+        emit elementChanged( m_elementNumber );
 	
 	reloadContent();
 
