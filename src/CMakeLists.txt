@@ -53,7 +53,6 @@ set(kalzium_SRCS
    timewidget_impl.cpp
    kalziumdataobject.cpp
    nuclideboard.cpp
-   exporter.cpp
    kalziumutils.cpp
    kalziumgradienttype.cpp
    kalziumnumerationtype.cpp
