@@ -182,6 +182,7 @@
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">He 2s2 2p2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Non-Metal</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">0</scalar>
   </atom>
   <atom id="N">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">7</scalar>
@@ -411,6 +412,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">16</scalar>
     <label dictRef="bo:symbol" value="S" />
     <label dictRef="bo:name" xml:lang="en" value="Sulfur" />
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="5">32.065</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">31.972071</scalar>
     <scalar dataType="xsd:float" dictRef="bo:density" units="g.cm-3">2.06</scalar>
@@ -658,6 +660,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">26</scalar>
     <label dictRef="bo:symbol" value="Fe" />
     <label dictRef="bo:name" xml:lang="en" value="Iron" />
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">55.845</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">55.9349375</scalar>
     <scalar dataType="xsd:float" dictRef="bo:density" units="g.cm-3">7.874</scalar>
@@ -731,6 +734,7 @@
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">29</scalar>
     <label dictRef="bo:symbol" value="Cu" />
     <label dictRef="bo:name" xml:lang="en" value="Copper" />
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="3">63.546</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">62.9295975</scalar>
     <scalar dataType="xsd:float" dictRef="bo:density" units="g.cm-3">8.92</scalar>
@@ -832,6 +836,7 @@
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">74.92160</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">74.9215965</scalar>
     <scalar dataType="xsd:float" dictRef="bo:density" units="g.cm-3">5.72</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.7886</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="8">0.814</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.18</scalar>
@@ -1176,6 +1181,7 @@
     <label dictRef="bo:symbol" value="Ag" />
     <label dictRef="bo:name" xml:lang="en" value="Silver" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="2">107.8682</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">106.905097</scalar>
     <scalar dataType="xsd:float" dictRef="bo:density" units="g.cm-3">10.49</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.5762</scalar>
@@ -1273,6 +1279,7 @@
     <label dictRef="bo:name" xml:lang="en" value="Antimony" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">121.760</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">120.9038157</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:density" units="g.cm-3">6.69</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.6084</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">1.047401</scalar>
@@ -1939,6 +1946,7 @@
     <label dictRef="bo:symbol" value="Au" />
     <label dictRef="bo:name" xml:lang="en" value="Gold" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="4">196.966569</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">196.9665687</scalar>
     <scalar dataType="xsd:float" dictRef="bo:density" units="g.cm-3">19.32</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.2255</scalar>
@@ -2034,6 +2042,7 @@
     <label dictRef="bo:name" xml:lang="en" value="Bismuth" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass" errorValue="1">208.98040</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">208.9803987</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:density" units="g.cm-3">9.8</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.2855</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">0.942363</scalar>
