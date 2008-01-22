@@ -42,6 +42,7 @@
 #include <QSize>
 #include <QPolygon>
 #include <QPainterPath>
+#include <QDebug>
 
 #include <kdebug.h>
 #include <kglobalsettings.h>
@@ -405,16 +406,20 @@ QBrush KalziumPainter::brushForElement( int element ) const
                 break;
             }
         case TIME:
-            {
-                const double date = el->dataAsVariant( ChemicalDataObject::date ).toInt();
+	    {
+		    const int date = el->dataAsVariant( ChemicalDataObject::date ).toInt();
 
-                if ( m_time >= date )
-                    return m_scheme->elementBrush( element, rect );
-                else
-                    return QBrush( Qt::lightGray );
+qDebug() << date;
 
-                break;
-            }
+		    if ( date == -1 ) //the element has not yet been recoqnized
+			    return QBrush( Qt::blue );
+
+		    if ( m_time >= date )
+			    return m_scheme->elementBrush( element, rect );
+		    else
+			    return QBrush( Qt::lightGray );
+		    break;
+	    }
     }
     // fallback
     return QBrush();

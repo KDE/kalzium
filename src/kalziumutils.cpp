@@ -183,7 +183,8 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                     result = i18n( "This element was discovered in the year <numid>%1</numid>.", val );
                 }else if( val == -1 ){
                     result = i18n( "The element has not yet been offically recoqnized by the IUPAC." );
-                } else {
+                } //this should now really be 0. If not there is a bug in the database 
+		else {
                     result = i18n( "This element was known to ancient cultures." );
                 }
                 break;
