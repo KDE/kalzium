@@ -26,9 +26,9 @@
 #include "kalziumdataobject.h"
 #include "kalziumutils.h"
 
-#include <klocale.h>
-#include <kdebug.h>
+#include <KLocale>
 #include <ktoolinvocation.h>
+#include <KToolInvocation>
 #include <KMessageBox>
 
 RSDialog::RSDialog( QWidget* parent )
@@ -53,7 +53,13 @@ RSDialog::RSDialog( QWidget* parent )
 
 void RSDialog::filter()
 {
-	if(ui.r_le->text().startsWith("-")){
+	if(
+		ui.r_le->text().startsWith("-") ||
+		ui.r_le->text().endsWith("-") || 
+		ui.s_le->text().startsWith("-") || 
+		ui.s_le->text().endsWith("-") 
+	)
+	{
 		invalidPhaseString();
 		return;
 	}
