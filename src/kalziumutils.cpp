@@ -181,8 +181,8 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
                 val = el->dataAsVariant( kind ).toInt();
                 if ( val > 1600 ) {
                     result = i18n( "This element was discovered in the year <numid>%1</numid>.", val );
-                }else if( val == 0 ){
-                    result = i18n( "Unknown." );
+                }else if( val == -1 ){
+                    result = i18n( "The element has not yet been offically recoqnized by the IUPAC." );
                 } else {
                     result = i18n( "This element was known to ancient cultures." );
                 }
