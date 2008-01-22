@@ -2623,6 +2623,7 @@
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.95 0.00 0.12</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">de</array>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">-1</scalar>
   </atom>
   <atom id="Uut">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">113</scalar>
@@ -2633,6 +2634,7 @@
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.96 0.00 0.11</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">-1</scalar>
   </atom>
   <atom id="Uuq">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">114</scalar>
@@ -2643,6 +2645,7 @@
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.97 0.00 0.10</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">-1</scalar>
   </atom>
   <atom id="Uup">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">115</scalar>
@@ -2653,6 +2656,7 @@
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.98 0.00 0.09</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
     <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">ru,us</array>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">-1</scalar>
   </atom>
   <atom id="Uuh">
     <scalar dataType="xsd:Integer" dictRef="bo:atomicNumber">116</scalar>
@@ -2662,5 +2666,6 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">292.19979</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.99 0.00 0.08</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">-1</scalar>
   </atom>
 </list>

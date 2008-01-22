@@ -68,7 +68,7 @@ class SCIENCE_EXPORT ChemicalDataObject
 			nameOrigin/**< the origin of the name */,
 			orbit/**< the quantumorbit of the element */,
 			period/**< the period of the element */,
-			date/**< date of discovery of the element. When 0, the element has been known in ancient times. */,
+			date/**< date of discovery of the element. When 0, the element has been known in ancient times. When the value is -1 the element has not yet been officially recognized by the IUPAC */,
 			discoverers/** The name of the discoverers, separated by semicolomns */,
 			relativeAbundance/** The abundance, relative to 100 */,
 			spin/**< The spin */,
