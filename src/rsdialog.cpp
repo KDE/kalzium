@@ -36,7 +36,6 @@ RSDialog::RSDialog( QWidget* parent )
 {
 	setCaption( i18n( "Risks/Security Phrases" ) );
 	setButtons( Help | Close );
-	setDefaultButton( Close );
 
 	createRPhrases();
 	createSPhrases();
@@ -53,6 +52,8 @@ RSDialog::RSDialog( QWidget* parent )
 
 void RSDialog::filter()
 {
+	//if the RS sentence starts or ends with a - invalidate it.
+	//It is probably an user error
 	if(
 		ui.r_le->text().startsWith("-") ||
 		ui.r_le->text().endsWith("-") || 
