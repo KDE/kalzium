@@ -17,19 +17,16 @@
 #include "isotope.h"
 #include "kalziumdataobject.h"
 
-#include <kdebug.h>
 #include <klocale.h>
-#include <kicon.h>
 #include <khtml_part.h>
 #include <dom/html_base.h>
 #include <dom/html_document.h>
 #include <khtmlview.h>
 #include <kstandarddirs.h>
 #include <kactioncollection.h>
-#include <kcombobox.h>
-#include <kstandardaction.h>
 #include <kpagewidgetmodel.h>
 #include <ktoolinvocation.h>
+
 
 #include <QFile>
 #include <QLabel>
