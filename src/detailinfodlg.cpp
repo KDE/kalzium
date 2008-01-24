@@ -153,39 +153,8 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         "</td></tr></table></div>"
         "<table summary=\"characteristics\" class=\"characterstics\">";
 
-    //        kDebug() << beautifyOrbitalString(m_element->dataAsString( ChemicalDataObject::electronicConfiguration ) );
-    QString newOrbits = beautifyOrbitalString(m_element->dataAsString( ChemicalDataObject::electronicConfiguration ) );
-
-    kDebug() << "in getHtml: " << newOrbits;
-
     switch ( type )
     {
-        kDebug() << "im switch";
-        case CHEMICAL:
-        {
-            kDebug() << "im chemical switch";
-            //Electronic configuration
-            html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-            html.append( i18n( "Eyylectronic configuration: %1", newOrbits ) );
-            html.append( "</td></tr>" );
-
-            //Density
-            html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
-            html.append( i18n( "Density: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::density ) ) );
-            html.append( "</td></tr>" );
-            // covalent radius
-            html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-            html.append( i18n( "Covalent Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) );
-            html.append( "</td></tr>" );
-            // van der Waals radius
-            html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-            html.append( i18n( "van der Waals Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) );
-            html.append( "</td></tr>" );
-            html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-            html.append( i18n( "Mass: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) );
-            html.append( "</td></tr>" );
-            break;
-        }
         case MISC:
         {
             // discovery date and discoverers
@@ -498,7 +467,6 @@ void DetailedInfoDlg::reloadContent()
        */
 
     // updating html tabs
-    //	fillHTMLTab( m_htmlpages["chemical"], getHtml( CHEMICAL ) );
     //	fillHTMLTab( m_htmlpages["energies"], getHtml( ENERGY ) );
     fillHTMLTab( m_htmlpages["new"], getHtml( DATA ) );
     fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
@@ -568,9 +536,7 @@ void DetailedInfoDlg::slotUser1()
 
 QString DetailedInfoDlg::beautifyOrbitalString(const QString& orbits)
 {
-    kDebug() << "beautifyOrbitalString";
     QString newOrbit = orbits;
-    kDebug() << "foo     was:" << newOrbit;
 
     QRegExp reg( "(.*)(f|s|d|f)(\\d+)(.*)" );
 
@@ -580,7 +546,6 @@ QString DetailedInfoDlg::beautifyOrbitalString(const QString& orbits)
             kDebug() << "there are indexes left";
 
         newOrbit = newOrbit.replace( reg, "\\1\\2<sup>\\3</sup>\\4" );
-        kDebug() << "newOrbit is: " << newOrbit;
     
         superindexesLeft = newOrbit.contains( reg );
     }

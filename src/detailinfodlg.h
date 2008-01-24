@@ -56,8 +56,7 @@ class DetailedInfoDlg : public KPageDialog
 	private:
 		enum DATATYPE
 		{
-			CHEMICAL = 0,
-			MISC,
+			MISC = 0,
 			ENERGY,
 			ISOTOPES,
 			DATA /** <the overview about atomic and compound data */
