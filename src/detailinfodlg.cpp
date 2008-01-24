@@ -538,13 +538,10 @@ QString DetailedInfoDlg::beautifyOrbitalString(const QString& orbits)
 {
     QString newOrbit = orbits;
 
-    QRegExp reg( "(.*)(f|s|d|f)(\\d+)(.*)" );
+    QRegExp reg( "(.*)(f|s|d|p)(\\d+)(.?)" );
 
     bool superindexesLeft = newOrbit.contains( reg );
     while (superindexesLeft) {
-        if (superindexesLeft) 
-            kDebug() << "there are indexes left";
-
         newOrbit = newOrbit.replace( reg, "\\1\\2<sup>\\3</sup>\\4" );
     
         superindexesLeft = newOrbit.contains( reg );

@@ -50,6 +50,7 @@ class DetailedInfoDlg : public KPageDialog
  
                 /**
                  * add <sup></sup> to the numbers
+                 @return the beatified string
                  */
                 QString beautifyOrbitalString(const QString& orbits);
 
