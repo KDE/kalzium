@@ -47,6 +47,11 @@ class DetailedInfoDlg : public KPageDialog
 		void setOverviewBackgroundColor( const QColor &bgColor );
 
 		void setTableType( KalziumTableType* ktt );
+ 
+                /**
+                 * add <sup></sup> to the numbers
+                 */
+                QString beautifyOrbitalString(const QString& orbits);
 
 	private:
 		enum DATATYPE
@@ -83,7 +88,7 @@ class DetailedInfoDlg : public KPageDialog
 		void createContent();
 		void reloadContent();
 
-		QString getHtml( DATATYPE ) const;
+		QString getHtml( DATATYPE );
 
 		QString m_baseHtml;
 		QString m_baseHtml2;

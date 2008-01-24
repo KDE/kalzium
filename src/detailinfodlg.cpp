@@ -81,7 +81,7 @@ void DetailedInfoDlg::setElement( int el )
 {
 	Element *element = KalziumDataObject::instance()->element( el );
 	if ( !element ) return;
-
+     
 	m_element = element;
 	m_elementNumber = el;
 
@@ -139,170 +139,176 @@ void DetailedInfoDlg::fillHTMLTab( KHTMLPart* htmlpart, const QString& htmlcode 
     htmlpart->end();
 }
 
-QString DetailedInfoDlg::getHtml( DATATYPE type ) const
+QString DetailedInfoDlg::getHtml( DATATYPE type )
 {
-	QString html =
-	    "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
-	    "<html><head><title>Chemical data</title>"
-	    "<link rel=\"stylesheet\" type=\"text/css\" href=\"" + m_baseHtml + "style.css\" />"
-	    "<base href=\"" + m_baseHtml + "\"/></head><body>"
-	    "<div class=\"chemdata\"><div><table summary=\"header\">"
-	    "<tr><td>" + m_element->dataAsString( ChemicalDataObject::symbol ) + "<td><td>"
-	    + i18n( "Block: %1", m_element->dataAsString( ChemicalDataObject::periodTableBlock ) ) +
-	    "</td></tr></table></div>"
-	    "<table summary=\"characteristics\" class=\"characterstics\">";
 
-	switch ( type )
-	{
-		case CHEMICAL:
-		{
-			//Electronic configuration
-			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			//Probably beautify here...
-			QString config = m_element->dataAsString( ChemicalDataObject::electronicConfiguration );
-			html.append( i18n( "Electronic configuration: %1", config ) );
-			html.append( "</td></tr>" );
+    QString html =
+        "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
+        "<html><head><title>Chemical data</title>"
+        "<link rel=\"stylesheet\" type=\"text/css\" href=\"" + m_baseHtml + "style.css\" />"
+        "<base href=\"" + m_baseHtml + "\"/></head><body>"
+        "<div class=\"chemdata\"><div><table summary=\"header\">"
+        "<tr><td>" + m_element->dataAsString( ChemicalDataObject::symbol ) + "<td><td>"
+        + i18n( "Block: %1", m_element->dataAsString( ChemicalDataObject::periodTableBlock ) ) +
+        "</td></tr></table></div>"
+        "<table summary=\"characteristics\" class=\"characterstics\">";
 
-			//Density
-			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Density: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::density ) ) );
-			html.append( "</td></tr>" );
-			// covalent radius
-			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Covalent Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) );
-			html.append( "</td></tr>" );
-			// van der Waals radius
-			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "van der Waals Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) );
-			html.append( "</td></tr>" );
-			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Mass: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) );
-			html.append( "</td></tr>" );
-			break;
-		}
-		case MISC:
-		{
-			// discovery date and discoverers
-			html.append( "<tr><td><img src=\"discovery.png\" alt=\"icon\"/></td><td>" );
-			html += KalziumUtils::prettyUnit( m_element, ChemicalDataObject::date );
-			QString discoverers = m_element->dataAsString( ChemicalDataObject::discoverers );
-			if ( !discoverers.isEmpty() )
-			{
-				discoverers = discoverers.replace( ";", ", " );
-				html += "<br />" + i18n( "It was discovered by %1.", discoverers );
-			}
-			html.append( "</td></tr>" );
-			html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-			double mass = m_element->dataAsVariant( ChemicalDataObject::mass ).toDouble();
-			double neutrons = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
-			html.append( i18n( "Mean mass: %1 u", mass/neutrons) );
-			html.append( "</td></tr>" );
-			// origin of the name
-			QString nameorigin = m_element->dataAsString( ChemicalDataObject::nameOrigin );
-			if ( !nameorigin.isEmpty() )
-			{
-				html.append( "<tr><td><img src=\"book.png\" alt=\"icon\"/></td><td>" );
-				html.append( i18n( "Origin of the name:<br/>%1", nameorigin ) );
-				html.append( "</td></tr>" );
-			}
-//X 			if ( m_element->artificial() || m_element->radioactive() )
-//X 			{
-//X 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-//X 				if ( !m_element->radioactive() )
-//X 					html.append( i18n( "This element is artificial" ));
-//X 				else if ( !m_element->artificial() )
-//X 					html.append( i18n( "This element is radioactive" ));
-//X 				else
-//X 					html.append( i18n( "This element is radioactive and artificial" ));
-//X 				html.append( "</td></tr>" );
-//X 			}
-			break;
-		}
-		case ENERGY:
-		{
-			// melting point
-			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Melting Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
-			html.append( "</td></tr>" );
-			// boiling point
-			html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Boiling Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::boilingpoint ) ) );
- 			html.append( "</td></tr>" );
-			// electro negativity
-			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Electronegativity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronegativityPauling ) ) );
-			html.append( "</td></tr>" );
-			// electro affinity
-			html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Electron Affinity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
-			html.append( "</td></tr>" );
-			// 1st ionization energy
-			html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "First Ionization energy: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::ionization ) ) );
-			html.append( "</td></tr>" );
-			break;
-		}
-		case ISOTOPES:
-		{
-				html.append( "<tr><td>" );
-				html.append( isotopeTable() );
-				html.append( "</td></tr>" );
-			break;
-		}
-		case DATA:
-		{
-			html.append( i18n( "<tr><th colspan=\"2\" align=\"left\">Compound properties</th></tr>" ) );
-			//Compound Data
-			// melting point
-			html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Melting Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
-			html.append( "</td></tr>" );
+    //        kDebug() << beautifyOrbitalString(m_element->dataAsString( ChemicalDataObject::electronicConfiguration ) );
+    QString newOrbits = beautifyOrbitalString(m_element->dataAsString( ChemicalDataObject::electronicConfiguration ) );
 
-			// boiling point
-			html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Boiling Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::boilingpoint ) ) );
- 			html.append( "</td></tr>" );
-			
-			html.append( "</table>" );
-			html.append( "<table summary=\"characteristics\" class=\"characterstics\">" );
+    kDebug() << "in getHtml: " << newOrbits;
 
-			//Atomic Data
-			html.append( i18n( "<tr><th colspan=\"2\" align=\"left\">Atomic properties</th></tr>" ) );
-			// electro affinity
-			html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Electron Affinity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
-			html.append( "</td></tr>" );
-			
-			//Density
-			html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Density: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::density ) ) );
-			html.append( "</td></tr>" );
-			
-			//Electronic configuration
-			html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-			   //Probably beautify here...
-			QString config = m_element->dataAsString( ChemicalDataObject::electronicConfiguration );
-			html.append( i18n( "Electronic configuration: %1", config ) );
-			html.append( "</td></tr>" );
-			
-			// covalent radius
-			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Covalent Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) );
-			html.append( "</td></tr>" );
-			
-			// van der Waals radius
-			html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "van der Waals Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) );
-			html.append( "</td></tr>" );
-			html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-			html.append( i18n( "Mass: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) );
-			html.append( "</td></tr>" );
-		}
-	}
+    switch ( type )
+    {
+        kDebug() << "im switch";
+        case CHEMICAL:
+        {
+            kDebug() << "im chemical switch";
+            //Electronic configuration
+            html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Eyylectronic configuration: %1", newOrbits ) );
+            html.append( "</td></tr>" );
 
-	html += "</table></div></body></html>";
-	
-	return html;
+            //Density
+            html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Density: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::density ) ) );
+            html.append( "</td></tr>" );
+            // covalent radius
+            html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Covalent Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) );
+            html.append( "</td></tr>" );
+            // van der Waals radius
+            html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "van der Waals Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) );
+            html.append( "</td></tr>" );
+            html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Mass: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) );
+            html.append( "</td></tr>" );
+            break;
+        }
+        case MISC:
+        {
+            // discovery date and discoverers
+            html.append( "<tr><td><img src=\"discovery.png\" alt=\"icon\"/></td><td>" );
+            html += KalziumUtils::prettyUnit( m_element, ChemicalDataObject::date );
+            QString discoverers = m_element->dataAsString( ChemicalDataObject::discoverers );
+            if ( !discoverers.isEmpty() )
+            {
+                discoverers = discoverers.replace( ";", ", " );
+                html += "<br />" + i18n( "It was discovered by %1.", discoverers );
+            }
+            html.append( "</td></tr>" );
+            html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+            double mass = m_element->dataAsVariant( ChemicalDataObject::mass ).toDouble();
+            double neutrons = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
+            html.append( i18n( "Mean mass: %1 u", mass/neutrons) );
+            html.append( "</td></tr>" );
+            // origin of the name
+            QString nameorigin = m_element->dataAsString( ChemicalDataObject::nameOrigin );
+            if ( !nameorigin.isEmpty() )
+            {
+                html.append( "<tr><td><img src=\"book.png\" alt=\"icon\"/></td><td>" );
+                html.append( i18n( "Origin of the name:<br/>%1", nameorigin ) );
+                html.append( "</td></tr>" );
+            }
+            //X 			if ( m_element->artificial() || m_element->radioactive() )
+            //X 			{
+            //X 				html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+            //X 				if ( !m_element->radioactive() )
+            //X 					html.append( i18n( "This element is artificial" ));
+            //X 				else if ( !m_element->artificial() )
+            //X 					html.append( i18n( "This element is radioactive" ));
+            //X 				else
+            //X 					html.append( i18n( "This element is radioactive and artificial" ));
+            //X 				html.append( "</td></tr>" );
+            //X 			}
+            break;
+        }
+        case ENERGY:
+        {
+            // melting point
+            html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Melting Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
+            html.append( "</td></tr>" );
+            // boiling point
+            html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Boiling Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::boilingpoint ) ) );
+            html.append( "</td></tr>" );
+            // electro negativity
+            html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Electronegativity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronegativityPauling ) ) );
+            html.append( "</td></tr>" );
+            // electro affinity
+            html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Electron Affinity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
+            html.append( "</td></tr>" );
+            // 1st ionization energy
+            html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "First Ionization energy: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::ionization ) ) );
+            html.append( "</td></tr>" );
+            break;
+        }
+        case ISOTOPES:
+        {
+            html.append( "<tr><td>" );
+            html.append( isotopeTable() );
+            html.append( "</td></tr>" );
+            break;
+        }
+        case DATA:
+        {
+            html.append( i18n( "<tr><th colspan=\"2\" align=\"left\">Compound properties</th></tr>" ) );
+            //Compound Data
+            // melting point
+            html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Melting Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
+            html.append( "</td></tr>" );
+
+            // boiling point
+            html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Boiling Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::boilingpoint ) ) );
+            html.append( "</td></tr>" );
+
+            html.append( "</table>" );
+            html.append( "<table summary=\"characteristics\" class=\"characterstics\">" );
+
+            //Atomic Data
+            html.append( i18n( "<tr><th colspan=\"2\" align=\"left\">Atomic properties</th></tr>" ) );
+            // electro affinity
+            html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Electron Affinity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
+            html.append( "</td></tr>" );
+
+            //Density
+            html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Density: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::density ) ) );
+            html.append( "</td></tr>" );
+
+            //Electronic configuration
+            html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+            //Probably beautify here...
+            QString config = beautifyOrbitalString(m_element->dataAsString( ChemicalDataObject::electronicConfiguration ) );
+            html.append( i18n( "Electronic configuration: %1", config ) );
+            html.append( "</td></tr>" );
+
+            // covalent radius
+            html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Covalent Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusCovalent ) ) );
+            html.append( "</td></tr>" );
+
+            // van der Waals radius
+            html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "van der Waals Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) );
+            html.append( "</td></tr>" );
+            html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Mass: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) );
+            html.append( "</td></tr>" );
+        }
+    }
+
+    html += "</table></div></body></html>";
+
+    return html;
 }
 
 QString DetailedInfoDlg::isotopeTable() const
@@ -558,6 +564,28 @@ void DetailedInfoDlg::slotHelp()
 void DetailedInfoDlg::slotUser1()
 {
     setElement( m_ktt->nextOf( m_elementNumber ) );
+}
+
+QString DetailedInfoDlg::beautifyOrbitalString(const QString& orbits)
+{
+    kDebug() << "beautifyOrbitalString";
+    QString newOrbit = orbits;
+    kDebug() << "foo     was:" << newOrbit;
+
+    QRegExp reg( "(.*)(f|s|d|f)(\\d+)(.*)" );
+
+    bool superindexesLeft = newOrbit.contains( reg );
+    while (superindexesLeft) {
+        if (superindexesLeft) 
+            kDebug() << "there are indexes left";
+
+        newOrbit = newOrbit.replace( reg, "\\1\\2<sup>\\3</sup>\\4" );
+        kDebug() << "newOrbit is: " << newOrbit;
+    
+        superindexesLeft = newOrbit.contains( reg );
+    }
+
+    return newOrbit;
 }
 
 void DetailedInfoDlg::slotUser2()
