@@ -36,6 +36,11 @@ class IsotopeView : public QGraphicsView
     private:
 	IsotopeScene *m_scene;
 
+    public:
+        IsotopeScene* scene(){ 
+            return m_scene; 
+        }
+
     protected:
 	void resizeEvent(QResizeEvent * event );
 };

@@ -34,11 +34,18 @@
     IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 : KDialog( parent )
 {
-	setCaption(i18n("Isotope Table"));
-	ui.setupUi( mainWidget() );
-    
-    //ui.gv->setScene(scene);
-    //ui.gv->fitInView(scene->sceneRect());
+    setCaption(i18n("Isotope Table"));
+    ui.setupUi( mainWidget() );
+
+    connect( ui.gv->scene(), SIGNAL( itemSelected(IsotopeItem*) ),
+            this, SLOT( updateDockWidget( IsotopeItem*) )  );
+}
+
+void IsotopeTableDialog::updateDockWidget( IsotopeItem * item )
+{
+    QString html = i18n("<h1>%1</h1> Number: %2", item->isotope()->parentElementSymbol(), item->isotope()->parentElementNumber());
+
+    ui.label->setText( html );
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -49,18 +56,15 @@
     m_isotopeGroup->setHandlesChildEvents(false);
     addItem( m_isotopeGroup );
 
-    m_infoItem = new InformationItem( 40 , 40, 100, 100 );
-    addItem( m_infoItem );
-
     m_itemSize = 10;
     drawIsotopes();
     m_isotopeGroup->scale(1, -1);
-    m_infoItem->scale(1,-1);
 }
 
 void IsotopeScene::updateContextHelp( IsotopeItem * item )
 {
-    m_infoItem->setIsotope( item );
+    emit itemSelected( item );
+//X     m_infoItem->setIsotope( item );
 }
 
 void IsotopeScene::drawIsotopes()
@@ -140,31 +144,6 @@ void IsotopeItem::mousePressEvent( QGraphicsSceneMouseEvent * event )
     
     IsotopeScene *scene2 = static_cast<IsotopeScene*>(scene());
     scene2->updateContextHelp( this );
-}
-
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    InformationItem::InformationItem( qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent)
-:  QGraphicsRectItem(x,y,width,height,parent)
-{
-    setFlag(QGraphicsItem::ItemIsMovable, true);
-
-    setBrush( QBrush( Qt::yellow ) );
-    
-    m_textitem = new QGraphicsTextItem( this );
-    m_textitem->scale(1,-1);
-}
-
-void InformationItem::setIsotope( IsotopeItem * item )
-{
-    QString html = i18n("<h1>%1</h1> Number: %2", item->isotope()->parentElementSymbol(), item->isotope()->parentElementNumber());
-
-    m_textitem->setHtml( html );
-
-    //now reposition the infoItem
-    double x = item->rect().x();
-    double y = item->rect().y();
-    setRect( x+80,y,100,100 );
-    m_textitem->setPos( x+80, y+100 );
 }
 
 

@@ -52,6 +52,9 @@ class IsotopeTableDialog : public KDialog
 
     private:
         Ui::isotopeWidget ui;
+
+    private slots:
+        void updateDockWidget( IsotopeItem * );
 };
 
 /**
@@ -144,11 +147,8 @@ class IsotopeScene : public QGraphicsScene
         ///this group stores all IsotopeItems
         QGraphicsItemGroup *m_isotopeGroup;
 
-        ///this is the item needed to display helpful information
-        InformationItem *m_infoItem;
-
     signals:
-        void itemSelected(QGraphicsItem *item);
+        void itemSelected(IsotopeItem *item);
 };
 
 	
