@@ -30,6 +30,8 @@
 
 #include <klocale.h>
 
+#include <QDebug>
+
 
     IsotopeTableDialog::IsotopeTableDialog( QWidget* parent )
 : KDialog( parent )
@@ -43,9 +45,14 @@
 
 void IsotopeTableDialog::updateDockWidget( IsotopeItem * item )
 {
-    QString html = i18n("<h1>%1</h1> Number: %2", item->isotope()->parentElementSymbol(), item->isotope()->parentElementNumber());
+    Isotope *s = item->isotope();
 
-    ui.label->setText( html );
+    QString header = i18n("<h1>%1</h1> (%2)", s->parentElementSymbol(), s->parentElementNumber());
+    QString mag = i18n("Magnetic moment: %1", s->magmoment() );
+
+    QString html = header + "<br />" + mag  + "<br />" + "<br />" + "<br />";
+
+    ui.label->setText(html);
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -64,7 +71,6 @@ void IsotopeTableDialog::updateDockWidget( IsotopeItem * item )
 void IsotopeScene::updateContextHelp( IsotopeItem * item )
 {
     emit itemSelected( item );
-//X     m_infoItem->setIsotope( item );
 }
 
 void IsotopeScene::drawIsotopes()
