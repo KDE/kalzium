@@ -47,10 +47,16 @@ void IsotopeTableDialog::updateDockWidget( IsotopeItem * item )
 {
     Isotope *s = item->isotope();
 
-    QString header = i18n("<h1>%1</h1> (%2)", s->parentElementSymbol(), s->parentElementNumber());
+    QString header = i18n("<h1>%1 (%2)</h1>", s->parentElementSymbol(), s->parentElementNumber());
     QString mag = i18n("Magnetic moment: %1", s->magmoment() );
+    QString halflife = i18n("Halflife: %1 s", s->halflife() );
+    QString abundance = i18n("Abundance: %1 %", s->abundance() );
+    QString nucleons = i18n("Number of nucleons: %1", s->nucleons() );
+    QString spin = i18n("Spin: %1", s->spin() );
+    QString exactMass = i18n("Exact mass: %1 u", s->mass() );
 
-    QString html = header + "<br />" + mag  + "<br />" + "<br />" + "<br />";
+    QString html = header + "<br />" + nucleons + "<br />" + mag  + "<br />" + exactMass + "<br />" + spin +"<br />" +
+        abundance + "<br />" + halflife;
 
     ui.label->setText(html);
 }
