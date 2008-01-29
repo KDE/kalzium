@@ -81,15 +81,25 @@ void IsotopeScene::updateContextHelp( IsotopeItem * item )
 
 void IsotopeScene::drawIsotopes()
 {
+    qDebug() << "drawIsotope ------------------------------------- ................. ------------";
     QList<Element*> elist = KalziumDataObject::instance()->ElementList;
 
     foreach ( Element * e, elist ) {
-        const int elementNumber = e->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
+        int elementNumber = e->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
 
         QList<Isotope*> ilist = KalziumDataObject::instance()->isotopes( elementNumber );
         foreach (Isotope *i , ilist )
         {
-            IsotopeItem *item = new IsotopeItem( i, elementNumber*m_itemSize ,i->nucleons()*m_itemSize, m_itemSize,m_itemSize);
+            int x = elementNumber * m_itemSize;
+            int y = i->nucleons() * m_itemSize;
+
+            int threshold = 60;
+            if ( elementNumber > threshold ) {
+                y -= 30 * m_itemSize;
+                x -= threshold * m_itemSize;
+            }
+
+            IsotopeItem *item = new IsotopeItem( i, x, y, m_itemSize,m_itemSize);
             item->setToolTip( i18n("Isotope of Element %1 (%2)", i->parentElementNumber() ,i->parentElementSymbol() ) );
             m_isotopeGroup->addToGroup( item );
         }
