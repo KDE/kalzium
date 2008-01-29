@@ -81,7 +81,6 @@ void IsotopeScene::updateContextHelp( IsotopeItem * item )
 
 void IsotopeScene::drawIsotopes()
 {
-    qDebug() << "drawIsotope ------------------------------------- ................. ------------";
     QList<Element*> elist = KalziumDataObject::instance()->ElementList;
 
     foreach ( Element * e, elist ) {
@@ -95,7 +94,7 @@ void IsotopeScene::drawIsotopes()
 
             int threshold = 60;
             if ( elementNumber > threshold ) {
-                y -= 30 * m_itemSize;
+                y -= 20 * m_itemSize;
                 x -= threshold * m_itemSize;
             }
 
