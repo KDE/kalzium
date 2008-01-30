@@ -36,6 +36,7 @@
 #include "rsdialog.h"
 #include "tablesdialog.h"
 #include "legendwidget.h"
+#include "exportdialog.h"
 
 //TODO KDE 4.1
 //#include "tableinfowidget.h" 
@@ -135,6 +136,7 @@ Kalzium::Kalzium()
 
 	m_infoDialog = 0;
 	m_toolboxCurrent = 0;
+    m_exportDialog = 0;
 	m_prevNormalMode = KalziumPainter::NORMAL;
 
 	connect( m_PeriodicTableView, SIGNAL( ElementClicked( int ) ), this, SLOT( openInformationDialog( int ) ));
@@ -176,6 +178,10 @@ static QStringList prependToListItems( const QStringList& list, const KLocalized
 
 void Kalzium::setupActions()
 {
+    export_action = actionCollection()->add<QAction>( "file_exporter" );
+    export_action->setText( "&Export Data..." );
+    connect( export_action, SIGNAL( triggered( bool ) ), this, SLOT( slotShowExportDialog() ) );
+
     // the action for swiching look: color schemes and gradients
     QStringList looklist;
     QStringList schemes = KalziumSchemeTypeFactory::instance()->schemes();
@@ -563,6 +569,13 @@ void Kalzium::showSettingsDialog()
 
 void Kalzium::slotUpdateSettings()
 {
+}
+
+void Kalzium::slotShowExportDialog()
+{
+    if(!m_exportDialog)
+        m_exportDialog = new ExportDialog( this );
+    m_exportDialog->show();
 }
 
 void Kalzium::setupStatusBar()

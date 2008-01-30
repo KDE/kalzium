@@ -33,6 +33,7 @@ class SearchWidget;
 class QKeyEvent;
 class LegendWidget;
 class TableInfoWidget;
+class ExportDialog;
 
 #include "kalziumpainter.h"
 
@@ -103,6 +104,7 @@ class Kalzium : public KXmlGuiWindow
         QAction *m_pMoleculesviewer;
         QAction *m_pOBConverterAction;
         QAction *m_EQSolverAction;
+        QAction *export_action;
 
         QAction *m_legendAction;
 
@@ -128,6 +130,8 @@ class Kalzium : public KXmlGuiWindow
         GlossaryDialog *m_glossarydlg;
 
         SearchWidget *m_searchWidget;
+
+        ExportDialog *m_exportDialog;
 
         KalziumPainter::MODE m_prevNormalMode;
 
@@ -179,6 +183,8 @@ class Kalzium : public KXmlGuiWindow
         void slotExportTable();
 
         void slotUpdateSettings();
+
+        void slotShowExportDialog();
 
         /**
          * These slots are for the standard actions

@@ -53,7 +53,6 @@ set(kalzium_SRCS
    timewidget_impl.cpp
    kalziumdataobject.cpp
    nuclideboard.cpp
-   exporter.cpp
    kalziumutils.cpp
    kalziumgradienttype.cpp
    kalziumnumerationtype.cpp
@@ -64,6 +63,7 @@ set(kalzium_SRCS
    searchwidget.cpp
    rsdialog.cpp
    legendwidget.cpp
+   exportdialog.cpp
    nuclideboardview.cpp
    #tableinfowidget.cpp #will readd in KDE4.1
    #spectrumviewimpl.cpp #will readd in KDE4.1
@@ -96,6 +96,7 @@ kde4_add_ui_files(kalzium_SRCS
    rswidget.ui
    timewidget.ui
    isotopedialog.ui
+   exportdialog.ui
 )
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
