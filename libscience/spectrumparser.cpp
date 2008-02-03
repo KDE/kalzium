@@ -1,5 +1,5 @@
 /***************************************************************************
-copyright            : (C) 2005 by Carsten Niehaus
+copyright            : (C) 2005, 2008 by Carsten Niehaus
 email                : cniehaus@kde.org
  ***************************************************************************/
 /***************************************************************************
@@ -16,13 +16,44 @@ email                : cniehaus@kde.org
 #include <qdom.h>
 #include <QList>
 #include <QFile>
+#include <QDebug> 
 
-#include <kdebug.h>
+class SpectrumParser ::Private
+{
+    public:
+        Private()
+            : currentSpectrum(0),
+            inMetadata_(false),
+            inSpectrum_(false),
+            inSpectrumList_(false),
+            inPeakList_(false),
+            inPeak_(false),
+            inXValue_(false),
+            inYValue_(false)
+    {}
+
+        ~Private()
+        {
+            delete currentSpectrum;
+            delete currentPeak;
+        }
+
+        Spectrum * currentSpectrum;
+        Spectrum::peak * currentPeak;
+
+        bool inMetadata_;
+        bool inSpectrum_;
+        bool inSpectrumList_;
+        bool inPeakList_;
+        bool inPeak_;
+        bool inXValue_;
+        bool inYValue_;
+
+        QList<Spectrum*> spectra;
+};
 
 SpectrumParser::SpectrumParser()
-	: QXmlDefaultHandler(), 
-	currentSpectrum_(0), 
-	currentPeak_( 0 )
+	: QXmlDefaultHandler(), d( new Private )
 {
 }
 
@@ -30,25 +61,26 @@ bool SpectrumParser::startElement(const QString&, const QString &localName, cons
 {
 	if (localName == "spectrum") 
 	{
-		currentSpectrum_ = new Spectrum();
-		inSpectrum_ = true;
+		d->currentSpectrum = new Spectrum();
+		d->inSpectrum_ = true;
 		
-//X 		//now save the element of the current spectrum
-//X 		for (int i = 0; i < attrs.length(); ++i) 
-//X 		{
-//X 			if ( attrs.localName( i ) == "elementType" )
-//X 				currentElementSymbol_ = attrs.value( i );
-//X 		}
-	} else if (inSpectrum_ && localName == "peakList") {
-		inPeakList_ = true;
+		//now save the element of the current spectrum
+		for (int i = 0; i < attrs.length(); ++i) 
+		{
+                    if ( attrs.localName( i ) == "id" ) {
+                        currentElementID = attrs.value( i );
+                    }
+		}
+	} else if (d->inSpectrum_ && localName == "peakList") {
+		d->inPeakList_ = true;
 	}
-	else if (inSpectrum_ && inPeakList_ && localName == "peak") {
+	else if (d->inSpectrum_ && d->inPeakList_ && localName == "peak") {
 		for (int i = 0; i < attrs.length(); ++i) 
 		{
 			if (attrs.value(i) == "xValue")
-				inXValue_ = true;
-			else if (attrs.value(i) == "bo:exactMass")
-				inYValue_ = true;
+				d->inXValue_ = true;
+			else if (attrs.value(i) == "yValue")
+				d->inYValue_ = true;
 		}
 	}
 	return true;
@@ -56,19 +88,16 @@ bool SpectrumParser::startElement(const QString&, const QString &localName, cons
 
 bool SpectrumParser::endElement( const QString&, const QString& localName, const QString& )
 {
-	if ( localName == "isotope" )
+	if ( localName == "spectrum" )
 	{
-//X 		currentSpectrum_->addData( new ChemicalDataObject( QVariant( currentElementSymbol_ ), ChemicalDataObject::symbol ) );
-//X 		isotopes_.append(currentSpectrum_);
-//X 		
-//X 		currentSpectrum_ = 0;
-//X 		inSpectrum_ = false;
-	}
-	else if ( localName == "scalar" )
-	{
-//X 		if ( currentDataObject_.type() == ChemicalDataObject::exactMass ){
-//X 			currentDataObject_.setErrorValue( currentErrorValue_ );
-//X 		}
+            int num = currentElementID.mid(1).toInt();
+            qDebug() << "num is " << num;
+            d->currentSpectrum->setParentElementNumber( num );
+
+            d->spectra.append( d->currentSpectrum );
+
+            d->currentSpectrum = 0;
+//X 		d->inSpectrum_ = false;
 	}
 
 	return true;
@@ -80,15 +109,15 @@ bool SpectrumParser::characters(const QString &ch)
 	ChemicalDataObject::BlueObelisk type;
 	QVariant value;
 
-	if ( inXValue_ ){
+	if ( d->inXValue_ ){
 		value = ch.toDouble();
 		type = ChemicalDataObject::exactMass; 
-		inXValue_ = false;
+		d->inXValue_ = false;
 	}
-	else if (inYValue_) {
+	else if (d->inYValue_) {
 		value = ch.toInt();
 		type = ChemicalDataObject::atomicNumber; 
-		inYValue_ = false;
+		d->inYValue_ = false;
 	}
 	else//it is a non known value. Do not create a wrong object but return
 		return true;
@@ -104,5 +133,5 @@ bool SpectrumParser::characters(const QString &ch)
 
 QList<Spectrum*> SpectrumParser::getSpectrums()
 {
-	return spectra_;
+	return d->spectra;
 }

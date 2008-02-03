@@ -43,26 +43,11 @@ class SCIENCE_EXPORT SpectrumParser : public QXmlDefaultHandler
 		QList<Spectrum*> getSpectrums();
 
 	private:
-		ChemicalDataObject currentDataObject_;
-		ChemicalDataObject::BlueObeliskUnit currentUnit_;
-
-		QVariant currentErrorValue_;
-
-		Spectrum* currentSpectrum_;
-		Spectrum::peak* currentPeak_;
-		
-		QList<Spectrum*> spectra_;
-
-		bool inMetadata_;
-		
-		bool inSpectrum_;
-		bool inSpectrumList_;
-
-		bool inPeakList_;
-		bool inPeak_;
-		
-		bool inXValue_;
-		bool inYValue_;
+                QString currentElementID;
+	
+        private:
+		class Private;
+		Private *const d;
 };
 #endif // SPECTRUMPARSER_H
 
