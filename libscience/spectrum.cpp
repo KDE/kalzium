@@ -98,7 +98,18 @@ QList<double> Spectrum::wavelengths( double min, double max )
 	return list;
 }
 
+int Spectrum::parentElementNumber() const
+{
+	return  m_parentElementNumber;
+}
+
 Spectrum::~Spectrum()
 {
     qDeleteAll( m_peaklist );
+}
+
+Spectrum::Spectrum()
+{
+    //FIXME this shouldn't be hardcoded
+    m_parentElementNumber = 16;
 }

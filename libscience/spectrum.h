@@ -38,7 +38,7 @@ class SCIENCE_EXPORT Spectrum
 		/**
 		 * This spectrum doesn't belong to any element
 		 */
-		Spectrum(){}
+		Spectrum();
 		
 		/**
 		 * public destructor
@@ -109,12 +109,11 @@ class SCIENCE_EXPORT Spectrum
 			return m_peaklist;
 		}
 
-		/**
-		 * @return the parent element of this spectrum
+                /**
+		 * If the spectrum belongs to Iron, this method will return "26"
+		 * @return the number of the element the spectrum belongs to
 		 */
-		Element* parentElement() { 
-			return m_parentElement; 
-		}
+		int parentElementNumber() const;
 
 		/**
 		 * @return the smallest wavelength
@@ -126,12 +125,17 @@ class SCIENCE_EXPORT Spectrum
 		 */
 		double maxPeak();
 
+                void setParentElementNumber( int num )
+                {
+                    m_parentElementNumber = num;
+                }
+
 	private:
 		/**
 		 * the internal dataset
 		 */
 		QList<peak*> m_peaklist;
 
-		Element* m_parentElement;
+                int m_parentElementNumber;
 };
 #endif // SPECTRUM_H
