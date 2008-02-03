@@ -17,4 +17,12 @@ kde4_add_unit_test(isotopeparsertest TEST ${isotopeparsertest_SRCS})
 
 target_link_libraries(isotopeparsertest science)
 
+########### next target ###############
+
+set(spectrumtest_SRCS spectrumreadingtests.cpp)
+
+kde4_add_unit_test(spectrumtest TEST ${spectrumtest_SRCS})
+
+target_link_libraries(spectrumtest science)
+
 
