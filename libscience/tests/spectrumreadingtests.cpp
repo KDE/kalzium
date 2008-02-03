@@ -42,10 +42,10 @@ int main(int argc, char *argv[])
 
     qDebug() << "Found " << v.count() << " isotopes.";
 
-    foreach( Spectrum* i, v ){
-        if ( i )
+    foreach( Spectrum* s, v ){
+        if ( s )
         {
-                //kDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass();
+                qDebug() << "   Spectrum of element " << s->parentElementNumber();
         }
     }
 
