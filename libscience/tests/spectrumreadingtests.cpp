@@ -45,7 +45,10 @@ int main(int argc, char *argv[])
     foreach( Spectrum* s, v ){
         if ( s )
         {
-                qDebug() << "   Spectrum of element " << s->parentElementNumber() << " with " << s->minPeak() << " and " << s->maxPeak();
+            qDebug() << "Element:  " << s->parentElementNumber();
+            foreach (Spectrum::peak * p , s->peaklist() ) {
+                qDebug() << "         Peak: " << p->wavelength;
+            }
         }
     }
 
