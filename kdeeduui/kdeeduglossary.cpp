@@ -37,6 +37,7 @@
 #include <qsplitter.h>
 #include <qstringlist.h>
 #include <qtreewidget.h>
+#include <QDomDocument>
 
 static const int FirstLetterRole = 0x00b00a00;
 
