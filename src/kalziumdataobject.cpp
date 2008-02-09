@@ -105,13 +105,11 @@ KalziumDataObject::KalziumDataObject()
 
             QString filename = pathname + setname + '/' + QString::number( i+1 ) + ".svg";
 
-            QSvgRenderer* svgrenderer = new QSvgRenderer();
+            QSvgRenderer svgrenderer;
 
-            QFile file( filename );
             QPainter p( &pix );
-            if ( file.exists() ) {
-                svgrenderer->load(filename);
-                svgrenderer->render( &p );
+            if ( QFile::exists(filename) && svgrenderer.load(filename) ) {
+                svgrenderer.render( &p );
                 p.end();
 
                 PixmapList << pix;

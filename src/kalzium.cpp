@@ -372,7 +372,7 @@ void Kalzium::slotExportTable()
             this, 
             i18n("Save Kalziums Table In"));
 
-    if (fileName.contains( QRegExp(".svg$") ) ) {
+    if (fileName.endsWith(".svg")) {
         m_PeriodicTableView->generateSvg( fileName );
     } else {
         QPixmap pix = QPixmap::grabWidget( m_PeriodicTableView );
