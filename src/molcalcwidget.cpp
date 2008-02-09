@@ -53,11 +53,10 @@ MolcalcWidget::MolcalcWidget( QWidget *parent )
 	
 	connect( ui.calcButton, SIGNAL( clicked() ), this, SLOT( slotCalculate() ) );
 	connect( ui.formulaEdit, SIGNAL( returnPressed() ), this, SLOT( slotCalculate() ) );
-	connect( ui.clearButton, SIGNAL( clicked() ), this, SLOT( clear() ) );
     connect( m_timer, SIGNAL( timeout() ),
             this, SLOT( slotCalculate() ) );
 
-	ui.clearButton->setIcon( KIcon( QApplication::layoutDirection() == Qt::RightToLeft ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr" ) );
+	ui.formulaEdit->setClearButtonShown(true);
 
 	clear();
 

@@ -88,11 +88,14 @@ void DetailedGraphicalOverview::paintEvent( QPaintEvent* )
 
         QString filename = pathname + "school" + '/' + QString::number( enumii )  + ".svg";
 
-        QFile file( filename );
-        if ( file.exists() ) {
-            QSvgRenderer* svgrenderer = new QSvgRenderer();
-            svgrenderer->load(filename);
-            svgrenderer->render( &p, QRectF(0,0,w,h) );
+        QSvgRenderer svgrenderer;
+        if ( QFile::exists(filename) && svgrenderer.load(filename) ) {
+            QSize size = svgrenderer.defaultSize();
+            size.scale( w, h, Qt::KeepAspectRatio );
+
+            QRect bounds( QPoint( 0, 0 ), size );
+            bounds.moveCenter( QPoint( w/2, h/2 ) );
+            svgrenderer.render( &p, bounds );
         } else {
             p.drawText( 0, 0, w, h, Qt::AlignCenter | Qt::TextWordWrap, i18n( "No graphic found" ) );
         }
