@@ -33,7 +33,7 @@ class KDialog;
  * @author Carsten Niehaus
  * @author Jerome Pansanel
  */
-class OBConverter : public KDialog
+class KOpenBabel : public KDialog
 {
     Q_OBJECT
 
@@ -43,7 +43,13 @@ class OBConverter : public KDialog
          *
          * @param parent the parent widget
          */
-        OBConverter( QWidget *parent );
+        KOpenBabel( QWidget *parent );
+
+        /**
+         *          * Destructor
+         *                   */
+        virtual ~KOpenBabel();
+
 
         /**
          * Add file to the list

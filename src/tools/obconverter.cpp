@@ -35,7 +35,7 @@
 using namespace std;
 using namespace OpenBabel;
 
-OBConverter::OBConverter( QWidget *parent )
+KOpenBabel::KOpenBabel( QWidget *parent )
     : KDialog( parent )
 {
     setCaption( i18n( "OpenBabel Frontend" ) );
@@ -51,7 +51,13 @@ OBConverter::OBConverter( QWidget *parent )
     setupWindow();
 }
 
-void OBConverter::setupWindow()
+KOpenBabel::~KOpenBabel()
+{
+    delete OBConvObject;
+    OBConvObject = NULL;
+}
+
+void KOpenBabel::setupWindow()
 {
     // Set multiple selection possible
     ui.FileListView->setSelectionMode( QAbstractItemView::SelectionMode(3) );
@@ -88,7 +94,7 @@ void OBConverter::setupWindow()
             SIGNAL( itemSelectionChanged() ), SLOT( slotGuessInput() ));
 }
 
-void OBConverter::slotAddFile()
+void KOpenBabel::slotAddFile()
 {
     QStringList InputType;
     vector<string> InputFormat = OBConvObject->GetSupportedInputFormat();
@@ -121,13 +127,13 @@ void OBConverter::slotAddFile()
 }
 
 
-void OBConverter::slotSelectAll()
+void KOpenBabel::slotSelectAll()
 {
     ui.FileListView->selectAll();
 }
 
 
-void OBConverter::slotDeleteFile()
+void KOpenBabel::slotDeleteFile()
 {
     QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
     foreach (QListWidgetItem *item, p) {
@@ -135,7 +141,7 @@ void OBConverter::slotDeleteFile()
     }
 }
 
-void OBConverter::slotGuessInput()
+void KOpenBabel::slotGuessInput()
 {
     QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
     bool first = true;
@@ -168,7 +174,7 @@ void OBConverter::slotGuessInput()
     ui.InputTypeComboBox->setCurrentIndex(0);
 }
 
-void OBConverter::slotConvert()
+void KOpenBabel::slotConvert()
 {
     QString iformat = ui.InputTypeComboBox->currentText();
     QString oformat = ui.OutputTypeComboBox->currentText();
@@ -233,7 +239,7 @@ void OBConverter::slotConvert()
     }
 }
 
-void OBConverter::addFile(const QString &filename)
+void KOpenBabel::addFile(const QString &filename)
 {
     ui.FileListView->addItem(filename);
 }

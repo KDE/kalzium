@@ -394,7 +394,7 @@ void Kalzium::slotRS()
 void Kalzium::slotOBConverter()
 {
 #ifdef HAVE_OPENBABEL2
-    OBConverter * d = new OBConverter(this); d->show();
+    KOpenBabel * d = new KOpenBabel(this); d->show();
 #endif
 }
 
