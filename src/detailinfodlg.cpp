@@ -192,30 +192,6 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
             //X 			}
             break;
         }
-        case ENERGY:
-        {
-            // melting point
-            html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
-            html.append( i18n( "Melting Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
-            html.append( "</td></tr>" );
-            // boiling point
-            html.append( "<tr><td><img src=\"boilingpoint.png\" alt=\"icon\"/></td><td>" );
-            html.append( i18n( "Boiling Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::boilingpoint ) ) );
-            html.append( "</td></tr>" );
-            // electro negativity
-            html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
-            html.append( i18n( "Electronegativity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronegativityPauling ) ) );
-            html.append( "</td></tr>" );
-            // electro affinity
-            html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
-            html.append( i18n( "Electron Affinity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
-            html.append( "</td></tr>" );
-            // 1st ionization energy
-            html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
-            html.append( i18n( "First Ionization energy: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::ionization ) ) );
-            html.append( "</td></tr>" );
-            break;
-        }
         case ISOTOPES:
         {
             html.append( "<tr><td>" );
@@ -268,8 +244,20 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
             html.append( "<tr><td><img src=\"radius.png\" alt=\"icon\"/></td><td>" );
             html.append( i18n( "van der Waals Radius: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::radiusVDW ) ) );
             html.append( "</td></tr>" );
+
+            // mass
             html.append( "<tr><td stype=\"text-align:center\"><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
             html.append( i18n( "Mass: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::mass ) ) );
+            html.append( "</td></tr>" );
+            
+            // 1st ionization energy
+            html.append( "<tr><td><img src=\"ionisation.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "First Ionization energy: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::ionization ) ) );
+            html.append( "</td></tr>" );
+            
+            // electro negativity
+            html.append( "<tr><td><img src=\"structure.png\" alt=\"icon\"/></td><td>" );
+            html.append( i18n( "Electronegativity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronegativityPauling ) ) );
             html.append( "</td></tr>" );
         }
     }
@@ -410,7 +398,6 @@ void DetailedInfoDlg::createContent()
 
 	// html tabs
 //X	m_htmlpages["chemical"] = addHTMLTab( i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
-//X	m_htmlpages["energies"] = addHTMLTab( i18n( "Energies" ), i18n( "Energy Information" ), "energies" );
 	m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 	m_htmlpages["isotopes"] = addHTMLTab( i18n( "Isotopes" ), i18n( "Isotopes" ), "isotopes" );
 //X	m_htmlpages["warnings"] = addHTMLTab( i18n( "Warnings" ), i18n( "Warnings" ), "warnings" );
@@ -466,7 +453,6 @@ void DetailedInfoDlg::reloadContent()
        */
 
     // updating html tabs
-    //	fillHTMLTab( m_htmlpages["energies"], getHtml( ENERGY ) );
     fillHTMLTab( m_htmlpages["new"], getHtml( DATA ) );
     fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
     fillHTMLTab( m_htmlpages["isotopes"], getHtml( ISOTOPES ) );
