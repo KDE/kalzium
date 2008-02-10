@@ -23,6 +23,7 @@
 #include <elementparser.h>
 #include <isotope.h>
 #include <isotopeparser.h>
+#include <spectrumparser.h>
 
 #include <QFile>
 #include <QVariant>
@@ -58,6 +59,21 @@ KalziumDataObject::KalziumDataObject()
 
 	//we don't need parser anymore, let's free its memory
 	delete parser;
+
+        //read the spectra
+        SpectrumParser * spectrumparser = new SpectrumParser();
+
+	QFile xmlSpFile( KStandardDirs::locate( "data", "libkdeedu/data/spectra.xml" ) );
+	QXmlInputSource spsource(&xmlSpFile);
+	QXmlSimpleReader sp_reader;
+	
+	sp_reader.setContentHandler(spectrumparser);
+	sp_reader.parse(spsource);
+
+	m_spectra = spectrumparser->getSpectrums();
+
+	//we don't need spectrumparser anymore, let's free its memory
+	delete spectrumparser;
 
 	// reading isotopes
 	IsotopeParser * isoparser = new IsotopeParser();
@@ -158,6 +174,18 @@ QList<Isotope*> KalziumDataObject::isotopes( int number )
 {
 	return m_isotopes.contains( number ) ? m_isotopes.value( number ) : QList<Isotope*>();
 }
+
+Spectrum * KalziumDataObject::spectrum( int number )
+{
+    foreach (Spectrum * s, m_spectra ) {
+        if (s->parentElementNumber() == number ) {
+            return s;
+        }
+    }
+
+    return NULL;
+}
+
 
 void KalziumDataObject::setSearch( Search *srch )
 {

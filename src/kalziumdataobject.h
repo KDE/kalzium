@@ -83,6 +83,11 @@ class KalziumDataObject
 		 */
 		QList<Isotope*> isotopes( Element * element );
 
+                /**
+		 * @return the Spectrum of the Element with the number @p number
+                 */
+                Spectrum * spectrum( int number );
+
 		QPixmap pixmap( int number );
 		
 		/**
@@ -100,6 +105,7 @@ class KalziumDataObject
 		QList<QPixmap> PixmapList;
 
 		QHash<int, QList<Isotope*> > m_isotopes;
+		QList<Spectrum*> m_spectra;
 
 		/**
 		 * Caching the number of elements
