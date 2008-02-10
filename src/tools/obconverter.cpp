@@ -23,6 +23,7 @@
 // Qt includes
 #include <QRegExp>
 #include <QProcess>
+#include <QLinkedList>
 
 // KDE includes
 #include <KDebug>
