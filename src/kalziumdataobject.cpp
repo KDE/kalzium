@@ -33,6 +33,7 @@
 #include <kdebug.h>
 #include <kurl.h>
 #include <kstandarddirs.h>
+#include <kpixmapcache.h>
 
 KalziumDataObject* KalziumDataObject::instance()
 {
@@ -91,6 +92,7 @@ KalziumDataObject::KalziumDataObject()
 	// cache it
 	m_numOfElements = ElementList.count();
             
+	KPixmapCache cache("kalzium");
 	
 	for ( int i = 0 ; i < m_numOfElements ; i++ )
         {
@@ -98,30 +100,22 @@ KalziumDataObject::KalziumDataObject()
             //a settings-dialog where we can select the different iconsets...
             QString setname = "school";
 
-            QPixmap pix( 40, 40 );
-            pix.fill(Qt::transparent);
-
             QString pathname = KGlobal::dirs()->findResourceDir( "appdata", "data/iconsets/" ) + "data/iconsets/";
 
             QString filename = pathname + setname + '/' + QString::number( i+1 ) + ".svg";
 
-            QSvgRenderer svgrenderer;
+            QPixmap pix = cache.loadFromSvg( filename, QSize( 40, 40 ) );
+            if ( pix.isNull() ) {
+                pix = QPixmap( 40, 40 );
+                pix.fill(Qt::transparent);
 
-            QPainter p( &pix );
-            if ( QFile::exists(filename) && svgrenderer.load(filename) ) {
-                svgrenderer.render( &p );
-                p.end();
-
-                PixmapList << pix;
-            }
-            else {
+                QPainter p( &pix );
                 Element *e =  ElementList.at(i);
                 QString esymbol = e->dataAsString( ChemicalDataObject::symbol );
                 p.drawText(0,0,40,40, Qt::AlignCenter | Qt::TextWordWrap, esymbol );
                 p.end();
-
-                PixmapList << pix;
             }
+            PixmapList << pix;
         }
 
 }
