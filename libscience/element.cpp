@@ -19,12 +19,10 @@
  ***************************************************************************/
 
 #include "element.h"
-#include "spectrum.h"
 #include <kdebug.h>
 
 Element::Element()
 {
-    m_spectrum = 0;
 }
 
 QVariant Element::dataAsVariant( ChemicalDataObject::BlueObelisk type ) const
@@ -47,8 +45,6 @@ QString Element::dataAsString(ChemicalDataObject::BlueObelisk type) const
 
 Element::~Element()
 {
-    delete m_spectrum;
-    m_spectrum = 0;
 }
 
 void Element::addData( const ChemicalDataObject& o )

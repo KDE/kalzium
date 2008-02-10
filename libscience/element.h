@@ -76,21 +76,11 @@ class SCIENCE_EXPORT Element
 			return dataList;
 		}
 
-    void setSpectrum( Spectrum * spec ){
-        m_spectrum = spec;
-    }
-
-    Spectrum * spectrum() const{
-        return m_spectrum;
-    }
-
 	private:
 		/**
 		 * this QList stores all information about an element
 		 */
 		QList<ChemicalDataObject> dataList;
-
-    Spectrum *m_spectrum;
 };
 
 #endif

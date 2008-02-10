@@ -78,10 +78,10 @@ bool SpectrumParser::startElement(const QString&, const QString &localName, cons
 		for (int i = 0; i < attrs.length(); ++i) 
 		{
 			if (attrs.localName(i) == "xValue"){
-                                d->wavelenght = attrs.value(i).toDouble();
-                        }
-			else if (attrs.localName(i) == "yValue"){
                                 d->intensity = attrs.value(i).toInt();
+                        }
+                        else if (attrs.localName(i) == "yValue"){
+                                d->wavelenght = attrs.value(i).toDouble();
                         }
 		}
                 d->currentPeak = new Spectrum::peak(d->wavelenght, d->intensity);
