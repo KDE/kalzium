@@ -10,13 +10,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include <QFont>
-#include <kmessagebox.h>
 
 #include "exportdialog.h"
 #include "kalziumutils.h"
 
+#include <QFont>
+#include <KMessageBox>
+
 #include <kdebug.h>
+
 
 static const char HTML_HEADER[] =
 "<html>"

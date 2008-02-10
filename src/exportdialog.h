@@ -1,3 +1,5 @@
+#ifndef EXPORTDIALOG_H
+#define EXPORTDIALOG_H
 /***************************************************************************
     copyright            : (C) 2007 by Johannes Simon
     email                : johannes.simon@gmail.com
@@ -10,8 +12,6 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef DATAEXPORTER_H
-#define DATAEXPORTER_H
 
 #include <QListWidget>
 #include <QFile>
@@ -68,4 +68,4 @@ class ExportDialog : public KDialog
         void slotHelpClicked();
 };
 
-#endif // DATAEXPORTER_H
+#endif // EXPORTDIALOG_H
