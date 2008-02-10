@@ -85,7 +85,6 @@ bool SpectrumParser::startElement(const QString&, const QString &localName, cons
                         }
 		}
                 d->currentPeak = new Spectrum::peak(d->wavelenght, d->intensity);
-                qDebug() << "Peak with this data: " << d->currentPeak->intensity << " (intesity)" ;
 	}
 	return true;
 }
