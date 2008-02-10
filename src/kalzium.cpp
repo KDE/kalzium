@@ -37,11 +37,12 @@
 #include "tablesdialog.h"
 #include "legendwidget.h"
 #include "exportdialog.h"
+#include "search.h"
+#include "searchwidget.h"
 
 //TODO KDE 4.1
 //#include "tableinfowidget.h" 
-#include "search.h"
-#include "searchwidget.h"
+
 
 #include <config-kalzium.h>
 
@@ -62,7 +63,6 @@
 #include <QScrollArea>
 #include <QKeyEvent>
 #include <QTimer>
-#include <QTabWidget>
 #include <QSvgGenerator>
 #include <QRegExp>
 
@@ -83,7 +83,8 @@
 #include <KLocale>
 #include <KPluginLoader>
 
-
+//TODO KDE 4.1
+//#include <KTabWidget>
 
 #define PeriodicTableView_MARGIN          5
 #define IDS_ELEMENTINFO     7
@@ -316,12 +317,11 @@ void Kalzium::setupSidebars()
     m_InfoDock->setWidget(m_legendWidget);
 
     //TODO KDE 4.1
-//X     m_infoTabWidget = new QTabWidget(this);
+//X     m_infoTabWidget = new KTabWidget(this);
 //X     m_infoTabWidget->setObjectName( "kalzium-infobar" );
 //X     m_InfoDock->setWidget(m_infoTabWidget);
-//X     m_infoTabWidget->addTab(m_legendWidget, i18n("&Legend"));
-
-//X     m_infoTabWidget->addTab(m_TableInfoWidget, i18n("&Table Information"));
+//X     m_infoTabWidget->addTab(m_legendWidget, i18n("Legend"));
+//X     m_infoTabWidget->addTab(m_TableInfoWidget, i18n("Table Information"));
 
     m_dockWin = new QDockWidget( this );
     m_dockWin->setObjectName( QLatin1String( "kalzium-sidebar" ) );

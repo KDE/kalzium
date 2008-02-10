@@ -15,10 +15,10 @@ email                : cniehaus@kde.org
 
 #include <kxmlguiwindow.h>
 
+class KTabWidget;
 class KAction;
 class KSelectAction;
 class QToolBox;
-class QTabWidget;
 class QVBoxLayout;
 class QDockWidget;
 class DetailedInfoDlg;
@@ -123,8 +123,8 @@ class Kalzium : public KXmlGuiWindow
         QDockWidget *m_dockWin;
         QDockWidget *m_InfoDock;
         QToolBox *m_toolbox;
+//X         KTabWidget *m_infoTabWidget;
 
-        QTabWidget *m_infoTabWidget;
         int m_toolboxCurrent;
 
         GlossaryDialog *m_glossarydlg;

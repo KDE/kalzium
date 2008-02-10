@@ -7,7 +7,7 @@ include_directories(
    ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeduui/
    ${CMAKE_SOURCE_DIR}/kalzium/src/tools/
    ${CMAKE_CURRENT_BINARY_DIR}/..
-)
+   )
 
 ########### next target ###############
 
@@ -15,31 +15,31 @@ include_directories(
 #found. The moleculeviewer needs not only OpenBabel2 but
 #also Eigen and OpenGL, so there is a nested if-check
 if(OPENBABEL2_FOUND)
-	set(kalziumtools_SRCS
-		tools/obconverter.cpp
-	)
-	
-	kde4_add_ui_files(kalziumtools_SRCS
-		tools/obconverterwidget.ui
-	)
-	include_directories( ${OPENBABEL2_INCLUDE_DIR} )
-	
-	if(OPENGL_FOUND AND EIGEN_FOUND)
-	
-		set(kalziumtools_SRCS
-			${kalziumtools_SRCS}
-			tools/moleculeview.cpp
-			../compoundviewer/kalziumglpart.cpp
-			)
-		kde4_add_ui_files(kalziumtools_SRCS
-			tools/moleculeviewerwidget.ui
-			)
-		include_directories( ${EIGEN_INCLUDE_DIR} )
-	endif(OPENGL_FOUND AND EIGEN_FOUND)
+   set(kalziumtools_SRCS
+      tools/obconverter.cpp
+      )
+
+   kde4_add_ui_files(kalziumtools_SRCS
+      tools/obconverterwidget.ui
+      )
+   include_directories( ${OPENBABEL2_INCLUDE_DIR} )
+
+   if(OPENGL_FOUND AND EIGEN_FOUND)
+
+      set(kalziumtools_SRCS
+         ${kalziumtools_SRCS}
+         tools/moleculeview.cpp
+         ../compoundviewer/kalziumglpart.cpp
+         )
+      kde4_add_ui_files(kalziumtools_SRCS
+         tools/moleculeviewerwidget.ui
+         )
+      include_directories( ${EIGEN_INCLUDE_DIR} )
+   endif(OPENGL_FOUND AND EIGEN_FOUND)
 endif(OPENBABEL2_FOUND)
 
 set(kalzium_SRCS
-	${kalziumtools_SRCS}
+   ${kalziumtools_SRCS}
    kalzium.cpp
    main.cpp
    periodictableview.cpp
@@ -68,20 +68,20 @@ set(kalzium_SRCS
    #tableinfowidget.cpp #will readd in KDE4.1
    #spectrumviewimpl.cpp #will readd in KDE4.1
    #spectrumwidget.cpp #will readd in KDE4.1
-)
+   )
 
 if(LIBFACILE_FOUND)
-  include(CMakeOCamlInstructions.cmake)
+   include(CMakeOCamlInstructions.cmake)
 
-  set( kalzium_SRCS
-    ${kalzium_SRCS}
-    eqchemview.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/solver.o
-    ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
-    )
-  kde4_add_ui_files(kalzium_SRCS
-    equationview.ui
-    )
+   set( kalzium_SRCS
+      ${kalzium_SRCS}
+      eqchemview.cpp
+      ${CMAKE_CURRENT_BINARY_DIR}/solver.o
+      ${CMAKE_CURRENT_BINARY_DIR}/modwrap.o
+      )
+   kde4_add_ui_files(kalzium_SRCS
+      equationview.ui
+      )
 endif(LIBFACILE_FOUND)
 
 
@@ -97,7 +97,7 @@ kde4_add_ui_files(kalzium_SRCS
    timewidget.ui
    isotopedialog.ui
    exportdialog.ui
-)
+   )
 
 kde4_add_kcfg_files(kalzium_SRCS prefs.kcfgc )
 
@@ -111,7 +111,7 @@ target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} ${KDE
 
 
 if (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
-    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} compoundviewer avogadro-kalzium)
+   target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} compoundviewer avogadro-kalzium)
 endif (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
 
 if(LIBFACILE_FOUND)
