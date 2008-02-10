@@ -25,9 +25,8 @@
 #include <QTimer>
 #include <QToolButton>
 
-#include <kdebug.h>
-#include <kicon.h>
-#include <klocale.h>
+#include <KIcon>
+#include <KLocale>
 
 #include "kalziumdataobject.h"
 #include "search.h"

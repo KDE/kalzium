@@ -178,7 +178,10 @@ void OBConverter::slotConvert()
 
     QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
     if( p.count() == 0 ) {
-        KMessageBox::information(this,i18n("KOpenBabel"),i18n("You must select some files first."));
+        KMessageBox::error(this,
+                i18n("You must select some files first."),
+                i18n("No files selected")
+                );
         return;
     }
     QListIterator<QListWidgetItem*> it( p );

@@ -97,7 +97,7 @@ void MoleculeDialog::slotHelp()
 		"style does, take a look at this article: <a href=\"http://en.wikipedia.org/wiki/Van_der_Waals_radius\">Van der Waals radius</a>.<br/>"
 		"<br/>"
 		"<b>Getting more molecules</b><br/>"
-		"It's easy to obtain more molecules for this viewer, as it supports various common file "
+		"It is easy to obtain more molecules for this viewer, as it supports various common file "
 		"formats. Here's a list of good public databanks:"
 		"<ul>"
 		"<li><a href=\"http://www.rcsb.org/pdb\">The Protein Data Bank (PDB)</a> "

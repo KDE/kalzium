@@ -59,10 +59,7 @@ DetailedInfoDlg::DetailedInfoDlg( int el , QWidget *parent )
 
 //X 	m_picsdir = KGlobal::dirs()->findResourceDir( "appdata", "elempics/" ) + "elempics/";
 
-	//actionButton( Close )->setFocus();
-
-	// creating the tabs but not the contents, as that will be done when
-	// setting the element
+	// creating the tabs but not the contents, as that will be done when setting the element
 	createContent();
 
 	m_actionCollection = new KActionCollection(this);	
@@ -397,10 +394,8 @@ void DetailedInfoDlg::createContent()
 	modelLayout->addWidget( wOrbits );
 
 	// html tabs
-//X	m_htmlpages["chemical"] = addHTMLTab( i18n( "Chemical Data" ), i18n( "Chemical Data" ), "chemical" );
 	m_htmlpages["misc"] = addHTMLTab( i18n( "Miscellaneous" ), i18n( "Miscellaneous" ), "misc" );
 	m_htmlpages["isotopes"] = addHTMLTab( i18n( "Isotopes" ), i18n( "Isotopes" ), "isotopes" );
-//X	m_htmlpages["warnings"] = addHTMLTab( i18n( "Warnings" ), i18n( "Warnings" ), "warnings" );
 	m_htmlpages["new"] = addHTMLTab( i18n( "Data Overview" ), i18n( "Data Overview" ), "data" );
 
 	// spectrum widget tab
