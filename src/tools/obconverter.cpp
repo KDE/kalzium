@@ -21,17 +21,15 @@
 #include "obconverter.h"
 
 // Qt includes
-#include <QLinkedList>
 #include <QRegExp>
 #include <QProcess>
 
 // KDE includes
-#include <kdebug.h>
-#include <klocale.h>
-#include <kdialog.h>
-#include <kmessagebox.h>
-#include <kfiledialog.h>
-#include <kurl.h>
+#include <KDebug>
+#include <KLocale>
+#include <KMessageBox>
+#include <KFileDialog>
+#include <KUrl>
 
 using namespace std;
 using namespace OpenBabel;
@@ -60,20 +58,20 @@ void OBConverter::setupWindow()
     // Creating the main layout
     QStringList InputType;
     vector<string> InputFormat = OBConvObject->GetSupportedInputFormat();
-    for( vector<string>::iterator it = InputFormat.begin(); it!=InputFormat.end(); ++it) {
-      InputType << QString((*it).c_str());
+    for (vector<string>::iterator it = InputFormat.begin(); it!=InputFormat.end(); ++it) {
+        InputType << QString((*it).c_str());
     }
     ui.InputTypeComboBox->addItems( InputType );
 
     QStringList OutputType;
     vector<string> OutputFormat = OBConvObject->GetSupportedOutputFormat();
-    for( vector<string>::iterator it = OutputFormat.begin(); it!=OutputFormat.end(); ++it) {
-      OutputType << QString((*it).c_str());
+    for (vector<string>::iterator it = OutputFormat.begin(); it!=OutputFormat.end(); ++it) {
+        OutputType << QString((*it).c_str());
     }
     ui.OutputTypeComboBox->addItems( OutputType );
 
     // Create connection
-    connect(ui.addFileButton, 
+    connect(ui.addFileButton,
             SIGNAL( clicked() ), SLOT( slotAddFile() ));
  
     connect(ui.deleteFileButton, 
@@ -93,7 +91,7 @@ void OBConverter::slotAddFile()
 {
     QStringList InputType;
     vector<string> InputFormat = OBConvObject->GetSupportedInputFormat();
-    for( vector<string>::iterator it = InputFormat.begin(); it!=InputFormat.end(); ++it) {
+    for (vector<string>::iterator it = InputFormat.begin(); it!=InputFormat.end(); ++it) {
         InputType << QString((*it).c_str());
 
     }
@@ -131,7 +129,7 @@ void OBConverter::slotSelectAll()
 void OBConverter::slotDeleteFile()
 {
     QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
-    foreach ( QListWidgetItem *item, p) {
+    foreach (QListWidgetItem *item, p) {
         delete item;
     }
 }
@@ -141,7 +139,7 @@ void OBConverter::slotGuessInput()
     QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
     bool first = true;
     QString suffix;
-    if( p.count() ) {
+    if (p.count()) {
         foreach( QListWidgetItem * item, p) {
             if( first ) {
                 first = false;
@@ -152,18 +150,18 @@ void OBConverter::slotGuessInput()
                     continue;
                 }
                 else {
-		    // All the file types are not same, set type to default
-		    ui.InputTypeComboBox->setCurrentIndex(0);
+                    // All the file types are not same, set type to default
+                    ui.InputTypeComboBox->setCurrentIndex(0);
                     return;
                 }
             }
         }
     }
-    for( int i = 0; i < ui.InputTypeComboBox->count(); i++) {
+    for (int i = 0; i < ui.InputTypeComboBox->count(); i++) {
         if( ui.InputTypeComboBox->itemText(i).indexOf(QRegExp("^" + suffix + " --")) >=0 ) {
-	    ui.InputTypeComboBox->setCurrentIndex(i);
-	    return;
-	}
+            ui.InputTypeComboBox->setCurrentIndex(i);
+            return;
+        }
     }
     // The suffix has not been found, set type to default
     ui.InputTypeComboBox->setCurrentIndex(0);
@@ -187,20 +185,21 @@ void OBConverter::slotConvert()
     QListIterator<QListWidgetItem*> it( p );
     QStringList cmdList; // Full command
     QLinkedList<QStringList> cmdArgList; // Arguments only
-    foreach( QListWidgetItem * item, p) {
-        QString ifname = QUrl( item->text() ).toLocalFile();
+    foreach (QListWidgetItem * item, p) {
+        QString ifname = KUrl( item->text() ).toLocalFile();
         QString ofname = ifname;
         ofname = ofname.remove(QRegExp("\\.([^\\.]*$)"));
-	ofname = ofname + QString(".") + oformat;
+        ofname = ofname + QString(".") + oformat;
 
         bool proceed = true;
         
         if( QFile::exists(ofname) ) {
             //something named ofname already exists
-            switch( KMessageBox::questionYesNo(
-	                this,
-  	                i18n( "Overwrite File? -- KOpenBabel" ),
-                        i18n( "The file %1 already exists. Do you want to overwrite if possible?", ofname) )
+            switch( KMessageBox::warningContinueCancel(
+                        this,
+                        i18n( "The file %1 already exists. Do you want to overwrite if possible?").arg(ofname),
+                        i18n( "The file %1 already exists ! -- KOpenBabel" ).arg(ofname)
+                    )
                   ) {
                 case KMessageBox::No:
                     proceed = false;
@@ -209,18 +208,19 @@ void OBConverter::slotConvert()
                     break;
             }
         }
-        if( proceed ) {
+        if (proceed) {
             QStringList arguments;
-	    arguments << QString( "-i") + iformat << ifname << QString("-o") + oformat << ofname;
+            arguments << QString( "-i") + iformat << ifname << QString("-o") + oformat << ofname;
             cmdArgList.append( arguments );
-	    cmdList.append( QString("babel ") + arguments.join(" ") );
+            cmdList.append( QString("babel ") + arguments.join(" ") );
         }
     }
-    if( cmdArgList.count() > 0 ) {
+    if (cmdArgList.count() > 0) {
         switch( KMessageBox::questionYesNo(
-                    this, i18n("OK to run these commands? \n %1",  cmdList.join("\n") )
-                    )
-  	      ) {
+                    this, cmdList.join("\n"),
+                    i18n("OK to run these commands? -- KOpenBabel")
+                )
+                ) {
             case KMessageBox::Yes:
                 foreach(const QStringList &s, cmdArgList) {
                     QProcess::startDetached( "babel", s);
