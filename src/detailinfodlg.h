@@ -24,7 +24,7 @@ class DetailedGraphicalOverview;
 class Element;
 class KalziumTableType;
 class OrbitsWidget;
-//X class SpectrumViewImpl;
+class SpectrumViewImpl;
 
 class QLabel;
 class QStackedWidget;
@@ -67,9 +67,9 @@ class DetailedInfoDlg : public KPageDialog
 
 		KActionCollection* m_actionCollection;
 
-//X 		SpectrumViewImpl *m_spectrumview;
-//X 		QStackedWidget* m_spectrumStack;
-//X 		QLabel* m_spectrumLabel;
+		SpectrumViewImpl *m_spectrumview;
+		QStackedWidget* m_spectrumStack;
+		QLabel* m_spectrumLabel;
 
 		QString isotopeTable() const;
 

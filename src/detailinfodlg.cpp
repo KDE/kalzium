@@ -38,8 +38,7 @@
 #include "element.h"
 #include "orbitswidget.h"
 #include "detailedgraphicaloverview.h"
-//FIXME Readd for KDE 4.1
-//X #include "spectrumviewimpl.h"
+#include "spectrumviewimpl.h"
 #include "kalziumutils.h"
 #include "kalziumtabletype.h"
 
@@ -399,19 +398,19 @@ void DetailedInfoDlg::createContent()
 	m_htmlpages["new"] = addHTMLTab( i18n( "Data Overview" ), i18n( "Data Overview" ), "data" );
 
 	// spectrum widget tab
-//X 	QWidget *m_pSpectrumTab = new QWidget();
-//X 	item = addPage( m_pSpectrumTab, i18n( "Spectrum" ) );
-//X 	item->setHeader( i18n( "Spectrum" ) );
-//X 	item->setIcon( KIcon( "spectrum" ) );
-//X 	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab );
-//X 	spectrumLayout->setMargin( 0 );
-//X 	m_spectrumStack = new QStackedWidget( m_pSpectrumTab );
-//X 	spectrumLayout->addWidget( m_spectrumStack );
-//X 	m_spectrumview = new SpectrumViewImpl( m_spectrumStack );
-//X 	m_spectrumview->setObjectName( "spectrumwidget" );
-//X 	m_spectrumStack->addWidget( m_spectrumview );
-//X 	m_spectrumLabel = new QLabel( m_spectrumStack );
-//X 	m_spectrumStack->addWidget( m_spectrumLabel );
+	QWidget *m_pSpectrumTab = new QWidget();
+	item = addPage( m_pSpectrumTab, i18n( "Spectrum" ) );
+	item->setHeader( i18n( "Spectrum" ) );
+	item->setIcon( KIcon( "spectrum" ) );
+	QVBoxLayout *spectrumLayout = new QVBoxLayout( m_pSpectrumTab );
+	spectrumLayout->setMargin( 0 );
+	m_spectrumStack = new QStackedWidget( m_pSpectrumTab );
+	spectrumLayout->addWidget( m_spectrumStack );
+	m_spectrumview = new SpectrumViewImpl( m_spectrumStack );
+	m_spectrumview->setObjectName( "spectrumwidget" );
+	m_spectrumStack->addWidget( m_spectrumview );
+	m_spectrumLabel = new QLabel( m_spectrumStack );
+	m_spectrumStack->addWidget( m_spectrumLabel );
 }
 
 void DetailedInfoDlg::reloadContent()
@@ -452,28 +451,18 @@ void DetailedInfoDlg::reloadContent()
     fillHTMLTab( m_htmlpages["misc"], getHtml( MISC ) );
     fillHTMLTab( m_htmlpages["isotopes"], getHtml( ISOTOPES ) );
 
-//X     Spectrum*s = new Spectrum();
-//X     s->addPeak( new Spectrum::peak(400,300) );
-//X     s->addPeak( new Spectrum::peak(450,500) );
-//X     s->addPeak( new Spectrum::peak(455,500) );
-//X     s->addPeak( new Spectrum::peak(470,100) );
-//X     s->addPeak( new Spectrum::peak(490,50) );
-//X     s->addPeak( new Spectrum::peak(500,600) );
-//X     s->addPeak( new Spectrum::peak(550,700) );
-//X     s->adjustIntensities();
-//X 
-//X     m_element->setSpectrum( s );
-//X 
-//X     // updating spectrum widget
-//X     if ( m_element->spectrum() )
-//X     {
-//X         m_spectrumview->setSpectrum( m_element->spectrum() );
-//X     }
-//X     else
-//X     {
-//X         m_spectrumLabel->setText( i18n( "No spectrum of %1 found.", element_name ) );
-//X         m_spectrumStack->setCurrentWidget( m_spectrumLabel );
-//X     }
+    Spectrum * spec =  KalziumDataObject::instance()->spectrum( m_elementNumber );
+
+    // updating spectrum widget
+    if ( spec )
+    {
+        m_spectrumview->setSpectrum( spec );
+    }
+    else
+    {
+        m_spectrumLabel->setText( i18n( "No spectrum of %1 found.", element_name ) );
+        m_spectrumStack->setCurrentWidget( m_spectrumLabel );
+    }
 }
 
 void DetailedInfoDlg::slotHelp()

@@ -66,8 +66,8 @@ set(kalzium_SRCS
    exportdialog.cpp
    nuclideboardview.cpp
    #tableinfowidget.cpp #will readd in KDE4.1
-   #spectrumviewimpl.cpp #will readd in KDE4.1
-   #spectrumwidget.cpp #will readd in KDE4.1
+   spectrumviewimpl.cpp #will readd in KDE4.1
+   spectrumwidget.cpp #will readd in KDE4.1
    )
 
 if(LIBFACILE_FOUND)

@@ -183,7 +183,7 @@ Spectrum * KalziumDataObject::spectrum( int number )
         }
     }
 
-    return NULL;
+    return 0;
 }
 
 
