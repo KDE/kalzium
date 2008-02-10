@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2007 by Carsten Niehaus <cniehaus@kde.org>
+ *   Copyright (C) 2007, 2008 by Carsten Niehaus <cniehaus@kde.org>
  *   Copyright (C) 2006 by Jerome Pansanel                                 *
  *   j.pansanel@pansanel.net
  *                                                                         *
@@ -178,7 +178,7 @@ void OBConverter::slotConvert()
 
     QList<QListWidgetItem*> p = ui.FileListView->selectedItems();
     if( p.count() == 0 ) {
-        QMessageBox::information(this,i18n("KOpenBabel"),i18n("You must select some files first."));
+        KMessageBox::information(this,i18n("KOpenBabel"),i18n("You must select some files first."));
         return;
     }
     QListIterator<QListWidgetItem*> it( p );
@@ -199,7 +199,7 @@ void OBConverter::slotConvert()
   	                i18n( "Overwrite File? -- KOpenBabel" ),
                         i18n( "The file %1 already exists. Do you want to overwrite if possible?", ofname) )
                   ) {
-                case QMessageBox::No:
+                case KMessageBox::No:
                     proceed = false;
                     break;
                 default:
@@ -214,12 +214,11 @@ void OBConverter::slotConvert()
         }
     }
     if( cmdArgList.count() > 0 ) {
-        switch( QMessageBox::question(
-                    this, i18n("OK to run these commands? -- KOpenBabel"),
-                    cmdList.join("\n"),
-	   	    QMessageBox::Yes, QMessageBox::No)
+        switch( KMessageBox::questionYesNo(
+                    this, i18n("OK to run these commands? \n %1",  cmdList.join("\n") )
+                    )
   	      ) {
-            case QMessageBox::Yes:
+            case KMessageBox::Yes:
                 foreach(const QStringList &s, cmdArgList) {
                     QProcess::startDetached( "babel", s);
                 }
