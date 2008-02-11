@@ -90,7 +90,7 @@ kde4_add_ui_files(kalzium_SRCS
    plotsetupwidget.ui
    molcalcwidgetbase.ui
    somwidget.ui
-   #spectrumview.ui #will readd in KDE 4.1
+   spectrumview.ui 
    settings_misc.ui
    settings_units.ui
    rswidget.ui
