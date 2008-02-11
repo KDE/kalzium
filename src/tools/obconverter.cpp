@@ -50,6 +50,7 @@ OBConverter::OBConverter( QWidget *parent )
     setButtonGuiItem( User1, KGuiItem( i18n( "Convert" ), "edit-copy", i18n( "Convert selected files" ) ) );
     
     setupWindow();
+    setHelp(QString(), "kalzium");
 }
 
 void OBConverter::setupWindow()
