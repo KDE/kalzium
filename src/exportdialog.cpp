@@ -90,6 +90,7 @@ ExportDialog::ExportDialog( QWidget * parent )
 
     connect( this, SIGNAL( user1Clicked() ), this, SLOT( slotOkClicked() ) );
     connect( this, SIGNAL( helpClicked() ), this, SLOT( slotHelpClicked() ) );
+    setHelp(QString(),"kalzium");
 }
 
 ExportDialog::~ExportDialog()
