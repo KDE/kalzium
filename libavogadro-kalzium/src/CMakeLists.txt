@@ -61,7 +61,7 @@ set_target_properties(avogadro-kalzium PROPERTIES VERSION 0.0.1 SOVERSION 0 )
 
 TARGET_LINK_LIBRARIES(avogadro-kalzium ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
                                    ${OPENGL_LIBRARIES} ${KDE4_KDECORE_LIBS} )
-install(TARGETS avogadro-kalzium  DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS avogadro-kalzium  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 #Don't install headers since Kalzium is the only app using this snapshot
 #INSTALL(FILES ${libavogadro_HDRS} DESTINATION include/avogadro)

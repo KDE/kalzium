@@ -20,5 +20,5 @@ ${OPENGL_glu_LIBRARY} avogadro-kalzium)
 
 set_target_properties(compoundviewer PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 
-install(TARGETS compoundviewer  DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS compoundviewer  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
