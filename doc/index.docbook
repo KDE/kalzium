@@ -29,6 +29,9 @@
 			 <year>2002</year>
 			 <year>2004</year>
 			 <year>2005</year>
+			 <year>2006</year>
+			 <year>2007</year>
+			 <year>2008</year>
 			 <holder>&Carsten.Niehaus;</holder>
 		 </copyright>
 
@@ -39,8 +42,8 @@
 
 		 <legalnotice>&FDLNotice;</legalnotice>
 
-		 <date>2005-07-25</date>
-		 <releaseinfo>1.4.2pre4</releaseinfo>
+		 <date>2008-01-27</date>
+		 <releaseinfo>2.1-pre</releaseinfo>
 
 		 <abstract>
 			 <para>&kalzium; is a program which shows you the Periodic Table of
@@ -477,7 +480,7 @@
 			 <sect2 id="nuclid_board">
 				 <title>Nuclidboard</title>
 				 <para>
-					 The <guimenuitem>Nulidboard</guimenuitem> shows you the isotopes of the elements. You can select the range of elements to display with the spinboxes at the bottom of the dialog.
+					 The <guimenuitem>Nulidboard</guimenuitem> shows you the isotopes of the elements.
 				 </para>
 				 <para>
 					 The dialog show the elements-number on the y-axis. The x-axis displays There are diffent kinds of isotopes, some are stable, some are not. The unstable isotopes can decay as alpha-rays are two diffent beta-rays. These differences are encoded by using diffenrent colors. 
@@ -664,8 +667,8 @@
 					 </screenshot>
 				 </sect3>
 				 <sect3 id="show_hide_legend">
-					 <title>Show/Hide Legend</title>
-					 <para>The Show/Hide Legend action allows you to display the legend for the scheme you are in (Groups, Blocks, Acid Behavior). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. &kalzium; will keep this setting in its configuration file, so that the next time you run it, the setting will be as you left it.
+					 <title>Show Legend</title>
+					 <para>The Show Legend action allows you to display the legend for the scheme you are in (Groups, Blocks, Acid Behavior). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. &kalzium; will keep this setting in its configuration file, so that the next time you run it, the setting will be as you left it.
 					 </para>
 				 </sect3>
 
@@ -926,7 +929,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guimenuitem>Show/Hide Legend</guimenuitem>
+								 <guimenuitem>Show Legend</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Toggle</action> the legend view</para></listitem>
 					 </varlistentry>
@@ -940,7 +943,7 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>View</guimenu>
-								 <guimenuitem>Show/Hide Sidebar</guimenuitem>
+								 <guimenuitem>Show Sidebar</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Toggle</action> the Sidebar</para></listitem>
 					 </varlistentry>
@@ -1013,14 +1016,14 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Settings</guimenu>
-								 <guimenuitem>Show/Hide Toolbar</guimenuitem>
+								 <guimenuitem>Show Toolbar</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Toggle</action> the Main Toolbar</para></listitem>
 					 </varlistentry>
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Settings</guimenu>
-								 <guimenuitem>Show/Hide Statusbar</guimenuitem>
+								 <guimenuitem>Show Statusbar</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Toggle</action> the Statusbar</para></listitem>
 					 </varlistentry>
