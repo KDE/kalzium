@@ -34,6 +34,7 @@
 #include <QLayout>
 #include <QPushButton>
 #include <QStackedWidget>
+#include <QDebug>
 
 #include "element.h"
 #include "orbitswidget.h"
@@ -299,10 +300,9 @@ QString DetailedInfoDlg::isotopeTable() const
         if ( !( isotope )->abundance().isEmpty() )
             html.append( i18nc( "this can for example be '24%'", "%1%", ( isotope )->abundance() ) );
         html.append( "</td><td>" );
-        // 		if ( ( isotope )->halflife() > 0.0 )
-        //FIXME: There's something (an object) missing...
-        //			html.append( i18n( "%1 %2", ( isotope )->halflife(), ChemicalDataObject::unitAsString( )) );
-        html.append( "</td><td>" );
+        if ( ( isotope )->halflife() > 0.0 )
+             html.append( i18n( "%1 %2", ( isotope )->halflife(), ( isotope )->halflifeObject().unitAsString( )) );
+             html.append( "</td><td>" );
         if ( ( isotope )->alphalikeliness() > 0.0){
             if ( ( isotope )->alphadecay() > 0.0 )
                 html.append( i18n( "%1 MeV", ( isotope )->alphadecay() ));
