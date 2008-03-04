@@ -325,7 +325,7 @@ QString ChemicalDataObject::unitAsString() const
 			return "s";
 	}
 	
-	bounit = bounit.prepend( "bo:" );
+//	bounit = bounit.prepend( "bo:" );
 	
 	return bounit;
 }

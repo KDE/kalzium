@@ -88,6 +88,11 @@ class SCIENCE_EXPORT Isotope
 		QString abundance() const;		
 
 		double halflife() const;
+
+                /**
+                 * @return the ChemicalDataObject of the halflife of the Isotope
+                 */
+                ChemicalDataObject halflifeObject() const;
 		
 		/**
 		 * add the ChemicalDataObject @p o
