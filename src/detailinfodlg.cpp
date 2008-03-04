@@ -296,12 +296,11 @@ QString DetailedInfoDlg::isotopeTable() const
         html.append( "</td><td>" );
         html.append( QString::number( (( isotope )->nucleons()-( isotope )->parentElementNumber()) ) );
         html.append( "</td><td>" );
-        //		if ( ( isotope )->abundance() > 0.0 )
         if ( !( isotope )->abundance().isEmpty() )
             html.append( i18nc( "this can for example be '24%'", "%1%", ( isotope )->abundance() ) );
         html.append( "</td><td>" );
         if ( ( isotope )->halflife() > 0.0 )
-             html.append( i18n( "%1 %2", ( isotope )->halflife(), ( isotope )->halflifeObject().unitAsString( )) );
+             html.append( i18nc( "The first argument is the value, the second is the unit. For example '17 s' for '17 seconds',.", "%1 %2", ( isotope )->halflife(), ( isotope )->halflifeObject().unitAsString( )) );
              html.append( "</td><td>" );
         if ( ( isotope )->alphalikeliness() > 0.0){
             if ( ( isotope )->alphadecay() > 0.0 )
