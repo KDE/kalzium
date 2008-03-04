@@ -19,7 +19,7 @@
 
 #include "isotopeparser.h"
 #include "isotope.h"
-#include <kdebug.h>
+#include <QDebug>
 #include <iostream>
 
 int main(int argc, char *argv[])
@@ -40,15 +40,17 @@ int main(int argc, char *argv[])
 
     QList<Isotope*> v = parser->getIsotopes();
 
-    kDebug() << "Found " << v.count() << " isotopes.";;
+    qDebug() << "Found " << v.count() << " isotopes.";;
 
-    kDebug() << "As a test I am now issuing all isotopes with 50 nuclueons: ";
+    qDebug() << "As a test I am now issuing all isotopes with 50 nuclueons: ";
 
     foreach( Isotope* i, v ){
         if ( i )
         {
-            if (i->nucleons() == 50 )
-                kDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass();
+            if (i->nucleons() == 50 ){
+                qDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass();
+                qDebug() << "       Halflife: " << i->halflife() << i->halflifeObject().unitAsString( );
+            }
         }
     }
 

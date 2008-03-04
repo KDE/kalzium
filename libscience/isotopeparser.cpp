@@ -132,15 +132,21 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
             else if (attrs.value(i) == "bo:halfLife"){
                 for (int i = 0; i < attrs.length(); ++i) 
                 {
-                    if ( attrs.localName( i ) == "unit" )
-                    {
-                        d->currentDataObject.setUnit( d->currentUnit );
-                    }
-                    else
-                    {
-                        d->currentUnit = ChemicalDataObject::noUnit;
+                    qDebug() << attrs.localName( i );
+                    if (attrs.localName(i) == "units") {
+                        if ( attrs.value(i) == "siUnits:s" )
+                        {
+                            d->currentUnit = ChemicalDataObject::s;
+                        }
+                        else if ( attrs.value(i) == "siUnits:y" )
+                        {
+                            d->currentUnit = ChemicalDataObject::y;
+                        } else {
+                            d->currentUnit = ChemicalDataObject::noUnit;
+                        }
                     }
                 }
+                d->currentDataObject.setUnit( d->currentUnit );
                 d->inHalfLife = true;
             }
             else if (attrs.value(i) == "bo:alphaDecay")

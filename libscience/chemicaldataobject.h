@@ -96,7 +96,7 @@ class SCIENCE_EXPORT ChemicalDataObject
 			pm/**< picometer */,
 			y/**< years */,
 			s/**< seconds */,
-      ang/**< angstrom */,
+                        ang/**< angstrom */,
 			noUnit/**< no unit */
 		};
 
