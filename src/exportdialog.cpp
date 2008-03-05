@@ -131,7 +131,6 @@ void ExportDialog::populateElementList()
     ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Melting Point" ), ChemicalDataObject::meltingpoint ) );
     ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Boiling Point" ), ChemicalDataObject::boilingpoint ) );
     ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Family" ), ChemicalDataObject::family ) );
-    ui.propertyListWidget->addItem( new PropertyListEntry( i18n( "Density" ), ChemicalDataObject::density ) );
 }
 
 void ExportDialog::slotOkClicked()

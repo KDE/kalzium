@@ -217,12 +217,6 @@ void ElementDataViewer::setupAxisData( AxisData * data )
                 caption = i18n( "Mean Mass [u]" );
                 break;
             }
-        case AxisData::DENSITY:
-            {
-                kind = ChemicalDataObject::density;
-                caption = i18n( "Density" );
-                break;
-            }
         case AxisData::EN:
             {
                 kind = ChemicalDataObject::electronegativityPauling;

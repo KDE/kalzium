@@ -198,8 +198,6 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
         }
         case DATA:
         {
-            html.append( i18n( "<tr><th colspan=\"2\" align=\"left\">Compound properties</th></tr>" ) );
-            //Compound Data
             // melting point
             html.append( "<tr><td><img src=\"meltingpoint.png\" alt=\"icon\"/></td><td>" );
             html.append( i18n( "Melting Point: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::meltingpoint ) ) );
@@ -213,16 +211,9 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
             html.append( "</table>" );
             html.append( "<table summary=\"characteristics\" class=\"characterstics\">" );
 
-            //Atomic Data
-            html.append( i18n( "<tr><th colspan=\"2\" align=\"left\">Atomic properties</th></tr>" ) );
             // electro affinity
             html.append( "<tr><td><img src=\"electronaffinity.png\" alt=\"icon\"/></td><td>" );
             html.append( i18n( "Electron Affinity: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::electronAffinity ) ) );
-            html.append( "</td></tr>" );
-
-            //Density
-            html.append( "<tr><td><img src=\"density.png\" alt=\"icon\"/></td><td>" );
-            html.append( i18n( "Density: %1", KalziumUtils::prettyUnit( m_element, ChemicalDataObject::density ) ) );
             html.append( "</td></tr>" );
 
             //Electronic configuration

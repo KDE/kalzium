@@ -131,18 +131,6 @@ QString KalziumUtils::prettyUnit( const Element* el, ChemicalDataObject::BlueObe
 		    result = i18nc( "electron volt", "%1 eV", val );
 		    break;
             }
-	    //FIXME I don't check for the real unit here, that needs to be fixed
-        case ChemicalDataObject::density: // g per cm3 
-            {
-                val = el->dataAsVariant( kind ).toDouble();
-                if ( val <= 0.0 )
-                    result = i18n( "Unknown Value" );
-                else
-                {
-                    result = i18nc( "x gramm per cubic centimeter. This is the density.", "%1 g/cm³", val ); 
-                }
-                break;
-            }
         case ChemicalDataObject::ionization:
             {
                 val = el->dataAsVariant( kind ).toDouble();

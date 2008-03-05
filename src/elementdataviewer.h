@@ -39,7 +39,6 @@ class AxisData
             NUMBER = 0,
             MASS,
             MEANWEIGHT,
-            DENSITY,
             EN,
             MELTINGPOINT,
             BOILINGPOINT,
