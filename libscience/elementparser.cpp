@@ -47,7 +47,6 @@ class ElementSaxParser::Private
             inFamily( false ),
             inGroup( false ),
             inElectronicconfiguration( false ),
-            inDensity( false ),
             inDangerSymbol( false ),
             inRPhrase( false ),
             inSPhrase( false ),
@@ -89,7 +88,6 @@ class ElementSaxParser::Private
         bool inFamily;
         bool inGroup;
         bool inElectronicconfiguration;
-        bool inDensity;
         bool inDangerSymbol;
         bool inRPhrase;
         bool inSPhrase;
@@ -166,8 +164,6 @@ bool ElementSaxParser::startElement(const QString&, const QString &localName, co
                 d->inGroup = true;
             else if (attrs.value(i) == "bo:electronicConfiguration")
                 d->inElectronicconfiguration = true;
-            else if (attrs.value(i) == "bo:density")
-                d->inDensity = true;
             else if (attrs.value(i) == "bo:dangerSymbol")
                 d->inDangerSymbol = true;
             else if (attrs.value(i) == "bo:RPhrase")
@@ -333,11 +329,6 @@ bool ElementSaxParser::characters(const QString &ch)
         value = ch;
         type = ChemicalDataObject::electronicConfiguration; 
         d->inElectronicconfiguration = false;
-    }
-    else if (d->inDensity){
-        value = ch.toDouble();
-        type = ChemicalDataObject::density; 
-        d->inDensity = false;
     }
     else if (d->inDangerSymbol){
         value = ch;

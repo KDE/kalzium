@@ -276,9 +276,6 @@ QString ChemicalDataObject::dictRef() const
 		case crystalstructure:
 			botype ="crystalstructure";
 			break;
-		case density:
-			botype ="density";
-			break;
 		case dangerSymbol:
 			botype ="dangerSymbol";
 			break;
