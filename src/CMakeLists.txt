@@ -108,9 +108,12 @@ kde4_add_executable(kalzium ${kalzium_SRCS} )
 target_link_libraries(kalzium ${KDE4_KHTML_LIBRARY} ${KDE4_KUTILS_LIBRARY} science kdeeduui )
 
 
-if (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
-    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES} ${QT_QTOPENGL_LIBRARY} compoundviewer avogadro-kalzium)
-endif (OPENBABEL2_FOUND AND OPENGL_FOUND AND EIGEN_FOUND)
+if (OPENBABEL2_FOUND)
+    target_link_libraries(kalzium ${OPENBABEL2_LIBRARIES})
+    if (OPENGL_FOUND AND EIGEN_FOUND)
+        target_link_libraries(kalzium ${QT_QTOPENGL_LIBRARY} compoundviewer avogadro-kalzium)
+    endif (OPENGL_FOUND AND EIGEN_FOUND)
+endif (OPENBABEL2_FOUND)
 
 if(LIBFACILE_FOUND)
    link_directories (${OCAMLC_DIR})
