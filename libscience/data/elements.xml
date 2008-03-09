@@ -2628,7 +2628,7 @@
     <label dictRef="bo:symbol" value="Uuo" />
     <label dictRef="bo:name" xml:lang="en" value="Ununoctium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">294</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-radon, eka-eka-emanation before 1960. Ununbium is a temporary IUPAC systematic element name.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Historically known as eka-radon, eka-emanation before 1960. Ununoctium is a temporary IUPAC systematic element name.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.00 0.06</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">250</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
