@@ -174,6 +174,7 @@ void PeriodicTableView::mouseMoveEvent( QMouseEvent *event )
 		QRect elrect = m_painter->currentTableType()->elementRect( num );
 		elrect.translate( -elrect.topLeft() );
 		QPixmap pix( elrect.size() + QSize( 1, 1 ) );
+		pix.fill( palette().color( QPalette::Window ) );
 		m_painter->begin( &pix );
 		m_painter->drawElement( num, elrect );
 		m_painter->end();
