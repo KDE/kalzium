@@ -269,12 +269,14 @@ void KalziumPainter::drawElementSelector( int element )
 
 	QPen pen;
 
+        m_painter->setRenderHint(QPainter::Antialiasing, true);
 	// outer circle
 	pen.setStyle( Qt::DotLine );
 	pen.setWidth( 4 );
 	pen.setColor( Qt::blue );
 	m_painter->setPen( pen );
 	m_painter->drawEllipse( elemrect.left() - 10, elemrect.top() - 10, elemrect.width() + 20, elemrect.height() + 20 );
+        m_painter->setRenderHint(QPainter::Antialiasing, false);
 
 	// inner circle
 	pen.setWidth( 3 );
