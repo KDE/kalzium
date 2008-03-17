@@ -8,7 +8,7 @@
 
 KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
-    m_theme("widgets/parley_plasma_card", this),
+    m_theme("widgets/kalzium_plasma_card", this),
     m_dialog(0),
     m_font(QFont()),
     m_size(256,160)
@@ -29,9 +29,9 @@ void KalziumPlasma::init()
 {
     KConfigGroup cg = config();
     m_updateInterval = cg.readEntry("updateInterval", 10000);
-    Plasma::DataEngine* parleyEngine = dataEngine("parley");
-    parleyEngine->connectSource("lang:0", this, m_updateInterval);
-    parleyEngine->connectSource("lang:1", this, m_updateInterval);
+    Plasma::DataEngine* kalziumEngine = dataEngine("BlueObelisk");
+    kalziumEngine->connectSource("lang:0", this, m_updateInterval);
+    kalziumEngine->connectSource("lang:1", this, m_updateInterval);
 
     m_theme.setContentType(Plasma::Svg::SingleImage);
     m_theme.size().height();
@@ -94,42 +94,42 @@ void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine:
             double scale = qMin(m_theme.elementRect( "translation2" ).width()/m_label2->boundingRect().width(), m_theme.elementRect( "translation2" ).height()/m_label2->boundingRect().height());
             m_label2->setTransform(QTransform().scale(scale, scale));
             m_label2->hide();
-            m_label2->setPos(m_theme.elementRect( "translation2" ).topLeft()
-                    + QPointF(
-                              (m_theme.elementRect("translation2").width()-m_label2->boundingRect().width()*scale)/2.0,
-                               (m_theme.elementRect("translation2").height()-m_label2->boundingRect().height()*scale)/2.0));
-        }
+        m_label2->setPos(m_theme.elementRect( "translation2" ).topLeft()
+                + QPointF(
+                          (m_theme.elementRect("translation2").width()-m_label2->boundingRect().width()*scale)/2.0,
+                           (m_theme.elementRect("translation2").height()-m_label2->boundingRect().height()*scale)/2.0));
     }
+}
 }
 
 void KalziumPlasma::setContentSize(const QSizeF& size)
 {
-    m_size = size;
+m_size = size;
 }
 
 QSizeF KalziumPlasma::contentSizeHint() const
 {
-    return m_size;
+return m_size;
 }
 
 void KalziumPlasma::paintInterface(QPainter *p,
-                           const QStyleOptionGraphicsItem *option,
-                           const QRect &contentsRect)
+                       const QStyleOptionGraphicsItem *option,
+                       const QRect &contentsRect)
 {
-    Q_UNUSED(option);
+Q_UNUSED(option);
 
-    m_theme.resize((int)contentsRect.width(),
-                         (int)contentsRect.height());
-    m_theme.paint(p,
-                       (int)contentsRect.left(),
-                       (int)contentsRect.top());
+m_theme.resize((int)contentsRect.width(),
+                     (int)contentsRect.height());
+m_theme.paint(p,
+                   (int)contentsRect.left(),
+                   (int)contentsRect.top());
 }
 
 void KalziumPlasma::showConfigurationInterface()
 {
-    if (m_dialog == 0) {
-        m_dialog = new KDialog;
-        m_dialog->setWindowIcon(KIcon("parley"));
+if (m_dialog == 0) {
+    m_dialog = new KDialog;
+    m_dialog->setWindowIcon(KIcon("kalzium"));
         m_dialog->setCaption( i18n("KalziumPlasma Configuration") );
         ui.setupUi(m_dialog->mainWidget());
         m_dialog->mainWidget()->layout()->setMargin(0);
@@ -158,9 +158,9 @@ void KalziumPlasma::configAccepted()
     m_label2->setFont(m_font);
     m_updateInterval = ui.updateIntervalSpinBox->value()*1000;
     cg.writeEntry("updateInterval", m_updateInterval);
-    Plasma::DataEngine* parleyEngine = dataEngine("parley");
-    parleyEngine->connectSource("lang:0", this, m_updateInterval);
-    parleyEngine->connectSource("lang:1", this, m_updateInterval);
+    Plasma::DataEngine* kalziumEngine = dataEngine("BlueObelisk");
+    kalziumEngine->connectSource("lang:0", this, m_updateInterval);
+    kalziumEngine->connectSource("lang:1", this, m_updateInterval);
     emit configNeedsSaving();
 }
 

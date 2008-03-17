@@ -5,7 +5,7 @@
 
 #include "plasma/dataengine.h"
 
-class KEduVocDocument;
+class Element;
 
 class KalziumEngine : public Plasma::DataEngine
 {
@@ -21,8 +21,8 @@ protected:
     bool updateSource(const QString& source);
 
 private:
-    void openDocument(const QString& file);
-    int m_current;
+    Element * m_currentElement;
+    QList<Element*> m_elements;
 };
 
 K_EXPORT_PLASMA_DATAENGINE(kalzium, KalziumEngine)
