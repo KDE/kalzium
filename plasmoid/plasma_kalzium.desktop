@@ -2,9 +2,12 @@
 Name=Kalzium
 Icon=kalzium
 Type=Service
+ServiceTypes=Plasma/Applet
+Comment=Chemical Data Applet
+
 
 X-KDE-ServiceTypes=Plasma/Applet
-X-KDE-Library=plasma_applet_Kalzium
+X-KDE-Library=plasma_applet_kalzium
 X-KDE-PluginInfo-Author=Carsten Niehaus
 X-KDE-PluginInfo-Email=cniehaus@kde.org
 X-KDE-PluginInfo-Name=plasma_applet_kalzium

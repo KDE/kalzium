@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Kalzium Data Engine
+Comment=Chemical Data
 
 X-KDE-ServiceTypes=Plasma/DataEngine
 Type=Service
