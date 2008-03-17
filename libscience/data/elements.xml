@@ -45,7 +45,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">13.5984</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="3">0.75420375</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.20</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'hydro' and 'gennao' for 'forms water'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek, 'hydor' for water and 'genetor' for parent, originator; named so because it is the basic component of water</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">0.37</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 1.00 1.00</array>
@@ -68,7 +68,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">4.002603254</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">24.5874</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">The Greek word for the sun was 'helios'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'helios' for sun.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">0.32</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.4</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.85 1.00 1.00</array>
@@ -92,7 +92,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.3917</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="21">0.618049</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.98</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'lithos' means 'stone'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from 'lithos', one of the Greek words for 'stone'.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.34</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.80 0.50 1.00</array>
@@ -116,7 +116,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.3227</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.57</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'beryllos' for 'light-green stone'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'beryllos', the name of greenish stones found in large masses of water.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">0.90</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.9</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.76 1.00 0.00</array>
@@ -164,7 +164,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">11.2603</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">1.262118</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.55</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'carboneum' for carbon</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Latin 'carbo' for coal.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">0.77</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.7</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.50 0.50 0.50</array>
@@ -187,7 +187,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">14.5341</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">-0.07</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">3.04</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'nitrogenium' ('forms saltpeter')</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'nitron' for salpeter and 'genetor' for parent, originator. Although the name Nitogen is certainly correct because it describes a property of the element, the German name ('Stickstoff' for 'which suffocates') or the French ('azote' from the Greek 'azoton' for 'lacking life') would be more appropriate as this element is totally unsupportive of life. This is an important property for humans and all other living organisms to know.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">0.75</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.6</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.05 0.05 1.00</array>
@@ -211,7 +211,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">13.6181</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="27">1.4611120</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">3.44</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'oxygenium' (forms acids)</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek, 'oxy' one of the meanings of which isacid and 'genetor' for parent, originator; named so because it is the basic component of all acids.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">0.73</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.55</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.05 0.05</array>
@@ -235,7 +235,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">17.4228</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="32">3.4011887</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">3.98</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'fluere' ('floats')</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Latin 'fluere' which means 'to flow'.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">0.71</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.5</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.70 1.00 1.00</array>
@@ -258,7 +258,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">19.99244018</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">21.5645</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'neo'. meaning 'new'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the neutral form of the Greek adjective 'neos' for new.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">0.69</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.54</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.70 0.89 0.96</array>
@@ -282,7 +282,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.1391</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">0.547926</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.93</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Arabic 'natrun' for 'soda'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named Sodium by the discoverer and Natrium by Jacob Berzelius in 1813. Sodium comes from the Arabic 'suda' for soda and Natrium from the Arabic 'natrun' or the Hebrew 'neter' for soda.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.54</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.4</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.67 0.36 0.95</array>
@@ -306,7 +306,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.6462</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.31</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the city of Magnesia</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Latin version of the Greek word 'magnesion'; this refers to the area 'Magnesia' in Central Greece where ore containing Magnesium was found the first time; the ore also contained Iron and therefore exhibited magnetic properties; this explains the name though Magnesium itself is not magnetic.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.30</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.54 1.00 0.00</array>
@@ -330,7 +330,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.9858</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="5">0.43283</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.61</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'alumen'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Latin 'alumen', Meaning unknown.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.18</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.75 0.65 0.65</array>
@@ -354,7 +354,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.1517</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">1.389521</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.90</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'silex'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Latin 'silex' for flint, pebble.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.11</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.50 0.60 0.60</array>
@@ -378,7 +378,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">10.4867</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="3">0.7465</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.19</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'phosphoros' for 'carries light'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">the Latin version of the Greek 'phosphoros' which means 'light carrier, from 'phos' light and 'phoreas' for carrier, bringer.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.06</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.95</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.50 0.00</array>
@@ -402,7 +402,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">10.3600</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="10">2.0771029</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.58</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">In sanskrit 'sweb' means 'to sleep'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Sulfur is the original Latin word for brimstone. The origin of the name is still disputed.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.02</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.8</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 1.00 0.19</array>
@@ -448,7 +448,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">39.96238312</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">15.7596</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'aergon' for 'inactive'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the neutral form of the Greek adjective 'argos' for slowly-moving, idle, lazy, inactive.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">0.97</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.88</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.50 0.82 0.89</array>
@@ -472,7 +472,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">4.3407</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.501459</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.82</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Arabic 'al qaliy' for potash</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">the name Potassium comes from the English 'pot-ash'; named so because it was found in the ashes of plants burnt in pots; the symbol 'K' comes from 'Kalium' the name used in German and other languages and comes from the Arabic 'al-qali' for 'ash of burnt plants'.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.96</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.8</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.56 0.25 0.83</array>
@@ -496,7 +496,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.1132</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="10">0.02455</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.00</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'calx' for 'lime'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Latin 'calx' for lime.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.74</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.4</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.24 1.00 0.00</array>
@@ -520,7 +520,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.5615</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">0.188</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.36</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named because it was found in Scandinavia</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Scandium is an artificial Latin word derived from Scandinavia; it was named so by his discoverer.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.44</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.90 0.90 0.90</array>
@@ -544,7 +544,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.8281</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="9">0.084</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.54</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">The Titans were giants in Greek mythology</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">the Latin version of the artificial Greek word 'titanion' which could be translated with huge; the name derives from the 'Titans'.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.36</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.15</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.75 0.76 0.78</array>
@@ -568,7 +568,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.7462</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.525</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.63</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">'Vanadis' is another name for the Nordic goddess Freyja</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from 'Vanadis', the second name of the Goddess Freya, an important deity of the Germanic (Nordic) religion.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.25</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.65 0.65 0.67</array>
@@ -592,7 +592,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.7665</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.67584</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.66</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'chroma' means 'color'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'chroma' for color, paint.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.27</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.54 0.60 0.78</array>
@@ -640,7 +640,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.9024</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="3">0.151</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.83</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'ferrum'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Latin 'ferrum' for iron.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.25</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.50 0.48 0.78</array>
@@ -663,7 +663,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.8810</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="6">0.6633</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.88</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the German word 'Kobold' for 'goblin'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the German 'Kobold' for 'goblin', a mischievous and often evil and malicious spirit in the Germanic religion.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.26</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.44 0.48 0.78</array>
@@ -687,7 +687,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.6398</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">1.15716</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.91</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">'Nickel' was the name of a mountain goblin</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">'Nickel' was the name of a goblin in the Germanic religion seems to be a pet form of the name Nicolaos. The metal was called 'Kupfernickel' originally, it is simplified to Nickel today.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.21</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.36 0.48 0.76</array>
@@ -711,7 +711,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.7264</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="4">1.23578</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.90</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'cuprum' for Cypres</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">the symbol 'Cu', the name 'copper' and corresponding names in other European languages (e.g. Kupfer in German, cuivre ion French) derive from the Latin 'cuprium' which derives from the Latin 'cyprium' which derives from the Greek 'kypros', the name of the Greek island Kypros. The earliest use of copper is believed (recorded by Greek historians and Geographers) to have been in India around the year 3000 BC.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.38</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.48 0.38</array>
@@ -734,7 +734,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.3942</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.65</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">German 'zinking' for 'rough'. because zinc ore is very rough</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the German 'Zink' for 'rough edge' or 'rough point'. It has been suggested that the name has Greek roots but this is not likely, the Greeks have always called this element 'pseudargyros' which means 'phony silver'; the claim that it comes from the Persian 'sing' is more likely but also incorrect.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.31</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.49 0.50 0.69</array>
@@ -758,7 +758,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.9993</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="4">0.41</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.81</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">'Gallia' is an old name for France</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from 'Gallia', the Latin name of present-day France, Southern Belgium (Wallonia) and a small part of Western Switzerland (Suisse Romande). </scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.26</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.76 0.56 0.56</array>
@@ -782,7 +782,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.8994</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="15">1.232712</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.01</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'germania' is an old name for Germany</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from 'Germania', the Latin name of Central and parts of Eastern and Northern Europe; the Romans included in Germania also The Netherlands and Northern Belgium (Flanders).</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.22</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.40 0.56 0.56</array>
@@ -806,7 +806,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.7886</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="8">0.814</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.18</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'arsenikos' for 'male' or 'bold'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'arsenikos' for male.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.19</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.74 0.50 0.89</array>
@@ -829,7 +829,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.7524</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">2.02067</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.55</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'selena' for 'moon'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'Selene', the name of the Goddess of the moon and of the moon itself. </scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.16</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.9</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.63 0.00</array>
@@ -853,7 +853,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">11.8138</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">3.3635880</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.96</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'bromos' for 'smells badly'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'broma' for stench; the thing is said to stink like broama.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.14</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">1.9</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.65 0.16 0.16</array>
@@ -877,7 +877,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">13.9996</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">3.00</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'kryptos' for 'hidden'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'kryptos' for hidden.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.10</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.02</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.36 0.72 0.82</array>
@@ -925,7 +925,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.6949</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="6">0.05206</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.95</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the mineral Strontianit</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">found in the mineral Strontianite which was named after the place Strontian in Scottland.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.92</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.55</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 1.00 0.00</array>
@@ -949,7 +949,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.2173</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.307</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.22</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the small town of Ytterby near Stockholm in Sweden. Terbium. Ytterbium and Gadolinium are also named after this town.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the small town of Ytterby near Stockholm in Sweden. Terbium. Ytterbium and Gadolinium were also named after this town.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.62</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.4</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.58 1.00 1.00</array>
@@ -973,7 +973,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.6339</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="14">0.426</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.33</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the mineral zircon</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">the name goes back to the Persian 'zargun' which means 'gold color';it became 'zarkun' in Arabic and from this, the name Zirconium derives.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.48</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.58 0.88 0.88</array>
@@ -997,7 +997,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.7589</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">0.893</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.6</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after Niobe. the daughter of the Greek god Tantalus</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after Niobe, the daughter of the legendary Greek villain-king Tantalos.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.37</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.15</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.45 0.76 0.79</array>
@@ -1021,7 +1021,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.0924</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">0.7472</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.16</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">This name has Greek roots. It means 'like Platinum' - it was difficult to distinguish Molybdenum from Platinum.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'molybdos' for lead, Blei in German, plumbum in Latin.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.45</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.33 0.71 0.71</array>
@@ -1045,7 +1045,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.28</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">0.55</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.9</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'technetos' for artificial</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'technetos' for artificial and artistic; it goes back to 'techne' which means art.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.56</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.23 0.62 0.62</array>
@@ -1069,7 +1069,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.3605</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">1.04638</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.2</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Ruthenia is the old name of Russia</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from 'Ruthenia', the Latin name for large parts of Eastern Europe including a small part of present-day Russia.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.26</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.14 0.56 0.56</array>
@@ -1093,7 +1093,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.4589</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="20">1.14289</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.28</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'rhodeos' means 'red like a rose'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'rhodon' for rose.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.35</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.04 0.49 0.55</array>
@@ -1117,7 +1117,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.3369</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.56214</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.20</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the asteroid Pallas</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">the Latin version of the Greek 'palladion' which derives from 'Pallas' one of the many eponyms of Athena the virgin Goddess of wisdom.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.31</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.41 0.52</array>
@@ -1140,7 +1140,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.5762</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">1.30447</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.93</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'argentum' for silver</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Latin 'argentum' for silver</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.53</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.88 0.88 1.00</array>
@@ -1163,7 +1163,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.9938</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.69</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'kadmia' ('Galmei' = Zinc carbonate)</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after Kadmos, the legendary Prince said to be of Semitic (specifically, Phoenicean) origin and have founded Thebes, a city in Central Greece in praehistoric times.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.48</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 0.85 0.56</array>
@@ -1187,7 +1187,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.7864</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="9">0.404</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.78</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after 'Indigo' because of its blue spectrum</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after 'Indigo' because of its blue spectral lines; Indigo is a kind of blue dye, the word comes from the Greek 'indikos' meaning 'from India'.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.44</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.65 0.46 0.45</array>
@@ -1211,7 +1211,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.3439</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="15">1.112066</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.96</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'stannum' for tin</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Latin 'stannum' which is most probably of Celtic origin: 'stean' (written 'sten' today); the Greeks have been using the word 'kassiteros' which is probably of Persian origin.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.41</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.25</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.40 0.50 0.50</array>
@@ -1257,7 +1257,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.0096</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="7">1.970875</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.1</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'tellus' or 'telluris' for 'Planet Earth'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Latin 'tellus' ('telluris') for earth (of the earth)</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.35</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.83 0.48 0.00</array>
@@ -1281,7 +1281,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">10.4513</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="10">3.059038</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.66</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'ioeides' for 'violett'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'ioeides' for violett.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.33</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.58 0.00 0.58</array>
@@ -1305,7 +1305,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">12.1298</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.6</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'xenos' for 'foreigner'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'xenos' for foreigner, stranger, strange.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.30</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.16</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.26 0.62 0.69</array>
@@ -1329,7 +1329,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">3.8939</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">0.471626</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.79</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'caesius' for 'heavenblue'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Latin 'caesius' for grey-blue.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">2.25</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.34 0.09 0.56</array>
@@ -1353,7 +1353,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.2117</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="6">0.14462</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">0.89</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'barys' for 'heavy'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'barys' for heavy.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.98</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.7</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.79 0.00</array>
@@ -1377,7 +1377,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.5769</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">0.47</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.10</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'lanthanein' for 'hidden'. The Lanthanoids are also called the 'rare earth'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek verb 'lanthanein' more specifically, from one of its forms 'lanthanon', 'to be latent', 'to escape notice'; best described by the German expression 'verborgen sein'; it describes a property that is present and capable of becoming but is not developed and active yet.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.69</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.5</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.44 0.83 1.00</array>
@@ -1401,7 +1401,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.5387</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.12</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the planetoid Ceres</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from 'Ceres' the Latin name of the Greek Goddess Demeter, the Mother Earth.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.48</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">1.00 1.00 0.78</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">3715</scalar>
@@ -1423,7 +1423,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.473</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.13</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'prasinos didymos' for 'green twin'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'prasinos didymos' for 'green twin.'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.47</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.85 1.00 0.78</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">3785</scalar>
@@ -1445,7 +1445,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.5250</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.14</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'neos didymos' for 'new twin'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'neos didymos' for 'new twin'.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.45</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.78 1.00 0.78</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">3347</scalar>
@@ -1466,7 +1466,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">144.912749</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.582</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the greek Prometheus. Prometheus stole the fire from the gods and gave it to mankind</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from 'Prometheas' the name of the Greek Hero (Half-God) who taught the humans how to make fire, effectively playing the role the snake plays in the Sumerian religion the story of which is saved to us via the Old Testament.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.43</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.64 1.00 0.78</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">3273</scalar>
@@ -1488,7 +1488,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.6437</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.17</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the mineral Samarskit</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named in honor of the high-ranking officer in the Russian Corps of Engineers Samarskij who made possible the study of the newly discovered element around 1850.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.42</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.56 1.00 0.78</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">2067</scalar>
@@ -1509,7 +1509,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">152.9212303</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.6704</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after Europe</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">artificial Latin name after the Greek 'Europa', the name of the continent.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.4</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.38 1.00 0.78</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">1800</scalar>
@@ -1531,7 +1531,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.1498</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.20</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the Finnish chemist Johan Gadolin</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the Finnish chemist Johan Gadolin.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.38</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.27 1.00 0.78</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">3545</scalar>
@@ -1552,7 +1552,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">158.9253468</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.8638</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the Swedish town of Ytterby</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the Norwegian town of Ytterby.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.37</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.19 1.00 0.78</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">3500</scalar>
@@ -1574,7 +1574,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.9389</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.22</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'dysprositor' for 'difficult to reach'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'dysprositos' for 'difficult to reach'</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.35</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.12 1.00 0.78</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">2840</scalar>
@@ -1596,7 +1596,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.0215</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.23</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'holmia' for the old name of Stockholm</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Holmium is an artificial Latin name created after 'holm', the second part of the compound name of the city of Stockholm; the word does not exist in the Latin language, the great city of Stockholm is not recorded anywhere as existing before the 12th century and the Roman Legions never marched that far north anyway.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.33</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 1.00 0.61</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">2968</scalar>
@@ -1640,7 +1640,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.1843</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0.5</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.25</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the old name of Scandinavia. 'Thule'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the Greek 'Thule', the name the Greek explorer Pitheas gave to Greenland when he explored the British Islands, Iceland and Greenland; a small town in Greenland is called Thule today.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.00 0.83 0.32</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">2223</scalar>
@@ -1706,7 +1706,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.8251</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.3</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">'Hafnia' is the old name of Kopenhagen (Denmark)</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after 'Hafnia', the Latin name of Kopenhagen, the capital city of Denmark.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.50</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.25</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.30 0.76 1.00</array>
@@ -1730,7 +1730,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.5496</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">0.322</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.5</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the Greek myth of Tantalos</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin artificial name after the legendary villain-king Tantalos.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.38</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.30 0.65 1.00</array>
@@ -1754,7 +1754,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.8640</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="8">0.815</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.36</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">'tung sten' means 'heavy stone' in Swedish. The old name (and thus the symbol 'W') was Wolfram. named after a mineral</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Swedish 'tung sten' for 'heavy stone'. The symbol 'W' comes from the older name of the element, the German 'Wolfram' for 'wolf's foam'.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.46</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.13 0.58 0.84</array>
@@ -1778,7 +1778,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.8335</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="15">0.15</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.9</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the German river Rhine (latin 'Rhenium')</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the German river Rhine, Rhein in German, rhenus in Latin; the name seems to be of Celtic origin: Ren.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.59</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.15 0.49 0.67</array>
@@ -1802,7 +1802,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.4382</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="12">1.07780</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.2</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek for 'smell'. Its oxides smell strongly like radishes</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'osme' for scent, smell.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.28</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.15 0.40 0.59</array>
@@ -1826,7 +1826,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.9670</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="15">1.56436</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.20</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'iris' for 'rainbow'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the Greek Goddess 'Iris' who, amomg many other things, was responsible for switching on the rainbow after a storm.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.37</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.09 0.33 0.53</array>
@@ -1850,7 +1850,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">8.9588</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="5">2.12510</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.28</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Spanish 'platina' means 'small silver'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Spanish 'platina' for 'small silver'.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.28</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.96 0.93 0.82</array>
@@ -1874,7 +1874,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">9.2255</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="3">2.30861</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.54</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'aurum'. named after Aurora. the goddess of sunrise</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'aurum'. Named after Aurora. the goddess of sunrise</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.44</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.1</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.80 0.82 0.12</array>
@@ -1897,7 +1897,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">10.4375</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.00</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Graeco-Latin 'hydrargyrum' for 'liquid silver'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Mercury comes from 'Mercur' the Latin name of the Greek god Hermes; the symbol Hg comes from the Greek 'hydrargyros' for 'liquid silver', from 'hydor' for water and 'argyros' for silver.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.49</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.05</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.71 0.71 0.76</array>
@@ -1967,7 +1967,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">7.2855</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="25">0.942363</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.02</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">The old name of Bismuth is 'Wismut'. This stood for 'white mass'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Bismuth is most probably a derivative from 'bisemutum' the Latin version of the German 'Wismuth' which is the original name of the element and means 'white mass' or 'white substance'.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusCovalent" units="units:ang">1.46</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2.3</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.62 0.31 0.71</array>
@@ -2012,7 +2012,7 @@
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">0</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronAffinity" units="units:ev" errorValue="2">2.8</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">2.2</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'astator' for 'changing'</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'astatos' for unsteady, changing</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.46 0.31 0.27</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">610</scalar>
@@ -2101,7 +2101,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">227.0277521</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.17</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.1</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Greek 'aktis' for 'beam' - actinium is radioactive</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">from the Greek 'aktis' for ray; 'aktinoeides' for radiating.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.44 0.67 0.98</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">3470</scalar>
@@ -2228,7 +2228,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">243.0613811</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">5.9738</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.3</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after America.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after America, the continent.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.33 0.36 0.95</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">2880</scalar>
@@ -2270,7 +2270,7 @@
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">247.070307</scalar>
     <scalar dataType="xsd:float" dictRef="bo:ionization" units="units:ev">6.1979</scalar>
     <scalar dataType="xsd:float" dictRef="bo:electronegativityPauling" units="boUnits:paulingScaleUnit">1.3</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the town Berkeley where it was discovered.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the town of Berkeley in California where it was discovered.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.54 0.31 0.89</array>
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">983</scalar>
@@ -2426,7 +2426,7 @@
     <label dictRef="bo:name" xml:lang="en" value="Dubnium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">262</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">262.11408</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the science-town Dubna in Russia</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the Russian town Dubna, an important scientific center of the Soviet Union. </scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.82 0.00 0.31</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
@@ -2477,7 +2477,7 @@
     <label dictRef="bo:name" xml:lang="en" value="Hassium" />
     <scalar dataType="xsd:float" dictRef="bo:mass" units="units:atmass">277</scalar>
     <scalar dataType="xsd:float" dictRef="bo:exactMass" units="units:atmass">265.13009</scalar>
-    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Latin 'hassia' for the German county Hessen. In Hessen a lot elements have been discovered.</scalar>
+    <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Named after the German State (Bundesland) Hessen the Latin name of which is 'Hassia'; in Hessen, many elements have been discovered.</scalar>
     <scalar dataType="xsd:float" dictRef="bo:radiusVDW" units="units:ang">2</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.90 0.00 0.18</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
