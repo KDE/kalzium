@@ -44,15 +44,17 @@ KalziumEngine::~KalziumEngine()
 
 QStringList KalziumEngine::sources() const
 {
+    qDebug() << "sources";
     QStringList list;
-    list << QLatin1String("BlueObeslisk");
+    list << QLatin1String("BlueObelisk");
     return list;
 }
 
 bool KalziumEngine::sourceRequested(const QString &source)
 {
+    qDebug() << "sourceRequested";
     if (source == QLatin1String("BlueObelisk")) {
-        setData(QLatin1String("BlueObelisk"), "testdaten");
+        setData("BlueObelisk", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
         return true;
     }
     return false;
@@ -60,12 +62,12 @@ bool KalziumEngine::sourceRequested(const QString &source)
 
 bool KalziumEngine::updateSource(const QString &source)
 {
+    qDebug() << "updateSource()";
     if (!m_currentElement) {
         setData(source, i18n("No element set."));
         return false;
     }
-    setData("lang:0", "testdaten1");
-    setData("lang:2", "testdaten2");
+    setData("BlueObelisk", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
     
     qDebug() << "KalziumEngine::updateSource()" << source;
     return true;

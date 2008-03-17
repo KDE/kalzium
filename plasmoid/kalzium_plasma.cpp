@@ -4,7 +4,8 @@
 #include <KConfigGroup>
 #include <KFontDialog>
 #include <KColorDialog>
-#include <KDebug>
+
+#include <QDebug>
 
 KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
@@ -27,17 +28,21 @@ KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
 
 void KalziumPlasma::init()
 {
+    qDebug() << "initializing Kalzium";
+
     KConfigGroup cg = config();
     m_updateInterval = cg.readEntry("updateInterval", 10000);
-    Plasma::DataEngine* kalziumEngine = dataEngine("BlueObelisk");
-    kalziumEngine->connectSource("lang:0", this, m_updateInterval);
-    kalziumEngine->connectSource("lang:1", this, m_updateInterval);
+    Plasma::DataEngine* kalziumEngine = dataEngine("kalzium");
+    kalziumEngine->connectSource("BlueObelisk", this, m_updateInterval);
 
     m_theme.setContentType(Plasma::Svg::SingleImage);
     m_theme.size().height();
 
     m_label1 = new Plasma::Label(this);
     m_label2 = new Plasma::Label(this);
+
+    m_label1->setText("label1 debug");
+    m_label2->setText("label2 debug");
     
     m_label1->setPos( m_theme.elementRect( "translation1" ).topLeft() );
     m_label2->setPos( m_theme.elementRect( "translation2" ).topLeft() );
@@ -48,6 +53,7 @@ void KalziumPlasma::init()
 
 void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
 {
+    qDebug() << "constraintsUpdated()";
     setDrawStandardBackground(false);
     prepareGeometryChange();
     if (constraints & Plasma::SizeConstraint) {
@@ -72,34 +78,20 @@ KalziumPlasma::~KalziumPlasma()
 void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine::Data &data)
 {
     Q_UNUSED(source);
-    kDebug() << "lang:0" << (data["lang:0"]).toString();
-
-    if (source == "lang:0") {
-        if ( m_label1) {
-            QString text = (data["lang:0"]).toString();
-            m_label1->setText(text);
-            double scale = qMin(m_theme.elementRect( "translation1" ).width()/m_label1->boundingRect().width(), m_theme.elementRect( "translation1" ).height()/m_label1->boundingRect().height());
-            m_label1->setTransform(QTransform().scale(scale, scale));
-            m_label1->setPos(m_theme.elementRect( "translation1" ).topLeft()
-                    + QPointF(
-                        (m_theme.elementRect("translation1").width()-m_label1->boundingRect().width()*scale)/2.0,
-                        (m_theme.elementRect("translation1").height()-m_label1->boundingRect().height()*scale)/2.0));
-
-        }
-    }
-    if (source == "lang:1") {
-        if ( m_label1) {
-            QString text = (data["lang:1"]).toString();
-            m_label2->setText(text);
-            double scale = qMin(m_theme.elementRect( "translation2" ).width()/m_label2->boundingRect().width(), m_theme.elementRect( "translation2" ).height()/m_label2->boundingRect().height());
-            m_label2->setTransform(QTransform().scale(scale, scale));
-            m_label2->hide();
-        m_label2->setPos(m_theme.elementRect( "translation2" ).topLeft()
+    qDebug() << "dataUpdated called =========== source is: " << source << " =============================";
+    
+    if ( m_label1) {
+        QString text = (data["BlueObelisk"]).toString();
+        m_label1->setText(text);
+        double scale = qMin(m_theme.elementRect( "translation1" ).width()/m_label1->boundingRect().width(), m_theme.elementRect( "translation1" ).height()/m_label1->boundingRect().height());
+        m_label1->setTransform(QTransform().scale(scale, scale));
+        m_label1->setPos(m_theme.elementRect( "translation1" ).topLeft()
                 + QPointF(
-                          (m_theme.elementRect("translation2").width()-m_label2->boundingRect().width()*scale)/2.0,
-                           (m_theme.elementRect("translation2").height()-m_label2->boundingRect().height()*scale)/2.0));
+                    (m_theme.elementRect("translation1").width()-m_label1->boundingRect().width()*scale)/2.0,
+                    (m_theme.elementRect("translation1").height()-m_label1->boundingRect().height()*scale)/2.0));
+
     }
-}
+
 }
 
 void KalziumPlasma::setContentSize(const QSizeF& size)
@@ -158,7 +150,7 @@ void KalziumPlasma::configAccepted()
     m_label2->setFont(m_font);
     m_updateInterval = ui.updateIntervalSpinBox->value()*1000;
     cg.writeEntry("updateInterval", m_updateInterval);
-    Plasma::DataEngine* kalziumEngine = dataEngine("BlueObelisk");
+    Plasma::DataEngine* kalziumEngine = dataEngine("kalzium");
     kalziumEngine->connectSource("lang:0", this, m_updateInterval);
     kalziumEngine->connectSource("lang:1", this, m_updateInterval);
     emit configNeedsSaving();
