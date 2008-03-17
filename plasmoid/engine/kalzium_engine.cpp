@@ -33,13 +33,15 @@ KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
     m_elements = parser->getElements();
     delete parser;
     
-    m_currentElement = m_elements.at(4);
+    m_random = new KRandomSequence(QDateTime::currentDateTime().toTime_t() );
+    m_currentElement = m_elements.at(m_random->getLong(m_elements.count()));
 
     qDebug() << "KalziumEngine::KalziumEngine";
 }
 
 KalziumEngine::~KalziumEngine()
 {
+    delete m_random;
 }
 
 QStringList KalziumEngine::sources() const
@@ -63,6 +65,7 @@ bool KalziumEngine::sourceRequested(const QString &source)
 bool KalziumEngine::updateSource(const QString &source)
 {
     qDebug() << "updateSource()";
+    m_currentElement = m_elements.at(m_random->getLong(m_elements.count()));
     if (!m_currentElement) {
         setData(source, i18n("No element set."));
         return false;

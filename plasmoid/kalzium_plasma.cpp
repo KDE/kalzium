@@ -31,7 +31,7 @@ void KalziumPlasma::init()
     qDebug() << "initializing Kalzium";
 
     KConfigGroup cg = config();
-    m_updateInterval = cg.readEntry("updateInterval", 10000);
+    m_updateInterval = cg.readEntry("updateInterval", 1000);
     Plasma::DataEngine* kalziumEngine = dataEngine("kalzium");
     kalziumEngine->connectSource("BlueObelisk", this, m_updateInterval);
 

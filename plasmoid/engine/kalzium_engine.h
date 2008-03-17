@@ -23,6 +23,7 @@ protected:
 private:
     Element * m_currentElement;
     QList<Element*> m_elements;
+    KRandomSequence * m_random;
 };
 
 K_EXPORT_PLASMA_DATAENGINE(kalzium, KalziumEngine)
