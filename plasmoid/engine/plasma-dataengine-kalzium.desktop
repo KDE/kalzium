@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Kalzium Data Engine
+
+X-KDE-ServiceTypes=Plasma/DataEngine
+Type=Service
+Icon=kalzium
+X-KDE-Library=plasma_engine_kalzium
+X-Plasma-EngineName=kalzium
