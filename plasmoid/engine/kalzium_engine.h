@@ -1,21 +1,5 @@
-/***************************************************************************
-
-    Copyright 2008 Frederik Gladhorn <frederik.gladhorn@kdemail.net>
-
- ***************************************************************************/
-
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
-
-
-#ifndef PARLEYENGINE_H
-#define PARLEYENGINE_H
+#ifndef KALZIUM_ENGINE_H
+#define KALZIUM_ENGINE_H
 
 #include <KRandomSequence>
 
@@ -23,13 +7,13 @@
 
 class KEduVocDocument;
 
-class ParleyEngine : public Plasma::DataEngine
+class KalziumEngine : public Plasma::DataEngine
 {
 Q_OBJECT
 
 public:
-    ParleyEngine(QObject* parent, const QVariantList& args);
-    ~ParleyEngine();
+    KalziumEngine(QObject* parent, const QVariantList& args);
+    ~KalziumEngine();
     QStringList sources() const;
 
 protected:
@@ -38,11 +22,9 @@ protected:
 
 private:
     void openDocument(const QString& file);
-    KEduVocDocument* m_doc;
-    KRandomSequence *m_random;
     int m_current;
 };
 
-K_EXPORT_PLASMA_DATAENGINE(parley, ParleyEngine)
+K_EXPORT_PLASMA_DATAENGINE(kalzium, KalziumEngine)
 
-#endif
+#endif // KALZIUM_ENGINE_H

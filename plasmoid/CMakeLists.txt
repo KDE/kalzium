@@ -1,9 +1,11 @@
 project(plasma-kalzium)
 add_subdirectory( engine )
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/   )
+include_directories( 
+   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/   
+   )
 
-set(parley_plasma_SRCS
+set(kalzium_plasma_SRCS
     kalzium_plasma.cpp
     )
 
@@ -13,7 +15,7 @@ kde4_add_plugin(plasma_applet_kalzium ${kalzium_plasma_SRCS})
 
 target_link_libraries(plasma_applet_kalzium
     plasma ${KDE4_KIO_LIBS}
-    libscience
+    science
     )
 
 install(

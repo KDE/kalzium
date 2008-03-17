@@ -1,125 +1,105 @@
-/***************************************************************************
 
-    Copyright 2008 Frederik Gladhorn <frederik.gladhorn@kdemail.net>
-
- ***************************************************************************/
-
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
-
-
-#include "parley_engine.h"
+#include "kalzium_engine.h"
 
 #include <QStringList>
 
 #include <KDebug>
 #include <KConfigGroup>
 
-#include <keduvocdocument.h>
-#include <keduvoclesson.h>
-#include <keduvocexpression.h>
-
 
 #include "plasma/datacontainer.h"
 
-ParleyEngine::ParleyEngine(QObject* parent, const QVariantList& args)
+KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
     : Plasma::DataEngine(parent)
 {
     Q_UNUSED(args)
     setMinimumUpdateInterval(1000);
 
-    kDebug() << "ParleyEngine::ParleyEngine";
-    m_doc = new KEduVocDocument(this);
-    m_current = 0;
-
-    KConfig parleyConfig("parleyrc");
-    kDebug() << parleyConfig.groupList();
-    KConfigGroup recentFilesGroup( &parleyConfig, "Recent Files" );
-    // take the last file, but there are File1..n and Name1..n entries..
-    QString file = recentFilesGroup.readEntry( recentFilesGroup.keyList().value(recentFilesGroup.keyList().count()/2-1), QString() );
-    openDocument(file);
-    m_random = new KRandomSequence( QDateTime::currentDateTime().toTime_t() );
+    kDebug() << "KalziumEngine::KalziumEngine";
+//X     m_doc = new KEduVocDocument(this);
+//X     m_current = 0;
+//X 
+//X     KConfig parleyConfig("parleyrc");
+//X     kDebug() << parleyConfig.groupList();
+//X     KConfigGroup recentFilesGroup( &parleyConfig, "Recent Files" );
+//X     // take the last file, but there are File1..n and Name1..n entries..
+//X     QString file = recentFilesGroup.readEntry( recentFilesGroup.keyList().value(recentFilesGroup.keyList().count()/2-1), QString() );
+//X     openDocument(file);
+//X     m_random = new KRandomSequence( QDateTime::currentDateTime().toTime_t() );
 
 }
 
-ParleyEngine::~ParleyEngine()
+KalziumEngine::~KalziumEngine()
 {
-    delete m_random;
 }
 
-void ParleyEngine::openDocument(const QString& file)
+void KalziumEngine::openDocument(const QString& file)
 {
-    kDebug() << "Open vocabulary file: '" << file << "'";
-    if (!file.isEmpty()) {
-        m_doc->open(file);
-//         m_vocabularyCount = m_doc->lesson()->entries(KEduVocContainer::Recursive).count();
-    }
+//X     kDebug() << "Open vocabulary file: '" << file << "'";
+//X     if (!file.isEmpty()) {
+//X         m_doc->open(file);
+//X //         m_vocabularyCount = m_doc->lesson()->entries(KEduVocContainer::Recursive).count();
+//X     }
 }
 
-QStringList ParleyEngine::sources() const
+QStringList KalziumEngine::sources() const
 {
-   QStringList list;
-   list << QLatin1String("Random");
-   return list;
+//X    QStringList list;
+//X    list << QLatin1String("Random");
+//X    return list;
 }
 
-bool ParleyEngine::sourceRequested(const QString &source)
+bool KalziumEngine::sourceRequested(const QString &source)
 {
-    KEduVocExpression *expression = m_doc->lesson()->entries(KEduVocContainer::Recursive).value(m_current);
-
-    if (!expression) {
-        return false;
-    }
-    
-    kDebug() << "updateSource:" << source;
-    kDebug() << expression->translation(0)->text();
-    
-//     kDebug() << "ParleyEngine::sourceRequested " << source;
-    if (source.startsWith("lang:")) {
-        if (expression) {
-            int lang = source.right(source.size() - 5).toInt();
-            setData(source, expression->translation(lang)->text());
-            return true;
-        }
-    }
-
-    if (source == QLatin1String("Random")) {
-        if (expression) {
-            QString text;
-            foreach (int index, expression->translationIndices()) {
-                text += "\n" + expression->translation(index)->text();
-            }
-            setData(QLatin1String("Random"), text);
-            return true;
-        }
-    }
+//X     KEduVocExpression *expression = m_doc->lesson()->entries(KEduVocContainer::Recursive).value(m_current);
+//X 
+//X     if (!expression) {
+//X         return false;
+//X     }
+//X     
+//X     kDebug() << "updateSource:" << source;
+//X     kDebug() << expression->translation(0)->text();
+//X     
+//X //     kDebug() << "KalziumEngine::sourceRequested " << source;
+//X     if (source.startsWith("lang:")) {
+//X         if (expression) {
+//X             int lang = source.right(source.size() - 5).toInt();
+//X             setData(source, expression->translation(lang)->text());
+//X             return true;
+//X         }
+//X     }
+//X 
+//X     if (source == QLatin1String("Random")) {
+//X         if (expression) {
+//X             QString text;
+//X             foreach (int index, expression->translationIndices()) {
+//X                 text += "\n" + expression->translation(index)->text();
+//X             }
+//X             setData(QLatin1String("Random"), text);
+//X             return true;
+//X         }
+//X     }
     return false;
 }
 
-bool ParleyEngine::updateSource(const QString &source)
+bool KalziumEngine::updateSource(const QString &source)
 {
-    if (!m_doc) {
-        setData(source, i18n("No document set."));
-        return false;
-    }
-
-    int vocabularyCount = m_doc->lesson()->entries(KEduVocContainer::Recursive).count();
-    m_current = m_random->getLong(vocabularyCount);
-    KEduVocExpression *expression = m_doc->lesson()->entries(KEduVocContainer::Recursive).value(m_current);
-
-    setData("lang:0", expression->translation(0)->text());
-
-    setData("lang:1", expression->translation(1)->text());
-//     kDebug() << "ParleyEngine::updateSource()" << source;
-
-    // other sources
+//X     if (!m_doc) {
+//X         setData(source, i18n("No document set."));
+//X         return false;
+//X     }
+//X 
+//X     int vocabularyCount = m_doc->lesson()->entries(KEduVocContainer::Recursive).count();
+//X     m_current = m_random->getLong(vocabularyCount);
+//X     KEduVocExpression *expression = m_doc->lesson()->entries(KEduVocContainer::Recursive).value(m_current);
+//X 
+//X     setData("lang:0", expression->translation(0)->text());
+//X 
+//X     setData("lang:1", expression->translation(1)->text());
+//X //     kDebug() << "KalziumEngine::updateSource()" << source;
+//X 
+//X     // other sources
     return true;
 }
 
-#include "parley_engine.moc"
+#include "kalzium_engine.moc"

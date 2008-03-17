@@ -2,12 +2,14 @@ set(kalzium_engine_SRCS
     kalzium_engine.cpp
 )
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/ )
+include_directories( 
+   ${CMAKE_SOURCE_DIR}/libkdeedu/libscience/ 
+   )
 
 kde4_add_plugin(plasma_engine_kalzium ${kalzium_engine_SRCS})
 target_link_libraries(plasma_engine_kalzium ${KDE4_KDECORE_LIBS}
   plasma
-  libscience
+  science
 )
 
 install(TARGETS plasma_engine_kalzium DESTINATION ${PLUGIN_INSTALL_DIR})

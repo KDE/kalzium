@@ -18,13 +18,13 @@ class QSizeF;
 class KConfigGroup;
 class KEduVocDocument;
 
-class ParleyPlasma : public Plasma::Applet
+class KalziumPlasma : public Plasma::Applet
 {
     Q_OBJECT
 
     public:
-        ParleyPlasma(QObject *parent, const QVariantList &args);
-        ~ParleyPlasma();
+        KalziumPlasma(QObject *parent, const QVariantList &args);
+        ~KalziumPlasma();
         void init();
         void setContentSize(const QSizeF& size);
         QSizeF contentSizeHint() const;

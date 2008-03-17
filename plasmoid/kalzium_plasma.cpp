@@ -6,7 +6,7 @@
 #include <KColorDialog>
 #include <KDebug>
 
-ParleyPlasma::ParleyPlasma(QObject *parent, const QVariantList &args)
+KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
     m_theme("widgets/parley_plasma_card", this),
     m_dialog(0),
@@ -25,7 +25,7 @@ ParleyPlasma::ParleyPlasma(QObject *parent, const QVariantList &args)
     m_theme.resize();
 }
 
-void ParleyPlasma::init()
+void KalziumPlasma::init()
 {
     KConfigGroup cg = config();
     m_updateInterval = cg.readEntry("updateInterval", 10000);
@@ -46,7 +46,7 @@ void ParleyPlasma::init()
     m_label2->setFont(cg.readEntry("font",m_font));
 }
 
-void ParleyPlasma::constraintsUpdated(Plasma::Constraints constraints)
+void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
 {
     setDrawStandardBackground(false);
     prepareGeometryChange();
@@ -64,12 +64,12 @@ void ParleyPlasma::constraintsUpdated(Plasma::Constraints constraints)
     m_label2->setTransform(QTransform().scale(scale, scale));
 }
 
-ParleyPlasma::~ParleyPlasma()
+KalziumPlasma::~KalziumPlasma()
 {
     delete m_dialog;
 }
 
-void ParleyPlasma::dataUpdated(const QString& source, const Plasma::DataEngine::Data &data)
+void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine::Data &data)
 {
     Q_UNUSED(source);
     kDebug() << "lang:0" << (data["lang:0"]).toString();
@@ -102,17 +102,17 @@ void ParleyPlasma::dataUpdated(const QString& source, const Plasma::DataEngine::
     }
 }
 
-void ParleyPlasma::setContentSize(const QSizeF& size)
+void KalziumPlasma::setContentSize(const QSizeF& size)
 {
     m_size = size;
 }
 
-QSizeF ParleyPlasma::contentSizeHint() const
+QSizeF KalziumPlasma::contentSizeHint() const
 {
     return m_size;
 }
 
-void ParleyPlasma::paintInterface(QPainter *p,
+void KalziumPlasma::paintInterface(QPainter *p,
                            const QStyleOptionGraphicsItem *option,
                            const QRect &contentsRect)
 {
@@ -125,12 +125,12 @@ void ParleyPlasma::paintInterface(QPainter *p,
                        (int)contentsRect.top());
 }
 
-void ParleyPlasma::showConfigurationInterface()
+void KalziumPlasma::showConfigurationInterface()
 {
     if (m_dialog == 0) {
         m_dialog = new KDialog;
         m_dialog->setWindowIcon(KIcon("parley"));
-        m_dialog->setCaption( i18n("ParleyPlasma Configuration") );
+        m_dialog->setCaption( i18n("KalziumPlasma Configuration") );
         ui.setupUi(m_dialog->mainWidget());
         m_dialog->mainWidget()->layout()->setMargin(0);
         ui.updateIntervalSpinBox->setValue(m_updateInterval/1000);
@@ -143,12 +143,12 @@ void ParleyPlasma::showConfigurationInterface()
     m_dialog->show();
 }
 
-void ParleyPlasma::showFontSelectDlg()
+void KalziumPlasma::showFontSelectDlg()
 {
     KFontDialog::getFont(m_font);
 }
 
-void ParleyPlasma::configAccepted()
+void KalziumPlasma::configAccepted()
 {
     prepareGeometryChange();
 
@@ -164,13 +164,13 @@ void ParleyPlasma::configAccepted()
     emit configNeedsSaving();
 }
 
-void ParleyPlasma::hoverEnterEvent(QGraphicsSceneHoverEvent * event)
+void KalziumPlasma::hoverEnterEvent(QGraphicsSceneHoverEvent * event)
 {
     Plasma::Applet::hoverEnterEvent(event);
     m_label2->show();
 }
 
-void ParleyPlasma::hoverLeaveEvent(QGraphicsSceneHoverEvent  * event)
+void KalziumPlasma::hoverLeaveEvent(QGraphicsSceneHoverEvent  * event)
 {
     Plasma::Applet::hoverLeaveEvent(event);
     m_label2->hide();

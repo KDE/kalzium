@@ -2,8 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/"
+   xmlns:ns="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:cc="http://web.resource.org/cc/"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -15,13 +16,19 @@
    height="80"
    id="svg4420"
    sodipodi:version="0.32"
-   inkscape:version="0.45+devel"
-   sodipodi:docname="parley_plasma_card.svg"
-   sodipodi:docbase="/home/frederik/kde/4/src/KDE/kdeedu/parley/plasmoid"
+   inkscape:version="0.45.1"
+   sodipodi:docname="kalzium_plasma_card.svg"
+   sodipodi:docbase="/home/kde-devel/kde/src/kdeedu-trunk-git/kalzium/plasmoid"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <metadata
      id="metadata13172">
     <rdf:RDF>
+      <ns:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </ns:Work>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
@@ -45,7 +52,7 @@
      inkscape:zoom="4.08"
      inkscape:cx="59.149359"
      inkscape:cy="39.821267"
-     inkscape:window-x="434"
+     inkscape:window-x="36"
      inkscape:window-y="16"
      inkscape:current-layer="svg4420"
      height="80px"
@@ -23775,4 +23782,8 @@
        id="translation2"
        style="opacity:0;fill:#ffffff" />
   </g>
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 10.539216,14.803922 C 15.651588,14.241111 22.136125,19.357097 23.284314,25.098039 C 23.64206,26.886771 18.627451,44.550597 18.627451,49.362745 C 18.627451,58.866644 21.751134,66.764706 31.617647,66.764706 C 44.525337,66.764706 52.900606,53.216696 46.323529,42.254902 C 42.538875,35.947145 33.911036,23.679716 33.333333,18.480392 C 33.05849,16.0068 37.834981,20.634536 40.196078,21.421569 C 43.067482,22.378703 64.402518,29.218472 64.95098,31.960784 C 66.370513,39.058448 58.102651,45.402734 55.882353,51.323529 C 55.519494,52.291155 55.228758,53.284314 54.901961,54.264706 C 51.743353,63.740529 70.422901,66.029412 75.245098,66.029412 C 89.932775,66.029412 92.647059,67.272658 92.647059,49.852941 C 92.647059,37.292362 78.615541,28.54215 72.303922,19.705882 C 70.906884,17.75003 85.796943,22.063875 86.029412,22.156863 C 94.56898,25.57269 103.5966,30.740785 106.61765,39.803922 C 108.63657,45.860678 107.73503,49.651029 105.63725,55.245098 C 103.97718,59.671976 101.74289,65.913665 108.08824,67.5 C 112.24609,68.539463 107.10466,41.993871 106.61765,39.558824 C 105.03943,31.667753 103.26974,19.843226 96.078431,15.04902 C 83.766996,6.8413959 71.534682,6.2254902 57.352941,6.2254902 C 50.65865,6.2254902 40.548771,6.3629937 35.294118,11.617647 C 30.107377,16.804388 27.081949,22.283566 24.754902,29.264706 C 20.643783,41.598064 32.467103,55.304975 43.872549,57.205882 C 58.611428,59.662362 83.868226,67.900802 92.892157,49.852941 C 99.979784,35.677686 68.369619,20.540761 59.558824,16.764706 C 49.855944,12.606329 30.492807,7.1620855 39.215686,24.607843 C 42.498372,31.173214 71.631131,42.745098 79.411765,42.745098 C 94.327725,42.745098 87.874925,41.599078 83.333333,30.245098 C 82.234762,27.49867 79.73074,24.788045 77.941176,22.401961"
+     id="path7468" />
 </svg>
