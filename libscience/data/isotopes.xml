@@ -13,19 +13,19 @@
       id="isotopes" 
       title="properties of the isotopes">
 
-  <metadataList>
-    <!-- manually updated -->
+      <metadataList>
+	      <!-- manually updated -->
 
-    <metadata name="dc:title" content="Blue Obelisk Element Repository" />
-    <metadata name="dc:creator" content="The Blue Obelisk Movement" />
-    <metadata name="dc:license" content="The MIT License" />
-    <metadata name="dc:contributor" content="Geoffrey R. Hutchison" />
-    <metadata name="dc:contributor" content="Carsten Niehaus" />
-    <metadata name="dc:contributor" content="Egon Willighagen" />
-	   <metadata name="dc:contributor" content="Jörg Buchwald" />
-	   <metadata name="dc:contributor" content="Martin Pfeiffer" />
-    <metadata name="dc:description" content="Database of isotopes and isotopic properties (names, symbols, exact masses, spin, abundances, magnetic dipole moment, decay energy, etc)" />
-  </metadataList>
+	      <metadata name="dc:title" content="Blue Obelisk Element Repository" />
+	      <metadata name="dc:creator" content="The Blue Obelisk Movement" />
+	      <metadata name="dc:license" content="The MIT License" />
+	      <metadata name="dc:contributor" content="Geoffrey R. Hutchison" />
+	      <metadata name="dc:contributor" content="Carsten Niehaus" />
+	      <metadata name="dc:contributor" content="Egon Willighagen" />
+	      <metadata name="dc:contributor" content="Jörg Buchwald" />
+	      <metadata name="dc:contributor" content="Martin Pfeiffer" />
+	      <metadata name="dc:description" content="Database of isotopes and isotopic properties (names, symbols, exact masses, spin, abundances, magnetic dipole moment, decay energy, etc)" />
+      </metadataList>
 
 <isotopeList id="H">
 	<isotope id="H1" number="1" elementType="H">
@@ -33,7 +33,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.0001E-6">1.007825032</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.792846</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">1</scalar>
 	</isotope>
 	<isotope id="H2" number="2" elementType="H">
@@ -41,7 +40,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.0004E-6">2.014101778</scalar>
 		<scalar dictRef="bo:spin">1+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.857438</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">1</scalar>
 	</isotope>
 	<isotope id="H3" number="3" elementType="H">
@@ -76,14 +74,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.0026E-6">3.016029319</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-2.127624</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">2</scalar>
 	</isotope>
 	<isotope id="He4" number="4" elementType="He">
 		<scalar dictRef="bo:relativeAbundance">99.999863</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.00006E-6">4.002603254</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">2</scalar>
 	</isotope>
 	<isotope id="He5" number="5" elementType="He">
@@ -131,7 +127,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.016E-6">6.015122795</scalar>
 		<scalar dictRef="bo:spin">1+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.822056</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">3</scalar>
 	</isotope>
 	<isotope id="Li7" number="7" elementType="Li">
@@ -139,7 +134,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.08E-6">7.01600455</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.25644</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">3</scalar>
 	</isotope>
 	<isotope id="Li8" number="8" elementType="Li">
@@ -192,7 +186,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">9.0121822</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.1776</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">4</scalar>
 	</isotope>
 	<isotope id="Be10" number="10" elementType="Be">
@@ -254,7 +247,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">10.012937</scalar>
 		<scalar dictRef="bo:spin">3+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.80065</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">5</scalar>
 	</isotope>
 	<isotope id="B11" number="11" elementType="B">
@@ -262,7 +254,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">11.0093054</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.688637</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">5</scalar>
 	</isotope>
 	<isotope id="B12" number="12" elementType="B">
@@ -330,7 +321,6 @@
 		<scalar dictRef="bo:relativeAbundance">98.93</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0E-6">12</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">6</scalar>
 	</isotope>
 	<isotope id="C13" number="13" elementType="C">
@@ -338,7 +328,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.001E-6">13.00335484</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.702411</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">6</scalar>
 	</isotope>
 	<isotope id="C14" number="14" elementType="C">
@@ -411,7 +400,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.0006E-6">14.003074</scalar>
 		<scalar dictRef="bo:spin">1+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.403761</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">7</scalar>
 	</isotope>
 	<isotope id="N15" number="15" elementType="N">
@@ -419,7 +407,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.0007E-6">15.0001089</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.283189</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">7</scalar>
 	</isotope>
 	<isotope id="N16" number="16" elementType="N">
@@ -494,7 +481,6 @@
 		<scalar dictRef="bo:relativeAbundance">99.757</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.00016E-6">15.99491462</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">8</scalar>
 	</isotope>
 	<isotope id="O17" number="17" elementType="O">
@@ -502,14 +488,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.12E-6">16.9991317</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.89379</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">8</scalar>
 	</isotope>
 	<isotope id="O18" number="18" elementType="O">
 		<scalar dictRef="bo:relativeAbundance">0.205</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">17.999161</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">8</scalar>
 	</isotope>
 	<isotope id="O19" number="19" elementType="O">
@@ -566,7 +550,6 @@
 	</isotope>
 	<isotope id="F15" number="15" elementType="F">
 		<scalar dictRef="bo:exactMass" errorValue="140E-6">15.01801</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">9</scalar>
 	</isotope>
 	<isotope id="F16" number="16" elementType="F">
@@ -593,7 +576,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.07E-6">18.99840322</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.628866</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">9</scalar>
 	</isotope>
 	<isotope id="F20" number="20" elementType="F">
@@ -675,7 +657,6 @@
 		<scalar dictRef="bo:relativeAbundance">90.48</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.0019E-6">19.99244018</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">10</scalar>
 	</isotope>
 	<isotope id="Ne21" number="21" elementType="Ne">
@@ -683,14 +664,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.04E-6">20.99384668</scalar>
 		<scalar dictRef="bo:spin">3/2</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.661796</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">10</scalar>
 	</isotope>
 	<isotope id="Ne22" number="22" elementType="Ne">
 		<scalar dictRef="bo:relativeAbundance">9.25</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.019E-6">21.99138511</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">10</scalar>
 	</isotope>
 	<isotope id="Ne23" number="23" elementType="Ne">
@@ -784,7 +763,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.0029E-6">22.98976928</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-2.217520</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">11</scalar>
 	</isotope>
 	<isotope id="Na24" number="24" elementType="Na">
@@ -889,7 +867,6 @@
 		<scalar dictRef="bo:relativeAbundance">78.99</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.014E-6">23.9850417</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">12</scalar>
 	</isotope>
 	<isotope id="Mg25" number="25" elementType="Mg">
@@ -897,14 +874,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.03E-6">24.98583692</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.85545</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">12</scalar>
 	</isotope>
 	<isotope id="Mg26" number="26" elementType="Mg">
 		<scalar dictRef="bo:relativeAbundance">11.01</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.03E-6">25.98259293</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">12</scalar>
 	</isotope>
 	<isotope id="Mg27" number="27" elementType="Mg">
@@ -1012,7 +987,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.12E-6">26.98153863</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.641504</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">13</scalar>
 	</isotope>
 	<isotope id="Al28" number="28" elementType="Al">
@@ -1115,7 +1089,6 @@
 		<scalar dictRef="bo:relativeAbundance">92.2297</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.0019E-6">27.97692653</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">14</scalar>
 	</isotope>
 	<isotope id="Si29" number="29" elementType="Si">
@@ -1123,14 +1096,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.022E-6">28.9764947</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.55529</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">14</scalar>
 	</isotope>
 	<isotope id="Si30" number="30" elementType="Si">
 		<scalar dictRef="bo:relativeAbundance">3.0872</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.03E-6">29.97377017</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">14</scalar>
 	</isotope>
 	<isotope id="Si31" number="31" elementType="Si">
@@ -1235,7 +1206,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.2E-6">30.97376163</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.13160</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">15</scalar>
 	</isotope>
 	<isotope id="P32" number="32" elementType="P">
@@ -1349,7 +1319,6 @@
 		<scalar dictRef="bo:relativeAbundance">94.93</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.15E-6">31.972071</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">16</scalar>
 	</isotope>
 	<isotope id="S33" number="33" elementType="S">
@@ -1357,14 +1326,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.15E-6">32.97145876</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.643821</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">16</scalar>
 	</isotope>
 	<isotope id="S34" number="34" elementType="S">
 		<scalar dictRef="bo:relativeAbundance">4.29</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.12E-6">33.9678669</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">16</scalar>
 	</isotope>
 	<isotope id="S35" number="35" elementType="S">
@@ -1380,7 +1347,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.02</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.2E-6">35.96708076</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">16</scalar>
 	</isotope>
 	<isotope id="S37" number="37" elementType="S">
@@ -1482,7 +1448,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.04E-6">34.96885268</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.82187</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">17</scalar>
 	</isotope>
 	<isotope id="Cl36" number="36" elementType="Cl">
@@ -1494,7 +1459,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.05E-6">36.96590259</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.68412</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">17</scalar>
 	</isotope>
 	<isotope id="Cl38" number="38" elementType="Cl">
@@ -1598,7 +1562,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.3365</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.029E-6">35.96754511</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">18</scalar>
 	</isotope>
 	<isotope id="Ar37" number="37" elementType="Ar">
@@ -1610,7 +1573,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.0632</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">37.9627324</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">18</scalar>
 	</isotope>
 	<isotope id="Ar39" number="39" elementType="Ar">
@@ -1622,7 +1584,6 @@
 		<scalar dictRef="bo:relativeAbundance">99.6003</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.0029E-6">39.96238312</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">18</scalar>
 	</isotope>
 	<isotope id="Ar41" number="41" elementType="Ar">
@@ -1723,7 +1684,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.2E-6">38.96370668</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.391466</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">19</scalar>
 	</isotope>
 	<isotope id="K40" number="40" elementType="K">
@@ -1743,7 +1703,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.21E-6">40.96182576</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.2148699</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">19</scalar>
 	</isotope>
 	<isotope id="K42" number="42" elementType="K">
@@ -1850,7 +1809,6 @@
 		<scalar dictRef="bo:relativeAbundance">96.941</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.22E-6">39.96259098</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">20</scalar>
 	</isotope>
 	<isotope id="Ca41" number="41" elementType="Ca">
@@ -1861,7 +1819,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.647</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.27E-6">41.95861801</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">20</scalar>
 	</isotope>
 	<isotope id="Ca43" number="43" elementType="Ca">
@@ -1869,14 +1826,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.3E-6">42.9587666</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.31725</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">20</scalar>
 	</isotope>
 	<isotope id="Ca44" number="44" elementType="Ca">
 		<scalar dictRef="bo:relativeAbundance">2.086</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">43.9554818</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">20</scalar>
 	</isotope>
 	<isotope id="Ca45" number="45" elementType="Ca">
@@ -1888,7 +1843,6 @@
 	<isotope id="Ca46" number="46" elementType="Ca">
 		<scalar dictRef="bo:relativeAbundance">0.004</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">45.9536926</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:betaminusDecay">0.257</scalar>
 		<scalar dictRef="bo:betaminusDecayLikeliness" units="bo:percentage">100.0</scalar>
 		<scalar dictRef="bo:atomicNumber">20</scalar>
@@ -1993,7 +1947,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">44.9559119</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+4.756483</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">21</scalar>
 	</isotope>
 	<isotope id="Sc46" number="46" elementType="Sc">
@@ -2117,7 +2070,6 @@
 		<scalar dictRef="bo:relativeAbundance">8.25</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">45.9526316</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">22</scalar>
 	</isotope>
 	<isotope id="Ti47" number="47" elementType="Ti">
@@ -2125,14 +2077,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">46.9517631</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.78848</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">22</scalar>
 	</isotope>
 	<isotope id="Ti48" number="48" elementType="Ti">
 		<scalar dictRef="bo:relativeAbundance">73.72</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">47.9479463</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">22</scalar>
 	</isotope>
 	<isotope id="Ti49" number="49" elementType="Ti">
@@ -2140,14 +2090,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">48.94787</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.10417</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">22</scalar>
 	</isotope>
 	<isotope id="Ti50" number="50" elementType="Ti">
 		<scalar dictRef="bo:relativeAbundance">5.18</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">49.9447912</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">22</scalar>
 	</isotope>
 	<isotope id="Ti51" number="51" elementType="Ti">
@@ -2274,7 +2222,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.1E-6">50.9439595</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+5.1574</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">23</scalar>
 	</isotope>
 	<isotope id="V52" number="52" elementType="V">
@@ -2398,7 +2345,6 @@
 		<scalar dictRef="bo:relativeAbundance">83.789</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">51.9405075</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">24</scalar>
 	</isotope>
 	<isotope id="Cr53" number="53" elementType="Cr">
@@ -2406,14 +2352,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">52.9406494</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.47454</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">24</scalar>
 	</isotope>
 	<isotope id="Cr54" number="54" elementType="Cr">
 		<scalar dictRef="bo:relativeAbundance">2.365</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">53.9388804</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">24</scalar>
 	</isotope>
 	<isotope id="Cr55" number="55" elementType="Cr">
@@ -2540,7 +2484,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">54.9380451</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.4687</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">25</scalar>
 	</isotope>
 	<isotope id="Mn56" number="56" elementType="Mn">
@@ -2660,7 +2603,6 @@
 		<scalar dictRef="bo:relativeAbundance">5.845</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">53.9396105</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">26</scalar>
 	</isotope>
 	<isotope id="Fe55" number="55" elementType="Fe">
@@ -2672,7 +2614,6 @@
 		<scalar dictRef="bo:relativeAbundance">91.754</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">55.9349375</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">26</scalar>
 	</isotope>
 	<isotope id="Fe57" number="57" elementType="Fe">
@@ -2680,14 +2621,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">56.935394</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.09044</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">26</scalar>
 	</isotope>
 	<isotope id="Fe58" number="58" elementType="Fe">
 		<scalar dictRef="bo:relativeAbundance">0.282</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">57.9332756</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">26</scalar>
 	</isotope>
 	<isotope id="Fe59" number="59" elementType="Fe">
@@ -2831,7 +2770,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">58.933195</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+4.627</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">27</scalar>
 	</isotope>
 	<isotope id="Co60" number="60" elementType="Co">
@@ -2966,7 +2904,6 @@
 		<scalar dictRef="bo:relativeAbundance">68.0769</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">57.9353429</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
 	<isotope id="Ni59" number="59" elementType="Ni">
@@ -2981,7 +2918,6 @@
 		<scalar dictRef="bo:relativeAbundance">26.2231</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">59.9307864</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
 	<isotope id="Ni61" number="61" elementType="Ni">
@@ -2989,14 +2925,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">60.931056</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.75002</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
 	<isotope id="Ni62" number="62" elementType="Ni">
 		<scalar dictRef="bo:relativeAbundance">3.6345</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">61.9283451</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
 	<isotope id="Ni63" number="63" elementType="Ni">
@@ -3011,7 +2945,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.9256</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">63.927966</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">28</scalar>
 	</isotope>
 	<isotope id="Ni65" number="65" elementType="Ni">
@@ -3138,7 +3071,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">62.9295975</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.2233</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">29</scalar>
 	</isotope>
 	<isotope id="Cu64" number="64" elementType="Cu">
@@ -3159,7 +3091,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">64.9277895</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.3817</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">29</scalar>
 	</isotope>
 	<isotope id="Cu66" number="66" elementType="Cu">
@@ -3289,7 +3220,6 @@
 		<scalar dictRef="bo:relativeAbundance">48.63</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.7E-6">63.9291422</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">30</scalar>
 	</isotope>
 	<isotope id="Zn65" number="65" elementType="Zn">
@@ -3307,7 +3237,6 @@
 		<scalar dictRef="bo:relativeAbundance">27.90</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">65.9260334</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">30</scalar>
 	</isotope>
 	<isotope id="Zn67" number="67" elementType="Zn">
@@ -3315,14 +3244,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">66.9271273</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.87515</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">30</scalar>
 	</isotope>
 	<isotope id="Zn68" number="68" elementType="Zn">
 		<scalar dictRef="bo:relativeAbundance">18.75</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">67.9248442</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">30</scalar>
 	</isotope>
 	<isotope id="Zn69" number="69" elementType="Zn">
@@ -3466,7 +3393,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">68.9255736</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.01659</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">31</scalar>
 	</isotope>
 	<isotope id="Ga70" number="70" elementType="Ga">
@@ -3479,7 +3405,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.1E-6">70.9247013</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">2.56227</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">31</scalar>
 	</isotope>
 	<isotope id="Ga72" number="72" elementType="Ga">
@@ -3617,7 +3542,6 @@
 		<scalar dictRef="bo:relativeAbundance">20.84</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.1E-6">69.9242474</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">32</scalar>
 	</isotope>
 	<isotope id="Ge71" number="71" elementType="Ge">
@@ -3629,7 +3553,6 @@
 		<scalar dictRef="bo:relativeAbundance">27.54</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">71.9220758</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">32</scalar>
 	</isotope>
 	<isotope id="Ge73" number="73" elementType="Ge">
@@ -3637,14 +3560,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">72.9234589</scalar>
 		<scalar dictRef="bo:spin">9/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.879467</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">32</scalar>
 	</isotope>
 	<isotope id="Ge74" number="74" elementType="Ge">
 		<scalar dictRef="bo:relativeAbundance">36.28</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">73.9211778</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">32</scalar>
 	</isotope>
 	<isotope id="Ge75" number="75" elementType="Ge">
@@ -3656,7 +3577,6 @@
 		<scalar dictRef="bo:relativeAbundance">7.61</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">75.9214026</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">32</scalar>
 	</isotope>
 	<isotope id="Ge77" number="77" elementType="Ge">
@@ -3795,7 +3715,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2E-6">74.9215965</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.43947</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">33</scalar>
 	</isotope>
 	<isotope id="As76" number="76" elementType="As">
@@ -3931,7 +3850,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.89</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">73.9224764</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">34</scalar>
 	</isotope>
 	<isotope id="Se75" number="75" elementType="Se">
@@ -3943,7 +3861,6 @@
 		<scalar dictRef="bo:relativeAbundance">9.37</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">75.9192136</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">34</scalar>
 	</isotope>
 	<isotope id="Se77" number="77" elementType="Se">
@@ -3951,14 +3868,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">76.919914</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.535506</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">34</scalar>
 	</isotope>
 	<isotope id="Se78" number="78" elementType="Se">
 		<scalar dictRef="bo:relativeAbundance">23.77</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">77.9173091</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">34</scalar>
 	</isotope>
 	<isotope id="Se79" number="79" elementType="Se">
@@ -3969,7 +3884,6 @@
 		<scalar dictRef="bo:relativeAbundance">49.61</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">79.9165213</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">34</scalar>
 	</isotope>
 	<isotope id="Se81" number="81" elementType="Se">
@@ -4103,7 +4017,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">78.9183371</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.1064</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">35</scalar>
 	</isotope>
 	<isotope id="Br80" number="80" elementType="Br">
@@ -4116,7 +4029,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">80.9162906</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.2706</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">35</scalar>
 	</isotope>
 	<isotope id="Br82" number="82" elementType="Br">
@@ -4245,7 +4157,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.35</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.2E-6">77.9203648</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr79" number="79" elementType="Kr">
@@ -4257,7 +4168,6 @@
 		<scalar dictRef="bo:relativeAbundance">2.28</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">79.916379</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr81" number="81" elementType="Kr">
@@ -4268,7 +4178,6 @@
 		<scalar dictRef="bo:relativeAbundance">11.58</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.9E-6">81.9134836</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr83" number="83" elementType="Kr">
@@ -4276,14 +4185,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">82.914136</scalar>
 		<scalar dictRef="bo:spin">9/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.970669</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr84" number="84" elementType="Kr">
 		<scalar dictRef="bo:relativeAbundance">57.00</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">83.911507</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr85" number="85" elementType="Kr">
@@ -4295,7 +4202,6 @@
 		<scalar dictRef="bo:relativeAbundance">17.30</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.11E-6">85.91061073</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">36</scalar>
 	</isotope>
 	<isotope id="Kr87" number="87" elementType="Kr">
@@ -4437,7 +4343,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.012E-6">84.91178974</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.3530</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">37</scalar>
 	</isotope>
 	<isotope id="Rb86" number="86" elementType="Rb">
@@ -4592,7 +4497,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.56</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">83.913425</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">38</scalar>
 	</isotope>
 	<isotope id="Sr85" number="85" elementType="Sr">
@@ -4607,7 +4511,6 @@
 		<scalar dictRef="bo:relativeAbundance">9.86</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.2E-6">85.9092602</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">38</scalar>
 	</isotope>
 	<isotope id="Sr87" number="87" elementType="Sr">
@@ -4615,14 +4518,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.2E-6">86.9088771</scalar>
 		<scalar dictRef="bo:spin">9/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.093</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">38</scalar>
 	</isotope>
 	<isotope id="Sr88" number="88" elementType="Sr">
 		<scalar dictRef="bo:relativeAbundance">82.58</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.2E-6">87.9056121</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">38</scalar>
 	</isotope>
 	<isotope id="Sr89" number="89" elementType="Sr">
@@ -4775,7 +4676,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">88.9058483</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.1374153</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">39</scalar>
 	</isotope>
 	<isotope id="Y90" number="90" elementType="Y">
@@ -4929,7 +4829,6 @@
 		<scalar dictRef="bo:relativeAbundance">51.45</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">89.9047044</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">40</scalar>
 	</isotope>
 	<isotope id="Zr91" number="91" elementType="Zr">
@@ -4937,14 +4836,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">90.9056458</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.30362</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">40</scalar>
 	</isotope>
 	<isotope id="Zr92" number="92" elementType="Zr">
 		<scalar dictRef="bo:relativeAbundance">17.15</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">91.9050408</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">40</scalar>
 	</isotope>
 	<isotope id="Zr93" number="93" elementType="Zr">
@@ -4959,7 +4856,6 @@
 		<scalar dictRef="bo:relativeAbundance">17.38</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">93.9063152</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">40</scalar>
 	</isotope>
 	<isotope id="Zr95" number="95" elementType="Zr">
@@ -5103,7 +4999,6 @@
 		<scalar dictRef="bo:relativeAbundance">100</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">92.9063781</scalar>
 		<scalar dictRef="bo:spin">9/2+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">41</scalar>
 	</isotope>
 	<isotope id="Nb94" number="94" elementType="Nb">
@@ -5243,7 +5138,6 @@
 		<scalar dictRef="bo:relativeAbundance">14.84</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">91.906811</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo93" number="93" elementType="Mo">
@@ -5258,7 +5152,6 @@
 		<scalar dictRef="bo:relativeAbundance">9.25</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">93.9050883</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo95" number="95" elementType="Mo">
@@ -5266,14 +5159,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">94.9058421</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.9133</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo96" number="96" elementType="Mo">
 		<scalar dictRef="bo:relativeAbundance">16.68</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">95.9046795</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo97" number="97" elementType="Mo">
@@ -5281,14 +5172,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">96.9060215</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.9133</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo98" number="98" elementType="Mo">
 		<scalar dictRef="bo:relativeAbundance">24.13</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.1E-6">97.9054082</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo99" number="99" elementType="Mo">
@@ -5303,7 +5192,6 @@
 		<scalar dictRef="bo:relativeAbundance">9.63</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="6E-6">99.907477</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">42</scalar>
 	</isotope>
 	<isotope id="Mo101" number="101" elementType="Mo">
@@ -5586,7 +5474,6 @@
 		<scalar dictRef="bo:relativeAbundance">5.54</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="8E-6">95.907598</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru97" number="97" elementType="Ru">
@@ -5602,7 +5489,6 @@
 		<scalar dictRef="bo:relativeAbundance">1.87</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="7E-6">97.905287</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru99" number="99" elementType="Ru">
@@ -5610,14 +5496,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">98.9059393</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.6413</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru100" number="100" elementType="Ru">
 		<scalar dictRef="bo:relativeAbundance">12.60</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">99.9042195</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru101" number="101" elementType="Ru">
@@ -5625,14 +5509,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">100.9055821</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.7188</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru102" number="102" elementType="Ru">
 		<scalar dictRef="bo:relativeAbundance">31.55</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">101.9043493</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru103" number="103" elementType="Ru">
@@ -5648,7 +5530,6 @@
 		<scalar dictRef="bo:relativeAbundance">18.62</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">103.905433</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">44</scalar>
 	</isotope>
 	<isotope id="Ru105" number="105" elementType="Ru">
@@ -5798,7 +5679,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">102.905504</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.08840</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">45</scalar>
 	</isotope>
 	<isotope id="Rh104" number="104" elementType="Rh">
@@ -5939,7 +5819,6 @@
 		<scalar dictRef="bo:relativeAbundance">1.02</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">101.905609</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd103" number="103" elementType="Pd">
@@ -5954,7 +5833,6 @@
 		<scalar dictRef="bo:relativeAbundance">11.14</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">103.904036</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd105" number="105" elementType="Pd">
@@ -5962,14 +5840,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">104.905085</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.642</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd106" number="106" elementType="Pd">
 		<scalar dictRef="bo:relativeAbundance">27.33</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">105.903486</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd107" number="107" elementType="Pd">
@@ -5984,7 +5860,6 @@
 		<scalar dictRef="bo:relativeAbundance">26.46</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">107.903892</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd109" number="109" elementType="Pd">
@@ -5999,7 +5874,6 @@
 		<scalar dictRef="bo:relativeAbundance">11.72</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="12E-6">109.905153</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">46</scalar>
 	</isotope>
 	<isotope id="Pd111" number="111" elementType="Pd">
@@ -6145,7 +6019,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="5E-6">106.905097</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.113570</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">47</scalar>
 	</isotope>
 	<isotope id="Ag108" number="108" elementType="Ag">
@@ -6159,7 +6032,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">108.904752</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.1306905</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">47</scalar>
 	</isotope>
 	<isotope id="Ag110" number="110" elementType="Ag">
@@ -6325,7 +6197,6 @@
 		<scalar dictRef="bo:relativeAbundance">1.25</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="6E-6">105.906459</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd107" number="107" elementType="Cd">
@@ -6340,7 +6211,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.89</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="6E-6">107.904184</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd109" number="109" elementType="Cd">
@@ -6356,7 +6226,6 @@
 		<scalar dictRef="bo:relativeAbundance">12.49</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">109.9030021</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd111" number="111" elementType="Cd">
@@ -6364,14 +6233,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">110.9041781</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.5943</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd112" number="112" elementType="Cd">
 		<scalar dictRef="bo:relativeAbundance">24.13</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">111.9027578</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd113" number="113" elementType="Cd">
@@ -6385,7 +6252,6 @@
 		<scalar dictRef="bo:relativeAbundance">28.73</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">113.9033585</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd115" number="115" elementType="Cd">
@@ -6399,7 +6265,6 @@
 		<scalar dictRef="bo:relativeAbundance">7.49</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">115.904756</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">48</scalar>
 	</isotope>
 	<isotope id="Cd117" number="117" elementType="Cd">
@@ -6566,7 +6431,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">112.904058</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+5.5229</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">49</scalar>
 	</isotope>
 	<isotope id="In114" number="114" elementType="In">
@@ -6752,7 +6616,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.97</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="5E-6">111.904818</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn113" number="113" elementType="Sn">
@@ -6767,7 +6630,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.66</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">113.902779</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn115" number="115" elementType="Sn">
@@ -6775,14 +6637,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">114.903342</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.91883</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn116" number="116" elementType="Sn">
 		<scalar dictRef="bo:relativeAbundance">14.54</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">115.901741</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn117" number="117" elementType="Sn">
@@ -6790,14 +6650,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">116.902952</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">1.00104</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn118" number="118" elementType="Sn">
 		<scalar dictRef="bo:relativeAbundance">24.22</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">117.901603</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn119" number="119" elementType="Sn">
@@ -6805,14 +6663,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">118.903308</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.04728</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn120" number="120" elementType="Sn">
 		<scalar dictRef="bo:relativeAbundance">32.58</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">119.9021947</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn121" number="121" elementType="Sn">
@@ -6825,7 +6681,6 @@
 		<scalar dictRef="bo:relativeAbundance">4.63</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.9E-6">121.903439</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn123" number="123" elementType="Sn">
@@ -6838,7 +6693,6 @@
 		<scalar dictRef="bo:relativeAbundance">5.79</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">123.9052739</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn125" number="125" elementType="Sn">
@@ -6848,7 +6702,6 @@
 	</isotope>
 	<isotope id="Sn126" number="126" elementType="Sn">
 		<scalar dictRef="bo:exactMass" errorValue="11E-6">125.907653</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">50</scalar>
 	</isotope>
 	<isotope id="Sn127" number="127" elementType="Sn">
@@ -6996,7 +6849,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">120.9038157</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.3592</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">51</scalar>
 	</isotope>
 	<isotope id="Sb122" number="122" elementType="Sb">
@@ -7010,7 +6862,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.2E-6">122.904214</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.5466</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">51</scalar>
 	</isotope>
 	<isotope id="Sb124" number="124" elementType="Sb">
@@ -7170,7 +7021,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.09</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="10E-6">119.90402</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te121" number="121" elementType="Te">
@@ -7184,7 +7034,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">121.9030439</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.7359</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:ecDecay">0.052</scalar>
 		<scalar dictRef="bo:ecDecayLikeliness" units="bo:percentage">100.0</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
@@ -7193,7 +7042,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.89</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">122.90427</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te124" number="124" elementType="Te">
@@ -7201,21 +7049,18 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">123.9028179</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.8871</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te125" number="125" elementType="Te">
 		<scalar dictRef="bo:relativeAbundance">7.07</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">124.9044307</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
 	</isotope>
 	<isotope id="Te126" number="126" elementType="Te">
 		<scalar dictRef="bo:relativeAbundance">18.84</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">125.9033117</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:betaminusDecay">0.697</scalar>
 		<scalar dictRef="bo:betaminusDecayLikeliness" units="bo:percentage">100.0</scalar>
 		<scalar dictRef="bo:atomicNumber">52</scalar>
@@ -7404,7 +7249,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">126.904473</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.808</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">53</scalar>
 	</isotope>
 	<isotope id="I128" number="128" elementType="I">
@@ -7583,7 +7427,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.09</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="7E-6">125.904274</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe127" number="127" elementType="Xe">
@@ -7598,7 +7441,6 @@
 		<scalar dictRef="bo:relativeAbundance">1.92</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">127.9035313</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe129" number="129" elementType="Xe">
@@ -7606,14 +7448,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">128.9047794</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.7768</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe130" number="130" elementType="Xe">
 		<scalar dictRef="bo:relativeAbundance">4.08</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.8E-6">129.903508</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe131" number="131" elementType="Xe">
@@ -7621,14 +7461,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">130.9050824</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.691861</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe132" number="132" elementType="Xe">
 		<scalar dictRef="bo:relativeAbundance">26.89</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1E-6">131.9041535</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe133" number="133" elementType="Xe">
@@ -7641,7 +7479,6 @@
 		<scalar dictRef="bo:relativeAbundance">10.44</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">133.9053945</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">54</scalar>
 	</isotope>
 	<isotope id="Xe135" number="135" elementType="Xe">
@@ -7820,7 +7657,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.024E-6">132.9054519</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.579</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">55</scalar>
 	</isotope>
 	<isotope id="Cs134" number="134" elementType="Cs">
@@ -8001,7 +7837,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.106</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">129.9063208</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba131" number="131" elementType="Ba">
@@ -8016,7 +7851,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.101</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.1E-6">131.9050613</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba133" number="133" elementType="Ba">
@@ -8029,7 +7863,6 @@
 		<scalar dictRef="bo:relativeAbundance">2.417</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">133.9045084</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba135" number="135" elementType="Ba">
@@ -8037,14 +7870,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">134.9056886</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.8365</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba136" number="136" elementType="Ba">
 		<scalar dictRef="bo:relativeAbundance">7.854</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">135.9045759</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba137" number="137" elementType="Ba">
@@ -8052,14 +7883,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.5E-6">136.9058274</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.9357</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba138" number="138" elementType="Ba">
 		<scalar dictRef="bo:relativeAbundance">71.698</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.5E-6">137.9052472</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">56</scalar>
 	</isotope>
 	<isotope id="Ba139" number="139" elementType="Ba">
@@ -8254,7 +8083,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">138.9063533</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.778</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">57</scalar>
 	</isotope>
 	<isotope id="La140" number="140" elementType="La">
@@ -8423,7 +8251,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.185</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="14E-6">135.907172</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">58</scalar>
 	</isotope>
 	<isotope id="Ce137" number="137" elementType="Ce">
@@ -8440,7 +8267,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.251</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="11E-6">137.905991</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">58</scalar>
 	</isotope>
 	<isotope id="Ce139" number="139" elementType="Ce">
@@ -8455,7 +8281,6 @@
 		<scalar dictRef="bo:relativeAbundance">88.450</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">139.9054387</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">58</scalar>
 	</isotope>
 	<isotope id="Ce141" number="141" elementType="Ce">
@@ -8647,7 +8472,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">140.9076528</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+4.3</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">59</scalar>
 	</isotope>
 	<isotope id="Pr142" number="142" elementType="Pr">
@@ -8833,7 +8657,6 @@
 		<scalar dictRef="bo:relativeAbundance">27.2</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">141.9077233</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd143" number="143" elementType="Nd">
@@ -8841,7 +8664,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">142.9098143</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-1.08</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd144" number="144" elementType="Nd">
@@ -8858,14 +8680,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">144.9125736</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.66</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd146" number="146" elementType="Nd">
 		<scalar dictRef="bo:relativeAbundance">17.2</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.5E-6">145.9131169</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd147" number="147" elementType="Nd">
@@ -8881,7 +8701,6 @@
 		<scalar dictRef="bo:relativeAbundance">5.7</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">147.916893</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">60</scalar>
 	</isotope>
 	<isotope id="Nd149" number="149" elementType="Nd">
@@ -9221,7 +9040,6 @@
 		<scalar dictRef="bo:relativeAbundance">3.07</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">143.911999</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm145" number="145" elementType="Sm">
@@ -9273,7 +9091,6 @@
 		<scalar dictRef="bo:relativeAbundance">7.38</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">149.9172755</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm151" number="151" elementType="Sm">
@@ -9288,7 +9105,6 @@
 		<scalar dictRef="bo:relativeAbundance">26.75</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">151.9197324</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm153" number="153" elementType="Sm">
@@ -9301,7 +9117,6 @@
 		<scalar dictRef="bo:relativeAbundance">22.75</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">153.9222093</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">62</scalar>
 	</isotope>
 	<isotope id="Sm155" number="155" elementType="Sm">
@@ -9462,7 +9277,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">150.9198502</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.464</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">63</scalar>
 	</isotope>
 	<isotope id="Eu152" number="152" elementType="Eu">
@@ -9476,7 +9290,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">152.9212303</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.530</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">63</scalar>
 	</isotope>
 	<isotope id="Eu154" number="154" elementType="Eu">
@@ -9649,7 +9462,6 @@
 		<scalar dictRef="bo:relativeAbundance">2.18</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">153.9208656</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd155" number="155" elementType="Gd">
@@ -9657,14 +9469,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">154.922622</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.27</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd156" number="156" elementType="Gd">
 		<scalar dictRef="bo:relativeAbundance">20.47</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">155.9221227</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd157" number="157" elementType="Gd">
@@ -9672,14 +9482,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">156.9239601</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.36</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd158" number="158" elementType="Gd">
 		<scalar dictRef="bo:relativeAbundance">24.84</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">157.9241039</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">64</scalar>
 	</isotope>
 	<isotope id="Gd159" number="159" elementType="Gd">
@@ -9776,7 +9584,6 @@
 	</isotope>
 	<isotope id="Tb144" number="144" elementType="Tb">
 		<scalar dictRef="bo:exactMass" errorValue="30E-6">143.93305</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">65</scalar>
 	</isotope>
 	<isotope id="Tb145" number="145" elementType="Tb">
@@ -9853,7 +9660,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">158.9253468</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.95</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">65</scalar>
 	</isotope>
 	<isotope id="Tb160" number="160" elementType="Tb">
@@ -10007,7 +9813,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.06</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="7E-6">155.924283</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy157" number="157" elementType="Dy">
@@ -10020,7 +9825,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.10</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">157.924409</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy159" number="159" elementType="Dy">
@@ -10033,7 +9837,6 @@
 		<scalar dictRef="bo:relativeAbundance">2.34</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">159.9251975</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy161" number="161" elementType="Dy">
@@ -10041,14 +9844,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">160.9269334</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.4805</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy162" number="162" elementType="Dy">
 		<scalar dictRef="bo:relativeAbundance">25.51</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">161.9267984</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy163" number="163" elementType="Dy">
@@ -10056,14 +9857,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">162.9287312</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.6726</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
 	</isotope>
 	<isotope id="Dy164" number="164" elementType="Dy">
 		<scalar dictRef="bo:relativeAbundance">28.18</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">163.9291748</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:betaminusDecay">1.3</scalar>
 		<scalar dictRef="bo:betaminusDecayLikeliness" units="bo:percentage">100.0</scalar>
 		<scalar dictRef="bo:atomicNumber">66</scalar>
@@ -10237,7 +10036,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">164.9303221</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+4.173</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">67</scalar>
 	</isotope>
 	<isotope id="Ho166" number="166" elementType="Ho">
@@ -10389,7 +10187,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.14</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">161.928778</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er163" number="163" elementType="Er">
@@ -10402,7 +10199,6 @@
 		<scalar dictRef="bo:relativeAbundance">1.61</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">163.9292</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er165" number="165" elementType="Er">
@@ -10415,7 +10211,6 @@
 		<scalar dictRef="bo:relativeAbundance">33.61</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">165.9302931</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er167" number="167" elementType="Er">
@@ -10423,14 +10218,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">166.9320482</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.5665</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er168" number="168" elementType="Er">
 		<scalar dictRef="bo:relativeAbundance">26.78</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">167.9323702</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er169" number="169" elementType="Er">
@@ -10443,7 +10236,6 @@
 		<scalar dictRef="bo:relativeAbundance">14.93</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">169.9354643</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">68</scalar>
 	</isotope>
 	<isotope id="Er171" number="171" elementType="Er">
@@ -10604,7 +10396,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">168.9342133</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.2316</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">69</scalar>
 	</isotope>
 	<isotope id="Tm170" number="170" elementType="Tm">
@@ -10760,7 +10551,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.13</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="5E-6">167.933897</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb169" number="169" elementType="Yb">
@@ -10773,7 +10563,6 @@
 		<scalar dictRef="bo:relativeAbundance">3.04</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">169.9347618</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb171" number="171" elementType="Yb">
@@ -10781,14 +10570,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">170.9363258</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.4919</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb172" number="172" elementType="Yb">
 		<scalar dictRef="bo:relativeAbundance">21.83</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">171.9363815</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb173" number="173" elementType="Yb">
@@ -10796,14 +10583,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">172.9382108</scalar>
 		<scalar dictRef="bo:spin">5/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.6776</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb174" number="174" elementType="Yb">
 		<scalar dictRef="bo:relativeAbundance">31.83</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.6E-6">173.9388621</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb175" number="175" elementType="Yb">
@@ -10819,7 +10604,6 @@
 		<scalar dictRef="bo:relativeAbundance">12.76</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.8E-6">175.9425717</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">70</scalar>
 	</isotope>
 	<isotope id="Yb177" number="177" elementType="Yb">
@@ -10977,7 +10761,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">174.9407718</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.2327</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">71</scalar>
 	</isotope>
 	<isotope id="Lu176" number="176" elementType="Lu">
@@ -11154,7 +10937,6 @@
 		<scalar dictRef="bo:relativeAbundance">5.26</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.4E-6">175.9414086</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
 	<isotope id="Hf177" number="177" elementType="Hf">
@@ -11162,14 +10944,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">176.9432207</scalar>
 		<scalar dictRef="bo:spin">7/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.7935</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
 	<isotope id="Hf178" number="178" elementType="Hf">
 		<scalar dictRef="bo:relativeAbundance">27.28</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">177.9436988</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
 	<isotope id="Hf179" number="179" elementType="Hf">
@@ -11177,14 +10957,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">178.9458161</scalar>
 		<scalar dictRef="bo:spin">9/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.6409</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
 	<isotope id="Hf180" number="180" elementType="Hf">
 		<scalar dictRef="bo:relativeAbundance">35.08</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.3E-6">179.94655</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">72</scalar>
 	</isotope>
 	<isotope id="Hf181" number="181" elementType="Hf">
@@ -11364,7 +11142,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.9E-6">180.9479958</scalar>
 		<scalar dictRef="bo:spin">7/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+2.370</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">73</scalar>
 	</isotope>
 	<isotope id="Ta182" number="182" elementType="Ta">
@@ -11528,7 +11305,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.12</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="4E-6">179.946704</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">74</scalar>
 	</isotope>
 	<isotope id="W181" number="181" elementType="W">
@@ -11544,7 +11320,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">181.9482042</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
 		<scalar dictRef="bo:magneticMoment">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">74</scalar>
 	</isotope>
 	<isotope id="W183" number="183" elementType="W">
@@ -11571,7 +11346,6 @@
 		<scalar dictRef="bo:relativeAbundance">28.43</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.9E-6">185.9543641</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">74</scalar>
 	</isotope>
 	<isotope id="W187" number="187" elementType="W">
@@ -11736,7 +11510,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">184.952955</scalar>
 		<scalar dictRef="bo:spin">5/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+3.172</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">75</scalar>
 	</isotope>
 	<isotope id="Re186" number="186" elementType="Re">
@@ -11936,14 +11709,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">186.9557505</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.06465</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os188" number="188" elementType="Os">
 		<scalar dictRef="bo:relativeAbundance">13.24</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.5E-6">187.9558382</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os189" number="189" elementType="Os">
@@ -11951,14 +11722,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">188.9581475</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.659933</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os190" number="190" elementType="Os">
 		<scalar dictRef="bo:relativeAbundance">26.26</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.6E-6">189.958447</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os191" number="191" elementType="Os">
@@ -11973,7 +11742,6 @@
 		<scalar dictRef="bo:relativeAbundance">40.78</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">191.9614807</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">76</scalar>
 	</isotope>
 	<isotope id="Os193" number="193" elementType="Os">
@@ -12137,7 +11905,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">190.960594</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.1461</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">77</scalar>
 	</isotope>
 	<isotope id="Ir192" number="192" elementType="Ir">
@@ -12158,7 +11925,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.8E-6">192.9629264</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.1591</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">77</scalar>
 	</isotope>
 	<isotope id="Ir194" number="194" elementType="Ir">
@@ -12329,7 +12095,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.782</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="2.7E-6">191.961038</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:alphaDecay">2.6</scalar>
 		<scalar dictRef="bo:alphaDecayLikeliness" units="bo:percentage">100.0</scalar>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
@@ -12343,7 +12108,6 @@
 		<scalar dictRef="bo:relativeAbundance">32.967</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">193.9626803</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
 	<isotope id="Pt195" number="195" elementType="Pt">
@@ -12351,14 +12115,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">194.9647911</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.60949</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
 	<isotope id="Pt196" number="196" elementType="Pt">
 		<scalar dictRef="bo:relativeAbundance">25.242</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.9E-6">195.9649515</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
 	<isotope id="Pt197" number="197" elementType="Pt">
@@ -12374,7 +12136,6 @@
 		<scalar dictRef="bo:relativeAbundance">7.163</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">197.967893</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">78</scalar>
 	</isotope>
 	<isotope id="Pt199" number="199" elementType="Pt">
@@ -12544,7 +12305,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">196.9665687</scalar>
 		<scalar dictRef="bo:spin">3/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.1457</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">79</scalar>
 	</isotope>
 	<isotope id="Au198" number="198" elementType="Au">
@@ -12722,7 +12482,6 @@
 		<scalar dictRef="bo:relativeAbundance">0.15</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="3E-6">195.965833</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg197" number="197" elementType="Hg">
@@ -12738,7 +12497,6 @@
 		<scalar dictRef="bo:relativeAbundance">9.97</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">197.966769</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg199" number="199" elementType="Hg">
@@ -12746,14 +12504,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">198.9682799</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.5058851</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg200" number="200" elementType="Hg">
 		<scalar dictRef="bo:relativeAbundance">23.10</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">199.968326</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg201" number="201" elementType="Hg">
@@ -12761,14 +12517,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">200.9703023</scalar>
 		<scalar dictRef="bo:spin">3/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">-0.560225</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg202" number="202" elementType="Hg">
 		<scalar dictRef="bo:relativeAbundance">29.86</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.6E-6">201.970643</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg203" number="203" elementType="Hg">
@@ -12784,7 +12538,6 @@
 		<scalar dictRef="bo:relativeAbundance">6.87</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="0.4E-6">203.9734939</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">80</scalar>
 	</isotope>
 	<isotope id="Hg205" number="205" elementType="Hg">
@@ -12951,7 +12704,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.4E-6">202.9723442</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.622257</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">81</scalar>
 	</isotope>
 	<isotope id="Tl204" number="204" elementType="Tl">
@@ -12970,7 +12722,6 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.4E-6">204.9744275</scalar>
 		<scalar dictRef="bo:spin">1/2+</scalar>
 		<scalar dictRef="bo:magneticMoment">+1.6382134</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">81</scalar>
 	</isotope>
 	<isotope id="Tl206" number="206" elementType="Tl">
@@ -13149,7 +12900,6 @@
 		<scalar dictRef="bo:relativeAbundance">24.1</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">205.9744653</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">82</scalar>
 	</isotope>
 	<isotope id="Pb207" number="207" elementType="Pb">
@@ -13157,14 +12907,12 @@
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">206.9758969</scalar>
 		<scalar dictRef="bo:spin">1/2-</scalar>
 		<scalar dictRef="bo:magneticMoment">+0.5926</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">82</scalar>
 	</isotope>
 	<isotope id="Pb208" number="208" elementType="Pb">
 		<scalar dictRef="bo:relativeAbundance">52.4</scalar>
 		<scalar dictRef="bo:exactMass" errorValue="1.3E-6">207.9766521</scalar>
 		<scalar dictRef="bo:spin">0+</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">82</scalar>
 	</isotope>
 	<isotope id="Pb209" number="209" elementType="Pb">
@@ -14025,7 +13773,6 @@
 	</isotope>
 	<isotope id="Fr218" number="218" elementType="Fr">
 		<scalar dictRef="bo:exactMass" errorValue="5E-6">218.007578</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">87</scalar>
 	</isotope>
 	<isotope id="Fr219" number="219" elementType="Fr">
@@ -14108,7 +13855,6 @@
 	</isotope>
 	<isotope id="Ra203" number="203" elementType="Ra">
 		<scalar dictRef="bo:exactMass" errorValue="90E-6">203.00927</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">88</scalar>
 	</isotope>
 	<isotope id="Ra204" number="204" elementType="Ra">
@@ -14781,7 +14527,6 @@
 	</isotope>
 	<isotope id="U222" number="222" elementType="U">
 		<scalar dictRef="bo:exactMass" errorValue="110E-6">222.02609</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">92</scalar>
 	</isotope>
 	<isotope id="U223" number="223" elementType="U">
@@ -15736,7 +15481,6 @@
 	</isotope>
 	<isotope id="Md246" number="246" elementType="Md">
 		<scalar dictRef="bo:exactMass" errorValue="350E-6">246.08189</scalar>
-		<scalar dictRef="bo:halfLife" units="siUnits:s">-1</scalar>
 		<scalar dictRef="bo:atomicNumber">101</scalar>
 	</isotope>
 	<isotope id="Md247" number="247" elementType="Md">
