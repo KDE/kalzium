@@ -100,9 +100,9 @@ double Isotope::halflife() const
 	return m_halflife.value().toDouble();
 }
 
-ChemicalDataObject Isotope::halflifeObject() const
+QString Isotope::halflifeUnit() const
 {
-    return m_halflife;
+	return m_halflife.unitAsString();
 }
 
 double Isotope::ecdecay() const

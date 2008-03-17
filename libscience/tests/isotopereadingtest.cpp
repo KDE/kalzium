@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Carsten Niehaus <cniehaus@kde.org>        *
+ *   Copyright (C) 2005, 2006, 2008 by Carsten Niehaus <cniehaus@kde.org>  *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -47,9 +47,13 @@ int main(int argc, char *argv[])
     foreach( Isotope* i, v ){
         if ( i )
         {
-            if (i->nucleons() == 50 ){
+//X             if (i->nucleons() == 50 ){
+//X                 qDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass();
+//X                 qDebug() << "       Halflife: " << i->halflife() << i->halflifeUnit( );
+//X             }
+            if (i->parentElementSymbol() == "Ti" ){
                 qDebug() << "   Isotope of " << i->parentElementSymbol() << " with a mass of " << i->mass();
-                qDebug() << "       Halflife: " << i->halflife() << i->halflifeObject().unitAsString( );
+                qDebug() << "       Halflife: " << i->halflife() << i->halflifeUnit( );
             }
         }
     }

@@ -1,7 +1,7 @@
 #ifndef ISOTOPE_H
 #define ISOTOPE_H
 /***************************************************************************
- *   Copyright (C) 2005 by Carsten Niehaus                                 *
+ *   Copyright (C) 2005-2008 by Carsten Niehaus                            *
  *   cniehaus@kde.org                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -83,22 +83,33 @@ class SCIENCE_EXPORT Isotope
 
 		QString spin() const;
 
+                /**
+                 * @return the magnetic moment of the Isotope
+                 */
 		QString magmoment() const;
 
 		QString abundance() const;		
 
+                /**
+                 * @return for example '17' if halflife of this Isotope is 17 seconds
+                 * @ref halflife()
+                 */
 		double halflife() const;
 
                 /**
-                 * @return the ChemicalDataObject of the halflife of the Isotope
+                 * @return for example 's' if the unit of the halflife of this Isotope is given in
+                 * seconds
                  */
-                ChemicalDataObject halflifeObject() const;
+                QString halflifeUnit() const;
 		
 		/**
 		 * add the ChemicalDataObject @p o
 		 */
 		void addData( ChemicalDataObject o );
 
+                /**
+                 * Set the number of nucleons of the isotope to @number
+                 */ 
 		void setNucleons( int number );
 		
 		/**

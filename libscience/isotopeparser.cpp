@@ -1,5 +1,5 @@
 /***************************************************************************
-copyright            : (C) 2005 by Carsten Niehaus
+copyright            : (C) 2005-2008 by Carsten Niehaus
 email                : cniehaus@kde.org
  ***************************************************************************/
 /***************************************************************************
@@ -15,7 +15,7 @@ email                : cniehaus@kde.org
 #include "chemicaldataobject.h"
 #include "isotope.h"
 
-#include <kdebug.h>
+#include <QDebug>
 
 
 class IsotopeParser::Private
@@ -88,7 +88,6 @@ IsotopeParser::~IsotopeParser()
 
 bool IsotopeParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-//X     kDebug() << "IsotopeParser::startElement()";
     if (localName == "isotopeList") 
     {
         d->inElement = true;
@@ -99,11 +98,9 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
             if ( attrs.localName( i ) == "id" )
                 d->currentElementSymbol = attrs.value( i );
 
-//X             kDebug() << "Symbol of the current Element: " << attrs.value( i );
         }
     } else if ( d->inElement && localName == "isotope") 
     {
-//X         kDebug() << "setting inIsotope true!";
         d->currentIsotope = new Isotope();
         d->currentIsotope->addData( ChemicalDataObject( QVariant( d->currentElementSymbol ), ChemicalDataObject::symbol ) );
         d->inIsotope = true;
@@ -112,7 +109,6 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
             if ( attrs.localName( i ) == "number" )
             {
                 d->currentIsotope->setNucleons( attrs.value( i ).toInt() );
-//X                 kDebug() << attrs.value( i ).toInt();
             }
         }
     } else if (d->inIsotope && localName == "scalar")
@@ -132,20 +128,17 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
             else if (attrs.value(i) == "bo:halfLife"){
                 for (int i = 0; i < attrs.length(); ++i) 
                 {
-                    qDebug() << attrs.localName( i );
                     if (attrs.localName(i) == "units") {
-                        if ( attrs.value(i) == "siUnits:s" )
-                        {
+                        if ( attrs.value(i) == "siUnits:s" ) {
                             d->currentUnit = ChemicalDataObject::s;
-                        }
-                        else if ( attrs.value(i) == "siUnits:y" )
-                        {
+                        } else if ( attrs.value(i) == "siUnits:y" ) {
                             d->currentUnit = ChemicalDataObject::y;
                         } else {
                             d->currentUnit = ChemicalDataObject::noUnit;
                         }
                     }
                 }
+
                 d->currentDataObject.setUnit( d->currentUnit );
                 d->inHalfLife = true;
             }
@@ -178,7 +171,6 @@ bool IsotopeParser::startElement(const QString&, const QString &localName, const
 
 bool IsotopeParser::endElement( const QString&, const QString& localName, const QString& )
 {
-//X     kDebug() << "IsotopeParser::endElement()";
 	if ( localName == "isotope" )
 	{
 		d->isotopes.append(d->currentIsotope);
@@ -188,7 +180,6 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 	}
 	else if ( localName == "isotopeList" )
 	{//a new list of isotopes start...
-//X             kDebug() << "setting d->inElement FALSE";
             d->inElement = false;
 	}
 
@@ -197,8 +188,6 @@ bool IsotopeParser::endElement( const QString&, const QString& localName, const 
 
 bool IsotopeParser::characters(const QString &ch)
 {
-//X     kDebug() << "IsotopeParser::characters() with ch: " << ch;
-	d->currentDataObject = ChemicalDataObject();
 	ChemicalDataObject::BlueObelisk type;
 	QVariant value;
 
@@ -224,7 +213,6 @@ bool IsotopeParser::characters(const QString &ch)
 	}
 	else if (d->inHalfLife) {
 		value = ch.toDouble();
-		if(ch=="-1"){value=-2;}
 		type = ChemicalDataObject::halfLife; 
 		d->inHalfLife = false;
 	}
