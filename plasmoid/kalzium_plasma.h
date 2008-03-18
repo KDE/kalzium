@@ -59,6 +59,9 @@ class KalziumPlasma : public Plasma::Applet
         Plasma::Svg m_theme;
         Plasma::Label *m_label1;
         Plasma::Label *m_label2;
+        Plasma::Label *m_label3;
+        Plasma::Label *m_label4;
+        Plasma::Label *m_label5;
 
         Ui::config ui;
         KDialog *m_dialog;

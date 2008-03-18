@@ -30,6 +30,9 @@ KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     m_dialog = 0;
     m_label1 = 0;
     m_label2 = 0;
+    m_label3 = 0;
+    m_label4 = 0;
+    m_label5 = 0;
     setHasConfigurationInterface(true);
     setAcceptDrops(false);
     setAcceptsHoverEvents(true);
@@ -52,15 +55,21 @@ void KalziumPlasma::init()
 
     m_label1 = new Plasma::Label(this);
     m_label2 = new Plasma::Label(this);
+    m_label3 = new Plasma::Label(this);
+    m_label4 = new Plasma::Label(this);
+    m_label5 = new Plasma::Label(this);
 
-    m_label1->setText("label1 debug");
-    m_label2->setText("label2 debug");
-    
-    m_label1->setPos( m_theme.elementRect( "translation1" ).topLeft() );
-    m_label2->setPos( m_theme.elementRect( "translation2" ).topLeft() );
+    m_label1->setPos( m_theme.elementRect( "name" ).topLeft() );
+    m_label2->setPos( m_theme.elementRect( "symbol" ).topLeft() );
+    m_label3->setPos( m_theme.elementRect( "bp" ).topLeft() );
+    m_label4->setPos( m_theme.elementRect( "mp" ).topLeft() );
+    m_label5->setPos( m_theme.elementRect( "mass" ).topLeft() );
     
     m_label1->setFont(cg.readEntry("font",m_font));
     m_label2->setFont(cg.readEntry("font",m_font));
+    m_label3->setFont(cg.readEntry("font",m_font));
+    m_label4->setFont(cg.readEntry("font",m_font));
+    m_label5->setFont(cg.readEntry("font",m_font));
 }
 
 void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
@@ -71,15 +80,35 @@ void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
     if (constraints & Plasma::SizeConstraint) {
         m_theme.resize(contentSize().toSize());
     }
-    m_label1->setPos( m_theme.elementRect( "translation1" ).topLeft() );
+    m_label1->setPos( m_theme.elementRect( "name" ).topLeft() );
     m_label1->setFont( m_font );
-    double scale = qMin(m_theme.elementRect( "translation1" ).width()/m_label1->boundingRect().width(), m_theme.elementRect( "translation1" ).height()/m_label1->boundingRect().height());
+    double scale = qMin(m_theme.elementRect( "name" ).width()/m_label1->boundingRect().width(),
+            m_theme.elementRect( "name" ).height()/m_label1->boundingRect().height());
     m_label1->setTransform(QTransform().scale(scale, scale));
-
-    m_label2->setPos( m_theme.elementRect( "translation2" ).topLeft() );
-    m_label2->setFont( m_font );
-    scale = qMin(m_theme.elementRect( "translation2" ).width()/m_label2->boundingRect().width(), m_theme.elementRect( "translation2" ).height()/m_label2->boundingRect().height());
-    m_label2->setTransform(QTransform().scale(scale, scale));
+    
+//X     m_label2->setPos( m_theme.elementRect( "symbol" ).topLeft() );
+//X     m_label2->setFont( m_font );
+//X     scale = qMin(m_theme.elementRect( "symbol" ).width()/m_label2->boundingRect().width(),
+//X             m_theme.elementRect( "symbol" ).height()/m_label2->boundingRect().height());
+//X     m_label2->setTransform(QTransform().scale(scale, scale));
+//X     
+//X     m_label3->setPos( m_theme.elementRect( "bp" ).topLeft() );
+//X     m_label3->setFont( m_font );
+//X     scale = qMin(m_theme.elementRect( "bp" ).width()/m_label3->boundingRect().width(),
+//X             m_theme.elementRect( "bp" ).height()/m_label3->boundingRect().height());
+//X     m_label3->setTransform(QTransform().scale(scale, scale));
+//X 
+//X     m_label4->setPos( m_theme.elementRect( "mp" ).topLeft() );
+//X     m_label4->setFont( m_font );
+//X     scale = qMin(m_theme.elementRect( "mp" ).width()/m_label4->boundingRect().width(),
+//X             m_theme.elementRect( "mp" ).height()/m_label4->boundingRect().height());
+//X     m_label4->setTransform(QTransform().scale(scale, scale));
+//X 
+//X     m_label5->setPos( m_theme.elementRect( "symbol" ).topLeft() );
+//X     m_label5->setFont( m_font );
+//X     scale = qMin(m_theme.elementRect( "symbol" ).width()/m_label5->boundingRect().width(),
+//X             m_theme.elementRect( "symbol" ).height()/m_label5->boundingRect().height());
+//X     m_label5->setTransform(QTransform().scale(scale, scale));
 }
 
 KalziumPlasma::~KalziumPlasma()
@@ -90,43 +119,46 @@ KalziumPlasma::~KalziumPlasma()
 void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine::Data &data)
 {
     Q_UNUSED(source);
-    qDebug() << "dataUpdated called =========== source is: " << source << " =============================";
-    
-    if ( m_label1) {
-        QString text = (data["BlueObelisk"]).toString();
-        m_label1->setText(text);
-        double scale = qMin(m_theme.elementRect( "translation1" ).width()/m_label1->boundingRect().width(), m_theme.elementRect( "translation1" ).height()/m_label1->boundingRect().height());
-        m_label1->setTransform(QTransform().scale(scale, scale));
-        m_label1->setPos(m_theme.elementRect( "translation1" ).topLeft()
-                + QPointF(
-                    (m_theme.elementRect("translation1").width()-m_label1->boundingRect().width()*scale)/2.0,
-                    (m_theme.elementRect("translation1").height()-m_label1->boundingRect().height()*scale)/2.0));
 
-    }
+    QString bp = data["bp"].toString();
+    QString mp = data["bp"].toString();
+    QString mass = data["mass"].toString();
+    QString symbol = data["symbol"].toString();
+    QString name = data["name"].toString();
 
+    if (m_label1)
+        m_label1->setText(i18n( "Name: %1", name ));
+    if (m_label2)
+        m_label2->setText(i18n("Symbol: %1", symbol));
+    if (m_label3)
+        m_label3->setText(i18n("Boilingpoint: %1", bp));
+    if (m_label4)
+        m_label4->setText(i18n("Meltingpoint: %1", mp));
+    if (m_label5)
+        m_label5->setText(i18n("Mass: %1", mass));
 }
 
 void KalziumPlasma::setContentSize(const QSizeF& size)
 {
-m_size = size;
+    m_size = size;
 }
 
 QSizeF KalziumPlasma::contentSizeHint() const
 {
-return m_size;
+    return m_size;
 }
 
 void KalziumPlasma::paintInterface(QPainter *p,
                        const QStyleOptionGraphicsItem *option,
                        const QRect &contentsRect)
 {
-Q_UNUSED(option);
+    Q_UNUSED(option);
 
-m_theme.resize((int)contentsRect.width(),
-                     (int)contentsRect.height());
-m_theme.paint(p,
-                   (int)contentsRect.left(),
-                   (int)contentsRect.top());
+    m_theme.resize((int)contentsRect.width(),
+            (int)contentsRect.height());
+    m_theme.paint(p,
+            (int)contentsRect.left(),
+            (int)contentsRect.top());
 }
 
 void KalziumPlasma::showConfigurationInterface()
@@ -171,13 +203,11 @@ void KalziumPlasma::configAccepted()
 void KalziumPlasma::hoverEnterEvent(QGraphicsSceneHoverEvent * event)
 {
     Plasma::Applet::hoverEnterEvent(event);
-    m_label2->show();
 }
 
 void KalziumPlasma::hoverLeaveEvent(QGraphicsSceneHoverEvent  * event)
 {
     Plasma::Applet::hoverLeaveEvent(event);
-    m_label2->hide();
 }
 
 #include "kalzium_plasma.moc"

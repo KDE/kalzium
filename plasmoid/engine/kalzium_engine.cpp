@@ -68,7 +68,7 @@ bool KalziumEngine::sourceRequested(const QString &source)
 {
     qDebug() << "sourceRequested";
     if (source == QLatin1String("BlueObelisk")) {
-        setData("BlueObelisk", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
+        setData("BlueObelisk", "symbol", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
         return true;
     }
     return false;
@@ -82,9 +82,12 @@ bool KalziumEngine::updateSource(const QString &source)
         setData(source, i18n("No element set."));
         return false;
     }
-    setData("BlueObelisk", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
+    setData("BlueObelisk", "bp", m_currentElement->dataAsString( ChemicalDataObject::boilingpoint )       );
+    setData("BlueObelisk", "mp", m_currentElement->dataAsString( ChemicalDataObject::meltingpoint )       );
+    setData("BlueObelisk", "name", m_currentElement->dataAsString( ChemicalDataObject::name )       );
+    setData("BlueObelisk", "mass", m_currentElement->dataAsString( ChemicalDataObject::mass )       );
+    setData("BlueObelisk", "symbol", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
     
-    qDebug() << "KalziumEngine::updateSource()" << source;
     return true;
 }
 
