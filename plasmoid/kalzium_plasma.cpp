@@ -80,11 +80,11 @@ void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
     if (constraints & Plasma::SizeConstraint) {
         m_theme.resize(contentSize().toSize());
     }
-    m_label1->setPos( m_theme.elementRect( "name" ).topLeft() );
-    m_label1->setFont( m_font );
-    double scale = qMin(m_theme.elementRect( "name" ).width()/m_label1->boundingRect().width(),
-            m_theme.elementRect( "name" ).height()/m_label1->boundingRect().height());
-    m_label1->setTransform(QTransform().scale(scale, scale));
+//X     m_label1->setPos( m_theme.elementRect( "name" ).topLeft() );
+//X     m_label1->setFont( m_font );
+//X     double scale = qMin(m_theme.elementRect( "name" ).width()/m_label1->boundingRect().width(),
+//X             m_theme.elementRect( "name" ).height()/m_label1->boundingRect().height());
+//X     m_label1->setTransform(QTransform().scale(scale, scale));
     
 //X     m_label2->setPos( m_theme.elementRect( "symbol" ).topLeft() );
 //X     m_label2->setFont( m_font );
