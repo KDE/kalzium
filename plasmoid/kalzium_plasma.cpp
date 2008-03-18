@@ -23,22 +23,20 @@ KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
     m_theme("widgets/kalzium_plasma_card", this),
     m_dialog(0),
-    m_font(QFont()),
-    m_size(256,160)
-
+    m_font(QFont())
 {
     m_dialog = 0;
     m_label1 = 0;
-    m_label2 = 0;
+    /*m_label2 = 0;
     m_label3 = 0;
     m_label4 = 0;
-    m_label5 = 0;
+    m_label5 = 0;*/
     setHasConfigurationInterface(true);
     setAcceptDrops(false);
     setAcceptsHoverEvents(true);
     setDrawStandardBackground(false);
 
-    m_theme.resize();
+    resize(256,160);
 }
 
 void KalziumPlasma::init()
@@ -51,25 +49,24 @@ void KalziumPlasma::init()
     kalziumEngine->connectSource("BlueObelisk", this, m_updateInterval);
 
     m_theme.setContentType(Plasma::Svg::SingleImage);
-    m_theme.size().height();
 
     m_label1 = new Plasma::Label(this);
-    m_label2 = new Plasma::Label(this);
+    /*m_label2 = new Plasma::Label(this);
     m_label3 = new Plasma::Label(this);
     m_label4 = new Plasma::Label(this);
-    m_label5 = new Plasma::Label(this);
+    m_label5 = new Plasma::Label(this);*/
 
     m_label1->setPos( m_theme.elementRect( "name" ).topLeft() );
-    m_label2->setPos( m_theme.elementRect( "symbol" ).topLeft() );
+    /*m_label2->setPos( m_theme.elementRect( "symbol" ).topLeft() );
     m_label3->setPos( m_theme.elementRect( "bp" ).topLeft() );
     m_label4->setPos( m_theme.elementRect( "mp" ).topLeft() );
-    m_label5->setPos( m_theme.elementRect( "mass" ).topLeft() );
+    m_label5->setPos( m_theme.elementRect( "mass" ).topLeft() );*/
     
     m_label1->setFont(cg.readEntry("font",m_font));
-    m_label2->setFont(cg.readEntry("font",m_font));
+    /*m_label2->setFont(cg.readEntry("font",m_font));
     m_label3->setFont(cg.readEntry("font",m_font));
     m_label4->setFont(cg.readEntry("font",m_font));
-    m_label5->setFont(cg.readEntry("font",m_font));
+    m_label5->setFont(cg.readEntry("font",m_font));*/
 }
 
 void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
@@ -121,31 +118,28 @@ void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine:
     Q_UNUSED(source);
 
     QString bp = data["bp"].toString();
-    QString mp = data["bp"].toString();
+    QString mp = data["mp"].toString();
     QString mass = data["mass"].toString();
     QString symbol = data["symbol"].toString();
     QString name = data["name"].toString();
-
-    if (m_label1)
-        m_label1->setText(i18n( "Name: %1", name ));
-    if (m_label2)
-        m_label2->setText(i18n("Symbol: %1", symbol));
+    QString text;
+    text = QString(i18n( "\nName: %1", name ));
+    text.append(QString(i18n( "\nSymbol: %1", symbol)));
+    text.append(QString(i18n( "\nBoilingpoint: %1", bp)));
+    text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
+    text.append(QString(i18n( "\nMass: %1", mass)));
+    if (m_label1)  {
+	m_label1->setAlignment(Qt::AlignLeft);
+        m_label1->setText(text);
+    }
+    /*if (m_label2)
+        m_label2->setText(i18n("\nSymbol: %1", symbol));
     if (m_label3)
-        m_label3->setText(i18n("Boilingpoint: %1", bp));
+        m_label3->setText(i18n("\nBoilingpoint: %1", bp));
     if (m_label4)
-        m_label4->setText(i18n("Meltingpoint: %1", mp));
+        m_label4->setText(i18n("\nMeltingpoint: %1", mp));
     if (m_label5)
-        m_label5->setText(i18n("Mass: %1", mass));
-}
-
-void KalziumPlasma::setContentSize(const QSizeF& size)
-{
-    m_size = size;
-}
-
-QSizeF KalziumPlasma::contentSizeHint() const
-{
-    return m_size;
+        m_label5->setText(i18n("\nMass: %1", mass));*/
 }
 
 void KalziumPlasma::paintInterface(QPainter *p,
@@ -157,8 +151,8 @@ void KalziumPlasma::paintInterface(QPainter *p,
     m_theme.resize((int)contentsRect.width(),
             (int)contentsRect.height());
     m_theme.paint(p,
-            (int)contentsRect.left(),
-            (int)contentsRect.top());
+            (int)contentsRect.left() - 20,
+            (int)contentsRect.top() -10 );
 }
 
 void KalziumPlasma::showConfigurationInterface()

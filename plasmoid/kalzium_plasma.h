@@ -38,8 +38,7 @@ class KalziumPlasma : public Plasma::Applet
         KalziumPlasma(QObject *parent, const QVariantList &args);
         ~KalziumPlasma();
         void init();
-        void setContentSize(const QSizeF& size);
-        QSizeF contentSizeHint() const;
+
         void paintInterface(QPainter *painter,
                             const QStyleOptionGraphicsItem *option,
                             const QRect& contentsRect);
@@ -67,7 +66,6 @@ class KalziumPlasma : public Plasma::Applet
         KDialog *m_dialog;
 
         QFont m_font;
-        QSizeF m_size;
 
         int m_updateInterval;
 };
