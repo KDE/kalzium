@@ -211,12 +211,6 @@ void ElementDataViewer::setupAxisData( AxisData * data )
                 caption = i18n( "Atomic Mass [u]" );
                 break;
             }
-        case AxisData::MEANWEIGHT:
-            {//TODO not sure if mass is ok here...
-                kind = ChemicalDataObject::mass;
-                caption = i18n( "Mean Mass [u]" );
-                break;
-            }
         case AxisData::EN:
             {
                 kind = ChemicalDataObject::electronegativityPauling;

@@ -163,11 +163,6 @@ QString DetailedInfoDlg::getHtml( DATATYPE type )
                 html += "<br />" + i18n( "It was discovered by %1.", discoverers );
             }
             html.append( "</td></tr>" );
-            html.append( "<tr><td><img src=\"mass.png\" alt=\"icon\"/></td><td>" );
-            double mass = m_element->dataAsVariant( ChemicalDataObject::mass ).toDouble();
-            double neutrons = m_element->dataAsVariant( ChemicalDataObject::atomicNumber ).toInt();
-            html.append( i18n( "Mean mass: %1 u", mass/neutrons) );
-            html.append( "</td></tr>" );
             // origin of the name
             QString nameorigin = m_element->dataAsString( ChemicalDataObject::nameOrigin );
             if ( !nameorigin.isEmpty() )

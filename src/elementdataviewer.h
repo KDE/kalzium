@@ -38,7 +38,6 @@ class AxisData
         enum PAXISDATA {
             NUMBER = 0,
             MASS,
-            MEANWEIGHT,
             EN,
             MELTINGPOINT,
             BOILINGPOINT,

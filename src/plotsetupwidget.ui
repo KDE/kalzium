@@ -162,11 +162,6 @@
           </item>
           <item>
            <property name="text" >
-            <string>Mean Mass</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
             <string>Electronegativity</string>
            </property>
           </item>
@@ -315,11 +310,6 @@
           <item>
            <property name="text" >
             <string>Mass</string>
-           </property>
-          </item>
-          <item>
-           <property name="text" >
-            <string>Mean Mass</string>
            </property>
           </item>
           <item>
