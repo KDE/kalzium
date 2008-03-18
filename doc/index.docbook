@@ -75,7 +75,7 @@
 		 <para>
 			 You can visualize the Periodic Table of the Elements by groups, blocks, acidic
 			 behavior, families, crystal structure or different states of matter. You can
-			 plot data for a range of elements  for properties like the density or the
+			 plot data for a range of elements for properties like the boilingpoint or the
 			 atomic mass. You can go back in time and see what elements were known at a 
 			 given date. You can also calculate the molecular mass of molecules.
 		 </para>
@@ -230,8 +230,7 @@
 				 <title>Chemical Data</title>
 				 <para>
 					 The <guilabel>Chemical Data</guilabel> tab presents some atomic
-					 data. The first entry is the <guilabel>Orbital structure</guilabel>. The next is the
-					 <guilabel>density</guilabel>.
+					 data. The first entry is the <guilabel>Orbital structure</guilabel>. 
 				 </para>
 				 <para> Depending on the data available in &kalzium; you will see
 					 different radii of the element. The covalent radius is the radius
@@ -320,7 +319,7 @@
 			 </sect2>
 			 <sect2 id="infodialog_misc">
 				 <title>Miscellaneous</title>
-				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it was discovered, its mean mass (the mass per neutron) and the origin of the name.</para>
+				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it was discovered and the origin of the name.</para>
 				 <screenshot>
 					 <screeninfo>&kalzium; information dialog</screeninfo>
 					 <mediaobject>
@@ -459,8 +458,6 @@
 						 <listitem><para><guimenuitem>van der Waals Radius</guimenuitem>
 						 </para></listitem>
 						 <listitem><para><guimenuitem>Atomic Mass</guimenuitem>
-						 </para></listitem>
-						 <listitem><para><guimenuitem>Density</guimenuitem>
 						 </para></listitem>
 						 <listitem><para><guimenuitem>Boiling Point</guimenuitem>
 						 </para></listitem>
@@ -885,7 +882,6 @@
 								 <guimenu>View</guimenu>
 								 <guisubmenu>Look</guisubmenu>
 								 <guimenuitem>Gradient</guimenuitem>
-								 <guimenuitem>Density</guimenuitem>
 						 </menuchoice></term>
 						 <listitem><para><action>Display</action> the elements atomic radius</para></listitem>
 					 </varlistentry>
