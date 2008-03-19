@@ -1,6 +1,10 @@
 [Desktop Entry]
 Name=Kalzium Data Engine
+Name[pt]=Motor de Dados do Kalzium
+Name[pt_BR]=Motor de Dados do Kalzium
 Comment=Chemical Data
+Comment[pt]=Dados Químicos
+Comment[pt_BR]=Dados Químicos
 
 X-KDE-ServiceTypes=Plasma/DataEngine
 Type=Service

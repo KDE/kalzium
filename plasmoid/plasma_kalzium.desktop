@@ -12,6 +12,8 @@ Icon=kalzium
 Type=Service
 ServiceTypes=Plasma/Applet
 Comment=Chemical Data Applet
+Comment[pt]='Applet' de Dados Químicos
+Comment[pt_BR]='Applet' de Dados Químicos
 
 
 X-KDE-ServiceTypes=Plasma/Applet
