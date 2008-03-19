@@ -40,16 +40,13 @@ void KalziumPlasma::init()
     qDebug() << "initializing Kalzium";
 
     KConfigGroup cg = config();
-    m_updateInterval = cg.readEntry("updateInterval", 1000);
     Plasma::DataEngine* kalziumEngine = dataEngine("kalzium");
-    kalziumEngine->connectSource("BlueObelisk", this, m_updateInterval);
+    kalziumEngine->connectSource("BlueObelisk", this, 1000);
 
     m_theme.setContentType(Plasma::Svg::SingleImage);
 
     m_label1 = new Plasma::Label(this);
-
     m_label1->setPos( m_theme.elementRect( "name" ).topLeft() );
-    
     m_label1->setFont(cg.readEntry("font",m_font));
 }
 
@@ -84,7 +81,7 @@ void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine:
     text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
     text.append(QString(i18n( "\nMass: %1", mass)));
     if (m_label1)  {
-	m_label1->setAlignment(Qt::AlignLeft);
+//	m_label1->setAlignment(Qt::AlignLeft);
         m_label1->setText(text);
     }
 }
@@ -110,11 +107,13 @@ if (m_dialog == 0) {
         m_dialog->setCaption( i18n("KalziumPlasma Configuration") );
         ui.setupUi(m_dialog->mainWidget());
         m_dialog->mainWidget()->layout()->setMargin(0);
-        ui.updateIntervalSpinBox->setValue(m_updateInterval/1000);
         m_dialog->setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Apply );
-        connect( m_dialog, SIGNAL(applyClicked()), this, SLOT(configAccepted()) );
-        connect( m_dialog, SIGNAL(okClicked()), this, SLOT(configAccepted()) );
-        connect( ui.fontSelectButton, SIGNAL(clicked()), this, SLOT(showFontSelectDlg()) );
+        connect( m_dialog, SIGNAL(applyClicked()), 
+                this, SLOT(configAccepted()) );
+        connect( m_dialog, SIGNAL(okClicked()), 
+                this, SLOT(configAccepted()) );
+        connect( ui.fontSelectButton, SIGNAL(clicked()), 
+                this, SLOT(showFontSelectDlg()) );
     }
 
     m_dialog->show();
@@ -133,11 +132,7 @@ void KalziumPlasma::configAccepted()
     cg.writeEntry("font", m_font);
     m_label1->setFont(m_font);
     m_label2->setFont(m_font);
-    m_updateInterval = ui.updateIntervalSpinBox->value()*1000;
-    cg.writeEntry("updateInterval", m_updateInterval);
     Plasma::DataEngine* kalziumEngine = dataEngine("kalzium");
-    kalziumEngine->connectSource("lang:0", this, m_updateInterval);
-    kalziumEngine->connectSource("lang:1", this, m_updateInterval);
     emit configNeedsSaving();
 }
 
