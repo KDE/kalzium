@@ -18,6 +18,7 @@
 #include <KColorDialog>
 
 #include <QDebug>
+#include <QPainter>
 
 KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
@@ -54,10 +55,10 @@ void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
 {
     qDebug() << "constraintsUpdated()";
     setDrawStandardBackground(false);
-    prepareGeometryChange();
-    if (constraints & Plasma::SizeConstraint) {
-        m_theme.resize(contentSize().toSize());
-    }
+//X     prepareGeometryChange();
+//X     if (constraints & Plasma::SizeConstraint) {
+//X         m_theme.resize(contentSize().toSize());
+//X     }
 }
 
 KalziumPlasma::~KalziumPlasma()
@@ -81,7 +82,7 @@ void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine:
     text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
     text.append(QString(i18n( "\nMass: %1", mass)));
     if (m_label1)  {
-//	m_label1->setAlignment(Qt::AlignLeft);
+	m_label1->setAlignment(Qt::AlignLeft);
         m_label1->setText(text);
     }
 }
@@ -92,11 +93,12 @@ void KalziumPlasma::paintInterface(QPainter *p,
 {
     Q_UNUSED(option);
 
-    m_theme.resize((int)contentsRect.width(),
-            (int)contentsRect.height());
-    m_theme.paint(p,
-            (int)contentsRect.left() - 20,
-            (int)contentsRect.top() -10 );
+    p->setRenderHint(QPainter::SmoothPixmapTransform);
+    p->setRenderHint(QPainter::Antialiasing);
+
+    // Now we draw the applet, starting with our svg
+    m_theme.resize((int)contentsRect.width(), (int)contentsRect.height());
+    m_theme.paint(p, (int)contentsRect.left(), (int)contentsRect.top());
 }
 
 void KalziumPlasma::showConfigurationInterface()
@@ -131,19 +133,9 @@ void KalziumPlasma::configAccepted()
     KConfigGroup cg = config();
     cg.writeEntry("font", m_font);
     m_label1->setFont(m_font);
-    m_label2->setFont(m_font);
     Plasma::DataEngine* kalziumEngine = dataEngine("kalzium");
+
     emit configNeedsSaving();
-}
-
-void KalziumPlasma::hoverEnterEvent(QGraphicsSceneHoverEvent * event)
-{
-    Plasma::Applet::hoverEnterEvent(event);
-}
-
-void KalziumPlasma::hoverLeaveEvent(QGraphicsSceneHoverEvent  * event)
-{
-    Plasma::Applet::hoverLeaveEvent(event);
 }
 
 #include "kalzium_plasma.moc"
