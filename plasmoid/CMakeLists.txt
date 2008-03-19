@@ -29,6 +29,6 @@ install(
     )
 
 install(
-    FILES kalzium_plasma_card.svg
+    FILES testtube.svg kalzium_plasma_card.svg
     DESTINATION ${DATA_INSTALL_DIR}/desktoptheme/default/widgets/
     )
