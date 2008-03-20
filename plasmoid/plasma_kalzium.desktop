@@ -14,6 +14,7 @@ ServiceTypes=Plasma/Applet
 Comment=Chemical Data Applet
 Comment[pt]='Applet' de Dados Químicos
 Comment[pt_BR]='Applet' de Dados Químicos
+Comment[zh_TW]=化學資料小程式
 
 
 X-KDE-ServiceTypes=Plasma/Applet
