@@ -14,25 +14,37 @@
 
 #include <QDebug>
 #include <QPainter>
+#include <QPen>
+#include <QColor>
 
 KalziumDidyouknow::KalziumDidyouknow(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
-    m_theme("widgets/chalkboard", this)
+    m_theme("widgets/chalkboard", this),
+    m_size(512,256)
 {
     m_label1 = 0;
     setHasConfigurationInterface(false);
     setAcceptDrops(false);
     setAcceptsHoverEvents(true);
     setDrawStandardBackground(false);
+    
+    m_theme.resize();
+}
 
-//    resize(256,160);
+void KalziumDidyouknow::setContentSize(const QSizeF& size)
+{
+    m_size = size;
+}
+
+QSizeF KalziumDidyouknow::contentSizeHint() const
+{
+    return m_size;
 }
 
 void KalziumDidyouknow::init()
 {
     qDebug() << "initializing DidYouKnow-Applet";
 
-    KConfigGroup cg = config();
     Plasma::DataEngine* kalziumEngine = dataEngine("kalzium");
     kalziumEngine->connectSource("BlueObelisk", this, 1000);
 
@@ -40,16 +52,18 @@ void KalziumDidyouknow::init()
 
     m_label1 = new Plasma::Label(this);
     m_label1->setPos( m_theme.elementRect( "canvas" ).topLeft() );
+    m_label1->setPen( QPen( Qt::white ) );
 }
 
 void KalziumDidyouknow::constraintsUpdated(Plasma::Constraints constraints)
 {
-    qDebug() << "constraintsUpdated()";
     setDrawStandardBackground(false);
-//X     prepareGeometryChange();
-//X     if (constraints & Plasma::SizeConstraint) {
-//X         m_theme.resize(contentSize().toSize());
-//X     }
+    prepareGeometryChange();
+    if (constraints & Plasma::SizeConstraint) {
+        m_theme.resize(contentSize().toSize());
+    }
+    
+    m_label1->setPos( m_theme.elementRect( "canvas" ).topLeft() );
 }
 
 KalziumDidyouknow::~KalziumDidyouknow()
@@ -60,17 +74,11 @@ void KalziumDidyouknow::dataUpdated(const QString& source, const Plasma::DataEng
 {
     Q_UNUSED(source);
 
-    QString bp = data["bp"].toString();
-    QString mp = data["mp"].toString();
-    QString mass = data["mass"].toString();
     QString symbol = data["symbol"].toString();
     QString name = data["name"].toString();
+
     QString text;
-    text = QString(i18n( "\nName: %1", name ));
-    text.append(QString(i18n( "\nSymbol: %1", symbol)));
-    text.append(QString(i18n( "\nBoilingpoint: %1", bp)));
-    text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
-    text.append(QString(i18n( "\nMass: %1", mass)));
+    text = QString(i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol ));
     if (m_label1)  {
 	m_label1->setAlignment(Qt::AlignLeft);
         m_label1->setText(text);

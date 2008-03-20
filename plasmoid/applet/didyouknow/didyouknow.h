@@ -22,6 +22,8 @@
 
 #include <QGraphicsTextItem>
 
+class QSizeF;
+
 class KalziumDidyouknow : public Plasma::Applet
 {
     Q_OBJECT
@@ -35,6 +37,9 @@ class KalziumDidyouknow : public Plasma::Applet
                             const QStyleOptionGraphicsItem *option,
                             const QRect& contentsRect);
         void constraintsUpdated(Plasma::Constraints constraints);
+        
+        void setContentSize(const QSizeF& size);
+        QSizeF contentSizeHint() const;
 
     public slots:
         void dataUpdated(const QString &name, const Plasma::DataEngine::Data &data);
@@ -42,6 +47,8 @@ class KalziumDidyouknow : public Plasma::Applet
     private:
         Plasma::Svg m_theme;
         Plasma::Label *m_label1;
+        
+        QSizeF m_size;
 };
 
 K_EXPORT_PLASMA_APPLET(kalzium_didyouknow, KalziumDidyouknow)
