@@ -18,6 +18,8 @@
 
 #include <QDebug>
 #include <QPainter>
+#include <QPen>
+#include <QColor>
 
 KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
@@ -48,16 +50,18 @@ void KalziumPlasma::init()
     m_label1 = new Plasma::Label(this);
     m_label1->setPos( m_theme.elementRect( "name" ).topLeft() );
     m_label1->setFont(cg.readEntry("font",m_font));
+    m_label1->setPen( QPen( Qt::white ) );
 }
 
 void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
 {
-    qDebug() << "constraintsUpdated()";
     setDrawStandardBackground(false);
-//X     prepareGeometryChange();
-//X     if (constraints & Plasma::SizeConstraint) {
-//X         m_theme.resize(contentSize().toSize());
-//X     }
+    prepareGeometryChange();
+    if (constraints & Plasma::SizeConstraint) {
+        m_theme.resize(contentSize().toSize());
+    }
+    
+    m_label1->setPos( m_theme.elementRect( "canvas" ).topLeft() );
 }
 
 KalziumPlasma::~KalziumPlasma()
