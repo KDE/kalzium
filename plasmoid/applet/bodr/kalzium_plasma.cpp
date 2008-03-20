@@ -15,7 +15,6 @@
 #include <KDialog>
 #include <KConfigGroup>
 #include <KFontDialog>
-#include <KColorDialog>
 
 #include <QDebug>
 #include <QPainter>
@@ -133,7 +132,6 @@ void KalziumPlasma::configAccepted()
     KConfigGroup cg = config();
     cg.writeEntry("font", m_font);
     m_label1->setFont(m_font);
-    Plasma::DataEngine* kalziumEngine = dataEngine("kalzium");
 
     emit configNeedsSaving();
 }

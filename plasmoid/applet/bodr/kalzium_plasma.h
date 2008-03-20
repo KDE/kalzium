@@ -26,9 +26,6 @@
 
 class KDialog;
 class QFont;
-class QSizeF;
-class KConfigGroup;
-class KEduVocDocument;
 
 class KalziumPlasma : public Plasma::Applet
 {
