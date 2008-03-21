@@ -34,7 +34,7 @@ KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     setAcceptsHoverEvents(true);
     setDrawStandardBackground(false);
 
-    resize(256,160);
+    resize(385,77);
 }
 
 void KalziumPlasma::init()
