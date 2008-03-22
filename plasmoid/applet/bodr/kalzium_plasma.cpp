@@ -162,10 +162,6 @@ void KalziumPlasma::configAccepted()
 
 void KalziumPlasma::textChanged()
 {
-    qDebug() << "KalziumPlasma::textChanged(): " << m_lineedit->toPlainText();
-
-    // doesn't seem to work. why?
-qDebug() << "KalziumPlasma::textChanged() source: " << m_currentSource;
     m_engine->disconnectSource(m_currentSource, this);
 
     QString currentText = m_lineedit->toPlainText();
