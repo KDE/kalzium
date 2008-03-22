@@ -1,6 +1,7 @@
 /***************************************************************************
     copyright            : (C) 2008 by Carsten Niehaus
     email                : cniehaus@kde.org
+    Copyright 2008 Frederik Gladhorn <frederik.gladhorn@kdemail.net>
  ***************************************************************************/
 /***************************************************************************
  *                                                                         *
@@ -29,11 +30,11 @@ KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     m_font(QFont())
 {
     m_engine = dataEngine("kalzium");
-    
+
     m_dialog = 0;
     m_label1 = 0;
     m_lineedit = new Plasma::LineEdit( this );
-    m_lineedit->setDefaultText( i18n("Enter your query.") );
+    m_lineedit->setDefaultText( i18n("Enter the atomic number.") );
     connect( m_lineedit, SIGNAL(editingFinished() ),
             this, SLOT(textChanged() ) );
 
@@ -50,6 +51,11 @@ void KalziumPlasma::init()
     qDebug() << "initializing Kalzium";
 
     KConfigGroup cg = config();
+
+    m_currentSource = "BlueObelisk:RandomElement";
+    // connect to random source and update ever 5 seconds
+    m_engine->connectSource( m_currentSource, this, 5000);
+
     m_theme.setContentType(Plasma::Svg::SingleImage);
 
     m_label1 = new Plasma::Label(this);
@@ -57,7 +63,6 @@ void KalziumPlasma::init()
     m_label1->setFont(cg.readEntry("font",m_font));
     m_label1->setPen( QPen( Qt::white ) );
 
-    m_engine->connectSource( "randomElement", this, 1000 );
 }
 
 void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
@@ -68,7 +73,7 @@ void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
         //m_theme.resize(contentSize().toSize());
         m_theme.resize(size());
     }
-    
+
     m_label1->setPos( m_theme.elementRect( "canvas" ).topLeft() );
 }
 
@@ -79,8 +84,10 @@ KalziumPlasma::~KalziumPlasma()
 
 void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine::Data &data)
 {
-    qDebug() << "dataUpdated() called with data = " << data;
-    Q_UNUSED(source);
+qDebug() << "dataUpdated" << source;
+    if (source != m_currentSource) {
+        return;
+    }
 
     QString bp = data["bp"].toString();
     QString mp = data["mp"].toString();
@@ -156,7 +163,19 @@ void KalziumPlasma::configAccepted()
 void KalziumPlasma::textChanged()
 {
     qDebug() << "KalziumPlasma::textChanged(): " << m_lineedit->toPlainText();
-    m_engine->connectSource( "element:123", this, 1000 );
+
+    // doesn't seem to work. why?
+qDebug() << "KalziumPlasma::textChanged() source: " << m_currentSource;
+    m_engine->disconnectSource(m_currentSource, this);
+
+    QString currentText = m_lineedit->toPlainText();
+    if (!currentText.isEmpty()) {
+        // simply assume the user entered the atomic number of the element
+        m_currentSource = QString("BlueObelisk:Element:") + currentText;
+    } else {
+        m_currentSource = QString("BlueObelisk:RandomElement");
+    }
+    m_engine->connectSource( m_currentSource, this, 5000);
 }
 
 #include "kalzium_plasma.moc"

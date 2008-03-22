@@ -53,6 +53,8 @@ class KalziumPlasma : public Plasma::Applet
         Plasma::LineEdit *m_lineedit;
         Plasma::DataEngine* m_engine;
 
+        QString m_currentSource;
+
         Ui::config ui;
         KDialog *m_dialog;
 

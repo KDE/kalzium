@@ -1,6 +1,7 @@
 /***************************************************************************
     copyright            : (C) 2008 by Carsten Niehaus
     email                : cniehaus@kde.org
+    Copyright 2008 Frederik Gladhorn <frederik.gladhorn@kdemail.net>
  ***************************************************************************/
 /***************************************************************************
  *                                                                         *
@@ -30,7 +31,11 @@ KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
     : Plasma::DataEngine(parent)
 {
     Q_UNUSED(args)
+    // we don't need the data to fly by any faster - even at a second it's hard to read.
     setMinimumUpdateInterval(1000);
+
+    // init random sequence
+    m_random = new KRandomSequence( QDateTime::currentDateTime().toTime_t() );
 
     // reading elements
     ElementSaxParser * parser = new ElementSaxParser();
@@ -48,26 +53,30 @@ KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
 
 KalziumEngine::~KalziumEngine()
 {
+    delete m_random;
 }
 
 QStringList KalziumEngine::sources() const
 {
+    // BlueObelisk:Element:# is created dynamically, so we don't advertise it here.
     QStringList list;
-    list << QLatin1String("BlueObelisk");
+    list << QLatin1String("BlueObelisk:RandomElement");
     return list;
 }
 
 bool KalziumEngine::sourceRequested(const QString &source)
 {
-    qDebug() << "source ist in sourceRequested(): " << source ;
-
-    if (source == "randomElement"){
-        getRandomElement();
+    // return a randomly chosen element
+    if (source == "BlueObelisk:RandomElement"){
+        // create the data
+        updateSource(source);
         return true;
     }
-    if (source.startsWith( "element:") ) {
-        qDebug() << source << " means to return Element number " << "234";
-        setElementNumber( 34 );
+
+    // return element #
+    if (source.startsWith( "BlueObelisk:Element:") ) {
+        // create the data
+        updateSource(source);
         return true;
     }
     return false;
@@ -75,36 +84,42 @@ bool KalziumEngine::sourceRequested(const QString &source)
 
 bool KalziumEngine::updateSource(const QString &source)
 {
-    qDebug() << "in KalziumEngine::updateSource() with source = " << source;
+    if (source == "BlueObelisk:RandomElement") {
+        // decide for a randomly chosen element
+        getRandomElement();
+    } else {
+        // parse the string to know which element to display
+        setElementNumber( source.right(source.length()-source.lastIndexOf(':') - 1 ).toInt() );
+    }
 
     if (!m_currentElement) {
-        setData(source, i18n("No element set."));
         return false;
     }
 
-    qDebug() << "source ist in updateSource(): " << source ;
+    // fill the engine with data
+    setData(source, "bp", m_currentElement->dataAsString( ChemicalDataObject::boilingpoint )       );
+    setData(source, "mp", m_currentElement->dataAsString( ChemicalDataObject::meltingpoint )       );
+    setData(source, "name", m_currentElement->dataAsString( ChemicalDataObject::name )       );
+    setData(source, "mass", m_currentElement->dataAsString( ChemicalDataObject::mass )       );
+    setData(source, "symbol", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
 
-    setData("BlueObelisk", "bp", m_currentElement->dataAsString( ChemicalDataObject::boilingpoint )       );
-    setData("BlueObelisk", "mp", m_currentElement->dataAsString( ChemicalDataObject::meltingpoint )       );
-    setData("BlueObelisk", "name", m_currentElement->dataAsString( ChemicalDataObject::name )       );
-    setData("BlueObelisk", "mass", m_currentElement->dataAsString( ChemicalDataObject::mass )       );
-    setData("BlueObelisk", "symbol", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
-    
     return true;
 }
 
 void KalziumEngine::setElementNumber( int number )
 {
-    qDebug() << "setting data to element number " << number;
-    //Element N is N-1 in the list
-    m_currentElement = m_elements.at(number + 1 );
+    if (number > 0 && number <= m_elements.count()) {
+        //Element N is N-1 in the list
+        m_currentElement = m_elements.at(number-1);
+    } else {
+        m_currentElement = 0;
+    }
 }
 
 void KalziumEngine::getRandomElement()
 {
     qDebug() << "setting a random element";
-    m_currentElement = m_elements.at(5);
-    //m_currentElement = m_elements.at(m_random->getLong(m_elements.count()));
+    m_currentElement = m_elements.at(m_random->getLong(m_elements.count()));
 }
 
 #include "kalzium_engine.moc"
