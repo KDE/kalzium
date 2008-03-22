@@ -14,8 +14,8 @@
    id="svg2"
    sodipodi:version="0.32"
    inkscape:version="0.45.1"
-   sodipodi:docbase="/home/carsten/Documents"
-   sodipodi:docname="new.svg"
+   sodipodi:docbase="/home/jra/Desktop"
+   sodipodi:docname="plasmoid97correkted-and-canvas-little-smaller-than-black-area-to-get-margins.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0"
    inkscape:export-filename="/home/jra/Desktop/plasmoid97.png"
@@ -521,10 +521,10 @@
      inkscape:cy="105"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     inkscape:window-width="1278"
+     inkscape:window-width="1321"
      inkscape:window-height="926"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-x="196"
+     inkscape:window-y="60"
      width="770px"
      height="154px" />
   <metadata
@@ -535,7 +535,30 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Test-tube</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Jarle Richard Akselsen</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/GPL/2.0/" />
       </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/GPL/2.0/">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/Notice" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/ShareAlike" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/SourceCode" />
+      </cc:License>
     </rdf:RDF>
   </metadata>
   <g
@@ -635,17 +658,25 @@
        d="M 136.6292,70.359264 L 628.8479,70.359264 C 628.8479,70.359264 628.0578,72.60847 628.0578,76.437882 C 628.0578,80.530694 628.8479,82.516497 628.8479,82.516497 L 136.6292,82.516497 C 136.6292,82.516497 135.8843,80.594594 135.8843,76.437882 C 135.8843,72.27697 136.6292,70.359264 136.6292,70.359264 z "
        id="path11080"
        sodipodi:nodetypes="cczcczc" />
+    <rect
+       inkscape:label=""
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2274"
+       width="414.44189"
+       height="122.73603"
+       x="201.53415"
+       y="15.291561" />
     <path
        style="opacity:0.15;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
        d="M 136.6334,70.355064 C 136.6334,70.355064 135.8834,72.28767 135.8834,76.448782 C 135.8834,80.605594 136.6334,82.511097 136.6334,82.511397 L 163.6959,82.511397 C 156.3183,79.495791 150.554,75.284579 147.2896,70.355064 L 136.6334,70.355064 z "
        id="path11082" />
     <rect
-       y="15.291562"
-       x="201.53415"
-       height="122.73603"
-       width="414.44189"
+       y="18.253029"
+       x="211.53415"
+       height="116.8131"
+       width="394.44189"
        id="canvas"
-       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;opacity:0"
        inkscape:label="" />
     <path
        style="opacity:0.02999998;fill:url(#linearGradient2324);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
