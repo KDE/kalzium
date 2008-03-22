@@ -50,8 +50,6 @@ void KalziumPlasma::init()
     qDebug() << "initializing Kalzium";
 
     KConfigGroup cg = config();
-    m_engine->connectSource("BlueObelisk", this, 1000);
-
     m_theme.setContentType(Plasma::Svg::SingleImage);
 
     m_label1 = new Plasma::Label(this);
@@ -59,7 +57,7 @@ void KalziumPlasma::init()
     m_label1->setFont(cg.readEntry("font",m_font));
     m_label1->setPen( QPen( Qt::white ) );
 
-    m_engine->connectSource( "randomElement:123", this );
+    m_engine->connectSource( "randomElement", this, 1000 );
 }
 
 void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
@@ -81,6 +79,7 @@ KalziumPlasma::~KalziumPlasma()
 
 void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine::Data &data)
 {
+    qDebug() << "dataUpdated() called with data = " << data;
     Q_UNUSED(source);
 
     QString bp = data["bp"].toString();
@@ -91,11 +90,11 @@ void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine:
     QString text;
     text = QString(i18n( "\nName: %1", name ));
     text.append(QString(i18n( "\nSymbol: %1", symbol)));
-text.append(QString(i18n( "\nBoilingpoint: %1", bp)));
-text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
+    text.append(QString(i18n( "\nBoilingpoint: %1", bp)));
+    text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
     text.append(QString(i18n( "\nMass: %1", mass)));
     if (m_label1)  {
-	m_label1->setAlignment(Qt::AlignLeft);
+        m_label1->setAlignment(Qt::AlignLeft);
         m_label1->setText(text);
     }
 }
@@ -157,7 +156,7 @@ void KalziumPlasma::configAccepted()
 void KalziumPlasma::textChanged()
 {
     qDebug() << "KalziumPlasma::textChanged(): " << m_lineedit->toPlainText();
-    m_engine->connectSource( "element:123", this );
+    m_engine->connectSource( "element:123", this, 1000 );
 }
 
 #include "kalzium_plasma.moc"
