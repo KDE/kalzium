@@ -15,6 +15,7 @@
 #include <KDialog>
 #include <KConfigGroup>
 #include <KFontDialog>
+#include <KLineEdit>
 
 #include <QDebug>
 #include <QPainter>
@@ -27,14 +28,21 @@ KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     m_dialog(0),
     m_font(QFont())
 {
+    m_engine = dataEngine("kalzium");
+    
     m_dialog = 0;
     m_label1 = 0;
+    m_lineedit = new Plasma::LineEdit( this );
+    m_lineedit->setDefaultText( i18n("Enter your query.") );
+    connect( m_lineedit, SIGNAL(editingFinished() ),
+            this, SLOT(textChanged() ) );
+
     setHasConfigurationInterface(true);
     setAcceptDrops(false);
     setAcceptsHoverEvents(true);
     setDrawStandardBackground(false);
 
-    resize(385,77);
+    resize(385,177);
 }
 
 void KalziumPlasma::init()
@@ -42,8 +50,7 @@ void KalziumPlasma::init()
     qDebug() << "initializing Kalzium";
 
     KConfigGroup cg = config();
-    Plasma::DataEngine* kalziumEngine = dataEngine("kalzium");
-    kalziumEngine->connectSource("BlueObelisk", this, 1000);
+    m_engine->connectSource("BlueObelisk", this, 1000);
 
     m_theme.setContentType(Plasma::Svg::SingleImage);
 
@@ -51,6 +58,8 @@ void KalziumPlasma::init()
     m_label1->setPos( m_theme.elementRect( "name" ).topLeft() );
     m_label1->setFont(cg.readEntry("font",m_font));
     m_label1->setPen( QPen( Qt::white ) );
+
+    m_engine->connectSource( "randomElement:123", this );
 }
 
 void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
@@ -58,7 +67,8 @@ void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
     setDrawStandardBackground(false);
     prepareGeometryChange();
     if (constraints & Plasma::SizeConstraint) {
-        m_theme.resize(contentSize().toSize());
+        //m_theme.resize(contentSize().toSize());
+        m_theme.resize(size());
     }
     
     m_label1->setPos( m_theme.elementRect( "canvas" ).topLeft() );
@@ -81,8 +91,8 @@ void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine:
     QString text;
     text = QString(i18n( "\nName: %1", name ));
     text.append(QString(i18n( "\nSymbol: %1", symbol)));
-    text.append(QString(i18n( "\nBoilingpoint: %1", bp)));
-    text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
+text.append(QString(i18n( "\nBoilingpoint: %1", bp)));
+text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
     text.append(QString(i18n( "\nMass: %1", mass)));
     if (m_label1)  {
 	m_label1->setAlignment(Qt::AlignLeft);
@@ -100,8 +110,12 @@ void KalziumPlasma::paintInterface(QPainter *p,
     p->setRenderHint(QPainter::Antialiasing);
 
     // Now we draw the applet, starting with our svg
-    m_theme.resize((int)contentsRect.width(), (int)contentsRect.height());
-    m_theme.paint(p, (int)contentsRect.left(), (int)contentsRect.top());
+    //m_theme.resize((int)contentsRect.width(), (int)contentsRect.height());
+    m_theme.resize(size());
+    //m_theme.paint(p, (int)contentsRect.left(), (int)contentsRect.top());
+    m_theme.paint(p, 0,0 );
+
+    m_lineedit->setPos( 0,150 );
 }
 
 void KalziumPlasma::showConfigurationInterface()
@@ -138,6 +152,12 @@ void KalziumPlasma::configAccepted()
     m_label1->setFont(m_font);
 
     emit configNeedsSaving();
+}
+
+void KalziumPlasma::textChanged()
+{
+    qDebug() << "KalziumPlasma::textChanged(): " << m_lineedit->toPlainText();
+    m_engine->connectSource( "element:123", this );
 }
 
 #include "kalzium_plasma.moc"

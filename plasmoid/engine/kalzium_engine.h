@@ -13,9 +13,9 @@
 #ifndef KALZIUM_ENGINE_H
 #define KALZIUM_ENGINE_H
 
-#include <KRandomSequence>
-
 #include "plasma/dataengine.h"
+
+#include <KRandomSequence>
 
 class Element;
 
@@ -28,8 +28,17 @@ public:
     ~KalziumEngine();
     QStringList sources() const;
 
-protected:
+    /**
+      * set the element to the element with the number @number. For example, setElementNumber( 1 )
+      * will make Hydrogen the currently active element
+      */
+    void setElementNumber( int number );
+
+    void getRandomElement();
+    
     bool sourceRequested(const QString &name);
+
+protected:
     bool updateSource(const QString& source);
 
 private:

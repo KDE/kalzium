@@ -44,21 +44,14 @@ KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
 
     m_elements = parser->getElements();
     delete parser;
-    
-    m_random = new KRandomSequence(QDateTime::currentDateTime().toTime_t() );
-    m_currentElement = m_elements.at(m_random->getLong(m_elements.count()));
-
-    qDebug() << "KalziumEngine::KalziumEngine";
 }
 
 KalziumEngine::~KalziumEngine()
 {
-    delete m_random;
 }
 
 QStringList KalziumEngine::sources() const
 {
-    qDebug() << "sources";
     QStringList list;
     list << QLatin1String("BlueObelisk");
     return list;
@@ -66,9 +59,17 @@ QStringList KalziumEngine::sources() const
 
 bool KalziumEngine::sourceRequested(const QString &source)
 {
-    qDebug() << "sourceRequested";
-    if (source == QLatin1String("BlueObelisk")) {
-        setData("BlueObelisk", "symbol", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
+    if (!m_currentElement) {
+        return false;
+    }
+
+    if (source == "randomElement"){
+        getRandomElement();
+        return true;
+    }
+    if (source.startsWith( "element:") ) {
+        qDebug() << source << " means to return Element number " << "234";
+        setElementNumber( 34 );
         return true;
     }
     return false;
@@ -76,8 +77,6 @@ bool KalziumEngine::sourceRequested(const QString &source)
 
 bool KalziumEngine::updateSource(const QString &source)
 {
-    qDebug() << "updateSource()";
-    m_currentElement = m_elements.at(m_random->getLong(m_elements.count()));
     if (!m_currentElement) {
         setData(source, i18n("No element set."));
         return false;
@@ -89,6 +88,17 @@ bool KalziumEngine::updateSource(const QString &source)
     setData("BlueObelisk", "symbol", m_currentElement->dataAsString( ChemicalDataObject::symbol )       );
     
     return true;
+}
+
+void KalziumEngine::setElementNumber( int number )
+{
+    //Element N is N-1 in the list
+    m_currentElement = m_elements.at(number + 1 );
+}
+
+void KalziumEngine::getRandomElement()
+{
+    m_currentElement = m_elements.at(m_random->getLong(m_elements.count()));
 }
 
 #include "kalzium_engine.moc"

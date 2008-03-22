@@ -18,8 +18,6 @@
 #include <plasma/widgets/lineedit.h>
 #include <plasma/widgets/label.h>
 
-#include <plasma/layouts/boxlayout.h>
-
 #include <QGraphicsTextItem>
 
 #include "ui_config.h"
@@ -47,9 +45,13 @@ class KalziumPlasma : public Plasma::Applet
         void showFontSelectDlg();
         void dataUpdated(const QString &name, const Plasma::DataEngine::Data &data);
 
+        void textChanged();
+
     private:
         Plasma::Svg m_theme;
         Plasma::Label *m_label1;
+        Plasma::LineEdit *m_lineedit;
+        Plasma::DataEngine* m_engine;
 
         Ui::config ui;
         KDialog *m_dialog;
