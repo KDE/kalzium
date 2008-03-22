@@ -47,6 +47,7 @@ class KalziumDidyouknow : public Plasma::Applet
     private:
         Plasma::Svg m_theme;
         Plasma::Label *m_label1;
+        Plasma::DataEngine* m_engine;
         
         QSizeF m_size;
 };

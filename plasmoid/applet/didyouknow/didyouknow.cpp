@@ -22,6 +22,7 @@ KalziumDidyouknow::KalziumDidyouknow(QObject *parent, const QVariantList &args)
     m_theme("widgets/chalkboard", this),
     m_size(512,256)
 {
+    m_engine = dataEngine("kalzium");
     m_label1 = 0;
     setHasConfigurationInterface(false);
     setAcceptDrops(false);
@@ -45,8 +46,7 @@ void KalziumDidyouknow::init()
 {
     qDebug() << "initializing DidYouKnow-Applet";
 
-    Plasma::DataEngine* kalziumEngine = dataEngine("kalzium");
-    kalziumEngine->connectSource("BlueObelisk", this, 1000);
+    m_engine->connectSource( "BlueObelisk:RandomElement" , this, 5000);
 
     m_theme.setContentType(Plasma::Svg::SingleImage);
 
@@ -72,6 +72,7 @@ KalziumDidyouknow::~KalziumDidyouknow()
 
 void KalziumDidyouknow::dataUpdated(const QString& source, const Plasma::DataEngine::Data &data)
 {
+    qDebug() << "entering dataUpdated()";
     Q_UNUSED(source);
 
     QString symbol = data["symbol"].toString();
