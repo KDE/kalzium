@@ -18,8 +18,7 @@
 
 KalziumDidyouknow::KalziumDidyouknow(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
-    m_theme("widgets/chalkboard", this),
-    m_size(512,256)
+    m_theme("widgets/chalkboard", this)
 {
     // init random sequence
     m_random = new KRandomSequence( QDateTime::currentDateTime().toTime_t() );
@@ -31,17 +30,7 @@ KalziumDidyouknow::KalziumDidyouknow(QObject *parent, const QVariantList &args)
     setAcceptsHoverEvents(true);
     setDrawStandardBackground(false);
     
-    m_theme.resize();
-}
-
-void KalziumDidyouknow::setContentSize(const QSizeF& size)
-{
-    m_size = size;
-}
-
-QSizeF KalziumDidyouknow::contentSizeHint() const
-{
-    return m_size;
+    resize(512,256);
 }
 
 void KalziumDidyouknow::init()
@@ -62,7 +51,7 @@ void KalziumDidyouknow::constraintsUpdated(Plasma::Constraints constraints)
     setDrawStandardBackground(false);
     prepareGeometryChange();
     if (constraints & Plasma::SizeConstraint) {
-        m_theme.resize(contentSize().toSize());
+         m_theme.resize(size());
     }
     
     m_label1->setPos( m_theme.elementRect( "canvas" ).topLeft() );
@@ -95,8 +84,8 @@ void KalziumDidyouknow::paintInterface(QPainter *p,
     p->setRenderHint(QPainter::Antialiasing);
 
     // Now we draw the applet, starting with our svg
-    m_theme.resize((int)contentsRect.width(), (int)contentsRect.height());
-    m_theme.paint(p, (int)contentsRect.left(), (int)contentsRect.top());
+    m_theme.resize(size());
+    m_theme.paint(p, 0, 0 );
 }
 
 #include "didyouknow.moc"

@@ -39,9 +39,6 @@ class KalziumDidyouknow : public Plasma::Applet
                             const QStyleOptionGraphicsItem *option,
                             const QRect& contentsRect);
         void constraintsUpdated(Plasma::Constraints constraints);
-        
-        void setContentSize(const QSizeF& size);
-        QSizeF contentSizeHint() const;
 
     public slots:
         void dataUpdated(const QString &name, const Plasma::DataEngine::Data &data);
