@@ -61,6 +61,6 @@ class KalziumPlasma : public Plasma::Applet
         QFont m_font;
 };
 
-K_EXPORT_PLASMA_APPLET(kalzium, KalziumPlasma)
+K_EXPORT_PLASMA_APPLET(data_kalzium, KalziumPlasma)
 
 #endif // KALZIUM_PLASMA_H

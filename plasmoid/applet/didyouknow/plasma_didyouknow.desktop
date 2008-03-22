@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Kalzium-DidYouKnow
+Name=Chemistry: Did You Know
 Icon=kalzium
 Type=Service
 ServiceTypes=Plasma/Applet
@@ -9,7 +9,7 @@ X-KDE-ServiceTypes=Plasma/Applet
 X-KDE-Library=plasma_applet_didyouknow
 X-KDE-PluginInfo-Author=Carsten Niehaus
 X-KDE-PluginInfo-Email=cniehaus@kde.org
-X-KDE-PluginInfo-Name=plasma_applet_didyouknow
+X-KDE-PluginInfo-Name=plasma_applet_didyouknow_kalzium
 X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-Website=http://kalzium.kde.org/
 X-KDE-PluginInfo-Category=Education

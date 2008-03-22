@@ -51,6 +51,6 @@ class KalziumDidyouknow : public Plasma::Applet
         QSizeF m_size;
 };
 
-K_EXPORT_PLASMA_APPLET(kalzium_didyouknow, KalziumDidyouknow)
+K_EXPORT_PLASMA_APPLET(didyouknow_kalzium, KalziumDidyouknow)
 
 #endif // DIDYOUKNOW_H
