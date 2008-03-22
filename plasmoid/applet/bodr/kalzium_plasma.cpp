@@ -84,7 +84,7 @@ KalziumPlasma::~KalziumPlasma()
 
 void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine::Data &data)
 {
-qDebug() << "dataUpdated" << source;
+    qDebug() << "dataUpdated" << source;
     if (source != m_currentSource) {
         return;
     }

@@ -54,13 +54,6 @@ class KalziumDidyouknow : public Plasma::Applet
         KRandomSequence * m_random;
         
         QSizeF m_size;
-
-        /**
-         * @return a fact about the currently active element
-         */
-	QString getFact( const Plasma::DataEngine::Data& data );
-
-        QString getPreselectedFact();
 };
 
 K_EXPORT_PLASMA_APPLET(didyouknow_kalzium, KalziumDidyouknow)

@@ -34,7 +34,15 @@ public:
       */
     void setElementNumber( int number );
 
+    /**
+     * This methods makes a random element the current one.
+     */
     void getRandomElement();
+
+    /**
+     * This methods generates a random fact about the chemical elements.
+     */
+    QString generateFact();
     
     bool sourceRequested(const QString &name);
 

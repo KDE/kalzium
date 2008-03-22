@@ -48,7 +48,7 @@ void KalziumDidyouknow::init()
 {
     qDebug() << "initializing DidYouKnow-Applet";
 
-    m_engine->connectSource( "BlueObelisk:RandomElement" , this, 1000);
+    m_engine->connectSource( "Fact" , this, 1000);
 
     m_theme.setContentType(Plasma::Svg::SingleImage);
 
@@ -77,55 +77,13 @@ void KalziumDidyouknow::dataUpdated(const QString& source, const Plasma::DataEng
 {
     qDebug() << "entering dataUpdated()";
     Q_UNUSED(source);
-    
 
     if (m_label1)  {
 	m_label1->setAlignment(Qt::AlignLeft);
-        m_label1->setText(getFact( data ));
+        m_label1->setText( data["fact"].toString() );
     }
 }
 
-QString KalziumDidyouknow::getFact( const Plasma::DataEngine::Data& data )
-{
-    QString symbol = data["symbol"].toString();
-    QString name = data["name"].toString();
-    QString bp = data["bp"].toString();
-    QString mp = data["mp"].toString();
-    QString mass = data["mass"].toString();
-    
-    int rand = m_random->getLong(3);
-    qDebug() << "Randrom number is: " << rand;
-
-    switch (rand) {
-        case 0:
-            qDebug() << "0";
-            return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
-        case 1:
-            qDebug() << "1";
-            return i18n( "Did you know that\n %1 (%2) weights %3 u?", name, symbol, mass );
-        case 2:
-            qDebug() << "2";
-            return getPreselectedFact();
-        default:
-            qDebug() << "default in switch";
-            return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
-    }
-
-    return i18n( "An error occured." );
-}
-
-QString KalziumDidyouknow::getPreselectedFact()
-{
-    QStringList facts;
-
-    facts << i18n("Did you know that\n Test 1");
-    facts << i18n("Did you know that\n Test 2");
-    facts << i18n("Did you know that\n Test 3");
-    int rand = m_random->getLong(facts.size());
-
-    return facts.at( rand );
-    
-}
 
 void KalziumDidyouknow::paintInterface(QPainter *p,
                        const QStyleOptionGraphicsItem *option,
