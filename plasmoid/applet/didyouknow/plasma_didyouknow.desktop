@@ -4,6 +4,9 @@ Icon=kalzium
 Type=Service
 ServiceTypes=Plasma/Applet
 Comment=Facts about the chemical elements
+Comment[ga]=Fíorais maidir leis na dúile ceimiceacha
+Comment[pt]=Factos sobre os elementos químicos
+Comment[pt_BR]=Factos sobre os elementos químicos
 
 X-KDE-ServiceTypes=Plasma/Applet
 X-KDE-Library=plasma_applet_didyouknow

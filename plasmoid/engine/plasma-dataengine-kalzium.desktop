@@ -1,11 +1,15 @@
 [Desktop Entry]
 Name=Kalzium Data Engine
+Name[ga]=Inneall Sonraí Kalzium
 Name[pt]=Motor de Dados do Kalzium
 Name[pt_BR]=Motor de Dados do Kalzium
+Name[uk]=Рушій даних Kalzium
 Name[zh_TW]=Kalzium 資料引擎
 Comment=Chemical Data
+Comment[ga]=Sonraí Ceimiceacha
 Comment[pt]=Dados Químicos
 Comment[pt_BR]=Dados Químicos
+Comment[uk]=Хімічні дані
 Comment[zh_TW]=化學資料
 
 X-KDE-ServiceTypes=Plasma/DataEngine

@@ -1,19 +1,13 @@
 [Desktop Entry]
 Name=Chemical Data
-Name[bn]=ক্যালজিয়াম
-Name[hi]=के-एल्जियम
-Name[mk]=Калциум
-Name[ne]=काल्जियम
-Name[pa]=ਕੈਲਜੀਅਮ
-Name[pl]=Kalzium (Program do nauki pierwiastków chemicznych)
-Name[ta]=கால்சியம்
-Name[x-test]=xxKalziumxx
 Icon=kalzium
 Type=Service
 ServiceTypes=Plasma/Applet
 Comment=Chemical Data Applet
+Comment[ga]=Feidhmchláirín Sonraí Ceimiceacha
 Comment[pt]='Applet' de Dados Químicos
 Comment[pt_BR]='Applet' de Dados Químicos
+Comment[uk]=Аплет хімічних даних
 Comment[zh_TW]=化學資料小程式
 
 
