@@ -84,12 +84,11 @@ KalziumPlasma::~KalziumPlasma()
 
 void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine::Data &data)
 {
-qDebug() << "dataUpdated" << source;
+    qDebug() << "dataUpdated" << source;
     if (source != m_currentSource) {
-qDebug() << "dataUpdated - returning - not current source" << source << m_currentSource;
         return;
     }
-qDebug() << "dataUpdated - continue " << source << m_currentSource;
+
     QString bp = data["bp"].toString();
     QString mp = data["mp"].toString();
     QString mass = data["mass"].toString();
@@ -98,11 +97,11 @@ qDebug() << "dataUpdated - continue " << source << m_currentSource;
     QString text;
     text = QString(i18n( "\nName: %1", name ));
     text.append(QString(i18n( "\nSymbol: %1", symbol)));
-text.append(QString(i18n( "\nBoilingpoint: %1", bp)));
-text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
+    text.append(QString(i18n( "\nBoilingpoint: %1", bp)));
+    text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
     text.append(QString(i18n( "\nMass: %1", mass)));
     if (m_label1)  {
-	m_label1->setAlignment(Qt::AlignLeft);
+        m_label1->setAlignment(Qt::AlignLeft);
         m_label1->setText(text);
     }
 }
@@ -163,10 +162,6 @@ void KalziumPlasma::configAccepted()
 
 void KalziumPlasma::textChanged()
 {
-    qDebug() << "KalziumPlasma::textChanged(): " << m_lineedit->toPlainText();
-
-    // doesn't seem to work. why?
-qDebug() << "KalziumPlasma::textChanged() source: " << m_currentSource;
     m_engine->disconnectSource(m_currentSource, this);
 
     QString currentText = m_lineedit->toPlainText();
@@ -176,7 +171,7 @@ qDebug() << "KalziumPlasma::textChanged() source: " << m_currentSource;
     } else {
         m_currentSource = QString("BlueObelisk:RandomElement");
     }
-    m_engine->connectSource( m_currentSource, this, 1000);
+    m_engine->connectSource( m_currentSource, this, 5000);
 }
 
 #include "kalzium_plasma.moc"

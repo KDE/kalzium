@@ -61,12 +61,12 @@ QStringList KalziumEngine::sources() const
     // BlueObelisk:Element:# is created dynamically, so we don't advertise it here.
     QStringList list;
     list << QLatin1String("BlueObelisk:RandomElement");
+    list << QLatin1String("Fact");
     return list;
 }
 
 bool KalziumEngine::sourceRequested(const QString &source)
 {
-qDebug() << "sourceRequested" << source;
     // return a randomly chosen element
     if (source == "BlueObelisk:RandomElement"){
         // create the data
@@ -80,16 +80,26 @@ qDebug() << "sourceRequested" << source;
         updateSource(source);
         return true;
     }
+    
+    if (source == "Fact" ) {
+        // create the data
+        updateSource(source);
+        return true;
+    }
+    
     return false;
 }
 
 bool KalziumEngine::updateSource(const QString &source)
 {
+    qDebug() << "updateSource";
     if (source == "BlueObelisk:RandomElement") {
         // decide for a randomly chosen element
         getRandomElement();
-    } else {
-        // parse the string to know which element to display
+    } else if ( source == "Fact" ) { 
+        qDebug() << "Fact is the current source";
+        setData(source, "fact", generateFact() );
+    } else { // parse the string to know which element to display
         setElementNumber( source.right(source.length()-source.lastIndexOf(':') - 1 ).toInt() );
     }
 
@@ -119,7 +129,43 @@ void KalziumEngine::setElementNumber( int number )
 
 void KalziumEngine::getRandomElement()
 {
+    qDebug() << "setting a random element";
     m_currentElement = m_elements.at(m_random->getLong(m_elements.count()));
+}
+
+QString KalziumEngine::generateFact()
+{
+    int rand = m_random->getLong(3);
+    qDebug() << "Randrom number is: " << rand;
+        
+    m_currentElement = m_elements.at(34);
+
+    if ( !m_currentElement ) 
+        m_currentElement = m_elements.at(34);
+
+    QString bp =        m_currentElement->dataAsString( ChemicalDataObject::boilingpoint );
+    QString mp =        m_currentElement->dataAsString( ChemicalDataObject::meltingpoint )       ;
+    QString name =      m_currentElement->dataAsString( ChemicalDataObject::name )       ;
+    QString mass =      m_currentElement->dataAsString( ChemicalDataObject::mass )      ;
+    QString symbol =    m_currentElement->dataAsString( ChemicalDataObject::symbol )       ;
+
+    switch (rand) {
+        case 0:
+            qDebug() << "0";
+            return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
+        case 1:
+            qDebug() << "1";
+            return i18n( "Did you know that\n %1 (%2) weights %3 u?", name, symbol, mass );
+        case 2:
+            qDebug() << "2";
+            return i18n( "Did you know that\n %1 (%2) weights %3 u?", name, symbol, mass );
+            break;
+        default:
+            qDebug() << "default in switch";
+            return i18n( "Did you know that\n the element %1 has the symbol %2?", name, symbol );
+    }
+
+    return i18n( "An error occured." );
 }
 
 #include "kalzium_engine.moc"
