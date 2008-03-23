@@ -8,7 +8,7 @@ include_directories(
 
 kde4_add_plugin(plasma_engine_kalzium ${kalzium_engine_SRCS})
 target_link_libraries(plasma_engine_kalzium ${KDE4_KDECORE_LIBS}
-  plasma
+  ${PLASMA_LIBS} 
   science
 )
 
