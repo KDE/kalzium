@@ -4,6 +4,7 @@ Name[ga]=Sonraí Ceimiceacha
 Name[km]=ទិន្នន័យ​គីមី
 Name[pt]=Dados Químicos
 Name[pt_BR]=Dados Químicos
+Name[x-test]=xxChemical Dataxx
 Name[zh_TW]=化學資料
 Icon=kalzium
 Type=Service
@@ -14,6 +15,7 @@ Comment[km]=អាប់​ភ្លេត​ទិន្នន័យ​គី�
 Comment[pt]='Applet' de Dados Químicos
 Comment[pt_BR]='Applet' de Dados Químicos
 Comment[uk]=Аплет хімічних даних
+Comment[x-test]=xxChemical Data Appletxx
 Comment[zh_TW]=化學資料小程式
 
 
