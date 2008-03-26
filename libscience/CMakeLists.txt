@@ -22,3 +22,17 @@ target_link_libraries(science  ${KDE4_KDECORE_LIBS} ${QT_QTXML_LIBRARY} )
 set_target_properties(science PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 install(TARGETS science  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
+install(FILES
+   chemicaldataobject.h
+   element.h
+   elementparser.h
+   isotope.h
+   isotopeparser.h
+   libkdeedu_science_export.h
+   moleculeparser.h
+   parser.h
+   spectrum.h
+   spectrumparser.h
+   tempunit.h
+   DESTINATION ${INCLUDE_INSTALL_DIR}/libkdeedu
+)
