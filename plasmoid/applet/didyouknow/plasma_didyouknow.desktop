@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Chemistry: Did You Know
+Name[da]=Kemi: Vidste du
 Name[ga]=An Cheimic: An Raibh Fhios Agat
 Name[km]=គីមី ៖ តើ​អ្នក​ដឹង​ទេ
 Name[pt]=Química: Sabia Que
@@ -10,6 +11,7 @@ Icon=kalzium
 Type=Service
 ServiceTypes=Plasma/Applet
 Comment=Facts about the chemical elements
+Comment[da]=Fakta om de kemiske grundstoffer
 Comment[ga]=Fíorais maidir leis na dúile ceimiceacha
 Comment[km]=ធាតុ​ពិត​អំពី​ធាតុ​គីមី
 Comment[pt]=Factos sobre os elementos químicos

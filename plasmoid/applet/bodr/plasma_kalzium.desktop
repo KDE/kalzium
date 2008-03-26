@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Chemical Data
+Name[da]=Kemisk data
 Name[ga]=Sonraí Ceimiceacha
 Name[km]=ទិន្នន័យ​គីមី
 Name[pt]=Dados Químicos
@@ -10,6 +11,7 @@ Icon=kalzium
 Type=Service
 ServiceTypes=Plasma/Applet
 Comment=Chemical Data Applet
+Comment[da]=Applet til kemisk data
 Comment[ga]=Feidhmchláirín Sonraí Ceimiceacha
 Comment[km]=អាប់​ភ្លេត​ទិន្នន័យ​គីមី
 Comment[pt]='Applet' de Dados Químicos
