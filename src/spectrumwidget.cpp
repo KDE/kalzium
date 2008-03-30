@@ -229,7 +229,7 @@ void SpectrumWidget::drawTickmarks( QPainter* p )
     const int d = 10;
 
     //the total number of tickmarks to draw (small and long)
-    const int numberOfTickmarks = ( int )floor( width()/d );
+    const int numberOfTickmarks = ( int )floor( ( double )(width()/d) );
 
     double pos = 0.0;
 
