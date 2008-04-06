@@ -12,10 +12,14 @@
  *                                                                         *
  ***************************************************************************/
 #include "moleculeview.h"
+#include "../../libavogadro-kalzium/src/toolgroup.h"
+
+#include <QMessageBox>
 
 #include <kdebug.h>
 #include <kfiledialog.h>
 #include <kstandarddirs.h>
+#include <kmessagebox.h>
 #include <KLocale>
 #include <KTextBrowser>
 #include <knewstuff2/engine.h>
@@ -66,6 +70,20 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 
 	connect( this, SIGNAL( user2Clicked() ), 
 			this, SLOT( slotDownloadNewStuff() ) );
+
+	// Check that we have managed to load up some tools and engines
+	int nEngines = ui.glWidget->engines().size();
+        int nTools = ui.glWidget->toolGroup()->tools().size();
+	QString error;
+        if(!nEngines && !nTools)
+          error = i18n("No tools or engines loaded - it is likely that the Avogadro plugins could not be located.");
+        else if(!nEngines)
+          error = i18n("No engines loaded - it is likely that the Avogadro plugins could not be located.");
+        else if(!nTools)
+          error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located.");
+        /// FIXME: QMessageBox used for now - KMessageBox was causing freezes
+        if(!nEngines || !nTools)
+          QMessageBox::warning(this, i18n("Kalzium"), error);
 }
 
 void MoleculeDialog::slotHelp()
@@ -123,6 +141,19 @@ void MoleculeDialog::slotHelp()
 	
 void MoleculeDialog::slotLoadMolecule()
 {
+	// Check that we have managed to load up some tools and engines
+	int nEngines = ui.glWidget->engines().size();
+        int nTools = ui.glWidget->toolGroup()->tools().size();
+	QString error;
+        if(!nEngines && !nTools)
+          error = i18n("No tools or engines loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
+        else if(!nEngines)
+          error = i18n("No engines loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
+        else if(!nTools)
+          error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located. No molecules can be viewed until this issue is resolved.");
+        if(!nEngines || !nTools)
+          KMessageBox::information(this, error);
+
         m_path = KGlobal::dirs()->findResourceDir( "appdata", "data/molecules/" ) + "data/molecules/";
 
 	QString commonMoleculeFormats = i18n( "Common molecule formats" );
