@@ -43,6 +43,9 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent)
     setToolGroup(tools);
     // Set the default engine to be active
     loadDefaultEngines();
+
+    // Set the default quality level to high
+    setQuality(2);
 }
 
 KalziumGLWidget::~KalziumGLWidget()
@@ -108,6 +111,17 @@ void KalziumGLWidget::setLabels(int style)
     }
 }
 
+void KalziumGLWidget::setQuality(int quality)
+{
+    // Set the global quality of the GLWidget, 0=min, 2=mid, 4=max
+    int q = 0;
+    if(quality == 1) q = 2;
+    else if(quality == 2) q = 4;
+    GLWidget::setQuality(q);
+    invalidateDLs();
+    GLWidget::update();
+}
+
 typedef KParts::GenericFactory<KalziumGLPart> KalziumGLPartFactory;
 
 K_EXPORT_COMPONENT_FACTORY (libkalziumglpart, KalziumGLPartFactory)
@@ -142,6 +156,7 @@ KAboutData *KalziumGLPart::createAboutData()
             ki18n("(c) 2006, Carsten Niehaus"), KLocalizedString(), "http://edu.kde.org/kalzium/index.php",
             "kalzium@kde.org");
     aboutData->addAuthor(ki18n("Carsten Niehaus."),KLocalizedString(), "cniehaus@kde.org");
+    aboutData->addAuthor(ki18n("Marcus D. Hanwell."),KLocalizedString(), "marcus@cryos.org");
 
     return aboutData;
 }
