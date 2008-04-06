@@ -67,6 +67,9 @@ namespace Avogadro {
     QString prefixPath = QString(INSTALL_PREFIX) + "/lib/avogadro-kalzium/tools";
     QStringList pluginPaths;
     pluginPaths << prefixPath;
+    // Now for the 64 bit case with no symlink
+    prefixPath = QString(INSTALL_PREFIX) + "/lib64/avogadro-kalzium/tools";
+    pluginPaths << prefixPath;
 
 #ifdef WIN32
 	pluginPaths << "./tools";
