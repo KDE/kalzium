@@ -1,15 +1,15 @@
 /**********************************************************************
   WireEngine - Engine for wireframe display
 
-  Copyright (C) 2006-2007 Geoffrey R. Hutchison <geoff@geoffhutchison.net>
-  Copyright (C) 2006-2007 Benoit Jacob <jacob@math.jussieu.fr>
+  Copyright (C) 2006-2007 Geoffrey R. Hutchison
+  Copyright (C) 2006-2007 Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -28,52 +28,80 @@
 
 #include <avogadro/global.h>
 #include <avogadro/engine.h>
-
-#include <openbabel/mol.h>
-
 #include <QGLWidget>
-#include <QObject>
-#include <QImage>
+
+#include "ui_wiresettingswidget.h"
 
 namespace Avogadro {
+
+  class WireSettingsWidget;
 
   //! Wireframe Engine class.
   class WireEngine : public Engine
   {
     Q_OBJECT
+    AVOGADRO_ENGINE(tr("Wireframe"))
 
     public:
       //! Constructor
-      WireEngine(QObject *parent=0) : Engine(parent), m_glwidget(0) {}
+      WireEngine(QObject *parent=0);
       //! Deconstructor
       ~WireEngine() {}
 
-      //! \name Description methods
-      //@{
-      //! @return engine name
-      QString name() { return(QString(tr("Wireframe"))); }
-      //! @return engine description
-      QString description() { return(QString(tr("Wireframe rendering"))); }
-      //@}
+      //! Copy
+      Engine *clone() const;
 
       //! \name Render Methods
       //@{
       //! Render an Atom.
-      bool render(const Atom *a);
+      bool renderOpaque(PainterDevice *pd, const Atom *a);
       //! Render a Bond.
-      bool render(const Bond *b);
-      //! Render a Molecule.
-      bool render(const Molecule *m);
+      bool renderOpaque(PainterDevice *pd, const Bond *b);
 
-      bool render(GLWidget *gl);
+      bool renderOpaque(PainterDevice *pd);
       //@}
 
-//      double radius(const Primitive *p = 0);
+      //! Configuration options
+      QWidget* settingsWidget();
+      /**
+       * Write the engine settings so that they can be saved between sessions.
+       */
+      void writeSettings(QSettings &settings) const;
 
-    private:
-//      inline double radius(const Atom *a);
+      /**
+       * Read in the settings that have been saved for the engine instance.
+       */
+      void readSettings(QSettings &settings);
 
-      GLWidget *m_glwidget;
+
+  private:
+    WireSettingsWidget *m_settingsWidget;
+
+    int m_showMulti; //!< show multiple bonds
+    int m_showDots;  //!< show dots for atoms
+
+    double radius (const Atom *atom) const;
+
+  private Q_SLOTS:
+    void settingsWidgetDestroyed();
+
+    /**
+     * @param setting whether to show multiple bonds
+     */
+    void setShowMultipleBonds(int setting);
+
+    /**
+     * @param setting whether to show dots for atoms
+     */
+    void setShowDots(int setting);
+  };
+
+  class WireSettingsWidget : public QWidget, public Ui::WireSettingsWidget
+  {
+  public:
+    WireSettingsWidget(QWidget *parent=0) : QWidget(parent) {
+      setupUi(this);
+    }
   };
 
   //! Generates instances of our WireEngine class
@@ -81,9 +109,7 @@ namespace Avogadro {
   {
     Q_OBJECT
     Q_INTERFACES(Avogadro::EngineFactory)
-
-    public:
-      Engine *createInstance(QObject *parent = 0) { return new WireEngine(parent); }
+    AVOGADRO_ENGINE_FACTORY(WireEngine)
   };
 
 } // end namespace Avogadro

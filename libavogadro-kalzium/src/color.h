@@ -1,15 +1,15 @@
 /**********************************************************************
-  Color - Class for handling color changes in OpenGL
+  Color - Base class for handling color changes in OpenGL
 
-  Copyright (C) 2006 Benoit Jacob <jacob@math.jussieu.fr>
-  Copyright (C) 2007 Geoffrey R. Hutchison <geoff@geoffhutchison.net>
+  Copyright (C) 2006 Benoit Jacob
+  Copyright (C) 2007 Geoffrey R. Hutchison
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -28,61 +28,80 @@
 
 #include <avogadro/global.h>
 
-#include <QGLWidget>
-#include <openbabel/mol.h>
+#include <QGLWidget> // for GLfloat
+#include <QColor> // for returning QColor
 
 namespace Avogadro {
 
+  class Primitive;
+  class ColorPrivate; // for future expansion
+
   /**
-   * This class represents a color in OpenGL float red-green-blue-alpha format.
+   * @class Color color.h <avogadro/color.h>
+   * @author Benoit Jacob
+   * @author Geoff Hutchison
+   * @brief Color in OpenGL float red, green, blue, alpha format.
    *
-   * @author Benoit Jacob <jacob@math.jussieu.fr>
+   * This class represents a color in OpenGL float red, green, blue, alpha format.
    */
   class A_EXPORT Color
   {
   public:
-    Color() {}
-    virtual ~Color() {}
+    Color();
+    virtual ~Color();
 
     /**
      * This constructor sets the four components of the color
      * individually. Each one ranges from 0.0 (lowest intensity) to
-     * 1.0 (highest intensity). For the alpha component, 0.0 means fully
-     * transparent and 1.0 (the default) means fully opaque. */
+     * 1.0 (highest intensity). For the alpha component, 0.0 means totally
+     * transparent and 1.0 (the default) means totally opaque. */
     Color( GLfloat red, GLfloat green, GLfloat blue,
         GLfloat alpha = 1.0 );
 
     /**
-     * This constructor uses OpenBabel to retrieve the color in which
-     * the atom should be rendered. Default is to render based on element. */
-    Color( const OpenBabel::OBAtom *atom );
+     * Set the color based on the supplied Primitive.
+     * If NULL is passed do nothing.
+     * @param Primitive the color is derived from this primitive.
+     */
+    Color( const Primitive * );
 
     /**
-     * Equal overloading operator */
-    Color &operator=( const Color& other );
+     * Set the color based on the supplied QColor
+     * @param QColor the color to use
+     */
+    Color& operator= (const QColor &);
 
     /**
      * Set the four components of the color
      * individually. Each one ranges from 0.0 (lowest intensity) to
-     * 1.0 (highest intensity). For the alpha component, 0.0 means fully
-     * transparent and 1.0 (the default) means fully opaque. */
+     * 1.0 (highest intensity). For the alpha component, 0.0 means totally
+     * transparent and 1.0 (the default) means totally opaque. */
     virtual void set(GLfloat red, GLfloat green, GLfloat blue,
                      GLfloat alpha = 1.0 );
 
     /**
-     * Set the color in which the atom should be rendered. 
-     * If NULL is passed, do nothing */
-    virtual void set(const OpenBabel::OBAtom *atom );
+     * Set the color to the selection color
+     * By default, the selection color is (0.3, 0.6, 1.0, 0.7)
+     * which is a light transparent blue */
+    virtual void setToSelectionColor();
 
     /**
-     * Set the color from an floating-point range 
-     * Default will just set white for everything
+     * Set the color based on the supplied Primitive.
+     * If NULL is passed do nothing.
+     * @param Primitive the color is derived from this primitive.
      */
-    virtual void set(double value, double low, double high);
+    virtual void set(const Primitive *);
+
+    /**
+     * Set the alpha component of the color, 0.0 means totally transparent and
+     * 1.0 means totally opaque.
+     */
+    virtual void setAlpha(double alpha);
 
     /**
      * Sets this color to be the one used by OpenGL for rendering
-     * when lighting is disabled. */
+     * when lighting is disabled.
+     */
     inline virtual void apply()
     {
       glColor4fv( &m_red );
@@ -91,13 +110,83 @@ namespace Avogadro {
     /**
      * Applies nice OpenGL materials using this color as the
      * diffuse color while using different shades for the ambient and
-     * specular colors. This is only useful if lighting is enabled. */
+     * specular colors. This is only useful if lighting is enabled.
+     */
     virtual void applyAsMaterials();
 
-  private:
-    ///{ The four components of the color, ranging between 0 and 1.
+    /**
+     * Applies an OpenGL material more appropriate for flat surfaces.
+     */
+    virtual void applyAsFlatMaterials();
+
+    /**
+     * @return the color as a QColor.
+     */
+    inline QColor color() { return QColor(m_red, m_blue, m_green, m_alpha); }
+
+    /**
+     * @return the red component of the color.
+     */
+    inline float red() { return m_red; }
+    /**
+     * @return the green component of the color.
+     */
+    inline float green() { return m_green; }
+    /**
+     * @return the blue component of the color.
+     */
+    inline float blue() { return m_blue; }
+    /**
+     * @return the alpha component of the color.
+     */
+    inline float alpha() { return m_alpha; }
+
+    /**
+     * Set the name of this instance of the class.
+     */
+    virtual void setName(const QString& name);
+    /**
+     * @return the name of this instance of the class.
+     */
+    virtual QString name() const;
+    /**
+     * @return the type of the Color class.
+     */
+    virtual QString type() const { return "Virtual Base Class"; }
+
+    /**
+     * @return the widget for controlling settings for this color map
+     * or NULL if none exists. */
+    virtual QWidget *settingsWidget() { return NULL; }
+
+  protected:
+    /**
+     * \var GLfloat m_red
+     * The red component of the color ranging from 0 to 1.
+     */
+    /**
+     * \var GLfloat m_green
+     * The green component of the color ranging from 0 to 1.
+     */
+    /**
+     * \var GLfloat m_blue
+     * The blue component of the color ranging from 0 to 1.
+     */
+    /**
+     * \var GLfloat m_alpha
+     * The alpha component of the color ranging from 0 to 1.
+     */
     GLfloat m_red, m_green, m_blue, m_alpha;
-    ///}
+
+    /**
+     * The name of the class instance.
+     */
+    QString m_name;
+
+    /**
+     * The d-pointer used to preserve binary compatibility.
+     */
+    ColorPrivate *d;
   };
 
 }

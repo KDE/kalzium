@@ -1,4 +1,5 @@
-set(QT_USE_QTOPENGL TRUE)
+# Main libavogadro build file
+set(QT_USE_QTOPENGL true)
 
 configure_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/config.h.in
@@ -12,59 +13,24 @@ include_directories(
   ${CMAKE_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}/..
-  ${OPENBABEL2_INCLUDE_DIR} 
+  ${OPENBABEL2_INCLUDE_DIR}
   ${EIGEN_INCLUDE_DIR}
 )
 
-set(libavogadro_SRCS
-  camera.cpp
-  color.cpp
-  engine.cpp
-  glwidget.cpp
-  moleculetreeview.cpp
-  primitive.cpp
-  tool.cpp
-  toolgroup.cpp
-  undosequence.cpp
-  painter.cpp
-  textrenderer.cpp
-  sphere.cpp
-  cylinder.cpp
-)
+FILE(GLOB libavogadro_SRCS "*.cpp")
+FILE(GLOB libavogadro_HDRS "*.h")
 
-#Don't install headers since Kalzium is the only app using this snapshot
-#set(libavogadro_HDRS
-#  color.h
-#  primitive.h
-#  engine.h
-#  glwidget.h
-#  toolgroup.h
-#  moleculetreeview.h
-#  global.h
-#  camera.h
-#  undosequence.h
-#  painter.h
-#)
+qt4_automoc(${libavogadro_SRCS})
 
-
-#set(libavogadro_MOC_HDRS
-  #primitive.h
-  #glwidget.h
-  #moleculetreeview.h
-#)
-#qt4_wrap_cpp(libavogadro_MOC_SRCS ${libavogadro_MOC_HDRS})
-
-# Install the library to avogadro-kalzium so that it does not collide with avo
 KDE4_ADD_LIBRARY(avogadro-kalzium SHARED ${libavogadro_SRCS})
 SET_TARGET_PROPERTIES(avogadro-kalzium PROPERTIES OUTPUT_NAME avogadro-kalzium)
-set_target_properties(avogadro-kalzium PROPERTIES VERSION 0.0.1 SOVERSION 0 )
+set_target_properties(avogadro-kalzium PROPERTIES VERSION 0.6.1 SOVERSION 0 )
 
 TARGET_LINK_LIBRARIES(avogadro-kalzium ${OPENBABEL2_LIBRARIES} ${QT_LIBRARIES}
-                                   ${OPENGL_LIBRARIES} ${KDE4_KDECORE_LIBS} )
-install(TARGETS avogadro-kalzium  ${INSTALL_TARGETS_DEFAULT_ARGS})
+                                   ${OPENGL_LIBRARIES}
+    )
 
-#Don't install headers since Kalzium is the only app using this snapshot
-#INSTALL(FILES ${libavogadro_HDRS} DESTINATION include/avogadro)
+INSTALL(TARGETS avogadro-kalzium DESTINATION ${LIB_INSTALL_DIR})
 
 add_subdirectory(engines)
 add_subdirectory(tools)

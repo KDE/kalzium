@@ -1,16 +1,16 @@
 /**********************************************************************
   SphereEngine - Engine for "spheres" display
 
-  Copyright (C) 2006-2007 Geoffrey R. Hutchison <geoff@geoffhutchison.net>
-  Copyright (C) 2007      Benoit Jacob <jacob@math.jussieu.fr>
-  Copyright (C) 2007      Marcus D. Hanwell <marcus@cryos.org>
+  Copyright (C) 2006-2007 Geoffrey R. Hutchison
+  Copyright (C) 2007      Benoit Jacob
+  Copyright (C) 2007      Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -30,48 +30,75 @@
 #include <avogadro/global.h>
 #include <avogadro/engine.h>
 
-#include <openbabel/mol.h>
 
-#include <QGLWidget>
-#include <QObject>
-#include <QImage>
+#include "ui_spheresettingswidget.h"
 
 namespace Avogadro {
 
   //! Sphere Engine class.
+  class SphereSettingsWidget;
   class SphereEngine : public Engine
   {
     Q_OBJECT
+    AVOGADRO_ENGINE(tr("Van der Waals Spheres"))
 
     public:
       //! Constructor
-      SphereEngine(QObject *parent=0) : Engine(parent), m_glwidget(0), m_setup(false) {}
+      SphereEngine(QObject *parent=0);
       //! Deconstructor
-      ~SphereEngine() {}
+      ~SphereEngine();
 
-      //! \name Description methods
-      //@{
-      //! @return engine name
-      QString name() { return(QString(tr("Sphere"))); }
-      //! @return engine description
-      QString description() { return(QString(tr("Renders atoms as spheres"))); }
-      //@}
+      //! Copy
+      Engine *clone() const;
 
       //! \name Render Methods
       //@{
+      bool renderOpaque(PainterDevice *pd);
+      bool renderTransparent(PainterDevice *pd);
       //! Render an Atom.
-      bool render(const Atom *a);
-
-      bool render(GLWidget *gl);
+      bool render(PainterDevice *pd, const Atom *a);
       //@}
 
-      double radius(const Primitive *p = 0);
+      double transparencyDepth() const;
+      EngineFlags flags() const;
+
+      double radius(const PainterDevice *pd, const Primitive *p = 0) const;
+
+      QWidget* settingsWidget();
+      /**
+       * Write the engine settings so that they can be saved between sessions.
+       */
+      void writeSettings(QSettings &settings) const;
+
+      /**
+       * Read in the settings that have been saved for the engine instance.
+       */
+      void readSettings(QSettings &settings);
 
     private:
-      inline double radius(const Atom *a);
+      inline double radius(const Atom *a) const;
 
-      GLWidget *m_glwidget;
-      bool m_setup; //!< Whether the sphere objects have been setup
+      SphereSettingsWidget *m_settingsWidget;
+
+      double m_alpha; // transparency of the VdW spheres
+
+    private Q_SLOTS:
+      void settingsWidgetDestroyed();
+
+
+      /**
+       * @param value opacity of the VdW spheres / 20
+       */
+      void setOpacity(int value);
+
+  };
+
+  class SphereSettingsWidget : public QWidget, public Ui::SphereSettingsWidget
+  {
+    public:
+      SphereSettingsWidget(QWidget *parent=0) : QWidget(parent) {
+        setupUi(this);
+      }
   };
 
   //! Generates instances of our SphereEngine class
@@ -79,9 +106,7 @@ namespace Avogadro {
   {
     Q_OBJECT
     Q_INTERFACES(Avogadro::EngineFactory)
-
-    public:
-      Engine *createInstance(QObject *parent = 0) { return new SphereEngine(parent); }
+    AVOGADRO_ENGINE_FACTORY(SphereEngine)
   };
 
 } // end namespace Avogadro

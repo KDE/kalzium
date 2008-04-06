@@ -1,14 +1,14 @@
 /**********************************************************************
   Cylinder - OpenGL Cylinder drawing class.
 
-  Copyright (C) 2006,2007 Benoit Jacob <jacob@math.jussieu.fr>
+  Copyright (C) 2006,2007 Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -23,6 +23,7 @@
  **********************************************************************/
 
 #include "cylinder.h"
+#include <QGLWidget>
 
 using namespace Eigen;
 
@@ -90,8 +91,8 @@ namespace Avogadro {
     // compile display list and free buffers
     if( ! d->displayList ) d->displayList = glGenLists( 1 );
     if( ! d->displayList ) return;
-    
-    if( d->faces < 3 ) 
+
+    if( d->faces < 3 )
     {
       glNewList( d->displayList, GL_COMPILE );
       glLineWidth(1.0);
@@ -149,7 +150,7 @@ namespace Avogadro {
 
     // construct an orthogonal basis whose first vector is axis, and whose other vectors
     // have norm equal to 'radius'.
-    Vector3d axisNormalized = axis / axis.norm();
+    Vector3d axisNormalized = axis.normalized();
     Vector3d ortho1, ortho2;
     ortho1.loadOrtho(axisNormalized);
     ortho1 *= radius;
@@ -209,7 +210,7 @@ namespace Avogadro {
     else ortho1 = axisNormalized.ortho();
     ortho1 *= radius;
 
-    Vector3d ortho2 = cross( axisNormalized, ortho1 );       
+    Vector3d ortho2 = cross( axisNormalized, ortho1 );
 
     // construct the 4D transformation matrix
     Matrix4d matrix;

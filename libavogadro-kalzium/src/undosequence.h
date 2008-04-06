@@ -1,14 +1,14 @@
 /**********************************************************************
   UndoSequence - Provides an sequence of Undo/Redo in a single command
 
-  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+  Copyright (C) 2007 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -27,14 +27,14 @@
 
 #include <QUndoCommand>
 
-#include "global.h"
+#include <avogadro/global.h>
 
 namespace Avogadro {
 
   /**
    * @class UndoSequence
    * @brief Provides a sequence of Undo/Redo commands in a single command
-   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+   * @author Donald Ephraim Curtis
    *
    * This class simply acts as grouping of Undo/Redo commands.  As commands
    * are added, that is how they will be executed in the Redo stage.  In the

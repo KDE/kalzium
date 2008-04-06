@@ -2,14 +2,14 @@
   TextRenderer - a temporary replacement for QGLWidget::renderText until it
   matures a bit more ;)
 
-  Copyright (C) 2007 Benoit Jacob <jacob@math.jussieu.fr>
+  Copyright (C) 2007 Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -26,16 +26,14 @@
 #ifndef __TEXTRENDERER_H
 #define __TEXTRENDERER_H
 
-#include<QHash>
-#include<QFont>
-#include<eigen/vector.h>
-#include<avogadro/global.h>
-#include<QGLWidget>
+#include <avogadro/global.h>
+#include <eigen/vector.h>
 
-/** 
+
+/**
  * @class TextRenderer
  * @internal
- * @author Benoit Jacob <jacob@math.jussieu.fr>
+ * @author Benoit Jacob
  *
  * NOTE: This class is only there as a temporary replacement for
  * QGLWidget::renderText(). As of Qt 4.2.3 and Qt 4.3-beta1, this function is
@@ -74,7 +72,7 @@
  * calling draw(). Of course you can
  * also call qglColor or Color::apply(). You can achieve semitransparent text at
  * no additional cost by choosing a semitransparent color.
- * 
+ *
  * Please make sure that no relevant OpenGL state change occurs between
  * begin() and end(), except the state changes performed by the TextRenderer
  * itself. In other words, please avoid calling glSomething() between begin() and
@@ -95,7 +93,8 @@
 namespace Avogadro
 {
 
-    class GLWidget;
+  class CharRenderer;
+  class GLWidget;
 
   class TextRendererPrivate;
   class TextRenderer
@@ -108,13 +107,13 @@ namespace Avogadro
        * This should be called only once, before any printing occurs.
        * @param glwidget The GLWidget in which to render.
        */
-      void setGLWidget( GLWidget *glwidget );
+//       void setGLWidget( GLWidget *glwidget );
 
       /**
        * Call this before drawing any text. This method saves the GL state
        * and changes it to prepare for text rendering.
        */
-      void begin();
+      void begin(GLWidget *widget);
 
       /**
        * Call this after drawing text. This method restores the GL state
@@ -124,6 +123,7 @@ namespace Avogadro
 
       /**
        * Draw text inside the 3D scene. Must be called between begin() and end().
+       * The text is centered (both horizontally and vertically) around the specified position.
        * @param pos the position of the text in the scene's coordinate system
        * @param string the QString to render
        * @returns the height in pixels of the text just rendered (0 for an empty string).
@@ -141,10 +141,11 @@ namespace Avogadro
        */
       int draw( int x, int y, const QString &string);
 
+      bool isActive();
+
     private:
 
       TextRendererPrivate * const d;
-
   };
 
 } // namespace Avogadro

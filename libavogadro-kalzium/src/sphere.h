@@ -1,14 +1,14 @@
 /**********************************************************************
   Sphere - Class for drawing spheres in OpenGL
 
-  Copyright (C) 2006,2007 Benoit Jacob <jacob@math.jussieu.fr>
+  Copyright (C) 2006,2007 Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -27,7 +27,6 @@
 
 #include <avogadro/global.h>
 
-#include <openbabel/mol.h>
 #include <eigen/matrix.h>
 #include <QGLWidget>
 
@@ -43,7 +42,7 @@ namespace Avogadro {
    * smaller triangles. This is a classical tesselation, known to give a very good
    * quality/complexity ratio.
    *
-   * @author Benoit Jacob <jacob@math.jussieu.fr>
+   * @author Benoit Jacob
    */
   class SpherePrivate;
   class Sphere

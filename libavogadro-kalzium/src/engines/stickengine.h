@@ -1,14 +1,14 @@
 /**********************************************************************
   StickEngine - Engine for "stick" display
 
-  Copyright (C) 2006-2007 Geoffrey R. Hutchison <geoff@geoffhutchison.net>
+  Copyright (C) 2006-2007 Geoffrey R. Hutchison
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -28,11 +28,6 @@
 #include <avogadro/global.h>
 #include <avogadro/engine.h>
 
-#include <openbabel/mol.h>
-
-#include <QGLWidget>
-#include <QObject>
-#include <QImage>
 
 namespace Avogadro {
 
@@ -40,44 +35,33 @@ namespace Avogadro {
   class StickEngine : public Engine
   {
     Q_OBJECT
+    AVOGADRO_ENGINE(tr("Stick"))
 
     public:
       //! Constructor
-      StickEngine(QObject *parent=0) : Engine(parent), m_glwidget(0), m_update(true) {}
+      StickEngine(QObject *parent=0);
       //! Deconstructor
       ~StickEngine();
-
-      //! \name Description methods
-      //@{
-      //! @return engine name
-      QString name() { return(QString(tr("Stick"))); }
-      //! @return engine description
-      QString description() { return(QString(tr("Renders as Cylinders"))); }
-      //@}
-
+      
+      //! Copy 
+      Engine *clone() const;
+ 
       //! \name Render Methods
       //@{
       //! Render an Atom.
-      bool render(const Atom *a);
+      bool renderOpaque(PainterDevice *pd, const Atom *a);
       //! Render a Bond.
-      bool render(const Bond *b);
-      //! Render a Molecule.
-      bool render(const Molecule *m);
+      bool renderOpaque(PainterDevice *pd, const Bond *b);
 
-      bool render(GLWidget *gl);
+      bool renderOpaque(PainterDevice *pd);
       //@}
 
-      void addPrimitive(Primitive *);
-      void updatePrimitive(Primitive *);
-      void removePrimitive(Primitive *);
-
-      double radius(const Primitive *p = 0);
+      double transparencyDepth() const;
+      EngineFlags flags() const;
+      double radius(const PainterDevice *pd, const Primitive *p = 0) const;
 
     private:
-      inline double radius(const Atom *a);
-
-      GLWidget *m_glwidget;
-      bool m_update;
+      inline double radius(const Atom *a) const;
   };
 
   //! Generates instances of our StickEngine class
@@ -85,9 +69,7 @@ namespace Avogadro {
   {
     Q_OBJECT
     Q_INTERFACES(Avogadro::EngineFactory)
-
-    public:
-      Engine *createInstance(QObject *parent = 0) { return new StickEngine(parent); }
+    AVOGADRO_ENGINE_FACTORY(StickEngine)
   };
 
 } // end namespace Avogadro

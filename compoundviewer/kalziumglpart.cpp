@@ -29,17 +29,19 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent)
     setlocale(LC_NUMERIC, "C");
 
     // Prevent What's this from intercepting right mouse clicks
-    setContextMenuPolicy( Qt::PreventContextMenu );
+    setContextMenuPolicy(Qt::PreventContextMenu);
     // Load the tools and set navigate as the default
     Avogadro::ToolGroup* tools = new Avogadro::ToolGroup(this);
     tools->load();
     const QList<Avogadro::Tool *> toolList = tools->tools();
-    foreach( Avogadro::Tool *tool, toolList )
+    foreach(Avogadro::Tool *tool, toolList)
     {
         if (tool->name() == "Navigate")
             tools->setActiveTool(tool);
     }
     setToolGroup(tools);
+    // Set the default engine to be active
+    loadDefaultEngines();
 }
 
 KalziumGLWidget::~KalziumGLWidget()
@@ -50,21 +52,25 @@ KalziumGLWidget::~KalziumGLWidget()
 
 void KalziumGLWidget::setStyle( int style )
 {
-    foreach( Avogadro::Engine *engine, engines() )
+    foreach(Avogadro::Engine *engine, engines())
     {
-        if( engine->name() != "Label" ) {
-            engine->setEnabled(false);
-        }
-
-        if( ( style == 0 && engine->name() == "Dynamic Ball and Stick" )
-         || ( style == 1 && engine->name() == "Stick" )
-         || ( style == 2 && engine->name() == "Sphere" )
-         || ( style == 3 && engine->name() == "Wireframe" ) ) {
+        if((style == 0 && engine->name() == "Ball and Stick")
+           || (style == 1 && engine->name() == "Stick")
+           || (style == 2 && engine->name() == "Van der Waals Spheres")
+           || (style == 3 && engine->name() == "Wireframe"))
+        {
             engine->setEnabled(true);
-            setRenderingEngine(engine);
         }
+        else if(engine->name() != "Label")
+            engine->setEnabled(false);
     }
     update();
+}
+
+void KalziumGLWidget::setLabels(int )
+{
+    /// FIXME: Make this work!
+    
 }
 
 typedef KParts::GenericFactory<KalziumGLPart> KalziumGLPartFactory;

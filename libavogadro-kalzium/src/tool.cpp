@@ -1,14 +1,14 @@
 /**********************************************************************
   Tool - Avogadro Tool Interface
 
-  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+  Copyright (C) 2007 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -22,17 +22,15 @@
   02110-1301, USA.
  **********************************************************************/
 
-#include <avogadro/tool.h>
-#include <avogadro/glwidget.h>
-#include <avogadro/primitive.h>
+#include "tool.h"
+#include <config.h>
 
 #include <QAction>
-#include <QUndoCommand>
-#include <QWidget>
+#include <QIcon>
 
 namespace Avogadro {
 
-  class ToolPrivate 
+  class ToolPrivate
   {
     public:
       ToolPrivate() : activateAction(0) {}
@@ -41,26 +39,21 @@ namespace Avogadro {
   };
 
   Tool::Tool(QObject *parent) : QObject(parent), d(new ToolPrivate)
-  { 
+  {
     d->activateAction = new QAction(this);
-    d->activateAction->setCheckable(true); 
+    d->activateAction->setCheckable(true);
     d->activateAction->setIcon(QIcon(QString::fromUtf8(":/icons/tool.png")));
   }
 
-  Tool::~Tool() 
-  { 
+  Tool::~Tool()
+  {
     d->activateAction->deleteLater();
     delete d;
   }
 
-  QString Tool::name() const 
-  { 
-    return QObject::tr("Unknown"); 
-  }
-
-  QString Tool::description() const 
-  { 
-    return QObject::tr("No Description"); 
+  QString Tool::description() const
+  {
+    return QObject::tr("No Description");
   }
 
   QAction* Tool::activateAction() const {
@@ -71,12 +64,16 @@ namespace Avogadro {
     if(d->activateAction->text().isEmpty())
       d->activateAction->setText(name());
 
-    return d->activateAction; 
+    return d->activateAction;
   }
 
   QWidget* Tool::settingsWidget()
   {
     return 0;
+  }
+
+  void Tool::setMolecule(Molecule *)
+  {
   }
 
   int Tool::usefulness() const
@@ -88,9 +85,19 @@ namespace Avogadro {
     return usefulness() < other.usefulness();
   }
 
-  bool Tool::paint(GLWidget *widget)
-  { Q_UNUSED(widget);
-    return true;
+  bool Tool::paint(GLWidget*)
+  {
+	  return true;
+  }
+
+  void Tool::writeSettings(QSettings &settings) const
+  {
+    Q_UNUSED(settings);
+  }
+
+  void Tool::readSettings(QSettings &settings)
+  {
+    Q_UNUSED(settings);
   }
 
 } // end namespace Avogadro

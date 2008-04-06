@@ -1,14 +1,14 @@
 /**********************************************************************
   Engine - Engine interface and plugin factory.
 
-  Copyright (C) 2006,2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+  Copyright (C) 2006,2007 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -29,11 +29,14 @@ namespace Avogadro {
   class EnginePrivate
   {
   public:
-    EnginePrivate() : enabled(false) {}
-    
-    PrimitiveQueue queue;
-    Color colorMap;
+    EnginePrivate() : colorMap(0), enabled(false) {}
+
+    PrimitiveList primitives;
+    Color *colorMap;
     bool enabled;
+
+    QString name;
+    QString description;
   };
 
   Engine::Engine(QObject *parent) : QObject(parent), d(new EnginePrivate)
@@ -45,23 +48,28 @@ namespace Avogadro {
     delete d;
   }
 
-  const PrimitiveQueue& Engine::queue() const
+  PrimitiveList Engine::primitives() const
   {
-    return d->queue;
+    return d->primitives;
   }
 
-  double Engine::radius(const Primitive *primitive)
+  void Engine::setPrimitives(const PrimitiveList &primitives)
   {
-    Q_UNUSED(primitive);
+    d->primitives = primitives;
+    emit changed();
+  }
+
+  double Engine::radius(const PainterDevice*, const Primitive*) const
+  {
     return 0.0;
   }
 
-  void Engine::clearQueue()
+  void Engine::clearPrimitives()
   {
-    d->queue.clear();
+    d->primitives.clear();
   }
 
-  bool Engine::isEnabled()
+  bool Engine::isEnabled() const
   {
     return d->enabled;
   }
@@ -69,24 +77,27 @@ namespace Avogadro {
   void Engine::setEnabled(bool enabled)
   {
     d->enabled = enabled;
+    emit changed();
   }
 
   void Engine::addPrimitive(Primitive *primitive)
   {
-    d->queue.addPrimitive(primitive);
+    d->primitives.append(primitive);
+    emit changed();
   }
 
-  void Engine::updatePrimitive(Primitive *primitive)
+  void Engine::updatePrimitive(Primitive*)
   {
-    Q_UNUSED(primitive);
+    emit changed();
   }
 
   void Engine::removePrimitive(Primitive *primitive)
   {
-    d->queue.removePrimitive(primitive);
+    d->primitives.removeAll(primitive);
+    emit changed();
   }
 
-  void Engine::setColorMap(Color &map)
+  void Engine::setColorMap(Color *map)
   {
     d->colorMap = map;
   }
@@ -96,11 +107,55 @@ namespace Avogadro {
     return 0;
   }
 
-  Color &Engine::colorMap()
+  Color *Engine::colorMap()
   {
     return d->colorMap;
   }
 
+  void Engine::setName(const QString &name)
+  {
+    d->name = name;
+  }
+
+  QString Engine::name() const
+  {
+    if(d->name.isEmpty()) { return type(); }
+    return d->name;
+  }
+
+  void Engine::setDescription(const QString &description)
+  {
+    d->description = description;
+  }
+
+  QString Engine::description() const
+  {
+    return d->description;
+  }
+
+  Engine::EngineFlags Engine::flags() const
+  {
+    return Engine::NoFlags;
+  }
+
+  double Engine::transparencyDepth() const
+  {
+    return 0.0;
+  }
+
+  void Engine::writeSettings(QSettings &settings) const
+  {
+    settings.setValue("enabled", isEnabled());
+    settings.setValue("name", name());
+    settings.setValue("description", description());
+  }
+
+  void Engine::readSettings(QSettings &settings)
+  {
+    setEnabled(settings.value("enabled", false).toBool());
+    setName(settings.value("name", name()).toString());
+    setDescription(settings.value("description", description()).toString());
+  }
 }
 
 #include "engine.moc"

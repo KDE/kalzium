@@ -1,15 +1,16 @@
 /**********************************************************************
   GLWidget - general OpenGL display
 
-  Copyright (C) 2006,2007 Geoffrey R. Hutchison <geoff@geoffhutchison.net>
-  Copyright (C) 2006,2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+  Copyright (C) 2006,2007 Geoffrey R. Hutchison
+  Copyright (C) 2006,2007 Donald Ephraim Curtis
+  Copyright (C) 2007 Marcus D. Hanwell
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -33,33 +34,33 @@
 #include <avogadro/painter.h>
 #include <avogadro/camera.h>
 
-#include <QGLWidget>
-#include <QDebug>
+#include <QThread>
 
 #include <vector>
 
 class QUndoStack;
 class QMouseEvent;
+class QGLContext;
 
 namespace Avogadro {
-  
+
   class ToolGroup;
 
   /**
-   * @class GLHit
+   * @class GLHit glwidget.h <avogadro/glwidget.h>
    * @brief Class for wrapping hits from GL picking.
-   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+   * @author Donald Ephraim Curtis
    *
-   * Provides an easy to use class to contain OpenGL hits returned from the 
-   * process of picking.  This class relies on the %Engine subclasses properly 
-   * naming the objects which it is rendering.  For more information see the 
+   * Provides an easy to use class to contain OpenGL hits returned from the
+   * process of picking.  This class relies on the %Engine subclasses properly
+   * naming the objects that they are rendering.  For more information see the
    * Engine documentation.
    */
   class GLHitPrivate;
   class A_EXPORT GLHit
   {
     public:
-      /** 
+      /**
        * Blank constructor.
        */
       GLHit();
@@ -67,78 +68,78 @@ namespace Avogadro {
        * Copy constructor.
        */
       GLHit(const GLHit &glHit);
-      /** 
+      /**
        * Constructor.
        * @param type The type of the OpenGL object that was picked which corresponds
        * to the Primitive::Type for the object
        * (ie. type==Primitive::AtomType means an Atom was picked).
        * @param name The name of the OpenGL object that was picked corresponding
        * to the primitive index
-       * (ie. name==1 means Atom 1)
+       * (ie. name==1 means Atom 1).
        */
       GLHit(GLuint type, GLuint name, GLuint minZ, GLuint maxZ);
       /**
-       * Deconstructor.
+       * Destructor.
        */
       ~GLHit();
 
       /**
        * Less than operator.
-       * @param other the other GLHit object to compare to
+       * @param other the other GLHit object to compare to.
        * @return (this->minZ < other->minZ) ? @c true : @c false
        */
       bool operator<(const GLHit &other) const;
 
       /**
        * Equivalence operator.
-       * @param other the other GLHit object to test equivalence with
-       * @return returns true if all elements are equivalent (type, name, minZ, maxZ)
+       * @param other the other GLHit object to test equivalence with.
+       * @return returns true if all elements are equivalent (type, name, minZ, maxZ).
        */
       bool operator==(const GLHit &other) const;
 
       /**
        * Copy operator.
-       * @param other the GLHit object to set this object equal to
+       * @param other the GLHit object to set this object equal to.
        * @return  *this
        */
       GLHit &operator=(const GLHit &other);
 
       /**
-       * @return type of the object which was picked
+       * @return type of the object that was picked.
        */
       GLuint type() const;
 
       /**
-       * @return name of the object that was picked
+       * @return name of the object that was picked.
        */
       GLuint name() const;
 
-      /** 
-       * @return the minimum Z value of this hit corresponding 
-       * to the Z value of the drawn object closest to the camera
+      /**
+       * @return the minimum z value of this hit corresponding
+       * to the z value of the drawn object closest to the camera.
        */
       GLuint minZ() const;
 
       /**
-       * @return the maximum Z value of this hit corresponding
-       * to the Z value of the drawn object farthest from the camera
+       * @return the maximum z value of this hit corresponding
+       * to the z value of the drawn object farthest from the camera.
        */
       GLuint maxZ() const;
 
       /**
-       * @param type new object type
+       * @param type new object type.
        */
       void setType(GLuint type);
       /**
-       * @param name new object name
+       * @param name new object name.
        */
       void setName(GLuint name);
       /**
-       * @param minZ minimum Z value to set for this object
+       * @param minZ minimum z value to set for this object.
        */
       void setMinZ(GLuint minZ);
       /**
-       * @param maxZ maximum Z value to set for this object
+       * @param maxZ maximum z value to set for this object.
        */
       void setMaxZ(GLuint maxZ);
 
@@ -147,312 +148,574 @@ namespace Avogadro {
   };
 
   /**
-   * @class GLWidget
-   * GL widget class for rendering molecules.
-   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+   * @class GLWidget glwidget.h <avogadro/glwidget.h>
+   * @brief GL widget class for rendering molecules.
+   * @author Donald Ephraim Curtis
+   * @author Marcus D. Hanwell
    *
-   * This widget provides a 3d graphical view of a molecule.   In terms 
-   * of a Model-View architecture we consider
+   * This widget provides a 3D graphical view of a molecule.   In terms
+   * of the Model-View architecture we consider
    * the Molecule the model and GLWidget a view of this model.
-   * The widget relies on a various Engine subclasses to handle
-   * rendering of the 3d objects.  
+   * The widget relies on various Engine subclasses to handle the
+   * rendering of the 3d objects.
    *
-   * Each engine is allocated a PrimitiveQueue object.  This queue contains
+   * Each engine is allocated a PrimitiveList object.  This queue contains
    * all primitivew which that engine is responsible for rendering for this
-   * glwidget.  Thus, we can have one queue containing only the bonds, and 
+   * GLWidget.  Thus, we can have one queue containing only the bonds, and
    * one queue containing only the atoms which would allow bonds and atoms
    * to be rendered by two different engines.
    */
+  class GLThread;
   class GLWidgetPrivate;
+  class GLPainterDevice;
   class A_EXPORT GLWidget : public QGLWidget
   {
+    friend class GLThread;
+
     Q_OBJECT
     Q_PROPERTY(QColor background READ background WRITE setBackground)
 //    Q_PROPERTY(float scale READ scale WRITE setScale)
 
     public:
       /**
-       * Constructor
-       * @param parent the widget parent
+       * Constructor.
+       * @param parent the widget parent.
        */
       GLWidget(QWidget *parent = 0);
 
       /**
-       * Constructor
-       * @param format the QGLFormat information
-       * @param parent the widget parent
+       * Constructor.
+       * @param format the QGLFormat information.
+       * @param parent the widget parent.
        */
-      explicit GLWidget(const QGLFormat &format, QWidget *parent = 0);
+      explicit GLWidget(const QGLFormat &format, QWidget *parent = 0, const GLWidget * shareWidget = 0);
 
       /**
-       * Constructor
-       * @param molecule the molecule to view
-       * @param format the QGLFormat information
-       * @param parent the widget parent
+       * Constructor.
+       * @param molecule the molecule to view.
+       * @param format the QGLFormat information.
+       * @param parent the widget parent.
        */
-      GLWidget(Molecule *molecule, const QGLFormat &format, QWidget *parent = 0);
+      GLWidget(Molecule *molecule, const QGLFormat &format, QWidget *parent = 0, const GLWidget * shareWidget = 0);
 
       /**
-       * Deconstructor
+       * Destructor.
        */
-      virtual ~GLWidget();
+      ~GLWidget();
 
       /**
-       * Add an arbitrary display list to the %GLWidget rendering 
-       * area.  This allows plugins to add auxiliary visuals.
-       *
-       * @param dl the unsigned int representing the GL display list
-       */
-      void addDL(GLuint dl);
-
-      /**
-       * Remove a display list from the %GLWidget rendering
-       * area previously added by addDL.  If the display list does
-       * not exist nothing is removed.
-       *
-       * @param dl the display lists to remove
-       */
-      void removeDL(GLuint dl);
-
-      /**
-       * @return true if the GLWidget is stable as determined 
-       * by the tools and extensions
+       * @return true if the GLWidget is stable as determined
+       * by the tools and extensions.
        */
       bool isStable() const;
 
       /**
-       * @param stable the new stable value
+       * @param stable the new stable value.
        */
       void setStable(bool stable);
 
       /**
+       * @return the width of the widget in pixels.
+       */
+      int deviceWidth() { return width(); }
+
+      /**
+       * @return the height of the widget in pixels.
+       */
+      int deviceHeight() { return height(); }
+
+      /**
        * Virtual function setting the size hint for this widget.
        *
-       * @return the preferred size of the widget
+       * @return the preferred size of the widget.
        */
       QSize sizeHint() const;
 
       /**
        * Virtual function setting the minimum size hit for this widget.
        *
-       * @return the minimum size the widget can take without causing 
-       * unspecified behaviour
+       * @return the minimum size the widget can take without causing
+       * unspecified behaviour.
        */
       QSize minimumSizeHint() const;
 
       /**
-       * Set the background color of the rendering area.  (default black)
-       *
-       * @param background the new background color
+       * @return the radius of the primitive object for this glwidget.
        */
-      void setBackground(const QColor &background);
+      double radius(const Primitive *p) const;
 
+      /**
+       * @return the active Tool.
+       */
       Tool* tool() const;
+
+      /**
+       * @return the ToolGroup manager.
+       */
       ToolGroup toolManger() const;
 
       /**
-       * @return the current background color of the rendering area
+       * @return the current background color of the rendering area.
        */
       QColor background() const;
 
       /**
-       * Set the molecule model for this view.
-       * @param molecule the molecule to view
+       * Set the current global color map for Primitives.
        */
-      void setMolecule(Molecule *molecule);
+      void setColorMap(Color *);
 
       /**
-       * @param undoStack the new undoStack
+       * @return the current global color map for Primitives.
+       */
+      Color *colorMap() const;
+
+      /**
+       * @param undoStack the new undoStack.
        */
       void setUndoStack(QUndoStack *undoStack);
 
       /**
-       * @return the current GLWidget undoStack
+       * @return the current GLWidget undoStack.
        */
       QUndoStack* undoStack() const;
 
       /**
-       * @return the current molecule being viewed
+       * @return the current Molecule being viewed.
        */
       const Molecule* molecule() const;
 
       /**
-       * @return the current molecule being viewed
+       * @return the current Molecule being viewed.
        */
       Molecule* molecule();
 
       /**
-       * update the Molecule Geometry.
+       * update the Molecule geometry.
        */
       void updateGeometry();
 
       /**
-       * @return a pointer to the camera of this widget
+       * @return a pointer to the Camera of this widget.
        */
       Camera * camera() const;
 
       /**
-       * @return a list of engines
+       * @return a list of engines.
        */
       QList<Engine *> engines() const;
 
       /**
-       * Get the hits for a region starting at (x,y) of size (w x y)
+       * @return a list of the engine factories.
+       */
+      QList<EngineFactory *> engineFactories() const;
+
+      /**
+       * Get the hits for a region starting at (x, y) of size (w * h).
        */
       QList<GLHit> hits(int x, int y, int w, int h);
 
+      /**
+       * Take a point and figure out which is the closest Primitive under that point.
+       * @param p the point on the widget that was clicked.
+       * @return the closest Primitive that was clicked or 0 if nothing.
+       */
+      Primitive* computeClickedPrimitive(const QPoint& p);
+
+      /**
+       * Take a point and figure out which is the closest Atom under that point.
+       * @param p the point on the widget that was clicked.
+       * @return the closest Atom that was clicked or 0 if nothing.
+       */
+      Atom* computeClickedAtom(const QPoint& p);
+
+      /**
+       * Take a point and figure out which is the closest Bond under that point.
+       * @param p the point on the widget that was clicked.
+       * @return the closest Bond that was clicked or 0 if nothing.
+       */
+      Bond* computeClickedBond(const QPoint& p);
+
+      /**
+       * @return the point at the center of the Molecule.
+       */
       const Eigen::Vector3d & center() const;
+      /**
+       * @return the normalVector for the entire Molecule.
+       */
       const Eigen::Vector3d & normalVector() const;
+      /**
+       * @return the radius of the Molecule.
+       */
       const double & radius() const;
+      /**
+       * @return the Atom farthest away from the camera.
+       */
       const Atom *farthestAtom() const;
 
+      /**
+       * @param quality set the global quality of the widget.
+       */
+      void setQuality(int quality);
+      /**
+       * @return the global quality of the widget.
+       */
+      int quality() const;
+
+      /**
+       * Set to render x, y, z axes as an overlay in the bottom left of the widget.
+       */
+      void setRenderAxes(bool renderAxes);
+
+      /**
+       * @return true if the x, y, z axes are being rendered.
+       */
+      bool renderAxes();
+
+      /**
+       * Set to render the "debug info" (i.e., FPS, number of atoms, etc.)
+       */
+      void setRenderDebug(bool renderDebug);
+
+      /**
+       * @return true if the debug panel is being drawn
+       */
+      bool renderDebug();
+
+      /**
+       * Set the ToolGroup of the GLWidget.
+       */
       void setToolGroup(ToolGroup *toolGroup);
+
+      /**
+       * @return the ToolGroup of the GLWidget.
+       */
       ToolGroup * toolGroup() const;
 
       /** Returns the Painter of this widget. For instance, to draw a sphere in this
         * widget, you could do:
         * @code
-          painter()->drawSphere(center,radius)
+          painter()->drawSphere(center, radius)
         * @endcode
         * @sa class Painter
         */
       Painter *painter() const;
-      
-      void setRenderingEngine( Avogadro::Engine *engine );
-      
-      int labelsStyle() const;
-      Avogadro::Engine *renderingEngine();
-
-    public Q_SLOTS:
-    
-      void setGlobalQualitySetting(int globalQualitySetting);
-
-      void setTool(Tool *tool);
-      void setLabels( int style );
 
       /**
-       * Add the primitive to the widget.  This slot is called whenever
-       * a new primitive is added to our molecule model.  It adds the 
-       * primitive to the list in the appropriate group.
-       *
-       * @param primitive pointer to a primitive to add to the view
+       * @return list of primitives for this widget
        */
-      void addPrimitive(Primitive *primitive);
-      /**
-       * Update a primitive.  This slot is called whenever a primitive of our 
-       * molecule model has been changed and we need to check our view.
-       *
-       * @note In some cases we are passed the molecule itself meaning that more
-       * than one thing has changed in the molecule.
-       *
-       * @param primitive primitive that was changed
-       */
-      void updatePrimitive(Primitive *primitive);
-      /** Remove a primitive.  This slot is called whenever a primitive of our
-       * molecule model has been removed and we need to take it off our list.  
-       * Additionally we need to update other items in our view that are impacted
-       * by this change.
-       *
-       * @param primitive primitive that was removed
-       */
-      void removePrimitive(Primitive *primitive);
+      PrimitiveList primitives() const;
 
-      /** Toggle the selection for the atoms in the supplied list.
+      /** @name Selection Methods
+       *  These methods are used to manipulate user-selected primitives.
+       *  Each view tracks a list of selected objects (e.g., atoms)
+       *  which can be passed to engines, tools, or used for tasks like
+       *  copying selected atoms, etc.
+       * @{
+       */
+
+      /**
+       * @return the current selected primitives (all Primitive types)
+       */
+      PrimitiveList selectedPrimitives() const;
+
+      /**
+       * Toggle the selection for the atoms in the supplied list.
        * That is, if the primitive is selected, deselect it and vice-versa.
-       * 
-       * @param primitiveList the set of atoms to update
-       */
-      void toggleSelection(QList<Primitive *> primitiveList);
-
-      /** Change the selection status for the atoms in the supplied list.
-       * All atoms in the list will have the same selection status.
        *
-       * @param primitiveList the set of atoms to update
-       * @param select whether to select or deselect the atoms
+       * @param primitives the set of objects to update.
        */
-      void setSelection(QList<Primitive *> primitiveList, bool select);
+      void toggleSelected(PrimitiveList primitiveList);
 
-      /** Deselect all atoms 
+      /**
+       * Change the selection status for the atoms in the supplied list.
+       * All objects in the list will have the same selection status.
+       *
+       * @param primitives the set of objects to update.
+       * @param select whether to select or deselect the objects.
        */
-      void clearSelection();
+      void setSelected(PrimitiveList primitives, bool select = true);
 
-      /** \return the list of selected atoms
+      /**
+       * Deselect all objects.
        */
-      QList<Primitive *> selectedItems();
+      void clearSelected();
 
-      /** \return true if the Primitive is selected
+      /**
+       * @return true if the Primitive is selected.
        */
-      bool selectedItem(const Primitive *p);
+      bool isSelected(const Primitive *p) const;
+      /* end selection method grouping */
+      /** @} */
 
-      /** Set the number of unit cells for a periodic molecule like a crystal
+      /**
+       * Set the number of unit cells for a periodic molecule like a crystal
        * a, b, and c, are the three primitive unit cell axes.
-       * Does nothing if the molecule does not have a unit cell defined
+       * Does nothing if the molecule does not have a unit cell defined.
        *
-       * @param a Number of unit cells to display along the a axis
-       * @param b Number of unit cells to display along the b axis
-       * @param c Number of unit cells to display along the c axis
+       * @param a number of unit cells to display along the a axis.
+       * @param b number of unit cells to display along the b axis.
+       * @param c number of unit cells to display along the c axis.
        */
       void setUnitCells(int a, int b, int c);
 
-    Q_SIGNALS:
-      void mousePress( QMouseEvent * event );
-      void mouseRelease( QMouseEvent * event );
-      void mouseMove( QMouseEvent * event );
-      void wheel( QWheelEvent * event);
+      /**
+       * @return the number of unit cells to display along the a axis.
+       */
+      int aCells();
+
+      /**
+       * @return the number of unit cells to display along the b axis.
+       */
+      int bCells();
+
+      /**
+       * @return the number of unit cells to display along the c axis.
+       */
+      int cCells();
+
+      /**
+       * Static pointer to the current GLWidget.
+       */
+      static GLWidget *m_current;
+
+      /**
+       * @return a pointer to the current GLWidget.
+       */
+      static GLWidget *current();
+
+      /**
+       * Set this instance of the GLWidget as the current GLWidget instance.
+       */
+      static void setCurrent(GLWidget *current);
+
+      /**
+       * Write the settings of the GLWidget in order to save them to disk.
+       */
+      virtual void writeSettings(QSettings &settings) const;
+
+      /**
+       * Read the settings of the GLWidget and restore them.
+       */
+      virtual void readSettings(QSettings &settings);
+
 
     protected:
-      GLWidgetPrivate * const d;
-      
       /**
        * Virtual function called by QGLWidget on initialization of
        * the GL area.
        */
       virtual void initializeGL();
+
       /**
-       * virtual function we want to bypass if we are not the current context
-       */
-      virtual void glDraw();
-      /**
-       * Virtual function called when the GL area needs repainting
+       * Virtual function called by GLWidget before render() to set up the
+       * display correctly.
        */
       virtual void paintGL();
+
       /**
-       * Virtual functionc called whn the GL area is resized
+       * Virtual function called when the GL area needs repainting.
+       */
+      virtual void paintEvent(QPaintEvent *event);
+
+      /**
+       * Called on resize of the GLWidget to perform resizing of the display.
+       */
+      virtual void resizeEvent(QResizeEvent *event);
+
+      /**
+       * Virtual function called whn the GL area is resized
        */
       virtual void resizeGL(int, int);
 
       /**
+       * Focus Event
+       */
+      virtual bool event(QEvent *event);
+
+      /**
        * Virtual function reaction to mouse press in the GL rendering area.
        */
-      virtual void mousePressEvent( QMouseEvent * event );
+      virtual void mousePressEvent(QMouseEvent * event);
+
       /**
        * Virtual function reaction to mouse release in the GL rendering area.
        */
-      virtual void mouseReleaseEvent( QMouseEvent * event );
+      virtual void mouseReleaseEvent(QMouseEvent * event);
+
       /**
        * Virtual function reaction to mouse being moved in the GL rendering area.
        */
-      virtual void mouseMoveEvent( QMouseEvent * event );
+      virtual void mouseMoveEvent(QMouseEvent * event);
+
       /**
        * Virtual function reaction to mouse while in the GL rendering area.
        */
-      virtual void wheelEvent( QWheelEvent * event );
+      virtual void wheelEvent(QWheelEvent * event);
 
       /**
        * Render the scene. To be used in both modes GL_RENDER and GL_SELECT.
+       * This function calls the render functions of the engines as well as the
+       * paint events of the tools and is where everything drawn onto the widget
+       * is called from.
        */
       virtual void render();
-      
+
       /**
-       * Helper function to load all available engines
+       * Render a full crystal cell
+       * Called by render() automatically
+       *
+       * @param displayList the display list of the primitive unit cell
        */
-      void loadEngines();
-      
+      virtual void renderCrystal(GLuint displayList);
+
+      /**
+       * Render crystal unit cell axes
+       * called by renderCrystal() automatically
+       *
+       */
+      virtual void renderCrystalAxes();
+
+      /**
+       * Render x, y, z axes as an overlay on the bottom left of the widget.
+       */
+      virtual void renderAxesOverlay();
+
+      /**
+       * Render a debug overlay with extra debug information on the GLWidget.
+       */
+      virtual void renderDebugOverlay();
+
+      /**
+       * Helper function to load all engine factories.
+       */
+      void loadEngineFactories();
+
+      /**
+       * This will return a painting condition that must be met each time
+       * before a GLThread can run.
+       *
+       * @return painting condition.
+       */
+//       QWaitCondition *paintCondition() const;
+
+
     private:
+      GLWidgetPrivate * const d;
+
       /**
-       * Helper function called by all constructors
+       * Helper function called by all constructors.
        */
-      void constructor();
+      void constructor(const GLWidget *shareWidget =0);
+
+      /**
+       * Compute the average frames per second over the last 200+ ms.
+       */
+      inline double computeFramesPerSecond();
+
+    public Q_SLOTS:
+
+      /**
+       * Set the active Tool of the GLWidget.
+       */
+      void setTool(Tool *tool);
+
+      /**
+       * Add the primitive to the widget.  This slot is called whenever
+       * a new primitive is added to our molecule model.  It adds the
+       * primitive to the list in the appropriate group.
+       *
+       * @param primitive pointer to a primitive to add to the view
+       */
+      void addPrimitive(Primitive *primitive);
+
+      /**
+       * Update a primitive.  This slot is called whenever a primitive of our
+       * molecule model has been changed and we need to check our view.
+       *
+       * @note In some cases we are passed the molecule itself meaning that more
+       * than one thing has changed in the molecule.
+       *
+       * @param primitive object which changed.
+       */
+      void updatePrimitive(Primitive *primitive);
+
+      /** Remove a primitive.  This slot is called whenever a primitive of our
+       * molecule model has been removed and we need to take it off our list.
+       * Additionally we need to update other items in our view that are impacted
+       * by this change.
+       *
+       * @param primitive object to remove.
+       */
+      void removePrimitive(Primitive *primitive);
+
+      /**
+       * Set the background color of the rendering area (the default is black).
+       *
+       * @param background the new background color.
+       */
+      void setBackground(const QColor &background);
+
+      /**
+       * Set the molecule model for this view.
+       * @param molecule the molecule to view.
+       */
+      void setMolecule(Molecule *molecule);
+
+      /**
+       * @param engine Engine to add to this widget.
+       */
+      void addEngine(Engine *engine);
+
+      /**
+       * @param engine Engine to remove from this widget.
+       */
+      void removeEngine(Engine *engine);
+
+      /**
+       * Reset to default engines (one of each factory).
+       */
+      void loadDefaultEngines();
+
+      /**
+       * Signal that something changed and the display lists should be invalidated.
+       */
+      void invalidateDLs();
+
+    Q_SIGNALS:
+      /**
+       * Signal for the mouse press event which is passed to the engines and tools.
+       */
+      void mousePress(QMouseEvent * event);
+
+      /**
+       * Signal for the mouse release event which is passed to the engines and tools.
+       */
+      void mouseRelease( QMouseEvent * event );
+
+      /**
+       * Signal for the mouse move event which is passed to the engines and tools.
+       */
+      void mouseMove( QMouseEvent * event );
+
+      /**
+       * Signal for the mouse wheel event which is passed to the engines and tools.
+       */
+      void wheel( QWheelEvent * event);
+
+      /**
+       * Signal that the Molecule has changed.
+       */
+      void moleculeChanged(Molecule *previous, Molecule *next);
+
+      /**
+       * Signal that an Engine has been added to the GLWidget.
+       */
+      void engineAdded(Engine *engine);
+
+      /**
+       * Signal that an Engine has been removed from the GLWidget.
+       */
+      void engineRemoved(Engine *engine);
 
   };
 

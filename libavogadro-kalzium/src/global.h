@@ -1,14 +1,14 @@
 /**********************************************************************
   global.h - Setup some default defines.
 
-  Copyright (C) 2007 by Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+  Copyright (C) 2007 by Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -25,7 +25,7 @@
 #ifndef __GLOBAL_H
 #define __GLOBAL_H
 
-#include <kdemacros.h>
+#include <QTranslator>
 
 #ifdef WIN32
 # ifndef NOMINMAX
@@ -33,14 +33,22 @@
 # endif
 #endif
 
+#ifdef WIN32
+# define A_DECL_IMPORT __declspec(dllimport)
+# define A_DECL_EXPORT __declspec(dllexport)
+#else
+# define A_DECL_IMPORT __attribute__ ((visibility("default")))
+# define A_DECL_EXPORT __attribute__ ((visibility("default")))
+#endif
+
 #ifndef A_EXPORT
-# if defined(MAKE_AVOGADRO_KALZIUM_LIB)
-   /* We are building this library */
-#  define A_EXPORT KDE_EXPORT
+# ifdef avogadro_lib_EXPORTS
+#  define A_EXPORT A_DECL_EXPORT
 # else
-   /* We are using this library */
-#  define A_EXPORT KDE_IMPORT
+#  define A_EXPORT A_DECL_IMPORT
 # endif
+#else
+# define A_EXPORT
 #endif
 
 #ifndef GL_RESCALE_NORMAL
@@ -73,21 +81,18 @@ const int      SEL_BUF_MARGIN                        = 128;
 const int      SEL_BOX_HALF_SIZE                     = 4;
 const int      SEL_BOX_SIZE                          = 2 * SEL_BOX_HALF_SIZE + 1;
 const double   SEL_ATOM_EXTRA_RADIUS                 = 0.18;
-const int      PAINTER_GLOBAL_QUALITY_SETTINGS       = 3;
-const int      DEFAULT_GLOBAL_QUALITY_SETTING        = PAINTER_GLOBAL_QUALITY_SETTINGS - 1;
-const int      PAINTER_DETAIL_LEVELS                 = 10;
-const int      PAINTER_SPHERES_LEVELS_ARRAY[3][10]
-                 = { {0, 0, 1, 1, 2, 2, 3, 3, 4, 4} ,
-                     {0, 1, 2, 3, 4, 4, 5, 5, 6, 6} ,
-                     {1, 2, 3, 4, 5, 6, 7, 8, 9, 9} };
-const double   PAINTER_SPHERES_LIMIT_MIN_LEVEL       = 0.005;
-const double   PAINTER_SPHERES_LIMIT_MAX_LEVEL       = 0.15;
+const double   SEL_BOND_EXTRA_RADIUS                 = 0.07;
 
-const int      PAINTER_CYLINDERS_LEVELS_ARRAY[3][10]
-                 = { {0, 3, 5, 5, 8, 8, 12, 12, 16, 16} ,
-                     {0, 4, 6, 9, 12, 12, 16, 16, 20, 20},
-                     {0, 4, 6, 10, 14, 18, 22, 26, 32, 40} };
-const double   PAINTER_CYLINDERS_LIMIT_MIN_LEVEL     = 0.001;
-const double   PAINTER_CYLINDERS_LIMIT_MAX_LEVEL     = 0.03;
+namespace Avogadro
+{
+  class A_EXPORT Library
+  {
+    public:
+      static QTranslator *createTranslator();
+      static QString version();
+      static QString svnRevision();
+      static QString prefix();
+  };
+}
 
 #endif  // __GLOBAL_H

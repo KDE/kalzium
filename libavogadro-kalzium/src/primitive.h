@@ -1,14 +1,14 @@
 /**********************************************************************
   Primitive - Wrapper class around the OpenBabel classes
 
-  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+  Copyright (C) 2007 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -29,17 +29,16 @@
 
 #include <openbabel/mol.h>
 
-#include <QObject>
 #include <QAbstractItemModel>
 
 #include <eigen/vector.h>
 
-class Engine;
+class QReadWriteLock;
 
 namespace Avogadro {
 
   /**
-   * @class Primitive 
+   * @class Primitive
    * Base class for all primitives (Molecule, Atom, Bond, Residue, ...).
    */
 
@@ -47,8 +46,7 @@ namespace Avogadro {
   class A_EXPORT Primitive : public QObject
   {
     Q_OBJECT
-    Q_PROPERTY(bool selected READ isSelected WRITE setSelected)
-    Q_PROPERTY(enum Type type READ type)
+    Q_PROPERTY(Type type READ type)
     Q_ENUMS(Type)
 
     public:
@@ -56,30 +54,41 @@ namespace Avogadro {
        * This enum allows us to iterate through the various types
        * of primitives.
        */
-      enum Type { 
+      enum Type {
         /// Untyped Primitive
         OtherType=0,
         /// Molecule Primitive
         MoleculeType,
         /// Atom Primitive
-        AtomType, 
+        AtomType,
         /// Bond Primitive
-        BondType, 
+        BondType,
         /// Residue Primitive
-        ResidueType, 
+        ResidueType,
+        /// Chain Primitive (i.e., a set of residues)
+        ChainType,
         /// Surface Primitive
-        SurfaceType, 
+        SurfaceType,
         /// Plane Primitive
         PlaneType,
         /// Grid Primitive
-        GridType, 
+        GridType,
+        /// Points (i.e., non-atoms)
+        PointType,
+        /// Vectors (i.e., arrows, dipole moments)
+        VectorType,
+        /// Non-bonded interactions (i.e., non-bond connections)
+        NonbondedType,
+        /// Text annoations
+        TextType,
         /// End Placeholder
-        LastType, 
+        LastType,
         /// First Placeholder
-        FirstType=OtherType 
+        FirstType=OtherType
       };
-      
-      /** 
+
+
+      /**
        * Default constructor.
        * @param parent the object parent
        */
@@ -89,35 +98,14 @@ namespace Avogadro {
        * @param type the primitive type
        * @param parent the object parent
        */
-      explicit Primitive(enum Type type, QObject *parent=0);
+      explicit Primitive(Type type, QObject *parent=0);
       /**
        * Deconstructor
        */
       virtual ~Primitive();
 
       /**
-       * @property selected
-       * Holds whether the primitive object has been selected
-       * by the user.
-       *
-       * Defaults to false.
-       *
-       * @sa isSelected()
-       * @sa setSelected()
-       */
-
-      /**
-       * @return @c true if primitive is selected, @c false otherwise
-       */
-      bool isSelected() const;
-
-      /**
-       * @param selected the selected value.
-       */
-      void setSelected(bool selected);
-
-      /**
-       * Function used to push changes to a primitive to 
+       * Function used to push changes to a primitive to
        * the rest of the system.  At this time there is no
        * way (other than this) to generate a signal when
        * properties of a primitive change.
@@ -135,13 +123,9 @@ namespace Avogadro {
       /**
        * @return the primitive type (one of Primitive::Type)
        */
-      enum Type type() const;
+      Type type() const;
 
-    public Q_SLOTS:
-      /**
-       * Toggle the @ref type property
-       */
-      void toggleSelected();
+      QReadWriteLock *lock();
 
     Q_SIGNALS:
       /**
@@ -152,21 +136,21 @@ namespace Avogadro {
     protected:
       PrimitivePrivate * const d_ptr;
       Primitive(PrimitivePrivate &dd, QObject *parent = 0);
-      Primitive(PrimitivePrivate &dd, enum Type type, QObject *parent=0);
+      Primitive(PrimitivePrivate &dd, Type type, QObject *parent=0);
 
     private:
-      Q_DECLARE_PRIVATE(Primitive)
+      Q_DECLARE_PRIVATE(Primitive);
 
   };
 
   /**
    * @class Atom
    * @brief Atom Class
-   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+   * @author Donald Ephraim Curtis
    *
    * The Atom class is a Primitive subclass that provides a wrapper around
    * OpenBabel::OBAtom.  This class is provided to give more control of
-   * the OpenBabel::OBAtom class through slots/signals provided by the 
+   * the OpenBabel::OBAtom class through slots/signals provided by the
    * Primitive superclass.
    */
   class A_EXPORT Atom : public Primitive, public OpenBabel::OBAtom
@@ -179,7 +163,7 @@ namespace Avogadro {
        *
        * @param parent the object parent.
        */
-      Atom(QObject *parent=0) : Primitive(AtomType, parent), OpenBabel::OBAtom() { }
+      Atom(QObject *parent=0) : Primitive(AtomType, parent), OpenBabel::OBAtom()  { }
 
       /** Returns the position of the atom, as a Eigen::Vector3d. This is similar to
         * the OBAtom::GetVector() method, which returns the position as a OpenBabel::vector3.
@@ -213,11 +197,11 @@ namespace Avogadro {
   /**
    * @class Bond
    * @brief Bond Class
-   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+   * @author Donald Ephraim Curtis
    *
    * The Bond class is a Primitive subclass that provides a wrapper around
    * OpenBabel::OBBond.  This class is provided to give more control of
-   * the OpenBabel::OBBond class through slots/signals provided by the 
+   * the OpenBabel::OBBond class through slots/signals provided by the
    * Primitive superclass.
    */
   class A_EXPORT Bond : public Primitive, public OpenBabel::OBBond
@@ -236,11 +220,11 @@ namespace Avogadro {
   /**
    * @class Residue
    * @brief Residue Class
-   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+   * @author Donald Ephraim Curtis
    *
    * The Residue class is a Primitive subclass that provides a wrapper around
    * OpenBabel::OBResidue.  This class is provided to give more control of
-   * the OpenBabel::OBResidue class through slots/signals provided by the 
+   * the OpenBabel::OBResidue class through slots/signals provided by the
    * Primitive superclass.
    */
   class A_EXPORT Residue : public Primitive, public OpenBabel::OBResidue
@@ -259,11 +243,11 @@ namespace Avogadro {
   /**
    * @class Molecule
    * @brief Molecule Class
-   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+   * @author Donald Ephraim Curtis
    *
    * The Molecule class implements the OpenBabel::OBMol virtual functions
    * in order to not only use our primitive objects but also to provide signals
-   * based on internal OpenBabel actions.  In terms of a Model-View architecture, 
+   * based on internal OpenBabel actions.  In terms of a Model-View architecture,
    * this is our model class and is used by our various views to hold
    * all required data.
    */
@@ -284,7 +268,7 @@ namespace Avogadro {
       void update();
 
       /**
-       * Virtual function inherited from OpenBabel::OBMol.  
+       * Virtual function inherited from OpenBabel::OBMol.
        * Creates a new Atom object.
        *
        * @return pointer to a newly allocated Atom object
@@ -292,7 +276,7 @@ namespace Avogadro {
       Atom *CreateAtom(void);
 
       /**
-       * Virtual function inherited from OpenBabel::OBMol.  
+       * Virtual function inherited from OpenBabel::OBMol.
        * Creates a new Bond object.
        *
        * @return pointer to a newly allocated Bond object
@@ -300,7 +284,7 @@ namespace Avogadro {
       Bond * CreateBond(void);
 
       /**
-       * Virtual function inherited from OpenBabel::OBMol.  
+       * Virtual function inherited from OpenBabel::OBMol.
        * Creates a new Residue object.
        *
        * @return pointer to a newly allocated Residue object
@@ -342,7 +326,7 @@ namespace Avogadro {
 
     private:
       /* shared d_ptr with Primitive */
-      Q_DECLARE_PRIVATE(Molecule)
+      Q_DECLARE_PRIVATE(Molecule);
 
       void computeGeomInfo() const;
 
@@ -351,7 +335,7 @@ namespace Avogadro {
        * Function which handles when a child primitive has been
        * updated.  The response is to find the sender object
        * and then emit a signal passing the sender as a parameter.
-       * 
+       *
        * @sa primitiveAdded
        * @sa primitiveUpdated
        * @sa primitiveRemoved
@@ -379,68 +363,8 @@ namespace Avogadro {
       void primitiveRemoved(Primitive *primitive);
   };
 
-  /**
-   * @class PrimitiveQueue
-   * @brief Class which set of Primitives
-   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
-   *
-   * The PrimitiveQueue class is designed to hold a set of Primitive objects
-   * and keep them organized by type allowing groups of them to be 
-   * retrieved in constant time.
-   */
-  class PrimitiveQueuePrivate;
-  class A_EXPORT PrimitiveQueue
-  {
-    public:
-      /**
-       * Constructor
-       */
-      PrimitiveQueue();
-
-      /**
-       * Deconstructor
-       */
-      ~PrimitiveQueue();
-
-      /**
-       * Returns a list of primitives for a given type.
-       *
-       * @param type the type of primitives to retrieve, one of Primitive::Type
-       * @return a QList of pointers to Primitive objects
-       */
-      const QList<Primitive *>& primitiveList(enum Primitive::Type type) const;
-
-      /**
-       * Add a primitive to the queue.
-       *
-       * @param p primitive to add
-       */
-      void addPrimitive(Primitive *p);
-
-      /**
-       * Remove a primitive from the queue.  If the parameter does not
-       * exist in the queue, nothing is removed.
-       *
-       * @param p primitive to remove
-       */
-      void removePrimitive(Primitive *p);
-
-      /**
-       * @return the total number of primitives in this queue
-       */
-      int size() const;
-      /**
-       * Removes every primitive from the queue.
-       */
-      void clear();
-
-    private:
-      PrimitiveQueuePrivate * const d;
-
-  };
-
 } // namespace Avogadro
 
-Q_DECLARE_METATYPE(Avogadro::Primitive*)
+Q_DECLARE_METATYPE(Avogadro::Primitive*);
 
 #endif // __PRIMITIVES_H

@@ -28,7 +28,8 @@ class KalziumGLWidget : public Avogadro::GLWidget
         virtual ~KalziumGLWidget();
         
     public slots:
-        void setStyle( int style );
+        void setStyle(int style);
+	void setLabels(int style);
         
     protected:
         QString lc_numeric;

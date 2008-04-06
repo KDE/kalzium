@@ -1,14 +1,14 @@
 /**********************************************************************
   Cylinder - Class for drawing cylinders in OpenGL
 
-  Copyright (C) 2006,2007 Benoit Jacob <jacob@math.jussieu.fr>
+  Copyright (C) 2006,2007 Benoit Jacob
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -26,9 +26,7 @@
 #define __CYLINDER_H
 
 #include <avogadro/global.h>
-#include <avogadro/glwidget.h>
 
-#include <openbabel/mol.h>
 #include <eigen/matrix.h>
 
 namespace Avogadro {
@@ -37,7 +35,7 @@ namespace Avogadro {
    * @class Cylinder
    * @internal
    * @brief This class represents and draws a cylinder
-   * @author Benoit Jacob <jacob@math.jussieu.fr>
+   * @author Benoit Jacob
    */
   class CylinderPrivate;
   class Cylinder

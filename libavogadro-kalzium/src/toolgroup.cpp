@@ -1,14 +1,14 @@
 /**********************************************************************
   ToolGroup - GLWidget manager for Tools.
 
-  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+  Copyright (C) 2007 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -25,12 +25,13 @@
 #include <config.h>
 
 #include <avogadro/toolgroup.h>
-#include <avogadro/tool.h>
 
 #include <QActionGroup>
-#include <QDir>
-#include <QDebug>
+#include <QAction>
 #include <QPluginLoader>
+#include <QDir>
+
+#include <QDebug>
 
 using namespace std;
 namespace Avogadro {
@@ -47,7 +48,7 @@ namespace Avogadro {
       ~ToolGroupPrivate() {}
 
       Tool *activeTool;
-      QList<Tool *> tools; 
+      QList<Tool *> tools;
       QActionGroup *activateActions;
   };
 
@@ -70,24 +71,27 @@ namespace Avogadro {
 #ifdef WIN32
 	pluginPaths << "./tools";
 #endif
-  
-    foreach (const QString &path, pluginPaths)
+
+    if(getenv("AVOGADRO_TOOLS") != NULL)
     {
-      QDir dir(path); 
-      foreach (const QString &fileName, dir.entryList(QDir::Files)) {
-        qDebug() << fileName;
-        if(fileName.contains("kalzium")) {
-          QPluginLoader loader(dir.absoluteFilePath(fileName));
-          QObject *instance = loader.instance();
-          ToolFactory *factory = qobject_cast<ToolFactory *>(instance);
-          if (factory) {
-            Tool *tool = factory->createInstance(this);
-            qDebug() << "Found Tool: " << tool->name() << " - " << tool->description(); 
-            d->tools.append(tool);
-            d->activateActions->addAction(tool->activateAction());
-            connect(tool->activateAction(), SIGNAL(triggered(bool)),
-                this, SLOT(activateTool()));
-          }
+      pluginPaths = QString(getenv("AVOGADRO_TOOLS")).split(':');
+    }
+
+    foreach (QString path, pluginPaths)
+    {
+      QDir dir(path);
+      foreach (QString fileName, dir.entryList(QDir::Files)) {
+//        qDebug() << fileName;
+        QPluginLoader loader(dir.absoluteFilePath(fileName));
+        QObject *instance = loader.instance();
+        ToolFactory *factory = qobject_cast<ToolFactory *>(instance);
+        if (factory) {
+          Tool *tool = factory->createInstance(this);
+          qDebug() << "Found Tool: " << tool->name() << " - " << tool->description();
+          d->tools.append(tool);
+          d->activateActions->addAction(tool->activateAction());
+          connect(tool->activateAction(), SIGNAL(triggered(bool)),
+              this, SLOT(activateTool()));
         }
       }
     }
@@ -119,14 +123,28 @@ namespace Avogadro {
   {
     Tool *tool = d->tools.at(i);
     if(tool) {
-      d->activeTool = tool;
-      emit toolActivated(tool);
+      setActiveTool(tool);
+    }
+  }
+
+  void ToolGroup::setActiveTool(const QString& name)
+  {
+    foreach (Tool *tool, d->tools) {
+      if (tool->name() == name) {
+        setActiveTool(tool);
+        return;
+      }
     }
   }
 
   void ToolGroup::setActiveTool(Tool *tool)
   {
     if(tool) {
+      if (d->activeTool && d->activeTool->activateAction())
+        d->activeTool->activateAction()->setChecked(false);
+      if (tool->activateAction()) {
+        tool->activateAction()->setChecked(true);
+      }
       d->activeTool = tool;
       emit toolActivated(tool);
     }
@@ -140,6 +158,34 @@ namespace Avogadro {
   const QActionGroup * ToolGroup::activateActions() const
   {
     return d->activateActions;
+  }
+
+  void ToolGroup::setMolecule(Molecule *molecule)
+  {
+    foreach(Tool *tool, d->tools)
+    {
+      tool->setMolecule(molecule);
+    }
+  }
+
+  void ToolGroup::writeSettings(QSettings &settings) const
+  {
+    foreach(Tool *tool, d->tools)
+    {
+      settings.beginGroup(tool->name());
+      tool->writeSettings(settings);
+      settings.endGroup();
+    }
+  }
+
+  void ToolGroup::readSettings(QSettings &settings)
+  {
+    foreach(Tool *tool, d->tools)
+    {
+      settings.beginGroup(tool->name());
+      tool->readSettings(settings);
+      settings.endGroup();
+    }
   }
 
 } // end namespace Avogadro

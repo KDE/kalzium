@@ -1,14 +1,14 @@
 /**********************************************************************
   Tool - Avogadro Tool Interface
 
-  Copyright (C) 2007 Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+  Copyright (C) 2007 Donald Ephraim Curtis
 
   This file is part of the Avogadro molecular editor project.
   For more information, see <http://avogadro.sourceforge.net/>
 
-  Avogadro is free software; you can redistribute it and/or modify 
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundation; either version 2 of the License, or 
+  Avogadro is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
   Avogadro is distributed in the hope that it will be useful,
@@ -27,9 +27,7 @@
 
 #include <avogadro/global.h>
 
-#include <QObject>
-#include <QMouseEvent>
-#include <QString>
+#include <QSettings>
 #include <QWheelEvent>
 
 class QAction;
@@ -39,11 +37,12 @@ class QWidget;
 namespace Avogadro {
 
   class GLWidget;
+  class Molecule;
 
   /**
-   * @class Tool
+   * @class Tool tool.h <avogadro/tool.h>
    * @brief Interface for tool plugins
-   * @author Donald Ephraim Curtis <donald-curtis@uiowa.edu>
+   * @author Donald Ephraim Curtis
    *
    * This is a template class for tools which manipulate the GLWidget
    * area.  The functions they implement are in response to actions
@@ -55,13 +54,34 @@ namespace Avogadro {
     Q_OBJECT
 
     public:
+      /**
+       * Constructor
+       */
       Tool(QObject *parent = 0);
+
+      /**
+       * Destructor
+       */
       virtual ~Tool();
 
-      virtual QString name() const;
+      /**
+       * @return the name of the tool.
+       */
+      virtual QString name() const = 0;
+
+      /**
+       * @return a description of the tool.
+       */
       virtual QString description() const;
 
+      /**
+       * @return the QAction of the tool
+       */
       virtual QAction* activateAction() const;
+
+      /**
+       * @return the settings widget for the tool.
+       */
       virtual QWidget* settingsWidget();
 
       /**
@@ -93,11 +113,17 @@ namespace Avogadro {
       virtual QUndoCommand* wheel(GLWidget *widget, const QWheelEvent *event) = 0;
 
       /**
-       * Called by the GLWidget allowing overlay painting by the 
+       * Called by the GLWidget allowing overlay painting by the
        * tool.  Tools get painted last in the overall scheme.
        * @param widget the %GLWidget to paint to
        */
       virtual bool paint(GLWidget *widget);
+
+      /**
+       * Called by the parent (toolGroup) to tell the tool the underlying
+       * model (molecule) has changed
+       */
+      virtual void setMolecule(Molecule *molecule);
 
       /**
        * Determines the ordering of the tools.  More useful
@@ -109,27 +135,50 @@ namespace Avogadro {
 
       bool operator<(const Tool &other) const;
 
+      /**
+       * Write the tool settings so that they can be saved between sessions.
+       */
+      virtual void writeSettings(QSettings &settings) const;
+
+      /**
+       * Read in the settings that have been saved for the tool instance.
+       */
+      virtual void readSettings(QSettings &settings);
+
+    Q_SIGNALS:
+      /**
+       * Can be used to add messages to the message pane.
+       * @param m the message to add to the message pane.
+       */
+      void message(const QString &m);
+
     protected:
       ToolPrivate *const d;
   };
 
+  /**
+   * @class ToolFactory tool.h <avogadro/tool.h>
+   * @brief Generates new instances of the Tool class for which it is defined.
+   *
+   * Generates new instances of the Tool class for which it is defined.
+   */
   class A_EXPORT ToolFactory
   {
     public:
       /**
-       * Tool factory deconstructor.
+       * Destructor.
        */
       virtual ~ToolFactory() {}
 
       /**
-       * @return pointer to a new instance of an Engine subclass object
+       * @return pointer to a new instance of an Engine subclass object.
        */
       virtual Tool *createInstance(QObject *parent=0) = 0;
   };
 
 } // end namespace Avogadro
 
-Q_DECLARE_METATYPE(Avogadro::Tool*)
-Q_DECLARE_INTERFACE(Avogadro::ToolFactory, "net.sourceforge.avogadro.toolfactory/1.0")
+Q_DECLARE_METATYPE(Avogadro::Tool*);
+Q_DECLARE_INTERFACE(Avogadro::ToolFactory, "net.sourceforge.avogadro.toolfactory/1.0");
 
 #endif
