@@ -13,8 +13,9 @@
  ***************************************************************************/
 #include "kalziumglpart.h"
 
-#include <kparts/genericfactory.h>
+#include <QSettings>
 
+#include <kparts/genericfactory.h>
 
 #include <avogadro/primitive.h>
 #include <avogadro/toolgroup.h>
@@ -67,10 +68,44 @@ void KalziumGLWidget::setStyle( int style )
     update();
 }
 
-void KalziumGLWidget::setLabels(int )
+void KalziumGLWidget::setLabels(int style)
 {
-    /// FIXME: Make this work!
-    
+    // Use the QSettings framework to configure the label engine
+    foreach(Avogadro::Engine *engine, engines())
+    {
+      if(engine->name() == "Label")
+      {
+        QSettings settings;
+        int atomType = 0;
+        int bondType = 2;
+        bool enabled = false;
+	// We need to use 
+	switch(style)
+	{
+	  case 0: // Display no labels
+	    enabled = false;
+	    break;
+	  case 1: // Display the atom index
+	    enabled = true;
+            atomType = 0;
+            break;
+          case 2: // Display the atom symbol
+            enabled = true;
+            atomType = 1;
+            break;
+          case 3: // Display the atom name
+            enabled = true;
+            atomType = 2;
+            break;
+          default:
+            engine->setEnabled(false);
+        }
+	settings.setValue("atomLabel", atomType);
+        settings.setValue("bondLabel", bondType);
+        settings.setValue("enabled", enabled);
+        engine->readSettings(settings);
+      }
+    }
 }
 
 typedef KParts::GenericFactory<KalziumGLPart> KalziumGLPartFactory;
