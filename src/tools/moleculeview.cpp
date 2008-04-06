@@ -53,7 +53,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	m_helpWindow = NULL;
 
 	connect( ui.qualityCombo, SIGNAL(activated( int )), 
-			ui.glWidget , SLOT( setGlobalQualitySetting( int ) ) );
+			ui.glWidget , SLOT( setQuality( int ) ) );
 	connect( ui.styleCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setStyle( int ) ) );
 	connect( ui.labelsCombo, SIGNAL(activated( int )), 
