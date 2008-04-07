@@ -303,10 +303,16 @@ namespace Avogadro {
         pluginPaths << "./engines";
 #endif
 
+#if 0 /* This was plainly replacing the above pluginPaths by the one from avogadro, which
+       * is not suitable! It probably works if 1) you have avogadro installed and 2) your
+       * installed avogadro is ABI-compatible with kalzium's snapshot. If 2) is not satisfied,
+       * expect crashes.... so, I disable this altogether.
+       */
+
         if ( getenv( "AVOGADRO_ENGINES" ) != NULL ) {
           pluginPaths = QString( getenv( "AVOGADRO_ENGINES" ) ).split( ':' );
         }
-
+#endif
         // load static plugins first
 
         // now load plugins from paths
