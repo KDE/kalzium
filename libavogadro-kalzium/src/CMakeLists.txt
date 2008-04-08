@@ -20,6 +20,12 @@ include_directories(
 FILE(GLOB libavogadro_SRCS "*.cpp")
 FILE(GLOB libavogadro_HDRS "*.h")
 
+# Statically link the core engines and tools so that users have a working
+# system even if no plugins can be found.
+set(bsdyengine_SRCS engines/bsdyengine.cpp)
+qt4_wrap_ui(bsdyengine_UIS engines/bsdysettingswidget.ui)
+set(libavogadro_SRCS ${libavogadro_SRCS} ${bsdyengine_SRCS} ${bsdyengine_UIS})
+
 qt4_automoc(${libavogadro_SRCS})
 
 KDE4_ADD_LIBRARY(avogadro-kalzium SHARED ${libavogadro_SRCS})

@@ -75,17 +75,9 @@ namespace Avogadro {
 	pluginPaths << "./tools";
 #endif
 
-#if 0 /* This was plainly replacing the above pluginPaths by the one from avogadro, which
-       * is not suitable! It probably works if 1) you have avogadro installed and 2) your
-       * installed avogadro is ABI-compatible with kalzium's snapshot. If 2) is not satisfied,
-       * expect crashes.... so, I disable this altogether.
-       */
-
-    if(getenv("AVOGADRO_TOOLS") != NULL)
-    {
-      pluginPaths = QString(getenv("AVOGADRO_TOOLS")).split(':');
-    }
-#endif
+    // Use a Kalzium specific variable for people who know what they are doing
+    if(getenv("KAVOGADRO_TOOLS") != NULL)
+      pluginPaths = QString(getenv("KAVOGADRO_TOOLS")).split(':');
 
     foreach (QString path, pluginPaths)
     {

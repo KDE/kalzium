@@ -34,6 +34,9 @@
 
 #include "elementcolor.h"
 
+// Include static engine headers
+#include "engines/bsdyengine.h"
+
 #include <QUndoStack>
 #include <QDir>
 #include <QPluginLoader>
@@ -292,28 +295,28 @@ namespace Avogadro {
     static bool enginesLoaded = false;
     if(!enginesLoaded)
       {
-        QString prefixPath = QString( INSTALL_PREFIX ) + "/lib/avogadro-kalzium/engines";
+        QString prefixPath = QString(INSTALL_PREFIX) + "/lib/avogadro-kalzium/engines";
         QStringList pluginPaths;
         pluginPaths << prefixPath;
         // Now for the 64 bit case with no symlinks
-        prefixPath = QString( INSTALL_PREFIX ) + "/lib64/avogadro-kalzium/engines";
+        prefixPath = QString(INSTALL_PREFIX) + "/lib64/avogadro-kalzium/engines";
         pluginPaths << prefixPath;
 
 #ifdef WIN32
         pluginPaths << "./engines";
 #endif
 
-#if 0 /* This was plainly replacing the above pluginPaths by the one from avogadro, which
-       * is not suitable! It probably works if 1) you have avogadro installed and 2) your
-       * installed avogadro is ABI-compatible with kalzium's snapshot. If 2) is not satisfied,
-       * expect crashes.... so, I disable this altogether.
-       */
+        // Use our own environment variable for those who know what they are doing
+        if (getenv("KAVOGADRO_ENGINES") != NULL)
+          pluginPaths = QString( getenv("KAVOGADRO_ENGINES")).split(':');
 
-        if ( getenv( "AVOGADRO_ENGINES" ) != NULL ) {
-          pluginPaths = QString( getenv( "AVOGADRO_ENGINES" ) ).split( ':' );
-        }
-#endif
         // load static plugins first
+        EngineFactory *bsFactory = qobject_cast<EngineFactory *>(new BSDYEngineFactory);
+        if (bsFactory)
+        {
+          engineFactories.append(bsFactory);
+          engineClassFactory[bsFactory->className()] = bsFactory;
+        }
 
         // now load plugins from paths
         foreach( QString path, pluginPaths ) {
