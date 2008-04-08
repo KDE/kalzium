@@ -21,6 +21,7 @@
 #include <kcmdlineargs.h>
 #include <klocale.h>
 #include <kapplication.h>
+#include <QGLFormat>
 
 #include "kalzium.h"
 
@@ -70,6 +71,11 @@ int main(int argc, char **argv)
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
     Kalzium *mainWin = 0;
+
+    // use multi-sample (anti-aliased) OpenGL if available
+    QGLFormat defFormat = QGLFormat::defaultFormat();
+    defFormat.setSampleBuffers(true);
+    QGLFormat::setDefaultFormat(defFormat);
 
     if (app.isSessionRestored())
     {

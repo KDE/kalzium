@@ -133,11 +133,6 @@ KalziumGLPart::KalziumGLPart(QWidget* parentWidget, QObject* parent, const QStri
     Q_UNUSED(args);
     kDebug() << "KalziumGLPart::KalziumGLPart()";
     
-    // use multi-sample (anti-aliased) OpenGL if available
-    QGLFormat defFormat = QGLFormat::defaultFormat();
-    defFormat.setSampleBuffers(true);
-    QGLFormat::setDefaultFormat(defFormat);
-
     m_widget = new KalziumGLWidget();
     m_widget->setObjectName("KalziumGLWidget-KPart");
 }
