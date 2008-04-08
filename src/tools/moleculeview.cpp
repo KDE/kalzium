@@ -15,7 +15,7 @@
 #include "../../libavogadro-kalzium/src/toolgroup.h"
 
 #include <QMessageBox>
-
+#include <QGLFormat>
 #include <kdebug.h>
 #include <kfiledialog.h>
 #include <kstandarddirs.h>
@@ -31,6 +31,11 @@ using namespace OpenBabel;
 MoleculeDialog::MoleculeDialog( QWidget * parent )
 	: KDialog( parent )
 {
+	// use multi-sample (anti-aliased) OpenGL if available
+	QGLFormat defFormat = QGLFormat::defaultFormat();
+	defFormat.setSampleBuffers(true);
+	QGLFormat::setDefaultFormat(defFormat);
+
 	setCaption( i18n( "Molecular Viewer" ) );
 	setButtons( Help | User2 | User1 | Close );
 
