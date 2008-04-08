@@ -72,7 +72,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 			this, SLOT( slotDownloadNewStuff() ) );
 
 	// Check that we have managed to load up some tools and engines
-	int nEngines = ui.glWidget->engines().size();
+	int nEngines = ui.glWidget->engines().size() - 1;
         int nTools = ui.glWidget->toolGroup()->tools().size();
 	QString error;
         if(!nEngines && !nTools)
@@ -142,7 +142,7 @@ void MoleculeDialog::slotHelp()
 void MoleculeDialog::slotLoadMolecule()
 {
 	// Check that we have managed to load up some tools and engines
-	int nEngines = ui.glWidget->engines().size();
+	int nEngines = ui.glWidget->engines().size() - 1;
         int nTools = ui.glWidget->toolGroup()->tools().size();
 	QString error;
         if(!nEngines && !nTools)
