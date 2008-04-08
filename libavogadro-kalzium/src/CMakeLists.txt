@@ -1,6 +1,19 @@
 # Main libavogadro build file
 set(QT_USE_QTOPENGL true)
 
+# Eigen 1 's performance degrades much when asserts are turned on.
+# So, turn them off in libavogadro, unless we are in debugfull mode.
+# A better solution would be to patch eigen 1 to let it also obey a different
+# define than NDEBUG, such as EIGEN_NO_DEBUG (done in eigen2) and/or to
+# rework it to suffer less from asserts (also done in eigen2).
+STRING(TOLOWER ${CMAKE_BUILD_TYPE} MY_CMAKE_BUILD_TYPE_TOLOWER)
+if(MY_CMAKE_BUILD_TYPE_TOLOWER MATCHES debugfull)
+message("-- debugfull mode, so keeping asserts enabled in libavogadro")
+else(MY_CMAKE_BUILD_TYPE_TOLOWER MATCHES debugfull)
+message("-- not debugfull mode, so disabling asserts in libavogadro")
+add_definitions(-DNDEBUG)
+endif(MY_CMAKE_BUILD_TYPE_TOLOWER MATCHES debugfull)
+
 configure_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/config.h.in
   ${CMAKE_CURRENT_BINARY_DIR}/config.h

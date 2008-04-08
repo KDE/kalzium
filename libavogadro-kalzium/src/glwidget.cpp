@@ -202,7 +202,8 @@ namespace Avogadro {
                         renderAxes(false),
                         renderDebug(false),
                         dlistQuick(0), dlistOpaque(0), dlistTransparent(0),
-                        pd(0)
+                        pd(0),
+                        quality(2)
     {
       loadEngineFactories();
     }
@@ -285,6 +286,11 @@ namespace Avogadro {
       * Member GLPainterDevice which is passed to the engines.
       */
     GLPainterDevice *pd;
+
+    /**
+      * Stores the quality setting (0 is lowest, 4 is very high)
+      */
+    int quality;
   };
 
   QList<EngineFactory *> GLWidgetPrivate::engineFactories;
@@ -561,6 +567,8 @@ namespace Avogadro {
     glLightfv( GL_LIGHT1, GL_SPECULAR, specularLight2 );
     glLightfv( GL_LIGHT1, GL_POSITION, position2 );
     glEnable( GL_LIGHT1 );
+
+    setQuality(d->quality);
     qDebug() << "GLWidget initialised...";
   }
 
@@ -620,12 +628,13 @@ namespace Avogadro {
 
   void GLWidget::setQuality(int quality)
   {
-    d->painter->setQuality(quality);
+    d->quality = quality;
+    d->painter->setQuality(d->quality);
   }
 
   int GLWidget::quality() const
   {
-    return d->painter->quality();
+    return d->quality;
   }
 
   void GLWidget::setRenderAxes(bool renderAxes)
@@ -650,6 +659,9 @@ namespace Avogadro {
 
   void GLWidget::render()
   {
+    if(d->quality >= 3) glEnable(GL_LIGHT1);
+    else glDisable(GL_LIGHT1);
+
     d->painter->begin(this);
 
     // Use renderQuick if the view is being moved, otherwise full render
@@ -1637,7 +1649,7 @@ namespace Avogadro {
   void GLWidget::readSettings(QSettings &settings)
   {
     // Make sure to provide some default values for any settings.value("", DEFAULT) call
-    d->painter->setQuality(settings.value("quality", 2).toInt());
+    setQuality(settings.value("quality", 2).toInt());
     d->background = settings.value("background", QColor(0,0,0)).value<QColor>();
     d->renderAxes = settings.value("renderAxes", 1).value<bool>();
     d->renderDebug = settings.value("renderDebug", 0).value<bool>();
