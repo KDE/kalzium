@@ -1092,6 +1092,7 @@ namespace Avogadro
   {
     d->widget = widget;
     d->overflow++;
+    d->isValid();
   }
 
   void GLPainter::end()
