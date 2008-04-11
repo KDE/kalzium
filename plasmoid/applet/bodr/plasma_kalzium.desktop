@@ -2,6 +2,7 @@
 Name=Chemical Data
 Name[da]=Kemisk data
 Name[ga]=Sonraí Ceimiceacha
+Name[ja]=化学データ
 Name[km]=ទិន្នន័យ​គីមី
 Name[pt]=Dados Químicos
 Name[pt_BR]=Dados Químicos
@@ -14,6 +15,7 @@ ServiceTypes=Plasma/Applet
 Comment=Chemical Data Applet
 Comment[da]=Applet til kemisk data
 Comment[ga]=Feidhmchláirín Sonraí Ceimiceacha
+Comment[ja]=化学データアプレット
 Comment[km]=អាប់​ភ្លេត​ទិន្នន័យ​គីមី
 Comment[pt]='Applet' de Dados Químicos
 Comment[pt_BR]='Applet' de Dados Químicos
