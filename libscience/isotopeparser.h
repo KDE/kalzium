@@ -17,7 +17,7 @@
 
 #include "libkdeedu_science_export.h"
 
-#include <QtXml/qxml.h>
+#include <QtXml/QtXml>
 
 class Isotope;
 

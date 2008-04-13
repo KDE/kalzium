@@ -16,7 +16,7 @@
 #include "libkdeedu_science_export.h"
 
 #include <QtCore/QFile>
-#include <QtXml/qxml.h>
+#include <QtXml/QtXml>
 
 #include "spectrum.h"
 
