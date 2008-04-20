@@ -1,21 +1,25 @@
 [Desktop Entry]
 Name=Kalzium Data Engine
 Name[da]=Data-motor til Kalzium
+Name[el]=Μηχανή δεδομένων Kalzium
 Name[ga]=Inneall Sonraí Kalzium
 Name[ja]=Kalzium データエンジン
 Name[km]=ម៉ាស៊ីន​ទិន្នន័យ Kalzium
 Name[pt]=Motor de Dados do Kalzium
 Name[pt_BR]=Motor de Dados do Kalzium
+Name[sv]=Kalziums datagränssnitt
 Name[uk]=Рушій даних Kalzium
 Name[x-test]=xxKalzium Data Enginexx
 Name[zh_TW]=Kalzium 資料引擎
 Comment=Chemical Data
 Comment[da]=Kemisk data
+Comment[el]=Χημικά δεδομένα
 Comment[ga]=Sonraí Ceimiceacha
 Comment[ja]=化学データ
 Comment[km]=ទិន្នន័យ​គីមី
 Comment[pt]=Dados Químicos
 Comment[pt_BR]=Dados Químicos
+Comment[sv]=Kemisk data
 Comment[uk]=Хімічні дані
 Comment[x-test]=xxChemical Dataxx
 Comment[zh_TW]=化學資料

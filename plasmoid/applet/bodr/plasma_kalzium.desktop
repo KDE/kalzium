@@ -1,11 +1,13 @@
 [Desktop Entry]
 Name=Chemical Data
 Name[da]=Kemisk data
+Name[el]=Χημικά δεδομένα
 Name[ga]=Sonraí Ceimiceacha
 Name[ja]=化学データ
 Name[km]=ទិន្នន័យ​គីមី
 Name[pt]=Dados Químicos
 Name[pt_BR]=Dados Químicos
+Name[sv]=Kemisk information
 Name[uk]=Хімічні дані
 Name[x-test]=xxChemical Dataxx
 Name[zh_TW]=化學資料
@@ -14,11 +16,13 @@ Type=Service
 ServiceTypes=Plasma/Applet
 Comment=Chemical Data Applet
 Comment[da]=Applet til kemisk data
+Comment[el]=Μικροεφαρμογή χημικών δεδομένων
 Comment[ga]=Feidhmchláirín Sonraí Ceimiceacha
 Comment[ja]=化学データアプレット
 Comment[km]=អាប់​ភ្លេត​ទិន្នន័យ​គីមី
 Comment[pt]='Applet' de Dados Químicos
 Comment[pt_BR]='Applet' de Dados Químicos
+Comment[sv]=Miniprogram med kemisk information
 Comment[uk]=Аплет хімічних даних
 Comment[x-test]=xxChemical Data Appletxx
 Comment[zh_TW]=化學資料小程式
