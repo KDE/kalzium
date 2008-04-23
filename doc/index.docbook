@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
-<!ENTITY kappname "&kalzium;"><!-- replace kapp here -->
+<!ENTITY kappname "&&kalzium;;"><!-- replace kapp here -->
  <!ENTITY package "kdeedu">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % English "INCLUDE"><!-- change language only here -->
@@ -9,8 +9,8 @@
  <book lang="&language;">
 
 	 <bookinfo>
-		 <title>The &kalzium; Handbook</title>
-
+		 <title>The &&kalzium;; Handbook</title>
+ph	
 		 <authorgroup>
 			 <author>
 				 <firstname>Carsten</firstname>
@@ -46,8 +46,8 @@
 		 <releaseinfo>2.1-pre</releaseinfo>
 
 		 <abstract>
-			 <para>&kalzium; is a program which shows you the Periodic Table of
-				 Elements. You can use &kalzium; to search for information about the elements or to learn facts about the
+			 <para>&&kalzium;; is a program which shows you the Periodic Table of
+				 Elements. You can use &&kalzium;; to search for information about the elements or to learn facts about the
 				 periodic table.</para>
 		 </abstract>
 
@@ -57,7 +57,7 @@
 			 <keyword>elements</keyword>
 			 <keyword>chemistry</keyword>
 			 <keyword>education</keyword>
-			 <keyword>kalzium</keyword>
+			 <keyword>&kalzium;</keyword>
 		 </keywordset>
 
 	 </bookinfo>
@@ -65,7 +65,7 @@
 	 <chapter id="introduction">
 		 <title>Introduction</title>
 
-		 <para>&kalzium; provides you with all kinds of information about the
+		 <para>&&kalzium;; provides you with all kinds of information about the
 			 Periodic Table of the Elements. You can lookup
 			 lots of information about the elements and also use visualizations to
 			 show them. It is free and licensed
@@ -83,23 +83,23 @@
 	 </chapter>
 
 	 <chapter id="quick-start">
-		 <title>&kalzium; quick start guide</title>
+		 <title>&&kalzium;; quick start guide</title>
 
-		 <para>Here is &kalzium; the first time you run it, either from the K menu->Edutainment->Science->Kalzium or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>kalzium</command> into the field.</para>
+		 <para>Here is &&kalzium;; the first time you run it, either from the K menu->Edutainment->Science->&kalzium or with <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> and entering <command>&kalzium;</command> into the field.</para>
 		 <screenshot>
-			 <screeninfo>&kalzium; main window</screeninfo>
+			 <screeninfo>&&kalzium;; main window</screeninfo>
 			 <mediaobject>
 				 <imageobject><imagedata fileref="quick-1.png" format="PNG" /></imageobject>
-				 <textobject><phrase>&kalzium; main window</phrase></textobject>
+				 <textobject><phrase>&&kalzium;; main window</phrase></textobject>
 			 </mediaobject>
 		 </screenshot>
 
 		 <para>
-			 &kalzium; is divided in a sidebar on the left (in red, 1) and the table view (in blue, 2) which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the status bar reports facts. You can hide the sidebar using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide Sidebar</guimenuitem> </menuchoice> menu.
+			 &&kalzium;; is divided in a navigation panel on the left (in red, 1) and the table view (in blue, 2) which shows the elements of the periodic table. The standard menubar allows you to choose what you want to display and the status bar reports facts. You can hide the navigation panel using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide Sidebar</guimenuitem> </menuchoice> menu.
 		 </para>
 
 		 <para>
-			 When you move the mouse cursor on an element of the table, a tooltip appears with a picture of this element if available, its number and its mass. In the sidebar is displayed an overview of the current element in the <guilabel>Overview</guilabel> tab.
+			 When you move the mouse cursor on an element of the table, a tooltip appears with a picture of this element if available, its number and its mass. In the navigation panel is displayed an overview of the current element in the <guilabel>Overview</guilabel> tab.
 		 </para>
 
 		 <para>You can disable the tooltips using the <menuchoice> <guimenu>View</guimenu> <guimenuitem>Hide tooltip</guimenuitem> </menuchoice> menu.
@@ -141,21 +141,21 @@
 		 </screenshot>
 
 	 </chapter>
-	 <chapter id="using-kalzium">
-		 <title>Using &kalzium;</title>
+	 <chapter id="using-&kalzium;">
+		 <title>Using &&kalzium;;</title>
 
 		 <sect1 id="foo"><title>Overview of Kalziums usage</title>
-			 <para>Here are some screenshots of &kalzium; in action:</para>
+			 <para>Here are some screenshots of &&kalzium;; in action:</para>
 
-			 <para>&kalzium; is very easy to use. It is specially designed for students of all ages to use as a small and quick database.</para>
+			 <para>&&kalzium;; is very easy to use. It is specially designed for students of all ages to use as a small and quick database.</para>
 			 <screenshot>
-				 <screeninfo>&kalzium; main screen, immediately after the first start</screeninfo>
+				 <screeninfo>&&kalzium;; main screen, immediately after the first start</screeninfo>
 				 <mediaobject>
 					 <imageobject>
 						 <imagedata fileref="screenshot1.png" format="PNG"/>
 					 </imageobject>
 					 <textobject>
-						 <phrase>&kalzium; main screen</phrase>
+						 <phrase>&&kalzium;; main screen</phrase>
 					 </textobject>
 				 </mediaobject>
 			 </screenshot>
@@ -164,7 +164,7 @@
 			 <title>The information dialog</title>
 			 <para>The information dialog is accessed by clicking with the &LMB; on
 				 any element. It is available only in the
-				 <guilabel>Overview</guilabel> mode or when the sidebar is hidden.
+				 <guilabel>Overview</guilabel> mode or when the navigation panel is hidden.
 				 This is the place to get information about an element. With the
 				 buttons at the bottom of the dialog or with the use of the mousewheel
 				 you can change the element which is displayed without closing the
@@ -178,13 +178,13 @@
 					 bottom-right corner shows the most important oxidation-stages and,
 					 below that, the elemental weight</para>
 				 <screenshot>
-					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <screeninfo>&&kalzium;; information dialog</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_overview.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
-							 <phrase>&kalzium; information dialog</phrase>
+							 <phrase>&&kalzium;; information dialog</phrase>
 						 </textobject>
 						 <caption><para></para></caption>
 					 </mediaobject>
@@ -194,13 +194,13 @@
 				 <title>Picture</title>
 				 <para>The <guilabel>Picture</guilabel> tab displays a picture of the element when available.</para>
 				 <screenshot>
-					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <screeninfo>&&kalzium;; information dialog</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_picture.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
-							 <phrase>&kalzium; information dialog</phrase>
+							 <phrase>&&kalzium;; information dialog</phrase>
 						 </textobject>
 						 <caption><para></para>
 						 </caption>
@@ -213,13 +213,13 @@
 					 shells. Every orbit stands for a atomic shell and every yellow
 					 circle represents an electron.</para>
 				 <screenshot>
-					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <screeninfo>&&kalzium;; information dialog</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_bohr.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
-							 <phrase>&kalzium; information dialog</phrase>
+							 <phrase>&&kalzium;; information dialog</phrase>
 						 </textobject>
 						 <caption><para></para>
 						 </caption>
@@ -232,7 +232,7 @@
 					 The <guilabel>Chemical Data</guilabel> tab presents some atomic
 					 data. The first entry is the <guilabel>Orbital structure</guilabel>. 
 				 </para>
-				 <para> Depending on the data available in &kalzium; you will see
+				 <para> Depending on the data available in &&kalzium;; you will see
 					 different radii of the element. The covalent radius is the radius
 					 of a non charged atom of the element in a molecule. The could for
 					 example be the O-H-distance in Water. The atomic radius is the
@@ -304,13 +304,13 @@
 
 				 </para>
 				 <screenshot>
-					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <screeninfo>&&kalzium;; information dialog</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_chemicaldata.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
-							 <phrase>&kalzium; information dialog</phrase>
+							 <phrase>&&kalzium;; information dialog</phrase>
 						 </textobject>
 						 <caption><para></para>
 						 </caption>
@@ -321,13 +321,13 @@
 				 <title>Miscellaneous</title>
 				 <para>The <guilabel>Miscellaneous</guilabel> tab tells you other informations about the current element, including when it was discovered and the origin of the name.</para>
 				 <screenshot>
-					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <screeninfo>&&kalzium;; information dialog</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_misc.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
-							 <phrase>&kalzium; information dialog</phrase>
+							 <phrase>&&kalzium;; information dialog</phrase>
 						 </textobject>
 						 <caption><para></para>
 						 </caption>
@@ -339,13 +339,13 @@
 				 <para>The <guilabel>Energies</guilabel> tab tells you about different
 					 energy facts related to the element.</para>
 				 <screenshot>
-					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <screeninfo>&&kalzium;; information dialog</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_energies.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
-							 <phrase>&kalzium; information dialog</phrase>
+							 <phrase>&&kalzium;; information dialog</phrase>
 						 </textobject>
 						 <caption><para></para>
 						 </caption>
@@ -363,13 +363,13 @@
 			 <sect2 id="infodialog_spectrum">
 				 <title>Spectrum</title>
 				 <screenshot>
-					 <screeninfo>&kalzium; information dialog</screeninfo>
+					 <screeninfo>&&kalzium;; information dialog</screeninfo>
 					 <mediaobject>
 						 <imageobject>
 							 <imagedata fileref="infodialog_spectrum.png" format="PNG"/>
 						 </imageobject>
 						 <textobject>
-							 <phrase>&kalzium; information dialog</phrase>
+							 <phrase>&&kalzium;; information dialog</phrase>
 						 </textobject>
 						 <caption><para></para>
 						 </caption>
@@ -413,12 +413,12 @@
 		 <sect1 id="colors">
 			 <title>Color schemes</title>
 
-			 <para>&kalzium; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote>, their behavior with acid and which state of matter (&ie; solid/liquid/vapor) they are in at a given temperature.</para>
+			 <para>&&kalzium;; can show you which elements are where with regard to their Periodic <quote>block</quote> and <quote>group</quote>, their behavior with acid and which state of matter (&ie; solid/liquid/vapor) they are in at a given temperature.</para>
 
 			 <para>Color schemes can be changed in the <guimenu>View</guimenu> <guimenuitem>Look</guimenuitem> menu. </para>
 			 <itemizedlist>
 				 <listitem><para>
-						 <guimenuitem>No Color Scheme</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kalzium;...</guimenuitem>
+						 <guimenuitem>No Color Scheme</guimenuitem>: all the elements have the same color. You can change the default color by choosing <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &&kalzium;;...</guimenuitem>
 						 </menuchoice> and going to the <guilabel>Colors</guilabel> tab.
 				 </para></listitem>
 				 <listitem><para>
@@ -490,7 +490,7 @@
 						 <textobject>
 							 <phrase>the <quote>Nuclidboard</quote> Dialog</phrase>
 						 </textobject>
-						 <caption><para>&kalzium; can display the isoptes of a range of elements</para>
+						 <caption><para>&&kalzium;; can display the isoptes of a range of elements</para>
 						 </caption>
 					 </mediaobject>
 				 </screenshot>
@@ -532,7 +532,7 @@
 						 <textobject>
 							 <phrase>the <quote>Plot Data</quote> Dialog</phrase>
 						 </textobject>
-						 <caption><para>&kalzium; can plot some data about a range of elements.</para>
+						 <caption><para>&&kalzium;; can plot some data about a range of elements.</para>
 						 </caption>
 					 </mediaobject>
 				 </screenshot>
@@ -553,20 +553,20 @@
 						 <textobject>
 							 <phrase>the <quote>Equation Solver</quote> Dialog</phrase>
 						 </textobject>
-						 <caption><para>&kalzium; can solve chemical equations</para>
+						 <caption><para>&&kalzium;; can solve chemical equations</para>
 						 </caption>
 					 </mediaobject>
 				 </screenshot>
 			 </sect2>
 
-			 <sect2 id="sidebar">
+			 <sect2 id="navigation panel">
 				 <title>Sidebar</title>
 				 <sect3 id="overview">
 					 <title>Overview</title>
 					 <screenshot>
 						 <mediaobject>
 							 <imageobject>
-								 <imagedata fileref="sidebar1.png" format="PNG"/>
+								 <imagedata fileref="navigation panel1.png" format="PNG"/>
 							 </imageobject>
 							 <textobject>
 								 <phrase>Overview</phrase>
@@ -579,12 +579,12 @@
 				 <sect3 id="calculate">
 					 <title>Calculate</title>
 
-					 <para>The Calculate tab is the second in the sidebar. It alows you to calculate molecules weights.</para>
+					 <para>The Calculate tab is the second in the navigation panel. It alows you to calculate molecules weights.</para>
 					 <para>You are first presented with the following icons and text:</para>
 					 <screenshot>
 						 <mediaobject>
 							 <imageobject>
-								 <imagedata fileref="sidebar2.png" format="PNG"/>
+								 <imagedata fileref="navigation panel2.png" format="PNG"/>
 							 </imageobject>
 							 <textobject>
 								 <phrase>Calculate</phrase>
@@ -597,7 +597,7 @@
 					 <screenshot>
 						 <mediaobject>
 							 <imageobject>
-								 <imagedata fileref="sidebar3.png" format="PNG"/>
+								 <imagedata fileref="navigation panel3.png" format="PNG"/>
 							 </imageobject>
 							 <textobject>
 								 <phrase>Weight</phrase>
@@ -657,7 +657,7 @@
 							 <textobject>
 								 <phrase>the <quote>State of Matter</quote> Dialog</phrase>
 							 </textobject>
-							 <caption><para>&kalzium; can show you which elements are
+							 <caption><para>&&kalzium;; can show you which elements are
 									 solid/liquid/vaporous at a given temperature.</para>
 							 </caption>
 						 </mediaobject>
@@ -665,7 +665,7 @@
 				 </sect3>
 				 <sect3 id="show_hide_legend">
 					 <title>Show/Hide Legend</title>
-					 <para>The Show/Hide Legend action allows you to display the legend for the scheme you are in (Groups, Blocks, Acid Behavior). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. &kalzium; will keep this setting in its configuration file, so that the next time you run it, the setting will be as you left it.
+					 <para>The Show/Hide Legend action allows you to display the legend for the scheme you are in (Groups, Blocks, Acid Behavior). The legend is displayed by default but if you hide it, it will stay hidden until you choose to show it. &&kalzium;; will keep this setting in its configuration file, so that the next time you run it, the setting will be as you left it.
 					 </para>
 				 </sect3>
 
@@ -674,15 +674,15 @@
 	 </chapter>
 
 	 <chapter id="config">
-		 <title>Configuring &kalzium;</title>
+		 <title>Configuring &&kalzium;;</title>
 
 		 <para>
-			 &kalzium; has many configuration options, which you can access by opening
+			 &&kalzium;; has many configuration options, which you can access by opening
 			 the configuration dialog by selecting <menuchoice> <guimenu>Settings</guimenu> <guimenuitem>Configure
-					 &kalzium;...</guimenuitem> </menuchoice> from the menu.</para>
+					 &&kalzium;;...</guimenuitem> </menuchoice> from the menu.</para>
 
 		 <screenshot>
-			 <screeninfo>Configure &kalzium; Dialog</screeninfo>
+			 <screeninfo>Configure &&kalzium;; Dialog</screeninfo>
 			 <mediaobject>
 				 <imageobject>
 					 <imagedata fileref="settings1.png" format="PNG"/>
@@ -696,7 +696,7 @@
 			 colors for each scheme.
 		 </para>
 		 <screenshot>
-			 <screeninfo>Configure &kalzium; Dialog</screeninfo>
+			 <screeninfo>Configure &&kalzium;; Dialog</screeninfo>
 			 <mediaobject>
 				 <imageobject>
 					 <imagedata fileref="settings2.png" format="PNG"/>
@@ -712,7 +712,7 @@
 			 change to degrees Celsius or degrees Fahrenheit.
 		 </para>
 		 <screenshot>
-			 <screeninfo>Configure &kalzium; Dialog</screeninfo>
+			 <screeninfo>Configure &&kalzium;; Dialog</screeninfo>
 			 <mediaobject>
 				 <imageobject>
 					 <imagedata fileref="settings3.png" format="PNG"/>
@@ -731,7 +731,7 @@
 	 <chapter id="commands">
 		 <title>Command Reference</title>
 
-		 <sect1 id="kalzium-mainwindow">
+		 <sect1 id="&kalzium;-mainwindow">
 			 <title>Menus and shortcut keys</title>
 
 			 <sect2>
@@ -746,7 +746,7 @@
 								 <guimenu>File</guimenu>
 								 <guimenuitem>Quit</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Quits</action> &kalzium;</para></listitem>
+						 <listitem><para><action>Quits</action> &&kalzium;;</para></listitem>
 					 </varlistentry>
 				 </variablelist>
 
@@ -1042,9 +1042,9 @@
 					 <varlistentry>
 						 <term><menuchoice>
 								 <guimenu>Settings</guimenu>
-								 <guimenuitem>Configure &kalzium;...</guimenuitem>
+								 <guimenuitem>Configure &&kalzium;;...</guimenuitem>
 						 </menuchoice></term>
-						 <listitem><para><action>Display</action> the &kalzium; settings dialog
+						 <listitem><para><action>Display</action> the &&kalzium;; settings dialog
 						 </para></listitem>
 					 </varlistentry>
 
@@ -1065,11 +1065,11 @@
 		 <qandaset id="faqlist">
 			 <qandaentry>
 				 <question>
-					 <para>Will I ever have to pay for &kalzium;?</para>
+					 <para>Will I ever have to pay for &&kalzium;;?</para>
 				 </question>
 				 <answer>
 					 <para>No, never. But the author always welcomes a nice mail or a
-						 DVD as a <quote>Thank You</quote>. &kalzium; is licensed 
+						 DVD as a <quote>Thank You</quote>. &&kalzium;; is licensed 
 						 under the <ulink url="http://www.gnu.org/licenses/licenses.html#GPL">GPL</ulink>, so you will never have to pay for this program.</para>
 				 </answer>
 			 </qandaentry>
@@ -1125,7 +1125,7 @@
 	 <chapter id="credits">
 
 		 <title>Credits and License</title>
-		 <para>&kalzium;</para>
+		 <para>&&kalzium;;</para>
 		 <para>
 			 Program Copyright, 2001-2005 &Carsten.Niehaus;
 			 &Carsten.Niehaus.mail;
@@ -1149,8 +1149,8 @@
 	 <appendix id="installation">
 		 <title>Installation</title>
 
-		 <sect1 id="getting-kalzium">
-			 <title>How to obtain &kalzium;</title>
+		 <sect1 id="getting-&kalzium;">
+			 <title>How to obtain &&kalzium;;</title>
 
 			 &install.intro.documentation;
 
@@ -1160,13 +1160,13 @@
 			 <title>Requirements</title>
 
 			 <para>
-				 &kalzium; itself can be found on <ulink
-					 url="http://edu.kde.org/kalzium">The &kalzium; home page</ulink> and
+				 &&kalzium;; itself can be found on <ulink
+					 url="http://edu.kde.org/&kalzium;">The &&kalzium;; home page</ulink> and
 				 is part of the &kde;-Edu project</para>
 
 			 <para>You can find a list of changes in the file
 				 <filename>ChangeLog</filename> in the distribution of
-				 &kalzium;.</para>
+				 &&kalzium;;.</para>
 		 </sect1>
 
 		 <sect1 id="compilation">
