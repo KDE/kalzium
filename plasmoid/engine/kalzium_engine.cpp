@@ -32,7 +32,7 @@ KalziumEngine::KalziumEngine(QObject* parent, const QVariantList& args)
 {
     Q_UNUSED(args)
     // we don't need the data to fly by any faster - even at a second it's hard to read.
-    setMinimumUpdateInterval(1000);
+    setMinimumPollingInterval(1000);
 
     // init random sequence
     m_random = new KRandomSequence( QDateTime::currentDateTime().toTime_t() );
