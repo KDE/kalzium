@@ -10,6 +10,7 @@ Name[pt_BR]=Motor de Dados do Kalzium
 Name[sv]=Kalziums datagränssnitt
 Name[uk]=Рушій даних Kalzium
 Name[x-test]=xxKalzium Data Enginexx
+Name[zh_CN]=Kalzium 数据引擎
 Name[zh_TW]=Kalzium 資料引擎
 Comment=Chemical Data
 Comment[da]=Kemisk data
@@ -22,6 +23,7 @@ Comment[pt_BR]=Dados Químicos
 Comment[sv]=Kemisk data
 Comment[uk]=Хімічні дані
 Comment[x-test]=xxChemical Dataxx
+Comment[zh_CN]=化学数据
 Comment[zh_TW]=化學資料
 
 X-KDE-ServiceTypes=Plasma/DataEngine

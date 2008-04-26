@@ -10,6 +10,7 @@ Name[pt_BR]=Dados Químicos
 Name[sv]=Kemisk information
 Name[uk]=Хімічні дані
 Name[x-test]=xxChemical Dataxx
+Name[zh_CN]=化学数据
 Name[zh_TW]=化學資料
 Icon=kalzium
 Type=Service
@@ -25,6 +26,7 @@ Comment[pt_BR]='Applet' de Dados Químicos
 Comment[sv]=Miniprogram med kemisk information
 Comment[uk]=Аплет хімічних даних
 Comment[x-test]=xxChemical Data Appletxx
+Comment[zh_CN]=化学数据小程序
 Comment[zh_TW]=化學資料小程式
 
 
