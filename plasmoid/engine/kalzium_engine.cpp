@@ -65,7 +65,7 @@ QStringList KalziumEngine::sources() const
     return list;
 }
 
-bool KalziumEngine::sourceRequested(const QString &source)
+bool KalziumEngine::sourceRequestEvent(const QString &source)
 {
     // return a randomly chosen element
     if (source == "BlueObelisk:RandomElement"){

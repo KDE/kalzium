@@ -44,7 +44,7 @@ public:
      */
     QString generateFact();
     
-    bool sourceRequested(const QString &name);
+    bool sourceRequestEvent(const QString &name);
 
 protected:
     bool updateSource(const QString& source);

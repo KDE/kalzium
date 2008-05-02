@@ -17,9 +17,9 @@
 #include <QPen>
 
 KalziumDidyouknow::KalziumDidyouknow(QObject *parent, const QVariantList &args)
-    : Plasma::Applet(parent, args),
-    m_theme("widgets/chalkboard", this)
+    : Plasma::Applet(parent, args)
 {
+    m_theme.setImagePath("widgets/chalkboard");
     // init random sequence
     m_random = new KRandomSequence( QDateTime::currentDateTime().toTime_t() );
 
@@ -28,8 +28,8 @@ KalziumDidyouknow::KalziumDidyouknow(QObject *parent, const QVariantList &args)
     setHasConfigurationInterface(false);
     setAcceptDrops(false);
     setAcceptsHoverEvents(true);
-    setDrawStandardBackground(false);
-    
+//     setDrawStandardBackground(false);
+
     resize(512,256);
 }
 
@@ -39,16 +39,16 @@ void KalziumDidyouknow::init()
 
     m_engine->connectSource( "Fact" , this, 1000);
 
-    m_theme.setContentType(Plasma::Svg::SingleImage);
+    m_theme.setContainsMultipleImages(false);
 
-    m_label1 = new Plasma::Label(this);
+    m_label1 = new QGraphicsTextItem(this);
     m_label1->setPos( m_theme.elementRect( "canvas" ).topLeft() );
-    m_label1->setPen( QPen( Qt::white ) );
+    m_label1->setDefaultTextColor( Qt::white );
 }
 
 void KalziumDidyouknow::constraintsUpdated(Plasma::Constraints constraints)
 {
-    setDrawStandardBackground(false);
+//     setDrawStandardBackground(false);
     prepareGeometryChange();
     if (constraints & Plasma::SizeConstraint) {
          m_theme.resize(size());
@@ -68,8 +68,8 @@ void KalziumDidyouknow::dataUpdated(const QString& source, const Plasma::DataEng
     Q_UNUSED(source);
 
     if (m_label1)  {
-	m_label1->setAlignment(Qt::AlignLeft);
-        m_label1->setText( data["fact"].toString() );
+//      m_label1->setAlignment(Qt::AlignLeft);
+        m_label1->setPlainText( data["fact"].toString() );
     }
 }
 

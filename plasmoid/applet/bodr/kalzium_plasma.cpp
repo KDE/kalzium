@@ -25,10 +25,10 @@
 
 KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
-    m_theme("widgets/testtube", this),
     m_dialog(0),
     m_font(QFont())
 {
+    m_theme.setImagePath("widgets/testtube"),
     m_engine = dataEngine("kalzium");
 
     m_dialog = 0;
@@ -41,7 +41,7 @@ KalziumPlasma::KalziumPlasma(QObject *parent, const QVariantList &args)
     setHasConfigurationInterface(true);
     setAcceptDrops(false);
     setAcceptsHoverEvents(true);
-    setDrawStandardBackground(false);
+//     setDrawStandardBackground(false);
 
     resize(385,177);
 }
@@ -56,18 +56,17 @@ void KalziumPlasma::init()
     // connect to random source and update ever 5 seconds
     m_engine->connectSource( m_currentSource, this, 5000);
 
-    m_theme.setContentType(Plasma::Svg::SingleImage);
+    m_theme.setContainsMultipleImages(false);
 
-    m_label1 = new Plasma::Label(this);
+    m_label1 = new QGraphicsTextItem(this);
     m_label1->setPos( m_theme.elementRect( "name" ).topLeft() );
     m_label1->setFont(cg.readEntry("font",m_font));
-    m_label1->setPen( QPen( Qt::white ) );
-
+    m_label1->setDefaultTextColor(Qt::white);
 }
 
 void KalziumPlasma::constraintsUpdated(Plasma::Constraints constraints)
 {
-    setDrawStandardBackground(false);
+//     setDrawStandardBackground(false);
     prepareGeometryChange();
     if (constraints & Plasma::SizeConstraint) {
         //m_theme.resize(contentSize().toSize());
@@ -101,8 +100,8 @@ void KalziumPlasma::dataUpdated(const QString& source, const Plasma::DataEngine:
     text.append(QString(i18n( "\nMeltingpoint: %1", mp)));
     text.append(QString(i18n( "\nMass: %1", mass)));
     if (m_label1)  {
-        m_label1->setAlignment(Qt::AlignLeft);
-        m_label1->setText(text);
+//         m_label1->setAlignment(Qt::AlignLeft);
+        m_label1->setPlainText(text);
     }
 }
 

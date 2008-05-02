@@ -49,7 +49,7 @@ class KalziumPlasma : public Plasma::Applet
 
     private:
         Plasma::Svg m_theme;
-        Plasma::Label *m_label1;
+        QGraphicsTextItem *m_label1;
         Plasma::LineEdit *m_lineedit;
         Plasma::DataEngine* m_engine;
 
