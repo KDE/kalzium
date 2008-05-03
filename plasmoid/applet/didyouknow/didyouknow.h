@@ -16,9 +16,7 @@
 #include <Plasma/Applet>
 #include <Plasma/Svg>
 
-#include <plasma/widgets/lineedit.h>
-#include <plasma/widgets/label.h>
-#include <plasma/layouts/boxlayout.h>
+#include <plasma/dataengine.h>
 
 #include <QGraphicsTextItem>
 
