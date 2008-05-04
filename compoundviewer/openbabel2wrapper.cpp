@@ -1,6 +1,6 @@
 /***************************************************************************
-    copyright            : (C) 2006 by Carsten Niehaus
-    email                : cniehaus@kde.org
+ *  Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
+ *  Copyright (C) 2007-2008 by Marcus D. Hanwell <marcus@cryos.org>
  ***************************************************************************/
 
 /***************************************************************************
@@ -48,6 +48,12 @@ Avogadro::Molecule* OpenBabel2Wrapper::readMolecule( const QString& filename )
 
 	//find out which format the file has...
 	inFormat = Conv.FormatFromExt( QFile::encodeName(filename) );
+  if (!inFormat || !Conv.SetInFormat(inFormat))
+  {
+    KMessageBox::error( 0, i18n("Cannot read the file format. Check your OpenBabel installation."), i18n("Problem reading file format"));
+    delete mol;
+    return 0;
+  }
 	Conv.SetInAndOutFormats( inFormat,inFormat );
 	Conv.Read( mol, &inFileStream );
 

@@ -1,6 +1,6 @@
 /***************************************************************************
-    copyright            : (C) 2006 by Carsten Niehaus
-    email                : cniehaus@kde.org
+ *  Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
+ *  Copyright (C) 2007-2008 by Marcus D. Hanwell <marcus@cryos.org>
  ***************************************************************************/
 
 /***************************************************************************
@@ -179,6 +179,10 @@ void MoleculeDialog::slotLoadMolecule()
 	kDebug() << "Filename to load: " << filename;
 
 	Avogadro::Molecule* molecule = OpenBabel2Wrapper::readMolecule( filename );
+
+  // Check that a valid molecule object was returned
+  if (!molecule)
+    return;
 
 	if (molecule->NumAtoms() != 0)
 	{
