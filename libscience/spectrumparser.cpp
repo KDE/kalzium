@@ -16,9 +16,9 @@ email                : cniehaus@kde.org
 #include <qdom.h>
 #include <QList>
 #include <QFile>
-#include <QDebug> 
+#include <QDebug>
 
-class SpectrumParser ::Private
+class SpectrumParser::Private
 {
     public:
         Private()
@@ -56,15 +56,20 @@ SpectrumParser::SpectrumParser()
 {
 }
 
+SpectrumParser::~SpectrumParser()
+{
+    delete d;
+}
+
 bool SpectrumParser::startElement(const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs)
 {
-	if (localName == "spectrum") 
+	if (localName == "spectrum")
 	{
 		d->currentSpectrum = new Spectrum();
 		d->inSpectrum_ = true;
-		
+
 		//now save the element of the current spectrum
-		for (int i = 0; i < attrs.length(); ++i) 
+		for (int i = 0; i < attrs.length(); ++i)
 		{
                     if ( attrs.localName( i ) == "id" ) {
                         currentElementID = attrs.value( i );
@@ -75,7 +80,7 @@ bool SpectrumParser::startElement(const QString&, const QString &localName, cons
 	}
 	else if (d->inSpectrum_ && d->inPeakList_ && localName == "peak") {
 		d->inPeak_ = true;
-		for (int i = 0; i < attrs.length(); ++i) 
+		for (int i = 0; i < attrs.length(); ++i)
 		{
 			if (attrs.localName(i) == "xValue"){
                                 d->intensity = attrs.value(i).toInt();

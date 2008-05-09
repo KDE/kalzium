@@ -34,17 +34,18 @@ class SCIENCE_EXPORT SpectrumParser : public QXmlDefaultHandler
 		 * Constructor
 		 */
 		SpectrumParser();
+                ~SpectrumParser();
 		bool startElement( const QString&, const QString &localName, const QString&, const QXmlAttributes &attrs );
 
 		bool endElement( const QString& namespaceURI, const QString &localName, const QString& qName );
-		
+
 		bool characters(const QString &ch);
 
 		QList<Spectrum*> getSpectrums();
 
 	private:
                 QString currentElementID;
-	
+
         private:
 		class Private;
 		Private *const d;
