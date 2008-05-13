@@ -66,6 +66,11 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	
 	m_path = QString( "" );
 
+  // Attempt to set up the UFF forcefield
+  m_forceField = OBForceField::FindForceField("UFF");
+  if (!m_forceField)
+    ui.optimizeButton->setEnabled(false);
+
   // Need the undo stack even though we aren't using it just yet - atom deletion
   // doesn't work without it...
   QUndoStack* tmp = new QUndoStack(this);
@@ -78,6 +83,7 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
   connect(ui.tabWidget, SIGNAL(currentChanged(int)),
       this, SLOT(setViewEdit(int)));
 
+  // Visualisation parameters
 	connect( ui.qualityCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setQuality( int ) ) );
 	connect( ui.styleCombo, SIGNAL(activated( int )), 
@@ -87,8 +93,12 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	connect( this, SIGNAL( helpClicked() ), 
 			this, SLOT( slotHelp() ) );
 
+  // Editing parameters
   connect(ui.elementCombo, SIGNAL(activated(int)),
       this, SLOT(slotElementChanged(int)));
+  connect(ui.optimizeButton, SIGNAL(clicked()),
+      this, SLOT(slotGeometryOptimize()));
+      
   connect(ui.glWidget->molecule(), SIGNAL(updated()),
       this, SLOT(slotUpdateStatistics()));
 
@@ -283,8 +293,33 @@ void MoleculeDialog::slotElementChanged(int element)
 {
   QSettings settings;
   settings.setValue("currentElement", m_elementsIndex[element]);
-  kDebug() << "elementChanged" << element << m_elementsIndex[element];
   ui.glWidget->toolGroup()->activeTool()->readSettings(settings);
+}
+
+void MoleculeDialog::slotGeometryOptimize()
+{
+  // Perform a geometry optimisation
+  if (!m_forceField)
+    return;
+
+  Avogadro::Molecule* molecule = ui.glWidget->molecule();
+
+  // Warn the user if the force field cannot be set up for the molecule
+  if (!m_forceField->Setup(*molecule))
+  {
+    KMessageBox::error(this, i18n("Kalzium"),
+      i18n("Could not set up force field for this molecule"));
+    return;
+  }
+
+  // Reasonable default values for most users
+  m_forceField->SteepestDescentInitialize(500, 1.0e-5);
+  // Provide some feedback as the optimisation runs
+  while (m_forceField->SteepestDescentTakeNSteps(5))
+  {
+    m_forceField->UpdateCoordinates(*molecule);
+    molecule->update();
+  }
 }
 
 #include "moleculeview.moc"

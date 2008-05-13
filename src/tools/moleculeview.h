@@ -21,6 +21,12 @@
 #include <openbabel/mol.h>
 #include <openbabel/obiter.h>
 
+/// This is needed to ensure that the forcefields are set up right with GCC vis
+#ifdef __KDE_HAVE_GCC_VISIBILITY
+  #define HAVE_GCC_VISIBILITY
+#endif
+#include <openbabel/forcefield.h>
+
 /**
  * @author Carsten Niehaus
  */
@@ -35,6 +41,7 @@ class MoleculeDialog : public KDialog
 	private:
 		QString  m_path;///to store the path were the molecules are located
     QList<int> m_elementsIndex; // Index storing the element combo index
+    OpenBabel::OBForceField* m_forceField;
 		KDialog *m_helpWindow;
 
 		Ui::moleculeViewerForm ui;	
@@ -71,6 +78,11 @@ class MoleculeDialog : public KDialog
      * Update the statistical information about the current molecule
      */
     void slotUpdateStatistics();
+
+    /**
+     * Geometry optimisation
+     */
+     void slotGeometryOptimize();
 
 };
 
