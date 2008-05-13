@@ -70,7 +70,7 @@ QString OpenBabel2Wrapper::getFormula( Avogadro::Molecule* molecule )
 		
 QString OpenBabel2Wrapper::getPrettyFormula( Avogadro::Molecule* molecule )
 {
-	QString formula( molecule->GetFormula().c_str() );
+	QString formula( molecule->GetSpacedFormula(1,"").c_str() );
 	formula.replace( QRegExp( "(\\d+)" ), "<sub>\\1</sub>" );
 	return formula;
 }

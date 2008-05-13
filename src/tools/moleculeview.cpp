@@ -13,9 +13,11 @@
  ***************************************************************************/
 #include "moleculeview.h"
 #include "../../libavogadro-kalzium/src/toolgroup.h"
+#include "../../libavogadro-kalzium/src/elementtranslate.h"
 
-#include <QMessageBox>
 #include <QGLFormat>
+#include <QUndoStack>
+#include <QSettings>
 #include <kdebug.h>
 #include <kfiledialog.h>
 #include <kstandarddirs.h>
@@ -27,6 +29,11 @@
 #include <openbabel2wrapper.h>
 
 using namespace OpenBabel;
+using namespace Avogadro;
+
+// Handles localization/translation of element names
+// e.g., nitrogen in English is azote in French
+extern Avogadro::ElementTranslator Avogadro::elementTranslator;
 
 MoleculeDialog::MoleculeDialog( QWidget * parent )
 	: KDialog( parent )
@@ -58,8 +65,18 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	ui.glWidget->setStyle(0);
 	
 	m_path = QString( "" );
+
+  // Need the undo stack even though we aren't using it just yet - atom deletion
+  // doesn't work without it...
+  QUndoStack* tmp = new QUndoStack(this);
+  ui.glWidget->setUndoStack(tmp);
+
+  elementCombo();
 	
 	m_helpWindow = NULL;
+
+  connect(ui.tabWidget, SIGNAL(currentChanged(int)),
+      this, SLOT(setViewEdit(int)));
 
 	connect( ui.qualityCombo, SIGNAL(activated( int )), 
 			ui.glWidget , SLOT( setQuality( int ) ) );
@@ -70,25 +87,29 @@ MoleculeDialog::MoleculeDialog( QWidget * parent )
 	connect( this, SIGNAL( helpClicked() ), 
 			this, SLOT( slotHelp() ) );
 
+  connect(ui.elementCombo, SIGNAL(activated(int)),
+      this, SLOT(slotElementChanged(int)));
+  connect(ui.glWidget->molecule(), SIGNAL(updated()),
+      this, SLOT(slotUpdateStatistics()));
+
 	connect( this, SIGNAL( user1Clicked() ), 
 			this, SLOT( slotLoadMolecule() ) );
-
 	connect( this, SIGNAL( user2Clicked() ), 
 			this, SLOT( slotDownloadNewStuff() ) );
 
 	// Check that we have managed to load up some tools and engines
-	int nEngines = ui.glWidget->engines().size() - 1;
-        int nTools = ui.glWidget->toolGroup()->tools().size();
-	QString error;
-        if(!nEngines && !nTools)
-          error = i18n("No tools or engines loaded - it is likely that the Avogadro plugins could not be located.");
-        else if(!nEngines)
-          error = i18n("No engines loaded - it is likely that the Avogadro plugins could not be located.");
-        else if(!nTools)
-          error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located.");
-        /// FIXME: QMessageBox used for now - KMessageBox was causing freezes
-        if(!nEngines || !nTools)
-          QMessageBox::warning(this, i18n("Kalzium"), error);
+  int nEngines = ui.glWidget->engines().size() - 1;
+  int nTools = ui.glWidget->toolGroup()->tools().size();
+  QString error;
+  if(!nEngines && !nTools)
+    error = i18n("No tools or engines loaded - it is likely that the Avogadro plugins could not be located.");
+  else if(!nEngines)
+    error = i18n("No engines loaded - it is likely that the Avogadro plugins could not be located.");
+  else if(!nTools)
+    error = i18n("No tools loaded - it is likely that the Avogadro plugins could not be located.");
+  /// FIXME: QMessageBox used for now - KMessageBox was causing freezes
+  if(!nEngines || !nTools)
+    KMessageBox::error(this, i18n("Kalzium"), error);
 }
 
 void MoleculeDialog::slotHelp()
@@ -186,18 +207,27 @@ void MoleculeDialog::slotLoadMolecule()
 
 	if (molecule->NumAtoms() != 0)
 	{
+    disconnect(ui.glWidget->molecule(), 0, this, 0);
 		molecule->Center();
 		ui.glWidget->setMolecule( molecule );
 		ui.glWidget->update();
-		updateStatistics();
+		slotUpdateStatistics();
+    connect(molecule, SIGNAL(updated()), this, SLOT(slotUpdateStatistics()));
 	}
+}
+
+void MoleculeDialog::setViewEdit(int mode)
+{
+    kDebug() << "Display mode: " << mode;
+    if (mode == 0) ui.glWidget->setNavigate();
+    else if (mode == 1) ui.glWidget->setEdit();
 }
 
 MoleculeDialog::~MoleculeDialog( )
 {
 }
 
-void MoleculeDialog::updateStatistics()
+void MoleculeDialog::slotUpdateStatistics()
 {
 	Avogadro::Molecule* mol = ui.glWidget->molecule();
 	if ( !mol ) return;
@@ -205,7 +235,7 @@ void MoleculeDialog::updateStatistics()
 	ui.nameLabel->setText( mol->GetTitle() );
 	ui.weightLabel->setText( i18nc( "This 'u' stands for the chemical unit (u for 'units'). Most likely this does not need to be translated at all!", "%1 u", mol->GetMolWt() ) );
 	ui.formulaLabel->setText( OpenBabel2Wrapper::getPrettyFormula( mol ) );
-	ui.glWidget->update();
+//	ui.glWidget->update();
 }
 
 void MoleculeDialog::slotDownloadNewStuff()
@@ -220,6 +250,41 @@ void MoleculeDialog::slotDownloadNewStuff()
         }
     }
     qDeleteAll(entries);
+}
+
+void MoleculeDialog::elementCombo()
+{
+  ui.elementCombo->addItem(elementTranslator.name(1) + " (1)");
+  m_elementsIndex.append(1);
+  ui.elementCombo->addItem(elementTranslator.name(5) + " (5)");
+  m_elementsIndex.append(5);
+  ui.elementCombo->addItem(elementTranslator.name(6) + " (6)");
+  m_elementsIndex.append(6);
+  ui.elementCombo->addItem(elementTranslator.name(7) + " (7)");
+  m_elementsIndex.append(7);
+  ui.elementCombo->addItem(elementTranslator.name(8) + " (8)");
+  m_elementsIndex.append(8);
+  ui.elementCombo->addItem(elementTranslator.name(9) + " (9)");
+  m_elementsIndex.append(9);
+  ui.elementCombo->addItem(elementTranslator.name(15) + " (15)");
+  m_elementsIndex.append(15);
+  ui.elementCombo->addItem(elementTranslator.name(16) + " (16)");
+  m_elementsIndex.append(16);
+  ui.elementCombo->addItem(elementTranslator.name(17) + " (17)");
+  m_elementsIndex.append(17);
+  ui.elementCombo->addItem(elementTranslator.name(35) + " (35)");
+  m_elementsIndex.append(35);
+  ui.elementCombo->addItem(tr("Other..."));
+  m_elementsIndex.append(0);
+  ui.elementCombo->setCurrentIndex(2);
+}
+
+void MoleculeDialog::slotElementChanged(int element)
+{
+  QSettings settings;
+  settings.setValue("currentElement", m_elementsIndex[element]);
+  kDebug() << "elementChanged" << element << m_elementsIndex[element];
+  ui.glWidget->toolGroup()->activeTool()->readSettings(settings);
 }
 
 #include "moleculeview.moc"

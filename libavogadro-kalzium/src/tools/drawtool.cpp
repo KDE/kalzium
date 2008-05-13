@@ -61,7 +61,9 @@ namespace Avogadro {
                                         m_prevBond(0),
                                         m_prevBondOrder(0),
                                         m_addHydrogens(2),
+                                        m_comboElements(0),
                                         m_addHydrogensCheck(0),
+                                        m_text3DGen(0),
                                         m_periodicTable(0),
                                         m_settingsWidget(0)
   {
@@ -703,6 +705,7 @@ namespace Avogadro {
   void DrawTool::writeSettings(QSettings &settings) const
   {
     Tool::writeSettings(settings);
+    settings.setValue("currentElement", element());
     settings.setValue("addHydrogens", m_addHydrogens);
     settings.setValue("smiles", m_text3DGen->text());
   }
@@ -711,6 +714,14 @@ namespace Avogadro {
   {
     Tool::readSettings(settings);
     setAddHydrogens(settings.value("addHydrogens", 2).toInt());
+    setElement(settings.value("currentElement", 6).toInt());
+    if (m_comboElements)
+    {
+      int index = 0;
+      for (int i = 0; i < m_elementsIndex.size() - 1; ++i)
+        if (m_elementsIndex.at(i) == element()) index = i;
+      m_comboElements->setCurrentIndex(index);
+    }
     if(m_addHydrogensCheck) {
       m_addHydrogensCheck->setCheckState((Qt::CheckState)m_addHydrogens);
     }

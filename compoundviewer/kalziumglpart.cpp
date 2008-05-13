@@ -46,6 +46,9 @@ KalziumGLWidget::KalziumGLWidget(QWidget *parent) : Avogadro::GLWidget(parent)
 
     // Set the default quality level to high
     setQuality(2);
+
+    setMolecule(new Avogadro::Molecule(this));
+    update();
 }
 
 KalziumGLWidget::~KalziumGLWidget()
@@ -73,42 +76,42 @@ void KalziumGLWidget::setStyle( int style )
 
 void KalziumGLWidget::setLabels(int style)
 {
-    // Use the QSettings framework to configure the label engine
-    foreach(Avogadro::Engine *engine, engines())
+  // Use the QSettings framework to configure the label engine
+  foreach(Avogadro::Engine *engine, engines())
+  {
+    if(engine->name() == "Label")
     {
-      if(engine->name() == "Label")
+      QSettings settings;
+      int atomType = 0;
+      int bondType = 2;
+      bool enabled = false;
+      // We need to use 
+      switch(style)
       {
-        QSettings settings;
-        int atomType = 0;
-        int bondType = 2;
-        bool enabled = false;
-	// We need to use 
-	switch(style)
-	{
-	  case 0: // Display no labels
-	    enabled = false;
-	    break;
-	  case 1: // Display the atom index
-	    enabled = true;
-            atomType = 0;
-            break;
-          case 2: // Display the atom symbol
-            enabled = true;
-            atomType = 1;
-            break;
-          case 3: // Display the atom name
-            enabled = true;
-            atomType = 2;
-            break;
-          default:
-            engine->setEnabled(false);
-        }
-	settings.setValue("atomLabel", atomType);
-        settings.setValue("bondLabel", bondType);
-        settings.setValue("enabled", enabled);
-        engine->readSettings(settings);
+        case 0: // Display no labels
+          enabled = false;
+          break;
+        case 1: // Display the atom index
+          enabled = true;
+          atomType = 0;
+          break;
+        case 2: // Display the atom symbol
+          enabled = true;
+          atomType = 1;
+          break;
+        case 3: // Display the atom name
+          enabled = true;
+          atomType = 2;
+          break;
+        default:
+          engine->setEnabled(false);
       }
+      settings.setValue("atomLabel", atomType);
+      settings.setValue("bondLabel", bondType);
+      settings.setValue("enabled", enabled);
+      engine->readSettings(settings);
     }
+  }
 }
 
 void KalziumGLWidget::setQuality(int quality)
@@ -120,6 +123,37 @@ void KalziumGLWidget::setQuality(int quality)
     GLWidget::setQuality(q);
     invalidateDLs();
     GLWidget::update();
+}
+
+void KalziumGLWidget::setNavigate()
+{
+    const QList<Avogadro::Tool *> toolList = toolGroup()->tools();
+    foreach(Avogadro::Tool *tool, toolList)
+        if (tool->name() == "Navigate")
+        {
+            toolGroup()->setActiveTool(tool);
+            kDebug() << "Navigate tool selected";
+            return;
+        }
+}
+
+void KalziumGLWidget::setEdit()
+{
+    const QList<Avogadro::Tool *> toolList = toolGroup()->tools();
+    foreach(Avogadro::Tool *tool, toolList)
+    {
+        if (tool->name() == "Draw")
+        {
+            toolGroup()->setActiveTool(tool);
+            kDebug() << "Draw tool selected.";
+            return;
+        }
+    }
+    if (!molecule())
+    {
+      setMolecule(new Avogadro::Molecule(this));
+      update();
+    }
 }
 
 typedef KParts::GenericFactory<KalziumGLPart> KalziumGLPartFactory;

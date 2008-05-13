@@ -34,14 +34,15 @@ class MoleculeDialog : public KDialog
 
 	private:
 		QString  m_path;///to store the path were the molecules are located
+    QList<int> m_elementsIndex; // Index storing the element combo index
 		KDialog *m_helpWindow;
 
 		Ui::moleculeViewerForm ui;	
-	
-		/**
-		 * Update the statistical information about the current molecule
-		 */
-		void updateStatistics();
+
+    /**
+     * Set up the element combo box
+     */
+     void elementCombo();
 	
 	private slots:
 		/**
@@ -54,7 +55,23 @@ class MoleculeDialog : public KDialog
 		 */
 		void slotDownloadNewStuff();
 
+    /**
+     * Set view/edit mode
+     */
+    void setViewEdit(int mode);
+
 		void slotHelp();
+
+    /**
+     * Current element has changed
+     */
+    void slotElementChanged(int element);
+
+    /**
+     * Update the statistical information about the current molecule
+     */
+    void slotUpdateStatistics();
+
 };
 
 #endif // MOLECULEVIEW_H

@@ -187,6 +187,7 @@ namespace Avogadro {
                         camera( new Camera ),
                         tool( 0 ),
                         toolGroup( 0 ),
+                        undoStack(0),
                         selectBuf( 0 ),
                         selectBufSize( -1 ),
 #ifdef ENABLE_THREADED_GL

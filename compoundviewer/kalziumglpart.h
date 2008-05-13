@@ -28,12 +28,14 @@ class KalziumGLWidget : public Avogadro::GLWidget
         virtual ~KalziumGLWidget();
         
     public slots:
-        void setStyle(int style);
-	void setLabels(int style);
-        void setQuality(int quality);
+      void setStyle(int style);
+      void setLabels(int style);
+      void setQuality(int quality);
+      void setNavigate();
+      void setEdit();
         
     protected:
-        QString lc_numeric;
+      QString lc_numeric;
 };
 
 class KalziumGLPart : public KParts::ReadOnlyPart

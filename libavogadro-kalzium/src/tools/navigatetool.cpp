@@ -24,8 +24,8 @@
  **********************************************************************/
 
 #include "navigatetool.h"
-#include "navigate.h"
 #include "eyecandy.h"
+#include <avogadro/navigate.h>
 #include <avogadro/primitive.h>
 #include <avogadro/color.h>
 #include <avogadro/glwidget.h>
@@ -66,7 +66,8 @@ namespace Avogadro {
 
   void NavigateTool::computeReferencePoint(GLWidget *widget)
   {
-    if(!widget->molecule())
+    // Remember to account for the situation where no molecule is loaded or it is empty
+    if(!widget->molecule() || !widget->molecule()->NumAtoms())
       m_referencePoint = Vector3d(0., 0., 0.);
     else if(m_clickedAtom) {
       m_referencePoint = m_clickedAtom->pos();
@@ -105,10 +106,10 @@ namespace Avogadro {
       widget->setCursor(Qt::ClosedHandCursor);
     }
 
-    // On a Mac, click and hold the Option key (Alt in Qt-speak)
+    // On a Mac, click and hold the Shift key
     if (event->buttons() & Qt::MidButton ||
         (event->buttons() & Qt::LeftButton &&
-         event->modifiers() == Qt::AltModifier))
+         event->modifiers() == Qt::ShiftModifier))
     {
       m_midButtonPressed = true;
       // Set the cursor - this needs to be reset to Qt::ArrowCursor after
@@ -174,9 +175,9 @@ namespace Avogadro {
       Navigate::rotate(widget, m_referencePoint, deltaDragging.x(), deltaDragging.y());
     }
     // On the Mac, either use a three-button mouse
-    // or hold down the Option key (AltModifier in Qt notation)
+    // or hold down the Shift key
     else if ( (event->buttons() & Qt::MidButton) ||
-        (event->buttons() & Qt::LeftButton && event->modifiers() & Qt::AltModifier) )
+        (event->buttons() & Qt::LeftButton && event->modifiers() & Qt::ShiftModifier) )
     {
       // Perform the rotation
       Navigate::tilt(widget, m_referencePoint, deltaDragging.x());
