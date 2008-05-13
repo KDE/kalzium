@@ -1,6 +1,6 @@
 /***************************************************************************
-    copyright            : (C) 2006 by Carsten Niehaus
-    email                : cniehaus@kde.org
+ *  Copyright (C) 2006 by Carsten Niehaus <cniehaus@kde.org>
+ *  Copyright (C) 2007-2008 by Marcus D. Hanwell <marcus@cryos.org>
  ***************************************************************************/
 
 /***************************************************************************
