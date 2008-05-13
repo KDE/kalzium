@@ -14,6 +14,7 @@
 #include "moleculeview.h"
 #include "../../libavogadro-kalzium/src/toolgroup.h"
 #include "../../libavogadro-kalzium/src/elementtranslate.h"
+#include "../../libavogadro-kalzium/src/periodictableview.h"
 
 #include <QGLFormat>
 #include <QUndoStack>
@@ -36,7 +37,7 @@ using namespace Avogadro;
 extern Avogadro::ElementTranslator Avogadro::elementTranslator;
 
 MoleculeDialog::MoleculeDialog( QWidget * parent )
-	: KDialog( parent )
+	: KDialog( parent ), m_periodicTable(0)
 {
 	// use multi-sample (anti-aliased) OpenGL if available
 	QGLFormat defFormat = QGLFormat::defaultFormat();
@@ -291,9 +292,60 @@ void MoleculeDialog::elementCombo()
 
 void MoleculeDialog::slotElementChanged(int element)
 {
+  // Check if other was chosen
+  if (m_elementsIndex[element] == 0)
+  {
+    if (!m_periodicTable)
+    {
+      m_periodicTable = new PeriodicTableView(this);
+      connect(m_periodicTable, SIGNAL(elementChanged(int)),
+              this, SLOT(slotCustomElementChanged(int)));
+    }
+    m_periodicTable->show();
+    return;
+  }
+
   QSettings settings;
   settings.setValue("currentElement", m_elementsIndex[element]);
   ui.glWidget->toolGroup()->activeTool()->readSettings(settings);
+}
+
+void MoleculeDialog::slotCustomElementChanged(int element)
+{
+  // Set the element so we can draw with it
+  QSettings settings;
+  settings.setValue("currentElement", element);
+  ui.glWidget->toolGroup()->activeTool()->readSettings(settings);
+
+  // Check to see if we already have this in the comboBox list
+  // If not, we get back -1 and need to create a new item
+  int comboItem = m_elementsIndex.indexOf(element);
+  if (comboItem != -1)
+  {
+    ui.elementCombo->setCurrentIndex(comboItem);
+    return; // we found it in the list, so we're done
+  }
+
+  // Find where we should put the new entry
+  // (i.e., in order by atomic number)
+  int position = 0;
+  foreach(int entry, m_elementsIndex)
+  {
+    // Two cases: entry > index -- insert the new element before this one
+    // Or... we hit the "Other" menu choice -- also insert here
+    if (entry > element || entry == 0)
+      break;
+
+    ++position;
+  }
+
+  // And now we set up a new entry into the combo list
+  QString entryName(elementTranslator.name(element)); // (e.g., "Hydrogen")
+  entryName += " (" + QString::number(element) + ')';
+
+  m_elementsIndex.insert(position, element);
+  ui.elementCombo->insertItem(position, entryName);
+  ui.elementCombo->setCurrentIndex(position);
 }
 
 void MoleculeDialog::slotGeometryOptimize()

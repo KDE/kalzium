@@ -27,6 +27,10 @@
 #endif
 #include <openbabel/forcefield.h>
 
+namespace Avogadro{
+  class PeriodicTableView;
+}
+
 /**
  * @author Carsten Niehaus
  */
@@ -41,6 +45,7 @@ class MoleculeDialog : public KDialog
 	private:
 		QString  m_path;///to store the path were the molecules are located
     QList<int> m_elementsIndex; // Index storing the element combo index
+    Avogadro::PeriodicTableView *m_periodicTable;
     OpenBabel::OBForceField* m_forceField;
 		KDialog *m_helpWindow;
 
@@ -73,6 +78,11 @@ class MoleculeDialog : public KDialog
      * Current element has changed
      */
     void slotElementChanged(int element);
+
+    /**
+     * Custom element has been selected
+     */
+    void slotCustomElementChanged(int);
 
     /**
      * Update the statistical information about the current molecule
