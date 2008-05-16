@@ -420,6 +420,8 @@ namespace Avogadro {
           OBAtom *atom = widget->molecule()->GetAtom(m_hits[0].name());
           if (m_addHydrogens && atom->IsHydrogen() && atom->GetValence())
             return undo;
+          undo = new DeleteAtomDrawCommand(widget->molecule(), m_hits[0].name(),
+                                           m_addHydrogens);
         }
         if(m_hits[0].type() == Primitive::BondType) {
           // don't delete ?-H bonds when adjust hydrogens is on
@@ -427,9 +429,9 @@ namespace Avogadro {
           if (m_addHydrogens)
             if (bond->GetBeginAtom()->IsHydrogen() || bond->GetEndAtom()->IsHydrogen())
               return undo;
+          undo = new DeleteBondDrawCommand(widget->molecule(), m_hits[0].name(),
+                                           m_addHydrogens);
         }
-        undo = new DeleteBondDrawCommand(widget->molecule(), m_hits[0].name(),
-                                         m_addHydrogens);
       }
       widget->molecule()->update();
     }
