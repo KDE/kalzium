@@ -327,7 +327,7 @@ namespace Avogadro {
       if(m_beginAtomAdded || m_bond) {
         // we added At least the beginAtom or we created a bond to 
         // an existing atom or to endAtom that we also created
-	AddAtomDrawCommand *beginAtomDrawCommand = 0;
+        AddAtomDrawCommand *beginAtomDrawCommand = 0;
         if(m_beginAtomAdded) {
           beginAtomDrawCommand = new AddAtomDrawCommand(widget->molecule(), m_beginAtom, m_addHydrogens);
           beginAtomDrawCommand->setText(tr("Draw Atom"));
@@ -364,27 +364,29 @@ namespace Avogadro {
           undo = seq;
         }
         else if(bondCommand) {
-	  undo = bondCommand;
+          undo = bondCommand;
         }
         else {
           undo = beginAtomDrawCommand;
         }
-      } else if (m_prevBond) {
-	// bug #1898118
-	// both beginAtom, endAtom and bond exist, but the bond order has changed
-	if ((int)m_prevBond->GetBondOrder() != m_prevBondOrder) {
-	  undo = new ChangeBondOrderDrawCommand(widget->molecule(), m_prevBond,
+      }
+      else if (m_prevBond) {
+        // bug #1898118
+        // both beginAtom, endAtom and bond exist, but the bond order has changed
+        if ((int)m_prevBond->GetBondOrder() != m_prevBondOrder) {
+        undo = new ChangeBondOrderDrawCommand(widget->molecule(), m_prevBond,
                                               m_prevBondOrder, m_addHydrogens);
-          undo->setText(tr("Change Bond Order"));
-	}
-      } else if (m_beginAtom) {
+        undo->setText(tr("Change Bond Order"));
+      }
+      }
+      else if (m_beginAtom) {
         // beginAtom exists, but we have no bond, we change the element  
-	if ((int)m_beginAtom->GetAtomicNum() != m_prevAtomElement) {
+        if ((int)m_beginAtom->GetAtomicNum() != m_prevAtomElement) {
           undo = new ChangeElementDrawCommand(widget->molecule(),
                                               m_beginAtom,
                                               m_prevAtomElement,
                                               m_addHydrogens);
-	}
+        }
       }
 
       // clean up after drawing
@@ -396,7 +398,8 @@ namespace Avogadro {
       m_prevAtomElement=0;
       m_beginAtomAdded=false;
       m_endAtomAdded=false;
-    
+
+      widget->molecule()->update();
       return undo;
     }
 
@@ -405,34 +408,31 @@ namespace Avogadro {
     // or the Control key (MetaModifier in Qt notation)
     else if( (_buttons & Qt::RightButton) ||
              ((_buttons & Qt::LeftButton) && (event->modifiers() == Qt::ControlModifier || event->modifiers() == Qt::MetaModifier)) )
-      {
-        m_hits = widget->hits(event->pos().x()-SEL_BOX_HALF_SIZE,
-                              event->pos().y()-SEL_BOX_HALF_SIZE,
-                              SEL_BOX_SIZE,
-                              SEL_BOX_SIZE);
-        if(m_hits.size()) {
-          // We did a right-click on an atom or bond -- delete it!
-          if(m_hits[0].type() == Primitive::AtomType) {
-            // don't delete H-? atom when adjust hydrogens is on
-	    OBAtom *atom = widget->molecule()->GetAtom(m_hits[0].name());
-	    if (m_addHydrogens && atom->IsHydrogen() && atom->GetValence()) {
-	      return undo;
-	    }
-            undo = new DeleteAtomDrawCommand(widget->molecule(), m_hits[0].name(), m_addHydrogens);
-          }
-          if(m_hits[0].type() == Primitive::BondType) {
-            // don't delete ?-H bonds when adjust hydrogens is on
-	    OBBond *bond = widget->molecule()->GetBond(m_hits[0].name());
-	    if (m_addHydrogens) {
-	      if (bond->GetBeginAtom()->IsHydrogen() || bond->GetEndAtom()->IsHydrogen()) {
-	        return undo;
-	      }
-	    }
-	    undo = new DeleteBondDrawCommand(widget->molecule(), m_hits[0].name(), m_addHydrogens);
-          }
+    {
+      m_hits = widget->hits(event->pos().x()-SEL_BOX_HALF_SIZE,
+                            event->pos().y()-SEL_BOX_HALF_SIZE,
+                            SEL_BOX_SIZE,
+                            SEL_BOX_SIZE);
+      if(m_hits.size()) {
+        // We did a right-click on an atom or bond -- delete it!
+        if(m_hits[0].type() == Primitive::AtomType) {
+          // don't delete H-? atom when adjust hydrogens is on
+          OBAtom *atom = widget->molecule()->GetAtom(m_hits[0].name());
+          if (m_addHydrogens && atom->IsHydrogen() && atom->GetValence())
+            return undo;
         }
+        if(m_hits[0].type() == Primitive::BondType) {
+          // don't delete ?-H bonds when adjust hydrogens is on
+          OBBond *bond = widget->molecule()->GetBond(m_hits[0].name());
+          if (m_addHydrogens)
+            if (bond->GetBeginAtom()->IsHydrogen() || bond->GetEndAtom()->IsHydrogen())
+              return undo;
+        }
+        undo = new DeleteBondDrawCommand(widget->molecule(), m_hits[0].name(),
+                                         m_addHydrogens);
       }
-
+      widget->molecule()->update();
+    }
     return undo;
   }
 
